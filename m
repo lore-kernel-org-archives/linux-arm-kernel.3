@@ -4,95 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D25AEC88E64
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 07:33:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56829C88E67
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 07:34:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aZr2FikKI33KDHEnzqoeN/VTnNw+pox/jCxpOuAG6zQ=; b=x4UkXskEj5J3JW4KBLoNC4VpQe
-	veTJuZjCSezSHPytcmkrTrRW4M8+dhDta56TxP3vppdjUimRyTDRpGkHfMQOAyp26yMluLVKEsaiy
-	p5on30UIPpWrIwdM2br1vbppusWGgG2TcSZSTL3zZ+LqMEHzod6KNOnJFYxwkz2SeSUSWqSJEUlYb
-	iA4KNkLtqpPvGyd/XjPyDXOo3VmsMe1TmSDvdfwLI5VbjSyKwzSSPSdMSKAi12Ub1JpSTQmQMr/VN
-	+hS2jbckTScDTWV6JVu2r2cmVPDWj9DykDYVZJfk2KcIl65ewUC0pnH/Cz+54VXZuNjfFPqiJoZkm
-	FqFhT01A==;
+	bh=TtEvQNvPqAD5FRL3MTosyyKwzxDMv1cKB1WhFqpa4Ok=; b=xluq656w1gQ86ura7H+6sAHx38
+	D5CGzGQi0aMJbpPg3pryukp9WBm8HVQ5Ek/LSfpowGyQ9Wl+fXsU6WyOOYAhVYrwYtE5fao6m7NHR
+	zzIGlG/h7MB1hq8pMPDGu9Lagq1/6wIeTGW4WdHkN1QfhBfnVvxtFWysZsPKnX9KGij64qKkkgW4h
+	BUC9vPyDuQjriuLFHrZJ38MxyuqVM2RMwLgXfnS/E7msil4P3ovgYAX5s0BydWNSHr+B4j6txv93y
+	RHAbK3lHWRMKLok359qnjCDfekcTP4T/Dl1zOR91ttvdMlRCPE+C5i8bWoi+/IFsLYd+05PJCEciE
+	mqoF0MWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x61Bw-00000002aGe-1HxQ;
-	Mon, 14 Sep 2026 07:33:28 +0000
-Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
+	id 1x61D5-00000002aSL-3gUI;
+	Mon, 14 Sep 2026 07:34:39 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x61Bt-00000002aFh-0pZY
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 07:33:26 +0000
-Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-485933b2522so1420312f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 00:33:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1789371203; x=1789976003; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=aZr2FikKI33KDHEnzqoeN/VTnNw+pox/jCxpOuAG6zQ=;
-        b=e/bZpOdaiQLqSVBaG8IWyYyTWz5SjayhFwRfKIUJnivMDE5Ovtf3KEV127/sRdps5K
-         YmsIP/gbc1BnG4ugSdqq1MvxfCvKo4CwNRTFdyfkgAkITluOW6/lrh+d1wXJSOMW1+0+
-         OI5aYYtc+/f88pnEx7MA8LraQyXQAEls5Mh4g3s3iObW34g6mxATB3RSmyGnv2HFP0uP
-         7vBDNGAx65L92cYFGkNhTwtBabE3op+PLiItOa3Ua9SXWQHe09AJoly0DXONIS3/RxjS
-         f08z2xQU/EzW+PM1+rJo+IJ4yGPl38zg1zg7X5gmx8iHnYjQEz5X7ba5wGb401dP00yx
-         tJqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789371203; x=1789976003;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=aZr2FikKI33KDHEnzqoeN/VTnNw+pox/jCxpOuAG6zQ=;
-        b=WGAlwrFwZAXALsF7+fNglYmE6LyIET1NDeyx+DASR4GD17J1lD9UhiKaD/7kOzE1zS
-         6XPVInRZaeFFQRanOXYUre3PGSPJdbhN1wXZoljs0QssaSuKYQjCULLTKmJ1Dq8gJjL6
-         p0n1IFNpYpQ7CiwZ6QPubD3Iibk3/N/lTQ2Q9lf0zV+20IZf+jxjpO9jpqb4XJZEAgOj
-         i2ldb1pp5aEPV+pypBS1Jf7FMuogTLnAVsGJKLMYuce7dIX5411p0/8XKVRszQhPGnxV
-         cPx5cHsUMPLug61s5nFCMvKHwfF8Bwiw3u4vPiZpfdVFzn4cQBDUZ9rUOe+DpdKIVzDT
-         x6gQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwhRvikpZX/r9cv1ucw0s9aL2lU20rGUaiKhGBtnR/ZzPze+WTHMv5Xy5zgiU0R35KCHYcAffsD0cqMw5Q5JIru@lists.infradead.org
-X-Gm-Message-State: AFuF++lnbaWnG1wpg/JfPzxPRtiwteozurYZpFR7VY6dTShqYtyvSFrH
-	53E0044AVoJb7cr+BZKf660qcJcz9nZ68TWmNyb8/jhPohVhgkWk1xGlzc81MZ1CP5s=
-X-Gm-Gg: AYBFou18XNvFOLLw1UR5Z8r6jq0s2eBCwXdlchFzdcFbAGYYg15YYmwNXPyM4NHrr7n
-	8VVom8cRUqRYKOVRFaSDm2Y3LySvXH+nAJqERZq+/HYeU3MBs0FpxEmxEX4EKunwzN+HL+7R6bO
-	zMj9dhFbeJ/tNv/OpxkzRtNp4meEVecDKQjFg+7axtpNTUhrIo7hPdvewpHjVzveyj8J8r6aL35
-	OucPdqL5oLOUSbA9snFffsqfiLQvoL+VYvyFqBmUptDqafGFb2x7K6Gbbf95WUbVzIhEg2T8x1p
-	Xv5W3WjuqDKd/4QKBDngOmMvrqoi9ujBp68DaX4a34TOmSDfwJf0Mk0rW624eFQuKelro5/1qkW
-	wqsWB3AQrMWZV8AJ6KDOQcR8HRqNpKFh3iuqtPv0oBqHu1um+6cNjlWSrRz3RZ9VPPiQmN8q5KV
-	NdLi9BKqHBu/B0KtXbVw+VhT5L3QNyAqQ40yNkev2+bBZMQccX0gjKyqKwxuIFRqGJ8+8YqQy9q
-	kUQOd1/l8gCRaohT2+rCVG9FT8G9mwJgOd0rDLA6wgvLiPaqTN1dnZjsvzq36ISl34xiVOe
-X-Received: by 2002:a05:6000:470c:b0:486:f770:9e87 with SMTP id ffacd0b85a97d-48702aacef4mr2464666f8f.5.1789371202652;
-        Mon, 14 Sep 2026 00:33:22 -0700 (PDT)
-Received: from localhost (p200300f65f19a904d5c06a7863c841d4.dip0.t-ipconnect.de. [2003:f6:5f19:a904:d5c0:6a78:63c8:41d4])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-486eb2ed106sm24129793f8f.1.2026.09.14.00.33.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Sep 2026 00:33:21 -0700 (PDT)
-Date: Mon, 14 Sep 2026 09:33:20 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Valerio Setti <vsetti@baylibre.com>
-Cc: Jerome Brunet <jbrunet@baylibre.com>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	linux-sound@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/6] ASoC: meson: add audin main module and I2S formatter
-Message-ID: <aqeiUfIyeW2mapm_@monoceros>
-References: <20260912-audin-v1-0-7fbefe928711@baylibre.com>
- <20260912-audin-v1-2-7fbefe928711@baylibre.com>
+	id 1x61D2-00000002aPa-2atA;
+	Mon, 14 Sep 2026 07:34:37 +0000
+X-UUID: b9959e92b00e11f1acbe4559397dec65-20260914
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=TtEvQNvPqAD5FRL3MTosyyKwzxDMv1cKB1WhFqpa4Ok=;
+	b=TWfeM9t8CvQfuW0rQ2zrheg4XDqlqYwRBHGVEKklvc7+RNPMxiQ466NyJsgiSwcxohlyJA3mAQ3ez2gnCoErc+zSGduG7TrvMQbg6kL6vZgiFVrEm2AlJcXbnyxAKCIMnojXaAcXM99TCgvd14tLiIeJK+Kg/3WM5v3M+OEsA64=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:260a4c0e-6327-4e16-b680-dfe57bbf6fd4,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-5
+X-CID-META: VersionHash:7db8b62,CLOUDID:fac68c23-5cf3-42cf-b2e6-6e46fb0e268e,B
+	ulkID:nil,BulkQuantity:0,SF:81|82|102|836|865|888|898,TC:-5,Content:0|15|5
+	0|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,
+	OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: b9959e92b00e11f1acbe4559397dec65-20260914
+Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw02.mediatek.com
+	(envelope-from <irui.wang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 839459469; Mon, 14 Sep 2026 00:34:31 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Mon, 14 Sep 2026 15:34:28 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Mon, 14 Sep 2026 15:34:27 +0800
+From: Irui Wang <irui.wang@mediatek.com>
+To: Hans Verkuil <hverkuil-cisco@xs4all.nl>, Mauro Carvalho Chehab
+	<mchehab@kernel.org>, Rob Herring <robh+dt@kernel.org>, Matthias Brugger
+	<matthias.bgg@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	<wenst@chromium.org>, <angelogioacchino.delregno@collabora.com>,
+	<nicolas.dufresne@collabora.com>, Tiffany Lin <tiffany.lin@mediatek.com>,
+	kyrie wu <kyrie.wu@mediatek.com>
+CC: Yunfei Dong <yunfei.dong@mediatek.com>, Maoguang Meng
+	<maoguang.meng@mediatek.com>, Longfei Wang <longfei.wang@mediatek.com>, Irui
+ Wang <irui.wang@mediatek.com>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, "Rob Herring (Arm)" <robh@kernel.org>
+Subject: [PATCH v8 1/6] media: dt-bindings: mediatek,vcodec-encoder: Add MT8196
+Date: Mon, 14 Sep 2026 15:34:16 +0800
+Message-ID: <20260914073423.16131-2-irui.wang@mediatek.com>
+X-Mailer: git-send-email 2.46.0
+In-Reply-To: <20260914073423.16131-1-irui.wang@mediatek.com>
+References: <20260914073423.16131-1-irui.wang@mediatek.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="4kuywhcc5gf5klas"
-Content-Disposition: inline
-In-Reply-To: <20260912-audin-v1-2-7fbefe928711@baylibre.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_003325_255028_9771A42E 
-X-CRM114-Status: GOOD (  14.43  )
+X-CRM114-CacheID: sfid-20260914_003436_681187_E33D6751 
+X-CRM114-Status: GOOD (  12.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,59 +95,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add support for MT8196 video encoder which uses VCP (Video Co-Processor)
+for firmware management. Unlike previous platforms that use SCP/VPU, MT8196
+requires VCP to load and execute the video encoding firmware, with the
+encoder communicating through VCP to perform encoding operations.
 
---4kuywhcc5gf5klas
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Subject: Re: [PATCH 2/6] ASoC: meson: add audin main module and I2S formatter
-MIME-Version: 1.0
+Add the "mediatek,mt8196-vcodec-enc" compatible string and introduce
+the "mediatek,vcp" property to reference the VCP device, which is
+required for MT8196 encoder operation.
 
-Hello Valerio,
+Signed-off-by: Irui Wang <irui.wang@mediatek.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+---
+ .../media/mediatek,vcodec-encoder.yaml        | 22 +++++++++++++++++++
+ 1 file changed, 22 insertions(+)
 
-On Sat, Sep 12, 2026 at 12:14:32AM +0200, Valerio Setti wrote:
-> +#include <linux/clk.h>
-> +#include <linux/module.h>
-> +#include <linux/mod_devicetable.h>
-> +#include <linux/of_platform.h>
-> +#include <linux/platform_device.h>
+diff --git a/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml b/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
+index 4505e6687..dce007e6e 100644
+--- a/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
++++ b/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
+@@ -24,6 +24,7 @@ properties:
+               - mediatek,mt8188-vcodec-enc
+               - mediatek,mt8192-vcodec-enc
+               - mediatek,mt8195-vcodec-enc
++              - mediatek,mt8196-vcodec-enc
+       - items:
+           - const: mediatek,mt8186-vcodec-enc
+           - const: mediatek,mt8183-vcodec-enc
+@@ -58,6 +59,13 @@ properties:
+     description:
+       Describes point to scp.
+ 
++  mediatek,vcp:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      Reference to the VCP (Video Co-Processor) device that loads and executes
++      the video encoding firmware. The encoder communicates with the firmware
++      through VCP to perform encoding operations.
++
+   power-domains:
+     maxItems: 1
+ 
+@@ -76,6 +84,20 @@ required:
+   - iommus
+ 
+ allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - mediatek,mt8196-vcodec-enc
++
++    then:
++      required:
++        - mediatek,vcp
++    else:
++      properties:
++        mediatek,vcp: false
++
+   - if:
+       properties:
+         compatible:
+-- 
+2.55.0.windows.3
 
-Please rely on <linux/platform_device.h> to provide of_device_id and
-drop the include for <linux/mod_devicetable.h>. That latter header is
-supposed to go away soon and injects a lot of build dependencies into
-your driver.
-
-If you want to go full iwyn, please use <linux/device-id/of.h> instead.
-
-> +#include <linux/regmap.h>
-> +#include <linux/reset.h>
-> +#include <sound/soc.h>
-> [...]
-> +static const struct of_device_id meson_gx_audin_of_match[] = {
-> +	{ .compatible = "amlogic,meson-gxbb-audin" },
-> +	{ .compatible = "amlogic,meson-gxl-audin" },
-> +	{}
-> +};
-
-It seems to be subjective, but I think most nit-pickers in the kernel
-prefer { } over {} to match the spacing in the non-empty initializers.
-
-Best regards
-Uwe
-
---4kuywhcc5gf5klas
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmqnoz4ACgkQj4D7WH0S
-/k6wBgf/VDlnoO5+iXo8tNZhitG0NPObCWmA3qnUxY31Go2pWwo5D7mENYe58DQf
-LbOjfyHM3rG5ajmQJpNpoxoWanM8pHm1pbf7WjzZXg8WxLPnc6Y6QmjA5rC1Rsoe
-OaAlq3aB/SmDTaIo9WzaLTYU/UhsFNVrWjtqGWhRXgGod17Q1r4iEW6LZadLjsyw
-8xYNabxMGbQJVZK8cXM2tJCC9n1O51+z8w01tQyZ4ze4J3Xw7v8uRXbDezOIqIee
-/+z7LE3HPZKG04IMtzYplulwe4dmSdjkf81QWxDR5SFxRrlxNaSuxE12LKJ4DSS4
-GL20Mp6Pvdl/Kqd1PwrNPdwUx4BNlw==
-=LwSM
------END PGP SIGNATURE-----
-
---4kuywhcc5gf5klas--
 
