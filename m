@@ -4,97 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27216C88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 12:53:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F240FC88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 12:53:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=A3kON4+baHQ2AT9bdbK8IFIq5pzfZyIIzNPdnsQweAI=; b=lbpSrDE9B7xJe6BVfPse55gykX
-	Aqhg1QNr51IhDVC0OFsT4hdCfwEY7yjDXxnVt90EGEjzMn4qvJiMDj87KhtbgFIBnBGhbxL5SQE7R
-	eB9UVmUfZdyU55Xz4f2hz8qraWG6/kZOrxixdqDOQhnZazoPZnhG+OF6pXwNuEyQ6UTf8tKm5fyQ9
-	ZCSYMuaB1g7yYcdRUypiWk6XkcrGAXW+HwrN9pmvenRxTQ/dhCHYIR8iX0Tfgm4gtjViQknwM/H0f
-	6ouXYFsLDL3F9KgERw2ntcax1avuvurxpME96g2wWkSjA+4VsljWXZVCN/r6TqarcGGgP+O0P7mGZ
-	Wchu4YQQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UNtSulrcCSblkD0zfddb8JAGFbCKZWTczcGLRiEHaKU=; b=QWLQQ3CVN8jHvVsgRgjB8iBtVY
+	JwgOl9Pv2UoCJ/He/Fx4XuODG3x3rtOLdSjVP1g+ABSKFmR0/gmgZM3n6P5W//u+Fi8wePOG7Cam5
+	Q+vi84eBoKmWzr3EnG28Cq9VQkCchmv50ZUDTy02s6bqANfoSTA6xbxbpkPi7hScXuMcVnGx+mDY3
+	biTGVm54Skcx4fRdNOjN7c20gWYcXeMrD+HCP5vaP0Zv52cyt05pF4f3t0/I68XV9iwysPcc36DZR
+	gEVlBaMOp1zcG23/NcmBOCavNB0HNzNPPsatYTH8Za0IdplDSE2cQZAJkBQYo0tLTT0X/Igb4VyQ9
+	vjUWxCjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x66Bg-00000003fGl-1XSL;
-	Mon, 14 Sep 2026 12:53:32 +0000
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	id 1x66Bu-00000003fKT-2Mno;
+	Mon, 14 Sep 2026 12:53:46 +0000
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x66Be-00000003fFy-2e7h
+	id 1x66Bs-00000003fJi-3CJO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 12:53:31 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49ccf3ca626so7865335e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 05:53:29 -0700 (PDT)
+	Mon, 14 Sep 2026 12:53:45 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e7acdc816so2196685e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 05:53:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789390408; x=1789995208; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=A3kON4+baHQ2AT9bdbK8IFIq5pzfZyIIzNPdnsQweAI=;
-        b=pCMhY7+7on+QBo2l+fIBBjIvrhRhvib7h1SEZIzyoVnC8l24TPRH82aEqnWGdFz+pq
-         oFBdRqRza9dZVKBYvyavewdXdisg6ZU43/3LYIOIdyoOp4uOUM2DT8plMopvN2n3dEvr
-         QRaAhEsFIkxkIUqrNSC+K0vHxvttlltFocukiTYho0yMig6IbEcML7QXXA99lStKdNJv
-         rlJCrDNl/VDmhZvN6zW21gvaeYeCZvzBl0WQStt/ZgOEUOkf4c8M652cEkrtxNZ6JPkp
-         OJEPhKDTDqSG0V4OSBjJzjercXh9tEOkW0I0I6BnjijK0CT+SIVM+eHJ3c5L5PiF86/I
-         /tzA==
+        d=gmail.com; s=20251104; t=1789390422; x=1789995222; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=UNtSulrcCSblkD0zfddb8JAGFbCKZWTczcGLRiEHaKU=;
+        b=Llx6/L30dPh2dM7wnqeW4MICeVf5GSHrQ7Govy9KnwierXFN3TwgaDqVHY1g3BcxgY
+         B+0YXBeb3W76GBdz8m8+p1hle3tUkSN3XHC2s9usBouRF2WDo9iXvImgZmn6kzyWM8nF
+         wztZgewxex9j0xuj9jWqhmQ4eTMLcguCNnmyTDO2BgoqXovuCyE8zs2xbVa8HGRTNL2k
+         RuZFpdWcbGb/r/F3eXq4UFQRX84wRooZkTSdMoFLR2f9WOMLvCmEO1V+ilP81ROr+Uv8
+         Vww+gviWsD1C3L7IEbxBS/PZYXJtnHS+3HV5fxmvm8ARTwOtjRnRrvlH1Uxd0OzBcMjv
+         jXJA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789390408; x=1789995208;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=A3kON4+baHQ2AT9bdbK8IFIq5pzfZyIIzNPdnsQweAI=;
-        b=jipBNNpHTkM9qVijgMq14kd90rqxFGMcdSdsI782EFShP6BPE0UCMsJgG47JZY6k8c
-         cZqOhrdxSkIHwijclHBRmb4nJpi25mFlPfJH6+eza1iKtJP1Xv41L0uQB1Vhy4+de2qk
-         q4vC4OJORnPC5H7PDPbs70hCChvv7cj8bfxpNtXL8Qa3R3/OLVIIiIg0FyHCdgEzOlQS
-         9ZOos2uGMQEW/vu3I0dLmlG7pLnMSkFI95w4HE2OCRFkkC7pTPTm975syHv4c6qITplD
-         gjivDmsukRuPvORncYuswe0G/VuJz6wBw0opRnE5yQ767pAZGXjMf8xIX+rEZWVi5X5Q
-         Ct1w==
-X-Forwarded-Encrypted: i=1; AKwUvBxfn07wR97HEZODp57KSzzaX6rU6nTe4PJCBr6VLUF4OvRPaLDsEKrYQGrVS8dAbeH0ct6NS/YEp8GFlw8rzPDL@lists.infradead.org
-X-Gm-Message-State: AFuF++m1ug1C/3+hlugzPMDM21TgnS7JX2Uda3hPkxaMs5aKBrJiasAp
-	Yy8K1/TSatqtb4BejNRjZqpKtnmgOrrK8WIv/cq1g7LJxjfPu8ajUBZA
-X-Gm-Gg: AYBFou3dQNpwGm7hghiBMvGn8wZRy4IQQ/0bcE98lUt8IRo91Ajf+4fBEKNJRVahtTu
-	hteVOe0NmxhutJdpMjH+Nkq2uj/OBo97mXnSfk9qz8OgDmbWXYCrt3VMsO/4qicRhGUQSSV7gDo
-	6oKWNEtFL+kBMCr2IgNJ1KoUGMtz05kAslJ7fdDY9585faQTfoUJwny+/oE12bBKI6AfVpn1u72
-	wF5j9n8XHpk568EzwLXOX+v83GyP0PsACiQdWgK45wLuJrymTksklWQsfvaRh1bMVOEZXmVzBk7
-	whxgq87I5vohnKe/NFrMOdnvpqS0At81mqLdnBPlWbBi33ElgFlOzbKZsglHY3a/Gw78f0sHAGy
-	sTf7IbZWGu9SRW687Cq7LuwCTbAHqa8xUxvaHOjJqKqgVTWsadTcdv+vb3JN29ri21NsnQ5pzUh
-	P2n7S8B0GKlrmxfKpCMJfWsTE8Gm84TE1cA4nOxb9Ex0CmY01HZ2VBw2Nvycs9lfgmeXwA3JBn5
-	FX/2z3ahkUu96Kf61La+uGwF3UcX6i5Kk05fPwafxDiRkAAGqiTa9lhe3URiQHVd7TJZQbK4TUr
-	4FO96tv00TBwGsCZ
-X-Received: by 2002:a05:600c:4693:b0:49c:fa20:cbfc with SMTP id 5b1f17b1804b1-49e7a66b714mr30526925e9.19.1789390408188;
-        Mon, 14 Sep 2026 05:53:28 -0700 (PDT)
-Received: from GLaDOS.station ([187.14.102.91])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e60acff8bsm320954365e9.9.2026.09.14.05.53.18
+        d=1e100.net; s=20251104; t=1789390422; x=1789995222;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=UNtSulrcCSblkD0zfddb8JAGFbCKZWTczcGLRiEHaKU=;
+        b=N6zFkGSIbkZFUXdWWZsFmP/5hDALduMkmiuAhjkztLauZDplqIOf3sTJQ7PyCx2Cqz
+         Ja4Jkkze49TvPPtkBeJPnsdcMw1KcTuoW2YGFQrt5wS3EJUGSMqYQZarqrizfYqIw+jh
+         MVinMNCZpI0qYNGg2C3kJMoWz5M+iwWcdM3PjESf7RfK+XmjQ0ymRz5hMYpARpvCibCX
+         zfKMqsMjRJzLaXcLQezhy7HECLZ/UF6wdAl8IQaYOytGq/XeAMwnbJwWjigBLT2w+zy/
+         fsyFXDh3WXs5vj0d/NBOZT6RFBhtCoJ5F59e5Oa+7HsV+Adprt3DuaIHP1IhAYMQyUxF
+         eGug==
+X-Forwarded-Encrypted: i=1; AKwUvBz0wnXYg4kIEZvvzAudrfbKfx/AcmCyQfZLuVrm0Md2P2vIA31/uOU9BR+HW7bRCcPvR4eBI+1d5JP8nvZ7VGez@lists.infradead.org
+X-Gm-Message-State: AFuF++ngUE8jcjijBJebdGupxSvhtyCBF9LU1z7XCY2vQT0Vso/cG34j
+	dzkcknJmj7rFX3X6PrSbL2D0uon4I9+3Mv38BOgYckLvjI1j6VpKDRcg
+X-Gm-Gg: AYBFou2eLgNwKDFvx5fqHIN/z0+FkPs5IfEwlATgYTQlNuHhFl58HMZcycqOlqL0ioA
+	pVXRk5slt4x87+is5jXfliGi0/fVAEq2k0FkgjCvwcKDtNFzsU822FfOm7ooepg04+2wz77yJSg
+	QZMCnaP1ajrKGSN4V932Yx5dG3gCipEHyVNX00j48SjjhfEouVene67DwghXp1dxXVDZRJjC/Ch
+	+h9QmxptaxCse1hdepKmJWMAuVQBzdfyK3qC+hAcZMNRA6O1G1clLSBmTVa+zErD8CHxn65JNzB
+	fjl+8SqAwZdRHV5OPx6VqKpN2ZkRaC9ElDpDPhRhH0EfVK/kG2YreYyK5IGYWB/TEICgu5y0jzI
+	CDl2mgl99p4RaSDMeOKdfiGMEBA1AKI/a/ly7T9L5wuSQkL5xJJc0MrKlu+IE4P0PXpRXZvbYHI
+	tTfYuhLTmO65hkmUMmgH7cL1eM5IWw0k66WcIA9J9wuRL8jVnL9YYfB1rHNpVFKQsqFYFyALvWP
+	u3Ec9NaO0kMNjz4i4pPm8QQWic1XgIoo/lLV1rfgstgZobUnUdv8k6WmoXUjV/U8pfT5n+8Uoe6
+	XmQGEAJZ+yDEO0QYOcTVDWfyg3/uuyhz8yVrPrZ6iSu9Nn7P/MH4XL9pKbV7a7kPu491GLq3adf
+	yU6aPVjq/B8eZv7O7WSG9lN/zFmnT+iuChzGnPTl8HArOpYysfKhcSTotSCpNrmQofykZQyXN8k
+	eMN1Nq
+X-Received: by 2002:a05:600d:8490:10b0:49d:1e79:35d6 with SMTP id 5b1f17b1804b1-49e7cf551e6mr4118455e9.14.1789390422542;
+        Mon, 14 Sep 2026 05:53:42 -0700 (PDT)
+Received: from localhost (90-182-112-124.rcp.o2.cz. [90.182.112.124])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e62231360sm218704995e9.4.2026.09.14.05.53.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Sep 2026 05:53:27 -0700 (PDT)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
-To: linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Natasha Kovalenko <natasha.k@variscite.com>
-Subject: [PATCH v1 1/1] arm64: dts: imx95-var-dart-sonata: correct UART8 header pins
-Date: Mon, 14 Sep 2026 14:53:11 +0200
-Message-ID: <20260914125311.8354-1-stefano.r@variscite.com>
-X-Mailer: git-send-email 2.47.3
+        Mon, 14 Sep 2026 05:53:42 -0700 (PDT)
+Date: Mon, 14 Sep 2026 14:53:39 +0200
+From: Joshua Crofts <joshua.crofts1@gmail.com>
+To: Guangshuo Li <lgs201920130244@gmail.com>
+Cc: Eugen Hristev <ehristev@kernel.org>, Jonathan Cameron
+ <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, Nuno
+ =?ISO-8859-1?Q?S=E1?= <nuno.sa@analog.com>, Andy Shevchenko
+ <andy@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre
+ Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
+ <claudiu.beznea@tuxon.dev>, linux-iio@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+Subject: Re: [PATCH] iio: adc: at91-sama5d2: disable autosuspend on remove
+Message-ID: <20260914145339.00002f0b@gmail.com>
+In-Reply-To: <20260914113422.1689331-1-lgs201920130244@gmail.com>
+References: <20260914113422.1689331-1-lgs201920130244@gmail.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_055330_674372_EE77426D 
-X-CRM114-Status: GOOD (  12.60  )
+X-CRM114-CacheID: sfid-20260914_055344_824897_07CD3C8B 
+X-CRM114-Status: GOOD (  19.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,35 +110,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stefano Radaelli <stefano.r@variscite.com>
+On Mon, 14 Sep 2026 19:34:22 +0800
+Guangshuo Li <lgs201920130244@gmail.com> wrote:
 
-Correct the UART8 header reference from J12 to J6 on the DART-MX95
-Sonata carrier board.
+> at91_adc_probe() enables runtime PM autosuspend with
+> pm_runtime_use_autosuspend(). The probe error path correctly undoes
+> this setting with pm_runtime_dont_use_autosuspend(), but the normal
+> remove path only disables runtime PM.
+> 
+> The runtime PM API requires pm_runtime_use_autosuspend() to be undone
+> with pm_runtime_dont_use_autosuspend() at driver exit unless runtime PM
+> was enabled with devm_pm_runtime_enable(). Leaving the autosuspend flag
+> set therefore leaves the runtime PM state incompletely cleaned up after
+> the driver is unbound.
+> 
+> Add the missing pm_runtime_dont_use_autosuspend() call to the remove
+> path.
+> 
+> This issue was found by manual code inspection.
+> 
+> Fixes: 75d7556ac0e4 ("iio: adc: at91-sama5d2_adc: add runtime pm support")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+> ---
+>  drivers/iio/adc/at91-sama5d2_adc.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/drivers/iio/adc/at91-sama5d2_adc.c b/drivers/iio/adc/at91-sama5d2_adc.c
+> index e8a5285bb6d4..e68632e628c7 100644
+> --- a/drivers/iio/adc/at91-sama5d2_adc.c
+> +++ b/drivers/iio/adc/at91-sama5d2_adc.c
+> @@ -2487,6 +2487,7 @@ static void at91_adc_remove(struct platform_device *pdev)
+>  
+>  	pm_runtime_disable(st->dev);
+>  	pm_runtime_set_suspended(st->dev);
+> +	pm_runtime_dont_use_autosuspend(st->dev);
+>  	clk_disable_unprepare(st->per_clk);
+>  
+>  	regulator_disable(st->vref);
 
-This is a documentation-only fix and does not change the hardware
-configuration.
+Reviewed-by: Joshua Crofts <joshua.crofts1@gmail.com>
 
-Co-developed-by: Natasha Kovalenko <natasha.k@variscite.com>
-Signed-off-by: Natasha Kovalenko <natasha.k@variscite.com>
-Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
----
- arch/arm64/boot/dts/freescale/imx95-var-dart-sonata.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx95-var-dart-sonata.dts b/arch/arm64/boot/dts/freescale/imx95-var-dart-sonata.dts
-index 3479abc25df2..9344a0d99418 100644
---- a/arch/arm64/boot/dts/freescale/imx95-var-dart-sonata.dts
-+++ b/arch/arm64/boot/dts/freescale/imx95-var-dart-sonata.dts
-@@ -336,7 +336,7 @@ &lpuart1 {
- 	status = "okay";
- };
- 
--/* Header (J12.4, J12.6) */
-+/* Header (J6.4, J6.6) */
- &lpuart8 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_uart8>;
 -- 
-2.47.3
-
+Kind regards,
+Joshua Crofts
 
