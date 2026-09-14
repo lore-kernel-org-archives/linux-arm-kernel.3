@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94624C88E70
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6A8EC88E64
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 13:52:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,40 +12,40 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rvR7yrUSwk1xcghd++XGcB+fD9fDR6mY3VUkLEOBRnU=; b=MslPnPcAT4R+B9Gwrup4hNZs4U
-	evwnfZ1GjMEwJJfPpbfJ75N12mg4ptzP6a10kI9FCl5jmdWw8SWJhPVAdXSPD8fI1cWfafPBMFser
-	LrCpsmlnQU240ogohW3AcnGge3jvwpZWEXVqXTvtrY70U/EiQWDJezUKUFs1zitxrbn+JeYqCv0t6
-	Fa+QH0oM0lBCwwlZoAe5hJPBZDTU9Ka97vAQK4ZG30n53XnDhBYhxCPpq0h/QzOlQ7qoyrQsqBHy9
-	eENjIBZD6w7WNekaNHk4LXmLj9JBir5rm7SKXLBNyAfOp2BTm6i0EYpEJrNGH53LhH98NlR4vpG4R
-	ht4ARIgQ==;
+	bh=6uBN0ZQwvtsGp1jKgpj+hxjeJ464MZfPKqor1IPMdG4=; b=oCRPkNLPVp1GRFgK/xQP0QfNwN
+	RWMNwX4MPCO6CGZRvlC+C5q41eDri4OGI8VjBIZ6NijhRNZwp6nUCVL2QhZBrQbnZsQjjuCgQ6d5S
+	TvaKMHp3Ut6Y3IJ7ghnhUKN4J9YoBERCBk7G8aAeEAqrVMU78mBsPx5ZF+T4h7cvrQTmwAWQEI90U
+	2peuug3Veb8I9MeYITEE6R9eefjFxUyJ0k+iiqO2bm4BMuF8KHsbndZkFFoca3FL1UHqJ3qpU1VdN
+	vdvE1HNESZZvnR3nG3Z3q98ah9eYEf8x1J8nBr792Jjfmrcq+VCuaPshT/NvBmLwBBmU7bZnQrLLM
+	gQZU6jjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x676g-00000003rpv-0wWn;
+	id 1x676g-00000003rqB-1OYF;
 	Mon, 14 Sep 2026 13:52:26 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x676W-00000003rio-2RZs
+	id 1x676a-00000003rlP-01jh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 13:52:17 +0000
+	Mon, 14 Sep 2026 13:52:22 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 544C41576;
-	Mon, 14 Sep 2026 06:52:12 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D668A1570;
+	Mon, 14 Sep 2026 06:52:15 -0700 (PDT)
 Received: from [127.0.1.1] (e142334-100.cambridge.arm.com [10.2.198.93])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B236F3F882;
-	Mon, 14 Sep 2026 06:52:12 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3FF1A3F882;
+	Mon, 14 Sep 2026 06:52:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789393935; bh=yv6552mFvvf13JAoUBxhYSH5LMmG+s9tUQsoS51fbNQ=;
+	t=1789393939; bh=shLHKCHn3ZdXre7hsjCS5Jwr6cqRreukZfraeH8Cy3s=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=gzbKM8Ca28zZ5K6P5ERV+/fCGpEVK/cv9jlKFw2gr9//PfYHgZprGWfo191uCCc6z
-	 Cf7m0v8/apWMpqmmgMHBA6J9VkXnoRe1GIpcuZ12FSGnPYjHDPuGZmC5Cob7BBesv6
-	 pyrAeo+x1fR1GNNgGI02k3iSQRVZhxr9ZAy5zTgQ=
+	b=VxM1nVkmYNPpjHBF/3TyegZsi3gXy2y2TPeff4ji5cA2NOgdRBg5Ne4BamFW32epl
+	 YgRiY41HrMSGBYlXBxqXq02UzbkG0f0IOxJzTyytmQEgFIuWVkudJF3DN5r+KpdL8C
+	 9EM6umX4vRSY4FuskG1d6abnjmKoyuwOeT6yCXww=
 From: Muhammad Usama Anjum <usama.anjum@arm.com>
-Date: Mon, 14 Sep 2026 14:51:33 +0100
-Subject: [PATCH 3/6] arm64: convert between HW PTEs and SW PTE values
+Date: Mon, 14 Sep 2026 14:51:34 +0100
+Subject: [PATCH 4/6] arm64: use hw_pte_t for fixmap HW PTEs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260914-pte0_arm-v1-3-bb53b663e396@arm.com>
+Message-Id: <20260914-pte0_arm-v1-4-bb53b663e396@arm.com>
 References: <20260914-pte0_arm-v1-0-bb53b663e396@arm.com>
 In-Reply-To: <20260914-pte0_arm-v1-0-bb53b663e396@arm.com>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -66,8 +66,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Muhammad Usama Anjum <usama.anjum@arm.com>
 X-Mailer: b4 0.16.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_065216_725903_12D385A0 
-X-CRM114-Status: GOOD (  12.95  )
+X-CRM114-CacheID: sfid-20260914_065220_109961_209A2D69 
+X-CRM114-Status: GOOD (  11.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,62 +82,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-__ptep_get() returns a SW PTE value, and __set_pte_nosync() accepts one.
-When HW PTEs use a distinct hw_pte_t, directly reading or writing *ptep
-as a SW PTE value no longer satisfies those interfaces.
+fixmap_pte() returns a pointer into bm_pte, and early_fixmap_init_pte()
+installs those arrays as page tables. Their elements are therefore
+HW PTEs.
 
-Use __pte_from_hw after READ_ONCE() to obtain a SW PTE value and add
-__hw_pte before WRITE_ONCE() to form an HW PTE.
-
-Define __hw_pte for both the wrapper and alias configurations so the
-same accessor code works in either case.
+Change the element type of bm_pte to hw_pte_t so it matches the HW PTE
+pointers returned and passed to the accessors. This is needed before
+ARCH_HAS_HW_PTE_T makes HW PTEs and SW PTE values distinct types; the
+array dimensions and placement are unchanged.
 
 Signed-off-by: Muhammad Usama Anjum <usama.anjum@arm.com>
 ---
- arch/arm64/include/asm/pgtable.h | 4 ++--
- include/linux/pgtable_types.h    | 2 ++
- 2 files changed, 4 insertions(+), 2 deletions(-)
+ arch/arm64/mm/fixmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 4768ec59de555..67c4a6179e154 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -360,7 +360,7 @@ static inline pte_t pte_clear_uffd(pte_t pte)
+diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
+index 237a9136bc73b..709a97fe327d8 100644
+--- a/arch/arm64/mm/fixmap.c
++++ b/arch/arm64/mm/fixmap.c
+@@ -31,7 +31,7 @@ static_assert(NR_BM_PMD_TABLES == 1);
  
- static inline void __set_pte_nosync(hw_pte_t *ptep, pte_t pte)
- {
--	WRITE_ONCE(*ptep, pte);
-+	WRITE_ONCE(*ptep, __hw_pte(pte));
- }
+ #define BM_PTE_TABLE_IDX(addr)	__BM_TABLE_IDX(addr, PMD_SHIFT)
  
- static inline void __set_pte_complete(pte_t pte)
-@@ -381,7 +381,7 @@ static inline void __set_pte(hw_pte_t *ptep, pte_t pte)
+-static pte_t bm_pte[NR_BM_PTE_TABLES][PTRS_PER_PTE] __bss_pgtbl;
++static hw_pte_t bm_pte[NR_BM_PTE_TABLES][PTRS_PER_PTE] __bss_pgtbl;
+ static pmd_t bm_pmd[PTRS_PER_PMD] __bss_pgtbl __maybe_unused;
+ static pud_t bm_pud[PTRS_PER_PUD] __bss_pgtbl __maybe_unused;
  
- static inline pte_t __ptep_get(hw_pte_t *ptep)
- {
--	return READ_ONCE(*ptep);
-+	return __pte_from_hw(READ_ONCE(*ptep));
- }
- 
- extern void __sync_icache_dcache(pte_t pteval);
-diff --git a/include/linux/pgtable_types.h b/include/linux/pgtable_types.h
-index ee4eace5c3e1c..b5862a16aa497 100644
---- a/include/linux/pgtable_types.h
-+++ b/include/linux/pgtable_types.h
-@@ -9,11 +9,13 @@
- #ifdef CONFIG_ARCH_HAS_HW_PTE_T
- typedef struct __hw_pte_t { pte_t __pte; } hw_pte_t;
- #define __pte_from_hw(pte)	((pte).__pte)
-+#define __hw_pte(pte)  ((hw_pte_t) { (pte) })
- 
- #define hw_pte_val(x)  pte_val((x).__pte)
- #else
- #define hw_pte_t pte_t
- #define __pte_from_hw(pte)	(pte)
-+#define __hw_pte(pte)  (pte)
- 
- #define hw_pte_val(x)  pte_val(x)
- #endif
 
 -- 
 2.47.3
