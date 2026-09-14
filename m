@@ -4,74 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 525C6C88E64
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 09:05:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC518C88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 09:06:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O1aFOPIm665Eiw+j6TUvQPtIt8QoHRt8HSXrKrg0cGs=; b=YuAA2YPdcFK+PCeWvs40sh7IJ7
-	E17Xa/gjlNwA8UkRuriCv9d2z6FdiQKLWsxfwRg4UHHpF8AcLS70TStfxGuXiYLR4dl23Lqx8yrDS
-	/kGd5JA3YGrNwyJLZTfjRxuQ6yY9pGvoGYFbYAHf7VQ3qa6yS+sPedUMBYVSyYaY6Exsjzs1/pjGC
-	3CPFHAk4gmVCTAaY8flblLa6KOj7waGUHXsJxXEHt1Pvt3wiH3zLVuS90aCZbnCTyDOQ9NIsP+sCO
-	SwxCl98V5VAvaQWCcWvkBayZaepIWSebTd2hF5GGullXWVJekg8MoFR3IJXw+fb2GiW178I5Y41Ia
-	f0QlMpww==;
+	bh=eVyCmZ4r+rqbvXzZZK7xMj8GLtchauV0sc+rm/XQOyk=; b=OPVrjbLpKudhYz6kuhhL3oe+NB
+	AcsMpspTenAmaPji5ue2fjCXWk3fihiGoZTGi8LUKxdsLdgdcm/VCDuGDkLCNfVdVLnYqQX4/goZo
+	IZ2iVkSokfIU/JC9QoFszGnvoZa6NZJ8zZYdp2Z/KUHIk0ENZ1Ql2jVrVPU/8D27EI3fPB/XTsar7
+	xK7ll5jzrd1WJjPTnHBmr696hBBKYiPBwr6AzgOy4l2pyjFNnWRxSZTudBxv4VQxXO0R1q4yL4rjM
+	4KTObiJaj5kxDrNxABBCWTQDVWtBGj+dWmeouZeiPTu0DwKBlGUAJyEWmJ8tFxMUA+CkTf2zWckop
+	DIOGESUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x62d7-00000002rRA-3G5t;
-	Mon, 14 Sep 2026 09:05:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x62eA-00000002rhG-03y3;
+	Mon, 14 Sep 2026 09:06:42 +0000
+Received: from out30-132.freemail.mail.aliyun.com ([115.124.30.132])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x62d6-00000002rQy-2kR8
+	id 1x62e6-00000002rgT-23In
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 09:05:37 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0086D601EF
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 09:05:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96DDD1F008A6
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 09:05:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789376735;
-	bh=O1aFOPIm665Eiw+j6TUvQPtIt8QoHRt8HSXrKrg0cGs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=J89Iz0koAqOnjzK0pkFz60RQBdV9uLL3PzTizp1q54dlHbB8m5kxR/jEBgyNcnPGr
-	 o41oMrc+ZEeaMA6gdGuiG4bhEhmubQFkL7bSEWtYffRfZS59SmRTFLDsKFA4iKwuNi
-	 5plNydnXgiAvG63mvvFTY659e78HvUJ4uL50Tg0W0JW7Jxq4iBgq7uBCW24rrIzpr4
-	 H93mN0zBZudKDCpKchVKvUwdcX1eYDorV6zxla9uLS5akvn4DEY+NsQngsHG5CF30Y
-	 QkYKyRr34MDvtpETel86OkqJ/7vaDZDALxlGdEkdbuKDs0hOYuZLpTKbtnFKV21vae
-	 yoLgbfzsqz0qQ==
-Received: by mail-lf2-f13.google.com with SMTP id 2adb3069b0e04-5b5e4f16f15so1981043e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 02:05:35 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBwQF7nFYfD7UaUOoVg/jSnao6zbdB1mNp+fLulZacrIPYMonyUiJjAFqkb7yT+OzR1zmvf0KG7yfnYL6gBIwUaB@lists.infradead.org
-X-Gm-Message-State: AFuF++ln39E1XnZC0c8ON5hkuAkn0eXqn3UR1BtCrweFwDvlwvNOeSpt
-	USul4f2Vkrmh27JFAts1hGt5h7yNfMp9YgmMSWrXuI/11IHMSLVjP5ygsqFZY8yYQ8JfEDZm/0v
-	wZ7blDbPO5cBpBPVB8hmj3wOZlEFDkF4=
-X-Received: by 2002:a05:6512:668d:20b0:5b8:afd2:c17b with SMTP id
- 2adb3069b0e04-5b8afd2c4cbmr300055e87.11.1789376734252; Mon, 14 Sep 2026
- 02:05:34 -0700 (PDT)
+	Mon, 14 Sep 2026 09:06:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1789376795; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=eVyCmZ4r+rqbvXzZZK7xMj8GLtchauV0sc+rm/XQOyk=;
+	b=PvY6uk4DengypDV8e+p6T7ZiHKzUmyza7wI0Rbw00+UJi3+zlhJhKxFI/rdVtVDxv0wgMCcaNCxLSHyvGfut075udpHosUXkgXPbEoEqNTBXdP8ZyDCyEaAQkErVRA8b0hB9M3EAcyNNrqLUA8q3gt7rJ6xsJkTcnEzUvpnNGHY=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R421e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=xueshuai@linux.alibaba.com;NM=1;PH=DS;RN=11;SR=0;TI=SMTPD_---0XAu2h1O_1789376793;
+Received: from 30.246.177.179(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0XAu2h1O_1789376793 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Mon, 14 Sep 2026 17:06:34 +0800
+Message-ID: <dd1ab8d0-24bc-43fd-8129-69019e136244@linux.alibaba.com>
+Date: Mon, 14 Sep 2026 17:06:33 +0800
 MIME-Version: 1.0
-References: <20260829194203.108240-2-krzysztof.kozlowski@oss.qualcomm.com>
-In-Reply-To: <20260829194203.108240-2-krzysztof.kozlowski@oss.qualcomm.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 14 Sep 2026 11:05:22 +0200
-X-Gmail-Original-Message-ID: <CAD++jLmT1brMi8qd2jyV4_=u50i2NEQO88unv0wq1er0RQdERA@mail.gmail.com>
-X-Gm-Features: AcwNN1URGziW8FcEeLQAwIn_mJYzQfGjAW4RUBIvo-J7yMS0ni6UqDbXdjuNGSI
-Message-ID: <CAD++jLmT1brMi8qd2jyV4_=u50i2NEQO88unv0wq1er0RQdERA@mail.gmail.com>
-Subject: Re: [PATCH] dt-bindings: pinctrl: fsl: Replace tabs with spaces
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
-	Frank Li <Frank.Li@nxp.com>, Jacky Bai <ping.bai@nxp.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, NXP S32 Linux Team <s32@nxp.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Peng Fan <peng.fan@nxp.com>, 
-	Giulio Benetti <giulio.benetti@benettiengineering.com>, 
-	Jesse Taube <Mr.Bossman075@gmail.com>, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/4] KVM: arm64: Reduce overhead of full S2 teardown
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ Wei-Lin Chang <weilin.chang@arm.com>, Wang Han <wanghan@linux.alibaba.com>,
+ Steffen Eiden <seiden@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>,
+ Zenghui Yu <yuzenghui@huawei.com>, Fuad Tabba <fuad.tabba@linux.dev>
+References: <20260912104834.3093878-1-maz@kernel.org>
+ <8bf3f266-06fd-49e0-8de8-33c7a044e997@linux.alibaba.com>
+ <865x086yhr.wl-maz@kernel.org>
+From: Shuai Xue <xueshuai@linux.alibaba.com>
+In-Reply-To: <865x086yhr.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260914_020639_233301_226E0B27 
+X-CRM114-Status: GOOD (  32.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,17 +71,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 29, 2026 at 9:42=E2=80=AFPM Krzysztof Kozlowski
-<krzysztof.kozlowski@oss.qualcomm.com> wrote:
 
-> YAML files do not use spaces, even within the values in DTS.  No
-> functional change, although dt-style-check will warn about it
-> ("[tab-in-yaml] tab character not allowed in DTS example").
->
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Patch applied, sorry for the slowness.
+On 9/14/26 4:14 PM, Marc Zyngier wrote:
+> On Mon, 14 Sep 2026 07:44:15 +0100,
+> Shuai Xue <xueshuai@linux.alibaba.com> wrote:
+>>
+>>
+>>
+>> On 9/12/26 6:48 PM, Marc Zyngier wrote:
+>>> Tearing down a full S2 is a pretty involved process, resulting in a
+>>> lot of TLB invalidation. These TLBIs are either on a per leaf basis if
+>>> the HW doesn't support range invalidation, or by top-level range if it
+>>> does. Amusingly, the latter occurs even when nothing has been
+>>> unmapped.
+>>>
+>>> Things are made worse with NV, as we have a bucket-load of shadow S2s,
+>>> and the need to invalidate them all on the back of an MMU notifier.
+>>> The latter will eventually be solved by the reverse-map tracking that
+>>> Wei-Lin is working on, but we need to be better at full-S2 teardown.
+>>>
+>>> This small series adds a "no TLBI" unmapping primitive, which allows
+>>> the caller to then whack the TLBs using a VMID-wide invalidation. This
+>>> results in far fewer TLBIs, and a better recursive virtualisation as
+>>> we get far fewer traps as a consequence.
+>>>
+>>> This applies on top of my shadow-s2 lifetime fixes, and is expected to
+>>> be a prefix to Wei-Lin's series.
+>>>
+>>> Marc Zyngier (4):
+>>>     KVM: arm64: pgtable: Add Stage-2 unmap without TLBI primitive
+>>>     KVM: arm64: MMU: Add kvm_stage2_unmap_all() helper
+>>>     KVM: arm64: nv: Move full s2_mmu unmap over to kvm_stage2_unmap_all()
+>>>     KVM: arm64: nv: Move TLBI VMALLS12E1* emulation over to
+>>>       kvm_stage2_unmap_all()
+>>>
+>>>    arch/arm64/include/asm/kvm_mmu.h     |  1 +
+>>>    arch/arm64/include/asm/kvm_pgtable.h | 17 +++++++++++++
+>>>    arch/arm64/include/asm/kvm_pkvm.h    |  1 +
+>>>    arch/arm64/kvm/hyp/pgtable.c         | 38 +++++++++++++++++++++-------
+>>>    arch/arm64/kvm/mmu.c                 | 15 +++++++++++
+>>>    arch/arm64/kvm/nested.c              |  4 +--
+>>>    arch/arm64/kvm/pkvm.c                |  2 ++
+>>>    arch/arm64/kvm/sys_regs.c            | 18 ++++++-------
+>>>    8 files changed, 75 insertions(+), 21 deletions(-)
+>>>
+>>
+>>
+>> Hi Marc,
+>>
+>> Thanks for putting this series together. I reviewed the four patches
+>> and revisited the traces from my earlier Marc-only tests.
+>>
+>> I have a correctness concern about child page-table reclamation.
+>>
+> 
+> You? Or your AI model? I'd really expect you to explain *your*
+> perception of the problem rather than dumping the result of your AI in
+> an email.
 
-Yours,
-Linus Walleij
+Hi Marc,
+
+You're right. I used AI assistance (GPT-6 Astra) for the analysis.
+Let me clarify the technical points.
+
+
+> 
+>> 1. Child page-table reclamation before the final TLBI
+>>
+>> In patch 1, SKIP_S2_TLBI suppresses invalidation for both leaf and table
+>> descriptors, while stage2_unmap_walker() still immediately releases
+>> empty child tables.
+> 
+> What is a "child" table?
+
+I meant the next-level shadow S2 table obtained here in
+stage2_unmap_walker():
+
+         if (kvm_pte_table(ctx->old, ctx->level)) {
+                 childp = kvm_pte_follow(ctx->old, mm_ops);
+
+For example, if ctx->old is an L2 table descriptor, childp points
+to the L3 table that it describes. This is a host-allocated shadow
+page-table page, not a guest data page.
+
+> 
+>>
+>> For a child table with page_count(childp) == 1, the sequence is:
+>>
+>>    stage2_unmap_walker()
+>>      stage2_unmap_put_pte()
+>>        clear the parent table descriptor
+>>        skip its TLBI
+>>      mm_ops->put_page(childp)
+>>        kvm_s2_put_page()
+>>          put_page()              /* drop the child's last reference */
+>>
+>>    ... process the remaining address ranges ...
+>>
+>>    __kvm_tlb_flush_vmid()         /* final invalidation in patch 2 */
+>>
+>> This path does not use the free_unlinked_table()/call_rcu() deferred
+>> reclamation mechanism. The existing deferred-range-TLBI path still
+>> invalidates table descriptors immediately; the new flag skips that
+>> invalidation too.
+> 
+> And? What is the actual problem here?
+
+The concern is that this page becomes available for reuse before
+the corresponding invalidation completes.
+
+With page_count(childp) == 1, the walker clears the parent descriptor
+through stage2_unmap_put_pte(), then releases the next-level table
+with mm_ops->put_page(childp). SKIP_S2_TLBI suppresses the table-
+descriptor TLBI that previously happened before this release.
+The final VMID-wide TLBI happens after the full walk.
+
+If hardware can still walk through that page using old intermediate
+translation state, it could interpret contents written by a new
+owner as S2 descriptors. That is the failure scenario I intended
+to describe.
+
+
+> 
+>>
+>> Patch 4 provides a caller operating on active shadow MMUs:
+>> kvm_s2_mmu_iterate_by_vmid() holds mmu_lock for write and visits valid
+>> matching shadow MMUs, but does not require refcnt == 0 or wait for
+>> other vCPUs using the MMU to exit.
+> 
+> Of course it doesn't, since this is simply emulating an instruction
+> local to that vcpu. How would the actual HW "wait" for another CPU to
+> stop using a set of translation?
+
+Agreed. I should not have presented the absence of a vCPU-stop
+mechanism as a problem. Stopping another vCPU and waiting for
+invalidation to complete are different things.
+
+My concern is the lifetime of the host shadow page-table memory:
+whether it can be reclaimed before the final TLBI completes.
+
+> 
+>>
+>> Another vCPU can therefore still use that shadow S2. The write lock
+>> excludes software page-table updates, not hardware table walks.
+>> The following interleaving is allowed:
+>>
+>>    vCPU B / hardware walker        vCPU A
+>>    ------------------------        ----------------------------
+>>    Holds an old reference to T
+>>                                    Clears parent, skips TLBI
+>>                                    Drops T's last reference
+>>                                    T is reused by the allocator
+>>    Accesses T via the old reference
+>>                                    Performs final VMID-wide TLBI
+>>
+>> The final flush barriers cannot retroactively protect a table that
+>> has already been freed and reused.
+> 
+> T is a shadow page-table page on the host. How can vcpu B hold a
+> reference on that page? It isn't even in the same address space.
+
+Sorry for the misleading. I meant a hardware table walk
+on the PE running B going through T, not a software reference held
+by B or a guest mapping of T.
+
+> 
+> Now, I can see that B could have a VA that *translate through* T, and
+> that's rather annoying.
+> 
+> I'll have a think.
+> 
+> 	M.
+
+Yes, translating through T is what I meant.
+
+Would retaining the table-descriptor TLBI be a reasonable minimal
+fix? That would preserve invalidation before releasing the next-level
+table, while still avoiding the per-range flushes for empty chunks.
+
+Thanks for looking into it.
+
+Shuai
 
