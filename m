@@ -4,112 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DC2CC88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 15:46:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B391FC88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 15:47:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nDX7JZqoWhgFQgfHCxZfacjrtDXYvoz5wh0AP6O1u2Y=; b=rdYTnuJUD5xmd1a+DAwyrcBvbB
-	9BIi2r44QTI3ADaY6guDZ4/N6SWpnxdqbSudQN1VYFDB7kmT0aPrtjC1U0JX/FEKNY5mB97k+0B0f
-	5LLKHmhddpy0/g1sItBvPWAG+pNJ7cDZa9A3u5ju/QHivet7NMVoMw1o+xbMqi47eow1L8BW+yXAP
-	xutrHBPPT6oQjoSsHPDE3hgzBUuk8izwAYU8V6hZOoSdkoWQPFYeGzm8RjKx3h4Kv0HmcMO+Rn+wv
-	dRZCStyvWKe4xHUyOxrF1swEHg/blHImMVJdweyRDgBBR3gzwYO9BTazdPj45h5x3tt2UBqrdEdrC
-	xAskZILA==;
+	bh=tG6YbD+cncbaU7j7yoO6MEtQ744hWAYh4LfOY6utBYg=; b=KEj8j5wv7r+OJP/XQkfCkWGTL5
+	UI/f+6WrZa0fGQFmB+P5N64O55zMS+8GMSde2An8VQmE+6mZGufNvccHpYME4hZ0FBd6Spq62jKHE
+	zN7t4LBdMHnRKb4pWACj2PWACxcPM4lVwIbkSCEsJUD27wskR1AFBryIUpJEzuO1ZgwTuAq/lzo3c
+	kTLoX33+EDjzEZSoA9RnJQcXY60k46xeMTdFhmc1Xc7w2cRvJ5rPdmHBZTu2uTXl26Eqg7M1og0U/
+	n5xvG3++7o3PdvhWRHYZjwwsdc6Yc51tAl3YiwmO5r+Q0MwgQlqGe2V2GnvS76AkOVYQa1gU+V076
+	jV7voL5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x68sT-00000004Cu2-1sg1;
-	Mon, 14 Sep 2026 15:45:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x68tv-00000004CzZ-2zGL;
+	Mon, 14 Sep 2026 15:47:23 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x68sS-00000004Ctk-0zIm;
-	Mon, 14 Sep 2026 15:45:52 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A5892401AB;
-	Mon, 14 Sep 2026 15:45:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 296CE1F000FF;
-	Mon, 14 Sep 2026 15:45:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789400751;
-	bh=nDX7JZqoWhgFQgfHCxZfacjrtDXYvoz5wh0AP6O1u2Y=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=XzR7LrfjtoVwE2o58UzBkJqtRP246P40wXSftVMsisZuXYyxxdcfo2PUiKQAkSkF1
-	 55OYhi++y/BbzhG7pbIM+c/viVYAO3Va9RCwBSmThkywEKxDitfx2zEYz90ES6Tahw
-	 R5L4IScN9YlulQigXN5JVBjtTKewUbzUTH2/tjPJcCiryzt8Hpz+4kEWRvZ9subgzv
-	 wjbKVGWIqhhqsTS4opzHyDSq7lSAGSjMiQfTB+4TYMt/HPky40mAmTTZ/xdfwoJ8In
-	 r6PhKBiWuXP0IwZ0HkHuHNKE7GNJUNGtHAiTZxE9vkGhW8b+1eAdBqQLS63bDUMmK8
-	 dbyCeZsUlL3WA==
-Message-ID: <f2186082-8799-4eb6-8e0e-2b2036578661@kernel.org>
-Date: Mon, 14 Sep 2026 17:45:43 +0200
+	id 1x68to-00000004Cyo-3y2V;
+	Mon, 14 Sep 2026 15:47:22 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260914154712euoutp02c5051cd29f404323cd1ce4ebcf1a2814~VOpOJJKAf2060820608euoutp02_;
+	Mon, 14 Sep 2026 15:47:12 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260914154712euoutp02c5051cd29f404323cd1ce4ebcf1a2814~VOpOJJKAf2060820608euoutp02_
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1789400832;
+	bh=tG6YbD+cncbaU7j7yoO6MEtQ744hWAYh4LfOY6utBYg=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=GDO61VSOCVO3k1kf5K78UUt2+RmSvMQDujkUqqiRwIRQp54H3XA3u6HAxA1Bzo9g/
+	 tCvyeIbekxEClZFD369Hz0B8bRlNt3ZyQYNKC/wf2QdhH9jD28ZIA21IDZJCW8YtoX
+	 k3/tT/pItRCsYTnCqKU6miJvFJQAcAS4lM6izfts=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20260914154711eucas1p1a9c438d50d10b5aa67be8d91d3c6bd8b~VOpNwZ4qm0255102551eucas1p1I;
+	Mon, 14 Sep 2026 15:47:11 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20260914154709eusmtip1d1d42067dc0186ff40e0a824dfe3578c~VOpL4YvZE0990509905eusmtip17;
+	Mon, 14 Sep 2026 15:47:09 +0000 (GMT)
+Message-ID: <03a707e8-9382-4d48-9bdc-08fbd0131587@samsung.com>
+Date: Mon, 14 Sep 2026 17:47:04 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/6] ASoC: meson: add audin main module and I2S formatter
-To: Valerio Setti <vsetti@baylibre.com>
-Cc: Jerome Brunet <jbrunet@baylibre.com>, Liam Girdwood
- <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
- linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260912-audin-v1-0-7fbefe928711@baylibre.com>
- <20260912-audin-v1-2-7fbefe928711@baylibre.com>
- <20260913-inventive-millipede-of-certainty-dd58ce@quoll>
- <964d6626-202c-4d0a-aef2-86a383f405ab@baylibre.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v3 14/19] drm/bridge: starfive: Add JH7110 HDMI
+ controller driver
+To: Icenowy Zheng <zhengxingda@iscas.ac.cn>, Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss
+	<rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, Lee Jones <lee@kernel.org>, Andy
+	Yan <andy.yan@rock-chips.com>, Philipp Zabel <p.zabel@pengutronix.de>, Emil
+	Renner Berthing <kernel@esmil.dk>, Hal Feng <hal.feng@starfivetech.com>,
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+	<sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, Heiko Stuebner
+	<heiko@sntech.de>, Conor Dooley <conor@kernel.org>, Paul Walmsley
+	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Dominique
+	Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>, Jerome
+	Brunet <jbrunet+clk@baylibre.com>
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	mfd@lists.linux.dev, linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+	linux-riscv@lists.infradead.org, Andy Yan <andyshrk@163.com>, Marek
+	Szyprowski <m.szyprowski@samsung.com>, Maud Spierings
+	<maud_spierings@murena.io>, Graham Markall <hello@big-grey.co.uk>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <964d6626-202c-4d0a-aef2-86a383f405ab@baylibre.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <b9973f9817dc023bb703cc14628fbb5ccca27d33.camel@iscas.ac.cn>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20260914154711eucas1p1a9c438d50d10b5aa67be8d91d3c6bd8b
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20260904132735eucas1p2c898afe4a4c6e957a7b9eedff321a6dc
+X-EPHeader: CA
+X-CMS-RootMailID: 20260904132735eucas1p2c898afe4a4c6e957a7b9eedff321a6dc
+References: <20260904-jh7110-clean-send-v3-0-484f9ae72715@samsung.com>
+	<CGME20260904132735eucas1p2c898afe4a4c6e957a7b9eedff321a6dc@eucas1p2.samsung.com>
+	<20260904-jh7110-clean-send-v3-14-484f9ae72715@samsung.com>
+	<b9973f9817dc023bb703cc14628fbb5ccca27d33.camel@iscas.ac.cn>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260914_084717_597215_BB4FD1C7 
+X-CRM114-Status: GOOD (  34.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,55 +108,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/09/2026 15:14, Valerio Setti wrote:
-> Thanks for your review and feedbacks.
-> 
-> 
-> On 9/13/26 11:41 AM, Krzysztof Kozlowski wrote:
->> On Sat, Sep 12, 2026 at 12:14:32AM +0200, Valerio Setti wrote:
->>> +static int meson_gx_audin_probe(struct platform_device *pdev)
->>> +{
->>> +	struct device *dev = &pdev->dev;
->>> +	struct resource *res;
->>> +	void __iomem *mmio;
->>> +	struct regmap *regmap;
->>> +	struct clk *clk;
->>> +	int ret;
->>> +
->>> +	ret = device_reset(dev);
->>> +	if (ret)
->>> +		return dev_err_probe(dev, ret, "Failed to reset device\n");
->>> +
->>> +	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
->>> +	if (!res)
->>> +		return dev_err_probe(dev, -EINVAL, "Failed to get memory resource\n");
->>> +
->>> +	/*
->>> +	 * Do not use devm_platform_ioremap_resource() here: it would claim the
->>> +	 * whole AUDIN window exclusively and the FIFO children would then fail
->>> +	 * to request their own sub-ranges.
->>> +	 */
->>
->> And this should point you that child is not a separate device.
->>
->> Please open your datasheet and read what is the address space of this
->> device. You claim here ENTIRE address space. If you insist that entire
->> address space is not owned by this device, then you misrepresented
->> hardware in the DT anyway.
-> 
-> As I mentioned in the cover letter I designed it this way so that I 
-> could easily re-use the same driver code for all 3 FIFOs just offsetting 
-> the base address. I knew it was a bit hackish a solution, but IMO that 
-> was worth it since it was simplifying a bit driver's code. Perhaps it 
-> was more software-oriented rather than hardware related.
-> The other possible approach is to fully copy what AIU is doing and 
-> allocate each FIFO as a DAI. I'll follow that design then, but if you 
-> have any better idea please let me know.
 
-Do not design hardware description - so DTS - to facilitate your driver
-design. Specifically requested by writing bindings.
 
+On 9/4/26 15:39, Icenowy Zheng wrote:
+> 在 2026-09-04五的 15:27 +0200，Michal Wilczynski写道：
+>> Add the HDMI controller (bridge) driver for the StarFive JH7110.
+>>
+>> This driver binds to the starfive,jh7110-inno-hdmi-controller node.
+>> It gets its shared regmap from its parent and its register access,
+>> module and bus clocks from voutcrg. It consumes the pixel clock and
+>> the
+>> PHY from its hdmi_phy sibling.
+>>
+>> The driver calls the generic inno_hdmi_probe function and passes the
+>> shared regmap to it, registering as a DRM bridge. The .enable hook is
+>> responsible for setting the PHY's pixel clock rate via clk_set_rate()
+>> and powering on the PHY via phy_power_on().
+>>
+>> The DC8200 has two panels, each exposing a DP and a DPI interface,
+>> and a
+>> mux in the video output system controller picks which of them drives
+>> the
+>> HDMI transmitter. Program that mux from the port graph rather than
+>> relying on whatever the bootloader left behind, taking the panel from
+>> the
+>> remote port number and the interface from the remote endpoint number.
+>>
+>> The generic driver holds the clock it looks up as the register access
+>> clock enabled for its lifetime, and derives the DDC divider from that
+>> clock's rate, so point it at the system clock. Naming the pixel clock
+>> there instead would keep the PHY pre-PLL powered from probe onwards
+>> and
+>> size the divider from the wrong rate.
+>>
+>> The PHY can only generate the discrete set of pixel clocks described
+>> by
+>> its pre-PLL table, so .mode_valid rejects any mode clk_round_rate()
+>> cannot satisfy. Without it such a mode would be advertised to
+>> userspace
+>> and the modeset would appear to succeed while the display stayed
+>> blank.
+>>
+>> .enable returns early when the rate is unsupported or the PHY fails
+>> to
+>> power on, so track whether the pixel clock was actually enabled and
+>> let
+>> .disable tear down only what was brought up, otherwise the clock
+>> refcount underflows.
+>>
+>> The clocks and the reset are torn down through devm rather than from
+>> .remove, so that they outlive the bridge that inno_hdmi_probe() adds
+>> with
+>> devm_drm_bridge_add(). Releasing them in .remove runs before devres
+>> unwinds and would leave the bridge registered with its clocks already
+>> gated.
+>>
+>> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+>> ---
+>>  drivers/gpu/drm/bridge/Kconfig            |  11 ++
+>>  drivers/gpu/drm/bridge/Makefile           |   1 +
+>>  drivers/gpu/drm/bridge/jh7110-inno-hdmi.c | 318
+>> ++++++++++++++++++++++++++++++
+>>  3 files changed, 330 insertions(+)
+>>
+>> diff --git a/drivers/gpu/drm/bridge/Kconfig
+>> b/drivers/gpu/drm/bridge/Kconfig
+>> index
+>> 4a57d49b4c6d3ab4b965228835b372d191647197..75b1cf6727d5a32310dcf9fe573
+>> 4d95e14eea8fe 100644
+>> --- a/drivers/gpu/drm/bridge/Kconfig
+>> +++ b/drivers/gpu/drm/bridge/Kconfig
+
+[snip]
+
+>> +
+>> +	/* Data mapping: 8-bit RGB on whichever interface is in use.
+>> */
+>> +	mask = VOUT_HDMI_DPI_DP_SEL | VOUT_HDMI_DP_BIT_DEPTH |
+>> +	       VOUT_HDMI_DP_YUV_MODE | VOUT_HDMI_DPI_BIT_DEPTH;
+>> +	val = FIELD_PREP(VOUT_HDMI_DPI_DP_SEL, endpoint.id) |
+>> +	      FIELD_PREP(VOUT_HDMI_DP_YUV_MODE,
+>> VOUT_HDMI_DP_YUV_MODE_RGB) |
+>> +	      FIELD_PREP(VOUT_HDMI_DPI_BIT_DEPTH,
+>> VOUT_HDMI_DPI_BIT_DEPTH_8BIT);
+> 
+> Well it looks like the vendor driver never sets DP interface, is it
+> tested? I doubt whether the SoC designer messed it up.
+
+The DP interface is documented in the TRM and I've also tested it so it
+does work indeed. Here is my test branch if you would like to see for
+youself.
+
+[1] - https://github.com/mwilczy/linux/commit/7efcba3b0be30734087c79f5773cae19245924db
+
+
+[snip]
+
+> 
+>> +}
+>> +
+>> +/*
+>> + * This table is now only used for the generic .mode_valid check.
+>> + * The real validation happens in the PHY driver's .round_rate.
+>> + */
+>> +static struct inno_hdmi_phy_config stf_hdmi_phy_configs[] = {
+>> +	{ 297000000, 0x00, 0x00 },
+>> +	{ ~0UL, 0x00, 0x00 }, /* Sentinel */
+>> +};
+> 
+> If it's just such a upper bound, why don't just override the function
+> as a bound check?
+
+Yeah actually patch 10 implements mode_valid callback, so it's better to
+remove this stub altogether, previously this was done satisfy the probe
+check reasons - v4 will add patch that makes this table optional in
+inno-hdmi driver.
+
+> 
+> Or... should the real table be used here? I start to wonder whether
+> this is related to Maud's failure on the Framework panel.
+
+Maud panel needed another entry in PHY pre-PLL table. Patch 17 in v3
+adds this entry.
+
+There is a new issue reported by Maud, I will answer that in a separate
+thread.
+
+> 
+> Thanks,
+> Icenowy
+> 
+>> +
+>> +static const struct inno_hdmi_plat_ops stf_inno_hdmi_plat_ops = {
+>> +	.enable = inno_hdmi_starfive_enable,
+>> +	.disable = inno_hdmi_starfive_disable,
+>> +	.mode_valid = inno_hdmi_starfive_mode_valid,
+>> +};
+>> +
+>> +static const struct inno_hdmi_plat_data stf_inno_hdmi_plat_data = {
+>> +	.ops = &stf_inno_hdmi_plat_ops,
+>> +	.phy_configs = stf_hdmi_phy_configs,
+>> +	.default_phy_config = &stf_hdmi_phy_configs[0],
+>> +};
+>> +
+>> +static const struct of_device_id starfive_hdmi_controller_dt_ids[] =
+>> {
+>> +	{ .compatible = "starfive,jh7110-inno-hdmi-controller",
+>> +	  .data = &stf_inno_hdmi_plat_data },
+>> +	{}
+>> +};
+>> +MODULE_DEVICE_TABLE(of, starfive_hdmi_controller_dt_ids);
+>> +
+>> +struct platform_driver starfive_inno_hdmi_controller_driver = {
+>> +	.probe = starfive_inno_hdmi_controller_probe,
+>> +	.driver = {
+>> +		.name = "starfive-inno-hdmi-controller",
+>> +		.of_match_table = starfive_hdmi_controller_dt_ids,
+>> +	},
+>> +};
+>> +module_platform_driver(starfive_inno_hdmi_controller_driver);
+>> +
+>> +MODULE_AUTHOR("Michal Wilczynski <m.wilczynski@samsung.com>");
+>> +MODULE_DESCRIPTION("StarFive INNO HDMI Controller Driver");
+>> +MODULE_LICENSE("GPL");
+> 
+> 
 
 Best regards,
-Krzysztof
+-- 
+Michal Wilczynski <m.wilczynski@samsung.com>
 
