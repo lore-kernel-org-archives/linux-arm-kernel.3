@@ -4,44 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7457FC88E64
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 06:06:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A327C88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 06:14:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fvuBTJV1Dk/Ie/KYF79kHSdwiXYxbsMSNO4Fc9UKz0o=; b=YJ3YF7NIcIAWW8zjtYGM756j9n
-	QFPTv0GdaT2Bzhj0pVSPEYjm4cwiMc1MakdhTZ0xf0by30DFBh8lYMJ7P0/9sZLoEdKQ6OuM6ogZ7
-	h1+M5WW7PkByXquPoCE7Cx7ny4HQ7A0RmcfPK9nljOJmPsoiMH+AQgvliq43RvpX3I7yzMuQ84elR
-	94RaU3lo5l0XXUY4qyJcTjBnZaUmzY7Sh6h1m+k5/5kSEX0GpEK5jk+vJfyb2dMG7pMKkRG5woYB4
-	U1ktClRVqF05cJPoAszA7RTHxwqJfDv9ay4CX6EIoKV3qBSPJzj4g0WidZro16M6OvGVb0Zb0wbkD
-	FpWD6aAg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jd9pq4IajkU40OjK2aSbBzLMMvOXq0c4ILRQjYEobz4=; b=YzTz9KQypU1aYkkO5rjOmB/Vi9
+	gP9zpn6wDIs6M2cCdEQPuXfWq7Nxikbxvba3YMgEMTZS3zhhuegXeCNBplLa9KYg6BPM8S7NwH484
+	nC/Bw4L6Oi1xoz/Oi/SF3voF17w94MMR79t0GWrI8pSE+ABHh7S8pb2wLmqDQSKL4F4a2Ce073VCk
+	BUFzjcP1N4bDFCK9o5iCPtS291z5POSuPHS9lgZfU4Ccpb/ksHDhYwM8hPbhXKXpuFk0YUGI9LSws
+	nvC6iMDjxGDqQz9g6NzEQxULEl+OWwDhnVasZrb+uyAZ+rTSBb6LVn/vZSmrp5rTnrMt/X43dSM0y
+	4+eBFgAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5zpa-00000002PWS-0N2a;
-	Mon, 14 Sep 2026 06:06:18 +0000
-Received: from [50.53.43.113] (helo=bombadil.infradead.org)
-	by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5zpY-00000002PUa-2Upr;
-	Mon, 14 Sep 2026 06:06:16 +0000
-From: Randy Dunlap <rdunlap@infradead.org>
-To: linux-kernel@vger.kernel.org
-Cc: Randy Dunlap <rdunlap@infradead.org>,
-	Michal Simek <michal.simek@amd.com>,
-	Ronak Jain <ronak.jain@amd.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	linux-doc@vger.kernel.org
-Subject: [PATCH] firmware: zynqmp: use literal blocks for commands
-Date: Sun, 13 Sep 2026 23:06:15 -0700
-Message-ID: <20260914060615.1398531-1-rdunlap@infradead.org>
-X-Mailer: git-send-email 2.55.0
+	id 1x5zxq-00000002QJG-1iME;
+	Mon, 14 Sep 2026 06:14:50 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x5zxn-00000002QIv-3AkH
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 14 Sep 2026 06:14:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1789366486;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=jd9pq4IajkU40OjK2aSbBzLMMvOXq0c4ILRQjYEobz4=;
+	b=Q+U0hxknzk81zD962ixpY+1GoQUkTgODlIS8nfOPyTjZO49ivthEGhNiXW2+/cABgevKHh
+	ZNfRuPoRnsdOvfgfRZ8SZiibq7udRs+GV1N6pChA4ZqJs2OyDkC47KBXVjtDspfbbkkR1c
+	5qXGuvf377RrnFPabRLadd+zwTN1FNI=
+Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com
+ [209.85.215.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-711-_M9F1mGxMaul7uU9hEXKVA-1; Mon, 14 Sep 2026 02:14:44 -0400
+X-MC-Unique: _M9F1mGxMaul7uU9hEXKVA-1
+X-Mimecast-MFC-AGG-ID: _M9F1mGxMaul7uU9hEXKVA_1789366483
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-cc435388657so3354095a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Sep 2026 23:14:44 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789366483; x=1789971283;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=jd9pq4IajkU40OjK2aSbBzLMMvOXq0c4ILRQjYEobz4=;
+        b=sfeCTvhWSmqdrWEB3HjXdkcuYFnlqIiNM3IC2iDUUqBDUonVwLh01IlG9EdaiUtj9q
+         85m9s1NhOC9zTzkzh3EhUafkFTzcCPfRZPrAoAtvDWE/SC3foVL5K86lqksLgZAZBipU
+         LRlUYbXBNRJ/iZneflQcR9R3/xXUmoTPsP2yL7bWhPIRTl9tClYRytyBIoKeM3mP4C9l
+         +pCGC36qB58HPDn4/fQhqxEnbuI+UBwWHKFZXszmHsKca1M1O+JjqTkbv7i9qGt4hZNc
+         Z8yy8dZbztXXcmZ1Kg20KXb/V7bFNWa51dEcupgFu0YPdjAL4vAgoL8um+0PNAmC+6P+
+         fYcA==
+X-Forwarded-Encrypted: i=1; AKwUvByYK4aVn4Sj9K0d2udGtxqBAR1PdQwk7hQ0NP9gDbf3Hs4FSzuVAIRzv6qdSsIwhIt1Yd3mWYzEX4NljZw8Y1Y/@lists.infradead.org
+X-Gm-Message-State: AFuF++kdVBQRyjBNSsbAxTeFT1obV28j0d+KoA7L5Qah4A5iXwV9ZV8H
+	LLaH8G+2rQqPWn5MBlIryg/Ln9I74qCjRzxgM4nZOkaXhetIhWanZ2mxkZJEvTXc2ztP5DD7RCh
+	OAbvqhuxUub4sJPQusxl3wbBFIR1YHk9AWCn5XQJIeIPNbc0pLAwXhmVtE0rZgWstyJB2ICv8G2
+	Rj
+X-Gm-Gg: AYBFou1Jqk83MuCk3uCuXU3ugMHWjX1U/nPteKKCucKLqM77KoOkQnIXoE3kO++b8hv
+	HKcVa7E0TskHvY3JEyr+yHRxoH3RVDUUvGiMqS/GGSnZ1s5e75IfB8NwXJhQ41/+AwuAdTjAZQ8
+	BrwZms1TYwGP0HlPCM3031nt6RaTxegv7VJ8ho7zRUxU1GhJyeSNJ7Qcnt43giyBhRrQlyvZ+YY
+	3MeqpuHSJUwKlUQRCobf3NnhJ4vqrgZGfY+mUEq8ma7uqSMnB6hdvEthzAjs8NUPTrba294yAFh
+	/HFTV8Lsjse7mVM7ebRMdjgw/5xuI/xUJwThycYze1WooVrd/cGqk6fn5V0h380LG2+uyg5hQSZ
+	yT9iR0ZqpuEDlGiKlpV3dbxKmJWsEJPw3CPg2Va1pWQ==
+X-Received: by 2002:a05:6a20:7283:b0:3da:d45b:3930 with SMTP id adf61e73a8af0-3db4047e387mr1757616637.3.1789366483426;
+        Sun, 13 Sep 2026 23:14:43 -0700 (PDT)
+X-Received: by 2002:a05:6a20:7283:b0:3da:d45b:3930 with SMTP id adf61e73a8af0-3db4047e387mr1757559637.3.1789366482958;
+        Sun, 13 Sep 2026 23:14:42 -0700 (PDT)
+Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc4c652ab0dsm4311139a12.6.2026.09.13.23.14.38
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 13 Sep 2026 23:14:42 -0700 (PDT)
+Message-ID: <095ebf41-e3c1-4e7e-b6f9-84b6f94da3ce@redhat.com>
+Date: Mon, 14 Sep 2026 16:14:35 +1000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm_mpam: resctrl: Catch and propagate error from
+ get_cpu_cacheinfo_id()
+To: Andre Przywara <andre.przywara@arm.com>, James Morse
+ <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>
+Cc: Reinette Chatre <reinette.chatre@intel.com>,
+ Fenghua Yu <fenghuay@nvidia.com>, Tony Luck <tony.luck@intel.com>,
+ Dave Martin <Dave.Martin@arm.com>, Yin Li <yin.li@oss.qualcomm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260902143757.3469690-1-andre.przywara@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20260902143757.3469690-1-andre.przywara@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: QHysZv6mf1ZLffPbL_YUU8_SlJpKn6n5s0ShqWM5_nA_1789366483
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260913_231447_879164_0268AEF5 
+X-CRM114-Status: GOOD (  19.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -56,159 +115,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use literal blocks for 'cat' and 'echo' commands to separate them from
-the surrounding text. Otherwise the lines run together, without any
-clear break before or after the commands.
+On 9/3/26 12:37 AM, Andre Przywara wrote:
+> get_cpu_cacheinfo_id() can fail, in which case it returns a negative
+> error value.
+> 
+> Check the returned value for this error condition, before passing the
+> value on to other code, which would hide the negative number in some high
+> value in the unsigned type.
+> 
+> Fixes: 36528c7681b8 ("arm_mpam: resctrl: Add support for 'MB' resource")
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> ---
+>   drivers/resctrl/mpam_resctrl.c | 5 ++++-
+>   1 file changed, 4 insertions(+), 1 deletion(-)
+> 
 
-Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
----
-Cc: Michal Simek <michal.simek@amd.com>
-Cc: Ronak Jain <ronak.jain@amd.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Jonathan Corbet <corbet@lwn.net>
-Cc: Shuah Khan <skhan@linuxfoundation.org>
-Cc: linux-doc@vger.kernel.org
+Reviewed-by: Gavin Shan <gshan@redhat.com>
 
- Documentation/ABI/stable/sysfs-driver-firmware-zynqmp |   70 +++++++---
- 1 file changed, 50 insertions(+), 20 deletions(-)
+> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+> index 9d223057953ab..a5e661eff86d7 100644
+> --- a/drivers/resctrl/mpam_resctrl.c
+> +++ b/drivers/resctrl/mpam_resctrl.c
+> @@ -786,7 +786,10 @@ static u32 get_mba_min(struct mpam_props *cprops)
+>   /* Find the L3 cache that has affinity with this CPU */
+>   static int find_l3_equivalent_bitmask(int cpu, cpumask_var_t tmp_cpumask)
+>   {
+> -	u32 cache_id = get_cpu_cacheinfo_id(cpu, 3);
+> +	int cache_id = get_cpu_cacheinfo_id(cpu, 3);
+> +
+> +	if (cache_id < 0)
+> +		return -ENOENT;
+>   
+>   	lockdep_assert_cpus_held();
+>   
 
---- linux-next-20260911.orig/Documentation/ABI/stable/sysfs-driver-firmware-zynqmp
-+++ linux-next-20260911/Documentation/ABI/stable/sysfs-driver-firmware-zynqmp
-@@ -141,32 +141,44 @@ Description:
- 
- 		Usage:
- 
--		Select over temperature config ID to enable/disable feature
-+		Select over temperature config ID to enable/disable feature::
-+
- 		# echo 1 > /sys/devices/platform/firmware\:zynqmp-firmware/feature_config_id
- 
--		Check over temperature config ID is selected or not
-+		Check over temperature config ID is selected or not::
-+
- 		# cat /sys/devices/platform/firmware\:zynqmp-firmware/feature_config_id
-+
- 		The expected result is 1.
- 
--		Select over temperature config ID to configure OT limit
-+		Select over temperature config ID to configure OT limit::
-+
- 		# echo 2 > /sys/devices/platform/firmware\:zynqmp-firmware/feature_config_id
- 
--		Check over temperature config ID is selected or not
-+		Check over temperature config ID is selected or not::
-+
- 		# cat /sys/devices/platform/firmware\:zynqmp-firmware/feature_config_id
-+
- 		The expected result is 2.
- 
--		Select external watchdog config ID to enable/disable feature
-+		Select external watchdog config ID to enable/disable feature::
-+
- 		# echo 3 > /sys/devices/platform/firmware\:zynqmp-firmware/feature_config_id
- 
--		Check external watchdog config ID is selected or not
-+		Check external watchdog config ID is selected or not::
-+
- 		# cat /sys/devices/platform/firmware\:zynqmp-firmware/feature_config_id
-+
- 		The expected result is 3.
- 
--		Select external watchdog config ID to configure time interval
-+		Select external watchdog config ID to configure time interval::
-+
- 		# echo 4 > /sys/devices/platform/firmware\:zynqmp-firmware/feature_config_id
- 
--		Check external watchdog config ID is selected or not
-+		Check external watchdog config ID is selected or not::
-+
- 		# cat /sys/devices/platform/firmware\:zynqmp-firmware/feature_config_id
-+
- 		The expected result is 4.
- 
- Users:		Xilinx
-@@ -205,52 +217,70 @@ Description:
- 
- 		Usage:
- 
--		Enable over temperature feature
-+		Enable over temperature feature::
-+
- 		# echo 1 > /sys/devices/platform/firmware\:zynqmp-firmware/feature_config_id
- 		# echo 1 > /sys/devices/platform/firmware\:zynqmp-firmware/feature_config_value
- 
--		Check whether the over temperature feature is enabled or not
-+		Check whether the over temperature feature is enabled or not::
-+
- 		# cat /sys/devices/platform/firmware\:zynqmp-firmware/feature_config_value
-+
- 		The expected result is 1.
- 
--		Disable over temperature feature
-+		Disable over temperature feature::
-+
- 		# echo 1 > /sys/devices/platform/firmware\:zynqmp-firmware/feature_config_id
- 		# echo 0 > /sys/devices/platform/firmware\:zynqmp-firmware/feature_config_value
- 
--		Check whether the over temperature feature is disabled or not
-+		Check whether the over temperature feature is disabled or not::
-+
- 		# cat /sys/devices/platform/firmware\:zynqmp-firmware/feature_config_value
-+
- 		The expected result is 0.
- 
--		Configure over temperature limit to 50 Degree Celsius
-+		Configure over temperature limit to 50 Degree Celsius::
-+
- 		# echo 2 > /sys/devices/platform/firmware\:zynqmp-firmware/feature_config_id
- 		# echo 50 > /sys/devices/platform/firmware\:zynqmp-firmware/feature_config_value
- 
--		Check whether the over temperature limit is configured or not
-+		Check whether the over temperature limit is configured or not::
-+
- 		# cat /sys/devices/platform/firmware\:zynqmp-firmware/feature_config_value
-+
- 		The expected result is 50.
- 
--		Enable external watchdog feature
-+		Enable external watchdog feature::
-+
- 		# echo 3 > /sys/devices/platform/firmware\:zynqmp-firmware/feature_config_id
- 		# echo 1 > /sys/devices/platform/firmware\:zynqmp-firmware/feature_config_value
- 
--		Check whether the external watchdog feature is enabled or not
-+		Check whether the external watchdog feature is enabled or not::
-+
- 		# cat /sys/devices/platform/firmware\:zynqmp-firmware/feature_config_value
-+
- 		The expected result is 1.
- 
--		Disable external watchdog feature
-+		Disable external watchdog feature::
-+
- 		# echo 3 > /sys/devices/platform/firmware\:zynqmp-firmware/feature_config_id
- 		# echo 0 > /sys/devices/platform/firmware\:zynqmp-firmware/feature_config_value
- 
--		Check whether the external watchdog feature is disabled or not
-+		Check whether the external watchdog feature is disabled or not::
-+
- 		# cat /sys/devices/platform/firmware\:zynqmp-firmware/feature_config_value
-+
- 		The expected result is 0.
- 
--		Configure external watchdog timer interval to 500ms
-+		Configure external watchdog timer interval to 500ms::
-+
- 		# echo 4 > /sys/devices/platform/firmware\:zynqmp-firmware/feature_config_id
- 		# echo 500 > /sys/devices/platform/firmware\:zynqmp-firmware/feature_config_value
- 
--		Check whether the external watchdog timer interval is configured or not
-+		Check whether the external watchdog timer interval is configured or not::
-+
- 		# cat /sys/devices/platform/firmware\:zynqmp-firmware/feature_config_value
-+
- 		The expected result is 500.
- 
- Users:		Xilinx
+find_l3_equivalent_bitmask() passes @cache_id to find_l3_equivalent_bitmask() as
+a 'unsigned long' argument. Actually, it can be 'u32'. It's not directly related
+to this patch though.
+
+int mpam_get_cpumask_from_cache_id(unsigned long cache_id, ...);
+
+can be:
+
+int mpam_get_cpumask_from_cache_id(u32 cache_id, ...);
+
+Thanks,
+Gavin
+
 
