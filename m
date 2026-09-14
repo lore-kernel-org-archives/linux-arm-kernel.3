@@ -4,143 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41E5DC88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 07:54:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2F64C88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 07:59:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YMPfUrVyPf1pRktvVlNlNgY37bXHD54kvZbB1N3M2XM=; b=LTyuIOGBj49a/7Ng+O5T+hMM9o
-	QoF669WPqys4BzKJN/gbHzbsoeM5JDTN4Eik2Hn66Uh3ybKuF/5eNdx2TpNkTaar8IQfCxwvSsZxj
-	Q1u2clpa6fSJcan/JHokkELPa1CZOBPSMVC8ZyONZQJVdZFQT6KYs2TANVn3bPvKp2fMugW01kPWH
-	KrOOkDYpojOjGneYFH5x/vlEtJrH0j54iClcOOJe4RI5mTr7VLxIpcDrnPnmurKUi+74jpm1Vaz0s
-	284UMJf6Rz1qumGsmjRZg6W86r5Mws0DBjpr8WyvrUyuIhrPHFDXG/g11ZuK4VuOCmtK5vdh2NP1f
-	IBTZ4Bzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0g8YRTAfNpB/LIEJRW4htZZQabejSE3QJeAUYbefuTU=; b=AXn0afSgCbGwb/Jqq0A2ahAkSH
+	Hhe4vdholxbLJsygqGmqmU7eqUimeaxHSxxSZulyCbUDgsGa4mwSqlD+CsOVD09c0p58PGhvzlkCd
+	sKratDG/U7NDhXbRJGBanMZx0NCOrRoDPPXyAyPMxC7gzAXEWdFqiMXjtRSF+JU6yH2bSE5uhQDAL
+	RtYkkqBIcwYG7Xslc0oKIv3rUUe0q0+MdsN6DvrUPMXzQA2NwR6DHHtH4eEJXYbATXaPy4/4d32/I
+	O4mtVy1oGEyIF+EtrBHwdTFNrY99fRtgTYGoDo4Et00iUHLza8M0PfPXWKsNAqVvTbpLX8IyP9MvY
+	cNgprAjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x61WS-00000002dDW-3PCB;
-	Mon, 14 Sep 2026 07:54:40 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1x61aX-00000002dYy-1l0Q;
+	Mon, 14 Sep 2026 07:58:53 +0000
+Received: from mail-wm1-x347.google.com ([2a00:1450:4864:20::347])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x61WO-00000002dCo-2icw
+	id 1x61aV-00000002dYb-0IsY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 07:54:39 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=no9Y4mYUXgNW+vcHcgDDhbs79rMC3B5uoe7askQ8QqQgOtRxyP2cBoR8LMYXw6ASXz2CFNSZ9guIF05Qr39+E7ZSUWQwTBVxovFTLnZVJDnNVNtF3l4B4s1Oz/xskRFtHFzw1LmA4Y7DsRWZNjb33MpUPElW4d6SwC7LAnYfJllGPyG5iMw4R/F1YyRsJAkK+fzi3GoOs8+Uv0Ivhqbg4iUYSKYqe0ePdXjR/9lQG/WvbgSQ686KbjnXpChczNAJ6J37KOHG+SXyoSXGaxpZRwq2/iJE9uaUR7JS4iXyF+OLWLZ2Gr7EL138L1Xd28WHeG3lCkyIXN8yQ7OKPpQI/Q==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YMPfUrVyPf1pRktvVlNlNgY37bXHD54kvZbB1N3M2XM=;
- b=hjjZTs6CNzjgSnxz77J88JYPiyLWlUoSHb8TtD5QuWFIIExlcBd2DcNzBTo7G+bgVK449TU7uV2UFNCk7mFeu01sbPobsCQaQu7FMy+GdVvDlJ663BNq4284wXncWlq6SfKzelJG8R6bgfNGwBTwwz/8FSJDisaEwmym8ea703Ztc+89G8AEt7iLLreedbgUs+iFHEjcjahGeNqxOGjqvVftyqrWD5jAZ8nHGr0y9+PLSjsdJRRgHDm+XYO0BuAJP+dqO90xt1Nrsuqmn5lSFdu6m7naTN0mLs8HwY1qVusH46vefUUirlF0a+VjZTCq/XuKTIflDAMwDJ8nk6MZdQ==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=nvidia.com smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YMPfUrVyPf1pRktvVlNlNgY37bXHD54kvZbB1N3M2XM=;
- b=EQF0bHkRY9ioMpgBKEmlVhBuH0WTTUTVxk0XDSlCKZS78espDJPf5/Jn1sJg5q2US2DCC/giREYLLqZUDM8KwM1dXDvL8EYFEiG04hPgnrd77sgXzZM1ZJ6ofj7XUE5T+O4kcTdG9IjtBl7YnmHt1QodzfUfICzmDHCGWg4eF0o=
-Received: from DU2P251CA0012.EURP251.PROD.OUTLOOK.COM (2603:10a6:10:230::8) by
- DU0PR08MB9396.eurprd08.prod.outlook.com (2603:10a6:10:423::14) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.406.7; Mon, 14 Sep 2026 07:54:24 +0000
-Received: from DB5PEPF00014B9B.eurprd02.prod.outlook.com
- (2603:10a6:10:230:cafe::2f) by DU2P251CA0012.outlook.office365.com
- (2603:10a6:10:230::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.12 via Frontend Transport; Mon,
- 14 Sep 2026 07:54:24 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DB5PEPF00014B9B.mail.protection.outlook.com (10.167.8.168) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.428.7
- via Frontend Transport; Mon, 14 Sep 2026 07:54:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=w+NGoJOysk1BXBNlkSlgBjE9u+A5o5iQpQ26bNKfNiAbwDU391EbMzNYRvpCtBqyntEAAE9Q53sbXdNtznGy9EmkIimJx1gMjodFubqO6oAoC45kWTmLqFRVnvSNfrgx5+n1nNhIqt2y1Z1opy6bsfV7e+Br3C0NpwJIB9vMEBC6/XCTdIw+tdvI3XJbwlL5TQabHI2i6Shj7nK78yBHPsGrXrvhn0zEFExdZnPAuZVCQLmqn9UOk/Bt1hmemmY1g/Zs7a56Lfnod2KEAz9i3F1Hiwm3wVTRA/irJhSgx+ktMZIDkdBz9FHmsnh5ffH3qMUxlml0c979rHTT/u5Xew==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YMPfUrVyPf1pRktvVlNlNgY37bXHD54kvZbB1N3M2XM=;
- b=BCQPFwkX6cTn0rvi1e2QxaelTkCiIKAzNKvEu1ualq2Q8S6OQPo1WEuBiVRSE+m/uCn4xfBZOZTa0f680sdel3jPIijaL5eunVMDwNWI69tjc7me+zrA6uNn96fSzve6DEZPpaHCPifafj7z4Hc2ke6IdVzYwYlBCT7/1r1PamVsYSSKlhCmPzX9y3tGZiXxCqM+emKpPmP5O7Bqw/7/8zjnYRVl02TSnz/MnD3E7bjAqjcG5vQ0ynAukmC819stdbmtcY2r6zYKklNmmCVnA/8u1dFP1B/+XJNu8vEZ11KwKaKuPUiSNff47XNbb6cLtAcODSWwX01MAAXL+n+9JQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YMPfUrVyPf1pRktvVlNlNgY37bXHD54kvZbB1N3M2XM=;
- b=EQF0bHkRY9ioMpgBKEmlVhBuH0WTTUTVxk0XDSlCKZS78espDJPf5/Jn1sJg5q2US2DCC/giREYLLqZUDM8KwM1dXDvL8EYFEiG04hPgnrd77sgXzZM1ZJ6ofj7XUE5T+O4kcTdG9IjtBl7YnmHt1QodzfUfICzmDHCGWg4eF0o=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10455.eurprd08.prod.outlook.com
- (2603:10a6:150:16f::10) by AMDPR08MB11484.eurprd08.prod.outlook.com
- (2603:10a6:20b:71a::21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.8; Mon, 14 Sep
- 2026 07:53:48 +0000
-Received: from GV1PR08MB10455.eurprd08.prod.outlook.com
- ([fe80::af66:6019:a08:d04]) by GV1PR08MB10455.eurprd08.prod.outlook.com
- ([fe80::af66:6019:a08:d04%4]) with mapi id 15.21.0428.004; Mon, 14 Sep 2026
- 07:53:45 +0000
-Message-ID: <32b15e37-4938-4af2-a880-273a3eee5164@arm.com>
-Date: Mon, 14 Sep 2026 09:53:44 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/2] Add SMCCC cache clean/invalidate provider
-To: Srirangan Madhavan <smadhavan@nvidia.com>, mark.rutland@arm.com,
- lpieralisi@kernel.org, sudeep.holla@kernel.org, conor@kernel.org,
- jic23@kernel.org
-Cc: catalin.marinas@arm.com, will@kernel.org, treding@nvidia.com,
- jonathanh@nvidia.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org
-References: <20260910082142.1522865-1-smadhavan@nvidia.com>
-Content-Language: en-US
-From: =?UTF-8?B?QmVuY2UgQ3PDs2vDoXM=?= <bence.csokas@arm.com>
-In-Reply-To: <20260910082142.1522865-1-smadhavan@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: VIVP296CA0064.AUTP296.PROD.OUTLOOK.COM
- (2603:10a6:800:35a::13) To GV1PR08MB10455.eurprd08.prod.outlook.com
- (2603:10a6:150:16f::10)
-MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10455:EE_|AMDPR08MB11484:EE_|DB5PEPF00014B9B:EE_|DU0PR08MB9396:EE_
-X-MS-Office365-Filtering-Correlation-Id: cd7a0501-87ae-479d-8432-08df12356496
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|7416014|10070799003|23010399003|366016|1800799024|6133799003|10067099003|5023799004|56012099006|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info-Original: Ny3k+uJmeQP634ySS9EHz9dU7esV9NHt8egoOdO4g6OEKeIrbU6mcTDxSLTSKmNSWTWT36CocxNxis9Qn+f9H6HTzf4gTk5PvPK4OFf2QNq4Sl9dZ7ddpo3pdU762uFZRsVLtQ9ja55OnLmw0k9m5Ktu03pLXvT/zdibu8W+SvCnh9vbzTwISPNUyHNPh9s2LqxHh/w3LyDKCybCsiX/Nv93+YdEX1hr8osDlwUOug6khs43uO+zsbXOUWOntHJsPtz+ys/M0froiJ0jcUTgM49nO2k3sfiIotoRDPZVWmuMgz5bUCBtrbeKIJOxUxyQzatBATZpNAn7pnjbvdP1YxnecuErS7ce7hFd6BYXrGBORm/P3NiBxMZG2akFVTH4KoPTET6y7c9Yu02d3QxNK75z3h1KWRJ+Tn8qlclpwqE9uFpVwrNNemvdtkW+3/9MdNOlgtbXSGhUARlTNoFkTPLvTAnJBPuOvF2+ADRkTkYyRpUbpbtvqkZWcCOouObh3KnWJ4od+RvRhMol/laAF4s1lPxooqawEVlMb+A9f5EiFnN6ExI44qDx0IDXA+M5gMIVq+sxpApbGrQ3ODdzZF8uTfpBd/XIXGH5vDsLw+EKx0skAXRP5+AqwXiKX/SsAPhqbmy1eszN/dQcvQk9g+ylThu9q0qzvCP2K/RyK+Y=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10455.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(10070799003)(23010399003)(366016)(1800799024)(6133799003)(10067099003)(5023799004)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: aD6hRivUhlKuVvUnJaQFoFdO9hFHrqHUwALF1bxwCFI4CLGc+CvW7uZZJ1zj4GI2425CH0EODfCDipx97RtdTqxpS5Z60W46rMUI2j+h6P4rUCUG/92wHPcsLCumzD8OcJp2xvujRP2FXY67bBNy2hEgRcWNLkToytyH2xjDhGgoUKLs8XM8obY3gqsfKvSy15lY44weJI9/F06krPb4QJCs2Bgo6ro1O+QmAGHrd6ikdeV7eSItZjiAP5vhjO52tgFrzgEq2W2TsU3kozKplWvXTOV1BIQtrxdMe0izfEoTefyAuy73kWgC++iLqPe0Mg3pLjsgH3u+3aVTj9h81w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMDPR08MB11484
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB5PEPF00014B9B.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 123e22ca-1e97-4f33-1ccb-08df12354d32
-X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|7416014|14060799003|36860700016|82310400026|1800799024|23010399003|376014|10067099003|56012099006|5023799004|11063799006|6133799003|22082099003|18002099003|13003099007;
-X-Microsoft-Antispam-Message-Info: lOzf/E08DMT8O00liAKHRQDyCllO8hijxVVn4yhYrnUH8kA1rx1rtN+gjEHTDiD06GWRlkwPJRbhdk0M9Jdly50v9tVczArjhyGDzFObp2GtFdGkxFkSFoZ6mxOYrZM/6So9Ja5ZmgpEWk9Hw6IqOO+RmOPIslApiKQaFyWaeYEQnEGiEDzU7R+/jJLgOEimfk0ddbI1d41euCkil+kmX9dTkoR1tSxYvNP/XYOBDt6wlpQtSwtw8pLqtN8/Z9jWS1yABdwbCJSksjQKcfRS++zAEjS5D3ptmoQUdIg6ti5DG8OCApHT+LlNVohkJvahBkmgyfDW/Sp0QiB2hYOs6by73mUZy+/y/iWCrdLbk1Zo9cO+fVAK3jpkyMz38bpzplsOPeRtF6XdFUOswtsqTWd0Q/mJW6UPplephOFNe2K5BH9ZD/MgYcl+rV4twkF9fsbd5Ixmwj++80fAssuNpApItTxksrvdVtCOcnGvFcPlvPm7n1LF+3jaimIkunv440FzAaFEirjYOVy3YrZ8exzEA/B9XLho4YAWt6HIMy93tMzlu4UJnX7Y3CvXoahzQc2QoAjiYP497vRqldSQRTwQZo7NaAzKOvkOrH67Qiw3wOlwwa/ZveDl7Vd+J+apPvdiJKDPxChIF94bk8en4qFRJpM5U7gfMY7xlPZCCZNBjcLoMBdHDb88/MoVR83zUgm9qE5hoaZ/Ww7rXdL9dA==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(7416014)(14060799003)(36860700016)(82310400026)(1800799024)(23010399003)(376014)(10067099003)(56012099006)(5023799004)(11063799006)(6133799003)(22082099003)(18002099003)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: czjPVp9lEeA6Xg2mH+L2MdKKhBsGEWgtdTyiz9/rm5zUUeGRy8gI/nGqHDQ6/598B1JYj2ieK+4h7vlzUKKt1xF46BEc/0hl0kdn27a3WbJlX8nAiVDCXEviOz/hw2Fte65rXJaBIM9yrUn+3yziVyDVIyOuv7rrnG6s5hL/2e90k0Z/5cXByLomFAjXLRn6nnU7JTusvFvs/gROZh6+HwtxMDMZQw5xqz9ZYzLU2Y44Sy4MRHA/dAJU8yOrD2mB0q6wPvPlrBv9TIm+KjVBv06AvpwaEiuFXY6+5s6iQ8gFt4d2jy4c28CqoNOhv4VVRD2acVbQ3095ixhHQORtrCMTOb64EHSu3naXH+T8lE0w+31WOn9VSH3j3PW27Uk7w2T6k54e2n7WKFG1NdIkeCi//YeRn+Cus2YpS+gUvC679m+4nlTx+qBpux+DWwpI
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Sep 2026 07:54:23.9030
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: cd7a0501-87ae-479d-8432-08df12356496
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB5PEPF00014B9B.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB9396
+	Mon, 14 Sep 2026 07:58:52 +0000
+Received: by mail-wm1-x347.google.com with SMTP id 5b1f17b1804b1-4957287363bso17373565e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 00:58:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1789372729; x=1789977529; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0g8YRTAfNpB/LIEJRW4htZZQabejSE3QJeAUYbefuTU=;
+        b=qaf6Ba/b8nEtDWQVrgwThtNIq8NUYy1GlC0m64boNsvtylk5Zuc/StXkkFZh6QivSd
+         BB/tgELEVHUfyRA76u9jR9B33Yii2xyAdsCmTXMkcBahhoWwG9v5O/Z7E7S+DUxvVuAm
+         4aht0PumdXO9nKHciHs3EczlmL5J0leJ2A1pFUmRlI0D7kyFCwRgwvDxCP/Nwp9A3RDn
+         liPqoSibv4iPQ4Qb9+XbFOZbzQZ8tnhHNfj1av0vIJ5kZ0imASg+G0wIcCRsTVGavT2c
+         BTI7H19bMttFgQW2NR2+tpxMu1CQhiUFAFKUNBW3OW4rYcznVQEW0DRrKf7FSkMvdqBv
+         xL4A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789372729; x=1789977529;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=0g8YRTAfNpB/LIEJRW4htZZQabejSE3QJeAUYbefuTU=;
+        b=rzm2K1PLtzgQVHQCmsy0zcIY8V6XJArOUxMWMgPfvfflAlntVQOOIjRlvmtXdwLA+F
+         YQMZdY05Kz7UWL/iWmzPPnDpbz6DWtmL7vt+YOoctIn760vuhQ/PJdLXcT/jyQI8z8Bd
+         zvEAMkKduaZ/5a8qF2k3HIYbUglx48NnWIX+IB29mKIRjTMyZNIrXMeUFh4WAF43/BW9
+         tCveoS9NqeWQIcAVDiN8rqvP7vLpPHj4MGyjmtClgW0Zt9CiaNaNZfLYlNjkbmfUDIs5
+         7P74O3MAZptaj9bMs6Dp6rhPVuK0p6bT7xv9hH7sve1aZzAq0U585F9+HuZ0oiCL2yRd
+         A+MQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxrGn1fKRx5Wo7LW64GVyEwQpSC1qVt0z5ifPTqFnI++0boFqL/Ae5a3N9t5T/bKGaReHmEwKb8OmY6Zcm0OaZj@lists.infradead.org
+X-Gm-Message-State: AFuF++kCbunyCc9wbf+fH1532b/G1CO3hkvSK2GiCnWnuxJ+IOJ72WTP
+	Ub0WxwHb8ypkUAgN7wO+ZuvHEjSr2AiTZK+gkThxgaR4ttpzB0Io8Ii/tp8fmI7ykL48376/dzX
+	cP91GnP0tMaM0FvAeIzk51A==
+X-Received: from wmfr12.prod.google.com ([2002:a05:600c:158c:b0:495:72a8:661f])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:6819:b0:499:8aff:59b6 with SMTP id 5b1f17b1804b1-49e7a655a2dmr16386405e9.14.1789372728554;
+ Mon, 14 Sep 2026 00:58:48 -0700 (PDT)
+Date: Mon, 14 Sep 2026 08:58:39 +0100
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.55.0.1007.g17ff1f9808-goog
+Message-ID: <20260914075839.4019904-1-vdonnefort@google.com>
+Subject: [PATCH v2] KVM: arm64: Fix protected VM fault on system with pages
+ larger than 4K
+From: Vincent Donnefort <vdonnefort@google.com>
+To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
+	kernel-team@android.com, fuad.tabba@linux.dev, qperret@google.com, 
+	Vincent Donnefort <vdonnefort@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_005437_030033_B206272B 
-X-CRM114-Status: GOOD (  24.43  )
+X-CRM114-CacheID: sfid-20260914_005851_154071_152CC7E8 
+X-CRM114-Status: GOOD (  15.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,106 +91,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Just like commit 08f97454b7fa ("KVM: arm64: Fix protected mode handling
+of pages larger than 4kB") fixed the boot of non-protected VMs on system
+larger than 4K pages, align the fault IPA down to the page-size for
+protected VMs.
 
-On 2026. 09. 10. 10:21, Srirangan Madhavan wrote:
-> Apologies for the delay in posting v3. We waited until the corresponding
-> firmware support was available in TF-A. This allowed the provider to be
-> tested end to end with the CXL Reset series [2].
-> 
-> This series adds an arm64 backend for memregion cache invalidation users
-> based on the Arm SMCCC cache clean+invalidate interface.
-> 
-> Per DEN0028, this interface targets systems where a Normal Cacheable
-> memory region can be modified in ways that are not handled by usual PE
-> coherency mechanisms, and where VA-based CMOs may be too slow or
-> insufficient for large ranges and/or system-cache implementations.
-> 
-> Representative use cases include device-backed memory state transitions
-> where stale CPU/system cache lines must be invalidated reliably (for
-> example secure erase, reset/offline flows, and dynamic memory
-> reconfiguration).
-> 
-> Patch 1 introduces the Arm SMCCC cache clean/invalidate function IDs and
-> transient return codes needed by callers [1].
-> 
-> Patch 2 adds a cache maintenance provider that:
-> - discovers SMCCC support and attributes at init time
-> - registers with the generic cache coherency framework used by
->    cpu_cache_invalidate_memregion()
-> - handles transient BUSY/RATE_LIMITED responses with bounded retries
-> 
-> This patch set does not add a software fallback path; when firmware does
-> not implement the SMCCC cache maintenance interface, the provider is not
-> registered and existing behavior is preserved.
-> 
-> References:
-> [1] https://developer.arm.com/documentation/den0028/h
-> [2] https://lore.kernel.org/linux-cxl/20260902072804.665639-1-smadhavan@nvidia.com/
-> 
-> DEN0028 v1.7 has since been confirmed as stable.
-> 
-> Testing:
-> - With corresponding TF-A support enabled, exercised the provider through
->    the CXL Reset path and verified that it invokes the SMCCC call and
->    completes the cache flush successfully.
-> - ARM64 defconfig with CONFIG_CACHEMAINT_FOR_HOTPLUG=y and
->    CONFIG_ARM_SMCCC_CACHE=y
-> - W=1 build of drivers/cache/arm_smccc_cache.o
-> - W=1 build of the ARM64 Image
-> 
-> Changes since v2:
-> - Rebased onto Linux v7.3-rc1.
-> - Preserved the final BUSY or RATE_LIMITED error after retry exhaustion.
-> - Dropped the redundant feature query for the mandatory ATTRIBUTES call.
-> - Preserved the full 64-bit maximum-call-rate value returned in X3.
-> - Reordered local declarations in reverse-fir-tree order.
-> - Removed the routine provider registration message.
+To paraphrase Marc, pkvm_pgtable_stage2_map() assumes the address passed
+as a parameter is aligned to the size of the intended mapping, while
+HPFAR_EL2 gives the IPA minus the bottom 12 bits, regardless of the
+system page size configuration.
 
-Reviewed-by: Bence Csókás <bence.csokas@arm.com>
+Add a check at the start of pkvm_pgtable_stage2_map() as we do not
+support !PAGE_ALIGNED arguments and use the gfn as an argument in all
+callers.
 
-I have yet to try it out on actual hardware, but from looking at the 
-code, it now seems to match the spec.
+Fixes: ea03466e806f ("KVM: arm64: Handle aborts from protected VMs")
+Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+---
 
-> Changes since v1:
-> - Added Jonathan Cameron's Reviewed-by tags.
-> - Clarified the ARM_SMCCC_CACHE Kconfig help text.
-> - Added a Makefile comment identifying the providers that depend on
->    CACHEMAINT_FOR_HOTPLUG.
-> - Dropped the final-backoff-sleep skip in the retry loop.
-> 
-> Changes since RFC:
-> - Dropped the RFC tag.
-> - Moved the provider from arch/arm64/mm to drivers/cache.
-> - Added a dedicated CONFIG_ARM_SMCCC_CACHE option under the existing
->    CACHEMAINT_FOR_HOTPLUG menu.
-> - Dropped the global-operation coalescing optimization.
-> - Dropped provider handling for SMCCC_RET_NOT_REQUIRED.
-> - Removed the unnecessary global provider pointer.
-> - Removed arm64_ prefixes from static provider-local names.
-> - Documented why these SMCCC Arch cache maintenance calls use SMC64.
-> - Anchored the SMCCC return-code comment to DEN0028 v1.7.
-> - Used fsleep() for retry backoff.
-> - Used unsigned long for retry delay values passed to fsleep().
-> - Skipped the final backoff sleep when no retry remains.
-> - Documented the bounded mutex hold time across the serialized retry
->    sequence.
-> - Added mutex_destroy() on the registration failure path.
-> 
-> Srirangan Madhavan (2):
->    arm64: smccc: add cache clean/invalidate IDs and return codes
->    cache: add SMCCC-backed cache invalidate provider
-> 
->   drivers/cache/Kconfig           |  11 +++
->   drivers/cache/Makefile          |   2 +
->   drivers/cache/arm_smccc_cache.c | 149 ++++++++++++++++++++++++++++++++
->   include/linux/arm-smccc.h       |  21 ++++-
->   tools/include/linux/arm-smccc.h |  21 ++++-
->   5 files changed, 200 insertions(+), 4 deletions(-)
->   create mode 100644 drivers/cache/arm_smccc_cache.c
-> 
-> 
-> base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+Changelog:
 
-Bence
+v2:
+  - Use gfn_to_gpa(gfn)
+  - Drop "phys" from the PAGE_ALIGNED check, it isn't a requirement.
+  - Fix gmem_abort() as well (Sashiko)
+
+v1: https://lore.kernel.org/all/20260913173516.3122436-1-vdonnefort@google.com/
+
+ arch/arm64/kvm/mmu.c  | 7 ++++---
+ arch/arm64/kvm/pkvm.c | 3 +++
+ 2 files changed, 7 insertions(+), 3 deletions(-)
+
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 9ba86450fe4a..ee78201a44df 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -1672,10 +1672,10 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
+ 		 * PTE, which will be preserved.
+ 		 */
+ 		prot &= ~KVM_NV_GUEST_MAP_SZ;
+-		ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, s2fd->fault_ipa,
++		ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, gfn_to_gpa(gfn),
+ 								 prot, flags);
+ 	} else {
+-		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, s2fd->fault_ipa, PAGE_SIZE,
++		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, gfn_to_gpa(gfn), PAGE_SIZE,
+ 							 __pfn_to_phys(pfn), prot,
+ 							 memcache, flags);
+ 	}
+@@ -1710,6 +1710,7 @@ static int pkvm_mem_abort(const struct kvm_s2_fault_desc *s2fd)
+ 	unsigned int flags = FOLL_HWPOISON | FOLL_LONGTERM | FOLL_WRITE;
+ 	struct kvm_vcpu *vcpu = s2fd->vcpu;
+ 	struct kvm_pgtable *pgt = vcpu->arch.hw_mmu->pgt;
++	gfn_t gfn = gpa_to_gfn(s2fd->fault_ipa);
+ 	struct mm_struct *mm = current->mm;
+ 	struct kvm *kvm = vcpu->kvm;
+ 	void *hyp_memcache;
+@@ -1756,7 +1757,7 @@ static int pkvm_mem_abort(const struct kvm_s2_fault_desc *s2fd)
+ 	}
+ 
+ 	write_lock(&kvm->mmu_lock);
+-	ret = pkvm_pgtable_stage2_map(pgt, s2fd->fault_ipa, PAGE_SIZE,
++	ret = pkvm_pgtable_stage2_map(pgt, gfn_to_gpa(gfn), PAGE_SIZE,
+ 				      page_to_phys(page), KVM_PGTABLE_PROT_RWX,
+ 				      hyp_memcache, 0);
+ 	write_unlock(&kvm->mmu_lock);
+diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+index 8e4c6e4bec12..b7340c430ed6 100644
+--- a/arch/arm64/kvm/pkvm.c
++++ b/arch/arm64/kvm/pkvm.c
+@@ -414,6 +414,9 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
+ 	u64 end = addr + size;
+ 	int ret;
+ 
++	if (!PAGE_ALIGNED(addr | size))
++		return -EINVAL;
++
+ 	lockdep_assert_held_write(&kvm->mmu_lock);
+ 	mapping = pkvm_mapping_iter_first(&pgt->pkvm_mappings, addr, end - 1);
+ 
+
+base-commit: df2908090cda368b01ff43709f51890076c56157
+-- 
+2.55.0.1007.g17ff1f9808-goog
+
 
