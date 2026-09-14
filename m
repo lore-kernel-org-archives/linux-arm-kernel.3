@@ -4,97 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 925CDC88E64
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 07:03:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92C8AC88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 07:05:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WEcbhQazoSj1y/YavhLCyevXiP51++W+4wFyMfPfLH8=; b=MKEYEBO5feUhXyG3/1WRgVjefJ
-	H81+lOLjpxGlqtwFLK0NPGP4STRMFtI0DXPXz1pBqLpgvXAuCq1C4MqLtnuGzqxMz5zwB6Of6wajj
-	pXN570JkpZiBz22hWjrU+lwZFbpneNNdAf1xoc33K1/sRiLpmruBL8p0oBRsEO6u7J0zCEqxulOA1
-	Rtyoid4CX8emOK4lKW36Y0T4VcDLibQ3BIFHdpKiXaUP4KSp1X6vkHnObnJ0lH7Q8wUn4hIKJp4mH
-	z76FRmXtpPjH9ZZHLtYYQRrn3eXsrSbV5G/7/vFI3UzYffJsvwd5iUUpzxswo3isTauGRG5tsh4iZ
-	J6m1pgAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DH89L2lGg0PAoWlWKSm5EbgAp+EKeh2hDRosmekpaxM=; b=03sMl6qBlAtTGeb9wsAjlT40sh
+	4GPAh80jN7zl1PNJVn4vAK+mZCkkMerNlb0ggeK0DKNIOw++Mo8VolNG/dWjIrd9v/TB2DyrBDsVz
+	dG171xox2jumD3YSEQd7HZ+bU7IO1pFqxvM9GR3/yp2efXC2sFKRi2arnDDeEIpjqcSEUXWs3jQCt
+	B/vGQa/9W2PwcEVpZw6dISksNzPCqw7Lc4CDjDXKONIwG2uRYsAZBWi3K5yqhAY/zXZMtnQCp21rW
+	8UIj4MnuvXEaTK1vAzJKWtxA9PK81nHiz8PrJq72PB/V/uDLJ4Jp2qjyRVjJTVn15GHBSe1V0S6z/
+	YDNxzSlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x60j4-00000002W7G-0qbS;
-	Mon, 14 Sep 2026 07:03:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x60j3-00000002W6y-2a7g;
-	Mon, 14 Sep 2026 07:03:37 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0E60660142;
-	Mon, 14 Sep 2026 07:03:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 489181F000FF;
-	Mon, 14 Sep 2026 07:03:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789369416;
-	bh=WEcbhQazoSj1y/YavhLCyevXiP51++W+4wFyMfPfLH8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=JE1P8nt2+GATNQTa6sTYnl9jTgx15El0FdbS10klL/OAbcC8zGQdc3X2a12aswWUQ
-	 ugSnP+fGMPaGDy3B6IGUKT7DPxiW5tFG84lqLNP2447KfWNNm5vAZVc0+vfLU/1joS
-	 rLlBbE1Od/kwZi0Zsm8Mz/fdEWcVXoW1Gf2Q2fb7LiECmYDcqPI/pGkJZzte7hyYAq
-	 tZj1Xx65LGLQ22zHRcP0bBcIKlA1xCYv/c+mccHOq140cRCtt5VOD/PjpM0xEXmOhE
-	 rQcF6J7GxnekCBSZLyX1nhfSJmRyRKpxd8uGz1HHqfFlnfFDXKgzuH0ynjBavxFC9h
-	 BY/QWR4Q43auw==
-From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-To: iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
+	id 1x60kN-00000002WWn-2f1R;
+	Mon, 14 Sep 2026 07:04:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x60kL-00000002WW1-0fEz;
+	Mon, 14 Sep 2026 07:04:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CD68A1570;
+	Mon, 14 Sep 2026 00:04:48 -0700 (PDT)
+Received: from arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 911B73F59E;
+	Mon, 14 Sep 2026 00:04:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789369492; bh=pNtlqXsBGCXtcZenUVL4HnAZIU2omYNdHVskCp9kiQY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WjzekkFU7LYMsWmvbH6omfz9eiehQlIy1DvkIwSKBzOu4bgxWOpLpY1XNyvADEjc/
+	 RIYrNIPjgGfO/oXQusxaDuL0uJ5dWRQDa8FiYsXRiU64kEK5zQqVdxhrIlMp79EAay
+	 u6GeTXpPrBV01pmQNMaH2U6JcIVCltzsfFxz7cxE=
+Date: Mon, 14 Sep 2026 09:04:39 +0200
+From: Beata Michalska <beata.michalska@arm.com>
+To: Oleg Keri <okerixx@gmail.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Sumit Gupta <sumitg@nvidia.com>,
+	Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
 	Russell King <linux@armlinux.org.uk>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	x86@kernel.org
-Subject: [PATCH v4 5/5] dma: swiotlb: Remove SWIOTLB_ANY
-Date: Mon, 14 Sep 2026 12:31:34 +0530
-Message-ID: <20260914070135.313337-6-aneesh.kumar@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260914070135.313337-1-aneesh.kumar@kernel.org>
-References: <20260914070135.313337-1-aneesh.kumar@kernel.org>
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, driver-core@lists.linux.dev,
+	linux-pm@vger.kernel.org, jonathan.cameron@oss.qualcomm.com,
+	sibi.sankar@oss.qualcomm.com
+Subject: Re: [PATCH v3 1/2] arm64: topology: fix arch_freq_get_on_cpu()
+ overflow above 4.19 GHz
+Message-ID: <aqech7ctaPnW_U34@arm.com>
+References: <20260910063440.4677-1-okerixx@gmail.com>
+ <20260910063440.4677-2-okerixx@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260910063440.4677-2-okerixx@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260914_000457_237083_BBB05AC7 
+X-CRM114-Status: GOOD (  18.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,153 +83,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-swiotlb pools are currently allocated below the architecture's low
-address limit by default. SWIOTLB_ANY overrides this and permits
-allocation anywhere in directly mapped memory.
+Ack.
 
-SWIOTLB_INIT_ADDRESSING_LIMIT now explicitly identifies callers which
-need a pool that is reachable by devices with limited DMA addressing.
-Use it as the placement constraint and remove SWIOTLB_ANY.
+Thanks for the patch.
 
-This changes the default behavior for callers which do not set either
-flag. Previously, omitting SWIOTLB_ANY placed the default pool below the
-architecture's low address limit and also constrained dynamically
-allocated pools to the same range. After this change, omitting
-SWIOTLB_INIT_ADDRESSING_LIMIT permits both static and dynamic pools to
-use any directly mapped memory.
-
-Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 ---
- Documentation/core-api/swiotlb.rst |  8 ++++----
- arch/powerpc/mm/mem.c              |  6 ++++--
- arch/s390/mm/init.c                |  2 +-
- arch/x86/kernel/pci-dma.c          |  2 +-
- include/linux/swiotlb.h            |  7 +++----
- kernel/dma/swiotlb.c               | 17 ++++++-----------
- 6 files changed, 19 insertions(+), 23 deletions(-)
-
-diff --git a/Documentation/core-api/swiotlb.rst b/Documentation/core-api/swiotlb.rst
-index 71b4e4c27eb5..06d9f88fdf7b 100644
---- a/Documentation/core-api/swiotlb.rst
-+++ b/Documentation/core-api/swiotlb.rst
-@@ -148,10 +148,10 @@ may also be adjusted
- due to other conditions, such as running in a CoCo VM, as described above. If
- CONFIG_SWIOTLB_DYNAMIC is enabled, additional pools may be allocated later in
- the life of the system. Each pool must be a contiguous range of physical
--memory. The default pool is allocated below the 4 GiB physical address line so
--it works for devices that can only address 32-bits of physical memory (unless
--architecture-specific code provides the SWIOTLB_ANY flag). In a CoCo VM, the
--pool memory must be decrypted before swiotlb is used.
-+memory. The default pool is allocated below the architecture's low address
-+limit when it is needed for devices with limited DMA addressing. Otherwise,
-+it may be allocated anywhere in directly mapped memory. In a CoCo VM, the pool
-+memory must be decrypted before swiotlb is used.
- 
- Each pool is divided into "slots" of size IO_TLB_SIZE, which is 2 KiB with
- current definitions. IO_TLB_SEGSIZE contiguous slots (128 slots) constitute
-diff --git a/arch/powerpc/mm/mem.c b/arch/powerpc/mm/mem.c
-index 006ed41097e9..1bdea6c03848 100644
---- a/arch/powerpc/mm/mem.c
-+++ b/arch/powerpc/mm/mem.c
-@@ -295,9 +295,11 @@ void __init arch_mm_preinit(void)
- 		/*
- 		 * Since the guest memory is inaccessible to the host,
- 		 * devices always need to use the SWIOTLB buffer for DMA
--		 * even if dma_capable() says otherwise.
-+		 * even if dma_capable() says otherwise. The hypervisor has
-+		 * no addressing limitation, so the buffer may be allocated
-+		 * anywhere.
- 		 */
--		ppc_swiotlb_flags |= SWIOTLB_ANY;
-+		ppc_swiotlb_flags &= ~SWIOTLB_INIT_ADDRESSING_LIMIT;
- 	}
- 
- 	/*
-diff --git a/arch/s390/mm/init.c b/arch/s390/mm/init.c
-index 78f507e24ceb..ce10292447f1 100644
---- a/arch/s390/mm/init.c
-+++ b/arch/s390/mm/init.c
-@@ -166,7 +166,7 @@ static void __init pv_init(void)
- 	virtio_set_mem_acc_cb(virtio_require_restricted_mem_acc);
- 
- 	/* make sure bounce buffers are shared */
--	swiotlb_init(SWIOTLB_VERBOSE | SWIOTLB_ANY);
-+	swiotlb_init(SWIOTLB_VERBOSE);
- 	swiotlb_update_mem_attributes();
- }
- 
-diff --git a/arch/x86/kernel/pci-dma.c b/arch/x86/kernel/pci-dma.c
-index cd6dd151d634..a8070cae8253 100644
---- a/arch/x86/kernel/pci-dma.c
-+++ b/arch/x86/kernel/pci-dma.c
-@@ -89,7 +89,7 @@ static void __init pci_xen_swiotlb_init(void)
- 	/* Xen can use a SWIOTLB pool anywhere in directly mapped memory. */
- 	x86_swiotlb_flags &= ~(SWIOTLB_INIT_ADDRESSING_LIMIT |
- 			       SWIOTLB_INIT_FORCE_DISABLE);
--	x86_swiotlb_flags |= SWIOTLB_INIT_REMAP | SWIOTLB_ANY;
-+	x86_swiotlb_flags |= SWIOTLB_INIT_REMAP;
- 	swiotlb_init_remap(x86_swiotlb_flags, xen_swiotlb_fixup);
- 	dma_ops = &xen_swiotlb_dma_ops;
- 	if (IS_ENABLED(CONFIG_PCI))
-diff --git a/include/linux/swiotlb.h b/include/linux/swiotlb.h
-index ef7a776ee508..77542f107b3f 100644
---- a/include/linux/swiotlb.h
-+++ b/include/linux/swiotlb.h
-@@ -15,13 +15,12 @@ struct page;
- struct scatterlist;
- 
- #define SWIOTLB_VERBOSE	(1 << 0) /* verbose initialization */
--#define SWIOTLB_ANY	(1 << 1) /* allow any memory for the buffer */
- /* Initialize a default-sized pool for devices with limited DMA addressing. */
--#define SWIOTLB_INIT_ADDRESSING_LIMIT	(1 << 2)
-+#define SWIOTLB_INIT_ADDRESSING_LIMIT	(1 << 1)
- /* Initialize a default-sized pool that requires architecture remapping. */
--#define SWIOTLB_INIT_REMAP		(1 << 3)
-+#define SWIOTLB_INIT_REMAP		(1 << 2)
- /* Do not initialize a pool unless SWIOTLB is explicitly required. */
--#define SWIOTLB_INIT_FORCE_DISABLE	(1 << 4)
-+#define SWIOTLB_INIT_FORCE_DISABLE	(1 << 3)
- 
- /*
-  * Maximum allowable number of contiguous slabs to map,
-diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
-index 6695da682f96..f8a77926b8b0 100644
---- a/kernel/dma/swiotlb.c
-+++ b/kernel/dma/swiotlb.c
-@@ -448,15 +448,10 @@ static void __init *swiotlb_memblock_alloc(unsigned long nslabs,
- 	size_t bytes = PAGE_ALIGN(nslabs << IO_TLB_SHIFT);
- 	void *tlb;
- 
--	/*
--	 * By default allocate the bounce buffer memory from low memory, but
--	 * allow to pick a location everywhere for hypervisors with guest
--	 * memory encryption.
--	 */
--	if (flags & SWIOTLB_ANY)
--		tlb = memblock_alloc(bytes, PAGE_SIZE);
--	else
-+	if (flags & SWIOTLB_INIT_ADDRESSING_LIMIT)
- 		tlb = memblock_alloc_low(bytes, PAGE_SIZE);
-+	else
-+		tlb = memblock_alloc(bytes, PAGE_SIZE);
- 
- 	if (!tlb) {
- 		pr_warn("%s: Failed to allocate %zu bytes tlb structure\n",
-@@ -604,10 +599,10 @@ void __init swiotlb_init_remap(unsigned int flags,
- #ifdef CONFIG_SWIOTLB_DYNAMIC
- 	if (!remap)
- 		io_tlb_default_mem.can_grow = true;
--	if (flags & SWIOTLB_ANY)
--		io_tlb_default_mem.phys_limit = virt_to_phys(high_memory - 1);
--	else
-+	if (flags & SWIOTLB_INIT_ADDRESSING_LIMIT)
- 		io_tlb_default_mem.phys_limit = ARCH_LOW_ADDRESS_LIMIT;
-+	else
-+		io_tlb_default_mem.phys_limit = virt_to_phys(high_memory - 1);
- #endif
- 
- 	/* if we have host or guest memory encryption */
--- 
-2.43.0
-
+BR
+Beata
+On Thu, Sep 10, 2026 at 08:34:39AM +0200, Oleg Keri wrote:
+> arch_freq_get_on_cpu() computes the product of the frequency scale and
+> the reference frequency as a u64, but assigns it to an unsigned int
+> before shifting it back down:
+> 
+> 	freq = scale * arch_scale_freq_ref(cpu);
+> 	freq >>= SCHED_CAPACITY_SHIFT;
+> 
+> The product is truncated to 32 bits before the shift, so the result
+> wraps once arch_scale_freq_ref() exceeds 2^32 / SCHED_CAPACITY_SCALE,
+> i.e. 4194304 kHz.
+> 
+> On a Snapdragon X2 Elite (Glymur) laptop, whose boost OPP is 4723200
+> kHz, cpuinfo_avg_freq reports 524283 kHz instead of ~4723200 kHz while
+> the CPU demonstrably runs at the boost frequency: a fixed workload
+> completes in 1.72 s at the 4723200 kHz OPP versus 2.01 s at 4032000
+> kHz, matching the 1.171 frequency ratio.
+> 
+> Keep the arithmetic in 64 bits until after the shift.
+> 
+> Fixes: 16d1e27475f6 ("arm64: Provide an AMU-based version of arch_freq_get_on_cpu")
+> Signed-off-by: Oleg Keri <okerixx@gmail.com>
+> ---
+>  arch/arm64/kernel/topology.c | 3 +--
+>  1 file changed, 1 insertion(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+> index d28438f8b83f..0eca321ff113 100644
+> --- a/arch/arm64/kernel/topology.c
+> +++ b/arch/arm64/kernel/topology.c
+> @@ -245,8 +245,7 @@ int arch_freq_get_on_cpu(int cpu)
+>  	 * (see amu_scale_freq_tick for details)
+>  	 */
+>  	scale = arch_scale_freq_capacity(cpu);
+> -	freq = scale * arch_scale_freq_ref(cpu);
+> -	freq >>= SCHED_CAPACITY_SHIFT;
+> +	freq = (scale * arch_scale_freq_ref(cpu)) >> SCHED_CAPACITY_SHIFT;
+>  	return freq;
+>  }
+>  
+> -- 
+> 2.55.0
+> 
 
