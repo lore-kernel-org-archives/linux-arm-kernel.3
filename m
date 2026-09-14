@@ -4,110 +4,183 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D195EC88E73
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 16:48:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71039C88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 16:52:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UrOlDT7L1Dl8kz1yM8HMjcw+s4ZfZbKkhGl/ULkPQG8=; b=Jm1b+XUVGmnuNWesNlI5cVuvFF
-	5dwd3u154+jBnTZe88V/HXFxXu1JQrFPAkNp6PZTZgCanzHd61PDRXDOMefkiFZJ8VylbxhYWvu1Y
-	8c+R4amh84J0qeEm12iGuKS2RS2ieSJJQ8I/vt5pIZnVI/Ch9+sqWwirJzKcZtVPn7jWpCbbzn5dC
-	bWH8WXh+Pv8L8HPnogMqQFa3eNHo4O5Qnm/Kw6dWrPWhcj/hac645RIbqIDbQvKgtGVZRhsYRgctu
-	M/7J4OUvQuyGn9aajTUNl0erS6Djl7i5DQqe0ZI690ASfyZMe30RS9mnJAoPZjMAly8hAERvpGWEY
-	K0mrxyQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D30AXCDpkYxtWCDwCcyiBylHMMBhaV7DbFVXUk1oQdk=; b=hpN4EVRmqruhyIuxkau/tw1iK4
+	QlpYID3zfnCkUAc5cL5/yYNk4Oed3wGwmhXgIXQV0w/WeoQO+ABB4IuSZCgMKwB44CcvGmvn/aMfS
+	epvdSQOCedL986sM85b6NhvXFJHEyezR/aUM37MgoZb0nW8ZhFTBbg/wILAILmP676zdQfnBrxDzw
+	A70pEOpdh+7juP6TDPyh0ts2uuAtdWNK3eDQ2cqD8Jif3pJDn/GmMisBIONo05MXO143tD7E/fKIy
+	at0C0LEgjzy2VvVcGt5awRdoE9TUCLIAicv1QyH77t8W3lXpEtWV2Wt2OqweyXjEatZtw+p983cG6
+	0F5qtVNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x69qq-00000004KNB-2ba3;
-	Mon, 14 Sep 2026 16:48:16 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1x69vG-00000004Ktu-3HDg;
+	Mon, 14 Sep 2026 16:52:50 +0000
+Received: from mgamail.intel.com ([192.198.163.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x69qn-00000004KMX-39GP
+	id 1x69vD-00000004KtS-3LqZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 16:48:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1789404492;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=UrOlDT7L1Dl8kz1yM8HMjcw+s4ZfZbKkhGl/ULkPQG8=;
-	b=XET748iAaun8Jdg3jYEBzCaEto3MISeDaBot9uJAVX6Ai9sE0I0SCSKDEquWvQf+O7sCui
-	fWor4Pgewrm+45cbxIDTMO5oY66FJiLc5cQ2rlX6i+tiK+8jZZb7mAw+l+XLvSmLK48oae
-	0iYnP3leQtepmEDQhSSntla8uIXPv1s=
-Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com
- [209.85.219.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-479-20QVNAcjMoy2zWENAn-t9A-1; Mon, 14 Sep 2026 12:48:09 -0400
-X-MC-Unique: 20QVNAcjMoy2zWENAn-t9A-1
-X-Mimecast-MFC-AGG-ID: 20QVNAcjMoy2zWENAn-t9A_1789404489
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-90e7de22fddso77321116d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 09:48:09 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789404489; x=1790009289;
-        h=content-transfer-encoding:content-type:mime-version:date:message-id
-         :subject:references:in-reply-to:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=UrOlDT7L1Dl8kz1yM8HMjcw+s4ZfZbKkhGl/ULkPQG8=;
-        b=VlUNKuz81bGKt0S+d4bj9/pJxHdpQnqF8hzSO3O4Sd6ty8QJ0H0phBVOb979Ai1MzY
-         Pq7+32IPh/6DWvaLHhgZHZstqDlNLuXm7Nfkog4mXTljtdQ+MNWM34q+czgtglomNk1B
-         SrkAVSipI8Oy+Seqbb+Ydfgy6XGIKqvkHg42e9nWvczx1PQ9wT6ETtpgkppOYPjK55Er
-         UAK1BcTFKE/Zocn3hyjxl3OJqAfT57pjp4FQ6EL45dV8zQSdTeIHroOTFJTpbQD8aBkW
-         FJTj3HqysZ1i7IvRqWf9hEZP5OxGslYOsnb7gNLmE/jObDmq7lYdUc1BDVTJ4W4kZ9Qi
-         lucQ==
-X-Forwarded-Encrypted: i=1; AKwUvByulswLxc5nTlsbpZKAspR3VbAcN+qmhcqdkN4rEWy8M/ukn03JNgzGHpFCvn6ztQrzK2y5HLdv+6IC45bGMyfL@lists.infradead.org
-X-Gm-Message-State: AFuF++mM9ATRDXUvgOIT8xVVJg6rlssgXRc8FNXAvuS8yNjI5jXDUzGD
-	I8Tw4L1V18dKaBgAy5qlfCl59YalCbFIOCwbNNzKfE99o+gts22yHfhmJBLdYNmaMmP+PZWqQ+g
-	5l8oduKIOnV8IPLfqNDvb9GMDEi2ZoH4pUOFlo1HDnlxmq8IVTYEIvwKnZUW47Ry8rVBRTx8OAZ
-	RQ
-X-Gm-Gg: AYBFou0WcFUJiOMrTok+I3U1zBq97Y+MDnDyxWut/b350W2XVyjfMUt1t6ArXH7rzZW
-	9CwFV7BlM4BQdpRIAiE4tggLBc3uSE9ykLlr4hLU1yJK54aMBTajht533As6LEuQZERYJR07m8k
-	HXq8VA5IPxH56aEIfVFeGiHkwjc07INfLDdkM6gSgRqqWm6HxL3HYD6hGznyltJNINfcGRtr+GC
-	+q5jB90fQ2zDxQprwjF0XbXxByRU6AL7/Pyg0C/PgwgtfR/o87ZQmsjKCys4MZn7px/5Q9RHTfO
-	rDHUQXQFiNQJPAtNnAgbaC8TYHzvcg4p/mLaHbk56yIqnNecNTi4gJRrPGbzTdXL7JDzZvd24EV
-	IxTauMV4IR/vC8rtMrkhBu2ybaCFePn5I0T6bl7Mw
-X-Received: by 2002:a05:622a:1195:b0:530:cf10:8a97 with SMTP id d75a77b69052e-5310d028105mr51736251cf.38.1789404488704;
-        Mon, 14 Sep 2026 09:48:08 -0700 (PDT)
-X-Received: by 2002:a05:622a:1195:b0:530:cf10:8a97 with SMTP id d75a77b69052e-5310d028105mr51735621cf.38.1789404488088;
-        Mon, 14 Sep 2026 09:48:08 -0700 (PDT)
-Received: from [192.168.1.15] (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-530ca460a32sm104363801cf.9.2026.09.14.09.48.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Sep 2026 09:48:07 -0700 (PDT)
-From: Brian Masney <bmasney@redhat.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: sboyd@kernel.org, jbrunet+clk@baylibre.com, linux-clk@vger.kernel.org, 
- matthias.bgg@gmail.com, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-In-Reply-To: <20260914142039.31654-1-angelogioacchino.delregno@collabora.com>
-References: <20260914142039.31654-1-angelogioacchino.delregno@collabora.com>
-Subject: Re: [PATCH] MAINTAINERS: Add Angelo as MediaTek Clock Drivers
- submaintainer
-Message-Id: <178940446474.51095.501258130718058993.b4-ty@b4>
-Date: Mon, 14 Sep 2026 12:47:44 -0400
-MIME-Version: 1.0
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=344; i=bmasney@redhat.com;
- s=20250903; h=from:subject:message-id;
- bh=+LRTP52U/oWNmbfVd/dRn41R6JZhfEc41nXAbJPqOy0=;
- b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGLJWqLosfyA364GJ7ESnXd/ZO36fyFZiL+eeKfRCIcPde
- 5vTPIuXHaUsDGJcDLJiiixLco0KIlJX2d67o8kCM4eVCWQIAxenAEzkRTzDf8/S522nJQuW7m18
- cTj25s9nGxdedWLcpWzh2H3f8lH76zSG/9EhGXrvHDkW9/b4PzzBJx0qcPSXa/hRN+9URgNdRjd
- bbgA=
-X-Developer-Key: i=bmasney@redhat.com; a=openpgp;
- fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: NNCAv2WDes4SaZjfz5h0R4yPExwIKi5DwUZPXgcADVc_1789404489
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
+	Mon, 14 Sep 2026 16:52:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1789404768; x=1820940768;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=YT1LSmeL9l+Y96sxoQbC131PbS7W/xI1tn5zMZ6ojAc=;
+  b=BymLdO62qKhgZ6j4PU4RFvjG29qBMMx9DlCV/97Z4u5XrfvnHbR0ujfA
+   NGEBSlaiZybWro1ARC3NZ++X5Nrdhq4Yrfp2Qhmjz5P2BalrPpb6tlnxK
+   AI2Ikgc/L+JEb3sLl7Kk9FtwzoIHskTeajs+lqL1Mo4CVBCZg/BzVubS3
+   EV1qO2leUFLM07ZgtLpnUA/Td/Sv6HoudmpR01+0B5H6Z8WhmU3iw2bqV
+   3kheq0AIUVkUlUaI2L0Ml0YtfhSiz70nLLDIKyH1MEimFCECTAfP/46lj
+   Qp13WCr1Xj8DfoAzDY8XKP3CYqsXZaq4SrLMV4eg4gJpwGovU+fZqX2D5
+   Q==;
+X-CSE-ConnectionGUID: xeIfC/adQNyqGvFC0K5x0A==
+X-CSE-MsgGUID: KMSw9kJVQ36vrMSqwZrAJQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="92271361"
+X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
+   d="scan'208";a="92271361"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Sep 2026 09:52:47 -0700
+X-CSE-ConnectionGUID: jlSm0CTTQNGGYyyRvi1wSw==
+X-CSE-MsgGUID: rvjk1x7sSzu+SYB6tz+yNw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
+   d="scan'208";a="269009763"
+Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
+  by fmviesa010.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Sep 2026 09:52:47 -0700
+Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46; Mon, 14 Sep 2026 09:52:46 -0700
+Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46 via Frontend Transport; Mon, 14 Sep 2026 09:52:46 -0700
+Received: from PH8PR06CU001.outbound.protection.outlook.com (40.107.209.29) by
+ edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46; Mon, 14 Sep 2026 09:52:45 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=O4xJJQRRTCWdWr1fnazMbaQry8pvn5W262vrIh99uujVBk8tMdwn5sBiJp4F0tGJayx3JECduPkzsrkNJZl5qQhb7u1hW8uPWHcXZkX+no6BFPVfdxx4tcfRS/+W8cLDirZ/LY+prm1FSi9qZk9ci97kfnKHkJWO6a75GJaNv/ox0Qp/3h8v2hde3FoBeRYvOrkIWxGakrWd+EEcQjj2aQm+rlCypMeKVva+wAAAswGdM/n05JeugU5w6x4bi5zgtf8cXuKdvxbZB3ZwiVC2vHBe1OubAE87xJ9CHF+4NEqQ6UhzuNCxouEMIqbnNX4VV+aT87f9hvO2zCWrikhGug==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=D30AXCDpkYxtWCDwCcyiBylHMMBhaV7DbFVXUk1oQdk=;
+ b=E9Wcz7TiXp62QQDLVgWl/liiK7YQ0sL8wFqjWK3CjVbhT5o+52Smj1XYg/KQcjwMAsLXjhb3np5TDos6H7CrHjXuooMHJ69CIR+mSQzNtMbhlXU+s3wvJZpE3CpIs3849q6peASH2yqdVwWqUrDYrx7qORXn4gRvl1truf27vn83ggHlNYrsaqfPfw5eRI2gSZTyKYJKgcEtBIcuX0kHG34alml9tx52cJVHddkQvoaGeg0JiLciD0YY11k4xyOxf0Cp2NBzlz/+RS9kS2u3X3GsVIEcUErgdz2vNs3Xxs+5+SYlOySjcFrBu1LB874WUUzcD7gSkvWES0zLuukkYg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from SJ2PR11MB8370.namprd11.prod.outlook.com (2603:10b6:a03:540::20)
+ by CH3PR11MB7251.namprd11.prod.outlook.com (2603:10b6:610:147::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Mon, 14 Sep
+ 2026 16:52:42 +0000
+Received: from SJ2PR11MB8370.namprd11.prod.outlook.com
+ ([fe80::b6cf:ce77:3cdf:7cc]) by SJ2PR11MB8370.namprd11.prod.outlook.com
+ ([fe80::b6cf:ce77:3cdf:7cc%5]) with mapi id 15.21.0406.007; Mon, 14 Sep 2026
+ 16:52:42 +0000
+Message-ID: <4a5276ca-238c-418b-872e-3dd495b50171@intel.com>
+Date: Mon, 14 Sep 2026 09:52:40 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH] arm_mpam: resctrl: Separate MPAM domains
+To: Ben Horgan <ben.horgan@arm.com>, <james.morse@arm.com>,
+	<Dave.Martin@arm.com>, <fenghuay@nvidia.com>
+CC: <tony.luck@intel.com>, <babu.moger@amd.com>, <yu.c.chen@intel.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<patches@lists.linux.dev>
+References: <85ca29e89eacf12cfa7071249419e7cadb8f0691.1788220029.git.reinette.chatre@intel.com>
+ <0b0eef2d-ce3b-48c8-af08-5889e7396e4f@arm.com>
+ <a492ffb3-c12e-4986-8f36-c907382c67e5@intel.com>
+ <96eda554-64a1-4f1e-9608-98cd106b00da@arm.com>
+ <a3cf9362-007d-4c6c-8f6f-1c9b8b41b1b9@intel.com>
+ <ad1f8ed5-266a-4d79-91ef-ad8ab3febfb8@arm.com>
+ <26e294a0-76a6-4ec0-9df8-021a76bf8ed9@intel.com>
+ <86603611-b20d-4a0a-a247-8cebb11b3432@arm.com>
+ <071d3dc6-6c18-4287-af26-719b89304058@intel.com>
+ <d403b92c-aae8-499f-8c73-933a2d757fba@arm.com>
+ <3595fe1b-0621-4599-b94d-a027336a2ce4@intel.com>
+ <3571430b-15b5-4451-97e4-455f9fd46f01@arm.com>
+From: Reinette Chatre <reinette.chatre@intel.com>
+Content-Language: en-US
+In-Reply-To: <3571430b-15b5-4451-97e4-455f9fd46f01@arm.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MW4PR04CA0160.namprd04.prod.outlook.com
+ (2603:10b6:303:85::15) To SJ2PR11MB8370.namprd11.prod.outlook.com
+ (2603:10b6:a03:540::20)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR11MB8370:EE_|CH3PR11MB7251:EE_
+X-MS-Office365-Filtering-Correlation-Id: 101adcd3-3b8b-4d6f-aece-08df128097a0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|1800799024|366016|6133799003|10067099003|4143699003|5023799004|56012099006|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: SkMIfBEXTRi4gVEusnn4EEVS0nNpjr0XvAkwMfLdt3yScKpVBRAvLJ7u32XYhcwMf9XtwD2ZwAoHCbjM3ngiNLz7qLDBKw4hZ3R8ROXBiufK5QCIMoiqwb/n+qMVGHuPe3E9sYbIomvR5cJnkfOF8u/m8kYyZvyEsOocvSmkefiUgGxznOxTN8fOmMOFwN8iegxB7Iv0MQbsT5QC1Vu8hL6hvk0k11vXlStEoYdw949QNu06yvXTYE8vrjf2C3O07izTOsQ+mLNCsJG0Vix+ogffQ4LzYWGbUJ5fE+xwmgFBSCyQBNnNYMsqcIUzMTTDc0vY+iiM4sX6FQYAXz6g5IsBr7U+7vxlAmvwiSACoBU/zZAUEa1mCyRTt+bxy35fdydtSEPB8vqo+YojRb+h6LZ2typS7hgxKEoYRliVv+j4nEeyhZLuxGQ3DlcnhgdQSaJqrQpVGVkMntZGkWDnZMr2UVrz5ZMKslZxTPicHUkyFqmT8tjcfMDLAdpM0pDGqiDbvqfyTMFHWv5ZTnEiF0czX3H0hrRPVSEZoonZvT2p9zxmeUJms9RoFkmBXMXYr+HeI8rVLmMMLlLCmnlrOS9jwyTihL/qN2P1XQupHA7BRwWoq/DR//j/QeGzt3tFwRNmFzUqETkXyWTFoXpj21KiU2+K5crhtSdvJSfMleY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB8370.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(1800799024)(366016)(6133799003)(10067099003)(4143699003)(5023799004)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SGRyNVFiM2M2T3BuK2I1N0NiWDROYkpvVE8razl4cW1BNWdCTDFueTlIaFo2?=
+ =?utf-8?B?eEZnQUlmU0JGSU1XNncrWVAzeFZVcmx4V3UveXNadWhxZmphejI3QlRDOG9J?=
+ =?utf-8?B?aXFqYWFwUmJzNm5iM1ROeWVHSEw1bU5Jakg4MXcvSStqVTU2TENtL0FkK2Ru?=
+ =?utf-8?B?b2RxNitQdjlFU3B2YlJJN3QzUDVPZVBRSDV0ZUg1WHp1M01LOFNxNEQ1RFFU?=
+ =?utf-8?B?YnVXQXdrU1oxblJYenVOZzdBUTJGMUhwNitVWHk0UWREN1JHRzZoTXQ0VmFR?=
+ =?utf-8?B?SzMwV1dsQXdlZ1AyWVpHVFBDV3Mwd1FoYzVNZTAwV2VhWGsyWEFtMnRMRCtj?=
+ =?utf-8?B?NURLTEdtNVBPbUR4dXBEVlZ5MXpXdXkydlFVcGwzekx0bWlCOE1ZL0RSVXJK?=
+ =?utf-8?B?bHArSGNmRlhNcDhXK2FLeCtvNnd6T25qZ0dEMk4zNlV4ZEhHcXVtYjNHR0F0?=
+ =?utf-8?B?dDJ1V0YrbTcrSmV3OGY2b0Z3K0FmeHFpdnAvTDNRSmNXWUovL2IrZVQ3aVZT?=
+ =?utf-8?B?OUNpTHVJTTRGdlZqcnU5Nms3YlFFeEhLV2RMVkRSSXlLM2RVemlJdlhNVjZL?=
+ =?utf-8?B?ejNqQ1RXRHgvRHI4aHYzeEQyY0JmTnM0c1hDWkRJWUkyR29GeUg1V1M3SWc2?=
+ =?utf-8?B?QVFFUWdiOVZVSmRXaTRML1RsSXJGUDlMOEVJMTgwTUE3N2lIdFl5R3ZrbTdw?=
+ =?utf-8?B?ekdFMHgwKzNZRnFraHF0UXBCcUpYcndZZDEwRWc1dkJoelQ4eGdmM25hMlJI?=
+ =?utf-8?B?MmlNVFBFYXZlVm1GbGZmU2xzaWZkVG9sUG9oVUZsRGdoQWh2dXZHS1FLQlBj?=
+ =?utf-8?B?bFVGSmVMM0YyRDRERVAwQVd0NVlWTWVmVXlXamlxSUo3d3lEc2hOSzFrNUJU?=
+ =?utf-8?B?Szd1QWJIUkJ4QmZ3MUpvdDN4QzJWbDAzZkU3eTlMdlFEOEYzRHZaRlNtTU9I?=
+ =?utf-8?B?bVJMbEZDbFFrUGFTbzBTcGlteTRLKzZvK3lOOE5WUFRrbkM5NkR1KytaZXIy?=
+ =?utf-8?B?bUtjcVpVZ1Npa1lPYkp0L2s0VVVXbnl0RCtSRGlCNzZEb1lUMTBXUHBHK0h3?=
+ =?utf-8?B?dFJpQTNnQ3JRSDhXN1BXSmQzK2xsSGVIUzdCb3lGNnNBRXMxWVVPMHJjTGxH?=
+ =?utf-8?B?QlYweXZkNE9ta0h0aGJqcklMY0FMbnV0d1p2Z0g4ZW9ka0M3bENuZjMzc0gw?=
+ =?utf-8?B?M1hrMXRKSlJJOXZBRm5HdDZBUE5pb2xxU0QxNmtSdmJ1Mm9OMjRsZmNwSTNP?=
+ =?utf-8?B?STJackpzSlduRk5JUjk1YzkyOGo3YWg1YXB4akdlOUNocTdCeDgzNkxTNngw?=
+ =?utf-8?B?dXkveEpBaUU4VUtCOVd2Zi81NWN4SVV0cXhTeUJ3akJ4VEh2ZHJ1bmFqT2l0?=
+ =?utf-8?B?aGlXeWRsdC9vR1RQT1l0Q0FRRWdJVHkxUUk1RFZnVUlzTnl6UWZCeDVDR2Y3?=
+ =?utf-8?B?ajRKMVQ3TDN0RXBUTkY5T2hnQ0o1UmMxMzIxYmE3TlhFdFRaWnZVNTBnUFBp?=
+ =?utf-8?B?ZGxxblRPY0xSRWVCMUJncCtOUjdsNmNpUjcxa3hObFlYb0pRS1gxZkNNMlBW?=
+ =?utf-8?B?MWRtWFFjaDhMM0p0T25kcUFSQ0tMdjQ2QU1JOElPbDJuUjhuV2oveUU5Nldj?=
+ =?utf-8?B?TkJkUkpXdUZJWUgxTHJaV29BUkdSRXNjZUZsaU1sNitnaHlNMjJ0Ujc3MmJO?=
+ =?utf-8?B?TG4wVFdrUGg1ZUsvVVkrOEMwUW5uV05jTHZRcDhjRkhWYnlXNUg0NHlqNk05?=
+ =?utf-8?B?SlRUR2thQjEydTZHK2Nia1Y5RXZJZW1FcEsyUTQwcDBDK2FtdFdZemFjaXU2?=
+ =?utf-8?B?aFhVbWU2SzZJL3JqRzZUWklUSHVRNlRwWXpmaVJKOTNmdGV6NnFjYXpJd0hn?=
+ =?utf-8?B?MWRBcVlNMjRUU2hoMzRiMXkzbGlyM2lCbVJ5QWtkVXI1d29Sem5ZaEtvK1pj?=
+ =?utf-8?B?L1BrbFFVZ3krN0J2K2NmcXRxWFI3RmhLbEx2cWNHUktnNUxROGdrWTA4U09a?=
+ =?utf-8?B?OGFqaXJJM3BRZ2p3aE5zQ2tBUmlDNm84M1g0emVWUXVDakFFOE5KOHk3ZDdx?=
+ =?utf-8?B?aVI4MFdyakpEQk5zV3hJS25IZk1CSlRPcGx1UUtyaGRONlRBWjdSczViUmo1?=
+ =?utf-8?B?cXJEcXZtQkk2T0t5UG84eElZVHBuQmVncmJZWm0yWEZlNHVMMUVRNTNhMFRC?=
+ =?utf-8?B?ZHFSQXFyNzAzS1Q2UUxGbS9FL3RkN255RHdqSzk5bjRpSXNhT05QSWd6M08w?=
+ =?utf-8?B?eXJwUUkyQXNPYTRGNTNLWlFISThYU3BBNUtaYzhOUG1WamdtUVlJQ1VEa21n?=
+ =?utf-8?B?UGNGZE5Id20wOUVXSlhVRTRGZzdjcy90Z1drd0VKUzlrNHFkQmNmV24rcm5D?=
+ =?utf-8?Q?wloMj/MtE9aW/JBw=3D?=
+X-Exchange-RoutingPolicyChecked: risQg02iRgvOSzn0kzG7TVyQTUjDIeugx9CX8LnpLxRWij4HNJdRY9eX7zR/xt4NnbRZrPjHQDeKTvdNRuVrhwkuuX/iTfucK4O+NqnxWCUI/Ecx4oSWpy3j+gQtWaKC9SIGUxLKiM4Y7qsLnwzG9L3Y1jyRmn05VJmYfyCfPj5pdT27AaTG48wlDsGo4aDru9GQYkhn4iwByBMQsJn3hLy4WfUqmSE4vq4Wzxx5W+4OmOtXjgEWR4W0tnGBmP5g6pWzKD0tUVNUzmCjG7wrJdmVPA9ZWVS6+bZmR5w19I3yGb9M78yHA1NggYIFPzcfkvuGe+rEI3JPxWzpNDV3iA==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 101adcd3-3b8b-4d6f-aece-08df128097a0
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB8370.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Sep 2026 16:52:42.2001
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: nWhF9uR/9/yrTOVYFux4DH24D9cCthL1lNC02uGy3iW2xf7fGNsLUjLv5s7DnxPWVaWI9qFOb4c0IoHut3oUmBkF67EXFMUQ8/yu3BTKEGE=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR11MB7251
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_094813_860233_1B97BE7C 
-X-CRM114-Status: UNSURE (   7.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260914_095247_861221_68F1F781 
+X-CRM114-Status: GOOD (  21.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,17 +195,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Ben,
 
-On Mon, 14 Sep 2026 16:20:39 +0200, AngeloGioacchino Del Regno wrote:
-> MAINTAINERS: Add Angelo as MediaTek Clock Drivers submaintainer
+On 9/14/26 9:11 AM, Ben Horgan wrote:
+> On 14/09/2026 16:16, Reinette Chatre wrote:
+>> On 9/11/26 1:56 AM, Ben Horgan wrote:
+>>> On 10/09/2026 19:10, Reinette Chatre wrote:
+>>
+>>>>
+>>>> Do (admittedly crude) guardrails like below capture the existing driver requirements?
+>>>>
+>>>> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+>>>> index 9d223057953a..dbd06371890c 100644
+>>>> --- a/drivers/resctrl/mpam_resctrl.c
+>>>> +++ b/drivers/resctrl/mpam_resctrl.c
+>>>> @@ -1681,11 +1681,18 @@ mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
+>>>>  				continue;       // dummy resource
+>>>>  
+>>>>  			mon_comp = find_component(mon->class, cpu);
+>>>> +			if (!mon_comp) {
+>>>> +				WARN_ON_ONCE(0);
+>>>> +				err = -EFAULT;
+>>>> +				goto offline_ctrl_domain;
+>>>> +			}
+>>>>  			dom->mon_comp[eventid] = mon_comp;
+>>>> -			if (mon_comp)
+>>>> -				any_mon_comp = mon_comp;
+>>>> +			any_mon_comp = mon_comp;
+>>>
+>>> This first part which ensures that if there is a class for the monitor then a component can always
+>>> be found for the given CPU.
+>>>
+>>>>  		}
+>>>> -		if (!any_mon_comp) {
+>>>
+>>> The any_mon_comp check could still be useful to confirm that if r->mon_capable then there is a
+>>> component for at least one of the events.
+>>
+>> resctrl fs does not handle such scenario. r->mon_capable guides whether the resource
+>> supports monitoring and if it is then all domains belonging to the resource is expected to
+>> support all monitoring events associated with the resource. resctrl fs will expose all the
+>> monitoring event files based on r->mon_capable and which monitoring events are enabled, there
+>> is no finer grained support to expose/hide events per domain.
+> 
+> Yes. I wasn't intending to suggest anything different. If r->mon_capable then the MPAM driver does
+> support all enabled events. Maybe I would would have been more to correct to just say if
+> r->mon_capable is true we confirm that we can do some monitoring.
 
-Applied, thanks!
+ah - I see. Thank you for clarifying. 
 
-[1/1] MAINTAINERS: Add Angelo as MediaTek Clock Drivers submaintainer
-      commit: 6b838130d2759008f8e8a80093c9eb6fcd435707
+>> If any_mon_comp is true while one of the mon_comp is NULL then resctrl will still expose the
+>> event to user space and pass attempts to read the data to MPAM driver.
+>>
+>> Is this a scenario that the MPAM driver needs to support? That is, users will see event files
+>> but reading the data will succeed in some domains but fail in others? 
+> 
+> No, we don't expect the MPAM driver to support any features inconsistently across resctrl domains.
+> If the hardware did happen to be mismatched then we sanitize it, in __class_props_mismatch() we
+> ensure the class only exposes the features that are common to all the child components.
+Thank you very much.
 
-Best regards,
--- 
-Brian Masney <bmasney@redhat.com>
+Reinette
 
 
