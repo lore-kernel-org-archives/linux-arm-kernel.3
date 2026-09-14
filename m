@@ -4,70 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6397C88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 12:06:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01F84C88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 12:06:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EPKKIl6b3EX8ev0wV8qzJhlhMCWNx423BGnboaaBEu0=; b=FrS0XISMA5XsPam9BnvvAhGAAI
-	P6jhJLzyR0sIXUJIfCI8UVxCpi8OVajq4NWc6z/2kUE8haKZMTIIHzN8Y1KUWzJzqwFREs9GIFbnV
-	JDo8qsz1+hG7uQwXi5S4ZQrHGbwaeuGEph3C3wyPuDTtojy8zHHaXkbrTjmarC6pWU5iF2KgQaVDr
-	edOAMXQ+lsSvngSHyuQs+1Uu12Y/YLQUBKyo4GLo98xv2wNBgJA31NVZV/YICyytRbluMsp2gmwpm
-	ST8noMXqfK2lhgwkHq7u9wsTgupAcpHiDRUwGOmdYaTxcLsYPlUY1HAonG1267p9RpVV1+15ZPoxe
-	QVsSQKyQ==;
+	bh=eV9XxZ24YiJtofPZFru2HTTSPY1ig6jLBXnFh2TLb6M=; b=rPWdB91CxAjVWyRFuhSMFkhWsF
+	gNsqfvtUH6uvuqo7QixibXZ2sG7B9IyQ7cYJH1/JW5ctW5g9fLzswEdY7JywIx4SG8AnBSsh9sep5
+	fvav3V23JrJ63K8W4Yqh4SfZjnOeqeWEM+SYTP39oOJ7h5lv4hjwl0ENE8VowqTFCfXkUv0lW0r0K
+	2n7w2srZskDzy38fDABnBOdUqv9nMI2j7airATuoFQ9P0LB/1uyV01Gt0NrbtbRn9ynZJxuEEylIo
+	jxMU7ajav8B98190vMrYVL+9G5jJXwSuFehe7IM76972g5Vzo3hBW7PLQv7wq8UixBGTEPivAEXmi
+	4KRJjc5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x65Rp-00000003U3q-2ELr;
-	Mon, 14 Sep 2026 12:06:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x655K-00000003LSp-2PAq;
+	Mon, 14 Sep 2026 11:42:54 +0000
+Received: from www3579.sakura.ne.jp ([49.212.243.89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x65RF-00000003TwE-2SaQ
+	id 1x6550-00000003LCX-10g2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 12:05:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 537FD4149C
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 12:05:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 383091F0089B
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 12:05:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789387533;
-	bh=EPKKIl6b3EX8ev0wV8qzJhlhMCWNx423BGnboaaBEu0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=l63j0eY3owxAwFmzW+uTH89IrGmFevi3NYadMmQhCCS1ss1AxvUwzPZhAM5U8lUSC
-	 XVGeiEDAFdBs/HBm1LHiEt1Iu6qBqLULZ9TD/KS2mLUx+BGsKIdiy1FsJe24du76xb
-	 oZz/FIhU47BOb8bxZ5OUSn854dyJHQTgX47StRGclbzw4BhtBED4rvhZ3K8rin9E2l
-	 UewJ0rwo5JgjxAQJcdvwvJwTx0yj+GuEYBtMoyO5wEFlbI/vLlTOW6wbKnoEjqGPxr
-	 EOOtGf2FBzOqf4plumIHiSmm8qwRBG3S64OkHX5Mnvw1o5X2D3icGLbmReQoFeuKNc
-	 T1Z9yUPfxwEUA==
-Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b5e4f15b79so2091885e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 05:05:33 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBzuJXf0BMgaYsJpnbVqtW7k7BVlad4o0ORw8xRLp0EaTmYbyn/yVbL0qG8dWJeIaQEeMkvdnky4WVfJHI+2DFLx@lists.infradead.org
-X-Gm-Message-State: AFuF++kzJDiTZVZQZP2b7pCuGb5Z+afqgBzQijwXGRjOJRzKHdE3QjNw
-	ZLSLWyXLiUovWwF+fHPPwFyL5qZgEzSW6dPMd5jPKkWs6nvAqH6O0VK0cHzH0BLAgTA/bHKhMjs
-	l0MJOvaFqBaeGxMvnzSxPG6VrK495Shc=
-X-Received: by 2002:a05:6512:2242:b0:5b7:65c0:8b92 with SMTP id
- 2adb3069b0e04-5b8ae68d987mr1247986e87.12.1789387531865; Mon, 14 Sep 2026
- 05:05:31 -0700 (PDT)
+	Mon, 14 Sep 2026 11:42:39 +0000
+Received: from h183.csg.ci.i.u-tokyo.ac.jp (h183.csg.ci.i.u-tokyo.ac.jp [133.11.54.183])
+	(authenticated bits=0)
+	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 68EBfjsG084060
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Mon, 14 Sep 2026 20:41:56 +0900 (JST)
+	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
+DKIM-Signature: a=rsa-sha256; bh=eV9XxZ24YiJtofPZFru2HTTSPY1ig6jLBXnFh2TLb6M=;
+        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
+        h=From:Message-Id:To:Subject:Date;
+        s=rs20250326; t=1789386116; v=1;
+        b=UQ5hHLl6uq9fmjFA2+bXa2AgElF1nOxFnRhCKIDmFMfhtJtHKjtYG7BJrC/XCJGm
+         3Rx20VCuumVEifGxw4JfJKm3bFQpWB0fAlhv/NB6fnSmZkmhGQqynROd4/yTopBj
+         BRsD1px1xxw0s/yDoVbiaxxw3PgeEcU6BEJiBRhyU/eCIl/J9gLcNtffELhpCk0C
+         khfRizGi4SchNyqpPtdMxc2+tnsa1RVhQVi6pyGilE7lMrCkFV7Y6zxq4VxoHdlM
+         MSfaUsTuD2sDslftfELx3xNIfJ8ReB1WeHhif1nR6aCw/WqE1UvH1uWxbxi5Fu1l
+         hX++3ugz5wzyDZ7zsUjBLw==
+From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+Date: Mon, 14 Sep 2026 20:40:53 +0900
+Subject: [PATCH v10 14/20] KVM: arm64: Don't clear vcpu->cpu in
+ kvm_arch_vcpu_put()
 MIME-Version: 1.0
-References: <20260903075940.2089367-1-mehmet.fide@gmail.com> <20260903075940.2089367-3-mehmet.fide@gmail.com>
-In-Reply-To: <20260903075940.2089367-3-mehmet.fide@gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 14 Sep 2026 14:05:19 +0200
-X-Gmail-Original-Message-ID: <CAD++jLnhjQncaYeN-2KQT64AJ39iWa-RtHiX2MCvJxcD0KJ=GA@mail.gmail.com>
-X-Gm-Features: AcwNN1XZ9uIL02Hv0f9jfHvvbR53KZbr_8sAwWaE8orQR7toy2YPXPWxkdZN7oo
-Message-ID: <CAD++jLnhjQncaYeN-2KQT64AJ39iWa-RtHiX2MCvJxcD0KJ=GA@mail.gmail.com>
-Subject: Re: [PATCH v5 2/3] gpiolib: add get_config() and gpiochip_generic_get_config()
-To: Mehmet Fide <mehmet.fide@gmail.com>
-Cc: Bartosz Golaszewski <brgl@kernel.org>, Dong Aisheng <aisheng.dong@nxp.com>, 
-	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>, Jacky Bai <ping.bai@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, imx@lists.linux.dev, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Mehmet Fide <mehmet.fide@screeningeagle.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260914-hybrid-v10-14-92788053a691@rsg.ci.i.u-tokyo.ac.jp>
+References: <20260914-hybrid-v10-0-92788053a691@rsg.ci.i.u-tokyo.ac.jp>
+In-Reply-To: <20260914-hybrid-v10-0-92788053a691@rsg.ci.i.u-tokyo.ac.jp>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+        Joey Gouly <joey.gouly@arm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Zenghui Yu <yuzenghui@huawei.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
+        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
+        Shuah Khan <shuah@kernel.org>, Shuah Khan <skhan@linuxfoundation.org>,
+        Yury Norov <yury.norov@gmail.com>,
+        Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+        Steffen Eiden <seiden@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+        Shannon Zhao <shannon.zhao@linaro.org>,
+        Andrew Jones <drjones@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+        linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
+        devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
+        linux-kselftest@vger.kernel.org,
+        Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>,
+        Fuad Tabba <fuad.tabba@linux.dev>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2465;
+ i=odaki@rsg.ci.i.u-tokyo.ac.jp; h=from:subject:message-id;
+ bh=ErhWx/2/oAWGH+FHSETdUjDGilu1HTKWDOvZ8jIJ/pk=;
+ b=owGbwMvMwCWmMbc20y1CyJDxtFoSQ9byuyUXGFsa9V9O+3+kP0J9YmC0dIzDD8cdn1grHwSKR
+ YXaGaV3lLIwiHExyIopsqQU7ebWiK79VJgQ3wIzh5UJZAgDF6cATMT/ECPDUVupyFXrpQ6J31cx
+ u87z/O5uiZ4HbTrSbDO/R7WUiBvqMDI8Z/zvXibSzb/WQlaGufRb+sSO35P2P6mU1XJnUF11348
+ LAA==
+X-Developer-Key: i=odaki@rsg.ci.i.u-tokyo.ac.jp; a=openpgp;
+ fpr=AEDC03C9AF734F2EC26A7BFFA4BAEAA73536753C
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260914_044234_781653_73551887 
+X-CRM114-Status: GOOD (  14.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,32 +100,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 3, 2026 at 9:59=E2=80=AFAM Mehmet Fide <mehmet.fide@gmail.com> =
-wrote:
+From: Oliver Upton <oupton@kernel.org>
 
-> From: Mehmet Fide <mehmet.fide@screeningeagle.com>
->
-> A chip with a pin control backend sets a line's configuration through
-> set_config() and gpiochip_generic_config(), but has no way to read one
-> back. gpio-mmio needs that to learn the direction of a line whose
-> direction lives in the pin controller.
->
-> Add the optional get_config() callback, taking the packed parameter to
-> query and returning its bare argument the way pinctrl_gpio_get_config()
-> does, and gpiochip_generic_get_config() as the pin control backed
-> implementation, the mirror of gpiochip_generic_config(). Without
-> CONFIG_PINCTRL the pinctrl stub returns 0 and leaves the config alone,
-> so the helper answers -ENOTSUPP there instead.
->
-> Nothing in gpiolib calls get_config() and there is no consumer API; it
-> is for the chip's own use.
->
-> Suggested-by: Linus Walleij <linusw@kernel.org>
-> Signed-off-by: Mehmet Fide <mehmet.fide@screeningeagle.com>
+commit e9b152cb957c ("arm/arm64: kvm: Set vcpu->cpu to -1 on vcpu_put")
+reset vcpu->cpu in order for the VGIC to determine if there was any vCPU
+running at the time of access. The VGIC has gone through an entire
+rewrite since then, and with commit 7d450e282171 ("KVM: arm/arm64:
+vgic-new: Add userland access to VGIC dist registers") the user
+accessors just grab all vCPU mutexes instead.
 
-Excellent Mehmet, exactly what I had in mind!
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+Drop this remaining vestige such that kvm_arch_vcpu_load() can properly
+detect a CPU migration. While at it, rework kvm_reset_vcpu() to do a
+much more pedantic check that the provided vCPU is actually what's
+running on the present CPU.
 
-Yours,
-Linus Walleij
+Signed-off-by: Oliver Upton <oupton@kernel.org>
+Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
+ arch/arm64/kvm/arm.c   |  1 -
+ arch/arm64/kvm/reset.c | 16 +++++++++++-----
+ 2 files changed, 11 insertions(+), 6 deletions(-)
+
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 8eff03c32418..dce6ba0f51e6 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -754,7 +754,6 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+ 	kvm_arm_vmid_clear_active();
+ 
+ 	vcpu_clear_on_unsupported_cpu(vcpu);
+-	vcpu->cpu = -1;
+ }
+ 
+ static void __kvm_arm_vcpu_power_off(struct kvm_vcpu *vcpu)
+diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
+index 10eb7249aa9e..cdcdea850909 100644
+--- a/arch/arm64/kvm/reset.c
++++ b/arch/arm64/kvm/reset.c
+@@ -178,17 +178,24 @@ static void kvm_vcpu_reset_sve(struct kvm_vcpu *vcpu)
+ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
+ {
+ 	struct vcpu_reset_state reset_state;
+-	bool loaded;
++	struct kvm_vcpu *running;
++	bool loaded = false;
+ 
+ 	spin_lock(&vcpu->arch.mp_state_lock);
+ 	reset_state = vcpu->arch.reset_state;
+ 	vcpu->arch.reset_state.reset = false;
+ 	spin_unlock(&vcpu->arch.mp_state_lock);
+ 
+-	preempt_disable();
+-	loaded = (vcpu->cpu != -1);
+-	if (loaded)
++	guard(preempt)();
++
++	running = kvm_get_running_vcpu();
++	if (running) {
++		if (KVM_BUG_ON(running != vcpu, vcpu->kvm))
++			return;
++
++		loaded = true;
+ 		kvm_arch_vcpu_put(vcpu);
++	}
+ 
+ 	if (!kvm_arm_vcpu_sve_finalized(vcpu)) {
+ 		if (vcpu_has_feature(vcpu, KVM_ARM_VCPU_SVE))
+@@ -215,7 +222,6 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
+ 
+ 	if (loaded)
+ 		kvm_arch_vcpu_load(vcpu, smp_processor_id());
+-	preempt_enable();
+ }
+ 
+ u32 kvm_get_pa_bits(struct kvm *kvm)
+
+-- 
+2.55.0
+
 
