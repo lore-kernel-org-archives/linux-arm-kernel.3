@@ -4,66 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C87EC88E6A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 09:24:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C72AC88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 09:28:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=14FwUVP4VtRVhoWaUBDP3sHLI/kIirB5WLoffqNNYnU=; b=3paNB1XvKDIIc+2hdMUb43dm/y
-	Mbm05QnTlcY2PzfAp1tjBCv4pmwmRMmHaBQDTZ72ahSX9Du+uFk/4c+oZmcT7LzNr0YAUkalxD8xt
-	h4q93GJ2Jjysegtj6FzAkIvhDFdjuS3LBPCNrA17fDgc8Ak2wYpmflMzIrNGN5nfmCvD2owTDEpG8
-	clWSmlY94T8MoP2UuoX5JQMc/10NsasS3vRaF/x2sai587znolLray1WN1qnVHQS55/2cZ6GWKFzK
-	KqU6EPFhvJYrzZCvoX1LybikHMiBSVoD7+WDUXkcHuBW15UeYGW9iQuejJGBOme4hzQoN3tKVrpYH
-	lFfToiTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mewteUdeB+vh/ROowqyMXpJPpjRCsZe73lQbBQU5dyg=; b=I+RYK3G0ZD/NT1RY7jMiOBvhQJ
+	0N6cuXou8OFs+QM7ngi0qVEMqV3YSFy5vpF4ol63p+Y3r0CqqKq5SXu9MCyEZNNStr12gN2IVdamq
+	iCaakdUPsQGWiHYUTtPkJ2pEgD02Cgnp0rGZ88oqZsuIe2Gy+Qpv9yM9IEfBBB1Ra49BCMA9T/YKV
+	c2sq40aZkTSnNHRgE2U6gsWfGyfA/sPEEFmI4gb4uXcKYJYNo1WzCF/JRfCkdgSE6OUuGK6PA+BL6
+	hnBDRAG13TkaJoUTc2aP3VcvJsldZNe6RIOnTXHSbhd0sTQU3ME83VIM5dIVR84192mwa8h193Nc0
+	ZEOGQfJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x62ut-00000002vF0-3gBs;
-	Mon, 14 Sep 2026 09:23:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x62uq-00000002vBl-0bfV
+	id 1x62zP-00000002xcV-0IOY;
+	Mon, 14 Sep 2026 09:28:39 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x62zL-00000002xaU-2UQO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 09:23:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E4EBC152B;
-	Mon, 14 Sep 2026 02:23:50 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BD7B53F59E;
-	Mon, 14 Sep 2026 02:23:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789377834; bh=ubJkUjiuJkItTSWUqe/0/qWR0nEqNxYSRzNn1sapfZc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jv61bvENQKNeoY/UARjTQmluM6TO6CJ5tqD4HIUC62zheGXchy4HCmSr4YGp5F3IR
-	 R462b3Rh50WC0vhuWtYhY2LowIC3Ty3dn/SzPFnYqEXdmLsI9ibA9NX+eqA45iHaXo
-	 GeUI1x1EvAnUgnwB+bq27h1cW4cN+D/KbfPXnXqc=
-Date: Mon, 14 Sep 2026 10:23:49 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Wei-Lin Chang <weilin.chang@arm.com>,
-	Wang Han <wanghan@linux.alibaba.com>,
-	Shuai Xue <xueshuai@linux.alibaba.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
-	Fuad Tabba <fuad.tabba@linux.dev>
-Subject: Re: [PATCH 1/4] KVM: arm64: pgtable: Add Stage-2 unmap without TLBI
- primitive
-Message-ID: <aqe9JUQVK-8KlUdm@J2N7QTR9R3>
-References: <20260912104834.3093878-1-maz@kernel.org>
- <20260912104834.3093878-2-maz@kernel.org>
- <aqe0w0myu7iIT_tR@J2N7QTR9R3>
+	Mon, 14 Sep 2026 09:28:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1789378114;
+ bh=mewteUdeB+vh/ROowqyMXpJPpjRCsZe73lQbBQU5dyg=;
+ b=HJMLhKX07C6IT50Otk4kGSNG+oLY86Y7ofu2hwMWDWBPSgLprFHKM2bjQyvHWlO4yUuTSb47K
+ YJ/wQs6AAG6qW/KMbikKm0YWpW5Jv97ht2lgfFRODePfdsBP/r3nu9+NvkgAG2OesxBGhUmU6x5
+ LBWwQV+jm9iJ9TMQkg0Vr0EWIblcaddFY+U/XpkqztJi/annASuOXmeLfTcrnyyL7CylSY2uC93
+ 8y2gEXUAlOcO9qZ37ORsuugW1Lu+eP0qvA2uMFoO+UIIh0rCPaqD3vL09MuRkYQ8j4FM5wK/nN8
+ Sg22Y91b1kpQMeXA9Hfv/vid5uKVMsoQ7duLPQkCMYyQ==
+X-Forward-Email-ID: 6aa7be39469f56687e0fbce3
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 2.14.2
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <1074c834-1d64-4bda-b6d5-599755324dcd@kwiboo.se>
+Date: Mon, 14 Sep 2026 11:28:19 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aqe0w0myu7iIT_tR@J2N7QTR9R3>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 2/4] arm64: dts: rockchip: Split out the common NanoPi
+ RK3528 parts
+To: HystericalDragons@proton.me
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Chukun Pan <amadeus@jmu.edu.cn>, jensen <jensenhuang@friendlyarm.com>,
+ Andrey Korshunov <razor1702@gmail.com>,
+ Diederik de Haas <diederik@cknow-tech.com>
+References: <20260914-r28s-upstream-v5-0-7409c498e8dc@proton.me>
+ <20260914-r28s-upstream-v5-2-7409c498e8dc@proton.me>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <20260914-r28s-upstream-v5-2-7409c498e8dc@proton.me>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_022356_292982_674E7F36 
-X-CRM114-Status: GOOD (  29.30  )
+X-CRM114-CacheID: sfid-20260914_022836_541202_99EC0B59 
+X-CRM114-Status: GOOD (  15.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,74 +83,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 14, 2026 at 09:48:03AM +0100, Mark Rutland wrote:
-> On Sat, Sep 12, 2026 at 11:48:31AM +0100, Marc Zyngier wrote:
-> > kvm_pgtable_stage2_unmap() iterates over a range, unmapping whatever is
-> > within the range, and always guarantees that that the corresponding TLBs
-> > are invalidated when the function returns.
-> > 
-> > While this is safe, it means that iterating over empty range on a system
-> > that supports range invalidation results in a TLBI per largest block
-> > mapping size (1GB, 32MB or 512MB, depending on the base granule size).
-> > 
-> > This can be pretty expensive in situation where the whole address space
-> > is being torn down, as it happens with NV (where S2 MMUs are recycled
-> > regularly), and it would be more efficient to elide the per-subrange
-> > TLBIs to solely rely on a VMID-wide TLBI.
-> > 
-> > For this, provide a kvm_pgtable_stage2_unmap_notlbi() helper that elides
-> > all TLBIs, and relies on the caller to do the work.
-> > 
-> > Note that for  pKVM case, no additional helper is provided, and we
-> > fallback on the TLBI-aware version.
+Hi,
+
+On 9/14/2026 10:24 AM, 安容 via B4 Relay wrote:
+> From: 安容 <HystericalDragons@proton.me>
 > 
-> Just to check: I assume that before this is called, we have somehow
-> ensured that the S2 being torn down isn't live on any PE, and cannot
-> become live on any PE? I asssume that's a natural part of S2 lifetime
-> management, but I couldn't figure that out from a quick skim of the hyp
-> pgtable code.
->
-> Assuming so, it might be worth mentioning that in the commit message,
-> since it explains why it's safe to invalidate *after* intermediate
-> tables are freed by stage2_unmap_walker() calling mm_ops->put_page(). We
-> might also be able to add some test/assertion in
-> kvm_pgtable_stage2_unmap_notlbi() to ensure it is not called where the
-> tables could be live on a PE.
+> The FriendlyElec NanoPi Zero2 and the NanoPi R28S share their power
+> tree, storage, RGMII Ethernet, RTC, SYS LED and debug console. Move
+> those parts into rk3528-nanopi.dtsi so the NanoPi R28S can reuse them,
+> and leave only the board specific nodes in the NanoPi Zero2 devicetree.
+> 
+> Suggested-by: Chukun Pan <amadeus@jmu.edu.cn>
+> Signed-off-by: 安容 <HystericalDragons@proton.me>
+> ---
+>  .../boot/dts/rockchip/rk3528-nanopi-zero2.dts      | 307 +--------------------
+>  arch/arm64/boot/dts/rockchip/rk3528-nanopi.dtsi    | 304 ++++++++++++++++++++
+>  2 files changed, 313 insertions(+), 298 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3528-nanopi-zero2.dts b/arch/arm64/boot/dts/rockchip/rk3528-nanopi-zero2.dts
+> index 97d85124d2..a8d99f983f 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3528-nanopi-zero2.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3528-nanopi-zero2.dts
 
-I see Shuai Xue said something in this area, but just to elaborate:
+[snip]
 
-If it's possible that some PE is performing a translation table walk of
-the tables being freed, and if a page for an intermediate table gets
-freed and reallocated/reused before the TLBI is executed, then HW might
-read a garbage value when trying to read a decriptor from that page.
-That could lead to a variety of problems (e.g. permit a guest to access
-an arbitrary PA, or cause a HW walk to access an arbitrary PA).
+> -
+>  &usb_host0_ehci {
+>  	status = "okay";
+>  };
+> @@ -347,23 +74,7 @@ &usb_host0_ohci {
+>  	status = "okay";
+>  };
+>  
+> -&usb_host0_xhci {
+> -	extcon = <&usb2phy>;
+> -	maximum-speed = "high-speed";
+> -	phys = <&usb2phy_otg>;
+> -	phy-names = "usb2-phy";
+> -	status = "okay";
+> -};
 
-Above I had assumed that the S2 table being unmapped+freed weren't live
-(e.g. not programmed into any PE's VTTBR) at the time we performed this
-invalidation, and hence kvm_pgtable_stage2_unmap_notlbi() could check
-some refcount or something to verify that.
+I suggest you keep all USB nodes in the device board files, NEO3 Plus
+have USB 3.0 support and uses different configuration. So it will be
+easier to get an overview if USB nodes are kept in the board DT.
 
-If that is the case, all's good, and you can ignore the rest of this
-mail. If that is not the case, read on.
+Else most of this split matches what I played around with for U-Boot at
+[1] a few weeks ago. I plan to send out the NEO3 Plus DT based on this
+series later.
 
-If the tables are potentially live on some PE, then it is not safe to
-defer the TLB invalidation. However, we can still reduce the TLBIs with
-a slightly more elaborate sequence:
+[1] https://git.u-boot-project.org/u-boot/contributors/kwiboo/u-boot/-/commit/40382468ba7ce9aa2e7dcde0e59003fd0d220b43
 
-(1) Make a temporary copy of the root table (whatever VTTBR points to)
-    for the S2 being invalidated.
+Regards,
+Jonas
 
-(2) Clear the entries from the root table (leaving any child
-    intermediate/leaf tables as-is).
+> -
+> -&usb2phy {
+> -	status = "okay";
+> -};
+> -
+>  &usb2phy_host {
+>  	phy-supply = <&usb2_host_5v>;
+>  	status = "okay";
+>  };
+> -
+> -&usb2phy_otg {
+> -	status = "okay";
+> -};
 
-(3) Perform TLB invalidation for the entire VMID. This will ensure HW
-    can't walk to any of the child tables.
+[snip]
 
-(4) Walk the temporary copy of the root table to free the child tables,
-    without any TLB invalidation.
-
-(5) Free the temporary copy of the root table.
-
-Mark.
 
