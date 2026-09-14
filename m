@@ -4,72 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81868C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 13:58:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C0C2C88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 14:02:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=22m5iAqIpbmJxJVnpa24mBjkDMjZX1GabmsvOm2Bnq0=; b=e/H283TNRGcEzWgfzEnyRAUdoV
-	w3us4Gl2NEi3jiW28ub+U0VMYCXVCvpRXbvTu9skFReKVHYIQXT/eKQjgTGwOYgMsV5E8n/idDwUR
-	3AQ282/q4+akGtVtSNREt5negb9qnOJgWVYoQGJ39GPTlNnRRHUvmFYiP+xVB14x0YVzfVz+/UdmY
-	twZq2oi62zNkTJUe1hHZ3j/Tlk+WNGrNLIUF75HVGwZn1CrBjB2AByiSRUUkyDXk96DDIP3TPQpN3
-	lJ5bYhH5TfvgsSFyJwD+ZGVQsBDHKEw0zoeJ3kCzkPyeh9exWswc97AhtFvggSPC5FBv+Y4ISnZaJ
-	kbBXTm+A==;
+	bh=H7bB1XHFFxJuzAm4v4NROUYTvETVL7mLw7Iijr39AX8=; b=rJhGnbKyPywcjEIkg0+WXcNc2i
+	xtEXsDp780+u5w7CrgXZWBv169ujNzA6Suc3Jrc1lOM3ksrk7ZkCC9mk7JcqHnL50fk9CTCUAaN0h
+	633D/TvXXmkEATJSjzYwoNiRcQIr2HjBYTKbameaW5RY8uAuCV9oEmKB9rL7m18sgO/y9w9d3DerN
+	JxsU7IjlnPQ+Adoh9kVo9cg73cxxBlhmYTQuqpi7IfX02/PhmCeJwZh2RrOFUqKbrXslBmBHnXk2t
+	XhIY9sQIXy0T/H9D9zLgTKVuqX85zla3JAqG960CiTIvXDVjw69GWYMD7/MV6YgG8Md7TBbnKTzvL
+	vutcXdhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x67Cc-00000003tfF-3BGR;
-	Mon, 14 Sep 2026 13:58:35 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x67CZ-00000003tec-2gO0;
-	Mon, 14 Sep 2026 13:58:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1789394309;
-	bh=5PRno6bDN7rPaMhefe1EXNUdAJWaB7rxNicPHWb0KnI=;
+	id 1x67GZ-00000003uKg-3WRx;
+	Mon, 14 Sep 2026 14:02:39 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x67GW-00000003uJw-3Lwq
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 14 Sep 2026 14:02:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DE99B1570;
+	Mon, 14 Sep 2026 07:02:31 -0700 (PDT)
+Received: from [10.0.128.139] (unknown [10.0.128.139])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 46F533F882;
+	Mon, 14 Sep 2026 07:02:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789394555; bh=DFYtcB/Oi+25lkKqGHoqBfdSqnw6tByCRDZwTC/jjuI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=II0/Ohlbjh/tfLR/rkI11YDxsqnSLpLp+L9XW6BiNCOzRWEC3mRcQEVoLdXNtXCcA
-	 JTYgYVwNw031zm8hW0Bfk8I59I6BPT/8j86ie4Mgo4jzi7DcK6m3NejaDjdZ6MMM1p
-	 XzWmDJDt/qAdomZoyDki5Kldwq9LGkpcGdj5Ao5iCVE7yn8vJYi66/1AHibngIeZUh
-	 QA64XxXu3Pl4ZP6Wxy5Ul3VP8gpUxzwcfcMZpb0duA2dxuvw+FlmG5s1V4cPcSdf5d
-	 CCVKZdP5gTiY7bPzYpgRrKvLCHk+y6B+Dw79gkN0R15OU/pD37PGw7hcNhzxYS8B7Z
-	 ZKdnLoN1eCrkw==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id E739917E0700;
-	Mon, 14 Sep 2026 15:58:28 +0200 (CEST)
-Message-ID: <8f1ea5c4-d85a-43eb-8b10-3f80f8343b27@collabora.com>
-Date: Mon, 14 Sep 2026 15:58:28 +0200
+	b=J2DNkFqmdAiXns7yDGCaFHwY8+MPmxxjgt9Snm1UwvQlYakyn6BB2oxIq1rBTjCIH
+	 FdEDRRxKwxS1Jcc6S1Sxuh21VJWfmDFFXBO9vsG8aT15x4/yCn7US+Qkxxo0jiZqy4
+	 Y2hcEdw0cSqvDxWgRPcZlKLynkxxaLcdLy5rGLfY=
+Message-ID: <657e69c2-d0e9-433a-b0d2-4f16bc94ee2c@arm.com>
+Date: Mon, 14 Sep 2026 15:02:30 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 02/13] ASoC: mediatek: mt8189: Propagate APLL enable
- errors
-To: Mark Brown <broonie@kernel.org>
-Cc: phucduc.bui@gmail.com, Liam Girdwood <lgirdwood@gmail.com>,
- Matthias Brugger <matthias.bgg@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>, Cezary Rojewski <cezary.rojewski@intel.com>,
- Cyril Chao <Cyril.Chao@mediatek.com>,
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
- Dan Carpenter <error27@gmail.com>, cassiogabrielcontato@gmail.com,
- linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260914072842.24420-1-phucduc.bui@gmail.com>
- <20260914072842.24420-3-phucduc.bui@gmail.com>
- <07add31d-5622-40eb-9bcf-f7cb2396fee3@collabora.com>
- <aqf7B_E7_Gv5iK2A@sirena.co.uk>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <aqf7B_E7_Gv5iK2A@sirena.co.uk>
+Subject: Re: [PATCH v18 4/7] firmware: arm_rmm: Add support for SRO
+Content-Language: en-GB
+To: Sudeep Holla <sudeep.holla@kernel.org>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
+ will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
+ aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
+References: <20260912083611.2513845-1-suzuki.poulose@arm.com>
+ <20260912083611.2513845-5-suzuki.poulose@arm.com>
+ <20260914-talkative-healthy-pogona-334c03@sudeepholla>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20260914-talkative-healthy-pogona-334c03@sudeepholla>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_065831_828868_989702A8 
-X-CRM114-Status: GOOD (  11.70  )
+X-CRM114-CacheID: sfid-20260914_070236_932967_46EE1F5B 
+X-CRM114-Status: GOOD (  28.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,37 +78,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/14/26 15:47, Mark Brown wrote:
-> On Mon, Sep 14, 2026 at 03:22:21PM +0200, AngeloGioacchino Del Regno wrote:
->> On 9/14/26 09:28, phucduc.bui@gmail.com wrote:
-> 
->>> +	ret = regmap_update_bits(afe->regmap, AFE_APLL2_TUNER_CFG,
+On 14/09/2026 13:50, Sudeep Holla wrote:
+> On Sat, Sep 12, 2026 at 09:36:07AM +0100, Suzuki K Poulose wrote:
+>> RMM v2.0 introduces the concept of "Stateful RMI Operations" (SRO). This
+>> means that an SMC can return with an operation still in progress. The
+>> host is expected to continue the operation until it reaches a conclusion
+>> (either success or failure). During this process the RMM can request
+>> additional memory ('donate') or hand memory back to the host
+>> ('reclaim'). The host can request an in progress operation is cancelled,
+>> but still continue the operation until it has completed (otherwise the
+>> incomplete operation may cause future RMM operations to fail).
 >>
->> Well, this is a bit of defensive programming here.
+>> The SRO is tracked using a struct rmi_sro_state object which keeps track
+>> of any memory which has been allocated but not yet consumed by the RMM
+>> or reclaimed from the RMM. This allows the memory to be reused in a
+>> future request within the same operation. It will also permit an
+>> operation to be done in a context where memory allocation may be
+>> difficult (e.g. atomic context) with the option to abort the operation
+>> and retry the memory allocation outside of the atomic context. The
+>> memory stored in the struct rmi_sro_state object can then be reused on
+>> the subsequent attempt.
 >>
->> The regmap pointer is already checked by the previous function call, and this is
->> a regmap over MMIO... and MMIO writes can't fail.
+>> Wrappers for SRO RMI commands are also provided here because they depend
+>> on the rmi_sro_execute() implementation added by this patch.
+>> Delegate/undelegate handles are also added here because they now use the
+>> SRO/stateful command infrastructure and are also used for the memory
+>> DONATE/RECLAIM flows.
+>>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> Co-Developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 > 
-> Oh, you sweet summer child :) .
+> [...]
+> 
+>> +static int rmi_sro_donate_noncontig(struct rmi_sro_state *sro,
+>> +				    unsigned long sro_handle,
+>> +				    unsigned long donatereq,
+>> +				    struct arm_smccc_1_2_regs *out_regs,
+>> +				    gfp_t gfp)
+>> +{
+>> +	unsigned long block_size_fld = RMI_DONATE_BLOCK_SIZE(donatereq);
+>> +	unsigned long block_size = rmi_addr_block_size_to_bytes(block_size_fld);
+>> +	unsigned long count = RMI_DONATE_COUNT(donatereq);
+>> +	unsigned long state = RMI_DONATE_STATE(donatereq);
+>> +	unsigned long found = 0;
+>> +	unsigned long donated_granules;
+>> +	unsigned long granules_per_block = block_size >> PAGE_SHIFT;
+>> +	unsigned long consumed_blocks;
+>> +	int addr_list_start = sro->addr_count;
+>> +
+>> +	int ret;
+>> +
+>> +	for (int i = 0; i < addr_list_start && found < count; i++) {
+>> +		unsigned long entry = sro->addr_list[i];
+>> +
+>> +		if (RMI_ADDR_RANGE_BLOCK_SIZE(entry) == block_size_fld &&
+>> +		    RMI_ADDR_RANGE_COUNT(entry) == 1 &&
+>> +		    RMI_ADDR_RANGE_STATE(entry) == state) {
+>> +			addr_list_start--;
+>> +			swap(sro->addr_list[addr_list_start],
+>> +			     sro->addr_list[i]);
+>> +			found++;
+>> +			i--;
+>> +		}
+>> +	}
+>> +
+>> +	ret = rmi_sro_ensure_capacity(sro, count - found);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	while (found < count) {
+>> +		unsigned long addr_range;
+>> +		void *virt = alloc_pages_exact(block_size, gfp);
+>> +		phys_addr_t phys;
+>> +
+>> +		if (!virt)
+>> +			return -ENOMEM;
+>> +
+>> +		phys = virt_to_phys(virt);
+>> +
+>> +		if (state == RMI_OP_MEM_DELEGATED) {
+> 
+> Based on my understanding, rmi_sro_memxfer_execute() is an exported function
+> and can be invoked by any module. The donatereq argument appears to accept one
+> of three operations:
+> 
+> RMI_OP_MEM_DELEGATED
+> RMI_OP_MEM_UNDELEGATED
+> RMI_OP_MEM_CONDITIONAL
 
-lmao
+Ack
 
->  Though practically speaking the error
-> handling ends up being the same as if they couldn't fail since if
-> something goes wrong it's generally catastrophic stuff like locking the
-> core up completely so the end result is the same.
+> 
+> Currently, the check confirming the state is RMI_OP_MEM_DELEGATED occurs
+> relatively late in the function execution. It seems this function is
+> explicitly designed to handle only RMI_OP_MEM_DELEGATED.
 
-That was also an implicit point (that should've been explicit from me): if anything
-goes horribly wrong here, it means that it already went horribly wrong "some
-function calls ago", and the platform likely already locked up as you suggested.
+No, that is not correct. The function handles both OP_MEM_DELEGATED and
+OP_MEM_UNDELEGATED. In the former case, we explicitly "delegate" the
+pages before donating. The "UNDELEGATED" case doesn't need to do that
+extra step.
 
-In any case, I'm not against doing error checking, it's just about not doing it
-when it's really useless (I'm sure you understand my reasons), and I believe this
-specific case is one of those.
+> 
+> Given that this is an exported interface, would it make sense to
+> fail-fast by moving this validation to the very beginning of the function?
+> Even if RMI_OP_MEM_CONDITIONAL is intended for future use, it should
 
-That said, should you prefer having error checks in such places... it's not a
-performance path, so I don't really have strong opinions really.
+Yep, agree. We can rejec the CONDITIONAL ones.
 
-Cheers!
-Angelo
+> probably be rejected as invalid for now. Also, it is not clear why the
+> current check is inside the loop while the state itself doesn't get
+> modified.
+
+As above, that check is additionally preparing the memory for RMM
+consumption.
+
+
+> 
+> If this is a valid concern, the same architectural pattern should likely be
+> applied to rmi_sro_donate_contig().
+> 
+
+Ack, we can reject the CONDITIONAL ones.
+
+Suzuki
+
 
