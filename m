@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ED8AC88E64
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 10:56:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7369BC88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 11:03:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cZGXrIN9GJxo6rXn64VGHgA+uGorlJi4Dc9fWnNU+qI=; b=NL4jAtvzUbyplr/cFHruua+pok
-	bk14YPEG+khby0aH3NY1Lh6bBiB9sSleHqffEtGdC6PAjvpRehEHQunP8kEqC62DrxQsHtqshsrvR
-	v/0Wx/27MuD0Tvlj70QccK/7Kl8HQP+FfoRpUisqVeW9B9MriEeEF1d4o43dzSdDTfvwXPAii4F/0
-	ggFvfxkl0SCk89Dkbe3k2IpbW+iADgqZ7jpEf4PKEGpQnf61ZSjYSWvlTAOdrxIzJ7pm1t37GXaGC
-	S/IR+l1Xtenre3ctZRGOsNllOlLfCnsxKyEqiJ2AsaFMlyrrezqChMapHXqcYLJWaAE19qQowNP3a
-	jZHKdp0Q==;
+	bh=UCV86IuKQfV+ADK0gK/UR74LjuQ2jTpRAespll5WsJ4=; b=t4HKdIpzmEaXHo7mr4ygJMZFGm
+	p6paIKZ+ez0P6LNnBgP95sO6KraKAgYrR8OoJOaLedq+E3+VTGBdNLXRo+Tl+4G/RlUZjL5vDIPWS
+	Hl1CCWh9RttXFBfwk6Jsg0jP7zsk+8AjhoIV10d1U2tzqF5XXRNsBcuX9rN1mw7mlBRA46zH5m+gz
+	cnpLDuDiGXpwa011Hgtfa9maCbj+A76fDBmnXFOOQcToxVN1Yy6/pNofDC7EqyDGOXVbHeYAJnLDK
+	ThoYWoKwQNhG42TezCluSlD/FLf3r7V2kPJUIXeoGlyo3ktM6CLGedpNiW73aVgsysfsipXI1e49+
+	Rjk9LQiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x63pV-000000036CT-2Ys2;
-	Mon, 14 Sep 2026 10:22:29 +0000
+	id 1x63pU-00000003692-1Pwb;
+	Mon, 14 Sep 2026 10:22:28 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x63p3-000000035Rc-0xkq
+	id 1x63ox-000000035Rc-3UQr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 10:22:02 +0000
+	Mon, 14 Sep 2026 10:21:57 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3BB691576;
-	Mon, 14 Sep 2026 03:21:57 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 813581C2B;
+	Mon, 14 Sep 2026 03:21:51 -0700 (PDT)
 Received: from login2.euhpc2.arm.com (login2.euhpc2.arm.com [10.58.100.22])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id BC4A53F9A2;
-	Mon, 14 Sep 2026 03:21:59 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 0AC523F7B4;
+	Mon, 14 Sep 2026 03:21:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789381320; bh=zreXif/3Tdh1Mb+9P5eaoOpUwsNyClpxxEEilqswtgA=;
+	t=1789381315; bh=2m+QPTo5poBPxdgMIBPyXYSoyr7POUEwgb0zSj4WyqI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bBt6mqPG+gxWUFCtl846b2LdP0oUB1xmhzWjTcn8MvK0wubenHrfJeQJHjjhz7jEr
-	 qMy2cV3ATL708Fh4iOch95qeA8jGkzfjgCPQ26fNSd62NKP0ty7G6cSkx6IqQgjWIZ
-	 PzbCIEmhRKfWDC0+BB0cZ7/mK/s8uOpzmh1qJxUI=
+	b=TAdvmRlplusQQ7E2RQ+qoeD1hiSb3PnLy55CPYpCm4LcNLL605gtObZnT/omrS4cs
+	 U1owXEVb/GtjP8lS0ta4Vw6ZT1bi7eeztSzHCDwrW1x0kd2Pw0MbHuWyFUPXydlOCX
+	 7Me7IeQgaJPfySN3loUAxHKyVXg9KlwsYtS4JqA4=
 From: Vladimir Murzin <vladimir.murzin@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: catalin.marinas@arm.com,
@@ -48,17 +48,18 @@ Cc: catalin.marinas@arm.com,
 	lpieralisi@kernel.org,
 	ruanjinjie@huawei.com,
 	liaochang1@huawei.com
-Subject: [PATCH 23/38] arm64: cpufeature: Detect PE support for FEAT_NMI
-Date: Mon, 14 Sep 2026 11:20:47 +0100
-Message-Id: <20260914102102.68597-24-vladimir.murzin@arm.com>
+Subject: [PATCH 19/38] arm64: sysreg: Add definitions for immediate versions of MSR ALLINT
+Date: Mon, 14 Sep 2026 11:20:43 +0100
+Message-Id: <20260914102102.68597-20-vladimir.murzin@arm.com>
 X-Mailer: git-send-email 2.24.0
 In-Reply-To: <20260914102102.68597-1-vladimir.murzin@arm.com>
 References: <20260914102102.68597-1-vladimir.murzin@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_032201_362775_EE9FB4E2 
-X-CRM114-Status: GOOD (  20.00  )
+X-CRM114-CacheID: sfid-20260914_032155_939041_2214EEA0 
+X-CRM114-Status: UNSURE (   8.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,193 +74,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+From: Mark Brown <broonie@kernel.org>
 
-Use of FEAT_NMI requires that all the PEs in the system and the GIC
-have NMI support. This patch implements the PE part of that detection.
+Encodings are provided for ALLINT which allow setting of ALLINT.ALLINT
+using an immediate rather than requiring that a register be loaded with
+the value to write. Since these don't currently fit within the scheme we
+have for sysreg generation add manual encodings like we currently do for
+other similar registers such as SVCR.
 
-In order to avoid problematic interactions between real and pseudo NMIs
-we disable the architected feature if the user has enabled pseudo NMIs
-on the command line. If this is done on a system where support for the
-architected feature is detected then a warning is printed during boot in
-order to help users spot what is likely to be a misconfiguration.
+Since it is required that these immediate versions be encoded with xzr
+as the source register, provide asm wrappers which ensure this is the
+case.
 
-As KVM does not care about the host kernel supporting FEAT_NMI or not
-to allow guests to use it, split the CPU cap in two : ARM64_HAS_NMI is
-the hardware support, ARM64_NMI is the kernel making use of it.
-
-Co-developed-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
 Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
- arch/arm64/include/asm/cpucaps.h    |  2 +
- arch/arm64/include/asm/cpufeature.h | 10 +++++
- arch/arm64/kernel/cpufeature.c      | 68 ++++++++++++++++++++++++++++-
- arch/arm64/tools/cpucaps            |  2 +
- 4 files changed, 81 insertions(+), 1 deletion(-)
+ arch/arm64/include/asm/interrupts/common_flags.h | 16 ++++++++++++++++
+ arch/arm64/include/asm/sysreg.h                  |  2 ++
+ 2 files changed, 18 insertions(+)
 
-diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cpucaps.h
-index 76350b38f0d7..1a4ef4e94997 100644
---- a/arch/arm64/include/asm/cpucaps.h
-+++ b/arch/arm64/include/asm/cpucaps.h
-@@ -75,6 +75,8 @@ cpucap_is_possible(const unsigned int cap)
- 		return IS_ENABLED(CONFIG_HW_PERF_EVENTS);
- 	case ARM64_HAS_LSUI:
- 		return IS_ENABLED(CONFIG_ARM64_LSUI);
-+	case ARM64_NMI:
-+		return IS_ENABLED(CONFIG_ARM64_NMI);
- 	}
+diff --git a/arch/arm64/include/asm/interrupts/common_flags.h b/arch/arm64/include/asm/interrupts/common_flags.h
+index 03cfde24a530..c50c6e6473ec 100644
+--- a/arch/arm64/include/asm/interrupts/common_flags.h
++++ b/arch/arm64/include/asm/interrupts/common_flags.h
+@@ -44,6 +44,22 @@ typedef enum arm64_exc_context {
+ 	CRITICAL_CONTEXT,
+ } arm64_exc_context_t;
  
- 	return true;
-diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-index 09aa80df602a..c8b1bacdd161 100644
---- a/arch/arm64/include/asm/cpufeature.h
-+++ b/arch/arm64/include/asm/cpufeature.h
-@@ -809,6 +809,16 @@ static __always_inline bool system_uses_irq_prio_masking(void)
- 	return alternative_has_cap_unlikely(ARM64_HAS_GIC_PRIO_MASKING);
- }
- 
-+static __always_inline bool system_supports_nmi(void)
-+{
-+	return alternative_has_cap_unlikely(ARM64_HAS_NMI);
-+}
 +
-+static __always_inline bool system_uses_nmi(void)
-+{
-+	return alternative_has_cap_unlikely(ARM64_NMI);
-+}
-+
- static inline bool system_supports_mte(void)
- {
- 	return alternative_has_cap_unlikely(ARM64_MTE);
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 32102c3912fa..f9fe7a875f85 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -83,13 +83,14 @@
- #include <asm/cpu_ops.h>
- #include <asm/fpsimd.h>
- #include <asm/hwcap.h>
-+#include <asm/hypervisor.h>
- #include <asm/insn.h>
-+#include <asm/interrupts/common_flags.h>
- #include <asm/kvm_host.h>
- #include <asm/mmu.h>
- #include <asm/mmu_context.h>
- #include <asm/mpam.h>
- #include <asm/mte.h>
--#include <asm/hypervisor.h>
- #include <asm/processor.h>
- #include <asm/smp.h>
- #include <asm/sysreg.h>
-@@ -315,6 +316,7 @@ static const struct arm64_ftr_bits ftr_id_aa64pfr1[] = {
- 	ARM64_FTR_BITS(FTR_VISIBLE_IF_IS_ENABLED(CONFIG_ARM64_GCS),
- 		       FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR1_EL1_GCS_SHIFT, 4, 0),
- 	S_ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR1_EL1_MTE_frac_SHIFT, 4, 0),
-+	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR1_EL1_NMI_SHIFT, 4, 0),
- 	ARM64_FTR_BITS(FTR_VISIBLE_IF_IS_ENABLED(CONFIG_ARM64_SME),
- 		       FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR1_EL1_SME_SHIFT, 4, 0),
- 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR1_EL1_MPAM_frac_SHIFT, 4, 0),
-@@ -2341,6 +2343,51 @@ static bool has_gic_prio_relaxed_sync(const struct arm64_cpu_capabilities *entry
- }
- #endif
- 
 +#ifdef CONFIG_ARM64_NMI
-+static bool can_use_nmi(const struct arm64_cpu_capabilities *entry, int scope)
++static __always_inline void _allint_clear(void)
 +{
-+	/*
-+	 * ARM64_HAS_NMI has a lower index, and is a boot CPU
-+	 * feature, so will be detected earlier.
-+	 */
-+	BUILD_BUG_ON(ARM64_NMI <= ARM64_HAS_NMI);
-+	if (!cpus_have_cap(ARM64_HAS_NMI))
-+		return false;
-+
-+	/*
-+	 * Having both real and pseudo NMIs enabled simultaneously is
-+	 * likely to cause confusion.  Since pseudo NMIs must be
-+	 * enabled with an explicit command line option, if the user
-+	 * has set that option on a system with real NMIs for some
-+	 * reason assume they know what they're doing.
-+	 *
-+	 * ARM64_HAS_GIC_PRIO_MASKING has a lower index, and is a boot CPU
-+	 * feature, so will be detected earlier.
-+	 */
-+	BUILD_BUG_ON(IS_ENABLED(CONFIG_ARM64_PSEUDO_NMI) &&
-+			(ARM64_NMI <= ARM64_HAS_GIC_PRIO_MASKING));
-+	if (cpus_have_cap(ARM64_HAS_GIC_PRIO_MASKING)) {
-+		pr_info_once("Pseudo NMI enabled, not using architected NMI\n");
-+		return false;
-+	}
-+
-+	return true;
++	asm volatile(__msr_s(SYS_ALLINT_CLR, "xzr"));
 +}
 +
-+static void nmi_enable(const struct arm64_cpu_capabilities *__unused)
++static __always_inline void _allint_set(void)
 +{
-+	/*
-+	 * Enable use of NMIs controlled by ALLINT, SPINTMASK should
-+	 * be clear by default but make it explicit that we are using
-+	 * this mode.  Ensure that ALLINT is clear first in order to
-+	 * avoid leaving things masked.
-+	 */
-+	_allint_clear();
-+	sysreg_clear_set(sctlr_el1, SCTLR_EL1_SPINTMASK, SCTLR_EL1_NMI);
-+	isb();
++	asm volatile(__msr_s(SYS_ALLINT_SET, "xzr"));
 +}
-+#endif
++#else
++static __always_inline void _allint_clear(void) {}
++static __always_inline void _allint_set(void) {}
++#endif /* CONFIG_ARM64_NMI */
 +
- static bool can_trap_icv_dir_el1(const struct arm64_cpu_capabilities *entry,
- 				 int scope)
+ static __always_inline
+ arm64_exc_hwstate_t __arm64_exc_hwstate_of_process_context(void)
  {
-@@ -3233,6 +3280,25 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
- 		.matches = has_cpuid_feature,
- 		ARM64_CPUID_FIELDS(ID_AA64ISAR3_EL1, LSUI, IMP)
- 	},
-+#endif
-+	{
-+		.type = ARM64_CPUCAP_BOOT_CPU_FEATURE,
-+		.capability = ARM64_HAS_NMI,
-+		.matches = has_cpuid_feature,
-+		ARM64_CPUID_FIELDS(ID_AA64PFR1_EL1, NMI, IMP)
-+	},
-+#ifdef CONFIG_ARM64_NMI
-+	/*
-+	 * Depends on ARM64_HAS_NMI
-+	 * Checks for conflict with pseudo-NMIs, giving them priority.
-+	 */
-+	{
-+		.desc = "Non-maskable Interrupts",
-+		.type = ARM64_CPUCAP_BOOT_CPU_FEATURE,
-+		.capability = ARM64_NMI,
-+		.matches = can_use_nmi,
-+		.cpu_enable = nmi_enable,
-+	},
- #endif
- 	{},
- };
-diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-index 2775ba3359cf..531583822ec2 100644
---- a/arch/arm64/tools/cpucaps
-+++ b/arch/arm64/tools/cpucaps
-@@ -52,6 +52,7 @@ HAS_LS64_V
- HAS_LSUI
- HAS_MOPS
- HAS_NESTED_VIRT
-+HAS_NMI
- HAS_NV2P1
- HAS_NV3
- HAS_PAN
-@@ -82,6 +83,7 @@ MTE
- MTE_ASYMM
- MTE_FAR
- MTE_STORE_ONLY
-+NMI
- SME
- SME_FA64
- SME2
+diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+index 7aa08d59d494..6d2c6bc1b985 100644
+--- a/arch/arm64/include/asm/sysreg.h
++++ b/arch/arm64/include/asm/sysreg.h
+@@ -179,6 +179,8 @@
+  * System registers, organised loosely by encoding but grouped together
+  * where the architected name contains an index. e.g. ID_MMFR<n>_EL1.
+  */
++#define SYS_ALLINT_CLR			sys_reg(0, 1, 4, 0, 0)
++#define SYS_ALLINT_SET			sys_reg(0, 1, 4, 1, 0)
+ #define SYS_SVCR_SMSTOP_SM_EL0		sys_reg(0, 3, 4, 2, 3)
+ #define SYS_SVCR_SMSTART_SM_EL0		sys_reg(0, 3, 4, 3, 3)
+ #define SYS_SVCR_SMSTOP_SMZA_EL0	sys_reg(0, 3, 4, 6, 3)
 -- 
 2.34.1
 
