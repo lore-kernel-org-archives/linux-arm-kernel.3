@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4501AC88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 07:06:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71D87C88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 07:07:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j2sbgabFzSCRNwpAQXS91d5cLhlNykbsimA9YyMeT8w=; b=zDRX4yNTSkpBD4393cusmlj27z
-	fd8fzL6WxSIYll4uuwyn6dowpG1+b2shfvoFjTbQM8UEECp9eAinnM7TxXhZPIPj1YRT4de+Y5d06
-	DuNm8qAZSgGaDYPOeqbYsVboTv5+03Ognok52o1jxstXSd56pE0ytP9sBBQry50TyYD4UZFvjWa7t
-	tc2KcrJ/C8oIYMQbtCogjj2kUS6YvPQQ0cICM/Yr20C2RGBcCBQUxe/htJdkEGppwukFbg1E6r89b
-	cdiast0h77GmolmXobRE6qw04BoIkgFiGsddXXlT/+MLslmEONdM6UZvugbtPdS0D/aKr6RnsDzw6
-	3ToqgHkg==;
+	bh=4lZluCaNK5SmvFvnfdCBbVIrOJ4jQJIucrsKa0WX+Po=; b=3D85uxLGFOV/0cdEa3lWiq3QtR
+	0oXpt4frNmR7eD6ID+FlbJQAi1cf9AlyEG4CL0CYxxWZeS0c9zuLarfoGJCpdvLzJl+LsGGgLRf0S
+	m1/uEDbbdB0J0SGAK0ON6j4M59cM1eyjMUpPC/6uKXjRdFTwsVVYkGyn5v0tRpshWpRFpe+utnMnQ
+	gNnsC+gopdUkHUxaRMaW9Jn2dJrXap3dQliw2mSyyf8/oEj5fp+Vqb8Pnxe5C2ofOXS7u1AST6vrV
+	6DnLJcrApqHQpQFwPf0HWPi+ZgoC/iojPHMnu2ZkY0NdjHB5fcqAIPBR3IpRbEcHYyCiOpd/kz/HW
+	Ykj/66mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x60lP-00000002Wjn-3mlR;
-	Mon, 14 Sep 2026 07:06:03 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x60ml-00000002WpL-0zEu;
+	Mon, 14 Sep 2026 07:07:27 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x60lO-00000002WjI-21dL
+	id 1x60mj-00000002WpC-1OyZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 07:06:02 +0000
+	Mon, 14 Sep 2026 07:07:25 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CA425410A7;
-	Mon, 14 Sep 2026 07:06:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04B7D1F000FF;
-	Mon, 14 Sep 2026 07:05:56 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 814B260142;
+	Mon, 14 Sep 2026 07:07:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA2BE1F00893;
+	Mon, 14 Sep 2026 07:07:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789369561;
-	bh=j2sbgabFzSCRNwpAQXS91d5cLhlNykbsimA9YyMeT8w=;
+	s=k20260515; t=1789369644;
+	bh=4lZluCaNK5SmvFvnfdCBbVIrOJ4jQJIucrsKa0WX+Po=;
 	h=Date:Subject:To:References:From:In-Reply-To;
-	b=Pc0zjsVpRx04sxzBjo/e36jVzsWrEDNtP0E33rDGiVGnBZ5YldGwTIPB/ze2M1J3h
-	 Lgpt7Nt8XWDYmFt3Fqt2zyOAb0CZAj1Dlf0dt/SOUeRJNi7ieMAybd7uIKDOGBCrlQ
-	 rmF6DY1jjRVwKzT6BUmZ6JCgMOfFOFYL4P2+P120TZPq7ptUVOZiMwasSpp9Ko4lzw
-	 RP4t41rF8fa57ClIwkgXPa1mLiL623lwpndvA/mprAHuAo2S0xlq01L7GAXV0VozRM
-	 a/C9Su8/3l0BAiA8ruU8+FN4HFxEOUXKMYD10fzqMKE4scakqHjEorTqm77bvH2yP6
-	 1W56QiQFu7oHA==
-Message-ID: <5c24248e-bee2-4256-af8f-a80be6744431@kernel.org>
-Date: Mon, 14 Sep 2026 09:05:54 +0200
+	b=Eihl/hAtxpruxY4fVEz0mNnPYfKSdC4ZbJHbjEJ18N1SnS6oMhHaQYt+dTYSvpvOc
+	 2i8IAZ9+T4h6hl6qRVyPHatzX7pO8FmA4j4XQ3cub4KoNn/ZEsJZD3w8EQ9Qq04S1k
+	 LpGb4nLYi0TF8e0c9AVevOOaLXkPiCL0Do1tH7d3ED1Wa5SbX25mOZZB0oXryAt1dn
+	 /N/snaFSGT2S6+zg84DQBNOoVPUowp6T9bZYK9mKsQW0GS64yP2iBdK/BuMZ6bfttQ
+	 1MZSmMNDWVPZqQJnxY6X6EARd7mFIRf3SmYSGrjvThB0GHISJb9hAXB3Wf13WJHF32
+	 AeOchHYZ+MYVQ==
+Message-ID: <a835cdf1-b0b5-4719-8b5e-226fee78b856@kernel.org>
+Date: Mon, 14 Sep 2026 09:07:17 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 5/9] thermal/drivers/exynos: Remove redundant
- base_second register resource
+Subject: Re: [PATCH v9 3/9] thermal/drivers/exynos: Handle optional triminfo
+ clock correctly
 To: Anand Moon <linux.amoon@gmail.com>,
  Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
  "Rafael J. Wysocki" <rafael@kernel.org>,
@@ -60,7 +60,7 @@ To: Anand Moon <linux.amoon@gmail.com>,
  "moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES"
  <linux-arm-kernel@lists.infradead.org>
 References: <20260913145905.9404-1-linux.amoon@gmail.com>
- <20260913145905.9404-6-linux.amoon@gmail.com>
+ <20260913145905.9404-4-linux.amoon@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,7 +106,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260913145905.9404-6-linux.amoon@gmail.com>
+In-Reply-To: <20260913145905.9404-4-linux.amoon@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -124,14 +124,13 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 13/09/2026 16:58, Anand Moon wrote:
-> The Exynos5420 TRIMINFO register can be accessed through the main TMU
-> register space, so a separate register mapping is not required.
+> The triminfo clock is obtained using devm_clk_get_optional_prepared(),
 
-No, the address is misplaced. You completely ignored entire point for
-second base, without any arguments, any data, anything, and just drop it
-completely.
+No, it is not. It is devm_clk_get().
 
-NAK
+Order your patches correctly or do not introduce bugs in patch #1 which
+you then fixup in next patch.
+
 
 Best regards,
 Krzysztof
