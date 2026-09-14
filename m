@@ -4,61 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1061C88E64
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 12:00:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA3C7C88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 12:00:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QHZgWYPkUlOvid1BCuIg3AE1kCaSX0lr+bdS/q4Z0Vs=; b=1JFNg0i5v7/9sZNgu+NW8JW+Lh
-	024OVyZ4+b+CTxPN3b5JknOfa6jSA5bNf57qOwnQhrKjjuxHxRxm3UEjvZEOGOiuvLBohnGE911+l
-	hwKhTdvOBKmqpBoKgQE+cKYIjZmyOut5pm2DVlNZkfsjPcrClvxEl94ZOLR7A83s8ziUV/2M3HHtf
-	cokMw5dIImadAuhLPZCkKEEne5ri9b/MWNdlRtTzw5sVHOy76NumeJejUAdTdv093DQvPRkNUVSDs
-	fQPstRL4aX+O5TuKGjYFOvFhL5ljHnORakKVQv9D0gJJNqwEW/HbTPvAZkHju7w/r+gmViGyF8ze4
-	HMNWLzDA==;
+	bh=Ql5ehSkWJ4bvkoim8QgW1gX1cEzMuu4pWOWteAQ8rfk=; b=lfm94P57QlKu/ZmTNBA1V5UoPT
+	2j5DmAKF0hpwRjVXcV7FEHbNGfxGf/w+W9cULKX78wdL59HvLU6ANEAyDcrRuO0pkIQIlOqz3Pl1n
+	gtENfTA82wbkw0KH1z1bTurL17AvHxBL55Exc4ubZ2gb46qYWOY0xDF09NJAvO8hp8FilMfJ69WIY
+	IQevWPFRY4A3rSeC5lkl4i0I1lCnMxSwhO1k2+RsWFGs4Ud5fEL4RPDKl19kw2gr7itsoP+ptC+Bg
+	2H1fKINFkDr2IV+pBihuHrWvC2cikRPNq3KsoPP+QdbUpLZQCvoNxMzwCJg0IbrYkH+KU2eHnhPPd
+	TxXm8dVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x63pY-000000036IF-0WED;
-	Mon, 14 Sep 2026 10:22:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x63pA-000000035qZ-3UYG
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 10:22:10 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 62D3A1570;
-	Mon, 14 Sep 2026 03:22:04 -0700 (PDT)
-Received: from login2.euhpc2.arm.com (login2.euhpc2.arm.com [10.58.100.22])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D86DB3F7B4;
-	Mon, 14 Sep 2026 03:22:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789381328; bh=+anTZQTcTxJJMqHzg/vnOnnLfKJsJ8zCBI8ExbjXq7s=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=BrD/Ce9HIWRLZrvmLORYsXH+UKdLJqoXILoCQfloDfGEGif/gtQ2ZZQw7ziaNRoE8
-	 jx7RQt9U0r/x/PNbvfL0ZWo1ipHT66zKU5Z/OVzKjg59TYzWSKaTQDKUKobAjNPhhx
-	 rljEw/ZHFjybeQ77xfTdatdDPIfisWoR2Vdqn5NM=
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: catalin.marinas@arm.com,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	maz@kernel.org,
-	lpieralisi@kernel.org,
-	ruanjinjie@huawei.com,
-	liaochang1@huawei.com
-Subject: [PATCH 28/38] arm64/efi: Add ALLINT to IRQ flags checks
-Date: Mon, 14 Sep 2026 11:20:52 +0100
-Message-Id: <20260914102102.68597-29-vladimir.murzin@arm.com>
-X-Mailer: git-send-email 2.24.0
-In-Reply-To: <20260914102102.68597-1-vladimir.murzin@arm.com>
-References: <20260914102102.68597-1-vladimir.murzin@arm.com>
+	id 1x65MH-00000003S8i-3zuf;
+	Mon, 14 Sep 2026 12:00:25 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x65ME-00000003S7F-3rua;
+	Mon, 14 Sep 2026 12:00:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1789387221;
+	bh=m9JcQKlRQjZVbqhQ2VHxzc4rLiM20zJgOt77Wk2JpRw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=DL28zptPOAtc3ROz1NSReXnmLvC9uHrd51vXm3BhIu5SY1RHWjwyyGf2zn4K4b3X3
+	 /GG2a+EMVTAAGWDPSpdQymSJFflzKqTXJjWEeHxzs/F5n2tkftkuYh4xgqTItszt4C
+	 bQ9ch3SP1E6EE2sXuhDzzKeCUp+NDbCbhPDfNSEfXCaA+8e+Qgh4hvLxdgztG3LDFT
+	 jgxv0FfJ3JXfK4FCZUnqKEn7kpiXPbrEbgynQirlQXWvz4RnFUX+40jjEWiBEanLil
+	 KGOhIE1fz1CMLRaJQMqmn63ghDrbfJwILs+CExOoaY/us3qh73ppfZoz3F09520ine
+	 VS2Pfftwcx2Uw==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 843A817E0074;
+	Mon, 14 Sep 2026 14:00:20 +0200 (CEST)
+Message-ID: <dcce7b12-edbd-4764-b154-ba178b74eb78@collabora.com>
+Date: Mon, 14 Sep 2026 14:00:19 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] drm/mediatek: mtk_hdmi_v2: fix VID_DOWNSAMPLE_CONFIG
+ register offset
+To: Julien Stephan <jstephan@baylibre.com>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+ CK Hu <ck.hu@mediatek.com>
+Cc: dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Tommy Chen <tommyyl.chen@mediatek.com>
+References: <20260828-mtk-hdmi-v2-fix-register-offset-v1-1-118ad5d7ebe3@baylibre.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20260828-mtk-hdmi-v2-fix-register-offset-v1-1-118ad5d7ebe3@baylibre.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_032208_934213_A8EA505F 
-X-CRM114-Status: UNSURE (   8.65  )
+X-CRM114-CacheID: sfid-20260914_050023_112515_FFE7FF2A 
+X-CRM114-Status: UNSURE (   6.04  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -74,31 +82,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-EFI is not expected to modify PSTATE.ALLINT, so check that it remains
-unchanged across EFI runtime calls.
+On 8/28/26 14:10, Julien Stephan wrote:
+> According to the datasheet, VID_DOWNSAMPLE_CONFIG is at offset 0x8f0;
+> 0x8d0 is the VID_CSC_COEFF_0 register.
+> 
+> Fixes: 8d0f79886273 ("drm/mediatek: Introduce HDMI/DDC v2 for MT8195/MT8188")
+> Signed-off-by: Julien Stephan <jstephan@baylibre.com>
 
-Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
----
- arch/arm64/include/asm/efi.h | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/arch/arm64/include/asm/efi.h b/arch/arm64/include/asm/efi.h
-index 0fc5a8cd5850..c7fb21c00690 100644
---- a/arch/arm64/include/asm/efi.h
-+++ b/arch/arm64/include/asm/efi.h
-@@ -78,6 +78,10 @@ do {															\
- 		pr_err_ratelimited(FW_BUG "DAIF+PMR corrupted (0x%x + 0x%x=>0x%x + 0x%x) by EFI call from %pS\n",	\
- 				   __expected.daif, __expected.pmr, __actual.daif, __actual.pmr,			\
- 				   caller ?: __builtin_return_address(0));						\
-+	} else if (system_uses_nmi()) {											\
-+		pr_err_ratelimited(FW_BUG "DAIF+ALLINT corrupted (0x%x + 0x%x=>0x%x + 0x%x) by EFI call from %pS\n",	\
-+				   __expected.daif, __expected.allint, __actual.daif, __actual.allint,			\
-+				   caller ?: __builtin_return_address(0));						\
- 	} else {													\
- 		pr_err_ratelimited(FW_BUG "DAIF corrupted (0x%x=>0x%x) by EFI call from %pS\n",				\
- 				   __expected.daif, __actual.daif,							\
--- 
-2.34.1
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
 
