@@ -4,116 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B49AC88E64
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 07:30:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20E42C88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 07:31:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iLuGPJOul88SFkcVl5PHBDFHBc0tVdx0/BNU/eqBS78=; b=bl8Z1N/cZSxZzcugARHdI1gn0H
-	1OuBtXdIz/j1gIf6I7rq+HqhuO7Z7ZeSyIRRqG1k42++4qg3zPQklZ2JnJdVPNrR6jy7On0VgbZpI
-	Hh5m3SA7yyMjZOiGHllLWCY6el6hFImZUM/IFkl6aT5lMlQkMmtsmtyq2IACeW4fWKCExXsmcaFTz
-	qe/7yHObIzOTAmZzKa6okL494LwegH1xWA2x8Snte0A5ShYRmZ1Xs8+FJ8jek4x/kWJNMWu5+l73o
-	IMRXXIydL3wEZ3cW5uWuQYFOIkKYHy4MYg9t6ngbI1kLCt09a1KcfnJLOUYicuxMF92hwugXMi3kt
-	UcLw9MSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=G0+VOM7HOypqgbCJvnCsMEQG1ikquaCfJuOJzcUHxBM=; b=B1rkuXMBNAFE3+
+	Sy43a/Hw8YzlS5ufWbEhDGj1+K1pk/h3DhTeaN7f8GdMEunN43KHRAUnPVakXRAXkplaFMIdWcagw
+	cQ44pHa+APZxXYl1E9STfp8/nB6sCsPEU+O/DyVIDcla+UG3FuCkl9KZGENi5anwaQevqptKgXJBV
+	u9LcPHQDr1MEnkc7KjFbPoaZTFBqAhNTmTJORBeB1W5lSGnoehVNKAN/vdIkk974USYGiTReCMtq6
+	Udky39LVKDkZnEKZOGUxp2l5gNnpkfOKUehP/ZQ/JNrgal9DJDJP6GmFpVcBdiyal/wfT4uBf89rB
+	7/W40MEr++ifUZISo4HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x618d-00000002ZAN-49wz;
-	Mon, 14 Sep 2026 07:30:04 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x619h-00000002Zp2-3yxp;
+	Mon, 14 Sep 2026 07:31:09 +0000
+Received: from esa2.hc1455-7.c3s2.iphmx.com ([207.54.90.48])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x618U-00000002YyI-206D
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 14 Sep 2026 07:29:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=iLuGPJOul88SFkcVl5PHBDFHBc0tVdx0/BNU/eqBS78=; b=OWZ6bGvXbR4jmJ1Gqbjcny0xAc
-	aNy/FCByIjdzd9Q2MGzHtkcfboOczxjUFK1JVjvjwv1SSwHwHEeFt3K4xdX7XUgBUU7Vg615GB7Ss
-	uzLfKMFqJCowb7wiOc26N4nIuz8eIjSlAITF4jx+FaxWIWs5910XhIwu+BkLBQZGbpFTPtn97mX35
-	lwfGsTixqEI9ijNglERtxvbP5wzmmL7Moj8J1HnVqXPdLWZW44YcQ8SeegJd0MQqaZrUkDDTTxVBh
-	rDvM1PK13HIBx9+1S49hBQRS/V6f+JzchMov0MD0k67P58qJtitw3VnK6LX8vueMPwULpT4uIJGwR
-	lJA0dWOw==;
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x618N-00000005KuI-30DS
+	id 1x619e-00000002ZnS-0F4q
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 07:29:53 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-38a0c7e841fso4493680a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 00:29:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789370985; x=1789975785; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=iLuGPJOul88SFkcVl5PHBDFHBc0tVdx0/BNU/eqBS78=;
-        b=Jssms+F5q8oi5rGyClEj76JgNllhhtkif2DxxtgpSXR9Sy+YzjBcz/RSVCqsz54sbP
-         Eecy7hBKT4ipcrelY6THxlpY9yikZf25XcXJdBrTHzP7rM+aakc/HGr7zTYAU8Noh8MD
-         +Lhf8LeaxBtX6jYQv8qTGSHSRfSgMTsfO2K9mOyyhhXB5A9zELGkYOXb77/iXjLkAsIl
-         TD0VEb3bsXSZxXnXvVbaSDYHZT8kNxTqEM6f/ngj6mvPtvTP407slWp0SDBSVGtxLd32
-         YOle1nz75FSMIgBcPzVVHPmQz0TGYKVQTS9UzK6XkFxwkH2uOxHw7ohpZ4r8nxT7y+9y
-         KN7Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789370985; x=1789975785;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=iLuGPJOul88SFkcVl5PHBDFHBc0tVdx0/BNU/eqBS78=;
-        b=Ebb3/1YzFlczgxeGd3qQST4kEO/iEiAl2miHHDyUNA/vUDvfAhMJw3p8tGzeGy8gC9
-         EMjTVAQ+DzUdRs9bg9bvju0a+eHgT6cFEksrSfC7W7v8CyJYEDJ2kIxC6Bw2BCnFoMPs
-         A2nNeFHDUyeKVYeuZgLRwrs1KgjJQ3/ODcnK3IQx0OG4pw0qLBdPjwi6q3vgjiCfe/PG
-         ZI4bjVkBcjU0zHTMm4rlApbEMXN9Ea4PILwlOPV2dQtFz9tFbbU7DIvWEv8BfzFpU9Fx
-         XLWM/H5iA8If4uPZhXEC371IhKJvKrcxRK4YQYsbAK5+5psKOCx39+HmmjdiIlcQxYpC
-         EYjA==
-X-Forwarded-Encrypted: i=1; AKwUvBwMk5Fek96JLIOTFs3B7fj8JIb60Ul2Ipr4oPjsF1pEZD/SDp2Lu6mRTRpwxQEyY+ULSLhDsAjGxF1aOWcLe50P@lists.infradead.org
-X-Gm-Message-State: AFuF++njEWlPF712PPnU80YyUC70+ClXGERQKWIIUX2+aeW05E7SChY6
-	FMdd4kZKKVVYdkHvfl2oddF8GwZUK/ZZu4l8lBzoudt/iBIClaQHNkUC
-X-Gm-Gg: AYBFou32PGDaaeNPRQI6S3PEUwXFFQzetZTnq4eCoBcZbhttCFvkUBk1QTROYs7RvPC
-	Wl6dnx7AuXkDrlGeNlQXnY43XLodGB1ylzJ3S3gPgFI/zdX01NapDppcvxP0D15PIuqrlevrh3r
-	V1A2TuLGMWyI5izHidvQ4luAhsZNMQD1PY69ZWBUq6BhMQmcc0J9CtgVNybzvWpRzvT5on53BC2
-	nKeJ4gRMlxJG04+rF/AVAQ5/XMeRz4TtYGRdUAnnAj6ywJJ2/2vqixEd7Xeknh3aHRQaePMRHtt
-	d6Hp23NELKGyCq1ZUgS7SVEoQCznLVD9egLwEnwVWqyZMCL+PcvhGHObD+O7r5G2P1xo1QipKMA
-	oXwqNieNtuBy6LSTMI04fGtDxW2SoqIC9BY7eJaACvcUGRmq7BS+GuqG0s7W46fMb8UmKD58TvG
-	rihJd159yIu5NcbsvAP3xUGB7qs+wm03xHvFc6Rsnc0n6XjO1WZkhWRcaPK6ZDWoT16L8pw4CC6
-	sR06y0BnLQAwrIL34XdPLtrNaYrgiNngwM1usoUmICoLDBIJn0YMOxFWtHdKBPsCWc11f/CgmSi
-	ms4dPBEOz6N5VBJF8WoKZrkPeA==
-X-Received: by 2002:a17:90b:2809:b0:396:d27b:89b9 with SMTP id 98e67ed59e1d1-39debfa956bmr3527909a91.10.1789370985063;
-        Mon, 14 Sep 2026 00:29:45 -0700 (PDT)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39d957131f9sm19598245a91.12.2026.09.14.00.29.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Sep 2026 00:29:44 -0700 (PDT)
-From: phucduc.bui@gmail.com
-To: Mark Brown <broonie@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Cezary Rojewski <cezary.rojewski@intel.com>,
-	Cyril Chao <Cyril.Chao@mediatek.com>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	Dan Carpenter <error27@gmail.com>,
-	cassiogabrielcontato@gmail.com,
-	linux-sound@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH v2 11/13] ASoC: mediatek: mt8189: Validate sysclk frequency
-Date: Mon, 14 Sep 2026 14:28:40 +0700
-Message-ID: <20260914072842.24420-12-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260914072842.24420-1-phucduc.bui@gmail.com>
-References: <20260914072842.24420-1-phucduc.bui@gmail.com>
+	Mon, 14 Sep 2026 07:31:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1789371067; x=1820907067;
+  h=from:subject:date:message-id:mime-version:
+   content-transfer-encoding:to:cc;
+  bh=5/qH9WQH0xnxZiSwc57XSnnm6CjMDXhHBj4pLQbDsZk=;
+  b=d0C7f+Szb7LJT3i/81EbFCyxqYHHksi7MULdLEdlzBdqM61XTCC/gWVw
+   A4BHkc35/ZmSqIZFRQrwpFtbJLF8ywhELqAivKThOXZs60/TmmGzJpTXX
+   HaV9mnoxvO0oS24dpVFpgrsmBJNXKShlNZSFEBseZy4PZ6JGlvue/dc9s
+   7g/UF2q7N7dwrGWfM0ftCCJ6Gju7uPdrlCga+Onh2BQj6xg7iylVgQpJR
+   B47fJa4JQ5GtvpZD195ZwTlg/4ovpeesAmvnYTxBJwVm/CNXrEotqngSz
+   maQlKyDTcj++ntojFp23PVnqcnhrdRDVSWkDblfcwqCfFiixBcazickXZ
+   w==;
+X-CSE-ConnectionGUID: PDuqj9VKRDqIBouDffIQdg==
+X-CSE-MsgGUID: ysZ4cQNnT3ueBfsIB0enqg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11904"; a="254977267"
+X-IronPort-AV: E=Sophos;i="6.27,102,1786978800"; 
+   d="scan'208";a="254977267"
+Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
+  by esa2.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Sep 2026 16:31:04 +0900
+Received: from az2uksmgm4.o.css.fujitsu.com (unknown [10.151.22.201])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id 8A26AC00367
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 07:31:03 +0000 (UTC)
+Received: from az2nlsmom2.o.css.fujitsu.com (unknown [10.150.26.200])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2uksmgm4.o.css.fujitsu.com (Postfix) with ESMTPS id 3E7CD14003FF
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 07:31:03 +0000 (UTC)
+Received: from [127.0.1.1] (unknown [10.124.178.20])
+	by az2nlsmom2.o.css.fujitsu.com (Postfix) with ESMTP id 65571180012C;
+	Mon, 14 Sep 2026 07:30:57 +0000 (UTC)
+From: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+Subject: [PATCH v2 0/3] 52-bit VA guest mode ID support
+Date: Mon, 14 Sep 2026 16:30:43 +0900
+Message-Id: <20260914-arm64-52bit-va-v2-0-3911cb9d4ad4@fujitsu.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAKOip2oC/12NQQ6CMBBFr0Jm7Zh2gAZdeQ/DAkorQwKYtjQaw
+ t2lGDcuX/L++yt449h4uGYrOBPZ8zztQKcMdN9MD4Pc7QwkSImKSmzcqAosqeWAscGcrLSF7kQ
+ pOthHT2csv47gvf6yX9rB6JAqyejZh9m9j8cok/eLq/94lChQFkZfKpIyV/nNLgMHv5z1PEK9b
+ dsHgk4c3MAAAAA=
+X-Change-ID: 20260825-arm64-52bit-va-32f1f4cd050d
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+ Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
+ Steffen Eiden <seiden@linux.ibm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Zenghui Yu <yuzenghui@huawei.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+ Shuah Khan <shuah@kernel.org>, Sean Christopherson <seanjc@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+ kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Itaru Kitayama <itaru.kitayama@fujitsu.com>, 
+ Takayuki Okamoto <tokamoto@fujitsu.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789371056; l=3154;
+ i=itaru.kitayama@fujitsu.com; s=20260825; h=from:subject:message-id;
+ bh=5/qH9WQH0xnxZiSwc57XSnnm6CjMDXhHBj4pLQbDsZk=;
+ b=Vrji+rOz7LhmW6GdQCEDDXWddYrkAdBps2e04+1rLpswYZDXxv+ahTbGMs9yqV0gtrDVHhhwN
+ LFHDUSJNmUnDuyYdXr8NBnwbrjHCUMRBlvptVI8wlBP+R+wwItjuMqR
+X-Developer-Key: i=itaru.kitayama@fujitsu.com; a=ed25519;
+ pk=g9bTnr9giRP7JwNSZHy+OMLQZBEUtSE9tUnXso0hH1Y=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_082951_250490_A9B2564A 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20260914_003106_613144_9999EC56 
+X-CRM114-Status: GOOD (  14.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,36 +109,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+This patch series extends the arm64 KVM selftest framework
+to support 52-bit guest virtual address (VA) modes in addition to
+the existing 52-bit physical address (PA) configurations.
+The motivation is to enable validation of LPA2 guest memory-management
+behaviour in configurations that use a 52-bit VA space.
+While the selftest framework already supports testing 52-bit PA
+configurations, it lacks the ability to exercise guests running with
+52-bit virtual addresses, leaving part of the LPA2 functionality untested.
+To address this, the series introduces new guest modes for 52-bit VA
+operation, adds five-level page table support where required, and
+performs runtime detection of host 52-bit VA capability so that
+LPA2-enabled guest VA tests are executed only on supported systems.
 
-A zero frequency causes a modulo-by-zero error when validating the
-I2S clock frequency. Reject it before performing the validation.
+Testing:
 
-Fixes: 7eb153585598 ("ASoC: mediatek: mt8189: add platform driver")
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+Built and ran lpa_test on QEMU with 52-bit VA support. 
+The test verified shared mappings at low and high guest virtual addresses, 
+then remapped the high VA to a different GPA and verified that 
+the mappings remained independent.
+
+Signed-off-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+Reviewed-by: Takayuki Okamoto <tokamoto@fujitsu.com>
 ---
-
 Changes in v2:
- - Check for zero frequency since freq is unsigned. 
+- Reorganize the series so that each patch builds independently.
+- Move all P52V52 mode definitions and uses into the same patch.
+- Use the standard "KVM: arm64: selftests:" subject prefix.
+- Reuse one probe VM and vCPU for IPA and 64K VA capability detection.
+- Make the VARange result explicitly specific to the 64K granule.
+- Clarify that only the 4K P52V52 mode uses five page-table levels.
+- Link to v1: https://patch.msgid.link/20260826-arm64-52bit-va-v1-0-14ec98211363@fujitsu.com
 
- sound/soc/mediatek/mt8189/mt8189-dai-i2s.c | 3 +++
- 1 file changed, 3 insertions(+)
+To: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oupton@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+To: Joey Gouly <joey.gouly@arm.com>
+To: Steffen Eiden <seiden@linux.ibm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: Zenghui Yu <yuzenghui@huawei.com>
+To: Paolo Bonzini <pbonzini@redhat.com>
+To: Sean Christopherson <seanjc@google.com>
+To: Shuah Khan <shuah@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: kvmarm@lists.linux.dev
+Cc: kvm@vger.kernel.org
+Cc: linux-kselftest@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
 
-diff --git a/sound/soc/mediatek/mt8189/mt8189-dai-i2s.c b/sound/soc/mediatek/mt8189/mt8189-dai-i2s.c
-index f20dbb410223..2202fed63fc9 100644
---- a/sound/soc/mediatek/mt8189/mt8189-dai-i2s.c
-+++ b/sound/soc/mediatek/mt8189/mt8189-dai-i2s.c
-@@ -1286,6 +1286,9 @@ static int mtk_dai_i2s_set_sysclk(struct snd_soc_dai *dai,
- 	    dir != SND_SOC_CLOCK_OUT)
- 		return -EINVAL;
- 
-+	if (!freq)
-+		return -EINVAL;
-+
- 	i2s_priv = afe_priv->dai_priv[dai->id];
- 	if (!i2s_priv)
- 		return -EINVAL;
--- 
-2.43.0
+---
+Itaru Kitayama (3):
+      KVM: arm64: selftests: Support five-level stage-1 page tables
+      KVM: arm64: selftests: Add 52-bit VA guest modes
+      KVM: arm64: selftests: Test 52-bit guest virtual addresses
+
+ tools/testing/selftests/kvm/Makefile.kvm           |   1 +
+ tools/testing/selftests/kvm/arm64/lpa_test.c       | 124 +++++++++++++++++++++
+ .../selftests/kvm/include/arm64/processor.h        |   3 +-
+ tools/testing/selftests/kvm/include/kvm_util.h     |   3 +
+ tools/testing/selftests/kvm/lib/arm64/processor.c  |  60 +++++++++-
+ tools/testing/selftests/kvm/lib/guest_modes.c      |   7 +-
+ tools/testing/selftests/kvm/lib/kvm_util.c         |  11 ++
+ 7 files changed, 200 insertions(+), 9 deletions(-)
+---
+base-commit: 28924df2a08f440c73991b83028032c901de2ae4
+change-id: 20260825-arm64-52bit-va-32f1f4cd050d
+
+Best regards,
+--  
+Itaru Kitayama <itaru.kitayama@fujitsu.com>
 
 
