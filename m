@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48C34C88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 10:21:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D561C88E65
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 10:21:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2zLsIyP0KtAkkGu4qxc5aJeTJpaXy+6Cbaxy6MIpywI=; b=YI3GnKT361cg2Sw2Fy4efW8K81
-	ApB7NNUiGL/2/bRNDYO4KYysa4ax8RGLN7qKXXFk3uOyYZI32uDFheF2s800AGacR2GWLPzH7SGgO
-	HCc6SaF8LrOzyL4xYs5I7k9WoyWp/8u6efR+cl5nEr27CQV2ofZicj/ILTaAqiTsL9roa5uKP7W5u
-	8v1lytTkFJ7xs9r/meA4cDwWNciW7ZZ1K85+uN3gkPc/RDjElDnmqoJx6QhW5/PZbwMwI50Y5Elrs
-	7UvCBV9opSRCgMw8pYwBsdLZFz/iBop0kr4OrPArLwaJuPCgWEwsyrZjBvaoMQaO7zPzJVjkLrn4o
-	CroF8WuQ==;
+	bh=cQmZq5KUzctPK0a6MNRCOasNWGpIPs3EXE8Oy1jCAY4=; b=xF/gayzd+MYOjulAz6OPS3Y6P3
+	O3rmSxQed3S6AavUvKQsWXxbE64cHLvz/GDPjNgioxL3e6hSR6NNsJ1A3t5Psv5p4lP95a2m7/NeT
+	mmP0+ich9LYzkVJh2xappa4bH7i0s/98smr39r/HZ4SsL2O5AA79H3yyG6jJaIN5xZ+j4HN1nm7Fc
+	c/XhNcF3K1WP0LO114n7gCYk84U0rExHh/h1RiJk9D74NUkYXLnp59yhPZNKbXinFYwXLVCSpPjKy
+	ebSxy7o6NSYCtdkUnzjy0ZSKrTB6gCPWHAKyDMMjlznFmVVrQYsmyn5kfVolznWdSyXwysPbjno+f
+	h8Fqx3aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x63on-000000035Ms-37Vp;
-	Mon, 14 Sep 2026 10:21:45 +0000
+	id 1x63op-000000035QD-0RXn;
+	Mon, 14 Sep 2026 10:21:47 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x63oc-000000035Gt-03vz
+	id 1x63ok-000000035J1-2ZCu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 10:21:36 +0000
+	Mon, 14 Sep 2026 10:21:43 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E14A61570;
-	Mon, 14 Sep 2026 03:21:29 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 90EDD1CC4;
+	Mon, 14 Sep 2026 03:21:38 -0700 (PDT)
 Received: from login2.euhpc2.arm.com (login2.euhpc2.arm.com [10.58.100.22])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 6CF393F7B4;
-	Mon, 14 Sep 2026 03:21:32 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 188853F7B4;
+	Mon, 14 Sep 2026 03:21:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789381293; bh=6h+wye8CSEITGG0IR1sTIZhE7mwaS4ZqlAr/d1TRY0s=;
+	t=1789381302; bh=U1gKRsYUA1pEc3f8KqFYAzdhMzJTE53Uh6ZnF6JHcto=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=q4HoghLazlfyLc7UJtop5WSJ1jEYafl06l1xFFqxLY9Ycw5sJYUZDFQycC3dO3PDg
-	 kPRDZjoJdt9+jd8ZtX8pwG0betEZXjWxz9iWvFP6rKY5Y6+ktn7qNuBCkvean0Ap50
-	 VE1/tlmpGQbsfz67xDqr3DjJBEPncxCXjvd6iors=
+	b=sVsLFCqPrAn5itY5ur9vIGRjy1eWsgkDlY2dwasvh2doKPztVA6/RFn8/h929khXv
+	 2TMC7YyGn7Tby4rO7aqaGnzmEhf5jfYKg4YVIaxJbXc7axvpI16keEaVGzEw1/WJva
+	 vzsl25SwvD3jU54aQeTFiyj20+VhRIZgwtd5kHLA=
 From: Vladimir Murzin <vladimir.murzin@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: catalin.marinas@arm.com,
@@ -48,17 +48,17 @@ Cc: catalin.marinas@arm.com,
 	lpieralisi@kernel.org,
 	ruanjinjie@huawei.com,
 	liaochang1@huawei.com
-Subject: [PATCH 04/38] arm64: process: Lift check for exception state to generic infrastructure
-Date: Mon, 14 Sep 2026 11:20:28 +0100
-Message-Id: <20260914102102.68597-5-vladimir.murzin@arm.com>
+Subject: [PATCH 10/38] arm64: cpuidle: use new helpers to bypass interrupt priority masking
+Date: Mon, 14 Sep 2026 11:20:34 +0100
+Message-Id: <20260914102102.68597-11-vladimir.murzin@arm.com>
 X-Mailer: git-send-email 2.24.0
 In-Reply-To: <20260914102102.68597-1-vladimir.murzin@arm.com>
 References: <20260914102102.68597-1-vladimir.murzin@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_032135_422734_C4047BC4 
-X-CRM114-Status: GOOD (  11.37  )
+X-CRM114-CacheID: sfid-20260914_032142_748624_58C5DEB2 
+X-CRM114-Status: GOOD (  18.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,101 +73,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-debug_switch_state() explicitly checks the hardware exception state
-for both the pseudo-NMI and non-NMI paths. The expected state matches
-the NOIRQ_CONTEXT exception context introduced alongside the exception
-masking helpers and state checkers. Such checks are handy outside of
-task switch, so turn them into generic helpers available for wider
-use. Make debug_switch_state() the first user of newly introduced
-helpers.
+From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 
+When the CPU goes into WFI and pseudo-NMIs are in use, we need to make
+sure that interrupts are not masked by the PMR otherwise they would not
+reach the CPU and wake it up.
+
+Now that we have a proper API that handles both DAIF and PMR, extend it
+to provide helpers allowing to temporarily switch to masking interrupts
+via DAIF only when interrupt priorities are in use.
+This could allow other parts of the code to make use of it and makes it
+easier to check for proper use.
+
+Replace the custom cpuidle helper with those new helpers.
+
+Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
 Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
- .../include/asm/interrupts/common_flags.h     | 30 +++++++++++++++++++
- arch/arm64/kernel/process.c                   | 21 ++-----------
- 2 files changed, 32 insertions(+), 19 deletions(-)
+ arch/arm64/include/asm/cpuidle.h            | 18 ++-----
+ arch/arm64/include/asm/interrupts/masking.h | 54 +++++++++++++++++++++
+ 2 files changed, 58 insertions(+), 14 deletions(-)
 
-diff --git a/arch/arm64/include/asm/interrupts/common_flags.h b/arch/arm64/include/asm/interrupts/common_flags.h
-index 0de5ba1ae155..03cfde24a530 100644
---- a/arch/arm64/include/asm/interrupts/common_flags.h
-+++ b/arch/arm64/include/asm/interrupts/common_flags.h
-@@ -118,6 +118,36 @@ arm64_exc_hwstate_t arm64_inherit_exc_hwstate(struct pt_regs *regs)
- 	return state;
- }
+diff --git a/arch/arm64/include/asm/cpuidle.h b/arch/arm64/include/asm/cpuidle.h
+index 2047713e097d..b70ef5fd5e57 100644
+--- a/arch/arm64/include/asm/cpuidle.h
++++ b/arch/arm64/include/asm/cpuidle.h
+@@ -5,32 +5,22 @@
+ #include <asm/proc-fns.h>
  
-+static __always_inline
-+void arm64_debug_exc_hwstate(arm64_exc_hwstate_t expected)
+ #ifdef CONFIG_ARM64_PSEUDO_NMI
+-#include <asm/arch_gicv3.h>
++#include <asm/interrupts/masking.h>
+ 
+ struct arm_cpuidle_irq_context {
+-	unsigned long pmr;
+-	unsigned long daif_bits;
++	arm64_exc_hwstates_t arm64_context;
+ };
+ 
+ #define arm_cpuidle_save_irq_context(__c)				\
+ 	do {								\
+ 		struct arm_cpuidle_irq_context *c = __c;		\
+-		if (system_uses_irq_prio_masking()) {			\
+-			c->daif_bits = read_sysreg(daif);		\
+-			write_sysreg(c->daif_bits | PSR_I_BIT | PSR_F_BIT, \
+-				     daif);				\
+-			c->pmr = gic_read_pmr();			\
+-			gic_write_pmr(GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET); \
+-		}							\
++		c->arm64_context = local_exceptions_force_daif_save(); 	\
+ 	} while (0)
+ 
+ #define arm_cpuidle_restore_irq_context(__c)				\
+ 	do {								\
+ 		struct arm_cpuidle_irq_context *c = __c;		\
+-		if (system_uses_irq_prio_masking()) {			\
+-			gic_write_pmr(c->pmr);				\
+-			write_sysreg(c->daif_bits, daif);		\
+-		}							\
++		local_exceptions_force_daif_restore(c->arm64_context);	\
+ 	} while (0)
+ #else
+ struct arm_cpuidle_irq_context { };
+diff --git a/arch/arm64/include/asm/interrupts/masking.h b/arch/arm64/include/asm/interrupts/masking.h
+index 9e589bf11ec8..8729922974b0 100644
+--- a/arch/arm64/include/asm/interrupts/masking.h
++++ b/arch/arm64/include/asm/interrupts/masking.h
+@@ -92,6 +92,60 @@ static inline void local_exceptions_final_mask(void)
+ }
+ #endif /* CONFIG_DEBUG_IRQFLAGS */
+ 
++/*
++ * In some cases, WFI or guest entry for example, we always want interrupts
++ * to reach the CPU even if masked. Masking via the PMR prevents them from
++ * reaching the CPU and waking it up.
++ * Force IRQ masking using DAIF by raising the priority mask
++ * and setting the IF flags.
++ *
++ * Should only be called when IRQs are already masked.
++ */
++static inline arm64_exc_hwstates_t local_exceptions_force_daif_save(void)
 +{
-+	arm64_exc_hwstate_t actual;
++	arm64_exc_hwstates_t states = {};
 +
-+	if (!IS_ENABLED(CONFIG_DEBUG_IRQFLAGS))
-+		return;
++	if (!system_uses_irq_prio_masking())
++		return states;
 +
-+	actual.flags = arch_local_save_flags();
++	/*
++	 * Cannot use lockdep_assert here as idle entry enables hardirqs
++	 * while keeping interrupts masked.
++	 */
++	WARN_ON_ONCE(!irqs_disabled());
 +
-+	if (expected.flags == actual.flags)
-+		return;
++	states.saved.daif = read_sysreg(daif);
++	states.saved.pmr = read_sysreg_s(SYS_ICC_PMR_EL1);
++	states.expected.daif = states.saved.daif | DAIF_PROCCTX_NOIRQ;
++	states.expected.pmr = GIC_PRIO_IRQON;
 +
-+	if (system_uses_irq_prio_masking()) {
-+		WARN_ONCE(1, "Unexpected DAIF+PMR: 0x%x + 0x%x (expected 0x%x + 0x%x)\n",
-+			  actual.daif, actual.pmr, expected.daif, expected.pmr);
-+	} else {
-+		WARN_ONCE(1, "Unexpected DAIF: 0x%x (expected 0x%x)\n",
-+			  actual.daif, expected.daif);
-+	}
++	arm64_update_exc_hwstate(states.expected);
++
++	return states;
 +}
 +
-+static __always_inline
-+void arm64_debug_exc_context(arm64_exc_context_t context)
++/*
++ * Return to masking with the PMR, restoring previously saved DAIF and PMR.
++ *
++ * IRQs or interrupt priority masking should not have been re-enabled in between
++ * the save and restore.
++ */
++static inline
++void local_exceptions_force_daif_restore(arm64_exc_hwstates_t states)
 +{
-+	arm64_exc_hwstate_t expected = arm64_exc_hwstate_of_context(context);
++	if (!system_uses_irq_prio_masking())
++		return;
 +
-+	arm64_debug_exc_hwstate(expected);
++	/*
++	 * Cannot use lockdep_assert here as idle entry enables hardirqs
++	 * while keeping interrupts masked.
++	 */
++	WARN_ON_ONCE(!irqs_disabled());
++
++	arm64_debug_exc_hwstate(states.expected);
++	arm64_update_exc_hwstate(states.saved);
 +}
 +
- static __always_inline
- void __arm64_update_exc_hwstate(arm64_exc_hwstate_t hwstate, bool force)
- {
-diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-index 581f80e9b9b7..0fd09136d398 100644
---- a/arch/arm64/kernel/process.c
-+++ b/arch/arm64/kernel/process.c
-@@ -51,6 +51,7 @@
- #include <asm/exec.h>
- #include <asm/fpsimd.h>
- #include <asm/gcs.h>
-+#include <asm/interrupts/common_flags.h>
- #include <asm/mmu_context.h>
- #include <asm/mpam.h>
- #include <asm/mte.h>
-@@ -703,25 +704,7 @@ void update_sctlr_el1(u64 sctlr)
- 
- static inline void debug_switch_state(void)
- {
--	if (system_uses_irq_prio_masking()) {
--		unsigned long daif_expected = 0;
--		unsigned long daif_actual = read_sysreg(daif);
--		unsigned long pmr_expected = GIC_PRIO_IRQOFF;
--		unsigned long pmr_actual = read_sysreg_s(SYS_ICC_PMR_EL1);
--
--		WARN_ONCE(daif_actual != daif_expected ||
--			  pmr_actual != pmr_expected,
--			  "Unexpected DAIF + PMR: 0x%lx + 0x%lx (expected 0x%lx + 0x%lx)\n",
--			  daif_actual, pmr_actual,
--			  daif_expected, pmr_expected);
--	} else {
--		unsigned long daif_expected = DAIF_PROCCTX_NOIRQ;
--		unsigned long daif_actual = read_sysreg(daif);
--
--		WARN_ONCE(daif_actual != daif_expected,
--			  "Unexpected DAIF value: 0x%lx (expected 0x%lx)\n",
--			  daif_actual, daif_expected);
--	}
-+	arm64_debug_exc_context(NOIRQ_CONTEXT);
- }
- 
  /*
+  * During early boot, we unmask PSR.DA before the GIC has been set up.
+  * If we use IRQ priority masking, the PMR and PSR will be out of sync
 -- 
 2.34.1
 
