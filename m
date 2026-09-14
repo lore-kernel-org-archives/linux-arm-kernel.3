@@ -4,162 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BE65C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 16:11:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C477C88E6E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 16:11:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aLu319U1LKj3iM3vbnWijbay5520MzjjCS/hYV/JwE4=; b=Dsvq8FL4KUpYr+Y9S5DxRQy6e1
-	fLo9aWkbjjgJcteXij/yS9MCPk8HQQUaBT6cMHPb3iDzdbExqXJ0jDLSNAfhFlwxamaJN/G8ETASa
-	TLcLAX4HXi5GrLukiFQ43oyLgRMr+QBtTD1+LIbDlUEnoYmISQ7EJ+e7sDA849v5GlNQkaU7cmzK+
-	K5/CXsSGV5cWly0CZmCHUCLeHKVcdd5SRJWNf2iHuU7TDlca24r1ChpfjGwTH06QL5QXZb4aYN/h+
-	x4lXZghh3pHCQ915+lZr5ipYdqLWWEh08HbjPhUcxC0KcHgIvA3ze6w6qpHOF/LCRZAnWSPQxZBLQ
-	4ZWBolYA==;
+	bh=G3dzWGekt97z/Ed1xd41cjLmbg304qMffuI/kLrXrpY=; b=SvAI+PGjqsMCW3jmpdwn4MZs6g
+	MoaF54mXszbgkgVJlvEEi8WIx679Clo2LErXXSPfYU97WLBHrSWeV765yewtLaTH0m7CPDwfbVT7A
+	P0mEH1pdj/ltnOUiB4WjvpmQ+3uTv4ISN8rLdAiubJhqHpN6mXC6jS+tLr6cKg9Y6dR+0lvQPeYOF
+	kFUv5Jr+Y4YBxMO/4+gdpKQLmhkbUD0/0O2wuFltv3H7iOvRj8Npd30SGxt71neilUE0A7BSEJM2T
+	zEtil3Uozw+GBRRW6SjZfmxv5bDEr9jiAl2vV6kN+wJjEZIXF6PMse9VCSCohEv9Hd2iaTUYTFlku
+	LYOXgtFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x69Gn-00000004GFj-0Q2Z;
-	Mon, 14 Sep 2026 16:11:01 +0000
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x69Gj-00000004GFJ-2RNL
+	id 1x69Gz-00000004GI6-0oOC;
+	Mon, 14 Sep 2026 16:11:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x69Gw-00000004GHM-07lF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 16:10:59 +0000
-Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
-	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 68ED0vBx1487282;
-	Mon, 14 Sep 2026 11:10:47 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=aLu319U1LKj3iM3vbnWijbay5520MzjjCS/hYV/Jw
-	E4=; b=Qeq3DxDlzfu8hf+t+GqoFtKUbjMhzT1rT3roW8xxM+0xcKnuLxzrfYwtO
-	QR59ZKPyCZOAiZhF844KZW1iEX1E3SD+XMHFTjeAaEZC5JQHSSzPTw7Ho88B0nRZ
-	xX6ACmRjqU1xu736s3YcNajEWyEJrIE2IQCGFogHKA9imxTIF+EzwI2hX8Mj7o5g
-	OiLJTN2Rde6Mn8iwjuyow+ZhyU3hAXCWDDmfUjKc5BMauaWT0YxePj0pmiA2fWVN
-	XANh4O/bzAxBwOI6XNC3B9V4qbEQTffdWFewhEsdvWU5+jtXbrnsCkhlw3tfA5KT
-	o8418bbrKfnDEED1+odeVzHyS62Mw==
-Received: from ph8pr06cu001.outbound.protection.outlook.com (mail-westus3azon11012060.outbound.protection.outlook.com [40.107.209.60])
-	by m0380145.ppops.net (PPS) with ESMTPS id 4gnqrn7xs9-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 14 Sep 2026 11:10:47 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cdMtlhh6Ce17AmMuTIXc1hGgEAg1aGeDTBBCbe5qwcPOEb8005xKSvhVpU2QJz9XtqxNrUqa+8B/mhaRfYD1Jtad+nJ/NQunYUA6tVKx9lxKbqTOxcOVQ+Z9yNWw+t0dSUZiIsRem59XdDDZ6yDNVULIOI+8J1OyNkis3gvK62UuRAro0yRQwG2v/6POT/zsnxEpr880Y8oeoM7QwjXYaBdBVhQciw0EK/XphPUrOigF8WNvrNQIEmhWbKYtHoLQ1lfFeEBEigbVvkMsNh98Wpd87le5BehNqho9rxtjQ0IW9AiOgyNy2JvK77KDX5Dw6+4tzaSWnbF3/2NNCkAnug==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aLu319U1LKj3iM3vbnWijbay5520MzjjCS/hYV/JwE4=;
- b=HNV9XH/Oq4hOXQ+yiNnuXwJs3xYEhC7evYSd8ee6y0sVONvF+JsteogXFj7ngjiPGCL87RjlUfZiMWRxKAa/6CNfyHPcdfwqo5JXuw6knRtbVfWQRfSy+ZPvRDaSBVRJP8weXLWOZcD2B8IpoymsQ1SJerbQ9uBnU1w+V62VtMbn+/TgFzS2VHNsp5F2AkV/ugFMYCEscyE0EFm+IPEVqLUs8rJpZbK3dY77dNr+7Eu1SNoO9L1PqqDy+EuKzGTaAHSso703imRipzJu+l5nri8B6WwUCIKBdYUF+LaXrAekq/ly2TDgWoxOpSCLnLaOPYNT79Dc7qMH/N7xpjmAiA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=aLu319U1LKj3iM3vbnWijbay5520MzjjCS/hYV/JwE4=;
- b=TWS0/LvYy7D1br8QkKVXzwyUhsnPYMmGFnOLmm2B1PvbLP6wYv0l8QvDCzUSOc4rbA5ovaTIdg0/zjMqokRXezBLosMOaV+dlEoTMS2vA5Oio9fWmYNQC0O5wtRnFy7b7+5eequMQ5x6CnP9zg9Ez/PDZfC2HY7aPROSmJixKDE=
-Received: from CH0P220CA0022.NAMP220.PROD.OUTLOOK.COM (2603:10b6:610:ef::24)
- by DM4PR10MB6061.namprd10.prod.outlook.com (2603:10b6:8:b5::8) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.428.8; Mon, 14 Sep 2026 16:10:40 +0000
-Received: from CH2PEPF0000009B.namprd02.prod.outlook.com
- (2603:10b6:610:ef:cafe::1b) by CH0P220CA0022.outlook.office365.com
- (2603:10b6:610:ef::24) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.12 via Frontend Transport; Mon,
- 14 Sep 2026 16:10:40 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- CH2PEPF0000009B.mail.protection.outlook.com (10.167.244.23) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.428.7 via Frontend Transport; Mon, 14 Sep 2026 16:10:40 +0000
-Received: from DLEE212.ent.ti.com (157.170.170.114) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 14 Sep
- 2026 11:10:26 -0500
-Received: from DLEE209.ent.ti.com (157.170.170.98) by DLEE212.ent.ti.com
- (157.170.170.114) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 14 Sep
- 2026 11:10:26 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE209.ent.ti.com
- (157.170.170.98) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Mon, 14 Sep 2026 11:10:26 -0500
-Received: from [10.249.135.178] ([10.249.135.178])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68EGAN0t2480434;
-	Mon, 14 Sep 2026 11:10:24 -0500
-Message-ID: <86c79191-6d41-427f-af94-92b91c41b07f@ti.com>
-Date: Mon, 14 Sep 2026 21:40:22 +0530
+	Mon, 14 Sep 2026 16:11:11 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EC266152B;
+	Mon, 14 Sep 2026 09:11:02 -0700 (PDT)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 61E713F86F;
+	Mon, 14 Sep 2026 09:11:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789402266; bh=5bDDncVTuIQ3/y7kgAm8DlF4dJ4tTwsaEm4bIaA/vq0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=iSBAPkX/xPbvyOphzRefa8zokZzrVGhnxREfSd2JuYZrtkfDKP2KLWWCTlgBXFJy0
+	 Q07GbFiCHpfS8dR7CghzldruRZnseiUzK/eGfNqUDoXfdGIk3K7y9Zg7izgzITQ0X9
+	 KZAPYBfj4Azz8kWx77a4v6TD7ShqqCXWRO4n26ro=
+Message-ID: <3571430b-15b5-4451-97e4-455f9fd46f01@arm.com>
+Date: Mon, 14 Sep 2026 17:11:04 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] soc: ti: knav_qmss: Fix typos in comments
-To: Hemanth Selam <hemanth.selam@gmail.com>, Nishanth Menon <nm@ti.com>,
-        Santosh Shilimkar <ssantosh@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <u-kumar1@ti.com>
-References: <20260911085055.715191-1-hemanth.selam@gmail.com>
+Subject: Re: [RFC PATCH] arm_mpam: resctrl: Separate MPAM domains
+To: Reinette Chatre <reinette.chatre@intel.com>, james.morse@arm.com,
+ Dave.Martin@arm.com, fenghuay@nvidia.com
+Cc: tony.luck@intel.com, babu.moger@amd.com, yu.c.chen@intel.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ patches@lists.linux.dev
+References: <85ca29e89eacf12cfa7071249419e7cadb8f0691.1788220029.git.reinette.chatre@intel.com>
+ <0b0eef2d-ce3b-48c8-af08-5889e7396e4f@arm.com>
+ <a492ffb3-c12e-4986-8f36-c907382c67e5@intel.com>
+ <96eda554-64a1-4f1e-9608-98cd106b00da@arm.com>
+ <a3cf9362-007d-4c6c-8f6f-1c9b8b41b1b9@intel.com>
+ <ad1f8ed5-266a-4d79-91ef-ad8ab3febfb8@arm.com>
+ <26e294a0-76a6-4ec0-9df8-021a76bf8ed9@intel.com>
+ <86603611-b20d-4a0a-a247-8cebb11b3432@arm.com>
+ <071d3dc6-6c18-4287-af26-719b89304058@intel.com>
+ <d403b92c-aae8-499f-8c73-933a2d757fba@arm.com>
+ <3595fe1b-0621-4599-b94d-a027336a2ce4@intel.com>
 Content-Language: en-US
-From: "Kumar, Udit" <u-kumar1@ti.com>
-In-Reply-To: <20260911085055.715191-1-hemanth.selam@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <3595fe1b-0621-4599-b94d-a027336a2ce4@intel.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PEPF0000009B:EE_|DM4PR10MB6061:EE_
-X-MS-Office365-Filtering-Correlation-Id: 22578296-0592-4571-7d97-08df127ab8c8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|82310400026|1800799024|376014|56012099006|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: A1idp7TvX44bWeF4Xkxpdl0RKZX1LjBKwyhMugGgEekCmu66XSkQhi9ynlh6njRSSeed7k2y7fPH/kfkG/Jbk/cZuZPiilEt+nK0R9/X/fYkRlI0Ag8SG+cuyY/PUvXUXyO0P0KAFmM2o58pgtGaW+Q67mEgR1HDPyYBD+LhLa0h0mnqGhZNY+59N0XqErqXDjBrCD7EYDZ6IzN3tsB/3Vryf8R2cc27pVxCeCPrM2V8y60jXNeKAh7f7C+7+xx4zCOAi0BSYmTDTZHCu7BiUcrLxIB76341FN00Twz4pYvovjbtlogGOkootfzrvq9MhKzfC4UU0qfEEzMbgryi82XcNMbdo8O22yeCN5YaWDD50TBdGIUodECffsMOPxfrxTdik9XV59KAxSOzsd0BNsgClnCa9bbal7kLVYJwTSCz+Z10x5+7C/nGMEBVCF8tTG8sLv7Gpo1ZOaa2rNZVyVnfxF36BmFys8hErqLoM2CE1Nq8fGk/mqSHCxqoUhnCgwt/06vI9sB/fzLWK2FZ43lq/do6bIoY7woXortQHZzMUA8+D96qytrk1XX0Mz6D8UGECXLk8cm5PB0T4fZqw3/LtB8I9g9OyXJSlJ4PStuvIhza22bSU6zDi9gAOnMBlND12YLYlVnR5p0YlZryhb4Bam3MPRTVLBlsBpQWPH1SLOfXmFtgSENvglpVgSwMidqiH5gLs7JIZL2ijGG67w==
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(82310400026)(1800799024)(376014)(56012099006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: LTdcSwlrr2X20rL9loTSh41LEdfqMqwWlama1TlbYF28ia2EOyUo8tTLCgfjdbbB6FboXBVVpvb7m8BUOMHc+j1asvHKtDaO05DXFtFrhnYPn1NrvjLFFk5YiPUyOWgYpENRpQ0NOddDSLtNsKGwr9C3EHcMsd+e+xtHPAna8wSYmnd7Y0dLsv0gx8VbB9iWk2/3cyScQotRV5CBjU7HjwtajCg+uOoDLMHAWJ1geNB+4B4gGScwtLhS6bTLumzYIQ03D30SmpoNS/nOtT5aY3q3aOrLF75qVpg4Zn53UW5jpHN2JW259Yo/awjio7fkxCESN6pmAHVEdG6MtIF8o0HKPGCi6Bw52QIfHxk4/nO+V/owW7B3fJRCvlX1ipRRT9ry/bjjaYSQhG7NDxNriEvkYKsRqB/KbgLQXv1wW4/fsIDNPdDl5Q728w3Mduh3
-X-Exchange-RoutingPolicyChecked: 2Ovn3aVbUES1e8LER0qkRZ013JAfu22yCCbXThtatEI1dSv1cFtqZen3BMXDFfwK5nSqHo+zD5tjs0y8Dv7S9pBiD3gU1vP+LaSq5BEww2pVM9/00m8OIYrWqO7uwh2pLbt5kQaOA6Dk2AoQKEt4C3xEKhv/VSPLVzKPoVwTmRO/lj/OukUQ/cwHIVjQe4Yo01TqQzbZOjAintl3g6P3t88Jf38cdZsGYpsvo6gkdiwPfz2pBhXEiffykVxTaqHBT5Cx5BLSelk2936Yz5qA4PZ8v93tdd1wIsypKD42Fz6KjW0KCUxDKMq8+39//b7gMHf7XIOrQZ9G2wIHEWN2wA==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Sep 2026 16:10:40.4288
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 22578296-0592-4571-7d97-08df127ab8c8
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000009B.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR10MB6061
-X-Proofpoint-GUID: XGOB0v0oXjf-lKGw3IKF2u74Lg3AJ8g_
-X-Proofpoint-ORIG-GUID: XGOB0v0oXjf-lKGw3IKF2u74Lg3AJ8g_
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE0MDIzMSBTYWx0ZWRfXwGiSF9DbmvdE
- G1HdwLTow9U5AxVTN1MdsxMD7PHcJin70EYRjAA/s/kXxbL+1GG2meLiktwpP8HH6hXBwuFP7cE
- dvr1i1U9hfYQOG1FM+saPfrFIcvv4sdgAC6suOx5/dZFJGoTFi+oKqNMlRdRiTtwnmvbrqu3s4Q
- pQuH+AM36mNdK+o/jNP7bHHxVTOjaW/ze+R6p3BKrggjdhrTbsRjYHj4fcDxvvdagOJzJHDi0Lb
- P34bL+4R1bZ8x/0dW7DyQM/A6MVkB12M8TDm2RmICcok1xtsPFebdqyWSe3yuy2q0nwJdeu3uoL
- qplIxZPHciRfkkLRUWmn9/gn8JqKKngKd9mwjzu0RRGtGiRSF68uIjcadgvdGgftYNXwRgLJICa
- bxUjKONaILDxNjzrx+tm6XNVqe2r53dTe47iWDY+chiK6LE147w2TWR9SsXN+CZT7DGO6Gc7UXr
- 9HoSMxMH/gzzviCmFGw==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE0MDIzMSBTYWx0ZWRfX9Sby0Ms496/k
- k19iUa1PqpxNrZ/dkPOLnaTGbuU+n+TOvE4QVx6l+gCcrxG9x8twbL+M6J+aC8F7P4T1G74nssW
- KFCcWtM1KM2dfNGheqFM+c/MlLFMzdY=
-X-Authority-Analysis: v=2.4 cv=XcgcX455 c=1 sm=1 tr=0 ts=6aa81c87 cx=c_pps
- a=Yf+1g9CPtaneS6NJHGTLjg==:117 a=WotqVVQAdb04rnGuttW3Kw==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
- a=s63m1ICgrNkA:10 a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=Z8NIEmU8O1QQgoT56wFK:22 a=gO1vWkAQAl3rybz1DQOp:22 a=VwQbUJbxAAAA:8
- a=pGLkceISAAAA:8 a=sozttTNsAAAA:8 a=SIqqbWPVVWNU4Q5TPjUA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-14_03,2026-09-14_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 spamscore=0 phishscore=0 clxscore=1015 priorityscore=1501
- suspectscore=0 malwarescore=0 impostorscore=0 bulkscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609140231
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_091057_774293_A246FA49 
-X-CRM114-Status: GOOD (  21.20  )
+X-CRM114-CacheID: sfid-20260914_091110_152773_417818C4 
+X-CRM114-Status: GOOD (  27.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,52 +82,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Reinette,
 
+On 14/09/2026 16:16, Reinette Chatre wrote:
+> Hi Ben,
+> 
+> On 9/11/26 1:56 AM, Ben Horgan wrote:
+>> On 10/09/2026 19:10, Reinette Chatre wrote:
+> 
+>>>
+>>> Do (admittedly crude) guardrails like below capture the existing driver requirements?
+>>>
+>>> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+>>> index 9d223057953a..dbd06371890c 100644
+>>> --- a/drivers/resctrl/mpam_resctrl.c
+>>> +++ b/drivers/resctrl/mpam_resctrl.c
+>>> @@ -1681,11 +1681,18 @@ mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
+>>>  				continue;       // dummy resource
+>>>  
+>>>  			mon_comp = find_component(mon->class, cpu);
+>>> +			if (!mon_comp) {
+>>> +				WARN_ON_ONCE(0);
+>>> +				err = -EFAULT;
+>>> +				goto offline_ctrl_domain;
+>>> +			}
+>>>  			dom->mon_comp[eventid] = mon_comp;
+>>> -			if (mon_comp)
+>>> -				any_mon_comp = mon_comp;
+>>> +			any_mon_comp = mon_comp;
+>>
+>> This first part which ensures that if there is a class for the monitor then a component can always
+>> be found for the given CPU.
+>>
+>>>  		}
+>>> -		if (!any_mon_comp) {
+>>
+>> The any_mon_comp check could still be useful to confirm that if r->mon_capable then there is a
+>> component for at least one of the events.
+> 
+> resctrl fs does not handle such scenario. r->mon_capable guides whether the resource
+> supports monitoring and if it is then all domains belonging to the resource is expected to
+> support all monitoring events associated with the resource. resctrl fs will expose all the
+> monitoring event files based on r->mon_capable and which monitoring events are enabled, there
+> is no finer grained support to expose/hide events per domain.
 
-On 9/11/2026 2:20 PM, Hemanth Selam wrote:
-> Correct "specifes" to "specifies" in the knav_queue_open() kernel-doc and
-> "accomodate" to "accommodate" in knav_pool_create().  No code changes.
-> 
-> Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
-> ---
-> v3:
->  - name the driver as knav_qmss in the subject rather than
->    knav_qmss_queue, which is what the recent commits to this file use
->    (Udit Kumar)
->  - dropped the Assisted-by trailer naming the model
-> 
-> The diff is unchanged from v2.
-> 
-> v2: https://lore.kernel.org/all/20260910044551.50308-1-hemanth.selam@gmail.com/
-> v1: https://lore.kernel.org/all/20260907062247.9994-1-hemanth.selam@gmail.com/
-> 
->  drivers/soc/ti/knav_qmss_queue.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-
-Acked-by: Udit Kumar <u-kumar1@ti.com>
+Yes. I wasn't intending to suggest anything different. If r->mon_capable then the MPAM driver does
+support all enabled events. Maybe I would would have been more to correct to just say if
+r->mon_capable is true we confirm that we can do some monitoring.
 
 > 
-> diff --git a/drivers/soc/ti/knav_qmss_queue.c b/drivers/soc/ti/knav_qmss_queue.c
-> index 3e4041454f69..6186454dff51 100644
-> --- a/drivers/soc/ti/knav_qmss_queue.c
-> +++ b/drivers/soc/ti/knav_qmss_queue.c
-> @@ -509,7 +509,7 @@ static int knav_queue_flush(struct knav_queue *qh)
->  /**
->   * knav_queue_open()	- open a hardware queue
->   * @name:		- name to give the queue handle
-> - * @id:			- desired queue number if any or specifes the type
-> + * @id:			- desired queue number if any or specifies the type
->   *			  of queue
->   * @flags:		- the following flags are applicable to queues:
->   *	KNAV_QUEUE_SHARED - allow the queue to be shared. Queues are
-> @@ -805,7 +805,7 @@ void *knav_pool_create(const char *name,
->  	}
->  
->  	/* Region maintains a sorted (by region offset) list of pools
-> -	 * use the first free slot which is large enough to accomodate
-> +	 * use the first free slot which is large enough to accommodate
->  	 * the request
->  	 */
->  	last_offset = 0;
+> If any_mon_comp is true while one of the mon_comp is NULL then resctrl will still expose the
+> event to user space and pass attempts to read the data to MPAM driver.
+> 
+> Is this a scenario that the MPAM driver needs to support? That is, users will see event files
+> but reading the data will succeed in some domains but fail in others? 
+
+No, we don't expect the MPAM driver to support any features inconsistently across resctrl domains.
+If the hardware did happen to be mismatched then we sanitize it, in __class_props_mismatch() we
+ensure the class only exposes the features that are common to all the child components.
+
+Thanks,
+
+Ben
+
+>>> +
+>>> +		/* hack */
+>>> +		if (!cpumask_equal(&dom->mon_comp[QOS_L3_OCCUP_EVENT_ID]->affinity,
+>>> +				   &dom->mon_comp[QOS_L3_MBM_TOTAL_EVENT_ID]->affinity)) {
+>>
+>> There doesn't necessary need to be a monitoring class associated with any particular event. If there
+>> are classes and so components for each of the two supported events then this check looks correct.
+>> You could ensure that by checking existence:
+>>
+>> if (dom->mon_comp[QOS_L3_OCCUP_EVENT_ID] && dom->mon_comp[QOS_L3_MBM_TOTAL_EVENT_ID] &&
+>>     !cpumask_equal(&dom->mon_comp[QOS_L3_OCCUP_EVENT_ID]->affinity,
+>> 	           &dom->mon_comp[QOS_L3_MBM_TOTAL_EVENT_ID]->affinity))
+> 
+> Right thanks, this needs to be more robust. Essentially this is the finer grained check that
+> ensures that if the domain supports both events then the backing components have the same "shape".
+> 
+> Reinette
+> 
 
 
