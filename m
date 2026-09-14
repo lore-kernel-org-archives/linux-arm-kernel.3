@@ -4,68 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAFFBC88E66
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 12:31:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FEB9C88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 12:32:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hc0y+HWj8Q7xkHkS8F8lXBA38gDV91dQqaarI1miWdA=; b=4839UGcRqqJw5xBRVs9X/FS0He
-	V2dJwemyLUaqRzG4xQvpNBx54ohTmKvPymVfDPeFCjv646pIyGOhuDGbFhGCI8um4fcZ+5slzHnbh
-	aHpFZAt+lAzkCksvT6C/y7AV7M0erZXQVSoplYbRSfYAvJxBqp+Qc15OQMcSpymUys+b6xqUcXZdX
-	1n0MtovjgkD9LMJBXZZ1VnGIpomnqhT13CPX5TOkLGLUYeUsX/y5SnLwxZYujUi4PW5GgvL2g8apI
-	jSHFhxINrKZRCvLXLxgoS0LWelR+/ImA8ulBM9Zug2pTYaMlhXxculm+Qs1Or+J1PiWafTdLLifXn
-	LKYb61Kw==;
+	bh=wkBzytCk5YZvg/bmDrF9IH7a2g7JbGD+pvF2VkeRHmc=; b=g0oOnNFa4ZfWDucYsMwkjjIk4b
+	vlpo1BD33XxK3hAg0O3MrlJ8uIAguroRairZ2B/2oWqbmm6dY3WcCBSAAo5rX/8x8a0lwZZSpcfCb
+	wiIRTEYPWKieIZEDauJ9w75RZwOPXH51Nl29P/LtORjhpwzZ5Th81NlhiEK0fqNuJDocP5s8bcIAD
+	+O7C7sXvqPqSKHCd80xBH8BHud7lmHIxZMFoN3vC/p8TcfKxUub70okunV5uEEAXdu0xeG/wY69t2
+	qCUTpqoqDDfYKDwRj02vZDkPZJ7XxqVOHEEcWsDTXtmPQPAX0CWHxG1U/80vG346rW662SwWHk0AQ
+	ZbOTwu3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x65qh-00000003ZHX-2Ksb;
-	Mon, 14 Sep 2026 12:31:51 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x65qf-00000003ZGH-2PeR;
-	Mon, 14 Sep 2026 12:31:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1789389106;
-	bh=JprKAj3WcBPMjGGlKwMb7u1QmjKgBn6gWZ8gnKo1/yo=;
+	id 1x65rH-00000003ZS3-3Xym;
+	Mon, 14 Sep 2026 12:32:27 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x65rF-00000003ZRK-2QFx
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 14 Sep 2026 12:32:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 856191570;
+	Mon, 14 Sep 2026 05:32:18 -0700 (PDT)
+Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EBC8D3F86F;
+	Mon, 14 Sep 2026 05:32:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789389142; bh=//mVfT+cS6bsEEtaMcIXiUoj03Wbk2JdXzrCu9QKdyU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gFuUeK4krZqgQHfcKDSyoAiSnzipqUN7ouuMdphPMobsw04OFTxt+5Mu9HPYAkASH
-	 tR2s65Q7i+1ETuV57y+xhrIbLgPZRPMwAZvJeMXbZb/TImo4m1pSyo9ap6O7VEYQw7
-	 Xk/Mh4fIw3DrKK9sHmNYe91I8glwXanJQvD/OKlI9lhsEqFoHC2qrXyCOnH/URx6tr
-	 AFE5hvIoMNjspfyGTdcxy728DGtsXkWG/emg3ljf7+ItyrlnSwBIwH80kpF4UV5djl
-	 MPGMv3iwgpiAGbEwLiKwOpWaz0zgXFQJ0JOJQR3U95gna5Ap2G6ZjFbIUbzSLubvfi
-	 DXnpIWDkg9XKg==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B049A17E020C;
-	Mon, 14 Sep 2026 14:31:45 +0200 (CEST)
-Message-ID: <a8610c0e-3332-46b1-9a28-1c1ef504a727@collabora.com>
-Date: Mon, 14 Sep 2026 14:31:45 +0200
+	b=vzKnHSdKbin0VxCTUDozy936CXwnZ/R6yHiNneZhuEooJRckC2b3b/3cDvQz6g7NQ
+	 EDbJ4v+G1Disjqeycfm076iot2cIQi216QhEGxfBgTwPMeZPQww1CDLP4/uTNYKQ3/
+	 9uIii6KCKAS7CGPMY9JU2rgfVNqlhesVxcszDx6M=
+Message-ID: <fe22fb3d-77dd-4b34-9dd8-aafe11f36988@arm.com>
+Date: Mon, 14 Sep 2026 13:32:11 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dt-bindings: dma: mediatek,uart-dma: add mt6572
-To: rva333@protonmail.com, Sean Wang <sean.wang@mediatek.com>,
- Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, Long Cheng <long.cheng@mediatek.com>
-Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260914-6572-dt-uartdma-v1-1-b26b429ab68c@protonmail.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20260914-6572-dt-uartdma-v1-1-b26b429ab68c@protonmail.com>
+Subject: Re: [PATCH] iommu: arm-smmu-qcom: Skip fault-info reads when
+ suspended
+To: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>,
+ Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>,
+ "Joerg Roedel (AMD)" <joro@8bytes.org>
+Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260912-priv_call_runtime_handlers-v1-1-fc0c3a17523f@oss.qualcomm.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260912-priv_call_runtime_handlers-v1-1-fc0c3a17523f@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_053149_774714_EF3C04AA 
-X-CRM114-Status: UNSURE (   6.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260914_053225_703226_6B2F939B 
+X-CRM114-Status: GOOD (  24.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,14 +73,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/14/26 14:10, Roman Vivchar via B4 Relay wrote:
-> From: Roman Vivchar <rva333@protonmail.com>
+On 11/09/2026 11:25 pm, Bibek Kumar Patro wrote:
+> qcom_adreno_smmu_get_fault_info() accesses SMMU registers without
+> holding a runtime PM reference. A fault is raised while the SMMU is
+> active, but the GPU may drop its power vote before the threaded fault
+> handler reaches the callback, allowing the SMMU to runtime suspend.
 > 
-> Add a compatible string for the mt6572 APDMA, that is compatible with
-> mt6577 IP.
-> 
-> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+> Accessing the SMMU registers after suspend has started is unsafe and
+> may cause subsequent register accesses during runtime resume to fail
+> with a NoC error and an asynchronous SError.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+But hang on, if I'm following the code correctly, the callchain would be:
+
+arm_smmu_context_fault
+   report_iommu_fault
+     msm_gpu_fault_handler
+      qcom_adreno_smmu_get_fault_info
+
+and from here we still need to return to arm_smmu_context_fault() to 
+clear the FSR, so surely that still has the same problem in itself?
+
+Thanks,
+Robin.
+
+> Use pm_runtime_get_if_active() to keep the SMMU active while collecting
+> the fault information, and skip the register reads if suspend has
+> already started.
+> 
+> Signed-off-by: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
+> ---
+> qcom_adreno_smmu_get_fault_info() accesses SMMU registers without
+> holding a runtime PM reference. A fault is raised while the SMMU is
+> active, but the GPU may drop its power vote before the threaded fault
+> handler reaches the callback, allowing the SMMU to runtime suspend.
+> 
+> The failure sequence:
+> 
+>    GPU context fault
+>            |
+>            v
+>    qcom_adreno_smmu_get_fault_info()
+>            |
+>            | GPU drops its power vote
+>            | SMMU starts runtime suspend
+>            v
+>    SMMU register access without an active RPM reference
+>            |
+>            v
+>    later Adreno PRR private-interface operation
+>            |
+>            v
+>    pm_runtime_resume_and_get()
+>            |
+>            v
+>    arm_smmu_runtime_resume()
+>            |
+>            v
+>    arm_smmu_device_reset()
+>            |
+>            v
+>    SMMU register access
+>            |
+>            v
+>    NoC error / asynchronous SError
+> 
+> Use pm_runtime_get_if_active() to keep the SMMU active while collecting
+> the fault information. If suspend has already started, skip the register
+> reads instead of accessing the SMMU while it is being powered down.
+> ---
+>   drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 14 ++++++++++++++
+>   1 file changed, 14 insertions(+)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> index 795e8ec7e8fa..b1787a4ba0d3 100644
+> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> @@ -129,6 +129,18 @@ static void qcom_adreno_smmu_get_fault_info(const void *cookie,
+>   	struct arm_smmu_cfg *cfg = &smmu_domain->cfg;
+>   	struct arm_smmu_device *smmu = smmu_domain->smmu;
+>   
+> +	/*
+> +	 * A fault can only fire while the SMMU is active (GPU is issuing
+> +	 * transactions). Use get_if_active so that if by a rare race the
+> +	 * device has already suspended, we skip the register reads rather
+> +	 * than triggering a cold resume which would call device_reset and
+> +	 * destroy the fault state we are trying to capture.
+> +	 */
+> +	if (pm_runtime_get_if_active(smmu->dev) <= 0) {
+> +		dev_warn(smmu->dev, "get_fault_info: device not active, skipping\n");
+> +		return;
+> +	}
+> +
+>   	info->fsr = arm_smmu_cb_read(smmu, cfg->cbndx, ARM_SMMU_CB_FSR);
+>   	info->fsynr0 = arm_smmu_cb_read(smmu, cfg->cbndx, ARM_SMMU_CB_FSYNR0);
+>   	info->fsynr1 = arm_smmu_cb_read(smmu, cfg->cbndx, ARM_SMMU_CB_FSYNR1);
+> @@ -136,6 +148,8 @@ static void qcom_adreno_smmu_get_fault_info(const void *cookie,
+>   	info->cbfrsynra = arm_smmu_gr1_read(smmu, ARM_SMMU_GR1_CBFRSYNRA(cfg->cbndx));
+>   	info->ttbr0 = arm_smmu_cb_readq(smmu, cfg->cbndx, ARM_SMMU_CB_TTBR0);
+>   	info->contextidr = arm_smmu_cb_read(smmu, cfg->cbndx, ARM_SMMU_CB_CONTEXTIDR);
+> +
+> +	pm_runtime_put_autosuspend(smmu->dev);
+>   }
+>   
+>   static void qcom_adreno_smmu_set_stall(const void *cookie, bool enabled)
+> 
+> ---
+> base-commit: f61bb3920fa8cb44b84d32e0fa9fbaab4eb00c80
+> change-id: 20260912-priv_call_runtime_handlers-7f3547544040
+> 
+> Best regards,
+> --
+> Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
+> 
 
 
