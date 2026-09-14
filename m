@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 869CBC88E70
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9F3FC88E75
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 13:47:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,41 +12,40 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JTEthrAA6LwUJ539D4ECKjt7zqyGUxoBnrgaPMytwWY=; b=ylShP5+MifLiV0J0fQzIXLPRpI
-	V841kL5ugrR4vjFY+R24HTRVPBEwzOO6mNda1p+y71j0rusfaWsx47+y/bckBymQubtC6vL0IFwEq
-	ITDRqvJDxj46SaBNiij+Q5491jzj6cs+3/F7e6C3uTKuX5ZTvZcMic7EWJd8g0MWFX4k2NpSAsM5Q
-	Cwj210FCklWK3j/RWj57cUm+EXNSdjrUDvDjFRUiaw76AsdQb2KLPPhcEH3PE2wpHOdd3F2hUGlyt
-	lVGlaJaT4l3MQl5Rl1s0IwiL38ldMtcotCWpb9Oe3eQNztC3NPj8AUZdzO33K6HtLGUf+2NhJkojr
-	7AzqvABQ==;
+	bh=M7ANb8OPjIVJHlipscVgoMQ4zuRZUD8dC1mUN1Ymtt0=; b=Yhdt/QGhZsvqOTvWAemYx3gTc9
+	p00zkG2zB+FOf95k/wKVl/8eAu6wtKcJdLCKwvl+MmdZGUbhz6vdPPHrYATgJNHGmg5Gw7v9iDFm2
+	W0TxyvGObHPgVssBMxon9jgj0+7T1BvpTVH0VstZlzujPx7LvHx33sQ5fWiwCht5ko42aI92ZLP99
+	pwq0FESXXU5d+C9J0VhWfPwR5cEql6wGhvh5U01RLGYiW3MN9n2rRMVC4UeONgwaTAIOPrMOyfOhr
+	uYGlVazk4lXmTftIm9Qnw6osKuMkZAiBG7KYm5n6Hs1ftmmOPUMLGUTeUugai6oFEDPuJrK1V5oX0
+	CgZYeDBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x671b-00000003q9K-4Bwe;
-	Mon, 14 Sep 2026 13:47:12 +0000
+	id 1x671a-00000003q64-1itf;
+	Mon, 14 Sep 2026 13:47:10 +0000
 Received: from mail.fris.de ([116.203.77.234])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x671S-00000003q0N-03nY
+	id 1x671N-00000003pxW-0eXs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 13:47:03 +0000
+	Mon, 14 Sep 2026 13:47:00 +0000
 From: Frieder Schrempf <frieder@fris.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=mail;
-	t=1789393613;
+	t=1789393611;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=JTEthrAA6LwUJ539D4ECKjt7zqyGUxoBnrgaPMytwWY=;
-	b=kJGA+2WCG8Tyubro58MiFXcW/L0kOB7gRGAmuW2V7+MQ9uoo0xeg5W3EBTVz3290LP1NV2
-	KcdyobPXmr7d6WoQ5d6wi490729dh+wQPKiwEvGX33Idnlpm0u5p+M4pj0LZU+3Y82qkz/
-	CO2+BTPDASsPtuDhX1lGaIpDgABJIYFiESF9tM1p7QBHFzxdWqW9BZXoOPIA7H5IXhpgn/
-	LrkM5fKNvb4JXh/3WuL/mwr1QrZljJ8Mo1V1bY8UeY+UN+FHEnFJ3jFStX6M7PKUzdeUet
-	FINGRCyMbZ83toypKmXCOhGrPZM6509k1d5EwIIilbSRW2aHUzQr93ThdBI1FQ==
-Date: Mon, 14 Sep 2026 15:46:17 +0200
-Subject: [PATCH v2 9/9] arm64: dts: imx8mp-kontron: Fix LVDS clock
- frequency for DL device
+	bh=M7ANb8OPjIVJHlipscVgoMQ4zuRZUD8dC1mUN1Ymtt0=;
+	b=vQ15ezdjPe9EzIjXoaKsgbAP/x41fYotZimQlqw8hvzVN/yehjP0EUdXz/cr5Br0I6aXuk
+	r5J5nOcm3ijjNq07K04XRu9YTUiLUrBadsyQl4tOeuKgVDO27Ncm7gWBQyHtqtJyeRvTQB
+	hQDilogqUNtwYgpqPEHA1LCi2I+yPRZiaV8V0it8Qt018VN7QhVLT1YQTR1U4RsugvhXBX
+	ucq+auz6cEbLTJwUD8pzyJgW4zkctuyTCq6iMKAw/zxfqbxIfnKmZRvmEAjX2G+Szeat+B
+	3iQxfQwAqM2+vPLxnJL4j3JskHc153bb7rMP8fWimeREaHpa25to+htsrZhQ4A==
+Date: Mon, 14 Sep 2026 15:46:10 +0200
+Subject: [PATCH v2 2/9] ARM: dts: imx6ul-kontron-bl-common: Add GPIO labels
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260914-upstreaming-v7-2-imx-dt-improvements-08-26-v2-9-8e12bc5f1f10@kontron.de>
+Message-Id: <20260914-upstreaming-v7-2-imx-dt-improvements-08-26-v2-2-8e12bc5f1f10@kontron.de>
 References: <20260914-upstreaming-v7-2-imx-dt-improvements-08-26-v2-0-8e12bc5f1f10@kontron.de>
 In-Reply-To: <20260914-upstreaming-v7-2-imx-dt-improvements-08-26-v2-0-8e12bc5f1f10@kontron.de>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -59,18 +58,19 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Oualid Derouiche <oualid.derouiche@kontron.de>
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1721;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1140;
  i=frieder.schrempf@kontron.de; h=from:subject:message-id;
- bh=JflSEapFC6tCDik1Iz5jWuT+Z2BejGAThr2/ZivZJV0=;
- b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JIWv5r1OHzvCa3wswrbacv1oglFW+j8HEivPg4eDvHzMNj
- x/qEH7QUcrCIMbFICumyCLFb/Ha1izWR/5YdRTMHFYmkCEMXJwCMBGXBkaGO5E8fidFrxrOd1px
- /XRsxLXAHHWph8VZm3p0uB8whp19w8hwbeuSF2szmQOcJ7XOEPaYk+KS9Jd94zxt39NKTyMOXRX
- mAwA=
+ bh=+pyws9R7YxcGiBu21aWCHnox53fIOKOKZJHrE50fyaA=;
+ b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JIWv5r1NeWTbSU69La8uyL1kjP/Oz3C+xi82Lz/oZzWtYc
+ bld0lq0o5SFQYyLQVZMkUWK3+K1rVmsj/yx6iiYOaxMIEMYuDgFYCKpExkZHlyeaby37ta1XkuZ
+ B/95p2iHM2fpWvF77vD2nPPdIavpKMMfvp8L72TE31t3xjj0pFOR0soZz3a8vKi/dvMc1+0+AWd
+ amQE=
 X-Developer-Key: i=frieder.schrempf@kontron.de; a=openpgp;
  fpr=1A0F38EB3D365D4C1FC67B5A69761B25107C8216
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_064702_222938_07D914B5 
-X-CRM114-Status: GOOD (  10.75  )
+X-CRM114-CacheID: sfid-20260914_064657_565817_4677FA38 
+X-CRM114-Status: UNSURE (   7.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,48 +87,41 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Oualid Derouiche <oualid.derouiche@kontron.de>
 
-The panel needs a pixel clock of 50 MHz, which means the LDB
-serializer has to run at 50 MHz * 7 = 350 MHz. The LDB rate itself
-is set by the fsl-ldb driver, but VIDEO_PLL1 needs to be pinned to
-700 MHz, so that both the LDB clock (/2) and the pixel clock (/14)
-can be derived from it exactly.
+Describe the GPIOs and their purpose using labels.
 
-Fixes: 946ab10e3f40 ("arm64: dts: Add support for Kontron OSM-S i.MX8MP SoM and BL carrier board")
 Signed-off-by: Oualid Derouiche <oualid.derouiche@kontron.de>
 Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
 ---
- arch/arm64/boot/dts/freescale/imx8mp-kontron-dl.dtso | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+ arch/arm/boot/dts/nxp/imx/imx6ul-kontron-bl-common.dtsi | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-kontron-dl.dtso b/arch/arm64/boot/dts/freescale/imx8mp-kontron-dl.dtso
-index 41a2bb74f156..88b30ca66adf 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-kontron-dl.dtso
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-kontron-dl.dtso
-@@ -6,6 +6,7 @@
- /dts-v1/;
- /plugin/;
- 
-+#include <dt-bindings/clock/imx8mp-clock.h>
- #include <dt-bindings/gpio/gpio.h>
- #include <dt-bindings/interrupt-controller/irq.h>
- #include "imx8mp-pinfunc.h"
-@@ -99,6 +100,16 @@ &ldb_lvds_ch0 {
- 
- &lvds_bridge {
- 	status = "okay";
-+	/*
-+	 * The video PLL clock frequency needs to be configured manually.
-+	 * The panel needs a LVDS clock of 50 MHz * 7 = 350 MHz.
-+	 * IMX8MP_CLK_MEDIA_LDB = IMX8MP_CLK_MEDIA_DISP2_PIX * 7
-+	 * IMX8MP_VIDEO_PLL1 = IMX8MP_CLK_MEDIA_LDB * 2
-+	 */
-+	assigned-clocks = <&clk IMX8MP_CLK_MEDIA_LDB>,
-+			  <&clk IMX8MP_VIDEO_PLL1>;
-+	assigned-clock-parents = <&clk IMX8MP_VIDEO_PLL1_OUT>;
-+	assigned-clock-rates = <0>, <700000000>;
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-kontron-bl-common.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-kontron-bl-common.dtsi
+index a71669bef7d4..65c5f4450c36 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6ul-kontron-bl-common.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6ul-kontron-bl-common.dtsi
+@@ -132,6 +132,22 @@ ethphy2: ethernet-phy@2 {
+ 	};
  };
  
- /* redefine to remove touch controller GPIOs */
++&gpio1 {
++	gpio-line-names = "", "", "ADC_REF", "AIN1",
++			  "", "", "ENET2_MDIO", "ENET2_MDC",
++			  "AIN2", "", "", "",
++			  "", "", "", "",
++			  "", "", "", "SD1_CD",
++			  "", "", "", "",
++			  "CAN_ADR0", "CAN_ADR1", "CAN_ADR2", "CAN_ADR3",
++			  "", "", "LED_H14";
++};
++
++&gpio5 {
++	gpio-line-names = "DIN2", "DOUT2", "LED_H16",
++			  "LED_H15", "DIN1", "DOUT1";
++};
++
+ &i2c1 {
+ 	clock-frequency = <100000>;
+ 	pinctrl-names = "default";
 
 -- 
 2.55.0
