@@ -4,71 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66A6BC88E64
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 12:01:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1B05C88E70
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 12:02:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D70l4VPHEgzTRxp8QD99cI0kN28iFyT1rcFBC7OwJpk=; b=vcREqlaOZeMk85IODjJWiYY5rW
-	vysuA2pOgW/4n6W/emlEH6twITXJWvK0Gj048kx0E2EdOokQFrEi5br3ja6FC/qW0xn/Dj8Pvf6IW
-	45svv3lyErFVzp/NxcSQ1HWgGf7Ej6geqMkhJp19qzbQVmJZpc+9XBwdhXcgHC5IMW9Zsc3s4Lwqf
-	QuyEaX26H8v20W6AFNc32U2J7EBtDxKuEQJJVvY1/j5VAoiElN0dlHyL376BJP4T341NmRApDw8Hg
-	ALozckX3wGgNdjkvzyW8sHMugFFbui74A1mRd4a6NQyHxwv+NTcw52Q6G1uqBzY/0Ph4eIEAz2kci
-	s2vL8y/Q==;
+	bh=D7iWgmkB5ua9FGwXPfjin/NDimCL+NiOGkzL1O6SrLo=; b=Xj9hRNzzrLg2zCEsKaTVdq8+/7
+	0o+hLmd5sDb4KWkeiFyofDuYiJ4yKMvio251sQ1jWy3T2cwyKDCSEA+QC6PHH+mMjUKuCZXen6oQd
+	kzvQyFBCUEK+77FFpJMqaDk+wN21DHvjTdZxhym1MG3ury+u+s1i3twUF6S9Eyda1u3rEU8A2s+bB
+	WiJs/H+4mIjWr4FjTLXOa1Qyi0QNpYTnunqCl53A4wZ5b2ctm1oCm8/fDyq+sLHU3+yiDr9MLnnBV
+	DHRJu4Sv1I+iD+FBZ4Ez/9+Phrvw3h9v5Y88wVzamSZ5r+NLO7OUcgvvdRt1rmc/XSTu6iwjKszMy
+	U/5YBfgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x65Ml-00000003SDy-2mVH;
-	Mon, 14 Sep 2026 12:00:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x65OM-00000003SWh-0ib0;
+	Mon, 14 Sep 2026 12:02:34 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x65Mj-00000003SDd-3pBU
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 12:00:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7A95B4147B
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 12:00:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E7831F00899
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 12:00:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789387253;
-	bh=D70l4VPHEgzTRxp8QD99cI0kN28iFyT1rcFBC7OwJpk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=ERpz8UJnqS93FUiR4vRL+CRB1I/YoiV55I+8ZHuW1qXUbGj4SprS39VkEygVxtlwX
-	 ZQxuO8HsU5dX0jAOUOoX6muxo1z9Yv6PBstLZuUO5BL6YbVQ9kOOhqfU4f9Z4wuX7K
-	 9Hk/Qf5zK+WvqP5236Rzgnve21XcSqFgEQi0EKlHhlFBVrBUzV2ZJIqEKp5MEfLY2a
-	 fFxMjZGXn3vnkKtRa1vuwTeZ9RVaTS2HVb9y8Lz6NWaf1/8cr43mG+cTb926rJzlt6
-	 DpHYqbGIgTZsja+bVabtGGSPcfE7sHnIFxPdWQs/3qX+A28m8A1DCPyzr89TrQReSV
-	 SH4TCKfIT+VIw==
-Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5b6031cbc6bso3076167e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 05:00:53 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBzflxnoP0KcQpMBODgDLF3VVJrP6Vbkv454/IKGkmhSCuajGZQLEzubSCQQSNWLAJesi9/r96CuOiK4L3bxz2Vv@lists.infradead.org
-X-Gm-Message-State: AFuF++mgshRyeA7ez3UbKvuL3BWCfWJrS0JJAb8uvZCwpVwC9Nw8YkP8
-	F22LZXs0z2oSbxdh3LDtjPKpl2ZVjXGcBP8qZYn2S+d7ohQ5w5DXx3Nd3pPubPQH46e9kUMpoT8
-	ObYd4es/xrM7f6FFN6k3tR/XHfVnuOw0=
-X-Received: by 2002:a05:6512:a92:b0:5b8:9a84:74fd with SMTP id
- 2adb3069b0e04-5b8ae662fb1mr562659e87.4.1789387252070; Mon, 14 Sep 2026
- 05:00:52 -0700 (PDT)
+	id 1x65O8-00000003ST9-0KJ7;
+	Mon, 14 Sep 2026 12:02:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1789387338;
+	bh=nrwqPCZkQIimnka60MFra6BC5Jik31pbN2PY4QrlaYo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=h5KI1TJ/E/gcDBfB4bNFcKVP9n8rcAPff+fNsd457fjS+8MhM3chYQW3ynEEhuBva
+	 bsZS0djpQLU/cus5BHLBN8hYMyewO77dkBWzGHQtSqdP2iumHZLK0w/dQgtR+35mC6
+	 D0+Y1QJJ1HKxDDyFN84rqiIb47XJUCisltvqUGvvNsDiD0rhOnietbTSig7ULNzmRn
+	 yKMI8o5YbKuG1GDq8sEfasXOgSAgHrV/qQshWPRiFTQjbuD9YNIp9f/de8rTVdQW6K
+	 9cLXKzLNSSmMXUaY1S3pEd7Lh0mUMxT83tC/u7JaOywePC3gRDj0MK3Sa//PHL4Jls
+	 YlFva8qS8akZw==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E959E17E0074;
+	Mon, 14 Sep 2026 14:02:16 +0200 (CEST)
+Message-ID: <ca3ec44c-710b-4812-9d22-c70003a136d3@collabora.com>
+Date: Mon, 14 Sep 2026 14:02:16 +0200
 MIME-Version: 1.0
-References: <20260903075940.2089367-1-mehmet.fide@gmail.com> <20260903075940.2089367-2-mehmet.fide@gmail.com>
-In-Reply-To: <20260903075940.2089367-2-mehmet.fide@gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 14 Sep 2026 14:00:39 +0200
-X-Gmail-Original-Message-ID: <CAD++jLnmgKrmUnyCx8dq9yFuJxx68Tt-3XPz0WRzOO8F7805OA@mail.gmail.com>
-X-Gm-Features: AcwNN1UHFrkssgocRyJk96IyI9ERzW3G9X2teZo00fKI-ZjldU-BuzFqADQ4hhw
-Message-ID: <CAD++jLnmgKrmUnyCx8dq9yFuJxx68Tt-3XPz0WRzOO8F7805OA@mail.gmail.com>
-Subject: Re: [PATCH v5 1/3] pinctrl: imx: answer OUTPUT_ENABLE/INPUT_ENABLE
- queries from the pad register
-To: Mehmet Fide <mehmet.fide@gmail.com>
-Cc: Bartosz Golaszewski <brgl@kernel.org>, Dong Aisheng <aisheng.dong@nxp.com>, 
-	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>, Jacky Bai <ping.bai@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, imx@lists.linux.dev, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Mehmet Fide <mehmet.fide@screeningeagle.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v12 08/24] scsi: ufs: mediatek: Add dual 0.9V supply
+ support
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+ Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Peter Wang <peter.wang@mediatek.com>,
+ Chaotian Jing <chaotian.jing@mediatek.com>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Avri Altman
+ <avri.altman@sandisk.com>, Bart Van Assche <bvanassche@acm.org>,
+ Stanley Jhu <chu.stanley@gmail.com>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>,
+ "Martin K. Petersen" <mkp@kernel.org>
+Cc: kernel@collabora.com, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-scsi@vger.kernel.org,
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+References: <20260914-mt8196-ufs-v12-0-9279d7ef814d@collabora.com>
+ <20260914-mt8196-ufs-v12-8-9279d7ef814d@collabora.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20260914-mt8196-ufs-v12-8-9279d7ef814d@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260914_050220_284622_D9705324 
+X-CRM114-Status: UNSURE (   8.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,48 +93,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 3, 2026 at 9:59=E2=80=AFAM Mehmet Fide <mehmet.fide@gmail.com> =
-wrote:
+On 9/14/26 13:38, Louis-Alexis Eyraud wrote:
+> The MT8196 SoC has an additional pin in comparison of the MT8183 SoC,
+> that is used to feed the host controller with a 0.9V supply.
+> 
+> In preparation of this SoC support, add in platform data and
+> driver the management a second optional 0.9V regulator named
+> "avdd09-1".
+> 
+> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 
-> From: Mehmet Fide <mehmet.fide@screeningeagle.com>
->
-> The mmio pinconf get callback ignores which parameter was requested and
-> returns the raw conf register, so a generic query through
-> pinctrl_gpio_get_config() gets register bits back instead of the packed
-> parameter it asked for.
->
-> Decode the requested parameter and answer PIN_CONFIG_OUTPUT_ENABLE and
-> PIN_CONFIG_INPUT_ENABLE on SoCs that declare where those bits live in
-> the pad register; Vybrid has OBE at bit 1 and IBE at bit 0. The answer
-> is 0 with the bit value as the argument, which is what the
-> pinctrl_gpio_get_config() users (gpio-by-pinctrl, and gpio-mmio in the
-> next patch) expect. Other parameters and the SCU based SoCs, whose
-> firmware call returns the raw pad value as well, get -ENOTSUPP; a pin
-> the device tree never configured gets -EINVAL, as the raw helper already
-> does, so a caller can tell "no answer for this pin" from "this
-> controller never answers".
->
-> The only in-tree user of the raw register was the debugfs group dump,
-> which called the callback with an uninitialized config; it now reads
-> the register through its own helper, like the single pin dump already
-> did.
->
-> The set callback is not touched: the fsl,pins binding hands it the raw
-> pad register value and that stays the only thing it accepts. Nothing
-> in-tree sends generic parameters to it on these SoCs; making it
-> understand them is a separate change.
->
-> This gives gpio-mmio a way to read back the line direction on chips
-> whose direction lives in the pin controller.
->
-> Suggested-by: Bartosz Golaszewski <brgl@kernel.org>
-> Signed-off-by: Mehmet Fide <mehmet.fide@screeningeagle.com>
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-This looks like something I could apply separately from the rest,
-can I just queue this patch in the pinctrl tree?
-
-Yours,
-Linus Walleij
 
