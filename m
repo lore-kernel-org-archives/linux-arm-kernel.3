@@ -4,102 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2B75C88E5C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 03:02:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1053C88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 03:17:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gbdzTooPdY+KDhtZ/QzGrAlPMdYJpYAben39hMkDMIQ=; b=pys8m4kLPQiJKrVbTfv4wxVtie
-	UTNY4WSvFXg3UYiKzVOIO1y846DXc3r1bgUwRrhCTq3+kpf/NPV95EuCVUn9syYv+eB7SOvGd9JPV
-	cjy5pGXgUIshQn1p3rD6Q7ZkIt7FUggmiEQQlt0DP1cCQxju+PZ9RswMmgd1YuR9URVV1QT0LDOmh
-	+P+5PtLeorwmlAo5NoUU3fHwIH4SLB4N9NjtuJTcJpvx6JbbjPTYwmQSrU4yWsvFAE9liAOoJeMif
-	DOyBUBoBd1D+Z6eLBgUfznE8QERSEYt5kKKWXsYUkW6jv4eI/qE6NY7NFH5hpm5QynP1ldEW4qfeB
-	UPHFs8Og==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ybUDRHML48CM0LX0EoFtODwcuIZKaAmIztedzUd0mU4=; b=uMC5kcZhvrr1HovgzSv2C7/qgk
+	DKhrDcZ/SMOmkSmrrOCi1FrkpkTZh3jnao1ZJvAjn5uBbKETEbLOt5zOnqtjV8P8tRuNqIJ8M7jag
+	GmWezB8WIlKrn1VakInyGzSfaquz40OEOuR4TgjcN34vewgXeyECcnOecaM2t7IWeD9iii2qnB0rm
+	ACYQNzgvzoHJIvjuQw3P+mJxOF0NdnSbh7UMaA6kLwH5Tl7upx33W+PrLt89ex5XX4FbuBbSo84YO
+	3YEajCqmfVzRcZ7J64zAKOvzFg3hmICdKdqN9gvph0rPyEtEdZYl9tSCnIYovt60f8PSrC2MeMEE9
+	CqDlf33Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5wy3-00000002EMR-3Zqo;
-	Mon, 14 Sep 2026 03:02:51 +0000
-Received: from mail-oo2-x0e.google.com ([2607:f8b0:4864:31::e])
+	id 1x5xCI-00000002FnF-1xsv;
+	Mon, 14 Sep 2026 03:17:36 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5wxK-00000002D5f-2Pvm
+	id 1x5xCG-00000002Fmh-0qrk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 03:02:15 +0000
-Received: by mail-oo2-x0e.google.com with SMTP id 46e09a7af769-7f4f0c89e34so1087445a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Sep 2026 20:02:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789354925; x=1789959725; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=gbdzTooPdY+KDhtZ/QzGrAlPMdYJpYAben39hMkDMIQ=;
-        b=B3x51prlfy1eFClKEJ0pzKDdP2omHs73dr46+CO3xSLwkg0rfogxYf1r+fYQOglePP
-         PirLAKc+C7RUbk0hLfF5tSJPEFBja9iltMk6YUkXPE+M1lMXQd/DPPKXYKeKC8a4rEed
-         CUgdryS/twiDGSZ0+HdbGK+F+Ld1Be0qzuQDdx4knLBv8p7EaYWyeg9ZkZs+6gIVqY1O
-         YPaoTRbf3qo2xTPPTuEHxDv5uLHm5qK1zuk2AP2dHGLyZOPgQvVOnsJZfpDGIDoiiQ0g
-         IAlmCbC6dIrqjhbMvgJhPVDcbjQwSP70efmLUdPs+fOuzrQ4mFCYjTFxytXX6UQkH0Wl
-         Rocg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789354925; x=1789959725;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=gbdzTooPdY+KDhtZ/QzGrAlPMdYJpYAben39hMkDMIQ=;
-        b=SrgTFO+S4E4X4rkPGiYnJ3B3vIdJgP2alOas4j7c7o1/N34i/zLl6px+1rZlHo9hNx
-         xF9n7Ia6tE9quetG3fxQFbtkPbyg52XQa4EeeT+6AC/d1y5jRk1m0ZCM3dN85Fyczz+2
-         vdGZ8H7/lK/N5POdY6msDMAUg2CxxJ9aRpzvUv5IOom3EvEHtFgO1QHW7LeVSFT4z4CY
-         aTmjv1m87tfbPdmE7acEd56bRpuC9ksD1od1pZrxS26SBC//UfdhFs0DoRsSxY2d/RMy
-         THCd7RSC0dnz3ghD/6mDKlnfmYuJm/6EBW1iUC3ifCNyToS1yVAvQonX3WbDhLlSz78P
-         XwnQ==
-X-Forwarded-Encrypted: i=1; AKwUvBysAVVYevgz+Ko9FMCfh2Ik8WpqPDatgXj6esmOSoweunYry0MgGYHuWHnmSvtO0Ers7OAc4ofjuzRy77O4kgNk@lists.infradead.org
-X-Gm-Message-State: AFuF++ljaf15VNoyTHB7wypuvPy3WSmhzqwnN8rVEXrBeb7m/EY0CNNP
-	qtW38X1pJjQWoGLSMcTyM1nLdm+Z12LSO+3s3d1DibT6PGvv5sx4eAbW
-X-Gm-Gg: AYBFou360LxnC+Mj4Esmj20Uxy2A+fLXQWN8SpthycLhOaBJeQ6INxdoQJ7uzxssLcr
-	qnPKwVMHWmDU8dqLX1rd3rmZNPlbQyxAFTKJjIjCIES2E6wUjE0OFJCLRN4imIKG7KZZGgJxlCo
-	ewcIsW8kb9P8Cr9FnNaiJ9wj82mPpARGrLLa9K2O4MXi7Ha2NcqMrNWjq8r1tiF41U0GpeNeGh5
-	y9DugsbX2P7f+JVc4Mye93IL84H3/XJWpOtjBHZM3MIaRMG0SuZvXX4J7PppaI0GY/Obg/xi4VN
-	s2K5UyPa8bTCd7DhKxapkvHhaKYfPaqT5VxvvrH5MocbzvmcPODVgnajTmy3f8vEVsJH6hnjH8y
-	SO1YSFN5/a1Gutt01g4L5Z+f98T7vWRIz1ZVqbWLMO6jyHQJ11KXKMRpuEtWbVTS/+gVeSwe7p+
-	L8zTgoCxJfWDI/+ICMVOGGtfoEWVE+6m5CvVCRRwLERWmm2WMI0Eo2yO2buxiVKHPkFnGsDVxWu
-	vKO04Pf2NUFFV3XWZzpfzX7NOCA+our5KfAoILUUNM2WNnpzdIEiolrWoIA8SB0zg9Xju8ybVrW
-	8mjJfYa7FlvLQ6xQy76QhOvX+HWJwBg4Ly8YfdRPeaswFsjdazWBwxGsru02MAuCab5V74QiRDl
-	L76LgBmvf5GLLrD7Yy6phHCqUe+gucg==
-X-Received: by 2002:a05:6830:719a:b0:7eb:3af8:8c09 with SMTP id 46e09a7af769-808972915a8mr274412a34.3.1789354924870;
-        Sun, 13 Sep 2026 20:02:04 -0700 (PDT)
-Received: from [127.0.1.1] (184-96-157-145.hlrn.qwest.net. [184.96.157.145])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-803f60feba1sm10619014a34.13.2026.09.13.20.02.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 13 Sep 2026 20:02:04 -0700 (PDT)
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Sun, 13 Sep 2026 21:01:24 -0600
-Subject: [PATCH v5 18/18] mtd: rawnand: sunxi: reuse ECC status within each
- DMA read
-MIME-Version: 1.0
+	Mon, 14 Sep 2026 03:17:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HZSLjLElgyP0y7tT9OgE5sDduD++OVhB4NZ/+njTVIyCd6oaFo1/AFUeqQiWAG1JgzTMNTWBc40393N4pFV+/jWd0mFGLZYxpF/HHrzBnzNYl7XL8HjjFCXMmlMMV58//7EndDuOO0asoKxEkKM53jrwb6Dkd77AlsJWGMIAikL2NcHGUzOfCfTohZ7xdyZHtBdURiG1+twDM0JGDhTxUv36YkbsDXw16uloHAjr61OngNSgJWB9MF6T592YJ/cjn21BmjCm5glVl0cQ9AJvpo/mvWX9PHz3bK4zcuxB6qpCBgxSCAcJ46sNQiIASPabEFzLE8Ommbf7PmUBmxSl8w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ybUDRHML48CM0LX0EoFtODwcuIZKaAmIztedzUd0mU4=;
+ b=TR5zyo3w2vAdqDHTVofUF3erUT6rBSVN4Pq5qmkM5J/dKPEzjRzj1pxd+pn2nAvCeYxjg3ymo7OqW2QVC+VsvxTcIM82gqP2S89Lq6Za48ZXfhmQ0r/Wxa6GRS5EV9w/oRbtv+gM1qavgXT6E/LDnIAsQPR2hmPmRRWMj4I6F19jSvIHgaKGTZRgobx0p2cT5ot3OjjhqNwRWsOU1kY1ISu8e2BZutjVxc0LP/33iz3nFxOAxWn9pFTJoEG746Vwe8IAtNnnz/abUEgbiaFo0R5cgutkrihqPE8r/LphPetDYwsjdFURsqyMQBEUMmVz9Bjr0GAURQos7xvCVKAOgg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ybUDRHML48CM0LX0EoFtODwcuIZKaAmIztedzUd0mU4=;
+ b=ppV9gzyx5ToGQkA2u+3pwSwsVFPX4YIL4a5y4PtHXCmhu3VZXCAdLhUIEm5n1VesVoQqKiadP7xHPSIY/FTAvB91sxtNsOH/FQm7OdrVGpvZYywp05nAMIXqtVT/eirh/WB305CaOGqtyIxl+cJpLGMOQf1Fb7whvCflrYHIg5pIKhqDXrMPDOu2QcnXF8BNlGvchaYJM5OCsYSFIAEpuMHZw1b55uMMej5iUa+UzjMDsbpt9c0dK2PiH17sQuLTMx5IFCyyN+hfQ3Xhj0GMPMNcq2i5yV3Ke81p1uuurvPLFF3cnz5mtaKKCFFdWziBpAS9DdT972Z5T+1BwBJ8XQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from VI1PR04MB5807.eurprd04.prod.outlook.com (2603:10a6:803:ec::21)
+ by PAWPR04MB9720.eurprd04.prod.outlook.com (2603:10a6:102:38d::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Mon, 14 Sep
+ 2026 03:17:23 +0000
+Received: from VI1PR04MB5807.eurprd04.prod.outlook.com
+ ([fe80::3da4:2827:d637:37de]) by VI1PR04MB5807.eurprd04.prod.outlook.com
+ ([fe80::3da4:2827:d637:37de%4]) with mapi id 15.21.0406.007; Mon, 14 Sep 2026
+ 03:17:22 +0000
+From: Joy Zou <joy.zou@oss.nxp.com>
+Subject: [PATCH 0/2] arm64: dts: imx91/imx93: add rtc1 alias for external
+ PCF2131 RTC
+Date: Mon, 14 Sep 2026 11:21:06 +0800
+Message-Id: <20260914-b4_imx91_93_rtc-v1-0-daed1cba0714@oss.nxp.com>
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260913-submit-sunxi-nand-vendor-oob-layout-v1-v5-18-7d711076a6f7@gmail.com>
-References: <20260913-submit-sunxi-nand-vendor-oob-layout-v1-v5-0-7d711076a6f7@gmail.com>
-In-Reply-To: <20260913-submit-sunxi-nand-vendor-oob-layout-v1-v5-0-7d711076a6f7@gmail.com>
-To: Miquel Raynal <miquel.raynal@bootlin.com>, 
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
- Richard Genoud <richard.genoud@bootlin.com>, 
- Masahiro Yamada <yamada.masahiro@socionext.com>, 
- Boris Brezillon <bbrezillon@kernel.org>, 
- Brian Norris <computersforpeace@gmail.com>
-Cc: linux-mtd@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, James Hilliard <james.hilliard1@gmail.com>
+X-B4-Tracking: v=1; b=H4sIACJop2oC/yXMTQqAIBBA4avErBPUIrGrREjaVBP0g1YE0d2zW
+ n6L9y4I6AkDlMkFHg8KtMwRIk3ADc3cI6M2GiSXBdciZzY3NJ1aGJ0ZvznGVSuU67hUjYVYrR4
+ 7Or9jVf8Oux3Rbe8G7vsBVYsWMXMAAAA=
+X-Change-ID: 20260914-b4_imx91_93_rtc-07d17cf027ab
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Ye Li <ye.li@nxp.com>, 
+ Jacky Bai <ping.bai@nxp.com>, Peng Fan <peng.fan@nxp.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Joy Zou <joy.zou@oss.nxp.com>
 X-Mailer: b4 0.15.2
+X-ClientProxiedBy: MA5PR01CA0121.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:1a7::10) To VI1PR04MB5807.eurprd04.prod.outlook.com
+ (2603:10a6:803:ec::21)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VI1PR04MB5807:EE_|PAWPR04MB9720:EE_
+X-MS-Office365-Filtering-Correlation-Id: 933b8a52-23f0-4da9-e697-08df120eb160
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|23010399003|1800799024|19092799006|921020|11063799006|56012099006|10067099003|18002099003;
+X-Microsoft-Antispam-Message-Info: UhD2YVE+NrMcEK3J2w4lbLNBhturXqrrBnkAaubGy4ur84XT+kUQWh3ZXck39neVdWLnevaTQffFkW41ZZhK3PgPjWDQcK/7w70WLhLA04cpr9wBztbXjTLDBNvfr8as80f0Q8X7XNqXcsvH4z1Rxrj3tYAECwL7W7hkrpovKUcr4nC1DZL9aMwgE+Z4mQPI3HiUzOFdFv5dZW+DbMozGLl0g/XyVVZUok4So/VQENeyIbCeM5KhUC/cgMypE8FKTHju55dvjpHRX/o8azP/etADdtooNNBMX8RbD2Va2RvNDacmvjXhLQukWa2a4yA2AP9AGbdqVu4cmx2IGRfoE+UU5BU3WnyqmXb3a2Mler5UZv7jN0LFW4aF3bPkC/CjAg9R/LV2eM94OjLqoiVNrTgCZOjSFCbHwbPr8WCJqmrlH7xR5M8cAig42bIlZhQXkbuVkwYiwgNUbCHy+790/xqVsMsG8vpb/TjvVp3k80fgrRJ9vQwF3uGkflRXQiFIjK8eRTZwgbxGILyHjY9m44lkFOOTeGw47QihNvD6VQuI296YrbfTOCh0Z85jdu4/GpC4nxXk3J+bJltnV2V/6HCdV8JrAZurI9yw63R+tkjXgJUoIR3wAMckmOKJgRBE4gPZ+RhUCmlRd9uxHFy7klRbhRZC+yVrAn+ieUkDG8dRa3IyWlDTTCTJ07HnNFOdEvBi+ig0kMCCHjPOx5mjjg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI1PR04MB5807.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(23010399003)(1800799024)(19092799006)(921020)(11063799006)(56012099006)(10067099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TDBDTFprVEZuSFBDWnN1UTNFejMvZWl2KzFwU0h5S1crZTU3bmtSajR2ZHZu?=
+ =?utf-8?B?T2VoVTJ6WXlZc2N0TGVNYmlScG92eUxxcndIZzhiRzNObG9UbUpHRUNkYmkz?=
+ =?utf-8?B?QTRLSTA3Z3BOQytjbDdNenBLekwyUlEzYjlQRlJhajFxTkM4S3lUTndyaTVq?=
+ =?utf-8?B?ZzA1NXdwWkxEVFR1djY0K3dNOXV5b2hGdU9aTnhENHZuRlk1NWtyM2hkSjJL?=
+ =?utf-8?B?Y3QrV3FQS3o3a1Mwbzl4cXVYdFB5d3k3L2JlaFM5TE1LU0w4dyt4ekRzTFNp?=
+ =?utf-8?B?M29uS0JKWWxOci9TMys0ZTh5bnM1K2MwQkxKRzFlN09pN3pMRlptYy9reTJ4?=
+ =?utf-8?B?WXBFRk04MlNBZnJPV0NlVVY0akhNK01FUHoxQmhQMFRVREUweFNrS1Z5WUky?=
+ =?utf-8?B?endNVVFYN09ucmt2bFNYWUUybnZNMnIvUEhTWHhWeUZ4ViszWGovRTV2VDV6?=
+ =?utf-8?B?c0ZjcmFZeGVHYzd3b1dyQkgveDIxWit5V1JzZW5HcUFwM2pqTytRTExZTDQy?=
+ =?utf-8?B?QTBmWkpHaytUdCtTMnY0bC95ZUowbk5XaU5vYndUeTh0eFd4NXdFSXJLNEtl?=
+ =?utf-8?B?eEhHUm9nZmlCUy9qblI2SDd4RVhLNTBmTEFGNUFXVnYwM1JUaEh1cVFLbFdh?=
+ =?utf-8?B?cVpXRUZVZzdpdmRLUFRZV0FtUzAya200Zk1SQ0x3cXloVFIyWGx1NDgwbUV5?=
+ =?utf-8?B?OG9rWHZTYzN4Q2wwaW1FUEV5bmcydlVYeWdHU05PT2Z5S3c4VE5oeXpRNEQx?=
+ =?utf-8?B?emR0RURWTEVOYllmdi83Um5ZRTVOdnlSTzRWdEJDMDhCOStLc0lHR3d5NFV4?=
+ =?utf-8?B?SkJmZ1RUbFZNQWZQVys5ajJrdDdnQXBQZWhmUWlOWmw1UGNKR0hrekoyTUxO?=
+ =?utf-8?B?Vk1tZkpBbjFZT3VPZ3pvaUZEVEY3RFBzdnhOQUhXL0UrN3hOL1Q2d25uY0RS?=
+ =?utf-8?B?TUZuSUhiUkk1bVlyZGNReUc0NG1PemtMWE8zTEdVaXRUTk9SV0VxcHJnZU85?=
+ =?utf-8?B?MUNjSGc5bzRDSU5ZM25FN3JMRXVaTDBvaGgwR1h0REJ0cTlIYWwydDBUU0ZG?=
+ =?utf-8?B?emVvY0dDRG1VelQvZXpYa1JJNlMwTVF1S2dSZ2ZXR3U1L01oK3c4QXVBdTRw?=
+ =?utf-8?B?eGJqejdGZm5mZFVBUVBMUjAxMGR2SjNYZzBXOFp2SVEvMWhTeTRZSlE4SmpU?=
+ =?utf-8?B?cVVlaWNKTVNlVktNWk5Jd3lsR1JTYVNZSWY3aTdFS3k1RzU5RCtaOUt5bmR5?=
+ =?utf-8?B?NE1CTTc1RjJpY25TWVdGVjNLbjNJdHJLZ3U5NE1YSzQ3RGlLd2F2VTF0d21E?=
+ =?utf-8?B?UHdDS2RTbjJpekF5YVNLaEJHNjJwajJZVG5wMXJYK0RwSnA1dlBYSXozTnVs?=
+ =?utf-8?B?WVc2NUZEbUo0Q1BrUGlMMkw4eGlRNVh4S3YwMkdDeWh2OUFaM0orTkVjRzJP?=
+ =?utf-8?B?dDlzVlp6YW5yUkNDcVhWZCtIbEZjLzkycFZXK0FNNVh2b0RnZDdHc2tUeVZ4?=
+ =?utf-8?B?b3dMUHJwQ3ZmL1YyQzd5OURTYklOa2lEblloSEdTMVoydS9ZV2thWGNoRUJF?=
+ =?utf-8?B?V1h6N3ZvQ0tHdFdRNVVHSVBHckEyV0hWMHgzbUcvTFVkd2VxLzVYN2tyMjVP?=
+ =?utf-8?B?S2c5b1pLZkI5aUJaWDF6K3RnUldoWTV2V09nM21qZHBKNk1EaHlESXowK015?=
+ =?utf-8?B?UjM0elVWNmg3Z0RlcGdSUlE0MHJnbGl2MWRUTjg3clh6OXFCRkoxem5hc3hT?=
+ =?utf-8?B?K1VrUUxRR3h2VFJwNmpyV2tsa2hBaXRqY2wvVytMK05DajVLcW9NR1ZaRnB3?=
+ =?utf-8?B?V3llVzV5RXZuUUYvdkM3bUk4dVc1MkhHTDZQd1hSUzA2Qm8wS1VtdjF2MTZr?=
+ =?utf-8?B?Z1o4NVRPbUM4bFFscGY4aTIxUXlmN2JKUitwTFcwZE9vc3U3czhHbzNNRVZr?=
+ =?utf-8?B?b2RnWWFWN05Tcm9qSFJQVWN5dmcvd2lrcncyODB3ZkIzcXpmcWQ2WFhScTJv?=
+ =?utf-8?B?K1BGT05hNDYxbDRZYUtMZ1pLNnVCZUM5dC91N3J0dWZ1MDdlNlJIWmRIRC9m?=
+ =?utf-8?B?WjBZZ0tJOVpyUVJzODJhblFLVk9mZE9HOGdQM0pkWXN5RUNZYklmeFZndjdF?=
+ =?utf-8?B?VUhXbGx2SGtoQmhMcndHc0xOTDlOeVhJVkVvNkVubkhzWk1mbHcvMHdobjda?=
+ =?utf-8?B?Rk96aU12Ym9pclNscXZrRDQybFNPTGZxZHhBOFEvS1JSekhSN05DeG5KM1lq?=
+ =?utf-8?B?eUo2ZTd4ZktzWjdSRktZTXVaOW9Oekcrc2QrTkUrQ0k2OS9YcVUyNEo1VW1G?=
+ =?utf-8?B?UmZaSmE2Rys4NlZqcjZGUVdyVXlmRHp5WmoxdDJjUFhxeUswMG9KdG9PYlpt?=
+ =?utf-8?Q?Q4+zO/QxA7EM6A4XB+24UVIP4y/TjFwzK6jYZ?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 933b8a52-23f0-4da9-e697-08df120eb160
+X-MS-Exchange-CrossTenant-AuthSource: VI1PR04MB5807.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Sep 2026 03:17:22.7116
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: WNgWylJ676UA9DMkOGQp1uXbjeyJeAD6UxDwcFdzTZWVHxh/4oHYHG8XILVnn4FzES5eRX+VjKsv85UTuszEG3KtTmU0UUmPkc0ndHYkv7w6Vmb8Ec+dV8O1gn4CcLKD
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB9720
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260913_200206_837751_01FD8F8F 
-X-CRM114-Status: GOOD (  20.93  )
+X-CRM114-CacheID: sfid-20260913_201732_258282_990B55F6 
+X-CRM114-Status: UNSURE (   8.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,243 +156,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The DMA completion loop reads the pattern ID repeatedly and reads the
-same packed error-counter word for each of its four ECC steps.
+Only rtc0 was aliased to the internal bbnsm_rtc, while the external
+PCF2131 RTC had no fixed index. When both RTC drivers are built as
+modules, the pcf2131 may probe first and take rtc0, pushing bbnsm_rtc
+to rtc1. Since suspend/resume wakeup relies on the internal bbnsm RTC
+being rtc0, this broke wakeup.
 
-Snapshot the completed operation status and pattern ID, and retain the
-last counter word while visiting consecutive DMA steps. Read counters
-only for steps which use them. Reuse the shared status register value on
-older controllers which place the pattern flags in its upper half.
-Keep the existing error and pattern priority in both the plain-marker
-and randomized-format paths.
+Add an rtc1 alias for the PCF2131 on the i.MX91 and i.MX93 EVK/QSB
+boards, so the external RTC keeps a fixed index while bbnsm_rtc always
+stays rtc0.
 
-Start a fresh snapshot after every PIO ECC operation so reuse of hardware
-slot zero cannot reuse status from a previous step. The snapshot is local
-to one callback and does not survive controller resets or DMA-to-PIO
-retries.
-
-Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+Signed-off-by: Joy Zou <joy.zou@oss.nxp.com>
 ---
- drivers/mtd/nand/raw/sunxi_nand.c | 101 +++++++++++++++++++++++++-------------
- 1 file changed, 68 insertions(+), 33 deletions(-)
+Joy Zou (2):
+      arm64: dts: imx91-evk/qsb: add rtc1 alias for external PCF2131 RTC
+      arm64: dts: imx93-evk/qsb: add rtc1 alias for external PCF2131 RTC
 
-diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sunxi_nand.c
-index 2b8ed142c9bf..4af2a4f36d2e 100644
---- a/drivers/mtd/nand/raw/sunxi_nand.c
-+++ b/drivers/mtd/nand/raw/sunxi_nand.c
-@@ -1149,46 +1149,87 @@ struct sunxi_nfc_ecc_status {
- 	unsigned int max_bitflips;
- };
- 
-+struct sunxi_nfc_ecc_snapshot {
-+	u32 status;
-+	u32 pattern_found;
-+	u32 pattern_id;
-+	u32 count_reg;
-+	u32 count;
-+};
-+
-+static void sunxi_nfc_hw_ecc_read_status(struct nand_chip *nand,
-+					 struct sunxi_nfc_ecc_snapshot *snapshot)
-+{
-+	struct sunxi_nfc *nfc = to_sunxi_nfc(nand->controller);
-+	u32 pattern_found;
-+
-+	pattern_found = readl(nfc->regs + nfc->caps->reg_pat_found);
-+	snapshot->pattern_found = field_get(NFC_ECC_PAT_FOUND_MSK(nfc), pattern_found);
-+	if (nfc->caps->reg_pat_found == NFC_REG_ECC_ST)
-+		snapshot->status = pattern_found;
-+	else
-+		snapshot->status = readl(nfc->regs + NFC_REG_ECC_ST);
-+	snapshot->pattern_id = 0;
-+	if (snapshot->pattern_found &&
-+	    (to_sunxi_nand(nand)->randomized_oob ||
-+	     (snapshot->pattern_found & ~snapshot->status)))
-+		snapshot->pattern_id = readl(nfc->regs + NFC_REG_PAT_ID(nfc));
-+	/* A new operation, including every PIO step, invalidates the count word. */
-+	snapshot->count_reg = ~0U;
-+}
-+
-+static unsigned int
-+sunxi_nfc_hw_ecc_read_count(struct nand_chip *nand,
-+			    struct sunxi_nfc_ecc_snapshot *snapshot, int hw_step)
-+{
-+	struct sunxi_nfc *nfc = to_sunxi_nfc(nand->controller);
-+	u32 reg = NFC_REG_ECC_ERR_CNT(nfc, hw_step);
-+
-+	/* Four consecutive DMA steps share one error-counter register. */
-+	if (snapshot->count_reg != reg) {
-+		snapshot->count = readl(nfc->regs + reg);
-+		snapshot->count_reg = reg;
-+	}
-+
-+	return NFC_ECC_ERR_CNT(hw_step, snapshot->count);
-+}
-+
- static void sunxi_nfc_hw_ecc_record_status(struct nand_chip *nand,
- 					   struct sunxi_nfc_ecc_status *result,
--					   int logical_step, int hw_step, u32 status,
--					   u32 pattern_found)
-+					   int logical_step, int hw_step,
-+					   struct sunxi_nfc_ecc_snapshot *snapshot)
- {
--	struct sunxi_nfc *nfc = to_sunxi_nfc(nand->controller);
- 	u32 count;
- 
--	if ((pattern_found & BIT(hw_step)) &&
--	    !(readl(nfc->regs + NFC_REG_PAT_ID(nfc)) & BIT(hw_step)))
-+	if ((snapshot->pattern_found & BIT(hw_step)) &&
-+	    !(snapshot->pattern_id & BIT(hw_step)))
- 		result->zero_steps |= BIT(logical_step);
- 
--	if (status & NFC_ECC_ERR(hw_step)) {
-+	if (snapshot->status & NFC_ECC_ERR(hw_step)) {
- 		result->error_steps |= BIT(logical_step);
- 		return;
- 	}
- 
--	count = readl(nfc->regs + NFC_REG_ECC_ERR_CNT(nfc, hw_step));
--	count = NFC_ECC_ERR_CNT(hw_step, count);
-+	count = sunxi_nfc_hw_ecc_read_count(nand, snapshot, hw_step);
- 	result->corrected += count;
- 	result->max_bitflips = max(result->max_bitflips, count);
- }
- 
- static int sunxi_nfc_hw_ecc_correct(struct nand_chip *nand, u8 *data, u8 *oob,
--				    int hw_step, u32 status, u32 pattern_found,
-+				    int hw_step, struct sunxi_nfc_ecc_snapshot *snapshot,
- 				    unsigned int user_data_sz, bool *erased)
- {
--	struct sunxi_nfc *nfc = to_sunxi_nfc(nand->controller);
- 	struct nand_ecc_ctrl *ecc = &nand->ecc;
--	u32 tmp;
- 
- 	*erased = false;
- 
--	if (status & NFC_ECC_ERR(hw_step))
-+	if (snapshot->status & NFC_ECC_ERR(hw_step))
- 		return -EBADMSG;
- 
--	if (pattern_found & BIT(hw_step)) {
-+	if (snapshot->pattern_found & BIT(hw_step)) {
- 		u8 pattern;
- 
--		if (unlikely(!(readl(nfc->regs + NFC_REG_PAT_ID(nfc)) & BIT(hw_step)))) {
-+		if (unlikely(!(snapshot->pattern_id & BIT(hw_step)))) {
- 			pattern = 0x0;
- 		} else {
- 			pattern = 0xff;
-@@ -1204,9 +1245,7 @@ static int sunxi_nfc_hw_ecc_correct(struct nand_chip *nand, u8 *data, u8 *oob,
- 		return 0;
- 	}
- 
--	tmp = readl(nfc->regs + NFC_REG_ECC_ERR_CNT(nfc, hw_step));
--
--	return NFC_ECC_ERR_CNT(hw_step, tmp);
-+	return sunxi_nfc_hw_ecc_read_count(nand, snapshot, hw_step);
- }
- 
- static int sunxi_nfc_hw_ecc_read_chunk(struct nand_chip *nand,
-@@ -1221,7 +1260,7 @@ static int sunxi_nfc_hw_ecc_read_chunk(struct nand_chip *nand,
- 	struct sunxi_nand_chip *sunxi_nand = to_sunxi_nand(nand);
- 	unsigned int user_data_sz = sunxi_nfc_user_data_sz(sunxi_nand, logical_step);
- 	struct nand_ecc_ctrl *ecc = &nand->ecc;
--	u32 pattern_found;
-+	struct sunxi_nfc_ecc_snapshot snapshot;
- 	bool bbm = !logical_step;
- 	bool erased;
- 	int ret, bitflips;
-@@ -1261,13 +1300,11 @@ static int sunxi_nfc_hw_ecc_read_chunk(struct nand_chip *nand,
- 
- 	*cur_off = oob_off + ecc->bytes + user_data_sz;
- 
--	pattern_found = readl(nfc->regs + nfc->caps->reg_pat_found);
--	pattern_found = field_get(NFC_ECC_PAT_FOUND_MSK(nfc), pattern_found);
-+	sunxi_nfc_hw_ecc_read_status(nand, &snapshot);
- 
- 	if (sunxi_nand->randomized_oob) {
- 		sunxi_nfc_hw_ecc_record_status(nand, result, logical_step, hw_step,
--					       readl(nfc->regs + NFC_REG_ECC_ST),
--					       pattern_found);
-+					       &snapshot);
- 		memcpy_fromio(data, nfc->regs + NFC_RAM0_BASE, ecc->size);
- 		sunxi_nfc_hw_ecc_get_prot_oob_bytes(nand, oob, hw_step, bbm,
- 						    page, user_data_sz);
-@@ -1275,8 +1312,7 @@ static int sunxi_nfc_hw_ecc_read_chunk(struct nand_chip *nand,
- 	}
- 
- 	bitflips = sunxi_nfc_hw_ecc_correct(nand, data, oob_required ? oob : NULL,
--					    hw_step, readl(nfc->regs + NFC_REG_ECC_ST),
--					    pattern_found, user_data_sz, &erased);
-+					    hw_step, &snapshot, user_data_sz, &erased);
- 	if (erased)
- 		return 1;
- 
-@@ -1541,11 +1577,12 @@ static int sunxi_nfc_hw_ecc_read_batch_dma(struct nand_chip *nand, u8 *buf,
- 	struct sunxi_nfc *nfc = to_sunxi_nfc(nand->controller);
- 	struct mtd_info *mtd = nand_to_mtd(nand);
- 	struct nand_ecc_ctrl *ecc = &nand->ecc;
-+	struct sunxi_nfc_ecc_snapshot snapshot;
- 	unsigned int reg_index = 0, user_data_sz;
- 	unsigned int max_bitflips = 0;
- 	int ret, i;
- 	struct scatterlist sg;
--	u32 status, pattern_found, wait;
-+	u32 wait;
- 
- 	if (first_step) {
- 		ret = sunxi_nfc_read_column(nand, page, first_step * ecc->size,
-@@ -1598,9 +1635,7 @@ static int sunxi_nfc_hw_ecc_read_batch_dma(struct nand_chip *nand, u8 *buf,
- 	if (ret)
- 		return ret;
- 
--	status = readl(nfc->regs + NFC_REG_ECC_ST);
--	pattern_found = readl(nfc->regs + nfc->caps->reg_pat_found);
--	pattern_found = field_get(NFC_ECC_PAT_FOUND_MSK(nfc), pattern_found);
-+	sunxi_nfc_hw_ecc_read_status(nand, &snapshot);
- 
- 	for (i = 0; i < nchunks; i++, reg_index += user_data_sz / 4) {
- 		int logical_step = first_step + i;
-@@ -1614,8 +1649,8 @@ static int sunxi_nfc_hw_ecc_read_batch_dma(struct nand_chip *nand, u8 *buf,
- 		user_data_sz = sunxi_nfc_user_data_sz(sunxi_nand, logical_step);
- 
- 		if (sunxi_nand->randomized_oob) {
--			sunxi_nfc_hw_ecc_record_status(nand, result, logical_step, i, status,
--						       pattern_found);
-+			sunxi_nfc_hw_ecc_record_status(nand, result, logical_step, i,
-+						       &snapshot);
- 			sunxi_nfc_hw_ecc_get_prot_oob_bytes(nand, oob, reg_index, !logical_step,
- 							    page, user_data_sz);
- 			continue;
-@@ -1623,7 +1658,7 @@ static int sunxi_nfc_hw_ecc_read_batch_dma(struct nand_chip *nand, u8 *buf,
- 
- 		bitflips = sunxi_nfc_hw_ecc_correct(nand, randomized ? data : NULL,
- 						    oob_required ? oob : NULL,
--						    i, status, pattern_found,
-+						    i, &snapshot,
- 						    user_data_sz, &erased);
- 
- 		/* ECC errors are handled in the second loop. */
-@@ -1650,7 +1685,7 @@ static int sunxi_nfc_hw_ecc_read_batch_dma(struct nand_chip *nand, u8 *buf,
- 	if (sunxi_nand->randomized_oob)
- 		return 0;
- 
--	if (status & NFC_ECC_ERR_MSK(nfc)) {
-+	if (snapshot.status & NFC_ECC_ERR_MSK(nfc)) {
- 		for (i = 0; i < nchunks; i++) {
- 			int logical_step = first_step + i;
- 			int data_off = logical_step * ecc->size;
-@@ -1658,7 +1693,7 @@ static int sunxi_nfc_hw_ecc_read_batch_dma(struct nand_chip *nand, u8 *buf,
- 			u8 *data = buf + data_off;
- 			u8 *oob = nand->oob_poi + oob_off;
- 
--			if (!(status & NFC_ECC_ERR(i)))
-+			if (!(snapshot.status & NFC_ECC_ERR(i)))
- 				continue;
- 
- 			user_data_sz = sunxi_nfc_user_data_sz(sunxi_nand, logical_step);
+ arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts         | 1 +
+ arch/arm64/boot/dts/freescale/imx91-9x9-qsb.dts           | 1 +
+ arch/arm64/boot/dts/freescale/imx93-11x11-evk-common.dtsi | 1 +
+ arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts           | 3 ++-
+ 4 files changed, 5 insertions(+), 1 deletion(-)
+---
+base-commit: c68a982815dcce5464e3bf2a31ac94f5146c04ca
+change-id: 20260914-b4_imx91_93_rtc-07d17cf027ab
 
--- 
-2.53.0
+Best regards,
+--  
+Joy Zou <joy.zou@oss.nxp.com>
 
 
