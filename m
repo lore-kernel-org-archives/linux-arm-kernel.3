@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1477C88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 07:01:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A7F1C88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 07:01:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AbNnIwmHaUs7SVGz+r7tTOaVi+BDWIHeKqLH2fFbBLc=; b=tgBY8GvNt+K3vvI0sECHYbMeaV
-	h//1/7TKXmyZBXm+oRlkEotY4wdVGaROo4zN8El9y/v/ixnHkuadhNQAKl76Yc3XKLS0P1Ty4jwYE
-	tR4S5ua7SDV4vkt3w2qYoSn/1jpGXfypHJgH2yTgEwbFv7kVHfYZc23Ov+PQBsKbzuq01pDI7vEA1
-	O3f8WH3QxOdB7UEN7WbLiE/CbfmnyaimY0JVTbMxPi+6D+/Jfy0yQ1p4MG+vp3PJ7Gtg5/Y5cM6CS
-	kBjau/emeL7WKrjRTubknOR2r8YLFl++7QANC7/jiewxrg1ud0iWy+s7klSHcHFZsHzTX6/LO+aGT
-	qrIG3Fsw==;
+	bh=GaE85tA+adRoAMcgb1cERLo8/ir7H9D/C8OWWR1KpXg=; b=25cRsJefwOIRhUikzU4Zg2YFnk
+	/ax7k1gEM9f3YSu6aoM3HKzwGSBJ2053+PCCerYG686vuUhN5GE+21Kk0EfUu7qldomvtgLl/ASia
+	uoIEmGi5b7oSBaBa7pocYGRGzta02kwDWJv/plmKUm5P3GgwrS5/m9rdYzOSEk97iIUo1tVMHWIyV
+	eB/Yj5yNiGjWf+EfWh/A8VvoHHETrXGT1y75WjySbylz4yKM+3qczlXtfpf8TmBqGQf0LgikxIC/7
+	6tLDc5RYgEP8uw+4OgDRgf30e21FOfhnI6ukYQS8SsX6lM1RUZYQ3eP0rZGXLA1ws15neJreSgYa7
+	mjjtWeLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x60gP-00000002VC5-3tcF;
-	Mon, 14 Sep 2026 07:00:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x60hL-00000002VKP-0HQd;
+	Mon, 14 Sep 2026 07:01:51 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x60gO-00000002VBx-400r
+	id 1x60hK-00000002VKA-117S
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 07:00:53 +0000
+	Mon, 14 Sep 2026 07:01:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 52B914128E;
-	Mon, 14 Sep 2026 07:00:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79E081F00893;
-	Mon, 14 Sep 2026 07:00:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 45FB260142;
+	Mon, 14 Sep 2026 07:01:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B9401F00893;
+	Mon, 14 Sep 2026 07:01:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789369252;
-	bh=AbNnIwmHaUs7SVGz+r7tTOaVi+BDWIHeKqLH2fFbBLc=;
+	s=k20260515; t=1789369308;
+	bh=GaE85tA+adRoAMcgb1cERLo8/ir7H9D/C8OWWR1KpXg=;
 	h=Date:Subject:To:References:From:In-Reply-To;
-	b=b9kHbsaSx+4fDiPXHPZq/JC4QU1WbwCKynoQwAm98nJpokfSLZUxoNwXt0azPyWWg
-	 MEtfJuTT4RnMeXzf6MLYG+Qx5KWUE6CrHntuJ1ylmXmYyx7uAvdpc4n9q0jKo6Qq7i
-	 8mCOa5IrNpgQddzytM71vrsZeMJB7AsFN5EWElf4drYcm+6jMA3Kl7UhScBD6sM2FI
-	 zHK8CXzZpx3y/fFkSrMFuz2bLr9hRFBsnSQknABJtGvxdKIK42jnRrRD28bRGZFT1y
-	 X8fPBBRljmP3bgQ3GTdNO6v0NF1fjjf6jdAD77ZutSHCZuHx+4BwgRi2Vl2h3JfcGD
-	 lZnG0FxkEhFKQ==
-Message-ID: <d4174f6c-2ced-4827-b579-c54b37619023@kernel.org>
-Date: Mon, 14 Sep 2026 09:00:46 +0200
+	b=krYkFliLk89rcHNsKM/Cb7fqnrFSi56j3IED+3jxwMjHFJTF7wBvAO/iJxdNvHyGJ
+	 Y0u5FS2QnSeLE0wZGt14q7cCv4QjmQY+zRrfVZWBAHr30KKIDT8TWT+3j+lsUScilS
+	 LlNSnGRpFsB1MoooYt4RzYSo0IyQyfmeAjNdrtcnAKYgyC3c55F+zBBvfbl8INvZBs
+	 26LWk1wKCrc5lmBa5DlKkIxjMyiLYAi5RfrVcSyIelzgbK/ABsxoHtn28ciP2UOzJ6
+	 i1WZqcDFMMdunvx27eD6bAXeIbIN7u90i7nQ4P61k210S5Hk6PO8uesyeb1re/zrIz
+	 Ukts/WGrdDt1g==
+Message-ID: <8d547f65-a260-4b8b-80e4-4695d4422497@kernel.org>
+Date: Mon, 14 Sep 2026 09:01:42 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 9/9] thermal/drivers/exynos: Select thermal emulation
- support
+Subject: Re: [PATCH v9 8/9] thermal/drivers/exynos: Add missing drvdata
+ assignment in Exynos TMU probe
 To: Anand Moon <linux.amoon@gmail.com>,
  Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
  "Rafael J. Wysocki" <rafael@kernel.org>,
@@ -60,7 +60,7 @@ To: Anand Moon <linux.amoon@gmail.com>,
  "moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES"
  <linux-arm-kernel@lists.infradead.org>
 References: <20260913145905.9404-1-linux.amoon@gmail.com>
- <20260913145905.9404-10-linux.amoon@gmail.com>
+ <20260913145905.9404-9-linux.amoon@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,7 +106,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260913145905.9404-10-linux.amoon@gmail.com>
+In-Reply-To: <20260913145905.9404-9-linux.amoon@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -124,31 +124,19 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 13/09/2026 16:58, Anand Moon wrote:
-> Select THERMAL_EMULATION when EXYNOS_THERMAL is enabled, as the Exynos
-> TMU driver provides thermal emulation support.
-> 
-> This ensures the thermal emulation framework is enabled whenever the
-> Exynos TMU driver is built.
+> Add dev_set_drvdata(&pdev->dev, data) early in the probe function,
+> ensuring that the driver data is properly registered and accessible
+> throughout the lifecycle of the device.
 > 
 > Signed-off-by: Anand Moon <linux.amoon@gmail.com>
-> ---
->  drivers/thermal/samsung/Kconfig | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/thermal/samsung/Kconfig b/drivers/thermal/samsung/Kconfig
-> index e1e8035d24fb..7d5590f78185 100644
-> --- a/drivers/thermal/samsung/Kconfig
-> +++ b/drivers/thermal/samsung/Kconfig
-> @@ -4,6 +4,7 @@ config EXYNOS_THERMAL
->  	depends on THERMAL_OF
->  	depends on HAS_IOMEM
->  	default ARCH_EXYNOS
-> +	select THERMAL_EMULATION
 
-No, drivers should not select user visible symbols and also this has
-absolutely nothing to do with Exynos.
+This is somehow confusing or completely incorrect code.
 
-NAK
+Either this was needed by the driver or not. If it was, then why no bug
+is being described? If this was not needed, then you are doing no-op
+changes.
+
+
 
 Best regards,
 Krzysztof
