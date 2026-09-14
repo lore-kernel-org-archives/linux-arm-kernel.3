@@ -4,103 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A327C88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 06:14:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FE5BC88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 06:23:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jd9pq4IajkU40OjK2aSbBzLMMvOXq0c4ILRQjYEobz4=; b=YzTz9KQypU1aYkkO5rjOmB/Vi9
-	gP9zpn6wDIs6M2cCdEQPuXfWq7Nxikbxvba3YMgEMTZS3zhhuegXeCNBplLa9KYg6BPM8S7NwH484
-	nC/Bw4L6Oi1xoz/Oi/SF3voF17w94MMR79t0GWrI8pSE+ABHh7S8pb2wLmqDQSKL4F4a2Ce073VCk
-	BUFzjcP1N4bDFCK9o5iCPtS291z5POSuPHS9lgZfU4Ccpb/ksHDhYwM8hPbhXKXpuFk0YUGI9LSws
-	nvC6iMDjxGDqQz9g6NzEQxULEl+OWwDhnVasZrb+uyAZ+rTSBb6LVn/vZSmrp5rTnrMt/X43dSM0y
-	4+eBFgAw==;
+	bh=vGBJe87/zbj8xDhB6GNjb/Bx/0zj90UGss5bHoTzyXU=; b=xEqTbQehiujJLX9Ei+UarOlFAx
+	VeGQWXBc5pL1YaX9c/+smSYzkcGDnRfxf5PeyOnNDN84hdediTJum0XUGCAcqaKQ1DKv5/Qfw/Uop
+	bTtMCQI5XKI8WgGfIPq8NJjRv3za0bIq2d9ggnIlWcbG6BDArog/LXASAeuxMv6xtHFquaU3aYwaI
+	opFk4Xlgjzr5kDLH97rrW3BWdh3Z86fcSUSopNog72q9YT1he/bNYcWUl9e1//ng6/vKn5HmESeo9
+	f06y4DVaSqYMpoRG2RSUu31vMjKA41HD+f+58jJP8Wspp+m06cXqP1EDFOUYSDwXgxQnpBR1xPUbb
+	2wIgjPVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5zxq-00000002QJG-1iME;
-	Mon, 14 Sep 2026 06:14:50 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5zxn-00000002QIv-3AkH
+	id 1x605q-00000002Qdh-1Leo;
+	Mon, 14 Sep 2026 06:23:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x605m-00000002Qd7-3QSs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 06:14:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1789366486;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=jd9pq4IajkU40OjK2aSbBzLMMvOXq0c4ILRQjYEobz4=;
-	b=Q+U0hxknzk81zD962ixpY+1GoQUkTgODlIS8nfOPyTjZO49ivthEGhNiXW2+/cABgevKHh
-	ZNfRuPoRnsdOvfgfRZ8SZiibq7udRs+GV1N6pChA4ZqJs2OyDkC47KBXVjtDspfbbkkR1c
-	5qXGuvf377RrnFPabRLadd+zwTN1FNI=
-Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com
- [209.85.215.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-711-_M9F1mGxMaul7uU9hEXKVA-1; Mon, 14 Sep 2026 02:14:44 -0400
-X-MC-Unique: _M9F1mGxMaul7uU9hEXKVA-1
-X-Mimecast-MFC-AGG-ID: _M9F1mGxMaul7uU9hEXKVA_1789366483
-Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-cc435388657so3354095a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Sep 2026 23:14:44 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789366483; x=1789971283;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=jd9pq4IajkU40OjK2aSbBzLMMvOXq0c4ILRQjYEobz4=;
-        b=sfeCTvhWSmqdrWEB3HjXdkcuYFnlqIiNM3IC2iDUUqBDUonVwLh01IlG9EdaiUtj9q
-         85m9s1NhOC9zTzkzh3EhUafkFTzcCPfRZPrAoAtvDWE/SC3foVL5K86lqksLgZAZBipU
-         LRlUYbXBNRJ/iZneflQcR9R3/xXUmoTPsP2yL7bWhPIRTl9tClYRytyBIoKeM3mP4C9l
-         +pCGC36qB58HPDn4/fQhqxEnbuI+UBwWHKFZXszmHsKca1M1O+JjqTkbv7i9qGt4hZNc
-         Z8yy8dZbztXXcmZ1Kg20KXb/V7bFNWa51dEcupgFu0YPdjAL4vAgoL8um+0PNAmC+6P+
-         fYcA==
-X-Forwarded-Encrypted: i=1; AKwUvByYK4aVn4Sj9K0d2udGtxqBAR1PdQwk7hQ0NP9gDbf3Hs4FSzuVAIRzv6qdSsIwhIt1Yd3mWYzEX4NljZw8Y1Y/@lists.infradead.org
-X-Gm-Message-State: AFuF++kdVBQRyjBNSsbAxTeFT1obV28j0d+KoA7L5Qah4A5iXwV9ZV8H
-	LLaH8G+2rQqPWn5MBlIryg/Ln9I74qCjRzxgM4nZOkaXhetIhWanZ2mxkZJEvTXc2ztP5DD7RCh
-	OAbvqhuxUub4sJPQusxl3wbBFIR1YHk9AWCn5XQJIeIPNbc0pLAwXhmVtE0rZgWstyJB2ICv8G2
-	Rj
-X-Gm-Gg: AYBFou1Jqk83MuCk3uCuXU3ugMHWjX1U/nPteKKCucKLqM77KoOkQnIXoE3kO++b8hv
-	HKcVa7E0TskHvY3JEyr+yHRxoH3RVDUUvGiMqS/GGSnZ1s5e75IfB8NwXJhQ41/+AwuAdTjAZQ8
-	BrwZms1TYwGP0HlPCM3031nt6RaTxegv7VJ8ho7zRUxU1GhJyeSNJ7Qcnt43giyBhRrQlyvZ+YY
-	3MeqpuHSJUwKlUQRCobf3NnhJ4vqrgZGfY+mUEq8ma7uqSMnB6hdvEthzAjs8NUPTrba294yAFh
-	/HFTV8Lsjse7mVM7ebRMdjgw/5xuI/xUJwThycYze1WooVrd/cGqk6fn5V0h380LG2+uyg5hQSZ
-	yT9iR0ZqpuEDlGiKlpV3dbxKmJWsEJPw3CPg2Va1pWQ==
-X-Received: by 2002:a05:6a20:7283:b0:3da:d45b:3930 with SMTP id adf61e73a8af0-3db4047e387mr1757616637.3.1789366483426;
-        Sun, 13 Sep 2026 23:14:43 -0700 (PDT)
-X-Received: by 2002:a05:6a20:7283:b0:3da:d45b:3930 with SMTP id adf61e73a8af0-3db4047e387mr1757559637.3.1789366482958;
-        Sun, 13 Sep 2026 23:14:42 -0700 (PDT)
-Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc4c652ab0dsm4311139a12.6.2026.09.13.23.14.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 13 Sep 2026 23:14:42 -0700 (PDT)
-Message-ID: <095ebf41-e3c1-4e7e-b6f9-84b6f94da3ce@redhat.com>
-Date: Mon, 14 Sep 2026 16:14:35 +1000
+	Mon, 14 Sep 2026 06:23:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EF8FD1570;
+	Sun, 13 Sep 2026 23:22:56 -0700 (PDT)
+Received: from [10.57.10.40] (unknown [10.57.10.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AEF083F7B4;
+	Sun, 13 Sep 2026 23:22:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789366980; bh=A33RJV2D0AN0N24mCbcvU4G5DcOAvXGh3mPfTyTsEU8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=op48qBzZwgyfzF0VPAvSFLZzpF+trv27JNawXFVF37FvxQcTi/T7McDrcQdOOdqnR
+	 82revSNtVjf5WuXwOqH8296xhdLN6t0a4jwy5DE4u9ztN6VUJH0fqQjATMhu26amVa
+	 gYrvzph+gXtKvfYuEiUsh3aj1Dh1G/kspPvLWsWY=
+Message-ID: <4f18aa66-2296-4b63-87f5-6ab493faecbc@arm.com>
+Date: Mon, 14 Sep 2026 07:22:56 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm_mpam: resctrl: Catch and propagate error from
- get_cpu_cacheinfo_id()
-To: Andre Przywara <andre.przywara@arm.com>, James Morse
- <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>
-Cc: Reinette Chatre <reinette.chatre@intel.com>,
- Fenghua Yu <fenghuay@nvidia.com>, Tony Luck <tony.luck@intel.com>,
- Dave Martin <Dave.Martin@arm.com>, Yin Li <yin.li@oss.qualcomm.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260902143757.3469690-1-andre.przywara@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20260902143757.3469690-1-andre.przywara@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: QHysZv6mf1ZLffPbL_YUU8_SlJpKn6n5s0ShqWM5_nA_1789366483
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+Subject: Re: [PATCH v18 4/7] firmware: arm_rmm: Add support for SRO
+Content-Language: en-GB
+To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
+Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
+References: <20260912083611.2513845-1-suzuki.poulose@arm.com>
+ <20260912083611.2513845-5-suzuki.poulose@arm.com>
+ <f00d01d1-8df0-4865-8e52-c85171cf4ca5@redhat.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <f00d01d1-8df0-4865-8e52-c85171cf4ca5@redhat.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260913_231447_879164_0268AEF5 
-X-CRM114-Status: GOOD (  19.28  )
+X-CRM114-CacheID: sfid-20260913_232303_865613_3F5E2FD2 
+X-CRM114-Status: GOOD (  37.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,51 +77,277 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/3/26 12:37 AM, Andre Przywara wrote:
-> get_cpu_cacheinfo_id() can fail, in which case it returns a negative
-> error value.
+Hi Gavin
+
+Thank you for the review, I will address most of them. Responses inline.
+
+On 14/09/2026 06:04, Gavin Shan wrote:
+> On 9/12/26 6:36 PM, Suzuki K Poulose wrote:
+>> RMM v2.0 introduces the concept of "Stateful RMI Operations" (SRO). This
+>> means that an SMC can return with an operation still in progress. The
+>> host is expected to continue the operation until it reaches a conclusion
+>> (either success or failure). During this process the RMM can request
+>> additional memory ('donate') or hand memory back to the host
+>> ('reclaim'). The host can request an in progress operation is cancelled,
+>> but still continue the operation until it has completed (otherwise the
+>> incomplete operation may cause future RMM operations to fail).
+>>
+>> The SRO is tracked using a struct rmi_sro_state object which keeps track
+>> of any memory which has been allocated but not yet consumed by the RMM
+>> or reclaimed from the RMM. This allows the memory to be reused in a
+>> future request within the same operation. It will also permit an
+>> operation to be done in a context where memory allocation may be
+>> difficult (e.g. atomic context) with the option to abort the operation
+>> and retry the memory allocation outside of the atomic context. The
+>> memory stored in the struct rmi_sro_state object can then be reused on
+>> the subsequent attempt.
+>>
+>> Wrappers for SRO RMI commands are also provided here because they depend
+>> on the rmi_sro_execute() implementation added by this patch.
+>> Delegate/undelegate handles are also added here because they now use the
+>> SRO/stateful command infrastructure and are also used for the memory
+>> DONATE/RECLAIM flows.
+>>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> Co-Developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+
+
+
+>> ---
+>>   drivers/firmware/arm_rmm/rmi.c | 586 +++++++++++++++++++++++++++++++++
+>>   include/linux/arm-rmi-cmds.h   |  41 +++
+>>   2 files changed, 627 insertions(+)
+>>
+>> diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/ 
+>> arm_rmm/rmi.c
+>> index 5b0e342ce3d58..4f9898ece7547 100644
+>> --- a/drivers/firmware/arm_rmm/rmi.c
+>> +++ b/drivers/firmware/arm_rmm/rmi.c
+
 > 
-> Check the returned value for this error condition, before passing the
-> value on to other code, which would hide the negative number in some high
-> value in the unsigned type.
+> I would drop rmi_granule_range_{delegate, undelegate}() by combining 
+> their logics to
+> their only callers rmi_{delegate, undelegate}_range(). More details are 
+> provided for
+> rmi_{delegate, undelegate}_range() in the below.
+
+Ack
+
+
 > 
-> Fixes: 36528c7681b8 ("arm_mpam: resctrl: Add support for 'MB' resource")
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> ---
->   drivers/resctrl/mpam_resctrl.c | 5 ++++-
->   1 file changed, 4 insertions(+), 1 deletion(-)
+>> +int rmi_delegate_range(phys_addr_t phys,
+>> +               unsigned long size,
+>> +               phys_addr_t *out_phys)
+>> +{
+>> +    long ret = 0;
+>> +    unsigned long top = phys + size;
+>> +    unsigned long out_top;
+>> +
+>> +    while (phys < top) {
+>> +        ret = rmi_granule_range_delegate(phys, top, &out_top);
+>> +
+>> +        if (ret == RMI_SUCCESS) {
+>> +            /* Buggy RMM ? */
+>> +            if (WARN_ON(out_top <= phys)) {
+>> +                rmi_undelegate_range(top - size, size);
+> 
+> [top - size, size] is incorrect because we may be delegating a sub-range 
+> of the
+> range of granules. It's actually the caller's responsibility to 
+> undelegate the
+> graunles that have been delegated.
+> 
+>              if (WARN_ON(out_top <= phys)) {
+>                  ret = -ENXIO;
+>                  break;
+>              }
+
+Agree, I have done this already based on Sashiko review, and added a 
+comment too.
+
+
+
+> 
+>> +/*
+>> + * Convert the RmiAddrBlockSize to actual size. This is used in 
+>> RmiDonateReq
+>> + * and RmiAddrRangeDesc*.
+>> + */
+>> +static unsigned long rmi_addr_block_size_to_bytes(unsigned long 
+>> block_size_fld)
+>> +{
+>> +    return BIT(ARM64_HW_PGTABLE_LEVEL_SHIFT(3 - block_size_fld));
+>> +}
+>> +
+>> +/*
+>> + * free_addr_range: Free memory described by the address range entry, 
+>> which may
+>> + *            be partially consumed by RMM.
+>> + *
+>> + * @entry: RMI_ADDR_RANGE descriptor
+>> + * @consumed_size: Page aligned size consumed by the RMM from the 
+>> address range.
+>> + *
+>> + * If the state of the address is DELEGATED, undelegate it back, 
+>> before freeing.
+>> + * Leaks the memory if we cannot undelegate the range.
+>> + */
+>> +static void free_addr_range(unsigned long entry, unsigned long 
+>> consumed_size)
+>> +{
+>> +    unsigned long phys = RMI_ADDR_RANGE_ADDR(entry);
+>> +    unsigned long block_size_fld = RMI_ADDR_RANGE_BLOCK_SIZE(entry);
+>> +    unsigned long count = RMI_ADDR_RANGE_COUNT(entry);
+>> +    unsigned long state = RMI_ADDR_RANGE_STATE(entry);
+>> +    unsigned long size = rmi_addr_block_size_to_bytes(block_size_fld) 
+>> * count;
+>> +
+>> +    WARN_ON(!PAGE_ALIGNED(phys) || !PAGE_ALIGNED(consumed_size));
+>> +
+>> +    /* Adjust the address and size for partially consumed entry */
+>> +    phys += consumed_size;
+>> +    size -= consumed_size;
+>> +    /*
+>> +     * Undelegate the pages back if required. If we can't
+>> +     * change them back, leak the pages.
+>> +     */
+>> +    if (state == RMI_OP_MEM_DELEGATED &&
+>> +        WARN_ON(rmi_undelegate_range(phys, size)))
+>> +        return;
+>> +    free_pages_exact(phys_to_virt(phys), size);
+>> +}
+>> +
+>> +static void rmi_op_continue(unsigned long sro_handle, unsigned long 
+>> flags,
+>> +                struct arm_smccc_1_2_regs *out_regs)
+>> +{
+>> +    *out_regs = (struct arm_smccc_1_2_regs) {
+>> +        SMC_RMI_OP_CONTINUE, sro_handle, flags
+>> +    };
+>> +
+>> +    rmi_smccc_invoke(out_regs);
+>> +}
+>> +
+> 
+> The pattern 'regs' is used in some of the 'struct arm_smccc_1_2_regs' 
+> arguments
+> or variables in this series, which is incosistent to the existing 
+> patterns which
+> is either 'args' or 'res' by searching the source files using 'git grep 
+> arm_smccc_1_2_regs'.
+> So I would suggest we have the fixed the pattern 'args' :-)
+
+
+I would prefer to keep it "regs" as, unlike the smccc_1_1 calls, we
+pass "arm_smccc_1_2_regs" for both arguments and results. In this case
+we are using a single structure, so, to avoid the confusion, I
+intentionally used regs
+
 > 
 
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+>> +
+>> +int rmi_free_delegated_page(phys_addr_t phys)
+>> +{
+>> +    if (WARN_ON_ONCE(rmi_undelegate_page(phys))) {
+>> +        /* Undelegate failed: leak the page */
+>> +        return -EBUSY;
+>> +    }
+>> +
+>> +    free_page((unsigned long)phys_to_virt(phys));
+>> +
+>> +    return 0;
+>> +}
+>> +EXPORT_SYMBOL_GPL(rmi_free_delegated_page);
+>> +
+> 
+> I would move rmi_free_delegated_page() right after rmi_undelegate_range().
 
-> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-> index 9d223057953ab..a5e661eff86d7 100644
-> --- a/drivers/resctrl/mpam_resctrl.c
-> +++ b/drivers/resctrl/mpam_resctrl.c
-> @@ -786,7 +786,10 @@ static u32 get_mba_min(struct mpam_props *cprops)
->   /* Find the L3 cache that has affinity with this CPU */
->   static int find_l3_equivalent_bitmask(int cpu, cpumask_var_t tmp_cpumask)
->   {
-> -	u32 cache_id = get_cpu_cacheinfo_id(cpu, 3);
-> +	int cache_id = get_cpu_cacheinfo_id(cpu, 3);
-> +
-> +	if (cache_id < 0)
-> +		return -ENOENT;
->   
->   	lockdep_assert_cpus_held();
->   
+Ack
 
-find_l3_equivalent_bitmask() passes @cache_id to find_l3_equivalent_bitmask() as
-a 'unsigned long' argument. Actually, it can be 'u32'. It's not directly related
-to this patch though.
 
-int mpam_get_cpumask_from_cache_id(unsigned long cache_id, ...);
+>> +
+>> +static int rmi_sro_donate_noncontig(struct rmi_sro_state *sro,
+>> +                    unsigned long sro_handle,
+>> +                    unsigned long donatereq,
+>> +                    struct arm_smccc_1_2_regs *out_regs,
+>> +                    gfp_t gfp)
+>> +{
+>> +    unsigned long block_size_fld = RMI_DONATE_BLOCK_SIZE(donatereq);
+>> +    unsigned long block_size = 
+>> rmi_addr_block_size_to_bytes(block_size_fld);
+>> +    unsigned long count = RMI_DONATE_COUNT(donatereq);
+>> +    unsigned long state = RMI_DONATE_STATE(donatereq);
+>> +    unsigned long found = 0;
+>> +    unsigned long donated_granules;
+>> +    unsigned long granules_per_block = block_size >> PAGE_SHIFT;
+>> +    unsigned long consumed_blocks;
+>> +    int addr_list_start = sro->addr_count;
+>> +
+>          ^^^^^^
+> 
+> Unecessary blank line.
 
-can be:
+Removed
 
-int mpam_get_cpumask_from_cache_id(u32 cache_id, ...);
+...
 
-Thanks,
-Gavin
+>> +
+>> +void rmi_sro_free(struct rmi_sro_state *sro)
+>> +{
+>> +    /* Handle the worse */
+>> +    if (WARN_ON(sro->addr_count < 0))
+>> +        return;
+>> +
+>> +    if (WARN_ON(sro->addr_count > RMI_MAX_ADDR_LIST))
+>> +        sro->addr_count = RMI_MAX_ADDR_LIST;
+>> +
+>> +    for (int i = 0; i < sro->addr_count; i++)
+>> +        free_addr_range(sro->addr_list[i], 0);
+>> +
+>> +    sro->addr_count = 0;
+>> +}
+>> +EXPORT_SYMBOL_GPL(rmi_sro_free);
+>> +
+>> +long rmi_sro_memxfer_execute(struct rmi_sro_state *sro, gfp_t gfp)
+>> +{
+>> +    struct arm_smccc_1_2_regs *regs = &sro->regs;
+>> +    bool cancelled = false;
+>> +    unsigned long sro_handle;
+>> +
+>> +    rmi_smccc_invoke(regs);
+>> +
+>> +    sro_handle = regs->a1;
+>> +    while (RMI_RETURN_STATUS(regs->a0) == RMI_INCOMPLETE) {
+>> +        bool can_cancel = RMI_RETURN_CAN_CANCEL(regs->a0) == 
+>> RMI_OP_CAN_CANCEL;
+>> +        int ret = 0;
+>> +
+>> +        switch (RMI_RETURN_MEMREQ(regs->a0)) {
+>> +        case RMI_OP_MEM_REQ_NONE:
+>> +            rmi_op_continue(sro_handle, RMI_CONTINUE_KEEP_GOING,
+>> +                    regs);
+>> +            break;
+>> +        case RMI_OP_MEM_REQ_DONATE:
+>> +            ret = rmi_sro_donate(sro, sro_handle, regs->a2, regs,
+>> +                         gfp);
+>> +            break;
+>> +        case RMI_OP_MEM_REQ_RECLAIM:
+>> +            ret = rmi_sro_reclaim(sro, sro_handle, regs);
+>> +            break;
+>> +        default:
+>> +            ret = WARN_ON_ONCE(1);
+>> +            break;
+> 
+> "ret = WARN_ON_ONCE(1)" is same to "ret = true". I guess we would return
+> -EINVAL here.
+> 
+>              WARN_ON_ONCE(1);
+>              ret = -EINVAL;
+>              break;
+
+Ack, this should be -ENXIO
+
+Cheers
 
 
