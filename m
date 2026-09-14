@@ -4,64 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58542C88E64
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 06:51:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82F73C88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 06:51:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rHHVDyaR2Ri3vO0LYLOc88G+fy97EmKAA49G3wRh4ZI=; b=EiVB8YViRW9RB+JfIVcALykabl
-	0KbUJcmtPgtUikabvYtMjxBPR9xyC5MI35mCWAq02dVf7gUXDR/y6HTyliZmCpNN62HHA7/AkDbj5
-	dDVIHMf6NthonPm3cRSObGb9FS/k13bEja/vUM4lbvzj8sASTbbcaYVUr7N1j6riKiWOZTceyxMp4
-	HVjj5AlSaTGL9ZUJHFwm/5Rol7rlSUGF+HYwXX6ydoE9DTqwchAjDRjsZ6ytvudyA8kYcVNmtTLbl
-	ZS7e99Oecki74PWnSbN/5KxwOC6ylccHPuTnnSrcbqxhA4+jBbI3ILRrH28BUZAN7l7fNR+IIyfqo
-	fAcCZkXw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SpT7O7iwpNcFO5H5S/0ouhszyuAVN8XFMHDgYjFA3Ok=; b=HUwGxc1qhqvMxu8/aI4AEzl25U
+	p4ZEC2MXu3CRLntVJ7WumjSntdr0/nwnip1MZlZm1WUTjos4DvsxOXSfjxzQd2GUkbTRZOZgKoKh9
+	VwwdBEVNpvl8SurhhPVns2PgPRfKFBNs1A3H4xGhAOPQTyQfDxGSBKHnwzigs0GPdCbQmFT6qc0Bi
+	HIiqPspBpmENSPkMzN5n30rYyh1FEyA9J4kxj9ju3AMZzt2rH0hMiDG4E8KpE0b8uQJsz5OvxUZ/z
+	lFhHN0kAS7/mXPaXLPE0eej1V4NoMYpzIk4nGtVotR/qeOwKb+S0KkMoLqandKy5IrR7EmftJFVFg
+	zEUjp9Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x60Wy-00000002Tso-3cQg;
-	Mon, 14 Sep 2026 06:51:08 +0000
-Received: from mail-m155101.qiye.163.com ([101.71.155.101])
+	id 1x60Xd-00000002U0O-08yD;
+	Mon, 14 Sep 2026 06:51:49 +0000
+Received: from out-36.mta0.migadu.com ([2001:41d0:1004:224b::24] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x60Wv-00000002Trz-3GB7;
-	Mon, 14 Sep 2026 06:51:07 +0000
-Received: from Vostro-3710.. (unknown [14.220.232.127])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4da4fe556;
-	Mon, 14 Sep 2026 14:51:01 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: devnull+hystericaldragons.proton.me@kernel.org
-Cc: HystericalDragons@proton.me,
-	amadeus@jmu.edu.cn,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	diederik@cknow-tech.com,
-	heiko@sntech.de,
-	jensenhuang@friendlyarm.com,
-	jonas@kwiboo.se,
-	krzk+dt@kernel.org,
+	id 1x60XY-00000002TzL-22nE
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 14 Sep 2026 06:51:47 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=ImB4OSlH78bkgJyJTPE0uJYasv+aHz+ywNLGej5cQLA=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1789368702; v=1; x=1789973502;
+ b=I63itf2TpHXHRYOL2bejHPSgIL4TyoUH7G9DZFd1ndDP78CzQxq6NIhI6beWg9OY6Q1adCB7
+ tdmfuETZll7DBwqMEEJ/OTFZMK0/faMYyFpSs/D+eDOG69L618k4zYrRNyfG15kVdgVYze0oCY2
+ aUVvq14una7IyZX5hAJmorI0=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 9d38ec8ca3f71a61;
+	Mon, 14 Sep 2026 06:51:42 +0000
+X-Mizu-Trace-ID: 9d38ec8ca3f71a61
+X-Migadu-Flow: FLOW_OUT
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: maz@kernel.org,
+	oupton@kernel.org,
+	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	razor1702@gmail.com
-Subject: Re: [PATCH v4 3/4] arm64: dts: rockchip: Add devicetree for the FriendlyElec NanoPi R28S
-Date: Mon, 14 Sep 2026 14:50:40 +0800
-Message-Id: <20260914065040.2413033-1-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260911-r28s-upstream-v4-3-fb6c85f226d4@proton.me>
-References: <20260911-r28s-upstream-v4-3-fb6c85f226d4@proton.me>
+	linux-kernel@vger.kernel.org
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	mark.rutland@arm.com,
+	vdonnefort@google.com,
+	qperret@google.com,
+	tabba@google.com
+Subject: [PATCH] KVM: arm64: Pin the host vCPU before adjusting its PC under pKVM
+Date: Mon, 14 Sep 2026 07:51:36 +0100
+Message-Id: <20260914065136.3418404-1-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa09eaef4f503a2kunm0a6ed9812a3691
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCTEJPVh9PS01CQ09OTE9JSFYeHw
-	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKT1VJSUtVSUhJVUpJTFlXWRYaDxIVHRRZQVlPS0hVSktISk
-	5MTlVKS0tVSkJLS1kG
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260913_235105_994604_8CDD2C34 
-X-CRM114-Status: UNSURE (   4.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260913_235144_671336_A69231AD 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,30 +79,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Under pKVM, a page the host shares with EL2 is mapped at EL2 only while
+it's pinned, and the host vCPU and its VM are pinned at the vCPU's
+first KVM_RUN. KVM_SET_VCPU_EVENTS with ext_dabt_pending reaches
+__kvm_adjust_pc() at EL2 before that, and dereferencing the unmapped
+host vCPU panics the hypervisor. Any process holding /dev/kvm on a
+pKVM host can trigger it.
 
-> +		button-user {
-> +			debounce-interval = <50>;
-> +			gpios = <&gpio4 RK_PB2 GPIO_ACTIVE_LOW>;
-> +			label = "USER";
-> +			linux,code = <KEY_RESTART>;
+Pin the host vCPU around the adjustment when no hyp vCPU is loaded for
+it, and its VM too, for the MTE flag the exception entry reads. A
+loaded hyp vCPU implies both are pinned. A pin fails only for memory
+the host never shared, and the request is then dropped like any other
+bad host pointer.
 
-This is a custom button.
-linux,code = <BTN_1>;
+Fixes: efa1368ba9f4b ("KVM: arm64: Commit exceptions from KVM_SET_VCPU_EVENTS immediately")
+Cc: stable@vger.kernel.org
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c | 30 +++++++++++++++++++++++++++++-
+ 1 file changed, 29 insertions(+), 1 deletion(-)
 
-> +	leds {
-> +		led-lan {
-> +		led-sys {
-> +		led-wan {   
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index 9a3b92e626adb..e41b4c181eb62 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -539,11 +539,39 @@ static void handle___pkvm_host_mkyoung_guest(struct kvm_cpu_context *host_ctxt)
+ 	cpu_reg(host_ctxt, 1) =  ret;
+ }
+ 
++/*
++ * With no hyp vCPU loaded for it, the host vCPU and its VM may be unpinned,
++ * and so unmapped at EL2: both are pinned from the vCPU's first run, and
++ * KVM_SET_VCPU_EVENTS can reach here before that.
++ */
++static void adjust_pc_unloaded(struct kvm_vcpu *host_vcpu)
++{
++	struct kvm *host_kvm;
++
++	if (hyp_pin_shared_mem(host_vcpu, host_vcpu + 1))
++		return;
++
++	/* The exception entry reads the VM's MTE flag. */
++	host_kvm = kern_hyp_va(host_vcpu->kvm);
++	if (!hyp_pin_shared_mem(host_kvm, host_kvm + 1)) {
++		__kvm_adjust_pc(host_vcpu);
++		hyp_unpin_shared_mem(host_kvm, host_kvm + 1);
++	}
++
++	hyp_unpin_shared_mem(host_vcpu, host_vcpu + 1);
++}
++
+ static void handle___kvm_adjust_pc(struct kvm_cpu_context *host_ctxt)
+ {
+ 	DECLARE_REG(struct kvm_vcpu *, vcpu, host_ctxt, 1);
++	struct pkvm_hyp_vcpu *hyp_vcpu;
++	struct kvm_vcpu *host_vcpu;
+ 
+-	__kvm_adjust_pc(kern_hyp_va(vcpu));
++	host_vcpu = __get_host_hyp_vcpus(vcpu, &hyp_vcpu);
++	if (host_vcpu)
++		__kvm_adjust_pc(host_vcpu);
++	else
++		adjust_pc_unloaded(kern_hyp_va(vcpu));
+ }
+ 
+ static void handle___kvm_flush_vm_context(struct kvm_cpu_context *host_ctxt)
 
-Use led-[0-9] for naming.
-Two of them are the same as zero2.
+base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
+-- 
+2.39.5
 
-> +&pinctrl {
-> +	leds {
-> +		led1: led1 {
-> +		led2: led2 {
-> +		led_sys: led-sys {
-
-Two of them are the same as zero2.
 
