@@ -4,139 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 130B9C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 15:05:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99B51C88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 15:06:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O87Fhk9bkuGEtZJBB0SNC5OtJL2pwkQNj8ASh8N0tQE=; b=yZo9Me0+rccFEz12ymezCPoeGw
-	MctfKZ5Ew9pS9t47maxzEIstuDbhzlrZXCjkFwcrCv0jiisDUZz8KcgDk7jyj+tqOXE+l6BJdPnXp
-	JeZ3/I86RvoZt7VlxkKhBwvZPo5HQW4lZ70op10Lyjlui1tGXKWM5agbATRbCxJFATgEHVCxDD0cX
-	QfkdtRyBKI6n8jMme3RDNou5qkrKPE/wU6W01Pi0Cy75vF4MiJrDxem2ZMpHm2qvwO39Z2gOr877I
-	DBc8Ubw7A1X18wmTXSi9xLqdI6quK0dCdzjbRQbh8p5O0JU7mMIDElccXyMFQJBFMDQuAoQYtD0Mq
-	NVNIDzhg==;
+	bh=aeT61f5KjTlMC7e2D2bdiWi0CND2YLqU8klgO5OWV6I=; b=t6LUy6T/IJr3SurbZV5X48TVq9
+	pFRrm9Zn8x7bZEZdO04aIrrG038ItHDCxZkm393ax4gStYwSFOwaC/R8daoIqagEKBfO2g3V6LFqY
+	wk3jFZgcSfsPwm/bITDO7sbGh5XrHaPfTnPDCzC/isjltEttAv8ViwpNZaw0UKBr07SQf0+PCnwK+
+	MirXDEhV73O9BUZ4SKLG5f57DaMrhTn0Eq/57509pg9Ijwd0dSGeDMBKEF/VFn8euIbgNbmePaDSP
+	1h+Ph9XQDZvOSjk0jPJHYqIpeVJoOzzgJzXymvSYtr7vffOnEJNPzRN8SC4sv6YjK6t5MbaHFcxOA
+	RzH/CYxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x68Ez-0000000463t-04aC;
-	Mon, 14 Sep 2026 15:05:05 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1x68Gc-000000046RR-1mNW;
+	Mon, 14 Sep 2026 15:06:46 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x68Ew-0000000461y-06Ub
+	id 1x68GZ-000000046QV-264T
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 15:05:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mTnjG7iBYrZwSznj2dRlDfXSqpdM4I33wLLjClKo+bSvfTORP3mS9PFRGbCpKSAPWGSRrBiZeIqAs4VAATsEisG1ZwOhTYn6TkfAWQmLHnzhgBPl/KnIFk/GuYyHg4Tg6auVxPJC01KaK5kvnAefpM1EI6T1bYoMchZglE4UMRrC62MbBL7lT8QeIaO95FHiRbnppufHpry6UXHQJ5rHeKjB4GnvvF+A1KrSmFZpSmtfb8x3BK3YE4cMqS1amEoORJtcgVHUzH88cQYVGUGedCAWsVCWTxAVB3FC0WVL2PWmNZrAWhjSm/3sFli2+tTY/zHQle8k9Pmf+PoD7X3RHg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=O87Fhk9bkuGEtZJBB0SNC5OtJL2pwkQNj8ASh8N0tQE=;
- b=wxlEoFATEsm0Qe6gVFmrbp08zRV8u/C8onpAhfFdArsuXYEB2c0/NmmSGpemseEOPJvOKlxq1Wk3gayEECjnklL3140Sj+dLmj6X/yUQ6b/wAxNhZhThWY5R7Dc2Uf5n9cVRkO8NehPTGmVOGfeU7aSTsJzC262R3MCRYTxKG5im24m2fiV65x+gvzKm5B2pJOUATtEhVE+inqi2bd8jCq6UgJPTSd2ESD0rNJsvf0gFifuMjlLoDzEF87qta0cX6kPnzIDExw2s0dsCHDtAJ5KKnOlqjYTTVuGGz/5aDAd/VqDTS87FA72uLcN1CP0uCn6BUYXNwnMeFzuJXC9vGg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=variscite.com; dmarc=pass action=none
- header.from=variscite.com; dkim=pass header.d=variscite.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=variscite.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=O87Fhk9bkuGEtZJBB0SNC5OtJL2pwkQNj8ASh8N0tQE=;
- b=AjDvCVPcL832BTPqoHZqAlJcf1DYJnAA946NCmZ5EAwOCWrf982ihce4vf+Sp51m5QtgHFioJG/kBLAWqf7CNxlsYUmKbdP/2dL6w0vGPz+IBxFWagnFOZl3S8behrBbOYsyvk6QYPl0ypTP4fGEMwWZ1oFTK0jhPb9oQndQ7Z9ABXfLfHNxrbY5KFZyUoLCkNhB60gDT+u8ThIRa+Lq1a0ASY0p6OXxdhOxqPc4ptA9Gw8dP6jMnYswxocsrNdeeOvoOaL3OeiyCVdlb/Pl+UJ0B0YEirwoxBHsuP1fnNpNyGLGCcuHgrtZ73EwBRBjSDGvejgAxYZ7c7uKn8RYEA==
-Received: from AM6PR08MB5256.eurprd08.prod.outlook.com (2603:10a6:20b:e7::32)
- by BR0PR08MB185883.eurprd08.prod.outlook.com (2603:10a6:2c8:2a::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.8; Mon, 14 Sep
- 2026 15:04:59 +0000
-Received: from AM6PR08MB5256.eurprd08.prod.outlook.com
- ([fe80::5caf:2af8:a051:9b55]) by AM6PR08MB5256.eurprd08.prod.outlook.com
- ([fe80::5caf:2af8:a051:9b55%5]) with mapi id 15.21.0428.004; Mon, 14 Sep 2026
- 15:04:59 +0000
-From: Stefano Radaelli <stefano.r@variscite.com>
-To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>
-CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Garrett
- Giordano <ggiordano@phytec.com>, Wadim Egorov <w.egorov@phytec.de>, Robert
- Nelson <robertcnelson@gmail.com>, Tony Lindgren <tony@atomide.com>, Nora
- Schiffer <nora.schiffer@ew.tq-group.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Moteen Shah <m-shah@ti.com>
-Subject: Re: [PATCH v4 14/15] arm64: dts: ti: k3-am625-var-som: Set MMC clock
- pins as OUTPUT
-Thread-Topic: [PATCH v4 14/15] arm64: dts: ti: k3-am625-var-som: Set MMC clock
- pins as OUTPUT
-Thread-Index: AQHdQKUDcE0ywzI9uUWoDpMBLxOA67bOMpf2
-Date: Mon, 14 Sep 2026 15:04:59 +0000
-Message-ID: <AM6PR08MB525643EB520DE6D9A781EE7CE9BB2@AM6PR08MB5256.eurprd08.prod.outlook.com>
-References: <20260909214743.899477-1-jm@ti.com>
- <20260909214743.899477-15-jm@ti.com>
-In-Reply-To: <20260909214743.899477-15-jm@ti.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=variscite.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AM6PR08MB5256:EE_|BR0PR08MB185883:EE_
-x-ms-office365-filtering-correlation-id: 1120e26f-50d4-4b53-c20e-08df12718b8e
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|1800799024|23010399003|7416014|38070700021|56012099006|4143699003|10067099003|22082099003|18002099003|3023799007;
-x-microsoft-antispam-message-info: U/TfPjc9LOUODyi4PwIDyq6U3DEe1RHgxlYIfNEBAkRaU2G9fe9p820bZkTA3ubhKbds7C4lylyx5kD2LEO0PkvWT8m4x/mXFgsapS8Yks/gcR9u2EFdpTQlxRr9UjlaYGMoX+QJTv3OaA1gITOLr/xSOPN+JUKSuKlmtqZ/Qwb14AsJnflLZah09cAdu7C0Xp7HcPzncptc7jB5vE2NKpREM4KhX1rkUmdkCFJuFgE8z8N/f7y0HDmvZd4c8d/6eJjWgdSe0D8/8RJolDbro0wJJgbYbWndsVsoe7JUaV74qgXBqumr6yDPiSx6cTpLRPofqECmtLWtuDZO2HIGD7CGXabgFAxB+dIFOxNUZH/HF0q9Kzi1x4qkO4PasG93PHVrtK9xDwYtlxKsTfJ2qMx5eMedBFVNi+UIWj0IsVeGRRMLOSm3gifcN/EPf7x/YIpd8hkjDWk1XzZBeLPq8R2C0fTL3toC82b2hhmZBl1Numx4AqlPBB6Cbzj2vTDgWv9fw7NHIgwaHoiHdl6V/rDGYK+lvd24nmPYHq2z1Ra2ECSjg+tRuy0UKuYlVCCkF5NKSgVb+5ArkkO8XNbGI4fTdxjTwYTXnbGDQuN9I1/pR9SpBMKcArlxb7Ydm3mNW24GurUGfoBGWiTXscGk4j9xJs0EbPbybDnthlSSG0PoCX7zLR1yH/oQxCNIYcxfsfr4qtpSSM5rBZCgvOoXguGfXEixBzF1pzuC4AvYTvY=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM6PR08MB5256.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(23010399003)(7416014)(38070700021)(56012099006)(4143699003)(10067099003)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?bdpdBVZBv2enpGOVYA072zUFCgCJ6yS55ShOaOg397p1d/qUEJC4PWVjV5?=
- =?iso-8859-1?Q?i3yRVTteShMrDUnNKZoAbQjEm0fTx+Ebz/0Wl9SmuFTiZxvf00yeK74BcM?=
- =?iso-8859-1?Q?zM0Fa7acQDkQS97uWfSLqSp7P6JhUGZ5dlFFKNrf0raXKkJoxYrGql6wH4?=
- =?iso-8859-1?Q?aZ+kMFStIjdZGo0pFBBC8lsGk42yi7zspU6TFzm5uYlSS8NIulXZbycE9L?=
- =?iso-8859-1?Q?Z744Qb+7jFlaarrdlC36LbLkWF9hOGeJSqQOXRlWtTFJ3qX0b782z21IqM?=
- =?iso-8859-1?Q?8bKWIvc2q/h28TcteRiYjUBg1hyFmwzHJj6/O7Rq3f8IZeuj4bCoUx7lb1?=
- =?iso-8859-1?Q?aTcNU7pQh0gqNbfMfZUywLZDN/Ed7mzdhWquUKkh6PIYLuZ2YUljMQE12N?=
- =?iso-8859-1?Q?GF3QRpSRrkeZvzEldHI6BRperEgOCBHdv94n6BPSncP+RxbprmYZxbNDBx?=
- =?iso-8859-1?Q?M7Je85H69Sa/XhfPuCYmaWQeo3tuaoSMOi8VkcuMUZpQkwa5rRIJg/C6WU?=
- =?iso-8859-1?Q?pq7XfEN2ycRaCPus1rxLGImwQ4a50LLyLfJbG9i1aox20+1H0T7NZlCNYo?=
- =?iso-8859-1?Q?LGIF2k6I5KlumzyQRmFLQznM4yoADusfEgrnjEl3UU3KvfkJyhwVwrTsrd?=
- =?iso-8859-1?Q?LL0EE+08wkl50pOGmztcYvizBQA29hbm3q1J88++Xk5ScFKM9WPMjHyLjm?=
- =?iso-8859-1?Q?71WNbXmY7wyPEB7YaArEhoA2MtllBLQxjT6X6YvsURXilKiHrX/ap6mMOW?=
- =?iso-8859-1?Q?UlETZwUk3xaVNmdhRcgMAPstQnwjJMIi9V7cF9QQP7C2eGdRa6rZCc2vwa?=
- =?iso-8859-1?Q?PNyl6EHd+sgaDWvY10LWLPZ3oIjFotgaaD/zb+LBWb9zEiVIcsRRSOeslZ?=
- =?iso-8859-1?Q?WFB/EasG9FDAZZIzGCldB2LVEjte/r78tfO7nXVmnAfpceX+neSwLR1qy5?=
- =?iso-8859-1?Q?KLKSJ60LP+8/XpguSH5F1C8Q7Hlv1lR8XOrnFPBFb5KZ3jY5WZKAvmZ6d7?=
- =?iso-8859-1?Q?XUNmHXiVunwAWJP+J7oOtqe9QEH3ug2/W8Xp0/yUtZyLEkdsLuMtLNfzct?=
- =?iso-8859-1?Q?9BoqIyndc+VnfCq62PekO/LbF5zlvxmESqV5tBDKZN8SSUeTeE65iVleZ5?=
- =?iso-8859-1?Q?HV1GW4qCkju2G9NtHsqz5S4ttIGKzF16a0OTqFEfDpXAZQSisNuS2VCXoZ?=
- =?iso-8859-1?Q?Q3t60FhZAqGzyYxGxdBFYh8BAi/F/9QwiFUYU/NUWCIo9Q2/UJqDKQruHG?=
- =?iso-8859-1?Q?9BcgkJLP22HEF1pxbAtRnYe+gp5VU3Pn3LDfAqKQfo35+BFBxQAh2Ixa+W?=
- =?iso-8859-1?Q?vzyY5xqOUCk0wmfplvS0hyCD6sNBm2LA1Q2M0iTX1syWr6sMtWf6n4J4Gf?=
- =?iso-8859-1?Q?ZGq/cqiekOtZjgI9E4fO1E/y77onlGFlk2baKLuxu1wD/A8Bl1Yzvrxt8N?=
- =?iso-8859-1?Q?WIt96GN6I1CKPLlspQQoYhY/A5TOsfXF8FRpDNDDXs2SGk2oYL+gYFfbXb?=
- =?iso-8859-1?Q?v/IXXY1g76RUDjokI4lQw/P8s3KwZ2cEyedAEDe9Mym3i6ITmjofmszAAi?=
- =?iso-8859-1?Q?byN2dlOl78GjgtShfhnltrL9jwsbHXOWp3wNBOF+XIAkYtFOVUgRjxTFV/?=
- =?iso-8859-1?Q?6ff+U+6ZNisAfj+eEDhlocmmjnSkkDeBWi8pCn3d9Gr5ghtnRgFbNTm27c?=
- =?iso-8859-1?Q?7qOd/FnQUuhbXR1MH6mVTr9s8rXicn9KrGM3bvmjdl/n0H+5Ao8c2Lp3H2?=
- =?iso-8859-1?Q?aRVnhvzleYsLaRlKkVpxu0EM9vsxXBbqUuNdw4Vi4uC/DoZw5IZ1MJUP4W?=
- =?iso-8859-1?Q?mHRLhFcsFA=3D=3D?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	Mon, 14 Sep 2026 15:06:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1789398403; x=1820934403;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=fmenwVUAMa91rvpD7BU7UcpFVBrUKP40ANNId5F0GeA=;
+  b=1CAH18WF6PaNrZy9sm0vqYbzOMVsHsITxzKTw08MnCML1a/jjmD0QLmp
+   TBRKnX8a+JJ1SVaZ8+nJWLF162hyZjizW/7LRpkK7rSn4WPD1XGlpMt4T
+   gHm/oUNCXTk8ocp2/DoOKkCIs2CYGAdACG2IpmyHWyKQMj6ZuoZtU8Fr4
+   25liAh5RBpu/2NJeDFg6yyTXMyKlqVuMSV8aHuHidlPKa52ccBEHOPJRJ
+   XXZBO4hO5MLtVLZP1CTF0K2FiOj9CKvgsTa/nE9G/fZQdacTL5sQ9XV55
+   o2MNrK7bSElP7U6zBoMENDYZI33IsMYEr85oJrRsdoOG33lrYvede325r
+   g==;
+X-CSE-ConnectionGUID: cPo+wIh8TTWrm/ZWbs2A/g==
+X-CSE-MsgGUID: 7ufFRskPQxKVKA18P6VCeA==
+X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
+   d="scan'208";a="62645476"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 14 Sep 2026 08:06:42 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Mon, 14 Sep 2026 08:06:41 -0700
+Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
+ Transport; Mon, 14 Sep 2026 08:06:37 -0700
+Date: Mon, 14 Sep 2026 17:06:36 +0200
+From: Daniel Machon <daniel.machon@microchip.com>
+To: <netdev-bot+sashiko@kernel.org>
+CC: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
+	<kuba@kernel.org>, <pabeni@redhat.com>, <horatiu.vultur@microchip.com>,
+	<steen.hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>,
+	<ast@kernel.org>, <daniel@iogearbox.net>, <hawk@kernel.org>,
+	<john.fastabend@gmail.com>, <sdf@fomichev.me>, <herve.codina@bootlin.com>,
+	<arnd@arndb.de>, <gregkh@linuxfoundation.org>, <mohsin.bashr@gmail.com>,
+	<richardcochran@gmail.com>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <bpf@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH net-next v6 09/14] net: lan966x: add shutdown callback to
+ stop FDMA on reboot
+Message-ID: <20260914150636.e3zebmyrnkdclgag@DEN-DL-M70577>
+References: <20260909-lan966x-pci-fdma-v6-9-6f48dab9d671@microchip.com>
+ <178904554582.219967.5262957308315602780@kernel.org>
 MIME-Version: 1.0
-X-OriginatorOrg: variscite.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AM6PR08MB5256.eurprd08.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1120e26f-50d4-4b53-c20e-08df12718b8e
-X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Sep 2026 15:04:59.1608
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 399ae6ac-38f4-4ef0-94a8-440b0ad581de
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: /2+bT3tWILlwbi5Xu+TTLq6h5jZ6/Mn7UP2fTyRtxW3qWwXGIfFzbg8liiyTd20Ty6EL0Hwru3EY+zPqVC+WWA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BR0PR08MB185883
+Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <178904554582.219967.5262957308315602780@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_080502_074359_B9C99330 
-X-CRM114-Status: UNSURE (   8.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260914_080643_604285_505AFA36 
+X-CRM114-Status: GOOD (  46.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,61 +93,240 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> MMC clock pins must be configured as OUTPUT-only per TRM [0] with=0A=
-> receiver disabled (RXACTIVE bit =3D 0). Change MMC CLK pins from=0A=
-> PIN_INPUT to PIN_OUTPUT to match documentation.=0A=
-> =0A=
-> [0] https://www.ti.com/lit/pdf/spruiv7 Rev. C: Table 12-246. MMCSDi I/O S=
-ignals=0A=
-=0A=
-Fixes: 887d9e03c487 ("arm64: dts: ti: Add support for Variscite VAR-SOM-AM6=
-2")=0A=
-Cc: <stable@vger.kernel.org>=0A=
-Signed-off-by: Judith Mendez <jm@ti.com>=0A=
----=0A=
-=A0arch/arm64/boot/dts/ti/k3-am625-var-som.dtsi | 4 ++--=0A=
-=A01 file changed, 2 insertions(+), 2 deletions(-)=0A=
-=0A=
-diff --git a/arch/arm64/boot/dts/ti/k3-am625-var-som.dtsi b/arch/arm64/boot=
-/dts/ti/k3-am625-var-som.dtsi=0A=
-index c2daa56c35e17..c23b6a90b8b13 100644=0A=
---- a/arch/arm64/boot/dts/ti/k3-am625-var-som.dtsi=0A=
-+++ b/arch/arm64/boot/dts/ti/k3-am625-var-som.dtsi=0A=
-@@ -277,7 +277,7 @@ pinctrl_mmc0: main-mmc0-default-pins {=0A=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 bootph-all;=0A=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 pinctrl-single,pins =3D <=0A=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 AM62X=
-_IOPAD(0x220, PIN_INPUT, 0) /* (Y3) MMC0_CMD */=0A=
--=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 AM62X_I=
-OPAD(0x218, PIN_INPUT, 0) /* (AB1) MMC0_CLK */=0A=
-+=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 AM62X_I=
-OPAD(0x218, PIN_OUTPUT, 0) /* (AB1) MMC0_CLK */=0A=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 AM62X=
-_IOPAD(0x214, PIN_INPUT, 0) /* (AA2) MMC0_DAT0 */=0A=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 AM62X=
-_IOPAD(0x210, PIN_INPUT, 0) /* (AA1) MMC0_DAT1 */=0A=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 AM62X=
-_IOPAD(0x20c, PIN_INPUT, 0) /* (AA3) MMC0_DAT2 */=0A=
-@@ -292,7 +292,7 @@ AM62X_IOPAD(0x1f8, PIN_INPUT, 0) /* (AC2) MMC0_DAT7 */=
-=0A=
-=A0=A0=A0=A0=A0=A0=A0 pinctrl_mmc2: main-mmc2-default-pins {=0A=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 pinctrl-single,pins =3D <=0A=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 AM62X=
-_IOPAD(0x120, PIN_INPUT_PULLUP, 0) /* (C24) MMC2_CMD */=0A=
--=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 AM62X_I=
-OPAD(0x118, PIN_INPUT_PULLDOWN, 0) /* (D25) MMC2_CLK */=0A=
-+=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 AM62X_I=
-OPAD(0x118, PIN_OUTPUT_PULLDOWN, 0) /* (D25) MMC2_CLK */=0A=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 AM62X=
-_IOPAD(0x114, PIN_INPUT_PULLUP, 0) /* (B24) MMC2_DAT0 */=0A=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 AM62X=
-_IOPAD(0x110, PIN_INPUT_PULLUP, 0) /* (C25) MMC2_DAT1 */=0A=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 AM62X=
-_IOPAD(0x10c, PIN_INPUT_PULLUP, 0) /* (E23) MMC2_DAT2 */=0A=
---=0A=
-2.34.1=0A=
-=0A=
-Reviewed-by: Stefano Radaelli <stefano.r@variscite.com>=0A=
-=0A=
-Thanks!=0A=
+> Thank you for your contribution! Sashiko AI review found 5 potential
+> issue(s) to consider:
+> 
+> Critical: 0 · High: 0 · Medium: 4 · Low: 1
+> 
+> - [Medium] lan966x_shutdown() leaves the shared NAPI permanently disabled
+>   (napi_disable() with no napi_enable() and no state marker) while the…
+> - [Medium] lan966x_shutdown() quiesces TX only with napi_disable() +
+>   netif_tx_disable() and then manipulates FDMA TX state…
+> - [Medium] lan966x_shutdown() masks the analyzer source with a plain
+>   lan_wr(0, ANA_ANAINTR) while the ANA interrupt is still requested and…
+> - [Medium] The new shutdown path relies on
+>   lan966x_fdma_rx_disable()/lan966x_fdma_tx_disable() to prove the…
+> - [Low] Claim: the `if (!lan966x->fdma) return;` guard in
+>   lan966x_shutdown() skips the ANA_ANAINTR mask, which lan966x_init()…
+> 
+> --
+> 
+> net: lan966x: add shutdown callback to stop FDMA on reboot
+> 
+> Adds a platform shutdown() callback that disables NAPI, stops the netdev
+> TX queues, disables the RX and TX FDMA channels and masks FDMA_INTR_ENA,
+> FDMA_INTR_DB_ENA and ANA_ANAINTR so a card that survives a host reboot
+> does not assert the shared PCIe INTx before re-probe.  FDMA_INTR_ENA is
+> also re-armed in lan966x_fdma_rx_start().
+> 
+> A few questions about the new shutdown path below.
+
+Seems like the shutdown() introduced in this patch is racy because netdevs are
+left registered and FDMA/ATU is kept alive. Let me rework this in v7 to ensure
+the netdevs are unregistered/detached, to avoid races with MTU/XDP etc and tear
+down FDMA/ATU.
+
+> 
+> > diff --git a/drivers/net/ethernet/microchip/lan966x/lan966x_fdma.c b/drivers/net/ethernet/microchip/lan966x/lan966x_fdma.c
+> > index 2695bc41e52a..5793a83268fc 100644
+> > --- a/drivers/net/ethernet/microchip/lan966x/lan966x_fdma.c
+> > +++ b/drivers/net/ethernet/microchip/lan966x/lan966x_fdma.c
+> 
+> [ ... ]
+> 
+> > @@ -325,6 +329,21 @@ static void lan966x_fdma_stop_netdev(struct lan966x *lan966x)
+> >       }
+> >  }
+> >
+> > +/* Drain in-flight xmit callers and stop all TX queues on every port. */
+> > +void lan966x_fdma_tx_disable_netdev(struct lan966x *lan966x)
+> > +{
+> > +     struct lan966x_port *port;
+> > +     int i;
+> > +
+> > +     for (i = 0; i < lan966x->num_phys_ports; ++i) {
+> > +             port = lan966x->ports[i];
+> > +             if (!port)
+> > +                     continue;
+> > +
+> > +             netif_tx_disable(port->dev);
+> > +     }
+> > +}
+> 
+> [Severity: Medium]
+> 
+> Does netif_tx_disable() really drain every in-flight xmit caller here?
+> lan966x also registers .ndo_xdp_xmit = lan966x_xdp_xmit in
+> lan966x_port_netdev_ops, and that entry point is dispatched from a foreign
+> device's NAPI/softirq (bq_xmit_all()) without the netdev txq locks and
+> without regard for the txq stopped state or lan966x's NAPI state:
+> 
+>   lan966x_xdp_xmit()
+>     lan966x_fdma_xmit_xdpf()
+>       spin_lock(&lan966x->tx_lock);
+>       ...
+>       /* Start the transmission */
+>       lan966x_fdma_tx_start(tx);
+> 
+> lan966x_fdma_tx_start() calls lan966x_fdma_tx_activate() when
+> tx->activated is false, and that re-sets BIT(channel_id) in
+> FDMA_INTR_DB_ENA and writes FDMA_CH_ACTIVATE.  lan966x_fdma_tx_disable()
+> in the new shutdown path sets tx->activated = false, and lan966x_shutdown()
+> touches FDMA_CH_DISABLE, tx->activated and FDMA_INTR_DB_ENA without taking
+> lan966x->tx_lock.
+> 
+> If an XDP program on another interface redirects into a lan966x port in the
+> reboot window, can the TX channel end up re-activated (and the DB enable
+> bit re-set) after shutdown() returns?  The shutdown path deliberately keeps
+> the DCB rings mapped, so a re-activated channel would keep fetching DCBs
+> from and writing DCB status into host memory that the next kernel reuses,
+> which is the state the commit message says it eliminates.
+
+Will unregister netdevs in v7.
+
+> 
+> > diff --git a/drivers/net/ethernet/microchip/lan966x/lan966x_main.c b/drivers/net/ethernet/microchip/lan966x/lan966x_main.c
+> > index 11094a381ec2..d6ce1e3e373f 100644
+> > --- a/drivers/net/ethernet/microchip/lan966x/lan966x_main.c
+> > +++ b/drivers/net/ethernet/microchip/lan966x/lan966x_main.c
+> > @@ -1324,9 +1324,35 @@ static void lan966x_remove(struct platform_device *pdev)
+> >       debugfs_remove_recursive(lan966x->debugfs_root);
+> >  }
+> >
+> > +static void lan966x_shutdown(struct platform_device *pdev)
+> > +{
+> > +     struct lan966x *lan966x = platform_get_drvdata(pdev);
+> > +
+> > +     if (!lan966x->fdma)
+> > +             return;
+> > +
+> > +     /* The reload paths disable this NAPI under rtnl; serialize with them. */
+> > +     rtnl_lock();
+> > +
+> > +     if (lan966x->fdma_ndev)
+> > +             napi_disable(&lan966x->napi);
+> 
+> [Severity: Medium]
+> 
+> The NAPI is disabled here and never re-enabled, and no state is recorded to
+> say the device has been shut down.  After rtnl_unlock() the netdevs are
+> still registered and their ndo callbacks are still live.
+> 
+> Can a later MTU change on any port hang?
+> 
+>   lan966x_port_change_mtu()          /* .ndo_change_mtu */
+>     lan966x->ops->fdma_resize()
+>       lan966x_fdma_change_mtu()
+>         __lan966x_fdma_reload()
+>           lan966x_fdma_reload()
+>             napi_synchronize(&lan966x->napi);
+>             napi_disable(&lan966x->napi);
+> 
+> The second napi_disable() lands in napi_disable_locked(), which spins:
+> 
+>         while (val & (NAPIF_STATE_SCHED | NAPIF_STATE_NPSVC)) {
+>                 usleep_range(20, 200);
+>                 val = READ_ONCE(n->state);
+>         }
+> 
+> NAPIF_STATE_SCHED was set by the napi_disable() in lan966x_shutdown() and
+> is only cleared by napi_enable(), which shutdown() never calls.
+> 
+> Wouldn't the netlink task then loop with no timeout and no alternative wake
+> condition, while holding rtnl_mutex, blocking any later rtnl user in the
+> reboot sequence (including a second instance's lan966x_shutdown(), which
+> also takes rtnl_lock())?  device_shutdown() runs from
+> kernel_restart_prepare() with userspace still runnable, and an XDP attach
+> reaches the same napi_disable() through lan966x_xdp_setup() ->
+> lan966x_fdma_reload_page_pool() -> __lan966x_fdma_reload().
+> 
+
+Will unregister netdevs in v7.
+
+> > +
+> > +     lan966x_fdma_tx_disable_netdev(lan966x);
+> > +
+> > +     lan966x_fdma_rx_disable(&lan966x->rx);
+> > +     lan966x_fdma_tx_disable(&lan966x->tx);
+> 
+> [Severity: Medium]
+> 
+> The commit message says "fdma_deinit() disables both channels and waits for
+> them to go idle", and shutdown() relies on the same two helpers for that
+> guarantee.  Both of them drop the poll result though:
+> 
+> lan966x_fdma_rx_disable() and lan966x_fdma_tx_disable() {
+>         readx_poll_timeout_atomic(lan966x_fdma_channel_active, lan966x,
+>                                   val, !(val & BIT(fdma->channel_id)),
+>                                   READL_SLEEP_US, READL_TIMEOUT_US);
+> }
+> 
+> Is a timeout on FDMA_CH_ACTIVE distinguishable from a channel that really
+> went idle here?  lan966x_fdma_tx_disable() sets tx->activated = false
+> regardless, and shutdown() then masks FDMA_INTR_ENA/FDMA_INTR_DB_ENA, which
+> hides the error sources that would report the still-active channel, and
+> returns.
+> 
+> Unlike the unbind path, shutdown() keeps the RX pages, the coherent DCB
+> rings and (on the PCIe backend) the outbound ATU window mapped, so a
+> channel that never reached the idle state keeps write access to memory the
+> next kernel will reuse.  Would it make sense to check the poll return and
+> at least report it?
+> 
+
+Will rework shutdown in v7.
+
+> > +
+> > +     lan_wr(0, lan966x, FDMA_INTR_ENA);
+> > +     lan_wr(0, lan966x, FDMA_INTR_DB_ENA);
+> > +     lan_wr(0, lan966x, ANA_ANAINTR);
+> 
+> [Severity: Medium]
+> 
+> Can the ANA_ANAINTR mask be undone right after it is written?  The ANA irq
+> is still requested and enabled at this point, and it is a threaded handler
+> (devm_request_threaded_irq() with lan966x_ana_irq_handler and IRQF_ONESHOT
+> in lan966x_probe()), whose tail does an unlocked read-modify-write of the
+> same register:
+> 
+> lan966x_mac_irq_handler() {
+>         ...
+>         lan_rmw(ANA_ANAINTR_INTR_SET(0),
+>                 ANA_ANAINTR_INTR,
+>                 lan966x, ANA_ANAINTR);
+> }
+> 
+> lan_rmw() is readl() -> modify -> writel() and preserves ANA_ANAINTR_INTR_ENA
+> from the value it read.  If the handler thread has already done its readl()
+> (with INTR_ENA still 1) when shutdown() writes 0, wouldn't its write-back
+> restore ANA_ANAINTR_INTR_ENA = 1?
+> 
+> shutdown() holds only rtnl, which the threaded handler never takes, and it
+> neither disable_irq()s nor frees the ANA irq, so the source stays mapped
+> and unmasked.  The switch keeps learning and forwarding after the host
+> reboots, so MAC-table sync events keep arriving.  Would a
+> disable_irq()/synchronize_irq() on lan966x->ana_irq before the mask, or a
+> shared lock with the handler, close that window?
+
+Seems legit. Sashiko complained that the ANAINTR could cause the same splats
+that this patch tries to fix. Therefore ANAINTR was masked in v6. Seems correct
+to also disable it, to make sure that the interrupt is not unmasked again.
+
+> 
+> > +
+> > +     rtnl_unlock();
+> > +}
+> > +
+> >  static struct platform_driver lan966x_driver = {
+> >       .probe = lan966x_probe,
+> >       .remove = lan966x_remove,
+> > +     .shutdown = lan966x_shutdown,
+> >       .driver = {
+> >               .name = "lan966x-switch",
+> >               .of_match_table = lan966x_match,
+> 
+> [ ... ]
+> 
+> --
+> Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260909-lan966x-pci-fdma-v6-0-6f48dab9d671%40microchip.com
 
