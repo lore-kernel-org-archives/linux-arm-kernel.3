@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4CEEC88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 10:22:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29514C88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 10:22:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yxdNpcGulDPHptxAYTQ3/RA2+jf6IzOaeSaGvumBXnc=; b=C+m7ug2b6IrJw2mTYYQyi0bC+T
-	/xPONMqDMA8h3/X0KDlSlUqd+1W2bsWkfVMQpyHWOXTtI4QOTY0GVAglTgvKThloEwYi9DVkORC2I
-	DD89+qwi1YtUgck5+TJsuADIwyZ4JykhT9YTF4mAC1k5kkGg36rPM7GqeqH9dUhryumOUta5N0yzA
-	k0fC1uUtSL9uk7d6FKZpJpV2Zu4AwlifUl/gm01ew2w2/QNZVRkbDp0bbemw+ED5XMqWlq+snrAEQ
-	p9vTOUqYQU9T3fW2F3TTyz7yshAgcMEa0q2XsRncweCHwIggIVHe/sTBC5j2aSaa6SEDm0JSdQdsR
-	HCiR7KRg==;
+	bh=Z+4y8TmBDjghp9ErYULHBpdj/Hhdpt9SH44oaM2jpwQ=; b=CRuF1QpBOQXki4y0n5IPxPzu60
+	XiBxHXuifRpfTqzLF26mDj2hvLsCpD6bgkltykcIjUuXGRLFThbBA2BRnKS7vm5Ien/fxQkRk9ytX
+	a/qlxqIisNfSQVXLkcgxPH4iM+xFyktOVHTexwV5f+c+L04V1P4qG8CQZNO9bmE/6/Tuw1LzZjpQO
+	kg28fTf2f/OduNJZvlkOq0OfATAlvSQ2HjkUfZ0k+5UWp9gW/N9mgtkHdmUp7jGZB+EDKiNBpXcjW
+	WU/cWdypz6oE29A7e/OrI1THRB7FrcY4xt8J/QBMtnz7ELIrHGGr0yXRvmHuCcBI55sKtsfHChauV
+	ksmN7xlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x63pU-00000003682-0G5s;
-	Mon, 14 Sep 2026 10:22:28 +0000
+	id 1x63pX-000000036HW-3Pf8;
+	Mon, 14 Sep 2026 10:22:31 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x63ow-000000035VZ-0Gic
+	id 1x63p9-000000035p8-0nJs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 10:21:55 +0000
+	Mon, 14 Sep 2026 10:22:10 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 172FA1CC4;
-	Mon, 14 Sep 2026 03:21:50 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E4E821C2B;
+	Mon, 14 Sep 2026 03:22:02 -0700 (PDT)
 Received: from login2.euhpc2.arm.com (login2.euhpc2.arm.com [10.58.100.22])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 8D31A3F7B4;
-	Mon, 14 Sep 2026 03:21:52 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 71DF53F9A2;
+	Mon, 14 Sep 2026 03:22:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789381313; bh=Q+anWvz4MhVvNjRofJ78HmqKTzubKdFr4fyy/6NF4QU=;
+	t=1789381326; bh=8a4Lq+OUcgJzJ0Ua9TeNCsVDA3ko6/NnIYp5erySm30=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=MCXhq8Rm1cpNTONZQngHiTL3RmxWBWy2QwRqrL/JmAFiI8ApHZ17ZW46+xuCMV88y
-	 vcCoaXGXsRfSeuOXOdWBLYReF8VwDPw6vsOU6BlL9MuYCGyXcU7yASTlVMdzypxDGK
-	 if2WMOgcPdxTcq5jPkMSmt+buJ8NM90AWRA+FNUI=
+	b=cw1nzbK5rGvM/SlSvz2sC3s0+/rlCBoDO7ppy4Bi6+nXARNo27D/+e9VFU8mNTwoU
+	 /F4pgMOqiRqDvaYS6xyMVwLrdSKvAcgjBu1GuX/zyoskId56285pMnzArheGBZEZ+O
+	 tbbKDcKZ/YRUNq6OOCDFeoWKEiuqovKOBDwVzYo8=
 From: Vladimir Murzin <vladimir.murzin@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: catalin.marinas@arm.com,
@@ -48,18 +48,17 @@ Cc: catalin.marinas@arm.com,
 	lpieralisi@kernel.org,
 	ruanjinjie@huawei.com,
 	liaochang1@huawei.com
-Subject: [PATCH 18/38] arm64: booting: Document boot requirements for FEAT_NMI
-Date: Mon, 14 Sep 2026 11:20:42 +0100
-Message-Id: <20260914102102.68597-19-vladimir.murzin@arm.com>
+Subject: [PATCH 27/38] arm64: suspend: Always initialise PSTATE.ALLINT
+Date: Mon, 14 Sep 2026 11:20:51 +0100
+Message-Id: <20260914102102.68597-28-vladimir.murzin@arm.com>
 X-Mailer: git-send-email 2.24.0
 In-Reply-To: <20260914102102.68597-1-vladimir.murzin@arm.com>
 References: <20260914102102.68597-1-vladimir.murzin@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_032154_151023_4D31A5EF 
-X-CRM114-Status: UNSURE (   9.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260914_032207_277116_1181BDFE 
+X-CRM114-Status: GOOD (  11.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,36 +73,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mark Brown <broonie@kernel.org>
+PSTATE.ALLINT is always set to the inverse of SCTLR_ELx.SPINTMASK,
+regardless of the value of SCTLR_ELx.NMI. SCTLR_ELx.NMI is initialised
+to 0 by default, so PSTATE.ALLINT does not cause any interrupt
+masking. With upcoming FEAT_NMI support, SCTLR_ELx.NMI will be set as
+part of the enable sequence.
 
-In order to use FEAT_NMI we must be able to use ALLINT, require that
-it behave as though not trapped when it is present.
+However, during CPU suspend/resume, we reinitialise PSTATE to
+INIT_PSTATE_EL1. INIT_PSTATE_EL1 currently does not set
+PSR_ALLINT_BIT, but SCTLR_ELx.NMI is restored from the saved
+value. Since all exceptions are masked during CPU suspend/resume,
+avoid a state where SCTLR_ELx.NMI is restored to 1 but PSTATE.ALLINT
+is clear, since that would permit an NMI during resume.
 
-Signed-off-by: Mark Brown <broonie@kernel.org>
-Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Include PSR_ALLINT_BIT in INIT_PSTATE_EL1 so PSTATE.ALLINT is always
+set.
+
 Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
 Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
- Documentation/arch/arm64/booting.rst | 6 ++++++
- 1 file changed, 6 insertions(+)
+ arch/arm64/include/asm/ptrace.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/arch/arm64/booting.rst
-index 13ef311dace8..3170b26ae981 100644
---- a/Documentation/arch/arm64/booting.rst
-+++ b/Documentation/arch/arm64/booting.rst
-@@ -568,6 +568,12 @@ Before jumping into the kernel, the following conditions must be met:
+diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
+index 16ba164b890e..ad5dcaf66a8f 100644
+--- a/arch/arm64/include/asm/ptrace.h
++++ b/arch/arm64/include/asm/ptrace.h
+@@ -17,7 +17,7 @@
+ #define CurrentEL_EL2		(2 << 2)
  
-     - HCRX_EL2.EnASR (bit 2) must be initialised to 0b1.
+ #define INIT_PSTATE_EL1 \
+-	(PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT | PSR_MODE_EL1h)
++	(PSR_ALLINT_BIT | PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT | PSR_MODE_EL1h)
  
-+  For CPUs with support for Non-maskable Interrupts (FEAT_NMI):
-+
-+  - If the kernel is entered at EL1 and EL2 is present:
-+
-+    - HCRX_EL2.TALLINT (bit 6) must be initialised to 0b0.
-+
- The requirements described above for CPU mode, caches, MMUs, architected
- timers, coherency and system registers apply to all CPUs.  All CPUs must
- enter the kernel in the same exception level.  Where the values documented
+ #include <linux/irqchip/arm-gic-v3-prio.h>
+ 
 -- 
 2.34.1
 
