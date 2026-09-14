@@ -4,71 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92C8AC88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 07:05:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4501AC88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 07:06:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DH89L2lGg0PAoWlWKSm5EbgAp+EKeh2hDRosmekpaxM=; b=03sMl6qBlAtTGeb9wsAjlT40sh
-	4GPAh80jN7zl1PNJVn4vAK+mZCkkMerNlb0ggeK0DKNIOw++Mo8VolNG/dWjIrd9v/TB2DyrBDsVz
-	dG171xox2jumD3YSEQd7HZ+bU7IO1pFqxvM9GR3/yp2efXC2sFKRi2arnDDeEIpjqcSEUXWs3jQCt
-	B/vGQa/9W2PwcEVpZw6dISksNzPCqw7Lc4CDjDXKONIwG2uRYsAZBWi3K5yqhAY/zXZMtnQCp21rW
-	8UIj4MnuvXEaTK1vAzJKWtxA9PK81nHiz8PrJq72PB/V/uDLJ4Jp2qjyRVjJTVn15GHBSe1V0S6z/
-	YDNxzSlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j2sbgabFzSCRNwpAQXS91d5cLhlNykbsimA9YyMeT8w=; b=zDRX4yNTSkpBD4393cusmlj27z
+	fd8fzL6WxSIYll4uuwyn6dowpG1+b2shfvoFjTbQM8UEECp9eAinnM7TxXhZPIPj1YRT4de+Y5d06
+	DuNm8qAZSgGaDYPOeqbYsVboTv5+03Ognok52o1jxstXSd56pE0ytP9sBBQry50TyYD4UZFvjWa7t
+	tc2KcrJ/C8oIYMQbtCogjj2kUS6YvPQQ0cICM/Yr20C2RGBcCBQUxe/htJdkEGppwukFbg1E6r89b
+	cdiast0h77GmolmXobRE6qw04BoIkgFiGsddXXlT/+MLslmEONdM6UZvugbtPdS0D/aKr6RnsDzw6
+	3ToqgHkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x60kN-00000002WWn-2f1R;
-	Mon, 14 Sep 2026 07:04:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x60kL-00000002WW1-0fEz;
-	Mon, 14 Sep 2026 07:04:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CD68A1570;
-	Mon, 14 Sep 2026 00:04:48 -0700 (PDT)
-Received: from arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 911B73F59E;
-	Mon, 14 Sep 2026 00:04:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789369492; bh=pNtlqXsBGCXtcZenUVL4HnAZIU2omYNdHVskCp9kiQY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WjzekkFU7LYMsWmvbH6omfz9eiehQlIy1DvkIwSKBzOu4bgxWOpLpY1XNyvADEjc/
-	 RIYrNIPjgGfO/oXQusxaDuL0uJ5dWRQDa8FiYsXRiU64kEK5zQqVdxhrIlMp79EAay
-	 u6GeTXpPrBV01pmQNMaH2U6JcIVCltzsfFxz7cxE=
-Date: Mon, 14 Sep 2026 09:04:39 +0200
-From: Beata Michalska <beata.michalska@arm.com>
-To: Oleg Keri <okerixx@gmail.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Sumit Gupta <sumitg@nvidia.com>,
-	Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, driver-core@lists.linux.dev,
-	linux-pm@vger.kernel.org, jonathan.cameron@oss.qualcomm.com,
-	sibi.sankar@oss.qualcomm.com
-Subject: Re: [PATCH v3 1/2] arm64: topology: fix arch_freq_get_on_cpu()
- overflow above 4.19 GHz
-Message-ID: <aqech7ctaPnW_U34@arm.com>
-References: <20260910063440.4677-1-okerixx@gmail.com>
- <20260910063440.4677-2-okerixx@gmail.com>
+	id 1x60lP-00000002Wjn-3mlR;
+	Mon, 14 Sep 2026 07:06:03 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x60lO-00000002WjI-21dL
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 14 Sep 2026 07:06:02 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id CA425410A7;
+	Mon, 14 Sep 2026 07:06:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04B7D1F000FF;
+	Mon, 14 Sep 2026 07:05:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789369561;
+	bh=j2sbgabFzSCRNwpAQXS91d5cLhlNykbsimA9YyMeT8w=;
+	h=Date:Subject:To:References:From:In-Reply-To;
+	b=Pc0zjsVpRx04sxzBjo/e36jVzsWrEDNtP0E33rDGiVGnBZ5YldGwTIPB/ze2M1J3h
+	 Lgpt7Nt8XWDYmFt3Fqt2zyOAb0CZAj1Dlf0dt/SOUeRJNi7ieMAybd7uIKDOGBCrlQ
+	 rmF6DY1jjRVwKzT6BUmZ6JCgMOfFOFYL4P2+P120TZPq7ptUVOZiMwasSpp9Ko4lzw
+	 RP4t41rF8fa57ClIwkgXPa1mLiL623lwpndvA/mprAHuAo2S0xlq01L7GAXV0VozRM
+	 a/C9Su8/3l0BAiA8ruU8+FN4HFxEOUXKMYD10fzqMKE4scakqHjEorTqm77bvH2yP6
+	 1W56QiQFu7oHA==
+Message-ID: <5c24248e-bee2-4256-af8f-a80be6744431@kernel.org>
+Date: Mon, 14 Sep 2026 09:05:54 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260910063440.4677-2-okerixx@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_000457_237083_BBB05AC7 
-X-CRM114-Status: GOOD (  18.30  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 5/9] thermal/drivers/exynos: Remove redundant
+ base_second register resource
+To: Anand Moon <linux.amoon@gmail.com>,
+ Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Peter Griffin <peter.griffin@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ "open list:SAMSUNG THERMAL DRIVER" <linux-samsung-soc@vger.kernel.org>,
+ "open list:THERMAL" <linux-pm@vger.kernel.org>,
+ open list <linux-kernel@vger.kernel.org>,
+ "moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES"
+ <linux-arm-kernel@lists.infradead.org>
+References: <20260913145905.9404-1-linux.amoon@gmail.com>
+ <20260913145905.9404-6-linux.amoon@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20260913145905.9404-6-linux.amoon@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,54 +123,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ack.
+On 13/09/2026 16:58, Anand Moon wrote:
+> The Exynos5420 TRIMINFO register can be accessed through the main TMU
+> register space, so a separate register mapping is not required.
 
-Thanks for the patch.
+No, the address is misplaced. You completely ignored entire point for
+second base, without any arguments, any data, anything, and just drop it
+completely.
 
----
-BR
-Beata
-On Thu, Sep 10, 2026 at 08:34:39AM +0200, Oleg Keri wrote:
-> arch_freq_get_on_cpu() computes the product of the frequency scale and
-> the reference frequency as a u64, but assigns it to an unsigned int
-> before shifting it back down:
-> 
-> 	freq = scale * arch_scale_freq_ref(cpu);
-> 	freq >>= SCHED_CAPACITY_SHIFT;
-> 
-> The product is truncated to 32 bits before the shift, so the result
-> wraps once arch_scale_freq_ref() exceeds 2^32 / SCHED_CAPACITY_SCALE,
-> i.e. 4194304 kHz.
-> 
-> On a Snapdragon X2 Elite (Glymur) laptop, whose boost OPP is 4723200
-> kHz, cpuinfo_avg_freq reports 524283 kHz instead of ~4723200 kHz while
-> the CPU demonstrably runs at the boost frequency: a fixed workload
-> completes in 1.72 s at the 4723200 kHz OPP versus 2.01 s at 4032000
-> kHz, matching the 1.171 frequency ratio.
-> 
-> Keep the arithmetic in 64 bits until after the shift.
-> 
-> Fixes: 16d1e27475f6 ("arm64: Provide an AMU-based version of arch_freq_get_on_cpu")
-> Signed-off-by: Oleg Keri <okerixx@gmail.com>
-> ---
->  arch/arm64/kernel/topology.c | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-> index d28438f8b83f..0eca321ff113 100644
-> --- a/arch/arm64/kernel/topology.c
-> +++ b/arch/arm64/kernel/topology.c
-> @@ -245,8 +245,7 @@ int arch_freq_get_on_cpu(int cpu)
->  	 * (see amu_scale_freq_tick for details)
->  	 */
->  	scale = arch_scale_freq_capacity(cpu);
-> -	freq = scale * arch_scale_freq_ref(cpu);
-> -	freq >>= SCHED_CAPACITY_SHIFT;
-> +	freq = (scale * arch_scale_freq_ref(cpu)) >> SCHED_CAPACITY_SHIFT;
->  	return freq;
->  }
->  
-> -- 
-> 2.55.0
-> 
+NAK
+
+Best regards,
+Krzysztof
 
