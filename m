@@ -4,59 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 590B6C88E64
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 08:44:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44CB1C88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 08:47:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7a2/ibp36NrABheYol3LAYhLxpjLT2pX3v2Uyuz4AvE=; b=V7T/XeAm6mR8To8grD8+b4sQRC
-	qJB7E6dRIanfj9NvWa1BembYsMtTLVZEO9jGV5lzZkpgwJkbBnXrUS560WiHKMYbZHKcH+NFN4860
-	0vuZgcMQRcKf/fTmKcfS3HklVGN7cRskZ6dXbrxvoXSfllvR/fMS5GMoKAMrwZRIEEf7A4xHuIf2N
-	5pr3BO2mxsiIkcXrcJVF+HTbQOTkYiWWdWoGq7uuEZY5u7BEeD+ldiwu+8L/KKh0B8OTfQOZ668zf
-	hfDoGUQlg2B/4c3V4tSXPBbInsGoj0orTfnWy87Auzme3XuGZvgHC8wQSRAWc0xU+hOj+4Df1dTv1
-	LI8Z/BUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BiGb6WiQWJmFrzRKswfmgWeyhlzVvwsEuctPqCr7l7Q=; b=X7wbcnKsGf/lx1rh+bm7iXssXG
+	Z14q6LWm8xev9893p534lVxJXoqJVHvyYyhWK3B75vTPLO6whTud0aOqwhoyNMWKhhMZs319siYLA
+	YrPQtWpMKGamBlLJ1USEz7Mgy7amNFVkU1M+ksh2G7ygOMmrMg08z+g7Mzta6/w6mqU/uwHJtnqer
+	OvTybhDMabrJS3TmbLnpRADxi2UoN+9ZA+66M4Ggjd1hcHittCAIZklVl4wEeI8GmuG70NRZ87yQM
+	REiTkrRwPShhrXdI/3tRrcCgfBju2alBhYxmWY7up9p5057EypWIRN8MH5DSy2JtV6+en5LV4qbt/
+	QRCwN8Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x62Ie-00000002oMe-1zC3;
-	Mon, 14 Sep 2026 08:44:29 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x62LQ-00000002ol7-31IW;
+	Mon, 14 Sep 2026 08:47:20 +0000
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x62Ic-00000002oMU-1gYA
+	id 1x62LO-00000002okK-3O6X
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 08:44:26 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with UTF8SMTP id 8C5684382C;
-	Mon, 14 Sep 2026 08:44:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id E1D461F000FF;
-	Mon, 14 Sep 2026 08:44:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789375465;
-	bh=7a2/ibp36NrABheYol3LAYhLxpjLT2pX3v2Uyuz4AvE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Rwj4HuiQtNd14esUdf/Qvv6aPhmoQbFJ5UaoSQmWStFL9SLmR5fdBryWldc9drqLk
-	 QWiGN58TXw15pyRwxaEGxoF0rNFbGJFPP+mKkEF2ae6xNGG63XxBSNE1oaFHToO/NB
-	 EMPwopGEl4KU/hS9vipQRcDFedNZt2V393FN3qitUdunL1/nStuR6a3U/+wuADZiDx
-	 v76HU2pRpti6w+2kCHhenVVhmkLgcCqjQ7uUOVKwy2bAJrhWetPeva8LOoqW5x3JK/
-	 1w8Kgq2Q2CsIamelzJNL4BcA5QC1s6uiGbHhhS6vSyNAVy88/0/ouOcgcUQs3mQR9o
-	 ITFRaQkcWAYRg==
-Date: Mon, 14 Sep 2026 10:44:22 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Chi-Wen Weng <cwweng.linux@gmail.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, cwweng@nuvoton.com
-Subject: Re: [PATCH v5 2/2] pwm: Add Nuvoton MA35D1 PWM controller support
-Message-ID: <aqexDgkF7Nqp-fML@monoceros>
-References: <20260721062308.536947-1-cwweng.linux@gmail.com>
- <20260721062308.536947-3-cwweng.linux@gmail.com>
+	Mon, 14 Sep 2026 08:47:20 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49b912d37b5so11354635e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 01:47:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=flipper.net; s=google; t=1789375636; x=1789980436; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=BiGb6WiQWJmFrzRKswfmgWeyhlzVvwsEuctPqCr7l7Q=;
+        b=6ep1CKuwdKRbmOik6UubsaZg8Zac1H7b/uMEN04qF8BlG6gyKDcR7WjRR58311mU1D
+         Dq7z5018VoyCFJh0XocdbNce1TDoXJlLL0nl3J6nKUZ7tOB/CyzqMekP+nhyGBQwDVzB
+         MC7roeyUSvP4wOcA/UGRvOfH/5gcARQaqQMkH0suMH8vww5VoDQRvgxoxv4WeiPqmnhI
+         lgco4CdNq93W6iGdkg3z+T8KbM4fZisWzFbuuf/Qt5sj/lngeslgDG6Oth0Xo+8XLxpv
+         cZg7pfysUHEaNFPUSLPMO/625kMp7uMAKq07X4upKy0z+mI2Jbti3pMn/O/pIu9+w0dR
+         bPnw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789375636; x=1789980436;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=BiGb6WiQWJmFrzRKswfmgWeyhlzVvwsEuctPqCr7l7Q=;
+        b=coEjjqB9zFp/8XtQqTrwSPFEHgbNTgkTybi7lbR5VSTaT3fq6MKEY7u4hIwLNfWJc9
+         TUCGJESJxsy7NMsruS4n7Jf+iHjHnwfdUVIW6T3F05tiaMzUEbuTQbjHX8tQVeX8R8H7
+         Blp+F1kioIeqpDvNByb7jNAtya0wsT+2moFT9DxM3i12l/hpp0SZK5xHcWxtzt9trG9d
+         VF6/i/y0LH4jYNHgkO/0vtLldzcqQFX/pMerbrc6RWY+0UAGT6cxTJY4HrtoK74WrFo+
+         oYhqeMX0/x7Y3TguN7or6rUb+D8DXeAqHk8YXyKgk3BwLszDmgTvPEaXIYlvVX4UgiuR
+         p9pQ==
+X-Forwarded-Encrypted: i=1; AKwUvBw1cdI7zgdyxnrHJ2hiXuuAVpZmEk+SCfKTONAmcjj9O//srgRP79JQoQKzUtnVfiaTi4yHfEP1zFRk3+l5gDnr@lists.infradead.org
+X-Gm-Message-State: AFuF++k9TS/PIu/JQ5ADTuEdhqeLxPGMgrtWCfZvDxCtB2Uonw3TrB2s
+	xqYSoyOgm12Fnwsl96yzc0oS3TxX8YPRphMOjkq9/yHO3XsoNY6ggKKZMGTJnkCUKyA=
+X-Gm-Gg: AYBFou2jiztd33+OXX9hWwYYX9XRwxizbmVDxaARFcEgVUhqW1lr7/FVE/559CqAote
+	GWxSL1/g5oMEt0JyCmHNarC9qFNwL89ybaobgONnKk8n9LqkbTdgYcFGKAeeaMLnS2Y1Af8ZreE
+	mna0EUKAp1yRLx06PDDhSa3BtEnO3Notw3LnU0taItdGefPEm7pFzAbFU7BnOXj9vv45GcJUi67
+	Vk17KDSUHFdp6fNHusGKyXBlvY+yvtEcDarvoYPeGMcr5ZnpFeeTIEQSKlkQsLnSiHTUQV6MeHb
+	9XtaIBIuKSyTstdSzTSlfiEKyqWuV5dX+sVFUrwyydyzPXcJUEXjExjaQ7rc8dTr5LWnmyMxQlq
+	3zBmOrFqx4I2rLoq56F1tqGxE2n/VetJ686DU3qtkOwDucUpZqTJKQY+1wOgBCYD6WI3Dc45nqU
+	BbO9rTVTPkRWNLUZ6bm5h0mF81/MINUjCyoL6GvmavsDsA7QnvSI3e15SAQI3lHyS/q8kzKAnFC
+	KzXUd4a4FBQuarXmF/5
+X-Received: by 2002:a05:600c:19cf:b0:49c:ed94:cdd8 with SMTP id 5b1f17b1804b1-49e7a663d35mr22293075e9.6.1789375636366;
+        Mon, 14 Sep 2026 01:47:16 -0700 (PDT)
+Received: from alchark-surface.localdomain ([146.70.184.81])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e6cc11607sm199520805e9.12.2026.09.14.01.47.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 14 Sep 2026 01:47:15 -0700 (PDT)
+From: Alexey Charkov <alchark@flipper.net>
+Date: Mon, 14 Sep 2026 12:47:15 +0400
+Subject: [PATCH] arm64: dts: rockchip: Set gpioN aliases on RK3576
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="gj7lpiutmh7njnbh"
-Content-Disposition: inline
-In-Reply-To: <20260721062308.536947-3-cwweng.linux@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260914-rk3576-gpio-aliases-v1-1-ce5f86f9ae0e@flipper.net>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqDMBBA0avIrB2IWqPxKuIipqOOLRoyKgXx7
+ k3r8i3+P0EoMAk0yQmBDhZel4gsTcBNdhkJ+RkNucq1MtkDw6soK42j5xXtm62QoHHKalXXfWk
+ GiKUPNPDnf22727L3M7ntt4Lr+gIIVSeBdwAAAA==
+X-Change-ID: 20260914-rk3576-gpio-aliases-9c0a6088b59f
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Alexey Charkov <alchark@flipper.net>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1143; i=alchark@flipper.net;
+ h=from:subject:message-id; bh=xSsTA1+Iig8rnrr46UdcEnmTqyfP4pnCIpRKT/lZv4s=;
+ b=owGbwMvMwCW2adGNfoHIK0sZT6slMWQt3zKl493uJBmRTYsfxiasex+ntehC9OljXSWFERvsA
+ mfd/1JyoWMiC4MYF4OlmCLL3G9LbKca8c3a5eHxFWYOKxPIEGmRBgYgYGHgy03MKzXSMdIz1TbU
+ MzTSMdYxYuDiFICpblZkZPgc/9Zs9pLzqxY/nhGV8HvV+a4TP/0nLDXQdtWPW3FtodMhhv+lMQ1
+ 7JS9MP6Y6Ke9bbihns0MOn+PB0x+cbJRm7zq7/DcnAA==
+X-Developer-Key: i=alchark@flipper.net; a=openpgp;
+ fpr=9DF6A43D95320E9ABA4848F5B2A2D88F1059D4A5
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260914_014718_874957_114FC2B7 
+X-CRM114-Status: GOOD (  11.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,105 +112,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+With no alias, the OS is free to number the GPIO chips arbitrarily, such
+as in probe order, which is what Linux kernel's rockchip_gpio_probe() does
+if its of_alias_get_id(np, "gpio") fails.
 
---gj7lpiutmh7njnbh
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Subject: Re: [PATCH v5 2/2] pwm: Add Nuvoton MA35D1 PWM controller support
-MIME-Version: 1.0
+This results in GPIO chip numbers arbitrarily shuffled in userspace,
+causing confusion and pain.
 
-Hello,
+Set gpioN aliases in the SoC .dtsi, just like other SoC versions do.
 
-On Tue, Jul 21, 2026 at 02:23:08PM +0800, Chi-Wen Weng wrote:
-> +static int nuvoton_pwm_apply(struct pwm_chip *chip, struct pwm_device *pwm,
-> +			     const struct pwm_state *state)
-> +{
-> +	struct nuvoton_pwm *nvtpwm = nuvoton_pwm_from_chip(chip);
-> +	unsigned int ch = pwm->hwpwm;
-> +	u64 duty_cycles, period_cycles;
-> +	u64 divisor;
-> +	u32 cmpdat, period, prescale;
-> +	int ret;
-> +
-> +	if (!state->enabled) {
-> +		nuvoton_pwm_rmw(nvtpwm, MA35D1_REG_PWM_POEN,
-> +				MA35D1_PWM_POEN_EN(ch), 0);
+Signed-off-by: Alexey Charkov <alchark@flipper.net>
+---
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-Does this mean the output pin goes High-Z on disable?
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+index d418bfc04097..e87ace5d05e6 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+@@ -21,6 +21,11 @@ / {
+ 	#size-cells = <2>;
+ 
+ 	aliases {
++		gpio0 = &gpio0;
++		gpio1 = &gpio1;
++		gpio2 = &gpio2;
++		gpio3 = &gpio3;
++		gpio4 = &gpio4;
+ 		i2c0 = &i2c0;
+ 		i2c1 = &i2c1;
+ 		i2c2 = &i2c2;
 
-> +		nuvoton_pwm_rmw(nvtpwm, MA35D1_REG_PWM_CNTEN,
-> +				MA35D1_PWM_CNTEN_EN(ch), 0);
-> +
-> +		return 0;
-> +	}
-> +
-> +	prescale = nuvoton_pwm_get_prescale(nvtpwm, ch);
-> +	divisor = (u64)NSEC_PER_SEC * (prescale + 1);
-> +
-> +	period_cycles = mul_u64_u64_div_u64(nvtpwm->clkrate,
-> +					    state->period, divisor);
-> +	if (!period_cycles)
-> +		return -EINVAL;
-> +
-> +	if (period_cycles > MA35D1_PWM_MAX_CYCLES)
-> +		period_cycles = MA35D1_PWM_MAX_CYCLES;
-> +
-> +	duty_cycles = mul_u64_u64_div_u64(nvtpwm->clkrate,
-> +					  state->duty_cycle, divisor);
-> +	if (duty_cycles > period_cycles)
-> +		duty_cycles = period_cycles;
-> +
-> +	ret = nuvoton_pwm_config_channel(nvtpwm, ch);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (state->polarity == PWM_POLARITY_NORMAL)
-> +		nuvoton_pwm_rmw(nvtpwm, MA35D1_REG_PWM_POLCTL,
-> +				MA35D1_PWM_POLCTL_INV(ch), 0);
-> +	else
-> +		nuvoton_pwm_rmw(nvtpwm, MA35D1_REG_PWM_POLCTL,
-> +				MA35D1_PWM_POLCTL_INV(ch),
-> +				MA35D1_PWM_POLCTL_INV(ch));
-> +
-> +	/*
-> +	 * In up-counting mode the counter counts from 0 to PERIOD inclusive.
-> +	 * With zero point high and compare-up point low actions:
-> +	 * - CMPDAT = 0 produces 0% duty.
-> +	 * - CMPDAT > PERIOD produces 100% duty.
-> +	 *
-> +	 * period_cycles is limited to 0xffff, so PERIOD is at most 0xfffe
-> +	 * and a 100% duty cycle can be represented by CMPDAT = 0xffff.
-> +	 */
-> +	period = period_cycles - 1;
-> +	cmpdat = duty_cycles;
-> +
-> +	nuvoton_pwm_writel(nvtpwm, MA35D1_REG_PWM_PERIOD(ch), period);
-> +	nuvoton_pwm_writel(nvtpwm, MA35D1_REG_PWM_CMPDAT(ch), cmpdat);
+---
+base-commit: 68142f986ff04b2b70b31db00f719bf690f64a9a
+change-id: 20260914-rk3576-gpio-aliases-9c0a6088b59f
 
-This is racy, right? (i.e. if a period end happens between these two
-writes, we see (probably) one period with the new period length and the
-old duty_cycle.
+Best regards,
+--  
+Alexey Charkov <alchark@flipper.net>
 
-The result of the two questions should be a comment describing the
-behaviour, otherwise the code looks fine on a quick glance.
-
-Best regards
-Uwe
-
---gj7lpiutmh7njnbh
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmqns+QACgkQj4D7WH0S
-/k5FSwf+Nk29Si7VT23M1ciM84MTOv3o0aAx6Syxa/FAYB/wGsbfOQfdrahzYO6y
-/0gU4Zjql0+4nu6sNrz9e9AJWqSljze9z/j1zdZQ1qAqlKH0Vfph85hrqW2CnJrA
-CwZiYCffuIHrITmJXG7ACtd2jTcdY8/YeUJQ3MuQlT4O67As/9VF+6RW+DUW4iFA
-L9vWx4Y7hhWGz4+TozTipkFBAX3ResmC/fPpPr15T1NxLYiFZrZS0Mh8bHbj//7Y
-5GmgHeuNqdiWWod/DN9iCDh9X1r8pu4ZewvCF+kDPYsQtZEgNZgi9I3QgadzaD1L
-rihEHMMi/YGrk/xiXD4TragJYmBS6A==
-=B1Dh
------END PGP SIGNATURE-----
-
---gj7lpiutmh7njnbh--
 
