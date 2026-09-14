@@ -4,121 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54E0EC88E64
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 08:52:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0B99C88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 08:54:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yzpk2HuAlkRP3hnp4Bu4yztqgoWxsT41dOQwP4zymsA=; b=4p5AXCGh9DTWis7A7+JlpwCi2O
-	GIXlG33eccQCXTz2lZ24CMTPTO3AHtX0rbjKaf6n/zq+rw2JVfGlH7YWhtYcjCKAuyr/vRh8vUDDi
-	gb3gWDa2yDN+UzJQoJiWEKNPQETdmsNGC0AXSZPP6U+ouOHaDoyYOvREtvYsj6nbWHJtz63hZ28u2
-	f+epEjlPqD8JeVWl50Cf2+6zURB69pstq4RA9t5aYIf2r1CxhuTWRCFQE0d8XBERfUW44TYSsdj/x
-	FJceUphSpwptwfRVMcSeNden6RVnenlQvWtnGQz4j0UQ2wv5nP13/LF0QrL9N0NUAtKTF70j7Vemx
-	h9I2vwkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q7477PwCU16Z9IZb4Mk21gV/8d3FRlMM3zaJG7AjG+M=; b=tWBht5Z9zj2LSDnWr9zUrQ7TMC
+	erljHtTHOKKhrKJ7Jgm+z9rqGGFGmgoEwzFmKHgx1A6HVptLSpd6oTMEJBCT48zsbgRy1kNOSMJpF
+	pQn/78KHDWFyS1CiapIVIxdp3x3ZJPidA/h9Y3D+h+BStJSjuS9xFqZIw8hhci6PVjfHn0w5IG/wQ
+	y8NAgxNojN46eGfqEQqKtZRx4r+XE3cNeu8GRUyUnNASUXJfWhmXnnu8eHSv+8Ad/9vi7vdk84xjZ
+	nM7VKGDKGJpLDyqyK4IHFXk/mMmVJnOUKYaXOi5p0HvCLLQNJXgnSCJV4pvY52H0SQdx8suvWwrfQ
+	rJBtii9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x62QZ-00000002peN-09Rf;
-	Mon, 14 Sep 2026 08:52:39 +0000
-Received: from mail-westus3azon11011008.outbound.protection.outlook.com ([40.107.208.8] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1x62Sa-00000002pxI-1MoR;
+	Mon, 14 Sep 2026 08:54:44 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x62QV-00000002pdt-18NL
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 08:52:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PweAKjctPMjPtvfQ5W0YhcJAblHKUpyM6VsaeaUeYOnxKncXKy0lT89vYvRWj1zkZ9Kt/BTRZwiyXjvENos82CCGRoOGywC7YyJfQ9glmtuokwlNO+nRZ3mO3R1Ix8ZIKeQpRE9brs8GTXPKGLpnWcc/SkEVhXOvBAAI6owRt0fTaNj+WaG5v9dN4XxbLGVta8q1CDBAE1fidqnnOS5zEgEI5tMbpUkRJCF+VNf05Z3jba5lQ16/KQ+js2PQM+GjioL8co6y9/obX2qBzk+pNxJ9fxgwlLlK33af/dcAKqOnnK7JjoNLUXG6BUwrzIXuutMP1tvF7hMkQWFljO1HNQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yzpk2HuAlkRP3hnp4Bu4yztqgoWxsT41dOQwP4zymsA=;
- b=johxiaAKomR3D7ccyKK6l1DsSNsy32dhUXBuEpymyqCHI+9sugjaP8bngtgplqt2Fw9zOlW2XRqLoNwtTCpqBlogtfecWv3lUP++4aqwIcDK/MCUcSusxaoKu34HeeJxz5yTQuH7/GHJFIPS5mZjGWKc94Bt3oicOeCLwGuUGI/bzCFFYfQC5AU+17M5HYO1yTlTNgLSF250O7lIIIGRiHK5L9KzHtmXWZVhpdJVJ4kJLJ9heZ+QsgJ5vA98K00OWkHo7ZYJu9qu9jIstlFoNBKZRygjsAIM0/iUS+e7rumDaP6ORuQQ86/gJFKny+FEPWtU/pXBNan0zFt3UhxbeA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yzpk2HuAlkRP3hnp4Bu4yztqgoWxsT41dOQwP4zymsA=;
- b=FeX/eQFFwNaYA7P/4nTqpd8aMPbB3+nuLD8wL/Fx79Tf/s2DWq8IKuZtPLagLBdevHd4chY6auL7tc3lwIzhlFAEsELqBgrJ/OzuMAv5oiG+Om1vf0R7jKQOGuEKtaYdClGHT2ozzS/+blRkuqNOX4wHCndbiw4cDJ/xvZPq0eE=
-Received: from SJ2PR07CA0020.namprd07.prod.outlook.com (2603:10b6:a03:505::19)
- by PH6PR12MB338919.namprd12.prod.outlook.com (2603:10b6:510:3dc::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Mon, 14 Sep
- 2026 08:52:27 +0000
-Received: from SJ1PEPF00002314.namprd03.prod.outlook.com
- (2603:10b6:a03:505:cafe::97) by SJ2PR07CA0020.outlook.office365.com
- (2603:10b6:a03:505::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.10 via Frontend Transport; Mon,
- 14 Sep 2026 08:52:27 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- SJ1PEPF00002314.mail.protection.outlook.com (10.167.242.168) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.428.7 via Frontend Transport; Mon, 14 Sep 2026 08:52:27 +0000
-Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Mon, 14 Sep
- 2026 03:52:03 -0500
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb09.amd.com
- (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Mon, 14 Sep
- 2026 03:52:02 -0500
-Received: from localhost (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
- Transport; Mon, 14 Sep 2026 03:52:02 -0500
-From: Michal Simek <michal.simek@amd.com>
-To: <linux-kernel@vger.kernel.org>, <monstr@monstr.eu>,
-	<michal.simek@amd.com>, <git@amd.com>
-CC: Bartosz Golaszewski <brgl@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Linus Walleij <linusw@kernel.org>,
-	Rob Herring <robh@kernel.org>, Shubhrajyoti Datta
-	<shubhrajyoti.datta@amd.com>, Srinivas Neeli <srinivas.neeli@amd.com>, "open
- list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
-	<devicetree@vger.kernel.org>, "moderated list:ARM/ZYNQ ARCHITECTURE"
-	<linux-arm-kernel@lists.infradead.org>, "open list:GPIO SUBSYSTEM"
-	<linux-gpio@vger.kernel.org>
-Subject: [PATCH] dt-bindings: gpio: zynq: Add parsing of hogs
-Date: Mon, 14 Sep 2026 10:51:54 +0200
-Message-ID: <0b17cd7e24ea9a92a3e5268a1f9e5a840960ac6d.1789375913.git.michal.simek@amd.com>
-X-Mailer: git-send-email 2.43.0
+	id 1x62SZ-00000002px0-0cPu;
+	Mon, 14 Sep 2026 08:54:43 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4F9CC601DE;
+	Mon, 14 Sep 2026 08:54:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56B2A1F000FF;
+	Mon, 14 Sep 2026 08:54:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789376082;
+	bh=Q7477PwCU16Z9IZb4Mk21gV/8d3FRlMM3zaJG7AjG+M=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=l5D9arEDmX3lxn0IIAq08RnanpvPAdGwM6Ohxa6FLbp3dGLISLUB5LDnhff7LoWPE
+	 u9nKrtxtbvvu8hzQ6tWh/W56gjFRFpHy0rsrfVmMcl2b7R3hNxc6U16XKkKZu1wQG4
+	 rL4GneZB/7NaEyejm/7HCe/pMTvpGVohkQc6/e+0EYdvHz7Qfu3XKGmBXjaoHnW91n
+	 vH6X/opDPEuKN23CDjY6CRp4B5tAZsWCXIxXGOh/A5dWlilNnYxShoPny4w2ZJAy6Q
+	 nJYvTfWdWWHo0Dd/mmcuqUM1vkQIIYJ1OAmqWYwsqw466aanskEo9BnJQODzyv2PkW
+	 uBKgFW3Se1+rQ==
+From: Mattijs Korpershoek <mkorpershoek@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, Dmitry
+ Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Yassine Oudjana <y.oudjana@protonmail.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, Artur Rojek
+ <contact@artur-rojek.eu>, Frank Li <Frank.Li@nxp.com>,
+ linux-input@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH] dt-bindings: input: Use consistent indentation in the
+ example
+In-Reply-To: <20260913123310.100170-2-krzysztof.kozlowski@oss.qualcomm.com>
+References: <20260913123310.100170-2-krzysztof.kozlowski@oss.qualcomm.com>
+Date: Mon, 14 Sep 2026 10:54:38 +0200
+Message-ID: <xhkdbecew1acx.fsf@mkorpers-koolstof.csb>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=997; i=michal.simek@amd.com; h=from:subject:message-id; bh=4oJijptQlzUPkTFJAh3l45t6UUpoCKN4sIv9hGEeKiU=; b=owGbwMvMwCG2mv3fB7+vgl8ZT6slMWQt37om+NOXo+f/c+456Nva9nB9Ed/b7W7FdmfXn2bes l9837p5WztKWRjEOBhkxRRZpjPpOKz5dm2p2PLIfJg5rEwgQxi4OAVgIjMdGP6Zz1UXW+OwNlP+ 95tftVpyHarHt7fk/lsUbXGwj0taMnULw3/HzBiZTvtmS7UFy97nL95g8VxOMtCgfn3wE9kbX/Z XHWQCAA==
-X-Developer-Key: i=michal.simek@amd.com; a=openpgp; fpr=67350C9BF5CCEE9B5364356A377C7F21FE3D1F91
-Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF00002314:EE_|PH6PR12MB338919:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8a2be39e-126f-489b-9118-08df123d80b6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|36860700016|82310400026|10067099003|56012099006|11063799006|18002099003;
-X-Microsoft-Antispam-Message-Info: lK/Nvv8UsRwBpW+A633bTOzf/W6qV1jT0yXJJWB1rHjdp6CKzlWqnqgzcRVaTkAFCWq4ZIa7S/5uV8TaVGc4gnWEutgJ0Kv5iAbg7DCpwq6wxe3E+pPkPGjvi8Jq2ET1+Vkk/iSXbMMvBJYKikzhHaqble9YgUsfsHql/JdGzoQ+MW8b2BAmQVIaNOE9qubjOTlMbaAcekIq5pLWsCfzIUzGHGyH3h/8WdQhUW+fq6X/RV9mWIb1FAF+Y+8sLIuKIxxMQdOD5w+WNVMFe9VN9Cph20Batd+EzvOPmGNLFATyKS+LZWOy1iBqTkyG8XntOdFpYkXjrkQJuvqS9XGG4eY+aed5Q86vc0RYT/nd9xC2gACPOyq/7d/sDZlP3StnotnCK+AoD4Ynv5K/Y4JmKiqNboBb6M1srSGFE4wWNuXeOkIqnMLf0dDkh+OR8OYPA8/cwXkECxbkzH+UDTDBN8pZQAfj3TElDWEsL+pivsw3Fdf+C7kdV42VVZz1PqBRsRVt5zRdr55guInhng3p2MKkvPeFK//453Guf/Ru4dB7mCneGCPPpiGP5G/TeK4Mxgu3fwMq0/s8ukShV08a/qDuqf5ayie/BASOlLypL0Gul5pn6mF2P1rWjmxAE4Dg5+iaOC7TuhkXKsJib5wRCh3mksgaW+5V5qZxcoCfKK8mZx9Pivoxjwbhrunw8RIg8A6cgczy0Yh2HcImrdA1zQ==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(36860700016)(82310400026)(10067099003)(56012099006)(11063799006)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: bmnRbwXF2h7N88vyWp81/UnZKfAgt4ixnck2JtozC6Jebx0ufkLe1IimbmDVIwSF2EKKaTpGnQC0nOwlmH0IOY+pKXptD4hXIqTrlE653YTeGrEdMoc8JJjQ80LDwyFGgxg8M3Vwsbz85ik06YJiVGlHwblELLu76pRrbWKuftNsaTezhQHd1UX4V4d2gNVDz/AW+7gNdpYmWt0eNGXrJbwdCL3hcD7pbGsKqyT/ojHeVHUu4u1fOzjETUMezLW4dewQ607Wg+PuYE8+3i2cnKgFOYWPF3M2tTso3APM+QKd6LQfop9m66ore2VKKvZDsLbs/Z/0VK7etkRBH7fbNSKibcEcpwqUAJ4+6bsbGKAl/MLjExAnm4jrXbpRGxjyVQJ89d/2fBCMbgkOTMXKw5Bhb5OPd6MPRCaDxCSL+axXYruQTSQyz/1NQYha1Two
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Sep 2026 08:52:27.0620
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8a2be39e-126f-489b-9118-08df123d80b6
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002314.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH6PR12MB338919
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_015235_313806_3FD7EB45 
-X-CRM114-Status: UNSURE (   8.79  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,39 +75,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow parsing GPIO controller children nodes with GPIO hogs the same way
-it is done by commit 545908a9fb9c ("dt-bindings: gpio-mmio: Support
-hogs") and commit e8f2ca6be61f ("dt-bindings: gpio: ast2400-gpio: Add
-hogs parsing").
+Hi Krzysztof,
 
-Signed-off-by: Michal Simek <michal.simek@amd.com>
----
+Thank you for the patch.
 
- Documentation/devicetree/bindings/gpio/gpio-zynq.yaml | 6 ++++++
- 1 file changed, 6 insertions(+)
+On Sun, Sep 13, 2026 at 14:33, Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com> wrote:
 
-diff --git a/Documentation/devicetree/bindings/gpio/gpio-zynq.yaml b/Documentation/devicetree/bindings/gpio/gpio-zynq.yaml
-index de24bb361e9f..fffeb5ec0645 100644
---- a/Documentation/devicetree/bindings/gpio/gpio-zynq.yaml
-+++ b/Documentation/devicetree/bindings/gpio/gpio-zynq.yaml
-@@ -45,6 +45,12 @@ properties:
-   power-domains:
-     maxItems: 1
- 
-+patternProperties:
-+  "^.+-hog(-[0-9]+)?$":
-+    type: object
-+    required:
-+      - gpio-hog
-+
- allOf:
-   - if:
-       properties:
----
-base-commit: 704340f1cd0dcef829eb62f5b48ae95a2ce17bdf
-branch: xnext/zynq-gpio
+> Correct indentation in the examples to consistent 2- or 4-spaces
+> indentation to fix dt-check-style warnings ("example 0
+> [indent-consistent] indent mismatch ...").  Preferred is 4-spaces, but
+> re-indenting entire example just for that is too much churn.
+>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
--- 
-2.43.0
+For mediatek,mt6779-keypad.yaml,
+
+Reviewed-by: Mattijs Korpershoek <mkorpershoek@kernel.org>
 
 
