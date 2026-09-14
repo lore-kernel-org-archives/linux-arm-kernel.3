@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06E24C88E65
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 10:53:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ED8AC88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 10:56:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0O4zuy8H0NBF5GnGe57u3l7+F5TuEPZ2hSSVA0FCGyU=; b=CYL7VSywjfLPgmwLzUn175mQOy
-	2FXc1PfwOkoX6hUnWmJ0bkt00Uebw6LxC+hGwEphR6ayLw69S5KgGsATqbRxV5coEaFhggXq9lwQ6
-	/I0MLC12OguZDxpWDLCi920kppeCUSX6c67GOsuJVmnG2r3kBLr4rp/FMh9g7PtwidCwCNCGX/yy5
-	2pY3UryoH4NyJr0UwEpM6U4yHmxOe+1QfVgGlINWwqEE/x4Z8jNpPXrk9BYMkyyMTRgDNG+tNs2/B
-	wlEQrfEX9uV/tV45h89Npld0hYbxqbmhlMz9aNondbxcl9ZjVdckoRYiKyiDSui1edYBv1jbDSxtw
-	ls6rlRcw==;
+	bh=cZGXrIN9GJxo6rXn64VGHgA+uGorlJi4Dc9fWnNU+qI=; b=NL4jAtvzUbyplr/cFHruua+pok
+	bk14YPEG+khby0aH3NY1Lh6bBiB9sSleHqffEtGdC6PAjvpRehEHQunP8kEqC62DrxQsHtqshsrvR
+	v/0Wx/27MuD0Tvlj70QccK/7Kl8HQP+FfoRpUisqVeW9B9MriEeEF1d4o43dzSdDTfvwXPAii4F/0
+	ggFvfxkl0SCk89Dkbe3k2IpbW+iADgqZ7jpEf4PKEGpQnf61ZSjYSWvlTAOdrxIzJ7pm1t37GXaGC
+	S/IR+l1Xtenre3ctZRGOsNllOlLfCnsxKyEqiJ2AsaFMlyrrezqChMapHXqcYLJWaAE19qQowNP3a
+	jZHKdp0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x63pR-0000000363V-2NAX;
-	Mon, 14 Sep 2026 10:22:25 +0000
+	id 1x63pV-000000036CT-2Ys2;
+	Mon, 14 Sep 2026 10:22:29 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x63om-000000035Ij-0bnE
+	id 1x63p3-000000035Rc-0xkq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 10:21:45 +0000
+	Mon, 14 Sep 2026 10:22:02 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 038711570;
-	Mon, 14 Sep 2026 03:21:40 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3BB691576;
+	Mon, 14 Sep 2026 03:21:57 -0700 (PDT)
 Received: from login2.euhpc2.arm.com (login2.euhpc2.arm.com [10.58.100.22])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 7FF243F7B4;
-	Mon, 14 Sep 2026 03:21:42 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id BC4A53F9A2;
+	Mon, 14 Sep 2026 03:21:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789381303; bh=wAtq9kgIr/Z1HvkruwEoA+8UYeCI8eLj0zJXEbEKI64=;
+	t=1789381320; bh=zreXif/3Tdh1Mb+9P5eaoOpUwsNyClpxxEEilqswtgA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=g2s+9QD7/W3Q5z2jzdJGZ+WjzWvzLIQSe0f7ahj6fxXOevQfVuRql0BQoq/vXBvBa
-	 xxWOiDNqrHZ3wXDE02kQpBzfRkdy1mXoSEIqMlCnhPAAfU2T7E8YrcWM0kRTPpixIo
-	 JZ2lsEqBd+X+TIWMwKPXVsUx5ZLfSMqUkfE8pqzA=
+	b=bBt6mqPG+gxWUFCtl846b2LdP0oUB1xmhzWjTcn8MvK0wubenHrfJeQJHjjhz7jEr
+	 qMy2cV3ATL708Fh4iOch95qeA8jGkzfjgCPQ26fNSd62NKP0ty7G6cSkx6IqQgjWIZ
+	 PzbCIEmhRKfWDC0+BB0cZ7/mK/s8uOpzmh1qJxUI=
 From: Vladimir Murzin <vladimir.murzin@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: catalin.marinas@arm.com,
@@ -48,17 +48,17 @@ Cc: catalin.marinas@arm.com,
 	lpieralisi@kernel.org,
 	ruanjinjie@huawei.com,
 	liaochang1@huawei.com
-Subject: [PATCH 11/38] arm64: remove daifflags.h
-Date: Mon, 14 Sep 2026 11:20:35 +0100
-Message-Id: <20260914102102.68597-12-vladimir.murzin@arm.com>
+Subject: [PATCH 23/38] arm64: cpufeature: Detect PE support for FEAT_NMI
+Date: Mon, 14 Sep 2026 11:20:47 +0100
+Message-Id: <20260914102102.68597-24-vladimir.murzin@arm.com>
 X-Mailer: git-send-email 2.24.0
 In-Reply-To: <20260914102102.68597-1-vladimir.murzin@arm.com>
 References: <20260914102102.68597-1-vladimir.murzin@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_032144_271917_6AA2520F 
-X-CRM114-Status: GOOD (  21.69  )
+X-CRM114-CacheID: sfid-20260914_032201_362775_EE9FB4E2 
+X-CRM114-Status: GOOD (  20.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,279 +75,191 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 
-Interrupt masking is now split in different APIs and `local_daif_...`
-functions are not in use anymore.
-The `DAIF_...` masks defines are now in `asm/interrupts/common_flags.h`,
-so we can safely remove `daifflags.h` and all `#include`s referring to it.
+Use of FEAT_NMI requires that all the PEs in the system and the GIC
+have NMI support. This patch implements the PE part of that detection.
 
-Only kprobes.c uses `DAIF_...` masks defines, so add the new header
-there.
+In order to avoid problematic interactions between real and pseudo NMIs
+we disable the architected feature if the user has enabled pseudo NMIs
+on the command line. If this is done on a system where support for the
+architected feature is detected then a warning is printed during boot in
+order to help users spot what is likely to be a misconfiguration.
 
+As KVM does not care about the host kernel supporting FEAT_NMI or not
+to allow guests to use it, split the CPU cap in two : ARM64_HAS_NMI is
+the hardware support, ARM64_NMI is the kernel making use of it.
+
+Co-developed-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
 Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
- arch/arm64/include/asm/daifflags.h    | 144 --------------------------
- arch/arm64/include/asm/entry-common.h |   1 -
- arch/arm64/include/asm/kvm_host.h     |   1 -
- arch/arm64/include/asm/mmu_context.h  |   1 -
- arch/arm64/kernel/debug-monitors.c    |   1 -
- arch/arm64/kernel/probes/kprobes.c    |   2 +-
- arch/arm64/kernel/signal.c            |   1 -
- arch/arm64/kernel/traps.c             |   1 -
- arch/arm64/mm/fault.c                 |   1 -
- 9 files changed, 1 insertion(+), 152 deletions(-)
- delete mode 100644 arch/arm64/include/asm/daifflags.h
+ arch/arm64/include/asm/cpucaps.h    |  2 +
+ arch/arm64/include/asm/cpufeature.h | 10 +++++
+ arch/arm64/kernel/cpufeature.c      | 68 ++++++++++++++++++++++++++++-
+ arch/arm64/tools/cpucaps            |  2 +
+ 4 files changed, 81 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/daifflags.h b/arch/arm64/include/asm/daifflags.h
-deleted file mode 100644
-index 795b35128467..000000000000
---- a/arch/arm64/include/asm/daifflags.h
-+++ /dev/null
-@@ -1,144 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0-only */
--/*
-- * Copyright (C) 2017 ARM Ltd.
-- */
--#ifndef __ASM_DAIFFLAGS_H
--#define __ASM_DAIFFLAGS_H
--
--#include <linux/irqflags.h>
--
--#include <asm/arch_gicv3.h>
--#include <asm/barrier.h>
--#include <asm/cpufeature.h>
--#include <asm/ptrace.h>
--
--#define DAIF_PROCCTX		0
--#define DAIF_PROCCTX_NOIRQ	(PSR_I_BIT | PSR_F_BIT)
--#define DAIF_ERRCTX		(PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
--#define DAIF_MASK		(PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
--
--
--/* mask/save/unmask/restore all exceptions, including interrupts. */
--static __always_inline void local_daif_mask(void)
--{
--	WARN_ON(system_has_prio_mask_debugging() &&
--		(read_sysreg_s(SYS_ICC_PMR_EL1) == (GIC_PRIO_IRQOFF |
--						    GIC_PRIO_PSR_I_SET)));
--
--	asm volatile(
--		"msr	daifset, #0xf		// local_daif_mask\n"
--		:
--		:
--		: "memory");
--
--	/* Don't really care for a dsb here, we don't intend to enable IRQs */
--	if (system_uses_irq_prio_masking())
--		gic_write_pmr(GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET);
--
--	trace_hardirqs_off();
--}
--
--static __always_inline unsigned long local_daif_save_flags(void)
--{
--	unsigned long flags;
--
--	flags = read_sysreg(daif);
--
--	if (system_uses_irq_prio_masking()) {
--		/* If IRQs are masked with PMR, reflect it in the flags */
--		if (read_sysreg_s(SYS_ICC_PMR_EL1) != GIC_PRIO_IRQON)
--			flags |= PSR_I_BIT | PSR_F_BIT;
--	}
--
--	return flags;
--}
--
--static __always_inline unsigned long local_daif_save(void)
--{
--	unsigned long flags;
--
--	flags = local_daif_save_flags();
--
--	local_daif_mask();
--
--	return flags;
--}
--
--static __always_inline void local_daif_restore(unsigned long flags)
--{
--	bool irq_disabled = flags & PSR_I_BIT;
--
--	WARN_ON(system_has_prio_mask_debugging() &&
--		(read_sysreg(daif) & (PSR_I_BIT | PSR_F_BIT)) != (PSR_I_BIT | PSR_F_BIT));
--
--	if (!irq_disabled) {
--		trace_hardirqs_on();
--
--		if (system_uses_irq_prio_masking()) {
--			gic_write_pmr(GIC_PRIO_IRQON);
--			pmr_sync();
--		}
--	} else if (system_uses_irq_prio_masking()) {
--		u64 pmr;
--
--		if (!(flags & PSR_A_BIT)) {
--			/*
--			 * If interrupts are disabled but we can take
--			 * asynchronous errors, we can take NMIs
--			 */
--			flags &= ~(PSR_I_BIT | PSR_F_BIT);
--			pmr = GIC_PRIO_IRQOFF;
--		} else {
--			pmr = GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET;
--		}
--
--		/*
--		 * There has been concern that the write to daif
--		 * might be reordered before this write to PMR.
--		 * From the ARM ARM DDI 0487D.a, section D1.7.1
--		 * "Accessing PSTATE fields":
--		 *   Writes to the PSTATE fields have side-effects on
--		 *   various aspects of the PE operation. All of these
--		 *   side-effects are guaranteed:
--		 *     - Not to be visible to earlier instructions in
--		 *       the execution stream.
--		 *     - To be visible to later instructions in the
--		 *       execution stream
--		 *
--		 * Also, writes to PMR are self-synchronizing, so no
--		 * interrupts with a lower priority than PMR is signaled
--		 * to the PE after the write.
--		 *
--		 * So we don't need additional synchronization here.
--		 */
--		gic_write_pmr(pmr);
--	}
--
--	write_sysreg(flags, daif);
--
--	if (irq_disabled)
--		trace_hardirqs_off();
--}
--
--/*
-- * Called by synchronous exception handlers to restore the DAIF bits that were
-- * modified by taking an exception.
-- */
--static __always_inline void local_daif_inherit(struct pt_regs *regs)
--{
--	unsigned long flags = regs->pstate & DAIF_MASK;
--
--	if (!regs_irqs_disabled(regs))
--		trace_hardirqs_on();
--
--	if (system_uses_irq_prio_masking())
--		gic_write_pmr(regs->pmr);
--
--	/*
--	 * We can't use local_daif_restore(regs->pstate) here as
--	 * system_has_prio_mask_debugging() won't restore the I bit if it can
--	 * use the pmr instead.
--	 */
--	write_sysreg(flags, daif);
--}
--#endif
-diff --git a/arch/arm64/include/asm/entry-common.h b/arch/arm64/include/asm/entry-common.h
-index 1905765159aa..73d82a8d8e95 100644
---- a/arch/arm64/include/asm/entry-common.h
-+++ b/arch/arm64/include/asm/entry-common.h
-@@ -6,7 +6,6 @@
- #include <linux/thread_info.h>
+diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cpucaps.h
+index 76350b38f0d7..1a4ef4e94997 100644
+--- a/arch/arm64/include/asm/cpucaps.h
++++ b/arch/arm64/include/asm/cpucaps.h
+@@ -75,6 +75,8 @@ cpucap_is_possible(const unsigned int cap)
+ 		return IS_ENABLED(CONFIG_HW_PERF_EVENTS);
+ 	case ARM64_HAS_LSUI:
+ 		return IS_ENABLED(CONFIG_ARM64_LSUI);
++	case ARM64_NMI:
++		return IS_ENABLED(CONFIG_ARM64_NMI);
+ 	}
  
- #include <asm/cpufeature.h>
--#include <asm/daifflags.h>
+ 	return true;
+diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+index 09aa80df602a..c8b1bacdd161 100644
+--- a/arch/arm64/include/asm/cpufeature.h
++++ b/arch/arm64/include/asm/cpufeature.h
+@@ -809,6 +809,16 @@ static __always_inline bool system_uses_irq_prio_masking(void)
+ 	return alternative_has_cap_unlikely(ARM64_HAS_GIC_PRIO_MASKING);
+ }
+ 
++static __always_inline bool system_supports_nmi(void)
++{
++	return alternative_has_cap_unlikely(ARM64_HAS_NMI);
++}
++
++static __always_inline bool system_uses_nmi(void)
++{
++	return alternative_has_cap_unlikely(ARM64_NMI);
++}
++
+ static inline bool system_supports_mte(void)
+ {
+ 	return alternative_has_cap_unlikely(ARM64_MTE);
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 32102c3912fa..f9fe7a875f85 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -83,13 +83,14 @@
+ #include <asm/cpu_ops.h>
  #include <asm/fpsimd.h>
- #include <asm/mte.h>
- #include <asm/stacktrace.h>
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 27fe0cd5b2d7..72113427f48a 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -23,7 +23,6 @@
- #include <asm/barrier.h>
- #include <asm/cpufeature.h>
- #include <asm/cputype.h>
--#include <asm/daifflags.h>
- #include <asm/fpsimd.h>
- #include <asm/kvm.h>
- #include <asm/kvm_asm.h>
-diff --git a/arch/arm64/include/asm/mmu_context.h b/arch/arm64/include/asm/mmu_context.h
-index 803b68758152..b3354a1350cf 100644
---- a/arch/arm64/include/asm/mmu_context.h
-+++ b/arch/arm64/include/asm/mmu_context.h
-@@ -19,7 +19,6 @@
- 
- #include <asm/cacheflush.h>
- #include <asm/cpufeature.h>
--#include <asm/daifflags.h>
- #include <asm/gcs.h>
- #include <asm/proc-fns.h>
- #include <asm/cputype.h>
-diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
-index e271fbac5f82..5db27c7e86bb 100644
---- a/arch/arm64/kernel/debug-monitors.c
-+++ b/arch/arm64/kernel/debug-monitors.c
-@@ -19,7 +19,6 @@
- 
- #include <asm/cpufeature.h>
- #include <asm/cputype.h>
--#include <asm/daifflags.h>
- #include <asm/debug-monitors.h>
- #include <asm/exception.h>
- #include <asm/kgdb.h>
-diff --git a/arch/arm64/kernel/probes/kprobes.c b/arch/arm64/kernel/probes/kprobes.c
-index 4e0efad5caf2..68f4271ce02f 100644
---- a/arch/arm64/kernel/probes/kprobes.c
-+++ b/arch/arm64/kernel/probes/kprobes.c
-@@ -24,9 +24,9 @@
- #include <linux/vmalloc.h>
- 
- #include <asm/cacheflush.h>
--#include <asm/daifflags.h>
- #include <asm/debug-monitors.h>
+ #include <asm/hwcap.h>
++#include <asm/hypervisor.h>
  #include <asm/insn.h>
 +#include <asm/interrupts/common_flags.h>
- #include <asm/irq.h>
- #include <asm/text-patching.h>
- #include <asm/ptrace.h>
-diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
-index 38e6fa204c17..2276d316cc9e 100644
---- a/arch/arm64/kernel/signal.c
-+++ b/arch/arm64/kernel/signal.c
-@@ -22,7 +22,6 @@
- #include <linux/syscalls.h>
- #include <linux/pkeys.h>
+ #include <asm/kvm_host.h>
+ #include <asm/mmu.h>
+ #include <asm/mmu_context.h>
+ #include <asm/mpam.h>
+ #include <asm/mte.h>
+-#include <asm/hypervisor.h>
+ #include <asm/processor.h>
+ #include <asm/smp.h>
+ #include <asm/sysreg.h>
+@@ -315,6 +316,7 @@ static const struct arm64_ftr_bits ftr_id_aa64pfr1[] = {
+ 	ARM64_FTR_BITS(FTR_VISIBLE_IF_IS_ENABLED(CONFIG_ARM64_GCS),
+ 		       FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR1_EL1_GCS_SHIFT, 4, 0),
+ 	S_ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR1_EL1_MTE_frac_SHIFT, 4, 0),
++	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR1_EL1_NMI_SHIFT, 4, 0),
+ 	ARM64_FTR_BITS(FTR_VISIBLE_IF_IS_ENABLED(CONFIG_ARM64_SME),
+ 		       FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR1_EL1_SME_SHIFT, 4, 0),
+ 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR1_EL1_MPAM_frac_SHIFT, 4, 0),
+@@ -2341,6 +2343,51 @@ static bool has_gic_prio_relaxed_sync(const struct arm64_cpu_capabilities *entry
+ }
+ #endif
  
--#include <asm/daifflags.h>
- #include <asm/debug-monitors.h>
- #include <asm/elf.h>
- #include <asm/exception.h>
-diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
-index 914282016069..77b6be6fc4c1 100644
---- a/arch/arm64/kernel/traps.c
-+++ b/arch/arm64/kernel/traps.c
-@@ -33,7 +33,6 @@
- #include <asm/atomic.h>
- #include <asm/bug.h>
- #include <asm/cpufeature.h>
--#include <asm/daifflags.h>
- #include <asm/debug-monitors.h>
- #include <asm/efi.h>
- #include <asm/esr.h>
-diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-index 75c3e463df2e..1d8f6089c787 100644
---- a/arch/arm64/mm/fault.c
-+++ b/arch/arm64/mm/fault.c
-@@ -35,7 +35,6 @@
- #include <asm/cpufeature.h>
- #include <asm/efi.h>
- #include <asm/exception.h>
--#include <asm/daifflags.h>
- #include <asm/debug-monitors.h>
- #include <asm/esr.h>
- #include <asm/kprobes.h>
++#ifdef CONFIG_ARM64_NMI
++static bool can_use_nmi(const struct arm64_cpu_capabilities *entry, int scope)
++{
++	/*
++	 * ARM64_HAS_NMI has a lower index, and is a boot CPU
++	 * feature, so will be detected earlier.
++	 */
++	BUILD_BUG_ON(ARM64_NMI <= ARM64_HAS_NMI);
++	if (!cpus_have_cap(ARM64_HAS_NMI))
++		return false;
++
++	/*
++	 * Having both real and pseudo NMIs enabled simultaneously is
++	 * likely to cause confusion.  Since pseudo NMIs must be
++	 * enabled with an explicit command line option, if the user
++	 * has set that option on a system with real NMIs for some
++	 * reason assume they know what they're doing.
++	 *
++	 * ARM64_HAS_GIC_PRIO_MASKING has a lower index, and is a boot CPU
++	 * feature, so will be detected earlier.
++	 */
++	BUILD_BUG_ON(IS_ENABLED(CONFIG_ARM64_PSEUDO_NMI) &&
++			(ARM64_NMI <= ARM64_HAS_GIC_PRIO_MASKING));
++	if (cpus_have_cap(ARM64_HAS_GIC_PRIO_MASKING)) {
++		pr_info_once("Pseudo NMI enabled, not using architected NMI\n");
++		return false;
++	}
++
++	return true;
++}
++
++static void nmi_enable(const struct arm64_cpu_capabilities *__unused)
++{
++	/*
++	 * Enable use of NMIs controlled by ALLINT, SPINTMASK should
++	 * be clear by default but make it explicit that we are using
++	 * this mode.  Ensure that ALLINT is clear first in order to
++	 * avoid leaving things masked.
++	 */
++	_allint_clear();
++	sysreg_clear_set(sctlr_el1, SCTLR_EL1_SPINTMASK, SCTLR_EL1_NMI);
++	isb();
++}
++#endif
++
+ static bool can_trap_icv_dir_el1(const struct arm64_cpu_capabilities *entry,
+ 				 int scope)
+ {
+@@ -3233,6 +3280,25 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+ 		.matches = has_cpuid_feature,
+ 		ARM64_CPUID_FIELDS(ID_AA64ISAR3_EL1, LSUI, IMP)
+ 	},
++#endif
++	{
++		.type = ARM64_CPUCAP_BOOT_CPU_FEATURE,
++		.capability = ARM64_HAS_NMI,
++		.matches = has_cpuid_feature,
++		ARM64_CPUID_FIELDS(ID_AA64PFR1_EL1, NMI, IMP)
++	},
++#ifdef CONFIG_ARM64_NMI
++	/*
++	 * Depends on ARM64_HAS_NMI
++	 * Checks for conflict with pseudo-NMIs, giving them priority.
++	 */
++	{
++		.desc = "Non-maskable Interrupts",
++		.type = ARM64_CPUCAP_BOOT_CPU_FEATURE,
++		.capability = ARM64_NMI,
++		.matches = can_use_nmi,
++		.cpu_enable = nmi_enable,
++	},
+ #endif
+ 	{},
+ };
+diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+index 2775ba3359cf..531583822ec2 100644
+--- a/arch/arm64/tools/cpucaps
++++ b/arch/arm64/tools/cpucaps
+@@ -52,6 +52,7 @@ HAS_LS64_V
+ HAS_LSUI
+ HAS_MOPS
+ HAS_NESTED_VIRT
++HAS_NMI
+ HAS_NV2P1
+ HAS_NV3
+ HAS_PAN
+@@ -82,6 +83,7 @@ MTE
+ MTE_ASYMM
+ MTE_FAR
+ MTE_STORE_ONLY
++NMI
+ SME
+ SME_FA64
+ SME2
 -- 
 2.34.1
 
