@@ -4,95 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8A06C982DF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 20:40:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA796C982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 21:03:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SrF5NSzar5jv65m2jp9XTBtvCU5/5PF93POgQGb8pAQ=; b=rbxeh3j05IqI+ieWqgmN5fdKQr
-	XhVFNmz4lDDMvbbsSkv1yY7fzBHmAjoCg2m7QMxwbEttRJC6eFmPIbc5ig1d76DtpEZGJC5L3we2X
-	xaYvo4A7MzZDiXzh1mk9Q3UCsVE0O74AJfL/y1WTQd1xF6iTwsE/NKHUgrk61cWT/HKYnxkgSHfSu
-	3vktqUODbkZ7yaLnB2zNKWHkt858qPMe9bTa3nqVDj69KQEvB5XJuIrTGgW/pqrmTktxH8H3UDdF3
-	PaB20EPKVuNR0cxBRMeo+4/DZ0PixvTi5pHuSwbU7HSQN0SVRS8bOeY4EbDCgLR/B7R4MsT0bpd69
-	QaxZusIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zBVUB+rZ7j2Dok9x4TAglY73jOcPB1CQmY0vslpUrio=; b=Q/v92bzTIiMj2H9sfmrhyfKdMP
+	XJ1/S9p6jC6DqYlBvzAwVvBIUlcEj6OfQ3sIBaQubB9yR2Y+wxxuYxmW373BhIb0JVh086fiNrpDc
+	Tf6qQs0sUiVfTJ+yGFe+/W0f55ZleguTyz45/WUqksS5xkQEauoVv2CPjN6/SUut2fc2KpDeKgOzF
+	/aAFRxpqyNwQxDimbo1pJnC56GahQG4UEo/SouNTSekE8z1NMoq23ZTjDIkio+MAimBUBPmxwYi3X
+	7b+Qy/a/TXSntgonKB6lLn7EgQxPAAw4ZIVlDApBVsf6OgWglvDHV1Zv5R9k3SLmeMmYy89zs1qU8
+	pD/b0IFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7fNC-0000000FWaC-0w3h;
-	Fri, 18 Sep 2026 20:39:54 +0000
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	id 1x7fjs-0000000FXly-0HkG;
+	Fri, 18 Sep 2026 21:03:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7fN9-0000000FWZb-22Fk
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 20:39:53 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49b912d37b5so7302525e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 13:39:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1789763989; x=1790368789; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=SrF5NSzar5jv65m2jp9XTBtvCU5/5PF93POgQGb8pAQ=;
-        b=Klyfr3/2KMMrs0xkhMksgR78a5sz2OZ3LiQlxqnwlQXhBad3HT9iytmzAPT4HQ9tX5
-         Zn3oDTakK0bZnH8/YcUtd30cxa45G0L3uDHYI32HAujkRl1gdeP91Mg+cJs2XvYnUzjs
-         bXCvdzdY4VP5LVLoips4pbjljWL+WO57O8fvu37noVxtXVcuJpO4eb689uM4lIzoRhxf
-         iZZXStd/f0lsiMQqRgApRHZ7x4DxmpHMOtGqQTCbCA0sdJ3gqJm+tegZk5rBk8VW9E43
-         2lyXdLmHBhfdZlh4pKDZeA3VY6/891JhPkEUr3Cp39qVeeEbWeCLiV0K83CvSIc1xRJI
-         muMA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789763989; x=1790368789;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=SrF5NSzar5jv65m2jp9XTBtvCU5/5PF93POgQGb8pAQ=;
-        b=ZcBsoXxW08uE/JlVSqdlQLb6GIrZNEg2jABDfcAnwR//MY3CdD+QPHiLtUpMJKQZ/m
-         Wb0n7UAwgv3aQCMfDKZfKazHB/9ZDFsc7jqSHR213S6VfeBrElR61PzwObrRh8lEFadi
-         temoMJW8+0HCKBCasCBnnReVvmwPVhtG8KaAD5/V7+chdsCZyMBnwwHr014enI6JjWDB
-         MElg78lolQSggqgs/WyTSEx0r5ILDEbf+CnI+JVnC+5vSu7JxBU0B317iCVJNKFDX4St
-         e3nJNn7966Bq1MQbarZhBw/oJ+vLJk//35Cw9gI7bPcsxhzwrJoDBxRVghBS9DY9UIhu
-         aV2g==
-X-Forwarded-Encrypted: i=1; AKwUvBxZMuH7kltdUwU/+V3VNK0exowB2kh/M0A+wjtAkAD1qTkc8Y7HC3YvXJl5HG/aBViK+/RA0OBf08v+K1ZpGkna@lists.infradead.org
-X-Gm-Message-State: AFuF++l1Yg65+Fdi30x/GhVQ0UNqBRcvO2bbhZXE5g237wrPLG4wjvo6
-	WmKR4Alx3VRvoN1J8gKLKKsRFyvzjFSvuesv/QgdkaXHsS+/qZUxORIhClNjMFQzCWw=
-X-Gm-Gg: AYBFou2SJJyBOE5hGeFL0pEADU6vUorV7941F3ZDl2S5nEeWxJdCGrB4SFMVnrME9Xc
-	Afq2yjzXZv1a96fCw+YRvIyxrIEEvdZZe49N1MYPPwKbm+WaV/PnOXuo6nedmCDcAyv7pl4AeL9
-	ehXEga2Cw8no6G/uq+jXBeXID5fuY07TCgVtYebmX+BEVAhXqge0JLBJOjUnInxSZzP9wIinu6P
-	9vzvsu5AxtFwWuE45saA+tG7hIrKZwV7NX0bJ3DxRxxhGIdkdYPtBhE7mzAXmSWco0IywUTd7g2
-	77gtSsfr5e4LjZqBJkZKyHQfRI8qe7k2B2Vgplwp+zrdzMqnVxgbHkrhk2gpLksDizP6UIXa01P
-	SuUaV0K9QA60BlJ6PJoxZBM09beNU8/W8B+jRoDWra6xxrCurjt8VDIKTnl7nW+HIjtyQY7E1NV
-	MsA1+fGo5gQju4LsV6xYae0IgCTyItMwPo7gAYEyLjl1GmSGf9poN7JkFcINvMkTW5VK+7c1+UF
-	LY=
-X-Received: by 2002:a05:600c:c0c3:10b0:49e:823a:9dec with SMTP id 5b1f17b1804b1-49fc5a10b5fmr75871985e9.3.1789763989396;
-        Fri, 18 Sep 2026 13:39:49 -0700 (PDT)
-Received: from localhost ([2a02:8071:56d1:2de0:1d24:d58d:2b65:c291])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-49fcd8bf159sm4358055e9.10.2026.09.18.13.39.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Sep 2026 13:39:48 -0700 (PDT)
-Date: Fri, 18 Sep 2026 22:39:46 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Hans de Goede <johannes.goede@oss.qualcomm.com>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>, 
-	Bjorn Andersson <andersson@kernel.org>, Cristian Marussi <cristian.marussi@arm.com>, 
-	Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>, Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>, 
-	Frank.Li@kernel.org, arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, imx@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 1/2] module: add SCMI device table alias support
-Message-ID: <aq2g9otvja7xQqJ_@monoceros>
-References: <20260918092951.5656-1-johannes.goede@oss.qualcomm.com>
- <20260918092951.5656-2-johannes.goede@oss.qualcomm.com>
- <20260918-impetuous-daring-barnacle-1ea4d0@sudeepholla>
- <dca62a09-2af7-463e-9ba0-1be935a95502@oss.qualcomm.com>
+	id 1x7fjq-0000000FXln-3PXw;
+	Fri, 18 Sep 2026 21:03:18 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 43BA9432C6;
+	Fri, 18 Sep 2026 21:03:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AEC21F000FF;
+	Fri, 18 Sep 2026 21:03:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789765398;
+	bh=zBVUB+rZ7j2Dok9x4TAglY73jOcPB1CQmY0vslpUrio=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=EquH21eDjld/an88BVJInTO7kzqLbzkbhO4GX8J8pNG8p1QYnwb4dRn3iAgBIbfWr
+	 OkT/lCUUqO4yXOWNjNhOVEHkWTAl0rPrKD7JrS1ABU1sRhS2I2jkt6x/H9BZq8CQiz
+	 EyOZoikrcCrvDPm8Ia/PUMsgaY2JcW8RmvD8Or0TvNHGWRys9AQtM1fpec216z+gzI
+	 zJMexvjUOdcIkSbgU+s54ncFfdKhmm2JezDhrQlHvMImZKzQKr/Cm882nGO/t+rv7R
+	 1D65458XG5rZ14aF3reQ39elGXlbZQ0nq5wn3m0waz2zqTDQnOelGV1zLVRqV2pN5s
+	 ts3i/y8NF5qBQ==
+From: Mark Brown <broonie@kernel.org>
+To: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Peter Ujfalusi <peter.ujfalusi@linux.intel.com>, 
+ Bard Liao <yung-chuan.liao@linux.intel.com>, 
+ Daniel Baluta <daniel.baluta@nxp.com>, Orson Zhai <orsonzhai@gmail.com>, 
+ Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ Gary Yang <gary.yang@cixtech.com>, Fugang Duan <fugang.duan@cixtech.com>, 
+ Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+Cc: Kai Vehmanen <kai.vehmanen@linux.intel.com>, 
+ Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>, 
+ Vijendar Mukunda <Vijendar.Mukunda@amd.com>, 
+ Chunyan Zhang <zhang.lyra@gmail.com>, 
+ CIX Linux Kernel Upstream Group <cix-kernel-upstream@cixtech.com>, 
+ linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ sound-open-firmware@alsa-project.org
+In-Reply-To: <20260902194712.2003414-1-mukesh.ojha@oss.qualcomm.com>
+References: <20260902194712.2003414-1-mukesh.ojha@oss.qualcomm.com>
+Subject: Re: (subset) [PATCH v2 0/12] ASoC: Use
+ devm_of_reserved_mem_device_init()
+Message-Id: <178941200290.1239410.15128719985401962631.b4-ty@b4>
+Date: Mon, 14 Sep 2026 19:53:22 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="fq4cwhvzzcfekf2h"
-Content-Disposition: inline
-In-Reply-To: <dca62a09-2af7-463e-9ba0-1be935a95502@oss.qualcomm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_133951_540318_AC7CCF18 
-X-CRM114-Status: GOOD (  21.80  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2791; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=Gb3QfmkOrVGIOg3Os7Iaodaux/izAj7p3PV3IKXh+fU=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqracOJJWQrLPDtSKiJSYpghDcGeKoEJK1wdvqo
+ 513w+6zGRKJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaq2nDgAKCRAk1otyXVSH
+ 0MLgB/4jhdeXKcFGMRCCOMJElsESDYK/RiLzcZOpc/umujbrAhMQfEtatYYIqDO7C0PzI8ZYQI9
+ MdMEsMKSBkFJ08aEIR5tjImNZQ7SuNNJ/SgjtGVt9Hhkj0OEjN0eNKQQytEntJacRYMQO1UPgPk
+ Uf3ruANx91aa3b15+zkFxy6kr8RuwQYFP4nddp1PMt2PChGYL4/4G2ipzwkuf2ksBUvCTavby97
+ P8nBFtQ3vuF7kquhtSHsgobzow6bwfySpj9+rvteitlbionrYAYYofjlp8tH39cFcdZxCMXZPPm
+ YeoW1w2tzJfFKdmd7p9RQ7IqHdHaOZciA996BukFHe1eHNx4
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,102 +95,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---fq4cwhvzzcfekf2h
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v7 1/2] module: add SCMI device table alias support
-MIME-Version: 1.0
-
-On Fri, Sep 18, 2026 at 04:09:36PM +0200, Hans de Goede wrote:
-> Hi Sudeep,
->=20
-> On 18-Sep-26 15:32, Sudeep Holla wrote:
->=20
+On Thu, 03 Sep 2026 01:17:00 +0530, Mukesh Ojha wrote:
+> ASoC: Use devm_of_reserved_mem_device_init()
+> 
+> Several ASoC drivers manually manage reserved memory lifetime by calling
+> of_reserved_mem_device_init() in probe and of_reserved_mem_device_release()
+> in remove. This pattern is fragile: any error path between the two that
+> skips the release leaks the reserved memory region for the lifetime of the
+> driver.
+> 
 > [...]
->=20
-> >> diff --git a/include/linux/device-id/scmi.h b/include/linux/device-id/=
-scmi.h
-> >> new file mode 100644
-> >> index 000000000000..1b4ccfa9dcc5
-> >> --- /dev/null
-> >> +++ b/include/linux/device-id/scmi.h
-> >> @@ -0,0 +1,17 @@
-> >> +/* SPDX-License-Identifier: GPL-2.0-only */
-> >> +#ifndef LINUX_DEVICE_ID_SCMI_H
-> >> +#define LINUX_DEVICE_ID_SCMI_H
-> >> +
-> >> +#ifdef __KERNEL__
-> >> +#include <linux/types.h>
-> >> +#endif
-> >> +
-> >> +#define SCMI_NAME_SIZE		32
-> >> +#define SCMI_MODULE_PREFIX	"scmi:"
-> >> +
-> >> +struct scmi_device_id {
-> >> +	__u8 protocol_id;
-> >> +	char name[SCMI_NAME_SIZE];
-> >> +};
-> >> +
-> >> +#endif /* ifndef LINUX_DEVICE_ID_SCMI_H */
-> >=20
-> > You need to include this above file in include/linux/mod_devicetable.h
-> > to avoid duplication of its inclusion elsewhere. That's the pattern fol=
-lowed
-> > I see.
->=20
-> That is what I did for v3, but Uwe, who is leading the splitting
-> of mod_devicetable.h from one large monster include to smaller
-> per subsystem/bus includes explicitly requested me to follow this
-> pattern, see:
->=20
-> https://lore.kernel.org/arm-scmi/aow2GFAfy84k-N2B@monoceros/
->=20
-> [...]
->=20
-> >> diff --git a/scripts/mod/devicetable-offsets.c b/scripts/mod/devicetab=
-le-offsets.c
-> >> index b4178c42d08f..91ec3704ee2b 100644
-> >> --- a/scripts/mod/devicetable-offsets.c
-> >> +++ b/scripts/mod/devicetable-offsets.c
-> >> @@ -1,5 +1,6 @@
-> >>  // SPDX-License-Identifier: GPL-2.0
-> >>  #define COMPILE_OFFSETS
-> >> +#include <linux/device-id/scmi.h>
-> >=20
-> > Drop this for above mentioned reason.
->=20
-> This was explictly added at request of Uwe because the goal is to
-> get rid of mod_devicetable.h including all the device-id headers
-> in a big single catch-all include. This is done because currently
-> many files include mod_devicetable.h and then if any of the device-id
-> headers changes everything needs to be rebuild, making incremental
-> kernel builds much slower.
->=20
-> (and the same for the second include you point out)
 
-FTR: That all sounds right.
+Applied to
 
-Let's not add the the dependency mess that is mod_devicetable.h.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.4
 
-Best regards
-Uwe
+Thanks!
 
---fq4cwhvzzcfekf2h
-Content-Type: application/pgp-signature; name="signature.asc"
+[01/12] ASoC: mediatek: mt8192: Use devm_of_reserved_mem_device_init()
+        https://git.kernel.org/broonie/sound/c/14318426e2c0
+[02/12] ASoC: mediatek: mt8196: Use devm_of_reserved_mem_device_init()
+        https://git.kernel.org/broonie/sound/c/68cd0442f674
+[03/12] ASoC: mediatek: mt8183: Use devm_of_reserved_mem_device_init()
+        https://git.kernel.org/broonie/sound/c/573d1749fcb3
+[04/12] ASoC: mediatek: mt8189: Use devm_of_reserved_mem_device_init()
+        https://git.kernel.org/broonie/sound/c/34dbfae252c2
+[06/12] ASoC: mediatek: mt8173: Use devm_of_reserved_mem_device_init()
+        https://git.kernel.org/broonie/sound/c/f33929d53089
+[07/12] ASoC: mediatek: mt8186: Use devm_of_reserved_mem_device_init()
+        https://git.kernel.org/broonie/sound/c/55be77e8a5fb
+[08/12] ASoC: mediatek: mt8188: Use devm_of_reserved_mem_device_init()
+        https://git.kernel.org/broonie/sound/c/3167f3ca6c77
+[09/12] ASoC: mediatek: mt8195: Use devm_of_reserved_mem_device_init()
+        https://git.kernel.org/broonie/sound/c/4169b6a5cdd3
+[10/12] ASoC: SOF: mediatek: mt8186: Use devm_of_reserved_mem_device_init()
+        https://git.kernel.org/broonie/sound/c/6b006d357f03
+[11/12] ASoC: SOF: mediatek: mt8195: Use devm_of_reserved_mem_device_init()
+        https://git.kernel.org/broonie/sound/c/3531143e9cec
+[12/12] ASoC: sprd: Use devm_of_reserved_mem_device_init()
+        https://git.kernel.org/broonie/sound/c/e88fd9fe81d7
 
------BEGIN PGP SIGNATURE-----
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmqtoY8ACgkQj4D7WH0S
-/k5r0Qf8De3R8/xBOJ/3LeAPH4UFuVBKGGI19ecvA8OulWQaGdttHVOB4PnQgqqI
-zr/VQpCTb0UsY22b7aTRkbE+WpDtBA1glRTMwymtj8USz80zQa5+7SjfjrWcBpLt
-CvSb/wjcEMfFDbN9cDw9J0WsUZhuALKA5oZW/kybeJxaLWF3pafGwaSZ8eCC/Ohl
-au0Sk7ctvGaQOlJqXEuEqcRubWvFyRDmdgkfTXzJukqSdKh8Zlatdd7IWvSyT5KL
-RdGlPH5frkEDcB+9Wu3HXANsWdZIe8FsrozPlGoF+7TgbayKM83MOuglXb0/lTJE
-NwVV+Boz1Okzu1j4XOq114FfH2ZSaQ==
-=ekEU
------END PGP SIGNATURE-----
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
---fq4cwhvzzcfekf2h--
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
