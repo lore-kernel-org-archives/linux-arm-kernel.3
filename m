@@ -4,70 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5438BC88E64
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 08:39:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1EDAC88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 08:40:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BUCr1hCoUskeeRd1t0HVarnyydWOErIB1Udlw4P/HQo=; b=Zsd6nu3tEnS4OFMXm7C5nEDfl8
-	vNPOHzFGjLbhCxmuz6EXlkZ4ObbdEZhL/LkZVkbQsc6PRHkw+Ze+1zcNZtmEaPa0zgH/5wcl+S4EK
-	Dx0P8drTt8QOfHnCiXso0/Jts2cn/VIfdfeNH/hyblhfcmQXyQvT4Jnm7YoCYdF+inxLI8IhNoWiQ
-	RfGKneBjMbQ+oH1sc1SIE4sFaW87ZvA0g54eZwj27IHN36SSD+7AiXc8yrXJyrT7RBlad9btPho2N
-	VP8l3nUI+M5Sv/s2qtCYlBKMUxLoGCCW+h6uIWg6H8GmFdlGWj81ADNwe1ND2ApiQmWr93lbAwZeh
-	oDOansdA==;
+	bh=UfqM1lG2CJRosE3K9vNpiLxEng508TmpFvN7XfosmNk=; b=jqXknX85nftcHS6RkkcLPzYR5U
+	nSd/J8YQ/sXQd43jZK6q+dzbXmfKoRV4ELwGTTuAK3rSoiLZqF1I4GFbJ9AIdQJQIJUQNoucCAlc8
+	MAXowyPEuBGp//pSJOft7LxNV2hy/NiHEQ0aWghR8EAMqiEgrIrZwDwzioDyG1A24V0mfUuqsGSoS
+	xj3MasmUq+1zWzIo6wdJ1c7/jMX7prOvUcWVMJ0tb4Tntb4BHhTOf6xgWYGCSNk1hi5UCK1x1bdKr
+	4zJLsHNn8t03lzB7MP11rBXVH8hlZn8WzxzlrJUr9eMkK+EAeJC2lqUxAYYaZgLxan79/YfEfULLJ
+	TjFmv87w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x62EB-00000002mF0-0C9r;
-	Mon, 14 Sep 2026 08:39:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x62F7-00000002mgA-1Bif;
+	Mon, 14 Sep 2026 08:40:49 +0000
+Received: from fhigh-a5-smtp.messagingengine.com ([103.168.172.156])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x62E7-00000002mD0-0L7A
+	id 1x62F2-00000002mcF-47xZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 08:39:49 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 86ECA601F9
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 08:39:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4137C1F0089E
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 08:39:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789375186;
-	bh=BUCr1hCoUskeeRd1t0HVarnyydWOErIB1Udlw4P/HQo=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=JbTP3wcYks75Mjgv5GfkFxY4k1AJjcMpSMFg3kCfhpyE4EzTcZO0ftMWrxxbbuu2m
-	 u1r+DcPPXzlBvpiUg+eLw0fy+Rf7votcjMMjziDvtnF69VUC/6RysdYev0VC1luuFZ
-	 GtUL3kVNRee8rwX11kVCcZjL9qh9pajKXwBhJ1JVPbjVJ1snNSzoAinZ8fiNgGeLtk
-	 LOOhmVztA1B2bs1pwxysJXWFxiZHiqlhugWARM/qcw8DF8aERknttF5BNE3tW/1i0f
-	 RT1RnJaR3Ww83frfhNV6V/iT9TO357gEWMfpvXDUClFilxgTadKdAG829A5nvwOE6t
-	 kIiERIlbTSebw==
-Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-5b4a9994c20so3489545e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 01:39:46 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBx8sm2agnCBf/Do8h8oCW78ct+hfDN4fzR8AM0T1AuptZijhqceENzYTG6rRuOv1yeouFPGls2gWvghblktJQwg@lists.infradead.org
-X-Gm-Message-State: AFuF++nOwl8J8UOcEAT9ozQZ8Jv7k6kDt8fdjm5Y698uBKY8fmZD2OCj
-	DWkd+5o+3xsYR+tz3++4N0+jMeIEFVIRImvxu1KhBLP3V0EvFPc4sKsGZKUF7jmC6CB329bGk1h
-	8XpI29Nb6oAQgBrinMtoH7buhMhBc0fQ=
-X-Received: by 2002:a05:6512:128b:b0:5b6:4ae:d87 with SMTP id
- 2adb3069b0e04-5b8ae66d39cmr415473e87.27.1789375184969; Mon, 14 Sep 2026
- 01:39:44 -0700 (PDT)
+	Mon, 14 Sep 2026 08:40:47 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id AA29C1400123;
+	Mon, 14 Sep 2026 04:40:42 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-04.internal (MEProxy); Mon, 14 Sep 2026 04:40:42 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1789375242;
+	 x=1789461642; bh=UfqM1lG2CJRosE3K9vNpiLxEng508TmpFvN7XfosmNk=; b=
+	Whl85dE2IFe/QFJJYbBUPk0bqpuEOolN7XN07bq50RCUgjugcjDg1zHvfwX5sZsC
+	szTiiD8SavLmvQiWXgxf9DOd3BYuVlWcHhN/CQWvE1JssMGRjgHyFMNgEN69/PjC
+	dRAPvFKXPONrDyGr+yDrk2kr4pNMWXmxSUPZneDA9LeGZAN6UXXsoiJrgfLwe8KD
+	YIWpNHoaAH7yiwhejOefGtMK1kH/bJ+ui8NaZkQmt3TdQNz283N0SupC/z8wOijg
+	nH2t7QT+edDhCg/OOVd198NSl83AYZHhGzClhx6ruhwjfTpw4zV7yZjq3MduulzK
+	N8ookf7AtbtAzc69S5XBWg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1789375242; x=
+	1789461642; bh=UfqM1lG2CJRosE3K9vNpiLxEng508TmpFvN7XfosmNk=; b=X
+	n08JsaYThMg6abwnDFq9zJlugwdps5fuREyYH4rQEkmb58EoAKrQUGmNFnskUL5K
+	dL9o7eaF8jXk6/YZ+HY52dbn1r0+ZP/PKjjNA3ZADmRPgrG5kmsci11VuWdJtfkf
+	IoHzYeub3ZDW5G2M3DAkPAmhRQfOMdBYheR4Ag9pOm3lNlCNi8zxMg5+ry39qLyT
+	drPEv8GUBy7h8vCg2bZVekqHp+0atLkN2MqhLvjHleoaeEP5njqpG5zuRO4N1vTq
+	qLIDsOXkvIOG7a3Pz6agOStsNPtPspFzmwmDrXKhSMEPT88ItRuD+K1kKDabS8ih
+	OAAMAm9+ONW/cxv4ToqtQ==
+X-ME-Sender: <xms:CrOnagupUknnpP0T93AQe6yR3GFq3xla74VUWRKTOZet2kiGZCy70A>
+    <xme:CrOnatKdsGWIYXPbxXfmgByrWQfE1cIwm46NA3OaQE1pCcXEBpwAR8b6IhDEb4ySL
+    SVe47LrFjLl98kSTysYaLkQlyic0TsVQG3rvrMM4Q9Gg_J-4zOecovL>
+X-ME-Received: <xmr:CrOnanZkDvZJLV_DJ7oiWr5KAqlwTPVoBSr2cL7i8pHzyQL30TMSzbW8HhZqSVJpAhORVOTv6iCNSQUApIe6u3rJ2G6MaDWrkGlQkw>
+X-ME-Proxy-Cause: dmFkZTE4K6JMrxd6sPzZVNrePGCzWSArxKGqIFy2UwUC7nS/ZY+sStdcZ7vmPmE2pNoHZC
+    9MiqcQ5OXckdWGFiy01IJr2JkZ+n3p+fcnek7D1Qwk8LgHRtAPwJ3G0I5cz7ZhSuemTIJc
+    i9Rs6SyTtRrS0p1PgXmcVZpifTNEIm8RuZjsFaFCWemyhP462rhvuOdftkbms6ekvvuLIV
+    6HeACEZ35ia1OWZxWsqljJDvRhxvUU8yfY+GnRLK37wYdoIiqubcn305EIee0gH5ypsRyC
+    0b6zJacisih6eDtoNCnZwnv1woWj2R2DHm/YruUPQexvu5t1hokHp9I+EwChY3zqidyUaw
+    fI+7gl6UABp9qmpgEscVANnSqzAGsFihEQeA2VLEZCrVXNtWQnP6UEXahkHIPQ8bi8r7dM
+    l5To4+JvUap3zlFHayIr/mvqqeeZcEJlBsPKDFj/zOtICnEQD2Hu05CDtUIvtuEXcOgUtY
+    PLlw9R7yb98MDuQMr52ClRhbuVJqNk8/uG22RQO5IOkiDI/DAdfGPXeCq0cJFIdbqTVjYQ
+    hD6tO97+p6z0Na1mi/vWsGTZ+/hyzPpGWitIH7cTZDTP6vl4eoSvCvoFLuH/FnuYhGvlk2
+    LZAIjlVPxRSmn8JiuZDbNInxtchkYhMUoPf/Wn8Wlh5RYgS/4hQSxf8bWIlw
+X-ME-Proxy: <xmx:CrOnavANeZrEiPSOb2EEXQ6OgDPrUWQ7Mvbp0Etn60ahnARQaz-L-g>
+    <xmx:CrOnahZiNXivaq7cXaV0zdgD6kssh5o8czNkKbar5MwxNAE2ZgZphA>
+    <xmx:CrOnanmi7XTTKaQiFhMIhV_p6WpXOlhvI5P-Qzie4cNXIWvHMVA3mw>
+    <xmx:CrOnampO5LszG7rnhvW5xqBrNx28q3102Wjvc8HQzAz1neG1_han3A>
+    <xmx:CrOnajp3rEWZkuKmaAVWxrBLs7CbvcENlI_AUtrMehWu8P9DL4hiZSeC>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
+ 14 Sep 2026 04:40:42 -0400 (EDT)
+From: Janne Grunau <j@jannau.net>
+Date: Mon, 14 Sep 2026 10:40:32 +0200
+Subject: [PATCH v2 02/13] arm64: dts: apple: t8122: Fix blank line related
+ dt-check-style issues
 MIME-Version: 1.0
-References: <20260817162212.1890616-1-sanderson@brivo.com>
-In-Reply-To: <20260817162212.1890616-1-sanderson@brivo.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 14 Sep 2026 10:39:33 +0200
-X-Gmail-Original-Message-ID: <CAD++jLkWtC=ZOX13azEEk0haZHfk3ZRJE=i3hDRY_xcPddA_9w@mail.gmail.com>
-X-Gm-Features: AcwNN1UCot4Htkr3dgs4fFXOL_85ODTx5oGWTY6F54hzJDKQ7exHT5L-odqwr7M
-Message-ID: <CAD++jLkWtC=ZOX13azEEk0haZHfk3ZRJE=i3hDRY_xcPddA_9w@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: meson: Fix typo in s4 group name
-To: Sean Anderson <sanderson@brivo.com>
-Cc: Kevin Hilman <khilman@baylibre.com>, linux-gpio@vger.kernel.org, 
-	linux-amlogic@lists.infradead.org, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-arm-kernel@lists.infradead.org, 
-	Neil Armstrong <neil.armstrong@linaro.org>, linux-kernel@vger.kernel.org, 
-	Qianggui Song <qianggui.song@amlogic.com>, Jerome Brunet <jbrunet@baylibre.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260914-apple-dts-m3-dt-style-check-v2-2-e3e89c33f562@jannau.net>
+References: <20260914-apple-dts-m3-dt-style-check-v2-0-e3e89c33f562@jannau.net>
+In-Reply-To: <20260914-apple-dts-m3-dt-style-check-v2-0-e3e89c33f562@jannau.net>
+To: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Janne Grunau <j@jannau.net>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4776; i=j@jannau.net;
+ s=yk2025; h=from:subject:message-id;
+ bh=UtrP7ky+ia0X5EdOIrkOzleqCu52VefQgEqHWJ/EJ1I=;
+ b=owGbwMvMwCW2UNrmdq9+ahrjabUkhqzlm5nTFhgpX97x9OH+3GjPDx/fH+886rj0xWPuBmUBe
+ acujmytjlIWBjEuBlkxRZYk7ZcdDKtrFGNqH4TBzGFlAhnCwMUpABNZzszwv8qOP+Pi41u9quKR
+ P7i+rBKJeXRim/OshIKFWV8/bJjKy8TI8NgxVyNDiPc3749p/W13PoT0zpjdHrs8e81T3rrtxTs
+ m8wEA
+X-Developer-Key: i=j@jannau.net; a=openpgp;
+ fpr=8B336A6BE4E5695E89B8532B81E806F586338419
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260914_014045_427096_6C074107 
+X-CRM114-Status: GOOD (  11.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,19 +121,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 17, 2026 at 6:22=E2=80=AFPM Sean Anderson <sanderson@brivo.com>=
- wrote:
+Fixes dt-check-style 'blank-lines' and 'required-blank-lines' issues
+reported in strict mode.
 
-> One of the i2c pin groups has some junk at the end. The name should be
-> i2c2_scl_h1, and indeed that's the name used by i2c2_pins3 in
-> meson-s4.dtsi.
->
-> Fixes: 775214d389c25 ("pinctrl: meson: add pinctrl driver support for Mes=
-on-S4 Soc")
-> Signed-off-by: Sean Anderson <sanderson@brivo.com>
+Signed-off-by: Janne Grunau <j@jannau.net>
+---
+ arch/arm64/boot/dts/apple/t8122-j504.dts  |  2 +-
+ arch/arm64/boot/dts/apple/t8122-j613.dts  |  1 +
+ arch/arm64/boot/dts/apple/t8122-j615.dts  |  1 +
+ arch/arm64/boot/dts/apple/t8122-jxxx.dtsi |  1 +
+ arch/arm64/boot/dts/apple/t8122-pmgr.dtsi |  1 -
+ arch/arm64/boot/dts/apple/t8122.dtsi      | 14 +++++++++++++-
+ 6 files changed, 17 insertions(+), 3 deletions(-)
 
-Patch applied for fixes, sorry for slow mail reading :/
+diff --git a/arch/arm64/boot/dts/apple/t8122-j504.dts b/arch/arm64/boot/dts/apple/t8122-j504.dts
+index 464491b55b01..d9e8016e84a2 100644
+--- a/arch/arm64/boot/dts/apple/t8122-j504.dts
++++ b/arch/arm64/boot/dts/apple/t8122-j504.dts
+@@ -20,6 +20,7 @@ / {
+ 
+ 	led-controller {
+ 		compatible = "pwm-leds";
++
+ 		led-0 {
+ 			pwms = <&fpwm1 0 40000>;
+ 			label = "kbd_backlight";
+@@ -34,4 +35,3 @@ led-0 {
+ &fpwm1 {
+ 	status = "okay";
+ };
+-
+diff --git a/arch/arm64/boot/dts/apple/t8122-j613.dts b/arch/arm64/boot/dts/apple/t8122-j613.dts
+index 51894ea705e7..127a4c2d8577 100644
+--- a/arch/arm64/boot/dts/apple/t8122-j613.dts
++++ b/arch/arm64/boot/dts/apple/t8122-j613.dts
+@@ -19,6 +19,7 @@ / {
+ 
+ 	led-controller {
+ 		compatible = "pwm-leds";
++
+ 		led-0 {
+ 			pwms = <&fpwm1 0 40000>;
+ 			label = "kbd_backlight";
+diff --git a/arch/arm64/boot/dts/apple/t8122-j615.dts b/arch/arm64/boot/dts/apple/t8122-j615.dts
+index 2a1970c1bc90..9ef7791e2f32 100644
+--- a/arch/arm64/boot/dts/apple/t8122-j615.dts
++++ b/arch/arm64/boot/dts/apple/t8122-j615.dts
+@@ -19,6 +19,7 @@ / {
+ 
+ 	led-controller {
+ 		compatible = "pwm-leds";
++
+ 		led-0 {
+ 			pwms = <&fpwm1 0 40000>;
+ 			label = "kbd_backlight";
+diff --git a/arch/arm64/boot/dts/apple/t8122-jxxx.dtsi b/arch/arm64/boot/dts/apple/t8122-jxxx.dtsi
+index dd85f0c9fb1e..b9576e4164a3 100644
+--- a/arch/arm64/boot/dts/apple/t8122-jxxx.dtsi
++++ b/arch/arm64/boot/dts/apple/t8122-jxxx.dtsi
+@@ -26,6 +26,7 @@ framebuffer0: framebuffer@0 {
+ 			reg = <0 0 0 0>; /* To be filled by loader */
+ 			power-domains = <&ps_disp_cpu>, <&ps_dptx_ext_phy>;
+ 			/* Format properties will be added by loader */
++
+ 			status = "disabled";
+ 		};
+ 	};
+diff --git a/arch/arm64/boot/dts/apple/t8122-pmgr.dtsi b/arch/arm64/boot/dts/apple/t8122-pmgr.dtsi
+index 64093792e0ad..3f8be74b5ea8 100644
+--- a/arch/arm64/boot/dts/apple/t8122-pmgr.dtsi
++++ b/arch/arm64/boot/dts/apple/t8122-pmgr.dtsi
+@@ -1004,7 +1004,6 @@ ps_disp_cpu: power-controller@10000 {
+ };
+ 
+ &pmgr_mini {
+-
+ 	ps_debug_gated: power-controller@0 {
+ 		compatible = "apple,t8122-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
+ 		reg = <0x0 4>;
+diff --git a/arch/arm64/boot/dts/apple/t8122.dtsi b/arch/arm64/boot/dts/apple/t8122.dtsi
+index 1ee61c5b3409..de09989c5663 100644
+--- a/arch/arm64/boot/dts/apple/t8122.dtsi
++++ b/arch/arm64/boot/dts/apple/t8122.dtsi
+@@ -29,12 +29,15 @@ cluster0 {
+ 				core0 {
+ 					cpu = <&cpu_e0>;
+ 				};
++
+ 				core1 {
+ 					cpu = <&cpu_e1>;
+ 				};
++
+ 				core2 {
+ 					cpu = <&cpu_e2>;
+ 				};
++
+ 				core3 {
+ 					cpu = <&cpu_e3>;
+ 				};
+@@ -44,12 +47,15 @@ cluster1 {
+ 				core0 {
+ 					cpu = <&cpu_p0>;
+ 				};
++
+ 				core1 {
+ 					cpu = <&cpu_p1>;
+ 				};
++
+ 				core2 {
+ 					cpu = <&cpu_p2>;
+ 				};
++
+ 				core3 {
+ 					cpu = <&cpu_p3>;
+ 				};
+@@ -197,6 +203,7 @@ i2c0: i2c@2a1010000 {
+ 			#address-cells = <0x1>;
+ 			#size-cells = <0x0>;
+ 			power-domains = <&ps_i2c0>;
++
+ 			status = "disabled";
+ 		};
+ 
+@@ -211,6 +218,7 @@ i2c1: i2c@2a1014000 {
+ 			#address-cells = <0x1>;
+ 			#size-cells = <0x0>;
+ 			power-domains = <&ps_i2c1>;
++
+ 			status = "disabled";
+ 		};
+ 
+@@ -225,6 +233,7 @@ i2c2: i2c@2a1018000 {
+ 			#address-cells = <0x1>;
+ 			#size-cells = <0x0>;
+ 			power-domains = <&ps_i2c2>;
++
+ 			status = "disabled";
+ 		};
+ 
+@@ -239,6 +248,7 @@ i2c3: i2c@2a101c000 {
+ 			#address-cells = <0x1>;
+ 			#size-cells = <0x0>;
+ 			power-domains = <&ps_i2c3>;
++
+ 			status = "disabled";
+ 		};
+ 
+@@ -253,6 +263,7 @@ i2c4: i2c@2a1020000 {
+ 			#address-cells = <0x1>;
+ 			#size-cells = <0x0>;
+ 			power-domains = <&ps_i2c4>;
++
+ 			status = "disabled";
+ 		};
+ 
+@@ -262,6 +273,7 @@ fpwm1: pwm@2a1044000 {
+ 			power-domains = <&ps_fpwm1>;
+ 			clocks = <&clkref>;
+ 			#pwm-cells = <2>;
++
+ 			status = "disabled";
+ 		};
+ 
+@@ -278,6 +290,7 @@ serial0: serial@2a1200000 {
+ 			clocks = <&clkref>, <&clkref>;
+ 			clock-names = "uart", "clk_uart_baud0";
+ 			power-domains = <&ps_uart0>;
++
+ 			status = "disabled";
+ 		};
+ 
+@@ -356,7 +369,6 @@ i2c4_pins: i2c4-pins {
+ 				pinmux = <APPLE_PINMUX(149, 1)>,
+ 					 <APPLE_PINMUX(148, 1)>;
+ 			};
+-
+ 		};
+ 
+ 		pinctrl_nub: pinctrl@2e41f0000 {
 
-Yours,
-Linus Walleij
+-- 
+2.55.0
+
 
