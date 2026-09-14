@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47EA1C88E67
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 07:34:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42AA6C88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 07:35:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iuJwHi4BhRz0fEPhwl8t0EOuUbZaeQzG8usPsCx2l20=; b=MCcesSlfMgFs8xILdkQCJDHuQj
-	QRFLC2PyiVfucjR43/NJQfrw+Ijlft0dVlOUgoI65tuqS3erdGDaQ6A6MdR76RZ3EzpxvwkyyZRKK
-	dziJfEvB8AAS153VtxIW5a7ILlkxqXip1TKcwDCAJqzoECDjdLMRcSG040Jlm8GQM2ELvI1f/jkb7
-	uqwbAd+QUibTMdbNi1GVi7nX/l5X1V5vsCVqOYfywL6GIoLYYaZ3xQuZUxykAhtZCrrGwEzY1R4YM
-	COjR1vJtdaBz/J70L2AaRBlSIsqGomSTley7IcgMsaquA4aqcczF2TLgfOWttR9AnZDMgOImMLwkB
-	jlgXeYNg==;
+	bh=d5EDb3+EHWyMrEnmpJTIDaBURHpWAVvQb7QHDvWdBeE=; b=l1ORv8ZpEydkAOhPny4rZ5aS2D
+	xUP98XqUebZukmH9HvfT/SP+zNy1QXivhC+EFG5V0nNoMdiom4cIIHwSY8seC6/TMhBhCHChND60H
+	Jnzr0bqhMWhS0lJ1B3M+gA4/3iamvKzffvBiJyRoEIUIcUOp9z9P0WtYMD70z9y3gj1xDkJeE8HvN
+	dMQwSzcF7jfJmj12Rkp1YZkuvWlaDZ26CIGhAJyGHlbSkhcuhigdhO5712umYrZxu3guBoVCAbYeZ
+	iHR09NbH4Uu+sq2K7dbgAUXTmvzfXcvEkeC9GerqqJX/wWgxGEXBnJ0xpmuZjBrrT7mPWvkPeLyCS
+	5xTxBuhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x61DF-00000002aaZ-3Zq9;
-	Mon, 14 Sep 2026 07:34:49 +0000
+	id 1x61DK-00000002agr-02Wo;
+	Mon, 14 Sep 2026 07:34:54 +0000
 Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x61D5-00000002aRa-0zNW;
-	Mon, 14 Sep 2026 07:34:40 +0000
-X-UUID: baf6197eb00e11f1acbe4559397dec65-20260914
+	id 1x61D7-00000002aSq-0xtU;
+	Mon, 14 Sep 2026 07:34:42 +0000
+X-UUID: bd07fa8eb00e11f1acbe4559397dec65-20260914
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=iuJwHi4BhRz0fEPhwl8t0EOuUbZaeQzG8usPsCx2l20=;
-	b=TNYJ6qdNRWXTz+2ROH0ZGhQlu/KiyigmRuwy6b70IyJ2oN4Pv8ORTZCtWUbYXme4tTjBKn1ooAO6C7ctgPrA2xVuEXN9DKnb2bKfvn4JMbW9ncsnOmj7PejyYtvvnXNb3nWX+umoh9Xz52qvXlhvU41nVn+sAYw7V/KpaG974oM=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=d5EDb3+EHWyMrEnmpJTIDaBURHpWAVvQb7QHDvWdBeE=;
+	b=RQ3YD1ntkRZOIFBlEScgWLXqRKTyt5d9kD731zT3CrUgYgrreumQlu1O2Ei1zaIDag+yA+vdbGW033bHENN9GLsSJmD840inaqu6syjwC/upK40j8EGlbWx/7sRL7MJG46Oa+kzPIMOS7IryoOBDKFLapKCHqMsLDs7crdrqeHo=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:50672512-31db-4646-9fdb-3b9bc8dacce1,IP:0,U
+X-CID-O-INFO: VERSION:1.3.19,REQID:5c2d49e8-590d-4e15-82cb-0a8274d76206,IP:0,U
 	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
 	N:release,TS:-25
-X-CID-META: VersionHash:7db8b62,CLOUDID:37e3c2dc-e2a3-4c41-83fa-4adacd638ae3,B
+X-CID-META: VersionHash:7db8b62,CLOUDID:32b93c0c-027a-4b0a-91ab-050fa8cdb9b0,B
 	ulkID:nil,BulkQuantity:0,SF:81|82|102|836|865|888|898,TC:-5,Content:0|15|5
 	0|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,
 	OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
@@ -42,18 +42,18 @@ X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: baf6197eb00e11f1acbe4559397dec65-20260914
-Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw02.mediatek.com
+X-UUID: bd07fa8eb00e11f1acbe4559397dec65-20260914
+Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw02.mediatek.com
 	(envelope-from <irui.wang@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1329217585; Mon, 14 Sep 2026 00:34:33 -0700
+	with ESMTP id 492246305; Mon, 14 Sep 2026 00:34:37 -0700
 Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Mon, 14 Sep 2026 15:34:31 +0800
+ 15.2.2562.29; Mon, 14 Sep 2026 15:34:34 +0800
 Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
  mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Mon, 14 Sep 2026 15:34:30 +0800
+ 15.2.2562.29 via Frontend Transport; Mon, 14 Sep 2026 15:34:33 +0800
 From: Irui Wang <irui.wang@mediatek.com>
 To: Hans Verkuil <hverkuil-cisco@xs4all.nl>, Mauro Carvalho Chehab
 	<mchehab@kernel.org>, Rob Herring <robh+dt@kernel.org>, Matthias Brugger
@@ -68,9 +68,9 @@ CC: Yunfei Dong <yunfei.dong@mediatek.com>, Maoguang Meng
 	<linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-mediatek@lists.infradead.org>
-Subject: [PATCH v8 3/6] media: mediatek: encoder: Add a new encoder driver interface
-Date: Mon, 14 Sep 2026 15:34:18 +0800
-Message-ID: <20260914073423.16131-4-irui.wang@mediatek.com>
+Subject: [PATCH v8 6/6] media: mediatek: encoder: Add MT8196 encoder compatible data
+Date: Mon, 14 Sep 2026 15:34:21 +0800
+Message-ID: <20260914073423.16131-7-irui.wang@mediatek.com>
 X-Mailer: git-send-email 2.46.0
 In-Reply-To: <20260914073423.16131-1-irui.wang@mediatek.com>
 References: <20260914073423.16131-1-irui.wang@mediatek.com>
@@ -79,8 +79,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_003439_322064_9621C721 
-X-CRM114-Status: GOOD (  25.70  )
+X-CRM114-CacheID: sfid-20260914_003441_277153_D25061E1 
+X-CRM114-Status: GOOD (  13.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,750 +95,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce a new encoder kernel driver interface to ensure compatibility
-with the updated encoder software driver running in firmware.
-The new driver interface is expected to support more encoder formats,
-share more encode parameters between kernel and firmware.
+MT8196 encoder use common firmware interface, add compatible data to
+support MT8196 encoding, and need set dma mask to support 34bit.
 
 Signed-off-by: Irui Wang <irui.wang@mediatek.com>
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 ---
- .../platform/mediatek/vcodec/encoder/Makefile |   1 +
- .../mediatek/vcodec/encoder/mtk_vcodec_enc.c  |   2 +
- .../vcodec/encoder/venc/venc_common_if.c      | 674 ++++++++++++++++++
- .../mediatek/vcodec/encoder/venc_drv_if.h     |   3 +
- 4 files changed, 680 insertions(+)
- create mode 100644 drivers/media/platform/mediatek/vcodec/encoder/venc/venc_common_if.c
+ .../vcodec/encoder/mtk_vcodec_enc_drv.c       | 22 +++++++++++++++++++
+ .../vcodec/encoder/mtk_vcodec_enc_drv.h       |  2 ++
+ 2 files changed, 24 insertions(+)
 
-diff --git a/drivers/media/platform/mediatek/vcodec/encoder/Makefile b/drivers/media/platform/mediatek/vcodec/encoder/Makefile
-index e621b5b7e..9d3229d56 100644
---- a/drivers/media/platform/mediatek/vcodec/encoder/Makefile
-+++ b/drivers/media/platform/mediatek/vcodec/encoder/Makefile
-@@ -4,6 +4,7 @@ obj-$(CONFIG_VIDEO_MEDIATEK_VCODEC) += mtk-vcodec-enc.o
+diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
+index eb4a74ad6..716ae8dc5 100644
+--- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
++++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
+@@ -20,6 +20,8 @@
+ #include "mtk_vcodec_enc_pm.h"
+ #include "../common/mtk_vcodec_intr.h"
  
- mtk-vcodec-enc-y := venc/venc_vp8_if.o \
- 		venc/venc_h264_if.o \
-+		venc/venc_common_if.o \
- 		mtk_vcodec_enc.o \
- 		mtk_vcodec_enc_drv.o \
- 		mtk_vcodec_enc_pm.o \
-diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
-index fcf0e4f90..af855f97c 100644
---- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
-+++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
-@@ -1139,6 +1139,8 @@ static void mtk_venc_worker(struct work_struct *work)
- 		frm_buf.fb_addr[i].size =
- 				(size_t)src_buf->vb2_buf.planes[i].length;
++#define VENC_DMA_BIT_MASK 34
++
+ static const struct mtk_video_fmt mtk_video_formats_output[] = {
+ 	{
+ 		.fourcc = V4L2_PIX_FMT_NV12M,
+@@ -299,6 +301,9 @@ static int mtk_vcodec_probe(struct platform_device *pdev)
+ 		goto err_res;
  	}
-+	frm_buf.num_planes = src_buf->vb2_buf.num_planes;
-+
- 	bs_buf.va = vb2_plane_vaddr(&dst_buf->vb2_buf, 0);
- 	bs_buf.dma_addr = vb2_dma_contig_plane_dma_addr(&dst_buf->vb2_buf, 0);
- 	bs_buf.size = (size_t)dst_buf->vb2_buf.planes[0].length;
-diff --git a/drivers/media/platform/mediatek/vcodec/encoder/venc/venc_common_if.c b/drivers/media/platform/mediatek/vcodec/encoder/venc/venc_common_if.c
-new file mode 100644
-index 000000000..742420343
---- /dev/null
-+++ b/drivers/media/platform/mediatek/vcodec/encoder/venc/venc_common_if.c
-@@ -0,0 +1,674 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (c) 2025 MediaTek Inc.
-+ */
-+
-+#include "../mtk_vcodec_enc.h"
-+#include "../mtk_vcodec_enc_drv.h"
-+#include "../venc_drv_base.h"
-+#include "../venc_drv_if.h"
-+#include "../venc_vpu_if.h"
-+#include "../../common/mtk_vcodec_intr.h"
-+#include "../../common/mtk_vcodec_util.h"
-+
-+#define SEQ_HEADER_SIZE 1024
-+#define PPS_SIZE 128
-+#define MAX_DPB_SIZE 16
-+#define MAX_VENC_CORE 3
-+#define VENC_CONFIG_LENGTH 115
-+#define VENC_CONFIG_DATA 128
-+#define VENC_PIC_BITSTREAM_BYTE_CNT 0x0098
-+
-+/**
-+ * enum venc_bs_mode - encode bitstream mode
-+ * @VENC_BS_MODE_SPS: encode sps
-+ * @VENC_BS_MODE_PPS: encode pps
-+ * @VENC_BS_MODE_VPS: encode vps
-+ * @VENC_BS_MODE_SEQ_HDR: encode sequence header
-+ * @VENC_BS_MODE_FRAME: encode frame
-+ * @VENC_BS_MODE_FRAME_FINAL: encode final frame
-+ * @VENC_BS_MODE_MAX: max value
-+ */
-+enum venc_bs_mode {
-+	VENC_BS_MODE_SPS = 0,
-+	VENC_BS_MODE_PPS,
-+	VENC_BS_MODE_VPS,
-+	VENC_BS_MODE_SEQ_HDR,
-+	VENC_BS_MODE_FRAME,
-+	VENC_BS_MODE_FRAME_FINAL,
-+	VENC_BS_MODE_MAX
-+};
-+
-+/**
-+ * struct venc_config - Structure for encoder configuration
-+ *                      AP-W/R : AP is writer/reader on this item
-+ *                      MCU-W/R: MCU is write/reader on this item
-+ * @input_fourcc: input format fourcc
-+ * @bitrate: target bitrate (in bps)
-+ * @pic_w: visible width of resolution
-+ * @pic_h: visible height of resolution
-+ * @buf_w: buffer alignment width of resolution
-+ * @buf_h: buffer alignment height of resolution
-+ * @gop_size: group of picture size (IDR frame period)
-+ * @intra_period: I frame period
-+ * @framerate: frame rate in fps
-+ * @profile: profile_idc in SPS
-+ * @level: level_idc in SPS
-+ * @core_num: encoder core num
-+ * @dpb_size: encode dpb size
-+ * @reserved: reserved fields config
-+ */
-+struct venc_config {
-+	__u32 input_fourcc;
-+	__u32 bitrate;
-+	__u32 pic_w;
-+	__u32 pic_h;
-+	__u32 buf_w;
-+	__u32 buf_h;
-+	__u32 gop_size;
-+	__u32 intra_period;
-+	__u32 framerate;
-+	__u32 profile;
-+	__u32 level;
-+	__u32 core_num;
-+	__u32 dpb_size;
-+	__u32 reserved[VENC_CONFIG_LENGTH];
-+};
-+
-+/**
-+ * struct venc_config_data - Structure for configuration data
-+ * @config_data: extended configuration data besides the basic configuration
-+ */
-+struct venc_config_data {
-+	unsigned int config_data[VENC_CONFIG_DATA];
-+};
-+
-+/**
-+ * struct venc_work_buf - Structure for working buffer information
-+ *                               AP-W/R : AP is writer/reader on this item
-+ *                               MCU-W/R: MCU is write/reader on this item
-+ * @iova: IO virtual address
-+ * @pa: physical address
-+ * @pa_64: for 64bit pa padding
-+ * @va: virtual address
-+ * @va_padding: for 64bit va padding
-+ * @size: buffer size
-+ * @size_padding: for 64bit size padding
-+ */
-+struct venc_work_buf {
-+	unsigned long long iova;
-+	union {
-+		unsigned int pa;
-+		unsigned long long pa_64;
-+	};
-+	union {
-+		void *va;
-+		unsigned long long va_padding;
-+	};
-+	union {
-+		unsigned int size;
-+		unsigned long long size_padding;
-+	};
-+};
-+
-+/**
-+ * struct venc_work_buf_list - Structure for encode working buffer list
-+ * @rc_code: RC code buffer
-+ * @rc_info: RC info buffer
-+ * @luma: luma buffer
-+ * @chroma: chroma buffer
-+ * @sub_luma: sub luma buffer
-+ * @sub_write: sub write buffer
-+ * @col_mv: col_mv buffer
-+ * @wpp: wpp buffer
-+ * @wpp_nbm: wpp nbm buffer
-+ * @skip_frame: skip frame buffer
-+ */
-+struct venc_work_buf_list {
-+	struct venc_work_buf rc_code;
-+	struct venc_work_buf rc_info[MAX_VENC_CORE];
-+	struct venc_work_buf luma[MAX_DPB_SIZE];
-+	struct venc_work_buf chroma[MAX_DPB_SIZE];
-+	struct venc_work_buf sub_luma[MAX_DPB_SIZE];
-+	struct venc_work_buf sub_write[MAX_DPB_SIZE];
-+	struct venc_work_buf col_mv[MAX_DPB_SIZE];
-+	struct venc_work_buf wpp[MAX_VENC_CORE];
-+	struct venc_work_buf wpp_nbm[MAX_VENC_CORE];
-+	struct venc_work_buf skip_frame;
-+};
-+
-+/**
-+ * struct venc_info -  Structure for encode frame and bs information
-+ * @fb_addr: frame buffer address array
-+ * @fb_size: frame buffer size array
-+ * @bs_addr: bitstream buffer address
-+ * @bs_size: bitstream buffer size
-+ */
-+struct venc_info {
-+	unsigned long long fb_addr[VIDEO_MAX_PLANES];
-+	unsigned int fb_size[VIDEO_MAX_PLANES];
-+	unsigned long long bs_addr;
-+	unsigned long long bs_size;
-+};
-+
-+/**
-+ * struct venc_vsi - Structure for VCP driver control and info share
-+ *                   AP-W/R : AP is writer/reader on this item
-+ *                   VCP-W/R: VCP is write/reader on this item
-+ * @config: encoder configuration
-+ * @data: encoder configuration data
-+ * @bufs: encoder working buffers
-+ * @venc: encoder information
-+ */
-+struct venc_vsi {
-+	struct venc_config config;
-+	struct venc_config_data data;
-+	struct venc_work_buf_list bufs;
-+	struct venc_info venc;
-+};
-+
-+/**
-+ * struct venc_inst - Structure for encoder instance
-+ * @hw_base: hardware io address
-+ * @pps_buf: PPS buffer
-+ * @seq_buf: sequence header buffer
-+ * @work_buf_allocated: work buffer allocated or not
-+ * @frm_cnt: encoded frame count
-+ * @skip_frm_cnt: encoded skip frame count
-+ * @prepend_hdr: prepend header flag
-+ * @vpu_inst: vpu instance
-+ * @vsi: encode vsi
-+ * @ctx: encoder context
-+ */
-+struct venc_inst {
-+	void __iomem *hw_base;
-+	struct mtk_vcodec_mem pps_buf;
-+	struct mtk_vcodec_mem seq_buf;
-+	bool work_buf_allocated;
-+	unsigned int frm_cnt;
-+	unsigned int skip_frm_cnt;
-+	unsigned int prepend_hdr;
-+	struct venc_vpu_inst vpu_inst;
-+	struct venc_vsi *vsi;
-+	struct mtk_vcodec_enc_ctx *ctx;
-+};
-+
-+static int venc_init(struct mtk_vcodec_enc_ctx *ctx)
-+{
-+	int ret = 0;
-+	struct venc_inst *inst;
-+
-+	inst = kzalloc_obj(*inst, GFP_KERNEL);
-+	if (!inst)
-+		return -ENOMEM;
-+
-+	inst->ctx = ctx;
-+	inst->vpu_inst.ctx = ctx;
-+	inst->vpu_inst.id = ctx->dev->venc_pdata->ipi_id;
-+	inst->hw_base = mtk_vcodec_get_reg_addr(inst->ctx->dev->reg_base, VENC_SYS);
-+
-+	ret = vpu_enc_init(&inst->vpu_inst);
-+	inst->vsi = (struct venc_vsi *)inst->vpu_inst.vsi;
-+
-+	if (ret) {
-+		kfree(inst);
-+		return ret;
-+	}
-+
-+	ctx->drv_handle = inst;
-+
-+	return 0;
-+}
-+
-+static inline u32 venc_read_reg(struct venc_inst *inst, u32 addr)
-+{
-+	return readl(inst->hw_base + addr);
-+}
-+
-+static unsigned int venc_wait_encode_done(struct venc_inst *inst)
-+{
-+	unsigned int irq_status = 0;
-+	struct mtk_vcodec_enc_ctx *ctx = (struct mtk_vcodec_enc_ctx *)inst->ctx;
-+
-+	if (!mtk_vcodec_wait_for_done_ctx(ctx, MTK_INST_IRQ_RECEIVED,
-+					  WAIT_INTR_TIMEOUT_MS, 0)) {
-+		irq_status = ctx->irq_status;
-+		mtk_venc_debug(ctx, "irq_status %x <-", irq_status);
-+	}
-+	return irq_status;
-+}
-+
-+static void venc_set_bufs(struct venc_inst *inst,
-+			  struct venc_frm_buf *frm_buf,
-+			  struct mtk_vcodec_mem *bs_buf)
-+{
-+	unsigned int i;
-+
-+	if (frm_buf) {
-+		for (i = 0; i < frm_buf->num_planes; i++) {
-+			inst->vsi->venc.fb_addr[i] = frm_buf->fb_addr[i].dma_addr;
-+			inst->vsi->venc.fb_size[i] = frm_buf->fb_addr[i].size;
-+			mtk_venc_debug(inst->ctx, "%s: fb_buf[%d]: %llx(%d)\n",
-+				       __func__, i,
-+				       inst->vsi->venc.fb_addr[i],
-+				       inst->vsi->venc.fb_size[i]);
-+		}
-+	}
-+
-+	if (bs_buf) {
-+		inst->vsi->venc.bs_addr = bs_buf->dma_addr;
-+		inst->vsi->venc.bs_size = bs_buf->size;
-+		mtk_venc_debug(inst->ctx, "%s: bs_buf: %llx(%d)\n",
-+			       __func__,
-+			       inst->vsi->venc.bs_addr,
-+			       (unsigned int)inst->vsi->venc.bs_size);
-+	}
-+}
-+
-+static int venc_encode_sps(struct venc_inst *inst,
-+			   struct mtk_vcodec_mem *bs_buf,
-+			   unsigned int *bs_size)
-+{
-+	int ret = 0;
-+	unsigned int irq_status;
-+
-+	venc_set_bufs(inst, NULL, bs_buf);
-+	ret = vpu_enc_encode(&inst->vpu_inst, VENC_BS_MODE_SPS, NULL, bs_buf, NULL);
-+	if (ret)
-+		return ret;
-+
-+	irq_status = venc_wait_encode_done(inst);
-+	if (irq_status != MTK_VENC_IRQ_STATUS_SPS) {
-+		mtk_venc_err(inst->ctx, "expect irq status %d", MTK_VENC_IRQ_STATUS_SPS);
-+		return -EINVAL;
-+	}
-+
-+	*bs_size = venc_read_reg(inst, VENC_PIC_BITSTREAM_BYTE_CNT);
-+	mtk_venc_debug(inst->ctx, "sps bs size %d <-", *bs_size);
-+
-+	return ret;
-+}
-+
-+static int venc_encode_pps(struct venc_inst *inst,
-+			   struct mtk_vcodec_mem *bs_buf,
-+			   unsigned int *bs_size)
-+{
-+	int ret = 0;
-+	unsigned int irq_status;
-+
-+	venc_set_bufs(inst, NULL, bs_buf);
-+	ret = vpu_enc_encode(&inst->vpu_inst, VENC_BS_MODE_PPS, NULL, bs_buf, NULL);
-+	if (ret)
-+		return ret;
-+
-+	irq_status = venc_wait_encode_done(inst);
-+	if (irq_status != MTK_VENC_IRQ_STATUS_PPS) {
-+		mtk_venc_err(inst->ctx, "expect irq status %d", MTK_VENC_IRQ_STATUS_PPS);
-+		return -EINVAL;
-+	}
-+
-+	*bs_size = venc_read_reg(inst, VENC_PIC_BITSTREAM_BYTE_CNT);
-+	mtk_venc_debug(inst->ctx, "pps bs size %d <-", *bs_size);
-+
-+	return ret;
-+}
-+
-+static int venc_encode_header(struct venc_inst *inst,
-+			      struct mtk_vcodec_mem *bs_buf,
-+			      unsigned int *bs_size)
-+{
-+	int ret = 0;
-+	unsigned int bs_size_sps;
-+	unsigned int bs_size_pps;
-+
-+	ret = venc_encode_sps(inst, bs_buf, &bs_size_sps);
-+	if (ret)
-+		return ret;
-+
-+	ret = venc_encode_pps(inst, &inst->pps_buf, &bs_size_pps);
-+	if (ret)
-+		return ret;
-+
-+	memcpy(bs_buf->va + bs_size_sps, inst->pps_buf.va, bs_size_pps);
-+	*bs_size = bs_size_sps + bs_size_pps;
-+
-+	return ret;
-+}
-+
-+static int venc_encode_frame(struct venc_inst *inst,
-+			     struct venc_frm_buf *frm_buf,
-+			     struct mtk_vcodec_mem *bs_buf,
-+			     unsigned int *bs_size)
-+{
-+	int ret = 0;
-+	unsigned int irq_status;
-+
-+	venc_set_bufs(inst, frm_buf, bs_buf);
-+	ret = vpu_enc_encode(&inst->vpu_inst, VENC_BS_MODE_FRAME, frm_buf, bs_buf, NULL);
-+	if (ret)
-+		return ret;
-+
-+	irq_status = venc_wait_encode_done(inst);
-+	if (irq_status != MTK_VENC_IRQ_STATUS_FRM) {
-+		mtk_venc_err(inst->ctx, "expect irq status %d", MTK_VENC_IRQ_STATUS_FRM);
-+		return -EINVAL;
-+	}
-+
-+	*bs_size = venc_read_reg(inst, VENC_PIC_BITSTREAM_BYTE_CNT);
-+
-+	++inst->frm_cnt;
-+
-+	return ret;
-+}
-+
-+static int venc_encode(void *handle,
-+		       enum venc_start_opt opt,
-+		       struct venc_frm_buf *frm_buf,
-+		       struct mtk_vcodec_mem *bs_buf,
-+		       struct venc_done_result *result)
-+{
-+	int ret = 0;
-+	struct venc_inst *inst = (struct venc_inst *)handle;
-+	struct mtk_vcodec_enc_ctx *ctx;
-+	unsigned int bs_size_hdr;
-+
-+	if (WARN_ON(!inst || !inst->vsi))
-+		return -EINVAL;
-+
-+	ctx = inst->ctx;
-+
-+	mtk_venc_debug(ctx, "%s: opt: %d\n", __func__, opt);
-+
-+	enable_irq(ctx->dev->enc_irq);
-+	switch (opt) {
-+	case VENC_START_OPT_ENCODE_SEQUENCE_HEADER: {
-+		ret = venc_encode_header(inst, bs_buf, &bs_size_hdr);
-+		if (ret)
-+			goto encode_err;
-+
-+		result->bs_size = bs_size_hdr;
-+		result->is_key_frm = false;
-+		break;
-+	}
-+
-+	case VENC_START_OPT_ENCODE_FRAME: {
-+		if (!inst->prepend_hdr) {
-+			ret = venc_encode_frame(inst, frm_buf, bs_buf, &result->bs_size);
-+			if (ret)
-+				goto encode_err;
-+
-+			result->is_key_frm = inst->vpu_inst.is_key_frm;
-+			break;
-+		}
-+
-+		ret = venc_encode_header(inst, &inst->seq_buf, &bs_size_hdr);
-+		if (ret)
-+			goto encode_err;
-+
-+		ret = venc_encode_frame(inst, frm_buf, bs_buf, &result->bs_size);
-+		if (ret)
-+			goto encode_err;
-+
-+		memmove(bs_buf->va + bs_size_hdr, bs_buf->va, result->bs_size);
-+		memcpy(bs_buf->va, inst->seq_buf.va, bs_size_hdr);
-+		result->bs_size += bs_size_hdr;
-+
-+		inst->prepend_hdr = 0;
-+		result->is_key_frm = inst->vpu_inst.is_key_frm;
-+		break;
-+	}
-+
-+	default:
-+		mtk_venc_err(inst->ctx, "venc_opt %d not supported", opt);
-+		ret = -EINVAL;
-+		break;
-+	}
-+
-+encode_err:
-+	disable_irq(ctx->dev->enc_irq);
-+	mtk_venc_debug(ctx, "opt %d, return %d", opt, ret);
-+
-+	return ret;
-+}
-+
-+static int mtk_venc_mem_alloc(struct venc_inst *inst,
-+			      struct device *dev,
-+			      struct venc_work_buf *buf)
-+{
-+	dma_addr_t dma_addr;
-+
-+	if (WARN_ON(!dev || !buf))
-+		return -EINVAL;
-+
-+	if (buf->size == 0)
-+		return 0;
-+
-+	buf->va = dma_alloc_coherent(dev, buf->size, &dma_addr, GFP_KERNEL);
-+	if (!buf->va)
-+		return -ENOMEM;
-+
-+	buf->iova = (unsigned long long)dma_addr;
-+
-+	mtk_venc_debug(inst->ctx, "allocate buffer, size: %d, va: %p, iova: 0x%llx",
-+		       buf->size, buf->va, buf->iova);
-+
-+	return 0;
-+}
-+
-+static void mtk_venc_mem_free(struct venc_inst *inst,
-+			      struct device *dev,
-+			      struct venc_work_buf *buf)
-+{
-+	if (WARN_ON(!dev || !buf))
-+		return;
-+
-+	if (!buf->va)
-+		return;
-+
-+	mtk_venc_debug(inst->ctx, "free buffer, size: %d, va: %p, iova: 0x%llx",
-+		       buf->size, buf->va, buf->iova);
-+
-+	dma_free_coherent(dev, buf->size, buf->va, buf->iova);
-+	buf->va = NULL;
-+	buf->iova = 0;
-+	buf->size = 0;
-+}
-+
-+static void venc_free_rc_buf(struct venc_inst *inst,
-+			     struct venc_work_buf_list *bufs,
-+			     unsigned int core_num)
-+{
-+	int i;
-+	struct device *dev;
-+
-+	dev = &inst->ctx->dev->plat_dev->dev;
-+	mtk_venc_mem_free(inst, dev, &bufs->rc_code);
-+
-+	for (i = 0; i < core_num; i++)
-+		mtk_venc_mem_free(inst, dev, &bufs->rc_info[i]);
-+}
-+
-+static void venc_free_work_buf(struct venc_inst *inst)
-+{
-+	int i;
-+	struct venc_work_buf_list *bufs = &inst->vsi->bufs;
-+	unsigned int core_num = inst->vsi->config.core_num;
-+	unsigned int dpb_size = inst->vsi->config.dpb_size;
-+	struct device *dev;
-+
-+	if (bufs->rc_code.va)
-+		venc_free_rc_buf(inst, bufs, core_num);
-+
-+	dev = &inst->ctx->dev->plat_dev->dev;
-+
-+	for (i = 0; i < core_num; i++) {
-+		mtk_venc_mem_free(inst, dev, &bufs->wpp[i]);
-+		mtk_venc_mem_free(inst, dev, &bufs->wpp_nbm[i]);
-+	}
-+
-+	for (i = 0; i < dpb_size; i++) {
-+		mtk_venc_mem_free(inst, dev, &bufs->luma[i]);
-+		mtk_venc_mem_free(inst, dev, &bufs->chroma[i]);
-+		mtk_venc_mem_free(inst, dev, &bufs->sub_luma[i]);
-+		mtk_venc_mem_free(inst, dev, &bufs->sub_write[i]);
-+		mtk_venc_mem_free(inst, dev, &bufs->col_mv[i]);
-+	}
-+
-+	if (inst->pps_buf.va)
-+		mtk_vcodec_mem_free(inst->ctx, &inst->pps_buf);
-+
-+	if (inst->seq_buf.va)
-+		mtk_vcodec_mem_free(inst->ctx, &inst->seq_buf);
-+}
-+
-+static int venc_alloc_rc_buf(struct venc_inst *inst,
-+			     struct venc_work_buf_list *bufs,
-+			     unsigned int core_num)
-+{
-+	int i;
-+	struct mtk_vcodec_fw *fw = inst->ctx->dev->fw_handler;
-+	struct device *dev;
-+	void *tmp_va;
-+
-+	dev = &inst->ctx->dev->plat_dev->dev;
-+	if (mtk_venc_mem_alloc(inst, dev, &bufs->rc_code))
-+		return -ENOMEM;
-+
-+	tmp_va = mtk_vcodec_fw_map_dm_addr(fw, bufs->rc_code.pa);
-+	memcpy(bufs->rc_code.va, tmp_va, bufs->rc_code.size);
-+
-+	for (i = 0; i < core_num; i++) {
-+		if (mtk_venc_mem_alloc(inst, dev, &bufs->rc_info[i]))
-+			goto err_rc_buf;
-+	}
-+
-+	return 0;
-+
-+err_rc_buf:
-+	venc_free_rc_buf(inst, bufs, core_num);
-+
-+	return -ENOMEM;
-+}
-+
-+static int venc_alloc_work_buf(struct venc_inst *inst)
-+{
-+	int i, ret;
-+	struct venc_work_buf_list *bufs = &inst->vsi->bufs;
-+	unsigned int core_num = inst->vsi->config.core_num;
-+	unsigned int dpb_size = inst->vsi->config.dpb_size;
-+	struct device *dev;
-+
-+	if (bufs->rc_code.size != 0) {
-+		ret = venc_alloc_rc_buf(inst, bufs, core_num);
-+		if (ret) {
-+			mtk_venc_err(inst->ctx, "cannot allocate rc buf");
-+			return -ENOMEM;
-+		}
-+	}
-+
-+	dev = &inst->ctx->dev->plat_dev->dev;
-+
-+	for (i = 0; i < core_num; i++) {
-+		if (mtk_venc_mem_alloc(inst, dev, &bufs->wpp[i]) ||
-+		    mtk_venc_mem_alloc(inst, dev, &bufs->wpp_nbm[i]))
-+			goto err_alloc;
-+	}
-+
-+	for (i = 0; i < dpb_size; i++) {
-+		if (mtk_venc_mem_alloc(inst, dev, &bufs->luma[i]) ||
-+		    mtk_venc_mem_alloc(inst, dev, &bufs->chroma[i]) ||
-+		    mtk_venc_mem_alloc(inst, dev, &bufs->sub_luma[i]) ||
-+		    mtk_venc_mem_alloc(inst, dev, &bufs->sub_write[i]) ||
-+		    mtk_venc_mem_alloc(inst, dev, &bufs->col_mv[i]))
-+			goto err_alloc;
-+	}
-+
-+	/* the pps_buf and seq_buf are used by AP side only */
-+	inst->pps_buf.size = PPS_SIZE;
-+	ret = mtk_vcodec_mem_alloc(inst->ctx, &inst->pps_buf);
-+	if (ret) {
-+		mtk_venc_err(inst->ctx, "cannot allocate pps_buf");
-+		goto err_alloc;
-+	}
-+
-+	inst->seq_buf.size = SEQ_HEADER_SIZE;
-+	ret = mtk_vcodec_mem_alloc(inst->ctx, &inst->seq_buf);
-+	if (ret) {
-+		mtk_venc_err(inst->ctx, "cannot allocate seq_buf");
-+		goto err_alloc;
-+	}
-+	return 0;
-+
-+err_alloc:
-+	venc_free_work_buf(inst);
-+	return -ENOMEM;
-+}
-+
-+static int venc_set_param(void *handle,
-+			  enum venc_set_param_type type,
-+			  struct venc_enc_param *enc_prm)
-+{
-+	int ret = 0;
-+	struct venc_inst *inst = (struct venc_inst *)handle;
-+
-+	switch (type) {
-+	case VENC_SET_PARAM_ENC:
-+		if (WARN_ON(!inst->vsi))
-+			return -EINVAL;
-+		inst->vsi->config.input_fourcc = enc_prm->input_yuv_fmt;
-+		inst->vsi->config.bitrate = enc_prm->bitrate;
-+		inst->vsi->config.pic_w = enc_prm->width;
-+		inst->vsi->config.pic_h = enc_prm->height;
-+		inst->vsi->config.buf_w = enc_prm->buf_width;
-+		inst->vsi->config.buf_h = enc_prm->buf_height;
-+		inst->vsi->config.gop_size = enc_prm->gop_size;
-+		inst->vsi->config.framerate = enc_prm->frm_rate;
-+		inst->vsi->config.intra_period = enc_prm->intra_period;
-+		inst->vsi->config.profile = enc_prm->h264_profile;
-+		inst->vsi->config.level = enc_prm->h264_level;
-+
-+		ret = vpu_enc_set_param(&inst->vpu_inst, type, enc_prm);
-+		if (ret)
-+			break;
-+
-+		if (inst->work_buf_allocated) {
-+			venc_free_work_buf(inst);
-+			inst->work_buf_allocated = false;
-+		}
-+		ret = venc_alloc_work_buf(inst);
-+		if (ret)
-+			break;
-+		inst->work_buf_allocated = true;
-+		break;
-+	case VENC_SET_PARAM_PREPEND_HEADER:
-+		inst->prepend_hdr = 1;
-+		break;
-+	default:
-+		ret = vpu_enc_set_param(&inst->vpu_inst, type, enc_prm);
-+		break;
-+	}
-+
-+	return ret;
-+}
-+
-+static int venc_deinit(void *handle)
-+{
-+	int ret = 0;
-+	struct venc_inst *inst = (struct venc_inst *)handle;
-+
-+	ret = vpu_enc_deinit(&inst->vpu_inst);
-+
-+	if (inst->work_buf_allocated)
-+		venc_free_work_buf(inst);
-+
-+	kfree(inst);
-+
-+	return ret;
-+}
-+
-+const struct venc_common_if venc_if = {
-+	.init = venc_init,
-+	.encode = venc_encode,
-+	.set_param = venc_set_param,
-+	.deinit = venc_deinit,
-+};
-diff --git a/drivers/media/platform/mediatek/vcodec/encoder/venc_drv_if.h b/drivers/media/platform/mediatek/vcodec/encoder/venc_drv_if.h
-index 889440a43..1908a6ae4 100644
---- a/drivers/media/platform/mediatek/vcodec/encoder/venc_drv_if.h
-+++ b/drivers/media/platform/mediatek/vcodec/encoder/venc_drv_if.h
-@@ -107,9 +107,11 @@ struct venc_frame_info {
- /*
-  * struct venc_frm_buf - frame buffer information used in venc_if_encode()
-  * @fb_addr: plane frame buffer addresses
-+ * @num_planes: number of planes
-  */
- struct venc_frm_buf {
- 	struct mtk_vcodec_fb fb_addr[MTK_VCODEC_MAX_PLANES];
-+	unsigned int num_planes;
+ 
++	if (dev->venc_pdata->set_dma_bit_mask)
++		dma_set_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(VENC_DMA_BIT_MASK));
++
+ 	mutex_init(&dev->enc_mutex);
+ 	mutex_init(&dev->dev_mutex);
+ 	spin_lock_init(&dev->dev_ctx_lock);
+@@ -462,6 +467,22 @@ static const struct mtk_vcodec_enc_pdata mt8195_pdata = {
+ 	.fw_init = mtk_vcodec_fw_scp_init,
  };
  
- /*
-@@ -124,6 +126,7 @@ struct venc_done_result {
- 
- extern const struct venc_common_if venc_h264_if;
- extern const struct venc_common_if venc_vp8_if;
-+extern const struct venc_common_if venc_if;
- 
- /*
-  * venc_if_init - Create the driver handle
++static const struct mtk_vcodec_enc_pdata mt8196_pdata = {
++	.venc_model_num = 8196,
++	.capture_formats = mtk_video_formats_capture_h264,
++	.num_capture_formats = ARRAY_SIZE(mtk_video_formats_capture_h264),
++	.output_formats = mtk_video_formats_output,
++	.num_output_formats = ARRAY_SIZE(mtk_video_formats_output),
++	.min_bitrate = 64,
++	.max_bitrate = 100000000,
++	.core_id = VENC_SYS,
++	.uses_common_fw_iface = true,
++	.set_dma_bit_mask = true,
++	.fw_type = VCP,
++	.fw_init = mtk_vcodec_fw_vcp_init,
++	.ipi_id = VCP_IPI_ENCODER,
++};
++
+ static const struct of_device_id mtk_vcodec_enc_match[] = {
+ 	{.compatible = "mediatek,mt8173-vcodec-enc",
+ 			.data = &mt8173_avc_pdata},
+@@ -471,6 +492,7 @@ static const struct of_device_id mtk_vcodec_enc_match[] = {
+ 	{.compatible = "mediatek,mt8188-vcodec-enc", .data = &mt8188_pdata},
+ 	{.compatible = "mediatek,mt8192-vcodec-enc", .data = &mt8192_pdata},
+ 	{.compatible = "mediatek,mt8195-vcodec-enc", .data = &mt8195_pdata},
++	{.compatible = "mediatek,mt8196-vcodec-enc", .data = &mt8196_pdata},
+ 	{},
+ };
+ MODULE_DEVICE_TABLE(of, mtk_vcodec_enc_match);
+diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.h b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.h
+index ebbb08d5f..fdc6959c4 100644
+--- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.h
++++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.h
+@@ -32,6 +32,7 @@
+  * @core_id: stand for h264 or vp8 encode index
+  * @uses_34bit: whether the encoder uses 34-bit iova
+  * @uses_common_fw_iface: whether the encoder uses common driver interface
++ * @set_dma_bit_mask: whether the encoder need set extra DMA bit mask
+  * @fw_type: firmware type (VPU, SCP, or VCP)
+  * @fw_init: firmware-specific initialization callback
+  * @ipi_id: IPI ID for encoder communication with firmware
+@@ -48,6 +49,7 @@ struct mtk_vcodec_enc_pdata {
+ 	u8 core_id;
+ 	bool uses_34bit;
+ 	bool uses_common_fw_iface;
++	bool set_dma_bit_mask;
+ 	enum mtk_vcodec_fw_type fw_type;
+ 	struct mtk_vcodec_fw *(*fw_init)(void *priv, enum mtk_vcodec_fw_use fw_use);
+ 	int ipi_id;
 -- 
 2.55.0.windows.3
 
