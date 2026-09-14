@@ -4,94 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BD20C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 14:04:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DB49C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 14:06:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C8rQ4wEtNnWG7AMNoujj40yCkBU87VJHpgDk71+5KS4=; b=Yf4/k5VZEv/9Ju4/CfY1o7qGJo
-	ATIXsS+BvAfXZeH7johYZq7W2NJrBbWPfiyvEsbufOI9aAms81fDCr0nvI30iVjRkMm6JqF7MTA9B
-	2vL7A4oXD11+1UMpCCWkrAXAz33ugdMbmgoVnLZcy8v7Qay3GW1QLCibIOZroBUv9/nxbXukoDbSC
-	ts45G1S6PWbzH3PH/3tCKnFv9o4AVVVeoIr6Dm30xzxmaF/+gbEpeEyOB0L6GYJsA07C6pXyErJ3S
-	f5OPNjY9yCQx29Xg2+H0Mpac1Rd4mXF3mEDLacuFWP7ZeKbggSyadj5+KFyOHJEXy5ixAXf0NmGsW
-	DEJyCD/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/wHJSL8csboMYxIPrt9fIoOx8qVsPB687MZL7EWYIGI=; b=dz++unX+Pf/3iG+THycTP6QPpP
+	NHZOoCNlRX583sMhR9uXDQrzsyb8EuulrfD27j+RXCBKEaaXPmx+aZpgWApoEP5+iB5QLm4MBpsAm
+	H4QVRnuXop1sf9plPhC5djZIHke/CFqg+m3xF18mgQJ8+XbgCHQ07moPJo4492T1/8tQrNcoD8rra
+	E37/pkPTLHXocFCtG88o+m/NIXCugW9ty87p7XfvDelsd1q3s+tFz0r0WMi0z4WQAjH+5q/Qz28dG
+	gJY4WPHYxp8bXDn693Ke4GKieztNyZOJ+r3MtbxXb2fLVzlrL/tt0tMKvyXxFvpwXFvmwG9Q5Jhij
+	0nYClvtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x67En-00000003u59-1vVC;
-	Mon, 14 Sep 2026 14:00:49 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1x67Jr-00000003v2T-3JJk;
+	Mon, 14 Sep 2026 14:06:03 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x67Ek-00000003u4S-1nnw
+	id 1x67Jp-00000003v1V-32A2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 14:00:48 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-48586861639so1348761f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 07:00:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=kernel-dk.20251104.gappssmtp.com; s=20251104; t=1789394444; x=1789999244; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=C8rQ4wEtNnWG7AMNoujj40yCkBU87VJHpgDk71+5KS4=;
-        b=eMEXESFB9UI2P1K1gIoQ5irDY/UcKR/6iOxGzvDKEFo5DywVPeX9Vn696zTanDPLU0
-         nXUoYGoNj4cXrUR1KTnc80kgTCEVSq3amua+kJNKM1QQPeNw4v1cFril7W04V9yQ205E
-         TJGg/6qf7nNmR/GEs9TAkeEpw8qjgCcXo0Ow1m6FBJ3rGSJwUDJiRj1tg+M7eLiGO1uK
-         su4+VSqHvdTH8V82pPOklYJwc8GRVL/xh/+Q1b71Iqjse0Aors2lctLJjlQehBVk7r3b
-         YvRfAYijv758hcQQrYJmlozOYxJc+CLWwGHE36rT36zEAYpRxV7hgp99DkacLqPT3SrF
-         r9Hg==
+	Mon, 14 Sep 2026 14:06:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1789394760;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=/wHJSL8csboMYxIPrt9fIoOx8qVsPB687MZL7EWYIGI=;
+	b=Y3vbWeUg0NEfll1P3FDzMjK591IeXhPculxsYO0ZzugANtGawDAKQaen4P7D/ywwW9IZii
+	NuoF/pzchU0qTJEK2yPD3/LYnkT9z9M+yf1YgCrU+tSzRjUPVXHqqUAgP76XiXFW6XG3v2
+	6lhCJKSdeeFzn5YnrwGz6lOEPel314Y=
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com
+ [209.85.222.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-249-E8gyKGkPNq6aRvRrtcO5cA-1; Mon, 14 Sep 2026 10:05:58 -0400
+X-MC-Unique: E8gyKGkPNq6aRvRrtcO5cA-1
+X-Mimecast-MFC-AGG-ID: E8gyKGkPNq6aRvRrtcO5cA_1789394757
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-93a0050a554so546401385a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 07:05:58 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789394444; x=1789999244;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=C8rQ4wEtNnWG7AMNoujj40yCkBU87VJHpgDk71+5KS4=;
-        b=Uczsv7Yt6InOXrtSThoP6k79YQE9IwE8kw/xsVQybg1/zeeMkA3VcYONMsP7tZey/F
-         nFumha4WizZuSk1C4RrnJqF5W/EnzaMwvoot5l5YWy0saT0MVEc/w3ZRH5BkqqL34rDS
-         0GngxrvgWB8HLrujofJ3xCoZeqQRIMnGnP3emAN1tygKl29vqu2wUmY3TIVH1xlnSTEe
-         B5DedDbqk42qo00C6fAYMj/515YFfxKwiLpe+rWr8QBJi7t1eGR6lFEYKnXcc8JgtYrO
-         /umPdSacen28mP9sF+NRXzdcftln9fRTG9Ay9yZo9Bw+B0eiGETsTd8Y2KrgqGCYl3aV
-         b3Mg==
-X-Forwarded-Encrypted: i=1; AKwUvBxgJzDeEtt7tfE5htiB29pLVjUCgvW5PS/3ssud2x1gsOMZCrNtSuh4BqMvNo3oKhck5ac00A0GDevNDq2JS39u@lists.infradead.org
-X-Gm-Message-State: AFuF++mQyyIWq9XnUuHUvuwirq3ATVrjcr8FikDoy894T4hiQXQq8nzl
-	Na+npzYLk3WizA8PSY/l+meT049MObAHjRcpDKFfx8myff9fx+7GkZcfEiYb/aq2ZKA=
-X-Gm-Gg: AYBFou3oOkVTe+/TlrSxGZQfQ3gPVea+aEyu35EmZCXoa3EJs87K6GeFzE32eRGEepc
-	5+JF5yBW+OaXusjAfmcmzgz2vJPGpVWJEYNz+4MqmWozvKqD6/duNCW7bC3M0aqSXIA6acirj4g
-	Ulex534dbnAsyF7yAuxKMn4e/i0D6WyjpwQUf7oytgbe7PdH7oE4ODrXwjx282gmRSsPiZqxpYW
-	ubXEYtRrfyj9SNpICJXAM0zGpY02dm3Ja0Z/RPq3lK8U/F3z+0OtIwRqkSRPM/KctOUJSng0WzL
-	3gP815ki2n/uljucMoAXqq+Z3w9Y56HLBbYVK0MHcvRixGwCpsCwMF+8wYEhHO9PCqVjkIB4CzK
-	5VF6So178j4OV8ns3pkMqiFFaJxt6K0tQk5R7oqJDNcUFu01UTsVn0675/laBcA6pVehrAHSu+/
-	KB1jkfnbgKiEzwBuggg5eB9t+7O6PgbWLVjVSKujH1GD6QTWumAs/F1rs4OIBAFeYfadU+VOBO8
-	y9vqA7La0GOAfIq3b8Te5QkFgpHYeBUmHzXlPJy9wEgcDQFBy2aifv3sWwvMkBrGfrPEJsKC7Fx
-	zGFGkpt/F3UNCgw/jsgMcVh4ag==
-X-Received: by 2002:a05:6000:480d:b0:484:361a:1c7b with SMTP id ffacd0b85a97d-486fc960e59mr8495354f8f.7.1789394443934;
-        Mon, 14 Sep 2026 07:00:43 -0700 (PDT)
-Received: from [10.160.16.196] (150.red-80-32-100.staticip.rima-tde.net. [80.32.100.150])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-486eb32e81asm28641670f8f.7.2026.09.14.07.00.41
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 14 Sep 2026 07:00:42 -0700 (PDT)
-Message-ID: <73837a51-e163-4b4e-8be2-4cdc044393b8@kernel.dk>
-Date: Mon, 14 Sep 2026 08:00:41 -0600
+        d=1e100.net; s=20251104; t=1789394757; x=1789999557;
+        h=user-agent:in-reply-to:content-disposition:content-type
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/wHJSL8csboMYxIPrt9fIoOx8qVsPB687MZL7EWYIGI=;
+        b=llFLMHZ0pn1pfHur9Ts5jzkib/adKNgLcKu5ogEO8+EE1faUCeO2fAmDtZnnMA3kYn
+         BgpFsKHFfaCeBa7S4nJAdjOZiMgT0GfDj08kIJSN8CdT8cl/bQ+u0a6PIsOjr4W5tUPY
+         D/FGE3Ahgtgnmj4i41ptOv0+FyLtb9sdVbJRbARuO4wtDeqV9RkoGlcZX+Op80Fsi5ps
+         gaSI8opfLfdq6wfhsQEzp+4cZ996zbGkYRVtjZedK/0CK3Wxv5GjDK3qRolcT01dEPBT
+         sZYtUm3+Z1tRo7AJExabanNiRlzhx5H3yr/4/UuOgDExTOk1YhcBPiAg8fYA/PO3bY9v
+         3FgQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzgdrFRWk6v7nfDd4HcDvCehofsnl3zLO4Ry/VOPyyVW5slbjFGWCh5qr8Je2rUItTn/SwnSyQGCktM3uA46t0V@lists.infradead.org
+X-Gm-Message-State: AFuF++lK7e/HqLl2Ly3hzzNLI8ifjMUfIsBDGDAv6LHxjP7CX+2F5N5C
+	pBQaGdAo8HA0OPJ2HoIhNGxxi8nybdCKWT3oMYKNAC/pKLCULS8AoRYRf4Dpaiiw5sk8JN8hsnF
+	o2mc1rqgXcweqCBpH03idIyt4+zMkoRJaqGde9om4jg86dRyjHLyPx+fzTRWL2uO6y6n9VL9H15
+	ub
+X-Gm-Gg: AYBFou2fkVhz9UZ3SAp85FIq6d1IWC9v1q1Z29MNMQnD2y8cSE89x/hWzdemiPd+/xA
+	s+DA5D8FE84G4VBgUfEpHuyMgJjj3wTJen/9qG9KDFxnfWQCB7UMBXhRJazFoI7DtIslhPaxT+G
+	SkbTEPr+Z7Ug9bDkfpOLKPUMK6lOjZgjQFYc3d22OBeudqHTJxmUKiG7+B4PZs9KW8GzCfZEQaB
+	3KLqLGNTNUxMS8jnR2kfibqQylOIauwDvP4To1JlEefzVwPjeZ5tahvGQg5uX1oKHeHeTcNuGPY
+	VO975VGbwp+N2zBJbUF0EG25xa1omH60tDNQTxrTud7C5MCCLa5NysHAVrTWZIOuuAHtSszdfLo
+	dNhAiI/Ffp0XwPBLrQHkP3Yzg9DzieqSm/1Y=
+X-Received: by 2002:a05:620a:1a29:b0:939:6ec8:6928 with SMTP id af79cd13be357-93a2985d5c8mr389773585a.16.1789394757368;
+        Mon, 14 Sep 2026 07:05:57 -0700 (PDT)
+X-Received: by 2002:a05:620a:1a29:b0:939:6ec8:6928 with SMTP id af79cd13be357-93a2985d5c8mr389765885a.16.1789394756851;
+        Mon, 14 Sep 2026 07:05:56 -0700 (PDT)
+Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-939ed67a93dsm906151985a.43.2026.09.14.07.05.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 14 Sep 2026 07:05:55 -0700 (PDT)
+Date: Mon, 14 Sep 2026 10:05:53 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Chun-Jie Chen <chun-jie.chen@mediatek.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Edward-JW Yang <edward-jw.yang@mediatek.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Chen-Yu Tsai <wenst@chromium.org>, kernel@collabora.com,
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Irving-CH Lin <irving-ch.lin@mediatek.com>
+Subject: Re: [PATCH v4 00/24] MT8189: Add support for system and base clock
+ controllers
+Message-ID: <aqf_QZpOIj-170Am@redhat.com>
+References: <20260729-mt8189-clocks-system-base-v4-0-e356b813a64c@collabora.com>
+ <amuWdRD-TBQtFT_4@redhat.com>
+ <1f6bdf69-c3fe-4e1d-8ff8-0e36d9f4e063@collabora.com>
+ <aqf6NH-xrMtCQppv@redhat.com>
+ <f2bb7446-bfbd-4598-ba95-d9561a4e132b@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 04/15] x86: implement thread identity handoff
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: io-uring@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, tglx@kernel.org, mingo@redhat.com
-References: <20260911154148.644489-1-axboe@kernel.dk>
- <20260911154148.644489-5-axboe@kernel.dk>
- <20260914114656.GC3500130@noisy.programming.kicks-ass.net>
-Content-Language: en-US
-From: Jens Axboe <axboe@kernel.dk>
-In-Reply-To: <20260914114656.GC3500130@noisy.programming.kicks-ass.net>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+In-Reply-To: <f2bb7446-bfbd-4598-ba95-d9561a4e132b@collabora.com>
+User-Agent: Mutt/2.4.0 (2026-06-19)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: yKMV_e8KGZrJlmUcF-eigJA84atwU79GXog8fse2P20_1789394757
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_070046_606421_84E9B7B6 
-X-CRM114-Status: GOOD (  13.23  )
+X-CRM114-CacheID: sfid-20260914_070601_853943_15843896 
+X-CRM114-Status: GOOD (  24.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,28 +128,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/14/26 5:46 AM, Peter Zijlstra wrote:
-> On Fri, Sep 11, 2026 at 09:40:54AM -0600, Jens Axboe wrote:
-> 
->> +/* state bound to the task that neither side may have */
->> +static bool thread_handoff_task_ok(struct task_struct *tsk)
->> +{
->> +	/* I/O permissions, the bitmap hangs off the task */
->> +	if (test_tsk_thread_flag(tsk, TIF_IO_BITMAP) || tsk->thread.iopl_emul)
->> +		return false;
->> +#ifdef CONFIG_X86_USER_SHADOW_STACK
->> +	/* the shadow stack is per-thread and would have to move along */
->> +	if (tsk->thread.features & ARCH_SHSTK_SHSTK)
->> +		return false;
->> +#endif
-> 
-> Distributions are having this enabled, this means nobody will pass this
-> check.
+Hi Angelo,
 
-Ah good point, should be feasible just by swapping s->shstk,
-s->features, and s->features_locked. Traveling right now, but I'll test
-that for the next version.
+On Mon, Sep 14, 2026 at 03:48:20PM +0200, AngeloGioacchino Del Regno wrote:
+> On 9/14/26 15:44, Brian Masney wrote:
+> > On Fri, Jul 31, 2026 at 12:04:49PM +0200, AngeloGioacchino Del Regno wrote:
+> > > On 7/30/26 20:22, Brian Masney wrote:
+> > > > Should there be a new MAINTAINERS entry added? There's currently 221
+> > > > files under drivers/clk/mediatek/ and there's currently only one
+> > > > mediatek maintainer entry:
+> > > > 
+> > > >       MEDIATEK MT6735 CLOCK & RESET DRIVERS.
+> > > > 
+> > > > Is there anyone from mediatek (or elsewhere) that could act as a clk
+> > > > subsystem maintainer similar to what the other SoC vendors do? Help with
+> > > > reviews, send in pulls, etc?
+> > > > 
+> > > 
+> > > I may be able to step in, but I have to check if it's feasible, time-wise, on
+> > > my side.
+> > > 
+> > > Though, that won't happen until mid-September... because, well, I'm about to go
+> > > on holiday (in a few days from now).
+> > 
+> > I'm checking in to see if you would be willing to be clk submaintainer
+> > for the MediaTek clk drivers?
+> > 
+> > Brian
+> 
+> Time is lacking
 
--- 
-Jens Axboe
+I can relate...
+
+> , but I get that one hour from me is more than zero, which is
+> a good thing.
+> 
+> Let's do it.
+
+Thank you. Please send a patch for MAINTAINERS when you get a
+chance.
+
+Thanks,
+
+Brian
+
 
