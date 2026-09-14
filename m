@@ -4,97 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86B29C88E66
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 12:39:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EA3BC88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 12:50:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O/gngp4hf+LLp5p9T8vhJw8mUWabD83UKmDRD05jdnY=; b=pEH1Wzg3l7ZrNc0tLMDZt9V5qP
-	DgvY7Chs3XDz6HRCInu5RM0mwUUF0WdpUmtpO7lYVbB/aJvbve4FZa/FIn1t0r9hAU97oUOTmBW7M
-	tQ5yhesWtdojorHquhmsmxcGeFPwBcXfpPTtCo0ijrme10yxw0iBnKTwJTeEob88HdPqt0kl5cF7L
-	C0BGJC1om0/eEo/m2l0UCg1IAILnizPXbvXmt5dVIlunbiZoZRLs5evAKLsXRAlz2pdACv2SAWdkc
-	7lGQX6yL4W1i9kBkCi9jTCTw23QIhp1ymoSfFdEvxX6PkiQQGLMs8L7w5Y0HF4XPb+g5ogoKMkqRw
-	8sfNx9iA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=W+9q6jhFAEXAqhIktemGbHT6o3/sofXbUrP7eHdZqhk=; b=Q72/9gWQ+onVL/9kE+hQpiHUXp
+	9zt85VmzGaBXoerJFWIsCkCcoJOmr2uyINd4kY8IYAr1opn8ZyC1NBnnGaRPMaKzP/QKXg1yTNtxe
+	dyqcP8CD0+PkbAFhfXAFO73iE+OCFIhyEBx71VBsZ+kd1vBvEyX0bqZ/TrBzq5XEg3yMc+6KiMHxQ
+	1Gwv52K9m+xeW+hdMDMXe59g/udwZnZCGsssKj4yqsO39ShxF3zBGjxmVdQuSYVbTtpew9xn7TIFS
+	nHPGyExlb3ODdQ4fxPUy5DVkx/ox9swBF6YGj+YTLntrS2vcYAOY7X6DUOjv8nL5NqEJZyM7Ot2LB
+	dq9H0YUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x65yR-00000003aqf-0DBN;
-	Mon, 14 Sep 2026 12:39:51 +0000
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	id 1x668U-00000003dnz-1UUj;
+	Mon, 14 Sep 2026 12:50:14 +0000
+Received: from mail-northeuropeazon11011053.outbound.protection.outlook.com ([52.101.65.53] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x65yO-00000003apw-2hoq
+	id 1x668R-00000003dma-08vC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 12:39:49 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49ccfd61ecaso19005255e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 05:39:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789389586; x=1789994386; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=O/gngp4hf+LLp5p9T8vhJw8mUWabD83UKmDRD05jdnY=;
-        b=N9SSkecekyfMXoROWJZigaIvsLgLX8gWAKLKtk0W0CXJGRUd0um8zi9n6murU+PXVt
-         E8ct2yjwlWvtT1cG3J0+otQ40Xc5YDCcuDNI/3OdhbGUgxFGCdxjHT8thl6+PP+HUJQN
-         yeXk6WkGX7pCQessUC+K5AFDSWyzwoB2YsCo3bnToGSgNsjyyOODeyAmBsSCdmurbKx2
-         xZeWe410yjkHT014JVDeLqEx03nVJa/ktEEgM4bgAMMJf/BI7+r26MzZ0VXmV/Wwzc5a
-         Ws/Vvz1IaXZme2EMcbgFa4HKDmg152nVImARVLKgrDZYEoVZowvuINiM/GPpFKRtxuSF
-         +Ung==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789389586; x=1789994386;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=O/gngp4hf+LLp5p9T8vhJw8mUWabD83UKmDRD05jdnY=;
-        b=YvmTS5Ekmhx3X/Tv2I5K0V9w6qowFH5yQFi3qi/frQnKdHI7NuPJ3IHQr88RtHjzpt
-         2Odm4B8gQCBTLFchn8DBREdzPhckUhZpdTMB/LtR4AbT7+6gfDKryHjkTIMh9CdKDsi8
-         a1fqDdUpohj98QN5YONSadCxRmBzsiHFz+Et4Kck7u80+Whgrp1zXL4yIHrduaveuz1e
-         9RigRjLxbaeJyC2EuVzFCkJCp2QOWGimIzlzTb9dnmKqpAXe0sfRG2ow/VhYZ7N0uoCI
-         C3MwpYpTkX8ED0f2gngaGlEQZyU6l1tyzqg9+l02JWTBvmnTdeXGrCR8t6S8YKzSU5OS
-         lukQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwX+fZHo70G6JiVq169DsFu/aKPUd07+znmNPdl0qf60eSlZqkz7h9SIMcXMzGRyg0eHb2YKKtlyltHO5hgMUHS@lists.infradead.org
-X-Gm-Message-State: AFuF++mbjz3W4SYMbl1cykVnLLjTYGWwWCseLgNuJOxB+yzrNri1Nmgk
-	IfB/IDzcB8E4x7LuNB2/GN6hSImBnDYrnlLVPdONroxrya97AAIZ3D86
-X-Gm-Gg: AYBFou3nklB5ufW/51IFtn/UWNLxapp3/xqnIGuZxJfed/e59/BI7OXOVN4rrXCMfI4
-	ZL7kE5H3J1WjLHaXpQ2kavzHOZ0B1BBBcAoI/ypIgJdMl7EribJ+J1j0FZwywbk5/kybsysSMFY
-	Tmx3rpn8TNdzjumvMfLBQuMG7M6WV3AzxvMQQtlIfZSWYPAt42UwjfIW5KnKCHRNkAzkZQkWApz
-	KaPitJZFXFihwexLPZnzKMmaqvUTKvvIvsx9djT7njiNWUMtVIPciCmCkBnwrh/8X7TNyCyQsDM
-	ljP/m91xgV0qjQ7/iKd3CMc3EArEvV1JwOTyITLStfzyOpvFzvSW1zouM01oAUne1YgcA9svjFg
-	xZn7fk6CNbEHJ15iDu/4g1UYtvQY3b/Kl5lCqSN+YmI1DWv3m+p+x2NT8CQU+/OEBNISN7czHHy
-	hqHjmirbt8Ff2AcHiVE3aedKgpKxdqG6bFa4C2zoSGCejiHWXRaqzANRJXoODLN/huPjOMleGRt
-	HJ7
-X-Received: by 2002:a05:600c:4f41:b0:49d:38:afce with SMTP id 5b1f17b1804b1-49e7a6868c0mr31405635e9.22.1789389586006;
-        Mon, 14 Sep 2026 05:39:46 -0700 (PDT)
-Received: from deb05.proceq.com ([213.160.61.66])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-486eb34f353sm26035194f8f.26.2026.09.14.05.39.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Sep 2026 05:39:45 -0700 (PDT)
-From: Mehmet Fide <mehmet.fide@gmail.com>
-To: Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>
-Cc: Dong Aisheng <aisheng.dong@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>,
+	Mon, 14 Sep 2026 12:50:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Z3IgG8pE2Gi3E4svLC9YsTsgt85nasZDhdyraKIhiha08eNQZD6fbn9CFTrC2Nhf6enuyWBmd5BpdVWuVnHQP8rrKYVUQaVP7WkJtl8TYayV0gaIHxFwAraVn2FCU6tWSgSpReRedpreJBno5CpmYc4SAvXoVEO6+zE3fD76X9B6L/a++KxyUPXYTnlfTHQFguO/97ApDg5KmJRfSykZUFKtMIE3E18aihSUnpbx/FkCx8U6SctHKterdw53TerGXSceYvVUkhIr+OT2r7AhVBufTymubgpFahRz84XyT9xWD/z1rG8drpv4JGsvQeH0kuSvwnlckn4J+1yo79kBnw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=W+9q6jhFAEXAqhIktemGbHT6o3/sofXbUrP7eHdZqhk=;
+ b=KK7IwSoUS83bfZaRQtZZMwiullTlpZ9Pg8N09KnGs096QO9Gri3lf9MzWIHQQk+/dExThBFl9rO9ZiujjfIQvU2ghhJFjpKeU5cpohpJDfgyHU82lmFzy1EGJJDT0NpG/PkRBJMTZUofbB91Ekx6qn9ecZasysC+hTJs16rCOKQgbMBJerljveeh1Pz6zefIj4iU9laIkh7cW4nVaUDEq+EIUtpEXQ22wIosJ770OnsRQ9aOYzv6dGzlp84R4r+UlhKTVl7sPyLlLC5xKUmZTrn0ln/KEnR7YQMwqUxJWUszdB/n9h6X7zkMzItXyfkwCpPiS7OiLs+3VhL9DqB0xw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=W+9q6jhFAEXAqhIktemGbHT6o3/sofXbUrP7eHdZqhk=;
+ b=kuUwcKtNrmk0ezsfzQ09XYh4OEwoyyE5ZMAJFFnGmLhm/SNbmaYTjzdVaC3DHQD4ZlmF7iQNdp7jDFlEfXWzy05y73beGVgy3a2TeS6cLuNrkBHsACt42+V7GgZdO1YbVDAP2uJO8LzU7DGzI0ydzrRJwBoC71/Q3pXehHGCOyQIXWtya6jKy5i03gBPvGCODyrT2hWCI66RbAZxggb0cKwbESIRj7OhO/tsnW0f0bdZS6dcr873T/zmY4/QXD/bXgQI5pxbxMqJsETAfh0Y/mbMNqfmwG4fwmWmck57VvI5LrHkAeBydpEuF+h/Fq3aSExYcZ1+E2wPgIumvezoDA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB12558.eurprd04.prod.outlook.com
+ (2603:10a6:150:368::10) by AM9PR04MB8971.eurprd04.prod.outlook.com
+ (2603:10a6:20b:40a::5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Mon, 14 Sep
+ 2026 12:50:04 +0000
+Received: from GV2PR04MB12558.eurprd04.prod.outlook.com
+ ([fe80::cd9f:102:ea58:4c49]) by GV2PR04MB12558.eurprd04.prod.outlook.com
+ ([fe80::cd9f:102:ea58:4c49%6]) with mapi id 15.21.0406.007; Mon, 14 Sep 2026
+ 12:50:04 +0000
+From: Larisa Grigore <larisa.grigore@oss.nxp.com>
+To: Larisa Grigore <larisa.grigore@oss.nxp.com>,
+	NXP S32 Linux Team <s32@nxp.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Avri Altman <avri.altman@sandisk.com>,
+	Bart Van Assche <bvanassche@acm.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Frank Li <Frank.Li@nxp.com>,
-	Jacky Bai <ping.bai@nxp.com>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	imx@lists.linux.dev,
-	linux-gpio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
+	Fabio Estevam <festevam@gmail.com>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	"Martin K. Petersen" <mkp@kernel.org>,
+	Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
+	Ajay Neeli <ajay.neeli@amd.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Pedro Sousa <pedrom.sousa@synopsys.com>
+Cc: linux-scsi@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Mehmet Fide <mehmet.fide@screeningeagle.com>
-Subject: Re: [PATCH v5 1/3] pinctrl: imx: answer OUTPUT_ENABLE/INPUT_ENABLE queries from the pad register
-Date: Mon, 14 Sep 2026 14:39:44 +0200
-Message-ID: <20260914123944.149806-1-mehmet.fide@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <CAD++jLnmgKrmUnyCx8dq9yFuJxx68Tt-3XPz0WRzOO8F7805OA@mail.gmail.com>
-References: 
-MIME-Version: 1.0
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	clizzi@redhat.com,
+	aruizrui@redhat.com,
+	eballetb@redhat.com,
+	echanude@redhat.com
+Subject: [PATCH v2 00/10] Add S32N79RDB UFS support
+Date: Mon, 14 Sep 2026 14:49:50 +0200
+Message-ID: <20260914125000.30812-1-larisa.grigore@oss.nxp.com>
+X-Mailer: git-send-email 2.43.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: AM9P195CA0026.EURP195.PROD.OUTLOOK.COM
+ (2603:10a6:20b:21f::31) To GV2PR04MB12558.eurprd04.prod.outlook.com
+ (2603:10a6:150:368::10)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB12558:EE_|AM9PR04MB8971:EE_
+X-MS-Office365-Filtering-Correlation-Id: ec603e7b-bd40-4f6e-afda-08df125eb299
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|23010399003|1800799024|366016|19092799006|921020|11063799006|56012099006|10067099003|18002099003|6133799003|3023799007;
+X-Microsoft-Antispam-Message-Info: CE9Hb2oyiY65MhpGfD7etJBf+W78tUwrOvmSawAYHjK6AhYE4xbH/jdD5u7zmOq9ILP+HD+1JmHisz6r8sgSblvZkT1ZGG9iyZlyzXMV8lktjxRnP5XA9ZwEi1EUn1FHF9/1rWnO0sE9LL+qdMQ2Pp2xFqIrjvxrv1ak2b1t8P2knM2A2L8oY3D1wSdCABVHMOKcWqgDdu829awpl4Di6ole223+9fjcG6xyf25+lear9boraj3mgoBXCmtyH5Eq/hkoPmZPfHGaYmEUutz3vLKqy1pPXcO5z9t5Ro1Q2+qUXAFaeYMpaafh/D3402JUcL48dTfocKkzw/3DU7SzGaPpjFP0C3wYfri3aT+anG2IG9YEsQVfi2ABTptryR7elqXkXfhR+BmRX4Aev0TZjuELGIRp273ZolZ/3wBVQOG4wfu9a751d5p5jRDswy6kIiyIlk0OcYwJDfM0e3XQDvONeQ3eYEqbmOZokXTO+nBmYLW1O+V+0bcKG+1hHyS49FpWh+7GN7jLF+KAHZrsqMg92O7AzOn8Lfs15c2fyynCeU65Xdj2n3Z6IoEdAz0no492rosppoWVDBEvkutUw/oB90jvsFcNw/LAA/zQUWW1BfA9AxZsc/sV/ivdvfOIfrJ+2UXFQZkFAj/2brJa7izgt0jfmZ+3Zg3e6ypqc7mS52Tf8SRJ+S6qIZK/g6dswZ34u8dPR0M+inKERmNgxw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12558.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(1800799024)(366016)(19092799006)(921020)(11063799006)(56012099006)(10067099003)(18002099003)(6133799003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?b1BWYjhlMGZ1aHJsL3RqRm9takF6WlB0VWc1K3d4ZTN5M1puSTNTN2RKbnZv?=
+ =?utf-8?B?QS9tbm5hcGkyUGFsWEd5SkxzMCtuTnYyNklhS256Z2dWUlhQTzMzY2t2bWZ5?=
+ =?utf-8?B?bzFORkU3am1zVGxaSmtLbkhudUpMSlRHVFBROUhBUUNuYVBaWXBlK2Mzajlr?=
+ =?utf-8?B?UUJOdGhVM3BpV1hJaldBY3BSeG1ZVU9rRTFzdlcxNlBhakh4dDNWWjFjQ2R4?=
+ =?utf-8?B?K0MxRGtqa0d0OVM0LzRoRDdwS3EydnFCS0JVR1BKKzF4dTZoTzFhbVBUUkdu?=
+ =?utf-8?B?MFpwemxyV04rRHdubWZOSmgzUG5oN2NXTDBWNHh1MkR2Qi9idUJKVmJhYUls?=
+ =?utf-8?B?cHg5djhZZEZiNk1YODZhZFc5NDFxSElpdTdrNFdwM2ZlSHVtZXFZMHdDTWZY?=
+ =?utf-8?B?MzFOTnQrWUVDZkxEZHp6T2hXWXQzWm1ZY3lrL21Wc0RjNHJJc3dUL2NkaCtr?=
+ =?utf-8?B?TmhGWUVsOFk1Tm5hYTRyMnhuMm5IWktVcWRmZDI4K2VmVFVVb2dER1JRR3g5?=
+ =?utf-8?B?M2ZudGtPeDZ4K1FuanJEdnF5bjY1K3J3cU9QMkRMejQwdTltSHQzLzBvWnZR?=
+ =?utf-8?B?eHpSR1Bhem82a3dDVXBvWVdFdlEzL3UwVFk5YXhIVGJFYW5meWVvdnFRLzhP?=
+ =?utf-8?B?UnRQWFBPM1AzTFIzMEE1dGZHMkE4WVNnUVF6Wnh2N2s1dlVwSUJOajlkSEo1?=
+ =?utf-8?B?L25YL2VUTHNXVUl4SWpZbzJBYW5YaHRKaEVLWVNuVUEzUndkL2JUKzcwS0xT?=
+ =?utf-8?B?TElLNk9EQWFkaDhiK0FaSzhuT3Y5aUNWUG9YcU0wYzB1UzlhK2d6dExweHlG?=
+ =?utf-8?B?RjhZck5jKzFZVzRwT3BFZHB6TnlWU0dycEtxOFBOZmU1T05iZW9IdU1Sd1RT?=
+ =?utf-8?B?aTZjWW9QbGQvSTVROWFtT01PL1Q4SVluWkdIYmNYbHNzUDJWekdKamxKd1Jy?=
+ =?utf-8?B?Mk0vM1FFeTVRZm9mRzBhT1JaanNFVE5oaXZhZ3dGbjRJblJ3WEJKWStCYjFr?=
+ =?utf-8?B?Q1FDOWcyZ09TRzZoamdxQXh0cDBJWXkxNTdxUExNa0pWYkxoL1lTcSt0WXk1?=
+ =?utf-8?B?RzRUa04yYVpEZy92ZzRHdlVLa25ZVWZTbVJlQ0NiakorUWNBbllJd25TSDVm?=
+ =?utf-8?B?MjlIdlpQeElnc1NuKzNoS2dJSDc5a09Rd2t1U0tuS2xzZTNaalh1U3p3MjJy?=
+ =?utf-8?B?NWxwNDl1anZONW5PYi9GbnEvUjh1ck81UFFKMkF4ZVBnbFlVcFQraDlVRW9m?=
+ =?utf-8?B?ZGljUno4aXpXWCtYdWNLZ2FpaHQvU3Brd2kwc1hGcENYV0NScEdGWDlocUI5?=
+ =?utf-8?B?Y01CODdORXdWbitjcEw0aTRSMU5TLzdUb2xtZkFnN0w0cUFpazBHNDdrMzZN?=
+ =?utf-8?B?VUJSSXRPbUVVdTBjZ2JwMENxK2JDN2hrK2YrZEVHeDJ4T1hURTlaUGZuMmpm?=
+ =?utf-8?B?Qk1UbTV6YkJFMks4eCtRU2F4RlFnMGlVZTNQVUI5NmltWGM5ZUU3L0tYc2kx?=
+ =?utf-8?B?c1BveUpBVENIR0JXZWZhaHFIWGlpSmVjRUZjVEhKbTVGRDYxdmVmYm5sSkU0?=
+ =?utf-8?B?MkNtVlREVWlrN0RhZk4xbml1MGVIMENscXc4YURSMTBpa3M3SWtzOFhFNWtE?=
+ =?utf-8?B?KzN6M053VzBjemgxTkdGMlNIdndwOWR1VEdaOXFKK0xsRlgrTG12SEhjYjVx?=
+ =?utf-8?B?VFM2a04zQytVbnJ1bk41b1k2c2hMN2lYK2d6N1FWRldzMCt2YU1kQWZPdnlG?=
+ =?utf-8?B?N2p2WjNHMjdaZHBjNTlKc01ZQTllRFgzYUh2SmdTd0NOQVc3MWJaYU14MU11?=
+ =?utf-8?B?ZWFSMXp1cmZzeEd4bEYxNllVZWZwMytNQ2VDYnRwUWFkZXlaWXd0VWFvSExG?=
+ =?utf-8?B?ZG5hcWxabEVXaEcyRzFwZ2hLUjg3RGlpVExaYWFEMHFkQnEvQ3h5Z1NMbjRR?=
+ =?utf-8?B?eTMyUVRVWXFKUTQ3a3VwSjVFRUIzZDIzdHhDTFh5OG9BZVY2S1ErVWRIUFUz?=
+ =?utf-8?B?UjczQ3RqNDNIUFFWaDd3eFpvekw0cWh4WHV5SUwrN2xCRy9wZE5NMyt1bVdF?=
+ =?utf-8?B?cDJGbmpMcHc3RkRHblp0U3VWUllQNFJpUW1lOGgyTWVFZlhoWXNmYzdNNWZp?=
+ =?utf-8?B?aXFVeVlUSGhjMURJNm8zc044OEFHSUlTaUJ3aEhpVjdWQTh1QllPMjNDQUs0?=
+ =?utf-8?B?T2ZGYWo5VHhWbmlRSzR0ZFZZM3YwU3JVUnB2VURuejJzdVZaSmc1Y2t4TlNp?=
+ =?utf-8?B?ZlNoVmF4SVRtb1RWcWJPTjdtUXVDUEV5Mk0wWGViL05Ic0NoSE5kL1Z5MFdB?=
+ =?utf-8?B?b3poQWNoRFJCWld3dUE5Y3V0cUxBeXhVajRZV2YrTWM0S0srQ3dtZz09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ec603e7b-bd40-4f6e-afda-08df125eb299
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12558.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Sep 2026 12:50:04.4756
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: KGu6TELnxR95fZ1IO672ETjBhYYhJsKLFN0KNUMHQPo/AFhQnPhgtLHzEIcutNO5LOdg8pJ1GzOeg//EyVBWxA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8971
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_053948_688878_9F8612C6 
-X-CRM114-Status: GOOD (  13.18  )
+X-CRM114-CacheID: sfid-20260914_055011_091267_71389EE4 
+X-CRM114-Status: GOOD (  19.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,20 +171,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
+This series adds support for the UFS host controller found on the NXP S32N79
+platform. The controller is based on the Synopsys DesignWare (DWC) UFS host
+architecture and requires S32N79-specific M-PHY initialization/calibration
+sequence. It is compliant with JESD-223D "Universal Flash Storage Host
+Controller Interface" v3.0, and supports up to HS-Gear 4 speed grade. It is
+compatible with UFS 2.1, 3.0 and 3.1 devices. The MIPI UniPro is compliant with
+"MIPI Alliance Specification for Unified Protocol", v1.8. The MIPI M-PHY is
+compliant to version 4.1.
 
-On 2026-09-14 Linus Walleij wrote:
-> This looks like something I could apply separately from the rest,
-> can I just queue this patch in the pinctrl tree?
+In order to keep the S32N79 platform driver small and avoid duplicating common
+DWC code across platform glue drivers, the series also refactors and exports a
+few reusable DWC helpers. In particular, M-PHY CREG (CBCREG*) register access
+helpers are moved from the existing AMD Versal2 glue driver into the common
+ufshcd-dwc layer, and are then used by the platform drivers. The series also
+introduces a generic Hibern8 TX-FSM polling helper so that multiple platforms
+can reuse the same pre-link checks.
 
-Thanks for the reviews. If it is all the same to you, I would keep the
-three together until v6 has been looked at; gpio-mmio depends on this
-patch to get correct answers on Vybrid, so I would rather not have it
-land ahead of the rest. v6 goes out this week with Haibo's comments
-addressed and a small pinctrl patch for the CONFIG_PINCTRL=n stubs
-added. Once that is settled, this patch can go through your tree and the
-gpio patches through Bartosz's in the same cycle.
+Device tree binding documentation for the S32N79 UFS controller is included,
+along with SoC and board DTS updates to instantiate and enable the controller.
 
-Best regards,
-Mehmet
+Changes in v2:
+
+ufs: unipro: Move Tx/Rx FSM state definitions to unipro.h:
+- Improved the enum comments. They now cite the MIPI M-PHY v6.0 tables.
+
+ufs: unipro: Add TX/RX FSM state attributes:
+- Added Reviewed-by: Frank Li.
+
+ufs: host: Add common Hibern8 TX FSM polling helper:
+- Moved the helper into the UFS core (ufshcd.c).
+- Split out an inner per-lane poller, ufshcd_poll_tx_hibern8_lanes().
+- Expanded the commit message to document the -ETIMEDOUT normalization done
+  when converting the qcom/hisi checks to the helper. No code behaviour change.
+
+scsi: ufs: Move Versal2 M-PHY CREG access helpers into ufshcd-dwc:
+- Made the DME attribute arrays const. They are now initialized inline instead
+  of by later field assignments.
+
+scsi: ufs: dwc: Export common clock divider and link status helpers:
+- Added Reviewed-by: Frank Li.
+
+dt-bindings: ufs: Add NXP S32N79 UFS host controller:
+- Renamed the patch subject and simplified the commit message.
+- Renamed the binding file to nxp,s32n79-ufshc.yaml so it matches the
+  nxp,s32n79-ufshc compatible string.
+- Removed the nxp,mphy-boot-mode property.
+- Made reg-names and clocks required.
+- Removed the conditional if/then/else schema.
+- Removed clock-names.
+- Changed the compatible from jedec,ufs-3.0 to jedec,ufs-2.0.
+- Updated the example clocks to <&clks 0x92>.
+
+scsi: ufs: Add NXP S32N79 UFS host controller driver:
+- Removed the nxp,mphy-boot-mode handling and the mphy_boot_mode enum. The
+  M-PHY firmware always runs from ROM now.
+- Added a struct s32n_soc_data for SoC match data.
+- Moved the calibration writes out to static const tables.
+- Renamed struct phy_reg_cfg to s32n_phy_reg.
+- Moved the rate-select sequence out of link_startup_post_change() into a new
+  pwr_change_notify() pre-change path.
+- Used devm_clk_get(dev, NULL) and dropped the redundant core_clk NULL check.
+- Switched to *_PM_OPS() macros and pm_ptr() for the PM ops.
+- Clarified the Hibern8 poll timeout comment.
+- Enabled Auto-Hibern8 instead of setting UFSHCD_QUIRK_BROKEN_AUTO_HIBERN8.
+- Reworked and improved the M-PHY initialization sequence.
+
+arm64: dts: freescale: s32n79: Add UFS host controller:
+- Changed the compatible from jedec,ufs-3.0 to jedec,ufs-2.0.
+- Removed clock-names.
+
+arm64: dts: freescale: s32n79-rdb: Enable UFS:
+- Removed the nxp,mphy-boot-mode property.
+
+
+Larisa Grigore (10):
+  ufs: unipro: Move Tx/Rx FSM state definitions to unipro.h
+  ufs: unipro: Add TX/RX FSM state attributes
+  ufs: host: Add common Hibern8 TX FSM polling helper
+  scsi: ufs: Move Versal2 M-PHY CREG access helpers into ufshcd-dwc
+  scsi: ufs: dwc: Export common clock divider and link status helpers
+  dt-bindings: ufs: Add NXP S32N79 UFS host controller
+  scsi: ufs: Add NXP S32N79 UFS host controller driver
+  arm64: dts: freescale: s32n79: Add UFS host controller
+  arm64: dts: freescale: s32n79-rdb: Enable UFS
+  MAINTAINERS: Add NXP S32N7 UFS host controller entry
+
+ .../bindings/ufs/nxp,s32n79-ufshc.yaml        |  61 ++
+ MAINTAINERS                                   |   8 +
+ arch/arm64/boot/dts/freescale/s32n79-rdb.dts  |   5 +
+ arch/arm64/boot/dts/freescale/s32n79.dtsi     |  10 +
+ drivers/ufs/core/ufshcd.c                     |  78 +++
+ drivers/ufs/host/Kconfig                      |  12 +
+ drivers/ufs/host/Makefile                     |   1 +
+ drivers/ufs/host/ufs-amd-versal2.c            |  89 +--
+ drivers/ufs/host/ufs-hisi.c                   |  48 +-
+ drivers/ufs/host/ufs-hisi.h                   |   6 -
+ drivers/ufs/host/ufs-nxp-s32n7.c              | 538 ++++++++++++++++++
+ drivers/ufs/host/ufs-qcom.c                   |  42 +-
+ drivers/ufs/host/ufs-qcom.h                   |   2 -
+ drivers/ufs/host/ufshcd-dwc.c                 |  75 ++-
+ drivers/ufs/host/ufshcd-dwc.h                 |  39 +-
+ drivers/ufs/host/ufshcd-pltfrm.c              |   1 +
+ drivers/ufs/host/ufshci-dwc.h                 |   6 +
+ include/ufs/ufshcd.h                          |   3 +
+ include/ufs/unipro.h                          |  22 +
+ 19 files changed, 855 insertions(+), 191 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/ufs/nxp,s32n79-ufshc.yaml
+ create mode 100644 drivers/ufs/host/ufs-nxp-s32n7.c
+
+-- 
+2.43.0
+
 
