@@ -4,146 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75682C88E6F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 19:56:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41561C88E73
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 20:24:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=URZRINbc2Yoc4mMXiaLq4BFnORAYfz8qMignsRGgJ5g=; b=H8njfoD60IRB71QvPNnR7Y+olq
-	QOYT2DdYMbs947sJYa+TPxKd1N+/g9V1M+e2DLkJU61gEeu0Ns2x9nryVaD0HE0p0fNM3ZU0g2JNA
-	T33bMao5lY2jkJ2h5rCH8MWEOghTCBNvygDwwCQwx7yCqJQlgkBzYDx3Xqn1qutP7lRSe4ftpEYL6
-	3sv6D7GyML1Kup79Orr4SKxDZhWr7fDAMiP7C20bpxn0dDutjQZemGAgAXFKvkdpzB+AsYgJ5kVdt
-	fU3D24o5OLKg+RDii/j4o9IKqMIM7fGCzHd+YGPfTv7ai0olup5IpzK11TJrxl0t9AUeLg4df8U/D
-	9NOq++JA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=szNLjYOWpVIGeVzTm6wu2jNgdA0Q8lKnYCuvZd0lPlE=; b=qdfSHJEbVNfILEOZPSev3e5jxD
+	YiZh8P7giwggeZHoWbbdC/hHFtxL38Z1obQEGcBUrPK38sHaYIbWsY1gPDuMX2y4x/Ex0TKoIgt9p
+	FghBk36ShH73+1pm+jSzjiUIMsHY68qNr1JvU2qdOPcWaHOHPFOjjHlceyokSkfcztfWNN/qZTO8C
+	nVZvahjpmoxMQX/h0esY1cuajYUBBjgCmHfLGRHlbtfzAJVdjCeCkgHZsC9taKzIU5y6BiM9SC+lh
+	cLmg66xcszAulVgbpKB8c7jsQ1pV/BDF0Ro3Z50nXFWIX9k2sdblAvvZJd3ZDR7vBaHsG0yth33cc
+	27FRlqmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6CmZ-00000004Yz3-22H3;
-	Mon, 14 Sep 2026 19:56:03 +0000
-Received: from mail-westeuropeazon11013010.outbound.protection.outlook.com ([52.101.72.10] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1x6DEA-00000004aDd-34ZF;
+	Mon, 14 Sep 2026 20:24:34 +0000
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6CmV-00000004Yy4-0QkP
+	id 1x6DE8-00000004aBL-0RB7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 19:56:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=v5ejb62gr8DlwljFzxE+QbPvV6ngokdiv1epjCexWkU2XZEFfTsxqJKXVveSsU2svZ19gQ8WYbSG3n7p3wrG3UkLSOE2yfkI5OtPZL0De3q+y+6AiiYpfcsQshhh2y/tWtWQiGUUOjvBE7X2cChhtifEqe72gwX6k7ab2R+pevLMqo6jFppMzYoh9b+/Ne9C/UpG4SSAGbkwUj/NN/bFbpS5L1b38UILXxDoym8bxKMAVZDKwufeFh7lqGpCQntihape83HLZxv3VyExR5b0HbT6aIf8h6qOWeSCSYxrmexAHDqPB1lP9bi/toCKJnoawQNhsOGNHaVkk5cBDGtYbg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=URZRINbc2Yoc4mMXiaLq4BFnORAYfz8qMignsRGgJ5g=;
- b=RlKwujX5oKHSUUPXIwTUOwFThMo+OUfTlnzqbiwZ8YdjtELXUhlfc18oz1pTRQP6MKvJVyV8MWlySkGId6BUA2mKpqnMwIw2/ZzxAlYBi18T/hrQqzXF4GbHy8b34T3BIZoip2EU25Tlye74HNJ9V/O0+mH+kWohC1xRuGjJep2aRuGfRSuiMJp/1qx23JSYXE3I3BlRd2tpZNAGXQEhMHYwjBJbAetAU14JXmo8NNc3JRfPnjJr9rmFWAbwU6MdiEV/bdAjCEmI7vpfAxB//2RJuh1SMwTEo9qnGyyeTOrylJznLY0gloyrRj9+tVErLnjzC8fhpv1NasSMG3od8Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=URZRINbc2Yoc4mMXiaLq4BFnORAYfz8qMignsRGgJ5g=;
- b=Cwg68r+XryxKDQHdP9drQ4dYi6JCLKb0oUifKTXmAUruuWJheDQgujfEvg1ITEmq30sfwp8IkIDqfqSeE5koa4sv7v6Y9d0R5Z4L3d978Ibf6DCzkgC6GiO4sTBp1Jw5qpVuVKk/Hqfjy+IC5e5p6KeM6nzh4E3xkEvFACcdb9jW7IR53OffhWhcRUgrOtJIIVVRdwIDlpklODukwslpImxxr0B5b8wCuGqbFtqDE3su0L/dsHTv9VjUdQTWI2CV2vFnm6jEKPUBKQAeM+Wn6mDo+GQyT38yVh4IzrV4KIsin8z/uiPMO/y/u3iyQhjrewrSuuPWLUa/a6ZotzxXxA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by BR0PR04MB848598.eurprd04.prod.outlook.com (2603:10a6:2c8:35::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Mon, 14 Sep
- 2026 19:55:55 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.007; Mon, 14 Sep 2026
- 19:55:55 +0000
-From: Frank.Li@oss.nxp.com
-To: slongerbeam@gmail.com,
-	p.zabel@pengutronix.de,
-	mchehab@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	gregkh@linuxfoundation.org,
-	Rajveer Chaudhari <rajveer.chaudhari.linux@gmail.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	imx@lists.linux.dev,
-	linux-media@vger.kernel.org,
-	linux-staging@lists.linux.dev,
+	Mon, 14 Sep 2026 20:24:33 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-482f633cd78so1259617f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 13:24:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=lex.la; s=google; t=1789417470; x=1790022270; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=szNLjYOWpVIGeVzTm6wu2jNgdA0Q8lKnYCuvZd0lPlE=;
+        b=QvAU9IHcu8XfSOT47V7JLW6ORwiViKdwIjOpuLwWJDKGt/tkQmBwyyEGOlQ04Nnh4I
+         Bbfs1Yc0iGqp2cRzdyb8ArWKPGKSWv8QtvN3bjALQ9ae33Vd+zDMroszv3WGt3bSMt7L
+         2i74ft++hPGhvDAzxUbFrOsYzVFf5deSjnmRiAG2CeRHSyG+4QZ4YtCGs4ym3FxL0+57
+         MnYd/OwvWqNVMx8PhB4O1s7bo8RQwhmXjOIW/sNbyS5OTPCAhlGd0HlN9JOUYNmRnkyZ
+         8v5vjRCksXRS3ZgoWsMi//TWL8YAwtyU2qscVC+miboEpEyCNS4E3tQHo2uh7Ggdgq1F
+         DdXw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789417470; x=1790022270;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=szNLjYOWpVIGeVzTm6wu2jNgdA0Q8lKnYCuvZd0lPlE=;
+        b=vt+sZZCl0sQck/fcrBkYY13i+ah+Cgf01soegXHxPwJUQq3QognSPe56ez/O3cDYaG
+         AbmYZu9VWlOWMmrSPKEc7hPU9BSqpQxbkwltv6Jm7QNZhUV1DSAr0B98FIZhKX/xltiO
+         lN2zq6S85ha5dsX829GTn3L7L16jlxW8fct6atsD+HzhRkZAmAT1OZ8bQ80u/uvXsqAR
+         rr5pjwO+7hBrfX9WE17rB5hK1jor6S7Htasz3OFBePXw917YBS6YkCcr84XJItHOfQe4
+         J23mEMwTcLS01bsDDbZo5d/7x2GJHpn63Dqk01fq3g44H1uBEFl4Sv4cvIUsl47aDdD1
+         sC4w==
+X-Forwarded-Encrypted: i=1; AKwUvByl85d+5zgyz3Per91lW+YgxNWsglxgrmokUy06jZVakDnJI3UsMZYTp02uqN80BrtHUTJLB+qI2RNv3N8qM02I@lists.infradead.org
+X-Gm-Message-State: AFuF++ljawfPK91WJQ8xZtZQ3d3AlHckflp+wZ3o7NSGWUphaWseG7Wp
+	XGh0Ua8x90DtHPoQgX0KU0WGZoCtBb4cBbiFFEBM4GFtNce4yAgDA495UwouL9lxxD4=
+X-Gm-Gg: AYBFou0DeGRm/vD0Xx7281htMFHGbwUE9IAwDrCB5XJ/qeElDzNHVUj0NSBUtImJ1ev
+	uSXpYmD/EY/A5QXxfpHeufdVH8B3MnjIEbE38QVDcXrxZxeaRNL9LUO6pkEAUar/fKk3fMxF5fr
+	5gc39U3tqGRGpG+6rQH+FESr9J8oYeLwY3PtGVj3g2Jzp0GNUyiCJ0X/hS0T8xZKKU9I3qd8ubZ
+	Y1NQO1vNwROm++NR7ceu37Ow7uXrK3fu7Q19hxHMD2cHeQW5FbdoiKtPN+8w6P3/tSccAtzE1Pi
+	FnFBSoEk/9WGfip22jJHPWPcWPN7/1/XDCy3e/3ZqMWMT1mtW/iUIju7P3w+HSkKPFL9u5pZQ92
+	9U2Xi8azArGiQ5Yp/aa1+oChyp0fPjRJwqduH1dLSA8benuY303kY30fP6nQBZ3mZwj/dLsPz8b
+	XM1ryKGnw9zKR2WjMLMPvW4c2yUP1Z4uny92GImhmGpUMkH56ZOg==
+X-Received: by 2002:a05:6000:4282:b0:485:95b7:fe8 with SMTP id ffacd0b85a97d-48702b1665bmr5620151f8f.25.1789417469778;
+        Mon, 14 Sep 2026 13:24:29 -0700 (PDT)
+Received: from remote-01 ([84.17.55.229])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-486eb34fdd2sm29328458f8f.28.2026.09.14.13.24.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 14 Sep 2026 13:24:29 -0700 (PDT)
+From: Aleksei Sviridkin <f@lex.la>
+To: netdev@vger.kernel.org
+Cc: chester.a.unal@arinc9.com,
+	daniel@makrotopia.org,
+	andrew@lunn.ch,
+	olteanv@gmail.com,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] staging: media: imx: remove unused header includes
-Date: Mon, 14 Sep 2026 15:55:45 -0400
-Message-ID: <178941572934.1839134.12278124479118536939.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260211142208.112033-1-rajveer.chaudhari.linux@gmail.com>
-References: <20260211142208.112033-1-rajveer.chaudhari.linux@gmail.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PH7PR03CA0009.namprd03.prod.outlook.com
- (2603:10b6:510:339::33) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	linux-mediatek@lists.infradead.org,
+	Aleksei Sviridkin <f@lex.la>
+Subject: [PATCH net 2/2] net: dsa: mt7530: unregister the switch before freeing its MDIO IRQs
+Date: Mon, 14 Sep 2026 23:24:21 +0300
+Message-ID: <20260914202421.2737079-3-f@lex.la>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260914202421.2737079-1-f@lex.la>
+References: <20260914202421.2737079-1-f@lex.la>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|BR0PR04MB848598:EE_
-X-MS-Office365-Filtering-Correlation-Id: 63bbc87d-b536-4717-275b-08df129a2ffc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|366016|7416014|376014|1800799024|10067099003|11063799006|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: CemNJ5xBJm9Jc0LKEzBODy71XBOwf8lTGGyFMexF3vxJwaHhfRaT5+vejQBcN/eJf+4hp+uQ6eV9VnloFBuicQ9IBO9vblf7CkQGh7DrZJ9GsVbG0mT7TyD6wyq1b6epKGPV4k4M8nmKZq5HN7JikZATQ9K7viPFit7DT5bpzMdBAqi4oUmCei30hFftFzUmFJjiJJ7F/BaohfAMFQ4IS/gxaOyNeBK/dtaCEG7C5O9qaBb4eij7+t6cT3vK9TdSMyaZ2RUY8UTZkDOXuIb5iEotxqAG91JojxlImHI++cuQuCnEJKhyBhNprxuJGplT7oEjUAaRqRkdXxg1r4aqpAv5hA1E22AjWUNZ8bu0CSnrhDjdy1XPTGD/pp95pbdgK53KQOU5+dXEZHuav5OYF2Ok9mT9whrYi4gBMF7mVLnHexwwQwhwSM5H2OQwMcVM/zpMjp38IlSO7V9zOhVOyhi531xo625kLLN3H1WSkrkyG3dJbD3WCMYFyn/VwzaRIGz/blMnUTpMKxdEy6ohwQQlK4c7d65V3fDnXsZbCgt12uH5zrsJW1efcmZVU1QzsDS8fZpr5KO97slP7fbM9nLzyjDkU0ncg9zDGXr43jgw0VFh/up5V2OElsgFFKM49rWb/+FUl14j8uNk//afiYfH0Rv2HvF8kKDruB4Eec8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(366016)(7416014)(376014)(1800799024)(10067099003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Rjg4RFlQUW5xdHl2OHZqVWxGRnNPRTN3MHlNSk5MOHY0L2dHNlJ3UW81S3dy?=
- =?utf-8?B?OU03azBIWTdNazNSeXQyRkRKaHJZQnQ3TmEyQjloZE5TVEhzZ1dLWi8xbkJZ?=
- =?utf-8?B?VktFdmkwMUNBWEtRQUdEYTZheEF6N2lpOS9aNTZTeTRJNTkxSHZtREdLL3BS?=
- =?utf-8?B?S1RKTkFETkN2ZDV3T28wZnNMUDFRb29qVEg4Z1VnMjdrS1BMb2FnNzZFb0ox?=
- =?utf-8?B?RWNXZzZpMlp1aEtkNTFmVXRtQmxibm5sNW4xYUN0SVVUM2tQZXJ3alFMbDM0?=
- =?utf-8?B?UWxERldOVy9zVXQ2WkRJYUV3OS9hTHU1SWhDbStTdmdhdjJENjFROGZhbFRC?=
- =?utf-8?B?NVRtQit2TmVFUXRWUUo4WGJ3a0RzTDNGa1ZwTWR3dGdFalFTVlBjY1UzZjg4?=
- =?utf-8?B?WDZuMGkwZ3AwSzV2ekVpTUdKSE56bkJMQW10SVZkUE5LZDhYZ3RVTWd3YVo5?=
- =?utf-8?B?L2wzK0N6YnNJNUxZczBPSFFUMkJRWkFCUGJRdGxZaDhyd0RVNmJjLzl5cFU4?=
- =?utf-8?B?SVVXQU9UdTBJMzVkNG94TTMyL0xtcmYvd09rSGpkRkVZSndjR29yMWFmbEVj?=
- =?utf-8?B?SnQ2eWVVZ3MrZkpSRjdGcEdmZExDRWJVb21HbzNoOEk2ZlQ2SkVxOGZZdHF4?=
- =?utf-8?B?VTM2KzBtTzUwd2xHQk9mWEVYejdoSkVmcnhhU1VVNDZLQWxYUVBQbVZZa0tL?=
- =?utf-8?B?LzJ4YWQ2RFd1RWU5RE1CNk55YU1ySGhBdW5aNlJxSG5jaFJHcDBNT3BpbzdH?=
- =?utf-8?B?L0tTaVdIV2hrM1BZdzhzN3VFY3NIdllCUzlhRTM1TWF0cG5WbTZ5Z3BRT0Nz?=
- =?utf-8?B?NUlJV1BlTVoxNFM4QituOE9CRTZuV00xN1hueXAvWGNYL1hGbkNvbkdiSnBB?=
- =?utf-8?B?eWJPejdVaS9nZ2l3TTZCNXNPZWRjZUxPNHZHRm1WUU9kdTBjWk94MlBNVkJF?=
- =?utf-8?B?WEdmSEhXRGpCRzhUbkoyMERnS213bmNUVlVKazdWVXFNMldOeHNuNFd5NTJ1?=
- =?utf-8?B?TnZ2Yndmb0RGK29yLzVSSEEyYWxKaFhkR244NGdMQ0tzeTNMTlhlbTliNFBY?=
- =?utf-8?B?QnlGc2JzQmhzY2h3ejFESTE5T0RGekdtUlVjQ0F4SmczMG5QaFVrSkQ5Umpk?=
- =?utf-8?B?NGRlaTNSL3pVYlJJVnUyK2tSYnpxUXozcFU2TDdvakd5L1NsN3hmWEhQUDJr?=
- =?utf-8?B?aTVqN1VMcWJjNVUyOGVOdUdSWllZdDBjQkIraHNseUZva3hTRUZNSThYcDY0?=
- =?utf-8?B?bE5FNHdHSDVxMWRjeWNuVFJnYW5QYU85eHFyQ3kxcHY3bWxFb2taM1N2YVZz?=
- =?utf-8?B?amprZ3RxR0c5NnhQTHJYSDRDZHkyUWRHL1dmL1Y2MmdyQnFKaHRFb3pnMDRS?=
- =?utf-8?B?U1pYcEtETjVjUjJIN1E4eUU0WDhFYlh1K09UOExXREZBMU1Kbmx4RENJL1hz?=
- =?utf-8?B?Y3lEQUMwbGVOWkcvUDUyblUzV0ZLN05iN1RFSUR1SnVVdzV2ZEhCclFReXI1?=
- =?utf-8?B?S0liSkFiTlpMS041TUZHa2hUR3lXYk15eW4ranoxcWpldy9kOTloMkJnNTVn?=
- =?utf-8?B?ZXJDUjQ2Yms3OVIyUGRFcG1CUm52Rmd6SFBzcjNoRG02NHVlRmFLZzhPMEND?=
- =?utf-8?B?ZlZxajltZmtaeTkxcnF0SmFQaVNlK25EVW1CL3hwZlIyVUdnVThiWUpwVWJ5?=
- =?utf-8?B?UFdmeTJPUk84Q1IwQWJvdmQzSjZzalI4R3BPUDcyMVRSQ3FTZXMvR2tLdlp3?=
- =?utf-8?B?R2N2dWhldEFaaFFxcEVPZFZyQVluanc5VGw0QUwwYTlHWlBFRFFjVEZwNFB5?=
- =?utf-8?B?OVk2azVLNjRjTzJWMU81MG5iNUxTVkNyVzZzdERXbEpsVGc4WXF0dTZjRHQw?=
- =?utf-8?B?YnlXa2hUakNRUlBnRTFiSFpTTFU1ekUxL1RlekxXS010Zm5uVWNkbFZJVmFv?=
- =?utf-8?B?MHhoQ3VWODd1REZ6SzlhenU3V0hrM2dsUjB2Y2VKVUpCL1lEL1FqMHc1Mnhr?=
- =?utf-8?B?M0RzM1JaejNoUms0K2ZBRzQvY29GMUhvK1FKN1F4QWdZS3Jsc2wrbkhWR1Fs?=
- =?utf-8?B?WGdUbGpzSnRxVjJMcUNwbEJXOWwwYmNMb3NoZDlUM3I2Q1NFcEVBRnk2R0di?=
- =?utf-8?B?WTJIbmF6dlFld3BONG5qQzUvOVhadTFGalJ2eFFROENwbUxNR0NpQUJlYUxh?=
- =?utf-8?B?a2duWktNS1dwZGZXUVo2WWFoWWhCbFhGczN3YWYrdVZjNGIvN3I2cnNlV0hh?=
- =?utf-8?B?TkgzKzRDL0k2dXZ5bXV3TTYrUjhXWVlkYVIxcW53Y2FWUUdtajJrcTVaa0Q5?=
- =?utf-8?B?cmlHVmRBRFVlQVEyckEyc2ZMamRKTEJoT0dtVlY0aUJGRFBlRXhRYTFhSlFK?=
- =?utf-8?Q?Yp6GyYZorv6VfFJRHWdU4IZgbU8LVGS1A5QTb?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 63bbc87d-b536-4717-275b-08df129a2ffc
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Sep 2026 19:55:55.2194
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: E/D23eRHRRYKJkvUSodblEhkhpvL+LuZKeit+7+nUKGnv83aq9p3M6N5QzRksgMudlqHO/iYQ6qxkGQ7df/ssKBVE7Gk5kDoVQV2/F0V7JmbCLc1oL4cUXFPSFYGOAY7
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BR0PR04MB848598
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_125559_144064_22C127ED 
-X-CRM114-Status: UNSURE (   6.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260914_132432_169632_47FC2125 
+X-CRM114-Status: GOOD (  20.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,26 +110,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+mt7530_remove_common() disposes the per-PHY interrupt mappings first and
+unregisters the switch second, but phylib only frees those interrupts
+inside dsa_unregister_switch(). Unbinding the driver therefore frees
+descriptors that are still in use, and the switch's own regmap-irq thread
+takes a nested interrupt on one that is already gone.
 
+Fixes: ba751e28d442 ("net: dsa: mt7530: add interrupt support")
+Signed-off-by: Aleksei Sviridkin <f@lex.la>
+Assisted-by: LLM
+---
+Found on a Netcraze NC-1012 (MT7981B + MT7531, 6.18.44) directly behind the
+regulator fix in patch 1: with that one applied the unbind stops faulting in
+mt7530_remove() and reaches the teardown, where the kernel says what is wrong
+in words before it dies.
 
-On Wed, 11 Feb 2026 19:52:08 +0530, Rajveer Chaudhari wrote:
-> Remove unused header includes from
-> imx-ic-prp.c
-> imx-ic-prpencvf.c
-> imx-media-capture.c
-> imx-media-csc-scaler.c
-> imx-media-dev.c
-> to reduce unnecessary dependencies and improve compilation time.
-> 
-> [...]
+  # echo mdio-bus:1f > /sys/bus/mdio_bus/drivers/mt7530-mdio/unbind
+  remove_proc_entry: removing non-empty directory 'irq/81', leaking at least
+    'mt7530-0:02'
+  WARNING: CPU: 0 PID: 4629 at remove_proc_entry+0x1d0/0x1f0
+  ...
+   mt7530_remove_common+0x1c/0x30
+   mt7530_remove+0x24/0x90
+   mdio_remove+0x20/0x40
+   unbind_store+0xac/0xb0
 
-Applied, thanks!
+  Unable to handle kernel read from unreadable memory at virtual address
+    00000000000000ac
+  pc : handle_nested_irq+0x28/0x168
+  Kernel panic - not syncing: Oops: Fatal exception
 
-[1/1] staging: media: imx: remove unused header includes
-      commit: 863f9621178ed5786547b61456d9f76393e6cd29
+The WARN comes from unregister_irq_proc() under irq_free_descs(), fired for a
+mapping that a PHY still holds. The captured record shows one, for
+mt7530-0:02, and already carries the W taint bit, so at least one earlier WARN
+fell outside the ramoops window. 294 ms later the switch's own regmap-irq
+thread - PID 627, Comm irq/53-mt7530 - takes a nested interrupt for a mapping
+that is already gone: irq_find_mapping() returns 0, irq_to_desc() returns NULL
+and handle_nested_irq() locks desc->lock without checking, which is the read
+at +0xac in the trace. Both timestamps are from the same ramoops record.
 
-Best regards,
+Reach is wider than the board that found it. mt7530_remove_common() is called
+from both front ends - mt7530-mdio.c and mt7530-mmio.c - so it covers the MMIO
+parts as well, which have no regulators at all and never meet the defect patch
+1 fixes.
+
+What decides whether a given switch is hit is not the irq_domain but whether
+the PHY interrupts are mapped on it. Either mt7530_setup_mdio_irq() created
+those mappings, which it only does when the devicetree has no mdio node under
+the switch, or OF created them from per-PHY interrupts properties when it has
+one. A switch with an irq_domain and neither is left alone: irq_find_mapping()
+returns 0 for every port and irq_dispose_mapping(0) returns at once. The
+teardown is guarded on the domain alone, so it walks that loop either way.
+
+Tested on the board above, with both patches applied. Two unbind/bind cycles
+back to back: each unbind removed mdio-bus:1f from the driver directory and
+took lan1-lan4 with it, each bind brought them back, and the two cabled ports
+relinked at 1Gbps/full. uptime went from 167 to 183 across both cycles without
+resetting, and
+pstore gained no new record. dmesg carries one unrelated WARN, from
+sysfs_remove_link() under dsa_user_destroy() - a separate DSA
+teardown-ordering defect, handled on its own - and it fired once, on the first
+unbind, not on the second.
+
+Not tested: any MMIO part - there is no MT7988, EN7581, AN7583 or EN7528
+hardware here. The object file was checked instead:
+after the change mt7530_remove_common() calls dsa_unregister_switch() first
+and only then tests priv->irq_domain and calls mt7530_free_mdio_irq().
+Built with W=1, no warnings; checkpatch --strict clean.
+
+ drivers/net/dsa/mt7530.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
+index 3e61eb3c2b1e..90fd04665ebf 100644
+--- a/drivers/net/dsa/mt7530.c
++++ b/drivers/net/dsa/mt7530.c
+@@ -3593,11 +3593,11 @@ EXPORT_SYMBOL_GPL(mt7530_probe_common);
+ void
+ mt7530_remove_common(struct mt7530_priv *priv)
+ {
++	dsa_unregister_switch(priv->ds);
++
+ 	if (priv->irq_domain)
+ 		mt7530_free_mdio_irq(priv);
+ 
+-	dsa_unregister_switch(priv->ds);
+-
+ 	mutex_destroy(&priv->reg_mutex);
+ }
+ EXPORT_SYMBOL_GPL(mt7530_remove_common);
 -- 
-Frank Li <Frank.Li@nxp.com>
+2.53.0
+
 
