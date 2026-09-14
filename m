@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3980C88E73
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D33DAC88E72
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 11:58:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,37 +12,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JGyG1xBrnbtl27Jc2+9ofen3qKDirECTBevHFHFWqig=; b=vTGEqzU5JazttP+V9KF8udHCgT
-	X0vncKc7Aa1aQxZfUJ6FF4urzuxthHmOuZKl5NLy/vwC8RamlSf3Jx3lUohy4Yj+f8hxMwFMl9E8v
-	AoF1FO0kx4601WhQOF+KFRkd20wH22yeZ7RIK8woFwD7ShFnK7gLE1gfe9W4CJD1pJfS+g5MRdG6G
-	PxW5E2YyYfJsllUCGI0WmcYGx1oyFbA2rwhZNeo7d/5XihDzJ//XRMS9zTdLK2G4jx2Lydw1HzkUf
-	f/w+s0kB/vUougGQfpSBZ4qa9yJsN/JQXfeLmSPK8b3RaM5qD/lOENwQ0VgGNJ9tpR9DQWtwBlXFG
-	X1vJlTPQ==;
+	bh=NmoQcixZIEHBoabGiQJCcxXLMy4XVVosu8vZuUtt+t8=; b=jOEnDZHB2cw0Bi42XAT++CwcMU
+	PUj2Rh5bGFGrsbFxRuDNUYXt83PIR5MIAdV6Zvt8Y88iV67AXHvZ7uAtusdhj+DbbWh/WRmkAhUvb
+	EtC9Wy9x+QVqbW5PIqXX23Tym/Wci8xHCwwe6bdpS7VeOQYXtsUS71siW+xSj/8zMsHEV6aHF6x9a
+	adKqc5YNGv+HYdhT5bcFuCyLWtorI2ez2mofWjdcRdvZ9S8mnSAe8OrEwwTinBNT0GDbvvrrzY2/u
+	i8ZpjNbfaMAfPN9Nrj68+41JUBqxVg3yLTeC0xi1fDhdWvBMO0mP/QWfDerjigSqFglkbaGBY15fp
+	iPuJ9DwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x65KS-00000003QiK-3vBW;
-	Mon, 14 Sep 2026 11:58:32 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1x65KV-00000003QmU-0Wj9;
+	Mon, 14 Sep 2026 11:58:35 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x65KH-00000003QWu-3I9q;
-	Mon, 14 Sep 2026 11:58:23 +0000
+	id 1x65KK-00000003QZ7-0hbS;
+	Mon, 14 Sep 2026 11:58:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1789387099;
-	bh=qyYNtF6Szv6pA6AN5mfvaTW4lHJbi9aApiqokgMWKXA=;
+	s=mail; t=1789387102;
+	bh=FyxzOXMGvGyR9IGtJX49GOeZL3XtdoX7TlUz8JNlRyM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=YksS3IlZd4rVuwZdzbjgVB/yasXhw+vs0PRd4z2N5oyZ/ZVC2auJuqjMMzEIhT0oc
-	 T9GCCIzfF/NUFt963PSe8wGAxf2iStu0EsSJJ9zQGs+4yb9b252sZ0lmESWlN8rc6j
-	 llSL+zXQd/5LNEWDYyYeXycyCEptq2/dtMW8ks47WNx9awOB7pWYwhw/rGmjSdZ5Y7
-	 sooaUfyDExrnJWGEQuAiXM/h5J7pfkXv8NyghT0BEuMBd6Rakh7aosx+7O8M4J41uM
-	 WbQR6rmTIQLtXJXZnmN+D6Kla/HxfdoWQteC4dXI+Vq0lb4GXvSJxu0480R1dZyOzG
-	 zeDDHg+IYOnMw==
+	b=JACHQ/drqgRWgwcWUd4Du51rNSc3r7eXrrsZBQMljimyKEaEiK3ly8d5feSBBvg3E
+	 uiLuRsaXVO5cH8xiwgSgUxbOj9dJJ0lGCZxdMYlwf5M2UPulUQPtgQdDQ5enICoJyS
+	 3c/klWuEk6QRy+KXlZBpbdKCKiSaxCqLROn+YJOyuQM7OAMyrKjgtbyWd/rLZ8rzE2
+	 K2U50FltlplWRbqdePPu5mRnc8+BeTrdVNCmf38eu+tigsk8NDRcyUJpbP+cXOawU9
+	 jKkENJuGgOzs7pyac5tBVZ0WbYw29JTm/2qYfg/6ZBEz114oWyuRNCUsU/3ks9Lk+Y
+	 DTVOSanxPqcJA==
 Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id BF6A017E0CF4;
-	Mon, 14 Sep 2026 13:58:18 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9FE1617E0D43;
+	Mon, 14 Sep 2026 13:58:21 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: chunkuang.hu@kernel.org
 Cc: p.zabel@pengutronix.de,
@@ -64,19 +64,18 @@ Cc: p.zabel@pengutronix.de,
 	linux-arm-kernel@lists.infradead.org,
 	kernel@collabora.com,
 	justin.yeh@mediatek.com,
-	jason-jh.lin@mediatek.com,
-	CK Hu <ck.hu@mediatek.com>
-Subject: [PATCH v7 04/13] drm/mediatek: mtk_dsi: Cleanup encoder if reset fails during bind
-Date: Mon, 14 Sep 2026 13:58:03 +0200
-Message-ID: <20260914115812.22751-5-angelogioacchino.delregno@collabora.com>
+	jason-jh.lin@mediatek.com
+Subject: [PATCH v7 07/13] drm/mediatek: mtk_dsi: Move max link rate parameter to platform data
+Date: Mon, 14 Sep 2026 13:58:06 +0200
+Message-ID: <20260914115812.22751-8-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260914115812.22751-1-angelogioacchino.delregno@collabora.com>
 References: <20260914115812.22751-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_045821_976318_32363D87 
-X-CRM114-Status: GOOD (  11.64  )
+X-CRM114-CacheID: sfid-20260914_045824_405885_DCE9CF75 
+X-CRM114-Status: GOOD (  17.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,42 +90,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When binding the dsi component, the .bind() callback initializes
-the encoder, and then will optionally trigger resets.
+Newer MediaTek DSI IPs, found in newer SoCs like MT8189 and others
+can support a higher link rate up to 2.5Gbps, while older ones are
+limited to 1.5Gbps.
 
-Should that last operation fail, binding will as well fail but
-the encoder is never removed from the DRM encoder list and if
-the driver gets removed afterwards, this may crash the kernel
-because of an use-after-free condition.
+In preparation for adding support for those, move the maximum link
+rate parameter from being a magic number in mtk_dsi's .mode_valid()
+callback to platform data, declared for each SoC.
 
-In order to avoid that, cleanup the encoder upon reset failure.
+Note that said number was previously expressed in Kbps but, in the
+platform data member, it is now expressed in Mbps instead in order
+to keep the mtk_dsi_driver_data structure footprint smaller: for
+this, the calculation in mtk_dsi_bridge_mode_valid() was changed
+to multiply the max_link_rate_mbps parameter by KILO (1000), which
+brings the value back to Kbps.
 
-Fixes: 605c83753d97 ("drm/mediatek: mtk_dsi: Reset the dsi0 hardware")
-Reviewed-by: CK Hu <ck.hu@mediatek.com>
+Also, since now higher maximum pixel clock rates are achievable,
+make sure that calculations are not overflowing by casting to u64
+where needed.
+
+In terms of wasted cycles, this is fine, because this callback is
+executed only once during display IF enablement (at boot, after a
+resume from suspend, or during runtime display resolution changes).
+
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/gpu/drm/mediatek/mtk_dsi.c | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/mediatek/mtk_dsi.c | 29 +++++++++++++++++++++++++++--
+ 1 file changed, 27 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
-index 97b8a91874f5..0b167b4411e5 100644
+index fa0f404bc7ad..6e92e4e1586f 100644
 --- a/drivers/gpu/drm/mediatek/mtk_dsi.c
 +++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
-@@ -1095,7 +1095,13 @@ static int mtk_dsi_bind(struct device *dev, struct device *master, void *data)
- 	if (ret)
- 		return ret;
+@@ -234,6 +234,8 @@ struct mtk_dsi_driver_data {
+ 	const u16 *reg_main;
+ 	const u16 *reg_adv;
  
--	return device_reset_optional(dev);
-+	ret = device_reset_optional(dev);
-+	if (ret) {
-+		drm_encoder_cleanup(&dsi->encoder);
-+		return ret;
-+	}
++	const u16 max_link_rate_mbps;
 +
-+	return 0;
- }
+ 	bool has_size_ctl;
+ 	bool cmdq_long_packet_ctl;
+ 	bool support_per_frame_lp;
+@@ -921,7 +923,7 @@ static int mtk_dsi_poweron(struct mtk_dsi *dsi)
+ 	}
+ 	bit_per_pixel = ret;
  
- static void mtk_dsi_unbind(struct device *dev, struct device *master,
+-	dsi->data_rate = DIV_ROUND_UP_ULL(dsi->vm.pixelclock * bit_per_pixel,
++	dsi->data_rate = DIV_ROUND_UP_ULL((u64)dsi->vm.pixelclock * bit_per_pixel,
+ 					  dsi->lanes);
+ 
+ 	ret = clk_set_rate(dsi->hs_clk, dsi->data_rate);
+@@ -1097,13 +1099,21 @@ mtk_dsi_bridge_mode_valid(struct drm_bridge *bridge,
+ 			  const struct drm_display_mode *mode)
+ {
+ 	struct mtk_dsi *dsi = bridge_to_dsi(bridge);
++	const struct mtk_dsi_driver_data *data = dsi->driver_data;
++	u64 wanted_link_rate, max_link_rate;
+ 	int bpp;
+ 
+ 	bpp = mipi_dsi_pixel_format_to_bpp(dsi->format);
+ 	if (bpp < 0)
+ 		return MODE_ERROR;
+ 
+-	if (mode->clock * bpp / dsi->lanes > 1500000)
++	wanted_link_rate = mode->clock;
++	wanted_link_rate *= bpp;
++	max_link_rate = data->max_link_rate_mbps;
++	max_link_rate *= dsi->lanes;
++	max_link_rate *= KILO;
++
++	if (wanted_link_rate > max_link_rate)
+ 		return MODE_CLOCK_HIGH;
+ 
+ 	if (dsi->dsc) {
+@@ -1547,28 +1557,42 @@ static void mtk_dsi_remove(struct platform_device *pdev)
+ static const struct mtk_dsi_driver_data mt8173_dsi_driver_data = {
+ 	.reg_main = mtk_dsi_regs_main_v1,
+ 	.reg_adv = mtk_dsi_regs_mt8173,
++	.max_link_rate_mbps = 1500,
+ };
+ 
+ static const struct mtk_dsi_driver_data mt2701_dsi_driver_data = {
+ 	.reg_main = mtk_dsi_regs_main_v1,
+ 	.reg_adv = mtk_dsi_regs_mt2701,
++	.max_link_rate_mbps = 1500,
+ };
+ 
+ static const struct mtk_dsi_driver_data mt8183_dsi_driver_data = {
+ 	.reg_main = mtk_dsi_regs_main_v1,
+ 	.reg_adv = mtk_dsi_regs_mt8183,
++	.max_link_rate_mbps = 1500,
+ 	.has_size_ctl = true,
+ };
+ 
+ static const struct mtk_dsi_driver_data mt8186_dsi_driver_data = {
+ 	.reg_main = mtk_dsi_regs_main_v1,
+ 	.reg_adv = mtk_dsi_regs_mt8186,
++	.max_link_rate_mbps = 1500,
+ 	.has_size_ctl = true,
+ };
+ 
+ static const struct mtk_dsi_driver_data mt8188_dsi_driver_data = {
+ 	.reg_main = mtk_dsi_regs_main_v1,
+ 	.reg_adv = mtk_dsi_regs_mt8186,
++	.max_link_rate_mbps = 1500,
++	.has_size_ctl = true,
++	.cmdq_long_packet_ctl = true,
++	.support_per_frame_lp = true,
++};
++
++static const struct mtk_dsi_driver_data mt8189_dsi_driver_data = {
++	.reg_main = mtk_dsi_regs_main_v1,
++	.reg_adv = mtk_dsi_regs_mt8186,
++	.max_link_rate_mbps = 2500,
+ 	.has_size_ctl = true,
+ 	.cmdq_long_packet_ctl = true,
+ 	.support_per_frame_lp = true,
+@@ -1581,6 +1605,7 @@ static const struct of_device_id mtk_dsi_of_match[] = {
+ 	{ .compatible = "mediatek,mt8183-dsi", .data = &mt8183_dsi_driver_data },
+ 	{ .compatible = "mediatek,mt8186-dsi", .data = &mt8186_dsi_driver_data },
+ 	{ .compatible = "mediatek,mt8188-dsi", .data = &mt8188_dsi_driver_data },
++	{ .compatible = "mediatek,mt8189-dsi", .data = &mt8189_dsi_driver_data },
+ 	{ /* sentinel */ }
+ };
+ MODULE_DEVICE_TABLE(of, mtk_dsi_of_match);
 -- 
 2.55.0
 
