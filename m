@@ -4,83 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C641CC88E7F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 21:10:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B232C982C3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 21:10:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y7F79jQI2v9SHnTcdbLyHrKpLzhqd8SwLgrM0tg4BfI=; b=AEXzzfqtA4wuj83v2sataLxXg8
-	R9NozizU7khkBn2gjUp5ghrTifq6AIWtAcXL1IJSpcWvS3bb/MkEz4Fw1aSHOPco0qNGt01ioQkal
-	JjcoBuyXROV8nb5xyiBy3DgE+NHjXi2zctyFSBirbNWI0DR/smHQHhm/Fdhx1olzar555V83ytkL+
-	5ytaMonA4QfTxJ9aUN5tPEQFMTlykanSMfJqLuK1l6zx7j300MO5hvh8Y+JWkhNnuj68xXczBSWJ8
-	+8TpJgjg10uIIaSXJshAGYOxph/h6vcvuMivzGE47f4UY47hS36dNGtRHa5Bbta074lSGN4sCCaZA
-	xF4q+xmg==;
+	bh=eqAKP8KvklWhrAanMl0NJZL0/+j+O7CDNjnmlHeKJxw=; b=cWRlnNiDC3u+Xx1ukduOWsaQ6J
+	JauiHXoHe5sutoPzzU3Q9/EFsCBLhkJ1qOCeFx/zDb58+HY7IVAbMqATxJKvK6OdwKMHcnFtYfR6o
+	XVUKQlN8ZOsYdD9utHqj/GUDi5+DcZrWTRCVM4aEjm370bSavT4J/k7C/6HCTB5trlYRbSB7OwcBw
+	ZAaemn6QXPeDnLOkIT6Pg2Hx8eBUBxfCJEeMyaIRCpbDrHvrDVtZ9fqNNcxxR7mwHmD3d6QDN4KhJ
+	A2Wr6eBCa7H+wzSMBpyHIafqi6FnRv5B2D7Zeq0wKCyVNpuUQ8l58zMLrVWcVPeq1SW8OFIs3iGc3
+	aah1pbTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Dwe-00000004g3n-14ac;
-	Mon, 14 Sep 2026 21:10:32 +0000
-Received: from mail-oo1-f53.google.com ([209.85.161.53])
+	id 1x6Dwo-00000004gJR-1lGb;
+	Mon, 14 Sep 2026 21:10:42 +0000
+Received: from mail-oo1-xc2b.google.com ([2607:f8b0:4864:20::c2b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6DwI-00000004fcD-3BSa
+	id 1x6DwS-00000004fnn-348p
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 21:10:16 +0000
-Received: by mail-oo1-f53.google.com with SMTP id 006d021491bc7-6be1f18687bso2199799eaf.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 14:10:10 -0700 (PDT)
+	Mon, 14 Sep 2026 21:10:22 +0000
+Received: by mail-oo1-xc2b.google.com with SMTP id 006d021491bc7-6b1afdf98dfso2599877eaf.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 14:10:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789420209; x=1790025009; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1789420220; x=1790025020; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=y7F79jQI2v9SHnTcdbLyHrKpLzhqd8SwLgrM0tg4BfI=;
-        b=dZRNg6NBC6XoPpD8q7z3h64/QL7tv4lBAt5d3mPXuCNI9udbRLCCZ6y6LurpPIPVlt
-         j++IBXO0wApbr6j68Vrv1Gmq/cAybsze4VaXqktF/f+UMyynDxom20ONr1NsaK6JYIpq
-         dFbfVnYSKhUQmBQYmUdEZayVJhTbDwcwjoFF9kx/CJVGTRKyDnf8cXY12kyP54eQh6RM
-         cE4RGeCqK6fGRd3Eb4pty3dZ0sPOWX7h1TyiaPt3gfnyT1QKX72tLxcZo/6H65zeEwLE
-         IkjbmKZQZkTTfYGe3LWAvQeMqdFaQbPJr6Ik3qEOhBLnADiunumOyf7buNOQ6gPaLIIJ
-         5cEQ==
+        bh=eqAKP8KvklWhrAanMl0NJZL0/+j+O7CDNjnmlHeKJxw=;
+        b=dYSaB0JKd/M3r3RlQHzWLa1Fb0cph2d2JgkoxIcmRMALSXctsaek8/qLgsCr3jdvSe
+         ZIuKbs7cQU63OtAgD6ZRG8JNbmSBuE5DzPwu1xwILPm2yI+B+LScxpre8n6G9qo3Nr2Z
+         Ydp0o8lKgavK6AOxbCvKBXm0HbcAUX3PpxYs583n7ZnadPdRrr0af8CmAPpjqqz15HjZ
+         oKQZKEzzGgjJBotbkV7wGfDXbdeQG4UlVqVQudcS5phY7FL65B3GMupZJiAM8SRoOWJ0
+         FXe1GMUiJNBJgd1MJSPssOEQqh/vP0cgGuul+GYy3tZpoDxMASsOAYbJob8NdbI+Dwwa
+         R4uw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789420209; x=1790025009;
+        d=1e100.net; s=20260707; t=1789420220; x=1790025020;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=y7F79jQI2v9SHnTcdbLyHrKpLzhqd8SwLgrM0tg4BfI=;
-        b=JM6XqKsYifSQ5eGYJww3GA83WSb2Fo6DcKLPJOpwtSH3VwKGMeYMqRD2Ik/4a1SR1g
-         qgrL0VkLj8YHagvyFwNCOYgw+Xjzt0R+Klhs+beHTlDm+Suyxm8CeQ63hgKYhIOYoHxT
-         6hArFzJZX4CNyqYAe0YCm5XEspty3f3GUINLBDYI9jbXyFsOYsc7sBgEOuWKWj5SiOgr
-         MjUfoCVUdx/HpKYiV1E79xSqkQonjR4BvZkURSNqD0TiuZ91O8uvvPTfoxvqFlZbos1p
-         iqRYF+Mk/RIvag8H7t5nHdXxt97JIS0f3qVrTO+QYhPKvq7XWoWisVTKBM7t2cQff+hU
-         bVeg==
-X-Forwarded-Encrypted: i=1; AKwUvBySZ27TcISK8l+hHcPN/A19lhES1KOUGrOpTF8WN29BJKOziJmVLMsnY++jDNA2uveSjmM2EU52m7gWo0zNUH18@lists.infradead.org
-X-Gm-Message-State: AFuF++klYBN8E/EFXZE/GCZfod99PJV6bRDDHwd/KOZ/CFcveZjJT53q
-	kGB3q2dfLRK35XZpVhFFu6RT36PDv51ZEZmI9HQ5PChFVwiZns38Z5qjt+lBkg==
-X-Gm-Gg: AYBFou30QkYMEUkBrCiIyCGXNrAx2zl3BPxN1D8SNLKYAx68wyM3Ikkk9ey1EplClcY
-	kinQw0cYoTquzfzh3Pnuyw7JnuWC0Acxd+IPF2KaUz8Zl8J5HsojMSAH7HI8Cm8XO0JuMQu0UOO
-	8IdNPVYfKNaIoZW9swG8d8Tk6jZCjQBfubkpkF9N+GIW6WMHpt3VxisiDauNZw6oGTI3QGmxVBb
-	1yXG0ollvuZ1ITj/Nc+lE+B0l6XG/vvvjXGjhyVYG9fueWoI3zQaJfgEotrFnkfAC03dqY1UmZt
-	8rsXo+99nbqwPG1nFEmymJ5rwLIL4oeWBxVh7E52X9ofxCJRd1yPDmaQJQiebr6V7+ZCpPhQbyc
-	Qa+24TDSLe2YLMZQkLAoQW70a/Ddc2FisWUFcVCLQT23V34u/B3VERvnVftO34MsrkIjNQK58AV
-	A5nHpetBYXufuIbfU6RzCl7Di8lWwwdM6/pZ/cneZt5xQvORoDZkScFL0RBI7g4Z6Jt3i3anupY
-	xSheCU1R9o1AqzwLVvubWjlLPOTOsIautKdlFVDkmDP52+x+Yu0Z/XZpDdWtEjxouyw5fbInQuR
-	pDlX5AfcUJp35Z7VcjVG3xmW06Bpajm7RMo6/oesD4kM5V2chqhk6kaaNcoZ1H5OwWhlYScpVLs
-	O0UaKHjVEiCMtoYYHBZOQN87ZSEGXplROvJUTgkw=
-X-Received: by 2002:a05:6820:2204:b0:6b1:5c8b:c0b9 with SMTP id 006d021491bc7-6c54008880fmr2485081eaf.3.1789420209405;
-        Mon, 14 Sep 2026 14:10:09 -0700 (PDT)
+        bh=eqAKP8KvklWhrAanMl0NJZL0/+j+O7CDNjnmlHeKJxw=;
+        b=w9vVn1JkcG8vJhFlMSaefM6ixGYfhzWUoIFmDS1w53/ywVrUjkx/qBDDUa8sBunNz8
+         AHK/EmRSTlIkV2dHhUnoi1OgKOio+R0jZ0REmqUWxw6ZxoWxUyc6h7mZSRGYeaa9QtcY
+         E8tNV3sA+PWvz2o3QtQPjyTj8QompF4dOq6Onl97S5ihLOm9YurZu/nUazus24t5YwKI
+         sr1nmoty78136xnDNw7oBLYg5o5AiPo4/cR5Xsu0InSQ5IDl4EsVzuIr1app+A9veZ2V
+         pxi8sg71CRR5vTEFCNi2TcQkq/GOzHsynqUFS0aWpgDhEvZq9d87q1OZFHnSaqQtmQOf
+         A0fA==
+X-Forwarded-Encrypted: i=1; AKwUvByYdG2JGHL7aZ3D9783reOy1toOV/pgQuSvURfNMS3WkAb46WQxEp/qgQ6zwko7iDrNsvVn97FJeJXkk4YynA13@lists.infradead.org
+X-Gm-Message-State: AFuF++mJNl58aTnN4VrVsPyROFcRJ72ti1goKlZ/abh6MTDlrGNKTcdS
+	D/nUGGD9f6fOdB4XDL1quhSULoZYdIjTmbSUgLaBISF4urAHj903KFT9
+X-Gm-Gg: AYBFou3OgViYvnIsQtMwS2Bkm1RB7OKvgHKi6oOWV3oOxKdgEOk7PML2lHlHfCEu5r3
+	H+Q50/urQq/oRhDLUUeuRWhb7fSgZNz1saOCHhOoS0BYXK6gE3NtPLk5QXJqR34A8U5jLBrY6tn
+	Ot29eYZcFTq6yqP94KpXFM+NH9SPgkXCrn2DyPGJ6x2Fg9hQOK8RR8LZqWfdOLTO/I5wwmrVNHq
+	Dh6mEMmnHpoUyO5onN+2+UoRIjID26uHQkMasDSXdd454lI8+maOc1L5no/fzhqreeerPKRPkqj
+	NQPXWYt+uadbbCYyN0Z5ZDmfPZ1SiKES0geyeCgbxGHZuhr9SnuSRG0bpHRrsMF/w/XOiu7btE1
+	qNvyqjKEgDfi+VKG25aAU/jiXAUNwbhDRmJHRbmMUx/5erHgEgaopmwr5blFX54ZD2dwte1KNPb
+	HFgjfXIpbiF/MpzSkbbucqwqqlhsfuMitH7D+3VP7Hk4PgJe+sGeBwDUBo3CdMdaZhCgMbj/2Lc
+	OVN8ghptuAJhIb99o5AqDcqU2C8X9O2gViWPlRaajSjcCREMc2Y0aA3V/i0umVOdA1LvK9JPT7D
+	fQiOk4aNPLRSYQMtQvczrR7Hd7tjjm/zGMGEu0PgX2tKszL0/VYwye5ImIdkTDNDjjG7e/XeqRL
+	don0t7A7uQsNc5Bo/2hHPLw9yvzaA
+X-Received: by 2002:a05:6820:1628:b0:6b8:ef7d:e181 with SMTP id 006d021491bc7-6c544daaf8cmr2777294eaf.54.1789420219820;
+        Mon, 14 Sep 2026 14:10:19 -0700 (PDT)
 Received: from [127.0.1.1] (184-96-157-145.hlrn.qwest.net. [184.96.157.145])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6c45bfc3fe9sm4698544eaf.15.2026.09.14.14.10.07
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6c45bfc3fe9sm4698544eaf.15.2026.09.14.14.10.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Sep 2026 14:10:08 -0700 (PDT)
+        Mon, 14 Sep 2026 14:10:19 -0700 (PDT)
 From: James Hilliard <james.hilliard1@gmail.com>
-Date: Mon, 14 Sep 2026 15:09:56 -0600
-Subject: [PATCH v6 10/18] mtd: rawnand: sunxi: bound DMA batches by the
- user-data register bank
+Date: Mon, 14 Sep 2026 15:10:04 -0600
+Subject: [PATCH v6 18/18] mtd: rawnand: sunxi: reuse ECC status within each
+ DMA read
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260914-submit-sunxi-nand-vendor-oob-layout-v1-v6-10-2fb084fe0751@gmail.com>
+Message-Id: <20260914-submit-sunxi-nand-vendor-oob-layout-v1-v6-18-2fb084fe0751@gmail.com>
 References: <20260914-submit-sunxi-nand-vendor-oob-layout-v1-v6-0-2fb084fe0751@gmail.com>
 In-Reply-To: <20260914-submit-sunxi-nand-vendor-oob-layout-v1-v6-0-2fb084fe0751@gmail.com>
 To: Miquel Raynal <miquel.raynal@bootlin.com>, 
@@ -98,8 +98,8 @@ Cc: linux-mtd@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, James Hilliard <james.hilliard1@gmail.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_141010_862733_E3888B8C 
-X-CRM114-Status: GOOD (  24.43  )
+X-CRM114-CacheID: sfid-20260914_141020_813633_38D1AD79 
+X-CRM114-Status: GOOD (  21.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,472 +114,248 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The H6/H616 controller concatenates protected user data in a bank of 32
-four-byte registers. The default layout can allocate more than 128 bytes
-across a page, even though each ECC step fits its individual length limit.
-DMA transfers then access beyond the user-data register bank. For example,
-a 16 KiB page with 1280 OOB bytes and BCH40/1024 has 160 user-data bytes,
-while a 16 KiB page with 1664 OOB bytes can allocate 512 bytes.
+The DMA completion loop reads the pattern ID repeatedly and reads the
+same packed error-counter word for each of its four ECC steps.
 
-Do not cap that allocation: changing the lengths would move ECC offsets
-and make existing pages written through PIO incompatible. Instead, split
-DMA transfers while retaining the original logical main-data and OOB
-offsets. Fill the first batch up to the register-bank limit. Transfer each
-remaining logical step separately using hardware slot and user-data
-register zero, repositioning the main column and spare-area base first.
+Snapshot the completed operation status and pattern ID, and retain the
+last counter word while visiting consecutive DMA steps. Read counters
+only for steps which use them. Reuse the shared status register value on
+older controllers which place the pattern flags in its upper half.
+Keep the existing error and pattern priority in both the plain-marker
+and randomized-format paths.
 
-PAGE_OP generates the second and subsequent main-data columns from its
-hardware slot index, not relative to the initial column. Read and write
-probes on H616 confirm this behavior. A multi-slot batch starting partway
-through the page would therefore return to the wrong main-data column.
-Single-slot later batches avoid those internally generated column changes.
-Pages whose user data already fits retain the existing single-batch path.
+Start a fresh snapshot after every PIO ECC operation so reuse of hardware
+slot zero cannot reuse status from a previous step. The snapshot is local
+to one callback and does not survive controller resets or DMA-to-PIO
+retries.
 
-Pass the user-data register index directly to the protected-OOB helpers
-and program length fields from the batch's logical starting step. Collect
-each batch's ECC status and protected OOB before reusing the registers.
-Keep ECC accounting and trailing-OOB handling page-wide, remembering
-whether any batch found an erased chunk. Discard all partial DMA statistics
-before a PIO read retry.
-
-Use one page-read setup or program-begin command for the whole page. Only
-issue program-end after every batch and any trailing OOB transfer succeed.
-Do not retry a write in PIO after a batch has already been transferred.
-The allocator, free-OOB layout and raw-access callbacks are unchanged.
-
-Fixes: 54dcd6aa69db ("mtd: rawnand: sunxi: introduce maximize variable user data length")
 Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 ---
- drivers/mtd/nand/raw/sunxi_nand.c | 284 ++++++++++++++++++++++----------------
- 1 file changed, 163 insertions(+), 121 deletions(-)
+ drivers/mtd/nand/raw/sunxi_nand.c | 103 +++++++++++++++++++++++++-------------
+ 1 file changed, 69 insertions(+), 34 deletions(-)
 
 diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sunxi_nand.c
-index e29638c828ca..18a4d1cc4246 100644
+index 41d6ef31ea3d..b79bf13f3ff0 100644
 --- a/drivers/mtd/nand/raw/sunxi_nand.c
 +++ b/drivers/mtd/nand/raw/sunxi_nand.c
-@@ -54,6 +54,7 @@
- #define NFC_REG_H6_RDATA_1	0x004C
- #define NFC_REG_A10_USER_DATA	0x0050
- #define NFC_REG_H6_USER_DATA	0x0080
-+#define NFC_H6_USER_DATA_REGS	32
- #define NFC_REG_USER_DATA(nfc, x)	(nfc->caps->reg_user_data + ((x) * 4))
- #define NFC_REG_H6_USER_DATA_LEN 0x0070
- /* A USER_DATA_LEN register can hold the length of 8 USER_DATA registers */
-@@ -932,41 +933,47 @@ static u8 sunxi_nfc_user_data_sz(struct sunxi_nand_chip *sunxi_nand, int step)
- 	return sunxi_nand->user_data_bytes[step];
- }
+@@ -1157,16 +1157,60 @@ struct sunxi_nfc_ecc_status {
+ 	unsigned int max_bitflips;
+ };
  
-+/* Keep the on-flash layout, but fit each DMA batch in the user-data bank. */
-+static int sunxi_nfc_dma_batch_steps(struct nand_chip *nand,
-+				     int first_step, int end_step)
++struct sunxi_nfc_ecc_snapshot {
++	u32 status;
++	u32 pattern_found;
++	u32 pattern_id;
++	u32 count_reg;
++	u32 count;
++};
++
++static void sunxi_nfc_hw_ecc_read_status(struct nand_chip *nand,
++					 struct sunxi_nfc_ecc_snapshot *snapshot)
 +{
-+	struct sunxi_nand_chip *sunxi_nand = to_sunxi_nand(nand);
 +	struct sunxi_nfc *nfc = to_sunxi_nfc(nand->controller);
-+	unsigned int user_data_sz = 0;
-+	int i;
++	u32 pattern_found;
 +
-+	if (!nfc->caps->reg_user_data_len)
-+		return end_step - first_step;
-+
-+	/*
-+	 * PAGE_OP generates main-data columns from hardware slot zero, not
-+	 * from the initial column. Use only slot zero after the first batch,
-+	 * so the explicit column change selects each remaining logical step.
-+	 */
-+	if (first_step)
-+		return 1;
-+
-+	for (i = first_step; i < end_step; i++) {
-+		user_data_sz += sunxi_nfc_user_data_sz(sunxi_nand, i);
-+		if (user_data_sz > NFC_H6_USER_DATA_REGS * sizeof(u32))
-+			break;
-+	}
-+
-+	return i - first_step;
++	pattern_found = readl(nfc->regs + nfc->caps->reg_pat_found);
++	snapshot->pattern_found = field_get(NFC_ECC_PAT_FOUND_MSK(nfc), pattern_found);
++	if (nfc->caps->reg_pat_found == NFC_REG_ECC_ST)
++		snapshot->status = pattern_found;
++	else
++		snapshot->status = readl(nfc->regs + NFC_REG_ECC_ST);
++	snapshot->pattern_id = 0;
++	if (snapshot->pattern_found &&
++	    (to_sunxi_nand(nand)->randomized_oob ||
++	     (snapshot->pattern_found & ~snapshot->status)))
++		snapshot->pattern_id = readl(nfc->regs + NFC_REG_PAT_ID(nfc));
++	/* A new operation, including every PIO step, invalidates the count word. */
++	snapshot->count_reg = ~0U;
 +}
 +
-+/* PIO uses register zero; DMA concatenates user data within each batch. */
- static void sunxi_nfc_hw_ecc_get_prot_oob_bytes(struct nand_chip *nand, u8 *oob,
--						int step, bool bbm, int page,
-+						unsigned int reg_index, bool bbm, int page,
- 						unsigned int user_data_sz)
++static unsigned int
++sunxi_nfc_hw_ecc_read_count(struct nand_chip *nand,
++			    struct sunxi_nfc_ecc_snapshot *snapshot, int hw_step)
++{
++	struct sunxi_nfc *nfc = to_sunxi_nfc(nand->controller);
++	u32 reg = NFC_REG_ECC_ERR_CNT(nfc, hw_step);
++
++	/* Four consecutive DMA steps share one error-counter register. */
++	if (snapshot->count_reg != reg) {
++		snapshot->count = readl(nfc->regs + reg);
++		snapshot->count_reg = reg;
++	}
++
++	return NFC_ECC_ERR_CNT(hw_step, snapshot->count);
++}
++
+ static void sunxi_nfc_hw_ecc_record_status(struct nand_chip *nand,
+ 					   struct sunxi_nfc_ecc_status *result,
+-					   int logical_step, int hw_step, u32 status,
+-					   u32 pattern_found)
++					   int logical_step, int hw_step,
++					   struct sunxi_nfc_ecc_snapshot *snapshot)
  {
--	struct sunxi_nand_chip *sunxi_nand = to_sunxi_nand(nand);
- 	struct sunxi_nfc *nfc = to_sunxi_nfc(nand->controller);
- 	u32 user_data;
-+	unsigned int i;
+-	struct sunxi_nfc *nfc = to_sunxi_nfc(nand->controller);
+ 	u32 count;
  
--	if (!nfc->caps->reg_user_data_len) {
--		/*
--		 * For A10, the user data for step n is in the nth
--		 * REG_USER_DATA
--		 */
--		user_data = readl(nfc->regs + NFC_REG_USER_DATA(nfc, step));
--		sunxi_nfc_user_data_to_buf(user_data, oob);
--	} else {
--		/*
--		 * For H6 NAND controller, the user data for all steps is
--		 * contained in 32 user data registers, but not at a specific
--		 * offset for each step, they are just concatenated.
--		 */
--		unsigned int user_data_off = 0;
--		unsigned int reg_off;
--		u8 *ptr = oob;
--		unsigned int i;
--
--		for (i = 0; i < step; i++)
--			user_data_off += sunxi_nfc_user_data_sz(sunxi_nand, i);
--
--		user_data_off /= 4;
--		for (i = 0; i < user_data_sz / 4; i++, ptr += 4) {
--			reg_off = NFC_REG_USER_DATA(nfc, user_data_off + i);
--			user_data = readl(nfc->regs + reg_off);
--			sunxi_nfc_user_data_to_buf(user_data, ptr);
--		}
-+	for (i = 0; i < user_data_sz / 4; i++) {
-+		user_data = readl(nfc->regs + NFC_REG_USER_DATA(nfc, reg_index + i));
-+		sunxi_nfc_user_data_to_buf(user_data, oob + i * 4);
+-	if ((pattern_found & BIT(hw_step)) &&
+-	    !(readl(nfc->regs + NFC_REG_PAT_ID(nfc)) & BIT(hw_step)))
++	if ((snapshot->pattern_found & BIT(hw_step)) &&
++	    !(snapshot->pattern_id & BIT(hw_step)))
+ 		result->zero_steps |= BIT(logical_step);
+ 
+ 	/*
+@@ -1174,35 +1218,32 @@ static void sunxi_nfc_hw_ecc_record_status(struct nand_chip *nand,
+ 	 * Classify these steps with the vendor page check too, and do not use
+ 	 * their correction counters. Keep their decoded data until then.
+ 	 */
+-	if ((status & NFC_ECC_ERR(hw_step)) ||
+-	    (pattern_found & BIT(hw_step))) {
++	if ((snapshot->status & NFC_ECC_ERR(hw_step)) ||
++	    (snapshot->pattern_found & BIT(hw_step))) {
+ 		result->error_steps |= BIT(logical_step);
+ 		return;
  	}
  
- 	/* De-randomize the Bad Block Marker. */
-@@ -1022,13 +1029,13 @@ static void sunxi_nfc_set_user_data_len(struct sunxi_nfc *nfc,
+-	count = readl(nfc->regs + NFC_REG_ECC_ERR_CNT(nfc, hw_step));
+-	count = NFC_ECC_ERR_CNT(hw_step, count);
++	count = sunxi_nfc_hw_ecc_read_count(nand, snapshot, hw_step);
+ 	result->corrected += count;
+ 	result->max_bitflips = max(result->max_bitflips, count);
  }
  
- static void sunxi_nfc_hw_ecc_set_prot_oob_bytes(struct nand_chip *nand,
--						const u8 *oob, int step,
-+						const u8 *oob, unsigned int reg_index,
- 						bool bbm, int page,
- 						unsigned int user_data_sz)
+ static int sunxi_nfc_hw_ecc_correct(struct nand_chip *nand, u8 *data, u8 *oob,
+-				    int hw_step, u32 status, u32 pattern_found,
++				    int hw_step, struct sunxi_nfc_ecc_snapshot *snapshot,
+ 				    unsigned int user_data_sz, bool *erased)
  {
- 	struct sunxi_nfc *nfc = to_sunxi_nfc(nand->controller);
--	struct sunxi_nand_chip *sunxi_nand = to_sunxi_nand(nand);
- 	u8 user_data[SUNXI_NFC_MAX_USER_DATA_SZ] = {};
-+	unsigned int i;
+-	struct sunxi_nfc *nfc = to_sunxi_nfc(nand->controller);
+ 	struct nand_ecc_ctrl *ecc = &nand->ecc;
+-	u32 tmp;
  
- 	/* Randomize the Bad Block Marker. */
- 	if (bbm && (nand->options & NAND_NEED_SCRAMBLING)) {
-@@ -1037,33 +1044,10 @@ static void sunxi_nfc_hw_ecc_set_prot_oob_bytes(struct nand_chip *nand,
- 		oob = user_data;
+ 	*erased = false;
+ 
+-	if (status & NFC_ECC_ERR(hw_step))
++	if (snapshot->status & NFC_ECC_ERR(hw_step))
+ 		return -EBADMSG;
+ 
+-	if (pattern_found & BIT(hw_step)) {
++	if (snapshot->pattern_found & BIT(hw_step)) {
+ 		u8 pattern;
+ 
+-		if (unlikely(!(readl(nfc->regs + NFC_REG_PAT_ID(nfc)) & BIT(hw_step)))) {
++		if (unlikely(!(snapshot->pattern_id & BIT(hw_step)))) {
+ 			pattern = 0x0;
+ 		} else {
+ 			pattern = 0xff;
+@@ -1218,9 +1259,7 @@ static int sunxi_nfc_hw_ecc_correct(struct nand_chip *nand, u8 *data, u8 *oob,
+ 		return 0;
  	}
  
--	if (!nfc->caps->reg_user_data_len) {
--		/*
--		 * For A10, the user data for step n is in the nth
--		 * REG_USER_DATA
--		 */
--		writel(sunxi_nfc_buf_to_user_data(oob),
--		       nfc->regs + NFC_REG_USER_DATA(nfc, step));
--	} else {
--		/*
--		 * For H6 NAND controller, the user data for all steps is
--		 * contained in 32 user data registers, but not at a specific
--		 * offset for each step, they are just concatenated.
--		 */
--		unsigned int user_data_off = 0;
--		const u8 *ptr = oob;
--		unsigned int i;
+-	tmp = readl(nfc->regs + NFC_REG_ECC_ERR_CNT(nfc, hw_step));
 -
--		for (i = 0; i < step; i++)
--			user_data_off += sunxi_nfc_user_data_sz(sunxi_nand, i);
--
--		user_data_off /= 4;
--		for (i = 0; i < user_data_sz / 4; i++, ptr += 4) {
--			writel(sunxi_nfc_buf_to_user_data(ptr),
--			       nfc->regs + NFC_REG_USER_DATA(nfc, user_data_off + i));
--		}
-+	for (i = 0; i < user_data_sz / 4; i++) {
-+		writel(sunxi_nfc_buf_to_user_data(oob + i * 4),
-+		       nfc->regs + NFC_REG_USER_DATA(nfc, reg_index + i));
- 	}
--
+-	return NFC_ECC_ERR_CNT(hw_step, tmp);
++	return sunxi_nfc_hw_ecc_read_count(nand, snapshot, hw_step);
  }
  
- static void sunxi_nfc_hw_ecc_update_stats(struct nand_chip *nand,
-@@ -1313,27 +1297,35 @@ static int sunxi_nfc_hw_ecc_read_extra_oob(struct nand_chip *nand,
- 	return 0;
- }
- 
--static int sunxi_nfc_hw_ecc_read_chunks_dma(struct nand_chip *nand, uint8_t *buf,
--					    int oob_required, int page,
--					    int nchunks)
-+static int sunxi_nfc_hw_ecc_read_batch_dma(struct nand_chip *nand, u8 *buf,
-+					   int oob_required, int page,
-+					   int first_step, int nchunks,
-+					   int *raw_mode)
- {
- 	bool randomized = nand->options & NAND_NEED_SCRAMBLING;
+ static int sunxi_nfc_hw_ecc_read_chunk(struct nand_chip *nand,
+@@ -1235,7 +1274,7 @@ static int sunxi_nfc_hw_ecc_read_chunk(struct nand_chip *nand,
  	struct sunxi_nand_chip *sunxi_nand = to_sunxi_nand(nand);
+ 	unsigned int user_data_sz = sunxi_nfc_user_data_sz(sunxi_nand, logical_step);
+ 	struct nand_ecc_ctrl *ecc = &nand->ecc;
+-	u32 pattern_found;
++	struct sunxi_nfc_ecc_snapshot snapshot;
+ 	bool bbm = !logical_step;
+ 	bool erased;
+ 	int ret, bitflips;
+@@ -1275,13 +1314,11 @@ static int sunxi_nfc_hw_ecc_read_chunk(struct nand_chip *nand,
+ 
+ 	*cur_off = oob_off + ecc->bytes + user_data_sz;
+ 
+-	pattern_found = readl(nfc->regs + nfc->caps->reg_pat_found);
+-	pattern_found = field_get(NFC_ECC_PAT_FOUND_MSK(nfc), pattern_found);
++	sunxi_nfc_hw_ecc_read_status(nand, &snapshot);
+ 
+ 	if (sunxi_nand->randomized_oob) {
+ 		sunxi_nfc_hw_ecc_record_status(nand, result, logical_step, hw_step,
+-					       readl(nfc->regs + NFC_REG_ECC_ST),
+-					       pattern_found);
++					       &snapshot);
+ 		memcpy_fromio(data, nfc->regs + NFC_RAM0_BASE, ecc->size);
+ 		sunxi_nfc_hw_ecc_get_prot_oob_bytes(nand, oob, hw_step, bbm,
+ 						    page, user_data_sz);
+@@ -1289,8 +1326,7 @@ static int sunxi_nfc_hw_ecc_read_chunk(struct nand_chip *nand,
+ 	}
+ 
+ 	bitflips = sunxi_nfc_hw_ecc_correct(nand, data, oob_required ? oob : NULL,
+-					    hw_step, readl(nfc->regs + NFC_REG_ECC_ST),
+-					    pattern_found, user_data_sz, &erased);
++					    hw_step, &snapshot, user_data_sz, &erased);
+ 	if (erased)
+ 		return 1;
+ 
+@@ -1555,11 +1591,12 @@ static int sunxi_nfc_hw_ecc_read_batch_dma(struct nand_chip *nand, u8 *buf,
  	struct sunxi_nfc *nfc = to_sunxi_nfc(nand->controller);
  	struct mtd_info *mtd = nand_to_mtd(nand);
  	struct nand_ecc_ctrl *ecc = &nand->ecc;
--	unsigned int corrected = mtd->ecc_stats.corrected;
--	unsigned int failed = mtd->ecc_stats.failed;
-+	unsigned int reg_index = 0, user_data_sz;
++	struct sunxi_nfc_ecc_snapshot snapshot;
+ 	unsigned int reg_index = 0, user_data_sz;
  	unsigned int max_bitflips = 0;
--	int ret, i, raw_mode = 0;
-+	int ret, i;
+ 	int ret, i;
  	struct scatterlist sg;
- 	u32 status, pattern_found, wait;
+-	u32 status, pattern_found, wait;
++	u32 wait;
  
-+	if (first_step) {
-+		ret = sunxi_nfc_read_column(nand, page, first_step * ecc->size,
-+					    NULL, 0);
-+		if (ret)
-+			return ret;
-+	}
-+
- 	ret = sunxi_nfc_wait_cmd_fifo_empty(nfc);
+ 	if (first_step) {
+ 		ret = sunxi_nfc_read_column(nand, page, first_step * ecc->size,
+@@ -1612,9 +1649,7 @@ static int sunxi_nfc_hw_ecc_read_batch_dma(struct nand_chip *nand, u8 *buf,
  	if (ret)
  		return ret;
  
--	ret = sunxi_nfc_dma_op_prepare(nfc, buf, ecc->size, nchunks,
-+	ret = sunxi_nfc_dma_op_prepare(nfc, buf + first_step * ecc->size,
-+				       ecc->size, nchunks,
- 				       DMA_FROM_DEVICE, &sg);
- 	if (ret)
- 		return ret;
-@@ -1341,7 +1333,12 @@ static int sunxi_nfc_hw_ecc_read_chunks_dma(struct nand_chip *nand, uint8_t *buf
- 	sunxi_nfc_hw_ecc_enable(nand);
- 	sunxi_nfc_reset_user_data_len(nfc);
- 	for (i = 0; i < nchunks; i++)
--		sunxi_nfc_set_user_data_len(nfc, sunxi_nfc_user_data_sz(sunxi_nand, i), i);
-+		sunxi_nfc_set_user_data_len(nfc,
-+					    sunxi_nfc_user_data_sz(sunxi_nand, first_step + i), i);
-+	/* exec_op() restores the page's spare base during column changes. */
-+	if (first_step)
-+		writel(mtd->writesize + sunxi_get_oob_offset(sunxi_nand, ecc, first_step),
-+		       nfc->regs + NFC_REG_SPARE_AREA(nfc));
- 	sunxi_nfc_randomizer_config(nand, page, false);
- 	sunxi_nfc_randomizer_enable(nand);
+-	status = readl(nfc->regs + NFC_REG_ECC_ST);
+-	pattern_found = readl(nfc->regs + nfc->caps->reg_pat_found);
+-	pattern_found = field_get(NFC_ECC_PAT_FOUND_MSK(nfc), pattern_found);
++	sunxi_nfc_hw_ecc_read_status(nand, &snapshot);
  
-@@ -1374,15 +1371,17 @@ static int sunxi_nfc_hw_ecc_read_chunks_dma(struct nand_chip *nand, uint8_t *buf
- 	pattern_found = readl(nfc->regs + nfc->caps->reg_pat_found);
- 	pattern_found = field_get(NFC_ECC_PAT_FOUND_MSK(nfc), pattern_found);
+ 	for (i = 0; i < nchunks; i++, reg_index += user_data_sz / 4) {
+ 		int logical_step = first_step + i;
+@@ -1628,8 +1663,8 @@ static int sunxi_nfc_hw_ecc_read_batch_dma(struct nand_chip *nand, u8 *buf,
+ 		user_data_sz = sunxi_nfc_user_data_sz(sunxi_nand, logical_step);
  
--	for (i = 0; i < nchunks; i++) {
--		int data_off = i * ecc->size;
--		unsigned int user_data_sz = sunxi_nfc_user_data_sz(sunxi_nand, i);
--		int oob_off = sunxi_get_oob_offset(sunxi_nand, ecc, i);
-+	for (i = 0; i < nchunks; i++, reg_index += user_data_sz / 4) {
-+		int logical_step = first_step + i;
-+		int data_off = logical_step * ecc->size;
-+		int oob_off = sunxi_get_oob_offset(sunxi_nand, ecc, logical_step);
- 		u8 *data = buf + data_off;
- 		u8 *oob = nand->oob_poi + oob_off;
- 		bool erased;
- 		int bitflips;
+ 		if (sunxi_nand->randomized_oob) {
+-			sunxi_nfc_hw_ecc_record_status(nand, result, logical_step, i, status,
+-						       pattern_found);
++			sunxi_nfc_hw_ecc_record_status(nand, result, logical_step, i,
++						       &snapshot);
+ 			sunxi_nfc_hw_ecc_get_prot_oob_bytes(nand, oob, reg_index, !logical_step,
+ 							    page, user_data_sz);
+ 			continue;
+@@ -1637,7 +1672,7 @@ static int sunxi_nfc_hw_ecc_read_batch_dma(struct nand_chip *nand, u8 *buf,
  
-+		user_data_sz = sunxi_nfc_user_data_sz(sunxi_nand, logical_step);
-+
  		bitflips = sunxi_nfc_hw_ecc_correct(nand, randomized ? data : NULL,
  						    oob_required ? oob : NULL,
- 						    i, status, pattern_found,
-@@ -1397,40 +1396,64 @@ static int sunxi_nfc_hw_ecc_read_chunks_dma(struct nand_chip *nand, uint8_t *buf
- 			ret = sunxi_nfc_read_column(nand, page, mtd->writesize + oob_off,
- 						    oob, ecc->bytes + user_data_sz);
- 			if (ret)
--				goto err_stats;
-+				return ret;
+-						    i, status, pattern_found,
++						    i, &snapshot,
+ 						    user_data_sz, &erased);
  
--			sunxi_nfc_hw_ecc_get_prot_oob_bytes(nand, oob, i, !i,
-+			sunxi_nfc_hw_ecc_get_prot_oob_bytes(nand, oob, reg_index, !logical_step,
- 							    page, user_data_sz);
- 		}
+ 		/* ECC errors are handled in the second loop. */
+@@ -1664,7 +1699,7 @@ static int sunxi_nfc_hw_ecc_read_batch_dma(struct nand_chip *nand, u8 *buf,
+ 	if (sunxi_nand->randomized_oob)
+ 		return 0;
  
- 		if (erased)
--			raw_mode = 1;
-+			*raw_mode = 1;
- 
- 		sunxi_nfc_hw_ecc_update_stats(nand, &max_bitflips, bitflips);
- 	}
- 
- 	if (status & NFC_ECC_ERR_MSK(nfc)) {
+-	if (status & NFC_ECC_ERR_MSK(nfc)) {
++	if (snapshot.status & NFC_ECC_ERR_MSK(nfc)) {
  		for (i = 0; i < nchunks; i++) {
--			int data_off = i * ecc->size;
--			unsigned int user_data_sz = sunxi_nfc_user_data_sz(sunxi_nand, i);
--			int oob_off = sunxi_get_oob_offset(sunxi_nand, ecc, i);
-+			int logical_step = first_step + i;
-+			int data_off = logical_step * ecc->size;
-+			int oob_off = sunxi_get_oob_offset(sunxi_nand, ecc, logical_step);
+ 			int logical_step = first_step + i;
+ 			int data_off = logical_step * ecc->size;
+@@ -1672,7 +1707,7 @@ static int sunxi_nfc_hw_ecc_read_batch_dma(struct nand_chip *nand, u8 *buf,
  			u8 *data = buf + data_off;
  			u8 *oob = nand->oob_poi + oob_off;
  
- 			if (!(status & NFC_ECC_ERR(i)))
+-			if (!(status & NFC_ECC_ERR(i)))
++			if (!(snapshot.status & NFC_ECC_ERR(i)))
  				continue;
  
-+			user_data_sz = sunxi_nfc_user_data_sz(sunxi_nand, logical_step);
- 			ret = sunxi_nfc_hw_ecc_read_error(nand, data, data_off, oob,
- 							  mtd->writesize + oob_off,
- 							  user_data_sz,
- 							  &max_bitflips, page);
- 			if (ret < 0)
--				goto err_stats;
-+				return ret;
- 			if (ret)
--				raw_mode = 1;
-+				*raw_mode = 1;
- 		}
- 	}
- 
-+	return max_bitflips;
-+}
-+
-+static int sunxi_nfc_hw_ecc_read_chunks_dma(struct nand_chip *nand, u8 *buf,
-+					    int oob_required, int page, int nchunks)
-+{
-+	struct mtd_info *mtd = nand_to_mtd(nand);
-+	unsigned int corrected = mtd->ecc_stats.corrected;
-+	unsigned int failed = mtd->ecc_stats.failed;
-+	unsigned int max_bitflips = 0;
-+	int raw_mode = 0;
-+	int first_step, batch_steps, ret;
-+
-+	for (first_step = 0; first_step < nchunks; first_step += batch_steps) {
-+		batch_steps = sunxi_nfc_dma_batch_steps(nand, first_step, nchunks);
-+		ret = sunxi_nfc_hw_ecc_read_batch_dma(nand, buf, oob_required, page,
-+						      first_step, batch_steps,
-+						      &raw_mode);
-+		if (ret < 0)
-+			goto err_stats;
-+		max_bitflips = max_t(unsigned int, max_bitflips, ret);
-+	}
-+
- 	if (oob_required) {
- 		ret = sunxi_nfc_hw_ecc_read_extra_oob(nand, nand->oob_poi,
- 						      NULL, !raw_mode, page);
-@@ -1761,69 +1784,88 @@ static int sunxi_nfc_hw_ecc_write_page_dma(struct nand_chip *nand,
- {
- 	struct sunxi_nfc *nfc = to_sunxi_nfc(nand->controller);
- 	struct sunxi_nand_chip *sunxi_nand = to_sunxi_nand(nand);
-+	struct mtd_info *mtd = nand_to_mtd(nand);
- 	struct nand_ecc_ctrl *ecc = &nand->ecc;
- 	struct scatterlist sg;
- 	u32 wait;
--	int ret, i;
-+	int first_step, batch_steps, ret, i;
- 
- 	sunxi_nfc_select_chip(nand, nand->cur_cs);
- 
--	ret = sunxi_nfc_wait_cmd_fifo_empty(nfc);
--	if (ret)
--		return ret;
-+	for (first_step = 0; first_step < ecc->steps; first_step += batch_steps) {
-+		unsigned int reg_index = 0;
- 
--	ret = sunxi_nfc_dma_op_prepare(nfc, buf, ecc->size, ecc->steps,
--				       DMA_TO_DEVICE, &sg);
--	if (ret)
--		goto pio_fallback;
-+		batch_steps = sunxi_nfc_dma_batch_steps(nand, first_step, ecc->steps);
-+		ret = sunxi_nfc_wait_cmd_fifo_empty(nfc);
-+		if (ret)
-+			return ret;
- 
--	sunxi_nfc_reset_user_data_len(nfc);
--	for (i = 0; i < ecc->steps; i++) {
--		unsigned int user_data_sz = sunxi_nfc_user_data_sz(sunxi_nand, i);
--		int oob_off = sunxi_get_oob_offset(sunxi_nand, ecc, i);
--		const u8 *oob = nand->oob_poi + oob_off;
-+		ret = sunxi_nfc_dma_op_prepare(nfc, buf + first_step * ecc->size,
-+					       ecc->size, batch_steps, DMA_TO_DEVICE, &sg);
-+		if (ret) {
-+			/* Only retry before any part of the page has been transferred. */
-+			if (first_step)
-+				return ret;
-+			goto pio_fallback;
-+		}
- 
--		sunxi_nfc_hw_ecc_set_prot_oob_bytes(nand, oob, i, !i, page,
--						    user_data_sz);
--		sunxi_nfc_set_user_data_len(nfc, user_data_sz, i);
--	}
-+		sunxi_nfc_reset_user_data_len(nfc);
-+		for (i = first_step; i < first_step + batch_steps; i++) {
-+			unsigned int user_data_sz = sunxi_nfc_user_data_sz(sunxi_nand, i);
-+			int oob_off = sunxi_get_oob_offset(sunxi_nand, ecc, i);
-+			const u8 *oob = nand->oob_poi + oob_off;
- 
--	ret = nand_prog_page_begin_op(nand, page, 0, NULL, 0);
--	if (ret) {
--		sunxi_nfc_dma_op_abort(nfc);
--		sunxi_nfc_dma_op_cleanup(nfc, DMA_TO_DEVICE, &sg);
--		return ret;
--	}
-+			sunxi_nfc_hw_ecc_set_prot_oob_bytes(nand, oob, reg_index, !i,
-+							    page, user_data_sz);
-+			sunxi_nfc_set_user_data_len(nfc, user_data_sz, i - first_step);
-+			reg_index += user_data_sz / 4;
-+		}
- 
--	sunxi_nfc_hw_ecc_enable(nand);
--	sunxi_nfc_randomizer_config(nand, page, false);
--	sunxi_nfc_randomizer_enable(nand);
-+		if (first_step)
-+			ret = nand_change_write_column_op(nand, first_step * ecc->size,
-+							  NULL, 0, false);
-+		else
-+			ret = nand_prog_page_begin_op(nand, page, 0, NULL, 0);
-+		if (ret) {
-+			sunxi_nfc_dma_op_abort(nfc);
-+			sunxi_nfc_dma_op_cleanup(nfc, DMA_TO_DEVICE, &sg);
-+			return ret;
-+		}
- 
--	writel((NAND_CMD_RNDIN << 8) | NAND_CMD_PAGEPROG,
--	       nfc->regs + NFC_REG_WCMD_SET);
-+		/* exec_op() restores the page's spare base during column changes. */
-+		if (first_step)
-+			writel(mtd->writesize + sunxi_get_oob_offset(sunxi_nand, ecc, first_step),
-+			       nfc->regs + NFC_REG_SPARE_AREA(nfc));
-+		sunxi_nfc_hw_ecc_enable(nand);
-+		sunxi_nfc_randomizer_config(nand, page, false);
-+		sunxi_nfc_randomizer_enable(nand);
- 
--	wait = NFC_CMD_INT_FLAG;
-+		writel((NAND_CMD_RNDIN << 8) | NAND_CMD_PAGEPROG,
-+		       nfc->regs + NFC_REG_WCMD_SET);
- 
--	if (nfc->use_mdma)
--		wait |= NFC_DMA_INT_FLAG;
--	else
--		dma_async_issue_pending(nfc->dmac);
-+		wait = NFC_CMD_INT_FLAG;
- 
--	writel(NFC_PAGE_OP | NFC_DATA_SWAP_METHOD |
--	       NFC_DATA_TRANS | NFC_ACCESS_DIR,
--	       nfc->regs + NFC_REG_CMD);
-+		if (nfc->use_mdma)
-+			wait |= NFC_DMA_INT_FLAG;
-+		else
-+			dma_async_issue_pending(nfc->dmac);
- 
--	ret = sunxi_nfc_wait_events(nfc, wait, false, 0);
--	if (ret)
--		sunxi_nfc_dma_op_abort(nfc);
-+		writel(NFC_PAGE_OP | NFC_DATA_SWAP_METHOD |
-+		       NFC_DATA_TRANS | NFC_ACCESS_DIR,
-+		       nfc->regs + NFC_REG_CMD);
- 
--	sunxi_nfc_randomizer_disable(nand);
--	sunxi_nfc_hw_ecc_disable(nand);
-+		ret = sunxi_nfc_wait_events(nfc, wait, false, 0);
-+		if (ret)
-+			sunxi_nfc_dma_op_abort(nfc);
- 
--	sunxi_nfc_dma_op_cleanup(nfc, DMA_TO_DEVICE, &sg);
-+		sunxi_nfc_randomizer_disable(nand);
-+		sunxi_nfc_hw_ecc_disable(nand);
- 
--	if (ret)
--		return ret;
-+		sunxi_nfc_dma_op_cleanup(nfc, DMA_TO_DEVICE, &sg);
-+
-+		if (ret)
-+			return ret;
-+	}
- 
- 	if (oob_required || (nand->options & NAND_NEED_SCRAMBLING)) {
- 		/* TODO: use DMA to transfer extra OOB bytes ? */
+ 			user_data_sz = sunxi_nfc_user_data_sz(sunxi_nand, logical_step);
 
 -- 
 2.53.0
