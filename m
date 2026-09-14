@@ -4,68 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47462C88E65
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 11:17:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0136C88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 11:26:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HKZPATLBOD75vX0HIDgrKuKrxajG+GHW7KZeSn5i2h8=; b=c/50dlhiNNpDf2u5w3/tu7rwdC
-	ee9GyXGqWPatfp9Eg3aBIAioDaH9zG6CNmdU6uJiKZdE/Q+G1TdIiFuX91v7c7ngMwnzxEMhBOWET
-	Db4YxQhyW+NdQPR92hw2P8R/4u6dcNzyaeXzaeUCxUL1VdkFPO5LDMWR9gxzlOvcrMKCHEVq+Ii+6
-	gKG1+dCYpQFkfzgEDufZU1edvSnjFDLFnEqwg10LDwe/xdtoZG4w8cVAHWlrnss36NC4XoSPFLvNQ
-	uH9L0UFkKtYXyxAY/rR1R+Kh9OD0ovxOXjvQHWKqCj8WOO9pE4BidipseskIq4OWzfaaRXEIH+M7S
-	IuOFBuBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5Nyo7GT+zGK8kFY6xMQ5v9wIBzeTrs98NHfRYd/LE2Y=; b=ykAGRoT0Y9r3erDKTY8NI7YgD+
+	u+UczpBZpomUi3zAgP3P2mTsC8MieibKKpS35Hq0OxtPyikKNc/Spp/XFgiNPW+VdPu+ncIa6SMhG
+	7qWRAUQQqQxQJZeJSDplE5Pn+0663o1vfd7OIURqRjIHJECPZnJubUOFQRTg1lDrny2oRNNoSaBtX
+	ZwvdDEnyv7LVkO+Ie+A8Uc6ulktTIcXOjIRXQ58vJiAYKo1Xn+Sb9TQQMgVfy92Gb15YfDvEtQRAB
+	RTGMKsZ9ovx65lnptGuDYUgJL6Sra73WjPXCw+kti8KiW66/Mpba4P1wZfEmA/T9a+Gg3YXIGOoW6
+	t7TBuxCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x64h5-00000003Dgz-0rzM;
-	Mon, 14 Sep 2026 11:17:51 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x64pG-00000003EHS-48fq;
+	Mon, 14 Sep 2026 11:26:18 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x64h3-00000003Dgm-25Ad
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 11:17:49 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 965A7601E4;
-	Mon, 14 Sep 2026 11:17:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A06B1F00893;
-	Mon, 14 Sep 2026 11:17:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789384668;
-	bh=HKZPATLBOD75vX0HIDgrKuKrxajG+GHW7KZeSn5i2h8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=okQVDAHioY+gpCl/7iWCM7P65IIELg0y29z3PuOQsO2Gy9Z/cTVpKqTF7/jx5ebKq
-	 rP7NWUdwq163cf+CE4eIosXADJRUm8QTifKfGOh14xCI6JbGdX1AGoXYaT1n+YMyRv
-	 xQ39eLBQ/yJ9SoNHKCIeMHpC7FuqfCEijjdJQo57s2+/Lkh44vG71JRNYCYn+oaVuX
-	 v0O8gGIWPvKzf9od0L+4/oi7/uInah4rT1EDn5NwI3A94vubxhKr8CNOQHCxsNxlPF
-	 s83DDvN5g858flKSeTgrC2j3yejMHQdGKy++vMkYPn6C0EfNvh7z6rCRQLngB19w9A
-	 mYZa73BnQoQhg==
-Date: Mon, 14 Sep 2026 12:17:41 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	Jack Thomson <jackabt@amazon.com>, Jack Thomson <jackabt.amazon@gmail.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>, Vincent Donnefort <vdonnefort@google.com>, 
-	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Sean Christopherson <seanjc@google.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Leo Soares Passos <Leo.Bras@arm.com>
-Subject: Re: [PATCH 6/8] KVM: selftests: Enable pre_fault_memory_test for
- arm64
-Message-ID: <aqfXUTCCefQPKJ4a@gremlin>
-References: <20260825-kvm-arm-prefault-v1-0-befe8947702e@kernel.org>
- <20260825-kvm-arm-prefault-v1-6-befe8947702e@kernel.org>
- <CA+EHjTzOKHNrf=0n2c_E+vbt=pGquz6qzBpJ+eLJ5hjK_nyJMA@mail.gmail.com>
+	id 1x64pE-00000003EGk-1AIx;
+	Mon, 14 Sep 2026 11:26:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1789385173;
+	bh=lXVPwq7s2VUOFgW7l33ir3TRXWPIYSzWJPDJTQ63R+U=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=cGGB0QNMA3UGaFW+2zS9yJ2f0H9CIkbzniMnzaf5CY35eK4B6hGXWbzssm1GNP0XA
+	 kLXyg/waZcQo6l7/lZGAV6gRv/HHyDq4BIxldXCaL8BFmyRdoH4TwIz3vEuvOdg9Jf
+	 E+dx868sHUpJfNl5Gi7YIOfkrYwliAvLDiRcoU8+0WffH0urqgo0B8lwnK0av25B8n
+	 PNUDXcX67mvM+ZVVesjNycvTIHj5EmTQmyz5HcyLnqPCfcY9wP8TYdxRG0O0sCKXeQ
+	 IImkggd+Z3tGxYzxuts56gFpuORikG2V8XMgdKOFsqlv9BfvyrAIFuYUC24rg6GTW4
+	 v10dtaDm5DakA==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D193C17E0894;
+	Mon, 14 Sep 2026 13:26:12 +0200 (CEST)
+Message-ID: <69562510-23f3-4993-b740-60ba83979237@collabora.com>
+Date: Mon, 14 Sep 2026 13:26:12 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CA+EHjTzOKHNrf=0n2c_E+vbt=pGquz6qzBpJ+eLJ5hjK_nyJMA@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 11/11] drm/mediatek: Add Write DMA (WDMA) Engine for
+ Writeback support
+To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
+ "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
+Cc: "kernel@collabora.com" <kernel@collabora.com>,
+ "robh@kernel.org" <robh@kernel.org>,
+ "tzimmermann@suse.de" <tzimmermann@suse.de>,
+ "simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
+ <mripard@kernel.org>, =?UTF-8?B?Sml0YW8gU2hpICjnn7PorrDmtpsp?=
+ <jitao.shi@mediatek.com>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "airlied@gmail.com" <airlied@gmail.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ =?UTF-8?B?SnVzdGluIFllaCAo6JGJ6Iux6IyCKQ==?= <Justin.Yeh@mediatek.com>,
+ =?UTF-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>
+References: <20260715135703.46540-1-angelogioacchino.delregno@collabora.com>
+ <20260715135703.46540-12-angelogioacchino.delregno@collabora.com>
+ <232cbc7ff5f2c50230eddf4db1f8eb7145a41d23.camel@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <232cbc7ff5f2c50230eddf4db1f8eb7145a41d23.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260914_042616_472283_484E8300 
+X-CRM114-Status: GOOD (  18.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,49 +96,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 10, 2026 at 07:52:35PM +0100, Fuad Tabba wrote:
-> On Tue, 25 Aug 2026 at 17:01, Lorenzo Stoakes (ARM) <ljs@kernel.org> wrote:
-> >
-> > From: Jack Thomson <jackabt@amazon.com>
-> >
-> > Enable the pre_fault_memory_test to run on arm64 by making it work with
-> > different guest page sizes and testing multiple guest configurations.
-> >
-> > Update the test_assert to compare against the UCALL_EXIT_REASON, for
-> > portability, as arm64 exits with KVM_EXIT_MMIO while x86 uses
-> > KVM_EXIT_IO.
->
-> The message says this updates the test_assert for portability, but the
-> parent has no exit-reason assert and no struct kvm_run; this patch
-> adds both, so there was no hardcoded KVM_EXIT_IO to make portable.
+On 8/27/26 07:33, CK Hu (胡俊光) wrote:
+> On Wed, 2026-07-15 at 15:57 +0200, AngeloGioacchino Del Regno wrote:
+>> Add a basic driver for the Write DMA Engine and initial compatible
+>> for the MediaTek MT8173 and MediaTek Dimensity 1200 MT6893, and
+>> hook it up to the mtk_ddp_comp and mtk_drm_drv in order for it to
+>> probe.
+>>
+>> This display controller component is used to enable the writeback
+>> engine that can be used for faster display image capturing in the
+>> userspace (for example, screenshots and screen recording).
+>>
+>> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>> ---
+>>   
+>> +static const struct mtk_ddp_comp_funcs ddp_wdma = {
+>> +	.clk_enable = mtk_wdma_clk_enable,
+>> +	.clk_disable = mtk_wdma_clk_disable,
+>> +	.config = mtk_wdma_config,
+>> +	.start = mtk_wdma_start,
+>> +	.stop = mtk_wdma_stop,
+>> +	.register_vblank_cb = mtk_wdma_register_vblank_cb,
+>> +	.unregister_vblank_cb = mtk_wdma_unregister_vblank_cb,
+>> +	.enable_vblank = mtk_wdma_enable_vblank,
+>> +	.disable_vblank = mtk_wdma_disable_vblank,
+>> +	.layer_nr = mtk_wdma_layer_nr,
+>> +	.layer_config = mtk_wdma_layer_config,
+>> +	.get_formats = mtk_wdma_get_formats,
+>> +	.get_num_formats = mtk_wdma_get_num_formats,
+> 
+> I does not see you modify mtk crtc.
+> mtk crtc would use some interface only on 'first' ddp component of a pipeline.
+> WDMA would not be the first component,
+> so register_vblank_cb, unregister_vblank_cb, enable_vblank, disable_vblank, layer_nr, layer_config, get_formats, and get_num_formats are useless.
 
-Ack will fix up for v2 thanks!
+It's true in this specific case, but this was done while performing the big
+mediatek-drm restructuring.
 
->
-> ...
->
-> >  int main(int argc, char *argv[])
-> >  {
-> ...
-> > +
-> >         TEST_REQUIRE(kvm_check_cap(KVM_CAP_PRE_FAULT_MEMORY));
-> >
-> >         test_pre_fault_memory(0, false);
->
-> Would it be worth adding an arm64 case for gmem_abort()'s pre-fault path?
+I decided to split the full changes in two separate series, because the one
+restructuring mediatek-drm is literally huge... and this series is adding
+only things that can be applied before the full restructuring takes place.
 
-I think doing this would be quite a bit of work, I think perhaps one for a
-follow-up?
+That was done in order to speed up the upstreaming and nothing else - so you
+can safely ignore the fact that there is extra functionality in this driver,
+because those extras will be used once the other big series is merged.
 
->
-> Cheers,
-> /fuad
->
-> >
-> > --
-> > 2.55.0
-> >
+It's a lot of code, please-please-please don't make me split things up even
+more, because then the commit log becomes messy :-)
 
---
-Cheers, Lorenzo
+As for the comments on 8189/8196 (link rate and qos), you're right in that it
+makes sense to split the algo additions from the soc addition: I've done that
+already and will come in v7.
+
+Cheers,
+Angelo
+
 
