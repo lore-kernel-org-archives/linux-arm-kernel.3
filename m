@@ -4,110 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 961B5C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 23:38:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBAEDC88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 23:48:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=57CV0ODspZehrGEH+otFsUBqkwpzxPHm6Pa1D+qTYsk=; b=H5yy5r+/UmdGxUgDSPpcvkO7tG
-	yhystw2iyAF8GVa/3stdocgTItxTKqjw7c5fxmwF9dTu8wW5GXX/6Tc6qlYGNdoSTP7n39+snP6ez
-	qgW7VJqqitO+I/o+Au1ncMKarzzUSSggztwIXAiBhq/807Rots9FyADGe44JPrzr+ux1KOIlEW3XW
-	ce2YSE0buecp/2epfMXgdTyCfl5nkSutGcKGVGQUS4cXb13vj2sjvqEiAMrfwsuSCGWOr/UidWtzt
-	ASdRjx15+gFFaT7FBhJzAY9jpEdiHX/vRXaDHmLNFPiNpjMCyzdy4yeOzDfSdyusJCr2MovvBhWaw
-	+1t21rJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9HFCzZR0hMJi/a540zVR/6fIa99eldcjXfsghzBOCwI=; b=ZRR8CB8gR7KTv9kXzmK0QrUwhS
+	Ji5RKqiWcJ2KrVsI92U35HL4VZ4hE9nvvMzlDGpDJEkjTrj7gLC+MDsUQbEONYHFktnroWvvRtDSv
+	yWKOW31ldmwDvUbi45ojJOew285/kvJtQeammgCGC13WE+pxuJ7oPKZ8pOJfJZ4NY0+ilyUe8W5pT
+	AFp7SA/eq6jK1qThrEcuKYh+Hx/GL1A3hk3/BC3FsxEg6XkOH/+q/dwMs9m2GL//F4OwXPyOjbb7W
+	iZI7DWB9kBNtLyW9W9yGZp2F+pB2lxBRwpXZpuVDbjfjx1A24io+w9gW0BWN0df8aQPa9Dz8Szt9H
+	+QXgH1Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6GFb-00000004s2H-0E0y;
-	Mon, 14 Sep 2026 23:38:15 +0000
-Received: from m101-out-mua-6.websupport.se ([109.235.175.106])
+	id 1x6GPc-00000004slU-05qm;
+	Mon, 14 Sep 2026 23:48:36 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6GFY-00000004s1E-35B7
+	id 1x6GPY-00000004skl-2RAS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 23:38:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=palvencia.se;
-	s=mail; t=1789428823;
-	bh=57CV0ODspZehrGEH+otFsUBqkwpzxPHm6Pa1D+qTYsk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=escwVh9k0khvqVyx48hm0OutobA5BT6nHUHrMBRKjtstQHolUlz+DrPUlclymwgbT
-	 fIZH6SAvw9XUNHqjG8ckjsB7X2NjKlUsRceQl/bfZurUEIdaiTlGd7OzlrCtfFnAjJ
-	 109vaF0z2lYO+VlLzJE5dmdb3+32hqxnWP30QFcOeFMRrZF6kZbVxq7WLA9bMpSd8Q
-	 cE7LkhtkpZYjt+Ew2b+XVLUXCJrAoSWc3DuLjIJ/knhBQoq5SjxBil0Kt5khPD7Ndy
-	 ksnWR5WQT+fqYUDnuosfzcsKVWsRx48RMIHsFI+KOlecDMzGb7JCx1PwqldopCnBMH
-	 mlOqPmJ9WAeAQ==
-Received: from m101-u5-ing.websupport.se (unknown [10.30.5.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	by m101-out-mua-6.websupport.se (Postfix) with ESMTPS id 4hkM0l4KPrz1ttD;
-	Tue, 15 Sep 2026 01:33:43 +0200 (CEST)
-X-Authenticated-Sender: per@palvencia.se
-Authentication-Results: m101-u5-ing.websupport.se;
-	auth=pass smtp.auth=per@palvencia.se smtp.mailfrom=per@palvencia.se
-Received: from rpi (unknown [213.204.219.80])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: per@palvencia.se)
-	by m101-u5-ing.websupport.se (Postfix) with ESMTPSA id 4hkM0h3w7Mz2XZd;
-	Tue, 15 Sep 2026 01:33:40 +0200 (CEST)
-Date: Tue, 15 Sep 2026 01:33:36 +0200
-From: Per Larsson <per@palvencia.se>
-To: iuncuim <iuncuim@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej
- Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
- Andre Przywara <andre.przywara@arm.com>, Michael Turquette
- <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Vinod Koul
- <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Philipp
- Zabel <p.zabel@pengutronix.de>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-phy@lists.infradead.org, linux-clk@vger.kernel.org,
- linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH 6/7] arm64: dts: allwinner: a523: add DWC3 USB3.0 node
-Message-ID: <20260915013336.68ee3611@rpi>
-In-Reply-To: <20250816084700.569524-7-iuncuim@gmail.com>
-References: <20250816084700.569524-1-iuncuim@gmail.com>
-	<20250816084700.569524-7-iuncuim@gmail.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Mon, 14 Sep 2026 23:48:34 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 9C06D447;
+	Tue, 15 Sep 2026 01:46:46 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1789429606;
+	bh=tULWwH62VQMESKfBVhG2CV6lqkdVfbuPf1NEtG0VYdA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Pj96U3pX/+W6GwchjLwZPO+Fx2cGKnYC2ZTcIgcjIammj/C8i5GZOTmO2GG1WoueV
+	 5IPdszO+1egDGAP7IktJY4f/IdIXNQR0lEwx1XW6XrhvGj3teNuNaq4nja2ZoI3A89
+	 bot6RDCJhWliXHqRUNd9SDU+ctgb3AWyP+FN11zc=
+Date: Tue, 15 Sep 2026 02:48:25 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Cc: Frank Li <Frank.Li@nxp.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	linux-media@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 1/6] media: imx8-isi: Reorder mxc_imx95_data to follow
+ mxc_imx93_data
+Message-ID: <20260914234825.GB2796257@killaraus.ideasonboard.com>
+References: <20260831-isi_imx952-v2-0-fafdb4b446d4@oss.nxp.com>
+ <20260831-isi_imx952-v2-1-fafdb4b446d4@oss.nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Out-Spamd-Result: default: False [1.90 / 1000.00];
-	SUSPICIOUS_RECIPS(1.50)[];
-	MID_RHS_NOT_FQDN(0.50)[];
-	MIME_GOOD(-0.10)[text/plain];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	TAGGED_RCPT(0.00)[dt];
-	RCVD_COUNT_ZERO(0.00)[0];
-	ARC_NA(0.00)[];
-	TO_DN_SOME(0.00)[];
-	ASN(0.00)[asn:35790, ipnet:213.204.219.0/24, country:SE];
-	RCPT_COUNT_TWELVE(0.00)[19];
-	FREEMAIL_TO(0.00)[gmail.com];
-	HAS_X_AS(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	BAYES_HAM(0.00)[26.18%];
-	LOCAL_OUTBOUND(0.00)[];
-	ALIAS_RESOLVED(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FREEMAIL_CC(0.00)[kernel.org,csie.org,gmail.com,sholland.org,arm.com,baylibre.com,pengutronix.de,vger.kernel.org,lists.infradead.org,lists.linux.dev]
-X-Out-Rspamd-Queue-Id: 4hkM0h3w7Mz2XZd
-X-Out-Rspamd-Server: m101-rspamd-out-4
-X-Rspamd-Action: no action
-X-purgate-type: clean
-X-purgate-Ad: Categorized by eleven eXpurgate (R) https://www.eleven.de
-X-purgate: This mail is considered clean (visit https://www.eleven.de for further information)
-X-purgate: clean
-X-purgate-size: 804
-X-purgate-ID: 155908::1789428823-3D7071C6-CF8BE965/0/0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260831-isi_imx952-v2-1-fafdb4b446d4@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_163812_953902_669DA9F6 
-X-CRM114-Status: GOOD (  11.03  )
+X-CRM114-CacheID: sfid-20260914_164832_770160_A4DAF59D 
+X-CRM114-Status: GOOD (  17.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,24 +76,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 16 Aug 2025 16:46:59 +0800
-iuncuim <iuncuim@gmail.com> wrote:
+On Mon, Aug 31, 2026 at 11:36:56AM +0800, Guoniu Zhou wrote:
+> Move mxc_imx95_data definition after mxc_imx93_data to match the
+> order defined in the of_match array.
+> 
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
 
-> +			interrupts = <GIC_SPI 35 IRQ_TYPE_LEVEL_HIGH>;
+Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 
-(Sorry for the more-or-less necroposting)
+> ---
+> Changes in v2:
+> - Add Reviewed-by tag from Frank Li
+> ---
+>  .../media/platform/nxp/imx8-isi/imx8-isi-core.c    | 24 +++++++++++-----------
+>  1 file changed, 12 insertions(+), 12 deletions(-)
+> 
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> index 0ae5f35e017c..f2a8eb82fbfd 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> @@ -314,18 +314,6 @@ static const struct mxc_isi_plat_data mxc_imx8mp_data = {
+>  	.has_36bit_dma		= true,
+>  };
+>  
+> -static const struct mxc_isi_plat_data mxc_imx95_data = {
+> -	.model			= MXC_ISI_IMX95,
+> -	.num_ports		= 4,
+> -	.num_channels		= 8,
+> -	.num_vc			= 8,
+> -	.reg_offset		= 0x10000,
+> -	.ier_reg		= &mxc_imx8_isi_ier_v2,
+> -	.set_thd		= &mxc_imx8_isi_thd_v1,
+> -	.buf_active_reverse	= true,
+> -	.has_36bit_dma		= true,
+> -};
+> -
+>  static const struct mxc_isi_plat_data mxc_imx8qm_data = {
+>  	.model			= MXC_ISI_IMX8QM,
+>  	.num_ports		= 5,
+> @@ -384,6 +372,18 @@ static const struct mxc_isi_plat_data mxc_imx93_data = {
+>  	.has_36bit_dma		= false,
+>  };
+>  
+> +static const struct mxc_isi_plat_data mxc_imx95_data = {
+> +	.model			= MXC_ISI_IMX95,
+> +	.num_ports		= 4,
+> +	.num_channels		= 8,
+> +	.num_vc			= 8,
+> +	.reg_offset		= 0x10000,
+> +	.ier_reg		= &mxc_imx8_isi_ier_v2,
+> +	.set_thd		= &mxc_imx8_isi_thd_v1,
+> +	.buf_active_reverse	= true,
+> +	.has_36bit_dma		= true,
+> +};
+> +
+>  /* -----------------------------------------------------------------------------
+>   * Power management
+>   */
 
-This is the only mention of irq or interrupt in the entire series,
-which at first led me to believe there was something missing given that
-there's a "Nobody cared" message appearing when the port first detects
-something connected to it followed by something about the irq
-being disabled.
+-- 
+Regards,
 
-Now I read in the text of another patch (adding a TrimUi dts) that this
-message comes when an interrupt storm is detected, and given that the
-value in /proc/interrupts goes from zero to 100K in no time, that seems
-likely to be the case here as well. 
-
-What is this interrupt supposed to be about, and can it be handled
-better?
+Laurent Pinchart
 
