@@ -4,66 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4857CC88E73
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 20:25:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 679F1C88E73
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 20:33:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EdUGey0Y6fUygZcO3oI/pgasXv1LbqpF456UVNPI0RY=; b=1+md9NluF2afbpZt9sdAPNveRv
-	rZUS1+eqDX79XtJ+hnFhSwuIT57smR9yXloS7CsUI1YGjefSPEafzEGChrY4K2g66b+PENQrpMFK5
-	AbvggkRZpvtsK6Uqd/MB4tvpkQUui62HF/xNvj7I1PB6Q7YyGSSNTxEOvRqCHTVVtn8d/z7o/yEzi
-	0/um0t6Pk/LZ4fTXShH23dxnTwxgYO1kHLvDJ/kwP2dAfG/rJwjyFwkVJURwQc0m3jN0c5WiZLKhb
-	svsJU5citqXQZqK3KjWE8QN5viHex5Mkonw+EtqDIU25SnTLI1V3bO5sU2NLIe1QSIbAzUZLdXlBA
-	68gRyFPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2SVZ2YLsBB6VGQtK8NxlN3Z4ynzgoiLnBiZCMpH7eJk=; b=0R+YzYKEklK86CtnlzXXJokwBL
+	Y22Un6aQKgbUK265auOJD4HtI8UMr9H3zOyqri8hs/vFN3YuOubOyAdcwlFhWylkZx8TUExGDAD3/
+	I7nKdCN7jeMWr1GmSL0IjER4+uftU/hhOlIa8QcHc7qvB2tzGJHl+xuwv/t3v0CQednSsoOs4n+iK
+	ev+jcleeaUU8q6fmziUf5mHTK7GPhCKAdyihHmqZumV/guEo8yNMwT2V2cf1Y7CwaHqeTRpVFonP0
+	b0MOGy0eFsT/qAqiKqwlf9leVBZHQSCvb1Y2yadMMCC1OXjSEKHwQrIUuXW+dQ8QmrPwCQ7kZNXHC
+	RWOO3cIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6DEr-00000004b2A-331f;
-	Mon, 14 Sep 2026 20:25:17 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x6DMJ-00000004bwl-12Od;
+	Mon, 14 Sep 2026 20:32:59 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6DEU-00000004aZm-2RpJ;
-	Mon, 14 Sep 2026 20:24:55 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id EFFFB602C2;
-	Mon, 14 Sep 2026 20:24:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 343821F000FF;
-	Mon, 14 Sep 2026 20:24:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789417493;
-	bh=EdUGey0Y6fUygZcO3oI/pgasXv1LbqpF456UVNPI0RY=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=KmheNl2HmKbF7QozkgpVRgt69X5wdGL7cLO/skh5x+3JrNIJd3gG5muta106qbdx/
-	 mrPtYOlO1vnbXtrFdsb21CPmp5GhsUa0Sg3LGwwRi7fPT9pgsHsabJIBW8JkUMUONd
-	 sXCLPRDWCdHXo062eN76E/tFT9x4dRBrX1+FDT/PhzBmp7nmAKe1M+xwzULRk/TPbt
-	 qd4WgeUgaqGYgUj0XIKQxauSUnaGyTdLGnJ2yr3sM1wlI23GB3jHf5NiJsXkHSJLv8
-	 QpIC6nL/1m7H82LgjNg9Jd78DoPCj09tdA+NFKfCa6exzE8P2HTURFTmhXeEyrZUlk
-	 HhNlo2ZEk5ezw==
-Subject: Re: [PATCH net-next v5 09/11] net: stmmac: dwmac-rk: add SGMII
- support for RK3568
-From: netdev-bot+sashiko@kernel.org
-To: coiaprant@gmail.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, heiko@sntech.de, vkoul@kernel.org,
- maxime.chevallier@bootlin.com, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, prabhakar.mahadev-lad.rj@bp.renesas.com,
- romain.gantois@bootlin.com, hkallweit1@gmail.com, neil.armstrong@linaro.org,
- linux@armlinux.org.uk, shawn.lin@rock-chips.com, david@ixit.cz,
- netdev@vger.kernel.org, linux-rockchip@lists.infradead.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, linux-renesas-soc@vger.kernel.org
-Date: Mon, 14 Sep 2026 20:24:51 +0000
-Message-ID: <178941749179.22033.3182687831989800376@kernel.org>
-In-Reply-To: <20260913185849.907479-10-coiaprant@gmail.com>
-References: <20260913185849.907479-10-coiaprant@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1x6DMG-00000004bw9-3BHd
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 14 Sep 2026 20:32:58 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68EJYWL71383218
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 20:32:55 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	2SVZ2YLsBB6VGQtK8NxlN3Z4ynzgoiLnBiZCMpH7eJk=; b=iuDe0ImdpagSJSP8
+	pcUICe1qwK2Nh6qBJ/n705GYvPYKqd4woeaWEtiWJh4d+mzUXzHf2ap2wZqe69jg
+	NzRkqhu1inSazJPrho8zX2foQZfcpIbbFzC4whh0BYQ+syYQaKpvVNctGXvfQoJZ
+	/UsG6WQkn2VWEkdOIlLlINOieiLQqS6Yesu06YYSHOw3XaSz9ALy5stbDFRzelBT
+	Xm48hCmKEyY5LbG5z+0aI/2juTAJIu9yb2PlQPRm0rqlJFCANJVdNdsEFq2dbo81
+	fGNahXW67MzAmKPcdcEPgNlZStKCvOERD+F7XDFzkh5iaJ4yO1pOjwTAUrADu3Z9
+	Zwb2fg==
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gpgvtj0v3-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 20:32:55 +0000 (GMT)
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-396b9ef3070so6675419a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 13:32:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1789417974; x=1790022774; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:organization
+         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=2SVZ2YLsBB6VGQtK8NxlN3Z4ynzgoiLnBiZCMpH7eJk=;
+        b=UyGJaVBYLghd5TU/8GLbw0H1pRXZt7SEjIBaY1880ShvjTFxbeVNfcmUsoKQwAp3t4
+         ddXuUSdRKh8dTu7nq8RddLufFYIffv5pJwAWSS/UbYy3Kvg0nDFz23WZSmMPmZbHCle/
+         Wr8chWe4GdfQlORsrjj6TEY2a94NRNm6MyOcedmQztrVMu4V9dL/CdRc8bv842ke96GK
+         iG8qonC5uQrv1Mt5T5iM1BRbPx+ToC+p8cg+c+98mPNiL/CuiLdVHLoRE53mH/uyJMt7
+         h5+1YoDJZMbU8kr4Rf7P9a45C9kQ0OGBHD+sMcD41U/OmNQfoqEKLyZthojNX1RZ7x4z
+         v7qw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789417974; x=1790022774;
+        h=content-transfer-encoding:content-type:mime-version:organization
+         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=2SVZ2YLsBB6VGQtK8NxlN3Z4ynzgoiLnBiZCMpH7eJk=;
+        b=vwT/w/nYzVKywOsU6/MYUvuxyot2kkZkuc6fsTI42MTwX6YvHnAnGsP5FJknQ+XHZu
+         8UzCvUmXrHNFHR7oG82F8dcF2NzAhyTrQoql4HacKJnoxtuawKQTh8VqTzyGLtojy9Wv
+         RXTaBQ34hkafzbJVQH5zm1BAFu2ryTFpYVM/pqlhSaADhho7AU33/jfE/xFbnHPdFX6l
+         ZyJ0azwoHvYk6iAG/W5spyo4RlnGDlZYU6UdK4BoYUxlunvucwqAIKITDW6up9HikXgO
+         LpwI+NevYmA9HI80rl+Xkfq+FByuUsXVYYMSawbG9UyK5mTXnwZlwaEA7Ft6ttJW0+IH
+         Q4pA==
+X-Forwarded-Encrypted: i=1; AKwUvBy4nJkJ4o1KowfcjeDlYoBHjlvas3XmuCjaQUsxq4TeECjIPCFGSDRYa+XbUN1UAg9o3re+NIeQrT3IREX7Pr7Q@lists.infradead.org
+X-Gm-Message-State: AFuF++njx593wZFKXb42Bd8tBMxZKUYCOjKG1fngtUNjpH3nV7EyjE3T
+	/8DolV9cSf6Qh3nnYBOCjFgESebjSooySz5xic7qtmDO4QU5CxwvUiW8XrZnpUhuI9Xy59qLuEy
+	DpQxygD1zQ0pXQlTFQCheMTWnl2kCc+r7Awcg48HO8ajeYZdLl6Rq8AsseuJzAngjtyPO+hYKCg
+	uXJg==
+X-Gm-Gg: AYBFou35KlBo7DA6vJr9brjTYolYe/OkKO16gv60VxzAY8HP23Mivt6yoW/XfLMPELD
+	xZeqJM8/WBKQSYHjkL+l+Qa3rVdUvlkMTcZOe8B2HCI8jauyXCJc7pYD7sHGjuba+tAit+Pa5QX
+	ktXEOffeZ5tyDHlbzb9jucTs0+TjrKH99GoGEQqjiJtGWUnK48/r2dhNeJV/5hAr5E2RpQhrlrD
+	vLiDBTOGBc9v/S5Xv4chjKBza2aZeDktYJACDKxnPwzhajV4jfURAQqoFI5GIf7gC/2lupfeuQW
+	CQ1O/CJM7zOg/HT9tsG4CNdfcV8nuJSwa+csIGquChxMjKMEXmvYEdrVDs1wiNrruoxsbtPI+HI
+	HI/uQyJpt3X0w/T9ys3KPwL2DzL0=
+X-Received: by 2002:a17:90b:57e7:b0:38e:57a3:f218 with SMTP id 98e67ed59e1d1-39dec05d7femr8511310a91.13.1789417973830;
+        Mon, 14 Sep 2026 13:32:53 -0700 (PDT)
+X-Received: by 2002:a17:90b:57e7:b0:38e:57a3:f218 with SMTP id 98e67ed59e1d1-39dec05d7femr8511268a91.13.1789417973397;
+        Mon, 14 Sep 2026 13:32:53 -0700 (PDT)
+Received: from localhost ([50.35.44.179])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33bd8ad03ccsm9880610eec.2.2026.09.14.13.32.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 14 Sep 2026 13:32:53 -0700 (PDT)
+Date: Mon, 14 Sep 2026 13:32:49 -0700
+From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>,
+        Catalin
+ Marinas <catalin.marinas@arm.com>,
+        Greg KH <gregkh@linuxfoundation.org>,
+        Jeremy Linton <jeremy.linton@arm.com>,
+        Jonathan Cameron <jic23@kernel.org>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        Mark Rutland
+ <mark.rutland@arm.com>,
+        Sudeep Holla <sudeep.holla@arm.com>, Will Deacon
+ <will@kernel.org>,
+        Steven Price <steven.price@arm.com>,
+        Suzuki K Poulose
+ <Suzuki.Poulose@arm.com>,
+        Andre Przywara <andre.przywara@arm.com>,
+        Sudeep
+ Holla <sudeep.holla@kernel.org>
+Subject: Re: [PATCH v11 1/7] firmware: smccc: Add an Arm SMCCC bus
+Message-ID: <20260914133249.00007d35@oss.qualcomm.com>
+In-Reply-To: <20260914060511.277948-2-aneesh.kumar@kernel.org>
+References: <20260914060511.277948-1-aneesh.kumar@kernel.org>
+	<20260914060511.277948-2-aneesh.kumar@kernel.org>
+Organization: Qualcomm
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
 MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=c/0+0h9l c=1 sm=1 tr=0 ts=6aa859f7 cx=c_pps
+ a=0uOsjrqzRL749jD1oC5vDA==:117 a=aNnz9XPx1a4JIXSYt2cE/A==:17
+ a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
+ a=VwQbUJbxAAAA:8 a=Ikd4Dj_1AAAA:8 a=EUspDBNiAAAA:8 a=rWZSSP1HmsjXzHu-GLMA:9
+ a=CjuIK1q_8ugA:10 a=mQ_c8vxmzFEMiUWkPHU9:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE0MDI5MyBTYWx0ZWRfX8KqGHepb8Wgg
+ cymytm9Y5hLz6jJ+ylTJLOAVL/6/5HvF6u13mJ3yQ8CoTtrZUEJohxEwaf+RxUs+X5rWpJX+YwE
+ ozxWwIPNDyT9Xq+as5R5Z/H34W0UQlVgVcWWPCvQz95hTFERzfbF/KaBI/6v3QYzynk8HuAkZtf
+ 5XWNebOhXgZOdJMWrcGEQpF/aZpVgSU+pA/jSxj+T2aGUW9FKpsScLNVjKhCPSVlULzrnBUYiH7
+ 8lSY2PRjkUl0qrhmZQlL3ops7l93nZFfcxGWXOyw0fuoyDL3eZ8Uw0Uf+8M0c3KQwyQ40F6E2Cb
+ ALgv3DFHagfMV7pZq0hS+bJEg+THRhG0ALe+Wk4bFz68ejJMP2OVZmfHSXRvG2DJe7dbNY0C8np
+ sZOu9pufGqcg+XE/73BECFr/5jIgFHFVnV5fiASUaGRmem8NxB1nL44m5jpVsLGWTMD1S2tEfUR
+ 9usKCpgQFouYtA2mjVA==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE0MDI5MyBTYWx0ZWRfX5k455n71wISp
+ QBWfyxsBgFyvDTZG1x1OX3ZPR1KvpO9pTS71/aQapIrdxRnpRk/jIMbr9N37Jq1uwYsa+rdsVGm
+ 3ryap+uxzMVtm3O1iXXDYP2DTEkBExo=
+X-Proofpoint-ORIG-GUID: tTwnYpGXzk9ZTy27gEwKQn_1Vv1P_uKM
+X-Proofpoint-GUID: tTwnYpGXzk9ZTy27gEwKQn_1Vv1P_uKM
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-14_04,2026-09-14_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 spamscore=0 bulkscore=0 impostorscore=0 clxscore=1015
+ adultscore=0 phishscore=0 malwarescore=0 lowpriorityscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609140293
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260914_133256_930604_B57EB25A 
+X-CRM114-Status: GOOD (  27.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,257 +165,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 5 potential
-issue(s) to consider:
+On Mon, 14 Sep 2026 11:35:05 +0530
+"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> wrote:
 
-Critical: 0 · High: 0 · Medium: 2 (1) · Low: 3
+> SMCCC-discovered firmware services are currently represented by separate
+> platform devices, such as smccc_trng and arm-cca-dev. Those devices do not
+> represent independent DT/ACPI-described platform resources; they are
+> features of the SMCCC firmware interface.
+> 
+> Add an Arm SMCCC bus for services discovered through the SMCCC firmware
+> interface. The bus provides SMCCC device and driver registration helpers,
+> name-based matching, modalias generation, and a sysfs modalias attribute so
+> SMCCC service drivers can bind to discovered firmware services and autoload
+> as modules.
+> 
+> Follow-up changes can then register SMCCC firmware services as arm-smccc
+> devices instead of creating independent per-feature platform devices.
+> 
+> Based on arm_ffa code
 
-- [Medium] DWMAC_ROCKCHIP gains an unconditional `select
-  PCS_XPCS_ROCKCHIP` without inheriting the selected symbol's…
-- [Medium] For SGMII the driver removes every speed-dependent clock
-  programming path (rk_gmac_probe() sets plat_dat->set_clk_tx_rate =…
-- [Low] rk_get_interfaces() (dwmac-rk.c:1570-1571) now sets
-  PHY_INTERFACE_MODE_SGMII in phylink's supported_interfaces for every…
-- [Low] The RK3568 XPCS SoC node added by the series ('arm64: dts:
-  rockchip: rk3568: add XPCS and fixed-clock nodes') omits properties…
-- [Low] rk_select_pcs() (dwmac-rk.c:1268-1275) ignores its `interface`
-  argument and returns the SGMII XPCS for every interface mode,…
+That code has the same issue as below and for bonus points doesn't check
+if dev_set_name() succeeds or not.
 
-Pre-existing issues:
-- [Medium] DISCARDED (valid but pre-existing and below the reporting
-  threshold for pre-existing defects).
+> 
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> Reviewed-by: Sudeep Holla <sudeep.holla@kernel.org>
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 
---
+On tiny bit of fragility inline that I'd suggestion avoiding now rather than
+later.  Down to dev_set_name() doing allocations in some cases under the hood
+that are tricky to tidy up with device_register() being used.
 
-net: stmmac: dwmac-rk: add SGMII support for RK3568
+With that tidied up
 
-Adds a set_to_sgmii()/set_to_rmii() pair for rk3568 to program GRF bit 7,
-wires up pcs_init/pcs_exit/select_pcs so the Rockchip XPCS is used as the
-PCS, and reorders rk_gmac_powerup() so the clocks are enabled before the
-interface-specific configuration.
+Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
 
-Link: https://dl.radxa.com/rock3/docs/hw/datasheet/Rockchip%20RK3568%20TRM%20Part1%20V1.1-20210301.pdf (Page 386)
+> diff --git a/drivers/firmware/smccc/bus.c b/drivers/firmware/smccc/bus.c
+> new file mode 100644
+> index 000000000000..caba1a03c997
+> --- /dev/null
+> +++ b/drivers/firmware/smccc/bus.c
 
-A few questions below.
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-> index ab3c4cf964239..c6559e749c0ce 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-> +++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-> @@ -170,6 +170,7 @@ config DWMAC_ROCKCHIP
->  	default ARCH_ROCKCHIP
->  	depends on OF && (ARCH_ROCKCHIP || COMPILE_TEST)
->  	select MFD_SYSCON
-> +	select PCS_XPCS_ROCKCHIP
-
-[Severity: Medium]
-Does this select produce unmet dependency warnings?  PCS_XPCS_ROCKCHIP in
-drivers/net/pcs/Kconfig carries three dependency lines:
-
-  config PCS_XPCS_ROCKCHIP
-	tristate "Rockchip XPCS controller support"
-	default ARCH_ROCKCHIP
-	depends on OF && (ARCH_ROCKCHIP || COMPILE_TEST)
-	depends on GENERIC_PHY || COMPILE_TEST
-	depends on PM_GENERIC_DOMAINS || COMPILE_TEST
-
-while DWMAC_ROCKCHIP only has "depends on OF && (ARCH_ROCKCHIP ||
-COMPILE_TEST)".  ARCH_ROCKCHIP in arch/arm64/Kconfig.platforms selects PM
-but neither GENERIC_PHY nor PM_GENERIC_DOMAINS, so a config with
-ARCH_ROCKCHIP=y, COMPILE_TEST=n and GENERIC_PHY=n (or PM_GENERIC_DOMAINS=n)
-force-enables PCS_XPCS_ROCKCHIP with its own depends unsatisfied:
-
-  WARNING: unmet direct dependencies detected for PCS_XPCS_ROCKCHIP
-
-pcs-xpcs-rk.o is then built against the phy stubs where devm_phy_get()
-returns ERR_PTR(-ENOSYS), so the probe cannot succeed.
-
-The select is also unconditional, so every Rockchip dwmac build
-(RK3288/RK3328/RK3399/RK3588 ...) force-enables the RK356x-only XPCS
-driver.  Would inheriting the constraints, or making the selection
-conditional, be preferable here?  Note that simply adding the two depends
-lines to DWMAC_ROCKCHIP would turn off Ethernet on existing RK3288/RK3399
-configurations, so the choice probably needs to be explicit.
-
-The Kconfig change is also not mentioned anywhere in the commit message.
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> index 8d7042e689261..5d501ed8d1429 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-
-[ ... ]
-
-> @@ -1208,6 +1237,43 @@ static void rk_phy_powerdown(struct rk_priv_data *bsp_priv)
-> +static struct phylink_pcs *rk_select_pcs(struct stmmac_priv *priv,
-> +					 phy_interface_t interface)
-> +{
-> +	if (!priv->hw->xpcs)
-> +		return NULL;
 > +
-> +	return xpcs_to_phylink_pcs(priv->hw->xpcs);
-> +}
+> +struct arm_smccc_device *arm_smccc_device_register(const char *name, u32 func_id)
+> +{
+> +	int ret;
+> +	struct arm_smccc_device *smccc_dev;
+> +
+> +	if (!name)
+> +		return ERR_PTR(-EINVAL);
+> +
+> +	smccc_dev = kzalloc_obj(*smccc_dev);
+> +	if (!smccc_dev)
+> +		return ERR_PTR(-ENOMEM);
+> +
+> +	smccc_dev->func_id = func_id;
+> +	smccc_dev->dev.bus = &arm_smccc_bus_type;
+> +	smccc_dev->dev.release = arm_smccc_release_device;
+> +
+> +	ret = dev_set_name(&smccc_dev->dev, "%s", name);
 
-[Severity: Low]
-Should rk_select_pcs() look at its interface argument?  The mac_select_pcs
-contract in include/linux/phylink.h is to return the PCS for the specified
-interface, or NULL when none is required, but this returns the SGMII XPCS
-for any mode.
+Does protecting the string defeat the nice underlying const handling?
+e.g.
+	ret = dev_set_name(&smccc_dev->dev, name);
+might be better.  Not particular important - I only noticed because
+you'd often see this between an device_initialize() and device_add()
+and then we'd be relying on the device_put() to clean it up.
 
-On an RK3568 port probed as SGMII, rk_get_interfaces() also advertises the
-RGMII variants and RMII, and xpcs->pcs.supported_interfaces is non-empty
-(filled in by xpcs_get_interfaces()).  When phylink validates one of those
-non-SGMII interfaces, phylink_validate_mac_and_pcs() hits:
+So as this stands this is fragile as any error paths that later
+get added...
 
-	if (!phy_interface_empty(pcs->supported_interfaces) &&
-	    !test_bit(state->interface, pcs->supported_interfaces)) {
-		phylink_err(pl, "MAC returned PCS which does not support %s\n",
-			    phy_modes(state->interface));
-		return -EINVAL;
+
+> +	if (ret) {
+> +		kfree(smccc_dev);
+> +		return ERR_PTR(ret);
+> +	}
+> +
+
+here can't free the name allocation.
+
+So I'd just switch this to a split device setup - something like...
+
+	smccc_dev = kzalloc_obj(*smccc_dev);
+	if (!smccc_dev)
+		return ERR_PTR(-ENOMEM);
+
+	smccc_dev->func_id = func_id;
+	smccc_dev->dev.bus = &arm_smccc_bus_type;
+	smccc_dev->dev.release = arm_smccc_release_device;
+
+	device_initialize(&smccc_dev->dev);
+	ret = dev_set_name(&smccc_dev->dev, "%s", name);
+
+//up to you whether you care about const string handling.
+
+	if (ret) {
+		put_device(&smcc_dev->dev);
+		return ret;
 	}
 
-Would returning the XPCS only for PHY_INTERFACE_MODE_SGMII and NULL
-otherwise avoid that error path?
+	ret = device_register(&smccc_dev->dev);
+	if (ret) {
+		put_device(&smccc_dev->dev);
+		return ERR_PTR(ret);
+	}
 
-> @@ -1379,16 +1450,19 @@ static int rk_gmac_powerup(struct rk_priv_data *bsp_priv)
->  	if (ret)
->  		return ret;
->  
-> +	ret = gmac_clk_enable(bsp_priv, true);
-> +	if (ret)
-> +		return ret;
+	return smccc_dev;
+
+> +	ret = device_register(&smccc_dev->dev);
+> +	if (ret) {
+> +		put_device(&smccc_dev->dev);
+> +		return ERR_PTR(ret);
+> +	}
 > +
-
-[Severity: Medium]
-This isn't a bug introduced by this patch, but now that gmac_clk_enable()
-is the first resource acquisition in rk_gmac_powerup(), its partial-failure
-path becomes more visible.  Do the bulk clocks leak when the clk_phy enable
-fails?
-
-drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c:gmac_clk_enable() {
-	...
-		ret = clk_bulk_prepare_enable(bsp_priv->num_clks,
-					      bsp_priv->clks);
-		if (ret)
-			return ret;
-
-		ret = clk_prepare_enable(bsp_priv->clk_phy);
-		if (ret)
-			return ret;
-	...
-}
-
-The second failure returns without calling clk_bulk_disable_unprepare() and
-without setting bsp_priv->clk_enabled, so the later gmac_clk_enable(bsp_priv,
-false) in rk_gmac_powerdown() and at the new clk_disable label is a no-op
-because it is gated on clk_enabled.  This only triggers for integrated-PHY
-setups where clk_phy is non-NULL.
-
-> +	if (bsp_priv->phy_iface == PHY_INTERFACE_MODE_SGMII)
-> +		goto set_mode;
+> +	return smccc_dev;
+> +}
+> +EXPORT_SYMBOL_GPL(arm_smccc_device_register);
 > +
->  	ret = rk_get_phy_intf_sel(bsp_priv->phy_iface);
->  	if (ret < 0)
-> -		return ret;
-> +		goto clk_disable;
-
-[ ... ]
-
-> @@ -1486,6 +1566,9 @@ static void rk_get_interfaces(struct stmmac_priv *priv, void *bsp_priv,
->  
->  	if (rk->supports_rmii)
->  		__set_bit(PHY_INTERFACE_MODE_RMII, interfaces);
+> +void arm_smccc_device_unregister(struct arm_smccc_device *smccc_dev)
+> +{
+> +	if (!smccc_dev)
+> +		return;
 > +
-> +	if (rk->supports_sgmii)
-> +		__set_bit(PHY_INTERFACE_MODE_SGMII, interfaces);
->  }
-
-[Severity: Low]
-Is SGMII safe to advertise on a port that was not probed as SGMII?
-rk3568_ops populates set_to_sgmii unconditionally, and rk_gmac_setup()
-derives supports_sgmii from it, so every RK3568 port now advertises SGMII
-in phylink's supported_interfaces (stmmac_phy_setup() copies the
-get_interfaces() output verbatim into config->supported_interfaces).
-
-All the SGMII setup, though, is keyed off the probe-time DT phy-mode:
-
-  - rk_gmac_powerup() writes RK3568_GMAC_MODE_SGMII_QSGMII only in the
-    "case PHY_INTERFACE_MODE_SGMII:" branch, which runs once at init
-  - rk_gmac_probe() installs pcs_init/pcs_exit/select_pcs,
-    default_an_inband and clears set_clk_tx_rate only under
-    "if (plat_dat->phy_interface == PHY_INTERFACE_MODE_SGMII)"
-
-So on a port probed as rgmii*/rmii, if phylink later selects SGMII (SFP
-cage, or a PHY reporting SGMII as its host interface), GRF bit 7 stays
-cleared by rk3568_set_to_rgmii()/rk3568_set_to_rmii(), plat->select_pcs is
-NULL so stmmac_mac_select_pcs() returns NULL and there is no PCS to run
-autonegotiation.  Before this patch SGMII was not in supported_interfaces
-and such a configuration was rejected during validation.  Would gating the
-__set_bit() on the probe-time interface be closer to what the hardware can
-actually do?
-
-> @@ -1602,6 +1685,17 @@ static int rk_gmac_probe(struct platform_device *pdev)
->  	plat_dat->suspend = rk_gmac_suspend;
->  	plat_dat->resume = rk_gmac_resume;
->  
-> +	if (plat_dat->phy_interface == PHY_INTERFACE_MODE_SGMII) {
-> +		/* SGMII clock always runs at 125 MHz */
-> +		plat_dat->set_clk_tx_rate = NULL;
+> +	device_unregister(&smccc_dev->dev);
+> +}
+> +EXPORT_SYMBOL_GPL(arm_smccc_device_unregister);
 > +
-> +		/* SGMII requires a PCS */
-> +		plat_dat->default_an_inband = true;
+> +static int __init arm_smccc_bus_init(void)
+> +{
+> +	return bus_register(&arm_smccc_bus_type);
+> +}
+> +subsys_initcall(arm_smccc_bus_init);
 
-[Severity: Medium]
-The commit message says:
-
-  "Enable default_an_inband for SGMII and disable the generic stmmac
-   set_clk_tx_rate callback.  This forces phylink to use in-band mode,
-   where the PCS is responsible for speed/duplex negotiation."
-
-Is "forces" accurate?  default_an_inband is only a default, and the next
-paragraph of the message says so itself.  In phylink_parse_mode():
-
-	if (pl->config->default_an_inband)
-		pl->cfg_link_an_mode = MLO_AN_INBAND;
-
-	dn = fwnode_get_named_child_node(fwnode, "fixed-link");
-	if (dn || fwnode_property_present(fwnode, "fixed-link"))
-		pl->cfg_link_an_mode = MLO_AN_FIXED;
-
-and xpcs_inband_caps() advertises out-of-band as acceptable:
-
-	case DW_AN_C37_SGMII:
-	case DW_AN_C37_1000BASEX:
-		return LINK_INBAND_DISABLE | LINK_INBAND_ENABLE;
-
-so phylink_pcs_neg_mode() can settle on PHYLINK_PCS_NEG_OUTBAND for a
-fixed-link node or a PHY without in-band support.  With set_clk_tx_rate set
-to NULL, rk3568_ops.set_speed = rk_set_clk_mac_speed also becomes
-unreachable, so a 10/100 Mbps link is brought up with the clocking left at
-the 1 Gbps setting and nothing warns or fails.  Would rejecting a
-non-inband neg_mode (for example in mac_config or pcs_validate), or failing
-probe when a fixed-link node is present for SGMII, match what the message
-describes?
-
-One more observation on the series rather than on this patch: the new
-binding Documentation/devicetree/bindings/net/pcs/rockchip,rk3568-xpcs.yaml
-lists phys and phy-names in its unconditional required list, but the
-ethernet-pcs@fda00000 node added to arch/arm64/boot/dts/rockchip/rk3568.dtsi
-supplies only reg, clocks, clock-names and power-domains.  Only
-rk3568-photonicat.dts adds them:
-
-  &xpcs {
-	phys = <&combphy2 PHY_TYPE_SGMII>;
-	phy-names = "serdes";
-	status = "okay";
-  };
-
-[Severity: Low]
-Does dtbs_check report "phys is a required property" for the other RK3568
-board DTBs?  dtschema validates nodes regardless of status = "disabled".
-The neighbouring sata0 node in the same dtsi does carry phys/phy-names at
-SoC level, so would moving them into rk3568.dtsi be an option?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260913185849.907479-1-coiaprant%40gmail.com
 
