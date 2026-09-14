@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBE4CC88E64
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 09:43:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60706C88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 09:45:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YVuOluateM9gRYGX8buJx3P4hkz/hhI4JcPoc/rvqoY=; b=gA8B+eof6rgqWlpcrk2HCVwHIM
-	d+pp+jEjsVJLdCsm34SnVzifCfIIjyUdyNEvIOHGs/lMaLras1hRZPO1RvGeyHHiyrhvbzttEjsxx
-	evJ+2Ffck5qNmFYMm5NN0cy5pcCLklvJs3s6b8n6Sw/pJeBxCUXSAFms1jDFrzrDb6Ip8b2fAYysj
-	TYNikTKhRdo9g/2lgWhSk+iwG/HFvOs+EHOzG0cYqOUKLqJV9LLW0E5x75/ruX2kIY4L6b5LpBGMv
-	qtb2k7lFOYV4NPi7jD9xlfqlNr5H+T7zDOxdIYJFRrOCpFTM9VAxL+iraxAxBI+T6ud0Hicun52Nr
-	e8Xh0ZbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7oTu0d+0Fng6387kjjfZt62xlgG4iwEnpYsY40VG/Ho=; b=ByyxZgk5ppJdWGKHTz6I43Cbf+
+	uK7achQ7tnnkFE5hS9rnNrJ/ITHhSvo84DcsTB4i9PGuM2bPPSKoGqsnA1LqoJuyUAYt73CWslix5
+	3TFLYOWLyYYeddr9Pp8uWX07aPKYRpvxz3m1tVa3vnoT+GLTgl0Ti/jD9ADGSFnZtS2Jf8i9v6M1i
+	IuGAZ5zyyaEG69ds8b3Oae2/3LGU8uusd3pN0Lcdhy+ZBMjoRIcMiQHnQUG+kffpcofd0akU2UpGy
+	iEgiXSRbbLqnXmGJtV2VSCC7QwF5qOEdlRaPju8wK6eJVIyLpIU3k1zYk9aUo5Q0/WLmAC/ybksTI
+	5Si5QzoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x63DH-000000030QQ-3gSJ;
-	Mon, 14 Sep 2026 09:42:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x63DG-000000030PY-0ITH
+	id 1x63F8-000000030jZ-1bEb;
+	Mon, 14 Sep 2026 09:44:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x63F6-000000030j4-3ZJz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 09:42:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9D230152B;
-	Mon, 14 Sep 2026 02:42:53 -0700 (PDT)
-Received: from [10.0.128.139] (unknown [10.0.128.139])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6831F3F59E;
-	Mon, 14 Sep 2026 02:42:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789378977; bh=Xg4bUL7yzEXMUEjQqIolCpCM3xjY/H/uXxIijcBMiTE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BgTCe4zeLwNWaya0LVmV+TiodXsEebvsIa8e9wyJC/d5MUM3UYdPN0S5TN2XlTVOZ
-	 WfPOHyz2V2YkVR5SUDRxLNS19QDHeDRnfnD4UeE3/9mgpwOKsW5nCVrMo4sebjEOaJ
-	 DFEY9QOAilgH359pCY5ZZnd4hKEW2KvjJfCbFzIk=
-Message-ID: <979a2e1a-eebb-46c2-9cb4-d65428ebaeb8@arm.com>
-Date: Mon, 14 Sep 2026 10:42:53 +0100
+	Mon, 14 Sep 2026 09:44:52 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 83A1E43A16;
+	Mon, 14 Sep 2026 09:44:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C06121F000FF;
+	Mon, 14 Sep 2026 09:44:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789379092;
+	bh=7oTu0d+0Fng6387kjjfZt62xlgG4iwEnpYsY40VG/Ho=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=AwJKXUYxu2mk018JrvfobY4v2/1iitVaMT3IPdoEL9Dhptuk86dYWjE1hmwbGweip
+	 G9YbI8JCD/Roai2iKXzafYLn7VJDIHvKI17gT5I1gWWOYsXmzjqZSQhQNBsHzuyGDq
+	 1nK49n33KIeUVVdWn+taXyyAGZw0xq1efG6Py78j/samC5nea2i9H9TTuc80epxaRb
+	 hEp+8O4fOix1UsVy6dGnIcKEFqv+Mw9K0Dj4cnmNokkpRtYaxF3FRPeXgCa14aUi+9
+	 YahzdtRk++xKNYA3nR/U1gK6j6YXyqdOQR2zE9s0nL4s6nHAK0u6hyNkk9s1fTEPoH
+	 y8gLqWQpfryXQ==
+Date: Mon, 14 Sep 2026 11:44:48 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Long Zhao <longzhao@ambarella.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Linus Walleij <linusw@kernel.org>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Jiri Slaby <jirislaby@kernel.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+	Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Long Zhao <zl020895@163.com>, Lee Jones <lee@kernel.org>, 
+	mfd@lists.linux.dev, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 04/13] dt-bindings: pinctrl: add Ambarella CV75 pinctrl
+Message-ID: <20260914-refined-elite-seriema-0f7eaa@quoll>
+References: <20260904-cv75-v5-v6-0-e918514cb3b1@ambarella.com>
+ <20260904-cv75-v5-v6-4-e918514cb3b1@ambarella.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] KVM: arm64: Don't WARN on an unknown VM ioctl in
- protected mode
-Content-Language: en-GB
-To: Fuad Tabba <fuad.tabba@linux.dev>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oupton@kernel.org>
-Cc: Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>,
- Steffen Eiden <seiden@linux.ibm.com>, Zenghui Yu <yuzenghui@huawei.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20260914093838.1082637-1-fuad.tabba@linux.dev>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260914093838.1082637-1-fuad.tabba@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_024258_161378_9065470C 
-X-CRM114-Status: GOOD (  15.24  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260904-cv75-v5-v6-4-e918514cb3b1@ambarella.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,41 +78,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/09/2026 10:38, Fuad Tabba wrote:
-> kvm_pkvm_ioctl_allowed() WARNs when kvm_get_cap_for_kvm_ioctl() doesn't
-> find the ioctl number in vm_ioctl_caps[], and kvm_arch_vm_ioctl() calls
-> it for every number the generic code doesn't handle, so
-> ioctl(vm_fd, 0xdeadbeef) from userspace taints a pKVM host and panics it
-> under panic_on_warn. The lookup is fed userspace input: return false,
-> and userspace gets the -EINVAL kvm_arch_vm_ioctl() returns for that
-> number on a host without pKVM.
+On Fri, Sep 04, 2026 at 02:38:11PM +0800, Long Zhao wrote:
+> Document the CV75 pin controller binding using generic function and
+> groups properties for pinmux configuration.
 > 
-> Fixes: b12b3b04f6ba0 ("KVM: arm64: Check whether a VM IOCTL is allowed in pKVM")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
-
-I hit this myself ;-) and had a patch in my series. Thanks for posting
-this
-
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-
+> Signed-off-by: Long Zhao <longzhao@ambarella.com>
 > ---
->   arch/arm64/include/asm/kvm_pkvm.h | 3 +--
->   1 file changed, 1 insertion(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
-> index beea00e693a0a..cad60569f0619 100644
-> --- a/arch/arm64/include/asm/kvm_pkvm.h
-> +++ b/arch/arm64/include/asm/kvm_pkvm.h
-> @@ -65,8 +65,7 @@ static inline bool kvm_pkvm_ioctl_allowed(struct kvm *kvm, unsigned int ioctl)
->   	int r;
->   
->   	r = kvm_get_cap_for_kvm_ioctl(ioctl, &ext);
-> -
-> -	if (WARN_ON_ONCE(r < 0))
-> +	if (r < 0)
->   		return false;
->   
->   	return kvm_pkvm_ext_allowed(kvm, ext);
+>  .../bindings/pinctrl/ambarella,cv75-pinctrl.yaml   | 239 +++++++++++++++++++++
+>  1 file changed, 239 insertions(+)
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+
+Best regards,
+Krzysztof
 
 
