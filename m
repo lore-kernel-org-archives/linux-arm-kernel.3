@@ -4,101 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FF68C88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 13:15:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F43AC88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 13:15:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QXqt/TfNNS4iK2D0KIQwOPPSsGXvQRI7uTBOlyeJv7U=; b=Hfmzk3vKrzMuIHFKG/HZtLXIcU
-	FAPX95dA7qxSxfJrlIVSjtiVy+3T1wF36GyRRqSneUsR8hFmjyRoN9f54IYSBKaZfIhOArNiPGfoP
-	beJ8KEJDUqVblzJXmJ5O9WiKv+wzQ0kxFMvPIfFsb8dXlLuDa6+0h9GEV+l/A76Zs7WRSn7GIqWb0
-	MywGgpi+RvuYbbJ0QzRnmYfsQ6iVDxdI5z0Awlp29ubbIRdXl+gD722G4bXcic/m9zvnxB24sfEN0
-	PbBCLRWPFY9jfh9gdquyjdnkzmzXuPO6AnxdsXzxDt4OP3kFjFjUFFpTsrP5bZ4QEzLO9x7iFjoDk
-	s+v/Sy2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YCFF1YUUi/TM0kMtInUXHAKzLUllc8PMo/dty7euYJ8=; b=Nz4YMpg+pH4/zBeDntJi5RheHd
+	oB3IPog0Cd6dfdht8s9gNJ/Fs2YDsrqt3NK2Kl+vY7K8zpBJrvqhJqJ7gSMldpBlxAKxyrxMR1PPN
+	1g5urqG3p0fMUWQebhSSkE6HZ2/1eorW4xUvhn4UMD0fStJmb6YXKPyLxHj6+bxVmIiXej6iBS8nd
+	JG2Z58T+jM4BluL5sB590jpfgxlj9FJWcjBzvEaDjK+rSQgKw1WOKjpDbDzM7P7lvEUnUKL5WgAcf
+	qplL2GvAG9BGxNIrbsNjXcH85tIhQ98gj6rP8FncRQtn2AyEh8KJiqJTJWY9Eox1t82A539hyuKXm
+	JW3CWYYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x66WL-00000003iOk-344C;
-	Mon, 14 Sep 2026 13:14:53 +0000
-Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x66WI-00000003iNL-2HhC
+	id 1x66WS-00000003iS5-3tTy;
+	Mon, 14 Sep 2026 13:15:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x66WN-00000003iPP-2SL1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 13:14:53 +0000
-Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-4843c2790ccso1153973f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 06:14:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1789391688; x=1789996488; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=QXqt/TfNNS4iK2D0KIQwOPPSsGXvQRI7uTBOlyeJv7U=;
-        b=QtQ+0fJ2MbergTVJoA2/F3UUnU/TNeAzI57rH03Dyzvl5G+hsZjEPVetxM6zFiZYNL
-         eq5Mb607G2q2os1mMKdqwn7ZaLaj+67n1imJJwxvsY8zPuJn5CdhDnx5IDN2DhD5Z2CQ
-         GUBzZAHF+NThsvS6Dcd2HSMc6udGG8ZL7+vYebgajfnQfuGjAJ4/jdPqMX4KDw2FhclB
-         5m6XtKupCnNFQRzOHHHNkKypWFXwRkD61Y2YQMl84k6DBTL4plt2rAu36QVz8kUwcjT0
-         6hGi+Q6BLYgiNLjrbashl9Rj5wj4zI2WAnmtBArrrxW8pgzvz+phwiPw8BzMmx5rHi5g
-         OJzQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789391688; x=1789996488;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=QXqt/TfNNS4iK2D0KIQwOPPSsGXvQRI7uTBOlyeJv7U=;
-        b=V0eSvc4kf1YbHp2DPs/yuJLlU1ip9xnUjToM2CD8IfeeQfOM3wfVVs9AaQYoNi/xI3
-         SFO3+SMqrkx6pdDjlqRDG+WuqHTUF4ts6QeX2uiCtsrP1gDgne7+QeSH/zPUrteTQ8vE
-         svDxQQ4H1e+IUG9jtHxzH8RY1D9bSitvJLLY8HcpbIF3MRVSBu49R9aZ0Q3BCjLS9ANR
-         LjJfmm0x5yTdKb9TrNv4u5+CvIgWgiY9YJqJ+nc+wA/eCCxCAPDTAImdrqppBBH833uC
-         JprCOTC0Ff/+XSv3N3ejPj+tZd1aOK0P8FhvbyqZELWG1ERH/6S5n/BNpiic3LGMCqrc
-         ekkQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwrKJCsIOfOVH+L7SbwYWVvFlRt0JEPcFVPR4FmrkkacojQ7RV/6fNxRohStROYEnUvO4Dvckmh5vjRHM5dlzts@lists.infradead.org
-X-Gm-Message-State: AFuF++mcTKwZeFf528BlCoIhu5CRl2KZKtMgsk/vG/KxXZg6wM86Y8We
-	VsA6zxZfdVn1tLI3UtGziAKC8E1V/OZ7J1kpsPyWMrpd5Fm3v/LYFrUZXNOxNy7LRFk=
-X-Gm-Gg: AYBFou1IRXdUBkea0dIi8GitLYqomX/UQQ9AAVAjrl+eg5skamssu7tppTPQ0ZedFAj
-	/qmADmp9jwmm981PODpAl5PAO4bn/y9V3gWLBhd5uE+P6BOyDTrgN8PKyLge9aqVsKasiAPZ0FN
-	Pbjgpo/7vGlHObkVYrbVv3xDwXUM6+68gRnNHb+iJnb791AfTHx9XczeGZH/+6z1tpQ41Esrz6G
-	McB/c+edmxZFIs+jH3l+GPm3Q8B2l1kyWfd+xECdBP//XjycNzgEMFoGdKkE5a0Ma1gAr2YXgEb
-	lVJLfSD0hDKpMaXWgpbarR43Dmf69WTc+DtxepbIynYY6GiQVM2DUw9mmHbZb8LvkZQ3jVIvA8E
-	Em6UWSqUkBjnKKbyUCKPXZjD9nfRQKm2elTSare7nAoa9zN0aJn3WoFPg/xDQE7xLlipPvlvLCX
-	giPDomznPGYXy/iYD2uJ+1zqfILEFVtMeqD7Gevgj+FNG0PQ7vyOLrT96lEg1M7eys+5VxM5o=
-X-Received: by 2002:a05:600c:46ce:b0:49c:dca4:94c with SMTP id 5b1f17b1804b1-49e7a6870d9mr47453825e9.13.1789391687993;
-        Mon, 14 Sep 2026 06:14:47 -0700 (PDT)
-Received: from [192.168.3.100] ([151.42.87.32])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-486eb34e608sm28719703f8f.23.2026.09.14.06.14.46
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 14 Sep 2026 06:14:47 -0700 (PDT)
-Message-ID: <964d6626-202c-4d0a-aef2-86a383f405ab@baylibre.com>
-Date: Mon, 14 Sep 2026 15:14:46 +0200
+	Mon, 14 Sep 2026 13:14:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 53AB21570;
+	Mon, 14 Sep 2026 06:14:50 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9AFB93F9A2;
+	Mon, 14 Sep 2026 06:14:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789391693; bh=9fzthyXkK1SDBi5vFe7gBqxNV/kFVCWjjbdq04srRZ8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YBLDnf85hRwnACSxvYy88ispQT9XLGw9eliM6ovAUr5ToQcP2Fdi7ksyPYLPJ63R+
+	 a8BJTDioobKIcffsqGTUNa9LdfKw9d9IuWN8U7nB+0hFKhRElBuKs4POGxb4Ds07my
+	 89sM7iB/X0+em2o2O1/DP5S93kvLdM8tVXmG0sAc=
+Date: Mon, 14 Sep 2026 14:14:44 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>,
+	Greg KH <gregkh@linuxfoundation.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Olivia Mackall <olivia@selenic.com>
+Subject: Re: [PATCH v11 2/7] firmware: hwrng: arm_smccc_trng: Register as an
+ SMCCC device
+Message-ID: <aqfzRKlPsxuGYJlw@arm.com>
+References: <20260914060511.277948-1-aneesh.kumar@kernel.org>
+ <20260914060511.277948-3-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/6] ASoC: meson: add audin main module and I2S formatter
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Jerome Brunet <jbrunet@baylibre.com>, Liam Girdwood
- <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
- linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260912-audin-v1-0-7fbefe928711@baylibre.com>
- <20260912-audin-v1-2-7fbefe928711@baylibre.com>
- <20260913-inventive-millipede-of-certainty-dd58ce@quoll>
-Content-Language: en-US
-From: Valerio Setti <vsetti@baylibre.com>
-In-Reply-To: <20260913-inventive-millipede-of-certainty-dd58ce@quoll>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260914060511.277948-3-aneesh.kumar@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_061450_616811_C7EBF7E2 
-X-CRM114-Status: GOOD (  25.41  )
+X-CRM114-CacheID: sfid-20260914_061455_706347_32543613 
+X-CRM114-Status: GOOD (  31.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,96 +81,207 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks for your review and feedbacks.
+You still haven't copied Olivia and Herbert for the hw_random bits.
 
-
-On 9/13/26 11:41 AM, Krzysztof Kozlowski wrote:
-> On Sat, Sep 12, 2026 at 12:14:32AM +0200, Valerio Setti wrote:
->> +static int meson_gx_audin_probe(struct platform_device *pdev)
->> +{
->> +	struct device *dev = &pdev->dev;
->> +	struct resource *res;
->> +	void __iomem *mmio;
->> +	struct regmap *regmap;
->> +	struct clk *clk;
->> +	int ret;
->> +
->> +	ret = device_reset(dev);
->> +	if (ret)
->> +		return dev_err_probe(dev, ret, "Failed to reset device\n");
->> +
->> +	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
->> +	if (!res)
->> +		return dev_err_probe(dev, -EINVAL, "Failed to get memory resource\n");
->> +
->> +	/*
->> +	 * Do not use devm_platform_ioremap_resource() here: it would claim the
->> +	 * whole AUDIN window exclusively and the FIFO children would then fail
->> +	 * to request their own sub-ranges.
->> +	 */
+On Mon, Sep 14, 2026 at 11:35:06AM +0530, Aneesh Kumar K.V (Arm) wrote:
+> The SMCCC TRNG interface is a firmware-provided SMCCC service rather than a
+> standalone platform device. Now that the SMCCC core has an SMCCC bus,
+> create an arm-smccc-trng device for the discovered TRNG service and convert
+> the hwrng driver to an SMCCC driver.
 > 
-> And this should point you that child is not a separate device.
+> The SMCCC id table preserves module autoloading for systems where the TRNG
+> driver is built as a module.
 > 
-> Please open your datasheet and read what is the address space of this
-> device. You claim here ENTIRE address space. If you insist that entire
-> address space is not owned by this device, then you misrepresented
-> hardware in the DT anyway.
-
-As I mentioned in the cover letter I designed it this way so that I 
-could easily re-use the same driver code for all 3 FIFOs just offsetting 
-the base address. I knew it was a bit hackish a solution, but IMO that 
-was worth it since it was simplifying a bit driver's code. Perhaps it 
-was more software-oriented rather than hardware related.
-The other possible approach is to fully copy what AIU is doing and 
-allocate each FIFO as a DAI. I'll follow that design then, but if you 
-have any better idea please let me know.
-
->> +	mmio = devm_ioremap(dev, res->start, resource_size(res));
->> +	if (!mmio)
->> +		return dev_err_probe(dev, -ENOMEM, "Failed to remap memory\n");
->> +
->> +	regmap = devm_regmap_init_mmio(dev, mmio, &audin_regmap_cfg);
->> +	if (IS_ERR(regmap))
->> +		return dev_err_probe(dev, PTR_ERR(regmap), "Failed to init regmap\n");
->> +
->> +	clk = devm_clk_get_enabled(dev, NULL);
->> +	if (IS_ERR(clk))
->> +		return dev_err_probe(dev, PTR_ERR(clk), "Failed to get clock\n");
->> +
->> +	ret = gx_formatter_create(dev, &audin_dapm_widgets[0], &audin_formatter_i2s_drv, regmap);
->> +	if (ret)
->> +		return dev_err_probe(dev, ret, "Failed to allocate formatter\n");
->> +
->> +	ret = devm_snd_soc_register_component(dev, &audin_component, NULL, 0);
->> +	if (ret)
->> +		return dev_err_probe(dev, ret, "Failed to register component\n");
->> +
->> +	ret = devm_of_platform_populate(dev);
->> +	if (ret)
->> +		return dev_err_probe(dev, ret, "Failed to probe child nodes\n");
->> +
->> +	return 0;
->> +}
->> +
->> +static void meson_gx_audin_remove(struct platform_device *pdev)
->> +{
->> +	gx_formatter_free(&audin_dapm_widgets[0]);
->> +}
->> +
->> +static const struct of_device_id meson_gx_audin_of_match[] = {
->> +	{ .compatible = "amlogic,meson-gxbb-audin" },
->> +	{ .compatible = "amlogic,meson-gxl-audin" },
+> The sysfs device path changes from the old smccc_trng platform-device path
+> to an arm-smccc device path. No known userspace dependency on the old path
+> was found; a Debian Code Search lookup for the existing platform-device
+> name/path did not find any users.
 > 
-> Why do you have two entries here and no fallbacks? This makes no sense,
-> really. I have no more doubts that your "gx" is a real SoC/
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> Tested-by: Andre Przywara <andre.przywara@arm.com>
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 
-OK. Genuine question about naming here: would "amlogic,gx-audin" be 
-fine? Because in "meson-gx.dtsi" I see many surrounding nodes have 
-"amlogic,meson-gx-" prefix, but that doesn't seem to follow design rules 
-from "writing-bindings.rst".
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
-
--- 
-Valerio
-
+> ---
+>  arch/arm/include/asm/archrandom.h       |  2 +-
+>  arch/arm64/include/asm/archrandom.h     |  2 +-
+>  drivers/char/hw_random/arm_smccc_trng.c | 32 ++++++++-----
+>  drivers/firmware/smccc/smccc.c          | 62 +++++++++++++++++++++----
+>  4 files changed, 76 insertions(+), 22 deletions(-)
+> 
+> diff --git a/arch/arm/include/asm/archrandom.h b/arch/arm/include/asm/archrandom.h
+> index cc4714eb1a75..ee39a03ddf8a 100644
+> --- a/arch/arm/include/asm/archrandom.h
+> +++ b/arch/arm/include/asm/archrandom.h
+> @@ -2,7 +2,7 @@
+>  #ifndef _ASM_ARCHRANDOM_H
+>  #define _ASM_ARCHRANDOM_H
+>  
+> -static inline bool __init smccc_probe_trng(void)
+> +static inline bool smccc_probe_trng(void)
+>  {
+>  	return false;
+>  }
+> diff --git a/arch/arm64/include/asm/archrandom.h b/arch/arm64/include/asm/archrandom.h
+> index 8babfbe31f95..7605dd81bd1e 100644
+> --- a/arch/arm64/include/asm/archrandom.h
+> +++ b/arch/arm64/include/asm/archrandom.h
+> @@ -12,7 +12,7 @@
+>  
+>  extern bool smccc_trng_available;
+>  
+> -static inline bool __init smccc_probe_trng(void)
+> +static inline bool smccc_probe_trng(void)
+>  {
+>  	struct arm_smccc_res res;
+>  
+> diff --git a/drivers/char/hw_random/arm_smccc_trng.c b/drivers/char/hw_random/arm_smccc_trng.c
+> index dcb8e7f37f25..01c1a30cbab8 100644
+> --- a/drivers/char/hw_random/arm_smccc_trng.c
+> +++ b/drivers/char/hw_random/arm_smccc_trng.c
+> @@ -16,8 +16,10 @@
+>  #include <linux/device.h>
+>  #include <linux/hw_random.h>
+>  #include <linux/module.h>
+> -#include <linux/platform_device.h>
+>  #include <linux/arm-smccc.h>
+> +#include <linux/arm-smccc-bus.h>
+> +
+> +#include <asm/archrandom.h>
+>  
+>  #ifdef CONFIG_ARM64
+>  #define ARM_SMCCC_TRNG_RND	ARM_SMCCC_TRNG_RND64
+> @@ -94,29 +96,37 @@ static int smccc_trng_read(struct hwrng *rng, void *data, size_t max, bool wait)
+>  	return copied;
+>  }
+>  
+> -static int smccc_trng_probe(struct platform_device *pdev)
+> +static int smccc_trng_probe(struct arm_smccc_device *sdev)
+>  {
+>  	struct hwrng *trng;
+>  
+> -	trng = devm_kzalloc(&pdev->dev, sizeof(*trng), GFP_KERNEL);
+> +	/* validate the minimum version requirement */
+> +	if (!smccc_probe_trng())
+> +		return -ENODEV;
+> +
+> +	trng = devm_kzalloc(&sdev->dev, sizeof(*trng), GFP_KERNEL);
+>  	if (!trng)
+>  		return -ENOMEM;
+>  
+>  	trng->name = "smccc_trng";
+>  	trng->read = smccc_trng_read;
+>  
+> -	return devm_hwrng_register(&pdev->dev, trng);
+> +	return devm_hwrng_register(&sdev->dev, trng);
+>  }
+>  
+> -static struct platform_driver smccc_trng_driver = {
+> -	.driver = {
+> -		.name		= "smccc_trng",
+> -	},
+> -	.probe		= smccc_trng_probe,
+> +static const struct arm_smccc_device_id smccc_trng_id_table[] = {
+> +	{ .func_id = ARM_SMCCC_TRNG_VERSION },
+> +	{}
+> +};
+> +MODULE_DEVICE_TABLE(arm_smccc, smccc_trng_id_table);
+> +
+> +static struct arm_smccc_driver smccc_trng_driver = {
+> +	.name	  = KBUILD_MODNAME,
+> +	.probe	  = smccc_trng_probe,
+> +	.id_table = smccc_trng_id_table,
+>  };
+> -module_platform_driver(smccc_trng_driver);
+> +module_arm_smccc_driver(smccc_trng_driver);
+>  
+> -MODULE_ALIAS("platform:smccc_trng");
+>  MODULE_AUTHOR("Andre Przywara");
+>  MODULE_DESCRIPTION("Arm SMCCC TRNG firmware interface support");
+>  MODULE_LICENSE("GPL");
+> diff --git a/drivers/firmware/smccc/smccc.c b/drivers/firmware/smccc/smccc.c
+> index bdee057db2fd..756c79204e44 100644
+> --- a/drivers/firmware/smccc/smccc.c
+> +++ b/drivers/firmware/smccc/smccc.c
+> @@ -9,7 +9,8 @@
+>  #include <linux/init.h>
+>  #include <linux/arm-smccc.h>
+>  #include <linux/kernel.h>
+> -#include <linux/platform_device.h>
+> +#include <linux/arm-smccc-bus.h>
+> +
+>  #include <asm/archrandom.h>
+>  
+>  static u32 smccc_version = ARM_SMCCC_VERSION_1_0;
+> @@ -81,16 +82,59 @@ bool arm_smccc_hypervisor_has_uuid(const uuid_t *hyp_uuid)
+>  }
+>  EXPORT_SYMBOL_GPL(arm_smccc_hypervisor_has_uuid);
+>  
+> +struct smccc_device_info {
+> +	u32 func_id;
+> +	bool requires_smc;
+> +	const char *device_name;
+> +};
+> +
+> +static const struct smccc_device_info smccc_devices[] __initconst = {
+> +	{
+> +		.func_id        = ARM_SMCCC_TRNG_VERSION,
+> +		.requires_smc   = false,
+> +		.device_name    = "arm-smccc-trng",
+> +	},
+> +};
+> +
+> +static bool __init smccc_probe_smccc_device(const struct smccc_device_info *smccc_dev)
+> +{
+> +	int ret;
+> +	struct arm_smccc_res res = {};
+> +
+> +	if (smccc_conduit == SMCCC_CONDUIT_NONE)
+> +		return false;
+> +
+> +	if (smccc_dev->requires_smc && smccc_conduit != SMCCC_CONDUIT_SMC)
+> +		return false;
+> +
+> +	if (IS_ENABLED(CONFIG_ARM) && ARM_SMCCC_IS_64(smccc_dev->func_id))
+> +		return false;
+> +
+> +	arm_smccc_1_1_invoke(smccc_dev->func_id,
+> +			     0, 0, 0, 0, 0, 0, 0, &res);
+> +	ret = res.a0;
+> +
+> +	if (ret == SMCCC_RET_NOT_SUPPORTED)
+> +		return false;
+> +
+> +	return true;
+> +}
+> +
+>  static int __init smccc_devices_init(void)
+>  {
+> -	struct platform_device *pdev;
+> -
+> -	if (smccc_trng_available) {
+> -		pdev = platform_device_register_simple("smccc_trng", -1,
+> -						       NULL, 0);
+> -		if (IS_ERR(pdev))
+> -			pr_err("smccc_trng: could not register device: %ld\n",
+> -			       PTR_ERR(pdev));
+> +	struct arm_smccc_device *sdev;
+> +	const struct smccc_device_info *smccc_dev;
+> +
+> +	for (int i = 0; i < ARRAY_SIZE(smccc_devices); i++) {
+> +		smccc_dev = &smccc_devices[i];
+> +
+> +		if (!smccc_probe_smccc_device(smccc_dev))
+> +			continue;
+> +
+> +		sdev = arm_smccc_device_register(smccc_dev->device_name, smccc_dev->func_id);
+> +		if (IS_ERR(sdev))
+> +			pr_err("%s: could not register device: %ld\n",
+> +			       smccc_dev->device_name, PTR_ERR(sdev));
+>  	}
+>  
+>  	return 0;
+> -- 
+> 2.43.0
 
