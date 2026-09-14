@@ -4,70 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42C15C88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 11:34:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BB4CC88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 11:35:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OzlBv4LVliN5qNgFK6sUr7g7vdLbZroh00iI5mV/2X0=; b=eR7QyzrSg7vmkQbql44xJfhrvV
-	o5nuuFs3PLkPAOONk0+/Wb+E6VddO/gGbDRupbwi4p0iepYDwWNo5sDVvAfGbblMfbk+hGplZk7rz
-	56X+3XjtD/DDlkUDJNfM3bbCEqcUAQn7lBjc0sSfm8nBltu9iAbX9/QHDeylou6gJssV+NpVdV4K/
-	WfZFBKS+p7tJqeYW4WhJ6EcttOLxWy0Vfn4eZ+Yti5nGXIkoHeyKPcdGkjRRQ7nQZ722rM0bMMzO7
-	5yX/1KGtr2mF2TR+QNLAChhcO5EZYAnz8FfoPQFPVPDgitDajL0rA57Z7Qzkt2U58NI86xivqpBq5
-	zYw3BV4w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=D98Mt2BThELnUozhvWQ+a9TWWTndWMHSpzuyilayST0=; b=hcAgkywo1cbSmxY2Ok9ateoea9
+	yy1fxYFpAK2Z5EAKa5d7Yi29mIoVbVozqwxFmLmVTDB/VkKfM4Gdab/uzcdgDJbNf4jtDRvaxu54i
+	1xXuOjOszXMbgILldob01P11S/rWRTCQA11oIqxkneigg1edbsC9DaMvpxp5YALGy144t/3NTZXb+
+	9vMtgNPuiJn5Fwr29/4FFqQBB0E6AKwWK7xtm2IA71HxtQa2gfHnSx5llN5BPk/Sg72Zgv4wYZgvo
+	vs9V0prd/cZb2fy9hBeaSakxI4d2hViAhXGlAibPjAcs6AP84PsXlVeCt1ZSut08/JnRE27zljvuV
+	KjhUt79A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x64xH-00000003G99-26qF;
-	Mon, 14 Sep 2026 11:34:35 +0000
-Received: from out-181.mta0.migadu.com ([2001:41d0:1004:224b::b5] helo=mta0.migadu.com)
+	id 1x64xb-00000003GMO-16rj;
+	Mon, 14 Sep 2026 11:34:55 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x64xD-00000003G4F-2Jar
+	id 1x64xL-00000003GCi-2YJH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 11:34:32 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=zOptQexS7lDj6c14lPjl14jvIGvWcUYj7AKr6A/egrA=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1789385669; v=1; x=1789990469;
- b=rblhoPtXxz492wXn2rmC6P3EigsQTY+kthB1QNO12W4cOY+i/ROSi0BXkW4l6TN0YVU3QxoB
- CwMAiUC1wJIbdqe3K5g8Spk52TJYIV1upa47vih3fQe6/XuApALX9QGn7C7n71dxXzpU8oP738J
- BwShJ+0BRmaKJ/bgcHf9dBE8=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 4c887214f45f674d;
-	Mon, 14 Sep 2026 11:34:29 +0000
-X-Mizu-Trace-ID: 4c887214f45f674d
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: maz@kernel.org,
-	oupton@kernel.org,
-	kvmarm@lists.linux.dev,
+	Mon, 14 Sep 2026 11:34:42 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-86265451beeso1967372b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 04:34:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789385679; x=1789990479; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=D98Mt2BThELnUozhvWQ+a9TWWTndWMHSpzuyilayST0=;
+        b=F4hI0zk7ZqShAx80uuDBeUemSsZmqCsHPtPG6s+gtXRXJOmEu6xMIGi5GE9P9jJxop
+         80YNyC/kJM9NL0FqlVrGp3/Y7LTmsYxK+taygyWNI8pmGPBl7955rF9mmSXd5exjb763
+         bY4xnN0vUSaJMFhwgrCnSrwrSWr72tDwye93/aL3Eq9kTFKow/CILbQ0JJvqlGqqGgim
+         4RZmEhKu+q6m+l/4bxuET1xxH4aeEPNgvgU3DsoL8DEi+m6sUIuBvXze00x7V/5A1RhI
+         iYAvolTQNgerUd4w9vWrCyPxPeDDwiHc2auTJgQl0n+K2sKTEyuBjeI7SyYna5AeJsMz
+         FdAA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789385679; x=1789990479;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=D98Mt2BThELnUozhvWQ+a9TWWTndWMHSpzuyilayST0=;
+        b=WBACqGF2VRL/t7gvYjeUqFs9LFy2dj3phRXXc++R5jSRatnEH9uxdywlVfx6kCtZyY
+         VwwaAmHhR+gbR1X48/jrbjC69MZWEt0kKDVsLZUX+gHep+GXCGfgNkLDCTPsfYHbOlc5
+         MMBNJvJNi0o5hiWSgZcjjztAaBlT40XeO+FiIOCkfTChr3ZFkqRPMzUy1B1lI96JTG66
+         Xusm8RsTXtaAkk9pFFKbWE8o8b2Jq7zmHhX2PTHjG85zLng19oIh0SpBISbZ575kW4by
+         lB2CI9AxonYZHtB4oYMPtS1GSZ4qXDoIxZH0px/9lR0b81qj2LSrEEfW+nw557RrTo1B
+         t5AQ==
+X-Forwarded-Encrypted: i=1; AKwUvBw2wa9ypa4qwVRmu5EKWfmKaO2PCU+IN0NnjnEoDhRD0OwPH5PV5lns6eQkTWwlnfVnM1ET8MngDdgP1wEei5vA@lists.infradead.org
+X-Gm-Message-State: AFuF++mvrmylWhr9P9Fl5HYqsFEMnMJf/cHBKY9rdamqn9T+YzOhEn9o
+	x1ELsrql/vjyr9oETg9AWmjzPlVGr6YN1jADTcRjms3LVQe4NMWQ65+C
+X-Gm-Gg: AYBFou2UFhESfWTyBqiNp1NSxYAdhC52X4gvBvAKMGOTo5SIYrFzkF/Z5cGYMT8L3lE
+	kDjD9UAVPtqNsY6Egu/5LOwqonhJ9WnyxlgqpXig1pBZN6+kRK2QcxnYDOBzcYoiLGRYYQJ5eDU
+	vkJsuqI/u5KJ7l0FXt+ysfFPUgLkuyXg/PIyyEwAMSIIWslIyR5frNEiJs71tpzhynl/rr7LmwU
+	vSEmDnrN9Kn0bdW9HFEFOgEQbTegpD+uSu5Rdk0o7HxS8gbL1Cbh+g5yO9GOMnCtc2aVbNa1Nec
+	4W5Va/yu/sB9LVH95dG+A3i+jzUdLSy/R3ducZqZNc8aFHqARRV3OIiQ8cBF7ikAJjltOLdiZvt
+	KSVG8uea2qqTyodnKzlJjB/0YllmALHURyhhFwn65S+nw8d51hyLNcSJaSpwYScQrUjxEC0ZU43
+	RCH7HoMNn8Yl8wkVLqu9JodoqYn+PNgcNskY42zPTPVp4WeTy+8k+4fg==
+X-Received: by 2002:a05:6a00:1741:b0:868:f03a:70d9 with SMTP id d2e1a72fcca58-86f82f516b2mr4191540b3a.4.1789385678538;
+        Mon, 14 Sep 2026 04:34:38 -0700 (PDT)
+Received: from lgs.. ([2001:250:5800:1002::de93])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-86b250c019dsm4440557b3a.7.2026.09.14.04.34.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 14 Sep 2026 04:34:38 -0700 (PDT)
+From: Guangshuo Li <lgs201920130244@gmail.com>
+To: Eugen Hristev <ehristev@kernel.org>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	linux-iio@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Cc: catalin.marinas@arm.com,
-	will@kernel.org,
-	joey.gouly@arm.com,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	mark.rutland@arm.com,
-	steven.price@arm.com,
-	vdonnefort@google.com,
-	qperret@google.com,
-	tabba@google.com
-Subject: [PATCH v3 07/18] KVM: arm64: Add {flush,sync}_hyp_timer_state() primitives
-Date: Mon, 14 Sep 2026 12:33:27 +0100
-Message-Id: <20260914113338.159227-8-fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260914113338.159227-1-fuad.tabba@linux.dev>
-References: <20260914113338.159227-1-fuad.tabba@linux.dev>
+Cc: Guangshuo Li <lgs201920130244@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] iio: adc: at91-sama5d2: disable autosuspend on remove
+Date: Mon, 14 Sep 2026 19:34:22 +0800
+Message-ID: <20260914113422.1689331-1-lgs201920130244@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_043431_744777_A1CD3974 
-X-CRM114-Status: GOOD (  13.25  )
+X-CRM114-CacheID: sfid-20260914_043440_918959_B87E6C5D 
+X-CRM114-Status: GOOD (  10.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,97 +105,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Marc Zyngier <maz@kernel.org>
+at91_adc_probe() enables runtime PM autosuspend with
+pm_runtime_use_autosuspend(). The probe error path correctly undoes
+this setting with pm_runtime_dont_use_autosuspend(), but the normal
+remove path only disables runtime PM.
 
-A protected guest's virtual timer is programmed from EL2's own copy of
-the state and read back there, so the host can't change the guest's
-deadline. cntvoff_el2 is zeroed, so the guest's virtual time is the
-physical time.
+The runtime PM API requires pm_runtime_use_autosuspend() to be undone
+with pm_runtime_dont_use_autosuspend() at driver exit unless runtime PM
+was enabled with devm_pm_runtime_enable(). Leaving the autosuspend flag
+set therefore leaves the runtime PM state incompletely cleaned up after
+the driver is unbound.
 
-The flush also preserves the guest's CNTV and CNTP CVAL/CTL across the
-host's full-context copy into the hyp vCPU, until the per-EC
-marshalling patch removes that copy.
+Add the missing pm_runtime_dont_use_autosuspend() call to the remove
+path.
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-Co-developed-by: Fuad Tabba <fuad.tabba@linux.dev>
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+This issue was found by manual code inspection.
+
+Fixes: 75d7556ac0e4 ("iio: adc: at91-sama5d2_adc: add runtime pm support")
+Cc: stable@vger.kernel.org
+Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
 ---
- arch/arm64/kvm/hyp/nvhe/hyp-main.c | 39 ++++++++++++++++++++++++++++++
- 1 file changed, 39 insertions(+)
+ drivers/iio/adc/at91-sama5d2_adc.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index 229a4877d14f5..9cc8ef16897c1 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -154,6 +154,33 @@ static void sync_hyp_vgic_state(struct pkvm_hyp_vcpu *hyp_vcpu)
- 		host_cpu_if->vgic_lr[i] = hyp_cpu_if->vgic_lr[i];
- }
+diff --git a/drivers/iio/adc/at91-sama5d2_adc.c b/drivers/iio/adc/at91-sama5d2_adc.c
+index e8a5285bb6d4..e68632e628c7 100644
+--- a/drivers/iio/adc/at91-sama5d2_adc.c
++++ b/drivers/iio/adc/at91-sama5d2_adc.c
+@@ -2487,6 +2487,7 @@ static void at91_adc_remove(struct platform_device *pdev)
  
-+static void flush_hyp_timer_state(struct pkvm_hyp_vcpu *hyp_vcpu)
-+{
-+	if (!pkvm_hyp_vcpu_is_protected(hyp_vcpu))
-+		return;
-+
-+	/* A hyp vcpu has no offset, and sees vtime == ptime. */
-+	write_sysreg(0, cntvoff_el2);
-+	write_sysreg_el0(__vcpu_sys_reg(&hyp_vcpu->vcpu, CNTV_CVAL_EL0),
-+			 SYS_CNTV_CVAL);
-+	isb();
-+	write_sysreg_el0(__vcpu_sys_reg(&hyp_vcpu->vcpu, CNTV_CTL_EL0),
-+			 SYS_CNTV_CTL);
-+}
-+
-+static void sync_hyp_timer_state(struct pkvm_hyp_vcpu *hyp_vcpu)
-+{
-+	if (!pkvm_hyp_vcpu_is_protected(hyp_vcpu))
-+		return;
-+
-+	/*
-+	 * Preserve the vtimer state so that it is always correct,
-+	 * even if the host tries to make a mess.
-+	 */
-+	__vcpu_assign_sys_reg(&hyp_vcpu->vcpu, CNTV_CVAL_EL0, read_sysreg_el0(SYS_CNTV_CVAL));
-+	__vcpu_assign_sys_reg(&hyp_vcpu->vcpu, CNTV_CTL_EL0, read_sysreg_el0(SYS_CNTV_CTL));
-+}
-+
- static void __copy_vcpu_state(const struct kvm_vcpu *from_vcpu,
- 			      struct kvm_vcpu *to_vcpu)
- {
-@@ -255,7 +282,17 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
- 		hyp_vcpu->vcpu.arch.mdcr_el2 = host_vcpu->arch.mdcr_el2;
- 		hyp_vcpu->vcpu.arch.iflags = host_vcpu->arch.iflags;
- 	} else {
-+		u64 v_cval = hyp_vcpu->vcpu.arch.ctxt.sys_regs[CNTV_CVAL_EL0];
-+		u64 v_ctl = hyp_vcpu->vcpu.arch.ctxt.sys_regs[CNTV_CTL_EL0];
-+		u64 p_cval = hyp_vcpu->vcpu.arch.ctxt.sys_regs[CNTP_CVAL_EL0];
-+		u64 p_ctl = hyp_vcpu->vcpu.arch.ctxt.sys_regs[CNTP_CTL_EL0];
-+
- 		hyp_vcpu->vcpu.arch.ctxt = host_vcpu->arch.ctxt;
-+
-+		hyp_vcpu->vcpu.arch.ctxt.sys_regs[CNTV_CVAL_EL0] = v_cval;
-+		hyp_vcpu->vcpu.arch.ctxt.sys_regs[CNTV_CTL_EL0] = v_ctl;
-+		hyp_vcpu->vcpu.arch.ctxt.sys_regs[CNTP_CVAL_EL0] = p_cval;
-+		hyp_vcpu->vcpu.arch.ctxt.sys_regs[CNTP_CTL_EL0] = p_ctl;
- 	}
+ 	pm_runtime_disable(st->dev);
+ 	pm_runtime_set_suspended(st->dev);
++	pm_runtime_dont_use_autosuspend(st->dev);
+ 	clk_disable_unprepare(st->per_clk);
  
- 	/* __hyp_running_vcpu must be NULL in a guest context. */
-@@ -270,6 +307,7 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
- 	hyp_vcpu->vcpu.arch.vsesr_el2 = host_vcpu->arch.vsesr_el2;
- 
- 	flush_hyp_vgic_state(hyp_vcpu);
-+	flush_hyp_timer_state(hyp_vcpu);
- 
- 	hyp_vcpu->vcpu.arch.pid = host_vcpu->arch.pid;
- 
-@@ -318,6 +356,7 @@ static void sync_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu, u32 exit_reason)
- 	host_vcpu->arch.hcr_el2 |= hyp_vcpu->vcpu.arch.hcr_el2 & HCR_VSE;
- 
- 	sync_hyp_vgic_state(hyp_vcpu);
-+	sync_hyp_timer_state(hyp_vcpu);
- 
- 	hyp_vcpu->exit_code = exit_reason;
- }
+ 	regulator_disable(st->vref);
 -- 
-2.39.5
+2.43.0
 
 
