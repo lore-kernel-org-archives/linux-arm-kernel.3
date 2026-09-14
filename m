@@ -4,93 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E795C88E6F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 20:46:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66E81C88E6F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 20:48:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2d07dQSvM81f3H+Zq9X/anTSWjzVG0HIsUPbekIsWJg=; b=pDaTGXg3B90uoAfvhplniX3Lub
-	qgR5Los6Y8XZ01U3QDTw6C6t1h1FqkXYAP9sGXo7a8QPWgFTumCwLfPqSOfMjlnyuL4IAFT1ix/Rw
-	24kWvt0M7igZT94xM832QuVSD9jCoDK83FDTyjccZgNz1kK1qoBRgKttvytuZbgnNUa9WqYQ+v5P+
-	SwKi27gL874Azk6l/OsBUTrobbzKl1Fw+5u61az1HgfJgxf60wtj59enyaHwnULpaGAaOumznYDwh
-	+XUn3iyWsWs5Gfy9nItZXJ9/zONWkvgMd8U3/Tv2UX3ZnGWKnQ3mtGr9/+hSwfaQj5DFBZ6cNQyYE
-	6lQ+b3qA==;
+	bh=oNbtU+fYM6Bse6/ahm7UnypPYDX2ByCgnI422mmbSzw=; b=yJnJoStG9R8f7kYKZ/yq9bqWBR
+	R9clKCS0uXV+QGeSH4V4om4KqV0RfxQ0P6atlaSXrfNfbbVh5ieuu0CbhoQLa3liFoS+T+jdnnFrn
+	/JrF1kUf63lLUgR8D8vbBNV7N8xJI8yYazAp0Zmo+bWVWFGfSYhDmQyp8eiPoGvIW3MJ4qEkCyRnj
+	adAOBqh8Z37aJAsdQup1yTwTj/bhIQ3erHAYmX0Bxg/J+4voylM7u2iFqCPkzNcHNmFBxjMqxuSr6
+	Oxx9RQ+J8KXmQahw5TPYTBIymEaii8fSqbxtCP87IGiP50FPxoTTKBwlme6Cj76yX+I508vCi/LvU
+	xv5yQvAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6DZ2-00000004cuy-31cm;
-	Mon, 14 Sep 2026 20:46:08 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1x6DbY-00000004d63-0AWw;
+	Mon, 14 Sep 2026 20:48:44 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6DYy-00000004ctx-1z4r
+	id 1x6DbV-00000004d5i-0UaC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 20:46:06 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68EJZ3kN772833
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 20:46:04 GMT
+	Mon, 14 Sep 2026 20:48:42 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68EJYdNf2074512
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 20:48:40 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	2d07dQSvM81f3H+Zq9X/anTSWjzVG0HIsUPbekIsWJg=; b=Gg7Epvv5pxHZJIiM
-	M8UM37gNuXcKbamAH2uo+QM5HBc0C1Jq/D4b8FygPYVffjNDMV9epVMbrLpgCzWr
-	XRgvt8jWZNpHLkPLn53nHOdi7aXRdFbUIunfY3BARDD6wa7V8tTmYkNsFa1JTwuE
-	GDey/fcoOKRLUQ+nH5jscwSH1pT8+AserRwsc/xoiYEWkiMhEMVYa2vbMsJWlOOR
-	ja/eY5O5vrdaMzFZAAHL5pL4xtx1lALNufpgLZmKuCS/OizjmDaQ+kFTxj8wkhhO
-	l7fvYttXqnQfqQdeEgAVGs1jNL2OknIKci5onCrL8DKK3JQoJ/lMGGyI2AFz+qgg
-	0CCgyA==
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gpcjg31yf-1
+	oNbtU+fYM6Bse6/ahm7UnypPYDX2ByCgnI422mmbSzw=; b=YfjqILKR54Hcu7Ag
+	fnSJtdYq4XcDNViCQaRA9/je893O6NtKOZOlV5Hc10pnpWZvK8b5DldupNePKVhR
+	6D/YwP0eIaaWOTL4X8R1jlV1aLRiwePlvvuLoHjbxjkqbvtv2GmAQxizwPCuS8RA
+	JQ5SrvTdezavOG9dOYfGQ2HxX65GcMH2mbe9yGk1NpyZXDT3V/LlRySk0JJtgnT3
+	+2l6YogzrnmqJ1RMaWrkI0irds/sZegCTxg0Y35a6OmO2jFiASRY3bjPawZnL/An
+	bicjOpWu7lBhZkFxAZF9tH0dRLQNfhmUoIqKRJidebYXpxmobzm5YBwW4jfTh1+O
+	aH0XXw==
+Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gpdevtwcg-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 20:46:03 +0000 (GMT)
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2d932ef41c4so3945565ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 13:46:03 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 20:48:40 +0000 (GMT)
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-cbee6bb8408so4606455a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 13:48:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1789418763; x=1790023563; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1789418919; x=1790023719; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:mime-version:organization
          :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=2d07dQSvM81f3H+Zq9X/anTSWjzVG0HIsUPbekIsWJg=;
-        b=BFVrretji6Fegb4UlSDWkJ+io0Ujrxc3AEglmYJcXaIgetW3a6g6VWL/KFBy5slJcN
-         a6R2Gm09M1Lo8z/GzYG+FFCSDZ9JtzoqZiLi4DanfeLUleeDqmcc6hZwLaEGzFh778zp
-         KZjzzhKS/NfoZ55lBgCzanwhDCwFd2DhbVp9WIQ5ObLqn+lyF6ornXkOizzF3+8V1zvR
-         xuWHNIh5sxbZSN3AqzbPxeEXBN5GNz1Iv0mXh3MaaL/nQ69eVzShzKsR6+uaK9eZNRsP
-         XFtVPUrejGob2TuDFzk5iydNCkZhHw+USxVbTRUj/naR+Sl7tlaftsMK3aRm1GY+q+m0
-         0Exg==
+        bh=oNbtU+fYM6Bse6/ahm7UnypPYDX2ByCgnI422mmbSzw=;
+        b=cEhOSxzeauRs8DzCAZkeAa31jL68VVa+ijbC9pduou7EEjUmGvKLkX/s2Vpu331eGt
+         YV48/0QmNUJskaB9sJ+/TsZ2jnqZRn587pUA6uxo23qCoSUnbYrmTYTa3aGmP5Kr6cQx
+         8lw8zLep2jwKR0DEO7VXg39haqwBc3LriA08sS2FqK8D4RBJKPDTSPUrk1v1V6drrWWP
+         wGVZu2M6vL53Di+zokIfwJ++9kiilqPEsiSHjCpJFjBvN0Vh7YxlJJO2eHeNh0lAZUY7
+         FE20n3rpyEuOV5m7q6difch39E7+ONQAS5vGRLBaTnhJaD/ihVxndne7V8w6koohX2j2
+         +oQQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789418763; x=1790023563;
+        d=1e100.net; s=20260707; t=1789418919; x=1790023719;
         h=content-transfer-encoding:content-type:mime-version:organization
          :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=2d07dQSvM81f3H+Zq9X/anTSWjzVG0HIsUPbekIsWJg=;
-        b=nGq90U/sz2qsUt3PgEUmDtqF7gwm9sLDG8HCGhptBmhb+fS7c74uy6mOsY6EuAig3Q
-         5OAkaWgVXZNNrGZaijvLJ/eqTV+JF4MQpGKd3yzf25Ct2D4y3NcQB4rwEa2LF8ADf7t4
-         E4zV12iBK6VNc903WkJYrTJXfg6zQjETO+MSDKOBpHAXGGOxITPg06s1oOWUCkammELc
-         eDJ0pIrWiNjeNH6eeTn2jKecPjuFovy4q5Z2jCJRyU4+5cPiRC0gjCDfbUXqvRryP4pk
-         u+z7l43goZv/xurqexGUdrTVjOgYbq1d3g3Bq4vHvk3BJFhfy+2VeNFt7nGS+CT9N3KR
-         TzOQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwmAmkfCSUiR6AzynI/vfYpSs80X+T/elSxb6iSsA/vQX9F+t2xAxkBdSqO2TEfFw1oCIVw5oKS+3xU+H1KdV5w@lists.infradead.org
-X-Gm-Message-State: AFuF++mAVsJK3hRt+vP1Jj/QIRxQzdZ3uMD4whNDkABQr56H4hRmnY8g
-	IUgwxQAgNOmqXO/fNhS2TgnaA6Y/zzK2t2MI3KKcvFdpNxZacUadnApxd4/2BL24R6oO0TzJihe
-	szkxWcip9qtekYs+fSWxEP0gNlEx/+oh5u2shxt1jBcX0YpdJJt7m+Zl7HK7+qoAu3CT2DkJ40Z
-	CmfA==
-X-Gm-Gg: AYBFou09UVCfCj69xsCzsBRAqwPdvbU7dfPPDrUgYjgK3qJOiqJKYzqdugYDa6e9L7J
-	NiAaegsmZRhh+Gm6n1D2u3g9vqkjsD7WrsoVfySpLHsHX8bwG8luvMt4U2KyXEcIgyaqDVMaY0k
-	wNI8GbyEtBta9bDqcYJG60XAaMpAzH4QdhYaCV0JMF/QqLzeDSo7sAxkfmZio7+xc8VfjlEeIpc
-	rmKp8qg47Xg7Oi3MJyqOaUEX6mVTrh1g78DlCWJthr7U8m6BLhCoUPVJGm0+KVCllHxvMgfdw8D
-	FkOiYTbhZHmg2QVrAaWOEN5bxhqvFkFgs0h+WgQKkJA1jFkVl4mFLSjW40AKd/1eKQkGg64dOCw
-	/SCix84KvAWzTcz77reZJe124OTk=
-X-Received: by 2002:a17:903:120a:b0:2d8:d4d2:d139 with SMTP id d9443c01a7336-2dd7655bb26mr12603185ad.21.1789418763411;
-        Mon, 14 Sep 2026 13:46:03 -0700 (PDT)
-X-Received: by 2002:a17:903:120a:b0:2d8:d4d2:d139 with SMTP id d9443c01a7336-2dd7655bb26mr12602725ad.21.1789418762993;
-        Mon, 14 Sep 2026 13:46:02 -0700 (PDT)
+        bh=oNbtU+fYM6Bse6/ahm7UnypPYDX2ByCgnI422mmbSzw=;
+        b=eJ1elWlT0QpmUSZrX3gQjKf18IGHC/AsRMY1RQteSKMpifdJHJJYu1zPGW3qlNb109
+         Lmvvw/Yp/5SmhBeLud8riGqxGlGb2e2LUEE+R3slCgAf98/52nIz9jmrhnEyHnV12V4Y
+         7o8Vr80TH0HiyVqe2PoPPh+c8qCBuZ0guyl0UWPrkB8W/eGNc7h/kSRsKVdwnTrRl1hE
+         +zRX+Zm2MXzldELFJs5tAGizbtP1sMRz3Llm0XknW7+aVHEsFaE5duqF/Q8Hb1ujkyQI
+         PF744KXOMEKpWsNVgWyL8JTlF6XclioaevY0ByQHI95YQk9jC9fVcq6g/4BcK7UuyJnx
+         nlpg==
+X-Forwarded-Encrypted: i=1; AKwUvBxJ5+dEIsnAfl1VA/R6Ns3RBxSsxVeqMlIjqaXNFuF+VKCzSi1Z6V7lx5QdAdyLyQpnNGya0zdb/xmmNmW2ZF53@lists.infradead.org
+X-Gm-Message-State: AFuF++lR1LQmoauOsVV5W6aVV3UYcTXu4Tm0IHAyjxZwuaout/cuBRZV
+	IaLiaqipnX1Sywt0DQUqnEifSqKlD2134Z55pUnxMuDxVauxAWLi7aCplSYjWBh4IDC+BtCfE++
+	Jp7/+I+vCyQ517U2CAKHOvoMNRYPcvrn8HhoO3McKghp55Ej+nefWOwsx11KO2Iccjmx5RnP4Dp
+	Fk15pwGKTR0A==
+X-Gm-Gg: AYBFou2X3TRIutx/OVRMP/WM6fbXqkGJ+e4n5rJ7nbW0C2qndXTooZ2Cq2qYOkreb4x
+	2YuMKbpZBhwrapY8nYkKVD6GZmdkicVdfaoLmyyk8zD9rqI3rEjKYmG/tfwf/NRj7Jki1Wm/kHe
+	z/nfXApHBTccHOekygDqW0aswlfvOlnBdg1AXNHZkngnBluWkehr8W/f9zTwwGXsxFVZ3JEQNFA
+	OCaJKLlTuX6zIolVZC0WzUOfygYMwXQrIWWsCaxXvJo4JApOoGbzy+vO64mdv49v2rsnenjIIlQ
+	FHvtbOu/cxUjpC7FO5Ulx6tFapMsfpibmFvKkshae4mXyUajg0YNxdSXFiv1ixjZ8LU0FCGpKk1
+	KjUsQXfsx2LPcr4joRcbM4lEypfI=
+X-Received: by 2002:a05:6300:6708:b0:3d3:ae40:51df with SMTP id adf61e73a8af0-3db405679demr8759764637.19.1789418919015;
+        Mon, 14 Sep 2026 13:48:39 -0700 (PDT)
+X-Received: by 2002:a05:6300:6708:b0:3d3:ae40:51df with SMTP id adf61e73a8af0-3db405679demr8759688637.19.1789418918602;
+        Mon, 14 Sep 2026 13:48:38 -0700 (PDT)
 Received: from localhost ([50.35.44.179])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33bdd76abcbsm4592622eec.22.2026.09.14.13.46.01
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33bc03778c7sm18430177eec.9.2026.09.14.13.48.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Sep 2026 13:46:02 -0700 (PDT)
-Date: Mon, 14 Sep 2026 13:45:59 -0700
+        Mon, 14 Sep 2026 13:48:38 -0700 (PDT)
+Date: Mon, 14 Sep 2026 13:48:35 -0700
 From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
 To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
@@ -109,48 +109,48 @@ Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
         Suzuki K Poulose
  <Suzuki.Poulose@arm.com>,
         Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH v11 3/7] firmware: arm_rmm: Move RSI support out of
- arch/arm64
-Message-ID: <20260914134559.00004e1b@oss.qualcomm.com>
-In-Reply-To: <20260914060511.277948-4-aneesh.kumar@kernel.org>
+Subject: Re: [PATCH v11 5/7] virt: coco: arm-cca-guest: Rename TSM report
+ source file
+Message-ID: <20260914134835.00001fb3@oss.qualcomm.com>
+In-Reply-To: <20260914060511.277948-6-aneesh.kumar@kernel.org>
 References: <20260914060511.277948-1-aneesh.kumar@kernel.org>
-	<20260914060511.277948-4-aneesh.kumar@kernel.org>
+	<20260914060511.277948-6-aneesh.kumar@kernel.org>
 Organization: Qualcomm
 X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=CKa/zhrD c=1 sm=1 tr=0 ts=6aa85d0b cx=c_pps
- a=cmESyDAEBpBGqyK7t0alAg==:117 a=aNnz9XPx1a4JIXSYt2cE/A==:17
+X-Proofpoint-ORIG-GUID: nDoMmf0I_TbhkwS8pwKNP-bwBge-Aw0O
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE0MDI5NiBTYWx0ZWRfX9/FqN6O0u/Hl
+ uWpzwLxpyeQD3nWmaV2ptKrltVE9XkaHXVdPaXd8dY3EI3/kagNcFr2dZARWDSn39dg+S8EnccY
+ XcgewstpzNCeqNxzXmSVSYgJAe5uiTw=
+X-Proofpoint-GUID: nDoMmf0I_TbhkwS8pwKNP-bwBge-Aw0O
+X-Authority-Analysis: v=2.4 cv=ftpJ914f c=1 sm=1 tr=0 ts=6aa85da8 cx=c_pps
+ a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=aNnz9XPx1a4JIXSYt2cE/A==:17
  a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
- a=VwQbUJbxAAAA:8 a=Ikd4Dj_1AAAA:8 a=7CQSdrXTAAAA:8 a=EUspDBNiAAAA:8
- a=6n8XPUQpuYwtPrU-WrUA:9 a=CjuIK1q_8ugA:10 a=1OuFwYUASf3TG4hYMiVC:22
- a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-ORIG-GUID: Qi6upS1pkaRi9o9PT2PQ3U4dKLGx207j
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE0MDI5NiBTYWx0ZWRfXwmkX3wK053Xy
- t3HeQkgt19KPU6PQzTT6Pd0KDaVTI62vs9dY7EK6/5scxZHeC4yI9+qjWViJTc7QifK+QI68KOL
- MF/e5TXpCnakfDoIygXVXLeDP4BDp3k=
-X-Proofpoint-GUID: Qi6upS1pkaRi9o9PT2PQ3U4dKLGx207j
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE0MDI5NiBTYWx0ZWRfXwZuB02UL8Meo
- R15FrNmi8U127keftmKIWjSzFEoKvGFkm9QIgthLfd13pv72ClqcqtkOs+NO6PeBKH5RZtu1rG/
- urYVoMbscTYSn1J1VNqbBb5uhWVRZ6pwrg43ZLeWbBo64Mdd4koo7/ealbBin0tnZ7pRGkN8CE7
- /+FylXuoGr/KeoM8pm5RUzWK5LK0oYj6/wCxu9qk/u6ioXfxsSFnAZ8Lh+qKmjQLjhTXvBg5Jpk
- VR71jEHSARChkTMHfFkZ2gd5Re05obu8DemXOLP9bod7BCWUZdtP9dIy2EYUXXdllS4/3lDEExC
- 5YkxMvQ+ZF3frX5g0IvGCONrXEfHeKabS4YD9tDCP3OFHaKSC0LIkLalyy1vQf96L+5Go/sRT47
- INOkaWyIun7HNSqcv016pqH3AsyXGOXqky3QKkTRQd+l8/rqQLe3OUhrbl3hQwyFMibDN2pfUYi
- hV9cas6LoKl+UCASbkA==
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
+ a=VwQbUJbxAAAA:8 a=Ikd4Dj_1AAAA:8 a=WpFFXPemFeC_EDwlIHcA:9 a=CjuIK1q_8ugA:10
+ a=3WC7DwWrALyhR5TkjVHa:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE0MDI5NiBTYWx0ZWRfX1q9ha7zvyKxw
+ WRaEBDwDS8PKwtRpM2EqPZ/eFUO7XIFcAZN+sV0UNprAA9DlFqlU+1xSl2gcoGjYEV6pcF7cpFU
+ R9qa90/xX559OPR2k3g407qfIuReScXyTmaenNtqktSFwPlNkmjNlXGOYNhbXobXoPCzBV/HxqX
+ wew0QkACI50WoxqB2ckWaG+7oyDrHQMKoyUX0clQHrbN6d8+EEYTzRxzxVoM6aOfkQpWYZtz1jG
+ lt6OA1auYj+yS1XEGy9BO85K5X3zuHnI1KfXwukHPzEaczGllXJQOEK5uEmvd6R8+/CgNF0gnOL
+ pN6kXxUa4+uHbs9qu+gER6AHBCBuHfAKMlH2v5vvkXdWThi1/f8KFVmpEJw08UD7eOXMR1OEcwH
+ MV4Y/FK9HWjUi6PPAcfT4xwEszlqN4TA55UKPGXi9K+PkKgZrKmNeH+NakUa8RPg9EJvWVzBvi5
+ o50JQum43mJZLlvcFeg==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-09-14_04,2026-09-14_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 malwarescore=0 clxscore=1015 priorityscore=1501 impostorscore=0
- spamscore=0 lowpriorityscore=0 phishscore=0 bulkscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609140296
+ bulkscore=0 clxscore=1015 phishscore=0 adultscore=0 impostorscore=0
+ priorityscore=1501 malwarescore=0 spamscore=0 suspectscore=0
+ lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2609140296
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_134604_806710_5EB73B05 
-X-CRM114-Status: GOOD (  23.86  )
+X-CRM114-CacheID: sfid-20260914_134841_276659_534EF2C7 
+X-CRM114-Status: GOOD (  24.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,60 +165,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 14 Sep 2026 11:35:07 +0530
+On Mon, 14 Sep 2026 11:35:09 +0530
 "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> wrote:
 
-> The RSI SMCCC function IDs describe a firmware ABI and are not arm64
-> architecture specific definitions. Follow-up changes need to use them from
-> non-arch code, including drivers/firmware/smccc and the Arm CCA guest
-> driver.
+> The Arm CCA guest driver currently only implements TSM report support, but
+> follow-up changes will add more TSM-related functionality to the same
+> module.
 > 
-> Move the complete Realm Service Interface (RSI) implementation from
-> arch/arm64 to drivers/firmware/arm_rmm. The RSI SMCCC definitions and
-> command helpers are also moved to include/linux so they can be shared by
-> architecture code and firmware or driver code. This also keeps the
-> firmware interface outside architecture code, as requested [1].
-> 
-> [1] https://lore.kernel.org/all/agsNO9cc7H-b0H8L@willie-the-truck
+> Rename arm-cca-guest.c to main.c and build it as an object of the
+> arm-cca-guest module. This leaves room for the module to grow additional
+> source files.
+
+Should probably mention the structure renames that you have in here.
+I wasn't expecting to see anything other than build system changes and
+a file rename.
+
+Jonathan
+
 > 
 > Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> Acked-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 > Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
-
-Moving the code makes sense and indeed that is what the patch does so
-Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-
-Trivial gripe about the original code inline.
-
-> diff --git a/arch/arm64/include/asm/rsi_cmds.h b/include/linux/arm-rsi-cmds.h
-> similarity index 69%
-> rename from arch/arm64/include/asm/rsi_cmds.h
-> rename to include/linux/arm-rsi-cmds.h
-> index c1fab41f671e..9e8a8c189ca1 100644
-> --- a/arch/arm64/include/asm/rsi_cmds.h
-> +++ b/include/linux/arm-rsi-cmds.h
-
+> ---
+>  drivers/virt/coco/arm-cca-guest/Makefile                    | 2 ++
+>  drivers/virt/coco/arm-cca-guest/{arm-cca-guest.c => main.c} | 6 +++---
+>  2 files changed, 5 insertions(+), 3 deletions(-)
+>  rename drivers/virt/coco/arm-cca-guest/{arm-cca-guest.c => main.c} (97%)
+> 
+> diff --git a/drivers/virt/coco/arm-cca-guest/Makefile b/drivers/virt/coco/arm-cca-guest/Makefile
+> index 69eeba08e98a..7564f4fcc4a4 100644
+> --- a/drivers/virt/coco/arm-cca-guest/Makefile
+> +++ b/drivers/virt/coco/arm-cca-guest/Makefile
+> @@ -1,2 +1,4 @@
+>  # SPDX-License-Identifier: GPL-2.0-only
+>  obj-$(CONFIG_ARM_CCA_GUEST) += arm-cca-guest.o
+> +
+> +arm-cca-guest-y += main.o
+> diff --git a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c b/drivers/virt/coco/arm-cca-guest/main.c
+> similarity index 97%
+> rename from drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+> rename to drivers/virt/coco/arm-cca-guest/main.c
+> index b741643d1364..80659f0885e9 100644
+> --- a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+> +++ b/drivers/virt/coco/arm-cca-guest/main.c
+> @@ -156,7 +156,7 @@ static int arm_cca_report_new(struct tsm_report *report, void *data)
+>  	return ret;
+>  }
 >  
-> +static inline int rsi_set_memory_range(phys_addr_t start, phys_addr_t end,
-> +				       enum ripas state, unsigned long flags)
-> +{
-> +	unsigned long ret;
-> +	phys_addr_t top;
-> +
-> +	while (start != end) {
-> +		ret = rsi_set_addr_range_state(start, end, state, flags, &top);
-> +		if (ret || top < start || top > end)
-
-Obviously this is just code movement, but why eat the error value that
-rsi_set_addr_range_state() returns? 
-
-> +			return -EINVAL;
-> +		start = top;
-> +	}
-> +
-> +	return 0;
-> +}
-
-
+> -static const struct tsm_report_ops arm_cca_tsm_ops = {
+> +static const struct tsm_report_ops arm_cca_tsm_report_ops = {
+>  	.name = KBUILD_MODNAME,
+>  	.report_new = arm_cca_report_new,
+>  };
+> @@ -177,7 +177,7 @@ static int __init arm_cca_guest_init(void)
+>  	if (!is_realm_world())
+>  		return -ENODEV;
+>  
+> -	ret = tsm_report_register(&arm_cca_tsm_ops, NULL);
+> +	ret = tsm_report_register(&arm_cca_tsm_report_ops, NULL);
+>  	if (ret < 0)
+>  		pr_err("Error %d registering with TSM\n", ret);
+>  
+> @@ -191,7 +191,7 @@ module_init(arm_cca_guest_init);
+>   */
+>  static void __exit arm_cca_guest_exit(void)
+>  {
+> -	tsm_report_unregister(&arm_cca_tsm_ops);
+> +	tsm_report_unregister(&arm_cca_tsm_report_ops);
+>  }
+>  module_exit(arm_cca_guest_exit);
+>  
 
 
