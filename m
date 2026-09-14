@@ -4,120 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEE21C88E65
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 10:45:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32ABCC88E65
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 10:46:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3m3SP6e9NrbIRaMkWtj1uZEt6uHgAf5jXfUplg45r+k=; b=SsNfJz0vxxaXUFw5bAk0MtI3cD
-	DErxfmHNxsOgWRyZUf5GAQMvv6EDchTdRIbyPcQUL9ohJP1c8S7fEnOZMH/bHoAOmG0XZri2LRPYW
-	+yrnOfNh80Q3UD4JQxq+bRWhSsN4k4GITlGWIAYPvp6z8DRvDdBa3s7jBfsFfdVZ2hzO0MCEtVU2+
-	3Z9UTuoodXS8BbXlKhI8yNkfY3UPa9Qi/Kh9e4NX4X5ZL5OWB/YPuyNvqMjABmBd9vF7SWbkj1uhJ
-	lOWp14cleIA2npz6ZX9Gify0P2eDPI5gvP3dV/J9pxZupd4SyiSSbAcajJcB0+eQEJgJtW2HGbfsj
-	JP8kwZ/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aA7IkSg7qZMurtT4nHi8s65NMPNq/lTZcFHsq+6jjiw=; b=UCQrVb4GoY1GxtQ27oQ+np1nru
+	bLFL6H18ISiEhM2iZiuFpvKml3JeeFlYyrA+9AMkEMr9qZRnu6t2Q36d9TnWFVEb4aNhkiIOwrdno
+	MNFk0HrlELHE4SQoHKawmr2tzVGxn7LKndg+W7chbAz+m+4Am5+Xw6IQcoD3ajIe2ZJWBwrBR8XEY
+	XbfJbuvud1SMu0phvriDKrPYRCSGBPlURSCU0egm+pdsWTKIqCFiIHANE2vl9igOBnh2buglHfMDr
+	6m/ALUx+Zf/4A3Mum78AuM4D5yWONH2/XxqnnG++MgDeRc45Nubr1Y8oGawc+SxDxVWO2h5qMIPyq
+	r4oulqBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x64BZ-00000003B8g-0gLm;
-	Mon, 14 Sep 2026 10:45:17 +0000
-Received: from mail-pz2-x0f.google.com ([2607:f8b0:4864:3b::f])
+	id 1x64CC-00000003BFL-1rCN;
+	Mon, 14 Sep 2026 10:45:56 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x64BV-00000003B89-3JkV
+	id 1x64C8-00000003BDx-2mYh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 10:45:15 +0000
-Received: by mail-pz2-x0f.google.com with SMTP id d2e1a72fcca58-86b90133ae8so1442133b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 03:45:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789382712; x=1789987512; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=3m3SP6e9NrbIRaMkWtj1uZEt6uHgAf5jXfUplg45r+k=;
-        b=rSLALEm5Qy7g8za2tIR+ABo/yzG6mGge7JiSSceZVR3jvIitfunMeoMmQj5Xy5CA19
-         e9rpztP393bTHq5Fc1JVgKeQptJFdtQBa3VBHlIIeBXbBMRUXGn1B8dpQkWji0i6zPC2
-         MD0KKOEyrMNNwcVBKUH/vNNjgyOSWbYgzV1Ma8Xdw7DFvGiQ43O0IlzJcIZGvhMWlD+v
-         pIbQ5rRnGKrxhZfbE/4WGk2L1OPLI/dSBqjxXGFxm/MXY6dbPMExcoxwgIeuLRFAgHl6
-         iSMH1vUi61Vqgxf6fOZrH9rzJkFTbuY4J9LTCNgUtzIoncR8/8PxRru4dXRCL/ZI+csn
-         0B8A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789382712; x=1789987512;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=3m3SP6e9NrbIRaMkWtj1uZEt6uHgAf5jXfUplg45r+k=;
-        b=WlpzwzI5cbblDgDcfHmopNd+N4IbmtzcN5d9vKteNnW7esF9rh7zPQk0y6Syv9DNT6
-         ok8pykNEJQBOaRCh+k8878tYhub/PrpDTuLObAMAcqi48wDoI1uQ432DoYRIxkypCau0
-         EArRs2dPdiC6UPFHM2uoo2omUndG+YonzSrz6PKU/79ZlcYgJy8Dn16f4UEvDtk3jfrf
-         35uyrn+2QaXTh6uBT3gb3KwsjZgADsf48aScSEcE+4Rr5CJoaGQa3WlqPyeQJcCgblBV
-         7TN8JZy90oKM0SU/Ocr8Rf560kndMyjHaTGhGJebBBmTigtFVGKK/eohPE8umSyTNHYB
-         JFsQ==
-X-Forwarded-Encrypted: i=1; AKwUvBw0jPaY5qRSs9Uowqx9QI/3DJXp7FEvtFtCoToV2Bn/Ob9dy8m+pBuyZDW9TndHS04f26idnQjfvk34OdCYLsnL@lists.infradead.org
-X-Gm-Message-State: AFuF++nt5RHKMrCjSchvO6wYKTs6dwRioyy0vpUI96MLLoIF73hiaMlG
-	ugOxAc1PEo74mjngC1jWuJlQicIGptbi7P4cGTwW6X3P2lpietumETHM
-X-Gm-Gg: AYBFou1CHDLKp+JYckxqnlfa8G2bXELXDTlVbkxIhmtdS0Iuh+KrvuN/Vo6Na5RlnkZ
-	bqCL4xr8UakuN1eIqa+d2kgK9hd1r0mklNVldSB6wqgk83+DhbioICKjq90ksL7ucyxTUsXMcJ4
-	1B94zpUYqLFR29l4Ww3PgiU1Z5v/V2dAoOyik88pZEeagZ7gwgQYwgG2U87Zy1x+jSQqSp98OuE
-	71Y30XGcyJNtDlgRk/2p285F2M5B1wskelo8md0C7+yBjZkJJu14QF3AAvA8u3t7lvsXGWGP/gB
-	J39RE+YOAvMItMHZuqYC4GUWl2XkTm+5xJR6z0viZl53DQElou5eMSgKgM0ektK5EGSxyJ2r4Ed
-	NiYd6lF9jwzy+q8IxO5F9i9mRc0P3cJQf8ky3cmMUiID79q44ezguWY/Hw6mAounN0PkVdvbt0v
-	oNXhZi/Un5LVNcZimFLWD8D25GW1AbWKnsWxjI17Wgvmx/c9NvxESiDBSIa9jYWSxtXG5sIMHQE
-	9UWSo1pdecwUwF8IFuh+O94f/LJS2oFYKk1D1KohfA3KTcGlhMCNs3codFtyxHLAt1pyLxV/81R
-	B3O5FUsSrFzf/v/0DURf8gi1ocPRCL6waidtdN1NdRC7YVJSPy53d1HznIc55cE=
-X-Received: by 2002:a05:6a00:21c2:b0:857:7384:b5fd with SMTP id d2e1a72fcca58-86f8737ced2mr3809414b3a.25.1789382712304;
-        Mon, 14 Sep 2026 03:45:12 -0700 (PDT)
-Received: from spider.bream-herring.ts.net ([103.252.203.158])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-86b28fd0e0dsm4234386b3a.26.2026.09.14.03.45.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Sep 2026 03:45:11 -0700 (PDT)
-From: Matthias Goergens <matthias.goergens@gmail.com>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Matthias Goergens <matthias.goergens@gmail.com>,
-	Chris Li <chrisl@kernel.org>,
-	Kairui Song <kasong@tencent.com>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	David Hildenbrand <david@kernel.org>,
-	Michal Hocko <mhocko@kernel.org>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Kemeng Shi <shikemeng@huaweicloud.com>,
-	Nhat Pham <nphamcs@gmail.com>,
-	Yosry Ahmed <yosry@kernel.org>,
-	Youngjun Park <youngjun.park@lge.com>,
-	Baoquan He <baoquan.he@linux.dev>,
-	Barry Song <baohua@kernel.org>,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	cgroups@vger.kernel.org,
-	linux-api@vger.kernel.org,
-	Alejandro Colomar <alx@kernel.org>,
-	linux-man@vger.kernel.org,
-	Karel Zak <kzak@redhat.com>,
-	util-linux@vger.kernel.org,
-	Jani Nikula <jani.nikula@linux.intel.com>,
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
-	Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Tvrtko Ursulin <tursulin@ursulin.net>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	intel-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Pavel Machek <pavel@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Shuah Khan <shuah@kernel.org>,
-	linux-kselftest@vger.kernel.org
-Subject: [RFC PATCH 0/3] mm/swap: reserve swap areas for deliberate offload
-Date: Mon, 14 Sep 2026 18:44:58 +0800
-Message-ID: <20260914104501.3960616-1-matthias.goergens@gmail.com>
-X-Mailer: git-send-email 2.55.0
+	Mon, 14 Sep 2026 10:45:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CJD7HuVLMGSHMUFWO7NFIK9gBdwdQsDA7szHcs7Tzyr38kUnmVY00cMsKjowpebn/tEzRN4HOjx7EAESqa2QzVDCFB7UklX8gg9QCgoHwQU+FLbk+dAbX/AlGh2WiSPgvJasECcAU03SLEGnsUbYWCGj/YKXiB3F3isoOs3cloMrGDAfMx3myw4s/b5pYJpNdxNIBxWnotTWJ9jQOWUMve9Cn6vq55VoXBXwvj3b+SE9zO4nUAnUVchXi0SLDvqSRFOuZvTtE+pycAU/RM9ENt94Ae5uoCIFr3B1i5zgYMnOIYBVIiRIngaUoST5myYChLN7HsFg7Duj7Js8vW7I0w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aA7IkSg7qZMurtT4nHi8s65NMPNq/lTZcFHsq+6jjiw=;
+ b=SHaoE8Af3BKBDFUGNdFLEaLmEV79x+OkovPel0XYUepCSLOKQ5IIqW1I8x0TfF15ZI5ni2WZWO9BY0xKE28XyBK48gvjGK61d0Bbk4MyIdJSLdtL0SCu8+OAznyjCNkYSfTxk3zuWR3o9DySJmgmEB1pu6GU7+E2tmC30bTPwIaK883ceCSbNhgdYRz0EZG7ITTkCkz4/KRICinqGjTxJznx2jZuwiqvJc1NtxLeUfLMRRqN2uI0kBWMkRlGkZGOFOoR8vDD+F52SIWPb9eKo1MrrsVqzlI11JIm0TLM3KhbmRT68nA86+l1AK574uIN55tztd2VwW4Y7P16Kdx0zw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=kontron.de; dmarc=pass action=none header.from=kontron.de;
+ dkim=pass header.d=kontron.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kontron.de;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aA7IkSg7qZMurtT4nHi8s65NMPNq/lTZcFHsq+6jjiw=;
+ b=ZhbQBz9/uzHHYRwvJFs1JPWWVV322+e+HXpKILBMB5/3nRsSxfeRZK7X0yvKRtts8E+x1dC7TbTguLNKNDo4PE7tt0amuW5nhhxM9oZG+SdksU2Tyi4DmxGluGWuCVWx12L8paO2RQ4Lptz/T7r3El/ZQ6TNO3fRBKAr9Htti+CEmdRPi2YtIqNpTOzwDu/fr9shiife4rkyJCAl9W6gQA3ie/ZuQhD7eWBSpwWCiUpPXCOSVro8Ops/azvNm6xiuC21WHQ4qqGCll1uIC6PAO29TkeemrACGmNKZc9mw9wqDT2xDuITvq9dTUicUwtHTCdZGJm8tqqLiPmtr/Ollg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=kontron.de;
+Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:1fb::23)
+ by AM0PR10MB3553.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:15b::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Mon, 14 Sep
+ 2026 10:45:44 +0000
+Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::a276:4ad7:962:da22]) by AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::a276:4ad7:962:da22%6]) with mapi id 15.21.0406.007; Mon, 14 Sep 2026
+ 10:45:44 +0000
+Message-ID: <2062655f-886d-4194-b7bf-3048b7139c7f@kontron.de>
+Date: Mon, 14 Sep 2026 12:45:43 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v50 3/7] firmware: imx: add driver for NXP EdgeLock
+ Enclave
+To: pankaj.gupta@oss.nxp.com, Jonathan Corbet <corbet@lwn.net>,
+ Shuah Khan <skhan@linuxfoundation.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Pankaj Gupta <pankaj.gupta@nxp.com>,
+ Randy Dunlap <rdunlap@infradead.org>
+Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+References: <20260912-imx-se-if-v50-0-80834ef510d3@nxp.com>
+ <20260912-imx-se-if-v50-3-80834ef510d3@nxp.com>
+Content-Language: en-US, de-DE
+From: Frieder Schrempf <frieder.schrempf@kontron.de>
+In-Reply-To: <20260912-imx-se-if-v50-3-80834ef510d3@nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: FR4P281CA0322.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:eb::15) To AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:20b:1fb::23)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR10MB4277:EE_|AM0PR10MB3553:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9929c58b-71bb-4afc-3976-08df124d544b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|366016|921020|56012099006|11063799006|4143699003|18002099003|22082099003|10067099003;
+X-Microsoft-Antispam-Message-Info: HFEYKXLwj027pRpZi3TDC3jb/rv5Nh/zK1lFzUEEGDLy/d0O4dhvl39Ph2ojBxQGLmmnjLP+D4qJGDNmg6tklseN6okSyRcZWFMEuYDYCJaOW83Hrd59fxQcNcB/2c+NV+uQYBLtxKoCw0XZ/yP3S5qwfE7WbQwDS7Q4al+WaPjPkgTaqQnYN68Sej2Df3DdYp/JbiBTcQMFrXElBuCWMdSKaoJcvlI1ID1k5HNi2zbmKEga9rUXrTrZ4PiINVWhldjBwMlla3V9ZzVp0F0iGpStVMYKoZvEKZVl9EOZOS/uubZoo8d26RB8uUwE65XiYpgVKgfm690Hm7QoLKMjcjPu1mbmTvUH90G62lO59DYfQWWYEn5K9mzSP5QaFgtqdoqPXepVwbgCBWB0CSesC0fSbm6SBfZK5yZ+4Mr1oZT/R/WZ+ay5uxhhlwT/mYm6H6VClO8jmcpduY5c4zuX17K5hsGNOVWBBkEZBBlu0RShGz20G65KrV4HavM3uk8Qab1N1tYFaVoL21qcmv1S+bq/tON90poJB5XmE9csr3UPUUSflRbO71GmDWoFbKHNkI3OEwUGNn2jPXck9SghXq5VdOXM9h83XjNYIcOBtHzULVyAiHPpZl3POOqsqzlGPPFVo0CLSRHo6nU9ZQrxqYBfAmlKHxpKKBHOzwHdvramOKHy/k0a78k9KWRJj57siyAQZdavWoaGF1IuH9hC1g==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(366016)(921020)(56012099006)(11063799006)(4143699003)(18002099003)(22082099003)(10067099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YnQxTG02V1BxTC9sOGw1ZWVKK01lV05LT29ITjhNd0ZUVkEweDZKTU45OWxy?=
+ =?utf-8?B?ZFM5MHptTXNWZ254bDZVZlF0V1JNVUZ6SktGeFNIdG1OU1R5UlZOaDZsWkdh?=
+ =?utf-8?B?czNWWDRzZEMrL2FaR3l0b0FJMTN6L1hiY3Z1Y0dJU0YxZi9PdmtiWGN2UERq?=
+ =?utf-8?B?Tk01aUdhUUN3eHN1REFtVlNxNURMbWgzakduOGg5bEczRWJCTXVaNlZ3T1pC?=
+ =?utf-8?B?SHR0aENhSU0yc3BhK2xhUk5mVkU5NzlzWkU2WDRuc1k0dko2cEM2WWtGWVZz?=
+ =?utf-8?B?UGJQSFBxMnNmTFhVMnN4aEVnSnY3c1JRb3FwRTg3Q09DQ2l6WHhEbkVxYnhY?=
+ =?utf-8?B?cjBEQXgvY3BYUzZUZXdWdi9LUW9CT0d2UE4zaUNMcXBVWUIvUDEzVy9HcG1Z?=
+ =?utf-8?B?K0YzL0NuS3p3dFR0dkQyM0xDYWRXV1drN0NBNlRIMlQ4NnFrajN2L1VqOGFy?=
+ =?utf-8?B?Z2JNS0d3c3dzWXUwNzNjY0l1c1RGanlCNktyN1IrU3VrcWhpSFcyQjQzb3Ur?=
+ =?utf-8?B?alNROC82SDYxYm9jT0Q5MEdXVFYxY0ErQ3NlaDV6LzV1d0dlY0VEbEVaTnRy?=
+ =?utf-8?B?M21FcGFaTTBoaDdjYm4vSCtPS0xvd25vSHNDMkx3ODJXYWxZSitKemJoVVp4?=
+ =?utf-8?B?bFlDT1hTQkppYlNlblBpVDNPSTI4dlk5NWtVR3RmNjRHR2lsZWMzYWVkRkZJ?=
+ =?utf-8?B?OFRPK0JlT3VEcHR1MFZKS3pOYUZUMUlKWjZxUjdwY1p6U3hhYUFrKzJRbzJu?=
+ =?utf-8?B?bVdrSThld09LYWZTV1pUUzJJOU8vbDV5M2YwcUNWVFc2SUpYYWthYXBuU1dH?=
+ =?utf-8?B?M3RZNkgzKzB3YktlWktsUlZ3L2kvTGVGZ2R2THE1OE1hOC9sUXQ0Q1lJT245?=
+ =?utf-8?B?Q0Rhb3Qyc1RXUTlnUTBveCtBdlVUcVd5cTIrOHJNSFNUbk5mWE0vaDdJWk5o?=
+ =?utf-8?B?S1UyUlJuQnk2T01CV01NaWRwM0NHVU9NS3VOQVFibmdaanVFMnM5dEI5dlp6?=
+ =?utf-8?B?RDFVQkRRdmVTSTVUZmE1MjNSSnJvZDZZRWpRc1FFWXBJVTZVZjNaVGtuM3Zv?=
+ =?utf-8?B?OG1QTkJaT3lGeUpnL2c0dU9WbVVZbFhPNVdUeUUwaHdUNld1Q1FzWVZoc0gr?=
+ =?utf-8?B?d0RQdFJrazBqa0pVNFBRcnBiT3BrcVR3c1Vsek5LT2h6ZStxN2QrQWpaelFp?=
+ =?utf-8?B?OWR3SEU1MXMzdUsyUXAxSThHdjIzZk9rTnFPYi9BRUtJWHRJTXBUZ3R1ZW1L?=
+ =?utf-8?B?b3dkQ3JHVW4ySkgySWxKbVV6SkxhNmt2WHd6TytKK0dMbnlaaWpmSDBadkh0?=
+ =?utf-8?B?QVVtOWpvM0hWbVRvaC8zNGpLRnpWSlF3aTh0WU10VndMMWJFNWFwV3cvaEJW?=
+ =?utf-8?B?TEppK0I5b05Bcmo2Zk1rdW4wWW5iL2NFYTdkaENGUXkrZExlU0RMa2Z2dHpq?=
+ =?utf-8?B?QUkrck9BNllEclVDeWNnUWdweGx2ZFdUeWtQSkF1ejhINTc1Vm4vS25tTm5I?=
+ =?utf-8?B?VGFBNHNPbVhQVEk5VkFYbFFENDFmdUI3cExoc1d0M2s5OHlZd1N6SGEzOEs1?=
+ =?utf-8?B?SFlEejhHWWxYYXVDU2E1WTlyYXpCaEN2MktoU2ttWEFEQkROWi9kMk5IMWJJ?=
+ =?utf-8?B?dXFua085alUybDFKVGU4NzRyZkY3elp5YkhCcWNWSXAyanA0RmduZEVZMzA0?=
+ =?utf-8?B?NmtMRE5OSVJXeWl1NEdWS0x6Vm5yUEV6N3U4cUZ3MHlodEJxbHZya3ZrWVF2?=
+ =?utf-8?B?ZEpweWJld0psNGk3Z01rb0l3eEJZMUZwUTExak92SXAvMVRha2NWaGIvaU1M?=
+ =?utf-8?B?VGRZc0ZnVDB5b21qQ1NlUFJLSDVsNnJtYVVsVTlVamx1NENxSW85TElSWHdH?=
+ =?utf-8?B?VTF2VGhLVWQyQmEwcVRRci9uc0U4R1B2bWR0akt2NFM3Ymt0KzA2eXNFQStO?=
+ =?utf-8?B?cHhsNDJJWVVHWnVvUTBDdjZkYTR5WlBZdlJRVHpiRHFoZ2Q4SmJnUGFSd1dU?=
+ =?utf-8?B?ekh5Ny9SekdSWFhNODdQa1V5V2NHUGcxVUU3aFFWUnB5MEc5Q1NtcFk5TGlQ?=
+ =?utf-8?B?VXhCYUZYSk1DTURDWGNhTnAwdVhSWldFbkxDa01QbU9KWDNETWlNR3l1QUg5?=
+ =?utf-8?B?WkZJZXNqVDFMbDZoNzZmWUlnMzljMThLZ2gwTGFFeFk3RXB0WmRhOXd2akcz?=
+ =?utf-8?B?amtCOUYxNlJzMWdtUC9CNUJlOUpzQUE1UklUS3ZGWktuNmZtU2xLVytSdDZr?=
+ =?utf-8?B?Nk9BWGxLZ0xBUlJTM0lJekhkZ2EzdkNzbm0wYTg1eFpiMWRBQVZQQVlJVmRD?=
+ =?utf-8?B?WC91NmxiRDlHSzZDeWNiUGlkeEhnOGIzenFpSTFscU5qYmtaK2haTVVDQysw?=
+ =?utf-8?Q?21Mb2VUZq0B1KBFA=3D?=
+X-OriginatorOrg: kontron.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9929c58b-71bb-4afc-3976-08df124d544b
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Sep 2026 10:45:44.8123
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8c9d3c97-3fd9-41c8-a2b1-646f3942daf1
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: EjsTeBCTYgDg81BS5WBmo061N2URkRZ7oxwlc+NgTq6vHs2XK/7jfyay7lKFAQO8r2YLD2HK44cXXzqR29CJvH50+IHfr/wOjZ35MwuRDaQ=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR10MB3553
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_034513_842724_D7EAB238 
-X-CRM114-Status: GOOD (  18.45  )
+X-CRM114-CacheID: sfid-20260914_034553_059686_9D9A82E5 
+X-CRM114-Status: GOOD (  11.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,131 +157,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some swap backends are useful for deliberate cold-page offload but are poor
-dependencies for ordinary reclaim under acute memory pressure. Swap on ZFS
-zvols is an existing example, with documented deadlocks under memory
-pressure [3]. Compressed swap is another attractive target: accepting a
-write may require memory for compression or storage even when logical swap
-slots remain free.
+On 12.09.26 19:03, pankaj.gupta@oss.nxp.com wrote:
+> From: Pankaj Gupta <pankaj.gupta@nxp.com>
+> 
+> Add MU-based communication interface for secure enclave.
+> 
+> NXP hardware IP(s) for secure-enclaves like Edgelock Enclave(ELE), are
+> embedded in the SoC to support the features like HSM, SHE & V2X, using
+> message based communication interface.
+> 
+> The secure enclave FW communicates with Linux over single or multiple
+> dedicated messaging unit(MU) based interface(s).
+> Exists on i.MX SoC(s) like i.MX8ULP, i.MX93, i.MX95 etc.
+> 
+> For i.MX9x SoC(s) there is at least one dedicated ELE MU(s) for each
+> world - Linux(one or more) and OPTEE-OS (one or more).
+> 
+> Other dependent kernel drivers will be:
+> - NVMEM: that supports non-volatile devices like EFUSES,
+>   managed by NXP's secure-enclave.
+> 
+> Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Tested-by: Frieder Schrempf <frieder.schrempf@kontron.de>
 
-This series adds an offload-only swap-area policy for such deployments,
-alongside a conventional swap reserve for pressure reclaim.
+My review was for v25, my test was valid for v29. We are now at v50, so
+please, as requested before, drop the tags as I don't think they can be
+considered to be still valid with all these changes.
 
-Proactive offloading is already established by TMO/Senpai [4], which uses
-pressure feedback to offload cold pages to compressed memory or SSDs.
-DAMON_RECLAIM [5] also uses free-memory watermarks to suspend proactive
-reclaim under severe pressure. These control when reclaim runs; this RFC
-restricts which swap areas ordinary reclaim may write, including through
-retained swap entries. The existing memory.zswap.writeback control [6]
-restricts backing-swap writes per cgroup, rather than reserving individual
-swap areas for explicitly admitted offload.
-
-The minimum contract is that ordinary reclaim must not initiate a new,
-non-zero backend write to an offload-only area. Reads, swapoff, zero-page
-metadata, architecture preparation, and I/O that was already admitted remain
-valid. If no eligible swap remains, existing reclaim and OOM behaviour applies.
-This RFC does not promise a performance result or define a new workload policy.
-
-Cgroup v2 memory.reclaim and per-node reclaim establish admission. Manual
-MGLRU eviction currently does too, but its debugfs interface is not stable
-ABI. Ordinary direct reclaim, kswapd, MADV_PAGEOUT and DAMON reclaim do not
-gain access. This is an explicit operator policy; the kernel does not measure
-physical headroom or automatically classify backends.
-
-The three patches are based on mm-new as refreshed on 11 September, at
-995829088503:
-
-1. The complete swap-area policy, including eligible-capacity accounting and
-   recovery of eligible cache entries.
-2. zram03/zram04 coverage for reclaim routing, zswap bypass, discard policy
-   and file workingset activation.
-3. zram05 coverage for retained swap entries, including ordinary-write
-   refusal, proactive recovery, data integrity and checked teardown.
-
-The implementation is intended to make these questions reviewable:
-
-1. Should pressure eligibility be a durable property activated with the
-   physical swap area, or should it be selected late during backend migration?
-2. Do provenance, allocation filtering, eligible capacity, and retained-entry
-   refusal provide a useful minimum contract for userspace and controllers?
-3. Is redirtying or activating a retained dirty folio, with possible churn or
-   OOM, acceptable, or is backend migration a prerequisite?
-4. How should persistent activation fail closed and remain auditable when
-   /proc/swaps and swapon --show do not expose the policy?
-5. Should an ineligible fast-path cluster be invalidated immediately, and
-   should an offload-only area recover its own cache entries based on eligible
-   fullness rather than global swap fullness?
-6. Should the workingset activation heuristic continue to count offload-only
-   capacity when pressure reclaim cannot allocate from it?
-
-Build checks passed on x86 with i915 built-in or modular, and with swap or
-memory cgroups disabled. The affected arm64 MTE objects also compiled.
-
-The routing and workingset tests passed in x86 QEMU guests. In the
-retained-entry test, ordinary reclaim wrote nothing to offload-only swap;
-proactive reclaim then wrote the dirty folio, and all data verified
-correctly. With the write guard removed, the same test failed because
-ordinary reclaim wrote to the offload-only area.
-
-Persistent fstab encoding remains unsettled. When hibernation is about to
-save an image, an active offload-only area named by resume= is rejected as
-the image target with -ENODEV. Virtual Swap Space v4 [1] separates swap
-entries from their physical backing, while swap tiers v10 [2] proposes
-per-cgroup backend selection. These raise the question of whether offload
-eligibility belongs to physical swap areas or a later placement decision;
-this RFC does not assume those interfaces are settled.
-
-An explicit-only util-linux companion implementing swapon --offload-only
-is prepared for separate submission.
-
-Feedback on the eligibility contract, its placement in the swap stack,
-and the unresolved ABI and reclaim-policy questions would be welcome.
-
-[1] https://patchew.org/linux/20260825153238.2695446-1-nphamcs@gmail.com/
-[2] https://patchew.org/linux/20260713025644.170839-1-youngjun.park@lge.com/
-[3] https://openzfs.github.io/openzfs-docs/Project%20and%20Community/FAQ.html#using-a-zvol-for-a-swap-device-on-linux
-[4] https://engineering.fb.com/2022/06/20/data-infrastructure/transparent-memory-offloading-more-memory-at-a-fraction-of-the-cost-and-power/
-[5] https://www.kernel.org/doc/html/latest/admin-guide/mm/damon/reclaim.html
-[6] https://www.kernel.org/doc/html/latest/admin-guide/mm/zswap.html
-
-Matthias Goergens (3):
-  mm: restrict offload-only swap to proactive reclaim
-  selftests: zram: cover offload-only swap policy
-  selftests: zram: cover retained offload-only entries
-
- Documentation/mm/swap.rst                     |  87 ++++
- drivers/gpu/drm/i915/gem/i915_gem_shrinker.c  |   2 +-
- .../gpu/drm/i915/gem/selftests/huge_pages.c   |   6 +-
- drivers/gpu/drm/msm/msm_gem_shrinker.c        |   2 +-
- drivers/gpu/drm/panthor/panthor_gem.c         |   2 +-
- drivers/gpu/drm/ttm/ttm_backup.c              |   2 +-
- drivers/gpu/drm/xe/tests/xe_bo.c              |   2 +-
- include/linux/swap.h                          |  29 +-
- include/linux/vm_event_item.h                 |   1 +
- mm/memcontrol.c                               |  20 +-
- mm/page_io.c                                  |  24 +-
- mm/swapfile.c                                 | 126 +++++-
- mm/vmscan.c                                   |  31 +-
- mm/vmstat.c                                   |   1 +
- tools/testing/selftests/zram/.gitignore       |   2 +
- tools/testing/selftests/zram/Makefile         |   4 +-
- tools/testing/selftests/zram/config           |  10 +-
- tools/testing/selftests/zram/swap_offload.c   | 402 ++++++++++++++++++
- .../selftests/zram/workingset_offload.c       | 206 +++++++++
- tools/testing/selftests/zram/zram03.sh        | 166 ++++++++
- tools/testing/selftests/zram/zram04.sh        | 149 +++++++
- tools/testing/selftests/zram/zram05.sh        | 360 ++++++++++++++++
- tools/testing/selftests/zram/zram_lib.sh      |  28 ++
- 23 files changed, 1620 insertions(+), 42 deletions(-)
- create mode 100644 tools/testing/selftests/zram/swap_offload.c
- create mode 100644 tools/testing/selftests/zram/workingset_offload.c
- create mode 100755 tools/testing/selftests/zram/zram03.sh
- create mode 100755 tools/testing/selftests/zram/zram04.sh
- create mode 100755 tools/testing/selftests/zram/zram05.sh
-
-
-base-commit: 9958290885035431e2494159f555e332c3c14906
--- 
-2.55.0
-
+Thanks!
 
