@@ -4,103 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1170C88E64
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 03:35:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D1D1C88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 03:38:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o8noBZbj7C7U90sjdVnrOExXAG4fUCSDlE1zY+ZGE34=; b=O3GyyUDSjMtrWipV/WiAyqWcZF
-	xzv+YYIp22sXD+dHCPeUcxfK49eYOevO+NcobewEQlp73gvGswt4kVas8WjUEYWzRQDzOx/wiAFJ3
-	Ei44xAOwzd77bqfHjaZSJl7dtBnoHLhtHZQC9j20CAjQzhXzDlYzWiL00KLn8jD/pzeyKYk3odJZk
-	xFoBhwon1l9cWCAnDCy0tup4GKobVEHAGo4ktmqgZ84NR0on/pDSQhTKJiWlsoMQ6Hax3jfvVPFB3
-	nKnqD8G4nj511SK5nCCuhE/ksu/nkFnfO+cslpdgFRFc8DIbzg/n1WXMhZzD0bd0PjoRk9GU2nWDg
-	ejO3DipA==;
+	bh=MApwC22geSnVp0e4CwnqSMWQccKDcu2A0qes2ViRrYY=; b=ds0fJadjxesO+5t/QGaT2vJU8D
+	6r5fQOPGvaVbOkGZsaNNKBg+P8UN+G1TG3hywK7Cr/CmECDoBmsVb7V2Llypejked7Tc23YF7NbU/
+	etA0LMleZeILjwAIeUiqKVXlrmtkJ9/XCjNA1EZL4p/4tU5Qb5Hqz40L/k8rXTBQBt+XqG2onSYv5
+	7CTecjq1jjVJmIFGTUFkqBGKSzBNLHyhYVqIyWmgEejZNj4/k07dp0Pm868Qhr9PPL6cb6cX2JQQJ
+	GLW5ujjsb83LzhXrz6tgzpZOv5h/onUvKM48yYmJrRiJlEQpai+aIQ0p2yo6e5lUd6MgHXqhQnoeh
+	dGKAnceA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5wx8-00000002Cn0-1TlA;
-	Mon, 14 Sep 2026 03:01:54 +0000
-Received: from mail-oo2-x0f.google.com ([2607:f8b0:4864:31::f])
+	id 1x5xHY-00000002GV6-1h6d;
+	Mon, 14 Sep 2026 03:23:00 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5wwx-00000002CbW-2jOR
+	id 1x5xHT-00000002GUT-3zZ6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 03:01:44 +0000
-Received: by mail-oo2-x0f.google.com with SMTP id 46e09a7af769-7f4f0cfb33cso1244048a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Sep 2026 20:01:43 -0700 (PDT)
+	Mon, 14 Sep 2026 03:22:57 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-8558c0b26a8so1977675b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Sep 2026 20:22:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789354903; x=1789959703; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1789356175; x=1789960975; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=o8noBZbj7C7U90sjdVnrOExXAG4fUCSDlE1zY+ZGE34=;
-        b=rzLD+wC/g45qc56lTzuMSHjAszIpreftCqAepoeJVjiIvCV9A4TIXDfGa0//cN697k
-         CEv4MMTzewZCLS8eQYYTwAAkgi7Eh7yinN7IvadIKHfeg+ZccGVnb1cTOsf2Rkz2qTOD
-         KV5H38riKbWGuwbEx1oEPI3xTfoRm36GknYemknyo/OvfmQ3RAsbym1vlQWHdSC/NLAF
-         HYFiAQIHh1zBmSejtFvIfMvj0zX+FpsJbQkOWSGL0BreGsgiJRsrqoJwJkTsRgoEX/tm
-         MHXxzwaIdPbV70hFb8aZR1usJWl2zk3sgelmp9IBfWBJm4Iu/yqnxszidpcY/gXSfrYH
-         R0gA==
+        bh=MApwC22geSnVp0e4CwnqSMWQccKDcu2A0qes2ViRrYY=;
+        b=Av4EO4wBwDzAg6D/UdbAelb1JxmTRUgYxL+ok0pxBrqiR/YDREbVSXLpKKOo/a2gjg
+         sFPJgI9vmgi+S+7wvCGRH/Bant0xkWly08JXM2AdKQQXnXfHrlxTtMqiRwtreUZLtZZv
+         G8mf18K6gHKF1jVY0iupbApVLJ4pKP9xQXIx4e7EvYv1ccydyhQWDFB7aEGO0T6ruYI3
+         BQDFuuZfc5+K+Mc5t2gjBd6KrYWYth2gEvqz937Z082SCTsgiB8aatP8uUcHpAesCt1M
+         HHl+iIukIdeutEJ4Phs9CrP/1BTsbkXWgI3MGPfRfF+VWsXBLr0QuKz+Il69eBV75rPc
+         +DIA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789354903; x=1789959703;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=o8noBZbj7C7U90sjdVnrOExXAG4fUCSDlE1zY+ZGE34=;
-        b=N2undqdB3iAw4A1+sytdrO1WYi3JdmwvFxyVACqVZBYHNQAQatD3ZccTFod4FOPFZG
-         qDnJKCVDxlbV7q+kNBWpHLiJHr2Mn6sgcetnr6fmbM9JsTy64ZF9MUJGaKnJYF9rlDqD
-         gIUMUmThHOFqxEM2jtEmmgF8H2zmmx5blpucwYbtVVhir4YrHHGFF/8tszVv5zqkDmXP
-         FpTWmDmebKZfVKJiLlKEkqYFM0y7n4o9fMw/xHyCsUtYeaAkZGwCP76XkyK2vJhnrTIk
-         c/GxJ76gg8wbzRSHYZsJThw+gGOCaHlidxauAa+6YzNpVYk8PSnLGAvzuRMY0yTbnZl+
-         oQ0g==
-X-Forwarded-Encrypted: i=1; AKwUvBwUDGZkMu3wqFSygB9AQoVFuossENUH4pb/pnpoBOihfiod9j04dwSVcMR3srNt/NTklp1r4Gy4evJ4/KibYPAC@lists.infradead.org
-X-Gm-Message-State: AFuF++nqxMCLSG3XsAe7+3BaSc1Yk39jmpxeTf23mS+9z2PrnB2QWmdg
-	wnnkgCTQ+Iln68Zk1EBOtxKLwJpI0H8nAVmNkaAV+FWvilf7S30u7hOQ
-X-Gm-Gg: AYBFou0+fx4uI7uhkhkjkKcRKEaJLccFUhAiEi9eKI7x7hgH+JNkSQuirlO7RbVLuyo
-	VxPiYrEq6psPOE5PzjsITe9JDgz9hr8bEsT8hcYwDxW3Fvmm/vo5FE0EiRSRuGn8a/73Yw5X7Y0
-	1UOCYZs/gyRrBqyyFDxouD2BkynvYWe8MDsMK7kcjGTcGrRgJyOEJHuF9kzFVdl3PLtV7GjRNez
-	zmKu8VCr8GVr73u1u3EynJYzTqBiqQUEtnRkXO4OpYn53ApE1iyWwx0x4KROnRy8rRNWsMNrkjP
-	gujYETmFPU+tQmI43oJS3+5kN4qEcV9qnvcSOs2qXe8byiU/W89WpmBrMjc34mhnkFhABDqNnfg
-	ZlwVgqIq38V3Rri3go/OGm6EcoukU3efkyTjDl+Bhiq5UGB2uBZ50jIuWYoF4z7yNwFE+jKwBN6
-	wKEz9VfFtXHNy+RVGvojoQhTvp6FKk+M4az2JRry3Kbv6M+VyH2H0i+RLT4AMmdu76AAOabc6oQ
-	YxKbaFiX4l2ZjjMsDzhqaGazCfxkcBpFcoqguvf4BThkaXQvOMDETgt0YjXyLNMXmID5jnFxp9o
-	KS+GmMp4S/GrmV0zjOQHG8XvUx6yVjwVLLUMmPgFoVSZYT9JORzIJbDbaAdJ7N/W9teRTG8eXpW
-	jUx4hZhb+HLwPuLYclhkH/5WrExWVKA==
-X-Received: by 2002:a05:6830:3894:b0:805:9f8b:bef8 with SMTP id 46e09a7af769-8089974baa0mr554382a34.14.1789354902809;
-        Sun, 13 Sep 2026 20:01:42 -0700 (PDT)
-Received: from [127.0.1.1] (184-96-157-145.hlrn.qwest.net. [184.96.157.145])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-803f60feba1sm10619014a34.13.2026.09.13.20.01.41
+        d=1e100.net; s=20251104; t=1789356175; x=1789960975;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=MApwC22geSnVp0e4CwnqSMWQccKDcu2A0qes2ViRrYY=;
+        b=qUBRZGJmXl1SkqPjSiVG7QWtbEwv2trxwR9ql48X3wJ7YxkkET34bQz/H/yCrxkOtA
+         uKvicpGEG4FSJl58S6MuTNFsJHTZgXPPjtMpOn0cqGhDN0KB0Mg9FYaAGiuxMTYvXICc
+         +s2qQSeTMWA3Z7hme12LKbzMB2tFXaGx+KksEM0ipRjhKlEumKfIfN1swkuhiQ2QhWR4
+         LYzTiTCzSVvJd9aIlF4V21NvlpO6VbdF7OhyU3VtpWRnUar4feNcQdG86+8Onc8oZahv
+         3zT1TMpEdNlzSMiHO2KvQr/wvigxzzr+p3SVxknjDrXIgL3xQKmQ+ITYstTJlXN3C9jo
+         53ew==
+X-Forwarded-Encrypted: i=1; AKwUvBwWkZkHtbnyqVw4bY/otcwdKea1ZPZT39Qs/zYse3jb3TZZQwkAF7hdPMbR0iOIDR6jXXGeMNgru7tAoANZ9YnU@lists.infradead.org
+X-Gm-Message-State: AFuF++k367fPIqP71mX1hYo9gVL7rYFJTAns8+FbxM4bU18umgsOXThp
+	yjxCs/RB6lf+dwothXrFZUNlPRdQTfBpZsLKDTDDiJu7HGrhFBPlszEW
+X-Gm-Gg: AYBFou1ZPAv9Cbq/JWaHxrPCnUjNBl9e4UG4kUg2E0W1WNOWQVF7FkD1R6q+ZnM+4Zr
+	xoglH6HDWlQ716lUMMR2vcLqB5nJZbOSt7uPaqoGdKzZy57FnQe7Q68VNjZXAa6WpRJp812ZoXY
+	XkJIKEpLnfE7tVU09xM1eb55dGFnjBoM+neofekRUzHDeuXpi4/NYJjjd+mnubmUEFIp8Mog4Xp
+	6aSjoeKyjVsjksvCgqWYgnzu8pc9SQeY+xUYC75UUP3BK+XM1MwpsUjWFub3Lh9bdQLFuroGnKp
+	Jqc/OLDBWUtgCQ0LxGzJ0Rjauw4HlfpJxljEZ6+/WkUEiw3bJb8ibqGu3F1DHk4+I/Why1O1Pi3
+	vZAyawmckek2HL54YcyK+tH33GM/iCgzZKnmLjhX2FPK8pwBj82rsEiAvhECgyM7eEhpRm1jz3H
+	xbCagKtqscjkyehM7OtZLyzliiYcS9cu8FRjga6s4JOjqH0Snqbi6eIKn9jGDmAU3i9OUABldbN
+	AagNQHiYwMGYwbYfnwRLsJs8ZA7eoIbiRt7B96BgiF87brAEVyKhQo6/Im99WfD3mfHqXhJ5w==
+X-Received: by 2002:a05:6a00:950b:b0:869:8620:26d2 with SMTP id d2e1a72fcca58-86f82f51c34mr1825446b3a.1.1789356174723;
+        Sun, 13 Sep 2026 20:22:54 -0700 (PDT)
+Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-86b286c3f3csm4014523b3a.16.2026.09.13.20.22.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 13 Sep 2026 20:01:42 -0700 (PDT)
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Sun, 13 Sep 2026 21:01:10 -0600
-Subject: [PATCH v5 04/18] mtd: rawnand: sunxi: stop failed program
- operations and disable ECC
+        Sun, 13 Sep 2026 20:22:54 -0700 (PDT)
+From: a0987203069@gmail.com
+To: linux-clk@vger.kernel.org
+Cc: rosenp@gmail.com,
+	Jacky Huang <ychuang3@nuvoton.com>,
+	Shan-Chun Hung <schung@nuvoton.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RESEND] clk: nuvoton: ma35d1-divider: simplify allocation
+Date: Mon, 14 Sep 2026 11:22:48 +0800
+Message-ID: <20260914032248.387264-1-a0987203069@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260912002326.237419-1-rosenp@gmail.com>
+References: <20260912002326.237419-1-rosenp@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260913-submit-sunxi-nand-vendor-oob-layout-v1-v5-4-7d711076a6f7@gmail.com>
-References: <20260913-submit-sunxi-nand-vendor-oob-layout-v1-v5-0-7d711076a6f7@gmail.com>
-In-Reply-To: <20260913-submit-sunxi-nand-vendor-oob-layout-v1-v5-0-7d711076a6f7@gmail.com>
-To: Miquel Raynal <miquel.raynal@bootlin.com>, 
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
- Richard Genoud <richard.genoud@bootlin.com>, 
- Masahiro Yamada <yamada.masahiro@socionext.com>, 
- Boris Brezillon <bbrezillon@kernel.org>, 
- Brian Norris <computersforpeace@gmail.com>
-Cc: linux-mtd@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, James Hilliard <james.hilliard1@gmail.com>, 
- stable@vger.kernel.org
-X-Mailer: b4 0.15.2
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260913_200143_762822_CB873503 
-X-CRM114-Status: GOOD (  14.51  )
+X-CRM114-CacheID: sfid-20260913_202255_995623_3C00148A 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,113 +105,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PIO page and subpage write callbacks leave ECC enabled if a chunk
-transfer fails. They also ignore program-setup errors, as does the DMA
-page writer, and can continue transferring data and issuing PAGEPROG
-after the setup command has failed.
+Hi Rosen,
 
-Check program setup before enabling ECC or transferring data. If DMA
-preparation has already succeeded, abort the queued operation and unmap
-its buffer before returning the setup error.
+On Fri, Sep 11, 2026 at 05:23:26PM -0700, Rosen Penev wrote:
+> Use a flexible array member instead of kcalloc + pointer that is not
+> actually const.
+>
+> Simplifies allocation slightly.
 
-Route PIO chunk failures through ECC disable and return the original
-error. Issue the program-end command only after the transfers succeed,
-preserving the existing successful-write sequence.
+Thanks for the patch, and sorry for the slow reply.
 
-Fixes: 1fef62c1423b ("mtd: nand: add sunxi NAND flash controller support")
-Fixes: 25f815f66a14 ("mtd: nand: force drivers to explicitly send READ/PROG commands")
-Cc: stable@vger.kernel.org
-Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
----
- drivers/mtd/nand/raw/sunxi_nand.c | 29 ++++++++++++++++++++++-------
- 1 file changed, 22 insertions(+), 7 deletions(-)
+We're already working on a different fix for this driver internally:
+the ADC divider register actually implements a simple closed-form
+relationship (rate = parent_rate / (2 * (N + 1))), so building and
+scanning a clk_div_table with up to 2^width entries via the generic
+divider_recalc_rate()/divider_determine_rate()/divider_get_val()
+helpers is unnecessary overhead in the first place -- we're replacing
+the table entirely with direct arithmetic in recalc_rate()/
+determine_rate()/set_rate() instead of just changing how it's
+allocated.
 
-diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sunxi_nand.c
-index d5d8d383b6d1..5d88ad3b8f70 100644
---- a/drivers/mtd/nand/raw/sunxi_nand.c
-+++ b/drivers/mtd/nand/raw/sunxi_nand.c
-@@ -1610,11 +1610,13 @@ static int sunxi_nfc_hw_ecc_write_page(struct nand_chip *nand,
- 	struct sunxi_nand_chip *sunxi_nand = to_sunxi_nand(nand);
- 	struct mtd_info *mtd = nand_to_mtd(nand);
- 	struct nand_ecc_ctrl *ecc = &nand->ecc;
--	int ret, i, cur_off = 0;
-+	int ret = 0, i, cur_off = 0;
- 
- 	sunxi_nfc_select_chip(nand, nand->cur_cs);
- 
--	nand_prog_page_begin_op(nand, page, 0, NULL, 0);
-+	ret = nand_prog_page_begin_op(nand, page, 0, NULL, 0);
-+	if (ret)
-+		return ret;
- 
- 	sunxi_nfc_hw_ecc_enable(nand);
- 
-@@ -1629,14 +1631,17 @@ static int sunxi_nfc_hw_ecc_write_page(struct nand_chip *nand,
- 						   oob_off + mtd->writesize,
- 						   &cur_off, i, page);
- 		if (ret)
--			return ret;
-+			goto out;
- 	}
- 
- 	if (oob_required || (nand->options & NAND_NEED_SCRAMBLING))
- 		sunxi_nfc_hw_ecc_write_extra_oob(nand, nand->oob_poi,
- 						 &cur_off, page);
- 
-+out:
- 	sunxi_nfc_hw_ecc_disable(nand);
-+	if (ret)
-+		return ret;
- 
- 	return nand_prog_page_end_op(nand);
- }
-@@ -1650,11 +1655,13 @@ static int sunxi_nfc_hw_ecc_write_subpage(struct nand_chip *nand,
- 	struct sunxi_nand_chip *sunxi_nand = to_sunxi_nand(nand);
- 	struct mtd_info *mtd = nand_to_mtd(nand);
- 	struct nand_ecc_ctrl *ecc = &nand->ecc;
--	int ret, i, cur_off = 0;
-+	int ret = 0, i, cur_off = 0;
- 
- 	sunxi_nfc_select_chip(nand, nand->cur_cs);
- 
--	nand_prog_page_begin_op(nand, page, 0, NULL, 0);
-+	ret = nand_prog_page_begin_op(nand, page, 0, NULL, 0);
-+	if (ret)
-+		return ret;
- 
- 	sunxi_nfc_hw_ecc_enable(nand);
- 
-@@ -1670,10 +1677,13 @@ static int sunxi_nfc_hw_ecc_write_subpage(struct nand_chip *nand,
- 						   oob_off + mtd->writesize,
- 						   &cur_off, i, page);
- 		if (ret)
--			return ret;
-+			goto out;
- 	}
- 
-+out:
- 	sunxi_nfc_hw_ecc_disable(nand);
-+	if (ret)
-+		return ret;
- 
- 	return nand_prog_page_end_op(nand);
- }
-@@ -1712,7 +1722,12 @@ static int sunxi_nfc_hw_ecc_write_page_dma(struct nand_chip *nand,
- 		sunxi_nfc_set_user_data_len(nfc, user_data_sz, i);
- 	}
- 
--	nand_prog_page_begin_op(nand, page, 0, NULL, 0);
-+	ret = nand_prog_page_begin_op(nand, page, 0, NULL, 0);
-+	if (ret) {
-+		sunxi_nfc_dma_op_abort(nfc);
-+		sunxi_nfc_dma_op_cleanup(nfc, DMA_TO_DEVICE, &sg);
-+		return ret;
-+	}
- 
- 	sunxi_nfc_hw_ecc_enable(nand);
- 	sunxi_nfc_randomizer_config(nand, page, false);
+Since our patch removes the table (and the unrelated mask_bit
+mechanism, which has an out-of-range shift bug at its only call site)
+rather than reshaping it, we won't be adopting this patch, but we do
+appreciate you catching the allocation issue. We'll post our fix
+shortly for review.
 
--- 
-2.53.0
-
+Thanks again,
+Joey
 
