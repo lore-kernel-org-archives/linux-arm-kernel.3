@@ -4,90 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86C3DC88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 15:02:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23EC1C88E78
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 15:02:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RLdSqd1j1OI9R1VCLztteaDRbyZgd0G1W+hidlStvuM=; b=jfcVkR9VUBoCbrmOfq9ab8trWT
-	j+LNzLritnWTnPXAb2fkAxFnNJ6/QZZEixT26Piy8Cg+P+eqqUkeYAdbYMIxUHXY7MavgB81FIdtH
-	6KwMNhOdgkWTBrJKmu0qv+LN/Wbi825G73Lp5XFO3S8mzuqevsrM7/TMoaS3Yqp2Q6MqB2vEqakMQ
-	O+xFlMKs96rVUc9Q9ygG//mScEA5dwlt3uf1HuzNKTilM63KE6juXevKH9WjlZLCtAQm/o4Y9pZ7M
-	Dyp+2wHTCqRzycHCySUBgQSJLJ+Wps6kA/sUE2qxEgTr2ER+qJGtTDQiNfKiIouzFfbs/6VDuyF+N
-	HZGSDXYQ==;
+	bh=w4t3O+boQ/6prVdjN4I3fTqFDViq1Qb1L+fZxB5u9Ng=; b=oMmHNwSB+tQQgmy7sDq7X1j9an
+	TKUmcd0C55fANBocyH4ccR32ffRCJrFGnIanpjdy0pfHvq3XofGNvgHpZm/LCcXDMXMhFey6a1kvi
+	zxjYVQySbZ8w9yVxSYIl4MjeGaX+Z4UjZy8aauVBKt0CN73AGeLzYOFt/Mn51Ul4KHqA4NOwp1wnE
+	MJjw0fmrcoOPYfKGTTB7LrvC5Gr/T34hijRDlkm+m1pixRbiHPx8PUYikAVWPPnZMtbJ/0t1DZVUK
+	yn2MYpjrceDkXHAMy2HXEehwpGECwESc5AnrQZg2Eo5IUSKJqvVMkBlFohWB63vxHak2AZ5AvDiLx
+	prWblCYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x68C7-00000004570-0prE;
-	Mon, 14 Sep 2026 15:02:07 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1x68CF-000000045E4-2l2E;
+	Mon, 14 Sep 2026 15:02:15 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x68C3-0000000453R-0boI
+	id 1x68C9-0000000458m-2tgq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 15:02:04 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68ED0PZu674364
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 15:02:02 GMT
+	Mon, 14 Sep 2026 15:02:11 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68ED0Ywe830703
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 15:02:08 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=RLdSqd1j1OI
-	9R1VCLztteaDRbyZgd0G1W+hidlStvuM=; b=R3D4A7tR5d6I3rYhPblK/7F13xj
-	AtTzyHRvih+2EcXm6uSQ0JMN8fWKau31PjhjVP1fKuVn4NZabhznAjLY/fZIjEwq
-	xb13o10X7gO5PBKmqw5k32+A6sMnNShAKY2i3/aZokrEzkIrePrwASc3rpvVTSgz
-	6NUa5hwLodYARnjnafLyNTAGxx8cGN6mmnng1XaB+FmV8lauRVKzYpBk3/CYtIfE
-	9dAm3ZxGus/ox0z7V9dPmxHfs3hGhD/wrXxw7LfrdWxmBJ+Y+oFHdlBzrGV9jbTA
-	ald+qtSAfzIPTBIbh7gnCPD5DwNqBTJtONRzYM8fEMYcUR21v0lyu5huWNw==
-Received: from mail-oo1-f71.google.com (mail-oo1-f71.google.com [209.85.161.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gpecs9a72-1
+	:mime-version:references:subject:to; s=qcppdkim1; bh=w4t3O+boQ/6
+	prVdjN4I3fTqFDViq1Qb1L+fZxB5u9Ng=; b=RrEuUu9q5M9qmpGHhQ8s8q7Pzl9
+	EpkPm/6FmCnxpjBOSLOGlCC4llT6x5+99fyOX7zFdEhdG2bIE+aelkWW825w49nR
+	pY2ITnqj1XjmAVakfbg3jRGMmlwsUjrW3o+h0WEcufPQY+T9240rla/h6/kmxD89
+	6psc+Yb+beDmcVwsDS+U6+yl6MbG5AJIxgdHw4XeoTHhab5r/+D46h46fBfWb1G7
+	ZzaUmglfFTWoBY9GGm2162yjAoWviXpIxNHlEjEb6oJOKuyVfigZzuJDfi30gCsJ
+	BuBv4CBNv/j4DDRtxDL8uXSqP7Oo24bB6r4vrzDoMrlb2Z7K2xy0GcDdGGQ==
+Received: from mail-vs1-f70.google.com (mail-vs1-f70.google.com [209.85.217.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gp3hsu0na-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 15:02:02 +0000 (GMT)
-Received: by mail-oo1-f71.google.com with SMTP id 006d021491bc7-6c34cd4bffbso1090601eaf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 08:02:02 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 15:02:08 +0000 (GMT)
+Received: by mail-vs1-f70.google.com with SMTP id ada2fe7eead31-78fb21aaad9so3015353137.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 08:02:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1789398122; x=1790002922; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1789398128; x=1790002928; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=RLdSqd1j1OI9R1VCLztteaDRbyZgd0G1W+hidlStvuM=;
-        b=LUCsvYjx75BE17TmyU6L6pKPLa/Laq4bkj+qncYWfR305POHLJcP1ZPF8uwa6A87Gm
-         0ObqM4dpB5mZLf/z0DWyEYXCD/NhuLwWUkzXYxaLqFP1cXCF8LPWTJBBYG6ahLUdm3kx
-         dYNBXNFXPYNj9/Clztr8jinUpvit9+uBeLj0D8WLN4nirEts2zaifLGj5yd4sbA4M1kR
-         JWJYOaJFmebD6O2kGTb+SUl5F4sfqyL6l+AfNhCLTEhKDiEiCkuUMwDZJhsyV3t276q9
-         08NU09vqTrx4yDc67Qjvm3U4YBr1iq0w1/oUtj7KJDPKmLeuPqBIPtPEwRBa2yC3+ilz
-         iQOQ==
+        bh=w4t3O+boQ/6prVdjN4I3fTqFDViq1Qb1L+fZxB5u9Ng=;
+        b=WvGO6YpzNksRCXYF+Tl2G3yUIWenKDUowGo0NvaRJfDMlFRXvyhbP3MW7Erfm/7vUB
+         ZLYcxmqLpfGTOt2VPC5B0OZIhLSbckPRtENbyRbkrsXODsQamIyaVmK3dlYgmRhZSAvA
+         8y/hCrgc+i+zuOXXj6YmiRqh6RzbFxGDjN6/SaE/UPqvZq+tE6n1mrvADYfhrweWVP61
+         jQRwlwnF6VwJ6ByMrwISOhQ02GY7XSwG6ri1bmry757ciqBhsfBNXwp5kHReFEPNT+wE
+         3k/S2bkTp/QppLhZ87njyWCA2sLHQ4jdyLB7UktmL1OdRmZheocON5d+0PzuzcAiVjEs
+         FUFA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789398122; x=1790002922;
+        d=1e100.net; s=20251104; t=1789398128; x=1790002928;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=RLdSqd1j1OI9R1VCLztteaDRbyZgd0G1W+hidlStvuM=;
-        b=V/WSAph60hYBao/o80Sd3MFax80bR563AYaJGLr4In1opJTaEA9EM+Mz4eXQwDoPFE
-         N7chqkKVLPgHgi5crKy4ohm7nfyqzffanYqQ3q8838d+4jFBLUOAJsPGdCaRHrZwmW+m
-         iVMEYOh9+zQ4Wb6dfpzRgfcasIx+oYpQCJs6OHq4UUYM7NS6xPH38/BNVuQLytCf8E7h
-         b3MwhQyeApuCOyKPsYzM05L3ZYAuWTaC45euM9GBuB+AqYDVjx31nXjZgogIMoBS4CCb
-         v1/z6pX+F9VFzBiKyorDkf6twuFtlJKHIf0/8d9zmAe8+zOY6JoR0mn3zAuM77ye+9Cd
-         i3XA==
-X-Forwarded-Encrypted: i=1; AKwUvBzVuaUnynKLkeoGZhtLesf/NhynYY2zj3I+PFJtq+em+ofZZZMBNs7bfIDR3Ud+wf4jfTZN2Nbp5Rtk3N1LxMR2@lists.infradead.org
-X-Gm-Message-State: AFuF++lGZhyDTirWMBFNpyxQukVzhnMVPk+A18Fs6r+y7B9UHj7i61Vk
-	eV2hpXE3xxU1umsj1KrLH+qz0mvBIxLrfBRGTBbfAFpgT5h1PkQY9Sw6GTHXWFljF8rJ2zq5wpX
-	h1jniOWGlNog69XoGo+uS9NbptJSmzALUFvAgZkE8ThRaQVJak/BGhEM9pLkRRd/MZe9dDuft7Y
-	ehNg==
-X-Gm-Gg: AYBFou2YuxU0zOAt9IU2Y6QGPK/8PQV6mMt6hDvn7TqVghe/ayprkTZ+qo/JG4PxjCB
-	UKMneLpZ4+MqcqZ4N8rl0dRAwJWWxXHSZkiorBkw3+gwtM5fGmvQppDS3Jca2Y0rL0/qKBVKFIu
-	Gcs26SoAKIALzLsw0G82u4RVcr/WpGiiFkOR1lRzqYTQn/s+cDYG1D1/C9dsKu+veviuT/i3ThK
-	3URoQ10CvetTuUccm4/VwRPVOnSm26jiHiT/M8fIi1cSysM5WGbRoJsWbnlNojPPyxFQdajHFoy
-	FNMwdPlKoDZI8ZefXe7gPxYc5HCYd1Vr0CV5dnsYw/fbYWjjkgvO4b7iEIu5hidb+OsRV3iub+s
-	nNpsHtRlZA1hR7zspwLD+pM9zYzB5cDiqo34Nj+es9SUd1remiNViUkotTg==
-X-Received: by 2002:a05:6820:4b91:b0:6b7:8396:f3cf with SMTP id 006d021491bc7-6c541b451edmr1405303eaf.49.1789398120193;
-        Mon, 14 Sep 2026 08:02:00 -0700 (PDT)
-X-Received: by 2002:a05:6820:4b91:b0:6b7:8396:f3cf with SMTP id 006d021491bc7-6c541b451edmr1405146eaf.49.1789398118846;
-        Mon, 14 Sep 2026 08:01:58 -0700 (PDT)
+        bh=w4t3O+boQ/6prVdjN4I3fTqFDViq1Qb1L+fZxB5u9Ng=;
+        b=XqDQWMZsKacbSJna4L04OEWBGtthXlA6o2FMK641Hb4da40Rh2AvyA0q/5PsbUykAt
+         i/2UdEm+bFP7GAZAKggFDcqM80sIyXMq1JwD34fXtRMS/w24VFTIVafxNCo/8GaPUZe0
+         UW/eh0DLpO/KmjPZUlFn2qRtTaow/ke1amvmjcTXzHLZcHTwTkynrrQHQb9PEv1LjbJ+
+         G2NBKJXKN8LVFvu16MWrse+a0BSU4ZGM54r1NZJESOGyVjwsjGcr0SYE7Y8JUH6Sb0fS
+         JvgY69vk8y86AKXtlTukYMXh4qKRn3VbxeGSgJj3srCIBMHNUif+I+bHkni+uHEbnqoC
+         uvXw==
+X-Forwarded-Encrypted: i=1; AKwUvBxnhrgj9pXGqOHplVywH0R647XqwpU5B0Zs0CbopxT4T09vgHzYbp58RptGPXq7aSgB/LlvELqibWMZvgq5UD/M@lists.infradead.org
+X-Gm-Message-State: AFuF++kDtjVehSZvP3dXmTmzfSm0trPnGeTIA+0sxthb4DKGVjTfEQiD
+	uQiiKpX7Fe8uX43Loju+7r6CvdY1ZJU27/2okcPXLB+duhcZmjnMP7YUwzDlJYJLkktdhwzqj+p
+	0ReH8DwqeYYIDXi292pyRnU9wuld+JJPl3BE3Ssz+6T3xq9sc3f1P4jQ8FtMkwTxBnzvhd+Hy0Y
+	Etyg==
+X-Gm-Gg: AYBFou1vGlCNG72eAp6+UXhgdgsmR8+41HrRBs75A+MZwooWv0GGj4heUTWQuHBCZYE
+	OAC+Yy7ybivoz5MbLDMp8YqLxfuTwapkpKcse98PgH1clySPMQPgMxINkXXst5IoNYNuSqIPuSu
+	Au8FlvDQRiAd5EiXazSkMTaPXl73pysu2bxzhjlBuMV1wgaoj6tVEa+pza451PUK35PiJFS+EH1
+	kx2LfK5whcVd4lL5RS9flZHCohdr2WqamQQQICGeuQzoDtXa5rba0NT8fz9J2efuTa1xfBbx9Pm
+	8xKbchLSqPT8pjoimoHtVj4/BHjTYkDpQf1Ih6jeMCzJ1mURgME5urBPOZDEHlIyxiktUTWegGW
+	eBqGTaZAGUVaI1wM6nCoMAH258SkpUhdZWM0sOAqxywkL7CZrBrzvnZbhOg==
+X-Received: by 2002:a05:6102:22d4:b0:791:740b:7ce6 with SMTP id ada2fe7eead31-798930aa611mr2058719137.11.1789398127693;
+        Mon, 14 Sep 2026 08:02:07 -0700 (PDT)
+X-Received: by 2002:a05:6102:22d4:b0:791:740b:7ce6 with SMTP id ada2fe7eead31-798930aa611mr2058562137.11.1789398127096;
+        Mon, 14 Sep 2026 08:02:07 -0700 (PDT)
 Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c296608480esm468632666b.36.2026.09.14.08.01.56
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c296608480esm468632666b.36.2026.09.14.08.02.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Sep 2026 08:01:57 -0700 (PDT)
+        Mon, 14 Sep 2026 08:02:05 -0700 (PDT)
 From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
 To: Sudeep Holla <sudeep.holla@kernel.org>,
         "Rafael J . Wysocki" <rafael@kernel.org>,
@@ -102,45 +102,43 @@ Cc: Dhruva Gole <goledhruva@gmail.com>, Abel Vesa <abel.vesa@oss.qualcomm.com>,
         Ulf Hansson <ulf.hansson@oss.qualcomm.com>,
         linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
         linux-kernel@vger.kernel.org
-Subject: [PATCH v4 2/5] pmdomain: core: Allow a non-CPU device in a CPU PM domain to do power on
-Date: Mon, 14 Sep 2026 17:01:38 +0200
-Message-ID: <20260914150146.187622-3-ulf.hansson@oss.qualcomm.com>
+Subject: [PATCH v4 5/5] cpuidle: psci: Move initialization a bit earlier in the boot sequence
+Date: Mon, 14 Sep 2026 17:01:41 +0200
+Message-ID: <20260914150146.187622-6-ulf.hansson@oss.qualcomm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260914150146.187622-1-ulf.hansson@oss.qualcomm.com>
 References: <20260914150146.187622-1-ulf.hansson@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE0MDIxNSBTYWx0ZWRfX4cAAA7JL4dkn
- GVMpM9y2V1NnACyarnp5IW9VP1yE1z1l2UhwyA2ONI7L6kovnxPabfOq9qoTJ/k1ox+El6j0Z5j
- JUZKuUe5rdnpf7GEj3SKYcmH5z2u6s8=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE0MDIxNSBTYWx0ZWRfX5unp7M3GVXob
- kfjBq6qkFzAHcU2jATOzEWNNPsk9xerHp5zpltsI3c8FfhARPvXpEMpN9xBGKkuce8jCqhBT5Mz
- 99aGUmJ6saJzDsruJFNx8gG+gdc8Q0yfEf2IYRGT+wY1nFoZZgaiu+6JGBPUnB3DQGTVHxs3dcC
- K8MiFw3Ir9bplr2brwvs5CgpgPS5TznwAQoO/R2IH13GCjDI+xvjCaKLIJWAlA1/XehNseuDFC7
- BiKunf2zZVgVO9moHctB+kpyvsnCWrwRo5hZV5qkBk/YU6y4Ilmwld/w2Q9q/+q50uLXG7nmwC8
- nkkECsY+CVeOKx12Ae4Z/05U57LGLt8X2iDR+eRAbpBJXRspM/FKsSrsbXErOsZ09G5UiIM9tze
- IX+VhKdoR1Z1X+cKqD2GkpjZoHDD0fy0a2mAICdEaYhFmuMVy96eIS7piX6lpyME8E3d3HzIuzZ
- PbE1KtH04vS293z0riQ==
-X-Proofpoint-GUID: lcpSEvlgTb1k23vRmhVtbdp7dkyiwTta
-X-Authority-Analysis: v=2.4 cv=b/cncdGx c=1 sm=1 tr=0 ts=6aa80c6a cx=c_pps
- a=V4L7fE8DliODT/OoDI2WOg==:117 a=h7aNHqOhPKB91FvYUefsSA==:17
- a=u8BtVuMVLpZXKRMe:21 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
- a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8 a=EUspDBNiAAAA:8 a=CAA96EveQzfqUpAuUaoA:9
- a=WZGXeFmKUf7gPmL3hEjn:22
-X-Proofpoint-ORIG-GUID: lcpSEvlgTb1k23vRmhVtbdp7dkyiwTta
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE0MDIxNSBTYWx0ZWRfX4ZXpCUESBb8K
+ 57SSS1N/vGVWrEsB12trAHPkysC16iy23q75F3cgUtOLUToEQaFf/Up14lrD3dSQVdnB8kIHGdH
+ ePv9WAVUo9ifZ4m5Xm3dl22Hg08rr/R2Uj62lAD2QEzICKQPL/rIV7QnN2g+lJpeY3K7nqnvNwm
+ lswpi1TpHNUVaM3R4l3M69m+FAqnQ4OCtyfOlG1X2F2l96ZF89x/n3m+RyKJqTZuGUuOdJJGcMY
+ clKcKGOWoPzaY7aYRimrJpviZBNMScApsI1T3FPVunn32IuEpRZ6eDP2FeLiZ7vkzqAdH88C2bo
+ 7S6oW3Xz/H/J6ZRiFBbp0fm4rmTEHST8cCuxj/09TTFZezKvxZ6o2miZRRQsFgBQ4Yj31yE7ZZC
+ k1EMuMFX6DAt/+sp5IKWQ9dSpcKzGZOr81R9n/e26isDuiSCsUKudfaeoafcSHjGOD8X4u46Yt6
+ napvMKw1MjF5Wb/32YQ==
+X-Authority-Analysis: v=2.4 cv=IZwSymqa c=1 sm=1 tr=0 ts=6aa80c70 cx=c_pps
+ a=N1BjEkVkxJi3uNfLdpvX3g==:117 a=h7aNHqOhPKB91FvYUefsSA==:17
+ a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22 a=EUspDBNiAAAA:8
+ a=lJEbMRRrfWY45v_ev9wA:9 a=crWF4MFLhNY0qMRaF8an:22
+X-Proofpoint-GUID: VS6r2rUAEYRoxSK-S2RNPQB_PIDmjOQ6
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE0MDIxNSBTYWx0ZWRfX4bPCufSceFVm
+ DMO9QwXF3bxuXPGqjjXtpp2FVFt0ZDHZLM91qI28mo3cTgm4yK+QQBupM1AFZ+riOlYw8VVq55m
+ rmt3pRj649/+psr25KkT/vzas7/X3IM=
+X-Proofpoint-ORIG-GUID: VS6r2rUAEYRoxSK-S2RNPQB_PIDmjOQ6
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-09-14_03,2026-09-14_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 bulkscore=0 adultscore=0 priorityscore=1501 phishscore=0
- clxscore=1015 impostorscore=0 lowpriorityscore=0 suspectscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
- definitions=main-2609140215
+ suspectscore=0 adultscore=0 impostorscore=0 malwarescore=0 phishscore=0
+ clxscore=1015 bulkscore=0 lowpriorityscore=0 priorityscore=1501 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609140215
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_080203_193831_9C2B9D51 
-X-CRM114-Status: GOOD (  34.08  )
+X-CRM114-CacheID: sfid-20260914_080209_877578_2486465B 
+X-CRM114-Status: GOOD (  17.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,196 +153,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A driver for a non-CPU device that is attached to a CPU PM domain (the
-genpd has the GENPD_FLAG_CPU_DOMAIN configuration set), is currently not
-able to power on the PM domain. More precisely, to power on a CPU PM domain
-one of its corresponding CPUs needs to be woken up if they are idle.
+When using PSCI OS-initiated mode along with the cpuidle-psci-domain driver
+it's of great benefit to attach the CPU devices to their CPU PM domains as
+soon as possible, as other non-CPU devices sharing the same PM domains
+depends on it to allow their devices to be probed.
 
-The current support for a non-CPU device is that its driver can only
-prevent an already powered on CPU PM domain from being powered off. This
-leads to problems for a driver while probing its device or when it needs to
-call pm_runtime_get_sync() to turn on the power for it. From the driver
-point of view it looks like it all works fine, but when accessing the
-device it may end up with various errors as the device may not be fully
-powered on.
+Let's therefore move to a subsys_initcall, which should be soon enough
+after the cpuidle-psci-domain have initialized the PM domain topology.
 
-To fix the behavior for these types of devices, let's adjust the behaviour
-in genpd_power_on() to wake up an idle CPU that belongs to it, in cases
-when it's needed.
-
-Link: https://lore.kernel.org/all/CAPx+jO-sCierYj8jnoKQHckJG16dOBxnNrsZVYO=38R2cLV8nw@mail.gmail.com/
 Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
 Tested-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
-Reviewed-by: Dhruva Gole <goledhruva@gmail.com>
 Signed-off-by: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
 ---
 
 Changes in v4:
-	- Decreased the timeout.
-
+	- None.
 Changes in v3:
-	- Moved to atomic polling, pointed out by Dhruva.
-
+	- None.
 Changes in v2:
-	- Rename a function according to Abel's suggestion.
+	- New patch.
 
 ---
- drivers/pmdomain/core.c | 80 ++++++++++++++++++++++++++++++++++++++---
- 1 file changed, 75 insertions(+), 5 deletions(-)
+ drivers/cpuidle/cpuidle-psci.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
-index 6abe8b198949..c593a3479ad0 100644
---- a/drivers/pmdomain/core.c
-+++ b/drivers/pmdomain/core.c
-@@ -10,6 +10,7 @@
- #include <linux/idr.h>
- #include <linux/kernel.h>
- #include <linux/io.h>
-+#include <linux/iopoll.h>
- #include <linux/platform_device.h>
- #include <linux/pm_opp.h>
- #include <linux/pm_runtime.h>
-@@ -19,11 +20,14 @@
- #include <linux/slab.h>
- #include <linux/err.h>
- #include <linux/sched.h>
-+#include <linux/smp.h>
- #include <linux/suspend.h>
- #include <linux/export.h>
- #include <linux/cpu.h>
- #include <linux/debugfs.h>
+diff --git a/drivers/cpuidle/cpuidle-psci.c b/drivers/cpuidle/cpuidle-psci.c
+index b250d0dde760..0187d6a9096a 100644
+--- a/drivers/cpuidle/cpuidle-psci.c
++++ b/drivers/cpuidle/cpuidle-psci.c
+@@ -479,4 +479,4 @@ static int __init psci_idle_init(void)
  
-+#include <trace/events/ipi.h>
-+
- /* Provides a unique ID for each genpd device */
- static DEFINE_IDA(genpd_ida);
- 
-@@ -32,7 +36,9 @@ static const struct bus_type genpd_provider_bus_type = {
- 	.name		= "genpd_provider",
- };
- 
--#define GENPD_RETRY_MAX_MS	250		/* Approximate */
-+#define GENPD_RETRY_MAX_MS		250		/* Approximate */
-+#define GENPD_CPU_ON_POLL_PERIOD_US	100		/* 100us */
-+#define GENPD_CPU_ON_TIMEOUT_US		300000		/* 300ms */
- 
- #define GENPD_DEV_CALLBACK(genpd, type, callback, dev)		\
- ({								\
-@@ -1026,15 +1032,75 @@ static void genpd_power_off(struct generic_pm_domain *genpd, bool one_dev_on,
- 	}
+ 	return 0;
  }
- 
-+static bool genpd_status_on(struct generic_pm_domain *genpd)
-+{
-+	bool is_on;
-+
-+	genpd_lock(genpd);
-+	is_on = genpd_status_on_unlocked(genpd);
-+	genpd_unlock(genpd);
-+
-+	return is_on;
-+}
-+
-+static int genpd_wakeup_cpu(struct generic_pm_domain *genpd)
-+{
-+	unsigned int cpu;
-+	bool is_on;
-+	int ret;
-+
-+	/* Find the first online CPU in the genpd's cpumask. */
-+	cpu = cpumask_first_and(genpd->cpus, cpu_online_mask);
-+	if (cpu >= nr_cpu_ids)
-+		return -EAGAIN;
-+
-+	genpd_unlock(genpd);
-+
-+	/* Send a IPI to wakeup the selected CPU. */
-+	smp_send_reschedule(cpu);
-+
-+	/* Poll to wait for it to complete the power on sequence. */
-+	ret = readx_poll_timeout_atomic(genpd_status_on, genpd, is_on, is_on,
-+					GENPD_CPU_ON_POLL_PERIOD_US,
-+					GENPD_CPU_ON_TIMEOUT_US);
-+
-+	genpd_lock(genpd);
-+
-+	/* Re-check the status as we have released the lock in between. */
-+	if (ret || !genpd_status_on_unlocked(genpd))
-+		return -EAGAIN;
-+
-+	return 0;
-+}
-+
-+static bool genpd_need_alive_cpu(struct generic_pm_domain *genpd,
-+				 struct device *dev)
-+{
-+	if (!genpd_is_cpu_domain(genpd))
-+		return false;
-+
-+	/* This is not for CPU devices as those are managed differently. */
-+	if (to_gpd_data(dev->power.subsys_data->domain_data)->cpu >= 0)
-+		return false;
-+
-+	/*
-+	 * If the current CPU doesn't belong to the genpd's cpumask, we need to
-+	 * wake up one of those idle CPUs to power on the CPU domain correctly.
-+	 */
-+	return !cpumask_test_cpu(smp_processor_id(), genpd->cpus);
-+}
-+
- /**
-  * genpd_power_on - Restore power to a given PM domain and its parents.
-  * @genpd: PM domain to power up.
-+ * @dev: The device that needs the PM domain to power on.
-  * @depth: nesting count for lockdep.
-  *
-  * Restore power to @genpd and all of its parents so that it is possible to
-  * resume a device belonging to it.
-  */
--static int genpd_power_on(struct generic_pm_domain *genpd, unsigned int depth)
-+static int genpd_power_on(struct generic_pm_domain *genpd, struct device *dev,
-+			  unsigned int depth)
- {
- 	struct gpd_link *link;
- 	int ret = 0;
-@@ -1042,6 +1108,10 @@ static int genpd_power_on(struct generic_pm_domain *genpd, unsigned int depth)
- 	if (genpd_status_on_unlocked(genpd))
- 		return 0;
- 
-+	/* Special case for a device attached to a CPU domain. */
-+	if (genpd_need_alive_cpu(genpd, dev))
-+		return genpd_wakeup_cpu(genpd);
-+
- 	/* Reflect over the entered idle-states residency for debugfs. */
- 	genpd_reflect_residency(genpd);
- 
-@@ -1056,7 +1126,7 @@ static int genpd_power_on(struct generic_pm_domain *genpd, unsigned int depth)
- 		genpd_sd_counter_inc(parent);
- 
- 		genpd_lock_nested(parent, depth + 1);
--		ret = genpd_power_on(parent, depth + 1);
-+		ret = genpd_power_on(parent, dev, depth + 1);
- 		genpd_unlock(parent);
- 
- 		if (ret) {
-@@ -1306,7 +1376,7 @@ static int genpd_runtime_resume(struct device *dev)
- 
- 	genpd_lock(genpd);
- 	genpd_restore_performance_state(dev, gpd_data->rpm_pstate);
--	ret = genpd_power_on(genpd, 0);
-+	ret = genpd_power_on(genpd, dev, 0);
- 	genpd_unlock(genpd);
- 
- 	if (ret)
-@@ -3410,7 +3480,7 @@ static int __genpd_dev_pm_attach(struct device *dev, struct device *base_dev,
- 
- 	if (power_on) {
- 		genpd_lock(pd);
--		ret = genpd_power_on(pd, 0);
-+		ret = genpd_power_on(pd, dev, 0);
- 		genpd_unlock(pd);
- 	}
- 
+-device_initcall(psci_idle_init);
++subsys_initcall(psci_idle_init);
 -- 
 2.43.0
 
