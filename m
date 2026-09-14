@@ -4,78 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6E53C88E70
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 13:48:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B93FC88E70
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 13:49:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r+S2Onhngb3QQb5M8d8baXat0zr7TDEklDXfpK9pyK4=; b=k46QqPtwO6nVtkyv9YiY3gGzG/
-	BiYrqAFfmQgbXEEE+NlEubp/iA1C+DWviY9XRDpFpCpvY2WH15we6GxKpnqAeu0ijHb+4uYfcOUZG
-	0+F/jQehae4fXlvYB8OVVahlukzbv6v1oqVZy/7yTlV9CxzPvajR+o4K7C2FhHe6HRQhoXstNh9hD
-	J8f+kM+fPKt3Jq5+LcHxx3AN75kwLWf3Lx+LMvy/SPYRtMcUnwSbxeNcXVVedeOIMy9olbfJIRIE1
-	ycZ5QyI9RIRQ7Yud1i8K4pkbkU48ISLdwNW04GFdPTywVFUmybc1hAiW4GiZpPcGo//CRlrVf34hH
-	dlydvzXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z6XvL6u+GeoAQ50Fc6P8XNBf2G9Lje8F3QQg71ajqH0=; b=mO6f5L1ByonQkEvyAt1n3UfA08
+	o1OW3cym4+C/RMNCsBPSvpKFX04QQNuh8xIzw86Vp25RhTVmN8Asdz2wiKWdzKLryr4kxLlRXqXA9
+	UtQrCvRQyOdRkaXJa8a+sbpfxTNpUzER1GlTiQJVReyEtGzqEJf0iPj+Pz0TL30Hru2Whc1AO6PvE
+	tRVzGQjKlKjhZ+89VT0uG0WRexXrAlajYvNbWU2cb9CMbSa8MXBYuVP2K1GospQKzhkBTkbprP5dW
+	IRDkFPAbJj1/NppO3Tg6A/HdK8FiLT8gbrEOxF0gIhUSOuXoarFp8xtBA/cVe5YDDG78Y90Gym+hY
+	UASDcLFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x672o-00000003qxE-1dXb;
-	Mon, 14 Sep 2026 13:48:26 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x672m-00000003qwC-18eW;
-	Mon, 14 Sep 2026 13:48:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1789393702;
-	bh=sqm232wL8WeQzLs2jOKgbSNxH7ke3GuXlQGXo8yJQk0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ppLT7Hd2WVLs8uYNpUu5s+TTm1uVg/17FO1N+akh3gXmRprLckeYvUZYclQ8A+ej/
-	 5b61o4zyKcZEKYqp0BGPsfADvf8U4o4/S0Tv4pgFh7WaC9zEgTewYSj1jJ7QvioVq9
-	 8r8MgxyjLBD3w2d7dQeqcStjxltDHSkmyBt4ptaAUnbaNWqNTSUMHUwbq4BVspZaep
-	 pfyoJhfhorVIiyEfYSRn7yqRgmWC1W4ObKxBknAPZMxEWmK5vADCBE2xvlLj1XW+RQ
-	 U5tEP42bvP++JeIRK2Cgsut81NOnNfaR+nSPPD+B5FrOrLBMgmVb8acscT5rCO6aRb
-	 gcH0RHmaow1XQ==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5676717E05D3;
-	Mon, 14 Sep 2026 15:48:21 +0200 (CEST)
-Message-ID: <f2bb7446-bfbd-4598-ba95-d9561a4e132b@collabora.com>
-Date: Mon, 14 Sep 2026 15:48:20 +0200
+	id 1x673V-00000003rB1-3ktp;
+	Mon, 14 Sep 2026 13:49:09 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x673S-00000003r9Y-2GZu
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 14 Sep 2026 13:49:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2331B1570;
+	Mon, 14 Sep 2026 06:49:02 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1FB7D3F882;
+	Mon, 14 Sep 2026 06:49:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789393745; bh=yvGmcSwid2FCTbXP5Uf/xb5RvxMjo4RD4diMW2HJq/I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CA67/KbytAoqlBWscm0VmXJ9Jj8tm8EW8t7A73nylnoZl2hJBUQPBwpOl7PeH7Dpb
+	 g1Ji2wSR+YOzc2jTe747Vti4pM3pvB2q3ErSh0WGMvDu1Gq3fDet6l7MQL+Eh6IbBJ
+	 LyxZNAEvMN54N25TiURLa4b/ZSKlAUOu+eWeYZ/4=
+Date: Mon, 14 Sep 2026 14:48:58 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>,
+	Greg KH <gregkh@linuxfoundation.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Andre Przywara <andre.przywara@arm.com>
+Subject: Re: [PATCH v11 7/7] coco: guest: arm64: Replace dummy CCA device
+ with sysfs ABI
+Message-ID: <aqf7Sr2VvzV3lLhN@arm.com>
+References: <20260914060511.277948-1-aneesh.kumar@kernel.org>
+ <20260914060511.277948-8-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 00/24] MT8189: Add support for system and base clock
- controllers
-To: Brian Masney <bmasney@redhat.com>
-Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Chun-Jie Chen <chun-jie.chen@mediatek.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Edward-JW Yang <edward-jw.yang@mediatek.com>,
- Richard Cochran <richardcochran@gmail.com>, Chen-Yu Tsai
- <wenst@chromium.org>, kernel@collabora.com, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- netdev@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>,
- Irving-CH Lin <irving-ch.lin@mediatek.com>
-References: <20260729-mt8189-clocks-system-base-v4-0-e356b813a64c@collabora.com>
- <amuWdRD-TBQtFT_4@redhat.com>
- <1f6bdf69-c3fe-4e1d-8ff8-0e36d9f4e063@collabora.com>
- <aqf6NH-xrMtCQppv@redhat.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <aqf6NH-xrMtCQppv@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260914060511.277948-8-aneesh.kumar@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_064824_475080_9E7A6214 
-X-CRM114-Status: GOOD (  14.24  )
+X-CRM114-CacheID: sfid-20260914_064906_613777_0F9615AA 
+X-CRM114-Status: GOOD (  12.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,38 +79,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/14/26 15:44, Brian Masney wrote:
-> Hi Angelo,
-> 
-> On Fri, Jul 31, 2026 at 12:04:49PM +0200, AngeloGioacchino Del Regno wrote:
->> On 7/30/26 20:22, Brian Masney wrote:
->>> Should there be a new MAINTAINERS entry added? There's currently 221
->>> files under drivers/clk/mediatek/ and there's currently only one
->>> mediatek maintainer entry:
->>>
->>>       MEDIATEK MT6735 CLOCK & RESET DRIVERS.
->>>
->>> Is there anyone from mediatek (or elsewhere) that could act as a clk
->>> subsystem maintainer similar to what the other SoC vendors do? Help with
->>> reviews, send in pulls, etc?
->>>
->>
->> I may be able to step in, but I have to check if it's feasible, time-wise, on
->> my side.
->>
->> Though, that won't happen until mid-September... because, well, I'm about to go
->> on holiday (in a few days from now).
-> 
-> I'm checking in to see if you would be willing to be clk submaintainer
-> for the MediaTek clk drivers?
-> 
-> Brian
+On Mon, Sep 14, 2026 at 11:35:11AM +0530, Aneesh Kumar K.V (Arm) wrote:
+> The SMCCC firmware driver now creates the arm-smccc platform device and
 
-Time is lacking, but I get that one hour from me is more than zero, which is
-a good thing.
+Nit: we now have devices on an arm_smccc bus, so this first line doesn't
+make sense.
 
-Let's do it.
+> instantiates the CCA RSI auxiliary devices once the RSI ABI is discovered.
+> The arm64-specific arm-cca-dev platform device stub is therefore no longer
+> needed.
+> 
+> However, userspace has used the arm-cca-dev platform device to detect Arm
+> CCA Realm guests [1]. Removing it without a replacement would break that
+> detection and would also leave userspace depending on kernel device-model
+> details.
 
-Cheers,
-Angelo
+Well, removing it would break the ABI even if you replace it with
+something else. But I think we agreed it wasn't great for systemd to
+depend on the old interface either. Assuming systemd can be fixed (and
+the fix backported) and no production deployments are affected, I'm fine
+with this.
+
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
