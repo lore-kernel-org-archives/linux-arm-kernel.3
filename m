@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73FE1C88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 06:54:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC65AC88E6B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 06:54:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MJ4jtc2VAQ0JbVUWJ60zgba5PyV/wYm2KLaYB+2nP6w=; b=GFY/RedsnGcoNVoBmYW9A7Jm/E
-	03AVmw+fErs+6DOofBOGj6CxTejAEDiebsPFb4dTL8nSqrPwUImoMU5KVYBWkYVonfZFwJfIskvJn
-	M7kuDBpBiGNiAjvqwuYoBTkoAZL6Qq4aROVswYE5P1hQyrOdwxdwolSMeWiazGe9BigKSZzwsVHnT
-	s2xutU7oYktNlPvzkrxmmA7jlipNASFfDx1P80wCnnHhjK1O9FcOXHjo2VbcCSseA0SLUS8gQRi/q
-	NZPYi7To9LyYKp3MFvAGMfOGDV8ICthiAUHSL/q7wFsrHGWwe/vsM7TLR4QGOD9lDHISQMUPKi9Vd
-	pOOmmK0g==;
+	bh=TjFXdIQDBKQwP0lYYQKD7Abej6Sjh4yeyPLB4CsJk6M=; b=jTBDInp9fYEBoxkHrlgXYkIEpG
+	taYf/vV8eU8cLoQNHvwyZP/mOPHw7t1mRjLY4ktTwE3kDAzgRgbctV8VlaflhuVd0x/ATAVr5c0ij
+	eANWJu67CCWhmUjJqubg7ItmtPagz8OdoaQkUkIXo4o/ZvwjmC7H3RwMOdxYHliv3doPN0oWLzjSg
+	U49177QOwZPP22E5gLBEASkP/JFY9Y+fsfEiFqJfpq6gs1964epWmWyUDnkZR9mQpH9KnskCsOVGp
+	oYop0CHFlf/XsmoAx+wXFV1oUNndDWv7X2++qAkhKfCYhLR6zMK8YkoYmm0ceQeIs8le2exDAIgn1
+	zKTEPmQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x60aR-00000002US1-1T40;
+	id 1x60aR-00000002URY-0r2d;
 	Mon, 14 Sep 2026 06:54:43 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+Received: from mail-francesouthazon11011012.outbound.protection.outlook.com ([40.107.130.12] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x60aM-00000002UP9-2v7m
+	id 1x60aL-00000002UOa-0HEa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 06:54:39 +0000
+	Mon, 14 Sep 2026 06:54:38 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uQHSWGg7MUqHDLR9RtEqcJuSKFuuP/Jo1tkhXM3To3eU+FLJImLcKy38xhWJ0wFJQTzTlfFe+Qi7XXJOhFL29Hs0JsbLtaEGY9PY/htOMMu0Vw3nu8O5+T9wxdjmUwDGm3LNp3tdhhq70g0wTto9ye/K/JiOROnOK81BN1o9qkAXdhVVVTcLTvwAAgp90Dcqumb00vjMcRv952c4Y/BLCAb4Z9IlPvif5o71IELjbrh1e7Mw4GRffMF8052b2ddOItE0IZtsZkDTX5vQoQgrlqrnyC5kPP2XG+4rQrXLwE6yuOG5cfw/AR5u9JdeBVfd9WdY6k7aMh4maY34htF6Rw==
+ b=QuGUc6g1DM9H47SgVnwBYtCzZLzeLuANNvLQuT3EcOp19XrWiRlYWIooFmxNsn+1oGnuW2cldJ0MxCg28mBlekbN0pV0MXZf1CdzI6yX6cHsgfJ94ONwg8so54CabMeMgLIw5GLJulCNWN1UPivs/nDLj9aNvSndtWj5LejfG6PasDtwz03cW9fF6NgyKo8PBqIpic8KnG+oVyYvXRx80YVhjThFXb1XNiHrNXxUrK6bYce5YlEC+4I/G6kOayqcx5YNL1Ccvek4U8GXdQRmzZDz5CfPzADoxGSuxU24QiE6I6QkILbTn59H9jlfrPrA3do5NzwM2thQdIJao26saQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MJ4jtc2VAQ0JbVUWJ60zgba5PyV/wYm2KLaYB+2nP6w=;
- b=BWXLoJc8BiDTASn/ib1w7vg5pGbYK+0X4bCoR7GyIRRsWaTc112g2FehbEp1l3alaEW13pXY0wms4q3tTNxhJtVss6nT3wdYizG5/OIHdYVSvq0udEVq26DrvgKoVRMNQmqdUyFxsp0WIYEkQTIs+Ob2LoT4J0v8ms4oEf4967udw9/zMjsnttntPQ6C/f9RB/Aaa60p2dL90fc00BXVY7Ozw/LXVvQzpQTojeiniGtlgM4J/OJxQVzYJnHMlZmKz2O4dRBLhhT/Sz3kzGQiUWlYhO2jkXgzqAr/2A1iyZaSJjaO+XKWtSYbuOeqmdL4j9R/E8UVZmiX4fDacQzW1w==
+ bh=TjFXdIQDBKQwP0lYYQKD7Abej6Sjh4yeyPLB4CsJk6M=;
+ b=HA+FAjqnO4TZ89qGJGP4gBd4RBC4KAzyTArYHsDWo5W7r/Qt+z51ZcAwfSmisvM/kDm5zgYgDNfZWSy4YrnKZpqGGnaSO4otXJwziaXGAy+gz7UbzuGNGAOCs4/nB3FbtrkK1xQ+VE98G5mWWlJp7UKK5Q9JQd98GrG12cX6sXG+6rBAZGmbeIL1pnAhaVcHNuV7zFeu9zQeDv1W0CjzthA3Feb7guVrP3bcmxWTs7gdLHJJRViGlF/j4z95pR2PKy+/jJdaqz/DY/me3w2gZ/7Ec7ryLvH/u1eYMqRJjQGeuOVOdrIeIPInn2tCw13mH8BP/FLqWNXdwbtT5lc70g==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
+ 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
  dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MJ4jtc2VAQ0JbVUWJ60zgba5PyV/wYm2KLaYB+2nP6w=;
- b=ej5QxrT90acV28gCBWCc31JlbC/GE+W8505SHJ6n0Zg2iVZ2f/uV5B3zaYndslQZM1HQ8szRl9FucommNVQSdpS2HH/wF5kBaz/XBez7hKxH+UNlCS4TjEuRl/0L1M1j3P4rplwCfK0GnqbhZDKM2uSOayz5Puch7fZcdMk9Bb1SvWVqYcRdhepBo1ViWAnbZmyep0FBgublnx3LrCNbC1RZhDY7PTCWIJtmUu+dJWdfonOBbp5XaPT0rFZnT4IwK6F7hbeovnxaHbs2w1fdbke4yq11/4E42jwm783He531T0KTsqV1GkVAi9JRtVP8q+AD5bzeJktKuyhnVcEl1A==
-Received: from AS4P195CA0041.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:65a::13)
- by PA2PR10MB9146.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:426::6) with
+ bh=TjFXdIQDBKQwP0lYYQKD7Abej6Sjh4yeyPLB4CsJk6M=;
+ b=jD5j/bIxNoMliziVNhUPLBA6SeD20BEU20lnXIb4T4LCyOx/pnkhggU2FHZic7w3dhrlG995u3SFtt2PZ88ADCq4wqQfKFoDYi7Ckyc/BR0l4qR1neNvPsI3R331SLCqK85ZP7PGDbUoMv8V80WAwlQOhzNlAnugdyCs2u9JX7VzjpMmeojiu+pyXAxy442HPUXT/cfIrO2svBib4X0I91RFPSOdvgBaJ60h3LKwM4JW5++Aw2EXD6i0iuqbyZ5PB1tg3tKCAr08GjIH/trPkt4SrqfCoTH7GrgH3WZzSyNDjVKyfEljmEQaPPJRYOJsBXLNnzsr8+JK5+d9MdqxZg==
+Received: from OS6P279CA0169.NORP279.PROD.OUTLOOK.COM (2603:10a6:e10:38::10)
+ by VI1PR10MB3743.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:803:13a::17) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Mon, 14 Sep
  2026 06:54:30 +0000
-Received: from AM2PEPF00070CF3.eurprd02.prod.outlook.com
- (2603:10a6:20b:65a:cafe::76) by AS4P195CA0041.outlook.office365.com
- (2603:10a6:20b:65a::13) with Microsoft SMTP Server (version=TLS1_3,
+Received: from WA1PEPF000099CC.eurprd04.prod.outlook.com
+ (2603:10a6:e10:38:cafe::7a) by OS6P279CA0169.outlook.office365.com
+ (2603:10a6:e10:38::10) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.12 via Frontend Transport; Mon,
- 14 Sep 2026 06:54:30 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
+ 14 Sep 2026 06:54:29 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
  smtp.mailfrom=foss.st.com; dkim=none (message not signed)
  header.d=none;dmarc=fail action=none header.from=foss.st.com;
 Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- AM2PEPF00070CF3.mail.protection.outlook.com (10.167.242.5) with Microsoft
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ WA1PEPF000099CC.mail.protection.outlook.com (10.167.242.20) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.428.7 via Frontend Transport; Mon, 14 Sep 2026 06:54:30 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.428.7 via Frontend Transport; Mon, 14 Sep 2026 06:54:29 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Mon, 14 Sep
- 2026 08:59:59 +0200
+ 2026 09:00:32 +0200
 Received: from localhost (10.252.27.156) by STKDAG1NODE2.st.com
  (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Mon, 14 Sep
- 2026 08:54:29 +0200
+ 2026 08:54:28 +0200
 From: Alain Volmat <alain.volmat@foss.st.com>
-Date: Mon, 14 Sep 2026 08:54:20 +0200
-Subject: [PATCH 4/4] arm64: dts: st: add imx335/csi/dcmipp nodes on
- stm32mp235f-dk
+Date: Mon, 14 Sep 2026 08:54:19 +0200
+Subject: [PATCH 3/4] arm64: dts: st: use video-interfaces media bus type in
+ stm32mp257f-ev1
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260914-stm32mp2-dk-camera-v1-4-2f2bd719bb63@foss.st.com>
+Message-ID: <20260914-stm32mp2-dk-camera-v1-3-2f2bd719bb63@foss.st.com>
 References: <20260914-stm32mp2-dk-camera-v1-0-2f2bd719bb63@foss.st.com>
 In-Reply-To: <20260914-stm32mp2-dk-camera-v1-0-2f2bd719bb63@foss.st.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -93,28 +93,28 @@ X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
  (10.75.128.133)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM2PEPF00070CF3:EE_|PA2PR10MB9146:EE_
-X-MS-Office365-Filtering-Correlation-Id: 01abdef2-e2d0-49e2-7b55-08df122d06b5
+X-MS-TrafficTypeDiagnostic: WA1PEPF000099CC:EE_|VI1PR10MB3743:EE_
+X-MS-Office365-Filtering-Correlation-Id: ac5d76bd-cdcd-42c7-43ea-08df122d0620
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|1800799024|82310400026|36860700016|22082099003|18002099003|3023799007|10067099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: kGMCIuF2u8MaHO2qgo1Fo267k4jYQ6AlepLznuy02JN1qliepCma9ES1ARNsqVGER+EJ97vXi631wKtZnQ4ETWCmfstLmEAV4U7gR9oWQ91U7xMicqmV+p2Iz4ByCukketX7Y94eNYXbbcEocb4o8OmCEFR16H8jSp2y0z7dytwNrQEaoVtUFPrEyNTaO3AiOTPpOlq6TFswLUcSalVVsvG41PEj8s2xO+7K/ko3Ke4qfyOw1dZ12FXFLOav8vIc4yEffFRTZVxeoJSSwnRCTl8lDuCPAFvXugiMKDdfzSOopWLwLYbqxGg9C2TANkZFuV9dZjljXDdGPNzWof9DCHTIn+ygeiMe5GoR9rEeKEcQri/XjRgjirI5OECc/Ws5/qcysBGYR+kjG7tzQG4R/L7zgFsFjWTzZNsF8h/pRRdsDGtMn/dSXB/Q/M1gWaMs3qHKJ64YVXbu7m3wgzyZkf72jOqNB/PuwtLBvQGdqFuPQgUPIFJ5kb8XC2QAdH6fG8Rg3NPcP/SyJf49ILKAbdjgTrP+K8XKTX4DVJxWgy0HR47sr0gR6unHMVOgJIqFoHkhfWHF63RQifcdj+thYiv0UGFd6ESEFxsv5YoM/VqDELeZFrJnzKfT4FpUbW8ttuRK010ABkmlhquRXsQ3+eywta00n6vdctwc4VKaU+v+KRj/QL4MjUylKkRnrIkSnXaAFYzGdatdCpTWfP/dpA==
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(376014)(1800799024)(82310400026)(36860700016)(22082099003)(18002099003)(3023799007)(10067099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|23010399003|1800799024|82310400026|11063799006|56012099006|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: LMXh+zJQZKdfIiTRQmCf7l1EOkAqjzqB5dnbU6P4uP8NWeGeNyrHRZXV56SCnFABMnY2AWSV8OHBqh2U1RVCme6G6t2QjUXRu8XOcqZHkETSKMDL1BTm32PgoMcSYcbUfKh47j3tKQrgq52aCOqr0bUoV0wUYz+ZdHVCphmIF+oQOQVty+QZ4lChNbrr+YUZAKwkbXf0XQ2pOCTN8/Zc2ES2ig9NAXH0Ai+XeO6xYGnsGVnYRMSbbzN6RzMIYX7N3E4SajVgoiQmjHNrlsRvfQdHl7FzqIxWH1dPIcbKCtuMgOvqFK6Cvp0pVtwCxHQ3xj1iqRY+99suxImIDMokiI4KLM2icz/oB03OwsD+Y0FRnGkjkiH9oVRtOU50nWEbRTtyz4p7y3lE6bs1LTeA/Gpop3xo1/9oDDWg02g4zp6qkCCOIxXU0bJzY4e/B1vtHL34pC6nQ4au0E4bkZHyMMknB5Mg8JoP2jpPlLiBKZherS5RCokyABO7KrXc9fsO8VsLQZILSmDA83rar/a+rE/0cMdvQyVJNQI2rz2zZGezJBlskz9bcFuCZYygC2RXqgC/wvsdcVuWjsjdtwv2TOtFuqHfD1oQd7RkPXCxqiQHGbdgLJKWwxzvSApIu/JuVlQokJZxOk1+cvcslVcjq3mcfc4P3QkwY8isv3NeY+f6YL4MdBQ+QEKGdo+zntkJmXKmOVDoaYcZ7jouaqCv6g==
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(23010399003)(1800799024)(82310400026)(11063799006)(56012099006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: JxyONiVsJi3xh3ySQI3zE4QeLTEFFXLhW7TCAjVo8AskvhoMS8Lz6uCR9FDSo6/fkRJTVuSc6xkGWSnKqDZwjTwEePEIURF8O3sMOQiDpT36QkahAWJH1p0zyM25j/V0A/WMhMXB5mC+6MVll4z9O0lVKVKnYzH8fxUEQ5iN6uGojx7gFdiFYklIHp/bWT8vFfZIlNhQ+e/fYvueUM3m+/CmNPk662uKDLd0Lvma98V3rB6HwUAM7urFuvEL6/RrUq/dmcKRxoO5NdW5nAg9OnVfYIA2MYBNKj3w9NThGnRLPxgNpcWZsYUmcHOVRLp/gSbF0r29lNfs6DRk19JyQmxRJT3KJfi/971KU+nSXUcgFqM1YtFsJL6bpIPKf6S0+6A7Yf9LZk2KnSFx/lrZTZumqWdKjCQnM2+51AaDGpXYC8BoDDnnheqIC3m7kI9F
+X-MS-Exchange-AntiSpam-MessageData-0: SwtXZwjrQDI1IjyHg1Vf41ZDg/4Qo5yAeCHs9qlAHDubQdVnTlc+FTI+23OEPUw2e1kG+YE0BbN8VCvUBJUvhKlP1SrZRZMTjH/UUC6avikjMk9dvZBGAM3VEVLzqWrBpm4OBSmvEaZd8bVbdYsQ6A1BcIa+SXajXaGfTJt5uD0zcOy44SW1aXeIhzS60LXz0Di81eqWJa1PaQIPQ99JstQr4uTsvIsQgqXz5DMjYZBXoWbuNZo2Ivb6PC0tON+MS3EkiY0kL7LR6EK41qOJIIFzi4UqrP3mxo/1YvAYs7lqQ1dH3+R7zdaqqdt0KW3EzOPbGq+u1y/JUzA8zj7+B4C69h4WZLpKejikdCxiz8kVHR/WcfRALMBmpEHhXHd2SKDaCeKB2M9WkqyuCzYnbQw0GiuRm2seHA9NN4i2t2+nYSnEzFtC3Th0tBsmUndo
 X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Sep 2026 06:54:30.4458
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Sep 2026 06:54:29.4439
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 01abdef2-e2d0-49e2-7b55-08df122d06b5
+X-MS-Exchange-CrossTenant-Network-Message-Id: ac5d76bd-cdcd-42c7-43ea-08df122d0620
 X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM2PEPF00070CF3.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: WA1PEPF000099CC.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR10MB9146
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR10MB3743
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260913_235438_769058_55712A33 
-X-CRM114-Status: GOOD (  10.89  )
+X-CRM114-CacheID: sfid-20260913_235437_112222_4F43017C 
+X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,128 +129,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add all nodes necessary for the imx335 camera capture via csi / dcmipp
-on stm32mp235f discovery board.
+Use MEDIA_BUS_TYPE macro in stm32mp257f-ev1 for csi/dcmipp bus-type.
 
 Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
 ---
- arch/arm64/boot/dts/st/stm32mp235f-dk.dts | 75 +++++++++++++++++++++++++++++++
- 1 file changed, 75 insertions(+)
+ arch/arm64/boot/dts/st/stm32mp257f-ev1.dts | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/st/stm32mp235f-dk.dts b/arch/arm64/boot/dts/st/stm32mp235f-dk.dts
-index dd4efbe5a46e..f06b334dc9ce 100644
---- a/arch/arm64/boot/dts/st/stm32mp235f-dk.dts
-+++ b/arch/arm64/boot/dts/st/stm32mp235f-dk.dts
-@@ -9,6 +9,7 @@
+diff --git a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
+index acc730146287..782b4bb843ee 100644
+--- a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
++++ b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
+@@ -8,6 +8,7 @@
+ 
  #include <dt-bindings/gpio/gpio.h>
- #include <dt-bindings/input/input.h>
  #include <dt-bindings/leds/common.h>
 +#include <dt-bindings/media/video-interfaces.h>
- #include "stm32mp235.dtsi"
- #include "stm32mp23xf.dtsi"
- #include "stm32mp25-pinctrl.dtsi"
-@@ -27,6 +28,14 @@ chosen {
- 		stdout-path = "serial0:115200n8";
- 	};
- 
-+	clocks {
-+		clk_ext_camera: clk-ext-camera {
-+			#clock-cells = <0>;
-+			compatible = "fixed-clock";
-+			clock-frequency = <24000000>;
-+		};
-+	};
-+
- 	gpio-keys {
- 		compatible = "gpio-keys";
- 
-@@ -131,6 +140,42 @@ &arm_wdt {
- 	status = "okay";
- };
- 
-+&csi {
-+	vdd-supply =  <&scmi_vddcore>;
-+	vdda18-supply = <&scmi_v1v8>;
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		port@0 {
-+			reg = <0>;
-+			csi_sink: endpoint {
-+				remote-endpoint = <&imx335_ep>;
-+				data-lanes = <1 2>;
+ #include <dt-bindings/regulator/st,stm32mp25-regulator.h>
+ #include "stm32mp257.dtsi"
+ #include "stm32mp25xf.dtsi"
+@@ -161,7 +162,7 @@ port@0 {
+ 			csi_sink: endpoint {
+ 				remote-endpoint = <&imx335_ep>;
+ 				data-lanes = <1 2>;
+-				bus-type = <4>;
 +				bus-type = <MEDIA_BUS_TYPE_CSI2_DPHY>;
-+			};
-+		};
-+		port@1 {
-+			reg = <1>;
-+			csi_source: endpoint {
-+				remote-endpoint = <&dcmipp_0>;
-+			};
-+		};
-+	};
-+};
-+
-+&dcmipp {
-+	status = "okay";
-+
-+	port {
-+		dcmipp_0: endpoint {
-+			remote-endpoint = <&csi_source>;
+ 			};
+ 		};
+ 		port@1 {
+@@ -178,7 +179,7 @@ &dcmipp {
+ 	port {
+ 		dcmipp_0: endpoint {
+ 			remote-endpoint = <&csi_source>;
+-			bus-type = <4>;
 +			bus-type = <MEDIA_BUS_TYPE_CSI2_DPHY>;
-+		};
-+	};
-+};
-+
- &ethernet1 {
- 	pinctrl-0 = <&eth1_rgmii_pins_b>;
- 	pinctrl-1 = <&eth1_rgmii_sleep_pins_b>;
-@@ -153,6 +198,16 @@ phy1_eth1: ethernet-phy@1 {
+ 		};
  	};
  };
- 
-+&gpiob {
-+	/* Enable the IMX335 power line */
-+	imx335-en-hog {
-+		gpio-hog;
-+		gpios = <11 GPIO_ACTIVE_HIGH>;
-+		output-high;
-+		line-name = "imx335_en";
-+	};
-+};
-+
- &i2c2 {
- 	pinctrl-names = "default", "sleep";
- 	pinctrl-0 = <&i2c2_pins_b>;
-@@ -165,6 +220,26 @@ &i2c2 {
- 	/delete-property/dmas;
- 	/delete-property/dma-names;
- 
-+	imx335: camera@1a {
-+		compatible = "sony,imx335";
-+		reg = <0x1a>;
-+		clocks = <&clk_ext_camera>;
-+		avdd-supply = <&scmi_v3v3>;
-+		ovdd-supply = <&scmi_v3v3>;
-+		dvdd-supply = <&scmi_v3v3>;
-+		reset-gpios = <&gpiob 1 (GPIO_ACTIVE_LOW | GPIO_PUSH_PULL)>;
-+		status = "okay";
-+
-+		port {
-+			imx335_ep: endpoint {
-+				remote-endpoint = <&csi_sink>;
-+				clock-lanes = <0>;
-+				data-lanes = <1 2>;
-+				link-frequencies = /bits/ 64 <594000000>;
-+			};
-+		};
-+	};
-+
- 	ili2511: ili2511@41 {
- 		compatible = "ilitek,ili251x";
- 		reg = <0x41>;
 
 -- 
 2.34.1
