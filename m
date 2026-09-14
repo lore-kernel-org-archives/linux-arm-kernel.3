@@ -4,121 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F5ECC88E6A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 06:54:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1477C88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 07:01:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=BYdKMoPnIr6xMkK/Ze//gjbNP6hXZwXCDjft2PcPbIM=; b=UIroeGBH+YPhs5
-	dEhd/vljnKjmSdk+IyNFs9S6YIjKku/mn4kGlEMvsbpW8iE9SS5ysyd80KO7RfY0rc/NUPxKQmHyq
-	OFHlBiz04eqPi6vHlYPQ1EsUF01aYkNR1A/dzonBKe0Gs4BwNx0BDY7zltIRnDoDYQpOz+/DyJGRg
-	4We/3BJtSLGP/vkQqs6YlJSo4fUh15FApe4Zehf/xM/Hgha1R58VndGm67aDTTmrAseXCZqQoQq1z
-	ysylhmw5vSYXenRZhvr8K4wxBC8hHBrffsrfUiGUT8Tjk706D4/LwVv80jNzYWPggylLnQy7vN3en
-	bdYH9aDOBjHBlJ4hWmXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AbNnIwmHaUs7SVGz+r7tTOaVi+BDWIHeKqLH2fFbBLc=; b=tgBY8GvNt+K3vvI0sECHYbMeaV
+	h//1/7TKXmyZBXm+oRlkEotY4wdVGaROo4zN8El9y/v/ixnHkuadhNQAKl76Yc3XKLS0P1Ty4jwYE
+	tR4S5ua7SDV4vkt3w2qYoSn/1jpGXfypHJgH2yTgEwbFv7kVHfYZc23Ov+PQBsKbzuq01pDI7vEA1
+	O3f8WH3QxOdB7UEN7WbLiE/CbfmnyaimY0JVTbMxPi+6D+/Jfy0yQ1p4MG+vp3PJ7Gtg5/Y5cM6CS
+	kBjau/emeL7WKrjRTubknOR2r8YLFl++7QANC7/jiewxrg1ud0iWy+s7klSHcHFZsHzTX6/LO+aGT
+	qrIG3Fsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x60aP-00000002UQh-3G3Y;
-	Mon, 14 Sep 2026 06:54:42 +0000
-Received: from mail-westeuropeazon11010067.outbound.protection.outlook.com ([52.101.69.67] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1x60gP-00000002VC5-3tcF;
+	Mon, 14 Sep 2026 07:00:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x60aH-00000002UNm-1VfK
+	id 1x60gO-00000002VBx-400r
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 06:54:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=EYyOl8N+30B9yqM2WYmHkyObWrHXE2TsbXYGHdAcor1fZ4PdwtCRbfvkN9aL9ozl72xl3Me4uTiXp63N2+VJNMytD2ipunHLSy9xUfoccaH7op7kaMMWLwYXg1k1Iz1tuu0naBzxdpBDUW7YeUPLSmtQCnEnkbdAg6pnnJ6zC9FLZqwm34a71uQ50NiC5WHH+g+m4sq10Wo+2RnWsVkM3PxWD8DHXiwOXlhwc0HNkEKQUQJZlZICmdtmjttXVHlnpLNiFXslsYZddRpaOBH95ww8tPpjNv2mx/W2M3WUdFzZ/Z7SZsTLh0+MpzD6SrR0hjIbV+tuklvb+qQ0EbwUDA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BYdKMoPnIr6xMkK/Ze//gjbNP6hXZwXCDjft2PcPbIM=;
- b=VGENuQEvTaReTQHj+vkmHrWGt+mvBOjetShxqbAVXQL4c8uj9Su2KX8DuUDAYNn1x2xvbomqHyW5KWKR5r6YkrE14Ptpxug5m9Nhk+njffEmOPYsdKaSWc4cPPtll8XXh2N6CchIX2OcBbu3eG7Co4Jbp5ERgA460mhV8OUKBpiWxHnhBIkss0tIr4dFJ2KSooY8m0KNtpJ3GqQ0rZZ6Ob8hBEs4KTDwKXznh4dm9olnx26wuoG9KxVtebW/ipYxRTU5GwXgxqs3Hpbv3gQ0qHukAKzpwt0R+QHO1OpZnARPWy5cS9tYckj/8wuW7MJGDui8LFXq94N3kr8cUY/OCA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BYdKMoPnIr6xMkK/Ze//gjbNP6hXZwXCDjft2PcPbIM=;
- b=llre+1YGGC3v0S0Put7aQsBKjo1lzXpKbPKDZR4uwf4Kbi1nbJfKUlDXnvpg4++d9dGAo7hpQBxTqKUtT9QogKhBb/5JoOaFks2Kt/cFLfcmBYlYqrk3HdJ54EaZ3wpGNepSYLXIn1aOYfnOZ7g3/O2LgOBsC3ByGfg6tckvt7/Ek/zVEIIAfMPzl/lD4gd8jrh+gK4Gu/Sh5TB1ueQji1L329lmE0qE03/w4K0oPp2bpzDAQYd9xgHDZk+2AZVImSUFdy+IYZFoyutgVwIEm6boTkxO2JrIqSo1FEwWL6ivLJPvp2x9wPd8ls9a0mo5V1Zpzs6rDzqOcSJSeZQ0Fg==
-Received: from VI1PR07CA0159.eurprd07.prod.outlook.com (2603:10a6:802:16::46)
- by VI1PR10MB8230.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:800:1d5::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.11; Mon, 14 Sep
- 2026 06:54:26 +0000
-Received: from WA1PEPF000099CD.eurprd04.prod.outlook.com
- (2603:10a6:802:16:cafe::88) by VI1PR07CA0159.outlook.office365.com
- (2603:10a6:802:16::46) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.428.8 via Frontend Transport; Mon, 14
- Sep 2026 06:54:26 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- WA1PEPF000099CD.mail.protection.outlook.com (10.167.242.21) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.428.7 via Frontend Transport; Mon, 14 Sep 2026 06:54:26 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Mon, 14 Sep
- 2026 09:00:29 +0200
-Received: from localhost (10.252.27.156) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Mon, 14 Sep
- 2026 08:54:25 +0200
-From: Alain Volmat <alain.volmat@foss.st.com>
-Subject: [PATCH 0/4] arm64: dts: st: enable camera on stm32mp2x-dk and
- correct stm32mp2x-ev
-Date: Mon, 14 Sep 2026 08:54:16 +0200
-Message-ID: <20260914-stm32mp2-dk-camera-v1-0-2f2bd719bb63@foss.st.com>
+	Mon, 14 Sep 2026 07:00:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 52B914128E;
+	Mon, 14 Sep 2026 07:00:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79E081F00893;
+	Mon, 14 Sep 2026 07:00:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789369252;
+	bh=AbNnIwmHaUs7SVGz+r7tTOaVi+BDWIHeKqLH2fFbBLc=;
+	h=Date:Subject:To:References:From:In-Reply-To;
+	b=b9kHbsaSx+4fDiPXHPZq/JC4QU1WbwCKynoQwAm98nJpokfSLZUxoNwXt0azPyWWg
+	 MEtfJuTT4RnMeXzf6MLYG+Qx5KWUE6CrHntuJ1ylmXmYyx7uAvdpc4n9q0jKo6Qq7i
+	 8mCOa5IrNpgQddzytM71vrsZeMJB7AsFN5EWElf4drYcm+6jMA3Kl7UhScBD6sM2FI
+	 zHK8CXzZpx3y/fFkSrMFuz2bLr9hRFBsnSQknABJtGvxdKIK42jnRrRD28bRGZFT1y
+	 X8fPBBRljmP3bgQ3GTdNO6v0NF1fjjf6jdAD77ZutSHCZuHx+4BwgRi2Vl2h3JfcGD
+	 lZnG0FxkEhFKQ==
+Message-ID: <d4174f6c-2ced-4827-b579-c54b37619023@kernel.org>
+Date: Mon, 14 Sep 2026 09:00:46 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 9/9] thermal/drivers/exynos: Select thermal emulation
+ support
+To: Anand Moon <linux.amoon@gmail.com>,
+ Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Peter Griffin <peter.griffin@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ "open list:SAMSUNG THERMAL DRIVER" <linux-samsung-soc@vger.kernel.org>,
+ "open list:THERMAL" <linux-pm@vger.kernel.org>,
+ open list <linux-kernel@vger.kernel.org>,
+ "moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES"
+ <linux-arm-kernel@lists.infradead.org>
+References: <20260913145905.9404-1-linux.amoon@gmail.com>
+ <20260913145905.9404-10-linux.amoon@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20260913145905.9404-10-linux.amoon@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIABiap2oC/yXMQQ6CMBBA0auQWTNJaQOIVyEshnbU0RRJB4wJ4
- e4WWb7F/xsoJ2GFa7FB4o+ovKeMqizAP2i6M0rIBmtsY7rKoS7R2ThbDC/0FDkRthQc+Utwpq0
- hh3Pim3z/0344rev4ZL8cJ9j3Hxbq7m12AAAA
-X-Change-ID: 20260913-stm32mp2-dk-camera-7ad3ac8d3075
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>
-CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	"Alain Volmat" <alain.volmat@foss.st.com>, Hugues Fruchet
-	<hugues.fruchet@foss.st.com>
-X-Mailer: b4 0.15.2
-X-Originating-IP: [10.252.27.156]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: WA1PEPF000099CD:EE_|VI1PR10MB8230:EE_
-X-MS-Office365-Filtering-Correlation-Id: e9282ec5-4e14-459d-5d95-08df122d0451
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|23010399003|376014|36860700016|10067099003|18002099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: eYbbVK1f/QzlnZfpqtUh0HW78/6a2WaEI8bpCIMbZkdMEiFyJAGKseuigLi1zMnFmX7c5bvAmeuHRFI20TeR8UkoTbmzEEmEvp3EyfOG+0GtEqH9+b5RCx8//QVhY+8axDOceTnGzUnMb8Aiwrf44lyr3B0+rogu2kp2AL9Kl0PqCf/1kbBn1n1WWIO+9dtilwSc16P8Jkk2sZuhUVeRQ7bG5s7R1/5hnXMDv71yFv3CWTg3avmloqPVjDRNCPjQh/Cx5NeilG2VfZ+UVh9mp+tZC0YKAvTn/EbnZuyw6R5RZInRhTmYOm8uT+2CIpFlVhH5J1rFzT3fehsBHWBuMjY8UInilJwySVdUZmf3EjVD349CxfBREE1AUK91NzapinVNAGVOTumA43hvJIMKTvXLP2wh4tW6hAmOAhLfb05hqD1LL97Cmivo0SMv36YCGo6foXY5inJPlheSp6bfPkoByDfqagA5BMijiTcW29x+1euS8UgN2b9iSr5lYK+8cDBr4kdvYS5o/GOE2JTbF5oU+5W+jiXgaQmbKbT1fk/klsNvr6CZueN27t5o8SJ7ovlgr6HERIGSwyWcXXetKx/QLJFVqqI5PqqFc1w488ttPWq3R4/aOAqXzoh2AJCagUdp/mTXU9CqUXhLD660DcTfda9L3MaU1T7HP2JcFR2orPi5Eq4Gx6+lmbU4dtBjY2DktgreoUo619Lpfi0jqg==
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(23010399003)(376014)(36860700016)(10067099003)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: HWhXDBjdjlNhDBcaKWRzkT5BsMj+bZu0yOZNPrzEjy/wKTTQtKTe9Mu8/Ak1TnvlJSgW9Cv2GfRCHKRIBpOMIWZ3sSwPz7LWa33CvKnf/Irvi54TpOyzKUvhcP1UtGtlkQryjacTd2R45BZV2ZzdSsJig7BjFH+FdCDf0UWcfDrGe1SSS6nFp8HdRBeqE+6ZteHFZ2tv9mQRl78Dl08EBCcCadl//M+Rb+GGQ5tchm5yHV4YfUVtQZ6WvUnMYaYlhqqvfN1sXDOQP5yCx9dL1vFwOcRpj5DuowvrDx4Vp2l70E5hRlCyFogPnJcLls+cDXOM6F+kN/sU5fxbfr2ExOOmRFb1NusJOI0qHOjYKwKMV8mwemdjV3qjcITUIlD+cte32MPz0Y03OIE+sLhi58uEHLMZwRM6A5CKkG0tj7ZJaPIpiIb3kzVxbzYEN7Gn
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Sep 2026 06:54:26.4146
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e9282ec5-4e14-459d-5d95-08df122d0451
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: WA1PEPF000099CD.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR10MB8230
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260913_235433_723141_70D76236 
-X-CRM114-Status: UNSURE (   6.09  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,30 +123,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series enables the camera pipeline on stm32mp235f-dk and
-stm32mp257f-dk boards via usage of the CSI IMX335 sensor connected
-to the CSI / DCMIPP of the STM32MP2x.
-It also perform 2 corrections to the stm32mp257f-ev1 board to ensure
-that the IMX335 is well enabled.
+On 13/09/2026 16:58, Anand Moon wrote:
+> Select THERMAL_EMULATION when EXYNOS_THERMAL is enabled, as the Exynos
+> TMU driver provides thermal emulation support.
+> 
+> This ensures the thermal emulation framework is enabled whenever the
+> Exynos TMU driver is built.
+> 
+> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+> ---
+>  drivers/thermal/samsung/Kconfig | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/drivers/thermal/samsung/Kconfig b/drivers/thermal/samsung/Kconfig
+> index e1e8035d24fb..7d5590f78185 100644
+> --- a/drivers/thermal/samsung/Kconfig
+> +++ b/drivers/thermal/samsung/Kconfig
+> @@ -4,6 +4,7 @@ config EXYNOS_THERMAL
+>  	depends on THERMAL_OF
+>  	depends on HAS_IOMEM
+>  	default ARCH_EXYNOS
+> +	select THERMAL_EMULATION
 
-Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
----
-Alain Volmat (4):
-      arm64: dts: st: add imx335/csi/dcmipp nodes on stm32mp257f-dk
-      arm64: dts: st: ensure IMX335 is enabled on stm32mp257f-ev1
-      arm64: dts: st: use video-interfaces media bus type in stm32mp257f-ev1
-      arm64: dts: st: add imx335/csi/dcmipp nodes on stm32mp235f-dk
+No, drivers should not select user visible symbols and also this has
+absolutely nothing to do with Exynos.
 
- arch/arm64/boot/dts/st/stm32mp235f-dk.dts  | 75 ++++++++++++++++++++++++++++++
- arch/arm64/boot/dts/st/stm32mp257f-dk.dts  | 74 +++++++++++++++++++++++++++++
- arch/arm64/boot/dts/st/stm32mp257f-ev1.dts | 45 +++++++-----------
- 3 files changed, 165 insertions(+), 29 deletions(-)
----
-base-commit: 2f92d900f262a16c8ae02daf53ae2910d07185f5
-change-id: 20260913-stm32mp2-dk-camera-7ad3ac8d3075
+NAK
 
 Best regards,
---  
-Alain Volmat <alain.volmat@foss.st.com>
-
+Krzysztof
 
