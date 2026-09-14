@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07C7CC88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 11:55:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55BA2C88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 11:55:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WQ4cDOZR480ZYl76QHpocLMJtx2lG9QDHXMvTEiDm5s=; b=aSTxLkUJtS7xGz1uUe5DL89V06
-	7Db0sPUS+TgykIH6Tbrp7Be/o5InKjEFl2nzaQ2v5EWlZJ0twcSu6fZwEerr5ahW9SyQVR5OLGM4s
-	AIrMHfJeLCqPjPXHOWkUKP4nN7vPleHVsbofHUI5OzbrvFI/n3w5iH44YIe7/KbLLfwLL7RV/iZV+
-	EyZFP97466yO9h0hoexuoq5J+TpKu2SCeGbaxecSA+WEUivsFziwLjfiOMg/Ykv2ZlMOLe/IMYINL
-	yeHwLiEbU1HTukcrWrBZXs1/EhajdPsrcq3J5X2mSH11QB8GrAZT3DAGIyENN3X2kkm7VXTyU8gG+
-	S25O4kjQ==;
+	bh=2ErdF9zbcnYBBoFr2LO3F6wn1clGA4i7eH2E+6c0H98=; b=x1IUFwj0nZv6GmSurs+FJ0SvRn
+	b4DY06rCFUcl45v1qBvtzNHH6oqgqNubnd5jyV6wPy7Ssmul9bNR0BH3OGhlpwOst/858GqzPGQqr
+	RnwW7h6zhXM2iVA/Cu2DJnuVxpL08QJIwHJ+JooeB+coT6B/9cb4NOEHY+PO1qHzZbn5eSclQWLnV
+	9rqqFGmlqzAb/NVm/nsg/iqRh3OhDTYsHMa4RO3bv70N5y05dOM5Vxiz3eI74pNvY+7Y5Umi8Kia6
+	YneR2ie33RWHakyePDhV2tM1mKbTfV/w+UQaIRsKje1TIADLJD5febdpaxXXTBCpo6s1OwUcygkDb
+	oneWZR+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x65Hp-00000003P59-2FaB;
+	id 1x65Hp-00000003P5U-2tSn;
 	Mon, 14 Sep 2026 11:55:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x65HP-00000003Os5-3jK7
+	id 1x65HT-00000003OvR-2Tg7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 11:55:23 +0000
+	Mon, 14 Sep 2026 11:55:27 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 57EF8601F6;
+	by sea.source.kernel.org (Postfix) with ESMTP id 5B29A40606;
+	Mon, 14 Sep 2026 11:55:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82EF51F00898;
 	Mon, 14 Sep 2026 11:55:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 551A81F00893;
-	Mon, 14 Sep 2026 11:55:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789386923;
-	bh=WQ4cDOZR480ZYl76QHpocLMJtx2lG9QDHXMvTEiDm5s=;
+	s=k20260515; t=1789386927;
+	bh=2ErdF9zbcnYBBoFr2LO3F6wn1clGA4i7eH2E+6c0H98=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=eKsLJnyE3l8ruOMEgp/QQ7pAAQnw3MqMI8R8sJtkZC+ebUCM1WHljWC6LHMn56cWu
-	 ZNyLpssuhdF3Rev5lLeqGYwrvRrb9ELtBFHKpaThYRXQjMfJHNEuAJHNg7RgMQkn4i
-	 ndAa5/vkAuS4dz+YqrK8JJVdIT0AtdOeVTzztC7yi0ZzAPH9f3rLoWTGm2YOETxv6D
-	 T7SxIg9bhaYMy/3dFuNOZtrVB4yFuRylqCFIUiYTb8MnIw5JVUDCDQftybKZK7YROi
-	 arqx5JXIyZ2fnYgWMXqCkGC9JMMmIJG7gSejwfngYUgAhB6j5ihMS/r1vSdVYjnxUA
-	 JGKCxRjHlDdmg==
+	b=JtOyZpq1Hhaq7VNsbGL3TUBK0A+uOjC4l63XYetDbuYHNvP8X7/kNNpJIHPECccb2
+	 q80v2JBQKSHyYAdFkRNMic8WHrZyHrei1R+gr/8k/97b5wNyP/wm+YRBjmj4Wm2CsS
+	 HOChWONdtXCFI7gI5jY9oGkmD5Enx+sciAbc2qGxkvdLGGWrVeGhEfgwudHVZ1lYXl
+	 Gu4gSGyxcZdCnMDAYwm+YqKAjYlG5JvR1LHaVnAtgz/nwkF5cYrlyVXmXQ9o18DDTF
+	 vgTyziKrxt3UM2V1eCV5ySxodsqjdYKzI8/9MToUqvXaiwOKNUE7LcPzLi9k3qmZNB
+	 WlOu5sG8R1ZgA==
 From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 14 Sep 2026 13:54:39 +0200
-Subject: [PATCH v2 11/20] dt-bindings: timer: arm,twd-timer: Allow power
+Date: Mon, 14 Sep 2026 13:54:40 +0200
+Subject: [PATCH v2 12/20] dt-bindings: watchdog: arm,twd-wdt: Allow power
  domains
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260914-ux500-power-domains-v7-1-v2-11-9d0c17e1f816@kernel.org>
+Message-Id: <20260914-ux500-power-domains-v7-1-v2-12-9d0c17e1f816@kernel.org>
 References: <20260914-ux500-power-domains-v7-1-v2-0-9d0c17e1f816@kernel.org>
 In-Reply-To: <20260914-ux500-power-domains-v7-1-v2-0-9d0c17e1f816@kernel.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -78,17 +78,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow TWD timer nodes to reference their power domain.
+Allow TWD watchdog nodes to reference their power domain.
 
 Signed-off-by: Linus Walleij <linusw@kernel.org>
 ---
- Documentation/devicetree/bindings/timer/arm,twd-timer.yaml | 3 +++
+ Documentation/devicetree/bindings/watchdog/arm,twd-wdt.yaml | 3 +++
  1 file changed, 3 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/timer/arm,twd-timer.yaml b/Documentation/devicetree/bindings/timer/arm,twd-timer.yaml
-index eb1127352c7b..716d5f2d4eac 100644
---- a/Documentation/devicetree/bindings/timer/arm,twd-timer.yaml
-+++ b/Documentation/devicetree/bindings/timer/arm,twd-timer.yaml
+diff --git a/Documentation/devicetree/bindings/watchdog/arm,twd-wdt.yaml b/Documentation/devicetree/bindings/watchdog/arm,twd-wdt.yaml
+index 9646ac72051e..5f6a9d6b9976 100644
+--- a/Documentation/devicetree/bindings/watchdog/arm,twd-wdt.yaml
++++ b/Documentation/devicetree/bindings/watchdog/arm,twd-wdt.yaml
 @@ -33,6 +33,9 @@ properties:
    clocks:
      maxItems: 1
@@ -96,9 +96,9 @@ index eb1127352c7b..716d5f2d4eac 100644
 +  power-domains:
 +    maxItems: 1
 +
-   always-on:
-     description:
-       If present, the timer is powered through an always-on power domain,
+ required:
+   - compatible
+   - reg
 
 -- 
 2.55.0
