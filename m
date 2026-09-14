@@ -4,92 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 148B8C88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 11:48:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF1C2C88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 11:54:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tq7uzj3Nuht/sUsnSMR7xKzenitos6XuGY/rnGcdmdg=; b=TcGGBDyxltnymakWNW4INF0sun
-	Lj8MMQs2daEGoPTOIHvhx+3jp+1MK5AB9qTael+4khMjvbgpynRIE+jYqf+VFx7CVOp51P09rUGpo
-	E9rmfYWyUbLM3y9ZzSKWJ537w2Gw4RkD3xRxNmeGWZYkbF/dGsG1cfOOPIjjklxESEyMyxT3hV/1X
-	IefpTNTjmIqhNj7RwvSWCFa4/KTKATJqaTomcnJCCtVIWk25khqmGPiSauu6c7TKWTliPb5h+T/Mp
-	l6UzMMKYGer4nsNI7uPxAenxxG+fJvFcu7zP58tti7bMFGaNzWTDJBqyzWzEQ35UGV9rNDDpb5iS5
-	6xTkGC/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=aP8EWaxJ8YclgzGeNnOXFKi/SYtV4Lu4pF6yBNZunAk=; b=C/pc9WJVQPyLTo
+	efhQNqhdfdNaBv6bSbUXW4r/554DP98k4qHpk4FLUsAosdg/+4L/dp1/n/BX2SAIhwv1MC/zyWvxH
+	b/nxWMYj4cQ3XuQcSbjsMKMW3KLB0sbxaJaUfpn/96ksviH3w/Ri5VGWbjsr0KKsdVAm3Nv+e9f7U
+	qMez5yG8wvl10PY49uDaZLP9AwSt+0oQcgVAuluGKW5h5gPzeyLc3ZWP63avFrSlTnjTVbFF4FlUn
+	gliA2pBLa5gKMKCtLYzHtsB54rzSdAeVkI+7HpLN1U0Y7yktjMjQl+HEMa5LQeU1sZk5eG6VtY6wU
+	LcWwsLvWYtPOxN3QEptQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x65Aj-00000003NSa-2Xpr;
-	Mon, 14 Sep 2026 11:48:29 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1x65Gi-00000003OVL-3PMO;
+	Mon, 14 Sep 2026 11:54:40 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x65Ah-00000003NRk-0z5D
+	id 1x65Gf-00000003OV8-3VEL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 11:48:28 +0000
-Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-6a9e35826baso1669214a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 04:48:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789386505; x=1789991305; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=tq7uzj3Nuht/sUsnSMR7xKzenitos6XuGY/rnGcdmdg=;
-        b=APeOB/+uNFHR4Vh+e5qjbb+bXYGyy/dvk7UmZtDieMDFfd9KCIicP1kjz80hzBetMX
-         Gtl0cqpq9AVDP+nP/VD2G/QuwSWmaw5GsXbaYCCHZfu6qDnHYt0yNAzuEzx5V0/7MP0U
-         oVkRXq4m0UYnyh+ECxreIs2W6O1A3EU7uMwAcmJA0OAgCPwUWhAbXnMxOFgLLX4jKh4t
-         49/7DXsjoGEeVg6djb3FUcX/KKM0tp2rZchYA3lxjLmBMiresAw6p503yserlzos/HUq
-         Q45Ii5SdeaNftAP6Iz0kgEdsu1Jktvm9QR97yLVMFMVpcExADJndlTjdbnmwKjA8vJNl
-         sLOg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789386505; x=1789991305;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=tq7uzj3Nuht/sUsnSMR7xKzenitos6XuGY/rnGcdmdg=;
-        b=J66XjxQSQrf/PYYxpgPTs2kg0pc7wCt1AJpnZkfyaDzbBEMO0dTKwvqsn02Dc4La73
-         AkIotXRjGg91NuXvHpDYkmPM33fAsDp5+ifWW3IZsYaBLw1/6tmhuq7lyJW3tgeTSo9b
-         MCYKKYBKlnfmLFjDgyejOmcooSnf4PzkBLTGWs0en8KFw34F/EaCONymeiAw/VOXca54
-         TfG1MZLLDcVkoN6jxEfVovj4nPdjvi2qgp+wNbLcvoOw+OtpwzWCA8Zw0pN4PKPZrIZ/
-         02AmtGyWx0mEdK40C+F/BFRF2EZOG7g/tm6Rwhh8MsqL6JEmaQpRauEqpzEcxfm8TdSA
-         6p2A==
-X-Forwarded-Encrypted: i=1; AKwUvBxmQOn64No+tbIoc5BN7Ib7m5ONXvdbhKeMPsqoYTnp65IupnHMXkfD41vTAzI4K++1t5z4kpc6/6nV7nnF7Ks8@lists.infradead.org
-X-Gm-Message-State: AFuF++kYQVapl4ByCkpbLUofjzzXQPY/O43HBV6xdB9HSat8eul/8L7k
-	FyCKAqUq/lifOLX+/PE7pMm44OsmvbcbWIYXm76DWbZ96up25OWO2NVQ
-X-Gm-Gg: AYBFou0vYqsgS71BPNqoQIQcTnVbQrrtwhTsQ7AQpFdJnGLq8FME5ne1hPt47roGsDn
-	3adwllX/BX7mb0R6Ndb6su7fpjcGd+RIlOHhCdKxL3jUR8/F2ahgTHeszu0jskJbOTbI+dEsk0K
-	KMwyMl50a/3ehQwJVOjIxkO3L0KQ7LWHjzHTVAzlpT0Wp0hpVruSXWODuRKHSD0RforL4OYT4FS
-	gqAIzAFa6ijUjRgxIHFUAMXTvQFNkHZuKdeCdzBFY14aGTgKjrdVCe2FKZt3yhPHgFgAIGnwy5Z
-	0sa88cJ5G6GCENh9CWgNqDJpl9dJyglQF9eIRZhg67FJyXtkv397aYf8gecQfreLQXuYnwSOS9I
-	iQQuHk1CWwAsYAosRllKpN/xg4BKoF1V3iWAlCDw/EaI2n+/LaTqXz53rckoJXfbuH2OFUkt8JM
-	JLEQr1Vt5vthbXMHK8MAaJG1+nuIOqdXp4SOTk2+Kb9flAWBqSiFuvXIOs9vaZr+bYYxpXwjkkB
-	LV1nC3pV5kxImfipBWesy0WPQ55e1BNukzurToJ
-X-Received: by 2002:a05:6402:249f:b0:6a9:9894:e4b4 with SMTP id 4fb4d7f45d1cf-6a9f63cd9ffmr1264857a12.34.1789386504591;
-        Mon, 14 Sep 2026 04:48:24 -0700 (PDT)
-Received: from fedora-tap.advaoptical.com ([82.166.23.19])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a9b59644f2sm3749062a12.29.2026.09.14.04.48.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Sep 2026 04:48:23 -0700 (PDT)
-From: Sagi Maimon <maimon.sagi@gmail.com>
-To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	netdev@vger.kernel.org
-Cc: Robert Hancock <robert.hancock@calian.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Michal Simek <michal.simek@amd.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net] net: axienet: bound TX completion cleanup by the NAPI budget
-Date: Mon, 14 Sep 2026 14:48:21 +0300
-Message-ID: <20260914114821.55503-1-maimon.sagi@gmail.com>
-X-Mailer: git-send-email 2.47.0
+	Mon, 14 Sep 2026 11:54:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0C580601DB;
+	Mon, 14 Sep 2026 11:54:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EF4A1F000FF;
+	Mon, 14 Sep 2026 11:54:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789386876;
+	bh=aP8EWaxJ8YclgzGeNnOXFKi/SYtV4Lu4pF6yBNZunAk=;
+	h=From:Subject:Date:To:Cc;
+	b=QQepjeCiPrn9OsVCGWBlEXtRJVEtCYCIOrfNoRL85odxkHs4b5hWu8MRcozCA80dr
+	 zD2O/sxsaPdpTHA1auQKKbQVhJdTYfKkt4TtCsDyjavUZsmLwVShJVQL7/DAKRQK/q
+	 UtwynsVbQTXTEed4Z0FTqFl+i5+dRYwH9bkJf352Y8ftkx/ei5+NG7r9EuIG6kGgIh
+	 ZRw8Z10ZsNOlrYYfA0K8hPJ+4C0CYp4me4udkx7a0cgYuPCv1izFfYOS2jHqVpqyOf
+	 d9IWSCthQKDWgbj2z/ZwMzyJqADsjsNvtEST5uq9GNsWt0iRht1VECYFJ/87JyuQpA
+	 pnvSWyEpe3kxQ==
+From: Linus Walleij <linusw@kernel.org>
+Subject: [PATCH v2 00/20] pmdomain: st: ux500: Implement ux500 power
+ domains
+Date: Mon, 14 Sep 2026 13:54:28 +0200
+Message-Id: <20260914-ux500-power-domains-v7-1-v2-0-9d0c17e1f816@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_044827_292495_D122EC0D 
-X-CRM114-Status: GOOD (  16.54  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/42NTQ6CMBBGr0K6dsy0plhceQ/Dgp8RJmpLploxh
+ LtbOYHL95LvfYuKJExRnYpFCSWOHHwGsytUNzZ+IOA+szJoSiy1g9dsEWEKbxLow6NhHyEdQcO
+ hq3qsrDOuMyrPJ6Erz1v6UmceOT6DfLanpH/2j2jSgECtJYutbqxz5xuJp/s+yKDqdV2/51lS3
+ MEAAAA=
+X-Change-ID: 20260618-ux500-power-domains-v7-1-3c9d095828c2
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
+ Mark Brown <broonie@kernel.org>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
+ Lee Jones <lee@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-pm@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+ dmaengine@vger.kernel.org, Linus Walleij <linusw@kernel.org>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, Frank Li <Frank.li@oss.nxp.com>
+X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,58 +82,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-axienet_tx_poll() passes lp->tx_bd_num to axienet_free_tx_chain() as
-@nr_bds, and @budget is only forwarded to napi_consume_skb() as its
-bulk-free hint.  Nothing limits the cleanup loop to the NAPI budget, so
-the number of packets returned is bounded by the TX ring size rather
-than by the budget, and the poll can report more work than it was
-given:
+This series pays off technical debt from the beginning of the device
+tree for ARM initiative in the early 2010s.
 
-  eth0: NAPI poll function axienet_tx_poll+0x0/0x180 [xilinx_emac]
-        returned 96, exceeding its budget of 64.
+Today the Ux500 SoC specifically DB8500 is using what is called "EPOD
+regulators" (EPOD = Electric POwer Domain) to control its power domains.
+This was done like this because at the time, power domains did not exist
+as a concept in the Linux kernel.
 
-Returning more than the budget breaks the NAPI contract.  It also makes
-the "packets < budget" test in axienet_tx_poll() false, so
-napi_complete_done() is skipped and TX completion interrupts are not
-re-enabled on that pass.  NAPI reschedules the poll, so this recovers,
-but the accounting is wrong either way.
+This patch series completes the ambitious work started in commit
+cd931dcfda5e ("ARM: ux500: Initial support for PM domains") which added
+a dummy domain driver for Ux500 in the following steps:
 
-In steady state fewer descriptors complete per poll than the budget
-allows, which is why this is rarely observed.  Triggering it needs more
-than @budget completions outstanding at once - for example when TX
-completion interrupts have not been taken for a while and a full ring is
-reclaimed in one go.
+- Convert the old Ux500 power domain text DT bindings to YAML schema.
 
-Stop the loop once the budget is spent.  cur_p->skb is only set on a
-packet's last descriptor, so breaking there never leaves a packet
-half-freed.  The check is skipped on the @force path, which cleans up
-after a DMA mapping failure with a @budget of 0.
+- Extend the bindings with all the 16 power domains actually existing in
+  the hardware.
 
-Fixes: 9e2bc267e780 ("net: axienet: Use NAPI for TX completion path")
-Signed-off-by: Sagi Maimon <maimon.sagi@gmail.com>
+- Add these domains to the existing ux500 power domain driver (still as
+  dummy domains).
+
+- Add the power domains to the DB8500 SoC DTSI file.
+
+- Move code over from the EPOD regulators to the actual power domain
+  driver. Since the two drivers now control the same hardware, make the
+  drivers mutually exclusive.
+
+- Modify the MCDE display driver to use the power domain instead of the
+  EPOD regulators.
+
+- Modify the DMA40 DMA controller to use the power domain instead of the
+  EPOD regulators.
+
+- Delete the old EPOD regulators.
+
+- Delete the references to the unused EPOD regulators from the device
+  tree.
+
+The series is ordered so binding updates and compatibility glue precede
+the DTS and driver changes that depend on them.
+
+MERGE STRATEGY:
+
+1. Device tree bindings need review, before that the series is a
+   no-go.
+
+2. For simplicity, the series can be merged in separate paths and
+   subsystems as there are no build-time dependencies, as long as the
+   result ends up in kernel v7.4.
+
+   Once the concept and patches are ACKed by the power domain folks, I
+   will send the patches that can be split out individually to each
+   maintainer and it can all be merged in parallel. I will send a
+   pull request to the SoC tree with bindings and DTS changes.
+
+Signed-off-by: Linus Walleij <linusw@kernel.org>
 ---
- drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+Changes in v2:
+- Went on a detour clean-up job relating to buck regulators.
+  Rebased on kernel v7.3-rc1 and the regulator re-works in this
+  mail thread:
+  https://lore.kernel.org/mfd/20260901-ux500-dts-snowball-regulator-v2-0-fe88b01829bf@kernel.org/
+- Drop the PM domain "regulators" entirely, the external components
+  now use their actual buck regulators.
+- Fix the DB8500 pin controller power domain to use VAPE.
+- Allow power-domain references in the l2c2x0, arm,pmu,
+  stericsson,u8500-clks, arm,twd-timer, arm,twd-wdt and ste,mcde
+  schemas used by the DB8500 DTS additions.
+- Treat only negative pm_runtime_put_sync_suspend() returns as errors.
+- Fix the MCDE probe error path to disable the main clock after reset.
+- Fix Ux500 PM-domain probe error cleanup for domains and provider data.
+- Drop the unused Ux500 power-state activity counter.
+- Describe Ux500 subdomains in DT and use OF child ID helpers.
+- Move DMA40 LCLA power-domain get out of atomic transfer paths.
+- Enable runtime PM in the generic SRAM driver so SRAM power domains
+  are managed by their owner before DMA40 takes LCLA references.
+- Add a DMA40 device link so system PM orders the LCLA SRAM supplier.
+- Add binding fixes for the DB8500 PRCMU regulator child nodes.
+- Add an MCDE binding update for the new power-domain reference.
+- Fix up the DB8500 DTS changes for the remaining VAPE and VSMPS2
+  compatibility regulators.
+- Link to v1: https://lore.kernel.org/r/20260618-ux500-power-domains-v7-1-v1-0-eb5e50b1a588@kernel.org
 
-diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-index 782f903d318f..37309fa355ab 100644
---- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-+++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-@@ -788,6 +788,13 @@ static int axienet_free_tx_chain(struct axienet_local *lp, u32 first_bd,
- 	dma_addr_t phys;
- 
- 	for (i = 0; i < nr_bds; i++) {
-+		/* A NAPI poll must not return more than its budget.  Stop on a
-+		 * packet boundary once it is spent - cur_p->skb is only set on
-+		 * a packet's last descriptor, so no packet is left half-freed.
-+		 */
-+		if (!force && packets >= budget)
-+			break;
-+
- 		cur_p = &lp->tx_bd_v[(first_bd + i) % lp->tx_bd_num];
- 		status = cur_p->status;
- 
+---
+Linus Walleij (20):
+      dt-bindings: power: Convert Ux500 PM domains to schema
+      dt-bindings: arm: ux500: Drop NR_DOMAINS
+      dt-bindings: arm: Add the actual power domains on U8500
+      dt-bindings: mfd: db8500-prcmu: Relax EPOD regulators
+      dt-bindings: display: ste,mcde: Allow power domains
+      pmdomain: st: ux500: Implement more power domains
+      ARM: dts: ux500: Rename power domains node
+      dt-bindings: cache: l2c2x0: Document power domain
+      dt-bindings: arm: pmu: Allow power domains
+      dt-bindings: clock: stericsson,u8500-clks: Allow power domains
+      dt-bindings: timer: arm,twd-timer: Allow power domains
+      dt-bindings: watchdog: arm,twd-wdt: Allow power domains
+      ARM: dts: ux500: Add power domains
+      pmdomain: st: ux500: Control DB8500 EPODs
+      drm/mcde: Use power domain for display power
+      misc: sram: Enable runtime PM
+      dmaengine: ste_dma40: Use power domain for LCLA SRAM
+      mfd/regulator: db8500-prcmu: Remove EPOD regulators
+      dt-bindings: display: ste,mcde: Deprecate EPOD supply
+      ARM: dts: ux500: Remove DB8500 EPOD regulators
+
+ Documentation/devicetree/bindings/arm/pmu.yaml     |   3 +
+ .../devicetree/bindings/arm/ux500/power_domain.txt |  35 --
+ .../devicetree/bindings/cache/l2c2x0.yaml          |   2 +
+ .../bindings/clock/stericsson,u8500-clks.yaml      |   3 +
+ .../devicetree/bindings/display/ste,mcde.yaml      |  10 +-
+ .../bindings/mfd/stericsson,db8500-prcmu.yaml      |  24 +-
+ .../power/stericsson,ux500-pm-domains.yaml         |  46 ++
+ .../devicetree/bindings/timer/arm,twd-timer.yaml   |   3 +
+ .../devicetree/bindings/watchdog/arm,twd-wdt.yaml  |   3 +
+ MAINTAINERS                                        |   1 +
+ arch/arm/boot/dts/st/ste-dbx5x0.dtsi               | 144 +++---
+ arch/arm/mach-ux500/Kconfig                        |   2 +-
+ drivers/dma/ste_dma40.c                            | 130 ++++--
+ drivers/gpu/drm/mcde/mcde_clk_div.c                |   4 +-
+ drivers/gpu/drm/mcde/mcde_display.c                |  11 +-
+ drivers/gpu/drm/mcde/mcde_drm.h                    |   2 -
+ drivers/gpu/drm/mcde/mcde_drv.c                    |  68 +--
+ drivers/gpu/drm/mcde/mcde_dsi.c                    |   1 -
+ drivers/mfd/db8500-prcmu.c                         | 239 ----------
+ drivers/misc/sram.c                                |   5 +
+ drivers/pmdomain/st/ste-ux500-pm-domain.c          | 330 ++++++++++++--
+ drivers/regulator/Kconfig                          |  11 -
+ drivers/regulator/Makefile                         |   2 -
+ drivers/regulator/db8500-prcmu.c                   | 501 ---------------------
+ drivers/regulator/dbx500-prcmu.c                   | 155 -------
+ drivers/regulator/dbx500-prcmu.h                   |  55 ---
+ include/dt-bindings/arm/ux500_pm_domains.h         |  17 +-
+ include/linux/regulator/db8500-prcmu.h             |  38 --
+ 28 files changed, 566 insertions(+), 1279 deletions(-)
+---
+base-commit: 67aa45aae7efe0162f198f26714f668b759468c4
+change-id: 20260618-ux500-power-domains-v7-1-3c9d095828c2
+
+Best regards,
 -- 
-2.47.0
+Linus Walleij <linusw@kernel.org>
 
 
