@@ -4,81 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6133C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 14:09:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A27C5C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 14:11:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u0ItK3SnsZLhpkm8nRo5TKy/IR0j9i9PKGAzD/m1q8I=; b=CHDvC6ojpqpQ+4Gtkgq5NupvZF
-	RJTC3HmMQ1+xD3Dd5pyRomBfrgHJDBNeDrUhDPy42VLtyOV8naaG3RiJpiGwUILYg7vmbzwdh4Xj4
-	yD8DPf5pXY9tBD37crR6h75VTYUgBvMeQFfyknx+akid9x1OPH1CdP8WplYulpHlcqabK1zQb+9oy
-	JosBRiSzExxqvzUgsGRKVG+KPdBXwxc0zMSzAblt1mRz0E0u87aVYLIn40TizwvpDlAvwQO+YR8gb
-	B76bLwbGcc8Sa984fIAFwlC/eTVEiGCE0TQLMwLXJqaZlf3R2kGqfl1c5Hutw8+KwGqDZNPv+LVCK
-	R2kGOpQA==;
+	bh=er8mkpSGysTU2AnOCiPtxLRaraSl7B9NqJnF92yeKFk=; b=pH2NswzE1EDNjBtbQV9UVcSieG
+	6Tzk+0sAxYyax8blEOprxLF5ODjfJoGGeaGsatv9UZ9XoOnjcZABOwL/2391s2rVPROBUvP6ORwQ9
+	RbfXVTWrm2q0WiZWf/niKXD3GNachZO+Wg7dccy6cGjp+i6dSJRg8cOEwN6GSC208HIf5SJuIHt6d
+	UEiKagsVi6rraKpmsySOY2Ps6bssOZs3t4Zkm+T9/0lFwWSjow4LjMfGPCDFGYXWHyuLQwSnn3M79
+	vrgMywlAE9/3WUIv+CT/7z1tUGlGm6yHG88s+SjP/ezmOP+uKG65W0zDjbbheD6gNOTzDp1Nw/ckM
+	X1NKqttw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x67NR-00000003vje-1z12;
-	Mon, 14 Sep 2026 14:09:45 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1x67Oc-00000003vwK-1Ecp;
+	Mon, 14 Sep 2026 14:10:58 +0000
+Received: from mail-northeuropeazon11011039.outbound.protection.outlook.com ([52.101.65.39] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x67NO-00000003viF-1z1g
+	id 1x67OZ-00000003vtG-3CBg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 14:09:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1789394982; x=1820930982;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=kXyZcf9mVRUP9nMLt2/MVgHhc0OPsuWGYpRhhFqEPKc=;
-  b=H5tGliN43eeNCQVOifKg7mB6SrR+Cj1I8gAUeq/JhaDBZMIdjMMbRSvD
-   hx7AQU1DtxgExhvejjB8OTYCxj6vEuYXU2Vhypli95yHoLICdRgwXlMB7
-   U5aLNphzIbOpXTHI/WJNjKBLAORoCvkJzCr848JLV6ySTlfMaSFhEaq2q
-   Xz3w66fElyHahc93MHBAOdYvCOhdyrvMMyDwBtCaGBIx+7bZE++fItaFF
-   sAj9EuscyMpgAPICz+IZFMhlOdQEUzGK8gKMZ8Z+19So8N/RntGNWebTf
-   KPh4hD2Q697Vbo1Q/o6eodt4HBWWKdr8cV3/B5RqcT6DxW0TZc4d39UK5
-   w==;
-X-CSE-ConnectionGUID: rVLQJSZ6ShGlku+t+zZqfg==
-X-CSE-MsgGUID: +9pA80GKSjCe+q/7ZmKqbQ==
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="62642258"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 14 Sep 2026 07:09:41 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Mon, 14 Sep 2026 07:09:40 -0700
-Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Mon, 14 Sep 2026 07:09:36 -0700
-Date: Mon, 14 Sep 2026 16:09:36 +0200
-From: Daniel Machon <daniel.machon@microchip.com>
-To: <netdev-bot+sashiko@kernel.org>
-CC: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
-	<kuba@kernel.org>, <pabeni@redhat.com>, <horatiu.vultur@microchip.com>,
-	<steen.hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>,
-	<ast@kernel.org>, <daniel@iogearbox.net>, <hawk@kernel.org>,
-	<john.fastabend@gmail.com>, <sdf@fomichev.me>, <herve.codina@bootlin.com>,
-	<arnd@arndb.de>, <gregkh@linuxfoundation.org>, <mohsin.bashr@gmail.com>,
-	<richardcochran@gmail.com>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <bpf@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH net-next v6 08/14] net: lan966x: clear FDMA interrupt
- stickies after switch reset
-Message-ID: <20260914140936.kqsqxbovxvsihv42@DEN-DL-M70577>
-References: <20260909-lan966x-pci-fdma-v6-8-6f48dab9d671@microchip.com>
- <178904554399.219967.11177166628090236711@kernel.org>
-MIME-Version: 1.0
+	Mon, 14 Sep 2026 14:10:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=w3DLDbtnpQyti0OI+L74AznHgk0tr/4jZ0wgaMJLkHkmq4UDSms2GqUk7nDWQLaQtmfASTOcAvnf9p7/LQTDyPD8Tt5ugKmLHfa0YfhBL3OAR5KuHjw0WWqV2dMNlIBrG7TcquHu85F4nahdK1aimvjqdWRRsAgLR5n8EAAEQ57cHuRGb5f/mbEEU7INjr2XlYPvSw4L5QO8+uBhrKR2MhryqbBbK0hZh4YPLgdxe/mmDEjx2XO9BPE60wnsCWYA39KEJl3rYashhLDrqz94itT214E970ycXoqO9d1b1J2eeCRQxgAWdvjDpoEQ/925PSE3T7wlICKe0WhYKs7QTw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=er8mkpSGysTU2AnOCiPtxLRaraSl7B9NqJnF92yeKFk=;
+ b=EAIoMs+ge5upmRbYdZo2ZZmKkPvAkCwVOEYijr6Mtwg/7TosmaL/sxhm7fXjXV9Kw/jLBjT9H2PhT/y/FpOIjvmTQFhjv0LHjJUVhGgVlPCCeEyXmoUh8qxm6er0HtoZzo9FmEEGB2f9tQuMBOt+XgzZfOt8lxl7E0w3FiVFpxBb/6k+4L6a29U1l5LERqxTfCx87GXy4T8eIAsF0cgaIGgHECYEQopwbOSFAYmGbwecEeJ6v/spVs6YT3TXC2riZVzPhFaJm0bfXk59xkInKDqtB8V42EfNd4RipZwkXKn+kaWaxYF8x5kXx8wKinK7m9rLHUZLhz6PYqoGAPz6qw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=er8mkpSGysTU2AnOCiPtxLRaraSl7B9NqJnF92yeKFk=;
+ b=TIjo1r+qJK6jWvD6aC97MUZdAytxwa5+HKllCYbMjFO9ScebLR3qagTBOxW6Y/vT5TUaAHVQjA/s+JMZeZoXxELPp+H8Yv4wmLqiJi6z0YFnrQBl07J+oHJk6UJ4EaZpRj9YhgGNJFzV0lSiMIzPPCuMsG3tz+1ocWA+c7nzB6qx8RgHVFasuDbAMvFcLhb892BOaYYGafVCy02fdyB7m6t2T42Qnyzp2rsThl7n8QZYPUPQIjnxicbJa0oB7C+ooDP1eupVNJU3YQqmU5PQgnevdko/cd3tQZRG38HksBqQbT4XBV2I/PyMeHJI10X3q4ulJhK0b38M5ETbvysVhg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM9PR04MB8469.eurprd04.prod.outlook.com (2603:10a6:20b:414::15)
+ by AM9PR04MB8618.eurprd04.prod.outlook.com (2603:10a6:20b:439::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Mon, 14 Sep
+ 2026 14:10:50 +0000
+Received: from AM9PR04MB8469.eurprd04.prod.outlook.com
+ ([fe80::1f31:d3d0:6150:b49c]) by AM9PR04MB8469.eurprd04.prod.outlook.com
+ ([fe80::1f31:d3d0:6150:b49c%3]) with mapi id 15.21.0406.007; Mon, 14 Sep 2026
+ 14:10:50 +0000
+From: pankaj.gupta@oss.nxp.com
+Date: Tue, 15 Sep 2026 01:09:58 +0530
+Subject: [PATCH v51 1/7] Documentation/firmware: add imx/se to
+ other_interfaces
 Content-Type: text/plain; charset="utf-8"
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <178904554399.219967.11177166628090236711@kernel.org>
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260915-imx-se-if-v51-1-4a7dac612cb5@nxp.com>
+References: <20260915-imx-se-if-v51-0-4a7dac612cb5@nxp.com>
+In-Reply-To: <20260915-imx-se-if-v51-0-4a7dac612cb5@nxp.com>
+To: Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Pankaj Gupta <pankaj.gupta@nxp.com>, 
+ Randy Dunlap <rdunlap@infradead.org>
+Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789414820; l=14442;
+ i=pankaj.gupta@nxp.com; s=20260817; h=from:subject:message-id;
+ bh=GR+UpWiKN6vQ/fD+2am73nCHpHQoukDXxfoTE0YlRxg=;
+ b=T/J2/kS033vqXs4cWFl5EFsimgLGDTN3747YurkgfGirQgfN2G+uTC6VrQpo8eBpJ9r9uSnIZ
+ gYusd0bCDgCA4fNyaAJBM6fuy3TpoloOzXrtMUzh8fooggIe4asCojm
+X-Developer-Key: i=pankaj.gupta@nxp.com; a=ed25519;
+ pk=g4ZgzIWbpXnSxRsoH+l6PWLP78a+Mzpl8e6RQe74d5Y=
+X-ClientProxiedBy: MA5PR01CA0199.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:1b2::11) To AM9PR04MB8469.eurprd04.prod.outlook.com
+ (2603:10a6:20b:414::15)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8469:EE_|AM9PR04MB8618:EE_
+X-MS-Office365-Filtering-Correlation-Id: ac81a8d2-a10a-4b0c-76d8-08df1269fabf
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|23010399003|1800799024|366016|19092799006|921020|11063799006|56012099006|10067099003|22082099003|18002099003|6133799003|3023799007;
+X-Microsoft-Antispam-Message-Info: lyJoENZ09ETWcOlaVgs4HT87lYz0We6au8txglcHLQDWidUvYxU5HbCC08RCzJEDEdEtJbme/c/UHQqRLusN1un4r190tMrnPXJqyZD3Vg0hNMN939c5WGEkW3zY8RhlQieIdcyAYXHghzhaaKK85JMG0i5mI80MJtslM9OqSa7CxEKUGBhTqEQ7j5ONC1h2L7iXvpP8OLVDZVnzHcRwuCk6IjPqbKGNXtcIAbhq6DJ8jJLhs1ZWXG+h4UtRG8Cep1ak0CpDTggpkG6pJBQo9C8PJPqeQpCUuY44PMv2k66YVgBzc1oiP/MNBjS3gE2MaT7lFpTCzncSiliBydBhf2kEcKMPdQRv2avQLKJ3zV+o8KaX3CwG+kKhFmSof6tZlrOWyf1yYl6L56aVPEL/sgntWWV0NgZgVQEwgiljnW2ZvQzcXNSb3ERMQJ4wsw5QFE8n696rHqTWvNZsrEoIOmMyDv/jFAeTLfqR/dMAox8No5lTrAb2C/N8hyvN6zabk4QNfzLzd+EMEcWY70SIwR5Nfzqu5+G4OadFtHc0py8UrAcgzOFStQXMNIzeR6vadzV2Z0kuY5V0xqnn7KIXSZgWKxYR3RmWbwestl3jK3D+ajmwVCz/Kj3rIl+uJreSgv1Pd7Ch7sbr7LFoMJ9sBLP+B9EBaCWXtCPPGF/J3VyybjkWVOshz/+j0STqC3SLdrgqy2BynrgLUqAOeb5A4A==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8469.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(1800799024)(366016)(19092799006)(921020)(11063799006)(56012099006)(10067099003)(22082099003)(18002099003)(6133799003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QlFCb2VvUFRKbFc3VTVFWXRJRkJVdFhtbXJDenhYTkdMODhvOXRaNU5VUXU0?=
+ =?utf-8?B?V0o1d3AzQTRZcHJsbHJvQ2NVUFh1RzhtaU9OVUw0Q2ZFRVd4alZqOGVuMU9p?=
+ =?utf-8?B?cWY5c1U1Y2Vlcng0ZXdFWUNjVkxlaVc2RENINHJYM01jY3JPbnBrTkNrdVBK?=
+ =?utf-8?B?QU5VSWVCQmFxTWQvdHo2YVVodWE5U3pvelZQUmlIMXdodHZqWXd0RURHN2F4?=
+ =?utf-8?B?YVBxZ1FZUjNjbkp3c0p3QXJLZkhSNVEyNTYvMVRyYzRZZ0FvbTBxdC9UR2xO?=
+ =?utf-8?B?djhyZ29YNkNldUZweWlKM0llTkNEbjJKV0Z1YWpHNFJBWW1mV1ExQjRkS0JU?=
+ =?utf-8?B?ZHQrZzE0Qy9FcGgzMFFNeWUxUU5XdEFBWDZQSEZRVTFHeVdDSGhPR2dyMFdB?=
+ =?utf-8?B?VDJyc05yc0hGYkZadmNDZ1d5SzluaVFQZjlDY0VuZ25uR0xLejRrcGo2QmZy?=
+ =?utf-8?B?bERFQ0RwM2o2QUx1WDdjdndDcy9QNnBDN0VKbUUvOXBma1RkT1R4QWVvdnV6?=
+ =?utf-8?B?cjhlUERodkxPeGFTYThmbDNBU3pPcXU1WlZYVFlEYjNKcXdaVC90aEM4RzBZ?=
+ =?utf-8?B?Tzl1Mktmai8vdnJWb3gvK1c5OE9MdVpHNis0NUdhOEcwVFNXVDhVcjFMejlZ?=
+ =?utf-8?B?aGFERW1uZHhBaE5ISUE1ME53VWJOZVNGSVhZQU9DQndlSm1IZ3ltZkZMakt6?=
+ =?utf-8?B?OWVZNWUyclc0K2U3VnJubkZNTmdiQjN6WGFqNSs5WVkvVTRMcWpMV1FPKzJ5?=
+ =?utf-8?B?VWx5QlYyTk9QNXNFODlaYnlWVm14Z0RjUHZteGpkZTNPd2kvUXhxOG9XL2la?=
+ =?utf-8?B?V1pqU0t2ZThyemlOdVhycEdBZWh1TVFDR0N0emY4aFdRZXA4a1FDU0xHV0tK?=
+ =?utf-8?B?ZlVCb0xtb2tCem1oUzgvYU4vU3RPRkF6MjZuK3BDZTZxZ2V1RGlHQ2dXRitV?=
+ =?utf-8?B?REY4bTlrOGMvSUlOMzdpZTBXQzlMWm1YTmJaYzBMQ1JBUU5GWXB4cVNaaWJD?=
+ =?utf-8?B?ZHY0ZmFKdnkrSlJMdi92ald6alFEYmdCWUEyUXVtT1BaT0JyK09qL01kM0dp?=
+ =?utf-8?B?T09ZMy9mUjJzZTFLbHBxZFA2bE1rbFVUZEJ4ZzBZMzRCODFTS2pGWFQxb1Qw?=
+ =?utf-8?B?SUs4N0xTcnpGNVpPY0tMVVFTS1B6UXI2ZmJZNjFVUGxWaEhsb3E0cklYbXFE?=
+ =?utf-8?B?cUl6bUMxTmx5OGV3anlhcGRrZStnaHZMUFZsNkVNb0RySVhqbitnQ2JHRDk1?=
+ =?utf-8?B?UklERjhHSFVPcFlnazI4Nkp6UUo2MHJBaVlWa2FNOEkvTGdoUjRkejdYVk1w?=
+ =?utf-8?B?bXErRmhyMDlRZWdNQjN5aUVHc0lhb3BpVlhNYlV1YW1RUkp6bGQ5em5scytK?=
+ =?utf-8?B?cTNQVVUrVFFZZmNIYkhRb1VjRnNlOExqemp3VVRJQnVZN05INzVZZ0M3V2JS?=
+ =?utf-8?B?WHgyMmdqQitSbzNiVzFhYkYyM3RNUTlhVE4xZE1CTFZOeTJ3NjR6NWJqdWI1?=
+ =?utf-8?B?RG4vZmd4ZU1IZnVEaDZJby9Geitrb1Y1QnpGVWcwWTZYdENMTmpsU0k2VVVz?=
+ =?utf-8?B?V2FwbjRIc1podmNTcDJRYWFZNEZtUFpJcDgwb1Q3amd2c2F2cHp5M0w1d3pH?=
+ =?utf-8?B?NG1yNWZFRjl3cnlCZ3pDV3Y2RmVZNzdMRE9BQXJjdkFXNUZreDBFbHp4dVVF?=
+ =?utf-8?B?Q1llS05zRzc4MXRDaFJVdGtCN2F5ODhKM0pjbmtRUFl5Z3RrazdhNmMvRStR?=
+ =?utf-8?B?cGxuY1hNMUcxTXJqNVE0dXNKMXZXeCtISjJzVVFTcmV1YmVhQVY3ejNDTmJt?=
+ =?utf-8?B?TmN6YXVWemdPRGdBTDFHN1RMdUpQNmt3K0UrclFsS0NhRzlFQzhnekRNakJo?=
+ =?utf-8?B?VCtESUlTK000bmtLeTQrbS90M2RhMEFNVkNka3A3NDMyYkRPWEZ3TUhUYWw4?=
+ =?utf-8?B?NDQydXd1V0hjbzBBVUFsbTN4UkpCY1VLR201ZmloNy80ZW9ZTVRsQU8vNDhS?=
+ =?utf-8?B?NkxhQUNlVmtTQXl3QVlzNjM2dFlpRlo4a296eHdiVkZSOGp1cGRDWWhBSDhL?=
+ =?utf-8?B?WXA3RVg5WUJFR01BWUt5aWJPcFZVWTJwR3FwRHNXY3JzS2dlTnp6N2R2MWU2?=
+ =?utf-8?B?SnZlemtCSlhEN3VUZUhwYVFjak1DWEp3MlpYYU8rcjlvWUhoN1Q5VE1IQlVm?=
+ =?utf-8?B?NDQxOENMajM4WEV5MDFraE91d3RMdHVtTDZEMWMvTEJyaGVBbU83SmppYXdk?=
+ =?utf-8?B?NmY0QS9ucjdMWXhtMTJwRk1zb2FMNzhMK1VUK0lYRzg3QWlidlVVYkIxN3hp?=
+ =?utf-8?B?RlFUcDFsVWorVkdkcUZvMkpqWTVkRkZJWWlCSy9WU080MkdZRW13NTJPVUFi?=
+ =?utf-8?Q?SJmUZKO1+QGbms5SOnR1Nw1xwr+LB9iKKtEJb?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ac81a8d2-a10a-4b0c-76d8-08df1269fabf
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8469.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Sep 2026 14:10:49.9471
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: NiYdbPR6l6KU1x7Hrt3jzErHj3WZTAlfw9Ceck5KmoYJC0JURekOzpTaQLPY9X9/GxHmbR7YaOrbBgyo544VszmBIPrmxtOXj1q1PqrkWOA/uLjubYG57m1/obggNqnl
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8618
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_070942_547661_254E94F4 
-X-CRM114-Status: GOOD (  31.26  )
+X-CRM114-CacheID: sfid-20260914_071055_804578_5C88BB38 
+X-CRM114-Status: GOOD (  13.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,100 +162,289 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Thank you for your contribution! Sashiko AI review found 1 potential
-> issue(s) to consider:
-> 
-> Critical: 0 · High: 0 · Medium: 0 · Low: 1
-> 
-> - [Low] Commit-message/comment vs. reachability at this revision: the
->   added FDMA sticky clear in lan966x_reset_switch()…
-> 
-> --
-> 
-> net: lan966x: clear FDMA interrupt stickies after switch reset
-> 
-> The patch acks FDMA_ERRORS, FDMA_INTR_ERR and FDMA_INTR_DB right after
-> reset_control_reset() in lan966x_reset_switch(), so that spurious sticky
-> bits latched by the GCB soft reset in PCI mode do not make the FDMA IRQ
-> handler fire as soon as the IRQ is requested. The clear is unconditional and
-> is described as a no-op on the platform path.
-> 
-> > diff --git a/drivers/net/ethernet/microchip/lan966x/lan966x_main.c b/drivers/net/ethernet/microchip/lan966x/lan966x_main.c
-> > index 6e6c08bb8eea..11094a381ec2 100644
-> > --- a/drivers/net/ethernet/microchip/lan966x/lan966x_main.c
-> > +++ b/drivers/net/ethernet/microchip/lan966x/lan966x_main.c
-> > @@ -1067,6 +1067,15 @@ static int lan966x_reset_switch(struct lan966x *lan966x)
-> >
-> >       reset_control_reset(switch_reset);
-> >
-> > +     /* When in PCI mode, the GCB soft reset issued by the reset
-> > +      * controller can latch spurious bits in the FDMA error stickies.
-> > +      * Clear them before request_irq hooks up the FDMA IRQ line,
-> > +      * otherwise the handler fires immediately on probe.
-> > +      */
-> > +     lan_wr(lan_rd(lan966x, FDMA_ERRORS), lan966x, FDMA_ERRORS);
-> > +     lan_wr(lan_rd(lan966x, FDMA_INTR_ERR), lan966x, FDMA_INTR_ERR);
-> > +     lan_wr(lan_rd(lan966x, FDMA_INTR_DB), lan966x, FDMA_INTR_DB);
-> 
-> [Severity: Low]
-> This isn't a bug in the register writes themselves, but is the failure
-> described in the changelog reachable at this point in the series?
+From: Pankaj Gupta <pankaj.gupta@nxp.com>
 
-No, but this is a preparation patch that makes sure that once the FDMA support
-lands, in a later patch, the failure is not introduced.
+Documents i.MX SoC's Service layer and C_DEV driver for selected SoC(s)
+that contains the NXP hardware IP(s) for Secure Enclaves(se) like:
+- NXP EdgeLock Enclave on i.MX93 & i.MX8ULP
 
-> 
-> The commit message says the latched bits "sit in FDMA_INTR_ERR until the FDMA
-> IRQ is requested later in probe, at which point the handler fires immediately
-> and WARNs". In lan966x_probe() the FDMA handler is only installed when a named
-> "fdma" interrupt exists:
-> 
->         lan966x->fdma_irq = platform_get_irq_byname(pdev, "fdma");
->         if (lan966x->fdma_irq > 0) {
->                 err = devm_request_irq(&pdev->dev, lan966x->fdma_irq,
->                                        lan966x_fdma_irq_handler, 0,
->                                        "fdma irq", lan966x);
->                 ...
->                 lan966x->fdma = true;
->         }
-> 
-> At this commit the PCI overlay in drivers/misc/lan966x_pci.dtso does not
-> describe that interrupt:
-> 
->         interrupts = <12 IRQ_TYPE_LEVEL_HIGH>,
->                      <9 IRQ_TYPE_LEVEL_HIGH>;
->         interrupt-names = "xtr", "ana";
-> 
-> so platform_get_irq_byname(pdev, "fdma") fails and lan966x_fdma_irq_handler()
-> is never requested on the PCI path.
-> 
-> The overlay also disagrees with the positional list in
-> Documentation/devicetree/bindings/net/microchip,lan966x-switch.yaml, where the
-> second entry is reserved for "fdma":
-> 
->         interrupt-names:
->           minItems: 1
->           items:
->             - const: xtr
->             - const: fdma
->             - const: ana
-> 
-> Both points are resolved later in the same series by "misc: lan966x-pci: dts:
-> add fdma interrupt to overlay", which switches the overlay to
-> interrupts <12>,<14>,<9> and interrupt-names = "xtr", "fdma", "ana", so this is
-> only an observation about the ordering of the changelog against the code state
-> here rather than an actionable defect.
-> 
-> Would it help to mention in the commit message that the WARN only becomes
-> reachable once the overlay gains the "fdma" interrupt?
+Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
+----
+Changes from v46 to v47:
 
-The changelog already scopes itself with "When in PCI mode".
+- ELE_STORAGE_OPEN_REQ concurrency and command-receiver exclusivity:
+  Explains the three-layer protection used to serialise concurrent
+  ELE_STORAGE_OPEN_REQ ioctls: (1) an advisory early check under
+  modify_lock capturing both receiver_exists and is_cmd_receiver in a
+  single critical section; (2) se_if_cmd_lock serialising the full
+  send+receive cycle; (3) set_dev_ctx_as_command_receiver() re-checking
+  under modify_lock after the response arrives. An ASCII sequence diagram
+  shows how a racing second caller is rejected by firmware before any
+  storage handle is allocated.
 
-> 
-> >       /* Don't reinitialize the switch core, if it is already initialized. In
-> >        * case it is initialized twice, some pointers inside the queue system
-> >        * in HW will get corrupted and then after a while the queue system gets
-> 
-> --
-> Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260909-lan966x-pci-fdma-v6-0-6f48dab9d671%40microchip.com
+- Signal handling after a completed hardware operation:
+  Explains what happens when a signal arrives after firmware has already
+  executed a command and written its response into the MU receive buffer.
+  The driver validates the response, calls fw_api_specific_ops() with
+  is_cmd_interrupted=true (which closes the firmware-allocated handle via
+  se_close_session()/se_close_storage() and clears the kernel-side
+  handle), then returns -EINTR instead of -ERESTARTSYS. Returning -EINTR
+  prevents the VFS from transparently restarting the ioctl with
+  already-zeroed input buffers and lets userspace enter its signal handler
+  to decide whether to reissue the command. An ASCII sequence diagram
+  illustrates the timing.
+---
+ .../driver-api/firmware/other_interfaces.rst       | 238 +++++++++++++++++++++
+ 1 file changed, 238 insertions(+)
+
+diff --git a/Documentation/driver-api/firmware/other_interfaces.rst b/Documentation/driver-api/firmware/other_interfaces.rst
+index 06ac89adaafb..984ee3ecc8dc 100644
+--- a/Documentation/driver-api/firmware/other_interfaces.rst
++++ b/Documentation/driver-api/firmware/other_interfaces.rst
+@@ -49,3 +49,241 @@ of the requests on to a secure monitor (EL3).
+ 
+ .. kernel-doc:: drivers/firmware/stratix10-svc.c
+    :export:
++
++NXP Secure Enclave Firmware Interface
++--------------------------------------
++
++Introduction
++~~~~~~~~~~~~
++NXP i.MX hardware IPs such as EdgeLock Enclave (ELE) and V2X create an
++embedded secure enclave within the SoC boundary to enable features like:
++
++- Hardware Security Module (HSM)
++- Security Hardware Extension (SHE)
++- Vehicular to Anything (V2X)
++
++Each of the above features is enabled through a dedicated NXP hardware IP
++on the SoC. A single SoC may contain more than one such hardware IP, that
++is, more than one secure enclave can coexist.
++
++NXP SoCs with such secure enclave (SE) IPs are:
++i.MX93, i.MX8ULP
++
++To communicate with one or more coexisting SEs on the SoC, there are
++dedicated messaging units (MU) per SE. Each coexisting SE can have one or
++more exclusive MUs dedicated to itself. No MU is shared between two SEs.
++MU communication is realized using the mailbox driver. Each secure enclave
++can serve multiple clients by virtue of these exclusive MUs, and can
++distinguish transactions from different clients based on the MU used and
++the core security state. The communication between clients and secure
++enclaves uses a command/response mechanism. Each client can expose a
++specific set of secure enclave features to higher layers, based on the
++commands it supports. For example, a secure enclave can simultaneously
++serve an OP-TEE TA and a Linux middleware client. Each client exposes a
++specific set of secure enclave features based on its supported command set.
++
++NXP Secure Enclave (SE) Interface
++~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++MUs are not shared between SEs. For an SoC like i.MX95, which has multiple
++SEs such as HSM, V2X-HSM, and V2X-SHE, all SEs and their ``se-if``
++interfaces dedicated to a particular SE are enumerated and provisioned
++using the single compatible node ``fsl,imx95-se``.
++
++Each ``se-if`` comprises two layers:
++
++- (C_DEV Layer) User-space software-access interface.
++- (Service Layer) OS-level software-access interface.
++
++::
++
++   +--------------------------------------------+
++   |            Character Device(C_DEV)         |
++   |                                            |
++   |   +---------+ +---------+     +---------+  |
++   |   | misc #1 | | misc #2 | ... | misc #n |  |
++   |   |  dev    | |  dev    |     | dev     |  |
++   |   +---------+ +---------+     +---------+  |
++   |        +-------------------------+         |
++   |        |   Misc. Dev Sync Logic  |         |
++   |        +-------------------------+         |
++   |                                            |
++   +--------------------------------------------+
++
++::
++
++   +--------------------------------------------+
++   |               Service Layer                |
++   |                                            |
++   |      +-----------------------------+       |
++   |      | Message Serialization Logic |       |
++   |      +-----------------------------+       |
++   |          +---------------+                 |
++   |          |  imx-mailbox  |                 |
++   |          |   mailbox.c   |                 |
++   |          +---------------+                 |
++   |                                            |
++   +--------------------------------------------+
++
++- service layer:
++  This layer ensures the communication protocol defined for interaction
++  with firmware.
++
++  The firmware communication protocol provides two guarantees:
++
++  - Serializing the messages to be sent over an MU.
++  - Firmware can handle one command message at a time.
++
++- c_dev:
++  This layer offers character device contexts, created as
++  ``/dev/<se>_mux_chx``. Using multiple device contexts multiplexed over
++  a single MU, userspace applications can use file operations (fops) such
++  as ``write`` and ``read`` to send a command message and read back the
++  response to/from firmware. These fops use the service layer API to
++  communicate with firmware.
++
++  Misc-device (``/dev/<se>_mux_chn``) synchronization protocol::
++
++                                Non-Secure               +   Secure
++                                                         |
++                                                         |
++                +-----------+      +-------------+       |
++                | se_ctrl.c +<---->+imx-mailbox.c|       |
++                |           |      |  mailbox.c  +<-->+------+    +------+
++                +-----+-----+      +-------------+    | MU X +<-->+ ELE |
++                      |                               +------+    +------+
++                      +----------------+                 |
++                      |                |                 |
++                      v                v                 |
++                  logical           logical              |
++                  receiver          waiter               |
++                     +                 +                 |
++                     |                 |                 |
++                     |                 |                 |
++                     |            +----+------+          |
++                     |            |           |          |
++                     |            |           |          |
++              device_ctx     device_ctx     device_ctx   |
++                                                         |
++                User 0        User 1       User Y        |
++                +------+      +------+     +------+      |
++                |misc.c|      |misc.c|     |misc.c|      |
++   kernel space +------+      +------+     +------+      |
++                                                         |
++   +---------------------------------------------------- |
++                    |             |           |          |
++   userspace   /dev/ele_muXch0    |           |          |
++                          /dev/ele_muXch1     |          |
++                                        /dev/ele_muXchY  |
++                                                         |
++
++When a user sends a command to the firmware, it registers its
++``device_ctx`` as a waiter of a response from firmware.
++
++The secure enclave firmware manages storage over a Linux filesystem.
++For this, ``c_dev`` provisions a dedicated device context called the
++command-receiver.
++
++
++ELE_STORAGE_OPEN_REQ concurrency and command-receiver exclusivity
++~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++
++A userspace-created ``dev_ctx`` becomes the storage subordinate to FW by
++being registered as the command-receiver via
++``set_dev_ctx_as_command_receiver()``. FW sends NVM callback commands to
++this ``dev_ctx`` via that priv's MU, on which the ``dev_ctx`` was created.
++Once a userspace ``dev_ctx`` on one priv is registered as the
++command-receiver, after opening the storage handle with FW, FW enforces a
++global one-storage-instance limit: a concurrent ELE_STORAGE_OPEN_REQ
++arriving over this or any other priv's MU is rejected by FW itself, before
++any storage handle is allocated. The driver uses three layers of
++protection; the sequence below shows how a concurrent race is handled
++safely::
++
++  Userspace A        Kernel (se_ctrl)          FW (ELE)        Userspace B
++      |                    |                      |                  |
++      |--ioctl(SEND_RCV)-->|                      |                  |
++      |            [advisory check under          |                  |
++      |             modify_lock: no receiver]     |                  |
++      |            [acquire se_if_cmd_lock]       |--ioctl(SEND_RCV)->
++      |                    |                      |  [advisory check  |
++      |                    |                      |   passes: TOCTOU] |
++      |                    |                      |  [blocks on       |
++      |                    |                      |   se_if_cmd_lock] |
++      |            ele_msg_send_rcv()             |                  |
++      |                    |--STORAGE_OPEN_REQ--->|                  |
++      |                    |<--STORAGE_OPEN_RSP---|                  |
++      |            fw_api_specific_ops():         |                  |
++      |            set_dev_ctx_as_command_receiver|                  |
++      |            [re-check under modify_lock]   |                  |
++      |            [release se_if_cmd_lock]       |                  |
++      |<--ioctl 0----------|                      |                  |
++      |                    |                      |  [B gets lock]   |
++      |                    |                      |--STORAGE_OPEN_REQ->
++      |                    |                      |  [FW rejects:    |
++      |                    |                      |   one storage    |
++      |                    |                      |   at a time]     |
++      |                    |                      |<--ERROR_RSP------|
++      |                    |  se_val_rsp_hdr_n_status: -EPERM        |
++      |                    |  fw_api_specific_ops not called         |
++      |                    |<--ioctl -EPERM-to B------------------->|
++
++The three protection layers are:
++
++1. Advisory early check (under modify_lock, before send): fast-path
++   rejection if a receiver is already registered. Not the final gate
++   because modify_lock is released before the MU send (TOCTOU window).
++
++2. ``se_if_cmd_lock``: held for the entire send+receive cycle, so only
++   one ioctl command is in flight on a given MU at a time.
++
++3. ``set_dev_ctx_as_command_receiver()`` re-checks under modify_lock
++   after the response arrives. If two callers race past layer 1, FW
++   itself rejects the second ELE_STORAGE_OPEN_REQ before any handle is
++   allocated.
++
++Signal handling after a completed hardware operation
++~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++
++A signal may arrive after the firmware has already executed the command
++and delivered its response into the MU receive buffer. The driver detects
++this case and preserves state before returning ``-EINTR``::
++
++  Userspace            Kernel (se_ctrl)          FW (ELE)
++      |                    |                      |
++      |--ioctl(SEND_RCV)-->|                      |
++      |            ele_msg_send_rcv()             |
++      |                    |--CMD_REQ------------>|
++      |  [signal arrives]  |                      | (FW executes,
++      |                    |                      |  allocates handle,
++      |                    |                      |  writes response)
++      |                    |<--CMD_RSP------------|
++      |  wait_for_completion_interruptible()      |
++      |  wakes: signal seen -> -ERESTARTSYS       |
++      |                    |                      |
++      |            [response is in rx_msg:        |
++      |             validate with                 |
++      |             se_val_rsp_hdr_n_status()]    |
++      |            [fw_api_specific_ops()         |
++      |             (is_cmd_interrupted=true):    |
++      |             for SESSION_OPEN: record      |
++      |             handle, close session via     |
++      |             se_close_session(), clear;    |
++      |             for STORAGE_OPEN: record      |
++      |             handle, close storage via     |
++      |             se_close_storage(), return 0] |
++      |            err = -EINTR                   |
++      |            (not -ERESTARTSYS:             |
++      |             prevents VFS auto-restart)    |
++      |<--ioctl -EINTR-----|                      |
++      |                    |                      |
++      | [signal handler runs; userspace decides   |
++      |  whether to re-issue; FW handle tracked   |
++      |  or cleaned up; no firmware resource leak]|
++
++Returning ``-EINTR`` instead of ``-ERESTARTSYS`` is intentional: the VFS
++would transparently restart an ioctl on ``-ERESTARTSYS``, re-running the
++command with already-zeroed shared input buffers. ``-EINTR`` lets userspace
++enter its signal handler and decide whether to reissue the command.
++
++.. kernel-doc:: drivers/firmware/imx/se_ctrl.c
++   :export:
+
+-- 
+2.43.0
+
 
