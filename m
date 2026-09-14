@@ -4,88 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33FB3C88E71
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 103D6C88E64
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 12:04:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WuWnwqCNPKyd10mfaIbh/UnI7VkNA3SDAFQEGvpGt+w=; b=bfKYOlWf+lUMIjTm5+WDDgM35x
-	II9JUXUhi+6pdsCI1J9Ch6G52BXLl5+F4OkiXnY7UyP0hZee/GLlYUift2VUtFNhmpUGAIZOPlBXI
-	4kYG7KUP+S519F+0Q1ywUnJBrj1WwLx7NX7rEbR5Zyn4JewYFSuHY7uVhDMF5jsXD1Q8J8KOLBYqU
-	FD6Iv9MSWPwHHjqpB75CJQ54hEoEJDiErma6pwOiXi9YVAYU4Jg77kPoAUAiFE6mLGsByRCVUyX6j
-	6JJ8HNpDsOtCSXy9Layc5R4khOyetWNySR+URQhPvUJGWbwZ4ZiWIhfks4Mt6Ab/idKhOoh+j8JrO
-	WigHlLSg==;
+	bh=hxY5YIWX2A55LWhwTPL5a90n771CdZxutiK9owzN9tM=; b=OmaWyDudtQ+bsFL8BA/4pBcMbQ
+	znU+I1rwdpKiudEnNB+u1360KiOJl1KGWvsO9QilbtGea2lnpOiyTfb97BeevlKuKBqpQDNPisOJ8
+	iDUXtlKHADfbhDptGzEeaDwzTJvxiEolNQ8281v7NlL3vlGw5n2f8Vv+A1V5AW2qgo5X5qE2z77Oj
+	8i5hhmmfpBQZP+iYiAU52/QzUEz7uixrR2j54346STqFnpgyiBSu7lTWCqnrSoqSzFoAwRJKJeOWl
+	hMGhvC7mj7J0NcVCKh/maZ/ctzjuHUtuPFfvCFm0gVKuUIFZyJ7bOuS+BMbOajaHXQIP/7muloVTx
+	RVp12etw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x655K-00000003LRb-0EwM;
-	Mon, 14 Sep 2026 11:42:54 +0000
-Received: from www3579.sakura.ne.jp ([49.212.243.89])
+	id 1x65Po-00000003SsS-0WGg;
+	Mon, 14 Sep 2026 12:04:04 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x654z-00000003LBu-2DUR
+	id 1x65Pm-00000003Src-0fTW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 11:42:39 +0000
-Received: from h183.csg.ci.i.u-tokyo.ac.jp (h183.csg.ci.i.u-tokyo.ac.jp [133.11.54.183])
-	(authenticated bits=0)
-	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 68EBfjs3084060
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Mon, 14 Sep 2026 20:41:51 +0900 (JST)
-	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
-DKIM-Signature: a=rsa-sha256; bh=WuWnwqCNPKyd10mfaIbh/UnI7VkNA3SDAFQEGvpGt+w=;
-        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
-        h=From:Message-Id:To:Subject:Date;
-        s=rs20250326; t=1789386111; v=1;
-        b=L+jO2MBbTPmA0boMnNUJKCuAb66bZMkmvzRSK5uqaAxQQJ/WYom8stRBV6WA4+YS
-         jmOZ0CrK/AKOZhLqBVbrMhL7nM2AuISLCw46d7Bslb1MDHb1e3DJe3x334zeEGVO
-         3R/bJ5RaRhH94P091FQTsMys7oIwc7agGI5zGASDpuUi5IpvvS8vL871LlTIcgd6
-         EjMugZwKCMLrutpQWMJbIQOfQtotuMuezB7nUqhsQFM6etG8HtPyEPi1usY9z/6r
-         G+QPDlRrzj7VD7Qug4gvNOrKGAxaNVCKsZugusCZ7dJ2qK/jVzCOBMRDMegil5fZ
-         GZnJMaTR48NIqAqDakifQw==
-From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Date: Mon, 14 Sep 2026 20:40:40 +0900
-Subject: [PATCH v10 01/20] KVM: arm64: Serialize repeated vCPU
- initialization
+	Mon, 14 Sep 2026 12:04:02 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6F490601F6;
+	Mon, 14 Sep 2026 12:04:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 256C01F000FF;
+	Mon, 14 Sep 2026 12:04:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789387441;
+	bh=hxY5YIWX2A55LWhwTPL5a90n771CdZxutiK9owzN9tM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=hm09lbjG22f4PN/yF9G8XjJkOF4aj3sN5qj5QWjCyuk76RaboRefzBZNzlyIfqKwu
+	 tvm5UpfLMueqyIZumZ9L7yzuLTJ5B10Vk3bulmN57i4ptJlHKkEACEi6qH7WZ4jBds
+	 oEKJNjJiheQy903xfNUEzSA8VVopfwajnYhZPN1NpgMmsernD5fdd9dXTfrWlSDcZX
+	 9s5X6U+7c7bxajmer28FIPJgkV1yIC4Qa/WoEh+visEE1rtiR354cwDrUvY+7GM5ax
+	 pZCv24o9v/ud0dZJth16m6W13XpRlk8CUn/VOVVyzPru/L/yNMf51mViueMAEr7X3F
+	 +kHot3CyfVK2A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1x65Pi-00000008bC0-3CKp;
+	Mon, 14 Sep 2026 12:03:58 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Quentin Perret <qperret@google.com>,
+	kvm@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: Fix the KVM_ARM_PREFERRED_TARGET documentation
+Date: Mon, 14 Sep 2026 13:03:36 +0100
+Message-ID: <178938739487.3215146.6544975088974680554.b4-ty@b4>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260831162815.269851-1-fuad.tabba@linux.dev>
+References: <20260831162815.269851-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260914-hybrid-v10-1-92788053a691@rsg.ci.i.u-tokyo.ac.jp>
-References: <20260914-hybrid-v10-0-92788053a691@rsg.ci.i.u-tokyo.ac.jp>
-In-Reply-To: <20260914-hybrid-v10-0-92788053a691@rsg.ci.i.u-tokyo.ac.jp>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-        Joey Gouly <joey.gouly@arm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu <yuzenghui@huawei.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
-        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
-        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
-        Shuah Khan <shuah@kernel.org>, Shuah Khan <skhan@linuxfoundation.org>,
-        Yury Norov <yury.norov@gmail.com>,
-        Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-        Steffen Eiden <seiden@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
-        Shannon Zhao <shannon.zhao@linaro.org>,
-        Andrew Jones <drjones@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-        linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
-        devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
-        linux-kselftest@vger.kernel.org,
-        Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>,
-        Fuad Tabba <fuad.tabba@linux.dev>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2195;
- i=odaki@rsg.ci.i.u-tokyo.ac.jp; h=from:subject:message-id;
- bh=b0gpHADGjg7FmvYTFl6eo7SpNdkhqRjVujNp+tm+UG4=;
- b=owGbwMvMwCWmMbc20y1CyJDxtFoSQ9byu1m5z9P7hBI2RW46sSD4puuv14HWBy23KvTK57Ytk
- eF7vbe7o5SFQYyLQVZMkSWlaDe3RnTtp8KE+BaYOaxMIEMYuDgFYCJWSYwMt9/XXen4MrH92b9X
- jRb35qWUftH1e2R/KDp8EsPx0nAbHUaGSc8fPHKp/K+UnyRs89NjlZLJrqKsDO9Lz6vSE3/vSPZ
- hBAA=
-X-Developer-Key: i=odaki@rsg.ci.i.u-tokyo.ac.jp; a=openpgp;
- fpr=AEDC03C9AF734F2EC26A7BFFA4BAEAA73536753C
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_044233_847807_F4187A5A 
-X-CRM114-Status: GOOD (  11.04  )
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, fuad.tabba@linux.dev, catalin.marinas@arm.com, will@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, vdonnefort@google.com, qperret@google.com, kvm@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,73 +90,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The initial KVM_ARM_VCPU_INIT path holds config_lock while resetting the
-vCPU, but repeated initialization of an existing vCPU does not. As a
-result, reset_mdcr() can race with VM-wide PMU configuration and
-overwrite MDCR_EL2 with a stale counter count.
+On Mon, 31 Aug 2026 17:28:15 +0100, Fuad Tabba wrote:
+> KVM_ARM_PREFERRED_TARGET has never set a feature bit: the original arm64
+> implementation zeroed the bitmap, and kvm_vcpu_preferred_target(), which
+> only ever zeroed it, was removed by commit 5346f7e13e5e ("KVM: arm64:
+> Always return generic v8 as the preferred target"). The ENODEV error had
+> gone earlier still, with commit 08e873cb70f3 ("KVM: arm64: Change the
+> return type of kvm_vcpu_preferred_target()"). Document what it returns,
+> that userspace selects vCPU features itself, and drop the error.
+> 
+> [...]
 
-Take config_lock around the repeated-init checks and reset. The vCPU
-ioctl already holds vcpu->mutex, matching the established lock ordering.
+Applied to next, thanks!
 
-Fixes: c8823e51b534 ("KVM: arm64: Fix MDCR_EL2.HPMN reset value")
-Closes: https://sashiko.dev/#/patchset/20260710-hybrid-v8-0-621409f3a592@rsg.ci.i.u-tokyo.ac.jp?part=1
-Assisted-by: Codex:gpt-5.6-sol
-Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
----
- arch/arm64/kvm/arm.c | 15 +++++++--------
- 1 file changed, 7 insertions(+), 8 deletions(-)
+[1/1] KVM: arm64: Fix the KVM_ARM_PREFERRED_TARGET documentation
+      commit: f3435cb7df9b8fe242bbf776a9ac496bdd2184e9
 
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index ccae82c1242b..8eff03c32418 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -1670,29 +1670,26 @@ static int __kvm_vcpu_set_target(struct kvm_vcpu *vcpu,
- {
- 	unsigned long features = init->features[0];
- 	struct kvm *kvm = vcpu->kvm;
--	int ret = -EINVAL;
-+	int ret;
- 
--	mutex_lock(&kvm->arch.config_lock);
-+	lockdep_assert_held(&kvm->arch.config_lock);
- 
- 	if (test_bit(KVM_ARCH_FLAG_VCPU_FEATURES_CONFIGURED, &kvm->arch.flags) &&
- 	    kvm_vcpu_init_changed(vcpu, init))
--		goto out_unlock;
-+		return -EINVAL;
- 
- 	bitmap_copy(kvm->arch.vcpu_features, &features, KVM_VCPU_MAX_FEATURES);
- 
- 	ret = kvm_setup_vcpu(vcpu);
- 	if (ret)
--		goto out_unlock;
-+		return ret;
- 
- 	/* Now we know what it is, we can reset it. */
- 	kvm_reset_vcpu(vcpu);
- 
- 	set_bit(KVM_ARCH_FLAG_VCPU_FEATURES_CONFIGURED, &kvm->arch.flags);
- 	vcpu_set_flag(vcpu, VCPU_INITIALIZED);
--	ret = 0;
--out_unlock:
--	mutex_unlock(&kvm->arch.config_lock);
--	return ret;
-+	return 0;
- }
- 
- static int kvm_vcpu_set_target(struct kvm_vcpu *vcpu,
-@@ -1708,6 +1705,8 @@ static int kvm_vcpu_set_target(struct kvm_vcpu *vcpu,
- 	if (ret)
- 		return ret;
- 
-+	guard(mutex)(&vcpu->kvm->arch.config_lock);
-+
- 	if (!kvm_vcpu_initialized(vcpu))
- 		return __kvm_vcpu_set_target(vcpu, init);
- 
+Cheers,
 
+	M.
 -- 
-2.55.0
+Without deviation from the norm, progress is not possible.
+
 
 
