@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCEF4C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 10:32:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D033C88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 10:32:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bwlah3K1QmWOJ/21XfgsyM6Rqk2lW1uH2JZ9HMsnE/0=; b=1A/dlmj7YJpO5oFMQ5b6d0bxeb
-	lHQLKJ+m81OslDC9WzNACKqcxUAyhek7wvVaOZRai2OBHf7mpEYRT52urB+h8UeE6NM3e5wbvOopu
-	vRu1bQIS29fHfGybVChvxyqPiaLfK35mcyXQQ/YWXUqC4PKSQAhq/2wi/PJnHv1a/UujDk8omhckS
-	uZf1q4Bsm80yyHV2EX4vT+6TDUqPld7onBun4bW2rQ2YHBLOz9U0HCeCgA2do9UMXrQh2BGcVNgfQ
-	sqnVYMMFuKY2R01rBsqjvC7ad4xBMeuFfMt7wSOsWPgtBGP+guvRKU4VeM5HC55Fi6x5wx330QWIU
-	B2S8/t+A==;
+	bh=k7IyoBJqLMqgakDSTwG0/o3z610uFP1GF1owtVeNmFs=; b=XTLSYhhfLw2LCthCVttzRhy7Dd
+	aQNPvRip10/vs8RQQZLBHnbVrVWu4wlBDiA4AOo1S2zcGRSG5E4rZMyeS7LmAEdsejGBkGt7Jk/a+
+	PhimD+XUYvdHasUT2IlhochrtZ+GQI9DThC6LCKTuzIuQUn8zvurhV3PhwPV+XfoJEV3qM+apxCWT
+	YhBMqyziAYWEg2lllrCyduZXl/BrCfplN9dfK8n7kBts8FisVTyt3GIQA5h4N7XxzXgtzvZQWg94S
+	QdcdCtJOkw/15jVCVsxBEeptCkOmEcEJYUEZBjRZD6VtA++hlJbpwu46kZ50eu4EPjRB+wdB8qH3d
+	nDgXMmiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x63yw-000000039L9-0OeK;
+	id 1x63yw-000000039LT-17lM;
 	Mon, 14 Sep 2026 10:32:14 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x63yf-0000000396C-2qme;
+	id 1x63yf-0000000395v-2yIH;
 	Mon, 14 Sep 2026 10:31:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5C45043AF2;
+	by tor.source.kernel.org (Postfix) with ESMTP id 06E28601F0;
 	Mon, 14 Sep 2026 10:31:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 3F745C2BCFB;
-	Mon, 14 Sep 2026 10:31:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id AA856C2BCFF;
+	Mon, 14 Sep 2026 10:31:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1789381917;
-	bh=98Vdi+APQA27igUzLIuNTEzW8pp6Z5sUf0kXQ5c9OlY=;
+	s=k20201202; t=1789381916;
+	bh=5o8D7wPWHxM0KSk5WbbfMSfm3cWoYo7Gtnd7LzwqXng=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=botDv4Xq/CjPaftVNosZCZaNQ+YICfDX29gr0twBpsDOoOkR5IGiDS6JFv+7ycKFN
-	 +V0g/EPYlADAY+obhvKHxU1TOWYbjx9a7OMnP9huslGVUCAPPltQRFJSdHZPqyCJ9j
-	 QJZ/lfsb5bbotkDhnl5OjRU+HD/WWDSpSQF+xP5ldapWXTq4WdXCH+i1nlx/AhDlOj
-	 1BRWlbZmd21QphhBlLDxufk2kx8Q8utB2ney1fkDyYvV/CKZSxjG4UHFq45PXUAeOd
-	 1fKK6pL0uVqKH2fUFBTG6KdR2R92z4N6uNqyqUrkbrJo2fXu9U8e90YRX3hRbnjAcM
-	 tWv1SiifPsQwQ==
+	b=OLjZaveAgpjbkk3JSWkjiwjDQFEzzuoDMeqEIytxd/1qGuVfTGakRCiprl4hQ8B+e
+	 Ct/XOcjjTAkILJmwgAfXTfaess1zJLpbpEdlRza5RPg2y5amDP2H8osAGxh5sQBz0j
+	 lckhQmuFHw05ToeyFiAj3TvXFLHWsMegkKOQZkOx2Sy7bEztUW8OKXOAOOiq/fiOkD
+	 XYMP0Tgf2k0RhiA15SSITb//oQCJM59hFpFdCXACky0I6J8fCZZB0mykruj9n/lQSq
+	 vHezwozzG4Lp9bowKFq7L3zGKURxkpLWv9SxH1oK+8VLT8CjI52yiJRpJHa/8pdUUP
+	 kPQPt7go4ygtg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2D28FC88E65;
-	Mon, 14 Sep 2026 10:31:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8CF53C88E64;
+	Mon, 14 Sep 2026 10:31:56 +0000 (UTC)
 From: Jack Wu via B4 Relay <devnull+jackbb_wu.compal.com@kernel.org>
-Date: Mon, 14 Sep 2026 18:31:57 +0800
-Subject: [PATCH v8 6/6] net: wwan: t9xx: Add AT & MBIM WWAN ports
+Date: Mon, 14 Sep 2026 18:31:53 +0800
+Subject: [PATCH v8 2/6] net: wwan: t9xx: Add control plane transaction
+ layer
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260914-t9xx_driver_v1-v8-6-5206c2e6bea0@compal.com>
+Message-Id: <20260914-t9xx_driver_v1-v8-2-5206c2e6bea0@compal.com>
 References: <20260914-t9xx_driver_v1-v8-0-5206c2e6bea0@compal.com>
 In-Reply-To: <20260914-t9xx_driver_v1-v8-0-5206c2e6bea0@compal.com>
 To: Loic Poulain <loic.poulain@oss.qualcomm.com>, 
@@ -71,11 +72,11 @@ Cc: linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
  linux-doc@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789381913; l=13723;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789381913; l=6982;
  i=jackbb_wu@compal.com; s=20260526; h=from:subject:message-id;
- bh=/HO3/Fa5EraejHnxqf8QC5M4oboRraeNO7gyLZd0M5M=;
- b=Gw09Jd1no8GkcQ3CnReh/XzWOcDjLKtoivFrwkFu5BodEFlYx3uwfsgHATd7YyUF6rNT7XJM0
- sp8ykgJXVqbCvDT2OuudI6Znc2gc/bxY3ddX1gG0dVCM2PTxYys6U0p
+ bh=CNrnp+lDdjzktOGH32uq8Tg+yPMZ7o9NVY2EpdOVAVE=;
+ b=bRYyy/qLlm96gbMF/UqYMt5Q+vLG2E1QZJasOVOEPmuVnsgL0x48LHbq+ufkQjc+I13USHj9O
+ P5Q/ImbbIzkDq3dUNgNvI244XnqzWquIafWiDyWKsyd58YD3zcHT4lh
 X-Developer-Key: i=jackbb_wu@compal.com; a=ed25519;
  pk=VH1prTWixNl8OEUPPSfII3p46MzJpQN8J3+ecE1tZXg=
 X-Endpoint-Received: by B4 Relay for jackbb_wu@compal.com/20260526 with
@@ -98,453 +99,245 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Jack Wu <jackbb_wu@compal.com>
 
-Add AT & MBIM ports to the port infrastructure.
-The WWAN initialization method is responsible for creating the
-corresponding ports using the WWAN framework infrastructure. The
-implemented WWAN port operations are start, stop, tx, tx_blocking
-and tx_poll.
-The tx path copies with skb_copy_bits(), handling the non-linear
-skb the WWAN core supplies for writes larger than one fragment.
+Introduce the control plane and transaction layer framework
+for the T9XX WWAN driver. This patch adds the core data
+structures (mtk_ctrl_blk, mtk_ctrl_trans) and initialization
+entry points that subsequent patches build upon.
+
+Split PCIe-specific objects into a separate mtk_t9xx_pcie
+module gated by the hidden MTK_T9XX_PCI config symbol.
+
+The control plane block (ctrl_blk) serves as the central
+context for managing the transaction layer, port layer, and
+FSM interactions. The actual DMA engine and TX/RX service
+implementations are added in subsequent patches.
 
 Signed-off-by: Jack Wu <jackbb_wu@compal.com>
 ---
- drivers/net/wwan/t9xx/mtk_ctrl_plane.h         |   4 +
- drivers/net/wwan/t9xx/mtk_port.c               |  30 +++
- drivers/net/wwan/t9xx/mtk_port.h               |   9 +
- drivers/net/wwan/t9xx/mtk_port_io.c            | 275 +++++++++++++++++++++++++
- drivers/net/wwan/t9xx/pcie/mtk_ctrl_cfg_m9xx.c |   8 +
- 5 files changed, 326 insertions(+)
+ drivers/net/wwan/Kconfig                    |  9 ++++--
+ drivers/net/wwan/t9xx/Makefile              |  5 ++--
+ drivers/net/wwan/t9xx/mtk_ctrl_plane.c      | 46 +++++++++++++++++++++++++++++
+ drivers/net/wwan/t9xx/mtk_ctrl_plane.h      | 22 ++++++++++++++
+ drivers/net/wwan/t9xx/mtk_dev.c             | 11 +++++++
+ drivers/net/wwan/t9xx/mtk_dev.h             |  2 ++
+ drivers/net/wwan/t9xx/pcie/Makefile         | 10 +++++++
+ drivers/net/wwan/t9xx/pcie/mtk_pci.c        |  1 +
+ drivers/net/wwan/t9xx/pcie/mtk_trans_ctrl.h | 21 +++++++++++++
+ 9 files changed, 123 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/net/wwan/t9xx/mtk_ctrl_plane.h b/drivers/net/wwan/t9xx/mtk_ctrl_plane.h
-index 864bca533876..92d904e28096 100644
---- a/drivers/net/wwan/t9xx/mtk_ctrl_plane.h
-+++ b/drivers/net/wwan/t9xx/mtk_ctrl_plane.h
-@@ -30,6 +30,10 @@ enum mtk_ccci_ch {
- 	/* to MD */
- 	CCCI_CONTROL_RX = 0x2000,
- 	CCCI_CONTROL_TX = 0x2001,
-+	CCCI_UART2_RX = 0x200A,
-+	CCCI_UART2_TX = 0x200C,
-+	CCCI_MBIM_RX = 0x20D0,
-+	CCCI_MBIM_TX = 0x20D1,
- };
+diff --git a/drivers/net/wwan/Kconfig b/drivers/net/wwan/Kconfig
+index 55c45af410ee..aeaed8f058ec 100644
+--- a/drivers/net/wwan/Kconfig
++++ b/drivers/net/wwan/Kconfig
+@@ -124,14 +124,19 @@ config MTK_T7XX
+ config MTK_T9XX
+ 	tristate "MediaTek PCIe 5G WWAN modem T9xx device"
+ 	depends on PCI && ACPI
++	select MTK_T9XX_PCI
+ 	help
+ 	  Enables MediaTek PCIe based 5G WWAN modem (T9xx series) device.
  
- enum mtk_trb_cmd_type {
-diff --git a/drivers/net/wwan/t9xx/mtk_port.c b/drivers/net/wwan/t9xx/mtk_port.c
-index bddb8523d120..88a0cb5fa78d 100644
---- a/drivers/net/wwan/t9xx/mtk_port.c
-+++ b/drivers/net/wwan/t9xx/mtk_port.c
-@@ -820,6 +820,29 @@ int mtk_port_ch_disable(struct mtk_port *port)
- 	return ret;
- }
+-	  To compile this driver as a module, choose M here: the module will be
+-	  called mtk_t9xx.
++	  To compile this driver as a module, choose M here: the modules will
++	  be called mtk_t9xx and mtk_t9xx_pcie.
  
-+static int mtk_port_enable_by_type(struct mtk_port_mngr *port_mngr, int tbl_type)
+ 	  If unsure, say N.
+ 
++config MTK_T9XX_PCI
++	tristate
++	depends on PCI
++
+ endif # WWAN
+ 
+ endmenu
+diff --git a/drivers/net/wwan/t9xx/Makefile b/drivers/net/wwan/t9xx/Makefile
+index 6f2dd3f91454..ae9d6f2344ab 100644
+--- a/drivers/net/wwan/t9xx/Makefile
++++ b/drivers/net/wwan/t9xx/Makefile
+@@ -4,7 +4,8 @@ ccflags-y += -I$(src)/pcie
+ ccflags-y += -I$(src)
+ 
+ obj-$(CONFIG_MTK_T9XX) += mtk_t9xx.o
++obj-$(CONFIG_MTK_T9XX_PCI) += pcie/
+ 
+ mtk_t9xx-y := \
+-	pcie/mtk_pci.o \
+-	pcie/mtk_pci_drv_m9xx.o
++	mtk_dev.o \
++	mtk_ctrl_plane.o
+diff --git a/drivers/net/wwan/t9xx/mtk_ctrl_plane.c b/drivers/net/wwan/t9xx/mtk_ctrl_plane.c
+new file mode 100644
+index 000000000000..e5698a46427e
+--- /dev/null
++++ b/drivers/net/wwan/t9xx/mtk_ctrl_plane.c
+@@ -0,0 +1,46 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (c) 2022, MediaTek Inc.
++ * Copyright (c) 2022-2023, Intel Corporation.
++ */
++
++#include <linux/device.h>
++
++#include "mtk_ctrl_plane.h"
++
++/**
++ * mtk_ctrl_init() - Initialize the control plane block.
++ * @mdev: Pointer to the MTK modem device.
++ *
++ * Allocates and initializes the control plane block
++ * associated with @mdev.
++ *
++ * Return: 0 on success, -ENOMEM on allocation failure.
++ */
++int mtk_ctrl_init(struct mtk_md_dev *mdev)
 +{
-+	struct mtk_port **ports;
-+	int ret, idx;
++	struct mtk_ctrl_blk *ctrl_blk;
 +
-+	if (tbl_type < 0 || tbl_type >= PORT_TBL_MAX)
-+		return -EINVAL;
-+
-+	ports = kcalloc(port_mngr->port_cnt, sizeof(struct mtk_port *), GFP_KERNEL);
-+	if (!ports)
++	ctrl_blk = devm_kzalloc(mdev->dev, sizeof(*ctrl_blk), GFP_KERNEL);
++	if (!ctrl_blk)
 +		return -ENOMEM;
 +
-+	ret = radix_tree_gang_lookup(&port_mngr->port_tbl[tbl_type],
-+				     (void **)ports, 0, port_mngr->port_cnt);
-+	for (idx = 0; idx < ret; idx++) {
-+		if (ports[idx]->enable)
-+			ports_ops[ports[idx]->info.type]->enable(ports[idx]);
-+	}
++	ctrl_blk->mdev = mdev;
++	mdev->ctrl_blk = ctrl_blk;
 +
-+	kfree(ports);
 +	return 0;
 +}
++EXPORT_SYMBOL_GPL(mtk_ctrl_init);
 +
- static void mtk_port_disable(struct mtk_port_mngr *port_mngr)
- {
- 	struct radix_tree_iter iter;
-@@ -841,6 +864,7 @@ static void mtk_port_disable(struct mtk_port_mngr *port_mngr)
- void mtk_port_mngr_fsm_state_handler(struct mtk_fsm_param *fsm_param, void *arg)
- {
- 	struct mtk_port_mngr *port_mngr;
-+	int ret;
- 
- 	if (!fsm_param || !arg)
- 		return;
-@@ -851,6 +875,12 @@ void mtk_port_mngr_fsm_state_handler(struct mtk_fsm_param *fsm_param, void *arg)
- 	case FSM_STATE_OFF:
- 		mtk_port_disable(port_mngr);
- 		break;
-+	case FSM_STATE_READY:
-+		ret = mtk_port_enable_by_type(port_mngr, PORT_TBL_MD);
-+		if (ret)
-+			dev_err(port_mngr->ctrl_blk->mdev->dev,
-+				"Failed to enable MD ports: %d\n", ret);
-+		break;
- 	default:
- 		break;
- 	}
-diff --git a/drivers/net/wwan/t9xx/mtk_port.h b/drivers/net/wwan/t9xx/mtk_port.h
-index eba6b8f27559..9e8f1d4cff01 100644
---- a/drivers/net/wwan/t9xx/mtk_port.h
-+++ b/drivers/net/wwan/t9xx/mtk_port.h
-@@ -64,6 +64,7 @@ enum mtk_port_tbl {
- 
- enum mtk_port_type {
- 	PORT_TYPE_INTERNAL,
-+	PORT_TYPE_WWAN,
- 	PORT_TYPE_MAX
- };
- 
-@@ -72,6 +73,13 @@ struct mtk_internal_port {
- 	int (*recv_cb)(void *arg, struct sk_buff *skb);
- };
- 
-+struct mtk_wwan_port {
-+	/* w_lock protects wwan_port when recv data and disable port at the same time */
-+	struct mutex w_lock;
-+	int w_type;
-+	void *w_port;
-+};
-+
- struct mtk_port_cfg {
- 	enum mtk_ccci_ch tx_ch;
- 	enum mtk_ccci_ch rx_ch;
-@@ -101,6 +109,7 @@ struct mtk_port {
- 	char dev_str[MTK_DEV_STR_LEN];
- 	struct mtk_port_mngr *port_mngr;
- 	struct mtk_internal_port i_priv;
-+	struct mtk_wwan_port w_priv;
- };
- 
- struct mtk_port_mngr {
-diff --git a/drivers/net/wwan/t9xx/mtk_port_io.c b/drivers/net/wwan/t9xx/mtk_port_io.c
-index 27b490fde40f..b1c1aa6009d6 100644
---- a/drivers/net/wwan/t9xx/mtk_port_io.c
-+++ b/drivers/net/wwan/t9xx/mtk_port_io.c
-@@ -3,6 +3,10 @@
-  * Copyright (c) 2022, MediaTek Inc.
-  */
- #include <linux/netdevice.h>
-+#include <linux/poll.h>
-+#include <linux/slab.h>
-+#include <linux/wait.h>
-+#include <linux/wwan.h>
- 
- #include "mtk_port_io.h"
- 
-@@ -41,6 +45,59 @@ static void mtk_port_struct_init(struct mtk_port *port)
- 	init_waitqueue_head(&port->rx_wq);
- }
- 
-+/* Splits the source skb into CCCI packets and submits them, all or
-+ * nothing.  The source may be non-linear: the WWAN core hands the tx ops
-+ * a head skb whose linear area is one fragment (caps.frag_len bytes) with
-+ * the rest chained on frag_list, so every read goes through
-+ * skb_copy_bits(), which walks that chain and is bounded by src->len by
-+ * construction.
++/**
++ * mtk_ctrl_exit() - Clean up the control plane block.
++ * @mdev: Pointer to the MTK modem device.
 + *
-+ * Returns 0 or a negative errno.  Only the first packet may fail with
-+ * -EAGAIN; every later packet is submitted with force_send so a message
-+ * partially handed to the transaction layer cannot be truncated by a full
-+ * queue.  -EINTR from a blocking wait arrives after the skb was
-+ * submitted, so the packet counts as accepted and the loop continues.
++ * Clears the control plane block pointer. The allocation
++ * itself is managed by devres and freed on driver detach.
 + */
-+static int mtk_port_common_write(struct mtk_port *port, struct sk_buff *src, bool blocking)
++void mtk_ctrl_exit(struct mtk_md_dev *mdev)
 +{
-+	u32 packet_size, left_cnt = src->len, cur_pos;
-+	bool force_send = false;
-+	struct sk_buff *skb;
-+	int ret;
-+
-+	while (left_cnt) {
-+		ret = mtk_port_status_check(port);
-+		if (ret)
-+			return ret;
-+
-+		skb = __dev_alloc_skb(port->tx_mtu, GFP_KERNEL);
-+		if (!skb)
-+			return -ENOMEM;
-+
-+		skb_reserve(skb, sizeof(struct mtk_ccci_header));
-+
-+		packet_size = min_t(u32, left_cnt,
-+				    port->tx_mtu - sizeof(struct mtk_ccci_header));
-+		cur_pos = src->len - left_cnt;
-+		ret = skb_copy_bits(src, cur_pos, skb_put(skb, packet_size), packet_size);
-+		if (ret) {
-+			dev_err(port->port_mngr->ctrl_blk->mdev->dev,
-+				"Failed to copy data for port(%s)\n", port->info.name);
-+			dev_kfree_skb_any(skb);
-+			return ret;
-+		}
-+
-+		ret = mtk_port_send_data(port, skb, blocking, force_send);
-+		if (ret < 0 && ret != -EINTR)
-+			return ret;
-+
-+		left_cnt -= packet_size;
-+		force_send = true;
-+	}
-+
-+	return 0;
++	mdev->ctrl_blk = NULL;
 +}
++EXPORT_SYMBOL_GPL(mtk_ctrl_exit);
+diff --git a/drivers/net/wwan/t9xx/mtk_ctrl_plane.h b/drivers/net/wwan/t9xx/mtk_ctrl_plane.h
+new file mode 100644
+index 000000000000..c141876ef95d
+--- /dev/null
++++ b/drivers/net/wwan/t9xx/mtk_ctrl_plane.h
+@@ -0,0 +1,22 @@
++/* SPDX-License-Identifier: GPL-2.0-only
++ *
++ * Copyright (c) 2022, MediaTek Inc.
++ */
 +
- static int mtk_port_internal_init(struct mtk_port *port)
- {
- 	mtk_port_struct_init(port);
-@@ -242,6 +299,224 @@ static const struct port_ops port_internal_ops = {
- 	.recv = mtk_port_internal_recv,
++#ifndef __MTK_CTRL_PLANE_H__
++#define __MTK_CTRL_PLANE_H__
++
++#include <linux/kref.h>
++#include <linux/skbuff.h>
++
++#include "mtk_dev.h"
++
++struct mtk_ctrl_blk {
++	struct mtk_md_dev *mdev;
++	struct mtk_ctrl_trans *trans;
++};
++
++int mtk_ctrl_init(struct mtk_md_dev *mdev);
++void mtk_ctrl_exit(struct mtk_md_dev *mdev);
++
++#endif /* __MTK_CTRL_PLANE_H__ */
+diff --git a/drivers/net/wwan/t9xx/mtk_dev.c b/drivers/net/wwan/t9xx/mtk_dev.c
+new file mode 100644
+index 000000000000..50f77d5a210c
+--- /dev/null
++++ b/drivers/net/wwan/t9xx/mtk_dev.c
+@@ -0,0 +1,11 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (c) 2022, MediaTek Inc.
++ */
++
++#include <linux/module.h>
++
++#include "mtk_dev.h"
++
++MODULE_DESCRIPTION("MediaTek T9xx PCIe WWAN driver");
++MODULE_LICENSE("GPL");
+diff --git a/drivers/net/wwan/t9xx/mtk_dev.h b/drivers/net/wwan/t9xx/mtk_dev.h
+index 8278a0e2875e..9843171fe2ae 100644
+--- a/drivers/net/wwan/t9xx/mtk_dev.h
++++ b/drivers/net/wwan/t9xx/mtk_dev.h
+@@ -36,6 +36,7 @@ enum mtk_dev_evt_d2h {
  };
  
-+static int mtk_port_wwan_open(struct wwan_port *w_port)
-+{
-+	struct mtk_port *port;
-+	int ret;
-+
-+	port = wwan_port_get_drvdata(w_port);
-+	ret = mtk_port_get_locked(port);
-+	if (ret)
-+		return ret;
-+
-+	ret = mtk_port_common_open(port);
-+	if (ret)
-+		mtk_port_put_locked(port);
-+
-+	return ret;
-+}
-+
-+static void mtk_port_wwan_close(struct wwan_port *w_port)
-+{
-+	struct mtk_port *port = wwan_port_get_drvdata(w_port);
-+
-+	mtk_port_common_close(port);
-+	mtk_port_put_locked(port);
-+}
-+
-+static int mtk_port_wwan_tx(struct wwan_port *w_port, struct sk_buff *skb, bool blocking)
-+{
-+	struct mtk_port *port = wwan_port_get_drvdata(w_port);
-+	int ret;
-+
-+	if (unlikely(!skb->len)) {
-+		consume_skb(skb);
-+		return 0;
-+	}
-+
-+	ret = mtk_port_common_write(port, skb, blocking);
-+	if (ret < 0)
-+		return ret;
-+
-+	consume_skb(skb);
-+	return 0;
-+}
-+
-+static int mtk_port_wwan_write(struct wwan_port *w_port, struct sk_buff *skb)
-+{
-+	return mtk_port_wwan_tx(w_port, skb, false);
-+}
-+
-+static int mtk_port_wwan_write_blocking(struct wwan_port *w_port, struct sk_buff *skb)
-+{
-+	return mtk_port_wwan_tx(w_port, skb, true);
-+}
-+
-+static __poll_t mtk_port_wwan_poll(struct wwan_port *w_port, struct file *file,
-+				   struct poll_table_struct *poll)
-+{
-+	struct mtk_port *port = wwan_port_get_drvdata(w_port);
-+	union ctrl_hif_cmd_data hif_cmd;
+ struct mtk_md_dev;
++struct mtk_ctrl_blk;
+ 
+ struct mtk_dev_ops {
+ 	u32 (*get_dev_state)(struct mtk_md_dev *mdev);
+@@ -57,6 +58,7 @@ struct mtk_md_dev {
+ 	void *hw_priv;
+ 	u32 hw_ver;
+ 	char dev_str[MTK_DEV_STR_LEN];
 +	struct mtk_ctrl_blk *ctrl_blk;
-+	__poll_t mask = 0;
-+
-+	poll_wait(file, &port->trb_wq, poll);
-+	if (mtk_port_status_check(port))
-+		return EPOLLERR | EPOLLHUP;
-+
-+	ctrl_blk = port->port_mngr->ctrl_blk;
-+	hif_cmd.rx_ch = port->info.rx_ch;
-+	if (!ctrl_blk->ops->send_cmd(ctrl_blk->mdev, HIF_CTRL_CMD_CHECK_TX_FULL, &hif_cmd))
-+		mask |= EPOLLOUT | EPOLLWRNORM;
-+
-+	return mask;
-+}
-+
-+static const struct wwan_port_ops wwan_ops = {
-+	.start = mtk_port_wwan_open,
-+	.stop = mtk_port_wwan_close,
-+	.tx = mtk_port_wwan_write,
-+	.tx_blocking = mtk_port_wwan_write_blocking,
-+	.tx_poll = mtk_port_wwan_poll,
-+};
-+
-+static int mtk_port_wwan_init(struct mtk_port *port)
-+{
-+	mtk_port_struct_init(port);
-+	port->enable = false;
-+
-+	mutex_init(&port->w_priv.w_lock);
-+
-+	switch (port->info.rx_ch) {
-+	case CCCI_MBIM_RX:
-+		port->w_priv.w_type = WWAN_PORT_MBIM;
-+		break;
-+	case CCCI_UART2_RX:
-+		port->w_priv.w_type = WWAN_PORT_AT;
-+		break;
-+	default:
-+		port->w_priv.w_type = WWAN_PORT_UNKNOWN;
-+		break;
-+	}
-+
-+	return 0;
-+}
-+
-+static void mtk_port_wwan_exit(struct mtk_port *port)
-+{
-+	if (test_bit(PORT_S_ENABLE, &port->status))
-+		ports_ops[port->info.type]->disable(port);
-+}
-+
-+static void mtk_port_wwan_enable(struct mtk_port *port)
-+{
-+	struct mtk_port_mngr *port_mngr;
-+	struct wwan_port_caps caps;
-+	struct wwan_port *wp;
-+	int ret;
-+
-+	port_mngr = port->port_mngr;
-+
-+	if (test_bit(PORT_S_ENABLE, &port->status))
-+		return;
-+
-+	ret = mtk_port_ch_enable(port);
-+	if (ret && ret != -EBUSY) {
-+		/* On -ETIMEDOUT the enable's outcome is not yet known: the
-+		 * ENABLE trb may still be queued.  The DISABLE is queued
-+		 * behind it, so the channel cannot stay armed unowned.
-+		 */
-+		mtk_port_ch_disable(port);
-+		return;
-+	}
-+
-+	/* tx_mtu is only valid once the channel open trb has completed. A zero
-+	 * frag_len would make wwan_port_fops_write() loop forever.
-+	 */
-+	if (!port->tx_mtu) {
-+		dev_err(port_mngr->ctrl_blk->mdev->dev,
-+			"Invalid tx_mtu for port(%s)\n", port->info.name);
-+		mtk_port_ch_disable(port);
-+		return;
-+	}
-+
-+	caps.frag_len = port->tx_mtu;
-+	caps.headroom_len = sizeof(struct mtk_ccci_header);
-+
-+	/* These bits must be set before wwan_create_port(): the device node
-+	 * becomes openable inside it and mtk_port_common_open() rejects a
-+	 * port without PORT_S_ENABLE.
-+	 */
-+	set_bit(PORT_S_WR, &port->status);
-+	set_bit(PORT_S_ENABLE, &port->status);
-+
-+	wp = wwan_create_port(port_mngr->ctrl_blk->mdev->dev,
-+			      port->w_priv.w_type,
-+			      &wwan_ops, &caps, port);
-+	if (IS_ERR(wp)) {
-+		dev_warn(port_mngr->ctrl_blk->mdev->dev,
-+			 "Failed to create wwan port for (%s)\n", port->info.name);
-+		clear_bit(PORT_S_ENABLE, &port->status);
-+		clear_bit(PORT_S_WR, &port->status);
-+		mtk_port_ch_disable(port);
-+		return;
-+	}
-+
-+	mutex_lock(&port->w_priv.w_lock);
-+	port->w_priv.w_port = wp;
-+	mutex_unlock(&port->w_priv.w_lock);
-+}
-+
-+static void mtk_port_wwan_disable(struct mtk_port *port)
-+{
-+	struct wwan_port *w_port;
-+
-+	if (!test_and_clear_bit(PORT_S_ENABLE, &port->status))
-+		return;
-+
-+	clear_bit(PORT_S_WR, &port->status);
-+	mutex_lock(&port->w_priv.w_lock);
-+	w_port = port->w_priv.w_port;
-+	port->w_priv.w_port = NULL;
-+	mutex_unlock(&port->w_priv.w_lock);
-+
-+	mtk_port_ch_disable(port);
-+	wwan_remove_port(w_port);
-+}
-+
-+static int mtk_port_wwan_recv(struct mtk_port *port, struct sk_buff *skb)
-+{
-+	/* Drop frames when nobody has the device open: wwan_port_rx() queues
-+	 * without bound and only a reader drains the queue, so accepting
-+	 * unsolicited traffic here would grow the rxq indefinitely.
-+	 */
-+	if (!test_bit(PORT_S_OPEN, &port->status)) {
-+		dev_dbg_ratelimited(port->port_mngr->ctrl_blk->mdev->dev,
-+				    "Drop RX for unopened port(%s)\n", port->info.name);
-+		return -ENXIO;
-+	}
-+
-+	mutex_lock(&port->w_priv.w_lock);
-+	if (!port->w_priv.w_port) {
-+		mutex_unlock(&port->w_priv.w_lock);
-+		return -ENXIO;
-+	}
-+
-+	wwan_port_rx(port->w_priv.w_port, skb);
-+	mutex_unlock(&port->w_priv.w_lock);
-+	return 0;
-+}
-+
-+static const struct port_ops port_wwan_ops = {
-+	.init = mtk_port_wwan_init,
-+	.exit = mtk_port_wwan_exit,
-+	.reset = mtk_port_reset,
-+	.enable = mtk_port_wwan_enable,
-+	.disable = mtk_port_wwan_disable,
-+	.recv = mtk_port_wwan_recv,
-+};
-+
- const struct port_ops *ports_ops[PORT_TYPE_MAX] = {
- 	&port_internal_ops,
-+	&port_wwan_ops,
- };
-diff --git a/drivers/net/wwan/t9xx/pcie/mtk_ctrl_cfg_m9xx.c b/drivers/net/wwan/t9xx/pcie/mtk_ctrl_cfg_m9xx.c
-index 050416e0b914..761a068b859b 100644
---- a/drivers/net/wwan/t9xx/pcie/mtk_ctrl_cfg_m9xx.c
-+++ b/drivers/net/wwan/t9xx/pcie/mtk_ctrl_cfg_m9xx.c
-@@ -16,6 +16,10 @@ static const int mtk_srv_cfg_m9xx[NR_CLDMA][HW_QUE_NUM] = {
- 
- /* the number of RX GPDs should be at least two */
- static const struct queue_info mtk_queue_info_m9xx[] = {
-+	{CCCI_UART2_TX, CCCI_UART2_RX, CLDMA1, TXQ(5), RXQ(5),
-+	 Q_MTU_3_5K, Q_MTU_3_5K, TX_GPD_NUM, RX_GPD_NUM, Q_FRAG_3_5K, Q_FRAG_3_5K, 0},
-+	{CCCI_MBIM_TX, CCCI_MBIM_RX, CLDMA1, TXQ(2), RXQ(2),
-+	 Q_MTU_3_5K, Q_MTU_3_5K, TX_GPD_NUM, RX_GPD_NUM, Q_FRAG_3_5K, Q_FRAG_3_5K, 0},
- 	{CCCI_CONTROL_TX, CCCI_CONTROL_RX, CLDMA1, TXQ(0), RXQ(0),
- 	 Q_MTU_3_5K, Q_MTU_3_5K, TX_GPD_NUM, RX_GPD_NUM, Q_FRAG_3_5K, Q_FRAG_3_5K, 0},
- 	{CCCI_SAP_CONTROL_TX, CCCI_SAP_CONTROL_RX, CLDMA0, TXQ(0), RXQ(0),
-@@ -23,6 +27,10 @@ static const struct queue_info mtk_queue_info_m9xx[] = {
  };
  
- static const struct mtk_port_cfg port_cfg_m9xx[] = {
-+	{CCCI_UART2_TX, CCCI_UART2_RX, PORT_TYPE_WWAN, "AT",
-+		PORT_F_ALLOW_DROP},
-+	{CCCI_MBIM_TX, CCCI_MBIM_RX, PORT_TYPE_WWAN, "MBIM",
-+		PORT_F_ALLOW_DROP},
- 	{CCCI_CONTROL_TX, CCCI_CONTROL_RX, PORT_TYPE_INTERNAL, "MDCTRL",
- 		PORT_F_ALLOW_DROP},
- 	{CCCI_SAP_CONTROL_TX, CCCI_SAP_CONTROL_RX, PORT_TYPE_INTERNAL, "SAPCTRL",
+ static inline u32 mtk_dev_get_dev_state(struct mtk_md_dev *mdev)
+diff --git a/drivers/net/wwan/t9xx/pcie/Makefile b/drivers/net/wwan/t9xx/pcie/Makefile
+new file mode 100644
+index 000000000000..7410d1796d27
+--- /dev/null
++++ b/drivers/net/wwan/t9xx/pcie/Makefile
+@@ -0,0 +1,10 @@
++# SPDX-License-Identifier: GPL-2.0-only
++
++ccflags-y += -I$(src)
++ccflags-y += -I$(src)/..
++
++obj-$(CONFIG_MTK_T9XX_PCI) += mtk_t9xx_pcie.o
++
++mtk_t9xx_pcie-y := \
++	mtk_pci_drv_m9xx.o \
++	mtk_pci.o
+diff --git a/drivers/net/wwan/t9xx/pcie/mtk_pci.c b/drivers/net/wwan/t9xx/pcie/mtk_pci.c
+index eb72efc19652..ed084839b1ed 100644
+--- a/drivers/net/wwan/t9xx/pcie/mtk_pci.c
++++ b/drivers/net/wwan/t9xx/pcie/mtk_pci.c
+@@ -13,6 +13,7 @@
+ #include <linux/module.h>
+ 
+ #include "mtk_dev.h"
++#include "mtk_trans_ctrl.h"
+ #include "mtk_pci.h"
+ #include "mtk_pci_reg.h"
+ 
+diff --git a/drivers/net/wwan/t9xx/pcie/mtk_trans_ctrl.h b/drivers/net/wwan/t9xx/pcie/mtk_trans_ctrl.h
+new file mode 100644
+index 000000000000..d6de4c43b529
+--- /dev/null
++++ b/drivers/net/wwan/t9xx/pcie/mtk_trans_ctrl.h
+@@ -0,0 +1,21 @@
++/* SPDX-License-Identifier: GPL-2.0-only
++ *
++ * Copyright (c) 2022, MediaTek Inc.
++ */
++
++#ifndef __MTK_TRANS_CTRL_H__
++#define __MTK_TRANS_CTRL_H__
++
++#include <linux/kref.h>
++#include <linux/list.h>
++#include <linux/skbuff.h>
++#include <linux/types.h>
++
++#include "mtk_dev.h"
++
++struct mtk_ctrl_trans {
++	struct mtk_ctrl_blk *ctrl_blk;
++	struct mtk_md_dev *mdev;
++};
++
++#endif
 
 -- 
 2.34.1
