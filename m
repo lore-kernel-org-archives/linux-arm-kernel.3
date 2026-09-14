@@ -4,136 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7921C88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 22:29:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 296CCC88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 22:32:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BO+nbHSwrA02c1j3fvUwjIXr+2X/OQXfqmxgnArEusA=; b=ZmSrmS2fsBu/74fc41g5GiinNR
-	KoDpXE5nwS28rd6egzisU2PF8ZaR4zGxH+egkIHN+V10CLNIK6BzMQ9DI1G6orghrDsXxlIznOcc5
-	EVTtEOdFMLaIkrNNDEluKSX/Iv5r0SrvOWy7ooZaA72WO+KxXI7xLgnAulA4VTmw+9rls6+Sl8jvc
-	aJxWjbxsAxnuRb+T+ZVJGnCgfN5arjAstFtbQZpzNwm0vZoyIKUHNit5UVtMB+ic0yajoHAZR8Uun
-	CknJEPKwRC/yj8+FnDPS925f2PtF2oJNlrRQmCdirS36zxrFHg9Hzq/yrkztjBwjmxMIQhhZ5uFlA
-	AL8GK+fQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XwTPxRgU+fYFHTYoxwRr5IV8pHvdn98ivroHogPVzFs=; b=dy0MLtKyL+dMgc
+	PtQLCOUoBqpbS49ClHS4KNnHLrwtjwdGZz9D8GxnG9ru09jrRPZzo2IXvPyCn1od5W00EQkzjFloI
+	r5HJElmuj5M+m5Gyxx24ikaNL/Jb1FdRUISbFjryw5IkSWXmbSAmZLSQtBZhxOJ3KqM+TkbbkSuvd
+	r8H5+kD40e1vRFo2RzbKxcTdjiDcdakvWM3o/bIt0UsuTmYHcVaTJaTc7TYZLecN0WIlZfDCPCe06
+	5amLNfKLgOitAFeUmJ7Rug8zUBgtwgtTJ5wNqNReLZmOjDNoOT3yDBJiYVf8vw0E8XdKYY7wfW2Af
+	RKTfT5UJbCZXyisk3ieA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6FAX-00000004mzg-37x0;
-	Mon, 14 Sep 2026 22:28:57 +0000
-Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1x6Dw9-00000004fOm-07fU;
+	Mon, 14 Sep 2026 21:10:01 +0000
+Received: from mail-oa2-x10.google.com ([2607:f8b0:4864:30::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6FAU-00000004myF-0Qp4
+	id 1x6Dw5-00000004fLy-08oI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 22:28:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HNLdeyVDXvsFi1bwBrYav0mGmxtMbjQv5WOt692vC37H0x31AnUi1lX9FsUdkEPAGmKwWjnilQiunXPowdVQjmnA9fYwwJ5fxuxhU4zueooldJ4i31nmHR4SwWiA6Wwlf9gbfyo4WmVqiNGmtYyFhrnptfXLY5vKFmU67n9wXA54ys85Erv9SzCibdy82d39QJijMS9BTKyC+0qKZminwyJ4dO8dy2tdxFqXrQczV+yGBj1DTOpqGxtbrcZD+pQG+C6fYZJO8McW6Ukpt45YRW6n348Zz/CBcs0RNgUOjqUOCjE3YeZpRNl3+0anVwzj6T8GEccWUVQAHZpMAoxmfA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BO+nbHSwrA02c1j3fvUwjIXr+2X/OQXfqmxgnArEusA=;
- b=DKkxR9i6puetiirqrQLnDFn1G0KDi+b3+pJpKgWtpAZZME/KJtMyid5nCeYDNkr80++yhAqj3usXvNSMrZ/IrX22AsPuUo316q6CyocXffxTBg16jyF/F/bSg+yLkAGDrcf0OOvdsIK3clnyhrJmmrkBVOhaIIJRU7N9lmjhvSqKbR4UEoasyHUoPFs5pLbHQ8QCxESCXV4HZy40OBNswXUSgMsxSq2QiEj3CXg94jZUzJkR0oaQsFWjzk/ybeKsT9uWhuMqV5hFxyGD/jGzwX+au0HsOJpd+GbjtpFPIgyMnEhvsGgRLl3HktVoW7HvBPI/AokTofsbWm5/R2R7iA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BO+nbHSwrA02c1j3fvUwjIXr+2X/OQXfqmxgnArEusA=;
- b=AImkHJKUMy5vsLJO+x7bo2SDimTtm8DfP6Q3T/J/SxoKosCe4Arv5TSFqyGO5hqSrvXmwVAaG3+n+BJwQuIaTEHMe5h4XfT/XNMaaIs333O3OwOueFKz42sxi3as1rX+fbXw3o6h2sk0OhSXac4uK1Iw3FyVy4dOPfM83WjWSi93GTnPqMF/DakYKQCMKHlcv87E2sst+DFypbFbp0wz6x3yPg/eUDIho5goRHI0LH1tonbAiYPAGGgZ0L+Mjc8xShew+AEY8EkLDK3vSZolvbdJ6wpFpVWiYVt+WyyiI/rbtO/Er6bLeKDQo3P8pm/AXmILGLzstwsEQpZHBA8J3Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LY0PR12MB325698.namprd12.prod.outlook.com
- (2603:10b6:408:3bb::14) by SA1PR12MB8164.namprd12.prod.outlook.com
- (2603:10b6:806:338::9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Mon, 14 Sep
- 2026 22:28:38 +0000
-Received: from LY0PR12MB325698.namprd12.prod.outlook.com
- ([fe80::b65f:1548:5b35:e2b5]) by LY0PR12MB325698.namprd12.prod.outlook.com
- ([fe80::b65f:1548:5b35:e2b5%5]) with mapi id 15.21.0406.007; Mon, 14 Sep 2026
- 22:28:38 +0000
-Date: Mon, 14 Sep 2026 19:28:36 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Greg KH <gregkh@linuxfoundation.org>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>
-Subject: Re: [PATCH v11 1/7] firmware: smccc: Add an Arm SMCCC bus
-Message-ID: <20260914222836.GO3968357@nvidia.com>
-References: <20260914060511.277948-1-aneesh.kumar@kernel.org>
- <20260914060511.277948-2-aneesh.kumar@kernel.org>
- <20260914133249.00007d35@oss.qualcomm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260914133249.00007d35@oss.qualcomm.com>
-X-ClientProxiedBy: MN2PR16CA0054.namprd16.prod.outlook.com
- (2603:10b6:208:234::23) To LY0PR12MB325698.namprd12.prod.outlook.com
- (2603:10b6:408:3bb::14)
+	Mon, 14 Sep 2026 21:09:58 +0000
+Received: by mail-oa2-x10.google.com with SMTP id 586e51a60fabf-46accbdfb21so2065710fac.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 14:09:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789420195; x=1790024995; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=XwTPxRgU+fYFHTYoxwRr5IV8pHvdn98ivroHogPVzFs=;
+        b=bKLA1qQNdHZFkt/GX8YHGeqwxN03Hflh1PYb6+vYBWBgZKQHChRtzz/MH2qWNzs/tZ
+         GP6jIBZ18p6LLWvxWJRSDVr0IpWpHR3zIZ9ablgNnlJVAeTNIHhGaUybzI8I5BJlM1rq
+         Djqv/MXgmszovKeISnHRrey/7Xdln70FkM9veUlQPA3zGnEtW3zf+tEBY5LMkD8BTuLM
+         YRIFC/yWnBakmAbnq2EdgdqYYvSn8ON6CCCQ/es0culLJK9Rsh62IgjfxWCMSr9pX/xt
+         7lhN88dsLjtg/4sqI3EVDNXD9tKcpvlf8o823zxHuJxjp0ge0ZZ6WsafBWZ5plbtLNJ9
+         9Ayw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789420195; x=1790024995;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=XwTPxRgU+fYFHTYoxwRr5IV8pHvdn98ivroHogPVzFs=;
+        b=lrLw53B9MkGSxtJBP1WbmhMGrbyqMgZOYOuGPblqBSFJrHthXjhVm7XiL+XbNCWXUw
+         lZxiv4FPgoZG9YJ590ZWIhmalk2jE86sMb0D1Z0/16b4tTZ2H48nunkg1o40HlMzXUKP
+         V2dasUCT5QjKo1VlMpRzcEi08QMwlxsb9no9kHHENOx4I0fftpwLxz2BdlLE0N+cBfki
+         I7rvgo7ky5z581YvTOQXZyLM3+Nd2Odx8/Gyum8bzMo7Qou/ahlOs/lhe7D30gW6Ifjz
+         vZ+0shQw/3bvN3TBPfI+HJUrxbOHgPRClT8o1VIl0CgY1es2LBDzBu/Zlw4rUikp2xBi
+         du7A==
+X-Forwarded-Encrypted: i=1; AKwUvBzNS/rVYrd3Sv/UHA+Td8BbH/glvyoBesniD4MkQmaSYyDw3pRSNqgyFImTD8n9wjijLghlrO2d0S8dHbx8ecIb@lists.infradead.org
+X-Gm-Message-State: AFuF++k8YRgKLD4SjdQ7HzGOHN1AcCbnllaYrHDBASqQwAEcdDQFaBz9
+	4cee3oK9y2ZcHSoXet54MB0bH+89mgMpxzNQH9F8Ms7okTn6yFfQtbJg
+X-Gm-Gg: AYBFou2tjzvqnlKDsbsdTvrfzufAQCvTNNj6JVMM0Mh3wohIl1MjnA48nJpLoI//F3M
+	xseQXI8FeZBIpV54F8yPQNHJZNYqzzdMwWzdAn+YgPeoJ8LIgaqhnmqHPh/TK4dBmEbLNaDqCR2
+	Rko994SxRLx6WHAGLI0nOmHf7Og4800NYFe4eyPvW1GioYfYwW2Z9XriTN8lAx55TJaIglP4zoD
+	qZGAv2uk/UfVSD95uT6yS/e2U0LQiohDp4rX8CmIYuuzBSjs4qNsL46Bd7aA5UM4SjnAbuMmXTE
+	8G+9xEV5iNnlel88IhDLCRtZyMKtNhGqtW4/OZC22zHBRnz40+cmxP2Sp8f8MpMwFLt0gAOsp/p
+	Y/RbitutEg9+w6oezFZfokg9JHjkEZL5cvBpquOeUVuMZGymDxTtFmDST9o45qppzL3j4ZGqjdx
+	kt/cd1+Vry6Ft28wqs67DeT0PhL5ymJhmycXBFPCIE682dtRfWRggSBPVo4JB2pX+K8cO+rbYSd
+	EtVR0tqQcN1B4WssjNn+yE/SWl9dI42TJVQWWqqgoU0Olx7ElLmVxk6jHIXeHC2q6iCrjbOwEBn
+	XIqkykbCLnP4UnY7OHnvvGVV7f5K6jR+pLhJWTYSmMiYXorBqlITL2mzgdltT7TJAyA3xvQNK0p
+	hdsFowKNXutJmg5Cz+hFnXaqxRsq7
+X-Received: by 2002:a05:6820:c86:b0:6b7:318d:85d with SMTP id 006d021491bc7-6c5418508femr4548990eaf.25.1789420195159;
+        Mon, 14 Sep 2026 14:09:55 -0700 (PDT)
+Received: from [127.0.1.1] (184-96-157-145.hlrn.qwest.net. [184.96.157.145])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6c45bfc3fe9sm4698544eaf.15.2026.09.14.14.09.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 14 Sep 2026 14:09:54 -0700 (PDT)
+From: James Hilliard <james.hilliard1@gmail.com>
+Subject: [PATCH v6 00/18] mtd: rawnand: sunxi: support the Allwinner
+ randomized OOB format
+Date: Mon, 14 Sep 2026 15:09:46 -0600
+Message-Id: <20260914-submit-sunxi-nand-vendor-oob-layout-v1-v6-0-2fb084fe0751@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LY0PR12MB325698:EE_|SA1PR12MB8164:EE_
-X-MS-Office365-Filtering-Correlation-Id: ae3404d4-8de7-4594-c21b-08df12af85aa
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|1800799024|366016|22082099003|18002099003|4143699003|10067099003|56012099006|11063799006|5023799004;
-X-Microsoft-Antispam-Message-Info: Z4osGj3NNvu5Ptq3fcsWJQRRAVXuVlEd8MxUf4V3Fh7iHRzvCF4pMgNHTYjLjmSVqmv3H7mh1UFuLfcCuY2T9qSX3LOxkunneE2IVcmpJnlWzJghSlq9myA5IFkSYU0LTdsKU7YUk6M9f/7oGbv7iAJISqcLcelQmQ4x5PzK59oY9/+YqK0F/UkIDU2sdZVDzvdkzqlAqAWWNcBfYecgYci9hlRs3p2D22bzIVZakUzYmt+9XWCU3GuStglyprug2lUneDyjHcbhtpxpmZLFTE+WJ03+xPkCSVPVSo92irT+W59rID+c6EAj/CRoyTQBsNJl1lTR9oYFelG1dPQNcfSQEej+Q4NJM2twXo/aLYKLcms7PRVIErGaP9vqihbfwCUNZNYVl7CrX8dEJg53wT8dIpeyhuIu1+r8eHXFUZkdJdSbWgGsvNx9nmBHGkuqZalGwfGvJGCySp5M/NvWfjEtFcSYyhfKo/6MqF4Y2m3V8W2VKCp0jyC5lzgJIwJjf8/PMXc0Zh+F2VcEJ9wf97HPPayOm4s4/vQ5VdV9pkL3iPUhCAZI4l/2T+MreL3D7rcOtysts1A5KnL1wMSMhZcD0fReuiJJjJgF6KzL8MmQbCDs5u9XhaM8wt+kOORWu1jJO5yOJZL4sWs1lfKcjF8lRB1IyJ+z0U3AXztqBlc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LY0PR12MB325698.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(1800799024)(366016)(22082099003)(18002099003)(4143699003)(10067099003)(56012099006)(11063799006)(5023799004);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?exT/qc1zrOSOYUOAyDeEDoepJhuJHpPUVixPd6IlgKF4TsYbdNtfTV7X/bMn?=
- =?us-ascii?Q?rJogauabKOVE1ecAxpUIOilUWGZlwrDNwIfTJxicpZuwiJ4njepfWEU5xdYC?=
- =?us-ascii?Q?OejLflUy9zJFJxBFPZdwpjg1lKxttHxNpwC1+tmcVjiEtHkqaBf72n+9WKM2?=
- =?us-ascii?Q?pYOmrZIEo2FZTfAuLvwo0NqhEhssA7ZPaUJAtX0ZCFjzuvR8zEgc/CLv0ML5?=
- =?us-ascii?Q?L10MvMyYlIj6TL6VmnHPbfAH/oG9R3eqAeaEMc+tVNfZQaeAac8z4+ZWnIYw?=
- =?us-ascii?Q?jiysqUe2V69LBrxB12qFlEEE4liVArGcvfAj7IXp/+RTdK8OawzSdcN87JnR?=
- =?us-ascii?Q?Xrw5GL3UVRB2mw8KQyqkSFV2qi1hwJNRrJv6FnL+Yr19uYERsBbFiCSWF7za?=
- =?us-ascii?Q?QIvz28obLl6Qco4x+BXAQKnp0QMIcNv7SwqUNQxVp6FtDVXiWSnzRiQmoNFh?=
- =?us-ascii?Q?y19sCredtnZQOwDzMz52HWv2bnAONUA/fJ5TkQ8CuAVpHXn8jEPsgaR4w0oW?=
- =?us-ascii?Q?wxRvtc7JWuVkO/lJ3MD+KybpN1a8PCOJC7Ite+sfSz0Ao4JSFWOqrQNlp1d0?=
- =?us-ascii?Q?L9agB0hsaFPW5xVKShJJvKVkQAtD8/BW9/FT8fXeCSr4HtpBVxd2UHvgCxvU?=
- =?us-ascii?Q?ENz9j3DF+HovrabKHzydcmcorirwlrBI3tAtbCuUxvZJkfv4inbWH6KSi5R0?=
- =?us-ascii?Q?URRBUfcygMC5rC/QD3YoE45K66TR+h0IDeHuk0kZ3sNDa343sfYhBexUaM5H?=
- =?us-ascii?Q?lVr/x1/gmLbFUhJPb/f+TWE1hddZciuT1a3YaJhMUQQM3qi07XzxhqPMzfio?=
- =?us-ascii?Q?jfW9sK1VaT5+m8lLpPrE390dQrUpvpWXh3/B5mOqOGGLfXZYOoIo0Lx7mDRn?=
- =?us-ascii?Q?SQfi4ZnX4CPTkeZozl+qZcnkW3GanhLwIfRSmz9/nljmMbL5LZzexQPkSkAo?=
- =?us-ascii?Q?Qjma+LMTiLQX0/dworT5MexaKgIjyiTPQ8WDKKc55P8eaZ90DTj+lKuHYE98?=
- =?us-ascii?Q?rwN6qseOYb08v7vfLmLAxqhiaMonp3wLXiADze7w93+ElkE7971ocAPDKnsj?=
- =?us-ascii?Q?m+7PKIAoTNgLXmxaPYrZDQyqoGIA8M7IsCO+Uqt6dLptbnlkmphx8QmwWH1e?=
- =?us-ascii?Q?Ii8SckDQAWsylnV17Gah9ETJ4c/alqHp+Nb3QIt1s5lehqwRSZTrEHwMkH6F?=
- =?us-ascii?Q?tV+sLWH+lsNfSBXeXvVWQ7VDS6yptus/QF8OPGvGzB6ij7TixKWkXeCWS99F?=
- =?us-ascii?Q?0nnNsoYpz6NCWS19PWLNDye0wcnMpF7IAig/cafmZ2Ct2CCLZ757c12daj+E?=
- =?us-ascii?Q?D5gP4pLv3H2t5Rd7DzRQkdsL2XWGS7c34a3VV0VlQaM62jNMrcrWJO5VA/gE?=
- =?us-ascii?Q?dG5Ck0JcZa7izrnC0BENh3CABhfLa7fv55LW9X5Ys1S42lBwHVv8/Vhx8uTu?=
- =?us-ascii?Q?yS3PXlb4fBgh/62HjUfgGvIdwLLg1crhFJpvhZIng8jQ6xJFuwjTrHgKmewR?=
- =?us-ascii?Q?0dAj3YAwvbETsbd9zC3y7aPEqXK7c3WXogN+LLFDRcuKY4ViLonBm8dnCNTT?=
- =?us-ascii?Q?Z4OdiSwOq/pbps0oo4gEI/vtlJKr+bflK9ilGkdrUtuPOsVUYeC4iM39rpbs?=
- =?us-ascii?Q?Em7neMCQPKuyqpjT+ikhIK972vW6zAXQiyXKPpJnf6PxygzmtsTm0uZchITn?=
- =?us-ascii?Q?Y6UD1BgqbEFpOvQSy0rCvnghDVK4L1qY2aT/9d74OacXEQAJ?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ae3404d4-8de7-4594-c21b-08df12af85aa
-X-MS-Exchange-CrossTenant-AuthSource: LY0PR12MB325698.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Sep 2026 22:28:38.1844
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: bKvL/W51MOOQS6hEQlgJLkPZ+2iQ8BzCac1p38x9DWeFnDLB0mMyLUlqVGpcUFQ+
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB8164
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/5XQTWrDMBAF4KsErauikcay3VXvUbIY/ThRiaUiO
+ yYh+O6R00XdZuOCQDwYvjfMjQ0+Bz+wt92NZT+FIaRYgn7ZMXukePA8uJKZFFKLBgQfzqYPY/n
+ iJfBI0fHJR5cyT8nwE13TeeQTcK8A0IGwtrWsYF/Zd+HyKPrYf+cifXo7LvoycQzDmPL1sckEy
+ 9y/S8sTHLVqKkWA5Nr3Q0/h9GpTz5bSSf6wrcDNrCysASlq7JAs1X9ZtWbbzawqbKMaa4QhqPC
+ JxRULcjOLyxFIo/GuRSmfjlCtWbWZrQpbuxpA1Jp092vbeZ7vGO3hYEoCAAA=
+X-Change-ID: 20260810-submit-sunxi-nand-vendor-oob-layout-v1-e3114d10cc9c
+To: Miquel Raynal <miquel.raynal@bootlin.com>, 
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
+ Richard Genoud <richard.genoud@bootlin.com>, 
+ Masahiro Yamada <yamada.masahiro@socionext.com>, 
+ Boris Brezillon <bbrezillon@kernel.org>, 
+ Brian Norris <computersforpeace@gmail.com>
+Cc: linux-mtd@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, James Hilliard <james.hilliard1@gmail.com>, 
+ stable@vger.kernel.org
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_152854_159304_E297B54B 
-X-CRM114-Status: GOOD (  15.45  )
+X-CRM114-CacheID: sfid-20260914_140957_086661_2513A55A 
+X-CRM114-Status: GOOD (  21.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,64 +118,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 14, 2026 at 01:32:49PM -0700, Jonathan Cameron wrote:
-> > +struct arm_smccc_device *arm_smccc_device_register(const char *name, u32 func_id)
-> > +{
-> > +	int ret;
-> > +	struct arm_smccc_device *smccc_dev;
-> > +
-> > +	if (!name)
-> > +		return ERR_PTR(-EINVAL);
-> > +
-> > +	smccc_dev = kzalloc_obj(*smccc_dev);
-> > +	if (!smccc_dev)
-> > +		return ERR_PTR(-ENOMEM);
-> > +
-> > +	smccc_dev->func_id = func_id;
-> > +	smccc_dev->dev.bus = &arm_smccc_bus_type;
-> > +	smccc_dev->dev.release = arm_smccc_release_device;
-> > +
-> > +	ret = dev_set_name(&smccc_dev->dev, "%s", name);
-> 
-> Does protecting the string defeat the nice underlying const handling?
-> e.g.
-> 	ret = dev_set_name(&smccc_dev->dev, name);
-> might be better.
+Allwinner NAND firmware leaves the bad-block marker in the randomizer
+data stream. On H6/H616 it also places all protected user data before the
+first ECC step. These choices differ from the mainline format, which
+keeps the physical marker plain and maximizes the H6/H616 user-data area.
 
-Pedenatically the %s is better as it doesn't restrict name to not
-include % characters. 
+Add allwinner,randomized-oob to select the firmware format for the
+configured hardware-ECC geometry. Older controllers keep their fixed
+four-byte-per-step user-data layout; H6/H616 use four bytes per 1 KiB
+step, capped at 16 bytes, packed before the first ECC step. Without the
+property, retain the existing marker handling and OOB layout.
 
-> you'd often see this between an device_initialize() and device_add()
-> and then we'd be relying on the device_put() to clean it up.
-> 
-> So as this stands this is fragile as any error paths that later
-> get added...
+Normal hardware-ECC accesses use the controller randomizer. MTD_OPS_RAW
+continues to bypass both ECC and randomization and expose physical data
+and OOB, including randomized markers stored by firmware.
 
-Yes, but as written it is OK, and this is a common pattern in the
-kernel. I agree it is fragile tricky..
+Address the ECC-error paths as well. In randomized-OOB mode, use the
+controller-specific vendor spare-byte erased-page heuristic on the
+protected user data from the original hardware read. Older controllers
+use exact erased-spare checks, including their first-page and page-127
+signatures; H616 requires byte zero and at least nine of ten spare bytes
+to be 0xff. Accepted erased pages return all-0xff data and OOB without a
+raw reread. An all-zero physical page instead returns a bad marker and
+an ECC failure.
 
-Still it isn't an urgent reason to change it around, but the best
-pattern is to put the allocate, dev.release=, and device_initialize()
-in one 'alloc' function. Then the other function calls it and always
-unwinds with put_device. Use device_add().
+Keep ECC exception mode enabled for physical-pattern reporting. Uniform
+physical steps can suppress hardware ECC errors, so classify them with the
+vendor page check too and exclude their correction counters.
 
-This avoids mixing the different kfree/put_device error unwind regimes
-into the same function..
+Other ECC failures retain the original decoded data and protected OOB for
+bad-block and flash-BBT pattern scans. PIO and DMA share this page-wide
+classification, including randomized-format subpage reads. Plain-marker
+mode keeps its existing physical erased-chunk check.
 
-> > +	if (ret) {
-> > +		kfree(smccc_dev);
-> > +		return ERR_PTR(ret);
-> > +	}
-> > +
-> 
-> here can't free the name allocation.
+Start with fixes for interrupt/completion ordering, PIO OOB lengths,
+per-step pattern IDs, read/write error handling, duplicate OOB program
+confirms and the extra-OOB cursor. Follow these with the small-page
+command fix and the DMA register-bank fix, then the OOB-helper cleanup,
+binding and randomized-format support.
 
-The funky reasoning is since name failed there is no name allocation
-to free
+Use page-addressed reads to reposition small-page NAND in hardware-ECC
+read paths, retaining transport errors and the existing geometry checks.
+Select PIO for those pages because the DMA sequencer uses large-page
+random-column commands. Large-page DMA and the on-flash layout are unchanged.
 
-And then device_register() failure must always be done with
-put_device, so it will capture the name. As long as name/register are
-a pair with nothing between it is "fine".
+Bound H6/H616 DMA batches by the 128-byte user-data register bank.
+Keep the existing default OOB allocation and ECC offsets. Fill the first
+batch to the bank limit, then use one hardware slot per remaining logical
+step: PAGE_OP generates later main-data columns independently of the initial
+column. Preserve page-wide ECC accounting, DMA support and a single final
+program confirm.
+All of these fixes apply without the randomized-OOB property.
 
-Jason
+Finish with optimizations to combine contiguous unprotected OOB reads and
+reduce repeated chip setup and register accesses without changing the
+page format.
+
+Assisted-by: Codex:gpt-6-astra
+Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+---
+Changes in v6:
+- retain the bank-sized first DMA batch, but transfer later logical steps
+  individually to avoid PAGE_OP's absolute internally generated main columns
+- keep ECC exception mode enabled for randomized reads on all supported
+  controllers, using the shared physical-pattern classifier
+- classify uniform-pattern steps even when hardware suppresses their ECC
+  errors; skip their correction counters and preserve decoded buffers unless
+  the page-wide zero override or vendor spare predicate accepts the page
+- Link to v5: https://patch.msgid.link/20260913-submit-sunxi-nand-vendor-oob-layout-v1-v5-0-7d711076a6f7@gmail.com
+
+Changes in v5:
+- add a separate small-page command-handling fix: use READ0/READ1/READOOB
+  with the page address for rereads and normal OOB access, and select PIO
+  instead of the large-page DMA sequencer
+- keep physical reread errors visible, preserve the OOB cursor and retain
+  the existing ECC geometry requirements, including rejection of 512+16
+  with controller ECC
+- group the small-page fix and the DMA register-bank fix with the opening
+  fixes, ahead of cleanups, bindings, format support and optimizations
+- make the DMA register-bank fix independent of randomized-OOB support
+  and the later register-access optimizations
+- Link to v4: https://patch.msgid.link/20260912-submit-sunxi-nand-vendor-oob-layout-v1-v4-0-4a64bed94229@gmail.com
+
+Changes in v4:
+- prepend an independent fix for completion reuse and IRQ timeout races:
+  initialize the completion once, finish IRQ register updates before
+  signalling success, and drain timed-out handlers before clearing their
+  interrupt state
+- add a separate fix for aggregate protected-user-data register overflow
+  by splitting DMA transfers into bounded batches, retaining the existing
+  OOB layout, ECC offsets and DMA support
+- distinguish logical page steps from batch-local hardware slots, retain
+  page-wide ECC accounting and avoid retrying partially transferred writes
+- Link to v3: https://patch.msgid.link/20260909-submit-sunxi-nand-vendor-oob-layout-v1-v3-0-838cb0ba1547@gmail.com
+
+Changes in v3:
+- add a prerequisite fix for the logical OOB length used by PIO transfers
+- clarify logical ECC steps versus hardware slots and share protected-OOB
+  register indexing
+- select the controller-specific vendor spare-byte erased-page check from
+  the SoC capabilities, only in randomized-OOB mode and without rereading
+  the main data
+- retain hardware-decoded data and protected OOB on other ECC failures
+  for bad-block and BBT pattern scans (reported by Miquel Raynal)
+- retain a bad marker and ECC failure for all-zero physical pages, and
+  disable the ECC exception for the vendor format
+- share page classification between PIO and DMA, reading complete pages
+  for randomized-format subpage requests
+- propagate OOB read errors and defer randomized-format ECC accounting
+  until those reads have succeeded
+- propagate read/program setup, column-change and buffer-transfer errors,
+  including extra OOB; stop failed writes and disable ECC and randomization
+- discard partial DMA ECC statistics before retrying in PIO, and keep
+  correction counts separate from successful OOB-transfer status
+- select the current hardware step's pattern ID instead of slot zero
+- avoid a second program confirm after an OOB-only write
+- avoid redundant column changes before writing extra OOB bytes
+- reject oversized ECC steps in randomized-OOB mode before the core can
+  fall back to software ECC
+- combine adjacent parity and trailing OOB reads in randomized-OOB mode
+- remove duplicate chip setup immediately before core page commands
+- program each packed DMA user-data length register once per operation,
+  and write PIO slot zero directly without read-modify-write
+- reuse pattern IDs and packed error counters within a DMA read, while
+  refreshing the snapshot after every PIO ECC operation
+- Link to v2: https://patch.msgid.link/20260904-submit-sunxi-nand-vendor-oob-layout-v1-v2-0-b12074f4aca7@gmail.com
+
+Changes in v2:
+- rebase on the current MTD nand/next branch
+- retain the merged protected-OOB allocation, BBM reservation and
+  stack-buffer fixes
+- clarify that randomization is part of the normal hardware-ECC page
+  format while MTD_OPS_RAW continues to expose physical bytes
+- explain why a BSP-compatible BBM remains randomized in physical raw data
+- document the decoded bad-block and flash-BBT access paths
+- reject the firmware OOB format with software or disabled ECC
+- document the BSP page-format compatibility contract and the
+  older-controller format audit
+- Link to v1: https://patch.msgid.link/20260810-submit-sunxi-nand-vendor-oob-layout-v1-v1-0-463853a14ad9@gmail.com
+
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Richard Weinberger <richard@nod.at>
+To: Vignesh Raghavendra <vigneshr@ti.com>
+To: Chen-Yu Tsai <wens@kernel.org>
+To: Jernej Skrabec <jernej.skrabec@gmail.com>
+To: Samuel Holland <samuel@sholland.org>
+To: Richard Genoud <richard.genoud@bootlin.com>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Maxime Ripard <mripard@kernel.org>
+To: Masahiro Yamada <yamada.masahiro@socionext.com>
+To: Boris Brezillon <bbrezillon@kernel.org>
+To: Brian Norris <computersforpeace@gmail.com>
+Cc: linux-mtd@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-sunxi@lists.linux.dev
+Cc: linux-kernel@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+
+---
+James Hilliard (18):
+      mtd: rawnand: sunxi: drain interrupts before reusing the completion
+      mtd: rawnand: sunxi: use the logical step's OOB length in PIO
+      mtd: rawnand: sunxi: propagate page-setup and erased-check errors
+      mtd: rawnand: sunxi: stop failed program operations and disable ECC
+      mtd: rawnand: sunxi: select the pattern ID for the current ECC step
+      mtd: rawnand: sunxi: propagate buffer and column transfer errors
+      mtd: rawnand: sunxi: avoid a second program confirm for OOB writes
+      mtd: rawnand: sunxi: avoid redundant column changes for extra OOB
+      mtd: rawnand: sunxi: use page reads to reposition small-page NAND
+      mtd: rawnand: sunxi: bound DMA batches by the user-data register bank
+      mtd: rawnand: sunxi: clarify OOB register and step handling
+      dt-bindings: mtd: sunxi: Add randomized OOB flag
+      mtd: rawnand: sunxi: support randomized OOB formats
+      mtd: rawnand: sunxi: select the packed H6/H616 OOB layout
+      mtd: rawnand: sunxi: combine contiguous unprotected OOB reads
+      mtd: rawnand: sunxi: avoid duplicate chip setup before page commands
+      mtd: rawnand: sunxi: reduce user-data length register accesses
+      mtd: rawnand: sunxi: reuse ECC status within each DMA read
+
+ .../bindings/mtd/allwinner,sun4i-a10-nand.yaml     |   10 +
+ drivers/mtd/nand/raw/sunxi_nand.c                  | 1178 ++++++++++++++------
+ 2 files changed, 846 insertions(+), 342 deletions(-)
+---
+base-commit: 7e874b1750a40f3dc9a629aeb72eba09c77f77e9
+change-id: 20260810-submit-sunxi-nand-vendor-oob-layout-v1-e3114d10cc9c
+
+Best regards,
+--  
+James Hilliard <james.hilliard1@gmail.com>
+
 
