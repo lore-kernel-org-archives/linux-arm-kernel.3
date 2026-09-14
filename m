@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41561C88E73
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 20:24:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40FE0C88E6F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 20:24:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=szNLjYOWpVIGeVzTm6wu2jNgdA0Q8lKnYCuvZd0lPlE=; b=qdfSHJEbVNfILEOZPSev3e5jxD
-	YiZh8P7giwggeZHoWbbdC/hHFtxL38Z1obQEGcBUrPK38sHaYIbWsY1gPDuMX2y4x/Ex0TKoIgt9p
-	FghBk36ShH73+1pm+jSzjiUIMsHY68qNr1JvU2qdOPcWaHOHPFOjjHlceyokSkfcztfWNN/qZTO8C
-	nVZvahjpmoxMQX/h0esY1cuajYUBBjgCmHfLGRHlbtfzAJVdjCeCkgHZsC9taKzIU5y6BiM9SC+lh
-	cLmg66xcszAulVgbpKB8c7jsQ1pV/BDF0Ro3Z50nXFWIX9k2sdblAvvZJd3ZDR7vBaHsG0yth33cc
-	27FRlqmQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=q25WzWwVYwq5QcrvqlyZdjNZKxAtYxiiLN2181JL96k=; b=plKGf2N78NdSou6T/onGu/8GCw
+	jqX/DB2N1rm1RS0C6MrII3LSXC12N72PSLE7cOEGEJjTPCfMtoeUw9tQstzg2h3St68KGfNeeyWDi
+	mYVsl7TnR+4GdVyBeGATTuv7iOEpaa2kaaUWs9Nl4X5R0T2JZrnYMNFY3Vmvp6ZrOujR0vvBvAsb3
+	ZJQ66FQXRsrkS1qPJ7AsnJkjw1lk5NA3d0OesRKJ7QMEEDXixOFDOjznU2g9Kov4OeIY4zwUw1FaM
+	kxAL1Kf9mmiTtmTsPT5NRdpbVeOalyOQeRZSclByZnpBFfBw1FD3QnoTDWfFdgOZUImgPfoYRR9RO
+	OeeBH+QA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6DEA-00000004aDd-34ZF;
+	id 1x6DEA-00000004aDX-2bWm;
 	Mon, 14 Sep 2026 20:24:34 +0000
-Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6DE8-00000004aBL-0RB7
+	id 1x6DE6-00000004aAZ-3ovu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 20:24:33 +0000
-Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-482f633cd78so1259617f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 13:24:31 -0700 (PDT)
+	Mon, 14 Sep 2026 20:24:32 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-485850cbac3so2125803f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 13:24:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=lex.la; s=google; t=1789417470; x=1790022270; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=szNLjYOWpVIGeVzTm6wu2jNgdA0Q8lKnYCuvZd0lPlE=;
-        b=QvAU9IHcu8XfSOT47V7JLW6ORwiViKdwIjOpuLwWJDKGt/tkQmBwyyEGOlQ04Nnh4I
-         Bbfs1Yc0iGqp2cRzdyb8ArWKPGKSWv8QtvN3bjALQ9ae33Vd+zDMroszv3WGt3bSMt7L
-         2i74ft++hPGhvDAzxUbFrOsYzVFf5deSjnmRiAG2CeRHSyG+4QZ4YtCGs4ym3FxL0+57
-         MnYd/OwvWqNVMx8PhB4O1s7bo8RQwhmXjOIW/sNbyS5OTPCAhlGd0HlN9JOUYNmRnkyZ
-         8v5vjRCksXRS3ZgoWsMi//TWL8YAwtyU2qscVC+miboEpEyCNS4E3tQHo2uh7Ggdgq1F
-         DdXw==
+        d=lex.la; s=google; t=1789417467; x=1790022267; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=q25WzWwVYwq5QcrvqlyZdjNZKxAtYxiiLN2181JL96k=;
+        b=DwF0f5UMoI75wjM0I33OTpM6sBfc68X4Cgj5ully4CMYS6mujGaqIHG5gASRNj3wY0
+         WtWYMhC/MirhPxZ4Ck7xRRlqwNW2z0fx7G6ERn4pqVQZK7DzdoO26ZCoCm2CwoW+6I09
+         1zsS0lb70lXronsqKy3xKma6Xc4FOMpArXStKmqwiXT04czEbzBVIgEb8AcVLiIEJB/T
+         4v46Rahnu2HNzsiNiEVGBVuKc2bQAVQVU6wZ/tl7BUmCgZMhYAf+FPvdgkDkAvvyQkd8
+         QSM5QmEtphHJ7eBH4/0fGeIppjR8hbSJ6S6wSZBK/+ymHyB4C9V5AcunXI7I/Dz67pkl
+         dJLg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789417470; x=1790022270;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=szNLjYOWpVIGeVzTm6wu2jNgdA0Q8lKnYCuvZd0lPlE=;
-        b=vt+sZZCl0sQck/fcrBkYY13i+ah+Cgf01soegXHxPwJUQq3QognSPe56ez/O3cDYaG
-         AbmYZu9VWlOWMmrSPKEc7hPU9BSqpQxbkwltv6Jm7QNZhUV1DSAr0B98FIZhKX/xltiO
-         lN2zq6S85ha5dsX829GTn3L7L16jlxW8fct6atsD+HzhRkZAmAT1OZ8bQ80u/uvXsqAR
-         rr5pjwO+7hBrfX9WE17rB5hK1jor6S7Htasz3OFBePXw917YBS6YkCcr84XJItHOfQe4
-         J23mEMwTcLS01bsDDbZo5d/7x2GJHpn63Dqk01fq3g44H1uBEFl4Sv4cvIUsl47aDdD1
-         sC4w==
-X-Forwarded-Encrypted: i=1; AKwUvByl85d+5zgyz3Per91lW+YgxNWsglxgrmokUy06jZVakDnJI3UsMZYTp02uqN80BrtHUTJLB+qI2RNv3N8qM02I@lists.infradead.org
-X-Gm-Message-State: AFuF++ljawfPK91WJQ8xZtZQ3d3AlHckflp+wZ3o7NSGWUphaWseG7Wp
-	XGh0Ua8x90DtHPoQgX0KU0WGZoCtBb4cBbiFFEBM4GFtNce4yAgDA495UwouL9lxxD4=
-X-Gm-Gg: AYBFou0DeGRm/vD0Xx7281htMFHGbwUE9IAwDrCB5XJ/qeElDzNHVUj0NSBUtImJ1ev
-	uSXpYmD/EY/A5QXxfpHeufdVH8B3MnjIEbE38QVDcXrxZxeaRNL9LUO6pkEAUar/fKk3fMxF5fr
-	5gc39U3tqGRGpG+6rQH+FESr9J8oYeLwY3PtGVj3g2Jzp0GNUyiCJ0X/hS0T8xZKKU9I3qd8ubZ
-	Y1NQO1vNwROm++NR7ceu37Ow7uXrK3fu7Q19hxHMD2cHeQW5FbdoiKtPN+8w6P3/tSccAtzE1Pi
-	FnFBSoEk/9WGfip22jJHPWPcWPN7/1/XDCy3e/3ZqMWMT1mtW/iUIju7P3w+HSkKPFL9u5pZQ92
-	9U2Xi8azArGiQ5Yp/aa1+oChyp0fPjRJwqduH1dLSA8benuY303kY30fP6nQBZ3mZwj/dLsPz8b
-	XM1ryKGnw9zKR2WjMLMPvW4c2yUP1Z4uny92GImhmGpUMkH56ZOg==
-X-Received: by 2002:a05:6000:4282:b0:485:95b7:fe8 with SMTP id ffacd0b85a97d-48702b1665bmr5620151f8f.25.1789417469778;
-        Mon, 14 Sep 2026 13:24:29 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1789417467; x=1790022267;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=q25WzWwVYwq5QcrvqlyZdjNZKxAtYxiiLN2181JL96k=;
+        b=zd041VjoxoQ4dIBJWNuRGGV8Q2FvUntCZHZKaAzWozthVZLeAVIjCyLRJH5baD7fK8
+         G26N39VnkHdf0XZiHRAPUgPbNhlldRaVM+sOvLZFFkRzaWN4gL/7jLXnU4qN4IvDPMjg
+         fvlCh3Fbc5cRh0ehWDXTaAT9sVZnUkU7/ED9sJciBC8CTK4y6cvQVQIkv/PtuO9z7qoh
+         XrSQ1Vh6Wt66rBtW6zc7OjM65YMsZSOCztkrXKmC2DShRS1zVBRs7K+zUssf/KiwdFu7
+         uus6ixI+vrw9ea5NR2fod7tCcqkjAG1rkCSTIMXapLvczxTKTep4rcqUi81FPKL5ZS4h
+         vNTg==
+X-Forwarded-Encrypted: i=1; AKwUvBxJ/TrVM1mP4ewu26XzgnunKBITr86sqdZaSG28aOpJfaJ1ByIcV93Hg6ogxR9sSQ/ZXEDleAyrPbi5nuUUwg0v@lists.infradead.org
+X-Gm-Message-State: AFuF++np7i4ImmUDZXEMPCU1ylUiSYwbQKwuhTH+oVMIITAXlpW8Jjek
+	Jq9rkfu4T9mKeCOlIllklTrfI758sS3bxErbX7C7I5nBXzl1ZiUfnNDeoptRMewJuAI=
+X-Gm-Gg: AYBFou3k7UJAE+pzFrLgN9tpuNzPb9WvraFM8uUrcMai1Ge2+sVSTDSAIDL/YfsCDDn
+	GrJ9Vy9/DO4EGcPVmqnD8hQ+CZN+rS7oIVOakRXJIv9QKb8cUVL5EgBsHWjUGgdvoGMwcHuw56n
+	LFCF9txNFYOMjlflOnOUdLP62cmus9wLEeQ34ztX1WqBuEKZZkqoawLZ6OZ4QypqiKlL6owaw11
+	N8RYowfrMfZRRftmQh8aizdD3vtgASYrHn5B2LTbGcQnfu0flp2Z960KtVGvPJ0NBrRZDU9RLMI
+	lTbSrlVkBya7+cbflVSACswZIsVBAZvZcxTodBE/tvUUhcxZpa/RaX1w5YsyqmPicgx/uiAXL/x
+	AdjxvNKKxGM3nPc2G0ZycLw9hZnXD3jQnmSbh8tV+knOUm20yGu65VqMx3QBFHJbqWoE2u4ktRL
+	DPMKINGeuvuT9NaA/DSOz8ikfakL5CP/Wi0VhtXv2DwpN587D6S8o=
+X-Received: by 2002:a05:6000:4020:b0:487:6f2:1a4c with SMTP id ffacd0b85a97d-48706f21bdbmr155435f8f.25.1789417467205;
+        Mon, 14 Sep 2026 13:24:27 -0700 (PDT)
 Received: from remote-01 ([84.17.55.229])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-486eb34fdd2sm29328458f8f.28.2026.09.14.13.24.28
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-486eb34fdd2sm29328458f8f.28.2026.09.14.13.24.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Sep 2026 13:24:29 -0700 (PDT)
+        Mon, 14 Sep 2026 13:24:26 -0700 (PDT)
 From: Aleksei Sviridkin <f@lex.la>
 To: netdev@vger.kernel.org
 Cc: chester.a.unal@arinc9.com,
@@ -85,17 +84,15 @@ Cc: chester.a.unal@arinc9.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	Aleksei Sviridkin <f@lex.la>
-Subject: [PATCH net 2/2] net: dsa: mt7530: unregister the switch before freeing its MDIO IRQs
-Date: Mon, 14 Sep 2026 23:24:21 +0300
-Message-ID: <20260914202421.2737079-3-f@lex.la>
+Subject: [PATCH net 0/2] net: dsa: mt7530: fix two crashes on driver unbind
+Date: Mon, 14 Sep 2026 23:24:19 +0300
+Message-ID: <20260914202421.2737079-1-f@lex.la>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260914202421.2737079-1-f@lex.la>
-References: <20260914202421.2737079-1-f@lex.la>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_132432_169632_47FC2125 
-X-CRM114-Status: GOOD (  20.27  )
+X-CRM114-CacheID: sfid-20260914_132430_964056_60FEB4B3 
+X-CRM114-Status: GOOD (  18.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,95 +107,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mt7530_remove_common() disposes the per-PHY interrupt mappings first and
-unregisters the switch second, but phylib only frees those interrupts
-inside dsa_unregister_switch(). Unbinding the driver therefore frees
-descriptors that are still in use, and the switch's own regmap-irq thread
-takes a nested interrupt on one that is already gone.
-
-Fixes: ba751e28d442 ("net: dsa: mt7530: add interrupt support")
-Signed-off-by: Aleksei Sviridkin <f@lex.la>
-Assisted-by: LLM
----
-Found on a Netcraze NC-1012 (MT7981B + MT7531, 6.18.44) directly behind the
-regulator fix in patch 1: with that one applied the unbind stops faulting in
-mt7530_remove() and reaches the teardown, where the kernel says what is wrong
-in words before it dies.
+Unbinding the MT7530 driver from an MT7531 dereferences NULL in
+regulator_disable(). On a Netcraze NC-1012 (MT7981B + MT7531, 6.18.44):
 
   # echo mdio-bus:1f > /sys/bus/mdio_bus/drivers/mt7530-mdio/unbind
-  remove_proc_entry: removing non-empty directory 'irq/81', leaking at least
-    'mt7530-0:02'
-  WARNING: CPU: 0 PID: 4629 at remove_proc_entry+0x1d0/0x1f0
-  ...
-   mt7530_remove_common+0x1c/0x30
-   mt7530_remove+0x24/0x90
-   mdio_remove+0x20/0x40
-   unbind_store+0xac/0xb0
 
-  Unable to handle kernel read from unreadable memory at virtual address
-    00000000000000ac
-  pc : handle_nested_irq+0x28/0x168
-  Kernel panic - not syncing: Oops: Fatal exception
+oopses there, and the build it was found on sets CONFIG_PANIC_ON_OOPS, so
+the board goes down with it. Fix that and the same command gets as far as
+mt7530_remove_common(), which disposes interrupt descriptors a PHY still
+holds; the switch's own regmap-irq thread then faults in handle_nested_irq()
+a fraction of a second later. rmmod reaches both, since mdio_module_driver()
+calls .remove on module exit.
 
-The WARN comes from unregister_irq_proc() under irq_free_descs(), fired for a
-mapping that a PHY still holds. The captured record shows one, for
-mt7530-0:02, and already carries the W taint bit, so at least one earlier WARN
-fell outside the ramoops window. 294 ms later the switch's own regmap-irq
-thread - PID 627, Comm irq/53-mt7530 - takes a nested interrupt for a mapping
-that is already gone: irq_find_mapping() returns 0, irq_to_desc() returns NULL
-and handle_nested_irq() locks desc->lock without checking, which is the read
-at +0xac in the trace. Both timestamps are from the same ramoops record.
+Patch 1 is the regulator one. mt7530_probe() requests the core and io
+supplies only for ID_MT7530 and mt7530_setup() enables them under the same
+test, but mt7530_remove() disables them unconditionally, so on an MT7621 or
+an MT7531 both pointers are still NULL from kzalloc. It reaches the MDIO
+front end only.
 
-Reach is wider than the board that found it. mt7530_remove_common() is called
-from both front ends - mt7530-mdio.c and mt7530-mmio.c - so it covers the MMIO
-parts as well, which have no regulators at all and never meet the defect patch
-1 fixes.
+Patch 2 is the interrupt one, and it reaches further. mt7530_remove_common()
+disposes the per-PHY interrupt mappings while phylib still has handlers
+installed on them; phylib only frees those in phy_disconnect(), which
+dsa_unregister_switch() reaches. That helper is called from both front ends,
+so it also covers the MMIO parts - MT7988, EN7581, AN7583 and EN7528 - which
+have no regulators and never meet the first defect at all.
 
-What decides whether a given switch is hit is not the irq_domain but whether
-the PHY interrupts are mapped on it. Either mt7530_setup_mdio_irq() created
-those mappings, which it only does when the devicetree has no mdio node under
-the switch, or OF created them from per-PHY interrupts properties when it has
-one. A switch with an irq_domain and neither is left alone: irq_find_mapping()
-returns 0 for every port and irq_dispose_mapping(0) returns at once. The
-teardown is guarded on the domain alone, so it walks that loop either way.
+The order is not arbitrary. On an MT7531 the regulator fault happens in the
+first thing mt7530_remove() does with the switch, so execution never reaches
+the interrupt defect. The second only became visible once the first was
+fixed, which is also how both came to be found on one board.
 
-Tested on the board above, with both patches applied. Two unbind/bind cycles
-back to back: each unbind removed mdio-bus:1f from the driver directory and
-took lan1-lan4 with it, each bind brought them back, and the two cabled ports
-relinked at 1Gbps/full. uptime went from 167 to 183 across both cycles without
-resetting, and
-pstore gained no new record. dmesg carries one unrelated WARN, from
-sysfs_remove_link() under dsa_user_destroy() - a separate DSA
-teardown-ordering defect, handled on its own - and it fired once, on the first
-unbind, not on the second.
+Found and verified there. Without patch 1 the unbind panics in
+regulator_disable(); with patch 1 alone the panic moves on to
+handle_nested_irq(); with both, two unbind/bind cycles run back to back -
+each unbind removes the switch from the driver directory and takes lan1-lan4
+with it, each bind brings them back and the two cabled ports relink at
+1Gbps/full, uptime does not reset and pstore gains no new record. The kernel
+under test was identified by the
+sha256 of its ELF notes section, read from /sys/kernel/notes on the running
+board and computed in advance from the flashed image.
 
-Not tested: any MMIO part - there is no MT7988, EN7581, AN7583 or EN7528
-hardware here. The object file was checked instead:
-after the change mt7530_remove_common() calls dsa_unregister_switch() first
-and only then tests priv->irq_domain and calls mt7530_free_mdio_irq().
-Built with W=1, no warnings; checkpatch --strict clean.
+What hardware could not answer here. There is no MT7530 or MT7621 part on
+this bench, so the ID_MT7530 branch that patch 1 adds was checked by reading
+the generated code rather than by running it, and no MMIO part was available
+to exercise patch 2 on that front end either. One unrelated WARN remains
+across the unbind, from sysfs_remove_link() under dsa_user_destroy(); it is a
+separate DSA teardown-ordering defect and is not addressed here.
 
- drivers/net/dsa/mt7530.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Aleksei Sviridkin (2):
+  net: dsa: mt7530: fix NULL dereference on unbind of MT7531 and MT7621
+  net: dsa: mt7530: unregister the switch before freeing its MDIO IRQs
 
-diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
-index 3e61eb3c2b1e..90fd04665ebf 100644
---- a/drivers/net/dsa/mt7530.c
-+++ b/drivers/net/dsa/mt7530.c
-@@ -3593,11 +3593,11 @@ EXPORT_SYMBOL_GPL(mt7530_probe_common);
- void
- mt7530_remove_common(struct mt7530_priv *priv)
- {
-+	dsa_unregister_switch(priv->ds);
-+
- 	if (priv->irq_domain)
- 		mt7530_free_mdio_irq(priv);
- 
--	dsa_unregister_switch(priv->ds);
--
- 	mutex_destroy(&priv->reg_mutex);
- }
- EXPORT_SYMBOL_GPL(mt7530_remove_common);
+ drivers/net/dsa/mt7530-mdio.c | 18 ++++++++++--------
+ drivers/net/dsa/mt7530.c      |  4 ++--
+ 2 files changed, 12 insertions(+), 10 deletions(-)
+
 -- 
 2.53.0
 
