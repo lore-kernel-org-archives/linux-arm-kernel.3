@@ -4,90 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 491D2C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 08:41:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9F56C88E6E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 08:41:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WgpmBm1w1oITFxPAP3o9Uap1UqrLDPvPvUmM3o3SQQM=; b=wq6NC6BvFX1Kkd5r6/D3S5QB1P
-	5IeXcTr5SX/JkwLmMR7H7Nehvd7ObYKkOYo2jBOIIBoIzGwrmiRxHm4T78Ruw8nlzuGLcFcZem1Hk
-	MelMou+1hr4WGx7Hw8Q9ZbQiQShTHZHYoOqRK5vyWTijfUhQO7wQrvdbalalvTbyhKSz0L6e6KF1f
-	nLUdUNsGqap3TBuxRsElEq+0EaUH+1iyvvUrFeLuhgEz7q25hJ1bKJeeXn0O75WAJEy117XTDKQYE
-	qL+ShWX7CCSlA5KRKf3OqtRP/LQAHQVUVQ1JARz4ZNyj54dOkIyC9uoklVUkc7qdGf/9SvC/XnA1c
-	WbtG+X9w==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=jhD/TY1HVDHup8/Y2Z5CmNcrsOhpvRyPIJYV28f3ynA=; b=vq+S3TCwPBQQaX
+	PD9iK8cgw7oYsoBNyqdF2Q9/1xRQU02xK9rWIqTDzBe00mdRfBIEgC0G1fdFpPeV56iOQxpZ2rtgu
+	1K2LaovCpgOZSlSeVC6yJdbSBXPMPFnYHBSWoSeliiSHVueDHHu4B6FooOe9Y/eS88DkhQkSuGsJM
+	9jEwwkbzWJfJVnXqxj/yjEZiJu2aeaICE7asugQrzgQ+WMiJBnLXfyhgJH2cI/w3bfkCgrBGiPilr
+	WkZowYUq5scXage+GxmsMFk214R7Scaw1akBhY3N9Wulem9hKMY+sCMVlOGx0kPEKhnu/xY+/GlAZ
+	f+gUzvFpMpTJYsSTSoxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x62FL-00000002msF-2zv8;
-	Mon, 14 Sep 2026 08:41:03 +0000
+	id 1x62FK-00000002mqb-2Y2S;
+	Mon, 14 Sep 2026 08:41:02 +0000
 Received: from fout-a7-smtp.messagingengine.com ([103.168.172.150])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x62F6-00000002meE-1ZQI
+	id 1x62F2-00000002mb8-48Yo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 08:40:49 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfout.phl.internal (Postfix) with ESMTP id 9D6D2EC05AC;
-	Mon, 14 Sep 2026 04:40:47 -0400 (EDT)
+	Mon, 14 Sep 2026 08:40:48 +0000
+Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
+	by mailfout.phl.internal (Postfix) with ESMTP id 27AA2EC05F9;
+	Mon, 14 Sep 2026 04:40:39 -0400 (EDT)
 Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-05.internal (MEProxy); Mon, 14 Sep 2026 04:40:47 -0400
+  by phl-compute-06.internal (MEProxy); Mon, 14 Sep 2026 04:40:39 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
 	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1789375247;
-	 x=1789461647; bh=WgpmBm1w1oITFxPAP3o9Uap1UqrLDPvPvUmM3o3SQQM=; b=
-	mK224PTjCeeNC1y1pSAgo7yE3v3lkV4sneL/l+VzS1KQi/DJ+DvxBOZUH427t6Ld
-	y8iFvZWRcHP18x6JXmoMdm5Llyov9AKa6aL0Jpq2QGYd7AbIaOeOapV50lyOxFRk
-	qGYrctwy4HC6D+KxvW2RCjxqFGaTI59hxSK8LD4Y9GWLL9jWffObW2jbEhyUNvZ6
-	1gw9WNx9VTMtLaveUWjawKRrjlMUpl0KM1VQ/3EjTz058WQFFSlwuaqAXQzBnMOl
-	PHAuDr7470ZQQZn/CDY+Gl1OSQ5pcDPVjfAULYh/SMVcZRNnTfOxs5dtuNxx0QoS
-	giGQxmWL5O9BfD5+3IphqQ==
+	:date:from:from:in-reply-to:message-id:mime-version:reply-to
+	:subject:subject:to:to; s=fm3; t=1789375239; x=1789461639; bh=jh
+	D/TY1HVDHup8/Y2Z5CmNcrsOhpvRyPIJYV28f3ynA=; b=ZA0pV6NDQBh9fbuRgm
+	rjmMk7B6/huMBIKML6A+EAayhsecq45fs9X/eznRWy5Z74XRNFm5papyJWEiRK7I
+	DPp9zTuW6OeSLhjx0T+GPv83dr+DJ7wTreWVWsP1JHY+016zgWKUFHdIymNMUcv1
+	KyDyJFgpLv6FuU7F2z6fCjqzMTd+8ykq12fli2Ibf81AK/pBsGoVKBGK69PM57/j
+	ekvOPvxLhd/SDS657VwTqFmTpZghqRiNk/u1fgZ6BqOHomA7iDCgTVLDrCK0CG7I
+	vgTJteuK/zWDM+6QI+Oo9xrPq720pJmYvOwBPEzF3feAki1tVAi45Ha688RB86il
+	GpPg==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1789375247; x=
-	1789461647; bh=WgpmBm1w1oITFxPAP3o9Uap1UqrLDPvPvUmM3o3SQQM=; b=g
-	bOqJiLZbdjOBe76tGVzWAGf6BOw5xXJDY2vFSPHFPEyqHyhp6GmBMXnRblB7HWEF
-	diYZDZFqJhmx6Ee6+4pV/cU1yLlnyBl+CeuNz+ztwYECdfMJoa5HeFFyWIhhh8UR
-	+H5in5czZ6QqTp/0TMYjzXGUfQ/a/Hh/DXMfucQm7H3k3dHHKWis3Yeb2SpFpTTa
-	PhYKHxBOp2NmI+g5BTSzuI5JsiqYU6YdZ6Jw640I0REwKE0pj0yAjUEwZvEd0wLG
-	1Z7aVKoTVOQn4An5AkeE/ksro/afLoDXY7z1n/DTjhGmdZJtoUXk3I0sxD0Yi6GH
-	hN6uZCeAeaCv+fIkKu4VA==
-X-ME-Sender: <xms:D7Onam8JQ-nFM5ezoE-drov3N3cEn1DggtMcgXxFw5D5JArVaOLZYg>
-    <xme:D7Onau7OykKjL-2fslSgt2wy4A2WyU6EyGw3gQPWtm31rEmkUAVTE7qaRs4VWIS0V
-    7WorprvAsy8rH0CN_AbXUPdyGersrPuf6xMDu9KOZihGSe5SnRZzKZ9>
-X-ME-Received: <xmr:D7OnanmxJleJAwAYsWMJHli209yF2BeqfkNnwmv1OdltVB7afUFi7WfvfHMMmRv1QDO5I322fpHyRtadK60aUdpVSZ2C2RMBhqArDQ>
-X-ME-Proxy-Cause: dmFkZTEDLHr0shzxwhX+29bUrq2gfJ1+uzQ4b4gKQs3bZHRMEcVi5+3e+WWMmXn4weJHF0
-    3tXMcFWQblGPPDQI4M9zHrzHMMgs0LXrEWCtY0HOKPhWUiTU65Hq4BSITitLFMR/nfR54A
-    QBr3yt2+EqSebK505dZuX4BQiJBC2YrhM1cKA3YLwTBOhpwZfcQEF5yaMpHRvipvp5nbhM
-    qXqI61aj3JPw2SHELjXQTGsoBh2Y/LuJTzIJZd7IArzAR6+91M7O+W1wr1s1KNxWnuZkuF
-    hsZ8YwXBQsE0gAiTRFJnmiV46ucM1Ygc8cn9Pw17HkJ3S5rNQ8lRntZ8AGSg3kYW6wJPqP
-    Rzqna8SlL4HWgXnCQ9Z1WfDGbd/ysOg7kHh2IGuKaN21mBVQXRnlUMd5M7e+tVoy5IQoJj
-    CI0pve3R0GbSu4u6/Xh5roYbxY17dbTElfdHD7FG9nmE6FfWpVrB1bNjPsBmG8VM4ugKcr
-    J4nfVWNwKxQD7fzvBapXs5hxKQ/jqryNJxetD43UD0BudBi3Q4wVOtUylRkECuTvQH59mn
-    cTIGahfdtTZ158P1r4x4tytMtczbomo2y/cG1PYU1r3iRYVm58k242WyY4Ta8U4Zu3T5J1
-    mjOpnBkIjQpdu3AeY/UOcLNGbBKn9rM8bBl9Umi9OR3nR1B8i8v9nUqb8urA
-X-ME-Proxy: <xmx:D7OnapHM8MoX6C5nhgjtVNuohpDPqGF-4K_YwmgM-y6JM0mRgUWhfw>
-    <xmx:D7Onam-jSws1B2wdmTuPic0ydHRJsaDPVG961Z7S7iDyeLoo8p0DJw>
-    <xmx:D7OnaikjQ6cwuViEOBUW8Pll9pW0ivRG1Vddu_eJvLubC2Uv_DwMpw>
-    <xmx:D7OnapDpw1An8aAMy5n4_ef6099nNWx3kJNOWnSA2Xk5IyYa4cO5Sg>
-    <xmx:D7Onat9MIoQmiU-6jnfx8Dmihxed3wN_JDQhNEH_uZwAEM-iKq8ZMydt>
+	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm1; t=1789375239; x=1789461639; bh=jhD/TY1HVDHup8/Y2Z5CmNcrsOhp
+	vRyPIJYV28f3ynA=; b=VFcAQlGh8X1hQFqQA72ig+6Kdg5YoXpGg5X+ph6fmpMn
+	6/I7ajFitZSu2NxAZF2rQytNOdIJYcuvM1cYglv+UPW8nRXYsHlrek0F7n3JH1Jy
+	/eVbLRbGROqaJo5DmzKc6EKcT+xfF8XcHWIrV/cswXZUq7KnTB7zn+MyZ4cGx0Wg
+	1rVcYg1H4h5WwIEVGIyhTK7cuC+GznKojv/W9W7mZQOCjtdZ+buCav1fLGQBawGZ
+	3QBxi+M9e3xNqJWjk39qPxysO/bUmcqimnxcqELSb/s2Sf8PlfTyeQ9f3XTQ9LUQ
+	aEVf36XHSusXGdwPDbQFBI/OH2cQ6UUVjMuWsbkL2g==
+X-ME-Sender: <xms:BrOnavI1v8T1sRIEiDz1TuwEb-GwAW58ch7pUyuY7QfURbpmGDswOQ>
+    <xme:BrOnarV0a-nHhmNKTtRFe2--h7XOx0SaV_ykNvZGu4bYHdRXWpzorlSCk4_7dGbM3
+    eNCqWv4DXGAuUKcTab22T2J0Pl8Pq1QEEcBjHj_mB-sLIwyaad_Poce>
+X-ME-Received: <xmr:BrOnajQR8gPwT2BejcZf9ji4_Xw3K-4iPSCsCAZ1n01rvnjQosyZqFbyceSXW-7P2Pn3matJLAzyjEEQwpQZGtP4CqXqTVMPTmuwKw>
+X-ME-Proxy-Cause: dmFkZTEQYkXtR69FCOn6Gfdk1/Enc/T6176mCywmYkzH53k0FQ+BFe8HhNhidvUwVd/5OJ
+    YqgvnbdBBn158+KTzZh6SypPD3xnjJ5FpGx+XrtIbdw1DyjXl0WJZir/rVEsMMxWfW4Uny
+    qaiqGjScKBPcMAsbteFaiw3bzg2SCa/prXENxQn+NRn6QFGW1l5vX5eOegZ1uvfFufFJzy
+    /JdtPbLKZ2Qkyvdg0fAXZ4qISxEAmwhwqsHX5nQUvsuBUo737yWEy+SNEMSZVM16kIUOz2
+    woxALOuKeFPUjEwMMTkQZ8EsZz24f7Y3k8lT4oiIq6IJ2Snxmf/kJwaYO7eLszLg6RFFgR
+    H07iLVsstiDaIB7goXrv0N4qzn/Mnd3wYd5j6sziUAFrGlLZO76C/lFBmv3fuyWSQIYvPz
+    dmTX5HNUBoxtaY4t+ZBn8e/47aMP18VFaG27Nm4OHmWPExazbHFxQMyVV2KfxnGps+xwlo
+    NbBLXZ/9VT/JdzafDznWMmj2Q82MTN4yTukuepiwRhRzQJM+ZcVIO9vRRrZMfew7UecHeS
+    D3oQ4UFiCZqZ1UHbUyYtPfxZ1ATO+XBmEj+xaxDqzfIautTKADuqCfk1k5TvBjnUcj+PPk
+    fylJR59tkQtvS765PvFP+zeF1xfDNs2InMudwm+aPTaEY1hyUjC6GIo0EsRw
+X-ME-Proxy: <xmx:BrOnajCR7n_pwk64h9LL0FxVRxAAwhHrYijMjupNwu5vLgZ3PiJr2g>
+    <xmx:BrOnaiI1kz4a2Nh2pT2KrOzrJzcRawpXxibFF5rXyQrXBEiikCKMLA>
+    <xmx:BrOnamD-plTw567Ubk5X8ilhA9WLqKdGZpPXNMUPz9MCTkvabSu_Zw>
+    <xmx:BrOnavup76Mq4mRR6wtpzBAME1rveboasTKIhQnfVJ30G2z5QKUjLg>
+    <xmx:B7OnanqFe6SC5L1L6VMPVHlwyanHPl7CVgNmY5d00UqX_Z8CJcldQ4eO>
 Feedback-ID: i47b949f6:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
- 14 Sep 2026 04:40:47 -0400 (EDT)
+ 14 Sep 2026 04:40:38 -0400 (EDT)
 From: Janne Grunau <j@jannau.net>
-Date: Mon, 14 Sep 2026 10:40:35 +0200
-Subject: [PATCH v2 05/13] arm64: dts: apple: t8122: Fix child-address-order
- dt-check-style issues
+Subject: [PATCH v2 00/13] dt-check-style strict fixes for Apple M3, M3
+ Pro/Max/Ultra
+Date: Mon, 14 Sep 2026 10:40:30 +0200
+Message-Id: <20260914-apple-dts-m3-dt-style-check-v2-0-e3e89c33f562@jannau.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260914-apple-dts-m3-dt-style-check-v2-5-e3e89c33f562@jannau.net>
-References: <20260914-apple-dts-m3-dt-style-check-v2-0-e3e89c33f562@jannau.net>
-In-Reply-To: <20260914-apple-dts-m3-dt-style-check-v2-0-e3e89c33f562@jannau.net>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/43NTQ7CIBCG4as0s3YMYFulK+9huiAwWvyhBJDYN
+ Nxd7AlcTZ5ZvN8KkYKlCEOzQqBso51dhdg1oCflboTWVINgomeSSVTePwlNivg61IMxLdV6Iv1
+ AJrQ8cq5O0hioBR/oaj9b/TJWTzamOSzbWOa/73/dzJFhq7u2J2Gk6fj5rpxT772jBGMp5QtjY
+ pbzxwAAAA==
+X-Change-ID: 20260909-apple-dts-m3-dt-style-check-02c9711a89dd
 To: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>
@@ -95,19 +97,18 @@ Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Janne Grunau <j@jannau.net>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2607; i=j@jannau.net;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3683; i=j@jannau.net;
  s=yk2025; h=from:subject:message-id;
- bh=p38AXMzca/I6aVtQpRZ8f+WAdxrgQ6IGXGdUO01HADo=;
- b=owGbwMvMwCW2UNrmdq9+ahrjabUkhqzlm5mNDh3mapdmPVUtcrLxUPOGbXZNlm2RDzOzn3uwO
- NjFVqR0lLIwiHExyIopsiRpv+xgWF2jGFP7IAxmDisTyBAGLk4BmAjnF0aG7V19/VPZ53hcrSmM
- a0oPYjm94UPpp4W3Vdm37bNM5OZ9yfA//UuDx4weTu/32yY5f7fbdaDL9uKn8PTfTDGnV5pEC2j
- wAwA=
+ bh=Su6lcPEPc9UMZAenTJSjiq/GLgJ6wTCkbDST24a+7kg=;
+ b=owGbwMvMwCW2UNrmdq9+ahrjabUkhqzlm5kuTpl+Zf30qep8Sz8uX/bj7I+Azz8v8Vzzt7n47
+ oj6vM1SNzpKWRjEuBhkxRRZkrRfdjCsrlGMqX0QBjOHlQlkCAMXpwBMxCSVkeGCkMlsR9uDDocZ
+ vs3zyF+0jiHTUWtWvP6mr2UpefumN89m+J869XTXqWimo6qqNhrNHFIzXM7nPH554MkciWrTIo5
+ 1k7gA
 X-Developer-Key: i=j@jannau.net; a=openpgp;
  fpr=8B336A6BE4E5695E89B8532B81E806F586338419
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_014048_508268_0254528F 
-X-CRM114-Status: UNSURE (   9.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260914_014045_427341_186218B1 
+X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,93 +123,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reorder device nodes in the soc node by their unit address.
+Hej,
+
+this series fixes most dt-check-style issues in strict strict mode for
+Apple M3 and M3 Pro, Max and Ultra device trees. These device trees are
+small so fixing most of the issues helps to check that new additions do
+not introduce new dt-check-style issues.
+
+Not handled in this series are property-order and line-length issues in
+t*-pmgr.dtsi. I don't expect those files to be touched often and the
+diffs would be huge.
+In addition it leaves line-length issues for lines with up to 82
+columns.
+
+Cache related properties for CPU nodes unfortunately do not share a
+prefix so strict property-order would decrease human readability. This
+series does not address property-order order for "d-cache-size" and adds
+a blank line before it to keep all cache related properties grouped
+together.
+
+I verified that the series does not introduce functional changes by
+comparing the preprocessed device trees with dtdiff. The diff shows only
+phandle changes caused by reordering nodes.
+
+Series based on apple-soc/dt-7.4 (commit f3f2d38a606e ("arm64: dts:
+apple: Fix style issues for t6031 multi die .dtsi")).
+
+Janne
 
 Signed-off-by: Janne Grunau <j@jannau.net>
 ---
- arch/arm64/boot/dts/apple/t8122.dtsi | 60 ++++++++++++++++++------------------
- 1 file changed, 30 insertions(+), 30 deletions(-)
+Changes in v2:
+- s/dt-style-check/dt-check-style/ in the commit messages
+- move comment with line it refers to in t8122' serial0 node
+- Link to v1: https://lore.kernel.org/r/20260909-apple-dts-m3-dt-style-check-v1-0-4c546e2d9d51@jannau.net
 
-diff --git a/arch/arm64/boot/dts/apple/t8122.dtsi b/arch/arm64/boot/dts/apple/t8122.dtsi
-index 481f68a570ec..3c7677079a29 100644
---- a/arch/arm64/boot/dts/apple/t8122.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8122.dtsi
-@@ -284,36 +284,6 @@ serial0: serial@2a1200000 {
- 			status = "disabled";
- 		};
- 
--		aic: interrupt-controller@2d1000000 {
--			compatible = "apple,t8122-aic3";
--			#interrupt-cells = <3>;
--			interrupt-controller;
--			reg = <0x2 0xd1000000 0x0 0x184000>,
--				<0x2 0xd1040000 0x0 0x4>;
--			reg-names = "core", "event";
--			power-domains = <&ps_aic>;
--
--			affinities {
--				e-core-pmu-affinity {
--					apple,fiq-index = <AIC_CPU_PMU_E>;
--					cpus = <&cpu_e0 &cpu_e1 &cpu_e2 &cpu_e3>;
--				};
--
--				p-core-pmu-affinity {
--					apple,fiq-index = <AIC_CPU_PMU_P>;
--					cpus = <&cpu_p0 &cpu_p1 &cpu_p2 &cpu_p3>;
--				};
--			};
--		};
--
--		pmgr: power-management@2d0700000 {
--			compatible = "apple,t8122-pmgr", "apple,t8103-pmgr", "syscon", "simple-mfd";
--			#address-cells = <1>;
--			#size-cells = <1>;
--			reg = <0x2 0xd0700000 0 0x14000>;
--			/* child nodes are added in t8122-pmgr.dtsi */
--		};
--
- 		pinctrl_ap: pinctrl@2c7100000 {
- 			compatible = "apple,t8122-pinctrl", "apple,t8103-pinctrl";
- 			reg = <0x2 0xc7100000 0x0 0x100000>;
-@@ -361,6 +331,36 @@ i2c4_pins: i2c4-pins {
- 			};
- 		};
- 
-+		pmgr: power-management@2d0700000 {
-+			compatible = "apple,t8122-pmgr", "apple,t8103-pmgr", "syscon", "simple-mfd";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+			reg = <0x2 0xd0700000 0 0x14000>;
-+			/* child nodes are added in t8122-pmgr.dtsi */
-+		};
-+
-+		aic: interrupt-controller@2d1000000 {
-+			compatible = "apple,t8122-aic3";
-+			#interrupt-cells = <3>;
-+			interrupt-controller;
-+			reg = <0x2 0xd1000000 0x0 0x184000>,
-+				<0x2 0xd1040000 0x0 0x4>;
-+			reg-names = "core", "event";
-+			power-domains = <&ps_aic>;
-+
-+			affinities {
-+				e-core-pmu-affinity {
-+					apple,fiq-index = <AIC_CPU_PMU_E>;
-+					cpus = <&cpu_e0 &cpu_e1 &cpu_e2 &cpu_e3>;
-+				};
-+
-+				p-core-pmu-affinity {
-+					apple,fiq-index = <AIC_CPU_PMU_P>;
-+					cpus = <&cpu_p0 &cpu_p1 &cpu_p2 &cpu_p3>;
-+				};
-+			};
-+		};
-+
- 		pinctrl_nub: pinctrl@2e41f0000 {
- 			compatible = "apple,t8122-pinctrl", "apple,t8103-pinctrl";
- 			reg = <0x2 0xe41f0000 0x0 0x4000>;
+---
+Janne Grunau (13):
+      arm64: dts: apple: t603x: Fix all blank line dt-check-style issues
+      arm64: dts: apple: t8122: Fix blank line related dt-check-style issues
+      arm64: dts: apple: t603x: Fix child-name-order dt-check-style issues
+      arm64: dts: apple: t8122: Fix child-name-order dt-check-style issues
+      arm64: dts: apple: t8122: Fix child-address-order dt-check-style issues
+      arm64: dts: apple: t6031: Fix continuation alignment
+      arm64: dts: apple: t8122: Fix continuation alignment
+      arm64: dts: apple: t6030: Fix most property-order dt-check-style issues
+      arm64: dts: apple: t603[12]: Fix most property-order dt-check-style issues
+      arm64: dts: apple: t8122: Fix most property-order dt-check-style issues
+      arm64: dts: apple: t6032-j575d: Remove unused "framebuffer0" label
+      arm64: dts: apple: t603x: Break overly long lines
+      arm64: dts: apple: t8122: Break overly long lines
 
+ arch/arm64/boot/dts/apple/t6030-pmgr.dtsi      |   1 -
+ arch/arm64/boot/dts/apple/t6030.dtsi           | 277 ++++++++++++++-----------
+ arch/arm64/boot/dts/apple/t6031-base.dtsi      | 191 +++++++++--------
+ arch/arm64/boot/dts/apple/t6031-die0.dtsi      |  61 +++---
+ arch/arm64/boot/dts/apple/t6031-dieX.dtsi      |  92 ++++----
+ arch/arm64/boot/dts/apple/t6031-gpio-pins.dtsi |  18 +-
+ arch/arm64/boot/dts/apple/t6031-pmgr.dtsi      |   6 +
+ arch/arm64/boot/dts/apple/t6031.dtsi           |   7 +-
+ arch/arm64/boot/dts/apple/t6032-j575d.dts      |  10 +-
+ arch/arm64/boot/dts/apple/t6032.dtsi           | 175 +++++++++-------
+ arch/arm64/boot/dts/apple/t603x-j514-j516.dtsi |  15 +-
+ arch/arm64/boot/dts/apple/t8122-j504.dts       |  10 +-
+ arch/arm64/boot/dts/apple/t8122-j613.dts       |   9 +-
+ arch/arm64/boot/dts/apple/t8122-j615.dts       |   9 +-
+ arch/arm64/boot/dts/apple/t8122-jxxx.dtsi      |   5 +-
+ arch/arm64/boot/dts/apple/t8122-pmgr.dtsi      |   1 -
+ arch/arm64/boot/dts/apple/t8122.dtsi           | 256 +++++++++++++----------
+ 17 files changed, 640 insertions(+), 503 deletions(-)
+---
+base-commit: f3f2d38a606edf92259aa5e57e083484798d7ea8
+change-id: 20260909-apple-dts-m3-dt-style-check-02c9711a89dd
+
+Best regards,
 -- 
-2.55.0
+Janne Grunau <j@jannau.net>
 
 
