@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A884C88E75
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CBEAC88E74
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 10:22:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,33 +12,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ruOzcv+D+BxVsPeKahs59VOb0a8BLibO32bROQwkZCU=; b=2ixwIXvnGhmFfyiJqhMwr/XHVU
-	E1P/ncIQNM/4yMZrjFm6KeIWTtuK00KAhf3EGb8tF6aTL7e6JNn8V/eQiFwr3e6WRJDvZpjwhN02l
-	wo4vd5i9aKYcbYP+g2FWFf0yKp8G/w6S5/4JynTObNyQ3nRM3Z25Z9aAx9nc0/90nYIzykeUrBLl9
-	jMQpQ542raOnrOWO0j+Loy3z4W7cvS3NBS7x7BV4BOI1wRcec5DA/7WTqiVQvad8txSW7pqgpJVPc
-	ltGwVxlvnB7ywiZLurQzJnqyuL7yYmbadFqQKg6ezlY5ghdwonrKtGnot8PxbJpxnPVSazLTgnjMp
-	NhkWlX0A==;
+	bh=FpHrTwbBWraY3J0SL1PLPImQ54WT1mn9zztsF3KXw1M=; b=i4BJV0o2T41QjH1U4L/p/TvvMU
+	HiWk9V9XFjWLrKnl7/wUDR6x8HPYBCoS/LVHBF7ZBMiGGhd7mUXXLn1coLf2cW3qfWLEk12To2jxt
+	jmh4N81Jkd4oOOHvtyRUZyaYe63KrzptqYfjOnDmaF0jXWs/sauD/nLeHbHz38JTcE8i07ns06soZ
+	OBQQIriSAXlNBGrjH03knZmY6BopgOb3gVaD1JFSOZCrnExRUVXzlv17rSAJ+DijkRBKEjjzSiWRn
+	tRMPR0B70F/Oi2fBTZuncGuMFbjBphIo/bt54Dazbu+haajR3DNYUS6OdxfHbY0tywQLyDO5vZEHX
+	0xY0R+pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x63pU-000000036A1-2reh;
-	Mon, 14 Sep 2026 10:22:28 +0000
+	id 1x63pZ-000000036Ll-1YOf;
+	Mon, 14 Sep 2026 10:22:33 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x63p0-000000035eu-1rNR
+	id 1x63pD-000000035p8-0xkU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 10:21:59 +0000
+	Mon, 14 Sep 2026 10:22:12 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5A2B61576;
-	Mon, 14 Sep 2026 03:21:54 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3A3261C2B;
+	Mon, 14 Sep 2026 03:22:07 -0700 (PDT)
 Received: from login2.euhpc2.arm.com (login2.euhpc2.arm.com [10.58.100.22])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D97603F7B4;
-	Mon, 14 Sep 2026 03:21:56 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id BB6903F7B4;
+	Mon, 14 Sep 2026 03:22:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789381318; bh=tvf7ArjpKkmb1RSjXAScuFu8Jz5Sqa7SrQTmVWO3zxE=;
+	t=1789381330; bh=GFVNxzNcZSanZzQbKqz4h1plKmyLLVrvTjtEXh7sKO8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=mXQJzhkCn2Pgl8U9yzul/CKvraBqsz9dVmqxiwJDnnY4vb2wsPPFltj3/SXqHs9eh
-	 ckIip3Ts50w4YgTG3MiAD8+lmI8hMCFbU4ydsB5WjMzo+B2ZQSwjgSe/ZdrCE07VvJ
-	 nNXoko0hQr2p/xvxCnXTYofnAmer/yvMB5kBSZCY=
+	b=DHxs52f6vDFmXpE9rHa5vT152JIH6XTfgQc8r90YbR+F/OjkHnHFBFAjxw5ApGvwS
+	 il/+50dd7xh0GqbOVYlvquLNctE0zuSySd8bOBTW1qZWMnI8aB/qKXXuam9tQfKLME
+	 QV890eEVYYSeMaimod6pTCC1CCDznCDaiGRcvx6Q=
 From: Vladimir Murzin <vladimir.murzin@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: catalin.marinas@arm.com,
@@ -48,17 +48,17 @@ Cc: catalin.marinas@arm.com,
 	lpieralisi@kernel.org,
 	ruanjinjie@huawei.com,
 	liaochang1@huawei.com
-Subject: [PATCH 21/38] arm64: ptrace: Add PSR_ALLINT_BIT
-Date: Mon, 14 Sep 2026 11:20:45 +0100
-Message-Id: <20260914102102.68597-22-vladimir.murzin@arm.com>
+Subject: [PATCH 30/38] arm64: smp: Abstract SGI and LPI operations
+Date: Mon, 14 Sep 2026 11:20:54 +0100
+Message-Id: <20260914102102.68597-31-vladimir.murzin@arm.com>
 X-Mailer: git-send-email 2.24.0
 In-Reply-To: <20260914102102.68597-1-vladimir.murzin@arm.com>
 References: <20260914102102.68597-1-vladimir.murzin@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_032158_525650_DE56CC02 
-X-CRM114-Status: GOOD (  10.59  )
+X-CRM114-CacheID: sfid-20260914_032211_357724_4901948D 
+X-CRM114-Status: GOOD (  15.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,59 +73,237 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+SGI and LPI backed IPIs require different setup, enable, disable and
+send operations. These differences are currently handled by repeatedly
+checking percpu_ipi_descs. As the implementation specific logic grows,
+these checks make the common IPI code increasingly difficult to
+follow.
 
-When FEAT_NMI is implemented, ALLINT is part of PSTATE and will be saved
-to SPSR on exception entry.
-As it can mask interrupts, depending on configuration, we will need to
-check its value in interruted tasks, so add the corresponding bit
-to ptrace.h.
+Introduce an operations structure for each implementation to
+encapsulate the specific of SGI and LPI handling, leaving the common
+IPI paths generic.
 
-Given its impact on interrupt and NMI masking, use it to update
-`print_pstate()` so that it displays ALLINT state.
-Display it after DAIF so that interrupt masking fields are together.
-
-Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
 Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
- arch/arm64/include/uapi/asm/ptrace.h | 1 +
- arch/arm64/kernel/process.c          | 3 ++-
- 2 files changed, 3 insertions(+), 1 deletion(-)
+ arch/arm64/kernel/smp.c | 135 ++++++++++++++++++++++++++--------------
+ 1 file changed, 88 insertions(+), 47 deletions(-)
 
-diff --git a/arch/arm64/include/uapi/asm/ptrace.h b/arch/arm64/include/uapi/asm/ptrace.h
-index 15649a253a57..c4042da27d80 100644
---- a/arch/arm64/include/uapi/asm/ptrace.h
-+++ b/arch/arm64/include/uapi/asm/ptrace.h
-@@ -48,6 +48,7 @@
- #define PSR_D_BIT	0x00000200
- #define PSR_BTYPE_MASK	0x00000c00
- #define PSR_SSBS_BIT	0x00001000
-+#define PSR_ALLINT_BIT	0x00002000
- #define PSR_PAN_BIT	0x00400000
- #define PSR_UAO_BIT	0x00800000
- #define PSR_DIT_BIT	0x01000000
-diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-index 0fd09136d398..c77d1e2b1b3a 100644
---- a/arch/arm64/kernel/process.c
-+++ b/arch/arm64/kernel/process.c
-@@ -183,7 +183,7 @@ static void print_pstate(struct pt_regs *regs)
- 		const char *btype_str = btypes[(pstate & PSR_BTYPE_MASK) >>
- 					       PSR_BTYPE_SHIFT];
+diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+index 3d7060aedd66..46cdcc114997 100644
+--- a/arch/arm64/kernel/smp.c
++++ b/arch/arm64/kernel/smp.c
+@@ -77,11 +77,18 @@ static DEFINE_PER_CPU_READ_MOSTLY(struct ipi_descs, pcpu_ipi_desc);
  
--		printk("pstate: %08llx (%c%c%c%c %c%c%c%c %cPAN %cUAO %cTCO %cDIT %cSSBS BTYPE=%s)\n",
-+		printk("pstate: %08llx (%c%c%c%c %c%c%c%c %cALLINT %cPAN %cUAO %cTCO %cDIT %cSSBS BTYPE=%s)\n",
- 			pstate,
- 			pstate & PSR_N_BIT ? 'N' : 'n',
- 			pstate & PSR_Z_BIT ? 'Z' : 'z',
-@@ -193,6 +193,7 @@ static void print_pstate(struct pt_regs *regs)
- 			pstate & PSR_A_BIT ? 'A' : 'a',
- 			pstate & PSR_I_BIT ? 'I' : 'i',
- 			pstate & PSR_F_BIT ? 'F' : 'f',
-+			pstate & PSR_ALLINT_BIT ? '+' : '-',
- 			pstate & PSR_PAN_BIT ? '+' : '-',
- 			pstate & PSR_UAO_BIT ? '+' : '-',
- 			pstate & PSR_TCO_BIT ? '+' : '-',
+ #define get_ipi_desc(__cpu, __ipi) (per_cpu_ptr(&pcpu_ipi_desc, __cpu)->descs[__ipi])
+ 
+-static bool percpu_ipi_descs __ro_after_init;
++struct ipi_irq_ops {
++	void (*setup)(int ipi, int ncpus);
++	void (*disable)(int cpu, int ipi);
++	void (*enable)(int cpu, int ipi);
++	void (*send)(const cpumask_t *mask, unsigned int nr);
++};
++
++static const struct ipi_irq_ops *ipi_ops __ro_after_init;
+ 
+ static bool crash_stop;
+ 
+-static void ipi_setup(int cpu);
++static void ipi_enable(int cpu);
+ 
+ #ifdef CONFIG_HOTPLUG_CPU
+ static void ipi_teardown(int cpu);
+@@ -242,7 +249,7 @@ asmlinkage notrace void secondary_start_kernel(void)
+ 	 */
+ 	notify_cpu_starting(cpu);
+ 
+-	ipi_setup(cpu);
++	ipi_enable(cpu);
+ 
+ 	numa_add_cpu(cpu);
+ 
+@@ -937,13 +944,7 @@ void __noreturn panic_smp_self_stop(void)
+ 
+ static void arm64_send_ipi(const cpumask_t *mask, unsigned int nr)
+ {
+-	unsigned int cpu;
+-
+-	if (!percpu_ipi_descs)
+-		__ipi_send_mask(get_ipi_desc(0, nr), mask);
+-	else
+-		for_each_cpu(cpu, mask)
+-			__ipi_send_single(get_ipi_desc(cpu, nr), cpu);
++	ipi_ops->send(mask, nr);
+ }
+ 
+ static void arm64_backtrace_ipi(cpumask_t *mask)
+@@ -1074,54 +1075,37 @@ static bool ipi_should_be_nmi(enum ipi_msg_type ipi)
+ 	}
+ }
+ 
+-static void ipi_setup(int cpu)
++static void ipi_enable(int cpu)
+ {
+-	int i;
++	int ipi;
+ 
+ 	if (WARN_ON_ONCE(!ipi_irq_base))
+ 		return;
+ 
+-	for (i = 0; i < nr_ipi; i++) {
+-		if (!percpu_ipi_descs) {
+-			if (ipi_should_be_nmi(i)) {
+-				prepare_percpu_nmi(ipi_irq_base + i);
+-				enable_percpu_nmi(ipi_irq_base + i, 0);
+-			} else {
+-				enable_percpu_irq(ipi_irq_base + i, 0);
+-			}
+-		} else {
+-			enable_irq(irq_desc_get_irq(get_ipi_desc(cpu, i)));
+-		}
+-	}
++	for (ipi = 0; ipi < nr_ipi; ipi++)
++		ipi_ops->enable(cpu, ipi);
+ }
+ 
+ #ifdef CONFIG_HOTPLUG_CPU
+ static void ipi_teardown(int cpu)
+ {
+-	int i;
++	int ipi;
+ 
+ 	if (WARN_ON_ONCE(!ipi_irq_base))
+ 		return;
+ 
+-	for (i = 0; i < nr_ipi; i++) {
+-		if (!percpu_ipi_descs) {
+-			if (ipi_should_be_nmi(i)) {
+-				disable_percpu_nmi(ipi_irq_base + i);
+-				teardown_percpu_nmi(ipi_irq_base + i);
+-			} else {
+-				disable_percpu_irq(ipi_irq_base + i);
+-			}
+-		} else {
+-			disable_irq_nosync(irq_desc_get_irq(get_ipi_desc(cpu, i)));
+-		}
+-	}
++	for (ipi = 0; ipi < nr_ipi; ipi++)
++		ipi_ops->disable(cpu, ipi);
+ }
+ #endif
+ 
+-static void ipi_setup_sgi(int ipi)
++static void ipi_sgi_setup(int ipi, int ncpus)
+ {
+ 	int err, irq, cpu;
+ 
++	if (WARN_ON_ONCE(ncpus))
++		return;
++
+ 	irq = ipi_irq_base + ipi;
+ 
+ 	if (ipi_should_be_nmi(ipi)) {
+@@ -1138,7 +1122,53 @@ static void ipi_setup_sgi(int ipi)
+ 	irq_set_status_flags(irq, IRQ_HIDDEN);
+ }
+ 
+-static void ipi_setup_lpi(int ipi, int ncpus)
++static void ipi_sgi_enable(int cpu, int ipi)
++{
++	int irq = ipi_irq_base + ipi;
++
++	if (ipi_should_be_nmi(ipi)) {
++		prepare_percpu_nmi(irq);
++		enable_percpu_nmi(irq, 0);
++	} else {
++		enable_percpu_irq(irq, 0);
++	}
++}
++
++static void ipi_sgi_disable(int cpu, int ipi)
++{
++	int irq = ipi_irq_base + ipi;
++
++	if (ipi_should_be_nmi(ipi)) {
++		disable_percpu_nmi(irq);
++		teardown_percpu_nmi(irq);
++	} else {
++		disable_percpu_irq(irq);
++	}
++}
++
++static void ipi_sgi_send(const cpumask_t *mask, unsigned int nr)
++{
++	__ipi_send_mask(get_ipi_desc(0, nr), mask);
++}
++
++static const struct ipi_irq_ops ipi_sgi_ops = {
++	.setup = ipi_sgi_setup,
++	.disable = ipi_sgi_disable,
++	.enable = ipi_sgi_enable,
++	.send = ipi_sgi_send,
++};
++
++static void ipi_lpi_enable(int cpu, int ipi)
++{
++	enable_irq(irq_desc_get_irq(get_ipi_desc(cpu, ipi)));
++}
++
++static void ipi_lpi_disable(int cpu, int ipi)
++{
++	disable_irq_nosync(irq_desc_get_irq(get_ipi_desc(cpu, ipi)));
++}
++
++static void ipi_lpi_setup(int ipi, int ncpus)
+ {
+ 	for (int cpu = 0; cpu < ncpus; cpu++) {
+ 		int err, irq;
+@@ -1158,6 +1188,20 @@ static void ipi_setup_lpi(int ipi, int ncpus)
+ 	}
+ }
+ 
++static void ipi_lpi_send(const cpumask_t *mask, unsigned int nr) {
++	int cpu;
++
++	for_each_cpu(cpu, mask)
++		__ipi_send_single(get_ipi_desc(cpu, nr), cpu);
++}
++
++static const struct ipi_irq_ops ipi_lpi_ops = {
++	.setup = ipi_lpi_setup,
++	.disable = ipi_lpi_disable,
++	.enable = ipi_lpi_enable,
++	.send = ipi_lpi_send,
++};
++
+ void __init set_smp_ipi_range_percpu(int ipi_base, int n, int ncpus)
+ {
+ 	int i;
+@@ -1165,18 +1209,15 @@ void __init set_smp_ipi_range_percpu(int ipi_base, int n, int ncpus)
+ 	WARN_ON(n < MAX_IPI);
+ 	nr_ipi = min(n, MAX_IPI);
+ 
+-	percpu_ipi_descs = !!ncpus;
+ 	ipi_irq_base = ipi_base;
+ 
+-	for (i = 0; i < nr_ipi; i++) {
+-		if (!percpu_ipi_descs)
+-			ipi_setup_sgi(i);
+-		else
+-			ipi_setup_lpi(i, ncpus);
+-	}
++	ipi_ops = ncpus ? &ipi_lpi_ops : &ipi_sgi_ops;
++
++	for (i = 0; i < nr_ipi; i++)
++		ipi_ops->setup(i, ncpus);
+ 
+ 	/* Setup the boot CPU immediately */
+-	ipi_setup(smp_processor_id());
++	ipi_enable(smp_processor_id());
+ }
+ 
+ void arch_smp_send_reschedule(int cpu)
 -- 
 2.34.1
 
