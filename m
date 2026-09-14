@@ -4,67 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82F73C88E64
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 06:51:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB0D0C88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 06:54:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SpT7O7iwpNcFO5H5S/0ouhszyuAVN8XFMHDgYjFA3Ok=; b=HUwGxc1qhqvMxu8/aI4AEzl25U
-	p4ZEC2MXu3CRLntVJ7WumjSntdr0/nwnip1MZlZm1WUTjos4DvsxOXSfjxzQd2GUkbTRZOZgKoKh9
-	VwwdBEVNpvl8SurhhPVns2PgPRfKFBNs1A3H4xGhAOPQTyQfDxGSBKHnwzigs0GPdCbQmFT6qc0Bi
-	HIiqPspBpmENSPkMzN5n30rYyh1FEyA9J4kxj9ju3AMZzt2rH0hMiDG4E8KpE0b8uQJsz5OvxUZ/z
-	lFhHN0kAS7/mXPaXLPE0eej1V4NoMYpzIk4nGtVotR/qeOwKb+S0KkMoLqandKy5IrR7EmftJFVFg
-	zEUjp9Pg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/toYHhxO/wcMjvjO9+8XfYH1TFzpnRzngtEFcVvPIps=; b=GiINGlJCZ1m06WIN1ZnJ1TOlwh
+	q7J/M9X9Kl1T/IT/+EK85RXN5TEhaUdHB0t/28BTpzKLz6w5KAWBid6jUHnSsySIZKusKNv1rFCfn
+	wQsPRbFqxK29f7iPnxU1RWRepoLTfXm4OTqQU55aRSgw4dqNwIQWxb5w/O5bxkDQZUbCk/353dYDh
+	8vehBMeRdTPQzIUoPRpQi0bKd2xUcsBb7CvoWTHUaDjHzxXqcqL2V1mKN2rxJRkL1N04F5JM/3sv2
+	jkRsq+nkkl4lpL/Y/0OqM8OTxOvltnEV00wXFb0enLzuTFnWwkyE9CadFiBb/6mObk6qVaZ23Yq1w
+	GGAJquQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x60Xd-00000002U0O-08yD;
-	Mon, 14 Sep 2026 06:51:49 +0000
-Received: from out-36.mta0.migadu.com ([2001:41d0:1004:224b::24] helo=mta0.migadu.com)
+	id 1x60aJ-00000002UOf-2oFw;
+	Mon, 14 Sep 2026 06:54:35 +0000
+Received: from mail-northeuropeazon11010058.outbound.protection.outlook.com ([52.101.84.58] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x60XY-00000002TzL-22nE
+	id 1x60aH-00000002UNn-3Uu8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 06:51:47 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=ImB4OSlH78bkgJyJTPE0uJYasv+aHz+ywNLGej5cQLA=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1789368702; v=1; x=1789973502;
- b=I63itf2TpHXHRYOL2bejHPSgIL4TyoUH7G9DZFd1ndDP78CzQxq6NIhI6beWg9OY6Q1adCB7
- tdmfuETZll7DBwqMEEJ/OTFZMK0/faMYyFpSs/D+eDOG69L618k4zYrRNyfG15kVdgVYze0oCY2
- aUVvq14una7IyZX5hAJmorI0=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 9d38ec8ca3f71a61;
-	Mon, 14 Sep 2026 06:51:42 +0000
-X-Mizu-Trace-ID: 9d38ec8ca3f71a61
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: maz@kernel.org,
-	oupton@kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: catalin.marinas@arm.com,
-	will@kernel.org,
-	joey.gouly@arm.com,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	mark.rutland@arm.com,
-	vdonnefort@google.com,
-	qperret@google.com,
-	tabba@google.com
-Subject: [PATCH] KVM: arm64: Pin the host vCPU before adjusting its PC under pKVM
-Date: Mon, 14 Sep 2026 07:51:36 +0100
-Message-Id: <20260914065136.3418404-1-fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.39.5
+	Mon, 14 Sep 2026 06:54:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BwHO3b0zcbdrvn9lgjPbHIMbspjCM4/7xH+fddQ0wKQ8o8iZs2rB+pmbSWRTnDpzp1/NNUHeL8S3lBWaY0ZFtRh9ZmguP75OAx0baifLioqTN+7GGZL/9/VhB7GHZA71eEh1QH9jiFydQEDkZBPe6COkaWYsSMSJIQOK8h6Sh4jCWc5LZWTliS9F6IX8FusXXnUqm3eOabjlhx5IuKy/5x9uH/UTO9VIFbfZro7tpHvm2xsHwZfXdC3E/R+A636BHPrJKa3jsjnTbETw9V98e8L1WBw5JVa7IXqGbXycVVDND/CTz+yw57hrsQPVP2/5vtie+iexY8JOJaaRi725Lw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/toYHhxO/wcMjvjO9+8XfYH1TFzpnRzngtEFcVvPIps=;
+ b=SqSAOy7tKwcg15BTH9tDne0CI05/GEshl917RWpfIhtigMPUlkEImAywX5djPrdg6SEB7ItSrEmGfSg+0sCNKU5t+gs/BEA218ayHeE4BeaUM+xAXnJ2mpmWRLee1wbvCjYfwaZSr4fMXQBt6Y8PXwA4OT9sSWp04vl/j2FwxJC/CqEHOPur1Z9ONqT0prl9rKGkIEq1Sd+dhf8BbbMDvvJc4KVz39ZLbtwstf01NaO14O/Kco5d7iPV9NCj6b1I5I9GBzTZ7pOZTX9XW8J7m+5pQ3nx7+oSObsKNJigJURQ9iRtViVW1AaoJAF5vZLH1WIKnUhsLVFurf2LMVYyVQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/toYHhxO/wcMjvjO9+8XfYH1TFzpnRzngtEFcVvPIps=;
+ b=oDKv7lJ82qGek1Z3VqZp7TnDp4hrSVbTzWpQEWp6sm01p0Bkkt80Dyqwc+vTmQNvqKMV7NgftretZKFL83WF34dzP5LK58U7MCduYliSicZAEjN2DeotZQEGzCE0SnggJ0ADfYDCGc7NM6WFe43GMzTlu9K9BfgSe0yi0f4OugzFrFkZEjurvZOGJgHRc/OAMwD1PIzHbE5uo1Mhq5/hC7KNeDtTjbuBbJ/vlXU7wPn5OTeZXXJf8G2rwdS2gspRMytDco9mQnDQ+VFi/HtMVsboCZ75iEW7sWx0x/JCDGlBFvw17F5utnyBfDM4VTJeW/veDOdQq/yM8uLh/QDLzQ==
+Received: from VI1PR07CA0162.eurprd07.prod.outlook.com (2603:10a6:802:16::49)
+ by PAVPR10MB7467.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:2f6::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Mon, 14 Sep
+ 2026 06:54:27 +0000
+Received: from WA1PEPF000099CD.eurprd04.prod.outlook.com
+ (2603:10a6:802:16:cafe::56) by VI1PR07CA0162.outlook.office365.com
+ (2603:10a6:802:16::49) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.428.8 via Frontend Transport; Mon, 14
+ Sep 2026 06:54:27 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ WA1PEPF000099CD.mail.protection.outlook.com (10.167.242.21) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.428.7 via Frontend Transport; Mon, 14 Sep 2026 06:54:27 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Mon, 14 Sep
+ 2026 09:00:30 +0200
+Received: from localhost (10.252.27.156) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Mon, 14 Sep
+ 2026 08:54:26 +0200
+From: Alain Volmat <alain.volmat@foss.st.com>
+Date: Mon, 14 Sep 2026 08:54:17 +0200
+Subject: [PATCH 1/4] arm64: dts: st: add imx335/csi/dcmipp nodes on
+ stm32mp257f-dk
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20260914-stm32mp2-dk-camera-v1-1-2f2bd719bb63@foss.st.com>
+References: <20260914-stm32mp2-dk-camera-v1-0-2f2bd719bb63@foss.st.com>
+In-Reply-To: <20260914-stm32mp2-dk-camera-v1-0-2f2bd719bb63@foss.st.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>
+CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	"Alain Volmat" <alain.volmat@foss.st.com>
+X-Mailer: b4 0.15.2
+X-Originating-IP: [10.252.27.156]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: WA1PEPF000099CD:EE_|PAVPR10MB7467:EE_
+X-MS-Office365-Filtering-Correlation-Id: 75ba0ed0-dc76-4747-368e-08df122d04ba
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|23010399003|36860700016|376014|10067099003|3023799007|22082099003|18002099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: 7cAkH6Gnz5ChMcCAQP3t7hMUWhzSsPaTyrWV2eA2UV3fDKHH+cPTx6SbvW5ZPuqoO2agXQQlf60Ny+wf3nGEQ5L8k9dcSaI/dLENfushny7VV2C+1i0rM0u87Az34HAOhKofbUAyFlBlXokvdUi6rUs2JsBX/q0A5FkN916od4V5NdHeaghON8lBxwED/56Jm4Jo/QrYWeniCZreS32RhY4CAckc7l3YGn580XW8LoLQYHkO+nQSq9V6hI157bYGbFM2JBweZtmogp5VHK6CgwaOCD1VRfQM4pkkNdN5yQ9ASpk6K+vljlVQIFOVRTfWEltDp74mQmaugUv4N1ZpbvOpOVfosvRQWDt+FiJyCPrD82eArvmD0f08Gy4YvhVzsHfqrhwH9MBaJ1TbCKCcaROc7+axi/B4ZXo0y3zuALLDNdVmve1+yTPxiuf74scYfw9Dp99epdhRvvxq/+4Nud6yGJqewyh8RcaEdkDKgJ/1/DuVUEjjiNKkeGApxxPgSl4oMhFu1TWNvKJfylO70pu0/PeQ6OpnvFo6L9A5dLZXQ2WCOOtN+wNscf4YjGGfaWaXO74Cbjhu9ldVOsL6BhIx4FOKIpNo0ZKPCvYmp/SbD2onAsEwsKAh8nMOA60Zfw34M5ObJ574rWEwQuVUL6d2/W2UjM6iCcd8NRezo7h4eQrslCm101vibn0L5+eJ563IZd8BooHPtx9YLyhQ/w==
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(23010399003)(36860700016)(376014)(10067099003)(3023799007)(22082099003)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: LI5lC5ByQiHD2gAEn72JSmju3geuuh6xJRtEhKN0QRYDHPIOOguQ0jogH2cwcS1fj+C+neKlSCtj+8IyU5GL6vYvgpI8ajQFK29JcvA1V9wmG+YNyXRGsz0xLVR36UYhrIk9gu7nFyTRQYcT8jOXsNAfS+CymwKOytXowib66V1NCAmlHfgLn55rS/3AWh3qkbWnVennTNJUo5+AQQu3MKdiDRx9Gs0YoIpTwbzR8Pze7GBkkC2HrRyOdAHzcR+fM5VGb+ARFvuVLFcIrW4B1NY/lgXxkop8xE1Gk1orw0isGdpCQd9sNSPVKMji6Ix2EAB1VoBOsHmSMKqscqfCsA+hFiHAwEWOGMBIHV2Qmx6GhWeWcWAJuFWw3UBp56GNOOO1wRZn65x9A7oO0QbfUdUkOoX81YTOijfASC2gwb480rPcPfkJZOcFr39E5A9X
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Sep 2026 06:54:27.0988
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 75ba0ed0-dc76-4747-368e-08df122d04ba
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: WA1PEPF000099CD.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAVPR10MB7467
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260913_235144_671336_A69231AD 
-X-CRM114-Status: GOOD (  12.61  )
+X-CRM114-CacheID: sfid-20260913_235433_877628_7701A40A 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,74 +129,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Under pKVM, a page the host shares with EL2 is mapped at EL2 only while
-it's pinned, and the host vCPU and its VM are pinned at the vCPU's
-first KVM_RUN. KVM_SET_VCPU_EVENTS with ext_dabt_pending reaches
-__kvm_adjust_pc() at EL2 before that, and dereferencing the unmapped
-host vCPU panics the hypervisor. Any process holding /dev/kvm on a
-pKVM host can trigger it.
+Add all nodes necessary for the imx335 camera capture via csi / dcmipp
+on stm32mp257f discovery board.
 
-Pin the host vCPU around the adjustment when no hyp vCPU is loaded for
-it, and its VM too, for the MTE flag the exception entry reads. A
-loaded hyp vCPU implies both are pinned. A pin fails only for memory
-the host never shared, and the request is then dropped like any other
-bad host pointer.
-
-Fixes: efa1368ba9f4b ("KVM: arm64: Commit exceptions from KVM_SET_VCPU_EVENTS immediately")
-Cc: stable@vger.kernel.org
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
 ---
- arch/arm64/kvm/hyp/nvhe/hyp-main.c | 30 +++++++++++++++++++++++++++++-
- 1 file changed, 29 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/st/stm32mp257f-dk.dts | 74 +++++++++++++++++++++++++++++++
+ 1 file changed, 74 insertions(+)
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index 9a3b92e626adb..e41b4c181eb62 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -539,11 +539,39 @@ static void handle___pkvm_host_mkyoung_guest(struct kvm_cpu_context *host_ctxt)
- 	cpu_reg(host_ctxt, 1) =  ret;
- }
+diff --git a/arch/arm64/boot/dts/st/stm32mp257f-dk.dts b/arch/arm64/boot/dts/st/stm32mp257f-dk.dts
+index 8daf3dfd5133..39ad23d95069 100644
+--- a/arch/arm64/boot/dts/st/stm32mp257f-dk.dts
++++ b/arch/arm64/boot/dts/st/stm32mp257f-dk.dts
+@@ -9,6 +9,7 @@
+ #include <dt-bindings/gpio/gpio.h>
+ #include <dt-bindings/input/input.h>
+ #include <dt-bindings/leds/common.h>
++#include <dt-bindings/media/video-interfaces.h>
+ #include "stm32mp257.dtsi"
+ #include "stm32mp25xf.dtsi"
+ #include "stm32mp25-pinctrl.dtsi"
+@@ -27,6 +28,14 @@ chosen {
+ 		stdout-path = "serial0:115200n8";
+ 	};
  
-+/*
-+ * With no hyp vCPU loaded for it, the host vCPU and its VM may be unpinned,
-+ * and so unmapped at EL2: both are pinned from the vCPU's first run, and
-+ * KVM_SET_VCPU_EVENTS can reach here before that.
-+ */
-+static void adjust_pc_unloaded(struct kvm_vcpu *host_vcpu)
-+{
-+	struct kvm *host_kvm;
++	clocks {
++		clk_ext_camera: clk-ext-camera {
++			#clock-cells = <0>;
++			compatible = "fixed-clock";
++			clock-frequency = <24000000>;
++		};
++	};
 +
-+	if (hyp_pin_shared_mem(host_vcpu, host_vcpu + 1))
-+		return;
-+
-+	/* The exception entry reads the VM's MTE flag. */
-+	host_kvm = kern_hyp_va(host_vcpu->kvm);
-+	if (!hyp_pin_shared_mem(host_kvm, host_kvm + 1)) {
-+		__kvm_adjust_pc(host_vcpu);
-+		hyp_unpin_shared_mem(host_kvm, host_kvm + 1);
-+	}
-+
-+	hyp_unpin_shared_mem(host_vcpu, host_vcpu + 1);
-+}
-+
- static void handle___kvm_adjust_pc(struct kvm_cpu_context *host_ctxt)
- {
- 	DECLARE_REG(struct kvm_vcpu *, vcpu, host_ctxt, 1);
-+	struct pkvm_hyp_vcpu *hyp_vcpu;
-+	struct kvm_vcpu *host_vcpu;
+ 	gpio-keys {
+ 		compatible = "gpio-keys";
  
--	__kvm_adjust_pc(kern_hyp_va(vcpu));
-+	host_vcpu = __get_host_hyp_vcpus(vcpu, &hyp_vcpu);
-+	if (host_vcpu)
-+		__kvm_adjust_pc(host_vcpu);
-+	else
-+		adjust_pc_unloaded(kern_hyp_va(vcpu));
- }
+@@ -138,6 +147,42 @@ &arm_wdt {
+ 	status = "okay";
+ };
  
- static void handle___kvm_flush_vm_context(struct kvm_cpu_context *host_ctxt)
++&csi {
++	vdd-supply =  <&scmi_vddcore>;
++	vdda18-supply = <&scmi_v1v8>;
++	status = "okay";
++
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++		port@0 {
++			reg = <0>;
++			csi_sink: endpoint {
++				remote-endpoint = <&imx335_ep>;
++				data-lanes = <1 2>;
++				bus-type = <MEDIA_BUS_TYPE_CSI2_DPHY>;
++			};
++		};
++		port@1 {
++			reg = <1>;
++			csi_source: endpoint {
++				remote-endpoint = <&dcmipp_0>;
++			};
++		};
++	};
++};
++
++&dcmipp {
++	status = "okay";
++
++	port {
++		dcmipp_0: endpoint {
++			remote-endpoint = <&csi_source>;
++			bus-type = <MEDIA_BUS_TYPE_CSI2_DPHY>;
++		};
++	};
++};
++
+ &ethernet1 {
+ 	pinctrl-0 = <&eth1_rgmii_pins_b>;
+ 	pinctrl-1 = <&eth1_rgmii_sleep_pins_b>;
+@@ -160,6 +205,16 @@ phy1_eth1: ethernet-phy@1 {
+ 	};
+ };
+ 
++&gpiob {
++	/* Enable the IMX335 power line */
++	imx335-en-hog {
++		gpio-hog;
++		gpios = <11 GPIO_ACTIVE_HIGH>;
++		output-high;
++		line-name = "imx335_en";
++	};
++};
++
+ &i2c2 {
+ 	pinctrl-names = "default", "sleep";
+ 	pinctrl-0 = <&i2c2_pins_b>;
+@@ -172,6 +227,25 @@ &i2c2 {
+ 	/delete-property/dmas;
+ 	/delete-property/dma-names;
+ 
++	imx335: camera@1a {
++		compatible = "sony,imx335";
++		reg = <0x1a>;
++		clocks = <&clk_ext_camera>;
++		avdd-supply = <&scmi_v3v3>;
++		ovdd-supply = <&scmi_v3v3>;
++		dvdd-supply = <&scmi_v3v3>;
++		reset-gpios = <&gpiob 1 (GPIO_ACTIVE_LOW | GPIO_PUSH_PULL)>;
++
++		port {
++			imx335_ep: endpoint {
++				remote-endpoint = <&csi_sink>;
++				clock-lanes = <0>;
++				data-lanes = <1 2>;
++				link-frequencies = /bits/ 64 <594000000>;
++			};
++		};
++	};
++
+ 	ili2511: ili2511@41 {
+ 		compatible = "ilitek,ili251x";
+ 		reg = <0x41>;
 
-base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
 -- 
-2.39.5
+2.34.1
 
 
