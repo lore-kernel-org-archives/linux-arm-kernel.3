@@ -4,88 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA1B0C88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 11:47:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 148B8C88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 11:48:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iW6paRDU1WuHVvPa2Tan4+ENXAFGhAHh39Stpx/lGEU=; b=K1uFBwY3zuGhcIwrBVoP6+4Kn5
-	6B/r8vrliaaJGrLkzdTsL8kjCCVFHWTqc3M5W1R5HKRaWZFvrSkZ8ixWgD0cDsc/rWo74EVUss4Fa
-	wRRTS+SHVmMIwcktreeDuGdN68ll2EExnIQwS1Dw0tPEtAf6JGrViVbXJT7V3CYJ+j5qnaQuspm8h
-	daN5R3g852v636b51XvBJXKACb1A6aLsYObQ2QNbw/Ck7ME5NioCwuI6uj+mTrfFMPssmb3vGgw//
-	CgPYJYgw4PL7GAG1j9XUY7SGPFzl6gIFl5DZJpF2YIlIOkobfkyuX0veHUm6EZZuWbZYIWZ5LJwd6
-	/+r3WH6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tq7uzj3Nuht/sUsnSMR7xKzenitos6XuGY/rnGcdmdg=; b=TcGGBDyxltnymakWNW4INF0sun
+	Lj8MMQs2daEGoPTOIHvhx+3jp+1MK5AB9qTael+4khMjvbgpynRIE+jYqf+VFx7CVOp51P09rUGpo
+	E9rmfYWyUbLM3y9ZzSKWJ537w2Gw4RkD3xRxNmeGWZYkbF/dGsG1cfOOPIjjklxESEyMyxT3hV/1X
+	IefpTNTjmIqhNj7RwvSWCFa4/KTKATJqaTomcnJCCtVIWk25khqmGPiSauu6c7TKWTliPb5h+T/Mp
+	l6UzMMKYGer4nsNI7uPxAenxxG+fJvFcu7zP58tti7bMFGaNzWTDJBqyzWzEQ35UGV9rNDDpb5iS5
+	6xTkGC/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x65A4-00000003NIF-1GIy;
-	Mon, 14 Sep 2026 11:47:48 +0000
-Received: from www3579.sakura.ne.jp ([49.212.243.89])
+	id 1x65Aj-00000003NSa-2Xpr;
+	Mon, 14 Sep 2026 11:48:29 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x65A0-00000003NGj-23Hj
+	id 1x65Ah-00000003NRk-0z5D
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 11:47:47 +0000
-Received: from h183.csg.ci.i.u-tokyo.ac.jp (h183.csg.ci.i.u-tokyo.ac.jp [133.11.54.183])
-	(authenticated bits=0)
-	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 68EBfjsJ084060
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Mon, 14 Sep 2026 20:41:57 +0900 (JST)
-	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
-DKIM-Signature: a=rsa-sha256; bh=iW6paRDU1WuHVvPa2Tan4+ENXAFGhAHh39Stpx/lGEU=;
-        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
-        h=From:Message-Id:To:Subject:Date;
-        s=rs20250326; t=1789386117; v=1;
-        b=SXuEO2saKk20YD2hI4Bd3B6I1m3y39IXjKSDYVMyTHJVPMTQG/DWMsTfg5ROC63a
-         jQn/hizniPKxQGoa4QtbRLVEU85+E7s2+daO7YVK9mG9QtCn58S1tOauNKKtiSV2
-         rgA9ixQDTlU1/m0K8LG0USQ6+PyjRjdGcSGYV1qGyESosnCt3e+dw6Ii5Bv8hD/0
-         e19rtNxCti9KLIb+3XRWxOaN7rt0DXQJs+t1yWxfjNxqRebhgPZGzMpvOugpvHoi
-         RSX+sNZyTMEjUyAPfeRllhhiUhdOq0z8rIfdEgfUVkAEW7O39oHByZAhKO/t0Tnu
-         QykA1SOKzEoWPoyc1NtBKQ==
-From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Date: Mon, 14 Sep 2026 20:40:56 +0900
-Subject: [PATCH v10 17/20] KVM: arm64: PMU: Pass the target CPU to
- kvm_pmu_probe_armpmu()
+	Mon, 14 Sep 2026 11:48:28 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-6a9e35826baso1669214a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 04:48:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789386505; x=1789991305; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=tq7uzj3Nuht/sUsnSMR7xKzenitos6XuGY/rnGcdmdg=;
+        b=APeOB/+uNFHR4Vh+e5qjbb+bXYGyy/dvk7UmZtDieMDFfd9KCIicP1kjz80hzBetMX
+         Gtl0cqpq9AVDP+nP/VD2G/QuwSWmaw5GsXbaYCCHZfu6qDnHYt0yNAzuEzx5V0/7MP0U
+         oVkRXq4m0UYnyh+ECxreIs2W6O1A3EU7uMwAcmJA0OAgCPwUWhAbXnMxOFgLLX4jKh4t
+         49/7DXsjoGEeVg6djb3FUcX/KKM0tp2rZchYA3lxjLmBMiresAw6p503yserlzos/HUq
+         Q45Ii5SdeaNftAP6Iz0kgEdsu1Jktvm9QR97yLVMFMVpcExADJndlTjdbnmwKjA8vJNl
+         sLOg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789386505; x=1789991305;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=tq7uzj3Nuht/sUsnSMR7xKzenitos6XuGY/rnGcdmdg=;
+        b=J66XjxQSQrf/PYYxpgPTs2kg0pc7wCt1AJpnZkfyaDzbBEMO0dTKwvqsn02Dc4La73
+         AkIotXRjGg91NuXvHpDYkmPM33fAsDp5+ifWW3IZsYaBLw1/6tmhuq7lyJW3tgeTSo9b
+         MCYKKYBKlnfmLFjDgyejOmcooSnf4PzkBLTGWs0en8KFw34F/EaCONymeiAw/VOXca54
+         TfG1MZLLDcVkoN6jxEfVovj4nPdjvi2qgp+wNbLcvoOw+OtpwzWCA8Zw0pN4PKPZrIZ/
+         02AmtGyWx0mEdK40C+F/BFRF2EZOG7g/tm6Rwhh8MsqL6JEmaQpRauEqpzEcxfm8TdSA
+         6p2A==
+X-Forwarded-Encrypted: i=1; AKwUvBxmQOn64No+tbIoc5BN7Ib7m5ONXvdbhKeMPsqoYTnp65IupnHMXkfD41vTAzI4K++1t5z4kpc6/6nV7nnF7Ks8@lists.infradead.org
+X-Gm-Message-State: AFuF++kYQVapl4ByCkpbLUofjzzXQPY/O43HBV6xdB9HSat8eul/8L7k
+	FyCKAqUq/lifOLX+/PE7pMm44OsmvbcbWIYXm76DWbZ96up25OWO2NVQ
+X-Gm-Gg: AYBFou0vYqsgS71BPNqoQIQcTnVbQrrtwhTsQ7AQpFdJnGLq8FME5ne1hPt47roGsDn
+	3adwllX/BX7mb0R6Ndb6su7fpjcGd+RIlOHhCdKxL3jUR8/F2ahgTHeszu0jskJbOTbI+dEsk0K
+	KMwyMl50a/3ehQwJVOjIxkO3L0KQ7LWHjzHTVAzlpT0Wp0hpVruSXWODuRKHSD0RforL4OYT4FS
+	gqAIzAFa6ijUjRgxIHFUAMXTvQFNkHZuKdeCdzBFY14aGTgKjrdVCe2FKZt3yhPHgFgAIGnwy5Z
+	0sa88cJ5G6GCENh9CWgNqDJpl9dJyglQF9eIRZhg67FJyXtkv397aYf8gecQfreLQXuYnwSOS9I
+	iQQuHk1CWwAsYAosRllKpN/xg4BKoF1V3iWAlCDw/EaI2n+/LaTqXz53rckoJXfbuH2OFUkt8JM
+	JLEQr1Vt5vthbXMHK8MAaJG1+nuIOqdXp4SOTk2+Kb9flAWBqSiFuvXIOs9vaZr+bYYxpXwjkkB
+	LV1nC3pV5kxImfipBWesy0WPQ55e1BNukzurToJ
+X-Received: by 2002:a05:6402:249f:b0:6a9:9894:e4b4 with SMTP id 4fb4d7f45d1cf-6a9f63cd9ffmr1264857a12.34.1789386504591;
+        Mon, 14 Sep 2026 04:48:24 -0700 (PDT)
+Received: from fedora-tap.advaoptical.com ([82.166.23.19])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a9b59644f2sm3749062a12.29.2026.09.14.04.48.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 14 Sep 2026 04:48:23 -0700 (PDT)
+From: Sagi Maimon <maimon.sagi@gmail.com>
+To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	netdev@vger.kernel.org
+Cc: Robert Hancock <robert.hancock@calian.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Michal Simek <michal.simek@amd.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net] net: axienet: bound TX completion cleanup by the NAPI budget
+Date: Mon, 14 Sep 2026 14:48:21 +0300
+Message-ID: <20260914114821.55503-1-maimon.sagi@gmail.com>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260914-hybrid-v10-17-92788053a691@rsg.ci.i.u-tokyo.ac.jp>
-References: <20260914-hybrid-v10-0-92788053a691@rsg.ci.i.u-tokyo.ac.jp>
-In-Reply-To: <20260914-hybrid-v10-0-92788053a691@rsg.ci.i.u-tokyo.ac.jp>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-        Joey Gouly <joey.gouly@arm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu <yuzenghui@huawei.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
-        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
-        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
-        Shuah Khan <shuah@kernel.org>, Shuah Khan <skhan@linuxfoundation.org>,
-        Yury Norov <yury.norov@gmail.com>,
-        Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-        Steffen Eiden <seiden@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
-        Shannon Zhao <shannon.zhao@linaro.org>,
-        Andrew Jones <drjones@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-        linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
-        devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
-        linux-kselftest@vger.kernel.org,
-        Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>,
-        Fuad Tabba <fuad.tabba@linux.dev>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4142;
- i=odaki@rsg.ci.i.u-tokyo.ac.jp; h=from:subject:message-id;
- bh=ySVw3BtQ8VdlSvwcAcvu2VldK45kYaHXHC6yP9WKKsg=;
- b=owGbwMvMwCWmMbc20y1CyJDxtFoSQ9byu2U355cuY5z6LYFNdSLDjY2nWNJbHYwqTMv2haonR
- tcq65h3lLIwiHExyIopsqQU7ebWiK79VJgQ3wIzh5UJZAgDF6cATGRWH8M/bSkpMyOu3ZuiUyKv
- s+34fcnmwj2ftH1hDPOTZrcb/JjQwciwrdDrxrf1b/cXzY3MPyxivDqlxUfFsIJ1b3pkRcrOA5O
- 5AQ==
-X-Developer-Key: i=odaki@rsg.ci.i.u-tokyo.ac.jp; a=openpgp;
- fpr=AEDC03C9AF734F2EC26A7BFFA4BAEAA73536753C
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_044745_233885_841DC92E 
-X-CRM114-Status: GOOD (  18.18  )
+X-CRM114-CacheID: sfid-20260914_044827_292495_D122EC0D 
+X-CRM114-Status: GOOD (  16.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,123 +104,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-kvm_pmu_probe_armpmu() currently samples the current CPU internally,
-which ties the helper to default PMU selection.
+axienet_tx_poll() passes lp->tx_bd_num to axienet_free_tx_chain() as
+@nr_bds, and @budget is only forwarded to napi_consume_skb() as its
+bulk-free hint.  Nothing limits the cleanup loop to the NAPI budget, so
+the number of packets returned is bounded by the TX ring size rather
+than by the budget, and the poll can report more work than it was
+given:
 
-Move that policy to kvm_arm_set_default_pmu() by passing
-raw_smp_processor_id() from the caller, and make the helper search for
-the pPMU covering an explicit CPU. Move the helper above
-kvm_pmu_create_perf_event() so later code can reuse it when creating
-PMU events for a VCPU's current pCPU.
+  eth0: NAPI poll function axienet_tx_poll+0x0/0x180 [xilinx_emac]
+        returned 96, exceeding its budget of 64.
 
-This preserves the existing default PMU selection behavior while
-preparing fixed-counters-only mode to select a pPMU at runtime.
+Returning more than the budget breaks the NAPI contract.  It also makes
+the "packets < budget" test in axienet_tx_poll() false, so
+napi_complete_done() is skipped and TX completion interrupts are not
+re-enabled on that pass.  NAPI reschedules the poll, so this recovers,
+but the accounting is wrong either way.
 
-Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+In steady state fewer descriptors complete per poll than the budget
+allows, which is why this is rarely observed.  Triggering it needs more
+than @budget completions outstanding at once - for example when TX
+completion interrupts have not been taken for a while and a full ring is
+reclaimed in one go.
+
+Stop the loop once the budget is spent.  cur_p->skb is only set on a
+packet's last descriptor, so breaking there never leaves a packet
+half-freed.  The check is skipped on the @force path, which cleans up
+after a DMA mapping failure with a @budget of 0.
+
+Fixes: 9e2bc267e780 ("net: axienet: Use NAPI for TX completion path")
+Signed-off-by: Sagi Maimon <maimon.sagi@gmail.com>
 ---
- arch/arm64/kvm/pmu-emul.c | 72 +++++++++++++++++++++++------------------------
- 1 file changed, 35 insertions(+), 37 deletions(-)
+ drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-index 05b48be05abd..ccd268d76235 100644
---- a/arch/arm64/kvm/pmu-emul.c
-+++ b/arch/arm64/kvm/pmu-emul.c
-@@ -694,6 +694,23 @@ static int kvm_map_pmu_event(struct arm_pmu *pmu, unsigned int eventsel)
- 	return eventsel;
- }
+diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+index 782f903d318f..37309fa355ab 100644
+--- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
++++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+@@ -788,6 +788,13 @@ static int axienet_free_tx_chain(struct axienet_local *lp, u32 first_bd,
+ 	dma_addr_t phys;
  
-+static struct arm_pmu *kvm_pmu_probe_armpmu(int cpu)
-+{
-+	struct arm_pmu_entry *entry;
-+	struct arm_pmu *pmu;
+ 	for (i = 0; i < nr_bds; i++) {
++		/* A NAPI poll must not return more than its budget.  Stop on a
++		 * packet boundary once it is spent - cur_p->skb is only set on
++		 * a packet's last descriptor, so no packet is left half-freed.
++		 */
++		if (!force && packets >= budget)
++			break;
 +
-+	guard(rcu)();
-+
-+	list_for_each_entry_rcu(entry, &arm_pmus, entry) {
-+		pmu = entry->arm_pmu;
-+
-+		if (cpumask_test_cpu(cpu, &pmu->supported_cpus))
-+			return pmu;
-+	}
-+
-+	return NULL;
-+}
-+
- /**
-  * kvm_pmu_create_perf_event - create a perf event for a counter
-  * @pmc: Counter context
-@@ -823,42 +840,6 @@ void kvm_host_pmu_init(struct arm_pmu *pmu)
- 	list_add_tail_rcu(&entry->entry, &arm_pmus);
- }
+ 		cur_p = &lp->tx_bd_v[(first_bd + i) % lp->tx_bd_num];
+ 		status = cur_p->status;
  
--static struct arm_pmu *kvm_pmu_probe_armpmu(void)
--{
--	struct arm_pmu_entry *entry;
--	struct arm_pmu *pmu;
--	int cpu;
--
--	guard(rcu)();
--
--	/*
--	 * It is safe to use a stale cpu to iterate the list of PMUs so long as
--	 * the same value is used for the entirety of the loop. Given this, and
--	 * the fact that no percpu data is used for the lookup there is no need
--	 * to disable preemption.
--	 *
--	 * It is still necessary to get a valid cpu, though, to probe for the
--	 * default PMU instance as userspace is not required to specify a PMU
--	 * type. In order to uphold the preexisting behavior KVM selects the
--	 * PMU instance for the core during vcpu init. A dependent use
--	 * case would be a user with disdain of all things big.LITTLE that
--	 * affines the VMM to a particular cluster of cores.
--	 *
--	 * In any case, userspace should just do the sane thing and use the UAPI
--	 * to select a PMU type directly. But, be wary of the baggage being
--	 * carried here.
--	 */
--	cpu = raw_smp_processor_id();
--	list_for_each_entry_rcu(entry, &arm_pmus, entry) {
--		pmu = entry->arm_pmu;
--
--		if (cpumask_test_cpu(cpu, &pmu->supported_cpus))
--			return pmu;
--	}
--
--	return NULL;
--}
--
- static u64 __compute_pmceid(struct arm_pmu *pmu, bool pmceid1)
- {
- 	u32 hi[2], lo[2];
-@@ -1098,7 +1079,24 @@ static void kvm_arm_set_pmu(struct kvm *kvm, struct arm_pmu *arm_pmu)
-  */
- int kvm_arm_set_default_pmu(struct kvm *kvm)
- {
--	struct arm_pmu *arm_pmu = kvm_pmu_probe_armpmu();
-+	/*
-+	 * It is safe to use a stale cpu to iterate the list of PMUs so long as
-+	 * the same value is used for the entirety of the loop. Given this, and
-+	 * the fact that no percpu data is used for the lookup there is no need
-+	 * to disable preemption.
-+	 *
-+	 * It is still necessary to get a valid cpu, though, to probe for the
-+	 * default PMU instance as userspace is not required to specify a PMU
-+	 * type. In order to uphold the preexisting behavior KVM selects the
-+	 * PMU instance for the core during vcpu init. A dependent use
-+	 * case would be a user with disdain of all things big.LITTLE that
-+	 * affines the VMM to a particular cluster of cores.
-+	 *
-+	 * In any case, userspace should just do the sane thing and use the UAPI
-+	 * to select a PMU type directly. But, be wary of the baggage being
-+	 * carried here.
-+	 */
-+	struct arm_pmu *arm_pmu = kvm_pmu_probe_armpmu(raw_smp_processor_id());
- 
- 	if (!arm_pmu)
- 		return -ENODEV;
-
 -- 
-2.55.0
+2.47.0
 
 
