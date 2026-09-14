@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EFC9C88E50
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03FFFC88E64
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 11:55:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,43 +12,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7LrJiEVM95oznn+hJH8/9LEjNBqxWrIAa6YUnSAT8k8=; b=guy9N8xswRcLnriXYwTrJRNOoH
-	wB3iuxbpsxVQ4ztd5ojGKM44Gh3FC8hUpOQMArJMenoBEygi4NqJ4x6cw5h+KWn6beTBjJ0rgr54A
-	FaPYqnxITyjfQrrL4raEBHJ9DevEnYJCRO+6bXR2Ac760qRbC9fxkp5diYEuW8xmeyX08kdGdy9pO
-	uBMBvGQhTjOU2tBVqiOAdDtL2D6iRxDR7kIrEhHaxfHH4PstZIbV9O+A8x1JFL/6zotUVrhs3dO24
-	Sioassl69XRdChQo8JRNSZxK1szWdzMEUY/aD8GBPDCTU0kyqXXAZ/kOvmY3mRApADhN05LDIoVYD
-	EeYWa90g==;
+	bh=Ts+GxHnFwbnnmh3W5wYX+MBFoD2caSNt+6YdLlaSQWA=; b=AixJiCGcJkhpMpnxbTr12RzOgJ
+	1weLPCLSe7ewEbt2OGZXfA3+bSWQo0Bq6oArRPCfYkILarErmfRO3LDER3nbnYOmuL69Lnr9GskW1
+	lrnHi986lxWSeJN7cozmwwOdxai1RcuHHGmlk6UQ2WAtkSkmMPTGHELo2EGJglrFGl94T2kdGlEqt
+	iDAA4aGr9Nqm547LSgXH0znVoXH4VTwsnUY9osINPZnyJCAls6r3fLo6PHNchlWWTEIunRqI4OXSC
+	ksV3CoXjzJ6yOeekRcT5BdLzYgJVsl1s047PqhgQ9L1feGGxIJpTIfHb+JPME3oe5a0BTG8uwj+p4
+	J5Xssbkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x65HN-00000003Op8-2pgf;
+	id 1x65HN-00000003Opu-3dqW;
 	Mon, 14 Sep 2026 11:55:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x65H9-00000003Oes-0ZC1
+	id 1x65HH-00000003Ol3-09N9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 11:55:07 +0000
+	Mon, 14 Sep 2026 11:55:15 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 92A7E601DB;
-	Mon, 14 Sep 2026 11:55:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D3DA1F00893;
-	Mon, 14 Sep 2026 11:55:02 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C50464089F;
+	Mon, 14 Sep 2026 11:55:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBA0E1F00893;
+	Mon, 14 Sep 2026 11:55:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789386906;
-	bh=7LrJiEVM95oznn+hJH8/9LEjNBqxWrIAa6YUnSAT8k8=;
+	s=k20260515; t=1789386914;
+	bh=Ts+GxHnFwbnnmh3W5wYX+MBFoD2caSNt+6YdLlaSQWA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=EsUttVaT5bY5g2WEOBUok/G9cDulYiQRo8RrbBiDnAG7/mYzFOAKAc9TsMmB31Jz4
-	 Iw+vllOxFNXSsWbbTY0uAhKJkxxUbpoX3mCJ9sPOpWdhmf/ZPOAfDOMScZX35JxZU4
-	 6yzNlcZa/zSt22g8hqbsKPKAL96e23UDBhtjRra4Phi6YdPbuFehbhPaKR8uVKSntW
-	 o29/JdVk461L+rWI8bVqz9ObHMgRZ7JRy3W0DeUgj9VVNwVJioCZuAUURhQgNJqXCy
-	 3Vm+/Z7AMYiOcl6CgqLPTgxF++icQGhm7Z70gSUUJD4O0a26GVCTCiBPYX0SrlyspU
-	 JUJFeGZMF/yNQ==
+	b=CDJ36O5bsDGECaJwuVwUdsOWTjfctfKWomopPi96gu3rjL48cDT58nuhFGThN8/Ek
+	 oXZRLkrnWHZEw2rlcrpkaakRXjuuTjph7olqDv4OmZ5hzpZiE+3XoQXcCuL9k4yd8O
+	 KgxphCOvvaxAefts0ju0bN+tLbwbTyr3G+I37TlsUGXWXvshqwgp9AtCaKaaEfIzwc
+	 /MUM5j7pOUGIek7mqlLWyg6EtPwPJWRAkY01m/uMHrXGi3A8LTs2+nLjZy/4oX+5RP
+	 coWpcKQa5Lsc89w0zENSnvTw5QIlgUOvO2BapV9wKzc7EUxyeNZkMVpppFriOX7oyJ
+	 CxfiiOWqmBx3w==
 From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 14 Sep 2026 13:54:35 +0200
-Subject: [PATCH v2 07/20] ARM: dts: ux500: Rename power domains node
+Date: Mon, 14 Sep 2026 13:54:37 +0200
+Subject: [PATCH v2 09/20] dt-bindings: arm: pmu: Allow power domains
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260914-ux500-power-domains-v7-1-v2-7-9d0c17e1f816@kernel.org>
+Message-Id: <20260914-ux500-power-domains-v7-1-v2-9-9d0c17e1f816@kernel.org>
 References: <20260914-ux500-power-domains-v7-1-v2-0-9d0c17e1f816@kernel.org>
 In-Reply-To: <20260914-ux500-power-domains-v7-1-v2-0-9d0c17e1f816@kernel.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -77,28 +77,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This matches the naming used in the binding document
-Documentation/devicetree/bindings/power/power-domain.yaml
-It's most logical to call it a power controller.
+Allow ARM PMU nodes to reference their power domain.
 
 Signed-off-by: Linus Walleij <linusw@kernel.org>
 ---
- arch/arm/boot/dts/st/ste-dbx5x0.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ Documentation/devicetree/bindings/arm/pmu.yaml | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/arch/arm/boot/dts/st/ste-dbx5x0.dtsi b/arch/arm/boot/dts/st/ste-dbx5x0.dtsi
-index 25a20fafc6b9..11fcae1904e2 100644
---- a/arch/arm/boot/dts/st/ste-dbx5x0.dtsi
-+++ b/arch/arm/boot/dts/st/ste-dbx5x0.dtsi
-@@ -343,7 +343,7 @@ pmu {
- 			interrupts = <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
- 		};
+diff --git a/Documentation/devicetree/bindings/arm/pmu.yaml b/Documentation/devicetree/bindings/arm/pmu.yaml
+index f47baaefcdac..305c1a9668f4 100644
+--- a/Documentation/devicetree/bindings/arm/pmu.yaml
++++ b/Documentation/devicetree/bindings/arm/pmu.yaml
+@@ -88,6 +88,9 @@ properties:
+     # Don't know how many CPUs, so no constraints to specify
+     description: 1 per-cpu interrupt (PPI) or 1 interrupt per core.
  
--		pm_domains: pm_domains0 {
-+		pm_domains: power-controller {
- 			compatible = "stericsson,ux500-pm-domains";
- 			#power-domain-cells = <1>;
- 		};
++  power-domains:
++    maxItems: 1
++
+   interrupt-affinity:
+     $ref: /schemas/types.yaml#/definitions/phandle-array
+     items:
 
 -- 
 2.55.0
