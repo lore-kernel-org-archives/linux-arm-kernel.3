@@ -4,117 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96510C88E64
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 07:10:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29E39C88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 07:11:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KzdTBWcRdHLlxwJAr3wbgHZnJDTe+pNNHMhkTpZv34o=; b=3FPvdyRFKt1MMlv+D5wtg0/FPf
-	4CTHsOelY4whdck6X2S2Z30t5Rda+Se0l2qyLZ6NqEtpmP7oLtBAH+lGRrV2HsQPMrDkVIdgVfL2B
-	SwSfh/NFz3vI6EI3+6oQNwV4LcjQgtJOMbTsbIr+FfQo9tmCClibhZ1hulG17PRL6NNP+qn0VTgq5
-	QHfJjUQqnUOGOe0NCjwMBK/WVHSGU70th3kUrdSmFr0jmfj6F62gdb/ukFCXUJXAIQ/6gy9Sneg0L
-	I0JTKszyZwvR37DgRECyqjL+6BncSCmsFZFRxjtMty8B/YJveFYYDg+OS7BX6nOJTfD6ljnQAs8gj
-	lc6xv5Jw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6OvIkQ7WXbvC+cMXKjpvm4sPjisZNwPMuEMKh4zZOLc=; b=aLwq3QlTirK1pXL9bJ6JPlcgKA
+	s+FmLm8b3pBWh7j7aFWCMawgJOp4SrYIqF5I7pXyV4epHCe/mkTmv73/oSm+FVcJeXmpnqLJaRRcn
+	V5bhQJnHCHSSzWiqEArfh/S/WfengLWpUMNvDnpmWNx6r2P/0Nn2TqUN3qL67ySbs6vYh7OX8sFkm
+	Su6GCHtJkISoICe/Kkd3ibmNkzFCDEXQQ7FSz7SOzCCULXhcR/8/Y0la52O4p4SLS6uG6B3i/TUwg
+	NDRRzJ576PKFhDFEHViSrUfh0SfRiCyNieO8V1M35y1mrNX4T4Vha+acbpyM5ts54ZqDpYm+JQwts
+	ycPc8WQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x60pU-00000002X2e-3skj;
-	Mon, 14 Sep 2026 07:10:17 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1x60qL-00000002XDz-3AcO;
+	Mon, 14 Sep 2026 07:11:09 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x60pO-00000002X0H-35ud
+	id 1x60qH-00000002XCn-1C7S
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 07:10:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yJWMz9QyUEEsyUVPiHD1W8QpaH4Lfc1oE05g+nw3U56Jp+IAqNbouw/F/0Xcq+RXsazqk9c1VPTT8vyrFjpigXIfht6zMdH363zWoDxTh3JeqpJ+/gYqJVZ1Tkk/412WdT3I0Bly4JnU80xu/Ywi58VKvAEkPUpgpv/vm/+I2CeG0T/BD8xQeNUliI8u3v+ObcGhvywUnO/1ATKpdrC981D901e5AdNtd8wDUze0UNWii36EDxrZUGjJk9NXOovq9rK/VlfmFcaO/qa2mY/Gkwrdt5OtEGjU7ZqDbVORlhKKNGcVWTv4BtSuQYek/3A0Z6m30SjiCp+l8RbOu9GxZA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KzdTBWcRdHLlxwJAr3wbgHZnJDTe+pNNHMhkTpZv34o=;
- b=OtK2JRsI2Wheb7jv8dZME/skVp1y33hGZzP0hyI8i5/WHQLX6qUCeTpszW7rJ8WrvgVs+jahBuBrjibqymgXM7EqI+o0TS3+j7ozNgVlGK6nv1hFs0Hk4V5FBKL61vGj/OprqNhtcO+YMoTH5bRbRyfGZd3Ww3Vl2XGRArq7ZD12oktpaHv0woBWuucpR9JnwFCIaYwtLWZ4loGJsQKgJEEZ2jZsFAZ4LDBC0b1uAADSF9Z5Bk6S/wITivlxEGoYMQIPO7wahZf0oJMO0vn3GRFVflB/rJIT58+qp2mF8fgOgxjbCMgN50exOaSIc0T8VJd8pvPnRT6rHIWOP33qAQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KzdTBWcRdHLlxwJAr3wbgHZnJDTe+pNNHMhkTpZv34o=;
- b=NrSYhujtV4xH4sfL3Sdum0YxK5gkSsu/jNKpy+BJRswKLrw3NsGAh3dMZ8zPyTnIAnoxmBo99luC4NHtFy+uO72dUVnjnRlXTmqnyr5jR9TblnysWmvbgq2LwFyD9EnEGo6CjbtPty0m+M2U4GoGvpJ8NANPQiyQDjrJ/hP5wo2NrSf36wh2eOjgCajFFQT4cQRYy+lj1m6I9iKOV6HPhd2Up1pdQpHaj4oeamI/ncV71w7bcgMvQnaTMZbpIWI1Pkjcsn353hSTcoWwGiRo25F+5qN9LxLe4E27+OjAeJltj1WNqnaIAzhaVohzpos9vXNp/NHYsHits4H/IRVNCA==
-Received: from DU7P189CA0024.EURP189.PROD.OUTLOOK.COM (2603:10a6:10:552::11)
- by GV1PR10MB9159.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:150:1d6::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Mon, 14 Sep
- 2026 07:10:01 +0000
-Received: from MAD0EPF000008B9.eurprd04.prod.outlook.com
- (2603:10a6:10:552:cafe::a4) by DU7P189CA0024.outlook.office365.com
- (2603:10a6:10:552::11) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.12 via Frontend Transport; Mon,
- 14 Sep 2026 07:10:01 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- MAD0EPF000008B9.mail.protection.outlook.com (10.167.241.167) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.428.7 via Frontend Transport; Mon, 14 Sep 2026 07:10:00 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Mon, 14 Sep
- 2026 09:16:03 +0200
-Received: from localhost (10.252.27.156) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Mon, 14 Sep
- 2026 09:10:00 +0200
-From: Alain Volmat <alain.volmat@foss.st.com>
-Date: Mon, 14 Sep 2026 09:09:31 +0200
-Subject: [PATCH 2/2] arm64: dts: st: add dcmi node on stm32mp23x
+	Mon, 14 Sep 2026 07:11:07 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68E5ifjd3368748
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 07:11:03 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=6OvIkQ7WXbvC+cMXKjpvm4sP
+	jisZNwPMuEMKh4zZOLc=; b=QAhZ5JF0vMZvzJ9c2l5tLcd8u0/o8W6LrsQNe3KE
+	3qDIDG9oquWS3QOfFPp6rwWbQYWQdUqIni1t4/bDIY2yP2vFu2bcgbDPQTiwXiQK
+	TO86wcd+jK38U1QV29/tWLBL44ebVwcc8TAhPsENBVBTI5lTtAlMrGD86RZTWZje
+	AEdw13XSwncNQTEu1AtoQjILJvMB0Q9vM7om9XSv4VEXa/3Z7ywXOMO5eziLCwG/
+	yk/YibVvOaliarQgoWYax4w9aQ1e5DiLDPXxlRbhyG5OgapEHznLqpDeOexIP6v6
+	tHlwWpIJu/jEgaQKu29zAnhN5vCempN/U8/7+go56mDufA==
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gmygd5fm6-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 07:11:03 +0000 (GMT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-92e82060977so593292385a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 00:11:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1789369862; x=1789974662; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=6OvIkQ7WXbvC+cMXKjpvm4sPjisZNwPMuEMKh4zZOLc=;
+        b=M/yaKHGHTFirgmJ/tbU7gTXe72cmpPrdniWqCpbAmUyXSyEIPCHvD/IMIt5vCYMauR
+         97EvEIpshDrBWx5R5KysiVtOPz3dbP/uCQu5Qci0lNUM+ZjvqFXCDjp5yu5nFYpmVy8z
+         uN8qMoWksk1opzvm0oijqPLnNY0Tfo2YOLjgCPZvnQs7rt66u1kVXQXt6a7u35uC851P
+         nbyWvxmRu8pTUfiMbbsZhgkEgiA8RnBDqCWsG8p0Vl6DMwXLXoNjuIC4zNkOIc9CJHfu
+         3FrkY2fVYd9+8jQCYdjKhv7ONAUUiuE7ZjYr+g3sprXP5dAvFtsbtESEvUAkWTqyoT+F
+         GJ/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789369862; x=1789974662;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=6OvIkQ7WXbvC+cMXKjpvm4sPjisZNwPMuEMKh4zZOLc=;
+        b=cILP7DNUq/P7kWujWkpggxRTcd7hrlnk2YFvZ72ahb/zsbOvQaJ5oDBBDHgKMNHUnV
+         H+lmIEIb584MOxFxr6vQvhedkooUp9tVasd8MnEhdLsP1Ip5ej312pJuD4iGmyAT1e3z
+         orU4s0vddj6dI23KCqMwsY+8PsthIM/2QoMlvRDWb6zICKnCN339qUAVz0VtNyfl93Wz
+         L1xarett/u1cyy1Wgnb4UW0IcV20La0G686pVRLAWXcovEJW8Rgv0qsku/o7lCxGAFX/
+         ppn+cdBB780v7L7p+i+D92PUdjDDHv9e5+ClPTT2AJrB6S678zWvX6YRraqENb86FtLA
+         PZ/g==
+X-Forwarded-Encrypted: i=1; AKwUvBx9q4v/UuBb7t/JfmUm7hC0OxGsEJY3SkmCL+0q4uK3oUuJEqntdUbDMyoGFJEN1UT/YovCB9Iz8P4o4BRuEAhe@lists.infradead.org
+X-Gm-Message-State: AFuF++mHV2tYTIDldwFaSSzw4FAuVIVmpZRSviuxqiW0zCB+3j7PuJUq
+	j1nLvwu4EhfKbNCI+Lgcc7MGdv5cElhfPXjXDRR8rHCcYs4fvyLqOFSkIJVg4TlQHXRcLHjiCbT
+	yudgcplJtC7zJPMbBOSX7TI38gdG2KsXl+aL250+dGU3nwHHfYiqen4o3GpKjj6d0N5ijTqmE7m
+	/ehA==
+X-Gm-Gg: AYBFou3lXFwGu3UnczayELOxRGAUiepG8HCyEO9heF2blRWecelWqea1w932JbRPWhY
+	ZXQlPkUfgURfqotdvfJva+fIC5y+i7quA/nCLhqhgtjtHecGo79+tG3XiobANytbrJ8vyKnNy+p
+	zQsD5A4ZfjODdP9KsHGRA3oQr6/PGim3lIpAgFZBHW9nXxupnicoLDwQ3nGHinY3KYbnWL1IAVU
+	tZoUTHJ+1OFezHFHxEQix9bnp4apHraAJ5MYT3cXa79ut+D8V4RvsWkHsA9RnPqs4Cj3x48BLg4
+	V4MTuL2vZTSJKwXr5XdRnG5UpejRYu3rsjgn+0Yw2C8VbvaXHf0P2JrhdQaVzAriYTh9Tph6jZ0
+	jNZh+J0NCQGcbnQ==
+X-Received: by 2002:a05:620a:461e:b0:93a:5d6:9ef5 with SMTP id af79cd13be357-93a185a8922mr528237585a.12.1789369862473;
+        Mon, 14 Sep 2026 00:11:02 -0700 (PDT)
+X-Received: by 2002:a05:620a:461e:b0:93a:5d6:9ef5 with SMTP id af79cd13be357-93a185a8922mr528234685a.12.1789369862013;
+        Mon, 14 Sep 2026 00:11:02 -0700 (PDT)
+Received: from localhost ([188.216.77.92])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-486f0403125sm21787846f8f.8.2026.09.14.00.11.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 14 Sep 2026 00:11:01 -0700 (PDT)
+Date: Mon, 14 Sep 2026 09:11:00 +0200
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+To: Gal Pressman <gal@nvidia.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Rahul Rameshbabu <rrameshbabu@nvidia.com>,
+        Carolina Jubran <cjubran@nvidia.com>, netdev@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net] net: stmmac: report phc_index as -1 when no PTP
+ clock is registered
+Message-ID: <aqeeBOjej4CYTVGZ@lore-desk>
+References: <20260912-stmmac-fix-phc_index-v1-1-26e1ead25324@oss.qualcomm.com>
+ <2eecb396-8b5b-4e82-bff5-c163a6c16bb3@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260914-stm32mp2x-dcmi-v1-2-c594e081d21b@foss.st.com>
-References: <20260914-stm32mp2x-dcmi-v1-0-c594e081d21b@foss.st.com>
-In-Reply-To: <20260914-stm32mp2x-dcmi-v1-0-c594e081d21b@foss.st.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>
-CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	"Alain Volmat" <alain.volmat@foss.st.com>
-X-Mailer: b4 0.15.2
-X-Originating-IP: [10.252.27.156]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MAD0EPF000008B9:EE_|GV1PR10MB9159:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8e2f3766-a158-4674-5b50-08df122f3154
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|376014|1800799024|82310400026|56012099006|11063799006|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: wvUGGcb1QqHBWO9lB+i/QD0gh99KCEjRp+Lr0tA+m0b2jv4Wn/f0tHI/L2FN4uibf9cUIfDw3h0WgOYLpzJd8nIBzLfvMk1FEP9cGVKSrqQbNTKlQzX0mzSvevzqxc+mnvU+YVO3kWXg+FI2ohe+DTI73rv/X8VCp1Fop3ZqJtjcbVab0nyf/BcIoKyqgmItNWIn826ZyFGomeVyWMQ+G0zL3vhk89YVu8g19PkT27Oh2uTuRNaL5WxYa45Dn2N+lq5YDqB/G+gyIlKyV1uDyZXn4Uj5SnjoYd+cl1T21ozFFrTo+ZUplr0uYOwTCsMAYKTEJhisz4/CaP88fYqHf5TyDn++ZWpevN3ob0nr0lWW9qKgPc+h1QqF0oEG6vF2HokLwPsm78lHp2Epy1brMGQqUp9WNl4R8hu5DkV+ZEjx+yTW92D6bFVuupGc0Iz5fOwFhfiRmoZpnOuBZGT3rahDr7o5lHJnwyeicy7A3PAR4NZhgPz4JPTmK2nnJ15HEIKvPyZXU1/3U69G+wS1tHjNz70IuRn8BX1jA4GAA/W5CgrS7sv+n77M+GoXQNCQi4bHYOx6+DSdm3jHJObObajaky4XFPDh1aKM5TNdLmTzZgwG1X4qwtEP9jDUtuvXIn2iFVW5EK2n8LKc6zcEenhSh8TJ9PkxY28amWNnlJDihOwrccF6TyAChBxQeFl4Pcpjy4bfBnYI1P2bm4Zb6A==
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(376014)(1800799024)(82310400026)(56012099006)(11063799006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: n0G9utD4T7jY4HecbHqQmFmtFtM4WsQvfPCZJplr0QT0zqFVAOz+plzcmPKSUdVJcolCX6iO/ZkaWH5DxQyA2rPs4nnJ+JDqj1i55kMEUL0tD/PJAb5xqrVJLPIa9QqGD42DFnwWXICA7we7lvVq0/DrAAs263jS2s62rJi6ri8bUm/HQdVbyL0AnXodhvrz3XSKQBDSSlVk2MGkufS7Tax6IRVKUGoLkNNDKmzesQbjaEzj7PqEs3M3QXwM0ZOl6G+2uaKHBroq1y+Ij1jbSFjeLisT29xoLX2xzIGh4TS8038/5LRtt083OKxqP8YRXM6ZQ3NnhlB6Mprt68+xBSN7rjxuZKvylkmZreHASnZJQTy0+jwXq8B6zJZ0X+7iR8BtGrLb270JGxK8lqNMeZic5zYeunGYlhXp9swSgctCgm64zus8tjR/WmaREoY3
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Sep 2026 07:10:00.9101
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8e2f3766-a158-4674-5b50-08df122f3154
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: MAD0EPF000008B9.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR10MB9159
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="fUqptj69rX3noc3V"
+Content-Disposition: inline
+In-Reply-To: <2eecb396-8b5b-4e82-bff5-c163a6c16bb3@nvidia.com>
+X-Authority-Analysis: v=2.4 cv=RY0FmFtv c=1 sm=1 tr=0 ts=6aa79e07 cx=c_pps
+ a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
+ a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22 a=EUspDBNiAAAA:8
+ a=sM7fFmaBarVHFOEcdfQA:9 a=CjuIK1q_8ugA:10 a=lUfVGALKYBMCpC4gGrwA:9
+ a=PEH46H7Ffwr30OY-TuGO:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE0MDEwMCBTYWx0ZWRfX6dT2uWIbiW+0
+ MVgItpt1peZvO4/QamwkYWh6PVwVcScM3o/1M6RGWw33nBpsyFp6zaNqRsX41TAo/0tnSPP7Cps
+ 6zTmqqdCwpWXzzoMNY4MVO0YVy8usyV6gYEc50Er1DPxK/YWQyGT7p3H7MTf9dB8YfjION/nmcB
+ SmYMgpAIqJw+9/JRyCwOYciAUKYMP3E/mcp+8TS0B1FuuDx7e25po5wjWH6e2Uv5iLPu2vVWyBQ
+ mM5d0Qz+v+JO8D6Ey9/fLjOmt71GKZBtktBd0GsQuXfTHoQr90m4JnqTif1+yOojg+QNoDHSur4
+ K4xJeY7vMdNoCQbM+K2ItSj5n55PMAOgctQnZUcoj7N/uHYChf3o4TaeMp4ifXlVGZBC18BC2Fq
+ m+ii36nTvAlBxgBkJpK30WbqDWaOFpWUZF1bjY+MkfUiK+cVCPFDRLi+JMa5AZ0nHYJDvYZWZ0z
+ E9orNtdt3h6FlfMeEkw==
+X-Proofpoint-ORIG-GUID: ok5vNnwERvl0Ags0OJhOIx3FUdjrD_h5
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE0MDEwMCBTYWx0ZWRfX2iM+MaWAVFG0
+ oWUccHKiQC0EiZxfgR/Dc7TnHfeZztJr7MnX9+mY/qMtr51kq1XMDOwrEdKsZkO2U+/YEF4ORSi
+ S1Hhv8meTp015tlJyFFFILREQSSqm18=
+X-Proofpoint-GUID: ok5vNnwERvl0Ags0OJhOIx3FUdjrD_h5
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-14_02,2026-09-13_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 priorityscore=1501 spamscore=0 suspectscore=0
+ lowpriorityscore=0 impostorscore=0 phishscore=0 malwarescore=0 bulkscore=0
+ adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2609140100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_001010_806897_C1060F53 
-X-CRM114-Status: UNSURE (   8.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260914_001105_334810_AF2816CD 
+X-CRM114-Status: GOOD (  20.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,40 +158,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the node for the DCMI controller in stm32mp231.dtsi
+--fUqptj69rX3noc3V
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
----
- arch/arm64/boot/dts/st/stm32mp231.dtsi | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+On Sep 14, Gal Pressman wrote:
+> On 13/09/2026 0:16, Lorenzo Bianconi wrote:
+> > When hardware timestamping is supported but no PTP clock has been
+> > registered yet (e.g. while the interface is down), stmmac_get_ts_info()
+> > currently reports phc_index as 0. Zero is a valid PHC index and would
+> > make userspace resolve the wrong clock; the absence of a clock should
+> > be reported as -1, matching ethtool_init_tsinfo() and
+> > ethtool_op_get_ts_info().
+> >=20
+> > Report -1 when no PTP clock is available.
+> >=20
+> > Fixes: 9364fa7fcf12 ("net: stmmac: Remove setting of RX software timest=
+amp")
+> > Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+> In all other drivers I just removed the assignment, why not do the same
+> here?
 
-diff --git a/arch/arm64/boot/dts/st/stm32mp231.dtsi b/arch/arm64/boot/dts/st/stm32mp231.dtsi
-index 0feb8943efae..ad008049384b 100644
---- a/arch/arm64/boot/dts/st/stm32mp231.dtsi
-+++ b/arch/arm64/boot/dts/st/stm32mp231.dtsi
-@@ -646,6 +646,20 @@ uart7: serial@40370000 {
- 				status = "disabled";
- 			};
- 
-+			dcmi: dcmi@404a0000 {
-+				compatible = "st,stm32-dcmi";
-+				reg = <0x404a0000 0x400>;
-+				interrupts = <GIC_SPI 141 IRQ_TYPE_LEVEL_HIGH>;
-+				resets = <&rcc CCI_R>;
-+				clocks = <&rcc CK_BUS_CCI>;
-+				clock-names = "mclk";
-+				dmas = <&hpdma 137 0x60 0x00003012>;
-+				dma-names = "tx";
-+				access-controllers = <&rifsc 88>;
-+				power-domains = <&cluster_pd>;
-+				status = "disabled";
-+			};
-+
- 			rng: rng@42020000 {
- 				compatible = "st,stm32mp25-rng";
- 				reg = <0x42020000 0x400>;
+Ack, I agree. Since we run ethtool_init_tsinfo() before running the
+get_ts_info() callback, we can drop phc_index initialization to -1.
+I will fix it in v2.
 
--- 
-2.34.1
+Regards,
+Lorenzo
 
+--fUqptj69rX3noc3V
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaqeeBAAKCRA6cBh0uS2t
+rLULAP9p+1QhfxrKFkt0RxnqCsrRXbe/JkA81oDL0nUz/IVfDwD/YsAbhRIhavAz
+alwh47B1TC2mbg02iCAsXavqhs35Dgg=
+=bxxO
+-----END PGP SIGNATURE-----
+
+--fUqptj69rX3noc3V--
 
