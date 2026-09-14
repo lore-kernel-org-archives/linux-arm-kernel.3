@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B008C88E64
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 11:34:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33097C88E70
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 11:34:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TkOIvu8q2gHRPu8gLHr1j7FThQAssMDAlnryy77Ag5Q=; b=MzPOVJatFS5/ruPtjHVuvtd+Hx
-	i2mXJDZp3Lz4WE3f5kfM21xRmfOCzjnimyAkf8kyWTVaYg7a0bRAiSt1oARcivgdk/lcscfRFoEJ0
-	zSgE4FtU8FmfB7o7moGpsd9s8JcqRksg8Ml72PMh/OFg3XxNv4M8xRa1wOb/7RdtYqZEnEKa8nOu9
-	Kocyb5USBQr8kg+Pp2HUszzVhFb1J4wdw+pC0seOCaiH6bjZKEpmT9rNVr2q4hoAXtS01DhZk+Sjo
-	Mr2DWZ2SJoYkdwDsIpFYbPzZlOecWql25YXN4dSXXYt6SwvdvzFYqT2mjmhdfAVMCb4z0M6HFVOTr
-	v0bg15Ng==;
+	bh=GoR8Gh/B9xJ/D7oAM8JeNKVIjOCrkgEystd77s0QmEE=; b=fK/3PNf0f9z4F2iIIXB3YasrQt
+	J914v5ypZT+a2SkkJ7P+2u+gmIwjjxEaptO+unf+utrTaa1hTc96JOZfwFeXX7Qq44swMH4dCghV+
+	9WYDFTHZfyVgTCBJ7ZRUNQivXLLMG70RS4Ji2rY2ifBXqde8fqoKTMhONEMgXXdvGycIT/QrynKoT
+	oPcHgMvWA9PlpmAC6YwUClRvBt42SIaJ3CaFofN+ucnxy6Jzr+Wj2iA6YqKeaZell2kM8+qWbyOrs
+	I+HdkDQzGn0LhZ9lvcOjcjV70HiNqFhv5OZ0D8N5Je5cirriUsd1HxuqLE5iVb7IfY90Zu8GwOq24
+	3w8YhE7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x64wi-00000003Fpd-3FFL;
-	Mon, 14 Sep 2026 11:34:00 +0000
-Received: from out-109.mta0.migadu.com ([2001:41d0:1004:224b::6d] helo=mta0.migadu.com)
+	id 1x64wu-00000003Fvk-0M1P;
+	Mon, 14 Sep 2026 11:34:12 +0000
+Received: from out-134.mta0.migadu.com ([2001:41d0:1004:224b::86] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x64wd-00000003Fmu-1bGI
+	id 1x64wn-00000003FqW-2AHE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 11:33:56 +0000
+	Mon, 14 Sep 2026 11:34:07 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=ANhxith82ULbv0/JaaJ8goUq0CxV3cuc4rjj5cuj3dU=;
+DKIM-Signature: a=rsa-sha256; bh=a0XXK2LJtf2K95EZy+fqmSC24cV9GziA/Is/hqsGUM0=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1789385633; v=1; x=1789990433;
- b=Yp9q6pC0gh7TfOjpdghu+mei+jDuIICBU9dW9jyE97lcY3oYc8EnMVH1PeoX4fQdUcl+spL/
- haSC5znA2FF9u3JZBDkmMN2xxGeBGcjyrzb4WNocCQtQodpRFwwI93Ns+AvhuSfZmPtCF/XCbBf
- oHq1KXxgwsQs2RpW8owSAx/M=
+ t=1789385642; v=1; x=1789990442;
+ b=Wv7AEVjjISeshHl/iCu3zoXhM8IWoov1Cnz21AHeOqXhxk/sL51zCz3uNiTwF6uh5LGQ0Cli
+ 19RVrmzlTvM6TYuOGH2p8BaJWSozfb4fep4Hff5xqf0kS9hJPDSLN+1QiUGam0HEGmYME0y2rlk
+ K4Nz7GgpqHnTmDsRv15BPjJY=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id f8e40eda986950bb;
-	Mon, 14 Sep 2026 11:33:53 +0000
-X-Mizu-Trace-ID: f8e40eda986950bb
+Received: by smtp.migadu.com with ESMTPS id e93af363d53b2598;
+	Mon, 14 Sep 2026 11:34:02 +0000
+X-Mizu-Trace-ID: e93af363d53b2598
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: maz@kernel.org,
@@ -57,17 +57,17 @@ Cc: catalin.marinas@arm.com,
 	vdonnefort@google.com,
 	qperret@google.com,
 	tabba@google.com
-Subject: [PATCH v3 02/18] KVM: arm64: Validate the host vCPU's VM before reading it under pKVM
-Date: Mon, 14 Sep 2026 12:33:22 +0100
-Message-Id: <20260914113338.159227-3-fuad.tabba@linux.dev>
+Subject: [PATCH v3 04/18] KVM: arm64: Disable steal time for protected VMs
+Date: Mon, 14 Sep 2026 12:33:24 +0100
+Message-Id: <20260914113338.159227-5-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260914113338.159227-1-fuad.tabba@linux.dev>
 References: <20260914113338.159227-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_043355_571798_49B90197 
-X-CRM114-Status: GOOD (  15.34  )
+X-CRM114-CacheID: sfid-20260914_043405_720078_9E87C563 
+X-CRM114-Status: GOOD (  12.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,137 +82,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On an MTE-capable host under pKVM, enter_exception64() reads the VM's
-MTE flag through vcpu->kvm, which for a host vCPU is a host-writable
-pointer nothing validates. The host can point it at any address in the
-hyp linear map and read back bit 1 of that word through PSR_TCO in the
-vCPU's CPSR, or panic the hypervisor with an unmapped one.
+pKVM doesn't support steal time for protected guests, and
+KVM_CAP_STEAL_TIME already reads 0 for them on the VM file descriptor,
+but kvm_arm_pvtime_supported() doesn't know the VM, so the host still
+accepts the KVM_ARM_VCPU_PVTIME_CTRL attribute, whose IPA would point
+kvm_update_stolen_time() at the guest's private memory on every vCPU
+load. Pass the VM in and return false for a protected one, so the
+attribute returns -ENXIO as it does where steal time isn't implemented.
 
-Get the VM through a get/put pair around the read: a loaded vCPU's is
-the hyp VM, an unloaded host vCPU's is read once and pinned, and a
-pointer the host never shared leaves TCO clear.
-
-Fixes: ea7fc1bb1cd1b ("KVM: arm64: Introduce MTE VM feature")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/all/20260914070536.877D91F000FF@smtp.kernel.org/
-Cc: stable@vger.kernel.org
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/kvm/hyp/exception.c             |  5 ++-
- arch/arm64/kvm/hyp/include/hyp/adjust_pc.h | 18 ++++++++++
- arch/arm64/kvm/hyp/nvhe/pkvm.c             | 39 ++++++++++++++++++++++
- 3 files changed, 61 insertions(+), 1 deletion(-)
+ arch/arm64/include/asm/kvm_host.h |  2 +-
+ arch/arm64/kvm/arm.c              |  2 +-
+ arch/arm64/kvm/pvtime.c           | 10 +++++-----
+ 3 files changed, 7 insertions(+), 7 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/exception.c b/arch/arm64/kvm/hyp/exception.c
-index 754e2dc1df54a..6e60d890afa4a 100644
---- a/arch/arm64/kvm/hyp/exception.c
-+++ b/arch/arm64/kvm/hyp/exception.c
-@@ -70,6 +70,7 @@ static void enter_exception64(struct kvm_vcpu *vcpu, unsigned long target_mode,
- 			      enum exception_type type)
- {
- 	unsigned long sctlr, vbar, old, new, mode;
-+	struct kvm *kvm;
- 	u64 exc_offset;
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 27fe0cd5b2d7a..286489a69dff5 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -1346,7 +1346,7 @@ long kvm_hypercall_pv_features(struct kvm_vcpu *vcpu);
+ gpa_t kvm_init_stolen_time(struct kvm_vcpu *vcpu);
+ void kvm_update_stolen_time(struct kvm_vcpu *vcpu);
  
- 	mode = *vcpu_cpsr(vcpu) & (PSR_MODE_MASK | PSR_MODE32_BIT);
-@@ -109,8 +110,10 @@ static void enter_exception64(struct kvm_vcpu *vcpu, unsigned long target_mode,
- 	new |= (old & PSR_C_BIT);
- 	new |= (old & PSR_V_BIT);
- 
--	if (kvm_has_mte(kern_hyp_va(vcpu->kvm)))
-+	kvm = vcpu_get_kvm(vcpu);
-+	if (kvm && kvm_has_mte(kvm))
- 		new |= PSR_TCO_BIT;
-+	vcpu_put_kvm(vcpu, kvm);
- 
- 	new |= (old & PSR_DIT_BIT);
- 
-diff --git a/arch/arm64/kvm/hyp/include/hyp/adjust_pc.h b/arch/arm64/kvm/hyp/include/hyp/adjust_pc.h
-index 4fdfeabefeb43..a4fb04faa7d09 100644
---- a/arch/arm64/kvm/hyp/include/hyp/adjust_pc.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/adjust_pc.h
-@@ -13,6 +13,24 @@
- #include <asm/kvm_emulate.h>
- #include <asm/kvm_host.h>
- 
-+/*
-+ * Under pKVM a host vCPU's ->kvm is host-writable: the nVHE pair
-+ * validates it.
-+ */
-+#ifdef __KVM_NVHE_HYPERVISOR__
-+struct kvm *vcpu_get_kvm(struct kvm_vcpu *vcpu);
-+void vcpu_put_kvm(struct kvm_vcpu *vcpu, struct kvm *kvm);
-+#else
-+static inline struct kvm *vcpu_get_kvm(struct kvm_vcpu *vcpu)
-+{
-+	return vcpu->kvm;
-+}
-+
-+static inline void vcpu_put_kvm(struct kvm_vcpu *vcpu, struct kvm *kvm)
-+{
-+}
-+#endif
-+
- static inline void kvm_skip_instr(struct kvm_vcpu *vcpu)
- {
- 	if (vcpu_mode_is_32bit(vcpu)) {
-diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index 459bd9eb7e4bc..9bdc7a9b84b8c 100644
---- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -11,6 +11,8 @@
- 
- #include <asm/kvm_emulate.h>
- 
-+#include <hyp/adjust_pc.h>
-+
- #include <nvhe/mem_protect.h>
- #include <nvhe/memory.h>
- #include <nvhe/pkvm.h>
-@@ -304,6 +306,43 @@ struct pkvm_hyp_vcpu *pkvm_get_loaded_hyp_vcpu(void)
- 
+-bool kvm_arm_pvtime_supported(void);
++bool kvm_arm_pvtime_supported(struct kvm *kvm);
+ int kvm_arm_pvtime_set_attr(struct kvm_vcpu *vcpu,
+ 			    struct kvm_device_attr *attr);
+ int kvm_arm_pvtime_get_attr(struct kvm_vcpu *vcpu,
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 8b080804bc90b..db36815630790 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -447,7 +447,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+ 		r = system_supports_mte();
+ 		break;
+ 	case KVM_CAP_STEAL_TIME:
+-		r = kvm_arm_pvtime_supported();
++		r = kvm_arm_pvtime_supported(kvm);
+ 		break;
+ 	case KVM_CAP_ARM_EL1_32BIT:
+ 		r = cpus_have_final_cap(ARM64_HAS_32BIT_EL1);
+diff --git a/arch/arm64/kvm/pvtime.c b/arch/arm64/kvm/pvtime.c
+index 4ceabaa4c30bd..053fe831fa541 100644
+--- a/arch/arm64/kvm/pvtime.c
++++ b/arch/arm64/kvm/pvtime.c
+@@ -67,9 +67,9 @@ gpa_t kvm_init_stolen_time(struct kvm_vcpu *vcpu)
+ 	return base;
  }
  
-+static struct pkvm_hyp_vm *loaded_hyp_vm_of(struct kvm_vcpu *vcpu)
-+{
-+	struct pkvm_hyp_vcpu *hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
-+
-+	if (hyp_vcpu &&
-+	    (vcpu == &hyp_vcpu->vcpu || vcpu == hyp_vcpu->host_vcpu))
-+		return pkvm_hyp_vcpu_to_hyp_vm(hyp_vcpu);
-+
-+	return NULL;
-+}
-+
-+/* An unloaded host vCPU's VM is mapped at EL2 only while pinned. */
-+struct kvm *vcpu_get_kvm(struct kvm_vcpu *vcpu)
-+{
-+	struct pkvm_hyp_vm *hyp_vm;
-+	struct kvm *kvm;
-+
-+	if (!is_protected_kvm_enabled())
-+		return kern_hyp_va(vcpu->kvm);
-+
-+	hyp_vm = loaded_hyp_vm_of(vcpu);
-+	if (hyp_vm)
-+		return &hyp_vm->kvm;
-+
-+	kvm = kern_hyp_va(READ_ONCE(vcpu->kvm));
-+	if (hyp_pin_shared_mem(kvm, kvm + 1))
-+		return NULL;
-+
-+	return kvm;
-+}
-+
-+void vcpu_put_kvm(struct kvm_vcpu *vcpu, struct kvm *kvm)
-+{
-+	if (kvm && is_protected_kvm_enabled() && !loaded_hyp_vm_of(vcpu))
-+		hyp_unpin_shared_mem(kvm, kvm + 1);
-+}
-+
- struct pkvm_hyp_vm *get_pkvm_hyp_vm(pkvm_handle_t handle)
+-bool kvm_arm_pvtime_supported(void)
++bool kvm_arm_pvtime_supported(struct kvm *kvm)
  {
- 	struct pkvm_hyp_vm *hyp_vm;
+-	return !!sched_info_on();
++	return !!sched_info_on() && (!kvm || !kvm_vm_is_protected(kvm));
+ }
+ 
+ int kvm_arm_pvtime_set_attr(struct kvm_vcpu *vcpu,
+@@ -81,7 +81,7 @@ int kvm_arm_pvtime_set_attr(struct kvm_vcpu *vcpu,
+ 	int ret = 0;
+ 	int idx;
+ 
+-	if (!kvm_arm_pvtime_supported() ||
++	if (!kvm_arm_pvtime_supported(kvm) ||
+ 	    attr->attr != KVM_ARM_VCPU_PVTIME_IPA)
+ 		return -ENXIO;
+ 
+@@ -110,7 +110,7 @@ int kvm_arm_pvtime_get_attr(struct kvm_vcpu *vcpu,
+ 	u64 __user *user = (u64 __user *)attr->addr;
+ 	u64 ipa;
+ 
+-	if (!kvm_arm_pvtime_supported() ||
++	if (!kvm_arm_pvtime_supported(vcpu->kvm) ||
+ 	    attr->attr != KVM_ARM_VCPU_PVTIME_IPA)
+ 		return -ENXIO;
+ 
+@@ -126,7 +126,7 @@ int kvm_arm_pvtime_has_attr(struct kvm_vcpu *vcpu,
+ {
+ 	switch (attr->attr) {
+ 	case KVM_ARM_VCPU_PVTIME_IPA:
+-		if (kvm_arm_pvtime_supported())
++		if (kvm_arm_pvtime_supported(vcpu->kvm))
+ 			return 0;
+ 	}
+ 	return -ENXIO;
 -- 
 2.39.5
 
