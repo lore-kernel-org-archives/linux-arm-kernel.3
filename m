@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 845EBC88E64
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 13:04:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF440C88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 13:06:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kAfibhMbeqlyk7jJtIMmqI3uMYiuHPfbP2vt8pA7KkY=; b=N0i2fDFk3WuEgULwAcQoQONPEm
-	39aDWAhJnq90zx89M7ru8x3TNzmNs24UZB1l/PGp3vHiM2PcB5zcm398iGfM1eUmMQKn1YHRveASL
-	paxKDmiwNeJ/kNkHG+PTAKqNvIsNoqOhfAxB5d5jsEVZ8iD3rWSiJTFvO/4akBe1IlyIj8bemRrli
-	AwlmDKBhH//P8zsoAs0yJ9EPIuXHgnCC3jp+tgsKgP3WTSouhEz2v65ulTJKI4vTwJhXYWQXiXBEi
-	WaXZw6idzEyn6Vr9J6azBl/L3XTSdXbjTdQ7gl9pT5yxggTOJFzlhnRl51JoPtFbNxNt+IG/HWljv
-	vBvssqRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kcHEEuxa8gkPmRZrK0Eoct63x6eoW301jlgZRtUKdPI=; b=edF8VSWnzi1xWF3tsc+ulJKTx5
+	zB5QYUVAUzGfPa1fKJ70GPhSxrPprb8u/Uz5Gehmk3Z1VlJPuH5xTqd32WrBysuz9hctYou6dlWBh
+	Ss2CMVYZOC3i/+0zt+GhszkEKRIsgjyDjejbrjFlMHCoG0eN5IQcLVpXcQendPpTBbNAalNLoU64J
+	TWvngZC/AeNppqauTnXhJ3vdjYCniYneGCIq3iCIY0zo4+nxUpsu4jie60q8OEz6iINyOMtYcOLoM
+	zdxMaNuPAHda68TTpGMuqqzwqdDXUNGlMTjM17KzZaRCEvP6Rhx6qFOT/SI9TTBIAgDuqpDSMA2Av
+	vaHs/1uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x66Ly-00000003gj6-10ks;
-	Mon, 14 Sep 2026 13:04:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x66Lv-00000003giJ-0viE
+	id 1x65Hp-00000003P5u-3pk5;
+	Mon, 14 Sep 2026 11:55:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x65Hb-00000003OxZ-46AY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 13:04:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C24101570;
-	Mon, 14 Sep 2026 06:04:00 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0E7063F59E;
-	Mon, 14 Sep 2026 06:03:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789391044; bh=27WhJHw+wdi8jw8D9edQJlOm2hP65aaJOCyPs9cmJAs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ql147+2nskpgnc7uM6EzX9Tjh1eIHq+F7P0cfA5/E8bopcShrbZ4VI8MBR7uPalRC
-	 LMZCG4jkFgtQcxmliI4sMQ20tsGG95mwY2Z9asd6uL1hxDwkN38mcSUmCZSQJDJJe6
-	 TeEkYftp83ApnqWmZc+jVfbzVVsFxuGM/wFmRJro=
-Date: Mon, 14 Sep 2026 14:03:48 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>,
-	Greg KH <gregkh@linuxfoundation.org>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>
-Subject: Re: [PATCH v11 1/7] firmware: smccc: Add an Arm SMCCC bus
-Message-ID: <aqfwtAEbj9X5u7VU@arm.com>
-References: <20260914060511.277948-1-aneesh.kumar@kernel.org>
- <20260914060511.277948-2-aneesh.kumar@kernel.org>
+	Mon, 14 Sep 2026 11:55:44 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B8BEC4089F;
+	Mon, 14 Sep 2026 11:55:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF8E71F00893;
+	Mon, 14 Sep 2026 11:55:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789386935;
+	bh=kcHEEuxa8gkPmRZrK0Eoct63x6eoW301jlgZRtUKdPI=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=ebvwuejJ/i8e76wOMlcTeY9hMQCPAOGNmjvk4qkrdk8OWwtICxD1VfZnxwIpEhTON
+	 LGBfXUVdI/h0kF9lFN1ELcudbWR9JVnhXSB21dSBR0LYaTXF6/WwuIcZiPHwDdIiwr
+	 b2V0onjsi+V0ciAzATAQQEUZJ0p36C+arnFu1/MIixI+UDpB6H+2PnYPOEM/BVqmZm
+	 DRRoSVsrPIoVjd/ENHo6O+2CYn6OTad6ww5W0Mv1BDncJXRCacYP8fbHAveRvRB5mP
+	 xNVzv1dZG1+F0QSWvjIo8dFRcpy1Pf2D50LWproi3ibS6abjXsDPbhFCYOmgPq7tYO
+	 9ouY2IBrQQi8A==
+From: Linus Walleij <linusw@kernel.org>
+Date: Mon, 14 Sep 2026 13:54:42 +0200
+Subject: [PATCH v2 14/20] pmdomain: st: ux500: Control DB8500 EPODs
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260914060511.277948-2-aneesh.kumar@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_060407_301797_0E7640D9 
-X-CRM114-Status: UNSURE (   9.21  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260914-ux500-power-domains-v7-1-v2-14-9d0c17e1f816@kernel.org>
+References: <20260914-ux500-power-domains-v7-1-v2-0-9d0c17e1f816@kernel.org>
+In-Reply-To: <20260914-ux500-power-domains-v7-1-v2-0-9d0c17e1f816@kernel.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
+ Mark Brown <broonie@kernel.org>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
+ Lee Jones <lee@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-pm@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+ dmaengine@vger.kernel.org, Linus Walleij <linusw@kernel.org>
+X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,18 +77,503 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 14, 2026 at 11:35:05AM +0530, Aneesh Kumar K.V (Arm) wrote:
-> SMCCC-discovered firmware services are currently represented by separate
-> platform devices, such as smccc_trng and arm-cca-dev. Those devices do not
-> represent independent DT/ACPI-described platform resources; they are
-> features of the SMCCC firmware interface.
-> 
-> Add an Arm SMCCC bus for services discovered through the SMCCC firmware
-> interface. The bus provides SMCCC device and driver registration helpers,
-> name-based matching, modalias generation, and a sysfs modalias attribute so
+Move the DB8500 EPOD state handling into the Ux500 power-domain driver.
 
-Nit: "name-based matching" is no longer true. The latest series uses
-function ID.
+Keep the old regulator driver mutually exclusive with the pmdomain driver.
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Assisted-by: LLM
+Signed-off-by: Linus Walleij <linusw@kernel.org>
+---
+ arch/arm/mach-ux500/Kconfig               |   2 +-
+ drivers/pmdomain/st/ste-ux500-pm-domain.c | 355 +++++++++++++++++++++---------
+ drivers/regulator/Kconfig                 |   1 +
+ 3 files changed, 254 insertions(+), 104 deletions(-)
+
+diff --git a/arch/arm/mach-ux500/Kconfig b/arch/arm/mach-ux500/Kconfig
+index c18def269137..56636c993f49 100644
+--- a/arch/arm/mach-ux500/Kconfig
++++ b/arch/arm/mach-ux500/Kconfig
+@@ -26,7 +26,7 @@ menuconfig ARCH_U8500
+ 	select PL310_ERRATA_753970 if CACHE_L2X0
+ 	select PM_GENERIC_DOMAINS if PM
+ 	select REGULATOR
+-	select REGULATOR_DB8500_PRCMU
++	select UX500_PM_DOMAIN
+ 	select REGULATOR_FIXED_VOLTAGE
+ 	select SOC_BUS
+ 	select RESET_CONTROLLER
+diff --git a/drivers/pmdomain/st/ste-ux500-pm-domain.c b/drivers/pmdomain/st/ste-ux500-pm-domain.c
+index d90a563cd6f3..b31a36a4acd1 100644
+--- a/drivers/pmdomain/st/ste-ux500-pm-domain.c
++++ b/drivers/pmdomain/st/ste-ux500-pm-domain.c
+@@ -6,174 +6,292 @@
+  *
+  * Implements PM domains using the generic PM domain for ux500.
+  */
++#include <linux/cleanup.h>
+ #include <linux/device.h>
+-#include <linux/kernel.h>
+-#include <linux/platform_device.h>
+-#include <linux/printk.h>
+-#include <linux/slab.h>
+ #include <linux/err.h>
++#include <linux/kernel.h>
++#include <linux/mfd/db8500-prcmu.h>
++#include <linux/mutex.h>
+ #include <linux/of.h>
++#include <linux/platform_device.h>
+ #include <linux/pm_domain.h>
++#include <linux/slab.h>
+ 
+ #include <dt-bindings/arm/ux500_pm_domains.h>
+ 
+ #define NR_DOMAINS		(DOMAIN_ESRAM_34 + 1)
++#define UX500_EPOD_NONE		NUM_EPOD_ID
+ 
+-static int pd_power_off(struct generic_pm_domain *domain)
++/**
++ * struct dbx500_powerdomain_info - dbx500 power domain information
++ * @genpd: generic power domain
++ * @epod_id: id for EPOD (power domain)
++ * @is_ramret: RAM retention switch for EPOD (power domain)
++ */
++struct dbx500_powerdomain_info {
++	struct generic_pm_domain genpd;
++	u16 epod_id;
++	bool is_ramret;
++};
++
++static DEFINE_MUTEX(ux500_pd_lock);
++static bool epod_on[NUM_EPOD_ID];
++static bool epod_ramret[NUM_EPOD_ID];
++
++static int enable_epod(u16 epod_id, bool ramret)
+ {
+-	/*
+-	 * Handle the gating of the PM domain regulator here.
+-	 *
+-	 * Drivers/subsystems handling devices in the PM domain needs to perform
+-	 * register context save/restore from their respective runtime PM
+-	 * callbacks, to be able to enable PM domain gating/ungating.
+-	 */
++	int ret;
++
++	if (ramret) {
++		if (!epod_on[epod_id]) {
++			ret = db8500_prcmu_set_epod(epod_id, EPOD_STATE_RAMRET);
++			if (ret < 0)
++				return ret;
++		}
++		epod_ramret[epod_id] = true;
++	} else {
++		ret = db8500_prcmu_set_epod(epod_id, EPOD_STATE_ON);
++		if (ret < 0)
++			return ret;
++		epod_on[epod_id] = true;
++	}
++
+ 	return 0;
+ }
+ 
+-static int pd_power_on(struct generic_pm_domain *domain)
++static int disable_epod(u16 epod_id, bool ramret)
+ {
+-	/*
+-	 * Handle the ungating of the PM domain regulator here.
+-	 *
+-	 * Drivers/subsystems handling devices in the PM domain needs to perform
+-	 * register context save/restore from their respective runtime PM
+-	 * callbacks, to be able to enable PM domain gating/ungating.
+-	 */
++	int ret;
++
++	if (ramret) {
++		if (!epod_on[epod_id]) {
++			ret = db8500_prcmu_set_epod(epod_id, EPOD_STATE_OFF);
++			if (ret < 0)
++				return ret;
++		}
++		epod_ramret[epod_id] = false;
++	} else {
++		if (epod_ramret[epod_id]) {
++			ret = db8500_prcmu_set_epod(epod_id, EPOD_STATE_RAMRET);
++			if (ret < 0)
++				return ret;
++		} else {
++			ret = db8500_prcmu_set_epod(epod_id, EPOD_STATE_OFF);
++			if (ret < 0)
++				return ret;
++		}
++		epod_on[epod_id] = false;
++	}
++
+ 	return 0;
+ }
+ 
++
++static int pd_power_off(struct generic_pm_domain *domain)
++{
++	struct dbx500_powerdomain_info *info =
++		container_of(domain, struct dbx500_powerdomain_info, genpd);
++	int ret = 0;
++
++	guard(mutex)(&ux500_pd_lock);
++	if (info->epod_id < NUM_EPOD_ID)
++		ret = disable_epod(info->epod_id, info->is_ramret);
++
++	return ret;
++}
++
++static int pd_power_on(struct generic_pm_domain *domain)
++{
++	struct dbx500_powerdomain_info *info =
++		container_of(domain, struct dbx500_powerdomain_info, genpd);
++	int ret = 0;
++
++	guard(mutex)(&ux500_pd_lock);
++	if (info->epod_id < NUM_EPOD_ID)
++		ret = enable_epod(info->epod_id, info->is_ramret);
++
++	return ret;
++}
++
+ /*
+  * Apart from these voltage domains there is also VSAFE which is always
+  * on. Vape_esram0_pwr for eSRAM0 is connected to VSAFE.
+  */
+-static struct generic_pm_domain ux500_pm_domain_vape = {
++static struct dbx500_powerdomain_info ux500_pm_domain_vape = {
+ 	/* Vape_pwr */
+-	.name = "VAPE",  /* 0.95 .. 1.20 V */
+-	.power_off = pd_power_off,
+-	.power_on = pd_power_on,
++	.genpd = {
++		.name = "VAPE",  /* 0.95 .. 1.20 V */
++		.power_off = pd_power_off,
++		.power_on = pd_power_on,
++	},
++	.epod_id = UX500_EPOD_NONE,
+ };
+ 
+-static struct generic_pm_domain ux500_pm_domain_varm = {
+-	.name = "VARM",
+-	.power_off = pd_power_off,
+-	.power_on = pd_power_on,
++static struct dbx500_powerdomain_info ux500_pm_domain_varm = {
++	.genpd = {
++		.name = "VARM",
++		.power_off = pd_power_off,
++		.power_on = pd_power_on,
++	},
++	.epod_id = UX500_EPOD_NONE,
+ };
+ 
+-static struct generic_pm_domain ux500_pm_domain_vmodem = {
+-	.name = "VMODEM",
+-	.power_off = pd_power_off,
+-	.power_on = pd_power_on,
++static struct dbx500_powerdomain_info ux500_pm_domain_vmodem = {
++	.genpd = {
++		.name = "VMODEM",
++		.power_off = pd_power_off,
++		.power_on = pd_power_on,
++	},
++	.epod_id = UX500_EPOD_NONE,
+ };
+ 
+-static struct generic_pm_domain ux500_pm_domain_vpll = {
+-	.name = "VPLL", /* 1.8 V */
+-	.power_off = pd_power_off,
+-	.power_on = pd_power_on,
++static struct dbx500_powerdomain_info ux500_pm_domain_vpll = {
++	.genpd = {
++		.name = "VPLL", /* 1.8 V */
++		.power_off = pd_power_off,
++		.power_on = pd_power_on,
++	},
++	.epod_id = UX500_EPOD_NONE,
+ };
+ 
+ /*
+  * CHECKME: as these are used directly by peripherals as regulators,
+  * perhaps they should stay in the regulator subsystem?
+  */
+-static struct generic_pm_domain ux500_pm_domain_vsmps1 = {
+-	.name = "VSMPS1", /* Also called VIO (1.2V) */
+-	.power_off = pd_power_off,
+-	.power_on = pd_power_on,
++static struct dbx500_powerdomain_info ux500_pm_domain_vsmps1 = {
++	.genpd = {
++		.name = "VSMPS1", /* Also called VIO (1.2V) */
++		.power_off = pd_power_off,
++		.power_on = pd_power_on,
++	},
++	.epod_id = UX500_EPOD_NONE,
+ };
+ 
+-static struct generic_pm_domain ux500_pm_domain_vsmps2 = {
+-	.name = "VSMPS2", /* Also called VIO (1.8V) */
+-	.power_off = pd_power_off,
+-	.power_on = pd_power_on,
++static struct dbx500_powerdomain_info ux500_pm_domain_vsmps2 = {
++	.genpd = {
++		.name = "VSMPS2", /* Also called VIO (1.8V) */
++		.power_off = pd_power_off,
++		.power_on = pd_power_on,
++	},
++	.epod_id = UX500_EPOD_NONE,
+ };
+ 
+-static struct generic_pm_domain ux500_pm_domain_vsmps3 = {
+-	.name = "VSMPS3",
+-	.power_off = pd_power_off,
+-	.power_on = pd_power_on,
++static struct dbx500_powerdomain_info ux500_pm_domain_vsmps3 = {
++	.genpd = {
++		.name = "VSMPS3",
++		.power_off = pd_power_off,
++		.power_on = pd_power_on,
++	},
++	.epod_id = UX500_EPOD_NONE,
+ };
+ 
+-static struct generic_pm_domain ux500_pm_domain_vrf1 = {
+-	.name = "VRF1",
+-	.power_off = pd_power_off,
+-	.power_on = pd_power_on,
++static struct dbx500_powerdomain_info ux500_pm_domain_vrf1 = {
++	.genpd = {
++		.name = "VRF1",
++		.power_off = pd_power_off,
++		.power_on = pd_power_on,
++	},
++	.epod_id = UX500_EPOD_NONE,
+ };
+ 
+ /* The following are technically children of VAPE */
+-static struct generic_pm_domain ux500_pm_domain_sva_mmdsp = {
++static struct dbx500_powerdomain_info ux500_pm_domain_sva_mmdsp = {
+ 	/* Vape_SVA_MMDSP_pwr */
+-	.name = "SVA_MMDSP",
+-	.power_off = pd_power_off,
+-	.power_on = pd_power_on,
++	.genpd = {
++		.name = "SVA_MMDSP",
++		.power_off = pd_power_off,
++		.power_on = pd_power_on,
++	},
++	.epod_id = EPOD_ID_SVAMMDSP,
+ };
+ 
+-static struct generic_pm_domain ux500_pm_domain_sva_pipe = {
++static struct dbx500_powerdomain_info ux500_pm_domain_sva_pipe = {
+ 	/* Vape_SVA_pwr */
+-	.name = "SVA_PIPE",
+-	.power_off = pd_power_off,
+-	.power_on = pd_power_on,
++	.genpd = {
++		.name = "SVA_PIPE",
++		.power_off = pd_power_off,
++		.power_on = pd_power_on,
++	},
++	.epod_id = EPOD_ID_SVAPIPE,
+ };
+ 
+-static struct generic_pm_domain ux500_pm_domain_sia_mmdsp = {
++static struct dbx500_powerdomain_info ux500_pm_domain_sia_mmdsp = {
+ 	/* Vape_SIA_MMDSP_pwr */
+-	.name = "SIA_MMDSP",
+-	.power_off = pd_power_off,
+-	.power_on = pd_power_on,
++	.genpd = {
++		.name = "SIA_MMDSP",
++		.power_off = pd_power_off,
++		.power_on = pd_power_on,
++	},
++	.epod_id = EPOD_ID_SIAMMDSP,
+ };
+ 
+-static struct generic_pm_domain ux500_pm_domain_sia_pipe = {
++static struct dbx500_powerdomain_info ux500_pm_domain_sia_pipe = {
+ 	/* Vape_SIA_pwr */
+-	.name = "SIA_PIPE",
+-	.power_off = pd_power_off,
+-	.power_on = pd_power_on,
++	.genpd = {
++		.name = "SIA_PIPE",
++		.power_off = pd_power_off,
++		.power_on = pd_power_on,
++	},
++	.epod_id = EPOD_ID_SIAPIPE,
+ };
+ 
+-static struct generic_pm_domain ux500_pm_domain_sga = {
++static struct dbx500_powerdomain_info ux500_pm_domain_sga = {
+ 	/* Vape_SGA_pwr */
+-	.name = "SGA",
+-	.power_off = pd_power_off,
+-	.power_on = pd_power_on,
++	.genpd = {
++		.name = "SGA",
++		.power_off = pd_power_off,
++		.power_on = pd_power_on,
++	},
++	.epod_id = EPOD_ID_SGA,
+ };
+ 
+-static struct generic_pm_domain ux500_pm_domain_b2r2_mcde = {
++static struct dbx500_powerdomain_info ux500_pm_domain_b2r2_mcde = {
+ 	/* Vape_DSS_pwr DSS (display subsystem) */
+-	.name = "B2R2_MCDE",
+-	.power_off = pd_power_off,
+-	.power_on = pd_power_on,
++	.genpd = {
++		.name = "B2R2_MCDE",
++		.power_off = pd_power_off,
++		.power_on = pd_power_on,
++	},
++	.epod_id = EPOD_ID_B2R2_MCDE,
+ };
+ 
+-static struct generic_pm_domain ux500_pm_domain_esram_12 = {
++static struct dbx500_powerdomain_info ux500_pm_domain_esram_12 = {
+ 	/* Vape_esram1_pwr, Vape_esram2_pwr */
+-	.name = "ESRAM_12",
+-	.power_off = pd_power_off,
+-	.power_on = pd_power_on,
++	.genpd = {
++		.name = "ESRAM_12",
++		.power_off = pd_power_off,
++		.power_on = pd_power_on,
++	},
++	.epod_id = EPOD_ID_ESRAM12,
+ };
+ 
+-static struct generic_pm_domain ux500_pm_domain_esram_34 = {
++static struct dbx500_powerdomain_info ux500_pm_domain_esram_34 = {
+ 	/* Vape_esram3_pwr, Vape_esram4_pwr */
+-	.name = "ESRAM_34",
+-	.power_off = pd_power_off,
+-	.power_on = pd_power_on,
++	.genpd = {
++		.name = "ESRAM_34",
++		.power_off = pd_power_off,
++		.power_on = pd_power_on,
++	},
++	.epod_id = EPOD_ID_ESRAM34,
+ };
+ 
+ static struct generic_pm_domain *ux500_pm_domains[NR_DOMAINS] = {
+-	[DOMAIN_VAPE] = &ux500_pm_domain_vape,
+-	[DOMAIN_VARM] = &ux500_pm_domain_varm,
+-	[DOMAIN_VMODEM] = &ux500_pm_domain_vmodem,
+-	[DOMAIN_VPLL] = &ux500_pm_domain_vpll,
+-	[DOMAIN_VSMPS1] = &ux500_pm_domain_vsmps1,
+-	[DOMAIN_VSMPS2] = &ux500_pm_domain_vsmps2,
+-	[DOMAIN_VSMPS3] = &ux500_pm_domain_vsmps3,
+-	[DOMAIN_VRF1] = &ux500_pm_domain_vrf1,
+-	[DOMAIN_SVA_MMDSP] = &ux500_pm_domain_sva_mmdsp,
+-	[DOMAIN_SVA_PIPE] = &ux500_pm_domain_sva_pipe,
+-	[DOMAIN_SIA_MMDSP] = &ux500_pm_domain_sia_mmdsp,
+-	[DOMAIN_SIA_PIPE] = &ux500_pm_domain_sia_pipe,
+-	[DOMAIN_SGA] = &ux500_pm_domain_sga,
+-	[DOMAIN_B2R2_MCDE] = &ux500_pm_domain_b2r2_mcde,
+-	[DOMAIN_ESRAM_12] = &ux500_pm_domain_esram_12,
+-	[DOMAIN_ESRAM_34] = &ux500_pm_domain_esram_34,
++	[DOMAIN_VAPE] = &ux500_pm_domain_vape.genpd,
++	[DOMAIN_VARM] = &ux500_pm_domain_varm.genpd,
++	[DOMAIN_VMODEM] = &ux500_pm_domain_vmodem.genpd,
++	[DOMAIN_VPLL] = &ux500_pm_domain_vpll.genpd,
++	[DOMAIN_VSMPS1] = &ux500_pm_domain_vsmps1.genpd,
++	[DOMAIN_VSMPS2] = &ux500_pm_domain_vsmps2.genpd,
++	[DOMAIN_VSMPS3] = &ux500_pm_domain_vsmps3.genpd,
++	[DOMAIN_VRF1] = &ux500_pm_domain_vrf1.genpd,
++	[DOMAIN_SVA_MMDSP] = &ux500_pm_domain_sva_mmdsp.genpd,
++	[DOMAIN_SVA_PIPE] = &ux500_pm_domain_sva_pipe.genpd,
++	[DOMAIN_SIA_MMDSP] = &ux500_pm_domain_sia_mmdsp.genpd,
++	[DOMAIN_SIA_PIPE] = &ux500_pm_domain_sia_pipe.genpd,
++	[DOMAIN_SGA] = &ux500_pm_domain_sga.genpd,
++	[DOMAIN_B2R2_MCDE] = &ux500_pm_domain_b2r2_mcde.genpd,
++	[DOMAIN_ESRAM_12] = &ux500_pm_domain_esram_12.genpd,
++	[DOMAIN_ESRAM_34] = &ux500_pm_domain_esram_34.genpd,
+ };
+ 
+ static const struct of_device_id ux500_pm_domain_matches[] = {
+@@ -186,11 +304,12 @@ static int ux500_pm_domains_probe(struct platform_device *pdev)
+ 	struct device_node *np = pdev->dev.of_node;
+ 	struct genpd_onecell_data *genpd_data;
+ 	int i;
++	int ret;
+ 
+ 	if (!np)
+ 		return -ENODEV;
+ 
+-	genpd_data = kzalloc_obj(*genpd_data);
++	genpd_data = devm_kzalloc(&pdev->dev, sizeof(*genpd_data), GFP_KERNEL);
+ 	if (!genpd_data)
+ 		return -ENOMEM;
+ 
+@@ -198,14 +317,44 @@ static int ux500_pm_domains_probe(struct platform_device *pdev)
+ 	genpd_data->num_domains = ARRAY_SIZE(ux500_pm_domains);
+ 
+ 	for (i = 0; i < ARRAY_SIZE(ux500_pm_domains); ++i)
+-		pm_genpd_init(ux500_pm_domains[i], NULL, false);
++		pm_genpd_init(ux500_pm_domains[i], NULL, true);
++
++	ret = of_genpd_add_provider_onecell(np, genpd_data);
++	if (ret)
++		goto remove_genpds;
++
++	ret = of_genpd_add_child_ids(np, genpd_data);
++	if (ret < 0)
++		goto del_provider;
++
++	platform_set_drvdata(pdev, genpd_data);
+ 
+-	of_genpd_add_provider_onecell(np, genpd_data);
+ 	return 0;
++
++del_provider:
++	of_genpd_del_provider(np);
++remove_genpds:
++	while (i--)
++		pm_genpd_remove(ux500_pm_domains[i]);
++
++	return ret;
++}
++
++static void ux500_pm_domains_remove(struct platform_device *pdev)
++{
++	struct genpd_onecell_data *genpd_data = platform_get_drvdata(pdev);
++	int i;
++
++	of_genpd_remove_child_ids(pdev->dev.of_node, genpd_data);
++	of_genpd_del_provider(pdev->dev.of_node);
++
++	for (i = genpd_data->num_domains - 1; i >= 0; i--)
++		pm_genpd_remove(genpd_data->domains[i]);
+ }
+ 
+ static struct platform_driver ux500_pm_domains_driver = {
+ 	.probe  = ux500_pm_domains_probe,
++	.remove = ux500_pm_domains_remove,
+ 	.driver = {
+ 		.name = "ux500_pm_domains",
+ 		.of_match_table = ux500_pm_domain_matches,
+diff --git a/drivers/regulator/Kconfig b/drivers/regulator/Kconfig
+index 89789ac7a786..851e1a8fc22f 100644
+--- a/drivers/regulator/Kconfig
++++ b/drivers/regulator/Kconfig
+@@ -414,6 +414,7 @@ config REGULATOR_DBX500_PRCMU
+ config REGULATOR_DB8500_PRCMU
+ 	bool "ST-Ericsson DB8500 Voltage Domain Regulators"
+ 	depends on MFD_DB8500_PRCMU
++	depends on !UX500_PM_DOMAIN
+ 	select REGULATOR_DBX500_PRCMU
+ 	help
+ 	  This driver supports the voltage domain regulators controlled by the
+
+-- 
+2.55.0
+
 
