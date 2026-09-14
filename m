@@ -4,172 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 294DCC88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 15:01:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A282C88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 15:02:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4yXvTTCDIbtu2vy71Vu0vYymlBft+UiYBz6e9iJYcdE=; b=Fdce/MNIm6xqJmnZ/KmYbShiw7
-	xWQ7BXxSAfOBPTKQeXxA0np67zJga+rKnYudMYy76c1lnDjqhNuhmprQY+oF5WVrPIYEPq/mluBWf
-	y+InOnRhnZMcNd+ng9CMI300JRMx57eGfgsF/59pwJCFSr+dpiBfURnD/GL1butqD+Q0xVzZhf259
-	CTH9d2QKHyRXMtVFcGFzeyiB/hm6l3Cz2YuVjyLljItmXMnCE3imlXNCzmPs/icckMnk/MzVrvSn2
-	J1ga9CifALVEGuO6k3R+mgWMIOmROlzxU7joBSy3wOKmMkghRZnHZdayui17hHRobk2YIUt1RM6wU
-	2awfXgrg==;
+	bh=R64vMYngif0QtgmjSIX7fHGd4GXjWW4gNyDbeqBJOZ4=; b=PYK0N23vcPmAHXcmYMJMwWSNcC
+	t+6yAc+XejX1+JFIfTfK5zJ6Igocv9LMFNGBX7CL7r17CbVleiPR403yi6Xb2gJ18MytG2reRzISs
+	Tik6T2m3lyx8qMJBOZzluyzkQfp+U3S4TyvExNkQUOmRKni6BsFIR+KDkBSBiojvZB4fIbIzkB+hu
+	Rsdo9kKIuC9j64Dy+dsZhROQgnjziIGZ5jYKp3jCTOzIEILRl9Zc50X7W17Dsb4Rryw2fRoH+/44e
+	bsImdTgfFC5bHz7gb41TIgPu07gbEnJKc4kN3vFjHvr2VvkTVVtm9h1ywB68Opz/UJnvfc1mtQ1ef
+	ihHwZLtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x68Bc-000000044o2-2eXX;
-	Mon, 14 Sep 2026 15:01:37 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1x68C2-0000000453P-4Ajo;
+	Mon, 14 Sep 2026 15:02:03 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x68BZ-000000044lL-2w9u
+	id 1x68C0-0000000451Y-0S2B
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 15:01:35 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68ED0R0v510924
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 15:01:32 GMT
+	Mon, 14 Sep 2026 15:02:02 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68ED0Yf2674516
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 15:01:59 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	4yXvTTCDIbtu2vy71Vu0vYymlBft+UiYBz6e9iJYcdE=; b=Q7tAc7LZMbnctMu6
-	vQMMQ2bYNDDOyfiBhs1f1xPfLFR+IDeGswu13pHQ26n0kyCQB5lRYSOoFauePkqG
-	Z1gzdDyEKGzKCM5HflJXVcYOK7lbcRWmTTQfJ/+AqxRpXJ2OHQc3KAA7xxfogFoK
-	HZ5UOAp+OMcOzPzyH3bE2YsF1odMvEeAWltMJqd9b9cgSx2sydHY4bFk59UL9JKT
-	8580+CC30F+yjdfse5iLtO6p4Zw7iYu6g5QAFPcd5VX4OoV+WD7l6OJpdYPEgzbD
-	9cpLtOQB1RDPbavJyy5MQjRZABGOgJ8O0a7b6x7lwQInd4LMHhzEd6OUBGyeZpxG
-	lhIUOw==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gpgvtgkts-1
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=R64vMYngif0
+	QtgmjSIX7fHGd4GXjWW4gNyDbeqBJOZ4=; b=dQog9WZlzb0RmAq9fQAraBH78/g
+	RimytGPnHD+yZHilPqLX6vMDTymV5ztHPrBuQb5PHISlkbBPTdZeSuDiTGwq7Dme
+	lvuv9GN+lE69IHCYi/cmfLmy5REzEM5YrIs7WuxsxThM075iMTofkM6t4rN133nT
+	8N8O2pX+VW4x2V1MuL0mbcL/sb0C8HIpcBAmuXDYyLgzf+GfFdJYL8+lAL7DTSft
+	uGz9V+TywjxK7XwxeEr1q1eC8mHlYd/8tC1Yb/UYbKP1NzOssDj+xxUq2Td0l1Sq
+	SbZ6tpdIgGBx9chlyH0XjloeEVbTOjFXHOztRAxnqOCJcHEwdGRGAlFuCqw==
+Received: from mail-vs1-f70.google.com (mail-vs1-f70.google.com [209.85.217.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gpecs9a6k-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 15:01:32 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2d63bad3d09so55738285ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 08:01:31 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 15:01:59 +0000 (GMT)
+Received: by mail-vs1-f70.google.com with SMTP id ada2fe7eead31-78fb9f59781so2955542137.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 08:01:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1789398091; x=1790002891; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+        d=oss.qualcomm.com; s=google; t=1789398118; x=1790002918; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=4yXvTTCDIbtu2vy71Vu0vYymlBft+UiYBz6e9iJYcdE=;
-        b=I04H2wojszzqcanaBcrrlYYnbdx+Bt49JSxdlHjYx6hB+RUOVLfYOZYo3mXOjWzP0C
-         6iTBVzVLAR+bxuVWD/CG/bw5eZ3PAWdyquZwZWr4OZStXAySymIer5gSoYynlcuaLhom
-         jqbaOad6Ut5daENsXxupo5hi9Q8eIOjyocbKCUjXgiOrbu6NWrBzEqBOtIpInQ3wwrVK
-         9jZB0AI8VQwgTXEA3ekkTunOK2xU33mCPuoW3Rmy7QCs7Htz6Z5N//+SXPX6pC5oevp8
-         JiK7wuzZl5LoCMZj0S9KN29Zn1SeZHFeAlYNksyUG9SLwk9pE1S34+ckR03EhzHB8brx
-         O+sQ==
+        bh=R64vMYngif0QtgmjSIX7fHGd4GXjWW4gNyDbeqBJOZ4=;
+        b=iLGGbcUrZrycNcWwUoFP/1tC+6n5rVo7VxqKdU9ncLra8daYPTawkzqQG+tlKOpffI
+         z1SC5Nb1ttJ/bK8hSSxVTizWqWLsA4bIdjcrtHHFxLh026K9yHDxqdryVgRLOPUyPo3f
+         SJstUEpFXL0garAbpzH/Fid3Jv3DgNmt64YJDhydHywZKP8dicZYJHevPIN4/RlZKjPO
+         ggK54EhaU+6c9CDH0JFaoszLw9mpfsCB6ht2wqIeN7zqMDF3szCy7iS+51u1CzyiyC6T
+         U3QQVdsfCVG+v/a6k7b6qR7qvyMfedl6SNJoEGJisspaI1U9ABplfw10VDkJaliQHReY
+         ZTOA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789398091; x=1790002891;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=4yXvTTCDIbtu2vy71Vu0vYymlBft+UiYBz6e9iJYcdE=;
-        b=Z7/+Hi+c8gXzzmJVs8I65tJt+YSykPsXFKy5BFZJCJmEX8xifr0nwN3mAVObNqn0gh
-         b3xPd8JpsCXLFDoFcWtipUQWMcmoTo9pq8yelXhrMcT43TEVlp5yWhGy+UelsZw2PSAF
-         Gt7+/e9vxEfkCelpz9PAJYSJzg7gt/5vcIPr41t/wRH8TieTn59Y6nLfSTy8XGyLU88Y
-         SkBiww2t6F/j1190EY5ZELCtP1B7Am8Q+vM27JKzhJEPqPR6vxXgP+EKwoIc8WcK7mW9
-         Z5/0YrLwauNzPsKZdRlLEUs4xCmySuNOpKXPV3mH256cHx6eapJgi8GB05UW+WY1T9mJ
-         olCA==
-X-Forwarded-Encrypted: i=1; AKwUvBwGkH2x1swiLSq5VHsQ3NbKbF0GTQ9Yyy1Sk8jqplfBafkH5Zq2vb9cLjqUrCgWpBh23NE7BSLKmUCWJ9CAUlN+@lists.infradead.org
-X-Gm-Message-State: AFuF++nACaVjsaFMUGaYlPkKIC/sOGOmheUsdVzFp3VXc6dgV0kV1ejm
-	Mfi8SQqnsy3fEhfGLB5LNr6PFFhd71184HaiKimafuMsC9hFvjuGylwZ8JWzlCbzD1NkDi++jUE
-	5gqhb8+5Wk9kTg7SRKvsNSijW4FRGjy7sgovtdcAKS/tBmYL6LsBi3vlZo2fr6h+7h2cVXi2GlB
-	nxFA==
-X-Gm-Gg: AYBFou2TiXigZgiMnGfqT8J57XF8D8M3xFZakQl1EkjaJV1kY3rFAbCu8MzC4XIcp3u
-	XroOpDDOWJ6csBHmSzXVnmSmjZlwX8Dzv01c5Q2hsKxFghi/3UiKHvmSG+ZDzB9+JDsi8N4J/jQ
-	k2V9dFktP8zGAbVE15z4qFqDkQBYbmJoD4fr2I5WZy6yy8sP5pyFFujy0Q7A1WPiU+CGeK1jYjs
-	9SytGDxZcUwoXG9OjK+ME6XhgLJC5mnwzdP+Dgv8yvM/KlpZC1SQCkAtfAK/kPCedam/R7NI//+
-	ECKXON5FORgwi9di/EkU6m0o3fpvNQlzCc+iRzCE+VokZoo9hq+dKpjuXL9UJI984mOxf0b4FEb
-	mb+KK8CpLQjI4MPfL3/Jyp1cVHG2Z6lz5ZfF6
-X-Received: by 2002:a17:903:2312:b0:2d8:d4d3:3fbc with SMTP id d9443c01a7336-2dd6c741b20mr62013605ad.16.1789398057566;
-        Mon, 14 Sep 2026 08:00:57 -0700 (PDT)
-X-Received: by 2002:a17:903:2312:b0:2d8:d4d3:3fbc with SMTP id d9443c01a7336-2dd6c741b20mr61907675ad.16.1789398026267;
-        Mon, 14 Sep 2026 08:00:26 -0700 (PDT)
-Received: from hu-spratap-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2dd4007bd4dsm42943345ad.4.2026.09.14.08.00.14
+        d=1e100.net; s=20251104; t=1789398118; x=1790002918;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=R64vMYngif0QtgmjSIX7fHGd4GXjWW4gNyDbeqBJOZ4=;
+        b=UsPoPvbb6Lc8awUaQlG1QXDbmRjarMTf20E/QGUwIeLU29IScwl6JZhfMScDNTVOtR
+         vUyHKRQE7JH5qWG0l+z8kDjnLURJ19QRGpOHcw9XK9vpH6KLB2G35hpNvnQmeC7wOTU6
+         SngMQ5KWiCblVSAZlmoinyjlpFzygNHbCaId9tLIzprRyIOHdfySChx0H9WPNPcffDj9
+         kayEuaYjdTrdEC7QMOh9/n4o7zJyjFEhED0qUOlkEyRbeR3yoCzFR3ly1RBYPNA63nA6
+         C8Gw5tlug12qUuzjm7G1VTJl7c8UGym2KOJeyWGjp2qsxbOzg2GzIc4EybVkdJXrFjw9
+         G62g==
+X-Forwarded-Encrypted: i=1; AKwUvBzwTQV+2QkejzVLXEEwDym6Br1JUjL60i1XAC+PIzHeGcAefBnttrGIvKVWj4OUUYj/zrlpi02RZeY3y/P+wh8n@lists.infradead.org
+X-Gm-Message-State: AFuF++mZ+0Lz4bMZ1+dylkaVu4fMnqJ+jGfsY2+mRW0M/ADaMAk/kP+H
+	EAxb7JqDyKdOZvKZs1qS7nRbayl7FtI6aNVe86RT17Zx8CGoqV8GTKzua+dOw+RlPUuYr+s1olP
+	UuXkeQIa4s16CDCeBSCOqinvuHa4pGhNFwdWbJLCpW3amPJXkTjpQ4PKPsB9Roe51ikB8LLvyB5
+	U24g==
+X-Gm-Gg: AYBFou1+gZ/XUabHUsthoP8yoPj2IK9jqBsbJeX4Xx7eN/NqUi2hbLVIEk8rAYm6mVl
+	a1e51iDGPguaBBaA5rC6kmLr4X/b9i0D/X0iYZgykOIL5lu0B0Cq//e1ny0NkxEcqv9CKeq6EHM
+	l1RzwoBNMd4/RCVA1epzhoRHhdTybS63mxnd38M9KsWjGd4rHf9l2YQ9zYRJtTgKCPu1njJ9R2a
+	MXzVpgp+4Psd8MVI4yx94Bl8PGLWYYHg8d17U6+cKpoKyx7JPrcMQ9SkJQ0EM1hZif/VVytNu8E
+	luUzhxs2cFBi9hxoGtwxeVHbf+G60xXvhLH6Oobow8Fl2qYvYy1FTmLkWGrOF07+cGYeKs2DlW3
+	5zQKE6cmskWr7ITmJ71idSYILNhBEdD1Ybc6p4gqPOa9231DKFRgP/cvXoA==
+X-Received: by 2002:a05:6102:149c:b0:790:cba0:960 with SMTP id ada2fe7eead31-79b5acb355emr1721378137.10.1789398117000;
+        Mon, 14 Sep 2026 08:01:57 -0700 (PDT)
+X-Received: by 2002:a05:6102:149c:b0:790:cba0:960 with SMTP id ada2fe7eead31-79b5acb355emr1721166137.10.1789398116168;
+        Mon, 14 Sep 2026 08:01:56 -0700 (PDT)
+Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c296608480esm468632666b.36.2026.09.14.08.01.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Sep 2026 08:00:25 -0700 (PDT)
-From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Date: Mon, 14 Sep 2026 20:29:10 +0530
-Subject: [PATCH v25 06/10] power: reset: Add psci-reboot-mode driver
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260914-arm-psci-system_reset2-vendor-reboots-v25-6-4aaf5c09b5c2@oss.qualcomm.com>
-References: <20260914-arm-psci-system_reset2-vendor-reboots-v25-0-4aaf5c09b5c2@oss.qualcomm.com>
-In-Reply-To: <20260914-arm-psci-system_reset2-vendor-reboots-v25-0-4aaf5c09b5c2@oss.qualcomm.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        John Stultz <john.stultz@linaro.org>,
-        Moritz Fischer <moritz.fischer@ettus.com>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Daniel Lezcano <daniel.lezcano@kernel.org>,
+        Mon, 14 Sep 2026 08:01:55 -0700 (PDT)
+From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+To: Sudeep Holla <sudeep.holla@kernel.org>,
+        "Rafael J . Wysocki" <rafael@kernel.org>,
+        Daniel Lezcano <daniel.lezcano@kernel.org>, linux-pm@vger.kernel.org
+Cc: Dhruva Gole <goledhruva@gmail.com>, Abel Vesa <abel.vesa@oss.qualcomm.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
         Christian Loehle <christian.loehle@arm.com>,
-        Lee Jones <lee@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
-        Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>,
-        Abel Vesa <abelvesa@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
-        Sudeep Holla <sudeep.holla@kernel.org>, Ulf Hansson <ulfh@kernel.org>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-        Andre Draszik <andre.draszik@linaro.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org, mfd@lists.linux.dev,
-        Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
-        Srinivas Kandagatla <srini@kernel.org>,
+        Maulik Shah <maulik.shah@oss.qualcomm.com>,
+        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
+        Sneh Mankad <sneh.mankad@oss.qualcomm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
         Ulf Hansson <ulf.hansson@oss.qualcomm.com>,
-        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789397948; l=8962;
- i=shivendra.pratap@oss.qualcomm.com; s=20250710; h=from:subject:message-id;
- bh=kmURiLH0HbeNUKYyjbcEiNP3i7H5c5RQFvtK3PJJyto=;
- b=/V/AdimkUBCwTl+pJFMpVXlCpbHXB51ulryAX373joLKS3jPXpUgfBQryXrHBQ2qu4Q3fX+yQ
- UMISbaYe4JcBOjrKcysrL5n1TL24HIiepXI46g7+5ZiIAdEO+v4rdUg
-X-Developer-Key: i=shivendra.pratap@oss.qualcomm.com; a=ed25519;
- pk=ssWsJFX3OM9pkdoe4+guOfGPaulHOFt0GVnVlB6on+s=
-X-Authority-Analysis: v=2.4 cv=c/0+0h9l c=1 sm=1 tr=0 ts=6aa80c4c cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=EUspDBNiAAAA:8 a=VwQbUJbxAAAA:8 a=bUBultAy4ErWMeHVyy4A:9 a=QEXdDO2ut3YA:10
- a=324X-CrmTo6CU4MGRt3R:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE0MDIxNSBTYWx0ZWRfX4sfY20Q/CLWy
- jzrbrjMCNTdwqNkHRVW282YNbD8nbwxjzzbPKBC0bu5sQEJJCNxbU/Nnv5DnnvwsM3HKrUqZpzv
- PLiqGgOFZS5oMMTXLZeItYVurjuXnpNqdJbQvNrBs1k/Y8h2ROiC1OMofh9UH/6CUl2VrydYeNZ
- 60iWCUBLcWy0ziVznkpoXGuMqy2Creluef2P2126vcSzkn+j9Vu8tQtuJfa2fNy/616aPz3YnZO
- QWELZgq26LhQDqMStH3IL6XP5ItfqmNCBnQFMu+DF+N56Aku/HJJoIoh81L3TAY89JCwQwjbGCG
- vuLsdOFNUQJlVaPzzLp+rPwkR0BwgC+Ly3LlEcRaZREiE3HPo9dXYPs1k3ILG53ftJZKuyuIRsq
- HJAT5M8fdph9he6b8vZVg/D+2lOz0eZsw5Y1zH1P6ZZAzl98zy76pBf89fYMuZTDr6ZhHJNoFbL
- 6PmMneXMBwwnpV1ZsQg==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE0MDIxNSBTYWx0ZWRfX3Q+t2UCabkbv
- hAt6eVDQ0/YzhSt8yzaFUlCELfv1c0PnKMS8fQY1bK44hSgd1CP2gZzIJnJo/tSyk1QlB2fGxff
- IxY/msB/9y95GycfW8/JYNs7E7gxp3M=
-X-Proofpoint-ORIG-GUID: hWDrbi2Mlw4jEyIN_x61oEMH__pHaJzn
-X-Proofpoint-GUID: hWDrbi2Mlw4jEyIN_x61oEMH__pHaJzn
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+Subject: [PATCH v4 1/5] pmdomain: core: Rename genpd_status_on()
+Date: Mon, 14 Sep 2026 17:01:37 +0200
+Message-ID: <20260914150146.187622-2-ulf.hansson@oss.qualcomm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260914150146.187622-1-ulf.hansson@oss.qualcomm.com>
+References: <20260914150146.187622-1-ulf.hansson@oss.qualcomm.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE0MDIxNSBTYWx0ZWRfX9iIvUQxOgtiN
+ 98DdClFdx9eLhha3f/GOAnZ2lUpVPv542S7S+akbCR8X0ACyoq9OXqxkIL2E+JdWc7P07jbu3uA
+ PiNRL7AbVM1sWSIXdRXQAg1DqHSV6Lw=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE0MDIxNSBTYWx0ZWRfX857BPFh4/AxG
+ gORG9vtgVpHLdDBAc1cKl/g0//cwm8Y+87Qet7s5VUSr1ddOGjVUcK9lr72Fgc593XHvOpQrGGz
+ +IoqwRFYHxLfG/6Y419SiGilLQNAiyoueErrNqux8IAUry/XLi1vOxZTid236EmO++9RplRfiVd
+ J6xdMKGC+G13PyUfbB182PoHYUUKgSjSYrFGUC3K2LA5bILbf8uPy3JUGHTtf/ej64LaBckBeiM
+ FxXEja3mm28LQonCgryQcU6kVnHpo34nZnXVXeSVKGq5isMqSy51D3loFvRC80hpS0I+h8nXvYf
+ BkcdrBn5WYsc29tWM1xqQGTJ1ZIodIawqnuTpZ5X43TH4OBOvdxzoSsRoc7WWpK4e2BE4gK4eHw
+ 6PKLCJLA+Brl4iFK+YTn/abCHGBSpdJcDI4GWBt5Mb7s8FRO+aLcctalYca1bR43ic+C0BI1m5U
+ TLQi7piPrZNDRkL574w==
+X-Proofpoint-GUID: tANwbF_vVzkfPqd-nEye-ENqLouRQngD
+X-Authority-Analysis: v=2.4 cv=b/cncdGx c=1 sm=1 tr=0 ts=6aa80c67 cx=c_pps
+ a=N1BjEkVkxJi3uNfLdpvX3g==:117 a=h7aNHqOhPKB91FvYUefsSA==:17
+ a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22 a=EUspDBNiAAAA:8
+ a=pGLkceISAAAA:8 a=zIFADOUqQBSm_Ft5s84A:9 a=crWF4MFLhNY0qMRaF8an:22
+X-Proofpoint-ORIG-GUID: tANwbF_vVzkfPqd-nEye-ENqLouRQngD
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-09-14_03,2026-09-14_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 spamscore=0 bulkscore=0 impostorscore=0 clxscore=1015
- adultscore=0 phishscore=0 malwarescore=0 lowpriorityscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609140215
+ spamscore=0 bulkscore=0 adultscore=0 priorityscore=1501 phishscore=0
+ clxscore=1015 impostorscore=0 lowpriorityscore=0 suspectscore=0
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2609140215
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_080133_875321_FAF50501 
-X-CRM114-Status: GOOD (  31.87  )
+X-CRM114-CacheID: sfid-20260914_080200_160836_4A066EFC 
+X-CRM114-Status: GOOD (  23.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,287 +154,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PSCI supports different types of resets like SYSTEM_RESET, SYSTEM_RESET2
-ARCH WARM reset and SYSTEM_RESET2 vendor-specific resets. Currently
-there is no common driver that handles all supported psci resets at one
-place. Additionally, there is no common mechanism to issue the supported
-psci resets from userspace.
+Rename the genpd_status_on() to genpd_status_on_unlocked() to make the name
+available for a lock taking wrapper introduced by a subsequent change.
 
-Add psci-reboot-mode as an auxiliary device created by the psci-devices
-driver. Define two types of PSCI resets, predefined-resets and
-vendor-specific resets.  Predefined-resets are defined by psci driver
-and vendor-specific resets are defined by SoC vendors, under the
-psci:reboot-mode node of SoC device tree.
-
-Register the driver with the reboot-mode framework to interface these
-resets to userspace. When userspace initiates a supported command, pass
-the reset arguments to the PSCI driver to enable command-based reset.
-
-This change allows userspace to issue supported PSCI reset commands
-using the standard reboot system calls while enabling SoC vendors to
-define their specific resets for PSCI.
-
-Suggested-by: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Suggested-by: Lee Jones <lee@kernel.org>
-Suggested-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Suggested-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
+Tested-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+Reviewed-by: Dhruva Gole <goledhruva@gmail.com>
+Signed-off-by: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
 ---
- MAINTAINERS                            |   1 +
- drivers/firmware/psci/psci-devices.c   |  71 +++++++++++++++++++++-
- drivers/power/reset/Kconfig            |  10 ++++
- drivers/power/reset/Makefile           |   1 +
- drivers/power/reset/psci-reboot-mode.c | 104 +++++++++++++++++++++++++++++++++
- 5 files changed, 185 insertions(+), 2 deletions(-)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 9c0334ee2ed2..1c0f111ba197 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -21933,6 +21933,7 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/arm/psci.yaml
- F:	drivers/firmware/psci/
- F:	drivers/firmware/psci/psci-devices.c
-+F:	drivers/power/reset/psci-reboot-mode.c
- F:	include/linux/psci.h
- F:	include/uapi/linux/psci.h
+Changes in v4:
+	- None.
+
+Changes in v3:
+	- Updated a comment in the code and the commit message.
+
+Changes in v2:
+	- New patch.
+
+---
+ drivers/pmdomain/core.c | 26 +++++++++++++-------------
+ 1 file changed, 13 insertions(+), 13 deletions(-)
+
+diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
+index 052ec478dfcc..6abe8b198949 100644
+--- a/drivers/pmdomain/core.c
++++ b/drivers/pmdomain/core.c
+@@ -173,7 +173,7 @@ static const struct genpd_lock_ops genpd_raw_spin_ops = {
+ #define genpd_lock_interruptible(p)	p->lock_ops->lock_interruptible(p)
+ #define genpd_unlock(p)			p->lock_ops->unlock(p)
  
-diff --git a/drivers/firmware/psci/psci-devices.c b/drivers/firmware/psci/psci-devices.c
-index f1eca61e3269..43e6743202f9 100644
---- a/drivers/firmware/psci/psci-devices.c
-+++ b/drivers/firmware/psci/psci-devices.c
-@@ -4,19 +4,86 @@
-  */
+-#define genpd_status_on(genpd)		(genpd->status == GENPD_STATE_ON)
++#define genpd_status_on_unlocked(genpd)	(genpd->status == GENPD_STATE_ON)
+ #define genpd_is_irq_safe(genpd)	(genpd->flags & GENPD_FLAG_IRQ_SAFE)
+ #define genpd_is_always_on(genpd)	(genpd->flags & GENPD_FLAG_ALWAYS_ON)
+ #define genpd_is_active_wakeup(genpd)	(genpd->flags & GENPD_FLAG_ACTIVE_WAKEUP)
+@@ -771,8 +771,7 @@ EXPORT_SYMBOL_GPL(dev_pm_genpd_rpm_always_on);
+  * @dev: Device to get the current power status
+  *
+  * This function checks whether the generic power domain associated with the
+- * given device is on or not by verifying if genpd_status_on equals
+- * GENPD_STATE_ON.
++ * given device is on or not by checking if genpd->status equals GENPD_STATE_ON.
+  *
+  * Note: this function returns the power status of the genpd at the time of the
+  * call. The power status may change after due to activity from other devices
+@@ -791,7 +790,7 @@ bool dev_pm_genpd_is_on(struct device *dev)
+ 		return false;
  
- #include <linux/auxiliary_bus.h>
-+#include <linux/device.h>
- #include <linux/init.h>
- #include <linux/of.h>
- #include <linux/platform_device.h>
-+#include <linux/psci.h>
-+#include <linux/slab.h>
-+
-+static void arm_psci_auxiliary_device_release(struct device *dev)
-+{
-+	struct auxiliary_device *auxdev = to_auxiliary_dev(dev);
-+
-+	of_node_put(dev->of_node);
-+	kfree(auxdev);
-+}
-+
-+static struct auxiliary_device *
-+arm_psci_auxiliary_device_create(struct device *dev, const char *devname,
-+				 struct device_node *np)
-+{
-+	struct auxiliary_device *auxdev;
-+	int ret;
-+
-+	auxdev = kzalloc_obj(*auxdev);
-+	if (!auxdev)
-+		return NULL;
-+
-+	auxdev->id = 0;
-+	auxdev->name = devname;
-+	auxdev->dev.parent = dev;
-+	auxdev->dev.release = arm_psci_auxiliary_device_release;
-+
-+	if (np)
-+		device_set_node(&auxdev->dev, of_fwnode_handle(of_node_get(np)));
-+
-+	ret = auxiliary_device_init(auxdev);
-+	if (ret) {
-+		of_node_put(auxdev->dev.of_node);
-+		kfree(auxdev);
-+		return NULL;
-+	}
-+
-+	ret = __auxiliary_device_add(auxdev, "arm-psci");
-+	if (ret) {
-+		auxiliary_device_uninit(auxdev);
-+		return NULL;
-+	}
-+
-+	ret = devm_add_action_or_reset(dev, auxiliary_device_destroy, auxdev);
-+	if (ret)
-+		return NULL;
-+
-+	return auxdev;
-+}
+ 	genpd_lock(genpd);
+-	is_on = genpd_status_on(genpd);
++	is_on = genpd_status_on_unlocked(genpd);
+ 	genpd_unlock(genpd);
  
- static int arm_psci_probe(struct platform_device *pdev)
+ 	return is_on;
+@@ -963,7 +962,7 @@ static void genpd_power_off(struct generic_pm_domain *genpd, bool one_dev_on,
+ 	 * The domain was on at boot and still need to stay on.
+ 	 * The domain has a subdomain being powered on.
+ 	 */
+-	if (!genpd_status_on(genpd) || genpd->prepared_count > 0 ||
++	if (!genpd_status_on_unlocked(genpd) || genpd->prepared_count > 0 ||
+ 	    genpd_is_always_on(genpd) || genpd_is_rpm_always_on(genpd) ||
+ 	    genpd->stay_on || atomic_read(&genpd->sd_count) > 0)
+ 		return;
+@@ -1040,7 +1039,7 @@ static int genpd_power_on(struct generic_pm_domain *genpd, unsigned int depth)
+ 	struct gpd_link *link;
+ 	int ret = 0;
+ 
+-	if (genpd_status_on(genpd))
++	if (genpd_status_on_unlocked(genpd))
+ 		return 0;
+ 
+ 	/* Reflect over the entered idle-states residency for debugfs. */
+@@ -1406,7 +1405,7 @@ static void genpd_sync_power_off(struct generic_pm_domain *genpd, bool use_lock,
  {
- 	struct auxiliary_device *auxdev;
-+#ifdef CONFIG_PSCI_REBOOT_MODE
-+	struct device_node *reboot_mode_np = NULL;
-+#endif
+ 	struct gpd_link *link;
  
--	auxdev = __devm_auxiliary_device_create(&pdev->dev, "arm-psci",
--						"psci-cpuidle-domain", NULL, 0);
-+	auxdev = arm_psci_auxiliary_device_create(&pdev->dev,
-+						  "psci-cpuidle-domain",
-+						  pdev->dev.of_node);
- 	if (!auxdev)
- 		return -ENOMEM;
+-	if (!genpd_status_on(genpd) || genpd_is_always_on(genpd))
++	if (!genpd_status_on_unlocked(genpd) || genpd_is_always_on(genpd))
+ 		return;
  
-+#ifdef CONFIG_PSCI_REBOOT_MODE
-+	if (psci_has_system_reset2_support())
-+		reboot_mode_np = of_get_child_by_name(pdev->dev.of_node,
-+						      "reboot-mode");
-+
-+	auxdev = arm_psci_auxiliary_device_create(&pdev->dev,
-+						  "psci-reboot-mode",
-+						  reboot_mode_np);
-+	of_node_put(reboot_mode_np);
-+	if (!auxdev)
-+		dev_warn(&pdev->dev, "failed to create PSCI reboot mode device\n");
-+#endif
-+
- 	return 0;
- }
+ 	if (genpd->suspended_count != genpd->device_count
+@@ -1472,7 +1471,7 @@ static void genpd_sync_power_on(struct generic_pm_domain *genpd, bool use_lock,
+ {
+ 	struct gpd_link *link;
  
-diff --git a/drivers/power/reset/Kconfig b/drivers/power/reset/Kconfig
-index bce996bbef28..5c349f41e097 100644
---- a/drivers/power/reset/Kconfig
-+++ b/drivers/power/reset/Kconfig
-@@ -360,6 +360,16 @@ config NVMEM_REBOOT_MODE
- 	  then the bootloader can read it and take different
- 	  action according to the mode.
+-	if (genpd_status_on(genpd))
++	if (genpd_status_on_unlocked(genpd))
+ 		return;
  
-+config PSCI_REBOOT_MODE
-+	bool "PSCI reboot mode driver"
-+	depends on ARM_PSCI_DEVICES
-+	select REBOOT_MODE
-+	help
-+	  Say y here to enable the PSCI reboot mode driver. The driver
-+	  registers with the reboot-mode framework to configure PSCI
-+	  reset commands, which are executed by the PSCI driver during
-+	  psci_sys_reset().
-+
- config POWER_MLXBF
- 	tristate "Mellanox BlueField power handling driver"
- 	depends on (GPIO_MLXBF2 || GPIO_MLXBF3) && ACPI
-diff --git a/drivers/power/reset/Makefile b/drivers/power/reset/Makefile
-index e31cab4ba78e..45d8aaaffaa1 100644
---- a/drivers/power/reset/Makefile
-+++ b/drivers/power/reset/Makefile
-@@ -41,5 +41,6 @@ obj-$(CONFIG_REBOOT_MODE) += reboot-mode.o
- obj-$(CONFIG_SYSCON_REBOOT_MODE) += syscon-reboot-mode.o
- obj-$(CONFIG_POWER_RESET_SC27XX) += sc27xx-poweroff.o
- obj-$(CONFIG_NVMEM_REBOOT_MODE) += nvmem-reboot-mode.o
-+obj-$(CONFIG_PSCI_REBOOT_MODE) += psci-reboot-mode.o
- obj-$(CONFIG_POWER_MLXBF) += pwr-mlxbf.o
- obj-$(CONFIG_POWER_RESET_QEMU_VIRT_CTRL) += qemu-virt-ctrl.o
-diff --git a/drivers/power/reset/psci-reboot-mode.c b/drivers/power/reset/psci-reboot-mode.c
-new file mode 100644
-index 000000000000..bf2dd6626feb
---- /dev/null
-+++ b/drivers/power/reset/psci-reboot-mode.c
-@@ -0,0 +1,104 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-+ */
-+
-+#include <linux/array_size.h>
-+#include <linux/auxiliary_bus.h>
-+#include <linux/device.h>
-+#include <linux/errno.h>
-+#include <linux/init.h>
-+#include <linux/kconfig.h>
-+#include <linux/module.h>
-+#include <linux/psci.h>
-+#include <linux/reboot-mode.h>
-+#include <linux/slab.h>
-+#include <linux/types.h>
-+
-+/*
-+ * Predefined modes use two arguments. arg1/magic[0] is always zero and
-+ * arg2/magic[1] is one of the values defined by enum psci_standard_resets.
-+ */
-+static const struct reboot_mode_entry psci_resets[] = {
-+	{
-+		.name  = "psci-system-reset",
-+		.magic = { 0, PSCI_SYSTEM_RESET_COLD_RESET },
-+		.count = 2,
-+	},
-+	{
-+		.name  = "psci-system-reset2-arch-warm-reset",
-+		.magic = { 0, PSCI_SYSTEM_RESET2_ARCH_WARM_RESET },
-+		.count = 2,
-+	},
-+};
-+
-+static u64 psci_reboot_mode_get_cookie(const u32 *magic, int count)
-+{
-+	u64 cookie = 0;
-+	int i;
-+
-+	/*
-+	 * For a 3-cell magic, arg2 is the high 32 bits and arg3 is the low 32 bits.
-+	 * For a 2-cell magic, arg2 is the low 32 bits.
-+	 */
-+	for (i = 1; i < count; i++)
-+		cookie = (cookie << 32) | magic[i];
-+
-+	return cookie;
-+}
-+
-+static int psci_reboot_mode_write(struct reboot_mode_driver *reboot,
-+				  const u32 *magic, u32 count)
-+{
-+	if (count < 2 || count > 3)
-+		return -EINVAL;
-+
-+	/* Unexpected value at magic[1]/arg2 on a 32-bit system. */
-+	if (!IS_ENABLED(CONFIG_64BIT) && count == 3 && magic[1])
-+		return -EINVAL;
-+
-+	return psci_set_reset_cmd(magic[0],
-+				  psci_reboot_mode_get_cookie(magic, count));
-+}
-+
-+static int psci_reboot_mode_probe(struct auxiliary_device *auxdev,
-+				  const struct auxiliary_device_id *id)
-+{
-+	struct reboot_mode_driver *reboot;
-+	struct device *dev = &auxdev->dev;
-+	size_t count;
-+	int ret;
-+
-+	reboot = devm_kzalloc(dev, sizeof(*reboot), GFP_KERNEL);
-+	if (!reboot)
-+		return -ENOMEM;
-+
-+	/* Skip PSCI SYSTEM_RESET2 modes if unsupported. */
-+	count = psci_has_system_reset2_support() ? ARRAY_SIZE(psci_resets) : 1;
-+
-+	ret = reboot_mode_driver_init(reboot, dev, NULL,
-+				      psci_reboot_mode_write, psci_resets,
-+				      count);
-+	if (ret)
-+		return ret;
-+
-+	return devm_reboot_mode_register(dev, reboot);
-+}
-+
-+static const struct auxiliary_device_id psci_reboot_mode_id_table[] = {
-+	{ .name = "arm-psci.psci-reboot-mode" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(auxiliary, psci_reboot_mode_id_table);
-+
-+static struct auxiliary_driver psci_reboot_mode_driver = {
-+	.probe = psci_reboot_mode_probe,
-+	.id_table = psci_reboot_mode_id_table,
-+};
-+
-+static int __init psci_reboot_mode_init(void)
-+{
-+	return __auxiliary_driver_register(&psci_reboot_mode_driver, THIS_MODULE,
-+					   "psci-reboot-mode");
-+}
-+subsys_initcall(psci_reboot_mode_init);
-
+ 	list_for_each_entry(link, &genpd->child_links, child_node) {
+@@ -2170,7 +2169,8 @@ static int genpd_add_subdomain(struct generic_pm_domain *genpd,
+ 	genpd_lock(subdomain);
+ 	genpd_lock_nested(genpd, SINGLE_DEPTH_NESTING);
+ 
+-	if (!genpd_status_on(genpd) && genpd_status_on(subdomain)) {
++	if (!genpd_status_on_unlocked(genpd) &&
++	    genpd_status_on_unlocked(subdomain)) {
+ 		ret = -EINVAL;
+ 		goto out;
+ 	}
+@@ -2186,7 +2186,7 @@ static int genpd_add_subdomain(struct generic_pm_domain *genpd,
+ 	list_add_tail(&link->parent_node, &genpd->parent_links);
+ 	link->child = subdomain;
+ 	list_add_tail(&link->child_node, &subdomain->child_links);
+-	if (genpd_status_on(subdomain))
++	if (genpd_status_on_unlocked(subdomain))
+ 		genpd_sd_counter_inc(genpd);
+ 
+  out:
+@@ -2246,7 +2246,7 @@ int pm_genpd_remove_subdomain(struct generic_pm_domain *genpd,
+ 		list_del(&link->parent_node);
+ 		list_del(&link->child_node);
+ 		kfree(link);
+-		if (genpd_status_on(subdomain))
++		if (genpd_status_on_unlocked(subdomain))
+ 			genpd_sd_counter_dec(genpd);
+ 
+ 		ret = 0;
+@@ -2441,7 +2441,7 @@ int pm_genpd_init(struct generic_pm_domain *genpd,
+ 
+ 	/* Always-on domains must be powered on at initialization. */
+ 	if ((genpd_is_always_on(genpd) || genpd_is_rpm_always_on(genpd)) &&
+-			!genpd_status_on(genpd)) {
++			!genpd_status_on_unlocked(genpd)) {
+ 		pr_err("always-on PM domain %s is not on\n", genpd->name);
+ 		return -EINVAL;
+ 	}
+@@ -3839,7 +3839,7 @@ static int genpd_summary_one(struct seq_file *s,
+ 
+ 	if (WARN_ON(genpd->status >= ARRAY_SIZE(status_lookup)))
+ 		goto exit;
+-	if (!genpd_status_on(genpd))
++	if (!genpd_status_on_unlocked(genpd))
+ 		snprintf(state, sizeof(state), "%s-%u",
+ 			 status_lookup[genpd->status], genpd->state_idx);
+ 	else
 -- 
-2.34.1
+2.43.0
 
 
