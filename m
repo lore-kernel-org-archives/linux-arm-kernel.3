@@ -4,78 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86120C88E78
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 13:35:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E284C88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 13:36:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KMLekF/sKE1Bi3WK4NcJcMemu7ViiS6lZ82cm9K8Vjg=; b=fhIvPo4CNAuHQv7XloqkIlaB7f
-	cuLouIBiyi0lgoGJqd9TXPCrD5ooHGhJDXVd+Y8o5XUEe4/Y99Rv/crf17CRBDaCViZvU3ZVxDSBL
-	NaCGNFI6ZLcBxZ2MrJ12r/suqjgqxgIzFYMU5NMG9o8wdMccnBlhF+2Bm1o1Zl9F4UzPD0h1iDMkG
-	16XaBxaM6n6dpmJkrDVUyZvyF9HNYxH5s21NH3IhSy2NTCDE2FY6hU3e+HsoEfp06v8ygZGSwy+iu
-	cgzta4BPnXEn/GO/QNDxJvU/wUVo/JIh/SbLFvl02taWJWnB12GXxD12+fuZuszyEmZ5rNB6QkCGl
-	9Ma5YjdA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2h7ZY1zg9xGXVt6w5prHoUecfWf/gFfAhPGVDKJK2r4=; b=k6gJVQ7K6+dAJyevMptt5Gj8b9
+	eRUp8TvMsK3N21GcUJl2F3zwFWOEYJXFnQNSJOk2/m9Lu2aO389Zk8rhVNaferEwJzATwwEfhERhJ
+	S7f4bWL6XbCgGW59lUrGoTIg47kqJD895J0hL9o8gRlfSC1VPc3GX9CnZ4kYvYQVI++z+3qWJWTe/
+	FpgEYb7QrfKqJa+OwNfVw0AXXYLljFHAcoO7ni0K54sb7M4gekFDov+hZ2yFklHmou//F7iJnQVpP
+	CloWHEZCYOLrhUS0KVmsHd66bKN4oT38NlK4QZ1XNrhcRje52jC3D1pIi26yiZYjydPm4gnRovSrV
+	9rb7cshA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x66q0-00000003n3x-0X97;
-	Mon, 14 Sep 2026 13:35:12 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x66qz-00000003nZW-3ilc;
+	Mon, 14 Sep 2026 13:36:13 +0000
+Received: from mail-northeuropeazon11010071.outbound.protection.outlook.com ([52.101.84.71] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x66py-00000003n2P-3jhz;
-	Mon, 14 Sep 2026 13:35:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 59C4543BC9;
-	Mon, 14 Sep 2026 13:35:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 3B0EAC2BCF5;
-	Mon, 14 Sep 2026 13:35:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1789392910;
-	bh=P46KOmCx7fH/TCivCbW1tZ8GWPzrD50R05svoDUdb9U=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=sMUYMjgQP6fylo8Ptttlu7MEfo7B/Xi2/NPUZdeY1m3qWlQ5YvPfQB8BS9gMG/7eK
-	 OV3TSMXOUq9da+WxGuCawTrfPTSJ3zmX86gLydFG2r1BES3tv+Sm5mv/ftkzdnnI5k
-	 tklqrcIWj+7XNxse4gbTx93B0/8irvalWC6P9izy+Zi7maRxwaHlpptGJ6zWI5If3U
-	 peo0yRGXYHLzE/ZrBUvzPKUAQjrHPmBV36OYjGpXLyak1vqgGMxnRoSXKKt9aZBxrD
-	 DvalMT3bza6zb2hCrxZYFLO6D2deZKGIdtH826m3C+7jsJ40LgFy/3QclPcKKnTi1W
-	 iobiiShKWXEVw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1D63AC88E72;
-	Mon, 14 Sep 2026 13:35:10 +0000 (UTC)
-From: =?utf-8?q?=E5=AE=89=E5=AE=B9_via_B4_Relay?= <devnull+HystericalDragons.proton.me@kernel.org>
-Date: Mon, 14 Sep 2026 21:35:02 +0800
-Subject: [PATCH v6 2/3] arm64: dts: rockchip: Split out the common NanoPi
- RK3528 parts
+	id 1x66qx-00000003nYE-2T06
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 14 Sep 2026 13:36:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jaxbQYNS8Cr22tJ1hNc6pXxqywvhsGIOPtnPew0E+OupLNJPMm7G11lsHMVCnJYdq7Yn8e4KEeXVZnLoJwSYnifqoRoaRF9bMZ5pLbY9B/wXK+nX27xjJLtERud06VP4RixhRbVb6HTE6X1RKVliSRygITwdMOyGOF0pBm6hTgiQX31lGyRZsJxr+VhFbsT6OvH1QHyVBZ43C0A4h2ZpDInUVx0k2PUGey4VUbgIQHftlYoZ8dOcv9oFWQY7VGiuU3IpsvDfLFxTY8ImZlpLb3BawRuQ6zx/xAjOmK+LIAXoyfE9QFgQUQ4WIizOJdT72tksXcwJl+ofon2LtOI2Xg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2h7ZY1zg9xGXVt6w5prHoUecfWf/gFfAhPGVDKJK2r4=;
+ b=SteeztA8Ux3jWyxNJnHaubhufLL5awU4HndS1Vs6ObjYtbozKgA/6VsBagbto35b4nT1JcN0U5h7u8h78ESQyPA4KEdV6/Y+DbYRK/3slj3iXL4RcUjzj8x6HFWoUpQy2oy/22Ql35Lo5wrhsC9uW1Aq3m6tnPIQ4f1qT4u5wh720X4BI/IXwwZUE9wH8s/PgEDG9jNoO8oQHdNUkSGvCj+fCS1mAR571kYtvbwNd4y+1lNMu9zH7I6/vX5wetn1HSqJVO34hq7JV6s9Vhih8swH8ZsYBdGDdoZuxy+OmiNrASiZc6cfjfWjPTRYDUnC7chzQjOZyhSz09yxaK9Rng==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2h7ZY1zg9xGXVt6w5prHoUecfWf/gFfAhPGVDKJK2r4=;
+ b=xxMKqHB+XP3d3MAsnabK7pn0NNeXeVE9RFjcVEaMyzuuro9r+nYNCBRQUPAsUbQHAPN+3AzvZSL7KEMmALxHzLaMXX1/ychyU6GfM91I6/fGORsPGDBoAVDRWEEmgspVhkOC7KikOs/t/aXLLXXnNrjxpEYkaQxEjVGzF75ip82XxJQeZjPtpPnd/kxsgKMDcc0tB039+1tvsPFuoBuj6HGdiq8STIiUhTQ+IS4xmIhqxrPoU9PERcEOBKK5EC7B8sF7EMOLoL/3HUlFMDm1S+KKaTIR3D9XRD1NFfG4sdbWMVDLUEkOlI+g0bSXjUXyWrwy+Bnts09XXVxx6a1jOw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by DUZPR04MB10014.eurprd04.prod.outlook.com (2603:10a6:10:4db::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Mon, 14 Sep
+ 2026 13:36:04 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.007; Mon, 14 Sep 2026
+ 13:36:03 +0000
+Date: Mon, 14 Sep 2026 08:35:52 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	Lee Jones <lee@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, dmaengine@vger.kernel.org
+Subject: Re: [PATCH v2 16/20] misc: sram: Enable runtime PM
+Message-ID: <aqf4OEVpCX8XNQW1@SMW015318>
+References: <20260914-ux500-power-domains-v7-1-v2-0-9d0c17e1f816@kernel.org>
+ <20260914-ux500-power-domains-v7-1-v2-16-9d0c17e1f816@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260914-ux500-power-domains-v7-1-v2-16-9d0c17e1f816@kernel.org>
+X-ClientProxiedBy: PH8PR22CA0002.namprd22.prod.outlook.com
+ (2603:10b6:510:2d1::26) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260914-r28s-upstream-v6-2-ea9edd75c126@proton.me>
-References: <20260914-r28s-upstream-v6-0-ea9edd75c126@proton.me>
-In-Reply-To: <20260914-r28s-upstream-v6-0-ea9edd75c126@proton.me>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Chukun Pan <amadeus@jmu.edu.cn>, Jonas Karlman <jonas@kwiboo.se>, 
- jensen <jensenhuang@friendlyarm.com>, 
- Andrey Korshunov <razor1702@gmail.com>, 
- Diederik de Haas <diederik@cknow-tech.com>, 
- =?utf-8?q?=E5=AE=89=E5=AE=B9?= <HystericalDragons@proton.me>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=15570;
- i=HystericalDragons@proton.me; h=from:subject:message-id;
- bh=w6IVcAHK5jObKwN/fYWuTvMVBu6uaGiKhMnNwvrw4KQ=;
- b=owGbwMvMwCUmepz3XUtTHjvjabUkhqzlP3jel7yc8qul/Jn12uUeE34ytznGPP3AufXrqdveP
- HcCFlV/7yhlYRDjYpAVU2SR3VQdKbQqemYRi9RxmDmsTCBDGLg4BWAiTO8YGW6Yr85OWM0qw1Vi
- L+O+WGVKWuHRlUpC/pPMZ//Vbf62JJnhn1LByVXldQ6qd+Ydm7XQRfCj80VemdgbfNPPfD++/F1
- yPS8A
-X-Developer-Key: i=HystericalDragons@proton.me; a=openpgp;
- fpr=1DB27B5912AA5B9972041AC715C70DEE84826E07
-X-Endpoint-Received: by B4 Relay for HystericalDragons@proton.me/default
- with auth_id=1004
-X-Original-From: =?utf-8?q?=E5=AE=89=E5=AE=B9?= <HystericalDragons@proton.me>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DUZPR04MB10014:EE_
+X-MS-Office365-Filtering-Correlation-Id: afe2c339-6a89-46a8-0e0d-08df12651f34
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|19092799006|1800799024|366016|22082099003|18002099003|4143699003|10067099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: yfdYkpxbMe8JzEm2ETdhPpGcaTQnYcPCSVDCKFoBIV9TBDTMgs+XI3Gl8mPpZtzs2VHYuu0etIfQxGRt+hIL3V8Fou/HX3tUYQFj411CcEOT8qkX6wys/TLdk0UCAvdVBaeZ3iyfog7mU6diyN/beCgSSktGwRI+PMGqt4hyhgqn+KW/8ZLJN/fLHjQBCDgA0vX9GMltuGAnNOCDlZ8mlOHBnPo9By1xXB3/c/IF7ZH8MkvtjH/2/2GLysUWf/e0gHmYXx80tm9HYVaV59Kwu/OGDFkOjZle54WLYsWW+4ZWvD1ShdH40k23zDV/VFHFig1Ik4+1h3hYJUAZdcvnSYWTiwI0avUEuBNE+aOQiDIAjNZU+I54quBssLg+gknAkNn6qnxhQhDdYh34ZyH0XeSve7eJmhLpb3SAhrNTwxOQFraovYYWBeXJi0+Bo2Nbz27ZTyoPnlyU3R9qgHhT/6GMoS3h7/P/bpFi0YSHbJQUHIcpVk2uMw0qm0wnyy6uwYmLLnItpWYV4+QQLmfnsQxzXGj3edqFi7ms8jUXClIFI+3cpuXxaVQU6nyV2WmtGyqZDlqhluQ2CCNFZBbHKpOLm3cNJTapIAI5mnls1I7XTizWHhTEzwehksqSa7523PJq+oLyWOME6+XSK9ANwrsr3TVWjZ6DvEYNEmZYvNw=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(19092799006)(1800799024)(366016)(22082099003)(18002099003)(4143699003)(10067099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cuk05Acun4MONovCOO2keRTOl+6RvJmAJbg/Sqg5p7LExX3IlvanH+qZa6hA?=
+ =?us-ascii?Q?dbtqN8Nl7scyFneM8DUnHMboYSzBfhlzxXH0Md+ZD5w8WTE80zZcxayiBm0C?=
+ =?us-ascii?Q?Ty+qMj0iklotpZabcpnRHP+37tOrfgz44a45ViUm1nCmNMkjk7LB3AUCfxE9?=
+ =?us-ascii?Q?zXts+pvkRpQII6k13/S/jtS0dY+mo4BbTx+h2PGYPab2e4Ch/4okmQ7HZYeq?=
+ =?us-ascii?Q?7zYobclfFY+qtIMsOH62DKsgJ9QAhBK/yxBmpagzsheKJG+5bT9e4CXiROTi?=
+ =?us-ascii?Q?sfcxYiE16R1Fu8WLLCqxQ8Qb4i6sA7EfM+84WNhVNUbviLnJ+rtXMAOIcW6Y?=
+ =?us-ascii?Q?Fg9S//5FlUdm+OcRhGo58yXu4Ykw158B990CxkaM5Vd+XH5Cpayove4ikP5H?=
+ =?us-ascii?Q?zre+WU3ixox0YYq/S1btAYvSL3FgGRB3UEY17jqSuTa6WD1N6bd3Qz+ku7ZC?=
+ =?us-ascii?Q?MH3luFUGat7EIYLaiLmFlHhaL8k0Cf5MkHTTtzktdqkVSlfJKSaNv37kstiD?=
+ =?us-ascii?Q?XoM0CzCp+7wOzu/YqUJEz0vm3446ljqAjxIGcBtke6fbUg9K6R7JtNLxluey?=
+ =?us-ascii?Q?7JGriGawqkczECZjn4jnNl3SPkKabOHu7/L0JYQwbP8Vp/v9bkhS4kX2vJSY?=
+ =?us-ascii?Q?F99SBkh+LF3eAyZFTX3SlIe0/8kVxXmgjgimVOpwg2Pjwl+RnRRZQ2ShdzO2?=
+ =?us-ascii?Q?SI9UI7nNIbvHtx/cTl4Qxmn35QLU7BqtPdK91Bh4UlPsNw+OJa1s+P2O3nI9?=
+ =?us-ascii?Q?c6Oe9AloJXKDjYjyAOvCRAQV/0YWCTUhhU0GKJEb4fUHY8DolA9SRi6AmASb?=
+ =?us-ascii?Q?AOxmrlqdZVk2EfCO3xJ03nHFceNVvrHrXBGiXcVmtITVSioiWFimmob3hcBS?=
+ =?us-ascii?Q?dlGEcj2GayZRNKPZOnBh0JDGFak8L3560bs3ERFHKB4q90ilzqeDULOuavzi?=
+ =?us-ascii?Q?L03rB94qCv3JnnbNzNLXc8ZhKW61FpzEX7nyrOk38zwT/3tvlfdkTUXq8ATb?=
+ =?us-ascii?Q?FaiKB3bNwuSxxwMqwCb7YeXsQ3U2qkTjhlfj93IOkhFczbFIJkCIVvs7cEdG?=
+ =?us-ascii?Q?q6I/unYxKAM+crxVJJGK2uDMtJ3cjqy1Hn+pcMny7xFZ17Miaxx+pQ+qr4c+?=
+ =?us-ascii?Q?7n03g8+hHGa/NIFw812S+TLAk3wEZNXRGNbrenbZBbuIHtZ5CCYJXZkpEf1Y?=
+ =?us-ascii?Q?ooPsvV3pwFnj7QEdD21LPdJT1IE49E8toAVnPHBo5v1sk5f8Z+pk72tu41VM?=
+ =?us-ascii?Q?hdU2UjSt77jINjBxZRkYznxaHOM+GIHT0asCBK5NWpuR4YoOYDCj1s7RmnCI?=
+ =?us-ascii?Q?YP8klMv2+ACdFjeB357zYQG5rSSAq8F+RjXTMzwrEwSgXG7gTfWy6yli/fmK?=
+ =?us-ascii?Q?ifcBnwk8f7hFSyre8ZBkNg6BJmbxfPd1YzT8RvJLu6G3jOwNkJROBn38998X?=
+ =?us-ascii?Q?/7SoHFJoWvzHEFKZAD90E8Z3SCUtW/LuMYHY6HOILqmbpzaFjj68TW8fZZ1R?=
+ =?us-ascii?Q?J5tSEdqxa4DetyBJBFVNQei6xUTVlTA0LhNgjqjx3B3/sHbpD7iucQAgIMKR?=
+ =?us-ascii?Q?md41Kv6VbqYXFWGgHyVe2Zr2vreF2TzCnzy8Fpqc1JPzmwx+LpUVgdkvqKtH?=
+ =?us-ascii?Q?OE83vaFNI8wFJsb8F0CmcfsPl+ki0WTe6Vzw0DxtaiqQ7UH+2UIdAnkcOOHa?=
+ =?us-ascii?Q?F2tov/eUA/qefs9Phq49l1anFEMkSf0uQfrD6WJdJFLYxQWJ+eCPjEUMbNEU?=
+ =?us-ascii?Q?EyRHHXHa7MlMy+wloZ7BQ7t3LW5w48xCnn3WNXOc7IeDSsHm5uLm?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: afe2c339-6a89-46a8-0e0d-08df12651f34
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Sep 2026 13:36:03.7491
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 4LuXGAk70EQ0heZy2wgUFKzwT5BSWSi2hUY4n00w1i6CRANLBjbKYtHp5icuepWx/cAgzpyV+CtWVkw9W2HGvT6M4yorAedfQGl610NWca3+a9Ug133lFeZE28epOA5v
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR04MB10014
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260914_063611_643645_48AD12AB 
+X-CRM114-Status: GOOD (  17.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,664 +142,50 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: HystericalDragons@proton.me
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: 安容 <HystericalDragons@proton.me>
+On Mon, Sep 14, 2026 at 01:54:44PM +0200, Linus Walleij wrote:
+> Enable runtime PM for generic SRAM devices after probe has initialized
+> the SRAM mappings and partitions.
+>
+> This lets SRAM devices with attached power domains be managed through
+> runtime PM references from their consumers.
+>
+> Assisted-by: LLM
+> Signed-off-by: Linus Walleij <linusw@kernel.org>
+> ---
 
-The FriendlyElec NanoPi Zero2 and the NanoPi R28S share their power
-tree, storage, RGMII Ethernet, RTC, SYS LED and debug console. Move
-those parts into rk3528-nanopi.dtsi so the NanoPi R28S can reuse them,
-and leave only the board specific nodes in the NanoPi Zero2 devicetree.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Suggested-by: Chukun Pan <amadeus@jmu.edu.cn>
-Signed-off-by: 安容 <HystericalDragons@proton.me>
----
- .../boot/dts/rockchip/rk3528-nanopi-zero2.dts      | 291 +--------------------
- arch/arm64/boot/dts/rockchip/rk3528-nanopi.dtsi    | 288 ++++++++++++++++++++
- 2 files changed, 297 insertions(+), 282 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3528-nanopi-zero2.dts b/arch/arm64/boot/dts/rockchip/rk3528-nanopi-zero2.dts
-index 97d85124d2..8a7dbd539f 100644
---- a/arch/arm64/boot/dts/rockchip/rk3528-nanopi-zero2.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3528-nanopi-zero2.dts
-@@ -2,41 +2,13 @@
- 
- /dts-v1/;
- 
--#include <dt-bindings/input/input.h>
- #include <dt-bindings/leds/common.h>
--#include <dt-bindings/pwm/pwm.h>
--#include "rk3528.dtsi"
-+#include "rk3528-nanopi.dtsi"
- 
- / {
- 	model = "FriendlyElec NanoPi Zero2";
- 	compatible = "friendlyarm,nanopi-zero2", "rockchip,rk3528";
- 
--	aliases {
--		ethernet0 = &gmac1;
--		i2c1 = &i2c1;
--		mmc0 = &sdhci;
--		mmc1 = &sdmmc;
--		serial0 = &uart0;
--	};
--
--	chosen {
--		stdout-path = "serial0:1500000n8";
--	};
--
--	adc-keys-0 {
--		compatible = "adc-keys";
--		io-channels = <&saradc 0>;
--		io-channel-names = "buttons";
--		keyup-threshold-microvolt = <1800000>;
--		poll-interval = <100>;
--
--		button-maskrom {
--			label = "MASK";
--			linux,code = <KEY_SETUP>;
--			press-threshold-microvolt = <0>;
--		};
--	};
--
- 	adc-keys-1 {
- 		compatible = "adc-keys";
- 		io-channels = <&saradc 1>;
-@@ -51,28 +23,6 @@ button-recovery {
- 		};
- 	};
- 
--	leds {
--		compatible = "gpio-leds";
--		pinctrl-names = "default";
--		pinctrl-0 = <&led1>, <&led_sys>;
--
--		led-0 {
--			color = <LED_COLOR_ID_RED>;
--			default-state = "on";
--			function = LED_FUNCTION_HEARTBEAT;
--			gpios = <&gpio4 RK_PB0 GPIO_ACTIVE_HIGH>;
--			linux,default-trigger = "heartbeat";
--		};
--
--		led-1 {
--			color = <LED_COLOR_ID_GREEN>;
--			default-state = "on";
--			function = LED_FUNCTION_STATUS;
--			gpios = <&gpio4 RK_PB1 GPIO_ACTIVE_HIGH>;
--			linux,default-trigger = "default-on";
--		};
--	};
--
- 	vcc0v6_ddr: regulator-0v6-vcc-ddr {
- 		compatible = "regulator-fixed";
- 		regulator-name = "vcc0v6_ddr";
-@@ -83,66 +33,6 @@ vcc0v6_ddr: regulator-0v6-vcc-ddr {
- 		vin-supply = <&vcc5v0_sys>;
- 	};
- 
--	vdd_0v9: regulator-0v9-vdd {
--		compatible = "regulator-fixed";
--		regulator-name = "vdd_0v9";
--		regulator-always-on;
--		regulator-boot-on;
--		regulator-min-microvolt = <900000>;
--		regulator-max-microvolt = <900000>;
--		vin-supply = <&vcc5v0_sys>;
--	};
--
--	vcc_ddr: regulator-1v1-vcc-ddr {
--		compatible = "regulator-fixed";
--		regulator-name = "vcc_ddr";
--		regulator-always-on;
--		regulator-boot-on;
--		regulator-min-microvolt = <1100000>;
--		regulator-max-microvolt = <1100000>;
--		vin-supply = <&vcc5v0_sys>;
--	};
--
--	vcc_1v8: regulator-1v8-vcc {
--		compatible = "regulator-fixed";
--		regulator-name = "vcc_1v8";
--		regulator-always-on;
--		regulator-boot-on;
--		regulator-min-microvolt = <1800000>;
--		regulator-max-microvolt = <1800000>;
--		vin-supply = <&vcc_3v3>;
--	};
--
--	vcc_3v3: regulator-3v3-vcc {
--		compatible = "regulator-fixed";
--		regulator-name = "vcc_3v3";
--		regulator-always-on;
--		regulator-boot-on;
--		regulator-min-microvolt = <3300000>;
--		regulator-max-microvolt = <3300000>;
--		vin-supply = <&vcc5v0_sys>;
--	};
--
--	vcc3v3_sd: regulator-3v3-vcc-sd {
--		compatible = "regulator-fixed";
--		gpios = <&gpio4 RK_PA1 GPIO_ACTIVE_LOW>;
--		pinctrl-names = "default";
--		pinctrl-0 = <&sdmmc_pwren_l>;
--		regulator-name = "vcc3v3_sd";
--		regulator-min-microvolt = <3300000>;
--		regulator-max-microvolt = <3300000>;
--		vin-supply = <&vcc_3v3>;
--	};
--
--	vcc5v0_sys: regulator-5v0-vcc-sys {
--		compatible = "regulator-fixed";
--		regulator-name = "vcc5v0_sys";
--		regulator-always-on;
--		regulator-boot-on;
--		regulator-min-microvolt = <5000000>;
--		regulator-max-microvolt = <5000000>;
--	};
--
- 	usb2_host_5v: regulator-5v0-usb2-host {
- 		compatible = "regulator-fixed";
- 		enable-active-high;
-@@ -154,138 +44,21 @@ usb2_host_5v: regulator-5v0-usb2-host {
- 		regulator-max-microvolt = <5000000>;
- 		vin-supply = <&vcc5v0_sys>;
- 	};
--
--	vccio_sd: regulator-vccio-sd {
--		compatible = "regulator-gpio";
--		gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_HIGH>;
--		pinctrl-names = "default";
--		pinctrl-0 = <&sdmmc_vol_ctrl_h>;
--		regulator-name = "vccio_sd";
--		regulator-min-microvolt = <1800000>;
--		regulator-max-microvolt = <3300000>;
--		states = <1800000 0x0>, <3300000 0x1>;
--		vin-supply = <&vcc5v0_sys>;
--	};
--
--	vdd_arm: regulator-vdd-arm {
--		compatible = "pwm-regulator";
--		pwms = <&pwm1 0 5000 PWM_POLARITY_INVERTED>;
--		pwm-supply = <&vcc5v0_sys>;
--		regulator-name = "vdd_arm";
--		regulator-always-on;
--		regulator-boot-on;
--		regulator-min-microvolt = <746000>;
--		regulator-max-microvolt = <1201000>;
--		regulator-settling-time-up-us = <250>;
--	};
--
--	vdd_logic: regulator-vdd-logic {
--		compatible = "pwm-regulator";
--		pwms = <&pwm2 0 5000 PWM_POLARITY_INVERTED>;
--		pwm-supply = <&vcc5v0_sys>;
--		regulator-name = "vdd_logic";
--		regulator-always-on;
--		regulator-boot-on;
--		regulator-min-microvolt = <705000>;
--		regulator-max-microvolt = <1006000>;
--		regulator-settling-time-up-us = <250>;
--	};
--};
--
--&cpu0 {
--	cpu-supply = <&vdd_arm>;
--};
--
--&cpu1 {
--	cpu-supply = <&vdd_arm>;
--};
--
--&cpu2 {
--	cpu-supply = <&vdd_arm>;
--};
--
--&cpu3 {
--	cpu-supply = <&vdd_arm>;
--};
--
--&gmac1 {
--	clock_in_out = "output";
--	phy-handle = <&rgmii_phy>;
--	phy-mode = "rgmii-id";
--	phy-supply = <&vcc_3v3>;
--	pinctrl-names = "default";
--	pinctrl-0 = <&rgmii_miim>, <&rgmii_tx_bus2>, <&rgmii_rx_bus2>,
--		    <&rgmii_rgmii_clk>, <&rgmii_rgmii_bus>;
--	status = "okay";
--};
--
--&gpu {
--	mali-supply = <&vdd_logic>;
--	status = "okay";
- };
- 
--&i2c1 {
--	pinctrl-names = "default";
--	pinctrl-0 = <&i2c1m0_xfer>;
--	status = "okay";
-+&leds {
-+	pinctrl-0 = <&led1>, <&led_sys>;
- 
--	hym8563: rtc@51 {
--		compatible = "haoyu,hym8563";
--		reg = <0x51>;
--		#clock-cells = <0>;
--		interrupt-parent = <&gpio4>;
--		interrupts = <RK_PC1 IRQ_TYPE_LEVEL_LOW>;
--		pinctrl-names = "default";
--		pinctrl-0 = <&rtc_int_l>;
--		wakeup-source;
--	};
--};
--
--&mdio1 {
--	rgmii_phy: ethernet-phy@1 {
--		compatible = "ethernet-phy-ieee802.3-c22";
--		reg = <0x1>;
--		pinctrl-names = "default";
--		pinctrl-0 = <&gmac1_rstn_l>;
--		reset-assert-us = <20000>;
--		reset-deassert-us = <100000>;
--		reset-gpios = <&gpio4 RK_PC2 GPIO_ACTIVE_LOW>;
-+	led-1 {
-+		color = <LED_COLOR_ID_GREEN>;
-+		default-state = "on";
-+		function = LED_FUNCTION_STATUS;
-+		gpios = <&gpio4 RK_PB1 GPIO_ACTIVE_HIGH>;
-+		linux,default-trigger = "default-on";
- 	};
- };
- 
- &pinctrl {
--	ethernet {
--		gmac1_rstn_l: gmac1-rstn-l {
--			rockchip,pins = <4 RK_PC2 RK_FUNC_GPIO &pcfg_pull_none>;
--		};
--	};
--
--	leds {
--		led1: led1 {
--			rockchip,pins = <4 RK_PB1 RK_FUNC_GPIO &pcfg_pull_none>;
--		};
--
--		led_sys: led-sys {
--			rockchip,pins = <4 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
--		};
--	};
--
--	rtc {
--		rtc_int_l: rtc-int-l {
--			rockchip,pins = <4 RK_PC1 RK_FUNC_GPIO &pcfg_pull_up>;
--		};
--	};
--
--	sdmmc {
--		sdmmc_vol_ctrl_h: sdmmc-vol-ctrl-h {
--			rockchip,pins = <4 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
--		};
--
--		sdmmc_pwren_l: sdmmc-pwren-l {
--			rockchip,pins = <4 RK_PA1 RK_FUNC_GPIO &pcfg_pull_none>;
--		};
--	};
--
- 	usb {
- 		usb20_host1_pwren: usb20-host1-pwren {
- 			rockchip,pins = <4 RK_PB5 RK_FUNC_GPIO &pcfg_pull_none>;
-@@ -293,52 +66,6 @@ usb20_host1_pwren: usb20-host1-pwren {
- 	};
- };
- 
--&pwm1 {
--	pinctrl-names = "default";
--	pinctrl-0 = <&pwm1m0_pins>;
--	status = "okay";
--};
--
--&pwm2 {
--	pinctrl-names = "default";
--	pinctrl-0 = <&pwm2m0_pins>;
--	status = "okay";
--};
--
--&saradc {
--	vref-supply = <&vcc_1v8>;
--	status = "okay";
--};
--
--&sdhci {
--	bus-width = <8>;
--	cap-mmc-highspeed;
--	mmc-hs200-1_8v;
--	no-sd;
--	no-sdio;
--	non-removable;
--	vmmc-supply = <&vcc_3v3>;
--	vqmmc-supply = <&vcc_1v8>;
--	status = "okay";
--};
--
--&sdmmc {
--	bus-width = <4>;
--	cap-mmc-highspeed;
--	cap-sd-highspeed;
--	disable-wp;
--	sd-uhs-sdr104;
--	vmmc-supply = <&vcc3v3_sd>;
--	vqmmc-supply = <&vccio_sd>;
--	status = "okay";
--};
--
--&uart0 {
--	pinctrl-names = "default";
--	pinctrl-0 = <&uart0m0_xfer>;
--	status = "okay";
--};
--
- &usb_host0_ehci {
- 	status = "okay";
- };
-diff --git a/arch/arm64/boot/dts/rockchip/rk3528-nanopi.dtsi b/arch/arm64/boot/dts/rockchip/rk3528-nanopi.dtsi
-new file mode 100644
-index 0000000000..f15493f825
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3528-nanopi.dtsi
-@@ -0,0 +1,288 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Common parts of the FriendlyElec RK3528 boards: NanoPi Zero2 and NanoPi R28S.
-+ */
-+
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/leds/common.h>
-+#include <dt-bindings/pwm/pwm.h>
-+#include "rk3528.dtsi"
-+
-+/ {
-+	aliases {
-+		ethernet0 = &gmac1;
-+		i2c1 = &i2c1;
-+		mmc0 = &sdhci;
-+		mmc1 = &sdmmc;
-+		serial0 = &uart0;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:1500000n8";
-+	};
-+
-+	adc-keys-0 {
-+		compatible = "adc-keys";
-+		io-channels = <&saradc 0>;
-+		io-channel-names = "buttons";
-+		keyup-threshold-microvolt = <1800000>;
-+		poll-interval = <100>;
-+
-+		button-maskrom {
-+			label = "MASK";
-+			linux,code = <KEY_SETUP>;
-+			press-threshold-microvolt = <0>;
-+		};
-+	};
-+
-+	leds: leds {
-+		compatible = "gpio-leds";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&led_sys>;
-+
-+		led-0 {
-+			color = <LED_COLOR_ID_RED>;
-+			default-state = "on";
-+			function = LED_FUNCTION_HEARTBEAT;
-+			gpios = <&gpio4 RK_PB0 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "heartbeat";
-+		};
-+	};
-+
-+	vdd_0v9: regulator-0v9-vdd {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vdd_0v9";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <900000>;
-+		regulator-max-microvolt = <900000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vcc_ddr: regulator-1v1-vcc-ddr {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_ddr";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <1100000>;
-+		regulator-max-microvolt = <1100000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vcc_1v8: regulator-1v8-vcc {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_1v8";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		vin-supply = <&vcc_3v3>;
-+	};
-+
-+	vcc_3v3: regulator-3v3-vcc {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_3v3";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vcc3v3_sd: regulator-3v3-vcc-sd {
-+		compatible = "regulator-fixed";
-+		gpios = <&gpio4 RK_PA1 GPIO_ACTIVE_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&sdmmc_pwren_l>;
-+		regulator-name = "vcc3v3_sd";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vcc_3v3>;
-+	};
-+
-+	vcc5v0_sys: regulator-5v0-vcc-sys {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc5v0_sys";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+	};
-+
-+	vccio_sd: regulator-vccio-sd {
-+		compatible = "regulator-gpio";
-+		gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&sdmmc_vol_ctrl_h>;
-+		regulator-name = "vccio_sd";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <3300000>;
-+		states = <1800000 0x0>, <3300000 0x1>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vdd_arm: regulator-vdd-arm {
-+		compatible = "pwm-regulator";
-+		pwms = <&pwm1 0 5000 PWM_POLARITY_INVERTED>;
-+		pwm-supply = <&vcc5v0_sys>;
-+		regulator-name = "vdd_arm";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <746000>;
-+		regulator-max-microvolt = <1201000>;
-+		regulator-settling-time-up-us = <250>;
-+	};
-+
-+	vdd_logic: regulator-vdd-logic {
-+		compatible = "pwm-regulator";
-+		pwms = <&pwm2 0 5000 PWM_POLARITY_INVERTED>;
-+		pwm-supply = <&vcc5v0_sys>;
-+		regulator-name = "vdd_logic";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <705000>;
-+		regulator-max-microvolt = <1006000>;
-+		regulator-settling-time-up-us = <250>;
-+	};
-+};
-+
-+&cpu0 {
-+	cpu-supply = <&vdd_arm>;
-+};
-+
-+&cpu1 {
-+	cpu-supply = <&vdd_arm>;
-+};
-+
-+&cpu2 {
-+	cpu-supply = <&vdd_arm>;
-+};
-+
-+&cpu3 {
-+	cpu-supply = <&vdd_arm>;
-+};
-+
-+&gmac1 {
-+	clock_in_out = "output";
-+	phy-handle = <&rgmii_phy>;
-+	phy-mode = "rgmii-id";
-+	phy-supply = <&vcc_3v3>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&rgmii_miim>, <&rgmii_tx_bus2>, <&rgmii_rx_bus2>,
-+		    <&rgmii_rgmii_clk>, <&rgmii_rgmii_bus>;
-+	status = "okay";
-+};
-+
-+&gpu {
-+	mali-supply = <&vdd_logic>;
-+	status = "okay";
-+};
-+
-+&i2c1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c1m0_xfer>;
-+	status = "okay";
-+
-+	hym8563: rtc@51 {
-+		compatible = "haoyu,hym8563";
-+		reg = <0x51>;
-+		#clock-cells = <0>;
-+		interrupt-parent = <&gpio4>;
-+		interrupts = <RK_PC1 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&rtc_int_l>;
-+		wakeup-source;
-+	};
-+};
-+
-+&mdio1 {
-+	rgmii_phy: ethernet-phy@1 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <0x1>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&gmac1_rstn_l>;
-+		reset-assert-us = <20000>;
-+		reset-deassert-us = <100000>;
-+		reset-gpios = <&gpio4 RK_PC2 GPIO_ACTIVE_LOW>;
-+	};
-+};
-+
-+&pinctrl {
-+	ethernet {
-+		gmac1_rstn_l: gmac1-rstn-l {
-+			rockchip,pins = <4 RK_PC2 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	leds {
-+		led1: led1 {
-+			rockchip,pins = <4 RK_PB1 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		led_sys: led-sys {
-+			rockchip,pins = <4 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	rtc {
-+		rtc_int_l: rtc-int-l {
-+			rockchip,pins = <4 RK_PC1 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+	};
-+
-+	sdmmc {
-+		sdmmc_pwren_l: sdmmc-pwren-l {
-+			rockchip,pins = <4 RK_PA1 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		sdmmc_vol_ctrl_h: sdmmc-vol-ctrl-h {
-+			rockchip,pins = <4 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+};
-+
-+&pwm1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pwm1m0_pins>;
-+	status = "okay";
-+};
-+
-+&pwm2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pwm2m0_pins>;
-+	status = "okay";
-+};
-+
-+&saradc {
-+	vref-supply = <&vcc_1v8>;
-+	status = "okay";
-+};
-+
-+&sdhci {
-+	bus-width = <8>;
-+	cap-mmc-highspeed;
-+	mmc-hs200-1_8v;
-+	no-sd;
-+	no-sdio;
-+	non-removable;
-+	vmmc-supply = <&vcc_3v3>;
-+	vqmmc-supply = <&vcc_1v8>;
-+	status = "okay";
-+};
-+
-+&sdmmc {
-+	bus-width = <4>;
-+	cap-mmc-highspeed;
-+	cap-sd-highspeed;
-+	disable-wp;
-+	sd-uhs-sdr104;
-+	vmmc-supply = <&vcc3v3_sd>;
-+	vqmmc-supply = <&vccio_sd>;
-+	status = "okay";
-+};
-+
-+&uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart0m0_xfer>;
-+	status = "okay";
-+};
-
--- 
-2.55.0
-
-
+>  drivers/misc/sram.c | 5 +++++
+>  1 file changed, 5 insertions(+)
+>
+> diff --git a/drivers/misc/sram.c b/drivers/misc/sram.c
+> index c8990e83a65a..7f19dca7b818 100644
+> --- a/drivers/misc/sram.c
+> +++ b/drivers/misc/sram.c
+> @@ -13,6 +13,7 @@
+>  #include <linux/of.h>
+>  #include <linux/of_address.h>
+>  #include <linux/platform_device.h>
+> +#include <linux/pm_runtime.h>
+>  #include <linux/regmap.h>
+>  #include <linux/slab.h>
+>  #include <linux/mfd/syscon.h>
+> @@ -425,6 +426,10 @@ static int sram_probe(struct platform_device *pdev)
+>  			goto err_free_partitions;
+>  	}
+>
+> +	ret = devm_pm_runtime_set_active_enabled(&pdev->dev);
+> +	if (ret)
+> +		goto err_free_partitions;
+> +
+>  	if (sram->pool)
+>  		dev_dbg(sram->dev, "SRAM pool: %zu KiB @ 0x%p\n",
+>  			gen_pool_size(sram->pool) / 1024, sram->virt_base);
+>
+> --
+> 2.55.0
+>
 
