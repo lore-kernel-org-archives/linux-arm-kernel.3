@@ -4,79 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2F64C88E64
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 07:59:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B7E8C88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 08:05:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0g8YRTAfNpB/LIEJRW4htZZQabejSE3QJeAUYbefuTU=; b=AXn0afSgCbGwb/Jqq0A2ahAkSH
-	Hhe4vdholxbLJsygqGmqmU7eqUimeaxHSxxSZulyCbUDgsGa4mwSqlD+CsOVD09c0p58PGhvzlkCd
-	sKratDG/U7NDhXbRJGBanMZx0NCOrRoDPPXyAyPMxC7gzAXEWdFqiMXjtRSF+JU6yH2bSE5uhQDAL
-	RtYkkqBIcwYG7Xslc0oKIv3rUUe0q0+MdsN6DvrUPMXzQA2NwR6DHHtH4eEJXYbATXaPy4/4d32/I
-	O4mtVy1oGEyIF+EtrBHwdTFNrY99fRtgTYGoDo4Et00iUHLza8M0PfPXWKsNAqVvTbpLX8IyP9MvY
-	cNgprAjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hWX6kPTTMaJXnLer+Hq64AJVcYWmyYEOr6n5TQoSY9Y=; b=vKnjn33oCJKgMRbVrD+4H9N+FP
+	qHAD0KNcjcUOyCqymangCBZYts9Aq0F8SWUKp2XhvWDzFRnYpSVKtMOVveuZdkIqj8I8OjCFXLIi9
+	ASn+4OWfamJPwi82bYIhVFKfFxA75itg2FJAfvyFXAdCWFRRTGn1ix2XRJO6pk/giktzuZQugR/1q
+	RhHAa7f3Pa42BGdWkR0z3g8uhebhr1dsRA6NYTldgjzRSKEP4YIe0fNkagvHHUHJp/1a/bvjRHcL9
+	gDx3mlGgQaHN9A1GPKQMbkyrar073Tsntnt28Hx1ei9P5qgOKA2sQo5LzhWQ1Obxz+hzREAqEQmcn
+	6kgf+WQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x61aX-00000002dYy-1l0Q;
-	Mon, 14 Sep 2026 07:58:53 +0000
-Received: from mail-wm1-x347.google.com ([2a00:1450:4864:20::347])
+	id 1x61gd-00000002eay-1IJa;
+	Mon, 14 Sep 2026 08:05:11 +0000
+Received: from mgamail.intel.com ([192.198.163.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x61aV-00000002dYb-0IsY
+	id 1x61gb-00000002eZw-3HEK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 07:58:52 +0000
-Received: by mail-wm1-x347.google.com with SMTP id 5b1f17b1804b1-4957287363bso17373565e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 00:58:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1789372729; x=1789977529; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=0g8YRTAfNpB/LIEJRW4htZZQabejSE3QJeAUYbefuTU=;
-        b=qaf6Ba/b8nEtDWQVrgwThtNIq8NUYy1GlC0m64boNsvtylk5Zuc/StXkkFZh6QivSd
-         BB/tgELEVHUfyRA76u9jR9B33Yii2xyAdsCmTXMkcBahhoWwG9v5O/Z7E7S+DUxvVuAm
-         4aht0PumdXO9nKHciHs3EczlmL5J0leJ2A1pFUmRlI0D7kyFCwRgwvDxCP/Nwp9A3RDn
-         liPqoSibv4iPQ4Qb9+XbFOZbzQZ8tnhHNfj1av0vIJ5kZ0imASg+G0wIcCRsTVGavT2c
-         BTI7H19bMttFgQW2NR2+tpxMu1CQhiUFAFKUNBW3OW4rYcznVQEW0DRrKf7FSkMvdqBv
-         xL4A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789372729; x=1789977529;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=0g8YRTAfNpB/LIEJRW4htZZQabejSE3QJeAUYbefuTU=;
-        b=rzm2K1PLtzgQVHQCmsy0zcIY8V6XJArOUxMWMgPfvfflAlntVQOOIjRlvmtXdwLA+F
-         YQMZdY05Kz7UWL/iWmzPPnDpbz6DWtmL7vt+YOoctIn760vuhQ/PJdLXcT/jyQI8z8Bd
-         zvEAMkKduaZ/5a8qF2k3HIYbUglx48NnWIX+IB29mKIRjTMyZNIrXMeUFh4WAF43/BW9
-         tCveoS9NqeWQIcAVDiN8rqvP7vLpPHj4MGyjmtClgW0Zt9CiaNaNZfLYlNjkbmfUDIs5
-         7P74O3MAZptaj9bMs6Dp6rhPVuK0p6bT7xv9hH7sve1aZzAq0U585F9+HuZ0oiCL2yRd
-         A+MQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxrGn1fKRx5Wo7LW64GVyEwQpSC1qVt0z5ifPTqFnI++0boFqL/Ae5a3N9t5T/bKGaReHmEwKb8OmY6Zcm0OaZj@lists.infradead.org
-X-Gm-Message-State: AFuF++kCbunyCc9wbf+fH1532b/G1CO3hkvSK2GiCnWnuxJ+IOJ72WTP
-	Ub0WxwHb8ypkUAgN7wO+ZuvHEjSr2AiTZK+gkThxgaR4ttpzB0Io8Ii/tp8fmI7ykL48376/dzX
-	cP91GnP0tMaM0FvAeIzk51A==
-X-Received: from wmfr12.prod.google.com ([2002:a05:600c:158c:b0:495:72a8:661f])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:6819:b0:499:8aff:59b6 with SMTP id 5b1f17b1804b1-49e7a655a2dmr16386405e9.14.1789372728554;
- Mon, 14 Sep 2026 00:58:48 -0700 (PDT)
-Date: Mon, 14 Sep 2026 08:58:39 +0100
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.55.0.1007.g17ff1f9808-goog
-Message-ID: <20260914075839.4019904-1-vdonnefort@google.com>
-Subject: [PATCH v2] KVM: arm64: Fix protected VM fault on system with pages
- larger than 4K
-From: Vincent Donnefort <vdonnefort@google.com>
-To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
-	kernel-team@android.com, fuad.tabba@linux.dev, qperret@google.com, 
-	Vincent Donnefort <vdonnefort@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Mon, 14 Sep 2026 08:05:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1789373110; x=1820909110;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=ms02h7CsujbREPeLnaUOThPK+64TwYCRPpUsizrNp/I=;
+  b=Y/F90iyiZEpQn5/UtgRnsJn7o/gZfnqShwdwST9hmKdh7ruZ3txLNYYk
+   rto6ydl+kkAijYbSdKux836OGDURLKJlkCyYatKy3d288aqFsxtvkUTej
+   AwGfFn/rQ9bE6WyommDpuHYnRKCW+X3d0yPQowfc7YRNizcBk8+CYUcEH
+   EdVeOijVxIgvElYy5zTAS1+xUj7C04RhTu+7Lnr1t1TOYm9NMT+Loj0NH
+   AV2lmmHti9hcXu8BZlRC1HPM6YTiZP+Wc5BTBJph5T1LozRIoBDmPJ5K2
+   5dCIkeexa8joZN6PBUuNUQQzFUTCZdJ0LwcNzkzVCT+G3ydxZEXndSzOB
+   w==;
+X-CSE-ConnectionGUID: t0MNjsHxSkCMPOXjtZ6PHA==
+X-CSE-MsgGUID: tBwisndRScWyvE9O29XQBw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11904"; a="100317037"
+X-IronPort-AV: E=Sophos;i="6.27,102,1787036400"; 
+   d="scan'208";a="100317037"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Sep 2026 01:05:09 -0700
+X-CSE-ConnectionGUID: k/BGMQlsQ26pQ7qXoD2Low==
+X-CSE-MsgGUID: LyK3jnAQS4OvLkjyLJO+GQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,102,1787036400"; 
+   d="scan'208";a="268897922"
+Received: from ettammin-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.29])
+  by fmviesa010-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Sep 2026 01:05:03 -0700
+Date: Mon, 14 Sep 2026 11:05:01 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>
+Cc: linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
+	linux-sound@vger.kernel.org, linux-spi@vger.kernel.org,
+	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+	=?iso-8859-1?Q?Am=E9lie?= Delaunay <amelie.delaunay@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Andy Shevchenko <andy@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>, Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH v4 02/10] dmaengine: Support bus widths of 32 bytes and
+ above
+Message-ID: <aqeqrQU7Gtj9uGQx@ashevche-desk.local>
+References: <20260911-dmaengine-support-wider-dma-masks-v4-0-72b8fd4cc78e@analog.com>
+ <20260911-dmaengine-support-wider-dma-masks-v4-2-72b8fd4cc78e@analog.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260911-dmaengine-support-wider-dma-masks-v4-2-72b8fd4cc78e@analog.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_005851_154071_152CC7E8 
-X-CRM114-Status: GOOD (  15.28  )
+X-CRM114-CacheID: sfid-20260914_010509_857248_BC81E972 
+X-CRM114-Status: GOOD (  18.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,88 +101,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Just like commit 08f97454b7fa ("KVM: arm64: Fix protected mode handling
-of pages larger than 4kB") fixed the boot of non-protected VMs on system
-larger than 4K pages, align the fault IPA down to the page-size for
-protected VMs.
+On Fri, Sep 11, 2026 at 06:25:37PM +0100, Nuno Sá wrote:
+> The src_addr_widths and dst_addr_widths capability masks encode each
+> supported width as a bit whose position equals the corresponding
+> enum dma_slave_buswidth value (e.g. DMA_SLAVE_BUSWIDTH_4_BYTES sets bit
+> 4). As these masks are plain u32, widths of 32 bytes and above
+> (DMA_SLAVE_BUSWIDTH_32/64/128_BYTES map to bits 32, 64 and 128) cannot
+> be represented at all.
+> 
+> Introduce bitmap-based bus width capabilities that span the full enum
+> range, through a new dma_buswidth_mask_t type modeled after
+> dma_cap_mask_t. To allow DMA controller drivers to be converted
+> incrementally, the legacy dma_device u32 fields are kept alongside the
+> new masks and the core folds a legacy-only driver's u32 into the mask
+> when the device is registered, so consumers only ever have to look at
+> the mask.
+> 
+> The accessors live in a new include/linux/dma/engine/widthmask.h instead
+> of in linux/dmaengine.h, so that only their users pay for the
+> linux/bitmap.h include. They all take a dma_buswidth_mask_t, which means
+> the interface will not change once the legacy fields are dropped.
+> 
+> The fold is bidirectional while both representations coexist. A driver
+> that only fills in the legacy u32 gets its mask derived from it, so the
+> consumers already converted see it. A driver that only fills in the mask
+> gets its legacy u32 derived from the mask, so the consumers not
+> converted yet, which read the legacy dma_slave_caps fields, keep working.
+> 
+> On top of that, dma_get_slave_caps() derives the legacy dma_slave_caps
+> masks from the new ones when a device_caps() callback adjusted them, so
+> that a converted controller narrowing its per-channel capabilities is
+> still seen by the consumers not converted yet, while a driver adjusting
+> the legacy masks directly keeps working.
 
-To paraphrase Marc, pkvm_pgtable_stage2_map() assumes the address passed
-as a parameter is aligned to the size of the intended mapping, while
-HPFAR_EL2 gives the IPA minus the bottom 12 bits, regardless of the
-system page size configuration.
+Acked-by: Andy Shevchenko <andriy.shevchenko@intel.com>
 
-Add a check at the start of pkvm_pgtable_stage2_map() as we do not
-support !PAGE_ALIGNED arguments and use the gfn as an argument in all
-callers.
-
-Fixes: ea03466e806f ("KVM: arm64: Handle aborts from protected VMs")
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
----
-
-Changelog:
-
-v2:
-  - Use gfn_to_gpa(gfn)
-  - Drop "phys" from the PAGE_ALIGNED check, it isn't a requirement.
-  - Fix gmem_abort() as well (Sashiko)
-
-v1: https://lore.kernel.org/all/20260913173516.3122436-1-vdonnefort@google.com/
-
- arch/arm64/kvm/mmu.c  | 7 ++++---
- arch/arm64/kvm/pkvm.c | 3 +++
- 2 files changed, 7 insertions(+), 3 deletions(-)
-
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 9ba86450fe4a..ee78201a44df 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1672,10 +1672,10 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
- 		 * PTE, which will be preserved.
- 		 */
- 		prot &= ~KVM_NV_GUEST_MAP_SZ;
--		ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, s2fd->fault_ipa,
-+		ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, gfn_to_gpa(gfn),
- 								 prot, flags);
- 	} else {
--		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, s2fd->fault_ipa, PAGE_SIZE,
-+		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, gfn_to_gpa(gfn), PAGE_SIZE,
- 							 __pfn_to_phys(pfn), prot,
- 							 memcache, flags);
- 	}
-@@ -1710,6 +1710,7 @@ static int pkvm_mem_abort(const struct kvm_s2_fault_desc *s2fd)
- 	unsigned int flags = FOLL_HWPOISON | FOLL_LONGTERM | FOLL_WRITE;
- 	struct kvm_vcpu *vcpu = s2fd->vcpu;
- 	struct kvm_pgtable *pgt = vcpu->arch.hw_mmu->pgt;
-+	gfn_t gfn = gpa_to_gfn(s2fd->fault_ipa);
- 	struct mm_struct *mm = current->mm;
- 	struct kvm *kvm = vcpu->kvm;
- 	void *hyp_memcache;
-@@ -1756,7 +1757,7 @@ static int pkvm_mem_abort(const struct kvm_s2_fault_desc *s2fd)
- 	}
- 
- 	write_lock(&kvm->mmu_lock);
--	ret = pkvm_pgtable_stage2_map(pgt, s2fd->fault_ipa, PAGE_SIZE,
-+	ret = pkvm_pgtable_stage2_map(pgt, gfn_to_gpa(gfn), PAGE_SIZE,
- 				      page_to_phys(page), KVM_PGTABLE_PROT_RWX,
- 				      hyp_memcache, 0);
- 	write_unlock(&kvm->mmu_lock);
-diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-index 8e4c6e4bec12..b7340c430ed6 100644
---- a/arch/arm64/kvm/pkvm.c
-+++ b/arch/arm64/kvm/pkvm.c
-@@ -414,6 +414,9 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
- 	u64 end = addr + size;
- 	int ret;
- 
-+	if (!PAGE_ALIGNED(addr | size))
-+		return -EINVAL;
-+
- 	lockdep_assert_held_write(&kvm->mmu_lock);
- 	mapping = pkvm_mapping_iter_first(&pgt->pkvm_mappings, addr, end - 1);
- 
-
-base-commit: df2908090cda368b01ff43709f51890076c56157
 -- 
-2.55.0.1007.g17ff1f9808-goog
+With Best Regards,
+Andy Shevchenko
+
 
 
