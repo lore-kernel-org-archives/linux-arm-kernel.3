@@ -4,100 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44CB1C88E64
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 08:47:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0821C88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 08:48:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BiGb6WiQWJmFrzRKswfmgWeyhlzVvwsEuctPqCr7l7Q=; b=X7wbcnKsGf/lx1rh+bm7iXssXG
-	Z14q6LWm8xev9893p534lVxJXoqJVHvyYyhWK3B75vTPLO6whTud0aOqwhoyNMWKhhMZs319siYLA
-	YrPQtWpMKGamBlLJ1USEz7Mgy7amNFVkU1M+ksh2G7ygOMmrMg08z+g7Mzta6/w6mqU/uwHJtnqer
-	OvTybhDMabrJS3TmbLnpRADxi2UoN+9ZA+66M4Ggjd1hcHittCAIZklVl4wEeI8GmuG70NRZ87yQM
-	REiTkrRwPShhrXdI/3tRrcCgfBju2alBhYxmWY7up9p5057EypWIRN8MH5DSy2JtV6+en5LV4qbt/
-	QRCwN8Qg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2816w4UPu3pZtKRnEULSS/SL+Ir3MGZTzZ7WxHZ3JYQ=; b=X+GmAhpPKgcaJGUG1AYVgf/rEP
+	jkjPMNeoTVjhrx81zbrHnClCtbFfW98+X2qqR7o6JIZT5NKs9TNiWPXdSzd5as4orWHllI1jcIXTa
+	yXZpD7fz9yZvuq18XHzoQEci3mSlgzxVJ/RF4Cd+BOq5MCRJyCvZOsjFrSLpMkerqiMgJ9mS2PSV0
+	mqWNDNxDkT/B/7tC3e83/Ge39ZrV/4JrbylgqZdcvJeMT/DyDU9CHJyd7ZatOiiSJQv7Xb4uYHMJE
+	46P/BgcHyE6TH1LKzMAj1hCKNV7AZ5vlI5vGGQmyW/jXDoYCVsh9/ev9htL06eZR2tDMnj4yw0f3G
+	pWwg7uyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x62LQ-00000002ol7-31IW;
-	Mon, 14 Sep 2026 08:47:20 +0000
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x62LO-00000002okK-3O6X
+	id 1x62MM-00000002oxu-050E;
+	Mon, 14 Sep 2026 08:48:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x62MJ-00000002owq-3ArO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 08:47:20 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49b912d37b5so11354635e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 01:47:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=flipper.net; s=google; t=1789375636; x=1789980436; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=BiGb6WiQWJmFrzRKswfmgWeyhlzVvwsEuctPqCr7l7Q=;
-        b=6ep1CKuwdKRbmOik6UubsaZg8Zac1H7b/uMEN04qF8BlG6gyKDcR7WjRR58311mU1D
-         Dq7z5018VoyCFJh0XocdbNce1TDoXJlLL0nl3J6nKUZ7tOB/CyzqMekP+nhyGBQwDVzB
-         MC7roeyUSvP4wOcA/UGRvOfH/5gcARQaqQMkH0suMH8vww5VoDQRvgxoxv4WeiPqmnhI
-         lgco4CdNq93W6iGdkg3z+T8KbM4fZisWzFbuuf/Qt5sj/lngeslgDG6Oth0Xo+8XLxpv
-         cZg7pfysUHEaNFPUSLPMO/625kMp7uMAKq07X4upKy0z+mI2Jbti3pMn/O/pIu9+w0dR
-         bPnw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789375636; x=1789980436;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=BiGb6WiQWJmFrzRKswfmgWeyhlzVvwsEuctPqCr7l7Q=;
-        b=coEjjqB9zFp/8XtQqTrwSPFEHgbNTgkTybi7lbR5VSTaT3fq6MKEY7u4hIwLNfWJc9
-         TUCGJESJxsy7NMsruS4n7Jf+iHjHnwfdUVIW6T3F05tiaMzUEbuTQbjHX8tQVeX8R8H7
-         Blp+F1kioIeqpDvNByb7jNAtya0wsT+2moFT9DxM3i12l/hpp0SZK5xHcWxtzt9trG9d
-         VF6/i/y0LH4jYNHgkO/0vtLldzcqQFX/pMerbrc6RWY+0UAGT6cxTJY4HrtoK74WrFo+
-         oYhqeMX0/x7Y3TguN7or6rUb+D8DXeAqHk8YXyKgk3BwLszDmgTvPEaXIYlvVX4UgiuR
-         p9pQ==
-X-Forwarded-Encrypted: i=1; AKwUvBw1cdI7zgdyxnrHJ2hiXuuAVpZmEk+SCfKTONAmcjj9O//srgRP79JQoQKzUtnVfiaTi4yHfEP1zFRk3+l5gDnr@lists.infradead.org
-X-Gm-Message-State: AFuF++k9TS/PIu/JQ5ADTuEdhqeLxPGMgrtWCfZvDxCtB2Uonw3TrB2s
-	xqYSoyOgm12Fnwsl96yzc0oS3TxX8YPRphMOjkq9/yHO3XsoNY6ggKKZMGTJnkCUKyA=
-X-Gm-Gg: AYBFou2jiztd33+OXX9hWwYYX9XRwxizbmVDxaARFcEgVUhqW1lr7/FVE/559CqAote
-	GWxSL1/g5oMEt0JyCmHNarC9qFNwL89ybaobgONnKk8n9LqkbTdgYcFGKAeeaMLnS2Y1Af8ZreE
-	mna0EUKAp1yRLx06PDDhSa3BtEnO3Notw3LnU0taItdGefPEm7pFzAbFU7BnOXj9vv45GcJUi67
-	Vk17KDSUHFdp6fNHusGKyXBlvY+yvtEcDarvoYPeGMcr5ZnpFeeTIEQSKlkQsLnSiHTUQV6MeHb
-	9XtaIBIuKSyTstdSzTSlfiEKyqWuV5dX+sVFUrwyydyzPXcJUEXjExjaQ7rc8dTr5LWnmyMxQlq
-	3zBmOrFqx4I2rLoq56F1tqGxE2n/VetJ686DU3qtkOwDucUpZqTJKQY+1wOgBCYD6WI3Dc45nqU
-	BbO9rTVTPkRWNLUZ6bm5h0mF81/MINUjCyoL6GvmavsDsA7QnvSI3e15SAQI3lHyS/q8kzKAnFC
-	KzXUd4a4FBQuarXmF/5
-X-Received: by 2002:a05:600c:19cf:b0:49c:ed94:cdd8 with SMTP id 5b1f17b1804b1-49e7a663d35mr22293075e9.6.1789375636366;
-        Mon, 14 Sep 2026 01:47:16 -0700 (PDT)
-Received: from alchark-surface.localdomain ([146.70.184.81])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e6cc11607sm199520805e9.12.2026.09.14.01.47.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Sep 2026 01:47:15 -0700 (PDT)
-From: Alexey Charkov <alchark@flipper.net>
-Date: Mon, 14 Sep 2026 12:47:15 +0400
-Subject: [PATCH] arm64: dts: rockchip: Set gpioN aliases on RK3576
+	Mon, 14 Sep 2026 08:48:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C07861570;
+	Mon, 14 Sep 2026 01:48:09 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 98EC83F7B4;
+	Mon, 14 Sep 2026 01:48:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789375693; bh=QD8aKpgaeEe3OYPjtQLqz89bXKDf0jtcGOEjaXi3TIo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ocYImIraJMKbAMrIqRBZACQ7eYVodGODAW4gSLAXj7U35z7kS6Vgim7MzhaaC31Nh
+	 ntZQ8FmJVq2tIgFT+vMW0py8J45ahDqhRKqaDZSMuN4JJ6ejClHRoLafId73JDHHkK
+	 Qtj/1vwzBqWYQi3ZTm2nW0uqMB9KIQfRQx04oKbA=
+Date: Mon, 14 Sep 2026 09:48:03 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Wei-Lin Chang <weilin.chang@arm.com>,
+	Wang Han <wanghan@linux.alibaba.com>,
+	Shuai Xue <xueshuai@linux.alibaba.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>
+Subject: Re: [PATCH 1/4] KVM: arm64: pgtable: Add Stage-2 unmap without TLBI
+ primitive
+Message-ID: <aqe0w0myu7iIT_tR@J2N7QTR9R3>
+References: <20260912104834.3093878-1-maz@kernel.org>
+ <20260912104834.3093878-2-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260914-rk3576-gpio-aliases-v1-1-ce5f86f9ae0e@flipper.net>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqDMBBA0avIrB2IWqPxKuIipqOOLRoyKgXx7
- k3r8i3+P0EoMAk0yQmBDhZel4gsTcBNdhkJ+RkNucq1MtkDw6soK42j5xXtm62QoHHKalXXfWk
- GiKUPNPDnf22727L3M7ntt4Lr+gIIVSeBdwAAAA==
-X-Change-ID: 20260914-rk3576-gpio-aliases-9c0a6088b59f
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Alexey Charkov <alchark@flipper.net>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1143; i=alchark@flipper.net;
- h=from:subject:message-id; bh=xSsTA1+Iig8rnrr46UdcEnmTqyfP4pnCIpRKT/lZv4s=;
- b=owGbwMvMwCW2adGNfoHIK0sZT6slMWQt3zKl493uJBmRTYsfxiasex+ntehC9OljXSWFERvsA
- mfd/1JyoWMiC4MYF4OlmCLL3G9LbKca8c3a5eHxFWYOKxPIEGmRBgYgYGHgy03MKzXSMdIz1TbU
- MzTSMdYxYuDiFICpblZkZPgc/9Zs9pLzqxY/nhGV8HvV+a4TP/0nLDXQdtWPW3FtodMhhv+lMQ1
- 7JS9MP6Y6Ke9bbihns0MOn+PB0x+cbJRm7zq7/DcnAA==
-X-Developer-Key: i=alchark@flipper.net; a=openpgp;
- fpr=9DF6A43D95320E9ABA4848F5B2A2D88F1059D4A5
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260912104834.3093878-2-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_014718_874957_114FC2B7 
-X-CRM114-Status: GOOD (  11.06  )
+X-CRM114-CacheID: sfid-20260914_014815_874502_5139CBC2 
+X-CRM114-Status: GOOD (  34.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,43 +77,198 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With no alias, the OS is free to number the GPIO chips arbitrarily, such
-as in probe order, which is what Linux kernel's rockchip_gpio_probe() does
-if its of_alias_get_id(np, "gpio") fails.
+On Sat, Sep 12, 2026 at 11:48:31AM +0100, Marc Zyngier wrote:
+> kvm_pgtable_stage2_unmap() iterates over a range, unmapping whatever is
+> within the range, and always guarantees that that the corresponding TLBs
+> are invalidated when the function returns.
+> 
+> While this is safe, it means that iterating over empty range on a system
+> that supports range invalidation results in a TLBI per largest block
+> mapping size (1GB, 32MB or 512MB, depending on the base granule size).
+> 
+> This can be pretty expensive in situation where the whole address space
+> is being torn down, as it happens with NV (where S2 MMUs are recycled
+> regularly), and it would be more efficient to elide the per-subrange
+> TLBIs to solely rely on a VMID-wide TLBI.
+> 
+> For this, provide a kvm_pgtable_stage2_unmap_notlbi() helper that elides
+> all TLBIs, and relies on the caller to do the work.
+> 
+> Note that for  pKVM case, no additional helper is provided, and we
+> fallback on the TLBI-aware version.
 
-This results in GPIO chip numbers arbitrarily shuffled in userspace,
-causing confusion and pain.
+Just to check: I assume that before this is called, we have somehow
+ensured that the S2 being torn down isn't live on any PE, and cannot
+become live on any PE? I asssume that's a natural part of S2 lifetime
+management, but I couldn't figure that out from a quick skim of the hyp
+pgtable code.
 
-Set gpioN aliases in the SoC .dtsi, just like other SoC versions do.
+Assuming so, it might be worth mentioning that in the commit message,
+since it explains why it's safe to invalidate *after* intermediate
+tables are freed by stage2_unmap_walker() calling mm_ops->put_page(). We
+might also be able to add some test/assertion in
+kvm_pgtable_stage2_unmap_notlbi() to ensure it is not called where the
+tables could be live on a PE.
 
-Signed-off-by: Alexey Charkov <alchark@flipper.net>
----
- arch/arm64/boot/dts/rockchip/rk3576.dtsi | 5 +++++
- 1 file changed, 5 insertions(+)
+Otherwise, this all looks sensible to me!
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-index d418bfc04097..e87ace5d05e6 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-@@ -21,6 +21,11 @@ / {
- 	#size-cells = <2>;
- 
- 	aliases {
-+		gpio0 = &gpio0;
-+		gpio1 = &gpio1;
-+		gpio2 = &gpio2;
-+		gpio3 = &gpio3;
-+		gpio4 = &gpio4;
- 		i2c0 = &i2c0;
- 		i2c1 = &i2c1;
- 		i2c2 = &i2c2;
+Mark.
 
----
-base-commit: 68142f986ff04b2b70b31db00f719bf690f64a9a
-change-id: 20260914-rk3576-gpio-aliases-9c0a6088b59f
-
-Best regards,
---  
-Alexey Charkov <alchark@flipper.net>
-
+> 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/include/asm/kvm_pgtable.h | 17 +++++++++++++
+>  arch/arm64/include/asm/kvm_pkvm.h    |  1 +
+>  arch/arm64/kvm/hyp/pgtable.c         | 38 +++++++++++++++++++++-------
+>  arch/arm64/kvm/pkvm.c                |  2 ++
+>  4 files changed, 49 insertions(+), 9 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+> index 41a8687938eb6..c370196888d1d 100644
+> --- a/arch/arm64/include/asm/kvm_pgtable.h
+> +++ b/arch/arm64/include/asm/kvm_pgtable.h
+> @@ -318,6 +318,8 @@ typedef bool (*kvm_pgtable_force_pte_cb_t)(u64 addr, u64 end,
+>   * @KVM_PGTABLE_WALK_SKIP_CMO:		Visit and update table entries
+>   *					without Cache maintenance
+>   *					operations required.
+> + * @KVM_PGTABLE_WALK_SKIP_S2_TLBI:	Visit and update table entries
+> + *					without Stage-2 TLB invalidation.
+>   */
+>  enum kvm_pgtable_walk_flags {
+>  	KVM_PGTABLE_WALK_LEAF			= BIT(0),
+> @@ -327,6 +329,7 @@ enum kvm_pgtable_walk_flags {
+>  	KVM_PGTABLE_WALK_IGNORE_EAGAIN		= BIT(4),
+>  	KVM_PGTABLE_WALK_SKIP_BBM_TLBI		= BIT(5),
+>  	KVM_PGTABLE_WALK_SKIP_CMO		= BIT(6),
+> +	KVM_PGTABLE_WALK_SKIP_S2_TLBI		= BIT(7),
+>  };
+>  
+>  struct kvm_pgtable_visit_ctx {
+> @@ -717,6 +720,20 @@ int kvm_pgtable_stage2_annotate(struct kvm_pgtable *pgt, u64 addr, u64 size,
+>   */
+>  int kvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size);
+>  
+> +/**
+> + * kvm_pgtable_stage2_unmap_notlbi() - Remove a mapping from a guest stage-2 page-table
+> + *				       without TLB invalidation.
+> + * @pgt:	Page-table structure initialised by kvm_pgtable_stage2_init*().
+> + * @addr:	Intermediate physical address from which to remove the mapping.
+> + * @size:	Size of the mapping.
+> + *
+> + * Same as kvm_pgtable_stage2_unmap(), but does not invalidate the
+> + * TLBs, which is the responsibility of the caller. Use with caution!
+> + *
+> + * Return: 0 on success, negative error code on failure.
+> + */
+> +int kvm_pgtable_stage2_unmap_notlbi(struct kvm_pgtable *pgt, u64 addr, u64 size);
+> +
+>  /**
+>   * kvm_pgtable_stage2_wrprotect() - Write-protect guest stage-2 address range
+>   *                                  without TLB invalidation.
+> diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+> index beea00e693a0a..273013c98ff17 100644
+> --- a/arch/arm64/include/asm/kvm_pkvm.h
+> +++ b/arch/arm64/include/asm/kvm_pkvm.h
+> @@ -214,6 +214,7 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size, u64 phy
+>  			    enum kvm_pgtable_prot prot, void *mc,
+>  			    enum kvm_pgtable_walk_flags flags);
+>  int pkvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size);
+> +int pkvm_pgtable_stage2_unmap_notlbi(struct kvm_pgtable *pgt, u64 addr, u64 size);
+>  int pkvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size);
+>  int pkvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size);
+>  bool pkvm_pgtable_stage2_test_clear_young(struct kvm_pgtable *pgt, u64 addr, u64 size, bool mkold);
+> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+> index b74dd5ce1efd3..6603fc236daa2 100644
+> --- a/arch/arm64/kvm/hyp/pgtable.c
+> +++ b/arch/arm64/kvm/hyp/pgtable.c
+> @@ -29,6 +29,11 @@ static bool kvm_pgtable_walk_skip_cmo(const struct kvm_pgtable_visit_ctx *ctx)
+>  	return unlikely(ctx->flags & KVM_PGTABLE_WALK_SKIP_CMO);
+>  }
+>  
+> +static bool kvm_pgtable_walk_skip_s2_tlbi(const struct kvm_pgtable_visit_ctx *ctx)
+> +{
+> +	return unlikely(ctx->flags & KVM_PGTABLE_WALK_SKIP_S2_TLBI);
+> +}
+> +
+>  static bool kvm_block_mapping_supported(const struct kvm_pgtable_visit_ctx *ctx, u64 phys)
+>  {
+>  	u64 granule = kvm_granule_size(ctx->level);
+> @@ -905,12 +910,14 @@ static void stage2_unmap_put_pte(const struct kvm_pgtable_visit_ctx *ctx,
+>  	if (kvm_pte_valid(ctx->old)) {
+>  		kvm_clear_pte(ctx->ptep);
+>  
+> -		if (kvm_pte_table(ctx->old, ctx->level)) {
+> -			kvm_call_hyp(__kvm_tlb_flush_vmid_ipa, mmu, ctx->addr,
+> -				     TLBI_TTL_UNKNOWN);
+> -		} else if (!stage2_unmap_defer_tlb_flush(pgt)) {
+> -			kvm_call_hyp(__kvm_tlb_flush_vmid_ipa, mmu, ctx->addr,
+> -				     ctx->level);
+> +		if (!kvm_pgtable_walk_skip_s2_tlbi(ctx)) {
+> +			if (kvm_pte_table(ctx->old, ctx->level)) {
+> +				kvm_call_hyp(__kvm_tlb_flush_vmid_ipa, mmu, ctx->addr,
+> +					     TLBI_TTL_UNKNOWN);
+> +			} else if (!stage2_unmap_defer_tlb_flush(pgt)) {
+> +				kvm_call_hyp(__kvm_tlb_flush_vmid_ipa, mmu, ctx->addr,
+> +					     ctx->level);
+> +			}
+>  		}
+>  	}
+>  
+> @@ -1195,23 +1202,36 @@ static int stage2_unmap_walker(const struct kvm_pgtable_visit_ctx *ctx,
+>  	return 0;
+>  }
+>  
+> -int kvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size)
+> +static int __kvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt,
+> +				      enum kvm_pgtable_walk_flags flags,
+> +				      u64 addr, u64 size)
+>  {
+>  	int ret;
+>  	struct kvm_pgtable_walker walker = {
+>  		.cb	= stage2_unmap_walker,
+>  		.arg	= pgt,
+> -		.flags	= KVM_PGTABLE_WALK_LEAF | KVM_PGTABLE_WALK_TABLE_POST,
+> +		.flags	= KVM_PGTABLE_WALK_LEAF | KVM_PGTABLE_WALK_TABLE_POST | flags,
+>  	};
+>  
+>  	ret = kvm_pgtable_walk(pgt, addr, size, &walker);
+> -	if (stage2_unmap_defer_tlb_flush(pgt))
+> +	if (stage2_unmap_defer_tlb_flush(pgt) &&
+> +	    !(flags & KVM_PGTABLE_WALK_SKIP_S2_TLBI))
+>  		/* Perform the deferred TLB invalidations */
+>  		kvm_tlb_flush_vmid_range(pgt->mmu, addr, size);
+>  
+>  	return ret;
+>  }
+>  
+> +int kvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size)
+> +{
+> +	return __kvm_pgtable_stage2_unmap(pgt, 0, addr, size);
+> +}
+> +
+> +int kvm_pgtable_stage2_unmap_notlbi(struct kvm_pgtable *pgt, u64 addr, u64 size)
+> +{
+> +	return __kvm_pgtable_stage2_unmap(pgt, KVM_PGTABLE_WALK_SKIP_S2_TLBI, addr, size);
+> +}
+> +
+>  struct stage2_attr_data {
+>  	kvm_pte_t			attr_set;
+>  	kvm_pte_t			attr_clr;
+> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+> index 8e4c6e4bec123..ec151005fbe4d 100644
+> --- a/arch/arm64/kvm/pkvm.c
+> +++ b/arch/arm64/kvm/pkvm.c
+> @@ -488,6 +488,8 @@ int pkvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size)
+>  	return __pkvm_pgtable_stage2_unshare(pgt, addr, addr + size);
+>  }
+>  
+> +int pkvm_pgtable_stage2_unmap_notlbi(struct kvm_pgtable *pgt, u64 addr, u64 size) __alias(pkvm_pgtable_stage2_unmap);
+> +
+>  int pkvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
+>  {
+>  	struct kvm *kvm = kvm_s2_mmu_to_kvm(pgt->mmu);
+> -- 
+> 2.47.3
+> 
+> 
 
