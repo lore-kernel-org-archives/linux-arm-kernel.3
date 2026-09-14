@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6427BC88E70
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99595C88E50
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 10:22:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,33 +12,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hf5Vh2KzHV25QhHS3XYOiQOQp4gDD2MP+M4jfx9swe8=; b=2ghTdRWWdLtUMhEJ7+rI8Qvcma
-	xH92UQVpP56mXh9kkXXfiUWQVdAUYeQ8MoZomK08Prv975yRZ+0RZrbindJ1oJmElHCKyZfr544za
-	xazT1g7+IHVKJVue8yRpYQoZCF+5+SPBWXv3BMoEuz6kKzkXS/rOM/HjCFpeGNwa4xDbbmf78iBVO
-	V7ewIrakWaEF1DpYUS6vqPSYtmmiwJnFVszmKMH5Zt2RQ0RQJkfmLk09yqLsaSMaZDdr16lIvp9yp
-	D+pQdX+VZOjHH5HwD7yinspwNQAwnf1pNaeT28ARPKGCpYWOyeajWz6nZEY8la517q2PM6ioVLhFx
-	PFqre8Qg==;
+	bh=C5G6NrDacTH6yYv0meFUpgtV9P05fn27v9lot31x+zw=; b=yQS1NqL98QA+JNMzTuc6O/47tn
+	DKELbFN/GFmnagahFEuQ+sIlbJPJu4iULnx9s1EFi0FbHtzQgVze8k3+peEUKtD5Y5IamttUnrexr
+	cinFw1CUOSmTEVH1Pmo9cHJTEyl2pASEFj+jJYoQ9JzlZoguGiaoqPWwiZj9ZTjiW0lNtiXFGTCYp
+	LEKZWYfYTsc4mcJBBzXWIu4sJRIo2X59nOrn9Z2QvhhaDVMAZBDyNH6mjVSnyWGAGZAB6p0SyjGnd
+	wI4xn0tSewPVXDGD+8b05UA64E+I5b7TlTnHkq6IWnjKwyBV80eRGeGArFKLx4zKFhrQbCVU8teDB
+	FtayEUIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x63pX-000000036GA-0g73;
-	Mon, 14 Sep 2026 10:22:31 +0000
+	id 1x63pT-00000003670-2mwa;
+	Mon, 14 Sep 2026 10:22:27 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x63p7-000000035js-3E7x
+	id 1x63ou-000000035VZ-0vGM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 10:22:08 +0000
+	Mon, 14 Sep 2026 10:21:53 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7F0AA1576;
-	Mon, 14 Sep 2026 03:22:01 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 305E51CDD;
+	Mon, 14 Sep 2026 03:21:47 -0700 (PDT)
 Received: from login2.euhpc2.arm.com (login2.euhpc2.arm.com [10.58.100.22])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 0A7DC3F7B4;
-	Mon, 14 Sep 2026 03:22:03 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id AEDB73F7B4;
+	Mon, 14 Sep 2026 03:21:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789381325; bh=PJGcITaXXgDtbmQ0890k0Yo/md3HaZlbdIDeTw0pwKk=;
+	t=1789381310; bh=+H/mosPDTj1Sj2WwsMt0h1llzrKduK1tqoqLEMGdZW8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=giNVwJF6ABVXg8bIoVgUFo9M5jQ3XDQaIl6UdUVQWzflc+RcwnSjdk5/x+V/qEPaL
-	 r/kgA4XqbrhCmJubKOdg3+tRLzWlbFaVi6bT81jnmt5/cXmUk8OvOCHaXFVtuJdEzd
-	 WfRdhCh44RHn8vFEL7pGwUdsGwM9FrgUkipMzmiI=
+	b=r64SVkfuQ0JhpXUSpGXUKPHmIWYNkS7Y7nq78ctzDldCekuT3Lfqfrzp+mmW0Amsu
+	 4f64umvTRn1e4bmivNQojinWocSn5vH8ACNaV4wePa/Z15sWqO1sHoYMspRcClhmWN
+	 K/TlBWqGQiVzEKiHza7vVJw1FxQP9fng7T/XN5mQ=
 From: Vladimir Murzin <vladimir.murzin@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: catalin.marinas@arm.com,
@@ -48,17 +48,17 @@ Cc: catalin.marinas@arm.com,
 	lpieralisi@kernel.org,
 	ruanjinjie@huawei.com,
 	liaochang1@huawei.com
-Subject: [PATCH 26/38] arm64: nmi: Add handling of superpriority interrupts as NMIs
-Date: Mon, 14 Sep 2026 11:20:50 +0100
-Message-Id: <20260914102102.68597-27-vladimir.murzin@arm.com>
+Subject: [PATCH 16/38] efi/runtime-wrappers: Permit architectures to override IRQ flags checks
+Date: Mon, 14 Sep 2026 11:20:40 +0100
+Message-Id: <20260914102102.68597-17-vladimir.murzin@arm.com>
 X-Mailer: git-send-email 2.24.0
 In-Reply-To: <20260914102102.68597-1-vladimir.murzin@arm.com>
 References: <20260914102102.68597-1-vladimir.murzin@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_032205_910221_B013E49D 
-X-CRM114-Status: GOOD (  20.63  )
+X-CRM114-CacheID: sfid-20260914_032152_295035_B59A2E91 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,217 +73,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mark Brown <broonie@kernel.org>
+Representation of IRQ flags on arm64 has recently changed. They now
+track both DAIF and PMR state while remaining compatible with the
+irqflags API by encoding the state in an unsigned long.
 
-Our goal with superpriority interrupts is to use them as NMIs, taking
-advantage of the much smaller regions where they are masked to allow
-prompt handling of the most time-critical interrupts.
+While the generic check can still detect corruption of the IRQ flags
+caused by EFI runtime services, the resulting error message is cryptic
+because it does not understand the arm64-specific representation.
 
-When an interrupt is configured with superpriority, we enter EL1 as we
-do for any other interrupt. The presence of a superpriority interrupt
-is indicated by a status bit in ISR_EL1. We check this bit before
-unmasking interrupts in elX_interrupt(), and if a superpriority
-interrupt is pending, we handle it as an NMI. Otherwise, normal
-interrupts are handled as usual.
+Permit architectures to override the IRQ flags checks and associated
+error messages, while keeping the existing implementation as the
+default.
 
-Since superpriority interrupts are always handled as NMIs, the
-interrupt controller can rely on in_nmi() to distinguish them from
-ordinary interrupts.
-
-Enable IPIs to use superpriority interrupts as NMIs, matching the
-existing pseudo-NMI behaviour.
-
-Signed-off-by: Mark Brown <broonie@kernel.org>
-Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
 Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
- arch/arm64/include/asm/entry-common.h |  7 +++
- arch/arm64/kernel/entry-common.c      | 83 +++++++++++++++++++++++----
- arch/arm64/kernel/smp.c               |  2 +-
- 3 files changed, 79 insertions(+), 13 deletions(-)
+ drivers/firmware/efi/runtime-wrappers.c | 32 +++++++++++++++----------
+ 1 file changed, 20 insertions(+), 12 deletions(-)
 
-diff --git a/arch/arm64/include/asm/entry-common.h b/arch/arm64/include/asm/entry-common.h
-index 73d82a8d8e95..0681ba91ac3b 100644
---- a/arch/arm64/include/asm/entry-common.h
-+++ b/arch/arm64/include/asm/entry-common.h
-@@ -37,6 +37,13 @@ static inline bool arch_irqentry_exit_need_resched(void)
- 	if (system_uses_irq_prio_masking() && read_sysreg(daif))
- 		return false;
+diff --git a/drivers/firmware/efi/runtime-wrappers.c b/drivers/firmware/efi/runtime-wrappers.c
+index 2344b9d1e81f..b42f8aa18da7 100644
+--- a/drivers/firmware/efi/runtime-wrappers.c
++++ b/drivers/firmware/efi/runtime-wrappers.c
+@@ -145,6 +145,25 @@ struct efi_runtime_work efi_rts_work;
+ #define arch_efi_restore_flags(state_flags)	local_irq_restore(state_flags)
+ #endif
  
-+	/*
-+	 * If AllInt is set then we must have handled an NMI, so skip
-+	 * preemption
-+	 */
-+	if (system_uses_nmi() && read_sysreg_s(SYS_ALLINT))
-+		return false;
++#ifndef arch_efi_check_flags
++#define arch_efi_check_flags(state_flags, caller) 							\
++do {													\
++	unsigned long cur_flags, mismatch;								\
++													\
++	cur_flags = efi_call_virt_save_flags();								\
++													\
++	mismatch = state_flags ^ cur_flags;								\
++	if (!WARN_ON_ONCE(mismatch & ARCH_EFI_IRQ_FLAGS_MASK))						\
++		break;											\
++													\
++	add_taint(TAINT_FIRMWARE_WORKAROUND, LOCKDEP_NOW_UNRELIABLE); 					\
++	pr_err_ratelimited(FW_BUG "IRQ flags corrupted (0x%08lx=>0x%08lx) by EFI call from %pS\n",	\
++			   state_flags, cur_flags,							\
++			   caller ?: __builtin_return_address(0));					\
++	arch_efi_restore_flags(state_flags);								\
++} while(0)
++#endif
 +
- 	/*
- 	 * Preempting a task from an IRQ means we leave copies of PSTATE
- 	 * on the stack. cpufeature's enable calls may modify PSTATE, but
-diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-index fd0bfead6e70..31dae3b48f23 100644
---- a/arch/arm64/kernel/entry-common.c
-+++ b/arch/arm64/kernel/entry-common.c
-@@ -31,6 +31,14 @@
- #include <asm/sysreg.h>
- #include <asm/system_misc.h>
- 
-+static __always_inline bool is_nmi(void)
-+{
-+	if (!system_uses_nmi())
-+		return false;
-+
-+	return !!(read_sysreg(isr_el1) & ISR_EL1_IS);
-+}
-+
- /*
-  * Handle IRQ/context state management when entering from kernel mode.
-  * Before this function is called it is not safe to call regular kernel code,
-@@ -525,8 +533,8 @@ asmlinkage void noinstr el1h_64_sync_handler(struct pt_regs *regs)
- 	arm64_debug_exc_context(CRITICAL_CONTEXT);
- }
- 
--static __always_inline void __el1_pnmi(struct pt_regs *regs,
--				       void (*handler)(struct pt_regs *))
-+static __always_inline void __el1_nmi(struct pt_regs *regs,
-+				      void (*handler)(struct pt_regs *))
+ unsigned long efi_call_virt_save_flags(void)
  {
- 	arm64_exc_hwstate_t hwstate;
- 	irqentry_state_t state;
-@@ -545,7 +553,23 @@ static __always_inline void __el1_irq(struct pt_regs *regs,
+ 	unsigned long flags;
+@@ -155,18 +174,7 @@ unsigned long efi_call_virt_save_flags(void)
  
- 	state = arm64_enter_from_kernel_mode(regs);
- 
--	arm64_unmask_exc_context(NONMI_CONTEXT);
-+	/*
-+	 * For non-NMI systems, we can switch to NOIRQ context since
-+	 * NMIs cannot occur.
-+	 *
-+	 * For pseudo-NMI, we must keep NONMI context until we can
-+	 * determine the interrupt priority, which is done by the IRQ
-+	 * handler.
-+	 *
-+	 * For FEAT_NMI, we already know the interrupt is an IRQ, so we
-+	 * can switch to NOIRQ context immediately. NMIs do not
-+	 * interfere because they follow a separate handling path and do
-+	 * not share the IRQ handling state.
-+	 */
-+	if (system_uses_irq_prio_masking())
-+		arm64_unmask_exc_context(NONMI_CONTEXT);
-+	else
-+		arm64_unmask_exc_context(NOIRQ_CONTEXT);
- 
- 	irq_enter_rcu();
- 	do_interrupt_handler(regs, handler);
-@@ -565,8 +589,9 @@ static __always_inline void __el1_irq(struct pt_regs *regs,
- static void noinstr el1_interrupt(struct pt_regs *regs,
- 				  void (*handler)(struct pt_regs *))
+ void efi_call_virt_check_flags(unsigned long flags, const void *caller)
  {
--	if (IS_ENABLED(CONFIG_ARM64_PSEUDO_NMI) && regs_irqs_disabled(regs))
--		__el1_pnmi(regs, handler);
-+	/* Is there a NMI to handle? */
-+	if (regs_irqs_disabled(regs) || is_nmi())
-+		__el1_nmi(regs, handler);
- 	else
- 		__el1_irq(regs, handler);
- 
-@@ -580,6 +605,8 @@ asmlinkage void noinstr el1h_64_irq_handler(struct pt_regs *regs)
- 
- asmlinkage void noinstr el1h_64_fiq_handler(struct pt_regs *regs)
- {
-+	WARN_ON_ONCE(system_uses_nmi() && (read_sysreg(isr_el1) & ISR_EL1_FS));
-+
- 	el1_interrupt(regs, handle_arch_fiq);
- }
- 
-@@ -903,20 +930,36 @@ asmlinkage void noinstr el0t_64_sync_handler(struct pt_regs *regs)
- 	arm64_debug_exc_context(CRITICAL_CONTEXT);
- }
- 
--static void noinstr el0_interrupt(struct pt_regs *regs,
--				  void (*handler)(struct pt_regs *))
-+static __always_inline void __el0_nmi(struct pt_regs *regs,
-+				      void (*handler)(struct pt_regs *))
- {
--	arm64_enter_from_user_mode(regs);
-+	irqentry_state_t state;
-+	arm64_exc_hwstate_t hwstate;
- 
--	arm64_unmask_exc_context(NONMI_CONTEXT);
-+	state = irqentry_nmi_enter(regs);
-+	hwstate = arm64_unmask_exc_context(NONMI_CONTEXT);
-+	do_interrupt_handler(regs, handler);
-+	arm64_mask_exc_context(hwstate);
-+	irqentry_nmi_exit(regs, state);
-+}
- 
--	if (regs->pc & BIT(55))
--		arm64_apply_bp_hardening();
-+static __always_inline void __el0_irq(struct pt_regs *regs,
-+				      void (*handler)(struct pt_regs *))
-+{
-+	arm64_enter_from_user_mode(regs);
-+	/*
-+	 * For the same reason as in el1_irq() keep NONMI
-+	 * context for pesudo-NMI, and switch to NOIRQ
-+	 * otherwise
-+	 */
-+	if (system_uses_irq_prio_masking())
-+		arm64_unmask_exc_context(NONMI_CONTEXT);
-+	else
-+		arm64_unmask_exc_context(NOIRQ_CONTEXT);
- 
- 	irq_enter_rcu();
- 	do_interrupt_handler(regs, handler);
- 	irq_exit_rcu();
+-	unsigned long cur_flags, mismatch;
 -
- 	/*
- 	 * For the same reason as in el1_irq() we effectivly
- 	 * have NOIRQ_CONTEXT on return from handler - keep
-@@ -924,6 +967,20 @@ static void noinstr el0_interrupt(struct pt_regs *regs,
- 	 */
- 	arm64_debug_exc_context(NOIRQ_CONTEXT);
- 	arm64_exit_to_user_mode(regs, arm64_exc_hwstate_of_context(NOIRQ_CONTEXT));
-+}
-+
-+static void noinstr el0_interrupt(struct pt_regs *regs,
-+				  void (*handler)(struct pt_regs *))
-+{
-+	if (regs->pc & BIT(55))
-+		arm64_apply_bp_hardening();
-+
-+	/* Is there a NMI to handle? */
-+	if (is_nmi())
-+		__el0_nmi(regs, handler);
-+	else
-+		__el0_irq(regs, handler);
-+
- 	arm64_debug_exc_context(CRITICAL_CONTEXT);
+-	cur_flags = efi_call_virt_save_flags();
+-
+-	mismatch = flags ^ cur_flags;
+-	if (!WARN_ON_ONCE(mismatch & ARCH_EFI_IRQ_FLAGS_MASK))
+-		return;
+-
+-	add_taint(TAINT_FIRMWARE_WORKAROUND, LOCKDEP_NOW_UNRELIABLE);
+-	pr_err_ratelimited(FW_BUG "IRQ flags corrupted (0x%08lx=>0x%08lx) by EFI call from %pS\n",
+-			   flags, cur_flags, caller ?: __builtin_return_address(0));
+-	arch_efi_restore_flags(flags);
++	arch_efi_check_flags(flags, caller);
  }
  
-@@ -939,6 +996,8 @@ asmlinkage void noinstr el0t_64_irq_handler(struct pt_regs *regs)
- 
- static void noinstr __el0_fiq_handler_common(struct pt_regs *regs)
- {
-+	WARN_ON_ONCE(system_uses_nmi() && (read_sysreg(isr_el1) & ISR_EL1_FS));
-+
- 	el0_interrupt(regs, handle_arch_fiq);
- }
- 
-diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index f29094ec3843..3d7060aedd66 100644
---- a/arch/arm64/kernel/smp.c
-+++ b/arch/arm64/kernel/smp.c
-@@ -1061,7 +1061,7 @@ static void smp_cross_call(const struct cpumask *target, unsigned int ipinr)
- 
- static bool ipi_should_be_nmi(enum ipi_msg_type ipi)
- {
--	if (!system_uses_irq_prio_masking())
-+	if (!system_uses_nmi() && !system_uses_irq_prio_masking())
- 		return false;
- 
- 	switch (ipi) {
+ /*
 -- 
 2.34.1
 
