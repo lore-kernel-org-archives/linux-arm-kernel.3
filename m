@@ -4,161 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC19EC88E70
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 13:32:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F830C88E73
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 13:35:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aQUXhftURTjhh1iKq86SS9IMJdaJpMwRFa8pMuZB1KQ=; b=mbA/HHyVd1+6mOA+/pOwAYK3Cs
-	sSTse3m7BqWldVS4hAQGl8+viSrmgRTjvqMGA4/Xx/p98jwBPvtmY+8uX2/L5LO3IG6fTqwRSlf2x
-	Rf0Pi9gCGsDCQQNFFO20i+AOm28GOqHgeUe8nrmWvq4opAelEbQCtb0k1aJZbJqO5xjlChpFW2Q/D
-	rVfvBvliYJwkNzkCZYE15mBzjofktv0lJEgxKn3zOsL3+XlmAWGJQ2K8J/8vM5mDee0MggyPym+WD
-	dw6faLCovrhMv94cPCVF/eAgW+rcJ+ydBoCnHB27me8dncmL7ugMUDG8M0mzehnseibq9sjQ/Npqy
-	Bj1OqwPw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8oZPb1HvseW5mSbsDjJZzywp+QwPAJxtMJQJBEqK09A=; b=eNuM6FysbRO3cfa1H3Q/Lpai1q
+	1sziNWGbROKimWm4A+TfMgN7i9WZpVzqJK/s2AR9UJEb6UGxNAv3R5Iyl+KNZSlE1T7GqUtjQPiDl
+	soFpTjaoxjDxSIY2CNJEzg5BjOrCtK2Wq6DPKk1BjTUSfaTboIfzqOcbRXkTixBRSan6SigQD6GUl
+	hhRI8X2zXdcJ8SSA/5Wf+ogq1Qx6sM7p027R26WjJqZr/0SicE1o2Tb6oClwxIOAV7jni8z3ZNOyI
+	IMekPa1zYgajONNtJwThfHAL6iYA85onFkQ2y3SpLu0/zTNSlrlDpZR+KNWxNRtXDtbenFU0jSGog
+	FFGghdGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x668q-00000003e5j-1qZ0;
-	Mon, 14 Sep 2026 12:50:36 +0000
-Received: from mail-northeuropeazon11010046.outbound.protection.outlook.com ([52.101.84.46] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1x66pz-00000003n3L-3mLa;
+	Mon, 14 Sep 2026 13:35:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x668a-00000003dq9-16a9
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 12:50:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=V8gCwnzsVq+F61Niy5RSaAJEQc+KfU0vqj/XJUTY934ojJz9G7ujq6oO5c10kYyB31WWpMdUeePnBCDuzeHYpFUThOiUbSLbohG+HpGwnMydHXf+mbutqBIik1qH4q7lkMbw7lsuoNmeWgUlmNDA1ic3Q4WpkN1xfjD5KBleIZZ9Cprw/OKmiPNwogAf9WY7lZX2FRmkE/IxtN2J01Rc2MLHnM7XP5gic0jxmtWQi/res4/qz8rNV44f7vwH7vNTRBTXL+jkb7RVCkC205n2yaeUfNaVzy7Q5mqV0Hi1Hq0h4kj7pdeSFxSJ39Px/g5r6nsY2nNJ3lvvoB0bynDrMg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aQUXhftURTjhh1iKq86SS9IMJdaJpMwRFa8pMuZB1KQ=;
- b=RQAz+J3gZ2JLBYU7Ebi3GoiaXfTnW0HHNzZcyfFl4PKo0NKCOGUxtHIbop1H1KU3b0bI8IxEkvlHDa4+x1VN82f7j+udliGl+0VhbMnou8It8xTqxKMd97yVKYLwhLu/dJzE+TvcI1Pffum2vCuzDsC79NcoFjsKZlPfMwTimozlXM5Inpg8SIjEWin8FrDB1lhE0RaZYNuqQDL3CX+kFtjVW1trb9OIOU4y2fHKa7+aNOKbTcv80/8FqUqKFw1QhfRsgEHeE3UMIo1cvKR79yqM/RN+sro9FAEX/cEv9/RykEPy0Y4V2TcqicioGN1xbiQ5/nN9jzhbl6appVE4bw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=aQUXhftURTjhh1iKq86SS9IMJdaJpMwRFa8pMuZB1KQ=;
- b=Vp8XnMPxcTTFsiEYqxIakV/d7N7RHb+9ugqtQRMjtHOAFiD5Xbfbr4DChye35pJOkMiMiiFoibi7sMbeqA9Scv2btXvMT+QjrVtm1B7EVJdlmjbjeroq9F+Z3KjGJc3GSFkICVLcTEh8qvGs+AjF20RFUZPyEXjN1owQFE1Xfu1LXn0GjafXRKWUR2kWx6XLwKO7E5722ybwVJ6UJuBexwog0BS8YUgoRztCCpxowEpU/yjpQl4UNkZcEciBZEXxS7ey73mD5+SHdmGDNsrdmpPFUqtuFd5IFDfEklkHJtk/Sc1dgY4gbGtdj2pyzJjmiCvVoo4ITVd9g/WUcQNwVQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB12558.eurprd04.prod.outlook.com
- (2603:10a6:150:368::10) by DBAPR04MB7272.eurprd04.prod.outlook.com
- (2603:10a6:10:1ad::21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Mon, 14 Sep
- 2026 12:50:14 +0000
-Received: from GV2PR04MB12558.eurprd04.prod.outlook.com
- ([fe80::cd9f:102:ea58:4c49]) by GV2PR04MB12558.eurprd04.prod.outlook.com
- ([fe80::cd9f:102:ea58:4c49%6]) with mapi id 15.21.0406.007; Mon, 14 Sep 2026
- 12:50:14 +0000
-From: Larisa Grigore <larisa.grigore@oss.nxp.com>
-To: Larisa Grigore <larisa.grigore@oss.nxp.com>,
-	NXP S32 Linux Team <s32@nxp.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Avri Altman <avri.altman@sandisk.com>,
-	Bart Van Assche <bvanassche@acm.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-	"Martin K. Petersen" <mkp@kernel.org>,
-	Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
-	Ajay Neeli <ajay.neeli@amd.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Pedro Sousa <pedrom.sousa@synopsys.com>
-Cc: linux-scsi@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	clizzi@redhat.com,
-	aruizrui@redhat.com,
-	eballetb@redhat.com,
-	echanude@redhat.com
-Subject: [PATCH v2 05/10] scsi: ufs: dwc: Export common clock divider and link status helpers
-Date: Mon, 14 Sep 2026 14:49:55 +0200
-Message-ID: <20260914125000.30812-6-larisa.grigore@oss.nxp.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260914125000.30812-1-larisa.grigore@oss.nxp.com>
-References: <20260914125000.30812-1-larisa.grigore@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AM9P195CA0016.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:20b:21f::21) To GV2PR04MB12558.eurprd04.prod.outlook.com
- (2603:10a6:150:368::10)
+	id 1x66py-00000003n2W-3jnu;
+	Mon, 14 Sep 2026 13:35:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7201843D15;
+	Mon, 14 Sep 2026 13:35:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 548C3C2BD04;
+	Mon, 14 Sep 2026 13:35:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1789392910;
+	bh=S0bqte9siZrqZnDtdWnyZJkPTbp/4riMI2jQQfrALZs=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=rV4ibUudy1AVJ+FQuqnciNffwY1mVYaOyupGmNfrxxsn36dtT3ur7AZ7x8WNxSjGh
+	 VcefBo1+5KrN+8QpPhuQ//QEYP6ZYjxqUUl/9Q30OZJ3+Coq11ZznlZpOshkLRUlzt
+	 8Lbv3HI45TeCAj37EGPfw4bfQziq95q/sMFA8G/cEi7Ho1QQvG3bOgDArawVGsbhUw
+	 Bn4kvsCVt+KU/qEJ7uWudbly7nU96UqnFFp6Bj/jZfLqTf2OkQCdENV0+iDmjqyC/G
+	 YaBOm0YLZxXtPgGlBK6d385P5fCuAY+2OX2XNEwAWnTDw9wUKVWbotJbLzJ1TCza9P
+	 OSox7IaEc2Xxw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3A19FC88E73;
+	Mon, 14 Sep 2026 13:35:10 +0000 (UTC)
+From: =?utf-8?q?=E5=AE=89=E5=AE=B9_via_B4_Relay?= <devnull+HystericalDragons.proton.me@kernel.org>
+Date: Mon, 14 Sep 2026 21:35:03 +0800
+Subject: [PATCH v6 3/3] arm64: dts: rockchip: Add devicetree for the
+ FriendlyElec NanoPi R28S
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB12558:EE_|DBAPR04MB7272:EE_
-X-MS-Office365-Filtering-Correlation-Id: 02f28ab4-1eef-4d5f-9c44-08df125eb880
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|376014|23010399003|1800799024|366016|921020|6133799003|10067099003|56012099006|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 94hVyO8MxYUMWgsyojJSz+8M9HKqkunP9Wz0aXzqxKdH0x0Ow2H5wceIlS3K5CjGkTaQLVtkwx7pH43zj64rRSAQ22MoldIRBOM0JyBZzzfifXc6SwyPsAQEE2VpE+BlILVO2m0BXBDXzxaWj65GjHa8f5j5QjazBiwb3oi2jVx0IWvH7wFtr1BZ6oc3UU6TPFNGW22UlQ1nNaz4B5iWrm6H6wx1Upalp/XPRWLBqhBB9iOmL/zh/AQl6eNfLMGCApAhzO0TdLLgFDlkbC7zTzKehsIZv5ZfgTB03U3/PWWcBpPHBUAfASgm28WGhPVKHQWWrOEpUeXnCKC0hZ5nWdigYiOot2Uzdtvqidyv+fNqu/nqC6GjI/ck1rn9UY6JgTnT28ruMrwPNsst4FHSaP6qB6ZyikzhV3kDr2RyfaS9OC8a84lqxd59wl0po2zJtNZghscROpFYZF/YWGN0/lv6iJclh48kdK9/Y+9mbBFzsdmXjNjP2gxJqNbVfl6ilzqNNPpcynamaln5M9+G/WipprVOv8BBQxqjHuiL9nT7YdP2AtrXHHwBQIDwXPoFKG0SotArolrax06d2rlB2jwnyb9Sc+WpRt2yCGqXIyMvZqUWAqrp9hx4DcdGoIokEmJ8/OeyvZbKFdasI5HBMe5fizTmpXajxLQPVTN1A18E2c1kHiEDLkqsgrMdPO0fQDCBuAE6y172PPJxu6upHA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12558.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(376014)(23010399003)(1800799024)(366016)(921020)(6133799003)(10067099003)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?M2I1RFlwOXNkSkUzUW5raE91YUsxMmhWWjFBVmhVaVdyY3hQYVZnVVhRNXJa?=
- =?utf-8?B?VFpiS2xGMFAwNExmb1pIZTdYdmNFT3RJZnJobDNMUzVoQTRaMEVOeVVuLzRy?=
- =?utf-8?B?NzVUNFFqZFVhQURjbGF2VFFwcytVTC9BeG41aUJnc2NLNUExUmxKc3ZudXV4?=
- =?utf-8?B?VXRXUFJJNWpidG5zUjN0cTY3cmpGSDFLZ0hvWXMrVVdHNnJTTFE1TUgzTHpQ?=
- =?utf-8?B?cWsyaWw1akpKNjRGdmtJUEQ0bWxWWU45SXgzQ2dralgwNVViMVZDeDJkWnRD?=
- =?utf-8?B?djVhcmFsV21tMlNQUzJzVzlJZWtrTTFRWkNaeFRiZzFEUE0reHpBQmVkNjIz?=
- =?utf-8?B?QThhTUJhdU5DRms0UDVlUU8zeWpHQVcydXdxb294UFExMUZFbnZ4MUwvRzk4?=
- =?utf-8?B?NXJpUFhHKzNITFFUUmppMDcrOFVTM1Vvd1ZLTFdOd2Vsc3BhdlByU3hJbTlp?=
- =?utf-8?B?K3JaQ0VLUlBSbmtBR2NGOXNuMWVLb3Q4TDZ3SWw2ZzRQY2JseGlqU21Dcnlq?=
- =?utf-8?B?RThqV1prb3A1UUZUSVUxajZyNVh5Wkd6TnM5NC9RbU43SHlQR001cG9DYzVT?=
- =?utf-8?B?elNlM0NOZ29BLzE4QlpvMGxlU3ZIL2R3Z1pVVFk2ZVlMMU1lSTJqS2sySFY3?=
- =?utf-8?B?MFZXblVMRmxnTG1wdENVZGtWOGs4OUt6TmVrQ1NEcGJNVGVMUi82UTJFeVQ5?=
- =?utf-8?B?VzEwMUpkREllY0xJbGVnU1FUdThqeU0xNmZJVzM2Y1ZBYmZtR3MwOUtRa2xH?=
- =?utf-8?B?TkFrU25YanZ6VWl6VGRBYThLV3pXTzJQWDZPclhMUUdxeFJTTkpNdWpBNlhK?=
- =?utf-8?B?UGRiVFIwOHMwejBrWDBZbUdESkNvMG1ERGJ6dUltWWtXK2crRFVoalFPMEdh?=
- =?utf-8?B?b2N3K0VsTU5qSDB6TGl0bk9HTis2YWJ5NWwvMFAwZUF6amxjRGdCcTdNZkFF?=
- =?utf-8?B?UHJxU2hTRWpHMndFME5HZ0l4M1V1eW4xTDJRZzV6dzN5UHBkUHVVeHRlUzh6?=
- =?utf-8?B?azV3S2xadjdHUnRTcTluZ3pNVHJrcGdqaWJCS25UOG1qNkREa3lKR1dHR0VV?=
- =?utf-8?B?RGpVb0F2UkNjTzdyZkZTKzl2cGJoZkVPaWNkcmIwb0lTTk9DSExpeVZWZklY?=
- =?utf-8?B?M0pkNE1tTVNUM0d6LzV5emIyQ2RqNFh3eitRODZYZnNvOVZtUHNBS3FiekpS?=
- =?utf-8?B?QkQ4OGd6SC9ZS2tYODlEbkJzTGRzaitCc0NkVjRZWnFQZVpsT1h0eXJZMjI5?=
- =?utf-8?B?Q0J1VTM2UlU3ZEFOVDhQT3FYdmtxd1AyN3VnYmFxV3RnWEVtalZNdzRZa1NS?=
- =?utf-8?B?c1VvU2lCT2Y4UDJlYU9ZVmFGUTBzYy9CWFdzZGVQMGhrMU9Gd3doQlJnc05q?=
- =?utf-8?B?N0ExYWl6dmFoVWFML0VlM2hRMDZnVjFKR3Y2YXYxQ0xMbHEycWFDVWRVU2xM?=
- =?utf-8?B?N2ZkVDNLYTBtTStmYTlSRTRpZHNOUFlLKzVRazF2d3BTeE5CWHZpUzdHNk1S?=
- =?utf-8?B?K1U1aVBvNWRlYUZYZmphdnpoV0pYSXVUYjZ0Uk1xeHZmV0NzdlVwWG90R1o3?=
- =?utf-8?B?RC9nU2cvUGhXUEZNMHFRakZRTHF3cElmV3RVeFV1Z1R1ejdhbG5CbWw2MFJZ?=
- =?utf-8?B?bjhiWWkvOU5BV2FkN0crM055NkVrQ0JERUFrSjhGTVZDMkR5aUNFekc0Wng3?=
- =?utf-8?B?d1Vqd2YxL1ozRGs5aXNqb3UvT2I1NzNvRVVWbUdXTTh5c21ZdWJnU01sdnF2?=
- =?utf-8?B?YnpPUUlDZlFtdDNaWmp1RjA2bytWMDZOVUxxZnBKUENLS0xFM3NyS2x4TkRW?=
- =?utf-8?B?MHBEUVRiUXlSWWUwY3lZbzlpMTdNZ1pma1hsNEI3V3kxOC9nRXVWYytKV0dk?=
- =?utf-8?B?djFhNnZmTWJjald4RDV0ZWdpSGZVQTdhU0NwQnBxQ1FsVjg1aEpCdHBKa1ZV?=
- =?utf-8?B?eDRZK3NmY3IwQ1J2Yk1EelpwZ0RsOUZFYVYwOWNsT0hKSE1Cek82RXN4bDgx?=
- =?utf-8?B?Y2ZTMDV3cGdxNkFlcWZqbkd5Y0Q5Y1ZISnVKTzZQZ2RRKy9rNXgrUjRaWHVa?=
- =?utf-8?B?U2d0ZXgwZkNoRk1zSk8yVGFvV0xlY25mWVJaOGVzNnNvT0VZRWM4anpuTTQw?=
- =?utf-8?B?TkRFbGQ4MUF5OUs3ZGJkL2VlYjZwZkxNeVpNMVRENjZ2Q1RNS2JVRlNWOTdt?=
- =?utf-8?B?eEZZS003TWc2TEtWKzJVbk5FNTZaWnhjRm55QWpTMm10TmdvUVl4S0JCTytw?=
- =?utf-8?B?djBCN2tuZmJLOTlJL25YekhuVk9DVWZVZHE4TmFvU0RWalllcTVlMHJjY0dh?=
- =?utf-8?B?UnhCVVQ4bkRkclZoRCszT2ptUVJiZTVYQzYyeXdMMkZZM0JHZmZ5dz09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 02f28ab4-1eef-4d5f-9c44-08df125eb880
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12558.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Sep 2026 12:50:14.2520
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3XurG7zRCkoOiiaZnnyKIVgtsafXu+B/MfSADIB6uWAqnxzah9gJkzkAaTZcU8pmDZdQYhi9HkF9P9KvG3MYzg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7272
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_055020_340485_830C3DB8 
-X-CRM114-Status: GOOD (  11.45  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260914-r28s-upstream-v6-3-ea9edd75c126@proton.me>
+References: <20260914-r28s-upstream-v6-0-ea9edd75c126@proton.me>
+In-Reply-To: <20260914-r28s-upstream-v6-0-ea9edd75c126@proton.me>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Chukun Pan <amadeus@jmu.edu.cn>, Jonas Karlman <jonas@kwiboo.se>, 
+ jensen <jensenhuang@friendlyarm.com>, 
+ Andrey Korshunov <razor1702@gmail.com>, 
+ Diederik de Haas <diederik@cknow-tech.com>, 
+ =?utf-8?q?=E5=AE=89=E5=AE=B9?= <HystericalDragons@proton.me>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4997;
+ i=HystericalDragons@proton.me; h=from:subject:message-id;
+ bh=/vyK+Bs22B1ZYJ3TWXwv77tqbArdt32/JXMUhi4gQoU=;
+ b=owGbwMvMwCUmepz3XUtTHjvjabUkhqzlP3jMTu4K+L7fscG14Wb1jtL3xoy5TrPr406UPlZr6
+ tt15Pr3jlIWBjEuBlkxRRbZTdWRQquiZxaxSB2HmcPKBDKEgYtTACYyqYfhJ+O17vU+LaGnntcx
+ FyccFDqctO//3fXS3hNmNHw8vKRSI5jhf/RvJ+9FSw6nnXDXPX5gW0uke9dLC1ejvTK6BqvMHsh
+ JsgEA
+X-Developer-Key: i=HystericalDragons@proton.me; a=openpgp;
+ fpr=1DB27B5912AA5B9972041AC715C70DEE84826E07
+X-Endpoint-Received: by B4 Relay for HystericalDragons@proton.me/default
+ with auth_id=1004
+X-Original-From: =?utf-8?q?=E5=AE=89=E5=AE=B9?= <HystericalDragons@proton.me>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,67 +87,205 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: HystericalDragons@proton.me
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Make ufshcd_dwc_program_clk_div() and ufshcd_dwc_link_is_up() available to
-DWC-based platform glue drivers. These helpers are needed by platform
-drivers that must program the controller HCLK divider and verify link state
-during their vendor-specific initialization flows.
+From: 安容 <HystericalDragons@proton.me>
 
-Signed-off-by: Larisa Grigore <larisa.grigore@oss.nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+The NanoPi R28S is a dual gigabit Ethernet router board based on the
+Rockchip RK3528 SoC, designed and developed by FriendlyElec. It shares
+most of its design with the NanoPi Zero2, so it builds on the common
+rk3528-nanopi.dtsi.
+
+Specification:
+- Rockchip RK3528
+- 1GB RAM
+- eMMC socket (optional)
+- MicroSD slot
+- 1x 1000Base-T (GMAC1, Realtek RTL8211F)
+- 1x 1000Base-T (PCIe, Realtek RTL8111H)
+- AICSemi AIC8800D80 SDIO WiFi
+- 3x LEDs (SYS, LAN, WAN)
+- 1x USB 2.0 Type-C, peripheral only, shared with the 5V power input
+- User and MaskROM buttons
+- Haoyu HYM8563 RTC
+- 1x USB Type-C debug UART (onboard WCH CH340E)
+
+Assisted-by: LLM
+Signed-off-by: 安容 <HystericalDragons@proton.me>
 ---
- drivers/ufs/host/ufshcd-dwc.c | 6 ++++--
- drivers/ufs/host/ufshcd-dwc.h | 2 ++
- 2 files changed, 6 insertions(+), 2 deletions(-)
+ arch/arm64/boot/dts/rockchip/Makefile              |   1 +
+ .../arm64/boot/dts/rockchip/rk3528-nanopi-r28s.dts | 146 +++++++++++++++++++++
+ 2 files changed, 147 insertions(+)
 
-diff --git a/drivers/ufs/host/ufshcd-dwc.c b/drivers/ufs/host/ufshcd-dwc.c
-index 0eceec543d14..7fe54923c6c6 100644
---- a/drivers/ufs/host/ufshcd-dwc.c
-+++ b/drivers/ufs/host/ufshcd-dwc.c
-@@ -39,10 +39,11 @@ EXPORT_SYMBOL(ufshcd_dwc_dme_set_attrs);
-  * @divider_val: clock divider value to be programmed
-  *
-  */
--static void ufshcd_dwc_program_clk_div(struct ufs_hba *hba, u32 divider_val)
-+void ufshcd_dwc_program_clk_div(struct ufs_hba *hba, u32 divider_val)
- {
- 	ufshcd_writel(hba, divider_val, DWC_UFS_REG_HCLKDIV);
- }
-+EXPORT_SYMBOL(ufshcd_dwc_program_clk_div);
- 
- /**
-  * ufshcd_dwc_link_is_up() - check if link is up.
-@@ -50,7 +51,7 @@ static void ufshcd_dwc_program_clk_div(struct ufs_hba *hba, u32 divider_val)
-  *
-  * Return: 0 on success, non-zero value on failure.
-  */
--static int ufshcd_dwc_link_is_up(struct ufs_hba *hba)
-+int ufshcd_dwc_link_is_up(struct ufs_hba *hba)
- {
- 	int dme_result = 0;
- 
-@@ -63,6 +64,7 @@ static int ufshcd_dwc_link_is_up(struct ufs_hba *hba)
- 
- 	return 1;
- }
-+EXPORT_SYMBOL(ufshcd_dwc_link_is_up);
- 
- /**
-  * ufshcd_dwc_connection_setup() - configure unipro attributes.
-diff --git a/drivers/ufs/host/ufshcd-dwc.h b/drivers/ufs/host/ufshcd-dwc.h
-index d8673cd54d4c..53b523ef59df 100644
---- a/drivers/ufs/host/ufshcd-dwc.h
-+++ b/drivers/ufs/host/ufshcd-dwc.h
-@@ -47,4 +47,6 @@ int ufshcd_dwc_dme_set_attrs(struct ufs_hba *hba,
- 				const struct ufshcd_dme_attr_val *v, int n);
- int ufshcd_dwc_phy_reg_write(struct ufs_hba *hba, u32 addr, u32 val);
- int ufshcd_dwc_phy_reg_read(struct ufs_hba *hba, u32 addr, u32 *val);
-+int ufshcd_dwc_link_is_up(struct ufs_hba *hba);
-+void ufshcd_dwc_program_clk_div(struct ufs_hba *hba, u32 divider_val);
- #endif /* End of Header */
+diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
+index b677914cd3..51a9889088 100644
+--- a/arch/arm64/boot/dts/rockchip/Makefile
++++ b/arch/arm64/boot/dts/rockchip/Makefile
+@@ -94,6 +94,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-vicharak-vaaman.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399pro-rock-pi-n10.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-armsom-sige1.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-hinlink-h28k.dtb
++dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-nanopi-r28s.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-nanopi-zero2.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-radxa-e20c.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-rock-2a.dtb
+diff --git a/arch/arm64/boot/dts/rockchip/rk3528-nanopi-r28s.dts b/arch/arm64/boot/dts/rockchip/rk3528-nanopi-r28s.dts
+new file mode 100644
+index 0000000000..a453a990b3
+--- /dev/null
++++ b/arch/arm64/boot/dts/rockchip/rk3528-nanopi-r28s.dts
+@@ -0,0 +1,146 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright (c) 2022 Rockchip Electronics Co., Ltd.
++ * Copyright (c) 2026 FriendlyElec Computer Tech. Co., Ltd.
++ * Copyright (c) 2026 安容 <HystericalDragons@proton.me>
++ */
++
++/dts-v1/;
++
++#include <dt-bindings/leds/common.h>
++#include "rk3528-nanopi.dtsi"
++
++/ {
++	model = "FriendlyElec NanoPi R28S";
++	compatible = "friendlyarm,nanopi-r28s", "rockchip,rk3528";
++
++	aliases {
++		mmc2 = &sdio0;
++		serial2 = &uart2;
++	};
++
++	gpio-keys {
++		compatible = "gpio-keys";
++		pinctrl-names = "default";
++		pinctrl-0 = <&gpio4_b2_usr_btn>;
++
++		button-user {
++			debounce-interval = <50>;
++			gpios = <&gpio4 RK_PB2 GPIO_ACTIVE_LOW>;
++			label = "USER";
++			linux,code = <BTN_1>;
++			wakeup-source;
++		};
++	};
++
++	sdio_pwrseq: sdio-pwrseq {
++		compatible = "mmc-pwrseq-simple";
++		pinctrl-names = "default";
++		pinctrl-0 = <&pwr_wf>;
++		post-power-on-delay-ms = <100>;
++		reset-gpios = <&gpio1 RK_PC2 GPIO_ACTIVE_LOW>;
++	};
++};
++
++&combphy {
++	status = "okay";
++};
++
++&leds {
++	pinctrl-0 = <&led1>, <&led2>, <&led_sys>;
++
++	led-1 {
++		color = <LED_COLOR_ID_GREEN>;
++		default-state = "off";
++		function = LED_FUNCTION_WAN;
++		gpios = <&gpio4 RK_PB1 GPIO_ACTIVE_HIGH>;
++		linux,default-trigger = "netdev";
++	};
++
++	led-2 {
++		color = <LED_COLOR_ID_GREEN>;
++		default-state = "off";
++		function = LED_FUNCTION_LAN;
++		gpios = <&gpio4 RK_PB3 GPIO_ACTIVE_HIGH>;
++		linux,default-trigger = "netdev";
++	};
++};
++
++&pcie {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pcie_eth_perstb>;
++	reset-gpios = <&gpio4 RK_PC0 GPIO_ACTIVE_HIGH>;
++	vpcie3v3-supply = <&vcc_3v3>;
++	status = "okay";
++};
++
++&pinctrl {
++	gpio-keys {
++		gpio4_b2_usr_btn: gpio4-b2-usr-btn {
++			rockchip,pins = <4 RK_PB2 RK_FUNC_GPIO &pcfg_pull_up>;
++		};
++	};
++
++	leds {
++		led2: led2 {
++			rockchip,pins = <4 RK_PB3 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
++	pcie {
++		pcie_eth_perstb: pcie-eth-perstb {
++			rockchip,pins = <4 RK_PC0 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
++	wifi {
++		pwr_wf: pwr-wf {
++			rockchip,pins = <1 RK_PC2 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++};
++
++&sdio0 {
++	bus-width = <4>;
++	cap-sd-highspeed;
++	cap-sdio-irq;
++	keep-power-in-suspend;
++	mmc-pwrseq = <&sdio_pwrseq>;
++	no-mmc;
++	no-sd;
++	non-removable;
++	sd-uhs-sdr104;
++	vmmc-supply = <&vcc_3v3>;
++	vqmmc-supply = <&vcc_1v8>;
++	status = "okay";
++};
++
++&uart2 {
++	dma-names = "tx", "rx";
++	pinctrl-names = "default";
++	pinctrl-0 = <&uart2m1_xfer>, <&uart2m1_ctsn>, <&uart2m1_rtsn>;
++	uart-has-rtscts;
++	status = "okay";
++};
++
++&usb_host0_xhci {
++	/*
++	 * The Type-C port is also the 5V power input. Both CC pins have a
++	 * 5.1k pull-down, the ID pin is not connected and VBUS only feeds
++	 * the 5V rail, so the port can only ever be a device.
++	 */
++	dr_mode = "peripheral";
++	extcon = <&usb2phy>;
++	maximum-speed = "high-speed";
++	phys = <&usb2phy_otg>;
++	phy-names = "usb2-phy";
++	status = "okay";
++};
++
++&usb2phy {
++	status = "okay";
++};
++
++&usb2phy_otg {
++	status = "okay";
++};
+
 -- 
-2.43.0
+2.55.0
+
 
 
