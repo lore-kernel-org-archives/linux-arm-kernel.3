@@ -4,53 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C25A7C88E64
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 11:43:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F3FCC88E71
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 11:43:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GhJEZVTmWCutK8CuRal+hlp6EWxxjoBec/bFsRo0Q40=; b=BFe78VKVacGMqPPqdsDLmeLCUE
-	uTCj6ukCPoLieYBcMc6eeIgSUEyASes+vBUug1sv7v+m5LvnfTF1ROeqz6WwDqh+gIAKpYoGas5V0
-	Eayrg3Y9JlHHd3Za95EpmHbfTCAbtfVUXBVNdyoFrdmHHpAdaxCgH7KdFFxkhNQx/H3J/LB04QjLz
-	j8DADQpAJ7gBAPkB0qznKsVobFO18fIs24OzQAQ0vR43JlziZQCwT1GUVd5M8IZzoKWD1cJPikJ35
-	3U86Nnq0GvmGIt+KXuygpMP5Gt4tLk4oZr3ECKwxb9uD4HwGPbV3ewE4UN19qOjnKkm9uvBsQRpnH
-	3jr9viUQ==;
+	bh=ZW/Tdj3bVLx1UwE3X/hNQWAdAvY+Hiob2QqqnLyGvfE=; b=rKdc2WWBJ0JWNAq2KahdlSF7is
+	vqyxbojUsoOCfqKyAryWTC50jQ0MdL25UURUJeni+flDE0Y0M6pxX2NSBpWDVTCijBT38HDiDlo5h
+	aqT2HOMFNGmUI9JIZ1zTzry72ci5KXWr4N2yx9SXcUh/do3CwppRP0FHZ2Tgezd18EFv5qHV2Wn9D
+	7X+6VXl0eDYqQ2G20+H2LUesXMTx1io/T2/cqukn3v3niy1woujfhi8vzKxY+L3zuU2JpmTKMeryF
+	WqVI0FpAGi2d1zOX7W7QVUcoghW7renQGckXtvZMz76smj2Jviq6dgoek82TFE9m2lFFRZEeVaOQw
+	5AkG5hJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x655K-00000003LTF-39b4;
-	Mon, 14 Sep 2026 11:42:54 +0000
-Received: from www3579.sakura.ne.jp ([49.212.243.89])
+	id 1x655Q-00000003Lbd-1bbJ;
+	Mon, 14 Sep 2026 11:43:00 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6550-00000003LCW-0LH8
+	id 1x655C-00000003LLt-3Xfu
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 14 Sep 2026 11:42:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=ZW/Tdj3bVLx1UwE3X/hNQWAdAvY+Hiob2QqqnLyGvfE=; b=cKuiO0tnGBpAQQXcWCUyFNk3v3
+	Nx85alwkPgWbptU4HDoGZeMy2B2pzNxicZwG4KFkdFSoJzOcJ+8PBU7TNoWQbXGbcxlyZpxdWlGwG
+	cydhvh09HPF3KEjZT+Way3dkClJivr1o3YESnd49b+228r8PE6GKxpa4L93INTSJOb34uHbWsqpBB
+	X9tLr/e0snkLySfIQDxvXW95pDv0bT2P5GPuSAgR3+B1g3oTXiFZgkK77150iVS4v8lqo4w7yMcx6
+	2Hz0tfUwSp6PjaccIr37RSYxN/RVYoG86ZrZW0lYApV8G4hSMpxOdKCNg7UbyFeqpfRdlvZnO+s5X
+	Z7qCXlDg==;
+Received: from www3579.sakura.ne.jp ([49.212.243.89])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6558-00000005YCo-14no
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 11:42:40 +0000
+	Mon, 14 Sep 2026 11:42:45 +0000
 Received: from h183.csg.ci.i.u-tokyo.ac.jp (h183.csg.ci.i.u-tokyo.ac.jp [133.11.54.183])
 	(authenticated bits=0)
-	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 68EBfjsH084060
+	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 68EBfjs7084060
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Mon, 14 Sep 2026 20:41:56 +0900 (JST)
+	Mon, 14 Sep 2026 20:41:53 +0900 (JST)
 	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
-DKIM-Signature: a=rsa-sha256; bh=GhJEZVTmWCutK8CuRal+hlp6EWxxjoBec/bFsRo0Q40=;
+DKIM-Signature: a=rsa-sha256; bh=ZW/Tdj3bVLx1UwE3X/hNQWAdAvY+Hiob2QqqnLyGvfE=;
         c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
         h=From:Message-Id:To:Subject:Date;
-        s=rs20250326; t=1789386116; v=1;
-        b=fK3380i3yvyBX4O6d7ka3wD0/OEKqOKddLIQLwwEuCKnupoV+2EQmTgYEzbhI33g
-         HpyehYGQ6/UsujL19E/KvhqV8v61kmwb3Y/fCU6PJCXtrMWf9bkhQTsY8yp3jTq/
-         13G4GWD8c8no9Pkj1WXDxk+sHqjuhpsjWmZdLWTZXF0kI+KcceOwlU/iNGpQP3QI
-         GAI1XFDDZpJOScOMfVQA8COrnkqVXtqp2fzcVGFuloBQnPJssUqkCuK3en1+dDzz
-         WxzYsq0pOETbGTHCMmzMfFdpjMzELnNdfHixZU20qIiIuk2+SwRa1kD1hUATLUEf
-         Y+Z6vcteH8rwD/49rYiC6w==
+        s=rs20250326; t=1789386113; v=1;
+        b=MlGSDuk7SKaQ8izN+dOvH2xaoA9UX8xpYXL54GdL6gVXgk+Sq1cdZsXlFr+sLJP0
+         Qe4q4XvQ4br61fjmjNFy4z7DjrTMs0gCmj9wensbeYGIcITJFSa7mU8/Qi0myRfU
+         b9PAuytGmopZpYAeJ0nHvUSkEdSn57IlXAcjoEl+Tol6GOyvu1eWFC5M/9S3k7FZ
+         wvPNHtlvKvTAqPUdMqQ4z2dKSUIyzssHDTjkRT2prvxaheGDWEPIBfhHx/LYqYYq
+         HkfaSzTIqoy8egRkA8s78Sd9FwkSksEJONbzUR60ZuRilx01PxhWTTz6y5FayXLJ
+         fOdGInMWdYRNYywdreF6TA==
 From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Date: Mon, 14 Sep 2026 20:40:54 +0900
-Subject: [PATCH v10 15/20] KVM: arm64: PMU: Protect the list of PMUs with
- RCU
+Date: Mon, 14 Sep 2026 20:40:44 +0900
+Subject: [PATCH v10 05/20] KVM: arm64: PMU: Keep implemented counter mask
+ EL-independent
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260914-hybrid-v10-15-92788053a691@rsg.ci.i.u-tokyo.ac.jp>
+Message-Id: <20260914-hybrid-v10-5-92788053a691@rsg.ci.i.u-tokyo.ac.jp>
 References: <20260914-hybrid-v10-0-92788053a691@rsg.ci.i.u-tokyo.ac.jp>
 In-Reply-To: <20260914-hybrid-v10-0-92788053a691@rsg.ci.i.u-tokyo.ac.jp>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
@@ -74,18 +89,18 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
         Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>,
         Fuad Tabba <fuad.tabba@linux.dev>
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2743;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1575;
  i=odaki@rsg.ci.i.u-tokyo.ac.jp; h=from:subject:message-id;
- bh=pedYvIkMPkw2UKgQ2Eo+uCCbPTSI7IGTLXtxt7GZPGY=;
- b=owGbwMvMwCWmMbc20y1CyJDxtFoSQ9byu6VrXiVeD4gJvblHj99i2/ZNuSbCB99FLZT/zPk1r
- 3YdN4deRykLgxgXg6yYIktK0W5ujejaT4UJ8S0wc1iZQIYwcHEKwER+HWf4pyLBIR6l+m7XjMnv
- uLKrp4bIJextV3p5T0dhWdnrbVFtdxj+cOg+0J07YUdNqXhV0WerSY+fu/qF3F46+8DEswqOnob
- VTAA=
+ bh=OkvBLyzd2QOHEMuSfHYwvhh6JbY910F/L4YLee/eXFI=;
+ b=owGbwMvMwCWmMbc20y1CyJDxtFoSQ9byu7kxU0pKhNqKfzIrGPgYPXZkDytU2X3GR0hBudl7l
+ fsKI8GOUhYGMS4GWTFFlpSi3dwa0bWfChPiW2DmsDKBDGHg4hSAiWSdYvgfu6urzehA/b9Ej2Wc
+ EZt6MzLvM9hH8/1S7+cQfRv428OZkeG4yDxhmwD9dP2QzfzbXz1ed6Fyv0aEouSxt2U256pfXGU
+ CAA==
 X-Developer-Key: i=odaki@rsg.ci.i.u-tokyo.ac.jp; a=openpgp;
  fpr=AEDC03C9AF734F2EC26A7BFFA4BAEAA73536753C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_044234_827039_67033819 
-X-CRM114-Status: GOOD (  13.22  )
+X-CRM114-CacheID: sfid-20260914_124243_017482_78D13C32 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,97 +115,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the list of PMUs to a RCU-protected list that has primitives to
-avoid read-side contention.
+kvm_pmu_implemented_counter_mask() derives the counter count from
+kvm_vcpu_read_pmcr(). For a nested vCPU outside EL2, PMCR_EL0.N reflects
+MDCR_EL2.HPMN instead of the VM-wide counter count.
 
-Assisted-by: Codex:gpt-5.5
+Consequently, processing a PMU reload while the saved context is L2 can
+clear and fail to recreate state for counters reserved for EL2.
+
+Build the implemented counter mask from nr_pmu_counters instead. Keep
+the EL-dependent HPMN restriction in
+kvm_pmu_accessible_counter_mask(), where it controls guest access.
+
+Fixes: 600f6fa5c90c ("KVM: arm64: Let kvm_vcpu_read_pmcr() return an EL-dependent value for PMCR_EL0.N")
+Assisted-by: Codex:gpt-5.6-sol
 Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
 Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/kvm/pmu-emul.c | 18 ++++++++++--------
- 1 file changed, 10 insertions(+), 8 deletions(-)
+ arch/arm64/kvm/pmu-emul.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-index e24ad6c72937..94bc69727c9f 100644
+index 950b7a349659..a5ccb6ae44d5 100644
 --- a/arch/arm64/kvm/pmu-emul.c
 +++ b/arch/arm64/kvm/pmu-emul.c
-@@ -7,9 +7,9 @@
- #include <linux/cpu.h>
- #include <linux/kvm.h>
- #include <linux/kvm_host.h>
--#include <linux/list.h>
- #include <linux/perf_event.h>
- #include <linux/perf/arm_pmu.h>
-+#include <linux/rculist.h>
- #include <linux/uaccess.h>
- #include <asm/kvm_emulate.h>
- #include <kvm/arm_pmu.h>
-@@ -17,6 +17,10 @@
+@@ -317,12 +317,12 @@ u64 kvm_pmu_accessible_counter_mask(struct kvm_vcpu *vcpu)
  
- #define PERF_ATTR_CFG1_COUNTER_64BIT	BIT(0)
- 
-+/*
-+ * arm_pmus is append-only. kvm_supports_guest_pmuv3() feeds persistent
-+ * VM state, so a true result must remain valid after the check.
-+ */
- static LIST_HEAD(arm_pmus);
- static DEFINE_MUTEX(arm_pmus_lock);
- 
-@@ -26,7 +30,6 @@ static bool kvm_pmu_counter_is_enabled(struct kvm_pmc *pmc);
- 
- bool kvm_supports_guest_pmuv3(void)
+ u64 kvm_pmu_implemented_counter_mask(struct kvm_vcpu *vcpu)
  {
--	guard(mutex)(&arm_pmus_lock);
- 	return !list_empty(&arm_pmus);
+-	u64 val = FIELD_GET(ARMV8_PMU_PMCR_N, kvm_vcpu_read_pmcr(vcpu));
++	u64 n = vcpu->kvm->arch.nr_pmu_counters;
+ 
+-	if (val == 0)
++	if (n == 0)
+ 		return BIT(ARMV8_PMU_CYCLE_IDX);
+ 	else
+-		return GENMASK(val - 1, 0) | BIT(ARMV8_PMU_CYCLE_IDX);
++		return GENMASK(n - 1, 0) | BIT(ARMV8_PMU_CYCLE_IDX);
  }
  
-@@ -819,7 +822,7 @@ void kvm_host_pmu_init(struct arm_pmu *pmu)
- 		return;
- 
- 	entry->arm_pmu = pmu;
--	list_add_tail(&entry->entry, &arm_pmus);
-+	list_add_tail_rcu(&entry->entry, &arm_pmus);
- }
- 
- static struct arm_pmu *kvm_pmu_probe_armpmu(void)
-@@ -828,7 +831,7 @@ static struct arm_pmu *kvm_pmu_probe_armpmu(void)
- 	struct arm_pmu *pmu;
- 	int cpu;
- 
--	guard(mutex)(&arm_pmus_lock);
-+	guard(rcu)();
- 
- 	/*
- 	 * It is safe to use a stale cpu to iterate the list of PMUs so long as
-@@ -848,7 +851,7 @@ static struct arm_pmu *kvm_pmu_probe_armpmu(void)
- 	 * carried here.
- 	 */
- 	cpu = raw_smp_processor_id();
--	list_for_each_entry(entry, &arm_pmus, entry) {
-+	list_for_each_entry_rcu(entry, &arm_pmus, entry) {
- 		pmu = entry->arm_pmu;
- 
- 		if (cpumask_test_cpu(cpu, &pmu->supported_cpus))
-@@ -1114,9 +1117,9 @@ static int kvm_arm_pmu_v3_set_pmu(struct kvm_vcpu *vcpu, int pmu_id)
- 	int ret = -ENXIO;
- 
- 	lockdep_assert_held(&kvm->arch.config_lock);
--	mutex_lock(&arm_pmus_lock);
-+	guard(rcu)();
- 
--	list_for_each_entry(entry, &arm_pmus, entry) {
-+	list_for_each_entry_rcu(entry, &arm_pmus, entry) {
- 		arm_pmu = entry->arm_pmu;
- 		if (arm_pmu->pmu.type == pmu_id) {
- 			if (kvm_vm_has_ran_once(kvm) ||
-@@ -1143,7 +1146,6 @@ static int kvm_arm_pmu_v3_set_pmu(struct kvm_vcpu *vcpu, int pmu_id)
- 		}
- 	}
- 
--	mutex_unlock(&arm_pmus_lock);
- 	return ret;
- }
- 
+ static void kvm_pmc_enable_perf_event(struct kvm_pmc *pmc)
 
 -- 
 2.55.0
