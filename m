@@ -4,51 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CC55C88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 11:55:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 074A9C88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 11:55:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0WQR24aA1+zpILZ24E2nmmO9FJh3/tkJD7MuOSXMJkc=; b=Bsneac8gGCSosyvtJObq/fpRKR
-	nX9Dzn356bChql9IKVeOhiJFi+rxGs2fN+OxsWqOa+cjoPtcj3kViycrgtUa/dF9ma6URJbTfmn6b
-	AiBjumo5XTqFvVTftm12Lh1+9iM+E9p5vRWyY2oFEpOw60OLuWjCHo7R32UbNiL9UBxwEFT2NvfJN
-	ulB4p65Tg2KVLQTsZxjpcJaS4juttfJL1CjG8n37mA5WzGQ1A1gVkagKw0b3sQWDDKVNE/9HITFNT
-	IownO/GhXfYdd3yXWKTXRf3gDpNHK48RTIcNA/SQPa24tMqbAomcoeDeNpZ58LSaH90Ub+xG8YY/G
-	Cn8GAi3A==;
+	bh=KOCsjRkBypCPyH2YlnwYvNyuwyphb2mRtG01Ff9alSU=; b=Ogw5J2Fxe5aXdIIAXwo+TwOonf
+	LVrS+Ucfl4blG4pkgjCER+ytv5uHc4TUs74i1Zj/Cly6OcnWURmZgPrqf5Rm9zB0ui+ryBbyhmbR4
+	b8XUVL3gxQJyXf5GNvF0nU7VCpizF0YRgSFgN6MVc91dGGP6CuFj28yrKbAMBzm8O+ic/AsJBk4mg
+	FHXDCYM1jfRgi4w4vnzGGb57IZ8SyaIxvKgQfpSRjjaLrOXIBVvEj7v39zeF4+TPBlyJ8uZm8u5sb
+	JtwVw3jV/i5UC6Y/gGLyWF4u6awNfW/XvLi/AJoqr1m0T/Ql4U5s3TTh6AYRf+Xjbed4OVeyszCbm
+	dYxUBtQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x65Gr-00000003OY8-09Er;
-	Mon, 14 Sep 2026 11:54:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x65H7-00000003Oer-2DQ8;
+	Mon, 14 Sep 2026 11:55:07 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x65Gn-00000003OWj-3VxO
+	id 1x65Gs-00000003OYl-0DBB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 11:54:47 +0000
+	Mon, 14 Sep 2026 11:54:51 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6FF52403F3;
+	by sea.source.kernel.org (Postfix) with ESMTP id 9EBAE40C0B;
+	Mon, 14 Sep 2026 11:54:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5A781F00893;
 	Mon, 14 Sep 2026 11:54:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67F0C1F000FF;
-	Mon, 14 Sep 2026 11:54:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789386885;
-	bh=0WQR24aA1+zpILZ24E2nmmO9FJh3/tkJD7MuOSXMJkc=;
+	s=k20260515; t=1789386889;
+	bh=KOCsjRkBypCPyH2YlnwYvNyuwyphb2mRtG01Ff9alSU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=BuRSVoGTDJ5b6ZWeoUYUn/0++Uuw4qeo8slDYh69a9IWsCFCAou4v3xMJFeegq0v3
-	 tTzetCMiDtySzL6cZnzaJSXvZXx82jLxblY/Uc/zkeRXSoBrYFtlVvbSsHmF3klHsn
-	 +MiAajbLsVRYi4a4qoNEZsbyjc9TVwdsNrlB5MVASKYfow6LsGX2Dtzls9qPvgvTL/
-	 0Z5PfwBuTvQUMbXCuOqcYszuYqwF83K6MemtvrcN/KZvxK8x7NCZklknEKKeTO4YbR
-	 RR2Lva4n5YJQ++nqoTJSBKcNqUsKLN+L5YTB2rjsRy3bhd88ic2/bFdoPzXS5UMUWk
-	 vLYOikbQd2k1g==
+	b=LP0ELdhJykW6OYeigGpKRCelEZ1nEfq9pwY2OFrFr93/JfWPot9NNyFZ7JW8bvubj
+	 hmPHk9Mu+GJudg1+6Ycev3LPViRMHEYNiab2QvXdGZL8U3KSB1vRR1yFpVcE5icxRZ
+	 qMsdwx3hMK72qv0nD79OO7ZL1rM2pRWpQjti9DxS9KttTrZ9CRDAhXzYkGE3ckSrAp
+	 XMCRVV9ehrygpGMfB/p9/Az+bTsP7iyHUOJ6JCctAtwlF+xtloPgpr9IJ8aG/PKnw3
+	 wzP7STjlzsQmameSbll1H6Aks0uZYvBrUeUuZu0R7iohjd4ZdyglPD+x+RT+bvFL1V
+	 mKjE/5LlHPxHQ==
 From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 14 Sep 2026 13:54:30 +0200
-Subject: [PATCH v2 02/20] dt-bindings: arm: ux500: Drop NR_DOMAINS
+Date: Mon, 14 Sep 2026 13:54:31 +0200
+Subject: [PATCH v2 03/20] dt-bindings: arm: Add the actual power domains on
+ U8500
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260914-ux500-power-domains-v7-1-v2-2-9d0c17e1f816@kernel.org>
+Message-Id: <20260914-ux500-power-domains-v7-1-v2-3-9d0c17e1f816@kernel.org>
 References: <20260914-ux500-power-domains-v7-1-v2-0-9d0c17e1f816@kernel.org>
 In-Reply-To: <20260914-ux500-power-domains-v7-1-v2-0-9d0c17e1f816@kernel.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -61,8 +62,7 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Lee Jones <lee@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
  linux-pm@vger.kernel.org, dri-devel@lists.freedesktop.org, 
- dmaengine@vger.kernel.org, Linus Walleij <linusw@kernel.org>, 
- Krzysztof Kozlowski <krzk@kernel.org>
+ dmaengine@vger.kernel.org, Linus Walleij <linusw@kernel.org>
 X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,43 +78,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Keep the internal Ux500 PM domain count local to the only driver
-that uses it.
+This file has been left in an unfinished state just defining
+the root power domain for the U8500 SoC. Fix it up by adding
+the actual existing power domains in this SoC.
 
-Do not expose this implementation detail through the DT binding header.
+The PRCMU code and old regulator driver is mentioning some
+*_RET domains, this means "retention" and is a state in the
+domain and not a domain of its own.
 
-Assisted-by: LLM
-Reported-by: Krzysztof Kozlowski <krzk@kernel.org>
-Closes: https://lore.kernel.org/linux-devicetree/20260623-just-grinning-peccary-d661ca@quoll/
 Signed-off-by: Linus Walleij <linusw@kernel.org>
 ---
- drivers/pmdomain/st/ste-ux500-pm-domain.c  | 2 ++
- include/dt-bindings/arm/ux500_pm_domains.h | 2 --
- 2 files changed, 2 insertions(+), 2 deletions(-)
+ include/dt-bindings/arm/ux500_pm_domains.h | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-diff --git a/drivers/pmdomain/st/ste-ux500-pm-domain.c b/drivers/pmdomain/st/ste-ux500-pm-domain.c
-index 6896cb4a7b71..c9129a3b1805 100644
---- a/drivers/pmdomain/st/ste-ux500-pm-domain.c
-+++ b/drivers/pmdomain/st/ste-ux500-pm-domain.c
-@@ -17,6 +17,8 @@
- 
- #include <dt-bindings/arm/ux500_pm_domains.h>
- 
-+#define NR_DOMAINS		(DOMAIN_VAPE + 1)
-+
- static int pd_power_off(struct generic_pm_domain *domain)
- {
- 	/*
 diff --git a/include/dt-bindings/arm/ux500_pm_domains.h b/include/dt-bindings/arm/ux500_pm_domains.h
-index 9bd764f0c9e6..9d94801d8b89 100644
+index 9d94801d8b89..f7a9fc101fb2 100644
 --- a/include/dt-bindings/arm/ux500_pm_domains.h
 +++ b/include/dt-bindings/arm/ux500_pm_domains.h
-@@ -9,7 +9,5 @@
+@@ -8,6 +8,21 @@
+ #define _DT_BINDINGS_ARM_UX500_PM_DOMAINS_H
  
  #define DOMAIN_VAPE		0
++#define DOMAIN_VARM		1
++#define DOMAIN_VMODEM		2
++#define DOMAIN_VPLL		3
++#define DOMAIN_VSMPS1		4
++#define DOMAIN_VSMPS2		5
++#define DOMAIN_VSMPS3		6
++#define DOMAIN_VRF1		7
++#define DOMAIN_SVA_MMDSP	8
++#define DOMAIN_SVA_PIPE		9
++#define DOMAIN_SIA_MMDSP	10
++#define DOMAIN_SIA_PIPE		11
++#define DOMAIN_SGA		12
++#define DOMAIN_B2R2_MCDE	13
++#define DOMAIN_ESRAM_12		14
++#define DOMAIN_ESRAM_34		15
  
--/* Number of PM domains. */
--#define NR_DOMAINS		(DOMAIN_VAPE + 1)
  
  #endif
 
