@@ -4,146 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77DAEC88E65
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 10:47:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 805F1C88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 10:48:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:From:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6FCluIoCDR0lf5/KCGbkxh7D1E8IOttXRrxzO6kDpY8=; b=VczVjaQzCx9IXK31MLTPjNFaF5
-	p6iektnxp04hO/yxxxFmd1E/hnu2VcfqvzI8chDNO8b0hO01TltrerdfZNHOqaaHeN+DnK/cckRHp
-	LnHmsh9hbQ1OpBk/xW2q1AuSV/HMrTOw03STC6lgiDwrcNJHUePp0Qea8bcjTJ5yZw0oyI5Ud1pGY
-	YdkB1WskDDOc3mqxI9npHN8k4wOiYPhpw6t6SJVO+hCsJPBYayUCst00ei93YxeGrIi7PhKQwJqxh
-	9SOdhOENmZ4aEOrsCfzc8Fu11PMsppQumAZj6/3coepPJ0ecut8W3ICfIWx2n6UYBvdWtOXEdOWzP
-	FYB+Y/7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=agzqGvbctxvP+rJ6izPk8xhSnEfEv0d1x7sJEbQaz1I=; b=JhplF3V8ipGLBqYPrsLK/ygfzd
+	4FALkd5HRZtThn5XIE5tv5/o7kXt68kxv4LQfqTBDzNhmUZ/5rIHwUOe6d2Jz5m/hQvWbmUdiB+vl
+	btkx5Pcpz+LBCaaV7zCbKavPFDvrOqreF5WtWOL+2ODzKYVmzUcd0Q8taHfohSVSWOLpfh2xfUrST
+	BiCf/3BhTB5HEOMCB3JshdOgz9539tPQYiAGdQ1e4Xog8SpP8RB8cQvEq/5o3SwdqhtR0eYdNrS4/
+	rYnD7oTfjP5h8LKD/N8U/00BRigtAaTEh2dkv2teWzN7qDe/KYz5Ye+pSyI3rUKg8kiX7IPFZ2INI
+	v0wjuuhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x64Dz-00000003BWV-44Xl;
-	Mon, 14 Sep 2026 10:47:47 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x64Dx-00000003BUx-24wN
+	id 1x63oo-000000035NU-0ESn;
+	Mon, 14 Sep 2026 10:21:46 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x63od-000000035Gv-27Lu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 10:47:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NM3MeNN6p/jycURAw5nisNaV6xlm3HtIT81Gtmjijw8RrxWvDoRp/5deK/PCaOdCBHY0iiuv0yVmkKjE6loKPFLfbtrEkSB6V1CSiL5ahs1L1axxmcGVAYYPByi+tRYOyZ2/jpYPtPU98FEsoAejSRAAUEEkUjGdJ6OqUYWDph/Db5HobwC7KjFI+TXkZfKDZ9+m/eWZhRKOp4nzdjK1ZapFrjUOkbFCOaVbdjIRuz8Egb5utX2EH/vNxgV7Hk12wJc/RZzzlWKUqZzJKfQ3jdUKcamptA+gXX4a8Vjc9JjhVmF9HZ/yIccOJUnqgqJJNAkL7Z4+Wg6vOP807BWw1A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6FCluIoCDR0lf5/KCGbkxh7D1E8IOttXRrxzO6kDpY8=;
- b=K/PpOoezzU7eohMmgxYgcPHk4qsJgCQSkRyl61SkhFVCeO7tMLr0GX5HNpfOxH7FsLQSllDA2oqLQVN25jHHGnAfrQ1o+AWL3YpQ7+/opp/+ZfxcyF3NbYUbcOLeOmZiZ8ynxPNhU0V5xBnn6L21LhJqjWfQMY+BWB1kFDH3zhm5JwGlnj487TsuOcQI3ewHI7PFbDzeruln8U+wL7w1xbgrYLuNWgBbOr/EmRyApoINym4XPzNGFgSH4kNrzcpy7nwB/lPjFgDurO/rnKHYV59Nyh4nSYXyXrNaK8IEDi4GrVQR0f/j3z1kZ8ZKP0S8WK+SONzZ9Dq/7FApdaxsbw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=kontron.de; dmarc=pass action=none header.from=kontron.de;
- dkim=pass header.d=kontron.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kontron.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6FCluIoCDR0lf5/KCGbkxh7D1E8IOttXRrxzO6kDpY8=;
- b=w89dPPvM4jyzM8Kgzm+SDMMMflfC4C7YyTxnzDZjZxq4xPTPnd21L0NMZ4xVVCEUrwzleQIr2pOPEW899tOwrHuh+3bv4OCFqz6QwYJ6rxh0nGTzGBOCxS11K1sL1sxvKQQ6BOI6jd1mgocwAuroR9+dloe/y92iXz4YtANY9g5OvHUSe0aJvAINfnjGdDqZCtebqOGdxAf013v6+8uIcxEvGhQOBkKjyc/cihja2b/Flm8HM08R+x3C0NiW9u66TPCR0wMbnuTcS3OYoZL8XwG2CPOmiMWD/VpKVjMkZCGYCQwOnX+uPS64A0WSqJ8ISodz6LO2Mf0imvoEcYQ+MA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=kontron.de;
-Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:1fb::23)
- by AM0PR10MB3553.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:15b::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Mon, 14 Sep
- 2026 10:47:39 +0000
-Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::a276:4ad7:962:da22]) by AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::a276:4ad7:962:da22%6]) with mapi id 15.21.0406.007; Mon, 14 Sep 2026
- 10:47:39 +0000
-Message-ID: <9d1fb5e5-e0ad-4fbb-83ee-5f267db4f030@kontron.de>
-Date: Mon, 14 Sep 2026 12:47:38 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v50 3/7] firmware: imx: add driver for NXP EdgeLock
- Enclave
-From: Frieder Schrempf <frieder.schrempf@kontron.de>
-To: pankaj.gupta@oss.nxp.com, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Pankaj Gupta <pankaj.gupta@nxp.com>,
- Randy Dunlap <rdunlap@infradead.org>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <20260912-imx-se-if-v50-0-80834ef510d3@nxp.com>
- <20260912-imx-se-if-v50-3-80834ef510d3@nxp.com>
- <2062655f-886d-4194-b7bf-3048b7139c7f@kontron.de>
-Content-Language: en-US, de-DE
-In-Reply-To: <2062655f-886d-4194-b7bf-3048b7139c7f@kontron.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR4P281CA0256.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:e8::19) To AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:1fb::23)
+	Mon, 14 Sep 2026 10:21:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5460A1C2B;
+	Mon, 14 Sep 2026 03:21:31 -0700 (PDT)
+Received: from login2.euhpc2.arm.com (login2.euhpc2.arm.com [10.58.100.22])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D49F43F7B4;
+	Mon, 14 Sep 2026 03:21:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789381295; bh=5bTOkRNnSQ6lDeS6DI69PPUgPZplSp52ZS0ECRGF4oA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=lJ1qUq6d3Stt+VcMfc5ANGAr1s3eXRQ7yf16FZZqj73qBss8vFICn0lBsfJQm6EAA
+	 bFmrZS9C4XNYwjOWlQ5hq9FNW2aOQK5NQTPKGRpos6EFad10dDY4Uwa7fbzkIXgUCn
+	 7nAX7vTgu3pvevYpYwAAPr9DuvXbhVeD20dFZ+ac=
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	mark.rutland@arm.com,
+	maz@kernel.org,
+	lpieralisi@kernel.org,
+	ruanjinjie@huawei.com,
+	liaochang1@huawei.com
+Subject: [PATCH 05/38] arm64: entry: Introduce entry specific exception masking helpers
+Date: Mon, 14 Sep 2026 11:20:29 +0100
+Message-Id: <20260914102102.68597-6-vladimir.murzin@arm.com>
+X-Mailer: git-send-email 2.24.0
+In-Reply-To: <20260914102102.68597-1-vladimir.murzin@arm.com>
+References: <20260914102102.68597-1-vladimir.murzin@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR10MB4277:EE_|AM0PR10MB3553:EE_
-X-MS-Office365-Filtering-Correlation-Id: 83b92fd5-d9ec-4dbd-de36-08df124d98ee
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|366016|921020|56012099006|11063799006|4143699003|18002099003|22082099003|10067099003;
-X-Microsoft-Antispam-Message-Info: IQDvRoKsESfPZciYvMK/qMCHhruzjszdyR7whTi8L3d0bThWwKqqDdi9Qz5C2Po99GZwDfVX5O/qWUCfbx5it9iP5f6ZCIBjvF8+SSIOWOdCO5koCLBe3fncbGA4uYMadTP0+96TV9mcBd7W3/2Y9YUsenejvQ1wJsCqDJVKjPN/JU/LGU+rxoFjaa5BMlOtISFAe0WzAnilGvt8aqaKw0AoABqsPFuqjKzFXC6YsGYXZYml5VPf1bfHPviTI2aZLMjJ2qlmclPcstte0DRvyABIAtQlJUnAIhYsUyZ3rmK/LmnBB2fredL4QLlOe2YCfnDimhRUhvHoaKSGOfp9CpxRL+xaVOfelAQbJMvqL7fi9RHutYg3o/cPEsEUgsQKaqXNOS3pw7sKitjSwQKeiLlqVjME96Mgypmlo8N9plGmbdOU/5ELFCB0p/YLzUEV4OsZU6yg+I0NJ4RDvsKuB41BSCbQ5O0hypraO5bp1+A6v8tcaz8ytNTSjPkjTqbKbbyRGTYK3X82gH9nQpCPZyh2TfpL2EaMOmT9STZ4vI75u1gx4OMg/z59nzSJPWnA0uWBhXdroE+TCYnx6i2j8FuvjQe6Cji8Vx3/VJWSf5ay4wXni7pmBnPOTl+BAJfm/0Vi56465DmhNcDmzhF/ueTX81gpjbecQhWZ+6WOYQBSak3487sQUedpav6DhS4yvMh6rO78h4p78APuUI290Q==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(366016)(921020)(56012099006)(11063799006)(4143699003)(18002099003)(22082099003)(10067099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?c3AwVUQ5RGJBMjNWcWFzc0EvSDA5cU4rL1lTVUR0cktzZUU5NWpvRkVzd1Ry?=
- =?utf-8?B?TDR2VzVkZkhyUHJQUHhXaG4vOFpmVThLaTRBNVkrMW1abDNyeHFjWVdiWWtC?=
- =?utf-8?B?bGJpa0ZXZEtaVjlwSkxuYVNhRXVzOWNSaEdGTmlsSkduRG1TTUhXV1duQzR4?=
- =?utf-8?B?azg4ZldtTFZ5WklhTGxZcHNuV1g4ZE9vSFN2YXkyVGFJNE9Hd1RmRzlHTXc2?=
- =?utf-8?B?dm5LbjRkUzFYWHdlbkRKaUhMd1NlYWpxb0lQZDJ0YkQ4THdpSjUrNEw3ODkr?=
- =?utf-8?B?OElzWGVzd3ZWRWF6QkJFRitzYzl3aVZ2S2ZtbENpOWdHejVwbnNad3RDM1Bp?=
- =?utf-8?B?MXFGV1RGMEdNanpvVWVaWGJlVHhqT0hLa0hONmJweUpVY29iektocithMlRN?=
- =?utf-8?B?M2RTcHZYaThqOEsxcjAvZjFSUVhBOS9XSWc3ZXlSYUlGczlyOGF3UHg4MHIx?=
- =?utf-8?B?OHpUdzBkY3FZMkZmMkxleXpZMjJCQlFrQXhiVEt2QXZhQWRSNHF1YUx4N3Qv?=
- =?utf-8?B?T3hkZ1A0MnNoaUh4aHNYMm9qNmp5V1E1b1pXd0F2dEV2U2REUkVXa0lndTNO?=
- =?utf-8?B?KzQza1h6V2Y0L01Mc3FMbGk4U1NsZVRxRHV2V2Y1SEx4OGtzcDlBRjk2Y2VX?=
- =?utf-8?B?MWFXS1JWQ1ljZlI0Y01wcVJBcGdCdUF4bHpBck52Si94M2diMXRMeFNWdEVz?=
- =?utf-8?B?WXZEbzhtWDRDQmhsdm5JcU1TbG51NHJsZng4K1JkelhYZ1kwZHhaMm5SNWhp?=
- =?utf-8?B?OVoyRWwzTjlDZTVydjFNVm54QjVYWXFFY2dIdkYxQWRqN0lya2duczBwS3dK?=
- =?utf-8?B?SEZKQ2U1eksxWk05ekp3OTRjY1BXdjBQbjZPMWZoMk1hZDFkeUVpT0lHQjRH?=
- =?utf-8?B?TUkvY2pPVDBQYzlsejc4NHhINFZhdlh1UmpzK1VVMTM3QndvUjllQVd3N016?=
- =?utf-8?B?dGZBcUo1OVA1cVg1aS9UMlc4dWFPSXhzNjE3NGMzajVtMXZSd005Y0NRRVBz?=
- =?utf-8?B?NkVkM0ltUWNlaFpqNXB3MlpsZUpzZVNiSVdxdjJJZFZNTWM2bnZzbEprNjFn?=
- =?utf-8?B?dWx2UE95b2dxQXVHRlJNbngydnl4blhTZGJQbTFpYlVLWnY1SllzZ0xBanJh?=
- =?utf-8?B?UWs2UG1peHdDQmR2VUNKWGh5bzJVUEdWWDRYYS9DbU5EaFlxUDRGbGk3Uktq?=
- =?utf-8?B?U004cUgxczRkZU96b2NhWldyR2lFV0RmSDdic3hmTmsyZWpCcU1BdHFBb2li?=
- =?utf-8?B?ZzlOeHIxTHk0bW14QWRuUitsd051Sksrd1JwNEJtQmNleExxaGpPN2tTWjNW?=
- =?utf-8?B?T0RkZ3plWWlCU0ZsbHA0a0hSOVluMXc4ZnZuQUV2Y0VuZmhjMVZ0N2hiRWp3?=
- =?utf-8?B?WTBsSUNVbm1sME9kYmxoaXU0ME9GSExSZmFvM0JJU3JLZzFJUTFRMGl0dWRv?=
- =?utf-8?B?aktKVC8xVkpoQm5LcERjSktUTGxkVmdzNnhWeWdnb2cyUmdtWVZzQVN0eHNY?=
- =?utf-8?B?V0pWTXlKQW9nYWZVRzNyYW5yMkhZVmVCWWxGb1U5c1IvNkswRU9pRmNBVm9Y?=
- =?utf-8?B?SGhlL0plTSswa3dsa1Y3SDZKbzIrUGQ2UTE3bjNPYUpibERvMWIzZGZDR3lZ?=
- =?utf-8?B?ZlZSY1dsc05SUVMrUGtsVEZXdVZaQUxBY0xuRlVkOUd4VUlta1lWZGRaUHN5?=
- =?utf-8?B?NXRHbnFsUVNBek1RN3VCNFlyTk5EVmVaeDhaUUw3YkhlRG1hWnFjYzBMd1dm?=
- =?utf-8?B?SkpmWmhiU0pnN2s4TkJBTWI4MU9ycjQ1SVBwcHNZN1JvQUhpVzZTTGgwNzlD?=
- =?utf-8?B?VjUrdExDOEdKVXJiaUZJdERxSWpkZGpmSnlXcHhOUm5lWWdldnRMS0FSUWNj?=
- =?utf-8?B?TGZ2VUdwVFhoWGN5TUk1TEZtWG9TdlpjYU1EMEYwSTFqaGNsejVTVC9zMllH?=
- =?utf-8?B?Y2JzRlBOTTNFY3RpUmsrZ1dHMnVTVmFmYlFNWG1jakJwMnhjLzIwK0c2RXpG?=
- =?utf-8?B?dFlWK2tIMzZtenY2QjJzVXNjOU9LQkJRdUViWnFWaXBlN0ExRm5YYWJBSG53?=
- =?utf-8?B?TUhndEgxT2I2VHk5QzdpNFU4dVJ4MDV2S0ZmbTgwT3d1S0xURE9PeUlSNU1m?=
- =?utf-8?B?aG5obkw1TkErWHJxbkw4RXA2TExGa2FBcG81cEJ3bzVFYkR3dDhpY2V2eWVQ?=
- =?utf-8?B?ZjlvbnRldzd5N1FlQ0NmV1k0aTcwM2xtN3U2Wkx5VUhXOXFTNnJXSFhxVTVw?=
- =?utf-8?B?WlhwK0hmbDQ1Yk5Lb3F3YnF1citRSnpqaHU3SVVFRU9Xa20reThNYnk2RktS?=
- =?utf-8?B?Q0NiM1ZwNzdHWFpFWjJyQWhDcnpSbDJaRC9yNjAzbHgycXcwTnlUY05UNEF2?=
- =?utf-8?Q?OVx3s/vkrthwJ1Qg=3D?=
-X-OriginatorOrg: kontron.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 83b92fd5-d9ec-4dbd-de36-08df124d98ee
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Sep 2026 10:47:39.8535
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8c9d3c97-3fd9-41c8-a2b1-646f3942daf1
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: wFAINY/82IjynpuPIDi7N/q36g1ijIQTQ6dd4RBGrmVF4wifwZ12dmuQDW//UtGcnkLjBOhJMs1r97LuhyksxrByJVEgHaQ4LNa6LRL+YoQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR10MB3553
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_034745_612003_D8B26795 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20260914_032135_623291_0818D8E5 
+X-CRM114-Status: GOOD (  14.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,35 +73,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14.09.26 12:45, Frieder Schrempf wrote:
-> On 12.09.26 19:03, pankaj.gupta@oss.nxp.com wrote:
->> From: Pankaj Gupta <pankaj.gupta@nxp.com>
->>
->> Add MU-based communication interface for secure enclave.
->>
->> NXP hardware IP(s) for secure-enclaves like Edgelock Enclave(ELE), are
->> embedded in the SoC to support the features like HSM, SHE & V2X, using
->> message based communication interface.
->>
->> The secure enclave FW communicates with Linux over single or multiple
->> dedicated messaging unit(MU) based interface(s).
->> Exists on i.MX SoC(s) like i.MX8ULP, i.MX93, i.MX95 etc.
->>
->> For i.MX9x SoC(s) there is at least one dedicated ELE MU(s) for each
->> world - Linux(one or more) and OPTEE-OS (one or more).
->>
->> Other dependent kernel drivers will be:
->> - NVMEM: that supports non-volatile devices like EFUSES,
->>   managed by NXP's secure-enclave.
->>
->> Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
->> Reviewed-by: Frank Li <Frank.Li@nxp.com>
->> Tested-by: Frieder Schrempf <frieder.schrempf@kontron.de>
-> 
-> My review was for v25, my test was valid for v29. We are now at v50, so
-> please, as requested before, drop the tags as I don't think they can be
-> considered to be still valid with all these changes.
-Sorry, I missed that you already removed the R-b in the meantime. But I
-guess the T-b should also go. Please ping me when all the problems in
-the code are solved and I will test once more.
+From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+
+The entry code handles interrupt masking differently from the rest of
+the kernel. Exception handlers enter and exit with all exceptions
+masked, but they must temporarily unmask the appropriate set of
+exceptions so that the rest of the handler executes with the expected
+exception state.
+
+For EL0 handlers, this means dropping to masking context appropriate
+for the work to be performed. For EL1 handlers, this means restoring
+the masking context of the interrupted task. In both cases, all
+exceptions must be masked again before returning from the exception
+handler.
+
+The rest of the kernel typically follows the opposite pattern: it
+raises the masking context to protect a critical section and later
+restores the previous context.
+
+Given these different usage patterns, introduce a dedicated set of
+exception masking helpers for the entry code. Keeping these helpers
+separate from the generic interrupt masking APIs makes the intended
+usage explicit and helps avoid mixing the two masking models.
+
+Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+---
+ arch/arm64/include/asm/interrupts/entry.h | 100 ++++++++++++++++++++++
+ 1 file changed, 100 insertions(+)
+ create mode 100644 arch/arm64/include/asm/interrupts/entry.h
+
+diff --git a/arch/arm64/include/asm/interrupts/entry.h b/arch/arm64/include/asm/interrupts/entry.h
+new file mode 100644
+index 000000000000..0cfca62aa25b
+--- /dev/null
++++ b/arch/arm64/include/asm/interrupts/entry.h
+@@ -0,0 +1,100 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2025 Arm Ltd.
++ */
++#ifndef __ASM_INTERRUPTS_ENTRY_H
++#define __ASM_INTERRUPTS_ENTRY_H
++
++#include <asm/arch_gicv3.h>
++#include <asm/bug.h>
++#include <asm/cpufeature.h>
++#include <asm/interrupts/common_flags.h>
++
++
++static __always_inline
++arm64_exc_hwstate_t __arm64_switch_exc_hwstate_to(arm64_exc_hwstate_t prev,
++						  arm64_exc_hwstate_t next)
++{
++	bool irqs_disabled = arch_irqs_disabled_flags(next.flags);
++	bool force;
++
++	arm64_debug_exc_hwstate(prev);
++
++	if (prev.flags == next.flags)
++		return next;
++
++	if (!irqs_disabled)
++		trace_hardirqs_on();
++
++	force = system_uses_irq_prio_masking() && prev.pmr != next.pmr;
++
++	__arm64_update_exc_hwstate(next, force);
++
++	if (irqs_disabled)
++		trace_hardirqs_off();
++
++	return next;
++}
++
++static __always_inline
++arm64_exc_hwstate_t arm64_inherit_exc_context(struct pt_regs *regs)
++{
++	arm64_exc_hwstate_t prev = arm64_exc_hwstate_of_context(CRITICAL_CONTEXT);
++	arm64_exc_hwstate_t next = arm64_inherit_exc_hwstate(regs);
++
++	return __arm64_switch_exc_hwstate_to(prev, next);
++}
++
++static __always_inline
++arm64_exc_hwstate_t arm64_drop_exc_context(arm64_exc_hwstate_t prev, arm64_exc_context_t context)
++{
++	arm64_exc_hwstate_t next = arm64_exc_hwstate_of_context(context);
++
++	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
++		WARN_ON_ONCE(prev.daif < next.daif);
++
++		if (prev.daif == next.daif) {
++			/*
++			 * GIC_PRIO_IRQON is larger that GIC_PRIO_IRQOFF so larger PMR value is weaker
++			 */
++			WARN_ON_ONCE(system_uses_irq_prio_masking() && prev.pmr > next.pmr);
++		}
++	}
++
++	return __arm64_switch_exc_hwstate_to(prev, next);
++}
++
++static __always_inline
++arm64_exc_hwstate_t arm64_lift_exc_context(arm64_exc_hwstate_t prev, arm64_exc_context_t context)
++{
++	arm64_exc_hwstate_t next = arm64_exc_hwstate_of_context(context);
++
++	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
++		WARN_ON_ONCE(prev.daif > next.daif);
++
++		if (prev.daif == next.daif) {
++			/*
++			 * GIC_PRIO_IRQON is larger that GIC_PRIO_IRQOFF so smaller PMR value is stronger
++			 */
++			WARN_ON_ONCE(system_uses_irq_prio_masking() && prev.pmr < next.pmr);
++		}
++	}
++
++	return __arm64_switch_exc_hwstate_to(prev, next);
++}
++
++static __always_inline
++arm64_exc_hwstate_t arm64_unmask_exc_context(arm64_exc_context_t context)
++{
++	arm64_exc_hwstate_t prev = arm64_exc_hwstate_of_context(CRITICAL_CONTEXT);
++
++	return arm64_drop_exc_context(prev, context);
++}
++
++static __always_inline
++arm64_exc_hwstate_t arm64_mask_exc_context(arm64_exc_hwstate_t prev)
++{
++	return arm64_lift_exc_context(prev, CRITICAL_CONTEXT);
++}
++
++#endif /* __ASM_INTERRUPTS_ENTRY_H */
+-- 
+2.34.1
+
 
