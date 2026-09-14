@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB2F3C88E64
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 13:28:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9432CC88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 13:29:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pAKmUE9iU+ENqp9+EsxIpb1BWLNnd50973ucnIlYosg=; b=xPxs6dy8OtUqtTxT5TVDT90t/5
-	FZPgmUAcv/nRm5xvumnNWNWKK9veJ7tpJ7zOh9cQUjUqNEa26BlGkiYTfRLd1yD/dP51DtD523cZ3
-	b4visqMUlvrdNl3l376i43E3C0BUKgQNuvRZRvSNU0/5NsZ2AyuLSwjYi6EZPG/iqBW1qGOLWHShp
-	7yVh8Ou3yVKRkdJHiY1cwuM8Y4eC/dMBkf74BMw8Qr/vpgs1t9r/MWPdblKR6jmp2NqSvYuLhzVYY
-	MyPJf8fvx7A75075Tns+0H+MAgHsyJsJfHZmALelbUPv+Rgx/G0QObXoN1ex6E6BUTkM4+Anqjyyw
-	DUuWSV4A==;
+	bh=5zvfAl2WXpyRbptwTK34md1iz5r8Ti8hPBdZeaTQQQ0=; b=dUBJBj2wNvGS80S9xaI/1CbJ77
+	LeTupa44DndMFb53dmAoPndAN2tvbx5SYXHSJvzXwdwxlnNK7Zrbk1hD6eX3+sdtMM4M4xhnMyzF5
+	McM7hrezdMMlA2mOPHb2v9gU5yYBLhbWd/AIUXHEfO+svtrgW6v7wrfKxCJOD/0JnVgFLOMXL/0ZU
+	yvFs2F9sOYCcDRS3wOAZRuBc9sQ0wEP+cztjFxGecoqqfSxzcPcOJqv/G8FB9Vx900QUBZkxmhkXv
+	VVctUcFOlexDFBvB/Jz6IpO21iSrrrk2kiexgI4jah8yH4k9G+IPaXcQ97367MM/EKLgdr6KelzWW
+	JOiOGNdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x66jf-00000003leX-2RgR;
-	Mon, 14 Sep 2026 13:28:39 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1x66jt-00000003llX-3Jbt;
+	Mon, 14 Sep 2026 13:28:53 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x66jX-00000003lZ1-3rtf;
-	Mon, 14 Sep 2026 13:28:36 +0000
+	id 1x66jo-00000003lj0-2fLd;
+	Mon, 14 Sep 2026 13:28:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1789392510;
-	bh=YphF5hhPQGlAuPhEBbNU9Ky2p6aYoj0ev82XKFf9Mqs=;
+	s=mail; t=1789392526;
+	bh=REg4uHosenbAzdgcoWyyerJu0bET1xnnXP0zRa4SxuI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QGFfLeqQtPEsoHecPPd6TT4T8kkjNPr7cpZlNXkVpsTNPMOLXKq8zlLv3y9LKBr5E
-	 Q2z/eXUhsHJUt+Mw/hhUZCfqFiWHa8YCIq31uj/n1NJ/+k75w21nsjzWDM+CuhrAAr
-	 PLTePy+Q3PMPNvlutgW0qRTq9xpmDkoe3BTqmosRHN4M2FIAFdr5kV2OULGGT3PJ2l
-	 oUHrdJBW5KVS/E50DvgRIZR9m7TbfluzkRiQtx1yOhi2mwVVvewt+EWdFVzsDHOp/Q
-	 UNaQIcDTWATq2w/G07Nq5fWn/FF0nKpfXuK5+eRIHH2JWPqLt0kpfaNq4jW9QeABJx
-	 21nSTmtn1HgRA==
+	b=JtEKlTZqyP4QCKWctQQaSU04v/ZcRaHosFekq2SlpKf+qf8lK25dl3pdTgqNQLUJq
+	 NHo057bIdCakhw2D7kMI1eFfaSphIsjkaeOvT0v7vYuqmMLgn1HDX3XhBTJYK6mkAf
+	 piay2ebCwrdAg9BKqvcyWy03vpJP6Ilab2ukxf7cyh9aq535Mj46OXdW7dhkcAbsfi
+	 +jJxow1i+99lq88nLKOEshluO9DIcX4CfGNgwgSClCYc5xFIgph7IWoNaPyjHCDwok
+	 F1xTTiCjq/KVutWK5mjB4Hk6jRNqm6Nz083uDLu8Qra0mYRIB2wiB/Gz/yMeCEnrVq
+	 5YaqWYIVIcYsg==
 Received: from [100.64.1.21] (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6A23517E05D3;
-	Mon, 14 Sep 2026 15:28:29 +0200 (CEST)
-Message-ID: <c8c6c9d8-624b-4543-9c88-1265f16fd492@collabora.com>
-Date: Mon, 14 Sep 2026 15:28:29 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 24D5817E01D1;
+	Mon, 14 Sep 2026 15:28:46 +0200 (CEST)
+Message-ID: <9a2059d2-3682-4716-a8b7-82acac520234@collabora.com>
+Date: Mon, 14 Sep 2026 15:28:45 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 08/13] ASoC: mediatek: mt8189: Remove redundant error
- message
+Subject: Re: [PATCH v2 11/13] ASoC: mediatek: mt8189: Validate sysclk
+ frequency
 To: phucduc.bui@gmail.com, Mark Brown <broonie@kernel.org>
 Cc: Liam Girdwood <lgirdwood@gmail.com>,
  Matthias Brugger <matthias.bgg@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
@@ -59,15 +59,15 @@ Cc: Liam Girdwood <lgirdwood@gmail.com>,
  linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <20260914072842.24420-1-phucduc.bui@gmail.com>
- <20260914072842.24420-9-phucduc.bui@gmail.com>
+ <20260914072842.24420-12-phucduc.bui@gmail.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20260914072842.24420-9-phucduc.bui@gmail.com>
+In-Reply-To: <20260914072842.24420-12-phucduc.bui@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_062832_144933_EF14EF8B 
-X-CRM114-Status: UNSURE (   7.59  )
+X-CRM114-CacheID: sfid-20260914_062848_827191_74982412 
+X-CRM114-Status: UNSURE (   6.14  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,10 +86,10 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 9/14/26 09:28, phucduc.bui@gmail.com wrote:
 > From: bui duc phuc <phucduc.bui@gmail.com>
 > 
-> The errors handled here are already reported by the called functions,
-> either directly or deeper in the call chain. Therefore, the additional
-> dev_err() and dev_err_probe() call is redundant and can be removed.
+> A zero frequency causes a modulo-by-zero error when validating the
+> I2S clock frequency. Reject it before performing the validation.
 > 
+> Fixes: 7eb153585598 ("ASoC: mediatek: mt8189: add platform driver")
 > Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
