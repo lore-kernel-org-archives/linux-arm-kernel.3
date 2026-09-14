@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22631C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 15:07:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A39CC88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 15:07:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RTv/7kXr0e2/E0RIcc6p/oBQdEnq0quh3XSx4UVp1tI=; b=NRwURbalgUXZTdgfQebEAl4hrI
-	SsOsdb5NIyZw4LTYeDrqefcnYZqpzvvsLHeFURkQbAizv9kp7JJnBLwXExvbXS/1mECEVyqd2K5vS
-	fs6AWrjH4mugbF6e8Jgc2Ggmz0HsBC3F1dXZwxAM6DEppy2rVQ7mSPKAH1bKScvyH+k2UjvqWobWy
-	VORSQ2dsilbkw/plTr2yOIKc/DbJl9GEdiFAxu50uzsqAPk8srHNyj1kbxHhTRi4g06QAjGZKJe5i
-	te8vOJABzpDBvzNi3x6mIlrRhTp6LWVisCH/8rjCuicvAUKfuDluRoBLHZvOMpowNAkORTWjVB03H
-	VdPncEGw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3zdokcfPvG6aJZ9T1Ug1bQ5p7UlokNGesYVjy160PgU=; b=VRzg0drrt1LXtJCrtel8zzTnX5
+	lZDdZZIZcuxu4Uu8ZOQqM8xf1f+kGGljEymtD1ZAhur3r4TxR4IU4VCyiUfx/rr+QuBng7ij0oPzx
+	3djOvFfCwSYd0wCOhkPOIO3MEAH8jt+7SJrLY7qQbJaXkD60NnA9c9LqX6e/go/hmB5Fu2Y18ebF2
+	h1X5SntitNm+5OPGWEyysSltMJVxt7u7isKQe3DEPtfxO7v1qFhqQxMRTOeYLyLNoYz2o9QhMOGEH
+	bQxn/kcIeSa/d18mXRr3GKi4JyTzgiq7YQ1t56pzGY2P+xdiMAEZZHvq6F1Q/8nfkrRlFkDw8CxOS
+	ZgWHwvPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x68Gn-000000046Ue-3pJj;
-	Mon, 14 Sep 2026 15:06:57 +0000
-Received: from m16.mail.163.com ([220.197.31.5])
+	id 1x68Go-000000046Ur-05uZ;
+	Mon, 14 Sep 2026 15:06:58 +0000
+Received: from m16.mail.163.com ([117.135.210.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x68Gi-000000046SB-3Mas
+	id 1x68Gk-000000046S8-0skz
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 14 Sep 2026 15:06:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=RT
-	v/7kXr0e2/E0RIcc6p/oBQdEnq0quh3XSx4UVp1tI=; b=RbnH6QdFF5tbxJHKSp
-	jRkEsUXit8fS82NbFj5dLwLisPzb9ps2PeICOxNtsrwO67AKSNOwxq0jDVC8Tc91
-	XMG5vPC8Z4i3vhTnf/oaBT5jXZnEnui1QLTCetEwQlim9hC2k0bz2RKy4noTf7Sh
-	JtRafm7ii/Fe5tdWDkC40DMt0=
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=3z
+	dokcfPvG6aJZ9T1Ug1bQ5p7UlokNGesYVjy160PgU=; b=IfUTewxeg9PRQvmh8S
+	XEtdkgdKAKeBMLaKE28v3n9oKamJhHt1qNVrproWGM+cVwfcWK/q/nhMvC6+/RLW
+	u17NtrMSahpFDmb6ljDtpreHEeNiNrnHIh32G3m6Va2HvyI6tg8DuASAeUyFO17C
+	lRzdFs8jJp0XZ3m/D2CfMVebk=
 Received: from hpl-VMware-Virtual-Platform.. (unknown [])
-	by gzga-smtp-mtada-g0-1 (Coremail) with SMTP id _____wDn_3pkDahqCSeIAg--.42971S2;
-	Mon, 14 Sep 2026 23:06:13 +0800 (CST)
+	by gzga-smtp-mtada-g0-1 (Coremail) with SMTP id _____wDn_3pkDahqCSeIAg--.42971S4;
+	Mon, 14 Sep 2026 23:06:14 +0800 (CST)
 From: peilinhe2020@163.com
 To: netdev@vger.kernel.org
 Cc: alexandre.torgue@foss.st.com,
@@ -53,22 +53,23 @@ Cc: alexandre.torgue@foss.st.com,
 	pabeni@redhat.com,
 	vbridgers2013@gmail.com,
 	xu.xin16@zte.com.cn
-Subject: [PATCH net v7 0/2] net: stmmac: remove software VLAN tag stripping
-Date: Mon, 14 Sep 2026 23:06:10 +0800
-Message-ID: <20260914150612.9798-1-peilinhe2020@163.com>
+Subject: [PATCH net v7 2/2] net: stmmac: remove software VLAN tag stripping
+Date: Mon, 14 Sep 2026 23:06:12 +0800
+Message-ID: <20260914150612.9798-3-peilinhe2020@163.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260914150612.9798-1-peilinhe2020@163.com>
+References: <20260914150612.9798-1-peilinhe2020@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wDn_3pkDahqCSeIAg--.42971S2
-X-Coremail-Antispam: 1Uf129KBjvdXoWruF18XF15ZFy3uF1fAr1kKrg_yoWfXFX_uF
-	W7ZF97Jw4DAF4jkry7KrnxZryrZasrGr1xtr1DtFZI9r1xWrs8GFs5WrZxuFy8WF9YvFyr
-	Aw1vvFy0kw17WjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUjNzV5UUUUU==
-X-CM-SenderInfo: xshlzxhqkhjiisq6il2tof0z/xtbC0AUh0mqoDWWQjgAA3S
+X-CM-TRANSID: _____wDn_3pkDahqCSeIAg--.42971S4
+X-Coremail-Antispam: 1Uf129KBjvJXoWxWw13WF4DJr15Cw1rKFykXwb_yoW5KFyrpa
+	y7Aa4DCr4kArnrZa1Utw48ZFy3Aa45tayUJasYyw4Iqa1qkr9IqrnagFZxAFW8trZ3uw13
+	G3yqvayUC3WDWrDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UNL0OUUUUU=
+X-CM-SenderInfo: xshlzxhqkhjiisq6il2tof0z/xtbC0AYh0mqoDWaQmwAA3H
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_080653_959622_E06439BD 
-X-CRM114-Status: UNSURE (   6.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260914_080654_628834_FF32EF7F 
+X-CRM114-Status: GOOD (  10.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,30 +86,89 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Peilin He <he.peilin@zte.com.cn>
 
-This series removes the driver-level software VLAN stripping in stmmac.
+The software VLAN stripping logic in stmmac_rx_vlan() was originally
+introduced in 2014 by commit b93819854d6e ("stmmac: Add vlan rx for
+better GRO performance.") as a workaround to improve GRO performance,
+since at that time GRO could not handle frames with VLAN tags. However,
+this limitation was resolved in 2015 by commit 66e5133f19e9 ("vlan: Add
+GRO support for non hardware accelerated vlan"), which added GRO support
+for non-hardware-accelerated VLAN frames. Keeping a software fallback
+path for VLAN stripping is no longer necessary and only adds complexity.
 
-Patch 1 is a prerequisite selftests fix from Maxime Chevallier to keep
-the ethtool selftests working on platforms where NETIF_F_VLAN_FEATURES
-may be empty after patch 2.
-
-Patch 2 removes stmmac_rx_vlan() and the related VLAN RX feature
-advertisement.
-
+Fixes: b93819854d6e ("stmmac: Add vlan rx for better GRO performance.")
+Signed-off-by: Peilin He <he.peilin@zte.com.cn>
+Maxime Chevallier <maxime.chevallier@bootlin.com>
+Reviewed-by: xu xin <xu.xin16@zte.com.cn>
+Reviewed-by: Jiang Kun <jiang.kun2@zte.com.cn>
+---
 Changes in v7:
-- Send as a new series, not as a reply to v6.
-- Include Maxime's selftests fix as patch 1/2.
-- Keep the software VLAN stripping removal as patch 2/2.
-
-Maxime Chevallier (1):
-  net: stmmac: selftests: Prevent RXC from being disabled in LPI
-
-Peilin He (1):
-  net: stmmac: remove software VLAN tag stripping
+- Resend as part of a series after adding Maxime's selftests fix as patch 1/2.
+- No code change.
 
  .../net/ethernet/stmicro/stmmac/stmmac_main.c | 28 ++-----------------
- .../stmicro/stmmac/stmmac_selftests.c         |  2 ++
- 2 files changed, 4 insertions(+), 26 deletions(-)
+ 1 file changed, 2 insertions(+), 26 deletions(-)
 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 9c9e95d66b09..854b488611b4 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -5032,24 +5032,6 @@ static netdev_features_t stmmac_features_check(struct sk_buff *skb,
+ 	return vlan_features_check(skb, features);
+ }
+ 
+-static void stmmac_rx_vlan(struct net_device *dev, struct sk_buff *skb)
+-{
+-	struct vlan_ethhdr *veth = skb_vlan_eth_hdr(skb);
+-	__be16 vlan_proto = veth->h_vlan_proto;
+-	u16 vlanid;
+-
+-	if ((vlan_proto == htons(ETH_P_8021Q) &&
+-	     dev->features & NETIF_F_HW_VLAN_CTAG_RX) ||
+-	    (vlan_proto == htons(ETH_P_8021AD) &&
+-	     dev->features & NETIF_F_HW_VLAN_STAG_RX)) {
+-		/* pop the vlan tag */
+-		vlanid = ntohs(veth->h_vlan_TCI);
+-		memmove(skb->data + VLAN_HLEN, veth, ETH_ALEN * 2);
+-		skb_pull(skb, VLAN_HLEN);
+-		__vlan_hwaccel_put_tag(skb, vlan_proto, vlanid);
+-	}
+-}
+-
+ /**
+  * stmmac_rx_refill - refill used skb preallocated buffers
+  * @priv: driver private structure
+@@ -5418,9 +5400,7 @@ static void stmmac_dispatch_skb_zc(struct stmmac_priv *priv, u32 queue,
+ 	if (priv->hw->hw_vlan_en)
+ 		/* MAC level stripping. */
+ 		stmmac_rx_hw_vlan(priv, priv->hw, p, skb);
+-	else
+-		/* Driver level stripping. */
+-		stmmac_rx_vlan(priv->dev, skb);
++
+ 	skb->protocol = eth_type_trans(skb, priv->dev);
+ 
+ 	if (unlikely(!coe) || !stmmac_has_ip_ethertype(skb))
+@@ -5912,9 +5892,6 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+ 		if (priv->hw->hw_vlan_en)
+ 			/* MAC level stripping. */
+ 			stmmac_rx_hw_vlan(priv, priv->hw, p, skb);
+-		else
+-			/* Driver level stripping. */
+-			stmmac_rx_vlan(priv->dev, skb);
+ 
+ 		skb->protocol = eth_type_trans(skb, priv->dev);
+ 
+@@ -7995,9 +7972,8 @@ static int __stmmac_dvr_probe(struct device *device,
+ 	ndev->features |= ndev->hw_features | NETIF_F_HIGHDMA;
+ 	ndev->watchdog_timeo = msecs_to_jiffies(watchdog);
+ #ifdef STMMAC_VLAN_TAG_USED
+-	/* Both mac100 and gmac support receive VLAN tag detection */
+-	ndev->features |= NETIF_F_HW_VLAN_CTAG_RX | NETIF_F_HW_VLAN_STAG_RX;
+ 	if (dwmac_is_xmac(priv->plat->core_type)) {
++		ndev->features |= NETIF_F_HW_VLAN_CTAG_RX;
+ 		ndev->hw_features |= NETIF_F_HW_VLAN_CTAG_RX;
+ 		priv->hw->hw_vlan_en = true;
+ 	}
 -- 
 2.43.0
 
