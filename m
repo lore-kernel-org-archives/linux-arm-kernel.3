@@ -4,63 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD7E0C88E6E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 15:59:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A6DC88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 16:00:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gouepB2S1UKhjoN3f6FNb8XqGI2dj4sD+QoeWJWGFUw=; b=l37w4v8Z/glC1p6BV/utPGwU28
-	VrDcFYHtaxuyZ6mLD7qFq2lIO+r4QpXyyZfd5qbltfDTBO8cH0vDNyH5/Xqut9F7oi6bYex3NP7Zj
-	+o3vR1Zm+bPfbcltcYaTX+aWU1nIi8Gp8deyhDImBptptSxffMV9Va7EZnDPqpgJ3oSlxGA0KNtgF
-	ZGU9t0BhSX/3HWIW7ziWeKyS5UKl2pTHiP28UUe7TBK1H0QVOszJIZIEWcj8zBkePrk+r0fyk0wej
-	urpby0m437o6VBUpAdB899DFkeQxp2Ly0ZwFfU9+VcPSypMNKN4vaDMoEYMHh3P42l3Dy2h9420Ba
-	3qUM0Egw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XRYbluNPP8AMPvjs11ldgv62V308J1KXRstC2EzoBRY=; b=mN4d0GlT3E4dUYz4OmyuRJhi/E
+	r8Sq62sTvZ0bvN46tBY6WmQNykJrCtXxtkDjKNsogZlmFH0R94zJfqD3xlSnrVeiveHu3FNz8SbWA
+	dIBCdxdse8AJU6RbWZ1SoXE+XuD9tllZ51y0NNRAiGJEJUnGdBYhyE7QsfXv7lbkf5mmT8cAS/gL0
+	hCjlUxawz3nc6S4V+r0jc9D6nM3VD8TqEjAOJvf8iITTBjDHUdnaov4FSMzCAWvBwTkrsvdZ1lBqx
+	UKP7baTwHN7ju7KO7ssE4o1ULJE8gIrXtg+I51VWg187CSxvtFgT2VAVf5XGYu35fVy6Yq1IrJZQJ
+	owT/213g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x695X-00000004Ezz-1f5R;
-	Mon, 14 Sep 2026 15:59:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x695U-00000004Exh-30gN
+	id 1x696W-00000004FJU-3CJE;
+	Mon, 14 Sep 2026 16:00:24 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x696W-00000004FJ7-1ZzN
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 14 Sep 2026 16:00:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=XRYbluNPP8AMPvjs11ldgv62V308J1KXRstC2EzoBRY=; b=F9OS0gnTdcwx6c7j/3rMyp+62x
+	llTX24AQIauYhhHSpmXuXFYFCKBojmduRnP+wUqHFrzY/lJChpLlnWPm9aFz5ySJZ1NaLQUZVBIhx
+	l6pBypujPS273LEgsc4Ri9Nluy8S2ysKDIKSVjH210yBEioaeHAzzoxCxH3VFBd/Hqdz2pROzAypL
+	0wa8nLwj9tdMJf9v+HOn9cgfTaQ5Hz0LMMTawrVD8n3IJYxsGMcuJGmjPEszSDDddgiOj+sUWfc48
+	0Fop1QL4Cy94NPtkkRWbPh4m8NlrqRApyzjFAGBvLczE3I2b+wWS47AiZvTygxXMjr8FRxqsoMeTm
+	j1SYCa/A==;
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x696T-00000005oUh-24gb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 15:59:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0964D1CC4;
-	Mon, 14 Sep 2026 08:59:14 -0700 (PDT)
-Received: from e135073.arm.com (unknown [10.57.7.201])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id AEAAD3F882;
-	Mon, 14 Sep 2026 08:59:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789401557; bh=h2aAZZsYUgxinX2Xk8rSiefl4BFGCyLAec+iN/0udkQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OP0z2aBPV6Fo0AMlIEctr20+Lmgjx5E89iORauFkkKUnbgPCBg1qJm80ov+A1RF33
-	 baRqQhiBr+RLGJid052pp+yn3KAAAKgaQlcZSUcyo382aimRPl9wHPgAIX57eVLKQ1
-	 Fcz7um37e/LfSsfh7mMMwf8n1oq5aSkR9j+sPPbc=
-From: Pierre Gondois <pierre.gondois@arm.com>
-To: linux-kernel@vger.kernel.org
-Cc: Pierre Gondois <pierre.gondois@arm.com>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH 3/3] arm64: dts: fvp: Add additional PCIe memory region
-Date: Mon, 14 Sep 2026 17:58:53 +0200
-Message-ID: <20260914155854.123341-4-pierre.gondois@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260914155854.123341-1-pierre.gondois@arm.com>
-References: <20260914155854.123341-1-pierre.gondois@arm.com>
+	Mon, 14 Sep 2026 16:00:23 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-c253425b253so546569566b.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 09:00:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1789401619; x=1790006419; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=XRYbluNPP8AMPvjs11ldgv62V308J1KXRstC2EzoBRY=;
+        b=hN9Y2HB5TZBbs5TOxf6itUwITwxSu+ORH6viokQpWvv0Shv3G8HH1C8vGJ14D2cU3V
+         in7Lgz1a9EBQ7trQfaKnaaqQOspCOHRlEyauEOYUTo04NNsTiZe1mcVen3D0ZW2/ExQo
+         74PHAm6JDoupGfYQYRk+Bbmxw59cv0r6m4ccPXGE3UamviT9dYDK3m9bvqz8+lXjnuJ1
+         lszvLZR4LYB5aNAJTMUEVJf3CMs7M1qwU7f1aFkeDdfT2ezpQKdlkQbkakYcjPVjBK9h
+         I9KStugpgvV4UiaarU0Jppu4SnJI62WBOpPVs5/oay1rw108GA3qOQAIfgVm9LdyTU0S
+         U11g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789401619; x=1790006419;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=XRYbluNPP8AMPvjs11ldgv62V308J1KXRstC2EzoBRY=;
+        b=aZp/swMwK9cnaOOPy6mnk5kKtVguI/twKB/SszyaCVSJWg705MauwLZbS/DXa2BW3p
+         tfygQ/9WejrmBURV1oP5KOaHcoVObOoC1Dc+13pQIu8rEkZ/LNwgXZOyx0qoaS2N2eNb
+         lGjJpMq9fXYjyhnmAvJ4oIeSYmidINFbMBC1c7ZnaOOk9tOCLRloSzKmNb5rWSdERI7P
+         lth9WDYI77zD2TVcrYkNpLPlJmO0WNS08BFqOu+74ZcLAUSYakMCjPy67OjzbivW0G7a
+         gLGUUAYppY8iuqkHq1HTav/cVxO7TJOD1N2qG/6hofBLDIZmNJmd1Inj36wpuZYR3yNO
+         /DPA==
+X-Forwarded-Encrypted: i=1; AKwUvBy5Sg6LayPljbIQ7l1O4ydWDlCyX/oh28voIqn+Iqgd26aa25CW3XeG2m/yqdZUCqtzyTekdieDgcHRIM3e7I58@lists.infradead.org
+X-Gm-Message-State: AFuF++kjvXChh6VTD9C5rftQAH/VE0/hfolRjw09NkzyhvDay58Y8Bdb
+	WhrO9YREBigKCH6VmknCD3VWBncdAvP5hF2DUN0kyL5CmrcoHNVZcSyvnyPhS2Yc3zI=
+X-Gm-Gg: AYBFou3eYmCOYaifRrdGGrQqc+iy6twGKEeRWMJRInqJI6dKq6Bbu6J6lP5DnnCn+ze
+	fN6HX1ZBwI/Zwl4rprZp/60Qp5iUJ/xmYB9m3uOImpnu2/Qv4+KYtmxG9w3hxZhorJfL1MkAHNf
+	ITlbkl/qo1VzLTzPezS/G9nOYXLbNA6FwrRfZ2IWOx2BaWokKnYjFuOETWvSwc8MiCJyfhoDf8t
+	jqKP2zf51gDPQNTpGsS4d05oP/Kh5x8QBND4a3YttQGbv7bHHjwcfE23J0mPI6Cd+2eRnCYlldz
+	jdMds/n8gaJlPvi/RClGx8XdAM1okflWiCR9FCKCmh11cWIw9lu/mKCYE9pK2dpElNmpdBjkJsV
+	KYg1pPAuo6SH16r7Y5zXJokUjKE0+tx/EpubhwJD9PdLxHPkn7yjk5zzLSBR9MFreNCr+IAqCUO
+	E5kgM5hiktwONx7dvL/C9rKzHskUD3AARyP4CXu8HJ96IR2Eo10zWvfa7DjrawLQJCgXVneM0L2
+	zg=
+X-Received: by 2002:a17:907:6088:b0:c26:19de:9ae8 with SMTP id a640c23a62f3a-c29b8734e64mr227554866b.39.1789401619322;
+        Mon, 14 Sep 2026 09:00:19 -0700 (PDT)
+Received: from draszik.lan ([109.255.181.4])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2966021d0dsm467443566b.10.2026.09.14.09.00.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 14 Sep 2026 09:00:17 -0700 (PDT)
+Message-ID: <6d3fd2d27eb54a926486da34947e843c0f29253c.camel@linaro.org>
+Subject: Re: [PATCH] phy: samsung: usbdrd: propagate GS101 PIPE3 lock
+ failures
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Pengpeng Hou <pengpeng@iscas.ac.cn>, Vinod Koul <vkoul@kernel.org>, Neil
+ Armstrong <neil.armstrong@linaro.org>, Krzysztof Kozlowski
+ <krzk@kernel.org>, Alim Akhtar	 <alim.akhtar@samsung.com>, Pritam Manohar
+ Sutar <pritam.sutar@samsung.com>,  Sam Protsenko
+ <semen.protsenko@linaro.org>, Johan Hovold <johan@kernel.org>, Peter
+ Griffin	 <peter.griffin@linaro.org>
+Cc: linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+Date: Mon, 14 Sep 2026 17:01:36 +0100
+In-Reply-To: <20260623135349.42739-1-pengpeng@iscas.ac.cn>
+References: <20260623135349.42739-1-pengpeng@iscas.ac.cn>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-9 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_085920_798652_8C6966F4 
-X-CRM114-Status: GOOD (  10.50  )
+X-CRM114-CacheID: sfid-20260914_170021_620248_266CC517 
+X-CRM114-Status: GOOD (  11.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,31 +122,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add an additional PCIe memory region to fvp revc.
-Similarly to what is done in the edk2-platforms
-repository in ACPI, only advertise 4GB instead
-of the 256GB possible.
+On Tue, 2026-06-23 at 21:53 +0800, Pengpeng Hou wrote:
+> The GS101 PIPE3 initialization checks the PMA PLL lock and then checks
+> the CDR lock. The PLL helper returns an error, but the GS101 PIPE3 init
+> path dropped that result. The CDR helper only logged a timeout. PHY
+> initialization could therefore still return success after either the PLL
+> or the selected receive lane had not locked.
+>=20
+> Make the in-file SoC-specific phy_init hook return an int so helpers
+> with real failure results can propagate them through the existing PHY
+> init paths. Keep the register-only helpers returning success and use the
+> new return path to report the GS101 CDR wait failure. Other SoC helper
+> paths keep their previous success behavior.
+>=20
+> Fixes: 32267c29bc7d ("phy: exynos5-usbdrd: support Exynos USBDRD 3.1 comb=
+o phy (HS & SS)")
+> Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+> ---
+> =C2=A0drivers/phy/samsung/phy-exynos5-usbdrd.c | 78 ++++++++++++++++-----=
+--
+> =C2=A01 file changed, 55 insertions(+), 23 deletions(-)
 
-Signed-off-by: Pierre Gondois <pierre.gondois@arm.com>
----
- arch/arm64/boot/dts/arm/fvp-base-revc.dts | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/boot/dts/arm/fvp-base-revc.dts b/arch/arm64/boot/dts/arm/fvp-base-revc.dts
-index c84796438a83..d184a073c3a2 100644
---- a/arch/arm64/boot/dts/arm/fvp-base-revc.dts
-+++ b/arch/arm64/boot/dts/arm/fvp-base-revc.dts
-@@ -373,7 +373,8 @@ pci: pci@40000000 {
- 		device_type = "pci";
- 		bus-range = <0x0 0xff>;
- 		reg = <0x0 0x40000000 0x0 0x10000000>;
--		ranges = <0x2000000 0x0 0x50000000 0x0 0x50000000 0x0 0x10000000>;
-+		ranges = <0x2000000 0x0 0x50000000 0x0 0x50000000 0x0 0x10000000
-+				0x3000000 0x40 0x00000000 0x40 0x00000000 0x1 0x00000000>;
- 		interrupt-map = <0 0 0 1 &gic 0 0 GIC_SPI 168 IRQ_TYPE_LEVEL_HIGH>,
- 				<0 0 0 2 &gic 0 0 GIC_SPI 169 IRQ_TYPE_LEVEL_HIGH>,
- 				<0 0 0 3 &gic 0 0 GIC_SPI 170 IRQ_TYPE_LEVEL_HIGH>,
--- 
-2.43.0
-
+Reviewed-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
 
