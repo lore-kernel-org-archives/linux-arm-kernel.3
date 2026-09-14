@@ -4,87 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6168C88E73
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 21:15:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0335C88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 21:17:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NevuUkbIbY8Xir1EiuknrCzVePMTrnsw9qsLi8W12R0=; b=GNg7Ey1kqylS/egdOImw7sl/l0
-	j0eIKz4PzsoZrmo+0pCm8Sjvxxedyi8FoLnSBLI8qNL69CfRPviVHeCvOUDcg+32lie6hWuUWuBaO
-	5EvSv3NgvfeRu22sN2fEwvJG8s2s6qb67ToBAX6TysD5JOndyBklv8NfaivERWfRoezgABFao7l5Q
-	0r6UNF3fofDa2+6+/LgSvwsURdd8LRpkZyxwEPn7sP9MOwyvoJsLJV34iXYdQWk9yACmOuiMo0Glr
-	ykyM6VJYjlsalbGHHnRuJDlrx7qnVQviPZLPXDNY/t/czOhLreP7iRVuhdPK9usD0h3n+cShGH0yb
-	f61+py/w==;
+	bh=SPH2yTaJN2+oSe3I3KJ+8QZMneaPEyA++eBCEmtFrho=; b=Q+A70EM5bp6iU2U7rW+6LvajSe
+	0KmdCrzaSpfj3+NxpEZV1qqUu6WZFKhIuZBy+q9GKJu3ZNSsq+M57AI9/cG+3Ma7BpeRXV1mGsbex
+	fyiXtvQm9d9/Xq5DScuetcs3kCN1+LpPRuOeRq4UlXtPEYHxa1RNMayLQllP/HennHnIfSCDWzQg7
+	4fnoo0T86D0wExpBSb7L5vet9uLzHK0/EQAVGyxJI6kCZ6H3lwyYojjeH0hlvAJElQsZ8DosDqsmF
+	PqLgan9/mVQlcLQsApBY4HU75zRwgkcqsVDIpn+L8ilKSRq9D8APDY747GQDK4h2VXNzyzlgpKyoB
+	+TfIDlhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6E1b-00000004hru-2Rs6;
-	Mon, 14 Sep 2026 21:15:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x6E3U-00000004i6m-484C;
+	Mon, 14 Sep 2026 21:17:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6E1Y-00000004hrE-11DS
+	id 1x6E3T-00000004i6R-2EPj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 21:15:38 +0000
+	Mon, 14 Sep 2026 21:17:35 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B4E6E43F51
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 21:15:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CB281F0089D
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 21:15:35 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AE21A60252
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 21:17:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6857C1F00893
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 21:17:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789420535;
-	bh=NevuUkbIbY8Xir1EiuknrCzVePMTrnsw9qsLi8W12R0=;
+	s=k20260515; t=1789420654;
+	bh=SPH2yTaJN2+oSe3I3KJ+8QZMneaPEyA++eBCEmtFrho=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=nZ3svjAWFX3+xqUFjVpIL9dgPp8tQFeM5gg5QoY7Pu7qXBjj4Xt4sf+78cNwfD5Y3
-	 gVAngk7ti3CFZ92sivt3gMZFqY2SYum3QAw2RronjZ8MTENStKYof7+tNtUAFp9zFW
-	 51SM5bXydhxNXEQOy87BV8o3tqVL75/Y3pFuku/MJl/IR/oUUNdWZj+fQO5d1OmSxS
-	 2+N/aeuRXGkaHbyOqCleTd55yqKAnO3VXOEgHsmKKhvoY/bhz23CuGFHm1Wtw706L3
-	 w7ZPkrmlkJd8Yy8r6N0rWzr0l3nJdogRCztyFnYBBmfphr7Q+79HaU2FyG9C0BDZHz
-	 xb2iaQxsriXZg==
-Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b899413537so4168324e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 14:15:35 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBw7N4wK1QEIhKZ8ioeGr9MM8I0+J1AWNoRMiIOMKFt+zZuvgwwJWTWAjHWYKz2YMCE5hysuqs8kYK6HaZohPunP@lists.infradead.org
-X-Gm-Message-State: AFuF++kubgnA01VSuM7WovseHyOmz8ySyZHusgtr6fupnIZ9KDAq0smR
-	IzsfA099ocvIxe9Uq+I8Rty2F77UGlNman7lvJCxedrbonQkCNej4nwtoJa8RlrrDnUx5KRxMid
-	T0DiBXdSrpqvsAElggL5HIRiboRc9ok0=
-X-Received: by 2002:a05:6512:3f0e:b0:5b6:183b:d214 with SMTP id
- 2adb3069b0e04-5b8ae6a6fbbmr1185441e87.59.1789420534106; Mon, 14 Sep 2026
- 14:15:34 -0700 (PDT)
+	b=fAA1t5PR6uytt7TO/+zRxHcBsR89bCEzrRFsItHVGQ9TxKajyM3spHG+5sijP19OJ
+	 t1zWQodK7soN5keOj0OF2PDyPrLqTz3IIIVYVgyjyitTzxm6zqyCnQde7V0vQU6FDC
+	 xuUQR0iZ7zWz1Tx5WUoUYh3mR8oOHyfQbDU7G3T15qFWH0szwx8nqwaWC49XlRhF8Q
+	 qAWd7oY4Wyv4/8AQED7TGy+CDw+jeXMhyzQQuAfIVPkxEreL8GcwZc5pPBhSTMzY9l
+	 rfMVDPdwNKQcCvQ+aMvWAErD138DKFtfRRZfKAE+1khUpRmhXGhlYjbKL44dsLMWlD
+	 2z8C0hCDy4s2Q==
+Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5b5f21afe8cso293963e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 14:17:34 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBzm+L+a6MjAKlUXIydHVgKLJkJf2uVrLIkg2t14366HoB4qVkZXHzizBu+43C3wD5YbJ5icV4gFmvBLrzSXkx/P@lists.infradead.org
+X-Gm-Message-State: AFuF++nG/L8CmeOJyVdX8QuYK5WANd6Lsjj4pGLmQ4daMl0sfQul4PHE
+	VeetQ+DJ74dVriJkIiIH1U3IhykGV23bnk9IAdaIfcAkaCEYTgZDIeHsdoQaK3YyixCun4Ohz/K
+	wOxZnkoEQ0qYeOhvUEwvm1DDbkmj1gN0=
+X-Received: by 2002:a05:6512:1053:b0:5b3:f8b:b714 with SMTP id
+ 2adb3069b0e04-5b8b2a8671cmr211409e87.21.1789420653140; Mon, 14 Sep 2026
+ 14:17:33 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260914155645.112508-2-krzysztof.kozlowski@oss.qualcomm.com>
-In-Reply-To: <20260914155645.112508-2-krzysztof.kozlowski@oss.qualcomm.com>
+References: <20260907-arm64-have-shared-gpios-v1-1-31af942ab30f@oss.qualcomm.com>
+In-Reply-To: <20260907-arm64-have-shared-gpios-v1-1-31af942ab30f@oss.qualcomm.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 14 Sep 2026 23:15:20 +0200
-X-Gmail-Original-Message-ID: <CAD++jLmu2vovxXa9jqX+pq32KV6ONQ-=Yoo3fKF-49oMFVv3GA@mail.gmail.com>
-X-Gm-Features: AcwNN1W41lYuox0pw4JKzbuFr7Ojh_AWjTCNy5TnXF9BlZMG2RX-71m9k3IWIl8
-Message-ID: <CAD++jLmu2vovxXa9jqX+pq32KV6ONQ-=Yoo3fKF-49oMFVv3GA@mail.gmail.com>
-Subject: Re: [PATCH v2 net-next] dt-bindings: net: Use consistent indentation
- in the example
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Justin Chen <justin.chen@broadcom.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Hans Ulli Kroll <ulli.kroll@googlemail.com>, =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <clement.leger@bootlin.com>, 
-	Vladimir Oltean <olteanv@gmail.com>, Heiner Kallweit <hkallweit1@gmail.com>, 
-	Russell King <linux@armlinux.org.uk>, Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, 
-	Masami Hiramatsu <mhiramat@kernel.org>, Felix Fietkau <nbd@nbd.name>, 
-	Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>, 
-	Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
-	Johannes Berg <johannes@sipsolutions.net>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Jeff Johnson <jjohnson@kernel.org>, Richard Cochran <richardcochran@gmail.com>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
-	"G. Jaya Kumaran" <vineetha.g.jaya.kumaran@intel.com>, Claudiu Manoil <claudiu.manoil@nxp.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Alex Elder <elder@kernel.org>, 
-	Siddharth Vadapalli <s-vadapalli@ti.com>, Roger Quadros <rogerq@kernel.org>, 
-	bcm-kernel-feedback-list@broadcom.com, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, linux-wireless@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, ath10k@lists.infradead.org
+Date: Mon, 14 Sep 2026 23:17:20 +0200
+X-Gmail-Original-Message-ID: <CAD++jL=hnRNYuGxe=T7T5aPQFve5wtD5qt5e6z7-kz92GiHpSQ@mail.gmail.com>
+X-Gm-Features: AcwNN1XpyMYmDGh9l_sJ8JQBmfLBouLclcDrGavwm4fsBketM_Ew-WInKbZCshk
+Message-ID: <CAD++jL=hnRNYuGxe=T7T5aPQFve5wtD5qt5e6z7-kz92GiHpSQ@mail.gmail.com>
+Subject: Re: [PATCH] arm64: enable HAVE_SHARED_GPIOS for all ARM64 platforms
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Bartosz Golaszewski <brgl@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-gpio@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -101,19 +81,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 14, 2026 at 5:57=E2=80=AFPM Krzysztof Kozlowski
-<krzysztof.kozlowski@oss.qualcomm.com> wrote:
+On Mon, Sep 7, 2026 at 4:50=E2=80=AFPM Bartosz Golaszewski
+<bartosz.golaszewski@oss.qualcomm.com> wrote:
 
-> Correct indentation in the examples to consistent 2- or 4-spaces
-> indentation to fix dt-check-style warnings ("example 0
-> [indent-consistent] indent mismatch ...").  Preferred is 4-spaces, but
-> re-indenting entire example just for that is too much churn.
+> Shared GPIO management provided by the GPIO shared proxy module has been
+> enabled for Qualcomm platforms for some time. By extension of the
+> defconfig, it's been effectively enabled for all ARM64 platforms when
+> using the default configuration. Bugs discovered initially after the
+> feature was first enabled, were fixed and I haven't seen any new reports
+> for several months. Make the feature enabled by default for all ARM64
+> platforms officially, which will allow us to continue the removal of the
+> deprecated GPIOD_FLAGS_BIT_NONEXCLUSIVE flag from the kernel.
 >
-> In cortina,gemini-ethernet.yaml also drop the wrongly indented mdio bus,
-> because it is not necessary for the example.
->
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
+That sounds reasonable.
 Reviewed-by: Linus Walleij <linusw@kernel.org>
 
 Yours,
