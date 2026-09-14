@@ -4,87 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B24D2C88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 13:19:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 583D3C88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 13:19:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+CtYN0tgKPETVlmb678BLgBAA4im2S7f1euATyuMTj0=; b=GvjhuTxxZrEumSy9poqmOrwhyv
-	+MhjznMxpKkn9ZKuN8PWXfMZxuUwL/lk64dFaYd7e4UcoC9bID7t0Uo7J4q67LijEZzLY0x7q3Nh6
-	qUAZRYZhhMDToWT9r0wkaRYCD0srOx/YHo6y6lc7snKL8wzWk8GEgVzxrMXMqa92AC6zysCUp0ZGe
-	xsUFm1g5WDnNGWFioWyn0Jyo7rsPrgCWcv/r/AL4XVAhsH3KsRieyz9LRpRDpzi5wW5rgPB5tCUD9
-	Wr3hRq3G1eUsYnwjLjzlm+DPyVz0A41kLjDqxHX6zkGh2xlcuWiOo3m90XaWc9/n+oENenRap/nIc
-	2EBkZ79g==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4Sn21p4rT6NoUlG0MzRIgCQc2v7rkpn2MVo1FaJHdNY=; b=iJmkQiSGVmeKRaophj8QaTg/T5
+	acRdpvkjJjCOHNO4RvrDM+FEkjA0W8WZhOe4VoTkFfnrjF7LxMVbsRCEaHy00qdUIecrXQ9iNVDyQ
+	DDeDpQKumrNnXL5yBP5qcP+yq5Dp3QOW3vvfwfpC6008LE2VQdAH8M+cNLgwq3P58VPjjpMmrhrXI
+	Bkbye9uRwlLIRaaVS9/XV5ssMJ5oZFof4b2gTexxk0JDoiwy1cyJqdBnmulkcmzN3fXw2ITX7MRPm
+	diJNZn7rbmC0+MADPeFrlnQR7TWECuhoHWMXm6q3dLgvSHjYrfMJ/lc0ofS6qem1Dpbuh8XUIiaTC
+	6YXH2YiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x66aL-00000003jF8-0YeG;
-	Mon, 14 Sep 2026 13:19:01 +0000
-Received: from mail-pj2-x11.google.com ([2607:f8b0:4864:39::11])
+	id 1x66Gc-00000003fyX-15HJ;
+	Mon, 14 Sep 2026 12:58:38 +0000
+Received: from out-46.mta0.migadu.com ([2001:41d0:1004:224b::2e] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x66aJ-00000003jEI-1pZ4
+	id 1x66GZ-00000003fxz-3ETN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 13:19:00 +0000
-Received: by mail-pj2-x11.google.com with SMTP id d9443c01a7336-2d747eefadfso4046845ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 06:18:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789391938; x=1789996738; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=+CtYN0tgKPETVlmb678BLgBAA4im2S7f1euATyuMTj0=;
-        b=UCSKyr6qXyRGN6oExtLKuwTpymzbJvC+WrZ7jWTqk8vuqru+P23nFgnQlIn89cxWfR
-         Da56KPvJNpi20BPkvGw/n6uxg7AUYn1iA9+mH4JruLLy+cmcNL533d8Y8+fS7HvWdCAU
-         ZDAPo/IgoJhMZPSyn1/sw4yNCppqSZXT5o6cLX1rMSTHRIpgOt2Yt2Cml7Wb2eHVhY5C
-         8VVw1V0fVHVfNmMGzBYzeW4S6jC3ErMexBr8YC13TtK6043s3Hyhl9GdT+N9067EhflZ
-         KvSjzSQssdXLmmhBg+d6iiA9t1a8QFevOSOY8HwZDb7Ab4BRb9rOUbIf+ddE6HjtfsMK
-         iz8Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789391938; x=1789996738;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=+CtYN0tgKPETVlmb678BLgBAA4im2S7f1euATyuMTj0=;
-        b=lg1hoa1E2758msh9LcZ1PqSjT6nW7e7IzYhflmvfIcgb0MKBkEUZdp5X8nIn1FFuTJ
-         qPSDutLsXCSIjLLePKLE9yBxHO3ka+czenvYS3NSt7wd10MpZkHu1ytr8TSDoe+r4S8K
-         3o+zMKC6iAOltxOxRj+ks4VGoVsIPpB1OGJh8j/s6PT3t5gTQ/M6O+vSwiL+CQr/ZbBZ
-         Tb06uLxvhG1upytPY8ASxkk6pO4Um3RTaO3y/axuEPHWZIcxxa4bjel0oBc1lbkpmxC/
-         hgUWsrC0NwOwiCvUonE4z62AVghIUDdEXTheZxuz5AB54xxnqdbjxcbXDbFWlmHsBtpX
-         Lmuw==
-X-Forwarded-Encrypted: i=1; AKwUvBxGR/qMxWJOVz2NfFtKk+gyMPfEzHgLm3Un/8R6rTH58uv9d3HyCv796damg4gL4/qgJcjwWemV+zmwA5MmK0jI@lists.infradead.org
-X-Gm-Message-State: AFuF++kO1o5FCpFDW9hfExQCtMOGP20oGokNB2fAFY8B9KLGrjcB5BSr
-	6yV5x9W5eiTR2ZamPwK/ut+l5Z0NnuAUbGHp6ufCyP6RI2nBz2bUI9zx
-X-Gm-Gg: AYBFou3AYO/R7WbCyyKHbxvTPOiseR0JBWIfX0NWUNx96vz6xS1kpaJ9xAU9c4ICUEH
-	1tix/XlcAZcW55XUtGJY4TEhxBf/WDSL0FnTZw+Z0dD3MU18vNu9KYZj+lRNNbM7Qb57loUik7I
-	woeC9bZ81jgb99w+2suabIo37+T8bUrL9efaistUxDOkR4ExDb4mOldJNfDvfVuoln6IkoNU4pu
-	DKCpGUmcb5P4UNW30fTRv07nZqlzY2vrnjp3sbnONTni6ISKdQosz2KE9qswO0uTnujnJQvpZN3
-	72XC57RE38gEsSxDhFChLOnQYWPSeSOwbtWnxNXjqcpYac0Cv1RuAmE0CdaZvUHNuUhsR2S3h2j
-	piMdtD3Wtd6isTeZJbBeVyJPA7StCtZG3UcsMWNjrsfSVFPKNKIoOf6+u9Z4V/+QQRXwT1mvdxu
-	BaLIkT9YR3yh1/dDjBLP+Y6y78o0GEwRLktMTHOZ7BZDhMP5JlIOlAW/Gsn3YGnRx+4SOw0k6gm
-	RkmlHSgXUmx+ui2
-X-Received: by 2002:a17:902:f791:b0:2dd:7370:e19e with SMTP id d9443c01a7336-2dd7370e21dmr12996905ad.16.1789391938060;
-        Mon, 14 Sep 2026 06:18:58 -0700 (PDT)
-Received: from SGN-LDSENG.tasernet.com ([2405:4800:5cc3:11a:1ac0:4dff:fe8b:4a69])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2dd4007bd4dsm40753855ad.4.2026.09.14.06.18.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Sep 2026 06:18:57 -0700 (PDT)
-From: Cong Nguyen <congnt264@gmail.com>
-To: Jacky Huang <ychuang3@nuvoton.com>
-Cc: Shan-Chun Hung <schung@nuvoton.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Mon, 14 Sep 2026 12:58:37 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=vVA+BcQVTE6b1DspVs3rDyX78CT3oRsosEdsCjY+fSM=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1789390712; v=1; x=1789995512;
+ b=bMm8RZpyG5HUw2c0hDDsEwsGZp89eesx3rT4XUViMWRnGGz7GGJ9ihYTya34RMCfImzJ8GIp
+ AmRSO2vYapdunMSFkNGnyw4L2sWKyhyZbdpD4N1NmYzYQGXbD0+6aC6hzXeNtvu0O9CDCSNAjmI
+ wL/v0KyVzbZZoj8Jy2Ja7+m8=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id fe0470a03d8b6acf;
+	Mon, 14 Sep 2026 12:58:32 +0000
+X-Mizu-Trace-ID: fe0470a03d8b6acf
+X-Migadu-Flow: FLOW_OUT
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>
+Cc: Fuad Tabba <fuad.tabba@linux.dev>,
+	Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rtc@vger.kernel.org,
+	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] rtc: ma35d1: fix permanent clock reference/enable-count leak in probe
-Date: Mon, 14 Sep 2026 20:18:50 +0700
-Message-Id: <20260914131850.2331670-1-congnt264@gmail.com>
-X-Mailer: git-send-email 2.25.1
+Subject: [PATCH 2/2] KVM: arm64: selftests: Check the mandatory SMCCC_ARCH_FEATURES queries
+Date: Mon, 14 Sep 2026 13:58:27 +0100
+Message-Id: <20260914125827.1645980-2-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20260914125827.1645980-1-fuad.tabba@linux.dev>
+References: <20260914125827.1645980-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_061859_475551_A386C17F 
-X-CRM114-Status: GOOD (  13.16  )
+X-CRM114-CacheID: sfid-20260914_055835_955416_52940162 
+X-CRM114-Status: GOOD (  15.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,47 +80,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ma35d1_rtc_probe() gets the RTC clock via of_clk_get() and enables it
-via clk_prepare_enable(), but the struct clk * is a local variable --
-never stored anywhere, and the driver has no .remove. So on every
-probe, success or failure, there's no way to ever call
-clk_disable_unprepare()/clk_put() on it -- a permanent leak, and since
-CONFIG_RTC_DRV_MA35D1 is tristate, each module load/unload leaks
-another one.
+tools/testing/selftests/kvm/arm64/hypercalls.c checks SMCCC_ARCH_FEATURES
+with two expectations: hvc_info[] expects NOT_SUPPORTED with the
+pseudo-firmware bitmaps cleared and something else with them set, and
+false_hvc_info[] expects NOT_SUPPORTED for mismatched pairs. DEN0028H
+7.3.6 mandates SUCCESS for arch_func_id SMCCC_VERSION and
+SMCCC_ARCH_FEATURES itself, whatever the bitmaps hold, which neither
+expectation allows.
 
-Replace of_clk_get() + clk_prepare_enable() with
-devm_clk_get_enabled() -- same clock (both route through
-__of_clk_get(np, 0, ...)) but devm-managed, so it's released
-automatically on unbind or any probe-failure return.
+Check those two in the feature-disabled and feature-enabled stages, so
+the answer is asserted with the bitmaps cleared and again at their reset
+values. They pass only with the preceding patch applied.
 
-Fixes: dc0684adf3b6 ("rtc: Add driver for Nuvoton ma35d1 rtc controller")
-Assisted-by: Claude:claude-opus-4
-Signed-off-by: Cong Nguyen <congnt264@gmail.com>
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- drivers/rtc/rtc-ma35d1.c | 6 +-----
- 1 file changed, 1 insertion(+), 5 deletions(-)
+ .../testing/selftests/kvm/arm64/hypercalls.c  | 27 ++++++++++++++++++-
+ 1 file changed, 26 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/rtc/rtc-ma35d1.c b/drivers/rtc/rtc-ma35d1.c
-index cfcfc28060f6..43358d68565a 100644
---- a/drivers/rtc/rtc-ma35d1.c
-+++ b/drivers/rtc/rtc-ma35d1.c
-@@ -221,14 +221,10 @@ static int ma35d1_rtc_probe(struct platform_device *pdev)
- 	if (IS_ERR(rtc->rtc_reg))
- 		return PTR_ERR(rtc->rtc_reg);
+diff --git a/tools/testing/selftests/kvm/arm64/hypercalls.c b/tools/testing/selftests/kvm/arm64/hypercalls.c
+index 5d96cdf382c47..e74410cef0fe0 100644
+--- a/tools/testing/selftests/kvm/arm64/hypercalls.c
++++ b/tools/testing/selftests/kvm/arm64/hypercalls.c
+@@ -6,7 +6,8 @@
+  * via the psuedo-firmware bitmap register. This includes the registers'
+  * read/write behavior before and after the VM has started, and if the
+  * hypercalls are properly masked or unmasked to the guest when disabled or
+- * enabled from the KVM userspace, respectively.
++ * enabled from the KVM userspace, respectively. It also checks the two
++ * SMCCC_ARCH_FEATURES queries whose answer SMCCC pins to SUCCESS.
+  */
+ #include <errno.h>
+ #include <linux/arm-smccc.h>
+@@ -97,6 +98,12 @@ static const struct test_hvc_info false_hvc_info[] = {
+ 	TEST_HVC_INFO(ARM_SMCCC_HV_PV_TIME_FEATURES, ARM_SMCCC_TRNG_RND64),
+ };
  
--	clk = of_clk_get(pdev->dev.of_node, 0);
-+	clk = devm_clk_get_enabled(&pdev->dev, NULL);
- 	if (IS_ERR(clk))
- 		return dev_err_probe(&pdev->dev, PTR_ERR(clk), "failed to find rtc clock\n");
++/* SMCCC pins the answer to SUCCESS, whatever the bitmaps hold. */
++static const struct test_hvc_info always_hvc_info[] = {
++	TEST_HVC_INFO(ARM_SMCCC_ARCH_FEATURES_FUNC_ID, ARM_SMCCC_VERSION_FUNC_ID),
++	TEST_HVC_INFO(ARM_SMCCC_ARCH_FEATURES_FUNC_ID, ARM_SMCCC_ARCH_FEATURES_FUNC_ID),
++};
++
+ static void guest_test_hvc(const struct test_hvc_info *hc_info)
+ {
+ 	unsigned int i;
+@@ -128,6 +135,23 @@ static void guest_test_hvc(const struct test_hvc_info *hc_info)
+ 	}
+ }
  
--	ret = clk_prepare_enable(clk);
--	if (ret)
--		return ret;
--
- 	if (!(rtc_reg_read(rtc, MA35_REG_RTC_INIT) & RTC_INIT_ACTIVE)) {
- 		ret = ma35d1_rtc_init(rtc, RTC_INIT_TIMEOUT);
- 		if (ret)
++static void guest_test_always_hvc(void)
++{
++	struct arm_smccc_res res;
++	unsigned int i;
++
++	for (i = 0; i < ARRAY_SIZE(always_hvc_info); i++) {
++		memset(&res, 0, sizeof(res));
++		do_smccc(always_hvc_info[i].func_id, always_hvc_info[i].arg1,
++			 0, 0, 0, 0, 0, 0, &res);
++
++		__GUEST_ASSERT(res.a0 == SMCCC_RET_SUCCESS,
++			       "a0 = 0x%lx, func_id = 0x%x, arg1 = 0x%lx, stage = %u",
++			       res.a0, always_hvc_info[i].func_id,
++			       always_hvc_info[i].arg1, stage);
++	}
++}
++
+ static void guest_code(void)
+ {
+ 	while (stage != TEST_STAGE_END) {
+@@ -137,6 +161,7 @@ static void guest_code(void)
+ 		case TEST_STAGE_HVC_IFACE_FEAT_DISABLED:
+ 		case TEST_STAGE_HVC_IFACE_FEAT_ENABLED:
+ 			guest_test_hvc(hvc_info);
++			guest_test_always_hvc();
+ 			break;
+ 		case TEST_STAGE_HVC_IFACE_FALSE_INFO:
+ 			guest_test_hvc(false_hvc_info);
 -- 
-2.25.1
+2.39.5
 
 
