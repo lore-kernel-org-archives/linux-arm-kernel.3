@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90F21C982C1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 20:24:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03D18C88E7D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 20:24:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w587efkOjiQf9pLi3wYoyzihoJi5RgWEhsC3DWDduOI=; b=AkolJTmeUwEfGWdBJj8ftgwM/X
-	PvZVR74lwUS7a1aGi61ARBAVsCRmxlU3RB3RLxd39rl8UuZO3xKdwSDsiuaeLnmNLkpKtiSXtjpsq
-	8727bplZLH5m80nQ0G1DWy/FK+iusPQ3xkH3/UEI4TJt7dX38/yNIF/UBrGDX9Q9u5ncw5fNhB5g9
-	GilXfLQdDfrwVfjIr/QBEODw+HgFbFvBeTn83l6+KRc4oXbbwRv5/8GXmXPSXF/uFpns5+Os10EZq
-	XIe4vqg3mD1hob4VapRGOTbbLZaMY/Gq84rcTWJPtfHk2Wf+WGKQ4blqZyCIwoSQaeGfxe6C4P3A7
-	KpA9kWKA==;
+	bh=w7u0klR/IYUoGVOagYiSZ6HuUkgEjMwxzSC/jxfPsQg=; b=ZsjcJ744BpLpiSiJ5BfWKSfQ9e
+	9IrdjVepkr/ARaGceJxYBa1DIULHi7HkXV0Ps4k3fPcrRa/SPke8Yq/RFpSv7Bs5gmLUif64YxdWu
+	K/jCqzMqCHvc8nK5ub8EWCmJiduZSnCxR/jM8vtfnJtyBInobRBbu1ngAeLYQEHn+eUpkntqziQHc
+	Lp/xoDh2yKkugn3QnfPvzYxGLVVKBioM16LBrQirrlfvrH81A9oHuP5+jvXx25OqYOwzb4+U3DcgE
+	w3i7UG77UfDGBytK4YXaghHbAeEr1dKIYPbVmotW+txPlIGX9ocDf5mAOm06SvzOflhF6a9BmhoWk
+	1k8WKt5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6DEN-00000004aLw-2ElB;
+	id 1x6DEN-00000004aLD-0mRE;
 	Mon, 14 Sep 2026 20:24:47 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6DEF-00000004aGx-2AEB;
-	Mon, 14 Sep 2026 20:24:39 +0000
+	id 1x6DED-00000004aG3-3JID;
+	Mon, 14 Sep 2026 20:24:37 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 35B1140F0E;
-	Mon, 14 Sep 2026 20:24:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B9161F0089E;
+	by sea.source.kernel.org (Postfix) with ESMTP id 110E1410C8;
 	Mon, 14 Sep 2026 20:24:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81F881F000FF;
+	Mon, 14 Sep 2026 20:24:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789417479;
-	bh=w587efkOjiQf9pLi3wYoyzihoJi5RgWEhsC3DWDduOI=;
+	s=k20260515; t=1789417476;
+	bh=w7u0klR/IYUoGVOagYiSZ6HuUkgEjMwxzSC/jxfPsQg=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=c8Q/E5xBLlpVxk8HmFhY6cfDA7hI4fRNR/3W/efZKa9vyQzeaSLvRcYsG0+FW8ZYy
-	 7ZSdFWp7b1aOLOdyfjh8uENE+aE35r9MiUTDggEJCKY89RvwO5cSsj06/p0MWVzxe9
-	 AlDg3ZeTnVfNeKU38bTpzyjnywHAwVAGSgBPkkaLKXZ1u23spa1IqMF8tJwLFQtW8t
-	 MDFeFzcuTHiB0wd+hLlHUmO95dCZR4CVRhzi9M0R2wARVMqBVJAsI5BNkmk8l/bCjL
-	 WIldtGsE3g4di0Z8D9Ys5RybXB9k6t1tqJPFF7hZtOtDc5IzmQ07sm29oq5sazcLQr
-	 H8h4foIq0Z7Vg==
-Subject: Re: [PATCH net-next v5 02/11] dt-bindings: phy: rockchip:
- naneng-combphy: add rockchip,sgmii-mac-sel property
+	b=a3ZZ+FSyFcr4SLQqyug8gOzfrkQByO+wC7LUaFlE64JBvjeqHk170lvQkBTR+Fqci
+	 m7PXm5OX8yCqHyCxCkO5gVaspHgasepSHjUbGzs/vNCXvdZjPKiEufKqzTBSoNhdTd
+	 Kizf80RvRTTw+PMZbu9uIOBJV/+jjkH9GqaK0xi3Do1IuJ/MymwXv9h+ZFbHdhT0tV
+	 lQc8FfQyYD2yxFgcxhDWnBb8VQdeN9uuYmCRi97+rSC8oiesh6yTnziNmhtVegZx4m
+	 267+LpqHhdeZqq9dMFoahSzZuD+CDpKvKZmOMTIOlESmletw9JZG6Y//+WqkWmrMAN
+	 PAP+F5yHSFTsA==
+Subject: Re: [PATCH net-next v5 01/11] net: stmmac: move XPCS lifetime
+ management to platform drivers
 From: netdev-bot+sashiko@kernel.org
 To: coiaprant@gmail.com
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
@@ -56,11 +56,11 @@ Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
  linux-stm32@st-md-mailman.stormreply.com, linux-renesas-soc@vger.kernel.org
-Date: Mon, 14 Sep 2026 20:24:37 +0000
-Message-ID: <178941747711.22033.8495700704733189874@kernel.org>
-In-Reply-To: <20260913185849.907479-3-coiaprant@gmail.com>
-References: <20260913185849.907479-3-coiaprant@gmail.com>
-X-sashiko-severity: Low
+Date: Mon, 14 Sep 2026 20:24:35 +0000
+Message-ID: <178941747507.22033.8211069120708719813@kernel.org>
+In-Reply-To: <20260913185849.907479-2-coiaprant@gmail.com>
+References: <20260913185849.907479-2-coiaprant@gmail.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
@@ -78,77 +78,208 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 1 potential
+Thank you for your contribution! Sashiko AI review found 3 potential
 issue(s) to consider:
 
-Critical: 0 · High: 0 · Medium: 0 · Low: 1
+Critical: 0 · High: 0 · Medium: 2 · Low: 1
 
-- [Low] Concern (validated as NOT a defect in the series context): the
-  binding adds `rockchip,sgmii-mac-sel` while, at this commit alone, no…
+- [Medium] Commit message mischaracterizes the removal of the generic
+  XPCS creation as removing dead code.
+- [Medium] DT binding vs implementation mismatch: after this patch
+  nothing in the stmmac core reads the generic 'pcs-handle' property,…
+- [Low] The commit message describes two defects, one framed as "more
+  critically" (the common code overwriting priv->hw->xpcs after a…
 
 --
 
-dt-bindings: phy: rockchip: naneng-combphy: add rockchip,sgmii-mac-sel property
+net: stmmac: move XPCS lifetime management to platform drivers
 
-This adds an optional rockchip,sgmii-mac-sel property to the naneng-combphy
-binding so a board can select whether the RK3568 SGMII interface is routed
-to GMAC0 or GMAC1.  The property is restricted to the RK3568 compatible via
-the existing allOf conditional and defaults to 1 (GMAC1).
+The generic XPCS creation in stmmac_pcs_setup() (pcs-handle lookup and
+mdio_bus_data->pcs_mask based xpcs_create_mdiodev()) is removed, leaving
+only the plat->pcs_init() / plat->pcs_exit() dispatch. The Intel mGbE glue
+grows its own pcs_init()/pcs_exit() that create and destroy the XPCS, and
+the renesas-gbeth, rzn1 and socfpga pcs_exit() callbacks now clear
+priv->hw->phylink_pcs after destroying the PCS.
 
-> diff --git a/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml b/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
-> index 379b08bd9e97a..8e898bce9af73 100644
-> --- a/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
-> +++ b/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
-> @@ -80,6 +80,15 @@ properties:
->      description:
->        Some additional pipe settings are accessed through GRF regs.
->  
-> +  rockchip,sgmii-mac-sel:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    enum: [0, 1]
-> +    default: 1
-> +    description:
-> +      Select gmac0 or gmac1 to be used as SGMII controller.
-> +      The hardware reset value is GMAC1 (1). Set this to 0 to route
-> +      SGMII to GMAC0.
-> +
+A few questions on the commit message and on the removal of the generic
+path.
+
+>     First, if a device tree specifies a "pcs-handle" but no select_pcs()
+>     callback is provided by the platform driver, the created XPCS is never
+>     used. The phylink framework requires select_pcs() to actually return
+>     the PCS to the core, so the pcs-handle property becomes effectively
+>     useless without the matching callback.
+
+[Severity: Medium]
+Is "the created XPCS is never used" accurate?  An XPCS stored in
+priv->hw->xpcs has two consumers that do not go through select_pcs().
+
+stmmac_phylink_setup() in stmmac_main.c uses it to widen the phylink
+interface sets:
+
+	/* If we have an xpcs, it defines which PHY interfaces are supported. */
+	if (priv->hw->xpcs)
+		pcs = xpcs_to_phylink_pcs(priv->hw->xpcs);
+	else
+		pcs = priv->hw->phylink_pcs;
+
+	if (pcs)
+		phy_interface_or(config->supported_interfaces, ...
+
+and stmmac_init_phy() uses it to decide whether to attach a PHY at all:
+
+	if (priv->hw->xpcs &&
+	    xpcs_get_an_mode(priv->hw->xpcs, mode) == DW_AN_C73)
+		return 0;
+
+So for a dwmac instance with a pcs-handle but no plat->pcs_init, does this
+change narrow config->supported_interfaces (and config->lpi_interfaces) and
+alter the PHY-attach decision, rather than just dropping something unused?
+Would it be worth spelling that behavioural change out in the commit
+message?
+
+>     Second, and more critically, when a platform driver sets pcs_init()
+>     and creates an XPCS inside that callback, the common code afterwards
+>     still runs unconditionally and overwrites priv->hw->xpcs with the
+>     local xpcs variable, which stays NULL. The platform driver has no way
+>     to prevent this override because the common code runs after the
+>     platform-specific initialization.
 
 [Severity: Low]
-At this commit alone, is rockchip,sgmii-mac-sel read by anything?
+This isn't a bug, but could this paragraph say that no in-tree platform is
+affected today?
 
-rockchip_combphy_parse_dt() in
-drivers/phy/rockchip/phy-rockchip-naneng-combphy.c does not look it up,
-struct rockchip_combphy_grfcfg has no pipe_sgmii_mac_sel descriptor, and
-no in-tree DTS sets it, so a kernel built from exactly this commit would
-silently ignore the property.
+All three pre-existing pcs_init() implementations store their PCS in
+priv->hw->phylink_pcs, not priv->hw->xpcs:
 
-This resolves itself later in the same series: "phy: rockchip:
-naneng-combphy: add SGMII MAC selection for RK3568" adds the parsing
+  renesas_gmac_pcs_init()  -> priv->hw->phylink_pcs = miic_create(...)
+  rzn1_dwmac_pcs_init()    -> priv->hw->phylink_pcs = miic_create(...)
+  socfpga_dwmac_pcs_init() -> priv->hw->phylink_pcs = pcs
 
-	priv->sgmii_mac_sel = 1;
-	device_property_read_u32(dev, "rockchip,sgmii-mac-sel", &priv->sgmii_mac_sel);
+so the old "priv->hw->xpcs = xpcs;" on the pcs_init branch overwrote NULL
+with NULL.  intel_mgbe_pcs_init() added here is the first in-tree pcs_init()
+that stores an XPCS, which makes this a refactor that removes a latent trap
+rather than a fix for observable breakage.
 
-along with the RK3568 pipe-GRF descriptor
-
-	.pipe_sgmii_mac_sel	= { 0x0040, 1, 1, 0x00, 0x01 },
-
-and the write in the PHY_TYPE_SGMII path of rk3568_combphy_cfg(), and
-"arm64: dts: rockchip: rk3568-photonicat: enable SGMII LAN port" adds the
-first user:
-
-	&combphy2 {
-		rockchip,sgmii-mac-sel = <0>;
-		status = "okay";
-	};
-
-So this is noted only for the record, since the binding and its consumer
-being split across consecutive patches is the normal series layout.
-
-The remaining point is a design question rather than a bug: is a raw
-uint32 MAC index the interface preferred here, or would a phandle to the
-GMAC controller node be a better fit for describing the routing?
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
+> index f5f9fa67ecd77..4308dccbf2570 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
+> @@ -603,13 +603,47 @@ static void common_default_data(struct plat_stmmacenet_data *plat)
+>  	plat->mdio_bus_data->needs_reset = true;
+>  }
+>  
+> +static int intel_mgbe_pcs_init(struct stmmac_priv *priv)
+> +{
+> +	struct fwnode_handle *devnode, *pcsnode;
+> +	struct dw_xpcs *xpcs;
+> +	int addr;
+> +
+> +	devnode = dev_fwnode(priv->device);
+> +
+> +	if (fwnode_property_present(devnode, "pcs-handle")) {
+> +		pcsnode = fwnode_find_reference(devnode, "pcs-handle", 0);
+> +		xpcs = xpcs_create_fwnode(pcsnode);
+> +		fwnode_handle_put(pcsnode);
+> +	} else {
+> +		addr = ffs(priv->plat->mdio_bus_data->pcs_mask) - 1;
+> +		xpcs = xpcs_create_mdiodev(priv->mii, addr);
+> +	}
+> +
+> +	if (IS_ERR(xpcs))
+> +		return PTR_ERR(xpcs);
+> +
+> +	xpcs_config_eee_mult_fact(xpcs, priv->plat->mult_fact_100ns);
+> +
+> +	priv->hw->xpcs = xpcs;
+> +	return 0;
+> +}
+> +
 
 [ ... ]
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+> index afe98ff5bdcb0..7396b68899c66 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+> @@ -426,35 +426,14 @@ int stmmac_mdio_reset(struct mii_bus *bus)
+>  int stmmac_pcs_setup(struct net_device *ndev)
+>  {
+>  	struct stmmac_priv *priv = netdev_priv(ndev);
+> -	struct fwnode_handle *devnode, *pcsnode;
+> -	struct dw_xpcs *xpcs = NULL;
+> -	int addr, ret;
+> -
+> -	devnode = dev_fwnode(priv->device);
+> -
+> -	if (priv->plat->pcs_init) {
+> -		ret = priv->plat->pcs_init(priv);
+> -	} else if (fwnode_property_present(devnode, "pcs-handle")) {
+> -		pcsnode = fwnode_find_reference(devnode, "pcs-handle", 0);
+> -		xpcs = xpcs_create_fwnode(pcsnode);
+> -		fwnode_handle_put(pcsnode);
+> -		ret = PTR_ERR_OR_ZERO(xpcs);
+> -	} else if (priv->plat->mdio_bus_data &&
+> -		   priv->plat->mdio_bus_data->pcs_mask) {
+> -		addr = ffs(priv->plat->mdio_bus_data->pcs_mask) - 1;
+> -		xpcs = xpcs_create_mdiodev(priv->mii, addr);
+> -		ret = PTR_ERR_OR_ZERO(xpcs);
+> -	} else {
+> +	int ret;
+> +
+> +	if (!priv->plat->pcs_init)
+>  		return 0;
+> -	}
+>  
+> +	ret = priv->plat->pcs_init(priv);
+>  	if (ret)
+> -		return dev_err_probe(priv->device, ret, "No xPCS found\n");
+> -
+> -	if (xpcs)
+> -		xpcs_config_eee_mult_fact(xpcs, priv->plat->mult_fact_100ns);
+> -
+> -	priv->hw->xpcs = xpcs;
+> +		return dev_err_probe(priv->device, ret, "Failed to initialize PCS\n");
+>  
+>  	return 0;
+>  }
+
+[Severity: Medium]
+After this change, does anything in the stmmac core still read the generic
+"pcs-handle" property?
+
+The property is still documented generically in
+Documentation/devicetree/bindings/net/ethernet-controller.yaml:
+
+  pcs-handle:
+    $ref: /schemas/types.yaml#/definitions/phandle-array
+    items:
+      maxItems: 1
+    description:
+      Specifies a reference to a node representing a PCS PHY device on a MDIO
+      bus to link with an external PHY (phy-handle) if exists.
+
+and snps,dwmac.yaml $refs ethernet-controller.yaml and ends with
+"additionalProperties: true", so pcs-handle stays schema-valid on every
+dwmac node regardless of which glue is bound.
+
+On a glue that does not set plat->pcs_init, stmmac_pcs_setup() now returns 0
+without looking at the property, priv->hw->xpcs stays NULL, and nothing is
+logged - whereas the removed code would at least fail probe with
+"No xPCS found" for a bad phandle.  Should the binding be updated to say
+pcs-handle is only honoured by specific glue drivers, or should the core
+keep a generic path (or emit a warning) so the two agree?
+
+The same question applies to struct stmmac_mdio_bus_data.pcs_mask.
+stmmac_mdio_register() still treats it as "a PCS lives at these MDIO
+addresses" and masks them out of the bus scan:
+
+	new_bus->phy_mask = mdio_bus_data->phy_mask | mdio_bus_data->pcs_mask;
+
+but no core code creates a PCS for those addresses any more, only
+dwmac-intel's private intel_mgbe_pcs_init().  Does a glue that sets
+pcs_mask without pcs_init now end up with that address neither scanned as a
+PHY nor instantiated as a PCS?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260913185849.907479-1-coiaprant%40gmail.com
