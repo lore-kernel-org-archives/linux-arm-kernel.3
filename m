@@ -4,66 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E255C88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 08:16:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 453B1C88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 08:18:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k39SxnrZMfdWVjQaPHF86OxGvf8o87JhugkFg8qWuBk=; b=OsVEgbkcfr8pEk0mtXOdCHvK2u
-	k2XkAmoUUp6BF80fYXJM8aD4mALo509WCgGCRdsWAPoWQG+ZnPmpPai9yP/goffmt+GGVZYu91/IS
-	qJNV7qTV1Uf/1gvK8I9XKgf7PUG+dU9d/Q6kwrCoHvJ0e+OF01I0/0Z07x5f8rFNkdPKs4DucArDW
-	mb64z+GROr/axIQJE+1oSao8zt5gImfm8n+mvSXjrnnxfyrrcEYMVPKiaV1pPZOGGCa567KrKmAjx
-	MeYMgd8nR2IDA6xfJk9kH2oEDh0/lDfEv3tdxjIhuMJj6usjr6dLFSNGJAdU+KQKGY1iE0IG/8V1c
-	AJGx2dxA==;
+	bh=qwtNamVppoCHbYqbZi9q499OEY2ueI6/B2MiZTzOFFw=; b=vyXGpElQ9El2xfhnMGR9DmaD4C
+	fDL9nxur5eiIpfaPqkXfKDtEzatScnp3e2lBpozGjZjO9rOUUbH2quqizOVFXMiucQ3GPVqwDh6Ql
+	aLgtUkfQa2+wqRuwwwrqtm4AJ4fkv2gIlJ9EPOd8Me5ECEEbhQrugWFs9kr+gTt1blBVkjRWS0Xvg
+	vnYXlNkUCaDEZ0MTaqi4NTPFMNoybgyTTexsCH6WcHoSkZkrcyMEqjLAl5LgHkEFGw+9xFuOdZWfp
+	yTWZr3sr83Qsk9HLeGJRn1nZ1oxa1N4AtXpT7ZrmtMVtBGKxo0dcT/wemc5ea1s6D88N4QMB3HgV0
+	CQfhql4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x61rP-00000002hBw-1pMc;
-	Mon, 14 Sep 2026 08:16:19 +0000
+	id 1x61tS-00000002hYK-492J;
+	Mon, 14 Sep 2026 08:18:27 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x61rK-00000002h9P-24M1;
-	Mon, 14 Sep 2026 08:16:17 +0000
+	id 1x61tR-00000002hXU-1Gl1;
+	Mon, 14 Sep 2026 08:18:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1789373771;
-	bh=wVOGZOIoAqD9kxg/V5gIB3ga+5nuc8Ne44/nZXD7tYI=;
+	s=mail; t=1789373902;
+	bh=DWggKVY8dMTtllAFA52TbFspZ6he1PLAFTJ0dJKkSDk=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=FkB1NNcPSaQdSCKxeLfrLHsnDAMpai8mhY09L76wHyr+2PrJMNd/4fULMtGh3lR+r
-	 xbqanqYeS3GnPAQPaJDnp8odwhsNxOjryyMKOsz2TbvJBJV3RC068Dmr9yRsjobESa
-	 jF6P66B8xMaLdqZQ7XQNMUCx/FVEiFvnIxh95kh37nzvnS5AFk014cP3RrVNmHN+YE
-	 TRvuN4b/ooPxsgsont6UHgnQiMmkQZ+6nV4G/s6CttVeIrMvkSDFOxUMVQ/8SE7anE
-	 TdH6GI7TS1uUjVQ5BkK4hDQjP9sHNo1W/Fx+zhAfk++IAtpvBTtELbkTRJK3tpeuto
-	 lDM8WVHhz9hkQ==
+	b=I25XpAC06/I3GfHLgZt/v9IewDM52y/atTzc4iP6NsBkhEcubS81cw/KOMU9IzYZD
+	 TdzCWfEYrcLUNsM9x0IMC3EvudaVv9uQ7SsvVtaE+Bi1H8Xg+jCkuzV6bpb3G6M3PA
+	 cC5+Wr3zzOixAPGFCzH50qNxdIsS7uUxGVvm/BSN8fF/VesB3rD39ERE/YexmxsfIC
+	 MEby6kGFk+MdwrsaJ4PDtqqGYd4fMT88WQLGkozyvX9/CUnVmH6XdM9iP4Nd7or5h6
+	 0rUaA3jwfphEhZxr3gbtDE09jzGxMmO1+ZunKkHYyABuLAJTnq7PY5khliM1lo6IRD
+	 0Yvv0wu3jhV+g==
 Received: from [100.64.1.21] (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange x25519)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2443817E020C;
-	Mon, 14 Sep 2026 10:16:11 +0200 (CEST)
-Message-ID: <88272aca-2a9e-4a75-b7f2-4f7aac8b6d18@collabora.com>
-Date: Mon, 14 Sep 2026 10:16:10 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id F311717E020C;
+	Mon, 14 Sep 2026 10:18:21 +0200 (CEST)
+Message-ID: <e28acd6b-aac6-4e2e-8d0b-b9ed22820d73@collabora.com>
+Date: Mon, 14 Sep 2026 10:18:21 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] clk: mediatek: mt6795: fix the FHCTL DDS mask width
-To: Ryan Brue <ryanbrue.dev@gmail.com>, Stephen Boyd <sboyd@kernel.org>,
- Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>,
- Matthias Brugger <matthias.bgg@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>
-Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20260912-mt8173-fix-dds-mask-width-v1-0-3d0c0292c85c@gmail.com>
- <20260912-mt8173-fix-dds-mask-width-v1-2-3d0c0292c85c@gmail.com>
+Subject: Re: [PATCH] phy: phy-mtk-dp: Fix pdata array members initialized as
+ pointers
+To: Sasha Levin <sashal@kernel.org>, Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+ Manivannan Sadhasivam <mani@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling
+ <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
+ linux-kernel@vger.kernel.org, llvm@lists.linux.dev
+References: <20260913172930.1150324-1-sashal@kernel.org>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20260912-mt8173-fix-dds-mask-width-v1-2-3d0c0292c85c@gmail.com>
+In-Reply-To: <20260913172930.1150324-1-sashal@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_011614_690516_653F4E5D 
-X-CRM114-Status: GOOD (  10.73  )
+X-CRM114-CacheID: sfid-20260914_011825_493033_E7CADFF7 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,22 +85,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/12/26 08:40, Ryan Brue wrote:
-> All eight PLLs in mt6795's pllfhs[] have pcwbits = 21, so the FHCTL DDS
-> field is bits 20:0, but _FH() declares .dds_mask = GENMASK(21, 0). As on
-> MT8173, new_dds from mtk_pll_calc_values() is always 21-bit, so admitting
-> bit 21 of FHCTL_MON into the poll in hopping_hw_flow() can only make it
-> time out. The same mask feeds the CON1 write-back and fhctl_set_ssc_regs().
+On 9/13/26 19:29, Sasha Levin wrote:
+> Building arm/arm64/i386 allmodconfig with clang fails:
 > 
-> Unlike MT8173 this path has a user: mt6795-sony-xperia-m5.dts switches
-> FHCTL on for mainpll, mpll and msdcpll, with SSC.
+>    drivers/phy/mediatek/phy-mtk-dp.c:761:18: error: incompatible pointer
+>    to integer conversion initializing 'u16' (aka 'unsigned short') with
+>    an expression of type 'const u16[4]' [-Wint-conversion]
+>    drivers/phy/mediatek/phy-mtk-dp.c:761:18: error: initializer element
+>    is not a compile-time constant
+>    drivers/phy/mediatek/phy-mtk-dp.c:761:18: error: suggest braces around
+>    initialization of subobject [-Werror,-Wmissing-braces]
 > 
-> Found by inspection while fixing MT8173. I have no MT6795 hardware, so
-> this one is untested.
+> 14 errors in total, one set per offending member.
 > 
-> Fixes: f222a1baec5f ("clk: mediatek: mt6795: Add support for frequency hopping through FHCTL")
+> off_ana_lane, off_dig_lane and driving_params are declared as arrays in
+> struct mtk_dp_phy_pdata:
+> 
+> 	u16 off_ana_lane[MTK_DP_PHY_MAX_LANES];
+> 	u16 off_dig_lane[MTK_DP_PHY_MAX_LANES];
+> 	u32 driving_params[PHYD_DIG_NUM_DRV_PARA_REGS];
+> 
+> but the SoC data instances initialize them with compound literals. A
+> compound literal is an object, not an initializer list, so this is not
+> an array initializer: the member is initialized element-wise from a
+> scalar, the first element gets the address of the literal truncated to
+> u16/u32, and the remaining elements are zeroed. Hence the three
+> diagnostics above - the pointer-to-integer conversion, the address not
+> being a compile-time constant, and the missing braces.
+> 
+> Arrays are the right type here, since both members are indexed per lane
+> and driving_params is sized with ARRAY_SIZE(), so drop the casts and use
+> plain braced initializers.
+> 
+> Found by KernelCI builds of the linus-next tree.
+> 
+> Fixes: ae859204b519 ("phy: phy-mtk-dp: Migrate register offsets to SoC specific pdata")
+> Fixes: 7cf38eb0ab59 ("phy: phy-mtk-dp: Add support for digital and analog calibration")
+> Fixes: 6fe4d5beac72 ("phy: phy-mtk-dp: Add support for MT8196 eDP PHY")
 > Assisted-by: LLM
-> Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
+> Signed-off-by: Sasha Levin <sashal@kernel.org>
+
+Whoops, sorry.
 
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
