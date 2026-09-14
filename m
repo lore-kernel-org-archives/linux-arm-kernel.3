@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 583D3C88E64
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 13:19:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C458CC88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 13:20:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Sn21p4rT6NoUlG0MzRIgCQc2v7rkpn2MVo1FaJHdNY=; b=iJmkQiSGVmeKRaophj8QaTg/T5
-	acRdpvkjJjCOHNO4RvrDM+FEkjA0W8WZhOe4VoTkFfnrjF7LxMVbsRCEaHy00qdUIecrXQ9iNVDyQ
-	DDeDpQKumrNnXL5yBP5qcP+yq5Dp3QOW3vvfwfpC6008LE2VQdAH8M+cNLgwq3P58VPjjpMmrhrXI
-	Bkbye9uRwlLIRaaVS9/XV5ssMJ5oZFof4b2gTexxk0JDoiwy1cyJqdBnmulkcmzN3fXw2ITX7MRPm
-	diJNZn7rbmC0+MADPeFrlnQR7TWECuhoHWMXm6q3dLgvSHjYrfMJ/lc0ofS6qem1Dpbuh8XUIiaTC
-	6YXH2YiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QTyyRmihpMcljrlj8iAOOjw7vF5j4vHtfs9ZjQcTPeU=; b=Yj3/CIyrlda6hperSBDv7spIeq
+	O9srTJEuM0bt+8sDs+XH5o68ZIu0pvbuoWqeuVQeONIERs7xF+YYGgspKBZOJfCh6n91IKSVNDHb5
+	u6m1G7oGz5MvU0X4SxL0SQlmwWhkLXAp89gTrbuxvJE6BYmiNpL87llPdk1EvDbHVEAADkqsoJ6bd
+	bubHOrdDfvO0yCXQcBXPSfuLfTEKd4PHxX/YOQ1qEvRixETXf8ncv0W3Y90SNvPQqQp50tUPuhAZM
+	fdyeSLXt+v5EiB5yEwBrCOO5AHLWu4h6/JUp40JQUJnuiDhQXBQu2Bhm9U+ddl02aiUSof4E2K5dW
+	XsLLl+6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x66Gc-00000003fyX-15HJ;
-	Mon, 14 Sep 2026 12:58:38 +0000
-Received: from out-46.mta0.migadu.com ([2001:41d0:1004:224b::2e] helo=mta0.migadu.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x66GZ-00000003fxz-3ETN
+	id 1x66bp-00000003jbN-2Kd3;
+	Mon, 14 Sep 2026 13:20:33 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x66bm-00000003jaj-45HZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 12:58:37 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=vVA+BcQVTE6b1DspVs3rDyX78CT3oRsosEdsCjY+fSM=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1789390712; v=1; x=1789995512;
- b=bMm8RZpyG5HUw2c0hDDsEwsGZp89eesx3rT4XUViMWRnGGz7GGJ9ihYTya34RMCfImzJ8GIp
- AmRSO2vYapdunMSFkNGnyw4L2sWKyhyZbdpD4N1NmYzYQGXbD0+6aC6hzXeNtvu0O9CDCSNAjmI
- wL/v0KyVzbZZoj8Jy2Ja7+m8=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id fe0470a03d8b6acf;
-	Mon, 14 Sep 2026 12:58:32 +0000
-X-Mizu-Trace-ID: fe0470a03d8b6acf
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>
-Cc: Fuad Tabba <fuad.tabba@linux.dev>,
-	Fuad Tabba <tabba@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
+	Mon, 14 Sep 2026 13:20:32 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7FC28143D;
+	Mon, 14 Sep 2026 06:20:26 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D260B3F9A2;
+	Mon, 14 Sep 2026 06:20:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789392030; bh=qccnsiTYONbRWySebO6ZiFYfo2sGWGcPDn1cjxnGQhs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WxMq8OooOj2Fzfk6TeiR1IttqFNGgyHs47+3CVbDPZtNze6f8ETgMuqrLKbEoSW61
+	 19e0ABb2O0/NOg5qqC0+QpiT+ioAlx83zrK4fJuNNey4ykXAP6Hgmbt4/d0Z+gx1QU
+	 ewQBYatftul5NwpU4LcWpjvNRBffnBfPq8zsqw0I=
+Date: Mon, 14 Sep 2026 14:20:23 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>,
+	Greg KH <gregkh@linuxfoundation.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] KVM: arm64: selftests: Check the mandatory SMCCC_ARCH_FEATURES queries
-Date: Mon, 14 Sep 2026 13:58:27 +0100
-Message-Id: <20260914125827.1645980-2-fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260914125827.1645980-1-fuad.tabba@linux.dev>
-References: <20260914125827.1645980-1-fuad.tabba@linux.dev>
+	Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Andre Przywara <andre.przywara@arm.com>
+Subject: Re: [PATCH v11 4/7] arm64: realm: Move Realm memory encryption ops
+ to RSI code
+Message-ID: <aqf0lyf6dQRc4eDR@arm.com>
+References: <20260914060511.277948-1-aneesh.kumar@kernel.org>
+ <20260914060511.277948-5-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260914060511.277948-5-aneesh.kumar@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_055835_955416_52940162 
-X-CRM114-Status: GOOD (  15.10  )
+X-CRM114-CacheID: sfid-20260914_062031_049101_E81DB5F2 
+X-CRM114-Status: UNSURE (   9.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,83 +80,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tools/testing/selftests/kvm/arm64/hypercalls.c checks SMCCC_ARCH_FEATURES
-with two expectations: hvc_info[] expects NOT_SUPPORTED with the
-pseudo-firmware bitmaps cleared and something else with them set, and
-false_hvc_info[] expects NOT_SUPPORTED for mismatched pairs. DEN0028H
-7.3.6 mandates SUCCESS for arch_func_id SMCCC_VERSION and
-SMCCC_ARCH_FEATURES itself, whatever the bitmaps hold, which neither
-expectation allows.
+On Mon, Sep 14, 2026 at 11:35:08AM +0530, Aneesh Kumar K.V (Arm) wrote:
+> Realm memory encryption callbacks are CCA-specific. Keep the Realm callback
+> registration with the RSI initialization code instead of pageattr.c, which
+> only needs to provide the low-level page-attribute transition helper.
+> 
+> Export __set_memory_enc_dec() within arm64 so the RSI code can wrap it with
+> the Realm-specific encrypt/decrypt callbacks and warning policy.
 
-Check those two in the feature-disabled and feature-enabled stages, so
-the answer is asserted with the bitmaps cleared and again at their reset
-values. They pass only with the preceding patch applied.
+Suzuki commented on v9 I think not to expose this function but I don't
+see a nice way around since we now moved the realm_crypt_ops out of
+pageattr.c (so we'd have to export something out of that file).
 
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
- .../testing/selftests/kvm/arm64/hypercalls.c  | 27 ++++++++++++++++++-
- 1 file changed, 26 insertions(+), 1 deletion(-)
-
-diff --git a/tools/testing/selftests/kvm/arm64/hypercalls.c b/tools/testing/selftests/kvm/arm64/hypercalls.c
-index 5d96cdf382c47..e74410cef0fe0 100644
---- a/tools/testing/selftests/kvm/arm64/hypercalls.c
-+++ b/tools/testing/selftests/kvm/arm64/hypercalls.c
-@@ -6,7 +6,8 @@
-  * via the psuedo-firmware bitmap register. This includes the registers'
-  * read/write behavior before and after the VM has started, and if the
-  * hypercalls are properly masked or unmasked to the guest when disabled or
-- * enabled from the KVM userspace, respectively.
-+ * enabled from the KVM userspace, respectively. It also checks the two
-+ * SMCCC_ARCH_FEATURES queries whose answer SMCCC pins to SUCCESS.
-  */
- #include <errno.h>
- #include <linux/arm-smccc.h>
-@@ -97,6 +98,12 @@ static const struct test_hvc_info false_hvc_info[] = {
- 	TEST_HVC_INFO(ARM_SMCCC_HV_PV_TIME_FEATURES, ARM_SMCCC_TRNG_RND64),
- };
- 
-+/* SMCCC pins the answer to SUCCESS, whatever the bitmaps hold. */
-+static const struct test_hvc_info always_hvc_info[] = {
-+	TEST_HVC_INFO(ARM_SMCCC_ARCH_FEATURES_FUNC_ID, ARM_SMCCC_VERSION_FUNC_ID),
-+	TEST_HVC_INFO(ARM_SMCCC_ARCH_FEATURES_FUNC_ID, ARM_SMCCC_ARCH_FEATURES_FUNC_ID),
-+};
-+
- static void guest_test_hvc(const struct test_hvc_info *hc_info)
- {
- 	unsigned int i;
-@@ -128,6 +135,23 @@ static void guest_test_hvc(const struct test_hvc_info *hc_info)
- 	}
- }
- 
-+static void guest_test_always_hvc(void)
-+{
-+	struct arm_smccc_res res;
-+	unsigned int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(always_hvc_info); i++) {
-+		memset(&res, 0, sizeof(res));
-+		do_smccc(always_hvc_info[i].func_id, always_hvc_info[i].arg1,
-+			 0, 0, 0, 0, 0, 0, &res);
-+
-+		__GUEST_ASSERT(res.a0 == SMCCC_RET_SUCCESS,
-+			       "a0 = 0x%lx, func_id = 0x%x, arg1 = 0x%lx, stage = %u",
-+			       res.a0, always_hvc_info[i].func_id,
-+			       always_hvc_info[i].arg1, stage);
-+	}
-+}
-+
- static void guest_code(void)
- {
- 	while (stage != TEST_STAGE_END) {
-@@ -137,6 +161,7 @@ static void guest_code(void)
- 		case TEST_STAGE_HVC_IFACE_FEAT_DISABLED:
- 		case TEST_STAGE_HVC_IFACE_FEAT_ENABLED:
- 			guest_test_hvc(hvc_info);
-+			guest_test_always_hvc();
- 			break;
- 		case TEST_STAGE_HVC_IFACE_FALSE_INFO:
- 			guest_test_hvc(false_hvc_info);
--- 
-2.39.5
-
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
