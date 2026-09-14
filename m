@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6D98C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 17:47:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 461E1C88E73
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 17:50:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fEcFOKk4u49+lu8i7wUIHe8SeOyKWEe5+xW0wFXymbk=; b=XCxqW5x+Ph0mPzswaKuWcTSPRe
-	fu9NF93sIwKyRm2pscOOS9aB/VMqgeCcQ43xPeGhLjBHyZJne+BHP0q0Q/jjmFfeHKzsrE8kr1OBN
-	4/pqlbJUDAFYq6WGs2TM1EDyGpAkZBGzgYW/L9qPjqTBlAGCfa0EyD9+c1Ugi5biw7xfVxXDQdvYi
-	AXYEYs/r9SoIQYXlwRb6E1KHBylO/FSxxR04OvuHu5b3Ps+e4opqexK7TO0IzPAfcNlA3LuZAVUyS
-	HepG3DghSoCPLyQ5mWxsl2gxkgtbQDdJNP+PyS7uW1I+vtPmUhbG/x/pb7rxUmLWApIMfWPFlrEFR
-	55bagZ2g==;
+	bh=3u/ykhDq7r4ShX9I3fmkI3JbzbVWqdHF9eVM1GGm0Qg=; b=mdZgooidu7F0OlFUc2Uv4+Pwo7
+	FjPhRgxfORzqzYxmPlbHXnSHQ/1f2+Qak+iY3jKG8O7eLfkrZxqwtRzzJY7FQsM2I6tm4+Z71WJ+M
+	ko4XMADZc4MGsSxPdA5dlZEX8JTKvw08JNPGIJvQ44Ir1hwtlbpOCzpe+caeEy/AHxz7Asg5OKACc
+	FJ0HCvhWLKFpPaWrL2XYvhf4ii6zAu5t4vh6bDAVBLCE0JTwaxRl/33J5mCRJzfJlAtwQJ6/BSipn
+	9KSL1HvhovmaNexw6EPsQbHAzoBqr7i63ZqkQhk5pgwUAxHqPW8iEf695hdjkCy0ZoGn/wlm4paB9
+	IffGaGeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Alo-00000004P8l-2vOD;
-	Mon, 14 Sep 2026 17:47:08 +0000
+	id 1x6ApC-00000004PLf-3Fnz;
+	Mon, 14 Sep 2026 17:50:38 +0000
 Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6All-00000004P7x-1fe5
+	id 1x6Ap9-00000004PL1-3Pzx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 17:47:08 +0000
+	Mon, 14 Sep 2026 17:50:37 +0000
 Received: from francesco-nb.. (xcpe-178-82-167-143.dyn.res.sunrise.net [178.82.167.143])
-	by mail11.truemail.it (Postfix) with ESMTPA id 6E45B1F8D1;
-	Mon, 14 Sep 2026 19:46:58 +0200 (CEST)
+	by mail11.truemail.it (Postfix) with ESMTPA id 7DD6E1F8BD;
+	Mon, 14 Sep 2026 19:50:33 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1789408018;
-	bh=fEcFOKk4u49+lu8i7wUIHe8SeOyKWEe5+xW0wFXymbk=; h=From:To:Subject;
-	b=p2xJk0+xjnA7FvkwtcukQ1EX2uhEWzgnkNSASC4gC+INwmUOeYdyXvTw48hW4FOT5
-	 hPC1bLTQXdn1vfelAsySRSL2FmFrMJe2lW/wgis7Q2ewMZPsEK1Tecx5fpaELvzQuU
-	 tvUS6i9hpngk5shrYWAC3StaFNdW6FhiXy+rqBpAqcWeCqz28qCPmuU10f1ZhZi2hu
-	 q0kwKshkqkG7cR2Vuo2shrmuqFj98UgJQ0xA8BO60/bt/QTpMC4k+OWrDXarjF+UwH
-	 G3tc5AWrde+lvDYm7T8zyoV0Jb63BUse6OjOiCJ7W1AMHWZihMH+eEVokBcbeia7fi
-	 FbjQedu/oesfA==
+	s=default; t=1789408234;
+	bh=3u/ykhDq7r4ShX9I3fmkI3JbzbVWqdHF9eVM1GGm0Qg=; h=From:To:Subject;
+	b=aphJpyXFY95Q860grTyLZRiMtTsyeLB5QUr/dbj2o0jQ1pp9WiT/TYcqq278/GzPf
+	 QHFqvnRR8DBRYKFBAGXsQfkzlu+m94GZ2AOMXKmzITFNm770fMBC0OOT8YTK/Zl6k+
+	 NvS1j1/lZfqmmjlI/JqtA87xwDkUWL+wG6sZiQLzVJPKhFz6XD8L4FGfQg/JPtT8n5
+	 0sUocTsHgK8nc7E1GqOWDbVA12IxF/7Gz+SGrKKLQYBinmyCFLOJMkcVloGOXfsD8T
+	 HKZGPRAYqDff0vtfIie98PFm3DsVQv4u8+Cqq9PIFfNjAI9uASz69QcKQWGWujKESA
+	 AwfCImET6O/+w==
 From: Francesco Dolcini <francesco@dolcini.it>
-To: Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>,
-	Rob Herring <robh@kernel.org>,
+To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
 Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
-	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Subject: [PATCH v1] arm64: dts: ti: k3-am62p5-verdin: build zinnia dtbs
-Date: Mon, 14 Sep 2026 19:46:50 +0200
-Message-ID: <20260914174651.6195-1-francesco@dolcini.it>
+Subject: [PATCH v1] arm64: dts: freescale: imx95-toradex-smarc: enable Wi-Fi SD interface
+Date: Mon, 14 Sep 2026 19:50:26 +0200
+Message-ID: <20260914175027.9097-1-francesco@dolcini.it>
 X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_104706_334529_FAC9C610 
-X-CRM114-Status: UNSURE (   8.31  )
+X-CRM114-CacheID: sfid-20260914_105036_025392_4B317BA6 
+X-CRM114-Status: UNSURE (   7.47  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,39 +79,28 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-Add the zinnia dtbs to the Makefile, they were forgotten when zinnia
-support was added and were therefore never built.
+Enable usdhc3, used for the on-module u-blox MAYA-W260 Wi-Fi/BT module,
+it was left disabled by mistake in the initial commit.
 
-Fixes: 71c2a8124527 ("arm64: dts: ti: k3-am62p-verdin: Add Zinnia")
+Fixes: 90bbe88e0ea6 ("arm64: dts: freescale: add Toradex SMARC iMX95")
 Cc: stable@vger.kernel.org
 Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
 ---
-in our OE build the dtb files are built from an explicit list, so we did not
-notice ...
----
- arch/arm64/boot/dts/ti/Makefile | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-index fcfec8ea3165..e3ca60a30433 100644
---- a/arch/arm64/boot/dts/ti/Makefile
-+++ b/arch/arm64/boot/dts/ti/Makefile
-@@ -91,6 +91,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-nonwifi-dev.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-nonwifi-ivy.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-nonwifi-mallow.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-nonwifi-yavia.dtb
-+dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-nonwifi-zinnia.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-ov5640-24mhz.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-ov5640.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-wifi-dahlia.dtb
-@@ -98,6 +99,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-wifi-dev.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-wifi-ivy.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-wifi-mallow.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-wifi-yavia.dtb
-+dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-wifi-zinnia.dtb
+diff --git a/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi b/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
+index a6c5398a81e3..4c102f213214 100644
+--- a/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
+@@ -839,6 +839,7 @@ &usdhc3 {
+ 	keep-power-in-suspend;
+ 	non-removable;
+ 	vmmc-supply = <&reg_wifi_en>;
++	status = "okay";
+ };
  
- # Common overlays for SK-AM62* family of boards
- dtb-$(CONFIG_ARCH_K3) += k3-am62x-sk-csi2-ov5640.dtbo
+ &scmi_bbm {
 -- 
 2.47.3
 
