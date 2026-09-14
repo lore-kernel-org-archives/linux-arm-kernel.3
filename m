@@ -4,78 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C661EC88E64
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 12:02:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33FB3C88E71
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 12:04:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qLAzhKsUxTEy3WyscyUgfZmNUubzBcet9DIGHn5TpLk=; b=GhhLRhfZ0A3HAqq60YwwGbH3IU
-	C99fqPGgSdZt5O85ZRT+6UwieAIbAGTaBm7IMRkN25hc9d52LvgcNtZQUhsQ9ESRhUzTUcUBrHz90
-	tt6eciEhZ9/tEkqNcHpP1nP105vcMoMbUZ3MPhVmSwMJRnlZqTLZRkVuAvnnqITdIIThqpIumSO91
-	tuHuqy6MzkPvNklmMoZSqLS1K52hJHO8//ep8Db544YBrFmj8wOaH7oSzylbQF8LeBa86OyPNpTvR
-	+2hF/w4II+6N+28OXqn9O3tCXlf+8yy4wPgr8v0kEafbLM9A+F/64OtLY9cub1pu4sXZWmZHYIpAK
-	O/tu6cxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WuWnwqCNPKyd10mfaIbh/UnI7VkNA3SDAFQEGvpGt+w=; b=bfKYOlWf+lUMIjTm5+WDDgM35x
+	II9JUXUhi+6pdsCI1J9Ch6G52BXLl5+F4OkiXnY7UyP0hZee/GLlYUift2VUtFNhmpUGAIZOPlBXI
+	4kYG7KUP+S519F+0Q1ywUnJBrj1WwLx7NX7rEbR5Zyn4JewYFSuHY7uVhDMF5jsXD1Q8J8KOLBYqU
+	FD6Iv9MSWPwHHjqpB75CJQ54hEoEJDiErma6pwOiXi9YVAYU4Jg77kPoAUAiFE6mLGsByRCVUyX6j
+	6JJ8HNpDsOtCSXy9Layc5R4khOyetWNySR+URQhPvUJGWbwZ4ZiWIhfks4Mt6Ab/idKhOoh+j8JrO
+	WigHlLSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x65OS-00000003SZB-1oRx;
-	Mon, 14 Sep 2026 12:02:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x655K-00000003LRb-0EwM;
+	Mon, 14 Sep 2026 11:42:54 +0000
+Received: from www3579.sakura.ne.jp ([49.212.243.89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x65OK-00000003SW7-2ERY;
-	Mon, 14 Sep 2026 12:02:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=qLAzhKsUxTEy3WyscyUgfZmNUubzBcet9DIGHn5TpLk=; b=ZvJZ95SYEZtKTM7NEoQamHsc3E
-	OdZBf+waXyIqMh0C2l5M5AwvCFH6uXy2aMeqaoxBD5QG73h7K52el9XRbpwPFxqm8Ti5ZPYnedc0M
-	6dPLWhySq2TwlZ1V/+G3YH97x0Xk4ASIQCanu8qvMx0777/o3QmKstnVwasuEQyWLJV2hSaHL6w1v
-	Mwtx2r9a0QiF+ay+DXr10LPcEm0+mmfN7SmSDSfu/xLGDstT4n01a+cwN6Judp/aDnXHXJ78dS4CK
-	e7+7qiFrphWiRKhKctev6NhCFfxn6Zu8R0JcruCXxrw1XrEyNQPB5yIwKnkCVqRz3aQSfx3AiNIzx
-	p2jjl+Bg==;
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x65OH-00000005Zug-2I8x;
-	Mon, 14 Sep 2026 12:02:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=qLAzhKsUxTEy3WyscyUgfZmNUubzBcet9DIGHn5TpLk=; b=L8
-	K44j2NVTUPMiCH9VjA+7dm9CoQuf6fxcIFjIgMb5n22ygkq+eWaOP0PMdTbt44rwpVShsQfAoisCd
-	s5TLASYsJeKdL6yE8S7HQntQSemzEn7fk7w1Xo+XsMJu5an06kkv8LhKesJW6L0/27NVmxqhFPJvG
-	n6MjgswPA8P9dNg=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1x65Nk-0054Xh-Tz; Mon, 14 Sep 2026 14:01:56 +0200
-Date: Mon, 14 Sep 2026 14:01:56 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Caleb James DeLisle <cjd@cjdns.fr>
-Cc: netdev@vger.kernel.org, daniel@makrotopia.org, dqfext@gmail.com,
-	SkyLake.Huang@mediatek.com, hkallweit1@gmail.com,
-	linux@armlinux.org.uk, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Matheus Sampaio Queiroga <srherobrine20@gmail.com>
-Subject: Re: [PATCH v3 net-next] net: phy: mediatek: support MT7530 PHYs on
- EN71221 MCM
-Message-ID: <a6e1bb7f-e395-434e-8e9b-992141969d74@lunn.ch>
-References: <20260911120646.4123877-1-cjd@cjdns.fr>
+	id 1x654z-00000003LBu-2DUR
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 14 Sep 2026 11:42:39 +0000
+Received: from h183.csg.ci.i.u-tokyo.ac.jp (h183.csg.ci.i.u-tokyo.ac.jp [133.11.54.183])
+	(authenticated bits=0)
+	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 68EBfjs3084060
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Mon, 14 Sep 2026 20:41:51 +0900 (JST)
+	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
+DKIM-Signature: a=rsa-sha256; bh=WuWnwqCNPKyd10mfaIbh/UnI7VkNA3SDAFQEGvpGt+w=;
+        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
+        h=From:Message-Id:To:Subject:Date;
+        s=rs20250326; t=1789386111; v=1;
+        b=L+jO2MBbTPmA0boMnNUJKCuAb66bZMkmvzRSK5uqaAxQQJ/WYom8stRBV6WA4+YS
+         jmOZ0CrK/AKOZhLqBVbrMhL7nM2AuISLCw46d7Bslb1MDHb1e3DJe3x334zeEGVO
+         3R/bJ5RaRhH94P091FQTsMys7oIwc7agGI5zGASDpuUi5IpvvS8vL871LlTIcgd6
+         EjMugZwKCMLrutpQWMJbIQOfQtotuMuezB7nUqhsQFM6etG8HtPyEPi1usY9z/6r
+         G+QPDlRrzj7VD7Qug4gvNOrKGAxaNVCKsZugusCZ7dJ2qK/jVzCOBMRDMegil5fZ
+         GZnJMaTR48NIqAqDakifQw==
+From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+Date: Mon, 14 Sep 2026 20:40:40 +0900
+Subject: [PATCH v10 01/20] KVM: arm64: Serialize repeated vCPU
+ initialization
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260911120646.4123877-1-cjd@cjdns.fr>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260914-hybrid-v10-1-92788053a691@rsg.ci.i.u-tokyo.ac.jp>
+References: <20260914-hybrid-v10-0-92788053a691@rsg.ci.i.u-tokyo.ac.jp>
+In-Reply-To: <20260914-hybrid-v10-0-92788053a691@rsg.ci.i.u-tokyo.ac.jp>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+        Joey Gouly <joey.gouly@arm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Zenghui Yu <yuzenghui@huawei.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
+        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
+        Shuah Khan <shuah@kernel.org>, Shuah Khan <skhan@linuxfoundation.org>,
+        Yury Norov <yury.norov@gmail.com>,
+        Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+        Steffen Eiden <seiden@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+        Shannon Zhao <shannon.zhao@linaro.org>,
+        Andrew Jones <drjones@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+        linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
+        devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
+        linux-kselftest@vger.kernel.org,
+        Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>,
+        Fuad Tabba <fuad.tabba@linux.dev>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2195;
+ i=odaki@rsg.ci.i.u-tokyo.ac.jp; h=from:subject:message-id;
+ bh=b0gpHADGjg7FmvYTFl6eo7SpNdkhqRjVujNp+tm+UG4=;
+ b=owGbwMvMwCWmMbc20y1CyJDxtFoSQ9byu1m5z9P7hBI2RW46sSD4puuv14HWBy23KvTK57Ytk
+ eF7vbe7o5SFQYyLQVZMkSWlaDe3RnTtp8KE+BaYOaxMIEMYuDgFYCJWSYwMt9/XXen4MrH92b9X
+ jRb35qWUftH1e2R/KDp8EsPx0nAbHUaGSc8fPHKp/K+UnyRs89NjlZLJrqKsDO9Lz6vSE3/vSPZ
+ hBAA=
+X-Developer-Key: i=odaki@rsg.ci.i.u-tokyo.ac.jp; a=openpgp;
+ fpr=AEDC03C9AF734F2EC26A7BFFA4BAEAA73536753C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_130229_657588_129D8E69 
-X-CRM114-Status: UNSURE (   9.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260914_044233_847807_F4187A5A 
+X-CRM114-Status: GOOD (  11.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,34 +100,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> + * The EcoNet EN751221 "G" multi-chip module MT7530 requires additional PHY
-> + * configuration.
-> + */
-> +static int en751221_mcm_phy_config_init(struct phy_device *phydev)
-> +{
-> +	int ret;
-> +
-> +	ret = genphy_soft_reset(phydev);
-> +	if (ret)
-> +		return ret;
-> +
-> +	/* Master/Slave negotiation does not work reliably */
-> +	ret = phy_write(phydev, MII_CTRL1000, ADVERTISE_1000FULL |
-> +			CTL1000_ENABLE_MASTER | CTL1000_PREFER_MASTER |
-> +			CTL1000_AS_MASTER);
+The initial KVM_ARM_VCPU_INIT path holds config_lock while resetting the
+vCPU, but repeated initialization of an existing vCPU does not. As a
+result, reset_mdcr() can race with VM-wide PMU configuration and
+overwrite MDCR_EL2 with a stale counter count.
 
-Is it sufficiently broken that we should stop the user changing it?
+Take config_lock around the repeated-init checks and reset. The vCPU
+ioctl already holds vcpu->mutex, matching the established lock ordering.
 
-     ethtool     -s     devname    [speed N]    [lanes N]    [duplex half|full]
-            [port tp|aui|bnc|mii] [mdix auto|on|off]  [autoneg on|off]  [adver‐
-            tise N[/M]  |  advertise mode  on|off  ...]  [phyad N] [xcvr inter‐
-            nal|external]        [wol N[/M]         | wol p|u|m|b|a|g|s|f|d...]
-            [sopass xx:yy:zz:aa:bb:cc]      [master-slave preferred-master|pre‐
-            ferred-slave|forced-master|forced-slave]   [msglvl   N[/M] |    ms‐
-            glvl type on|off ...]
+Fixes: c8823e51b534 ("KVM: arm64: Fix MDCR_EL2.HPMN reset value")
+Closes: https://sashiko.dev/#/patchset/20260710-hybrid-v8-0-621409f3a592@rsg.ci.i.u-tokyo.ac.jp?part=1
+Assisted-by: Codex:gpt-5.6-sol
+Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
+ arch/arm64/kvm/arm.c | 15 +++++++--------
+ 1 file changed, 7 insertions(+), 8 deletions(-)
 
-You don't appear to have a config_aneg, so genphy_config_aneg() will
-be used, which calls genphy_setup_master_slave. 
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index ccae82c1242b..8eff03c32418 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -1670,29 +1670,26 @@ static int __kvm_vcpu_set_target(struct kvm_vcpu *vcpu,
+ {
+ 	unsigned long features = init->features[0];
+ 	struct kvm *kvm = vcpu->kvm;
+-	int ret = -EINVAL;
++	int ret;
+ 
+-	mutex_lock(&kvm->arch.config_lock);
++	lockdep_assert_held(&kvm->arch.config_lock);
+ 
+ 	if (test_bit(KVM_ARCH_FLAG_VCPU_FEATURES_CONFIGURED, &kvm->arch.flags) &&
+ 	    kvm_vcpu_init_changed(vcpu, init))
+-		goto out_unlock;
++		return -EINVAL;
+ 
+ 	bitmap_copy(kvm->arch.vcpu_features, &features, KVM_VCPU_MAX_FEATURES);
+ 
+ 	ret = kvm_setup_vcpu(vcpu);
+ 	if (ret)
+-		goto out_unlock;
++		return ret;
+ 
+ 	/* Now we know what it is, we can reset it. */
+ 	kvm_reset_vcpu(vcpu);
+ 
+ 	set_bit(KVM_ARCH_FLAG_VCPU_FEATURES_CONFIGURED, &kvm->arch.flags);
+ 	vcpu_set_flag(vcpu, VCPU_INITIALIZED);
+-	ret = 0;
+-out_unlock:
+-	mutex_unlock(&kvm->arch.config_lock);
+-	return ret;
++	return 0;
+ }
+ 
+ static int kvm_vcpu_set_target(struct kvm_vcpu *vcpu,
+@@ -1708,6 +1705,8 @@ static int kvm_vcpu_set_target(struct kvm_vcpu *vcpu,
+ 	if (ret)
+ 		return ret;
+ 
++	guard(mutex)(&vcpu->kvm->arch.config_lock);
++
+ 	if (!kvm_vcpu_initialized(vcpu))
+ 		return __kvm_vcpu_set_target(vcpu, init);
+ 
 
-   Andrew
+-- 
+2.55.0
+
 
