@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D36FDC88E73
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 20:24:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDA93C88E6F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 20:25:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PX6Mb7LnvShr+I2gbXnVlA2PsFbnU1H/eODFKdsuXn0=; b=ul7HNr22p7V9/cYQc81SCDU/mk
-	s426R9RQM9GFZ8i4OBj+eXw0sPt6vTsWnmZm8NKYqME0o5vLvvvlVouyFHb4U0cLLUw6ga1i8ba4W
-	VyukI26nl3mEFgsCgbuHWrKf9CcZDOCJl0k+u2K4zP65Nr0OXL2vf8VuE7WP1r3T5m7gOYSckRpVa
-	Y3Hy+KQTP/qHPEiPbZFRbT1krpWKFh9V30SYSOT+bJGtglYFUBFYXcawbQ02m7K59h2UwEIuxnu9d
-	/h/bPpYAfJCb0MiApVHQVEiR2HPH+qeuetX+MkTIx7xh1S9HsBIr6MZS4Vk7lyxGBELIcFwAhbUXa
-	W7QLBo0g==;
+	bh=6IgkSdK4NV3Xpqp8L57l3/LXegir+VXdAeBOnojRKHY=; b=3CNaOB0tfNyUVdbjmF84j2ecxu
+	ZqMrjLvRAxn6hmFtLyexJoQ+6x/I41Il6qVLzae4BppN4xbIUctD0hRchr2XbCWzLoRh7H68g1iEo
+	hE2MvM0LXoQA25k1CsDdZta7UIJKA/4gk3TNnvo89bxQerEUnZAwQ3Q7AR1gydsw5Ox8s8BicqaOS
+	lSAn7AsJWkOdBrCLxHo/zFhJGeiCwlV27uIdwJu1pcO9Ydl9i0IUddw8mMwLbqGw0JEObjQa83uVq
+	BX1Eiv0cDs8boPuUcehLW1LB1rqN6pu/xFMMO+htvu+V0UKzCUGD6nKRYIVA1zbFtZd1c7paGT45g
+	wtAOHqeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6DEO-00000004aOr-2bo7;
-	Mon, 14 Sep 2026 20:24:48 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x6DEP-00000004aQu-2pDG;
+	Mon, 14 Sep 2026 20:24:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6DEK-00000004aJQ-1gSL;
-	Mon, 14 Sep 2026 20:24:44 +0000
+	id 1x6DEM-00000004aKE-0GAR;
+	Mon, 14 Sep 2026 20:24:46 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8B5FE602C3;
+	by sea.source.kernel.org (Postfix) with ESMTP id 868C243F12;
+	Mon, 14 Sep 2026 20:24:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA81D1F00893;
 	Mon, 14 Sep 2026 20:24:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D73B91F000FF;
-	Mon, 14 Sep 2026 20:24:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789417483;
-	bh=PX6Mb7LnvShr+I2gbXnVlA2PsFbnU1H/eODFKdsuXn0=;
+	s=k20260515; t=1789417485;
+	bh=6IgkSdK4NV3Xpqp8L57l3/LXegir+VXdAeBOnojRKHY=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=mZSabgrU37uqXQERnxDZDn+joXc0PFT+PMJQDTe40rDxjOotL664KqzVsv8YFBhla
-	 iz6uIvB22podbe6U24Ue1TJO/eutvdJYjhlYohH6ctaP9IsWZrinIUDoAfx1RxAG48
-	 YJvlocLIgP71CjRu/tHysLvCKKkjHK5f4a5m2nRLDFZdz0pg2o9fo6xferPzM1xNv9
-	 owo508dkLY9sSWd/q2JoUeQjWAV+roQYwgj9OfUjhRNlC3c1mzKFUfQOn0HZ5aZh7e
-	 Js8O1qMMDu058FAOAy3m632G9duU2s8iU457a8K7Lqq+TH//tfpikAOlsZdM67ntp3
-	 /dPXiSylfqnaw==
-Subject: Re: [PATCH net-next v5 04/11] dt-bindings: net: pcs: add
- rockchip,rk3568-xpcs support
+	b=P0/phZkxGdk3D6k9BFGpNa7xFsJTUUhOdAqNO3pl5CKYTCIrtXznGgPCwYm7++Y/h
+	 jBjIEyT0m7LzI8h0LuVwx6yb1s+oIeUO/E+kznlxUAAJt9OzcnAl9yLyXNYiic49Js
+	 R/0rC6ZZogjTgPg2o4Mcnq8lP7BpjOHa6Ihc5rFM3zXKTFLHsXwqbbjLX2RcfkJGnJ
+	 sdxdtB5/XL3Nn2/QmdGqHYaRt4i81OZJ8JgoJfLSMP46NrxjVZp/rI3RwCwYhWL7bb
+	 GjWB83b+H/G0vn/F2aGm+4hdoIqFFAf3ivgbuEVudHYKRGA7dpNym5gliAtFoeQnmi
+	 MI0YfaUmWr3Kg==
+Subject: Re: [PATCH net-next v5 05/11] arm64: dts: rockchip: rk3568: add XPCS
+ and fixed-clock nodes
 From: netdev-bot+sashiko@kernel.org
 To: coiaprant@gmail.com
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
@@ -56,11 +56,11 @@ Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
  linux-stm32@st-md-mailman.stormreply.com, linux-renesas-soc@vger.kernel.org
-Date: Mon, 14 Sep 2026 20:24:41 +0000
-Message-ID: <178941748146.22033.11565395251077332405@kernel.org>
-In-Reply-To: <20260913185849.907479-5-coiaprant@gmail.com>
-References: <20260913185849.907479-5-coiaprant@gmail.com>
-X-sashiko-severity: Low
+Date: Mon, 14 Sep 2026 20:24:43 +0000
+Message-ID: <178941748344.22033.1486715412344785390@kernel.org>
+In-Reply-To: <20260913185849.907479-6-coiaprant@gmail.com>
+References: <20260913185849.907479-6-coiaprant@gmail.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
@@ -78,185 +78,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 5 potential
+Thank you for your contribution! Sashiko AI review found 2 potential
 issue(s) to consider:
 
-Critical: 0 · High: 0 · Medium: 0 · Low: 5
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-- [Low] Concern (validated as a false positive): the new schema was said
-  to fork the DW XPCS description in two, to lack the conventional…
-- [Low] Concern (validated as a false positive): the four `ethernet-pcs-
-  mii@[0-3]` child nodes were said to have no in-tree implementation,…
-- [Low] Concern (validated as a false positive): the binding omits
-  `resets`/`reset-names` for the RK3568 XPCS soft resets (SRST_XPCS,…
-- [Low] Concern (validated as a false positive): the mandatory `eee`
-  clock is a documented property that no in-tree XPCS code requests…
-- [Low] Concern (validated as a false positive): the binding omits `reg-
-  names` (direct/indirect) and `reg-io-width`, so the CSR mapping style…
+- [Medium] DT/binding mismatch: the new `xpcs: ethernet-pcs@fda00000`
+  node in `arch/arm64/boot/dts/rockchip/rk3568.dtsi` (line 113) omits…
+- [Low] Claimed missing driver/consumer for the new DT nodes: no driver
+  matches `rockchip,rk3568-xpcs`, the `ethernet-pcs-mii@N` children are…
 
 --
 
-dt-bindings: net: pcs: add rockchip,rk3568-xpcs support
+arm64: dts: rockchip: rk3568: add XPCS and fixed-clock nodes
 
-This adds a new YAML binding for the Synopsys DesignWare XPCS as
-integrated on the RK3568, described as an APB3-mapped block with a
-Naneng Combo SerDes PHY and four MII child ports.  All the observations
-below are documentation-level questions only; the accompanying driver
-patches in the series do implement what the schema describes.
+Adds the RK3568 XPCS node at 0xfda00000 with its four ethernet-pcs-mii
+child nodes, all disabled by default, plus two 125 MHz fixed-clock nodes
+intended as assigned-clock-parents for gmac0 and gmac1.
 
-> diff --git a/Documentation/devicetree/bindings/net/pcs/rockchip,rk3568-xpcs.yaml b/Documentation/devicetree/bindings/net/pcs/rockchip,rk3568-xpcs.yaml
-> new file mode 100644
-> index 0000000000000..703fcff0e3f70
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/net/pcs/rockchip,rk3568-xpcs.yaml
-> @@ -0,0 +1,110 @@
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3568.dtsi b/arch/arm64/boot/dts/rockchip/rk3568.dtsi
+> index 3bc653f027f1f..227d03e336043 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3568.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3568.dtsi
+> @@ -110,6 +110,51 @@ sata0: sata@fc000000 {
+>  		status = "disabled";
+>  	};
+>  
+> +	xpcs: ethernet-pcs@fda00000 {
+> +		compatible = "rockchip,rk3568-xpcs";
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +		reg = <0x0 0xfda00000 0x0 0x200000>;
+> +		clocks = <&cru PCLK_XPCS>, <&cru CLK_XPCS_EEE>;
+> +		clock-names = "csr", "eee";
+> +		power-domains = <&power RK3568_PD_PIPE>;
+> +		status = "disabled";
 
-[ ... ]
+[Severity: Medium]
+Does this node validate against the binding added earlier in the series?
 
-> +properties:
-> +  compatible:
-> +    const: rockchip,rk3568-xpcs
+Documentation/devicetree/bindings/net/pcs/rockchip,rk3568-xpcs.yaml lists
+phys and phy-names in its top-level required array, unconditionally, and
+sets additionalProperties: false:
 
-[Severity: Low]
-This isn't a bug, but would it be worth saying in the commit message why
-this gets its own schema and a single compatible, rather than the usual
-"rockchip,rk3568-xpcs", "snps,dw-xpcs" fallback?
+  required:
+    - compatible
+    - reg
+    - "#address-cells"
+    - "#size-cells"
+    - clocks
+    - clock-names
+    - phys
+    - phy-names
+    - power-domains
 
-The glue driver added later in the series maps registers differently from
-the generic one:
+The node here supplies clocks and power-domains but not phys/phy-names.
 
-  drivers/net/pcs/pcs-xpcs-rk.c:xpcs_rk_addr_format() {
-      return FIELD_PREP(0x70000, dev) | FIELD_PREP(0xffff, reg);
-  }
+dtschema validates nodes irrespective of status = "disabled", so does
+make dtbs_check now report "'phys' is a required property" and
+"'phy-names' is a required property" for every rk3568 board DTB?  At the
+end of the series only rk3568-photonicat.dts fills them in:
 
-and remaps MDIO_MMD_PMAPMD/MDIO_MMD_VEND2 per port in
-xpcs_rk_mdio_read_remapping(), so a snps,dw-xpcs fallback would let
-pcs-xpcs-plat bind and touch the wrong MMDs.  Recording that reasoning in
-the changelog would save the next reader the same investigation.
+  &xpcs {
+  	phys = <&combphy2 PHY_TYPE_SGMII>;
+  	phy-names = "serdes";
+  	status = "okay";
+  };
 
-> +  reg:
-> +    maxItems: 1
+The other 21 device trees that include rk3568.dtsi (rk3568-bpi-r2-pro.dts,
+rk3568-rock-3a.dts, rk3568-odroid-m1.dts, rk3568-nanopi-r5s.dtsi,
+rk3568-qnap-ts433.dts, ...) do not.
 
-[Severity: Low]
-The existing snps,dw-xpcs binding describes reg-names (direct/indirect)
-and reg-io-width; neither appears here.  Is the intent that the compatible
-alone implies a direct-mapped 2 MiB window with a fixed 4-byte stride?
+The commit message says "The XPCS node also requires a reference to the
+appropriate Naneng Combo PHY via the phys property at the board level."
+If that is the intended model, should phys/phy-names be dropped from the
+binding's required list (or gated), rather than left mandatory?
+Alternatively the SoC dtsi could carry a default phandle for boards to
+override.
 
-That is what the driver assumes:
-
-  drivers/net/pcs/pcs-xpcs-rk.c:xpcs_rk_init_res() {
-      res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-      ...
-      if (resource_size(res) < SZ_2M) {
-
-  drivers/net/pcs/pcs-xpcs-rk.c:xpcs_rk_read_reg() {
-      ret = readl(pxpcs->reg_base + (csr << 2)) & 0xffff;
-
-Would it help to state the 2 MiB size and the 4-byte register stride in
-the description so the omission of reg-names and reg-io-width is clearly
-deliberate?
-
-> +  clocks:
-> +    items:
-> +      - description: APB3 bus interface clock (clk_csr_i), required for register access
-> +      - description: EEE clock (clk_eee_i), required for Energy Efficient Ethernet operation
 > +
-> +  clock-names:
-> +    items:
-> +      - const: csr
-> +      - const: eee
-
-[Severity: Low]
-The fixed [csr, eee] list differs from the names the generic XPCS code
-looks up ("core" and "pad" in pcs-xpcs.c, "csr" in pcs-xpcs-plat.c).  Is
-the exclusion of core/pad intentional here?
-
-Both documented clocks are used by the Rockchip glue:
-
-  drivers/net/pcs/pcs-xpcs-rk.c:xpcs_rk_init_clk() {
-      pxpcs->csr_clk = devm_clk_get(dev, "csr");
-      ...
-      pxpcs->eee_clk = devm_clk_get(dev, "eee");
-      ...
-      pxpcs->eee_mult_fact = DIV_ROUND_CLOSEST(100 * clk_get_rate(pxpcs->eee_clk),
-                                               1000000000UL) - 1;
-
-so the naming looks consistent with the implementation; a sentence in the
-changelog noting that this integration does not use the core/pad clocks
-would make the difference from snps,dw-xpcs obvious.
+> +		xpcs_mii0: ethernet-pcs-mii@0 {
+> +			reg = <0>;
+> +			status = "disabled";
+> +		};
 
 [ ... ]
 
-> +patternProperties:
-> +  "^ethernet-pcs-mii@[0-3]$":
-> +    type: object
-> +    description:
-> +      One of the four MII ports of the XPCS. The port is linked to an
-> +      Ethernet MAC controller via the pcs-handle property in the MAC's
-> +      device tree node.
+> +	clk_gmac0_xpcs_mii: clock-xpcs-gmac0 {
+> +		compatible = "fixed-clock";
+> +		clock-frequency = <125000000>;
+> +		clock-output-names = "clk_gmac0_xpcs_mii";
+> +		#clock-cells = <0>;
+> +	};
 
 [Severity: Low]
-This isn't a bug, but the changelog doesn't mention the two patches that
-consume these child nodes, which makes the new ABI look unimplemented when
-the binding patch is read on its own.
+One point that was checked and turned out not to be an issue, noted here
+only for completeness: the compatible string, the ethernet-pcs-mii@N
+children and these two fixed clocks all gain in-tree consumers later in
+the same series, so there is nothing to change here.
 
-The consumers are:
+drivers/net/pcs/pcs-xpcs-rk.c matches the compatible:
 
-  drivers/net/pcs/pcs-xpcs-rk.c:xpcs_rk_create() {
-      if (of_property_read_u32(np, "reg", &port))
-              return ERR_PTR(-EINVAL);
-      ...
-      xpcs = xpcs_create_mdiodev(pxpcs->bus, (int)port);
+  static const struct of_device_id xpcs_rk_of_ids[] = {
+  	{ .compatible = "rockchip,rk3568-xpcs" },
+  	{ /* sentinel */ },
+  };
 
-  drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c:rk_pcs_init() {
-      pcs_node = of_parse_phandle(np, "pcs-handle", 0);
-      ...
-      xpcs = xpcs_rk_create(priv->device, pcs_node);
+and rk3568-photonicat.dts consumes both the child node and the clock:
 
-Could the commit message reference them?
+  assigned-clocks = <&cru SCLK_GMAC0_RX_TX>;
+  assigned-clock-parents = <&clk_gmac0_xpcs_mii>;
+  managed = "in-band-status";
+  pcs-handle = <&xpcs_mii0>;
 
-[ ... ]
-
-> +required:
-> +  - compatible
-> +  - reg
-> +  - "#address-cells"
-> +  - "#size-cells"
-> +  - clocks
-> +  - clock-names
-> +  - phys
-> +  - phy-names
-> +  - power-domains
-> +
-> +additionalProperties: false
-
-[Severity: Low]
-The RK3568 CRU defines four XPCS soft resets:
-
-  include/dt-bindings/clock/rk3568-cru.h:
-      #define SRST_XPCS               150
-      #define SRST_XPCS_TX_DIV10      151
-      #define SRST_XPCS_RX_DIV10      152
-      #define SRST_XPCS_XGXS_RX       153
-
-but the schema has no resets/reset-names, so a device tree cannot express
-them.  Is that because bring-up relies only on the power domain, the
-SerDes PHY and the XPCS register-level soft reset?
-
-  drivers/net/pcs/pcs-xpcs-rk.c:xpcs_rk_probe() {
-      ret = dev_pm_genpd_rpm_always_on(dev, true);
-      ...
-      ret = phy_init(pxpcs->serdes_phy);
-      ...
-      ret = phy_power_on(pxpcs->serdes_phy);
-
-A grep at the end of the series shows SRST_XPCS* matching only the
-dt-bindings header, with no driver or DTS user, so this may well be
-intentional; a note confirming the resets are left at their SoC defaults
-would settle it.
-
-Documenting them now as optional properties would also stay backwards
-compatible if they turn out to be needed later.
+Until the driver patch lands the nodes are disabled and inert, which is
+the usual bindings-then-dtsi-then-driver ordering.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260913185849.907479-1-coiaprant%40gmail.com
