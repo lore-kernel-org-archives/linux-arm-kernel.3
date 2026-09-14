@@ -4,74 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7C92C88E66
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 12:12:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2EB6C88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 12:18:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2OZJc4pE75EzQY4TF0i25vLvB8iiwVxxIUeR10SzMyg=; b=SEQ2yF03vvIFMj8U+u0C9OkIMy
-	HSumMrGVjTXI9lmKxyq1mtJ3dlgYErJPA/2IqANVNpnOVMEhYzl3BiKHT9KUgH9r9+JpX4VK3xICd
-	OWTuxQsZ9zKNbgpEYd2G47dr3PcE5VD+DeXQ+atWmNDPwPS0TTZYY17AeGU1evVhpEUNxpzRfCJaI
-	PIM8YoDJ31tKgf0ZMTYeaSqc4rTe3CJCVbjYxLIbjCdEEaiDAgqM0pM3yxhO01SnaNa6LL679xi6u
-	oT9OHd8UtAblhZM20QFu6iJCXg6oiQVRaRH+qoNN0kUJD6Mvc2Y2NEMCgG5qZj74Eb7v9zTE7myAD
-	SilbRhWQ==;
+	bh=sdoc/fNZ3/8mGQaouIvfU+D4x9tivmX8+zHcMnaA4Lw=; b=qtke+XgrASMYaw0tARH1T9Ku0w
+	Th2wSSYA52K8GhduHgHiA9nMVVfb1nIiZw+eIT3LW5nWGUzpDhAfjbKOB1Ks6eY3aB2DzTO/qcVR0
+	ueuHPLZUOa+zH+SG0gAG11lWqKPsvL6rTRwpDBQw57LvG72GB2axY1p/fs28RhQ4liI2tKhyJdkjq
+	I2Mtsk/d42yBtf3v3H3+QQeVFZ9u5oNJdD6cA1FhkcL3MAicoeAX7VNxyFZdO1AFtCxdzKBDTzu+L
+	VIHcW+hk5em/VEZb8hVYW9eqi8VztjGjyLQUsFq0qlXpREQzIi+El6RZ0W9tVQfULalUZbWDQUT6Q
+	yapjA8Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x65Y1-00000003V6W-0wu9;
-	Mon, 14 Sep 2026 12:12:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x655N-00000003LVt-1gOA;
+	Mon, 14 Sep 2026 11:42:57 +0000
+Received: from www3579.sakura.ne.jp ([49.212.243.89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x65Y0-00000003V6Q-3ZAE
+	id 1x6550-00000003LCV-08Py
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 12:12:32 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 51310601E4
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 12:12:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B75D1F0089F
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 12:12:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789387952;
-	bh=2OZJc4pE75EzQY4TF0i25vLvB8iiwVxxIUeR10SzMyg=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Bw2nOGPjucfG7nhjRzYodb3iK4DV8+USHY06ZbAUWNQk/2XDQFpyxnuKDAXZCfU+i
-	 EP5EbUlHuYNOou+YJLAMnFILQzAgHclGwLbJsRck+i3l9djbcp/agUAwq3AxEZNJcN
-	 rMpgNvw8dgIXF9lLAJ4vF4E4lEJJ0wm8uw4MiyMzO5zyT5SmomV+DXthqJlXiTHahn
-	 D+Fb6IC/sm84hD/GtdVi4vxA3X551CeqTVC9frkqWXdRex9VavFP7bpnqTr2XhbIbz
-	 XMlgyk9QHzwHCyAsAWAPlTMCmvbCmeYrUTVsRAXajHarneswJ179cphFT3O4STlU4T
-	 92kU020jTGOAQ==
-Received: by mail-lf2-f13.google.com with SMTP id 2adb3069b0e04-5b5e4f1651bso1566823e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 05:12:31 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvByg31Cn4T9pg5zagDGNDSu5SSHNhWC3c6450wfrgDYVxW81ySlLo7BnsQFMoRCqOiiFSjVoqFAjcthbueGJA2hS@lists.infradead.org
-X-Gm-Message-State: AFuF++mzFRg+iBm31cMOypV48gLsGXCqVdv0ugfWVHlvxnjkcT1Xm/D+
-	ylHUdHS80+mvrzC1GoSAZhYVodFRAKxcPGR6MZKQoczOSTBPZ5DvH10mkLusuGhtSMcec0x9IbI
-	RP9xBrHVv//GB92rVbavqzBDrZ2wSze0=
-X-Received: by 2002:a05:6512:3b25:b0:5b6:4ae:3ff3 with SMTP id
- 2adb3069b0e04-5b8ae68dcf4mr642559e87.27.1789387950724; Mon, 14 Sep 2026
- 05:12:30 -0700 (PDT)
+	Mon, 14 Sep 2026 11:42:40 +0000
+Received: from h183.csg.ci.i.u-tokyo.ac.jp (h183.csg.ci.i.u-tokyo.ac.jp [133.11.54.183])
+	(authenticated bits=0)
+	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 68EBfjsD084060
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Mon, 14 Sep 2026 20:41:55 +0900 (JST)
+	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
+DKIM-Signature: a=rsa-sha256; bh=sdoc/fNZ3/8mGQaouIvfU+D4x9tivmX8+zHcMnaA4Lw=;
+        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
+        h=From:Message-Id:To:Subject:Date;
+        s=rs20250326; t=1789386115; v=1;
+        b=KasQI7wsPlS7Dg95M5GXqi9WPs9GW4Pp12r2pPfTSSFQNbB0ZrWdbTcmWCo+2mG7
+         MkSgdhCHg6WxiAT+zXs+0fh9hc+wWOYnNQbA/AiRyA+BIoGsuIlwJ+otlAhEv9z8
+         dZ2MOBBSHfROKhW779+8bdcBj/iYjkvgPmCleEbZPJb6t1ZmMOg26R1BkKSBnC1L
+         I3++om8cP1/Tj25PR03GKZa0Ox8D7DqH2VOc5doNniRI+AS6GERO63CZF0Dhgv+v
+         u2Jtw2E0Zen9rLwSLGD+aO2afMi4ke6XXzx+OwRKShyT4Hg/qul2QgynXX4SxVYJ
+         OYXdEp6ACx9LezOoAMwcvg==
+From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+Date: Mon, 14 Sep 2026 20:40:50 +0900
+Subject: [PATCH v10 11/20] tools headers: Use u* types for bitfield helpers
 MIME-Version: 1.0
-References: <20260830084104.14968-2-krzysztof.kozlowski@oss.qualcomm.com>
-In-Reply-To: <20260830084104.14968-2-krzysztof.kozlowski@oss.qualcomm.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 14 Sep 2026 14:12:17 +0200
-X-Gmail-Original-Message-ID: <CAD++jLneoGy4q-ihKWVhW3iyH2YEATeGf76RB9NiDLk3-OW1iw@mail.gmail.com>
-X-Gm-Features: AcwNN1V856sA9k7HWfZhF0PQNVfwgYy4TkqwdpzU71qB7kL_qOjvZ23sMHNDQ8M
-Message-ID: <CAD++jLneoGy4q-ihKWVhW3iyH2YEATeGf76RB9NiDLk3-OW1iw@mail.gmail.com>
-Subject: Re: [PATCH v2] dt-bindings: pinctrl: fsl: Replace tabs with spaces
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
-	Frank Li <Frank.Li@nxp.com>, Jacky Bai <ping.bai@nxp.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, NXP S32 Linux Team <s32@nxp.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Peng Fan <peng.fan@nxp.com>, 
-	Giulio Benetti <giulio.benetti@benettiengineering.com>, 
-	Jesse Taube <Mr.Bossman075@gmail.com>, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260914-hybrid-v10-11-92788053a691@rsg.ci.i.u-tokyo.ac.jp>
+References: <20260914-hybrid-v10-0-92788053a691@rsg.ci.i.u-tokyo.ac.jp>
+In-Reply-To: <20260914-hybrid-v10-0-92788053a691@rsg.ci.i.u-tokyo.ac.jp>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+        Joey Gouly <joey.gouly@arm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Zenghui Yu <yuzenghui@huawei.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
+        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
+        Shuah Khan <shuah@kernel.org>, Shuah Khan <skhan@linuxfoundation.org>,
+        Yury Norov <yury.norov@gmail.com>,
+        Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+        Steffen Eiden <seiden@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+        Shannon Zhao <shannon.zhao@linaro.org>,
+        Andrew Jones <drjones@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+        linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
+        devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
+        linux-kselftest@vger.kernel.org,
+        Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>,
+        Fuad Tabba <fuad.tabba@linux.dev>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3005;
+ i=odaki@rsg.ci.i.u-tokyo.ac.jp; h=from:subject:message-id;
+ bh=0gFY16czEJJdVIZNruax1OboJIq4DgiNXWKP5yi8iWI=;
+ b=owGbwMvMwCWmMbc20y1CyJDxtFoSQ9byu0U3TFvWtF0yCX0cefXyDPHK6n9VBduVvl/pj09b/
+ HTiTVfGjlIWBjEuBlkxRZaUot3cGtG1nwoT4ltg5rAygQxh4OIUgIlclGNkuNNe1tPrvPnYwlt8
+ tzW/v7BPuvtwgfauPZPTw0RmSJ680sfwk9FTzEjkeHFzT7mw+uvo53WPLf03nF3hyzblnK30kdh
+ KTgA=
+X-Developer-Key: i=odaki@rsg.ci.i.u-tokyo.ac.jp; a=openpgp;
+ fpr=AEDC03C9AF734F2EC26A7BFFA4BAEAA73536753C
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260914_044234_820021_8735870C 
+X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,17 +100,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 30, 2026 at 10:41=E2=80=AFAM Krzysztof Kozlowski
-<krzysztof.kozlowski@oss.qualcomm.com> wrote:
+Commit 9486aa387716 ("perf tools: Fix 64 bit integer format strings")
+defined the tools-local u64 as uint64_t so that PRI*64 format macros
+match its underlying C type. On architectures where uint64_t and __u64
+are distinct types, however, ____MAKE_OP() still gives the u64_*
+helpers an __u64 interface.
 
-> YAML files do not use tabs, even within the values in DTS.  No
-> functional change, although dt-style-check will warn about it
-> ("[tab-in-yaml] tab character not allowed in DTS example").
->
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Teach ____MAKE_OP() to accept the helper name and storage type
+separately. Keep endian helpers on __le* and __be*, and generate the
+native helpers using the tools-local u* types.
 
-Pulled out v1 and applied this v2 instead.
+Assisted-by: Codex:gpt-5.6-sol
+Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
+ tools/include/linux/bitfield.h | 26 +++++++++++++-------------
+ 1 file changed, 13 insertions(+), 13 deletions(-)
 
-Yours,
-Linus Walleij
+diff --git a/tools/include/linux/bitfield.h b/tools/include/linux/bitfield.h
+index ddf81f24956b..1c633343d576 100644
+--- a/tools/include/linux/bitfield.h
++++ b/tools/include/linux/bitfield.h
+@@ -142,32 +142,32 @@ static __always_inline u64 field_mask(u64 field)
+ 	return field / field_multiplier(field);
+ }
+ #define field_max(field)	((typeof(field))field_mask(field))
+-#define ____MAKE_OP(type,base,to,from)					\
+-static __always_inline __##type type##_encode_bits(base v, base field)	\
++#define ____MAKE_OP(name,type,base,to,from)				\
++static __always_inline type name##_encode_bits(base v, base field)	\
+ {									\
+ 	if (__builtin_constant_p(v) && (v & ~field_mask(field)))	\
+ 		__field_overflow();					\
+ 	return to((v & field_mask(field)) * field_multiplier(field));	\
+ }									\
+-static __always_inline __##type type##_replace_bits(__##type old,	\
+-					base val, base field)		\
++static __always_inline type name##_replace_bits(type old,		\
++						base val, base field)	\
+ {									\
+-	return (old & ~to(field)) | type##_encode_bits(val, field);	\
++	return (old & ~to(field)) | name##_encode_bits(val, field);	\
+ }									\
+-static __always_inline void type##p_replace_bits(__##type *p,		\
++static __always_inline void name##p_replace_bits(type *p,		\
+ 					base val, base field)		\
+ {									\
+-	*p = (*p & ~to(field)) | type##_encode_bits(val, field);	\
++	*p = (*p & ~to(field)) | name##_encode_bits(val, field);	\
+ }									\
+-static __always_inline base type##_get_bits(__##type v, base field)	\
++static __always_inline base name##_get_bits(type v, base field)	\
+ {									\
+ 	return (from(v) & field)/field_multiplier(field);		\
+ }
+-#define __MAKE_OP(size)							\
+-	____MAKE_OP(le##size,u##size,cpu_to_le##size,le##size##_to_cpu)	\
+-	____MAKE_OP(be##size,u##size,cpu_to_be##size,be##size##_to_cpu)	\
+-	____MAKE_OP(u##size,u##size,,)
+-____MAKE_OP(u8,u8,,)
++#define __MAKE_OP(size)									\
++	____MAKE_OP(le##size,__le##size,u##size,cpu_to_le##size,le##size##_to_cpu)	\
++	____MAKE_OP(be##size,__be##size,u##size,cpu_to_be##size,be##size##_to_cpu)	\
++	____MAKE_OP(u##size,u##size,u##size,,)
++____MAKE_OP(u8,u8,u8,,)
+ __MAKE_OP(16)
+ __MAKE_OP(32)
+ __MAKE_OP(64)
+
+-- 
+2.55.0
+
 
