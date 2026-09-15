@@ -4,127 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 007CAC88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 12:54:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D1E3C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 12:58:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ruipU1u5W9byyxX9qPeGPH+nhoQRgzgXh/OFxRteDPg=; b=Yzx8b+0KgpZuKZJdZSFu6E9M7L
-	VMIPRXkNkRdS/99PiRZVEBlqppeFOlJ82F9rd65Yo1ZAP342m5ZrYa4bU194vZt6uob7064kwFqdQ
-	mY0QgT5yMGEu4BMCNwm/XNf3N91msZPtc66p3FnWy1pq7W1ggWe72yTAoMdBEFshijxc9pRRXssJH
-	Ts4HK5Tr0TCft0KNQIM+/V5mld10/haR2Ia0isCUoVcxMKYECVUjsoeB4jE2l2HyjjmJJ13tVE1PE
-	S2Tynb+5pBEMt042EjL2NjfEMsSMKmYDMu6wL5vc+BDoYju9t6dCdsLEsaO84kf5qDZUzyFrEXGeg
-	QoDz+UFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UbKFa6dG5UBkDfq3ndVqVEPf2wDCJCG6++eqJMrwxIs=; b=mtcm6v8oiED2Q8cfCn5xYnNLvX
+	46cqb24QOGvTw293DuEEbghlcvgu7KCOF8iAWlrEZ97TM9BLmTm1RSKXmW1t3R+k2hdRHWfU/n0RX
+	zXXA1ZSxTqwhTBW2V8ysF2iBx61D27seF+4F64ssm9IPIqvH2A5nsgmI7b4DR/xL9FyaNmrAaNKGM
+	xbAPlOJpBcFQhxXZKQp7jrN15q4+0qt/xhuZM/e1xWbbWzWvRWGtShbdaTaBndqQGFR52k43plwq1
+	LYOXYH1qXNa8pFcq9KvRmK6hcSkKfJdjyGz/sWNqM7E0a/YiUsLA2B43i4Mg9f1/boMjfSqBnBy3+
+	nk62JaRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Sfl-00000006cDq-3I7p;
-	Tue, 15 Sep 2026 12:54:05 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x6Sjn-00000006dGw-0p1d;
+	Tue, 15 Sep 2026 12:58:15 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Sfj-00000006cDG-3aDl
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 15 Sep 2026 12:54:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Message-Id:Date:References:In-Reply-To
-	:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=ruipU1u5W9byyxX9qPeGPH+nhoQRgzgXh/OFxRteDPg=; b=Ph3qm9FIHqYFxgDnMvfIXqIZII
-	hsyBjWoZ2ihmYzpEdC3zIe8niikGoMcuNSToGIahmdbFhCwBDcyEEpTxGuKsvtqZ50N8RCcyPRdEd
-	6WjATR1tNqWiSgbvuvebJ28NYdwj3J5yaYqJJ/Mazkv57Nu+Nc/J32CpmMfQFesxfi6995BGWn3BY
-	zbCajAejGkr7bhDgXbH7SMEGzoiep3XWxCEUtU6jq5+I7mQXUyhLd2y6Dccjxw3KwtGO+mNDzg+1Z
-	VEAtAxtwHlAfTVSr0tT0qy0wxYYNtFh9jGqIJLC7yfjkeICDyzzK/gxckXxSgLjpNEhFBSQMW1KET
-	zSt68ZAA==;
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6Sfh-00000006lgf-0Lhq
+	id 1x6Sjk-00000006dFX-2PGy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 12:54:02 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e7bcb94d3so2055275e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 05:54:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1789476839; x=1790081639; darn=lists.infradead.org;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=ruipU1u5W9byyxX9qPeGPH+nhoQRgzgXh/OFxRteDPg=;
-        b=cQyixW0J3/XVxt2PuIg2G1NcikIWrwiu2e9MN7ARpie1w4uoSs2EoQGiEEaRaZRj7T
-         YLpm+2fsVvPCGRa5Atzm3tBoOVgKOQCJxA9O71Ss/JdqXIlbU2SrbVMda/ZS9mZcIX/+
-         Ltam8iNjPQ/+NuPrqZOcL4GNC8OlcCF6OBpGU5zm50f3f9Eb+kVt+kVtOWiw8DL7Y0zO
-         LXT+hOLvZP/7dwCTgptC9YI6Ox5Xecs635nQPQBoUt0zFfXKzgGgAlwgEgR8MrkSBIlc
-         OEahj8G8Ql5gGsL84r0J8+BR3YjbGst8uf5SP5xnVJ2z2RgdlLEb/8Igfs/bhRQJvgG1
-         OhfA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789476839; x=1790081639;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ruipU1u5W9byyxX9qPeGPH+nhoQRgzgXh/OFxRteDPg=;
-        b=f2Ct+Cbqu4facZ51ksDf/+SSh6c53z9pGhuxfyf23VREqTe9bqrc7vUrYO9/UfLnmW
-         xUpUDqVYVWZc/Ixokp3AYUXlhG0LEp5lehvw1kjQqrxWAOBoCOvh9FPW9CJdAk0ZqlUz
-         nSLzwJmXQ8M2AHZzUz5FKmKatf0EX4T0NSKGSOaEx/j5LYzvYX3A9nAB9j8jgYnUeGAs
-         Mdb041IaqxZ4MOct8Sj/xgSmvpvW+nsYT+YwKQHqm9vRLCVZyTdJpQ3GuoA6JOF+vtEw
-         X9tVbvTasqQr5z9Lc12oJ1vL3ZcshuQEBOEZ9H7cphvm1XpAmFdYdWngJsujtJ+i89u3
-         Vyeg==
-X-Forwarded-Encrypted: i=1; AKwUvByAZEwUSrluPkMfJwOXyT/kjSurK5XooexIa6VQgbCoJboCC7ZzZfv4MYbA5KcGM4jjVIrwoWmictxNIArXX4/8@lists.infradead.org
-X-Gm-Message-State: AFuF++lxQZsoi2uOisE5UUVE8WXGarvPFyUtKBK4lIXa52uOKDyGlxR2
-	5Y5V4YdNfrBKPPxvuQfzuqShbsvDnRXGIa4W330RFFj2ocVwaDMFV1eTbLKenfDfrv0=
-X-Gm-Gg: AYBFou1142JWxAC96+OdSRMS9I/0Ouoh2l0e09Yo3IapWHOszBFsjyq5u9VWBnBFfea
-	tZKqg8m6C2Ct1ja4n7OBG0EGm8c01n/XF1JgDJElPkATY0CBzT7svYUcnJz1swAzNElMJiSQhml
-	rYL1Wl68cSm60Rlvm0sWikbwCsiT8ZQFgLb5+Sne1ZcEAZe21ZSBYuL+65xsI38wrpMTF5sjGos
-	+gZ4goVHivaYXf5XiKyvGLEUdWaOF+rdW34vRnxIE2u0bCQ8fqyRueZqr2oN83IrE54r8ikhXhc
-	vuf3jnhmqQfb97g+rxMj0lY3hWjTdx6KcM7eu1Pwsh/9x1xSh1ULkQSna1zSeYrpKX8VvVEZQ0d
-	9aiGVzE89rYlVdVj8lapzkXRy9ouUVR06zmRs12D3XgpwJSPwTB359p0Mvqf2LLWxmt+bZWfKMn
-	sklIMykx952EilHD1680y5tsYH1yq/T+1hWYvF00QQmlHi5UaiSL0martAefrCVoZ0tAn9JCON9
-	aSQMEgU5aBN1AHOfA==
-X-Received: by 2002:a05:600c:1c26:b0:49c:f4ff:e872 with SMTP id 5b1f17b1804b1-49e82213842mr16348805e9.5.1789476839476;
-        Tue, 15 Sep 2026 05:53:59 -0700 (PDT)
-Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e7d6a9d1dsm73406825e9.10.2026.09.15.05.53.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Sep 2026 05:53:59 -0700 (PDT)
+	Tue, 15 Sep 2026 12:58:14 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68F9hMi42675157;
+	Tue, 15 Sep 2026 12:58:03 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=UbKFa6dG5UBkDfq3ndVqVEPf
+	2wDCJCG6++eqJMrwxIs=; b=b1b1sx4T/TbvEJ6t0UPMYxeQD8KFltkntWoh9Foh
+	sX05R8XrcnvOkQUpwGfi3jKxC6JdJDOZidBhng2WQ4fd0K9PgqnrfHRclABUMPTU
+	mFvzMDvu2xB1JWsd8DVY82NRYAhOWt0IySJMX1y9cBn6lkUVCO6kn7aXngyl4K4J
+	1I++lyboZLSOwtNPl3nMUR9k33K0PpfzsxTrVVnatVdVeZrLn7KmGIK0BdmqZw0C
+	UXugNJZ+zR2rLz/CJ70pN8bjkAyNr4foVlrCnmKSSXY3zGfO3RqeqjZw3BUyfe8P
+	CB5u1KuFSntk5RVB8QXIZ3i1zcOuuYlLy8OQebJYFGOVQQ==
+Received: from apblrppmta01.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gpye71xbr-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Tue, 15 Sep 2026 12:58:03 +0000 (GMT)
+Received: from pps.filterd (apblrppmta01.qualcomm.com [127.0.0.1])
+	by APBLRPPMTA01.qualcomm.com (8.18.1.11/8.18.1.11) with ESMTP id 68FCvx4w2370413;
+	Tue, 15 Sep 2026 12:57:59 GMT
+Received: from hu-devc-hyd-u22-c.qualcomm.com (hu-bibekkum-hyd.qualcomm.com [10.147.243.199])
+	by APBLRPPMTA01.qualcomm.com (PPS) with ESMTPS id 68FCvxoC2370407
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Tue, 15 Sep 2026 12:57:59 +0000 (GMT)
+Received: by hu-devc-hyd-u22-c.qualcomm.com (Postfix, from userid 4253010)
+	id 99CB35E3; Tue, 15 Sep 2026 18:27:58 +0530 (+0530)
+Date: Tue, 15 Sep 2026 18:27:58 +0530
+From: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>,
+        "Joerg Roedel (AMD)" <joro@8bytes.org>, iommu@lists.linux.dev,
+        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] iommu: arm-smmu-qcom: Skip fault-info reads when
+ suspended
+Message-ID: <20260915125758.ekt323jhwsiis6bp@hu-bibekkum-hyd.qualcomm.com>
+References: <20260912-priv_call_runtime_handlers-v1-1-fc0c3a17523f@oss.qualcomm.com>
+ <fe22fb3d-77dd-4b34-9dd8-aafe11f36988@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v14 07/11] clk: realtek: Add support for mux clock
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Yu-Chun Lin <eleanor.lin@realtek.com>
-Cc: sboyd@kernel.org, bmasney+clk@redhat.com, jbrunet+clk@baylibre.com, 
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
- p.zabel@pengutronix.de, cylee12@realtek.com, afaerber@suse.com, 
- jyanchou@realtek.com, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-realtek-soc@lists.infradead.org, james.tai@realtek.com, 
- cy.huang@realtek.com, stanley_chang@realtek.com, 
- Brian Masney <bmasney@redhat.com>
-In-Reply-To: <20260901072446.2563145-8-eleanor.lin@realtek.com>
-References: <20260901072446.2563145-1-eleanor.lin@realtek.com>
- <20260901072446.2563145-8-eleanor.lin@realtek.com>
-Date: Tue, 15 Sep 2026 14:53:56 +0200
-Message-Id: <178947683646.448573.8652586338644531668.b4-reply@b4>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4922; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=M0IzIsWiPP1002jx1x32ohvsScyH0p5PmYjJWCPWxCs=;
- b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBqqT/kIj2H05/TQ42wyCS3cLOfpVaD8wrOMQ3y+
- Ny8dTCQUReJAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCaqk/5AAKCRDm/A8cN/La
- he81D/45r9CNZwZIVBcLR0EH1/ZBwuxMLr2LG9h4TeHpWHTcEMtRCnWHjpnlVR9r/MRkZM/5dxv
- J3ITQ2RCLm0YArSa+h6lzIQPyon1HsMu4WhNvHt3IxjliQ3r9VWrn5hSP8YARJZBP7EddBboad5
- LHVi0mWjIh8j8DsGUMs8ShpLE5W8AOmaR62C9AViwhEznxzyz3w9MCDnq5hgmSzpYVHS3aDat5Q
- d5c/L+INQNYBIEY3DmSfV2CiY50Xg3NZYhEnv0ZjYtOEQ4v/A1VVR7+yZxxA0hRDhEYYLJfqpyL
- 2JGmOm9ST3nEPTB2QVJHrRXFcVWJzrz1S1lkaaczkzQa7w9x/72P0AaFv2JdQ5PDnTgZBelgylG
- DzH1uZXCIkxIsvUwHJMv/iDRwA52DphXgdiXzUZzmNc0FdL0txxPPNJ0eBixDbuMn7T8VMhemIt
- OA3NDET+hDgzz+xCJ7F2sOyLhqpXVl0SB4DL4aaz/MQjDPsr0/XOh0J/9C7tJcCFzn0YmvWdEtp
- /CZi/IbgYuw04Ql+j+Izsr2UmSk005u7rzwGXa2c25RYrUD2FoedEUTwbx6aSzO81pW9e97gooZ
- EriyMjYVl2D+cYSRN1YGN77gxpz/aOvAXq0F6zBCgedZ0Tt4YLY200PqACAI4be+lZE/9S8maXx
- 4xTnCvcV44d+iVA==
-X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
- fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
+Content-Type: text/plain; charset=us-ascii; format=flowed
+Content-Disposition: inline
+In-Reply-To: <fe22fb3d-77dd-4b34-9dd8-aafe11f36988@arm.com>
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-QCInternal: smtphost
+X-QCInternal: smtphost
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE1MDE4NyBTYWx0ZWRfX4copq2whpTUq
+ skDCKOJ5ityBv84+tFSxUzk2CR+tK+qHdrtB6k0lx91khZ4Z9uMy8McIqXflmCjgJayvto0MpBm
+ Zyib+wI3RfFaHFtNWmgtNkTzBrFbx4mHMaWr/uLxIL7TTsTyF9Hmjva0v5pufxjgNV/JGGXdsqt
+ gQiQzd+SAT+7EYeJEABGEym5/PtqxprIbj6hgxzBlnBi/HxRaRAKeGrXoYf7B/iZfWpdroeiLZu
+ 3UrBqkNWO5Q3/A6Pk9M2cpZ3Erp/ePfjf5sbu5qxAcgLMD4zMlRqRQRZ5TnldbH5U2HLtZHBtlg
+ G9FVblkFKAb+otRGHhx2xLCTe5Fgjj/wVgVscsBcYFR5fAkikNcloAdbQCM4UDeTnoK1AHRldaH
+ XNN3bslFaXIWZ8tk/Wlx1mk1tTm8kan6K/W8WHiWUab8H7YX2wTSwxPfXTdg1KXttqs46muATP3
+ oyuleQZizSupEUnmOdA==
+X-Proofpoint-GUID: wFe0_PrRhd-FsqBF57E34UOXZmZzEjYQ
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE1MDE4NyBTYWx0ZWRfXyzAZkhIst5QZ
+ mXrwxcdX/JbVpeExZJANiduJrbBL4TS2t4FueVFTNA4Hgfj13craL3xeU661aCAY7o5Qfiaqalq
+ JetUvJz3tSoijFwYYvrQ4HBMdcYLyaM=
+X-Authority-Analysis: v=2.4 cv=fck4WEQF c=1 sm=1 tr=0 ts=6aa940db cx=c_pps
+ a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=NEAV23lmAAAA:8 a=WfeKVc-BsYg2EYeYhGIA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-ORIG-GUID: wFe0_PrRhd-FsqBF57E34UOXZmZzEjYQ
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-15_03,2026-09-14_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 suspectscore=0 bulkscore=0 malwarescore=0 phishscore=0
+ spamscore=0 lowpriorityscore=0 adultscore=0 clxscore=1015 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609150187
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_135401_267500_1F41D339 
-X-CRM114-Status: GOOD (  22.90  )
+X-CRM114-CacheID: sfid-20260915_055812_737699_D2AA1959 
+X-CRM114-Status: GOOD (  17.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,143 +114,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-09-01 15:24 +0800, Yu-Chun Lin wrote:
-> From: Cheng-Yu Lee <cylee12@realtek.com>
-> 
-> Add a simple regmap-based clk_ops implementation for Realtek mux clocks.
-> 
-> The implementation supports parent selection and rate determination through
-> regmap-backed register access.
-> 
-> Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
-> Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-> Reviewed-by: Brian Masney <bmasney@redhat.com>
-> Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-> ---
-> Changes in v14:
-> - Move Reviewed-by tag to the correct position.
-> ---
->  drivers/clk/realtek/Makefile         |  1 +
->  drivers/clk/realtek/clk-regmap-mux.c | 41 ++++++++++++++++++++++++++
->  drivers/clk/realtek/clk-regmap-mux.h | 43 ++++++++++++++++++++++++++++
->  3 files changed, 85 insertions(+)
->  create mode 100644 drivers/clk/realtek/clk-regmap-mux.c
->  create mode 100644 drivers/clk/realtek/clk-regmap-mux.h
-> 
-> diff --git a/drivers/clk/realtek/Makefile b/drivers/clk/realtek/Makefile
-> index 840aff067b61..217ccaf5644a 100644
-> --- a/drivers/clk/realtek/Makefile
-> +++ b/drivers/clk/realtek/Makefile
-> @@ -4,4 +4,5 @@ obj-$(CONFIG_RTK_CLK_COMMON) += clk-rtk.o
->  clk-rtk-y += clk-rtk-common.o
->  clk-rtk-y += clk-pll.o
->  clk-rtk-y += clk-regmap-gate.o
-> +clk-rtk-y += clk-regmap-mux.o
->  clk-rtk-y += freq_table.o
-> diff --git a/drivers/clk/realtek/clk-regmap-mux.c b/drivers/clk/realtek/clk-regmap-mux.c
-> new file mode 100644
-> index 000000000000..1069c95595aa
-> --- /dev/null
-> +++ b/drivers/clk/realtek/clk-regmap-mux.c
-> @@ -0,0 +1,41 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2017-2026 Realtek Semiconductor Corporation
-> + * Author: Cheng-Yu Lee <cylee12@realtek.com>
-> + */
-> +
-> +#include <linux/clk-provider.h>
-> +#include <linux/export.h>
-> +#include <linux/regmap.h>
-> +#include "clk-regmap-mux.h"
-> +
-> +static u8 rtk_clk_regmap_mux_get_parent(struct clk_hw *hw)
-> +{
-> +	struct rtk_clk_regmap_mux *clkm = to_rtk_clk_regmap_mux(hw);
-> +	unsigned int num_parents = clk_hw_get_num_parents(hw);
-> +	u32 val;
-> +	int ret;
-> +
-> +	ret = regmap_read(clkm->clkr.regmap, clkm->mux_ofs, &val);
-> +	if (ret)
-> +		return 0xff;
-> +
-> +	val = (val >> clkm->shift) & clkm->mask;
-> +
-> +	return val >= num_parents ? 0xff : val;
+On Sep 14, Robin Murphy wrote:
+>On 11/09/2026 11:25 pm, Bibek Kumar Patro wrote:
+>>qcom_adreno_smmu_get_fault_info() accesses SMMU registers without
+>>holding a runtime PM reference. A fault is raised while the SMMU is
+>>active, but the GPU may drop its power vote before the threaded fault
+>>handler reaches the callback, allowing the SMMU to runtime suspend.
+>>
+>>Accessing the SMMU registers after suspend has started is unsafe and
+>>may cause subsequent register accesses during runtime resume to fail
+>>with a NoC error and an asynchronous SError.
+>
+>But hang on, if I'm following the code correctly, the callchain would be:
+>
+>arm_smmu_context_fault
+>  report_iommu_fault
+>    msm_gpu_fault_handler
+>     qcom_adreno_smmu_get_fault_info
+>
+>and from here we still need to return to arm_smmu_context_fault() to 
+>clear the FSR, so surely that still has the same problem in itself?
+>
 
-This is not really useful, the core already rejects val >= num_parent.
-So returning a higher number changes nothing as it stands
+Ah, yes this path also should have the same problem for GPU smmu.
+But I am carrying [1] in my workspace [2] for testing currently.
+So haven't encountered the same yet. We might need to address [1]
+also as part of this thread. wdyt?
 
-> +}
-> +
-> +static int rtk_clk_regmap_mux_set_parent(struct clk_hw *hw, u8 index)
-> +{
-> +	struct rtk_clk_regmap_mux *clkm = to_rtk_clk_regmap_mux(hw);
-> +
-> +	return regmap_update_bits(clkm->clkr.regmap, clkm->mux_ofs,
-> +				  clkm->mask << clkm->shift, (u32)index << clkm->shift);
-> +}
-> +
-> +const struct clk_ops rtk_clk_regmap_mux_ops = {
-> +	.set_parent = rtk_clk_regmap_mux_set_parent,
-> +	.get_parent = rtk_clk_regmap_mux_get_parent,
-> +	.determine_rate = __clk_mux_determine_rate,
-> +};
-> +EXPORT_SYMBOL_NS_GPL(rtk_clk_regmap_mux_ops, "CLK_REALTEK");
-> diff --git a/drivers/clk/realtek/clk-regmap-mux.h b/drivers/clk/realtek/clk-regmap-mux.h
-> new file mode 100644
-> index 000000000000..ad524bb86a19
-> --- /dev/null
-> +++ b/drivers/clk/realtek/clk-regmap-mux.h
-> @@ -0,0 +1,43 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (C) 2017-2026 Realtek Semiconductor Corporation
-> + * Author: Cheng-Yu Lee <cylee12@realtek.com>
-> + */
-> +
-> +#ifndef __CLK_REALTEK_CLK_REGMAP_MUX_H
-> +#define __CLK_REALTEK_CLK_REGMAP_MUX_H
-> +
-> +#include "clk-rtk-common.h"
-> +
-> +struct rtk_clk_regmap_mux {
-> +	struct rtk_clk_regmap clkr;
-> +	unsigned int mux_ofs;
-> +	unsigned int mask;
-> +	unsigned int shift;
-> +};
-> +
-> +#define __rtk_clk_regmap_mux_hw(_p) __rtk_clk_regmap_hw(&(_p)->clkr)
-> +
-> +#define __RTK_CLK_REGMAP_MUX(_name, _parents, _ops, _flags, _ofs, _sft, _mask) \
-> +	struct rtk_clk_regmap_mux _name = {                                    \
-> +		.clkr.hw.init =                                                \
-> +			CLK_HW_INIT_PARENTS(#_name, _parents, _ops, _flags),   \
-> +		.mux_ofs = _ofs,                                               \
-> +		.shift = _sft,                                                 \
-> +		.mask = _mask,                                                 \
-> +	}
-> +
-> +#define RTK_CLK_REGMAP_MUX(_name, _parents, _flags, _ofs, _sft, _mask)               \
-> +	__RTK_CLK_REGMAP_MUX(_name, _parents, &rtk_clk_regmap_mux_ops, _flags, _ofs, \
-> +			     _sft, _mask)
-> +
-> +static inline struct rtk_clk_regmap_mux *to_rtk_clk_regmap_mux(struct clk_hw *hw)
-> +{
-> +	struct rtk_clk_regmap *clkr = to_rtk_clk_regmap(hw);
-> +
-> +	return container_of(clkr, struct rtk_clk_regmap_mux, clkr);
-> +}
-> +
-> +extern const struct clk_ops rtk_clk_regmap_mux_ops;
-> +
-> +#endif /* __CLK_REALTEK_CLK_REGMAP_MUX_H */
-> -- 
-> 2.43.0
-> 
-> 
+[1]: https://lore.kernel.org/all/20260313-smmu-rpm-v2-1-8c2236b402b0@oss.qualcomm.com/
+[2]: https://github.com/qualcomm-linux/kernel/blame/aff7542c319ede2037eeee316f20c2429062c08a/drivers/iommu/arm/arm-smmu/arm-smmu.c#L500
 
+Thanks & regards,
+Bibek
 
+>Thanks,
+>Robin.
+>
+>>Use pm_runtime_get_if_active() to keep the SMMU active while collecting
+>>the fault information, and skip the register reads if suspend has
+>>already started.
+>>
+>>Signed-off-by: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
+>>---
+>>qcom_adreno_smmu_get_fault_info() accesses SMMU registers without
+>>holding a runtime PM reference. A fault is raised while the SMMU is
+>>active, but the GPU may drop its power vote before the threaded fault
+>>handler reaches the callback, allowing the SMMU to runtime suspend.
+>>
+>>The failure sequence:
+>>
+>>   GPU context fault
+>>           |
+>>           v
+>>   qcom_adreno_smmu_get_fault_info()
+>>           |
+>>           | GPU drops its power vote
+>>           | SMMU starts runtime suspend
+>>           v
+>>   SMMU register access without an active RPM reference
+>>           |
+>>           v
+>>   later Adreno PRR private-interface operation
+>>           |
+>>           v
+>>   pm_runtime_resume_and_get()
+>>           |
+>>           v
+>>   arm_smmu_runtime_resume()
+>>           |
+>>           v
+>>   arm_smmu_device_reset()
+>>           |
+>>           v
+>>   SMMU register access
+>>           |
+>>           v
+>>   NoC error / asynchronous SError
+>>
+>>Use pm_runtime_get_if_active() to keep the SMMU active while collecting
+>>the fault information. If suspend has already started, skip the register
+>>reads instead of accessing the SMMU while it is being powered down.
+>>---
+>>  drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 14 ++++++++++++++
+>>  1 file changed, 14 insertions(+)
+>>
+>>diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+>>index 795e8ec7e8fa..b1787a4ba0d3 100644
+>>--- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+>>+++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+>>@@ -129,6 +129,18 @@ static void qcom_adreno_smmu_get_fault_info(const void *cookie,
+>>  	struct arm_smmu_cfg *cfg = &smmu_domain->cfg;
+>>  	struct arm_smmu_device *smmu = smmu_domain->smmu;
+>>+	/*
+>>+	 * A fault can only fire while the SMMU is active (GPU is issuing
+>>+	 * transactions). Use get_if_active so that if by a rare race the
+>>+	 * device has already suspended, we skip the register reads rather
+>>+	 * than triggering a cold resume which would call device_reset and
+>>+	 * destroy the fault state we are trying to capture.
+>>+	 */
+>>+	if (pm_runtime_get_if_active(smmu->dev) <= 0) {
+>>+		dev_warn(smmu->dev, "get_fault_info: device not active, skipping\n");
+>>+		return;
+>>+	}
+>>+
+>>  	info->fsr = arm_smmu_cb_read(smmu, cfg->cbndx, ARM_SMMU_CB_FSR);
+>>  	info->fsynr0 = arm_smmu_cb_read(smmu, cfg->cbndx, ARM_SMMU_CB_FSYNR0);
+>>  	info->fsynr1 = arm_smmu_cb_read(smmu, cfg->cbndx, ARM_SMMU_CB_FSYNR1);
+>>@@ -136,6 +148,8 @@ static void qcom_adreno_smmu_get_fault_info(const void *cookie,
+>>  	info->cbfrsynra = arm_smmu_gr1_read(smmu, ARM_SMMU_GR1_CBFRSYNRA(cfg->cbndx));
+>>  	info->ttbr0 = arm_smmu_cb_readq(smmu, cfg->cbndx, ARM_SMMU_CB_TTBR0);
+>>  	info->contextidr = arm_smmu_cb_read(smmu, cfg->cbndx, ARM_SMMU_CB_CONTEXTIDR);
+>>+
+>>+	pm_runtime_put_autosuspend(smmu->dev);
+>>  }
+>>  static void qcom_adreno_smmu_set_stall(const void *cookie, bool enabled)
+>>
+>>---
+>>base-commit: f61bb3920fa8cb44b84d32e0fa9fbaab4eb00c80
+>>change-id: 20260912-priv_call_runtime_handlers-7f3547544040
+>>
+>>Best regards,
+>>--
+>>Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
+>>
+>
 
