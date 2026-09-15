@@ -4,112 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCF79C88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 19:35:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E453C88E7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 19:51:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3sluWAJ7si51ldKO+IEOlj7IVd+xFNM1gnjjRPbQIZI=; b=Ij5Tm4cmq9IRivSXR3zRzAsGR1
-	SSzVZDHVWkf8uv2XHKF5VMDj4SEmFel7aBR7qIdfafJVBHocrKIrZQIQN10t6UA0Ky6kzcfbRyGbx
-	aqQK+Aeld+si7JQz37X6d3T0axwK4LoCuuAXK1awySvcVN8rN9DYoMxGBiI4WpmV30wE6+OWwvwLT
-	cD62bINDZ+vpZfDNJY218ZljNVnazt0ZGRLTGLYNG5QpPRTzYmqZUj8ZJy+OLzMzsU4ONXxqrQEAA
-	PqZlGlZJkog39u3Q79fxrM7JEObXb5akdsbmZcjCaJF2MfKm5zSh2muztGkhu2dSnLlQeKw6XW+7X
-	+Ovxag7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jXOczofUEvkrBqpcuYbGbpcliZ0gOlKLqfrv/EClXo0=; b=eIFaHvETuwqA/DDOR1swQVw4fX
+	wjllp+8cl9QThCeQdrfwrLVDLiuT8nKe1XX0KzAPJoQmbi6NsFmwkGD2W0TsL9L2dcH2FR+1Mka7+
+	X2nT/uS+hzn6iq0oJ3mmv+/FwOeCa8rj0oeipDAu8OhgKUhspGEDVZUOUygX0RuxrlIv8IOxPUY8W
+	ac1OBglu31YoXrw3ZgDZeFoiU1D8JpTYruL4my/XL+LD3nmLF60FyylzDotvE0H7KIkSnm1HcZR4S
+	7kxr6Zh9NbmwCMBI+Ppijwr/hphJs5wJ+7Q8tUQeztVwAfu8FFxLWRCXnSmoaem32+jY364h/CNeg
+	WsCbiRxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6YwX-00000007s41-1syk;
-	Tue, 15 Sep 2026 19:35:49 +0000
-Received: from mail-lr2-x12.google.com ([2a00:1450:4864:38::12])
+	id 1x6ZB7-00000007tEF-0NIH;
+	Tue, 15 Sep 2026 19:50:53 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6YwQ-00000007s2G-1WLb
+	id 1x6ZB5-00000007tE3-3Nut
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 15 Sep 2026 19:50:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:Message-ID:
+	Date:References:In-Reply-To:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=jXOczofUEvkrBqpcuYbGbpcliZ0gOlKLqfrv/EClXo0=; b=q1dYRAL6NHxop2iJXbDiskRUWq
+	a1B9ohpQY1kOuocfamuNT0CR7N6VAwMRKfo+csB5sCuaSiIm16jzz1u+sbZPrLuUOYjYp9k9ioIB+
+	DOFAtPJpRHv5iPEep/8OMJ/IwV8eo1ncBUXt/xYvgi9qpr/MH4XQZngQeiIMM+NALTWXXANM/cpIX
+	HgVwrrLSA3h/p0T/lR1eTPKX/M12Cta8B8HUjd/pwmACYGq2vHfL77p2R0DMnTlZxNm8RaAnPFnK3
+	739J9UzYMzWqFlK7QxtICnM1FT64seNGQRHmeUOzJTiVj76QgI0ngkAMh8VlrVDbnDL19nW70vx8I
+	/mMWX9Yg==;
+Received: from ms.lwn.net ([2600:3c01:e000:3a1::42])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6ZB2-00000007D7g-1pwE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 19:35:43 +0000
-Received: by mail-lr2-x12.google.com with SMTP id 38308e7fff4ca-3a2ff174422so1451101fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 12:35:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1789500934; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Z49dDuiPdaWT9Tk/FXlGkDUtDarb6DeQJxqx6CqwQ8ASQrVJgAmIwUjQjjFSO2hUJ4
-         veARJb+WAKPnKVkcbobk9vTlPZLFeSms+6otOtAtHsvbGIVvjFSKW4StbGc2o9PUuoxy
-         eOh2hNMqK1wu83taPEp392XirGeRltlRueHjAezVziG8PK4MO/Py7M7vR4binIVMXaBE
-         frTNHchVNRXR+T3pAqgATEk0rsCDxGGgqsgjkmvpKpuPwT5/hgVdQfUjmaXdRtdvhTVP
-         Q7v3LLap3JxQF/xU3Qn1ImaP/O1D3vsunJsYl/P/p8rakSdPAhUSlyBzRWhvB4WBoeN/
-         BqXw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=3sluWAJ7si51ldKO+IEOlj7IVd+xFNM1gnjjRPbQIZI=;
-        fh=2lO3qQ8Bxe+sgDZoapqWXQ9mCoFYAWNVsD7UQfk+eb8=;
-        b=PimooTNSce5FrBy3tOLqUMijtOQt5J98k9LBQ4OTOcAajioRs85DPiGFLUylEaV3mM
-         21YhPcvf6UgcUHLT0C6TB13uHWc5gaIu9rLBbxuBwC0jfapILYu8kpgPo0KgNcYHXVK5
-         s32W1+83DZ5DYRxRYRwj9CSvecKj20YClt5KhzrLxAZGvPLjIbeRntljSL1h7dAxg9tM
-         xhg/rumb8QzjZ0m5OOam4cnyNIWoW/Jl6FFmpxWAo8rSce5/PlgYKTIEb4hTGaickzAb
-         YUy18boZGTwI+i9peT5dik8+idHzKbO+1GU4eEDVzgYimzPU01WcEWLTh6aRaZj3k0hr
-         RftQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1789500934; x=1790105734; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=3sluWAJ7si51ldKO+IEOlj7IVd+xFNM1gnjjRPbQIZI=;
-        b=Fe9UILcoGffr4fpY4q0HzeSc6X0Gm9E+0hQRR5DE+wcH+wZ6VbpQ1Ot7xj6tzBeEYu
-         cj1Vkfh9MK836Nke4VYfpo+P94GFw8iCydTg799qCIN/bWI6FwdeyNtVltWdRBy/JjHt
-         3gY4bZHi7975lopiu8IxUANkqpsViRMv3lFg0jYY6x4UhWkCKKCbVyMIEYWEv/9HmnS4
-         uCWIE6fwh1WTxXgCH19rtxfsEfdzvqTLhaUiZiiDf6QHAZtUrVKon1LHihzOKlopwK6/
-         k31EQTLoVvH9d2KpUa9lSWm366AK/4QrY6tkrK2OOAyfxmGqxWD76eJaAJtIgL04pMZ0
-         F0gg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789500934; x=1790105734;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=3sluWAJ7si51ldKO+IEOlj7IVd+xFNM1gnjjRPbQIZI=;
-        b=KdrloOn1bHJRDQTwJ5e4+GuuOYqLoKuzBA5g8vtdARcnSFLqOJ557ib2xJ2y9e2A2+
-         quu7MtrwKB55VgbSu9NWgrw55ryM4eLx+ADtvshtIY9nqOHgb6kh4Lp9wOFwjA9klxxQ
-         Ax5L57h3aTCxkzbNv2nU25aMplOM2u5NWYkWqmo1I0bKYEYHS103ymmizFurmSXWyyRn
-         oAeMZnRORFjN/yZgFedOIzwbAI1WWWD00cc6YRCSSq8f+etXmaqfNcSoWJBiCO9GjLxi
-         n8Eiwc/E3a+3N3K58lE16NZRJF3AacXeTk4N2OVo0jVsvkW+SZ/OwGJjxxfN8qZR8F45
-         8HpQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxHZFL1KrB+AVULHeDMYybpBLxUWWAeYCcQ6JXXywc6X66yWWMAIO00qDtmvtX5Zox52WfHSocRtQAEbV2WYu+y@lists.infradead.org
-X-Gm-Message-State: AFuF++lY8JlvAFSfTlJsy3pnJ7DT+0wFimqMZinMqTyVUVP0vBtXGVo/
-	1AniLWREEOB5E3NoREit+0i6zQcWKkVlv53jaBKO5eYcn/HOR0qTzb8p4hGAaSWe/tapeKvLX5z
-	yY9DVyR3wTlRi7WEWU086RQsTmkhCsUB2KICP+/FG
-X-Gm-Gg: AYBFou3QROtRI6J1PVoJe2Dfnjw74dQ6esATkxrDH1Y7PnvN12+SejJJiSpSgvaVJJW
-	J1rtK2rLQFcM0AVjsxHC4intBOuRwX3BCtLMm4mYLpQlHfyaxYgRy5pUjkcUr3rk7zBRadcu0ZA
-	EMjoI17Ti65ieqYHRgqrJ2Wx35Xe4tEhOQXBsgAFeS9NSKJhRQOqdy9UBxYsMR/djiLNZnXVraG
-	dlee21+Xe5K76sobeet5nnKc/IDdR2Ja/bc5GynUKlEdtoSfqkjg1znrEvJMY8VygJJsZM4sSnY
-	ROOiQR1B1UXX07yHIwIgOI+JYn8OGbUyAws5PB1If4tdS6+0gs+UXXVRPX9RKXnG
-X-Received: by 2002:a05:651c:a114:20b0:3a4:9e46:235c with SMTP id
- 38308e7fff4ca-3a5c89b031emr21060911fa.14.1789500933920; Tue, 15 Sep 2026
- 12:35:33 -0700 (PDT)
+	Tue, 15 Sep 2026 19:50:50 +0000
+DKIM-Filter: OpenDKIM Filter v2.11.0 ms.lwn.net EE69B408B4
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lwn.net; s=20201203;
+	t=1789501846; bh=jXOczofUEvkrBqpcuYbGbpcliZ0gOlKLqfrv/EClXo0=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=WqxcUu3cx8hBBdXdwyYjkTITe55X2kp5l2yxw5xsZtUWp+hMBdYNe446ZB5AhJ1LD
+	 CgWDVsvblGmUxsVOQFTt04CqVu23eeTqWMKywgBC1UkcbRcDHyoNTz/5BKUGLTyKpL
+	 cVHIy5pznUuMgrqZyZUSl/XpYxAJ6TFjUFzJrbjCrkOQ9YV6CAMNOkuPGDtmZEpfHI
+	 caa6EMrAGw1vPOTLhzJXHNdNX+xJO6ZaWPtY/aov6H6c9n3YyQYb3zrWwGSDEiMV3R
+	 hraNXTl41LdPXlluVmbOKBuAG60VqSjB/Lo2KMD+Y/UbQQEl2J6JTGxqRMrBxtPM84
+	 Yv40afzMGvgtw==
+Received: from localhost (unknown [IPv6:2601:280:4600:814::1fe])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by ms.lwn.net (Postfix) with ESMTPSA id EE69B408B4;
+	Tue, 15 Sep 2026 19:50:45 +0000 (UTC)
+From: Jonathan Corbet <corbet@lwn.net>
+To: Randy Dunlap <rdunlap@infradead.org>, linux-kernel@vger.kernel.org
+Cc: Michal Simek <michal.simek@amd.com>, Ronak Jain <ronak.jain@amd.com>,
+ linux-arm-kernel@lists.infradead.org, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, Shuah Khan <skhan@linuxfoundation.org>,
+ linux-doc@vger.kernel.org
+Subject: Re: [PATCH] firmware: zynqmp: use literal blocks for commands
+In-Reply-To: <ae2964c7-7875-4966-ad1c-b98d6050d42e@infradead.org>
+References: <20260914060615.1398531-1-rdunlap@infradead.org>
+ <87ik469wd4.fsf@trenco.lwn.net>
+ <ae2964c7-7875-4966-ad1c-b98d6050d42e@infradead.org>
+Date: Tue, 15 Sep 2026 13:50:45 -0600
+Message-ID: <87eceu70q2.fsf@trenco.lwn.net>
 MIME-Version: 1.0
-References: <20260912083611.2513845-1-suzuki.poulose@arm.com> <20260912083611.2513845-8-suzuki.poulose@arm.com>
-In-Reply-To: <20260912083611.2513845-8-suzuki.poulose@arm.com>
-From: Alper Gun <alpergun@google.com>
-Date: Tue, 15 Sep 2026 12:35:22 -0700
-X-Gm-Features: AcwNN1VS3YvKKCCRg1vDnBVkoWj-7p2fofNqSox_wrQ014s5kEA5YUvjF8gr3LY
-Message-ID: <CABpDEukTAc1m=g+rZRPPqaTwrvhUJPsFRWpFd0PxZsyWw5mR=Q@mail.gmail.com>
-Subject: Re: [PATCH v18 7/7] firmware: arm_rmm: Add wrappers for Realm related
- RMI commands
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org, 
-	will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, steven.price@arm.com, 
-	aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com, 
-	joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com, 
-	linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, 
-	sdonthineni@nvidia.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com, 
-	lpieralisi@kernel.org, enju.kohei@fujitsu.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_123542_428661_90932A0B 
-X-CRM114-Status: GOOD (  14.45  )
+X-CRM114-CacheID: sfid-20260915_205048_670845_60BB5012 
+X-CRM114-Status: GOOD (  11.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,53 +90,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 12, 2026 at 1:37=E2=80=AFAM Suzuki K Poulose <suzuki.poulose@ar=
-m.com> wrote:
-[...]
-> +/**
-> + * rmi_rtt_destroy() - Destroy an RTT
-> + * @rd: PA of the RD
-> + * @ipa: Base of the IPA range described by the RTT
-> + * @level: RTT level
-> + * @out_rtt: Pointer to write the PA of the RTT which was destroyed
-> + * @out_top: Pointer to write the top IPA of non-live RTT entries, from =
-entry
-> + * at which the RTT walk terminated.
-> + *
-> + * Destroys an RTT. The RTT must be non-live, i.e. none of the entries i=
-n the
-> + * table are in ASSIGNED or TABLE state.
-> + *
-> + * Return: 0 on success, positive RMI result code or negative Linux erro=
-r code.
-> + */
-> +static inline long rmi_rtt_destroy(unsigned long rd,
-> +                                  unsigned long ipa,
-> +                                  long level,
-> +                                  unsigned long *out_rtt,
-> +                                  unsigned long *out_top)
-> +{
-> +       struct arm_smccc_1_2_regs regs =3D {
-> +               SMC_RMI_RTT_DESTROY, rd, ipa, level
-> +       };
-> +       long ret =3D rmi_sro_execute(&regs);
-> +
-> +       if (ret !=3D RMI_SUCCESS)
-> +               return ret;
-> +
-> +       if (out_rtt)
-> +               *out_rtt =3D regs.a1;
-> +       if (out_top)
-> +               *out_top =3D regs.a2;
-> +
-> +       return RMI_SUCCESS;
-> +}
+Randy Dunlap <rdunlap@infradead.org> writes:
 
-Doesn't out_top (regs.a2) need to be populated on RMI_ERROR_RTT as well?
-realm_tear_down_rtt_level() checks next_addr > addr under case
-RMI_ERROR_RTT: to determine whether the RTT is missing or has child tables
-that need recursive teardown.
+> On 9/15/26 11:56 AM, Jonathan Corbet wrote:
+>> Randy Dunlap <rdunlap@infradead.org> writes:
+>> 
+>>> Use literal blocks for 'cat' and 'echo' commands to separate them from
+>>> the surrounding text. Otherwise the lines run together, without any
+>>> clear break before or after the commands.
+>>>
+>>> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+>>> ---
+>>> Cc: Michal Simek <michal.simek@amd.com>
+>>> Cc: Ronak Jain <ronak.jain@amd.com>
+>>> Cc: linux-arm-kernel@lists.infradead.org
+>>> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+>>> Cc: Jonathan Corbet <corbet@lwn.net>
+>>> Cc: Shuah Khan <skhan@linuxfoundation.org>
+>>> Cc: linux-doc@vger.kernel.org
+>>>
+>>>  Documentation/ABI/stable/sysfs-driver-firmware-zynqmp |   70 +++++++---
+>>>  1 file changed, 50 insertions(+), 20 deletions(-)
+>>>
+>>> --- linux-next-20260911.orig/Documentation/ABI/stable/sysfs-driver-firmware-zynqmp
+>>> +++ linux-next-20260911/Documentation/ABI/stable/sysfs-driver-firmware-zynqmp
+>>> @@ -141,32 +141,44 @@ Description:
+>>>  
+>>>  		Usage:
+>>>  
+>>> -		Select over temperature config ID to enable/disable feature
+>>> +		Select over temperature config ID to enable/disable feature::
+>>> +
+>>>  		# echo 1 > /sys/devices/platform/firmware\:zynqmp-firmware/feature_config_id
+>> 
+>> I was sure that this wouldn't work, since the literal block is not
+>> indented relative to the containing text.  Sphinx does the right thing,
+>> though... so applied, thanks,
+>
+> Yeah, I did test it and looked at the output. :)
 
-Thanks,
-Alper
+Heh...it's nice to know that at least one person does that...:)
+
+jon
 
