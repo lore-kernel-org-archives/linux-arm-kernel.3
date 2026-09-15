@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A650C982C5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:34:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B125AC982C7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:34:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:Cc:
 	To:In-Reply-To:Message-Id:Content-Transfer-Encoding:MIME-Version:Subject:Date
 	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JcSXHVMDqv6KSfxLj3MK5INKK9EFwX8I0N6g2xkU6Kk=; b=fyd2ICp9EbTVv+0juMGHq9wU39
-	pb9NzkqCa9tWNnPByXvEaGsH+etjf+A8toWmZWvIcNDpCQDsK/ukdqhE3HRt+AYtdqyB2KCUDcEX9
-	f0hhFzjxvcPikz69tdbeNBJTOZGZRfMLw402aXTkwvjWAl4nruHiYqXYbJ5Ep9mVxnnaNeS2AkGNT
-	+MXCtd68nhwnzFTwYk808thhu/WqEE6c3bGtnaIBefGwP39c6OHG/+cH695qY05d4l4usaxnnBneQ
-	MlKxnp5c6jbrYnGoc3yVhc/W05SYLN66FOvv83/DX6z1arLjgeIAuMzhdztzDY3ifCKfhDrtnCL0o
-	akFMqWCQ==;
+	bh=Bs5zHxpobqcI/79TsVELfJrlV+3TKjYDXQ0ZEWhE0S4=; b=daF5rbsfsfYHgATbx6DCD2X1HN
+	Fk8+INNnJdCJmi1eHrQwuwXk/E5J9ZnbMvk6C7bsUXIDQ+BQqhoxhSg6LLktU9wgeGlVC2MR3dxfa
+	Fivqpsj6szyGVIXeA/3H62Fw3NMra5Ulus8+3zqg8F9GS8URaVrCyQXN22Vseumfmc+/ylnvzPcbN
+	ec7ed8TUcczPIK8jg7fgDk4oiDs8rkyQGUQXZlKKCZXXQE2f4Lgo9IN2K8tK5xU075RHNXgOHPOFu
+	EmsknWxsWa3UpzNWeiFuQZDFeAOaO3Rh1iEagCZBu3U7fHpsaOZxd5wzSLV5PpijpmftSNdJQDBXS
+	EzcnYJzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VAN-00000007CpN-3Yll;
-	Tue, 15 Sep 2026 15:33:55 +0000
+	id 1x6VAU-00000007Cy3-18Rb;
+	Tue, 15 Sep 2026 15:33:58 +0000
 Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6V9F-00000007AtQ-3dcE;
-	Tue, 15 Sep 2026 15:32:45 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260915153239euoutp028c9a2a1f5ba5a981d65b4ee3784cdc39~ViFz5U5fS0392703927euoutp02h;
-	Tue, 15 Sep 2026 15:32:39 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260915153239euoutp028c9a2a1f5ba5a981d65b4ee3784cdc39~ViFz5U5fS0392703927euoutp02h
+	id 1x6V96-00000007Aj9-1Hk9;
+	Tue, 15 Sep 2026 15:32:37 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260915153230euoutp028e72443038f7f1983c8543776fb898ab~ViFqxIVTb0389103891euoutp02T;
+	Tue, 15 Sep 2026 15:32:30 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260915153230euoutp028e72443038f7f1983c8543776fb898ab~ViFqxIVTb0389103891euoutp02T
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1789486359;
-	bh=JcSXHVMDqv6KSfxLj3MK5INKK9EFwX8I0N6g2xkU6Kk=;
+	s=mail20170921; t=1789486350;
+	bh=Bs5zHxpobqcI/79TsVELfJrlV+3TKjYDXQ0ZEWhE0S4=;
 	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=MgUE7O//cUy4rTHrEiCnRpYaxzokcH6wvdIzFDm/DphRUPTBDU+0DSYinsYpDvIVq
-	 GgU5c1ARllh0Ti83WtCJJ/DgOSxbV12xBQW1ApiKL6yOoU37+AMBOIhu5JmJY8Lozp
-	 yfB22pDmUmtqz//XMd/IzixnyYrc4XjJY6ga/ArA=
+	b=RsWwEmybH6srBidtOs+4BqSLlL2XXiVoPA6iTlb6l0EdoY5+199PiHwIqM5ubfv+p
+	 E9B4VbXrskB5yIBUVs+fukbZekVbj0knOHyeZn89MaOW38aZ17nG07uyuBU24KFEjy
+	 FpbVCP2DcTIxVsCYUEgn9HJlY7Iy6WikYx5meeac=
 Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
 	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20260915153238eucas1p29917a31d10ce1aa55c1dcb44b62180f9~ViFylzEdz1456714567eucas1p2W;
-	Tue, 15 Sep 2026 15:32:38 +0000 (GMT)
+	20260915153229eucas1p2d1b02b6f3871d6b536f678b9ea293c1c~ViFqeaNRJ1216312163eucas1p2W;
+	Tue, 15 Sep 2026 15:32:29 +0000 (GMT)
 Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
 	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20260915153236eusmtip152220ca6bbe3751e6dc90fe7c7a6eff2~ViFw96L6d0616606166eusmtip1V;
-	Tue, 15 Sep 2026 15:32:36 +0000 (GMT)
+	20260915153227eusmtip1beea089f8c4c4e18ab297a0a1e6c6291~ViFovWdGk0419004190eusmtip1o;
+	Tue, 15 Sep 2026 15:32:27 +0000 (GMT)
 From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Tue, 15 Sep 2026 17:32:22 +0200
-Subject: [PATCH v4 14/20] clk: starfive: jh7110-vout: Allow pixel clock rate
- propagation
+Date: Tue, 15 Sep 2026 17:32:17 +0200
+Subject: [PATCH v4 09/20] drm/bridge: inno-hdmi: Add .disable platform
+ operation
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260915-jh7110-clean-send-v4-14-f0e4fd6f2cc8@samsung.com>
+Message-Id: <20260915-jh7110-clean-send-v4-9-f0e4fd6f2cc8@samsung.com>
 In-Reply-To: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
 To: Vinod Koul <vkoul@kernel.org>,  Neil Armstrong
 	<neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,  Krzysztof
@@ -82,17 +82,17 @@ Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
 	<u.kleine-koenig@baylibre.com>,  Michal Wilczynski
 	<m.wilczynski@samsung.com>
 X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20260915153238eucas1p29917a31d10ce1aa55c1dcb44b62180f9
+X-CMS-MailID: 20260915153229eucas1p2d1b02b6f3871d6b536f678b9ea293c1c
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260915153238eucas1p29917a31d10ce1aa55c1dcb44b62180f9
+X-RootMTR: 20260915153229eucas1p2d1b02b6f3871d6b536f678b9ea293c1c
 X-EPHeader: CA
-X-CMS-RootMailID: 20260915153238eucas1p29917a31d10ce1aa55c1dcb44b62180f9
+X-CMS-RootMailID: 20260915153229eucas1p2d1b02b6f3871d6b536f678b9ea293c1c
 References: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
-	<CGME20260915153238eucas1p29917a31d10ce1aa55c1dcb44b62180f9@eucas1p2.samsung.com>
+	<CGME20260915153229eucas1p2d1b02b6f3871d6b536f678b9ea293c1c@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_083243_598227_E12BF0C6 
-X-CRM114-Status: GOOD (  12.16  )
+X-CRM114-CacheID: sfid-20260915_083232_669177_456EED06 
+X-CRM114-Status: GOOD (  14.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,41 +107,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The dc8200_pix0 and dc8200_pix1 MUXes feed the display controller, and
-the rate they carry is ultimately produced by the HDMI PHY, which
-registers hdmitx0_pixelclk as a clock provider.
+The Innosilicon HDMI driver supports platform-specific behavior through
+the `inno_hdmi_plat_ops`. While it provides an `.enable` hook for
+platform-specific power up sequences (like enabling PHYs), it lacks a
+corresponding hook for power down.
 
-Add CLK_SET_RATE_PARENT to both MUXes so a rate requested on them
-reaches that parent, instead of being clamped to whatever rate the
-parent already happens to run at.
+This patch adds a new `.disable` op to the `inno_hdmi_plat_ops` struct
+and calls it at the beginning of `inno_hdmi_bridge_atomic_disable()`.
 
-Co-developed-by: Dominique Belhachemi <db@domibel.de>
-Signed-off-by: Dominique Belhachemi <db@domibel.de>
+This allows platform specific drivers, such as the StarFive JH7110,
+to implement their own power down sequence (e.g., calling
+phy_power_off() and clk_disable_unprepare()).
+
 Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
 Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 ---
- drivers/clk/starfive/clk-starfive-jh7110-vout.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+ drivers/gpu/drm/bridge/inno-hdmi.c | 4 ++++
+ include/drm/bridge/inno_hdmi.h     | 1 +
+ 2 files changed, 5 insertions(+)
 
-diff --git a/drivers/clk/starfive/clk-starfive-jh7110-vout.c b/drivers/clk/starfive/clk-starfive-jh7110-vout.c
-index bad20d5d794a72f071b4d547b7304786a8ba9afa..aeba42cd3c44ba205ced52b1826d2d2de82ad78f 100644
---- a/drivers/clk/starfive/clk-starfive-jh7110-vout.c
-+++ b/drivers/clk/starfive/clk-starfive-jh7110-vout.c
-@@ -40,10 +40,12 @@ static const struct jh71x0_clk_data jh7110_voutclk_data[] = {
- 	JH71X0_GATE(JH7110_VOUTCLK_DC8200_AXI, "dc8200_axi", 0, JH7110_VOUTCLK_VOUT_TOP_AXI),
- 	JH71X0_GATE(JH7110_VOUTCLK_DC8200_CORE, "dc8200_core", 0, JH7110_VOUTCLK_VOUT_TOP_AXI),
- 	JH71X0_GATE(JH7110_VOUTCLK_DC8200_AHB, "dc8200_ahb", 0, JH7110_VOUTCLK_VOUT_TOP_AHB),
--	JH71X0_GMUX(JH7110_VOUTCLK_DC8200_PIX0, "dc8200_pix0", 0, 2,
-+	JH71X0_GMUX(JH7110_VOUTCLK_DC8200_PIX0, "dc8200_pix0",
-+		    CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT, 2,
- 		    JH7110_VOUTCLK_DC8200_PIX,
- 		    JH7110_VOUTCLK_HDMITX0_PIXELCLK),
--	JH71X0_GMUX(JH7110_VOUTCLK_DC8200_PIX1, "dc8200_pix1", 0, 2,
-+	JH71X0_GMUX(JH7110_VOUTCLK_DC8200_PIX1, "dc8200_pix1",
-+		    CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT, 2,
- 		    JH7110_VOUTCLK_DC8200_PIX,
- 		    JH7110_VOUTCLK_HDMITX0_PIXELCLK),
- 	/* LCD */
+diff --git a/drivers/gpu/drm/bridge/inno-hdmi.c b/drivers/gpu/drm/bridge/inno-hdmi.c
+index 1264152fb1434acda584e4af3d54e4986b57aa3e..06917e83c5e530d158a06ae2a877e78e22ed842d 100644
+--- a/drivers/gpu/drm/bridge/inno-hdmi.c
++++ b/drivers/gpu/drm/bridge/inno-hdmi.c
+@@ -886,6 +886,10 @@ static void inno_hdmi_bridge_atomic_disable(struct drm_bridge *bridge,
+ 					    struct drm_atomic_commit *state)
+ {
+ 	struct inno_hdmi *hdmi = bridge_to_inno_hdmi(bridge);
++	const struct inno_hdmi_plat_ops *plat_ops = hdmi->plat_data->ops;
++
++	if (plat_ops && plat_ops->disable)
++		plat_ops->disable(hdmi->dev);
+ 
+ 	inno_hdmi_standby(hdmi);
+ }
+diff --git a/include/drm/bridge/inno_hdmi.h b/include/drm/bridge/inno_hdmi.h
+index 81da9d9bcd79db8fe26c6dff4569371e484df608..5fca651c56b056d814124aa9c7e91aa7fd7ed1cd 100644
+--- a/include/drm/bridge/inno_hdmi.h
++++ b/include/drm/bridge/inno_hdmi.h
+@@ -16,6 +16,7 @@ struct platform_device;
+ 
+ struct inno_hdmi_plat_ops {
+ 	void (*enable)(struct device *pdev, struct drm_display_mode *mode);
++	void (*disable)(struct device *pdev);
+ };
+ 
+ struct inno_hdmi_phy_config {
 
 -- 
 2.34.1
