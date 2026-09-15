@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97222C88E75
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0FBBC982C1
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 17:05:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,44 +12,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8eEzBt5w9dH/8EXW2rlpjud9RALZkOP/eXJPPIgYa1g=; b=msPDkigs1TqPKfac3g1lbqew4S
-	MssAd+BQSkQVDfgvoPECs+SVKQENIqCm9J/ONCcW5oesdp98lL7W1GceyX/1tve+rmaqUwal/RyeG
-	qS7VB++y/2TuLuESBohENAGJSfhhsH+Ke6RsCylQs9UWmorv3gSPBEfOuvZYQT70EECQEQ0dTgAt9
-	n6Tw6UiMdrwPuBdLXGPyKvvCoj4zfa8NJSw9R+sZlEoU47poh8gAag1OmU/htHAJYiPn5pXidLVy3
-	m3JpFhxWoHp1ng7xDQAO6CdQaUzszessRLFgaznkwNLwstvmtPN1i+H6ggjQW+gE9u2f7K3I8lBJc
-	n+ib7tAQ==;
+	bh=6n0faIBhMoLEpSRsv9bn04UWwhQ2MrwjbyLIxI2jfHA=; b=kWi6+Og04IhlsKf1nt7GtGt2Fl
+	ZXPKK4N0+4ZUbRtxqVVver984DYNk5XOUcVi21WZXKB63m1mqt4gFjAbPwBuwXYmJW/0qEmTe0R39
+	9tPoORLz8/Ola6g6vP/zTnj5IpE5W1PbVCYnT1ylr5rOVCctHEbPLPmDVPrqIE1t5uxAxdOsV02Ck
+	qrzkghSbj1562vX0dD2Vsrnj5qxsNQlzBmeEPC5la/3lSXuMWxWhi/Cimdbjm6jodERqJvESFMg85
+	VICxlhJedGcxoiD1cVEv0gnWvyYfrppf63up9P1r5kQJf+Bg+gsobJvEj9x1iQMgRdnh3K/dqtNQB
+	f2nnf9Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Wae-00000007Wc9-28tS;
+	id 1x6Wae-00000007Wd1-3X1v;
 	Tue, 15 Sep 2026 17:05:04 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Waa-00000007WZA-0uU6
+	id 1x6Wad-00000007Wbm-3aFT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 17:05:00 +0000
+	Tue, 15 Sep 2026 17:05:03 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 68EA1600D1;
-	Tue, 15 Sep 2026 17:04:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A7301F00893;
-	Tue, 15 Sep 2026 17:04:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9A5A343DE6;
+	Tue, 15 Sep 2026 17:05:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A1E31F0089B;
+	Tue, 15 Sep 2026 17:05:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789491899;
-	bh=8eEzBt5w9dH/8EXW2rlpjud9RALZkOP/eXJPPIgYa1g=;
+	s=k20260515; t=1789491903;
+	bh=6n0faIBhMoLEpSRsv9bn04UWwhQ2MrwjbyLIxI2jfHA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=PzI4I/E8s82pCP/TZYlgWkLNf3XXFIvUBvcQCZwbdd7TcWovGx2xrWNHkCNbOV2M0
-	 DQG307jcSxZUOPw+YKAQe2LSLRZJCUSmMXipnYpQc3H1Gryduv0MsNyD95+DFEINpL
-	 DXxda4Xy9g8KLHn6nyLsBNKElqLC57kE73O/RpEKLJI7foUsgobkUSxlfCRhRezhrH
-	 6ZPCMVDWkMpnobCbZkeNR7UJyMu3+nNXFDQZZJS6ESWPnIpcFn2ALuLw8xlS+07y8v
-	 JzUpihABU5bsFvClSpkFR2PS6hyHpuYaJr1evC0WIIwyLlFzoFMR39ZUPQb9WMtGPZ
-	 uAS0J20pRD8+Q==
+	b=mjZ8lDOccuCvWA4XdHD7squMqFwZ3pxR+2sStcfNHCFq+UW8Tv2WU2X4gfeHYcRmp
+	 1zOuU1Dx+COpMZoU2WwAD9wc8I9riNSwRrxeAWRUlDrLZOt5QGiERnVrAAlSXSxiVq
+	 OQ1ciXmuqIqwWI6pXx9oOYrZZL2ZynEeMhZp8JV9q14kfUfRDqxm+UUn91PT13eiCD
+	 58htoqUminJEEfmn/IeksZeY7+t0oVn9cZZTY9jiTKb14qngH43M2fBO8wZydKkjCM
+	 6NruoykN9011umvW/5ITm5SinMAD1k4x/z2zJO5u/eThzGkcimi+h3l0oE0ScUf1N2
+	 quCDB9h2gPFhA==
 From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Tue, 15 Sep 2026 18:03:35 +0100
-Subject: [PATCH v5 1/9] firmware: arm_scmi: Set generated device fwnode
- with platform helpers
+Date: Tue, 15 Sep 2026 18:03:38 +0100
+Subject: [PATCH v5 4/9] firmware: arm_scmi: Fall back to ACPI HID when
+ "compatible" is absent
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260915-acpi_scmi_pcc-v5-1-298579e9f359@kernel.org>
+Message-Id: <20260915-acpi_scmi_pcc-v5-4-298579e9f359@kernel.org>
 References: <20260915-acpi_scmi_pcc-v5-0-298579e9f359@kernel.org>
 In-Reply-To: <20260915-acpi_scmi_pcc-v5-0-298579e9f359@kernel.org>
 To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
@@ -72,38 +72,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The SCMI transport probe helper creates a platform device for the SCMI
-core. device_set_of_node_from_dev() propagates the supplier's OF node,
-but leaves generated devices for non-DT transports without a firmware
-node.
+scmi_debugfs_common_setup() uses the "compatible" property to
+populate the debugfs transport type string. ACPI-described SCMI
+devices do not provide that DT property, so the string remains
+NULL and debugfs setup falls through the allocation failure path.
 
-Use platform_device_set_of_node_from_dev() for devicetree suppliers so
-the shared OF node is referenced and marked as reused. For all other
-suppliers, use platform_device_set_fwnode() so ACPI and other firmware
-nodes are propagated with a reference that platform_device_release()
-can balance.
+Check the property lookup result and use the ACPI HID as the
+fallback transport type when an ACPI companion is present.
+
+All supported DT SCMI platforms are expected to provide "compatible",
+so the non-ACPI fallback is not needed for normal DT operation. Keep
+the explicit "unknown" fallback anyway to avoid passing NULL to
+kstrdup() if that assumption is ever violated.
 
 Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 ---
- drivers/firmware/arm_scmi/common.h | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ drivers/firmware/arm_scmi/driver.c | 16 ++++++++++++++--
+ 1 file changed, 14 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
-index fe8c22cfb9f7..244f4ee5b655 100644
---- a/drivers/firmware/arm_scmi/common.h
-+++ b/drivers/firmware/arm_scmi/common.h
-@@ -649,7 +649,10 @@ static int __tag##_probe(struct platform_device *pdev)			       \
- 		goto err_mem;						       \
- 	}								       \
- 									       \
--	device_set_of_node_from_dev(&spdev->dev, dev);			       \
-+	if (dev_of_node(dev))						       \
-+		platform_device_set_of_node_from_dev(spdev, dev);	       \
-+	else								       \
-+		platform_device_set_fwnode(spdev, dev_fwnode(dev));	       \
- 									       \
- 	strans.supplier = supplier;					       \
- 	memcpy(&strans.desc, &(__desc), sizeof(strans.desc));		       \
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index 4ca52cfb0a45..878d27bc315a 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -16,6 +16,7 @@
+ 
+ #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
+ 
++#include <linux/acpi.h>
+ #include <linux/bitmap.h>
+ #include <linux/cleanup.h>
+ #include <linux/debugfs.h>
+@@ -3063,6 +3064,15 @@ static void scmi_debugfs_common_cleanup(void *d)
+ 	kfree(dbg->type);
+ }
+ 
++static const char *scmi_acpi_device_hid(struct acpi_device *adev)
++{
++#ifdef CONFIG_ACPI
++	return adev ? acpi_device_hid(adev) : "unknown";
++#else
++	return "unknown";
++#endif
++}
++
+ static struct scmi_debug_info *scmi_debugfs_common_setup(struct scmi_info *info)
+ {
+ 	char top_dir[16];
+@@ -3080,8 +3090,10 @@ static struct scmi_debug_info *scmi_debugfs_common_setup(struct scmi_info *info)
+ 		return NULL;
+ 	}
+ 
+-	fwnode_property_read_string(dev_fwnode(info->dev), "compatible",
+-				    &c_ptr);
++	if (fwnode_property_read_string(dev_fwnode(info->dev), "compatible",
++					&c_ptr))
++		c_ptr = scmi_acpi_device_hid(ACPI_COMPANION(info->dev));
++
+ 	dbg->type = kstrdup(c_ptr, GFP_KERNEL);
+ 	if (!dbg->type) {
+ 		kfree(dbg->name);
 
 -- 
 2.43.0
