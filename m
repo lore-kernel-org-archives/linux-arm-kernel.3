@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09BB7C88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 07:03:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01695C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 07:04:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0jqazLvI6PHhKlLUw5ES9AlYBTQV/CW02EbTg8KOkAc=; b=UPsGY2JJ/HX44o10iLW2Rw4Nr5
-	VVowB1Yw+Ab1c9LH4L97UNWZ6384dOOETxUcn+77VM2bsZPkdrSIxOjh4BSn6zOu8US+YPu4xTodz
-	QYYsKt6k/2M6D21XOQ6FlfD7axNGSENj95nD/RPK4gV5xWsUyL3kDFu7eTkOPO69zLkgXYgHGIlLd
-	yKz1JGfIL7gLkXsXoDG9OAznMTJy+nGIS36CyYl1lfWS4uvhd2shq4G9klMbeo0UZCAA0sIqGlCq0
-	2evgHvCfB6CDM744CY9482JU33RJ/AicKwZkFRsjl9xi7sZ43zfZTIAbCKVf99pe1Tz5giDKqFKl0
-	HFLHmckQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rLZBnz7s8qPCu2ZXVkoDoTMlAHVCPVwymCGLB7JjfXA=; b=YLlZyeWPuxNt23wTk9eX2gHgtl
+	x3EVg0jRbTSaK0kCX/CwPOcc6wR1iQAK6LTNb2FzdTz5CLZMRh3qhF/B9s2wwewdmizs/499xVkt6
+	Jl13fYs1FCgy8diRDB3ojb6weQcPDA6uTA7dGSxYhTKtxstTkg+lVbO15EI3i0WYiLJy+1fz/Evor
+	ixOIGCDa+utb2B8DCUivBWxvg3nWYe+VAM0mBb7RCP1d3DfS7ja2itKyKjFxNYbnZmUIaG+sJlBPq
+	SXiC072vNgZMP/rxyX64bEqTq2ZV6WN69411L1+BO00iPWlw+pctTbdZtlQC+/hVDY4mpRJshLfmd
+	fSBxXWzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6NCV-00000005PeZ-1YI0;
-	Tue, 15 Sep 2026 07:03:31 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x6NDP-00000005Pkw-2bsk;
+	Tue, 15 Sep 2026 07:04:27 +0000
+Received: from out-13.mta0.migadu.com ([2001:41d0:1004:224b::d] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6NCT-00000005PeN-3kq2
+	id 1x6NDM-00000005Pjh-2wRw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 07:03:30 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 022666025F;
-	Tue, 15 Sep 2026 07:03:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 229E91F000FF;
-	Tue, 15 Sep 2026 07:03:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789455808;
-	bh=0jqazLvI6PHhKlLUw5ES9AlYBTQV/CW02EbTg8KOkAc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=DY8pZtu4LuzXGihC1YElZInpGFpLzAlctTZ5qIJHgqTbGCYvRb74jSsImxBX/Of7e
-	 P0rUoS8jmWyqFsv1InIewtvA0IXOHOyhuf4iViVzEhejf/jXhPrH3TqtIs2s1DhQTi
-	 KY1Qq3wU1lwpqPuYbRLl+n9f7qvELuG4c6/zO3fGPtgIBMA1li/lP8ueuCBu2P8uzP
-	 vpR9ZNieeTiSO2dYr7NtjIQeGAK2C6hkvIg/+exeXoSw5ilvOgXNejrys3ydrq+lte
-	 X32vaAM+P4DQW2VRBFoiGaerQ2zbPPtO8yQdygT6+VaK2aUU+SUz8YOkEIO9WZySWq
-	 ih0c7yOtrqI6w==
-Date: Tue, 15 Sep 2026 00:03:26 -0700
-From: Peter Chen <peter.chen@kernel.org>
-To: Subasri S <subasris1210@gmail.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Duncan Sands <duncan.sands@free.fr>,
-	Chas Williams <3chas3@gmail.com>,
-	Minas Harutyunyan <hminas@synopsys.com>,
-	Hans de Goede <hansg@kernel.org>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Badhri Jagan Sridharan <badhri@google.com>,
-	linux-usb@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-atm-general@lists.sourceforge.net, netdev@vger.kernel.org
-Subject: Re: [PATCH v2 1/3] usb: chipidea: Use %pe to print error pointers
-Message-ID: <aqjtvglG5NhsDLZe@hu-petche-lv.qualcomm.com>
-References: <20260801-usb-ptr_err_patchset-v2-0-1698e298c1e3@gmail.com>
- <20260801-usb-ptr_err_patchset-v2-1-1698e298c1e3@gmail.com>
+	Tue, 15 Sep 2026 07:04:26 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=1dBVgqiX9CYqykZIpW6hii98L+GZiNAYn8/L36aDd8E=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1789455861; v=1; x=1790060661;
+ b=lE5u71m4qBpqsm7gKiCJGpT7ewzRfTZ/ym3fsjDEM0Se3gqXjC24eAmgsbCEpYuV1sqC8/nd
+ 1EyTUB9Iw9jx3m82eqsv79UIwQsVYnmvOEs7Q7LjVgGPkr76fJwr1/D3PYbWHo11g6MBkCsp+N4
+ LR8YlUXm4vDYr5/5lNgL1ZsM=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 22be79310fb6ffaa;
+	Tue, 15 Sep 2026 07:04:21 +0000
+X-Mizu-Trace-ID: 22be79310fb6ffaa
+X-Migadu-Flow: FLOW_OUT
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: maz@kernel.org,
+	oupton@kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	mark.rutland@arm.com,
+	steven.price@arm.com,
+	vdonnefort@google.com,
+	qperret@google.com,
+	tabba@google.com
+Subject: [PATCH v2 0/2] KVM: arm64: Validate host pointers in __kvm_adjust_pc() under pKVM
+Date: Tue, 15 Sep 2026 08:04:16 +0100
+Message-Id: <20260915070418.3209779-1-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260801-usb-ptr_err_patchset-v2-1-1698e298c1e3@gmail.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260915_000424_882576_9DEE6EC4 
+X-CRM114-Status: UNSURE (   9.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,86 +81,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26-08-01 17:59:50, Subasri S wrote:
-> Use the %pe format specifier instead of %ld with PTR_ERR() for printing
-> error pointers in imx_get_clks(), ci_hdrc_imx_probe(), and
-> ci_get_platdata(). This prints symbolic error names (e.g. -ENOMEM)
-> instead of errno numbers (e.g. -12), making error logs more readable.
-> 
-> Fix coccinelle reported warning:
-> WARNING: Consider using %pe to print PTR_ERR()
-> 
-> Compile-tested only.
-> 
-> Signed-off-by: Subasri S <subasris1210@gmail.com>
+Hi folks,
 
-Acked-by: Peter Chen <peter.chen@kernel.org>
+Changes since v1 [1]:
+  - New patch 1: enter_exception64() reads the VM's MTE flag through a
+    host-writable vcpu->kvm that nothing validates. It goes first,
+    since pinning the vCPU alone leaves that read on an unmapped VM.
+    (sashiko)
+  - Dropped the VM pin the fix carried in v1, patch 1 validating that
+    read at its site.
 
-Peter
-> ---
->  drivers/usb/chipidea/ci_hdrc_imx.c | 12 ++++++------
->  drivers/usb/chipidea/core.c        |  4 ++--
->  2 files changed, 8 insertions(+), 8 deletions(-)
-> 
-> diff --git a/drivers/usb/chipidea/ci_hdrc_imx.c b/drivers/usb/chipidea/ci_hdrc_imx.c
-> index 56d2ba824a0b..7bfe37ed68ae 100644
-> --- a/drivers/usb/chipidea/ci_hdrc_imx.c
-> +++ b/drivers/usb/chipidea/ci_hdrc_imx.c
-> @@ -218,8 +218,8 @@ static int imx_get_clks(struct device *dev)
->  		if (IS_ERR(data->clk)) {
->  			ret = PTR_ERR(data->clk);
->  			dev_err(dev,
-> -				"Failed to get clks, err=%ld,%ld\n",
-> -				PTR_ERR(data->clk), PTR_ERR(data->clk_ipg));
-> +				"Failed to get clks, err=%pe,%pe\n",
-> +				data->clk, data->clk_ipg);
->  			return ret;
->  		}
->  		/* Get wakeup clock. Not all of the platforms need to
-> @@ -448,8 +448,8 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
->  		pinctrl_hsic_idle = pinctrl_lookup_state(data->pinctrl, "idle");
->  		if (IS_ERR(pinctrl_hsic_idle)) {
->  			dev_err(dev,
-> -				"pinctrl_hsic_idle lookup failed, err=%ld\n",
-> -					PTR_ERR(pinctrl_hsic_idle));
-> +				"pinctrl_hsic_idle lookup failed, err=%pe\n",
-> +					pinctrl_hsic_idle);
->  			ret = PTR_ERR(pinctrl_hsic_idle);
->  			goto err_put;
->  		}
-> @@ -464,8 +464,8 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
->  								"active");
->  		if (IS_ERR(data->pinctrl_hsic_active)) {
->  			dev_err(dev,
-> -				"pinctrl_hsic_active lookup failed, err=%ld\n",
-> -					PTR_ERR(data->pinctrl_hsic_active));
-> +				"pinctrl_hsic_active lookup failed, err=%pe\n",
-> +					data->pinctrl_hsic_active);
->  			ret = PTR_ERR(data->pinctrl_hsic_active);
->  			goto err_put;
->  		}
-> diff --git a/drivers/usb/chipidea/core.c b/drivers/usb/chipidea/core.c
-> index 07563be0013f..09db8a4eace2 100644
-> --- a/drivers/usb/chipidea/core.c
-> +++ b/drivers/usb/chipidea/core.c
-> @@ -680,8 +680,8 @@ static int ci_get_platdata(struct device *dev,
->  			/* no vbus regulator is needed */
->  			platdata->reg_vbus = NULL;
->  		} else if (IS_ERR(platdata->reg_vbus)) {
-> -			dev_err(dev, "Getting regulator error: %ld\n",
-> -				PTR_ERR(platdata->reg_vbus));
-> +			dev_err(dev, "Getting regulator error: %pe\n",
-> +				platdata->reg_vbus);
->  			return PTR_ERR(platdata->reg_vbus);
->  		}
->  		/* Get TPL support */
-> 
-> -- 
-> 2.43.0
-> 
+Two host pointers reach EL2 unvalidated on the __kvm_adjust_pc() path
+under pKVM, and this series fixes both. The host vCPU isn't mapped at
+EL2 until its first KVM_RUN pins it, and KVM_SET_VCPU_EVENTS with
+ext_dabt_pending reaches the hypercall before that. The vcpu->kvm the
+exception entry reads the MTE flag from is host-writable, and nothing
+checks it. Either one panics the hypervisor, and on MTE-capable
+hardware the flag read leaks one bit of hyp memory the host chose,
+through PSR_TCO.
 
+These are patches 2 and 3 of the pKVM core series [2], which carries
+them so that it applies as is. They're respun here so they can be
+applied on their own.
+
+Based on v7.3-rc3 (fd73f4a665989).
+
+Cheers,
+/fuad
+
+[1] https://lore.kernel.org/all/20260914065136.3418404-1-fuad.tabba@linux.dev/
+[2] https://lore.kernel.org/all/20260914113338.159227-1-fuad.tabba@linux.dev/
+
+Fuad Tabba (2):
+  KVM: arm64: Validate the host vCPU's VM before reading it under pKVM
+  KVM: arm64: Pin the host vCPU before adjusting its PC under pKVM
+
+ arch/arm64/kvm/hyp/exception.c             |  5 ++-
+ arch/arm64/kvm/hyp/include/hyp/adjust_pc.h | 18 ++++++++++
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c         | 19 ++++++++++-
+ arch/arm64/kvm/hyp/nvhe/pkvm.c             | 39 ++++++++++++++++++++++
+ 4 files changed, 79 insertions(+), 2 deletions(-)
+
+
+base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
 -- 
+2.39.5
 
-Thanks,
-Peter Chen
 
