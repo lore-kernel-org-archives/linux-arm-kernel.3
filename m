@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63562C88E77
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A606C982C4
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 22:26:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,62 +12,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UJHW2zr6j28wgdd6ygTO/gZ4sHjNUcda5NUyoTuBQYo=; b=uVyOkOgOtr7WKWGOICbC7xl3HJ
-	woKKOB8UUkPLI7vX+86AaJODAPyYVYqUpFx9FqIpRdOtq2rSKkgRfGcfOyTt3z2q+i7kCTT1DfZZM
-	d8WcsySp3x84g254YAcbZ4j8JMxv49TQzIeEgmvD+xd8OhqLzjNoYnic9tZjhFacrEuRECPUiuA40
-	Ma1MUw/wMLb6QtEo4H9AcTg3mLCUM6f/B4o8qfnonhL9arRNy9QNwbjCYmWOO9lShQD3tzkuBUxP0
-	dTGHRt4kWca7pZGbcrYkjyjy65h99aSFJqUMjRlma0IyY7iZ3nx/ewPeslgNmabGphQpc+SZjHs3i
-	Zl01uBmg==;
+	bh=E/lBbhtTE2HQN9x+xVp3jc8ZwjbTlxs/8mbmhmvVWeY=; b=AEQi/Ltn7HZqhW9v3bxW/4mCrC
+	eMm3GvcnqPXr3R8t76VbwZvSSCaS+/grf1RA6mm9660KfOhUO7fl7G8C9pE6wNUpTo29lF7dhQg/E
+	qwWi+U1dyZcjPaFetY3k24bkhyFDyeLA8Hs41E3X2eJl6hHI03gpZ3H1/VIs17XIdhmRjSbhUZQhJ
+	WPN6JnkIFw2fn4KJmgfneUo/asE/odRkiFpP23MhSZMgmVKm6k4SDuYJwexYVr8adMB+vKzw1UgB8
+	Nh30aJdmFRsRQfddkxkgrq/6JlDkKOXSH8F0XM5HmA8fH+GzdGpNZsO3MhtNlUoYVKFsF7UmMta5E
+	JQh9p6Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6bbW-000000080OA-1Htc;
+	id 1x6bbW-000000080OS-1tMr;
 	Tue, 15 Sep 2026 22:26:18 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6bb2-000000080Je-2Eop
+	id 1x6bb2-000000080Jh-3S0k
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 15 Sep 2026 22:25:48 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3C3FE60142;
+	by tor.source.kernel.org (Postfix) with ESMTP id 911F6602C2;
+	Tue, 15 Sep 2026 22:25:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 005591F0089B;
 	Tue, 15 Sep 2026 22:25:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6F731F0089C;
-	Tue, 15 Sep 2026 22:25:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789511145;
-	bh=UJHW2zr6j28wgdd6ygTO/gZ4sHjNUcda5NUyoTuBQYo=;
+	s=k20260515; t=1789511147;
+	bh=E/lBbhtTE2HQN9x+xVp3jc8ZwjbTlxs/8mbmhmvVWeY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=MERX6EyvDfpB0PHv1/QcMnPYWf2eUGtcXzm448nfqp/QF82ovFpFp7Mh4MYe5QgQF
-	 5UUnashJUXeRsg52cTwkivpfVlej8DXRGjjxz0x/5Q0WRtNBmp2znjvp0jMr4GdFXt
-	 JA3MssY1tvM34B3JKfV/QsdQFgPvLmehW8BEXW3oXnhH7N89ni8QmFEsF2WtSjNBXf
-	 im3gEt4tU1uXSmhQRyrnfHpU7IxPnvMCEo1mUlIGITdY2uzvtUePnbyAJ/UE0Th5GR
-	 UvbuxOIgydC6WXK06waLaRT2NN0VFwjBmX00+7CYtk01O6CnuzRU8bV5fk0z0xCp5N
-	 3qXuVLff5ksjg==
+	b=ZWeWHJPumUljTcS9NiLuZBiYB9NAYMhX1qlg8GwqdgqQeB5XeqVmEScLsiOaJVtxe
+	 6wAY6MOfFlgXKj2O59kPOKqw4cWF9Ci/27xm5YK35yYKdOsDWSFBMaFW8fCbV1Ohue
+	 F3u3Jd4MMs9Aiv8iAcDcocxC5y0gw3tH7jvtfzqj25GyM2BXQFBLSCdLqkSFkKs/91
+	 EsK5ENL+IPqQSs9UUNxOwDDUM6X60fAMoJOsFvQOMf50gj0fQVIgqqxp/37xYLB0UJ
+	 c6g0eiGuKIjq5HIsHPGGDdM1ExwLYkAUIsOfgrVCJW/dulm/xzYhNcJX+aVYeIv6ck
+	 o22wrnObxKOCw==
 From: Oliver Upton <oupton@kernel.org>
 To: Marc Zyngier <maz@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>
+	kvmarm@lists.linux.dev,
+	Karl Mehltretter <kmehltretter@gmail.com>
 Cc: Oliver Upton <oupton@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
 	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
 	Mark Rutland <mark.rutland@arm.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Keir Fraser <keirf@google.com>,
-	Kalesh Singh <kaleshsingh@google.com>,
-	Quentin Perret <qperret@google.com>,
-	Hiroyuki Katsura <hk590@cam.ac.uk>,
-	stable@vger.kernel.org,
-	kvmarm@lists.linux.dev,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Shuah Khan <shuah@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/4] KVM: arm64: Fix host access to the EL2 stacks
-Date: Tue, 15 Sep 2026 15:25:33 -0700
-Message-ID: <178951103697.10790.359285321366515778.b4-ty@kernel.org>
+	linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH 0/2] KVM: arm64: Return -EINVAL for an empty SMCCC filter range at base 0
+Date: Tue, 15 Sep 2026 15:25:37 -0700
+Message-ID: <178951103699.10790.2965757289938875509.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260908110713.1540304-1-fuad.tabba@linux.dev>
-References: <20260908110713.1540304-1-fuad.tabba@linux.dev>
+In-Reply-To: <20260829054856.70549-1-kmehltretter@gmail.com>
+References: <20260829054856.70549-1-kmehltretter@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -85,30 +85,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 08 Sep 2026 12:07:09 +0100, Fuad Tabba wrote:
-> The per-CPU EL2 stacks are initialised as host-owned after pKVM init.
-> fix_host_ownership() walks only the linear-map alias of each memblock
-> region, and the stacks, mapped in the private VA range for their guard
-> pages, have none.
-> 
-> Patch 1 is the fix, and it needs none of the other three. Patch 4 adds
-> the check that would have caught it and would catch similar instances
-> in the future: once the transfer is done, walk the private VA range and
-> fail init unless every valid leaf is hyp-owned, or is hyp text mapped
-> without write access.
+On Sat, 29 Aug 2026 07:48:54 +0200, Karl Mehltretter wrote:
+> KVM_ARM_VM_SMCCC_FILTER rejects an empty range (nr_functions == 0) with
+> -EINVAL for every base except 0. kvm_smccc_set_filter() only rejects a
+> range if its inclusive end, base + nr_functions - 1, is below base; for
+> base 0 that end wraps to U32_MAX, and KVM then tries to insert
+> [0, U32_MAX], which overlaps the reserved Arm Architecture Calls
+> ranges, so the attribute returns -EEXIST instead of -EINVAL.
 > 
 > [...]
 
 Applied to fixes, thanks!
 
-[1/4] KVM: arm64: Transfer the hyp stack pages out of the host stage-2
-      https://git.kernel.org/kvmarm/kvmarm/c/3a8c562892b9
-[2/4] KVM: arm64: Match hyp text by physical address in fix_host_ownership()
-      https://git.kernel.org/kvmarm/kvmarm/c/5a8b505ede13
-[3/4] KVM: arm64: Move the private VA allocation cursor to __io_map_next
-      https://git.kernel.org/kvmarm/kvmarm/c/224584140114
-[4/4] KVM: arm64: Check every private mapping is hyp-owned at pKVM init
-      https://git.kernel.org/kvmarm/kvmarm/c/cfe80c3837f9
+[1/2] KVM: arm64: Return -EINVAL for an empty SMCCC filter range at base 0
+      https://git.kernel.org/kvmarm/kvmarm/c/64dc6f1db7e6
+[2/2] KVM: arm64: selftests: Test empty SMCCC filter range at base 0
+      https://git.kernel.org/kvmarm/kvmarm/c/0a46eb5719fa
 
 --
 Best,
