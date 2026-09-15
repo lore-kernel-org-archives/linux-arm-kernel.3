@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F87EC88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 17:05:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DDB2C982C1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 17:05:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mlvay9MyCAq1Z71HXdRB7V7aEDl4JiejQYutu9VDznU=; b=Q5fMNGr10n80OnWOCkRlU/QIrY
-	CAvkx9x69SdT2ned/gEoxD4Ok3Q80VC1hpxWFV8OsQTxQgGGv2q26hlxoEIcGTY4e4Oh2GFXF08Sz
-	vWO2Kfav/0rU//7ZEGYnPHnJriEEo4YXu+H4D4LbxIPW77hpUExNIYQ8F/dkJWkYuWn2W6o9mjr0w
-	lhLzubEzll5hPcJbCH/c2wzw50XzTDEXo47QgRQ/205c2RgFMofMy0txsscSrN0EGunVEaBYZ6GpD
-	D+hEqEBmEWQVTNfkgJ7n/Fqj5WvIioke0Crrwx63bs6chwpCLDN4OaIdIUi22UqoRVJnBIMZdiPvP
-	pCT4Q9Ig==;
+	bh=SOvbMkTzydFknS4iiHuLQpioDhMp+4T6jEUvQZ9DkZ0=; b=4ADP21JIp79RlJukIaUp6UiP69
+	SKraCxADEpZRw403XqrRYmfaSJhoCg7EXXOk6B4Xx9lrCryTaLcmGS1oXErNVgiNMuahujkDNdJbB
+	FTzBtryzRascS2Mem1I1fcCeBCY9XzZ3FYi2qHIrBFgSHD+s0OG/7p5KxJjNNw30aNVbwlcdrXBeN
+	H3e6KzeUM0Ze9zl6N5cniLBpcQEFI9jjKD0IHn+KGfRaxISnRnvu/TVE9iD7c6rDghu73HKCeSwOa
+	iVEkBr/88I0LPN+7ySdY7ynoNcwQfp+JT3IMnNqLQAUekUrKNaUJn1yowfcrWoX0+w4WL8VKPVmfc
+	n6XJxgCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Waz-00000007Wor-1D4a;
+	id 1x6Waz-00000007Wpn-34Ta;
 	Tue, 15 Sep 2026 17:05:25 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Wag-00000007WeL-2rp5
+	id 1x6Wal-00000007Wh0-1no9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 17:05:06 +0000
+	Tue, 15 Sep 2026 17:05:11 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7151843C55;
-	Tue, 15 Sep 2026 17:05:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5035E1F000FF;
-	Tue, 15 Sep 2026 17:05:05 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D9AE06022A;
+	Tue, 15 Sep 2026 17:05:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B6A41F00893;
+	Tue, 15 Sep 2026 17:05:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789491906;
-	bh=mlvay9MyCAq1Z71HXdRB7V7aEDl4JiejQYutu9VDznU=;
+	s=k20260515; t=1789491910;
+	bh=SOvbMkTzydFknS4iiHuLQpioDhMp+4T6jEUvQZ9DkZ0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=JMm8E6BlgS0QVOE+jqkmBLxklnv/a43URZ52g6m71eP1FPs5Wbowz+mY6YiacThao
-	 LLogLLxk3bElFtNHolkjJW0k8XifeLHVF6rmCxg25Ak+KfzzN0IUHdip3v8znV6NOf
-	 WsWL6JKZ8Lqm/fWR89M+UQtrTwe0T06pkj66S6et8Um9FO3EuJ976sIdb1lcRjaBQv
-	 CHVKCIKSJXoBTi682u8u3PQNgpp/+SgT4YPGRq5tqEofE6mJjcsFjBYMjN0H+Fdn1E
-	 OPKSnpiVsP4TUuP+Katx7R++56uJyEFtS2gbWzANRKyfiKtyhrekOzJg7bh00cIXZi
-	 7RJTnthoMUJtQ==
+	b=lpwiEDNcQ78ZDzHyBYqJ2INbrd5xcs0gFmdWmhR8GOwa/Kvscr5t2k+7a3Fe6KPiJ
+	 wq5ETqgedyYURupoAjqDVxYJ1lKZQIub8ON6C8ocCj8LX76SQ8Uh+0VndlEq9DPx19
+	 FWZKPzILw4GImh2NJFhDHqWzWukmPKqjQ6obCwMRtMxqJQBa3UUkI9CT1eDLyaC88i
+	 ZT/O0NY2t4XGfiH1EEY57Gr/+Sslyc3FEbVd82YJLf526hzUg1zf5eqIpc9qEk4p7A
+	 DyTL1hT2cvvf9YRyC5NBu48EiG0HRwrp7gL5L5BjDJ6Qr0NiCfU3a0BoS8zai9vD8S
+	 AWOT1kezYBxNw==
 From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Tue, 15 Sep 2026 18:03:40 +0100
-Subject: [PATCH v5 6/9] firmware: arm_scmi: Refactor protocol device
- creation logic
+Date: Tue, 15 Sep 2026 18:03:43 +0100
+Subject: [PATCH v5 9/9] firmware: arm_scmi: Validate PCC shared memory
+ signature
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260915-acpi_scmi_pcc-v5-6-298579e9f359@kernel.org>
+Message-Id: <20260915-acpi_scmi_pcc-v5-9-298579e9f359@kernel.org>
 References: <20260915-acpi_scmi_pcc-v5-0-298579e9f359@kernel.org>
 In-Reply-To: <20260915-acpi_scmi_pcc-v5-0-298579e9f359@kernel.org>
 To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
@@ -72,100 +72,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the protocol validation and device creation logic in scmi_probe()
-into a reusable scmi_device_check_create() helper.
+Validate the PCC shared memory signature when setting up an SCMI PCC
+channel.
 
-The helper centralizes checks for the protocol ID range, implementation
-availability and duplicate activation before invoking
-scmi_create_protocol_devices(). This preserves the existing behavior
-while allowing the logic to be reused by the ACPI path, where protocol
-child fwnodes are absent.
-
-No functional change intended.
+Reject channels whose shared memory signature does not encode
+PCC_SIGNATURE combined with the PCC subspace ID, so misconfigured
+firmware is caught before the transport starts using the shared memory
+region.
 
 Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
 Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 ---
- drivers/firmware/arm_scmi/driver.c | 59 ++++++++++++++++++++++----------------
- 1 file changed, 34 insertions(+), 25 deletions(-)
+ drivers/firmware/arm_scmi/transports/pcc.c | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 19cdb59d6600..616b57237559 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -3244,6 +3244,39 @@ static void scmi_enable_matching_quirks(struct scmi_info *info)
- 			   rev->sub_vendor_id, rev->impl_ver);
+diff --git a/drivers/firmware/arm_scmi/transports/pcc.c b/drivers/firmware/arm_scmi/transports/pcc.c
+index b7501f980d0b..86d4a097d8ec 100644
+--- a/drivers/firmware/arm_scmi/transports/pcc.c
++++ b/drivers/firmware/arm_scmi/transports/pcc.c
+@@ -698,8 +698,11 @@ static void rx_callback(struct mbox_client *cl, void *m)
  }
  
-+static void scmi_device_check_create(struct fwnode_handle *fwnode, int prot_id,
-+				     struct scmi_info *info)
-+{
-+	int ret;
-+	struct device *dev = info->dev;
-+	struct scmi_handle *handle = &info->handle;
-+
-+	if (!FIELD_FIT(MSG_PROTOCOL_ID_MASK, prot_id)) {
-+		dev_err(dev, "Out of range protocol %d\n", prot_id);
-+		return;
-+	}
-+
-+	if (!scmi_is_protocol_implemented(handle, prot_id)) {
-+		dev_err(dev, "SCMI protocol %d not implemented\n", prot_id);
-+		return;
-+	}
-+
-+	/*
-+	 * Save this valid fwnode protocol descriptor amongst
-+	 * @active_protocols for this SCMI instance.
-+	 */
-+	ret = idr_alloc(&info->active_protocols, fwnode,
-+			prot_id, prot_id + 1, GFP_KERNEL);
-+	if (ret != prot_id) {
-+		dev_err(dev, "SCMI protocol %d already activated. Skip\n",
-+			prot_id);
-+		return;
-+	}
-+
-+	scmi_create_protocol_devices(fwnode_handle_get(fwnode), info, prot_id,
-+				     NULL);
-+}
-+
- static int scmi_probe(struct platform_device *pdev)
+ static int pcc_chan_validate_shmem(struct scmi_chan_info *cinfo,
+-				   struct scmi_pcc *smbox)
++				   struct scmi_pcc *smbox, int ss_id)
  {
- 	int ret;
-@@ -3373,31 +3406,7 @@ static int scmi_probe(struct platform_device *pdev)
- 		if (fwnode_property_read_u32(child, "reg", &prot_id))
- 			continue;
- 
--		if (!FIELD_FIT(MSG_PROTOCOL_ID_MASK, prot_id)) {
--			dev_err(dev, "Out of range protocol %d\n", prot_id);
--			continue;
--		}
--
--		if (!scmi_is_protocol_implemented(handle, prot_id)) {
--			dev_err(dev, "SCMI protocol %d not implemented\n",
--				prot_id);
--			continue;
--		}
--
--		/*
--		 * Save this valid fwnode protocol descriptor amongst
--		 * @active_protocols for this SCMI instance.
--		 */
--		ret = idr_alloc(&info->active_protocols, child,
--				prot_id, prot_id + 1, GFP_KERNEL);
--		if (ret != prot_id) {
--			dev_err(dev, "SCMI protocol %d already activated. Skip\n",
--				prot_id);
--			continue;
--		}
--
--		scmi_create_protocol_devices(fwnode_handle_get(child), info,
--					     prot_id, NULL);
-+		scmi_device_check_create(child, prot_id, info);
++	struct pcc_shared_mem __iomem *shmem = smbox->pchan->shmem;
++	u32 valid_signature = ss_id + PCC_SIGNATURE;
++
+ 	if (smbox->pchan->shmem_size < SCMI_PCC_SHMEM_OVERHEAD ||
+ 	    smbox->pchan->shmem_size - SCMI_PCC_SHMEM_OVERHEAD <
+ 	    cinfo->max_msg_size) {
+@@ -707,6 +710,11 @@ static int pcc_chan_validate_shmem(struct scmi_chan_info *cinfo,
+ 		return -ENOSPC;
  	}
  
++	if (ioread32(&shmem->header.signature) != valid_signature) {
++		dev_err(cinfo->dev, "invalid PCC shared memory signature\n");
++		return -EINVAL;
++	}
++
  	return 0;
+ }
+ 
+@@ -742,7 +750,7 @@ static int pcc_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
+ 		return ret;
+ 	}
+ 
+-	ret = pcc_chan_validate_shmem(cinfo, smbox);
++	ret = pcc_chan_validate_shmem(cinfo, smbox, ss_id);
+ 	if (ret) {
+ 		pcc_mbox_free_channel(smbox->pchan);
+ 		return ret;
 
 -- 
 2.43.0
