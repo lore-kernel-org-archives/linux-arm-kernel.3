@@ -4,73 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FF1FC88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 14:12:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEB1CC982C4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 14:13:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=30MMlGXh+eGIrSEBfjOVb1y+U1bZkjfhtS3PPHQCVcI=; b=nKAqaNoOtzcmrqxSRaqE8nedvL
-	68HhKcvwDpO+5zaB/MM4xUkGkjWRKtXJOdxWHOle3eGdWLOIXA5ied310f7rTQq4MBeBE7hLDCBiZ
-	SuJxzwr5zgMgAvu9LjL0dqp+8tImIhzCElXO/zdCxFu+Jyzqobo7c6k7Suef/165MAHm0CfmHIO2u
-	sPic4o3f7Q30Fuo8OV+fAkneiUlIiMNqtrdSuFWsXXgwqqqQH11MRE2Sru9687kniE5o5d8mZGiTT
-	beOIQu4x2gXVNq71DgeXqrzFArQj2Hvjk4QNrvwqmClgMiY3XjH/ZtHxo6vcoYhhT+5oPCIXrVlmn
-	xiAPgFCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4/dvc0f8jIgO60uW57rTwjvHY9CDCgJCM89WrVhajN4=; b=Zb7Iy4KsbssbM8aUje77czLBTd
+	bH3yfcQ53LGcvdQUQdW3VJIZt00/OaSSs+lUUXxoGau+drrUoLjDUfGLqT1/sH7Sk52uT7e0dyjK0
+	Cuw0EpLMpZ5GSHHEY9ZWjTD5KbXzehG9gFYwuvFjwq2WAt15ZBmJBnicOxbfsmM1LCvj7MCs+GAfN
+	vLYjUjgVDvBMtlRQ/MCtPIXeKwFrpJ4cSuXy6tWJSXQGP25FJ1w1+1zKv4/aWEKRvdWuAou0rg8FR
+	lUjzV/Fd6jr3OlQK+mU6vdxCWfSr1okzs7cGSwNxZSO8HKht2XUDqw66d0yvlYtHCTTlbyF7aDJIz
+	0TXqiQRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Tty-00000006sun-3dpv;
-	Tue, 15 Sep 2026 14:12:50 +0000
-Received: from out-38.mta0.migadu.com ([91.218.175.38] helo=mta0.migadu.com)
+	id 1x6TuW-00000006t2c-0MaR;
+	Tue, 15 Sep 2026 14:13:24 +0000
+Received: from mail-yx2-x10.google.com ([2607:f8b0:4864:41::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Ttv-00000006su2-3BKV
+	id 1x6TuR-00000006t1G-2YNV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 14:12:49 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=3G0O+OUF5QFvnfAby8EwEl11RBiKQK5gk892VXgZWD0=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1789481564; v=1; x=1790086364;
- b=donS3I17xkYq+pUcl6z/Ju1A8L+ynRva9ROb7kJbkp6VoSeowuwrdta+yd4K4gJpGAiuG3Pk
- Fu8b71UcY6nArd7VcBrAhdb6ogzVmlfAZFsKig1eOtuok/wZykh1SCKUG45vmx4wPB0y2p3yn2c
- 4k93DWve9pKS2QROu70EOJIY=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 916469cfbab50fed;
-	Tue, 15 Sep 2026 14:12:44 +0000
-X-Mizu-Trace-ID: 916469cfbab50fed
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b4a0b384b7so302e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 07:12:40 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBzsofyIup4f0cV7d9rt0FpOaGuuya99cLBBCqnliFZRH0GpcX3fDYA8sU90/L8i9UrpwfQTYyj657EsHEon2QdC@lists.infradead.org
-X-Gm-Message-State: AFuF++nKIbRzl90FbRjbggx1ySF1WIR++WOBBGyyXosZmDTMSqbbdPxm
-	r3J/Gt6dCzZuJ4h+zv7wW0oQVF08BkmCcAKR88X2L4lIyU9uH5FdefjOOMkhfQON3d7bNIFKYjH
-	4mGxugMwTtkicZZrUTCVviP/Trb3w3VcgIEGTG3c3
-X-Received: by 2002:a05:6512:3dac:b0:5b1:ca0b:25d2 with SMTP id
- 2adb3069b0e04-5b8b2d0db8bmr195652e87.4.1789481559798; Tue, 15 Sep 2026
- 07:12:39 -0700 (PDT)
+	Tue, 15 Sep 2026 14:13:20 +0000
+Received: by mail-yx2-x10.google.com with SMTP id 956f58d0204a3-66e4ab222dfso444564d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 07:13:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789481598; x=1790086398; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=4/dvc0f8jIgO60uW57rTwjvHY9CDCgJCM89WrVhajN4=;
+        b=A0LD0BtxlQHdJeOVOwBon5w20BR8OicU3gmFzXNVu6/WyeC2yG5A46waFS1mqCvpzD
+         wRCwT50JZPIVoyVvEsx/ZqKjGyNvrwIMKEOpm4gAZTEu1inv6dC14KkT0QkM3SRiukmk
+         ySfYApZBX2oAbz2j9gFxMlT86DXgsKlgaizjSC6Xz9C5azApz4KPlh3WVvFaIv3hVvBg
+         JYZgg7+jZw6fDgta1qtj3dXKYpWmK/3savvZeJnbj8kWZEftf2LIgIUZddM5InBOfvqW
+         ehS5uhHSMuyc2KfJlXMygf1xTNCHCiGX1Ux73kk9rtxG4qCuJg8MUQSm2fsEwtR+YFeZ
+         UoPg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789481598; x=1790086398;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=4/dvc0f8jIgO60uW57rTwjvHY9CDCgJCM89WrVhajN4=;
+        b=m7ZzcOeIyZEofDXkYGkyrKP6iQdvlngisQbH4gCy9Qi7CVWcEGcNIB/vK2JpYu4Mgt
+         T/JAnSYji+t+mZ5yECFL4STsv1GnF/piA5Ve05Sufl30wBzeDvO6kZtY3U+zNMzQSUHM
+         qTEInwSYyBTP8vXyJgtHdLvwxNeoGL3VUgyBIlKZkKIQt12qvQfpojif/dI61W1yWiDX
+         c3y/dzsFzu4YiopZy6kdYQzX53NdMAYOgBAtLcAsR1nFk+tIQkHTyvtYiryJ2zSGmvjj
+         Oi8+Pbqbi4WFXCXFssWTwuo/BPUcE8QiNPayJLDOrSVMG1TIehDunCjT5MTm6/rBecFc
+         chbg==
+X-Forwarded-Encrypted: i=1; AKwUvBzv7D0J3sr/SwNQ0FHseZJciLYWUdGSa89K+kjiPeLwdaH2VfqBTcy3VVuSMKDJ5hpz9/xD4YcFlQWTP2v7TYHP@lists.infradead.org
+X-Gm-Message-State: AFuF++ldiFSgqgiDr7bHdsPswV7Y9Lm2BQAw6wf1ppnumr9Pik17aywU
+	oCQbeeNs3x6avITNT2LaUGj6+mxRztR8yxNsSbM44oeVlQC+8GJQoWVqeKgFUC2U
+X-Gm-Gg: AYBFou2kzhvjpLXubApi8J2RoiSEnrYpXsBg44NimsUskq/1HB1Q6Rj9RlCmF1bVec8
+	GP6wGpdzHhFWz5eO2DtyYxTwm/swMrwvHHSPE8ZhGFPkaPy2HklZevZuQfP5xJ+r3I+z6bpvAer
+	1OoCY8rJoK+mU7fcvwTBxyRHfAuoptL5djJM17P8rWoKVGmz18f4I20rnHbNPEszMrgFrb3LlJB
+	vxnviTQFOJLJp2dtE3QJkQYmnch5VtOE96L1Er0DubrIfNHPdXwejV9sqzPqWns4WaOLj8FGRnb
+	jFAJw5bW7+TUDqKH0uD4RvtSd+6RoXdHHyWD7aVBLDwGok1hgDc+nv1tkg/m50cNeQOYkiOZezZ
+	zXr9s4F+azNwUiTHcaEkkC3BC97SYH2Ul4AznLHRGXTIdXtdjNioLPyIKPwG5HYKzTEmlcnzbuM
+	XCvz2w6o7A8SM1smNLvQiAzANfwXoBxdNrHCQS47sfCJ5aQlCX92b/9aU=
+X-Received: by 2002:a05:6820:8c7:b0:6b8:1306:8567 with SMTP id 006d021491bc7-6c739c76dc5mr719865eaf.57.1789481124343;
+        Tue, 15 Sep 2026 07:05:24 -0700 (PDT)
+Received: from lgs.. ([2001:250:5800:1002::de93])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc4c6036fd7sm7020010a12.0.2026.09.15.07.05.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 15 Sep 2026 07:05:23 -0700 (PDT)
+From: Guangshuo Li <lgs201920130244@gmail.com>
+To: Detlev Casanova <detlev.casanova@collabora.com>,
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Hans Verkuil <hverkuil+cisco@kernel.org>,
+	linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Guangshuo Li <lgs201920130244@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] media: rkvdec: do not destroy borrowed SRAM pool
+Date: Tue, 15 Sep 2026 22:05:11 +0800
+Message-ID: <20260915140511.2429792-1-lgs201920130244@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20260915123846.2317931-1-fuad.tabba@linux.dev>
- <20260915123846.2317931-2-fuad.tabba@linux.dev> <86v78662a6.wl-maz@kernel.org>
-In-Reply-To: <86v78662a6.wl-maz@kernel.org>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Tue, 15 Sep 2026 15:12:03 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTxUTOj4D6Y-mjA6Wv+D-GWP1SaCBNgH_Ni=CQ3Y0zAK1g@mail.gmail.com>
-X-Gm-Features: AcwNN1WrZ2vlMfsvR2ger9LO52Sjk_Eil6ga-Qs09jtEG-4giDpAv8q3LKgSy9Q
-Message-ID: <CA+EHjTxUTOj4D6Y-mjA6Wv+D-GWP1SaCBNgH_Ni=CQ3Y0zAK1g@mail.gmail.com>
-Subject: Re: [PATCH 1/7] KVM: arm64: Reject the GICv5 CPU interface hypercalls
- under pKVM
-To: Marc Zyngier <maz@kernel.org>
-Cc: oupton@kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	catalin.marinas@arm.com, will@kernel.org, joey.gouly@arm.com, 
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	mark.rutland@arm.com, vdonnefort@google.com, qperret@google.com, 
-	Sascha.Bischoff@arm.com, steven.price@arm.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_071247_950537_54D9EFAD 
-X-CRM114-Status: GOOD (  14.08  )
+X-CRM114-CacheID: sfid-20260915_071319_650103_2FC4133B 
+X-CRM114-Status: GOOD (  12.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,49 +104,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 15 Sept 2026 at 15:02, Marc Zyngier <maz@kernel.org> wrote:
->
-> On Tue, 15 Sep 2026 13:38:40 +0100,
-> Fuad Tabba <fuad.tabba@linux.dev> wrote:
-> >
->
-> [...]
->
-> > diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> > index 9a3b92e626adb..7c939baf9c1ba 100644
-> > --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> > +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> > @@ -911,6 +911,8 @@ static const hcall_t host_hcall[] = {
-> >       HANDLE_FUNC(__kvm_enable_ssbs),
-> >       HANDLE_FUNC(__vgic_v3_init_lrs),
-> >       HANDLE_FUNC(__vgic_v3_get_gic_config),
-> > +     HANDLE_FUNC(__vgic_v5_save_apr),
-> > +     HANDLE_FUNC(__vgic_v5_restore_vmcr_apr),
-> >       HANDLE_FUNC(__pkvm_prot_finalize),
-> >
-> >       HANDLE_FUNC(__kvm_adjust_pc),
-> > @@ -932,8 +934,6 @@ static const hcall_t host_hcall[] = {
-> >       HANDLE_FUNC(__tracing_write_event),
-> >       HANDLE_FUNC(__vgic_v3_save_aprs),
-> >       HANDLE_FUNC(__vgic_v3_restore_vmcr_aprs),
-> > -     HANDLE_FUNC(__vgic_v5_save_apr),
-> > -     HANDLE_FUNC(__vgic_v5_restore_vmcr_apr),
-> >
-> >       HANDLE_FUNC(__pkvm_host_share_hyp),
-> >       HANDLE_FUNC(__pkvm_host_unshare_hyp),
->
-> Why moving things in the array? The whole point of HANDLE_FUNC() is to
-> abstract the position.
+rkvdec_probe() obtains a provider-owned SRAM pool with
+of_gen_pool_get(), but its error path incorrectly destroys the borrowed
+pool with gen_pool_destroy().
 
-It's only cosmetic. The array is in the same order as the enum today,
-entry for entry.
+of_gen_pool_get() returns a pool managed by the SRAM provider. The pool
+is not created or owned by the rkvdec driver and is destroyed by the
+provider when its own managed resources are released.
 
-Cheers,
-/fuad
+Destroying it when rkvdec_v4l2_init() fails can invalidate the pool
+while the provider and other consumers still reference it, and can also
+result in the provider attempting to destroy it again later.
 
->
->         M.
->
-> --
-> Without deviation from the norm, progress is not possible.
+Remove the incorrect gen_pool_destroy() call from the probe failure
+path.
+
+This issue was found by manual code inspection.
+
+Fixes: e5640dbb991c ("media: rkvdec: Add RCB and SRAM support")
+Cc: stable@vger.kernel.org
+Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+---
+ drivers/media/platform/rockchip/rkvdec/rkvdec.c | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+index 061281f903f3..4541ef9ee3b9 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+@@ -1857,9 +1857,6 @@ static int rkvdec_probe(struct platform_device *pdev)
+ 	pm_runtime_dont_use_autosuspend(&pdev->dev);
+ 	pm_runtime_disable(&pdev->dev);
+ 
+-	if (rkvdec->sram_pool)
+-		gen_pool_destroy(rkvdec->sram_pool);
+-
+ 	return ret;
+ }
+ 
+-- 
+2.43.0
+
 
