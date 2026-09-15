@@ -4,106 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E78A2C88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 19:03:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A580BC88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 19:05:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JW8jFyLPHvei3ZpNWECcPkSmFiI6d1/AJVTjb5PqVkk=; b=YqILU3cMSopuqzaGFulIH43rrR
-	ldthFk/4kWhc7dvEwYw0vVvjI+JwxaznGQId1NhxaV3wtrTWjm8bAFi8m0VAY2++uOTuT/zz0i7DH
-	eWaCBp3nq+kbpWM/u6oXrKjBAcfJ6cJfi0BUCIKeLlluiD9Y99MUSP02Ka4fjsSzwGfAuhP2uP+ik
-	9MLj/tGXk5mF8UcpLBTyMHHA8SfgYNwfgeY2DQwh/UlP84QljBOzIsmC3QGE6yCMUEcjzYCQlt8fw
-	v/I7NAExAY+IbI8peK46b3R4KxXS74bqihvloP/C1EX1zpp8SWIUSwGLzNkPWOhCwMTS0kkFlvzuB
-	coqNQp6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s1U6htYr3KDizbM+pvOno5keAAu3JxFYL37YugBOwe0=; b=jhfJxDUWETA21jpozpieMsc6uJ
+	lk/zMWhWET4TswXem7PVLUaSknphLsG6n+fD1IS4PUlsmodeOCPXN4EX8Buc8D5qD/jQD9WCuTUea
+	gnTycKSHXKLw6QBeI2o1CwiNzUyzdrjOl6FQLVBKQIIwLiQPrSg2fDS+AReRIX8giUqUozVL0y4x8
+	M5QrtFG9yD/z7tj7/lYejyP/uAy2FY9N31hBL1P9EFyH0GQOAzQZw+Sr3KGekn4YhGxUsf3fDuUms
+	+Rl5OriGxRQNkJdlRAKDGjgFFNTO9AY+CtykIKJSSEONNarSx3RLW1W5YjQr4aaPpDhSCGz+4Ihpf
+	cyjRc2+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6YRT-00000007p0J-3Unv;
-	Tue, 15 Sep 2026 19:03:43 +0000
-Received: from mail-oa2-x10.google.com ([2607:f8b0:4864:30::10])
+	id 1x6YTC-00000007pH0-16sR;
+	Tue, 15 Sep 2026 19:05:30 +0000
+Received: from ms.lwn.net ([2600:3c01:e000:3a1::42])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6YRP-00000007oyv-0Dqg
+	id 1x6YT7-00000007pGI-2WtH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 19:03:40 +0000
-Received: by mail-oa2-x10.google.com with SMTP id 586e51a60fabf-466ccdd76a9so161266fac.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 12:03:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789499017; x=1790103817; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=JW8jFyLPHvei3ZpNWECcPkSmFiI6d1/AJVTjb5PqVkk=;
-        b=gMNfJrKDDdIptgAaqOR6pLZxL6Pw4BRl6sQLu/vkZ8d8eoRQoL7/lregfRMu/GztWK
-         JKfi754F3GJs/ApLPtHS/ddQe3S1RlESW7OX+BZx7iMac8iJEgKXkbwVyWzrXV+aBBgh
-         /EwNV3lXuTjmM1Td6DTfiPIkj//xqXdN3klHFtsEzRwRJZkcUKJvUHVQ5V+d8xXe6jU0
-         6e6MU5hUTHcv5+4ej2SfkL6rjA/OdlpmprbLaqW2gtXRVotbwVfLI7pJTB9F6GVwY6DE
-         +3JZQ3oahJpVRvH6qOYbDlp83+/dEiAznOgYp62r1dS18c+6Jb5P3u6W2751c9DguiPm
-         hRYw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789499017; x=1790103817;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=JW8jFyLPHvei3ZpNWECcPkSmFiI6d1/AJVTjb5PqVkk=;
-        b=xpFDPCzUdc37yHtEo6yBLsa6nsMo4sjJvk4pew5eqCEBUcTyvLw8RE6nXEeFg8L6y+
-         e+NJAseag5elO8I7eBxZ3+ZU3WAGmxR43O6UcH4agiAg+0sLQuUZu17bwlkmajTqBGYS
-         btdc6jIpwvrflLn/UD1OvL6b+5REbGaBiCiaoYSsBMem/RED3/zZDzX8ILi9XNLlbs78
-         2A6mkg5UnSyNUZmRoiRIzg7/t3Ss+vaAzAvLEpg7aB4wW7fEwp9CBZqLJVKMp71oVEIj
-         mHw1l3Zl8fcEUKsC/XhWVMgqA9nADBrFyJUKwSkr1dNSubkLvUdCBONN8qL7NDfjES+1
-         JbVQ==
-X-Forwarded-Encrypted: i=1; AKwUvByqnLqFiia5EjN/oVla1jYbntWgQZNmU8Fqry1TDM1FvPLW1IYAQ8EKhXujkYUD0edsUQIAKDi0dBrUnZYrmhmK@lists.infradead.org
-X-Gm-Message-State: AFuF++ny8MCCxnfEJ5Is2FG+OrHQKDTmrJe+/ca8MMVV8AmWiT86FxNw
-	riGGPBBTOKsGgjq2txfvzmnMmzjcWg0mr+8sxPiHhBXSJS1amkQpf5ve
-X-Gm-Gg: AYBFou1xb6kcrp83v+Z4Yj9BAjaQXSNTHl/zjbZNZ0aZfHhU400PgxemCUgr5zhLGMY
-	+4kwb6tljAni6wO1mbG6kSTIYseN93FpLPcqpopU86uth9dahhHRJRH4PYwWIrpqe2PohYEPlFa
-	O3jkUmHM2Jf4RdZdtcBz5v1Vp8pNd288mBdM+YymAQwNZEUWU5Vi5BNTt+Xb6ucqpuyykp6p74E
-	OLa2ayvpOUIJQWK8Kh469MtADh8NWv+RaGweINbGLBatSVfAAWeuTW8IADg4F8lzqRSoWv0sF71
-	kxyxxdXbGpemHMKkfTHOg/PkoMXkRUUGSNuGLlEP7cMZpE8RMuExjPGGyFI56LHfBF+a6GuMV+o
-	GYaFX81izSfiJuYGeODjkj3e9Prz5ZBSz+uouy7j4pIc248GW3ZjAg89yvJN+x1FoTyS2HTrJfQ
-	3nSgrAjbxI4/k4n9HnqksKinOACL7CvsL7DBbyh7yInZ+9ZqGj57MAu6NUEDHsW5RHzAbg2xwb9
-	QRoWRQz8vXigOW17vPwcu4oRLMRAzQloVn2tqrnwOi8HP8PsaaMQnkTexxA4MGXaoUC6eyEhOHo
-	V+9n6dUv0bclvgVXO0M8xx230w82Dez1meM102DiMaL05cyd7vK9qZHPG4PznkiR7ebE8GNDcVJ
-	z9JfWFJTh41BvqLGPcLfaJic=
-X-Received: by 2002:a05:6870:e305:b0:475:a112:1279 with SMTP id 586e51a60fabf-481fa3a2804mr6618423fac.38.1789499016683;
-        Tue, 15 Sep 2026 12:03:36 -0700 (PDT)
-Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4842546a51bsm836569fac.0.2026.09.15.12.03.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Sep 2026 12:03:35 -0700 (PDT)
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Tue, 15 Sep 2026 13:03:18 -0600
-Subject: [PATCH net-next 1/2] dt-bindings: net: allwinner: add H616 EMAC1
+	Tue, 15 Sep 2026 19:05:28 +0000
+DKIM-Filter: OpenDKIM Filter v2.11.0 ms.lwn.net B2E62408B4
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lwn.net; s=20201203;
+	t=1789499125; bh=s1U6htYr3KDizbM+pvOno5keAAu3JxFYL37YugBOwe0=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=AezeimY/EDjo3fPXgLQ44KDX5OPDDr1xgkzE1EhmKpD7gPcaQSQjTSBElZiXRAxkA
+	 KILGB8FKia8q5oNdr52WrUsQ98GO/HtHsqLdegw4wrlygVFdOuGgh9g9snNDr4/8xu
+	 3nvYU1Vx2XmgdCGifzb4oYWcVmckQsdkkneZfv9nQVhXlKHvuBuFghnI5XGCItVg/g
+	 ZbyiL+JDMXAEQJLWXR3mnwgj5xXni5CX8KEjZWj/8+FYBxZMvVy+Lx9PB0iDEc1rxP
+	 2yXvNg8nDcC3z1IJWmSFuW7cFS4GUm3/ZxZF6K/VLoGUYXIlJW0ebXouEL15PEJbdx
+	 SQIzW0KKooMcA==
+Received: from localhost (unknown [IPv6:2601:280:4600:814::1fe])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by ms.lwn.net (Postfix) with ESMTPSA id B2E62408B4;
+	Tue, 15 Sep 2026 19:05:24 +0000 (UTC)
+From: Jonathan Corbet <corbet@lwn.net>
+To: Karl Mehltretter <kmehltretter@gmail.com>
+Cc: Karl Mehltretter <kmehltretter@gmail.com>, Geert Uytterhoeven
+ <geert@linux-m68k.org>, linux-m68k@lists.linux-m68k.org, Dmitry Torokhov
+ <dmitry.torokhov@gmail.com>, linux-input@vger.kernel.org,
+ linux-doc@vger.kernel.org, Shuah Khan <skhan@linuxfoundation.org>, Randy
+ Dunlap <rdunlap@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo
+ Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+ <dave.hansen@linux.intel.com>, x86@kernel.org, Steve Wahl
+ <steve.wahl@hpe.com>, Dimitri Sivanich <dimitri.sivanich@hpe.com>, Mike
+ Travis <mike.travis@hpe.com>, Tony Luck <tony.luck@intel.com>,
+ linux-edac@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>, Arnd
+ Bergmann <arnd@arndb.de>, linux-samsung-soc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Tony Lindgren <tony@atomide.com>,
+ Kevin Hilman <khilman@baylibre.com>, linux-omap@vger.kernel.org, Dominik
+ Brodowski <linux@dominikbrodowski.net>, Michael Schmitz
+ <schmitzmic@gmail.com>, Andreas Kemnade <andreas@kemnade.info>
+Subject: Re: [PATCH v3 0/8] docs: kernel-parameters: Remove eight entries
+ for parameters that no longer exist
+In-Reply-To: <20260910013245.8619-1-kmehltretter@gmail.com>
+References: <20260910013245.8619-1-kmehltretter@gmail.com>
+Date: Tue, 15 Sep 2026 13:05:23 -0600
+Message-ID: <875x069vyk.fsf@trenco.lwn.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260915-submit-h616-emac1-v1-v1-1-195de0bb1f8a@gmail.com>
-References: <20260915-submit-h616-emac1-v1-v1-0-195de0bb1f8a@gmail.com>
-In-Reply-To: <20260915-submit-h616-emac1-v1-v1-0-195de0bb1f8a@gmail.com>
-To: Richard Genoud <richard.genoud@bootlin.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
- Jose Abreu <joabreu@synopsys.com>, 
- Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: Maxime Ripard <mripard@kernel.org>, netdev@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- James Hilliard <james.hilliard1@gmail.com>
-X-Mailer: b4 0.15.2
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_120339_118115_AF1E65E0 
-X-CRM114-Status: GOOD (  12.53  )
+X-CRM114-CacheID: sfid-20260915_120527_293501_7648B940 
+X-CRM114-Status: GOOD (  15.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,109 +85,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The H616 secondary EMAC uses a separate system-control clock register
-and supports only RMII at 10/100 Mbps. Add its distinct compatible
-without an older fallback, since using the primary EMAC clock register
-would not work.
+Karl Mehltretter <kmehltretter@gmail.com> writes:
 
-Constrain the PHY interface mode to RMII, matching the hardware. The
-EMAC1 clock register also retains the three-bit TX and five-bit RX delay
-chains, so allow the existing Allwinner delay properties for this
-compatible.
+> kernel-parameters.txt still documents eight boot parameters whose parsing
+> code was removed with the drivers or platforms that used them, one of
+> them (atarimouse=) since before the git history. There is one patch per
+> parameter, with a Fixes: tag where the removal is in git history.
+> Each entry was checked with git grep for its __setup(), early_param()
+> and module_param() handler and with git log -S for the removing commit,
+> and the name is absent from the whole tree at that commit.
+>
+> Changes in v3:
+> - patch 3: name the commit that turned edac_report= into a module
+>   parameter (fee27d7d9788) and the one that removed it (7fc0b9b995f2),
+>   Fixes: tag moved to the latter (Boris)
+> - the pata_legacy patch is dropped, Ethan's patch from June covers all
+>   six parameters that commit 3c4d783f6922 removed:
+>   https://lore.kernel.org/r/20260607064053.195166-1-enelsonmoore@gmail.com/
+> - collect Reviewed-by and Acked-by tags
+> - the "Found by cross-checking ..." paragraph dropped from the messages
 
-Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
-Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
----
- .../bindings/net/allwinner,sun8i-a83t-emac.yaml        | 18 ++++++++++++++++--
- Documentation/devicetree/bindings/net/snps,dwmac.yaml  |  2 ++
- 2 files changed, 18 insertions(+), 2 deletions(-)
+I've applied the set, thanks.
 
-diff --git a/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml b/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
-index 323a669fa982..34def84e6c21 100644
---- a/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
-+++ b/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
-@@ -21,6 +21,7 @@ select:
-           - allwinner,sun8i-r40-gmac
-           - allwinner,sun8i-v3s-emac
-           - allwinner,sun50i-a64-emac
-+          - allwinner,sun50i-h616-emac1
-           - allwinner,sun55i-a523-gmac200
-   required:
-     - compatible
-@@ -33,6 +34,7 @@ properties:
-       - const: allwinner,sun8i-r40-gmac
-       - const: allwinner,sun8i-v3s-emac
-       - const: allwinner,sun50i-a64-emac
-+      - const: allwinner,sun50i-h616-emac1
-       - items:
-           - enum:
-               - allwinner,sun20i-d1-emac
-@@ -91,6 +93,17 @@ required:
- 
- allOf:
-   - $ref: snps,dwmac.yaml#
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: allwinner,sun50i-h616-emac1
-+
-+    then:
-+      properties:
-+        phy-mode:
-+          const: rmii
-+
-   - if:
-       properties:
-         compatible:
-@@ -100,6 +113,7 @@ allOf:
-               - allwinner,sun8i-h3-emac
-               - allwinner,sun8i-v3s-emac
-               - allwinner,sun50i-a64-emac
-+              - allwinner,sun50i-h616-emac1
- 
-     then:
-       properties:
-@@ -109,7 +123,7 @@ allOf:
-           maximum: 700
-           multipleOf: 100
-           description:
--            External RGMII PHY TX clock delay chain value in ps.
-+            PHY interface TX clock delay chain value in ps.
- 
-         allwinner,rx-delay-ps:
-           default: 0
-@@ -117,7 +131,7 @@ allOf:
-           maximum: 3100
-           multipleOf: 100
-           description:
--            External RGMII PHY TX clock delay chain value in ps.
-+            PHY interface RX clock delay chain value in ps.
- 
-   - if:
-       properties:
-diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-index 2ed4564ae99d..b20149c3e850 100644
---- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-@@ -57,6 +57,7 @@ properties:
-         - allwinner,sun8i-r40-gmac
-         - allwinner,sun8i-v3s-emac
-         - allwinner,sun50i-a64-emac
-+        - allwinner,sun50i-h616-emac1
-         - amlogic,meson6-dwmac
-         - amlogic,meson8b-dwmac
-         - amlogic,meson8m2-dwmac
-@@ -623,6 +624,7 @@ allOf:
-                 - allwinner,sun8i-r40-gmac
-                 - allwinner,sun8i-v3s-emac
-                 - allwinner,sun50i-a64-emac
-+                - allwinner,sun50i-h616-emac1
-                 - loongson,ls2k-dwmac
-                 - loongson,ls7a-dwmac
-                 - ingenic,jz4775-mac
-
--- 
-2.53.0
-
+jon
 
