@@ -4,86 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DCB3C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 14:11:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FF1FC88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 14:12:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0yDZOAIm8/Q3QD8+C6s41Grxf2KSvFAj+qQW3BIcQGs=; b=3pz+Ofw6p7C907EqMGkBmZtxwg
-	fmq5kAB1AT++yALa/TXu6ieT2GEux4zVlzPGDWFPVVQFn+FQlWWDvoSJt8d/2PLk1cc3DK7INYZnL
-	b+NP1dshF02V4rtccAUeu2TJKCJMPqcPxz26zNy/LPe+h1ArfkZczemxVZnT3iIlz/X+Oa19wJVqH
-	tN1C5mRwBK5bXLyGQV0GG/bbyPYg1RD1xY9uYp13NGmq1StI8ePtIXNJMKHfZLni8xHuFbhuB8Jiv
-	jBKv2iNCPAcGU5yy2z3SgG8hC6ru73ywFbdzJdd/VSNZe0I04GogFGRxjBQs5UqQddIyMI4kuyooT
-	cpv6o1CA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=30MMlGXh+eGIrSEBfjOVb1y+U1bZkjfhtS3PPHQCVcI=; b=nKAqaNoOtzcmrqxSRaqE8nedvL
+	68HhKcvwDpO+5zaB/MM4xUkGkjWRKtXJOdxWHOle3eGdWLOIXA5ied310f7rTQq4MBeBE7hLDCBiZ
+	SuJxzwr5zgMgAvu9LjL0dqp+8tImIhzCElXO/zdCxFu+Jyzqobo7c6k7Suef/165MAHm0CfmHIO2u
+	sPic4o3f7Q30Fuo8OV+fAkneiUlIiMNqtrdSuFWsXXgwqqqQH11MRE2Sru9687kniE5o5d8mZGiTT
+	beOIQu4x2gXVNq71DgeXqrzFArQj2Hvjk4QNrvwqmClgMiY3XjH/ZtHxo6vcoYhhT+5oPCIXrVlmn
+	xiAPgFCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6R8h-0000000648N-167C;
-	Tue, 15 Sep 2026 11:15:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x6Tty-00000006sun-3dpv;
+	Tue, 15 Sep 2026 14:12:50 +0000
+Received: from out-38.mta0.migadu.com ([91.218.175.38] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6R8X-0000000642h-33T1
+	id 1x6Ttv-00000006su2-3BKV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 11:15:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 40AC944043;
-	Tue, 15 Sep 2026 11:15:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 0C307C2BD04;
-	Tue, 15 Sep 2026 11:15:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1789470941;
-	bh=TA4UvtPaI6N/mD+iZIrCt55LdDwZ1OZdGI9FuRlVZFs=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=nJp7Dnq8oAZUXkrRA9yJx30cNrc+lFGg/G5laPxIL4fWB6cNU1znybkkdhxBwWMT9
-	 D+XxHDPqy4IY9jBlzyRMmFyetUDzgQc2idEFYUS8nIRwXdQi2Me3PiYqGsCNjT5kZ8
-	 JpPXqQLhYryv4lbO1vTeebD9TTedKTcVNef5WUEcWcf2eTA60pArVlbUyg4v6De8VV
-	 UxMl91Rf3j4j0bDnb8yfshO2/dvLlxmu808VNszdV8uC4g03mcDreqBm6qloK3xoIn
-	 K4v/UKLPWgik/S1MYXXd/WVcNXILW05iIGVjb0p+7GIP3awTcBcV4e3JHtPM/d1Hua
-	 QzY8HBOeEAFRQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E1065C88E75;
-	Tue, 15 Sep 2026 11:15:40 +0000 (UTC)
-From: Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>
-Date: Tue, 15 Sep 2026 19:15:33 +0800
-Subject: [PATCH v7 03/15] dt-bindings: clock: add Ambarella CV75 RCT
+	Tue, 15 Sep 2026 14:12:49 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=3G0O+OUF5QFvnfAby8EwEl11RBiKQK5gk892VXgZWD0=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1789481564; v=1; x=1790086364;
+ b=donS3I17xkYq+pUcl6z/Ju1A8L+ynRva9ROb7kJbkp6VoSeowuwrdta+yd4K4gJpGAiuG3Pk
+ Fu8b71UcY6nArd7VcBrAhdb6ogzVmlfAZFsKig1eOtuok/wZykh1SCKUG45vmx4wPB0y2p3yn2c
+ 4k93DWve9pKS2QROu70EOJIY=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 916469cfbab50fed;
+	Tue, 15 Sep 2026 14:12:44 +0000
+X-Mizu-Trace-ID: 916469cfbab50fed
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b4a0b384b7so302e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 07:12:40 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBzsofyIup4f0cV7d9rt0FpOaGuuya99cLBBCqnliFZRH0GpcX3fDYA8sU90/L8i9UrpwfQTYyj657EsHEon2QdC@lists.infradead.org
+X-Gm-Message-State: AFuF++nKIbRzl90FbRjbggx1ySF1WIR++WOBBGyyXosZmDTMSqbbdPxm
+	r3J/Gt6dCzZuJ4h+zv7wW0oQVF08BkmCcAKR88X2L4lIyU9uH5FdefjOOMkhfQON3d7bNIFKYjH
+	4mGxugMwTtkicZZrUTCVviP/Trb3w3VcgIEGTG3c3
+X-Received: by 2002:a05:6512:3dac:b0:5b1:ca0b:25d2 with SMTP id
+ 2adb3069b0e04-5b8b2d0db8bmr195652e87.4.1789481559798; Tue, 15 Sep 2026
+ 07:12:39 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260915-cv75-v5-v7-3-3297d3fbc9c0@ambarella.com>
-References: <20260915-cv75-v5-v7-0-3297d3fbc9c0@ambarella.com>
-In-Reply-To: <20260915-cv75-v5-v7-0-3297d3fbc9c0@ambarella.com>
-To: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org
-Cc: Long Zhao <longzhao@ambarella.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>, 
- Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
- =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Long Zhao <zl020895@163.com>, Lee Jones <lee@kernel.org>, 
- mfd@lists.linux.dev, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
- linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org, 
- linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789470938; l=2969;
- i=longzhao@ambarella.com; s=20260730; h=from:subject:message-id;
- bh=gEKr05f9YAOrNVHJfKB47io9QNiMkJyDyO/ZJBUGYg0=;
- b=KO25cFtkAC0CyFgSD4uGMjjaQqZBC4uDyzCwdGKIQwHyAvLfkVxYk0sypPzcu7t85jQLd2Kgp
- FSx6bPU0XlOACFAenhxOxCUN9GNh1Cv6RyYOMGy6SRYxkFYhDy+8yVS
-X-Developer-Key: i=longzhao@ambarella.com; a=ed25519;
- pk=/xGhPTOX0/eYsyTWzyjjgAIW1Z/YD+IlnOnvcdRozow=
-X-Endpoint-Received: by B4 Relay for longzhao@ambarella.com/20260730 with
- auth_id=903
-X-Original-From: Long Zhao <longzhao@ambarella.com>
+References: <20260915123846.2317931-1-fuad.tabba@linux.dev>
+ <20260915123846.2317931-2-fuad.tabba@linux.dev> <86v78662a6.wl-maz@kernel.org>
+In-Reply-To: <86v78662a6.wl-maz@kernel.org>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Tue, 15 Sep 2026 15:12:03 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTxUTOj4D6Y-mjA6Wv+D-GWP1SaCBNgH_Ni=CQ3Y0zAK1g@mail.gmail.com>
+X-Gm-Features: AcwNN1WrZ2vlMfsvR2ger9LO52Sjk_Eil6ga-Qs09jtEG-4giDpAv8q3LKgSy9Q
+Message-ID: <CA+EHjTxUTOj4D6Y-mjA6Wv+D-GWP1SaCBNgH_Ni=CQ3Y0zAK1g@mail.gmail.com>
+Subject: Re: [PATCH 1/7] KVM: arm64: Reject the GICv5 CPU interface hypercalls
+ under pKVM
+To: Marc Zyngier <maz@kernel.org>
+Cc: oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	catalin.marinas@arm.com, will@kernel.org, joey.gouly@arm.com, 
+	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	mark.rutland@arm.com, vdonnefort@google.com, qperret@google.com, 
+	Sascha.Bischoff@arm.com, steven.price@arm.com
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260915_071247_950537_54D9EFAD 
+X-CRM114-Status: GOOD (  14.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,119 +82,52 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: longzhao@ambarella.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Long Zhao <longzhao@ambarella.com>
+On Tue, 15 Sept 2026 at 15:02, Marc Zyngier <maz@kernel.org> wrote:
+>
+> On Tue, 15 Sep 2026 13:38:40 +0100,
+> Fuad Tabba <fuad.tabba@linux.dev> wrote:
+> >
+>
+> [...]
+>
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > index 9a3b92e626adb..7c939baf9c1ba 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > @@ -911,6 +911,8 @@ static const hcall_t host_hcall[] = {
+> >       HANDLE_FUNC(__kvm_enable_ssbs),
+> >       HANDLE_FUNC(__vgic_v3_init_lrs),
+> >       HANDLE_FUNC(__vgic_v3_get_gic_config),
+> > +     HANDLE_FUNC(__vgic_v5_save_apr),
+> > +     HANDLE_FUNC(__vgic_v5_restore_vmcr_apr),
+> >       HANDLE_FUNC(__pkvm_prot_finalize),
+> >
+> >       HANDLE_FUNC(__kvm_adjust_pc),
+> > @@ -932,8 +934,6 @@ static const hcall_t host_hcall[] = {
+> >       HANDLE_FUNC(__tracing_write_event),
+> >       HANDLE_FUNC(__vgic_v3_save_aprs),
+> >       HANDLE_FUNC(__vgic_v3_restore_vmcr_aprs),
+> > -     HANDLE_FUNC(__vgic_v5_save_apr),
+> > -     HANDLE_FUNC(__vgic_v5_restore_vmcr_apr),
+> >
+> >       HANDLE_FUNC(__pkvm_host_share_hyp),
+> >       HANDLE_FUNC(__pkvm_host_unshare_hyp),
+>
+> Why moving things in the array? The whole point of HANDLE_FUNC() is to
+> abstract the position.
 
-Document the CV75 RCT clock controller and the clock ID header used by
-DT consumers.
+It's only cosmetic. The array is in the same order as the enum today,
+entry for entry.
 
-Document #reset-cells for the RCT reset-provider role. Soft-reset line
-IDs and the reset provider driver are deferred; this series has no
-resets= consumers.
+Cheers,
+/fuad
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Signed-off-by: Long Zhao <longzhao@ambarella.com>
----
- .../bindings/clock/ambarella,cv75-rct.yaml         | 64 ++++++++++++++++++++++
- include/dt-bindings/clock/ambarella,cv75-rct.h     | 14 +++++
- 2 files changed, 78 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/clock/ambarella,cv75-rct.yaml b/Documentation/devicetree/bindings/clock/ambarella,cv75-rct.yaml
-new file mode 100644
-index 000000000000..be89bd75f9e2
---- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/ambarella,cv75-rct.yaml
-@@ -0,0 +1,64 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/clock/ambarella,cv75-rct.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Ambarella CV75 RCT Clock Controller
-+
-+maintainers:
-+  - Long Zhao <longzhao@ambarella.com>
-+
-+description: |
-+  The RCT (Reset and Clock Tree) block on the Ambarella CV75 SoC provides
-+  PLLs, clock muxes, dividers and soft-reset controls for on-chip
-+  peripherals.
-+
-+  The same register region is also exposed as a syscon for other SoC
-+  blocks (e.g. pin drive-strength), hence the "syscon" compatible.
-+
-+  Clock indices are defined in include/dt-bindings/clock/ambarella,cv75-rct.h.
-+
-+properties:
-+
-+  compatible:
-+    items:
-+      - const: ambarella,cv75-rct
-+      - const: syscon
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    description: Reference crystal oscillator (typically 24 MHz)
-+    maxItems: 1
-+
-+  clock-names:
-+    const: osc
-+
-+  "#clock-cells":
-+    const: 1
-+
-+  "#reset-cells":
-+    const: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - "#clock-cells"
-+  - "#reset-cells"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    clock-controller@ed080000 {
-+        compatible = "ambarella,cv75-rct", "syscon";
-+        reg = <0xed080000 0x1000>;
-+        clocks = <&osc>;
-+        clock-names = "osc";
-+        #clock-cells = <1>;
-+        #reset-cells = <1>;
-+    };
-diff --git a/include/dt-bindings/clock/ambarella,cv75-rct.h b/include/dt-bindings/clock/ambarella,cv75-rct.h
-new file mode 100644
-index 000000000000..b3e965b4ff2e
---- /dev/null
-+++ b/include/dt-bindings/clock/ambarella,cv75-rct.h
-@@ -0,0 +1,14 @@
-+/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
-+/*
-+ * Copyright (C) 2026 Ambarella, Inc.
-+ */
-+
-+#ifndef _DT_BINDINGS_CLOCK_AMBARELLA_CV75_RCT_H
-+#define _DT_BINDINGS_CLOCK_AMBARELLA_CV75_RCT_H
-+
-+#define CV75_GCLK_UART0		0
-+#define CV75_GCLK_CORE		1
-+#define CV75_GCLK_AHB		2
-+#define CV75_GCLK_APB		3
-+
-+#endif
-
--- 
-2.34.1
-
-
+>
+>         M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
 
