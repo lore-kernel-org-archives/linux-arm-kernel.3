@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C58EC88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 11:48:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7FB8C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 11:48:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:Subject:
 	From:MIME-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+hCyRfdYxaDHjUjrbC2f1l+hk2nsMICX165AMlBJOFw=; b=L0bOWrHmnJfKgVPZTKu7Kdbuj9
-	4kAw0EAx3bf98p85sQH+J9sJMsWbuJd/z3j2ZWdGAIYCnLfXZzbeoQDk4JujeAwoG1Lr17SAz7gxt
-	JRCWlYEIfOjtRkXIBP8A4sxCAcab32JlvO2BZfXpNSK92EJ2oFgfiHYT2w1IPwgcRr1NJYaJnGMj9
-	Myk7+QSPg9hsu4QLHujrDc/Aqc1Sm8Y6S1l4zsSIuZVMJ+IbniP4r3bAyPK2B0VTa9X0gLDy2DQ6j
-	l1kb0w1oK6fKP9IjzCgkp9n5dfeSccscMe9lkpIDcQp9KmHQwTeNuTyc5+QeDCVvRj2oMfgveqazl
-	RvRWt1OA==;
+	bh=snQOL0WONF4IRsaF3EIs3wlmLSFM44jqM+liurayMLQ=; b=MimpGr3jznVcCu4cPHEyJaaSg5
+	qMy+JZvhbkHoV8/xDQMPgPWvHFRkcMtr8IO7Ok+BEwKndDVCyoczi6cx/V6MwVJkYKjaWgw5DlRbL
+	cR/8TqpF1dUORWc/ysg3veYmQGuoIju9Fa9t64Te2JThjTpqqt6b28n0M+85mxbhXepyJEH6yo8QK
+	vbbtHFo2GLwjx2X+zw8pstx85twkv2ghDJv4DVLO7we3CimdWUC1lpqerE7FOwfETEM5+w8tjMzmP
+	aoSiuD23f5HUEiSY3lQYI9tH+2CEjuyxd7t6ZM+oxH6ZDgQlMVlnUXLJJQ/Cjs8oWs2cLBXOJcC2Q
+	SH8hr5Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Re2-00000006HvY-0A2Y;
-	Tue, 15 Sep 2026 11:48:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x6ReH-00000006I7N-2Ft7;
+	Tue, 15 Sep 2026 11:48:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Re0-00000006HuS-33xv;
-	Tue, 15 Sep 2026 11:48:12 +0000
+	id 1x6ReD-00000006I5I-390H;
+	Tue, 15 Sep 2026 11:48:27 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7623741342;
-	Tue, 15 Sep 2026 11:48:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 973821F000FF;
-	Tue, 15 Sep 2026 11:48:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EF34F6025F;
+	Tue, 15 Sep 2026 11:48:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DCB181F000FF;
+	Tue, 15 Sep 2026 11:48:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789472892;
-	bh=+hCyRfdYxaDHjUjrbC2f1l+hk2nsMICX165AMlBJOFw=;
+	s=k20260515; t=1789472904;
+	bh=snQOL0WONF4IRsaF3EIs3wlmLSFM44jqM+liurayMLQ=;
 	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=XT+DfR2fI9lSDVHTRxc8fxOJ84VdAucgEp1D7Rsg22J1SRRtMEiE19TvXZrbO4lIZ
-	 TxJ/l2gehvn5l2kdO5dHi1/HiNiTrodHb341ROtDKEQB4TK5qE077C+sr6m2ZRGq1A
-	 YhT5vOmSLIZn+aB2D2xVS3UmQD+O73OuHKWdb/9Q6SJtudR7Vr4EWHcVJIUSGq4wWb
-	 EwguAAzu7/EG5DnE1SXHjXkeQUDSQ1mouWrUTfOdgFhzkd3ZU0wbFF/c3Yr6mjzm+T
-	 iHVYaDYddqfXs43IVkcTAt+29bmm0zSxlyvXzfaYtnXgwc/VcrMwi/snt2mFoFeFgS
-	 xEBfPHquaOhWw==
+	b=or6y3CySlL1bdxzm9++3Y5GlWLcEPN0LrDGjXv4IhxYT8SwPi7kInte+CrlQcFfkp
+	 1XQmoKBf113PXHQChs2avy8UGIIquFVuSvMCoCSNMtA9/3wH0G1HosQnaeUEIWka2B
+	 wWhLR1WkDA4HzYixhD6H1F5tbulUxFG0FnA5+hj8l5IA14GNeQQ0O/Dk84ZVAgSj+v
+	 HbNF4/Hpt5pQyZeE6+47+X/P7J02CVGZbdLDaKVKYgjpAgC0Jr6q5hx+PjdmH8SQ8K
+	 ZwTjgJT8b9Hr2cJYcHzxNGopiariE1M/El0VM6I8g6qSqO3peUD5vDy8v1Fyu9cVcC
+	 cthdt2i/NUkkg==
 From: sashiko-bot@kernel.org
-Subject: Re: [PATCH RFC POC 06/50] arm64: commit fds on syscall exit
-To: "Linus Torvalds" <torvalds@linux-foundation.org>, "Christian Brauner" <brauner@kernel.org>
-Cc: "David Airlie" <airlied@redhat.com>, linux-parisc@vger.kernel.org, virtualization@lists.linux.dev, linux-mips@vger.kernel.org, "Oleg
- Nesterov" <oleg@redhat.com>, dri-devel@lists.freedesktop.org, "Jens Axboe" <axboe@kernel.dk>, linux-um@lists.infradead.org,
- =?utf-8?b?Q2hyaXN0aWFuIEJyYXVuZXIgKEFtdXRhYmxlKQ==?= <brauner@kernel.org>, "Eugenio
- Perez" <eperezma@redhat.com>, linux-kernel@vger.kernel.org, linux-hyperv@vger.kernel.org, "Alexander
- Viro" <viro@zeniv.linux.org.uk>, linux-fsdevel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, sparclinux@vger.kernel.org, linux-csky@vger.kernel.org, linux-sh@vger.kernel.org, "Peter
- Zijlstra" <peterz@infradead.org>, linux-snps-arc@lists.infradead.org, kexec@lists.infradead.org, "Ingo
- Molnar" <mingo@redhat.com>, io-uring@vger.kernel.org, kvm@vger.kernel.org, linux-hexagon@vger.kernel.org, bpf@vger.kernel.org, "Michael
- S. Tsirkin" <mst@redhat.com>, linuxppc-dev@lists.ozlabs.org, linux-m68k@lists.linux-m68k.org, linux-alpha@vger.kernel.org, linux-mm@kvack.org, linux-gpio@vger.kernel.org, linux-arm-msm@vger.kernel.org, linux-openrisc@vger.kernel.org, "Jann
- Horn" <jannh@google.com>, "Jan Kara" <jack@suse.cz>
-In-Reply-To: <20260915-work-fd-reserve-unify-folded-v1-6-4d5217d6b246@kernel.org>
+Subject: Re: [PATCH RFC POC 04/50] ARC: commit fds on syscall exit
+To: "Christian Brauner" <brauner@kernel.org>, "Linus Torvalds" <torvalds@linux-foundation.org>
+Cc: linux-hexagon@vger.kernel.org, linux-snps-arc@lists.infradead.org, linux-arm-msm@vger.kernel.org, "Michael
+ S. Tsirkin" <mst@redhat.com>, "Jann Horn" <jannh@google.com>, "Oleg
+ Nesterov" <oleg@redhat.com>, sparclinux@vger.kernel.org, linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, linux-sh@vger.kernel.org, virtualization@lists.linux.dev, "Peter
+ Zijlstra" <peterz@infradead.org>, linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org, linux-openrisc@vger.kernel.org, kvm@vger.kernel.org, linux-csky@vger.kernel.org, "Jens
+ Axboe" <axboe@kernel.dk>, linux-gpio@vger.kernel.org, bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-hyperv@vger.kernel.org, linux-um@lists.infradead.org, "Jan
+ Kara" <jack@suse.cz>, linux-alpha@vger.kernel.org, "Eugenio Perez" <eperezma@redhat.com>,
+ =?utf-8?b?Q2hyaXN0aWFuIEJyYXVuZXIgKEFtdXRhYmxlKQ==?= <brauner@kernel.org>, dri-devel@lists.freedesktop.org, "David
+ Airlie" <airlied@redhat.com>, linuxppc-dev@lists.ozlabs.org, kexec@lists.infradead.org, io-uring@vger.kernel.org, "Alexander
+ Viro" <viro@zeniv.linux.org.uk>, "Ingo Molnar" <mingo@redhat.com>
+In-Reply-To: <20260915-work-fd-reserve-unify-folded-v1-4-4d5217d6b246@kernel.org>
 References: <20260915-work-fd-reserve-unify-folded-v1-0-4d5217d6b246@kernel.org>
- <20260915-work-fd-reserve-unify-folded-v1-6-4d5217d6b246@kernel.org>
+ <20260915-work-fd-reserve-unify-folded-v1-4-4d5217d6b246@kernel.org>
 Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
-Date: Tue, 15 Sep 2026 11:48:10 +0000
-Message-Id: <20260915114810.973821F000FF@smtp.kernel.org>
+Date: Tue, 15 Sep 2026 11:48:22 +0000
+Message-Id: <20260915114822.DCB181F000FF@smtp.kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,11 +75,10 @@ Reply-To: sashiko-reviews@lists.linux.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Add TIF_FD_SLOTS to the syscall work bits. el0_svc_common() rereads
-> the flags after the system call and takes the trace exit for any of
-> them. So a task that reserved descriptors ends up in
-> syscall_trace_exit() which commits them before audit and the ptrace exit
-> stop.
+> Add TIF_FD_SLOTS and test it on the untraced return from a system
+> call. A task that reserved descriptors takes the tracesys_exit path,
+> where syscall_trace_exit() commits them before the ptrace exit stop.
+> The traced path already ends up there.
 >=20
 > Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
 
@@ -87,6 +86,6 @@ Sashiko has reviewed this patch and found no issues. It looks great!
 
 --=20
 Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20260915-work-fd-re=
-serve-unify-folded-v1-0-4d5217d6b246@kernel.org?part=3D6
+serve-unify-folded-v1-0-4d5217d6b246@kernel.org?part=3D4
 
 
