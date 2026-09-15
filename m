@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5327BC982C1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53239C88E77
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 22:26:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,56 +12,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RzbNWZ8TFIHeY8QtO5t5YQsgg2SPGjQY6QoCB/NWVow=; b=ey2lpO/takfTpKn6v0fvXHknJN
-	M6jKRXvohVQvgFxgxukWtV+U5POsQUlVMt/w48oGG4bpvuBhyuH0ywX34LDFnuKQ+yS5oNQO0tQiM
-	nEHIpA5AJXnPUVsIQJNXE+Z124wyHO01kCeDL2hJuJQKE54p6XSCpKnRgXWvF9c5m5FDeAZejVQAf
-	E3LfNvlPh0d21CYP0J0yKvfBZYYXnrERRz7jM84Oihmq607wijK0yVHntcvFfTcBvFVMtYsInBiVU
-	a5pmcColpU1VXE/RXJkRDSX45z2Oc7599t/Y65euJ0RuxEbcRjeYPn9QuyzE0MLCMr3toDQGeHgfL
-	a61cEnQw==;
+	bh=+w/qcLrX2rTuwmLcVOn6au3NRLwXERMUbyiNARdv0Dg=; b=CaHsUkZEBxVRtTfNyqySNp94wm
+	bu5BcZh6vzUq/UF+jlVk1BfyGvBpQ4Rys4Sk/J/qXqXzy9NYj1lNad9zA7UKzsL3jhaIif/vJs7pV
+	GIVIJ6qaX9Sg11lP7QraITdWTfJC5mX7Ez3UE0H/pFeSNJZ0ki9Gj3b4KR1uvYCeDTA+utTD9cnoe
+	tr2EeatQBjSa0rrOvLpblMv7LgFEJhhNH4JqtR81jDtfAwIEmhePWYJCGIX1kLxxqO26QUwj6hbFr
+	7jj3p/8EISpvFbyjHpnECFbZVpP8PXzzpfmQ07RdUnRyUcOwKhLloNEn5zj8zolGadrFOrRvpL/Z8
+	YCWjo58w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6bbV-000000080My-3ntH;
-	Tue, 15 Sep 2026 22:26:17 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x6bbW-000000080Ok-2TWb;
+	Tue, 15 Sep 2026 22:26:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6bb0-000000080J3-3iNv
+	id 1x6bb2-000000080Jn-3S1v
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 22:25:46 +0000
+	Tue, 15 Sep 2026 22:25:48 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A479541670;
-	Tue, 15 Sep 2026 22:25:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5ABC91F00893;
-	Tue, 15 Sep 2026 22:25:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E7E37602D1;
+	Tue, 15 Sep 2026 22:25:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 655511F008A1;
+	Tue, 15 Sep 2026 22:25:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789511146;
-	bh=RzbNWZ8TFIHeY8QtO5t5YQsgg2SPGjQY6QoCB/NWVow=;
+	s=k20260515; t=1789511147;
+	bh=+w/qcLrX2rTuwmLcVOn6au3NRLwXERMUbyiNARdv0Dg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=JfA4ZVLW8tvxWuCKYaVYsUau/0DpqInwAIrAq4bElIHA6tnZFTT1Ae4ogsIepzgdt
-	 7OQQIUslTABAz+o6gDciJrZJabDdjoeUYfrijg8BbOlPzMO4wHzaGl7dlVDxWjJDuZ
-	 rxjzRaXOb6UXmTSK7G89MrlvxdfVn6fQfhY7RxLXjfVKJXr7R/0s65kIhkdkRtHDHC
-	 l3JXCKJY1B16OVHMb/tIDLSe10Cq43+V5j9JXxGtPmQla4x3jwK3iQOTiILKos7CWh
-	 rYAMub7uxIREDt2UglcSc7J35RCgDUM0VI2oDEghFnzjF+MP5lSjVRH1dXt5Mo7c/G
-	 /XV+mTBfwoQbA==
+	b=JTbZMRmBrSnpUtOvIGLKkvcMuM0cdSivcl60DxSsSfRu/1YmKDiIVi/sz9KpzC5LM
+	 PzbYPlOlnxkk63Ar/caJgqbq6GCbOuR/7kmayLo070MWg3daAQx2sAw2UUkZfLUuTW
+	 GB8aV8eQNugWJjfaf4jEcCzUHnXVENtalMkLv/k0szhC/M84buizlzI6G0958+s/se
+	 yeb0xhiFJW/zxLgl3qk1Ff7QJmu4P6Uin9rw2l+fpkJJgTDtrQ2kT5BvYZDG4VzlUI
+	 r3Cv69JJDiBxAvKmVBX/f8oXRRwZYQyjHLSOr81vh4Iwti5/TCdATao+kzdkoa6hJL
+	 sM5b3x1Wt9uuw==
 From: Oliver Upton <oupton@kernel.org>
 To: Marc Zyngier <maz@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Oliver Upton <oupton@kernel.org>,
 	Joey Gouly <joey.gouly@arm.com>,
 	Steffen Eiden <seiden@linux.ibm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	"Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Wei-Lin Chang <weilin.chang@arm.com>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>,
 	linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: Don't WARN on an unknown VM ioctl in protected mode
-Date: Tue, 15 Sep 2026 15:25:35 -0700
-Message-ID: <178951103692.10790.7627884400333495166.b4-ty@kernel.org>
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v3 0/2] KVM: arm64: Fix spurious warn, null ptr deref on S2 teardown race
+Date: Tue, 15 Sep 2026 15:25:38 -0700
+Message-ID: <178951103702.10790.13969077149562964690.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260914093838.1082637-1-fuad.tabba@linux.dev>
-References: <20260914093838.1082637-1-fuad.tabba@linux.dev>
+In-Reply-To: <20260901-kvm-arm-nested-virt-fix-v3-0-b154676f7e4c@kernel.org>
+References: <20260901-kvm-arm-nested-virt-fix-v3-0-b154676f7e4c@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -79,21 +83,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 14 Sep 2026 10:38:38 +0100, Fuad Tabba wrote:
-> kvm_pkvm_ioctl_allowed() WARNs when kvm_get_cap_for_kvm_ioctl() doesn't
-> find the ioctl number in vm_ioctl_caps[], and kvm_arch_vm_ioctl() calls
-> it for every number the generic code doesn't handle, so
-> ioctl(vm_fd, 0xdeadbeef) from userspace taints a pKVM host and panics it
-> under panic_on_warn. The lookup is fed userspace input: return false,
-> and userspace gets the -EINVAL kvm_arch_vm_ioctl() returns for that
-> number on a host without pKVM.
+On Tue, 01 Sep 2026 18:28:58 +0100, Lorenzo Stoakes (ARM) wrote:
+> When GFNs are invalidated in L0 an MMU notifier triggers
+> kvm_unmap_gfn_range() which tears down all of the stage 2 shadow page
+> tables for nested guests via kvm_nested_s2_unmap().
+> 
+> To avoid lockup, the kvm->mmu_lock is dropped while doing this and the task
+> rescheduled once for each block of physical address space (32 MiB for 16
+> KiB page size), with the lock being reacquired once the task is scheduled
+> again.
 > 
 > [...]
 
 Applied to fixes, thanks!
 
-[1/1] KVM: arm64: Don't WARN on an unknown VM ioctl in protected mode
-      https://git.kernel.org/kvmarm/kvmarm/c/49d9d295d69d
+[1/2] KVM: arm64: Fix spurious warning for benign stage 2 teardown race
+      https://git.kernel.org/kvmarm/kvmarm/c/38b70fc453c3
+[2/2] KVM: arm64: nv: Fix null ptr deref on nested wp/unmap, teardown race
+      https://git.kernel.org/kvmarm/kvmarm/c/4c74e233cded
 
 --
 Best,
