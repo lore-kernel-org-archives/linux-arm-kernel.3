@@ -4,60 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18C59C88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 10:15:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE2C9C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 10:15:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VmS0KOQurOkPmzkCa2dgz5OgvzjQL832tBLE9a7yqn4=; b=Co5tiog7KNq9w+zsswAwsoaSab
-	RPozNhImMOhjGpc+Hun1r8MdR+jk32YvJy7n7DVZtqXFHYSuzkaXp0PZAp9cKdARGe92HGUU1C1tw
-	KFsmvDJkmYG407dn6deMeeS8WIq8DjSPaNxkgh4zhbzpqIaZcFQtMfxFVqdOpgokMtQszB/FK2rmo
-	5Io6FZVBbyDgsE6pUI4vtIMrKElWwg/2PeD4z40EbA05qG8/r1fr6Svq677/eb3+FR+QXXFV7aVyC
-	ORE82ZKWfAgF4PDS8MD46rj9gvqIDt4vKZgCog/EXY76VKXBmPX0P2Sg7kOmhhoqMYujFXk0E/h9s
-	Qrm4HAlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vtLgoain9KAZ+dGhGRqocRYpnT00Ci9nPy8Q7gsX9Tw=; b=OeSF4wW3kjIjE0wDxYvyBNleSW
+	Gliel42DRjr8DEUHe705FL7CZBFJvhc/KXWR2SzlSGcbcpRIPtFKptf5Af6R0yUxNfugPKZckSFiN
+	Ow5wBctH1O7XZMyfls++DY0+ZpRph+6kJaY1FD/KOE8klwUBEtubvdyC+/GPyTYLdwtAU7ZfshFHQ
+	Sp4BsS40ZZhQwdi7KJdmQEUu2wygeW4iIAOD37EXp6F6e3U2c1MlPYhDNEPejcZt90WV/mi1QiJFv
+	p1BVIxjI/eyWudCV5A58zkquKlXSCki/qjkZl035jd+ZqXJ+K6IzmNc9rMVaQIgusmeDv4VHMX4/F
+	k2/sZR0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6QC2-00000005sn3-1vvj;
-	Tue, 15 Sep 2026 10:15:14 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6QBz-00000005smb-06Za
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 10:15:12 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8652E1570;
-	Tue, 15 Sep 2026 03:15:04 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 177D03F7B4;
-	Tue, 15 Sep 2026 03:15:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789467308; bh=tJvZkCCnnoXmiMi/FLg7xcPqRsF6Tlxz6fq1THgmJjM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AqlZnbgnqOuvow56NX902rF5GXO4HSTsx+Y6Evco7JvZ81KJeoA8XNNj6xXQCchRl
-	 BZ2fBR3ZYATFczlt8dEHv8JCXWzN9o/56Eh8uMS5k2GVEbJ9euEiL9VkcvWn9WWnA/
-	 ksBb/47YBpxB+xgl4484pLOCg8rFcdlQ4m50f0Ow=
-Date: Tue, 15 Sep 2026 11:15:01 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Breno Leitao <leitao@debian.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kernel-team@meta.com
-Subject: Re: [PATCH] arm64/sve: Don't zero the SVE state buffer when the SVE
- state is live
-Message-ID: <aqkapYE-xtS91laq@J2N7QTR9R3>
-References: <20260914-b4-arm64-sve-acc-memset-v1-1-67866e442393@debian.org>
- <aqkEPCrWXxaU-mNs@J2N7QTR9R3>
- <aqkUU-kSTOz8NntH@gmail.com>
+	id 1x6Q7j-00000005rex-0wDC;
+	Tue, 15 Sep 2026 10:10:47 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x6Q7R-00000005rLY-3ztc;
+	Tue, 15 Sep 2026 10:10:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1789467026;
+	bh=QL+UHbz6ocxj2GQ6KJGSIdIbj7NFCI3MZwL5GnuuHpg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=WFIKAhPnOsHFLpzvCY+NrDgDA/svkjIC0EMr4vEmv/LJxySNgjlxic46k4Ikm1Veu
+	 SuBjZdMDM3aC3ltooN60qg1McN9nbZ80f3n/EiSktyjDVRfs9ElUwDPmavve8uU4MF
+	 WiEtR1ShdkGZIvHALq8vGl9wtmP5F+oSfnxpTMnn1jTkhgilqfeBGGIbkmRgUM/cyv
+	 B8Gg8HzEvyE+MHnMG11TefMkj+p6yvJqEt+OqKL5+kyqHVzaYYzFZ1cEvUB0bP5arE
+	 GWrvQkNr4GwElM2IHFXJ9KBxWHM45P/F/O9g6/dChLTKwNxNUKtircXy8JeMR8za3C
+	 LIjMmyTnxrnBQ==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4733917E091A;
+	Tue, 15 Sep 2026 12:10:26 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: chunfeng.yun@mediatek.com
+Cc: vkoul@kernel.org,
+	neil.armstrong@linaro.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	kernel@collabora.com,
+	Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH v4 1/2] dt-bindings: phy: Document MT8196 MediaTek PCI-Express Gen4 S-PHY
+Date: Tue, 15 Sep 2026 12:10:21 +0200
+Message-ID: <20260915101022.23852-2-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260915101022.23852-1-angelogioacchino.delregno@collabora.com>
+References: <20260915101022.23852-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aqkUU-kSTOz8NntH@gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_031511_165020_ACB6292E 
-X-CRM114-Status: GOOD (  28.47  )
+X-CRM114-CacheID: sfid-20260915_031030_152241_C74F0E58 
+X-CRM114-Status: GOOD (  12.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,82 +85,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 15, 2026 at 02:50:27AM -0700, Breno Leitao wrote:
-> Hello Mark,
-> 
-> On Tue, Sep 15, 2026 at 09:39:24AM +0100, Mark Rutland wrote:
-> > Hi Breno,
-> > 
-> > I think the change looks reasonable, but the commit message and comments
-> > aren't quite right. More on that below.
-> 
-> Thank you very much for your review. I know this is not a trivial one
-> (at least from my PoV), I am glad you quickly reviewed it.
-> 
-> I've also dropped few other lines, but kept the benchmark values I've
-> collected. Does this look better now?
+This adds bindings for the PCI-Express Gen4 S-PHY found in newer
+MediaTek SoCs, such as MT8196 and its variants.
 
-Yep, that looks good to me, with one minor nit below.
+In the current "revision 3", depending on the specific port, this
+S-PHY supports up to two lanes of PCI-Express Gen 4 and both EP
+and RC modes.
+It is not clear whether revisions/versions earlier than 3 have
+ever been shipped in any other MediaTek SoC.
 
-With that fixed up, this all looks good. I assume you'll send a v2.
+Acked-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ .../phy/mediatek,mt8196-pcie-sphy.yaml        | 93 +++++++++++++++++++
+ 1 file changed, 93 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/phy/mediatek,mt8196-pcie-sphy.yaml
 
-> Author: Breno Leitao <leitao@debian.org>
-> Date:   Fri Sep 11 02:57:34 2026 -0700
-> 
->     arm64/sve: Don't zero the SVE state buffer when the SVE state is live
-> 
->     Currently do_sve_acc() always zeroes current->thread.sve_state. This is
->     not necessary in the common case, and avoiding the zeroing has a
->     measurable impact on some benchmarks.
-> 
->     In the common case where the task is not preempted and its state is not
->     altered by a tracer, do_sve_acc() will observe that TIF_FOREIGN_FPSTATE
->     is clear. In such cases, only the live register values matter, and the
->     in-memory copy is stale regardless of whether it is saved in
->     FP_STATE_FPSIMD format or FP_STATE_SVE format.
-> 
->     This is worth doing because the SVE state is discarded on syscall entry,
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+diff --git a/Documentation/devicetree/bindings/phy/mediatek,mt8196-pcie-sphy.yaml b/Documentation/devicetree/bindings/phy/mediatek,mt8196-pcie-sphy.yaml
+new file mode 100644
+index 000000000000..3fd1bfbc3822
+--- /dev/null
++++ b/Documentation/devicetree/bindings/phy/mediatek,mt8196-pcie-sphy.yaml
+@@ -0,0 +1,93 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/phy/mediatek,mt8196-pcie-sphy.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: MediaTek PCI-Express Gen4 S-PHY
++
++maintainers:
++  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
++
++description:
++  The MediaTek PCI-Express Gen4 S-PHY is capable of data serialization
++  and de-serialization with 8, 10, 128 or 130 bits (16GT/s) encoding
++  and decoding, has analog buffers, elastic buffers and mechanisms for
++  receiver detection.
++  This PHY supports link rates of 2.5, 5.0, 8.0 and 16.0 GT/s per-lane
++  in both Root Complex (RC) and End Point (EP) modes, depending on the
++  chosen port.
++  The Digital PHY (PHYD) part adheres to the Intel PIPE (PHY Interface
++  for the PCIe) specification.
++
++properties:
++  compatible:
++    const: mediatek,mt8196-pcie-sphy
++
++  reg:
++    items:
++      - description: System Interface (SIF) registers
++      - description: Clock Management (CKM) registers
++
++  reg-names:
++    items:
++      - const: sif
++      - const: ckm
++
++  "#phy-cells":
++    const: 0
++
++  nvmem-cells:
++    items:
++      - description: Internal resistor selection of TX Bias Current
++      - description: XTP Bias V2V voltage calibration
++      - description: S-PLL CKTX Impedance Selection (P-MOSFET side)
++      - description: S-PLL CKTX Impedance Selection (N-MOSFET side)
++      - description: S-PLL CKTX Intermediate Transition Impedance
++      - description: RX Front-End Return Loss Continuous Time Linear EQ
++      - description: RX Front-End Return Loss Variable Gain Amplifier
++      - description: RX Front-End Return Loss Decision Feedback EQ
++      - description: RX Impedance Selection
++      - description: TX Impedance Selection (P-MOSFET side)
++      - description: TX Impedance Selection (N-MOSFET side)
++      - description: TX Lane 0 Switch Resistance (RSWn)
++      - description: TX Lane 1 Switch Resistance (RSWn)
++      - description: eFuse calibration table version
++
++  nvmem-cell-names:
++    items:
++      - const: int-r
++      - const: xtp-vtrim
++      - const: cktx-pmos
++      - const: cktx-nmos
++      - const: cktx-r-mid
++      - const: rxfe-lanes-rl-ctle
++      - const: rxfe-lanes-rl-vga
++      - const: rxfe-lanes-rl-dfe
++      - const: rx-lanes-imp
++      - const: tx-lanes-pmos
++      - const: tx-lanes-nmos
++      - const: tx-ln0-rswn
++      - const: tx-ln1-rswn
++      - const: cal-version
++
++  power-domains:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++  - reg-names
++  - "#phy-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    phy@16900000 {
++        compatible = "mediatek,mt8196-pcie-sphy";
++        reg = <0x16900000 0x10000>, <0x16920000 0x10000>;
++        reg-names = "sif", "ckm";
++        power-domains = <&spm 10>;
++        #phy-cells = <0>;
++    };
+-- 
+2.55.0
 
-That should say something like "It is worth skipping the zeroing
-because". We deleted the line saying that skipping the zeroing was safe,
-and so it's not clear what "this" is referring to.
-
-Mark.
-
->     so userspace that mixes SVE and syscalls re-traps constantly. A fleet
->     profile of arm64 hosts running services whose memset() is SVE shows the
->     memset under do_sve_acc() accounting for 29% of the trap handling cost.
-> 
->     Measured on a 72-core Neoverse V2 (SVE VL 128, sve_state_size 546,
->     performance governor) with perf bench sched pipe pinned to one CPU, and
->     SVE operation on write, so that each loop also takes an SVE access trap.
-> 
->             * -0.99% kernel instructions
->             * -1.38% kernel cycles
->             * -1.12% wall clock
-> 
->     Signed-off-by: Breno Leitao <leitao@debian.org>
-> 
-> diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-> index e7f1682a3059b..324c9799b0511 100644
-> --- a/arch/arm64/kernel/fpsimd.c
-> +++ b/arch/arm64/kernel/fpsimd.c
-> @@ -1316,7 +1316,7 @@ void do_sve_acc(unsigned long esr, struct pt_regs *regs)
->                 return;
->         }
-> 
-> -       sve_alloc(current, true);
-> +       sve_alloc(current, false);
->         if (!current->thread.sve_state) {
->                 force_sig(SIGKILL);
->                 return;
-> @@ -1341,6 +1341,7 @@ void do_sve_acc(unsigned long esr, struct pt_regs *regs)
->                 sve_flush_live();
->                 fpsimd_bind_task_to_cpu();
->         } else {
-> +               memset(current->thread.sve_state, 0, sve_state_size(current));
->                 fpsimd_to_sve(current);
->                 current->thread.fp_type = FP_STATE_SVE;
->                 fpsimd_flush_task_state(current);
 
