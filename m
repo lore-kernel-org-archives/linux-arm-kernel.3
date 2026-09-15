@@ -4,93 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E37C2C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 14:53:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C90CC88E7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 14:57:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JU7owrervcTsvXw49FWoN2lJZcMvVapFY+ESipxN67E=; b=K94M1eGMta3BOj5m0lcIa1PvtV
-	ku+og15ADBB7ntJwnT9xp5NvlGLGb/Cuje84mGCtfYoeKepUqDf4oGFnEIo88eUgH0XmFC383Nzpr
-	Jlr1Ks3riz7vqaTF2w4meK52ZAgyVpUIc400F7WckVPQVQXzPLv/4IVW5mbK6kFgNYX5rngPFgUrI
-	hT00Zugg+6VezoAydazmGtODJ8wGID9cgAK4o/A5+8bwVnPCn4upIXPDtkYHXIa4rcqf89Wz2ZF7u
-	dzQomQNIAUllYfMOSvzu8Aze9p3z6YHMhL3VYW3ogIWEswd1f3fWYiiHIhNUVKf9GTxHDmsvIhGSj
-	wy6z8QIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=254R1arFeoToj39V4xt3wD6Cd/e86zUvnv4vHFoNiO8=; b=jTg8MiKf360VsvMOFhs2DxAnpt
+	XJKMvTIs1YFSRb/juA5rwOs4uzNKHlZSPTLZPHnj+RX1HIZIkgHYG2k0QKDjeo59JD8ArZjaILr9t
+	NWidw8HzD7UCh4+gisz3YgK2tNcnbqTUFwFe7DKD6MiJnSpZZL9qhH5XEk65NxFLTfoTIoWPNqsRN
+	7xnY0+HcyJXmdfPGQx1O5lmnrpMK93LGvXwwPniQ2egsTS6uFKwjdlYU0hceXFRIPOt2oO4Cdln7J
+	Sy31WCXc73SXCMaxvOs9QfySjrFxsB7eF9Vc/uiHQDTSnlb7+OAJGyQDTbUIBCIo5guy2MYXMwOBb
+	Mg58fYHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6UXS-000000071og-401Q;
-	Tue, 15 Sep 2026 14:53:38 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1x6Ub9-000000072cx-1zUO;
+	Tue, 15 Sep 2026 14:57:27 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6UXP-000000071ne-249z
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 14:53:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789484016; x=1821020016;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=PeCPQwsh+qKGrcT3bTdkFKnhdBA1fVZf3KBFD/Bg9AY=;
-  b=BzyyxjbW1GlCdIjtihCbGq60IYfRGj/ty1OKrVJs6O1YEC95qY0r3h05
-   HPEDxMgixI5ry8FpiylYsPjXvGaXf0E0owZRZE9EYxdriuTeFCpoogYPh
-   +/uF7kepXHNvfPDJ271yfZ2inS/wU/7NLimMlrZRxGbCnfs3O+PHy3a9K
-   K8zSE+kkIeZuRjq2Xi4bsEERFpzZAbDLRiupIr7KYrRO2xCsAXEjU+3HR
-   xScA2VYzMKsbc7gD2RFzITygRsKhRhzt7cQHNjbDGCnwGKw7VTg2fNQxe
-   oHwVnZGF9slapa/px918nrHazUIljrqmo1FUZ46858YJmV7IegDfP/dFk
-   A==;
-X-CSE-ConnectionGUID: nnjP9oC2Sb6eL67vh00oRw==
-X-CSE-MsgGUID: EjQ0dHVaRImG5thmXb8Zmg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="112619426"
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="112619426"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Sep 2026 07:53:34 -0700
-X-CSE-ConnectionGUID: pD+gpyMUTpWXizQXOXxYtA==
-X-CSE-MsgGUID: MNUHoTn5StWYHXkAWDsF7Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="277156120"
-Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.57])
-  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Sep 2026 07:53:29 -0700
-Date: Tue, 15 Sep 2026 17:53:26 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
-	linux-sound@vger.kernel.org, linux-spi@vger.kernel.org,
-	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
-	=?iso-8859-1?Q?Am=E9lie?= Delaunay <amelie.delaunay@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Andy Shevchenko <andy@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>, Mark Brown <broonie@kernel.org>
-Subject: Re: [PATCH v4 01/10] dmaengine: Move enum dma_slave_buswidth to a
- new header
-Message-ID: <aqlb5iZQ07Xicq0m@ashevche-desk.local>
-References: <20260911-dmaengine-support-wider-dma-masks-v4-0-72b8fd4cc78e@analog.com>
- <20260911-dmaengine-support-wider-dma-masks-v4-1-72b8fd4cc78e@analog.com>
- <aqgCQvRw9fns__0d@SMW015318>
- <aqjzvxI4ecoFvRLT@ashevche-desk.local>
- <aqlYOHIFU_dB72I3@SMW015318>
+	id 1x6Ub3-000000072ac-32Ur;
+	Tue, 15 Sep 2026 14:57:25 +0000
+Date: Tue, 15 Sep 2026 16:57:18 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1789484239;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=254R1arFeoToj39V4xt3wD6Cd/e86zUvnv4vHFoNiO8=;
+	b=CMxRiALKRyq1V0anX/6ckGE1/BYVlY9fL1HrNqPxF+rhX83P1p/qFKV4bWiUlU9UTMePxr
+	HzlLa9dzLTZcH25PTP5dqzuDisqVgjoTO/HivOoWmBbN/i+78iVHckmaa3Zg/MNXIrYKxM
+	TDTopVi1FbxNwr7k3Z1/KmX/58vPQC5SLzDhW1V3Q53a5Z176YzBvHkmZE9oH5tuM8RoPu
+	2re8k0NPE8tC3mOO/wVwfwx+0RcS2aX0OkNunxeVH9EIp/kAb/ZHlU/I1GyqZh3NmysbTg
+	vsw0bDc6EkpveHAS/raUcFqg6Ww2kHMnqGKir0+stdZKgWh/NNrgm4lCqPNSaw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1789484239;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=254R1arFeoToj39V4xt3wD6Cd/e86zUvnv4vHFoNiO8=;
+	b=HWvLdMTcF+Vhh5bpLeoxnfSNe/H03Ev2y7ULP+pZoyAwB/q2HdfOaRc3o3cfsSOIIJg3e4
+	RkAgiAkQLZ7EddAg==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Cc: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Johan Hovold <johan@kernel.org>,
+	Guangshuo Li <lgs201920130244@gmail.com>
+Subject: [BUG] mtk-mdp3: Crash during probe in mtk-mdp3
+Message-ID: <20260915145718.5D7Dsuwc@linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aqlYOHIFU_dB72I3@SMW015318>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_075335_597101_0E95D863 
-X-CRM114-Status: GOOD (  31.81  )
+X-CRM114-CacheID: sfid-20260915_075721_909798_E86261CB 
+X-CRM114-Status: UNSURE (   6.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,59 +78,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 15, 2026 at 09:37:44AM -0500, Frank Li wrote:
-> On Tue, Sep 15, 2026 at 10:29:03AM +0300, Andy Shevchenko wrote:
-> > On Mon, Sep 14, 2026 at 09:18:42AM -0500, Frank Li wrote:
-> > > On Fri, Sep 11, 2026 at 06:25:36PM +0100, Nuno Sá wrote:
-> > > > In preparation for the bitmap based bus width capabilities, move
-> > > > enum dma_slave_buswidth out of linux/dmaengine.h into a new
-> > > > include/linux/dma/engine/types.h.
-> > > >
-> > > > linux/dmaengine.h is included nearly everywhere, so growing it with the
-> > > > new interface would make every one of its users pay for it. Keeping the
-> > > > basic types in a separate header lets the new interface live next to it
-> > > > without that cost. linux/dmaengine.h includes the new header, so its
-> > > > users are unaffected.
-> > > >
-> > > > While at it, add the missing kernel-doc for the enum members. The block
-> > > > already opened with /**, so kernel-doc expected every member to be
-> > > > described and warned about each one of them. Describe the UNDEFINED case
-> > > > in particular, as its meaning depends on where the value is used.
+Hi,
 
-...
+On next-20260914 I saw:
 
-> > > >  include/linux/dmaengine.h        | 20 +++-----------------
-> > >
-> > > I think it is good to split dmengine consumer and provider header files to
-> > > hidden dmaengine's detail.
-> >
-> > It's indeed desirable change. but isn't it a bit out of scope of the series?
-> > I suggest to do one step at a time. Would it work for you?
-> 
-> Yes, but I hope the file name is finial expected file name. it is okay
-> just move enum dma_slave_buswidth to there now.
+| mtk-mdp3 14001000.dma-controller: deferred probe timeout, ignoring depend=
+ency
+| Unable to handle kernel NULL pointer dereference at virtual address 00000=
+00000000019
+| Mem abort info:
+|   ESR =3D 0x0000000096000004
+|   EC =3D 0x25: DABT (current EL), IL =3D 32 bits
+|   SET =3D 0, FnV =3D 0
+|   EA =3D 0, S1PTW =3D 0
+|   FSC =3D 0x04: level 0 translation fault
+| Data abort info:
+|   ISV =3D 0, ISS =3D 0x00000004, ISS2 =3D 0x00000000
+|   CM =3D 0, WnR =3D 0, TnD =3D 0, TagAccess =3D 0
+|   GCS =3D 0, Overlay =3D 0, DirtyBit =3D 0
+| user pgtable: 4k pages, 48-bit VAs, pgdp=3D0000000110d36000
+| [0000000000000019] pgd=3D0000000000000000, p4d=3D0000000000000000
+| Internal error: Oops: 0000000096000004 [#1]  SMP
+| dwmac-mediatek 11021000.ethernet end0: renamed from eth0
+| Modules linked in: mtk_vcodec_dec_hw =E2=80=A6
+| CPU: 6 UID: 0 PID: 90 Comm: kworker/u32:1 Tainted: G        W           7=
+=2E3.0-rc3-next-20260914 #1 PREEMPT_{RT,(full)}
+| Tainted: [W]=3DWARN
+| Hardware name: MediaTek Genio 1200 EVK-P1V2-EMMC (DT)
+| Workqueue: events_unbound deferred_probe_work_func
+| pstate: 60400009 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=3D--)
+| pc : mtk_mutex_get+0xc/0x44 [mtk_mutex]
+| lr : mdp_probe+0x150/0x438 [mtk_mdp3]
+| sp : ffff8000837ebb30
+| x29: ffff8000837ebb30 x28: 0000000000000000 x27: 0000000000000000
+| x26: 000000000000000c x25: 000000000000000d x24: ffff0000c0de3410
+| x23: 0000000000000000 x22: ffff0000c0de3400 x21: 0000000000000000
+| x20: ffff0000d1e56800 x19: ffff0000d1e56800 x18: ffff8000826bfd18
+| x17: 3030303030303431 x16: 3a6d726f6674616c x15: 0000000000000058
+| x14: ffffffffffffffff x13: 0000000000000028 x12: 0101010101010101
+| x11: 7f7f7f7f7f7f7f7f x10: fefeff776473746c x9 : 0000000000000008
+| x8 : ffff0000c0864500 x7 : 0000000000000000 x6 : 0000000000000020
+| x5 : 0000000000000020 x4 : 0000000000000040 x3 : 0000000000000000
+| x2 : ffff80007b37d040 x1 : 0000000000000000 x0 : 0000000000000019
+| Call trace:
+|  mtk_mutex_get+0xc/0x44 [mtk_mutex] (P)
+|  platform_probe+0x5c/0xa4
+|  really_probe+0xbc/0x2c0
+|  __driver_probe_device+0x11c/0x184
+|  driver_probe_device+0x3c/0x114
+|  __device_attach_driver+0xb8/0x11c
+|  bus_for_each_drv+0x88/0xe8
+|  __device_attach+0xa0/0x190
+|  device_initial_probe+0x50/0x54
+|  bus_probe_device+0x38/0xac
+|  deferred_probe_work_func+0x90/0xc8
+|  process_one_work+0x188/0x4f8
+|  worker_thread+0x18c/0x308
+|  kthread+0x130/0x140
+|  ret_from_fork+0x10/0x20
+| Code: ???????? f9403c03 52800001 91006460 (39400002)
+| ---[ end trace 0000000000000000 ]---
 
-Hmm... The whole split as is in this series is due to bitmap.h and the whole
-train wreck with headers we have. I haven't checked that particular enum, but
-if it's possible to gather it in one of provider.h/consumer.h at the end, then
-yes, we may name file accordingly from day 1.
+That report ist from
+	https://dashboard.kernelci.org/test/maestro%3A6aa88a0d20239ade9037b72f
+	https://files.kernelci.org/rt-tests-cyclictest-6aa88a0d20239ade9037b72f/lo=
+g.txt.gz
 
-> > > suggest name
-> > > 	dma/engine.h
-> > >
-> > > so we can start move more API to this files.
-> > >
-> > > after all user include this consumer header file,  old
-> > > include/linux/dmaengine.h rename to include/linux/dmaengine-provider.h,
-> > > which only include by dmaengine drivers.
-> >
-> > Traditional naming would be
-> > dma/engine/provider.h
-> > dma/engine/consumer.h
+This is also visible on 7.3.0-rc3:
+	https://files.kernelci.org/rt-tests-cyclictest-6aa84e3720239ade90364e29/lo=
+g.txt.gz
 
--- 
-With Best Regards,
-Andy Shevchenko
+Could someone please take a look, I don't have the hardware myself.
 
-
+Sebastian
 
