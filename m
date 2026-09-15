@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42E0AC88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 11:07:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DDE6C88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 11:07:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BNaQApNKWm4F8uykuZUpBWJCbcG6JZzznLtdN/m+AMM=; b=faokKjjioQWzED0U7Rd0lr/6e6
-	KOANlUlRzCZYBrY9ypxVcus6HRsCE39LTyoqeB+CV8Z82PwUmhawewVB2XwPB4XGwMTvg19jPmaI2
-	3wxOl5pn1E3WF8xxCuE1bik5ffk00UfOYCKcOKEgiOFvcQtfOVf/ZrKSluhwZC/k/wAUTY3b/sVpc
-	eGHVqzy7j1oA9hfWOG1rhnlHZlW32Yp212bcgQtZThJlpBsgsYEBJx7Z6gjWmcX9pZf3/LmQSQRnU
-	yhSuIgxu3h6XnRFCs8/O/trsH5F3DcTzVY/GXG8qz7MedGAdXU55F1xQTfM6nx0wlYCuVSM7FA52Y
-	zdQqb8Dw==;
+	bh=N8aUdlQdF/RsB8XDx2/sEkF1W5Y0p30LeoaSGgy4yCY=; b=cugv3NViNI51CGsl9TO3eJ2GKf
+	1c0n8XZ95mK4eVc8iq7IdQ/Fc4QLSJpy3Csi3aqDnFtiVdpWOqLVKNHDbqiCb6/g34YWK6Gm4PbnT
+	gvAEMuQ3doj3dPM36H5Z8GikAxFi631sAOCwpJ4C9ItcVLu6fozYn1RB8oXGC38fMs0eaFoohKSEK
+	nls9lebDaFd1XimD7vA3iHrSDinOhrBlj5bjh6iqr3LcUhrhO/tjllivxr7xD3QQe56E9hoLl356j
+	YzO/Gpni9ZiBzUf4REYpS/6qGkGcXjBytmwxP6l9eOslJKU0s6jOiDYxSdWoUN3cK4uduihS0EgOr
+	5JuSIjtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6R0r-0000000639c-0KYA;
-	Tue, 15 Sep 2026 11:07:45 +0000
+	id 1x6R0y-000000063BI-0iAx;
+	Tue, 15 Sep 2026 11:07:52 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6R0q-0000000639W-1Oos
+	id 1x6R0x-000000063Av-0p2T
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 11:07:44 +0000
+	Tue, 15 Sep 2026 11:07:51 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0311D4042E;
-	Tue, 15 Sep 2026 11:07:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8AC91F000FF;
-	Tue, 15 Sep 2026 11:07:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id ED4514042E;
+	Tue, 15 Sep 2026 11:07:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B75F1F000FF;
+	Tue, 15 Sep 2026 11:07:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789470463;
-	bh=BNaQApNKWm4F8uykuZUpBWJCbcG6JZzznLtdN/m+AMM=;
+	s=k20260515; t=1789470470;
+	bh=N8aUdlQdF/RsB8XDx2/sEkF1W5Y0p30LeoaSGgy4yCY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=AWIsl7tpJ0K5UzhW78B3LdxEP3sy2eVFP39wAoqevU/gV1Ge9qr70ynMJAzKa1DBf
-	 j0M9H54HZfP9eRaHUOJizMRuOVz810mddtMvL7cuRjhddcsN8sgAkRiiK0PL1CQYwS
-	 kGwmNb4lnaFpMNnh4raY3f3UdfRUHeAT4riLuHTJGkLSqvDPlFhZcnRcEaeEea5p4v
-	 ruZjjTi2+F/YzBXY1B4eWhya/GnkpQQ2CSD2j/M8ykB81Jaq/MSzIuhl1Wv8y8oHWG
-	 6XKMkVLTSiigXRvCN4vJXP2+Ns4KAWZ2KrrjiHVIGcyDP6vMc4a0BiNn0Fbm9Aeyk+
-	 ZaihZp3LqQqfQ==
-Message-ID: <ce7dc0c9-0764-4fb3-a7f5-a363514aebfb@kernel.org>
-Date: Tue, 15 Sep 2026 13:07:36 +0200
+	b=i7gX97sxv6OOaXTl2+IyAG8mjhGIuzFFTSQRiC9GSHfa/L3sooB7RFdZc3i30MMk5
+	 nzvIiIO0oSsmjRGEJk17oEKfg1xFv3j/MXZbOJFirbYJXP6t9MUivQfLlw5ynzIaZC
+	 DlRxdt9hOsu4GFyK/7W1qh3meItMkIqSrThfqGverAU7uQ8PFX1N/0bNyDIu9n3UOX
+	 FmA3QERQoZnbrQFbhtejk3RgJ+fdvnHpJuR4wl/t8iQx996jpp/TPq2f7obAHZqg9G
+	 dN/Zn66ouGDvWBVcrJ3XbcNC+3hdOvU1Rti5AkyJWZxL5VXmP8+2OEPjq/XNmCwY34
+	 1EmL8dRUT8J5w==
+Message-ID: <bd1dc289-6285-496a-be08-e00d3dbae0e2@kernel.org>
+Date: Tue, 15 Sep 2026 13:07:46 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] i2c: imx-lpi2c: release clocks on remove
+Subject: Re: [PATCH] iio: adc: at91-sama5d2: disable autosuspend on remove
 To: Guangshuo Li <lgs201920130244@gmail.com>,
- Dong Aisheng <aisheng.dong@nxp.com>, Andi Shyti <andi.shyti@kernel.org>,
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Wolfram Sang <wsa@kernel.org>,
- Fugang Duan <fugang.duan@nxp.com>, linux-i2c@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
+ Eugen Hristev <ehristev@kernel.org>, Jonathan Cameron <jic23@kernel.org>,
+ David Lechner <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, linux-iio@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 Cc: stable@vger.kernel.org
-References: <20260914090718.1666333-1-lgs201920130244@gmail.com>
+References: <20260914113422.1689331-1-lgs201920130244@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,7 +102,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260914090718.1666333-1-lgs201920130244@gmail.com>
+In-Reply-To: <20260914113422.1689331-1-lgs201920130244@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -119,37 +119,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/09/2026 11:07, Guangshuo Li wrote:
-> lpi2c_imx_probe() prepares and enables the controller clocks before
-> enabling runtime PM. After probe succeeds, clock management is handed
-> over to the runtime PM callbacks.
+On 14/09/2026 13:34, Guangshuo Li wrote:
+> at91_adc_probe() enables runtime PM autosuspend with
+> pm_runtime_use_autosuspend(). The probe error path correctly undoes
+> this setting with pm_runtime_dont_use_autosuspend(), but the normal
+> remove path only disables runtime PM.
 > 
-> However, lpi2c_imx_remove() only disables runtime PM and autosuspend.
-> It does not ensure that the device is active before teardown or drop
-> the clock references acquired during probe.
+> The runtime PM API requires pm_runtime_use_autosuspend() to be undone
+> with pm_runtime_dont_use_autosuspend() at driver exit unless runtime PM
+> was enabled with devm_pm_runtime_enable(). Leaving the autosuspend flag
+> set therefore leaves the runtime PM state incompletely cleaned up after
+> the driver is unbound.
 > 
-> For platforms which do not require clock prepare/unprepare in the
-> runtime PM callbacks, runtime suspend only disables the clocks, leaving
-> the prepare references held for the lifetime of the driver. Since the
-> remove path never unprepares them, these references are leaked when the
-> driver is unbound.
-> 
-> For platforms which prepare and unprepare clocks during runtime PM, an
-> unbind while the device is still runtime active can similarly leave
-> the clock prepare and enable references outstanding.
-> 
-> Resume the device before disabling runtime PM so that the clocks are in
-> a known enabled and prepared state. Then drop the temporary runtime PM
-> reference and disable and unprepare the clocks during final teardown.
-> Mark the device suspended after the hardware resources have been
-> released.
+> Add the missing pm_runtime_dont_use_autosuspend() call to the remove
+> path.
 > 
 > This issue was found by manual code inspection.
 > 
-> Fixes: 13d6eb20fc79 ("i2c: imx-lpi2c: add runtime pm support")
+> Fixes: 75d7556ac0e4 ("iio: adc: at91-sama5d2_adc: add runtime pm support")
 > Cc: stable@vger.kernel.org
 > Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
-
 
 Nothing improved, you again spammed with multiple independent patches so
 maintainers would need to respond TO EACH one instead of to the thread.
