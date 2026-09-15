@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2158AC982C5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F467C88E75
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:50:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,56 +12,40 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=chajH5Uyn12dUr684RYX8s7Kwwsu5KwSPvmKiPCpDUw=; b=fUcbdogo2EujQJs7BSiOvPmAEV
-	tH4+Vr6eIop92cnYyLdeH1aRLAD2Jzdsv2cFFFFpUQNtJn69lgyslDqNImJRokXs/gIRxNmtatTWX
-	2rx11KmfARA/Og8bzLCEgOMxJwBojoKhqQfH0YnWIyesfN8nqMX1AG1cDQhfuy4mBn3BJn752ym+A
-	zblvcbb01D08Zm4UGuVQ4J0jVAqXyKreXrRquYOKECJVlOzhWQofCknExXu58m8VBzCi93FtV7BW7
-	XoTG9qR2MzKntfzKBLtiT4deqytEDS/vngxVZSucTqzgdbftoWpI8aisz830qLyL7f/hRyXYsrQ3m
-	CS/q2a1w==;
+	bh=cOU0OkP3dbgGRFSiMQnoiuQDJrKtF1NoZnFOq7/Pl9Y=; b=eDPWs3y9oaIHdzIY7O1FS0rAQ6
+	UseftkbdaBmpXD21pIfuH5CSf5aJ0YRQY15z4yaFtxUZtfFyUuYKAX40xQPZUZK0yl+sxeTNcOzRO
+	aK9ZMYt+8QKi+84CSbiWpEOCtnv5nUvt56yLUgAyHr0DK9AIkddwnSwT5YwyGU6Zfcwa7aDszTouD
+	0ACKgAq7qMzVkFG3uAx++5DIgoeUXi0moEE9ljurzbqW3dcxL66amzVXp3p4kZZEqMT7Ly005IxFy
+	hLeHTngRY5bKDndF3Kk9XbnPQ8235Db3eIi1/C7JHasaL3xmXTV/widGLx8LYFBagbJ6B7EQ0r0VN
+	KrGzE6zQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VQd-00000007Il0-2rmO;
-	Tue, 15 Sep 2026 15:50:39 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VPz-00000007ICy-1WKU
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 15 Sep 2026 15:50:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=chajH5Uyn12dUr684RYX8s7Kwwsu5KwSPvmKiPCpDUw=; b=Z9YhMw50zlwAJGeQhVsQTYWiJl
-	zEyHafxYwKcje8IgmhLG38HnoGTN9gTSoeRYETL8vstjZpL9pytmqz2X3zfvbGSnowxRWGElzUgT0
-	ClxbxGCnioHepNZ6O+IxpRiF0FrVc+bfoLOCDXHuPKE0s4AGYrm51OfpjlroeG14NovAOUHP1X56I
-	fVE079ayqd1RS2Vb19ETWRLjak1xro3Kq/0FVuWwyuKfFu9Ri2lSGi9UXdnKQMT+xItR0S4GT2AKm
-	IYR2+TFgLdfMqVpTib83PWbKtg2O2in3bvAEs4Sc8c9yZDE+noEKA8ajVvtPBLe2wjEM1JsDsPODi
-	OIR1IczQ==;
+	id 1x6VQf-00000007IoT-3aMn;
+	Tue, 15 Sep 2026 15:50:41 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6VPv-00000006yY4-0Jjh
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x6VQ8-00000007INY-2ORw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 15:49:58 +0000
+	Tue, 15 Sep 2026 15:50:09 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6C7D61570;
-	Tue, 15 Sep 2026 08:49:50 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B0E6515A1;
+	Tue, 15 Sep 2026 08:50:03 -0700 (PDT)
 Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A550C3F882;
-	Tue, 15 Sep 2026 08:49:51 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E7D833F882;
+	Tue, 15 Sep 2026 08:50:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789487394; bh=M6nqCi/crONOiSQCUR9ebCZXN0BqQCYtCGnaHG7Fm3U=;
+	t=1789487407; bh=kLfMsIfvtix9HRGhI1LbWAkQl/p2UK/wmVVuQM9xjoM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=cdLyKYlvjIsbO9h1g6r+fzgWKXudScU1Iv6uZNOzp5LiiEcQ9yWuWy8SLNVqbjv0m
-	 BUEZXeRpsQ+417PqpCq3LKpipFp5gyocY3Z/TnIkoG1CXDM65LoVk7FslnE9w3P4J/
-	 /2aV+o3o0tnBrwYuHzpVOtmMF22ZmhMtumh49vfM=
+	b=fPNhmIBHWs2DNgdpfsazb1noO++NHgFJIhG9JAjP7l6I2W+o15TZApYA10Fs77kRg
+	 QvwODn/gwYHrM7ujhpjvAElen4b5L32+5q+casCaNuAZUiHj8ui1nIjHFn29zLvtZ4
+	 spWTlAsvPm/JZ7XVrd1WVh7Nma6d+sWQq/8BV0iA=
 From: Leo Yan <leo.yan@arm.com>
-Date: Tue, 15 Sep 2026 16:49:05 +0100
-Subject: [PATCH 19/25] perf cs-etm: Propagate errors from trace queue
- flushing
+Date: Tue, 15 Sep 2026 16:49:10 +0100
+Subject: [PATCH 24/25] perf test: Add CoreSight AUX sample decoding test
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260915-arm_cs_support_aux_sample-v1-19-35cf6f297d20@arm.com>
+Message-Id: <20260915-arm_cs_support_aux_sample-v1-24-35cf6f297d20@arm.com>
 References: <20260915-arm_cs_support_aux_sample-v1-0-35cf6f297d20@arm.com>
 In-Reply-To: <20260915-arm_cs_support_aux_sample-v1-0-35cf6f297d20@arm.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
@@ -78,16 +62,16 @@ Cc: Ingo Molnar <mingo@kernel.org>, linux-perf-users@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789487341; l=3038;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789487341; l=6971;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=M6nqCi/crONOiSQCUR9ebCZXN0BqQCYtCGnaHG7Fm3U=;
- b=G4NLdPyQpLVOuFsk9+NyG+u9mJpgzbism1K/8D1yQs6qhKsCfH9hrgv5/wL71KrEZ/fCx2dph
- A/NmBRW20ARCjHe9BeGmMlW8B4U8qU0zu9kzPllQ32ZilECj7YlyCnc
+ bh=kLfMsIfvtix9HRGhI1LbWAkQl/p2UK/wmVVuQM9xjoM=;
+ b=FB94Ni0Ju4Zb0A/OTrxX2DMxUkZ5uO+G81x6c0Sb6i5exMXh1W/H2brTyYyoXP5Isn/GDHyRW
+ IGeN4xsKL05AZgapYTSQTJK6FlLDIjboWjOeyruPC3DoaUHjJVAfRWc
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_164955_358744_DB364711 
-X-CRM114-Status: GOOD (  16.01  )
+X-CRM114-CacheID: sfid-20260915_085008_701885_AA132855 
+X-CRM114-Status: GOOD (  20.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,88 +86,221 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-cs_etm__flush() can fail while synthesizing or delivering a sample at a
-trace discontinuity. cs_etm__process_traceid_queue() ignores the result
-and continues even though the packet swap and thread stack flush may
-not have completed.
+Add a shell test that records the brstack workload with 8 KiB AUX
+samples attached to cycle events. Pin the workload to a CPU with a TRBE
+sink and use per-thread recording with trace timestamps and context IDs
+disabled, exercising decoding with the owning sample's context.
 
-The timestamped decoder also loses errors when it processes packets
-left at the end of an AUX buffer: cs_etm__clear_all_traceid_queues()
-discards the result from each trace ID queue and allows decoding to
-fetch the next buffer.
+Check branch stacks and callchains with --itrace=L4, L64, G3 and G3L64.
+Require at least one sample to reach both requested depths, with all
+callchain frames belonging to the workload, and reject samples exceeding
+either limit. Use a callchain depth of three to match the nested calls
+in brstack.
 
-Check the discontinuity flush result, make
-cs_etm__clear_all_traceid_queues() return the first queue-processing
-error, and propagate that error through
-cs_etm__process_timestamped_queues(). This stops decoding on failure
-and reports the error to the caller, including sample delivery errors
-from a perf script dlfilter.
+Compare with AUX decoding enabled and disabled to verify that adding
+history preserves the original PMU samples.
 
 Assisted-by: Codex:gpt-6
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- tools/perf/util/cs-etm.c | 24 ++++++++++++++++--------
- 1 file changed, 16 insertions(+), 8 deletions(-)
+ tools/perf/tests/shell/coresight/aux_sample.sh | 189 +++++++++++++++++++++++++
+ 1 file changed, 189 insertions(+)
 
-diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index 1a53431161e995ba6b3cfdc86e338ed26e675774..8340b8a16fed363795fc78ffbc419661a61442a3 100644
---- a/tools/perf/util/cs-etm.c
-+++ b/tools/perf/util/cs-etm.c
-@@ -2644,10 +2644,13 @@ static int cs_etm__process_traceid_queue(struct cs_etm_queue *etmq,
- 			break;
- 		case CS_ETM_DISCONTINUITY:
- 			/*
--			 * Discontinuity in trace, flush
--			 * previous branch stack
-+			 * Flush the previous branch stack at a discontinuity.
-+			 * Propagate sample delivery errors, which can occur before
-+			 * the packet swap and thread stack flush are complete.
- 			 */
--			cs_etm__flush(etmq, tidq);
-+			ret = cs_etm__flush(etmq, tidq);
-+			if (ret)
-+				goto out;
- 			break;
- 		case CS_ETM_EMPTY:
- 			/*
-@@ -2665,9 +2668,9 @@ static int cs_etm__process_traceid_queue(struct cs_etm_queue *etmq,
- 	return ret;
- }
- 
--static void cs_etm__clear_all_traceid_queues(struct cs_etm_queue *etmq)
-+static int cs_etm__clear_all_traceid_queues(struct cs_etm_queue *etmq)
- {
--	int idx;
-+	int idx, ret;
- 	struct int_node *inode;
- 	struct cs_etm_traceid_queue *tidq;
- 	struct intlist *traceid_queues_list = etmq->traceid_queues_list;
-@@ -2676,9 +2679,12 @@ static void cs_etm__clear_all_traceid_queues(struct cs_etm_queue *etmq)
- 		idx = (int)(intptr_t)inode->priv;
- 		tidq = etmq->traceid_queues[idx];
- 
--		/* Ignore return value */
--		cs_etm__process_traceid_queue(etmq, tidq);
-+		ret = cs_etm__process_traceid_queue(etmq, tidq);
-+		if (ret)
-+			return ret;
- 	}
+diff --git a/tools/perf/tests/shell/coresight/aux_sample.sh b/tools/perf/tests/shell/coresight/aux_sample.sh
+new file mode 100755
+index 0000000000000000000000000000000000000000..887ad6a085eacdfd192db3863fbb61dae1aa19b5
+--- /dev/null
++++ b/tools/perf/tests/shell/coresight/aux_sample.sh
+@@ -0,0 +1,189 @@
++#!/bin/bash -e
++# SPDX-License-Identifier: GPL-2.0
++# CoreSight AUX samples with callchains and branch stacks (exclusive)
 +
-+	return 0;
- }
- 
- static int cs_etm__run_timeless_decoder(struct cs_etm_queue *etmq)
-@@ -2893,7 +2899,9 @@ static int cs_etm__process_timestamped_queues(struct cs_etm_auxtrace *etm,
- 			 * process in this auxtrace_buffer.  As such empty and
- 			 * flush all traceID queues.
- 			 */
--			cs_etm__clear_all_traceid_queues(etmq);
-+			ret = cs_etm__clear_all_traceid_queues(etmq);
-+			if (ret)
-+				goto out;
- 
- 			/* Fetch another auxtrace_buffer for this etmq */
- 			goto refetch;
++export LC_ALL=C
++
++skip()
++{
++	echo "[Skip] $1"
++	exit 2
++}
++
++perf list pmu | grep -q 'cs_etm//' || skip "cs_etm is not available"
++perf check feature -q libopencsd || skip "perf was built without OpenCSD"
++[ "$(id -u)" = 0 ] || skip "No root permission"
++command -v taskset >/dev/null || skip "taskset is not available"
++
++# AUX sample now supports per CPU sink (e.g., TRBE). Select a usable CPU
++# and name its sink explicitly to avoid a shared sink.
++sink=
++for dev in /sys/bus/coresight/devices/trbe[0-9]*; do
++	[ -d "$dev" ] || continue
++	name=${dev##*/}
++	cpu=${name#trbe}
++	[ -e "/sys/bus/event_source/devices/cs_etm/cpu$cpu" ] || continue
++	if taskset -c "$cpu" true 2>/dev/null; then
++		sink=$name
++		break
++	fi
++done
++[ -n "$sink" ] || skip "No usable TRBE CPU is available"
++
++tmpdir=$(mktemp -d /tmp/perf-cs-aux-sample.XXXXXX)
++
++cleanup()
++{
++	rm -rf "$tmpdir"
++}
++
++trap cleanup EXIT
++trap 'exit 1' TERM INT
++
++fail()
++{
++	echo "$1" >&2
++	cat "$tmpdir/stderr" >&2
++	exit 1
++}
++
++cf="$tmpdir/ctl"
++af="$tmpdir/ack"
++mkfifo "$cf" "$af"
++
++# Disable trace timestamps and context IDs to use the owning sample's context.
++# Use a per-thread mmap so the explicit sink is only used on the pinned CPU.
++if ! taskset -c "$cpu" perf record -o "$tmpdir/data" --aux-sample=8192 \
++	-e "{cs_etm/@$sink,timestamp=0,contextid=0/u,cycles/period=100003/u}" \
++	--per-thread -D -1 --control fifo:"$cf","$af" -- \
++	perf test --record-ctl fifo:"$cf","$af" -w brstack 1000000 \
++	>/dev/null 2>"$tmpdir/stderr"; then
++	# Kernels without snapshot_aux reject the sampling event at open time.
++	if grep -Eq 'sys_perf_event_open.*event \(.*cycles.*\): Invalid argument' \
++		"$tmpdir/stderr"; then
++		skip "Kernel does not accept CoreSight AUX sampling"
++	fi
++	fail "Failed to record CoreSight AUX samples"
++fi
++
++perf evlist -v -i "$tmpdir/data" >"$tmpdir/evlist" 2>"$tmpdir/stderr" ||
++	fail "Failed to read AUX sample attributes"
++grep -Eq 'sample_type:.*\|AUX(,|\|).*aux_sample_size: 8192(,|$)' \
++	"$tmpdir/evlist" || fail "Missing AUX sample attributes"
++
++check_history()
++{
++	local options=$1
++	local max_branches=$2
++	local max_callchains=$3
++	local output="$tmpdir/script-$options"
++
++	perf script -i "$tmpdir/data" --itrace="$options" \
++		-F comm,pid,tid,cpu,event,ip,sym,brstack >"$output" \
++		2>"$tmpdir/stderr" || fail "Failed to decode AUX samples with $options"
++
++	# Some windows may contain incomplete trace. Require at least one cycle
++	# sample to reach both requested depths, and reject any that exceed them.
++	if ! awk -v max_branches="$max_branches" \
++		-v max_callchains="$max_callchains" '
++		function check_sample() {
++			if (in_sample == 0) {
++				return
++			}
++
++			if (branch_entries > max_branches || callchain_frames > max_callchains) {
++				depth_exceeded = 1
++			}
++
++			# Both depths must be reached in the same sample, with all
++			# callchain frames belonging to the brstack workload.
++			if (branch_entries == max_branches &&
++			    callchain_frames == max_callchains &&
++			    workload_frames == max_callchains) {
++				found_sample = 1
++			}
++
++			branch_entries = 0
++			callchain_frames = 0
++			workload_frames = 0
++			in_sample = 0
++		}
++		{
++			# A blank line marks the end of a sample.
++			if (NF == 0) {
++				check_sample()
++				next
++			}
++
++			# Sample header: comm pid/tid [cpu] event ...
++			# The event may include a PMU prefix and configuration terms.
++			if ($4 ~ /(^|\/)cycles([,\/:]|$)/) {
++				check_sample()
++				in_sample = 1
++			}
++			if (in_sample == 0) {
++				next
++			}
++
++			# Each branch entry is a field in 0xFROM/0xTO/... form.
++			for (i = 1; i <= NF; i++) {
++				if ($i ~ /^0x[[:xdigit:]]+\/0x[[:xdigit:]]+\//) {
++					branch_entries++
++				}
++			}
++
++			# Callchain rows start with a hexadecimal IP, then a symbol.
++			if ($1 ~ /^[[:xdigit:]]+$/) {
++				callchain_frames++
++				if ($2 ~ /^brstack(_|$)/) {
++					workload_frames++
++				}
++			}
++		}
++		END {
++			# Account for the last sample even without a trailing blank line.
++			check_sample()
++
++			if (depth_exceeded != 0) {
++				print "AUX sample history exceeds the requested depth" > "/dev/stderr"
++				exit 1
++			}
++			if (found_sample == 0) {
++				printf "No sample has %d branches and %d workload callchain frames\n", \
++					max_branches, max_callchains > "/dev/stderr"
++				exit 1
++			}
++			exit 0
++		}
++	' "$output"; then
++		head -n 80 "$output" >&2
++		fail "Missing AUX sample history or incorrect depth with $options"
++	fi
++}
++
++check_sample_identity()
++{
++	local fields=comm,pid,tid,cpu,event,ip
++
++	# Hiding history must leave exactly the original PMU samples, including
++	# their PID/TID, CPU and sampled IP, with no synthesized events. Per-thread
++	# recording does not require sample timestamps.
++	perf script -i "$tmpdir/data" --no-itrace -F "$fields" \
++		>"$tmpdir/original" 2>"$tmpdir/stderr" || fail "Failed to read cycle samples"
++	perf script -i "$tmpdir/data" --itrace=L4 -F "$fields" \
++		>"$tmpdir/decoded" 2>"$tmpdir/stderr" || fail "Failed to decode cycle samples"
++	diff -u "$tmpdir/original" "$tmpdir/decoded" ||
++		fail "AUX decoding changed the original cycle samples"
++}
++
++check_history L4 4 0
++check_history L64 64 0
++
++# brstack -> brstack_bench -> brstack_foo -> brstack_bar provides three
++# nested calls whose caller frames can be reconstructed from an AUX window.
++check_history G3 0 3
++check_history G3L64 64 3
++
++check_sample_identity
++
++echo "CoreSight AUX sample decoding: PASS"
 
 -- 
 2.34.1
