@@ -4,92 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEC5CC88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 11:25:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 976F2C982C4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 11:31:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=B9svfT9glpJgkoC//MjvMoYEtW7Hx9VQdKaO91u+NqI=; b=bLquBAaEWMMo/TyG3Xf7//Jl4F
-	vWCl+yVrZ15ZPVTzCYkaGvRhW3XxqV1bEM4IS+uY85s0VsvnpwMLNlGV+AnC5ce5UYiFa1zworJkQ
-	1v4TSUDqyUwv2V+t4cZcXHGEHvCmHaQUt4KwSC1FroW0P772YmWsQ3kbnuwtydFUBiG8VuH5UO77o
-	RVQHTV2OtJoXbTSi+HdLASbpV1dpBLsw36BMEXhuPWaL8lBZt9Rw2ixKj9sXX6ZMZjabBa3WzS+A+
-	9O45C57uC/y+r4aUsHW8G23P/qCgDOtzG74d/mqbpEU+C3OJbRZ5JHeo/1xgT5ZvpurANzQyw/XJk
-	IfICaXHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=CAJtKPFKPGeuK6/4FcUJJhXpcyxiLyxrGeWoP03hjX8=; b=OxOt0iR0kB4zuW
+	azXgO4vqOmV5ZdP5OphA5jzYaK48aELqo9txMhbTZx1dRaSeyzsZqNG6GWcQuSFvdS1hEY1XBxjI0
+	mX4b9ah33H5hFE8soX6FEf78ITGTA2AgrH4+fJQfSPyQJ55bHBdqX8ZC9EXsQn46AnYv7ivUU77OZ
+	sabUFMCHNs1sz0uwuCn229PjwyN1JjL9o1S5m8eUhhCZ5gB9WCd5Bqk5jQ3vqXpy+S7Qi/hWljnN0
+	dpeQKljWxxWk8OZA1b7wX1T8cexkd8bTqiByRepJffIbnIFS0qTQeV3FoiZp8RtMGtZTiSRGTN+GB
+	M/vundPlgYaaMv9GFkrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6RHw-000000066RJ-0L5v;
-	Tue, 15 Sep 2026 11:25:24 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1x6RNj-000000067At-2EJj;
+	Tue, 15 Sep 2026 11:31:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6RHu-000000066Qu-2KDa
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 11:25:23 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2caced6038eso8438325ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 04:25:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789471521; x=1790076321; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=B9svfT9glpJgkoC//MjvMoYEtW7Hx9VQdKaO91u+NqI=;
-        b=jM1LUyS927J91sh+iCImAA0kwsCY/xczwpE738TwA33WrBQAxOL3bJ3ad14j08K7+o
-         hMRahSv11RE70VyFyDHa33HXcZr49jFey8btpUpVOJf2Bx/rYoAsEez+80+mohJGUusW
-         VyWi7uxOB6CREOTFdJU3WVhUh5psMt5Yg2qa5RpQAmDjjnK5v3cpcCwVrtaE9Gio75D9
-         O+vMn+s+ZEiam4d0Mn/NJ4jB/iXxZcOwLEOBEu6meN3Q4n+wwJpYA7Zy5F/yyMRJTERU
-         3CEk6UCMoNxTpw1h8d0GvLGtaRQ3pQg18tAf3AHask07fZTOXnHmJX0TwAUKm5jKRL2r
-         uUCA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789471521; x=1790076321;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=B9svfT9glpJgkoC//MjvMoYEtW7Hx9VQdKaO91u+NqI=;
-        b=nmlrH4knhcnX0eIH//aiHzgqAVrdRuwox1HWP0Aopl2oenjEHzL9BX5ruVkFllU0iv
-         u32EX/0uLMK4ttskLy8vR3s7xBQgN+53W2IsVYDBRyw43w3plZ4G+L3DqV5Y3p4f35mu
-         i4d2s86G/J1wf5r0x4IjCEOC3dRG8Sk/1k9pGAAMGX2ixvjey73tPtSrL2JRBhVp6PA5
-         VsGXEQ6SOLCOEeGJzDyA7TS8FoJaDMi2PE04I5boCxPTlkkxnmeze8wldWSN+nQUI8NE
-         ui5lTUL9zEtDf9dqJt4M5JfpzsizeeEtad+eb5jm4c2f49yVozX+4uQUx/UXihAn/mUR
-         0uVA==
-X-Forwarded-Encrypted: i=1; AKwUvBwZIdIFfNxMyEET/25R4wRoSC0OnyM18iIkTq7P/GEsvcaimyFb7HBpfBjfKEIDNgT9W782QeH0vE7So0inIub8@lists.infradead.org
-X-Gm-Message-State: AFuF++nDaUFhgqleRIQ94wncYn3LIgwjYozf9HT6ZS03PZWKddJae89t
-	UF1lyd7c3KAxmWyiouGbCW9LBux8cSHp90hd9dlaSgDgsQ79Pt5m3el+
-X-Gm-Gg: AYBFou0m88uq6CUh8gvVeDcCjJC3t9uCcAG6LcbMkc2jNsDYyK85GcbBSjBvNG+zHDj
-	OW8KQvqiJ8odd7pmmNagEzhfNA3drxHZjgjrrvzMaRKKnh0N5tRJIDqa21h5aPvnEnn4olyP8cO
-	bfh6riqPyIQxblSI6X7/rGbP5hRq1DWE61ZPHINbgB1dk55jwNqzOl2mHcFX1dOdJ348DTVBpdB
-	0DXoYAMTh87wc+9DpXoWJAxqiceR774OdC2ySZi2l9WkAQ+F9VKrfeJWs/u4ysop5nnKgZGECcD
-	yAHKdwkzjt6WUUUlnnymWrWl9Y4rBtEyzoESQ/EKsL3RPi24dNG/zeTMX/65n8MjZNx0z8t4vnH
-	o4raVGopsx0GIJhcx/x/Rx04bMrJsK/95d8gBNn3gp7iDEF2oe7QlngZjEEPZIQ3IoXzGJbNDxa
-	tAeY3ffZTImZiYhqBhjY+JMiahlCFJVatroIp2JSyw23UvexXvnX7H8w==
-X-Received: by 2002:a17:902:db0c:b0:2bd:2c3a:2a36 with SMTP id d9443c01a7336-2dd763da77fmr44939985ad.0.1789471521158;
-        Tue, 15 Sep 2026 04:25:21 -0700 (PDT)
-Received: from lgs.. ([2001:250:5800:1002::de93])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2dd2d2565d2sm65391005ad.15.2026.09.15.04.25.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Sep 2026 04:25:20 -0700 (PDT)
-From: Guangshuo Li <lgs201920130244@gmail.com>
-To: Eugen Hristev <ehristev@kernel.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Hans Verkuil <hverkuil@kernel.org>,
-	linux-media@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Guangshuo Li <lgs201920130244@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] media: atmel-isi: release unregistered video device on remove
-Date: Tue, 15 Sep 2026 19:25:10 +0800
-Message-ID: <20260915112511.2397941-1-lgs201920130244@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	id 1x6RNi-000000067AY-2DIT;
+	Tue, 15 Sep 2026 11:31:22 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1D6A840952;
+	Tue, 15 Sep 2026 11:31:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE7091F000FF;
+	Tue, 15 Sep 2026 11:31:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789471881;
+	bh=CAJtKPFKPGeuK6/4FcUJJhXpcyxiLyxrGeWoP03hjX8=;
+	h=From:Subject:Date:To:Cc;
+	b=E7tiikKzEgWbcjup28lG7XRiPSUJnQOmsnywq0ncyYHyQqJnTKt0FKdhc261bi9OH
+	 0SlILqTj5qE3J8OEyDI9zqLYPy8psNZLLrF7QOW4W4UQnh0hGPOhQASSGdWdu6CXlB
+	 AinpX1RK+sPUhsT5EBGslz/xjWU79vTK2oG+qEZWWfaWT7bIGAFoh926ly17QWcoIQ
+	 QJCJXpfCSDC9mQet/UenNMcEEu3ND/zogF3V4a6m5lxpAeKrS/RkcQCtt28J4Htm15
+	 ioCbMP38XAAhzbjEh1DggCyILiXq6YLqnQmybNy4sunfucifPnv8TR98hWLnUmAKl0
+	 e5z5SrdGFsCyg==
+From: Christian Brauner <brauner@kernel.org>
+Subject: [PATCH RFC POC 00/50] file: handle files on syscall exit
+Date: Tue, 15 Sep 2026 13:30:46 +0200
+Message-Id: <20260915-work-fd-reserve-unify-folded-v1-0-4d5217d6b246@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_042522_629114_7A84B82C 
-X-CRM114-Status: GOOD (  16.72  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/y2Nyw6CMBBFf4XM2ml4iBG3JG41bo0LykylalrTC
+ moI/24LLu/MveeM4Nlp9rBLRnA8aK+tCSFbJdB2jbkyagoZ8jTfpFVW4tu6OypCx2E5MPZGqy8
+ q+yAmlNuKiqxcy4JSCIinY6U/M/4Mp32dHA81XJaH7+WN21eEx6psPKN0jWm7eIoaoUj8NWLWi
+ EUjYhem6QdT5RjovQAAAA==
+X-Change-ID: 20260915-work-fd-reserve-unify-folded-b89d3154b3d0
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Alexander Viro <viro@zeniv.linux.org.uk>, Jann Horn <jannh@google.com>, 
+ Jan Kara <jack@suse.cz>, Ingo Molnar <mingo@redhat.com>, 
+ Peter Zijlstra <peterz@infradead.org>, linux-fsdevel@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
+ Oleg Nesterov <oleg@redhat.com>, linux-alpha@vger.kernel.org, 
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
+ linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, 
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
+ linux-um@lists.infradead.org, Jens Axboe <axboe@kernel.dk>, 
+ io-uring@vger.kernel.org, netdev@vger.kernel.org, 
+ linuxppc-dev@lists.ozlabs.org, linux-gpio@vger.kernel.org, 
+ linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+ bpf@vger.kernel.org, David Airlie <airlied@redhat.com>, 
+ virtualization@lists.linux.dev, kvm@vger.kernel.org, 
+ kexec@lists.infradead.org, linux-hyperv@vger.kernel.org, 
+ "Christian Brauner (Amutable)" <brauner@kernel.org>
+X-Mailer: b4 0.17-dev-db0b7
+X-Developer-Signature: v=1; a=openpgp-sha256; l=11212; i=brauner@kernel.org;
+ h=from:subject:message-id; bh=tghJXnBoCORuUllyVM5kOenrKYvUcLA4//tYvMQ3Gwc=;
+ b=owGbwMvMwCU28Zj0gdSKO4sYT6slMWSt1KmZfVvdXbIn41vJt/oHZ9cvPhHnHXlduWLl4TSB5
+ BsG1wzUO0pZGMS4GGTFFFkc2k3C5ZbzVGw2ytSAmcPKBDKEgYtTACYSP4+R4aD04rbPT/bfPqP8
+ 9uSeOZ+ErR6x+W14vnzltXsvZhzbPcWOkeGY1wMZvuPZ2+W5eQ7v+q00SZHnk3fSzCfWYt9Z60S
+ 6GPkA
+X-Developer-Key: i=brauner@kernel.org; a=openpgp;
+ fpr=4880B8C9BD0E5106FC070F4F7B3C391EFEA93624
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,62 +95,216 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-atmel_isi_probe() allocates the video device before registering the
-V4L2 async notifier. The video device is registered later from the
-notifier complete callback once the remote subdevice has been bound.
+Hey,
 
-The remove path relies on the notifier unbind callback to unregister
-the video device. However, if the remote subdevice is never bound, or
-the complete callback fails before video_register_device() succeeds,
-the video device remains unregistered. In that case the unbind path
-does not release the object allocated by video_device_alloc(), and the
-remove path leaks it.
+The idea in this series is old-ish and really never let go of me and so
+I wanted to at least dump it onto the list once even if it's just for
+illustrative purposes.
 
-Only unregister the video device from the unbind callback when it has
-actually been registered, and clear the driver pointer afterwards.
-After unregistering and cleaning up the notifier, release the video
-device directly if the pointer is still present. This covers devices
-that were allocated but never registered while avoiding a second
-release of successfully registered devices.
+I still had parts of an implementation laying around that I started
+montsh ago alongside FD_PREPARE()/FD_ADD(). I sat down and finished it.
 
-This issue was found by manual code inspection.
+We've spoken about this idea a few times over the years that we could
+reserve fds and files on a task and then install or a clean them up on
+syscall success or error and get rid of most of the complicated cleanup
+dance that we have in a lot of code. In particular drm. It last came up
+during the Rust file descriptor reservation discussion quite some time
+ago.
 
-Fixes: d12c9088c0b2a ("[media] atmel-isi: remove dependency of the soc-camera framework")
-Cc: stable@vger.kernel.org
-Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+TL;DR, this lets arch code handle fd install and cleanup. fd_prepare()
+allocates a descriptor like get_unused_fd_flags() does and records it in
+a slot on the task. fd_stage() attaches the file to that slot and
+returns the number.
+
+When the syscall returns success the exit path installs every staged
+file. When it returns an error it drops the descriptors and the files.
+
+So a caller reserves, hands the number to userspace whenever it wants,
+creates the file, stages it and returns errors without unwinding
+anything.
+
+fd_prepare() returns the slot itself, as a const pointer. The
+preexisting fd_prepare_fd() and fd_prepare_file() give access to the fd
+and file.
+
+get_unused_fd_flags() and fd_install() don't change. A descriptor is
+only reserved where a caller asks for it. And open(), dup() and all
+other syscalls that maximize speed simply use FD_ADD().
+
+The task keeps two slots inline. For SCM_RIGHTS and multi-descriptor
+ioctls a spill array is added. It stick with the task.
+
+Reservations belong to the thread and the syscall that made them. A
+child of fork() starts without any. A thread can't unshare its fdtagble
+with outstanding reservations. Kernel threads never return to userspace
+so nothing would commit. Anything left at exit is a bug and gets warned
+about and dropped.
+
+Christian
+
+Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
 ---
- drivers/media/platform/atmel/atmel-isi.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+Christian Brauner (50):
+      file: install files on syscall exit
+      entry: commit fds on syscall exit
+      alpha: commit fds on syscall exit
+      ARC: commit fds on syscall exit
+      ARM: commit fds on syscall exit
+      arm64: commit fds on syscall exit
+      csky: commit fds on syscall exit
+      hexagon: commit fds on syscall exit
+      m68k: commit fds on syscall exit
+      microblaze: commit fds on syscall exit
+      MIPS: commit fds on syscall exit
+      nios2: commit fds on syscall exit
+      openrisc: commit fds on syscall exit
+      parisc: commit fds on syscall exit
+      sh: commit fds on syscall exit
+      sparc: commit fds on syscall exit
+      um: commit fds on syscall exit
+      xtensa: commit fds on syscall exit
+      file: require the syscall exit hook from every architecture
+      file: warn when the descriptor table is unshared with slots
+      io_uring: commit fds per request
+      net: install SCM_RIGHTS descriptors when recvmsg() returns
+      file: open-code receive_fd()'s immediate install
+      file: make FD_ADD() a standalone immediate install
+      file: reimplement FD_PREPARE() on the deferred fd_prepare() path
+      dma-buf: stop unwinding sync file descriptors by hand
+      drm/amdkfd: stop collecting CRIU dma-buf descriptors for a final install
+      drm/msm: install the out-fence descriptor when the ioctl returns
+      drm/virtio: install the out-fence descriptor when the ioctl returns
+      drm/vmwgfx: install the out-fence descriptor when the ioctl returns
+      vfio: install the migration data descriptor when the ioctl returns
+      liveupdate: install the session descriptors when the ioctl returns
+      io_uring/zcrx: install the exported descriptor when the request returns
+      sctp: install the peeloff descriptor when the syscall returns
+      ALSA: compress: install the task descriptors when the ioctl returns
+      nitro_enclaves: install the enclave descriptor when the ioctl returns
+      tpm: vtpm_proxy: install the server descriptor when the ioctl returns
+      perf: stop putting the event descriptor back on failure
+      seccomp: stop putting the listener descriptor back on failure
+      KVM: stop putting descriptors back on failure
+      KVM: guest_memfd: stop putting the descriptor back on failure
+      drm: stop unwinding descriptors by hand
+      drm/amdgpu: stop unwinding the fence descriptor by hand
+      drm/etnaviv: install the out-fence descriptor when the ioctl returns
+      accel/habanalabs: stop putting the dma-buf descriptor back on failure
+      xen/gntdev-dmabuf: stop putting the descriptor back on failure
+      iio: buffer: install the buffer descriptor when the ioctl returns
+      misc: fastrpc: install the dma-buf descriptor when the ioctl returns
+      iommufd: stop putting descriptors back on failure
+      Drivers: hv: mshv: stop putting descriptors back on failure
 
-diff --git a/drivers/media/platform/atmel/atmel-isi.c b/drivers/media/platform/atmel/atmel-isi.c
-index a05a744cbb75..6a7e240c5b18 100644
---- a/drivers/media/platform/atmel/atmel-isi.c
-+++ b/drivers/media/platform/atmel/atmel-isi.c
-@@ -1121,10 +1121,13 @@ static void isi_graph_notify_unbind(struct v4l2_async_notifier *notifier,
- {
- 	struct atmel_isi *isi = notifier_to_isi(notifier);
- 
-+	if (!video_is_registered(isi->vdev))
-+		return;
-+
- 	dev_dbg(isi->dev, "Removing %s\n", video_device_node_name(isi->vdev));
- 
--	/* Checks internally if vdev have been init or not */
- 	video_unregister_device(isi->vdev);
-+	isi->vdev = NULL;
- }
- 
- static int isi_graph_notify_bound(struct v4l2_async_notifier *notifier,
-@@ -1323,6 +1326,8 @@ static void atmel_isi_remove(struct platform_device *pdev)
- 	pm_runtime_disable(&pdev->dev);
- 	v4l2_async_nf_unregister(&isi->notifier);
- 	v4l2_async_nf_cleanup(&isi->notifier);
-+	if (isi->vdev)
-+		video_device_release(isi->vdev);
- 	v4l2_device_unregister(&isi->v4l2_dev);
- }
- 
--- 
-2.43.0
+ arch/alpha/include/asm/thread_info.h         |   2 +
+ arch/alpha/kernel/entry.S                    |  24 ++-
+ arch/alpha/kernel/ptrace.c                   |   3 +
+ arch/arc/include/asm/thread_info.h           |   2 +
+ arch/arc/kernel/entry.S                      |   5 +
+ arch/arc/kernel/ptrace.c                     |   4 +
+ arch/arm/include/asm/thread_info.h           |   2 +
+ arch/arm/kernel/entry-common.S               |   2 +
+ arch/arm/kernel/ptrace.c                     |   4 +
+ arch/arm64/include/asm/thread_info.h         |   4 +-
+ arch/arm64/kernel/ptrace.c                   |   4 +
+ arch/csky/include/asm/thread_info.h          |   2 +
+ arch/csky/kernel/entry.S                     |   9 +
+ arch/csky/kernel/ptrace.c                    |   4 +
+ arch/hexagon/include/asm/thread_info.h       |   2 +
+ arch/hexagon/kernel/traps.c                  |   4 +
+ arch/m68k/68000/entry.S                      |  10 ++
+ arch/m68k/coldfire/entry.S                   |  12 ++
+ arch/m68k/include/asm/thread_info.h          |   2 +
+ arch/m68k/kernel/entry.S                     |   2 +
+ arch/m68k/kernel/ptrace.c                    |   3 +
+ arch/microblaze/include/asm/thread_info.h    |   5 +-
+ arch/microblaze/kernel/ptrace.c              |   4 +
+ arch/mips/include/asm/thread_info.h          |   5 +-
+ arch/mips/kernel/ptrace.c                    |   4 +
+ arch/nios2/include/asm/thread_info.h         |   2 +
+ arch/nios2/kernel/entry.S                    |   5 +
+ arch/nios2/kernel/ptrace.c                   |   3 +
+ arch/openrisc/include/asm/thread_info.h      |   5 +-
+ arch/openrisc/kernel/entry.S                 |   5 +-
+ arch/openrisc/kernel/ptrace.c                |   4 +
+ arch/parisc/include/asm/thread_info.h        |   2 +
+ arch/parisc/kernel/entry.S                   |  12 ++
+ arch/parisc/kernel/ptrace.c                  |   4 +
+ arch/powerpc/platforms/cell/spufs/inode.c    |  12 +-
+ arch/sh/include/asm/thread_info.h            |  10 +-
+ arch/sh/kernel/entry-common.S                |   8 +-
+ arch/sh/kernel/ptrace_32.c                   |   4 +
+ arch/sparc/include/asm/thread_info_32.h      |   2 +
+ arch/sparc/include/asm/thread_info_64.h      |   9 +-
+ arch/sparc/kernel/entry.S                    |   2 +-
+ arch/sparc/kernel/ptrace_32.c                |   4 +
+ arch/sparc/kernel/ptrace_64.c                |   4 +
+ arch/sparc/kernel/syscalls.S                 |   4 +-
+ arch/um/include/asm/thread_info.h            |   2 +
+ arch/um/kernel/ptrace.c                      |   4 +
+ arch/xtensa/include/asm/thread_info.h        |   2 +
+ arch/xtensa/kernel/entry.S                   |   5 +
+ arch/xtensa/kernel/ptrace.c                  |   4 +
+ drivers/accel/habanalabs/common/memory.c     |  13 +-
+ drivers/char/tpm/tpm_vtpm_proxy.c            |  30 +---
+ drivers/dma-buf/dma-buf.c                    |  33 ++--
+ drivers/dma-buf/sw_sync.c                    |  40 ++---
+ drivers/dma-buf/sync_file.c                  |  52 ++----
+ drivers/gpio/gpiolib-cdev.c                  |  18 +-
+ drivers/gpu/drm/amd/amdgpu/amdgpu_cs.c       |  16 +-
+ drivers/gpu/drm/amd/amdkfd/kfd_chardev.c     |  67 ++------
+ drivers/gpu/drm/drm_lease.c                  |  20 +--
+ drivers/gpu/drm/drm_prime.c                  |  13 +-
+ drivers/gpu/drm/drm_syncobj.c                |  44 ++---
+ drivers/gpu/drm/etnaviv/etnaviv_gem_submit.c |  14 +-
+ drivers/gpu/drm/msm/msm_gem_submit.c         |  22 +--
+ drivers/gpu/drm/msm/msm_gem_vma.c            |  22 +--
+ drivers/gpu/drm/msm/msm_perfcntr.c           |   6 +-
+ drivers/gpu/drm/virtio/virtgpu_submit.c      |  32 ++--
+ drivers/gpu/drm/vmwgfx/vmwgfx_execbuf.c      |  29 ++--
+ drivers/hv/mshv_root_main.c                  |  27 +--
+ drivers/hv/mshv_vtl_main.c                   |  20 +--
+ drivers/iio/industrialio-buffer.c            |  26 +--
+ drivers/iommu/iommufd/eventq.c               |  39 ++---
+ drivers/media/mc/mc-request.c                |   6 +-
+ drivers/misc/fastrpc.c                       |  19 +--
+ drivers/misc/ntsync.c                        |   6 +-
+ drivers/vfio/vfio_main.c                     |  25 +--
+ drivers/virt/nitro_enclaves/ne_misc_dev.c    |  33 ++--
+ drivers/xen/gntdev-dmabuf.c                  |  14 +-
+ fs/eventfd.c                                 |   6 +-
+ fs/eventpoll.c                               |   6 +-
+ fs/exec.c                                    |   3 +
+ fs/file.c                                    | 245 +++++++++++++++++++++++++--
+ fs/namespace.c                               |  12 +-
+ fs/nsfs.c                                    |   6 +-
+ fs/xfs/xfs_handle.c                          |   6 +-
+ include/linux/entry-common.h                 |   8 +-
+ include/linux/file.h                         | 160 +++++------------
+ include/linux/sched.h                        |  21 +++
+ include/linux/thread_info.h                  |   2 +
+ io_uring/io_uring.c                          |  27 +++
+ io_uring/mock_file.c                         |   5 +-
+ io_uring/zcrx.c                              |  25 +--
+ kernel/bpf/bpf_iter.c                        |   6 +-
+ kernel/bpf/token.c                           |   6 +-
+ kernel/events/core.c                         |  31 ++--
+ kernel/exit.c                                |   1 +
+ kernel/fork.c                                |   3 +
+ kernel/liveupdate/luo_core.c                 |  48 ++----
+ kernel/liveupdate/luo_session.c              |  24 +--
+ kernel/seccomp.c                             |  13 +-
+ mm/userfaultfd.c                             |   6 +-
+ net/core/scm.c                               |  13 +-
+ net/handshake/netlink.c                      |  20 ++-
+ net/kcm/kcmsock.c                            |   5 +-
+ net/sctp/socket.c                            |  78 ++++-----
+ sound/core/compress_offload.c                |  24 ++-
+ virt/kvm/guest_memfd.c                       |  20 +--
+ virt/kvm/kvm_main.c                          |  65 +++----
+ 106 files changed, 962 insertions(+), 861 deletions(-)
+---
+base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+change-id: 20260915-work-fd-reserve-unify-folded-b89d3154b3d0
 
 
