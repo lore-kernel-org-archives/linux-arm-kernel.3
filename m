@@ -4,72 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CF62C88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 04:44:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79F72C88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 04:44:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=R17raKv3A7dRbP0Z0IS8IcCAkKFbNj8l0X/n53cwErk=; b=sXFpzgu/TRyHa2N0LSCpA9tb6V
-	tBHEI0pxc3eLyu5UelUs7tXpey3JW6zCjqW1G5KXT3HT8/SfbzFvwCNJdbOBVkXEacWD8EsApM4Ji
-	zp/uOGvQhiyGMQp6rUx9+4svyw3Qp3HHcyowXxL1eVn/8T20cqgQ2EsCwvyouoSfcNdoW1jdltrh8
-	nOeq0f0WN5LR3k9Tf6oI7Vz/8uNgw2K9O+mjp9OrSMTqKTCiCH0sX2aq9S7I3UvIl9AklLn38q1d8
-	QbhY0LJ6728yB2gSOPAlJh2fTpkFkLT5hDJifXtGh48HZg8raj8IU2YVm3cgmYqiIMPzQZhhCJCcQ
-	nCVkJfug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OuAEPVCCSuU2/NfeOknYQEwV5oigOdlMWrN/kmgtJS8=; b=GJLTAWt/LSq2qGp5dBBaD11YOb
+	SJNDgJnW3ZT3P4O4WuEOaH0MEZR+hrjXvOWlemlKFoeHzqC8g13j2gkphcgwzFdJm0lUF3omPDRQb
+	BQOHPMx7QOG2PSvNuzQqsvFuJmVCU37y/nHG+HYef4+eEBA15mBE8ZDJlCwyMNpcow5+CTsTtc3aH
+	OsYnaGN5RF1lfFylUN9tD/7uGWqdigox7zuv/MDyQyTB//dw2TB5BK9eOwJTMZy0h4WHs05mv7h6/
+	G10ErOxP3lrIgxVNI5BtuhPRsJiTwYyUpPE9QGhyOEDkdOIB/vFB2hyU336SKhLPkewVetNpTx32Z
+	Jw+ErewA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6L1X-00000005Chs-0gqJ;
-	Tue, 15 Sep 2026 04:44:03 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x6L2E-00000005Cop-1Rrq;
+	Tue, 15 Sep 2026 04:44:46 +0000
+Received: from mail-ej2-x10.google.com ([2a00:1450:4864:34::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6L1V-00000005Chh-3Cpe;
-	Tue, 15 Sep 2026 04:44:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=R17raKv3A7dRbP0Z0IS8IcCAkKFbNj8l0X/n53cwErk=; b=Fejze0j+SE4/cndYjFxdg4IOzM
-	WUgfnycJcmEIBwAejWLcqVpKYQnfDPsWHRRvQVjXG7QdIMvqnE+W/pokid6PqE0vnMqQiaGKYb3hu
-	rYFTQERPr6VNTb0tn1PV2WAOpGVlQ84QJQG1lpsi+bkY9VED8ppaIFY26FFOEuDmU6qd5Xkjz8Tkn
-	VYTmoa0ttWfx9GgA/CyTmta9/HPOd3x6niaZEqs6DtNePgW+6mKVqdE3IwVNpTIYSUwb+PnezxTER
-	N1uO5clI0D51/UYl6tG0JFm6r6mo5VOSPXRKp0Fnr0rEq3D0bHcSCL9ZZJ31SQH6RAMMj8VIB7Bad
-	QRg/rvdA==;
-Received: from mail.mdapi.ch ([31.3.128.54])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6L0l-00000006Gbm-1EAr;
-	Tue, 15 Sep 2026 04:43:58 +0000
-From: Martino Dell'Ambrogio <tillo@tillo.ch>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tillo.ch; s=mail202603;
-	t=1789447383;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=R17raKv3A7dRbP0Z0IS8IcCAkKFbNj8l0X/n53cwErk=;
-	b=OuSbTTxeQeoVaSq50k3p04BeRq+7cMcJ0MvPJa0qOXiCzU3MJVtd+1bfodzWQfmfQqSjqY
-	qyvXMojZFVSTC2VhK2xjejCpSE8wi5tEA3yrGa3jTzqc2bv2YHNyXjKJe0prFuibH0Gc1o
-	XoPH8gpNaxsEZfVhCxbEipAishcwGSS2iqNv9wvrNZgzBJQlEDzIA8AzJvATBc2m4EyVEp
-	M0aQhmfexP4p46trWHu9WZW+R6jqGMGsjRZa6Yc06rTuqjJBfMBZV2ZwEWkeYyWJS/z+Eb
-	zRBupS6VDq0EnaFl/RL4l30rY6daSiSGAlhS1Y8D7/DTYuraPrjfsQFlQFScWw==
-To: Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	kees@kernel.org,
-	tony.luck@intel.com,
-	gpiccoli@igalia.com
-Subject: [PATCH v3] arm64: dts: mediatek: mt7986a-bananapi-bpi-r3: add ramoops region
-Date: Tue, 15 Sep 2026 06:43:02 +0200
-Message-ID: <20260915064302.1595204-1-tillo@tillo.ch>
+	id 1x6L2B-00000005Co7-23yB
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 15 Sep 2026 04:44:44 +0000
+Received: by mail-ej2-x10.google.com with SMTP id a640c23a62f3a-c254fa663c2so412514266b.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 21:44:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789447482; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Fe00Pk+7Fe4lMtV3cnWWPOMqr1MaD41LBm/0mGcSqvOYfIyz7NwKvRuzQJL1pvAQ84
+         g9hiC6jSfGQzKfmILl68aasXNIg4EJYWbr0PaE+bKhFHt5WwQhLzE0DOY9fh8OnrmWee
+         96k39q0GvzPQFsAQ+/XAzk5O9aAfF6+dkXtgy5wNGyckolMLgZDOOuZHVJccokHEcd5V
+         wNyX1weKDCEFs1sFyx0uIndYIxyuHiloccaAzN7p3dayzRGwL/VC+uVCwABGV1BWjb4r
+         v+trczQCxi/dx5P7a7yzxzp4R4TAdqzsjjMzfyRGpxnqPYMQ3NlWZzuoVwO5krkuMfy3
+         VM6Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=OuAEPVCCSuU2/NfeOknYQEwV5oigOdlMWrN/kmgtJS8=;
+        fh=ctDZfpqJpGsclvoTkcTN3shNRM//K3aZuqwje0eCUm4=;
+        b=sjJ9pH57lztFfqF5f9gQkXNVQVcb1JbKp5dvMhhXUpu+v70WvoFMungkiNYhgJG6LV
+         jAcGMaI2rP/pr591eu9BZcZLXvFOJJyOocGTjmU8T36ySyDEJQ46B8+3zVto9E8hwdUa
+         umvWdMxuSzq88zUurgTwmClPwzVw/nl/xXvOdvoHYVKbb2K3qdeq3pwe+ZN472/yszBi
+         aN2kcD8/XOpMkgFscVHug+KMDfCYbzYv9hP0zmSIKMiARwrxFuvaDnk/4bdInvoub2/7
+         WaGuRrfmu4Tz/Ay6AhIdoTeTtZ4mAvYf/se+v429kB4cESUe0V19UQq0prq+1Sb+xGBD
+         +pwg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789447482; x=1790052282; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=OuAEPVCCSuU2/NfeOknYQEwV5oigOdlMWrN/kmgtJS8=;
+        b=njUE5Qqe3Zwpe4gYM0KnRN4hU3p1fcalp+oYE+VOdDBov8JKdxIM5cq6Vibc72jHC+
+         1s5yC4r++kxEYC8dtGjxrhyrJpUcILfKpNUWK8WdpxRdqQObBDbRZIr5/Cl0uykxnkhz
+         NDPFvkfWxqLs1iuvfb/5gcWCkC0AKUuRMuvbw8NcTFt4rIdyxg8yHUHSR0KtxIgzxhFn
+         HyzOHuRDufUBrU55FGYCZWMcqjJ+aKZOIEOqidQGhYes9ioTTiQYzGxSoVo3ILrB7SMC
+         WONkRPzYvRijCKm+t/iztCA1Ciiz2WK9E6ErIUFKwFPsSqS9g5XUgRNTrGyNqgrw/xAQ
+         smCA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789447482; x=1790052282;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=OuAEPVCCSuU2/NfeOknYQEwV5oigOdlMWrN/kmgtJS8=;
+        b=zN6mHUDnqLFx0v2ThhNi+JlQq8HgtdTRDrecTGQQfOpTxmtXlPcWyMVZQDBDFNmP9D
+         N+B/JjXwjRLCU7Qii4HYmXKLiTWTHYBwjVfM+u7cM9On/bSbHYCH4+PCPdzzGaCvqi9m
+         JdNIvABenfp5oGA/epcAOparyO9dPI+8QuSN5nftehgpsP8e5Hmdu+ZjtnemvtsHA76S
+         lceq8gBCB7oNKv3WzJmWOOCqU6qDxh/k4OlsrJBWk/i8lvOoxpTnLmSopD3fVmZ9KhDf
+         NOBAWoepzQ/lwL3EnArByNGshoUIMOqdbb2pkxZ9u+UCcSmmDOV9LZMDcOzYfOdIRFM0
+         02VA==
+X-Forwarded-Encrypted: i=1; AKwUvBxKE2rBehXW8dzJWnJs3xaN+HNsAbG/DNlQCQ7A4QhZIKDH0fwg4hEGDMamZ6ebLJMTp9TLcpuOeBEr6hCEov2+@lists.infradead.org
+X-Gm-Message-State: AFuF++lH11FSAk8Llqzv7kbz5BHWr1+S0b6CaK7HY6PZbkKSpHH3Q995
+	/pyqvYZFmPr2Kxp1S7FDISmcSYydZcNfzqQelTCTOZG/Y8jZ/N59fRlIL/quGMfKLyqgiRuqh7e
+	8D2HTo7O63g/TVIxqqKHrgkIyBVrdxus=
+X-Gm-Gg: AYBFou2uF2U559P1FMyGo5TLbpOjKXOj2eIOQ7j4MrI3t4JY2onVsfURIPIO6j99xuC
+	BGzd0mtINS0toBH1tDZ+gw7vdCZDH545uwggEBSkswezedJ4d33uiSOSmxXD3peVNA2iqBU3BeT
+	xvTss/68ZwOGh/DMvy1OiV2BRUtk4QqUA4oqWUWtjK4W9iQtl+b8pXsoV45f/B3Dl1h6hh1FS34
+	u52enMLse3F51CX9Rq2LbZcgWIhqn4RS7WUsvu8GiF5TLXG0aQ44BkVFYmEa+YH5vNLroz/mZ3n
+	cI+iDFSBggy/S7bIxwrqOnmzHq0xUV7wRB0Bz/FQavRGR3i1M2N8dA==
+X-Received: by 2002:a17:907:3e07:b0:c25:8c05:902f with SMTP id
+ a640c23a62f3a-c29b86b7559mr700042866b.13.1789447481668; Mon, 14 Sep 2026
+ 21:44:41 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+References: <20260913145905.9404-1-linux.amoon@gmail.com> <20260913145905.9404-9-linux.amoon@gmail.com>
+ <8d547f65-a260-4b8b-80e4-4695d4422497@kernel.org>
+In-Reply-To: <8d547f65-a260-4b8b-80e4-4695d4422497@kernel.org>
+From: Anand Moon <linux.amoon@gmail.com>
+Date: Tue, 15 Sep 2026 10:14:25 +0530
+X-Gm-Features: AcwNN1UE0alxnYRR3jtRD2u3dEd1ayGXdU2bhjTuNvTUC-ZbJLtS9W7X8MU3WLY
+Message-ID: <CANAwSgTEJf0gYQZKPQm+=90S5i2dRpJzOLv0gkyt+4ZmUTWZ=g@mail.gmail.com>
+Subject: Re: [PATCH v9 8/9] thermal/drivers/exynos: Add missing drvdata
+ assignment in Exynos TMU probe
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
+	Lukasz Luba <lukasz.luba@arm.com>, Peter Griffin <peter.griffin@linaro.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, 
+	"open list:SAMSUNG THERMAL DRIVER" <linux-samsung-soc@vger.kernel.org>, 
+	"open list:THERMAL" <linux-pm@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>, 
+	"moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES" <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_054330_968706_F88E2F3C 
-X-CRM114-Status: GOOD (  14.00  )
+X-CRM114-CacheID: sfid-20260914_214443_548326_AE579CE4 
+X-CRM114-Status: GOOD (  18.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,77 +122,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reserve 64 KiB of RAM just below the ARM Trusted Firmware secmon region
-(0x42ff0000-0x43000000) for persistent kernel log storage via pstore/ramoops,
-allowing post-panic console output and oops dumps to be recovered after a
-warm reset. Without it, kernel crash logs on this board are lost when the
-SoC reboots.
+Hi Krzysztof,
 
-The zone sizes (record-size=8 KiB, console-size=32 KiB, ftrace-size=8 KiB,
-pmsg-size=8 KiB) consume the full 64 KiB carve-out. The requested ecc-size=16
-reserves a small Reed-Solomon parity block from each zone's own allocation
-in persistent_ram_new(), which lets pstore recover dumps even when the panic
-path truncates writes mid-record.
+Thanks for your review comments.
+On Mon, 14 Sept 2026 at 12:31, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>
+> On 13/09/2026 16:58, Anand Moon wrote:
+> > Add dev_set_drvdata(&pdev->dev, data) early in the probe function,
+> > ensuring that the driver data is properly registered and accessible
+> > throughout the lifecycle of the device.
+> >
+> > Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+>
+> This is somehow confusing or completely incorrect code.
+>
+> Either this was needed by the driver or not. If it was, then why no bug
+> is being described? If this was not needed, then you are doing no-op
+> changes.
+>
+I was looking into other SoCs that use this while debugging the
+device-tree mapping issue,
+so I initially tried adding it. If it is not required, I will drop this change.
+>
+>
+> Best regards,
+> Krzysztof
 
-The no-map property is required so the reserved region is kept out of the
-kernel linear map. ramoops remaps the carve-out write-combine via
-ioremap_wc(); on arm64, leaving the same physical RAM mapped cacheable in
-the linear map at the same time is an attribute-mismatch and risks losing
-panic data to dirty cache evictions from the linear alias.
-
-The region sits immediately below the ATF block already declared at
-0x43000000 in mt7986a.dtsi, so no other reserved-memory child is moved or
-resized. BPI-R3 ships with 2 GiB of DRAM starting at 0x40000000, well above
-0x43000000, so the region is always within installed memory.
-
-For the carve-out to actually preserve content across a reset, the boot
-loader must avoid touching this region on warm reset; on standard BPI-R3
-boards with the stock OpenWrt U-Boot fork this already holds.
-
-Signed-off-by: Martino Dell'Ambrogio <tillo@tillo.ch>
----
-Changes in v3:
- - Resend; no functional change. Rebased on v7.3-rc3, where the v2 diff
-   still applies unmodified.
- - v2 drew no review comments. It was also sent, in error, as a reply to
-   the BPI-R4 patch's thread rather than its own, so it is likely to have
-   been read as a duplicate of that board's patch. This version starts a
-   fresh thread to avoid repeating that.
-
-The matching BPI-R4 (mt7988a) patch is being resent as v3 at the same time.
-
-v2: https://lore.kernel.org/all/20260528123655.2650868-1-tillo@tillo.ch/
-v1: https://lore.kernel.org/all/20260528093038.1945245-1-tillo@tillo.ch/
-
- .../boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts   | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts b/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
-index 637e556..322a12d 100644
---- a/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
-@@ -142,6 +142,19 @@
- 	};
- };
- 
-+&{/reserved-memory} {
-+	ramoops@42ff0000 {
-+		compatible = "ramoops";
-+		reg = <0 0x42ff0000 0 0x10000>;
-+		no-map;
-+		record-size = <0x2000>;
-+		console-size = <0x8000>;
-+		ftrace-size = <0x2000>;
-+		pmsg-size = <0x2000>;
-+		ecc-size = <16>;
-+	};
-+};
-+
- &cpu_thermal {
- 	cooling-maps {
- 		map-cpu-active-high {
--- 
-2.47.3
-
-
+Thanks
+-Anand
 
