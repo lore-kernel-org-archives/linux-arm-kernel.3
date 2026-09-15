@@ -4,124 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D0F2C88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 04:45:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B590C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 04:50:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AVj6OOuw8+ZpNkuoXFcXlRxfZ6JLOmksHtPRzEkYO3Y=; b=oZhWkLDd7ppuLdNbTDnzjm96j0
-	G+tT+nOEb6SRDxRCJRg/slQVJTDulso7/NLNrGc1/J9kVXUS2NEZ9uUvw0yDep6GcuOAA5JMwyYCs
-	tya8sbGHl0Bv3cjGjeU45fqXhijLtxo1VBNDwBbxHSPPS5JzhMloZ0iabEavGIOh6xPQZwu2RDXV4
-	ieDPAGvoGfFeYeHRW3G/A0KBLuz46rwlWySYcxscCgHRbtyDHPqND7PBhEkjFzVIkw1PjjwlhCDid
-	wSEf4651DyKlON7+PNb+2vZbr7fnUWPVm7sbHmr/3Pf2A4ImG+qC8VolBFbpb1U8FyDPL6nRbHtxV
-	H+C90pKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8YD8KNFDiE2U1dp4wTUoJkUIeXklwTbgTxO3NMEpx0Q=; b=ZaE6/RHW09Oiz2KOzpNN9N15Iv
+	vhwOpoMr8dWhxJzqRoidX2e0gChMM3TZbnedHs968hLYy0G5WY7BmtZrpkV7QSqXlMeSQRh/m1Snc
+	InOX+Yb/rEQ24s1Jj9qnyNnVRjq6MMUgGLBvi8TCJI7a4P69o2ht8zCwcSjrs1fxYkD+ziite8Kx9
+	4eFiFeMlpyRJv4A3oNlCpZqACY3f79QtN0PLTv8gTE284+s3/sWcmNwfTE2lWRqhLYqCqka4Gj1a/
+	Mo8lsFGZno5MdwI+OO0G+DYqKh7tfXKVbRj0SYi3UTr8LhdeQGpDerDaXaDroJDCSR1NsW+95QzRS
+	d36n0c+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6L3H-00000005D4M-3jDk;
-	Tue, 15 Sep 2026 04:45:51 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x6L7q-00000005DSt-1VYc;
+	Tue, 15 Sep 2026 04:50:34 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6L3F-00000005D3n-3eGQ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 15 Sep 2026 04:45:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=AVj6OOuw8+ZpNkuoXFcXlRxfZ6JLOmksHtPRzEkYO3Y=; b=G4YEsFdK+2lHjMvXSZA0KSmvjR
-	Q6BvZ4M6xG+Bqe+yjosptfTg6JuIlv39B/cC3bcF96FCaAB+VgaPfarhNXieKHgSw0oKml68ZlSME
-	O8xPAmGHdVxp36boEvv8V7P0SzRknIxBAUoNH7gzOgur6eOY+iVJvla0K6ZCenr3MtFQXJx8hUc8O
-	ShMtFySiq4bJQuHknpSQWvO2k2XNn7gwdcBE/OALK+YOSHe9VYKNx1pVko8YWkbt5PatifogbWMkV
-	s8CAeU4v+9xM0l/5gWBCBoVFNSntCIPV2+bqZup0LV4FKDmlpiDabVs2gc21CoNhSLSSFQxEDvy20
-	x/jA54Yw==;
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6L3C-00000006GiH-0LDp
+	id 1x6L7n-00000005DS6-0u3w
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 04:45:48 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-c2940d16190so583189566b.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 21:45:45 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1789447544; cv=none;
-        d=google.com; s=arc-20260327;
-        b=iSseLIfUHshSSFkIjaMWrI4jpCgN88dSLKPe65Tx8hBb95DOTExV6JG3ap9T3TyaRB
-         NK9vLVFNQpwfAlI/SnM7uSB2WnWSIrTNsjb7kfBU+nrLLqTHLPJErRc1GIuC7k0Mad4w
-         v5oc3fHZJMz8P21aCLdlgaBLNbUC/XZwtjxDL8LHMbARGRo6HlhK2TPMJVBBgDF1EMij
-         PHC+G2o82nsUfgs8i3bnNXJcynaIHeELAz4QLj29ZLDAXhFiuqMk+hp6juQ99C/ebZd9
-         I+CiVRlsMludb3mA6DmwRvp7p51FERDyfDBrTa6UqFXWlAi9ZiyRwG6O61HYZHW0Bt/x
-         1i+A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=AVj6OOuw8+ZpNkuoXFcXlRxfZ6JLOmksHtPRzEkYO3Y=;
-        fh=8YR2tnog+e98RBf5eUD5fu5+S0f1srdIRfjXdNrscu0=;
-        b=c3ImqvsCP97REdzTEvAFQU7XFTMkpKB7xggcH9YrcfC2srXdPSi+yhZGdjOoCgxY/Z
-         SFGBMFMHkBun8b8JuFxJ8ahnRxG9kYjk84aL7rFoyIvZ2QKZASx2+Rx8fw75CrIVgII8
-         1SJ6xJceHtNEvJAkKxpWep6ZMoJrMwIg6jqfYVZs470A8FvHxdFjYD9KoE572aCGm/6l
-         y/ifOgZ9bDtcmRPiIu3g7bacbduclnd3tBknF8mOkKV0Ox7o6sjTa92FkZuZTySe9c0q
-         sghbNim1l7TQShVje77SkozUz97i20rxTAq/CL6B0XKzau81N1sltCZkgGWkbQzH2nle
-         OXIw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789447544; x=1790052344; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=AVj6OOuw8+ZpNkuoXFcXlRxfZ6JLOmksHtPRzEkYO3Y=;
-        b=jr8ax6nnVJfw6IdbLmLxuk+c4VXcehn1dlAn+KE0hLeoKAtBnhH6VwGN9H9+KEIa1P
-         tOX3OAMbt8YfXR2OmDzP5S7lLSGPDH+1jkcKVDrL+ceLiyrIE0ITWlee7HqdEeK8OtxL
-         w2K4UNbSbg4yPe6sJIToR8PA8Kn4f7ssVEmbUpPf+RxzbZN1F1wxK22BIZqTYYn82Ywz
-         YUyLwvyVlzF1UtP5TviOeWfELPGSVioMOWMAvtZHkrW4IauBxOk0DQRsSUyvLXLQSvoN
-         rjOCshcoXlPHDykXYku9U0obQHUhgkUFKVkMYhRGmtjXT5+8q8HIJ+t/oC4/kILX/FTa
-         8+sg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789447544; x=1790052344;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=AVj6OOuw8+ZpNkuoXFcXlRxfZ6JLOmksHtPRzEkYO3Y=;
-        b=HOt58MhcPfCYqg7HdjTVMxpgvdm/4lQUIxbAX+4/DICQ0ptBzy8n++DWldQDuLZTPL
-         IsCvNp75SLlrEG5Eeo0JzhZ2CnhCXXP3m64nJiCs3xaPfQ8ganwJJzP4tox6jJoDdPIA
-         saLDxJVZv64deZSjTdWfw9jWLQFwlUd258Hw2Nna6R138hCdWJgUA1tU0i9RsIxGKMLJ
-         0y17TpYPYKFg7sJsz1h96CpeuLwH0a5kNAEXythL8u5RHh4Z3buuHUi3SeeBMWnZRSqg
-         Y3Tm77qNy7Sw/9MchRwbVWQE4VLuo5j58D7TDjltrsf0KQSgPPpFGe1kI6NlI4eISM3Z
-         yDTg==
-X-Forwarded-Encrypted: i=1; AKwUvBx4/F+8wjGSlbWCoZ42GvBqhOa1w/lPgG8GNuGm7qXR9wybDwi1tl2QDwuREbeaF6ipAxexMkGUa4Qin8/z8M/G@lists.infradead.org
-X-Gm-Message-State: AFuF++lp1ZgodhOscT9RAufMGbuG2yhMKYCLzxb0rM2VLoNGTKpF2nXu
-	0miJHu4LpMMsuwGMEoJHGJIpEQOw/I+ZYt4F/cboCHC+oZRyivb5wdVWzbXEEXiUAOvHXlDvPyd
-	ys9zxvffykq4Mdywj4R+5SCcHpMbMQRk=
-X-Gm-Gg: AYBFou1Xvd00g6xAOrC4JmwfYQGUZPnOMhWTw2YESi3aHwcPjS1KCKS90l/N788g+5Q
-	o1CbpSrPs0P6YbSdrEQAWzv3LDsgDgj7yX4I1Id1y1y5lFLn0rBaY7AQOutAgPeQ5HUSo4hS0fP
-	K0fzjoUqen8JbK5OgIcdEytKpWasut4syTUl9r7qI51kPKGY0ljvgE3ItvVU0zGsrq89HmVL2iO
-	n084HU1ZQKmiZ48YKDJFQrY81obR8qLtKVRgRpaCR1uEfjp3e68Tye9s1JobNUgzxCi/fhsVLD4
-	XE8Yuyxw+W4qHirqt6iUI7tXkD+uZEMUnXIMJYn0fFPVWj+oW8BkclY=
-X-Received: by 2002:a17:907:d8f:b0:c25:c54d:d1a2 with SMTP id
- a640c23a62f3a-c29b864787dmr350678466b.18.1789447543614; Mon, 14 Sep 2026
- 21:45:43 -0700 (PDT)
+	Tue, 15 Sep 2026 04:50:33 +0000
+Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
+	by APP-01 (Coremail) with SMTP id qwCowADHn_OUzqhqCREJCA--.50396S2;
+	Tue, 15 Sep 2026 12:50:28 +0800 (CST)
+From: Wentao Liang <vulab@iscas.ac.cn>
+To: daniel.lezcano@kernel.org
+Cc: krzk@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux@rempel-privat.de,
+	tglx@kernel.org,
+	lkml@vger.kernel.org,
+	Wentao Liang <vulab@iscas.ac.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH] clocksource/drivers/asm9260: Fix clk reference leak in error paths
+Date: Tue, 15 Sep 2026 04:49:59 +0000
+Message-Id: <20260915044959.1726508-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20260913145905.9404-1-linux.amoon@gmail.com> <20260913145905.9404-10-linux.amoon@gmail.com>
- <d4174f6c-2ced-4827-b579-c54b37619023@kernel.org>
-In-Reply-To: <d4174f6c-2ced-4827-b579-c54b37619023@kernel.org>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Tue, 15 Sep 2026 10:15:26 +0530
-X-Gm-Features: AcwNN1XnROT-wl_Pv4SIRl9gq2osyQZq9QJ7pS3eOAiL7xJk3WzBKCm1k8F3Pac
-Message-ID: <CANAwSgQ1Uno50rGMW3Mrtrmm_DW22fgOzbLZH7uHu=StQ8_t8g@mail.gmail.com>
-Subject: Re: [PATCH v9 9/9] thermal/drivers/exynos: Select thermal emulation support
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
-	Lukasz Luba <lukasz.luba@arm.com>, Peter Griffin <peter.griffin@linaro.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, 
-	"open list:SAMSUNG THERMAL DRIVER" <linux-samsung-soc@vger.kernel.org>, 
-	"open list:THERMAL" <linux-pm@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>, 
-	"moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES" <linux-arm-kernel@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: qwCowADHn_OUzqhqCREJCA--.50396S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Kr4ktF45WF43Cr13GFW3Jrb_yoW8GFWUpw
+	s7GrW5tr1rur4I9F4vqr4vyr95tw4jkFy3Ww4Sk3Z5ZrsxJFyUXayrGry29F4DArs5Zw43
+	tFn5AFykZ3WDAr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUkC14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
+	jxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWxJVW8Jr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWU
+	tVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14
+	v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkG
+	c2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI
+	0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r4j6F4U
+	MIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvjfU78u4UU
+	UUU
+X-Originating-IP: [36.110.52.2]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiCRULA2qowd0lzwABsh
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_054546_597969_B5DB7157 
-X-CRM114-Status: GOOD (  20.80  )
+X-CRM114-CacheID: sfid-20260914_215031_632240_04B3FAE1 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,42 +82,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+asm9260_timer_init() obtains a clock reference with of_clk_get() but
+never calls clk_put(). If clk_prepare_enable() fails, the reference is
+leaked directly, and if request_irq() fails the error path only calls
+clk_disable_unprepare(), which releases the prepare/enable state but not
+the reference obtained from of_clk_get().
 
-Thanks for your review comments.
-On Mon, 14 Sept 2026 at 12:30, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->
-> On 13/09/2026 16:58, Anand Moon wrote:
-> > Select THERMAL_EMULATION when EXYNOS_THERMAL is enabled, as the Exynos
-> > TMU driver provides thermal emulation support.
-> >
-> > This ensures the thermal emulation framework is enabled whenever the
-> > Exynos TMU driver is built.
-> >
-> > Signed-off-by: Anand Moon <linux.amoon@gmail.com>
-> > ---
-> >  drivers/thermal/samsung/Kconfig | 1 +
-> >  1 file changed, 1 insertion(+)
-> >
-> > diff --git a/drivers/thermal/samsung/Kconfig b/drivers/thermal/samsung/Kconfig
-> > index e1e8035d24fb..7d5590f78185 100644
-> > --- a/drivers/thermal/samsung/Kconfig
-> > +++ b/drivers/thermal/samsung/Kconfig
-> > @@ -4,6 +4,7 @@ config EXYNOS_THERMAL
-> >       depends on THERMAL_OF
-> >       depends on HAS_IOMEM
-> >       default ARCH_EXYNOS
-> > +     select THERMAL_EMULATION
->
-> No, drivers should not select user visible symbols and also this has
-> absolutely nothing to do with Exynos.
->
-> NAK
->
-Many distros do not enable it, so I wanted this selected by default.
-> Best regards,
-> Krzysztof
+Add the missing clk_put() calls on both error paths so the clock
+reference is no longer leaked. The success path keeps the clock enabled
+for the lifetime of the timer and is left untouched.
 
-Thanks
--Anand
+Fixes: 8d8bd7be8bf0 ("ARM: clocksource: Add asm9260_timer driver")
+Cc: stable@vger.kernel.org
+Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+---
+ drivers/clocksource/asm9260_timer.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/clocksource/asm9260_timer.c b/drivers/clocksource/asm9260_timer.c
+index 8f97ab0b01ec..f0ba19c9e0cf 100644
+--- a/drivers/clocksource/asm9260_timer.c
++++ b/drivers/clocksource/asm9260_timer.c
+@@ -202,6 +202,7 @@ static int __init asm9260_timer_init(struct device_node *np)
+ 	ret = clk_prepare_enable(clk);
+ 	if (ret) {
+ 		pr_err("Failed to enable clk!\n");
++		clk_put(clk);
+ 		return ret;
+ 	}
+ 
+@@ -211,6 +212,7 @@ static int __init asm9260_timer_init(struct device_node *np)
+ 	if (ret) {
+ 		pr_err("Failed to setup irq!\n");
+ 		clk_disable_unprepare(clk);
++		clk_put(clk);
+ 		return ret;
+ 	}
+ 
+-- 
+2.34.1
+
 
