@@ -4,135 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B731BC88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 13:45:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBF83C88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 13:50:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m1/hyQlWI/dFxiV3hpAXZPejQd9auwGzxAvCrheG6Y0=; b=ys0HgFlSBP628sNQvo3prkfDN+
-	/lPLqArg5ZzJw9pcE43545mgDaVzHhroMQoF2n7nrwFRRa4MhWH1jdn2mhlmdAQJSj1CFbVEIK5a5
-	K8f3zXg4OWMahZ78P0S4drG5VfYtIbhz/aHBlmH1RGABnNVonYuEvAiwr38JRqsSfcglUTUo2dZjn
-	uucE1UucH8EDHLyZ9ilK3nXvOJmwW6Q5RIw+XXLXJCJmh9ImSVrZfy4/sEx+Y2XcC0LCJKViPcVrq
-	Oo6/zfiy4yGQjkkT9iVDtUEtqfrYsA1D7IT4lYeeHERg8yKq/e0FOK6SUe70M6r8YYT8zW9V9gaol
-	9zkGeenw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=edP/1GoeLUKEcn6of27Ti6YcYaFZvPoJc4kavTr0HaU=; b=URQaLvRhS9GyeFyEpjAVGb5BJ+
+	KeS77GiQZ8Bx3MuiL+PZg6/9mbj4ULbujU5Uxc5dJmvWm0U7w39rbsVAAsZYw4nKee6uxKhPyEGeB
+	YOCduFS5uL3gaL9L7zedzvAuzxjDCRF23arx8TuaJRZsN3xir6QcbpVDSn/cVEB7qnad3TPqAxi7v
+	2fwZIiHzWtP6hcA34KiIZc29GdXItqti7IVh+shBe/kHMd0xxh+LSBJnu1IomPnbVrn1twRCCxcXY
+	cuCm9KC2b+VGO9f/Q/itLHwVlDZfC05k0ar3WvvgEq9L3M0+PdWR2qR3ikkDbuiUi0jUVaaB+2bWB
+	791EwJKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6TTb-00000006mnU-0wnd;
-	Tue, 15 Sep 2026 13:45:35 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1x6TXv-00000006nTg-2vFC;
+	Tue, 15 Sep 2026 13:50:03 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6TTY-00000006mmB-415R
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 13:45:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=x+HwUJB8BD8Bm3ktJlcdIUWY6mWbd+n0fD3gkU4A1029ZpEzW4BHFolC+VxsAvwlwpgqNzzS2Z4oHUOWOAG8XxIauCXHo8c90TjgXAFr+cffL4A4PwtXxz4t3RVl5OpLDNnHn9H1+nLM8roo5mKKEkPbEu7E+TEnPtEm/mR3eYZmF42pmGNX5nzCnA2O3yAhNCX9cnm6uBnrb81FtHSOpcO1SNWJJG6RSY0g6N9p+NjJh5S9n/VpYtbpJ4f0+2Aq9nng8pknlm91WOR9Tajz02A0aXWqpu+TrQj01zh4aUCooyJhOAuzWBG3vEz2i6RLmsJsw0c9VM6r2q+5j2/Hhg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=m1/hyQlWI/dFxiV3hpAXZPejQd9auwGzxAvCrheG6Y0=;
- b=iQF0asPHGkMn4GwyaeP5KDeR6d2F0LWruQmYbVsUFEIQFFs8oYFRD6W9Lgt3lE3E0++BkG6UN/ZKEFip9VpPizdXO9hCf1xCwHDV8T5gv5QjvYWZW4Nt2XQVDqYvTW2fgyNrmKlrsEBEXDmPjEQ5cZMliPNMh0OOygeng3RWZ2CQryllsXgMx64TutZXgpY/uos7SpPzSZdBWqa8eacbg01KadSDAxbpVSuMevaVOvUm9BYr/1VKiQOkXAHMRY8smNPSWbin52bjuSFrzlwuHhGDav28oGwIuq+QM4CwBI8SQPmcxPsQes937VDPgjrcz7UJ6zSWlFfSFAqzD7q7lQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=m1/hyQlWI/dFxiV3hpAXZPejQd9auwGzxAvCrheG6Y0=;
- b=WRrgpfuiToftxd4G36knTrFlU1AQy3mSQ524NLyI9xV7LvDGkx6jvhpABAtFLVc5eYJ+1yfKRYjaW2ljbaz0W6hfAPWFB5teiZBtFXj3p9SIOx8fOOKae0MC67FrCKd8kIdCqP89Rhcc7lV49jD1R4oT32oLhvMOPxxY0QqIgWI7+4wd8LEgl6Ije+IdeZXAkgoNZGnxfm3hOWXLQcvHhAGRupOFfhumMWgbNV4DgevNjG2G9MUmzsNQytqn39AMJD9c2i4Ps1vw+206RsUKlMbQ3bNZmlHCPtrLSd2tVUBs6FKRONr+rK8t7AvICIH8nkve6Xzdcypk1FnI757LSQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PAXPR04MB8094.eurprd04.prod.outlook.com (2603:10a6:102:1c1::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.15; Tue, 15 Sep
- 2026 13:45:27 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.012; Tue, 15 Sep 2026
- 13:45:26 +0000
-Date: Tue, 15 Sep 2026 08:45:16 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Loic Poulain <loic.poulain@oss.qualcomm.com>,
-	linux-media@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v3 2/5] media: imx8-isi: Extend output format mask to 7
- bits
-Message-ID: <aqlL7JBEGboebBiZ@SMW015318>
-References: <20260915-isi_imx952-v3-0-3d8ff1363dda@oss.nxp.com>
- <20260915-isi_imx952-v3-2-3d8ff1363dda@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260915-isi_imx952-v3-2-3d8ff1363dda@oss.nxp.com>
-X-ClientProxiedBy: CY8PR10CA0026.namprd10.prod.outlook.com
- (2603:10b6:930:4b::29) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	id 1x6TXt-00000006nQm-0M0h;
+	Tue, 15 Sep 2026 13:50:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1789480198;
+	bh=ZWQwvpL1M0bc6+FwRdWniOff2hRdkUDxZm9y3a3YJPM=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=YK0M4T3+4Ii8kwykoBo+qp8sX5MBI4/4ACG8qmepdIOSHJd6I0IJFxMR+NQ4CBFQp
+	 lGQ51u0ggL5HaDQ3TJxkJoVRMMArS5Ih5akqX4AmaKLafav9OVC34BxQAQazrl2dLc
+	 eNa4tiL5jgvDiKzW6F6gvNBoj02oHc5dAta0IDXY8x4zNFoLLu8+8JyBJ3zkIjbKP1
+	 QiPhNiTW+/ngrh1h+f6WmroFSalDapJMbdHQjOKnL0/uLg5LHZthhRIBCV7guUkK38
+	 MbogctHqJRkbNv1bRMhDY2l4Jv9UDMsRD0ZCPzyW3txT2FGj+pQhC0gi5WMpSA/VyW
+	 4r37PEOh+SPag==
+Received: from jupiter.universe (unknown [100.64.1.62])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7F08C17E09B5;
+	Tue, 15 Sep 2026 15:49:58 +0200 (CEST)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id 2D0B1480030; Tue, 15 Sep 2026 15:49:58 +0200 (CEST)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Tue, 15 Sep 2026 15:49:50 +0200
+Subject: [PATCH v15 03/16] phy: rockchip: usbdp: Do not lose USB3 PHY
+ status
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PAXPR04MB8094:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1a15425e-467f-41ee-5fcd-08df132f9912
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|7416014|1800799024|23010399003|376014|3023799007|10067099003|18002099003|22082099003|56012099006|11063799006|4143699003;
-X-Microsoft-Antispam-Message-Info: jmaSDknu77SqEraM0mvUZ5eovFjqDAix/JlqvjquYoZ1oD0Yv8bOJFCE4pa1dKHnzNCNe/xz7Xob0Wg+3VI37aOdtLqLOaxXghShXfSZvhC+/TygfIHpg2UhzT3cht+9QetLy3pvPCiJDqHhB4ET09xZyWzP/vC64vevkBN7QJhp8qtQ9ueU1ed4atTwoQihsLeeFFmmvYN314GSBMZGLsfnfn4O7fWq+vQ1yGED+Gwlkb2Ny453gNwyOVXyPFa+ZSB+WyORpiSbwpcyqxALq1qiLo5uFQoF/LRuL9fHKfV2hC4sbTdzJJbsPh95N379I9lyORnfa5pGrRyiks8a7jZClX/Nh3/NT2/lPCAsUNKA8Qeoh2MzRVU8rEzHYT0ezIwGC8LO3QcrEuKf/0D7EbIA4niI7xUTNVGPeyRP8Vbl3SZoarqsDL9erwcR9GuEPPvUe/9H3L12e2+mjZVKpt7aRLOUfF8pAoOMkU0POD2u+fBmMeONZiaT+I2yE3DRC3er2A5tRvcWbkNt2pBoJppp/VRv4eGxO4r4Uq8h8QcBxX9WtczrSqmM2OPKkuQxS5hxlryUd4vz/oPfPPLRhuZfulEBOn+X1yGokg3NSaBc104JVapMJIqzhHBY1Fp7Kx9djdINzsmr0U0cIvVa5i0tuQGHht5Fo455IvKi0zU=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(7416014)(1800799024)(23010399003)(376014)(3023799007)(10067099003)(18002099003)(22082099003)(56012099006)(11063799006)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?s3VCNl2Uffn1GT1WJP//mjTC+glQMUI6ue+A6TTfMou9AJ7koIhbGPLPabw5?=
- =?us-ascii?Q?FpyTlQha5wXQGai8uFvaH+g4DFv1TkblJa0wokHwIcv8/Wgs2mrE83WvetMT?=
- =?us-ascii?Q?/HTGH//1bMBt4+CC5eMJfjoUNVZPBExi/AMRAFHdlWP6pAfSzlFuj2I2b8OC?=
- =?us-ascii?Q?JEATuDJdT+35bPF7fx5Nx1MGUu5t/+5mkfvJU9odMF0N2J8+3vDmuJ/fWTZv?=
- =?us-ascii?Q?d+egeFKU3/s6mDFwlVk6tJnCcz2JPu+w0mv/pka103Qa9n4nNIzDrsMP/P3f?=
- =?us-ascii?Q?e770xX4Ewmv1jIknX4Nw3aThJ8TyurzLp/6ucCq1eYyPtjq4OkdNBOr8Zo/M?=
- =?us-ascii?Q?OjWYXs0v1fbsBj93REtyedHx7PIm1A1GwuZok+NjImRhvoZ2P8gUG1WmO1in?=
- =?us-ascii?Q?z6k9os4vMzN2WXz6TLSjcxZau8w6Vtc4RHT/tZbuxHjFY9eWsDxVAidLPx/J?=
- =?us-ascii?Q?+844YtlYUcgr6UdH0kASC2+Hf2xSt6735M6of8m779YLaIto33kXu9FQRSKE?=
- =?us-ascii?Q?/PANc2A+xdquPVk2lA9B14bc6dhAiqJzFJSTAAGSLXO+LNlARmSCfFLjHDz4?=
- =?us-ascii?Q?0e8kEyaXo/8LKAG2FNfCTrIEILzFyvTWBt8sGNrYLMv8uijVopPNg5ugv5lf?=
- =?us-ascii?Q?ywfvOxMo5EdM1XBxjAyo7nyQVet1SaEEYLC8a9pcIuRDpa1/Yb3ut8YD8x8q?=
- =?us-ascii?Q?7YSV11t4dorzasacPwbhCRDjwjjZ29VErRIfTMv4Bn4qTCX5Wn9/5Ag/vMGU?=
- =?us-ascii?Q?JAlCa54OFzrfzyanQmr9mAZscmFi5sImtJA4iSH1hCleePnG3icpD7V4H96r?=
- =?us-ascii?Q?u0R7HkEVV4MxYNXJ4grLDcMZqHKBU7TegHzPzb5Ib/fCrGph7/KY+0Y68YrO?=
- =?us-ascii?Q?9+6VuIKNtPErWdhV8xGSSFmbMagm+GnJkfEvH/KRa0QCVQkj4jKk5uqMskJg?=
- =?us-ascii?Q?Bn3jkBjeBPQsAJEI/bAZNPknWVleZaeSnhK3qC5YGXyMo6wJbdTVn/Zl0IEo?=
- =?us-ascii?Q?GYRKTKi0i6Sg+xs2gllHjMwCHFPrbft9hNfnhvERQ/vxp8lq32nVHqZZC/AR?=
- =?us-ascii?Q?SxM1PWd/tXNlUSCYM5bSsNkubVyEL0FxYZmNGANFx+TMBpa0ha0gfPfalRsW?=
- =?us-ascii?Q?tsHKGfEAWfyMvBF2MZTK/XLWCjlegIEHJIU8BMKIA9iD8a+fot8cYTe1WqZm?=
- =?us-ascii?Q?cbt49h0KpTMQQAOqk6Lp46jMqKnJjSFMMk/nl2oYLFf05PvXK/aPzeqMm7XK?=
- =?us-ascii?Q?2uGjYxlQKA0Adio1dh+KkuC8xSzmbd2XX1hhIH2RZUefVC5PwznYcApjXsfX?=
- =?us-ascii?Q?NB9RkLgfnxCA5hM6v9f0btewK5YuEowrKqsLkA2ojpqInka+PMnzCZi4e6RB?=
- =?us-ascii?Q?Ot1twtkS18FHV0QVI5UXqS89KmM7k/QgjZkFT17Yycy/CkyReViG+DH9FlYm?=
- =?us-ascii?Q?hNXXKU7cBB0o9SKv0K61+FSX49ukO0OeMGvsJ5jDfhrmH9lmF3bbarF6diux?=
- =?us-ascii?Q?FQuqzVM+Yfwb7Ww73D855BhfklXixuKLQyGn7d/85OWhXiRoigt8FJlyqrEV?=
- =?us-ascii?Q?XbXKd6eu8EysyUafSG24PISnSg1qxw9fnjOJ09/t2uz9JLGnNz+G2OaSdPAN?=
- =?us-ascii?Q?ti704puEsJNHtPJTyHf4/ev54Z0Ws+0Ce2uO7jrSBWtK6eFTLtpLpROCMwHF?=
- =?us-ascii?Q?J76Vxdu4pIiZzNHR8nfkqha02zAH39D70goi2YFrq/KkEhaJZ/4whlF8ne7M?=
- =?us-ascii?Q?NNWYKGl3iBEQxElP4ZEwtRa1a2oueGvdNlytHM6fwvPXzd0tZKKm?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1a15425e-467f-41ee-5fcd-08df132f9912
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Sep 2026 13:45:26.6228
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: QjNUDPlMwfP34f/5tYgVrlgmlLOMApg/kgYQZPp+8MXB6PnW/cCFNQymcX41iuXJa+OTYcwCiufxMhIPfxW+QCukereeQiOqiZ2Gddp12LubS4obyjuE0XBOTfAjPfQA
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8094
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260915-rockchip-usbdp-cleanup-v15-3-80e2c11d1ce8@collabora.com>
+References: <20260915-rockchip-usbdp-cleanup-v15-0-80e2c11d1ce8@collabora.com>
+In-Reply-To: <20260915-rockchip-usbdp-cleanup-v15-0-80e2c11d1ce8@collabora.com>
+To: Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Frank Wang <frank.wang@rock-chips.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Andy Yan <andy.yan@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
+ Yubing Zhang <yubing.zhang@rock-chips.com>, 
+ Alexey Charkov <alchark@flipper.net>, Igor Paunovic <royalnet026@gmail.com>, 
+ linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ kernel@collabora.com, devicetree@vger.kernel.org, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1478;
+ i=sebastian.reichel@collabora.com; h=from:subject:message-id;
+ bh=ZWQwvpL1M0bc6+FwRdWniOff2hRdkUDxZm9y3a3YJPM=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGqpTQVWNRCp7fSW3ZlbMEUJzDa1u6zaftWPV
+ 5tNlz4D9UP3gokCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqqU0FAAoJENju1/PI
+ O/qa/s4QAInMmd/SVzgarSf8SjlwsOABLWrClbO1/KPEQE59xdgCNkJalZXH6bs2P5Eee0ok8Xa
+ E7NPGKq5t9nsfXshXcgT1zbsXdnlxrWbM70OPaCumMsoTXjUIEsr+7c4qQBJZMDqYb1DpO3U5SV
+ to2VgeGhA5dYzkbbM2+CKs8iXQDu4XVo3X1vcdANmOdkEHUiZQ2XJnYo8xewyMEghX57ty8cxTa
+ RurB8/2P4rrEdIAZ+P/n6MAIgkj1R5jRTMNQnT7jEmB+Okknrk2BjYE+jcHyqnJC28VrslPHIaA
+ 37eemzkUZGWDC56WhvFqpH96VnajZyADXFabl8wZNEYaE8a3MCZu/3alrtOY9TmJCfHaFgxRUF/
+ lxnliStphEyISTRVIYzycWaMfESV12ZNwC1kfr+FrO5vh3RGDRmlTN8LjdJktoaPO7v0jgbSkgf
+ QerDM97Gm803NK9Fdy8uvyy/hwhdNhpGQCVhVX8wjJwsVzbu3tc825nN07euGxHf0lVuaNuvLMN
+ YpUGkD++rJDZhuMZma56a5PHz8iJOUmwS3UImWHspUUFEHHM2pSRsw1l8DGnYSwHAKEpSPzCX4r
+ Sh4kls4aYMmG15vpp4VtL1EbQ1tUHoL4YYaGhzSI13HsX5r9T4SfNnkSspfep/DzrY60cRGDQnb
+ PvQOTOlc9JH0tPdEHKRokZQ==
+X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_064533_020530_874984B2 
-X-CRM114-Status: GOOD (  17.30  )
+X-CRM114-CacheID: sfid-20260915_065001_294027_C7E89772 
+X-CRM114-Status: GOOD (  12.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,46 +102,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 15, 2026 at 06:51:49PM +0800, Guoniu Zhou wrote:
-> The ISI output format field width differs across SoC generations:
-> i.MX8 series (MN/MP/QM/QXP) use a 6-bit field (bits 29:24), while
-> from i.MX8ULP onwards (including i.MX91/93/95/952) the field is
-> extended to 7 bits (bits 30:24) to support RAW32 and RAW14 formats.
->
-> Extend CHNL_IMG_CTRL_FORMAT_MASK to 7 bits unconditionally since
-> bit 30 is unused on older platforms.
->
-> Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-> ---
-> Changes in v3:
-> - Use unconditional 7-bit mask instead of per-platform approach (Laurent)
-> - Drop Reviewed-by from Frank Li due to significant change
+By default (i.e. without manually enabling runtime PM) DWC3 requests the
+USB3 PHY once and keeps it enabled all the time. When DisplayPort is
+being requested later on, a mode change is needed. This re-initializes
+the PHY. During re-initialization the status variable has incorrectly
+been cleared, which means the tracking information for USB3 is lost.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+This is not an immediate problem, since the DP side keeps the PHY
+enabled. But once DP is toggled off, the whole PHY will be disabled.
+This is a problem, because the USB side still needs it powered.
 
->
-> Changes in v2:
-> - Add Reviewed-by tag from Frank Li
-> ---
->  drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h
-> index e795f4daf3ff..c704be882705 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h
-> @@ -39,7 +39,7 @@
->  /* Channel Image Control Register */
->  #define CHNL_IMG_CTRL						0x0004
->  #define CHNL_IMG_CTRL_FORMAT(n)					((n) << 24)
-> -#define CHNL_IMG_CTRL_FORMAT_MASK				GENMASK(29, 24)
-> +#define CHNL_IMG_CTRL_FORMAT_MASK				GENMASK(30, 24)
->  #define CHNL_IMG_CTRL_FORMAT_RGBA8888				0x00
->  #define CHNL_IMG_CTRL_FORMAT_ABGR8888				0x01
->  #define CHNL_IMG_CTRL_FORMAT_ARGB8888				0x02
->
-> --
-> 2.34.1
->
->
+Fix things by not clearing the status flags.
+
+Fixes: 2f70bbddeb45 ("phy: rockchip: add usbdp combo phy driver")
+Tested-by: Igor Paunovic <royalnet026@gmail.com> # Orange Pi 5 Plus
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/phy/rockchip/phy-rockchip-usbdp.c | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+index 13649b52e99b..da0fa75fc9f0 100644
+--- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
++++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+@@ -1007,7 +1007,6 @@ static int rk_udphy_power_on(struct rk_udphy *udphy, u8 mode)
+ 			rk_udphy_u3_port_disable(udphy, false);
+ 		udphy->mode_change = false;
+ 	} else if (udphy->mode_change) {
+-		udphy->status = UDPHY_MODE_NONE;
+ 		if (udphy->mode == UDPHY_MODE_DP)
+ 			rk_udphy_u3_port_disable(udphy, true);
+ 
+
+-- 
+2.53.0
+
 
