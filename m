@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A34B4C982C3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3473C982C1
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:50:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,55 +12,40 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/dwBgvTSCknFUiyphLuWgAoC1ymQKKR5xHnko+T4uSQ=; b=3y8Gg1g37lh6rkBqO77qD+IDi2
-	mTQufkgWRYYDYYZAZrH0T6jECJXvK4Lc6qVh7IHG+WL+t4MWEFGcPCSldEhH9xFedGMIf6SwEINrV
-	io46pu1gCEA9owXO+d/CkAjzQ7UH/29vNhF206oFe2hyDwoln5bjSJ9aaqpPN5oiBIB8xhDsQgnMR
-	bgZk2bAodNj1Wcvr8V2CXwBPgZfgiA+IzptCBFK50Brk/OvvVx0tGhbIXOEv0R+3WLPKt4bj24Ira
-	UtD19d4efcVve2yrWf735Jkr4zTa8CUozeFFKptK7cqOBzP/lVjMm97bc2vt3ThyoAy6WJf5ByFj6
-	kL03i6Iw==;
+	bh=TNVt/6k15eEgUOyXCGERWU2sn/+2Dmf2OfO5NTjce5c=; b=b5LwGwEUmgG1tmPv47Ngb3wbgW
+	Nt/1XbutugFyUKYuIwTkCvaEQJs68lyIZyBM+TIqPqG5Mtcuoi8oCuDQkWhtrpTYgMXjTGW1yAYqP
+	qyyAY9+GFlVJuHzMJ7pW12ZcW8CtMXRQKP+P/Qt4yI/SHOCCoxoyIlC38XzHkvSbiHg1BuaVCwMN7
+	cJtGoPcraTY1eJVt15dz/jtrxhIZZ2FW1fENBKzusRiZHOeflz1f1T8MyRQvgoYLR20tA9S+Qe2WV
+	SafAcKM7S9jbQqHmxpJcHAPut0WDWeq2x+epm9xnK2iM512Nn2qa1pWmUCLfQ1xsDQm8bESMUrUN/
+	0r0DFAEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VQe-00000007Imq-3BAs;
-	Tue, 15 Sep 2026 15:50:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VQ5-00000007IKp-2asF
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 15 Sep 2026 15:50:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=/dwBgvTSCknFUiyphLuWgAoC1ymQKKR5xHnko+T4uSQ=; b=SMiVol+aEy5VDj7Fk1pP3H8aKU
-	ebQp6kOTpEyiTTrJACxy6UYtEsnajYWcrnC75oQVDcv9WNicvWvqSBe94z/RK+VObJwTi6o0tR/RE
-	REdpncUWnV+girqvWbSQZCJ5iXAXUcbUvI1M10KuOKbXXV14ClvHU8DkcteVjplyfnNNu5yflds3Y
-	dPtDEyyAWlo/iDKX2ZvC2h2735kayhqb3PvD/XMtzKGe8S0Nlkvvl+SgjkQPJ3qTFhLP5+Qx6MM0a
-	vS9ckR3S3ATXvPdafr/Kas3S8mRbwPoYNA+BAQ8hxvYERpPNHNqztUBwew70DdkOh4F/Hkd4DA1wa
-	98bN3NPw==;
+	id 1x6VQd-00000007Ikd-2GFj;
+	Tue, 15 Sep 2026 15:50:39 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6VQ2-00000006yXs-38uz
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x6VPr-00000007I7A-3sH7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 15:50:04 +0000
+	Tue, 15 Sep 2026 15:49:53 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 663171BF3;
-	Tue, 15 Sep 2026 08:49:58 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C43081BF3;
+	Tue, 15 Sep 2026 08:49:47 -0700 (PDT)
 Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9CA1B3F882;
-	Tue, 15 Sep 2026 08:49:59 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 061ED3F882;
+	Tue, 15 Sep 2026 08:49:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789487402; bh=RwdsZM+a5uD/u0uXiHq0QhelTuat7HbYA6vpgy4lSvY=;
+	t=1789487391; bh=gphGBW/pfYc0+60Lt5giBEwB4ytrBqfB1hnk2C3sI3A=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=HA48Op/BWQoUQohLek/bFyrKQzhCJgoB7Fig1/46bRzCj+hp1dwOLeJPUyYywG4eZ
-	 LTpK3n8h3aeX+ir5Nwnx5lkQvUhGMyGNuO8UN4lZzJ8iRLPaOokkLori4z8BLJpkro
-	 fGyxShcWhCsy0aHs/5rJRHf12WmBx1+YTv49x2To=
+	b=ZJSZAPzr2jM5zW1l9HDakxHBwkBdOZKjeVv4MdAdu11/dEbTi4vFGjKGaL+PWbvJG
+	 KVxkdCLfNxVGO/qN9bQjyol0B/Ts3EozXmsxHJRivv4EvTpYnq/o0SUc4YkYCkhhWt
+	 6Cja+CM4epKq0yOrDMpNrkPSh/a4a4qG8E/dzDgc=
 From: Leo Yan <leo.yan@arm.com>
-Date: Tue, 15 Sep 2026 16:49:08 +0100
-Subject: [PATCH 22/25] perf cs-etm: Centralize sample history collection
+Date: Tue, 15 Sep 2026 16:49:04 +0100
+Subject: [PATCH 18/25] perf cs-etm: Unify timeless buffer decoding
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260915-arm_cs_support_aux_sample-v1-22-35cf6f297d20@arm.com>
+Message-Id: <20260915-arm_cs_support_aux_sample-v1-18-35cf6f297d20@arm.com>
 References: <20260915-arm_cs_support_aux_sample-v1-0-35cf6f297d20@arm.com>
 In-Reply-To: <20260915-arm_cs_support_aux_sample-v1-0-35cf6f297d20@arm.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
@@ -77,16 +62,16 @@ Cc: Ingo Molnar <mingo@kernel.org>, linux-perf-users@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789487341; l=3619;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789487340; l=4213;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=RwdsZM+a5uD/u0uXiHq0QhelTuat7HbYA6vpgy4lSvY=;
- b=SzWUV9IxuvwoEnwv1yCjXzzj2D+2HcEKberLOkn9Tby6iG+oqqbtlnqZAh6pNlqSOg3oaD450
- 0ecb8mnF72MCUsyXyyY0f2uFtUrBujFTE4yF4UnFXoMoZ41Xi1XlgUA
+ bh=gphGBW/pfYc0+60Lt5giBEwB4ytrBqfB1hnk2C3sI3A=;
+ b=Z8fLFHV3iIRtUuX2kypLyPdTfdHlUP1B9PUzCtr/QBREGYcOjT45zxXAOtr3kLC7UDKo3MdeF
+ FzUq5nWOx3vBpn+x8a821QVXxu35zElQhml+NNKX1b2XwqMeTQn5dpk
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_165003_065065_CE2EA1AA 
-X-CRM114-Status: GOOD (  17.21  )
+X-CRM114-CacheID: sfid-20260915_084952_061877_AF2678C3 
+X-CRM114-Status: GOOD (  18.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,105 +86,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extract thread lookup, branch history collection and history consumption
-from cs_etm__process_sample() into cs_etm__save_sample_history(). This
-separates collecting decoded history from attaching it to a perf sample
-and provides a common place for adding callchain collection.
+Per-thread and per-CPU timeless decoding use separate loops for the same
+buffer processing. Per-thread mode already collects packets in a single
+trace ID queue, so both modes can share the queue iteration.
 
-Keep history collection to consume branch history so later samples
-cannot reuse an earlier trace window. Use the session stored in the
-auxtrace state and remove the redundant process_sample() argument.
+Use cs_etm__run_timeless_decoder() for both modes, keeping the thread
+selection in the caller. Propagate packet processing and end-of-block
+errors through the common decoding path.
 
 Assisted-by: Codex:gpt-6
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- tools/perf/util/cs-etm.c | 46 ++++++++++++++++++++++++----------------------
- 1 file changed, 24 insertions(+), 22 deletions(-)
+ tools/perf/util/cs-etm.c | 68 ++++++++++++------------------------------------
+ 1 file changed, 16 insertions(+), 52 deletions(-)
 
 diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index e78c8e089f38eae34faa12bbd2f899f1f72acce4..815a22cedc49e9281b7087f01355bb71b5e41c57 100644
+index baa962085dba5226d9729a0ee8039374d5fcb1a0..1a53431161e995ba6b3cfdc86e338ed26e675774 100644
 --- a/tools/perf/util/cs-etm.c
 +++ b/tools/perf/util/cs-etm.c
-@@ -2048,6 +2048,26 @@ static int cs_etm__exception(struct cs_etm_traceid_queue *tidq)
- 	return 0;
+@@ -2681,47 +2681,9 @@ static void cs_etm__clear_all_traceid_queues(struct cs_etm_queue *etmq)
+ 	}
  }
  
-+static int cs_etm__save_sample_history(struct cs_etm_auxtrace *etm,
-+				       const struct perf_sample *sample)
-+{
-+	struct machine *machine = &etm->session->machines.host;
-+	struct thread *thread;
-+
-+	thread = machine__findnew_thread(machine, sample->pid, sample->tid);
-+	if (!thread)
-+		return -ENOMEM;
-+
-+	/* Consume branch history so later samples cannot reuse the same window. */
-+	thread_stack__br_sample_late(thread, sample->cpu, etm->br_stack,
-+				     etm->br_stack_sz, sample->ip,
-+				     machine__kernel_start(machine));
-+	thread_stack__br_stack_consume(thread, sample->cpu);
-+
-+	thread__put(thread);
-+	return 0;
-+}
-+
- static int cs_etm__flush(struct cs_etm_queue *etmq,
- 			 struct cs_etm_traceid_queue *tidq)
+-static int cs_etm__run_per_thread_timeless_decoder(struct cs_etm_queue *etmq)
++static int cs_etm__run_timeless_decoder(struct cs_etm_queue *etmq)
  {
-@@ -3088,11 +3108,8 @@ static int cs_etm__br_stack_init(struct cs_etm_auxtrace *etm,
-  * the kernel; its thread and trace window still identify valid history.
-  */
- static int cs_etm__process_sample(struct cs_etm_auxtrace *etm,
--				  struct perf_session *session,
- 				  struct perf_sample *sample)
- {
--	struct machine *machine = &session->machines.host;
--	struct thread *thread;
- 	int err;
- 
- 	if (!etm->synth_opts.add_last_branch || sample->branch_stack ||
-@@ -3117,28 +3134,13 @@ static int cs_etm__process_sample(struct cs_etm_auxtrace *etm,
- 	if (err)
- 		return err;
- 
--	thread = machine__findnew_thread(machine, sample->pid, sample->tid);
--	if (!thread)
--		return -ENOMEM;
+-	int err = 0;
+-	struct cs_etm_traceid_queue *tidq;
 -
--	/*
--	 * Take the branch history rather than copying it. The trace window
--	 * belongs to the sample that ends it, so once it has been attached a
--	 * later sample with nothing newly decoded finds an empty stack rather
--	 * than being given an earlier window's branches. That is the common
--	 * case whenever the trace is duty cycled, by AUX pause/resume or by
--	 * ETM strobing.
--	 */
--	thread_stack__br_sample_late(thread, sample->cpu, etm->br_stack,
--				     etm->br_stack_sz, sample->ip,
--				     machine__kernel_start(machine));
--	thread_stack__br_stack_consume(thread, sample->cpu);
-+	err = cs_etm__save_sample_history(etm, sample);
-+	if (err)
-+		return err;
- 
- 	if (etm->br_stack->nr)
- 		sample->branch_stack = etm->br_stack;
- 
--	thread__put(thread);
+-	tidq = cs_etm__etmq_get_traceid_queue(etmq, CS_ETM_PER_THREAD_TRACEID);
+-	if (!tidq)
+-		return -EINVAL;
 -
- 	return 0;
+-	/* Go through each buffer in the queue and decode them one by one */
+-	while (1) {
+-		err = cs_etm__get_data_block(etmq);
+-		if (err <= 0)
+-			return err;
+-
+-		/* Run trace decoder until buffer consumed or end of trace */
+-		do {
+-			err = cs_etm__decode_data_block(etmq);
+-			if (err)
+-				return err;
+-
+-			/*
+-			 * Process each packet in this chunk, nothing to do if
+-			 * an error occurs other than hoping the next one will
+-			 * be better.
+-			 */
+-			err = cs_etm__process_traceid_queue(etmq, tidq);
+-
+-		} while (etmq->buf_len);
+-
+-		if (err == 0)
+-			/* Flush any remaining branch stack entries */
+-			err = cs_etm__end_block(etmq, tidq);
+-	}
+-
+-	return err;
+-}
+-
+-static int cs_etm__run_per_cpu_timeless_decoder(struct cs_etm_queue *etmq)
+-{
+-	int idx, err = 0;
++	int idx, err;
+ 	struct cs_etm_traceid_queue *tidq;
+ 	struct int_node *inode;
+ 
+@@ -2731,23 +2693,23 @@ static int cs_etm__run_per_cpu_timeless_decoder(struct cs_etm_queue *etmq)
+ 		if (err <= 0)
+ 			return err;
+ 
+-		/* Run trace decoder until buffer consumed or end of trace */
++		/* Run trace decoder until the input buffer is consumed. */
+ 		do {
+ 			err = cs_etm__decode_data_block(etmq);
+ 			if (err)
+ 				return err;
+ 
+ 			/*
+-			 * cs_etm__run_per_thread_timeless_decoder() runs on a
+-			 * single traceID queue because each TID has a separate
+-			 * buffer. But here in per-cpu mode we need to iterate
+-			 * over each channel instead.
++			 * Per-thread decoding uses a single traceID queue;
++			 * formatted per-CPU buffers can contain several.
+ 			 */
+ 			intlist__for_each_entry(inode,
+ 						etmq->traceid_queues_list) {
+ 				idx = (int)(intptr_t)inode->priv;
+ 				tidq = etmq->traceid_queues[idx];
+-				cs_etm__process_traceid_queue(etmq, tidq);
++				err = cs_etm__process_traceid_queue(etmq, tidq);
++				if (err)
++					return err;
+ 			}
+ 		} while (etmq->buf_len);
+ 
+@@ -2760,8 +2722,6 @@ static int cs_etm__run_per_cpu_timeless_decoder(struct cs_etm_queue *etmq)
+ 				return err;
+ 		}
+ 	}
+-
+-	return err;
  }
  
-@@ -3181,7 +3183,7 @@ static int cs_etm__process_event(struct perf_session *session,
- 		return cs_etm__process_switch_cpu_wide(etm, event);
+ static int cs_etm__process_timeless_queues(struct cs_etm_auxtrace *etm,
+@@ -2774,6 +2734,7 @@ static int cs_etm__process_timeless_queues(struct cs_etm_auxtrace *etm,
+ 		struct auxtrace_queue *queue = &etm->queues.queue_array[i];
+ 		struct cs_etm_queue *etmq = queue->priv;
+ 		struct cs_etm_traceid_queue *tidq;
++		int err;
  
- 	case PERF_RECORD_SAMPLE:
--		return cs_etm__process_sample(etm, session, sample);
-+		return cs_etm__process_sample(etm, sample);
+ 		if (!etmq)
+ 			continue;
+@@ -2785,10 +2746,13 @@ static int cs_etm__process_timeless_queues(struct cs_etm_auxtrace *etm,
+ 			if (!tidq)
+ 				continue;
  
- 	case PERF_RECORD_AUX:
- 		/*
+-			if (tid == -1 || thread__tid(tidq->frontend_thread) == tid)
+-				cs_etm__run_per_thread_timeless_decoder(etmq);
+-		} else
+-			cs_etm__run_per_cpu_timeless_decoder(etmq);
++			if (tid != -1 && thread__tid(tidq->frontend_thread) != tid)
++				continue;
++		}
++
++		err = cs_etm__run_timeless_decoder(etmq);
++		if (err)
++			return err;
+ 	}
+ 
+ 	return 0;
 
 -- 
 2.34.1
