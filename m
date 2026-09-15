@@ -4,105 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99857C88E7F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:55:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB484C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:56:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wp7WIPM4acbNtx/6GioAbRHdq+dUssBIHTJbsJvHyw4=; b=DIAAkcL9//mVs1LQKKuQhka0D2
-	q7VnMspoXFQuDmGF8crd4dPBK0F6MSxM3R7jB7CLDKhvw9Zju3VOS+dTb5R4ddz0nO9o2dxW7X8AS
-	ZiplaeKEsURs9H9PAGEb4vMD1aIAjA7RgR2rotoFn8DueFYliBAjZ5JChb+TfehG9B0C4PzlE/w6b
-	EIxa9AWweBRVJnBDoAIbjLyhuVIPCY9Y4VX/ECma+tEEMtJ8SWuZRp+ihurpNSnJQQ/YnWF/TfSut
-	JUU/6b6Yv3q/l5bry6FIvHQnamvyGyzXSO53IqUbsvkdJUk3nBF9J3GLZCEjNGFshfcUfHmVwVw3e
-	er5MN81Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BxPHWNTD4L6hnARkU6EXSH4kWdMAVfIaMl336Sudec4=; b=K3wEWBIvuIw+KLhCFvnP4jZ/ax
+	YVYmXLhN+Ywi8lUdPP23oxc76sqyA22qM84wdRXKQcDwux0zEImN8fjHMbOL8osEcggUHOuwz/g4b
+	BqAm51Du0Z4SMLZUzszDsNyRKY2h9n9GqZNbPuiegrnkLUl6Jr4nRhGejIl9GGBjrr0Tt2ukwJJ3c
+	ahzHBWWqyWzcU1QH6QJTken1H0PSTD86ovFhZ1//1KedM7jH2LfN0Mnv8QZ1K+VYLBtA+25pAFlPm
+	486oZLWiCfMnnUllzQNuCuRPoSgI2O6rvnWykgMwMgvtlXaR2W0h0KjpoRWcBsRD9bDOdu4pydOY8
+	2+/Sx2/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VVF-00000007K0r-1X6T;
-	Tue, 15 Sep 2026 15:55:25 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x6VW5-00000007KCM-2dJS;
+	Tue, 15 Sep 2026 15:56:17 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VVE-00000007K0Y-0Mms
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 15 Sep 2026 15:55:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=wp7WIPM4acbNtx/6GioAbRHdq+dUssBIHTJbsJvHyw4=; b=YOIamUQON326hqTSps1Ljiyeco
-	9lC2S4e6Rvlpf6qcxncjbffiPOUd2WhR09+B9SJAB4c2e6HmP6yx5quddDYviCbXXAxUBdJ3seUg+
-	xeiYYEDCYWygVio3QjM+26TyeTxEPLGLAlRq3QXOT0CVtfPkE/ky5uMMaLChp67taAh/zLRkLa3df
-	2vNUikpmAT+1fnfvw5yNd63VS3XBe8gH41UCz6m2z7+ozIFStGM5KVOpV/yek8IDVeVEzKn+1r3mi
-	/GPgU8VkLrLWdb+g7NwphZLH4OGLsphJ+Qh+NX6xzzEIYHXB5rltgdCiC1L7+dbNsDnBIOp3OkAr6
-	w6307AhA==;
-Received: from mail-ej2-f12.google.com ([74.125.228.140])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6VVB-00000006zAO-1HrB
+	id 1x6VW3-00000007KBf-2FJt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 15:55:22 +0000
-Received: by mail-ej2-f12.google.com with SMTP id a640c23a62f3a-c254f5603a0so76786566b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 08:55:20 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789487719; x=1790092519;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=wp7WIPM4acbNtx/6GioAbRHdq+dUssBIHTJbsJvHyw4=;
-        b=Jb+hiGtHg49UVOr9w0R/KHBVI4otQUiTpZJwfdKIIPdCJZuWaXXliIaNpOKEIyX6Ph
-         dkYAcra1V0ofQs5ITzQpBmp2OSV/Awb8iFu3jWm2cMTyWUtbnnuT6donXXNUgBQM/JDG
-         FO5xaOgLVqSR7jOylcK+VRDIxnh3+97BGNAH974iR6i4VbneDBhyiimD1RUpxS6aNejX
-         uNgIoq+t2Zxpj4ut4/rATp0f4SCQESW2Ok68Bkx5TJo4WYzYJtCPdh4YgCHml1hPLETV
-         gOvtsRhhusAA+rt1HbRm9XOIOXaDymb7ZLLfZj/iRb6O7GF0MEfL5LDRLGztgX0ile2b
-         5E1g==
-X-Forwarded-Encrypted: i=1; AKwUvBy8iNVV6M2M4qWLjEpYLkO0xeknZJvgOR7e+9XPgd7uZ6OWi+BniyrX7EF7p8afn1g6zwbGCucbfMv5zXBB33XY@lists.infradead.org
-X-Gm-Message-State: AFuF++nLiazfWFT6aH2ThKi93n6bKKEC4J1wlscMEv0ZNZ7CFUv0sIUy
-	Xdw8wou/ge+APCLX0SxGwQXexnm65V7QL+6GoIjAqQwwd3xWBOB73/Jt
-X-Gm-Gg: AYBFou0nBSL9oAWDl8bevNV2NRKH+AbCQiT/w1oFQKXBE7FrezRhBL1hOk/nVmy3d+I
-	Wiy0rG7hhK5jLCCF2osJKDcTdQ1H+rQZOC/vkB6LjgB8MUVVDi53vtD7mjSj1Redrp/OPcYcRfT
-	WXdc+RAHUArw+gSZjUpxrCE3bsBDojUGXB1JXjZfffY6b7tnVeMn6FCIgDGPlzp4V8dsJadHiqP
-	+3DCiZJ9xjoDYtMzNpj/DPlolUvBHXjfywYHasqZiKmAlLDbwDQ67VXY2ZbKlv0ZO/3XoY0f7fB
-	BP0wEyWNP7W8REo4dU+JFakZDu4/dYUsaIve2bm7s8QEJd/bNnEzusRiRDTi2y/ShteqNad9+SI
-	ocBYOAJ2atE9W7JS6pYp8fga8j6fMqQhgDeQbHsGHEI27dS84kuKM1alN8Ra39mrYRvso5/qVUe
-	e/djhxtuXICBFJpF1vdnPG3b6jNpKQTsf9uWx9MCnMoJFkPUJXX3AG64A1Ozud+BxqhkfzbGc2b
-	diSSJLP07ZnMaScuYY5jRbKqWG9lXI=
-X-Received: by 2002:a17:906:4795:b0:c26:2f09:f2d8 with SMTP id a640c23a62f3a-c29d790987bmr118615366b.36.1789487719226;
-        Tue, 15 Sep 2026 08:55:19 -0700 (PDT)
-Received: from [192.168.1.135] ([84.68.183.72])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2966125543sm610972266b.55.2026.09.15.08.55.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 15 Sep 2026 08:55:18 -0700 (PDT)
-Message-ID: <dbf50a87-cf43-452d-8a82-6d7ee9af02a6@linux.com>
-Date: Tue, 15 Sep 2026 16:55:17 +0100
+	Tue, 15 Sep 2026 15:56:16 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68FFVVU91231597;
+	Tue, 15 Sep 2026 15:55:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=BxPHWNTD4L6hnARkU6EXSH4kWdMAVf
+	IaMl336Sudec4=; b=E9kjYKDLqa8Q+ZrT0cPcL1qYV/gnwiw+sxKC49wqewEvhH
+	tIADKnBC+dls2N51zMbDqePuAYDevMoXKHla6vFDD8JoWOv96RL1jj6HJPXY9odG
+	JycOY+BiKY/H7iElmqDltBiOUlasXOq8PQLA0kq5OKgttSeCwFYsATOXT5fmWSNk
+	3UtsJSJYHtaZYUUI1qAAJ4doLYIRSy1Iv6OBvnBRvtKV5q82PaUbMZ3bWUxo8INZ
+	qFbmqcEH6ml3syFE7jWxl8OSJiea34IxLnNV2O+fvzHqipjjTZKYNhQVmslJOv+m
+	unhB2F/cUhFrMg5fRMiEbuwvStjIdz8Kayh7V29g==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gmxcuyn9w-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Tue, 15 Sep 2026 15:55:57 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68FFAb9O4140789;
+	Tue, 15 Sep 2026 15:55:57 GMT
+Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gq03bt272-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 15 Sep 2026 15:55:57 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68FFtrIB49742122
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 15 Sep 2026 15:55:53 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 075C420040;
+	Tue, 15 Sep 2026 15:55:53 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 8FF5720049;
+	Tue, 15 Sep 2026 15:55:49 +0000 (GMT)
+Received: from fedora (unknown [9.5.7.39])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Tue, 15 Sep 2026 15:55:49 +0000 (GMT)
+Date: Tue, 15 Sep 2026 21:33:35 +0530
+From: Amit Machhiwal <amachhiw@linux.ibm.com>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+        Oliver Upton <oupton@kernel.org>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Sean Christopherson <seanjc@google.com>,
+        Joey Gouly <joey.gouly@arm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Zenghui Yu <yuzenghui@huawei.com>,
+        Steffen Eiden <seiden@linux.ibm.com>,
+        Nicholas Piggin <npiggin@gmail.com>, Will Deacon <will@kernel.org>,
+        Fuad Tabba <tabba@google.com>, kvm@vger.kernel.org,
+        kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+        linux-doc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+        linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/3] KVM: PPC: Book3S HV: Fix comment naming a
+ non-existent KVM_VCPU_RUN ioctl
+Message-ID: <20260915213132.36dc8e16-c4-amachhiw@linux.ibm.com>
+Mail-Followup-To: Fuad Tabba <fuad.tabba@linux.dev>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Sean Christopherson <seanjc@google.com>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Nicholas Piggin <npiggin@gmail.com>, Will Deacon <will@kernel.org>, Fuad Tabba <tabba@google.com>, 
+	kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-doc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org
+References: <20260915084441.3846947-1-fuad.tabba@linux.dev>
+ <20260915084441.3846947-4-fuad.tabba@linux.dev>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/4] amlogic: t7: give the MMC bus pipeline clock real
- consumers
-To: Ulf Hansson <ulf.hansson@oss.qualcomm.com>,
- Neil Armstrong <neil.armstrong@linaro.org>
-Cc: Ulf Hansson <ulfh@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>,
- Kevin Hilman <khilman@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
- Chuan Liu <chuan.liu@amlogic.com>, Jian Hu <jian.hu@amlogic.com>,
- Ronald Claveau <linux-kernel-dev@aliel.fr>, linux-mmc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260905153234.133217-1-tanure@linux.com>
- <CAPx+jO8oWZxgkWTv3v5odp8K2oWMY-KhJVR3U+iqY4mQ9LrG9w@mail.gmail.com>
-Content-Language: en-US
-From: Lucas Tanure <tanure@linux.com>
-In-Reply-To: <CAPx+jO8oWZxgkWTv3v5odp8K2oWMY-KhJVR3U+iqY4mQ9LrG9w@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260915084441.3846947-4-fuad.tabba@linux.dev>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE1MDIyNyBTYWx0ZWRfXzIn1dK9Rs4+u
+ 1ZEQ/kXTnyAJedfW8z4wkUc+E/d/fluIN3zAK/YxHn7TBgfGnVk8JCl1Vo4xL/psXanz4tD0KHN
+ Qk8+rU03trQthHv6QNcjQwVMiXf22AE=
+X-Proofpoint-ORIG-GUID: 91WZ0m3lDBs7CXxyV9apPpYw-pvyJRYH
+X-Proofpoint-GUID: gJPvzoGNYexcjx6bjMrZBuLr-2VMHt02
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE1MDIyNyBTYWx0ZWRfX2lI7grsp7nJ1
+ cuAIeOKMuz8GpYcvBYKxSINyr/44QJ0DukUXFCTX9jVSMoNPc8e2hL04yKEFu6QZkdb+59nh0Jd
+ ccDYNy+6xXy7HYfPOCdM84EIZwhQZrY9ZZQ02ekC92bGNvoUW2mhzmoGZOjXO5Ei3Hl061hrfbu
+ 0NJ9HKjIEBmau5r4ovHptHj2vsuFpFnFVRAWe4fscsP3kI5RMn/X9VVRMv8yEumnqvg2Vf+Qo3z
+ wT5KDwRX02eFMCZzPVbh0PJlqdntI1LRqViiypazFF5+zw4LbY+pn0mW8soX6sVr3xuQKrdhn3B
+ nDc/Wus556R+i80gYYiOpRWubLPVyZsIAsWVgUpEqnQ7+sXqX4wTIv55rmUsRV8XdEp/1LbjVgH
+ wOZVpU/TMkhz0n63NDtHhGFIu1TZDWH1VLvk13Qk7+yktxo9jecZGj/frjCTs4QdRN68mKHxqoU
+ UfMVdIj4nAQR3WNm6+w==
+X-Authority-Analysis: v=2.4 cv=F+7C5ahN c=1 sm=1 tr=0 ts=6aa96a8e cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=VnNF1IyMAAAA:8
+ a=e7Yo3nX338CflZNYmVUA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-15_04,2026-09-15_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 suspectscore=0 phishscore=0 clxscore=1011 malwarescore=0
+ lowpriorityscore=0 bulkscore=0 spamscore=0 impostorscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609150227
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_165521_414294_9EE77CA4 
-X-CRM114-Status: GOOD (  19.23  )
+X-CRM114-CacheID: sfid-20260915_085615_696147_45E98BDE 
+X-CRM114-Status: GOOD (  24.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,62 +141,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/09/2026 16:40, Ulf Hansson wrote:
-> On Sat, Sep 5, 2026 at 5:32 PM Lucas Tanure <tanure@linux.com> wrote:
->>
->> The previous series for the intermittent boot hangs on the VIM4
->> marked sys_ampipe_nand as critical. But as Chuan Liu from Amlogic
->> explained, sys_ampipe_nand clocks a pipeline stage that the
->> hardware design inserts in the bus path between the SD/eMMC
->> controllers and the NIC_MATRIX fabric to help timing closure.
->>
->> So the clock has real consumers: reference it from the three MMC
->> controller nodes and drop CLK_IS_CRITICAL instead.
->>
->> The series crosses three trees; patch 4 (clk) must only land after
->> patches 1-3, otherwise the DMA hangs fixed by 43e1705ecab9 come back.
->>
->> Changes since v1 [3]:
->>   - Dropped the Fixes: tag; this series is an improvement and should not
->>     be picked up by stable (Jerome Brunet)
->>   - Moved the patch 4 dependency note below the --- so it is not kept
->>     for posterity (Jerome Brunet)
->>   - Dropped the e-mail address from the Assisted-by trailer, see
->>     Documentation/process/coding-assistants.rst (Jerome Brunet)
->>   - Fixed the space-indented error path added to meson_mmc_probe() in
->>     patch 2, it did not pass checkpatch
->>   - Dropped the CLK_PIPELINE() macro from patch 2; has_pipeline_clk is a
->>     capability flag, not an SD_EMMC_CLOCK register field
->>
->> Thanks,
->> Lucas
->>
->> Lucas Tanure (4):
->>    dt-bindings: mmc: amlogic,meson-gx-mmc: document the T7 pipeline clock
->>    mmc: meson-gx: enable the bus pipeline clock on T7
->>    arm64: dts: amlogic: t7: add the pipeline clock to the MMC controllers
->>    clk: meson: t7: don't mark sys_ampipe_nand as critical
->>
->>   .../bindings/mmc/amlogic,meson-gx-mmc.yaml    | 29 ++++++++++++++++++-
->>   arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi   | 15 ++++++----
->>   drivers/clk/meson/t7-peripherals.c            | 10 +++----
->>   drivers/mmc/host/meson-gx-mmc.c               | 20 +++++++++++++
->>   4 files changed, 62 insertions(+), 12 deletions(-)
->>
->> --
->> 2.55.0
->>
+On 2026/09/15 09:44 AM, Fuad Tabba wrote:
+> There is no KVM_VCPU_RUN ioctl. The one that enters the guest is
+> KVM_RUN, so refer to it by that name.
 > 
-> Patch 1 and patch2 applied for next, thanks!
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> ---
+>  arch/powerpc/kvm/book3s_hv.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> Kind regards
-> Uffe
-Hi Neil,
+> diff --git a/arch/powerpc/kvm/book3s_hv.c b/arch/powerpc/kvm/book3s_hv.c
+> index dbac3573b2c89..db090f4c5e95b 100644
+> --- a/arch/powerpc/kvm/book3s_hv.c
+> +++ b/arch/powerpc/kvm/book3s_hv.c
+> @@ -269,7 +269,7 @@ static void kvmppc_fast_vcpu_kick_hv(struct kvm_vcpu *vcpu)
+>   * stolen time for a vcore when it is inactive, or for a vcpu
+>   * when it is in state RUNNING or NOTREADY.  NOTREADY is a bit of
+>   * a misnomer; it means that the vcpu task is not executing in
+> - * the KVM_VCPU_RUN ioctl, i.e. it is in userspace or elsewhere in
+> + * the KVM_RUN ioctl, i.e. it is in userspace or elsewhere in
 
-Any chance you could queue patch 3 for this cycle? Patch 2 is already in
-next, and until the DTS lands the MMC probe fails on T7 with "missing
-pipeline clock".
+The erroneous name was introduced by commit c7b676709c16 ("KVM: PPC: Book3S HV:
+Fix accounting of stolen time") and has sat untouched since.  KVM_VCPU_RUN was
+never a real ioctl; KVM_RUN is correct.
 
-Thanks
-Lucas
+Reviewed-by: Amit Machhiwal <amachhiw@linux.ibm.com>
+
+Thanks,
+Amit
 
