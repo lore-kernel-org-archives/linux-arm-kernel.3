@@ -4,139 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 359CFC88E7F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:00:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA958C88E7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:01:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QVpqtsG2pYRd+xtzPatxWn7lVqcg2FxLxNjHxUCO+sM=; b=kABSs+z3cbfzQL081GWanIxl48
-	9jSpY8Q1HGrUV5yzKOAUObGk/MbtIH5lL4RjdhuistawG/2sJxLKmJiCmzlcWYTisIVGjmikuPx7i
-	0UR4F/Loiw6Nn/XVcECAKoCCBD+IgXF4iOivQH5eHoIdpQNsh8dl7OATMWbG/J4vhe8nh3NEyicDE
-	At43w4ZdzxzNDb+sEOjWs1Ty0eJU0iyFTU8VSn5xNICXv/LJS6X0IV1q+Lb4GkeB1AYh7HMIcJ3Fg
-	+e/pCCEmVECvGEaTQiraQJ/jkrwT0jCZyApArk4Ww6V4S3c1eNdCGKuoYS10s2xxVQ/+ClD1ryLtm
-	z1sEToTw==;
+	bh=g9rzR4FHW24jqWw2J2lJ2bk+jLthZKfD8kBK912Z0ag=; b=HYB/bBlklAsebq5iliqhTW4LjQ
+	VeW4ip22SmshED4qN4xasH6RX5OMSJ5CBJMco07NK//LgkUSR2E0BZpjPonZLq4DqLzW+ak3zRh+G
+	vYh3fP3SfprrZ9ZXhrJmNzsjvyVzEDHeEMp+4yuNMNvVpL9agZ4rpXm+e4m1vboQmkEGNOBUICPGh
+	qIu611SZNan8jk1NLbSl35G95lAS46SFTjZ9ZVbzUCXWjVR3897P77h49qLmgfCIKO0FKs9BCYqbY
+	eNvOMiegQcqeYDzlYU7DjUg9xnOYJlmrUafPGUJ1wt0syj3AVQ0PGcOtirO6yKFWw57wDUxKYMCBO
+	IwyvVHRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Udr-000000073Ln-3VQ6;
-	Tue, 15 Sep 2026 15:00:15 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1x6UfH-000000073gM-0Lkv;
+	Tue, 15 Sep 2026 15:01:43 +0000
+Received: from mail-qk2-x11.google.com ([2607:f8b0:4864:34::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Udl-000000073G4-06Kt
+	id 1x6UfC-000000073ex-18CN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 15:00:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kqikUiFoxbzivzIt7yw5+NVInruII5NrnLIoVOveKB+yNN9MeoFVj06FiqswGhKDcbRW0nOpGh5kVdHMl6APfJFM5UktGQih/s1y1Oba0vYsSUidiRpQWvLlIRx+Z7KK/ef9JYyJpjABTZ1KhmigkQvBlyo9gCTr1CG1yx9mhzgVQT54Qui2CsR9pAJvKM5+E8VIcyXomblRHECzEUYyWeBpfViFkgYVm3MgQPmxFwGey4hE9ZURSg2kh5MD2hqdvjmwCA1KqczOFwrrgkGNUUvIKs66m3Fl71pcCfDZr+YHK4sc+1qXipbm8zbBRH/NLVVT57BTOEhm/hF2oONfMQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QVpqtsG2pYRd+xtzPatxWn7lVqcg2FxLxNjHxUCO+sM=;
- b=yYWNOGENf6PU8ufrYMHSvO/NP8i5B/MzOa0swVvPkBozaF5TTjL64UZmKuLc2icSfxSbMXXJu2s3akQoPSyTXQMhyLadiWNIxNz0IdgDm3d9JT/qCbhh2dZSWWbvBjWQ+jZkoUoUV4oCwSjfG323PHaj17ct4c5jrH4u5aq0UDyhUoFNZJB+8SNY8uvaNx9fF2isIbpe18KV5abYof6tOt4uTFJ3/kF4AH/k/raQgdnYY5PiWQTQ27LNf61+7vkMEfLF/+CZRJa0NpythEbt1spzcGn/KmiNs8jRKLKHQuBIzeeqAa5C4znF8D9OAc8waRr/p46NgWU6X3A2MG4FNg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QVpqtsG2pYRd+xtzPatxWn7lVqcg2FxLxNjHxUCO+sM=;
- b=ISnungqPzCgBYfAagNqBO9cPC5L94zy8/2S4vvP7dR/tKrAftpKz2B09KZAn40R6/o8mu+HrxI/yXNfxPwyGVmbmAt1sfRNG4wvo9ReEKlkbayfRL5WoAIBfrUTO/K+VYNdFgEyRrmW4SAo33Ht7IHD6XEqqnTzbfymtTdCT0QIDSeNgkVCU0aCMI4ZSwtRKucnoOyW33+EGehZLHfHWsgLMnFPQB1dXlNLmriV2e5/Q10r6ozOblwcQ/rxUC8bdN5vxkqvmHdoEXOTVGDyAS9qJpnYYKRDvQjukY/GTLNkKR/EJmbD36v2zjusP5IYjEDjBKFzabndyvdUFobdokg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by DU2PR04MB8966.eurprd04.prod.outlook.com (2603:10a6:10:2e1::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.9; Tue, 15 Sep
- 2026 15:00:02 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0428.008; Tue, 15 Sep 2026
- 15:00:01 +0000
-Date: Tue, 15 Sep 2026 23:04:18 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Franz Schnyder <fra.schnyder@gmail.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	"Ivan T. Ivanov" <iivanov@suse.de>,
-	Francesco Dolcini <francesco@dolcini.it>,
-	Frank Li <frank.li@nxp.com>, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, imx@lists.linux.dev,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v4] arm64: errata: Add NXP iMX8QM workaround for A53
- cache coherency issue
-Message-ID: <aqlecgN0A53h6LGb@shlinux89>
-References: <20260824-imx8qm-cache-coherency-v4-v4-1-b2e528c7d05e@nxp.com>
- <f5nfbi2lmc73wtxxmzs4damrjtd67p4eb4p2zy5ssqrc3wohne@cjcxqua5dps6>
+	Tue, 15 Sep 2026 15:01:41 +0000
+Received: by mail-qk2-x11.google.com with SMTP id d75a77b69052e-52fb76ec395so2543531cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 08:01:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rowland.harvard.edu; s=google; t=1789484496; x=1790089296; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=g9rzR4FHW24jqWw2J2lJ2bk+jLthZKfD8kBK912Z0ag=;
+        b=Wkf5lj2ma2GDMatVQsvvXbBxWC5s/4JaC3gXvKQkK5Pv8wSYCxVfEOTQhj9zzoc3xa
+         YWT3OapIvL2hbJQt9pSQHe5mM3ymD0Gq46A68+8X7MUqVgv8JXyKDQV7Yjn2iGzW+6u9
+         ts+1rhFlW4j+zjWd8iiYlDfGEEbMxUmWioPK6OvkYuHKd58JLDEydUpP3Y3wAsi6eTHW
+         w9f08i2so+hPBqPDHdU7GpZR0td8EGSpxB1Knt6FIdwlHPx1fApfb49XvToCfT4Gyjxe
+         on8M+K+xRx8mLb0GIXaN/WihdPGTFh0RU2QUOQIGczdXy5IHK8O3T6ODDtqoG1Jx9/b4
+         J8VQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789484496; x=1790089296;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=g9rzR4FHW24jqWw2J2lJ2bk+jLthZKfD8kBK912Z0ag=;
+        b=bxZa2z1DJLh5x3wpPPPJULbnQrMGxxnBR43lUfKBxetHSyVaYf8r8BRVy8Vbxs6JJL
+         9OstPkouwNK0d/PrkDQG4TLFsjWGuzrbqfd8w19GXfAO87q4+FDTBq19OwGvKHlDLenn
+         n+qZZva2XCfeIx4bFD644QKOb5L9HEuEfkbfVzC0WJUBRCikZVZLRF+Dzv5XTR75LBZI
+         rPvYfR8mf4kw6yuQ+dkge0SkC48Jwy2KDjyDcdXqydv6VT2ibbOPDrkufJTqjB1x2uZq
+         CXh9fYyIikcB4N3ibzLtdyzVYZyWaLZwhAtHDd+voKbTlhhsPLHmfBKHySloM5JQv3m4
+         brPQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxfTKdsEmo8pwJGeBuXaNcBZ0I6UzGLDtwvHzYr7ylrwLyiTCbXk/EoXBYZo0hR2Tr+ujpjENnZoxHTytffs93k@lists.infradead.org
+X-Gm-Message-State: AFuF++kskBxeK6SOKqwo5Sk4mIMUmygMrA/+itcFXEVsINCIEseM2fNE
+	LIcrpt6ZjybIHL2tQGZw2SHlQ8qzwRLiY6n6JB8MCNn5HtHzCfQ5/otmUCkq9/GlRw==
+X-Gm-Gg: AYBFou15IiEVxhmef/pqXnzAHfL1a9/8wTnTi0qge0bwV9+M3nSd9rX5dxNIw3C+QzR
+	dKJMiHtp1A8+em1Uf4DP2YfAspwr2H7TFdHwkoBnG+QBWUw+H+s0KBQSPAg+XgJro945omrYoHj
+	wAsADiJ1RxQM7xms+198smt+9ToypvJgcKcdtmoD4h1VQggxd0YBhG0LIzgF3xgYuz1BzQdyV6q
+	ATWZtk28L9x417iRw2Ow2nloTbeLC9f7sv0SvUarKQt/4yYKkvhA1gsY4BwaXIY4UR/vcw9AL3m
+	mo2fvoPlxi327mnAWHnovHSwo8TwTyimo5mLlrWgNq1VITdA5+SAxuKpGSKHufvoMK/YC+7kp/W
+	U1jOC4siOFVl55GoBA4HozQ8KglyUvmph0JtxqfG4MC4i7v54Ml2bAGrJLeGOpUyPW9fImDK3A+
+	81L60cAhWThlSxbJLSqF9pQhxl5wCTQXZx4b+vivdplx6lL0G19YhoHu9vlqqtOD9a7hIG9Kv+
+X-Received: by 2002:a05:622a:1dcf:b0:530:e7aa:ef4e with SMTP id d75a77b69052e-5312626d895mr19384701cf.16.1789484495571;
+        Tue, 15 Sep 2026 08:01:35 -0700 (PDT)
+Received: from rowland.harvard.edu ([2601:19b:d01:d210::7544])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-53116090064sm34071481cf.5.2026.09.15.08.01.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 15 Sep 2026 08:01:34 -0700 (PDT)
+Date: Tue, 15 Sep 2026 11:01:32 -0400
+From: Alan Stern <stern@rowland.harvard.edu>
+To: Myeonghun Pak <mhun512@gmail.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Patrice Chotard <patrice.chotard@foss.st.com>,
+	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH 0/4] usb: ohci: Balance controller wakeup on cleanup
+Message-ID: <c65da485-90f3-4393-8836-3b793047bfc4@rowland.harvard.edu>
+References: <20260915012011.61874-1-mhun512@gmail.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <f5nfbi2lmc73wtxxmzs4damrjtd67p4eb4p2zy5ssqrc3wohne@cjcxqua5dps6>
-X-ClientProxiedBy: MA5P287CA0325.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:222::17) To AM8PR04MB7874.eurprd04.prod.outlook.com
- (2603:10a6:20b:24d::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|DU2PR04MB8966:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5333b091-44e5-4af6-b136-08df133a0483
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|376014|7416014|19092799006|1800799024|11063799006|56012099006|4143699003|10067099003|22082099003|18002099003|6133799003;
-X-Microsoft-Antispam-Message-Info: YhDK1J33TYy+Ou8mOJZnOvl1CffnOzF/fat9EhJJ8iOe36HJOb5WcF1j1dAexS+OApad7PkJ/OXWDpIYWI8fJPMdllY4h8dgbAObeFmzWsjDKnXZjiA+Ia2HhtDDraLWeFanQ3UhL7892KQKXk+XJ/0iZp0t7j3Q6eWjG5Y+ByZMCQpiESaJSYvQwjcHNmoPgJTBtO52xuiPqCRUxCqnlOYFaiPGri1c5kmCVuDzkrtVU43F/BJxk1tqdSP2Egwxhq9AiScN2NBGU2D8m6EniAvM7DbK5IkMHdyUKaq0z9CDngTSTnCtedfLbU+JVQ1A22Zkhxkdbh8LTwG7gbyTqg7xNelMQ1kzzAtF1VWEFvI9ZgmzvJcX40m5zq4liOJSS+bpWX7lWD46z6nFIRTfPubdEQSoDeaR5dcFOLT2TazO4AmQLOpUF5Soe/R7Itv3enHXSMUxdk4PQJDfeLK+UJ2pc6xRTdK3GgdvpUG8PFHgb6H33/sDer90Jeor5JygXzCYf1zlZpVcyDRZ2FxLDoFkl1MQBqan37F94o0/FQF0uouy5E7Wa6D/aKgLmQ5xnGPA/wZSRDYJwZxeH4thYdDEPrlr6Y46ImOtrj93Kgbu2KMaLFHOXbLAMSProdk2fGDjhAvs03yZ8IYqYDOYnlFiMKsl5IxnCVqeWYI+rZc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(7416014)(19092799006)(1800799024)(11063799006)(56012099006)(4143699003)(10067099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ViwHQPqZfHPpTjwUarAtSSLHc7wYSbeTXtMn5/7qseH3EUI+65mymmn+Vd6G?=
- =?us-ascii?Q?w8nQMwhNpKTFno0FH/94AQThbH4OfrqGTyVr/eShd0lKCpqR0csIx3iGNWEE?=
- =?us-ascii?Q?XO+P0kgPoydG5Erm9V83zGwSQJDNT5R+M1W/H30SatdcuYYqWeD8oKoFQKOb?=
- =?us-ascii?Q?2/eikYTqf0LcNnmjg6W0EzRKhyDEaYBWaj7KxhmyesyFKrnczIjSr7+wqOem?=
- =?us-ascii?Q?t+jGHcQyRaC3xX4lIgDnGtUc4A41GGqzBkDATbAd18wavJaaVCn9TBOcrBP7?=
- =?us-ascii?Q?GSrdklWxtXvd0Xb3XIi+xS0L43a9RvNzTcgi0OSAl5ApQnykQk8Lej2R8HK/?=
- =?us-ascii?Q?B88rZfjtGEHRqxUBEjRwNZsXDNt5v4AiHV0Pm17BLnz9qU1eG27RDB6TVBK7?=
- =?us-ascii?Q?deZouw1ayEL9DANXO6eu9ZBPeST6PZTDjD2sXqgehjlu7Y0rmzau6ZdRa8s+?=
- =?us-ascii?Q?Fq2j42nvbAq32oGxIqAnAXjxyJ2F2rixvzYsnoE/6TiHwxp0rii4m2a8lVz8?=
- =?us-ascii?Q?+HxPtxWZip/lNdGOR0tHF3bYt9Kd/MtXJNNBj1kT7iehVrjM00bEeXpkvsw/?=
- =?us-ascii?Q?+9GzyQRTw/Lh9gTYI9+IZ2rhaiPtXcSK3jkQm+2xTW3gmdgTWdjF6GL+5lY4?=
- =?us-ascii?Q?SEmZ4dPEF52vbUYR/SJIQXWCf46ng+eCmbAyjtRcOfF5tFGaZwp1oa+iC09r?=
- =?us-ascii?Q?IqB8wWUEJXnIyWkH5Wqyx+d3FPghk//E8weFVluFLlMS1DusRgiiHjJ+q8B0?=
- =?us-ascii?Q?6S/3q3BIYzY4bac8ccTX1JMRsqvj3yxi37zdva4KIZn2MqJmAzsPN1Svv6nY?=
- =?us-ascii?Q?aaiOo4e/gZsL9amUnhesiKfCGQkCJ/UBZ+jBf5OpJZDsDVwveYnbdlugtJ2e?=
- =?us-ascii?Q?gsA7aTeb6BeaNdc+aKygWwVzABYYmT6YrrpTLpmlIuKJtDfQiK87nDcW1obT?=
- =?us-ascii?Q?3KjZlV42RateVc6pKojTuGyddCZF4BsQpvJb18DUvhzdVDPBsqMAp9l46nBI?=
- =?us-ascii?Q?Lj5jE8J25U+sX+sFdDcf82gEo3ScM41yHDoovtqQciDcFyA6ePJCZPmiqU9I?=
- =?us-ascii?Q?XGtMfS2Ysy18zh1bm/YkDFHDoJfAxA0nf4nXv8yDIMq52EkvchEhDOauwPGd?=
- =?us-ascii?Q?1QCyzhxpYcH4JX/uJDIyYpsjI9n2TirtjVT96PM1hNrJt8HmofOOv62xWGgG?=
- =?us-ascii?Q?gl6lVZK/BY+pTglXSVpyUYL/HR+fg1GNIBzylHFiuujGW+wKCXUkZ6Wge3wN?=
- =?us-ascii?Q?SsVPa6ZRT2ZcsnPW0aiXfjTSftWt3rTIxrzZ8Dvez4purfVPyJ4/MazhNIeW?=
- =?us-ascii?Q?LKM1cZOh0Kz0LNqsBkPziLbPcPxvwp/YO2LrWdJ+E1GFQNsegm0pp2CuKJIb?=
- =?us-ascii?Q?uRe+lT1ZQL/WLIgSzppDsXG+8LJwmFm1hy25lcur01L0s6/FkdyclSw6Xoov?=
- =?us-ascii?Q?EHGZ+hPrEHpOzcYSNXFfhkgAQfQNY4LixcfCJbIf92IVqPitUOTlr5pyzA2O?=
- =?us-ascii?Q?4qzz0z89zsh75iBIpDOu4O70XQ1CktQveYoo8OcMfK6IFiGkI++9iY4htp4V?=
- =?us-ascii?Q?HnjpxCQ9rPGDy2VhBBQUYgvquxcd3sKv6a8KjFrknGiPUA1Wx+Af5XQohF0d?=
- =?us-ascii?Q?pTXks1ZM1vpoVKrgdhUNyHa82aZwBTjzLNG/kDmRh1edG0g8ID8XNC5gpWdZ?=
- =?us-ascii?Q?tqLCJnnPZP1PiITSU5H0aylhD8kCJoOpeCz+FSN7NZRGWO8+NqpjXazg7DxL?=
- =?us-ascii?Q?EkwUTByoca/AvKp5dnd4lz1YOnK9kHZVTMPYfZ1O4ld/GqvzElT0?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5333b091-44e5-4af6-b136-08df133a0483
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Sep 2026 15:00:01.5869
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: VjiBizCqw5gBypb1dmwwfTSGhneCx+27R8YdvgNTBS3W0BujjhBlyVd/CqU/lmLIz/vICH2P2cG1qKDfDivNINNjwiFxacQGOHYzKw27JJXvRDlA0IAb73edXIHWzebC
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8966
+In-Reply-To: <20260915012011.61874-1-mhun512@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_080012_967816_3904EA91 
-X-CRM114-Status: GOOD (  13.53  )
+X-CRM114-CacheID: sfid-20260915_080138_639720_147FF18B 
+X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,60 +105,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 25, 2026 at 09:06:31AM +0200, Franz Schnyder wrote:
->On Mon, Aug 24, 2026 at 12:02:04PM +0800, Peng Fan (OSS) wrote:
->> From: Peng Fan <peng.fan@nxp.com>
->> 
->> According to NXP errata document IMX8_1N94W[1], the i.MX8QuadMax SoC
->> suffers from a cache coherency issue (ERR050104). The upper bits, above
->> bit 35, of the ARADDR and ACADDR buses within the Arm A53 subsystem
->> have been incorrectly connected. This causes some TLBI and IC
->> maintenance operations exchanged between the A53 and A72 core clusters
->> to be corrupted.
->> 
->> The workaround requires:
->> 
->>   - Downgrading targeted TLBI operations to broadcast-all variants.
->>     Instead of patching the low-level __TLBI_1 macro (which interferes
->>     with the REPEAT_TLBI workaround and causes excessive over-
->>     invalidation), redirect high-level TLB flush functions
->>     (flush_tlb_mm, __do_flush_tlb_range, flush_tlb_kernel_range,
->>     __flush_tlb_kernel_pgtable) to use VMALLE1IS via static key checks.
->> 
->>   - Upgrading IC IVAU to IC IALLUIS for both kernel (via ALTERNATIVE in
->>     invalidate_icache_by_line) and EL0 userspace (via trap-and-upgrade
->>     in user_cache_maint_handler with SCTLR_EL1.UCI=0).
->> 
->>   - Disabling KVM since correct TLB maintenance cannot be guaranteed
->>     for guests.
->> 
->>   - No need to touch SMMU Broadcast TLB Maintenance (BTM) since i.MX8QM
->>     does not support broadcast TLB.
->> 
->> SoC detection uses devicetree compatible string "fsl,imx8qm" or
->> "fsl,imx8qp" since the boot CPU MIDR_EL1 (0x410fd034) and AIDR_EL1 (0)
->> are not unique to this SoC.
->> 
->> [1] https://www.nxp.com/docs/en/errata/IMX8_1N94W.pdf
->
->Hi Peng,
->
->I tested this on our HW and the random crashes that occured when both
->the A72 and A53 clusters were enabled no longer happen.
->
->Tested-by: Franz Schnyder <franz.schnyder@toradex.com> # Toradex Apalis iMX8QM
+On Mon, Sep 14, 2026 at 09:20:07PM -0400, Myeonghun Pak wrote:
+> These four independent fixes disable controller wakeup after HCD removal
+> in the DA8xx, S3C2410, SPEAr and ST drivers. DA8xx also needs the same
+> cleanup when notifier registration fails after the HCD is added.
+> 
+> This issue was identified during our ongoing static-analysis research
+> while reviewing kernel code.
+> 
+> Assisted-by: LLM
+> 
+> Myeonghun Pak (4):
+>   usb: ohci-da8xx: disable controller wakeup on cleanup
+>   usb: ohci-s3c2410: disable controller wakeup on removal
+>   usb: ohci-spear: disable controller wakeup on removal
+>   usb: ohci-st: disable controller wakeup on removal
 
-Hi Franz,
+For all four patches:
 
-Thanks a lot for testing this patch.
+Acked-by: Alan Stern <stern@rowland.harvard.edu>
 
-Thanks,
-Peng
-
->
->Thanks
->
->Franz
->
->
 
