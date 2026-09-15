@@ -4,106 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1353EC88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 16:10:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A475C88E7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 16:10:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cj8iWYGkmy9fr6Sp+MjBMi0cvssqzarl8Tgut8FUMEc=; b=KSMvXY7e1kDKGCaN1L9jQJHltt
-	iYCXHQXndx2xJy20/e25Ilvx1O9oWSmtuLsFLC6iMlscBB7lBvjBFf/P5bXaxhCgfRnTdluHbDbb0
-	Sd2lomQ0WJWCY9ZR2VU2rYfHwgUPLphiRUYzOte9lbcsrqMbnFtRBUnQefVFkbRoIa7M4GBgtXYAR
-	yCMEBaqnbq7V5svjYg9s7kC/r79Lxf8MoSeD3dA6mGM8W5+Pj5wysBkkw14dJJvJG9aAavVoSwByl
-	QGKtBUOY2B3xSi+/TWFevxiLOkkJh6T/BLaPEMrcFpW26LRunII114EPepPd+OErftT/uQv8D9dL/
-	H/LxGuoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5TDiG55CoXjTJx/VoxQIpkqirtSnmUSM30sr+5zJ4CM=; b=CnlL8oi282rASofBBIPpmT34v3
+	GtTIsNYlmsW8PT2EQdTRM7OiPjUwp2gdStzF2TV2wXq0dzk5iuxYhfg57dX6fLv8Cq2d/hW831uq7
+	rNTiKZR8NPMGwDG8ZCVKi6ESRYYcAGJsVYnyYl2zjvdfZowfOv1FuC8T60u2tmMeuB+4HOZEjsXDd
+	0kFyhZyhp0OWgJ8l4Vvr2BqjiTs9tmoggqLd8Rt3tH23g+P8+NmwP4vA9EXp84v0fI2LuoQiydN5Q
+	8ulWjuvWZQYABdQ92wb7JHHQYzie6EdR/YYWR2SskRcSHi0tT0pkAge+iFmgsdkBndF/1oTzInoxK
+	M4k1gQ9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Vjz-00000007NCm-3rfh;
-	Tue, 15 Sep 2026 16:10:39 +0000
-Received: from mail-ed2-x10.google.com ([2a00:1450:4864:33::10])
+	id 1x6VkC-00000007NFP-07hO;
+	Tue, 15 Sep 2026 16:10:52 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Vjx-00000007NBu-23ut
+	id 1x6Vk8-00000007NEX-1MAQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 16:10:38 +0000
-Received: by mail-ed2-x10.google.com with SMTP id 4fb4d7f45d1cf-6a98604f6b4so5122250a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 09:10:36 -0700 (PDT)
+	Tue, 15 Sep 2026 16:10:49 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68FFAb1R460718
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 16:10:46 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	5TDiG55CoXjTJx/VoxQIpkqirtSnmUSM30sr+5zJ4CM=; b=hnBKmLPc/w5CBx7L
+	Hq7kQEDW0G5F7lCOkAJgkT5xBUbGtpZhr4bPIZNsh02QWms7UwsbelepREjSlbPg
+	2a1w9HjYLi72sAHL8Hb2A9/VrBvc6fiR+uubFtdB1uzi1PvRak8YgvmuL6O9sJwW
+	3LPUJ+NVYQo00kXQpcOasvbhhAu37iErP632hLUROCES/gNNta3gHuEjK1bQ5KJS
+	9JBP8g0OhcnIm/aTtPQLvco9neG4H3fIh9vu61JN6Im6WJE2NN+NskYYOt0nNJCV
+	CpBCitmwGkUTYYrBlq+UH8g+SuaxYBO90xMzZ3znQrtZ2HrYM4QbQqhBLs7Jyuul
+	BFpFiA==
+Received: from mail-ua1-f71.google.com (mail-ua1-f71.google.com [209.85.222.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gq0jetm2b-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 16:10:46 +0000 (GMT)
+Received: by mail-ua1-f71.google.com with SMTP id a1e0cc1a2514c-980989f5030so3593625241.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 09:10:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1789488635; x=1790093435; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=cj8iWYGkmy9fr6Sp+MjBMi0cvssqzarl8Tgut8FUMEc=;
-        b=fr8jAyng7YROt7oAVvZinCL8OzBdiYkAcqKGb2X0eDfZ7XV2XRSM69Q2bOi79n4H11
-         F8FABXyrdZcCkiS5QnHgB+v2dUpMgSjU/n3iU1Aktd1eoaWoEm+0cfLrcGuj7cmn84ss
-         5CQ38h/Ax3o0UcBSAY8LlDtINi0MqTG8NJcGM=
+        d=oss.qualcomm.com; s=google; t=1789488645; x=1790093445; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=5TDiG55CoXjTJx/VoxQIpkqirtSnmUSM30sr+5zJ4CM=;
+        b=WMy3DOveRaamCp07sUot1OElLJJC7Dyyyp7mV0R3eWpL2GNix0nU9K968uVsMs/ii+
+         W5waKFeoRvg8h/FMcwQb5QGV4f1EsH6/FBhSTBtoNsF0DXatdUJvWl3Kow439FQaNeDI
+         4GThLxr8A0ms/osWeiniDHOuHYoKzudbx1DYg11ACgJmwnzxnyhu9mmBGWYTP6jAKIFt
+         T3hWjcVIJhXbXPrEcmZxhVUo1J2M44TNRvEFv2DJl3hOegGJ/x41Th80I39eLSpNKvyS
+         rYKXGdsxvwHm02gbbzslU89TAPfBe4BG0DcXbwmAGjrLaeWT6+a1f0qW1uzFR986d2OP
+         JY/g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789488635; x=1790093435;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=cj8iWYGkmy9fr6Sp+MjBMi0cvssqzarl8Tgut8FUMEc=;
-        b=pfsQLZP5O84il2X1igSdp7i9Y0U3ZvsCEDnX54Rf3qeB51ua3WnFFoU9a1iUkdp7dO
-         gBCtMcxoV/eRfp5EgW6X5fVstgQwayRAQmt4l/w6glvomJQtRjqHb7XrvfbZ/0tYmcix
-         h773l7IgwvuWIw3fOlUp969BAV7LwNn2jTpLJwz/+41O9GYvzyzlKqxxpchJGvfPp7QN
-         UpVolqQlfAVFybfV3iFjwo0bKcRnH6Hnqsy8hga6WLNBDvk4EybD21/CimExYLgrxjmn
-         EKm1GqIDaB5TAB/GvndqTsDRdB/O0euyd6OpI94QN42v2jGmAAL2v4MQb4XiTGs/omZO
-         +mtg==
-X-Forwarded-Encrypted: i=1; AKwUvBwyogYk5Sboy3jGzfZlzhIsMOYPxAmX2d3zwTtgiywoM0/0n7n7IYcewiPFs75SXx+fNtxMC86LLUyefJxGGSn2@lists.infradead.org
-X-Gm-Message-State: AFuF++lTmXCLs4q3oEMeFQ2GLO1TBUl0UNNtGCDhaU9B2KNYHiYiA10M
-	htaOhKx8wMLlT2aC5RPScLDLz6o3RgnUgn34QXSxqm/VwPIV4VNMXpXTfZJx6WKP+SaWjnfw7vd
-	vBy4fCLA=
-X-Gm-Gg: AYBFou1zEdQC0ysmZYqHAHHZ4uc34m6j0a/IPAWeZZMpnkEN89Xltkypte1fF6Yhu4z
-	YkWZazejLIk/symxUvLbLJbPzAoU/zGqLXKUddI7rK2psJcVL66nEabWNz5gFTR4l9+C+8hixqH
-	V8orFyRdn2eQrdBsym5x3nA7Symr+gmtmILNl2FXSDtd+8OVsaNXz/+Qa99MMzaU7PyPJ6mTxic
-	MhgVBVVO/EJdX0u4xwTNxRlvp0K+r3oSHGvcF/pNrDfsu/N4iFEV69QJoycLCdMu7+Mkp+TDrBh
-	a8horbyK1XTNP/AAkUKYIS9nrCRDTRHLrhSRgOA6SAcWDqjVCXJuT9IE+XwjP1v9JFOsmtYnA72
-	xlDvVFnrC8q1SOapMOAV2+lk7/nMSKYhgApUDoh4vf52r2cDKfs07Bg0CKVY+FqZJr+cUMXqTRM
-	FANZBekR0mplDIqRiKPUkUdYul58vlbJflY4vm0WCpM+J1s9EXeiNp1weYJct91IHvLRC4l+Wb0
-	x+4sEaH6K0cntWO1MtEEKz2imoeyKoSxZrDjSWp8tU11u4Ugg==
-X-Received: by 2002:a05:6402:a5ca:10b0:6aa:4a7:5e10 with SMTP id 4fb4d7f45d1cf-6aa04a76141mr1906531a12.7.1789488634800;
-        Tue, 15 Sep 2026 09:10:34 -0700 (PDT)
-Received: from mail-ej2-f12.google.com (mail-ej2-f12.google.com. [74.125.228.140])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a9b5830e39sm5849653a12.2.2026.09.15.09.10.34
-        for <linux-arm-kernel@lists.infradead.org>
+        d=1e100.net; s=20260707; t=1789488645; x=1790093445;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=5TDiG55CoXjTJx/VoxQIpkqirtSnmUSM30sr+5zJ4CM=;
+        b=ZUuRGdipjm70OFSdSBE73XFpH15d3MxcvvbaOEQGNMEHWW5ajfmnGH9Efn9Z1ESP/C
+         fvftcbkVixZVll9Nt8ZuxB3SCQAv/BBQHEBOARflu4inHowHptLclNVAm+obqAByI+pQ
+         flMer8H+YVKm41XlFdWzMlMkxZ4imrclkEHChrajZ1P4aRtHUYivOUBfN7gw45l1+6Ek
+         D/hWgYXLbB3iMAR1tDSCnrW431+MH276DqjBHUzSEzP+Y+I2Lg5Y5nTtUWtJenExjW9J
+         amLhwOPhKNTaY3Em1DYVhuDMmku1kE+K4f9j30apHkCh4pq6xF11F+QTciPoL6p/Awic
+         H65g==
+X-Forwarded-Encrypted: i=1; AKwUvBygZePcofcGQ6MqmFN5JYTwIvPPKTKW8XPbWh97H6/SYjkX73eCOZRRLVlVlm3mwwYXYGzsqD2KlT6xbuB1HUOv@lists.infradead.org
+X-Gm-Message-State: AFuF++kNRwKLxaIcJVoS87Daa9FW6yVwH/zCh0iByy5ly172BljLXKOi
+	UKoJs+Mzu+2vV36qsviC/kGbz1DYyMlaxhF0ZWHW7qdPGK0BmROqSIuVSX8/0rg71uPwaiP0ywL
+	3lTOPRRFZ1ZAcXCgiizHTmfYsAJo2RUQlSclZO9due014Vwb7CFIe81M1iXk/7rtg1NJ3dEHAA0
+	Slgw==
+X-Gm-Gg: AYBFou20vkgtfajk3wORGFAWFpjm4HSQMVYNG/l5t7W2fxdz6wBAiARJdSle8g7zLWx
+	AcxACKUD8bpu6OZHsAOICYw1CEomgJvu+atIsdbcWz+wljynyR//xOmTdjChgLiaa6oje2nORxL
+	+9Lwub32QzbEy7V4voTyOh1+9l7M2Kd1sxCjJa0qzaIIAkG/dTn+DVdqJmO8ds3uJKiasfnTw8l
+	u7vbsuAjxZI2jF5PqGWm/qZtL+WB8fWtfpslbE0KiJ8DEbx/AhvHoop+LI3i8FnTmeX2gRlo4e7
+	P7Hp1YhPsE9qLchUFosdi3+ybJCbZFT8Jy9ZKz5uw4ZwIS0lP7MshBj0w3/PlUC2jeiHPASCA+c
+	uCJ0U/5HrA+qAbq5d5jDIGU0hdqVW
+X-Received: by 2002:a05:6122:885:b0:5c6:6c75:81c9 with SMTP id 71dfb90a1353d-5c993c753d6mr3251467e0c.7.1789488645593;
+        Tue, 15 Sep 2026 09:10:45 -0700 (PDT)
+X-Received: by 2002:a05:6122:885:b0:5c6:6c75:81c9 with SMTP id 71dfb90a1353d-5c993c753d6mr3251376e0c.7.1789488645134;
+        Tue, 15 Sep 2026 09:10:45 -0700 (PDT)
+Received: from [192.168.1.110] ([178.197.219.214])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4870bf1fad3sm78795f8f.12.2026.09.15.09.10.43
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 15 Sep 2026 09:10:34 -0700 (PDT)
-Received: by mail-ej2-f12.google.com with SMTP id a640c23a62f3a-c293c683202so503602866b.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 09:10:34 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBwzEzV4fI7VyMsZs3gHP1L0X/i7Nu1Lr/joMk95MxC8ktjtji37CYJ/xkJBVmry5hm1qnQw9j/9W/f3pADppbwi@lists.infradead.org
-X-Received: by 2002:a17:907:cd0d:b0:c29:439b:d5c1 with SMTP id
- a640c23a62f3a-c29b86141b9mr553591866b.16.1789488168046; Tue, 15 Sep 2026
- 09:02:48 -0700 (PDT)
+        Tue, 15 Sep 2026 09:10:44 -0700 (PDT)
+Message-ID: <d366d3b2-a054-4945-8c02-877921a6073a@oss.qualcomm.com>
+Date: Tue, 15 Sep 2026 18:10:42 +0200
 MIME-Version: 1.0
-References: <20260915-work-fd-reserve-unify-folded-v1-0-4d5217d6b246@kernel.org>
-In-Reply-To: <20260915-work-fd-reserve-unify-folded-v1-0-4d5217d6b246@kernel.org>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Tue, 15 Sep 2026 09:02:31 -0700
-X-Gmail-Original-Message-ID: <CAHk-=wjeamU=_RYT9cR3dZJ2N-Teo-N1+aYh7jwhrB=iWXD0cg@mail.gmail.com>
-X-Gm-Features: AcwNN1WK06t9f9BcKFBIanysXcyUXK4eRICuH4x14s60AdlpF6ijCATIYaYAAvQ
-Message-ID: <CAHk-=wjeamU=_RYT9cR3dZJ2N-Teo-N1+aYh7jwhrB=iWXD0cg@mail.gmail.com>
-Subject: Re: [PATCH RFC POC 00/50] file: handle files on syscall exit
-To: Christian Brauner <brauner@kernel.org>
-Cc: Alexander Viro <viro@zeniv.linux.org.uk>, Jann Horn <jannh@google.com>, Jan Kara <jack@suse.cz>, 
-	Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, linux-fsdevel@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
-	Oleg Nesterov <oleg@redhat.com>, linux-alpha@vger.kernel.org, 
-	linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
-	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, 
-	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
-	linux-um@lists.infradead.org, Jens Axboe <axboe@kernel.dk>, io-uring@vger.kernel.org, 
-	netdev@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-gpio@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, bpf@vger.kernel.org, 
-	David Airlie <airlied@redhat.com>, virtualization@lists.linux.dev, kvm@vger.kernel.org, 
-	kexec@lists.infradead.org, linux-hyperv@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: imx95: Drop unsupported opp-hz-real in OPP
+ tables
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+        Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+        imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org
+References: <20260915072308.64047-2-krzysztof.kozlowski@oss.qualcomm.com>
+ <aqlbFwMZp_TAExFq@SMW015318>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Content-Language: en-US
+In-Reply-To: <aqlbFwMZp_TAExFq@SMW015318>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE1MDIzNiBTYWx0ZWRfXzOLsc0G60U/y
+ Yiw+gvq3UvLzYm/YjZEx6VNtiEBOEcuKJJQWOzDt9UCeBV6bgFcgaVm+RdA3zLjXcci266VlveU
+ gWZ9hAcp6TOmQj2jssvqkFi7DPGRvwo=
+X-Authority-Analysis: v=2.4 cv=Kr/YSmWN c=1 sm=1 tr=0 ts=6aa96e06 cx=c_pps
+ a=KB4UBwrhAZV1kjiGHFQexw==:117 a=+bKQE0WJfmhK2875HamI0Q==:17
+ a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
+ a=IstA8FdGA62tgLsOMVAA:9 a=QEXdDO2ut3YA:10 a=o1xkdb1NAhiiM49bd1HK:22
+X-Proofpoint-GUID: EFaFc9_0KoFNIVhsh4LoYnPgYpQZRItN
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE1MDIzNiBTYWx0ZWRfXwW6NWlYTJjUt
+ n09XTKIt8wGTR7pSdOF5D4QXsVS0QYqgsLuxE/FJ4qb51e6sX7aoh99zwkztE1XsUOjtDWkc5Jy
+ ZtiRYdfUpYRiYeUVo54RWvO8YDw6+xpTFJcix4Hi/hVRy+VY6uaVOAewXmyp/mGprhrS4SkZZIJ
+ tQnGS5moOMxfzmVaCg80oxsdXSaD1w35Al1vpTF7UDOdL5B2ASzJEVqq0qgyP9/nCKU7QyiU5Cq
+ T3+kbQN1TmslLMG1hDLVUXg9COWVttLaGU7hgAIl1g+DqcQmXAOn2jjC7NQlr2V8DfWe38aYnKF
+ bUeLG/jxz3SjZWPbUWY0Zz+5azjMuQA7mnt1ft6+H/lIM0EODm1r+dpFFqn/lcMWtJOfVNwIICn
+ gWnVc8gLgDlfc1gWYPS6jDVA2bhoJealS5Jsx2KZo8J0ZFIhYIKXJM4N6t5mcnpfBBrwB3PjWaH
+ JbukwHSmourBB8aqZQA==
+X-Proofpoint-ORIG-GUID: EFaFc9_0KoFNIVhsh4LoYnPgYpQZRItN
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-15_04,2026-09-15_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 malwarescore=0 phishscore=0 bulkscore=0 suspectscore=0
+ priorityscore=1501 impostorscore=0 adultscore=0 lowpriorityscore=0
+ spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2609150236
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_091037_610256_BC789A4B 
-X-CRM114-Status: GOOD (  19.18  )
+X-CRM114-CacheID: sfid-20260915_091048_481030_DB678670 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,58 +155,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 15 Sept 2026 at 04:31, Christian Brauner <brauner@kernel.org> wrote:
->
-> TL;DR, this lets arch code handle fd install and cleanup. fd_prepare()
-> allocates a descriptor like get_unused_fd_flags() does and records it in
-> a slot on the task. fd_stage() attaches the file to that slot and
-> returns the number.
+On 15/09/2026 16:49, Frank Li wrote:
+> On Tue, Sep 15, 2026 at 09:23:09AM +0200, Krzysztof Kozlowski wrote:
+>> There is no "opp-hz-real" property at all defined in the bindings and
+>> new DTS is not allowed to bring undocumented properties.  Fix dtbs_check
+>> warnings like:
+>>
+>>   imx95-15x15-evk-pcie0-ep.dtb: opp-500000000: opp-hz-real: b'\x00\x00\x00\x00\x1d\xcde\x00' is not of type 'object', 'integer', 'array', 'boolean', 'null'
+> 
+> I run below command, have not found above warning
+> 
+> make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -j8 CHECK_DTBS=y freescale/imx95-15x15-evk-pcie0-ep.dtb
+>   DTC [C] arch/arm64/boot/dts/freescale/imx95-15x15-evk.dtb
+>   DTC     arch/arm64/boot/dts/freescale/imx-m2-pcie.dtbo
+>   DTC     arch/arm64/boot/dts/freescale/imx-pcie0-ep.dtbo
+>   OVL [C] arch/arm64/boot/dts/freescale/imx95-15x15-evk-pcie.dtb
+>   OVL [C] arch/arm64/boot/dts/freescale/imx95-15x15-evk-pcie0-ep.dtb
+> 
+> Anything wrong?
+> 
 
-Honestly, I am *not* a fan. At all.
+Older dtschema?
 
-I think this adds complexity rather than removing it.
-
-The diffstat tells a story:
-
->  106 files changed, 962 insertions(+), 861 deletions(-)
-
-in how this adds a hundred lines more than it deletes.
-
-But to make things worse, it adds them in bad places: low-level
-architecture assembly code.
-
-Those extra lines are *not* making complicated code simpler. Quite the
-reverse. They are taking fairly straightforward "just deal with errors
-with normal cleanup in the place where it makes sense" and makes the
-*straightforward* case simpler, while making the big picture more
-complicated and subtle, and adding new code to places that are not
-simple and just blindly do somethign that makes no sense in that
-context.
-
-IOW: it's more code, and it's more abstraction, and it DOES NOT HELP.
-
-And yes, most of the well-maintained modern platforms (read: x86 and
-arm64) use the generic infrastructure and they don't show that
-low-level asm effect. So for those cases, it's mainly just  that added
-conceptual complexity and a new odd rule - and makes a *successful*
-system call go through that "extra work" and indirection phase that it
-didn't use to go through.
-
-So it just spreads out the work, and moves it to a less obvious place.
-
-All for the very questionable advantage that you can now randomly add
-a file descriptor without the few lines of fairly straightforward
-rollback.
-
-IOW, I do not see a single real upside to this, and I see immediate
-downsides to it, and a more abstract complicated machinery.
-
-I do *not* see why we woudl want to make this be a "every system call
-exit" kind of thing. If there are places that think it's complicated
-to do, they could have *their* local little stack of fd's pending. Why
-force it onto the low-level system call entry for every system call
-when there are only a small handful of actual real cases (the vfs
-itself, and random ioctl's by odd driver subsystems).
-
-              Linus
+Best regards,
+Krzysztof
 
