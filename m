@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31CD6C982CB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 11:37:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC0B2C982CA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 11:37:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RYwvcYgPe7F+yniz25uY8kYzwfi4Dpf3GuV+JDSn+cI=; b=bJNT3yV8Mt1wv2z4O8qylIdNmL
-	KGLst0WV56v55jpFCTJ9x2LeijNZc9ArTHul6WAm4upFrt2XJ2lzf48ehCJQFt0Yo24ZZOYyS+fbX
-	6dCt1yUeuQ8xxybdHfqJpXID5cbbNBeC9h/+v1UowmRy88BzdrvqaMfFxi0KiMMwSkYdKs/p1xQte
-	KDN96Yu0kBjaKqCbSRezO5FM9IifKuo/r630McjGDIGIHu9eYhLQjodUp8Wa3W6kcfAPOuqau4CZu
-	HyOv0P0Bg2oQznniaBD0j9BOsUXcEgS4bn4xwVofhbsDCoz5FXVxKP6Ke+8Hosk93KG6BgWq3iUmU
-	YwoBIavg==;
+	bh=oZh0vLqcxduUWTFynumJFhxFNW42oEX6Rn3UwZlew10=; b=Cc93W9n14l2TsvyXON7Wz21qxe
+	7xVbLANAGdJTLOzDcdlVzYrUg47dpGQLHKBxTyxFYEL2YXo8TD2Y8qn7/wjxJerxrYbEBvpBceyi5
+	/tlrC0QZfIk2kATRd6djrDGGW0mZp7A8tnrZPvYdPnAmrAZ9VSkBBcO9iEiorff87a4xIXo435j8X
+	EgKclXNc5iHvN9P20m540wQ/exZy1u15DYYy3gTY+bXSn5098OOAjF4nd7fNi7DnKbMdLjsKrxDQ1
+	ol/9brnog31WCnFnbOA33N79xFwQIiHt0j6WLC3z84siIpBI6Q5r4nrIpr34/sdIZcV02LaK0+MgI
+	Cgq0cQgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6RTN-00000006DwZ-2GUc;
-	Tue, 15 Sep 2026 11:37:13 +0000
+	id 1x6RTM-00000006Duv-3oLF;
+	Tue, 15 Sep 2026 11:37:12 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6RS3-00000006COQ-0Cop;
-	Tue, 15 Sep 2026 11:35:51 +0000
+	id 1x6RSY-00000006CoC-2jO6;
+	Tue, 15 Sep 2026 11:36:22 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C705841253;
-	Tue, 15 Sep 2026 11:35:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FDC21F00898;
-	Tue, 15 Sep 2026 11:35:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 50DB3433C1;
+	Tue, 15 Sep 2026 11:36:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD5001F00893;
+	Tue, 15 Sep 2026 11:36:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789472150;
-	bh=RYwvcYgPe7F+yniz25uY8kYzwfi4Dpf3GuV+JDSn+cI=;
+	s=k20260515; t=1789472182;
+	bh=oZh0vLqcxduUWTFynumJFhxFNW42oEX6Rn3UwZlew10=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=MdYtXPMryZ+6SAlSbL19CQpX3Z64/AWWELS/WUVzAp8Xg1GKcwta2ZBYcN6wG36Mt
-	 as5Dtg1uHZx0++57+0zFQf62SXXotYbTuzCZx9KtLUQmxwarrRVEc5GHr8NgTGLTnD
-	 fm7wTaE+frwG78TGBDzq5+X5mT91CNgxDsAlIIvj/82S1VRyMtU0YNLM25MFctgbyo
-	 vTKRbl5GQlZXJ0hhVYRlwEl093ozZ6/IECB99aVD24EC0zmPYaRRHVzNiU6egwU8ae
-	 gX3+hqTSVslPaF8dAefZoz9w+FElBtfBAJO7mXAQPx7QPzbOBB9Xhv3/9TzLihtFHy
-	 3qlJrcB+1giaw==
+	b=j3rMRnP4Yq76LugZgcTC3Qf0Ci80ZsR1Bjf4RalPTu0XQJWg3exDlCNJpfFK/5MxM
+	 WYaKKc+iEEvUbRPZPKxBSCicd83hSTqA7oZhBEyYRVXy1eWTpEG9V0qCpYWagSWyJM
+	 LMC9aTfO6/vIRu0BhEoAicivAddy21JTUJ9Ey/WFXSkOgO7lRUm/69w2OsJiTlTGJJ
+	 PVaIxbRP2QqlmQ8miseIjAxpQqw4BFWTU0OlqdE4kvqHra2NIRZhFlj+TvL3m+l5UE
+	 la7dnSw8kYUKUgJ4W/pOpOV1l55Kv3959gLF9FNT0wDZZqyVfgaqZTmzG3/cOJbMQV
+	 93dOclKCiZGPQ==
 From: Christian Brauner <brauner@kernel.org>
-Date: Tue, 15 Sep 2026 13:31:21 +0200
-Subject: [PATCH RFC POC 35/50] ALSA: compress: install the task descriptors
- when the ioctl returns
+Date: Tue, 15 Sep 2026 13:31:25 +0200
+Subject: [PATCH RFC POC 39/50] seccomp: stop putting the listener
+ descriptor back on failure
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260915-work-fd-reserve-unify-folded-v1-35-4d5217d6b246@kernel.org>
+Message-Id: <20260915-work-fd-reserve-unify-folded-v1-39-4d5217d6b246@kernel.org>
 References: <20260915-work-fd-reserve-unify-folded-v1-0-4d5217d6b246@kernel.org>
 In-Reply-To: <20260915-work-fd-reserve-unify-folded-v1-0-4d5217d6b246@kernel.org>
 To: Linus Torvalds <torvalds@linux-foundation.org>
@@ -71,12 +71,12 @@ Cc: Alexander Viro <viro@zeniv.linux.org.uk>, Jann Horn <jannh@google.com>,
  kexec@lists.infradead.org, linux-hyperv@vger.kernel.org, 
  "Christian Brauner (Amutable)" <brauner@kernel.org>
 X-Mailer: b4 0.17-dev-db0b7
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2232; i=brauner@kernel.org;
- h=from:subject:message-id; bh=QV1nvuOZOTXbG885TIwwr0E5buagCxFnNDHDpDWzkd0=;
- b=owGbwMvMwCU28Zj0gdSKO4sYT6slMWSt1Kk7NZFnW/2OMo2T/F2ffljdXrzpyBybxa2xOhV3m
- 5euvTinqKOUhUGMi0FWTJHFod0kXG45T8Vmo0wNmDmsTCBDGLg4BWAidmKMDD3u79olF+/8fDpn
- 05GGxJ924Sr7JVZeMFmoxWl14Jl/rCQjQzvbH6/0789fvC17P2P1pnCZsljB76s+Sl9/e0W5ZEW
- eETMA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1590; i=brauner@kernel.org;
+ h=from:subject:message-id; bh=SoVog+6B8HBuyIDP19b0KqkTeSBHFQ/u5Q+O82974JE=;
+ b=owGbwMvMwCU28Zj0gdSKO4sYT6slMWSt1Kl7drfm0vIrUa8YdK4pvXG67XDtwdnLWZ9s8lgOH
+ X5/t2WKdEcpC4MYF4OsmCKLQ7tJuNxynorNRpkaMHNYmUCGMHBxCsBEGD4xMjwJva2x4G9RxkHX
+ XU1ZZuuPNKZYpJh/z8h6/EhWU//pvNcM/2vKj01as7z7q8HKc/dLTVZVbHkiJn/kXu5zo+cFdn4
+ LL/MDAA==
 X-Developer-Key: i=brauner@kernel.org; a=openpgp;
  fpr=4880B8C9BD0E5106FC070F4F7B3C391EFEA93624
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -97,62 +97,54 @@ Rely on the fd exit path machinery.
 
 Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
 ---
- sound/core/compress_offload.c | 24 +++++++++++-------------
- 1 file changed, 11 insertions(+), 13 deletions(-)
+ kernel/seccomp.c | 13 +++++--------
+ 1 file changed, 5 insertions(+), 8 deletions(-)
 
-diff --git a/sound/core/compress_offload.c b/sound/core/compress_offload.c
-index 23d62fede06e..94bc226f8db9 100644
---- a/sound/core/compress_offload.c
-+++ b/sound/core/compress_offload.c
-@@ -1065,7 +1065,8 @@ static u64 snd_compr_seqno_next(struct snd_compr_stream *stream)
- static int snd_compr_task_new(struct snd_compr_stream *stream, struct snd_compr_task *utask)
- {
- 	struct snd_compr_task_runtime *task;
--	int retval, fd_i, fd_o;
-+	int retval;
-+	const struct fd_slot *fd_i, *fd_o;
+diff --git a/kernel/seccomp.c b/kernel/seccomp.c
+index 86cf4460d69e..dc275ab1e031 100644
+--- a/kernel/seccomp.c
++++ b/kernel/seccomp.c
+@@ -1957,7 +1957,7 @@ static long seccomp_set_mode_filter(unsigned int flags,
+ 	const unsigned long seccomp_mode = SECCOMP_MODE_FILTER;
+ 	struct seccomp_filter *prepared = NULL;
+ 	long ret = -EINVAL;
+-	int listener = -1;
++	const struct fd_slot *listener = NULL;
+ 	struct file *listener_f = NULL;
  
- 	if (stream->runtime->total_tasks >= stream->runtime->fragments)
- 		return -EBUSY;
-@@ -1080,29 +1081,26 @@ static int snd_compr_task_new(struct snd_compr_stream *stream, struct snd_compr_
- 	if (retval < 0)
- 		goto cleanup;
- 	/* similar functionality as in dma_buf_fd(), but ensure that both
--	   file descriptors are allocated before fd_install() */
-+	   file descriptors are reserved before either is staged */
- 	if (!task->input || !task->input->file || !task->output || !task->output->file) {
- 		retval = -EINVAL;
- 		goto free_driver_task;
+ 	/* Validate flags. */
+@@ -1990,15 +1990,14 @@ static long seccomp_set_mode_filter(unsigned int flags,
+ 		return PTR_ERR(prepared);
+ 
+ 	if (flags & SECCOMP_FILTER_FLAG_NEW_LISTENER) {
+-		listener = get_unused_fd_flags(O_CLOEXEC);
+-		if (listener < 0) {
+-			ret = listener;
++		listener = fd_prepare(O_CLOEXEC);
++		if (IS_ERR(listener)) {
++			ret = PTR_ERR(listener);
+ 			goto out_free;
+ 		}
+ 
+ 		listener_f = init_listener(prepared);
+ 		if (IS_ERR(listener_f)) {
+-			put_unused_fd(listener);
+ 			ret = PTR_ERR(listener_f);
+ 			goto out_free;
+ 		}
+@@ -2038,11 +2037,9 @@ static long seccomp_set_mode_filter(unsigned int flags,
+ 		if (ret) {
+ 			listener_f->private_data = NULL;
+ 			fput(listener_f);
+-			put_unused_fd(listener);
+ 			seccomp_notify_detach(prepared);
+ 		} else {
+-			fd_install(listener, listener_f);
+-			ret = listener;
++			ret = fd_stage(listener, listener_f);
+ 		}
  	}
--	fd_i = get_unused_fd_flags(O_WRONLY|O_CLOEXEC);
--	if (fd_i < 0) {
--		retval = fd_i;
-+	fd_i = fd_prepare(O_WRONLY|O_CLOEXEC);
-+	if (IS_ERR(fd_i)) {
-+		retval = PTR_ERR(fd_i);
- 		goto free_driver_task;
- 	}
--	fd_o = get_unused_fd_flags(O_RDONLY|O_CLOEXEC);
--	if (fd_o < 0) {
--		retval = fd_o;
--		put_unused_fd(fd_i);
-+	fd_o = fd_prepare(O_RDONLY|O_CLOEXEC);
-+	if (IS_ERR(fd_o)) {
-+		retval = PTR_ERR(fd_o);
- 		goto free_driver_task;
- 	}
- 	/* keep dmabuf reference until freed with task free ioctl */
- 	get_dma_buf(task->input);
- 	get_dma_buf(task->output);
--	fd_install(fd_i, task->input->file);
--	fd_install(fd_o, task->output->file);
--	utask->input_fd = fd_i;
--	utask->output_fd = fd_o;
-+	utask->input_fd = fd_stage(fd_i, task->input->file);
-+	utask->output_fd = fd_stage(fd_o, task->output->file);
- 	list_add_tail(&task->list, &stream->runtime->tasks);
- 	stream->runtime->total_tasks++;
- 	return 0;
+ out_free:
 
 -- 
 2.53.0
