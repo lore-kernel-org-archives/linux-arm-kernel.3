@@ -4,112 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E329C88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 06:55:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8D8CC88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 06:55:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uRse6mTJ7wbDyqaPOhujScHoJmlYUjJddn11gxGD2Rw=; b=djrWv+8rtCSe+aaR2gXnDXfrTD
-	xV4gu22GoS4fg78lChQLfsCgLZPvBYWAxwZVsZIuwH2GiAGFpa3GloAyRIxhD8Ccxe/Iw246ENdr/
-	6gPuY3EZ1S4qgPMGDHZnrZKEzlEafaWbqVJmjf4dE7QAG2Y1Bmq60mkepyYmSeFBcr1aGZEi0IGY+
-	3YikadlqosecUdSU6IzLkgF3SyMYVWwWowpTo0UPiGdXSikrLpzAF0i1gyNhn2JnqWwTWbyiTN3I2
-	AvWLCPQeaFSBsFoxAKb4AtQzuORkAd5urVfQlzJcSsDOQsQdNJGzRgMKHjaIAOnXAYHBaE5438bhr
-	CRu6SJjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IK3cIv3eA9Wbpi6yK7r4L1UxbUiz8LF7wr+ECYNcigM=; b=UzfrXXeIRV1JYnyH8g/8EBqIDz
+	o56dCQegrBx+gK4lSAY7PU2UtrkxrpPMwzczq/qoByEQwfe5PQUO5ztlgp/Rqsw+G/o5DJ/+p845X
+	3lW/xwBJJ49JSrd8spnFvxyROwjn1wguUYSPjtvN3VTqnwtcFVchFzomvAu5LksPKBnvrYAFlJ4BD
+	avaW/XQAaB8Wej9BWkYftJOEs/1ZpxYpDUNnXLQOyEtQpOgyva6lBUGmyLTsWW3B6uZeuvMa8RL1i
+	t5pOSRcPD94OWnu7MjG8HtNfsZFpvuc5Q0+RZrRSp7H2vVHROlr09o0I+KVWUjUgKqExETHe9IP6O
+	vTZLGUeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6N4e-00000005OiD-3XOX;
-	Tue, 15 Sep 2026 06:55:24 +0000
-Received: from mail-pj2-x11.google.com ([2607:f8b0:4864:39::11])
+	id 1x6N4x-00000005OnK-0emY;
+	Tue, 15 Sep 2026 06:55:43 +0000
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6N4c-00000005OhV-1om5
+	id 1x6N4t-00000005Ole-3l0r
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 06:55:23 +0000
-Received: by mail-pj2-x11.google.com with SMTP id d9443c01a7336-2dd77300825so5603035ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 23:55:22 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1789455321; cv=none;
-        d=google.com; s=arc-20260327;
-        b=l69RuI94G1TZU1LMLMa6RfMpykWmq5QoBcLYy4MM9pE+qOyH4YEUd3MCJKUf1W1zCL
-         nm1viEzerxUpjz2cgoVK2L6qyS+B5HTf7PbaTJKbQ5mD74uoe9l4mtWO0FRxNkoyQnsS
-         vvIS2w0nOpoaDZV1CMqhIiVzcbPc+COtihvRZYi5X59aIIOnGVYR3NK4eR4O+lVVB7X+
-         8TIwacM7Cvcp/Vmp+biGt+5upiakCDN56OiJRA6Be7CXaG+gMvLDQQQkjLXO2NffXf/c
-         jR0490kPDG/3goutGcZE8f74plGmZVXysK9bYYbse3Rc5dP3P1eaZr5DVkNpBLYZE3el
-         xgeQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=uRse6mTJ7wbDyqaPOhujScHoJmlYUjJddn11gxGD2Rw=;
-        fh=N4fh/xFeKXao04AokFA3ryRlY7XS6z1qzAjKsk2w1mE=;
-        b=dMf8xbCGe1GEe8Va4shPHrdD6fZVzNSWQxz48YaRI7pWaM2/1AKMk4PZqXM2yENSwI
-         r6FkXvH0MO+Fqr05aowfa+fh1NhSXRB4nqXydzAn+xLDYqT2oxdLSO5bKMZuciNXsfnP
-         wk/+1TItcrVWQkB27hIogMT/wk4B3ri+yU9aLn7Ww+0D8SZEhMBB5nXBT8tlxfxeivOK
-         R6P5+6wvc03eTC6+bRh/7FICvU0G7PkKLak0QZ48xJhVw29Y/espRJzT1PH+1y+Ns1z5
-         sLes/oFbWxZjDGDiHIqPmfzVHjfFlPF8wenMgXhXYBxUEDsIOQhoXJyix419vG1WIIeK
-         qahQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Tue, 15 Sep 2026 06:55:41 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49ccf3ca626so11744675e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 23:55:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789455321; x=1790060121; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=uRse6mTJ7wbDyqaPOhujScHoJmlYUjJddn11gxGD2Rw=;
-        b=pcTbMpa37YN71C5B4OaCGxbO69lcIOBSvovhCN0a4GhMlH1Mp6bnb5KgJEdpoNAFoP
-         RpgTewEm/r8XKXC2YZGqtbCXtxPbxIqfxveehAKtA1SS0wTl4f9ewbKLWSjivpoWszlF
-         6m2TkcaxQ6XuRzo8/VVRGYPf6fkJZqkc/CkAVLG8/6WN7k2SjozIdlcJLT29tQeVGufq
-         gKtU+sG3UrbueAIp9d2Fv9y1omeZwrfE9zvW4mCSqclQeiyXk2o+7FVauhmBeXHGowru
-         H3ZOfcNxH6QlmNd9dF71K3Y1hkU6FwzwGKo9jtPqhtdGeKFjHu6/P/Ym3cdeu8oKUSPo
-         basA==
+        d=gmail.com; s=20251104; t=1789455338; x=1790060138; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=IK3cIv3eA9Wbpi6yK7r4L1UxbUiz8LF7wr+ECYNcigM=;
+        b=KDSSdcAvjzGBP6PSgDt5uAyyFvR4A1IcVgd4c6YV534GCuvtG8gtRg2c3XYEOkgVsW
+         v/uEgG0tYnMzfQfMqhYHaRuY1azSIhWbP4nygYq9A9w75EgK6LRBbjBF5JK4REmu77O1
+         x8AGPmtMJyxwOpgIHIXCwIQn0cFPiasHxTXtGtcov5xI3+6YAYGOGacnrs8D3o692PX3
+         JZzYkOS59DJ6VPgHoEh5lRJeY47rDY1fcRsvsYTKiFDeyaUST4rfQYBet5ZRnb7bEPAD
+         QUrbE7HToukYBkCB0lWW5lq2ZzOZeEgjaazIkSrn3K/1oMgATuWs3mq9ibbzphgisxkm
+         FPrA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789455321; x=1790060121;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=uRse6mTJ7wbDyqaPOhujScHoJmlYUjJddn11gxGD2Rw=;
-        b=kJ55n4jLga3K7a8/gRxXQgt86oMiYOXGfFkN3Flp7CreO23TE+vG47QVPD5yo8XtoR
-         oNyajo0yE97zOFiGRE//bEWlcj8aQHfM+732p+DnwkgITERCENhVEjJg9L/kG521upiS
-         HlWw5TsI9syXCJJjaIxIJVo+cTnPaW7R35rxPxpyxib/WJ/53BFSxv5AgVaI21Wxq+zA
-         YPDaEIISIiKRXhVdoo0JgNBWGplvEFgSz2dptU01wlvJFMU+rd1BHBlE3PW1I3GHYQ3k
-         iVsyZZm88XJOkl3HCI/6H0vkFUwUTIVHEQFsacG7OPlges4ZCZACwLt9lQAJN6lBTRIM
-         WvFQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzsut0wBinV8wXAvR/YFkT9r9WwOUsZDRRVqAZNJfSWheDGTbMdAN3swPiqNDUm4+fLLe00fcK1r98SGM1Sx/Us@lists.infradead.org
-X-Gm-Message-State: AFuF++lsujXUBuPOJ0Pb3+rnKJBCAoHWX6xeY2kgyWugiUkxGMRbkqG3
-	qrgyj19oOfPANP4bWk83s6qoq0UYWqqjTh4NKQdFAdGfMSDV4FLXX3UkDwlBWTnNr6dM11aWbyn
-	hcWqQQegC/ezJWYe7CjA/QJMGAEHGPMk=
-X-Gm-Gg: AYBFou38CFqY85yO4I9qLLR4ivZhZZL6IB1z4vUUJ6XvHWXXWL/DpKlxpCYOGmmQCvW
-	53bXk3mLhgeqsDR3XQBHNbFFBxM03FR5f78zzOY9lWbfyIMdG4jovwXVdm8PVeOPLIEU2jf9gSq
-	RevKekcQUBjCzvCxzhxYyAwYBDjrF+MRTUJF4bCdbj8OkYB3T5V/y0EveVkPBE2jy3/h4erJMex
-	hR9DF+qtyG/e5cUutf14pAxLCK6HYQEYDbPyMve2ozHIApl5HOeYS2D8YesmaU4bsOz+mr121JH
-	7LX+Z4l9wZWKC8o4JRWbNDZPy2jpRtRMhMGf0hg6Ny7a7buNSas3zw6uwIxPFFZ5VIkKtpu3s64
-	fByR6fyjP2pofdcs8SxhFEfnn5+UDc0rV6vaHZfPjFJ6yuTOYC6Bijd4a+ZKH4V034Uk=
-X-Received: by 2002:a17:90b:564d:b0:39e:53a:c8d4 with SMTP id
- 98e67ed59e1d1-39e053ace02mr2555146a91.12.1789455321539; Mon, 14 Sep 2026
- 23:55:21 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1789455338; x=1790060138;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=IK3cIv3eA9Wbpi6yK7r4L1UxbUiz8LF7wr+ECYNcigM=;
+        b=KwIt+IM38BDlDB0ymMwaAphcm8xESIDjcN9CfQLrbms6flMvfazOy4zzV7PlWeJWU/
+         izcyhd+0JSEg34jHW5VWwxjlen/Vkt+qrdPWA0oxIyUCey6qt9uy3SnIFC65GgrDXUNa
+         8/UxYvIm2Mbqd/4+e0J1tsnbsjPf6v8SJS8S4PGKCz5f5oqvXVd6BUZ/uE8XG0PdRqGt
+         Me1ehoIdnqo7UmTzCMciS3gKR/a7+S6Em37Tt/vBKCeXAuPhkpTzgjYaUuC5m8p68nG1
+         WfEVIAQ9omLu1j3VNcutVO94LOG9TALjGIuWBpYVCLAi55ADT6lkfzBSLla6fAEwWkMt
+         YZFA==
+X-Forwarded-Encrypted: i=1; AKwUvBw9J2W5jDZ1ImBok0af9Oj3HlEDejiSqo155NOOxAdwlDaZer/qiARjv9fFIqsASiZQNovRGHJL5GRe+8CxVQhv@lists.infradead.org
+X-Gm-Message-State: AFuF++l08r/iPnyj+bMDYmYQw+hsa+IAaQeQaNcUhjPTD5zrZjYGZX9r
+	/ZssggX+E7sO0BHIJ7tpfIGALNaHDn1UkhIM/F5Xac3mhNDQepNk5HXR
+X-Gm-Gg: AYBFou1fWd+ITQLICKb7wkZa2bPVVhI/Y99fSXSlUspOvT4OnvzaJsa1lsfHd47rQvX
+	Pttmu36w5q6TjhxpiSgYxqkE/Hgj3OeqxCAkcQuvEojSFfBzqfMcwdTmArb/vMsoPpfqyMRAs7o
+	8UxTflzlSAzaHW5jmK4sV4xg1qmT1ML8daCo05pG2LAVjkQFpOeaUK+Kg3wSCyfMaiBqxqP5Bxt
+	QZU7Upv39k53CJ8P17Bgsz0KoEFE7f9CEs06VlX4skmnyX7pzPTOflblbjIGR/rgMdBYPD1Bajl
+	Hq4o896YZcS6GhLdVDUpCVaSrDXBQvFMHaV8JTzRFMWr+9j1D7eD9Q5XuCfA9nAqHWMEtt/fx2e
+	uZddghMOKAPE+XoAhpXzwzNFF98P9W3TX7dYh7Z8rii1G2lZmcP0EsKor/Y/k/VIDr9mSVJcLeH
+	ezkZBtjWbF6IsCNPLeRK0dSvHjl9QcLMmy1Ldh13A/94HVMkBMwNcuBR8c8sTuQ5k2v/krPcxGq
+	4YeMOQRKYGY4Yy3ZwQNVgD9v1paOg5oG/p0v1mn
+X-Received: by 2002:a05:600c:4693:b0:49c:fa20:cbfc with SMTP id 5b1f17b1804b1-49e7a66b714mr73955375e9.19.1789455337805;
+        Mon, 14 Sep 2026 23:55:37 -0700 (PDT)
+Received: from fedora-tap.advaoptical.com ([82.166.23.19])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e7d292d3csm46002775e9.4.2026.09.14.23.55.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 14 Sep 2026 23:55:37 -0700 (PDT)
+From: Sagi Maimon <maimon.sagi@gmail.com>
+To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	netdev@vger.kernel.org
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Michal Simek <michal.simek@amd.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Sagi Maimon <maimon.sagi@gmail.com>
+Subject: [PATCH net-next] net: axienet: add a TX timeout handler to recover a lost DMA interrupt
+Date: Tue, 15 Sep 2026 09:55:34 +0300
+Message-ID: <20260915065534.102249-1-maimon.sagi@gmail.com>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-References: <20260914072842.24420-1-phucduc.bui@gmail.com> <20260914072842.24420-3-phucduc.bui@gmail.com>
- <07add31d-5622-40eb-9bcf-f7cb2396fee3@collabora.com> <aqf7B_E7_Gv5iK2A@sirena.co.uk>
- <8f1ea5c4-d85a-43eb-8b10-3f80f8343b27@collabora.com> <aqf-pqvBNQ21EQZx@sirena.co.uk>
-In-Reply-To: <aqf-pqvBNQ21EQZx@sirena.co.uk>
-From: Bui Duc Phuc <phucduc.bui@gmail.com>
-Date: Tue, 15 Sep 2026 13:55:09 +0700
-X-Gm-Features: AcwNN1UCqK6sMPrqlCVGrE3bLZ2b-s0RCmlO_dC6IX4VPS5lJPfQdNqJWmpr8_U
-Message-ID: <CAABR9nEB16gANTVf-B+sud0+11XhjCjqiCRY3hP_rnaFstB0tw@mail.gmail.com>
-Subject: Re: [PATCH v2 02/13] ASoC: mediatek: mt8189: Propagate APLL enable errors
-To: Mark Brown <broonie@kernel.org>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Cezary Rojewski <cezary.rojewski@intel.com>, Cyril Chao <Cyril.Chao@mediatek.com>, 
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, Dan Carpenter <error27@gmail.com>, 
-	cassiogabrielcontato@gmail.com, linux-sound@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_235522_498397_D4438B9C 
-X-CRM114-Status: GOOD (  20.43  )
+X-CRM114-CacheID: sfid-20260914_235540_473662_CECD0096 
+X-CRM114-Status: GOOD (  22.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,54 +104,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark , Angelo
+axienet_dma_err_handler() is the driver's only reset path, and the only
+two places that schedule it are axienet_tx_irq() and axienet_rx_irq(),
+both on the XAXIDMA_IRQ_ERROR_MASK branch.  Every route into recovery
+therefore depends on a DMA interrupt being delivered.
 
-Thanks both for the review.
+If a completion interrupt is lost the queue stops making progress with
+descriptors unreclaimed, and nothing ever schedules the reset: the error
+branch cannot run because no interrupt arrives, and NAPI is not polled
+because it is only scheduled from those same handlers.  The interface
+stays wedged until the driver is unloaded.
 
->
-> > >  Though practically speaking the error
-> > > handling ends up being the same as if they couldn't fail since if
-> > > something goes wrong it's generally catastrophic stuff like locking the
-> > > core up completely so the end result is the same.
->
-> > That was also an implicit point (that should've been explicit from me): if anything
-> > goes horribly wrong here, it means that it already went horribly wrong "some
-> > function calls ago", and the platform likely already locked up as you suggested.
->
-> > In any case, I'm not against doing error checking, it's just about not doing it
-> > when it's really useless (I'm sure you understand my reasons), and I believe this
-> > specific case is one of those.
->
-> > That said, should you prefer having error checks in such places... it's not a
-> > performance path, so I don't really have strong opinions really.
->
-> Yeah, I think it's fine and sensible to skip the error checks in cases
-> where we can't really do anything constructive about the error.
+Add an .ndo_tx_timeout handler so the netdev watchdog provides a route
+into the existing reset path that does not depend on the interrupt that
+was lost.  The handler only queues the work; axienet_dma_err_handler()
+then performs the reset in process context, as it already does for the
+error-interrupt case.
 
-As far as I understand it, regmap_update_bits() doesn't go straight to MMIO.
-It first passes through the regmap core, which has checks independent of
-the underlying bus:
+.ndo_tx_timeout is added to axienet_netdev_ops alone.  On the dmaengine
+path lp->dma_err_task is never initialised - INIT_WORK() for it lives in
+axienet_init_legacy_dma() - so scheduling it there would be a bug, and
+watchdog_timeo is set in the same branch for that reason.
 
-https://elixir.bootlin.com/linux/v7.3-rc2/source/drivers/base/regmap/regmap.c#L2834
+Tested on a Xilinx AXI Ethernet MAC by clearing PCI_MSIX_FLAGS_ENABLE
+underneath a running interface to drop completion interrupts: without
+this patch the TX queue stalls permanently, with it the watchdog fires
+and the interface resumes passing traffic.
 
-----------------------------------------------
-if (map->cache_only)
-        return -EBUSY;
+Signed-off-by: Sagi Maimon <maimon.sagi@gmail.com>
+---
+ .../net/ethernet/xilinx/xilinx_axienet_main.c | 33 +++++++++++++++++++
+ 1 file changed, 33 insertions(+)
 
-if (!regmap_readable(map, reg))
-        return -EIO;
-----------------------------------------------
+diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+index 782f903d318f..b5927e979c34 100644
+--- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
++++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+@@ -55,6 +55,10 @@
+ #define DMA_NUM_APP_WORDS		5
+ #define LEN_APP				4
+ #define RX_BUF_NUM_DEFAULT		128
++/* Well above any legitimate TX completion delay, including the worst case
++ * allowed by the DMA interrupt coalescing settings.
++ */
++#define AXIENET_TX_TIMEOUT		(5 * HZ)
+ 
+ /* Must be shorter than length of ethtool_drvinfo.driver field to fit */
+ #define DRIVER_NAME		"xaxienet"
+@@ -1884,6 +1888,30 @@ axienet_get_stats64(struct net_device *dev, struct rtnl_link_stats64 *stats)
+ 	} while (read_seqcount_retry(&lp->hw_stats_seqcount, start));
+ }
+ 
++/**
++ * axienet_tx_timeout - Driver TX timeout callback
++ * @ndev:	Pointer to net_device structure
++ * @txqueue:	Index of the transmit queue that stalled
++ *
++ * Called by the netdev watchdog when a transmit queue has made no progress for
++ * @ndev->watchdog_timeo.  axienet_dma_err_handler() is the driver's only reset
++ * path, and it is otherwise scheduled solely from axienet_tx_irq() and
++ * axienet_rx_irq() - so a completion interrupt that is never delivered leaves
++ * the queue stopped with descriptors unreclaimed and no way back short of
++ * unloading the driver.  Schedule the reset from here as well, so a lost
++ * interrupt is recoverable.
++ *
++ * This runs from a timer, so it only queues the work; the reset itself happens
++ * in process context in axienet_dma_err_handler().
++ */
++static void axienet_tx_timeout(struct net_device *ndev, unsigned int txqueue)
++{
++	struct axienet_local *lp = netdev_priv(ndev);
++
++	netdev_err(ndev, "TX queue %u stalled, resetting DMA\n", txqueue);
++	schedule_work(&lp->dma_err_task);
++}
++
+ static const struct net_device_ops axienet_netdev_ops = {
+ 	.ndo_open = axienet_open,
+ 	.ndo_stop = axienet_stop,
+@@ -1894,6 +1922,7 @@ static const struct net_device_ops axienet_netdev_ops = {
+ 	.ndo_validate_addr = eth_validate_addr,
+ 	.ndo_eth_ioctl = axienet_ioctl,
+ 	.ndo_set_rx_mode = axienet_set_multicast_list,
++	.ndo_tx_timeout = axienet_tx_timeout,
+ #ifdef CONFIG_NET_POLL_CONTROLLER
+ 	.ndo_poll_controller = axienet_poll_controller,
+ #endif
+@@ -3054,6 +3083,10 @@ static int axienet_probe(struct platform_device *pdev)
+ 	} else {
+ 		ndev->netdev_ops = &axienet_netdev_ops;
+ 		ndev->ethtool_ops = &axienet_ethtool_ops;
++		/* netdev_watchdog_up() only arms the TX watchdog when
++		 * .ndo_tx_timeout is set, which is the legacy DMA path alone.
++		 */
++		ndev->watchdog_timeo = AXIENET_TX_TIMEOUT;
+ 	}
+ 	/* Check for Ethernet core IRQ (optional) */
+ 	if (lp->eth_irq < 0)
+-- 
+2.47.0
 
-So, in my understanding, checking ret here isn't just unnecessary
-defensive programming
-for an MMIO write, it guards an assumption about PM/cache ordering, namely that
-the regmap is already out of cache_only mode by the time this runs.
-If that assumption were ever violated by a bug elsewhere (a PM race,
-wrong resume ordering,
-a register missing from readable_reg, etc.), this is where it would
-get caught and reported,
-rather than the driver silently assuming the enable succeeded when it didn't.
-
-Best regards,
-Phuc
 
