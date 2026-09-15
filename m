@@ -4,49 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D08E4C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:50:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A34B4C982C3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:50:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0T9hjX/ckbd8uyS56xsq27z2eyLcewXFQuWBHAwAN4E=; b=Ku0MXz+/PABYvFHxmdVC6PBjmN
-	0jK6QjllUFp7UcTpPVnNKetqiRnrojGlCYCEB294YE1DyNcmodLIJuCbtfdgLQxBsimRZWQicW3st
-	19tbxsJnhM4IhoGxVqUt/2IEUPFGqM0CyU8D3ansd6Qti+TEOMBf5jZTmgXqn0hLQqJKovx2SKI9b
-	fcucRwQYVCclpLKp3gpc4GiHRMc+nwswwM2C8h/b+PKjo1cqvek+BjtbsYs+OtGnY9/surGJaNnxD
-	spiEQPMAv5UgQg6WoOlPjiuNANCtfSlOL2TDX9IFGsi2boDZhvWuAAl72UF9GKk6yVyFHLZ+6B57O
-	9NoPdSNA==;
+	bh=/dwBgvTSCknFUiyphLuWgAoC1ymQKKR5xHnko+T4uSQ=; b=3y8Gg1g37lh6rkBqO77qD+IDi2
+	mTQufkgWRYYDYYZAZrH0T6jECJXvK4Lc6qVh7IHG+WL+t4MWEFGcPCSldEhH9xFedGMIf6SwEINrV
+	io46pu1gCEA9owXO+d/CkAjzQ7UH/29vNhF206oFe2hyDwoln5bjSJ9aaqpPN5oiBIB8xhDsQgnMR
+	bgZk2bAodNj1Wcvr8V2CXwBPgZfgiA+IzptCBFK50Brk/OvvVx0tGhbIXOEv0R+3WLPKt4bj24Ira
+	UtD19d4efcVve2yrWf735Jkr4zTa8CUozeFFKptK7cqOBzP/lVjMm97bc2vt3ThyoAy6WJf5ByFj6
+	kL03i6Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VQd-00000007Ik0-17ME;
-	Tue, 15 Sep 2026 15:50:39 +0000
+	id 1x6VQe-00000007Imq-3BAs;
+	Tue, 15 Sep 2026 15:50:40 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x6VQ5-00000007IKp-2asF
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 15 Sep 2026 15:50:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=/dwBgvTSCknFUiyphLuWgAoC1ymQKKR5xHnko+T4uSQ=; b=SMiVol+aEy5VDj7Fk1pP3H8aKU
+	ebQp6kOTpEyiTTrJACxy6UYtEsnajYWcrnC75oQVDcv9WNicvWvqSBe94z/RK+VObJwTi6o0tR/RE
+	REdpncUWnV+girqvWbSQZCJ5iXAXUcbUvI1M10KuOKbXXV14ClvHU8DkcteVjplyfnNNu5yflds3Y
+	dPtDEyyAWlo/iDKX2ZvC2h2735kayhqb3PvD/XMtzKGe8S0Nlkvvl+SgjkQPJ3qTFhLP5+Qx6MM0a
+	vS9ckR3S3ATXvPdafr/Kas3S8mRbwPoYNA+BAQ8hxvYERpPNHNqztUBwew70DdkOh4F/Hkd4DA1wa
+	98bN3NPw==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VPn-00000007Hz5-0INm
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6VQ2-00000006yXs-38uz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 15:49:51 +0000
+	Tue, 15 Sep 2026 15:50:04 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7A2B81570;
-	Tue, 15 Sep 2026 08:49:42 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 663171BF3;
+	Tue, 15 Sep 2026 08:49:58 -0700 (PDT)
 Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AF4093FA32;
-	Tue, 15 Sep 2026 08:49:43 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9CA1B3F882;
+	Tue, 15 Sep 2026 08:49:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789487386; bh=ZKZYRDVVp0NsuoaDwzVZFXX6CxcoXZSRDbOKmH0PKD4=;
+	t=1789487402; bh=RwdsZM+a5uD/u0uXiHq0QhelTuat7HbYA6vpgy4lSvY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=iwBQyhqt5/kaHNeFDyr/p/2HpdclR8fbc4oObfPiESfQeEC/DnyzeQhCYV1Sh0aDk
-	 1ElcwSDPcZENTgua5v4/Okcb2LNZbZEOTslOTBrQ3k0nUZIxcwXKMjjcnwKLnqiP75
-	 HKvxSWFh4evi26maAWKm305Pt7Cn9Hdtf8UL7JlU=
+	b=HA48Op/BWQoUQohLek/bFyrKQzhCJgoB7Fig1/46bRzCj+hp1dwOLeJPUyYywG4eZ
+	 LTpK3n8h3aeX+ir5Nwnx5lkQvUhGMyGNuO8UN4lZzJ8iRLPaOokkLori4z8BLJpkro
+	 fGyxShcWhCsy0aHs/5rJRHf12WmBx1+YTv49x2To=
 From: Leo Yan <leo.yan@arm.com>
-Date: Tue, 15 Sep 2026 16:49:02 +0100
-Subject: [PATCH 16/25] coresight: perf: Support AUX sampling with per-CPU
- sinks
+Date: Tue, 15 Sep 2026 16:49:08 +0100
+Subject: [PATCH 22/25] perf cs-etm: Centralize sample history collection
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260915-arm_cs_support_aux_sample-v1-16-35cf6f297d20@arm.com>
+Message-Id: <20260915-arm_cs_support_aux_sample-v1-22-35cf6f297d20@arm.com>
 References: <20260915-arm_cs_support_aux_sample-v1-0-35cf6f297d20@arm.com>
 In-Reply-To: <20260915-arm_cs_support_aux_sample-v1-0-35cf6f297d20@arm.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
@@ -63,16 +77,16 @@ Cc: Ingo Molnar <mingo@kernel.org>, linux-perf-users@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789487340; l=6175;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789487341; l=3619;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=ZKZYRDVVp0NsuoaDwzVZFXX6CxcoXZSRDbOKmH0PKD4=;
- b=iltpZVgZYT6qQh4lQMWIjomzyc/itbmeHADGpKU7IqxBZK0WaS13MZ6fvnf+EzbjvRpzgHECk
- eZ1aE9vgzu7DUjEKSmzoJmgvXW3faUT2Fp4iiGfiothiipmLAVeqNCL
+ bh=RwdsZM+a5uD/u0uXiHq0QhelTuat7HbYA6vpgy4lSvY=;
+ b=SzWUV9IxuvwoEnwv1yCjXzzj2D+2HcEKberLOkn9Tby6iG+oqqbtlnqZAh6pNlqSOg3oaD450
+ 0ecb8mnF72MCUsyXyyY0f2uFtUrBujFTE4yF4UnFXoMoZ41Xi1XlgUA
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_084947_217770_E8D2B293 
-X-CRM114-Status: GOOD (  21.65  )
+X-CRM114-CacheID: sfid-20260915_165003_065065_CE2EA1AA 
+X-CRM114-Status: GOOD (  17.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,194 +101,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add snapshot_aux() for per-CPU sinks with overwrite buffers. Shared
-sinks can mix trace from multiple CPUs, making them unsuitable for
-context-based profiling.
+Extract thread lookup, branch history collection and history consumption
+from cs_etm__process_sample() into cs_etm__save_sample_history(). This
+separates collecting decoded history from attaching it to a perf sample
+and provides a common place for adding callchain collection.
 
-Pad missing trace with leading zeros, or zero-fill the requested AUX
-payload when a snapshot is unavailable. This ensures that the decoder
-can safely discard the zero-filled trace data.
-
-Reuse the AUX action guard to defer concurrent stops until the snapshot
-finishes. Skip snapshots during sink interrupt handling. On copy or
-restart failure, mark the AUX output truncated so perf core disables
-the event.
+Keep history collection to consume branch history so later samples
+cannot reuse an earlier trace window. Use the session stored in the
+auxtrace state and remove the redundant process_sample() argument.
 
 Assisted-by: Codex:gpt-6
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-etm-perf.c | 123 +++++++++++++++++++++++
- drivers/hwtracing/coresight/coresight-etm-perf.h |   2 +
- 2 files changed, 125 insertions(+)
+ tools/perf/util/cs-etm.c | 46 ++++++++++++++++++++++++----------------------
+ 1 file changed, 24 insertions(+), 22 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
-index 8020a4d8af18bb669441824cfdb687f4fa299eb4..5e90ed49562c117879780f573072e6b522d9d048 100644
---- a/drivers/hwtracing/coresight/coresight-etm-perf.c
-+++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
-@@ -456,6 +456,7 @@ static void *etm_setup_aux(struct perf_event *event, void **pages,
- 	if (!event_data)
- 		return NULL;
- 	INIT_WORK(&event_data->work, free_event_data);
-+	event_data->overwrite = overwrite;
- 
- 	/* First get the selected sink from user space. */
- 	sink_hash = ATTR_CFG_GET_FLD(&event->attr, sinkid);
-@@ -863,6 +864,127 @@ static void etm_event_del(struct perf_event *event, int mode)
- 	etm_event_stop(event, PERF_EF_UPDATE);
+diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
+index e78c8e089f38eae34faa12bbd2f899f1f72acce4..815a22cedc49e9281b7087f01355bb71b5e41c57 100644
+--- a/tools/perf/util/cs-etm.c
++++ b/tools/perf/util/cs-etm.c
+@@ -2048,6 +2048,26 @@ static int cs_etm__exception(struct cs_etm_traceid_queue *tidq)
+ 	return 0;
  }
  
-+/* A zero trace size pads the sample without accessing the AUX handle. */
-+static long etm_event_snapshot_aux_copy_data(struct perf_output_handle *aux_handle,
-+					     struct perf_output_handle *handle,
-+					     unsigned long trace_size,
-+					     unsigned long size)
++static int cs_etm__save_sample_history(struct cs_etm_auxtrace *etm,
++				       const struct perf_sample *sample)
 +{
-+	unsigned long pad;
-+	long ret;
++	struct machine *machine = &etm->session->machines.host;
++	struct thread *thread;
 +
-+	trace_size = min(size, trace_size);
++	thread = machine__findnew_thread(machine, sample->pid, sample->tid);
++	if (!thread)
++		return -ENOMEM;
 +
-+	/* Pad the front with zeros to keep the latest trace data at the end */
-+	pad = size - trace_size;
-+	while (pad) {
-+		unsigned long chunk = min(pad, PAGE_SIZE);
++	/* Consume branch history so later samples cannot reuse the same window. */
++	thread_stack__br_sample_late(thread, sample->cpu, etm->br_stack,
++				     etm->br_stack_sz, sample->ip,
++				     machine__kernel_start(machine));
++	thread_stack__br_stack_consume(thread, sample->cpu);
 +
-+		if (perf_output_copy(handle, page_address(ZERO_PAGE(0)), chunk))
-+			return -EFAULT;
-+		pad -= chunk;
-+	}
-+
-+	/*
-+	 * Skip an empty snapshot, as equal offsets would otherwise copy the
-+	 * entire AUX ring.
-+	 */
-+	if (trace_size) {
-+		unsigned long to = aux_handle->head;
-+
-+		ret = perf_output_copy_aux(aux_handle, handle, to - trace_size, to);
-+		if (ret < 0)
-+			return ret;
-+	}
-+
-+	return size;
++	thread__put(thread);
++	return 0;
 +}
 +
-+static long etm_event_snapshot_aux(struct perf_event *event,
-+				   struct perf_output_handle *handle,
-+				   unsigned long size)
-+{
-+	struct etm_ctxt *ctxt = this_cpu_ptr(&etm_ctxt);
-+	struct perf_output_handle *aux_handle = &ctxt->handle;
-+	struct etm_event_data *event_data;
-+	struct coresight_device *source, *sink;
-+	struct coresight_path *path;
-+	unsigned long trace_size;
-+	long ret = 0;
-+
-+	if (!etm_event_aux_begin(event, ctxt))
-+		goto padding;
-+
-+	if (READ_ONCE(event->hw.aux_paused))
-+		goto out;
-+
-+	event_data = perf_get_aux(aux_handle);
-+	if (!event_data || !event_data->overwrite)
-+		goto out;
-+
-+	path = etm_event_get_ctxt_path(ctxt);
-+	if (!path)
-+		goto out;
-+
-+	source = coresight_get_source(path);
-+	sink = coresight_get_sink(path);
-+	if (WARN_ON_ONCE(!source || !sink))
-+		goto out;
-+
-+	if (!coresight_is_percpu_sink(sink)) {
-+		dev_err_once(&sink->dev, "AUX sampling requires a per-CPU sink\n");
-+		goto out;
-+	}
-+
-+	/* Skip snapshots that preempt the sink's interrupt handler */
-+	if (READ_ONCE(sink->in_interrupt))
-+		goto out;
-+
-+	coresight_pause_source(source);
-+	trace_size = sink_ops(sink)->update_buffer(sink, aux_handle,
-+						   event_data->snk_config);
-+	coresight_disable_path(path);
-+
-+	/*
-+	 * If the AUX handle was closed or marked truncated, the sink is
-+	 * expected to have notified perf core to disable the AUX event.
-+	 */
-+	if (!perf_get_aux(aux_handle) ||
-+	    (aux_handle->aux_flags & PERF_AUX_FLAG_TRUNCATED))
-+		goto fail;
-+
-+	ret = etm_event_snapshot_aux_copy_data(aux_handle, handle, trace_size, size);
-+	if (ret < 0)
-+		goto fail;
-+
-+	if (coresight_enable_path(path, CS_MODE_PERF))
-+		goto fail;
-+
-+	if (coresight_resume_source(source)) {
-+		coresight_disable_path(path);
-+		goto fail;
-+	}
-+
-+	goto out;
-+
-+fail:
-+	/* Set the truncated AUX flag so perf core can disable the event */
-+	if (perf_get_aux(aux_handle)) {
-+		perf_aux_output_flag(aux_handle, PERF_AUX_FLAG_TRUNCATED);
-+		perf_aux_output_end(aux_handle, 0);
-+	}
-+
-+out:
-+	etm_event_aux_end(event, ctxt);
-+
-+padding:
-+	/* Pad the buffer with zeros on an early exit */
-+	if (!ret)
-+		ret = etm_event_snapshot_aux_copy_data(NULL, handle, 0, size);
-+
-+	return ret;
-+}
-+
- static int etm_addr_filters_validate(struct list_head *filters)
+ static int cs_etm__flush(struct cs_etm_queue *etmq,
+ 			 struct cs_etm_traceid_queue *tidq)
  {
- 	bool range = false, address = false;
-@@ -1109,6 +1231,7 @@ int __init etm_perf_init(void)
- 	etm_pmu.free_aux		= etm_free_aux;
- 	etm_pmu.start			= etm_event_start;
- 	etm_pmu.stop			= etm_event_stop;
-+	etm_pmu.snapshot_aux		= etm_event_snapshot_aux;
- 	etm_pmu.add			= etm_event_add;
- 	etm_pmu.del			= etm_event_del;
- 	etm_pmu.addr_filters_sync	= etm_addr_filters_sync;
-diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.h b/drivers/hwtracing/coresight/coresight-etm-perf.h
-index 24d929428633f56f24a114d5bb93b8ac4799ca11..a69eb04a597efcfe630342a410cbf8fea3c4501e 100644
---- a/drivers/hwtracing/coresight/coresight-etm-perf.h
-+++ b/drivers/hwtracing/coresight/coresight-etm-perf.h
-@@ -89,6 +89,7 @@ struct etm_filters {
-  * @aux_hwid_done:	Whether a CPU has emitted the TraceID packet or not.
-  * @snk_config:		The sink configuration.
-  * @cfg_hash:		The hash id of any coresight config selected.
-+ * @overwrite:		Whether the AUX buffer uses overwrite mode.
-  * @path:		An array of path, each slot for one CPU.
+@@ -3088,11 +3108,8 @@ static int cs_etm__br_stack_init(struct cs_etm_auxtrace *etm,
+  * the kernel; its thread and trace window still identify valid history.
   */
- struct etm_event_data {
-@@ -97,6 +98,7 @@ struct etm_event_data {
- 	cpumask_t aux_hwid_done;
- 	void *snk_config;
- 	u32 cfg_hash;
-+	bool overwrite;
- 	struct coresight_path * __percpu *path;
- };
+ static int cs_etm__process_sample(struct cs_etm_auxtrace *etm,
+-				  struct perf_session *session,
+ 				  struct perf_sample *sample)
+ {
+-	struct machine *machine = &session->machines.host;
+-	struct thread *thread;
+ 	int err;
  
+ 	if (!etm->synth_opts.add_last_branch || sample->branch_stack ||
+@@ -3117,28 +3134,13 @@ static int cs_etm__process_sample(struct cs_etm_auxtrace *etm,
+ 	if (err)
+ 		return err;
+ 
+-	thread = machine__findnew_thread(machine, sample->pid, sample->tid);
+-	if (!thread)
+-		return -ENOMEM;
+-
+-	/*
+-	 * Take the branch history rather than copying it. The trace window
+-	 * belongs to the sample that ends it, so once it has been attached a
+-	 * later sample with nothing newly decoded finds an empty stack rather
+-	 * than being given an earlier window's branches. That is the common
+-	 * case whenever the trace is duty cycled, by AUX pause/resume or by
+-	 * ETM strobing.
+-	 */
+-	thread_stack__br_sample_late(thread, sample->cpu, etm->br_stack,
+-				     etm->br_stack_sz, sample->ip,
+-				     machine__kernel_start(machine));
+-	thread_stack__br_stack_consume(thread, sample->cpu);
++	err = cs_etm__save_sample_history(etm, sample);
++	if (err)
++		return err;
+ 
+ 	if (etm->br_stack->nr)
+ 		sample->branch_stack = etm->br_stack;
+ 
+-	thread__put(thread);
+-
+ 	return 0;
+ }
+ 
+@@ -3181,7 +3183,7 @@ static int cs_etm__process_event(struct perf_session *session,
+ 		return cs_etm__process_switch_cpu_wide(etm, event);
+ 
+ 	case PERF_RECORD_SAMPLE:
+-		return cs_etm__process_sample(etm, session, sample);
++		return cs_etm__process_sample(etm, sample);
+ 
+ 	case PERF_RECORD_AUX:
+ 		/*
 
 -- 
 2.34.1
