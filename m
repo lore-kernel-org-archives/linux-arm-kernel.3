@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F612C88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 07:04:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1186DC88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 07:04:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TkOIvu8q2gHRPu8gLHr1j7FThQAssMDAlnryy77Ag5Q=; b=2dSgmxNrzpCXr1vlxf/iXk1kPi
-	ng/yJnt0ENpv2E388Jsvgr0FSxkDHHGC+8rX5v+O4UX3/yvZ5FtZv1Nd9j5xEmHDpVxPfIt70dZH+
-	TY+IxA5fSBkAXJwebDNhmJM75bHgZNbPSt3Usk9R8u90krJirZzvHxE0WxrIZe4g0kRlICZHTxbNp
-	cS1LUAZ72pJBT25kl+9y99oLnuG9XoLKYbLh+tpzYqKV0sQIrIa2f8CJAwx74KHU6nfFkoi+tM6Wl
-	1B24/9IFeQwWSkXtoQxdLlB8ZW9EMbv0Eh1xz6vPQJRGKGbdr1S3C64ITrOiiJvqpr9KB31J8DvAT
-	j+fTpJ0A==;
+	bh=rOyneF6oe4WNfYT0jUx6tKSTshf4jdaj9GOZYK/+KlU=; b=hp4G/y1A1LwojiiYuztA9rR5dx
+	IOqBbXanMbla+kSZcXkLwLhqM3ywOEhSyn2F1RB/q2pG07M8MwGROg25ib/dF9bY155Fc05Y9bgQ0
+	BOmL9CCFZN0IGHcRDM85+IyS8o8r+fP9ej9Yk4RncBLNHWx+kWaLC+/xZGeRkAPS+yLvlcP4zR/9i
+	GNRUD6eyhHLjZDsrLoQ5QOmLYcOYM+HU3SAe1zeaVGRofryDhn79EP1tXvPBGJkQq7B0UFU+t7vtS
+	m4ONpfVj1tT4K0uUAsiWDG1Rt1rD5URkCg8y6FbNXvvgtWkmZ+sPQIxBrJQjHLmBDBON+l9b81gip
+	8LaZXLkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6NDP-00000005Pl4-38kP;
-	Tue, 15 Sep 2026 07:04:27 +0000
-Received: from out-22.mta0.migadu.com ([2001:41d0:1004:224b::16] helo=mta0.migadu.com)
+	id 1x6NDa-00000005PoZ-3b0o;
+	Tue, 15 Sep 2026 07:04:38 +0000
+Received: from out-32.mta0.migadu.com ([2001:41d0:1004:224b::20] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6NDN-00000005Pjq-2shh
+	id 1x6NDO-00000005Pk9-25jY
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 15 Sep 2026 07:04:27 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=ANhxith82ULbv0/JaaJ8goUq0CxV3cuc4rjj5cuj3dU=;
+DKIM-Signature: a=rsa-sha256; bh=TxjB2nuw/omS0r1HuiWJ8ceXglPNuUd+88Xw3+fRY0o=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1789455863; v=1; x=1790060663;
- b=p46XEyyi5VK6kYdJNj6dDh+yAg5PJ6zeWbO/NVYhYLMF4N41z2k4ANoHJzNnAdb1YNwH/1kz
- b/SpP/9onmTjkXf+PWhvslgIfxrgojUi4sbibhICmwlRT2UzDeTdXX4D/PYanWM7Mt3GKAMSJab
- H7e5yq0GgGvc7J/vMWuaurlo=
+ t=1789455864; v=1; x=1790060664;
+ b=RfYBmcS79BbKA5YbpkzRHGNMsCdzXRD1HEpL6hdNfl/pGiDHfUrufUgaKXXUPH/IHYRiBT23
+ Iwz3Kn12AcPNbXgE1yV2U/XRabVttCjM3d7gNYu+FqlFKxra+ZQ9ca17ZnyJup/oUvuH3mDdPBQ
+ Ode+nbxhx5VGh0EOwRXLWuoA=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 43fcf61e14ba3efe;
-	Tue, 15 Sep 2026 07:04:23 +0000
-X-Mizu-Trace-ID: 43fcf61e14ba3efe
+Received: by smtp.migadu.com with ESMTPS id d9900a21abb41ef0;
+	Tue, 15 Sep 2026 07:04:24 +0000
+X-Mizu-Trace-ID: d9900a21abb41ef0
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: maz@kernel.org,
@@ -57,17 +57,17 @@ Cc: catalin.marinas@arm.com,
 	vdonnefort@google.com,
 	qperret@google.com,
 	tabba@google.com
-Subject: [PATCH v2 1/2] KVM: arm64: Validate the host vCPU's VM before reading it under pKVM
-Date: Tue, 15 Sep 2026 08:04:17 +0100
-Message-Id: <20260915070418.3209779-2-fuad.tabba@linux.dev>
+Subject: [PATCH v2 2/2] KVM: arm64: Pin the host vCPU before adjusting its PC under pKVM
+Date: Tue, 15 Sep 2026 08:04:18 +0100
+Message-Id: <20260915070418.3209779-3-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260915070418.3209779-1-fuad.tabba@linux.dev>
 References: <20260915070418.3209779-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_000425_862062_EFD0D428 
-X-CRM114-Status: GOOD (  15.79  )
+X-CRM114-CacheID: sfid-20260915_000426_677783_751B422E 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,137 +82,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On an MTE-capable host under pKVM, enter_exception64() reads the VM's
-MTE flag through vcpu->kvm, which for a host vCPU is a host-writable
-pointer nothing validates. The host can point it at any address in the
-hyp linear map and read back bit 1 of that word through PSR_TCO in the
-vCPU's CPSR, or panic the hypervisor with an unmapped one.
+Under pKVM, a page the host shares with EL2 is mapped at EL2 only while
+it's pinned, and the host vCPU is pinned at its first KVM_RUN.
+KVM_SET_VCPU_EVENTS with ext_dabt_pending reaches __kvm_adjust_pc() at
+EL2 before that, and dereferencing the unmapped host vCPU panics the
+hypervisor. Any process holding /dev/kvm on a pKVM host can trigger it.
 
-Get the VM through a get/put pair around the read: a loaded vCPU's is
-the hyp VM, an unloaded host vCPU's is read once and pinned, and a
-pointer the host never shared leaves TCO clear.
+Pin the host vCPU around the adjustment when no hyp vCPU is loaded for
+it. A loaded hyp vCPU implies it's pinned. A pin fails only for memory
+the host never shared, and the request is then dropped like any other
+bad host pointer.
 
-Fixes: ea7fc1bb1cd1b ("KVM: arm64: Introduce MTE VM feature")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/all/20260914070536.877D91F000FF@smtp.kernel.org/
+Fixes: efa1368ba9f4b ("KVM: arm64: Commit exceptions from KVM_SET_VCPU_EVENTS immediately")
 Cc: stable@vger.kernel.org
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/kvm/hyp/exception.c             |  5 ++-
- arch/arm64/kvm/hyp/include/hyp/adjust_pc.h | 18 ++++++++++
- arch/arm64/kvm/hyp/nvhe/pkvm.c             | 39 ++++++++++++++++++++++
- 3 files changed, 61 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c | 19 ++++++++++++++++++-
+ 1 file changed, 18 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/hyp/exception.c b/arch/arm64/kvm/hyp/exception.c
-index 754e2dc1df54a..6e60d890afa4a 100644
---- a/arch/arm64/kvm/hyp/exception.c
-+++ b/arch/arm64/kvm/hyp/exception.c
-@@ -70,6 +70,7 @@ static void enter_exception64(struct kvm_vcpu *vcpu, unsigned long target_mode,
- 			      enum exception_type type)
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index 9a3b92e626adb..4cb7347db2514 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -542,8 +542,25 @@ static void handle___pkvm_host_mkyoung_guest(struct kvm_cpu_context *host_ctxt)
+ static void handle___kvm_adjust_pc(struct kvm_cpu_context *host_ctxt)
  {
- 	unsigned long sctlr, vbar, old, new, mode;
-+	struct kvm *kvm;
- 	u64 exc_offset;
+ 	DECLARE_REG(struct kvm_vcpu *, vcpu, host_ctxt, 1);
++	struct pkvm_hyp_vcpu *hyp_vcpu;
++	struct kvm_vcpu *host_vcpu;
  
- 	mode = *vcpu_cpsr(vcpu) & (PSR_MODE_MASK | PSR_MODE32_BIT);
-@@ -109,8 +110,10 @@ static void enter_exception64(struct kvm_vcpu *vcpu, unsigned long target_mode,
- 	new |= (old & PSR_C_BIT);
- 	new |= (old & PSR_V_BIT);
- 
--	if (kvm_has_mte(kern_hyp_va(vcpu->kvm)))
-+	kvm = vcpu_get_kvm(vcpu);
-+	if (kvm && kvm_has_mte(kvm))
- 		new |= PSR_TCO_BIT;
-+	vcpu_put_kvm(vcpu, kvm);
- 
- 	new |= (old & PSR_DIT_BIT);
- 
-diff --git a/arch/arm64/kvm/hyp/include/hyp/adjust_pc.h b/arch/arm64/kvm/hyp/include/hyp/adjust_pc.h
-index 4fdfeabefeb43..a4fb04faa7d09 100644
---- a/arch/arm64/kvm/hyp/include/hyp/adjust_pc.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/adjust_pc.h
-@@ -13,6 +13,24 @@
- #include <asm/kvm_emulate.h>
- #include <asm/kvm_host.h>
- 
-+/*
-+ * Under pKVM a host vCPU's ->kvm is host-writable: the nVHE pair
-+ * validates it.
-+ */
-+#ifdef __KVM_NVHE_HYPERVISOR__
-+struct kvm *vcpu_get_kvm(struct kvm_vcpu *vcpu);
-+void vcpu_put_kvm(struct kvm_vcpu *vcpu, struct kvm *kvm);
-+#else
-+static inline struct kvm *vcpu_get_kvm(struct kvm_vcpu *vcpu)
-+{
-+	return vcpu->kvm;
-+}
+-	__kvm_adjust_pc(kern_hyp_va(vcpu));
++	host_vcpu = __get_host_hyp_vcpus(vcpu, &hyp_vcpu);
++	if (host_vcpu) {
++		__kvm_adjust_pc(host_vcpu);
++		return;
++	}
 +
-+static inline void vcpu_put_kvm(struct kvm_vcpu *vcpu, struct kvm *kvm)
-+{
-+}
-+#endif
++	/*
++	 * With no hyp vCPU loaded for it, the host vCPU may be unpinned,
++	 * and so unmapped at EL2: its first run pins it.
++	 */
++	host_vcpu = kern_hyp_va(vcpu);
++	if (hyp_pin_shared_mem(host_vcpu, host_vcpu + 1))
++		return;
 +
- static inline void kvm_skip_instr(struct kvm_vcpu *vcpu)
- {
- 	if (vcpu_mode_is_32bit(vcpu)) {
-diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index 459bd9eb7e4bc..9bdc7a9b84b8c 100644
---- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -11,6 +11,8 @@
- 
- #include <asm/kvm_emulate.h>
- 
-+#include <hyp/adjust_pc.h>
-+
- #include <nvhe/mem_protect.h>
- #include <nvhe/memory.h>
- #include <nvhe/pkvm.h>
-@@ -304,6 +306,43 @@ struct pkvm_hyp_vcpu *pkvm_get_loaded_hyp_vcpu(void)
- 
++	__kvm_adjust_pc(host_vcpu);
++	hyp_unpin_shared_mem(host_vcpu, host_vcpu + 1);
  }
  
-+static struct pkvm_hyp_vm *loaded_hyp_vm_of(struct kvm_vcpu *vcpu)
-+{
-+	struct pkvm_hyp_vcpu *hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
-+
-+	if (hyp_vcpu &&
-+	    (vcpu == &hyp_vcpu->vcpu || vcpu == hyp_vcpu->host_vcpu))
-+		return pkvm_hyp_vcpu_to_hyp_vm(hyp_vcpu);
-+
-+	return NULL;
-+}
-+
-+/* An unloaded host vCPU's VM is mapped at EL2 only while pinned. */
-+struct kvm *vcpu_get_kvm(struct kvm_vcpu *vcpu)
-+{
-+	struct pkvm_hyp_vm *hyp_vm;
-+	struct kvm *kvm;
-+
-+	if (!is_protected_kvm_enabled())
-+		return kern_hyp_va(vcpu->kvm);
-+
-+	hyp_vm = loaded_hyp_vm_of(vcpu);
-+	if (hyp_vm)
-+		return &hyp_vm->kvm;
-+
-+	kvm = kern_hyp_va(READ_ONCE(vcpu->kvm));
-+	if (hyp_pin_shared_mem(kvm, kvm + 1))
-+		return NULL;
-+
-+	return kvm;
-+}
-+
-+void vcpu_put_kvm(struct kvm_vcpu *vcpu, struct kvm *kvm)
-+{
-+	if (kvm && is_protected_kvm_enabled() && !loaded_hyp_vm_of(vcpu))
-+		hyp_unpin_shared_mem(kvm, kvm + 1);
-+}
-+
- struct pkvm_hyp_vm *get_pkvm_hyp_vm(pkvm_handle_t handle)
- {
- 	struct pkvm_hyp_vm *hyp_vm;
+ static void handle___kvm_flush_vm_context(struct kvm_cpu_context *host_ctxt)
 -- 
 2.39.5
 
