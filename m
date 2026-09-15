@@ -4,66 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6246C88E73
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 08:42:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6042EC88E73
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 08:43:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cOsw/m3GL9gXbzk7Znz3+GQLWlGq3cfffQGQYnG51zY=; b=mUa/zBO9adxr27vIVSehYU1oxz
-	NilEajrutXHhwoumC8ZFRKR3WJ9gUTfQ49hDHoNdhPR7J4C9lr/kTjXPXr+jBcgp893Om8/qOqOYb
-	aXAiNsWLWLLD6SsldVqUbVEO8C+DrGiR9A2k8GtDYKQId36oIFBYos0yrNT8pUpK6VhDb149Qa3B8
-	VIt6xQhQL/uF8eKkEimiGTRwhzBU52sA5qb1CJlrWG+MS+FIjl0kCnvgj7LbwG52gwg4ciuFx6iEa
-	bWcX5TsXSHaCpCdb3+JZ/ZSyILrn9deMi8WVBUvNdb+OoRCNlinv6Ms43A72Kbhagy1K1XVMk/ePq
-	ELbEnOSA==;
+	bh=2kyQ9q9H+Q12n4br//wADN3LcoKZmJu+3jowxzVWT8U=; b=xLnMhx3PwZxesWTgWTKBINOrRh
+	jpQX0pcqmJEOFwCDr/DrmZibcvPdE0FZoOD71xZKIsQLIs0R+DhZQKNXnj+DAdt0uqkOxAdTIhbk/
+	88kTfsmMuw6kZk1bo5G+rd5ALWZ4nriQiHlvFlJqzHIyp0aWA+tlTpfRD4hvld8vJ/4xKqUWJKVAr
+	ZfWCr5Ne6Hzr1IfUHqVMcgXsO4fMOwQV8NRzKXZQt7ZoaXkhC8rhJ3LAA2N8R6u+dffTawRmgu7Uq
+	u4G6Z5KyO+KoUeVSyPEqoi6furpsiqePYi378s4FAfVxLp4slS4/NugytV9quVh4+p5614hGi1idF
+	9PCgv8mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6OkF-00000005eb7-1QgE;
-	Tue, 15 Sep 2026 08:42:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x6Okj-00000005f5V-0fNt;
+	Tue, 15 Sep 2026 08:42:57 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Ok4-00000005eK7-2rkM
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 08:42:16 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 00A0343F78;
-	Tue, 15 Sep 2026 08:42:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C15E1F000FF;
-	Tue, 15 Sep 2026 08:42:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789461735;
-	bh=cOsw/m3GL9gXbzk7Znz3+GQLWlGq3cfffQGQYnG51zY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=KlOLn+l+hrXwfrB9EmCz7cwc9EiQukPRjo9k4xAM3ErD9rtgC1KWptSh7Vp53L7A0
-	 0TcLL/erNb0lFyeLHpMTls8D0nFv6jGDEKJC153m1svJvygP7i/emMPhRdJImB7zad
-	 fYzQi126N3B/tIrTUPWzcZ7gbcUIsv66p3r3/P/swnStfOrzMU6k8SqGCpd0Y3l2U3
-	 3WADA0NJQIOmrfDR8PkLGZgxlG787sdRbPne72a0WO7LsKaEOZJJfIz8H2wyX54Wfr
-	 Fn56G4xQnHa4S/W7upN8CUOLCUJUx8hJ4XKl5bY9DrlNXbH9r/uNBeeVbnz/BqzKnk
-	 j84qadiyN7KTg==
-From: Niklas Cassel <cassel@kernel.org>
-To: Patrice Chotard <patrice.chotard@foss.st.com>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Niklas Cassel <cassel@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Alexandre Torgue <alexandre.torgue@st.com>,
-	Tejun Heo <tj@kernel.org>,
-	Lee Jones <lee@kernel.org>
-Cc: Brian Norris <computersforpeace@gmail.com>,
-	stable@vger.kernel.org,
+	id 1x6OkB-00000005eTu-1s31;
+	Tue, 15 Sep 2026 08:42:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=2kyQ9q9H+Q12n4br//wADN3LcoKZmJu+3jowxzVWT8U=; b=jrgwngfkntzNsf+WBuc1VO6VLl
+	xDNmUijLKpxGFUHuzwt27r1N74BVoyRujcWcnXUGxsOzp6YxUDLwSMp98yI1UONFkienxM8Uso/m8
+	rzgI8k+G2P5qen8cmavShND4zy8xeKY8Xe0A9//j4s9w7ztUvkPfDnL611qMnT386fviyt8zE/MVq
+	dbxhFe4zQ61tPEtN2B85nguxwbUAAyI6OjnvA4iQsE4FilOiZbeJMvXI5Ebz60MRkm144lUlQB4UE
+	cTI0TLs8KJPmeOHUsUKJgGTcTNxAlsrwQs2jYeKF39attbFE01y7GZ5F/N4vsEe/wntNXU17do0DW
+	k1W4uzTg==;
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6Ok8-00000006RfN-2doc;
+	Tue, 15 Sep 2026 08:42:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1789461739;
+	bh=43A1BM9waMG6ewhWBGIC1XAm5wq/Dw6qxwtteFBu24Q=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=YkFJ/15bRhHTE3uiJHWxNrWwH3ueQHRC4QHhskffYYEybssCoqomdjV5mDQnwrxlk
+	 Gi3gRRKLV6YGf/pJQZy1V7Yg14TxIQzmr86rU02ZUm8aVtkIBvoW3Q4s/vATZ9hFNL
+	 CnnXbbx2OZTD197SKs3IigtpTDgOb6B5gASHTW6cdqLhfaKuCnWSjEn4j/9BZpZ58V
+	 ZgQbjBG6ER94HtVUCXAlzr7jTN+p2iNiZETvkWhCIgKeeu+58/OpooN7Jy9v82pf1D
+	 AeXKC6T4+at+oZYf2kYtMFNewUiB9Ri8MSZqksp3W9bpZpLMM+0cZkstx77CcNmmMG
+	 6F5ui1YCfzhBw==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C45A917E1054;
+	Tue, 15 Sep 2026 10:42:17 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: chunkuang.hu@kernel.org
+Cc: p.zabel@pengutronix.de,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	jitao.shi@mediatek.com,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-ide@vger.kernel.org
-Subject: [PATCH v5 2/6] ata: ahci_st: Assert the power down reset in the probe() error path
-Date: Tue, 15 Sep 2026 10:41:28 +0200
-Message-ID: <20260915084127.692494-10-cassel@kernel.org>
+	kernel@collabora.com,
+	justin.yeh@mediatek.com,
+	jason-jh.lin@mediatek.com,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	CK Hu <ck.hu@mediatek.com>
+Subject: [PATCH v8 12/13] dt-bindings: display: mediatek: wdma: Add compatibles for more SoCs
+Date: Tue, 15 Sep 2026 10:41:47 +0200
+Message-ID: <20260915084148.11385-13-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260915084127.692494-8-cassel@kernel.org>
-References: <20260915084127.692494-8-cassel@kernel.org>
+In-Reply-To: <20260915084148.11385-1-angelogioacchino.delregno@collabora.com>
+References: <20260915084148.11385-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3471; i=cassel@kernel.org; h=from:subject; bh=YZJR2tIT7pbBbYPsCeMhf5rqcC+ztQz0Wi1vqmrKYr0=; b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGLJWsuzdldhv/phZ4Vb906zuoumR/3YXyExwLw2Q2Sqc0 id16JJ5RykLgxgXg6yYIovvD5f9xd3uU44r3rGBmcPKBDKEgYtTACbCPJeRYe6mp86VPZ/7Xr5x +Oz9/sy7tBfvD3+x7ux3PL2Pcd3xv88YGbayFfVkaGouNs/Oulu0qOjOG9afvu3epXnK2y7PtJv oyAkA
-X-Developer-Key: i=cassel@kernel.org; a=openpgp; fpr=5ADE635C0E631CBBD5BE065A352FE6582ED9B5DA
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260915_094220_806011_DE1970DC 
+X-CRM114-Status: UNSURE (   9.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,124 +107,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-st_ahci_probe_resets() deasserts the "pwr-dwn" reset, but the probe()
-error path of st_ahci_probe() only releases the host resources, so the
-SATA IP is left powered up when probe() fails after
-st_ahci_probe_resets() has succeeded, e.g. when
-ahci_platform_enable_resources() fails.
+Multiple MediaTek SoCs have the Write DMA hardware in their Display
+Controller: add the missing compatibles for Dimensity 1200 (MT6893)
+and for Kompanio 500/520/820/1200 (MT8183/MT8186/MT8192/MT8195).
 
-The reset is asserted by st_ahci_host_stop(), however ->host_stop() is
-only called through the ata_host_stop() devres action registered by
-ata_host_start(), so it does not cover any failure happening before the
-host has been started.
+Note that MT6893 is not compatible with MT8173 as it introduces
+support for destination addresses larger than 32 bits by adding
+one additional register for the upper 32 bits of the address.
 
-Factor the assert out into st_ahci_assert_pwrdwn() and call it when
-either ahci_platform_enable_resources() or ahci_platform_init_host()
-fails. The "pwr-dwn" reset control is an exclusive one, so asserting it
-once more from st_ahci_host_stop() is harmless.
-
-No functional change intended for ->host_stop() and st_ahci_suspend().
-
-Fixes: 76884cb2f7da ("ahci: st: Add support for ST's SATA IP")
-Cc: stable@vger.kernel.org
-Reviewed-by: Damien Le Moal <dlemoal@kernel.org>
-Signed-off-by: Niklas Cassel <cassel@kernel.org>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Reviewed-by: CK Hu <ck.hu@mediatek.com>
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/ata/ahci_st.c | 51 +++++++++++++++++++++++++------------------
- 1 file changed, 30 insertions(+), 21 deletions(-)
+ .../devicetree/bindings/display/mediatek/mediatek,wdma.yaml  | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/drivers/ata/ahci_st.c b/drivers/ata/ahci_st.c
-index 819269a022ef..eea75961038c 100644
---- a/drivers/ata/ahci_st.c
-+++ b/drivers/ata/ahci_st.c
-@@ -83,18 +83,27 @@ static int st_ahci_deassert_resets(struct ahci_host_priv *hpriv,
- 	return 0;
- }
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,wdma.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,wdma.yaml
+index 97d052b0fb61..c3ed867d058d 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,wdma.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,wdma.yaml
+@@ -22,11 +22,16 @@ properties:
+   compatible:
+     oneOf:
+       - enum:
++          - mediatek,mt6893-disp-wdma
+           - mediatek,mt8173-disp-wdma
+       - items:
+           - enum:
+               - mediatek,mt6795-disp-wdma
+               - mediatek,mt8167-disp-wdma
++              - mediatek,mt8183-disp-wdma
++              - mediatek,mt8186-disp-wdma
++              - mediatek,mt8192-disp-wdma
++              - mediatek,mt8195-disp-wdma
+           - const: mediatek,mt8173-disp-wdma
  
--static void st_ahci_host_stop(struct ata_host *host)
-+static int st_ahci_assert_pwrdwn(struct ahci_host_priv *hpriv,
-+				 struct device *dev)
- {
--	struct ahci_host_priv *hpriv = host->private_data;
- 	struct st_ahci_drv_data *drv_data = hpriv->plat_data;
--	struct device *dev = host->dev;
- 	int err;
- 
--	if (drv_data->pwr) {
--		err = reset_control_assert(drv_data->pwr);
--		if (err)
--			dev_err(dev, "unable to pwrdwn\n");
--	}
-+	if (!drv_data->pwr)
-+		return 0;
-+
-+	err = reset_control_assert(drv_data->pwr);
-+	if (err)
-+		dev_err(dev, "unable to pwrdwn\n");
-+
-+	return err;
-+}
-+
-+static void st_ahci_host_stop(struct ata_host *host)
-+{
-+	struct ahci_host_priv *hpriv = host->private_data;
-+
-+	st_ahci_assert_pwrdwn(hpriv, host->dev);
- 
- 	ahci_platform_disable_resources(hpriv);
- }
-@@ -159,38 +168,38 @@ static int st_ahci_probe(struct platform_device *pdev)
- 
- 	err = ahci_platform_enable_resources(hpriv);
- 	if (err)
--		return err;
-+		goto assert_pwrdwn;
- 
- 	st_ahci_configure_oob(hpriv->mmio);
- 
- 	err = ahci_platform_init_host(pdev, hpriv, &st_ahci_port_info,
- 				      &ahci_platform_sht);
--	if (err) {
--		ahci_platform_disable_resources(hpriv);
--		return err;
--	}
-+	if (err)
-+		goto disable_resources;
- 
- 	return 0;
-+
-+disable_resources:
-+	ahci_platform_disable_resources(hpriv);
-+assert_pwrdwn:
-+	st_ahci_assert_pwrdwn(hpriv, &pdev->dev);
-+
-+	return err;
- }
- 
- static int st_ahci_suspend(struct device *dev)
- {
- 	struct ata_host *host = dev_get_drvdata(dev);
- 	struct ahci_host_priv *hpriv = host->private_data;
--	struct st_ahci_drv_data *drv_data = hpriv->plat_data;
- 	int err;
- 
- 	err = ahci_platform_suspend_host(dev);
- 	if (err)
- 		return err;
- 
--	if (drv_data->pwr) {
--		err = reset_control_assert(drv_data->pwr);
--		if (err) {
--			dev_err(dev, "unable to pwrdwn");
--			return err;
--		}
--	}
-+	err = st_ahci_assert_pwrdwn(hpriv, dev);
-+	if (err)
-+		return err;
- 
- 	ahci_platform_disable_resources(hpriv);
- 
+   reg:
 -- 
 2.55.0
 
