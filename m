@@ -4,85 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 932AEC88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 12:00:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92B8DC88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 12:00:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:Subject:
+	From:MIME-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nR+vppdF8K9WZno7O7oax1RC3QDZjRQKRGTEl7NKWQ0=; b=FyNl8Dm2ax6dINEhe9MEGsz1Ig
-	w7ig1bPgKnWj8lYeTCzE7I9xFRrblOpZvw9uXFuAzFKL2rxWvjU1KNr0bipO5Y+9ifPKhg5Y+eokj
-	NHtNbn2ObVRmnKb5z9jnHgL59b+SLU1CfpbusaVaGbaFDvhXY0RBfCVnsPXvxWEDCPot9hjqGlJ/T
-	PAtMhG1XKJCHgF/yNL+LTNyBqDRT1pnKkKDgi5Cd/i+NSnE7yZzTleFEDyup5GP+j+dDRRAx//8nO
-	geIbCsfTHuqlulXm/+SPpjGnc/K0AGW5HUTqbCufUF05tk3Gnc/F7Noti5iIZVXDnNHmVPcasYNqu
-	0qqUzjYw==;
+	bh=lkRrGN3tHH0vPXJQpfXyuI1f/hj84726OJ+wXiSAjkY=; b=GJz3z9AZRLX0ov7eIVHzyhOHDn
+	5lEjFG39vVfMl4qnXpNEXBYXiOCLYKNbFe6pk7FwDj1VQwu7wggxJogsJ7VWXGv2JnVQPNuBGsRyY
+	GGvfvsMIIxKjGGGdwK8/f8xKo/oa8DKOTQ7549e2XrSdt0k0V5gWefanTMAvxutufdV79eZmCmmyk
+	qwMSiwnO9EUe6zA19hDcp33IelsGguVrb0oCOetHh7DiDjMfu0b/1CWdlUGvpc4iTG78bPnYlHdVH
+	6keNpbPrmQJm2Orf50ndrIlShuX/yxRuSXgmgbab+BuqkR3MoDOM7u387NpJRk3f5QeTQ9x1Mr8j9
+	yr2hUBug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6R8i-000000064C2-3G8s;
-	Tue, 15 Sep 2026 11:15:52 +0000
+	id 1x6Rpg-00000006LtL-4AaL;
+	Tue, 15 Sep 2026 12:00:17 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6R8Y-0000000642h-17RK
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 11:15:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B3BA94477F;
-	Tue, 15 Sep 2026 11:15:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 65688C2BCB9;
-	Tue, 15 Sep 2026 11:15:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1789470941;
-	bh=apLWzdvgb1s6ZZhPE9IW2ykFDz8tGxdLt1ms1gbZrRo=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=Y9BO/s29j57o78qggRkGKful6hGXP2r6a2OTsdz/w/y9S8ebKCvw0F8c61dpp3OIV
-	 zbxy+hRDzxQrxrUnfKki8IUzYeZC3ZJ9MAlEzqIJ6YmCaJSDjnx4Znr6BMQODaHMWb
-	 uMiHlUIuWQAQ+p9myh4436uTs2ObGxevnlj5Edmwus73cH/SHn3PhKsUJ5Vjupw88C
-	 ibET0FHNqg/oRjC3KwZDglZiT/180loBJ3oTlzJKqLm5LASWcxMZpMf2EnrgbubZWH
-	 ziDPugAxDOvSGxqzfrc6TWqbvXZ8wEq4JdvDyD5XkuwKLKV8HDkI4mjmbnvo1KNG5U
-	 vvetE8L+Kzr7g==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 517CBC88E7B;
-	Tue, 15 Sep 2026 11:15:41 +0000 (UTC)
-From: Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>
-Date: Tue, 15 Sep 2026 19:15:39 +0800
-Subject: [PATCH v7 09/15] gpiolib: regmap: add gpio_regmap_get_chip()
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260915-cv75-v5-v7-9-3297d3fbc9c0@ambarella.com>
-References: <20260915-cv75-v5-v7-0-3297d3fbc9c0@ambarella.com>
-In-Reply-To: <20260915-cv75-v5-v7-0-3297d3fbc9c0@ambarella.com>
-To: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org
-Cc: Long Zhao <longzhao@ambarella.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>, 
- Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
- =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Long Zhao <zl020895@163.com>, Lee Jones <lee@kernel.org>, 
- mfd@lists.linux.dev, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
- linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789470938; l=2769;
- i=longzhao@ambarella.com; s=20260730; h=from:subject:message-id;
- bh=nq9zwoYxD+NQm8KCrReHWkDIjxPc8aBRQx3slgbQG5I=;
- b=UeddQ/k7Bfy8M1+7iO6pMfuGpWJDosaPnbR8AD5YXnJ+tU3kaZLmZlTKQJxKltmA4XbkZBtYx
- 5KaLQ39XmhGAPEeZoRCm0OWLNLWcAdP+3CeBaRHKRGIQRJmtn+/dY9O
-X-Developer-Key: i=longzhao@ambarella.com; a=ed25519;
- pk=/xGhPTOX0/eYsyTWzyjjgAIW1Z/YD+IlnOnvcdRozow=
-X-Endpoint-Received: by B4 Relay for longzhao@ambarella.com/20260730 with
- auth_id=903
-X-Original-From: Long Zhao <longzhao@ambarella.com>
+	id 1x6Rpe-00000006Lrq-0NOg;
+	Tue, 15 Sep 2026 12:00:15 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C51DE41B2F;
+	Tue, 15 Sep 2026 12:00:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D59F81F000FF;
+	Tue, 15 Sep 2026 12:00:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789473613;
+	bh=lkRrGN3tHH0vPXJQpfXyuI1f/hj84726OJ+wXiSAjkY=;
+	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
+	b=bdJ8EfCAcKRLCnZZLr9KUFRKwzOp9HwWHqD8dKOgs2QECDixoCiY7OitpfSWybTgc
+	 GrKy8T3cB5cVyun9gMM4tiazPAmkuvnRoSJn20gDY30Pi6NZ2BlWie/yV3J02KVzmP
+	 +FdO4hMG7v/dI5BZjC8kuRbGxnY1BMC++7JlKDVKVVz2TBx0SWNpwMbRNY+KWbqJrn
+	 ewEE2svDPg32d5ej4oQppZf8rSJTrU4fXT0CFb4RwzIPHo6I6kwXfOXCr0tMaXJRUv
+	 nQKJqvUmQYSXF6bRUemMO3EjVCVESrcELW0g+JEeeCOWgYbp17E7wf+3S6taJJ6xjy
+	 asi0ByODbGixg==
+From: sashiko-bot@kernel.org
+Subject: Re: [PATCH RFC POC 18/50] xtensa: commit fds on syscall exit
+To: "Christian Brauner" <brauner@kernel.org>, "Linus Torvalds" <torvalds@linux-foundation.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-hexagon@vger.kernel.org, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, linux-openrisc@vger.kernel.org, "Peter
+ Zijlstra" <peterz@infradead.org>, linux-hyperv@vger.kernel.org, linux-fsdevel@vger.kernel.org, "Jens
+ Axboe" <axboe@kernel.dk>, linuxppc-dev@lists.ozlabs.org, linux-gpio@vger.kernel.org, "David
+ Airlie" <airlied@redhat.com>, virtualization@lists.linux.dev, "Oleg
+ Nesterov" <oleg@redhat.com>, linux-alpha@vger.kernel.org, kexec@lists.infradead.org, "Ingo
+ Molnar" <mingo@redhat.com>, dri-devel@lists.freedesktop.org, linux-csky@vger.kernel.org, linux-m68k@lists.linux-m68k.org, "Jan
+ Kara" <jack@suse.cz>, linux-um@lists.infradead.org, "Eugenio Perez" <eperezma@redhat.com>, "Jann
+ Horn" <jannh@google.com>, bpf@vger.kernel.org, linux-parisc@vger.kernel.org, linux-sh@vger.kernel.org,
+ =?utf-8?b?Q2hyaXN0aWFuIEJyYXVuZXIgKEFtdXRhYmxlKQ==?= <brauner@kernel.org>, linux-snps-arc@lists.infradead.org, "Alexander
+ Viro" <viro@zeniv.linux.org.uk>, io-uring@vger.kernel.org, sparclinux@vger.kernel.org, linux-mips@vger.kernel.org, "Michael
+ S. Tsirkin" <mst@redhat.com>
+In-Reply-To: <20260915-work-fd-reserve-unify-folded-v1-18-4d5217d6b246@kernel.org>
+References: <20260915-work-fd-reserve-unify-folded-v1-0-4d5217d6b246@kernel.org>
+ <20260915-work-fd-reserve-unify-folded-v1-18-4d5217d6b246@kernel.org>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Tue, 15 Sep 2026 12:00:11 +0000
+Message-Id: <20260915120011.D59F81F000FF@smtp.kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,90 +73,66 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: longzhao@ambarella.com
+Reply-To: sashiko-reviews@lists.linux.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Long Zhao <longzhao@ambarella.com>
+Thank you for your contribution! Sashiko AI review found 1 potential issue(=
+s) to consider:
+- [Medium] xtensa: inconsistent mid-syscall ptrace exit tracing due to stal=
+e flags
+--
 
-Let drivers that implement a custom irqchip retrieve the gpio_chip
-after registration. Attach a caller-provided irq_domain only when it
-is present.
+commit f64c69fbd6ff1a2ee8dd26645f9d56d2d371647e
+Author: Christian Brauner <brauner@kernel.org>
 
-Signed-off-by: Long Zhao <longzhao@ambarella.com>
----
- drivers/gpio/gpio-regmap.c  | 20 +++++++++++++++-----
- include/linux/gpio/regmap.h |  1 +
- 2 files changed, 16 insertions(+), 5 deletions(-)
+xtensa: commit fds on syscall exit
 
-diff --git a/drivers/gpio/gpio-regmap.c b/drivers/gpio/gpio-regmap.c
-index dfcc1f1122ec..56c2c873cbfa 100644
---- a/drivers/gpio/gpio-regmap.c
-+++ b/drivers/gpio/gpio-regmap.c
-@@ -296,6 +296,12 @@ void *gpio_regmap_get_drvdata(struct gpio_regmap *gpio)
- }
- EXPORT_SYMBOL_GPL(gpio_regmap_get_drvdata);
- 
-+struct gpio_chip *gpio_regmap_get_chip(struct gpio_regmap *gpio)
-+{
-+	return &gpio->gpio_chip;
-+}
-+EXPORT_SYMBOL_GPL(gpio_regmap_get_chip);
-+
- /**
-  * gpio_regmap_register() - Register a generic regmap GPIO controller
-  * @config: configuration for gpio_regmap
-@@ -304,7 +310,6 @@ EXPORT_SYMBOL_GPL(gpio_regmap_get_drvdata);
-  */
- struct gpio_regmap *gpio_regmap_register(const struct gpio_regmap_config *config)
- {
--	struct irq_domain *irq_domain;
- 	struct gpio_regmap *gpio;
- 	struct gpio_chip *chip;
- 	int ret;
-@@ -412,6 +417,8 @@ struct gpio_regmap *gpio_regmap_register(const struct gpio_regmap_config *config
- 
- #ifdef CONFIG_REGMAP_IRQ
- 	if (config->regmap_irq_chip) {
-+		struct irq_domain *irq_domain;
-+
- 		gpio->regmap_irq_line = config->regmap_irq_line;
- 		ret = regmap_add_irq_chip_fwnode(dev_fwnode(config->parent), config->regmap,
- 						 config->regmap_irq_line, config->regmap_irq_flags,
-@@ -420,12 +427,15 @@ struct gpio_regmap *gpio_regmap_register(const struct gpio_regmap_config *config
- 			goto err_remove_gpiochip;
- 
- 		irq_domain = regmap_irq_get_domain(gpio->irq_chip_data);
-+		if (irq_domain) {
-+			ret = gpiochip_irqchip_add_domain(chip, irq_domain);
-+			if (ret)
-+				goto err_remove_gpiochip;
-+		}
- 	} else
- #endif
--	irq_domain = config->irq_domain;
--
--	if (irq_domain) {
--		ret = gpiochip_irqchip_add_domain(chip, irq_domain);
-+	if (config->irq_domain) {
-+		ret = gpiochip_irqchip_add_domain(chip, config->irq_domain);
- 		if (ret)
- 			goto err_remove_gpiochip;
- 	}
-diff --git a/include/linux/gpio/regmap.h b/include/linux/gpio/regmap.h
-index d7ffc12b00a2..6bc00b9775a5 100644
---- a/include/linux/gpio/regmap.h
-+++ b/include/linux/gpio/regmap.h
-@@ -128,5 +128,6 @@ void gpio_regmap_unregister(struct gpio_regmap *gpio);
- struct gpio_regmap *devm_gpio_regmap_register(struct device *dev,
- 					      const struct gpio_regmap_config *config);
- void *gpio_regmap_get_drvdata(struct gpio_regmap *gpio);
-+struct gpio_chip *gpio_regmap_get_chip(struct gpio_regmap *gpio);
- 
- #endif /* _LINUX_GPIO_REGMAP_H */
+Add TIF_FD_SLOTS and test it once the system call has stored its
+return value. A task that reserved descriptors uses the traced path.
 
--- 
-2.34.1
+[ ... ]
 
+> diff --git a/arch/xtensa/kernel/entry.S b/arch/xtensa/kernel/entry.S
+> index 272fff587907f..4b95f48736e6b 100644
+> --- a/arch/xtensa/kernel/entry.S
+> +++ b/arch/xtensa/kernel/entry.S
+> @@ -1976,6 +1976,11 @@ ENTRY(system_call)
+>  1:	/* regs->areg[2] =3D return_value */
+> =20
+>  	s32i	abi_rv, abi_saved0, PT_AREG2
+> +
+> +	/* descriptors reserved by the syscall are committed in do_syscall_trac=
+e_leave */
+> +	GET_THREAD_INFO(a4, a1)
+> +	l32i	a4, a4, TI_FLAGS
+> +	bbsi.l	a4, TIF_FD_SLOTS, 1f
+>  	bnez	abi_saved1, 1f
 
+[Severity: Medium]
+Does this introduce a regression leading to inconsistent ptrace
+observability?
+
+The exit path in system_call() dynamically checks TIF_FD_SLOTS from fresh
+thread flags (loaded into a4), but falls back to abi_saved1 for trace work.
+
+Earlier in system_call(), abi_saved1 is cached before executing the syscall:
+
+    GET_THREAD_INFO(a4, a1)
+    l32i    abi_saved1, a4, TI_FLAGS
+    movi    a4, _TIF_WORK_MASK
+    and     abi_saved1, abi_saved1, a4
+
+If a tracer attaches mid-syscall (e.g. using PTRACE_ATTACH on an Xtensa
+process currently blocked inside a system call), wouldn't the exit trace
+events be missed for most syscalls because abi_saved1 lacks the new flags,
+yet mysteriously be caught if the syscall happens to allocate a file
+descriptor (because TIF_FD_SLOTS is checked against the fresh TI_FLAGS)?
+
+Could we reload the fresh _TIF_WORK_MASK from thread_info here instead of
+relying on the stale abi_saved1 cache?
+
+--=20
+Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20260915-work-fd-re=
+serve-unify-folded-v1-0-4d5217d6b246@kernel.org?part=3D18
 
