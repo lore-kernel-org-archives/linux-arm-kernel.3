@@ -4,60 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62C93C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 17:26:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64E98C88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 17:33:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r83DxMbDAEAKhqhbmZSFk82WIQMOPTBJgIG0U6gX9Vg=; b=qEjm/YQI05bCHiJbwDbUZJFA1u
-	A8IJNaPKBiYWPy8GBSkGBReG6d6Y/kXAkS2NEVGe2HI7BnBrGfFhbriq46Wc/bgstXZnFHqi5lDa0
-	4dvxS/e4yrx2Z/1ueBGc6/Yw3OFs3QWn8F7dzYMzrcH5LBOHVrGBL0X0wKCeMGhxo64LO70j21M52
-	FpMprv1yEdhiFod5w667aF2rlhm2raUJqt7qkCpTdujAqPat+eAXwtcwj9iKSpsQ/6gLcSzYKKAoF
-	3DxoHXvW/P+kzcly89kjbJhEZpJPYbCm7vu/wCtzHYGRlQOIPlMmTFHVtyiJXMWWd6fHT3T9txCzw
-	A8UpjCPg==;
+	bh=Gokeve1EKIZdWnNDny0vuWP2v7LutfgysBpXUndOTuI=; b=cGZ9IeVySUXWmva1QUb/0unsqn
+	lGntaievrI6Y0l3/JVnK5CMz9I5CQR2Nxa31yWSQH4ulCHi+sdvVRAT/XdeM+9YnpCjOoxR989ODu
+	zX38uw2J3JMuELil3pAT8ykrt22zjaREijm/97CyWyNNBCaf6Wdyqd7CRa9Uj9lXOC2jRbqKLSQiP
+	9e04QaHtyV5ZhwpnuESIxsCcUTZkIgM2JtQWRJrciExFeYgmeWpN70v0zDO14iXJqUAwYiEmENHep
+	QLlkHMDopGRu/uVkCF+BBGsjr1o5SZXdmeQbj39p79HghHORo5EX6Umqm1eL0YnfXkb23F5Gv4c9Z
+	nSfOn01A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6WvW-00000007aHH-3AWI;
-	Tue, 15 Sep 2026 17:26:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6WvV-00000007aGu-0yXP
+	id 1x6X2B-00000007bCz-2o9Y;
+	Tue, 15 Sep 2026 17:33:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x6X29-00000007bCN-0ARA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 17:26:37 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 94C08600E2;
-	Tue, 15 Sep 2026 17:26:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1533D1F000FF;
-	Tue, 15 Sep 2026 17:26:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789493196;
-	bh=r83DxMbDAEAKhqhbmZSFk82WIQMOPTBJgIG0U6gX9Vg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=WbAQjhBAJeeAWV6UJesDnUIjjtMSV4izl+KG7RPOn+Uyw3te6quUyqbH4GIKmp2ll
-	 h/cA74emvDlSZhWnJUl+EqHQsa/nEkVcTDYz5iW9+gBlrJKrbAsSQlKZdqx3H8vrXB
-	 aFN3mIVIM/PcgR2PwyXOCM4cX2CtgAeVPPB2zdzXdGeNDBe8RAx8OoAyy40DaC8b0b
-	 fZD2UjeNToh2QJeBb9bcnORYd3qgEDrpZk4JLTm032hoI8uJN5+N0JdZXLmgmiJjI2
-	 moAsX0H9waeloU8u4a870kjyw7I1ytNdiL2UELE2XlgliHJqBLp1o1uwZTG6QFN02B
-	 G6FYr1KKlAU2A==
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Cristian Marussi <cristian.marussi@arm.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
-	arm-scmi@vger.kernel.org,
+	Tue, 15 Sep 2026 17:33:30 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 772CA153B;
+	Tue, 15 Sep 2026 10:33:24 -0700 (PDT)
+Received: from LeoBrasDK.cambridge.arm.com (unknown [10.2.212.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BA50C3F7B4;
+	Tue, 15 Sep 2026 10:33:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789493608; bh=/wWBh71FKUsFODK4w0sj0XMuvIkHLWs6/7O4iGiGBKU=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=aUjCat8OMGi/UwlPtErQ43yH9VypMnUbSmTWNPocpPm6e7I1TVgYOaKIcD495AVen
+	 hDOKJxTPcUrE2FGdKZV4EfYBPhfy32JTWr++X+AZ+2WM0JQIpEMd5a0HhVrMSeEX7b
+	 luo9N6b1nXMMeRmrJtRSuJyoyEzhgFJ0bAK1X86s=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Leonardo Bras <leo.bras@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Tian Zheng <zhengtian10@huawei.com>,
 	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] firmware: arm_scmi: Merge scmi_reset_proto_ops.name_get() and .latency_get()
-Date: Tue, 15 Sep 2026 18:26:31 +0100
-Message-ID: <178949312736.3922933.11444388869328950630.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <77c9651a11715013c0eaa8a56dbbc7dc3d9ddeec.1788429130.git.geert+renesas@glider.be>
-References: <77c9651a11715013c0eaa8a56dbbc7dc3d9ddeec.1788429130.git.geert+renesas@glider.be>
+Subject: Re: [RFC PATCH 2/5] KVM: arm64: Add KVM_PGTABLE_PROT_DIRTY
+Date: Tue, 15 Sep 2026 18:33:23 +0100
+Message-ID: <aqmBY_v74r4GMttY@LeoBrasDK>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <86a4pl7c1m.wl-maz@kernel.org>
+References: <20260901171558.2674031-1-leo.bras@arm.com> <20260901171558.2674031-3-leo.bras@arm.com> <86a4pl7c1m.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260915_103329_118461_B57AE374 
+X-CRM114-Status: GOOD (  22.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,22 +83,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 03 Sep 2026 11:54:25 +0200, Geert Uytterhoeven wrote:
-> The SCMI reset domain protocol operations structure does not provide a
-> .info_get() method, unlike most other protocols.  Instead, it provides
-> two separate methods to get a domain's name and reset latency.
+On Sun, Sep 13, 2026 at 10:09:25AM +0100, Marc Zyngier wrote:
+> On Tue, 01 Sep 2026 18:15:53 +0100,
+> Leonardo Bras <leo.bras@arm.com> wrote:
+> > 
+> > Second step of changing the encoding for the Stage2 PTE descriptor,
+> > introduce the concept of dirty page, so we can have a writable but not
+> > dirty (WC) page, and a writable and dirty (WD) page.
 > 
-> Merge the .name_get() and .latency_get() methods into a single
-> .info_get() method, to increase uniformity.
+> Why should we care about *setting* the dirty bit in the PTE? Under
+> what circumstance do we want to establish a mapping as being dirty?
+
+We want a mapping to be dirty whenever it's writable and we don't want to 
+track it being changed anymore.
+
+A writable-dirty is for when a mapping can be written to, but still did not 
+happen.
+
 > 
-> [...]
+> The whole point of DBM is to only set something dirty when it is
+> written to, and this patch breaks this invariant.
+> 
+> Maybe you have a good reason to do so, but that's not explained.
 
-Applied to sudeep.holla/linux (for-next/scmi/updates), thanks!
+Sorry it was not clear.
+The idea of this patch is to introduce the dirty state, without causing 
+any change in the behavior of the system.
 
-[1/1] firmware: arm_scmi: Merge scmi_reset_proto_ops.name_get() and .latency_get()
-      https://git.kernel.org/sudeep.holla/c/2911930bfbdf
--- 
-Regards,
-Sudeep
+Before patchset: 
+- RW : S2AP = 1
+- RO : S2AP = 0
 
+After patch 1:
+- RW = WD: S2AP = 1, DBM = 1
+- RO     : S2AP = 0, DBM = 0
+
+After patch 2:
+- WD : S2AP = 1, DBM = 1
+- WC : S2AP = 0, DBM = 1
+- RO : S2AP = 0, DBM = 0
+
+That splits the concept of writable and dirty from the previous RW state, 
+so they can be independent.
+
+We can mark a page writable, without it being dirty, which allows HAFDBS in 
+the future to mark it dirty whenever it happens to receive a write. (and 
+use HDBSS to register it on a buffer, and so on)
+
+As of now there is no enablement of the HAFDBS, so up to this patch 
+there should not be any impact to users, as the DBM bit is ignored if 
+VTCR.HD=0.
+
+Patch 5 introduces an possible use of this using HAFDBS when dirty-tracking 
+is disabled to avoid marking all PTEs as clean at the dirty-track enable. 
+
+Does it look more clear now?
+Do you think adding parts of the above text in the commit message would 
+help?
+
+Thanks again!
+Leo
 
