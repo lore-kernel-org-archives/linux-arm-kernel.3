@@ -4,127 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DC92C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 14:46:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D45DFC88E7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 14:48:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3v/cbY5V2kM2Lzkdh3bccEp63koHm/ZU+mjUmSl+SXA=; b=2oU3bp0yBQ1pJV2W/WCmOzATH3
-	5qLr+QxoTSZ6Er6630semzlyXVcw9p9uNqAGWHxTMbW5TmVo547k16ziZmMonp2CCQMaXkKwibFBB
-	g4zvjFLT2clS9A1zYcF5hBGx9zAi4ZDZBswm8x0QFf+a6hcOk/pq+AhPpWVqGvUSyPs/VbYWkYtLD
-	7Nd/2wiGN4kzsM/bMJHYTHRaOILiR2xojfTPndRvrwS0dPbpR+WLaI7M7kFCkMh74v9PQEzcDOPer
-	uqYke1d3WdwB/hJ1rDWNXu/4jeNrR7mcoGJRwCGFq0PC65I3dcPaOyhB3IRIxIW8lBX3df6WHU6Fs
-	7sWPjeUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N31h1AzvLTVLE4JkZfUHMakRC7JrcK8cme37Ix1dV/I=; b=K6UU/803Hq/gd+/esdufP4Yz9S
+	CbKapaM5AabRPA2ylvoahQikgnKUxO0ze5C44rsGMSoXL+jXp44zLAKvyeM43ispoZrzoyCm8q4m8
+	etynOLj/n+qMaji8NEWLQFKo17wGQCwsO2wnlCYD7Wf/zM5qibh/xgalbQIy4EvSTQYgit3y/0nzg
+	RC7b5sEcBZh4yEi5yWWcNn0yYBpImOh+ETcCqJUGC5Qo+bZSok6bLsIk7Av9gYBC3/PjTBVwulYcj
+	FjCrhQTYVPgN5Em3TCrT7JmvkJ1SR57ckz/2I1rrXD+Ka4WIv/rUKUC3vyO/PHMyJkdbIkA1CPSp2
+	vjeW8JdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6SRo-00000006YN9-38b1;
-	Tue, 15 Sep 2026 12:39:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x6US6-000000070V9-37gn;
+	Tue, 15 Sep 2026 14:48:06 +0000
+Received: from mail-ed2-x10.google.com ([2a00:1450:4864:33::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6SRf-00000006Y6T-0Waf
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 15 Sep 2026 12:39:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=3v/cbY5V2kM2Lzkdh3bccEp63koHm/ZU+mjUmSl+SXA=; b=NluOyEh4CLwuGcHy80cxzkjzV0
-	nccRW1qmzqo1AdR0f+JGxQmQbw1DBdToMrHFrioPjJNofSghGvadxksnYFdAZGWgRPfdGPoXKDBG3
-	tvj9VilzSeySfLXxP0iWb/gvRlQEvK0tauTud90JUJ5ikhXuBCBq1LuEFBkvpjfjQ9FgJP8ttos9P
-	nWB39AJ70uye8g3bwffxPyXA9KYo0D8L/FWpsMRqY4ycUR4ZkfXj3CYo4cNipUYMT29RBAbILdIml
-	OorCbK0836KmN8P0XQjSrhR71q/+p4YZdYYMQBudtY6IixqEgKPQcoLo4TTLDyH+8Aa1AMJMZ9uiM
-	8m7Cr8ag==;
-Received: from mail-pj2-x01.google.com ([2607:f8b0:4864:39::1])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6SRb-00000006kNx-1e0c
+	id 1x6US2-000000070Ti-2qst
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 12:39:29 +0000
-Received: by mail-pj2-x01.google.com with SMTP id 98e67ed59e1d1-3989fdf58bcso265491a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 05:39:27 -0700 (PDT)
+	Tue, 15 Sep 2026 14:48:05 +0000
+Received: by mail-ed2-x10.google.com with SMTP id 4fb4d7f45d1cf-6a64c7cdb46so5958456a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 07:48:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789483681; cv=none;
+        d=google.com; s=arc-20260327;
+        b=HZ/LX8/kZzhWTUqt9k8S0MO9Cy7NzFef/RUSu43ZEVvSAIKqd5HJCk1jU7+NoHOs5c
+         9+bpYS+iu9W2/mOUJ/ZcVErzmLh5x04TD4hbyxMbOUb0lI42uGpSXnakljp92jKFa3bu
+         RaclI/YbD4mSAN+779MU/hJdOFzg+QwfBdJ/geaH0czEq2OLyPJXn6fuNOmE7HBBbhrl
+         1MYvyAgYuVHpc56DlDuhL+REuseAGK7H8B9qxKCle2sGHSiQmwVR0dqM4Bx654C7yse6
+         3rsCmxpvhkkaFAfMokDBsAxDxgzAcgYV+ws77sOGz+OaGs0E2DoHLt+AaT8NdoEYR10d
+         q/Qg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=N31h1AzvLTVLE4JkZfUHMakRC7JrcK8cme37Ix1dV/I=;
+        fh=Bcv+F9GzewoR52QC4uhCt+up2rOcIahjcgMKbeH0J/s=;
+        b=NNc7JxARX1GxFPN8Dh6IhWFLo8ZmXIqchZ1s0i2FXfCPczk+Yiw3XSnxsc2pPwIGhd
+         8t/xfg6n9NAkwLtluDeKwHryG+8VD2vS8uQRGQTcG0LJLJpw3H7TwzyPSgJE/vNPpVK/
+         cKCbHyUZikJmtyzRexM36o2mtV8IfCAK+PhmPTkaaanpEK8QyXFF1ZMjWiZDufA6QMRP
+         60avba/gUBsRU6tyx2UKBuYf1pdvWR5uuH8PXcXpiyi1HygIi8fU13d7ODB0+Zi5OMoE
+         hwh5YgNs9fvOJn0VJgTO0LExAKz5LdrVrufE1obUAsJSGy9OjHjJnbURVPtpSyFnqDYs
+         wZCQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789475965; x=1790080765; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=3v/cbY5V2kM2Lzkdh3bccEp63koHm/ZU+mjUmSl+SXA=;
-        b=MHgU9DPGApQPXJpFqgzX7yqwEJvDJoAI9/q2olOGtiLTjDd/bo2DthaJGlixr/+NFS
-         LhUFnXKGK+LqhrMPTUvpJsZ4hg++nEN6SvjY9dTqIhqQ6dk5g6tWhTRFukbrJZxXj74Q
-         gd2X5AHLgW3egHwcjQ/X/ov9VDu/rcW5xXBVdH18mDGj3mEur7+pAsE4BK0/3kC1iF3K
-         RPo3aMCmXgm6fM9VLmjM3OhnFDSiNsImJto3+5rjjW0+FJ7auOfcgthT+P4sV5U1ddWy
-         RQla4IEllP8u2CdKq4Tc+D3FTQRjGy6wMcHtwTNNFiCBCIm+F+pcABt803C+K5e7X5SA
-         Grmg==
+        d=linaro.org; s=google; t=1789483681; x=1790088481; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=N31h1AzvLTVLE4JkZfUHMakRC7JrcK8cme37Ix1dV/I=;
+        b=esBmQiMKokHsNJrJ7u42eYg53F1w0DuxUCqsJ2UWmsZz6lWdZgG3TGYPEMhq32h5QF
+         6FJL0ULm5xzbsyneG3bfcgkgWskmch9hTvd7LxXvJq415eW/fTw/C5GNEzvFNEG3POI5
+         xVhCDfZrKbR/4L+FcoVJgVFraXi3jiVYX00551hXuxPWk3qa3U4RwAugUixHP2gWHsWc
+         6fVtfDPM5AVGibZuVCmJEU3ihgADYDC7RqCofLy1JOmAATziCgcqZeLXJMqW23Gn+i7W
+         gBqyZ46KCSQdL13BpVZCw8+cDiyJI5zWlLNPxb2CTQPg1v/gOndQLAR/Ek9RC1TNMapm
+         ILvw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789475965; x=1790080765;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=3v/cbY5V2kM2Lzkdh3bccEp63koHm/ZU+mjUmSl+SXA=;
-        b=Zp/RpSIY6JsLFllMqfo0MKwGx0wRKwj6745sV8YvMhj3nXaXtv29y129+K7NdHHw7I
-         /RJUnNWdU6DGgY9cl+HA9dRe4sGDF67u/pt3KCU929UJeFZAlXq8U4m3V9BtERT2huWh
-         MEv5FngZPAtcdF0sE/1G3vSM+Xzpn3KhJZ6M4ZY/5DJ2gYVvuGU1AF/3Aczu0bEsuP3u
-         2DTqlsXB9QzYQJacH8iLgulR1b8PbvQKoAbW8sd+V0YnlIXcy4SAs7jJr2Ljv9CG7KQr
-         zA+pkuW4p9XRgBFSbODvMbNcvNSLkxMvJauXwoRWk/WOmupEq6mcf/eAWzXFZeD6HZeQ
-         s2aA==
-X-Forwarded-Encrypted: i=1; AKwUvBwKPq8XVjMzNabcW6zYZMjQkrCB6IaxBmWThxY2ylyqdl0XhtgMbDaqWPo0n30sGLb5jmTw63tkN7eYbtXe7iWP@lists.infradead.org
-X-Gm-Message-State: AFuF++kHvMW715oFZqxbBgoyeWbcNA8+Aj29t6xu6C/ZBIDn4Pon2TXw
-	PoBTpAtAmAIeklap3ox/9L1Qfj4vqvPlCBAKsYZvLxlpTimMClVLa2x3
-X-Gm-Gg: AYBFou3ZuN3DZrDHAhkotnzPkFbb2/Adu13fWBcgFou6J6yG/8F8v/KwenLvXKPpCH9
-	kGO9pJlhxX6h7WTY2F82IHJ1mPfuTvs+lsOhujwiyUHkTeqcDHzfOCCOj7+caFIw+p5VccPMPPf
-	epw10L2ctGZt1ytgGH/dtWKIWtDYIDFWGlJz4weJGk2cpfxDCbTdYiVDwBPDLIkl6Sq8eh17PgW
-	9CORufOAhL/FXSymlraoimp6LiqrnScM3uhuzyhbH4PJup+fLAlInMT/9sozVA/B6GnRtKJTE7u
-	a0Pnavw6QC8RluuqRrC87Gwc7akpQ8UGhbg7Ty+Uqmw8Pz4KddDzGTq4cFGbvBGWQocyU1vMQi7
-	NCDZrwG9UMoV8e4qY8ZgJNmBBwbUgBFe+Johcr5ACWurtmW72ka2q3TYXyjP/7B1dLABH0pT8VR
-	uwksuL517hMsyGpJc6qbSx127XsxfUqQUFVqXEhYmVGhXA85nZLCfSVTOgxizYPQ5L5CBMYw==
-X-Received: by 2002:a17:90b:4d84:b0:39e:b2e:a6f4 with SMTP id 98e67ed59e1d1-39e0b2ea756mr1391825a91.4.1789475965067;
-        Tue, 15 Sep 2026 05:39:25 -0700 (PDT)
-Received: from server.lan ([168.138.199.194])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39dfdd28acbsm5307259a91.10.2026.09.15.05.39.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Sep 2026 05:39:23 -0700 (PDT)
-From: Coia Prant <coiaprant@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Vinod Koul <vkoul@kernel.org>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Coia Prant <coiaprant@gmail.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	David Heidelberg <david@ixit.cz>,
-	netdev@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH net-next v6 07/11] net: pcs: xpcs: add Rockchip RK3568 platform glue driver
-Date: Tue, 15 Sep 2026 20:37:56 +0800
-Message-ID: <20260915123802.1561724-8-coiaprant@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260915123802.1561724-1-coiaprant@gmail.com>
-References: <20260915123802.1561724-1-coiaprant@gmail.com>
+        d=1e100.net; s=20260707; t=1789483681; x=1790088481;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=N31h1AzvLTVLE4JkZfUHMakRC7JrcK8cme37Ix1dV/I=;
+        b=bGX97m+oLuCVXwMUaBXwC/k0sxjC/D0BQUlQNPYuvXBOlznzp3f/wAC4dHNqXyvMHM
+         n3N5O8qVyPACmWSDNxHA/67/Y+Jt71jV/+iXb8M4RMPj5C7juyVb54Qbe+1R49weALud
+         f/e7DbrMovdj3H6urUVtxw6aIy09YK0SDs8y/7iWz5Q9xNFnkfoy3lfLzMchpZD2El54
+         byvSQ0Z1EM9dU5STD7CKmg8G9vWybORbHcT6ABwH5rlPm1D99ymM/v+Z8tfj7NfudSk2
+         lfE/PVHJyenAi9hSMA5wopzyYAok2a8Wfsl8pD5eDLvqW52gMrXwMw4GvPDVM/F0V+ub
+         8mKA==
+X-Forwarded-Encrypted: i=1; AKwUvByVMsVbizLOYNAQ/zu7Z/EPToX/yxRf3GeCrU1dosaaA6HEBiYmVem7ZYHkuiZikRxkB/WhtfuLh+27LqGZRtP4@lists.infradead.org
+X-Gm-Message-State: AFuF++meSi/cB+fP9Nc9vQZCJPcZUncveyTVNYYPhFTbnL5L1YJuc7ut
+	jjyFuOLcGVSfusljnfVJSDVQRJtCKIWx17Tji7ykNpVRIJX2eXis63hpAW2iNoxODpcS0DD9yQb
+	1v/vszzTlHgN/2p+v5vTy4odMa5T8gJkGQksUynalx8fYwf2MjPOYse4=
+X-Gm-Gg: AYBFou2FRLfPwHvheZYxvAcQUJGAiIozqnAdzl8art1ucw85VZnSfcd+Kl9n1Rfz+UW
+	gVpu10EnQGeJ60d+SauljP5m+wB1qyG1HKsKZvyflIQ6rD+TRXn7/Bze1FqE/VfZ5oZ4kUynIr5
+	HwocOML/j0YD6HveqOF24/gEubaRIA3AdkDlgctkuWCG6t9r1tg+TGMhyXQkMfsjoUVJPXdsrCY
+	8Tu6DepSXXLdd25wb/Zx+atK24g30GkV0xrKqf7V6YVfxy3+tVSHsR9hdBoqoVxvr8VbqFOUpw7
+	YRzoQvBM3zmws6YQjtgHlYGRsQaRJaSGuHs3E65AiZI1TKForHOBDMlgR7N82FALwMCox3+NGM5
+	n3DAwr3gdPtXZtADIe/SkgQZH
+X-Received: by 2002:a05:6402:4404:b0:6a9:98b1:6c36 with SMTP id
+ 4fb4d7f45d1cf-6a9f63e0d39mr5145656a12.31.1789483680985; Tue, 15 Sep 2026
+ 07:48:00 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260914-exynos850_sram-v4-0-253871de0f61@linaro.org> <20260914-exynos850_sram-v4-2-253871de0f61@linaro.org>
+In-Reply-To: <20260914-exynos850_sram-v4-2-253871de0f61@linaro.org>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Tue, 15 Sep 2026 15:47:49 +0100
+X-Gm-Features: AcwNN1WgvUO9gVcyHHtQQpCHP6veTmxEFNeRoziGdiQtPJVZo1SV7WyKK3oIExw
+Message-ID: <CADrjBPr8EROpwaXsuqNBgyiJV5b041poTKzFRfrx-rCvH1CyRQ@mail.gmail.com>
+Subject: Re: [PATCH v4 2/2] arm64: dts: exynos850: Add acpm SRAM node
+To: Alexey Klimov <alexey.klimov@linaro.org>
+Cc: Sam Protsenko <semen.protsenko@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
+	linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_133927_790072_AA6B6513 
-X-CRM114-Status: GOOD (  32.36  )
+X-CRM114-CacheID: sfid-20260915_074803_864622_BCFA5E92 
+X-CRM114-Status: GOOD (  15.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,700 +119,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RK3568 SoC integrates a Synopsys DesignWare XPCS that is accessed
-via APB3 memory-mapped registers.
-This driver provides the glue logic to make the XPCS accessible to
-the generic pcs-xpcs core.
+On Mon, 14 Sept 2026 at 17:58, Alexey Klimov <alexey.klimov@linaro.org> wrote:
+>
+> SRAM is used by the ACPM protocol to retrieve the ACPM channels
+> information and configuration data. Add the SRAM node.
+>
+> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
+> ---
 
-The XPCS block contains four MII ports (0..3), each of which can be
-routed to GMAC0 or GMAC1 via the pcs-handle property in the MAC node.
-The hardware maps these ports to different MMDs:
-  - port 0: MMD 7 (ROCKCHIP_MMD_MII)
-  - port 1: MMD 2 (ROCKCHIP_MMD_MII1)
-  - port 2: MMD 3 (ROCKCHIP_MMD_MII2)
-  - port 3: MMD 4 (ROCKCHIP_MMD_MII3)
+Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
 
-This driver creates a virtual MDIO bus that translates MDIO operations
-to APB3 register accesses, with proper address remapping for each port.
-The generic xpcs driver then creates a phylink_pcs instance on top of
-this bus, allowing the MAC to use the PCS via the standard phylink API.
-
-The generic XPCS platform glue (pcs-xpcs-plat.o) is split out of the
-pcs_xpcs composite object into its own module, gated behind the new
-PCS_XPCS_PLATFORM symbol. The symbol defaults to PCS_XPCS, so existing
-configurations keep the snps,dw-xpcs platform glue enabled without any
-change.
-
-The EEE multiplier is derived at runtime from the EEE clock rate
-instead of being hardcoded, because the clock is muxed between
-gpll200 (200 MHz) and cpll125 (125 MHz) and can be changed by the
-board or firmware. A 64-bit intermediate avoids overflow on 32-bit
-builds, and the result is clamped to the 4-bit
-DW_VR_MII_EEE_MULT_FACT_100NS field.
-
-Link: https://dl.radxa.com/rock3/docs/hw/datasheet/Rockchip%20RK3568%20TRM%20Part1%20V1.1-20210301.pdf (Page 59, CRU_CLKSEL_CON29)
-Link: https://dl.radxa.com/rock3/docs/hw/datasheet/Rockchip%20RK3568%20TRM%20Part2%20V1.1-20210301.pdf (Page 2078)
-Signed-off-by: Coia Prant <coiaprant@gmail.com>
----
- drivers/net/pcs/Kconfig         |  25 ++
- drivers/net/pcs/Makefile        |   5 +-
- drivers/net/pcs/pcs-xpcs-rk.c   | 573 ++++++++++++++++++++++++++++++++
- include/linux/pcs/pcs-xpcs-rk.h |  11 +
- 4 files changed, 612 insertions(+), 2 deletions(-)
- create mode 100644 drivers/net/pcs/pcs-xpcs-rk.c
- create mode 100644 include/linux/pcs/pcs-xpcs-rk.h
-
-diff --git a/drivers/net/pcs/Kconfig b/drivers/net/pcs/Kconfig
-index e417fd66f660a..3db9b343ac0c7 100644
---- a/drivers/net/pcs/Kconfig
-+++ b/drivers/net/pcs/Kconfig
-@@ -12,6 +12,31 @@ config PCS_XPCS
- 	  This module provides a driver and helper functions for Synopsys
- 	  DesignWare XPCS controllers.
- 
-+if PCS_XPCS
-+
-+config PCS_XPCS_PLATFORM
-+	tristate "Generic XPCS controller support"
-+	default PCS_XPCS
-+	help
-+	  Generic DWXPCS driver for platforms that don't require any
-+	  platform specific code to function or is using platform
-+	  data for setup.
-+
-+	  If you have a controller with this interface, say Y or M here.
-+
-+config PCS_XPCS_ROCKCHIP
-+	tristate "Rockchip XPCS controller support"
-+	default ARCH_ROCKCHIP
-+	depends on OF && (ARCH_ROCKCHIP || COMPILE_TEST)
-+	select GENERIC_PHY
-+	select PM_GENERIC_DOMAINS
-+	help
-+	  Support for XPCS controller on Rockchip RK356x SoC.
-+
-+	  If you have a Rockchip SoC with this interface, say Y or M here.
-+
-+endif # PCS_XPCS
-+
- config PCS_LYNX
- 	tristate
- 	help
-diff --git a/drivers/net/pcs/Makefile b/drivers/net/pcs/Makefile
-index 4f7920618b900..f9f6cf2578d72 100644
---- a/drivers/net/pcs/Makefile
-+++ b/drivers/net/pcs/Makefile
-@@ -1,10 +1,11 @@
- # SPDX-License-Identifier: GPL-2.0
- # Makefile for Linux PCS drivers
- 
--pcs_xpcs-$(CONFIG_PCS_XPCS)	:= pcs-xpcs.o pcs-xpcs-plat.o \
--				   pcs-xpcs-nxp.o pcs-xpcs-wx.o
-+pcs_xpcs-$(CONFIG_PCS_XPCS)	:= pcs-xpcs.o pcs-xpcs-nxp.o pcs-xpcs-wx.o
- 
- obj-$(CONFIG_PCS_XPCS)		+= pcs_xpcs.o
-+obj-$(CONFIG_PCS_XPCS_PLATFORM) += pcs-xpcs-plat.o
-+obj-$(CONFIG_PCS_XPCS_ROCKCHIP) += pcs-xpcs-rk.o
- obj-$(CONFIG_PCS_LYNX)		+= pcs-lynx.o
- obj-$(CONFIG_PCS_MTK_LYNXI)	+= pcs-mtk-lynxi.o
- obj-$(CONFIG_PCS_RZN1_MIIC)	+= pcs-rzn1-miic.o
-diff --git a/drivers/net/pcs/pcs-xpcs-rk.c b/drivers/net/pcs/pcs-xpcs-rk.c
-new file mode 100644
-index 0000000000000..d5e0f22c973c2
---- /dev/null
-+++ b/drivers/net/pcs/pcs-xpcs-rk.c
-@@ -0,0 +1,573 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Rockchip XPCS platform device driver
-+ *
-+ * Based on the Synopsys DesignWare XPCS platform driver.
-+ * Copyright (C) 2024 Serge Semin
-+ *
-+ * Adapted for Rockchip SoCs, with reference to the Rockchip OEM driver.
-+ * Copyright (C) 2026 Coia Prant
-+ */
-+
-+#include <linux/atomic.h>
-+#include <linux/bitfield.h>
-+#include <linux/clk.h>
-+#include <linux/device.h>
-+#include <linux/io.h>
-+#include <linux/iopoll.h>
-+#include <linux/math.h>
-+#include <linux/mdio.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_platform.h>
-+#include <linux/pcs/pcs-xpcs-rk.h>
-+#include <linux/phy.h>
-+#include <linux/phy/phy.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm_domain.h>
-+#include <linux/pm_runtime.h>
-+#include <linux/property.h>
-+#include <linux/sizes.h>
-+#include <linux/time.h>
-+
-+#include "pcs-xpcs.h"
-+
-+struct dw_xpcs_rk {
-+	struct platform_device *pdev;
-+	struct mii_bus *bus;
-+	void __iomem *reg_base;
-+	struct phy *serdes_phy;
-+	struct clk *csr_clk;
-+	struct clk *eee_clk;
-+	u8 eee_mult_fact;
-+};
-+
-+static ptrdiff_t xpcs_rk_addr_format(int dev, int reg)
-+{
-+	return FIELD_PREP(0x70000, dev) | FIELD_PREP(0xffff, reg);
-+}
-+
-+static int xpcs_rk_read_reg(struct dw_xpcs_rk *pxpcs, int dev, int reg)
-+{
-+	ptrdiff_t csr;
-+	int ret;
-+
-+	csr = xpcs_rk_addr_format(dev, reg);
-+
-+	ret = pm_runtime_resume_and_get(&pxpcs->pdev->dev);
-+	if (ret)
-+		return ret;
-+
-+	ret = readl(pxpcs->reg_base + (csr << 2)) & 0xffff;
-+
-+	pm_runtime_put(&pxpcs->pdev->dev);
-+	return ret;
-+}
-+
-+static int xpcs_rk_write_reg(struct dw_xpcs_rk *pxpcs, int dev, int reg, u16 val)
-+{
-+	ptrdiff_t csr;
-+	int ret;
-+
-+	csr = xpcs_rk_addr_format(dev, reg);
-+
-+	ret = pm_runtime_resume_and_get(&pxpcs->pdev->dev);
-+	if (ret)
-+		return ret;
-+
-+	writel(val, pxpcs->reg_base + (csr << 2));
-+
-+	pm_runtime_put(&pxpcs->pdev->dev);
-+	return 0;
-+}
-+
-+#define ROCKCHIP_MMD_MII1	2
-+#define ROCKCHIP_MMD_MII2	3
-+#define ROCKCHIP_MMD_MII3	4
-+#define ROCKCHIP_MMD_PMAPMD	6
-+#define ROCKCHIP_MMD_MII	7
-+
-+static bool xpcs_rk_mdio_addr_validate(int addr)
-+{
-+	return !(addr < 0 || addr > 3);
-+}
-+
-+static int xpcs_rk_mdio_read_remapping(int addr, int dev, int reg)
-+{
-+	switch (dev) {
-+	case MDIO_MMD_PMAPMD:
-+		return ROCKCHIP_MMD_PMAPMD;
-+	case MDIO_MMD_VEND2:
-+		break;
-+	default:
-+		return -ENXIO;
-+	}
-+
-+	/*
-+	 * Reads are redirected by hardware to the port's read-only mirror;
-+	 * only writes have to be targeted at MII (see the write path).
-+	 */
-+	switch (addr) {
-+	case 0:
-+		return ROCKCHIP_MMD_MII;
-+	case 1:
-+		return ROCKCHIP_MMD_MII1;
-+	case 2:
-+		return ROCKCHIP_MMD_MII2;
-+	case 3:
-+		return ROCKCHIP_MMD_MII3;
-+	default:
-+		return -ENODEV;
-+	}
-+}
-+
-+static int xpcs_rk_mdio_write_remapping(int addr, int dev, int reg)
-+{
-+	switch (dev) {
-+	case MDIO_MMD_PMAPMD:
-+		return ROCKCHIP_MMD_PMAPMD;
-+	case MDIO_MMD_VEND2:
-+		break;
-+	default:
-+		return -ENXIO;
-+	}
-+
-+	/*
-+	 * These registers physically live only in MII (the management port).
-+	 * Ports 1-3 expose read-only mirrors of these bits, so writes must
-+	 * always target MII; the read path remaps per address and the
-+	 * hardware redirects to the port's mirror.
-+	 */
-+	switch (reg) {
-+	case DW_VR_MII_AN_CTRL:
-+	case DW_VR_MII_AN_INTR_STS:
-+	case DW_VR_MII_EEE_MCTRL0:
-+	case DW_VR_MII_EEE_MCTRL1:
-+	case DW_VR_MII_DIG_CTRL2:
-+		return ROCKCHIP_MMD_MII;
-+	default:
-+		break;
-+	}
-+
-+	switch (addr) {
-+	case 0:
-+		return ROCKCHIP_MMD_MII;
-+	case 1:
-+		return ROCKCHIP_MMD_MII1;
-+	case 2:
-+		return ROCKCHIP_MMD_MII2;
-+	case 3:
-+		return ROCKCHIP_MMD_MII3;
-+	default:
-+		return -ENODEV;
-+	}
-+}
-+
-+static int xpcs_rk_read_c22(struct mii_bus *bus, int addr, int reg)
-+{
-+	struct dw_xpcs_rk *pxpcs = bus->priv;
-+	int dev;
-+
-+	if (!xpcs_rk_mdio_addr_validate(addr))
-+		return -ENODEV;
-+
-+	dev = xpcs_rk_mdio_read_remapping(addr, MDIO_MMD_VEND2, reg);
-+	if (dev < 0)
-+		return 0xffff;
-+
-+	return xpcs_rk_read_reg(pxpcs, dev, reg);
-+}
-+
-+static int xpcs_rk_write_c22(struct mii_bus *bus, int addr, int reg, u16 val)
-+{
-+	struct dw_xpcs_rk *pxpcs = bus->priv;
-+	int dev;
-+
-+	if (!xpcs_rk_mdio_addr_validate(addr))
-+		return -ENODEV;
-+
-+	dev = xpcs_rk_mdio_write_remapping(addr, MDIO_MMD_VEND2, reg);
-+	if (dev < 0)
-+		return 0;
-+
-+	return xpcs_rk_write_reg(pxpcs, dev, reg, val);
-+}
-+
-+static int xpcs_rk_read_c45(struct mii_bus *bus, int addr, int dev, int reg)
-+{
-+	struct dw_xpcs_rk *pxpcs = bus->priv;
-+
-+	if (!xpcs_rk_mdio_addr_validate(addr))
-+		return -ENODEV;
-+
-+	dev = xpcs_rk_mdio_read_remapping(addr, dev, reg);
-+	if (dev < 0)
-+		return 0xffff;
-+
-+	return xpcs_rk_read_reg(pxpcs, dev, reg);
-+}
-+
-+static int xpcs_rk_write_c45(struct mii_bus *bus, int addr, int dev, int reg, u16 val)
-+{
-+	struct dw_xpcs_rk *pxpcs = bus->priv;
-+
-+	if (!xpcs_rk_mdio_addr_validate(addr))
-+		return -ENODEV;
-+
-+	dev = xpcs_rk_mdio_write_remapping(addr, dev, reg);
-+	if (dev < 0)
-+		return 0;
-+
-+	return xpcs_rk_write_reg(pxpcs, dev, reg, val);
-+}
-+
-+static struct dw_xpcs_rk *xpcs_rk_create_data(struct platform_device *pdev)
-+{
-+	struct dw_xpcs_rk *pxpcs;
-+
-+	pxpcs = devm_kzalloc(&pdev->dev, sizeof(*pxpcs), GFP_KERNEL);
-+	if (!pxpcs)
-+		return ERR_PTR(-ENOMEM);
-+
-+	pxpcs->pdev = pdev;
-+
-+	dev_set_drvdata(&pdev->dev, pxpcs);
-+
-+	return pxpcs;
-+}
-+
-+static int xpcs_rk_serdes_phy_init(struct dw_xpcs_rk *pxpcs)
-+{
-+	struct device *dev = &pxpcs->pdev->dev;
-+
-+	pxpcs->serdes_phy = devm_phy_get(dev, "serdes");
-+	if (IS_ERR(pxpcs->serdes_phy))
-+		return dev_err_probe(dev, PTR_ERR(pxpcs->serdes_phy),
-+					"Failed to get SerDes PHY\n");
-+
-+	return 0;
-+}
-+
-+static void xpcs_rk_serdes_phy_poweroff(void *data)
-+{
-+	struct dw_xpcs_rk *pxpcs = data;
-+	struct device *dev = &pxpcs->pdev->dev;
-+
-+	phy_power_off(pxpcs->serdes_phy);
-+	phy_exit(pxpcs->serdes_phy);
-+
-+	dev_pm_genpd_rpm_always_on(dev, false);
-+}
-+
-+static int xpcs_rk_serdes_phy_poweron(struct dw_xpcs_rk *pxpcs)
-+{
-+	struct device *dev = &pxpcs->pdev->dev;
-+	int ret;
-+
-+	/*
-+	 * The power domain is required and must be enabled, which allows us to
-+	 * dynamically turn the CSR clock on/off using PM while keeping the PCS
-+	 * powered on.
-+	 */
-+	ret = dev_pm_genpd_rpm_always_on(dev, true);
-+	if (ret) {
-+		dev_err(dev, "Failed to power on power-domains\n");
-+		return ret;
-+	}
-+
-+	ret = phy_init(pxpcs->serdes_phy);
-+	if (ret) {
-+		dev_err(dev, "Failed to init SerDes PHY\n");
-+		goto pm_domain;
-+	}
-+
-+	ret = phy_power_on(pxpcs->serdes_phy);
-+	if (ret) {
-+		dev_err(dev, "Failed to power on SerDes PHY\n");
-+		goto serdes_phy;
-+	}
-+
-+	ret = devm_add_action_or_reset(dev, xpcs_rk_serdes_phy_poweroff, pxpcs);
-+	if (ret) {
-+		dev_err(dev, "Failed to register devm for SerDes PHY: %d\n", ret);
-+		return ret;
-+	}
-+
-+	return 0;
-+
-+serdes_phy:
-+	phy_exit(pxpcs->serdes_phy);
-+pm_domain:
-+	dev_pm_genpd_rpm_always_on(dev, false);
-+	return ret;
-+}
-+
-+static int xpcs_rk_init_res(struct dw_xpcs_rk *pxpcs)
-+{
-+	struct platform_device *pdev = pxpcs->pdev;
-+	struct device *dev = &pdev->dev;
-+	struct resource *res;
-+
-+	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-+	if (!res) {
-+		dev_err(dev, "No reg-space found\n");
-+		return -EINVAL;
-+	}
-+
-+	if (resource_size(res) < SZ_2M) {
-+		dev_err(dev, "Invalid reg-space size\n");
-+		return -EINVAL;
-+	}
-+
-+	pxpcs->reg_base = devm_ioremap_resource(dev, res);
-+	if (IS_ERR(pxpcs->reg_base)) {
-+		dev_err(dev, "Failed to map reg-space\n");
-+		return PTR_ERR(pxpcs->reg_base);
-+	}
-+
-+	return 0;
-+}
-+
-+static void xpcs_rk_exit_clk(void *data)
-+{
-+	struct dw_xpcs_rk *pxpcs = data;
-+	struct device *dev = &pxpcs->pdev->dev;
-+
-+	pm_runtime_force_suspend(dev);
-+	clk_disable_unprepare(pxpcs->eee_clk);
-+}
-+
-+static int xpcs_rk_init_clk(struct dw_xpcs_rk *pxpcs)
-+{
-+	struct device *dev = &pxpcs->pdev->dev;
-+	unsigned long rate;
-+	u64 mult;
-+	int ret;
-+
-+	pxpcs->csr_clk = devm_clk_get(dev, "csr");
-+	if (IS_ERR(pxpcs->csr_clk))
-+		return dev_err_probe(dev, PTR_ERR(pxpcs->csr_clk),
-+					 "Failed to get CSR clock\n");
-+
-+	pxpcs->eee_clk = devm_clk_get(dev, "eee");
-+	if (IS_ERR(pxpcs->eee_clk))
-+		return dev_err_probe(dev, PTR_ERR(pxpcs->eee_clk),
-+					 "Failed to get EEE clock\n");
-+
-+	ret = clk_prepare_enable(pxpcs->eee_clk);
-+	if (ret) {
-+		dev_err(dev, "Failed to enable EEE clock\n");
-+		return ret;
-+	}
-+
-+	pm_runtime_set_suspended(dev);
-+	pm_runtime_enable(dev);
-+
-+	ret = devm_add_action_or_reset(dev, xpcs_rk_exit_clk, pxpcs);
-+	if (ret) {
-+		dev_err(dev, "Failed to register devm for EEE clock: %d\n", ret);
-+		return ret;
-+	}
-+
-+	/*
-+	 * Compute the multiplier for the EEE clock so that
-+	 * clk_eee_period * (mult_fact + 1) falls within 80..120 ns.
-+	 *
-+	 * On RK3568, clk_xpcs_eee is muxed between gpll200 (200 MHz, 5 ns)
-+	 * and cpll125 (125 MHz, 8 ns), selected by CRU_CLKSEL_CON29 bit 13.
-+	 * The reset value is 0 (200 MHz), but derive the value at runtime to
-+	 * stay correct if the mux is changed by a board.
-+	 *
-+	 * Use a 64-bit intermediate: on 32-bit builds, 100 * 200000000
-+	 * does not fit in unsigned long. Clamp to the 4-bit
-+	 * DW_VR_MII_EEE_MULT_FACT_100NS field.
-+	 */
-+	rate = clk_get_rate(pxpcs->eee_clk);
-+	if (!rate)
-+		return dev_err_probe(dev, -EINVAL, "Invalid EEE clock rate\n");
-+
-+	mult = DIV_ROUND_CLOSEST_ULL(100ULL * rate, NSEC_PER_SEC) - 1;
-+	pxpcs->eee_mult_fact = min_t(u64, mult, 15);
-+	return 0;
-+}
-+
-+static int xpcs_rk_init_bus(struct dw_xpcs_rk *pxpcs)
-+{
-+	struct device *dev = &pxpcs->pdev->dev;
-+	static atomic_t id = ATOMIC_INIT(-1);
-+	struct mii_bus *bus;
-+	int ret;
-+
-+	bus = devm_mdiobus_alloc_size(dev, 0);
-+	if (!bus)
-+		return -ENOMEM;
-+
-+	bus->name = "Rockchip DW XPCS MCI/APB3";
-+	bus->read = xpcs_rk_read_c22;
-+	bus->write = xpcs_rk_write_c22;
-+	bus->read_c45 = xpcs_rk_read_c45;
-+	bus->write_c45 = xpcs_rk_write_c45;
-+	bus->phy_mask = ~0;
-+	bus->parent = dev;
-+	bus->priv = pxpcs;
-+
-+	snprintf(bus->id, MII_BUS_ID_SIZE,
-+		 "rockchip_dwxpcs-%x", atomic_inc_return(&id));
-+
-+	/*
-+	 * MDIO-bus here serves as just a back-end engine abstracting out
-+	 * the MDIO and MCI/APB3 IO interfaces utilized for the Rockchip DWXPCS CSRs
-+	 * access.
-+	 */
-+	ret = devm_mdiobus_register(dev, bus);
-+	if (ret) {
-+		dev_err(dev, "Failed to create MDIO bus\n");
-+		return ret;
-+	}
-+
-+	pxpcs->bus = bus;
-+	return 0;
-+}
-+
-+static int xpcs_rk_probe(struct platform_device *pdev)
-+{
-+	struct dw_xpcs_rk *pxpcs;
-+	int ret;
-+
-+	pxpcs = xpcs_rk_create_data(pdev);
-+	if (IS_ERR(pxpcs))
-+		return PTR_ERR(pxpcs);
-+
-+	/*
-+	 * The XPCS may be attached to a power domain (e.g. PD_PIPE). The domain
-+	 * must be powered on before any register access, otherwise the SoC will
-+	 * trigger a synchronous external abort (SError).
-+	 *
-+	 * Accessing the XPCS registers also requires a TX clock from the SerDes,
-+	 * which is needed for the soft reset.
-+	 */
-+	ret = xpcs_rk_serdes_phy_init(pxpcs);
-+	if (ret)
-+		return ret;
-+
-+	ret = xpcs_rk_serdes_phy_poweron(pxpcs);
-+	if (ret)
-+		return ret;
-+
-+	ret = xpcs_rk_init_res(pxpcs);
-+	if (ret)
-+		return ret;
-+
-+	ret = xpcs_rk_init_clk(pxpcs);
-+	if (ret)
-+		return ret;
-+
-+	ret = xpcs_rk_init_bus(pxpcs);
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id xpcs_rk_of_ids[] = {
-+	{ .compatible = "rockchip,rk3568-xpcs" },
-+	{ /* sentinel */ },
-+};
-+MODULE_DEVICE_TABLE(of, xpcs_rk_of_ids);
-+
-+struct dw_xpcs *xpcs_rk_create(struct device *dev, struct device_node *np)
-+{
-+	struct platform_device *pdev;
-+	struct device_node *pcs_np;
-+	struct dw_xpcs_rk *pxpcs;
-+	struct dw_xpcs *xpcs;
-+	u32 port;
-+
-+	if (!of_device_is_available(np))
-+		return ERR_PTR(-ENODEV);
-+
-+	if (of_property_read_u32(np, "reg", &port))
-+		return ERR_PTR(-EINVAL);
-+
-+	if (!xpcs_rk_mdio_addr_validate((int)port))
-+		return ERR_PTR(-EINVAL);
-+
-+	/* The XPCS pdev is attached to the parent node */
-+	pcs_np = of_get_parent(np);
-+	if (!pcs_np)
-+		return ERR_PTR(-ENODEV);
-+
-+	if (!of_device_is_available(pcs_np)) {
-+		of_node_put(pcs_np);
-+		return ERR_PTR(-ENODEV);
-+	}
-+
-+	if (!of_match_node(xpcs_rk_of_ids, pcs_np)) {
-+		of_node_put(pcs_np);
-+		return ERR_PTR(-EINVAL);
-+	}
-+
-+	pdev = of_find_device_by_node(pcs_np);
-+	of_node_put(pcs_np);
-+	if (!pdev)
-+		return ERR_PTR(-EPROBE_DEFER);
-+
-+	if (!device_link_add(dev, &pdev->dev, DL_FLAG_AUTOREMOVE_CONSUMER)) {
-+		put_device(&pdev->dev);
-+		return ERR_PTR(-ENOMEM);
-+	}
-+
-+	pxpcs = platform_get_drvdata(pdev);
-+	if (!pxpcs || !pxpcs->bus) {
-+		device_link_remove(dev, &pdev->dev);
-+		put_device(&pdev->dev);
-+		return ERR_PTR(-EPROBE_DEFER);
-+	}
-+
-+	xpcs = xpcs_create_mdiodev(pxpcs->bus, (int)port);
-+	if (IS_ERR(xpcs)) {
-+		device_link_remove(dev, &pdev->dev);
-+		put_device(&pdev->dev);
-+		return xpcs;
-+	}
-+
-+	xpcs_config_eee_mult_fact(xpcs, pxpcs->eee_mult_fact);
-+	put_device(&pdev->dev);
-+	return xpcs;
-+}
-+EXPORT_SYMBOL_GPL(xpcs_rk_create);
-+
-+static int xpcs_rk_pm_runtime_suspend(struct device *dev)
-+{
-+	struct dw_xpcs_rk *pxpcs = dev_get_drvdata(dev);
-+
-+	clk_disable_unprepare(pxpcs->csr_clk);
-+
-+	return 0;
-+}
-+
-+static int xpcs_rk_pm_runtime_resume(struct device *dev)
-+{
-+	struct dw_xpcs_rk *pxpcs = dev_get_drvdata(dev);
-+
-+	return clk_prepare_enable(pxpcs->csr_clk);
-+}
-+
-+static DEFINE_RUNTIME_DEV_PM_OPS(xpcs_rk_pm_ops,
-+			   xpcs_rk_pm_runtime_suspend,
-+			   xpcs_rk_pm_runtime_resume,
-+			   NULL);
-+
-+static struct platform_driver xpcs_rk_driver = {
-+	.probe = xpcs_rk_probe,
-+	.driver = {
-+		.name = "rk_xpcs-dwxpcs",
-+		.pm = pm_ptr(&xpcs_rk_pm_ops),
-+		.of_match_table = xpcs_rk_of_ids,
-+	},
-+};
-+module_platform_driver(xpcs_rk_driver);
-+
-+MODULE_DESCRIPTION("Rockchip XPCS platform device driver");
-+MODULE_AUTHOR("Coia Prant <coiaprant@gmail.com>");
-+MODULE_LICENSE("GPL");
-diff --git a/include/linux/pcs/pcs-xpcs-rk.h b/include/linux/pcs/pcs-xpcs-rk.h
-new file mode 100644
-index 0000000000000..28723d5bd75cc
---- /dev/null
-+++ b/include/linux/pcs/pcs-xpcs-rk.h
-@@ -0,0 +1,11 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __LINUX_PCS_XPCS_ROCKCHIP_H
-+#define __LINUX_PCS_XPCS_ROCKCHIP_H
-+
-+#include <linux/device.h>
-+#include <linux/of.h>
-+#include <linux/pcs/pcs-xpcs.h>
-+
-+struct dw_xpcs *xpcs_rk_create(struct device *dev, struct device_node *np);
-+
-+#endif /* __LINUX_PCS_XPCS_ROCKCHIP_H */
--- 
-2.47.3
-
+>  arch/arm64/boot/dts/exynos/exynos850.dtsi | 5 +++++
+>  1 file changed, 5 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/exynos/exynos850.dtsi b/arch/arm64/boot/dts/exynos/exynos850.dtsi
+> index 911643008b9f..2128749d7647 100644
+> --- a/arch/arm64/boot/dts/exynos/exynos850.dtsi
+> +++ b/arch/arm64/boot/dts/exynos/exynos850.dtsi
+> @@ -176,6 +176,11 @@ soc: soc@0 {
+>                 #size-cells = <1>;
+>                 ranges = <0x0 0x0 0x0 0x20000000>;
+>
+> +               apm_sram: sram@2039000 {
+> +                       compatible = "samsung,exynos850-acpm-sram";
+> +                       reg = <0x2039000 0x30000>;
+> +               };
+> +
+>                 chipid@10000000 {
+>                         compatible = "samsung,exynos850-chipid";
+>                         reg = <0x10000000 0x100>;
+>
+> --
+> 2.51.0
+>
 
