@@ -4,76 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3418C982C1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:52:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99857C88E7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:55:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o/1G+SKQdNCp7/TEN2iwmfHVFh9Mpgi3hXXpjOWL2nA=; b=B/LegfewQoGqj1y9GNYCNHEVVw
-	3CUiarT4P3xVuI+ufO9HOuCB2CrEpPl65DGk2QGoH8QOjm6nC0Pnxdusu/K5n7uVQ5bmKkCT6vDet
-	x5IxPbCqRk2pV/DOB7V3lTImaIVaOo0FjgdNEgiurF0oXXvP4Ayj0A6csN4WJNqK+hiRU5YdAn3UY
-	cAuoKnP+B7G/qi1Kw/fP8rYbUtliX731ldunw06wVa3KC+dxFnKZCzRZla0rue3Kz21PnKHXt29eQ
-	t/sQinYuO2SbfyxWQVB6+ZrsiS8ncIoLwK2bmJHnZre8P7w/ZTMHKgvd96D2w+3RPh84um+ISrccl
-	eynfL+Ig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wp7WIPM4acbNtx/6GioAbRHdq+dUssBIHTJbsJvHyw4=; b=DIAAkcL9//mVs1LQKKuQhka0D2
+	q7VnMspoXFQuDmGF8crd4dPBK0F6MSxM3R7jB7CLDKhvw9Zju3VOS+dTb5R4ddz0nO9o2dxW7X8AS
+	ZiplaeKEsURs9H9PAGEb4vMD1aIAjA7RgR2rotoFn8DueFYliBAjZ5JChb+TfehG9B0C4PzlE/w6b
+	EIxa9AWweBRVJnBDoAIbjLyhuVIPCY9Y4VX/ECma+tEEMtJ8SWuZRp+ihurpNSnJQQ/YnWF/TfSut
+	JUU/6b6Yv3q/l5bry6FIvHQnamvyGyzXSO53IqUbsvkdJUk3nBF9J3GLZCEjNGFshfcUfHmVwVw3e
+	er5MN81Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VS3-00000007JYU-3arb;
-	Tue, 15 Sep 2026 15:52:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x6VVF-00000007K0r-1X6T;
+	Tue, 15 Sep 2026 15:55:25 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VS1-00000007JXh-2pfE
+	id 1x6VVE-00000007K0Y-0Mms
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 15 Sep 2026 15:55:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=wp7WIPM4acbNtx/6GioAbRHdq+dUssBIHTJbsJvHyw4=; b=YOIamUQON326hqTSps1Ljiyeco
+	9lC2S4e6Rvlpf6qcxncjbffiPOUd2WhR09+B9SJAB4c2e6HmP6yx5quddDYviCbXXAxUBdJ3seUg+
+	xeiYYEDCYWygVio3QjM+26TyeTxEPLGLAlRq3QXOT0CVtfPkE/ky5uMMaLChp67taAh/zLRkLa3df
+	2vNUikpmAT+1fnfvw5yNd63VS3XBe8gH41UCz6m2z7+ozIFStGM5KVOpV/yek8IDVeVEzKn+1r3mi
+	/GPgU8VkLrLWdb+g7NwphZLH4OGLsphJ+Qh+NX6xzzEIYHXB5rltgdCiC1L7+dbNsDnBIOp3OkAr6
+	w6307AhA==;
+Received: from mail-ej2-f12.google.com ([74.125.228.140])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6VVB-00000006zAO-1HrB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 15:52:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0A7D3600C8;
-	Tue, 15 Sep 2026 15:52:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E704D1F00893;
-	Tue, 15 Sep 2026 15:52:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789487524;
-	bh=o/1G+SKQdNCp7/TEN2iwmfHVFh9Mpgi3hXXpjOWL2nA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=VAQ04ieKIx8qzu2N0TjEFTUlNC0rVBiIK1ljVsXU60NzK4UnF7PAaJQNkLlulOZTo
-	 omuP8Ticljoh3dg54JBRvb7nk6q6gs3nUVm6+aW/JtrwpZx2FmtHgIlBVS9WbTnYmQ
-	 9IL/U7kFNGRj6d69sGEZP68+DZdGrZEIuN/AcXFr4ZjoDpXED6Uz6qe6FDhV+IHZNg
-	 Ft3hSm8dddhRpnu/+tOX1o0XRzjk+9VyaiygBwpD4d3CSWeJUD1duhlXwjHyfcTlI6
-	 HLMoeu36XnYqaC8cytIuSasSpS0ilAn5spVfnkGj2w4CzWEnwygDoZ464QxWitZoa6
-	 OSV0xAP81qs0w==
-Date: Tue, 15 Sep 2026 21:22:00 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: Frank Li <Frank.li@oss.nxp.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
-	linux-sound@vger.kernel.org, linux-spi@vger.kernel.org,
-	Frank Li <Frank.Li@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
-	=?iso-8859-1?Q?Am=E9lie?= Delaunay <amelie.delaunay@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Andy Shevchenko <andy@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>, Mark Brown <broonie@kernel.org>
-Subject: Re: [PATCH v4 01/10] dmaengine: Move enum dma_slave_buswidth to a
- new header
-Message-ID: <aqlpoBJJXfZgsMxT@parshuram>
-References: <20260911-dmaengine-support-wider-dma-masks-v4-0-72b8fd4cc78e@analog.com>
- <20260911-dmaengine-support-wider-dma-masks-v4-1-72b8fd4cc78e@analog.com>
- <aqgCQvRw9fns__0d@SMW015318>
- <aqjzvxI4ecoFvRLT@ashevche-desk.local>
+	Tue, 15 Sep 2026 15:55:22 +0000
+Received: by mail-ej2-f12.google.com with SMTP id a640c23a62f3a-c254f5603a0so76786566b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 08:55:20 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789487719; x=1790092519;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=wp7WIPM4acbNtx/6GioAbRHdq+dUssBIHTJbsJvHyw4=;
+        b=Jb+hiGtHg49UVOr9w0R/KHBVI4otQUiTpZJwfdKIIPdCJZuWaXXliIaNpOKEIyX6Ph
+         dkYAcra1V0ofQs5ITzQpBmp2OSV/Awb8iFu3jWm2cMTyWUtbnnuT6donXXNUgBQM/JDG
+         FO5xaOgLVqSR7jOylcK+VRDIxnh3+97BGNAH974iR6i4VbneDBhyiimD1RUpxS6aNejX
+         uNgIoq+t2Zxpj4ut4/rATp0f4SCQESW2Ok68Bkx5TJo4WYzYJtCPdh4YgCHml1hPLETV
+         gOvtsRhhusAA+rt1HbRm9XOIOXaDymb7ZLLfZj/iRb6O7GF0MEfL5LDRLGztgX0ile2b
+         5E1g==
+X-Forwarded-Encrypted: i=1; AKwUvBy8iNVV6M2M4qWLjEpYLkO0xeknZJvgOR7e+9XPgd7uZ6OWi+BniyrX7EF7p8afn1g6zwbGCucbfMv5zXBB33XY@lists.infradead.org
+X-Gm-Message-State: AFuF++nLiazfWFT6aH2ThKi93n6bKKEC4J1wlscMEv0ZNZ7CFUv0sIUy
+	Xdw8wou/ge+APCLX0SxGwQXexnm65V7QL+6GoIjAqQwwd3xWBOB73/Jt
+X-Gm-Gg: AYBFou0nBSL9oAWDl8bevNV2NRKH+AbCQiT/w1oFQKXBE7FrezRhBL1hOk/nVmy3d+I
+	Wiy0rG7hhK5jLCCF2osJKDcTdQ1H+rQZOC/vkB6LjgB8MUVVDi53vtD7mjSj1Redrp/OPcYcRfT
+	WXdc+RAHUArw+gSZjUpxrCE3bsBDojUGXB1JXjZfffY6b7tnVeMn6FCIgDGPlzp4V8dsJadHiqP
+	+3DCiZJ9xjoDYtMzNpj/DPlolUvBHXjfywYHasqZiKmAlLDbwDQ67VXY2ZbKlv0ZO/3XoY0f7fB
+	BP0wEyWNP7W8REo4dU+JFakZDu4/dYUsaIve2bm7s8QEJd/bNnEzusRiRDTi2y/ShteqNad9+SI
+	ocBYOAJ2atE9W7JS6pYp8fga8j6fMqQhgDeQbHsGHEI27dS84kuKM1alN8Ra39mrYRvso5/qVUe
+	e/djhxtuXICBFJpF1vdnPG3b6jNpKQTsf9uWx9MCnMoJFkPUJXX3AG64A1Ozud+BxqhkfzbGc2b
+	diSSJLP07ZnMaScuYY5jRbKqWG9lXI=
+X-Received: by 2002:a17:906:4795:b0:c26:2f09:f2d8 with SMTP id a640c23a62f3a-c29d790987bmr118615366b.36.1789487719226;
+        Tue, 15 Sep 2026 08:55:19 -0700 (PDT)
+Received: from [192.168.1.135] ([84.68.183.72])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2966125543sm610972266b.55.2026.09.15.08.55.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 15 Sep 2026 08:55:18 -0700 (PDT)
+Message-ID: <dbf50a87-cf43-452d-8a82-6d7ee9af02a6@linux.com>
+Date: Tue, 15 Sep 2026 16:55:17 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/4] amlogic: t7: give the MMC bus pipeline clock real
+ consumers
+To: Ulf Hansson <ulf.hansson@oss.qualcomm.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>
+Cc: Ulf Hansson <ulfh@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+ Chuan Liu <chuan.liu@amlogic.com>, Jian Hu <jian.hu@amlogic.com>,
+ Ronald Claveau <linux-kernel-dev@aliel.fr>, linux-mmc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260905153234.133217-1-tanure@linux.com>
+ <CAPx+jO8oWZxgkWTv3v5odp8K2oWMY-KhJVR3U+iqY4mQ9LrG9w@mail.gmail.com>
+Content-Language: en-US
+From: Lucas Tanure <tanure@linux.com>
+In-Reply-To: <CAPx+jO8oWZxgkWTv3v5odp8K2oWMY-KhJVR3U+iqY4mQ9LrG9w@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <aqjzvxI4ecoFvRLT@ashevche-desk.local>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260915_165521_414294_9EE77CA4 
+X-CRM114-Status: GOOD (  19.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,50 +117,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15-09-26, 10:29, Andy Shevchenko wrote:
-> On Mon, Sep 14, 2026 at 09:18:42AM -0500, Frank Li wrote:
-> > On Fri, Sep 11, 2026 at 06:25:36PM +0100, Nuno Sá wrote:
-> > > In preparation for the bitmap based bus width capabilities, move
-> > > enum dma_slave_buswidth out of linux/dmaengine.h into a new
-> > > include/linux/dma/engine/types.h.
-> > >
-> > > linux/dmaengine.h is included nearly everywhere, so growing it with the
-> > > new interface would make every one of its users pay for it. Keeping the
-> > > basic types in a separate header lets the new interface live next to it
-> > > without that cost. linux/dmaengine.h includes the new header, so its
-> > > users are unaffected.
-> > >
-> > > While at it, add the missing kernel-doc for the enum members. The block
-> > > already opened with /**, so kernel-doc expected every member to be
-> > > described and warned about each one of them. Describe the UNDEFINED case
-> > > in particular, as its meaning depends on where the value is used.
+On 11/09/2026 16:40, Ulf Hansson wrote:
+> On Sat, Sep 5, 2026 at 5:32â€¯PM Lucas Tanure <tanure@linux.com> wrote:
+>>
+>> The previous series for the intermittent boot hangs on the VIM4
+>> marked sys_ampipe_nand as critical. But as Chuan Liu from Amlogic
+>> explained, sys_ampipe_nand clocks a pipeline stage that the
+>> hardware design inserts in the bus path between the SD/eMMC
+>> controllers and the NIC_MATRIX fabric to help timing closure.
+>>
+>> So the clock has real consumers: reference it from the three MMC
+>> controller nodes and drop CLK_IS_CRITICAL instead.
+>>
+>> The series crosses three trees; patch 4 (clk) must only land after
+>> patches 1-3, otherwise the DMA hangs fixed by 43e1705ecab9 come back.
+>>
+>> Changes since v1 [3]:
+>>   - Dropped the Fixes: tag; this series is an improvement and should not
+>>     be picked up by stable (Jerome Brunet)
+>>   - Moved the patch 4 dependency note below the --- so it is not kept
+>>     for posterity (Jerome Brunet)
+>>   - Dropped the e-mail address from the Assisted-by trailer, see
+>>     Documentation/process/coding-assistants.rst (Jerome Brunet)
+>>   - Fixed the space-indented error path added to meson_mmc_probe() in
+>>     patch 2, it did not pass checkpatch
+>>   - Dropped the CLK_PIPELINE() macro from patch 2; has_pipeline_clk is a
+>>     capability flag, not an SD_EMMC_CLOCK register field
+>>
+>> Thanks,
+>> Lucas
+>>
+>> Lucas Tanure (4):
+>>    dt-bindings: mmc: amlogic,meson-gx-mmc: document the T7 pipeline clock
+>>    mmc: meson-gx: enable the bus pipeline clock on T7
+>>    arm64: dts: amlogic: t7: add the pipeline clock to the MMC controllers
+>>    clk: meson: t7: don't mark sys_ampipe_nand as critical
+>>
+>>   .../bindings/mmc/amlogic,meson-gx-mmc.yaml    | 29 ++++++++++++++++++-
+>>   arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi   | 15 ++++++----
+>>   drivers/clk/meson/t7-peripherals.c            | 10 +++----
+>>   drivers/mmc/host/meson-gx-mmc.c               | 20 +++++++++++++
+>>   4 files changed, 62 insertions(+), 12 deletions(-)
+>>
+>> --
+>> 2.55.0
+>>
 > 
-> ...
+> Patch 1 and patch2 applied for next, thanks!
 > 
-> > >  include/linux/dmaengine.h        | 20 +++-----------------
-> > 
-> > I think it is good to split dmengine consumer and provider header files to
-> > hidden dmaengine's detail.
-> 
-> It's indeed desirable change. but isn't it a bit out of scope of the series?
-> I suggest to do one step at a time. Would it work for you?
-> 
-> > suggest name
-> > 	dma/engine.h
-> > 
-> > so we can start move more API to this files.
-> > 
-> > after all user include this consumer header file,  old
-> > include/linux/dmaengine.h rename to include/linux/dmaengine-provider.h,
-> > which only include by dmaengine drivers.
-> 
-> Traditional naming would be
-> dma/engine/provider.h
-> dma/engine/consumer.h
+> Kind regards
+> Uffe
+Hi Neil,
 
-consumer and provider and good names.. I would retain the full dmaengine
-everywhere please. dma causes confusion already!
+Any chance you could queue patch 3 for this cycle? Patch 2 is already in
+next, and until the DTS lands the MMC probe fails on T7 with "missing
+pipeline clock".
 
--- 
-~Vinod
+Thanks
+Lucas
 
