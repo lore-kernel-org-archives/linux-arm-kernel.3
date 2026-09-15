@@ -4,56 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CB35C88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 11:48:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9385C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 11:48:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cno/mSYxeYjSbwhVWHXxuFAZbbCgIhXNqp2t00lpUfo=; b=XlHJbk6nPkWLQCtXWCiCM8WVDB
-	oQ8EM39UeQB/URTV+6v3XDAaI4cLKsUMOvse096wFrgRiffbNL4iYka4ZVHeCUVzs+FbdzkWZfs1t
-	7L2lgm2HIjDDzgPKAtA6nmLDcY4BZ1uHoQHu3/EaCJnoJl8U85MzG3mQQxMLSu2yxpBTxNn0oIVIv
-	rMhLGyAf6m2FMWooVC79uFbBNTYv1FOrJgRY3NEGMjHo2uwdF8lXePWe+1cqhJv/D81Np+phH39ey
-	xPdlGp/0ATHWumeFx9h8AI9POFV6ln+lZ79jIkLOHAdSgfDEtoCajP6YGOB6J0ybqCr8h3y9Miors
-	usPHDrLg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:Subject:
+	From:MIME-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EYRIdKp/FfwNNqSNi/pBExuEJpqL4OpkJpzESq5stW8=; b=HIUU1wECEh9NDxpHbVtYdr4QKu
+	za4gd+HpgxqMyaaINJ4+S4HRtjRWkhkF4gNbqMtrzbYebECwZbn+qCtqPk+dhgCfOhXkIeFAN/FVO
+	Nf7yxMrRO5dvDw1VCvZ5nuQOxqyclhoo4rqlfc+xU2rAue0JC/9o8DhL5tJFEgQxGSXkelg5PapHz
+	aqacP+o7Sh+fYgPdzgJzqdbHxAojDTtt1/DBA2+GfPPhhMe1ZJZgm2ZqpjKFtRFLEIZG/sqlnhmgs
+	nj1xOIxYspcZur5jAueFj6r9MUKGAWMBf9ZEVgFf8byKq5jHVFVXuy8p83UAofklckZN17Hc4oxp+
+	43osEEbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Rdo-00000006Hl8-1FTL;
-	Tue, 15 Sep 2026 11:48:00 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1x6Rdv-00000006Hq2-37Ia;
+	Tue, 15 Sep 2026 11:48:07 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Rdm-00000006HkZ-32qj;
-	Tue, 15 Sep 2026 11:47:59 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256:X25519MLKEM768)
-	 (Exim 4.100)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1x6Rdd-000000007qj-3QQb;
-	Tue, 15 Sep 2026 11:47:49 +0000
-Date: Tue, 15 Sep 2026 12:47:45 +0100
-From: Daniel Golle <daniel@makrotopia.org>
-To: Caleb James DeLisle <cjd@cjdns.fr>
-Cc: netdev@vger.kernel.org, dqfext@gmail.com, SkyLake.Huang@mediatek.com,
-	andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-	pabeni@redhat.com, matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Matheus Sampaio Queiroga <srherobrine20@gmail.com>
-Subject: Re: [PATCH v5 net-next] net: phy: mediatek: support MT7530 PHYs on
- EN71221 MCM
-Message-ID: <aqkwYd5dTmHDCIW9@makrotopia.org>
-References: <20260915113427.113296-1-cjd@cjdns.fr>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260915113427.113296-1-cjd@cjdns.fr>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_044758_832492_6BCC47C1 
-X-CRM114-Status: GOOD (  12.03  )
+	id 1x6Rdt-00000006Hob-3xvp;
+	Tue, 15 Sep 2026 11:48:06 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 617DF6025F;
+	Tue, 15 Sep 2026 11:48:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44BC01F000FF;
+	Tue, 15 Sep 2026 11:48:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789472885;
+	bh=EYRIdKp/FfwNNqSNi/pBExuEJpqL4OpkJpzESq5stW8=;
+	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
+	b=KEA46w/jL9NKEBXKdpDRVvgUVpdw6hOUBCW8wQyHI6NwDPC4Am8sCmr7j0WvoKK5v
+	 Bi5VQmzbc0sNbBRMKVoi5XBwnkMmxH9tNMHqDw3ItnBUybU4feNnNWv7cT2bB8AjBd
+	 dY6wMyYKrW4Ezf2ZF1yg1nT3JYwFHCkXSv5QxKi4ShZMZv5F2iT044OEtU+pEb+idW
+	 Tog3ab9yFoO5+qKuA6KwBgJKAx/c448Pa5xlXvcd0f4KIxP8erzSA5JNQBA/bgLLZB
+	 IGHhr6D+xE3ldAUlwnI0HynOJtRl8do+l5clEE47V/0XL01LM1u7vq8zJwzIFJqQrv
+	 ilAIi+rTQ2iFQ==
+From: sashiko-bot@kernel.org
+Subject: Re: [PATCH RFC POC 10/50] microblaze: commit fds on syscall exit
+To: "Linus Torvalds" <torvalds@linux-foundation.org>, "Christian Brauner" <brauner@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, kexec@lists.infradead.org, sparclinux@vger.kernel.org, linux-sh@vger.kernel.org, bpf@vger.kernel.org, linux-mm@kvack.org, linux-snps-arc@lists.infradead.org, "Michael
+ S. Tsirkin" <mst@redhat.com>, linux-openrisc@vger.kernel.org, kvm@vger.kernel.org, linux-fsdevel@vger.kernel.org, "Peter
+ Zijlstra" <peterz@infradead.org>, linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org, "Eugenio
+ Perez" <eperezma@redhat.com>, linux-arm-kernel@lists.infradead.org, "Jens
+ Axboe" <axboe@kernel.dk>, "Jann Horn" <jannh@google.com>, "Ingo Molnar" <mingo@redhat.com>, "Jan
+ Kara" <jack@suse.cz>, dri-devel@lists.freedesktop.org, linux-um@lists.infradead.org, virtualization@lists.linux.dev,
+ =?utf-8?b?Q2hyaXN0aWFuIEJyYXVuZXIgKEFtdXRhYmxlKQ==?= <brauner@kernel.org>, "Alexander
+ Viro" <viro@zeniv.linux.org.uk>, io-uring@vger.kernel.org, linux-gpio@vger.kernel.org, "David
+ Airlie" <airlied@redhat.com>, linux-hyperv@vger.kernel.org, "Oleg Nesterov" <oleg@redhat.com>, linux-alpha@vger.kernel.org, linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-parisc@vger.kernel.org, linux-mips@vger.kernel.org
+In-Reply-To: <20260915-work-fd-reserve-unify-folded-v1-10-4d5217d6b246@kernel.org>
+References: <20260915-work-fd-reserve-unify-folded-v1-0-4d5217d6b246@kernel.org>
+ <20260915-work-fd-reserve-unify-folded-v1-10-4d5217d6b246@kernel.org>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Tue, 15 Sep 2026 11:48:02 +0000
+Message-Id: <20260915114803.44BC01F000FF@smtp.kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,51 +71,21 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: sashiko-reviews@lists.linux.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 15, 2026 at 11:34:27AM +0000, Caleb James DeLisle wrote:
-> [...]
-> +/*
-> + * MTK_GPHY_ID_MT7530 ID is also used for an EcoNet SoC FE phy, but that PHY
-> + * does not advertise ESTATUS_1000_TFULL.
-> + */
-> +static bool mt7530_is_gphy(struct phy_device *phydev)
-> +{
-> +	return phydev->phy_id == MTK_GPHY_ID_MT7530 &&
-> +	       (phy_read(phydev, MII_ESTATUS) & ESTATUS_1000_TFULL) != 0;
-> +}
-> +
-> +static int mt7530_phy_match(struct phy_device *phydev,
-> +			    const struct phy_driver *phydrv)
-> +{
-> +	return mt7530_is_gphy(phydev) && !en751221_is_mcm_phy(phydev);
-> +}
-> +
-> +static int en751221_phy_match(struct phy_device *phydev,
-> +			      const struct phy_driver *phydrv)
-> +{
-> +	return mt7530_is_gphy(phydev) && en751221_is_mcm_phy(phydev);
-> +}
-> +
->  static int mt7531_phy_config_init(struct phy_device *phydev)
->  {
->  	mtk_gephy_config_init(phydev);
-> @@ -135,6 +199,23 @@ static struct phy_driver mtk_gephy_driver[] = {
->  		 */
->  		.config_intr	= genphy_no_config_intr,
->  		.handle_interrupt = genphy_handle_interrupt_no_ack,
-> +		.match_phy_device = mt7530_phy_match,
-> +		.suspend	= genphy_suspend,
-> +		.resume		= genphy_resume,
-> +		.read_page	= mtk_phy_read_page,
-> +		.write_page	= mtk_phy_write_page,
-> +	},
-> +	{
-> +		PHY_ID_MATCH_EXACT(MTK_GPHY_ID_MT7530),
+> Add TIF_FD_SLOTS to the syscall work mask. The return path rereads
+> the flags after the system call and calls do_syscall_trace_leave()
+> for any of them which commits the reservations before audit and the
+> ptrace exit stop.
+>=20
+> Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
 
-I'd suggest to actually use phy_id and phy_id_mask assigned by the
-PHY_ID_MATCH_EXACT macro by calling genphy_match_phy_device() in your
-match functions above instead of open-coding the ID match.
-Or drop PHY_ID_MATCH_EXACT from *both* drivers.
+Sashiko has reviewed this patch and found no issues. It looks great!
+
+--=20
+Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20260915-work-fd-re=
+serve-unify-folded-v1-0-4d5217d6b246@kernel.org?part=3D10
+
 
