@@ -4,63 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C9A9C88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 11:57:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55D2DC88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 11:57:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:Subject:
-	From:MIME-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=foNXNPfm0YOXYb4+jKYd4+lAF9aF6NFtBcoJMDQD3PE=; b=4oBX3RvTN+lhHauK6BdGZo5DGf
-	ciD77NideoaPDlahAvshNwl0/PRyPy6OA7pd1NXNo2YsjAZJaIh8scNIuQvon0FcJDnnT4vhEE/Ir
-	24Ta897vLgPGmm29F+14Heu0Pfo8FKSS++zkZ4kvHZVOISHuIaSmCtsfL3PiaadBJm0E/0vRgJiLZ
-	TMzliQeLpQRSKwmpD6dEfZPiqgLqX6ZXNyUnybSlfMnCeJaUbjC9rgq9cFbbeIb7OJio7xgxvaEo6
-	tlNNRUCoMdiu+IyH9mPu6C2d5Dv6VUnar+eCOudZJ3mbGIysXhmCvhgZTAiwrCvbxx0blgxb0z+5L
-	SAvzI1ag==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ix4zUneWseQ7vdoZIO9ZqqK5b1ofsYuNIFP6ohWZvWc=; b=Ci92ApS7OZBzSCTrdizHZR3sOg
+	aO88YUxKvufE8u2onzv4hbd8VIOD/PNjYw/rZi4C4jyGn9B41VVSFbUHNwLcLWRPNEZPQ/e4NucVl
+	QxHc2WafQuamjLMc6Kq883oK0SA7WZzJF98PwOTwC6dZ+hFCqyVAw7fVcLZL9sI7mR3I/gl1CUVcg
+	mw8QQ/EFbwd89dYcyWyyu5EhoU76EZtvnuvtI+QW0Bod+e9HuF8SyHG8QqYNmgulYj1E0ysTjlu+1
+	g1fMr0QIzoYqG8Er6BCcYl/Zr410KXFppLs5UmL3mlZc+UmGXTtZNwwkL4ucHw5SlialcO0pjrk1A
+	9FC0bAxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Rmy-00000006Kst-3ntZ;
-	Tue, 15 Sep 2026 11:57:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x6Rn4-00000006Kww-1qxH;
+	Tue, 15 Sep 2026 11:57:34 +0000
+Received: from mail.mdapi.ch ([31.3.128.54])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Rmw-00000006KrT-2kUy;
-	Tue, 15 Sep 2026 11:57:26 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 09E4041ADC;
-	Tue, 15 Sep 2026 11:57:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A2291F000FF;
-	Tue, 15 Sep 2026 11:57:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789473445;
-	bh=foNXNPfm0YOXYb4+jKYd4+lAF9aF6NFtBcoJMDQD3PE=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=Vtnl/09NTEmqyW1tNPT+8T8JuOyDJguLBv2ERQfv5mV8sUbXuBe9nfRUxjy6D04/B
-	 Hcm4AIGNtGqTcc2GGlKlSglke2u/FXcZ76lL25z2/NeeHWPcqygtSbbzmeVVztVUgW
-	 hoS+iCHyLKT95UZw6JB3PNuoK4/zapEViq1/QVJmftEtEMsjVlV/1Wdd/5mzRfse5N
-	 Hf4nzWabASK5Nn3pr5jvJ/Gt8VwGXr0IJhqiu3SrFCMh0A7gLPSMGtW3IAoUbAv4fC
-	 i4vkJOaZ592ko8M1p7dcC3BjyfLFGQY4bZoyHYD9fIuFfPgwESBHAG9TF4alz32jll
-	 rFcSGLJmW5YeQ==
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH RFC POC 16/50] sparc: commit fds on syscall exit
-To: "Christian Brauner" <brauner@kernel.org>, "Linus Torvalds" <torvalds@linux-foundation.org>
-Cc: linux-csky@vger.kernel.org, linux-snps-arc@lists.infradead.org, "Alexander
- Viro" <viro@zeniv.linux.org.uk>, "Jens Axboe" <axboe@kernel.dk>, io-uring@vger.kernel.org, "Jan
- Kara" <jack@suse.cz>, "Ingo Molnar" <mingo@redhat.com>, virtualization@lists.linux.dev, linux-parisc@vger.kernel.org, linux-um@lists.infradead.org, "David
- Airlie" <airlied@redhat.com>, linux-alpha@vger.kernel.org, linux-gpio@vger.kernel.org, linux-mips@vger.kernel.org,
- =?utf-8?b?Q2hyaXN0aWFuIEJyYXVuZXIgKEFtdXRhYmxlKQ==?= <brauner@kernel.org>, "Oleg
- Nesterov" <oleg@redhat.com>, linuxppc-dev@lists.ozlabs.org, linux-hexagon@vger.kernel.org, linux-arm-kernel@lists.infradead.org, "Michael
- S. Tsirkin" <mst@redhat.com>, dri-devel@lists.freedesktop.org, kvm@vger.kernel.org, linux-sh@vger.kernel.org, linux-kernel@vger.kernel.org, "Jann
- Horn" <jannh@google.com>, bpf@vger.kernel.org, linux-arm-msm@vger.kernel.org, "Eugenio
- Perez" <eperezma@redhat.com>, linux-openrisc@vger.kernel.org, linux-m68k@lists.linux-m68k.org, linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, "Peter
- Zijlstra" <peterz@infradead.org>, kexec@lists.infradead.org, sparclinux@vger.kernel.org, linux-hyperv@vger.kernel.org
-In-Reply-To: <20260915-work-fd-reserve-unify-folded-v1-16-4d5217d6b246@kernel.org>
-References: <20260915-work-fd-reserve-unify-folded-v1-0-4d5217d6b246@kernel.org>
- <20260915-work-fd-reserve-unify-folded-v1-16-4d5217d6b246@kernel.org>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Tue, 15 Sep 2026 11:57:23 +0000
-Message-Id: <20260915115724.2A2291F000FF@smtp.kernel.org>
+	id 1x6Rmy-00000006Kr5-0V7L;
+	Tue, 15 Sep 2026 11:57:29 +0000
+From: Martino Dell'Ambrogio <tillo@tillo.ch>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tillo.ch; s=mail202603;
+	t=1789473442;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=ix4zUneWseQ7vdoZIO9ZqqK5b1ofsYuNIFP6ohWZvWc=;
+	b=gLEEYnnmonwrqeCPhxqBohgYdJfsQxDIMIemRm5bC7lnm2XjBcNIgyd2xT8FBA+2VWG/oC
+	GK1P6B/d4ZikTPOjmsiElND5nzCDug6W33eAUAe+R1A0pIV3gpwkduAvJ625246EfCILHT
+	fzVhGwNQBOTLexuRjqloMvAXYSE5HyofvAI4w/th18Y0BwEFULwb2gP8vTmoFqZIl7ULLN
+	0P2TSKyhzzjE3DSHDgzJjynbDogW/c8WdrMzWfiF713ethU4b5f8t36AGWlv85QcsY4WqS
+	7VftbrKSwK4JNTmFu18+dFvHzwoSQsFPTHH05okKTPglZzznFR2Y1j27GENClA==
+To: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	kees@kernel.org,
+	tony.luck@intel.com,
+	gpiccoli@igalia.com
+Subject: [PATCH v4] arm64: dts: mediatek: mt7988a-bananapi-bpi-r4: add ramoops region
+Date: Tue, 15 Sep 2026 13:57:22 +0200
+Message-ID: <20260915135722.566918-1-tillo@tillo.ch>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260915_045728_442582_569FB257 
+X-CRM114-Status: GOOD (  16.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,21 +67,91 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: sashiko-reviews@lists.linux.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Add TIF_FD_SLOTS and test it together with the other syscall exit
-> work on the way out of a system call. A task that reserved
-> descriptors calls syscall_trace() on sparc32 and syscall_trace_leave()
-> on sparc64.
->=20
-> Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
+Reserve 1 MiB of RAM just below the ARM Trusted Firmware secmon region
+(0x42f00000-0x43000000) for persistent kernel log storage via pstore/ramoops,
+allowing post-panic console output and oops dumps to be recovered after a
+reboot. Without it, kernel crash logs on this board are lost when the SoC
+warm-resets and the on-chip console buffer is reinitialised.
 
-Sashiko has reviewed this patch and found no issues. It looks great!
+With record-size=128 KiB, console-size=256 KiB, ftrace-size=64 KiB and
+pmsg-size=64 KiB, ramoops_probe() carves the post-console remainder
+(640 KiB) into five 128 KiB kmsg records, with the requested ecc-size=16
+reserving a small Reed-Solomon parity block from each zone's own
+allocation (per persistent_ram_new()). The ECC lets pstore recover dumps
+even when the panic path truncates writes mid-record.
 
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20260915-work-fd-re=
-serve-unify-folded-v1-0-4d5217d6b246@kernel.org?part=3D16
+The no-map property is required so the reserved region is kept out of the
+kernel linear map. ramoops remaps the carve-out write-combine via
+ioremap_wc(); on arm64, leaving the same physical RAM mapped cacheable in
+the linear map at the same time is an attribute-mismatch and risks losing
+panic data to dirty cache evictions from the linear alias.
+
+The carve-out sits immediately below the ATF region already declared at
+0x43000000 in mt7988a.dtsi, so no other reserved-memory child is moved or
+resized. BPI-R4 ships with at least 4 GiB of DRAM starting at 0x40000000,
+so the region is well within installed memory on every variant.
+
+For the carve-out to actually preserve content across a reset, the boot
+loader must also avoid touching this region on warm reset; on standard
+BPI-R4 boards with the stock OpenWrt U-Boot fork this already holds.
+
+Signed-off-by: Martino Dell'Ambrogio <tillo@tillo.ch>
+---
+Changes in v4:
+ - Use a plain reserved-memory node inside the root node instead of the
+   &{/reserved-memory} path reference, as AngeloGioacchino pointed out. dtc
+   merges it with the node from mt7988a.dtsi, so the resulting DTB is
+   identical; this is a syntax change only. Same change made to the BPI-R3
+   patch.
+
+No rush on my account for the earlier silence - the v2 postings were
+cross-threaded into each other's v1, so they were easy to miss.
+
+For what it is worth, this layout is in use on a BPI-R4 here: the kernel
+brings it up as
+  OF: reserved mem: 0x42f00000..0x42ffffff (1024 KiB) nomap non-reusable
+  pstore: Registered ramoops as persistent store backend
+  ramoops: using 0x100000@0x42f00000, ecc: 16
+(that build carries the same node via the path-reference form, so the DTB is
+the one this patch produces). I have not yet confirmed a panic dump survives
+end to end on it.
+
+v3: https://lore.kernel.org/all/20260915064254.1594808-1-tillo@tillo.ch/
+v2: https://lore.kernel.org/all/20260528123645.2650085-1-tillo@tillo.ch/
+v1: https://lore.kernel.org/all/20260528092807.1936177-1-tillo@tillo.ch/
+
+ .../boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi  | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
+index 0ff69da..75f5940 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
+@@ -66,6 +66,19 @@
+ 		regulator-always-on;
+ 	};
+ 
++	reserved-memory {
++		ramoops@42f00000 {
++			compatible = "ramoops";
++			reg = <0 0x42f00000 0 0x100000>;
++			no-map;
++			record-size = <0x20000>;
++			console-size = <0x40000>;
++			ftrace-size = <0x10000>;
++			pmsg-size = <0x10000>;
++			ecc-size = <16>;
++		};
++	};
++
+ 	/* SFP1 cage (WAN) */
+ 	sfp1: sfp1 {
+ 		compatible = "sff,sfp";
+-- 
+2.47.3
+
 
 
