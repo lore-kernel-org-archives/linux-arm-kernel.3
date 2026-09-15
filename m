@@ -4,73 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62204C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 18:52:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5744CC88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 18:56:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K7AqkA7VxQPgZfPJJQENdQorjA4xI23qGRxgmFpnfa8=; b=hIoxjyt/k9LxKG6LmvIfJMmaOX
-	xiXkrSLGdyu3QQB3+0ngZiSiwbexvPQYQmaIu9tO7pJnFUJexWp34BDNOsOi0cNuJmZCAP0Q1YUpq
-	jyV1WNfRRmr8OMMD18TNzBXrcjpLKr10WR4EQ8SjYXhW84caFWOTmjzLv6D+hQANkiz4WSvGq+kuu
-	4ySkYBvc5aXPbh8iSsod/MV7Rn9FB8mFt1kSr+vKq1XSt5OkZKtNPgb5ql8bjQ+tTRbXE28ux3LTA
-	IdBxtIcdaT3I56wdE9xGu7xfb33bKCe/rz/2Rh93iEAM6/eZD+Qu4Qi2adlV+pVc0L756CE8TtIR+
-	fsU5Tb1g==;
+	bh=Rsepp53wmdFvcjhxH+SZlO9xP8vtYlvbJCuU3Gb4BxE=; b=L6E0c7p65fjcrCT7zXkjTchXmt
+	U6G2H9Htnw1OHUvewxtDQb+uoH5eQTAvygG8zjXp8uoLjVmba5awPuF+nbZpYu5MVrsy42Ur3Rgyr
+	xtlrcAvIMLSXwSn/dkeKdjnZYzad9CeuZV95GvPoHBwMUZJwqSKykbtKhT/7LoDLbXcz7aWJAivAx
+	Ar1Yq3oa2z8i8Wno9jzJXPelycS9WdgpXJJNRjKR0AZDVi6FuKHJR7Ry4XxnwBEnhpnehJdjwlPPT
+	W4/Xs20W8ej2ZsjlUROF76rRiOM3eoYKqb2MhsqYd81u6+93OU+emP/YGei8GYou27tUVlzXq18LC
+	+gEfd9ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6YG1-00000007nal-2DFa;
-	Tue, 15 Sep 2026 18:51:53 +0000
-Received: from out-162.mta0.migadu.com ([2001:41d0:1004:224b::a2] helo=mta0.migadu.com)
+	id 1x6YKm-00000007o8c-3Lf8;
+	Tue, 15 Sep 2026 18:56:48 +0000
+Received: from ms.lwn.net ([2600:3c01:e000:3a1::42])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6YFz-00000007nZu-2jum
+	id 1x6YKk-00000007o80-1QaL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 18:51:53 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=wDUSmz48AJ/AWECTgc5Y2mr8+N5AQyAKi5Db/DMYbBU=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1789498309; v=1; x=1790103109;
- b=Hy5IqFX/UhCv6eF+r0L0SfczIVWhIV5vcyvfn7r0QYU8kc2zRMNiL0kll+kn19QhUcVWPFPf
- XY2S6pB2YDJKMon2sEaiiqMog06YIkYF9tY50zc5Vtu/ZMG/Vn1+2xZNbeU6YFjIT2KtIDic/6o
- bkHxfv5Q341SgbFI2C9Co6Ds=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 0068e441bd757e02;
-	Tue, 15 Sep 2026 18:51:49 +0000
-X-Mizu-Trace-ID: 0068e441bd757e02
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b4a0b384b7so1454e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 11:51:49 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBzQzZnnu+7CqJbEOyL7mCCVR/dc3N+KlpVMrdF4PO5p8Zo6RS/PqAqA/XOmnnNsz/ZEWtz6aUsowlePk/tKIAZi@lists.infradead.org
-X-Gm-Message-State: AFuF++k+nkUiZhqjZBLv1rXmVU6ZQnA5gkG6uyFtdT81DJoDrWV9bCn1
-	ki30sgxVowtVwSoS4hJyTJgVWES/Suy4edFCSeaE5ljcSXit5kzTQQJwf6eBmb+oNnk0Dgs5VMa
-	OzkC1mL2asLzK0xlCCBmwF6vXN7g1TzpV+6zNa3Wc
-X-Received: by 2002:a05:6512:460f:b0:5ae:b9c5:f29f with SMTP id
- 2adb3069b0e04-5b8b5c60361mr12106e87.2.1789498308370; Tue, 15 Sep 2026
- 11:51:48 -0700 (PDT)
+	Tue, 15 Sep 2026 18:56:47 +0000
+DKIM-Filter: OpenDKIM Filter v2.11.0 ms.lwn.net BADDF4090B
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lwn.net; s=20201203;
+	t=1789498600; bh=Rsepp53wmdFvcjhxH+SZlO9xP8vtYlvbJCuU3Gb4BxE=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=UzRWKz/gL76bsYRzmkkw/cMgDVoueXkuRGyY22r868vyVRyL4uuDAFl/JkG7Ug52l
+	 99PnMEG5jFR5yrrXVGSCn1cHcIkuGShrvhhpDXGpeMJZ949ZjXtqGzC5k0rI6JCcat
+	 f45CC2dmBV6xGKorRvqwj9liU09AT6gO1D2xu3I2jRHpJ+jbVXXfDVsXOmVVfrkgfA
+	 q1cLQJbqzUYUdbez6d8MUZUOACBWXYWGWVF2SZcZDmxsLbetTtHqXSFJ5LTN3q/VP1
+	 CBLKOYDgX9X5GaQd/CsL9n1gKOv4hdaNC5DPUPaLw1TJEEl5wzgPbbDNw02q5PTy6X
+	 A3KZZAVwdKAcg==
+Received: from localhost (unknown [IPv6:2601:280:4600:814::1fe])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by ms.lwn.net (Postfix) with ESMTPSA id BADDF4090B;
+	Tue, 15 Sep 2026 18:56:40 +0000 (UTC)
+From: Jonathan Corbet <corbet@lwn.net>
+To: Randy Dunlap <rdunlap@infradead.org>, linux-kernel@vger.kernel.org
+Cc: Randy Dunlap <rdunlap@infradead.org>, Michal Simek
+ <michal.simek@amd.com>, Ronak Jain <ronak.jain@amd.com>,
+ linux-arm-kernel@lists.infradead.org, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, Shuah Khan <skhan@linuxfoundation.org>,
+ linux-doc@vger.kernel.org
+Subject: Re: [PATCH] firmware: zynqmp: use literal blocks for commands
+In-Reply-To: <20260914060615.1398531-1-rdunlap@infradead.org>
+References: <20260914060615.1398531-1-rdunlap@infradead.org>
+Date: Tue, 15 Sep 2026 12:56:39 -0600
+Message-ID: <87ik469wd4.fsf@trenco.lwn.net>
 MIME-Version: 1.0
-References: <20260911104715.307500-1-fuad.tabba@linux.dev> <868q5579ol.wl-maz@kernel.org>
-In-Reply-To: <868q5579ol.wl-maz@kernel.org>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Tue, 15 Sep 2026 19:51:00 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTw0U0d91Cv4NYEJvUuT=JabwZeeYwpZ2P1xyVeOVX46Ew@mail.gmail.com>
-X-Gm-Features: AcwNN1Wb_8an225Gnc8YhJ9UZVooFr4-IDtabofiCqvpuVnTcerWsfiGT6Va1mE
-Message-ID: <CA+EHjTw0U0d91Cv4NYEJvUuT=JabwZeeYwpZ2P1xyVeOVX46Ew@mail.gmail.com>
-Subject: Re: [PATCH v3] KVM: arm64: Trap guest MPAM accesses whenever MPAM is implemented
-To: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
-	Xi Ruoyao <xry111@xry111.site>, Mark Rutland <mark.rutland@arm.com>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Gavin Shan <gshan@redhat.com>, Yuan Yao <yaoyuan@linux.alibaba.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_115151_900592_BB77D46B 
-X-CRM114-Status: GOOD (  18.89  )
+X-CRM114-CacheID: sfid-20260915_115646_382981_8CE5C007 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,50 +74,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+Randy Dunlap <rdunlap@infradead.org> writes:
 
-On Sun, 13 Sept 2026 at 11:00, Marc Zyngier <maz@kernel.org> wrote:
-[...]
-> > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-[...]
-> >  static void cpu_hyp_init_context(void)
-> >  {
-> > + u64 pfr0 = __read_sysreg_by_encoding(SYS_ID_AA64PFR0_EL1);
-> > + u64 pfr1 = __read_sysreg_by_encoding(SYS_ID_AA64PFR1_EL1);
-> > +
+> Use literal blocks for 'cat' and 'echo' commands to separate them from
+> the surrounding text. Otherwise the lines run together, without any
+> clear break before or after the commands.
 >
-> Why not directly read_sysreg(id_aa64pfr0_el1) and co?
-> __read_sysreg_by_encoding() is useful when the encoding comes from a
-> variable, but it looks odd in the case of a literal sysreg.
-
-It applies the arm64.nompam override, which is what
-finalise_el2_state() tests. With the override set, EL2 setup leaves
-the MPAM traps alone, and a raw read_sysreg() would still see MPAM in
-the ID registers, so KVM would write MPAM2_EL2 on exactly the firmware
-the option exists for. I'll add a comment.
-
-[...]
-> > diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-[...]
-> > @@ -298,14 +298,17 @@ static inline void  __activate_traps_mpam(struct kvm_vcpu *vcpu)
-[...]
-> >   /* trap guest access to MPAMIDR_EL1 */
-> > - if (system_supports_mpam_hcr()) {
-> > + if (read_sysreg_s(SYS_MPAMIDR_EL1) & MPAMIDR_EL1_HAS_HCR) {
+> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+> ---
+> Cc: Michal Simek <michal.simek@amd.com>
+> Cc: Ronak Jain <ronak.jain@amd.com>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+> Cc: Jonathan Corbet <corbet@lwn.net>
+> Cc: Shuah Khan <skhan@linuxfoundation.org>
+> Cc: linux-doc@vger.kernel.org
 >
-> This is going to suck under NV. The host hypervisor is of course going
-> to set MPAMHCR_EL2.TRAP_MPAMIDR_EL1, and we're in for a recursive trap
-> on the hottest possible path in KVM. Which is silly as the actual
-> write to MPAMHCR_EL2 is free (it lands in NVMem[]).
+>  Documentation/ABI/stable/sysfs-driver-firmware-zynqmp |   70 +++++++---
+>  1 file changed, 50 insertions(+), 20 deletions(-)
 >
-> This really should be replaced by a flag called HAS_MPAM_HCR, just
-> like you have HAS_MPAM.
+> --- linux-next-20260911.orig/Documentation/ABI/stable/sysfs-driver-firmware-zynqmp
+> +++ linux-next-20260911/Documentation/ABI/stable/sysfs-driver-firmware-zynqmp
+> @@ -141,32 +141,44 @@ Description:
+>  
+>  		Usage:
+>  
+> -		Select over temperature config ID to enable/disable feature
+> +		Select over temperature config ID to enable/disable feature::
+> +
+>  		# echo 1 > /sys/devices/platform/firmware\:zynqmp-firmware/feature_config_id
 
-I'll probe MPAMIDR_EL1.HAS_HCR once in cpu_hyp_init_context(), next to
-HAS_MPAM, and test the flag in both trap functions instead.
+I was sure that this wouldn't work, since the literal block is not
+indented relative to the containing text.  Sphinx does the right thing,
+though... so applied, thanks,
 
-I'll hold off on v4 until Will has had a chance to comment as well.
-
-Cheers,
-/fuad
+jon
 
