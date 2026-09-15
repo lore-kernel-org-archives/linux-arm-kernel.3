@@ -4,112 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B13EC88E73
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 09:25:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F220C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 09:28:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CWWWXqBxdZQwhQ7CkoKnQwmEOD4rQL0kmNBKNRws0Ls=; b=u0hcd8d2+FEY2ZG7Vw1mpqRtND
-	a3cB9T68yH0iyYYmrVtK4lfCJ7hWW6gvTLHaSv/0e/CDPx3HrS9002HqKqQs2OpwVnIuWTZXOIB0e
-	oiRbZERSMuSaDnK/fZLvh2qAH1D6nSW/oMdkOC8jVEenSfk1+DhneOMkt4m3UmGqufBxDX5W9q8xf
-	M4nGHnxHX4twcjAo09iIg5UpEaaC9srCmYmlJAYflPRS8UkSyQGEg7vX0VbiVNG6uBjLjBt4Bg7m/
-	VFsCqC2yo0vQImZRxe+OKezvhTLDIdOevnrmM4QXbX49ljI3yyzeF6MGP8w2CbPqvxSwaFn47DM2E
-	VGnt09Mg==;
+	bh=QG926t0eDXcNpKo79cGWH+PMpXq/mR3E3lyUSWxn124=; b=c37H8pOWurApWx1b9iJKVjPbwY
+	Z2s72uMGwhrYd3RpNmhxIP0JR1bFchYzZimzJz8bM5WBEU3hRhjn5aM8xTARvXDt4x9dn17F249LT
+	V1gtzSQAnpDhbYmNIjSO+Rukc2XP/lmzNfciDhac2/HkuJfa7xyvdiWogkJj+rhDyEv74s6LjLUQm
+	b4kB0i+TTExhSw6qRa4YsL73t1ul8Axfys8loUaNZ21HS/m1/QTk0088O00+GElz3d7J8c1Y4dABi
+	71B6e1AXsDw+e3EpoElPGiu6bDKymX21N/cg+DZ2oOvf4RYHKDv+S2icZBpdmiQXRxU2nfYl2Zzp4
+	bVgncUPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6PPN-00000005m56-28Ey;
-	Tue, 15 Sep 2026 09:24:57 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x6PSd-00000005mTs-4607;
+	Tue, 15 Sep 2026 09:28:19 +0000
+Received: from mail-japaneastazlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c405::2] helo=TYVP286CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6PPI-00000005m46-2XKG
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 15 Sep 2026 09:24:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=CWWWXqBxdZQwhQ7CkoKnQwmEOD4rQL0kmNBKNRws0Ls=; b=ju7dE/WSGycz0GZCOrV3NGwutX
-	MLsRfbR32LuMe1G2RpLH/psxCR3PlCKexmc8UhAp8FuvGKFhTOj7k4F8mKWKZhMW895ybITrN5ze6
-	v+8yKEy3ILF+25Opvto21MeuXUHco8LDEb3VwOnEFaCIosBdB53MrY41m3pl/1znDNHOL4dbI/bFt
-	Xbz9iByRkBfNyhUlxG/Rhf1iYImGHZl9eHzYltEeV5lr0G1NKw0IAQXrZyVltctVc4ttHWPen2v2M
-	eVi444pjK0Qf2d9uJcMJDl6jQQaWSzAPXnTX41hV2MomKIOAcqQbKoHJJRhJ5hDBDECrmJVUIX/rI
-	Ve4WPfBQ==;
-Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6PPF-00000006Uhs-2Atq
+	id 1x6PSa-00000005mT2-3Pn8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 09:24:51 +0000
-Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-482f633cd78so1495823f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 02:24:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1789464287; x=1790069087; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=CWWWXqBxdZQwhQ7CkoKnQwmEOD4rQL0kmNBKNRws0Ls=;
-        b=o6EZ+bNViUrxHQRP992a1i66DNdyguFtNLq+Z+75FbOE5/h6SbtD8uE19OzeWTZua6
-         eyDSXgfiw3IgWN+xjqjHH2vf9ZdzjCxHxIL5Bjdq+5XLbLR4QGA3yo8AIHKyIKGNzmrm
-         9dxTyTbuAQCeBNWROWml1Gki2PM5kgFwOB9cXGvM+3xrSP6PlA/474AvmJJDo8lmatR7
-         frOItS2+jHK8y2hBXtFEOBuQGoE59YyCvKdg62hg8UAV4LP1BCbS7IHJwsaVNuGqcVRb
-         5zFMFLk1lPNUQj0Pe1Qztip8vru5WdyTvopG6ntLnNfkfaRwSCkXA5xKKGkOHvy7dUM+
-         UlAw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789464287; x=1790069087;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=CWWWXqBxdZQwhQ7CkoKnQwmEOD4rQL0kmNBKNRws0Ls=;
-        b=qn/zywxQ1H6nxBGaYkdNKdskaMoktmJMLMJsoIIQZ9zc9R0Al+CVApMQvfyV0X0xSE
-         vpnYEOJKkJVcLcXSl9nX9EHUAVNwATrYjucLSPkFaAEaAVPaYBMExnBMaUtugKVqUtkC
-         Wem/uCKevWiZkkaVb9luc4Klo7Qc12ZHS4sh7uDdthra4lvhjnpjdN+1o63b/P/XKcOx
-         zE5DMVQ5g+LkGiI2SALUnZGJzocr0Vw3TMf3PvOt4fgvdnTNW8VFKHHssKOzH9+G6M8g
-         OIhjLWOJkxr/egLPp2lEje/Wu6WV5o5Da+OaiT8C5QoDunbyCPbBo3ienRIHoQqYniRK
-         z1oQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzeBzvNg9ey9TKK4xH8xm/h53RsFIJaMDsLwgU5Cf9gKpODEqPDfGCetG5DKnX0IlzBdWDQ95NZ1s6sPKMIBwcB@lists.infradead.org
-X-Gm-Message-State: AFuF++lCZivmoav80pnfjXuiTAYmiVgLgUeqaAeuS41YiecCrRRi/3bz
-	trACgMzB7jGlT3wCFrP0zZTKyIORUu1csvJRJ5u2W/EAfXRCmuUUsdtg2nEt3u2r3w==
-X-Gm-Gg: AYBFou2DpfH0OO5TB09SaaUCfx/ytRZTgNUxeY/+WLzLBxHzLbxI5vSxJUnvsGsy8cG
-	Jtlr7DzEPZCrHZuFz2/SVDim2acxIbfdskkJhvRMSm52wOXkH/x/wAUH0TLt9YHD1fGBAPdCaUf
-	3WinGoSgXEOvdkVIt7/vK1BWYQWp4MX3BOL8Cu8L2G1tqkZtisjvnBUh7EJIn9YS9dC3Ni1y2tE
-	b6b7YHbV53dP0Hqx1Y9L7VnUmsNnYMtjQfJnk/LP55uMK5ilNZ5mH15nxRxCfdlRjwEDRkJTxLQ
-	wKqQkUSFtE0XylAmIETyJZpeSD+XNAbCV6jpt0T2ot0MmRS2ZjXS4jAklM9jZSQQuhqeT0CjWT4
-	L/v0ASCCREkkz8xjnLnwxbSCTkoLlF9APg3FewaGs8OV/g71A4Q30lPsskY/M06DgIZvoGOPI2h
-	TKhrD7av4Wi+XQAvfIpwS/6Re0M9N5aJqIZPBqseVh8rW0MWdfXlI1DN8zVRgp109LdipZZexgL
-	tNBv98zAdcaNYT13unhXloMtEs7iPLI5cfZpqK+Ginh+qY07re5Pg==
-X-Received: by 2002:a05:6000:1785:b0:485:8a46:b3c4 with SMTP id ffacd0b85a97d-48702b5e64bmr7485672f8f.44.1789464286268;
-        Tue, 15 Sep 2026 02:24:46 -0700 (PDT)
-Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-486eb33e020sm34764203f8f.18.2026.09.15.02.24.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Sep 2026 02:24:45 -0700 (PDT)
-Date: Tue, 15 Sep 2026 10:24:41 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: perlarsen@google.com
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
-	Ben Horgan <ben.horgan@arm.com>, Oliver Upton <oupton@kernel.org>,
-	Sebastien Ene <sebastianene@google.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Fuad Tabba <fuad.tabba@linux.dev>
-Subject: Re: [PATCH v7 2/3] KVM: arm64: Support FFA_MSG_SEND_DIRECT_REQ in
- host handler
-Message-ID: <aqkO2eVkF4bdS41U@google.com>
-References: <20260830-host-direct-messages-v7-0-45f6e6db72c2@google.com>
- <20260830-host-direct-messages-v7-2-45f6e6db72c2@google.com>
+	Tue, 15 Sep 2026 09:28:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WRpRRhzA3+hKrmO9b442uPwbE6zs9dQboBOoDPevFhIzvtiDic9nW+gUSPClrB6opjDMOhLgot7yhLOWekGBZshd3Teb/IXwQHKLAqT5a/b8Q+f6ldrEvUlxDSWO6zLsXRY8eZPQZq+x0t3cUvJn1TFvJc39GYLrMDW+g764NumkW58wuEAaz1ONq0aWpBErRXKZoSZNIePvlROvinoD488MJ3WU+zxWPWEnoN7iqhm1CqGBqO5+9HuTm6Hl3+NDrtZOzCdFwveuZZtY4X+rgH9y4LSMgL86pasbSosL1UgFoLIABzd/K/a/k5WXGIbrRtZIeuM+c6zJzU8ZLfjFdw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QG926t0eDXcNpKo79cGWH+PMpXq/mR3E3lyUSWxn124=;
+ b=XhyjuDnXJ5y1YMTzuBu1NqMuQKnhwUXB1Of8d+db3ygPBj1+plupFrZrEYEDwWNUj4l9ceUAiOliQHorvT+NiOw/Xy3HKYcMlwF2zwKNBeaLn4cWbprykYn0icnCAE5iT63GW33fCLI81RY2tYFdGyJVyxBUkLQXSJvrIoajvo2vJY7CJhzUYeHWYaeq+USjO7KhBsuNrewVcmWylXuyabLjnGaI3n6LpKB3OruHW8kedlNtC9aa87G54FCn3kmae1jDTshZbFSLNXqMaeGxLMYLWzr6POARh+PTQCc7UEJHuXlhKmvKYLhzfXL7LgQb8Lmm9wFVaioHs7tHqSmC+A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=renesas.com; dmarc=pass action=none header.from=renesas.com;
+ dkim=pass header.d=renesas.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QG926t0eDXcNpKo79cGWH+PMpXq/mR3E3lyUSWxn124=;
+ b=JarXZbEYACwf7pZHsMAtLd5y8bkNCs2gI2j6INQN22Tmfams2HrVOJcMo6ka4uYhTELyPftEBxGHZf4EJ+LK/c9Hr09ExRPmZTehlKYdbz/zkEHg7P39HAPRKCsupaw5K1cd5HACqLDKcoMl0prH23z1mYnnY7MQdx8JValQzYE=
+Received: from OSCPR01MB12769.jpnprd01.prod.outlook.com (2603:1096:604:33c::9)
+ by TY7PR01MB14443.jpnprd01.prod.outlook.com (2603:1096:405:23f::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.13; Tue, 15 Sep
+ 2026 09:27:51 +0000
+Received: from OSCPR01MB12769.jpnprd01.prod.outlook.com
+ ([fe80::aa72:ef1b:2a85:fc2f]) by OSCPR01MB12769.jpnprd01.prod.outlook.com
+ ([fe80::aa72:ef1b:2a85:fc2f%5]) with mapi id 15.21.0406.012; Tue, 15 Sep 2026
+ 09:27:51 +0000
+From: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
+To: Joseph Steel <recv.jo@gmail.com>
+CC: "maxime.chevallier@bootlin.com" <maxime.chevallier@bootlin.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
+	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
+	"kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
+	"mcoquelin.stm32@gmail.com" <mcoquelin.stm32@gmail.com>,
+	"alexandre.torgue@foss.st.com" <alexandre.torgue@foss.st.com>,
+	"shuah@kernel.org" <shuah@kernel.org>, "joabreu@synopsys.com"
+	<joabreu@synopsys.com>, "yi.fang.gan@intel.com" <yi.fang.gan@intel.com>,
+	"jun.ann.lai@intel.com" <jun.ann.lai@intel.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-stm32@st-md-mailman.stormreply.com"
+	<linux-stm32@st-md-mailman.stormreply.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kselftest@vger.kernel.org"
+	<linux-kselftest@vger.kernel.org>
+Subject: RE: [PATCH net v4 3/7] net: stmmac: Rework S-VLAN handling
+Thread-Topic: [PATCH net v4 3/7] net: stmmac: Rework S-VLAN handling
+Thread-Index: AQHdP7FBHec8YOvxvk68IcIebRlwK7bPZRCAgAAAqgA=
+Date: Tue, 15 Sep 2026 09:27:51 +0000
+Message-ID: <OSCPR01MB12769E621C234C53F33FA88F7D3BA2@OSCPR01MB12769.jpnprd01.prod.outlook.com>
+References: <20260908164309.59282-1-ovidiu.panait.rb@renesas.com>
+ <20260908164309.59282-4-ovidiu.panait.rb@renesas.com>
+ <ybotecadvx2x3ucgqjunv77fuyeaxmwl5tn77fswraztiklrdo@ajhpl4c52hcy>
+In-Reply-To: <ybotecadvx2x3ucgqjunv77fuyeaxmwl5tn77fswraztiklrdo@ajhpl4c52hcy>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=renesas.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: OSCPR01MB12769:EE_|TY7PR01MB14443:EE_
+x-ms-office365-filtering-correlation-id: 2af55dc9-96e7-48ab-e355-08df130b9d4a
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|23010399003|7416014|366016|376014|10067099003|22082099003|56012099006|5023799004|11063799006|4143699003|18002099003|38070700021;
+x-microsoft-antispam-message-info: 7otVuJNKeG27jEMPBaZQIHnDgQPSNp4dS+4oMBsB3wPcJvL27x02j1tq140llNr9Q+ZXTBiWYvLAWEmz1T1u3m5XikgThzxrNJZBKnmlb/FAKibirxDbkFjuWsvZUCLUZ6wWQrLTzcsgBOeOt+JRuJjwYTdaRTbgK1LoSAaUN72zjgNP3CH09HLiUItCSo+y4TORzfGH5yXsDJKGbbmcN1RrieeFJTT6DtLmw5Qy0JV6JSjqLppGRWp6yRy2rC7w3HXR0EzYzZ41BWnJBpVHuHaKbcTduHBlXvPV183kwYINStMtEIfvHkwaMiCN9feT2D49h1urAbdWOTCBXl/Kn4BKAe0LzbQW/CEWSn9IhSJrplgAb7emm05cTNDn4vu6W8El4WT1NSKBOyvAucOf6cJ5X4d6ytKw2WdgUEojdT9yED7Ai44iujPRXZ9cNsldbCLOZJstYSDJ6YYz2gk+TXf7m7UeZU0dQeN9xzyUQyTLaG/DQTIotnyOfKa0sH2qn4/9d//EYp526+pl4glwSmBVKnbAxjF1seYBfcqKhYQPyeDpZiRH0/zahvz5xExADbXYyGSqxgWiAJ65c3hExFZFLACKLlvEEnBeahP8UaaXmpQSETd7hdnZ+N1qHhF1xfn9mtbJJT5rgMn107GL5OH+RxR8tLSH9Gs9lnq1NM4WociVU1ajT102mzLdWlbZ1u9apBcVQa1h02dmR/bDldEjjmlIuwnOUtqWW+OHNwo=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSCPR01MB12769.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(7416014)(366016)(376014)(10067099003)(22082099003)(56012099006)(5023799004)(11063799006)(4143699003)(18002099003)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?c24PCWcCqUJQWT2f7Q+xSG0uOohJwpq/7fvRLRKfGvlwk8cnsg7PvXCf2M0U?=
+ =?us-ascii?Q?xRNXSZ6pIHTCgwk3I/ij9QrStjXRvD36ux0m7Q7UaGdcC/zylB+yE0wcvcSK?=
+ =?us-ascii?Q?qhXhbzhWzPNAZucj4eHH8sjxGCy9hWGCb9UzFwOX8iIneVTuWI6Q3wGKfn2h?=
+ =?us-ascii?Q?Mi6RqKAdvDD7JdHIv6NBTKnr1zCxZZlTxI7yHOc7ZKHEk2yTgLe7mnOt4SSZ?=
+ =?us-ascii?Q?s/LlXnj9BvBPj/uvcuLJKW+mz55MUkf0qpY5IGjdKvspSHzeT5UI5r/nDJaR?=
+ =?us-ascii?Q?+J8Dh2pUWYNpyvCaJw2+9ZYgHs/Mr4Ssg9ZzOEvUlSDSsNhOiKGFhP89jZKv?=
+ =?us-ascii?Q?UfKlFQahK5kekOv68r0XHUXI+8xW1ItC6mku1Kr8xOw5yukieGNmwyhlX2UW?=
+ =?us-ascii?Q?mdGppc2/AKcScu834AgZH1w8dTt+cKsQka/grpcQaRB0+sQkjEpvAylz7Qqo?=
+ =?us-ascii?Q?laMOspj5yMAeYoDtBC5y5MvIqQE2OuktzTKdA2m+dUzJgbGnz8Mex/ogQemc?=
+ =?us-ascii?Q?4kvdUNABHD4vUnsoiO/9TvxiOsWUsFkhGdac1Dtr4l54XQB0iMFQ07aLJDfR?=
+ =?us-ascii?Q?lEb8Z1bN3sEfsjc10LNhSYRvxChBM2zJv37DpyGq6aqcVNjB6hUIv28VQJ6s?=
+ =?us-ascii?Q?RlTKrzKhCfcmButdTHyCgawuVIw1vEumjfQyS0x7gKYv7Go3dj2IVa9ma2I6?=
+ =?us-ascii?Q?Dhe3MDupXFeC7mJbIT56SJtHiwdF/jnm16yJ2nx4ze6Ris9bhFjfFqY7tJIL?=
+ =?us-ascii?Q?shfm8qy5bJjmi9y24t2jvSTbzBKK5IzdWdKbQfKirO7RVdU1Ij+Hv+TwAPTQ?=
+ =?us-ascii?Q?nzk8hPsvXgwgKMu5VDcKoqEixnNJDlICO/pMZ6o4XcqfhaNOtzoYmE7q7bWX?=
+ =?us-ascii?Q?yGSf5AOU+kp+nUfojD2im6RwOJ/mrpbgLA8oL8VFWHyNtqagfcf2vkHIOTD6?=
+ =?us-ascii?Q?9MHAygKoUzBUFzV8HEn2W7UJfaZDd3SZf5ZVOBmC29DMvHFGLGse4HHORPLw?=
+ =?us-ascii?Q?lup/5pxfB4dCQzuNtPOAKi9aOolQkuX0uZXAFCHdRRPbIHu4qUQNhSwtqzft?=
+ =?us-ascii?Q?Z1wR2X8GmwP1oZQ79qoCOKkcFT8lEpXIv8/vkPnLBV4bs2UPphQFb4tDmgBV?=
+ =?us-ascii?Q?wV8Ri+ZkfLWa6rlJMwARkD7ViiZZvHtVLbdZIA0URmz1z4Rd/zvqOn/UFrFU?=
+ =?us-ascii?Q?2BvQE6tXLkzWnEEek0bAY7cVQH8L6+9SRmVFbqft36ZZbWsFFYnluPP5GV0T?=
+ =?us-ascii?Q?G/92g/qR181Ce09SZ74MRyu02jCbVBRhQa0tYk5+VztVRk6SuzPZVRA3qu5b?=
+ =?us-ascii?Q?q3T1ypQ8mGP5CBADvIBOk/w3fw4pX0VEO8yUUeQis8d1iGz0WYPoExjFU8q4?=
+ =?us-ascii?Q?IXAIylaBl8fRp1L7oGxRcqdGb31AE6g1vJsnRZRmGb50z2ck8tHS4aGDr5AO?=
+ =?us-ascii?Q?QHTE7pGX4FNa06Qps9WPaGiR1dZR1+9w9Je47NspLIomZwQyaXWTzRW+iLDl?=
+ =?us-ascii?Q?qfw2sxyWbNopHMw4EqDli5AT2c4SvMScZuN5fyO36xbCQT9tUYKrGr7RQFkL?=
+ =?us-ascii?Q?r9mb9djNjQK6KXVElkuPzSxgMkcHWnp9yU4tNEDi2jTiv8/8SNzSL0pNimkY?=
+ =?us-ascii?Q?QsFBlXz4zLgMDJcZj3SP12L0XJN+BgcVFw1bZxwemoIzZ679qkb3QJwmLPl5?=
+ =?us-ascii?Q?f5Do1Te6VN7kUBhIGgKo3tiMotk4//xSXSiftuuRA0XJzCCL9UtCCaRJcc6/?=
+ =?us-ascii?Q?9Ji1yljT27Vn41sqoTbGJvW//USNrwU=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260830-host-direct-messages-v7-2-45f6e6db72c2@google.com>
+X-OriginatorOrg: renesas.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: OSCPR01MB12769.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2af55dc9-96e7-48ab-e355-08df130b9d4a
+X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Sep 2026 09:27:51.4363
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: lBmBoFk5GlBh6Nd11etGGOyUCYuNrMD+b+KcLjnI6wdi3BACCCJwVEFdGCBrBWx+b+knLaEocpajVw1KpeIPdJe0PRzSfM16nBtzDrwivBo=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY7PR01MB14443
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_102449_691493_F7906F05 
-X-CRM114-Status: GOOD (  22.04  )
+X-CRM114-CacheID: sfid-20260915_022816_874251_2664327A 
+X-CRM114-Status: GOOD (  19.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,91 +154,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 30, 2026 at 11:08:14PM +0000, Per Larsen via B4 Relay wrote:
-> From: Sebastian Ene <sebastianene@google.com>
-> 
-> Allow direct messages to be forwarded from the host. The host should
-> not be sending framework messages so they are filtered out.
-> 
-> Signed-off-by: Sebastian Ene <sebastianene@google.com>
-> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> Signed-off-by: Per Larsen <perlarsen@google.com>
-> ---
->  arch/arm64/kvm/hyp/nvhe/ffa.c | 27 +++++++++++++++++++++++++++
->  include/linux/arm_ffa.h       |  2 ++
->  2 files changed, 29 insertions(+)
-> 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> index 9e8bb95e8845..96cf6be969de 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> @@ -880,6 +880,29 @@ static void do_ffa_part_get(struct arm_smccc_1_2_regs *res,
->  	hyp_spin_unlock(&host_buffers.lock);
->  }
->  
-> +static void do_ffa_direct_msg(struct arm_smccc_1_2_regs *res,
-> +			      struct kvm_cpu_context *ctxt)
-> +{
-> +	DECLARE_REG(u64, endp, ctxt, 1);
-> +	DECLARE_REG(u64, flags, ctxt, 2);
-> +
-> +	struct arm_smccc_1_2_regs *args = (void *)&ctxt->regs.regs[0];
+Hi Joseph,
 
+>=20
+> Hi
+>=20
+> On Tue, Sep 08, 2026 at 04:43:05PM +0000, Ovidiu Panait wrote:
+> > The ESVL and DOVLTC bits control S-VLAN tag processing and have
+> > nothing to do with the double VLAN feature, which only provides a way
+> > to process an additional inner VLAN tag. However, the driver code
+> > that handles them always refers to "double VLAN", which is unrelated
+> > and makes the implementation confusing. The driver does not use any
+> > of the inner VLAN tag features, and the networking core does not
+> > support offloads for the inner tag anyway.
+> >
+> > To simplify the logic and to reduce the confusion regarding S-Tag vs
+> > double VLAN handling, drop the is_double logic and add a hw_svlan_en
+> > flag that is set when S-Tag hardware handling is enabled.
+>=20
+> I believe I suggested to just change the "double" word to "svlan", and
+> not to drop the respective logic completely. The number of S-VLAN tags
+> added/removed must be still counted, otherwise any subsequent VLAN
+> S-Tag removal will disable S-VLAN processing even if there are S-Tags
+> left added.
+>=20
 
-For a next version, ffa_check_unused_args_sbz() has just been merged. [1]
+While working on this I realized we don't actually need to toggle the
+S-VLAN bits on/off whenever a S-VLAN tag is added/removed. We can just
+keep them always set as long as the NETIF_F_HW_VLAN_STAG_RX or
+NETIF_F_HW_VLAN_STAG_FILTER features are advertised.
 
-[1] https://lore.kernel.org/all/20260907171930.4037166-8-sebastianene@google.com/
+This simplified the S-VLAN logic quite a bit, by getting rid of the countin=
+g.
 
--- 
-Vincent
+Ovidiu
 
-> +
-> +	if (upper_32_bits(endp) ||
-> +	    FIELD_GET(FFA_SRC_ENDPOINT_MASK, endp) != HOST_FFA_ID) {
-> +		ffa_to_smccc_error(res, FFA_RET_INVALID_PARAMETERS);
-> +		return;
-> +	}
-> +
-> +	/* filter out framework messages and validate SBZ/MBZ bits */
-> +	if (flags) {
-> +		ffa_to_smccc_error(res, FFA_RET_INVALID_PARAMETERS);
-> +		return;
-> +	}
-> +
-> +	hyp_smccc_1_2_smc(args, res);
-> +}
-> +
->  bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
->  {
->  	struct arm_smccc_1_2_regs res = {0};
-> @@ -938,6 +961,10 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
->  	case FFA_PARTITION_INFO_GET:
->  		do_ffa_part_get(&res, host_ctxt);
->  		goto out_handled;
-> +	case FFA_MSG_SEND_DIRECT_REQ:
-> +	case FFA_FN64_MSG_SEND_DIRECT_REQ:
-> +		do_ffa_direct_msg(&res, host_ctxt);
-> +		goto out_handled;
->  	}
->  
->  	if (ffa_call_supported(func_id))
-> diff --git a/include/linux/arm_ffa.h b/include/linux/arm_ffa.h
-> index e71d83ee0aef..a3f44e7c08de 100644
-> --- a/include/linux/arm_ffa.h
-> +++ b/include/linux/arm_ffa.h
-> @@ -269,6 +269,8 @@ bool ffa_partition_check_property(struct ffa_device *dev, u32 property)
->  	(ffa_partition_check_property(dev, FFA_PARTITION_DIRECT_REQ2_RECV) && \
->  	 !dev->mode_32bit)
->  
-> +#define FFA_SRC_ENDPOINT_MASK	GENMASK(31, 16)
-> +
->  /* For use with FFA_MSG_SEND_DIRECT_{REQ,RESP} which pass data via registers */
->  struct ffa_send_direct_data {
->  	unsigned long data0; /* w3/x3 */
-> 
-> -- 
-> 2.55.0.897.gb25b4bd76c-goog
-> 
-> 
-> 
+> -Joseph
+>=20
+> >
+
 
