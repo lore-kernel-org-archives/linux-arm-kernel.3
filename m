@@ -4,79 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23212C88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 13:01:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15BFBC88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 13:01:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VcgRva2rsU2gA85H2EBlIuCFGwCT8FrfLOtefzUc5O4=; b=Sdq+JzEpHT0kGZpWwkE9qu99zu
-	PGq0q4ev4CrZmP9LVS8klzBx8xNOxbeJEx0hH5pD7NoWfsJG6xRlvmFvyDtmMIPTSRdte0fbSfpPc
-	Cy6od9UhY5munXfv1L9QCi99yWCIsH07wWH4q9XXOMLWzevXtadTzi9slOTObskkYmbA6wPInAIkT
-	3+BAro1veyMuwkGJaO+hpMDLNFyLaXmSjtchNoolbGsNxuS4Npc2mkY50XJDVufSwPSIbDN2+wWtH
-	TQmRY5QDM5wPGMKNEfbwmQext7nXY60zroVlCmfOzsVU3MMPcMcsPmrgX8A/h/NCsCoenkQcvwNg5
-	Yo6VGidg==;
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+F7E7Bq/M1FITHwdNffpUS733lAk0A+k2uxZSk0JCQc=; b=x8cxs4l+roT7riUU2DPMr2xaTt
+	UBYuXH/uQ1akUsB9ue3LpAiIoPs9Dk4h2o6NI4vIyHZ7LXvPqlPjb5iiejL1eOexfAA8QZXWI/oma
+	Ubq45c0nN3rgrBauEohDLpl3c8IBtZSM5TVkuUsGANrm968TX/gdyOUCkaVM45GVZZpd8lf+J/eJ7
+	mFxuEdHDdZYwOQpHa1P9xHm02v8cH9JV4OwVFJVUQSj96kexlJx2i1PsBCl23yfTTytfUrV+XPkNY
+	i4qgKH47CpAjUXeU5DZpw5K599aL/KNGMOPl+FmaXjUN4hWOLTcJ+nxJeAGeSP+gjMtSU4/3zeQyN
+	SMq1zzkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Ruv-00000006O1n-1iyT;
-	Tue, 15 Sep 2026 12:05:41 +0000
-Received: from m16.mail.163.com ([117.135.210.3])
+	id 1x6Smw-00000006dqI-3LJn;
+	Tue, 15 Sep 2026 13:01:32 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Run-00000006NsI-0VyJ
+	id 1x6Smu-00000006dpa-2YVy
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 15 Sep 2026 13:01:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=+F7E7Bq/M1FITHwdNffpUS733lAk0A+k2uxZSk0JCQc=; b=ZXSqqHNqmtWQE/xk4q1A4odoZQ
+	WEJULYEp6G+lNQg3c6lCD3OIens65iWvdv6aejTGhCaozmiw3+85yH745okXvAsbeNJmU36aFFP/G
+	AjWFuBlMS2ILkpSU7QX46CGKoXXGgJqH2UhPepokKbQjQDC0zHkdbHgIuNj50FNZqKaL+mBtGU9aJ
+	51huGZOfbzvucog2nK8Qcmnj2+nhaFOSCkgXFxyVMY1SPklnpmnBkPbFUzWtBRQ1+9yXdf/Tn0LNf
+	vBnGk1Ao5Jb9CI3pMslbEGPSAb7Ht20Pt6i8o1UMrHUTk2hTtMfYJIxBFh2eZQeUsnh8khzvnVnX2
+	RM2nAW6Q==;
+Received: from mail-pj2-x07.google.com ([2607:f8b0:4864:39::7])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6Smq-00000006mhj-0d98
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 12:05:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=Vc
-	gRva2rsU2gA85H2EBlIuCFGwCT8FrfLOtefzUc5O4=; b=bSWXWuXT5EooQanUd4
-	Qm61z43ttG6Wv/+ULHaK2qg65StKxkgjClMxlPmsDJZVOXD4J6l7OdA8iLd//j1C
-	jA41cnxScKOLDgsuJk72760wMy6szUz97z6m/OF1xznPF3ljPXP49qZqt4Zk+rJG
-	siGoumUBcmR+AKPsRqpeJ8D1Y=
-Received: from chaosheng-ASUS-TUF-Gaming-F16-FX607JV-FX607JV.lan (unknown [])
-	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wDnN_cQNKlq1ig+Aw--.34817S5;
-	Tue, 15 Sep 2026 20:03:32 +0800 (CST)
-From: Quchaosheng <quchaosheng000406@163.com>
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Cc: Tony Lindgren <tony@atomide.com>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Andreas Kemnade <andreas@kemnade.info>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Roger Quadros <rogerq@kernel.org>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-omap@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Quchaosheng <quchaosheng000406@163.com>
-Subject: [PATCH 2/2] ARM: dts: ti/omap: drop unit-address from tpd12s015 endpoints
-Date: Tue, 15 Sep 2026 20:03:27 +0800
-Message-ID: <20260915120327.47114-2-quchaosheng000406@163.com>
-X-Mailer: git-send-email 2.43.0
+	Tue, 15 Sep 2026 13:01:26 +0000
+Received: by mail-pj2-x07.google.com with SMTP id d9443c01a7336-2d903e972efso20115395ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 06:01:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789477282; x=1790082082; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :references:cc:to:from:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=+F7E7Bq/M1FITHwdNffpUS733lAk0A+k2uxZSk0JCQc=;
+        b=jdeSD89VEXR070frLIn9irnMXcM27YASPEuA4Q6s/buqyKSd874gt0traPN23xJfMl
+         jbfPipvOWxjOr1i1rnC8SB7BKRSTNEubbndxuhtpqcgNraX4sKxozcCaj+1hcb8NzIqJ
+         zk+v69LAI0jsokxage7siy6d7N9SEC7HRjXQmGFWsGmgDy0K2qFbG1JfwAvaKEqDN282
+         AHgGPBjQas7At5k5l4UZ3AyK3tM0kQdJ7LfMKoC3xTaaOpGBNgVj7BYr571VjM2IMQ5f
+         wwm003iXQdY/54pE/p2Sr6ynexF4ztAUyBqrzynqBFK6InbqLccnjUXmr6mamz0xiocC
+         ggtw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789477282; x=1790082082;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :references:cc:to:from:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=+F7E7Bq/M1FITHwdNffpUS733lAk0A+k2uxZSk0JCQc=;
+        b=z3o8+8u3hsnRAmwCHHhlbau5TlMlXHCpMMHNBbuE5iC9O0Xb+K1BAC2Nvo0aVBFZ6T
+         jupC7E3Nxq2ly2uhgAXPJyiG3mZe/TG0t/pAwo6170COEXXnmjphHc/Xo91MbURBfPit
+         hjP/QmpipEGhH3x/toVRm/IyAq4wRw9KNEF8XOktS83Nio6H6Vbhm/RVr8gB+ACp1BB8
+         tsqpg0LGG4PVH8bYMrZO3aXvpRLp60sd4o+t+3XnEprQyNgWAbECu9n2p7yvPGn0cgFx
+         vCx+3scHL1Kvr4jGTHEWDJV5AENNA21IKTrZ2ALqDGMi6AOpH9gNMtslw0NdvzaNXH+U
+         GNcw==
+X-Forwarded-Encrypted: i=1; AKwUvBzSDce+LzmQHN/tp42o9v87/vsSgvbFpbBoIGc6iJsG81WoEDTDKQ1/fOdFDHNpCNg/Be+izDPb/2jVQDeiXeCl@lists.infradead.org
+X-Gm-Message-State: AFuF++niI7fnCcjYmt08ZtuVxDG51AFWx38xvzTzC0FsHNAWWWIQPASp
+	pCl6KXok7l5ZpRLjH4I9R2OfNeuvFahjePkc5vEz39hLi9qazAt2JiMI
+X-Gm-Gg: AYBFou3038BzrwIRWHDPmws5kqG6Ho1IYFVrioZBtvPeZkC+QRg8m+W7XsDO/Lc7OhP
+	K/G1Bjr8JyO5kTYMddsjoXDCmsKc7FZFP32QATVtSlBYshZrNF+0MKDMBGf8VzhMMVJzisKCFTC
+	G2rOGHUCqUoJO0VH3nLVqlNqRuYSYpg50mPUnDswqwLsD+t7CnurvyK2v2Q7gmLI5g8DX+4yYdA
+	Ik5coaZ/yl0ERu92/Nnh0dnBXJHdTqSDuBKFngOgfoh8SbhgiJMhbfv+DDIo/DAUOl4zp+tsa5S
+	0IQjmcVHdVTtfOCSCsbu9deJa5g9Hir8WhmJMO6DO4swgul7PKqJAgm1D/lOKNSsbhN/wSGlzQB
+	x3B1nB+YPt0TzlxtIJeyn0mlhdpfldumKBE2nXEaejIqSlRq89QHUUHhmAywoZQQcOPP6DLJ2Db
+	kMIkRtH3KZ4RHIjyW+7ErDMaNOJahIVpz2DsWXKxr1cVaGYyUDu7kFRJMUxdfbb+y/bW/kr/LrH
+	W2Ftg==
+X-Received: by 2002:a17:903:3d0d:b0:2d6:3c2f:6a4 with SMTP id d9443c01a7336-2dd6c6eb7a4mr138425825ad.13.1789477281468;
+        Tue, 15 Sep 2026 06:01:21 -0700 (PDT)
+Received: from [10.125.112.20] ([122.11.210.25])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2dd2cfd87e5sm67187695ad.58.2026.09.15.06.01.10
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 15 Sep 2026 06:01:20 -0700 (PDT)
+Message-ID: <13cfcd99-e420-478b-8ce8-06674727977d@gmail.com>
+Date: Tue, 15 Sep 2026 21:01:07 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wDnN_cQNKlq1ig+Aw--.34817S5
-X-Coremail-Antispam: 1Uf129KBjvJXoW7ury5Zry5Aw18tr45Gry7GFg_yoW8Cry8p3
-	s29F4ktws7GFyFkr4DZw1qgF1qkF4kuF1ayF4UWryUCa13Xw18JF1xtwnakr1UCayfZw4j
-	9rs5WasFqw1DWF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0p_NtxAUUUUU=
-X-CM-SenderInfo: xtxfxtprvkv0bjqqikiqw6il2tof0z/xtbC5BQXjGqpNBQeFQAA3D
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 00/10] kdump: reduce vmcore size and capture time
+From: Wandun <chenwandun1@gmail.com>
+To: catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
+ pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, tglx@kernel.org,
+ mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
+ robh@kernel.org, saravanak@kernel.org, akpm@linux-foundation.org,
+ baoquan.he@linux.dev, rppt@kernel.org, pasha.tatashin@soleen.com,
+ pratyush@kernel.org, m.szyprowski@samsung.com
+Cc: mark.rutland@arm.com, kernel@xen0n.name, alex@ghiti.fr, hpa@zytor.com,
+ ruirui.yang@linux.dev, robin.murphy@arm.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, kexec@lists.infradead.org, linux-mm@kvack.org,
+ iommu@lists.linux.dev
+References: <20260902073116.802752-1-chenwandun1@gmail.com>
+Content-Language: en-US
+In-Reply-To: <20260902073116.802752-1-chenwandun1@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_050534_080797_F38C5855 
-X-CRM114-Status: GOOD (  11.19  )
+X-CRM114-CacheID: sfid-20260915_140124_374098_9CF3BDF7 
+X-CRM114-Status: GOOD (  28.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,64 +126,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Drop the unit-address from the endpoint nodes of the tpd12s015 encoder on
-the am5729-beagleboneai and the am57xx-idk.
 
-The nodes carry a unit-address without a matching reg property, which the
-device tree specification does not allow. A plain endpoint name makes them
-match the schema for this binding.
 
-No functional change.
+On 9/2/26 15:31, Wandun Chen wrote:
+> From: Wandun Chen <chenwandun@lixiang.com>
+> 
+> On SoCs that carve out large firmware-owned reserved memory (GPU,
+> camera ISP, ...), kdump currently dumps those carveouts as part of
+> system RAM even though their contents are firmware state that is not
+> useful for kernel crash analysis.
+> 
+> This series introduces a MEMBLOCK_NODUMP flag in memblock to filter
+> reserved memory on DT-based architectures (arm64, riscv, loongarch).
+> Reserved regions default are marked MEMBLOCK_NODUMP so kdump omits them;
+> reusable CMA regions are different because their pages are handed back
+> to the buddy allocator and may carry crash-relevant data.
+> 
+> ACPI systems already filter reserved memory out of the vmcore through
+> their existing path; only DT-based systems currently fail to filter these
+> regions, which is what this series addresses. The flag lives in memblock
+> itself rather than in a DT-only structure, so the mechanism is generic and
+> both ACPI and DT systems can benefit from it (suggested by Rob, thanks) [1].
+> 
+> Since the reserved memory regions are filtered out, the vmcore is
+> smaller in size and faster to produce. 
+> 
+> The series is based on linux-next and is organized as follows:
+> 
+> Patches 1-4: Preparation and bugfixes: fix the missing HugeTLB
+>              flagname, switch riscv crash_mem to memblock, fold the
+>              duplicated per-arch memblock walks into the weak
+>              defaults, and serialize crash header preparation against
+>              memory hotplug.
+> Patches 5-9: NODUMP infrastructure: switch crash_core to
+>              for_each_mem_region(), introduce the MEMBLOCK_NODUMP
+>              flag, add a dumpable flag to struct reserved_mem, and
+>              mark /reserved-memory and /memreserve/ entries with
+> 	     MEMBLOCK_NODUMP flag.
+> Patch 10:    Exclude MEMBLOCK_NODUMP regions from the vmcore ELF
+>              header.
 
-Signed-off-by: Quchaosheng <quchaosheng000406@163.com>
----
- arch/arm/boot/dts/ti/omap/am5729-beagleboneai.dts | 4 ++--
- arch/arm/boot/dts/ti/omap/am57xx-idk-common.dtsi  | 4 ++--
- 2 files changed, 4 insertions(+), 4 deletions(-)
+Hi,
 
-diff --git a/arch/arm/boot/dts/ti/omap/am5729-beagleboneai.dts b/arch/arm/boot/dts/ti/omap/am5729-beagleboneai.dts
-index 76bfb3647..f40017a0e 100644
---- a/arch/arm/boot/dts/ti/omap/am5729-beagleboneai.dts
-+++ b/arch/arm/boot/dts/ti/omap/am5729-beagleboneai.dts
-@@ -168,7 +168,7 @@ ports {
- 			port@0 {
- 				reg = <0x0>;
- 
--				hdmi_encoder_in: endpoint@0 {
-+				hdmi_encoder_in: endpoint {
- 					remote-endpoint = <&hdmi_out>;
- 				};
- 			};
-@@ -176,7 +176,7 @@ hdmi_encoder_in: endpoint@0 {
- 			port@1 {
- 				reg = <0x1>;
- 
--				hdmi_encoder_out: endpoint@0 {
-+				hdmi_encoder_out: endpoint {
- 					remote-endpoint = <&hdmi_connector_in>;
- 				};
- 			};
-diff --git a/arch/arm/boot/dts/ti/omap/am57xx-idk-common.dtsi b/arch/arm/boot/dts/ti/omap/am57xx-idk-common.dtsi
-index 5eccff3bb..4e8a5820b 100644
---- a/arch/arm/boot/dts/ti/omap/am57xx-idk-common.dtsi
-+++ b/arch/arm/boot/dts/ti/omap/am57xx-idk-common.dtsi
-@@ -135,7 +135,7 @@ ports {
- 			port@0 {
- 				reg = <0>;
- 
--				tpd12s015_in: endpoint@0 {
-+				tpd12s015_in: endpoint {
- 					remote-endpoint = <&hdmi_out>;
- 				};
- 			};
-@@ -143,7 +143,7 @@ tpd12s015_in: endpoint@0 {
- 			port@1 {
- 				reg = <1>;
- 
--				tpd12s015_out: endpoint@0 {
-+				tpd12s015_out: endpoint {
- 					remote-endpoint = <&hdmi_connector_in>;
- 				};
- 			};
+Gentle ping on the remaining patches of this series.
+Patches 1, 7, 8 and 9 have been reviewed (thanks Mike and Marek);
+Still looking for review on patches 2-6 and 10.
+
+Would appreciate a look when you have a moment, happy to rework
+anything based on feedback.
+
+Best regards,
+Wanun
+
+> 
+> In v5, Sashiko found some pre-existing issues related to reserved-memory,
+> and has no dependency on this series, so these issues have been addressed
+> in a separate series [2].
+> 
+> v5 --> v6:
+> 1. Serialize crash header preparation against memory hotplug to avoid
+>    out-of-bounds or use-after-free issues.
+> 
+> 2. MEMBLOCK_NODUMP marking is now done after memblock allows resizing,
+>    avoiding a panic from too few regions before resize is permitted.
+> 
+> 3. Reordered the patches, put pre-existing bugfixes earlier in the series.
+> 
+> 
+> v4 --> v5:
+> 1. Rework the mechanism around a memblock-level MEMBLOCK_NODUMP flag
+>    (suggested by Rob) instead of the v4 opt-in 'dumpable' flag on
+>    DT-only struct reserved_mem.
+> 2. Switch the riscv vmcore elf header preparation to use memblock
+>    instead of the resource tree, aligning it with arm64 and loongarch,
+>    so riscv also can exclude reserved memory from vmcore.
+> 3. Deduplicate the vmcore elf header preparation: arm64, riscv and
+>    loongarch open-coded the same logic, so fold it into shared
+>     __weak defaults in crash_core.
+> 4.  Drop the v4 patch that saved /memreserve/ entries into the
+>     reserved_mem array; /memreserve/ is now marked MEMBLOCK_NODUMP
+>     directly.
+> 
+> v3 --> v4:
+> 1. Rebase this series on v7.2-rc1.
+> 2. Add two cleanup patches (patch 02/03).
+> 3. Simplify patch 03 to avoid checking whether initial_boot_params is
+>    NULL multiple times, suggested by Rob.
+> 
+> v2 --> v3:
+> 1. Fix out-of-bounds issue if device tree lacks /reserved-memory node.
+> 2. Fix UAF issue when alloc_reserved_mem_array() fails.
+> 3. Add some prepare patches.
+> 
+> v1 --> v2:
+> 1. v1 added an opt-out DT property ('linux,no-dump'). Per Rob's
+>    feedback [3], v2 drop that property and exclude reserve memory
+>    by default.
+> 2. Split some prepared patches from the original patches.
+> 3. Address coding-style comments on patch 5 from Rob.
+> 
+> [1] https://lore.kernel.org/lkml/20260723234126.GA3253409-robh@kernel.org/
+> [2] https://lore.kernel.org/lkml/20260818092420.2859026-1-chenwandun1@gmail.com/
+> [3] https://lore.kernel.org/lkml/20260506144542.GA2072596-robh@kernel.org/
+> 
+> Meijing Zhao (1):
+>   mm: memblock: add missing HugeTLB flag name
+> 
+> Wandun Chen (9):
+>   riscv: build crash_mem ranges from memblock instead of resource tree
+>   crash_core: fold duplicated memblock arch hooks into the weak default
+>   crash_core: serialize crash header preparation against hotplug
+>   crash_core: replace for_each_mem_range() with for_each_mem_region()
+>   memblock: introduce MEMBLOCK_NODUMP flag
+>   of: reserved_mem: add dumpable flag to opt-in vmcore
+>   of: reserved_mem: mark /reserved-memory entries with MEMBLOCK_NODUMP
+>   of: reserved_mem: mark /memreserve/ entries as MEMBLOCK_NODUMP
+>   crash_core: skip MEMBLOCK_NODUMP regions when building vmcore ELF
+>     header
+> 
+>  arch/arm64/kernel/machine_kexec_file.c     | 29 ------------
+>  arch/loongarch/kernel/machine_kexec_file.c | 27 ------------
+>  arch/riscv/Kconfig                         |  2 +-
+>  arch/riscv/kernel/machine_kexec_file.c     | 33 --------------
+>  arch/x86/kernel/crash.c                    |  2 +-
+>  drivers/of/fdt.c                           |  2 +
+>  drivers/of/of_private.h                    |  2 +
+>  drivers/of/of_reserved_mem.c               | 48 ++++++++++++++++++++
+>  include/linux/crash_core.h                 |  2 +
+>  include/linux/memblock.h                   |  9 ++++
+>  include/linux/of_reserved_mem.h            |  1 +
+>  kernel/crash_core.c                        | 51 ++++++++++++++++++++--
+>  kernel/dma/contiguous.c                    |  1 +
+>  mm/memblock.c                              | 17 ++++++++
+>  14 files changed, 131 insertions(+), 95 deletions(-)
+> 
 
 
