@@ -4,80 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7767C88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 10:34:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84078C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 10:34:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sHQvHrjkrqLVCr6LdWk7d98zBjrSRHDkPKO8e1vSq10=; b=ruxdwwsbAWUoXh819p8g9ZRpc2
-	LvwemswKC3rmenc7jP2cFI3JPmzskwhKCprwp9c/WBydarstegMjHZV2scY5p5OfIUNzKaNz8MbzG
-	st8ZkUxXy8dbthybFrsRRhTYpLnGSMPT0ZT5LqYG6zWem4YQRQzwPqDclWOBJKyUQBv/N+TpmaH3V
-	cfH0I4liIolUem5VjBtMQ+xJvau9kRpGl/x2XHR809moqgBwgqD7XMvHY57VsdWCresBsIFiYX1jU
-	CjJo4EXvVA/N179yJtaC3J6MqdeetR0si0m5sXZedZey6YAuCf+zfGhjxKba1FYaZMFZWp0IDVFo7
-	KDynlWuA==;
+	bh=bW+iPkrSzo0otQQoBYJMGRZoMXs1UqJR5g1BDpvaw78=; b=gR/9M5977rvZR3oiiHb+/vWezH
+	FMQ4+G4dcsHjpSUSsLDDd1Xjq2D8v8rLJCc0h2nPvLHYkFynsKa6+Vup0crwXjbjeVVNQ/fEgocTv
+	ih5LvafNFcDYRlNC2kcwTiTDOkFqKcytztR2fhZXf54BvMPSXNxebHb3ixFMuMndb8w0SbBdAQgph
+	8kTVLLMOKPRzmc/VogqqMieURO7daMH7MX4EMMobSXbPpl5ouPElkXa1RUYYRr2syIbw6Qz9QzSjW
+	6+cboPDnRpko6nmbp+XpHKL96PN0o5ernyXIWw32PKG9itF+tIegLLCNYSaSgiCA8iOU8ZakU850x
+	nAFThOXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6QUU-00000005vr1-2Dqc;
-	Tue, 15 Sep 2026 10:34:18 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1x6Pgw-00000005oP7-2Gx7;
+	Tue, 15 Sep 2026 09:43:06 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6QUR-00000005vpI-41Ve
+	id 1x6Pgv-00000005oOv-0Mzq
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 15 Sep 2026 09:43:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=bW+iPkrSzo0otQQoBYJMGRZoMXs1UqJR5g1BDpvaw78=; b=KrVv39S5MDqgpFZl6WPi68qdlS
+	svOSjy4s4zgIZLlGeqD1QJP9+Oz0vilDFhDhHCU0Li/973ZDZlfr6ZBJM2nnuctvOS0HsAFRNHxxk
+	zKZRIcVtL8MJOyf2R85OIf3GOF4pFhf7acYtXtyBABaAxGTpL/p9XnWSXCSkHKWIKVOf2vfLcps79
+	kLnkwotGOunouz17NXCzjr8FuZAfmUWubEciJe8AopqaxmB0g+MW/Ljub+LZ9fN0RvnCsttN74JhZ
+	F0Z1YY+jvV9qxAhSb0pxIJu+Wrbk+UNLmLsdFm77jugssuQg1KFaZ4A3qVyv9B13Fd+Oc9KuurIDK
+	FMADy6KA==;
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6Pgs-00000006ViC-1TM5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 10:34:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1789468456; x=1821004456;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=UBzkm8sfFlelF87j09jVlqAKMXd3gOjZixvTSW1iNUM=;
-  b=UdDZpaPrMhy9UxNDYdUQ2B9Vo+zb2aigrZK2mF/dN1kszowqBeQRZ+Ej
-   dH9izaiNg1Lf8B81lRq6JXWs5TCCI58ZNEqoQbdbgrOyAP+UIcS0x/E+l
-   EQNxbLCkU4L0CN+W/hrgzwhj3y/FTwtouppmpYkaY6KyWtHqDrGApMlGO
-   BkP0/QiRwF9N3/VQgAQmP6Q98oWaJJVUPuxHratEEH8yqkCkQFwcapCQ4
-   ZoMuYehqRKuOOf3AZi08YvI5wDztnGtAc/5UPpelIdurt/KO49rsCSkGx
-   04Qjvb5/JUymDoIXY7W5dNXAi/Owf16rcsTCu6rC9dljFVzpBmGRujT/I
-   w==;
-X-CSE-ConnectionGUID: 1ACFrffETBiX3sMYoaXxFA==
-X-CSE-MsgGUID: 0wEdiCWwSIuMmHBlYohsAQ==
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="295033993"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 15 Sep 2026 03:34:15 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Tue, 15 Sep 2026 03:34:14 -0700
-Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Tue, 15 Sep 2026 03:34:10 -0700
-Date: Tue, 15 Sep 2026 12:34:09 +0200
-From: Daniel Machon <daniel.machon@microchip.com>
-To: <netdev-bot+sashiko@kernel.org>
-CC: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
-	<kuba@kernel.org>, <pabeni@redhat.com>, <horatiu.vultur@microchip.com>,
-	<steen.hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>,
-	<ast@kernel.org>, <daniel@iogearbox.net>, <hawk@kernel.org>,
-	<john.fastabend@gmail.com>, <sdf@fomichev.me>, <herve.codina@bootlin.com>,
-	<arnd@arndb.de>, <gregkh@linuxfoundation.org>, <mohsin.bashr@gmail.com>,
-	<richardcochran@gmail.com>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <bpf@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH net-next v6 12/14] net: lan966x: add PCIe FDMA XDP support
-Message-ID: <20260915103409.6cwnskzb2bl43mxv@DEN-DL-M70577.microsemi.net>
-References: <20260909-lan966x-pci-fdma-v6-12-6f48dab9d671@microchip.com>
- <178904555117.219967.2055099842496630976@kernel.org>
+	Tue, 15 Sep 2026 09:43:04 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-48437356d60so44939f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 02:43:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789465380; x=1790070180; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=bW+iPkrSzo0otQQoBYJMGRZoMXs1UqJR5g1BDpvaw78=;
+        b=P03B6F3qnrwnSiyQOmMmlyRu88uWm3JyVqnjVFnHyHwwypOqOIathxGr0vneu20vjj
+         ixEXGSsgZmR3lPS3AmKOpluknwXNUOo4Dny86CwVQozhFgWileTG0Zr1IBU6Q2IkO8Wq
+         SZDTZe5QMrz6mGQT1kBLMWZIgE1Q3q3ru45XY4tpeVoutW9YFmUedktd6ZkTPKm0tFjU
+         m7osvEuSZB41M71Ox1TJdJAGFh7q6x6YBoAnUGkyEQ/YimYB3GDtOYlhrdedRICYfeGZ
+         nVJ/UDOfYDivWB5R9gOfFpps6pGed/uuKPCgdHkkpDUy7ym0Z698PvG5MQ32BxceLDJO
+         kQSw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789465380; x=1790070180;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=bW+iPkrSzo0otQQoBYJMGRZoMXs1UqJR5g1BDpvaw78=;
+        b=Y39zbAEpsURNy7AmyrzQVR6vUcQ4ISHXPwQcH9FQKE7IBiYzvST7yRkxKJmeZIZAkO
+         6TSaSxm04LFsLWR5nRBIdUg+PY2VBQx8vMXcflryXXihjQ7Fj1cbOiHi3++9zqVe4zBR
+         OY/Ip/CQfta9A/WOW2kKRZ4etcJF3DnUQHdpCMLF07c2xM/nME32S1I0t50oG2MHbQl9
+         a91WZqaIwEW76uI9PQYmI8NRTrjq3B/BP4IBvRDmmyqNFueSKPSLmWjGE83q5BXKV7Gx
+         P2A4M8I8wcUg2MASv2ImLpJI6f4zsaeECusB4hc4sjEh6j1NeGmzkHqUlo74QutDzOlA
+         0HKg==
+X-Forwarded-Encrypted: i=1; AKwUvBywTlwJO1J6c1d1KYwNfyA7Z1ua5mXzxAO953etb73vUQZh82L7FFwuA+kN9pjM4qMGF/fZVNX1iucXTAR9+dOI@lists.infradead.org
+X-Gm-Message-State: AFuF++m4K0RarKSg/prJZ1+6i4TxWUIjCDgRmbFZGuG3b6zdrZ95tDHc
+	TckWron8Khf3Euj5Vqjs5/xKjUICQvbylsluldd1RyLPOc8V0E//miHo
+X-Gm-Gg: AYBFou1tPzzaNGqGdymdqFWODmydAq21ZV7RfcUKSBZQSGOKsc863rnD2HTM40Da2MQ
+	p7mqGlXOmMiehawNgbY18O49ooqhppDYrjjJygVwRu45fII+uOdPQ+H46cVTblZI7XOE+LGJogi
+	a7LzpTpNXIEjnmQK9hQPtkAm1/StBGbMOkYr/KTk297Pn1S3Am1hl4DTbnPHERh0frrM3NN5Oc/
+	rrGGAx7yC4aagQaSmkRrmhvCBqCck6mWinK2qGULVzIgz8xa/hdSisioAkWRM9vul2JvlQe+vPu
+	L5H9K6Porxt3RTj0A84k/Kxv6CtAjQZzpaiudxg+KfoAJpnu+P9SRRTLxJM64yHH4r1xEQAoiS+
+	uD/qqXzrjxnnu1n0n/SscXxy83+B7hxQqey3+fEsUGix4djacgJ+rI6fp+5aiRmi73JloKL4Ogq
+	RdaoiT/D009vu0SFmI5XjWoRP2RN71J+ti02zoz8Glyzb0EdPLquNd/FWsbCaxFqPkXEXla1qb
+X-Received: by 2002:a05:600d:8651:20b0:49c:fc6e:a3da with SMTP id 5b1f17b1804b1-49e82915984mr584455e9.25.1789465379457;
+        Tue, 15 Sep 2026 02:42:59 -0700 (PDT)
+Received: from mobilestation ([185.195.191.165])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e7ef28e6asm49140045e9.1.2026.09.15.02.42.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 15 Sep 2026 02:42:59 -0700 (PDT)
+Date: Tue, 15 Sep 2026 12:42:55 +0300
+From: Joseph Steel <recv.jo@gmail.com>
+To: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
+Cc: "maxime.chevallier@bootlin.com" <maxime.chevallier@bootlin.com>, 
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net" <davem@davemloft.net>, 
+	"edumazet@google.com" <edumazet@google.com>, "kuba@kernel.org" <kuba@kernel.org>, 
+	"pabeni@redhat.com" <pabeni@redhat.com>, "mcoquelin.stm32@gmail.com" <mcoquelin.stm32@gmail.com>, 
+	"alexandre.torgue@foss.st.com" <alexandre.torgue@foss.st.com>, "shuah@kernel.org" <shuah@kernel.org>, 
+	"joabreu@synopsys.com" <joabreu@synopsys.com>, "yi.fang.gan@intel.com" <yi.fang.gan@intel.com>, 
+	"jun.ann.lai@intel.com" <jun.ann.lai@intel.com>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>, 
+	"linux-stm32@st-md-mailman.stormreply.com" <linux-stm32@st-md-mailman.stormreply.com>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>
+Subject: Re: [PATCH net v4 3/7] net: stmmac: Rework S-VLAN handling
+Message-ID: <judv4nfaaapgqpykt5lbnne33mojwqcwvipbxc3xuyc46j424h@cxqtyhepnbpu>
+References: <20260908164309.59282-1-ovidiu.panait.rb@renesas.com>
+ <20260908164309.59282-4-ovidiu.panait.rb@renesas.com>
+ <ybotecadvx2x3ucgqjunv77fuyeaxmwl5tn77fswraztiklrdo@ajhpl4c52hcy>
+ <OSCPR01MB12769E621C234C53F33FA88F7D3BA2@OSCPR01MB12769.jpnprd01.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <178904555117.219967.2055099842496630976@kernel.org>
+In-Reply-To: <OSCPR01MB12769E621C234C53F33FA88F7D3BA2@OSCPR01MB12769.jpnprd01.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_033416_023516_AFA87163 
-X-CRM114-Status: GOOD (  38.66  )
+X-CRM114-CacheID: sfid-20260915_104302_508007_9C96050F 
+X-CRM114-Status: GOOD (  25.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,161 +126,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Thank you for your contribution! Sashiko AI review found 1 potential
-> issue(s) to consider:
+On Tue, Sep 15, 2026 at 09:27:51AM +0000, Ovidiu Panait wrote:
+> Hi Joseph,
 > 
-> Critical: 0 · High: 0 · Medium: 1 · Low: 0
+> > 
+> > Hi
+> > 
+> > On Tue, Sep 08, 2026 at 04:43:05PM +0000, Ovidiu Panait wrote:
+> > > The ESVL and DOVLTC bits control S-VLAN tag processing and have
+> > > nothing to do with the double VLAN feature, which only provides a way
+> > > to process an additional inner VLAN tag. However, the driver code
+> > > that handles them always refers to "double VLAN", which is unrelated
+> > > and makes the implementation confusing. The driver does not use any
+> > > of the inner VLAN tag features, and the networking core does not
+> > > support offloads for the inner tag anyway.
+> > >
+> > > To simplify the logic and to reduce the confusion regarding S-Tag vs
+> > > double VLAN handling, drop the is_double logic and add a hw_svlan_en
+> > > flag that is set when S-Tag hardware handling is enabled.
+> > 
+> > I believe I suggested to just change the "double" word to "svlan", and
+> > not to drop the respective logic completely. The number of S-VLAN tags
+> > added/removed must be still counted, otherwise any subsequent VLAN
+> > S-Tag removal will disable S-VLAN processing even if there are S-Tags
+> > left added.
+> > 
 > 
-> - [Medium] Inconsistent XDP frame presentation between the two RX hooks
->   of the same driver: after this patch lan966x has two in-tree XDP RX…
+> While working on this I realized we don't actually need to toggle the
+> S-VLAN bits on/off whenever a S-VLAN tag is added/removed. We can just
+> keep them always set as long as the NETIF_F_HW_VLAN_STAG_RX or
+> NETIF_F_HW_VLAN_STAG_FILTER features are advertised.
 > 
-> --
-> 
-> net: lan966x: add PCIe FDMA XDP support
-> 
-> This adds XDP support to the lan966x PCIe FDMA path, using contiguous
-> ATU-mapped buffers and a memcpy-based XDP_TX instead of the page_pool
-> scheme used by the platform path. The IFH and FCS are stripped before
-> the BPF program runs, and lan966x_xdp_setup() now skips the page_pool
-> reload for the PCIe case. Only XDP_ACT_BASIC is advertised for PCIe.
-> 
-> > diff --git a/drivers/net/ethernet/microchip/lan966x/lan966x_fdma_pci.c b/drivers/net/ethernet/microchip/lan966x/lan966x_fdma_pci.c
-> > index 6cabbb8b47f2..02c021617a3e 100644
-> > --- a/drivers/net/ethernet/microchip/lan966x/lan966x_fdma_pci.c
-> > +++ b/drivers/net/ethernet/microchip/lan966x/lan966x_fdma_pci.c
-> 
-> [ ... ]
-> 
-> > @@ -126,7 +127,123 @@ static bool lan966x_fdma_pci_rx_size_fits(struct fdma *fdma, u32 blockl)
-> 
-> [ ... ]
-> 
-> > +static int lan966x_xdp_pci_run(struct lan966x_port *port, void *data,
-> > +                            u32 data_len, void **xdp_data, u32 *xdp_len)
-> > +{
-> 
-> [ ... ]
-> 
-> > +     xdp_prepare_buff(&xdp,
-> > +                      data - XDP_PACKET_HEADROOM,
-> > +                      XDP_PACKET_HEADROOM + IFH_LEN_BYTES,
-> > +                      data_len,
-> > +                      false);
-> > +
-> > +     act = bpf_prog_run_xdp(xdp_prog, &xdp);
-> 
-> [ ... ]
-> 
-> > @@ -158,38 +275,33 @@ static int lan966x_fdma_pci_rx_check_frame(struct lan966x_rx *rx, u64 *src_port)
-> >       if (!lan966x_fdma_pci_rx_size_fits(fdma, blockl))
-> >               return FDMA_ERROR;
-> >
-> > -     return FDMA_PASS;
-> > +     /* Present the Ethernet frame (no IFH, no FCS). HW re-inserts the
-> > +      * FCS on TX; see lan966x_fdma_pci_xmit_xdpf(). May be overridden
-> > +      * by XDP. The FCS strip is unconditional because NETIF_F_RXFCS
-> > +      * is not advertised in hw_features.
-> > +      */
-> > +     *data = virt_addr + IFH_LEN_BYTES;
-> > +     *data_len = blockl - IFH_LEN_BYTES - ETH_FCS_LEN;
-> > +
-> > +     return lan966x_xdp_pci_run(port, virt_addr, *data_len, data, data_len);
-> >  }
-> 
-> [Severity: Medium]
-> Should the two lan966x XDP receive hooks agree on whether the FCS is part
-> of the window handed to the BPF program?
-> 
-> On the PCIe path, lan966x_fdma_pci_rx_check_frame() subtracts the FCS
-> before calling into the program:
-> 
->         *data_len = blockl - IFH_LEN_BYTES - ETH_FCS_LEN;
-> 
->         return lan966x_xdp_pci_run(port, virt_addr, *data_len, data, data_len);
-> 
-> On the platform path, lan966x_fdma_rx_check_frame() passes the raw BLOCKL
-> value and lan966x_xdp_run() only removes the IFH:
-> 
-> drivers/net/ethernet/microchip/lan966x/lan966x_fdma.c:lan966x_fdma_rx_check_frame() {
->         ...
->         return lan966x_xdp_run(port, page, FDMA_DCB_STATUS_BLOCKL(db->status));
-> }
-> 
-> drivers/net/ethernet/microchip/lan966x/lan966x_xdp.c:lan966x_xdp_run() {
->         ...
->         xdp_prepare_buff(&xdp, page_address(page),
->                          IFH_LEN_BYTES + XDP_PACKET_HEADROOM,
->                          data_len - IFH_LEN_BYTES, false);
-> }
-> 
-> That BLOCKL value still contains the FCS, as shown by the trim done later
-> on the same path:
-> 
-> drivers/net/ethernet/microchip/lan966x/lan966x_fdma.c:lan966x_fdma_rx_get_frame() {
->         ...
->         skb_put(skb, FDMA_DCB_STATUS_BLOCKL(db->status));
->         ...
->         skb_pull(skb, IFH_LEN_BYTES);
-> 
->         if (likely(!(skb->dev->features & NETIF_F_RXFCS)))
->                 skb_trim(skb, skb->len - ETH_FCS_LEN);
-> }
-> 
-> So xdp.data_end points four bytes past the end of the Ethernet payload on
-> the platform path, and exactly at the end of the payload on the new PCIe
-> path. Both windows stay inside the DMA buffer, so this looks like a
-> behavioural difference rather than an out-of-bounds access.
-> 
-> A program that parses backwards from data_end, compares data_end - data
-> against an L3 length field, or trims via bpf_xdp_adjust_tail() would get
-> different results depending on whether the switch is platform- or
-> PCIe-attached. The PCIe framing matches the usual XDP convention of no
-> FCS, which would make the platform hook the one that differs from
-> convention.
->
+> This simplified the S-VLAN logic quite a bit, by getting rid of the counting.
 
-They should, and the PCIe framing is the one to keep. The strip was asked for by an
-earlier round of this review, in v3, because the PCIe hook honours the post-program
-window - lan966x_xdp_pci_run() writes back xdp.data_end - xdp.data and XDP_TX uses
-it - so an FCS left in there would be delivered as payload whenever a program
-touched the tail. The platform hook does not use them for XDP_PASS or XDP_TX at
-all - it passes the pre-program length instead.
+and reduces the system security by permitting the packets that
+otherwise would be filtered out by the controller if there is no any
+S-VLAN tags added. So no. The counting logic here is quite
+appropriate(-ish).
 
-> > diff --git a/drivers/net/ethernet/microchip/lan966x/lan966x_main.c b/drivers/net/ethernet/microchip/lan966x/lan966x_main.c
-> > index e089c08b9c37..9ada497767c6 100644
-> > --- a/drivers/net/ethernet/microchip/lan966x/lan966x_main.c
-> > +++ b/drivers/net/ethernet/microchip/lan966x/lan966x_main.c
-> > @@ -874,11 +874,13 @@ static int lan966x_probe_port(struct lan966x *lan966x, u32 p,
-> >
-> >       port->phylink = phylink;
-> >
-> > -     /* XDP is not supported on the PCIe FDMA path. */
-> > -     if (lan966x->fdma && !lan966x_is_pci(lan966x))
-> > -             dev->xdp_features = NETDEV_XDP_ACT_BASIC |
-> > -                                 NETDEV_XDP_ACT_REDIRECT |
-> > -                                 NETDEV_XDP_ACT_NDO_XMIT;
-> > +     if (lan966x->fdma) {
-> > +             dev->xdp_features = NETDEV_XDP_ACT_BASIC;
-> > +
-> > +             if (!lan966x_is_pci(lan966x))
-> > +                     dev->xdp_features |= NETDEV_XDP_ACT_REDIRECT |
-> > +                                          NETDEV_XDP_ACT_NDO_XMIT;
-> > +     }
-> 
-> [Severity: Medium]
-> Both paths now report the same NETDEV_XDP_ACT_BASIC bit from
-> lan966x_probe_port(), so is there anything in the uAPI that lets a
-> program distinguish the FCS-included window of lan966x_xdp_run() from
-> the FCS-stripped window of lan966x_xdp_pci_run()?
-> 
-> Would it make sense to make one of the two hooks match the other so that
-> the frame presentation is the same for identically-advertised netdevs?
-
-Same as above - the correct handling is removing the FCS, so the platform hook
-is the one to move. There is no uAPI signal to describe the difference with
-either, so converging is the only option.
+-Joseph
 
 > 
-> --
-> Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260909-lan966x-pci-fdma-v6-0-6f48dab9d671%40microchip.com
+> Ovidiu
+> 
+> > -Joseph
+> > 
+> > >
+> 
 
