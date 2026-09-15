@@ -4,74 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6678AC88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 05:17:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2D8DC88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 05:20:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=K5jqhd1rWZQThiHSiojLdrflTkcEKeuuTWIqNZEYP0k=; b=AJqfqLwZ8KK0bsJESc533sZwH9
-	4y1AJ6uzdTXNBt6PhjscHUnVPUeL9P+KnxXI24dZzaOMRnRRcVL4OqoMPDfjaUvgEscq+SdT3yomm
-	LBFDszxeq0YgUwrz7TZMXYVamlw0sSfxnofr8i5GZJxEbR9Oe/8U60gUwHWlNkJF9nW1ql5Hc1EG+
-	M8CGoaxqPL7OnSYPn7/eCjRENrsSLc05+JnKXwlIh76CUwysZV6BhvdRgn5+9e7K5ZKkhbNG4GtiD
-	cUSlPRhdxl8jFAa1PLH7hP7coHJVggCPuXkCgsBMAqzkUM7UeLao6UoJPMXguMSfHLcSwCmarY5rd
-	K7e5Qk+Q==;
+	bh=rSU4R22SESbjjX3cQkBbS8lUy6Q/T1lRNgl0UnLZD5I=; b=P4nZoVANTde3Jce8d/RWtmUhdu
+	QR3JC8bJeFgJSFG0cJrWxlayKUQgTBL36XRTGxDAaXtwiY7o52p0+ZbbwCWWyZCfTXK9lKfJLJ0bZ
+	os4cWsQtMAhmJnIDNvxZdNHn+gkP1iE1GoGv4IibUIgac2tV2uyQqBVK0NFU6unp3MlMWcjz6wXg1
+	qwEsfEb0oqqBQ1BK67lKHH5UrNFmqSJaHBKIv9uRSCX7n9FCykEkrQgtCVXwThYmXX7/33iurlFjJ
+	CcmYorvPQ0uip40FBSaBpwm+FTTMW8fcRPUzoOBPLWTmXEvOqEQ9gRFkBhDvR6xYKtGqVpRH+CwMI
+	HNHYOG0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6LY9-00000005ESx-3Fd0;
-	Tue, 15 Sep 2026 05:17:45 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1x6LbA-00000005EaS-0T2F;
+	Tue, 15 Sep 2026 05:20:52 +0000
+Received: from mail-pj2-x08.google.com ([2607:f8b0:4864:39::8])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6LY6-00000005ESW-1jow
+	id 1x6Lb6-00000005EZy-1THo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 05:17:44 +0000
-Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
-	by APP-01 (Coremail) with SMTP id qwCowAB3Su7z1KhqhJMJCA--.51114S2;
-	Tue, 15 Sep 2026 13:17:40 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: Frank.Li@nxp.com
-Cc: daniel.lezcano@kernel.org,
-	festevam@gmail.com,
-	imx@lists.linux.dev,
-	kernel@pengutronix.de,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	s.hauer@pengutronix.de,
-	shawn.guo@linaro.org,
-	tglx@kernel.org,
-	lkml@vger.kernel.org,
-	Wentao Liang <vulab@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH 2/6] clocksource/drivers/mxs_timer: Fix clock reference leak in mxs_timer_init
-Date: Tue, 15 Sep 2026 05:17:11 +0000
-Message-Id: <20260915051711.1727701-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	Tue, 15 Sep 2026 05:20:50 +0000
+Received: by mail-pj2-x08.google.com with SMTP id d9443c01a7336-2d313798bf8so19581845ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 22:20:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789449647; x=1790054447; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=rSU4R22SESbjjX3cQkBbS8lUy6Q/T1lRNgl0UnLZD5I=;
+        b=AsplqnAy/RCBUBc77ZDTI9gmSBlOCJMgwtFEh6vVJxe0pO4a2Mq5Kviv4bRv/yLrv+
+         Qae71/Cb+tzWyHsDblfw4qer4kIqMcVwDUfACQpU3b7jhVqsIJdI5rJs5o/oN9Mtk8FZ
+         P8cvStS96RmDV/wNO03wKoJo8KQPKR0Ggs4Ea0wlKaasm9otXJ+0IisnPVm1sI9oPi7n
+         voPP3hwQLJaGqnknhE8C+zaTXsjLCFelUU+BPIIbjGfd8i5XRBTq5Wjc7zaaj6LuFS7L
+         LOwgyTgBoKTl50TFF5Czm/bD6Q5BgB99UbvW9ZIZ69gUZFI9v0P9NqylgkYKh67hnrJS
+         2caA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789449647; x=1790054447;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=rSU4R22SESbjjX3cQkBbS8lUy6Q/T1lRNgl0UnLZD5I=;
+        b=gYRxUj8gc6GKnJzXVChyuGJqIZUhFO97rUi8Pli/M7mEXIg8SudlVJmBwmo4A5SWeK
+         rKKwXX5gFVxZLuDEVjteB5U64YjPh4ioLkgs4dPyltyo2YCgiroNzxLBYxtwi8Kpe57g
+         7gvfyApa/YbQfW4mnPinJzX2i6uVJcVmToGqVlccC6HD5jw8R7jQ9PU6U1Q+dxGTUDgS
+         uN26vml47OAijVPnA4wQKErX6Ou0YGMobrABwSh99Q/UrKKb1dyz1liLot9bP8prhuqm
+         9DN9SuK7RNDzle1pOaY4OctbW3MmoIAJCXCj6PhxcsQfCZ0Gos8wqXLmoTuWdoNca8GO
+         CEcQ==
+X-Gm-Message-State: AFuF++nsPnIG/wW9VhuSznkt9a57og1NxEKQAMZk5NV5UKCOk8bhYWnO
+	+aJgomtGf4nQaipl23l4HeC5RoM5v4X99AISjNvVAB2aXFinYBuAk5bqvNfDiyqqezg=
+X-Gm-Gg: AYBFou3n5kAY8Y5OhvBtB0ar5ekSGkaxmpW7tg6hi9c+LYy9+mnaIUv6O3hT0TjW5gW
+	OpilDBeZvt2GtjSr/uD60ZPPz2tECNlixgnt1O/7z9+pfozuybYghhDcvNSXMXQ30XLfai82hhJ
+	vTSRWgp2jpnacDVoSRCBebxXAGdAu+guibokhIIqn6DMNKaNLgk6/mmHDqOt1Htm0j53GgkPiFL
+	5rHW8MzrWLEMx8sRD0fkvfo6+YnfM7qLxOVRKH97vb+VPKd7dC21Mfb8wj60Sd/TCuYFvLbvcjX
+	70eJabr79CKwleXjSz8CWkzzzdCTItIuRxIarqQbLMF7XMH+InVlxCuF//FpMAzzd1FvRifX2Ub
+	oCTvTwLNAwumtNeKG/aLOUQL4ozjXdWb36h2kcmIBfeoc4J5kRZug/ndxS51LupJZ3YTcL/NqXz
+	W2Ldh/e5++kYDIqGfctUFVKrcyopGeIzKNNE5q9Fa3/DVMOPFcwU99BqrsAEQqRziUHx4ZhuiRL
+	rYDz8nzDopexY9wycmMGfUtOs7LBVFYN5Cg4cgkr9thDzA62I7zW5FVsnk/czhLO2yIWafkSeRb
+	FbYNgh6iRekbtF8JYP0nvpdvTg6SsvH2nHR8qzX5zQ520WdptDrqMZCXdsr6bFjo0A==
+X-Received: by 2002:a05:6a20:1609:b0:3d3:afd9:6040 with SMTP id adf61e73a8af0-3db40746ea8mr13353608637.27.1789449646922;
+        Mon, 14 Sep 2026 22:20:46 -0700 (PDT)
+Received: from ethan-latitude5420.. (host-127-24.cafrjco.fresno.ca.us.clients.pavlovmedia.net. [68.180.127.24])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33ba4f7390csm30258521eec.26.2026.09.14.22.20.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 14 Sep 2026 22:20:46 -0700 (PDT)
+From: Ethan Nelson-Moore <enelsonmoore@gmail.com>
+To: linux-arm-kernel@lists.infradead.org,
+	Alex Guo <alexguo1023@gmail.com>,
+	linux-fbdev@vger.kernel.org,
+	dri-devel@lists.freedesktop.org
+Cc: Russell King <linux@armlinux.org.uk>,
+	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
+	Helge Deller <deller@gmx.de>
+Subject: [PATCH] video: acornfb: remove unused code for 26-bit hardware
+Date: Mon, 14 Sep 2026 22:20:29 -0700
+Message-ID: <20260915052038.626258-1-enelsonmoore@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: qwCowAB3Su7z1KhqhJMJCA--.51114S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7WFyUGFyUJw43ur17GFWkXrb_yoW5JF43pw
-	s7W3y5tr1UXr4Sg3Wftr1qqF9xKayIkF9rGr1fG3Z7Ar43A34jyFyUJFyqq3WakrWkAw43
-	Za1rJrs5CFyUAFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9I14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
-	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r4UJVWxJr1lOx8S6xCaFVCjc4AY6r
-	1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02
-	628vn2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4
-	IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1r
-	MI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJV
-	WUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j
-	6r1xMIIF0xvEx4A2jsIE14v26r4j6F4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJb
-	IYCTnIWIevJa73UjIFyTuYvjfUr6wZDUUUU
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAILA2qowzNBSAAAs9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_221742_829806_FF17A5FE 
-X-CRM114-Status: GOOD (  14.99  )
+X-CRM114-CacheID: sfid-20260914_222048_457323_D9AA52BE 
+X-CRM114-Status: GOOD (  19.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,87 +100,230 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mxs_timer_init() looks up the timer clock with of_clk_get(), which takes
-a reference on the clock, but no clk_put() exists anywhere in the
-driver. The reference is leaked on every return path after the clock
-has been obtained:
+The acornfb driver contains code to support machines with a MEMC chip
+and without IOMD and VIDC20 chips. All 32-bit Acorn hardware has IOMD
+and VIDC20 chips and does not have a MEMC chip.
 
-- clk_prepare_enable() failure,
-- mxs_clocksource_init() failure,
-- mxs_clockevent_init() failure,
-- irq_of_parse_and_map() failure,
-- request_irq() failure,
-- and on success, where the clock is intentionally left enabled for the
-  timer but the local timer_clk pointer is lost.
+Linux formerly supported 26-bit Acorn computers, but that support was
+removed in commit 99eb8a550dbc ("Remove the arm26 port") because it had
+bitrotted to the extent that it did not even compile.
 
-Add proper error unwinding: on failure of clk_prepare_enable() only the
-reference is dropped, on the later error paths the clock is disabled and
-unprepared before the reference is dropped, and on success the reference
-is dropped while keeping the clock enabled.
+Remove this unused code. Also take the opportunity to remove incorrect
+file paths in the file headers, which are bad style regardless.
 
-Fixes: 2efb950465e9 ("ARM: mxs: look up timrot clock from device tree")
-Cc: stable@vger.kernel.org
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+Signed-off-by: Ethan Nelson-Moore <enelsonmoore@gmail.com>
 ---
- drivers/clocksource/mxs_timer.c | 30 +++++++++++++++++++++++-------
- 1 file changed, 23 insertions(+), 7 deletions(-)
+ drivers/video/fbdev/acornfb.c | 57 +++++++++--------------------------
+ drivers/video/fbdev/acornfb.h |  8 +----
+ 2 files changed, 15 insertions(+), 50 deletions(-)
 
-diff --git a/drivers/clocksource/mxs_timer.c b/drivers/clocksource/mxs_timer.c
-index e52e12d27d2a..dd58d7505797 100644
---- a/drivers/clocksource/mxs_timer.c
-+++ b/drivers/clocksource/mxs_timer.c
-@@ -215,8 +215,10 @@ static int __init mxs_timer_init(struct device_node *np)
+diff --git a/drivers/video/fbdev/acornfb.c b/drivers/video/fbdev/acornfb.c
+index f0600f6ca254..30781679c90a 100644
+--- a/drivers/video/fbdev/acornfb.c
++++ b/drivers/video/fbdev/acornfb.c
+@@ -1,7 +1,5 @@
+ // SPDX-License-Identifier: GPL-2.0-only
+ /*
+- *  linux/drivers/video/acornfb.c
+- *
+  *  Copyright (C) 1998-2001 Russell King
+  *
+  * Frame buffer code for Acorn platforms
+@@ -94,7 +92,6 @@ static struct vidc_timing current_vidc;
+ 
+ extern unsigned int vram_size;	/* set by setup.c */
+ 
+-#ifdef HAS_VIDC20
+ #include <mach/acornfb.h>
+ 
+ #define MAX_SIZE	(2*1024*1024)
+@@ -306,7 +303,6 @@ acornfb_setcolreg(u_int regno, u_int red, u_int green, u_int blue,
+ 
+ 	return 0;
+ }
+-#endif
+ 
+ /*
+  * Before selecting the timing parameters, adjust
+@@ -390,7 +386,6 @@ acornfb_adjust_timing(struct fb_info *info, struct fb_var_screeninfo *var, u_int
+ 	/* hsync_len must be even */
+ 	var->hsync_len = (var->hsync_len + 1) & ~1;
+ 
+-#if defined(HAS_VIDC20)
+ 	/* left_margin must be even */
+ 	if (var->left_margin & 1) {
+ 		var->left_margin += 1;
+@@ -400,7 +395,6 @@ acornfb_adjust_timing(struct fb_info *info, struct fb_var_screeninfo *var, u_int
+ 	/* right_margin must be even */
+ 	if (var->right_margin & 1)
+ 		var->right_margin += 1;
+-#endif
+ 
+ 	if (var->vsync_len < 1)
+ 		var->vsync_len = 1;
+@@ -436,11 +430,7 @@ acornfb_update_dma(struct fb_info *info, struct fb_var_screeninfo *var)
+ {
+ 	u_int off = var->yoffset * info->fix.line_length;
+ 
+-#if defined(HAS_MEMC)
+-	memc_write(VDMA_INIT, off >> 2);
+-#elif defined(HAS_IOMD)
+ 	iomd_writel(info->fix.smem_start + off, IOMD_VIDINIT);
+-#endif
+ }
+ 
+ static int
+@@ -469,7 +459,6 @@ acornfb_check_var(struct fb_var_screeninfo *var, struct fb_info *info)
+ 		var->transp.length = 0;
+ 		break;
+ 
+-#ifdef HAS_VIDC20
+ 	case 16:
+ 		var->red.offset    = 0;
+ 		var->red.length    = 5;
+@@ -491,7 +480,6 @@ acornfb_check_var(struct fb_var_screeninfo *var, struct fb_info *info)
+ 		var->transp.offset = 24;
+ 		var->transp.length = 4;
+ 		break;
+-#endif
+ 	default:
+ 		return -EINVAL;
+ 	}
+@@ -519,6 +507,9 @@ acornfb_check_var(struct fb_var_screeninfo *var, struct fb_info *info)
+ 
+ static int acornfb_set_par(struct fb_info *info)
+ {
++	unsigned long start, size;
++	u_int control;
++
+ 	switch (info->var.bits_per_pixel) {
+ 	case 1:
+ 		current_par.palette_size = 2;
+@@ -536,7 +527,6 @@ static int acornfb_set_par(struct fb_info *info)
+ 		current_par.palette_size = VIDC_PALETTE_SIZE;
+ 		info->fix.visual = FB_VISUAL_PSEUDOCOLOR;
+ 		break;
+-#ifdef HAS_VIDC20
+ 	case 16:
+ 		current_par.palette_size = 32;
+ 		info->fix.visual = FB_VISUAL_DIRECTCOLOR;
+@@ -545,41 +535,26 @@ static int acornfb_set_par(struct fb_info *info)
+ 		current_par.palette_size = VIDC_PALETTE_SIZE;
+ 		info->fix.visual = FB_VISUAL_DIRECTCOLOR;
+ 		break;
+-#endif
+ 	default:
+ 		BUG();
  	}
  
- 	ret = clk_prepare_enable(timer_clk);
--	if (ret)
-+	if (ret) {
-+		clk_put(timer_clk);
- 		return ret;
-+	}
+ 	info->fix.line_length	= (info->var.xres * info->var.bits_per_pixel) / 8;
  
- 	/*
- 	 * Initialize timers to a known state
-@@ -256,18 +258,32 @@ static int __init mxs_timer_init(struct device_node *np)
- 	/* init and register the timer to the framework */
- 	ret = mxs_clocksource_init(timer_clk);
- 	if (ret)
--		return ret;
-+		goto err_clk_disable;
+-#if defined(HAS_MEMC)
+-	{
+-		unsigned long size = info->fix.smem_len - VDMA_XFERSIZE;
++	start = info->fix.smem_start;
++	size  = current_par.screen_end;
  
- 	ret = mxs_clockevent_init(timer_clk);
- 	if (ret)
--		return ret;
-+		goto err_clk_disable;
+-		memc_write(VDMA_START, 0);
+-		memc_write(VDMA_END, size >> 2);
++	if (current_par.using_vram) {
++		size -= current_par.vram_half_sam;
++		control = DMA_CR_E | (current_par.vram_half_sam / 256);
++	} else {
++		size -= 16;
++		control = DMA_CR_E | DMA_CR_D | 16;
+ 	}
+-#elif defined(HAS_IOMD)
+-	{
+-		unsigned long start, size;
+-		u_int control;
+-
+-		start = info->fix.smem_start;
+-		size  = current_par.screen_end;
+-
+-		if (current_par.using_vram) {
+-			size -= current_par.vram_half_sam;
+-			control = DMA_CR_E | (current_par.vram_half_sam / 256);
+-		} else {
+-			size -= 16;
+-			control = DMA_CR_E | DMA_CR_D | 16;
+-		}
  
- 	/* Make irqs happen */
- 	irq = irq_of_parse_and_map(np, 0);
--	if (irq <= 0)
--		return -EINVAL;
-+	if (irq <= 0) {
-+		ret = -EINVAL;
-+		goto err_clk_disable;
-+	}
-+
-+	ret = request_irq(irq, mxs_timer_interrupt, IRQF_TIMER | IRQF_IRQPOLL,
-+			  "MXS Timer Tick", &mxs_clockevent_device);
-+	if (ret)
-+		goto err_clk_disable;
-+
-+	clk_put(timer_clk);
-+
-+	return 0;
-+
-+err_clk_disable:
-+	clk_disable_unprepare(timer_clk);
-+	clk_put(timer_clk);
+-		iomd_writel(start,   IOMD_VIDSTART);
+-		iomd_writel(size,    IOMD_VIDEND);
+-		iomd_writel(control, IOMD_VIDCR);
+-	}
+-#endif
++	iomd_writel(start,   IOMD_VIDSTART);
++	iomd_writel(size,    IOMD_VIDEND);
++	iomd_writel(control, IOMD_VIDCR);
  
--	return request_irq(irq, mxs_timer_interrupt, IRQF_TIMER | IRQF_IRQPOLL,
--			   "MXS Timer Tick", &mxs_clockevent_device);
-+	return ret;
- }
- TIMER_OF_DECLARE(mxs, "fsl,timrot", mxs_timer_init);
+ 	acornfb_update_dma(info, &info->var);
+ 	acornfb_set_timing(info);
+@@ -709,10 +684,8 @@ static void acornfb_init_fbinfo(void)
+ 	 */
+ 	memset(&fb_info.var, 0, sizeof(fb_info.var));
+ 
+-#if defined(HAS_VIDC20)
+ 	fb_info.var.red.length	   = 8;
+ 	fb_info.var.transp.length  = 4;
+-#endif
+ 	fb_info.var.green	   = fb_info.var.red;
+ 	fb_info.var.blue	   = fb_info.var.red;
+ 	fb_info.var.nonstd	   = 0;
+@@ -991,7 +964,6 @@ static int acornfb_probe(struct platform_device *dev)
+ 
+ 	size = PAGE_ALIGN(size);
+ 
+-#if defined(HAS_VIDC20)
+ 	if (!current_par.using_vram) {
+ 		dma_addr_t handle;
+ 		void *base;
+@@ -1011,7 +983,6 @@ static int acornfb_probe(struct platform_device *dev)
+ 		fb_info.screen_base = base;
+ 		fb_info.fix.smem_start = handle;
+ 	}
+-#endif
+ 	fb_info.fix.smem_len = size;
+ 	current_par.palette_size   = VIDC_PALETTE_SIZE;
+ 
+diff --git a/drivers/video/fbdev/acornfb.h b/drivers/video/fbdev/acornfb.h
+index e65388587f80..e33ea24ae0e1 100644
+--- a/drivers/video/fbdev/acornfb.h
++++ b/drivers/video/fbdev/acornfb.h
+@@ -1,16 +1,13 @@
+ /* SPDX-License-Identifier: GPL-2.0-only */
+ /*
+- *  linux/drivers/video/acornfb.h
+- *
+  *  Copyright (C) 1998,1999 Russell King
+  *
+  *  Frame buffer code for Acorn platforms
+  */
+-#if defined(HAS_VIDC20)
+ #include <mach/iomd.h>
++
+ #define VIDC_PALETTE_SIZE	256
+ #define VIDC_NAME		"VIDC20"
+-#endif
+ 
+ #define EXTEND8(x) ((x)|(x)<<8)
+ #define EXTEND4(x) ((x)|(x)<<4|(x)<<8|(x)<<12)
+@@ -94,7 +91,6 @@ struct modex_params {
+ 	const struct modey_params *modey;
+ };
+ 
+-#ifdef HAS_VIDC20
+ /*
+  * VIDC20 registers
+  */
+@@ -162,5 +158,3 @@ struct modex_params {
+ #define VIDC20_DCTL_VRAM_PXCLK	(1 << 18)
+ #define VIDC20_DCTL_VRAM_PXCLK2	(2 << 18)
+ #define VIDC20_DCTL_VRAM_PXCLK4	(3 << 18)
+-
+-#endif
 -- 
-2.34.1
+2.43.0
 
 
