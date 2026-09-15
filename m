@@ -4,110 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F4DBC88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 04:43:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CF62C88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 04:44:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UoOAQKGYJOU9cLqt1H/9UiJiW7vYwYjslaP7yC1APho=; b=0BkRI/jyUEY1LV43LDT8ADOF5j
-	6i0AFE2ldnkVyPQx0DkWtUlpqZFCSOI3Pvo7WgvPttHPToXBzIl+9iyVdozTJL3kqMzDsqBZOyh0y
-	DZ/RgQmNw1agQpo4qncQz8qv28b8KcMUKoP37zreM5exlip/7bmefYDw3cqT37jHPohxHcXgsehaP
-	W+W64SK7lUQFBhdhi/hGaDOuLs1a3EMkRcpxI/fGJJT6w8Lf3LNn4uTrdo/yQ1yss7rnQI0qeZaOx
-	z5YTCryF23pVo4Zv0767okUBxPK99Qwstbkicu3InBYlWEPvl93giSpG2GooDwjWe4wbo64YZoNLU
-	FaQpRtew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=R17raKv3A7dRbP0Z0IS8IcCAkKFbNj8l0X/n53cwErk=; b=sXFpzgu/TRyHa2N0LSCpA9tb6V
+	tBHEI0pxc3eLyu5UelUs7tXpey3JW6zCjqW1G5KXT3HT8/SfbzFvwCNJdbOBVkXEacWD8EsApM4Ji
+	zp/uOGvQhiyGMQp6rUx9+4svyw3Qp3HHcyowXxL1eVn/8T20cqgQ2EsCwvyouoSfcNdoW1jdltrh8
+	nOeq0f0WN5LR3k9Tf6oI7Vz/8uNgw2K9O+mjp9OrSMTqKTCiCH0sX2aq9S7I3UvIl9AklLn38q1d8
+	QbhY0LJ6728yB2gSOPAlJh2fTpkFkLT5hDJifXtGh48HZg8raj8IU2YVm3cgmYqiIMPzQZhhCJCcQ
+	nCVkJfug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6L0s-00000005CYk-3xZ3;
-	Tue, 15 Sep 2026 04:43:22 +0000
-Received: from mail-ej2-x10.google.com ([2a00:1450:4864:34::10])
+	id 1x6L1X-00000005Chs-0gqJ;
+	Tue, 15 Sep 2026 04:44:03 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6L0p-00000005CWm-1CNW
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 04:43:21 +0000
-Received: by mail-ej2-x10.google.com with SMTP id a640c23a62f3a-c254f55efe5so410947966b.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 21:43:18 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1789447397; cv=none;
-        d=google.com; s=arc-20260327;
-        b=eNWo1OJh1Eb+hZJ9Lua7QHaz4t5wpi5VrHFgZ5kEbc6QRWczebilR7IkJQYRY6qZ/Q
-         uKu2fv0kKdGy5CXfnw8x/azI3mOHUP+WULXZA8CHm93niOlm6xwRGbehIbnXjB03w/Qs
-         r4lw9KzE/LoENylv/u0pI+nQKsqoHcuB8AlpWB7z969JkEnzn0x7pq7n1fL2uIgRV6pR
-         q68gcKA+T0VRyWB6gVj3dwsT96xAhjnHbVwC3K4ALOu+U8rtBdm3wjehAgqSMYoG4cW7
-         rpd7GCKmkygaTwJ4nyWkOEX2qc8uwYe11+/RPlF9+oSVWw0X8HT6yotsP30vxCN3+gXJ
-         kDDQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=UoOAQKGYJOU9cLqt1H/9UiJiW7vYwYjslaP7yC1APho=;
-        fh=qsPLqLm44kx5Api3BvKc9e+v/BzPorahfIpevYYma/0=;
-        b=aC2x7oOc9EtpFScZoddxjJi7PVKUUjYYhOV69BIYkBJDJonjSvK5/+pClIB72abi7C
-         RCLPSDWMntqPhmGpMbkRO8h0sWsdcCDzavdkU6hRN8Yy5Hwn85I6guCjxMPIvQp2aish
-         VStw2s3fzWyBFMz2ylQAMTHfyckF5Xmdez+bOfcrZboMiFFCfXC4ime/JyNJNqCRvUhZ
-         3MdXlLcMzYQvlxs4gpBn41Z+FZbRe0vUrGAQL3ZcLRNd7Jb93NnKVN2lYeDDWe8IFHda
-         Vlf82fRvMjG6+nudOzzyzOffoGaU35s+JMSU9hzKHybMc136yM6Brb4gQH7ViNPf0eyl
-         zbcA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789447397; x=1790052197; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=UoOAQKGYJOU9cLqt1H/9UiJiW7vYwYjslaP7yC1APho=;
-        b=B6EOoKxYTCoOE/SqEpxC2dZX+wMDjg9mxOwq5MAfu9z3z+Xg0id5gu8znW6g12jJwt
-         lZAqapVM18ws+DNXUp+a+fYGaN7v7ifQJdU4eXJCJyjG9v49ES7UlVYcWsJMbRcBlJye
-         vUWxiXBhBlTYglxjMf3Bdf9V628GMEiAVm9UrhXfZr8xKFaVVhEI88r8e0ENKd7ZlojL
-         Om1334bnc4K+3yjsklPeag+vze7/FN0oeFeCgS9NeLrWQqlRX+T/U0+yUcAHfYNLD/Vr
-         Z6StcYPwlkEfAHucNHQoffs9EiRFkZ11WaxLpAfgO1uDAytIcPA5Ec24UySnR8NWdrmU
-         dmwQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789447397; x=1790052197;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=UoOAQKGYJOU9cLqt1H/9UiJiW7vYwYjslaP7yC1APho=;
-        b=1wxADzzv53QO+TkAU0fw5j1Pklh6BYc0td1stV5JuWHTtnbT90PEwRIJwOvPDRY7zm
-         7Tj9FHCp+tff4LFPJzTD+dmbk50BgIKkdvxFMaJC6ng/DcBwhE+8AKod/TVG/sck4Tbf
-         6BewsYRmEd5MbwtozJQoHXj6iLQugdX1mxFY1I/30JL0IDhsxEeYcM47nTRy7JC4usfY
-         zy1g7W8l87ttsmlhh/5VN/9gCLTJrNJFVUVrHkHvo9X6oZELzPQQesQocmlZrc7IqQLC
-         rfKozoWz2QKJ53JVBJcVwD6J4G07XFjaam4sbB3FByc6uyv3zbgSyDS0jWY3avkmraIH
-         qkLQ==
-X-Forwarded-Encrypted: i=1; AKwUvByVqyHGxW+em6JzJhRtA8dnh3ci0cyLwyB3F9w3lPM/XyRR33d3flRiSICIshYs7pu5twq1CPfkDoHZw2oziFlK@lists.infradead.org
-X-Gm-Message-State: AFuF++m7gQIFS4TxRLo267rI3jQZmtHdoMkoeVo1q87h5H0SMfQD9jxy
-	IdFl9w9/XhgYEO1OdyVR7DRy39iPY6IABezcToDiGsbtQyVm7kHi7xVtpPvJBMFz1hDJRl/zt+A
-	YUc4VpOFhwsKw8M228RpRjFcxNgvnjMA=
-X-Gm-Gg: AYBFou1tfGcuvdfees7IIv+wM5W70xh0PWOIun7dxi1mQ68O65cX7RaKe/Ussv3ztSe
-	4MCjNbDjxYmEqFbSG28NWxdgoG/ALt7RrWy+AHH2f5waOKYGm4Ab0P7Ev6v/4UI8qYxQRSvE7V1
-	mdlUo9vanl42PDej1gPQK1jieRYUZJ83sIZk8YZNxWasEMrR/NQRZ9V55pjrDwC0iyiROGsycZI
-	ji4qEDHoPoxP1Ebz03uMREg1IVCK2jo7CRN/J/OxUQPgx45pOmBzm5yIDiosLik39w81WkEwxk/
-	vFF4tVJlD2OInqtvv8iVLL0BTIXAj97tG86eXSFZy9IXSITiymVh3Q==
-X-Received: by 2002:a17:907:1ca7:b0:c24:87e3:b8b8 with SMTP id
- a640c23a62f3a-c29b85faa3bmr342332266b.17.1789447396541; Mon, 14 Sep 2026
- 21:43:16 -0700 (PDT)
+	id 1x6L1V-00000005Chh-3Cpe;
+	Tue, 15 Sep 2026 04:44:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=R17raKv3A7dRbP0Z0IS8IcCAkKFbNj8l0X/n53cwErk=; b=Fejze0j+SE4/cndYjFxdg4IOzM
+	WUgfnycJcmEIBwAejWLcqVpKYQnfDPsWHRRvQVjXG7QdIMvqnE+W/pokid6PqE0vnMqQiaGKYb3hu
+	rYFTQERPr6VNTb0tn1PV2WAOpGVlQ84QJQG1lpsi+bkY9VED8ppaIFY26FFOEuDmU6qd5Xkjz8Tkn
+	VYTmoa0ttWfx9GgA/CyTmta9/HPOd3x6niaZEqs6DtNePgW+6mKVqdE3IwVNpTIYSUwb+PnezxTER
+	N1uO5clI0D51/UYl6tG0JFm6r6mo5VOSPXRKp0Fnr0rEq3D0bHcSCL9ZZJ31SQH6RAMMj8VIB7Bad
+	QRg/rvdA==;
+Received: from mail.mdapi.ch ([31.3.128.54])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6L0l-00000006Gbm-1EAr;
+	Tue, 15 Sep 2026 04:43:58 +0000
+From: Martino Dell'Ambrogio <tillo@tillo.ch>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tillo.ch; s=mail202603;
+	t=1789447383;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=R17raKv3A7dRbP0Z0IS8IcCAkKFbNj8l0X/n53cwErk=;
+	b=OuSbTTxeQeoVaSq50k3p04BeRq+7cMcJ0MvPJa0qOXiCzU3MJVtd+1bfodzWQfmfQqSjqY
+	qyvXMojZFVSTC2VhK2xjejCpSE8wi5tEA3yrGa3jTzqc2bv2YHNyXjKJe0prFuibH0Gc1o
+	XoPH8gpNaxsEZfVhCxbEipAishcwGSS2iqNv9wvrNZgzBJQlEDzIA8AzJvATBc2m4EyVEp
+	M0aQhmfexP4p46trWHu9WZW+R6jqGMGsjRZa6Yc06rTuqjJBfMBZV2ZwEWkeYyWJS/z+Eb
+	zRBupS6VDq0EnaFl/RL4l30rY6daSiSGAlhS1Y8D7/DTYuraPrjfsQFlQFScWw==
+To: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	kees@kernel.org,
+	tony.luck@intel.com,
+	gpiccoli@igalia.com
+Subject: [PATCH v3] arm64: dts: mediatek: mt7986a-bananapi-bpi-r3: add ramoops region
+Date: Tue, 15 Sep 2026 06:43:02 +0200
+Message-ID: <20260915064302.1595204-1-tillo@tillo.ch>
 MIME-Version: 1.0
-References: <20260913145905.9404-1-linux.amoon@gmail.com> <20260913145905.9404-6-linux.amoon@gmail.com>
- <5c24248e-bee2-4256-af8f-a80be6744431@kernel.org>
-In-Reply-To: <5c24248e-bee2-4256-af8f-a80be6744431@kernel.org>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Tue, 15 Sep 2026 10:13:00 +0530
-X-Gm-Features: AcwNN1URmaKTajm5R0ygh2EGOJeV70g6e6uI0S2uQ6QQ5XvRrWbqrXu2Cftp_OY
-Message-ID: <CANAwSgR6sEz8am8Vd_32EhnNjfybZAr=JR1MUjLHidZ+5mdTww@mail.gmail.com>
-Subject: Re: [PATCH v9 5/9] thermal/drivers/exynos: Remove redundant
- base_second register resource
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
-	Lukasz Luba <lukasz.luba@arm.com>, Peter Griffin <peter.griffin@linaro.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, 
-	"open list:SAMSUNG THERMAL DRIVER" <linux-samsung-soc@vger.kernel.org>, 
-	"open list:THERMAL" <linux-pm@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>, 
-	"moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES" <linux-arm-kernel@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_214319_349207_323ABE1C 
-X-CRM114-Status: GOOD (  15.88  )
+X-CRM114-CacheID: sfid-20260915_054330_968706_F88E2F3C 
+X-CRM114-Status: GOOD (  14.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,28 +84,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Reserve 64 KiB of RAM just below the ARM Trusted Firmware secmon region
+(0x42ff0000-0x43000000) for persistent kernel log storage via pstore/ramoops,
+allowing post-panic console output and oops dumps to be recovered after a
+warm reset. Without it, kernel crash logs on this board are lost when the
+SoC reboots.
 
-Thanks for your review comments.
-On Mon, 14 Sept 2026 at 12:36, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->
-> On 13/09/2026 16:58, Anand Moon wrote:
-> > The Exynos5420 TRIMINFO register can be accessed through the main TMU
-> > register space, so a separate register mapping is not required.
->
-> No, the address is misplaced. You completely ignored entire point for
-> second base, without any arguments, any data, anything, and just drop it
-> completely.
->
-> NAK
-I removed base_second based on the observation that it is only used to access
-EXYNOS_TMU_REG_TRIMINFO for the CPU and GPU instances.
-It is not used for any other TMU register accesses in the driver.
+The zone sizes (record-size=8 KiB, console-size=32 KiB, ftrace-size=8 KiB,
+pmsg-size=8 KiB) consume the full 64 KiB carve-out. The requested ecc-size=16
+reserves a small Reed-Solomon parity block from each zone's own allocation
+in persistent_ram_new(), which lets pstore recover dumps even when the panic
+path truncates writes mid-record.
 
->
-> Best regards,
-> Krzysztof
+The no-map property is required so the reserved region is kept out of the
+kernel linear map. ramoops remaps the carve-out write-combine via
+ioremap_wc(); on arm64, leaving the same physical RAM mapped cacheable in
+the linear map at the same time is an attribute-mismatch and risks losing
+panic data to dirty cache evictions from the linear alias.
 
-Thanks
--Anand
+The region sits immediately below the ATF block already declared at
+0x43000000 in mt7986a.dtsi, so no other reserved-memory child is moved or
+resized. BPI-R3 ships with 2 GiB of DRAM starting at 0x40000000, well above
+0x43000000, so the region is always within installed memory.
+
+For the carve-out to actually preserve content across a reset, the boot
+loader must avoid touching this region on warm reset; on standard BPI-R3
+boards with the stock OpenWrt U-Boot fork this already holds.
+
+Signed-off-by: Martino Dell'Ambrogio <tillo@tillo.ch>
+---
+Changes in v3:
+ - Resend; no functional change. Rebased on v7.3-rc3, where the v2 diff
+   still applies unmodified.
+ - v2 drew no review comments. It was also sent, in error, as a reply to
+   the BPI-R4 patch's thread rather than its own, so it is likely to have
+   been read as a duplicate of that board's patch. This version starts a
+   fresh thread to avoid repeating that.
+
+The matching BPI-R4 (mt7988a) patch is being resent as v3 at the same time.
+
+v2: https://lore.kernel.org/all/20260528123655.2650868-1-tillo@tillo.ch/
+v1: https://lore.kernel.org/all/20260528093038.1945245-1-tillo@tillo.ch/
+
+ .../boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts   | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts b/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
+index 637e556..322a12d 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
++++ b/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
+@@ -142,6 +142,19 @@
+ 	};
+ };
+ 
++&{/reserved-memory} {
++	ramoops@42ff0000 {
++		compatible = "ramoops";
++		reg = <0 0x42ff0000 0 0x10000>;
++		no-map;
++		record-size = <0x2000>;
++		console-size = <0x8000>;
++		ftrace-size = <0x2000>;
++		pmsg-size = <0x2000>;
++		ecc-size = <16>;
++	};
++};
++
+ &cpu_thermal {
+ 	cooling-maps {
+ 		map-cpu-active-high {
+-- 
+2.47.3
+
+
 
