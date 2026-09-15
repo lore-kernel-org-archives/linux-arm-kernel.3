@@ -4,68 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A210C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 22:42:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6248C88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 22:43:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QNxI24y/TunKWl5C4ctu+sU3K8XoQzuW+d1dKY+Zk0A=; b=pHVKMs6xGgv3WloB00OIuRvgqe
-	dT9ZEu3HntDMsCazrG5NRk0J4Xwbrl+As2wjME54UrWvLyvp/BxXh11wGnebvPSxDoJX3z5/noFlZ
-	HaHlqLvcKQK0HJZ38qT55CArpTqmGGZAjlyntO9cFpWZH35TBdrZsw1iWn3J/hFSdLSpEVY1gqnkE
-	sLI4gTUAZ44GuTZJ/udPdvi5oJR4d+kJyiKwn/mwSLNaZqW/tDOsc7G4khnJ7Ep/oNitdbPz9yj0e
-	oPrBnbtjD21Ug9zeeIHTlG/RZgrDewBoTa/pOjkB8xFdzQNSAfVi0Kl3fOmSP5eoY0rCViKGU/JsM
-	H4NXLsJA==;
+	bh=vwdoqTGuyO4C3EZ+RGFskEZ/g/dWqbO7AhuVdfp6zjY=; b=f6fvkowXQeo7t+OG8Vi9Tmv7kX
+	VgMAL2gzO7JlLGzbV8hcyq80cAd8Lj2duDrVVGpmGx9RrwIzLF+x2gDQSARczVPTqx6SCI4FDdNwm
+	a9eKwdq8C3HxSGJQ+10ME1oAK5IpbylKUM2ogYCgtV9mPVEhuiawmqW1NOxQzb8vNSKL27NqKaYE2
+	7yJt0zlTjU+lytSaaL+DNKlCAkboG+Y8gebNNoSkMyLAN0KlmipVqvqx1A9gQ8GW599xSYms65jWs
+	36LP7rWtKgYfwtY4P9YqqkH9TXVaGEisUx9t2RpqhZs/KcAb8y9/G9idjsjVOXqWMKm8cS/EnuuGm
+	s2dHysSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6bbV-000000080NB-4BcY;
-	Tue, 15 Sep 2026 22:26:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x6brv-00000008294-0GGJ;
+	Tue, 15 Sep 2026 22:43:15 +0000
+Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6bb1-000000080J1-074I
+	id 1x6brs-0000000828j-0tgY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 22:25:47 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 56176410AF;
-	Tue, 15 Sep 2026 22:25:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 100211F0089A;
-	Tue, 15 Sep 2026 22:25:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789511146;
-	bh=QNxI24y/TunKWl5C4ctu+sU3K8XoQzuW+d1dKY+Zk0A=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Qlu+BstI+KeC/+51Se/nSMCSIVHhkuoebDOQF430ks/qH2TgcDhtSLujgIJxxxzo6
-	 vMSstDex8T23NYcsT9gfC13O4h3wLPfaY4evcTEJg53z/eHgRIcCz271+8x9rkLLv6
-	 BAx3YTr+0tcv7QU3b/d6bkvHlb+lhWOBr1wdrkFVNi1MPIZIvSFT85yCo4Zhm164dl
-	 FQa/cON2MpxXqNiLx9kvwPTwj3o6fOBUfQYMEQ9zi/QlqOHbdh64SN2olYjXj3Mqr3
-	 pbgF+jLOwA0hKlb2efGbCaQBinsBfBoivb1jOBtbZ93M+Kqkn9vEl4rhZ3R/jZAdVh
-	 VKfs8EPLlvm1Q==
-From: Oliver Upton <oupton@kernel.org>
-To: Marc Zyngier <maz@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Quentin Perret <qperret@google.com>,
-	Stefan Teodorescu <fane@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/4] KVM: arm64: pKVM SVE vCPU init fixes
-Date: Tue, 15 Sep 2026 15:25:34 -0700
-Message-ID: <178951103700.10790.15404656431875850871.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260825085948.1674721-1-fuad.tabba@linux.dev>
-References: <20260825085948.1674721-1-fuad.tabba@linux.dev>
+	Tue, 15 Sep 2026 22:43:13 +0000
+Received: from pps.filterd (m0374956.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68FLsujV1039582;
+	Tue, 15 Sep 2026 17:43:08 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=vwdoqTGuyO4C3EZ+RGFskEZ/g/dWqbO7AhuVdfp6z
+	jY=; b=DUYuvjXtjSq308pxEpSfmiPU3YOo59jvX//LXQQfu336fTFZkrSEC/D5m
+	tSNFaWBzSDsuffaW6X3+bRRQCHF0NKpaVppPGXvKCchpI5GRKsnPLwF6KrDhZicT
+	7oC57Rli4ByiLSt7X25LLpAa0mGn5l3bxeyouk5JXHotaJtXWSR82aumAdVRrzTB
+	UtuPCOscN4lthAWhkgHtuXKOldo7M9ogHOC35mEcBMH9znsiP1pEd6GHcQywUm6e
+	1FZygXas+jp+BE+v6YznePVMgmmV6z2+D9eGa89MAlhTjwPhgS6phcKL5AYMOhjr
+	ekKIUcO1mfnSejCt9d2+Y8je2aYXQ==
+Received: from mw6pr02cu001.outbound.protection.outlook.com (mail-westus2azon11012069.outbound.protection.outlook.com [52.101.48.69])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4gq362w9m5-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Tue, 15 Sep 2026 17:43:07 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IZIYlkIqntxYY/0XoCLqzhaQoE9p+hheaUjS5rRWvBVI+Nt2lu+8n1YXfHXaFU+6Bnd36pT+DBlS2ZlPBPi3AtEGwxNutP7tEerua+dDK/AX/R+xMqwnJDoORk210DDDq/s86vhQfWCXUWr5VpXW4/OZPD86Xe0MKNyrDOtibuUu3X0BbcJdQyAivf8VKwNtL0xTYtIvlapOcMoC8E0TRfYbzBtN/D/9P4EPkzHXEk0a7LbPMFq4wGebxKDBVTdshDCj2Yx7g1245Fa+2kt5XUllQpzO/UR4rWsSrqKK3PgBq27FfoRJo9pGVE39aD00LmlFqVmIc46iRF6V8fcaTQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vwdoqTGuyO4C3EZ+RGFskEZ/g/dWqbO7AhuVdfp6zjY=;
+ b=I+SSj+hZRBv6Ig294AiqvOjrKWs/idLTEvuwWf12WPVT1m4ERU0evMhnE71Ef6M1l2jyftP4LcmFUAsMgn91Sg76/HjKlNpS0xo7w8qoY+giZDIvRyIAJSW12qT4WBdMfPotG17ujNB8zfImXifauVUjvZ46VCip4fBwi/ukE6Ih/qzMP8+2ivlyz4WG8wOkpDxbXhAkYP2pB8OKgK6eE8fkYtV+ZlhT5mm/HpQiaWOi4+nBAwymXCfoRSNC7k8yxybx+Ix2PRaxXi0a1jkHBxs4l7MQho5gAVdDEbjIA82+Hz0LPU/F/KM8z97Fqgot8Yty54Bu2gELm9RfRCL+qQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vwdoqTGuyO4C3EZ+RGFskEZ/g/dWqbO7AhuVdfp6zjY=;
+ b=sCa4qOYlHmSImTv439u6hxkBPMAx6OM3gXy3N5ZKBDH9dNIhXOwP3Ra3HQMJ3UvTEkfiPO+srYxqdpDmn9MnMxTUkDlT7LL5feTXaBrSdcqXZr6zPRh7ZNMhV7i1bqu8SQxmXzRnvfE71caBhn+JKOo0BTd5WArQVPQ4M6rwb80=
+Received: from SJ0PR03CA0376.namprd03.prod.outlook.com (2603:10b6:a03:3a1::21)
+ by CH0PR10MB4939.namprd10.prod.outlook.com (2603:10b6:610:c0::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.8; Tue, 15 Sep
+ 2026 22:43:05 +0000
+Received: from SJ1PEPF00001CE1.namprd05.prod.outlook.com
+ (2603:10b6:a03:3a1:cafe::41) by SJ0PR03CA0376.outlook.office365.com
+ (2603:10b6:a03:3a1::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.428.9 via Frontend Transport; Tue, 15
+ Sep 2026 22:43:04 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ SJ1PEPF00001CE1.mail.protection.outlook.com (10.167.242.9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.428.7 via Frontend Transport; Tue, 15 Sep 2026 22:43:03 +0000
+Received: from DFLE208.ent.ti.com (10.64.6.66) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 15 Sep
+ 2026 17:42:38 -0500
+Received: from DFLE202.ent.ti.com (10.64.6.60) by DFLE208.ent.ti.com
+ (10.64.6.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 15 Sep
+ 2026 17:42:38 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE202.ent.ti.com
+ (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Tue, 15 Sep 2026 17:42:38 -0500
+Received: from [128.247.81.105] (hpz2.dhcp.ti.com [128.247.81.105])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68FMgc8w826644;
+	Tue, 15 Sep 2026 17:42:38 -0500
+Message-ID: <5d4742fa-e26a-4b49-8eb4-b6291c402334@ti.com>
+Date: Tue, 15 Sep 2026 17:42:38 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: ti: k3-am62p-j722s-common-wakeup: Add GP_SW1
+ efuse node for silicon revision
+To: "Kumar, Udit" <u-kumar1@ti.com>, Nishanth Menon <nm@ti.com>
+CC: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+References: <20260915001304.3781247-1-jm@ti.com>
+ <b490c984-8fba-4b92-96f0-8e4a4cc811b0@ti.com>
+Content-Language: en-US
+From: Judith Mendez <jm@ti.com>
+In-Reply-To: <b490c984-8fba-4b92-96f0-8e4a4cc811b0@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CE1:EE_|CH0PR10MB4939:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0e6f802a-df51-4a1f-fca6-08df137ab3db
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|36860700016|1800799024|82310400026|56012099006|4143699003|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: QbKKguXeyBpUHTR8VTD1HMCJqq/OaYI1V9qhAddXxn7rdegJxyMR0AyuU3grNRjBPta/516XEGOtcM9khGN4RyQ90z45ulJiRWRF70OzaEsPyWVrava14R4kG4T8eAj4HP+j/nlAzQyCjJ+CIZRXQm0EkLAGomkvI2KAhL6zekMDu8vSdPkP66TevRSp/N4KGLwQINjFbGyGAhSKokGpLu/RntZK9zAffgJCUw30NPhbOQkavorqKcRBB41gCIr/aS2A/JwpsphUnEiRgoUWzODxulrjeRWx10zJe9KWwRcOWLbn/hZF3bmgsjpAecRPCt0eSnFE3h6q5i1wwZ3mIBlU6v1UASTZ0+I98g7OhC4xphGHDOvCK7x8JPG1vHva+XJCkGLKr21qrcjyOA2o77ibUZY746oqoAwp8vgxrQn82a9KA4Cb5u1uc8dfZxUWzNY+J3uAINqSiQfbqA5xIcvXkwLsja4dnAxZFGuS7eYdR+MCXVmvkBvpyJ08MEqAymKGiC0EuZGKR+S+TiWD/BPVwKT+wEkQGwixy26j7RLp/rJJ5tM97C2LTesNSg6puj2qCSeEOOsOsYdWC0VOAa7jhBmeZoy62/Fboa+qveS2iyfdOf2SOdy2+KV1XJF4luUSphnKt3v9+k4WbWE30rFo+lsI6V9KtbMaNoeVh8JQW15/49miYSjdHQPcV2Fw0BfwQpJXAjnmudcw/d2Qig==
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(23010399003)(36860700016)(1800799024)(82310400026)(56012099006)(4143699003)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: RL6F2lOxZTiCc4f2XHeLbsalDjAO6vFLnGaIZAtHHB8HZQc6GaFt3PsxvTy7UUcgF1F49RoyiAipcVPvGhifXNvoY4qlGUrdZS+zjEl+j0njUKA3jYrZuwbgm/Jsn38qxjv7PWr0KJyAMkwj4D+CvLMUR4gnqqHHam6UF4Lxtxpz5uRszkW2SGpq+roHwkP8XdVUD8qHvrjf4KPhVp9LN7RTyNCNW5iRA8HB+Sorw/Pm2Smw75wUV4WD+UOhlX9iF3xR2YnI70L4CzfvqXkiQSrpmPjXTAViuBhoRFRN0KeUDIt/UYue2BZ0UzjAmZVrUQh/iDn/9IqDuKWpCUYWdioIVievFrNmFMCgn9j/PLkgdY/JF7NsTKey9ZOIhaG3DmjHqOFLLs35xrvNnyS/ndbsOaTB7o19b03ign9js7JV9D1w59VGIv80bOQXPx/z
+X-Exchange-RoutingPolicyChecked: EUP2z6Hg9ZQQVRdrme1fCZzYjkdRGL27mA6gtSgDJWYSal91QbcYKf3aBDsQqHHvv6UCKTv03+C1oGdbt5xX5uHyuKdQ9ARwhhVwLXP+8slLfpxafySEE0BnQdtt0QUBC7YveAw8AIzkQg3r8/oN91wk/FNxnbM1vNBxLNl491IkDAMyRFztNnXCAkoz/7zRsFZaNNu1dopLRZAHW/f4U609+Kn2qmxN+73qbg8sHEAOYgNu8PvYVz41hj2PbGD1oClj3586+mWjZtPn4tFmTGApUHbZ2DXmjnDofw4nM0ivDJZ4NBFP+VHCBlGW0UuyEwNxJD3vrdi8JyK1V/dBnQ==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Sep 2026 22:43:03.3092
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0e6f802a-df51-4a1f-fca6-08df137ab3db
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CE1.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR10MB4939
+X-Authority-Analysis: v=2.4 cv=P9yvFSAu c=1 sm=1 tr=0 ts=6aa9c9fb cx=c_pps
+ a=fm8IUWXzr0h7QqFIpCBYEQ==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
+ a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=jwouBfj2j3NM8CExmVVE:22 a=sozttTNsAAAA:8 a=eFBmR6NUpfz6K-ulmJMA:9
+ a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: WACTAUpp7tXiSaLijlyj8GPAACBxf0-W
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE1MDMzMSBTYWx0ZWRfX3bXHeWmeagSc
+ g970liC3upfpNwZ5F4X0KBvHRfEUJz0Vln2RLaEb00o31qS2s9kDsNLQWPcadTXbNDuKPCKVzYk
+ qNtwkAu9UFGPt+HoJPwDLfBdm/0+fF8XSfJp7Wqxi9yP6+6dP7dDejAibmbdKjXfV6EPcPThBPP
+ dT7fe+1sG6djCcxKqe8cUTXFdKJ+3a/9ejHpUTpWceWjtGC/3prg5tlr8mokCD1nD20xuID4I/A
+ QTXNxUkDiwMxq6wzM+IY2Scm2jxUsv/+W2DOddLnylelJy4CMHJoPPGn3pI8FBXWmTj9QASty2U
+ hzTcldY26UX7VETRJLKyfdUik1lCOk7Lg/QsVI94Nc94LfSARxX7i+Ev/jglGtMrzIk4kx1Yqvs
+ Y5/MKOXP/KIotztU6Q9N1guoKMqJySFxvSc7CIWsTQ8NUo61BjpgWI65zMTToSr5+G9cTS7zAXm
+ jhmk6HB8A9nW89Y0B+g==
+X-Proofpoint-ORIG-GUID: WACTAUpp7tXiSaLijlyj8GPAACBxf0-W
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE1MDMzMSBTYWx0ZWRfX3NV70AJWWpPh
+ M3jtn73SWGTIeNh9T8ETurqiBbn/wEke3PDVgVN5rgrN89YSo/ybnP/4Q/IjVPtf4nMnHvFM7h6
+ ZztTk/7RvJJpuEj7qZxUSf3JUM2QL2A=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-15_05,2026-09-15_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 adultscore=0 bulkscore=0 suspectscore=0 priorityscore=1501
+ spamscore=0 impostorscore=0 lowpriorityscore=0 malwarescore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609150331
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260915_154312_535638_EEA35511 
+X-CRM114-Status: GOOD (  16.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,28 +180,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 25 Aug 2026 09:59:44 +0100, Fuad Tabba wrote:
-> If it's not the GIC, it's SVE. I found these while preparing the
-> follow-up to the pKVM core series [1].
+Hi Udit,
+
+On 9/15/26 11:40 AM, Kumar, Udit wrote:
 > 
-> Patch 1 was posted on its own [2] and carries Marc's Reviewed-by. It is
-> unchanged and included here because it has not been picked up yet and
-> the rest of the series does not apply without it.
+> Hi Judith,
 > 
-> [...]
+> On 9/15/2026 5:43 AM, Judith Mendez wrote:
+>> Add efuse node for GP_SW1 register at offset 0x230. The GP_SW1
+>> efuse register is used to determine AM62Px silicon revision.
+>> Reference efuse cell from chipid node via nvmem-cells.
+>>
+>> Signed-off-by: Judith Mendez <jm@ti.com>
+>> ---
+>>   .../boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi  | 14 ++++++++++++++
+>>   1 file changed, 14 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi
+>> index 8612b45e665cf..0f00e9d87f8ba 100644
+>> --- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi
+>> +++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi
+>> @@ -19,9 +19,23 @@ wkup_conf: bus@43000000 {
+>>   		chipid: chipid@14 {
+>>   			compatible = "ti,am654-chipid";
+>>   			reg = <0x14 0x4>;
+>> +			nvmem-cells = <&gpsw1>;
+>> +			nvmem-cell-names = "gpsw1";
+>>   			bootph-all;
+>>   		};
+>>   
+>> +		gpsw_efuse: efuse@230 {
+>> +			compatible = "ti,am62p-efuse", "socionext,uniphier-efuse";
+>> +			reg = <0x230 0x10>;
+>> +			#address-cells = <1>;
+>> +			#size-cells = <1>;
+>> +			bootph-all;
+>> +
+>> +			gpsw1: gpsw1@4 {
+>> +				reg = <0x4 0x4>;
+>> +			};
+> 
+> For J722S, this register this marked as reserved,
+> Could you update in am62-p specific dt.
 
-Applied to fixes, thanks!
+Right, let me see what I can do.
 
-[1/4] KVM: arm64: Validate the SVE vector length in pkvm_vcpu_init_sve()
-      https://git.kernel.org/kvmarm/kvmarm/c/2a2eb10795a1
-[2/4] KVM: arm64: Do not clear VM-wide SVE feature on vCPU init failure
-      https://git.kernel.org/kvmarm/kvmarm/c/a1b3c788ad31
-[3/4] KVM: arm64: Key unpin_host_sve_state() on the state it unpins
-      https://git.kernel.org/kvmarm/kvmarm/c/0d62fbf34d8f
-[4/4] KVM: arm64: Derive GUEST_HAS_SVE from the SVE feature bit at EL2
-      https://git.kernel.org/kvmarm/kvmarm/c/4f16c5fc8dc4
+Thanks for reviewing.
 
---
-Best,
-Oliver
+~ Judith
+
+> 
+> Thanks
+> 
+>> +		};
+>> +
+>>   		opp_efuse_table: syscon@18 {
+>>   			compatible = "ti,am62-opp-efuse-table", "syscon";
+>>   			reg = <0x18 0x4>;
+> 
+
 
