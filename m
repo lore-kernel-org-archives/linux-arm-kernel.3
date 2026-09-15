@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F6E7C88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 09:51:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E119C88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 09:55:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cvCf7CKajWBrqxAWgYlUQnFOqNCEESdBn+7VWlxKpSE=; b=NMTf28R28fqaslnRGv1yXei8vA
-	eFFZ488XKlkug99wWJpq/b4joBMPgBABOn3yzGQXqoyH6vEFkW3LP6FplSD4AddfMhthS+bscJAYc
-	HEiCIGW529dG0acMllXY60hYlVjDBseJgM/QJV2cKJvr237yELdOM95fa4rdcdeHTenx0yBJumFuv
-	kv2eOKIhdKRpHNExQkD7IM+RLT42nmpCRxbHzqBNbb8iHt7uQuYaaLLq2bQ6JEosIFqHVE10h2tBi
-	rpQrxltnNSMKPtcQhyDpaDImigaao/XoLK6U8XXYxUIh2JBYDumvvGsmnK5RsOlMXddKx9cTyOzDp
-	pRLjAYFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Fi/dRVXiXBIot4v5nHDQZH3qjk6CazAUgLOp7/ZEMyo=; b=htgp7RyJB15VeLJwWRxfrWSVcY
+	1Aid+N5695X1x5Glqm16rrhtklNlSUuxi7yIKcIRQHCS3AifPvm3xTVC7r/YOpj7b9+BDVlUZbvQv
+	E06Ib0N1eUvIoWvuTiw+48rOJS++bGs6AHhot91ARpBV5XQQFXaDzhHuzOq6CIsSePYvdW2tS7sCe
+	UneAX0z+ZnU2GGn1QtAtCcXCHft1CsDWDYF2GWmQni4Ja9yDR342CFxUICCICig6zuv4dVVa24A72
+	IJAMt2gn2A58VdJlveIUsNpYXJQrHuRL7zeACaXf7Wm012PzKlWOp+r89ZIBcQhON06hetN72JK0Y
+	AiJGjzrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6PoV-00000005pAm-2Hxt;
-	Tue, 15 Sep 2026 09:50:55 +0000
-Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
+	id 1x6Pt9-00000005pa0-097C;
+	Tue, 15 Sep 2026 09:55:43 +0000
+Received: from mail.cjdns.fr ([5.135.140.105])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6PoS-00000005pAG-2oGz
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 09:50:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=cvCf7CKajWBrqxAWgYlUQnFOqNCEESdBn+7VWlxKpSE=; b=tEsKkafx3IJjtRUwib7d7NNAVA
-	AVG/XMxpQ9Hc8EpYd2OXMq+mpgSWS5Fl7gt0eRGzg4Ih0gSIYg83fkszJHZMlBAlLImJJt2g5q7Yd
-	EDBFGcFQ59BJqcpO7HajUf4L4ZvWL3J8XG2ZfDRJqxKWqxUbs1HYfmlq8mBDhobXExWz51n8ya20O
-	PNUeH46onJ0asBkkTj5GxTMAfp4bu9CPibTT+gEuB26btExX81+tDnLDkfmAjpcL68T2kCrNHrR92
-	GJ7fTSos3pEnvNDd+9VT8fNrLVI0hFu69Y8E/UQ8NHkXja2CaQxpm13RuIi5LHuddQchRUA7vc+1i
-	i0q/wn0w==;
-Received: from authenticated-user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.96)
-	(envelope-from <leitao@debian.org>)
-	id 1x6Po8-004J24-0A;
-	Tue, 15 Sep 2026 09:50:32 +0000
-Date: Tue, 15 Sep 2026 02:50:27 -0700
-From: Breno Leitao <leitao@debian.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kernel-team@meta.com
-Subject: Re: [PATCH] arm64/sve: Don't zero the SVE state buffer when the SVE
- state is live
-Message-ID: <aqkUU-kSTOz8NntH@gmail.com>
-References: <20260914-b4-arm64-sve-acc-memset-v1-1-67866e442393@debian.org>
- <aqkEPCrWXxaU-mNs@J2N7QTR9R3>
+	id 1x6Pt5-00000005pYs-24gV;
+	Tue, 15 Sep 2026 09:55:40 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8132D476D79;
+	Tue, 15 Sep 2026 11:55:26 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
+	t=1789466133; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=Fi/dRVXiXBIot4v5nHDQZH3qjk6CazAUgLOp7/ZEMyo=;
+	b=E56no6bXvfvfWeTMftV4PVj1DAjuMK7Xn6M1Q0ejyA1aBMsTX7kyxZyUIf60GgdKtarDIr
+	Lvq35rb+5Ux3RhtOABB5GVzoihOvmMoAe5VoKVQ/lVJ+xmVxOEjOtAYKeMb5/ZSgkFjwWf
+	jWrrXxjJGKdwO2WlLfVoVdeR6w0yKV3NLC4DC+3rd6jLYLxOXnm9HvV3DXqUkA7550gqNK
+	Hnrxopx2C0jqER04Ykkof8osavGCNW2vuBd8jgIsb1iRV4a4d7V4KdjS7RO7t+eLZt0nTe
+	cG1eFDCyEUs0td27/oGO17hkHL8LOP8gydXTivMlxy6lZvbAVxFZez0KJDBfdQ==
+Message-ID: <c560a70b-8ccf-415a-ba8f-0c061a9f6b03@cjdns.fr>
+Date: Tue, 15 Sep 2026 11:55:25 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aqkEPCrWXxaU-mNs@J2N7QTR9R3>
-X-Debian-User: leitao
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH v3 net-next] net: phy: mediatek: support MT7530 PHYs on
+ EN71221 MCM
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: netdev@vger.kernel.org, daniel@makrotopia.org, dqfext@gmail.com,
+ SkyLake.Huang@mediatek.com, hkallweit1@gmail.com, linux@armlinux.org.uk,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Matheus Sampaio Queiroga <srherobrine20@gmail.com>
+References: <20260911120646.4123877-1-cjd@cjdns.fr>
+ <a6e1bb7f-e395-434e-8e9b-992141969d74@lunn.ch>
+Content-Language: en-US
+From: Caleb James DeLisle <cjd@cjdns.fr>
+In-Reply-To: <a6e1bb7f-e395-434e-8e9b-992141969d74@lunn.ch>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_025052_729108_F5C7A442 
-X-CRM114-Status: GOOD (  15.47  )
+X-CRM114-CacheID: sfid-20260915_025539_726953_E53A54C4 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,69 +76,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Mark,
 
-On Tue, Sep 15, 2026 at 09:39:24AM +0100, Mark Rutland wrote:
-> Hi Breno,
-> 
-> I think the change looks reasonable, but the commit message and comments
-> aren't quite right. More on that below.
+On 14/09/2026 14:01, Andrew Lunn wrote:
+>> + * The EcoNet EN751221 "G" multi-chip module MT7530 requires additional PHY
+>> + * configuration.
+>> + */
+>> +static int en751221_mcm_phy_config_init(struct phy_device *phydev)
+>> +{
+>> +	int ret;
+>> +
+>> +	ret = genphy_soft_reset(phydev);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	/* Master/Slave negotiation does not work reliably */
+>> +	ret = phy_write(phydev, MII_CTRL1000, ADVERTISE_1000FULL |
+>> +			CTL1000_ENABLE_MASTER | CTL1000_PREFER_MASTER |
+>> +			CTL1000_AS_MASTER);
+> Is it sufficiently broken that we should stop the user changing it?
 
-Thank you very much for your review. I know this is not a trivial one
-(at least from my PoV), I am glad you quickly reviewed it.
 
-I've also dropped few other lines, but kept the benchmark values I've
-collected. Does this look better now?
+Well I must be going crazy because I tested this a second time and now 
+it's working without forcing master at all. I guess when I was 
+previously testing, I must have had some un-resetted state leftover from 
+trying with EEE enabled. I will re-send without this command because it 
+seems to work.
 
-Author: Breno Leitao <leitao@debian.org>
-Date:   Fri Sep 11 02:57:34 2026 -0700
 
-    arm64/sve: Don't zero the SVE state buffer when the SVE state is live
+Thanks,
 
-    Currently do_sve_acc() always zeroes current->thread.sve_state. This is
-    not necessary in the common case, and avoiding the zeroing has a
-    measurable impact on some benchmarks.
+Caleb
 
-    In the common case where the task is not preempted and its state is not
-    altered by a tracer, do_sve_acc() will observe that TIF_FOREIGN_FPSTATE
-    is clear. In such cases, only the live register values matter, and the
-    in-memory copy is stale regardless of whether it is saved in
-    FP_STATE_FPSIMD format or FP_STATE_SVE format.
 
-    This is worth doing because the SVE state is discarded on syscall entry,
-    so userspace that mixes SVE and syscalls re-traps constantly. A fleet
-    profile of arm64 hosts running services whose memset() is SVE shows the
-    memset under do_sve_acc() accounting for 29% of the trap handling cost.
-
-    Measured on a 72-core Neoverse V2 (SVE VL 128, sve_state_size 546,
-    performance governor) with perf bench sched pipe pinned to one CPU, and
-    SVE operation on write, so that each loop also takes an SVE access trap.
-
-            * -0.99% kernel instructions
-            * -1.38% kernel cycles
-            * -1.12% wall clock
-
-    Signed-off-by: Breno Leitao <leitao@debian.org>
-
-diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index e7f1682a3059b..324c9799b0511 100644
---- a/arch/arm64/kernel/fpsimd.c
-+++ b/arch/arm64/kernel/fpsimd.c
-@@ -1316,7 +1316,7 @@ void do_sve_acc(unsigned long esr, struct pt_regs *regs)
-                return;
-        }
-
--       sve_alloc(current, true);
-+       sve_alloc(current, false);
-        if (!current->thread.sve_state) {
-                force_sig(SIGKILL);
-                return;
-@@ -1341,6 +1341,7 @@ void do_sve_acc(unsigned long esr, struct pt_regs *regs)
-                sve_flush_live();
-                fpsimd_bind_task_to_cpu();
-        } else {
-+               memset(current->thread.sve_state, 0, sve_state_size(current));
-                fpsimd_to_sve(current);
-                current->thread.fp_type = FP_STATE_SVE;
-                fpsimd_flush_task_state(current);
+>
+>       ethtool     -s     devname    [speed N]    [lanes N]    [duplex half|full]
+>              [port tp|aui|bnc|mii] [mdix auto|on|off]  [autoneg on|off]  [adver‐
+>              tise N[/M]  |  advertise mode  on|off  ...]  [phyad N] [xcvr inter‐
+>              nal|external]        [wol N[/M]         | wol p|u|m|b|a|g|s|f|d...]
+>              [sopass xx:yy:zz:aa:bb:cc]      [master-slave preferred-master|pre‐
+>              ferred-slave|forced-master|forced-slave]   [msglvl   N[/M] |    ms‐
+>              glvl type on|off ...]
+>
+> You don't appear to have a config_aneg, so genphy_config_aneg() will
+> be used, which calls genphy_setup_master_slave.
+>
+>     Andrew
+>
 
