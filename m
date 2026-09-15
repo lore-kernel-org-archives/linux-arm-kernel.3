@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3D02C88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 07:35:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7400EC88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 07:41:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=62UkEF2WigrS8Qx3ZV8XeKxYeA/oVOGI4GnA4AVT89E=; b=0gXOyuMj2KTV8QUfJy4U0Yuuun
-	YObBYmvZwoP70/9y8r6IeXeQRnipHQre/Q+ODLTNlbNX85qV8Uoicv7YdKkPXAkIhJ8emLDh1kpgD
-	7kgyFumlDjXpWLazK8Ork8v5kp5UTepMfPs72UI034rataiDjao9CMcKF/4BTJvOxJw+xkBGysZ6o
-	DHwHrAky/oopIVXYLMtY2hhcy3rTkqcXeOMXQH+RXwKf/Gxzk/Q8IfcvUQZYwzu4ZL+Ovnr4r9EtW
-	O1Phb3tHs1NGcBFH5LcOe5zzgnvAe8Z5LoeuTTuXpS9883bSMJI9tSJ5xR3dYlTdbBPMEr6ptmI+e
-	xjvrIO0Q==;
+	bh=r9GzEG0V2MFSbPgXHqAbp6UbKpY+Or+jzCuC6xa616s=; b=kqVV1AItaIzERLBOlRDJRDrNfC
+	fRT1HeEpq8gZHBRaWylOD1zHdAzYL/e1J8VfWxCkjT6J8ZTHQL7h3HrMgqi9SwHEeo07KLw9iZtLx
+	CxP6oSFx96ye1kfo3pI8Zxt/KJ0DJn2X6U1K7MOiYAwehNswVGCrgJtEDeZBKlhddBiOinNqg+FAr
+	/B4M6+6QeSmZkJ3rTKWes7FaaboU/uATIunvcP2tBkvs/ngznwazB0LlVGZ7/yPR+4dNW2i0lMoUu
+	TlC3u75IE2HmoaVsg+7Xe4Dr/AXBpf7rUvRclTn4XbtLFWdQIvdhY65ItWmeGxDkz0Z5ey9X7Fh7M
+	uWrqEO1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Ngv-00000005U0z-3OwV;
-	Tue, 15 Sep 2026 07:34:57 +0000
+	id 1x6Nn6-00000005UWL-1kHA;
+	Tue, 15 Sep 2026 07:41:20 +0000
 Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Ngs-00000005U0W-2nEz
+	id 1x6Nn4-00000005UVw-2IEq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 07:34:56 +0000
-Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-485b1d2874aso2256313f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 00:34:54 -0700 (PDT)
+	Tue, 15 Sep 2026 07:41:19 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-482f6356f6bso2289599f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 00:41:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1789457693; x=1790062493; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1789458077; x=1790062877; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=62UkEF2WigrS8Qx3ZV8XeKxYeA/oVOGI4GnA4AVT89E=;
-        b=PNSfGWIdkO/HN0DFHZnV+Wz8tUw9x1SRJtkdpsIPar/CEoo6ytRJC8TboR6Smot90o
-         TRrB1L1hcNIUgNgyx6QOG/YwyI5UOGxQEjwYh5RItk8Msi/iBo42StRWbJuJtfMY68JW
-         IaiMTEz2Ihm0v7vrv5QhTHiKroh4LiEgrWpIWTX9y8eF/XliUzw2xHCGM0LWBzmO9jFv
-         spvaoH0lfgRGKek+UJGQfTiuw2F8Xg/NZneXQT/bGWLXBrinYSs5zgxUhjuVAgHiciiM
-         AnSGYRL43IyYIKq+25hJfaU2Wt44Rk2a/LsNX3DrX0i5u9XndA6IOITzdghc0rFgQPzd
-         6hxg==
+        bh=r9GzEG0V2MFSbPgXHqAbp6UbKpY+Or+jzCuC6xa616s=;
+        b=P1EVoCnquvxpw/VHkqNFFd1f6hEocrjLdZ8P8RAEcbWepa116Mv+2EU/MBbhny954P
+         9wv6jeZK/aI3DGsnWOj6oibRTgiaac6XiE8pJXkFmTTNQRef0/MmApzvam9nhHVQo0V1
+         eTwKa/zZU0vVjTSw7obBkWMaom3S9ZZPw88Ljj37CaI6xXpCxouB0XVb+87jh1uZt+eZ
+         6ToyRn/ea+87aTh/jZMVfD5iWGo0Fwcc8gTAcvFyk4aULy/GMkWtuKqNmpKC+kl0Mgar
+         GeID1FjgmOK6+8symmjSJykrvonWdaL1Eii5ldjqJqmqdyDVpxtb9faVYHvAKoOIG4Vc
+         7v0w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789457693; x=1790062493;
+        d=1e100.net; s=20260707; t=1789458077; x=1790062877;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=62UkEF2WigrS8Qx3ZV8XeKxYeA/oVOGI4GnA4AVT89E=;
-        b=enLnWk9uQa7ZlC6GXaJtD98neO4EIpHlO83XtSlWMHIYJiPAj+uM2Lx9Hkgs4plUG3
-         0aFVbStBl+v40m7Z5hC5z84KJSTBnf7hEuk6CyFrp9tTVfiIq+udh3yhHHHJgl7mtrGi
-         WpPOs3yx1eiO0Ix5ZW+VdB4fn1CxHwk6fYRqhs739csUJGseqTpjvfKq7+UEtYU8dBpO
-         ZCi/67RFMOmh6Yx4VMk0RFgv2tdyerRx1fs6hEkvT6jk9kAWr732dUYwksgstKkONC2s
-         1NMR8ukXCgubEqdqfcYSQQ3B0Vd05vixw+d6ZICx3iEuUikqRR4YAq/8xPzPnYhGFBVz
-         dmyA==
-X-Forwarded-Encrypted: i=1; AKwUvByYydsqGjmFk8WAsTz5IBD4f0k2R9tUiAfSbz/z2TsWrPRJF7zJt6P61m+ZzObgbjewW/6uKr0TMLWzFhhkXnL0@lists.infradead.org
-X-Gm-Message-State: AFuF++mmhxTwB93Wb8wG0Ml/IF4C5KS86FTfIZq1yNDz6xLXvmkPzvOj
-	rwi3arnNAtFwX2JwKYFQKC/qniyqaLkiM0j71/+4W+lx0eGwzQ3EJCmRTtSA0fzqyb9E5QWbh13
-	6pBeBEQ==
-X-Gm-Gg: AYBFou2gCGYYx9zlau+bInDkKZf8YLdfhCHK1AKKFzLAIzI3zuhwHjRGVEs3Au9zgdT
-	5ohkzDzhPb0kPrir5kpY8w+oCxFtN8csl9dniG7u9M74D2G0RPu8kuWx8rHz1iql03EB0HsamOv
-	k/CZ0iCrbhWgDFvbiAOyi2O+hht/GvtrmaYSUKgRWGxRxwOxpm1F8SJHYfbhrBRwOmTNhA71yxY
-	nKQSta39rPLSippn2LgHAIKeDh5hBoolSsvpGw7rtVrjeYRe85afDWpRciYrpYPddbR8bp+nlzt
-	sYxNgQN4WzFs6NkDegTNcXAmNVGdbIy6vPrMCgmUllsiiiLXobolpEtb7NXWhLn3GDYmYzIuYBf
-	CXVZ5Y94inqb5VkSGz+x6G4aGRMb8XJ3Suw04ANqfkgbwovamfrszn3/TWE0JKKjkYJ66PBJ0Nt
-	aFAWK9piqm/gypC6gqamWevHD8WjRSRomAOOdWPVP6j50nxoAb8DMIE8WER7869XbsdWtRiC1eG
-	hQG1Thy2JNFIOAzQl2O9T9GJ0QHNYyOI3h/vLG+isY=
-X-Received: by 2002:a05:600c:a00d:b0:49e:663c:c69f with SMTP id 5b1f17b1804b1-49e7a686db5mr168895005e9.15.1789457692234;
-        Tue, 15 Sep 2026 00:34:52 -0700 (PDT)
+        bh=r9GzEG0V2MFSbPgXHqAbp6UbKpY+Or+jzCuC6xa616s=;
+        b=fZXaFl0KbU+jncAZB4S2pHIuV/N+gv0c6cayZDuyQ6fasiJJKKhVafpqatPk3Ri60+
+         Gdw41/70162BgOFBv+5WJcY9HRiCwW3r7MNiYHtQNhDAg3YtZetthyUP6Inx86aqh12/
+         2mARpsJrl7f92BgS8eREhIkvTiE6MI6uBqPXv7viZoYdB5X6WxfDip9mhlsvVPGHnA2r
+         Iz49r9LYy1vQpQ201LRaxLw3psylh2jSS8QippEAyXV+oqudvnovrT+PRYGY5Yhw9Hda
+         um9H3AvDZtvMUXDMzcXzQKpJSLpU+N+1Lu1hWSrAElDkdlzMDQH3LkwIA8bNdDL5dgMl
+         951g==
+X-Forwarded-Encrypted: i=1; AKwUvByYKOrFSgJS0fqOU8xTJbrFMZR86EqwebtyD1h42Jh2pgamUWFywxRtRY8fxGKD4h0+Wp1ExRGG2cqMuWU8XjcJ@lists.infradead.org
+X-Gm-Message-State: AFuF++l/8+mwG6Xiq29IKqwdlrALjN55H52vXeEnXg4MnUnEDbGHHtfc
+	WhWC1Cr31Bdo9dCVI71HU+Ztx6VYqaVZ0JDHZBZVdWp3pOWZ7uTvZySfNoAqmKBNXg==
+X-Gm-Gg: AYBFou0TqOMMMwbDMP3OtkI+P2rT61hDnI2bxfuMSG9tYrJUOhH357+uotyAgPvnIRc
+	h4I84EmMton+cE8oAr/jG1TJwdvfE4DSrJvtfVYFWAPghA9Oepo3xeoYn6W+eTRr9KfBbmdTovT
+	lzUBjLmx4hyx2rlHOv0pa2t2SxyAXouCcAW91zfArSIA7wK8b08szl+CxSsep6PeQNf94b602+f
+	J609H1pOfNnO1/eqtlIiJEIPfg7WYjkPBgbdL2pQXnSDMZJjqI5A/uTUQLQ/dApami/d0ydgqa0
+	gnRVfRbgk40e0Z8rHEBSueadi+1Sia2md0U47g8iudY/NhPDToVrtwO3LtAo1GCODBuJR/69YaM
+	COXm1eUUJAspQ9zoYjAuPz+X3z0dae2McZG/OAn8AeFTLHXQiOhknMfJCJfnqIELDNYVizNzwhy
+	mCq05mHnXbmV1T3x+x2/65GbHozGN3TlmP40RzkrpmuE0BtJwnlfiyynZ04Br9g+CYPcfGmEyNx
+	uJFMgwsxskkvExmD/KTHyzwj2i96q074IJA8Zgw0mwv
+X-Received: by 2002:a05:6000:41f0:b0:487:89c:3adf with SMTP id ffacd0b85a97d-487089c3b93mr2625551f8f.11.1789458075963;
+        Tue, 15 Sep 2026 00:41:15 -0700 (PDT)
 Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e7d66ab6esm51074165e9.2.2026.09.15.00.34.51
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-486eb33e020sm34226386f8f.18.2026.09.15.00.41.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Sep 2026 00:34:51 -0700 (PDT)
-Date: Tue, 15 Sep 2026 08:34:48 +0100
+        Tue, 15 Sep 2026 00:41:15 -0700 (PDT)
+Date: Tue, 15 Sep 2026 08:41:12 +0100
 From: Vincent Donnefort <vdonnefort@google.com>
 To: Fuad Tabba <fuad.tabba@linux.dev>
 Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev,
@@ -81,18 +80,18 @@ Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev,
 	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
 	mark.rutland@arm.com, steven.price@arm.com, qperret@google.com,
 	tabba@google.com
-Subject: Re: [PATCH v2 1/2] KVM: arm64: Validate the host vCPU's VM before
- reading it under pKVM
-Message-ID: <aqj1GKamuBraiub0@google.com>
+Subject: Re: [PATCH v2 2/2] KVM: arm64: Pin the host vCPU before adjusting
+ its PC under pKVM
+Message-ID: <aqj2mOjeNWJD6726@google.com>
 References: <20260915070418.3209779-1-fuad.tabba@linux.dev>
- <20260915070418.3209779-2-fuad.tabba@linux.dev>
+ <20260915070418.3209779-3-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260915070418.3209779-2-fuad.tabba@linux.dev>
+In-Reply-To: <20260915070418.3209779-3-fuad.tabba@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_003454_736354_1158DFE9 
-X-CRM114-Status: GOOD (  30.18  )
+X-CRM114-CacheID: sfid-20260915_004118_612038_A1295D18 
+X-CRM114-Status: GOOD (  23.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,165 +106,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 15, 2026 at 08:04:17AM +0100, Fuad Tabba wrote:
-> On an MTE-capable host under pKVM, enter_exception64() reads the VM's
-> MTE flag through vcpu->kvm, which for a host vCPU is a host-writable
-> pointer nothing validates. The host can point it at any address in the
-> hyp linear map and read back bit 1 of that word through PSR_TCO in the
-> vCPU's CPSR, or panic the hypervisor with an unmapped one.
+On Tue, Sep 15, 2026 at 08:04:18AM +0100, Fuad Tabba wrote:
+> Under pKVM, a page the host shares with EL2 is mapped at EL2 only while
+> it's pinned, and the host vCPU is pinned at its first KVM_RUN.
+> KVM_SET_VCPU_EVENTS with ext_dabt_pending reaches __kvm_adjust_pc() at
+> EL2 before that, and dereferencing the unmapped host vCPU panics the
+> hypervisor. Any process holding /dev/kvm on a pKVM host can trigger it.
 > 
-> Get the VM through a get/put pair around the read: a loaded vCPU's is
-> the hyp VM, an unloaded host vCPU's is read once and pinned, and a
-> pointer the host never shared leaves TCO clear.
+> Pin the host vCPU around the adjustment when no hyp vCPU is loaded for
+> it. A loaded hyp vCPU implies it's pinned. A pin fails only for memory
+> the host never shared, and the request is then dropped like any other
+> bad host pointer.
 > 
-> Fixes: ea7fc1bb1cd1b ("KVM: arm64: Introduce MTE VM feature")
-> Reported-by: Sashiko <sashiko-bot@kernel.org>
-> Closes: https://lore.kernel.org/all/20260914070536.877D91F000FF@smtp.kernel.org/
+> Fixes: efa1368ba9f4b ("KVM: arm64: Commit exceptions from KVM_SET_VCPU_EVENTS immediately")
 > Cc: stable@vger.kernel.org
 > Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 > ---
->  arch/arm64/kvm/hyp/exception.c             |  5 ++-
->  arch/arm64/kvm/hyp/include/hyp/adjust_pc.h | 18 ++++++++++
->  arch/arm64/kvm/hyp/nvhe/pkvm.c             | 39 ++++++++++++++++++++++
->  3 files changed, 61 insertions(+), 1 deletion(-)
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 19 ++++++++++++++++++-
+>  1 file changed, 18 insertions(+), 1 deletion(-)
 > 
-> diff --git a/arch/arm64/kvm/hyp/exception.c b/arch/arm64/kvm/hyp/exception.c
-> index 754e2dc1df54a..6e60d890afa4a 100644
-> --- a/arch/arm64/kvm/hyp/exception.c
-> +++ b/arch/arm64/kvm/hyp/exception.c
-> @@ -70,6 +70,7 @@ static void enter_exception64(struct kvm_vcpu *vcpu, unsigned long target_mode,
->  			      enum exception_type type)
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> index 9a3b92e626adb..4cb7347db2514 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> @@ -542,8 +542,25 @@ static void handle___pkvm_host_mkyoung_guest(struct kvm_cpu_context *host_ctxt)
+>  static void handle___kvm_adjust_pc(struct kvm_cpu_context *host_ctxt)
 >  {
->  	unsigned long sctlr, vbar, old, new, mode;
-> +	struct kvm *kvm;
->  	u64 exc_offset;
+>  	DECLARE_REG(struct kvm_vcpu *, vcpu, host_ctxt, 1);
+> +	struct pkvm_hyp_vcpu *hyp_vcpu;
+> +	struct kvm_vcpu *host_vcpu;
 >  
->  	mode = *vcpu_cpsr(vcpu) & (PSR_MODE_MASK | PSR_MODE32_BIT);
-> @@ -109,8 +110,10 @@ static void enter_exception64(struct kvm_vcpu *vcpu, unsigned long target_mode,
->  	new |= (old & PSR_C_BIT);
->  	new |= (old & PSR_V_BIT);
->  
-> -	if (kvm_has_mte(kern_hyp_va(vcpu->kvm)))
-> +	kvm = vcpu_get_kvm(vcpu);
-> +	if (kvm && kvm_has_mte(kvm))
->  		new |= PSR_TCO_BIT;
-> +	vcpu_put_kvm(vcpu, kvm);
->  
->  	new |= (old & PSR_DIT_BIT);
->  
-> diff --git a/arch/arm64/kvm/hyp/include/hyp/adjust_pc.h b/arch/arm64/kvm/hyp/include/hyp/adjust_pc.h
-> index 4fdfeabefeb43..a4fb04faa7d09 100644
-> --- a/arch/arm64/kvm/hyp/include/hyp/adjust_pc.h
-> +++ b/arch/arm64/kvm/hyp/include/hyp/adjust_pc.h
-> @@ -13,6 +13,24 @@
->  #include <asm/kvm_emulate.h>
->  #include <asm/kvm_host.h>
->  
-> +/*
-> + * Under pKVM a host vCPU's ->kvm is host-writable: the nVHE pair
-> + * validates it.
-> + */
-> +#ifdef __KVM_NVHE_HYPERVISOR__
-> +struct kvm *vcpu_get_kvm(struct kvm_vcpu *vcpu);
-> +void vcpu_put_kvm(struct kvm_vcpu *vcpu, struct kvm *kvm);
-> +#else
-> +static inline struct kvm *vcpu_get_kvm(struct kvm_vcpu *vcpu)
-> +{
-> +	return vcpu->kvm;
-> +}
+> -	__kvm_adjust_pc(kern_hyp_va(vcpu));
+> +	host_vcpu = __get_host_hyp_vcpus(vcpu, &hyp_vcpu);
+> +	if (host_vcpu) {
+> +		__kvm_adjust_pc(host_vcpu);
+> +		return;
+> +	}
 > +
-> +static inline void vcpu_put_kvm(struct kvm_vcpu *vcpu, struct kvm *kvm)
-> +{
-> +}
-> +#endif
+> +	/*
+> +	 * With no hyp vCPU loaded for it, the host vCPU may be unpinned,
+> +	 * and so unmapped at EL2: its first run pins it.
+> +	 */
+> +	host_vcpu = kern_hyp_va(vcpu);
+> +	if (hyp_pin_shared_mem(host_vcpu, host_vcpu + 1))
+> +		return;
 > +
->  static inline void kvm_skip_instr(struct kvm_vcpu *vcpu)
->  {
->  	if (vcpu_mode_is_32bit(vcpu)) {
-> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> index 459bd9eb7e4bc..9bdc7a9b84b8c 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> @@ -11,6 +11,8 @@
->  
->  #include <asm/kvm_emulate.h>
->  
-> +#include <hyp/adjust_pc.h>
-> +
->  #include <nvhe/mem_protect.h>
->  #include <nvhe/memory.h>
->  #include <nvhe/pkvm.h>
-> @@ -304,6 +306,43 @@ struct pkvm_hyp_vcpu *pkvm_get_loaded_hyp_vcpu(void)
->  
+> +	__kvm_adjust_pc(host_vcpu);
+> +	hyp_unpin_shared_mem(host_vcpu, host_vcpu + 1);
 >  }
 >  
-> +static struct pkvm_hyp_vm *loaded_hyp_vm_of(struct kvm_vcpu *vcpu)
-
-pkvm_get_loaded_hyp_vm()? to align with the other.
-
-> +{
-> +	struct pkvm_hyp_vcpu *hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
-> +
-> +	if (hyp_vcpu &&
-> +	    (vcpu == &hyp_vcpu->vcpu || vcpu == hyp_vcpu->host_vcpu))
-> +		return pkvm_hyp_vcpu_to_hyp_vm(hyp_vcpu);
-> +
-> +	return NULL;
-> +}
-> +
-> +/* An unloaded host vCPU's VM is mapped at EL2 only while pinned. */
-
-Could we get the last paragraph of the commit here? As this describes quite well
-what this is doing.
-
-> +struct kvm *vcpu_get_kvm(struct kvm_vcpu *vcpu)
-> +{
-> +	struct pkvm_hyp_vm *hyp_vm;
-> +	struct kvm *kvm;
-> +
-> +	if (!is_protected_kvm_enabled())
-> +		return kern_hyp_va(vcpu->kvm);
-> +
-> +	hyp_vm = loaded_hyp_vm_of(vcpu);
-> +	if (hyp_vm)
-> +		return &hyp_vm->kvm;
-> +
-> +	kvm = kern_hyp_va(READ_ONCE(vcpu->kvm));
-> +	if (hyp_pin_shared_mem(kvm, kvm + 1))
-> +		return NULL;
-> +
-> +	return kvm;
-> +}
-> +
-> +void vcpu_put_kvm(struct kvm_vcpu *vcpu, struct kvm *kvm)
-> +{
-> +	if (kvm && is_protected_kvm_enabled() && !loaded_hyp_vm_of(vcpu))
-> +		hyp_unpin_shared_mem(kvm, kvm + 1);
-> +}
-> +
-
-It seems strange for pkvm.c to provides function that aren't prefixed with pkvm_
-and declared into adjust_pc.h and not pkvm.h. I wonder if adjust_pc.h should't
-just
-
-struct kvm *vcpu_get_kvm(struct kvm_vcpu *vcpu)
-{
-	if (is_protected_kvm_enabled())
-		return pkvm_vcpu_get_kvm()
-	else
-		kern_hyp_va(vcpu->kvm);
-}
-
->  struct pkvm_hyp_vm *get_pkvm_hyp_vm(pkvm_handle_t handle)
->  {
->  	struct pkvm_hyp_vm *hyp_vm;
+>  static void handle___kvm_flush_vm_context(struct kvm_cpu_context *host_ctxt)
 > -- 
 > 2.39.5
-> 
+>
 
-Beside those nits:
-
-Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
+Reviewed-by: Vincent Donnefort <vdonnefor@google.com>
 
 -- 
 Vincent
