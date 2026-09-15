@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE6A9C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 16:02:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40E51C88E7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 16:02:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VU5NqqEjVocIQ6VG4AdVbS/ELdAIICGGqsh7ReSDsKY=; b=01Wb8fKPfR+8IE4wHVQx51JUwY
-	P/rzqQhMSFPmCRaSPH17vQCscf9QkTQ84yF5m5Hh95Ha7Fv0df1sIvGjqae0D2snjo490YffnAn07
-	UgtMygIQMK6BT4CWnes75JUira9Plajw4bG5ZYyTZPWWuaAT8xWbplOnCo0/lqvrmWmNWo+iyO9Vx
-	OKuaVVY29IOc6MumIfxTk6fJyQw2h6/zVMoSA+UoPK4s6lNM6ARzxh2GsOPF9UfZYdtgO00E7uo0T
-	oqKcy4suoRyifx8ce5hdyEbZeE+VD7dGYWaPXg3FUytdxWtqTu90CMP9HQ23xHIZTYFMIIKUrMjtV
-	+Df70Ncg==;
+	bh=IiJhppubAXZI5kvVOBDwWoMiwLKmpcoAb1Cc4sdE+Gw=; b=1D4dhejn2R+bjww7C5ivVe1TOo
+	gkvQXFmy4CTFA64fjss2tynWh9B2ZQAgZYIbRezfTymZkeIo+9dMN9ENdCCr3zL5O3zaNVFVbrTcR
+	sZJn1G5DaGPisPGKujrzj17d+22D7YT9wBb7GrHdidrjMjH28sBqkHuNNomaZk4WbLXZoHZKZEwXN
+	PubQ6Gwo10shpG5GZpvL90GqTRWfYGguWBF/VRuNynT1IMkmVcjfrHVAxxtsdxMYN08fqFmVHbsw0
+	ejntKq3+Kl3I8DW7gT/kYMvsvDpvQT4U2cGLNo1KR08HGGbXrceBf79D1sPv051ZHFwdD8Jdj8cZB
+	PWnHQQ7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VcC-00000007LMp-3fbT;
-	Tue, 15 Sep 2026 16:02:36 +0000
+	id 1x6VcD-00000007LNR-0QrI;
+	Tue, 15 Sep 2026 16:02:37 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Vbv-00000007LAR-1wgd
+	id 1x6Vbz-00000007LDi-3FSd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 16:02:20 +0000
+	Tue, 15 Sep 2026 16:02:26 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A85F41570;
-	Tue, 15 Sep 2026 09:02:13 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9F5D51570;
+	Tue, 15 Sep 2026 09:02:19 -0700 (PDT)
 Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.2.197.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 770603F882;
-	Tue, 15 Sep 2026 09:02:14 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 875953F882;
+	Tue, 15 Sep 2026 09:02:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789488137; bh=S6IyfG0PUTG/ytKANeJCPt5NHSFJT2oomQgiRFIezP8=;
+	t=1789488143; bh=datF3OC3RosPiHglYYmm7bLuPO/48ROsNh7L6QxULV4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bgJ//Kon3t61Mrl/V7xvaP154UeBjT1eg6R24BOXhSatgdRHXhqKtGneCh5ZS6quz
-	 S5W3aqfR6LhTI7dgv5HDhyS2emlh41WEcqhpjxyPFAhpXPDdhCEkNJLoZey81dnU02
-	 9ENk2ZKlR85IYxVz7R+PG7ap+Di2g8uiS+DqHjSE=
+	b=tZV7KI6sh7Jy4XfvXKUfJv/d50esT6k+3jQPDVPk4pGq4fxrnbzOCAoG25fcgKnwt
+	 lfOf0hV5nRpsA0AwRE4xNMCrqQKhIYO6qulCXkRZjXuPu5gAv744S4rnEjPRn3UCRJ
+	 zjpPn72PlTRpSGC6c2w6fPgbSfvLPF3LgSgHPx4I=
 From: Suzuki K Poulose <suzuki.poulose@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -62,20 +62,18 @@ Cc: maz@kernel.org,
 	WeiLin.Chang@arm.com,
 	lpieralisi@kernel.org,
 	enju.kohei@fujitsu.com,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Fuad Tabba <fuad.tabba@linux.dev>
-Subject: [PATCH v18 08/23] KVM: arm64: Reuse kvm_stage2_unmap_range in kvm_unmap_gfn_range
-Date: Tue, 15 Sep 2026 17:01:26 +0100
-Message-ID: <20260915160141.3543048-9-suzuki.poulose@arm.com>
+	Suzuki K Poulose <suzuki.poulose@arm.com>
+Subject: [PATCH v18 10/23] KVM: arm64: Abstract out memory abort handling
+Date: Tue, 15 Sep 2026 17:01:28 +0100
+Message-ID: <20260915160141.3543048-11-suzuki.poulose@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260915160141.3543048-1-suzuki.poulose@arm.com>
 References: <20260915160141.3543048-1-suzuki.poulose@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_090219_560475_4E5886D3 
-X-CRM114-Status: UNSURE (   9.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260915_090223_906732_2AEED421 
+X-CRM114-Status: GOOD (  15.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,42 +88,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for adding VM specific backends for stage2 operation,
-switch to kvm_stage2_unmap_range() instead of __unmap_stage2_range()
-from the kvm_unmap_gfn_range(). Drop the bail out check for protected
-VMs and defer that to the one in kvm_stage2_unmap_range(). Later we
-would replace the logic in kvm_stage2_unmap_range() with VM specific
-backends.
+Move the memory abort handling under VM specific s2 operation.
 
-No functional changes intended.
-
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
 Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 ---
- arch/arm64/kvm/mmu.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ arch/arm64/include/asm/kvm_host.h |  2 ++
+ arch/arm64/kvm/mmu.c              | 36 +++++++++++++++++++------------
+ 2 files changed, 24 insertions(+), 14 deletions(-)
 
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index ad3b34ba0b805..7ce46d853c47e 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -156,6 +156,7 @@ struct kvm_vcpu_ops {
+ };
+ 
+ struct kvm_gfn_range;
++struct kvm_s2_fault_desc;
+ 
+ struct kvm_vm_s2_ops {
+ 	bool (*vm_age_gfn)(struct kvm *kvm, struct kvm_gfn_range *range);
+@@ -166,6 +167,7 @@ struct kvm_vm_s2_ops {
+ 	void (*vm_stage2_unmap_range)(struct kvm_s2_mmu *mmu,
+ 				      phys_addr_t start, u64 size,
+ 				      bool may_block);
++	int (*vm_mem_abort)(const struct kvm_s2_fault_desc *s2fd);
+ };
+ 
+ struct kvm_s2_mmu {
 diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 9ba86450fe4af..67852acf7a6f8 100644
+index 3d8b6e5b811ed..607c908c15c42 100644
 --- a/arch/arm64/kvm/mmu.c
 +++ b/arch/arm64/kvm/mmu.c
-@@ -2436,12 +2436,12 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+@@ -1742,7 +1742,7 @@ struct kvm_s2_fault_vma_info {
+ 	bool		map_non_cacheable;
+ };
  
- bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range)
+-static int pkvm_mem_abort(const struct kvm_s2_fault_desc *s2fd)
++static int protected_vm_mem_abort(const struct kvm_s2_fault_desc *s2fd)
  {
--	if (!kvm->arch.mmu.pgt || kvm_vm_is_protected(kvm))
-+	if (!kvm->arch.mmu.pgt)
- 		return false;
+ 	unsigned int flags = FOLL_HWPOISON | FOLL_LONGTERM | FOLL_WRITE;
+ 	struct kvm_vcpu *vcpu = s2fd->vcpu;
+@@ -2180,6 +2180,22 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
+ 	return kvm_s2_fault_map(s2fd, &s2vi, prot, memcache);
+ }
  
--	__unmap_stage2_range(&kvm->arch.mmu, range->start << PAGE_SHIFT,
--			     (range->end - range->start) << PAGE_SHIFT,
--			     range->may_block);
-+	kvm_stage2_unmap_range(&kvm->arch.mmu, range->start << PAGE_SHIFT,
-+				(range->end - range->start) << PAGE_SHIFT,
-+				range->may_block);
++static int kvm_vm_mem_abort(const struct kvm_s2_fault_desc *s2fd)
++{
++	int ret;
++	struct kvm_vcpu *vcpu = s2fd->vcpu;
++
++	VM_WARN_ON_ONCE(kvm_vcpu_trap_is_permission_fault(vcpu) &&
++			!kvm_is_write_fault(vcpu) &&
++			!kvm_vcpu_trap_is_exec_fault(vcpu));
++
++	if (kvm_slot_has_gmem(s2fd->memslot))
++		ret = gmem_abort(s2fd);
++	else
++		ret = user_mem_abort(s2fd);
++	return ret;
++}
++
+ /* Resolve the access fault by making the page young again. */
+ static void handle_access_fault(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa)
+ {
+@@ -2287,6 +2303,7 @@ int kvm_handle_guest_sea(struct kvm_vcpu *vcpu)
+ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+ {
+ 	struct kvm_s2_trans nested_trans, *nested = NULL;
++	struct kvm *kvm = vcpu->kvm;
+ 	unsigned long esr;
+ 	phys_addr_t fault_ipa; /* The address we faulted on */
+ 	phys_addr_t ipa; /* Always the IPA in the L1 guest phys space */
+@@ -2448,19 +2465,7 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+ 		.hva		= hva,
+ 	};
  
- 	kvm_nested_s2_unmap(kvm, range->may_block);
- 	return false;
+-	if (kvm_vm_is_protected(vcpu->kvm)) {
+-		ret = pkvm_mem_abort(&s2fd);
+-	} else {
+-		VM_WARN_ON_ONCE(kvm_vcpu_trap_is_permission_fault(vcpu) &&
+-				!write_fault &&
+-				!kvm_vcpu_trap_is_exec_fault(vcpu));
+-
+-		if (kvm_slot_has_gmem(memslot))
+-			ret = gmem_abort(&s2fd);
+-		else
+-			ret = user_mem_abort(&s2fd);
+-	}
+-
++	ret = kvm->arch.vm_s2_ops->vm_mem_abort(&s2fd);
+ 	if (ret == 0)
+ 		ret = 1;
+ out:
+@@ -2855,6 +2860,7 @@ static const struct kvm_vm_s2_ops protected_pkvm_vm_s2_ops = {
+ 	 * .vm_test_age_gfn
+ 	 * .vm_stage2_unmap_range
+ 	 */
++	.vm_mem_abort			= protected_vm_mem_abort,
+ };
+ 
+ static const struct kvm_vm_s2_ops pkvm_vm_s2_ops = {
+@@ -2863,6 +2869,7 @@ static const struct kvm_vm_s2_ops pkvm_vm_s2_ops = {
+ 	.vm_age_gfn			= kvm_vm_age_gfn,
+ 	.vm_test_age_gfn		= kvm_vm_test_age_gfn,
+ 	.vm_stage2_unmap_range		= kvm_vm_stage2_unmap_range,
++	.vm_mem_abort			= kvm_vm_mem_abort,
+ };
+ 
+ static const struct kvm_vm_s2_ops kvm_default_vm_s2_ops = {
+@@ -2871,6 +2878,7 @@ static const struct kvm_vm_s2_ops kvm_default_vm_s2_ops = {
+ 	.vm_age_gfn			= kvm_vm_age_gfn,
+ 	.vm_test_age_gfn		= kvm_vm_test_age_gfn,
+ 	.vm_stage2_unmap_range		= kvm_vm_stage2_unmap_range,
++	.vm_mem_abort			= kvm_vm_mem_abort,
+ };
+ 
+ #define KVM_VM_S2_OPS(flavor, ops)		\
 -- 
 2.43.0
 
