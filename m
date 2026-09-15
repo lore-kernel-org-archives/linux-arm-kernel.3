@@ -4,70 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E2C3C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 13:04:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46DA3C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 13:05:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NDiXh8oxBb6uFOpEtruWNrSWsdouLS9fxXDMWhczUfI=; b=ZM5zsvpwcujHiKIbIyoX146Jv0
-	OdujobRpdk+HD77tGlV1zMd2KaDxUErWMwodMmCXdMtiIU4oktE+mz5OriynUYsoSunfTmus1a9xy
-	gLGJgy+/aXLnVnVt1TMsow02iF8laPrj2nGx/EZ5d6L8UtL29J27zqWwGYq7JDnWfmC4N14xKEa04
-	zL1DwG8Dpdu3u4iUG/E+tsRyvYYPnC3nsH/jQ0+F90GNSALRqejzmMGApzlU40HvkX7zHDRQ++XcI
-	bcR5OCN4/pgt9AinHVrgn4YSbxYntfSgRdcS9WU+0CGDkpNY/IyayfRNDZg9o0b0VqUnWOjfrIQod
-	u3HF00tQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4luyYPlKfAPRsR57HWe+RkabsdRokVmRAf5ceEum6xg=; b=tFobJkLOaiPcBCqyl4XXr+LYMF
+	7M3qDSvPaPUzqx8lfxY+QAi/k+ZPbHxkq3WRVmN7j4Y8dcfA3H1X4J45vRvnkyFkQvEYS8oaMeiDA
+	ih3Ibx6AziRfw6ZXalAYwl3fSFLb2ZR9FJ/xwIMuOJza1g0AKsgVSp8LmS5FAy7AciqXsgfFAvBuR
+	37h2qU84g1ziuOwx1JlLTAhtNqdYfPEJs6+ntS1yIB1I8s1AonVMKbEK9JhTuw4EaNjYw6GF+4YuQ
+	3GfF+fW8wMI+++d8+Hg9mmU6EvrQ164Eo+aMNmuDadw5jSsMVrqA6giCqLPJAeb5g6mUd65A/2V+V
+	+ein3HGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Spc-00000006eMr-2S0m;
-	Tue, 15 Sep 2026 13:04:16 +0000
-Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
+	id 1x6Sqf-00000006eYG-3uap;
+	Tue, 15 Sep 2026 13:05:21 +0000
+Received: from mail-oo2-x0d.google.com ([2607:f8b0:4864:31::d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6SpZ-00000006eLB-2KLY
+	id 1x6Sqc-00000006eXo-2niq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 13:04:15 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=NDiXh8oxBb6uFOpEtruWNrSWsdouLS9fxXDMWhczUfI=;
-	b=2L0jvUuVjRs5du+YZSCTFaVIJ9zyoohOkG1qL+ZsDSeeVhrJDVnvXSdgp68S7F07JT1tARF8l
-	AvgP613TKVS9mUkfuF5le1xLhunjh6eJtRQUblg47P2gPj321pUiKo+NMnpUl3ekOA3XlDbGcmx
-	uh4Cpdud+BNq6FjRbYJiFqk=
-Received: from mail.maildlp.com (unknown [172.19.163.163])
-	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4hkhl04cm2zKm5t;
-	Tue, 15 Sep 2026 20:53:00 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id 6F5204048B;
-	Tue, 15 Sep 2026 21:04:02 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- kwepemk200008.china.huawei.com (7.202.194.74) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Tue, 15 Sep 2026 21:03:59 +0800
-Message-ID: <5cdfdfb6-c46e-4260-a89b-ac02528d46d7@huawei.com>
-Date: Tue, 15 Sep 2026 21:03:58 +0800
+	Tue, 15 Sep 2026 13:05:20 +0000
+Received: by mail-oo2-x0d.google.com with SMTP id 006d021491bc7-6b1ae721872so103419eaf.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 06:05:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789477517; x=1790082317; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=4luyYPlKfAPRsR57HWe+RkabsdRokVmRAf5ceEum6xg=;
+        b=fet7aKicjrT9u76UHGC/phFX1Pa5BHW9G18TuGDWvstz+w6gxkpAmdaYCn5XzK1yX3
+         a8V+iaZvuJ+cVDDp6fWGX5dO8YGxZzrz3KaZGl7aZ7Ro1noKUf7ot6u3hLJYTOzIh/sz
+         XSylCdAeKxMSCR0+tA5vOYOdho3HtfY4vbGRO+xRI9pbaDg9zCCQE/6T30+6RTX2GmCJ
+         49ZwWNA+O4BUrOOqFIEJmQiM+k9Tmhla2b5xGWDIPmPn3vbQ7NXaoglo4ekIzxl+w7bM
+         fdmcJdU9kdu8eNO225nMcg+L2Q1JZjGpN6Yivb3/iaT0CI80fd8qVRdgznmvA8F2vpV2
+         vYkw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789477517; x=1790082317;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=4luyYPlKfAPRsR57HWe+RkabsdRokVmRAf5ceEum6xg=;
+        b=TzAvkDZB72gVDEk1Wkfjsrg0yVOd9MUT+T8BZf0y29R4X4N4e9WxCbZpNtFZYGxF/b
+         Vt57aXfgICKfFAjGFrFSgHELytxVzFwdlbYbJKjMPNblCcFzdNA/O0u4QbxOArgQW6ra
+         SE2+rSII/Z9qjP9lyC3e2MQiqgWVDb+wDMu/fh2rJr5VpfP54c4Pii577vcUhKqwCpqv
+         MuHhFredmM+NGxq0ufePqlZDZOGjIjY/ZdDZCFetp20+B4NbRAOkIGPFriWzU2ncRhD7
+         +/Feihma9300Kxu3gGRmA9e90EQfFxc2PElDHxLp+Tsc28sXY51FtcWGeAfsVgoMCvwj
+         NERw==
+X-Forwarded-Encrypted: i=1; AKwUvByiXD4sUmvGSRxb+a056SGgM2WEUwppn9iBe/tvZZ4W3laQDtGWPfTrajNE4KvO+d54tZKS9tSxKP5exSzOG13t@lists.infradead.org
+X-Gm-Message-State: AFuF++lJ+oi0yENVqKEFE3pXSa1U4EyWiANOer3JLDbF0i+QpM9T0Uo0
+	FqW+dVF+pDL/EU8wG8sCtciYKHLf9JHOpIgxg5X3EFLZlUKzrO5o1LLL
+X-Gm-Gg: AYBFou2Er7biYvOCptfj7Z+uVB9R9VBUhNNSzImkOYlzRs5nEPmODLawULdrTZha1cg
+	rUFQnkSMzY6MVru/UDMWVrnrF7jRnCHawAwe2lHoJsR5/NXCCDQJdcWoese/iE8LSv7STOgj0h+
+	PJADRH35UnwSCwDUae1yDFjKNgbih1K8HAhq8SA5Xc5bKzqINiW2qcorcuYqYaJEEzU41n2rFM3
+	UN2DZhIwa41XBnLw10WgQZtgI86tBFqPLHTrnHWsaynzRasy5A/5WlsYur/68TRXTuyGnfsLG0q
+	vDuiFoYsLS5k1jkGLkvJTmZgUj/w6C/FErcOfz2fmjZogBsgtxtO03mZ7dKXSqWW+2APtoFVc+h
+	fk9HXuT/7zwM2AnU6fzbgGhWQFRQei+zxKrV+lr6Dn78MiEGZHmC759vda34GIEG3o9hHxEEvi0
+	6aE4e0kJebYR7JryuHdABQykMdMO+P6M1ag1ndUGzm6cdXMa/+XXznI6ykSDL6fPkWUEoB24D9B
+	+pWStjin2VKbqd3
+X-Received: by 2002:a05:6820:1985:b0:6b7:83d6:292b with SMTP id 006d021491bc7-6c739c72294mr552478eaf.46.1789477516775;
+        Tue, 15 Sep 2026 06:05:16 -0700 (PDT)
+Received: from ai-agent-sv-01.. ([43.135.169.42])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33bf11e6af6sm1299889eec.3.2026.09.15.06.05.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 15 Sep 2026 06:05:15 -0700 (PDT)
+From: NoNine <chenmin83@gmail.com>
+X-Google-Original-From: NoNine <min.chen@siengine.com>
+To: suzuki.poulose@arm.com
+Cc: mike.leach@linaro.org,
+	james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com,
+	coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Min Chen <min.chen@siengine.com>
+Subject: [PATCH 0/1] coresight: tmc-etr: Sync the trace buffer for the device
+Date: Tue, 15 Sep 2026 21:05:02 +0800
+Message-ID: <20260915130503.645953-1-min.chen@siengine.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v18 00/14] arm64: entry: Convert to Generic Entry
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
-	<oleg@redhat.com>, <kees@kernel.org>, <luto@amacapital.net>,
-	<wad@chromium.org>, <peterz@infradead.org>, <ada.coupriediaz@arm.com>,
-	<linusw@kernel.org>, <kevin.brodsky@arm.com>, <yeoreum.yun@arm.com>,
-	<thuth@redhat.com>, <james.morse@arm.com>, <vladimir.murzin@arm.com>,
-	<broonie@kernel.org>, <pengcan@kylinos.cn>, <liqiang01@kylinos.cn>,
-	<ryan.roberts@arm.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20260902095537.602517-1-ruanjinjie@huawei.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260902095537.602517-1-ruanjinjie@huawei.com>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemk200008.china.huawei.com (7.202.194.74)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_060414_259798_1E3FA4FB 
-X-CRM114-Status: GOOD (  15.70  )
+X-CRM114-CacheID: sfid-20260915_060518_719332_F31025F8 
+X-CRM114-Status: GOOD (  13.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,84 +102,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Min Chen <min.chen@siengine.com>
 
+The flat ETR trace buffer is allocated with dma_alloc_noncoherent(), which
+reaches dma_alloc_pages().  That API zeroes the buffer with CPU stores and
+requires the caller to sync the memory for the device before the device
+writes into it.  The TMC driver only ever syncs for the CPU afterwards, so
+a non-coherent sink is handed a buffer whose zero fill is still dirty in
+cache.
 
-在 2026/9/2 17:55, Jinjie Ruan 写道:
-> This series converts arm64 to the generic entry infrastructure.
-> 
-> Currently, architectures such as x86, RISC-V, LoongArch, Powerprc
-> and S390 use generic entry, which significantly reduces maintenance
-> burden and improves code elegance. arm64 already adopted generic IRQ
-> entry in commit b3cf07851b6c ("arm64: entry: Switch to generic IRQ entry"),
-> making it the right time to complete the conversion.
-> 
-> This work brings arm64 in line with other major architectures,
-> reducing duplicated code and enabling future improvements like
-> Syscall User Dispatch and rseq time slice extension optimizations.
-> 
-> The series is rebased on v7.3-rc1 and has been tested on Kunpeng HIP09
-> with stress-ng, hackbench, kselftests (ptrace, breakpoints, arm64/abi,
-> arm64/fp, vDSO), ptrace stress test, and Pseudo-NMI load test.
-> 
-> Changes in v18:
-> - Rebased on v7.3-rc1.
-> - Drop the SUD patch as Mark suggeted.
-> - Update the commit message.
-> - Add Reviewed-by.
-> - Link to v17: https://lore.kernel.org/all/20260721081858.1169276-1-ruanjinjie@huawei.com/
+On an AD1000 EVB this shows up as 64-byte-aligned runs of all-zero
+formatter frames in the first window of a freshly allocated buffer
+(1,100-2,400 runs in the leading ~4 MiB; later windows and reused buffers
+are clean).  Writing a known pattern over the buffer before the arm and
+cleaning it removes every run, which pins the loss to the buffer
+hand-over.  The ETR node is not marked dma-coherent.
 
-Hi Mark,
+The patch adds a sync_for_device() buffer operation, implemented by the
+flat buffer, and calls it from __tmc_etr_enable_hw() before the TMC is
+enabled.  It is intentionally flat-only: the ETR_SG and CATU data pages
+are allocated and immediately dma_map_page()d, so the map performs the
+architecture's for-device maintenance for the first hand-over.  Their one
+remaining corner case - a barrier packet written into a full buffer before
+a live drain re-arms the same buffer - has no reproducer here and is left
+out.
 
-Thanks for your continuous and detailed guidance through the previous
-iterations of this series.
+Tested on the AD1000 EVB: five first windows on freshly allocated buffers,
+including the first capture of a boot, carry no all-zero-frame runs and
+show the ordinary clean-stream profile (2.851% zero bytes), against
+1,141-2,360 runs for the same measurement without the change.  The patch
+was rebased onto the Coresight for-next/queue tip 5442d22da7db and builds
+with arm64 defconfig (Image and modules, no warnings or errors).  The
+hardware run used the vendor 6.6.87 tree; the rebase carries the same
+change.
 
-Please let me know if there are any further review comments or code
-modifications required from my side, or if this looks good to be queued
-for the upcoming 7.4 cycle?
+Min Chen (1):
+  coresight: tmc-etr: Sync the trace buffer for the device
 
-Thanks,
-Jinjie
+ .../hwtracing/coresight/coresight-tmc-etr.c   | 29 +++++++++++++++++++
+ drivers/hwtracing/coresight/coresight-tmc.h   |  1 +
+ 2 files changed, 30 insertions(+)
 
-> 
-> For changes in v7 to v16, please refer to the individual patch threads:
-> - v16: https://lore.kernel.org/all/20260629130616.642022-1-ruanjinjie@huawei.com/
-> - v15: https://lore.kernel.org/all/20260511092103.1974980-1-ruanjinjie@huawei.com/
-> - v14: https://lore.kernel.org/all/20260320102620.1336796-1-ruanjinjie@huawei.com/
-> - v13: https://lore.kernel.org/all/20260317082020.737779-1-ruanjinjie@huawei.com/
-> - v12: https://lore.kernel.org/all/20260203133728.848283-1-ruanjinjie@huawei.com/
-> - v11: https://lore.kernel.org/all/20260128031934.3906955-1-ruanjinjie@huawei.com/
-> - v10: https://lore.kernel.org/all/20251222114737.1334364-1-ruanjinjie@huawei.com/
-> - v9: https://lore.kernel.org/all/20251204082123.2792067-1-ruanjinjie@huawei.com/
-> - v8: https://lore.kernel.org/all/20251126071446.3234218-1-ruanjinjie@huawei.com/
-> - v7: https://lore.kernel.org/all/20251117133048.53182-1-ruanjinjie@huawei.com/
-> 
-> Jinjie Ruan (14):
->   arm64: ptrace: Fix redundant syscall exit stop for
->     PTRACE_SYSEMU_SINGLESTEP
->   arm64: ptrace: Rework audit_syscall_entry()
->   arm64: ptrace: Open-code seccomp check in syscall_trace_enter()
->   arm64: ptrace: Rename and clean up syscall_trace_enter()
->   arm64: ptrace: Protect rseq_syscall() from tracer PC modifications
->   arm64: syscall: Rework the syscall exit path in el0_svc_common()
->   arm64: ptrace: Pass thread flags to trace enter/exit
->   arm64: ptrace: Extract arm64_syscall_exit_to_user_mode_work() helper
->   arm64: ptrace: Align syscall exit work semantics with generic entry
->   arm64: syscall: Use exit-specific flags check in el0_svc_common()
->   arm64: syscall: Simplify el0_svc_common() syscall exit path
->   arm64: ptrace: Make return type of arm64_syscall_trace_enter() bool
->   arm64: entry: Convert to generic entry
->   arm64: Inline el0_svc_common()
-> 
->  arch/arm64/Kconfig                    |   2 +-
->  arch/arm64/include/asm/entry-common.h |  77 +++++++++++++++++
->  arch/arm64/include/asm/syscall.h      |   5 +-
->  arch/arm64/include/asm/thread_info.h  |  16 +---
->  arch/arm64/kernel/debug-monitors.c    |   8 ++
->  arch/arm64/kernel/entry-common.c      |   2 +-
->  arch/arm64/kernel/ptrace.c            | 115 --------------------------
->  arch/arm64/kernel/signal.c            |   2 +-
->  arch/arm64/kernel/syscall.c           |  34 +++-----
->  9 files changed, 102 insertions(+), 159 deletions(-)
-> 
-
+-- 
+2.34.1
 
