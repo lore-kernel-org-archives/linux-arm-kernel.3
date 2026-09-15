@@ -4,113 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82665C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 07:16:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52C10C88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 07:23:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+nr1P0tgliNgWrwwlskRYCnoUwDXrwYuGsx1cH5L+SI=; b=mVzB8DGKDkYcuK6QMv9v1kYptI
-	OA2izIqSbPgt7b6dehRbBj0CCGyvVnRYynMnSUGreseIUSjHKADg65ue81diMmNhu3wW7exK85WLN
-	ciEDtXnLRTBJtU7vSSzurGTIPwnjUYN2qpOdsICNYc0IBRpT/Bg3Nknm8G4oAtE8RFGTdhlguCEBM
-	FBnVsdNmftARy9vdq32rALAIt8igJ+c8jhqP9CBMebzwR/6u//nzcYcgNoSzfcU01x2h+Uet3bAIo
-	R9Z3rdnhQ0ZYRU8gczIGvoXCZ4hsF3mNx3wrUiapL+LQFTvJeGCFYidGoRpSHUR9p4CbhyA/odgyl
-	n1VSzihQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3ATNw/rTlAf7RUOzSgyQZetgiqkf6IsOoJFplso21Xs=; b=P+xMdi2nm13yusqx9Way8nrhnJ
+	kp8z4XREP5lEX8bV/KDbvSWIZ0g28Vj+mgfDfwr1z/4ySxkv5mos+tVlPQHxhOa6GyNL4vLfQxF02
+	gPIRWY1t4vUyDHPi7ew6hLQ/0V5xza3S6YwxAX+ZabaCk+/z4W65ybgeqJ9TQg3ch78qHY2ylGc36
+	QhgcZJDBSBQfMEX2S6AWKHaA0c4MtEYb0Q9t+gbwkbri2klxC3Y3hlPPtZ1MwqS9tOx2E2/VHYWGm
+	wOLwg4e6e0eJQuqRfzfCphq5MOg1iUx5g522behmSbOBKwAbTUqfDn5+M3H+CNBGr0qrzGLyvkhZz
+	1xvVJrgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6NOT-00000005RCX-14lg;
-	Tue, 15 Sep 2026 07:15:53 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1x6NVi-00000005SkV-0woh;
+	Tue, 15 Sep 2026 07:23:23 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6NOQ-00000005RC3-1dXz;
-	Tue, 15 Sep 2026 07:15:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789456550; x=1820992550;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=+hFmXzfeob24QkbjYP8iQSqL7rHNCW4SoAluNe2Mtzo=;
-  b=SqTPGq1/wIAt9oHS4ekKDbtM/G4Ocj3SZMwt0/NBaW1JmxQb5STj2vgF
-   EUI19h3YNhp+CgoentcZiZFmvRElTAipytatNsq/Ai6mc7N4l+8SD9OHM
-   NPjZlQ7A2uHGNx/i2EEi+7ZxXX7HQOa1KzrZnPUqt3uxaPwOiqVs69dyo
-   KjlFTby+Ol7uNVYWfX4aTBx15PnJ0CEVVNfxOVaZQtv8kA3yWJr4Gh59s
-   bWk+D3oWw+dZlEyhkWtmc2hWQdQT/jsUZElIISdLLZh5PLJyfRcIX4H9C
-   a8BWJKM4Wkx4uV8SHLJUUXbk/ZhtMJChv+tjzlZRLMKc0XYtk+PJHWSal
-   A==;
-X-CSE-ConnectionGUID: NbIW9kUsSw+Vm0GcbJ19pw==
-X-CSE-MsgGUID: lHDkDJ2iSI6DNlBTXCwZ2Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="77372791"
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="77372791"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Sep 2026 00:15:49 -0700
-X-CSE-ConnectionGUID: jCoR3+hhS+iTfoVrXV+ydQ==
-X-CSE-MsgGUID: EtpDa52ZR/agKBjetRCxuQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="268588584"
-Received: from smoticic-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.203])
-  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Sep 2026 00:15:38 -0700
-Date: Tue, 15 Sep 2026 10:15:36 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Srinivas Kandagatla <srini@kernel.org>
-Cc: Link Mauve <linkmauve@linkmauve.fr>,
-	Sasha Finkelstein <k@chaosmail.tech>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Vladimir Zapolskiy <vz@mleia.com>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Kalyani Akula <kalyani.akula@amd.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
-	Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Tamir Duberstein <tamird@kernel.org>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
-	Johan Hovold <johan@kernel.org>,
-	Ronald Claveau <linux-kernel-dev@aliel.fr>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev, imx@lists.linux.dev,
-	linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	rust-for-linux@vger.kernel.org
-Subject: Re: [PATCH v5 2/3] nvmem: core: deprecate reg_write callback with
- reg_write_const
-Message-ID: <aqjwmMn7GkAoxsu2@ashevche-desk.local>
-References: <20260804135940.2378737-1-linkmauve@linkmauve.fr>
- <20260804135940.2378737-3-linkmauve@linkmauve.fr>
- <a1488d9d-3014-44ea-a0d7-6ab99fedccc9@kernel.org>
+	id 1x6NVf-00000005Sk6-41sO
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 15 Sep 2026 07:23:21 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68F6ZBBB2983652
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 07:23:19 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=3ATNw/rTlAf7RUOzSgyQZetgiqkf6IsOoJF
+	plso21Xs=; b=GBvNlURHys0JKR9lSkOpSc3CedUF3nzxz0c/Qr9yV/tXmwRWGEf
+	OK+FnCXK70zkftAUk8mV+CCt4NM0LhRTd5dRxB158Cb+/jBKJpDf5hGSj1ByOm1p
+	J73U7C+XY/Hs0gFfiVuvi+uEO1HMGIQG5BHWpd2qPQQcaT21Js8z7TKbumjIrKSW
+	J9Hi7FibSnJAr3DcJsNvpeqzxMzgM95S0ACpwvoeRnczC12Rf2zBNUqX/vfyfrSQ
+	EJ7SBWd0GTMcFDX/FnUUmiCgAq9tFXT0yPpYWkDFCV5UmKPzHpKy7eFRaM6ToHDb
+	eEnPFJm9fHn/Is70FfvP/q42n/I1OSm+VDw==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gpnet2ynm-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 07:23:19 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-939f3426a7cso739628685a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 00:23:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1789456998; x=1790061798; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=3ATNw/rTlAf7RUOzSgyQZetgiqkf6IsOoJFplso21Xs=;
+        b=Di3NDDBBHxlDUAeSfrirfmyLUhOBSvzebcVq/v+99vNhPqhP1C9arGc8MF+A6LjdZw
+         cQeIsuCPUMJAKJ6JgQ3pjpPAU+O3MZd7H5blC9enn/Ytcs/zNGGld/cHqtK7Y5NlApnG
+         52Bl+Xgfe72d+5ROu483bMc3J0I2FjKKw+Qr2cB5mfkAIu2SaS7XxvM13bWcvNAkQaOo
+         I6D8Towidz5xGwvIsvmTfOe90JWaH/f7dXKJTtO0boEBXUt6MaZ7IpUcnk3LgjHKAqXs
+         RdpX8bRozOFTKKSlxSUt53PxJcKHVNePwiJLURIyyL8YTIm842ToCZa/2tNQx5IJbpiW
+         JBzw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789456998; x=1790061798;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=3ATNw/rTlAf7RUOzSgyQZetgiqkf6IsOoJFplso21Xs=;
+        b=xz6UQ3oYw3v8Ry2A3Dgl/1uXri6YL7d7quuSzob2HWBUEbG8CptZS87bHvoCWgtWL5
+         I3rius9d/Vz14G0hPnNB3U6X9xLdznwtj0/bZzD0YSrc2RXXbyoDHshnVjTmj76bEKtS
+         1dKHQo/REOatOCGEi48lS/EYMHBmgVgP7AUHU98HkZHJZyihsIarJO0gmuWu5W+jzyLc
+         D0nRaSEYI+Ul0Fdj8BVEvo0WLY6jtAZbfM3tUa65evhnE8BAwBDVpyxHbkMi9EtimdJ2
+         HYHwtYSwOzybKyPgmw2j9W6hlOHEzH4Z8irC24qsYFBGkGMij5oV3kgEUpH+wlYwNpMp
+         h2OQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzO0ozZViJTd+h9pPr139VR55qQB+UzVO0X2ghiMRQUmgRmVOXPIMBCOhmBwjgUQ1gT7XvK4m6nKn1vmL3VQSP9@lists.infradead.org
+X-Gm-Message-State: AFuF++neGT4dd/854HBg/dPYfFC1sVGIx3YUPXFLQbiCevwSvhpW3Eab
+	6mxlLGW86fkWouzJALptZXsA2wDqqFOtCk+0FaB2kUQgTGKSJZlfCvMB87WRacw9RrntOyHPWlD
+	ZESIwKiK0xkcEl+OcAsn2ZazgsUp0lA1Z2SKLkNO7kKpyFaWslRwTPaasblq2Dey+Orn7aJd6Hv
+	a6zQ==
+X-Gm-Gg: AYBFou1yobl9iLW7wp23X3z2m2NXmHFNg3wFdHmNhkDd2HgcDcFGtVMRrexaySsJpCm
+	D5hMwzjCNOyhSg5ILa4hZE1BM9KJ4svKszcoefBz5yFqHtRyI2c/kBSumAnid4totXo80kqc2J9
+	020p83UsDd6CUWhw3zRXDmGAMACQi8WtsmUMPSMsWatbbuz258dUqNFMRLHOLnFNSSOp9nNksnK
+	k8RXF5FSNU7AET2erH/PK00D3jsS7uJ80IuLEDw+HzMM9nVYExdi1pnKt/r36MQOlN60iekk+WP
+	SsFA/7fbYOprOkxlH9J8cQ0jJW7HunzPohtBU0jdg1/L+H+BlPVlsJ7M6Gld8X7CsoPmfKQpziK
+	8bFnAoBAySioE6Jc=
+X-Received: by 2002:a05:620a:2548:b0:939:78ab:3c5f with SMTP id af79cd13be357-93a297c8d1cmr870013185a.9.1789456998298;
+        Tue, 15 Sep 2026 00:23:18 -0700 (PDT)
+X-Received: by 2002:a05:620a:2548:b0:939:78ab:3c5f with SMTP id af79cd13be357-93a297c8d1cmr869984785a.9.1789456993090;
+        Tue, 15 Sep 2026 00:23:13 -0700 (PDT)
+Received: from quoll ([178.197.219.214])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e7ef2e117sm43920095e9.1.2026.09.15.00.23.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 15 Sep 2026 00:23:12 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+        Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+        imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH] arm64: dts: imx95: Drop unsupported opp-hz-real in OPP tables
+Date: Tue, 15 Sep 2026 09:23:09 +0200
+Message-ID: <20260915072308.64047-2-krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <a1488d9d-3014-44ea-a0d7-6ab99fedccc9@kernel.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1987; i=krzysztof.kozlowski@oss.qualcomm.com;
+ h=from:subject; bh=1CwEh8Q/rE1NnBMoNQNfgUNpKNcbygdha/9UWzt5FEA=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqqPJcJRY2BJd+T88jYlFk1GheN4sqq8i4Wa973
+ jvqfy7SQ0qJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaqjyXAAKCRDBN2bmhouD
+ 104gD/wNqgSpuFjJGccDgJI+wE97JAS7/eb4tNGBVw27ynWMA5AqDYYnvK5X3/F0roozimR8qs8
+ hDvcWCNNqHU4PBXYCOoZ5jQwYNgxs9wv//rwxKzJ5N0AfAEXebev57u30T5bc8JK5KpYeQU6RII
+ RFDIPpsdytPmUNKkZ4n5llMHmoPJlasIGEzldd/SJkwV9vB35E/gIPLXlFyJtcow0uh/eB+BnY3
+ bJSs8g5xZcwsRfAnwlv829d5OjgV5FvQuXUsLAuHyo0athGI64upCpApkhDeAKeap54Aot40cIR
+ yfRcXxCz23sw4rw5OTQHvP4TfU9r9m/dSIPvir3kLQ5uYqJxeVnRubV7iaxukhTATBafHTZAI8O
+ iAWLQinDVXqRnIm4lEDubTnN04cHVaXqmtUfdqHXm6m3v45rOwQkjB7LRRwybInr7LoqXvt2bhV
+ Hf0SLRU1rHcx+lGbNCo6SKD+N0oyKqIv0jprhs0Gtxs9hPTfina9cD5+10Pnqh2Yw7g0nK9DyqY
+ BBDuOUrfd/4FdUjjlPb979qdlPRLjXqlwI45/pjwvvt/8pe0P9957yxMk5ljlpzClRua4ILx08F
+ 5PtakefXHXbQBBpRwKLD4bguq5rEnqRW3djJQAkzymjQIQwGHO3k/IVsJ8XE0cwM1pqvufUd4Pj U3wEzs/QFSi4K0g==
+X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE1MDEwNCBTYWx0ZWRfX1ij9KWFQMb/G
+ UJnVrXvDmOlKyA43zRAzv7Op2PLnSt365OIViwwQLeBiqMUid0ZjDzOcM2f5Tng68nmTPCTbFKl
+ kRabeqqJLJ0qD9m/LFy3DlnDhGudjpo=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE1MDEwNCBTYWx0ZWRfXxkXC/2LsYRa+
+ WJFNsJqBY/HgPmD1naIS0q2aHzSrOFOEitaiDDOe55dl0WCpbe6PvaWguAMNb9r1wWRuq+3doPx
+ J99TurwS5i+AqMGcWoXPftU7mfv6vTnS3XHJMv123wGS0aJJqZl5EOZX9qIwuGBKVoY77IZh3eD
+ yI/u8o/2jhcd106JR2iVfnp6/I7m8ODc91C5pl3se+DlrON17as1t2hp2Mpqestwl7h1GrVwFDR
+ AvUqo4DBxQaKGh+4JM9jXW0Ao9z5IxNL/rkYPxQScxdMv7wR3xAxaqwN2SzoXxKJUue+b6vNTqn
+ KWQxwgLJoNqLFBwunNT/Bx1T/QYMwHGSzdBDjpig6lngr+KYOlRoPfKCEraw7abTIRn3APkE5JW
+ u+caeS/1su73rzZiERa1uOnAbGSE6Pr5tx7zPuntu0RVpWz8i5G9J7pCqamTdOw35jF6wreCjXY
+ B/egtI+8JEAuXjhyTpQ==
+X-Authority-Analysis: v=2.4 cv=PKKaavqC c=1 sm=1 tr=0 ts=6aa8f267 cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=+bKQE0WJfmhK2875HamI0Q==:17
+ a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22 a=EUspDBNiAAAA:8
+ a=LIxWyly_AihzR3FwyFQA:9 a=bTQJ7kPSJx9SKPbeHEYW:22
+X-Proofpoint-GUID: swhyouoq4gJjJTJukBuvhb7uQJGq9dIQ
+X-Proofpoint-ORIG-GUID: swhyouoq4gJjJTJukBuvhb7uQJGq9dIQ
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-15_02,2026-09-14_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 suspectscore=0 malwarescore=0 bulkscore=0 spamscore=0
+ clxscore=1015 lowpriorityscore=0 impostorscore=0 phishscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609150104
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_001550_585261_6F6996DE 
-X-CRM114-Status: GOOD (  11.70  )
+X-CRM114-CacheID: sfid-20260915_002320_008269_CD6BFD42 
+X-CRM114-Status: GOOD (  14.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,40 +159,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 14, 2026 at 10:48:21PM +0100, Srinivas Kandagatla wrote:
-> On 8/4/26 2:59 PM, Link Mauve wrote:
+There is no "opp-hz-real" property at all defined in the bindings and
+new DTS is not allowed to bring undocumented properties.  Fix dtbs_check
+warnings like:
 
-...
+  imx95-15x15-evk-pcie0-ep.dtb: opp-500000000: opp-hz-real: b'\x00\x00\x00\x00\x1d\xcde\x00' is not of type 'object', 'integer', 'array', 'boolean', 'null'
 
-> > - * @reg_write:	Callback to write data; return zero if successful.
-> > + * @reg_write:	**DEPRECATED** - please use reg_write_const instead.
-> 
-> Marking here as deprecated is total waste as no one will read it,
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+---
+ arch/arm64/boot/dts/freescale/imx95.dtsi  | 3 ---
+ arch/arm64/boot/dts/freescale/imx952.dtsi | 3 ---
+ 2 files changed, 6 deletions(-)
 
-This is still okay as we have many such things in the kernel (during the time).
-
-> May be move this message to the core while registering.
-
-No objections here.
-
-...
-
-> >  	nvmem_reg_read_t	reg_read;
-> >  	nvmem_reg_write_t	reg_write;
-> 
-> flag this with compile time __deprecated flag.
-
-__deprecated is DEPRECATED :-)
-No new code should use it.
-
-include/linux/compiler_attributes.h:110: * Don't. Just don't. See commit 771c035372a0 ("deprecate the '__deprecated'
-
-> > +	nvmem_reg_write_const_t	reg_write_const;
-
-
+diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
+index 1cb8eb15e5c7..99c72d5cd125 100644
+--- a/arch/arm64/boot/dts/freescale/imx95.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
+@@ -255,19 +255,16 @@ gpu_opp_table: opp-table {
+ 
+ 		opp-500000000 {
+ 			opp-hz = /bits/ 64 <500000000>;
+-			opp-hz-real = /bits/ 64 <500000000>;
+ 			opp-microvolt = <920000>;
+ 		};
+ 
+ 		opp-800000000 {
+ 			opp-hz = /bits/ 64 <800000000>;
+-			opp-hz-real = /bits/ 64 <800000000>;
+ 			opp-microvolt = <920000>;
+ 		};
+ 
+ 		opp-1000000000 {
+ 			opp-hz = /bits/ 64 <1000000000>;
+-			opp-hz-real = /bits/ 64 <1000000000>;
+ 			opp-microvolt = <920000>;
+ 		};
+ 	};
+diff --git a/arch/arm64/boot/dts/freescale/imx952.dtsi b/arch/arm64/boot/dts/freescale/imx952.dtsi
+index 887abb1c4784..306239de096e 100644
+--- a/arch/arm64/boot/dts/freescale/imx952.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx952.dtsi
+@@ -323,19 +323,16 @@ gpu_opp_table: opp-table {
+ 
+ 		opp-500000000 {
+ 			opp-hz = /bits/ 64 <500000000>;
+-			opp-hz-real = /bits/ 64 <500000000>;
+ 			opp-microvolt = <920000>;
+ 		};
+ 
+ 		opp-800000000 {
+ 			opp-hz = /bits/ 64 <800000000>;
+-			opp-hz-real = /bits/ 64 <800000000>;
+ 			opp-microvolt = <920000>;
+ 		};
+ 
+ 		opp-1000000000 {
+ 			opp-hz = /bits/ 64 <1000000000>;
+-			opp-hz-real = /bits/ 64 <1000000000>;
+ 			opp-microvolt = <920000>;
+ 		};
+ 	};
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.53.0
 
 
