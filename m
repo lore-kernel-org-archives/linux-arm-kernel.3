@@ -4,59 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D707C88E73
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 08:55:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2293C88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 08:55:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=kz2evdFDdQHXA8nX4bX8y9CwHJFuZrEM5kHt+0SRwUI=; b=oHw4VQJ644a5Sd
-	TcfDLWlEGWEJoeILAm57fXPFVF0CA+6VVlMi0EEi9gOcntgIevSCKqAIGOAMUelHtI0Qj1PhAs0/R
-	KiIV0FANMY/jCXA3pin0SRiu6Jbow2I+qT0Vj/lDQ5yWj01gPeSILVDLRcQVoSMLIik0zuPtx6x7E
-	9eJ4F6bSU+0wX57pc7c4POSToivokDswChpxpzph6wmqEtCf+fQTAXFaMK0TAKtu5eTVav+0nSL4f
-	r3qBcvuEk24kmtsr0SHtONbqgL6xwA3VTcYB7A1dO4bxvE4QmwWfFshm0dx98znY/st9Uyt2ob9eb
-	rXN4BzSBoZFwy0bWt/Uw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DvAqa5evJVnKh8G03byOaDnVEYcO6OUHZZiRC6VgjpQ=; b=J60FrNMmeOlIZxYAXwK0xaUcNx
+	obwWYJWaMivmjadjOQQU9HDn3PirH3etmO6PBD3mgxWCDiCXN8kubonftghg4otbhoZzK/2WCAzdT
+	okvEToU6EoF1KsdKnylm4UJBvQA2cuROGsJLeqZNFfjebncXi7II1kCDZFbWVBrTYOMElcsubB7BT
+	YKuLmvdng/nNyBBy/wB/DeWIlpxaWYLojZ97DeL4Wa/OiRkQIejmjizV694AvsCgeyI5YpeYbn6rq
+	39gmzZLbc+LxA9cWk2FjFXlnkV/QHe3s9B5bcbpL6LMIeNXMYngGnTgD4F9bGdr2eS2FeqItyMJ9O
+	FHf41i6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Owu-00000005hqd-0dfd;
-	Tue, 15 Sep 2026 08:55:32 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1x6Ox4-00000005hvg-1T8k;
+	Tue, 15 Sep 2026 08:55:42 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Owr-00000005hoU-1e7o
+	id 1x6Owu-00000005hq7-0igP
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 15 Sep 2026 08:55:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=DvAqa5evJVnKh8G03byOaDnVEYcO6OUHZZiRC6VgjpQ=; b=pi8jiDChaLlkgtb0Re8VmujFMv
+	Q2IrmytQsPwMJIOTO9v5G1K85Xx/MKX+E6+UXhetJj72xPXQOYsKVC5N1D3V95y9ZMM3uA6ZYZNmv
+	cEIVqvTaF7cvtKekXF2e224sLAi7qmZoQLA9y8rPlZTooEoqiMHXybWwFnjsdrK5ClrR/eztupoXs
+	rOkqm6kqQJ5kgGgVDCIsRMSfIgqTRHs/kMvjdOKqFBl4dWJ3tEIOCq2xw2JmOtClxOUI7hzRLrrWO
+	gJKk6dJ/w/xCZuoiXQxYq+AXNSsRdS+eBrV8n0HEsy4tTMvNHDMdHL2ugeDebHW1CouH3VVm37bI1
+	OhH787Hg==;
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6Owq-00000006Sm3-3O1t
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 15 Sep 2026 08:55:30 +0000
 From: Kurt Kanzenbach <kurt@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1789462524;
+	s=2020; t=1789462525;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=kz2evdFDdQHXA8nX4bX8y9CwHJFuZrEM5kHt+0SRwUI=;
-	b=WA9n6n7T8oQoAK/VqPeBqKBQX9eFqxoj6f0/fRQJ850oQxRP+SZCljLYGS+gcV7+8i2Ot4
-	iu8wvRkpPIfrYiVC9M9EWr+oefNjsRAbnsTzcErLgU1VsJ5Ls3o3wrNSODfXim2LEC1QzU
-	AA+f2KCYg9naRk1c9CiLd2AG6yptB8p9DSEMmGuAbseQhHQJrzVvRkr+HeoLKVxgfxpUak
-	X1WAYCwBZPEpGLet+lJQTl7mEgN7E1M7D3fXlyj4fHcJgR65ZrrOfWSPQHvClIZ1Q/TH8e
-	HMXUnVVzZhQFe5ZunpkIMuJF8uOTOWdSdaQlhbOULyCCxV2teARNhPgi/R4DBg==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DvAqa5evJVnKh8G03byOaDnVEYcO6OUHZZiRC6VgjpQ=;
+	b=ZIuDE2lw+VwT9CnPFGVL98Ofa/deyDQiEif4a67Na/f1/c7mB2i9Op/v1j+JzCu29uZu0P
+	Z5Cv2v3x2E+NL3IJsPK+kbz48wD8S07jVdEiRtiJYj3zEiWFZyT7CCFi3eByD7Oyt+XyTv
+	LiPdsw5oQDT6xLcNUgKySyMbMHLGofpIXb4hkc2SGak0r0NV3xnCrvqax6YYbwmkQdtUHJ
+	ihN1i9g8cjDSiRq07wKt654szOjLGaoAKI7Lok7NvEHJmAIVk3GaCmZkirfYfeEWRpGGhR
+	l80SMfgVPLA12e3E574iJghjgmgTz92ua0vQglGyYxGCKfKZ7S6t8rXH4uKIpg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1789462524;
+	s=2020e; t=1789462525;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=kz2evdFDdQHXA8nX4bX8y9CwHJFuZrEM5kHt+0SRwUI=;
-	b=xkRsOVxn7E4PztgHnpY1sS8KLFNmvMFUbkI+5aSPemomlkiXPIiQOPftEavTFRhYEWdbIS
-	NxgL7k/x2Uw+QLAA==
-Subject: [PATCH RFC net 0/2] net: stmmac: Fix XSK crashes on stm32mp2
-Date: Tue, 15 Sep 2026 10:55:04 +0200
-Message-Id: <20260915-stmmac_xsk_crashes-v1-0-e14553fcf553@linutronix.de>
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DvAqa5evJVnKh8G03byOaDnVEYcO6OUHZZiRC6VgjpQ=;
+	b=BO2ps6V/Ws6mGmzzs96OVKHelSA6/FTD4+OHsip7PMMbSEg3irweOBQVogm0Xoibt6kdYx
+	YtHq5TWBxGId2xBw==
+Date: Tue, 15 Sep 2026 10:55:06 +0200
+Subject: [PATCH RFC net 2/2] net: stmmac: Stop Tx queue when (en|dis)abling
+ XSK pools
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAOgHqWoC/yWMQQqDMBAAvxL23EAiVrHXQh/Qq4is6arbYizZt
- Aji3xvtcRhmVhAKTAIXtUKgLwvPPoE9KXAj+oE0PxJDZrLCVDbXEqcJXbvIq3UBZSTR1mBZ9oX
- NsTtDCt+Bel6OaQ3321V5itD8hXy6J7m4L2Hbfk6Ds0d/AAAA
-X-Change-ID: 20260914-stmmac_xsk_crashes-10a77f614ab5
+Message-Id: <20260915-stmmac_xsk_crashes-v1-2-e14553fcf553@linutronix.de>
+References: <20260915-stmmac_xsk_crashes-v1-0-e14553fcf553@linutronix.de>
+In-Reply-To: <20260915-stmmac_xsk_crashes-v1-0-e14553fcf553@linutronix.de>
 To: Maxime Chevallier <maxime.chevallier@bootlin.com>, 
  Andrew Lunn <andrew+netdev@lunn.ch>, 
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
@@ -75,26 +91,25 @@ Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
  linux-stm32@st-md-mailman.stormreply.com, 
  linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org, 
  Kurt Kanzenbach <kurt@linutronix.de>
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1274; i=kurt@linutronix.de;
- h=from:subject:message-id; bh=9XXEozCK3dRnlsfkPr55NurlMImrFl9on9S4pzoI+s0=;
- b=owEBbQKS/ZANAwAKAcGT0fKqRnOCAcsmYgBqqQf7uveF9O0ZOtmy346HcxuhlVkuzl8l6zEKz
- tiehjPD7m2JAjMEAAEKAB0WIQS8ub+yyMN909/bWZLBk9HyqkZzggUCaqkH+wAKCRDBk9HyqkZz
- gtivEACXpYLQiXXKS7umNljH9n8tu5CLNKvakkzwLWy7TOGSmJ5DOGAReyyTLakGIzhUy7vySot
- zuYsTUDCYGge/xhxyI/odDU7/ulXTu0cgvFDOmy+Oh8cYxO77EwMdzRwN0f+NS5r76dmc12pP58
- F3+YHlFQzLIok+8lAk242XVPuvnrUSGPU5hQnrZl3i07zwr9TJUAXjfUb/PMC5jy2stE2Y61b9d
- 9V+l45Dl94zCT8ILPjFUQRwnN87XDMHa3gauOwLPD0ofeJzhLVCPDbFvR31q09rarr/BL16U5pE
- WDpJsb/RzGpD4BR54zcy4yD9BwgyJ8//z9Uyc2B2Q5tyiS6fsVoF3ika7HP1SQp1+RLZ1QiGIcX
- D0WEZzhadtoV+sSxW0g1TrOwXuE6CAMej1An9ggM/EvHGW1Yzd8P5kT5GvoxzvW3itKbdV9MgEj
- rtsYPS1VSCwqRbcZenvXZehdhlMcTKxCoUBQqwgI7jEnMc4/Q/K6EU+3/HVIah3kQxjy6vQSxHv
- 7YFLAH03tThHRayYRpkfb4TF0gXloSRwhR3clrZSRJUaN/jUsTRKhnsBBR4rcev3jJ8+Zg31ucs
- iVBHtq3B6tDwyKrvvlDgTEaSc5BTvtoPyXjeuONTWJ4RV8riEN14Rl1M6oVSarLm+ZqXJeqg/zZ
- 9hEsTS3Mw6nZI6A==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3072; i=kurt@linutronix.de;
+ h=from:subject:message-id; bh=jb3w8wlq+Qv0ygeGwRU6Z+PlNF4szhvoi5z8UQOxTlg=;
+ b=owEBbQKS/ZANAwAKAcGT0fKqRnOCAcsmYgBqqQf8Rae688HCKG4SYbiJWE30GbSItajMZk8qi
+ MDgrrri2n+JAjMEAAEKAB0WIQS8ub+yyMN909/bWZLBk9HyqkZzggUCaqkH/AAKCRDBk9HyqkZz
+ gjfmD/0fY5JaRyYAEzmht8tz7MMLCTOf98MmqAnVVcBOaCPLsigShdGsCifmwESageKSCe/wueG
+ IUFy+OrtFSKqsLTdmP8UfBJaqaExXS8YJzXLGhgS+BNWuO2hDPHLV8tIkxK6hxPSesF3lZ0Lz5M
+ Z74KdmE3KGagbCaKay315nz3Q6jqYRKSQcGWYrmYyMqTWSK7IM/3KrugE2hmRLuTaKwSMw5z40Y
+ YENOOhALKxaZnfMitlyFXzDOW5NuYTMxJhHDhlYghpdhS3EV/jmkGFuCLwEP7uocWfDpG5LQwUr
+ c2XcRJbXxHsURje15qVoHhMTo8BtFGJzXcgmuNdLTleMLlrXmfYnkZC0Kr1lu2nZT5dxpCVsZbP
+ szplSoN49Le+/vXP8pScExNPvl/kc2mcYudJw6Zhj4CZLyirzbbS3vkyukXoHoINbgO9Kd2vjTA
+ pgy9TH3MLFJaVd0r/IagRtL6pUbsezJlxD/9hHYpHgfNOD/fsO6SDpDRjmU3GJEH9n+ZVGaKPuL
+ +jJ5ONnoDmkCsiPwkTxxxdFmaobiHYR9IlM2xKm/XIIkqPL6XPkrlAa9fp5FHLerLgn7Sp8ioVb
+ hWQ53Un6fut5YA1E0ZKp+E4GRw/yZ/Z1zqM5Mlf5L1pzPYNtLlUY6wkQiJdtBa10kgsPc0IaQQv
+ uxmfdsAeXCepr8g==
 X-Developer-Key: i=kurt@linutronix.de; a=openpgp;
  fpr=BCB9BFB2C8C37DD3DFDB5992C193D1F2AA467382
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_015529_589536_690A2957 
-X-CRM114-Status: UNSURE (   8.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260915_095529_207257_668A675A 
+X-CRM114-Status: GOOD (  10.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,43 +124,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+When enabling or disabling XSK pools in parallel to Tx traffic, kernel
+crashes occur. For VLAN tagged frames that happens in stmmac_xmit() ->
+dwmac4_set_vlan_tag() and for normal frames in stmmac_xmit() ->
+dwmac4_set_addr(). Both of these functions access the Tx DMA descriptors.
 
-while looking at the TBS thingy [1], I've noticed kernel crashes. That
-happens when opening or closing an AF_XDP/ZC socket while parallel Tx
-traffic is going on.
+The XDP pool (en|dis)ablement frees and reallocates the Tx DMA resources:
 
-So far, I see two issues:
+ stmmac_disable_tx_queue:
+   __free_dma_tx_desc_resources
 
- - Patch #1: stmmac_xdp_release() seems to have the teardown order wrong
- - Patch #2: stmmac_xdp_(en|dis)able_pool() does not stop the Tx queue
-   at all
+ stmmac_enable_tx_queue:
+   __alloc_dma_tx_desc_resources
+   __init_dma_tx_desc_rings
 
-The kernel crashes can be reproduced instantly on the stm32mp2 like this:
+NAPI is disabled during that allocation window, but the Tx queue is not
+stopped. Therefore, add the stopping of the Tx queue during the enabling
+and disabling of XSK pools. Update trans_start when stopping the queue
+to avoid spurious watchdog timeouts.
 
- - Run iperf3
- - Run application which opens an AF_XDP/ZC socket
+The issue can be easily reproduced by:
 
-RFC: Hopefully someone with a clue about the stmmac driver can take a
-look.
+ 1. Run iperf
+ 2. Run application which opens an AF_XDP/ZC socket
 
-[1] - https://lore.kernel.org/all/20260812-stm32mp2_txtime-v1-1-f9e2462cc85d@linutronix.de/
-
+Fixes: 132c32ee5bc0 ("net: stmmac: Add TX via XDP zero-copy socket")
 Signed-off-by: Kurt Kanzenbach <kurt@linutronix.de>
 ---
-Kurt Kanzenbach (2):
-      net: stmmac: Disable NAPI before stopping Tx queues in stmmac_xdp_release()
-      net: stmmac: Stop Tx queue when (en|dis)abling XSK pools
+ drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c |  6 +++---
- drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c  | 14 ++++++++++++++
- 2 files changed, 17 insertions(+), 3 deletions(-)
----
-base-commit: 23ca4ddc4fce2c233a49e9fd34d4b5b02bd7324e
-change-id: 20260914-stmmac_xsk_crashes-10a77f614ab5
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c
+index d7e4db7224b0..883bd3fe8089 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c
+@@ -6,6 +6,16 @@
+ #include "stmmac.h"
+ #include "stmmac_xdp.h"
+ 
++static void stmmac_xdp_stop_tx_queue(struct stmmac_priv *priv, u16 queue)
++{
++	struct netdev_queue *nq = netdev_get_tx_queue(priv->dev, queue);
++
++	__netif_tx_lock_bh(nq);
++	txq_trans_cond_update(nq);
++	netif_tx_stop_queue(nq);
++	__netif_tx_unlock_bh(nq);
++}
++
+ static int stmmac_xdp_enable_pool(struct stmmac_priv *priv,
+ 				  struct xsk_buff_pool *pool, u16 queue)
+ {
+@@ -36,6 +46,7 @@ static int stmmac_xdp_enable_pool(struct stmmac_priv *priv,
+ 	if (need_update) {
+ 		napi_disable(&ch->rx_napi);
+ 		napi_disable(&ch->tx_napi);
++		stmmac_xdp_stop_tx_queue(priv, queue);
+ 		stmmac_disable_rx_queue(priv, queue);
+ 		stmmac_disable_tx_queue(priv, queue);
+ 	}
+@@ -46,6 +57,7 @@ static int stmmac_xdp_enable_pool(struct stmmac_priv *priv,
+ 		stmmac_enable_rx_queue(priv, queue);
+ 		stmmac_enable_tx_queue(priv, queue);
+ 		napi_enable(&ch->rxtx_napi);
++		netif_tx_wake_queue(netdev_get_tx_queue(priv->dev, queue));
+ 
+ 		err = stmmac_xsk_wakeup(priv->dev, queue, XDP_WAKEUP_RX);
+ 		if (err)
+@@ -73,6 +85,7 @@ static int stmmac_xdp_disable_pool(struct stmmac_priv *priv, u16 queue)
+ 
+ 	if (need_update) {
+ 		napi_disable(&ch->rxtx_napi);
++		stmmac_xdp_stop_tx_queue(priv, queue);
+ 		stmmac_disable_rx_queue(priv, queue);
+ 		stmmac_disable_tx_queue(priv, queue);
+ 		synchronize_rcu();
+@@ -87,6 +100,7 @@ static int stmmac_xdp_disable_pool(struct stmmac_priv *priv, u16 queue)
+ 		stmmac_enable_tx_queue(priv, queue);
+ 		napi_enable(&ch->rx_napi);
+ 		napi_enable(&ch->tx_napi);
++		netif_tx_wake_queue(netdev_get_tx_queue(priv->dev, queue));
+ 	}
+ 
+ 	return 0;
 
-Best regards,
---  
-Kurt Kanzenbach <kurt@linutronix.de>
+-- 
+2.47.3
 
 
