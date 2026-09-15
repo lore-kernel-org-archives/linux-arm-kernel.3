@@ -4,67 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CF5EC88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 16:49:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DF6AC88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 16:54:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xtjhYharta0kivYdIPNAaN7YMmTxSs/zZpGGaIGucV4=; b=dTDhvHVC+6v3f56RBYghoWLg7p
-	qcIEXAWr4yVakkMZ0GvowMWxu1Rk1ZOnUTMlBKzDjbFKxxUQUMKVWk19Kmp/rC3Ueqt+twJhhU/zI
-	o/h5hU4oHxh3+Fb+MPN6JCxIZwE5LO+fRLcwW7k0KHvOQrMCfRnplhmzLYAlmSPTuZl9JJHjUi53c
-	9GGmIkfiRtmagds5tHMySsdYER8BIe8+bVvvbwdKmV/RoIKSXDiflQSe99YjoE/EYrMcUKT7H8NoB
-	ePwk+x+aUCoIkYc59uoDDqYsNqGMCQS3dG5+RE5Dt+ETe7vLJDU5hYCfQ+fx4YkxyxaZkJ3jePgXg
-	wWDpw9eg==;
+	bh=tdaVoK30/0z+kUm3oytfWRJqRI54GfzdgTl8a0s/oS8=; b=3W/UHEuL3pxzewygaPddIywHMM
+	B7c5LQeXBb6kUArRCEgnSCiqjYs/+WIvmgptbUOyjRR5QqOibLOROPfYkeLGMUB3OaKmgCWkUZEVA
+	PlCFh6ldESQhfSPAePZMsgQDyofl5OcZFLxmGtXVs/4sPGUT+SxvdxmwNrS1F4Rkpb0VbV9mGk2VZ
+	bw2z+K42qfJinGi04zAqKlBYUgDc5gpnIuM7/iobCXE+HyG8K5WEw5bP5Jo/skITfvERcT6zrop/B
+	WtMRM9Jr52X5WEEiwFVRvCgWUGKWoOef+OQWgINbHFt2OjbAoXDQpzvJ7k7+CWLi5mB04dA22ddII
+	ojLvzEEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6WLZ-00000007UNW-36bK;
-	Tue, 15 Sep 2026 16:49:29 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1x6WQB-00000007VCs-3qMq;
+	Tue, 15 Sep 2026 16:54:15 +0000
+Received: from mail-northeuropeazon11022074.outbound.protection.outlook.com ([52.101.66.74] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6WLX-00000007UMv-3vi4
+	id 1x6WQ8-00000007VC1-3RVO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 16:49:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=xtjhYharta0kivYdIPNAaN7YMmTxSs/zZpGGaIGucV4=; b=T1vPOGEefpHtsFpnGzCF0cC40Z
-	DVSD+cr+mnNnE1iXzuntsCtbw+ERlW+tYCLLRbzGOfQycMVcvh3AG2ZcIWgBG6CiqZRRgwz5g3lFe
-	MqsGorSinRKDBb0kDk061OeHvRIZzuWlZcL5CPC/39XumXC6WBXwWL9ZfJaoi0REffr8=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1x6WLP-005JkN-6Z; Tue, 15 Sep 2026 18:49:19 +0200
-Date: Tue, 15 Sep 2026 18:49:19 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Francesco Dolcini <francesco@dolcini.it>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
-	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
-	Franz Schnyder <franz.schnyder@toradex.com>
-Subject: Re: [PATCH v2 3/7] arm64: dts: freescale: Add Lino iMX93
-Message-ID: <100eef7b-e1d6-411b-bac5-98790e8f9ea7@lunn.ch>
-References: <20260911091952.96233-1-francesco@dolcini.it>
- <20260911091952.96233-4-francesco@dolcini.it>
- <42ed88a6-d208-482b-94aa-2e45b69c173e@lunn.ch>
- <20260915132806.GA226756@francesco-nb>
+	Tue, 15 Sep 2026 16:54:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bWmkrjY7SSbK/18kqtGMjjTDrY/Vpd2Ci0rH9Z3CgNLGfyr6gvfp0N6vFaN7UrQ0DMyJyqQMLHeuywUxM93QQ7Sn7/EUJercTXMK7hE9SkIgmuAhJBGQ6yFo74ocfz9zoBW0hVjs/ROaWWVLq2/uzrr6RfOuFxal9i98I+hNStfA+4HvfGPF+3aWBaPrxnwATZaO8JX783NrtivtrDlQgCMkrIDyg+rSryw9THzK+RGkNMrQrCg5KHkxBL7TH8Y4XpMk3I7d7e3glYdUrTTRozdQEGAXkZ0xmVCfDWDJpqzZAEkZvLO7JXnpve4qhzsRVygohcc9ybz9EY6rytdcNw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tdaVoK30/0z+kUm3oytfWRJqRI54GfzdgTl8a0s/oS8=;
+ b=xplEQE3y7Jc0/tqhnTQn3tbsWvu3JACMnZZFIG7D+62rKutOzYikhht8rmDaREqMWXBTSH3NaeE8/+pEuLHPL/vit2sVAglh+GM9ebLma7iQa1ULSuyVay8/LiD3FBT2BHhc7ZnVgXp5pIAdZhwizEOosx4/zEm0MOscYKKEhvbjkaoUObrGlz4Xt63cuHYeiirggO2pFykZ2vQMWcEasw29Ayzs1jAAwrkb+eRNC8RRRGjvGKPUvaSiFKwTOnXjoW1nFztzxZKqJ1Lcp9YHhub7qwAkffbJDXcugrPWcKFQo592uOB5sZ1RxtN/ihfWrYh5fHwvG85j1+S4VEhKZA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=phytec.de; dmarc=pass action=none header.from=phytec.de;
+ dkim=pass header.d=phytec.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tdaVoK30/0z+kUm3oytfWRJqRI54GfzdgTl8a0s/oS8=;
+ b=FcFDQeY0Q5TkaBgQdih7m82MxSkX/89liAP/jUpollWlPb9V3dPUNcIpvLOjbcV6GWbSi4lB4oKYKqGBH9euYtsnvOgEyD6YS72S34CQFaxGsNBb9GMCZJU7W4SQTxHZTeuS82pbtHsFthWDvVSxXcbO+1wL+2eHO+9nIlkHVJf6mFm2dpi3H4dEi0uYpADR9xlwQna2kabiYpHS2s9OfCaDZd5enjC3HAETq3Q4qm4A3HUggj+/S4ygIOgpzuK3ypF9u3RCyMBldTO73PVOscTXRsKqhkbnOM3ksCP/KfGZcn95oz+v8AmEXQdCg6t73Md/3ayNYv3MFIkAgBdQ4A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=phytec.de;
+Received: from AS4P195MB1456.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:4b3::21)
+ by DB9P195MB1707.EURP195.PROD.OUTLOOK.COM (2603:10a6:10:396::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Tue, 15 Sep
+ 2026 16:54:06 +0000
+Received: from AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
+ ([fe80::295f:9a59:b66a:621a]) by AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
+ ([fe80::295f:9a59:b66a:621a%5]) with mapi id 15.21.0406.007; Tue, 15 Sep 2026
+ 16:54:06 +0000
+Message-ID: <0750c03c-94e6-4b1c-9774-b85cb384a727@phytec.de>
+Date: Tue, 15 Sep 2026 19:54:03 +0300
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 05/15] arm64: dts: ti: k3-am62a-phycore-som: Set eMMC
+ clock pin as OUTPUT
+To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>
+Cc: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Garrett Giordano <ggiordano@phytec.com>,
+ Robert Nelson <robertcnelson@gmail.com>, Tony Lindgren <tony@atomide.com>,
+ Nora Schiffer <nora.schiffer@ew.tq-group.com>,
+ Stefano Radaelli <stefano.r@variscite.com>,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Moteen Shah <m-shah@ti.com>
+References: <20260909214743.899477-1-jm@ti.com>
+ <20260909214743.899477-6-jm@ti.com>
+From: Wadim Egorov <w.egorov@phytec.de>
+Content-Language: en-US
+In-Reply-To: <20260909214743.899477-6-jm@ti.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MI1P293CA0028.ITAP293.PROD.OUTLOOK.COM
+ (2603:10a6:290:3::20) To AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
+ (2603:10a6:20b:4b3::21)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260915132806.GA226756@francesco-nb>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS4P195MB1456:EE_|DB9P195MB1707:EE_
+X-MS-Office365-Filtering-Correlation-Id: 505f19b2-d39b-4abb-0997-08df1349f445
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|23010399003|376014|1800799024|366016|10070799003|18002099003|22082099003|3023799007|4143699003|10067099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: nTu3hH1wFFUC/xpOTONYV/fKV38Xw/JWzs/M0gMoA77dK8ATnt/RMdvRILQaJiHBkkK0loiAj7ZrDd+fPyor3gerQbPLa3id+ozxqpWYdvVXRuS84f2WMklp9mI3j1P35KPHkmhMgMxNxeMvIQHRVuPZnGqx2mnqkWcrwS5yR++Z4TwQEfi5OhL7NESq/+s9LLOy/PEnDtEI0cBpxEiSLntLQYDeHknBACv869O63zjh7x1BE0dybPrsTbq3lmIl1SBtgDpoDP+3vAaKr+zf5UVsXkvOeK6xpDakoXFGjKn95t0ArkSqh4rob5wZ9baQH5GmgeQhQJFc53snifvuopjUFKH7NJso3I3JKORzWwS49mEVX6URckKyDCRKbNAWmZNpetMtlF3G7hPn4ztOvpM2U/iacBhl74Rcp7WqOXqXsRUKbpr3iY0nWp7gw2tSNRDHZ7XhUbuOPeCcBGablU3NJclk3v5HoDQhS0ZA+WFZ9E8e/NIP4qLVdr6q7qSqBiOgEhR6ODjMRXc7lVKdxLueuBYAhTl0oPTmoCHbeKYIP6aCesIbQ1MVdqD1mFwmmnbs1WcBG36DaX9dszdpSrA2+jBmBEB+oMp0oSWaEmFn8zKZjkJ1hyx1xhFyMC2Ulz1HtRUlkpr9InyKVuhk3qPOsSgOwy80dPlpE7rf1lg=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4P195MB1456.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(7416014)(23010399003)(376014)(1800799024)(366016)(10070799003)(18002099003)(22082099003)(3023799007)(4143699003)(10067099003)(56012099006)(11063799006);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SU1RWUI2cHY4c0hnZStxVkVHVTZYakNNWnlsQURmeFdkZU0xdXVROUdUbWJU?=
+ =?utf-8?B?bi83ZWhQRWJhWjBEbHdic1RJNEkvbzFSbGd4SGNRU20va2ZrVDdHSkpSYWpB?=
+ =?utf-8?B?SUdjam9TVFFXK0FRb0NOMXZ1QzIwL0ZmMjdaalRyM012RFFLTTQ1YTVrNFpR?=
+ =?utf-8?B?bklBeE5iZ0JDRG9yaFoxa09aSEdMbUJlZFB6akluOExKRG1raXJCb3dLTG1s?=
+ =?utf-8?B?aTNoUzI1N3JZYjBhMjlyS2JqOCtyZG5hU0lGY1BjVVFvWUhBMkVHditONVQr?=
+ =?utf-8?B?cWVybDlTblFEWlBVVStXekxsTHJ1K0puOVY2ZFI3ZDlwRFlFUVgwazNKT05X?=
+ =?utf-8?B?WU5DVUNaMkRrK2xVVlI1ampOSDZoWWlna280WFlidXJDTmNiT3NTakUvWDJ1?=
+ =?utf-8?B?cjJlb0RKcEVUMndWSzFNUXZuNlRnTFFwOU5VMXE4eFM4Q0FEMVUyTWhvNzJm?=
+ =?utf-8?B?UzRiTnZiWHE4Q0hNQ3FMRWxiOWRmYnpiT1ZDOWFwLzNkS20rUFJiaUFnMEdJ?=
+ =?utf-8?B?L2U2dHR4TWp5aExXWVJjSkRsWGE4ZnFSREVSWXhOc2tBT3JJZ0pLc0JxclVG?=
+ =?utf-8?B?bHI2bzRxQmJUbzE2cElKM3JoVVd2czBxbjRzN3o1UDd3ZlgzOXVuSERQQVZj?=
+ =?utf-8?B?RDVkMG5UbXhORVlySlRNU0l4Rkx4c3J3WFpuTnNJWlpFcFVlNXlPWEJLMnJR?=
+ =?utf-8?B?cWNVTFpaamg5SkoyS2VBYlBodUdEUEp6U2NMWlBLUnpvTG9LM2d0N0dyUU1k?=
+ =?utf-8?B?NDlmRzRXK1BYOWo2b2lmUDRPdW9yeUQ4MnY5RFRBVXQrOWsvNTd5elp3VFRt?=
+ =?utf-8?B?UHR1TXVoMTFKeDdyNkdOZ21sbGw1dVR3S2k2NWxHQXhTMW5YdW5WTC95SUFa?=
+ =?utf-8?B?bDgyb0ljV1AzK0RhK0tLbUdHclk2VEQxNkgrNmhmRm5veUUvN2RoN0lUNGdl?=
+ =?utf-8?B?WTlNazA3Vjl2Qk14cEI0endFdTJ4R01RWDVuR2F1Y1lGWWRQSUdlNm1ncTNt?=
+ =?utf-8?B?bUJtczBCZlNTVnhQYkFOQkd5d1dwbkd3OVgxbWZlUXh2amJ5Zm5GY0IzaUxw?=
+ =?utf-8?B?QW5ZZEZtZ1p1b1JYS2lWeEo4ZEFrK2NobHIyRUNVVDFuYnZvM1YvcUVOZzl1?=
+ =?utf-8?B?ZHFXN1N4Kyt3ZjNIZlhTTFZmbEZ2K242bm9VZHlINXdWWUZBK1pSbmZQVUJG?=
+ =?utf-8?B?OEVnbzhxZGRsSnBCWUg0MTBHZWxTcHR6V3dXc1BuMDMzcGtsWEN5VXR6TGdJ?=
+ =?utf-8?B?TytiTUJuWUpHMlVXKzdyRnZRTnVoVFgyY0JzRk50OU9XY2haWGJycnFUcy9h?=
+ =?utf-8?B?MTRyMDcxU3FlVTB3N0h6UlZMWlRlYXV0YUFXQUtuU2N3YnBnL2xLcDUrWFNF?=
+ =?utf-8?B?S0s4bVlVYW1nbnlsQlRjRVhGQ3BCUkhvbFhGTEovdTFwbmpwV0xMYVdHT1Bp?=
+ =?utf-8?B?NHI2WlYxUGJxcVpvRkZPQjdvN2JEeDVZTzBTME11ZUw5dTlvdWJDMkdFdjdi?=
+ =?utf-8?B?b3BVeFp4bVNyV3hoSnVEU2VXNDZ4MlJDWDFlVGpJaFFmTzdpbFBFMjdyb1M4?=
+ =?utf-8?B?TURWQjFVMkhoMG0vbWN1cERsWjVKbmc0dFlCT2RJajlMZVZmUjlqOFhvK2Y3?=
+ =?utf-8?B?ZXcrc2ZWRTN4Z0hqdnRzUE41MGNMckFQbFJOd29MeTg2QXFtbUZVMC9Qa3Zo?=
+ =?utf-8?B?SGtnNURxMmQ2ZWljYXYyVW5YaWJDa0Vla3RMSWN3cXByY1BvMXRPS1RhM2l2?=
+ =?utf-8?B?dW5kWHdlL3dtNDRlVG1yUm16VnhWSUFyUU1hWG5GaEdBN1NJUzhObGZGenox?=
+ =?utf-8?B?TmFWa0ZkUGoveXdlQVBuMlNtcHpFM05ubEkwZ1JsNnF3SXQxamtmMHpGM2Yx?=
+ =?utf-8?B?amptcStwV0RlNU1nUW5sUWZBNlFPMHRiWHliTFNnVWlpWnRnc1Z0azFqL2Vu?=
+ =?utf-8?B?MzlRRG9YM2x4enB5SkZZRnVQbGhnOXhCYzRwTUVkVXVBUTJnY1FwK3owZDha?=
+ =?utf-8?B?OU00cnhpRWJ6R05nY09SVUtXYi9yNkFTaFU0Zk4rTVJNaCs4SVg5bk9MS0JU?=
+ =?utf-8?B?YVdnY2QvZnJpTjNHU3krQ2pTamtkZnB2VDBVN1Y2OE1KcUQyR0V3d0tZZkI0?=
+ =?utf-8?B?ajR5eWZwMDZxbDZJS2twckdtSTVFTUIwc0FPeUJEdHhCSzFoMTAyK2ppZmJx?=
+ =?utf-8?B?LzA2TnJTY0lQTDhmTzBkVXVrQzNZdHcrYlZuVWRaNDhlNkVWbThsWEE5b3M1?=
+ =?utf-8?B?bkovV09aSDhmSkdFZ1EzQkNpMjkyTXdJOXVNVG5YTjJYR3hrVDJjbVZPeHYv?=
+ =?utf-8?B?L3ZWeDBIdktvU3EvSU52NCtyMTZ6ZjJGQy9RSkhucGwwOWVjemg1elNmK0Qw?=
+ =?utf-8?Q?qo0ClNptRMWinnctc/vXCupvj69l1JWPh7FN/PTaiUi1S?=
+X-MS-Exchange-AntiSpam-MessageData-1: 33F7E4/MQKFGNQ==
+X-OriginatorOrg: phytec.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: 505f19b2-d39b-4abb-0997-08df1349f445
+X-MS-Exchange-CrossTenant-AuthSource: AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Sep 2026 16:54:06.3643
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: APS3Ka20YHHcUNInXI2TpKaOEnqH6YcCm9nOpBlL53+qT+KpU363xNXxQDIDVChHlthNLLUndzsH6CuS1W6Fsw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9P195MB1707
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_094927_981061_D8D9E9B5 
-X-CRM114-Status: GOOD (  13.16  )
+X-CRM114-CacheID: sfid-20260915_095412_882257_B883FE33 
+X-CRM114-Status: GOOD (  13.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,32 +156,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 15, 2026 at 03:28:06PM +0200, Francesco Dolcini wrote:
-> Hello Andrew,
-> thanks for the review.
+
+
+On 9/10/26 12:47 AM, Judith Mendez wrote:
+> MMC clock pins must be configured as OUTPUT-only per TRM [0] with
+> receiver disabled (RXACTIVE bit = 0). Change MMC CLK pins from
+> PIN_INPUT to PIN_OUTPUT to match documentation.
 > 
-> On Tue, Sep 15, 2026 at 03:19:45PM +0200, Andrew Lunn wrote:
-> > > +	ethphy1: ethernet-phy@1 {
-> > > +		reg = <1>;
-> > > +		interrupt-parent = <&adapter_gpio_expander>;
-> > > +		interrupts = <3 IRQ_TYPE_EDGE_FALLING>;
-> > 
-> > Falling interrupts is probably wrong. They are normally level, active
-> > low.
+> [0] https://www.ti.com/lit/pdf/spruj16 Rev. C: Table 12-257. MMCSDi I/O Signals
 > 
+> Fixes: d69383885576 ("arm64: dts: ti: Add basic support for phyBOARD-Lyra-AM62Ax")
+> Cc: <stable@vger.kernel.org>
+> Signed-off-by: Judith Mendez <jm@ti.com>
+
+Acked-by: Wadim Egorov <w.egorov@phytec.de>
+
+> ---
+>  arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> It is wanted. The I2C ioexpander component used for the interrupt
-> supports only edge interrupts. We tested it and it works fine like that.
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
+> index de4048a3564bc..5ad93be3d3363 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
+> @@ -120,7 +120,7 @@ AM62AX_IOPAD(0x15c, PIN_INPUT, 0) /* (V13) MDIO0_MDIO */
+>  	main_mmc0_pins_default: main-mmc0-default-pins {
+>  		pinctrl-single,pins = <
+>  			AM62AX_IOPAD(0x220, PIN_INPUT_PULLUP, 0) /* (Y6) MMC0_CMD */
+> -			AM62AX_IOPAD(0x218, PIN_INPUT_PULLDOWN, 0) /* (AB7) MMC0_CLK */
+> +			AM62AX_IOPAD(0x218, PIN_OUTPUT_PULLDOWN, 0) /* (AB7) MMC0_CLK */
+>  			AM62AX_IOPAD(0x214, PIN_INPUT_PULLUP, 0) /* (AA6) MMC0_DAT0 */
+>  			AM62AX_IOPAD(0x210, PIN_INPUT_PULLUP, 0) /* (AB6) MMC0_DAT1 */
+>  			AM62AX_IOPAD(0x20c, PIN_INPUT_PULLUP, 0) /* (Y7) MMC0_DAT2 */
 
-It works, until it does not work, because you hit a race condition
-with the hardware, two interrupts in quick succession. The second one
-gets lost, and your link remains down forever.
-
->  - when we tested it, the SW emulation was not really reliable, and we
->    prefer to play on the safe side
-
-If you want to be safe, delete the interrupt properties and let phylib
-poll the PHY. That always works.
-
-     Andrew
 
