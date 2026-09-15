@@ -4,118 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DF4BC88E7B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 13:43:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B731BC88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 13:45:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bSXuxco/xIMIgeK0msm6noQ0z/sdWL5ZlVJapMHGK5U=; b=C1sh3pMrK7LLcnnR4hPgH3luBN
-	1n/FOMieHiOJHFifW0m4tIn9GpUhLI+x2LDqp5uozZdnG2/jhGMdsbt0oyS/BlqljXWgM9YX+MZjN
-	/QbSfFzB8WsgaH33qSosH2SVgb8WTms4uBe7gFsfzugGlcVan+WxXk7jOWTqVlf/bz2VvlZMluYKE
-	GDmMyCY8t4fGMWc6KgqghcUaapz9Cg2mPHDl7TuW7shKtQaSg/IXeTqqO9HqXtW4dDn4itUdREsxf
-	yCdTIGCmymQHVcH+0AAsYIBBi1/vHtTu/XKEwSZ+U0s42EO1uYEh9TrTMJXoBIBD0QumJVcB3I6Yy
-	TgTnmuew==;
+	bh=m1/hyQlWI/dFxiV3hpAXZPejQd9auwGzxAvCrheG6Y0=; b=ys0HgFlSBP628sNQvo3prkfDN+
+	/lPLqArg5ZzJw9pcE43545mgDaVzHhroMQoF2n7nrwFRRa4MhWH1jdn2mhlmdAQJSj1CFbVEIK5a5
+	K8f3zXg4OWMahZ78P0S4drG5VfYtIbhz/aHBlmH1RGABnNVonYuEvAiwr38JRqsSfcglUTUo2dZjn
+	uucE1UucH8EDHLyZ9ilK3nXvOJmwW6Q5RIw+XXLXJCJmh9ImSVrZfy4/sEx+Y2XcC0LCJKViPcVrq
+	Oo6/zfiy4yGQjkkT9iVDtUEtqfrYsA1D7IT4lYeeHERg8yKq/e0FOK6SUe70M6r8YYT8zW9V9gaol
+	9zkGeenw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6TRU-00000006mNz-3xgX;
-	Tue, 15 Sep 2026 13:43:24 +0000
-Received: from mail-qk2-x10.google.com ([2607:f8b0:4864:34::10])
+	id 1x6TTb-00000006mnU-0wnd;
+	Tue, 15 Sep 2026 13:45:35 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6TRR-00000006mMl-2nU5
+	id 1x6TTY-00000006mmB-415R
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 13:43:24 +0000
-Received: by mail-qk2-x10.google.com with SMTP id d75a77b69052e-530c602630bso34606741cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 06:43:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1789479800; x=1790084600; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=bSXuxco/xIMIgeK0msm6noQ0z/sdWL5ZlVJapMHGK5U=;
-        b=kTrDiF4dBneZR2SoyXVzYrABkibQwyB9f17ZHwYMLpgQAzdbpk5I0IEq7xNsmhg+dV
-         qll4X9Mmgag4Q2mRG3FeJD80LLlT7LGCNBmR2F+Ea16mhFf7xJ7mjerkVWzSJ62g/jIC
-         YT9ScEwvXDwrTTmwoU9cuXrePEppfVzkstph27HSP+q15iqf7Q8Hk5XioGIoeUuT+eAJ
-         3KfKUJCAXc/3L1jQewy+CtvuvtHSp5RhHZfZf3ur297L5+RlEAvwD9uIK9lc7jUnGZzn
-         t00DRy8qaZ6MlMUi6+Bkg/0dXKMH0DKqFCwPoxDYhlj6iUorjdggEGmPRr1tDlRRd8Ci
-         odRA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789479800; x=1790084600;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=bSXuxco/xIMIgeK0msm6noQ0z/sdWL5ZlVJapMHGK5U=;
-        b=YTVpetc5Nm3qzHPouuoq6a7AlAgzXWOBNtUJF6wwrbx4Yy27aTZ23JkuDVX5oNwSyK
-         ipVV85k0/HkVrnB72B+gy2qYaSOwlHGGBlDn7xzBDcVtghTRu5ey3mF9eGukAwYe2Nsl
-         9tVxquGxTiglge+NMMsWHr1nTgqrVZ2ecRGeBjfx8j0zi4M0KAdJLaNEgEA9sSwrUyIl
-         Lm/jdtamm0cSHcFPU13GcG4Z4s6xo5tkL1A5TOiaQJ2E2PITGyrzbojeKMW8Vq3FQbbw
-         0maitzkCgbLsDrlixX8CuSFAlsKSe3y0sb0xQZmL0kVk7yWSozKVazU26IVc/9zWsg+i
-         0nSg==
-X-Forwarded-Encrypted: i=1; AKwUvBwvNunbAolXr+8SbohV48DO7h1lJ/ZtQRKDtbm2igZk+uqzY8y21SIa+wnjbJMGuumT0hK6HJJdYNg/DY0Ju+n2@lists.infradead.org
-X-Gm-Message-State: AFuF++nqPP8evj9sWlAuqbpVYDBCfzJTDM8vy+mJrzVjXWMurJQEi3/f
-	vEU1sOJ+KJyOQm5CNXYOdBm7CuD964+zqLHTteM2ndbTgoP0bF63XlddeMs1KrEFSVs=
-X-Gm-Gg: AYBFou3Y3rW1LV51kHLctaTC/W4oAKjnVume/tZAHUQxEqdLEDLLwOJ/gJbbg2tzuZj
-	6In9JTjwpMayeMJJsT0psb2tJ5CQsuEd6bC88lZO/sZxOf9QvlMdqg7gMoYjJJmYt8GD3tL82T/
-	LR9ryoErjWUcybg4WI/PBUt4iC1yQJrXGLEaVdID0Jjq8xKFNRP/wV/P6IiAgTF9XURItJjfO6M
-	PXaKHhIVCybDCBBNgyFLg3+l2uggqf5p1ivU1hcDDqERsquVwQSPm3LRwpcuhJFunD9ct+iNRuN
-	G0GpxqHwbdg3/NNlfqy5HVkX/JShhAs9AI2+o7LXFFmG2wbyM2/dhJNFR59VRZJdv/n4Fd+Vldv
-	OOcWnxGbiIE/WaUA+9t4DtR79Wc+fgaeuJmfLNlceYpX3MI1sSXPKC588MacFiCiKO2UiXCbod2
-	52szLqKFczCYYZ5q+MuGAJ2S6f5aAqJj3urgv28RdA2a2czeAzcb0UAvNR8UpDI+hsv/PUDaBRA
-	5cihOHUn7aX25KOKGLUbE8P6fSu2zuf7flrm7QOZ7rrfeIm9Nw5nVTu
-X-Received: by 2002:a05:6214:4986:b0:90c:d6fc:e284 with SMTP id 6a1803df08f44-9122e54a861mr120216456d6.17.1789479799946;
-        Tue, 15 Sep 2026 06:43:19 -0700 (PDT)
-Received: from ziepe.ca (hlfxns010zw-159-2-239-150.pppoe-dynamic.high-speed.ns.bellaliant.net. [159.2.239.150])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-9120f4d51ffsm124036106d6.45.2026.09.15.06.43.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Sep 2026 06:43:19 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1x6TRO-00000004bnd-23bE;
-	Tue, 15 Sep 2026 10:43:18 -0300
-Date: Tue, 15 Sep 2026 10:43:18 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: "Tian, Kevin" <kevin.tian@intel.com>
-Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	"linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Joerg Roedel <joro@8bytes.org>, Jonathan Cameron <jic23@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Pranjal Shrivastava <praan@google.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Ortiz <sameo@rivosinc.com>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Will Deacon <will@kernel.org>, Xu Yilun <yilun.xu@linux.intel.com>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>
-Subject: Re: [RFC PATCH v4 03/16] iommu/arm-smmu-v3: Add initial pSMMU realm
- viommu plumbing
-Message-ID: <20260915134318.GB3196566@ziepe.ca>
-References: <20260902235609.GG2890729@ziepe.ca>
- <yq5a8q5izxz4.fsf@kernel.org>
- <20260903171704.GK2890729@ziepe.ca>
- <yq5acxupjsy2.fsf@kernel.org>
- <20260907125228.GB667892@ziepe.ca>
- <yq5atsnyag84.fsf@kernel.org>
- <20260909124628.GH2543240@ziepe.ca>
- <CO1PR11MB4835512E374074A5F4AD0A6C8CBF2@CO1PR11MB4835.namprd11.prod.outlook.com>
- <20260910124632.GB4083318@ziepe.ca>
- <CO1PR11MB4835FF972283C09D7D683DAE8CBA2@CO1PR11MB4835.namprd11.prod.outlook.com>
-MIME-Version: 1.0
+	Tue, 15 Sep 2026 13:45:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=x+HwUJB8BD8Bm3ktJlcdIUWY6mWbd+n0fD3gkU4A1029ZpEzW4BHFolC+VxsAvwlwpgqNzzS2Z4oHUOWOAG8XxIauCXHo8c90TjgXAFr+cffL4A4PwtXxz4t3RVl5OpLDNnHn9H1+nLM8roo5mKKEkPbEu7E+TEnPtEm/mR3eYZmF42pmGNX5nzCnA2O3yAhNCX9cnm6uBnrb81FtHSOpcO1SNWJJG6RSY0g6N9p+NjJh5S9n/VpYtbpJ4f0+2Aq9nng8pknlm91WOR9Tajz02A0aXWqpu+TrQj01zh4aUCooyJhOAuzWBG3vEz2i6RLmsJsw0c9VM6r2q+5j2/Hhg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=m1/hyQlWI/dFxiV3hpAXZPejQd9auwGzxAvCrheG6Y0=;
+ b=iQF0asPHGkMn4GwyaeP5KDeR6d2F0LWruQmYbVsUFEIQFFs8oYFRD6W9Lgt3lE3E0++BkG6UN/ZKEFip9VpPizdXO9hCf1xCwHDV8T5gv5QjvYWZW4Nt2XQVDqYvTW2fgyNrmKlrsEBEXDmPjEQ5cZMliPNMh0OOygeng3RWZ2CQryllsXgMx64TutZXgpY/uos7SpPzSZdBWqa8eacbg01KadSDAxbpVSuMevaVOvUm9BYr/1VKiQOkXAHMRY8smNPSWbin52bjuSFrzlwuHhGDav28oGwIuq+QM4CwBI8SQPmcxPsQes937VDPgjrcz7UJ6zSWlFfSFAqzD7q7lQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=m1/hyQlWI/dFxiV3hpAXZPejQd9auwGzxAvCrheG6Y0=;
+ b=WRrgpfuiToftxd4G36knTrFlU1AQy3mSQ524NLyI9xV7LvDGkx6jvhpABAtFLVc5eYJ+1yfKRYjaW2ljbaz0W6hfAPWFB5teiZBtFXj3p9SIOx8fOOKae0MC67FrCKd8kIdCqP89Rhcc7lV49jD1R4oT32oLhvMOPxxY0QqIgWI7+4wd8LEgl6Ije+IdeZXAkgoNZGnxfm3hOWXLQcvHhAGRupOFfhumMWgbNV4DgevNjG2G9MUmzsNQytqn39AMJD9c2i4Ps1vw+206RsUKlMbQ3bNZmlHCPtrLSd2tVUBs6FKRONr+rK8t7AvICIH8nkve6Xzdcypk1FnI757LSQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by PAXPR04MB8094.eurprd04.prod.outlook.com (2603:10a6:102:1c1::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.15; Tue, 15 Sep
+ 2026 13:45:27 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.012; Tue, 15 Sep 2026
+ 13:45:26 +0000
+Date: Tue, 15 Sep 2026 08:45:16 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	linux-media@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v3 2/5] media: imx8-isi: Extend output format mask to 7
+ bits
+Message-ID: <aqlL7JBEGboebBiZ@SMW015318>
+References: <20260915-isi_imx952-v3-0-3d8ff1363dda@oss.nxp.com>
+ <20260915-isi_imx952-v3-2-3d8ff1363dda@oss.nxp.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CO1PR11MB4835FF972283C09D7D683DAE8CBA2@CO1PR11MB4835.namprd11.prod.outlook.com>
+In-Reply-To: <20260915-isi_imx952-v3-2-3d8ff1363dda@oss.nxp.com>
+X-ClientProxiedBy: CY8PR10CA0026.namprd10.prod.outlook.com
+ (2603:10b6:930:4b::29) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PAXPR04MB8094:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1a15425e-467f-41ee-5fcd-08df132f9912
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|7416014|1800799024|23010399003|376014|3023799007|10067099003|18002099003|22082099003|56012099006|11063799006|4143699003;
+X-Microsoft-Antispam-Message-Info: jmaSDknu77SqEraM0mvUZ5eovFjqDAix/JlqvjquYoZ1oD0Yv8bOJFCE4pa1dKHnzNCNe/xz7Xob0Wg+3VI37aOdtLqLOaxXghShXfSZvhC+/TygfIHpg2UhzT3cht+9QetLy3pvPCiJDqHhB4ET09xZyWzP/vC64vevkBN7QJhp8qtQ9ueU1ed4atTwoQihsLeeFFmmvYN314GSBMZGLsfnfn4O7fWq+vQ1yGED+Gwlkb2Ny453gNwyOVXyPFa+ZSB+WyORpiSbwpcyqxALq1qiLo5uFQoF/LRuL9fHKfV2hC4sbTdzJJbsPh95N379I9lyORnfa5pGrRyiks8a7jZClX/Nh3/NT2/lPCAsUNKA8Qeoh2MzRVU8rEzHYT0ezIwGC8LO3QcrEuKf/0D7EbIA4niI7xUTNVGPeyRP8Vbl3SZoarqsDL9erwcR9GuEPPvUe/9H3L12e2+mjZVKpt7aRLOUfF8pAoOMkU0POD2u+fBmMeONZiaT+I2yE3DRC3er2A5tRvcWbkNt2pBoJppp/VRv4eGxO4r4Uq8h8QcBxX9WtczrSqmM2OPKkuQxS5hxlryUd4vz/oPfPPLRhuZfulEBOn+X1yGokg3NSaBc104JVapMJIqzhHBY1Fp7Kx9djdINzsmr0U0cIvVa5i0tuQGHht5Fo455IvKi0zU=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(7416014)(1800799024)(23010399003)(376014)(3023799007)(10067099003)(18002099003)(22082099003)(56012099006)(11063799006)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?s3VCNl2Uffn1GT1WJP//mjTC+glQMUI6ue+A6TTfMou9AJ7koIhbGPLPabw5?=
+ =?us-ascii?Q?FpyTlQha5wXQGai8uFvaH+g4DFv1TkblJa0wokHwIcv8/Wgs2mrE83WvetMT?=
+ =?us-ascii?Q?/HTGH//1bMBt4+CC5eMJfjoUNVZPBExi/AMRAFHdlWP6pAfSzlFuj2I2b8OC?=
+ =?us-ascii?Q?JEATuDJdT+35bPF7fx5Nx1MGUu5t/+5mkfvJU9odMF0N2J8+3vDmuJ/fWTZv?=
+ =?us-ascii?Q?d+egeFKU3/s6mDFwlVk6tJnCcz2JPu+w0mv/pka103Qa9n4nNIzDrsMP/P3f?=
+ =?us-ascii?Q?e770xX4Ewmv1jIknX4Nw3aThJ8TyurzLp/6ucCq1eYyPtjq4OkdNBOr8Zo/M?=
+ =?us-ascii?Q?OjWYXs0v1fbsBj93REtyedHx7PIm1A1GwuZok+NjImRhvoZ2P8gUG1WmO1in?=
+ =?us-ascii?Q?z6k9os4vMzN2WXz6TLSjcxZau8w6Vtc4RHT/tZbuxHjFY9eWsDxVAidLPx/J?=
+ =?us-ascii?Q?+844YtlYUcgr6UdH0kASC2+Hf2xSt6735M6of8m779YLaIto33kXu9FQRSKE?=
+ =?us-ascii?Q?/PANc2A+xdquPVk2lA9B14bc6dhAiqJzFJSTAAGSLXO+LNlARmSCfFLjHDz4?=
+ =?us-ascii?Q?0e8kEyaXo/8LKAG2FNfCTrIEILzFyvTWBt8sGNrYLMv8uijVopPNg5ugv5lf?=
+ =?us-ascii?Q?ywfvOxMo5EdM1XBxjAyo7nyQVet1SaEEYLC8a9pcIuRDpa1/Yb3ut8YD8x8q?=
+ =?us-ascii?Q?7YSV11t4dorzasacPwbhCRDjwjjZ29VErRIfTMv4Bn4qTCX5Wn9/5Ag/vMGU?=
+ =?us-ascii?Q?JAlCa54OFzrfzyanQmr9mAZscmFi5sImtJA4iSH1hCleePnG3icpD7V4H96r?=
+ =?us-ascii?Q?u0R7HkEVV4MxYNXJ4grLDcMZqHKBU7TegHzPzb5Ib/fCrGph7/KY+0Y68YrO?=
+ =?us-ascii?Q?9+6VuIKNtPErWdhV8xGSSFmbMagm+GnJkfEvH/KRa0QCVQkj4jKk5uqMskJg?=
+ =?us-ascii?Q?Bn3jkBjeBPQsAJEI/bAZNPknWVleZaeSnhK3qC5YGXyMo6wJbdTVn/Zl0IEo?=
+ =?us-ascii?Q?GYRKTKi0i6Sg+xs2gllHjMwCHFPrbft9hNfnhvERQ/vxp8lq32nVHqZZC/AR?=
+ =?us-ascii?Q?SxM1PWd/tXNlUSCYM5bSsNkubVyEL0FxYZmNGANFx+TMBpa0ha0gfPfalRsW?=
+ =?us-ascii?Q?tsHKGfEAWfyMvBF2MZTK/XLWCjlegIEHJIU8BMKIA9iD8a+fot8cYTe1WqZm?=
+ =?us-ascii?Q?cbt49h0KpTMQQAOqk6Lp46jMqKnJjSFMMk/nl2oYLFf05PvXK/aPzeqMm7XK?=
+ =?us-ascii?Q?2uGjYxlQKA0Adio1dh+KkuC8xSzmbd2XX1hhIH2RZUefVC5PwznYcApjXsfX?=
+ =?us-ascii?Q?NB9RkLgfnxCA5hM6v9f0btewK5YuEowrKqsLkA2ojpqInka+PMnzCZi4e6RB?=
+ =?us-ascii?Q?Ot1twtkS18FHV0QVI5UXqS89KmM7k/QgjZkFT17Yycy/CkyReViG+DH9FlYm?=
+ =?us-ascii?Q?hNXXKU7cBB0o9SKv0K61+FSX49ukO0OeMGvsJ5jDfhrmH9lmF3bbarF6diux?=
+ =?us-ascii?Q?FQuqzVM+Yfwb7Ww73D855BhfklXixuKLQyGn7d/85OWhXiRoigt8FJlyqrEV?=
+ =?us-ascii?Q?XbXKd6eu8EysyUafSG24PISnSg1qxw9fnjOJ09/t2uz9JLGnNz+G2OaSdPAN?=
+ =?us-ascii?Q?ti704puEsJNHtPJTyHf4/ev54Z0Ws+0Ce2uO7jrSBWtK6eFTLtpLpROCMwHF?=
+ =?us-ascii?Q?J76Vxdu4pIiZzNHR8nfkqha02zAH39D70goi2YFrq/KkEhaJZ/4whlF8ne7M?=
+ =?us-ascii?Q?NNWYKGl3iBEQxElP4ZEwtRa1a2oueGvdNlytHM6fwvPXzd0tZKKm?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1a15425e-467f-41ee-5fcd-08df132f9912
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Sep 2026 13:45:26.6228
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: QjNUDPlMwfP34f/5tYgVrlgmlLOMApg/kgYQZPp+8MXB6PnW/cCFNQymcX41iuXJa+OTYcwCiufxMhIPfxW+QCukereeQiOqiZ2Gddp12LubS4obyjuE0XBOTfAjPfQA
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8094
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_064321_904760_8D3B50A1 
-X-CRM114-Status: GOOD (  28.22  )
+X-CRM114-CacheID: sfid-20260915_064533_020530_874984B2 
+X-CRM114-Status: GOOD (  17.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,71 +147,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 15, 2026 at 07:13:48AM +0000, Tian, Kevin wrote:
-> > Yes, this already has to be true or our lifecylce model is
-> > nonsense. Once the iommufd creates the vdevice the guest is running
-> > and we cannot disconnect it without unplugging it from the guest. Thus
-> > the locking can rely on that. Within an iommufd ioctl context the vdev
-> > and underlying connection must be stable.
-> 
-> btw looks a related suggestion is having the tsm driver (arm-cca-host
-> here) implement the viommu ops while leaving the original smmu driver
-> largely intact, and "obtain the viommu through tsm_ops not through
-> iommu_ops".
-> 
-> It's not super clear to me about the implication behind after reading
-> related discussions and what the "obtain" part means. 
-> 
-> Could you help elaborate this part?
-> 
-> The old way is kind of:
-> 
-> vdevice_tsm_ops -> tsm_ops -> tsm driver -> iommu driver
-> 
-> then it will become:
-> 
-> viommu_ops (tsm related) -> tsm_driver
-> 
-> where tsm driver will fully handle tsm related viommu_ops?
+On Tue, Sep 15, 2026 at 06:51:49PM +0800, Guoniu Zhou wrote:
+> The ISI output format field width differs across SoC generations:
+> i.MX8 series (MN/MP/QM/QXP) use a 6-bit field (bits 29:24), while
+> from i.MX8ULP onwards (including i.MX91/93/95/952) the field is
+> extended to 7 bits (bits 30:24) to support RAW32 and RAW14 formats.
+>
+> Extend CHNL_IMG_CTRL_FORMAT_MASK to 7 bits unconditionally since
+> bit 30 is unused on older platforms.
+>
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+> ---
+> Changes in v3:
+> - Use unconditional 7-bit mask instead of per-platform approach (Laurent)
+> - Drop Reviewed-by from Frank Li due to significant change
 
-At least for ARM there is effectively no entanglement with the actual
-host iommu driver. The viommu is entirely provided by software in the
-RMM world, so it can have its own dedicated driver. In ARM T=1
-transactions are alwayus routed to the RMM's iommu and there is no
-relation to the host.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-I am interested how Intel works here, but I thought it was similar.
-
-AMD is different and I suspect AMD will have to continue to use the
-viommu from the AMD iommu driver, but I am not sure.
-
-> btw I held the impression of blocked operations from past discussion [1].
-> Initial attempt tried to proactively unbind the TDI upon any operations 
-> which may transit the TDI to the ERROR state. Then the suggestion at
-> the moment was:
-
-With this construction the iommufd vdev is created and permanently
-exist as long as the VM and viommu exist.
-
-How/when the tsm driver links this to a arch specific "bind/unbind"
-operation is more up to that driver, but I would expect what is
-thought of as "bind" should be the affiliation of the device's T=1
-stream with the viommu and the target VM. It should not be sensitive
-to the TDISP state.
-
-That is not prohibited, the TSM driver could do some auto
-"bind/unbind" whatever that means triggered by ops or tdisp state
-changing under the covers. But this cannot leak out as some kind of
-asynchronous vdev destruction.
-
-> " But now the suggestion is never let VFIO do unbind, instead VFIO
-> should block these operations when device is bound. "
-> 
-> [1] https://lore.kernel.org/all/aEFmPaYorqaYCKBY@yilunxu-OptiPlex-7050/
-
-IDK, if the host wants to put a device into error I don't see why the
-kernel should block it? There are many reasons a device can reach
-error, that needs to be handled.
-
-Jason
+>
+> Changes in v2:
+> - Add Reviewed-by tag from Frank Li
+> ---
+>  drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h
+> index e795f4daf3ff..c704be882705 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h
+> @@ -39,7 +39,7 @@
+>  /* Channel Image Control Register */
+>  #define CHNL_IMG_CTRL						0x0004
+>  #define CHNL_IMG_CTRL_FORMAT(n)					((n) << 24)
+> -#define CHNL_IMG_CTRL_FORMAT_MASK				GENMASK(29, 24)
+> +#define CHNL_IMG_CTRL_FORMAT_MASK				GENMASK(30, 24)
+>  #define CHNL_IMG_CTRL_FORMAT_RGBA8888				0x00
+>  #define CHNL_IMG_CTRL_FORMAT_ABGR8888				0x01
+>  #define CHNL_IMG_CTRL_FORMAT_ARGB8888				0x02
+>
+> --
+> 2.34.1
+>
+>
 
