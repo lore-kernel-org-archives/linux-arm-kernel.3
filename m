@@ -4,93 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA958C88E7F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:01:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5257C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:02:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g9rzR4FHW24jqWw2J2lJ2bk+jLthZKfD8kBK912Z0ag=; b=HYB/bBlklAsebq5iliqhTW4LjQ
-	VeW4ip22SmshED4qN4xasH6RX5OMSJ5CBJMco07NK//LgkUSR2E0BZpjPonZLq4DqLzW+ak3zRh+G
-	vYh3fP3SfprrZ9ZXhrJmNzsjvyVzEDHeEMp+4yuNMNvVpL9agZ4rpXm+e4m1vboQmkEGNOBUICPGh
-	qIu611SZNan8jk1NLbSl35G95lAS46SFTjZ9ZVbzUCXWjVR3897P77h49qLmgfCIKO0FKs9BCYqbY
-	eNvOMiegQcqeYDzlYU7DjUg9xnOYJlmrUafPGUJ1wt0syj3AVQ0PGcOtirO6yKFWw57wDUxKYMCBO
-	IwyvVHRA==;
+	bh=62dnS9UB1nI/BR4/ltxJuhKZokBySflA5rnVbV11GGc=; b=jZdsogNZCeFDlScrW60JCE5lcy
+	+QA8vF0O9TfTby9nPuSwFgDkoS3ZJf74BA47wzlTN+zL2r+1C5/ypSTNt9893dJ4R3eYOu42hVv8N
+	XzMPhpM2qWP14o1nsn//V81tMKRALl3DvbkNCG2BbBeIiNk0zlfYXZir+X9gKTKRJYMa/uIKtohMG
+	ImLxFWU9E8VjqUoW+d3M9n4vZsTOZlyHxIZ6zBHWoRRlezPDXG11kbqwHVZKhSJ8mXzt7mHHD7i7p
+	InJsWKz7arkcWGaw9leG0shfm9df+K190OlrZQfyF6RjOWUns5Ejrf532AnKizHm9X7Psaj9BHa+U
+	aZiNF8Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6UfH-000000073gM-0Lkv;
-	Tue, 15 Sep 2026 15:01:43 +0000
-Received: from mail-qk2-x11.google.com ([2607:f8b0:4864:34::11])
+	id 1x6Ufm-000000073nb-0vwk;
+	Tue, 15 Sep 2026 15:02:14 +0000
+Received: from mail-qv1-xf2d.google.com ([2607:f8b0:4864:20::f2d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6UfC-000000073ex-18CN
+	id 1x6Ufh-000000073li-3UYJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 15:01:41 +0000
-Received: by mail-qk2-x11.google.com with SMTP id d75a77b69052e-52fb76ec395so2543531cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 08:01:36 -0700 (PDT)
+	Tue, 15 Sep 2026 15:02:12 +0000
+Received: by mail-qv1-xf2d.google.com with SMTP id 6a1803df08f44-90cc64570deso12029386d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 08:02:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rowland.harvard.edu; s=google; t=1789484496; x=1790089296; darn=lists.infradead.org;
+        d=rowland.harvard.edu; s=google; t=1789484528; x=1790089328; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=g9rzR4FHW24jqWw2J2lJ2bk+jLthZKfD8kBK912Z0ag=;
-        b=Wkf5lj2ma2GDMatVQsvvXbBxWC5s/4JaC3gXvKQkK5Pv8wSYCxVfEOTQhj9zzoc3xa
-         YWT3OapIvL2hbJQt9pSQHe5mM3ymD0Gq46A68+8X7MUqVgv8JXyKDQV7Yjn2iGzW+6u9
-         ts+1rhFlW4j+zjWd8iiYlDfGEEbMxUmWioPK6OvkYuHKd58JLDEydUpP3Y3wAsi6eTHW
-         w9f08i2so+hPBqPDHdU7GpZR0td8EGSpxB1Knt6FIdwlHPx1fApfb49XvToCfT4Gyjxe
-         on8M+K+xRx8mLb0GIXaN/WihdPGTFh0RU2QUOQIGczdXy5IHK8O3T6ODDtqoG1Jx9/b4
-         J8VQ==
+        bh=62dnS9UB1nI/BR4/ltxJuhKZokBySflA5rnVbV11GGc=;
+        b=ftUT6xgnNpad1MmzbtZNsym4iBXCjcO4VvpJpTWFlbr/Bm5vY2TKizD3xbHiMPc4sh
+         oXCXQbz4IpHHRVvFDuplB4sRuMlsjejwxZYJzUVs0/PFjMrZQFTRhTJ+rRynTrD7UHhv
+         pfwuIB9gcnZy16b1uBB4AKB2+lur31ucY18DUxZxJZG3PwhgrLTOS3Ke0YfpLbr9qb+k
+         A6LS9mye2+/cBNnzfg94onGJxjOdl3SNbofvrdSaL7rtNtPYYrbwkhrUGsga6uOEB/jc
+         TjawdEZ2y5SlrccyXkYxcxg2aslRVBJSUFpxP3jM6cGOc8OjGDrLSoWVcCQoqGztk24a
+         sfag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789484496; x=1790089296;
+        d=1e100.net; s=20260707; t=1789484528; x=1790089328;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=g9rzR4FHW24jqWw2J2lJ2bk+jLthZKfD8kBK912Z0ag=;
-        b=bxZa2z1DJLh5x3wpPPPJULbnQrMGxxnBR43lUfKBxetHSyVaYf8r8BRVy8Vbxs6JJL
-         9OstPkouwNK0d/PrkDQG4TLFsjWGuzrbqfd8w19GXfAO87q4+FDTBq19OwGvKHlDLenn
-         n+qZZva2XCfeIx4bFD644QKOb5L9HEuEfkbfVzC0WJUBRCikZVZLRF+Dzv5XTR75LBZI
-         rPvYfR8mf4kw6yuQ+dkge0SkC48Jwy2KDjyDcdXqydv6VT2ibbOPDrkufJTqjB1x2uZq
-         CXh9fYyIikcB4N3ibzLtdyzVYZyWaLZwhAtHDd+voKbTlhhsPLHmfBKHySloM5JQv3m4
-         brPQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxfTKdsEmo8pwJGeBuXaNcBZ0I6UzGLDtwvHzYr7ylrwLyiTCbXk/EoXBYZo0hR2Tr+ujpjENnZoxHTytffs93k@lists.infradead.org
-X-Gm-Message-State: AFuF++kskBxeK6SOKqwo5Sk4mIMUmygMrA/+itcFXEVsINCIEseM2fNE
-	LIcrpt6ZjybIHL2tQGZw2SHlQ8qzwRLiY6n6JB8MCNn5HtHzCfQ5/otmUCkq9/GlRw==
-X-Gm-Gg: AYBFou15IiEVxhmef/pqXnzAHfL1a9/8wTnTi0qge0bwV9+M3nSd9rX5dxNIw3C+QzR
-	dKJMiHtp1A8+em1Uf4DP2YfAspwr2H7TFdHwkoBnG+QBWUw+H+s0KBQSPAg+XgJro945omrYoHj
-	wAsADiJ1RxQM7xms+198smt+9ToypvJgcKcdtmoD4h1VQggxd0YBhG0LIzgF3xgYuz1BzQdyV6q
-	ATWZtk28L9x417iRw2Ow2nloTbeLC9f7sv0SvUarKQt/4yYKkvhA1gsY4BwaXIY4UR/vcw9AL3m
-	mo2fvoPlxi327mnAWHnovHSwo8TwTyimo5mLlrWgNq1VITdA5+SAxuKpGSKHufvoMK/YC+7kp/W
-	U1jOC4siOFVl55GoBA4HozQ8KglyUvmph0JtxqfG4MC4i7v54Ml2bAGrJLeGOpUyPW9fImDK3A+
-	81L60cAhWThlSxbJLSqF9pQhxl5wCTQXZx4b+vivdplx6lL0G19YhoHu9vlqqtOD9a7hIG9Kv+
-X-Received: by 2002:a05:622a:1dcf:b0:530:e7aa:ef4e with SMTP id d75a77b69052e-5312626d895mr19384701cf.16.1789484495571;
-        Tue, 15 Sep 2026 08:01:35 -0700 (PDT)
+        bh=62dnS9UB1nI/BR4/ltxJuhKZokBySflA5rnVbV11GGc=;
+        b=pfNJyq/1hhmM7K9j6scHX8nt8CxfZbGxvnV78LGcwBqbvuX26IBu6+6hoQOihzEbc9
+         GPBgW60lUOKNXwNHAqWPFRCYC243RVEZLjQRFGgYE3+MhnQnqJTRio6JqTMDpxQA9SmD
+         Qgqg7nh/1mRT9XvtmHJ7kcEXROmMoritIctVdSrr9RotMqP0hwbLNdPdDnggWAibroIE
+         qLt+TBjCBQeEXuKxyQHG6XxGxu3DoUWGugZ8j3E/nYkVAmXprz+0soMT3MALVHNq3X7/
+         iCniUtjMp/B259fQWIvdK8i1Bd6tGoliK4f9akcXOfTHKXdy7K4gb5HXy4yjlY684L2v
+         ZlgA==
+X-Forwarded-Encrypted: i=1; AKwUvBx+hNTWTbxUA1SA3P9VoDMLPJkHOsT1Qh1MTcLcpAt5/cg5j5NmLQR1gRzKy2iOgpueu49Sm2YAA4b2chF+MKwt@lists.infradead.org
+X-Gm-Message-State: AFuF++k3p4/cH2LIjdhj38Rwl15y3nvnCb+73xlxAawY3f4y20nVSuLJ
+	2eTByEDDiVDweWasrdMMO0yF9JO4zDfwa6AExRy8T+xTSIsJqCA58Rm9o8vIOG/aBw==
+X-Gm-Gg: AYBFou2n1whlUAmVjNJ1YuxZ7AzfxLK4Tw1jKGvyRvYKH1ttZ+AGHDGgggLQQmYuBza
+	qmgTrjUgNtWeE2U8c/AQuUSC0KJZwPm9TyqD8SrMMhyoLw/9mTulmO13nuKKnEXVidhQrOQ6mTU
+	qV/Ghr+no4+pqZTVBTOu56+IHKbD0EW2l6r6cHhdAX6WtiJl3IHs+BCmOxsiX4mjwVZUQtlv0i2
+	VesoMQy/1oBcRBUDszeTZx+/I0cwWLE7Dy3wsC2XWo3Upefjdb3NxtguYZaz7fU8amvReqvd0xv
+	T/Ga4bdpCYDFHmHacHb9I0gNIMRWtiOyJaguxbrBMazcxGVTdQ1pxueqvH7zed8u+/0hToFysss
+	BXkik3RysKb+Kk17EWTieAF0N0EaS6uFPAZBkjvGMXaNF4Xq/GcwRC+7XfS3r6bNrjbO3zmuF/p
+	qi+z3ZxhqAsitFzhK9Hces/tObKUrgnER+pvUx37u85vunsLIfMPMxWo1LkQVho33tOzV28GN7e
+	Wawu576ZlQ=
+X-Received: by 2002:ad4:5e8b:0:b0:8e9:cd74:87bb with SMTP id 6a1803df08f44-912343f272emr52165806d6.18.1789484526773;
+        Tue, 15 Sep 2026 08:02:06 -0700 (PDT)
 Received: from rowland.harvard.edu ([2601:19b:d01:d210::7544])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-53116090064sm34071481cf.5.2026.09.15.08.01.34
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-9123bec51c7sm381356d6.38.2026.09.15.08.02.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Sep 2026 08:01:34 -0700 (PDT)
-Date: Tue, 15 Sep 2026 11:01:32 -0400
+        Tue, 15 Sep 2026 08:02:06 -0700 (PDT)
+Date: Tue, 15 Sep 2026 11:02:03 -0400
 From: Alan Stern <stern@rowland.harvard.edu>
-To: Myeonghun Pak <mhun512@gmail.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
+To: Joshua Crofts <joshua.crofts1@gmail.com>
+Cc: Peter Chen <peter.chen@kernel.org>, Pawel Laszczak <pawell@cadence.com>,
+	Roger Quadros <rogerq@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Mathias Nyman <mathias.nyman@intel.com>,
+	Chunfeng Yun <chunfeng.yun@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
 	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH 0/4] usb: ohci: Balance controller wakeup on cleanup
-Message-ID: <c65da485-90f3-4393-8836-3b793047bfc4@rowland.harvard.edu>
-References: <20260915012011.61874-1-mhun512@gmail.com>
+	linux-mediatek@lists.infradead.org, stable@vger.kernel.org
+Subject: Re: [PATCH 1/6] usb: core: add missing
+ pm_runtime_dont_use_autosuspend() call
+Message-ID: <e2404a51-3480-4c93-8d31-6b796879ff6f@rowland.harvard.edu>
+References: <20260915090223.1346-1-joshua.crofts1@gmail.com>
+ <20260915090223.1346-2-joshua.crofts1@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260915012011.61874-1-mhun512@gmail.com>
+In-Reply-To: <20260915090223.1346-2-joshua.crofts1@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_080138_639720_147FF18B 
-X-CRM114-Status: GOOD (  12.23  )
+X-CRM114-CacheID: sfid-20260915_080211_788853_1A85EB44 
+X-CRM114-Status: GOOD (  17.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,24 +111,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 14, 2026 at 09:20:07PM -0400, Myeonghun Pak wrote:
-> These four independent fixes disable controller wakeup after HCD removal
-> in the DA8xx, S3C2410, SPEAr and ST drivers. DA8xx also needs the same
-> cleanup when notifier registration fails after the HCD is added.
+On Tue, Sep 15, 2026 at 09:02:18AM +0000, Joshua Crofts wrote:
+> The fail label in usb_new_device() disables pm_runtime on failure, but
+> doesn't call pm_runtime_dont_use_autosuspend(), causing resource leaks.
 > 
-> This issue was identified during our ongoing static-analysis research
-> while reviewing kernel code.
+> Add the missing pm_runtime_dont_use_autosuspend() call.
 > 
-> Assisted-by: LLM
+> Found using Coccinelle.
 > 
-> Myeonghun Pak (4):
->   usb: ohci-da8xx: disable controller wakeup on cleanup
->   usb: ohci-s3c2410: disable controller wakeup on removal
->   usb: ohci-spear: disable controller wakeup on removal
->   usb: ohci-st: disable controller wakeup on removal
-
-For all four patches:
+> Fixes: fcc4a01eb866 ("USB: use the runtime-PM autosuspend implementation")
+> Cc: <stable@vger.kernel.org>
+> Signed-off-by: Joshua Crofts <joshua.crofts1@gmail.com>
+> ---
+>  drivers/usb/core/hub.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/drivers/usb/core/hub.c b/drivers/usb/core/hub.c
+> index 3345b3298daf..dec6d5c49759 100644
+> --- a/drivers/usb/core/hub.c
+> +++ b/drivers/usb/core/hub.c
+> @@ -2745,6 +2745,7 @@ int usb_new_device(struct usb_device *udev)
+>  fail:
+>  	usb_set_device_state(udev, USB_STATE_NOTATTACHED);
+>  	pm_runtime_disable(&udev->dev);
+> +	pm_runtime_dont_use_autosuspend(&udev->dev);
+>  	pm_runtime_set_suspended(&udev->dev);
+>  	return err;
+>  }
+> -- 
+> 2.47.3
 
 Acked-by: Alan Stern <stern@rowland.harvard.edu>
-
 
