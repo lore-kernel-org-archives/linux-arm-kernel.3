@@ -4,59 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42C30C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 17:44:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78AD1C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 17:47:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O4vL4g4D4xkYUtuTnZrWxwAn75paIp9ZlEmZKpxq+4s=; b=iNKiiRCgBFc9FYlSuublDdYxFz
-	RsT9JGDzJPtbX35UGZNsYk0S3aWO4R2YVS66woWyxcK9qEazbhdbFF+pF0HnT58x6fiLJZb/CvHNv
-	82Qz2XWpm0HESlLZvMNH3JiUr9UabuZwinm9UoSwn1DsAtdcBkMIurXobBX07zB+bZcAYF6+dzhTW
-	/KrURHXy7ikB8U+uIyMSs5IRwEu938fqbVNf5bM1/X5Iyb0UO+slLiGez21RKozKSTZJU75aUyi1K
-	hzqRZKmyBFVgBVfccOMvPTvFZvyqjEJRHlF96qdZHR0t95wl4dxvZEQdcKsNkGJLOsrckmHfJ36Ib
-	zTHmKkgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=80mtWLE6jZ2+9O6Z6Io20KcPF/T+lsToZLYgR/f9/Vs=; b=N/T1gUnSfaIdpi6he+iQ1NtMod
+	5sf65bu4Y0Wud5go1dSq11LKGJzRWSQHHO4eHrDP1TelP06Cs1E3U0ZB4yH09UyUax8N6dMvcIypc
+	D9V23ySvGkI4aBL3D8qxjXdONdURjvY3jve2PyvLTem6ALR6iEUdG63/FgB3R2W/J9zhKMD9WT0Qn
+	O+GrxJzKc7jAdrDSmLupon0fxTot9vWmWSPaMNkbX3Vi6EzJxB/km8dTfDyodN1U83KKYYFuLI5yC
+	QroAIaqwfcfDS4NzMOCOGlyQx/wEerGD7m3mRYwjsdJLrO3+/suzhQl7DyT/QK81QZq/wspTjV8XC
+	XFAGFKEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6XCR-00000007ciH-0kfQ;
-	Tue, 15 Sep 2026 17:44:12 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x6XFO-00000007d68-14ZD;
+	Tue, 15 Sep 2026 17:47:10 +0000
+Received: from mail.cjdns.fr ([5.135.140.105])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6XCP-00000007chu-2WfQ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 17:44:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0B2DF40146;
-	Tue, 15 Sep 2026 17:44:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A67B11F000FF;
-	Tue, 15 Sep 2026 17:44:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789494244;
-	bh=O4vL4g4D4xkYUtuTnZrWxwAn75paIp9ZlEmZKpxq+4s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=NsX7glzdGfpZEE+6WWH90AJUd7B1Z9i+nb36BbLufx78K77aPi++0e7cLEv02pMRO
-	 79v9J8dn9czWZeKsecddjXmXt1uTKwwqSu2aLNTTjET4zPV8zo0YA+fIytxUA0FCJC
-	 nV5q/dvI0LO03PqGBIWIndsGuI/RRIgbxqEbmN/YLKf/ST60fDO1rpY1NKEeI1g3Dc
-	 tqSfBiGz6wfdyiQYrT1qqxFj3x6d5Klx/ro3w2UZSjL11InDroA+PZIyLCONejUG0y
-	 bTu8AVRddf0bVjDrXKgfuySuEbhnhV2A/2b4qQw9HDfiyVpaQbe5H87vmkGZepuzed
-	 61Dj0wh5+jv+Q==
-Date: Tue, 15 Sep 2026 18:44:01 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kernel-team@meta.com, sashiko-bot@kernel.org
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	Breno Leitao <leitao@debian.org>,
-	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Subject: Re: [PATCH v5 7/9] firmware: arm_scmi: Add ACPI PCC transport
-Message-ID: <20260915-tidy-glaring-wasp-5b8d0f@sudeepholla>
-References: <20260915-acpi_scmi_pcc-v5-0-298579e9f359@kernel.org>
- <20260915-acpi_scmi_pcc-v5-7-298579e9f359@kernel.org>
+	id 1x6XFH-00000007d4w-35Wh;
+	Tue, 15 Sep 2026 17:47:08 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 806E848F43B;
+	Tue, 15 Sep 2026 19:46:49 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
+	t=1789494419; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=80mtWLE6jZ2+9O6Z6Io20KcPF/T+lsToZLYgR/f9/Vs=;
+	b=VsT5V0S/YUshGGGxyIcT8aFxRgIf+DyMDNsS0nnZgoUquHANyyIGR6/En7f1FT7m/RsBZl
+	smcfiLxIbO+JC18H0IlJmSGzp/eXo/ox2ZzymCZj2J50sLp/KNQUB7gR0MtJUAByFD24Rg
+	JAbcX4PLptxHHg5eNzKJavX4zf72WbXmBGezuowO7RSTcS4JcQLoYZO8LFApYIomCkBe2n
+	9QMBfJA85xfZu+WXH/ybSKEjZN/ktGVc4QyabuPhaoWbstVbDSl3SSXPI1o73rd2HAaQWB
+	3sv5r0aHjvBUM5SaEhfO4A+AhHekkxuIjuVGaPLx4yrXHGyqXXOVz1MCEHPRvQ==
+From: Caleb James DeLisle <cjd@cjdns.fr>
+To: netdev@vger.kernel.org
+Cc: andrew@lunn.ch,
+	olteanv@gmail.com,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	chester.a.unal@arinc9.com,
+	daniel@makrotopia.org,
+	linux@armlinux.org.uk,
+	arinc.unal@arinc9.com,
+	Landen.Chao@mediatek.com,
+	dqfext@gmail.com,
+	sean.wang@mediatek.com,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	naseefkm@gmail.com,
+	b.larsson@gmx.com,
+	Caleb James DeLisle <cjd@cjdns.fr>
+Subject: [PATCH v2 net-next 0/7] net: dsa: mt7530: support EcoNet EN751221
+Date: Tue, 15 Sep 2026 17:46:36 +0000
+Message-Id: <20260915174643.253660-1-cjd@cjdns.fr>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260915-acpi_scmi_pcc-v5-7-298579e9f359@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260915_104703_966008_1E2EBD0C 
+X-CRM114-Status: GOOD (  12.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,69 +86,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->On Tue, Sep 15, 2026 at 06:03:41PM +0100, Sudeep Holla wrote:
->> Add an SCMI transport for ACPI-described systems using PCCT PCC
->> subspaces through the Linux PCC mailbox layer.
->> 
->> Parse the SCMI Device Properties _DSD packages defined by Arm document
->> 111115A v1.0, sections 2.2.1.1, 2.2.2.1 and 2.2.3. Map transport
->> UIDs to PCC subspaces for common and protocol-exclusive A2P and P2A
->> channels, validate the mappings, and cache them for channel setup.
->> 
->> Support the Powercap and System Telemetry protocol properties and add
->> the System Telemetry protocol ID. Implement PCC channel management,
->> message framing, shared-memory bounds validation, and response and
->> notification delivery.
->> 
->> Add the corresponding Kconfig, module and ARML0001 ACPI matching
->> plumbing.
->> 
->> Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
->> ---
->>  drivers/firmware/arm_scmi/common.h            |  11 +
->>  drivers/firmware/arm_scmi/transports/Kconfig  |  12 +
->>  drivers/firmware/arm_scmi/transports/Makefile |   2 +
->>  drivers/firmware/arm_scmi/transports/pcc.c    | 867 ++++++++++++++++++++++++++
->>  include/linux/scmi_protocol.h                 |   1 +
->>  5 files changed, 893 insertions(+)
->> 
->> diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
->> index 7fc9560dc4ea..ef5e19ecfe20 100644
->> --- a/drivers/firmware/arm_scmi/common.h
->> +++ b/drivers/firmware/arm_scmi/common.h
->> @@ -468,6 +468,17 @@ struct scmi_transport_core_operations {
->>  	const struct scmi_message_operations *msg;
->>  };
->>  
->> +struct scmi_dsd_info {
->> +	u32 protocol_id;
->> +	const char *const property_name;
->> +};
->> +
->> +static const struct scmi_dsd_info scmi_dsd_info_list[] __maybe_unused = {
->> +	{ SCMI_PROTOCOL_BASE, "arm-arml0001-transport-pcc" },
->> +	{ SCMI_PROTOCOL_POWERCAP, "arm-arml0001-protocol-pcap" },
->> +	{ SCMI_PROTOCOL_TELEMETRY, "arm-arml0001-protocol-telemetry" },
->> +};
->> +
+The EcoNet EN751221 has a unique switch configuration. Every chip made
+with an EN751221 die has at least one on-die MT7530 that is MMIO based.
+This switch has 3x 10/100 ports and 1x gigabit port.
 
-> [Below is copied from sashiko-bot@kernel.org review comments Severity: High]
->
-> Since scmi_dsd_info_list is defined as a static const array in a header file,
-> won't this cause the array to be duplicated in the .rodata section of every
-> translation unit that includes common.h?
+Some popular chip packages such as the EN7513G and EN7526G have another
+MT7530 implemented as a multi-chip-module that connects to port 5 of
+the on-die switch and is controlled via the MDIO controller integrated
+in the on-die MT7530.
 
-> Could this array be defined in a .c file and exported via extern to prevent
-> unnecessary binary bloat?
+In this configurations, the upstream switch is put into a "passthrough"
+mode in which all traffic is forwarded between port 5 and port 6
+without altering its DSA tags.
 
-Although the header gives each translation unit its own definition, unused
-instances are discarded by the compiler. The table is referenced only by
-the SCMI core and PCC transport, which are separate modules. Moving it to a
-C file would require exporting the table and its size between those modules.
-Given that each emitted table is only 48 bytes, I prefer to avoid that
-additional interface and keep the local copies.
+Furthermore, since the DSA core does not call mt753x_setup until all
+switches are present, and the downstream switch only becomes available
+when the upstream switch has configured its MDIO controller, the MDIO
+controller setup on MMIO implementations must be done before
+mt753x_setup, or else it will never complete.
+
+Finally, the on-die switch and the MCM switch connect via a TRGMII link
+which requires calibration. In order to calibrate this, PLL adjustment
+must be possible on the on-die switch, necessitating changes to the
+core_(set|clear|write|rmw) functions to support MMIO implementations.
+
+Solve all of these issues, add the TRGMII calibration, and add support
+for both switches.
+
+Since this patchset will probably be subject to some discussion, please
+consider accepting any patches that are non-controversial since it will
+make future re-submissions easier.
+
+Thanks!
+
+Changes since v1:
+* Move mt7530_setup_mdio_irq out of mt7530_setup_mdio because
+mt7530_setup_mdio may be called before mt753x_setup
+
+* Do not return error in mt7988_probe if mt7530_setup_mdio fails because
+doing so leaks the DSA switch registration, and in any case
+mt7530_setup_mdio will be called again.
+
+* default_taps_ondie not being used en751221_trgmii_cal_ok unused args
+
+* Use clk_drvp / clk_drvp instead of drvp / drvn (typo)
+
+* en751221_set_tx_drive ext values too large for fields - values taken
+from reference implementation, reduced from 16 to 15.
+
+v1: https://lore.kernel.org/netdev/20260909140346.2861572-1-cjd@cjdns.fr/
+
+Caleb James DeLisle (7):
+  net: dsa: mt7530: get ctrl phy addr using a function
+  dt-bindings: net: dsa: mediatek,mt7530: add passthrough mode
+  net: dsa: mediatek: add support for passthrough mode
+  net: dsa: mediatek: support PLL setup on MMIO MT7530
+  net: dsa: mediatek: support MDIO switch downstream of MMIO switch
+  dt-bindings: net: dsa: mediatek,mt7530: add econet,en751221
+  net: dsa: mediatek: support EN751221 switch
+
+ .../bindings/net/dsa/mediatek,mt7530.yaml     |  50 +-
+ drivers/net/dsa/mt7530-mdio.c                 |   1 +
+ drivers/net/dsa/mt7530-mmio.c                 |  10 +-
+ drivers/net/dsa/mt7530.c                      | 579 ++++++++++++++++--
+ drivers/net/dsa/mt7530.h                      |  46 +-
+ 5 files changed, 632 insertions(+), 54 deletions(-)
 
 -- 
-Regards,
-Sudeep
+2.39.5
+
 
