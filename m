@@ -4,108 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6CB5C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 12:24:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DFD3C88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 12:25:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/DG4qsnB/WbUm9zjfIABFjU6D41zon6CNpHxg6sLQC0=; b=SsQkZT8JwhoOhMrVDU41eyy/O8
-	sStibNSK87yAHS7L4PWsAI9jNPPBz26EqaUNk8B7lug0cRE3cQAGla1uK8krHv9P6N/thXTI629HY
-	cEvU18mULryLvahYdvRVgq6r3dlEy0qKxSNeV5ZSbEzbNRUr4bliHH/jCXhtSi5ASvELTQiP3tJ+P
-	iMXGsFgHlp+y4LswrEgvx+7fey7No2Ay+TjB+AmP/A7IVSf6+9jv4nZqeGR36bPhJAFqovmHeXC/2
-	26GQccK4kzxLvY1XXbUhu80/xvpnWhFkIex1HThfOI9losfCRTYRZ2+x/8pJsXa4FQJrtKtbllH7y
-	WP+Os/tA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aDdBSUCJgB3OLmZje/+wFtxU+EoDdH4/lnK7yN7M4uk=; b=glitPFFJg++i98P6D6CARjBk9P
+	wuv2dITp82IXtMCavHGEXD3WyMQcoR/V10aHY61ByUrxKEsOMxLwWvTAPOWLM/yKhFa0y64EVg6AA
+	iK0DIx3+fkUCNrJy2sKQrA2mefsK5Fu7KobwgS9hQxs61fkb/kd12Ux7qpFf3VEk5fVxJ2Y3nI2KL
+	/iclIygD9rZKW38k+ryEjrV7wYhA/6i/r1sHcahIZZbTosfWeIFr6cufuw0VmxbrL2Irt/RccHFDD
+	vo2qy5wHLlwLKZPsDEU7Tfpbx0ncFxZ+IUjdm62rlRK6ftWfm3DnnII7P4w8E/oEE8TbGlmDGH8mA
+	6yK7GqxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6SCu-00000006Ttk-1JUY;
-	Tue, 15 Sep 2026 12:24:16 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6SCt-00000006TtQ-0qpR
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 15 Sep 2026 12:24:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=/DG4qsnB/WbUm9zjfIABFjU6D41zon6CNpHxg6sLQC0=; b=JdO1iLd6hBtZs4Ye0jiFxrvHJ4
-	lnTDH6lTWOka9bjLvEDaiWJru1B1ahQPVp6auBXizTl12smPMuimS/KZDJEPZgk8D5MNLSxvOk+Sz
-	XYkA1Ewy/ZMZfXL0ij8KZCJSgnlJi1UEi6kG6yvbJzC7wd+j69BvKOPvcz007Xa6Pl5GyUhON+n/B
-	BGHKm2vNMGgQtfevfalgAqBD/56Y0wxeAQVu4ThLujcHJ6MGT11hVFML36/mSGefxCgEK1WIWn8ZA
-	qzkj3rsZf0ENCv/r9N0W80fzLGAFq03GqGEFydRJOe5fkopzTj/tUQCz8UUaDrpJ9v7nLTREkqZLT
-	zVmeKesg==;
-Received: from esa1.hc1455-7.c3s2.iphmx.com ([207.54.90.47])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6SCp-00000006jKG-14Yc
+	id 1x6SDa-00000006U36-05Nh;
+	Tue, 15 Sep 2026 12:24:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x6SDX-00000006U2O-3wD1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 12:24:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1789475051; x=1821011051;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=18Wi83CNhlzACjOHe6SRF3KvHUzXVD4Y+YHs4xCXX7M=;
-  b=KL156wbQyF9qC8+e3ehzwbtDySq/N00X+cj/zX9BMXmH75vXry27EM2G
-   80Fqmms0eA3bZAszaTSDK+vH032iB5gh55ITsrdwwB9NTrR/gA+XDVrhd
-   sjjWF/IqTn0wrPdGwskPZKqTnr7sf8kXzWJIxTH69L1iS/JsgNSS7BD5e
-   mEjd1DGi7MpEkfhp0hGd9gBepnvJYuHJBP0QO8/fZJzNnxTr5MD2p9Hvj
-   bK4eigFw37cAMGJMdCrHCo1DoCfj94uTmaTQULBR47s/OozNb+4pX20L8
-   YsCnq9YYONHOF+kaOR20nEqU/3MJK18XQqdmSzE4gN5T/CAFnH2PFZTLE
-   A==;
-X-CSE-ConnectionGUID: SKDntvthS++O5EgihdXW1g==
-X-CSE-MsgGUID: 90nIqoCCS4GDTlUHsTiMmw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="255126654"
-X-IronPort-AV: E=Sophos;i="6.27,103,1786978800"; 
-   d="scan'208";a="255126654"
-Received: from gmgwnl01.global.fujitsu.com ([52.143.17.124])
-  by esa1.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Sep 2026 21:24:07 +0900
-Received: from az2nlsmgm2.o.css.fujitsu.com (unknown [10.150.26.202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by gmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 8458142A33F
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 12:24:06 +0000 (UTC)
-Received: from az2uksmom1.o.css.fujitsu.com (unknown [10.151.22.202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2nlsmgm2.o.css.fujitsu.com (Postfix) with ESMTPS id 2918E1C002FD
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 12:24:06 +0000 (UTC)
-Received: from FCCLS0092175.localdomain (unknown [10.8.185.122])
-	by az2uksmom1.o.css.fujitsu.com (Postfix) with SMTP id EE8BE1800156;
-	Tue, 15 Sep 2026 12:23:57 +0000 (UTC)
-Date: Tue, 15 Sep 2026 21:23:49 +0900
-From: Kohei Enju <enju.kohei@fujitsu.com>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
-	Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
-	James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>, 
-	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev, 
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>, 
-	Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun <alpergun@google.com>, 
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>, 
-	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com, Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: Re: [PATCH v16 44/45] KVM: arm64: CCA: Require ICH_HCR_EL2.TDIR for
- realms
-Message-ID: <aqk4TTHgBiKUvvew@FCCLS0092175.localdomain>
-References: <20260803134403.80630-1-steven.price@arm.com>
- <20260803134403.80630-45-steven.price@arm.com>
- <anlZCIauOq4Lvv0I@FCCLS0092175.localdomain>
- <bdd0cf41-05e8-4d66-930b-5a7a1b3e643a@arm.com>
- <apAwQeTW-JvCISEt@FCCLS0092175.localdomain>
+	Tue, 15 Sep 2026 12:24:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 66719169E;
+	Tue, 15 Sep 2026 05:24:51 -0700 (PDT)
+Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 292323F882;
+	Tue, 15 Sep 2026 05:24:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789475095; bh=FbBe7/k1TqP33+Njsxlol9/gjyQJhzoXVBpNLujR+dc=;
+	h=From:To:Cc:Subject:Date:From;
+	b=rgV7xHEM6Dz2Aff3x9O8lvj2Bn4Z3/i2s6zWIWNskBXxTc1zJCZ8gQrCWFQiC2OSG
+	 87qGPqLFl5WWQFWaFSM+0NSLUG6ZywsJ/BJhiT/rqnkCm3L5Kd19H7Gor3PlKa+ZxR
+	 NCnkNWRdkh28/3MwJ+/lMI9XDTNEp/hbcfCVkWU0=
+From: Robin Murphy <robin.murphy@arm.com>
+To: will@kernel.org
+Cc: mark.rutland@arm.com,
+	ilkka@os.amperecomputing.com,
+	leo.yan@arm.com,
+	linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2] perf/arm-cmn: Fix multi-filter encoding
+Date: Tue, 15 Sep 2026 13:24:22 +0100
+Message-ID: <ec590cd4cc61b54d6ad3b306b69777ad7729c9d6.1789475062.git.robin.murphy@arm.com>
+X-Mailer: git-send-email 2.54.0.dirty
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <apAwQeTW-JvCISEt@FCCLS0092175.localdomain>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_132411_909839_EE235578 
-X-CRM114-Status: GOOD (  54.29  )
+X-CRM114-CacheID: sfid-20260915_052456_233544_FF63694B 
+X-CRM114-Status: GOOD (  16.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,162 +69,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/27 21:45, Kohei Enju wrote:
-> On 08/24 15:50, Steven Price wrote:
-> > On 10/08/2026 05:58, Kohei Enju wrote:
-> > > On 08/03 14:44, Steven Price wrote:
-> > >> KVM advertises realm support when the RMM is available, and allows
-> > >> userspace to create a VM with KVM_VM_TYPE_ARM_REALM on that basis.
-> > >>
-> > >> On CPUs that lack ICH_HCR_EL2.TDIR, KVM uses ICH_HCR_EL2.TC for
-> > >> normal guests so that ICC_DIR_EL1 is still trapped via the common GICv3
-> > >> CPU interface trap. Realms cannot rely on the normal hyp-side trap
-> > >> handling for that fallback, so advertising RMI support on such systems
-> > >> lets userspace create a realm that cannot safely run.
-> > >>
-> > >> Require the finalized ARM64_HAS_ICH_HCR_EL2_TDIR capability when
-> > >> reporting KVM_CAP_ARM_RMI and when accepting KVM_VM_TYPE_ARM_REALM.
-> > >> This leaves normal VM creation unchanged on systems that need the TC
-> > >> workaround.
-> > > 
-> > > Hi Steven,
-> > 
-> > Hi Kohei,
-> > 
-> > Sorry for the slow response.
-> > 
-> > > Thanks for your work on upstreaming CCA.
-> > > 
-> > > In the v15 discussion [0], you asked whether the system I was testing was a
-> > > "hacked up test system" or closer to "production hardware", and I said I would
-> > > share more when the time came. I can now say that this is not a hacked-up test
-> > > system. At Fujitsu, we have real hardware (FUJITSU-MONAKA) which implements CCA
-> > > (FEAT_RME) but does not implement FEAT_GICv3_TDIR. The hardware details are as
-> > > follows:
-> > 
-> > Cool, I suspected that might be the case - it's good to know there's
-> > real hardware on it's way.
-> > 
-> > >   - GICv4.2 compliant implementation
-> > >   - Supports FEAT_GICv3, FEAT_GICv3p1, FEAT_GICv4, FEAT_GICv4p1, and FEAT_GICv3_NMI
-> > >   - Does not support FEAT_GICv3_LEGACY (deprecated)
-> > >   - Does not support FEAT_GICv3_TDIR (ICH_VTR_EL2.TDS == 0)
-> > > 
-> > > For reference, compared with Arm Neoverse V3, the virtual GIC configuration is
-> > > largely equivalent. The only missing non-deprecated architectural feature is
-> > > FEAT_GICv3_TDIR.
-> > > 
-> > > The issue I see is that the CCA KVM code currently does not support a
-> > > configuration (non-TDIR/common-trap) that normal KVM already supports. For
-> > > normal guests, KVM handles systems without TDIR by using ICH_HCR_EL2.TC and the
-> > > existing GICv3 CPU interface emulation path. However, Realm guests currently
-> > > fail because the CCA path bypasses that existing emulation path, as Marc also
-> > > pointed out in [1].
-> > > 
-> > > Also, this is not limited to systems that actually lack TDIR. The same failure
-> > > can be reproduced on a TDIR-capable system by booting with:
-> > >   kvm-arm.vgic_v3_common_trap=1
-> > 
-> > As Marc says that's a debugging option - handy for those of us who don't
-> > have a platform without TDIR to test with.
-> > 
-> > > So it seems that the current CCA KVM implementation does not yet cover a
-> > > configuration that normal KVM already supports today, rather than this being a
-> > > limitation of the RMM specification or the underlying hardware.
-> > > 
-> > > I've included a patch below which reuses the existing GICv3 early emulation
-> > > path for Realm sysreg exits. This patch does not add any new vGIC emulation
-> > > code, and leaves the existing vGIC emulation code unchanged. So I believe this
-> > > is in line with Marc's request in [1]. With this patch, Realm guests can run
-> > > when the common CPU interface trap path is enabled.
-> > > 
-> > > I tested the exact patch both on our real silicon and on QEMU, and
-> > > confirmed that all Realm-related tests in kvm-unit-tests-cca passed.
-> > > 
-> > > I'm not attached to this exact implementation, and I'm happy if the solution is
-> > > reworked to better fit into the next revision. 
-> > > 
-> > > Given that this configuration can be supported by reusing the existing KVM
-> > > emulation infrastructure, I think it would be reasonable for CCA to support the
-> > > non-TDIR/common-trap configuration rather than requiring ICH_HCR_EL2.TDIR
-> > > unconditionally for Realm support. 
-> > > 
-> > > Supporting this configuration would also allow us to validate the upstream CCA
-> > > KVM implementation on real silicon using upstream code paths, and contribute
-> > > additional real-hardware testing coverage as the implementation
-> > > evolves.
-> > > 
-> > > I'd be very interested in hearing your thoughts.
-> > 
-> > So personally I think your patch is a good compromise. It gets the
-> > hardware working and I'm keen to enable real-hardware testing. Marc has
-> > a very valid point that in terms of performance this could be very bad.
-> > Pseudo NMI in particular will be terrible because accesses to GIC
-> > registers are used to "emulate" the NMI so the number of traps will be
-> > large, and the traps are much more expensive with CCA.
-> 
-> Yes, in that case ICV_PMR_EL1 would be accessed frequently, and the
-> resulting traps would be expensive.
-> 
-> > 
-> > So I'll attempt to incorporate the changes in your patch, but obviously
-> > you'll have to decide for yourself whether the performance of the
-> > product is suitable.
-> 
-> Thanks for the clarification.
-> 
-> I agree with the performance concern, and I'll run some benchmarks on
-> our hardware.
+The current special-case for EVICT_STATE_SEL filtering effectively
+assigns the "filter" and "filter2" controls in the opposite order from
+how the CMN S3 r2 TRM states "Filtering is programmed in pmu_hbt_lbt_sel
+and pmu_evict_state_sel". On reflection, not only does this seem
+unnecessarily non-obvious to users, but it's also likely to be a problem
+for scaling to a full multi-filter abstraction in future. There is a
+logical order to filters based on their bitfield positions in the
+pmu_event_sel register, which the TRM descriptions allude to, and the
+cmn_filter_select enum already (almost) follows, so let's fix the UABI
+to follow suit while it's still unreleased.
 
-Hi Steven and Marc,
+Fixes: 09178f536bb9 ("perf/arm-cmn: Plumb in new filter types")
+Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+---
 
-Sorry for the late response.
+v2: Also fix filter lookup order and missing return in set_event_filter
 
-The results confirm your concern. Our initial hackbench measurements showed
-considerable performance overhead for the non-TDIR Realm configuration with
-pseudo-NMI enabled. Due to restrictions on disclosing performance data for our
-hardware, I cannot share the absolute results or further platform details.
+ drivers/perf/arm-cmn.c | 58 +++++++++++++++++++++++++-----------------
+ 1 file changed, 34 insertions(+), 24 deletions(-)
 
-However, with pseudo-NMI disabled, performance was comparable to the
-TDIR-capable configuration. The difference was at most a few percent across
-runs.
+diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
+index b162de3d9d16..33e8a040c903 100644
+--- a/drivers/perf/arm-cmn.c
++++ b/drivers/perf/arm-cmn.c
+@@ -305,9 +305,9 @@ enum cmn_filter_select {
+ 	SEL_NONE,
+ 	SEL_OCCUP1_ID,
+ 	SEL_CLASS_OCCUP_ID,
+-	SEL_CBUSY_SNTHROTTLE_SEL,
+ 	SEL_HBT_LBT_SEL,
+ 	SEL_SN_HOME_SEL,
++	SEL_CBUSY_SNTHROTTLE_SEL,
+ 	SEL_SNP_VC_SEL,
+ 	SEL_ENHANCED_HBT_LBT_SEL,
+ 	SEL_EVICT_STATE_SEL,
+@@ -978,10 +978,14 @@ static umode_t arm_cmn_event_attr_is_visible(struct kobject *kobj,
+ 	_CMN_EVENT_HNS(_model, _name##_all, _event, _sel, 0),		\
+ 	_CMN_EVENT_HNS(_model, _name##_hbt, _event, _sel, 1),		\
+ 	_CMN_EVENT_HNS(_model, _name##_lbt, _event, _sel, 2)
+-#define _CMN_EVENT_HNS_HBT2(_model, _name, _event, _fsel1, f1)		\
+-	_CMN_EVENT_HNS(_model, _name##_all, _event, _fsel1, f1, SEL_HBT_LBT_SEL, 0), \
+-	_CMN_EVENT_HNS(_model, _name##_hbt, _event, _fsel1, f1, SEL_HBT_LBT_SEL, 1), \
+-	_CMN_EVENT_HNS(_model, _name##_lbt, _event, _fsel1, f1, SEL_HBT_LBT_SEL, 2)
++#define _CMN_EVENT_HNS_EVICT(_model, _name, _event, _fsel1, f1)			\
++	_CMN_EVENT_HNS(_model, _name##_all, _event, _fsel1, f1, SEL_EVICT_STATE_SEL, 0), \
++	_CMN_EVENT_HNS(_model, _name##_eu, _event, _fsel1, f1, SEL_EVICT_STATE_SEL, 1), \
++	_CMN_EVENT_HNS(_model, _name##_en, _event, _fsel1, f1, SEL_EVICT_STATE_SEL, 2), \
++	_CMN_EVENT_HNS(_model, _name##_su, _event, _fsel1, f1, SEL_EVICT_STATE_SEL, 3), \
++	_CMN_EVENT_HNS(_model, _name##_sn, _event, _fsel1, f1, SEL_EVICT_STATE_SEL, 4), \
++	_CMN_EVENT_HNS(_model, _name##_mu, _event, _fsel1, f1, SEL_EVICT_STATE_SEL, 5), \
++	_CMN_EVENT_HNS(_model, _name##_mn, _event, _fsel1, f1, SEL_EVICT_STATE_SEL, 6)
+ 
+ #define CMN_EVENT_HNS_OCC(_model, _name, _event)			\
+ 	CMN_EVENT_HN_OCC(_model, hns_##_name, CMN_TYPE_HNS, _event),	\
+@@ -1014,13 +1018,9 @@ static umode_t arm_cmn_event_attr_is_visible(struct kobject *kobj,
+ 	_CMN_EVENT_HNS(CMNS3R2, _name##_ccglcn, _event, SEL_ENHANCED_HBT_LBT_SEL, 5), \
+ 	_CMN_EVENT_HNS(CMNS3R2, _name##_ccgrn, _event, SEL_ENHANCED_HBT_LBT_SEL, 6)
+ #define CMN_EVENT_HNS_EVICT(_model, _name, _event)			\
+-	_CMN_EVENT_HNS_HBT2(_model, _name##_all, _event, SEL_EVICT_STATE_SEL, 0), \
+-	_CMN_EVENT_HNS_HBT2(_model, _name##_eu, _event, SEL_EVICT_STATE_SEL, 1), \
+-	_CMN_EVENT_HNS_HBT2(_model, _name##_en, _event, SEL_EVICT_STATE_SEL, 2), \
+-	_CMN_EVENT_HNS_HBT2(_model, _name##_su, _event, SEL_EVICT_STATE_SEL, 3), \
+-	_CMN_EVENT_HNS_HBT2(_model, _name##_sn, _event, SEL_EVICT_STATE_SEL, 4), \
+-	_CMN_EVENT_HNS_HBT2(_model, _name##_mu, _event, SEL_EVICT_STATE_SEL, 5), \
+-	_CMN_EVENT_HNS_HBT2(_model, _name##_mn, _event, SEL_EVICT_STATE_SEL, 6)
++	_CMN_EVENT_HNS_EVICT(_model, _name##_all, _event, SEL_HBT_LBT_SEL, 0), \
++	_CMN_EVENT_HNS_EVICT(_model, _name##_hbt, _event, SEL_HBT_LBT_SEL, 1), \
++	_CMN_EVENT_HNS_EVICT(_model, _name##_lbt, _event, SEL_HBT_LBT_SEL, 2)
+ 
+ #define CMN_EVENT_HNSR0_HBT(_name, _event)				\
+ 	_CMN_EVENT_HNS_HBT(CMN700 | CMNS3R01, _name, _event, SEL_HBT_LBT_SEL)
+@@ -1856,10 +1856,12 @@ static void arm_cmn_val_add_event(struct arm_cmn *cmn, struct arm_cmn_val *val,
+ 
+ 		val->dtm_count[dtm]++;
+ 
++		if (sel == SEL_EVICT_STATE_SEL) {
++			val->filter[dtm][sel] = CMN_EVENT_FILTER2(event) + 1;
++			sel = SEL_HBT_LBT_SEL;
++		}
+ 		if (sel)
+ 			val->filter[dtm][sel] = CMN_EVENT_FILTER(event) + 1;
+-		if (sel == SEL_EVICT_STATE_SEL)
+-			val->filter[dtm][SEL_HBT_LBT_SEL] = CMN_EVENT_FILTER2(event) + 1;
+ 
+ 		if (type != CMN_TYPE_WP)
+ 			continue;
+@@ -1910,14 +1912,17 @@ static int arm_cmn_validate_group(struct arm_cmn *cmn, struct perf_event *event)
+ 		if (val->dtm_count[dtm] == CMN_DTM_NUM_COUNTERS)
+ 			goto done;
+ 
++		if (sel == SEL_EVICT_STATE_SEL) {
++			if (val->filter[dtm][sel] &&
++			    val->filter[dtm][sel] != CMN_EVENT_FILTER2(event) + 1)
++				goto done;
++			sel = SEL_HBT_LBT_SEL;
++		}
++
+ 		if (sel && val->filter[dtm][sel] &&
+ 		    val->filter[dtm][sel] != CMN_EVENT_FILTER(event) + 1)
+ 			goto done;
+ 
+-		if (sel == SEL_EVICT_STATE_SEL && val->filter[dtm][SEL_HBT_LBT_SEL] &&
+-		    val->filter[dtm][SEL_HBT_LBT_SEL] != CMN_EVENT_FILTER2(event) + 1)
+-			goto done;
+-
+ 		if (type != CMN_TYPE_WP)
+ 			continue;
+ 
+@@ -1946,7 +1951,7 @@ static enum cmn_filter_select arm_cmn_event_filter(const struct arm_cmn *cmn,
+ 	for (int i = 0; i < ARRAY_SIZE(arm_cmn_event_attrs) - 1; i++) {
+ 		e = container_of(arm_cmn_event_attrs[i], typeof(*e), attr.attr);
+ 		if (e->model & model && e->type == type && e->eventid == eventid)
+-			return e->filter[0].sel;
++			return e->filter[1].sel ?: e->filter[0].sel;
+ 	}
+ 	return SEL_NONE;
+ }
+@@ -2077,16 +2082,21 @@ static void arm_cmn_event_clear(struct arm_cmn *cmn, struct perf_event *event,
+ static int arm_cmn_set_event_filter(struct arm_cmn_node *dn, struct perf_event *event)
+ {
+ 	enum cmn_filter_select fsel = to_cmn_hw(event)->filter_sel;
++	bool evict_state = fsel == SEL_EVICT_STATE_SEL;
+ 	int ret = 0;
+ 
++	if (evict_state) {
++		ret = arm_cmn_set_event_sel_hi(dn, fsel, CMN_EVENT_FILTER2(event));
++		if (ret)
++			return ret;
++		fsel = SEL_HBT_LBT_SEL;
++	}
+ 	if (fsel)
+ 		ret = arm_cmn_set_event_sel_hi(dn, fsel, CMN_EVENT_FILTER(event));
+ 
+-	if (fsel == SEL_EVICT_STATE_SEL && !ret) {
+-		ret = arm_cmn_set_event_sel_hi(dn, SEL_HBT_LBT_SEL, CMN_EVENT_FILTER2(event));
+-		if (ret)
+-			dn->filter[fsel].count--;
+-	}
++	if (ret && evict_state)
++		dn->filter[SEL_EVICT_STATE_SEL].count--;
++
+ 	return ret;
+ }
+ 
+-- 
+2.54.0.dirty
 
-There is a real need to run Realm VMs in environments that do not require
-pseudo-NMI, and non-TDIR hardware can meet that need. Pseudo-NMI is not enabled
-by default in many commonly used distributions, and native NMI support through
-FEAT_NMI may also reduce the need for pseudo-NMI in the near future. As a
-result, the number of use cases in which the observed performance limitation is
-relevant is likely to decrease. Therefore, the pseudo-NMI result does not
-necessarily make non-TDIR Realm support impractical for all current or future
-use cases.
-
-Note that the initial measurements used pre-production versions of TF-RMM and
-TF-A. During our evaluation, we applied preliminary tuning to these firmware
-components and have already observed substantial performance improvements.
-
-For the production release of our hardware, we plan to further tune the
-software stack, including these firmware components, together with the hardware
-configuration. We therefore believe that there remains meaningful room for
-further performance improvement, although we cannot yet quantify the final
-improvement.
-
-I agree that non-TDIR has a performance limitation for trap-intensive
-configurations. However, given the actual customer demand for running CCA
-workloads that do not require pseudo-NMI, I believe that supporting Realm VMs
-on non-TDIR hardware still has clear practical value. It would also allow us to
-accelerate validation of the upstream CCA KVM implementation on real silicon
-using upstream code paths and contribute additional real-hardware test coverage
-as the implementation evolves.
-
-Thanks,
-Kohei
-
-> 
-> Thanks,
-> Kohei
-> 
-> > 
-> > Thanks,
-> > Steve
-> > 
 
