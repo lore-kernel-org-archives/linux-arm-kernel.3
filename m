@@ -4,61 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 010F2C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 12:00:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 932AEC88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 12:00:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:Subject:
-	From:MIME-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XROzleDAWNHKip4xHBVteIb0cCuN7FAQoMQU9zewp/g=; b=qp7bFcIQ3B6UtrqNbcOO8ANv/8
-	8Q656UynUV3MJfk742k2VGYfsXquOXm8gRyXGEMaff2wFI/9V9VzzwaNfwYIXlTqvADNVo4C2TeLP
-	FiJQv+9jBGyG4ygcGAUeg4JqzgxgHVo/LdGI6fc4KXlDQpgZJx66aVdYd5Vd2cPSnk1Cj2PNL4ccr
-	9K5Upj9mqPxL/FctlDVC/ZEJksnU6CbQ1FaKfDxwjQpSztrPridgroHwKoO/77T2jbk0kercv6Q86
-	haWre6qWA8oirzwRp5IpL3/pmi1Un4GsX071VSoYbGFBDbgZ7HOdm4dwItqUMTw0VIoNdbMDf8cmv
-	pvAgFQGw==;
+	bh=nR+vppdF8K9WZno7O7oax1RC3QDZjRQKRGTEl7NKWQ0=; b=FyNl8Dm2ax6dINEhe9MEGsz1Ig
+	w7ig1bPgKnWj8lYeTCzE7I9xFRrblOpZvw9uXFuAzFKL2rxWvjU1KNr0bipO5Y+9ifPKhg5Y+eokj
+	NHtNbn2ObVRmnKb5z9jnHgL59b+SLU1CfpbusaVaGbaFDvhXY0RBfCVnsPXvxWEDCPot9hjqGlJ/T
+	PAtMhG1XKJCHgF/yNL+LTNyBqDRT1pnKkKDgi5Cd/i+NSnE7yZzTleFEDyup5GP+j+dDRRAx//8nO
+	geIbCsfTHuqlulXm/+SPpjGnc/K0AGW5HUTqbCufUF05tk3Gnc/F7Noti5iIZVXDnNHmVPcasYNqu
+	0qqUzjYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6RpR-00000006LlD-2Zw3;
-	Tue, 15 Sep 2026 12:00:01 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x6R8i-000000064C2-3G8s;
+	Tue, 15 Sep 2026 11:15:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6RpN-00000006Lgs-1PMB;
-	Tue, 15 Sep 2026 11:59:57 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9A98B602BE;
-	Tue, 15 Sep 2026 11:59:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B93C1F00893;
-	Tue, 15 Sep 2026 11:59:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789473596;
-	bh=XROzleDAWNHKip4xHBVteIb0cCuN7FAQoMQU9zewp/g=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=LuDfDBIpgc+rUudqugD7YWLMIYTyPSh1djqeFTSZvIqwl+MCFr2F9Jod5sQ3BdeBH
-	 Fs4P2kaC4Rq/e2WctPCUaANEEugIP/+ZEAefkQjg3r930Bx3+wPmgnd43osNu5U8C9
-	 EyuNiUbu78gNfTdrTeVFFD2nhC1r5SHLm94AIfGff4/9p19OhtUCSOkAUYL8ijEd9H
-	 l9DN/Fa9wQdaggqiklG21wysLrbu7J9tNRHYcAgnuhIFYUQdGWbvPhv23a8BBnteix
-	 dj3Dz8036WkGhtwkv8ziLkCVxCa1RZBk5Y1nQhcVea1ZYeF0cF/u11/S008mj3HeiR
-	 /EId/I6+w1CIA==
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH RFC POC 05/50] ARM: commit fds on syscall exit
-To: "Christian Brauner" <brauner@kernel.org>, "Linus Torvalds" <torvalds@linux-foundation.org>
-Cc: linux-um@lists.infradead.org, linux-openrisc@vger.kernel.org, "Michael
- S. Tsirkin" <mst@redhat.com>, "Peter Zijlstra" <peterz@infradead.org>, bpf@vger.kernel.org, linux-csky@vger.kernel.org, linux-m68k@lists.linux-m68k.org, linux-gpio@vger.kernel.org, "Eugenio
- Perez" <eperezma@redhat.com>, virtualization@lists.linux.dev, "Jan Kara" <jack@suse.cz>, "Oleg
- Nesterov" <oleg@redhat.com>, linux-hyperv@vger.kernel.org, linux-fsdevel@vger.kernel.org, linux-alpha@vger.kernel.org, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, linux-mm@kvack.org, linux-snps-arc@lists.infradead.org, linux-parisc@vger.kernel.org, io-uring@vger.kernel.org, "Ingo
- Molnar" <mingo@redhat.com>, kvm@vger.kernel.org, "Jens Axboe" <axboe@kernel.dk>, "David
- Airlie" <airlied@redhat.com>, linuxppc-dev@lists.ozlabs.org, "Alexander
- Viro" <viro@zeniv.linux.org.uk>, "Jann Horn" <jannh@google.com>, linux-sh@vger.kernel.org, linux-arm-msm@vger.kernel.org, linux-hexagon@vger.kernel.org, linux-arm-kernel@lists.infradead.org, sparclinux@vger.kernel.org, linux-mips@vger.kernel.org,
- =?utf-8?b?Q2hyaXN0aWFuIEJyYXVuZXIgKEFtdXRhYmxlKQ==?= <brauner@kernel.org>, kexec@lists.infradead.org
-In-Reply-To: <20260915-work-fd-reserve-unify-folded-v1-5-4d5217d6b246@kernel.org>
-References: <20260915-work-fd-reserve-unify-folded-v1-0-4d5217d6b246@kernel.org>
- <20260915-work-fd-reserve-unify-folded-v1-5-4d5217d6b246@kernel.org>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Tue, 15 Sep 2026 11:59:54 +0000
-Message-Id: <20260915115954.7B93C1F00893@smtp.kernel.org>
+	id 1x6R8Y-0000000642h-17RK
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 15 Sep 2026 11:15:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B3BA94477F;
+	Tue, 15 Sep 2026 11:15:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 65688C2BCB9;
+	Tue, 15 Sep 2026 11:15:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1789470941;
+	bh=apLWzdvgb1s6ZZhPE9IW2ykFDz8tGxdLt1ms1gbZrRo=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=Y9BO/s29j57o78qggRkGKful6hGXP2r6a2OTsdz/w/y9S8ebKCvw0F8c61dpp3OIV
+	 zbxy+hRDzxQrxrUnfKki8IUzYeZC3ZJ9MAlEzqIJ6YmCaJSDjnx4Znr6BMQODaHMWb
+	 uMiHlUIuWQAQ+p9myh4436uTs2ObGxevnlj5Edmwus73cH/SHn3PhKsUJ5Vjupw88C
+	 ibET0FHNqg/oRjC3KwZDglZiT/180loBJ3oTlzJKqLm5LASWcxMZpMf2EnrgbubZWH
+	 ziDPugAxDOvSGxqzfrc6TWqbvXZ8wEq4JdvDyD5XkuwKLKV8HDkI4mjmbnvo1KNG5U
+	 vvetE8L+Kzr7g==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 517CBC88E7B;
+	Tue, 15 Sep 2026 11:15:41 +0000 (UTC)
+From: Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>
+Date: Tue, 15 Sep 2026 19:15:39 +0800
+Subject: [PATCH v7 09/15] gpiolib: regmap: add gpio_regmap_get_chip()
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260915-cv75-v5-v7-9-3297d3fbc9c0@ambarella.com>
+References: <20260915-cv75-v5-v7-0-3297d3fbc9c0@ambarella.com>
+In-Reply-To: <20260915-cv75-v5-v7-0-3297d3fbc9c0@ambarella.com>
+To: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org
+Cc: Long Zhao <longzhao@ambarella.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+ =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Long Zhao <zl020895@163.com>, Lee Jones <lee@kernel.org>, 
+ mfd@lists.linux.dev, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789470938; l=2769;
+ i=longzhao@ambarella.com; s=20260730; h=from:subject:message-id;
+ bh=nq9zwoYxD+NQm8KCrReHWkDIjxPc8aBRQx3slgbQG5I=;
+ b=UeddQ/k7Bfy8M1+7iO6pMfuGpWJDosaPnbR8AD5YXnJ+tU3kaZLmZlTKQJxKltmA4XbkZBtYx
+ 5KaLQ39XmhGAPEeZoRCm0OWLNLWcAdP+3CeBaRHKRGIQRJmtn+/dY9O
+X-Developer-Key: i=longzhao@ambarella.com; a=ed25519;
+ pk=/xGhPTOX0/eYsyTWzyjjgAIW1Z/YD+IlnOnvcdRozow=
+X-Endpoint-Received: by B4 Relay for longzhao@ambarella.com/20260730 with
+ auth_id=903
+X-Original-From: Long Zhao <longzhao@ambarella.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,57 +94,90 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: sashiko-reviews@lists.linux.dev
+Reply-To: longzhao@ambarella.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 1 potential issue(=
-s) to consider:
-- [Low] arm: redundant TIF_FD_SLOTS check due to bit-shift overlap
---
+From: Long Zhao <longzhao@ambarella.com>
 
-commit bdf52635177f575c1b58cdb7e902386551a36647
-Author: Christian Brauner <brauner@kernel.org>
+Let drivers that implement a custom irqchip retrieve the gpio_chip
+after registration. Attach a caller-provided irq_domain only when it
+is present.
 
-ARM: commit fds on syscall exit
+Signed-off-by: Long Zhao <longzhao@ambarella.com>
+---
+ drivers/gpio/gpio-regmap.c  | 20 +++++++++++++++-----
+ include/linux/gpio/regmap.h |  1 +
+ 2 files changed, 16 insertions(+), 5 deletions(-)
 
-Add TIF_FD_SLOTS and test it where the syscall return path decides
-between the syscall work and the plain work pending slow path. A task
-that reserved descriptors goes through __sys_trace_return_nosave
-where syscall_trace_exit() commits them before audit and the ptrace
-exit stop.
+diff --git a/drivers/gpio/gpio-regmap.c b/drivers/gpio/gpio-regmap.c
+index dfcc1f1122ec..56c2c873cbfa 100644
+--- a/drivers/gpio/gpio-regmap.c
++++ b/drivers/gpio/gpio-regmap.c
+@@ -296,6 +296,12 @@ void *gpio_regmap_get_drvdata(struct gpio_regmap *gpio)
+ }
+ EXPORT_SYMBOL_GPL(gpio_regmap_get_drvdata);
+ 
++struct gpio_chip *gpio_regmap_get_chip(struct gpio_regmap *gpio)
++{
++	return &gpio->gpio_chip;
++}
++EXPORT_SYMBOL_GPL(gpio_regmap_get_chip);
++
+ /**
+  * gpio_regmap_register() - Register a generic regmap GPIO controller
+  * @config: configuration for gpio_regmap
+@@ -304,7 +310,6 @@ EXPORT_SYMBOL_GPL(gpio_regmap_get_drvdata);
+  */
+ struct gpio_regmap *gpio_regmap_register(const struct gpio_regmap_config *config)
+ {
+-	struct irq_domain *irq_domain;
+ 	struct gpio_regmap *gpio;
+ 	struct gpio_chip *chip;
+ 	int ret;
+@@ -412,6 +417,8 @@ struct gpio_regmap *gpio_regmap_register(const struct gpio_regmap_config *config
+ 
+ #ifdef CONFIG_REGMAP_IRQ
+ 	if (config->regmap_irq_chip) {
++		struct irq_domain *irq_domain;
++
+ 		gpio->regmap_irq_line = config->regmap_irq_line;
+ 		ret = regmap_add_irq_chip_fwnode(dev_fwnode(config->parent), config->regmap,
+ 						 config->regmap_irq_line, config->regmap_irq_flags,
+@@ -420,12 +427,15 @@ struct gpio_regmap *gpio_regmap_register(const struct gpio_regmap_config *config
+ 			goto err_remove_gpiochip;
+ 
+ 		irq_domain = regmap_irq_get_domain(gpio->irq_chip_data);
++		if (irq_domain) {
++			ret = gpiochip_irqchip_add_domain(chip, irq_domain);
++			if (ret)
++				goto err_remove_gpiochip;
++		}
+ 	} else
+ #endif
+-	irq_domain = config->irq_domain;
+-
+-	if (irq_domain) {
+-		ret = gpiochip_irqchip_add_domain(chip, irq_domain);
++	if (config->irq_domain) {
++		ret = gpiochip_irqchip_add_domain(chip, config->irq_domain);
+ 		if (ret)
+ 			goto err_remove_gpiochip;
+ 	}
+diff --git a/include/linux/gpio/regmap.h b/include/linux/gpio/regmap.h
+index d7ffc12b00a2..6bc00b9775a5 100644
+--- a/include/linux/gpio/regmap.h
++++ b/include/linux/gpio/regmap.h
+@@ -128,5 +128,6 @@ void gpio_regmap_unregister(struct gpio_regmap *gpio);
+ struct gpio_regmap *devm_gpio_regmap_register(struct device *dev,
+ 					      const struct gpio_regmap_config *config);
+ void *gpio_regmap_get_drvdata(struct gpio_regmap *gpio);
++struct gpio_chip *gpio_regmap_get_chip(struct gpio_regmap *gpio);
+ 
+ #endif /* _LINUX_GPIO_REGMAP_H */
 
-> diff --git a/arch/arm/kernel/entry-common.S b/arch/arm/kernel/entry-commo=
-n.S
-> index 88336a1292bb7..59a70d90b0b61 100644
-> --- a/arch/arm/kernel/entry-common.S
-> +++ b/arch/arm/kernel/entry-common.S
+-- 
+2.34.1
 
-[ ... ]
 
-> @@ -83,6 +83,8 @@ ENDPROC(ret_fast_syscall)
-> =20
->  	tst	r1, #_TIF_SYSCALL_WORK
->  	bne	__sys_trace_return_nosave
-> +	tst	r1, #(_TIF_FD_SLOTS << 16)	@ r1 holds TI_FLAGS << 16
-> +	bne	__sys_trace_return_nosave
-
-[Severity: Low]
-Is this newly added check reachable?
-
-The preceding tst r1, #_TIF_SYSCALL_WORK instruction appears to intercept
-the branch because it inadvertently catches this condition.
-
-In ret_fast_syscall, r1 is loaded with TI_FLAGS << 16. TIF_FD_SLOTS is
-bit 5, so shifting it by 16 places it at bit 21 in r1.
-
-_TIF_SYSCALL_WORK naturally includes bit 21 (_TIF_SYSCALL_AUDIT). Because of
-this bit-shift overlap, the first test against _TIF_SYSCALL_WORK will
-evaluate to non-zero whenever TIF_FD_SLOTS is set. This means the branch to
-__sys_trace_return_nosave is taken early, making the new tst instruction
-unreachable dead code.
-
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20260915-work-fd-re=
-serve-unify-folded-v1-0-4d5217d6b246@kernel.org?part=3D5
 
