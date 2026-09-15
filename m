@@ -4,64 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DBFAC982C9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:50:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D149CC88E7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:50:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=palhLwTnxmx+3knOYeXtmMH8KG1BCauXXBUx/sh7huQ=; b=JUiOTAy9GwoaIVkiIlvy0g9Vo0
-	CR0QJg7KmwCIWApWPv9D3v5GnoM7btxcdKXVvR8JISgHYbEoIv5DDTDB4EPV8BOZS9dn0As2X67pY
-	bclcfPC9CA+VeuFhmGtg+vLv9uODDU7mpy2ZSu0vIkoMo0n+sVCn27uqFi3TVoJFoLM4sfqIxVCJf
-	zavHgpuQ3ThMgTypFlFtqdkOxENdduMedlico3/N+Fml+qXm+lvMb1G+iHlcM8nVwycwuBZxXD8pw
-	9xAJ1PMmv6bywm+haqzEwHJxoJxMNB1RfcEswXCg51B3GCKRPxg+NP/PQUpsWnDZZJd5E1qyiuUb0
-	1295HqZg==;
+	bh=ZvMtKW8yG4VkbtqmdX0gKYEp4DgU6cTjqC6NKdQTHWw=; b=LXxdOKeYPksqEYWHymVMlxvc20
+	hO6Wp8OTM9CVv/iYtrH8mCPLLXqaZKMhueZmpo2fPXllHqr2B53VFM8YGY+qn41RVVv7cOD+uUjeS
+	v7fypjxw8gkmUIZXnm854DvBanaJIPsx1YYBfwyYAZkje6jk5tTEZ2AirdQk8lelR66nQTvPhVVwk
+	6fpJKwbrwTNkjHhiwshGeGUTXo+hmYeSBZlKo0jY0iJ7tDWsKM1wm6Dmb0q8Lp238DVJjrsDDrjA1
+	3nvfQDB5lRgFDckhdbdm2ADGuZHZCuUI12Atr8MtQsSklWfyH0Pn7qn/4VbZg4XqMrijGxtVUpQ4X
+	4XG3RWww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VQg-00000007IpA-0xzN;
-	Tue, 15 Sep 2026 15:50:42 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VQE-00000007ISc-1O2K
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 15 Sep 2026 15:50:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=palhLwTnxmx+3knOYeXtmMH8KG1BCauXXBUx/sh7huQ=; b=hFWnGJ+cyUKjH6kKu0+DPzriXh
-	QUbadeWJarDZHg7LAhvmya6Ps+RWyAcE9m1bFVjt5LQNhBxhm4al7XUYDGMCOGpvhKU6vE3XWzuLa
-	UdnC+R0MWb+uxp2UdRSZAziC7U/M4uf5aVP0OiU/PrT4JnsGGH/U5l0IRS3W/Ysm3YvFdlKwLD/0g
-	7QIZn9EnhzcmZy2zFCDfFyjCHSDsk0tm771u+Qrn1rKr22flrruSD0muQbGwaHQTBtPKiDDM+kZQp
-	xo4K1PKzqUpvIDCTzFCSkI4IoKvnPVszutkAv91GFPuk4SjPP1kgMKcSP8NiqY4RY385hnBgQvGr+
-	MqEv8etg==;
+	id 1x6VQd-00000007IlH-3VkW;
+	Tue, 15 Sep 2026 15:50:39 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6VQB-00000006ydD-0GZu
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x6VPx-00000007ICk-1sJk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 15:50:13 +0000
+	Tue, 15 Sep 2026 15:50:01 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5EE711570;
-	Tue, 15 Sep 2026 08:50:06 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1DA6115A1;
+	Tue, 15 Sep 2026 08:49:53 -0700 (PDT)
 Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 93D623F882;
-	Tue, 15 Sep 2026 08:50:07 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 507713F882;
+	Tue, 15 Sep 2026 08:49:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789487409; bh=lVZAl+1VuCBKIxAJbqmvv4H5T5nJSZSgCMMDFerPAQM=;
+	t=1789487396; bh=QSuE0CikkbK3d7jRBR8VtxCr0gWJsEf3ovfSqjudRaI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ExkSaBJoAMNwxm+ZhzKUfYC/Xcf5kDN8atZv3BhBSawhhHcZEzSSuetTJ3ClfUsEK
-	 eKuGkiPPqRWVlERgQQbO49QhRWlo9s28Y/2v/I8SiSTHhWQDfpOXe4S9IXrTIJBlpN
-	 JCuQsUDmbi6Q6Y1gOoMGPZpKSuPrlz50Y95hw66Q=
+	b=qmU5CpfUedMXo6kozsqjXEMrRQkEgeoK3ehedaoinzbxgbhuQPDUO3EtE5lPS1f3h
+	 IyT8miznoGU/dX3fVCk41eoRLNGnqgjimfJKcMF/iNnbIRO7B0cXpTe4EDEcInzi88
+	 DImKhXTAnnIDgPmDZEwwBY+lue1wjV67ke+KGSMQ=
 From: Leo Yan <leo.yan@arm.com>
-Date: Tue, 15 Sep 2026 16:49:11 +0100
-Subject: [PATCH 25/25] Documentation: coresight: Document AUX sample
- decoding
+Date: Tue, 15 Sep 2026 16:49:06 +0100
+Subject: [PATCH 20/25] perf cs-etm: Drain pending packets before finishing
+ trace blocks
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260915-arm_cs_support_aux_sample-v1-25-35cf6f297d20@arm.com>
+Message-Id: <20260915-arm_cs_support_aux_sample-v1-20-35cf6f297d20@arm.com>
 References: <20260915-arm_cs_support_aux_sample-v1-0-35cf6f297d20@arm.com>
 In-Reply-To: <20260915-arm_cs_support_aux_sample-v1-0-35cf6f297d20@arm.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
@@ -78,16 +63,16 @@ Cc: Ingo Molnar <mingo@kernel.org>, linux-perf-users@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789487341; l=3171;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789487341; l=7864;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=lVZAl+1VuCBKIxAJbqmvv4H5T5nJSZSgCMMDFerPAQM=;
- b=XjxNu2wRoGrUaTZHtHM2Yf1eAsTXNzo+4/Umo08aBPRMMhqEKSEPnPqtp1q9c0Kfj7e3hWMIc
- KXpp1K5QzZrDEQ7FZ4kRoP89qkLuUIUk355gwdtfbw/ZpJbg6jXuNjk
+ bh=QSuE0CikkbK3d7jRBR8VtxCr0gWJsEf3ovfSqjudRaI=;
+ b=ZZBCNU6WWj/S5L54s4XqqS2xuzPDvb3N5VEi679N1z4zkevOxcPZ6WHhLr+L2XzJzy7wprDUl
+ 5s9VOfUPQgrAQ2QXHnAlyRAtj0cDveVBdPue2qRrDvlAd917W37O7f+
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_165011_622743_BA48728C 
-X-CRM114-Status: GOOD (  14.49  )
+X-CRM114-CacheID: sfid-20260915_085000_124049_EA27ED84 
+X-CRM114-Status: GOOD (  25.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,67 +87,232 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Describe recording AUX trace in PMU samples and generating callchains
-and branch stacks with --itrace=G and --itrace=L.
+OpenCSD can consume the final input byte while returning WAIT with trace
+output still pending. Stopping when buf_len reaches zero leaves that
+output unprocessed before the next block resets the decoder.
 
-Explain the default decoding behavior, preservation of recorded stacks,
-context ID requirements and decoding limitations.
+Add cs_etm_decoder__drain_packets() to resume a waiting decoder with
+OCSD_OP_FLUSH without supplying more input. Call it from
+cs_etm__decode_data_block() after all input has been consumed and keep the
+buffer active until draining completes.
+
+Return a positive value while input or pending output remains, zero on
+completion, and a negative error on failure. Update timeless decoding,
+timestamp seeding and timestamped queue processing to use this contract.
+Process queued packets even on the final call. Also drain pending output
+before resetting the decoder when dumping raw packets.
 
 Assisted-by: Codex:gpt-6
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- Documentation/trace/coresight/coresight-perf.rst | 39 ++++++++++++++++++++++++
- 1 file changed, 39 insertions(+)
+ tools/perf/util/cs-etm-decoder/cs-etm-decoder.c | 17 +++++++
+ tools/perf/util/cs-etm-decoder/cs-etm-decoder.h |  7 +++
+ tools/perf/util/cs-etm.c                        | 59 ++++++++++++++++---------
+ 3 files changed, 61 insertions(+), 22 deletions(-)
 
-diff --git a/Documentation/trace/coresight/coresight-perf.rst b/Documentation/trace/coresight/coresight-perf.rst
-index c0c82b3d26ea88dad7143afdb047c4d8f502b4a6..59eda2a5b6473ed1cb6bade5d281a12bdde76bb0 100644
---- a/Documentation/trace/coresight/coresight-perf.rst
-+++ b/Documentation/trace/coresight/coresight-perf.rst
-@@ -171,6 +171,45 @@ no branch history at all, for example samples from a thread that was never
- traced, or samples recorded before the first or after the last trace window.
- It is built and installed with perf's other dlfilters.
+diff --git a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
+index 26940f1f1b0bf44c8671d80020597c672c361c1a..a7a6410481e5c99be14a951493092c145a8512ba 100644
+--- a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
++++ b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
+@@ -793,6 +793,23 @@ int cs_etm_decoder__process_data_block(struct cs_etm_decoder *decoder,
+ 	return ret;
+ }
  
-+Decode branch stack and callchain from AUX samples
-+--------------------------------------------------
++int cs_etm_decoder__drain_packets(struct cs_etm_decoder *decoder)
++{
++	if (OCSD_DATA_RESP_IS_WAIT(decoder->prev_return))
++		decoder->prev_return = ocsd_dt_process_data(decoder->dcd_tree,
++							    OCSD_OP_FLUSH,
++							    0,
++							    0,
++							    NULL,
++							    NULL);
 +
-+With a kernel that supports CoreSight AUX sampling, record an AUX trace
-+window inside each cycle sample::
++	if (OCSD_DATA_RESP_IS_WAIT(decoder->prev_return))
++		return 1;
 +
-+  perf record --aux-sample=8192 -e '{cs_etm//u,cycles/period=100003/u}' \
-+        -- ./workload
-+  perf script --itrace=G16L64 -F comm,pid,tid,cpu,event,ip,brstack
++	/* No further WAIT driven flushing is needed */
++	return OCSD_DATA_RESP_IS_CONT(decoder->prev_return) ? 0 : -EINVAL;
++}
 +
-+``G16`` adds a reconstructed callchain and ``L64`` adds up to 64 branches.
-+Either option can be used alone. Existing callchains and branch stacks are
-+preserved. Without an explicit ``--itrace`` option, both are enabled for AUX
-+samples. Decoded history is available in ``perf script`` and ``perf report``.
+ void cs_etm_decoder__free(struct cs_etm_decoder *decoder)
+ {
+ 	if (!decoder)
+diff --git a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.h b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.h
+index 12c782fa6db285852f9f901735aa1f0e55b955e8..c187f3809ba0a350ca6ee549d2c0c67ed8e16d1e 100644
+--- a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.h
++++ b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.h
+@@ -91,6 +91,13 @@ int cs_etm_decoder__process_data_block(struct cs_etm_decoder *decoder,
+ 				       u64 indx, const u8 *buf,
+ 				       size_t len, size_t *consumed);
+ 
++/*
++ * Drain pending packets after consuming a data block.
++ * Process queued packets after each call, including the final call.
++ * Returns 1 for WAIT, 0 when done, or a negative error.
++ */
++int cs_etm_decoder__drain_packets(struct cs_etm_decoder *decoder);
 +
-+AUX sampling supports unformatted, per-CPU sink (TRBE) trace. Each sample
-+selects its CPU's decoder and starts a fresh trace window. The window already
-+belongs to the sample, so ETM timestamps are not required for attribution.
-+Samples without decodable history receive no reconstructed stack. CPU-wide
-+recordings must enable context IDs to distinguish tasks within a window; the
-+default recording setup enables them.
+ struct cs_etm_decoder *
+ cs_etm_decoder__new(int num_cpu,
+ 		    struct cs_etm_decoder_params *d_params,
+diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
+index 8340b8a16fed363795fc78ffbc419661a61442a3..e78c8e089f38eae34faa12bbd2f899f1f72acce4 100644
+--- a/tools/perf/util/cs-etm.c
++++ b/tools/perf/util/cs-etm.c
+@@ -129,6 +129,7 @@ struct cs_etm_queue {
+ 	u8 pending_timestamp_chan_id;
+ 	enum cs_etm_format format;
+ 	u64 offset;
++	/* Cleared once the current block is fully decoded and drained */
+ 	const unsigned char *buf;
+ 	size_t buf_len, buf_used;
+ 	/* Conversion between traceID and index in traceid_queues array */
+@@ -943,6 +944,12 @@ static void cs_etm__dump_event(struct cs_etm_queue *etmq,
+ 		buffer_used += consumed;
+ 	} while (buffer_used < buffer->size);
+ 
++	if (!ret) {
++		do {
++			ret = cs_etm_decoder__drain_packets(etmq->decoder);
++		} while (ret > 0);
++	}
 +
-+Callchains cover only calls visible in the captured window; callers before
-+the first synchronization point cannot be recovered.
+ 	cs_etm_decoder__reset(etmq->decoder);
+ }
+ 
+@@ -1319,7 +1326,7 @@ static int cs_etm__queue_first_cs_timestamp(struct cs_etm_auxtrace *etm,
+ 		 * trace for that block.
+ 		 */
+ 		ret = cs_etm__decode_data_block(etmq);
+-		if (ret)
++		if (ret < 0)
+ 			goto out;
+ 
+ 		/*
+@@ -2171,14 +2178,17 @@ static void cs_etm__flush_all_stack(struct cs_etm_queue *etmq)
+  *			   if need be.
+  * Returns:	< 0	if error
+  *		= 0	if no more auxtrace_buffer to read
+- *		> 0	if the current buffer isn't empty yet
++ *		> 0	if input or decoder output remains in the current block
+  */
+ static int cs_etm__get_data_block(struct cs_etm_queue *etmq)
+ {
+ 	int ret;
+ 
+-	/* The current block is not finished */
+-	if (etmq->buf_len)
++	/*
++	 * A non-NULL buf indicates that packets are still pending.
++	 * Drain them before resetting for a new block.
++	 */
++	if (etmq->buf)
+ 		return 1;
+ 
+ 	ret = cs_etm__get_trace(etmq);
+@@ -2555,11 +2565,22 @@ static int cs_etm__set_sample_flags(struct cs_etm_queue *etmq,
+ 	return 0;
+ }
+ 
++/*
++ * Return 0 when decoding and draining are complete, 1 if another call is
++ * needed, or a negative error. Process queued packets even on return 0.
++ */
+ static int cs_etm__decode_data_block(struct cs_etm_queue *etmq)
+ {
+-	int ret = 0;
++	int ret;
+ 	size_t processed = 0;
+ 
++	if (!etmq->buf_len) {
++		ret = cs_etm_decoder__drain_packets(etmq->decoder);
++		if (!ret)
++			etmq->buf = NULL;
++		return ret;
++	}
 +
-+When kernel tracing is enabled, AUX samples can include PMU interrupt-handler
-+execution before the trace source is paused. The late-sample helpers trim
-+this using instruction addresses, which may not uniquely identify the sample
-+boundary for kernel samples.
-+
-+Formatted sinks such as ETR are not supported. They can collect trace from
-+sources on multiple CPUs in a shared buffer, mixing execution from unrelated
-+threads into the AUX sample. Context IDs can distinguish these threads, but
-+trace from other CPUs can consume the limited sample window, leaving little
-+history for the sampled thread.
-+
-+Guest samples, synthesizing instruction events, and saving reconstructed
-+callchains with ``perf inject`` are also unsupported.
-+
- Perf test - Verify kernel and userspace perf CoreSight work
- -----------------------------------------------------------
+ 	/*
+ 	 * Packets are decoded and added to the decoder's packet queue
+ 	 * until the decoder packet processing callback has requested that
+@@ -2573,14 +2594,13 @@ static int cs_etm__decode_data_block(struct cs_etm_queue *etmq)
+ 						 etmq->buf_len,
+ 						 &processed);
+ 	if (ret)
+-		goto out;
++		return ret;
+ 
+ 	etmq->offset += processed;
+ 	etmq->buf_used += processed;
+ 	etmq->buf_len -= processed;
+ 
+-out:
+-	return ret;
++	return 1;
+ }
+ 
+ static int cs_etm__process_traceid_queue(struct cs_etm_queue *etmq,
+@@ -2689,7 +2709,7 @@ static int cs_etm__clear_all_traceid_queues(struct cs_etm_queue *etmq)
+ 
+ static int cs_etm__run_timeless_decoder(struct cs_etm_queue *etmq)
+ {
+-	int idx, err;
++	int idx, err, pending;
+ 	struct cs_etm_traceid_queue *tidq;
+ 	struct int_node *inode;
+ 
+@@ -2701,9 +2721,9 @@ static int cs_etm__run_timeless_decoder(struct cs_etm_queue *etmq)
+ 
+ 		/* Run trace decoder until the input buffer is consumed. */
+ 		do {
+-			err = cs_etm__decode_data_block(etmq);
+-			if (err)
+-				return err;
++			pending = cs_etm__decode_data_block(etmq);
++			if (pending < 0)
++				return pending;
+ 
+ 			/*
+ 			 * Per-thread decoding uses a single traceID queue;
+@@ -2717,7 +2737,7 @@ static int cs_etm__run_timeless_decoder(struct cs_etm_queue *etmq)
+ 				if (err)
+ 					return err;
+ 			}
+-		} while (etmq->buf_len);
++		} while (pending);
+ 
+ 		intlist__for_each_entry(inode, etmq->traceid_queues_list) {
+ 			idx = (int)(intptr_t)inode->priv;
+@@ -2884,26 +2904,21 @@ static int cs_etm__process_timestamped_queues(struct cs_etm_auxtrace *etm,
+ 		}
+ 
+ 		ret = cs_etm__decode_data_block(etmq);
+-		if (ret)
++		if (ret < 0)
+ 			goto out;
+ 
+ 		cs_timestamp = cs_etm__etmq_get_timestamp(etmq, &trace_chan_id);
+ 
+ 		if (!cs_timestamp) {
+ 			/*
+-			 * Function cs_etm__decode_data_block() returns when
+-			 * there is no more traces to decode in the current
+-			 * auxtrace_buffer OR when a timestamp has been
+-			 * encountered on any of the traceID queues.  Since we
+-			 * did not get a timestamp, there is no more traces to
+-			 * process in this auxtrace_buffer.  As such empty and
+-			 * flush all traceID queues.
++			 * No timestamp is available yet. Process the queued packets
++			 * before resuming input or draining the current block.
+ 			 */
+ 			ret = cs_etm__clear_all_traceid_queues(etmq);
+ 			if (ret)
+ 				goto out;
+ 
+-			/* Fetch another auxtrace_buffer for this etmq */
++			/* Draining and fetch another auxtrace_buffer for this etmq */
+ 			goto refetch;
+ 		}
  
 
 -- 
