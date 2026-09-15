@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED31AC982C5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB624C982C3
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:49:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,41 +12,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I+kXz6AxXFcn2HDmqkHh97j4N4lgLT/2D6fCJoN+/EU=; b=NaDZ9ctwv0GjIgdY2wytl2y4Na
-	2F243NHQSdAtGDowIjlZXucukqWNiuWxfdmLrTDdcIwcobat0Rzw6y0/RltP9aZ73KIfgMwpGVkSu
-	TFt6FozMkRLiP5tJBFsSdp12n7LqnOO3bX6e8laaMKgrlqLcOWfleJAm/eNy8Z2n/9P2w0DSX+6+M
-	3sbwqu1X6egK9mYrzC+uo08P15r/mAfNc3BVQt9dwrfPkwu+bxqTxQHJsZS1W5zgAS0OnnXjjuCWe
-	/MRP+t/ixdSc83txjGWWasDOAWql4UsXYnntBin5Eqnp5aS3mI1sYYfnrKJ/IlFshECKDv9lh1hGa
-	9Nt7ym3w==;
+	bh=4E9Qtqm6Cw3lFX8q2IDlPdhJGeFOKoozmfEKOmk/6w0=; b=0AKZHQ4gXmwTItyK0xllLffM+u
+	nYlfVXQ9OPh8mhHWrpaeVwfpoQkPwp7skZf0TMNdZgQCOOl4eiKQ9y3Cq9jGeyQRh7zSwdoQHOqQT
+	LWFTv4aSJGY+kuQ6bzduZxtXGot68Lw5snuwy2LN0YTZAON+4pEXKqEwJu6fovFZZct4ox1YFUOnx
+	SeY76BdZjk/tDC4yjzGK5TcY7obeF8Io8sBfcs1Edk+CFNMOhiwsvDJ32FBmr2cNAIl8VSIumxnhW
+	NRGXpiCYEJNlemCpzboYXR+XHUlmCMxk5d8yw4Puav2egddijjjimz4X1YuuWMZB1TzdQg1PanLna
+	kasch3vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VPm-00000007Hy0-23uS;
+	id 1x6VPm-00000007HxJ-1BXK;
 	Tue, 15 Sep 2026 15:49:46 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VPM-00000007Hgy-0S9h
+	id 1x6VPR-00000007Hji-3nZO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 15:49:24 +0000
+	Tue, 15 Sep 2026 15:49:29 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E93AA15A1;
-	Tue, 15 Sep 2026 08:49:15 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4087B1570;
+	Tue, 15 Sep 2026 08:49:21 -0700 (PDT)
 Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2B6773F882;
-	Tue, 15 Sep 2026 08:49:17 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 768E73F882;
+	Tue, 15 Sep 2026 08:49:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789487359; bh=7nL38er/+3j2hefe4RM396+0d0LyX5ets3LkSWVeuic=;
+	t=1789487364; bh=rhjgu0y5asKDIU5Zxii2LNz8ZubPzlbgrZL/U/eqBEo=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=UlXrf9bG1nHvsbhlDq2E4hvdQ48e/xgGnPNTqQnkUU4iMAcdyjk5Mt6dgF/xRyREu
-	 feRnKvGE6IhJfCvhg0WoKaA+7s9dDK9us7GIGGAyACSnr2WuhftjKjZpH6b/c3Y8u6
-	 i5Th0XLO4bVHaTfCxF4xOxlC4PjanWLQ860IuneQ=
+	b=OduQGEJNFa8tyVkY5wFKQp9SAx8Qfw3cARQ5l45VPsp2hmU7PvqLSkxDxYqHM4WoG
+	 cSwrs5fcW3UNzwzdrU5euR6ktpIPxAM/s9PHOQZBl3Drbh6OsRz1lY39buhYttDxAU
+	 P4YG5BQJzqOspa73JAiuAqy3+FPeRe7InIEsJDTA=
 From: Leo Yan <leo.yan@arm.com>
-Date: Tue, 15 Sep 2026 16:48:52 +0100
-Subject: [PATCH 06/25] coresight: perf: Simplify flow for CPUs without a
- path
+Date: Tue, 15 Sep 2026 16:48:54 +0100
+Subject: [PATCH 08/25] coresight: perf: Validate context before resuming
+ trace
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260915-arm_cs_support_aux_sample-v1-6-35cf6f297d20@arm.com>
+Message-Id: <20260915-arm_cs_support_aux_sample-v1-8-35cf6f297d20@arm.com>
 References: <20260915-arm_cs_support_aux_sample-v1-0-35cf6f297d20@arm.com>
 In-Reply-To: <20260915-arm_cs_support_aux_sample-v1-0-35cf6f297d20@arm.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
@@ -63,16 +63,16 @@ Cc: Ingo Molnar <mingo@kernel.org>, linux-perf-users@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789487340; l=3816;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789487340; l=1830;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=7nL38er/+3j2hefe4RM396+0d0LyX5ets3LkSWVeuic=;
- b=8hME0Sh1ecVqfaF48gsV60DOyQlz651sF79Du8NnfVGtAoHKy6TX9oE3uLjzBJnEoXJECmOCH
- AMvYvk+9zeZBU+1uYlbRdJ1DDFFJtH9TmAdvqCUhqWwnBwrNAlCeU0p
+ bh=rhjgu0y5asKDIU5Zxii2LNz8ZubPzlbgrZL/U/eqBEo=;
+ b=fCuwxc40dlV8yQA2S+XPYdRX5eTJanVhEXDcrqONj0/qW1wFYzGh+WPkluTb9yhSVawIdmIsO
+ MEXwFEPbueCDE7JwXOlx88FVwMQHb+mO4Dw2ie6nkRPTXQKmqQc+7Yd
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_084923_347583_6549AD5A 
-X-CRM114-Status: GOOD (  23.14  )
+X-CRM114-CacheID: sfid-20260915_084926_051455_74C77C20 
+X-CRM114-Status: GOOD (  15.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,102 +87,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-etm_setup_aux() removes a CPU from the event mask when it cannot build a
-path from that CPU's ETM to the selected sink. The start nevertheless
-allocates buffer handle and keeps event data active until the
-corresponding stop callback.
+An AUX pause ends the current AUX output before trying to begin a new
+one. That new beginning can fail, leaving the CoreSight path published
+after the perf handle has become inactive. AUX resume may also overlap
+a normal stop which clears the per-CPU context.
 
-End the newly acquired handle immediately when the current CPU is not in
-the mask, and do not publish event data in the per-CPU context. The
-event remains logically active so that a task event can trace after
-migrating to an eligible CPU. A stop on the unsupported CPU then has no
-CoreSight modules to disable or trace data to synchronize. Mark its
-hardware state stopped and up to date.
+Pass the per-CPU ETM context to etm_event_resume() and centralize both
+lifetime checks there. Use perf_get_aux() to confirm that the AUX output
+handle is active and path to confirm that the context is still live.
+Resume the source only when both checks succeed.
 
 Assisted-by: Codex:gpt-6
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-etm-perf.c | 38 +++++++++++-------------
- 1 file changed, 17 insertions(+), 21 deletions(-)
+ drivers/hwtracing/coresight/coresight-etm-perf.c | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
-index 13d865ca86f1161b2e21174f096473c4829afc8c..afd22fd4a851e600ab69fd5b6883e6f8518b2cab 100644
+index c7454da5c881c4a8eea5cc77902c9113c297096e..e3c9d3cf84c502f357a430bc3bfa854a776618f1 100644
 --- a/drivers/hwtracing/coresight/coresight-etm-perf.c
 +++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
-@@ -572,13 +572,15 @@ static void etm_event_start(struct perf_event *event, int flags)
- 	 * the sink was specified or hinted to the driver. For
- 	 * now, simply don't record anything on this ETM.
- 	 *
--	 * As such we pretend that everything is fine, and let
--	 * it continue without actually tracing. The event could
--	 * continue tracing when it moves to a CPU where it is
--	 * reachable to a sink.
-+	 * In that case, leave the event logically active but stop AUX
-+	 * output on this CPU. The event could continue tracing when
-+	 * it moves to a CPU where it is reachable to a sink.
- 	 */
--	if (!cpumask_test_cpu(cpu, &event_data->mask))
--		goto out;
-+	if (!cpumask_test_cpu(cpu, &event_data->mask)) {
-+		perf_aux_output_end(handle, 0);
-+		event->hw.state = 0;
-+		return;
-+	}
+@@ -517,11 +517,17 @@ static void *etm_setup_aux(struct perf_event *event, void **pages,
+ 	goto out;
+ }
  
- 	path = etm_event_cpu_path(event_data, cpu);
- 	path->handle = handle;
-@@ -613,7 +615,6 @@ static void etm_event_start(struct perf_event *event, int flags)
- 		perf_report_aux_output_id(event, hw_id);
- 	}
- 
--out:
- 	/* Tell the perf core the event is alive */
- 	event->hw.state = 0;
- 	/* Save the event_data for this ETM */
-@@ -709,7 +710,6 @@ static void etm_event_pause(struct coresight_path *path,
- 
- static void etm_event_stop(struct perf_event *event, int mode)
+-static int etm_event_resume(struct coresight_path *path)
++static int etm_event_resume(struct etm_ctxt *ctxt)
  {
--	int cpu = smp_processor_id();
- 	struct coresight_device *source, *sink;
- 	struct etm_ctxt *ctxt = this_cpu_ptr(&etm_ctxt);
- 	struct perf_output_handle *handle = &ctxt->handle;
-@@ -719,6 +719,15 @@ static void etm_event_stop(struct perf_event *event, int mode)
- 	if (mode & PERF_EF_PAUSE)
- 		return etm_event_pause(path, event, ctxt);
++	struct perf_output_handle *handle = &ctxt->handle;
+ 	struct coresight_device *source;
++	struct coresight_path *path;
+ 	int ret;
  
-+	/*
-+	 * With no path enabled, there is no hardware to stop or trace data
-+	 * to synchronize. Mark the event stopped and up to date.
-+	 */
-+	if (!path) {
-+		event->hw.state = PERF_HES_STOPPED | PERF_HES_UPTODATE;
-+		return;
-+	}
++	if (!perf_get_aux(handle))
++		return 0;
 +
- 	/*
- 	 * If we still have access to the event_data via handle,
- 	 * confirm that we haven't messed up the tracking.
-@@ -738,19 +747,6 @@ static void etm_event_stop(struct perf_event *event, int mode)
- 	if (WARN_ON(!event_data))
- 		return;
++	path = etm_event_get_ctxt_path(ctxt);
+ 	if (!path)
+ 		return 0;
  
--	/*
--	 * Check if this ETM was allowed to trace, as decided at
--	 * etm_setup_aux(). If it wasn't allowed to trace, then
--	 * nothing needs to be torn down other than outputting a
--	 * zero sized record.
--	 */
--	if (handle->event && (mode & PERF_EF_UPDATE) &&
--	    !cpumask_test_cpu(cpu, &event_data->mask)) {
--		event->hw.state = PERF_HES_STOPPED;
--		perf_aux_output_end(handle, 0);
--		return;
--	}
--
- 	source = coresight_get_source(path);
- 	sink = coresight_get_sink(path);
- 	if (!source || !sink)
+@@ -547,8 +553,7 @@ static void etm_event_start(struct perf_event *event, int flags)
+ 	u64 hw_id;
+ 
+ 	if (flags & PERF_EF_RESUME) {
+-		path = etm_event_get_ctxt_path(ctxt);
+-		if (etm_event_resume(path) < 0)
++		if (etm_event_resume(ctxt) < 0)
+ 			goto fail;
+ 		return;
+ 	}
 
 -- 
 2.34.1
