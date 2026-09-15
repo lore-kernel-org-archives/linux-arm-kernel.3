@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D87D6C982C4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 11:37:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00F7FC982C5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 11:37:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6e1PB4CQNzedeHCycAL44Td/hQEl2CX/iFm1Iur71xE=; b=Tcl2OyCavEM0V2VNfHU63FGEzr
-	uk3zMud/XvkPX9KIr/yPjWqjYQKHPirWLNBrz+urejbVz3kpCrNA/NZacwDnjMABEyFSdR34YkAcq
-	a5dn46ZrDbYCpvOhcsm3T2Onf99ay6mRaCMG0YALI9lpMcNp30B6LGgoK0gtWFCeRnEStkTLXJzej
-	LATaLUM10DoPUL1nFl2KurQ0bOuP1frVd2lWZFCA1HWJDmsA9wtby2wEblaGzpe/Tcxgb7hWErXsb
-	DJuov4qNGzpNYVA/0N+WBMRZbmFctq833pd5Xq7E/EcQTsk4xeY1t3EIGpm8rxe3gxEnL6rjQq1t7
-	9QjOw0QA==;
+	bh=xKFkiCa0hlTe3sMnpSzoSnXToiZbVbh61g+KJO9ieuc=; b=M/W5NiKQMHoxn0/TsFJOHMlKMF
+	VCpzlyMJBiWc3w0UtGWW/rvE8nHZTuIUJniu08L+S48ffEg4GXepx4FPO7vDzLX4w3IpKftMOeD8K
+	vFNTdp3NiM7NouM72e1mkEoYPeL+rNNFnW5cH9LjVRStz8BX7XBpbAoshOqm2blbVTI3vK7IJOIxp
+	4/RHQb95fVwO5g/wEXU/0QbAM5zgYjJN2un3wHTgFGvn0TF4h5Txq49KVTiD4ctn4TM03tSPxK/g+
+	rNkHOLfLRbN7VbQ91Z7J0PZV5HjZ636m62CiwNWQeoxZ1Y8zkO2Z2eDB/AAxXkq0UWu4s5S5Ch8hq
+	KGdA5ihA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6RTe-00000006EYF-2jEZ;
-	Tue, 15 Sep 2026 11:37:30 +0000
+	id 1x6RTg-00000006Ebp-0OXl;
+	Tue, 15 Sep 2026 11:37:32 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6RT4-00000006DQ0-3PYB;
-	Tue, 15 Sep 2026 11:36:54 +0000
+	id 1x6RTK-00000006DpU-1hSd;
+	Tue, 15 Sep 2026 11:37:10 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id F3098602C4;
-	Tue, 15 Sep 2026 11:36:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 730581F000FF;
-	Tue, 15 Sep 2026 11:36:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CD294602C4;
+	Tue, 15 Sep 2026 11:37:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D6561F000FF;
+	Tue, 15 Sep 2026 11:37:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789472213;
-	bh=6e1PB4CQNzedeHCycAL44Td/hQEl2CX/iFm1Iur71xE=;
+	s=k20260515; t=1789472229;
+	bh=xKFkiCa0hlTe3sMnpSzoSnXToiZbVbh61g+KJO9ieuc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=EXI8vF2Mi2qQql8uoPNVMR9Vjgp88ee0ybxkHsj+i1EcfZwKRf7jQAqrx5XocwZ5u
-	 bXuB/2sL89kC6PNZZE/dhnoh6Kr65fNehf5/WE+WzUeV5/pclzQoq/bonRzBcg9E7+
-	 NfoFoguGthxJQGC332DYQsb5ljWYLD+kEUw/Pee+5M/7Dg2ZiE3sQd1cKKv890ucDD
-	 /r0vRvig6oqwgwA6dJ/z5P48MPdRVZFrQKEwVGkp3Sgwz1v5wVDwGFDqx3GUFssAgt
-	 DN89k/PZlDz7rh5/WFfNs5IypEAhalKV3Vwaa2jbU2stx2+1M+fSysP8b+juFLIlZq
-	 jL2puXhM2BB9Q==
+	b=oOCbPxoTA5tRVDE1SDW2p9tC0NlFv3Be5GpoNWhYmURnweQxEsEdX5T61GQni5xDr
+	 dB8oKq6yW0o0+gkex/ln8ORrTi4m/ksGAeRyzNp36yZlNMlPyIA0cXetpfDQyX5Jlw
+	 kUeKik4FTXQWhScuFLMluxrSG6c9A9ZCbrTYp9zYSiEAOHtRRYECmeCyootOfrgsFF
+	 4aVzqXKYOQKlcIlDUd5HFPC99RpSLMKbQX+NeTk8Ib6ernTnIZhKKs5s66GAw9HT8a
+	 aS1v8S5YrjxrTs7D5UvVddV+Ou7n/rKAkdnUoUpvZBcB6uDYitfeHcIW+Z9u4N80Fg
+	 U5N4JdROMjYmQ==
 From: Christian Brauner <brauner@kernel.org>
-Date: Tue, 15 Sep 2026 13:31:29 +0200
-Subject: [PATCH RFC POC 43/50] drm/amdgpu: stop unwinding the fence
- descriptor by hand
+Date: Tue, 15 Sep 2026 13:31:31 +0200
+Subject: [PATCH RFC POC 45/50] accel/habanalabs: stop putting the dma-buf
+ descriptor back on failure
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260915-work-fd-reserve-unify-folded-v1-43-4d5217d6b246@kernel.org>
+Message-Id: <20260915-work-fd-reserve-unify-folded-v1-45-4d5217d6b246@kernel.org>
 References: <20260915-work-fd-reserve-unify-folded-v1-0-4d5217d6b246@kernel.org>
 In-Reply-To: <20260915-work-fd-reserve-unify-folded-v1-0-4d5217d6b246@kernel.org>
 To: Linus Torvalds <torvalds@linux-foundation.org>
@@ -71,12 +71,12 @@ Cc: Alexander Viro <viro@zeniv.linux.org.uk>, Jann Horn <jannh@google.com>,
  kexec@lists.infradead.org, linux-hyperv@vger.kernel.org, 
  "Christian Brauner (Amutable)" <brauner@kernel.org>
 X-Mailer: b4 0.17-dev-db0b7
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1456; i=brauner@kernel.org;
- h=from:subject:message-id; bh=ufNESbgGG96SdhrvZQNvdMYhyiyG0BhLW+Tl/xqdcT0=;
- b=owGbwMvMwCU28Zj0gdSKO4sYT6slMWSt1Kk/up3zrbpgwjWhoti6iGnTuBPttKJTrrTH/TR99
- na/1fRNHaUsDGJcDLJiiiwO7Sbhcst5KjYbZWrAzGFlAhnCwMUpABMRM2D4n28sFLhN/8+GKPvC
- voCqx/oLuw/JH2VIEPq49KPjCV75pwz/41f1ZW/e/L95zZs5+aVvD0z0YZjxyGRy0d0flus809L
- W8wMA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1297; i=brauner@kernel.org;
+ h=from:subject:message-id; bh=ydrjF0IvCagPMk+8W3Lo5F+Om/GvHyzFN7KTNwOeZ+c=;
+ b=owGbwMvMwCU28Zj0gdSKO4sYT6slMWSt1Kn/suYdZ5X5676SLT84zbaJW7EmM036Hiq6ZOOqB
+ ZPZLiWKdJSyMIhxMciKKbI4tJuEyy3nqdhslKkBM4eVCWQIAxenAExEfjfD/8KDx3tMQu5s8Nvq
+ pTQrXEN8zcGDu7l3Sq29EHzMOo0/S5yR4VJD+//LnadWytZe1frxs+H8kb1LmHzvH1hrULDM+7H
+ 3NRYA
 X-Developer-Key: i=brauner@kernel.org; a=openpgp;
  fpr=4880B8C9BD0E5106FC070F4F7B3C391EFEA93624
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -97,50 +97,41 @@ Rely on the fd exit path machinery.
 
 Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
 ---
- drivers/gpu/drm/amd/amdgpu/amdgpu_cs.c | 16 +++++++---------
- 1 file changed, 7 insertions(+), 9 deletions(-)
+ drivers/accel/habanalabs/common/memory.c | 13 +++++++------
+ 1 file changed, 7 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_cs.c b/drivers/gpu/drm/amd/amdgpu/amdgpu_cs.c
-index 03b41f803520..e5c0f7201cea 100644
---- a/drivers/gpu/drm/amd/amdgpu/amdgpu_cs.c
-+++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_cs.c
-@@ -1581,7 +1581,8 @@ int amdgpu_cs_fence_to_handle_ioctl(struct drm_device *dev, void *data,
- 	struct dma_fence *fence;
- 	struct drm_syncobj *syncobj;
- 	struct sync_file *sync_file;
--	int fd, r;
-+	const struct fd_slot *fd;
-+	int r;
+diff --git a/drivers/accel/habanalabs/common/memory.c b/drivers/accel/habanalabs/common/memory.c
+index 361cff577381..1559442cd56f 100644
+--- a/drivers/accel/habanalabs/common/memory.c
++++ b/drivers/accel/habanalabs/common/memory.c
+@@ -1861,11 +1861,13 @@ static int export_dmabuf(struct hl_ctx *ctx,
+ {
+ 	DEFINE_DMA_BUF_EXPORT_INFO(exp_info);
+ 	struct hl_device *hdev = ctx->hdev;
+-	CLASS(get_unused_fd, fd)(flags);
++	const struct fd_slot *fd = fd_prepare(flags);
  
- 	fence = amdgpu_cs_get_fence(adev, filp, &info->in.fence);
- 	if (IS_ERR(fence))
-@@ -1610,21 +1611,18 @@ int amdgpu_cs_fence_to_handle_ioctl(struct drm_device *dev, void *data,
- 		return r;
+-	if (fd < 0) {
+-		dev_err(hdev->dev, "failed to get a file descriptor for a dma-buf, %d\n", fd);
+-		return fd;
++	if (IS_ERR(fd)) {
++		int rc = PTR_ERR(fd);
++
++		dev_err(hdev->dev, "failed to get a file descriptor for a dma-buf, %d\n", rc);
++		return rc;
+ 	}
  
- 	case AMDGPU_FENCE_TO_HANDLE_GET_SYNC_FILE_FD:
--		fd = get_unused_fd_flags(O_CLOEXEC);
--		if (fd < 0) {
-+		fd = fd_prepare(O_CLOEXEC);
-+		if (IS_ERR(fd)) {
- 			dma_fence_put(fence);
--			return fd;
-+			return PTR_ERR(fd);
- 		}
+ 	exp_info.ops = &habanalabs_dmabuf_ops;
+@@ -1889,8 +1891,7 @@ static int export_dmabuf(struct hl_ctx *ctx,
+ 	 */
+ 	get_file(ctx->hpriv->file_priv->filp);
  
- 		sync_file = sync_file_create(fence);
- 		dma_fence_put(fence);
--		if (!sync_file) {
--			put_unused_fd(fd);
-+		if (!sync_file)
- 			return -ENOMEM;
--		}
+-	*dmabuf_fd = fd;
+-	fd_install(take_fd(fd), hl_dmabuf->dmabuf->file);
++	*dmabuf_fd = fd_stage(fd, hl_dmabuf->dmabuf->file);
  
--		fd_install(fd, sync_file->file);
--		info->out.handle = fd;
-+		info->out.handle = fd_stage(fd, sync_file->file);
- 		return 0;
- 
- 	default:
+ 	return 0;
+ }
 
 -- 
 2.53.0
