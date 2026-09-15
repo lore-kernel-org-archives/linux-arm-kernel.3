@@ -4,94 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2BEAC88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 20:54:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86939C88E7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 21:20:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4f5DSs8JvTthAFewPMgULYekHAi3JpduAGZQ5Ig/qRI=; b=gooVXoFwcbqcfkZn6z5nIPohRC
-	0FFGO48OcD879ZHKItVvba+mT0qNRw44CdHqZ9r2tM+oLTxSKdRfxdo7M1ONnXki0dJ/C7niA5Gou
-	kmz1pPkWZFmNquZWabALtGaT26ozKN/9I+7OdxK9lPFuF8LmHPPkvM+TcQfee3qaYDVZaC1FiOP45
-	d5nmLQ2Mo1fRUm3lgHjsXiLbZy3uA+6iHxwutsTVCURcQvIWl380n1aiZIM4kGmLOEyHuYa2e1pc4
-	KQ3Tu6FO91IN979hqJKBB1SqTGvonTRqix5fzBD9P0Zwhav2fWP79yHn38E3JBcPTwAtLL4Ciyrqk
-	TJazhV9w==;
+	bh=XCgeECi9ciMcLA5oj4whpJ0F4xVxAiB1zAgsMKnoGxE=; b=FM4NkNdbG6GgSJl3nhcOk7eEMP
+	c3OlwwbCTVShjlKzcRPYMsQ3fUQN0Qy7D54U8FdAAwoU54y7s1iTalecpwpBZFqntke7yYxmsl4LY
+	kko/ZwW7vbNW8J0fzcS61KeuaBYB1OmzpxOZ/bmRdyk4Y9PhOggq4KD3bB5qAXhRhsJT+DLNupQOH
+	FusxTvkoF8JLslIjJAv957adCjd79Q9x6/9MbNyT0raq30Hg0Nxa8mPpQVSizCn3UKIhE23GrWc9x
+	7lPn1PfFS1bMcHME8Q1U1klNUwbNxeVwAyORFRtYPme1LqT7a3ZMubXhl3Yv6K608FkFyFHf1ocrT
+	loJMTqCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6aAN-00000007wgR-0jNx;
-	Tue, 15 Sep 2026 20:54:11 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6aAK-00000007wfi-3eka;
-	Tue, 15 Sep 2026 20:54:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=4f5DSs8JvTthAFewPMgULYekHAi3JpduAGZQ5Ig/qRI=; b=b9ITe9XivDzSbRWiwH4CmxbFT1
-	+rTlDwr9bS5wgh2ICVyPgXLcb07+83nGeVjFMsd1npqpYIv2Nm8ik9IaTwBryYOi77i410Z2aUEyj
-	umLBh5uF/58csy/XsJrZ9Of43H4iWz2d8fGV15R+k3oA8uCWti7cw5O+OiIPRVHuZuNoot382UB0f
-	DVfLCcBCwikq6ziDs9aICviFu1VesWHvyo4gQVsU2y8Snt+OonTw//mkm+8q6YsYhkGX07KAYDN8S
-	FaoDOrof9nJoKsNYYSHvp7M/4/AAwwWN7XysTToqd4gOGZn7j/O0ROBkEe08SME6MIIZSI04vHDG7
-	HGEiFpDg==;
-Received: from fanzine2.igalia.com ([213.97.179.56])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6a8K-00000007FON-1hnw;
-	Tue, 15 Sep 2026 20:54:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Subject:Date:From:From:Reply-To;
-	bh=4f5DSs8JvTthAFewPMgULYekHAi3JpduAGZQ5Ig/qRI=; b=NqPwjwecIRbX6K7+8XyWTe3J11
-	4C3ciZsNUKuE49csJDEbhzvLEbC87bf3s45YAVPWTrTpRmxja8PBN3wTKUjlAkwv3WwVTHQLxv7d/
-	cL40aXenBe0wVybHCe6fJbn/SliiGxlcN8GSo35pSN4NsLEi1Nbhr37kYFiIxGw5kI6JI1+sSHjok
-	/Wmxzk3pf2rquVkzjYZ1YqCfqzWEThCvlj+HZ8xcWQIIhlUJbh6N4TjeNmsTFjaFSve8CMd951vNb
-	DAEqNo/2eh2uyNQ6kJkVftc/mfajMeJb4bzy2ctreiHlbxX9Kw7vjQVhX45L530K54Nco+KCVKOLX
-	oiQ7OWAw==;
-Received: from [179.105.94.163] (helo=[10.0.0.1])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1x6a7u-002dV8-TE; Tue, 15 Sep 2026 22:51:38 +0200
-From: =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
-Date: Tue, 15 Sep 2026 17:51:24 -0300
-Subject: [PATCH v2 1/4] drm/vc4: Drop the undocumented brcm,vc4-v3d
- compatible
+	id 1x6aa5-00000007xkU-1tTA;
+	Tue, 15 Sep 2026 21:20:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x6aa2-00000007xk1-3KyC
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 15 Sep 2026 21:20:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 225E7152B;
+	Tue, 15 Sep 2026 14:20:37 -0700 (PDT)
+Received: from [10.57.8.111] (unknown [10.57.8.111])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A8AD03F882;
+	Tue, 15 Sep 2026 14:20:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789507240; bh=LQViG0hlKh0Tbf4uhF7NC8leV+Z7xLVTw+9GggXNijo=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=hkwBkU3aFMqKBvDmwcRh6Tkk9Rni4bu0ypgZpHfVxY46D9MrHa4yS37nopz6Vu+c/
+	 SHYBn8EzwiQmOWxeT8dLnP3ghvUbBI3VphIT+JwjCcKhuFMtAKYZJZS+f89bJOrgpm
+	 Wp54UDD7mSaWbIvDkhTYu6I1At0dZjkaZHrxk7Ls=
+Message-ID: <a4e7e6c3-d325-4f35-a17c-e02791cca326@arm.com>
+Date: Tue, 15 Sep 2026 22:20:36 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v18 01/23] KVM: arm64: protected VM: Handle set_one_reg
+ CNTVCT_EL0/CNTPCT_EL0
+Content-Language: en-GB
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, will@kernel.org,
+ catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
+ aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
+ Marc Zyngier <maz@krenel.org>
+References: <20260915160141.3543048-1-suzuki.poulose@arm.com>
+ <20260915160141.3543048-2-suzuki.poulose@arm.com>
+ <86o6dy5uob.wl-maz@kernel.org> <7c26c860-0543-459e-974b-72c59af261f9@arm.com>
+In-Reply-To: <7c26c860-0543-459e-974b-72c59af261f9@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260915-vc4-reset-control-v2-1-cb3a25b07822@igalia.com>
-References: <20260915-vc4-reset-control-v2-0-cb3a25b07822@igalia.com>
-In-Reply-To: <20260915-vc4-reset-control-v2-0-cb3a25b07822@igalia.com>
-To: Maxime Ripard <mripard@kernel.org>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
- Stefan Wahren <wahrenst@gmx.net>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: kernel-dev@igalia.com, dri-devel@lists.freedesktop.org, 
- devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2091; i=mcanal@igalia.com;
- h=from:subject:message-id; bh=ZLxH2KxtMio/paY3T16TRijehex03fMfVu4+8ymWrvA=;
- b=owEBbQGS/pANAwAKAT/zDop2iPqqAcsmYgBqqa/QuYdaVr19gxYSMUhADmU31rSf4WXcJpc2d
- 7d+RRLslkaJATMEAAEKAB0WIQT45F19ARZ3Bymmd9E/8w6Kdoj6qgUCaqmv0AAKCRA/8w6Kdoj6
- qomHB/95i5suSvu9rj8DhSWeO6TLeSxiytcg48ux30BGSFj71uAkqCN3a3v/5BdfrA2iqpXzDPp
- VkhJrA4YDa0Fi7zboQUDOrUrH0rObfiGFgQTVvA5jZiimZ0x5qxF7xXEr6UbwX6Gh4RzsmhtPxi
- 4wu4/3TIdonvyipLKi/EgFBN2By/d8w9/3W2PfUVHYZykPy1cI9RzDFco4wQF71X4aWbENkuVt7
- pyEP4++DJjtsSDK1L+m6NwkhCtNCnwGqytoInAtN0WdH9VPBte1/o/b+QWO5AxtOpCkcrTxDuPG
- aPR4IrWoj6x9UeY9Nh9JE3NOzZ1ZD4VtaWbabaAmQQoDCV7H
-X-Developer-Key: i=mcanal@igalia.com; a=openpgp;
- fpr=F8E45D7D0116770729A677D13FF30E8A7688FAAA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_215222_074028_FEAEA413 
-X-CRM114-Status: GOOD (  11.82  )
+X-CRM114-CacheID: sfid-20260915_142043_018845_E765E471 
+X-CRM114-Status: GOOD (  28.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,57 +80,221 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-"brcm,vc4-v3d" is the compatible string V3D support originally shipped
-with in commit d3f5168a0810 ("drm/vc4: Bind and initialize the V3D
-engine."). Commit 90d7116061f8 ("drm/vc4: Recognize a more specific
-compatible string for V3D.") added "brcm,bcm2835-v3d" in v4.6 and kept
-the original one around, because the Raspberry Pi firmware was shipping
-device trees that used it.
+On 15/09/2026 18:48, Suzuki K Poulose wrote:
+> On 15/09/2026 17:46, Marc Zyngier wrote:
+>> On Tue, 15 Sep 2026 17:01:19 +0100,
+>> Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+>>>
+>>> Protected VMs doesn't allow setting offsets for virtual and phyiscal
+>>> counters, as the offset is always fixed to 0. The VM ioclt is filtered
+>>> out based on the cap. However we don't prevent the userspace from trying
+>>> to write to the CNTVCT/CNTPCT registers. This would lead to KVM 
+>>> triggering
+>>> a WARN() in timer_set_offset() as the vm_offset pointer is set to NULL.
+>>>
+>>> Fix this by always "fixing" the timer offsets to 0 and marking that the
+>>> timer offset is set in the kvm->arch.flags at pKVM init time. The
+>>> userspace cannot use the KVM_ARM_SET_COUNTER_OFFSET, as it is blocked 
+>>> for a
+>>> protected VM.
+>>>
+>>> A userspace writing to the SYS_CNT*CT would observe success, without
+>>> any real effect. This was chosen over preventing the writes to these
+>>> registers and returning -EPERM.
+>>>
+>>> With that, we always have a valid vm_offset pointer, remove the 
+>>> checks for
+>>> vm_offset == NULL.
+>>>
+>>> Reported by Sashiko here
+>>> https://lore.kernel.org/all/20260908164641.416911F00A3A@smtp.kernel.org
+>>>
+>>> Fixes: f7d05ee84a6a ("KVM: arm64: Prevent host from managing timer 
+>>> offsets for protected VMs")
+>>> Suggested-by: Marc Zyngier <maz@krenel.org>
+>>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>>> ---
+>>>   arch/arm64/kvm/arch_timer.c    | 15 +++++----------
+>>>   arch/arm64/kvm/arm.c           | 15 +++++++++++++++
+>>>   arch/arm64/kvm/hyp/nvhe/pkvm.c | 26 +++++++++++++-------------
+>>>   include/kvm/arm_arch_timer.h   |  3 +--
+>>>   4 files changed, 34 insertions(+), 25 deletions(-)
+>>>
+>>> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+>>> index 6ac3321f4c575..dda020da4c9c7 100644
+>>> --- a/arch/arm64/kvm/arch_timer.c
+>>> +++ b/arch/arm64/kvm/arch_timer.c
+>>> @@ -1079,14 +1079,10 @@ static void timer_context_init(struct 
+>>> kvm_vcpu *vcpu, int timerid)
+>>>       ctxt->timer_id = timerid;
+>>> -    if (!kvm_vm_is_protected(vcpu->kvm)) {
+>>> -        if (timerid == TIMER_VTIMER)
+>>> -            ctxt->offset.vm_offset = &kvm->arch.timer_data.voffset;
+>>> -        else
+>>> -            ctxt->offset.vm_offset = &kvm->arch.timer_data.poffset;
+>>> -    } else {
+>>> -        ctxt->offset.vm_offset = NULL;
+>>> -    }
+>>> +    if (timerid == TIMER_VTIMER)
+>>> +        ctxt->offset.vm_offset = &kvm->arch.timer_data.voffset;
+>>> +    else
+>>> +        ctxt->offset.vm_offset = &kvm->arch.timer_data.poffset;
+>>>       hrtimer_setup(&ctxt->hrtimer, kvm_hrtimer_expire, 
+>>> CLOCK_MONOTONIC, HRTIMER_MODE_ABS_HARD);
+>>> @@ -1110,8 +1106,7 @@ void kvm_timer_vcpu_init(struct kvm_vcpu *vcpu)
+>>>           timer_context_init(vcpu, i);
+>>>       /* Synchronize offsets across timers of a VM if not already 
+>>> provided */
+>>> -    if (!vcpu_is_protected(vcpu) &&
+>>> -        !test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &vcpu->kvm- 
+>>> >arch.flags)) {
+>>> +    if (!test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &vcpu->kvm- 
+>>> >arch.flags)) {
+>>>           timer_set_offset(vcpu_vtimer(vcpu), kvm_phys_timer_read());
+>>>           timer_set_offset(vcpu_ptimer(vcpu), 0);
+>>>       }
+>>> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+>>> index 8b080804bc90b..7c88508cac8a1 100644
+>>> --- a/arch/arm64/kvm/arm.c
+>>> +++ b/arch/arm64/kvm/arm.c
+>>> @@ -214,6 +214,20 @@ static int kvm_arm_default_max_vcpus(void)
+>>>       return vgic_present ? kvm_vgic_get_max_vcpus() : KVM_MAX_VCPUS;
+>>>   }
+>>> +/*
+>>> + * Fix the counter offset to 0 for Protected VMs and mark the
+>>> + * offset flag. The user can't set the offset via 
+>>> KVM_ARM_SET_COUNTER_OFFSET.
+>>> + */
+>>> +static void kvm_arch_fix_timer_offsets(struct kvm *kvm)
+>>> +{
+>>> +    if (!kvm_vm_is_protected(kvm))
+>>> +        return;
+>>> +
+>>> +    /* Fix the counter offset to 0 and mark the offset initialised */
+>>> +    kvm->arch.timer_data.poffset = kvm->arch.timer_data.voffset = 0;
+>>> +    set_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &kvm->arch.flags);
+>>> +}
+>>> +
+>>>   /**
+>>>    * kvm_arch_init_vm - initializes a VM data structure
+>>>    * @kvm:    pointer to the KVM struct
+>>> @@ -267,6 +281,7 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned 
+>>> long type)
+>>>       kvm_vgic_early_init(kvm);
+>>> +    kvm_arch_fix_timer_offsets(kvm);
+>>>       kvm_timer_init_vm(kvm);
+>>
+>> This should all be moved to the timer code.
+>>
+>>>       /* The maximum number of VCPUs is limited by the host's GIC 
+>>> model */
+>>> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/ 
+>>> nvhe/pkvm.c
+>>> index 459bd9eb7e4bc..e7b38eff63bd1 100644
+>>> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
+>>> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+>>> @@ -528,19 +528,19 @@ static int init_pkvm_hyp_vcpu(struct 
+>>> pkvm_hyp_vcpu *hyp_vcpu,
+>>>       hyp_vcpu->vcpu.arch.cflags = READ_ONCE(host_vcpu->arch.cflags);
+>>>       hyp_vcpu->vcpu.arch.mp_state.mp_state = KVM_MP_STATE_STOPPED;
+>>> -    if (!pkvm_hyp_vcpu_is_protected(hyp_vcpu)) {
+>>> -        /*
+>>> -         * Timer offsets are pointing to the untrusted KVM copy,
+>>> -         * which is pinned in __pkvm_init_vm() for the VM life time.
+>>> -         * It is worth noting that hyp_vm->host_kvm points to an EL2
+>>> -         * linear map address and timer_get_offset() will use
+>>> -         * kern_hyp_va() which is safe as it is idempotent.
+>>> -         */
+>>> -        vcpu_vtimer(&hyp_vcpu->vcpu)->offset.vm_offset =
+>>> -            &hyp_vm->host_kvm->arch.timer_data.voffset;
+>>> -        vcpu_ptimer(&hyp_vcpu->vcpu)->offset.vm_offset =
+>>> -            &hyp_vm->host_kvm->arch.timer_data.poffset;
+>>> -    }
+>>> +    /*
+>>> +     * Timer offsets are pointing to the untrusted KVM copy,
+>>> +     * which is pinned in __pkvm_init_vm() for the VM life time.
+>>> +     * It is worth noting that hyp_vm->host_kvm points to an EL2
+>>> +     * linear map address and timer_get_offset() will use
+>>> +     * kern_hyp_va() which is safe as it is idempotent.
+>>> +     * Also for protected VMs the offset is fixed to 0 and is prevented
+>>> +     * from changing.
+>>> +     */
+>>> +    vcpu_vtimer(&hyp_vcpu->vcpu)->offset.vm_offset =
+>>> +        &hyp_vm->host_kvm->arch.timer_data.voffset;
+>>> +    vcpu_ptimer(&hyp_vcpu->vcpu)->offset.vm_offset =
+>>> +        &hyp_vm->host_kvm->arch.timer_data.poffset;
+>>
+>> I don't think this is right. Protected guests have no offset, and this
+>> needs to be ensured by the hypervisor. Here, the host can change the
+>> offset any time it wants, and that's not acceptable.
+> 
+> Ah, you're right. :facepalm:
+> 
+>>
+>>>       ret = pkvm_vcpu_init_sysregs(hyp_vcpu);
+>>>       if (ret)
+>>> diff --git a/include/kvm/arm_arch_timer.h b/include/kvm/arm_arch_timer.h
+>>> index bc6f2fdd7ad33..4f0aa3bb69f45 100644
+>>> --- a/include/kvm/arm_arch_timer.h
+>>> +++ b/include/kvm/arm_arch_timer.h
+>>> @@ -176,8 +176,7 @@ static inline bool has_cntpoff(void)
+>>>           if (__ctxt) {                        \
+>>>               struct arch_timer_offset *ato = &__ctxt->offset;\
+>>>                                       \
+>>> -            if (ato->vm_offset)                \
+>>> -                off += *KERN_HYP_VA(ato->vm_offset);    \
+>>> +            off += *KERN_HYP_VA(ato->vm_offset);        \
+>>>               if (ato->vcpu_offset)                \
+>>>                   off += *KERN_HYP_VA(ato->vcpu_offset);    \
+>>>           }                            \
+>>
+>> And as you drop the previous hunk, this also needs to be restored to
+>> its original state.
+> 
+> Ack.
+> 
+> Suzuki
 
-That string was never part of the binding: the documentation added in
-commit 4653f22e9ab0 ("dt-bindings: Add binding docs for V3D.") describes
-only "brcm,bcm2835-v3d", and no upstream device tree has ever used
-"brcm,vc4-v3d": the first in-tree V3D node, from commit 49ac67e0c39c
-("ARM: bcm2835: Add VC4 to the device tree."), already carried the
-specific name. The firmware device trees the compatible was kept for
-predate v4.6, released in 2016.
 
-Drop it from both match tables.
+This is how it looks like now, reworked.
 
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Signed-off-by: Maíra Canal <mcanal@igalia.com>
----
- drivers/gpu/drm/vc4/vc4_drv.c | 1 -
- drivers/gpu/drm/vc4/vc4_v3d.c | 1 -
- 2 files changed, 2 deletions(-)
 
-diff --git a/drivers/gpu/drm/vc4/vc4_drv.c b/drivers/gpu/drm/vc4/vc4_drv.c
-index 616caf9d9915..eb859c65a453 100644
---- a/drivers/gpu/drm/vc4/vc4_drv.c
-+++ b/drivers/gpu/drm/vc4/vc4_drv.c
-@@ -279,7 +279,6 @@ static const struct of_device_id vc4_dma_range_matches[] = {
- 	{ .compatible = "brcm,bcm2835-hvs" },
- 	{ .compatible = "brcm,bcm2835-v3d" },
- 	{ .compatible = "brcm,cygnus-v3d" },
--	{ .compatible = "brcm,vc4-v3d" },
- 	{}
- };
- 
-diff --git a/drivers/gpu/drm/vc4/vc4_v3d.c b/drivers/gpu/drm/vc4/vc4_v3d.c
-index f32410420d3e..a86739873e05 100644
---- a/drivers/gpu/drm/vc4/vc4_v3d.c
-+++ b/drivers/gpu/drm/vc4/vc4_v3d.c
-@@ -531,7 +531,6 @@ static void vc4_v3d_dev_remove(struct platform_device *pdev)
- const struct of_device_id vc4_v3d_dt_match[] = {
- 	{ .compatible = "brcm,bcm2835-v3d" },
- 	{ .compatible = "brcm,cygnus-v3d" },
--	{ .compatible = "brcm,vc4-v3d" },
- 	{}
- };
- 
+diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+index 6ac3321f4c575..1c8fac222a643 100644
+--- a/arch/arm64/kvm/arch_timer.c
++++ b/arch/arm64/kvm/arch_timer.c
+@@ -1110,8 +1110,7 @@ void kvm_timer_vcpu_init(struct kvm_vcpu *vcpu)
+                 timer_context_init(vcpu, i);
 
--- 
-2.55.0
+         /* Synchronize offsets across timers of a VM if not already 
+provided */
+-       if (!vcpu_is_protected(vcpu) &&
+-           !test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, 
+&vcpu->kvm->arch.flags)) {
++       if (!test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, 
+&vcpu->kvm->arch.flags)) {
+                 timer_set_offset(vcpu_vtimer(vcpu), kvm_phys_timer_read());
+                 timer_set_offset(vcpu_ptimer(vcpu), 0);
+         }
+@@ -1133,6 +1132,15 @@ void kvm_timer_init_vm(struct kvm *kvm)
+          */
+         for (int i = 0; i < NR_KVM_TIMERS; i++)
+                 kvm->arch.timer_data.ppi[i] = get_vgic_ppi(kvm, 
+default_ppi[i]);
++
++       /*
++        * For the protected VMs, fix the counter offset to 0 by marking the
++        * KVM_ARCH_FLAG_VM_COUNTER_OFFSET. This would also prevent 
+userspace
++        * writes to CNTVCT_ELO & CNTPCT_EL0.
++        * The user can't set the offset via vm ioctl 
+KVM_ARM_SET_COUNTER_OFFSET.
++        */
++       if (kvm_vm_is_protected(kvm))
++               set_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &kvm->arch.flags);
+  }
+
+  void kvm_timer_cpu_up(void)
+
 
 
