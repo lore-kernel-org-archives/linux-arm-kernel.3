@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3929C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 01:31:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 732C8C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 01:31:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AOdg97xUtxa8AhSsk3nKT5LmiSCoT1EL2eRC7gkp05s=; b=PGQp1LSYOiGb5GPtw44BEkX8c9
-	HfD/1ikV+bOCJJptGt2Te/4xnMLLlnC8b507x5pbri/LAzguw8sswJ2AfPgCiWVgk1IyYoqk+NJMG
-	/31fGI3ckK6Bnk7GthZDRcDmh4aowEtZd5jWDKDK7PAjTwCWstF3xvMpUbTUvdR9zm3MxRmVrPQGx
-	zvLkd0JxkSNBY3u6/fKLpvFT6KPpQeLQRVjvWRKPT1+YrKGLE+tow+qmsO06MDbGGBRkPadUwVGoi
-	KS8uj2zlMlY3Qik5yZowfaJdUblx9ex5Z0Xpj+Dk2/rfUQjwqoLHQoWkMxmkJChbbW/3DE86B3o/+
-	6OfiB88w==;
+	bh=mca1uOiT/+sfyymmOrDVbqr5tpDJZhJUUk2kbexgAZI=; b=1FKDSCiWJwCYeahpxJX/2JuS4R
+	MVMkbeIZnKfl13FXi6JUtSoC/MGbccKV9vZXz3lcTj/RB53q4H9q4Vwkmzbn9VdLnkigIpSAP1XcC
+	s29HwO5JmU3F+n9EYQ7Q8A0boQD9OlWXeK5Uo8vgVoK8kfxWcE2cBfLzIpLQamqmrWKQwbQdldzyy
+	BEhvYyoK3XwJF6WeUTl3pIy02X8bsnKkGJkmCyWiD0H7uhP17d1il0YGT+hx/lnRlnb4S4OPpRPZb
+	XAtstb3X3Q4AjyrXq6cyQ0R0yRJQoFxNsc4AeDCfTgZ1UoXtCBzCNWGS7OGEYg9MuHhOz8LF5JBLj
+	PgAI0jNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6I1F-00000004xY9-1hBv;
+	id 1x6I1F-00000004xYO-2Dl2;
 	Tue, 15 Sep 2026 01:31:33 +0000
-Received: from mail-oi1-x22c.google.com ([2607:f8b0:4864:20::22c])
+Received: from mail-oo1-xc36.google.com ([2607:f8b0:4864:20::c36])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6I18-00000004xW2-0t0n
+	id 1x6I1C-00000004xXD-2BaY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 01:31:27 +0000
-Received: by mail-oi1-x22c.google.com with SMTP id 5614622812f47-4c5373b1138so2193132b6e.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 18:31:25 -0700 (PDT)
+	Tue, 15 Sep 2026 01:31:31 +0000
+Received: by mail-oo1-xc36.google.com with SMTP id 006d021491bc7-6be1f18687bso2298682eaf.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 18:31:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789435885; x=1790040685; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1789435889; x=1790040689; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=AOdg97xUtxa8AhSsk3nKT5LmiSCoT1EL2eRC7gkp05s=;
-        b=RozxSef621ayOrpfEX87MrWFfXIxgrOOSszee1FDn2mko6kabRM138no4HToQstKfw
-         brkXCImstI5MsGRitT4yaojxEcr5no0eKr5WkVVVeYBzqkxWvdE48hjwOL0sELQu9duw
-         KOqADD9VdXShiJA+5z3vI/wXUB2AWpuToho8HwyFEnkdXCjiJp9eG42Kkh15ewydwdJ5
-         wed78pPQ4BtfjJmsJM4/7DA/usYDk3R8YGtyylEa/Rf4ikR/VUPZ4yUVY5TQ7OPRQZvE
-         Su04/5I79TqGQtLFRiebqRLOM2sUp7buPd0jqqVydbj/fPngUwP3GQMVR/FIqYS6aJX8
-         PkMg==
+        bh=mca1uOiT/+sfyymmOrDVbqr5tpDJZhJUUk2kbexgAZI=;
+        b=OTNyDREE1dle4aAl1AohGj2Bo2yliHrStRgg+0XBBXk92wZN26cuUg/PrBRLoEThr3
+         d0Wo0yqTdTajt2N0DHWt1YENWvtNkuL7W+GAKkq7x6nPSGCyZiHGwOECCycPnNMU267D
+         j5OiIDmO0XRbN/fODw2Zp2A7hQ2Dt1tpKFdeyzpNVlM8rBIaQ1cFHe86oEwXLdIBO1+c
+         1w5JPT+GIBFMD6Aw+G8YOYjPygcr9Cjuy9L9mts03xWP6fisw13tXOCSTr91uEDIOsiX
+         ROoq7A03g3er6dHn9OBXD0xsu42LzImSWngg7aRK7BSD6d9kubhyFOkhmaaJdYWoUFUy
+         fDug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789435885; x=1790040685;
+        d=1e100.net; s=20260707; t=1789435889; x=1790040689;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=AOdg97xUtxa8AhSsk3nKT5LmiSCoT1EL2eRC7gkp05s=;
-        b=quL4d5/c1ehRHf+J4kJern61xwDws5aQHmib/KA2NoihcWajl/cR7uZ1gs1wn5LnwH
-         S8w1KD1K3bMXjFv1hAwsGYFsF5CK8V8HMqYwbjKlgahh1l79sGaXco2ksM5mq6djLhSz
-         gtx4MznsxOD1A0NpVgrCwhVNhU+KLBg8FcH/ia+Diwi7QTTyQYBlhrxNZVsFdcbgf5sJ
-         DQsQM2irQNwxkZOBXTW2kPVQfgBIRlUlUeSuhEvbbNxo+jL0U6BihtvSyFva3+5EaSwo
-         zgR3t5nvut6BvjggM4gn7i2as6VQbJaxvFgZSFMV9qCZk7SHdnCwG5z51d6ySS8wUH7y
-         2OjQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzlXCZ4lPsgxxXa5jKqZ7yw//tVEHsRJDy4FZmrenU8mSJd8iUeeZ4/0spvpq7jTZleTyMb+gdrZu6cHvHhFScJ@lists.infradead.org
-X-Gm-Message-State: AFuF++kX/TUICdw8OQrU6nThfL5qJ4PeU9Wsd5PBl2Wz+VBK0x0RqUFR
-	9MamCEPqh3YxXX6otUf9GQFUU3FUe2pHiKHGi9yeJhzlpaDygRs3E/sx
-X-Gm-Gg: AYBFou1HgMrEnOb8gpwCF7oecO4WuwQujLyxpr7Qq5PdIOVQNNgD4UWvuMCXecAhTED
-	YSGPePVr9FsyrCUnCbKzf5jZcmV4JUOkZfKRFMXW5cgoKXTlK9qfpPzHWVp3SJb2seXkofdi4BP
-	xO+/GUvvRoJqFBrtY4MUtkkyZXMQEkXHlD5I8DTBug022Mgz0svAMnD5Ro05k86n0f3tpWyFk4W
-	QjY5dhh0H6SjzJVs2oVfVvgbn6O6d8GHvhpo8s8rXTz7chRpclBRMsXty/8YFCAizgVRBDIFKdY
-	/Z84SdWOa9Ekohqy5FAzAJxXOxKRy/pPe9SC/F8YypGzdSBp/Bz0AX89nVFYGxd4NLjPIWbCW0m
-	FjIC7gkVD/AAFiS71PUf21jeK1WGBLTZ3I4zlBCQBnckW6MHeeLSOW05wYKDlg7btf0ZOdAuPT3
-	d5+o16kN85CxXJUJ1NviheGtx6POhvX/eQq+FVKWnA3jsjP+wsP0SuOhOGt3++5z8FyJ9M9jhZN
-	grozLUao+Fm2OfG
-X-Received: by 2002:a05:6820:8119:b0:6ba:3635:7ffd with SMTP id 006d021491bc7-6c543112b4amr3036635eaf.64.1789435885128;
-        Mon, 14 Sep 2026 18:31:25 -0700 (PDT)
+        bh=mca1uOiT/+sfyymmOrDVbqr5tpDJZhJUUk2kbexgAZI=;
+        b=qpNFR3hOvQTFALgM1PtnA2bKCzIwnZmWgRq2QYF1iJq0c4xJQeHzAE2ruJJ3A81v3B
+         ZvruK+G4BCel/KXBkYQx8jHrBvZExrF0V1ZioiXNb2ckJ64ZlSLjGnRaO2bc5HExpIH+
+         Oif6IPAh7MbN/0M11BRS8TqjoOeWm/dtuS1KqCqUuNI7haIowQmFFpLix8iWvIbbZ+OA
+         4g8k4aF+txsOsxtYhUej0T3/uM/R2Rm2rxf/qag3eleHbHL1VR/tLWqfMHmfJbsdVyIx
+         Q3UJ3bP8DaSkCaQvVJfA4DlGauuwhYUiazjosBJC1etzGlNND8asO3VzBM6fdhjwFqfL
+         Uxqg==
+X-Forwarded-Encrypted: i=1; AKwUvBxzfjT2iaJbtMyVd8E5iurGJwGkVLU29k3Hc50FPqkCPBDnrR+nluk92VPqfG+lKWDTQjrhhuCKAlYGbiTODHnU@lists.infradead.org
+X-Gm-Message-State: AFuF++k2YeBecV4PYvVG+3cEpUSX2enrxjMDHjNv276TRzzPz758hgu2
+	r7TdCT4FkfoUW9o/gz65G0HcML0SyE2zx6ULhAeBXu9QnacDCtD+T3rs
+X-Gm-Gg: AYBFou2DdzxLwmkPy9iV6PcQZTCjPKPKbcmFt2XUB824MJ4Zq1zONVrjQ88PMd/Sksl
+	wuN8GDTI3iZmSEv1P+DGX5CNoLVCkjZkP7GQWBxbmQCNa2JqHOc5FCWLpOWmso2qJE6CJFFkEVh
+	YGDSvCzMfyAdeaImmq/YjW/POF2MbmG9JvT3anWLTLtkAo97TCgnxRXm9Dg645iWPU6dc7DBO9Q
+	RswW2AzL6ctoXo9G9XpTRZH+mgbnsactvM3coz3NCe7IUV/df0HG8WGvkxRBDjhqYOVsfsw/+RH
+	361jwfWB32kPuApkB96VRYqcNNEv+mINE7b1ZMbIH4YdcwAzCgFO4LNcNBoSSrX6yHhCHAaXY03
+	O2f9ldYI6h2S3H+JxWPN/RgL9Ex6/aEDTdmPILat2Kn2auEuzIJmul68g/I/mcrr5u0853inJ4U
+	sFSl1mPrapP2kKw6JDRlv19qD7XxnP5Jr306TETlXUmEr/DQ9dh+DuzGhdApZ65EUt9CXCHw9fX
+	2cRgpdX3CA5CvhH
+X-Received: by 2002:a05:6820:1694:b0:6b7:83d6:2920 with SMTP id 006d021491bc7-6c542342bffmr3288896eaf.35.1789435889379;
+        Mon, 14 Sep 2026 18:31:29 -0700 (PDT)
 Received: from debian.prasanth ([103.183.205.11])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-14365a59b18sm27111575c88.2.2026.09.14.18.31.20
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-14365a59b18sm27111575c88.2.2026.09.14.18.31.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Sep 2026 18:31:24 -0700 (PDT)
+        Mon, 14 Sep 2026 18:31:28 -0700 (PDT)
 From: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
 To: Joel Stanley <joel@jms.id.au>,
 	Andrew Jeffery <andrew@codeconstruct.com.au>
@@ -83,11 +83,10 @@ Cc: Rob Herring <robh@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-aspeed@lists.ozlabs.org,
 	linux-kernel@vger.kernel.org,
-	Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH v5 1/2] dt-bindings: arm: aspeed: Add ASRock Rack B650D4U
-Date: Tue, 15 Sep 2026 07:01:09 +0530
-Message-ID: <20260915013110.4780-2-prasanth.padarthi10@gmail.com>
+	Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
+Subject: [PATCH v5 2/2] ARM: dts: aspeed: Add ASRock Rack B650D4U BMC
+Date: Tue, 15 Sep 2026 07:01:10 +0530
+Message-ID: <20260915013110.4780-3-prasanth.padarthi10@gmail.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260915013110.4780-1-prasanth.padarthi10@gmail.com>
 References: <20260830182036.284736-1-prasanth.padarthi10@gmail.com>
@@ -95,9 +94,8 @@ References: <20260830182036.284736-1-prasanth.padarthi10@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_183126_791987_780E1108 
-X-CRM114-Status: UNSURE (   9.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260914_183130_574118_714115D8 
+X-CRM114-Status: GOOD (  15.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,27 +110,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the compatible string for the ASRock Rack B650D4U BMC,
-which is an AST2600-based server motherboard.
+Add the device tree for the ASRock Rack B650D4U BMC, which is
+based on the ASPEED AST2600 SoC.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Describe the BMC memory, SPI NOR flash layout, UART console,
+GPIO line names, video framebuffer memory, I2C EEPROM, and MAC0
+connected to an RTL8211F Ethernet PHY.
+
+Use the EEPROM on I2C7 as the NVMEM provider for the MAC0 address.
+
+Configure MAC0 to use the RTL8211F in RGMII-ID mode.
+
 Signed-off-by: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
 ---
- Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm/boot/dts/aspeed/Makefile             |   1 +
+ .../dts/aspeed/aspeed-bmc-asrock-b650d4u.dts  | 120 ++++++++++++++++++
+ 2 files changed, 121 insertions(+)
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts
 
-diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-index 9ba195b8f22d..4c9e96801c1a 100644
---- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-+++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-@@ -81,6 +81,7 @@ properties:
-               - ampere,mtmitchell-bmc
-               - aspeed,ast2600-evb
-               - aspeed,ast2600-evb-a1
-+              - asrock,b650d4u-bmc
-               - asus,ast2600-kommando-ipmi-card
-               - asus,x4tf-bmc
-               - facebook,anacapa-bmc
+diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed/Makefile
+index 6b68671f9379..b109491d5c8f 100644
+--- a/arch/arm/boot/dts/aspeed/Makefile
++++ b/arch/arm/boot/dts/aspeed/Makefile
+@@ -10,6 +10,7 @@ dtb-$(CONFIG_ARCH_ASPEED) += \
+ 	aspeed-bmc-ampere-mtmitchell.dtb \
+ 	aspeed-bmc-arm-stardragon4800-rep2.dtb \
+ 	aspeed-bmc-asrock-altrad8.dtb \
++	aspeed-bmc-asrock-b650d4u.dtb \
+ 	aspeed-bmc-asrock-e3c246d4i.dtb \
+ 	aspeed-bmc-asrock-e3c256d4i.dtb \
+ 	aspeed-bmc-asrock-paul-ipmi-card.dtb \
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts
+new file mode 100644
+index 000000000000..6585bda56a4c
+--- /dev/null
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts
+@@ -0,0 +1,120 @@
++// SPDX-License-Identifier: GPL-2.0
++/dts-v1/;
++
++#include "aspeed-g6.dtsi"
++
++/ {
++	model = "ASRock Rack B650D4U BMC";
++	compatible = "asrock,b650d4u-bmc", "aspeed,ast2600";
++
++	aliases {
++		serial0 = &uart5;
++	};
++
++	chosen {
++		stdout-path = "serial0:115200n8";
++	};
++
++	memory@80000000 {
++		device_type = "memory";
++		reg = <0x80000000 0x20000000>;
++	};
++
++	reserved-memory {
++		#address-cells = <1>;
++		#size-cells = <1>;
++		ranges;
++
++		gfx_memory: framebuffer {
++			size = <0x01000000>;
++			alignment = <0x01000000>;
++			compatible = "shared-dma-pool";
++			reusable;
++		};
++	};
++};
++
++&gfx {
++	status = "okay";
++	memory-region = <&gfx_memory>;
++};
++
++&gpio0 {
++	gpio-line-names =
++		/* A0-A7 */	"","","","","","","","",
++		/* B0-B7 */	"","","","","","","","",
++		/* C0-C7 */	"","","","","","","","",
++		/* D0-D7 */	"","","","","","","","",
++		/* E0-E7 */	"","","","","","","","",
++		/* F0-F7 */	"","","","","","button-reset-n","","",
++		/* G0-G7 */	"","","","","","","","",
++		/* H0-H7 */	"","","","","","","","",
++		/* I0-I7 */	"","","","","","","","",
++		/* J0-J7 */	"","","","","","","","",
++		/* K0-K7 */	"","","","","","","","",
++		/* L0-L7 */	"","","","","","","","",
++		/* M0-M7 */	"","","","","","","","",
++		/* N0-N7 */	"","","","","","","","",
++		/* O0-O7 */	"","","","","","","","",
++		/* P0-P3 */	"","","","control-power-n";
++};
++
++&fmc {
++	status = "okay";
++
++	flash@0 {
++		compatible = "jedec,spi-nor";
++		reg = <0>;
++		label = "bmc";
++		m25p,fast-read;
++		spi-max-frequency = <50000000>;
++		spi-rx-bus-width = <4>;
++		status = "okay";
++
++#include "openbmc-flash-layout-64.dtsi"
++	};
++};
++
++&mac0 {
++	status = "okay";
++	phy-mode = "rgmii-id";
++	phy-handle = <&ethphy0>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_rgmii1_default>;
++
++	nvmem-cells = <&eth0_macaddress>;
++	nvmem-cell-names = "mac-address";
++};
++
++&mdio0 {
++	status = "okay";
++
++	ethphy0: ethernet-phy@0 {
++		compatible = "ethernet-phy-ieee802.3-c22";
++		reg = <0>;
++	};
++};
++
++&uart5 {
++	status = "okay";
++};
++
++&i2c7 {
++	status = "okay";
++
++	eeprom@57 {
++		compatible = "atmel,24c128";
++		reg = <0x57>;
++		pagesize = <16>;
++
++		nvmem-layout {
++			compatible = "fixed-layout";
++			#address-cells = <1>;
++			#size-cells = <1>;
++
++			eth0_macaddress: macaddress@3f80 {
++				reg = <0x3f80 6>;
++			};
++		};
++	};
++};
 -- 
 2.47.3
 
