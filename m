@@ -4,87 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F40BCC982C1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:34:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF5A6C88E7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:43:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OSl5w1eVeHUcTwttR6K4tIGdxgx+1BIxEpQ10DQqSYo=; b=zSOmV1Vo/x0+Pv/QR/O6Ci0bHg
-	FIJrcJj2mjTSpPSeKCaqi+K5kJEt5JzRiJYA7mVEJPveO+53NviuG6ZZTvuUvYjFsz8bULK2LPlWD
-	OENCslLcT3TN/yXuQ7Vo0n3FRQdglG4i6PEWTmUfz5YhZrPjxyN9y70W/qyFWbqz0XtbhE3vLFSaw
-	zGNBcB3hYpce5gYpVg+pCaIK3CVug2Tmde/KnQm5vtTpo09eGjHG+S8gEeIjRXZkpbHtEKg+7cU19
-	iA50GHJWBR97uelMo4Jv2sVeS6sTS3ingg/cwD1LiJp/hbHHgm9S4bEbsTJGAjvQmsTWTW3j6i8qK
-	a7cmDXBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Q2PFB9bGPCBWyxXpptwJuGCpMsyTpL531J3WsZwpejA=; b=nashk3QJInsU2cbPe27JMc1HAn
+	DYLaP714IpoqyD+2Li7nH/S6h9cYE9jSnv6D6ltKB9flS2Z1wfkzudgb+niGXGNrbc8ifxAazLixH
+	El1kawFiiKA87kGfezLMB06OT46BBcoKaOoPVk+CFGV9FMzCyPSAHtcTnjTgDB9zgPpeqPt3bLlg8
+	r3/xkdDOL1W1/Oaj3uahWKBjHo7zUfW/+kq9qzt5Huc0+eb3t/LCbO0Ptl2G5SQjFIfbRPFeze4OU
+	JbOHaziH/GpCU7au9CZWNZZjfXMJwz8HBS+v3Dk0IaWCTQuEZie6gnrgFf//oEu1SKMFsZAXQNu7D
+	8y5D5Jpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VB4-00000007EJl-3d0r;
-	Tue, 15 Sep 2026 15:34:34 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1x6VJh-00000007GQH-3PNl;
+	Tue, 15 Sep 2026 15:43:29 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6V9d-00000007BNd-1XPs;
-	Tue, 15 Sep 2026 15:33:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1789486380;
-	bh=0dA/iRJjR2HD//0H5yoXiwGPwr5a1ETtxoxNoN4NgYU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=abOF9tqldIrp8Bb8M8bd/QkhllZml5cGnNEgcEO3C+cuZgSI9Fbmgb0v1Ro88myE1
-	 bDQXLU/BFzbFo2J8nhryEHMpGegzQ3gCNlLbdleAF+sI25LFUBGDJYANll5UtcNGbz
-	 TQMGmihEyzBlM2NDjnp6RilkHXjH5Bmz3nQxR1bebpg7Y1n2O034FTRr9W4rJdjEg+
-	 D7OaHyj/wJ0EZBLKBAdk6k07USFAClEvgAYfKqV+DMDz0X+4JA6vluvmJsojNP9Lyo
-	 U45vxcOk4hVFQcbqp6JOrhhlnIlN/kkqYXvGfjHd2dSbSGoUTbHRphfRhoTlDkK1LB
-	 nJGk8moYmxgJA==
-Received: from jupiter.universe (unknown [100.64.1.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519)
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0ACDC17E0D43;
-	Tue, 15 Sep 2026 17:33:00 +0200 (CEST)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id 711C9480038; Tue, 15 Sep 2026 17:32:59 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Tue, 15 Sep 2026 17:32:53 +0200
-Subject: [PATCH v15 6/6] phy: rockchip: usbdp: Add USB-C state without DP
- enabled
+	id 1x6VJg-00000007GPt-4978
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 15 Sep 2026 15:43:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=Q2PFB9bGPCBWyxXpptwJuGCpMsyTpL531J3WsZwpejA=; b=eV6p8PqEBmMBP7RcDEl7MgcjGd
+	e8yvXe4UvpAVswaeGPPUwiyiaL5bO7VLDFDb4JMXrPvE1E3AQwwMfODs7Iy7GIKBOIXSOKmh9v1bo
+	SgPI6ifO9Lvu09+2/mpllP82X/Og8OAaz7vnNTpWagB5fsya39Jlf56UmsprSbwFzoJBRMYffnAD+
+	2xq1ELDefXnfe9yJOSwp2XNGMcwtHKXVYs0LgvvpCp2S9BrN/G96+YuBUr1n/jKHYdCZXHoQVqQBd
+	+2UMaiNCSj7xDib5bg6FMTXSrIlnsGLsyK+ceF3iWSpOglwUlJawskzwNkZuzQ38uMBUH8d2QlU7/
+	JlgAJRDw==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6VJd-00000006xxM-2JaZ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 15 Sep 2026 15:43:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 23BDA1570;
+	Tue, 15 Sep 2026 08:43:19 -0700 (PDT)
+Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 235873F882;
+	Tue, 15 Sep 2026 08:43:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789487002; bh=dGCyRyad+R3eTVvMaV3UbHKKwBABsVheRnTDSo9R3QI=;
+	h=From:To:Cc:Subject:Date:From;
+	b=crRRscH3OrO9Zfmax7p89GH6tKP3LypEq486sailvOhs1x+pILaPsAFgFoEhZt/3z
+	 RSBFwRy/1/4FbN0cUHwn4EvBnFTJz0NNAryNGTEo+zmtf7t3yTdELLaK0RDF8XG3jt
+	 bVZN6VKKjSvpdnX+tdrJSVjZpcxoaVQ2+Ej9uwSQ=
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Cc: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Itaru Kitayama <itaru.kitayama@fujitsu.com>,
+	Wang Han <wanghan@linux.alibaba.com>,
+	Shuai Xue <xueshuai@linux.alibaba.com>,
+	"Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
+	Wei-Lin Chang <weilin.chang@arm.com>
+Subject: [PATCH v6 0/7] KVM: arm64: nv: Implement nested stage-2 reverse map
+Date: Tue, 15 Sep 2026 16:42:58 +0100
+Message-ID: <20260915154305.3852871-1-weilin.chang@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260915-b4-rockchip-usbdp-cleanup-part3-v15-6-9ad90a456953@collabora.com>
-References: <20260915-b4-rockchip-usbdp-cleanup-part3-v15-0-9ad90a456953@collabora.com>
-In-Reply-To: <20260915-b4-rockchip-usbdp-cleanup-part3-v15-0-9ad90a456953@collabora.com>
-To: Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Zhang Yubing <yubing.zhang@rock-chips.com>, 
- Frank Wang <frank.wang@rock-chips.com>
-Cc: linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- kernel@collabora.com, Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Igor Paunovic <royalnet026@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3456;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=0dA/iRJjR2HD//0H5yoXiwGPwr5a1ETtxoxNoN4NgYU=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGqpZSsKW7CuuSqGqzD9MkOgosmZKQx+VwFCq
- l84aPIXVolfAYkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqqWUrAAoJENju1/PI
- O/qajnsQAJ7lNWRi9w5S3bx+dzvRkFvuQgVCU8xpQyXmDgwgTX0d09Gh4bArSIHJkwRx3S2vPHb
- Qw1JcWf7DGp1Y1Ba/tLedqnWA68fwyY+Bz7Hjpx4VQiu05JVEPnZuvNY3HST4mGm/4wi9hQQPDZ
- cy8PR7RsBBncokZbzHW8tC3tAbT3DyoyLsKZ8RnjftSbKqg9+t7VHhkgBzRH22Vty9/STFcO0mC
- /aho/BuUptjUSi2yD5fFLFXZ8+vo238niOSuxReOM+TwAKA6tZ2hT/HR4x/0CMHur7fOmYL4G1s
- Uf1IPG7xW+6iS0Fwi5NhCYrS3lfvEdR0KGl8hEMCOT2u/IcS0XVr58k19Eeqz6PJuWAVC9kC57f
- 7yQrDI5kpXXASNzLlpSDAe5F6jguaukYazrlhT/G/fEDkF1M1v994JGgj6OGWgCxGL1afJqJg6s
- AIGfPt5P2PIcuqiQP34mu4rdyGJw09aKyMW9WJK9Y86/uD/bRiaQiVnwnIM0xIPb/l3JQ0USzcm
- jYmfYKUyMXqB9TBlUSo7VK0QnEE8qOYw4+8Js5waxVNbLGSPBF6/qm62kj+hxD9ep5wHCoBcEAC
- IzrsXAwF4TbAk6g6+WwwGscobYJQuz+zfbHtaaaTGGK2rrZI6bwVLPBmLqhZYzOu1OeX3U3P9j0
- HMvVdYHxkp60rdAcskact2w==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_083305_577268_B5CC6585 
-X-CRM114-Status: GOOD (  15.22  )
+X-CRM114-CacheID: sfid-20260915_164325_952922_F4BD670D 
+X-CRM114-Status: GOOD (  13.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,112 +96,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver currently only differs between 4 lanes DP mode or combined DP
-+ USB3 mode. This makes sense from a lane routing point of view, as the
-hardware only has 2 lanes of USB3.
+Hi,
 
-But adding a separate state for USB-only helps with power management,
-since we always power up all PHY parts according to the current hardware
-setup to avoid data stream interruptions. Even if some lanes are muxed
-to the DP controller there is no need to keep the DP side enabled if
-something without DP AltMode is plugged into USB-C.
+This is v6 of optimizing the shadow s2 mmu unmapping during MMU
+notifiers.
 
-This potentially triggers some more USB reconnections during the PD
-AltMode negotiation when switching from USB-only to combined USB+DP
-mode. This should be fine, as the cable is freshly plugged at this
-point.
+This version fixes a few issues, and adds Marc's space optimization
+for kvm_guest_s2_mapping [1]. Please see the changelog for the details.
 
-Tested-by: Igor Paunovic <royalnet026@gmail.com> # Orange Pi 5 Plus
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
- drivers/phy/rockchip/phy-rockchip-usbdp.c | 57 ++++++++++++++++++-------------
- 1 file changed, 33 insertions(+), 24 deletions(-)
+Tested by booting L3, and running in-kernel targetted tests described
+in [2]. v5 got some tested-by's from Itaru and Wang (thanks), I didn't
+carry them over since some bugs fixed in v6 are non-obvious. Some
+retest would be much appreciated!
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index ca01c1112c0f..f95c3216364f 100644
---- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
-+++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-@@ -579,32 +579,14 @@ static void rk_udphy_dp_lane_enable(struct rk_udphy *udphy, int dp_lanes)
- 				   CMN_DP_CMN_RSTN, FIELD_PREP(CMN_DP_CMN_RSTN, 0x0));
- }
- 
--static void rk_udphy_mode_set(struct rk_udphy *udphy, u8 hw_mode)
-+static void rk_udphy_set_lane_mux(struct rk_udphy *udphy)
- {
--	if (udphy->hw_mode == hw_mode)
--		return;
--
--	udphy->phy_needs_reinit = true;
--	udphy->hw_mode = hw_mode;
--}
--
--static void rk_udphy_set_typec_state(struct rk_udphy *udphy, unsigned long state)
--{
--	u8 hw_mode;
--
--	switch (state) {
--	case TYPEC_DP_STATE_C:
--	case TYPEC_DP_STATE_E:
-+	if (udphy->dp_lanes == 4) {
- 		udphy->lane_mux_sel[0] = PHY_LANE_MUX_DP;
- 		udphy->lane_mux_sel[1] = PHY_LANE_MUX_DP;
- 		udphy->lane_mux_sel[2] = PHY_LANE_MUX_DP;
- 		udphy->lane_mux_sel[3] = PHY_LANE_MUX_DP;
--		hw_mode = UDPHY_MODE_DP;
--		udphy->dp_lanes = 4;
--		break;
--
--	case TYPEC_DP_STATE_D:
--	default:
-+	} else {
- 		if (udphy->flip) {
- 			udphy->lane_mux_sel[0] = PHY_LANE_MUX_DP;
- 			udphy->lane_mux_sel[1] = PHY_LANE_MUX_DP;
-@@ -616,12 +598,39 @@ static void rk_udphy_set_typec_state(struct rk_udphy *udphy, unsigned long state
- 			udphy->lane_mux_sel[2] = PHY_LANE_MUX_DP;
- 			udphy->lane_mux_sel[3] = PHY_LANE_MUX_DP;
- 		}
--		hw_mode = UDPHY_MODE_DP_USB;
--		udphy->dp_lanes = 2;
-+	}
-+}
-+
-+static void rk_udphy_mode_set(struct rk_udphy *udphy, u8 hw_mode, u8 dp_lanes)
-+{
-+	if (udphy->hw_mode == hw_mode && udphy->dp_lanes == dp_lanes)
-+		return;
-+
-+	udphy->phy_needs_reinit = true;
-+	udphy->hw_mode = hw_mode;
-+	udphy->dp_lanes = dp_lanes;
-+}
-+
-+static void rk_udphy_set_typec_state(struct rk_udphy *udphy, unsigned long state)
-+{
-+	switch (state) {
-+	case TYPEC_DP_STATE_C:
-+	case TYPEC_DP_STATE_E:
-+		rk_udphy_mode_set(udphy, UDPHY_MODE_DP, 4);
-+		break;
-+
-+	case TYPEC_DP_STATE_D:
-+		rk_udphy_mode_set(udphy, UDPHY_MODE_DP_USB, 2);
-+		break;
-+
-+	case TYPEC_STATE_SAFE:
-+	case TYPEC_STATE_USB:
-+	default:
-+		rk_udphy_mode_set(udphy, UDPHY_MODE_USB, 0);
- 		break;
- 	}
- 
--	rk_udphy_mode_set(udphy, hw_mode);
-+	rk_udphy_set_lane_mux(udphy);
- }
- 
- static void rk_udphy_set_typec_default_mapping(struct rk_udphy *udphy)
+Series based on v7.3-rc3 + Marc's nested mmu lifecycle fixes [3].
+
+* Changes from v5 [4]:
+
+  - Align the addresses down to the mapping size when recording the
+    guest s2 mappings. s2fd->fault_ipa isn't necessarily PAGE_SIZE aligned.
+
+  - Record guest s2 mappings even when page table maps return -EAGAIN.
+    kvm_pgtable_stage2_map() can create mappings while returning -EAGAIN.
+    For example, a 2M block map (A) could race with a 4K page map (B):
+    1. (A) maps the 2M block in kvm_pgtable_visitor_cb()
+    2. (B) breaks that block into a table and maps 4K
+    3. (A) reloads and finds the table after kvm_pgtable_visitor_cb(),
+       then descends into it.
+    4. (A) maps some 4K, but before it finishes reads entry mapped by (B).
+    5. (A) returns -EAGAIN although it had mapped a few pages.
+    In this case, we don't know what subrange is mapped, just track the whole
+    requested mapping range.
+
+  - Don't remove tracked mappings from the interval trees if they only
+    partially overlap the removal range. Because of the previous bullet point
+    we can have a 4K shadow mapping tracked as a 2M range in the interval
+    trees. It would be wrong to remove the 2M range when a guest TLBI doesn't
+    touch the 4K mapped.
+
+  - Check mmu->pgt during mmu unmap notifier, as it could race against
+    MMU teardown.
+
+  - Make guest_s2_tracking_destroy() canonical mmu only. We simply don't
+    need to detach the nodes from the nested mmus' trees. Freeing them
+    during canonical mmu's teardown is enough.
+
+Thanks!
+
+[1]: https://lore.kernel.org/kvmarm/86h5jv7qrd.wl-maz@kernel.org/
+[2]: https://lore.kernel.org/kvmarm/gerjpm62a2gszzggc6vuai22bf3prfquvfsp7ueumps7vz2ev3@odlmovaklg2b/
+[3]: https://lore.kernel.org/kvmarm/20260911162203.1919330-1-maz@kernel.org/
+[4]: https://lore.kernel.org/kvmarm/20260810205038.118843-1-weilin.chang@arm.com/
+
+Marc Zyngier (1):
+  KVM: arm64: nv: Drop kvm_s2_mmu pointer from kvm_guest_s2_mapping
+
+Wei-Lin Chang (6):
+  KVM: arm64: Use a variable for the canonical IPA in kvm_s2_fault_map()
+  KVM: arm64: nv: Introduce guest stage-2 tracking structures
+  KVM: arm64: nv: Track guest stage-2 mapping creation
+  KVM: arm64: nv: Track guest stage-2 mapping removal
+  KVM: arm64: nv: Avoid full shadow stage-2 unmap
+  KVM: arm64: Refactor kvm_unmap_gfn_range() with common variables
+
+ arch/arm64/include/asm/kvm_host.h   |  31 +++++-
+ arch/arm64/include/asm/kvm_nested.h |   7 ++
+ arch/arm64/kvm/mmu.c                | 109 +++++++++++++++++++---
+ arch/arm64/kvm/nested.c             | 140 +++++++++++++++++++++++++++-
+ 4 files changed, 269 insertions(+), 18 deletions(-)
 
 -- 
-2.53.0
+2.43.0
 
 
