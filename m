@@ -4,94 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7400EC88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 07:41:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 647D2C88E73
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 07:46:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r9GzEG0V2MFSbPgXHqAbp6UbKpY+Or+jzCuC6xa616s=; b=kqVV1AItaIzERLBOlRDJRDrNfC
-	fRT1HeEpq8gZHBRaWylOD1zHdAzYL/e1J8VfWxCkjT6J8ZTHQL7h3HrMgqi9SwHEeo07KLw9iZtLx
-	CxP6oSFx96ye1kfo3pI8Zxt/KJ0DJn2X6U1K7MOiYAwehNswVGCrgJtEDeZBKlhddBiOinNqg+FAr
-	/B4M6+6QeSmZkJ3rTKWes7FaaboU/uATIunvcP2tBkvs/ngznwazB0LlVGZ7/yPR+4dNW2i0lMoUu
-	TlC3u75IE2HmoaVsg+7Xe4Dr/AXBpf7rUvRclTn4XbtLFWdQIvdhY65ItWmeGxDkz0Z5ey9X7Fh7M
-	uWrqEO1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y+TjYkeWtH29/hH7rFUt/RjEjcCETjZLhLZ9MVicTyc=; b=47Yo4brsLuAp489kp6ttC8aaQs
+	l/I0wg1SMoQ/+Q5NJIHQjAf8cJ1bn9Y7ZGWZCDhm8PXEATCmUSOcRJwNTmSY45gipGeaEIpYxaL8L
+	bAOo5OI+T/tVKOAoMyvSVPUp5S1Wh3jG142oT57CzT90Ldbk9iA5bPW/iBPduL/KtuaFldQBdB39B
+	JczUj3f9sGNeAOWUngxjWV4v62V0Geg8bOXv9DHkDLrvgNELk2xv4z8hao7jWPbdcRW7JqPIOxvf0
+	0Xqz6ftJjFVDtwXuL6iXhsliwyQ0QMd6bV6M+mkV1pOqrCBIzYVvKZQrKG5/lL74z4RmJmV3vv1cb
+	yOFtIQzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Nn6-00000005UWL-1kHA;
-	Tue, 15 Sep 2026 07:41:20 +0000
-Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
+	id 1x6Nru-00000005Wbs-3azA;
+	Tue, 15 Sep 2026 07:46:18 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Nn4-00000005UVw-2IEq
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 07:41:19 +0000
-Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-482f6356f6bso2289599f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 00:41:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1789458077; x=1790062877; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=r9GzEG0V2MFSbPgXHqAbp6UbKpY+Or+jzCuC6xa616s=;
-        b=P1EVoCnquvxpw/VHkqNFFd1f6hEocrjLdZ8P8RAEcbWepa116Mv+2EU/MBbhny954P
-         9wv6jeZK/aI3DGsnWOj6oibRTgiaac6XiE8pJXkFmTTNQRef0/MmApzvam9nhHVQo0V1
-         eTwKa/zZU0vVjTSw7obBkWMaom3S9ZZPw88Ljj37CaI6xXpCxouB0XVb+87jh1uZt+eZ
-         6ToyRn/ea+87aTh/jZMVfD5iWGo0Fwcc8gTAcvFyk4aULy/GMkWtuKqNmpKC+kl0Mgar
-         GeID1FjgmOK6+8symmjSJykrvonWdaL1Eii5ldjqJqmqdyDVpxtb9faVYHvAKoOIG4Vc
-         7v0w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789458077; x=1790062877;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=r9GzEG0V2MFSbPgXHqAbp6UbKpY+Or+jzCuC6xa616s=;
-        b=fZXaFl0KbU+jncAZB4S2pHIuV/N+gv0c6cayZDuyQ6fasiJJKKhVafpqatPk3Ri60+
-         Gdw41/70162BgOFBv+5WJcY9HRiCwW3r7MNiYHtQNhDAg3YtZetthyUP6Inx86aqh12/
-         2mARpsJrl7f92BgS8eREhIkvTiE6MI6uBqPXv7viZoYdB5X6WxfDip9mhlsvVPGHnA2r
-         Iz49r9LYy1vQpQ201LRaxLw3psylh2jSS8QippEAyXV+oqudvnovrT+PRYGY5Yhw9Hda
-         um9H3AvDZtvMUXDMzcXzQKpJSLpU+N+1Lu1hWSrAElDkdlzMDQH3LkwIA8bNdDL5dgMl
-         951g==
-X-Forwarded-Encrypted: i=1; AKwUvByYKOrFSgJS0fqOU8xTJbrFMZR86EqwebtyD1h42Jh2pgamUWFywxRtRY8fxGKD4h0+Wp1ExRGG2cqMuWU8XjcJ@lists.infradead.org
-X-Gm-Message-State: AFuF++l/8+mwG6Xiq29IKqwdlrALjN55H52vXeEnXg4MnUnEDbGHHtfc
-	WhWC1Cr31Bdo9dCVI71HU+Ztx6VYqaVZ0JDHZBZVdWp3pOWZ7uTvZySfNoAqmKBNXg==
-X-Gm-Gg: AYBFou0TqOMMMwbDMP3OtkI+P2rT61hDnI2bxfuMSG9tYrJUOhH357+uotyAgPvnIRc
-	h4I84EmMton+cE8oAr/jG1TJwdvfE4DSrJvtfVYFWAPghA9Oepo3xeoYn6W+eTRr9KfBbmdTovT
-	lzUBjLmx4hyx2rlHOv0pa2t2SxyAXouCcAW91zfArSIA7wK8b08szl+CxSsep6PeQNf94b602+f
-	J609H1pOfNnO1/eqtlIiJEIPfg7WYjkPBgbdL2pQXnSDMZJjqI5A/uTUQLQ/dApami/d0ydgqa0
-	gnRVfRbgk40e0Z8rHEBSueadi+1Sia2md0U47g8iudY/NhPDToVrtwO3LtAo1GCODBuJR/69YaM
-	COXm1eUUJAspQ9zoYjAuPz+X3z0dae2McZG/OAn8AeFTLHXQiOhknMfJCJfnqIELDNYVizNzwhy
-	mCq05mHnXbmV1T3x+x2/65GbHozGN3TlmP40RzkrpmuE0BtJwnlfiyynZ04Br9g+CYPcfGmEyNx
-	uJFMgwsxskkvExmD/KTHyzwj2i96q074IJA8Zgw0mwv
-X-Received: by 2002:a05:6000:41f0:b0:487:89c:3adf with SMTP id ffacd0b85a97d-487089c3b93mr2625551f8f.11.1789458075963;
-        Tue, 15 Sep 2026 00:41:15 -0700 (PDT)
-Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-486eb33e020sm34226386f8f.18.2026.09.15.00.41.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Sep 2026 00:41:15 -0700 (PDT)
-Date: Tue, 15 Sep 2026 08:41:12 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	catalin.marinas@arm.com, will@kernel.org, joey.gouly@arm.com,
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	mark.rutland@arm.com, steven.price@arm.com, qperret@google.com,
-	tabba@google.com
-Subject: Re: [PATCH v2 2/2] KVM: arm64: Pin the host vCPU before adjusting
- its PC under pKVM
-Message-ID: <aqj2mOjeNWJD6726@google.com>
-References: <20260915070418.3209779-1-fuad.tabba@linux.dev>
- <20260915070418.3209779-3-fuad.tabba@linux.dev>
+	id 1x6Nrt-00000005WZr-2ueS;
+	Tue, 15 Sep 2026 07:46:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Y+TjYkeWtH29/hH7rFUt/RjEjcCETjZLhLZ9MVicTyc=; b=nz9YVOSfjScWSd9tyTLTRNvmFx
+	+Bn5MjMNbjGF/KUsGJLizpOwvtqmkC/uSGp/QT45Pylyx42AUX2/3UQZNjpr9CqR+t/oAA027zduL
+	GxApVPBXeIm2oDWPPuKC5PWhdNd3XFFXa6x6pNTu7s5wQ557ZabCgCy/JZtmMDgmRn25lzEmuxn7V
+	ZVfMFAkA/W3wabPdJ50H7nlciE2iZhtiQZ6f8N0la+Ubsh8gwOm57MFykl8rk0mHc5WeYDp6oZd1u
+	Q+SwiN4FTVElc3Ypuo653xrcCVFPGV7dHQCN8qF07/WUZafCFo6JdEszdz9C5q+cu5wj+mGqeJdoA
+	scvCneWg==;
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6Nrn-00000006OLn-2FdT;
+	Tue, 15 Sep 2026 07:46:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1789458366;
+	bh=R2xJrxl6upO9LEZweJ/1XyeQgzkDVimk0RD2c0Xhaos=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=RuHpU7fE5Z3XY4d1RQw7AynI1G6BDoB5xPNNPepviV3HvXt+ms0L31xc6+SHCLzxK
+	 3iRHWRkSFYEfTowlf3WpUsYCHq943JD2sONUO1hchsQvSRXeRQOLwyeaRjXmmcwKeK
+	 lvKFHWIqsyWUAEMvz0NjGq0oTNlLts5iy/XigFtwbrt/jhfrWIH/lP/zuskE79bnAG
+	 hW7dKYFXKbQjRIIr1WoJkGK6o9MeiSO5wrdanTLQ7QT0171MdWICbAN5KtAVQkvRw2
+	 azvGzRVR3aLd6f1gYWkrhED0LRtpdOb8Al3muwKT1CBvuc7+BAkaNlAkNttyau6+1K
+	 cx1vOKlGON/6A==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 80C3417E007B;
+	Tue, 15 Sep 2026 09:46:05 +0200 (CEST)
+Message-ID: <a465210b-cd9c-4c5b-a54d-54d4b62b0706@collabora.com>
+Date: Tue, 15 Sep 2026 09:46:04 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260915070418.3209779-3-fuad.tabba@linux.dev>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] arm64: dts: mediatek: mt7988a-bananapi-bpi-r4: add
+ ramoops region
+To: Martino Dell'Ambrogio <tillo@tillo.ch>,
+ Matthias Brugger <matthias.bgg@gmail.com>
+Cc: linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, kees@kernel.org,
+ tony.luck@intel.com, gpiccoli@igalia.com
+References: <20260915064254.1594808-1-tillo@tillo.ch>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20260915064254.1594808-1-tillo@tillo.ch>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_004118_612038_A1295D18 
-X-CRM114-Status: GOOD (  23.24  )
+X-CRM114-CacheID: sfid-20260915_084611_877787_1D29374B 
+X-CRM114-Status: GOOD (  25.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,62 +91,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 15, 2026 at 08:04:18AM +0100, Fuad Tabba wrote:
-> Under pKVM, a page the host shares with EL2 is mapped at EL2 only while
-> it's pinned, and the host vCPU is pinned at its first KVM_RUN.
-> KVM_SET_VCPU_EVENTS with ext_dabt_pending reaches __kvm_adjust_pc() at
-> EL2 before that, and dereferencing the unmapped host vCPU panics the
-> hypervisor. Any process holding /dev/kvm on a pKVM host can trigger it.
+On 9/15/26 06:42, Martino Dell'Ambrogio wrote:
+> Reserve 1 MiB of RAM just below the ARM Trusted Firmware secmon region
+> (0x42f00000-0x43000000) for persistent kernel log storage via pstore/ramoops,
+> allowing post-panic console output and oops dumps to be recovered after a
+> reboot. Without it, kernel crash logs on this board are lost when the SoC
+> warm-resets and the on-chip console buffer is reinitialised.
 > 
-> Pin the host vCPU around the adjustment when no hyp vCPU is loaded for
-> it. A loaded hyp vCPU implies it's pinned. A pin fails only for memory
-> the host never shared, and the request is then dropped like any other
-> bad host pointer.
+> With record-size=128 KiB, console-size=256 KiB, ftrace-size=64 KiB and
+> pmsg-size=64 KiB, ramoops_probe() carves the post-console remainder
+> (640 KiB) into five 128 KiB kmsg records, with the requested ecc-size=16
+> reserving a small Reed-Solomon parity block from each zone's own
+> allocation (per persistent_ram_new()). The ECC lets pstore recover dumps
+> even when the panic path truncates writes mid-record.
 > 
-> Fixes: efa1368ba9f4b ("KVM: arm64: Commit exceptions from KVM_SET_VCPU_EVENTS immediately")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> The no-map property is required so the reserved region is kept out of the
+> kernel linear map. ramoops remaps the carve-out write-combine via
+> ioremap_wc(); on arm64, leaving the same physical RAM mapped cacheable in
+> the linear map at the same time is an attribute-mismatch and risks losing
+> panic data to dirty cache evictions from the linear alias.
+> 
+> The carve-out sits immediately below the ATF region already declared at
+> 0x43000000 in mt7988a.dtsi, so no other reserved-memory child is moved or
+> resized. BPI-R4 ships with at least 4 GiB of DRAM starting at 0x40000000,
+> so the region is well within installed memory on every variant.
+> 
+> For the carve-out to actually preserve content across a reset, the boot
+> loader must also avoid touching this region on warm reset; on standard
+> BPI-R4 boards with the stock OpenWrt U-Boot fork this already holds.
+> 
+> Signed-off-by: Martino Dell'Ambrogio <tillo@tillo.ch>
 > ---
->  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 19 ++++++++++++++++++-
->  1 file changed, 18 insertions(+), 1 deletion(-)
+> Changes in v3:
+>   - Resend; no functional change. Rebased on v7.3-rc3, where the v2 diff
+>     still applies unmodified.
+>   - v2 drew no review comments. It was also sent, in error, as a reply to
+>     the BPI-R3 patch's thread rather than its own, so it is likely to have
+>     been read as a duplicate of that board's patch. This version starts a
+>     fresh thread to avoid repeating that.
 > 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> index 9a3b92e626adb..4cb7347db2514 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> @@ -542,8 +542,25 @@ static void handle___pkvm_host_mkyoung_guest(struct kvm_cpu_context *host_ctxt)
->  static void handle___kvm_adjust_pc(struct kvm_cpu_context *host_ctxt)
->  {
->  	DECLARE_REG(struct kvm_vcpu *, vcpu, host_ctxt, 1);
-> +	struct pkvm_hyp_vcpu *hyp_vcpu;
-> +	struct kvm_vcpu *host_vcpu;
->  
-> -	__kvm_adjust_pc(kern_hyp_va(vcpu));
-> +	host_vcpu = __get_host_hyp_vcpus(vcpu, &hyp_vcpu);
-> +	if (host_vcpu) {
-> +		__kvm_adjust_pc(host_vcpu);
-> +		return;
-> +	}
-> +
-> +	/*
-> +	 * With no hyp vCPU loaded for it, the host vCPU may be unpinned,
-> +	 * and so unmapped at EL2: its first run pins it.
-> +	 */
-> +	host_vcpu = kern_hyp_va(vcpu);
-> +	if (hyp_pin_shared_mem(host_vcpu, host_vcpu + 1))
-> +		return;
-> +
-> +	__kvm_adjust_pc(host_vcpu);
-> +	hyp_unpin_shared_mem(host_vcpu, host_vcpu + 1);
->  }
->  
->  static void handle___kvm_flush_vm_context(struct kvm_cpu_context *host_ctxt)
-> -- 
-> 2.39.5
->
+> The matching BPI-R3 (mt7986a) patch is being resent as v3 at the same time.
+> 
+> v2: https://lore.kernel.org/all/20260528123645.2650085-1-tillo@tillo.ch/
+> v1: https://lore.kernel.org/all/20260528092807.1936177-1-tillo@tillo.ch/
+> 
+>   .../boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi  | 13 +++++++++++++
+>   1 file changed, 13 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
+> index 0ff69da..6a8dc89 100644
+> --- a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
+> +++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
+> @@ -80,6 +80,19 @@
+>   	};
+>   };
+>   
+> +&{/reserved-memory} {
 
-Reviewed-by: Vincent Donnefort <vdonnefor@google.com>
+It's just
 
--- 
-Vincent
+	reserved-memory {
+
+Sorry about missing your patch for all this time; the comment applies to both btw.
+
+Cheers,
+Angelo
+
+> +	ramoops@42f00000 {
+> +		compatible = "ramoops";
+> +		reg = <0 0x42f00000 0 0x100000>;
+> +		no-map;
+> +		record-size = <0x20000>;
+> +		console-size = <0x40000>;
+> +		ftrace-size = <0x10000>;
+> +		pmsg-size = <0x10000>;
+> +		ecc-size = <16>;
+> +	};
+> +};
+> +
+>   &cci {
+>   	proc-supply = <&rt5190_buck3>;
+>   };
 
