@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16D5CC88E72
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2FBAC88E7F
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 01:20:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,65 +12,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qFEVv4dcy08X3Ik3HgrSf1qU8ho0jjZ5Mt4Ngu5dZIw=; b=RRbuH1GXocohl0I/ESKuObqCHq
-	W/W/nrncibSvQ53w483VrmB6em3shPGotU7KmcR3OTW1s3fsv0vYjFobwpkCidxFahIdFb+dKC1ra
-	WaWt/B+i5u+AcOhqEHQn0ctuFNk0uc3SolefR/Oiqn+M+wWgYLSqsZGcZ6BPXBS3DneRyHNQNfg+o
-	l+Q1P7GUDras4xoKL9DbqUlt4Iy3ZmFs5pa7RYFKcgLv6VIooRl/S+Ft0yynyrDqxY/IWJkbL1iK6
-	lbYDCli2E+ly1kMTuRUPy9T7LhXCATUsLBefKZxyil+xGJV/BNIqKPlYXpBSCPQ33tvX6IjNCBPGO
-	g6K8Jkbw==;
+	bh=OmgxL+YzDrrZHo0jFAYUF9npAPr+/wsk6K1vfZ01BB4=; b=S0izX4MYe+CbxV/lybclZOOv6w
+	LpVo0dgRsJDnMI7QWThPerOn3VHtrMVQghF2PNrBNCTnz6fJwpWjvstKoE6Dueu96NExiCrO0polm
+	My4dMJedygRh2RGjU8Gp2CHpvFqT+P2xLeUK9HiUgImIjtrcUR7YRGTHQ2fFS+DejcvhlyLtRoj8G
+	VcuGF51HzyBXka7osURdXG/oMprq5j8c42m3axUb/Os4zacVE4zZ9FIO3rwjt8fmEI0gVe5Ecjhzm
+	IINnOSojh/uKyfyctL6NizRhRwCLC+R3I2CnTOYsP2K0diJWWR3FmpEB6so0noHCK12ktE8KjodUU
+	+0T/peGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Hqh-00000004wio-3hyW;
+	id 1x6Hqh-00000004wiT-3IHC;
 	Tue, 15 Sep 2026 01:20:39 +0000
-Received: from mail-qk2-x10.google.com ([2607:f8b0:4864:34::10])
+Received: from mail-qv1-xf29.google.com ([2607:f8b0:4864:20::f29])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6HqZ-00000004wg4-1BFM
+	id 1x6Hqb-00000004wgh-1QuE
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 15 Sep 2026 01:20:34 +0000
-Received: by mail-qk2-x10.google.com with SMTP id d75a77b69052e-52fb76bcb1fso34106011cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 18:20:30 -0700 (PDT)
+Received: by mail-qv1-xf29.google.com with SMTP id 6a1803df08f44-90cd4631090so4673786d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 18:20:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789435230; x=1790040030; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1789435232; x=1790040032; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=qFEVv4dcy08X3Ik3HgrSf1qU8ho0jjZ5Mt4Ngu5dZIw=;
-        b=scQlPgbD5EmiZeusZlVE4W+Sh/P2KqDaHH9ld0twfCuraklp8t/H3wSL6iv0dNh6dp
-         9Ee4ZJwKja0cOOS8MDefKSx/uQ65o/NBZ5XroJ3o7izywkqbtqllcTsAGRS6l60f3yi5
-         jMOYUWoMcMyCHDjRFm7MxaZE3nQH1NAlcbYfcaCvwDvgjnoRSYm/j6j87akbjN0HsZjz
-         AogZ8TuBrS1GE4UE4Q3+Y7vAbxGFlSXeEdbmj6bcSxC4GfjlAYG+wgf5CcULMBnPPd44
-         sYeNR25zeSdlicicInLoWvFDG5m3Y1Z/NHu9ND3+W/Pm/AMMnSfb6+iDFZ0jQdU5VVCe
-         MfSQ==
+        bh=OmgxL+YzDrrZHo0jFAYUF9npAPr+/wsk6K1vfZ01BB4=;
+        b=ZkVa1CVnIXryZ9QpkcI37qux/6Vi//UGSP4dUYCbATyvoHxTQgS5z6VnZys2x6q0jz
+         mYdm99ALI+1nMFPZM0BwdAZLLkP5AU+IYCv78lvDHoxFnaEJcIMOa8wJpDz4kZ9LRJpv
+         DfOSJ7XDheak0cIpy+yfn7iWXU1phfyo239N7VpBC6jIncyCW97IIfI7WI9F9AX7a+0z
+         +OkEFEy0REYvXHrw8jGwmE8s3JcAI1Ix3kt0oSLPx78L8BE09G/lRvTHQ1UcOg8iS/PM
+         gLtQ3SadZEKJLSrbPxj10T+cxAkLhW97WmikbspCiETzEFYDE+qNUsL4tLxQdj/lb63s
+         ysWQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789435230; x=1790040030;
+        d=1e100.net; s=20260707; t=1789435232; x=1790040032;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=qFEVv4dcy08X3Ik3HgrSf1qU8ho0jjZ5Mt4Ngu5dZIw=;
-        b=wmmPzw6jFnXXKRH5HEqioFXtXsAuwUCXOUUJ5ezRLlnA/Bfw98g/bQes8DAT++Vtq6
-         hHDg7CGYgn40PgBkKJCilZeOapG3Dv2HSyrmpawzWt139a4jnq7bivlqfZVc4/oX/FGL
-         gsqjJ6VgdU6RZ50mCBYentvVFPqBUdmJhTWEK2b3dUoDwEfYmdvJh+effZleWK7pPAnL
-         U5rvhWCrQ0vqci7vFvQouMVtugDkWNk5ivHKN2E3rYdpBpcg0z+1rYdOcgDDCxP6Yh9L
-         csV0KIYW6Xn75ZQbcX+Vo5Gpdfp3wGc2sQFY7FKPzcFboPYwqTmFhmAn45mffTyUvvtT
-         GYLA==
-X-Forwarded-Encrypted: i=1; AKwUvBycsEUfFX901H+OecoXuFmz6+oVjgiBaIKu6M13ekCCJwVQsQtC5I/Dy99lrxCikmLVngTtsPjacCTRv9icrIMZ@lists.infradead.org
-X-Gm-Message-State: AFuF++kMpTpYNEGgb36YAhT4yQQzlfchW6RJQoNFlgFSrFdBUPVZGoZc
-	MrSU2ljyZzVsNiGOIgQ880+V1Bbssu500sZCEPymHruq8g8LZRuukds=
-X-Gm-Gg: AYBFou1z9Z15UL8bpCpZEaXGn1NCHd0bwNd23/LW8kmZoiA1fysBo8qYtIJTHw8Rx6c
-	QoRvT6kRZ5AR4YlWIUHlqMCJzXpwwBE97orTgy8e0lILccBKB+S3GPTNliW1oQIxV2lrYVoU5GC
-	Og1JPs4sK5+9j+Q20sRPk8gqpq7sLrutStzY+LIvxLiQenrNOSEvDSgPjROf+/yXAl4LWswmr92
-	0sUfYDrmCZ70U12HHGFuVN3ll3FnaEoTvcRQKnkhR1H5iVcQiD3Y9gOQoPmnxegzNHwcEB6sUeJ
-	3i8+wVRBshb+oMCxhkRG/ZuhuYjdcESiEdB5fCj4NUGX/iX/LigbYBlhLHzQ8uOzVXpLDwnscdP
-	ywrd3vkuEdrz++/4rZlqyuIX5EEsf5h6tQzbVI8pq7M9q4VxzW+3VFndy+JD6uaj+oxL8My11X1
-	rEdhsDDYM4Lac56dK3lVaHXVjHxdlPI4Eufab7/SXfrUHYRUT2QNVt6YghppbgsdtfAhvjcrI/q
-	xo9uKWN0AZHL9zASV+5SLoXC5FSGrk3YjFHHSVEdnZNlDiFl+VTuhuSr53oMvpSOFIr8PaG/e7V
-	hNsDZIfm6GD9oA3sLdy7lNQoObdd42lMXY7HA/W4vQJxWre7mQjZtYbcVWFmA0GIRNSuCQ==
-X-Received: by 2002:a05:622a:1bab:b0:531:164:fa73 with SMTP id d75a77b69052e-5310d0005camr81499831cf.32.1789435230101;
-        Mon, 14 Sep 2026 18:20:30 -0700 (PDT)
+        bh=OmgxL+YzDrrZHo0jFAYUF9npAPr+/wsk6K1vfZ01BB4=;
+        b=jcMYfW39CprPoaC6OzbkAZ5+jRuOiV6Obv1djLA/4MNju6MpjyvKdN1V1zF7UP3/iA
+         rDGjpKeCmDE+jdofeAx/cZco4wupPAr2J76thHeUKQPRczQeJdjWBBHJDNkAhDuHe2bs
+         SPfQ8Iqo0lz85sdsT6cSj15gGc+yWKZ3B8udVhx4xF3Wg4i9Q+DSYpCHqZzrAXnmFDfS
+         2ot36b2D0JmzXs/j1ykr9OfV63YtnZRksEhI5n4hwbVMkyfz49twOcWsMx22o2epWoGq
+         qv/eEdHCEFf+IRX8NBmpPB8TrLha2BpUZigbR/PmjrvcXrjsMMGJ/l6/qQtYpFhoPeHm
+         hO9A==
+X-Forwarded-Encrypted: i=1; AKwUvBwCj6hulD8YJ5PcfZHaL9vtgWY/SCBQWXjeZY/1xFXtbe78SR6r8zO08GuIe6e4Egns7uvbIyR7smm1hK4pik6U@lists.infradead.org
+X-Gm-Message-State: AFuF++le2mo6Q77JSCGEa3qoo4aVDLg/ma0njhgWp6Qqog8SToMp6ubK
+	/zcctjbadbXYFhJ+rsjPHcKea6kZ3LyxN36uHfpneHXLJYmpuMrAjtk=
+X-Gm-Gg: AYBFou0wqM2lJAazxhxJik2gQUQsTIKQg91+FBExR6rNwEEBrekWtr72z+zYruI2z/g
+	rldGauPmfw1VdlcKPfhTM5tmMP5Q2WrljymiI2GwZMZuz20TRBEKUY4n4kAAmKERfLV09j9jOlt
+	AklAt2vNWrNBEDmo7Omw7DlYJ5nC4fXl1UqeTzplc7cM54NehEEl/2WaMJPJwreD04R4vwWIbh2
+	+CvXHc9YdpxKawFzgePY+2NIqBvZUViddMvkXLQvC+JYvqDVP1Lf97gOLNeYgJBUZ1RRg2pOzjj
+	GFfXLNmoTxA5cSZi9tl85njmyyxR55MJnGMIcOjnJxYnPDwq4KW9YRDGCFHO/2ZGhkF5473QPOR
+	cBZejn8A1JC3Z0/0O1838uoKs6sUyzOH0U29AFcvDlHbGm3b5wL7nP0rTs8LGGgf3zj4ET1/4xd
+	dvqcWM6rtUMyYiwru+GnkWwj54/TCEs8UcAULxEUFF8EuWlIQTdZdFfaAVPW0zg8l3lBwqKCefa
+	Z5Xh/TqM7XnQRYJKO5+aV+77jtMCsEAQdvwwKoIEc039miYEju23XfGThVH2GTHsWi06Kb1s09E
+	OPLx+p/iHQR9yaYrMENXZItOCwyzDuYvA/CeIxhbW+1EwV4aYQu3x642TyG4Og8N2AtWyQ==
+X-Received: by 2002:a05:6214:4383:b0:910:42f3:958e with SMTP id 6a1803df08f44-9123441de5dmr26302696d6.27.1789435232163;
+        Mon, 14 Sep 2026 18:20:32 -0700 (PDT)
 Received: from 6e-wmo5420-02.ad.psu.edu.net (6e-wmo5420-02.ad.psu.edu. [104.39.213.233])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-9121a62b783sm91141946d6.23.2026.09.14.18.20.24
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-9121a62b783sm91141946d6.23.2026.09.14.18.20.30
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 14 Sep 2026 18:20:24 -0700 (PDT)
+        Mon, 14 Sep 2026 18:20:30 -0700 (PDT)
 From: Myeonghun Pak <mhun512@gmail.com>
 To: Alan Stern <stern@rowland.harvard.edu>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
@@ -83,17 +83,17 @@ Cc: Krzysztof Kozlowski <krzk@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-samsung-soc@vger.kernel.org,
 	stable@vger.kernel.org
-Subject: [PATCH 3/4] usb: ohci-spear: disable controller wakeup on removal
-Date: Mon, 14 Sep 2026 21:20:10 -0400
-Message-ID: <20260915012011.61874-4-mhun512@gmail.com>
+Subject: [PATCH 4/4] usb: ohci-st: disable controller wakeup on removal
+Date: Mon, 14 Sep 2026 21:20:11 -0400
+Message-ID: <20260915012011.61874-5-mhun512@gmail.com>
 X-Mailer: git-send-email 2.47.1
 In-Reply-To: <20260915012011.61874-1-mhun512@gmail.com>
 References: <20260915012011.61874-1-mhun512@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_182033_706522_3925388A 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20260914_182033_499424_DE23B5E9 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,25 +117,25 @@ Disable controller wakeup after removing the HCD.
 This issue was identified during our ongoing static-analysis research
 while reviewing kernel code.
 
-Fixes: a6eeeb9f45b5 ("USB: Update USB default wakeup settings")
+Fixes: d115837259ad ("usb: host: ohci-st: Add OHCI driver support for ST STB devices")
 Cc: stable@vger.kernel.org
 Assisted-by: LLM
 Co-developed-by: Ijae Kim <ae878000@gmail.com>
 Signed-off-by: Ijae Kim <ae878000@gmail.com>
 Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
 ---
- drivers/usb/host/ohci-spear.c | 1 +
+ drivers/usb/host/ohci-st.c | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/drivers/usb/host/ohci-spear.c b/drivers/usb/host/ohci-spear.c
---- a/drivers/usb/host/ohci-spear.c
-+++ b/drivers/usb/host/ohci-spear.c
-@@ -103,6 +103,7 @@
- 	struct spear_ohci *sohci_p = to_spear_ohci(hcd);
+diff --git a/drivers/usb/host/ohci-st.c b/drivers/usb/host/ohci-st.c
+--- a/drivers/usb/host/ohci-st.c
++++ b/drivers/usb/host/ohci-st.c
+@@ -235,6 +235,7 @@
+ 	int clk;
  
  	usb_remove_hcd(hcd);
 +	device_wakeup_disable(hcd->self.controller);
- 	clk_disable_unprepare(sohci_p->clk);
  
- 	usb_put_hcd(hcd);
+ 	if (pdata->power_off)
+ 		pdata->power_off(dev);
 
