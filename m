@@ -4,88 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2D8DC88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 05:20:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77512C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 05:21:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rSU4R22SESbjjX3cQkBbS8lUy6Q/T1lRNgl0UnLZD5I=; b=P4nZoVANTde3Jce8d/RWtmUhdu
-	QR3JC8bJeFgJSFG0cJrWxlayKUQgTBL36XRTGxDAaXtwiY7o52p0+ZbbwCWWyZCfTXK9lKfJLJ0bZ
-	os4cWsQtMAhmJnIDNvxZdNHn+gkP1iE1GoGv4IibUIgac2tV2uyQqBVK0NFU6unp3MlMWcjz6wXg1
-	qwEsfEb0oqqBQ1BK67lKHH5UrNFmqSJaHBKIv9uRSCX7n9FCykEkrQgtCVXwThYmXX7/33iurlFjJ
-	CcmYorvPQ0uip40FBSaBpwm+FTTMW8fcRPUzoOBPLWTmXEvOqEQ9gRFkBhDvR6xYKtGqVpRH+CwMI
-	HNHYOG0A==;
+	bh=5Uza66k0gVfoWcq9OnT4Ysj4a2F1E+DiSWDJDRGBaTU=; b=x/IkypwVRvENbgtbh11C/T6WWz
+	agfZpGuwJnRRlT4isr+pmxVtrcz/39bgEemYIXq8HWPc4NmhQhIJUaQpy7cKaa/G+7vPEHDujmIyn
+	WVgzgdw+DHR7FFsmG+21oh4mP4dvyA5pO5tRAzOACHA7Dmfr2jkERHsM3eOKY5qYMfNVnClo/2B1H
+	hf8CQUR6mZozP+B1PTLKNtFZtYlTFF2fozg3k71c/M1jXhdtn7mOKW3Nu04f1fR5rLMBmwMrMGT+A
+	i/O2welin0q0tArOTgKGNM/JDsZYV6dZbpC/78lrGJ64szBkiU01kwVjlQ+SoU4gBB5jVEEbwwMSp
+	qXzrxlZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6LbA-00000005EaS-0T2F;
-	Tue, 15 Sep 2026 05:20:52 +0000
+	id 1x6Lbg-00000005Eec-1UwV;
+	Tue, 15 Sep 2026 05:21:24 +0000
 Received: from mail-pj2-x08.google.com ([2607:f8b0:4864:39::8])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Lb6-00000005EZy-1THo
+	id 1x6Lbe-00000005Ee8-1H4Q
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 05:20:50 +0000
-Received: by mail-pj2-x08.google.com with SMTP id d9443c01a7336-2d313798bf8so19581845ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 22:20:47 -0700 (PDT)
+	Tue, 15 Sep 2026 05:21:23 +0000
+Received: by mail-pj2-x08.google.com with SMTP id 98e67ed59e1d1-398b9f722abso1493113a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 22:21:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789449647; x=1790054447; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1789449682; x=1790054482; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rSU4R22SESbjjX3cQkBbS8lUy6Q/T1lRNgl0UnLZD5I=;
-        b=AsplqnAy/RCBUBc77ZDTI9gmSBlOCJMgwtFEh6vVJxe0pO4a2Mq5Kviv4bRv/yLrv+
-         Qae71/Cb+tzWyHsDblfw4qer4kIqMcVwDUfACQpU3b7jhVqsIJdI5rJs5o/oN9Mtk8FZ
-         P8cvStS96RmDV/wNO03wKoJo8KQPKR0Ggs4Ea0wlKaasm9otXJ+0IisnPVm1sI9oPi7n
-         voPP3hwQLJaGqnknhE8C+zaTXsjLCFelUU+BPIIbjGfd8i5XRBTq5Wjc7zaaj6LuFS7L
-         LOwgyTgBoKTl50TFF5Czm/bD6Q5BgB99UbvW9ZIZ69gUZFI9v0P9NqylgkYKh67hnrJS
-         2caA==
+        bh=5Uza66k0gVfoWcq9OnT4Ysj4a2F1E+DiSWDJDRGBaTU=;
+        b=W9aJFfKc0A8/ulaDIW6rPjiGRhhI26ECHfIBcIG9hHHOyMOBvR5SL4R1KzjUDj5Ppl
+         4KUKQ/dMkhyPArX02GogeMw990Ln4PjGK7AvGY4tmBM0Ls1NXhXQRyYLCxW+cJPNSCWA
+         oKackiDJSrrjj4TxJF/FctDbhMoikgXvNRZx+pHlQudTCBm1qDN4KRCboDD/ZnxXWFD9
+         yV6WLIl9mSpEM5tH2acgXC5xOHQKEyaBtYsOlEm6XTNrqIxSLaRXFpq6s//PMqg7F2+0
+         LGtHB8sGRZg4k7SwN34z9M85G39Sr+qV/zztytByKS7OUnmJMhgVwZBuk/7FovGWwVcK
+         ehRw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789449647; x=1790054447;
+        d=1e100.net; s=20260707; t=1789449682; x=1790054482;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=rSU4R22SESbjjX3cQkBbS8lUy6Q/T1lRNgl0UnLZD5I=;
-        b=gYRxUj8gc6GKnJzXVChyuGJqIZUhFO97rUi8Pli/M7mEXIg8SudlVJmBwmo4A5SWeK
-         rKKwXX5gFVxZLuDEVjteB5U64YjPh4ioLkgs4dPyltyo2YCgiroNzxLBYxtwi8Kpe57g
-         7gvfyApa/YbQfW4mnPinJzX2i6uVJcVmToGqVlccC6HD5jw8R7jQ9PU6U1Q+dxGTUDgS
-         uN26vml47OAijVPnA4wQKErX6Ou0YGMobrABwSh99Q/UrKKb1dyz1liLot9bP8prhuqm
-         9DN9SuK7RNDzle1pOaY4OctbW3MmoIAJCXCj6PhxcsQfCZ0Gos8wqXLmoTuWdoNca8GO
-         CEcQ==
-X-Gm-Message-State: AFuF++nsPnIG/wW9VhuSznkt9a57og1NxEKQAMZk5NV5UKCOk8bhYWnO
-	+aJgomtGf4nQaipl23l4HeC5RoM5v4X99AISjNvVAB2aXFinYBuAk5bqvNfDiyqqezg=
-X-Gm-Gg: AYBFou3n5kAY8Y5OhvBtB0ar5ekSGkaxmpW7tg6hi9c+LYy9+mnaIUv6O3hT0TjW5gW
-	OpilDBeZvt2GtjSr/uD60ZPPz2tECNlixgnt1O/7z9+pfozuybYghhDcvNSXMXQ30XLfai82hhJ
-	vTSRWgp2jpnacDVoSRCBebxXAGdAu+guibokhIIqn6DMNKaNLgk6/mmHDqOt1Htm0j53GgkPiFL
-	5rHW8MzrWLEMx8sRD0fkvfo6+YnfM7qLxOVRKH97vb+VPKd7dC21Mfb8wj60Sd/TCuYFvLbvcjX
-	70eJabr79CKwleXjSz8CWkzzzdCTItIuRxIarqQbLMF7XMH+InVlxCuF//FpMAzzd1FvRifX2Ub
-	oCTvTwLNAwumtNeKG/aLOUQL4ozjXdWb36h2kcmIBfeoc4J5kRZug/ndxS51LupJZ3YTcL/NqXz
-	W2Ldh/e5++kYDIqGfctUFVKrcyopGeIzKNNE5q9Fa3/DVMOPFcwU99BqrsAEQqRziUHx4ZhuiRL
-	rYDz8nzDopexY9wycmMGfUtOs7LBVFYN5Cg4cgkr9thDzA62I7zW5FVsnk/czhLO2yIWafkSeRb
-	FbYNgh6iRekbtF8JYP0nvpdvTg6SsvH2nHR8qzX5zQ520WdptDrqMZCXdsr6bFjo0A==
-X-Received: by 2002:a05:6a20:1609:b0:3d3:afd9:6040 with SMTP id adf61e73a8af0-3db40746ea8mr13353608637.27.1789449646922;
-        Mon, 14 Sep 2026 22:20:46 -0700 (PDT)
+        bh=5Uza66k0gVfoWcq9OnT4Ysj4a2F1E+DiSWDJDRGBaTU=;
+        b=gV2KpwB5212CeT/Bx8LRAuqDbb178Xu6X9zt2XgfLoiqx+Ti1ByiWOHmSu23CAERZr
+         7QVTo6rNn1aLDQOIeQEdQG1HLnDPuvLnlUYgrVX7DVRZxJcLuVpYZl7B4w/5iM4Ds2I1
+         ChCMcxCBxAI5j5Z4XJjNIsK4qAMaA5g2uXp6tRMfVW1jOQL1rz4xE3ZB1fH1XPMjKpoW
+         Gr+KADsYHd4XigwDLBZfe5m1kzNXVgF6ZjfbCsbzhpNhb4X9Q8LZMeK2z4ejCe4PHRHa
+         UEU3q6wQkUSiBBTB1Ys2+wnpz5h3iwOYJd8gGmyhCV7scwHvmGf1ZVtnIsm7fJ6Q/kmJ
+         RWTg==
+X-Gm-Message-State: AFuF++mpEO2FUQQEAqDnlFsIB1qshJUc+6Q4nzDOXBIt/RH/6Bl/fGxH
+	0wPpXjUEbfv2VHNz8C4WhHWiPIhsySJhfAc65QBK2mnekVFIh+y3UJTZbcQxaQVdrSE=
+X-Gm-Gg: AYBFou1PdMAsYSrtKjN69LNPtc3fVJRyg7zvbOHybgrS8EZ8s7LYfHH5PLmifadAcPt
+	4u2/0/2IkbEEQh6cUkxY3W5NSCZZbb00mxM8RXGZYrS1Y3yUp2pD5JG2pl7Sj/QJOC7P7skD2oL
+	VoplNx4JAst9YbJKpq+tR+alkuXppYFkVpVprCXB/e/wE5+m4z7d3xJbpGfqPkUZPSbu7v/0l9/
+	UhgINVkLXQxEpD9RpYEJ9tCwd1y3QPBlzxI7dc6D7O2+ohbDlhkoozseWIQCyx9Cfs8vPlVdNKL
+	uHlD6P122CYd/5UEGbKXKWQskA7pHI6qYZ+eUL+jojWPF/8iCoEADfEl5bY3yDnsu+7R89zKv5Y
+	ISfXpSc/HaCMww6vMD1RgiGY3pwJupWa7guLTL0jkKbLh5udhFJRPQ7N4nmrcx6FKpam9opTib1
+	e769eDGNyqklzL6IIWfHrOt3HmF6FkhYX4GoJ7x/s6/BKkgXtL589MQPbqVRwwz04wsajAfpcy9
+	OEsNT5qWj1hXVX6slnDtdbCAILNkc//FwI/Lb8XeCkf04JhJAric0+9/ROUo3T8quoXaIbcLSKz
+	HkiGvnlvWuUYXFdccATrIQmGa75GwsLffx9TE4fUJSfJVoQAb/hUOjY6l0/F5oNwMlg=
+X-Received: by 2002:a17:90b:582f:b0:398:e96a:8999 with SMTP id 98e67ed59e1d1-39dec05fc8emr12327695a91.16.1789449681122;
+        Mon, 14 Sep 2026 22:21:21 -0700 (PDT)
 Received: from ethan-latitude5420.. (host-127-24.cafrjco.fresno.ca.us.clients.pavlovmedia.net. [68.180.127.24])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33ba4f7390csm30258521eec.26.2026.09.14.22.20.46
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-14365b97994sm54647688c88.12.2026.09.14.22.21.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Sep 2026 22:20:46 -0700 (PDT)
+        Mon, 14 Sep 2026 22:21:20 -0700 (PDT)
 From: Ethan Nelson-Moore <enelsonmoore@gmail.com>
-To: linux-arm-kernel@lists.infradead.org,
-	Alex Guo <alexguo1023@gmail.com>,
-	linux-fbdev@vger.kernel.org,
-	dri-devel@lists.freedesktop.org
+To: linux-arm-kernel@lists.infradead.org
 Cc: Russell King <linux@armlinux.org.uk>,
-	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
-	Helge Deller <deller@gmx.de>
-Subject: [PATCH] video: acornfb: remove unused code for 26-bit hardware
-Date: Mon, 14 Sep 2026 22:20:29 -0700
-Message-ID: <20260915052038.626258-1-enelsonmoore@gmail.com>
+	Ethan Nelson-Moore <enelsonmoore@gmail.com>
+Subject: [PATCH] arm: mach-rpc: remove unused HAS_IOMD and HAS_VIDC20 macros
+Date: Mon, 14 Sep 2026 22:21:01 -0700
+Message-ID: <20260915052105.628204-1-enelsonmoore@gmail.com>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_222048_457323_D9AA52BE 
-X-CRM114-Status: GOOD (  19.84  )
+X-CRM114-CacheID: sfid-20260914_222122_602293_5A8B6392 
+X-CRM114-Status: GOOD (  10.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,229 +96,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The acornfb driver contains code to support machines with a MEMC chip
-and without IOMD and VIDC20 chips. All 32-bit Acorn hardware has IOMD
-and VIDC20 chips and does not have a MEMC chip.
-
-Linux formerly supported 26-bit Acorn computers, but that support was
-removed in commit 99eb8a550dbc ("Remove the arm26 port") because it had
-bitrotted to the extent that it did not even compile.
-
-Remove this unused code. Also take the opportunity to remove incorrect
-file paths in the file headers, which are bad style regardless.
+All references to these macros have been removed in previous commits,
+so they can be removed as well.
 
 Signed-off-by: Ethan Nelson-Moore <enelsonmoore@gmail.com>
 ---
- drivers/video/fbdev/acornfb.c | 57 +++++++++--------------------------
- drivers/video/fbdev/acornfb.h |  8 +----
- 2 files changed, 15 insertions(+), 50 deletions(-)
+ arch/arm/mach-rpc/include/mach/hardware.h | 6 ------
+ 1 file changed, 6 deletions(-)
 
-diff --git a/drivers/video/fbdev/acornfb.c b/drivers/video/fbdev/acornfb.c
-index f0600f6ca254..30781679c90a 100644
---- a/drivers/video/fbdev/acornfb.c
-+++ b/drivers/video/fbdev/acornfb.c
-@@ -1,7 +1,5 @@
- // SPDX-License-Identifier: GPL-2.0-only
- /*
-- *  linux/drivers/video/acornfb.c
-- *
-  *  Copyright (C) 1998-2001 Russell King
-  *
-  * Frame buffer code for Acorn platforms
-@@ -94,7 +92,6 @@ static struct vidc_timing current_vidc;
+diff --git a/arch/arm/mach-rpc/include/mach/hardware.h b/arch/arm/mach-rpc/include/mach/hardware.h
+index 22d62a198559..2a95cf17f67f 100644
+--- a/arch/arm/mach-rpc/include/mach/hardware.h
++++ b/arch/arm/mach-rpc/include/mach/hardware.h
+@@ -11,12 +11,6 @@
  
- extern unsigned int vram_size;	/* set by setup.c */
+ #include <mach/memory.h>
  
--#ifdef HAS_VIDC20
- #include <mach/acornfb.h>
- 
- #define MAX_SIZE	(2*1024*1024)
-@@ -306,7 +303,6 @@ acornfb_setcolreg(u_int regno, u_int red, u_int green, u_int blue,
- 
- 	return 0;
- }
--#endif
- 
- /*
-  * Before selecting the timing parameters, adjust
-@@ -390,7 +386,6 @@ acornfb_adjust_timing(struct fb_info *info, struct fb_var_screeninfo *var, u_int
- 	/* hsync_len must be even */
- 	var->hsync_len = (var->hsync_len + 1) & ~1;
- 
--#if defined(HAS_VIDC20)
- 	/* left_margin must be even */
- 	if (var->left_margin & 1) {
- 		var->left_margin += 1;
-@@ -400,7 +395,6 @@ acornfb_adjust_timing(struct fb_info *info, struct fb_var_screeninfo *var, u_int
- 	/* right_margin must be even */
- 	if (var->right_margin & 1)
- 		var->right_margin += 1;
--#endif
- 
- 	if (var->vsync_len < 1)
- 		var->vsync_len = 1;
-@@ -436,11 +430,7 @@ acornfb_update_dma(struct fb_info *info, struct fb_var_screeninfo *var)
- {
- 	u_int off = var->yoffset * info->fix.line_length;
- 
--#if defined(HAS_MEMC)
--	memc_write(VDMA_INIT, off >> 2);
--#elif defined(HAS_IOMD)
- 	iomd_writel(info->fix.smem_start + off, IOMD_VIDINIT);
--#endif
- }
- 
- static int
-@@ -469,7 +459,6 @@ acornfb_check_var(struct fb_var_screeninfo *var, struct fb_info *info)
- 		var->transp.length = 0;
- 		break;
- 
--#ifdef HAS_VIDC20
- 	case 16:
- 		var->red.offset    = 0;
- 		var->red.length    = 5;
-@@ -491,7 +480,6 @@ acornfb_check_var(struct fb_var_screeninfo *var, struct fb_info *info)
- 		var->transp.offset = 24;
- 		var->transp.length = 4;
- 		break;
--#endif
- 	default:
- 		return -EINVAL;
- 	}
-@@ -519,6 +507,9 @@ acornfb_check_var(struct fb_var_screeninfo *var, struct fb_info *info)
- 
- static int acornfb_set_par(struct fb_info *info)
- {
-+	unsigned long start, size;
-+	u_int control;
-+
- 	switch (info->var.bits_per_pixel) {
- 	case 1:
- 		current_par.palette_size = 2;
-@@ -536,7 +527,6 @@ static int acornfb_set_par(struct fb_info *info)
- 		current_par.palette_size = VIDC_PALETTE_SIZE;
- 		info->fix.visual = FB_VISUAL_PSEUDOCOLOR;
- 		break;
--#ifdef HAS_VIDC20
- 	case 16:
- 		current_par.palette_size = 32;
- 		info->fix.visual = FB_VISUAL_DIRECTCOLOR;
-@@ -545,41 +535,26 @@ static int acornfb_set_par(struct fb_info *info)
- 		current_par.palette_size = VIDC_PALETTE_SIZE;
- 		info->fix.visual = FB_VISUAL_DIRECTCOLOR;
- 		break;
--#endif
- 	default:
- 		BUG();
- 	}
- 
- 	info->fix.line_length	= (info->var.xres * info->var.bits_per_pixel) / 8;
- 
--#if defined(HAS_MEMC)
--	{
--		unsigned long size = info->fix.smem_len - VDMA_XFERSIZE;
-+	start = info->fix.smem_start;
-+	size  = current_par.screen_end;
- 
--		memc_write(VDMA_START, 0);
--		memc_write(VDMA_END, size >> 2);
-+	if (current_par.using_vram) {
-+		size -= current_par.vram_half_sam;
-+		control = DMA_CR_E | (current_par.vram_half_sam / 256);
-+	} else {
-+		size -= 16;
-+		control = DMA_CR_E | DMA_CR_D | 16;
- 	}
--#elif defined(HAS_IOMD)
--	{
--		unsigned long start, size;
--		u_int control;
+-/*
+- * What hardware must be present
+- */
+-#define HAS_IOMD
+-#define HAS_VIDC20
 -
--		start = info->fix.smem_start;
--		size  = current_par.screen_end;
--
--		if (current_par.using_vram) {
--			size -= current_par.vram_half_sam;
--			control = DMA_CR_E | (current_par.vram_half_sam / 256);
--		} else {
--			size -= 16;
--			control = DMA_CR_E | DMA_CR_D | 16;
--		}
- 
--		iomd_writel(start,   IOMD_VIDSTART);
--		iomd_writel(size,    IOMD_VIDEND);
--		iomd_writel(control, IOMD_VIDCR);
--	}
--#endif
-+	iomd_writel(start,   IOMD_VIDSTART);
-+	iomd_writel(size,    IOMD_VIDEND);
-+	iomd_writel(control, IOMD_VIDCR);
- 
- 	acornfb_update_dma(info, &info->var);
- 	acornfb_set_timing(info);
-@@ -709,10 +684,8 @@ static void acornfb_init_fbinfo(void)
- 	 */
- 	memset(&fb_info.var, 0, sizeof(fb_info.var));
- 
--#if defined(HAS_VIDC20)
- 	fb_info.var.red.length	   = 8;
- 	fb_info.var.transp.length  = 4;
--#endif
- 	fb_info.var.green	   = fb_info.var.red;
- 	fb_info.var.blue	   = fb_info.var.red;
- 	fb_info.var.nonstd	   = 0;
-@@ -991,7 +964,6 @@ static int acornfb_probe(struct platform_device *dev)
- 
- 	size = PAGE_ALIGN(size);
- 
--#if defined(HAS_VIDC20)
- 	if (!current_par.using_vram) {
- 		dma_addr_t handle;
- 		void *base;
-@@ -1011,7 +983,6 @@ static int acornfb_probe(struct platform_device *dev)
- 		fb_info.screen_base = base;
- 		fb_info.fix.smem_start = handle;
- 	}
--#endif
- 	fb_info.fix.smem_len = size;
- 	current_par.palette_size   = VIDC_PALETTE_SIZE;
- 
-diff --git a/drivers/video/fbdev/acornfb.h b/drivers/video/fbdev/acornfb.h
-index e65388587f80..e33ea24ae0e1 100644
---- a/drivers/video/fbdev/acornfb.h
-+++ b/drivers/video/fbdev/acornfb.h
-@@ -1,16 +1,13 @@
- /* SPDX-License-Identifier: GPL-2.0-only */
- /*
-- *  linux/drivers/video/acornfb.h
-- *
-  *  Copyright (C) 1998,1999 Russell King
-  *
-  *  Frame buffer code for Acorn platforms
-  */
--#if defined(HAS_VIDC20)
- #include <mach/iomd.h>
-+
- #define VIDC_PALETTE_SIZE	256
- #define VIDC_NAME		"VIDC20"
--#endif
- 
- #define EXTEND8(x) ((x)|(x)<<8)
- #define EXTEND4(x) ((x)|(x)<<4|(x)<<8|(x)<<12)
-@@ -94,7 +91,6 @@ struct modex_params {
- 	const struct modey_params *modey;
- };
- 
--#ifdef HAS_VIDC20
- /*
-  * VIDC20 registers
-  */
-@@ -162,5 +158,3 @@ struct modex_params {
- #define VIDC20_DCTL_VRAM_PXCLK	(1 << 18)
- #define VIDC20_DCTL_VRAM_PXCLK2	(2 << 18)
- #define VIDC20_DCTL_VRAM_PXCLK4	(3 << 18)
--
--#endif
+ /* Hardware addresses of major areas.
+  *  *_START is the physical address
+  *  *_SIZE  is the size of the region
 -- 
 2.43.0
 
