@@ -4,66 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09D42C982C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 08:42:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A534DC88E73
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 08:42:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uAhUh57+k9wtUJ4p0cX1YRy5WdPv5wRBmzNr5pOCGzw=; b=3bPnYVbI5BOBoEy1Vs9AAYMI6V
-	XuRFtQnKbJd+j/MkOXpEq3u3nllSyVMbpvD6Q8F6SvWxP7oU56htyICKChu16DJ3AqPp9igN0avDx
-	s7db47ReHrUcW59r8W/TsMQzs5QoswCJJMeI89fY1OcXViFqddUvFKyAMu7cb5NDwPKfrg5A8XG5Q
-	i9eyFFmXHKF8rMgPTZw5kJq2oZGloFaAT/16osM+ezMQXZrb/ZfPj/D7StqUJxcMAOB8/tAWFcbgG
-	JVAq/zvyhNRgeD7A5BnOHsVf5lBXm0gaCfFi5YsJvkMA5SYUpFY8kKdTGVhR5Lhmp7vKBp2mTEUXf
-	/mdOzaVQ==;
+	bh=eaWlOn07YVHDx4dl2HcxfvF112o7OCJgJE7xMGlLJnw=; b=Us4Nzi+Vpx/4U+Igd7pihwHG5V
+	Vjg3OEl6VDviWphd9w9PdAbhVEEVsc3E7Ee+BQZfEQuk/SNmVFuReZXWjbilAP4uzI0zwYMB2dZkE
+	6jJtKB8Fxm4K2eNbgDcGfZT9U/73CsU0DUgbnHEYwwTZ2pvcQValsAopEZJ0c407vfMIbxRiIsjKA
+	ElkNj1XV+n8zRK/Nw1NJsCAxWH6k4rf97A4pSkBM4fUkLReqxUKz+mJJCJpGgJ46kU7Z6XSQELfah
+	JdvX6M5YX63LunWmXIPXMvFDNdWDy1EyOzdPSKWiclIw9+KVoQ/pWyqEroVHK4894TOKqcdsfAJKS
+	sDvpl2/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6OkB-00000005eV0-3FFx;
-	Tue, 15 Sep 2026 08:42:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x6OkF-00000005ebi-23zV;
+	Tue, 15 Sep 2026 08:42:27 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Ok1-00000005eDz-3gFs
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 08:42:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0002E602BA;
-	Tue, 15 Sep 2026 08:42:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 510691F00893;
-	Tue, 15 Sep 2026 08:42:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789461732;
-	bh=uAhUh57+k9wtUJ4p0cX1YRy5WdPv5wRBmzNr5pOCGzw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=RD/6cYSIuI4eESkGyLjgPbm6J+fUdewl8YBrHQ3Y1aT7J03KKuP/nEqkB2TPKfRQ8
-	 aIesG80a2a2bPh/vWL9F5Osj/+ZXG6/az9kKxNX5mWxhLX9cfHm3AWy3eehmYOXZsl
-	 pHdxTwOYS4Ch/SMDtwYRNnfnqwd3qtI72sm0qxl7QxgrtvwUXn44ICu7jWN6P9rKlY
-	 LOXiDzAAFTf1V8vT0GDpY4qgzV0GK1vsYFEiIPYmznGPOCHhuziurQwDcx1jsw6jPr
-	 Nt97yTs6K/syUW1R4bY+cJgev3Nz9GiSvcajV883WjHKcUFaZQN+JEaiRWB3Y33EfV
-	 l+zsSHQpjbTzg==
-From: Niklas Cassel <cassel@kernel.org>
-To: Patrice Chotard <patrice.chotard@foss.st.com>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Niklas Cassel <cassel@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Alexandre Torgue <alexandre.torgue@st.com>,
-	Lee Jones <lee@kernel.org>,
-	Tejun Heo <tj@kernel.org>
-Cc: Brian Norris <computersforpeace@gmail.com>,
-	stable@vger.kernel.org,
+	id 1x6Ok6-00000005eMN-14pi;
+	Tue, 15 Sep 2026 08:42:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=eaWlOn07YVHDx4dl2HcxfvF112o7OCJgJE7xMGlLJnw=; b=i1/YrtZhZOqcEJvFqjqlPTwJqh
+	hKedEAQL1gf8PAJbk/jyogf1GDqgm3RLpqXm4KwCFBw0QZoA++CISYkI4j+Zh2VHRhoJmdYGB0jfk
+	wKA4ACclcByWs3uq63M61XaraWrumUVYBWE6ONVg41dvSyAAGE0YFgEhtMtunwf0HM3Pc42io4+IN
+	pjZ1UiDsWhQNm8Qj1p25rTHtKVMggwFKdWAuwQsu+wQKxT2vyfGie9nO+cz4VpCk3m4hf77Y76RCr
+	8bO9DRq8HfByOSK7YueFbI6boumkJNwM4uBXJ/ynwbX6DTKuLeKS40m9YqORB6PW+jSvALqJrXQE5
+	GpSGpkXg==;
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6Ok2-00000006Rdk-3tjw;
+	Tue, 15 Sep 2026 08:42:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1789461733;
+	bh=lKPYNutDqvu60uKSjR8Z43vM0YRCNClWIyVohFu2h08=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=fpHMfJRJwHBBEnFwXTKt8Eu+PTIluXLUBQIhY1I8XBqPCqGqHidPouo/tf4pMvrom
+	 yi9NACWbJcnOwtcKrDVHlYTN7B2EUpVVfXmAwf807GCpryWrGOmbxlidE+pLCF9Fs4
+	 JvVUYFChgks4qPiv9mVMqslz0cqTmFYE8zdNtB3VSReaJAW4vAeWufv5zEKkEk3XP1
+	 rtX0+i2EXvIFy3MDMYiVGMhf0WbaSAAoNa5/qqfPdnOGN6HAjQsCTQosqU+JG3bAVe
+	 z9SJe6LcleLiznPk/53mm8Wye9B7LPdIzPjoTRzyjNaHlu2zbOigi/vmvOUfRRRjoN
+	 hpAScuVWDVZwA==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3239417E0CFC;
+	Tue, 15 Sep 2026 10:42:12 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: chunkuang.hu@kernel.org
+Cc: p.zabel@pengutronix.de,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	jitao.shi@mediatek.com,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-ide@vger.kernel.org
-Subject: [PATCH v5 1/6] ata: ahci_st: Do not ignore errors when getting the reset controls
-Date: Tue, 15 Sep 2026 10:41:27 +0200
-Message-ID: <20260915084127.692494-9-cassel@kernel.org>
+	kernel@collabora.com,
+	justin.yeh@mediatek.com,
+	jason-jh.lin@mediatek.com
+Subject: [PATCH v8 09/13] drm/mediatek: mtk_dsi: Add support for SRAM QoS setting
+Date: Tue, 15 Sep 2026 10:41:44 +0200
+Message-ID: <20260915084148.11385-10-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260915084127.692494-8-cassel@kernel.org>
-References: <20260915084127.692494-8-cassel@kernel.org>
+In-Reply-To: <20260915084148.11385-1-angelogioacchino.delregno@collabora.com>
+References: <20260915084148.11385-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2948; i=cassel@kernel.org; h=from:subject; bh=7xr9fV35wkpbEG8vb7jhU0pm3GhxiOo8E0GjQBmR/Bw=; b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGLJWsuz5XH162x6LC5H/A331Fnxo3CWedlyuwfyQrWLRt AcfeQQiOkpZGMS4GGTFFFl8f7jsL+52n3Jc8Y4NzBxWJpAhDFycAjCRrxoM/z0vnmv+Pju3bYkU lyXXw3NLgt8/iLnmIc6l5WK6vHtnvhEjw51bIY+TL5Td3TYz4E1xra7t7rVuZld4b5j5yJ6rmr3 0HSsA
-X-Developer-Key: i=cassel@kernel.org; a=openpgp; fpr=5ADE635C0E631CBBD5BE065A352FE6582ED9B5DA
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260915_094215_144390_F9414CD5 
+X-CRM114-Status: GOOD (  23.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,80 +104,236 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-st_ahci_probe_resets() treats any error from devm_reset_control_get() as
-"reset control not defined" and continues with a NULL reset control:
+Add support for automatically calculating and setting the Quality
+of Service (QoS) parameters and DSI IP SRAM Line Buffering in the
+newest DSI IPs like the one found on MT8196, MT6991 and variants.
 
-	drv_data->pwr = devm_reset_control_get(dev, "pwr-dwn");
-	if (IS_ERR(drv_data->pwr)) {
-		dev_info(dev, "power reset control not defined\n");
-		drv_data->pwr = NULL;
-	}
+This allows for a small reduction in memory (and display frames)
+latency by limiting transmission bursts to a certain, number of
+bytes, predefined as per the calculations based on the total data
+rate (on all lanes), number of internal DSI IP buffer blocks and
+bytes per pixel.
 
-This also swallows -EPROBE_DEFER, which is returned when the reset
-controller providing the reset has not been probed yet. probe() then
-continues as if the device tree did not specify any reset, so the resets
-of the SATA IP are never deasserted, and st_ahci_configure_oob() and
-ahci_platform_init_host() access the MMIO of an IP which is still held in
-reset and powered down, which can result in an external abort.
+Note that the current algorithm does account for different values
+of sram and buffer units but, since this was only tested on the
+MT8196 SoC (which happens to have the same value for buffer and
+sram unit), the same dsi_sram_bytes value was assigned to both
+units: though the algorithm could've been simplified a little by
+making it to assume that they're the same, at the time of writing
+there are a few SoCs out in the wild that have different sizes.
 
-The resets are optional in the binding, as they are not part of its
-required properties, so use devm_reset_control_get_optional(), which
-returns NULL if the reset is not specified in the device tree, and
-propagate all other errors.
+Until those are implemented though, the platform data struct will
+have only one parameter, assumed to be assigned to both units, in
+order to keep both the structure and the code size smaller.
 
-Note that an absent reset is now indicated by a NULL reset control
-instead of an error, so the "reset control not defined" messages are
-dropped.
-
-Fixes: 76884cb2f7da ("ahci: st: Add support for ST's SATA IP")
-Cc: stable@vger.kernel.org
-Signed-off-by: Niklas Cassel <cassel@kernel.org>
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/ata/ahci_st.c | 31 ++++++++++++++-----------------
- 1 file changed, 14 insertions(+), 17 deletions(-)
+ drivers/gpu/drm/mediatek/mtk_dsi.c | 145 +++++++++++++++++++++++++++++
+ 1 file changed, 145 insertions(+)
 
-diff --git a/drivers/ata/ahci_st.c b/drivers/ata/ahci_st.c
-index 4336c8a6e208..819269a022ef 100644
---- a/drivers/ata/ahci_st.c
-+++ b/drivers/ata/ahci_st.c
-@@ -104,23 +104,20 @@ static int st_ahci_probe_resets(struct ahci_host_priv *hpriv,
- {
- 	struct st_ahci_drv_data *drv_data = hpriv->plat_data;
+diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
+index 6e92e4e1586f..16bf08bee38e 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dsi.c
++++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
+@@ -52,6 +52,7 @@
+ #define DSI_RESET			BIT(0)
+ #define DSI_EN				BIT(1)
+ #define DPHY_RESET			BIT(2)
++#define CMDMODE_WAIT_DATA_EVERY_LINE_EN	BIT(24)
  
--	drv_data->pwr = devm_reset_control_get(dev, "pwr-dwn");
--	if (IS_ERR(drv_data->pwr)) {
--		dev_info(dev, "power reset control not defined\n");
--		drv_data->pwr = NULL;
--	}
--
--	drv_data->sw_rst = devm_reset_control_get(dev, "sw-rst");
--	if (IS_ERR(drv_data->sw_rst)) {
--		dev_info(dev, "soft reset control not defined\n");
--		drv_data->sw_rst = NULL;
--	}
--
--	drv_data->pwr_rst = devm_reset_control_get(dev, "pwr-rst");
--	if (IS_ERR(drv_data->pwr_rst)) {
--		dev_dbg(dev, "power soft reset control not defined\n");
--		drv_data->pwr_rst = NULL;
--	}
-+	drv_data->pwr = devm_reset_control_get_optional(dev, "pwr-dwn");
-+	if (IS_ERR(drv_data->pwr))
-+		return dev_err_probe(dev, PTR_ERR(drv_data->pwr),
-+				     "failed to get pwr-dwn reset\n");
-+
-+	drv_data->sw_rst = devm_reset_control_get_optional(dev, "sw-rst");
-+	if (IS_ERR(drv_data->sw_rst))
-+		return dev_err_probe(dev, PTR_ERR(drv_data->sw_rst),
-+				     "failed to get sw-rst reset\n");
-+
-+	drv_data->pwr_rst = devm_reset_control_get_optional(dev, "pwr-rst");
-+	if (IS_ERR(drv_data->pwr_rst))
-+		return dev_err_probe(dev, PTR_ERR(drv_data->pwr_rst),
-+				     "failed to get pwr-rst reset\n");
+ /* DSI_MODE_CTRL */
+ #define MODE				(3)
+@@ -152,6 +153,18 @@
+ #define FORCE_COMMIT			BIT(0)
+ #define BYPASS_SHADOW			BIT(1)
  
- 	return st_ahci_deassert_resets(hpriv, dev);
++/* DSI_VDE */
++#define VDE_BLOCK_ULTRA			BIT(29)
++
++/* DSI_BUF_CON0 */
++#define DSI_QOS_BUF_EN			BIT(0)
++
++/* DSI_BUF_CON1 */
++#define BUF_OUT_VALID_THRESH		GENMASK(14, 0)
++
++/* DSI_BUF_SODI_HIGH, SODI_LOW and other BUF registers */
++#define BUF_THRESHOLD_PARAM		GENMASK(19, 0)
++
+ /* CMDQ related bits */
+ #define CONFIG				GENMASK(7, 0)
+ #define SHORT_PACKET			0
+@@ -164,6 +177,17 @@
+ 
+ #define NS_TO_CYCLE(n, c)    ((n) / (c) + (((n) % (c)) ? 1 : 0))
+ 
++/* HW QoS and Anti-Latency Buffer related bits */
++#define MTK_DSI_MAX_FIFO_BYTES			1554
++#define MTK_DSI_DEFAULT_QOS_VALID_FIFO_US	25
++#define MTK_DSI_DEFAULT_QOS_SODI_LO_OVERHEAD	(23 + 5)
++#define MTK_DSI_DEFAULT_QOS_PREULTRA_HI_US	36
++#define MTK_DSI_DEFAULT_QOS_PREULTRA_LO_US	35
++#define MTK_DSI_DEFAULT_QOS_ULTRA_HI_US		26
++#define MTK_DSI_DEFAULT_QOS_ULTRA_LO_US		25
++#define MTK_DSI_DEFAULT_QOS_URGENT_LO_US	11
++#define MTK_DSI_DEFAULT_QOS_URGENT_HI_US	12
++
+ #define MTK_DSI_HOST_IS_READ(type) \
+ 	((type == MIPI_DSI_GENERIC_READ_REQUEST_0_PARAM) || \
+ 	(type == MIPI_DSI_GENERIC_READ_REQUEST_1_PARAM) || \
+@@ -206,9 +230,26 @@ enum mtk_dsi_adv_regidx {
+ 	DSI_VM_CMD_CON,
+ 	DSI_SHADOW_DEBUG,
+ 	DSI_CMDQ,
++	DSI_VDE,
+ 	DSI_ADV_REG_MAX
+ };
+ 
++enum mtk_dsi_qos_regidx {
++	DSI_QOS_BUF_CON0,
++	DSI_QOS_BUF_CON1,
++	DSI_QOS_TX_BUF_RW_TIMES,
++	DSI_QOS_SODI_HIGH,
++	DSI_QOS_SODI_LOW,
++	DSI_QOS_PREULTRA_HIGH,
++	DSI_QOS_PREULTRA_LOW,
++	DSI_QOS_ULTRA_HIGH,
++	DSI_QOS_ULTRA_LOW,
++	DSI_QOS_URGENT_HIGH,
++	DSI_QOS_URGENT_LOW,
++	DSI_QOS_PREURGENT_HIGH,
++	DSI_QOS_REG_MAX
++};
++
+ struct mtk_phy_timing {
+ 	u32 lpx;
+ 	u32 da_hs_prepare;
+@@ -233,8 +274,12 @@ struct phy;
+ struct mtk_dsi_driver_data {
+ 	const u16 *reg_main;
+ 	const u16 *reg_adv;
++	const u16 *reg_qos;
+ 
+ 	const u16 max_link_rate_mbps;
++	const u8 dsi_sram_bytes;
++	const u8 pixels_per_iter;
++	const u8 num_burst_lines;
+ 
+ 	bool has_size_ctl;
+ 	bool cmdq_long_packet_ctl;
+@@ -771,6 +816,102 @@ static int mtk_dsi_set_dsc_params(struct mtk_dsi *dsi)
+ 	return drm_dsc_compute_rc_parameters(dsc);
  }
+ 
++static void mtk_dsi_config_hw_buffers(struct mtk_dsi *dsi)
++{
++	const struct mtk_dsi_driver_data *data = dsi->driver_data;
++	const u16 *reg_qos = data->reg_qos;
++	u32 buffer_unit, sram_unit, num_hw_buffers;
++	u32 preultra_hi, preultra_lo;
++	u32 urgent_hi, urgent_lo;
++	u32 ultra_hi, ultra_lo;
++	u32 sodi_hi, sodi_lo;
++	u32 data_rate_per_buf;
++	u32 out_valid_thresh;
++	u32 dsi_buf_bpp;
++	u32 fill_rate;
++	u32 pclk_mhz;
++	u32 rw_times;
++	u32 val;
++	u64 tmp;
++
++	/*
++	 * At the time of implementing, this was verified only on MT6991/MT8196
++	 * and, for this SoC, the buffer unit is equal to the SRAM bytes.
++	 *
++	 * There are other SoCs already out in the wild that do support the HW
++	 * buffers and that have different sizes, so keep the calculation as-is!
++	 */
++	buffer_unit = data->dsi_sram_bytes;
++	sram_unit = data->dsi_sram_bytes;
++	num_hw_buffers = sram_unit / buffer_unit;
++
++	if (data->support_per_frame_lp)
++		val = CMDMODE_WAIT_DATA_EVERY_LINE_EN;
++	else
++		val = 0;
++
++	mtk_dsi_mask(dsi, data->reg_main[DSI_CON_CTRL],
++		     CMDMODE_WAIT_DATA_EVERY_LINE_EN, val);
++
++	/* Read as: [Data rate (MHz)] * [Number of DSI lanes] / [8 buffer blocks] */
++	tmp = (u64)dsi->data_rate * dsi->lanes;
++	data_rate_per_buf = div_u64(tmp, 8 * buffer_unit * HZ_PER_MHZ);
++
++	/*
++	 * Anti-latency buffer output threshold for absolute timer mode: this
++	 * parameter controls the maximum amount of output data that the FIFO
++	 * can hold before running out of buffer space.
++	 *
++	 * The data will therefore be sent either when the DSI IP0s internal
++	 * vblank vs bus QoS timer expires or when it reaches the amount of
++	 * buffers set in BUF_OUT_VALID_THRESHOLD (regardless of QoS) to avoid
++	 * partially, or entirely, losing frame(s).
++	 */
++	out_valid_thresh = MTK_DSI_DEFAULT_QOS_VALID_FIFO_US * data_rate_per_buf;
++	out_valid_thresh = min(out_valid_thresh, MTK_DSI_MAX_FIFO_BYTES - 1);
++	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_BUF_CON1], BUF_OUT_VALID_THRESH, out_valid_thresh);
++
++	/* Enable ULTRA signal trigger between SOF and VACT */
++	mtk_dsi_mask(dsi, data->reg_adv[DSI_VDE], VDE_BLOCK_ULTRA, 0);
++
++	/* Calculate fill rate with line counter mode for DSI Video Mode */
++	if (dsi->format == MIPI_DSI_FMT_RGB565)
++		dsi_buf_bpp = 2;
++	else
++		dsi_buf_bpp = 3;
++
++	pclk_mhz = dsi->vm.pixelclock / HZ_PER_MHZ;
++	fill_rate = div_u64((u64)pclk_mhz * data->pixels_per_iter * dsi_buf_bpp,
++			    buffer_unit);
++
++	/* Calculate QoS Anti-Latency parameters */
++	sodi_hi = MTK_DSI_MAX_FIFO_BYTES * num_hw_buffers;
++	sodi_hi -= (fill_rate - data_rate_per_buf) * 12 / 10;
++	sodi_lo = MTK_DSI_DEFAULT_QOS_SODI_LO_OVERHEAD * data_rate_per_buf;
++	preultra_hi = MTK_DSI_DEFAULT_QOS_PREULTRA_HI_US * data_rate_per_buf;
++	preultra_lo = MTK_DSI_DEFAULT_QOS_PREULTRA_LO_US * data_rate_per_buf;
++	ultra_hi = MTK_DSI_DEFAULT_QOS_ULTRA_HI_US * data_rate_per_buf;
++	ultra_lo = MTK_DSI_DEFAULT_QOS_ULTRA_LO_US * data_rate_per_buf;
++	urgent_hi = MTK_DSI_DEFAULT_QOS_URGENT_HI_US * data_rate_per_buf;
++	urgent_lo = MTK_DSI_DEFAULT_QOS_URGENT_LO_US * data_rate_per_buf;
++	rw_times = dsi->vm.vactive * dsi_buf_bpp;
++	rw_times /= data->num_burst_lines * data->pixels_per_iter;
++
++	/* Write all QoS parameters: Screen On Deep Idle, (pre)Ultra, Urgent, RW times */
++	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_SODI_HIGH], BUF_THRESHOLD_PARAM, sodi_hi);
++	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_SODI_LOW], BUF_THRESHOLD_PARAM, sodi_lo);
++	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_PREULTRA_HIGH], BUF_THRESHOLD_PARAM, preultra_hi);
++	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_PREULTRA_LOW], BUF_THRESHOLD_PARAM, preultra_lo);
++	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_ULTRA_HIGH], BUF_THRESHOLD_PARAM, ultra_hi);
++	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_ULTRA_LOW], BUF_THRESHOLD_PARAM, ultra_lo);
++	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_URGENT_HIGH], BUF_THRESHOLD_PARAM, urgent_hi);
++	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_URGENT_LOW], BUF_THRESHOLD_PARAM, urgent_lo);
++	writel(rw_times, dsi->regs + reg_qos[DSI_QOS_TX_BUF_RW_TIMES]);
++
++	/* Finally, activate internal line-buffering */
++	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_BUF_CON0], DSI_QOS_BUF_EN, DSI_QOS_BUF_EN);
++}
++
+ static int mtk_dsi_config_vdo_timing(struct mtk_dsi *dsi)
+ {
+ 	const struct mtk_dsi_driver_data *data = dsi->driver_data;
+@@ -956,6 +1097,10 @@ static int mtk_dsi_poweron(struct mtk_dsi *dsi)
+ 	mtk_dsi_reset_engine(dsi);
+ 	mtk_dsi_phy_timconfig(dsi);
+ 
++	/* Setup HW FIFO if DSI supports QoS Anti-Latency buffers */
++	if (data->dsi_sram_bytes && data->reg_qos)
++		mtk_dsi_config_hw_buffers(dsi);
++
+ 	mtk_dsi_ps_control(dsi, true);
+ 	mtk_dsi_set_vm_cmd(dsi);
+ 	ret = mtk_dsi_config_vdo_timing(dsi);
 -- 
 2.55.0
 
