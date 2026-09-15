@@ -4,75 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0ABEC88E75
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 943EAC88E53
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 10:34:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=f75fQgzk5PMT2bUGTVE35Rs8Li1ghntLsZOgXFHTcEQ=; b=ggrAVzWWmuLUM+1oJTP6ndqm2F
-	ZTaDT8eOHbxxFVgZlqYrDhhytqZVrJORNjcHoqqDytVtpdzu6DSRUCZ0wSDQTxC6i1idf1UVgTox7
-	gM5l2o6VB8TZT9L4I1SNQPUbf7pFPZBiGIQcpNsJ3wyRYBkVX3kwwDsgimXa2L0CnVMyGip5ueGo6
-	45Z4qs3cFB3lW0AvdK4ASm3ibQwKmXB5kP67ND1PGsbMpIuGwNw7MgtQBkk5K0Hr9I9VmtkxnXzdM
-	rCFaghnB/1zyy5gU+11HEBF7q4GU3tMHsT6303RKoEegCnOrwbuymZ4WPkxDCVRH02ZLU+UaQ4IQC
-	gw3jGvTg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JlZV+gDl5kHNbM3FapkIWa6VkdcZp6BNeCy2FJirDI8=; b=fbl/LurpNj52lRwR6vgy/k8wMb
+	T4fPusHAqDItPlq4LSokBgDFfKAvFjg++PZFuPMwAPMCiot8DHqHf3V/hQWFxq5XPfJ0gacWLElOp
+	wHDPByJN4Hz1W5rNYgUy+Il5Mk+vhkXrX0flwmlV3lNipZtwVZY8nMaWN4av4oALD/tNBA0Y+qld6
+	yZboH8gLRCtYTpwxyUCtOqOHi40oHfYGPdVXIdWwES7diBdA1Rf/uFchJa6GIA3UUq3vXfFNnBixL
+	u1Wk7467lFmPAempuk4juHDR8Xx3d73+eF0dWa1AW4jPhnDeQ6YIntT8sJ0tdSrIplzNXyMSzsw+u
+	VVy4I0AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6QU8-00000005vhx-126j;
+	id 1x6QU8-00000005vhd-0WhB;
 	Tue, 15 Sep 2026 10:33:56 +0000
 Received: from mail-ej2-x10.google.com ([2a00:1450:4864:34::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6QU5-00000005vgA-15P7
+	id 1x6QU5-00000005vgB-15Jk
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 15 Sep 2026 10:33:55 +0000
-Received: by mail-ej2-x10.google.com with SMTP id a640c23a62f3a-c254fa650c8so21516666b.0
+Received: by mail-ej2-x10.google.com with SMTP id a640c23a62f3a-c254f560398so23446966b.1
         for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 03:33:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20251104; t=1789468431; x=1790073231; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=f75fQgzk5PMT2bUGTVE35Rs8Li1ghntLsZOgXFHTcEQ=;
-        b=tGiPN4W9XsPcck2lYEA7qPZEAswIPn21Bp/mutlvIRXaFoqCoFqgvr9Yj01NV2ToVB
-         pZtAT2mASl/NmWrzd26oNokSU+AXkDl+vQyemZioG3SgNjKLC5CYZUpk/YsVdz7PMGrU
-         N5fiGrkLwvm9Oo9fOgacOghHRWz6akVkJ3/wT21NT8uJv/ArkFlM/fmDBrYN4fGwyAD+
-         d4vylEtI/Yq+i07CBb5yOq4peVsCf8jP/Ri2/hReig510ZJdkBC1RM7+FMVRsHakw+/P
-         +LdwytkqnBGZJIwyF8IUiySRvM/DZ/MfcBdLhTdsIFIjqeLklLqZR0t7FHc5z1SNf3Ri
-         sQ1A==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=JlZV+gDl5kHNbM3FapkIWa6VkdcZp6BNeCy2FJirDI8=;
+        b=WiVw4r/+2o7oqF8frEw5zbIRGNEQ9lu93C2AWCYI5TJGca0YcK1G9VE6RbcQaeEEiW
+         q2tt5dEslPVdLMyBVVomvh8DYE0ZpRdH1vo4Y5xq3BeXS5obWt3e7Ao4NNZ4qk1ONnra
+         hSyWbiiv12D52TQTMWCX49HXNVr6lBtOrsfOyhS5Bwv/tq1LP/WOPk9DTQEXri4RKJ0h
+         ffN+Nj3Jt0YjNuA5EbnuB1jJ8IACfeLWw9M+EQw2hejrwB3LkaPX036QeCgkoejUH93W
+         oH/mTc7JDmTXl6oDGtxyE0PrhrhOWRRs+54hS5ajL/3KLGAN8KwWW35oXalDjME0xpVC
+         JabQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1789468431; x=1790073231;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=f75fQgzk5PMT2bUGTVE35Rs8Li1ghntLsZOgXFHTcEQ=;
-        b=fxM7q/flFeQuGzQZ1Ih235eBluTBlmeylKwHgjRrpapXl1Q6ZL97nForC9d3x1oKrZ
-         o6bcD1FWmKC1MVknlzz9Rsgj/wQMe6QSkIcbZHiZQA3q/J50eMkC1JQvAP6TbwyRu1ZS
-         r5qvNKyYmeQWPRNPkMgyfp7sP4We8G5U2ocTyIHurOFuwP18So9s/cc9LpVbLHGZwpKu
-         Qci+Gx9m4p55BSXnIIgWp+2PgMtSsYJplAMA/xKmGEXENP248sTrVqPx4JSnjqeFRQLv
-         lK4lql50GLsFfS5OYsFNli+/BOe5Sop62L8FVAKpCdR+7PH6ZAPIXNAYcQxV/a7B81mi
-         BJSw==
-X-Forwarded-Encrypted: i=1; AKwUvBz1Nd3Pk313AjEoJZQn0vhU0karp0+1QWh8au3kawqi9BmdLUAm5IKXUgXDGS26e/v6LkwqEFB84alEHID2F++T@lists.infradead.org
-X-Gm-Message-State: AFuF++mRC/PX5RdxbHInhfN6zeRKDtNYmXyDHIiGN3lMzxU0eOrxOHW+
-	pCxcVWIvxgW+ewzyl5Ve/e+ggx043duLosYoeQ/CgupeFZyi2g0UNRMN
-X-Gm-Gg: AYBFou1wEFgpVcW+od5gKB6IXUbCWekO8Zglny9YdQkc7+HB0CLyWlfeVpAcu6kUSqt
-	eqEgMcmqeaMwvYvXzQNJnvMrzcCsNvQjNdKmo+c5kU+DHWUyTejp4MkqEGQsPunAir7SCnBtA+e
-	Ttb/+dJZsLYK91f5OdthpNY0sp50e9bTbjGUElZrJDXdqTwYEiJ949ZFoinx5bDwfbkMEiNy4yf
-	WGnXsLCNB+9u53XhR+E6T2NaUX5KoQy7+FLlwP8pX0B8QX10YBqP+o0o9tVqUhPWCollv+JMhz/
-	oeIoZdNbN9HEIhxIChuLP6LQR15HA83IxS3TA0w/TQZbiKnMr6JYL0Juxa4MjcobxqtoXdkUAHj
-	yNcV7So9RWlcq1uSik7nHCYTD0dDKhMBzlpvm2CnJv7WMV16hsUcOICAR32WrxapeWQ2fZkt1lh
-	DJY0OUea45XL51U0PzX/6eFnhKwUrU6pKcG09407/Dz67mmqT1Tq90ebm2teqSup2oB/m0YgvAK
-	PT2FWyEbbTj7ix5W74hOIGDR4FcO6YzB37kr7dwc5sr/fqNuXIJTm8YuiiOVWlFGkx0hXbVOfsG
-	4omDfxHRGwgELFRYgN1foe1c+WarnqlBZW4R1NW5j1hX2184fSy4lJY8zR+iRtFKntJOpGiWpQs
-	k60vuNyMMoiRtoolEsSy5pRI8kdEIJxhrqQBVTaIOQu9D7OuBYvljEycO46lemBA4jcr0QERjEs
-	/2x5Oa3Ye7q1i7w/i1myiAAD315T/iB5Y5O1dQTA4NgwpKuTkyybvzCO0VRAaOvnW5zDdENRfB2
-	Nx2gf3Z8cu3k8G3
-X-Received: by 2002:a17:907:6d1d:b0:c29:44b0:1428 with SMTP id a640c23a62f3a-c29d79b8aa1mr40465866b.42.1789468430983;
-        Tue, 15 Sep 2026 03:33:50 -0700 (PDT)
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=JlZV+gDl5kHNbM3FapkIWa6VkdcZp6BNeCy2FJirDI8=;
+        b=bQ+72x/aUC4AZ0VlrvcrcwO6LxTNYuX3TCgZNIumCAljZRddOJdHMk+B6kpv+EaRSX
+         e0d7sNmYjcY7bQDkJg6kI57n4KKLIh3nbkoXCEOBZ/7VpsbGEGGx4iPYJDajeXTripq3
+         +UGAm+OmbkRfogK2Ira76CKSoxtW3JIcf9Iu43Oh58mKZ3Rl0m0UcxP1O3KeEldaAtDE
+         7srhTvBCxQtJraDRzfieU6snnwjzyZZRSboPIoijASj2DYMvWaIszhGk83iviIaN1suU
+         DK31wOdzYn1c6mS27XO10JaWW5Oy4L/5QA+WpqNQNc98MqbGfq7ldJIc5tPC93cXPvk9
+         /V7A==
+X-Forwarded-Encrypted: i=1; AKwUvByZWMti8W/1YzIlyvFwyfdIvDl6K1YL9lOQWIFRv9aCI9whiwqp+K1UpY7VsoOQpXRdoxofz3npPzXd1Yclzx/4@lists.infradead.org
+X-Gm-Message-State: AFuF++m4xCSyOQvWFHw8uuBzO9eaCyoxKLJn8ppVBTx1LDkn6hzTfnaT
+	nYq2yonY9BEdc55SWzTXeK0/WmeNs4/H5DD7ifWyLNvEy+WI0i6/KYQ6
+X-Gm-Gg: AYBFou0NlQ4TzAo8ru1ChDdJjoJDWvFicEs+7eqO+22QPPkIsFxgyBU7gHrF3Zt2/jD
+	RR67UtlWri6WELpwbqW7cpSneeTyNhWcVfGSWsyXBMP++Ye7hk7vyXv+21W5kHk1uFSoslSiXjk
+	2MEfrgxFe3GuKelxMWc42QDyVaNp2jI4Cs96sC0qJrCdglLxzBEb0L/hJNAdTLa5J9O1HYIRIrm
+	FysIGR6WHV4C8xqQWlbVzbYZzCdumOwvQxolGb+q/PA71bkLOelwckR3HzuOEEzAR4t4IHkTVRf
+	8aD77W/sL7AvWWYnbI2kdnFqpFgVTeG6l4IF5W7rYztp0odklPuuZSkSlV/oK+H0F/e4Dr6Sp9O
+	yDzlPd/KUxuiTQ5Fa5mz5zMCwUMWVXfeMgcq/pqhmwgSKubP2aKdPATTQgdf+ZfdH9PX1OhB92X
+	ZaIglM6dYp4nILz+4U4QfgXSKZX5eJjFURUdAl59bz1Cyu2wzjn1mkL9HjKiInM/3BrzKdbVTHO
+	Ch7zIoPR2dT8wyYkxh3rW9dvHzHWT0aXn9mT0SwVVkdo0wTTIndBbOCn7nNdSfVsNtqWI9hywNt
+	O4WJNH1M4QvZXzVqbu6lYYzGlPaJYo1ASoIqwx2I7kFTZOxKBqqDjUHbox3Fax9SGY33TlVmvRz
+	CkaG9Z0XwivNc45g4+ggwfjeN/VjJbBLg7PN2hrk1SnJ8tJ4riHrm8+J7cOYtmUwVKhebEw/bbz
+	u9CyU5v4gbHvSSIkP4K5fibsBnUMlRs1mP15h6SnEjKMXvyzXtGKhxhrmdiHRg52yJB6gtWCHMb
+	6pVTVb1vbl8OLfjl9oF2Vk1aqY=
+X-Received: by 2002:a17:907:9610:b0:c26:2da7:347f with SMTP id a640c23a62f3a-c29d734648dmr49184166b.0.1789468431374;
+        Tue, 15 Sep 2026 03:33:51 -0700 (PDT)
 Received: from cs-280612103108-default.europe-west4-a.c.oa7bb030819b2a894-tp.internal (219.40.147.34.bc.googleusercontent.com. [34.147.40.219])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2965c4e8a1sm566041866b.6.2026.09.15.03.33.50
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2965c4e8a1sm566041866b.6.2026.09.15.03.33.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Sep 2026 03:33:50 -0700 (PDT)
+        Tue, 15 Sep 2026 03:33:51 -0700 (PDT)
 From: Joshua Crofts <joshua.crofts1@gmail.com>
 To: Abel Vesa <abelvesa@kernel.org>,
 	Peng Fan <peng.fan@nxp.com>,
@@ -86,16 +87,19 @@ To: Abel Vesa <abelvesa@kernel.org>,
 Cc: linux-clk@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/2] clk: imx: add missing pm_runtime_dont_use_autosuspend() calls
-Date: Tue, 15 Sep 2026 10:33:43 +0000
-Message-ID: <20260915103345.1334-1-joshua.crofts1@gmail.com>
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH 1/2] clk: imx: clk-imx8qxp-lpcg: add missing pm_runtime_dont_use_autosuspend()
+Date: Tue, 15 Sep 2026 10:33:44 +0000
+Message-ID: <20260915103345.1334-2-joshua.crofts1@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260915103345.1334-1-joshua.crofts1@gmail.com>
+References: <20260915103345.1334-1-joshua.crofts1@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_033353_317389_DBE93EA2 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20260915_033353_322797_7371AE23 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,24 +114,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Several drivers in the clk subsystem forget to call dont_use_autosuspend()
-on teardown or error, causing potential resource leaks. This series adds
-the missing calls.
+imx_lpcg_parse_clks_from_dt() disables PM runtime but doesn't call the
+pm_runtime_dont_use_autosuspend() function, causing potential resource
+leaks.
 
-The offending drivers were found using a semantic patch for Coccinelle
-I'm working on [1].
+Add the missing function call.
 
-[1] https://lore.kernel.org/all/20260915064327.1377-1-joshua.crofts1@gmail.com/
+Found using Coccinelle.
 
-Joshua Crofts (2):
-  clk: imx: clk-imx8qxp-lpcg: add missing
-    pm_runtime_dont_use_autosuspend()
-  clk: imx: scu: add missing pm_runtime_dont_use_autosuspend() call
-
+Fixes: 18cdbad40c6c ("clk: imx: clk-imx8qxp-lpcg: add runtime pm support")
+Cc: <stable@vger.kernel.org>
+Signed-off-by: Joshua Crofts <joshua.crofts1@gmail.com>
+---
  drivers/clk/imx/clk-imx8qxp-lpcg.c | 1 +
- drivers/clk/imx/clk-scu.c          | 2 ++
- 2 files changed, 3 insertions(+)
+ 1 file changed, 1 insertion(+)
 
+diff --git a/drivers/clk/imx/clk-imx8qxp-lpcg.c b/drivers/clk/imx/clk-imx8qxp-lpcg.c
+index f0cf6cf91899..b31903060361 100644
+--- a/drivers/clk/imx/clk-imx8qxp-lpcg.c
++++ b/drivers/clk/imx/clk-imx8qxp-lpcg.c
+@@ -279,6 +279,7 @@ static int imx_lpcg_parse_clks_from_dt(struct platform_device *pdev,
+ 	}
+ 
+ 	pm_runtime_disable(&pdev->dev);
++	pm_runtime_dont_use_autosuspend(&pdev->dev);
+ 
+ 	return ret;
+ }
 -- 
 2.47.3
 
