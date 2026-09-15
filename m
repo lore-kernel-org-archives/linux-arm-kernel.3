@@ -4,83 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8533DC982C1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:14:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2108C88E7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:17:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X3+2zYRSpciM7uYDkfrVnfpdjazC9P6LhL6MmIorApI=; b=TXMjOYsLQL4hrvtldpFmmv66NH
-	yshXNEt5h4NCap/f5FDoE0lYuaD6V4KpGoteiDeUR/gsF2jPzieO6U6prLK7sBBZ/MUBb8DEKJOgd
-	YeQWJeAZ9grngjlrAJj5T+ieQ4mKM1X3h06oZho9D0K9yCdaAvyPf4RShyNaSeVtXpBQYdTiBa8pK
-	4QWP51+f5YtksrirLdrWtXwFF3EFnxN0ETDEXwKHP7YSn3Sb8OQzooxeVV7sYl7QnR+GTzK7y0OfN
-	SlBt7ZyR8mlO/eb6vGaWvwi/R18NxNy0PmMAWVp5yWI4yY2+Jy2SPCwmccg0+UtyhFfQf/m041J1W
-	hYGiRmOA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+dVu5sGWbQKQwOma7Xi4cL5jAvE0AQRc4TSNUprY5+E=; b=00XCRTrCoT0pV3
+	CdHyFBWanyOO4w9Lmw3L4uCdv0/nyvh7x8xAydoM1DNcz6q+F6fnopunlYusiww6XxPUgx3kxV7fD
+	nn93eGXFphwHKic7/9z0wqOev5wbRlHEAqtAzcMCIaYgSKxz1AqXKzRC09ipKdNKecsBhfK9gLg+a
+	uhv2DtQSIWewXe7Fm8GlYb1fKAX77Fwew9L153Q5xvlAehEdMVc7ebKvmab6RR4DRe/wLREjtLHHa
+	5h+pnr559q06/6JwOAetWAjD7TZitl868/HSnSUy1s5ZF/xkxj8hSUsv1fnYObiwR2B+88SYFsCnG
+	aZKMbmLfPQoQC4O7oTUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6UrQ-000000077m9-42Gy;
-	Tue, 15 Sep 2026 15:14:16 +0000
+	id 1x6Uu4-000000078D4-0ATR;
+	Tue, 15 Sep 2026 15:17:00 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6UrP-000000077lK-3h0E
+	id 1x6Uu0-000000078Ce-488f
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 15:14:15 +0000
+	Tue, 15 Sep 2026 15:16:58 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5E6BF438B0;
-	Tue, 15 Sep 2026 15:14:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C0DE1F000FF;
-	Tue, 15 Sep 2026 15:14:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B939643E11
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 15:16:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9545D1F008A6
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 15:16:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789485255;
-	bh=X3+2zYRSpciM7uYDkfrVnfpdjazC9P6LhL6MmIorApI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=SGhRs7CyUcB+xKNzzgWZcvokGEOOVMOQJ3OETwnVY4jRSuKplqoTwyAHVl1KH+8b0
-	 VNFp7fTkeI9e0+ZC+dM3TCI/46xIVfnf6Hk9+kbi2++thNjHW5PBB5/REKjWuWnhOX
-	 NsSD7M8d1YeI07hn49Tk4V15z8kJeBIKxKfhHx/GhLBjJYbwN3chruH08krEcNHwOL
-	 tIzZTpw/abh24Oe+viSlZfRNOaS6B5P91oMAkTKw/YqLk36i3YOHepcXc0roWktlD6
-	 DjzlWtA6jsr6cBjFcAyGQ1ancIHd7wSK3XNR1o86hlnCFoVmiGndLQ4Fj8yQl/Cg9F
-	 e28SqUFMkedvA==
-Date: Tue, 15 Sep 2026 17:14:12 +0200
-From: Frederic Weisbecker <frederic@kernel.org>
-To: Josef Bacik <josef@toxicpanda.com>
-Cc: "Paul E. McKenney" <paulmck@kernel.org>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Boqun Feng <boqun@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>, x86@kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Puranjay Mohan <puranjay@kernel.org>,
-	Xu Kuohai <xukuohai@huaweicloud.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Zqiang <qiang.zhang@linux.dev>, Juergen Gross <jgross@suse.com>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	linux-kernel@vger.kernel.org, rcu@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org, bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	xen-devel@lists.xenproject.org
-Subject: Re: [PATCH RFC v3 03/13] rcu-tasks: Add a Tasks RCU implementation
- for reader-marked trampolines
-Message-ID: <aqlgxKGk_AEKls_1@localhost.localdomain>
-References: <20260915-b4-rcu-tasks-preempt-qs-v3-0-0ad30c4c5ee7@toxicpanda.com>
- <20260915-b4-rcu-tasks-preempt-qs-v3-3-0ad30c4c5ee7@toxicpanda.com>
+	s=k20260515; t=1789485416;
+	bh=+dVu5sGWbQKQwOma7Xi4cL5jAvE0AQRc4TSNUprY5+E=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=IKwXBujtiq0ha8T8DARsdFuYpzysYWxzbW6bLVocjyfaygL3QUFjlIlnjANxOABKp
+	 Ngl1Etijj2DojJpbizndyMWR3OebPB6Mm+oeCZuWoA7mLvY6pWQnpKPYwhyQseoUKx
+	 BzWGozlyBravBMTPky+8ZB5upHVF3TnIUYsc/U0R9T+pTKzV662v/utcqELTzHan9E
+	 iJJVt+ebOLQ+c5IesLnkKr5OOhxKacD7M4xUU6FsiKzvQQcxI/VlUJ2GXQTcPcf5pF
+	 1FeTNO7ljgNnbFPg8VA0kgD9A/7tE5jofhG44fV502PzyJWVRzwNBzbWhBWtV37KJg
+	 bTn4H+p6ZOjuA==
+Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b5e4f18010so3486091e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 08:16:56 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwlXiB2N0WKl8PZphjA9uKUsyMBIRLBMtTWw9wP8vg5ZwB90vk1PdZ/XVe6bW7Sj2cixSOJK4BaWZh4La2Ocdzq@lists.infradead.org
+X-Gm-Message-State: AFuF++kz36Vyx1Urch9Nwe1hJXM3oINT98oDjuBXhbB4/iXi8rdfTMle
+	YoxSH3fzisCB182tyK3ETxy16bq3WbAre9MXhCKgUO4bmRZzV9HVovRIpykgQYckYi7pDLwvkxi
+	sFsV3xcTLWyQgkDAX0T9XBqyZvmCq5Rw=
+X-Received: by 2002:a05:6512:114a:b0:5b5:e53e:5710 with SMTP id
+ 2adb3069b0e04-5b8ae662458mr2061203e87.2.1789485414817; Tue, 15 Sep 2026
+ 08:16:54 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260915-b4-rcu-tasks-preempt-qs-v3-3-0ad30c4c5ee7@toxicpanda.com>
+References: <20260509190015.79086-1-jernej.skrabec@siol.net>
+ <nIKN_benRn2Bk8SDZrkMCA@gmail.com> <86943057-f5b4-4fae-9172-45f13814494f@kernel.org>
+ <0r4us4OeRRWtJhxvps-bZw@gmail.com> <b1f03d81-85db-4303-89ff-64440b6e1890@kernel.org>
+ <4709b24a-f421-4c81-a023-c37ea66c88bd@arm.com>
+In-Reply-To: <4709b24a-f421-4c81-a023-c37ea66c88bd@arm.com>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Tue, 15 Sep 2026 23:16:41 +0800
+X-Gmail-Original-Message-ID: <CAGb2v64d-UOdKkDF9u62NB-a5EsFLQckUH1hoqDbmz7eE7wQiA@mail.gmail.com>
+X-Gm-Features: AcwNN1Ua9fzIlsNRznQ7xIwsHTsfTLXcvWghC51yBM4u0ScR5WKMEqw88iUtY7s
+Message-ID: <CAGb2v64d-UOdKkDF9u62NB-a5EsFLQckUH1hoqDbmz7eE7wQiA@mail.gmail.com>
+Subject: Re: [PATCH v2 7/8] dt-bindings: display: allwinner: Split H616 DE33
+ layer reg space
+To: Krzysztof Kozlowski <krzk@kernel.org>, robh@kernel.org, conor+dt@kernel.org
+Cc: Andre Przywara <andre.przywara@arm.com>, =?UTF-8?Q?Jernej_=C5=A0krabec?= <jernej.skrabec@gmail.com>, 
+	samuel@sholland.org, mripard@kernel.org, maarten.lankhorst@linux.intel.com, 
+	tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, krzk+dt@kernel.org, 
+	mturquette@baylibre.com, sboyd@kernel.org, dri-devel@lists.freedesktop.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-clk@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,339 +85,171 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Tue, Sep 15, 2026 at 01:17:30PM +0000, Josef Bacik a écrit :
-> Tasks RCU waits for every task to pass through a voluntary context
-> switch, usermode or idle, because a preempted task might be sitting in a
-> trampoline that is about to be freed and nothing marks it as such.  With
-> PREEMPT_LAZY that is a poor fit for servers: cond_resched() is a no-op,
-> so a CPU-bound kthread only ever leaves the CPU by preemption, and one
-> such kthread holds every synchronize_rcu_tasks() caller -- ftrace and
-> BPF trampoline teardown under their mutexes, the kprobe jump optimizer
-> under text_mutex and cpus_read_lock() -- hostage for as long as it runs.
-> 
-> Following the discussion on v2, take the other road: let the
-> architecture make its trampolines Tasks Trace RCU readers.  When an
-> architecture selects HAVE_RCU_TRAMPOLINE_READERS it promises that every
-> trampoline whose lifetime Tasks RCU guards enters rcu_read_lock_trace()
-> (or its assembly equivalent) before calling out and leaves it before
-> returning, so a task anywhere inside such a call-out, preempted or not,
-> is an ordinary Tasks Trace reader.
-> 
-> That leaves the few instructions of trampoline text before the reader
-> is entered and after it is left (plus, in a later patch, the bytes a
-> kprobe jump optimization is about to overwrite).  A task can only linger
-> there by being interrupted there, and such text never calls anything
-> that schedules, so instead of tracking tasks we track CPUs: every pass
-> through __schedule() is a per-CPU quiescent event, except that the one
-> context switch that can catch a task at an arbitrary instruction -- a
-> preemption from irq exit -- first records the interrupted IP in the task
-> and parks it on a per-CPU list for the duration (reusing the fields and
-> lists the classic flavor keeps for its exit-path bookkeeping), and, if
-> the IP is inside such "unmarked" text, puts the task on a short holdout
-> list; the task takes itself off at its next context switch outside such
-> a preemption or irq-exit check that finds it elsewhere.  Usermode (the
-> existing tick hook, or a nohz_full CPU in an RCU extended quiescent
-> state) and idle count as well.  rcu_tasks_trampoline_text() does the
-> classification: anything outside core and module text, a new
-> .text..rcu_tramp section for C glue that trampolines call before it has
-> entered the reader (__rcu_trampoline), and an arch hook for things like
-> static ftrace stubs and return thunks.
-> 
-> The grace period, run by the existing rcu_tasks kthread so that
-> call_rcu_tasks(), synchronize_rcu_tasks() and rcu_barrier_tasks() keep
-> their names and callers, is: wait for every online non-idle CPU to
-> context switch (nudging stragglers with resched_cpu() after a jiffy),
-> drain the holdout list as it stood, synchronize_rcu_tasks_trace() for
-> everything inside the readers, then one more CPU pass and drain for
-> tasks that have since left the reader into the trailing instructions.
-> That is bounded by a few jiffies, preempt-off latency and an SRCU grace
-> period rather than by the longest stretch any task runs without
-> sleeping, needs no per-task scan, and makes cond_resched_tasks_rcu_qs()
-> unnecessary on such architectures.  As before, idle tasks are not
-> waited for.  rcu_tasks_wait_irq_preempted() walks the parked lists for
-> the one caller (the kprobe jump optimizer, later in the series) that
-> makes ordinary text unsafe to be parked in and so has to wait out tasks
-> that were preempted there before it said so.
-> 
-> The classic implementation is untouched and remains the default; the
-> new one is built only as CONFIG_TASKS_RCU_TRAMPOLINE_READERS when the
-> architecture opts in and uses the generic irq entry code, whose
-> reschedule check gains the rcu_tasks_irq_resched() call.  Nothing
-> selects it yet.
-> 
-> Suggested-by: Paul E. McKenney <paulmck@kernel.org>
-> Suggested-by: Alexei Starovoitov <ast@kernel.org>
-> Assisted-by: LLM
-> Signed-off-by: Josef Bacik <josef@toxicpanda.com>
-> ---
->  include/asm-generic/vmlinux.lds.h |  11 +
->  include/linux/rcupdate.h          |  32 ++-
->  include/linux/sched.h             |   1 +
->  kernel/entry/common.c             |   8 +-
->  kernel/fork.c                     |   1 +
->  kernel/rcu/Kconfig                |  22 ++
->  kernel/rcu/tasks.h                | 460 +++++++++++++++++++++++++++++++++++++-
->  kernel/rcu/update.c               |   2 +
->  8 files changed, 528 insertions(+), 9 deletions(-)
-> 
-> diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
-> index b2988aa12f66..86e58c4fe370 100644
-> --- a/include/asm-generic/vmlinux.lds.h
-> +++ b/include/asm-generic/vmlinux.lds.h
-> @@ -571,6 +571,16 @@
->  		__cpuidle_text_end = .;					\
->  		__noinstr_text_end = .;
->  
-> +/*
-> + * C glue called directly from Tasks-RCU-protected trampolines, bounded so
-> + * that rcu_tasks_trampoline_text() can recognise it; see __rcu_trampoline.
-> + */
-> +#define RCU_TRAMP_TEXT							\
-> +		ALIGN_FUNCTION();					\
-> +		__rcu_tramp_text_start = .;				\
-> +		*(.text..rcu_tramp)					\
-> +		__rcu_tramp_text_end = .;
-> +
->  #define TEXT_SPLIT							\
->  		__split_text_start = .;					\
->  		*(.text.split .text.split.[0-9a-zA-Z_]*)		\
-> @@ -607,6 +617,7 @@
->  		TEXT_HOT						\
->  		*(TEXT_MAIN .text.fixup)				\
->  		NOINSTR_TEXT						\
-> +		RCU_TRAMP_TEXT						\
->  		*(.ref.text)
->  
->  /* sched.text is aling to function alignment to secure we have same
-> diff --git a/include/linux/rcupdate.h b/include/linux/rcupdate.h
-> index 44c07a66edff..fb2a3889a696 100644
-> --- a/include/linux/rcupdate.h
-> +++ b/include/linux/rcupdate.h
-> @@ -50,6 +50,31 @@ token_context_lock_instance(RCU, RCU_BH);
->  /* Exported common interfaces */
->  void call_rcu(struct rcu_head *head, rcu_callback_t func);
->  void rcu_barrier_tasks(void);
-> +
-> +/*
-> + * Trampoline-reader Tasks RCU (CONFIG_TASKS_RCU_TRAMPOLINE_READERS), see
-> + * kernel/rcu/tasks.h.  rcu_tasks_irq_resched_enter()/_exit() bracket the
-> + * irq-exit preemption; rcu_tasks_trampoline_text() and the arch_ override
-> + * classify an interrupted IP; rcu_tasks_wait_irq_preempted() lets a caller
-> + * wait out tasks already preempted somewhere it is about to make unsafe.
-> + * __rcu_trampoline places C code that such trampolines call directly, before
-> + * it has entered its Tasks Trace reader, where that classification can see it.
-> + */
-> +void rcu_tasks_irq_resched_enter(unsigned long ip);
-> +void rcu_tasks_irq_resched_exit(void);
-> +bool rcu_tasks_trampoline_text(unsigned long ip);
-> +bool arch_rcu_tasks_trampoline_text(unsigned long ip);
-> +#ifdef CONFIG_TASKS_RCU_TRAMPOLINE_READERS
-> +void rcu_tasks_wait_irq_preempted(bool (*inside)(unsigned long ip));
-> +#else
-> +static inline void rcu_tasks_wait_irq_preempted(bool (*inside)(unsigned long ip)) { }
-> +#endif
-> +#ifdef CONFIG_TASKS_RCU_TRAMPOLINE_READERS
-> +/* Also keeps instrumentation calls out of the prologue, ahead of the reader. */
-> +#define __rcu_trampoline	__noinstr_section(".text..rcu_tramp")
-> +#else
-> +#define __rcu_trampoline
-> +#endif
->  void synchronize_rcu(void);
->  
->  /*
-> @@ -180,11 +205,16 @@ static inline void rcu_nocb_flush_deferred_wakeup(void) { }
->  #ifdef CONFIG_TASKS_RCU_GENERIC
->  
->  # ifdef CONFIG_TASKS_RCU
-> -# define rcu_tasks_classic_qs(t, preempt)				\
-> +#  ifdef CONFIG_TASKS_RCU_TRAMPOLINE_READERS
-> +void rcu_tasks_note_qs(struct task_struct *t, bool preempt);
-> +#  define rcu_tasks_classic_qs(t, preempt) rcu_tasks_note_qs((t), (preempt))
-> +#  else
-> +#  define rcu_tasks_classic_qs(t, preempt)				\
->  	do {								\
->  		if (!(preempt) && READ_ONCE((t)->rcu_tasks_holdout))	\
->  			WRITE_ONCE((t)->rcu_tasks_holdout, false);	\
->  	} while (0)
-> +#  endif
->  void call_rcu_tasks(struct rcu_head *head, rcu_callback_t func);
->  void synchronize_rcu_tasks(void);
->  void rcu_tasks_torture_stats_print(char *tt, char *tf);
-> diff --git a/include/linux/sched.h b/include/linux/sched.h
-> index 8b3d47a325cc..15beb44caa2c 100644
-> --- a/include/linux/sched.h
-> +++ b/include/linux/sched.h
-> @@ -957,6 +957,7 @@ struct task_struct {
->  	u8				rcu_tasks_holdout;
->  	u8				rcu_tasks_idx;
->  	int				rcu_tasks_idle_cpu;
-> +	unsigned long			rcu_tasks_irq_ip;
->  	struct list_head		rcu_tasks_holdout_list;
->  	int				rcu_tasks_exit_cpu;
->  	struct list_head		rcu_tasks_exit_list;
-> diff --git a/kernel/entry/common.c b/kernel/entry/common.c
-> index e4acd50bd81a..94318519998c 100644
-> --- a/kernel/entry/common.c
-> +++ b/kernel/entry/common.c
-> @@ -6,6 +6,7 @@
->  #include <linux/jump_label.h>
->  #include <linux/kmsan.h>
->  #include <linux/livepatch.h>
-> +#include <linux/rcupdate.h>
->  #include <linux/resume_user_mode.h>
->  #include <linux/tick.h>
->  
-> @@ -141,8 +142,13 @@ void raw_irqentry_exit_cond_resched(struct pt_regs *regs)
->  		rcu_irq_exit_check_preempt();
->  		if (IS_ENABLED(CONFIG_DEBUG_ENTRY))
->  			WARN_ON_ONCE(!on_thread_stack());
-> -		if (need_resched() && arch_irqentry_exit_need_resched())
-> +		if (need_resched() && arch_irqentry_exit_need_resched()) {
-> +			if (IS_ENABLED(CONFIG_TASKS_RCU_TRAMPOLINE_READERS))
-> +				rcu_tasks_irq_resched_enter(instruction_pointer(regs));
->  			preempt_schedule_irq();
-> +			if (IS_ENABLED(CONFIG_TASKS_RCU_TRAMPOLINE_READERS))
-> +				rcu_tasks_irq_resched_exit();
-> +		}
->  	}
->  }
->  #ifdef CONFIG_PREEMPT_DYNAMIC
-> diff --git a/kernel/fork.c b/kernel/fork.c
-> index 416758c8a3d4..8077336bb136 100644
-> --- a/kernel/fork.c
-> +++ b/kernel/fork.c
-> @@ -1871,6 +1871,7 @@ static inline void rcu_copy_process(struct task_struct *p)
->  	p->rcu_tasks_holdout = false;
->  	INIT_LIST_HEAD(&p->rcu_tasks_holdout_list);
->  	p->rcu_tasks_idle_cpu = -1;
-> +	p->rcu_tasks_irq_ip = 0;
->  	INIT_LIST_HEAD(&p->rcu_tasks_exit_list);
->  #endif /* #ifdef CONFIG_TASKS_RCU */
->  #ifdef CONFIG_TASKS_TRACE_RCU
-> diff --git a/kernel/rcu/Kconfig b/kernel/rcu/Kconfig
-> index 332df7a7a634..bbab14bc14c3 100644
-> --- a/kernel/rcu/Kconfig
-> +++ b/kernel/rcu/Kconfig
-> @@ -107,6 +107,28 @@ config TASKS_RCU
->  	default NEED_TASKS_RCU && PREEMPTION
->  	select IRQ_WORK
->  
-> +config HAVE_RCU_TRAMPOLINE_READERS
-> +	bool
-> +	help
-> +	  Select this if the architecture uses the generic irq entry code and
-> +	  every trampoline whose lifetime Tasks RCU guards on it (ftrace
-> +	  trampolines, kprobe out-of-line and optimized-probe slots, BPF
-> +	  trampolines, out-of-line ftrace direct-call trampolines) enters a
-> +	  Tasks Trace RCU read-side critical section before calling out of
-> +	  the trampoline and leaves it before returning, and any core text
-> +	  that runs on behalf of such a trampoline outside that reader is
-> +	  reported by arch_rcu_tasks_trampoline_text().  The assembly readers
-> +	  use the this_cpu_inc() form of SRCU-fast, hence !NEED_SRCU_NMI_SAFE.
-> +
-> +config TASKS_RCU_TRAMPOLINE_READERS
-> +	def_bool TASKS_RCU && HAVE_RCU_TRAMPOLINE_READERS && GENERIC_IRQ_ENTRY && !NEED_SRCU_NMI_SAFE
-> +	select TASKS_TRACE_RCU
-> +	help
-> +	  Implement the Tasks RCU grace period as a per-CPU pass over
-> +	  context switches and irq-exit reschedules outside trampoline text
-> +	  plus a Tasks Trace RCU grace period, instead of waiting for every
-> +	  task to voluntarily context switch.  See kernel/rcu/tasks.h.
-> +
->  config FORCE_TASKS_RUDE_RCU
->  	bool "Force selection of Tasks Rude RCU"
->  	depends on RCU_EXPERT
-> diff --git a/kernel/rcu/tasks.h b/kernel/rcu/tasks.h
-> index 627295396cd9..3a7c092361a6 100644
-> --- a/kernel/rcu/tasks.h
-> +++ b/kernel/rcu/tasks.h
-> @@ -152,7 +152,7 @@ static struct rcu_tasks rt_name =							\
->  	.kname = #rt_name,								\
->  }
->  
-> -#ifdef CONFIG_TASKS_RCU
-> +#if defined(CONFIG_TASKS_RCU) && !defined(CONFIG_TASKS_RCU_TRAMPOLINE_READERS)
->  
->  /* Report delay of scan exiting tasklist in rcu_tasks_postscan(). */
->  static void tasks_rcu_exit_stall(struct timer_list *unused);
-> @@ -802,7 +802,7 @@ static void rcu_tasks_torture_stats_print_generic(struct rcu_tasks *rtp, char *t
->  
->  #endif // #ifndef CONFIG_TINY_RCU
->  
-> -#if defined(CONFIG_TASKS_RCU)
-> +#if defined(CONFIG_TASKS_RCU) && !defined(CONFIG_TASKS_RCU_TRAMPOLINE_READERS)
->  
->  ////////////////////////////////////////////////////////////////////////
->  //
-> @@ -897,10 +897,445 @@ static void rcu_tasks_wait_gp(struct rcu_tasks *rtp)
->  	rtp->postgp_func(rtp);
->  }
->  
-> -#endif /* #if defined(CONFIG_TASKS_RCU) */
-> +#endif /* #if defined(CONFIG_TASKS_RCU) && !defined(CONFIG_TASKS_RCU_TRAMPOLINE_READERS) */
->  
->  #ifdef CONFIG_TASKS_RCU
->  
-> +static int rcu_tasks_lazy_ms = -1;
-> +module_param(rcu_tasks_lazy_ms, int, 0444);
-> +
-> +#ifdef CONFIG_TASKS_RCU_TRAMPOLINE_READERS
-> +
-> +////////////////////////////////////////////////////////////////////////
-> +//
-> +// Tasks RCU for architectures whose trampolines are Tasks Trace RCU
-> +// readers (CONFIG_HAVE_RCU_TRAMPOLINE_READERS).
-> +//
-> +// On these architectures every piece of text whose lifetime Tasks RCU
-> +// guards -- ftrace trampolines, kprobe optinsn slots, BPF trampoline
-> +// images, out-of-line ftrace direct-call trampolines -- enters a Tasks
-> +// Trace RCU read-side critical section before calling out of itself and
-> +// leaves it before returning, so a task anywhere inside such a call-out,
-> +// preempted or not, is an ordinary rcu_read_lock_trace() reader and
-> +// synchronize_rcu_tasks_trace() waits for it.
-> +//
-> +// What that cannot cover is the handful of instructions in the trampoline
-> +// before the reader is entered and after it is left, and the one user that
-> +// has no trampoline at all: the bytes after a kprobe that the jump
-> +// optimizer is about to overwrite.  A task can only linger in such
-> +// "unmarked" text by being interrupted there; unmarked text never calls
-> +// anything that could schedule.  So a context switch on a CPU tells us that
-> +// whatever that CPU was running is out of unmarked text, with one
-> +// exception: a preemption from the irq-exit path, which can happen at any
-> +// instruction boundary.  That path has the interrupted pt_regs in hand, so
-> +// just before it preempts it records the IP in the task and checks it
-> +// (rcu_tasks_trampoline_text()); if it is inside unmarked text the task
-> +// goes on a short holdout list first, and takes itself off again at its
-> +// next context switch outside such a preemption or its next irq-exit
-> +// check that finds it elsewhere.  With that, every pass through
-> +// __schedule() is a per-CPU quiescent event, as are usermode and idle.
-> +//
-> +// A grace period is then:
-> +//
-> +//  1. Wait for every online, non-idle CPU to context switch, nudging
-> +//     stragglers with resched_cpu().  Afterwards no task is in the leading
-> +//     unmarked instructions of a dying trampoline unless it is on the
-> +//     holdout list.
-> +//  2. Wait for the holdout list (as it stood) to drain.
-> +//  3. synchronize_rcu_tasks_trace(), for everything inside the readers.
-> +//  4. Repeat 1 and 2 for tasks that have since left the reader and are in
-> +//     the trailing unmarked instructions.
+On Tue, Jun 16, 2026 at 9:39=E2=80=AFPM Andre Przywara <andre.przywara@arm.=
+com> wrote:
+>
+> Hi,
+>
+> On 6/16/26 05:51, Krzysztof Kozlowski wrote:
+> > On 15/06/2026 17:47, Jernej =C5=A0krabec wrote:
+> >> Dne ponedeljek, 15. junij 2026 ob 06:28:54 Srednjeevropski poletni =C4=
+=8Das je Krzysztof Kozlowski napisal(a):
+> >>> On 14/06/2026 16:08, Jernej =C5=A0krabec wrote:
+> >>>> Dne ponedeljek, 25. maj 2026 ob 14:10:38 Srednjeevropski poletni =C4=
+=8Das je Krzysztof Kozlowski napisal(a):
+> >>>>> On 24/05/2026 23:33, Chen-Yu Tsai wrote:
+> >>>>>> Hi,
+> >>>>>>
+> >>>>>> (resent from new email)
+> >>>>>>
+> >>>>>> On Thu, May 14, 2026 at 2:04=E2=80=AFPM Krzysztof Kozlowski <krzk@=
+kernel.org> wrote:
+> >>>>>>>
+> >>>>>>> On Sat, May 09, 2026 at 09:00:14PM +0200, Jernej Skrabec wrote:
+> >>>>>>>> From: Jernej Skrabec <jernej.skrabec@gmail.com>
+> >>>>>>>>
+> >>>>>>>> As it turns out, current H616 DE33 binding was written based on
+> >>>>>>>> incomplete understanding of DE33 design. Namely, planes are shar=
+ed
+> >>>>>>>> resource and not tied to specific mixer, which was the case for =
+previous
+> >>>>>>>> generations of Display Engine (DE3 and earlier).
+> >>>>>>>>
+> >>>>>>>> This means that current DE33 binding doesn't properly reflect HW=
+ and
+> >>>>>>>> using it would mean that second mixer (used for second display o=
+utput)
+> >>>>>>>> can't be supported.
+> >>>>>>>>
+> >>>>>>>> Remove layer register space, which will be represented with addi=
+tional
+> >>>>>>>> node, and replace it with phandle, which will point to that new,=
+ shared
+> >>>>>>>> node. That way, all mixers can share same layers.
+> >>>>>>>>
+> >>>>>>>> There is no user of this binding yet, so changes can be made saf=
+ely,
+> >>>>>>>> without breaking any backward compatibility.
+> >>>>>>>
+> >>>>>>> There is user. git grep gives me:
+> >>>>>>> drivers/gpu/drm/sun4i/sun8i_mixer.c
+> >>>>>>>
+> >>>>>>> which means this is a released ABI. As I understood, the old code=
+ was
+> >>>>>>
+> >>>>>> We held off on merging the DT changes so that we could rework this=
+.
+> >>>>>> I can't find the actual request though. It was probably over IRC.
+> >>>>>>
+> >>>>>>> working fine but just did not support all use cases. Why this can=
+not be
+> >>>>>>> kept backwards compatible?
+> >>>>>>
+> >>>>>> AFAIK the "planes" block is shared between two display mixers. As =
+the
+> >>>>>> commit message explains, this prevents using the second mixer, sin=
+ce
+> >>>>>> only one of them can claim and map the register space. And on the =
+H700
+> >>>>>> (which is the same die as the H616 discussed here but with more ex=
+posed
+> >>>>>> interfaces), there could actually be a use case for the second mix=
+er.
+> >>>>>
+> >>>>> It explains why you want to make the changes but not why you cannot=
+ keep
+> >>>>> it backwards compatible.
+> >>>>
+> >>>> I guess it can be backward compatible, but I don't think it makes se=
+nse.
+> >>>> Yes, original driver implemented original DT bindings, but there is =
+no node
+> >>>> which uses that binding. If there is no user of that, why would driv=
+er
+> >>>
+> >>> Did you check all out of tree users of the ABI? All vendor kernels,
+> >>> forks and all of them for which the ABI was made for?
+> >>
+> >> Since when do we care about out of tree users? I understand that drive=
+rs
+> >
+> > Since always? That is the meaning of ABI. Otherwise there is no point t=
+o
+> > discuss ABI at all. Why would it exist if you had all DTS inside kernel
+> > always matching the code?
+>
+> In general I would agree with Krzysztof, merged binding means we need to
+> stick to it, but in this case I think that would be over the top. As
+> Jernej said, there are no users, since we didn't commit on the DTs, and
+> the DE33 graphics support in the kernel (bindings and code) is
+> incomplete: it's really just the mixer, but no other components (TCON or
+> output PHYs) required. So it never worked as such.
+>
+> In hindsight we could say that we should have never merged the bindings
+> without having fully working, reviewed and accepted driver code, for the
+> whole display chain. Which we need to do because we create those
+> bindings based on reverse engineering efforts, not by looking at
+> documentation or design documents (which we don't have).
+>
+> >> must support old device tree files. Once they work, compatibility must
+> >> be carried forward. But that's not the case here.
+> >>
+> >> In any case, vendor kernels have completely different DT structure. Th=
+is
+> >> was developed independently from them. Take a look at [1] how BSP DT l=
+ooks
+> >> like, specifically Display Engine node.
+> >>
+> >> Of course there are some distros which grab WIP patches from mailing l=
+ists
+> >> soon after they are available. For example, I know that Armbian carrie=
+d old
+> >> WIP patches which used old ABI. However, such distros generally don't =
+care
+> >> about exact solution and ditch patches as soon as proper solution is m=
+erged
+> >> upstream or even when better WIP patches come around. DT files in such
+> >> distros get updated alongside kernel, they are not hidden in firmware.
+> >>
+> >
+> > I am not talking about BSP. I am talking about out of tree users for
+> > which we defined the ABI and called it that way.
+>
+> If you are looking for DT users outside of the Linux kernel, this is the
+> result of a quick check (list of users from ChatGPT, checks by myself
+> with git clone/git grep):
+> Zephyr RTOS: no graphics support
+> FreeBSD: no H616 support
+> OpenBSD: no H616 graphics support
+> NetBSD: no H616 support
+> U-Boot: no H616 graphics support
+> Barebox: no H616 support
+> TF-A: no graphics support
+> OP-TEE: no (Allwinner) graphics support
+> EDK2: no Allwinner support
 
-Alternatively the approach could be generalized to vanilla RCU, it could be
-possible to define a .text.rcu_no_qs section within which code running is
-considered as an RCU reader (with a pause while on the explicit RCU tasks
-section). It would be forbidden to voluntary sleep inside
-and to put explicit preemption points (CONFIG_PROVE_RCU could report misuses).
 
-Based on IP, RCU could consider those interrupted section as readers. This would
-require PREEMPT_RCU though.
+We really need to move forward with this.
 
-And then synchronize_rcu() would do the 1, 2, 4 jobs.
+Are there any concerns other than backward compatibility?
 
--- 
-Frederic Weisbecker
-SUSE Labs
+As Andre already pointed out, there are no other notable projects
+implementing the old, incorrect binding.
+
+Out of tree users such as Armbian are likely cherry-picking WIP patches
+from Jernej's tree or the mailing list, even the current stuff like this
+patch[1], and they can and will continue to do so until the stuff is merged=
+.
+
+
+Thanks
+ChenYu
+
+[1] https://github.com/armbian/build/blob/main/patch/kernel/archive/sunxi-6=
+.18/patches.drm/0036-dt-bindings-display-allwinner-Update-H616-DE33-bindi.p=
+atch
 
