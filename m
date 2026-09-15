@@ -4,119 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 297DEC88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 09:35:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F6E7C88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 09:51:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rTbcXClwwsu10AbW2WQ4gz0c4Cr6/fUav+mNCCmUa4w=; b=SCw4+sNgKWNzUY8Wx1ZJiBhyxI
-	QrFMbVWMVHp1Wgmnk0oyFoXOIAXopFfwAleKrYpY8XgR0E31095PNnpIh+8cCRt8HS8x9WHaTr0g6
-	1/8mwF2xOpxCJNNxruiWDkru49WU8gqb3RTdQWKT0k/pjw7Na9SSQ/XBJ4Gh2X22DDIxnVoQO6YR+
-	yuN0ENiYWrt3XHlgGPmdQqVpmsW6yehBZXZyIs+bp5BUR+tMf/EsR0rJhj7Bw0/8Wd8BvBwuQNOgy
-	JMqUypyWGttog5w3jaCqTki7JeJcalzCdMuTCwlATwkWecpoEkuO5qhKalcEIfjVF7EGbGDCDl8Ne
-	IkycBs7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cvCf7CKajWBrqxAWgYlUQnFOqNCEESdBn+7VWlxKpSE=; b=NMTf28R28fqaslnRGv1yXei8vA
+	eFFZ488XKlkug99wWJpq/b4joBMPgBABOn3yzGQXqoyH6vEFkW3LP6FplSD4AddfMhthS+bscJAYc
+	HEiCIGW529dG0acMllXY60hYlVjDBseJgM/QJV2cKJvr237yELdOM95fa4rdcdeHTenx0yBJumFuv
+	kv2eOKIhdKRpHNExQkD7IM+RLT42nmpCRxbHzqBNbb8iHt7uQuYaaLLq2bQ6JEosIFqHVE10h2tBi
+	rpQrxltnNSMKPtcQhyDpaDImigaao/XoLK6U8XXYxUIh2JBYDumvvGsmnK5RsOlMXddKx9cTyOzDp
+	pRLjAYFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6PZF-00000005nZy-30tS;
-	Tue, 15 Sep 2026 09:35:09 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1x6PoV-00000005pAm-2Hxt;
+	Tue, 15 Sep 2026 09:50:55 +0000
+Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6PZD-00000005nZP-0Kwf
+	id 1x6PoS-00000005pAG-2oGz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 09:35:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=OdjvdyFtvTVN4Iw7W2IEAzqqhxUu5dQlbcY4sErJG+HeLCeDFIxenhnYHfXKptb8CWNLd2MvszI7Iy0LnxmtfcJZt+FMzVVBoTy2J7OeEyJsrPHcqY61X4yAOYe+x8U5mhK3yEw5pKwq+exGjC3A7hKDJInGtFOWspN4zj5BcITt2ybqGqvFrXKSBBb4BcjJRNVpYriNwCjLAB0wVYxDgHaGgee37eOsFCTYyx+2g5TZ9dDAWm4NPszZc4x6gUs6BSIhadPS/0U1F2qnp27SJUvttn0+pFKDUIhp7DTXvyPAg/4JlKJUVu0qunwGBDfP+FJ42SxNCwExLr7ds2NtwQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rTbcXClwwsu10AbW2WQ4gz0c4Cr6/fUav+mNCCmUa4w=;
- b=cyfJKwWfskF4I/GiI3wwLx+QQAN/RBN2zbNMuTxIZBckAG83w/HeSBd3iFes5P1VvtGxsxWqU5s1GlN9E3sMCHAyNmE0cwZawY+gCN1l9RGhKfNxRZc8pVol8r3p0hQ83EwUATL1CDiv8gE9mK+UYuwTDw71U0dbw5GH57GAP12DowhME8vr5k3xKaAyMCinXt8ZFfklGRkxLwG+TIWUwP0zaCPJ6T+t9P4mRSfbphiOkeqXO9SXWJ1hM1yQ+ETB+hoC0ja0ySdhUGR8KG176wgqlHgivMh661yzplGEN80lsqVODFUvWCBmN/URxFwcRQL8tOCpEvEGYl8MZKchIw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=gmail.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rTbcXClwwsu10AbW2WQ4gz0c4Cr6/fUav+mNCCmUa4w=;
- b=H15hngsu1shgYCuP5tIghBCPAwgJ1ZQNtU3sYuG4WMZiTBCjnvN7CJKhRV0h8A5QVESXzItmxhAda6jDu+sym+JuGD0svY58Vl99I1pQLPNKyT/pPg0MzTsp05puDpQA+GuTTBJNZ1jA4YAPxd9D0luC408y6xZ4OPnn84f6WWHYUqhlWpefngj7+Jih6h3DbU7qq+BUxxkLIV1Rf54QpiDckUjAjC9gOnrU9ydTK49FLmxChyRS45anOh31LW6ZtXAGin7w2aUNRcY+d2ngVD9fsS/dpFnuwQFqEy8xa+oTg7JfDE97paR52oyvm18VassI4Wun3CdxZVi9iwQbcw==
-Received: from DU2PR04CA0216.eurprd04.prod.outlook.com (2603:10a6:10:2b1::11)
- by AM8PR10MB4003.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:1e0::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Tue, 15 Sep
- 2026 09:35:02 +0000
-Received: from MAD0EPF000008AA.eurprd04.prod.outlook.com
- (2603:10a6:10:2b1:cafe::59) by DU2PR04CA0216.outlook.office365.com
- (2603:10a6:10:2b1::11) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.428.9 via Frontend Transport; Tue, 15
- Sep 2026 09:35:02 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- MAD0EPF000008AA.mail.protection.outlook.com (10.167.241.182) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.428.7 via Frontend Transport; Tue, 15 Sep 2026 09:35:01 +0000
-Received: from STKDAG1NODE1.st.com (10.75.128.132) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Tue, 15 Sep
- 2026 11:41:04 +0200
-Received: from [10.48.87.93] (10.48.87.93) by STKDAG1NODE1.st.com
- (10.75.128.132) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Tue, 15 Sep
- 2026 11:34:59 +0200
-Message-ID: <94c33607-00e7-4e2e-8e98-3466bc522fbf@foss.st.com>
-Date: Tue, 15 Sep 2026 11:34:58 +0200
+	Tue, 15 Sep 2026 09:50:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=cvCf7CKajWBrqxAWgYlUQnFOqNCEESdBn+7VWlxKpSE=; b=tEsKkafx3IJjtRUwib7d7NNAVA
+	AVG/XMxpQ9Hc8EpYd2OXMq+mpgSWS5Fl7gt0eRGzg4Ih0gSIYg83fkszJHZMlBAlLImJJt2g5q7Yd
+	EDBFGcFQ59BJqcpO7HajUf4L4ZvWL3J8XG2ZfDRJqxKWqxUbs1HYfmlq8mBDhobXExWz51n8ya20O
+	PNUeH46onJ0asBkkTj5GxTMAfp4bu9CPibTT+gEuB26btExX81+tDnLDkfmAjpcL68T2kCrNHrR92
+	GJ7fTSos3pEnvNDd+9VT8fNrLVI0hFu69Y8E/UQ8NHkXja2CaQxpm13RuIi5LHuddQchRUA7vc+1i
+	i0q/wn0w==;
+Received: from authenticated-user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.96)
+	(envelope-from <leitao@debian.org>)
+	id 1x6Po8-004J24-0A;
+	Tue, 15 Sep 2026 09:50:32 +0000
+Date: Tue, 15 Sep 2026 02:50:27 -0700
+From: Breno Leitao <leitao@debian.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, kernel-team@meta.com
+Subject: Re: [PATCH] arm64/sve: Don't zero the SVE state buffer when the SVE
+ state is live
+Message-ID: <aqkUU-kSTOz8NntH@gmail.com>
+References: <20260914-b4-arm64-sve-acc-memset-v1-1-67866e442393@debian.org>
+ <aqkEPCrWXxaU-mNs@J2N7QTR9R3>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/4] usb: ohci-st: disable controller wakeup on removal
-To: Myeonghun Pak <mhun512@gmail.com>, Alan Stern <stern@rowland.harvard.edu>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-CC: Krzysztof Kozlowski <krzk@kernel.org>, Peter Griffin
-	<peter.griffin@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>,
-	<linux-usb@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
-	<stable@vger.kernel.org>
-References: <20260915012011.61874-1-mhun512@gmail.com>
- <20260915012011.61874-5-mhun512@gmail.com>
-Content-Language: en-US
-From: Patrice CHOTARD <patrice.chotard@foss.st.com>
-In-Reply-To: <20260915012011.61874-5-mhun512@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.87.93]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE1.st.com
- (10.75.128.132)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MAD0EPF000008AA:EE_|AM8PR10MB4003:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2686f930-bb19-4efb-c41f-08df130c9ddc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|23010399003|82310400026|376014|36860700016|18002099003|22082099003|5023799004|4143699003|11063799006|10067099003|56012099006;
-X-Microsoft-Antispam-Message-Info: SnLCPi1AV6OuOA3sbCCYJHyj6QTCtntGCsJBjGalHTvOAx20/CeLlT5AWM2EcUMgfXC9gdvpgY4zbygABtKwp+N0fLqB4FTHFdWUOfZs/kpp3jDK9PdcDIAL0ZV6g0MySDmPv4cxNmPxhaT7RBGFFOVPPTqT8mDEVagGyQBqW8LzGTBeNZpEoUHkBuw+DNoB3iP2pfYnXE8eQ592ovBiXhYspzG9B6l+8erJdWDqfHl5ZywIkjcRpNxt5mQs1Jzec2csTxSuGDFAA+PAKWFlGx/gw3McMlwECrYRJKevvayQZ2EPRoid+PBRf2U346PMjfwq8Is/S9SO5qxLUw2+pF9IxD4rVWJrhmGoOe21yW9fk0tYdQMGWiuwmouGlWdNnogCUtuPbhMkRHvAI6+TcvyCJkdIMcHZc5wZJi51KrpBMvWZ0nPTnAbL7G8aEP3AcuuurAFWFOd22cyS9vXgUM7E4tmfKomZhStUsAUE1hab6eUdAbxo8e56ek7ge9drtRmzrmbVmlGjqi1INYjQE8dELgHsS06h4V8kBFe+bvoU1TrRbOSUaEmfHrgYqAN9x9KCNOwHAsy7nNC5V4qrQype3KZeHyoz2pM+TPNISOXmudLJWkOVRRFAVw0wrUhVQ3kITbWHjvn5pepR2yGhmJsRHrcDaI0HsEkCVpZe3BmqlD+W9Z+94wjCab7bRBT92deDmJS63WcrMZY7x0eivA==
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(23010399003)(82310400026)(376014)(36860700016)(18002099003)(22082099003)(5023799004)(4143699003)(11063799006)(10067099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: xmjSmNdjAUCkM6JK0SqS/wfq+emg7iF+kklTHMQ6Cw24bhtvIM1tsdiF/SP/9kHrOiwyUatcMF1+ns840pMfJ2qdFMpH/rRsTD5s57tnXDY9A9A8jEDr8Z/oywh3pzEHG4/z8T2WLvjiq2fBx/ISQwCUOtQkfGNLzwIPRSvo2cQ0woG/XozO1BW/HDOCMPrT4b61jk0L/aYnZUMF02LzHHk7GXBz3v9OUfOAkD5En9uqqMZB6wGcIsY/VejmNorBy/3Ga3pMKmIFECtjIRjZiN7bBoM7ojSRWtyvI9P/DNqxPgIE6GGk4knf/3GsiqEBMBY9E1QMsuKXNF+2+SfA6n+RrioRweHEupONQM/EoC/AKK3K4mjtbB5aRja9vNLvCggaNB8vqMKM7Y61JvOyXizHM9IvYi40G4qmlcGej8C7ETvdpGkbTXFdNliQL8KG
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Sep 2026 09:35:01.7759
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2686f930-bb19-4efb-c41f-08df130c9ddc
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: MAD0EPF000008AA.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR10MB4003
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aqkEPCrWXxaU-mNs@J2N7QTR9R3>
+X-Debian-User: leitao
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_023507_131096_C302B583 
-X-CRM114-Status: GOOD (  12.06  )
+X-CRM114-CacheID: sfid-20260915_025052_729108_F5C7A442 
+X-CRM114-Status: GOOD (  15.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,43 +76,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello Mark,
 
+On Tue, Sep 15, 2026 at 09:39:24AM +0100, Mark Rutland wrote:
+> Hi Breno,
+> 
+> I think the change looks reasonable, but the commit message and comments
+> aren't quite right. More on that below.
 
-On 9/15/26 03:20, Myeonghun Pak wrote:
-> Probe enables controller wakeup after the OHCI core marks controllers with
-> RemoteWakeupConnected as wakeup-capable. Removal does not undo this, so the
-> wakeup source can remain attached after driver unbind.
-> 
-> Disable controller wakeup after removing the HCD.
-> 
-> This issue was identified during our ongoing static-analysis research
-> while reviewing kernel code.
-> 
-> Fixes: d115837259ad ("usb: host: ohci-st: Add OHCI driver support for ST STB devices")
-> Cc: stable@vger.kernel.org
-> Assisted-by: LLM
-> Co-developed-by: Ijae Kim <ae878000@gmail.com>
-> Signed-off-by: Ijae Kim <ae878000@gmail.com>
-> Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
-> ---
->  drivers/usb/host/ohci-st.c | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/usb/host/ohci-st.c b/drivers/usb/host/ohci-st.c
-> --- a/drivers/usb/host/ohci-st.c
-> +++ b/drivers/usb/host/ohci-st.c
-> @@ -235,6 +235,7 @@
->  	int clk;
->  
->  	usb_remove_hcd(hcd);
-> +	device_wakeup_disable(hcd->self.controller);
->  
->  	if (pdata->power_off)
->  		pdata->power_off(dev);
-Hi Myeonghun
+Thank you very much for your review. I know this is not a trivial one
+(at least from my PoV), I am glad you quickly reviewed it.
 
-Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
+I've also dropped few other lines, but kept the benchmark values I've
+collected. Does this look better now?
 
-Thanks
-Patrice
+Author: Breno Leitao <leitao@debian.org>
+Date:   Fri Sep 11 02:57:34 2026 -0700
+
+    arm64/sve: Don't zero the SVE state buffer when the SVE state is live
+
+    Currently do_sve_acc() always zeroes current->thread.sve_state. This is
+    not necessary in the common case, and avoiding the zeroing has a
+    measurable impact on some benchmarks.
+
+    In the common case where the task is not preempted and its state is not
+    altered by a tracer, do_sve_acc() will observe that TIF_FOREIGN_FPSTATE
+    is clear. In such cases, only the live register values matter, and the
+    in-memory copy is stale regardless of whether it is saved in
+    FP_STATE_FPSIMD format or FP_STATE_SVE format.
+
+    This is worth doing because the SVE state is discarded on syscall entry,
+    so userspace that mixes SVE and syscalls re-traps constantly. A fleet
+    profile of arm64 hosts running services whose memset() is SVE shows the
+    memset under do_sve_acc() accounting for 29% of the trap handling cost.
+
+    Measured on a 72-core Neoverse V2 (SVE VL 128, sve_state_size 546,
+    performance governor) with perf bench sched pipe pinned to one CPU, and
+    SVE operation on write, so that each loop also takes an SVE access trap.
+
+            * -0.99% kernel instructions
+            * -1.38% kernel cycles
+            * -1.12% wall clock
+
+    Signed-off-by: Breno Leitao <leitao@debian.org>
+
+diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
+index e7f1682a3059b..324c9799b0511 100644
+--- a/arch/arm64/kernel/fpsimd.c
++++ b/arch/arm64/kernel/fpsimd.c
+@@ -1316,7 +1316,7 @@ void do_sve_acc(unsigned long esr, struct pt_regs *regs)
+                return;
+        }
+
+-       sve_alloc(current, true);
++       sve_alloc(current, false);
+        if (!current->thread.sve_state) {
+                force_sig(SIGKILL);
+                return;
+@@ -1341,6 +1341,7 @@ void do_sve_acc(unsigned long esr, struct pt_regs *regs)
+                sve_flush_live();
+                fpsimd_bind_task_to_cpu();
+        } else {
++               memset(current->thread.sve_state, 0, sve_state_size(current));
+                fpsimd_to_sve(current);
+                current->thread.fp_type = FP_STATE_SVE;
+                fpsimd_flush_task_state(current);
 
