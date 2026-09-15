@@ -4,112 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C3F5C982C3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD2B4C982C5
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 12:39:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NfuBhi93xftDhshvbIutU6M31n4jH/ZjDQQ4jx2k6og=; b=AQ2kk/wdqXGBPYWxNQMmO3YHi0
-	QwIDgleCaEPHRZIcdwSumvTD2YM3NJPNoblRQ063mGSUQ4MsRpEL+3iIXNMXkxxM5RwUrr3mLPKZY
-	m6rQApt9uepqt4MzXqEtduj1mjupma0qI1fDZQXdc6/F8AllY5Qugu9/452DDnyeLAc+6UM5RbyQV
-	eyfAcXPiin9LjzwaKCiGqxmMooBoIZ/BqVvBJtVAaoBjnJomHmsw9hkH5LzODTcUq81XCarwx6P3o
-	+xKhu1WITbAMvQgIRd5+bYsMtjXQM1d4o3czEA0JO2FYGhwSRyI7KHa0wxbcokiRuOJ43Xiq3DYMh
-	KW60VL+w==;
+	bh=89i0PjzlpnxoH8Xlp6XVpO7++jqE2crKVvCAXyLSxTI=; b=bCmxGNf245rZQM40tywXSNrjbh
+	TL4GSKk/nEuhS4o9H0shh+Z4EU9kJcnOSlqxqX5j6pdn/4ksGkTYKUCI0K2D3thhI6FNvNVz9whyw
+	X+l2ZJRHXm6QF5H+IB4ICwQd5xF4hR9AGZ3huJMfpDbsuCcU5Ds3X/1YzRqK4bQfvuRVnhlZh+ShG
+	6WuDAG/4VO6NXqcg5kUUuEoKa284pIVWagKbLXfbhPhOPe8Uowam8Te4Te87XLxLiNKgryLpRpoZg
+	JIh7dnszkUln5LAi3JxHApxC/Sirx1mfiEFuRssubMUlNGGdOFa3rnCFedn5rKgnnBErTkjhuUzRU
+	UCRjSZkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6SRH-00000006XJU-152O;
-	Tue, 15 Sep 2026 12:39:07 +0000
-Received: from mail-pj2-x0b.google.com ([2607:f8b0:4864:39::b])
+	id 1x6SRP-00000006XYv-3Ix9;
+	Tue, 15 Sep 2026 12:39:15 +0000
+Received: from out-45.mta0.migadu.com ([2001:41d0:1004:224b::2d] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6SR1-00000006Wsc-0UQ9
+	id 1x6SR9-00000006X1I-4B4O
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 12:38:52 +0000
-Received: by mail-pj2-x0b.google.com with SMTP id 98e67ed59e1d1-398a0a87595so4265857a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 05:38:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789475930; x=1790080730; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=NfuBhi93xftDhshvbIutU6M31n4jH/ZjDQQ4jx2k6og=;
-        b=dOStY7P7koO1L2qM8N9dyY5qvR6Usni8ZE1CxiHqRCLQn0KTWBABSyT8eoqlNjM818
-         o6tne8uPtMwftZD0fVjZPRsxJWxbAD6WzCnfQlkBDUvCKFk5UIzBQK7cDph+L+FbrsIi
-         EsBjpDWxZE1Y7Kz3/wLzzlqnq6Kylp3A1I847s7iF75ZqNy4dk7AHYAYAgQii52ADpoK
-         HKY8M5bXBk7mruu4AsZ1qv9ZmPpaHldt4XfiFvnODRc2gRlPrdKu25Q5kkJN67Pwhnoa
-         oopvOFIPXreN1q63170bzJPdcBU8JbiDa3EbiMthnNvAgtGcXzDUi5o6Yn/nz1vO+fUO
-         b29w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789475930; x=1790080730;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=NfuBhi93xftDhshvbIutU6M31n4jH/ZjDQQ4jx2k6og=;
-        b=IiLGy7U3L7wBTtdtkwTfMxmrZbUUHgqoxlqO1RGe8YMh5SwPsiO2rComqLwXpmKnZe
-         /AXJdwSkA2uBgxbpHcvxXD8RMwV46CDK9EmvH6ic7ZxQn3T3YlcE6zwIlLzkUmfYFR1l
-         k4o9x0giE+y9NfGzIzJ6VkuPoxc28x2g5Doc22dSTYpM7qjDJE0v718FZaYbtQ1PnZL2
-         9JaEEGpQemD/a2s0WOArubvQHwakRJFFug52x2IlfvhpDkW0LPfGCRhUK1RS2RB3Q/UF
-         td/qFEcQLRSFQt6JuTnHqhrmpKCbeGqTaVbIcoJNpOeU7MaAInfIpaoyhRQUb+JW4ZgQ
-         cVfg==
-X-Forwarded-Encrypted: i=1; AKwUvBzJ0Z1dgk+nEXAuPSJ+in6Es3xwZDnR2FN1gDgzvF4dfI1tyjkaOZMEOmEO7y79ctW8eeRM0VfHItT0P7QaZyWf@lists.infradead.org
-X-Gm-Message-State: AFuF++kkdoAGxExC7SVToBGjMu2Faoz4JXwpF5mkf2sRqAFORRDddJNO
-	6dkRx+uni9sJ2HucHgUA4gOUPvI2po6RtLqOUCSuMGopZjt+sGYk3DRB
-X-Gm-Gg: AYBFou0ki0jedPZUZVUdQQCXfeJdMsuGmhaNSYX9gCVGpPK8ZCsvVqRV89PCtGVA/hp
-	D0ieu46KS0ZYobjRdlS2yLcK7hGD6iZYlZ+DLDPNBfXcYVDGogOiMWnHcBodweeYcFFt+BJsBDB
-	MsrjmROlGjpPwdAE9T6sX8NAeuL3sgSob1y68VXofjx0PKIWqaBE6S1ICttxtGVAi9nQ0SRkCKK
-	+EMqeLlwfwwuv/fNuaRezY7nXVFvJA8t0bf8/MBTrbfusTJru+L5bkYFrcGccMdXsUclCyvfkvT
-	Ph0N8ryIbg7ZDHMlvK6x/rRGrSFkDao4UPA4oMro0/gRF2jmN9uYYT6001IlxJrlteE0fmpSjuj
-	gvxR0zujEol8nQ7QufdRZbMTpFNgOzw9sVUa0jUgJo0OZ9M0EDDpahZ0/iGBIlBDQJgUSGXg4EL
-	GThLQY16GWed1KlO2GgAjL+5px2kLciwLbBDOzSOIST+3q4ZPzvme1avx9d99MJCEakyWIrw==
-X-Received: by 2002:a17:90b:4990:b0:39e:ad:d31b with SMTP id 98e67ed59e1d1-39e10e2d518mr1347485a91.6.1789475930366;
-        Tue, 15 Sep 2026 05:38:50 -0700 (PDT)
-Received: from server.lan ([168.138.199.194])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39dfdd28acbsm5307259a91.10.2026.09.15.05.38.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Sep 2026 05:38:49 -0700 (PDT)
-From: Coia Prant <coiaprant@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Vinod Koul <vkoul@kernel.org>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Coia Prant <coiaprant@gmail.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	David Heidelberg <david@ixit.cz>,
-	netdev@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org,
+	Tue, 15 Sep 2026 12:39:01 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=UabJMBs9Z2dMomcvezICknlRvRSdmtK2yTGhqNrS3jk=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1789475937; v=1; x=1790080737;
+ b=xBWwOu9m2XNP6rrRCyoIw9ylEsQyX47X8jfI9yg6LbgRwCNB1k+OruuMSsu2hkEUbY/Kufv7
+ l5QManhMU5gv7Kw4fzSNovQJ1+ruRmy5FAmIFzNilapg9d599S9MmL0ert47LlM6H7JQq/99++C
+ I49gkqBBl6uAP6Q9mVen4O6g=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 6cbd52d59c5a6876;
+	Tue, 15 Sep 2026 12:38:57 +0000
+X-Mizu-Trace-ID: 6cbd52d59c5a6876
+X-Migadu-Flow: FLOW_OUT
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: maz@kernel.org,
+	oupton@kernel.org,
+	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH net-next v6 03/11] phy: rockchip: naneng-combphy: add SGMII MAC selection for RK3568
-Date: Tue, 15 Sep 2026 20:37:52 +0800
-Message-ID: <20260915123802.1561724-4-coiaprant@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260915123802.1561724-1-coiaprant@gmail.com>
-References: <20260915123802.1561724-1-coiaprant@gmail.com>
+	linux-kernel@vger.kernel.org
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	mark.rutland@arm.com,
+	vdonnefort@google.com,
+	qperret@google.com,
+	Sascha.Bischoff@arm.com,
+	steven.price@arm.com,
+	tabba@google.com
+Subject: [PATCH 2/7] KVM: arm64: Reject the stage-2 flush hypercalls under pKVM
+Date: Tue, 15 Sep 2026 13:38:41 +0100
+Message-Id: <20260915123846.2317931-3-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20260915123846.2317931-1-fuad.tabba@linux.dev>
+References: <20260915123846.2317931-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_053851_174756_314400C6 
-X-CRM114-Status: GOOD (  17.11  )
+X-CRM114-CacheID: sfid-20260915_053900_289022_2A5751A9 
+X-CRM114-Status: GOOD (  13.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,79 +83,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On RK3568, the SGMII interface can be routed to either GMAC0 or
-GMAC1 via the GRF register pipe_sgmii_mac_sel.
+The stage-2 TLB and context flush hypercalls remain callable once pKVM
+has finalised, and five of the six dereference a host-supplied
+struct kvm_s2_mmu pointer. Under pKVM none has a valid caller: the host
+walks no guest stage-2, its TLB flushes go through the handle-based
+__pkvm_tlb_flush_vmid, and kvm_arch_vcpu_load() skips both the VMID
+update and the CPU context flush.
 
-Add support for this selection by introducing
-the "rockchip,sgmii-mac-sel" DT property.
+Move them into the band the dispatcher rejects once pKVM has finalised.
 
-From the RK3568 TRM (Part1, Page 229), the PIPE_GRF_XPCS_CON0
-bit 1 (pipe_sgmii_mac_sel) is defined as:
-
-    0: SGMII routed to GMAC0
-    1: SGMII routed to GMAC1
-
-The hardware reset value is 1 (GMAC1). If the property is set to 0,
-the driver routes SGMII to GMAC0; if set to 1 (or omitted), it
-remains at GMAC1.
-
-This is necessary for boards such as the Ariaboard Photonicat, which
-uses the SGMII interface connected to GMAC0.
-
-Link: https://dl.radxa.com/rock3/docs/hw/datasheet/Rockchip%20RK3568%20TRM%20Part1%20V1.1-20210301.pdf (Page 229)
-Signed-off-by: Coia Prant <coiaprant@gmail.com>
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://lore.kernel.org/all/20260914130152.F0D5F1F000FF@smtp.kernel.org/
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- drivers/phy/rockchip/phy-rockchip-naneng-combphy.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ arch/arm64/include/asm/kvm_asm.h   | 12 ++++++------
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c | 11 ++++++-----
+ 2 files changed, 12 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-index 7843356a4dd47..7b867e7520064 100644
---- a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-+++ b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-@@ -186,6 +186,7 @@ struct rockchip_combphy_grfcfg {
- 	struct combphy_reg pipe_xpcs_phy_ready;
- 	struct combphy_reg pipe_pcie1l0_sel;
- 	struct combphy_reg pipe_pcie1l1_sel;
-+	struct combphy_reg pipe_sgmii_mac_sel;
- 	struct combphy_reg u3otg0_port_en;
- 	struct combphy_reg u3otg1_port_en;
- };
-@@ -212,6 +213,7 @@ struct rockchip_combphy_priv {
- 	bool enable_ssc;
- 	bool ext_refclk;
- 	struct clk *refclk;
-+	u32 sgmii_mac_sel;
- };
+diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+index ea319c496bb26..b182c908c1a98 100644
+--- a/arch/arm64/include/asm/kvm_asm.h
++++ b/arch/arm64/include/asm/kvm_asm.h
+@@ -64,6 +64,12 @@ enum __kvm_host_smccc_func {
+ 	__KVM_HOST_SMCCC_FUNC___vgic_v3_get_gic_config,
+ 	__KVM_HOST_SMCCC_FUNC___vgic_v5_save_apr,
+ 	__KVM_HOST_SMCCC_FUNC___vgic_v5_restore_vmcr_apr,
++	__KVM_HOST_SMCCC_FUNC___kvm_flush_vm_context,
++	__KVM_HOST_SMCCC_FUNC___kvm_tlb_flush_vmid_ipa,
++	__KVM_HOST_SMCCC_FUNC___kvm_tlb_flush_vmid_ipa_nsh,
++	__KVM_HOST_SMCCC_FUNC___kvm_tlb_flush_vmid,
++	__KVM_HOST_SMCCC_FUNC___kvm_tlb_flush_vmid_range,
++	__KVM_HOST_SMCCC_FUNC___kvm_flush_cpu_context,
  
- static void rockchip_combphy_updatel(struct rockchip_combphy_priv *priv,
-@@ -375,6 +377,9 @@ static int rockchip_combphy_parse_dt(struct device *dev, struct rockchip_combphy
+ 	MARKER(__KVM_HOST_SMCCC_FUNC_MIN_PKVM),
  
- 	priv->ext_refclk = device_property_present(dev, "rockchip,ext-refclk");
- 
-+	priv->sgmii_mac_sel = 1;
-+	device_property_read_u32(dev, "rockchip,sgmii-mac-sel", &priv->sgmii_mac_sel);
+@@ -72,12 +78,6 @@ enum __kvm_host_smccc_func {
+ 	/* Hypercalls that are always available and common to [nh]VHE/pKVM. */
+ 	__KVM_HOST_SMCCC_FUNC___kvm_adjust_pc,
+ 	__KVM_HOST_SMCCC_FUNC___kvm_vcpu_run,
+-	__KVM_HOST_SMCCC_FUNC___kvm_flush_vm_context,
+-	__KVM_HOST_SMCCC_FUNC___kvm_tlb_flush_vmid_ipa,
+-	__KVM_HOST_SMCCC_FUNC___kvm_tlb_flush_vmid_ipa_nsh,
+-	__KVM_HOST_SMCCC_FUNC___kvm_tlb_flush_vmid,
+-	__KVM_HOST_SMCCC_FUNC___kvm_tlb_flush_vmid_range,
+-	__KVM_HOST_SMCCC_FUNC___kvm_flush_cpu_context,
+ 	__KVM_HOST_SMCCC_FUNC___kvm_timer_set_cntvoff,
+ 	__KVM_HOST_SMCCC_FUNC___tracing_load,
+ 	__KVM_HOST_SMCCC_FUNC___tracing_unload,
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index 7c939baf9c1ba..b2657a3c65b40 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -913,16 +913,16 @@ static const hcall_t host_hcall[] = {
+ 	HANDLE_FUNC(__vgic_v3_get_gic_config),
+ 	HANDLE_FUNC(__vgic_v5_save_apr),
+ 	HANDLE_FUNC(__vgic_v5_restore_vmcr_apr),
+-	HANDLE_FUNC(__pkvm_prot_finalize),
+-
+-	HANDLE_FUNC(__kvm_adjust_pc),
+-	HANDLE_FUNC(__kvm_vcpu_run),
+ 	HANDLE_FUNC(__kvm_flush_vm_context),
+ 	HANDLE_FUNC(__kvm_tlb_flush_vmid_ipa),
+ 	HANDLE_FUNC(__kvm_tlb_flush_vmid_ipa_nsh),
+ 	HANDLE_FUNC(__kvm_tlb_flush_vmid),
+ 	HANDLE_FUNC(__kvm_tlb_flush_vmid_range),
+ 	HANDLE_FUNC(__kvm_flush_cpu_context),
++	HANDLE_FUNC(__pkvm_prot_finalize),
 +
- 	priv->phy_rst = devm_reset_control_get_exclusive(dev, "phy");
- 	/* fallback to old behaviour */
- 	if (PTR_ERR(priv->phy_rst) == -ENOENT)
-@@ -873,6 +878,8 @@ static int rk3568_combphy_cfg(struct rockchip_combphy_priv *priv)
- 		break;
++	HANDLE_FUNC(__kvm_adjust_pc),
++	HANDLE_FUNC(__kvm_vcpu_run),
+ 	HANDLE_FUNC(__kvm_timer_set_cntvoff),
+ 	HANDLE_FUNC(__tracing_load),
+ 	HANDLE_FUNC(__tracing_unload),
+@@ -969,7 +969,8 @@ static void handle_host_hcall(struct kvm_cpu_context *host_ctxt)
  
- 	case PHY_TYPE_SGMII:
-+		rockchip_combphy_param_write(priv->pipe_grf, &cfg->pipe_sgmii_mac_sel,
-+					     priv->sgmii_mac_sel > 0);
- 		rockchip_combphy_param_write(priv->pipe_grf, &cfg->pipe_xpcs_phy_ready, true);
- 		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_phymode_sel, true);
- 		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_sel_qsgmii, true);
-@@ -984,6 +991,7 @@ static const struct rockchip_combphy_grfcfg rk3568_combphy_grfcfgs = {
- 	.con3_for_sata		= { 0x000c, 15, 0, 0x00, 0x4407 },
- 	/* pipe-grf */
- 	.pipe_con0_for_sata	= { 0x0000, 15, 0, 0x00, 0x2220 },
-+	.pipe_sgmii_mac_sel	= { 0x0040, 1, 1, 0x00, 0x01 },
- 	.pipe_xpcs_phy_ready	= { 0x0040, 2, 2, 0x00, 0x01 },
- 	.u3otg0_port_en		= { 0x0104, 15, 0, 0x0181, 0x1100 },
- 	.u3otg1_port_en		= { 0x0144, 15, 0, 0x0181, 0x1100 },
+ 	/*
+ 	 * If pKVM has been initialised then reject any calls to the
+-	 * early "privileged" hypercalls. Note that we cannot reject
++	 * early "privileged" hypercalls, and to the ones the host has no
++	 * use for in protected mode. Note that we cannot reject
+ 	 * calls to __pkvm_prot_finalize for two reasons: (1) The static
+ 	 * key used to determine initialisation must be toggled prior to
+ 	 * finalisation and (2) finalisation is performed on a per-CPU
 -- 
-2.47.3
+2.39.5
 
 
