@@ -4,71 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03F68C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 09:59:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE9C6C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 10:04:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j92jfO4LoHBrBVcgVWjyDzmS4B6ISUjTP4JNI211h4k=; b=Kek+H9pSOy3DHupzNMTbnLE7Ia
-	mrwV78BlPAhp43wAlPVRZp23+Me0YvZizKHYJeNGF6J7xbXlA1zILMpU81w+nivY0++OJVTEUSk3o
-	iFjGTpulToPXSqKGN/xomw8F3wzpIq7mn8IAfoHyhAY8qdMSF1sEV0uRtQlwmF8vOw+7NK8zay9sx
-	2wnQi5JRFKs8M94/YPjjUA0XjOPPIdg6e86x461t0suDTtaleTkcGlnq4UeKxld+nTsN82ljY9+zG
-	vnvnXXEZZJ5wQPP/bBTv7RmkrnJBb6UDlWMczILEMCgvPyt5/Je/UktMaLOWk3/oZNxjNp3/97AgP
-	yZVXW9dQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eGS9ZAELcTkTuNTgyKM0hpB2EjXGms+wAcOSiSmEqTU=; b=JRPUgtH/IQ/luaH8XeevtJAead
+	RTJLfQYw+zERWqwLJWWZ4RVzKGQ7D5YwhhChDjjc3VCjuVCvFlJ4p+cNUspmjkZao4zDOBaIrU6gh
+	DI/Z7h6PVNmhIDcRZlf9919dAkc5eXi/gwPzZvQuvaRgu91P7/9FbUhBDXFeAqvRqdY8CxNVTATUI
+	SEorncpahfPg5D0y/1uDNyu9Xw2gTdFuW2yqscoECi5Ssi3pu2/em8XsKy5U3shyd/TxDW1oQ/jYf
+	2v8LDXjWfjuErjXYwZ0CqMs5miJ/cpKhhQn4oigN4Y64I0oOMMvack/maudY25olTQgq7SmxBFRqQ
+	ecgWRaBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Pwa-00000005pyE-0UN1;
-	Tue, 15 Sep 2026 09:59:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x6Q1t-00000005qSc-1foT;
+	Tue, 15 Sep 2026 10:04:45 +0000
+Received: from out-115.mta0.migadu.com ([2001:41d0:1004:224b::73] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6PwY-00000005py2-3o31
+	id 1x6Q1q-00000005qS9-3afk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 09:59:14 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 07C3B600D1;
-	Tue, 15 Sep 2026 09:59:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 915CD1F000FF;
-	Tue, 15 Sep 2026 09:59:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789466353;
-	bh=j92jfO4LoHBrBVcgVWjyDzmS4B6ISUjTP4JNI211h4k=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=gOPu7nAvhsCyIbszi5xZpf7QmIji7ToUQRY3z9kPbY4F3w9R405IyXG//Hw1FEdDt
-	 QAUrKF4dte0ZbhlTaiURlll04j3CsAvRTWZ8F8xOYWpDcjPYjAnUSUiETJ6270CBdx
-	 rP1770tauIGZkrv2oNKLfQX+UmP4nrQMw4FWnLQ93HgKY2x7W3I+XGQPnuSKPn2khP
-	 sh61GUuZF3hqyaWYTaatJnVGnKxSoErr+yFO9wOEZdeH0cuSN7GUENrCBDlvxPjycW
-	 xP3+zuWMU49+9pe/l9PzqmfSHzOxTnRbm2I0uDsWkK5HoaYtAk5ar3DEpjuD9WOQTw
-	 C621nKFrUAPQw==
-From: Niklas Cassel <cassel@kernel.org>
-To: Patrice Chotard <patrice.chotard@foss.st.com>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Hans de Goede <hansg@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Alexandre Torgue <alexandre.torgue@st.com>,
-	Lee Jones <lee@kernel.org>,
-	Tejun Heo <tj@kernel.org>,
-	Sergei Shtylyov <sergei.shtylyov@gmail.com>,
-	Baokun Li <libaokun1@huawei.com>,
-	Dan Williams <djbw@kernel.org>,
-	Brian Norris <computersforpeace@gmail.com>,
-	Niklas Cassel <cassel@kernel.org>
-Cc: Damien Le Moal <damien.lemoal@opensource.wdc.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-ide@vger.kernel.org
-Subject: Re: [PATCH v5 0/6] ata: Do not release the host resources twice on probe() failure
-Date: Tue, 15 Sep 2026 11:58:57 +0200
-Message-ID: <178946628793.756083.10484116126177085687.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260915084127.692494-8-cassel@kernel.org>
-References: <20260915084127.692494-8-cassel@kernel.org>
+	Tue, 15 Sep 2026 10:04:44 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=eGS9ZAELcTkTuNTgyKM0hpB2EjXGms+wAcOSiSmEqTU=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1789466680; v=1; x=1790071480;
+ b=RUcrgGR5/w7lDRvia7/zzut2KnW5AR2QO+VucAT7YrxEz86l2Refpz2PGrE3CNMxSsL39tjO
+ wMr2vLZP8ortLPbC0Xlznx8tBsJhwUGnvjghV9sbQB8cT9RblzfpN79LA3rwCbw+Lp2lZWxIWSa
+ +eS7Z18TCYDwTEJ0EYx6z6SQ=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id b79cd35a1256c782;
+	Tue, 15 Sep 2026 10:04:40 +0000
+X-Mizu-Trace-ID: b79cd35a1256c782
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b78e073980so4102e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 03:04:36 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBxwDN4VHOmgbT0gvuwpVh25MapIYcUQsfbSQLNsC8GjQFcnxKGRDmF48OndJZpSp3eaoXlWA95aqt2+5Fuz26a/@lists.infradead.org
+X-Gm-Message-State: AFuF++kGc6NvfDTcLNOyHVeAUz5PhRAYJdKyN68ALQVEN1jl8b5I0lwg
+	BweaTUgy/8q5vDfhiX5q+ZucvaCQoQRjBr8oPXxOdiUB1px+tIEzJh+HAm265bjKNVV2yV1rvrI
+	f4CRv4WQ+nEkRIWXqk5QjoVE/jdygKOxgVVH+lcWH
+X-Received: by 2002:a05:6512:2251:b0:5b6:bcb:26c4 with SMTP id
+ 2adb3069b0e04-5b8b2d57c88mr125735e87.16.1789466675623; Tue, 15 Sep 2026
+ 03:04:35 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1191; i=cassel@kernel.org; h=from:subject:message-id; bh=od9GhuX9XDh70gNd4qvbWE+jAaCyAXlo03Vtr9G9B84=; b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGLJWij2ytuLrtd182pCj4Hl0ILd5EHfN/nRZIYYPjydOv HpM+MCpjlIWBjEuBlkxRRbfHy77i7vdpxxXvGMDM4eVCWQIAxenAExk7R9Ghg2rznPudVqUvTPr etCaX0d2cr3kLmbaPdlU3nLmoZyP6yIZGTb5HgrclVeorlk6f87rf1vO/F2vc8PgdvWRDEOrTT7 zCtkA
-X-Developer-Key: i=cassel@kernel.org; a=openpgp; fpr=5ADE635C0E631CBBD5BE065A352FE6582ED9B5DA
-Content-Transfer-Encoding: 8bit
+References: <20260915070418.3209779-1-fuad.tabba@linux.dev>
+ <20260915070418.3209779-2-fuad.tabba@linux.dev> <aqj1GKamuBraiub0@google.com>
+In-Reply-To: <aqj1GKamuBraiub0@google.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Tue, 15 Sep 2026 11:03:59 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTxujn0EwJM49FaAuXjbyTWmvgzk89orO+8WLSn63u8WtQ@mail.gmail.com>
+X-Gm-Features: AcwNN1VTCK-3nqI9-Q-RK2JyK41FQVwFdhMt-rabRiLORS8vzlwPjlPh4CVwNWw
+Message-ID: <CA+EHjTxujn0EwJM49FaAuXjbyTWmvgzk89orO+8WLSn63u8WtQ@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] KVM: arm64: Validate the host vCPU's VM before
+ reading it under pKVM
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	catalin.marinas@arm.com, will@kernel.org, joey.gouly@arm.com, 
+	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	mark.rutland@arm.com, steven.price@arm.com, qperret@google.com
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260915_030443_033476_F0306AD2 
+X-CRM114-Status: UNSURE (   7.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,34 +85,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 15 Sep 2026 10:41:26 +0200, Niklas Cassel wrote:
-> ata_host_start() registers ata_host_stop() as a devres action as soon as
-> it has succeeded:
-> 
-> 	if (have_stop) {
-> 		start_dr = devres_alloc(ata_host_stop, 0, GFP_KERNEL);
-> 	...
-> 	if (start_dr)
-> 		devres_add(host->dev, start_dr);
-> 	host->flags |= ATA_HOST_STARTED;
-> 
-> [...]
+On Tue, 15 Sept 2026 at 08:34, Vincent Donnefort <vdonnefort@google.com> wrote:
+[...]
+> Beside those nits:
+>
+> Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
 
-Applied to libata/linux.git (for-7.4), thanks!
+Nits addressed, and I'll respin this as part of a consolidated series,
+as requested by Marc.
 
-[1/6] ata: ahci_st: Do not ignore errors when getting the reset controls
-      https://git.kernel.org/libata/linux/c/c74ee923
-[2/6] ata: ahci_st: Assert the power down reset in the probe() error path
-      https://git.kernel.org/libata/linux/c/91e0a745
-[3/6] ata: sata_fsl: Fix use-after-free of host_priv on probe() failure
-      https://git.kernel.org/libata/linux/c/70b11967
-[4/6] ata: libahci: Free the IRQs when activating a multi-IRQ host fails
-      https://git.kernel.org/libata/linux/c/34a4a344
-[5/6] ata: libata: Do not leave ata_host_stop() registered when activation fails
-      https://git.kernel.org/libata/linux/c/d2f97700
-[6/6] ata: libata-core: Fix the ata_host_register() kdoc
-      https://git.kernel.org/libata/linux/c/52d19459
+Thanks for the review!
+/fuad
 
-Kind regards,
-Niklas
+> --
+> Vincent
 
