@@ -4,41 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06D93C88E7F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 12:39:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB304C88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 12:39:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HGHsQcFB8xytlTkvtp5h1+EYn3YTVwgP0oxR+/WWapo=; b=STkEnJeg1XbOclpfv5rfQ/U7K3
-	6C3akW/aEmGgxHWM6Ykz2id/aKNaQvo37G9AOrWiRquCZhsW4uWxMlpwizwvg+cJFW0gL/dFHevEj
-	Z7Nw/CCN21u0PiZkYIsCQ4wg7DJajdnQ0+suaW28dy0wiV+vxM8EqAXtdb9wErtprnzJs3L6gGyKQ
-	gRvjreePn+njvy5z+55AjAKKG3ozXyifzxmqLhOPY6aWbB5/nlBe9QX7s8epN6MXD77IeZ+l4lDIp
-	iiQbPhoW1Vmgj6fQNItrU13oJt3TtQRQsEkg2L/8ZIwJj1sQRi4pXUbrPdlsWo/NMOAwIIUqQJPKD
-	GoNZIQ/g==;
+	bh=PDn2Y1WPDMGH4GUDrea/2RLdSifrNwDAD7YIDZdLCAE=; b=dLVJsuR7kOXby2IQuXRwY6Khj9
+	nrSSub8+6kGA1uzHBbO26FhSK/UkfsYcMRLfI9d2kfr7/Mvvkh02Q4W3IrDL8LnyH3kVRrcXqYMRn
+	rRlXvZGqjvpgMd0Fw47Gqi6fY/gUsYC8NwNPceKouTA0pfKZ4N66lHGduY0nKTYU2iC2Kuab49jJ6
+	ML/F1Q7LCihVbXDAnQJXz6/h3tOCADPco16ZMqDv22CF0/LyY8x046VdJ471vbjQwUILFn07bVVaH
+	3P1ix7XFnNOupLA/4nHEnJYqEk2j+UZflyB7TLTXx+dH7fEjm+GQyGt2d6zlktAEFlj5HwVnXbQcA
+	rHP6QHEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6SRn-00000006YJS-1XDp;
-	Tue, 15 Sep 2026 12:39:39 +0000
-Received: from out-105.mta0.migadu.com ([2001:41d0:1004:224b::69] helo=mta0.migadu.com)
+	id 1x6SRp-00000006YPz-3JYc;
+	Tue, 15 Sep 2026 12:39:41 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6SRY-00000006Xnw-2YWF
+	id 1x6SRi-00000006YCk-2Ho8
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 15 Sep 2026 12:39:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=PDn2Y1WPDMGH4GUDrea/2RLdSifrNwDAD7YIDZdLCAE=; b=c0CCRTHE3q12M+VmoasxyDlU1+
+	I0CwNOsIYlaWTtg9Cd3d6TKPXeyUOT0YGnFiM4nKUn/nalqxQhq4QJcNPo/1YuC6ZFdpFOZ5gacHA
+	8pyCK/PN2I1ws+cbbcGAOJDUieZMTeHSqDsTQjy92tPlTT+kVLBC03ohyRR1j/Vf+NXaKtI8mOHJk
+	0E82c8Na/O10qL+gqgmPmcDC0+pjiCiD0LPYPt/Bp9pcDH7SxLlEsulEiOSdZmwEHuzFi1e2Cjb93
+	9TcP7+qjhB15msxFK0YmZ6uRo7HC9MVZ1G9TsrfeZCbn621gXaFbTV4xQKfiHiIUtyeLqp9psaTpX
+	ieAR6PfA==;
+Received: from out-141.mta0.migadu.com ([2001:41d0:1004:224b::8d] helo=mta0.migadu.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6SRf-00000006kPr-3qnL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 12:39:26 +0000
+	Tue, 15 Sep 2026 12:39:33 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=rjKovHQD0Gp4G9kJIm0gEuJ0ORCBHOkqoPL4YmXSz3E=;
+DKIM-Signature: a=rsa-sha256; bh=sXzD5OweRtbt4uiu9AwJiDOee0ALx9j8z+8yBBR+qWw=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1789475962; v=1; x=1790080762;
- b=kbeicyrGZUNKrROuGHQIdQYDegthU180uE8j/HcfOoz4MyDSyV/4lz+PuhLH5Ealxtuy72m2
- b5UVbGnlrNs+UmXxgWXlXz01Qf3Joq9niMvmMDQqlIPPVfKhGbUqdyAN7HnVVTT+6PH49JNEX1P
- MdOJ935UjsuPFt6H4Q0hRzfw=
+ t=1789475968; v=1; x=1790080768;
+ b=nyz+h/BAwR5kLcsNmGLMEJY7dQjAHlIyguIRMM6K/gfJF+gO7SNMvfh/rWo4ozH0S04dtMuf
+ mfh/8eY93zTxN8B6WBC9dOiCypiegz6Tr7po4/wglpQdqFLzhsOuPCgX5fHvBhsPpNYKvpWYOdX
+ oSCQxfXZepL52FW4MnlTQ4zs=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id cd327d75635f7551;
-	Tue, 15 Sep 2026 12:39:22 +0000
-X-Mizu-Trace-ID: cd327d75635f7551
+Received: by smtp.migadu.com with ESMTPS id 3acdc7de5bc4f044;
+	Tue, 15 Sep 2026 12:39:28 +0000
+X-Mizu-Trace-ID: 3acdc7de5bc4f044
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: maz@kernel.org,
@@ -58,17 +73,18 @@ Cc: catalin.marinas@arm.com,
 	Sascha.Bischoff@arm.com,
 	steven.price@arm.com,
 	tabba@google.com
-Subject: [PATCH 5/7] KVM: arm64: Pin the host vCPU before adjusting its PC under pKVM
-Date: Tue, 15 Sep 2026 13:38:44 +0100
-Message-Id: <20260915123846.2317931-6-fuad.tabba@linux.dev>
+Subject: [PATCH 7/7] KVM: arm64: Fix stale VGICv3 comments in the nVHE world switch
+Date: Tue, 15 Sep 2026 13:38:46 +0100
+Message-Id: <20260915123846.2317931-8-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260915123846.2317931-1-fuad.tabba@linux.dev>
 References: <20260915123846.2317931-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_053924_873076_83A14620 
-X-CRM114-Status: GOOD (  13.17  )
+X-CRM114-CacheID: sfid-20260915_133932_072910_3F398BB5 
+X-CRM114-Status: UNSURE (   9.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,59 +99,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Under pKVM, a page the host shares with EL2 is mapped at EL2 only while
-it's pinned, and the host vCPU is pinned at its first KVM_RUN.
-KVM_SET_VCPU_EVENTS with ext_dabt_pending reaches __kvm_adjust_pc() at
-EL2 before that, and dereferencing the unmapped host vCPU panics the
-hypervisor. Any process holding /dev/kvm on a pKVM host can trigger it.
+__hyp_vgic_save_state() and __hyp_vgic_restore_state() handle GICv5 as
+well as GICv3, but their comments name VGICv3 only.
 
-Pin the host vCPU around the adjustment when no hyp vCPU is loaded for
-it. A loaded hyp vCPU implies it's pinned. A pin fails only for memory
-the host isn't sharing, and the request is then dropped like any other
-bad host pointer.
-
-Fixes: efa1368ba9f4b ("KVM: arm64: Commit exceptions from KVM_SET_VCPU_EVENTS immediately")
-Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
-Reviewed-by: Joey Gouly <joey.gouly@arm.com>
-Cc: stable@vger.kernel.org
+Reviewed-by: Sascha Bischoff <sascha.bischoff@arm.com>
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/kvm/hyp/nvhe/hyp-main.c | 21 ++++++++++++++++++++-
- 1 file changed, 20 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/hyp/nvhe/switch.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index b2657a3c65b40..a138b42e7cea3 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -542,8 +542,27 @@ static void handle___pkvm_host_mkyoung_guest(struct kvm_cpu_context *host_ctxt)
- static void handle___kvm_adjust_pc(struct kvm_cpu_context *host_ctxt)
- {
- 	DECLARE_REG(struct kvm_vcpu *, vcpu, host_ctxt, 1);
-+	struct pkvm_hyp_vcpu *hyp_vcpu;
-+	struct kvm_vcpu *host_vcpu;
- 
--	__kvm_adjust_pc(kern_hyp_va(vcpu));
-+	host_vcpu = __get_host_hyp_vcpus(vcpu, &hyp_vcpu);
-+	if (host_vcpu) {
-+		__kvm_adjust_pc(host_vcpu);
-+		return;
-+	}
-+
-+	/*
-+	 * With no hyp vCPU loaded for it, the host vCPU may be unpinned,
-+	 * and so unmapped at EL2: its first run pins it. A pin fails only
-+	 * for memory the host isn't sharing, a bad pointer, so the request
-+	 * is dropped.
-+	 */
-+	host_vcpu = kern_hyp_va(vcpu);
-+	if (hyp_pin_shared_mem(host_vcpu, host_vcpu + 1))
-+		return;
-+
-+	__kvm_adjust_pc(host_vcpu);
-+	hyp_unpin_shared_mem(host_vcpu, host_vcpu + 1);
+diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
+index 7318e3e6a5f36..6b9e20f6b31b3 100644
+--- a/arch/arm64/kvm/hyp/nvhe/switch.c
++++ b/arch/arm64/kvm/hyp/nvhe/switch.c
+@@ -110,7 +110,7 @@ static void __deactivate_traps(struct kvm_vcpu *vcpu)
+ 	write_sysreg(__kvm_hyp_host_vector, vbar_el2);
  }
  
- static void handle___kvm_flush_vm_context(struct kvm_cpu_context *host_ctxt)
+-/* Save VGICv3 state on non-VHE systems */
++/* Save vgic state on non-VHE systems */
+ static void __hyp_vgic_save_state(struct kvm_vcpu *vcpu)
+ {
+ 	if (vgic_is_v5(kern_hyp_va(vcpu->kvm))) {
+@@ -125,7 +125,7 @@ static void __hyp_vgic_save_state(struct kvm_vcpu *vcpu)
+ 	}
+ }
+ 
+-/* Restore VGICv3 state on non-VHE systems */
++/* Restore vgic state on non-VHE systems */
+ static void __hyp_vgic_restore_state(struct kvm_vcpu *vcpu)
+ {
+ 	if (vgic_is_v5(kern_hyp_va(vcpu->kvm))) {
 -- 
 2.39.5
 
