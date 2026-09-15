@@ -4,180 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B196C88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 07:14:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82665C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 07:16:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KbNOasXWbzPkkqmxbT65HMNUahAEOPSbzU0f+llInqk=; b=iMu/YbcmS4txfRAKMbrxfTO+YM
-	IMIAuWg772n+WclqSkLewfqTsPofQWsQR1eAzYwUpVlTHO3rxt0wNKZCqU1DFov+S5h2YNyNzY96k
-	m+scE3QLTuqQoI/AGIqDltrVw1XjH+QddUbUWRxkN4mTjtNWNmjMdf3RMpm44DbFCuelo6Tdr85QI
-	buWKqMpqdrDm45GfJhjLIIrB52AGtXq6kHN+Dcltcy6Jx9LO5Xvl8uXmSfBDOS0nTceqRVh1lbbiV
-	W3zJ4OQslP9x6K+l4j2dQSzAY0XwbwTB0nGnekfjERCxO8veE6e32a+a19PVmS//5kxjwWHWBSEub
-	E/rzfl5A==;
+	bh=+nr1P0tgliNgWrwwlskRYCnoUwDXrwYuGsx1cH5L+SI=; b=mVzB8DGKDkYcuK6QMv9v1kYptI
+	OA2izIqSbPgt7b6dehRbBj0CCGyvVnRYynMnSUGreseIUSjHKADg65ue81diMmNhu3wW7exK85WLN
+	ciEDtXnLRTBJtU7vSSzurGTIPwnjUYN2qpOdsICNYc0IBRpT/Bg3Nknm8G4oAtE8RFGTdhlguCEBM
+	FBnVsdNmftARy9vdq32rALAIt8igJ+c8jhqP9CBMebzwR/6u//nzcYcgNoSzfcU01x2h+Uet3bAIo
+	R9Z3rdnhQ0ZYRU8gczIGvoXCZ4hsF3mNx3wrUiapL+LQFTvJeGCFYidGoRpSHUR9p4CbhyA/odgyl
+	n1VSzihQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6NMm-00000005R1g-1fYP;
-	Tue, 15 Sep 2026 07:14:08 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1x6NOT-00000005RCX-14lg;
+	Tue, 15 Sep 2026 07:15:53 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6NMj-00000005R1A-4A22
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 07:14:07 +0000
+	id 1x6NOQ-00000005RC3-1dXz;
+	Tue, 15 Sep 2026 07:15:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789456446; x=1820992446;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=8+eZ/YcGjovkIDASQZhIV6LCWucQifmNex0NP1WaIOU=;
-  b=MQU8LXEO6tU8M6XRklPFyPF+Jm/soCcnWQ51PCaDpJBvkPe/PNyE7GH/
-   0fOpMcwwvU7KwWvwEoY14+i3o8XvMN/ZLY+Sd5CbsISJiAMYWHxm1novF
-   q3tGAHMjaoQQ25G2ZAggirbE0bhBreF9f96FlE8y0BmUur7kf1og1gvjQ
-   RV9jmaScyCs/wfd0SZ++SjKHihGuQ6iilBn3CxpNsQoDwcdk1T+3rfeWp
-   lSZaowkJNNlrIfVeu+FwhoL7CjQdu8xbLcSCtcp/YHBXOau/uXz6U5PAN
-   ZAcq0Ab0fyA4Lp8ydqcgU1Q9rrQXzvlBczhibXvzad3mNX7QHaTtOf3el
-   g==;
-X-CSE-ConnectionGUID: M7syQcMRRV+h0k3J0SXmTw==
-X-CSE-MsgGUID: hD8CiUhUTly0Ojg1qjsJlg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="90017516"
+  t=1789456550; x=1820992550;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=+hFmXzfeob24QkbjYP8iQSqL7rHNCW4SoAluNe2Mtzo=;
+  b=SqTPGq1/wIAt9oHS4ekKDbtM/G4Ocj3SZMwt0/NBaW1JmxQb5STj2vgF
+   EUI19h3YNhp+CgoentcZiZFmvRElTAipytatNsq/Ai6mc7N4l+8SD9OHM
+   NPjZlQ7A2uHGNx/i2EEi+7ZxXX7HQOa1KzrZnPUqt3uxaPwOiqVs69dyo
+   KjlFTby+Ol7uNVYWfX4aTBx15PnJ0CEVVNfxOVaZQtv8kA3yWJr4Gh59s
+   bWk+D3oWw+dZlEyhkWtmc2hWQdQT/jsUZElIISdLLZh5PLJyfRcIX4H9C
+   a8BWJKM4Wkx4uV8SHLJUUXbk/ZhtMJChv+tjzlZRLMKc0XYtk+PJHWSal
+   A==;
+X-CSE-ConnectionGUID: NbIW9kUsSw+Vm0GcbJ19pw==
+X-CSE-MsgGUID: lHDkDJ2iSI6DNlBTXCwZ2Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="77372791"
 X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="90017516"
-Received: from fmviesa013.fm.intel.com ([10.60.135.153])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Sep 2026 00:13:53 -0700
-X-CSE-ConnectionGUID: ZpkBgf0MRFuxtSRCvuPYxQ==
-X-CSE-MsgGUID: VawudWrPSFSeU3qtrKcjPQ==
+   d="scan'208";a="77372791"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Sep 2026 00:15:49 -0700
+X-CSE-ConnectionGUID: jCoR3+hhS+iTfoVrXV+ydQ==
+X-CSE-MsgGUID: EtpDa52ZR/agKBjetRCxuQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="1265136"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by fmviesa013.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Sep 2026 00:13:52 -0700
-Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Tue, 15 Sep 2026 00:13:52 -0700
-Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46 via Frontend Transport; Tue, 15 Sep 2026 00:13:52 -0700
-Received: from SJ2PR03CU001.outbound.protection.outlook.com (52.101.43.16) by
- edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Tue, 15 Sep 2026 00:13:51 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hfgn/vWMZCPvxPzDDO/OEdoqfko6/oEapKDLKXCEABgkp7kZOWwfqmo7lz76Vfd6AyjMqJy0mqw6kLz5ns80cwrgf/+W2Xq6AMte80nZRprTnjpQDvrHuKA1C0lu6/IY2fCiFD5xunUN68mLD5kbPD4WYl0+6Kig0pIcfrnU15i0Qyb4srJfr8V8EsNsSlnfEa2KNm+8Bd9ojXtwyD5OSVpWNNQN2+K+Ht9f9zPCdqPQ+uxJ0iYNF95lWxe9KJZK628E62zh1g6TiUV6JDZlTSOeXngdOdRA0GW5/ldp3To7epPEB4f3siSp/XojLQ5I7Q+gKnXlTNxXnxQrdbNA0Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KbNOasXWbzPkkqmxbT65HMNUahAEOPSbzU0f+llInqk=;
- b=Ch269PDuufUL4PCeQFLxPTMDcHRPwBk4GxLaWX8ql2X6WcIwYPZty1Dlu6eOmaBpJv3WsiQT0tnqNtWGm4NV8TPmh6OOQgevJGNvfhDwF2gd/w52dDLLX2hLxSZ/FpVcgYDNbQ6Xvm6vKJrEKnnYkmN2aZU/gCw/JJLmy0gdJyraS73O9x7xMLTPzDzhEBpwYcuE9uFwvf5KYwEmmUb7ibJALN/PhISxntMbaOyaEdAcw1V2ndOW0PL1AP28zWJr7/Wd+7o68pjqiV0eUR/Joz2J519Y82YnNa/iRYacMTYD3JWUaETqtFaKIxxPZGXal7zBW7+k398cy/3qdUOv4Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from CO1PR11MB4835.namprd11.prod.outlook.com (2603:10b6:303:9e::22)
- by IA1PR11MB6539.namprd11.prod.outlook.com (2603:10b6:208:3a1::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Tue, 15 Sep
- 2026 07:13:48 +0000
-Received: from CO1PR11MB4835.namprd11.prod.outlook.com
- ([fe80::d051:d948:c209:9225]) by CO1PR11MB4835.namprd11.prod.outlook.com
- ([fe80::d051:d948:c209:9225%4]) with mapi id 15.21.0406.007; Tue, 15 Sep 2026
- 07:13:48 +0000
-From: "Tian, Kevin" <kevin.tian@intel.com>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-CC: Aneesh Kumar K.V <aneesh.kumar@kernel.org>, Nicolin Chen
-	<nicolinc@nvidia.com>, "linux-coco@lists.linux.dev"
-	<linux-coco@lists.linux.dev>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Alexey Kardashevskiy <aik@amd.com>, "Catalin
- Marinas" <catalin.marinas@arm.com>, Dan Williams <dan.j.williams@intel.com>,
-	Joerg Roedel <joro@8bytes.org>, Jonathan Cameron <jic23@kernel.org>, "Marc
- Zyngier" <maz@kernel.org>, Pranjal Shrivastava <praan@google.com>, "Robin
- Murphy" <robin.murphy@arm.com>, Samuel Ortiz <sameo@rivosinc.com>, "Steven
- Price" <steven.price@arm.com>, Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Will Deacon <will@kernel.org>, Xu Yilun <yilun.xu@linux.intel.com>, Suravee
- Suthikulpanit <suravee.suthikulpanit@amd.com>
-Subject: RE: [RFC PATCH v4 03/16] iommu/arm-smmu-v3: Add initial pSMMU realm
- viommu plumbing
-Thread-Topic: [RFC PATCH v4 03/16] iommu/arm-smmu-v3: Add initial pSMMU realm
- viommu plumbing
-Thread-Index: AQHdN/EwiLvbaU+6lE2MX0oxJV5il7a5dWsAgAAN2ICAAErrgIABNM4AgAA3CgCAABBnAIAAON+AgAB6EYCAAGKGgIAAwE4AgAXLI4CAADRDAIAC9yOAgAAr2QCAAS/H0IAAYpMAgAdUwAA=
-Date: Tue, 15 Sep 2026 07:13:48 +0000
-Message-ID: <CO1PR11MB4835FF972283C09D7D683DAE8CBA2@CO1PR11MB4835.namprd11.prod.outlook.com>
-References: <yq5aik4nztdt.fsf@kernel.org> <yq5aecfbzjyk.fsf@kernel.org>
- <20260902235609.GG2890729@ziepe.ca> <yq5a8q5izxz4.fsf@kernel.org>
- <20260903171704.GK2890729@ziepe.ca> <yq5acxupjsy2.fsf@kernel.org>
- <20260907125228.GB667892@ziepe.ca> <yq5atsnyag84.fsf@kernel.org>
- <20260909124628.GH2543240@ziepe.ca>
- <CO1PR11MB4835512E374074A5F4AD0A6C8CBF2@CO1PR11MB4835.namprd11.prod.outlook.com>
- <20260910124632.GB4083318@ziepe.ca>
-In-Reply-To: <20260910124632.GB4083318@ziepe.ca>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: CO1PR11MB4835:EE_|IA1PR11MB6539:EE_
-x-ms-office365-filtering-correlation-id: 1ab2c4d4-4d77-4d86-9b2f-08df12f8e358
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|23010399003|38070700021|56012099006|4143699003|5023799004|6133799003|11063799006|18002099003|22082099003|10067099003;
-x-microsoft-antispam-message-info: jW9RvOIAfKRESQuSIfKSVLX7FiyXKUwD17CzdvUAT3UhrzEz9Rx+XLmltelOClF7/1t7HH4U9b63PisfMepEOTTmuQ6r5IL1PwrBFEx9QKB2R3kKxUe1D+l8mvyi0mZIifoROoZ6njLzjUs4GFksGN/+S8MGBKCSpygKi6ml0zZlbF+/XRUbj86MtGAsqj6BaunfVIjhC4BG5zudNpjrAj0HdI3qQbSY3OiZHRBohlCXhiBun1K/NNxxSw7YTo3ntgqAk1Vw5DdBwJ17pdw0/mxydRHWzYmhmTt84jL5cZKOn2s8cJ0pSNpII9rMgdVQB1B04HWDPZDyMZ608+b8X0BSdcH1TyTjuolEz981kxdVZYSa0UNszGjHUJZoKHSFSjHmz/gSrFUt/RABVX+PBSi9SIStkYBufmow+HXSExvZ79858gWMSJgQTGRoBVe5MdVs1wbLIy+yO4yBcvTsHbd07qskCSV5l110/SkprDZYx/WFSqAqUfQzRv6+WFtSNh6zCVY1y8yciZuZkTpGf+OBSt8aVmZWMJrLilNz1bO+7pTgjXnGHPO9sTY3T/cAGJNU6dMeFGjA9YGOnN7OHHwNMy1IW7Fd+j1Mq9OiZZjVdQaiCqJZEW9G0i3YgMsjn+WEyXL+jy7PSr6jnKqOyagDtK0RjYUjvQ9wkyGpK1jbjbqYOYCp7+hePCZFbtMEs38f/Hs/L5Xt0ZciIVb6Z4Euq8/Kq3EI9uB2+pwVog4=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB4835.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(23010399003)(38070700021)(56012099006)(4143699003)(5023799004)(6133799003)(11063799006)(18002099003)(22082099003)(10067099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?OvMLBsY/LsoyS0XRUHvdhURXJuQAUbXLVivyUQ9osXS9C7XL8TQQufva+sgR?=
- =?us-ascii?Q?2ifAHv1V5bZsgrbpzIEujHgEWv/uwomRa8yOWqMlUjvhUMaWYEvap+xxR1jM?=
- =?us-ascii?Q?yC7WHx9ljh1lZzpcad9yVNq44TVCYNI9kkwMtWDs+OVmu3MUm7s1ZqSPxuUq?=
- =?us-ascii?Q?FdoWZSttWLT2Ne4i9FB7yxXfsMr3SzVKLjfPwqV8fNiaxBKqPpgPJ5obLArp?=
- =?us-ascii?Q?egHqeIKxc5xeTvLs6vkyGwe29oXg80dsTl/xorCclO7ejoO+nQCObftDbkOD?=
- =?us-ascii?Q?Ah/bPejjJP79BqaFkwfpMUaxEBI6oKDHWCBLRroZ56lBqozSwx8TxRDpdTzs?=
- =?us-ascii?Q?+uEvxJQOg6AcOG8pZtDSY8nhbgByjH07WLfBvt2vzlcnvu7IwDOBV52by+yJ?=
- =?us-ascii?Q?NFP0MEIIzAIJp9FX6r1R1TN4nGAhbgqWBRD+1eggdOXuwFT83v/IFJYms7Hb?=
- =?us-ascii?Q?gjxv/hnqXxFdV+VBR73xWv+A716r1WGIJQvRIlQ3djG7xpoUn2Pw51jOPFzD?=
- =?us-ascii?Q?2qGNTbv8HVkE6wOrzMX+VlDNRKpAm/x2saw/QmK4tCwMeBRUsPQrGIsOgD9z?=
- =?us-ascii?Q?rEkkdD4G8KqyqMjfHdEneh92phwu8OtnhitZJsYsj8TCKl+nkjej5x0s1N4V?=
- =?us-ascii?Q?UqZA8HG6arTKa/JsNaMUcm1BfJeL8vyL3NRHShY/vta+J02hW8Vylin5nyCj?=
- =?us-ascii?Q?YEthfysAO8IMnMRft4EElbQ1JNco8cMGgPjJm/SmgHrJSq0bCtMzrg8pyllu?=
- =?us-ascii?Q?POfY0ND/Pa3U3tktO8xsYivWgnCzOl7e8c8/pKi/A5EO5m4+mASq2b2nR7b8?=
- =?us-ascii?Q?jnKj629bny4lh8FAXwymSFH0AYwIJHN/OTEZhbdI7NQhjPUxFulUvSPQglmP?=
- =?us-ascii?Q?ZAAjiYf38gjjcoOLL22Y0XZvr6rFIDgNoECPqV4CNlStfzYSjPr5zS7i6fM9?=
- =?us-ascii?Q?IFJ8DNrSEP6lr8Zq7Xlfj6qZUluYGIgsJBwgK5IETWntwAWtVjB8y43oEY5W?=
- =?us-ascii?Q?fGOtnSXdmKwxzyz2jwbbVjeoYVoYpKOJwZwSn5Lm81bdTVZ8FZCvVCfJr7/3?=
- =?us-ascii?Q?nrriUVktZ8u8d8MozRIR9uLE51+/Bsa4KZ/FmnSh5mhn8BLjmM/OHWwGdZux?=
- =?us-ascii?Q?6LBiJuEIJrAXpDJNbo/cr4MRm/uW/6xWzATq2DTVmFN0EygAi5Fa99TXuRAP?=
- =?us-ascii?Q?r9cR1hcMNONpKXtLs2B5cecxEes1t16+ox5C0G8bS3VuMfem1GefYAxnh+Nk?=
- =?us-ascii?Q?OwB15YYSjveJf/ssPOKFFIVcF5H2a53jsG/JeKQj7FPDLgaZ8yRG3v2uhHmU?=
- =?us-ascii?Q?Y3pqpBzu2Ol/+uiqYK2uR7d/kyEDOSXjVFPXQWpFweOcPKLZDveAti1mDDVJ?=
- =?us-ascii?Q?nQNx+oEytql2KdQ9KseWmsEOuYlxhTCj5ka2FHDZDacnielwh3z7CpLZYB8v?=
- =?us-ascii?Q?35oa7BBw9Xsy+qYOJFxwskDMSxOFIDh+oEnIjn4qOEmgInpKb+9eMgWTA78y?=
- =?us-ascii?Q?to0kzirImgH6UXC3SDq4j6Jg5eJI4KtQ1noXSgifOchOCPHVBjvMLARjIhgJ?=
- =?us-ascii?Q?ag8ONFUS8Gumtxq+kIDp2O55M3lWPdr7/Ekjj2ewg6abXCGFkIIL54khsUG5?=
- =?us-ascii?Q?JlPl1tQH/Cm0VC7DTKXjWtgNyRJHjtLrzSCVFRbJjnOnxt5ljbYSHssouQmQ?=
- =?us-ascii?Q?BSbkyKbO2Qt7NL1aykJ8FpNGHt4CHvKC5pxTARADG5B+Zp3jh/YXUWonZvhi?=
- =?us-ascii?Q?yDcJjYhCnA=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+   d="scan'208";a="268588584"
+Received: from smoticic-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.203])
+  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Sep 2026 00:15:38 -0700
+Date: Tue, 15 Sep 2026 10:15:36 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Srinivas Kandagatla <srini@kernel.org>
+Cc: Link Mauve <linkmauve@linkmauve.fr>,
+	Sasha Finkelstein <k@chaosmail.tech>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+	Neal Gompa <neal@gompa.dev>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Vladimir Zapolskiy <vz@mleia.com>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Kalyani Akula <kalyani.akula@amd.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
+	Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
+	Johan Hovold <johan@kernel.org>,
+	Ronald Claveau <linux-kernel-dev@aliel.fr>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
+	asahi@lists.linux.dev, imx@lists.linux.dev,
+	linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	rust-for-linux@vger.kernel.org
+Subject: Re: [PATCH v5 2/3] nvmem: core: deprecate reg_write callback with
+ reg_write_const
+Message-ID: <aqjwmMn7GkAoxsu2@ashevche-desk.local>
+References: <20260804135940.2378737-1-linkmauve@linkmauve.fr>
+ <20260804135940.2378737-3-linkmauve@linkmauve.fr>
+ <a1488d9d-3014-44ea-a0d7-6ab99fedccc9@kernel.org>
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: QYWppZFPlArYJn9+M5ibNha+GPBsG9lx7ABlNUgcAccfIBkc7G868/SxHtAWOZ2O2vug+trhAAMJehwX0AyGte5ZGtEelROTEKR8GbcDHOFyshaHFC5cRbnv07PNcHbmxiBPnGdX1XY4zP9P4ni3lzSn0hBZPVhnLlEhvAncHqrQX5nAogeQQyM+APV+hspOkLz5B8Uc00ojVw1O/+ti4iyeD9vF3gIRD1V3DqA9z0MFFKZhtYKwgPgzeR4wGAUxLwChfZTRNQ6oeAXM/ze/ouNbKQ3GMrartIIvjDXAekzzm6uusIarVaCbMDvJ7mJuKjVE14VFLOysOEdKHFwq4A==
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB4835.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1ab2c4d4-4d77-4d86-9b2f-08df12f8e358
-X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Sep 2026 07:13:48.5267
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: A/V80wFltYLe+yoAirVFo72m5XQhdi3bm/2FCtXobPzAJI6NJiIPN6fEJi2rO55iNOd7KjEx/7h+TeE/F4ginw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR11MB6539
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <a1488d9d-3014-44ea-a0d7-6ab99fedccc9@kernel.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_001406_129586_87E845B5 
-X-CRM114-Status: GOOD (  46.05  )
+X-CRM114-CacheID: sfid-20260915_001550_585261_6F6996DE 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -192,160 +125,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> From: Jason Gunthorpe <jgg@ziepe.ca>
-> Sent: Thursday, September 10, 2026 8:47 PM
->=20
-> On Thu, Sep 10, 2026 at 09:52:12AM +0000, Tian, Kevin wrote:
-> > > The mmio is owned by vfio, there should be a handshake in VFIO to
-> > > remove mmio when it becomes private, otherwise I don't think we need
-> > > to do anything more?
-> >
-> > for TDX a callback in VFIO is invoked to revoke the dmabuf.
-> >
-> > btw I didn't see any dmabuf related in this series (even in a hackish
-> > way as Yilun sent out last year). Is it not required by CCA or just
-> > skipped now waiting for the framework to be settled?
->=20
-> I think just one step at a time :\ I think CCA needs it as well, you
-> also cannot safely leave private MMIO floating around the host
-> userspace on CCA.
+On Mon, Sep 14, 2026 at 10:48:21PM +0100, Srinivas Kandagatla wrote:
+> On 8/4/26 2:59 PM, Link Mauve wrote:
 
-Good to know
+...
 
->=20
-> > So viommu will become the abstraction point for tsm operations and
-> > directly talks to the tsm driver instead of going through the merged
-> > tsm_ops (bind/unbind/guest_req).
->=20
-> More precisely for what was being called the TDI - ie it is the
-> abstraction point for the host side of a guest virtual PCI device.
->=20
-> iommufd vdevice already represents this, so we use it again.
->=20
-> > currently what tsm_ops provides additionally is more about synchronizat=
-ion
-> > with connect/disconnect, otherwise just calls into underlying tsm drive=
-r. As
-> > long as viommu creation holds a reference to tsm then disconnection is
-> > blocked then it's safe.
->=20
-> Yes, this already has to be true or our lifecylce model is
-> nonsense. Once the iommufd creates the vdevice the guest is running
-> and we cannot disconnect it without unplugging it from the guest. Thus
-> the locking can rely on that. Within an iommufd ioctl context the vdev
-> and underlying connection must be stable.
+> > - * @reg_write:	Callback to write data; return zero if successful.
+> > + * @reg_write:	**DEPRECATED** - please use reg_write_const instead.
+> 
+> Marking here as deprecated is total waste as no one will read it,
 
-btw looks a related suggestion is having the tsm driver (arm-cca-host
-here) implement the viommu ops while leaving the original smmu driver
-largely intact, and "obtain the viommu through tsm_ops not through
-iommu_ops".
+This is still okay as we have many such things in the kernel (during the time).
 
-It's not super clear to me about the implication behind after reading
-related discussions and what the "obtain" part means.=20
+> May be move this message to the core while registering.
 
-Could you help elaborate this part?
+No objections here.
 
-The old way is kind of:
+...
 
-vdevice_tsm_ops -> tsm_ops -> tsm driver -> iommu driver
+> >  	nvmem_reg_read_t	reg_read;
+> >  	nvmem_reg_write_t	reg_write;
+> 
+> flag this with compile time __deprecated flag.
 
-then it will become:
+__deprecated is DEPRECATED :-)
+No new code should use it.
 
-viommu_ops (tsm related) -> tsm_driver
+include/linux/compiler_attributes.h:110: * Don't. Just don't. See commit 771c035372a0 ("deprecate the '__deprecated'
 
-where tsm driver will fully handle tsm related viommu_ops?
+> > +	nvmem_reg_write_const_t	reg_write_const;
 
->=20
-> > and IOMMU_VDEVICE_TSM_BIND will be removed.
->=20
-> Replaced, the same logical operations should flow through the viommu
-> command ioctl
->=20
-> > Seems originally this series
-> > does SMC_RMI_VDEV_CREATE and SMC_RMI_VDEV_LOCK both in tsm
-> > bind op. Then the proposal is moving them all to vdevice creation time =
-so
-> > no separate bind step is required.
->=20
-> Hmm, lock still should be guest visible on CCA, and the device has to
-> start up in the guest as TDISP unlocked. I'm not 100% on the RMI side
-> of the flow, but this does not look right.
->=20
-> VDEV create should be done before the realm is started. We need this
-> setup right because Linux VM is going to validate the vdev during boot
-> if it is affiliated to a vSMMU. lock should be done only when
-> requested by the guest. The guest must start with a normal unlocked
-> T=3D0 PCI device.
 
-Okay then this part is aligned cross all vendors. Thanks for clarification!
+-- 
+With Best Regards,
+Andy Shevchenko
 
->=20
-> > Does it mean that ARM CCA is essentially an early-bind model i.e. the T=
-DI
-> > starts in locked state from guest p.o.v.?
->=20
-> No
->=20
-> > but https://lore.kernel.org/all/yq5aecfbzjyk.fsf@kernel.org/ seems to
-> indicate
-> > that guest_req() still handles the bind request from the guest:
-> >
-> > "
-> > - cca_tsm_guest_req() now handles TSM_REQ_SET_TDI_STATE requests for
-> >    the unlocked, locked, and running states.
-> > "
->=20
-> Right the guest side request to lock should come that way.
->=20
-> >
-> > a bit confusing, but maybe due to stale info cited from different timin=
-g...
-> >
-> > for TDX we're currently pursuing a late-bind model (i.e. TDI starts in =
-shared
-> > state in guest), so a separate bind interface is still necessary. We co=
-uld look
-> > at whether it should be an explicit @bind viommu op or carried by
-> > @guest_req (say, if most preparation works can be moved to vdevice
-> creation).
->=20
-> It should go over the viommu command ioctl. It looked like there was
-> alway some iommu specific format to the command in the tsm version of
-> this, so that is the appropriate way.
->=20
-> > btw per past discussions VFIO should block some operations (reset, etc.=
-)
-> > while a TDI is locked. Do we expect a callback into VFIO to notify the =
-locked
-> > state, or require VFIO's own interface to place a cdev into a special s=
-tate
-> > which prevents sensitive operations even before binding it to iommufd
-> > (and allow creating TDI vdevice only on such idevice)?
->=20
-> At a minimum I think we have to synchronize with vfio, somehow, that
-> when the device enforces its private MMIO so it can unmap it. Thay may
-> be an argument we need a few standard viommu ops so the core code can
-> capture lock/unlocks and do this prep work. Or maybe a special cdev
-> state is simpler.
->=20
-> This should be figured out before any uapi is settled.
 
-Agree
-
->=20
-> I don't know about reset, that sounds like something the pci core
-> should deal with?
->=20
-
-yes the pci core sounds a better place to handle it.
-
-btw I held the impression of blocked operations from past discussion [1].
-Initial attempt tried to proactively unbind the TDI upon any operations=20
-which may transit the TDI to the ERROR state. Then the suggestion at
-the moment was:
-
-" But now the suggestion is never let VFIO do unbind, instead VFIO
-should block these operations when device is bound. "
-
-[1] https://lore.kernel.org/all/aEFmPaYorqaYCKBY@yilunxu-OptiPlex-7050/
 
