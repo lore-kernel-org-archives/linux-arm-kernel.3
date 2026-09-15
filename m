@@ -4,36 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 079D8C982CA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 16:39:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF745C982C1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 16:39:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1/8riQGvNoIk7J+8yNFEoRoDFDdElsMLDmJSyFsoJe0=; b=h8oxAYbfVUpywPgRSc44+7gHb/
-	j416e9igvQms/h+8SPnVu3HhOqq0n63XBc5cDO54pBcdkRp8VGDPUZqUmKaruQJGCGQjGVNyVmh6d
-	VF308m9RJnbqwQYnnTPrcM36OtvLLlip2hNo7RldpLZM8L4yp4UaQg0ESmeQAjXyaIARv6lghs+vC
-	BjXZxyT5L0PIEYZZBr9xusVBligNtau3DmqG38MQWdQI08I4oFPfkg5EKI0LZmLISS1+PoDVfL+qz
-	8Bc01Xyd8VhG0gC6A1AdI0BbLYUPQYLwbpb/gPdUceKcRuYapFi2rwM1sBoqo3VIM473H90qPRyqM
-	H/X2S1aA==;
+	bh=RJ/wAHSj+JIN9MS1CMcTZKtVR1HPuuRDUduRlQAYeyo=; b=yL+iSfhc6uY1RGPnTxY/IYM8su
+	iBKQQ5GB4kGMEgQSM/v6XytuYo/GWEZKp+L8tEiCw2d5iYWPhQZEhKL2H7xY6IGwTQSypaWXwCtkz
+	R88IcvnB7gH+hUqoboEqdQPZA65B4U4K5RxnkOlVZdYg5KNQLsQZgfZTQntOHHSfhLi6Frp8XiocL
+	WMljNay3TsB+In+L1DoMhLZX75q2Lf6xOO0XmZooQ41pwEe3hNu3I9yPi3q6qP2PFyMTtfm1UbE6d
+	Meb4rjefZRlZ6ceh2Mr3+VzlXOTs2Phe98q+Gd3OTIW2TqXnJZ/zfvTVVZHRiyw0P3Trrp8zWKKnz
+	1EdqlFcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6WC6-00000007QsG-0sv4;
-	Tue, 15 Sep 2026 16:39:42 +0000
-Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1x6WC7-00000007Quj-0fmn;
+	Tue, 15 Sep 2026 16:39:43 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6WBo-00000007Qg9-13Hu
+	id 1x6WBw-00000007Qn0-3SdG
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 15 Sep 2026 16:39:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=RJ/wAHSj+JIN9MS1CMcTZKtVR1HPuuRDUduRlQAYeyo=; b=g7ThGr1aP6N8J9lOR7M9NNyy88
+	PWLTRbtQBQcSWQwdL/qxaymOakFq98sAe8xlIg8H9sIxc13OZt2I7EKZoN0e3xCa+B1g+PCMkcOxj
+	0gtAH+69K45zkAvB/2xCPNM+f3GIxzcD9BxmG9HfZZJ4akVL1Tewe9epBNOfAJOIueKT6fa39bVwX
+	mN80iWykii/mTXV3XMjr5fe0DhltY8MskqzhQA4TgvoYkOUuhP3czzb4aSmm3oeWuapq/Wqr1hsB0
+	d6BPaaLrbz/uSdYgaHapRROd59KzeU768TT6KoDhZ92ChuKwH7nBIRb733FjVSP1qIbt1qjxkGRSR
+	2NhH4FNg==;
+Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6WBt-0000000720f-40fb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 16:39:25 +0000
+	Tue, 15 Sep 2026 16:39:31 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WtMHa2m5W1tSwFcctu5B/YQGaYmVsDBhyRxu1wzJofsqdS6mqpo2tC/NpNTQtf0C6Bnr2Ulck7RuGn04+W0l1SmVMKZbnI3Za1WUUsuldH8v2fx9TMXEtIuB70GCJnpQ1OfYCxW6qZT4ckwJQqaR6JZS697SvDpjEc868+1It/a7ZJTKDWUHiZkc1Z0KC9wUMIhxUaTa8+CWns7gBnxGWaCpXSIco6F3BHzE0Mm0meP3NGEuCZiLsKjguZTNvY82hV5gY63j7k/PHtVoB8OCRoHMIvh70WfadX6CQgb/n6hrEthak68Nsz7/GZAb0sLn+wgvsUJlU9z3/bI9vOu56g==
+ b=DN3Arc/lwW2B56CPLrH53jJtiVx0IdeCZj5Tx6trGKpu4WwF2193y/XjVaipWdT6IMTl48OOyitv3+msoRh+KTvYDe7HMq/An+ftMmxpGzG5/lEN/kq77HZ9xbymOL42aaxlYjbwHwCi1zgWxF5wjIqMAlxYAGmhYYp+DY1+zFGML8BsrtJt7MMRP2pKclj1x2jBd53K73jac6Bt2MAMYCtT03HeRSdaGdM788ONEeaGC+zUj1K+vewfadrPJIZlRqydVHUyZhTtN7jcISgkgCgSYddG7FSl/7FFVn72F/OBzQemK+K7AEyJD8tHQFYhSTBPqpwLsSuEgSWlF6R6pA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1/8riQGvNoIk7J+8yNFEoRoDFDdElsMLDmJSyFsoJe0=;
- b=MYpBMoxaQQXOOwtZ6Rs2NBzIrxyeWjCOjpnOmfZ9sfSfC3quoJPCxDne8iRb5LZAmbVZP4fzeiH6pYpR06PlF64TvpOszEw4fF3tSBw1idt6x+tZZ4LJlxl+L5gxN6XaPTWKFNHaMx/dfmkYGNrp/JRZ6YAzFL4gtp2/FSt99IwXpBozNgwqPaKjxPyjFlAf1Mv74EdSoLC9LtNO8X3XAMhQh+RhCWe8C+ZGuErrBiRl4yJbiUcYpzPn/BQJr+YzX+TqiOzrCzuzmpwRLiY7jwavVmsRTqC2Hp/0MbuI5Hp0LqYbsjBgwPAOk92kYfCRfWA+WZyLd201FapzKu/FcQ==
+ bh=RJ/wAHSj+JIN9MS1CMcTZKtVR1HPuuRDUduRlQAYeyo=;
+ b=iqWnrmVUDJV/LxkVmU79lObQhEpwj/kQds02JgDQUf/J8VNpsPSMDJ/KquY9VWVGVaAxDEPuo7QU+/+gjzHxwEDt1ldWwdBLpRCYkPnfNCfrR+PtpoGBU3yptUp/tg504kQbcExJzr3prC+FS7qGWvCz2ZKcfJCXv1vmWYrvCOW6O5P3UR68npSxPeNRMCYqWWn+NxfL9ZqnVR2VaVy8PHHclt+Bdc5xN/Wp0wJ9R/tZf4H/7HHtf5gUleM7GV096YtERB8G+Qg5KVdUr9F8O8UBEG0nnliOfJDXw/K/VNQmh+3WZ7MCSNIXEuzSwoHIJkznvqy0/Wfzfi8CbWSgSg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
@@ -41,18 +56,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1/8riQGvNoIk7J+8yNFEoRoDFDdElsMLDmJSyFsoJe0=;
- b=tQ8drb0ir4WBM6whpu5/x2whXrJ+R/jg3L6ed5cxFszJG4CxQ++4wHjOsqrImP2e22kHvW6EtC8dObQ22iWyK7R88ZYHyd2yD5MSCiqqkwfEySfGf35cZyBtAZ8TjDcdeGu1GsxyQYmo+NqwV3qlSFk6PnkJ7oPO+aMJTrGCjvcsOyTTwBqKuoO21at3mdch8m740bYvWpXPqFYRMkTr4159fD01J9HwF0yl/+I66LXbegaxlm5sfkAnUuDKihHakjXhzIkeHqGSkl6Nf67mq66G1wi4mxxb9AvL+vyNjqamBqM6ZGlZOFa7lkDvrlXD4+BN55oKW8LO5pRiv4nOKA==
-Received: from MN2PR07CA0006.namprd07.prod.outlook.com (2603:10b6:208:1a0::16)
- by DS7PR12MB6190.namprd12.prod.outlook.com (2603:10b6:8:99::22) with
+ bh=RJ/wAHSj+JIN9MS1CMcTZKtVR1HPuuRDUduRlQAYeyo=;
+ b=o5tRW2b65/ux+pd+qZeF2HNg0dicOVNllpMgtGQ9+2Hix1UCissMYtQ4t3OXQq5DaJTfmcq5/DNMrFSNbtqBOSnz1iiCk/6yxgQ8sDW7eOsVSPX2wwjU4cGDOhZK+obqvjj/hd7+ilyD4U33ywa57tYa2m/E+ZFewgURgzRrZH21Wg/KkoCa9yMtaDGrOjHzmCFkQJddOUpzXAJgni5Rfe/+c5YYI7PQwUQ8rKMeX/B1y6nL6u5Wewbm41ekh9m71AUfUp/qaDmqNU6fwlA6cF3m2eKoSUsazgj4BnFemqFoaYRKC4gJCTCXPPfrQPlY3+nR+5JnxjdMNFV16B1v7A==
+Received: from CH0PR07CA0030.namprd07.prod.outlook.com (2603:10b6:610:32::35)
+ by SA1PR12MB999253.namprd12.prod.outlook.com (2603:10b6:806:4dd::13) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.9; Tue, 15 Sep
- 2026 16:39:13 +0000
-Received: from BN1PEPF00018074.namprd04.prod.outlook.com
- (2603:10b6:208:1a0:cafe::1c) by MN2PR07CA0006.outlook.office365.com
- (2603:10b6:208:1a0::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.360.13 via Frontend Transport; Tue,
- 15 Sep 2026 16:39:11 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.11; Tue, 15 Sep
+ 2026 16:39:20 +0000
+Received: from BN1PEPF00018071.namprd04.prod.outlook.com
+ (2603:10b6:610:32:cafe::c) by CH0PR07CA0030.outlook.office365.com
+ (2603:10b6:610:32::35) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.428.9 via Frontend Transport; Tue, 15
+ Sep 2026 16:39:19 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
  smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
@@ -60,20 +75,20 @@ Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
  216.228.118.232 as permitted sender) receiver=protection.outlook.com;
  client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
 Received: from mail.nvidia.com (216.228.118.232) by
- BN1PEPF00018074.mail.protection.outlook.com (10.167.245.202) with Microsoft
+ BN1PEPF00018071.mail.protection.outlook.com (10.167.245.199) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.428.7 via Frontend Transport; Tue, 15 Sep 2026 16:39:11 +0000
+ 15.21.428.7 via Frontend Transport; Tue, 15 Sep 2026 16:39:19 +0000
 Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
  (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Tue, 15 Sep
- 2026 09:38:43 -0700
+ 2026 09:38:51 -0700
 Received: from drhqmail201.nvidia.com (10.126.190.180) by
  drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Tue, 15 Sep 2026 09:38:43 -0700
+ 15.2.2562.46; Tue, 15 Sep 2026 09:38:50 -0700
 Received: from Asurada-Nvidia.nvidia.com (10.127.8.11) by mail.nvidia.com
  (10.126.190.180) with Microsoft SMTP Server id 15.2.2562.49 via Frontend
- Transport; Tue, 15 Sep 2026 09:38:42 -0700
+ Transport; Tue, 15 Sep 2026 09:38:49 -0700
 From: Nicolin Chen <nicolinc@nvidia.com>
 To: <will@kernel.org>, <robin.murphy@arm.com>, <jgg@nvidia.com>, "Jonathan
  Cameron" <jonathan.cameron@oss.qualcomm.com>
@@ -84,9 +99,9 @@ CC: <joro@8bytes.org>, <bhelgaas@google.com>, <praan@google.com>,
 	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
 	<linux-pci@vger.kernel.org>, <skaestle@nvidia.com>, <mmarrid@nvidia.com>,
 	<skolothumtho@nvidia.com>, <bbiber@nvidia.com>, <harsha.v@oss.qualcomm.com>
-Subject: [PATCH v5 08/15] iommu/arm-smmu-v3: Disable the queue IRQs before disabling the SMMU
-Date: Tue, 15 Sep 2026 09:38:20 -0700
-Message-ID: <0ca69e93a9370e4e172e4335104859648b8755c2.1789446520.git.nicolinc@nvidia.com>
+Subject: [PATCH v5 15/15] iommu/arm-smmu-v3: Enable PRI for PCI device in arm_smmu_probe_device()
+Date: Tue, 15 Sep 2026 09:38:27 -0700
+Message-ID: <14fe7844fd493be5edac1846e99fa7f289ed7536.1789446520.git.nicolinc@nvidia.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1789446520.git.nicolinc@nvidia.com>
 References: <cover.1789446520.git.nicolinc@nvidia.com>
@@ -96,28 +111,28 @@ Content-Type: text/plain
 X-NV-OnPremToCloud: ExternallySecured
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN1PEPF00018074:EE_|DS7PR12MB6190:EE_
-X-MS-Office365-Filtering-Correlation-Id: cda51bcf-5cf0-4eef-b16a-08df1347df2c
+X-MS-TrafficTypeDiagnostic: BN1PEPF00018071:EE_|SA1PR12MB999253:EE_
+X-MS-Office365-Filtering-Correlation-Id: ebcbe985-c631-4a7c-bb63-08df1347e3ee
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|376014|1800799024|36860700016|23010399003|18002099003|22082099003|3023799007|10067099003|56012099006|5023799004|11063799006;
-X-Microsoft-Antispam-Message-Info: aqXsvX3jPhkqUO40LK3P+iIIks91ag/j4ic/VNY/limc/U75SgHi9st06+o2VHXlM8yJURzNm7YFN5V+jF1iKcpGZncQehV67PkeUVgl7q7ko/NDscnxceo7aUktXyl6hMfHJ1ihc7sbqk2dVq/b6nR3Rw6+6pTDtNeyMRv5eeLKqsYxUmmtry4sIMhyFrPalqLthCYKW2mxLFJ8X8wKB2xsrgcMF7V78Ehr3UziSULKZFTf9DussyQ0ZJIzkrMA8E5rhnA1TrozTkV+kkizChisQ+b5b6a/QxUnv8gDNo9P3cFG0se+oLqE2x3eDRCii7F4OYa0i/QNJFdA1yrWltTO23Kv6LXLVjnrDPAqaVbbDUQWZLz90P2+LGTJB3FZESyKHMiQsIlk+qfxbXvMgQ/MDlJAgTduKYKW51Dho76qTf6WxzwI0hxL4ZbH7oAckyloRaeCJ3cICOniI31Sh4PnJWivsLab6nmGkFmePtaSS0JVKBrRF3QNE4np5GmT8i4MCHN7iKjZpxU1YbVvkkQ656Q2eF+wYSNAH7nGzwHk+Zyg3sT9cqES1iDRCcDnOBdxmVOJZU9kh2nQyvoBc1DLPuAsqdDaIoIJ3FL0tza7ieJg45kmBWMSmeix21uu+iR6UZuavuI9C5/XFD+DcbxuaQB+ylDKK9wEtMSmGjT3IZfrhAXCjl8Opj8CpeWwfsiC0bzJPCsRmfZ9rZaK/Q==
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(376014)(1800799024)(36860700016)(23010399003)(18002099003)(22082099003)(3023799007)(10067099003)(56012099006)(5023799004)(11063799006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|7416014|376014|1800799024|82310400026|23010399003|11063799006|56012099006|5023799004|10067099003|18002099003|22082099003|6133799003;
+X-Microsoft-Antispam-Message-Info: t17v+yE4BfmPqrkdH0YjQhY79pidqwC6EwmPMn61xUzNmuKZJT+B4fYfhD/azIJcNfqrgu7tXvnigmaCTk9UH0r9fnOhylTePrOjxNVy+5y4px9Uwa6SZIytD0nZP/qKGGSZzyX8Gv50gLHSVAG3V6xsGB/P5YB+7G3bp2GXcfU3/5uf5FmYiHlxJn/uIzZO8ONcY8vUU5UIBtYXYKgmiDstB8pGpp7gB+FW1LGHOq+ICUPGhAKnBLHViF6VNSlzGcQoKEnsi0YakDzi0JhS/UIREoDxh0ZV0hYksw5et2lormC6bUwmOr6GxXluXfPEhpTtteD4wZeLJeL9Mw9iXej32YYDEXQ1omm0Q2QkUeiMiWkSJv7Rco+F0v186Jurf6kQmrzXeVzlIQh8ZOLU8H1ZzJUU3hZEpUXnuMxMprQc9XYeia1q57mIPDcP0Hk2NirFnt8Ar9inofYdzho5K6SOLJeUke1Ucs7sWLN4j5a4dGFWgaQ2JVabfNQAkmifrXqc3ua20jhixXiHMUGmY1wbl1drKiJKUpvD+De1z+JdiODOXRqDuNAM+9ogUxHHFCSrkkuEWTJQRcYFTydpP6fyQLgk8mURdjjNV+mmVDg1+xWJBSqib1y1wA04d189LQjeojXygKqB5fO4k3cMhXZ4A+Sc1yZta0QaCi3e3Vk+KIcgnovgNb3sdY74dK8VFfeoYMlqgSWTMTkv4U8pDQ==
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(7416014)(376014)(1800799024)(82310400026)(23010399003)(11063799006)(56012099006)(5023799004)(10067099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: YXNos66D5pxDaxyVfiGbrmgcGhMOQLCcK21nT+0zCCUTyqw5L48xzo0xK39TC4PFzsdzX+4RylAX/+muZHF7iqnH/jrHpCRQ99McOrCWKpMgbWFLv6QeIQ90KvhGLU8DfsztAWYqD9qlv6radNaxYCM0BI8ZTuhbJceQPOs+h/pfhXBSS5zHCbodO7wambuZ75/nx0eAXZfJGHo/aZzHJIEaClHHpdIztKlmY5xu32NO5felrqkHDe74MXyvmg1zPWvLZy0DJwCJGrsKuGwytoJ2DzHEhuZVy7PFQdruWbjcvXvy/vNlpiW8E7w5Gv4fN4Fgq7vJJz9/l/Le+YgBGvgpWGx5kOTiwqrus/m9tqbHq7ktAK/sT7a5yS41QXuFQ039cqAUiHzE01hW+vQjHiYtcbNlAoTXTooxmYPEXLmO0l6sW4tRu7hvgsctwyIZ
+X-MS-Exchange-AntiSpam-MessageData-0: 4HULHhVYNeu8IAA+CABRVC9a0v6TgDGJd+j2OTLFjEUS5aDJ9aFQUiv+j/KNt17IDsXVDcJrefbreCRMEt6yEAg2SnWm3n7rf7yM5dsxEDahjr78mkAx054KsC4HXOz7Ib9DNyDtQ4QG+CYvyclBBy0nZnp4UQM/9PLLMi0ADLamiOIn4KjlRjrSjwI0cWw92D1ckYYEhu5xGn+MxyVi4aOEUURV3MdB1CpIP7yARYANKQwatDQHZQ4WuM4EqtdrsAt2R92ZgZibEy1GdG2FPsQ8hx7hJpEVuZ1OyhWUPB9TtQlD16NsdGXePjtFBgbIMcI18PL/5SvnzVvPLtfDXPxlPwHI/4QeCPe+3HIxnaLXOH8+oUvAAdpV/MFr37Xy4zpRvN+LVXWxEL/CiukpoYtul9DLVu59V+20698p1CaWeMdVf/faCmagCLCxsopB
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Sep 2026 16:39:11.5729
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Sep 2026 16:39:19.5629
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: cda51bcf-5cf0-4eef-b16a-08df1347df2c
+X-MS-Exchange-CrossTenant-Network-Message-Id: ebcbe985-c631-4a7c-bb63-08df1347e3ee
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00018074.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00018071.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB6190
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB999253
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_093924_325235_BA6FEA9C 
-X-CRM114-Status: GOOD (  16.36  )
+X-CRM114-CacheID: sfid-20260915_173930_059436_E6353134 
+X-CRM114-Status: GOOD (  20.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,130 +147,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The EVTQ, PRIQ and combined IRQ handlers are threaded and issue commands of
-their own, e.g. a CMDQ_OP_PRI_RESP for a page request. Disabling the SMMU
-while one is in flight hands that command to a queue consuming nothing, so
-its poll waits out a full timeout.
+PRI handling is now ready. Enable PRI when probing a PCI device, and drain
+the PRIQ with the EVTQ when an IOPF-enabled attachment ends. Queued fault
+work may still refer to the old domain when the detach call returns.
 
-Two paths disable the SMMU while those IRQs are still requested: a failing
-arm_smmu_device_reset() returns to a probe that disables the device itself,
-and arm_smmu_disable_action() covers an unbind or any later probe failure.
-Both can run after arm_smmu_setup_irqs() requested the IRQs.
+Note that PRI is enabled at the probe time, while ATS gets toggled by the
+attach/detach routines, so a master could have PRI enabled when its ATS is
+disabled. PCIe (Base 6.3, Table 10-14) sets no ATS precondition on the PRI
+Enable bit. Its only ordering rule is that the interface must have gotten
+successfully Stopped prior to an enabling, which pci_enable_pri() already
+checks using PCI_PRI_STATUS_STOPPED. Also, a PRI-enabled device would not
+issue a page request until it starts to use ATS.
 
-Disable those IRQs first in both paths, so that no handler is left running
-once the SMMU goes down. arm_smmu_device_shutdown() needs no change of its
-own here, since it already just calls arm_smmu_disable_action().
+Set the per-device outstanding request budget to the full priq depth, same
+as intel-iommu's per-device PRQ_DEPTH choice. A fixed per-device cap won't
+prevent multiple PRI-capable devices from potentially exceeding the priq's
+capacity; priq overflow is recoverable per the SMMUv3 spec, and it is rare
+in practice.
 
-Also clear an IRQ number when its request fails or is skipped for a missing
-ARM_SMMU_FEAT_PRI, keeping disable_irq() to the IRQs that this driver truly
-owns.
+Select PCI_PRI in Kconfig like other IOMMUs, gated on PCI so the build can
+stay clean for non-PCI ARM SMMUv3 configurations.
 
-Note that the IOPF queue needs no such care of its own, as devres frees the
-IRQs before running the release action of that queue, which came earlier in
-arm_smmu_init_queues().
+A stalling master resolves its faults synchronously, so it has no reason at
+all to issue a page request. Refuse to enable PRI on such a master, so that
+page_response() can keep dispatching on the master state unambiguously.
 
-Assisted-by: LLM
+Refuse to enable PRI as well on any master reporting num_streams != 1, as
+arm_smmu_enable_iopf() rejects multi-stream masters, so IOPF cannot be set
+up for them; keeping PRI enabled would let a PRI request arrive on an alias
+StreamID and get a PRI_RESP_DENY issued against streams[0] by the driver's
+error-response path.
+
+Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
 Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 36 ++++++++++++++++++---
- 1 file changed, 31 insertions(+), 5 deletions(-)
+ drivers/iommu/arm/Kconfig                   |  1 +
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 52 +++++++++++++++++++++
+ 2 files changed, 53 insertions(+)
 
+diff --git a/drivers/iommu/arm/Kconfig b/drivers/iommu/arm/Kconfig
+index b848a4253677d..a31d04f5b031a 100644
+--- a/drivers/iommu/arm/Kconfig
++++ b/drivers/iommu/arm/Kconfig
+@@ -80,6 +80,7 @@ config ARM_SMMU_V3
+ 	select IOMMU_IO_PGTABLE_LPAE
+ 	select IOMMU_IOPF
+ 	select GENERIC_MSI_IRQ
++	select PCI_PRI if PCI
+ 	select IOMMUFD_DRIVER if IOMMUFD
+ 	help
+ 	  Support for implementations of the ARM System MMU architecture
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 9ebf3123e19d7..d2a6dc756c783 100644
+index a4dbceae6fe1f..461cf6623c080 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -4914,8 +4914,10 @@ static void arm_smmu_setup_unique_irqs(struct arm_smmu_device *smmu)
- 						arm_smmu_evtq_thread,
- 						IRQF_ONESHOT,
- 						"arm-smmu-v3-evtq", smmu);
--		if (ret < 0)
-+		if (ret < 0) {
- 			dev_warn(smmu->dev, "failed to enable evtq irq\n");
-+			smmu->evtq.q.irq = 0;
-+		}
- 	} else {
- 		dev_warn(smmu->dev, "no evtq irq - events will not be reported!\n");
- 	}
-@@ -4938,12 +4940,17 @@ static void arm_smmu_setup_unique_irqs(struct arm_smmu_device *smmu)
- 							IRQF_ONESHOT,
- 							"arm-smmu-v3-priq",
- 							smmu);
--			if (ret < 0)
-+			if (ret < 0) {
- 				dev_warn(smmu->dev,
- 					 "failed to enable priq irq\n");
-+				smmu->priq.q.irq = 0;
-+			}
- 		} else {
- 			dev_warn(smmu->dev, "no priq irq - PRI will be broken\n");
+@@ -3526,6 +3526,20 @@ void arm_smmu_attach_release(struct arm_smmu_attach_state *state)
  		}
-+	} else {
-+		/* An unrequested IRQ (e.g. set by DT) must not be disabled */
-+		smmu->priq.q.irq = 0;
  	}
- }
  
-@@ -4971,8 +4978,10 @@ static int arm_smmu_setup_irqs(struct arm_smmu_device *smmu)
- 					arm_smmu_combined_irq_thread,
- 					IRQF_ONESHOT,
- 					"arm-smmu-v3-combined-irq", smmu);
--		if (ret < 0)
-+		if (ret < 0) {
- 			dev_warn(smmu->dev, "failed to enable combined irq\n");
-+			smmu->combined_irq = 0;
++	/* Same as the eventq drain above, for the hardware priq */
++	if (master_domain->using_iopf && master->pri_enabled) {
++		timed_out |= arm_smmu_wait_for_queue_drained(
++			smmu, &smmu->priq.q, false);
++		/* Ensure pending requests have reached the IOPF queue */
++		if (!timed_out) {
++			if (smmu->priq.q.irq)
++				synchronize_irq(smmu->priq.q.irq);
++			/* Pending requests might be in the combined_irq handler */
++			if (smmu->combined_irq)
++				synchronize_irq(smmu->combined_irq);
 +		}
- 	} else
- 		arm_smmu_setup_unique_irqs(smmu);
- 
-@@ -4999,10 +5008,22 @@ static int arm_smmu_device_disable(struct arm_smmu_device *smmu)
- 	return ret;
++	}
++
+ 	/* Lastly, flush the fault work that the drained events queued */
+ 	if (master_domain->using_iopf) {
+ 		iopf_queue_flush_dev(master->dev);
+@@ -4458,6 +4472,40 @@ static int arm_smmu_master_prepare_ats(struct arm_smmu_master *master)
+ 	return arm_smmu_alloc_cd_tables(master);
  }
  
-+/* Quiesce the queue IRQ threads, e.g. before disabling the SMMU */
-+static void arm_smmu_disable_irqs(struct arm_smmu_device *smmu)
++static void arm_smmu_master_enable_pri(struct arm_smmu_master *master)
 +{
-+	if (smmu->combined_irq)
-+		disable_irq(smmu->combined_irq);
-+	if (smmu->evtq.q.irq)
-+		disable_irq(smmu->evtq.q.irq);
-+	if (smmu->priq.q.irq)
-+		disable_irq(smmu->priq.q.irq);
++	struct arm_smmu_device *smmu = master->smmu;
++	struct pci_dev *pdev;
++	unsigned int reqs;
++
++	if (!(smmu->features & ARM_SMMU_FEAT_PRI) || !smmu->evtq.iopf)
++		return;
++	if (!dev_is_pci(master->dev))
++		return;
++	pdev = to_pci_dev(master->dev);
++
++	if (!pci_pri_supported(pdev))
++		return;
++
++	/* A stalling master resolves its faults without any page request */
++	if (master->stall_enabled) {
++		pci_warn(pdev, "stall enabled, skip PRI\n");
++		return;
++	}
++
++	if (master->num_streams != 1) {
++		pci_warn(pdev, "multi-SID master, skip PRI\n");
++		return;
++	}
++
++	reqs = 1 << smmu->priq.q.llq.max_n_shift;
++
++	if (!pci_reset_pri(pdev) && !pci_enable_pri(pdev, reqs))
++		master->pri_enabled = true;
++	else
++		pci_warn(pdev, "failed to enable PRI\n");
 +}
 +
- static void arm_smmu_disable_action(void *data)
+ static struct iommu_device *arm_smmu_probe_device(struct device *dev)
  {
- 	struct arm_smmu_device *smmu = data;
+ 	int ret;
+@@ -4510,6 +4558,8 @@ static struct iommu_device *arm_smmu_probe_device(struct device *dev)
+ 	if (ret)
+ 		goto err_disable_pasid;
  
-+	arm_smmu_disable_irqs(smmu);
- 	if (smmu->impl_ops && smmu->impl_ops->device_disable)
- 		smmu->impl_ops->device_disable(smmu);
- 	arm_smmu_device_disable(smmu);
-@@ -5149,18 +5170,23 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
- 				      ARM_SMMU_CR0ACK);
- 	if (ret) {
- 		dev_err(smmu->dev, "failed to enable SMMU interface\n");
--		return ret;
-+		goto err_disable_irqs;
- 	}
- 
- 	if (smmu->impl_ops && smmu->impl_ops->device_reset) {
- 		ret = smmu->impl_ops->device_reset(smmu);
- 		if (ret) {
- 			dev_err(smmu->dev, "failed to reset impl\n");
--			return ret;
-+			goto err_disable_irqs;
- 		}
- 	}
- 
- 	return 0;
++	arm_smmu_master_enable_pri(master);
 +
-+err_disable_irqs:
-+	/* The probe error path cannot tell if the IRQs were requested */
-+	arm_smmu_disable_irqs(smmu);
-+	return ret;
- }
+ 	return &smmu->iommu;
  
- #define IIDR_IMPLEMENTER_ARM		0x43b
+ err_disable_pasid:
+@@ -4535,6 +4585,8 @@ static void arm_smmu_release_device(struct device *dev)
+ 		iopf_queue_remove_device(master->smmu->evtq.iopf, dev);
+ 	}
+ 
++	if (master->pri_enabled)
++		pci_disable_pri(to_pci_dev(master->dev));
+ 	arm_smmu_disable_pasid(master);
+ 	arm_smmu_remove_master(master);
+ 	if (arm_smmu_cdtab_allocated(&master->cd_table))
 -- 
 2.43.0
 
