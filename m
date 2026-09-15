@@ -4,59 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9D84C88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 17:36:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2CDEC88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 17:38:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eU+QyDuRh8rn3c7grMKH5arPf7g3bSGEarn06XP+mVs=; b=KLcF/ZZw9LNwp3U0eNhfa/JXYG
-	q6maIhy7CDh7IcWH50MqPsdTplAodDxWAJ347TxNGDDlwAj7efpiFdwG+JRQS+B6RU+ffmqdyscwT
-	gjq0GW4ONui/g3TgLgep8o6OrJ31E+Zr+kmvSX8RCCKhhSyN8O7TPrLB8LljizNifsAjWPTBliO6n
-	WX9IV0H5gEBd2aCBLIrDEq63uE1imeR1K3dEOCONubP9OFxXytFbM4k0TdpWwbPEz48ROT2mX8EJh
-	lJ6OyrQrIfGhjBzLoyIbO6DvscdEMVUmv46xcI6ifYswb0+GVkXld47B+d6qdoLAySUZiUOhb+egb
-	A26m+OaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lNOmklwMT3+8WwCRItuHkffYh/JkNHAawYZ2FWhI2k0=; b=k3HOBn8fsP26ka0xE+Cyt4JeZE
+	pb5M4aOe6kPNQKF/YsBR0Rh7BX8/olenF9m6kuKbzHap/u4xey2BKW+DuBsCzNXF2aXIBzbOO6NQx
+	8b9m/hH0L3psCxldIt+fJrAufPr4u6IcPCkmnWRgozrXCF/ZhAzlCSfuqbfpikOLOeFRZX+GZYeI9
+	ZKxlp/eliykB/hXxzL3UTIymAM/bMQSfn50UKetENFolfc/eVEiKg2pSVV2cag+4m/XpXCmppMRJ8
+	TMZK6eewI5JGTuv0ScCsTUsjUbMqyH+uG36w5D4Ilytre4EtQtOBz4gjnoj3/+GPBtnYHwePUEhni
+	DKcr1c7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6X5G-00000007bh5-2zaq;
-	Tue, 15 Sep 2026 17:36:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x6X6W-00000007bwz-2HlQ;
+	Tue, 15 Sep 2026 17:38:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6X5F-00000007bgZ-0HLV
+	id 1x6X6V-00000007bws-0mSr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 17:36:41 +0000
+	Tue, 15 Sep 2026 17:37:59 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2FBFB602BE;
-	Tue, 15 Sep 2026 17:36:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB4DC1F000FF;
-	Tue, 15 Sep 2026 17:36:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9EF58600D1;
+	Tue, 15 Sep 2026 17:37:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82F081F000FF;
+	Tue, 15 Sep 2026 17:37:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789493799;
-	bh=eU+QyDuRh8rn3c7grMKH5arPf7g3bSGEarn06XP+mVs=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=Z3aNArZzqdTtvCK/RTJ427HuAB1eIEq2M1RjXoTT0sMvZhoeGiFGAcm1YLR6h4lUG
-	 W/sIXfqynspCqzH1sQ9JtVcPK4OgxHQUBWdwfKFKh5OWTNu6d3Ao87IjkzY8q9b/YN
-	 nU7HgD4lcQfe6MAqLLXsBIgCb48N8nzcYFS3c8d82oTko9pFHsjsnAv70ESvCVckgQ
-	 77nRRT/3iZJQUZKSSV70MfEg7OOLgS+k8t92G5jvsy748MK0QjbsbbpHWEGO0InYnA
-	 A8x0kFW04Wa5HVbFbC0GgVNff0l9AKl9W1oGThDiPemx9xVd4GWd/8YzKkeZKleVMk
-	 OL3Lx+4Qvzz4g==
+	s=k20260515; t=1789493878;
+	bh=lNOmklwMT3+8WwCRItuHkffYh/JkNHAawYZ2FWhI2k0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=BamemBGZLZEiNhzMEf53sH0aaBEGi/k7AS44kJ1lRb72jC2kMNobzBmsJjmYi4HPs
+	 B3BxYdYFv/95wWGhWlLtkqBX084LIjizXy765ex13o62PZFGhuQviruML7X3jHwNl9
+	 0pBZowc7i0vXoSJ36xFtqKoLH+7c4x2aqEU7AkRvQm/QJ8Z+CuVFktxBjV6HHmU4Am
+	 SNP34f0gL9dnEuASoKHV0rsWJZA9AnRTZfio88imGgIc0sdlsWCvj7RHjEONeIg+/P
+	 jmiGOUetPwMRYR6sordYsfjRBHVv/2mvRiomODvdIsnUBQPIotj1bZ6YcTKlGPOz3o
+	 UbkETCel8UBVA==
+Date: Tue, 15 Sep 2026 23:07:53 +0530
 From: Vinod Koul <vkoul@kernel.org>
-To: dmaengine@vger.kernel.org, Rosen Penev <rosenp@gmail.com>
-Cc: Frank Li <Frank.Li@kernel.org>, 
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
- linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
- linux-arm-kernel@lists.infradead.org
-In-Reply-To: <20260913194804.39939-1-rosenp@gmail.com>
-References: <20260913194804.39939-1-rosenp@gmail.com>
-Subject: Re: [PATCHv2] dmaengine: bestcomm: make gen_bd init helpers static
-Message-Id: <178949379734.248239.352418063118190567.b4-ty@kernel.org>
-Date: Tue, 15 Sep 2026 23:06:37 +0530
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Frank Li <Frank.Li@nxp.com>, Mark Brown <broonie@kernel.org>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>,
+	bui duc phuc <phucduc.bui@gmail.com>,
+	Tianchu Chen <flynnnchen@tencent.com>, linux-kernel@vger.kernel.org,
+	dmaengine@vger.kernel.org, linux-sound@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Dave Penkler <dpenkler@gmail.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Frank Li <Frank.Li@kernel.org>,
+	Shengjiu Wang <shengjiu.wang@gmail.com>,
+	Xiubo Li <Xiubo.Lee@gmail.com>, Fabio Estevam <festevam@gmail.com>,
+	Nicolin Chen <nicoleotsuka@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Olivier Moysan <olivier.moysan@foss.st.com>,
+	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>
+Subject: Re: [PATCH v1 7/7] dmaengine: Remove deprecated
+ dma_request_slave_channel()
+Message-ID: <aqmCcXRa3EIsIU6k@parshuram>
+References: <20260915100931.3593242-1-andriy.shevchenko@linux.intel.com>
+ <20260915100931.3593242-8-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260915100931.3593242-8-andriy.shevchenko@linux.intel.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,26 +94,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Sun, 13 Sep 2026 12:48:04 -0700, Rosen Penev wrote:
-> bcom_gen_bd_rx_init() and bcom_gen_bd_tx_init() are only called from
-> the PSC wrapper functions in gen_bd.c, so make them static, drop
-> their now-unneeded exports, and remove the corresponding header
-> declarations.
+On 15-09-26, 12:04, Andy Shevchenko wrote:
+> No more users.
 > 
-> These had use before commit 7d3ee229ea51
-> ("powerpc: Drop MPC5200 LocalPlus bus FIFO driver")
-> 
-> [...]
+> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 
-Applied, thanks!
+Acked-by: Vinod Koul <vkoul@kernel.org>
 
-[1/1] dmaengine: bestcomm: make gen_bd init helpers static
-      commit: 1ff9bed1b5547259f67e58b03a83eda934d78735
-
-Best regards,
 -- 
 ~Vinod
-
-
 
