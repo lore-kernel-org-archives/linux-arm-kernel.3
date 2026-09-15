@@ -4,83 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FD36C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 17:49:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72DDEC88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 17:50:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ze5UtNFLftQoo7Qnh39IKNaV1H4G/9VYBR7LpEninr8=; b=rQpgpYaoS4XPqyqasLNq/5OfZm
-	2Jl9eTKHVhOTjwnEmFA140TpvR+gXJqt+QwxI1vToIfGG1B2VavFBm5Cn3hcYnX9Da6p4bxmI8Kr2
-	tc5zAqOBgYoxUhi0RgyHGPJQ2JQEl58rhzn2CI18N7+O47RM2jJufehc/LG9fnhTex50pEdu/E6kF
-	VBLftB8RflPFDJD1YAqVOdpQhAK0UM4HeH6K1r4Ntn7zQdBBg+f/CK+2KCn/4fwuf6Bk/kIS3O7ix
-	Y12xbkI+0ZG49y28VOtqedZoabvHSwtxD5BXcFt4+5RGM1TTr84XYG/O7OhTO2KKP5ICBU69cBX3G
-	xRl0Hovw==;
+	bh=TpLpxzKfFRAl/RHqoLxPPlY8U8TXJO7qkDVKFfcLlVo=; b=gviPJ6COSTiZFIT5j9Tgv4YtLm
+	3nxONWtz2DejP8XAfo9USy9MyEizqsMnBbSHzocA9zwXP+yoWEAwRqrGQnBpRgcVFK1VHruYX0ut4
+	0GiO8xaR6RdvTVBpe+GGuTmseRLk+O6WzUsyXn4ZRjXC8RBEGHQCJG85qnv5hZeUtz9+l1Wt/Ifk+
+	SV5KIAClRqPONRLU9LxwWXMcEdjv44i/rbqZJdsN3BRVd9Ur5H2yjwUBRBGvHQXVcTZNgJGp/k11z
+	CGIIzECIcBwCkEsLLyYQktzBUvwdV+6seB4qgB0+1GmBMqVXdmqVZfsu18Ljm7eS7+l1uQmIoPWnf
+	iW30KLHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6XHL-00000007eCb-1Sr2;
-	Tue, 15 Sep 2026 17:49:12 +0000
+	id 1x6XI6-00000007eLd-1dFx;
+	Tue, 15 Sep 2026 17:49:58 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6XHJ-00000007eBl-2n9Y
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 15 Sep 2026 17:49:09 +0000
+	id 1x6XI5-00000007eLE-0el7;
+	Tue, 15 Sep 2026 17:49:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
 	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Ze5UtNFLftQoo7Qnh39IKNaV1H4G/9VYBR7LpEninr8=; b=qSZ9RWkqbVRCXoyghC7kSY8oKf
-	F9wjz5xApywqX0HdNj2ks4hMeHsplv0tLnhLNbB7EWn+EBi1wDHFZvbGbIIjZqcPGKbMI7GF6FzH7
-	7Xr0Xn02U6rXnCBzwySkdQVC17NF6up+0I2fRvAUD3qKCQnCbKRySjDdi9CR7TY7+nDKxDDU2se08
-	s+UvbvgeE9m3J9p67d9xrO1ryUg+IENqFVirmTnqRbPwVlqOktzoY9Hate1QqclLr+dXugt7Khihu
-	mRYZNo0/VZh0Ni4CTm1RXSSf9PjDmyeTxm5pDGAUekABTRL83gw080hClcz9F3sA8xe0mVkX+avch
-	umXMvKCA==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6XHG-000000076YA-1Cu3
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 17:49:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8A110153B;
-	Tue, 15 Sep 2026 10:49:00 -0700 (PDT)
-Received: from [192.168.1.148] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 670C93F7B4;
-	Tue, 15 Sep 2026 10:49:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789494544; bh=tIOnU1MTP6xV2VV7knVj8q85l9UIZ6omydtjOabHinE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SyvaDvlCTGucSv4noTWyrNiGQg0jG1bM+Y2Y7PhfKXtEkzoXn90D3+laJXePekIDT
-	 80C+vbRqd6Q+vXRTqBb1FBtZuus221dG620E7nvSnz71bPOZlSgLh6+klMZj03Lule
-	 0pOBtHK0ECS4SdvNQMgx0sGW+rVyXmEcpW0IGJqE=
-Message-ID: <7c26c860-0543-459e-974b-72c59af261f9@arm.com>
-Date: Tue, 15 Sep 2026 18:48:59 +0100
+	bh=TpLpxzKfFRAl/RHqoLxPPlY8U8TXJO7qkDVKFfcLlVo=; b=DYAPAk1dSSEOSbtkBPqQADP17a
+	ObsD1v5qvLQdqbc+dPj3uZ4DFjDn42wjlTzrmp9vFsemtR3XsTMFI2lFPXz3lQIFtGScER3iYOi9O
+	UP8Fp+2j4rZcmd62RrYgH3/NDTmksdFPNnfZo35ulkuwEp6+VTynsEvXvEO2cF3/wqUOoV/wZPXpL
+	vlJmZLMtzPUK0Z9U7B7xT4rjfahfDzm4upezWB7jSCez7Vb9DdZeQ5EMdBKmoEq4wTg3cYYyzvWjN
+	9S9jCuGbut5DaJ/LK9VBAtaENug6wKyV68d1ksduXj2+5JFsmcL7OD4sxLkReJrX+hx2c2ZxNdeRn
+	LxV7p9vQ==;
+Received: from mail.cjdns.fr ([5.135.140.105])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6XI2-000000076cb-1ERj;
+	Tue, 15 Sep 2026 17:49:55 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 77EDE48F729;
+	Tue, 15 Sep 2026 19:49:47 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
+	t=1789494591; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=TpLpxzKfFRAl/RHqoLxPPlY8U8TXJO7qkDVKFfcLlVo=;
+	b=SwFstTK8VAtbxjApfPpsr5Xgb/VFsfI15YBZird1oXSvq0qFZbTVE6CNVBQ0TXB+lAABvG
+	PmmDBB9HLjHIanTcGNGwp/HEBClNoF4QNenRNr9AgX6uu6FmcMnZCZ0rfhvSQfA60vn+IZ
+	NdUslVNDLBPunXavLiiuLDa/gVGSMBRIm7uTFL1QWpLjhparjG4e1etfwkTCOE2WVZWm2z
+	JyKfwMOATgpjLDktIo9wdo26Q58ToLRUnLEuUBTOL2TjXC8bKFL8VQ050kGBRBSNaPLPcH
+	w/SjDKmjg4eDcgVjTChHCeZTb7Q2FxnE2DXh/2pXKXQXz/HwLkZIW1Shw4tlGg==
+Message-ID: <4529730d-0089-408f-804c-57d7c4c68564@cjdns.fr>
+Date: Tue, 15 Sep 2026 19:49:45 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v18 01/23] KVM: arm64: protected VM: Handle set_one_reg
- CNTVCT_EL0/CNTPCT_EL0
-Content-Language: en-GB
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, will@kernel.org,
- catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
- aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
- Marc Zyngier <maz@krenel.org>
-References: <20260915160141.3543048-1-suzuki.poulose@arm.com>
- <20260915160141.3543048-2-suzuki.poulose@arm.com>
- <86o6dy5uob.wl-maz@kernel.org>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <86o6dy5uob.wl-maz@kernel.org>
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH net-next 7/7] net: dsa: mediatek: support EN751221 switch
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: netdev@vger.kernel.org, andrew@lunn.ch, olteanv@gmail.com,
+ davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+ chester.a.unal@arinc9.com, daniel@makrotopia.org, linux@armlinux.org.uk,
+ arinc.unal@arinc9.com, Landen.Chao@mediatek.com, dqfext@gmail.com,
+ sean.wang@mediatek.com, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, naseefkm@gmail.com, b.larsson@gmx.com
+References: <20260909140346.2861572-1-cjd@cjdns.fr>
+ <20260909140346.2861572-8-cjd@cjdns.fr> <20260911170850.05cfb134@kernel.org>
+Content-Language: en-US
+From: Caleb James DeLisle <cjd@cjdns.fr>
+In-Reply-To: <20260911170850.05cfb134@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_184906_751582_5A7DD04D 
-X-CRM114-Status: GOOD (  31.28  )
+X-CRM114-CacheID: sfid-20260915_184954_501997_4713F308 
+X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,180 +92,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/09/2026 17:46, Marc Zyngier wrote:
-> On Tue, 15 Sep 2026 17:01:19 +0100,
-> Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
->>
->> Protected VMs doesn't allow setting offsets for virtual and phyiscal
->> counters, as the offset is always fixed to 0. The VM ioclt is filtered
->> out based on the cap. However we don't prevent the userspace from trying
->> to write to the CNTVCT/CNTPCT registers. This would lead to KVM triggering
->> a WARN() in timer_set_offset() as the vm_offset pointer is set to NULL.
->>
->> Fix this by always "fixing" the timer offsets to 0 and marking that the
->> timer offset is set in the kvm->arch.flags at pKVM init time. The
->> userspace cannot use the KVM_ARM_SET_COUNTER_OFFSET, as it is blocked for a
->> protected VM.
->>
->> A userspace writing to the SYS_CNT*CT would observe success, without
->> any real effect. This was chosen over preventing the writes to these
->> registers and returning -EPERM.
->>
->> With that, we always have a valid vm_offset pointer, remove the checks for
->> vm_offset == NULL.
->>
->> Reported by Sashiko here
->> https://lore.kernel.org/all/20260908164641.416911F00A3A@smtp.kernel.org
->>
->> Fixes: f7d05ee84a6a ("KVM: arm64: Prevent host from managing timer offsets for protected VMs")
->> Suggested-by: Marc Zyngier <maz@krenel.org>
->> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->> ---
->>   arch/arm64/kvm/arch_timer.c    | 15 +++++----------
->>   arch/arm64/kvm/arm.c           | 15 +++++++++++++++
->>   arch/arm64/kvm/hyp/nvhe/pkvm.c | 26 +++++++++++++-------------
->>   include/kvm/arm_arch_timer.h   |  3 +--
->>   4 files changed, 34 insertions(+), 25 deletions(-)
->>
->> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
->> index 6ac3321f4c575..dda020da4c9c7 100644
->> --- a/arch/arm64/kvm/arch_timer.c
->> +++ b/arch/arm64/kvm/arch_timer.c
->> @@ -1079,14 +1079,10 @@ static void timer_context_init(struct kvm_vcpu *vcpu, int timerid)
->>   
->>   	ctxt->timer_id = timerid;
->>   
->> -	if (!kvm_vm_is_protected(vcpu->kvm)) {
->> -		if (timerid == TIMER_VTIMER)
->> -			ctxt->offset.vm_offset = &kvm->arch.timer_data.voffset;
->> -		else
->> -			ctxt->offset.vm_offset = &kvm->arch.timer_data.poffset;
->> -	} else {
->> -		ctxt->offset.vm_offset = NULL;
->> -	}
->> +	if (timerid == TIMER_VTIMER)
->> +		ctxt->offset.vm_offset = &kvm->arch.timer_data.voffset;
->> +	else
->> +		ctxt->offset.vm_offset = &kvm->arch.timer_data.poffset;
->>   
->>   	hrtimer_setup(&ctxt->hrtimer, kvm_hrtimer_expire, CLOCK_MONOTONIC, HRTIMER_MODE_ABS_HARD);
->>   
->> @@ -1110,8 +1106,7 @@ void kvm_timer_vcpu_init(struct kvm_vcpu *vcpu)
->>   		timer_context_init(vcpu, i);
->>   
->>   	/* Synchronize offsets across timers of a VM if not already provided */
->> -	if (!vcpu_is_protected(vcpu) &&
->> -	    !test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &vcpu->kvm->arch.flags)) {
->> +	if (!test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &vcpu->kvm->arch.flags)) {
->>   		timer_set_offset(vcpu_vtimer(vcpu), kvm_phys_timer_read());
->>   		timer_set_offset(vcpu_ptimer(vcpu), 0);
->>   	}
->> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
->> index 8b080804bc90b..7c88508cac8a1 100644
->> --- a/arch/arm64/kvm/arm.c
->> +++ b/arch/arm64/kvm/arm.c
->> @@ -214,6 +214,20 @@ static int kvm_arm_default_max_vcpus(void)
->>   	return vgic_present ? kvm_vgic_get_max_vcpus() : KVM_MAX_VCPUS;
->>   }
->>   
->> +/*
->> + * Fix the counter offset to 0 for Protected VMs and mark the
->> + * offset flag. The user can't set the offset via KVM_ARM_SET_COUNTER_OFFSET.
->> + */
->> +static void kvm_arch_fix_timer_offsets(struct kvm *kvm)
->> +{
->> +	if (!kvm_vm_is_protected(kvm))
->> +		return;
->> +
->> +	/* Fix the counter offset to 0 and mark the offset initialised */
->> +	kvm->arch.timer_data.poffset = kvm->arch.timer_data.voffset = 0;
->> +	set_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &kvm->arch.flags);
->> +}
->> +
->>   /**
->>    * kvm_arch_init_vm - initializes a VM data structure
->>    * @kvm:	pointer to the KVM struct
->> @@ -267,6 +281,7 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
->>   
->>   	kvm_vgic_early_init(kvm);
->>   
->> +	kvm_arch_fix_timer_offsets(kvm);
->>   	kvm_timer_init_vm(kvm);
-> 
-> This should all be moved to the timer code.
-> 
->>   
->>   	/* The maximum number of VCPUs is limited by the host's GIC model */
->> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
->> index 459bd9eb7e4bc..e7b38eff63bd1 100644
->> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
->> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
->> @@ -528,19 +528,19 @@ static int init_pkvm_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu,
->>   	hyp_vcpu->vcpu.arch.cflags = READ_ONCE(host_vcpu->arch.cflags);
->>   	hyp_vcpu->vcpu.arch.mp_state.mp_state = KVM_MP_STATE_STOPPED;
->>   
->> -	if (!pkvm_hyp_vcpu_is_protected(hyp_vcpu)) {
->> -		/*
->> -		 * Timer offsets are pointing to the untrusted KVM copy,
->> -		 * which is pinned in __pkvm_init_vm() for the VM life time.
->> -		 * It is worth noting that hyp_vm->host_kvm points to an EL2
->> -		 * linear map address and timer_get_offset() will use
->> -		 * kern_hyp_va() which is safe as it is idempotent.
->> -		 */
->> -		vcpu_vtimer(&hyp_vcpu->vcpu)->offset.vm_offset =
->> -			&hyp_vm->host_kvm->arch.timer_data.voffset;
->> -		vcpu_ptimer(&hyp_vcpu->vcpu)->offset.vm_offset =
->> -			&hyp_vm->host_kvm->arch.timer_data.poffset;
->> -	}
->> +	/*
->> +	 * Timer offsets are pointing to the untrusted KVM copy,
->> +	 * which is pinned in __pkvm_init_vm() for the VM life time.
->> +	 * It is worth noting that hyp_vm->host_kvm points to an EL2
->> +	 * linear map address and timer_get_offset() will use
->> +	 * kern_hyp_va() which is safe as it is idempotent.
->> +	 * Also for protected VMs the offset is fixed to 0 and is prevented
->> +	 * from changing.
->> +	 */
->> +	vcpu_vtimer(&hyp_vcpu->vcpu)->offset.vm_offset =
->> +		&hyp_vm->host_kvm->arch.timer_data.voffset;
->> +	vcpu_ptimer(&hyp_vcpu->vcpu)->offset.vm_offset =
->> +		&hyp_vm->host_kvm->arch.timer_data.poffset;
-> 
-> I don't think this is right. Protected guests have no offset, and this
-> needs to be ensured by the hypervisor. Here, the host can change the
-> offset any time it wants, and that's not acceptable.
 
-Ah, you're right. :facepalm:
-
-> 
->>   
->>   	ret = pkvm_vcpu_init_sysregs(hyp_vcpu);
->>   	if (ret)
->> diff --git a/include/kvm/arm_arch_timer.h b/include/kvm/arm_arch_timer.h
->> index bc6f2fdd7ad33..4f0aa3bb69f45 100644
->> --- a/include/kvm/arm_arch_timer.h
->> +++ b/include/kvm/arm_arch_timer.h
->> @@ -176,8 +176,7 @@ static inline bool has_cntpoff(void)
->>   		if (__ctxt) {						\
->>   			struct arch_timer_offset *ato = &__ctxt->offset;\
->>   									\
->> -			if (ato->vm_offset)				\
->> -				off += *KERN_HYP_VA(ato->vm_offset);	\
->> +			off += *KERN_HYP_VA(ato->vm_offset);		\
->>   			if (ato->vcpu_offset)				\
->>   				off += *KERN_HYP_VA(ato->vcpu_offset);	\
->>   		}							\
-> 
-> And as you drop the previous hunk, this also needs to be restored to
-> its original state.
-
-Ack.
-
-Suzuki
+On 12/09/2026 02:08, Jakub Kicinski wrote:
+> On Wed,  9 Sep 2026 14:03:46 +0000 Caleb James DeLisle wrote:
+>> The EcoNet EN751221 has either one, or two, onboard MT7530 switches.
+>> Every implementation of this SoC has one switch on die with the CPU,
+>> but some chips - notably those with a "G" in the name, have a second
+>> MT7530 as an MCM module.
+>>
+>> The on-die MT7530 has 4 FE ports and 1 GE port. The MCM switch has all
+>> gigabit ports.
+>>
+>> The MCM switch connects to the SoC switch via a TRGMII link from port
+>> 5 on the SoC switch to port 6 on the MCM switch. This link undergoes
+>> calibration on startup.
+>>
+>> All known devices with the MCM present do not make any use of the ports
+>> on the on-die switch, it is put into "passthrough" mode in which all
+>> traffic is shuttled between port 6 and port 5 without alteration of the
+>> DSA tags.
+>>
+>> Add support for both the on-die and the MCM switch, and calibration of
+>> the TRGMII link between them.
+> ../drivers/net/dsa/mt7530.c: In function ‘en751221_trgmii_pair_setup’:
+> ../drivers/net/dsa/mt7530.c:593:12: warning: variable ‘default_taps_ondie’ set but not used [-Wunused-but-set-variable=]
+>    593 |         u8 default_taps_ondie[NUM_TRGMII_CTRL];
+>        |            ^~~~~~~~~~~~~~~~~~
 
 
-> 
-> 	M.
-> 
+Whoops, got it in v2, thank you.
+
+
+Caleb
 
 
