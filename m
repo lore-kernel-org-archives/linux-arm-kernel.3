@@ -4,127 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EECFC88E7F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 14:50:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53F6CC88E7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 14:50:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qN2MkU81Lz1KMvwh0OIvKliZyK5cNgEHJk5t3+uaHA8=; b=VA2lfrSbifr5CU8oysoQstEykI
-	KNIHuw9aq0qI7mp983p1eLSuBQ95WOvKzcV4VUgIpwsP9quePzdbrV3SVE508FLecobnGoXM3s6md
-	RKXl2oowupsF8cb0+uu0hawnnrHsWJ4EQZD6Ro1T/E89sXwgRyoduTChqaX0fNWXP21o4Nya56Tqh
-	58sCaum83Ict8Mm+KH1Se6vwi6G5BQtcQVepa/JeMXrdwq9+jY3sgGm4vd2wH/7Q+ri6HInsmAEji
-	cwmK1/v0c64pdKby8p7E7FfxuIU9Q60gXYb7Oiq4SHfmqH+GNJbvU56MgJmwSIiFoV/N2noYRPFNs
-	Mbd6pYSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FwDucxnevTlXp/gysVNTRFypXDGaQQvBRBNpel0cp1I=; b=0Ja8I8ffEjXJjJObK7uLtxN59W
+	J1eJjRBXUwc7uQ6OK3uz/N3krCjs3qAWm9P+uJkr5zh7sNae4D5zH7oNAYV1zlIBFDXbo8gVcYzfa
+	k3AMTyaY1IqLmY4myCNbntVw+YEoLmdFwdSktB3xzOrqSp24Yayhela0J4K/7ZZ3ohjbQObj8NbQH
+	pjE64i9DxKXh/1kc5aMED6mr6FwJ71q4JFWZsIh+RWc3RnWU6VCX6JEeClO8dO9NrpRFZjYSumN/Z
+	RfJDpYUU+ba5mvL114xvomZcTIfIfnQeCsADxI2/qdzu1kxwsirARnebXLa4Ia+OiYFDDw1/a39i2
+	5+UFWI7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6SRD-00000006XBI-3jvE;
-	Tue, 15 Sep 2026 12:39:03 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x6UUC-0000000713q-2oXe;
+	Tue, 15 Sep 2026 14:50:16 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6SQq-00000006WkF-2LXA
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 15 Sep 2026 12:38:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=qN2MkU81Lz1KMvwh0OIvKliZyK5cNgEHJk5t3+uaHA8=; b=d1bgSO5ESGc7eVYy1COrw/oBay
-	hkbGjhxbwDPHuFeG7WSXrnOTQSmbtT8+ilb8/i5PK7I8n5aXDHKXb2lb2y8NQb+zWH9IO8JnDR3wZ
-	Bss18G3YUtAcy6AoMEOl5kn0lyaCT1VwI1gIVzX10j25nGolOo21SW6J2gHi7IxwR20+NgU+uuB6Z
-	PcoP0RZOz3+4k8RiDnuYBP0xRxmK/P/UQp4PtMgcaXqa4QeRahV2fIdtp4h8OjJ0QeL1dOTUJqNcS
-	UQYIuLZgD4+DqgXLJ1/+a/8FGqPuSoeLJTJdV1ILnLteLrf3A9lj7VxGJl90Y9h5f4nDmsCHqN3hE
-	8d32uFww==;
-Received: from mail-pj2-x0b.google.com ([2607:f8b0:4864:39::b])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6SQl-00000006kEm-3H8r
+	id 1x6UUA-0000000712Y-2Rlo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 12:38:39 +0000
-Received: by mail-pj2-x0b.google.com with SMTP id 98e67ed59e1d1-398a0a87595so4265684a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 05:38:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789475914; x=1790080714; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=qN2MkU81Lz1KMvwh0OIvKliZyK5cNgEHJk5t3+uaHA8=;
-        b=TR12Z4eoFIT+HlApbVGWWZgVDE1UQjjG+/7czaqr3kdJHrAfVvzkuhdfV51lGSsqGX
-         CIh9FIkzljvlJZRM0FEmJeNesRR4SbfkZ67VM8Zg65V99XtyiPTWggiVLRI4XCAZs7X6
-         efn12GYkihdvSdiftC3l0EU8RNwHzsWJQl5xjlNNSeeAINW3xqyNRTih7NHpi+Y71CUD
-         p7mHnewTRV9qq6eOn+5R73UNjhgFfd/nMyKjKNQd5NR9NGgb30QbFJ7ySeE+0sGjeK1e
-         qQGh1gQSJ+/Ad+WukVsyJ8UOXGbga86x9JZDa+v2PwsRZfTl7zLqnG4Crd2mdh8du9Ct
-         5ccw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789475914; x=1790080714;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=qN2MkU81Lz1KMvwh0OIvKliZyK5cNgEHJk5t3+uaHA8=;
-        b=VIJBRNYqPN3nlLkwknTphU2mcW0W6aFJU9/t+z/cqfqCjZBlJNKk1UVxwkfhsRw6pd
-         wVpqVms37msgaPygy/lBWJCmaDy2mzEx3PM/pjJvj8q1yRtvxevwWikkuqgE1iNmEjwG
-         RMJ5YxJtRCykY3Q2VWMQ6Rx5RqDcgOGLtEpjBJjdzp89lpYkUpZt9RdZcGIApWoWtyrJ
-         VUe+5RjR/EF8mrBQmzEbmX35yRGKDkHwOO0j+NQ5bmdzdvOCa44o7DCsVaZO2ZGlhMxM
-         JVXg6uzhVuNz0ZDJLPleMgH/nEOxHpHZDqj5M6lKT6p1aD9kbPKYQGrIu+1sQaz8uqU5
-         z48Q==
-X-Forwarded-Encrypted: i=1; AKwUvBySAjyNK6qQHuPeoQbZaTkfyCQUgnnM5PrEkzcx+PTIyCjhRe0s+a4ZWi/h9KLw3a7O1v515oQvDwRc3esINWkK@lists.infradead.org
-X-Gm-Message-State: AFuF++nQE1WabhD3CiCPPWqlI4E9Jp/cqplqB+Gfg3iB2RCBQvcOidLm
-	WMYABBezooJNLR0fe/77INOBcMcZMnwcPXy+GQCqBww2xstLc/YMpz0J
-X-Gm-Gg: AYBFou2nH/rtn0Y4u72MUz6WF0jk/bTxwpdPnHZ58MDnd3pZ+FYlC8W43+fR96Cy6v6
-	xZbtusQp6q98Ej70fFWHbc0dVOn5lsta5fsXgmr8lxMLynHeuN9mEk1jqvHoa3eLa18kHBCOJjM
-	o14eFPpxVg8lArem68HloMVbDXKscUzurVMny/2eNEqmQv8ysBNYYo6Mu1vbfBjUGdLW8++U3By
-	SVPIb9Kjmc64W2TmR/WOwgBRoY6alqlB4kelfLvdDRHjaytbFjBHxC+HtTHWjcc8gqWR/N8vd1R
-	bvQxVLBMuODGeZPEgcpg+Lw1yOfr/JlegeBaX5d11grC8RV2hnCyaKPn3CKxwWIeWr4cEgrm6Tf
-	huZ1T57MYHC7LLUXbQATWFGZ4DxWm4l71d83Pv/f8tvJpPq98LS8igrWIcByCAtAAXUDLlEcged
-	T+rPG+PsVIoEw/AF55CopA8ULLoJim2HM8s4PYIvubt+E8VEyIjuon+iJrV8vZXykVpLb/Og==
-X-Received: by 2002:a17:90b:1811:b0:395:7fff:a08f with SMTP id 98e67ed59e1d1-39e106b649dmr1483983a91.0.1789475913321;
-        Tue, 15 Sep 2026 05:38:33 -0700 (PDT)
-Received: from server.lan ([168.138.199.194])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39dfdd28acbsm5307259a91.10.2026.09.15.05.38.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Sep 2026 05:38:32 -0700 (PDT)
-From: Coia Prant <coiaprant@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Vinod Koul <vkoul@kernel.org>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Coia Prant <coiaprant@gmail.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	David Heidelberg <david@ixit.cz>,
-	netdev@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH net-next v6 01/11] net: stmmac: move XPCS lifetime management to platform drivers
-Date: Tue, 15 Sep 2026 20:37:50 +0800
-Message-ID: <20260915123802.1561724-2-coiaprant@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260915123802.1561724-1-coiaprant@gmail.com>
-References: <20260915123802.1561724-1-coiaprant@gmail.com>
+	Tue, 15 Sep 2026 14:50:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=x8Y9ty2CDRkN7rVd0H75AfbKX+/TKdnk6Edbb3F/5Be+dYbdBzhiJZSCJ2y6tDdH4Fl4U3DtA+Rzr/Okf9LPk7GkpDyeudRdYgssxxvGCILlD4RxlghQ5Krt33gL1fl/YlbtaVW3trKR7ZNGvnBgj2d7Y8jI8dHFix2PVL3vFpHS6JN5z4tmE9nFkONhzH3qn1FqbT9LbP3z0WTByIJsSj+mxU2gufweKqqlrD0pR89Aws1nWhyxSUJ78Re4aV45DIlVmLOV8tmFWTcGET3oE1qotynCZAXeD3670IOpHf5iOMpnKVKaUZ1uawIYV0PQw4Fpigid/FcSBwrYdDqmdg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=FwDucxnevTlXp/gysVNTRFypXDGaQQvBRBNpel0cp1I=;
+ b=ihhEIQaoPZebVAbNJk19XPwXW9g1FrRZ01p/c15KJ3fby8pbcem9LxnjR6SxsMUCn8sBgRU40X17wAfu+QjDliyOVzPs63J5M+2SOXkOT8vXl4hM50Ns2xojmo8APPESK6fWsW2BiHR5Vxjm8jBYWrwOkFI3A0rqhLOPChCo6V18YF80h5LRNhbPEg6IPYNL+xM6coQORhgCST8C3Pl8Lx/ZviiAsx4USGKrUva/EgW+G+VmwahuhyYeTP6fZ119JoSaMJ2t0YGSlVngSjt6vHLRLINkPgQMh06o5JKmBE6SrrspOobvy/SfGJcg6V0+il2g9d3P8QgrLQa1mfbm+A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=FwDucxnevTlXp/gysVNTRFypXDGaQQvBRBNpel0cp1I=;
+ b=IPRqEAph/bavm8fYNih892sNdTDCnjjNo6l/5UJEe5Iupru4uKa7LQnFvzofKEfeVVk7P462WD9egvkNoUOhCUbnvJ++nJ6CXYvJV+5GI/YkUoUN9yBZtJ/poTO/2pFCq6XNG4kyvgcWWVOg5eWQFyWjpoRrnovqz7PGNyvmLNmq1Q0TevqErS8HjL94Lw23lrLD8ydQ+krECWFUljOPteQuFzae2CNzou5u2unN1n34ilGYKgOee0rHES/zycAv1i2Pt7SH0aO5eOz9r7QITmirHQhlItu5PLiJIcIDMVPKeCMVIi4//b07e3A9zhB0nviLbSWvFrReR3W355vU9w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by PA4PR04MB9638.eurprd04.prod.outlook.com (2603:10a6:102:273::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Tue, 15 Sep
+ 2026 14:50:09 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.012; Tue, 15 Sep 2026
+ 14:50:08 +0000
+Date: Tue, 15 Sep 2026 09:49:59 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: imx95: Drop unsupported opp-hz-real in OPP
+ tables
+Message-ID: <aqlbFwMZp_TAExFq@SMW015318>
+References: <20260915072308.64047-2-krzysztof.kozlowski@oss.qualcomm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260915072308.64047-2-krzysztof.kozlowski@oss.qualcomm.com>
+X-ClientProxiedBy: CYZPR19CA0020.namprd19.prod.outlook.com
+ (2603:10b6:930:8e::12) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA4PR04MB9638:EE_
+X-MS-Office365-Filtering-Correlation-Id: 594189c1-ddc5-40e9-8bee-08df1338a2a1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|19092799006|366016|18002099003|22082099003|11063799006|10067099003|56012099006;
+X-Microsoft-Antispam-Message-Info: Pmuuesz4YORTQXGNcZq0z025UXkE5ITM0cV/mKt9SQ3WNTPTA2RbinWhuhSUV+u+vXif0fp8ZekHBXViSIw1OZx/ZAlfGfIrT+7TgvlHfbKsXjXiLYhIRLdLESuVdWR6YIPK6brLjkAt6txcEVJZ4wJOVimzvN2AuMrf6TsvvJ3HQ69E+Echg/mwVItwsgF4HxQRhWDWOu6HlmZzClOO0HN0n+YcvO9K0bXg8BhqJxmmJyQepJizstg9zF5Da8DLiEJAp3lGuejPNFeCKblpW0vk/R1/Hy8U4UQ5k3aAF9Wcmd9Wo3eNVVKnL0WNdzemrI5ig2CsjoYfpn1pi5wkN7DuuTajPNl4y9bdi58uNz/Y+OLA0lS1PhSB8M3g+yA+ZK/iyb9ankUMFdHX9klgs20pIHe+jH4XYLGyHczu2MdoZ/Q5tBxtR8UqdLr3Ofe4G0XsAE5tD+ceKwKJaWhKTh4/9ipqNSpmUxvFChc1nRVfstftnqqSRs/R+XXyhFdNzmB5JhTZXE/8Yk4t5w0U7ae4XZKYxP3RZ7bXmNVye41fSRsg6xudMgYHD+8hqci9/VttwN7y14HEv7BGeLutdKwIoDaF/Nkv/81eBEuQk8Us/HZJA9MVGy+mIsc4YYaB9I6h5IebaF8fy6jiVV5hIKBNJgU1cFNdfprcNOJ3ESI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(19092799006)(366016)(18002099003)(22082099003)(11063799006)(10067099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?K2L5d53+KGgFdWe915zJHIKFXHSxFPjQUkPlSibnUQ9j3jEe0gFi42x9XI1I?=
+ =?us-ascii?Q?YqkokUE8I8JT9HU+0N5Zuk+3QqpQNg4LmoyrEq3VFsaYDvuuroA11KIorgKd?=
+ =?us-ascii?Q?haaSm+0wYt+KbEQSB/u34iuI6FwKqccJpAgEqIGlI8cnog5e9lfSutgOWDam?=
+ =?us-ascii?Q?5LiCkxjXWVz9bUyNe/KN0N4Dvu0dEUwAopMj2EvFXWvJF5wNECogthB8IrWs?=
+ =?us-ascii?Q?7VMwFCxFd9wg4IyHPluKAqCEufmDHlPgtbOttDiIBqN4Nl54J0Yjpuz4/Kel?=
+ =?us-ascii?Q?tzwhswMitirPP2imyOql0LqCcuiR/BvuW0El2fS9JUYQpQZkUCSEzgPOeBoV?=
+ =?us-ascii?Q?U1jeJKf8TcmNLPnmSZdyWPtLokoZhsXiZUf9dOj8nlEVhvuHryiFI8PJD4VW?=
+ =?us-ascii?Q?GDTZzYpfFsIvN4cNNFcZS//X4U1gRlp62DZykgXBcVidzfaAv2zBGVruRduX?=
+ =?us-ascii?Q?4Ukp1HlopQw6W29Wi63N75A/hvQbsKkxOun2Rwi3WHfdJcZoEwTsgl2BDXl8?=
+ =?us-ascii?Q?g69or9c3W1UNvF5XTpNhP+fUHGcsc/prkLJIxS478/4PdUmitkWrU/hH0E+a?=
+ =?us-ascii?Q?RbnAD06i1r8IdmXfsyDcDjezjeRtZTPdOkaTeQ3p695K+f0ovNjKBntb3UQF?=
+ =?us-ascii?Q?0OnRTy88wDhZQiJk01RBeeax8V8/bks1Yao3zNp62N/TZTIwBgX2Fy5cO6AZ?=
+ =?us-ascii?Q?TUYvNS9GvuzP/GSbP2Lv2vTR9PWZhCcgbcWRwImprv/HijDtFVlPkIvRBsbJ?=
+ =?us-ascii?Q?PE6DK98zKKR4p2wbYH6cDwEmAaqL8J/XbmBtnVfd2+R0YAHE6IMaLto8mMMG?=
+ =?us-ascii?Q?dtk94sU6OEyx1b25Hq+CTNcp9ZmR8ixlGpEJZ40gcQ+iGi7J4ZuyeItyBxSE?=
+ =?us-ascii?Q?RK6N13Q4iA0yjYLgjPxuhY6hId4FRBsG4Wif3BKvdmYiqFiV2sT23Kne7MrE?=
+ =?us-ascii?Q?qSBVxnw2432cTHQw3cHRU63XjChlqVGLSorwB7DIouaRlOcWQkolbvRfyMO6?=
+ =?us-ascii?Q?c+RtGUZ+ig0UOnaDm2lisKns3xaJDE8Hhy2jpGEJhHc1elYLNHby/A+ciwZ+?=
+ =?us-ascii?Q?Wk0o47qGPZ70/GtTuvVPV/a30tH0coNWM6HwEZ5LKEm3EmYu/TDSfOATrlCI?=
+ =?us-ascii?Q?fmGGMMfBqT6ltkAAS0NH7ZlsMElrd1KnmJqK3Bv4tSu0I48uOjXH94xN64bj?=
+ =?us-ascii?Q?/49nNLuWi/izf0MK3aPh8BXy63uMH8kCoBtBmTkGQaSm5l3KOruzQWwey+pW?=
+ =?us-ascii?Q?C3Ap6HVSpyonSj/IUFaNkvLVGr9A6/A0bI0g2UywBAViukAMuskwoWci/+Fr?=
+ =?us-ascii?Q?XWBW4PHiFLaHtv2Bh3X6ioWN2XqLjYh/Tmq/vNtMwysJmXfeJ/aAcs9Skk2l?=
+ =?us-ascii?Q?LB5Gtlzs4v2lSLI3Wzvb9wxS+K34lt1E4FR8vnt19k2/xlbiJVrW6ZieiWB1?=
+ =?us-ascii?Q?gouw86wc4mSRF/p6hT1m/+ssNSvGw6fgSdeH69ctxP5FKE8k2jCljZWwVya5?=
+ =?us-ascii?Q?npC1zQOTJBOflWKajfaJkYNJHPT9/X3u5cJpVNqHkyuHIMHtr0UzWEg2/wsB?=
+ =?us-ascii?Q?cD5e7ULx+BSe9VpHVelgIWKNm9SnR6HtJqM2BrowBvbqWTNsw+Ell+F/CuFm?=
+ =?us-ascii?Q?F+OFLsQYWsTAms+cjJmoC2ZlbD0VH6jsQ0WLL1FPiJER+xXKJfegSLP6ajNb?=
+ =?us-ascii?Q?gJSppO7rt8ZLCDzFmLWnGZR2vB2EovdvhJ00V9+htNJp3wkw4mO5/54/lvRz?=
+ =?us-ascii?Q?O3BzC5haYLibgJ+gdwk+JnbV0itQ2eICfsVu4ojcc2P6CLJTkOpm?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 594189c1-ddc5-40e9-8bee-08df1338a2a1
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Sep 2026 14:50:08.0459
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Fp+bHq4YuMmORMNyiBQfJOa0k7R79tQali/IHxkw/ojcv1ygYU4qbUZTxfvfvDO5nvvVTP0YP9uFlOC87JLkJt7OUP+4pp7jIc5T06nlvhs1i+3EJi9m6Ydr8xwJYevD
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9638
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_133836_567471_3A44C01A 
-X-CRM114-Status: GOOD (  24.85  )
+X-CRM114-CacheID: sfid-20260915_075014_634104_AD31B50F 
+X-CRM114-Status: GOOD (  16.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,240 +141,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The current XPCS creation logic in stmmac_pcs_setup() is problematic
-for several reasons.
+On Tue, Sep 15, 2026 at 09:23:09AM +0200, Krzysztof Kozlowski wrote:
+> There is no "opp-hz-real" property at all defined in the bindings and
+> new DTS is not allowed to bring undocumented properties.  Fix dtbs_check
+> warnings like:
+>
+>   imx95-15x15-evk-pcie0-ep.dtb: opp-500000000: opp-hz-real: b'\x00\x00\x00\x00\x1d\xcde\x00' is not of type 'object', 'integer', 'array', 'boolean', 'null'
 
-First, if a device tree specifies a "pcs-handle" but no select_pcs()
-callback is provided by the platform driver, the created XPCS is never
-used. The phylink framework requires select_pcs() to actually return
-the PCS to the core, so the pcs-handle property becomes effectively
-useless without the matching callback. This is confusing for developers
-who expect that specifying a pcs-handle in their device tree should be
-sufficient to enable the PCS.
+I run below command, have not found above warning
 
-Second, and more critically, when a platform driver sets pcs_init()
-and creates an XPCS inside that callback, the common code afterwards
-still runs unconditionally and overwrites priv->hw->xpcs with the
-local xpcs variable, which stays NULL. The platform driver has no way
-to prevent this override because the common code runs after the
-platform-specific initialization.
+make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -j8 CHECK_DTBS=y freescale/imx95-15x15-evk-pcie0-ep.dtb
+  DTC [C] arch/arm64/boot/dts/freescale/imx95-15x15-evk.dtb
+  DTC     arch/arm64/boot/dts/freescale/imx-m2-pcie.dtbo
+  DTC     arch/arm64/boot/dts/freescale/imx-pcie0-ep.dtbo
+  OVL [C] arch/arm64/boot/dts/freescale/imx95-15x15-evk-pcie.dtb
+  OVL [C] arch/arm64/boot/dts/freescale/imx95-15x15-evk-pcie0-ep.dtb
 
-After commit 93f84152e4ae ("net: stmmac: clean up
-stmmac_mac_select_pcs()"), the common code no longer falls back to
-priv->hw->phylink_pcs if select_pcs() is not set. This change
-reinforces that each platform must manage its own PCS life cycle
-explicitly, but the XPCS creation code in stmmac_pcs_setup() was not
-updated to match this new expectation, leaving a gap where platform
-drivers have no clean way to take control of XPCS creation.
+Anything wrong?
 
-Address all of these issues by simplifying the existing pcs_init() and
-pcs_exit() dispatch in stmmac_pcs_setup() and stmmac_pcs_clean(). The
-common stmmac_pcs_setup() now calls plat->pcs_init() if present, and
-stmmac_pcs_clean() calls plat->pcs_exit() if present, removing the
-confusing and error-prone XPCS creation logic from the common code.
+Frank
 
-Platforms that do not need an XPCS simply leave the callbacks as NULL
-and no change in behavior occurs. Platforms that do need an XPCS can
-now create it with the exact configuration they require, including
-wrapping it with custom phylink_pcs_ops when necessary.
-
-The Intel mGbE glue is updated to create its XPCS inside its own
-pcs_init() implementation, and the renesas-gbeth, rzn1 and socfpga
-pcs_exit() callbacks now explicitly clear priv->hw->phylink_pcs after
-destroying the PCS to avoid dangling pointer references.
-
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Signed-off-by: Coia Prant <coiaprant@gmail.com>
----
- .../net/ethernet/stmicro/stmmac/dwmac-intel.c | 44 +++++++++++++++++--
- .../stmicro/stmmac/dwmac-renesas-gbeth.c      |  7 ++-
- .../net/ethernet/stmicro/stmmac/dwmac-rzn1.c  |  7 ++-
- .../ethernet/stmicro/stmmac/dwmac-socfpga.c   |  7 ++-
- .../net/ethernet/stmicro/stmmac/stmmac_mdio.c | 39 +++-------------
- 5 files changed, 62 insertions(+), 42 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
-index f5f9fa67ecd77..4308dccbf2570 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
-@@ -603,13 +603,47 @@ static void common_default_data(struct plat_stmmacenet_data *plat)
- 	plat->mdio_bus_data->needs_reset = true;
- }
- 
-+static int intel_mgbe_pcs_init(struct stmmac_priv *priv)
-+{
-+	struct fwnode_handle *devnode, *pcsnode;
-+	struct dw_xpcs *xpcs;
-+	int addr;
-+
-+	devnode = dev_fwnode(priv->device);
-+
-+	if (fwnode_property_present(devnode, "pcs-handle")) {
-+		pcsnode = fwnode_find_reference(devnode, "pcs-handle", 0);
-+		xpcs = xpcs_create_fwnode(pcsnode);
-+		fwnode_handle_put(pcsnode);
-+	} else {
-+		addr = ffs(priv->plat->mdio_bus_data->pcs_mask) - 1;
-+		xpcs = xpcs_create_mdiodev(priv->mii, addr);
-+	}
-+
-+	if (IS_ERR(xpcs))
-+		return PTR_ERR(xpcs);
-+
-+	xpcs_config_eee_mult_fact(xpcs, priv->plat->mult_fact_100ns);
-+
-+	priv->hw->xpcs = xpcs;
-+	return 0;
-+}
-+
-+static void intel_mgbe_pcs_exit(struct stmmac_priv *priv)
-+{
-+	if (!priv->hw->xpcs)
-+		return;
-+
-+	xpcs_destroy(priv->hw->xpcs);
-+	priv->hw->xpcs = NULL;
-+}
-+
- static struct phylink_pcs *intel_mgbe_select_pcs(struct stmmac_priv *priv,
- 						 phy_interface_t interface)
- {
--	/* plat->mdio_bus_data->has_xpcs has been set true, so there
--	 * should always be an XPCS. The original code would always
--	 * return this if present.
--	 */
-+	if (!priv->hw->xpcs)
-+		return NULL;
-+
- 	return xpcs_to_phylink_pcs(priv->hw->xpcs);
- }
- 
-@@ -733,6 +767,8 @@ static int intel_mgbe_common_data(struct pci_dev *pdev,
- 	    plat->phy_interface == PHY_INTERFACE_MODE_1000BASEX) {
- 		plat->mdio_bus_data->pcs_mask = BIT_U32(INTEL_MGBE_XPCS_ADDR);
- 		plat->default_an_inband = true;
-+		plat->pcs_init = intel_mgbe_pcs_init;
-+		plat->pcs_exit = intel_mgbe_pcs_exit;
- 		plat->select_pcs = intel_mgbe_select_pcs;
- 	}
- 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
-index 19f34e18bfef2..9af32c26f9c14 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
-@@ -81,8 +81,11 @@ static int renesas_gmac_pcs_init(struct stmmac_priv *priv)
- 
- static void renesas_gmac_pcs_exit(struct stmmac_priv *priv)
- {
--	if (priv->hw->phylink_pcs)
--		miic_destroy(priv->hw->phylink_pcs);
-+	if (!priv->hw->phylink_pcs)
-+		return;
-+
-+	miic_destroy(priv->hw->phylink_pcs);
-+	priv->hw->phylink_pcs = NULL;
- }
- 
- static struct phylink_pcs *renesas_gmac_select_pcs(struct stmmac_priv *priv,
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rzn1.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rzn1.c
-index 13634965bc19a..01df4776edb3f 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rzn1.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rzn1.c
-@@ -35,8 +35,11 @@ static int rzn1_dwmac_pcs_init(struct stmmac_priv *priv)
- 
- static void rzn1_dwmac_pcs_exit(struct stmmac_priv *priv)
- {
--	if (priv->hw->phylink_pcs)
--		miic_destroy(priv->hw->phylink_pcs);
-+	if (!priv->hw->phylink_pcs)
-+		return;
-+
-+	miic_destroy(priv->hw->phylink_pcs);
-+	priv->hw->phylink_pcs = NULL;
- }
- 
- static struct phylink_pcs *rzn1_dwmac_select_pcs(struct stmmac_priv *priv,
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-index 1d7f0a57d2889..6d4bc1fe8f751 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-@@ -539,8 +539,11 @@ static int socfpga_dwmac_pcs_init(struct stmmac_priv *priv)
- 
- static void socfpga_dwmac_pcs_exit(struct stmmac_priv *priv)
- {
--	if (priv->hw->phylink_pcs)
--		lynx_pcs_destroy(priv->hw->phylink_pcs);
-+	if (!priv->hw->phylink_pcs)
-+		return;
-+
-+	lynx_pcs_destroy(priv->hw->phylink_pcs);
-+	priv->hw->phylink_pcs = NULL;
- }
- 
- static struct phylink_pcs *socfpga_dwmac_select_pcs(struct stmmac_priv *priv,
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-index afe98ff5bdcb0..7396b68899c66 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-@@ -426,35 +426,14 @@ int stmmac_mdio_reset(struct mii_bus *bus)
- int stmmac_pcs_setup(struct net_device *ndev)
- {
- 	struct stmmac_priv *priv = netdev_priv(ndev);
--	struct fwnode_handle *devnode, *pcsnode;
--	struct dw_xpcs *xpcs = NULL;
--	int addr, ret;
--
--	devnode = dev_fwnode(priv->device);
--
--	if (priv->plat->pcs_init) {
--		ret = priv->plat->pcs_init(priv);
--	} else if (fwnode_property_present(devnode, "pcs-handle")) {
--		pcsnode = fwnode_find_reference(devnode, "pcs-handle", 0);
--		xpcs = xpcs_create_fwnode(pcsnode);
--		fwnode_handle_put(pcsnode);
--		ret = PTR_ERR_OR_ZERO(xpcs);
--	} else if (priv->plat->mdio_bus_data &&
--		   priv->plat->mdio_bus_data->pcs_mask) {
--		addr = ffs(priv->plat->mdio_bus_data->pcs_mask) - 1;
--		xpcs = xpcs_create_mdiodev(priv->mii, addr);
--		ret = PTR_ERR_OR_ZERO(xpcs);
--	} else {
-+	int ret;
-+
-+	if (!priv->plat->pcs_init)
- 		return 0;
--	}
- 
-+	ret = priv->plat->pcs_init(priv);
- 	if (ret)
--		return dev_err_probe(priv->device, ret, "No xPCS found\n");
--
--	if (xpcs)
--		xpcs_config_eee_mult_fact(xpcs, priv->plat->mult_fact_100ns);
--
--	priv->hw->xpcs = xpcs;
-+		return dev_err_probe(priv->device, ret, "Failed to initialize PCS\n");
- 
- 	return 0;
- }
-@@ -463,14 +442,10 @@ void stmmac_pcs_clean(struct net_device *ndev)
- {
- 	struct stmmac_priv *priv = netdev_priv(ndev);
- 
--	if (priv->plat->pcs_exit)
--		priv->plat->pcs_exit(priv);
--
--	if (!priv->hw->xpcs)
-+	if (!priv->plat->pcs_exit)
- 		return;
- 
--	xpcs_destroy(priv->hw->xpcs);
--	priv->hw->xpcs = NULL;
-+	priv->plat->pcs_exit(priv);
- }
- 
- struct stmmac_clk_rate {
--- 
-2.47.3
-
+>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> ---
+>  arch/arm64/boot/dts/freescale/imx95.dtsi  | 3 ---
+>  arch/arm64/boot/dts/freescale/imx952.dtsi | 3 ---
+>  2 files changed, 6 deletions(-)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
+> index 1cb8eb15e5c7..99c72d5cd125 100644
+> --- a/arch/arm64/boot/dts/freescale/imx95.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
+> @@ -255,19 +255,16 @@ gpu_opp_table: opp-table {
+>
+>  		opp-500000000 {
+>  			opp-hz = /bits/ 64 <500000000>;
+> -			opp-hz-real = /bits/ 64 <500000000>;
+>  			opp-microvolt = <920000>;
+>  		};
+>
+>  		opp-800000000 {
+>  			opp-hz = /bits/ 64 <800000000>;
+> -			opp-hz-real = /bits/ 64 <800000000>;
+>  			opp-microvolt = <920000>;
+>  		};
+>
+>  		opp-1000000000 {
+>  			opp-hz = /bits/ 64 <1000000000>;
+> -			opp-hz-real = /bits/ 64 <1000000000>;
+>  			opp-microvolt = <920000>;
+>  		};
+>  	};
+> diff --git a/arch/arm64/boot/dts/freescale/imx952.dtsi b/arch/arm64/boot/dts/freescale/imx952.dtsi
+> index 887abb1c4784..306239de096e 100644
+> --- a/arch/arm64/boot/dts/freescale/imx952.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx952.dtsi
+> @@ -323,19 +323,16 @@ gpu_opp_table: opp-table {
+>
+>  		opp-500000000 {
+>  			opp-hz = /bits/ 64 <500000000>;
+> -			opp-hz-real = /bits/ 64 <500000000>;
+>  			opp-microvolt = <920000>;
+>  		};
+>
+>  		opp-800000000 {
+>  			opp-hz = /bits/ 64 <800000000>;
+> -			opp-hz-real = /bits/ 64 <800000000>;
+>  			opp-microvolt = <920000>;
+>  		};
+>
+>  		opp-1000000000 {
+>  			opp-hz = /bits/ 64 <1000000000>;
+> -			opp-hz-real = /bits/ 64 <1000000000>;
+>  			opp-microvolt = <920000>;
+>  		};
+>  	};
+> --
+> 2.53.0
+>
+>
 
