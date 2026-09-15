@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53239C88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 22:26:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A5C8C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 22:26:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+w/qcLrX2rTuwmLcVOn6au3NRLwXERMUbyiNARdv0Dg=; b=CaHsUkZEBxVRtTfNyqySNp94wm
-	bu5BcZh6vzUq/UF+jlVk1BfyGvBpQ4Rys4Sk/J/qXqXzy9NYj1lNad9zA7UKzsL3jhaIif/vJs7pV
-	GIVIJ6qaX9Sg11lP7QraITdWTfJC5mX7Ez3UE0H/pFeSNJZ0ki9Gj3b4KR1uvYCeDTA+utTD9cnoe
-	tr2EeatQBjSa0rrOvLpblMv7LgFEJhhNH4JqtR81jDtfAwIEmhePWYJCGIX1kLxxqO26QUwj6hbFr
-	7jj3p/8EISpvFbyjHpnECFbZVpP8PXzzpfmQ07RdUnRyUcOwKhLloNEn5zj8zolGadrFOrRvpL/Z8
-	YCWjo58w==;
+	bh=bYnUPdhAHL+R5VtXzqTnTSjG/gjtRhgRQcO4zt1laKE=; b=S7h+F/JVrdabZPQgWreE8kyYwi
+	j8t5TL2yIFyAvJjpr3aN4Ddsbv318CH4nogM39X3IrLpIGViFj/S1nQmHgeuKin1AgMKgl/aVPhks
+	YAGZ/52cQgUY+HpAgQGtP4IpkuftHrxz5njfKQkFBInhtk4yngs4jVBdHnef2oKBrlGZKAT7TzO3I
+	Bdi9j8NkbJX2+h+/Z7eBhWXzX/VveLwH44LKGXKDDRwbQf/K3Cst3l6Ybh4AKWFMaG9d+SY3wRCEB
+	EGPED82eX9svp8hiINr0EJ3gqgK4AMOHYRIIwoyhC2HSolluwqDlU6PNXyQ3qzS/lEow2hWBg1BAK
+	Tj5Q26hA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6bbW-000000080Ok-2TWb;
+	id 1x6bbW-000000080Np-0tF6;
 	Tue, 15 Sep 2026 22:26:18 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6bb2-000000080Jn-3S1v
+	id 1x6bb2-000000080Jo-1eCW
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 15 Sep 2026 22:25:48 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E7E37602D1;
-	Tue, 15 Sep 2026 22:25:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 655511F008A1;
+	by sea.source.kernel.org (Postfix) with ESMTP id 14B5543E64;
+	Tue, 15 Sep 2026 22:25:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB8D91F000FF;
 	Tue, 15 Sep 2026 22:25:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789511147;
-	bh=+w/qcLrX2rTuwmLcVOn6au3NRLwXERMUbyiNARdv0Dg=;
+	s=k20260515; t=1789511148;
+	bh=bYnUPdhAHL+R5VtXzqTnTSjG/gjtRhgRQcO4zt1laKE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=JTbZMRmBrSnpUtOvIGLKkvcMuM0cdSivcl60DxSsSfRu/1YmKDiIVi/sz9KpzC5LM
-	 PzbYPlOlnxkk63Ar/caJgqbq6GCbOuR/7kmayLo070MWg3daAQx2sAw2UUkZfLUuTW
-	 GB8aV8eQNugWJjfaf4jEcCzUHnXVENtalMkLv/k0szhC/M84buizlzI6G0958+s/se
-	 yeb0xhiFJW/zxLgl3qk1Ff7QJmu4P6Uin9rw2l+fpkJJgTDtrQ2kT5BvYZDG4VzlUI
-	 r3Cv69JJDiBxAvKmVBX/f8oXRRwZYQyjHLSOr81vh4Iwti5/TCdATao+kzdkoa6hJL
-	 sM5b3x1Wt9uuw==
+	b=YmOrM34X8kSXcJ3Pk4wsrMaEHXW4Xf2x/ujTuvKqFWAX1Hsi8QafoM3nvwJgCboTY
+	 K5XauLr1F6se4Gb9JkJQbzvx/mHQuSaT9IYaKuauVzTWafaLelvbwheotu7psm+ACd
+	 xWnEjrj0ZCt5vbBB1AkJ1x5hs90K+WGUFjQ+8dyekMJjxPGrZTXB6NF6S5QVyADmvC
+	 bCeq9ozVk4RxV+IUoFYzKbXAfwDv4Sf2tkACqTHz+0zhTWX5c/UodqBd2xYzcX+AjU
+	 9b4dpteRi/aAL0paGT+XCnqi8v/iIBiRles2MKpO02pa1pnCrquI5CcUz24UosX14i
+	 GwrjecUpbXN5w==
 From: Oliver Upton <oupton@kernel.org>
-To: Marc Zyngier <maz@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>,
 	Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Christoffer Dall <christoffer.dall@arm.com>,
 	Fuad Tabba <fuad.tabba@linux.dev>,
-	"Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Wei-Lin Chang <weilin.chang@arm.com>,
-	Yao Yuan <yaoyuan@linux.alibaba.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v3 0/2] KVM: arm64: Fix spurious warn, null ptr deref on S2 teardown race
-Date: Tue, 15 Sep 2026 15:25:38 -0700
-Message-ID: <178951103702.10790.13969077149562964690.b4-ty@kernel.org>
+	ljs@kernel.org,
+	Shen Yongchao <grayhat@foxmail.com>,
+	Karl Mehltretter <kmehltretter@gmail.com>,
+	Wei-Lin Chang <weilin.chang@arm.com>
+Subject: Re: [PATCH v4 0/2] KVM: arm64: nv: Shadow S2 life-cycle fixes
+Date: Tue, 15 Sep 2026 15:25:39 -0700
+Message-ID: <178951103695.10790.16480585864546668236.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260901-kvm-arm-nested-virt-fix-v3-0-b154676f7e4c@kernel.org>
-References: <20260901-kvm-arm-nested-virt-fix-v3-0-b154676f7e4c@kernel.org>
+In-Reply-To: <20260911162203.1919330-1-maz@kernel.org>
+References: <20260911162203.1919330-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -83,24 +79,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 01 Sep 2026 18:28:58 +0100, Lorenzo Stoakes (ARM) wrote:
-> When GFNs are invalidated in L0 an MMU notifier triggers
-> kvm_unmap_gfn_range() which tears down all of the stage 2 shadow page
-> tables for nested guests via kvm_nested_s2_unmap().
+On Fri, 11 Sep 2026 17:22:01 +0100, Marc Zyngier wrote:
+> 7.3-rc2 has introduced annoying conflicts with this, so in the spirit
+> of making things a bit easier for Oliver, here's the version rebased
+> on -rc2!
 > 
-> To avoid lockup, the kvm->mmu_lock is dropped while doing this and the task
-> rescheduled once for each block of physical address space (32 MiB for 16
-> KiB page size), with the lock being reacquired once the task is scheduled
-> again.
+> * From v3 [1]
+> 
+>   - Fixed spacing (Wei-Lin)
 > 
 > [...]
 
 Applied to fixes, thanks!
 
-[1/2] KVM: arm64: Fix spurious warning for benign stage 2 teardown race
-      https://git.kernel.org/kvmarm/kvmarm/c/38b70fc453c3
-[2/2] KVM: arm64: nv: Fix null ptr deref on nested wp/unmap, teardown race
-      https://git.kernel.org/kvmarm/kvmarm/c/4c74e233cded
+[1/2] KVM: arm64: nv: Fix life cycle of the nested_mmus array
+      https://git.kernel.org/kvmarm/kvmarm/c/33346f8960c7
+[2/2] KVM: arm64: nv: Delay freeing of shadow S2 structures until VM destruction
+      https://git.kernel.org/kvmarm/kvmarm/c/e5843f4effaa
 
 --
 Best,
