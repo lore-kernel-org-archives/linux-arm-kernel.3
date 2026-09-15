@@ -4,78 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E453C88E7D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 19:51:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C5A7C88E7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 19:56:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jXOczofUEvkrBqpcuYbGbpcliZ0gOlKLqfrv/EClXo0=; b=eIFaHvETuwqA/DDOR1swQVw4fX
-	wjllp+8cl9QThCeQdrfwrLVDLiuT8nKe1XX0KzAPJoQmbi6NsFmwkGD2W0TsL9L2dcH2FR+1Mka7+
-	X2nT/uS+hzn6iq0oJ3mmv+/FwOeCa8rj0oeipDAu8OhgKUhspGEDVZUOUygX0RuxrlIv8IOxPUY8W
-	ac1OBglu31YoXrw3ZgDZeFoiU1D8JpTYruL4my/XL+LD3nmLF60FyylzDotvE0H7KIkSnm1HcZR4S
-	7kxr6Zh9NbmwCMBI+Ppijwr/hphJs5wJ+7Q8tUQeztVwAfu8FFxLWRCXnSmoaem32+jY364h/CNeg
-	WsCbiRxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/9/n5mwO6kR68u3vVbGR7jjrxxIi1w6BUultNSxEIyM=; b=r/Hr6jp/Qfwz/2bJ7lb+Bv9xv9
+	U1NAsNSMLRwkLG7zeC82Yo3otYUOfFPBxmC9Y75yeu+kjOvtFwMLCX+wqwhy70l3o0QuqBCPu1PBg
+	pX2uzziywbe/OQAZoNT5Kx/aJR6j63/Nw9xYwHvfsf4/jMWVN3u3mWfp+KalY94QgaYplqDdhn6Fi
+	ICy0tdX/81nJ19P6A+BCKXKmo74kkNrv7OekrbWZhMZUhraZSeUnDro6ZhN1f07CwUcm6VVUEYXNG
+	WgiEiNmrdEK74rk0z3KnwT/i+J55Cgur6Qi3bFXR6SJHFZqC88o12POJbnh52ydsQbzAeKrG6c51i
+	v2LKGsqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6ZB7-00000007tEF-0NIH;
-	Tue, 15 Sep 2026 19:50:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6ZB5-00000007tE3-3Nut
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 15 Sep 2026 19:50:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:Message-ID:
-	Date:References:In-Reply-To:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=jXOczofUEvkrBqpcuYbGbpcliZ0gOlKLqfrv/EClXo0=; b=q1dYRAL6NHxop2iJXbDiskRUWq
-	a1B9ohpQY1kOuocfamuNT0CR7N6VAwMRKfo+csB5sCuaSiIm16jzz1u+sbZPrLuUOYjYp9k9ioIB+
-	DOFAtPJpRHv5iPEep/8OMJ/IwV8eo1ncBUXt/xYvgi9qpr/MH4XQZngQeiIMM+NALTWXXANM/cpIX
-	HgVwrrLSA3h/p0T/lR1eTPKX/M12Cta8B8HUjd/pwmACYGq2vHfL77p2R0DMnTlZxNm8RaAnPFnK3
-	739J9UzYMzWqFlK7QxtICnM1FT64seNGQRHmeUOzJTiVj76QgI0ngkAMh8VlrVDbnDL19nW70vx8I
-	/mMWX9Yg==;
-Received: from ms.lwn.net ([2600:3c01:e000:3a1::42])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6ZB2-00000007D7g-1pwE
+	id 1x6ZG1-00000007taN-2b3C;
+	Tue, 15 Sep 2026 19:55:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x6ZFz-00000007ta0-0r7Q
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 19:50:50 +0000
-DKIM-Filter: OpenDKIM Filter v2.11.0 ms.lwn.net EE69B408B4
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lwn.net; s=20201203;
-	t=1789501846; bh=jXOczofUEvkrBqpcuYbGbpcliZ0gOlKLqfrv/EClXo0=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=WqxcUu3cx8hBBdXdwyYjkTITe55X2kp5l2yxw5xsZtUWp+hMBdYNe446ZB5AhJ1LD
-	 CgWDVsvblGmUxsVOQFTt04CqVu23eeTqWMKywgBC1UkcbRcDHyoNTz/5BKUGLTyKpL
-	 cVHIy5pznUuMgrqZyZUSl/XpYxAJ6TFjUFzJrbjCrkOQ9YV6CAMNOkuPGDtmZEpfHI
-	 caa6EMrAGw1vPOTLhzJXHNdNX+xJO6ZaWPtY/aov6H6c9n3YyQYb3zrWwGSDEiMV3R
-	 hraNXTl41LdPXlluVmbOKBuAG60VqSjB/Lo2KMD+Y/UbQQEl2J6JTGxqRMrBxtPM84
-	 Yv40afzMGvgtw==
-Received: from localhost (unknown [IPv6:2601:280:4600:814::1fe])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by ms.lwn.net (Postfix) with ESMTPSA id EE69B408B4;
-	Tue, 15 Sep 2026 19:50:45 +0000 (UTC)
-From: Jonathan Corbet <corbet@lwn.net>
-To: Randy Dunlap <rdunlap@infradead.org>, linux-kernel@vger.kernel.org
-Cc: Michal Simek <michal.simek@amd.com>, Ronak Jain <ronak.jain@amd.com>,
- linux-arm-kernel@lists.infradead.org, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, Shuah Khan <skhan@linuxfoundation.org>,
- linux-doc@vger.kernel.org
-Subject: Re: [PATCH] firmware: zynqmp: use literal blocks for commands
-In-Reply-To: <ae2964c7-7875-4966-ad1c-b98d6050d42e@infradead.org>
-References: <20260914060615.1398531-1-rdunlap@infradead.org>
- <87ik469wd4.fsf@trenco.lwn.net>
- <ae2964c7-7875-4966-ad1c-b98d6050d42e@infradead.org>
-Date: Tue, 15 Sep 2026 13:50:45 -0600
-Message-ID: <87eceu70q2.fsf@trenco.lwn.net>
+	Tue, 15 Sep 2026 19:55:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 34FCE152B;
+	Tue, 15 Sep 2026 12:55:50 -0700 (PDT)
+Received: from [192.168.4.158] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 697A53F7B4;
+	Tue, 15 Sep 2026 12:55:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789502153; bh=os1BDjQW0NBjktNzzqxnXfDDyaHtfLgy26yzzeiQoDk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=HSa38V7N4c8nhvp7rfjuBg2mwrWCDfXnjscowE1tm7LV7+wLp8nz5bQboqStLyKAg
+	 6x3nzIcx+n5vvmtfbkNKAfYYmvtpilQoTdLxWtXv+eM/mL7XURFFSgICEmtQ6KOnro
+	 G5KtsIMp2ne2O9lN2jsJ9G5QJyqqYKUJBajyGw7Q=
+Message-ID: <6f7eef15-da58-4f7f-94ba-778772e91270@arm.com>
+Date: Tue, 15 Sep 2026 20:55:48 +0100
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v18 7/7] firmware: arm_rmm: Add wrappers for Realm related
+ RMI commands
+Content-Language: en-GB
+To: Alper Gun <alpergun@google.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
+ will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
+ aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com,
+ lpieralisi@kernel.org, enju.kohei@fujitsu.com
+References: <20260912083611.2513845-1-suzuki.poulose@arm.com>
+ <20260912083611.2513845-8-suzuki.poulose@arm.com>
+ <CABpDEukTAc1m=g+rZRPPqaTwrvhUJPsFRWpFd0PxZsyWw5mR=Q@mail.gmail.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <CABpDEukTAc1m=g+rZRPPqaTwrvhUJPsFRWpFd0PxZsyWw5mR=Q@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_205048_670845_60BB5012 
-X-CRM114-Status: GOOD (  11.53  )
+X-CRM114-CacheID: sfid-20260915_125555_289358_6F418798 
+X-CRM114-Status: GOOD (  14.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,46 +79,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Randy Dunlap <rdunlap@infradead.org> writes:
+On 15/09/2026 20:35, Alper Gun wrote:
+> On Sat, Sep 12, 2026 at 1:37 AM Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+> [...]
+>> +/**
+>> + * rmi_rtt_destroy() - Destroy an RTT
+>> + * @rd: PA of the RD
+>> + * @ipa: Base of the IPA range described by the RTT
+>> + * @level: RTT level
+>> + * @out_rtt: Pointer to write the PA of the RTT which was destroyed
+>> + * @out_top: Pointer to write the top IPA of non-live RTT entries, from entry
+>> + * at which the RTT walk terminated.
+>> + *
+>> + * Destroys an RTT. The RTT must be non-live, i.e. none of the entries in the
+>> + * table are in ASSIGNED or TABLE state.
+>> + *
+>> + * Return: 0 on success, positive RMI result code or negative Linux error code.
+>> + */
+>> +static inline long rmi_rtt_destroy(unsigned long rd,
+>> +                                  unsigned long ipa,
+>> +                                  long level,
+>> +                                  unsigned long *out_rtt,
+>> +                                  unsigned long *out_top)
+>> +{
+>> +       struct arm_smccc_1_2_regs regs = {
+>> +               SMC_RMI_RTT_DESTROY, rd, ipa, level
+>> +       };
+>> +       long ret = rmi_sro_execute(&regs);
+>> +
+>> +       if (ret != RMI_SUCCESS)
+>> +               return ret;
+>> +
+>> +       if (out_rtt)
+>> +               *out_rtt = regs.a1;
+>> +       if (out_top)
+>> +               *out_top = regs.a2;
+>> +
+>> +       return RMI_SUCCESS;
+>> +}
+> 
+> Doesn't out_top (regs.a2) need to be populated on RMI_ERROR_RTT as well?
+> realm_tear_down_rtt_level() checks next_addr > addr under case
+> RMI_ERROR_RTT: to determine whether the RTT is missing or has child tables
+> that need recursive teardown.
 
-> On 9/15/26 11:56 AM, Jonathan Corbet wrote:
->> Randy Dunlap <rdunlap@infradead.org> writes:
->> 
->>> Use literal blocks for 'cat' and 'echo' commands to separate them from
->>> the surrounding text. Otherwise the lines run together, without any
->>> clear break before or after the commands.
->>>
->>> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
->>> ---
->>> Cc: Michal Simek <michal.simek@amd.com>
->>> Cc: Ronak Jain <ronak.jain@amd.com>
->>> Cc: linux-arm-kernel@lists.infradead.org
->>> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
->>> Cc: Jonathan Corbet <corbet@lwn.net>
->>> Cc: Shuah Khan <skhan@linuxfoundation.org>
->>> Cc: linux-doc@vger.kernel.org
->>>
->>>  Documentation/ABI/stable/sysfs-driver-firmware-zynqmp |   70 +++++++---
->>>  1 file changed, 50 insertions(+), 20 deletions(-)
->>>
->>> --- linux-next-20260911.orig/Documentation/ABI/stable/sysfs-driver-firmware-zynqmp
->>> +++ linux-next-20260911/Documentation/ABI/stable/sysfs-driver-firmware-zynqmp
->>> @@ -141,32 +141,44 @@ Description:
->>>  
->>>  		Usage:
->>>  
->>> -		Select over temperature config ID to enable/disable feature
->>> +		Select over temperature config ID to enable/disable feature::
->>> +
->>>  		# echo 1 > /sys/devices/platform/firmware\:zynqmp-firmware/feature_config_id
->> 
->> I was sure that this wouldn't work, since the literal block is not
->> indented relative to the containing text.  Sphinx does the right thing,
->> though... so applied, thanks,
->
-> Yeah, I did test it and looked at the output. :)
+You're right. The out_top is valid even when we get RMI_ERROR_RTT. I
+will fix it.
 
-Heh...it's nice to know that at least one person does that...:)
+Cheers
+Suzuki
 
-jon
+> 
+> Thanks,
+> Alper
+
 
