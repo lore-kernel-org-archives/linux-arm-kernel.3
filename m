@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A92BC982C7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2158AC982C5
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:50:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,56 +12,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ovsa1bs617xalxVVZRHjnAMZUTQFaPyyj9viTd4jCvA=; b=jq0Dh91diSpHSlvhyThCaeBpya
-	ZLpkjfOrLFc5gag/xl0FNAj+45DUFKunKDsBv539xRtCPepp6MdTH39KOU48fX2cu/3pUnWsevtru
-	JooE8BHyxGNzv0tzyLmIjMBGGxYyP4CYXysp2kukfZbDeYkaTuICeOFxbr8n6vj7747iOQ78k2YsU
-	B2/5ON137SfrC02pScKWHEFGQkEEVxzcZ895FI1JWTcTomozPJUZ4lrtwFoAvCI5eYFKRPBL5S12W
-	T7RTcVMq1ZweqRJi2y7ejbiMMsDFoPoUyy/fnF5bba12SXNgSVhMiUn2tymge0jox0WQnNPvy/pmS
-	CNoStWfQ==;
+	bh=chajH5Uyn12dUr684RYX8s7Kwwsu5KwSPvmKiPCpDUw=; b=fUcbdogo2EujQJs7BSiOvPmAEV
+	tH4+Vr6eIop92cnYyLdeH1aRLAD2Jzdsv2cFFFFpUQNtJn69lgyslDqNImJRokXs/gIRxNmtatTWX
+	2rx11KmfARA/Og8bzLCEgOMxJwBojoKhqQfH0YnWIyesfN8nqMX1AG1cDQhfuy4mBn3BJn752ym+A
+	zblvcbb01D08Zm4UGuVQ4J0jVAqXyKreXrRquYOKECJVlOzhWQofCknExXu58m8VBzCi93FtV7BW7
+	XoTG9qR2MzKntfzKBLtiT4deqytEDS/vngxVZSucTqzgdbftoWpI8aisz830qLyL7f/hRyXYsrQ3m
+	CS/q2a1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VQe-00000007ImA-1yAM;
-	Tue, 15 Sep 2026 15:50:40 +0000
+	id 1x6VQd-00000007Il0-2rmO;
+	Tue, 15 Sep 2026 15:50:39 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VQ3-00000007IJ9-3S2E
+	id 1x6VPz-00000007ICy-1WKU
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 15 Sep 2026 15:50:03 +0000
+	Tue, 15 Sep 2026 15:50:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=Ovsa1bs617xalxVVZRHjnAMZUTQFaPyyj9viTd4jCvA=; b=hadScvtjju78oy4MPtVVVh99Q3
-	dPY/+8yoS+0G9DaAy1vMmV7I748eDh698NnU5UaVX2xmhwVEQD6A4YKyuAzyk+q8SbTrPny9eUk9u
-	iCWNlZGPPtfZlZu/Dmm2d0MmArNibGSqAvKea9dU/13HAiXiiWodqR/kEVleGznqaRwX9YQfZlhBz
-	hB/3c+KsgKRqrPx9baDtqAtU7YrTAJcBLqG1ntW0P+mGNZpc7WID5sZy5gS25mTKR3zR+2x6jV3g/
-	jiyn3GYCUljSRNDn3z6pi2arhWH8aN9gsNKXD0Y/vkiOBkSMIOKE+ePgzHcUowpzvPKr2neE4Ur/E
-	jaHCF9IA==;
+	bh=chajH5Uyn12dUr684RYX8s7Kwwsu5KwSPvmKiPCpDUw=; b=Z9YhMw50zlwAJGeQhVsQTYWiJl
+	zEyHafxYwKcje8IgmhLG38HnoGTN9gTSoeRYETL8vstjZpL9pytmqz2X3zfvbGSnowxRWGElzUgT0
+	ClxbxGCnioHepNZ6O+IxpRiF0FrVc+bfoLOCDXHuPKE0s4AGYrm51OfpjlroeG14NovAOUHP1X56I
+	fVE079ayqd1RS2Vb19ETWRLjak1xro3Kq/0FVuWwyuKfFu9Ri2lSGi9UXdnKQMT+xItR0S4GT2AKm
+	IYR2+TFgLdfMqVpTib83PWbKtg2O2in3bvAEs4Sc8c9yZDE+noEKA8ajVvtPBLe2wjEM1JsDsPODi
+	OIR1IczQ==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6VQ0-00000006yYt-4AsE
+	id 1x6VPv-00000006yY4-0Jjh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 15:50:02 +0000
+	Tue, 15 Sep 2026 15:49:58 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B85491570;
-	Tue, 15 Sep 2026 08:49:55 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6C7D61570;
+	Tue, 15 Sep 2026 08:49:50 -0700 (PDT)
 Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F0A9C3F882;
-	Tue, 15 Sep 2026 08:49:56 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A550C3F882;
+	Tue, 15 Sep 2026 08:49:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789487399; bh=HljhFJEqlq7f7W2DVP9TBWkK9RJ5OJM0OyDY6TKa7aA=;
+	t=1789487394; bh=M6nqCi/crONOiSQCUR9ebCZXN0BqQCYtCGnaHG7Fm3U=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=YrouDpNp8SZ2QE0byjuIbn4UIH71Pv+tBu/JVzTQEN/ByKG/NR3Dc7y3G+AHSduIh
-	 0xAhYO6MvCILzSJfiRGwCuIGPlkVUbq6lzNdOmWiMdJ2ngt9dWFO10Fbtb+viClnbv
-	 5do8HDKn1XPYcTqjFG1IjlHGeLpSh9WGiCxKDDdw=
+	b=cdLyKYlvjIsbO9h1g6r+fzgWKXudScU1Iv6uZNOzp5LiiEcQ9yWuWy8SLNVqbjv0m
+	 BUEZXeRpsQ+417PqpCq3LKpipFp5gyocY3Z/TnIkoG1CXDM65LoVk7FslnE9w3P4J/
+	 /2aV+o3o0tnBrwYuHzpVOtmMF22ZmhMtumh49vfM=
 From: Leo Yan <leo.yan@arm.com>
-Date: Tue, 15 Sep 2026 16:49:07 +0100
-Subject: [PATCH 21/25] perf cs-etm: Complete packet draining with end of
- trace
+Date: Tue, 15 Sep 2026 16:49:05 +0100
+Subject: [PATCH 19/25] perf cs-etm: Propagate errors from trace queue
+ flushing
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260915-arm_cs_support_aux_sample-v1-21-35cf6f297d20@arm.com>
+Message-Id: <20260915-arm_cs_support_aux_sample-v1-19-35cf6f297d20@arm.com>
 References: <20260915-arm_cs_support_aux_sample-v1-0-35cf6f297d20@arm.com>
 In-Reply-To: <20260915-arm_cs_support_aux_sample-v1-0-35cf6f297d20@arm.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
@@ -78,16 +78,16 @@ Cc: Ingo Molnar <mingo@kernel.org>, linux-perf-users@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789487341; l=4028;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789487341; l=3038;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=HljhFJEqlq7f7W2DVP9TBWkK9RJ5OJM0OyDY6TKa7aA=;
- b=o4v41o6wGnQSWzRh19HpHqvnPSpr3ZFpJWJvM/Kdl1h0QFmJjWhexacHQOm9rKrwolJzWC1r0
- 9BXw4L71Mb6B3g4LxsHg9VlZYNN7xwD1DVYZSiOvNO9N5I0PkB3K2YU
+ bh=M6nqCi/crONOiSQCUR9ebCZXN0BqQCYtCGnaHG7Fm3U=;
+ b=G4NLdPyQpLVOuFsk9+NyG+u9mJpgzbism1K/8D1yQs6qhKsCfH9hrgv5/wL71KrEZ/fCx2dph
+ A/NmBRW20ARCjHe9BeGmMlW8B4U8qU0zu9kzPllQ32ZilECj7YlyCnc
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_165001_362624_DA00CBB5 
-X-CRM114-Status: GOOD (  16.81  )
+X-CRM114-CacheID: sfid-20260915_164955_358744_DB364711 
+X-CRM114-Status: GOOD (  16.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,100 +102,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-OpenCSD can retain output at the end of an input block even after
-returning CONT. WAIT driven flushing alone does not use out that output
-before the decoder is reset for the next block.
+cs_etm__flush() can fail while synthesizing or delivering a sample at a
+trace discontinuity. cs_etm__process_traceid_queue() ignores the result
+and continues even though the packet swap and thread stack flush may
+not have completed.
 
-Submit OCSD_OP_EOT from cs_etm_decoder__drain_packets() after any
-pending WAIT response has been flushed. Track submission with the
-eot_sent flag and clear it on reset, make sure to submit EOT only once.
-This applies to timeless decoding, timestamped decoding and raw packet
-dumping through their existing drain calls.
+The timestamped decoder also loses errors when it processes packets
+left at the end of an AUX buffer: cs_etm__clear_all_traceid_queues()
+discards the result from each trace ID queue and allows decoding to
+fetch the next buffer.
 
-Return OCSD_RESP_CONT for a clean EOT without queuing a discontinuity.
-This lets the frontend finish draining while preserving trace history
-for sample processing. EOT reporting trace loss, NO_SYNC and TRACE_ON
-still generate discontinuities and flush the thread stack.
+Check the discontinuity flush result, make
+cs_etm__clear_all_traceid_queues() return the first queue-processing
+error, and propagate that error through
+cs_etm__process_timestamped_queues(). This stops decoding on failure
+and reports the error to the caller, including sample delivery errors
+from a perf script dlfilter.
 
 Assisted-by: Codex:gpt-6
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- tools/perf/util/cs-etm-decoder/cs-etm-decoder.c | 24 +++++++++++++++++++++++-
- tools/perf/util/cs-etm-decoder/cs-etm-decoder.h |  2 +-
- 2 files changed, 24 insertions(+), 2 deletions(-)
+ tools/perf/util/cs-etm.c | 24 ++++++++++++++++--------
+ 1 file changed, 16 insertions(+), 8 deletions(-)
 
-diff --git a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
-index a7a6410481e5c99be14a951493092c145a8512ba..0fcbf91aac63bcc5c40bf1453359d3be3ece684f 100644
---- a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
-+++ b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
-@@ -46,6 +46,7 @@ struct cs_etm_decoder {
- 	void *data;
- 	void (*packet_printer)(const char *msg, void *data);
- 	bool suppress_printing;
-+	bool eot_sent;
- 	dcd_tree_handle_t dcd_tree;
- 	cs_etm_mem_cb_type mem_access;
- 	ocsd_datapath_resp_t prev_return;
-@@ -86,6 +87,7 @@ int cs_etm_decoder__reset(struct cs_etm_decoder *decoder)
- 	ocsd_datapath_resp_t dp_ret;
- 
- 	decoder->prev_return = OCSD_RESP_CONT;
-+	decoder->eot_sent = false;
- 	decoder->suppress_printing = true;
- 	dp_ret = ocsd_dt_process_data(decoder->dcd_tree, OCSD_OP_RESET,
- 				      0, 0, NULL, NULL);
-@@ -592,6 +594,17 @@ static ocsd_datapath_resp_t cs_etm_decoder__gen_trace_elem_printer(
- 
- 	type = elem->elem_type;
- 
-+	/*
-+	 * The frontend uses EOT to drain packets buffered in OpenCSD at the
-+	 * end of a data block. Return CONT for a clean EOT so the frontend
-+	 * can finish draining without generating a discontinuity, preserving
-+	 * trace history for sample processing. EOTs reporting trace loss
-+	 * still generate a discontinuity below.
-+	 */
-+	if (type == OCSD_GEN_TRC_ELEM_EO_TRACE &&
-+	    elem->unsync_eot_info == UNSYNC_EOT)
-+		return OCSD_RESP_CONT;
-+
- 	if (type == OCSD_GEN_TRC_ELEM_EO_TRACE ||
- 	    type == OCSD_GEN_TRC_ELEM_NO_SYNC ||
- 	    type == OCSD_GEN_TRC_ELEM_TRACE_ON)
-@@ -803,10 +816,19 @@ int cs_etm_decoder__drain_packets(struct cs_etm_decoder *decoder)
- 							    NULL,
- 							    NULL);
- 
-+	if (OCSD_DATA_RESP_IS_CONT(decoder->prev_return) && !decoder->eot_sent) {
-+		decoder->prev_return = ocsd_dt_process_data(decoder->dcd_tree,
-+							    OCSD_OP_EOT,
-+							    0,
-+							    0,
-+							    NULL,
-+							    NULL);
-+		decoder->eot_sent = true;
-+	}
-+
- 	if (OCSD_DATA_RESP_IS_WAIT(decoder->prev_return))
- 		return 1;
- 
--	/* No further WAIT driven flushing is needed */
- 	return OCSD_DATA_RESP_IS_CONT(decoder->prev_return) ? 0 : -EINVAL;
+diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
+index 1a53431161e995ba6b3cfdc86e338ed26e675774..8340b8a16fed363795fc78ffbc419661a61442a3 100644
+--- a/tools/perf/util/cs-etm.c
++++ b/tools/perf/util/cs-etm.c
+@@ -2644,10 +2644,13 @@ static int cs_etm__process_traceid_queue(struct cs_etm_queue *etmq,
+ 			break;
+ 		case CS_ETM_DISCONTINUITY:
+ 			/*
+-			 * Discontinuity in trace, flush
+-			 * previous branch stack
++			 * Flush the previous branch stack at a discontinuity.
++			 * Propagate sample delivery errors, which can occur before
++			 * the packet swap and thread stack flush are complete.
+ 			 */
+-			cs_etm__flush(etmq, tidq);
++			ret = cs_etm__flush(etmq, tidq);
++			if (ret)
++				goto out;
+ 			break;
+ 		case CS_ETM_EMPTY:
+ 			/*
+@@ -2665,9 +2668,9 @@ static int cs_etm__process_traceid_queue(struct cs_etm_queue *etmq,
+ 	return ret;
  }
  
-diff --git a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.h b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.h
-index c187f3809ba0a350ca6ee549d2c0c67ed8e16d1e..876b28f6fda099db5694fdfa9552104cc270b49a 100644
---- a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.h
-+++ b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.h
-@@ -92,7 +92,7 @@ int cs_etm_decoder__process_data_block(struct cs_etm_decoder *decoder,
- 				       size_t len, size_t *consumed);
+-static void cs_etm__clear_all_traceid_queues(struct cs_etm_queue *etmq)
++static int cs_etm__clear_all_traceid_queues(struct cs_etm_queue *etmq)
+ {
+-	int idx;
++	int idx, ret;
+ 	struct int_node *inode;
+ 	struct cs_etm_traceid_queue *tidq;
+ 	struct intlist *traceid_queues_list = etmq->traceid_queues_list;
+@@ -2676,9 +2679,12 @@ static void cs_etm__clear_all_traceid_queues(struct cs_etm_queue *etmq)
+ 		idx = (int)(intptr_t)inode->priv;
+ 		tidq = etmq->traceid_queues[idx];
  
- /*
-- * Drain pending packets after consuming a data block.
-+ * Drain pending packets and submit EOT once after consuming a data block.
-  * Process queued packets after each call, including the final call.
-  * Returns 1 for WAIT, 0 when done, or a negative error.
-  */
+-		/* Ignore return value */
+-		cs_etm__process_traceid_queue(etmq, tidq);
++		ret = cs_etm__process_traceid_queue(etmq, tidq);
++		if (ret)
++			return ret;
+ 	}
++
++	return 0;
+ }
+ 
+ static int cs_etm__run_timeless_decoder(struct cs_etm_queue *etmq)
+@@ -2893,7 +2899,9 @@ static int cs_etm__process_timestamped_queues(struct cs_etm_auxtrace *etm,
+ 			 * process in this auxtrace_buffer.  As such empty and
+ 			 * flush all traceID queues.
+ 			 */
+-			cs_etm__clear_all_traceid_queues(etmq);
++			ret = cs_etm__clear_all_traceid_queues(etmq);
++			if (ret)
++				goto out;
+ 
+ 			/* Fetch another auxtrace_buffer for this etmq */
+ 			goto refetch;
 
 -- 
 2.34.1
