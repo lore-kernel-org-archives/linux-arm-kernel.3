@@ -4,113 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F3F9C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 10:16:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 434C4C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 10:18:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0vGnUSwSwk8tqaqQz+b/wufF1p5rOKuxlJVLX9HrZ4g=; b=Ol0UwqS8u9VhM63QpmjvUujprC
-	GveztoZe8YAP5gRj02w596lSkOaW7WD2JDfBdr415ppoR2Dj7nrkbzC8qpKycP4ipfMi+qWIA229d
-	fFfK7JG8zCs8qxMAOEA+lzX6HiASKXITmsefLmgmf4ZpHBeKx8CvE5XKv7yiB8rFMBdbdC6yvfkXv
-	ZTcrB7tjyHG/vPjSJzjhAPkkAAcBF2rmlfCi74m7IJbfikkkIXMJZUQDdfXnfwAFBhhsgPTuqW5sn
-	G/RvPyoYc0UwpftzpUg+5LLZf0PRl4KBMTj+h1PVi6khswaUmNtUfwE1KOTrEcFEZRd5iYDgPVPbI
-	mxhKSjDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NdO+/SNNk6e06hTiAWdlsYUdfBsW7HBFr9q5GgWCoW0=; b=zWuWRzK/EcnotgixXcyZYPGss9
+	FEQftTYLrGS6woLAxQda/dqYA0sHiJ5T4Mrf90pOcVRvRstIJi3pLhfXqfCf71PJQJTanGPp0vEL1
+	wyhuBpmSjMhGxjDqiXjs5p0HnzjJvo4XpfgaIbsyK0zTwDYA5/0VlEk2jTPbNUxRDa6/gSf+KEO3j
+	RdywIMUz9gIhUmDRE51P7vJrqS6lE6bBjF11qzWu63dE4kXN4TXY6S7Ze9LABtOQHfv2paU5B/EnH
+	QAAmq+6KLg9aVMWcwGitxEFQv2ZAPPoNCqLMBnymY7e/4+azzYis+UF+eXMMiEZxqjD3W8sxDtorO
+	HQrturlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6QDM-00000005syi-356F;
-	Tue, 15 Sep 2026 10:16:36 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6QDM-00000005syP-0Yn8
+	id 1x6QEl-00000005t9R-08Gr;
+	Tue, 15 Sep 2026 10:18:03 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x6QEh-00000005t8j-2tfh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 10:16:36 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9710541AA3;
-	Tue, 15 Sep 2026 10:16:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 738D71F000FF;
-	Tue, 15 Sep 2026 10:16:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789467395;
-	bh=0vGnUSwSwk8tqaqQz+b/wufF1p5rOKuxlJVLX9HrZ4g=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Jm6ytuVWpCGip4myYSRB2tt57hvJsnA5EkzT2ENj3yolg/2ov3/aCvxziJjC0bhIR
-	 JZHm+fzoDo3B8C5t5KrVRbdEg0+hej4IahG6B1qqUD2IT2egFmtSLxaVG3xxjZLZ5R
-	 Dfe7iOVSsvUkjBfdq68xw4IpJsnf1TDSeV8EtCfG6DCySbqTFu+W2Lh8Vr0k4b6Zmy
-	 SdfiG2PmEK2D13Y4sHyvThewQFqc53N0oB44ovIdzL/4btAB/HsehzrWMz2tPvqu5o
-	 g1baexV5acJFo4ynPkpO9GrIX5qAdGdKkqOw6vDoZP0kRiwbBbu3yu+KrMqzfWcBhq
-	 G3tkPvS79Ktfg==
-Message-ID: <2752c824-60e0-494f-a669-81bbd061a3fc@kernel.org>
-Date: Tue, 15 Sep 2026 12:16:28 +0200
+	Tue, 15 Sep 2026 10:18:01 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 31F011570;
+	Tue, 15 Sep 2026 03:17:52 -0700 (PDT)
+Received: from e143914.arm.com (e143914.arm.com [10.2.213.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 70FB13F7B4;
+	Tue, 15 Sep 2026 03:17:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789467475; bh=P4PqmTwHRDzYg7hMT1E2FJIJY8F1LWd3zY+fMsfPU7c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=S/hml+qLVnuLeH/JBLdhCpUUwqMM+oYk4IvEwrtZfj4AgvWOtNRZ2Ax30mwEwVj2z
+	 1FWGSE7jMgPg/AoG53rg+phueBRKiPf8uF7Cr4xRN1L65L15Qsuu5GODmGiMnBbn7o
+	 +X+/czrB57fCcCQgKPPEpQvPqOXiqYaTSsbBHfgo=
+Date: Tue, 15 Sep 2026 11:17:47 +0100
+From: Joey Gouly <joey.gouly@arm.com>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	catalin.marinas@arm.com, will@kernel.org, seiden@linux.ibm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com,
+	steven.price@arm.com, vdonnefort@google.com, qperret@google.com,
+	tabba@google.com
+Subject: Re: [PATCH v2 1/2] KVM: arm64: Validate the host vCPU's VM before
+ reading it under pKVM
+Message-ID: <aqkbS810aDLyfS7D@e143914.arm.com>
+References: <20260915070418.3209779-1-fuad.tabba@linux.dev>
+ <20260915070418.3209779-2-fuad.tabba@linux.dev>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 8/9] thermal/drivers/exynos: Add missing drvdata
- assignment in Exynos TMU probe
-To: Anand Moon <linux.amoon@gmail.com>
-Cc: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Peter Griffin <peter.griffin@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- "open list:SAMSUNG THERMAL DRIVER" <linux-samsung-soc@vger.kernel.org>,
- "open list:THERMAL" <linux-pm@vger.kernel.org>,
- open list <linux-kernel@vger.kernel.org>,
- "moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES"
- <linux-arm-kernel@lists.infradead.org>
-References: <20260913145905.9404-1-linux.amoon@gmail.com>
- <20260913145905.9404-9-linux.amoon@gmail.com>
- <8d547f65-a260-4b8b-80e4-4695d4422497@kernel.org>
- <CANAwSgTEJf0gYQZKPQm+=90S5i2dRpJzOLv0gkyt+4ZmUTWZ=g@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <CANAwSgTEJf0gYQZKPQm+=90S5i2dRpJzOLv0gkyt+4ZmUTWZ=g@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260915070418.3209779-2-fuad.tabba@linux.dev>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260915_031759_770889_61B2373D 
+X-CRM114-Status: GOOD (  20.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,31 +74,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/09/2026 06:44, Anand Moon wrote:
-> Hi Krzysztof,
+Hi,
+
+On Tue, Sep 15, 2026 at 08:04:17AM +0100, Fuad Tabba wrote:
+> On an MTE-capable host under pKVM, enter_exception64() reads the VM's
+> MTE flag through vcpu->kvm, which for a host vCPU is a host-writable
+> pointer nothing validates. The host can point it at any address in the
+> hyp linear map and read back bit 1 of that word through PSR_TCO in the
+> vCPU's CPSR, or panic the hypervisor with an unmapped one.
 > 
-> Thanks for your review comments.
-> On Mon, 14 Sept 2026 at 12:31, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>
->> On 13/09/2026 16:58, Anand Moon wrote:
->>> Add dev_set_drvdata(&pdev->dev, data) early in the probe function,
->>> ensuring that the driver data is properly registered and accessible
->>> throughout the lifecycle of the device.
->>>
->>> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
->>
->> This is somehow confusing or completely incorrect code.
->>
->> Either this was needed by the driver or not. If it was, then why no bug
->> is being described? If this was not needed, then you are doing no-op
->> changes.
->>
-> I was looking into other SoCs that use this while debugging the
-> device-tree mapping issue,
-> so I initially tried adding it. If it is not required, I will drop this change.
+> Get the VM through a get/put pair around the read: a loaded vCPU's is
+> the hyp VM, an unloaded host vCPU's is read once and pinned, and a
+> pointer the host never shared leaves TCO clear.
+> 
+> Fixes: ea7fc1bb1cd1b ("KVM: arm64: Introduce MTE VM feature")
+> Reported-by: Sashiko <sashiko-bot@kernel.org>
+> Closes: https://lore.kernel.org/all/20260914070536.877D91F000FF@smtp.kernel.org/
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> ---
+>  arch/arm64/kvm/hyp/exception.c             |  5 ++-
+>  arch/arm64/kvm/hyp/include/hyp/adjust_pc.h | 18 ++++++++++
+>  arch/arm64/kvm/hyp/nvhe/pkvm.c             | 39 ++++++++++++++++++++++
+>  3 files changed, 61 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kvm/hyp/exception.c b/arch/arm64/kvm/hyp/exception.c
+> index 754e2dc1df54a..6e60d890afa4a 100644
+> --- a/arch/arm64/kvm/hyp/exception.c
+> +++ b/arch/arm64/kvm/hyp/exception.c
+> @@ -70,6 +70,7 @@ static void enter_exception64(struct kvm_vcpu *vcpu, unsigned long target_mode,
+>  			      enum exception_type type)
+>  {
+>  	unsigned long sctlr, vbar, old, new, mode;
+> +	struct kvm *kvm;
+>  	u64 exc_offset;
+>  
+>  	mode = *vcpu_cpsr(vcpu) & (PSR_MODE_MASK | PSR_MODE32_BIT);
+> @@ -109,8 +110,10 @@ static void enter_exception64(struct kvm_vcpu *vcpu, unsigned long target_mode,
+>  	new |= (old & PSR_C_BIT);
+>  	new |= (old & PSR_V_BIT);
+>  
+> -	if (kvm_has_mte(kern_hyp_va(vcpu->kvm)))
+> +	kvm = vcpu_get_kvm(vcpu);
+> +	if (kvm && kvm_has_mte(kvm))
 
-You just don't even try to understand this code, right?
+It's fine to use the "host->kvm" here because even if sets this bit on
+the host vCPU, the per-entry handlers in the other series won't copy
+across the TCO bit.
+Right?
 
-Best regards,
-Krzysztof
+>  		new |= PSR_TCO_BIT;
+> +	vcpu_put_kvm(vcpu, kvm);
+>  
+>  	new |= (old & PSR_DIT_BIT);
+>  
+
+[snip]
+
+Agree with the nits that Vincent suggested!
+
+Let's see if this sticks this time:
+Reviewed-by: Joey Gouly <joey.gouly@arm.com>
+
+Thanks,
+Joey
 
