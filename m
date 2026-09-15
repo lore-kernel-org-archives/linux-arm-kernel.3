@@ -4,69 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D297C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 16:47:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28B30C88E7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 16:47:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EjicvGqkSrsJUQu/V2bDvrATSZ5gFUEV+GL7szDeTF8=; b=Q1hQEp805d54HyqJcSlT99k1UN
-	0dtvKZ21eY1L4yjmbLbRDCy4pk2ykuSIDuEIx0fnnNBfuhkenECAtqOZCc4bpd4dwO7OW07ndr2Wb
-	CnsR75siij2EyTSEDTbcz+PCf+gVCYAkU+xhe526v+/cDD4Te8qjhlCkmLQWnyW+k9LaLzO0je9o/
-	ooyN3lnmQ0hG7F1oQhcbj7Wtdg39PDb62xgrxhf6bZznlaCBjitRHwZK9bLYSV5BMHoE7TMHfWC38
-	eoPekQIcBhx1aM5qRu81tlgi5FX+y+gjNn8/PQ+n/NbhLlTljmW81BMRl1X0BL62PJ/Xrf/GTZUn7
-	NEKnMoEA==;
+	bh=4S2yNFw54mi8kizpo4SMAmA0eCb6FLd+PRdQwv2Y0fs=; b=hRMJTj0s307AxDHGSe00P5GMZt
+	mbJyEWF0ILGeQYxrZREttVPjUGNH8xgHmzsHyV/lf9QgS2f57xHFdYgQAp4dQXk0Nt3YA06fLxiNQ
+	9VR9PXa35T1dz4KcMfJZAcqnCme5A49S1u6geOFsp1FBMzRARCkxaxPrmFA4utyyd2BDjdBKegxss
+	SPpiu35NG4wz111uDBBaA2bi+LpQk1KWWLukixqK8JLjzGWFruHO614f4GPoOxfLYdpwoBx9gSDH9
+	WUFWKYfEcpUrs03EmSpNCiROYpM0gjqcutqus/GqOohilXrEH6IT7MSszEVBRL8owo1GqYThtCXuO
+	R9Z2lAlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6WJV-00000007TNe-0YJB;
-	Tue, 15 Sep 2026 16:47:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x6WJe-00000007TXh-1dQn;
+	Tue, 15 Sep 2026 16:47:30 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6WJO-00000007TE5-3EGH
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 15 Sep 2026 16:47:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=EjicvGqkSrsJUQu/V2bDvrATSZ5gFUEV+GL7szDeTF8=; b=Sdq9w0V+mOZxgzMUnYkUXlgPqd
-	Df/MdzVjwzkuLxacntCCzuLFIUK18WkBK6RBkXN+zz6Kk1WrRCYJF3s5s2ZDC32naTYmxZwo4i5LK
-	p6Yt7jsPyp4QXqAfHIpuDO23Cad4lcYpJjfFIzsZ8M5tSYyXmI3AwiBfuNIkES+0WC+gGwmpayXC3
-	WITQBU2kKthKRQLPbTZ4OQWGmCwuKOASEor65TlCqGwxkKSYxQQmrPtECDnTQH1ZLpPCHwdZHZFgr
-	0d//aDFlxD5a7/lfltdNePwW+Pk+TIHLZoXuwV8ML8aZ/Y84ex8Yem7e/P629an/qPBBQgZrgkE/S
-	2pXM2Xfw==;
-Received: from smtpout-03.galae.net ([185.246.85.4])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6WJL-000000072go-2VPX
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 16:47:13 +0000
+	id 1x6WJQ-00000007TH9-2KvS;
+	Tue, 15 Sep 2026 16:47:19 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id EAD794E4063F;
-	Tue, 15 Sep 2026 16:47:10 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id D6B881A0815;
+	Tue, 15 Sep 2026 16:47:14 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id B6F82602B0;
-	Tue, 15 Sep 2026 16:47:10 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DAF8611C7AFE9;
-	Tue, 15 Sep 2026 18:47:05 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id AA326602B0;
+	Tue, 15 Sep 2026 16:47:14 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E518711C7AFDA;
+	Tue, 15 Sep 2026 18:47:09 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1789490829; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1789490833; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=EjicvGqkSrsJUQu/V2bDvrATSZ5gFUEV+GL7szDeTF8=;
-	b=BYjV5xySY6DjHBybQdkBwpd/o13W4UJaSd50ibfYqddE0WmnwB1yC6DyN04yemFmm8mkzU
-	eDmwD9EOyHVkJ5glBuJflq7aaugksOQ/enyKDccb3wiAjDWMboj3rBnseB9tgqdmxUYk/f
-	+KK3i+HYxw26wui2Ht5NopAy0a0gg6+oNcAiwhYgrrqpsC259bRYjwnL2XA7RriJDck7gd
-	8jds2v140yTOiNQbaQiMml0Wdkwbho9pOqK0lVA1KI3ir9Ohzvuk5XJh+M9tXSok3+iwJ6
-	rv8PQFw/VNhh/Ylqz95B3PrBGuQlMqKhbrtsFof870HYvjw7RAI6t7Nv6PZLJA==
+	bh=4S2yNFw54mi8kizpo4SMAmA0eCb6FLd+PRdQwv2Y0fs=;
+	b=FtmzQ07BTvx8EdVKTbS9SyOs1Kq3yodV33IwS4cYJlkwrsqEPrH3vNmLuo2ddjrFt3FC6g
+	ydTKwgVpUG7Xmts1kcQf5OiPAueVoYHOdIR/NuuWXtEOyTfI0OZd1JD0ns/i9lT3xZTJ+4
+	lJ0gJ3cPBkwcnl9/bDwPWZmguUldIQaqhA2Nr0vyQnH10nKUcbrtATqKU7BGgwMCLKz6jD
+	fRK3BsxUZHwF4psveFWPcKXarEWXlRfyhTlnAK5FQ/3cetLBCslnghC6EpxKT0OXK0CowF
+	qDYexFgpbeZvqvQPTdNKyuLnsOJRUv8EEHXHcHuH3DE8BbVQPO9NfZ6NbqUhIQ==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Tue, 15 Sep 2026 18:46:18 +0200
-Subject: [PATCH v4 5/9] drm/bridge: tc358775: select DRM_PANEL_BRIDGE, not
- DRM_PANEL
+Date: Tue, 15 Sep 2026 18:46:19 +0200
+Subject: [PATCH v4 6/9] drm/bridge: tc358767: select DRM_PANEL_BRIDGE
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260915-drm-bridge-drm_panel-cleanup-v4-5-30401d9406f3@bootlin.com>
+Message-Id: <20260915-drm-bridge-drm_panel-cleanup-v4-6-30401d9406f3@bootlin.com>
 References: <20260915-drm-bridge-drm_panel-cleanup-v4-0-30401d9406f3@bootlin.com>
 In-Reply-To: <20260915-drm-bridge-drm_panel-cleanup-v4-0-30401d9406f3@bootlin.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -82,13 +65,15 @@ Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>,
  Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
  dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, Tony Lindgren <tony@atomide.com>, 
- Michael Walle <mwalle@kernel.org>, Vinay Simha BN <simhavcs@gmail.com>
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Maoyi Xie <maoyixie.tju@gmail.com>, Andy Yan <andy.yan@rock-chips.com>, 
+ Andrey Gusakov <andrey.gusakov@cogentembedded.com>
 X-Mailer: b4 0.16.0
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_174711_715949_17345CB8 
-X-CRM114-Status: GOOD (  11.25  )
+X-CRM114-CacheID: sfid-20260915_094717_843231_DABD3837 
+X-CRM114-Status: UNSURE (   8.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,32 +88,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This driver does not use the drm_panel APIs at all, so no need to select
-DRM_PANEL.
+This driver uses devm_drm_panel_bridge_add(), which is enabled by
+DRM_PANEL_BRIDGE.
 
-But it uses devm_drm_of_get_bridge(), which is enabled by DRM_PANEL_BRIDGE.
+Leave the 'select DRM_PANEL' because it is needed for drm_panel_put() which
+the driver uses.
 
-Cc: Tony Lindgren <tony@atomide.com>
-Cc: Michael Walle <mwalle@kernel.org>
-Cc: Vinay Simha BN <simhavcs@gmail.com>
+Cc: Maoyi Xie <maoyixie.tju@gmail.com>
+Cc: Andy Yan <andy.yan@rock-chips.com>
+Cc: Andrey Gusakov <andrey.gusakov@cogentembedded.com>
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 ---
- drivers/gpu/drm/bridge/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/gpu/drm/bridge/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/drivers/gpu/drm/bridge/Kconfig b/drivers/gpu/drm/bridge/Kconfig
-index 65f4d9d9b67d..e2ee76899468 100644
+index e2ee76899468..a4bc1b5401c0 100644
 --- a/drivers/gpu/drm/bridge/Kconfig
 +++ b/drivers/gpu/drm/bridge/Kconfig
-@@ -421,7 +421,7 @@ config DRM_TOSHIBA_TC358775
- 	select DRM_DISPLAY_HELPER
- 	select DRM_KMS_HELPER
+@@ -400,6 +400,7 @@ config DRM_TOSHIBA_TC358767
  	select REGMAP_I2C
--	select DRM_PANEL
-+	select DRM_PANEL_BRIDGE
  	select DRM_MIPI_DSI
+ 	select DRM_PANEL
++	select DRM_PANEL_BRIDGE
  	help
- 	  Toshiba TC358775 DSI/LVDS bridge chip driver.
+ 	  Toshiba TC358767 eDP bridge chip driver.
+ 
 
 -- 
 2.55.0
