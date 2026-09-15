@@ -4,68 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2D47C88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 03:26:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19C10C88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 03:52:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y6tqAcnKMATccMeJAtItTA1TzHzXFuF+as57JTYCMrY=; b=b+TbqWcfxNU4CZTNhu+YgOG7SV
-	8UZIi9mFEuaJ0hPK2ajmuc7n1d/ksk1AAPEVdpWZQrfGF53Fsu75hJ7zraQ5HIwB5K2dSyOIUofPU
-	K/7Il/FrYqtuis46MWkwkhtQs4KxVf7XnM+81COrxdsbYA3NIACCyy7zfZvVVsmRnvqjFG4uaN8aD
-	IShF2YGGsk8Uidd/uei1K0FdNofTDkKA18lIp3R4WJKpdkUcLT00lnyu2p9j5/JDIeGMiTF5twyd5
-	NrvhAR4czZM9FlH4Nzlw1b2K1SwZ7AVVAauKPSEC+OuAZtvFLPSXOfWHgjhgn1cpl0oaEbSS3JoL7
-	J1MVXWXg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YKUD7Q8leVgtHxcVUmnMCsrruSvvfMchXK3EUk9cdSs=; b=AI2Wsqy6Hzy32rSPQCC982ZyFd
+	hVbqSiikwQiyQA2h1FQ7VKSH964QIDJxH4W/fR4sYUX5tMSyBd3gRCvPy3eSoOzWZzsNeRgbWSvrR
+	BPA+fAZi+nNYdPBN4bPNPK+fwnMVYJpLfUOXnixAJydhbu9RKySjPCGaUfZVVfgj56kdtp55+M4v+
+	N20LkNHe4k9ZMyW6aZi+aLRVwl9xBezuouIOQN5dFqXeTt4who72U94tp1RXExEWg//s0tBd//XgE
+	mM/7NCcCxLkDD+IW6q/2oM8rFHS/9njfmYWKiageiYAvRMjIyB7zO6bsz25PihjXNCbdoke1QcnB0
+	CbsbM0gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6JoG-00000005754-0WqQ;
-	Tue, 15 Sep 2026 03:26:16 +0000
-Received: from mx.nabladev.com ([178.251.229.89])
+	id 1x6KDZ-000000059mC-0Chz;
+	Tue, 15 Sep 2026 03:52:25 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6JoD-0000000574F-33nD
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 03:26:14 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A9C4D10428C;
-	Tue, 15 Sep 2026 05:26:11 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1789442772;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=Y6tqAcnKMATccMeJAtItTA1TzHzXFuF+as57JTYCMrY=;
-	b=Mxmu37keQlI/dIMcUxL8Din1jzxvVUOgHgmJg9Sv3NJVVH3QNgIaKn/ToCRGFs4tZMcirq
-	SSqSKNPAmzdj5TW9iEXxZOb/r4xgqWy3UL8DEj5KYEFBLrVOr/W/HpaN/idH9X/wwWu9fl
-	uM5wEyx+KIC6Jh9Lxp7a0UUGQsiT4XLZUXQGa/boBGRsu4v5fDSvrpIcmvSnpiQQSZAAES
-	/U9Ev1SDKKuHZY+cdkRzX8avWNq+94c9bMpSX8PnaMG9lOV9CLxUZm3fWPjYkEvzQSu7e5
-	DycDPkfFZ9iJnHdzIQB333vtWGNhuLW7c32N86L6Zlu+3xjzpwXpAUMnfBCKJQ==
-Message-ID: <76db8193-6144-4460-acaa-f3d11fddba44@nabladev.com>
-Date: Tue, 15 Sep 2026 02:10:16 +0200
+	id 1x6KDU-000000059lL-2aAC;
+	Tue, 15 Sep 2026 03:52:23 +0000
+Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
+	by APP-01 (Coremail) with SMTP id qwCowAB3TvLuwKhqos0HCA--.49242S2;
+	Tue, 15 Sep 2026 11:52:14 +0800 (CST)
+From: Wentao Liang <vulab@iscas.ac.cn>
+To: angelogioacchino.delregno@collabora.com
+Cc: chih-yin.chiang@mediatek.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-bluetooth@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	luiz.dentz@gmail.com,
+	marcel@holtmann.org,
+	mark-yw.chen@mediatek.com,
+	matthias.bgg@gmail.com,
+	sean.wang@mediatek.com,
+	lkml@vger.kernel.org,
+	Wentao Liang <vulab@iscas.ac.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH 1/4] Bluetooth: btmtksdio: Fix runtime PM leak in btmtksdio_reset()
+Date: Tue, 15 Sep 2026 03:51:45 +0000
+Message-Id: <20260915035145.1724096-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] dt-bindings: soc: xilinx: Document ifm ZynqMP
- VHIP6 EvalBoard
-To: Michal Simek <michal.simek@amd.com>, linux-arm-kernel@lists.infradead.org
-Cc: Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20260909182641.165383-1-marex@nabladev.com>
- <082df9b0-0517-4580-8ba8-cf6f4d3e0713@amd.com>
- <1c39be54-c931-40a2-a806-fa963b2188ec@nabladev.com>
- <e305b607-76ca-489c-b27f-bf45b6fdb59c@amd.com>
- <7b957072-df73-4fab-91ba-9835285ff8c5@nabladev.com>
- <a0d23fc9-6f7b-4c19-9f6f-9cc0c7cce3f5@amd.com>
- <f80845ae-9ab8-474e-89b2-80ac3fbd184c@nabladev.com>
- <656ae6e2-608a-4839-bcfe-941dfffdca11@amd.com>
-Content-Language: en-US
-From: Marek Vasut <marex@nabladev.com>
-In-Reply-To: <656ae6e2-608a-4839-bcfe-941dfffdca11@amd.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: qwCowAB3TvLuwKhqos0HCA--.49242S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7CF1DZF43Zw48Zw4rWr4fGrg_yoW8Jw4xp3
+	97uF1Ykr13Ar4ayFsrtF1rXFWj93y3tryjkFyUK34rur45Xr42yF1UKryjq3ZFkrWkArW3
+	tF1IqrsxWFyjkaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9Y14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Cr0_Gr1UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x
+	0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2
+	zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF
+	4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWU
+	CwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCT
+	nIWIevJa73UjIFyTuYvjfU78u4UUUUU
+X-Originating-IP: [36.110.52.2]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiCRILA2qoiqL8UAAAsV
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_202613_922687_6ED2E17D 
-X-CRM114-Status: GOOD (  13.05  )
+X-CRM114-CacheID: sfid-20260914_205221_025479_825736F4 
+X-CRM114-Status: GOOD (  10.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,33 +86,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/14/26 8:29 AM, Michal Simek wrote:
+btmtksdio_reset() takes a runtime PM reference with
+pm_runtime_get_sync(bdev->dev), which leaves the device's usage
+count incremented even when it fails.  However, when the reset has
+already been started (BTMTKSDIO_HW_RESET_ACTIVE is found set by
+test_and_set_bit()), the function returns early without dropping
+that reference, leaking it on every concurrent reset request.
 
-[...]
->>>>> There will be thousands of similar boards out there and I am 
->>>>> definitely not going to have all of them in the tree.
->>>> Why not ? There are users who benefit from having their board 
->>>> support upstream. This is what other SoC vendors do as well, it does 
->>>> not seem to be a problem, rather it is a good indicator that the SoC 
->>>> has users who care about it and about upstream.
->>>
->>> If there is public documentation about it I don't have any problem 
->>> with it.
->>
->> I do not think there is, but no public documentation is the case with 
->> many boards/DTs that are upstream, and it does not diminish their 
->> usefulness to their users.
->>
->> What do you need to know ?
-> 
-> All these SOC based boards are created not because of hard block (PS 
-> part) but because of programmable logic which is not described in any 
-> upstream project DT. It means no matter what manufacturer has to 
-> maintain PL description separately.
-> 
-> I don't really mind if other maintainers are fine with dealing with 
-> these kind of boards without any public documentation. There is no way 
-> to check if even your description is correct.
-> I am not going to take any responsibility for maintaining them.
-I can help with maintaining this board, it's a non-issue.
+Add a pm_runtime_put_noidle() on the early-exit path to keep the
+usage count balanced.
+
+Fixes: 8fafe702253d ("Bluetooth: mt7921s: support bluetooth reset mechanism")
+Cc: stable@vger.kernel.org
+Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+---
+ drivers/bluetooth/btmtksdio.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/bluetooth/btmtksdio.c b/drivers/bluetooth/btmtksdio.c
+index 5b0fab7b89b5..243215a81fa7 100644
+--- a/drivers/bluetooth/btmtksdio.c
++++ b/drivers/bluetooth/btmtksdio.c
+@@ -1280,8 +1280,10 @@ static void btmtksdio_reset(struct hci_dev *hdev)
+ 
+ 	pm_runtime_get_sync(bdev->dev);
+ 
+-	if (test_and_set_bit(BTMTKSDIO_HW_RESET_ACTIVE, &bdev->tx_state))
++	if (test_and_set_bit(BTMTKSDIO_HW_RESET_ACTIVE, &bdev->tx_state)) {
++		pm_runtime_put_noidle(bdev->dev);
+ 		return;
++	}
+ 
+ 	sdio_claim_host(bdev->func);
+ 
+-- 
+2.34.1
+
 
