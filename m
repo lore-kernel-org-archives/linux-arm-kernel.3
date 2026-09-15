@@ -4,93 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7DE2C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 23:21:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CF8AC88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 23:22:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lyKoyOjIfv9w+YYrFTayF9TTz7lNx0qSbUIbPxqiGT4=; b=e7k8D6ez7x9QoberqHf43mB2Vd
-	ljh03k9uleQAQXk84clw4PDbPEWmREsP9dToebIDa1OAGA14EHWTDFqtPOyj4usYY7CkOMkv9RR0b
-	V7AZPJdLaFUXY/OkQ0gTyhadklLjBfJBHFhgSTDY74L8TSmSLes/3WcICI2JdG9mN3kxOu6IkoK4A
-	oVvBPQaOBTpoyGTE3Q7yIuv/VdKXKwojsSV55zZlZpv/xAmAjCW9xdmidrW85LclHNlOGH6sxGCrj
-	5SVMs7ChJU+FtoYIbgEVSeQJY1dX1sGRNYkZfCiigOR/BB4BwAo33l6hnaO/CEe2aiO1APo/q3CUL
-	CEd0DlAQ==;
+	bh=oXdEkFs+2jBbAlp34VMYxKpRmZ4A7s9s9pc8ZFfcFQM=; b=GxDg6rgHZV95/vGsGQY9TGmYZC
+	paTIxAk2vfN7W96RL+K1sjYDXpfCrhzELyJdxAu1WFbrwzs/ya5OqnkIMwwC3N+bMIws/VutT9d22
+	y29zHFgpx+QId4XZtfp4+lnCakh0mdVbNsNs6585ONG0mRGt4AsBK71G5lQbFwORi41tQW+TJPAHk
+	CiH9NauKVOTgZqjrRmEDnvDS0AHOjm8arTeHkLC7ASZM80HNeRuAh7SGeHPCXHQlPjjJ+QVzXousy
+	BSR+PabqhflUBhxx1kzhiLO/xHc5Cred6QCPK4cZzmK/bnzA4NGRLL0Y+INdQC4H3NzRbATcmrzYu
+	KhqnJgrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6cSm-000000083i5-2zp0;
-	Tue, 15 Sep 2026 23:21:20 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1x6cTd-000000083on-1VJk;
+	Tue, 15 Sep 2026 23:22:13 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6cSk-000000083hl-1kxR
+	id 1x6cTa-000000083o3-0fVZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 23:21:20 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68FM38VN1932207
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 23:21:16 GMT
+	Tue, 15 Sep 2026 23:22:12 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68FLYula079855
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 23:22:09 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	lyKoyOjIfv9w+YYrFTayF9TTz7lNx0qSbUIbPxqiGT4=; b=jVpHuJyz5nF9Pyx9
-	Tj708RnGg7QJ+1opQNvo1W8ygwGxR6NC70o3BUHhcVherBpE514SfP+NY5+NPq16
-	j2TH2PItWV2fIywzy3mtzfHg0lgKAaUrviCR+aXtDtivg3iBqMua5QrklRE+spVg
-	2znFZG+ETjCzNKIu4wtcwYHzGNlkT9Z6FvloXPl37G8gW3rufmyQD6ps4SgC2FCx
-	2n2U9z98pkQIsC2Mek1rhQ1m8e4153RORiqLYddRQY+OigO6AqFwi4xjmyChuRCL
-	J04NkXLsAVm1dTJy1Lf83wzFU2uSUttWpWfyAaVdOGbIWMnTtlPh1IDJ00MFXoDn
-	ESxApQ==
-Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gqefp8879-1
+	oXdEkFs+2jBbAlp34VMYxKpRmZ4A7s9s9pc8ZFfcFQM=; b=c1C0ls2rJ6H7oNea
+	dYoIXwjesL5h2aMoSihGD7oBDL3G+/FU4H0OjwUDFfMUkKJQK2HpJbexUb+QHrk6
+	ZsmDdI6h8XLVUcYR0PDLCFFdh57RprE+LnqaxMjjUQm/QRfGBv1bLHVxasx/XYjY
+	UobEYpxjy3G8HmwDazQnArrvtm26NFDYlmm9G27XtZ0DnioZcqaBus4sMWoM6TbU
+	h8QyR5TOWAwWpi3/UH5DgSMgejaozBCzOXj54Y9hPFFUAfKAc7UPvMARkXcXZ+ca
+	Poj4zo7G64BcOP6MnJQzZ3+rsQ1wBLfTTT6UtgGuxi7b8kXOEsRneyvLoHJkL+Mz
+	6VgWxQ==
+Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gqagehc06-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 23:21:16 +0000 (GMT)
-Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-3823dcc1647so6947224a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 16:21:16 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 23:22:09 +0000 (GMT)
+Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-8663802b58fso5349450b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 16:22:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1789514471; x=1790119271; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1789514528; x=1790119328; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:mime-version:organization
          :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=lyKoyOjIfv9w+YYrFTayF9TTz7lNx0qSbUIbPxqiGT4=;
-        b=PRISAqd3ldZmd0DtvuA6jPON7F2cu8v6CLUPhNhxaaZ9ze9hFXWB1xxpcA/K0WShL8
-         KX9OlRXI0bzuzi2yy4ytMmeEXB05xrtzhqB2b3ErXzfR+cUON4Thc04OWs7kQqWNi4Sv
-         c9cqtCDJWW1C0ig1GLWrUY5F0pg90tLX5sgjjJOUiXjEMd59rd14kmjWmib8MfHKaJQN
-         4/Qdib3i9Tchw720BmHh0nvYfelzjxhkWPQ+9zPNhzpM8BiYtCGpCUSXQgaWYhJ3kKjC
-         +vQxVoU+wgoHBgyJE7nFrPLM2mwyn6eBIehTd35H9KbzHO99SYl7KM2klHS0mo7jmFZh
-         oqtQ==
+        bh=oXdEkFs+2jBbAlp34VMYxKpRmZ4A7s9s9pc8ZFfcFQM=;
+        b=W/6qbiV1ty/qrjkgukV81nvjYIWwLk8It/c+j1JZ/qdfF13D57goi4Cyb4hM49y1u1
+         IZ1SmXwR8C4k+U20+0o4AfLmyTO0WRQ/p++LeEiqIU30VF0yjzkVAz7R+vmQgE6gxn78
+         799kghVzpe2svndp4wM5ONzGYEwkqB97FPEkXgbWfl3ruX4I8FlyLNWTrcJjmPH93QJn
+         wFnZoMP1L1pIh/hJ7NPPG3FOKJZVBUnQsVbX0/JtNU6OQGxaZvdGNmsXwgdYy7qqswdH
+         I7wytwmxJG8biv4yJq1x4fH0dIXIOWu27pvgjqTNgbU4g11HTP2WmQ8Orl3xoR9ZlFtd
+         LsAw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789514471; x=1790119271;
+        d=1e100.net; s=20260707; t=1789514528; x=1790119328;
         h=content-transfer-encoding:content-type:mime-version:organization
          :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=lyKoyOjIfv9w+YYrFTayF9TTz7lNx0qSbUIbPxqiGT4=;
-        b=WWVS5xsp6RWVFsW23kq/KUM302MlpYUa+xxbz7OZSc8uLJ3DYSkVLspqv6u/NPHu/O
-         ylJmk4b5NLVjDVTHw3SFsCVLaUIJyHLAxPISYhIVtwNacJVpBb/7jTVKzfhkf2F/sl49
-         KvndN3TW8/MFK2Dm496w0pknNK2B/gfQd6/mwXsXLnrfhTE5e8QrKP4Pu9EqErjiHJjg
-         q4LXoy19wObC81jCnUZJKrx3EWjaY3di/6rJaHtG7HaywyuiWAhi9BbYawqfXVstXU88
-         N8AmtdE041F5KXpjRjbgABnAthU9ykJTDXq0plh+pTzVyU5iHNP5Zpo2aX3RpBHh9b0v
-         2ZZg==
-X-Forwarded-Encrypted: i=1; AKwUvBybqvXS9IuCm0hx6OvXTLGe9a8mRkAWjep/1aLLKsF3nVRzKhZTP5g3bBXmKQ2iSN9e2X5WXet8Btzr3kFQmAxs@lists.infradead.org
-X-Gm-Message-State: AFuF++mCXvWNsQtqXo1TBhxt58HcoOzcC9/k0vMmY1m0WJZk3mnFFLYs
-	0R20JKtgVtvGKdpaBA2T3XxE922VAlto+Q1P4OOBiqeoDC198BosFwgC4mUkPpQtAvs5G5NXrmw
-	LNJmd8bC/QSKXBqnQXgkJzdDOdV6O2AzYr8v+kMYEZ3rjoCrezHLbOIfmXR7dpMurvmNdgMTOXI
-	2haQ==
-X-Gm-Gg: AYBFou2590SP8FpSAfC+00qr/7HPghX9NxHG7R7XWBKGbFicautcqtXFUbEjNNB6LB1
-	1CNnjYcIu89dR6EPa5t30TiBUBS/d2ljsOhoxLYue0SZZ8NkU9lAAhQr8giiyT+Y1vIsy9bODkF
-	ubtf62orpv9BBhJEPZXgFCD5XATMrWVCwctDaMWrO1uAHet0KQFImtzkwOSYb/75uZGWSkFMaaj
-	gZtjk8lKXD+4t4Dxvl4Dx3rdeIVOT9TS0ybnFCa3RFa6zbM2NoBuSuOv09p/XQSrl79JfrO7E4a
-	cEW6dcN8Q+WCQePkYO7gIWYWPj6taj7pNR8oCTihDJcWi3Miquw7YimMbkKC5IvEMOZOgEkGBFA
-	62ydO4g5r2vOKaCxMGxkeoDJQae4=
-X-Received: by 2002:a17:90b:560d:b0:39b:3109:10ce with SMTP id 98e67ed59e1d1-39e1e45cbaemr914866a91.16.1789514470764;
-        Tue, 15 Sep 2026 16:21:10 -0700 (PDT)
-X-Received: by 2002:a17:90b:560d:b0:39b:3109:10ce with SMTP id 98e67ed59e1d1-39e1e45cbaemr914831a91.16.1789514470342;
-        Tue, 15 Sep 2026 16:21:10 -0700 (PDT)
+        bh=oXdEkFs+2jBbAlp34VMYxKpRmZ4A7s9s9pc8ZFfcFQM=;
+        b=hG+olb2GkqOw3FtTGxn2IBhiesKD9vuYvPtKekHfEqBT/I0xtF72D9bkr4Owp2m+zY
+         l8wJ2GnzFPhkDiuhajfyaGpbxKTG71ywKQUakVjT5VuHLJdGGvMeBMQTTkYkW6Xy4XZr
+         PKJjdyJa11Hwl75mvRgn5gSccdYTThL/aCkdzFWPWzkvf+cK5h6FynflZaDmW/aHpsmT
+         rU2Kz0tFIDu+dNZwr7QswNcU0rTvaNXMkJVUnkzybct7cNK/fSiILp+bBMDSsp/gNhHQ
+         OZByOMGkQpMdvct/kSCGJ63HAMswrgw0Iz/6AVgFNhcYD3sDit0dMojupgstfUyJ6/F5
+         9guQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwfOnSEkrXhHon2ifOzzu83MsmNgW8kLbY5XSZokdUvj62U+wCqHhVw5FD0prOqLKoAuGpfU13u1hYjueajl/ci@lists.infradead.org
+X-Gm-Message-State: AFuF++m+muZv2uHF9G+JPI34xLbD/hFJIRjo7i9U5rg78Xyi0x3Tt+4Z
+	5D070Bp7yKQT62RT5x66b12Xvwg+uEfWxwdMG7AMlYBr3j5kQRTnxJSiWmwJHOVhE+9kCKsZDj7
+	LU72RYeD8/QFAx0ZaS2dns+KhPpIvVepEHkvQXyg1UGtH89PQBR+4+qBakg94jU3n96IVNeimo9
+	RjJw==
+X-Gm-Gg: AYBFou3QXa3ZaIlSqd0kFAjN5LVDFBSOy4EUNzHu7O7ywur7WjClO9Hwqn/pKO51PHw
+	lqTA+8LAcGMhQW1H0NwMWu/yKjQutXRwpjf1+zD52xRaJ3dFz1Z+d7YCeH28jepdNdr6A2Z/g0a
+	h26wCl/QIDxciwLUcXOHBO6YI8qqO+ItStXbxIlibl7gTDzS8oP3RG3A4zyfS/WgKuoLQCZB6S/
+	HAPj+OqwARG2PwTRnTeSPNEk8cgOkj1OjAjU3mBLVU3+319zllwaeTaoTnaTD4GCWoIOofLOxKW
+	h+WdeqEiT8MzjcnhfVqrYI2WvHHiAIOasFP50EIH4rRAijRTvjXgbtapvnCLIgOYkGS0T4LdkKc
+	GZKzWSJuotqDMiuYUR/eppU9Kwu4=
+X-Received: by 2002:a05:6a21:9090:b0:3d0:e034:a26f with SMTP id adf61e73a8af0-3dd5f5d8672mr1167674637.17.1789514528289;
+        Tue, 15 Sep 2026 16:22:08 -0700 (PDT)
+X-Received: by 2002:a05:6a21:9090:b0:3d0:e034:a26f with SMTP id adf61e73a8af0-3dd5f5d8672mr1167615637.17.1789514527903;
+        Tue, 15 Sep 2026 16:22:07 -0700 (PDT)
 Received: from localhost ([50.35.44.179])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-14395d11cb3sm1432321c88.6.2026.09.15.16.21.08
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33bf5b0520asm2203060eec.27.2026.09.15.16.22.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Sep 2026 16:21:10 -0700 (PDT)
-Date: Tue, 15 Sep 2026 16:21:06 -0700
+        Tue, 15 Sep 2026 16:22:07 -0700 (PDT)
+Date: Tue, 15 Sep 2026 16:22:04 -0700
 From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
 To: Nicolin Chen <nicolinc@nvidia.com>
 Cc: <will@kernel.org>, <robin.murphy@arm.com>, <jgg@nvidia.com>,
@@ -103,47 +103,47 @@ Cc: <will@kernel.org>, <robin.murphy@arm.com>, <jgg@nvidia.com>,
         <linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
         <skaestle@nvidia.com>, <mmarrid@nvidia.com>, <skolothumtho@nvidia.com>,
         <bbiber@nvidia.com>, <harsha.v@oss.qualcomm.com>
-Subject: Re: [PATCH v5 08/15] iommu/arm-smmu-v3: Disable the queue IRQs
- before disabling the SMMU
-Message-ID: <20260915162106.0000145b@oss.qualcomm.com>
-In-Reply-To: <0ca69e93a9370e4e172e4335104859648b8755c2.1789446520.git.nicolinc@nvidia.com>
+Subject: Re: [PATCH v5 10/15] iommu/arm-smmu-v3: Support PRI Page Request in
+ arm_smmu_handle_ppr()
+Message-ID: <20260915162204.000054b9@oss.qualcomm.com>
+In-Reply-To: <dd1ee0afb947b5f7c229c21b7fcff5d18f9bc326.1789446520.git.nicolinc@nvidia.com>
 References: <cover.1789446520.git.nicolinc@nvidia.com>
-	<0ca69e93a9370e4e172e4335104859648b8755c2.1789446520.git.nicolinc@nvidia.com>
+	<dd1ee0afb947b5f7c229c21b7fcff5d18f9bc326.1789446520.git.nicolinc@nvidia.com>
 Organization: Qualcomm
 X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE1MDM0MSBTYWx0ZWRfX6WPfIJhYgM88
- 4pB9P9/ossTynfiRnCWRqNNFTeaws1CjEx726llIfA3YfAhT7Ha9SHylfj8MFYQSwX4jkSy2cSA
- IrOcY0xeZ2gtJ9a6lX9A8faNaSpnprQ=
-X-Authority-Analysis: v=2.4 cv=HrTjiETS c=1 sm=1 tr=0 ts=6aa9d2ec cx=c_pps
- a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=aNnz9XPx1a4JIXSYt2cE/A==:17
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE1MDM0MSBTYWx0ZWRfX4WmThVfuvQYM
+ 54DUCsJcSdfGlSYyy1pfwvNGj0dAfTWG3LWGri+UH7NESSaei9ltBk291ce3aQSudO7TGHkFWU4
+ biK+hYtuv+RcTYQOe3oh0xfsVgW2eY4=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE1MDM0MSBTYWx0ZWRfX4QIBryH4tJ/T
+ HEZhI9CRo80n6V9jy4FkDcVBRj3vM387zH2WNIodV0RMc92WD5HQdxwzD+yrPWqKq8oBpfzen1+
+ wOK3ix579T72vQuoLtQO0bZ2SPvUP9e198UyUJjUDz1dgFGHILHmtan+QSMlXUVoH+Vm6yHNwvJ
+ YPVLtaf0AGVrEaSSNvpGuPDK+pL4gFg0q8jGTMPreU37TRGPyaJLX/3aaemByB1PlW5w7kOXgDw
+ KVfWXphKcEyxo33XuGSQiCfVRyTZonCqShydeV2mECH+V6L7yBgjkJNuj5gNjOuHcl74G1rh2eq
+ 3da8biDuR4kULK/6z53TT6IMC0OH0+90BGL9InhOcjXVeGzZZ+ME2+iph+a1EBIGNgTtBKK1xcW
+ LAHje0y9qTUKVF2LVtENedggNb/bM6llV3V9Q/tbAEud4sdS+XNnbwaxSU9zaKe5toFOz2xBGKs
+ OZ7fnLvrNSY9gmpKazQ==
+X-Proofpoint-GUID: Lnw0rAxV9lRe9K3BgShPN5pPpRA-3ny-
+X-Proofpoint-ORIG-GUID: Lnw0rAxV9lRe9K3BgShPN5pPpRA-3ny-
+X-Authority-Analysis: v=2.4 cv=PcZqFShd c=1 sm=1 tr=0 ts=6aa9d321 cx=c_pps
+ a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=aNnz9XPx1a4JIXSYt2cE/A==:17
  a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=Ikd4Dj_1AAAA:8 a=EUspDBNiAAAA:8 a=qr_CdHuHKQtOmQRTACQA:9 a=CjuIK1q_8ugA:10
- a=uKXjsCUrEbL0IQVhDsJ9:22
-X-Proofpoint-ORIG-GUID: wFR6xG56PpSd_58sYLrDiWLumdM2SxcO
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE1MDM0MSBTYWx0ZWRfX4DWpms7/cZN+
- 2ZesMAOmldv0bLFaYL9Tfqg+KBvMcCD+sLnrqQS0pe/YDJlRYg5EAWNUuuYStyK76y7V/2CwzcN
- YjJHMjlQ6lDrHc9er3GNTM1j3pOkj1KfQJ/QkVTADHIJOWi9LMzIM4AplUDsZrV7z9EjMAbR2EG
- rmlSq+ld/8DeR3YuIWF3caJ/W3+bODwgqpPQHDT2fOq2cSN9zUeGPodMqbZq+6ixlVwH1AMjOT2
- tH4fC6vnuS9zEO8dX1eXum9+bUrMrPEbK/vl+LKVexe1GhgsOejaq95yCh4b/VDDnWLF18UnvHb
- 1WW+eQvgs7NjpFmZo3DZPlhHW3Laaaoyxo/pr4CLlUDg8DL6DFyIzKnJrn1Axb+ug+9JDjIMTuf
- ufKtNRq7bgzmxjmP803Oyo08B+ot+oJu0Ozow2AHyHZfz4Wht1qk8/4PGyANc0jH3o30mQPw1ur
- 2TVc7T8yexXBzlxUBcA==
-X-Proofpoint-GUID: wFR6xG56PpSd_58sYLrDiWLumdM2SxcO
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=Ikd4Dj_1AAAA:8 a=EUspDBNiAAAA:8 a=h35TsNJSbmzmzvWWgmEA:9 a=CjuIK1q_8ugA:10
+ a=zc0IvFSfCIW2DFIPzwfm:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-09-15_05,2026-09-15_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 lowpriorityscore=0 impostorscore=0 bulkscore=0 phishscore=0
- malwarescore=0 clxscore=1015 priorityscore=1501 spamscore=0 adultscore=0
+ spamscore=0 phishscore=0 suspectscore=0 malwarescore=0 impostorscore=0
+ clxscore=1015 lowpriorityscore=0 priorityscore=1501 adultscore=0 bulkscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609150341
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_162118_999861_B8E6B63E 
-X-CRM114-Status: GOOD (  19.56  )
+X-CRM114-CacheID: sfid-20260915_162211_166587_E8800E99 
+X-CRM114-Status: GOOD (  18.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,38 +158,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 15 Sep 2026 09:38:20 -0700
+On Tue, 15 Sep 2026 09:38:22 -0700
 Nicolin Chen <nicolinc@nvidia.com> wrote:
 
-> The EVTQ, PRIQ and combined IRQ handlers are threaded and issue commands of
-> their own, e.g. a CMDQ_OP_PRI_RESP for a page request. Disabling the SMMU
-> while one is in flight hands that command to a queue consuming nothing, so
-> its poll waits out a full timeout.
+> For a PRI-enabled master, convert every PRIQ entry into an iopf_fault and
+> report it through iommu_report_device_fault().
 > 
-> Two paths disable the SMMU while those IRQs are still requested: a failing
-> arm_smmu_device_reset() returns to a probe that disables the device itself,
-> and arm_smmu_disable_action() covers an unbind or any later probe failure.
-> Both can run after arm_smmu_setup_irqs() requested the IRQs.
+> For an unknown StreamID or a master without PRI enabled, keep the existing
+> LAST-page DENY path. Merge its two messages into one ratelimited line so a
+> faulty device cannot flood the kernel log.
 > 
-> Disable those IRQs first in both paths, so that no handler is left running
-> once the SMMU goes down. arm_smmu_device_shutdown() needs no change of its
-> own here, since it already just calls arm_smmu_disable_action().
+> Discard any PASID Stop Marker (LRW = 0b100) prior to the fault report and
+> the DENY fallback both, because a Stop Marker does not expect a response.
+> The IOPF infrastructure requires the driver to discard it, as per the doc
+> at iommu_report_device_fault(). This also matches the intel-iommu code.
 > 
-> Also clear an IRQ number when its request fails or is skipped for a missing
-> ARM_SMMU_FEAT_PRI, keeping disable_irq() to the IRQs that this driver truly
-> owns.
+> When SSV is clear, the same LRW encoding is a PRI Page Request that expects
+> a response, so let it fall through.
 > 
-> Note that the IOPF queue needs no such care of its own, as devres frees the
-> IRQs before running the release action of that queue, which came earlier in
-> arm_smmu_init_queues().
+> Note that master->pri_enabled will only be set by a later change, once all
+> the PRI paths are ready.
 > 
-> Assisted-by: LLM
+> Co-developed-by: Barak Biber <bbiber@nvidia.com>
+> Signed-off-by: Barak Biber <bbiber@nvidia.com>
+> Co-developed-by: Stefan Kaestle <skaestle@nvidia.com>
+> Signed-off-by: Stefan Kaestle <skaestle@nvidia.com>
+> Signed-off-by: Malak Marrid <mmarrid@nvidia.com>
 > Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-I'm still not loving the disable_irq() in here just because to me it
-feels like it may end up masking stuff we ought to handle more carefully but
-I don't mind that much
 
 Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-
-
 
