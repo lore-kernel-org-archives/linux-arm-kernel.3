@@ -4,161 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8F20C982C5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 17:05:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0DACC982C7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 17:05:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fkaHZc9KM3NQiOm/5zr+0qK/XWurfWRfm1Iz7Rx0Yhs=; b=YkLIScfwqIuP6D1ZYYZIsddIo+
-	WTr/+ia8EpvpVd2FrepfYcRyVXDg+ox6lYH6PCgaPQjoOCnebbDxYRZwkYh4N7kbUFNjlRnADLyvM
-	c51feHgY8Alj1UgRHVLt5KwntIHIcPezjuFVTEosX1jNikIML6YoCFlr1yqv0xWmTvbVqdKUTXt1u
-	0Ox0IDF0sdgUJE0NWNehz6hWiys0n9ATlOxuIb0b1C8XzyQ3pvWAuye09LIUQ9WInUBMrqbD75abO
-	UAY0nmc2pgb6WlbLWXliwm9nZYvnqsc1FcU775MGozAHBaTixOD1a2HYNCxWgGfUX30V8+2bM2zFP
-	WEd4hHfw==;
+	bh=uqOt2OIQzoT0CLxnWIWkwB762wlbLhJKeQuNdpmadtY=; b=Xlx6jTxntvhLsZC8HImKN6GqKT
+	4tX0EyyqkcC18Fr2z0uL+TWiMjdXQBSR2KXXMQPFfORJ0KdZk/iRUIFyeyGMYdUjBWhC2xyNpI3EN
+	1Mwadjm9ocNDPJLKx+hHGBwLV68VntC7WeNUAEUn0WeCY+K3EhpYiKFqDupW72d/HhLIlJftLhuZc
+	+PS755tAA7yoYlQF8ZhPz/YFqc2vSsocmHhGFDdIaIaPzgjk0Dx72fN3nOcRyeq84YzV8pQ665g7I
+	TmpetpAJTp/jvkjKFji9nGTcM0zkz/KRc74eRyqWOzUn0q/LE9n17V6cLP+YkP4ccFwZrUZ4Qhqlr
+	G7mA1Jjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Waz-00000007Wqa-3wQ7;
+	id 1x6Waz-00000007WpE-1gOC;
 	Tue, 15 Sep 2026 17:05:25 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Waw-00000007Wmo-3Ysg
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 15 Sep 2026 17:05:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Sender:Reply-To:Content-ID:Content-Description;
-	bh=fkaHZc9KM3NQiOm/5zr+0qK/XWurfWRfm1Iz7Rx0Yhs=; b=QtoC6hVGumIEB3rcxQ6ucPLa1T
-	nobd2LaezAnYtkYX4eSp2e15xjWruthGue3Vv1BBwQd7tNHj2OL5mEBNOKogGLwapG3VIqf+nooVF
-	o4mWBQipi68D3rEzJau5JNnRpGHZ3FXrlSMNuytr0uyU9+qXYCrEty+simW3xBsaiMlFxZ7O8Sntn
-	CuwWPb4GGx+FIZNZmU5WAIDklQY3qE+Vg+QlT2mZyKRgNFWjvcSJBuCJwJxl9I316Iz/TqRQDUWzJ
-	P30yIZoI3YzX2B/UZQFp/YwLAkr08G1BmCWldEUztBWRZjzN7xMGReB/WQvqyr95gbWi1jNAJZdww
-	Ung1Ksug==;
-Received: from mail-norwayeastazon11013007.outbound.protection.outlook.com ([40.107.159.7] helo=OSPPR02CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6Waq-000000073tz-1vwA
+	id 1x6Wai-00000007Wf5-2mQ4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 17:05:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uU7KaV7MJYj04j/rt8FFnKrAGgkk1y9WfObYPIkw9AF7sXqaA6ldIp+MlDyJ9C+R5FlT6cNPQbCRm9OdSo2c3x4hKV2kWm1xs+6uJUHwl4Pv/ykUejDmFrmtq5hy+fj1s51Y5mtnQ/ZlefFuFj9yNSqijEEaFdq2REctNKYj52KUBuXObl+4FdeEH82fihUl5jfJ4EXdpoyveVsY3tgqplFeMS3WfXbKohdZGnCIHmlC13gg0kO4Tz/5b9x8ZzvcsKv23Dh19PBr+TEwNGrapUxO3ar1zSzyLnQWGJcqZN+VhZiCPLz8EjgpVXUujnEsfFOogHiOGbQAWkwpTpmZgw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NIr+x+FsoijVTeBTB1ksZwk6B1eWqV3q4LaR1L90ebE=;
- b=w/LHDC5gnZoIsMrIxt4sIYTN8yaSpsgsv73SnQEOb2EM966C6KMB866JTGFMn1E8D87aQKFcLtL6ejDpNT0eCed+/LVHgev55NE850a5lDbXePfjfMeuAXKR6/OXM3n0pboxjtbf2JEjmOK1ui3eXh90TH134Ny6Kov7I1HPDOAJg0uvE8tdweDR8mtUdFRekCkxSH7LcZYVL10eaO+sFHsqCljvUqCeFLIpo+HoIYYQESzbbFL3jZKZ4h8jWE801KpVzp/CRB7IoLK2fuEkZgW9fRR/F+s6gkIyRjlTxehoA9LcRdb/wHWcR0Z94PB3PTYbkySQqOv0voZd0Eng9Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NIr+x+FsoijVTeBTB1ksZwk6B1eWqV3q4LaR1L90ebE=;
- b=KO6gY8og45hzz3EwqYKRB9oRenZsuflMrnAV3YuzHFKjqUrKeqU3cbENrq3DSYOq2c0lamoNMCsmey/Z7ZpSL1FgbLwoa+3dFF9mH4GoOmt/qgVpWIHR/7Pg/TcBEPgAtarU+F4lQCS4HaId5VRmuKZAGowoO0wW1CnOhoWakYkmDyI04wuVM4GLK7Cysl4dw5CGknqNStwPSL4CJVOM2TEdIdDYU4X58S6bDwYqYSEL6nVHpXJyp7/ZDfigHjicECHjPiJiuqz+IeMDWhvbxrJbPL+QYcLa4CcdKi76tY6ZKUgQY8cMrNB5lrXFs7cOWM2nToEYVEI2359iWjC6MA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PAXPR04MB8458.eurprd04.prod.outlook.com (2603:10a6:102:1d9::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Tue, 15 Sep
- 2026 17:05:10 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.012; Tue, 15 Sep 2026
- 17:05:10 +0000
-Date: Tue, 15 Sep 2026 12:04:59 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Andy Shevchenko <andriy.shevchenko@intel.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
-	linux-sound@vger.kernel.org, linux-spi@vger.kernel.org,
-	Frank Li <Frank.Li@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
-	=?iso-8859-1?Q?Am=E9lie?= Delaunay <amelie.delaunay@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Andy Shevchenko <andy@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>, Mark Brown <broonie@kernel.org>
-Subject: Re: [PATCH v4 01/10] dmaengine: Move enum dma_slave_buswidth to a
- new header
-Message-ID: <aql6u3T0nnSVr-FC@SMW015318>
-References: <20260911-dmaengine-support-wider-dma-masks-v4-0-72b8fd4cc78e@analog.com>
- <20260911-dmaengine-support-wider-dma-masks-v4-1-72b8fd4cc78e@analog.com>
- <aqgCQvRw9fns__0d@SMW015318>
- <aqjzvxI4ecoFvRLT@ashevche-desk.local>
- <aqlpoBJJXfZgsMxT@parshuram>
- <aqlwRkNcs_UqKjWs@parshuram>
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aqlwRkNcs_UqKjWs@parshuram>
-X-ClientProxiedBy: CYXPR03CA0047.namprd03.prod.outlook.com
- (2603:10b6:930:d2::8) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Tue, 15 Sep 2026 17:05:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 10049602A8;
+	Tue, 15 Sep 2026 17:05:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5E1B1F0089A;
+	Tue, 15 Sep 2026 17:05:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789491907;
+	bh=uqOt2OIQzoT0CLxnWIWkwB762wlbLhJKeQuNdpmadtY=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=Oeglc/OMeaa5054WPo7XkA2Mt//UevnJr3hLev/Xh7DsQeRSk3NF34SWARbg7+28M
+	 qBd7XTIdTfEeiTwJxg5WC+8dgJ/Y+ysJWLD4vCMgS8cwPLX74JBA426ZGLxsK0NJgY
+	 3cBjq0hexYM1MKoGJJ1WGxGBaiLtCXxHYeyxVf37e7OLqd9Iwvxm7e+YxDITt7sicq
+	 iZDlhxttPhK5wIvZFVOm1wHfcIEeGwrx5w3j/aOfLAMruy6dPrsMNSZLMXrNrvq/CN
+	 yRcG/bm8dnU6KQAk3TTBwf0CAYIQLrDrFXIEtTkh0+GqnmVGHsSDmKAkgJ4eJTAGPI
+	 I3imtjnTY5RHw==
+From: Sudeep Holla <sudeep.holla@kernel.org>
+Date: Tue, 15 Sep 2026 18:03:41 +0100
+Subject: [PATCH v5 7/9] firmware: arm_scmi: Add ACPI PCC transport
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PAXPR04MB8458:EE_
-X-MS-Office365-Filtering-Correlation-Id: 382fc4b2-375b-4030-5985-08df134b7fc7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|23010399003|1800799024|376014|7416014|56012099006|5023799004|11063799006|4143699003|10067099003|18002099003|22082099003|6133799003;
-X-Microsoft-Antispam-Message-Info: 2N7Qh3tqbmnH5+jRMXqd4SqSZtRgrJtgPRFPPTooSSw4fWUO4V+era9JOmbJ+KB53pNTFNUKWQI79aDoKMvRSw1GDH7pwSk8aRg2s2FGmWMqtORf0/qew5z5xFCO2uAghgUYYOBQBIG1o7lJwPsOqvO4pQSxfmDxyoi3OkEYpvOmDe69v9kqPwyFPlEahy5ctORHmI/w7aztxLmnnxDCb76v9KhnidFCuguyUFtWca2pbXfD88r2IIVSZXOB59ezelzzJmJ2PhRKFkVzZwcZ0QyoOrCLD1obYAINRdhmNDaGjwJ/fjnYd1Vn8jVWPSYiIwEOcamZg3OjLaaM6HT6V7nJ8JQrohBCau9FfCg5xAr6JoL084JclSL9bPGBy/IFzeZ9IuOTI92MMziQeQiiKQ342XlpKMywcS3OlP7nbSPg2iohKgWcvQ/5FGfZrj5gYabffXxx/m9/f9zuuFaqVf7gComtNu1zAl9Zo85+edlyqKWzCOnfLW89vLkRSAJGtJ91ohHKpCqNsxglk1gae1Cy0RRf+kpQxovZd+rtBIdqDftrOzQvRUdkFZJpUHAfKrmpxpbyLAnUOaExf77l2ryP0V1ggXsPj6BiUYWt912Ru1ZTSC4ubgGolRiLZ+kWYoKQc4M41iMOxQsSUKqGEgW2imL8zNfyhtuYYDD/AWY=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(23010399003)(1800799024)(376014)(7416014)(56012099006)(5023799004)(11063799006)(4143699003)(10067099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?RplA4Ux3njAN99D9jS9IFAimoTLQ8dcuhcO1pNddi2xp5ZqG3ci8wrHhjI?=
- =?iso-8859-1?Q?Ejju11w1JOuUWhmurUx6kDsctPspLzFfXShXqBgg60VCYSgaejBpS18sIy?=
- =?iso-8859-1?Q?NE77Y/6ETqRZVgUsZIOIm0qOeqEM1iPHeW3jlHZ8lekl/u3EUTPMzWXTrf?=
- =?iso-8859-1?Q?Ve6R+xPrRgFT1DqOBTgd481fMGyRDypuLAJKlLixrmj/GDpNuQ5t/lhsYJ?=
- =?iso-8859-1?Q?1xeGhZ7PhR5/ZcvNnK9T9B/v5QWLLB4kpLDHvFcFTcxpahb3RcSdyy++Zj?=
- =?iso-8859-1?Q?8FF9IX4bNF1G9jLsORpypqJKZhxXKtiNfhHxbs6ZE8vwLwx17A7ECkpl0H?=
- =?iso-8859-1?Q?yv4Cr3JRKCMByJdE/Fa689hHHitQSDR1ATms48lXlFxqRTi2YnUnqT6nmp?=
- =?iso-8859-1?Q?PWYz9QjmRBhp+Qp8Ks+8pjorcxHnOx/uywRItxOPPSDm6wtoKY/2e0vRDW?=
- =?iso-8859-1?Q?WE2PnsXYmYKIVuLstoRrSf/NgiFwWxlhq2j7C13db1/2ynYy1eK8dUZBMY?=
- =?iso-8859-1?Q?iFMVwqVF7LGFtAbDT9A072hPDhEKyBCogxPGQZK66W0knBzpWrkUr5tcY1?=
- =?iso-8859-1?Q?kz/Q3d+PAvZcdBkig5JOtx5BcK9tCqbq9uHMIy1hw3m6X4kwhE1cF6I+YC?=
- =?iso-8859-1?Q?utN9qUD2zYNAKEW3Qa2Zkjxpkwft0VbCgnEVWFP7De0iXjjOyDHXZF1/Rz?=
- =?iso-8859-1?Q?4VW2ucJzFPmNUlZrR6QHKwG52L0uwxG7XM1i0LmPJ7Pf+SJIxmexRdQvrd?=
- =?iso-8859-1?Q?6Ta19akvr2pQrkOpmOHj1KP0NnBmDPkTVtYgf03XiVEplymQgkwimlPzdo?=
- =?iso-8859-1?Q?o3YoDq2YuJvPH7pmLs5yhSdYMfVvRIKd4tftihec02ty6Cr9nrGIwvNSN1?=
- =?iso-8859-1?Q?ZAHQ857bQB86NeMUBwP5Wk9t74sgMOtk0RKbYrsLjp+Y8U7Mg8DEryC3VA?=
- =?iso-8859-1?Q?vPWlvXdvlnzJhWsApl4HO3JT6hFW6O/b9DKDbIy5ZBFatRk4rTLAgnngml?=
- =?iso-8859-1?Q?8zijax1yv8Hp+WsmDxEy7kfe1fMdCeP+8JGobVBS88wiiVn2HvbU5rzVZj?=
- =?iso-8859-1?Q?C8mwLByREyjvGbNrywel9oFYFu9SU+aNRYImcfDDDXLmTIlBTjtkxwCuf+?=
- =?iso-8859-1?Q?v7Fmp1UPENJx6w256tpVQX0OtI6n7dq1sHN4dX554AoNL5giL3Zc1bVVM5?=
- =?iso-8859-1?Q?kjvGIcpz2epz/LSF0Ed8DudPGUiLg2q1xkLd/hi9SS0KK2H4M3QwQPSh08?=
- =?iso-8859-1?Q?78PO1Ylaoc0cEzLzJ2UD1/b3mOAPrCwMLI7fmS+X0CkK6dPOKpHaTzh1y7?=
- =?iso-8859-1?Q?WyiJGf7qt5skkK3OKm5hzva/LRQXv9G1fjUVMJIun2E0Ovj0gFbSuxHY6E?=
- =?iso-8859-1?Q?j6sPjacdv7DAHA1mnY9/TgGnH/6hDHjMvuhs0GEJYlc4MCtsv+g1B0UQh8?=
- =?iso-8859-1?Q?GAxqj9+l+wFs3zOglmX/PBxfi8RIHzHTFkHAL3u+HoqyPRRIRx+esZxNSY?=
- =?iso-8859-1?Q?5LyPfrwvrAggnbuT3ulbDhzCcwAL2QSizIN8sJ5tNVR7+CRrqSPat/6tuQ?=
- =?iso-8859-1?Q?E9dlmewaOUzChRYktq7nWCZySDML1UFZf4AOZyzgqRJ2Fi+YuJyN7TKO1A?=
- =?iso-8859-1?Q?C0PtYzf4p6beVzY+ME3mS6N0b8XhA539X0Ltceds/W9NB8xXsnd+p0uglf?=
- =?iso-8859-1?Q?WVGWWMAIeh9QSb6S3Af5PS8pJydX70PttwRf2HUjy0vpcLRvaSQ4WhjhyD?=
- =?iso-8859-1?Q?sGKzDQya+56He4Gtbz6vgWhmhojzlSL+GOMJWhaVtbVzMp4suMmgYzSub4?=
- =?iso-8859-1?Q?xXyk8m9dwbaiNFnd5E2Qy/Aw079JWDguQUrv+PfDeS1WnTina6pH?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 382fc4b2-375b-4030-5985-08df134b7fc7
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Sep 2026 17:05:10.0816
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: X+lFio+7KouomE5TXoYZwkCL1iAnYNWgiGuy6UG96GPBAJdjyfN7mzftxzLzajvy3Fb5xjir9rCqZ82wtuFeMmJ2B1QVFfHVR5WAFyrjCQLc5UomlAuPQY7NBlv3s21Q
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8458
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_180516_681985_2B4C5063 
-X-CRM114-Status: GOOD (  31.56  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260915-acpi_scmi_pcc-v5-7-298579e9f359@kernel.org>
+References: <20260915-acpi_scmi_pcc-v5-0-298579e9f359@kernel.org>
+In-Reply-To: <20260915-acpi_scmi_pcc-v5-0-298579e9f359@kernel.org>
+To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ kernel-team@meta.com
+Cc: Cristian Marussi <cristian.marussi@arm.com>, 
+ Breno Leitao <leitao@debian.org>, 
+ Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+X-Mailer: b4 0.16.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,64 +71,976 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 15, 2026 at 09:50:22PM +0530, Vinod Koul wrote:
-> On 15-09-26, 21:22, Vinod Koul wrote:
-> > On 15-09-26, 10:29, Andy Shevchenko wrote:
-> > > On Mon, Sep 14, 2026 at 09:18:42AM -0500, Frank Li wrote:
-> > > > On Fri, Sep 11, 2026 at 06:25:36PM +0100, Nuno Sá wrote:
-> > > > > In preparation for the bitmap based bus width capabilities, move
-> > > > > enum dma_slave_buswidth out of linux/dmaengine.h into a new
-> > > > > include/linux/dma/engine/types.h.
-> > > > >
-> > > > > linux/dmaengine.h is included nearly everywhere, so growing it with the
-> > > > > new interface would make every one of its users pay for it. Keeping the
-> > > > > basic types in a separate header lets the new interface live next to it
-> > > > > without that cost. linux/dmaengine.h includes the new header, so its
-> > > > > users are unaffected.
-> > > > >
-> > > > > While at it, add the missing kernel-doc for the enum members. The block
-> > > > > already opened with /**, so kernel-doc expected every member to be
-> > > > > described and warned about each one of them. Describe the UNDEFINED case
-> > > > > in particular, as its meaning depends on where the value is used.
-> > >
-> > > ...
-> > >
-> > > > >  include/linux/dmaengine.h        | 20 +++-----------------
-> > > >
-> > > > I think it is good to split dmengine consumer and provider header files to
-> > > > hidden dmaengine's detail.
-> > >
-> > > It's indeed desirable change. but isn't it a bit out of scope of the series?
-> > > I suggest to do one step at a time. Would it work for you?
-> > >
-> > > > suggest name
-> > > > 	dma/engine.h
-> > > >
-> > > > so we can start move more API to this files.
-> > > >
-> > > > after all user include this consumer header file,  old
-> > > > include/linux/dmaengine.h rename to include/linux/dmaengine-provider.h,
-> > > > which only include by dmaengine drivers.
-> > >
-> > > Traditional naming would be
-> > > dma/engine/provider.h
-> > > dma/engine/consumer.h
-> >
-> > consumer and provider and good names.. I would retain the full dmaengine
-> > everywhere please. dma causes confusion already!
->
-> Thinking about it again, drivers/dma/dmaengine.h should be the provider
+Add an SCMI transport for ACPI-described systems using PCCT PCC
+subspaces through the Linux PCC mailbox layer.
 
-There some dmaengine code outside drivers/dma directory, like
-drivers/crypto/ccp/ccp-dmaengine.c
+Parse the SCMI Device Properties _DSD packages defined by Arm document
+111115A v1.0, sections 2.2.1.1, 2.2.2.1 and 2.2.3. Map transport
+UIDs to PCC subspaces for common and protocol-exclusive A2P and P2A
+channels, validate the mappings, and cache them for channel setup.
 
-Frank
+Support the Powercap and System Telemetry protocol properties and add
+the System Telemetry protocol ID. Implement PCC channel management,
+message framing, shared-memory bounds validation, and response and
+notification delivery.
 
-> and include/linux/dmaengine.h the consumer header, things can be
-> arranged into these files.. I would say whatever is not used by
-> consumers can be moved into local header
->
-> Thanks
-> --
-> ~Vinod
+Add the corresponding Kconfig, module and ARML0001 ACPI matching
+plumbing.
+
+Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
+---
+ drivers/firmware/arm_scmi/common.h            |  11 +
+ drivers/firmware/arm_scmi/transports/Kconfig  |  12 +
+ drivers/firmware/arm_scmi/transports/Makefile |   2 +
+ drivers/firmware/arm_scmi/transports/pcc.c    | 867 ++++++++++++++++++++++++++
+ include/linux/scmi_protocol.h                 |   1 +
+ 5 files changed, 893 insertions(+)
+
+diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
+index 7fc9560dc4ea..ef5e19ecfe20 100644
+--- a/drivers/firmware/arm_scmi/common.h
++++ b/drivers/firmware/arm_scmi/common.h
+@@ -468,6 +468,17 @@ struct scmi_transport_core_operations {
+ 	const struct scmi_message_operations *msg;
+ };
+ 
++struct scmi_dsd_info {
++	u32 protocol_id;
++	const char *const property_name;
++};
++
++static const struct scmi_dsd_info scmi_dsd_info_list[] __maybe_unused = {
++	{ SCMI_PROTOCOL_BASE, "arm-arml0001-transport-pcc" },
++	{ SCMI_PROTOCOL_POWERCAP, "arm-arml0001-protocol-pcap" },
++	{ SCMI_PROTOCOL_TELEMETRY, "arm-arml0001-protocol-telemetry" },
++};
++
+ /**
+  * struct scmi_transport_handle  - Transport instance handle
+  * @supplier_get: A helper to retrieve the device descriptor, identifying the
+diff --git a/drivers/firmware/arm_scmi/transports/Kconfig b/drivers/firmware/arm_scmi/transports/Kconfig
+index 57eccf316e26..0e34fbf25053 100644
+--- a/drivers/firmware/arm_scmi/transports/Kconfig
++++ b/drivers/firmware/arm_scmi/transports/Kconfig
+@@ -77,6 +77,18 @@ config ARM_SCMI_TRANSPORT_OPTEE
+ 	  This driver can also be built as a module. If so, the module
+ 	  will be called scmi_transport_optee.
+ 
++config ARM_SCMI_TRANSPORT_PCC
++	tristate "SCMI transport based on ACPI PCC"
++	depends on PCC
++	select ARM_SCMI_HAVE_TRANSPORT
++	help
++	  This enables the ACPI PCC mailbox based transport for SCMI.
++
++	  If you want the ARM SCMI PROTOCOL stack to include support for a
++	  transport based on ACPI PCC mailboxes, answer Y.
++	  This driver can also be built as a module. If so, the module
++	  will be called scmi_transport_pcc.
++
+ config ARM_SCMI_TRANSPORT_VIRTIO
+ 	tristate "SCMI transport based on VirtIO"
+ 	depends on VIRTIO
+diff --git a/drivers/firmware/arm_scmi/transports/Makefile b/drivers/firmware/arm_scmi/transports/Makefile
+index 3ba3d3bee151..e7c4b8de6251 100644
+--- a/drivers/firmware/arm_scmi/transports/Makefile
++++ b/drivers/firmware/arm_scmi/transports/Makefile
+@@ -7,6 +7,8 @@ scmi_transport_mailbox-objs := mailbox.o
+ obj-$(CONFIG_ARM_SCMI_TRANSPORT_MAILBOX) += scmi_transport_mailbox.o
+ scmi_transport_optee-objs := optee.o
+ obj-$(CONFIG_ARM_SCMI_TRANSPORT_OPTEE) += scmi_transport_optee.o
++scmi_transport_pcc-objs := pcc.o
++obj-$(CONFIG_ARM_SCMI_TRANSPORT_PCC) += scmi_transport_pcc.o
+ scmi_transport_virtio-objs := virtio.o
+ obj-$(CONFIG_ARM_SCMI_TRANSPORT_VIRTIO) += scmi_transport_virtio.o
+ 
+diff --git a/drivers/firmware/arm_scmi/transports/pcc.c b/drivers/firmware/arm_scmi/transports/pcc.c
+new file mode 100644
+index 000000000000..b7501f980d0b
+--- /dev/null
++++ b/drivers/firmware/arm_scmi/transports/pcc.c
+@@ -0,0 +1,867 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * System Control and Management Interface (SCMI) Message ACPI PCC
++ * Transport Driver
++ *
++ * This transport uses ACPI PCC (PCCT Type 3/4) subspaces via the Linux
++ * PCC mailbox controller to exchange SCMI messages over the standard
++ * SCMI Shared Memory Transport (SMT) layout.
++ *
++ * PCC subspace selection is conveyed via ACPI SCMI namespace device.
++ * described in ACPI for System Control and Management Interface Platform
++ * Design Document[1]
++ *
++ * [1] https://support.arm.com/documentation/111115/latest
++ *
++ * Copyright (C) 2026
++ */
++
++#include <linux/acpi.h>
++#include <linux/cleanup.h>
++#include <linux/device.h>
++#include <linux/err.h>
++#include <linux/hashtable.h>
++#include <linux/io.h>
++#include <linux/limits.h>
++#include <linux/list.h>
++#include <linux/mailbox_client.h>
++#include <linux/mutex.h>
++#include <linux/platform_device.h>
++#include <linux/slab.h>
++#include <linux/types.h>
++#include <acpi/pcc.h>
++
++#include "../common.h"
++
++#define SCMI_TRANSPORT_PACKAGE_MAX_VERSION	(1)
++#define SCMI_PROTOCOL_PACKAGE_MAX_VERSION	(1)
++#define SCMI_TRANSPORT_SHARED_CHANNEL		BIT_ULL(0)
++#define SCMI_TRANSPORT_P2A_CHANNEL		BIT_ULL(1)
++#define SCMI_TRANSPORT_FLAGS_MASK	(SCMI_TRANSPORT_SHARED_CHANNEL | \
++					 SCMI_TRANSPORT_P2A_CHANNEL)
++
++#define SCMI_DSD_GUID_ENTRY_COUNT	2
++#define SCMI_PROTOCOL_MAX_TRANSPORTS	2
++
++enum scmi_dsd_property_index {
++	SCMI_DSD_PROPERTY_NAME,
++	SCMI_DSD_PROPERTY_VALUE,
++	SCMI_DSD_PROPERTY_COUNT,
++};
++
++enum scmi_pcc_transport_index {
++	SCMI_PCC_TRANSPORT_REVISION,
++	SCMI_PCC_TRANSPORT_COUNT,
++	SCMI_PCC_TRANSPORT_DESCRIPTORS,
++};
++
++enum scmi_pcc_descriptor_index {
++	SCMI_PCC_DESCRIPTOR_PCCT_INDEX,
++	SCMI_PCC_DESCRIPTOR_TRANSPORT_UID,
++	SCMI_PCC_DESCRIPTOR_FLAGS,
++	SCMI_PCC_DESCRIPTOR_COUNT,
++};
++
++enum scmi_protocol_property_index {
++	SCMI_PROTOCOL_PROPERTY_REVISION,
++	SCMI_PROTOCOL_PROPERTY_TRANSPORTS,
++	SCMI_PROTOCOL_PROPERTY_ASSOCIATIONS,
++	SCMI_PROTOCOL_PROPERTY_COUNT,
++};
++
++enum scmi_protocol_transport_index {
++	SCMI_PROTOCOL_TRANSPORT_UID,
++	SCMI_PROTOCOL_TRANSPORT_FLAGS,
++	SCMI_PROTOCOL_TRANSPORT_COUNT,
++};
++
++/*
++ * SCMI specification requires all parameters, message headers, return
++ * arguments or any protocol data to be expressed in little endian
++ * format only.
++ */
++struct pcc_shared_mem {
++	struct acpi_pcct_ext_pcc_shared_memory header;
++	u8 msg_payload[];
++};
++
++#define SCMI_PCC_MSG_HEADER_SIZE	sizeof(u32)
++#define SCMI_PCC_STATUS_SIZE		sizeof(u32)
++#define SCMI_PCC_RESPONSE_OVERHEAD	(SCMI_PCC_MSG_HEADER_SIZE + \
++					 SCMI_PCC_STATUS_SIZE)
++#define SCMI_PCC_SHMEM_OVERHEAD		(sizeof(struct pcc_shared_mem) + \
++					 SCMI_PCC_STATUS_SIZE)
++
++/**
++ * struct scmi_pcc - Structure representing a SCMI mailbox transport
++ *
++ * @cl: Mailbox Client
++ * @pchan: Transmit/Receive PCC/mailbox channel
++ * @cinfo: SCMI channel info
++ */
++struct scmi_pcc {
++	struct mbox_client cl;
++	struct pcc_mbox_chan *pchan;
++	struct scmi_chan_info *cinfo;
++};
++
++struct pcc_transport {
++	u64 uid;
++	u64 flags;
++	u32 pcc_ss_id;
++	u32 protocol_id;
++	struct hlist_node hnode;
++};
++
++struct pcc_transport_map {
++	struct fwnode_handle *fwnode;
++	struct device *dev;
++	struct list_head node;
++	DECLARE_HASHTABLE(table, ilog2(MAX_PCC_SUBSPACES / 8));
++};
++
++#define client_to_scmi_pcc(c) container_of(c, struct scmi_pcc, cl)
++
++static struct scmi_transport_core_operations *core;
++static LIST_HEAD(pcc_transport_maps);
++static DEFINE_MUTEX(pcc_transport_maps_lock);
++
++static void acpi_scmi_clear_transport_map(struct pcc_transport_map *map)
++{
++	struct pcc_transport *p;
++	struct hlist_node *tmp;
++	int idx;
++
++	hash_for_each_safe(map->table, idx, tmp, p, hnode) {
++		hash_del(&p->hnode);
++		kfree(p);
++	}
++}
++
++static void acpi_scmi_destroy_transport_map(struct pcc_transport_map *map)
++{
++	acpi_scmi_clear_transport_map(map);
++	if (map->fwnode)
++		fwnode_handle_put(map->fwnode);
++	kfree(map);
++}
++
++static void pcc_transport_map_release(void *data)
++{
++	struct pcc_transport_map *map = data;
++
++	guard(mutex)(&pcc_transport_maps_lock);
++	list_del(&map->node);
++	acpi_scmi_destroy_transport_map(map);
++}
++
++static void acpi_scmi_clear_transport_maps(void)
++{
++	struct pcc_transport_map *map, *tmp;
++
++	guard(mutex)(&pcc_transport_maps_lock);
++	list_for_each_entry_safe(map, tmp, &pcc_transport_maps, node) {
++		list_del(&map->node);
++		acpi_scmi_destroy_transport_map(map);
++	}
++}
++
++static const union acpi_object *
++acpi_scmi_pkg_elements(const union acpi_object *obj, unsigned int count)
++{
++	if (obj->type != ACPI_TYPE_PACKAGE || obj->package.count != count)
++		return NULL;
++
++	return obj->package.elements;
++}
++
++static int
++acpi_scmi_pkg_u64(const union acpi_object *pkg, unsigned int idx, u64 *val)
++{
++	const union acpi_object *elem = &pkg->package.elements[idx];
++
++	if (elem->type != ACPI_TYPE_INTEGER)
++		return -EINVAL;
++
++	*val = elem->integer.value;
++
++	return 0;
++}
++
++static int acpi_scmi_property(const union acpi_object *properties,
++			      unsigned int idx, const char **name,
++			      const union acpi_object **value)
++{
++	const union acpi_object *property;
++	const union acpi_object *elems;
++
++	property = &properties->package.elements[idx];
++	elems = acpi_scmi_pkg_elements(property, SCMI_DSD_PROPERTY_COUNT);
++	if (!elems)
++		return -EINVAL;
++	if (elems[SCMI_DSD_PROPERTY_NAME].type != ACPI_TYPE_STRING ||
++	    !elems[SCMI_DSD_PROPERTY_NAME].string.pointer)
++		return -EINVAL;
++
++	*name = elems[SCMI_DSD_PROPERTY_NAME].string.pointer;
++	*value = &elems[SCMI_DSD_PROPERTY_VALUE];
++
++	return 0;
++}
++
++static int
++acpi_scmi_dsd_parse_transport_package(struct pcc_transport_map *map,
++				      const union acpi_object *obj)
++{
++	u64 revision, pkg_cnt;
++	bool common_a2p = false, common_p2a = false;
++
++	if (obj->type != ACPI_TYPE_PACKAGE ||
++	    obj->package.count < SCMI_PCC_TRANSPORT_DESCRIPTORS ||
++	    acpi_scmi_pkg_u64(obj, SCMI_PCC_TRANSPORT_REVISION, &revision) ||
++	    acpi_scmi_pkg_u64(obj, SCMI_PCC_TRANSPORT_COUNT, &pkg_cnt))
++		return -EINVAL;
++	if (revision != SCMI_TRANSPORT_PACKAGE_MAX_VERSION)
++		return -EINVAL;
++	if (pkg_cnt != obj->package.count - SCMI_PCC_TRANSPORT_DESCRIPTORS)
++		return -EINVAL;
++
++	for (u32 idx = 0; idx < pkg_cnt; idx++) {
++		struct pcc_transport *p, *tmp;
++		union acpi_object *pack;
++		u64 pcc_ss_id, uid, flags;
++
++		pack = &obj->package.elements[idx +
++					      SCMI_PCC_TRANSPORT_DESCRIPTORS];
++		if (!acpi_scmi_pkg_elements(pack, SCMI_PCC_DESCRIPTOR_COUNT)) {
++			pr_info("Invalid transport properties pkg %u\n", idx);
++			return -EINVAL;
++		}
++		if (acpi_scmi_pkg_u64(pack, SCMI_PCC_DESCRIPTOR_PCCT_INDEX,
++				      &pcc_ss_id) ||
++		    acpi_scmi_pkg_u64(pack, SCMI_PCC_DESCRIPTOR_TRANSPORT_UID,
++				      &uid) ||
++		    acpi_scmi_pkg_u64(pack, SCMI_PCC_DESCRIPTOR_FLAGS, &flags))
++			return -EINVAL;
++		if (pcc_ss_id > INT_MAX ||
++		    flags & ~SCMI_TRANSPORT_FLAGS_MASK)
++			return -EINVAL;
++
++		hash_for_each_possible(map->table, tmp, hnode, uid) {
++			if (tmp->uid == uid) {
++				pr_info("Duplicate UID %llu\n", uid);
++				return -EEXIST;
++			}
++		}
++
++		if (flags & SCMI_TRANSPORT_SHARED_CHANNEL) {
++			if (flags & SCMI_TRANSPORT_P2A_CHANNEL) {
++				if (common_p2a)
++					return -EINVAL;
++				common_p2a = true;
++			} else {
++				if (common_a2p)
++					return -EINVAL;
++				common_a2p = true;
++			}
++		}
++
++		p = kzalloc(sizeof(*p), GFP_KERNEL);
++		if (!p)
++			return -ENOMEM;
++
++		p->uid = uid;
++		p->pcc_ss_id = pcc_ss_id;
++		p->flags = flags;
++		if (p->flags & SCMI_TRANSPORT_SHARED_CHANNEL)
++			p->protocol_id = SCMI_PROTOCOL_BASE;
++
++		hash_add(map->table, &p->hnode, uid);
++	}
++
++	if (!common_a2p)
++		return -EINVAL;
++
++	return 0;
++}
++
++static int
++acpi_scmi_dsd_parse_protocol_subpackage(struct pcc_transport_map *map,
++					const union acpi_object *obj,
++					int prot_id)
++{
++	struct pcc_transport *p;
++	unsigned int pkg_cnt = obj->package.count;
++	bool found, tx_found = false, rx_found = false;
++	u64 uid;
++
++	if (pkg_cnt > SCMI_PROTOCOL_MAX_TRANSPORTS) {
++		pr_warn("Found %u protocol channels, at most %u allowed\n",
++			pkg_cnt, SCMI_PROTOCOL_MAX_TRANSPORTS);
++		return -EINVAL;
++	}
++
++	for (u32 idx = 0; idx < pkg_cnt; idx++) {
++		union acpi_object *pack = &obj->package.elements[idx];
++		u64 flags;
++
++		if (!acpi_scmi_pkg_elements(pack, SCMI_PROTOCOL_TRANSPORT_COUNT) ||
++		    acpi_scmi_pkg_u64(pack, SCMI_PROTOCOL_TRANSPORT_UID, &uid) ||
++		    acpi_scmi_pkg_u64(pack, SCMI_PROTOCOL_TRANSPORT_FLAGS,
++				      &flags))
++			return -EINVAL;
++		if (flags)
++			return -EINVAL;
++
++		found = false;
++		hash_for_each_possible(map->table, p, hnode, uid) {
++			if (p->uid != uid)
++				continue;
++
++			found = true;
++			if (p->flags & SCMI_TRANSPORT_SHARED_CHANNEL) {
++				pr_info("Protocol package references common PCC subspace %u\n",
++					p->pcc_ss_id);
++				return -EINVAL;
++			}
++			if (p->protocol_id && p->protocol_id != prot_id)
++				return -EINVAL;
++
++			if (p->flags & SCMI_TRANSPORT_P2A_CHANNEL) {
++				if (rx_found)
++					return -EINVAL;
++				rx_found = true;
++			} else {
++				if (tx_found)
++					return -EINVAL;
++				tx_found = true;
++			}
++			p->protocol_id = prot_id;
++			break;
++		}
++
++		if (!found)
++			return -ENOENT;
++	}
++
++	return 0;
++}
++
++static int
++acpi_scmi_dsd_parse_protocol_package(struct pcc_transport_map *map,
++				     const union acpi_object *obj, int prot_id)
++{
++	const union acpi_object *elems;
++	const union acpi_object *pack;
++	u64 revision;
++	int ret;
++
++	elems = acpi_scmi_pkg_elements(obj, SCMI_PROTOCOL_PROPERTY_COUNT);
++	if (!elems ||
++	    acpi_scmi_pkg_u64(obj, SCMI_PROTOCOL_PROPERTY_REVISION, &revision))
++		return -EINVAL;
++
++	pack = &elems[SCMI_PROTOCOL_PROPERTY_TRANSPORTS];
++
++	if (revision != SCMI_PROTOCOL_PACKAGE_MAX_VERSION)
++		return -EINVAL;
++
++	if (pack->type != ACPI_TYPE_PACKAGE) {
++		pr_info("Invalid protocol transport package\n");
++		return -EINVAL;
++	}
++
++	/*
++	 * Document 111115A v1.0, Sections 2.2.2.1 and 2.2.3 permit an empty
++	 * protocol transport package when common transport channels exist.
++	 */
++	if (pack->package.count != 0) {
++		ret = acpi_scmi_dsd_parse_protocol_subpackage(map, pack, prot_id);
++		if (ret)
++			return ret;
++	}
++
++	pack = &elems[SCMI_PROTOCOL_PROPERTY_ASSOCIATIONS];
++	if (pack->type != ACPI_TYPE_PACKAGE) {
++		pr_info("Invalid protocol transport association package\n");
++		return -EINVAL;
++	}
++
++	if (pack->package.count != 0) {
++		pr_info("Non-empty association package not supported\n");
++		return -EINVAL;
++	}
++
++	return 0;
++}
++
++/* ACPI SCMI _DSD UUID: "84a2d1c6-86b6-4199-8dac-9c17449d5e03" */
++static const guid_t acpi_scmi_uuid = GUID_INIT(0x84a2d1c6, 0x86b6, 0x4199,
++					       0x8d, 0xac, 0x9c, 0x17,
++					       0x44, 0x9d, 0x5e, 0x03);
++
++static int acpi_scmi_lookup_protocol_id(const char *name)
++{
++	for (size_t i = 0; i < ARRAY_SIZE(scmi_dsd_info_list); i++) {
++		if (!strcmp(name, scmi_dsd_info_list[i].property_name))
++			return scmi_dsd_info_list[i].protocol_id;
++	}
++	return -ENOENT;
++}
++
++static int acpi_scmi_parse_properties(struct pcc_transport_map *map,
++				      const union acpi_object *properties)
++{
++	bool transport_found = false;
++
++	if (properties->type != ACPI_TYPE_PACKAGE)
++		return -EINVAL;
++
++	/*
++	 * Protocol properties reference TransportUIDs declared by the transport
++	 * property. Parse the transport first because _DSD property ordering is
++	 * not defined.
++	 */
++	for (u32 i = 0; i < properties->package.count; i++) {
++		const union acpi_object *v;
++		const char *name;
++		int prot_id, ret;
++
++		ret = acpi_scmi_property(properties, i, &name, &v);
++		if (ret)
++			return ret;
++
++		prot_id = acpi_scmi_lookup_protocol_id(name);
++		if (prot_id < 0)
++			continue;
++		if (prot_id != SCMI_PROTOCOL_BASE)
++			continue;
++		if (v->type != ACPI_TYPE_PACKAGE)
++			return -EINVAL;
++		if (transport_found)
++			return -EEXIST;
++
++		ret = acpi_scmi_dsd_parse_transport_package(map, v);
++		if (ret)
++			return ret;
++		transport_found = true;
++	}
++
++	if (!transport_found)
++		return -ENOENT;
++
++	for (u32 i = 0; i < properties->package.count; i++) {
++		const union acpi_object *v;
++		const char *name;
++		int prot_id, ret;
++
++		ret = acpi_scmi_property(properties, i, &name, &v);
++		if (ret)
++			return ret;
++
++		prot_id = acpi_scmi_lookup_protocol_id(name);
++		if (prot_id < 0 || prot_id == SCMI_PROTOCOL_BASE)
++			continue;
++		if (v->type != ACPI_TYPE_PACKAGE)
++			return -EINVAL;
++
++		ret = acpi_scmi_dsd_parse_protocol_package(map, v, prot_id);
++		if (ret)
++			return ret;
++	}
++
++	return 0;
++}
++
++static int acpi_scmi_namespace_fwnode_parse(struct fwnode_handle *fwnode,
++					    struct pcc_transport_map *map)
++{
++	struct acpi_buffer buf = { ACPI_ALLOCATE_BUFFER, NULL };
++	struct acpi_device *adev = to_acpi_device_node(fwnode);
++	union acpi_object *desc;
++	acpi_status status;
++	int ret = -ENOENT;
++
++	if (!adev || !adev->handle)
++		return -EINVAL;
++
++	status = acpi_evaluate_object_typed(adev->handle, "_DSD", NULL, &buf,
++					    ACPI_TYPE_PACKAGE);
++	if (ACPI_FAILURE(status))
++		return -EINVAL;
++
++	desc = buf.pointer;
++	if (desc->package.count % SCMI_DSD_GUID_ENTRY_COUNT) {
++		ret = -EINVAL;
++		goto out_free;
++	}
++
++	/* Look for the device properties GUID. */
++	for (u32 i = 0; i < desc->package.count;
++	     i += SCMI_DSD_GUID_ENTRY_COUNT) {
++		const union acpi_object *guid;
++		const union acpi_object *properties;
++
++		guid = &desc->package.elements[i];
++		properties = &desc->package.elements[i + 1];
++
++		/*
++		 * The first element must be a GUID and the second one must be
++		 * a package.
++		 */
++		if (guid->type != ACPI_TYPE_BUFFER ||
++		    guid->buffer.length != UUID_SIZE ||
++		    properties->type != ACPI_TYPE_PACKAGE)
++			continue;
++
++		if (!guid_equal((guid_t *)guid->buffer.pointer,
++				&acpi_scmi_uuid))
++			continue;
++
++		ret = acpi_scmi_parse_properties(map, properties);
++		break;
++	}
++
++out_free:
++	ACPI_FREE(buf.pointer);
++	return ret;
++}
++
++static bool
++pcc_transport_map_has_ss_id(struct pcc_transport_map *map, u32 pcc_ss_id)
++{
++	struct pcc_transport *p;
++	int idx;
++
++	hash_for_each(map->table, idx, p, hnode) {
++		if (p->pcc_ss_id == pcc_ss_id)
++			return true;
++	}
++
++	return false;
++}
++
++static int pcc_transport_map_validate(struct pcc_transport_map *map)
++{
++	struct pcc_transport_map *iter;
++	struct pcc_transport *p;
++	int idx;
++
++	list_for_each_entry(iter, &pcc_transport_maps, node) {
++		hash_for_each(map->table, idx, p, hnode) {
++			if (pcc_transport_map_has_ss_id(iter, p->pcc_ss_id))
++				return -EEXIST;
++		}
++	}
++
++	return 0;
++}
++
++static
++struct pcc_transport_map *pcc_transport_map_find(struct fwnode_handle *fwnode)
++{
++	struct pcc_transport_map *map;
++
++	list_for_each_entry(map, &pcc_transport_maps, node) {
++		if (map->fwnode == fwnode)
++			return map;
++	}
++
++	return NULL;
++}
++
++static
++struct pcc_transport_map *pcc_transport_map_get(struct fwnode_handle *fwnode)
++{
++	struct pcc_transport_map *map;
++	int ret;
++
++	map = pcc_transport_map_find(fwnode);
++	if (map)
++		return map;
++
++	map = kzalloc_obj(*map, GFP_KERNEL);
++	if (!map)
++		return ERR_PTR(-ENOMEM);
++
++	hash_init(map->table);
++	ret = acpi_scmi_namespace_fwnode_parse(fwnode, map);
++	if (ret)
++		goto err_free_map;
++
++	ret = pcc_transport_map_validate(map);
++	if (ret)
++		goto err_free_map;
++
++	map->fwnode = fwnode_handle_get(fwnode);
++	list_add_tail(&map->node, &pcc_transport_maps);
++
++	return map;
++
++err_free_map:
++	acpi_scmi_clear_transport_map(map);
++	kfree(map);
++	return ERR_PTR(ret);
++}
++
++static int pcc_transport_map_manage(struct pcc_transport_map *map,
++				    struct device *dev)
++{
++	int ret;
++
++	if (!dev || map->dev == dev)
++		return 0;
++	if (map->dev)
++		return -EBUSY;
++
++	/*
++	 * Release the cached map after the SCMI remove path tears down channels.
++	 */
++	ret = devm_add_action(dev, pcc_transport_map_release, map);
++	if (ret)
++		return ret;
++
++	map->dev = dev;
++
++	return 0;
++}
++
++static int pcc_lookup_ss_id(struct pcc_transport_map *map, u32 prot_id, bool tx)
++{
++	struct pcc_transport *p;
++	int idx;
++
++	hash_for_each(map->table, idx, p, hnode) {
++		if (p->protocol_id != prot_id)
++			continue;
++
++		if ((!tx && (p->flags & SCMI_TRANSPORT_P2A_CHANNEL)) ||
++		    (tx && !(p->flags & SCMI_TRANSPORT_P2A_CHANNEL)))
++			return p->pcc_ss_id;
++	}
++
++	return -ENOENT;
++}
++
++static int pcc_get_ss_id(struct fwnode_handle *fwnode, u32 prot_id, bool tx,
++			 struct device *dev)
++{
++	struct pcc_transport_map *map;
++	int ret;
++
++	if (!fwnode)
++		return -EINVAL;
++
++	guard(mutex)(&pcc_transport_maps_lock);
++	map = pcc_transport_map_get(fwnode);
++	if (IS_ERR(map))
++		return PTR_ERR(map);
++
++	ret = pcc_transport_map_manage(map, dev);
++	if (ret)
++		return ret;
++
++	return pcc_lookup_ss_id(map, prot_id, tx);
++}
++
++static bool
++pcc_chan_available(struct fwnode_handle *fwnode, int prot_id, int idx)
++{
++	return pcc_get_ss_id(fwnode, prot_id, !idx, NULL) >= 0;
++}
++
++static void tx_prepare(struct mbox_client *cl, void *m)
++{
++	struct scmi_pcc *smbox = client_to_scmi_pcc(cl);
++	struct pcc_shared_mem __iomem *shmem = smbox->pchan->shmem;
++	struct scmi_xfer *xfer = m;
++
++	/*
++	 * PCC take cares not to call tx_prepare until last transmit is done.
++	 * Request platform interrupt notification if available.
++	 */
++	if (xfer->tx.buf)
++		memcpy_toio(shmem->msg_payload, xfer->tx.buf, xfer->tx.len);
++	iowrite32(SCMI_PCC_MSG_HEADER_SIZE + xfer->tx.len,
++		  &shmem->header.length);
++	iowrite32(pack_scmi_header(&xfer->hdr), &shmem->header.command);
++	iowrite32(smbox->pchan->mchan->mbox->txdone_irq ?
++		  PCC_CMD_COMPLETION_NOTIFY : 0, &shmem->header.flags);
++}
++
++static void rx_callback(struct mbox_client *cl, void *m)
++{
++	struct scmi_pcc *smbox = client_to_scmi_pcc(cl);
++	struct pcc_shared_mem __iomem *shmem = smbox->pchan->shmem;
++
++	core->rx_callback(smbox->cinfo, ioread32(&shmem->header.command), NULL);
++}
++
++static int pcc_chan_validate_shmem(struct scmi_chan_info *cinfo,
++				   struct scmi_pcc *smbox)
++{
++	if (smbox->pchan->shmem_size < SCMI_PCC_SHMEM_OVERHEAD ||
++	    smbox->pchan->shmem_size - SCMI_PCC_SHMEM_OVERHEAD <
++	    cinfo->max_msg_size) {
++		dev_err(cinfo->dev, "misconfigured SCMI PCC shared memory\n");
++		return -ENOSPC;
++	}
++
++	return 0;
++}
++
++static int pcc_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
++			  bool tx)
++{
++	const char *desc = tx ? "Tx" : "Rx";
++	struct device *cdev = cinfo->dev;
++	struct scmi_pcc *smbox;
++	struct mbox_client *cl;
++	int ret, ss_id;
++
++	smbox = devm_kzalloc(dev, sizeof(*smbox), GFP_KERNEL);
++	if (!smbox)
++		return -ENOMEM;
++
++	cl = &smbox->cl;
++	cl->dev = cdev;
++	cl->tx_prepare = tx ? tx_prepare : NULL;
++	cl->rx_callback = rx_callback;
++	cl->tx_block = false;
++
++	ss_id = pcc_get_ss_id(dev_fwnode(cinfo->dev), cinfo->id, tx, dev);
++	if (ss_id < 0)
++		return ss_id;
++
++	smbox->pchan = pcc_mbox_request_channel(cl, ss_id);
++	if (IS_ERR(smbox->pchan)) {
++		ret = PTR_ERR(smbox->pchan);
++		if (ret != -EPROBE_DEFER)
++			dev_err(cdev,
++				"failed to request SCMI %s mailbox\n", desc);
++		return ret;
++	}
++
++	ret = pcc_chan_validate_shmem(cinfo, smbox);
++	if (ret) {
++		pcc_mbox_free_channel(smbox->pchan);
++		return ret;
++	}
++
++	cinfo->transport_info = smbox;
++	smbox->cinfo = cinfo;
++
++	return 0;
++}
++
++static int pcc_chan_free(int id, void *p, void *data)
++{
++	struct scmi_chan_info *cinfo = p;
++	struct scmi_pcc *smbox = cinfo->transport_info;
++
++	if (!smbox || IS_ERR_OR_NULL(smbox->pchan))
++		return 0;
++
++	pcc_mbox_free_channel(smbox->pchan);
++	cinfo->transport_info = NULL;
++	smbox->pchan = NULL;
++	smbox->cinfo = NULL;
++
++	return 0;
++}
++
++static int
++pcc_send_message(struct scmi_chan_info *cinfo, struct scmi_xfer *xfer)
++{
++	struct scmi_pcc *smbox = cinfo->transport_info;
++	int ret;
++
++	/*
++	 * The mailbox layer has its own queue. However the mailbox queue
++	 * confuses the per message SCMI timeouts since the clock starts when
++	 * the message is submitted into the mailbox queue. So when multiple
++	 * messages are queued up the clock starts on all messages instead of
++	 * only the one inflight.
++	 */
++	ret = mbox_send_message(smbox->pchan->mchan, xfer);
++	/* mbox_send_message returns non-negative value on success */
++	if (ret < 0)
++		return ret;
++
++	return 0;
++}
++
++static void pcc_fetch_response(struct scmi_chan_info *cinfo,
++			       struct scmi_xfer *xfer)
++{
++	struct scmi_pcc *smbox = cinfo->transport_info;
++	struct pcc_shared_mem __iomem *shmem = smbox->pchan->shmem;
++	size_t len = ioread32(&shmem->header.length);
++	size_t payload_len;
++
++	xfer->hdr.status = ioread32(shmem->msg_payload);
++	payload_len = len > SCMI_PCC_RESPONSE_OVERHEAD ?
++		      len - SCMI_PCC_RESPONSE_OVERHEAD : 0;
++	xfer->rx.len = min(xfer->rx.len, payload_len);
++
++	/* msg_payload starts after the header, so skip only the status here. */
++	memcpy_fromio(xfer->rx.buf, shmem->msg_payload + SCMI_PCC_STATUS_SIZE,
++		      xfer->rx.len);
++}
++
++static void pcc_fetch_notification(struct scmi_chan_info *cinfo, size_t max_len,
++				   struct scmi_xfer *xfer)
++{
++	struct scmi_pcc *smbox = cinfo->transport_info;
++	struct pcc_shared_mem __iomem *shmem = smbox->pchan->shmem;
++	size_t len = ioread32(&shmem->header.length);
++	size_t payload_len;
++
++	payload_len = len > SCMI_PCC_MSG_HEADER_SIZE ?
++		      len - SCMI_PCC_MSG_HEADER_SIZE : 0;
++	xfer->rx.len = min(max_len, payload_len);
++	memcpy_fromio(xfer->rx.buf, shmem->msg_payload, xfer->rx.len);
++}
++
++static const struct scmi_transport_ops scmi_pcc_ops = {
++	.chan_available = pcc_chan_available,
++	.chan_setup = pcc_chan_setup,
++	.chan_free = pcc_chan_free,
++	.send_message = pcc_send_message,
++	.fetch_response = pcc_fetch_response,
++	.fetch_notification = pcc_fetch_notification,
++};
++
++static struct scmi_desc scmi_pcc_desc = {
++	.ops = &scmi_pcc_ops,
++	.max_rx_timeout_ms = 30,
++	.max_msg = MBOX_TX_QUEUE_LEN,
++	.max_msg_size = SCMI_SHMEM_MAX_PAYLOAD_SIZE,
++};
++
++static const struct acpi_device_id scmi_acpi_ids[] = {
++	{ .id = "ARML0001" },
++	{ }
++};
++
++MODULE_DEVICE_TABLE(acpi, scmi_acpi_ids);
++
++DEFINE_SCMI_ACPI_TRANSPORT_DRIVER(scmi_pcc, scmi_pcc_driver,
++				  scmi_pcc_desc, scmi_acpi_ids, core);
++
++static int __init scmi_pcc_init(void)
++{
++	return platform_driver_register(&scmi_pcc_driver);
++}
++
++static void __exit scmi_pcc_exit(void)
++{
++	platform_driver_unregister(&scmi_pcc_driver);
++	acpi_scmi_clear_transport_maps();
++}
++module_init(scmi_pcc_init);
++module_exit(scmi_pcc_exit);
++
++MODULE_AUTHOR("Sudeep Holla <sudeep.holla@kernel.org>");
++MODULE_DESCRIPTION("SCMI ACPI PCC Transport driver");
++MODULE_LICENSE("GPL");
+diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
+index 5ab73b1ab9aa..02cf04543151 100644
+--- a/include/linux/scmi_protocol.h
++++ b/include/linux/scmi_protocol.h
+@@ -930,6 +930,7 @@ enum scmi_std_protocol {
+ 	SCMI_PROTOCOL_VOLTAGE = 0x17,
+ 	SCMI_PROTOCOL_POWERCAP = 0x18,
+ 	SCMI_PROTOCOL_PINCTRL = 0x19,
++	SCMI_PROTOCOL_TELEMETRY = 0x1B,
+ };
+ 
+ enum scmi_system_events {
+
+-- 
+2.43.0
+
 
