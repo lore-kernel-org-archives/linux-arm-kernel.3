@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5155EC88E7D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38D53C88E73
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 08:05:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,79 +12,79 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zhuxraLn+BRCMp0d+GHEVuibFLIukV2Tl86N4IJdTu0=; b=aggp5wsFmCLZ6qZfJOv2r/REhf
-	TZyae2RQdM5WwwqWP+OLI4q2ytpETiB+40kpy9CxEM95P7kUIatGWjmNF/VioTk+B+Tm0K9WD3EZh
-	qCnzS7/qJOey27LJxy8o1iizhCu/XrEMuPrxITWOC8DiL5YwVkHxva0dphgokGAvU7vkrHDq8jb7l
-	mf5e4ACqk4McaYqUVgqi9YY+4Lbbw5/nPtihY0Iutf9W4ktu+s/A0tLw77fggShwfi3OEBSq2G8Pb
-	zcBgWxCjs32Yyoq4+sq2Fhn3iTMhCUdM/2O2aY9me3aMt0ee5NvvoSXIzA6w29GVsoGk+QiWVdeRd
-	m5741YvQ==;
+	bh=71D314ftdlfb4St+4Xu8DWbrNAQlQ6pwzo/wolPd+lI=; b=n4vSkfe7u5L3nvFYxSEeuvow2x
+	Sh82krKhh9YNbtiBo0Ulmacu4wxkjLCB8TDb7XHem3X/PpwEvV+IT+7ktUS2hD505ajLnhwfWomCq
+	0CUpeLPPW/4t+ShhTE55crZY2GlyGIMhRV3Raj7SXWeAstiSNCi+emRUNsGU+TtLao6G6GNVYzc/T
+	xmhJ4laQ+3k1e+jTM/iuRCma8IkotTHH9JT+a6Gk9mkbmP94HkvheCXI5jW6w3/O15zQpRXesvkjc
+	/Z1LyHexHFpGCDWVa93p/KnXigvEUvXNzHpY3+9gPTjrRrh3XUxvDae1smks5clOdooziNuqgjh++
+	7sNhiZsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6OAH-00000005ZMM-0Cjl;
-	Tue, 15 Sep 2026 08:05:17 +0000
+	id 1x6OAG-00000005ZM0-3yEi;
+	Tue, 15 Sep 2026 08:05:16 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6OAB-00000005ZKE-43Wc
+	id 1x6OAB-00000005ZKD-3hQD
 	for linux-arm-kernel@bombadil.infradead.org;
 	Tue, 15 Sep 2026 08:05:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=zhuxraLn+BRCMp0d+GHEVuibFLIukV2Tl86N4IJdTu0=; b=EgDx/+GzYPWYHLGF3CBH6H3uAM
-	Nc0hyFNRwWAq7sAz6Y4wrYFKZwbG+6lNgGnV5G24lL6OU7bqstSdKHcrV0CbhKLhtvLOoDkA7y+rM
-	b4LTwabcloZJGzi41KB8udrDVyQJOs9RWC39ttoL5VLysRnOwk3qTRHrVDMq11pl8SRjLxE0mfKSs
-	RxzXFJ65x3hlP6Yt6kVs1xeLYle8Oa6I9EwhgE+fJP68jYxfcxcDUhF0N/qDdMduDy+EIN9En/qp9
-	4UUrNSOs7w/aiRCJDdh/nZs3YLy7xMuSzOZBwnFnFUJkcBW81PEDBHE452IrlAfxHh0LeIbRWi+sH
-	kOmFIySg==;
+	bh=71D314ftdlfb4St+4Xu8DWbrNAQlQ6pwzo/wolPd+lI=; b=UJQ314ISZGfaqxvXMm0Wcwo59z
+	jgmV1QJTy7T4gnu0g7M0r/koYvEoNQdbNnwChAl8Y6Aqq0LaFFY0MUvdrsWk4nq+GhfrKiXjfE0El
+	v18pm/kR3qqxD6Q0+fOWDuVz9pqJKg+Ae7ZtCjZJkFRBRB3Tt6vZX83MZ/vn89tBp18vlpghrW5QG
+	UDtM0+AJMKVu8/UsUqOQFiWEi9cl366wzPNKF1PSuIOSRzNtGqrk5eIAOJSJMq8ILKSBaC83+DajC
+	SOB8jCTKLYR17KzyUE1RymHCER/QgJQm//K2v+A5Zjx0PqGr+Yl1QvJGFsagvCfRA7R2rzVciVepT
+	XcoeD7bA==;
 Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6OA8-00000006PQh-1fjL
+	id 1x6OA6-00000006PQ8-3w6X
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 15 Sep 2026 08:05:10 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49b965f447cso23113325e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 01:05:08 -0700 (PDT)
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49d1fb0cf5eso23252855e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 01:05:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789459507; x=1790064307; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1789459505; x=1790064305; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=zhuxraLn+BRCMp0d+GHEVuibFLIukV2Tl86N4IJdTu0=;
-        b=roHAN1d0sJdv6odgmXR7HltF4LGdKR44OTboQFW+fcD/3GDZa7GRoEmVi0QHR1/hJL
-         Q4CPjjP8ODsQOK8nkpB2PaRyfw9ioOCiQx6OrKCHqfG5eOJO4iVnKgxdi1fC0+mq43Au
-         afhgTkVWgzeLozk+15tbpXk4Cyio7P4Gx3w4wira4kmPnej9fv765P6EG31j1tkqtTee
-         /ReMYPGSIEhRl05m5UIZFD40xAE9wV+BpwkqlB+/lQujEPhJiztZ3Of7U+Gqu82RBpZv
-         9hvcGszjUw9l80SCTf/5n5opGfga4MmPvAUtT1s2oEhzeZNwil5bCYtLO3gqOaoBgLRl
-         XrmQ==
+        bh=71D314ftdlfb4St+4Xu8DWbrNAQlQ6pwzo/wolPd+lI=;
+        b=Sc5/0Pisz2Hm5wXTBSOHgwHa2j0UizWS/CEEKvxAD2jKX3RoKai1MvGs+AaNjDcNA3
+         nG7Q7MFBE+OcX6lfc4mJHRW74L7uvYtbcNNnHLnIeSROLG5s0QIzKJRKznybq09H3vgK
+         fEXjafIDaQw2gXLXg7jO0t0f4kB+jZh4mQjgsU2TVZ0L2utbA24wVRUvaWbPw3g7R8An
+         kPIfZC5MFqitHwZ+/r5il8iD1mQM9Sx3o+oU0tTSrVUUVRm27W3vFnMbXw4qYL7FlMjo
+         rnyPc7uOaFlY02TEfhPFQmWL12KYUAhT8AEjcbq2mNeFzJDqFxvRhBjz16yOaDAAPoBZ
+         0myA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789459507; x=1790064307;
+        d=1e100.net; s=20260707; t=1789459505; x=1790064305;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=zhuxraLn+BRCMp0d+GHEVuibFLIukV2Tl86N4IJdTu0=;
-        b=CGdrXp8NfjzhPqdNdMFEynOBYBGvaPe9xOgf6sMYTegXBPkNYzBIX86A7+KDO9fosF
-         lZjvjv5hFJ/DIG7WAo9yG5smPDJNNaxUBm5u69qPlfGFvf1/WLv4MGA/lcQkWI5J/hpK
-         lf0OeOQ3k/4aPD8Ytv4n69vm4EbgvKTGpnZStSU270U//yQYBZNJFx0F0AjlUcM0JfFU
-         61H1Bkxhr5YO0zRO4eFE4iTLWtyD7/KgXXrTMG77pUuskRXi3S4CNRPuY0NtEo6N9qSZ
-         9nJ7EqtM1Dnj9qtdYtSJR5q9qVgmQBIytjnm7Qlwiwd/sVq456lJt9ICpsS/2Y5BnTcU
-         c6zQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzqJgtWk/P974uPW0kZsNHmzOsFog+8fVehrblYZaA058fDuN5CnZyvU5ltIH8ZXzoUPvbJwjh5dqkJr7On4G1H@lists.infradead.org
-X-Gm-Message-State: AFuF++kA9Wy8wSOlp9JxDTqOYMBzNwswJT8P8uqr2oE6PCMF6Zqu8LB+
-	dYwtUQjeIucTo0ReVcvHOyDIMR00IUjQWc1RemBc7XOtgPw6A2lFhWxO
-X-Gm-Gg: AYBFou15pwWa+9mKMzdZr7MpfgXN8BMxE1v2WI3SgB8GXVO2ZkSuef2XROHV0xfWW94
-	EtsXzo6h/Rl92eczWlBY/yyhati3lj6m08jG2bqGVNl0U6EvowXDfEzXnnW0kgo0numNja++syw
-	ElI6nHZS9arQE3Um6EMTCMwGiclSlBqSiGP578DJckHDR4otFnZZ9yBtEhfV35q2Z1wDG/phkwh
-	nQnaPdgiQrJBPbOhvJ2qaw6gF7PzeWLyOwNRgI9tbtVSWYK1RogbXYU/FAd0Ma6mJj2jOKwEo8L
-	h0+gazThw0WpkA3Z3SZC1UplpUbUdBIW34zwB2c9k7xmU6LgUG7eUrocjaDj8eTIId6FbmibD/j
-	kVIx36HNOztdLWJwEM+T5b9Lx9mj9JRKxPVaG+WbRLhdI0Vg6E5cdA2A8ommg8ZoFZyYdy+WGEG
-	mSp1Mx/DCtKPAXoawf4Aa/d+tgAxiYrCG/CtRUE5hiU8pRz1rmzVPkd8fcSYUxmAXT73U1cIUU9
-	mQJ
-X-Received: by 2002:a05:600c:860b:b0:49c:dadb:18a7 with SMTP id 5b1f17b1804b1-49e7a6489bemr67096545e9.10.1789459507015;
-        Tue, 15 Sep 2026 01:05:07 -0700 (PDT)
+        bh=71D314ftdlfb4St+4Xu8DWbrNAQlQ6pwzo/wolPd+lI=;
+        b=ealfCkvDpxEc/s7rzZijHdn2HVGxuz1p1XHo5oAO3ARmNpQjpdRnIC7IsqkQfj45Bc
+         My0vj6p+aFSH/0jjS1BkoJ0N1EO0kioCIr2fXmmjbFNjMHp9SPrC1cxB8dyMkz3VQvD/
+         dE/c0wKkBBK7tMasybj98sv9HO0Wk0RAV707MZpRiPQrOr4E5wdamGooie8HWm5lqwjV
+         yiQVpWdtT+Pq7mKdNMmOPHDnag0K6VoHitsOdktcfMYIa+XDmUBAwlV+2WrjGNmdmVff
+         EiAMYYiRG/pwFluOpcYlAhl0eluiZdI3q3p0f8nnHOd1RBAxQ+YeWIy8IKFeqI97ARP1
+         2vmg==
+X-Forwarded-Encrypted: i=1; AKwUvBydxvulYW3H2aa3EWqE6NXStJjgHKIm4g3qrgSwRVfxKw1t1jG6NM9VobYVbznTMYN3DqjKTS8yK8/WbF7nDno6@lists.infradead.org
+X-Gm-Message-State: AFuF++mBp0b7iZpMxSlvb3uaU5iEMEoQOo18osppPL86/CseLobTNMiB
+	qVPm4Xlej/by2RO/mTYwkRG0RbqePDiQk2Mx9aVin+lqzcOOyTBiUIAR
+X-Gm-Gg: AYBFou2PkFhIbGZaVrb/1U4ECMNiceQLJL/33tYk5SD0Kra9Sqf4FwAB02O1A1NWREW
+	n338VzEy0886IX6JLSszTxAyPDesT/g+qzB9XXGtNRFLdOcDrWfuS7EOe5/iEDeEYMT6PoOJ9Mi
+	y7hz5e1PF2CGb+jKvbfOpyQiK8ctaZJ1BIHRihjQ8Fj7a5OdsgtGsvksRWaCfoTzfiLe4cjT00N
+	Fij5Znm+FfDQNZT1KVVJi/obULjSHCl4e+diavO5Zd8DO0ufbZx0y/kSgzhOMfpALmt8GOnkb/y
+	KHxPsSMhp+I/33Uj7DelJ1Qex6HWLQ4c0cYcuRRg8ryY8yCkyW/xg6iAAVlmKXHnYPzSRhP2HgI
+	sbTZGkrQpcVr2FhZnDQQn3ZvBq5IfxQPeoomDeDfuyspM3CUUP27zktx2Qwsdd7XUAWBo2YKGJR
+	3UiX91QivLPHCnY+qYmSSs0TMoqCE9ijTE2oRCu7gZj4o04jB/UnF7HLt3f8xPhvwJbTmccFk83
+	5JwtKoJ+8W1NkM=
+X-Received: by 2002:a05:600c:1909:b0:49c:f89b:f82 with SMTP id 5b1f17b1804b1-49e7a677ab1mr118558985e9.12.1789459504354;
+        Tue, 15 Sep 2026 01:05:04 -0700 (PDT)
 Received: from deb05.proceq.com ([213.160.61.66])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e7d27315csm48588365e9.2.2026.09.15.01.05.06
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e7d27315csm48588365e9.2.2026.09.15.01.05.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Sep 2026 01:05:06 -0700 (PDT)
+        Tue, 15 Sep 2026 01:05:03 -0700 (PDT)
 From: Mehmet Fide <mehmet.fide@gmail.com>
 To: Bartosz Golaszewski <brgl@kernel.org>,
 	Linus Walleij <linusw@kernel.org>
@@ -100,17 +100,17 @@ Cc: Haibo Chen <haibo.chen@nxp.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Mehmet Fide <mehmet.fide@screeningeagle.com>
-Subject: [PATCH v6 3/4] gpiolib: add get_config() and gpiochip_generic_get_config()
-Date: Tue, 15 Sep 2026 10:05:00 +0200
-Message-ID: <20260915080501.329424-4-mehmet.fide@gmail.com>
+Subject: [PATCH v6 1/4] pinctrl: make the CONFIG_PINCTRL=n gpio config stubs return -ENOTSUPP
+Date: Tue, 15 Sep 2026 10:04:58 +0200
+Message-ID: <20260915080501.329424-2-mehmet.fide@gmail.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260915080501.329424-1-mehmet.fide@gmail.com>
 References: <20260915080501.329424-1-mehmet.fide@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_090508_792446_9345AE5F 
-X-CRM114-Status: GOOD (  17.94  )
+X-CRM114-CacheID: sfid-20260915_090507_364711_B7513E4F 
+X-CRM114-Status: GOOD (  14.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,113 +127,48 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Mehmet Fide <mehmet.fide@screeningeagle.com>
 
-A chip with a pin control backend sets a line's configuration through
-set_config() and gpiochip_generic_config(), but has no way to read one
-back. gpio-mmio needs that to learn the direction of a line whose
-direction lives in the pin controller.
+With CONFIG_PINCTRL=n, pinctrl_gpio_get_config() and
+pinctrl_gpio_set_config() are stubs that return 0. The getter reports
+success without touching the config it was asked to fill, so a caller
+reads the packed parameter it passed in back as if it were the pin's
+state; the setter reports success for a configuration nobody applied.
 
-Add the optional get_config() callback, taking the packed parameter to
-query and returning its bare argument the way pinctrl_gpio_get_config()
-does, and gpiochip_generic_get_config() as the pin control backed
-implementation, the mirror of gpiochip_generic_config(): a chip without
-pin ranges, or a kernel without pinctrl, gets -ENOTSUPP.
+With CONFIG_PINCTRL=y the same callers already get -ENOTSUPP from
+gpiochip_generic_config() and gpiochip_generic_get_config() for a chip
+without pin ranges, and gpiolib treats that value as "the backend cannot
+do this" and carries on. Return it from the stubs too, so a kernel
+without pinctrl behaves like a chip without pin ranges instead of
+claiming success.
 
-Nothing in gpiolib calls get_config() and there is no consumer API; it
-is for the chip's own use.
-
-Suggested-by: Linus Walleij <linusw@kernel.org>
+Suggested-by: Haibo Chen <haibo.chen@nxp.com>
 Signed-off-by: Mehmet Fide <mehmet.fide@screeningeagle.com>
-Reviewed-by: Linus Walleij <linusw@kernel.org>
 ---
- Documentation/driver-api/gpio/driver.rst |  7 +++++++
- drivers/gpio/gpiolib.c                   | 21 +++++++++++++++++++++
- include/linux/gpio/driver.h              |  9 +++++++++
- 3 files changed, 37 insertions(+)
+ include/linux/pinctrl/consumer.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/driver-api/gpio/driver.rst b/Documentation/driver-api/gpio/driver.rst
-index a4f160b95089..3e53374c7e9f 100644
---- a/Documentation/driver-api/gpio/driver.rst
-+++ b/Documentation/driver-api/gpio/driver.rst
-@@ -134,6 +134,13 @@ ending up in the pin control back-end "behind" the GPIO controller, usually
- closer to the actual pins. This way the pin controller can manage the below
- listed GPIO configurations.
- 
-+The optional .get_config() callback reads a configuration back: the packed
-+parameter to query goes in, its bare argument comes out, the way
-+pinctrl_gpio_get_config() answers. gpiochip_generic_get_config() is its pin
-+control backed counterpart. Nothing in gpiolib calls it; it is for the GPIO
-+driver's own use, for example to learn the direction of a line when the pin
-+controller owns it.
-+
- If a pin controller back-end is used, the GPIO controller or hardware
- description needs to provide "GPIO ranges" mapping the GPIO line offsets to pin
- numbers on the pin controller so they can properly cross-reference each other.
-diff --git a/drivers/gpio/gpiolib.c b/drivers/gpio/gpiolib.c
-index ef8ccaf17c9c..0586fc1f9564 100644
---- a/drivers/gpio/gpiolib.c
-+++ b/drivers/gpio/gpiolib.c
-@@ -2440,6 +2440,27 @@ int gpiochip_generic_config(struct gpio_chip *gc, unsigned int offset,
+diff --git a/include/linux/pinctrl/consumer.h b/include/linux/pinctrl/consumer.h
+index 11b8f0b8da0c..7be49d447426 100644
+--- a/include/linux/pinctrl/consumer.h
++++ b/include/linux/pinctrl/consumer.h
+@@ -107,14 +107,14 @@ static inline int
+ pinctrl_gpio_get_config(struct gpio_chip *gc, unsigned int offset,
+ 			unsigned long *config)
+ {
+-	return 0;
++	return -ENOTSUPP;
  }
- EXPORT_SYMBOL_GPL(gpiochip_generic_config);
  
-+/**
-+ * gpiochip_generic_get_config() - read back the configuration of a pin
-+ * @gc: the gpiochip owning the GPIO
-+ * @offset: the offset of the GPIO to query
-+ * @config: the packed parameter to query, replaced by its bare argument
-+ *
-+ * Returns:
-+ * 0 on success, or negative errno on failure.
-+ */
-+int gpiochip_generic_get_config(struct gpio_chip *gc, unsigned int offset,
-+				unsigned long *config)
-+{
-+#ifdef CONFIG_PINCTRL
-+	if (list_empty(&gc->gpiodev->pin_ranges))
-+		return -ENOTSUPP;
-+#endif
-+
-+	return pinctrl_gpio_get_config(gc, offset, config);
-+}
-+EXPORT_SYMBOL_GPL(gpiochip_generic_get_config);
-+
- #ifdef CONFIG_PINCTRL
+ static inline int
+ pinctrl_gpio_set_config(struct gpio_chip *gc, unsigned int offset,
+ 			    unsigned long config)
+ {
+-	return 0;
++	return -ENOTSUPP;
+ }
  
- /**
-diff --git a/include/linux/gpio/driver.h b/include/linux/gpio/driver.h
-index 17511434ed07..4077dc678cae 100644
---- a/include/linux/gpio/driver.h
-+++ b/include/linux/gpio/driver.h
-@@ -359,6 +359,10 @@ struct gpio_irq_chip {
-  * @set_config: optional hook for all kinds of settings. Uses the same
-  *	packed config format as generic pinconf. Must return 0 on success and
-  *	a negative error number on failure.
-+ * @get_config: optional hook to read back a setting. Takes the packed
-+ *	generic pinconf parameter to query and returns its bare argument in
-+ *	the same variable, like pinctrl_gpio_get_config(). Must return 0 on
-+ *	success and a negative error number on failure.
-  * @to_irq: optional hook supporting non-static gpiod_to_irq() mappings;
-  *	implementation may not sleep
-  * @dbg_show: optional routine to show contents in debugfs; default code
-@@ -434,6 +438,9 @@ struct gpio_chip {
- 	int			(*set_config)(struct gpio_chip *gc,
- 					      unsigned int offset,
- 					      unsigned long config);
-+	int			(*get_config)(struct gpio_chip *gc,
-+					      unsigned int offset,
-+					      unsigned long *config);
- 	int			(*to_irq)(struct gpio_chip *gc,
- 						unsigned int offset);
- 
-@@ -708,6 +715,8 @@ int gpiochip_generic_request(struct gpio_chip *gc, unsigned int offset);
- void gpiochip_generic_free(struct gpio_chip *gc, unsigned int offset);
- int gpiochip_generic_config(struct gpio_chip *gc, unsigned int offset,
- 			    unsigned long config);
-+int gpiochip_generic_get_config(struct gpio_chip *gc, unsigned int offset,
-+				unsigned long *config);
- 
- /**
-  * struct gpio_pin_range - pin range controlled by a gpio chip
+ static inline struct pinctrl * __must_check pinctrl_get(struct device *dev)
+
+base-commit: 7257c35db0fdb4fb02d857a8197a16afa84d92c0
 -- 
 2.55.0
 
