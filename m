@@ -4,84 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0F58C88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 10:51:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF165C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 10:52:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=FL+6HXbWXh+iDk/TrAVnA6F0WnMwzZyRgHabDYWNTs4=; b=ZFl1wqEtF2auz7R7FhC5enwgaL
-	GuAJ/UUSomc2sKF1NWj8PN5KQZJ99BcwuabmOX6U4jkIDpIZuCgcrtzkeX9Pdw3MZIkPeavhtVgXG
-	5qSFSVWwVppW4gpooSFr+vK0venMSmAbuNF781ZVxqpJgWz8u3eID3PP+kIVPLDui0HvMa+MH/GRR
-	auK/kT+UBn6FTvezW1JkEILjnxwSEoXfVlbOo6gcuSIbR9LqQ6H3D5ZDD2cm9+B8yKsX1pl8WV3xq
-	uMD5LHrSVNBe+wDgPCBeY+PnSSSsp6RfFj0kI3Z51/lWeQXnp0sQIrX5VNyW9riMwvm9aCVtYofSl
-	VbAETdpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hX3go3nmGIEUWT44+c5nJraekgv5jQqXipKR4TJmW1U=; b=azNe6WT2YvncudcCKgEXUPyv7E
+	LuGH+EKQvZjVNBenukxDcnCl1DCp5EMMPUwbP+GZWCM9juguHHuGb/NCjsKZEGQj4b1Q3082Yj6zw
+	3dumk+Oxh7d72RC7xdf5a/Go61GjTdwNK0yqEizf3okSRzgY/ZCE1s0fWmCrkIWbXW6S1DpjtA2Pb
+	QV+wpLknvmjf48QEak8ctMP9I5vY+hfd2Y5zZz45arWZIt4j7eJkqMZl5/Lbg8fkYBbpGYBLK0Rot
+	m8eZ7a6qc1dZZbuhdMDmk7MUZHmv8Cc3PgtYqCe3AyPRYl6bYUwvEDVJHtGaHDAjfVEcK6V4l605E
+	kLws3vwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Ql4-0000000613A-1p8E;
-	Tue, 15 Sep 2026 10:51:26 +0000
-Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
+	id 1x6Qm9-000000061Cg-2axY;
+	Tue, 15 Sep 2026 10:52:33 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Qkz-00000006125-2r0g
+	id 1x6Qm4-000000061C4-2hc6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 10:51:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
-	bh=FL+6HXbWXh+iDk/TrAVnA6F0WnMwzZyRgHabDYWNTs4=; b=OJlYNW0CUWdE0HaXJoqLHvtXpg
-	VwYxLEa3cDkCFrWKlmxtWY5hFQ7dAlUbWKA9T59NSfa0nBuESAAKp0TGDgEYJcylXdKyI87/wDKrN
-	FxNieQTktRsprYKWBNGLYFphw7nKYyfuvAs7cEKJKqGcNQGUgo9xXCqLEuPiLmxhv1z3vkTWuiKUI
-	FCx9XFnYgZKaovH0Z+nwv6WRTXOnVN7DjEBymKsKn267KKnOsipeMexeqh1T7z662Rf8r5hnraG3Y
-	Ej1xcTRG9JMh4mZVFKD27kuy5EZvnBRY/RO+bzR3bP9Cej8bg0fzMVTvUeb71KbFyGLmFNkugD3m/
-	kA3z5zPQ==;
-Received: from authenticated-user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.96)
-	(envelope-from <leitao@debian.org>)
-	id 1x6Qkn-004L4t-0C;
-	Tue, 15 Sep 2026 10:51:10 +0000
-From: Breno Leitao <leitao@debian.org>
-Date: Tue, 15 Sep 2026 03:51:05 -0700
-Subject: [PATCH v2] arm64/sve: Don't zero the SVE state buffer when the SVE
- state is live
+	Tue, 15 Sep 2026 10:52:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1789469548; x=1821005548;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=HtFG603PXEqzpj0QOJ8wws45R27BlfrhSLuLOWM0nJI=;
+  b=gwuYddms/CinuLSHvTQU3X2dLud2UDIHGwT6IhXWIe4UOxB7U0/N8RzS
+   8lgthqFRcIiJcBunEWNQNdY0kqbXJhR5WeTEIVQOMt85WCpseifr1KfIp
+   eK0G0ifaVt/T2cSz9cWx4ceGkVKcIAR31p28nccNxQ4fWzbObeG9qBiUx
+   1n10v/zwDSPuZQ+BLLBBH/yVJUr1/ObuDqvjjC06BLNPm5mAgi6N1J19/
+   fxrQbi14D1n/yZXb4qG5avG1n9Na+NePI458Md3iFWpcOFOXUHFeOItli
+   ysksuJG0IlMG3WZibDchmoyRQMYRLY7BBj7lrx0wg5wHwlxjfhEdOSPOQ
+   g==;
+X-CSE-ConnectionGUID: txDYYXqPRfKs/UNfmy8rBw==
+X-CSE-MsgGUID: 0HDZTiWpRQ+4dp5SFWUfYQ==
+X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
+   d="scan'208";a="73639701"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Sep 2026 03:52:26 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.87.152) by
+ chn-vm-ex1.mchp-main.com (10.10.87.30) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.45; Tue, 15 Sep 2026 03:52:26 -0700
+Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Tue, 15 Sep 2026 03:52:22 -0700
+Date: Tue, 15 Sep 2026 12:52:21 +0200
+From: Daniel Machon <daniel.machon@microchip.com>
+To: <netdev-bot+sashiko@kernel.org>
+CC: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
+	<kuba@kernel.org>, <pabeni@redhat.com>, <horatiu.vultur@microchip.com>,
+	<steen.hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>,
+	<ast@kernel.org>, <daniel@iogearbox.net>, <hawk@kernel.org>,
+	<john.fastabend@gmail.com>, <sdf@fomichev.me>, <herve.codina@bootlin.com>,
+	<arnd@arndb.de>, <gregkh@linuxfoundation.org>, <mohsin.bashr@gmail.com>,
+	<richardcochran@gmail.com>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <bpf@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH net-next v6 14/14] misc: lan966x-pci: dts: add fdma
+ interrupt to overlay
+Message-ID: <20260915105221.dn7xpsizv4o7xhg4@DEN-DL-M70577.microsemi.net>
+References: <20260909-lan966x-pci-fdma-v6-14-6f48dab9d671@microchip.com>
+ <178904555475.219967.711870735307370384@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260915-b4-arm64-sve-acc-memset-v2-1-14b7ab9c71bd@debian.org>
-X-B4-Tracking: v=1; b=H4sIABgjqWoC/3WNQQ6CMBBFr0Jm7RhaShFX3sOwKGWEMYGaFhsN4
- e4WjEuXL/n/vQUCeaYA52wBT5EDuymBPGRgBzP1hNwlBplLnddCYKvQ+FErDJHQWIsjjYFmLJQ
- sTVfq6lRWkN4PTzd+7eZr8+XwbO9k5023LQYOs/PvPR3FtvtV1N9KFCgwNbQmpWRRF5eOWjbT0
- fkemnVdP8JYmyHRAAAA
-X-Change-ID: 20260911-b4-arm64-sve-acc-memset-3425ad567857
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>
-Cc: rmikey@meta.com, kas@kernel.org, usama.arif@linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- kernel-team@meta.com, Breno Leitao <leitao@debian.org>
-X-Mailer: b4 0.15-dev-47773
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2475; i=leitao@debian.org;
- h=from:subject:message-id; bh=trxelnov8Sfi++Tk3mF45/JptIEUcraXfpyfn0BOGpw=;
- b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBqqSMa8G3X4zFwpaQAvP0/Q7gLylF9LFvpaIDUa
- 7KKxnIpAoqJAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCaqkjGgAKCRA1o5Of/Hh3
- bTPGEACUE2a2Mk3/AxEpkD8NXuS3g15y/3zI6EvkIj5zScREazsHzBHwV4e/RNmYDx1xlXi6rQE
- P9ide2CqjLlQjZUWFQXp3e/kInnutEckmEoXMWRpgtHi9NalpXmwLK1h+Xn+oLCZ/YwdjBRpWQG
- OLQiXyqu7HbHkQlsSE9zanIdTqVBlOFZE6N8dt9I9tgPW/1M9WLUfG0FQHs+QFF17k2yZMFVRdz
- qqidHHuofHpCohr43jdkgP1mcFAE9W/WUzCoi8xVXi1zlZEw5MTNHOwaTwePf0trRwlBbTf6F7L
- VQ9Q2st2Q9lClMUWtRTVY+B4O0+bQxUC+s77jsR4dRsJ1TMGQx99VLFSY9Z21ec5TeKpU3KXlLg
- 327S/bF9f/3aBkAZDrMFbdN5lMb4kR2GS3L/Jg+siIbHH45UfEE4suV/mGxEfANRrry5ipMkXvg
- Ehs712x6gru4HgMpSlC4lcWp3eJfwEitBNjyFAQASaPXzrQcFuzWeNroT10JjsEE/QKASFGGkRE
- h7N2yvw73YR+ia2VzlqKRJszQQCCJXkLA3QZaAZAStHlpPjvcIvESbtu/2orrgLghjYfbPQtpwQ
- mluUQGB9oSWv8fg+iQGGaDpIuFNZDGz3ONFF4tY6f305W8dY2WsZGgtaWOhfXGx2Pwl93hAUEes
- UAwGm384dbH852g==
-X-Developer-Key: i=leitao@debian.org; a=openpgp;
- fpr=AC8539A6E8F46702CA4A439B35A3939FFC78776D
-X-Debian-User: leitao
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <178904555475.219967.711870735307370384@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_035121_735054_C651D9BC 
-X-CRM114-Status: GOOD (  13.59  )
+X-CRM114-CacheID: sfid-20260915_035229_697863_DC00BACB 
+X-CRM114-Status: GOOD (  32.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,70 +93,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently do_sve_acc() always zeroes current->thread.sve_state. This is
-not necessary in the common case, and avoiding the zeroing has a
-measurable impact on some benchmarks.
+> Thank you for your contribution! Sashiko AI review found 1 potential
+> issue(s) to consider:
+> 
+> Critical: 0 � High: 0 � Medium: 1 � Low: 0
+> 
+> - [Medium] The FDMA interrupt is hooked up (and thereby unmasked in the
+>   OIC) long before any FDMA state exists.
+> 
+> --
+> 
+> misc: lan966x-pci: dts: add fdma interrupt to overlay
+> 
+> This adds OIC interrupt 14 as the "fdma" named interrupt to the lan966x
+> PCI device tree overlay, so FDMA-based injection/extraction can be used
+> when the switch is reached over PCIe.
+> 
+> > diff --git a/drivers/misc/lan966x_pci.dtso b/drivers/misc/lan966x_pci.dtso
+> > index 7bb726550caf..5bb12dbc0843 100644
+> > --- a/drivers/misc/lan966x_pci.dtso
+> > +++ b/drivers/misc/lan966x_pci.dtso
+> > @@ -141,8 +141,9 @@ switch: switch@e0000000 {
+> >
+> >                                       interrupt-parent = <&oic>;
+> >                                       interrupts = <12 IRQ_TYPE_LEVEL_HIGH>,
+> > +                                                  <14 IRQ_TYPE_LEVEL_HIGH>,
+> >                                                    <9 IRQ_TYPE_LEVEL_HIGH>;
+> > -                                     interrupt-names = "xtr", "ana";
+> > +                                     interrupt-names = "xtr", "fdma", "ana";
+> 
+> [Severity: Medium]
+> With source 14 now named "fdma", platform_get_irq_byname(pdev, "fdma")
+> starts succeeding on the PCIe path, and lan966x_probe() requests the
+> handler right there:
+> 
+> drivers/net/ethernet/microchip/lan966x/lan966x_main.c:lan966x_probe() {
+>         lan966x->fdma_irq = platform_get_irq_byname(pdev, "fdma");
+>         if (lan966x->fdma_irq > 0) {
+>                 err = devm_request_irq(&pdev->dev, lan966x->fdma_irq,
+>                                        lan966x_fdma_irq_handler, 0,
+>                                        "fdma irq", lan966x);
+>                 ...
+>                 lan966x->fdma = true;
+>         }
+> }
+> 
+> Is this ordering safe?  The OIC maps and unmasks source 14 at
+> devm_request_irq() time, but at that point no FDMA state exists yet:
+> 
+> - netif_napi_add()/napi_enable() only run later, from
+>   lan966x_port_init() -> lan966x_fdma_netdev_init() in the per-port
+>   probe loop, so lan966x->napi is still the zeroed devm_kzalloc()
+>   memory and napi.poll is NULL.
+> 
+> - the DCB rings, the LLP/ATU windows and the FDMA_CTRL NRESET pulse are
+>   all done even later, from lan966x->ops->fdma_init() ->
+>   lan966x_fdma_pci_init().
+> 
+> If the OIC delivers an FDMA interrupt in that window, the handler
+> schedules NAPI unconditionally:
+> 
+> drivers/net/ethernet/microchip/lan966x/lan966x_fdma.c:lan966x_fdma_irq_handler() {
+>         db = lan_rd(lan966x, FDMA_INTR_DB);
+>         err = lan_rd(lan966x, FDMA_INTR_ERR);
+> 
+>         if (db) {
+>                 lan_wr(0, lan966x, FDMA_INTR_DB_ENA);
+>                 lan_wr(db, lan966x, FDMA_INTR_DB);
+> 
+>                 napi_schedule(&lan966x->napi);
+>         }
+> }
+> 
+> Can this then oops in __napi_poll(), either calling n->poll() while it
+> is still NULL, or running lan966x_fdma_pci_napi_poll() against
+> rx->fdma.dcbs == NULL and n_dcbs == 0, where fdma_has_frames() ->
+> fdma_db_get() dereferences the dcbs array?
+> 
+> How reachable is that window in practice?  The series itself describes
+> the card arriving with FDMA state from a previous boot.  The commit
+> "net: lan966x: clear FDMA interrupt stickies after switch reset" says
+> the stickies "sit in FDMA_INTR_ERR until the FDMA IRQ is requested later
+> in probe, at which point the handler fires immediately and WARNs", and
+> "net: lan966x: add shutdown callback to stop FDMA on reboot" says that
+> on the endpoint "channels stay active and interrupt sources stay armed
+> across the reset" and that "FDMA_INTR_ENA persists on the card across a
+> warm reboot".
+> 
+> The sticky clear in lan966x_reset_switch() clears the latched bits at
+> one instant, but does not mask FDMA_INTR_ENA/FDMA_INTR_DB_ENA and does
+> not stop the channels.  After a reboot that skips device_shutdown()
+> (panic reboot, kexec/kdump, watchdog warm reset with the card still
+> powered), could a still-active channel latch FDMA_INTR_DB again after
+> the clear and have it delivered as soon as source 14 is unmasked?
+> 
+> Would it be more robust to reset and mask the FDMA block (the
+> FDMA_CTRL NRESET pulse that already exists in lan966x_fdma_pci_init(),
+> plus clearing FDMA_INTR_ENA/FDMA_INTR_DB_ENA) before
+> devm_request_irq(), or to request the FDMA IRQ only after fdma_init()
+> has built the rings and added the NAPI instance?
+> 
 
-In the common case where the task is not preempted and its state is not
-altered by a tracer, do_sve_acc() will observe that TIF_FOREIGN_FPSTATE
-is clear. In such cases, only the live register values matter, and the
-in-memory copy is stale regardless of whether it is saved in
-FP_STATE_FPSIMD format or FP_STATE_SVE format.
+I think this is pre-existing. It can oops, both variants, and yes - a channel the
+previous kernel left active can re-latch FDMA_INTR_DB before devm_request_irq()
+unmasks the source. Your second suggestion is the right fix; the reset half of the
+first is what fdma_init()'s NRESET pulse already does.
 
-It is worth skipping the zeroing because the SVE state is discarded on
-syscall entry, so userspace that mixes SVE and syscalls re-traps
-constantly. A fleet profile of arm64 hosts running services whose
-memset() is SVE shows the memset under do_sve_acc() accounting for 29%
-of the trap handling cost.
+None of this originates here: the request has sat before netif_napi_add() and
+ops->fdma_init() since c8349639324a ("net: lan966x: Add FDMA functionality"), and
+the SoC device tree has named "fdma" since 2952d32c0611 ("ARM: dts: lan966x: add
+switch node") - this patch adds one entry to an interrupt-names list. Nothing to
+change in this patch; it goes to net with the same reorder as the MTU-change problem
+earlier in the series.
 
-Measured on a 72-core Neoverse V2 (SVE VL 128, sve_state_size 546,
-performance governor) with perf bench sched pipe pinned to one CPU, and
-SVE operation on write, so that each loop also takes an SVE access trap.
-
-	* -0.99% kernel instructions
-	* -1.38% kernel cycles
-	* -1.12% wall clock
-
-Signed-off-by: Breno Leitao <leitao@debian.org>
----
-Changes in v2:
-- Rewrote the commit message using Mark's suggested wording: what
-  matters is that the in-memory copy is stale whenever the state is
-  live, not the format it was last saved in
-- Link to v1:
-  https://patch.msgid.link/20260914-b4-arm64-sve-acc-memset-v1-1-67866e442393@debian.org
----
- arch/arm64/kernel/fpsimd.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index e7f1682a3059b..324c9799b0511 100644
---- a/arch/arm64/kernel/fpsimd.c
-+++ b/arch/arm64/kernel/fpsimd.c
-@@ -1316,7 +1316,7 @@ void do_sve_acc(unsigned long esr, struct pt_regs *regs)
- 		return;
- 	}
- 
--	sve_alloc(current, true);
-+	sve_alloc(current, false);
- 	if (!current->thread.sve_state) {
- 		force_sig(SIGKILL);
- 		return;
-@@ -1341,6 +1341,7 @@ void do_sve_acc(unsigned long esr, struct pt_regs *regs)
- 		sve_flush_live();
- 		fpsimd_bind_task_to_cpu();
- 	} else {
-+		memset(current->thread.sve_state, 0, sve_state_size(current));
- 		fpsimd_to_sve(current);
- 		current->thread.fp_type = FP_STATE_SVE;
- 		fpsimd_flush_task_state(current);
-
----
-base-commit: f2bfbc3554ca6919484030729424b9dee2942d24
-change-id: 20260911-b4-arm64-sve-acc-memset-3425ad567857
-
-Best regards,
---  
-Breno Leitao <leitao@debian.org>
-
+> --
+> Sashiko AI review � https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260909-lan966x-pci-fdma-v6-0-6f48dab9d671%40microchip.com
 
