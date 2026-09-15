@@ -4,91 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86194C88E7D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 16:45:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0516DC88E7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 16:47:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lvCnDXZrWO8TEYbuW/IRJAcni3hfewokDsrz8A4uCCc=; b=scReJID+qUGs/mWs6HxwYx2fkI
-	7b21XWgliqwZh7MxrwlEwcX/ncL1SR1NUxWuoL956HaJUTJJs8wVcJpyhp38YW27zN3wGfjKXRdPv
-	wPvRuLuNKOtWjOdWK6jJ4qSVTbk8uQGlKhLRqy6+sjzuVFAA4kcmNj5EQelhYD6OWnEeLh/DpFlJT
-	rh5UAx4wpMvF/xGkzyy5Jbk/Tpj4chVCydA4/ot4E4NIJkggVZ3jv4RBQjFL2ynzwRl7rtZIhUghn
-	sr/kcBGx9qQvaNSDcxLdEysOs2Xh2/RobNXElSmv3Va9h65wPycF4Nr0yrBTxvnhlAlI53+UHYPHo
-	UXX7/wBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=r7ws2yNGxCu99b9kREC/qBBkTq3Kz8mFcYPsCXy1MLk=; b=dWFFG8kAIxWpfs
+	8mm6e6MQjJ95dB/A2lkUVnJIoler+boyeG2Mb0j7wV1chrG4VRQwTJxdoo0vCLXnG1zQtAxwjoLLx
+	lAjtiXglKAWWcjofQ0R1tZDI7Nddm4LufKM0L+6bkqTu4KtEW0W90JJP7tQbXgpUHb/4EiI67V9m5
+	U0gPdqQK3lIqdx4ThsiZ5S4CmjReahg6Y7VR9bvgxMG7H4ieZEWpS+KXLQv7UHFfGiiSJd59FU79h
+	uHi1b5CzBYMHYswCkQcvFQprlKDmlbp6gKMroliixzZq903BpWl3NsbQqpvWgV4vqRAMmUBigs1jp
+	JxuSyUbN3star1ER8O1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6WI3-00000007Skr-1IQ7;
-	Tue, 15 Sep 2026 16:45:51 +0000
-Received: from mail-pz2-f43.google.com ([74.125.228.43])
+	id 1x6WJ3-00000007T1a-2O3p;
+	Tue, 15 Sep 2026 16:46:53 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6WI0-00000007Sjz-3sFx
+	id 1x6WJ0-00000007T0L-1dov
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 15 Sep 2026 16:46:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=r7ws2yNGxCu99b9kREC/qBBkTq3Kz8mFcYPsCXy1MLk=; b=Qt8UoZnb39BT18xH5xbA1kBEzw
+	Kf2J+QgL7Bukb8Lm4jNMX9YYC2hJGfLk25ocHhMbv8oft5eZP+p+IomOwNsGPRBe+3Cx+lwuRIOIs
+	B4iFxEdcjU5S7yUGLHBHsiI3bJ+lJ/H1PNhXQ1W8HZUhwoUAppRtVixy5t4IOkn3LTaIGkHDW+fGE
+	CoMLY6r0he4OHsuz9ywK9CsqAT/wsQoSVdpdA5HxG9pULwuniqsG5yTweinrOBpHYyYY/K7GWjbnW
+	7Hsepi98v9VF3aoC2uWSf1QMR9y3Nay5nwcTPvmz4i+g9uwZfDvwxnXB2jDKZJ0Oks7O8vLFuPq3+
+	v0KCMEjQ==;
+Received: from smtpout-04.galae.net ([185.171.202.116])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6WIw-000000072bP-1Msu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 16:45:49 +0000
-Received: by mail-pz2-f43.google.com with SMTP id d2e1a72fcca58-85469d20963so370997b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 09:45:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789490748; x=1790095548; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=lvCnDXZrWO8TEYbuW/IRJAcni3hfewokDsrz8A4uCCc=;
-        b=ZzWlZ0aRN8oN0R+b/Xj42shCYj9lC11eN1x6k7lNTQz2gsKKqBAnOZ8kYM4rjPgICE
-         vdq2lXCTYe711wMaXmEYjejecCdKrhBbYj+9mO2uW1gYiBZaOkD7wN4V49qoQSi2Q4rD
-         usmgCaE6egao/BPAPheC9Dn3MnvNDWOT8Lb8vssWd8Sm8VvT6+VzLKqtgAFZ+OP+uxn9
-         wfzbTuAld+fda6TE/0V6tYG62lNowEzbVUG3yxfXoU2H3vxFp/Njbku7dpwZRzJNQXsx
-         h9FEfGcd+oIgwXg6HSN2o60emY3zasR0sA48iYfrUXjV5NHCq7cdoJY6LFecPfu3+fKt
-         18Cg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789490748; x=1790095548;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=lvCnDXZrWO8TEYbuW/IRJAcni3hfewokDsrz8A4uCCc=;
-        b=qSs38l4hwi8MYqDAotWS0ownNSyChCvmX6QKP6GIOltkrnKelISo9VZFGIUN+n9Z9F
-         En5nPptCgI8nAVUir/a0r3L+unjpPTtacWGeJbJOt0IptaZqxVxiZUeBvsSNUInQnn7u
-         FsuqSiIhVOfEegz+ryCkK+szjedpbMciFfMf5/3zs/4H8i3I8P3gq78c6epyE2R2Aq1F
-         USYgDiZ0jOY/zPGK2ooi1f9HzH+h18hmgII0xz73KbqoIjZ+RYNd1r6tCXeodtGRBeRD
-         4jcW4XzIv+ixMFmWJg5lds8zodUybVJqgysb7N0t4BYZ+Kg3uwZ0LaNmSowGTr3IOPTD
-         4mEw==
-X-Forwarded-Encrypted: i=1; AKwUvBycNc/mEG9nSbBdxqXqmZ4sGSrewYRjdaHz85rlSqg935JlOduL5qjifMKp/dtE0GhxLYpkfIvMHVkQ+eB6F+fk@lists.infradead.org
-X-Gm-Message-State: AFuF++mnIY/Hxzvj2ZBm/S1gRI6jLRDCf/cNeEZkSM6Gt3iC3Ca6dSc3
-	7WfLFWBCV7QzBXef7RMwq3EPM9z8n1pvH+TJF0NCqzM5oo2JEVvNQ6HW
-X-Gm-Gg: AYBFou1xWTzUN7fRn3CD9fAxeBilTjThBPlTsaz7DgAOYX10LWbLcj5S+l3xfPIWLCw
-	A6aBqePGyK9PL1ueM9CeYvIvMZFwgYN1WoI03Qx9R+EUnMmme0kVxgLgPxpDnBMhZceo85EdKiX
-	Xv802Ts5ytzWRlF1jj9KBchQiVdUmHuBQTQE29bP/RZejZ97tlB6j2mMIbDdEBme0MhIEwZjc9c
-	XSOuC0tG69zITwAtC55TuuyenxrxUJJewOxPoYT4CqhWA3FtPJTrqvEnmgx4AwqKB7ajSbv4SJk
-	AfB27jccJqay6Xo88ODr1x85N81hXCnrUHmY5DvP4gqfAaGzHFMYfBtUoOx0M9sCs+azbVYdiPX
-	GmlIqE2z42QQ51LyJmTX9VD/yxAcdVVhAkGBDYYt33fvF9ctXaPn6p3FUVojUpu1pf9UgbSHx1+
-	YyiHFzz8jZ9appnY0RA27539iY2ZZrs/7zcGsSSy1w6MzUT0swU37JOg==
-X-Received: by 2002:a05:6a00:e18:b0:86c:f33d:e3d6 with SMTP id d2e1a72fcca58-8717eadc194mr2942536b3a.9.1789490747845;
-        Tue, 15 Sep 2026 09:45:47 -0700 (PDT)
-Received: from lgs.. ([2001:250:5800:1002::de93])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-86b29dc09d4sm6481081b3a.47.2026.09.15.09.45.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Sep 2026 09:45:47 -0700 (PDT)
-From: Guangshuo Li <lgs201920130244@gmail.com>
-To: Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,
-	Guangshuo Li <lgs201920130244@gmail.com>,
-	Hui-Ping Chen <hpchen0nvt@gmail.com>,
-	linux-mtd@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: stable@vger.kernel.org
-Subject: [PATCH] mtd: rawnand: nuvoton: fix clock cleanup on probe failure
-Date: Wed, 16 Sep 2026 00:45:37 +0800
-Message-ID: <20260915164537.2496540-1-lgs201920130244@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Tue, 15 Sep 2026 16:46:49 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 4DB0DC5CD49;
+	Tue, 15 Sep 2026 16:47:27 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 847F2602B0;
+	Tue, 15 Sep 2026 16:46:43 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3617911C7B005;
+	Tue, 15 Sep 2026 18:46:21 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1789490800; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=r7ws2yNGxCu99b9kREC/qBBkTq3Kz8mFcYPsCXy1MLk=;
+	b=WkFbKeuQSkU4PhcQNzSuI3zOKkdFlsLI1oHzH68fWp95mQq5fomdyXjlEOXzt5+vSgCsJI
+	AtMoFCHX4zt8FlnZerWJJJQITtUBRaTdzcGgZYc00Y0vqeCniX4AKhVgTX7wbEEYl9sXFr
+	uXROuhcYgphRUWvIS50aMf+AxIMPU9bVg/6nusqyUIw99F2Sr4i812+afVojnETAsYjO/f
+	oGW50T3ig+4llPLVugYjuSlV1oi+QcOxFxlbZG4fw1iYydCSgiDmh1kqFxkJUvU0axVEk0
+	Qky4CXQN44Z1nue8YRQiwnGpTJZuizO5u0PEsqSNpBvcho8rpBoUMwNiZjPTzA==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Subject: [PATCH v4 0/9] drm/bridge: Kconfig: cleanup DRM_PANEL usage
+Date: Tue, 15 Sep 2026 18:46:13 +0200
+Message-Id: <20260915-drm-bridge-drm_panel-cleanup-v4-0-30401d9406f3@bootlin.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/43NyQ6CMBQF0F8hXVvTgaG48j+MMR0eUgMtaZFoD
+ P9u0Y3GBe7ezbs594EiBAsR7bIHCjDZaL1LId9kSLfSnQFbkzJihJVEUIZN6LEK1qRPOk+DdNB
+ h3YF01wGTGkyhNSV1LlAihgCNvb34w/Gd41VdQI+LuTRaG0cf7q/9iS69P6cmigkmRpQVz6EmQ
+ u6V92Nn3Vb7Hi1jE/vgWLHCscTpUguhZNU0hv1y/IPjdIXjiSsINEbQUigO39w8z08KrmP+egE
+ AAA==
+X-Change-ID: 20260812-drm-bridge-drm_panel-cleanup-09ed5cc10948
+To: Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, Marek Vasut <marex@denx.de>, 
+ Jagan Teki <jagan@amarulasolutions.com>, 
+ Christopher Vollo <chris@renewoutreach.org>, 
+ Sean Paul <seanpaul@chromium.org>, Vincent Palatin <vpalatin@chromium.org>, 
+ Tony Lindgren <tony@atomide.com>, Michael Walle <mwalle@kernel.org>, 
+ Vinay Simha BN <simhavcs@gmail.com>, Maoyi Xie <maoyixie.tju@gmail.com>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Andrey Gusakov <andrey.gusakov@cogentembedded.com>, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+ Peter Ujfalusi <peter.ujfalusi@ti.com>, 
+ Svyatoslav Ryhel <clamor95@gmail.com>, Sam Ravnborg <sam@ravnborg.org>, 
+ sashiko-bot@kernel.org
+X-Mailer: b4 0.16.0
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_094548_979192_B5DD2144 
-X-CRM114-Status: GOOD (  13.12  )
+X-CRM114-CacheID: sfid-20260915_174646_510952_61AAA9A0 
+X-CRM114-Status: GOOD (  11.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,41 +116,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ma35_nand_probe() gets and enables the NAND clock with
-devm_clk_get_enabled(), but the ma35_nand_chips_init() failure path
-also calls clk_disable() before returning.
+As a cleanup in preparation for making every drm_panel embed a drm_bridge,
+fix missing or unnecessary usage of DRM_PANEL and DRM_PANEL_BRIDGE in
+drivers/gpu/drm/bridge/Kconfig.
 
-devm_clk_get_enabled() registers a managed cleanup that calls
-clk_disable_unprepare() on probe failure and driver removal. Calling
-clk_disable() explicitly first drops the clock enable count, so the
-managed cleanup attempts to disable the clock again and triggers the
-clock framework warning for an already disabled clock.
+== Grand plan
 
-Remove the redundant clk_disable() and let the managed clock cleanup
-handle the clock state.
+This is part of the work to support hotplug of DRM bridges. The grand plan
+was discussed in [0].
 
-This issue was found by manual code inspection.
+Here's the work breakdown (➜ marks the current series):
 
-Fixes: 5abb5d414d55 ("mtd: rawnand: nuvoton: add new driver for the Nuvoton MA35 SoC")
-Cc: stable@vger.kernel.org
-Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+ 1. ➜ add refcounting to DRM bridges struct drm_bridge,
+      based on devm_drm_bridge_alloc()
+    A. ✔ add new alloc API and refcounting (v6.16)
+    B. ✔ convert all bridge drivers to new API (v6.17)
+    C. ✔ kunit tests (v6.17)
+    D. ✔ add get/put to drm_bridge_add/remove() + attach/detach()
+         and warn on old allocation pattern (v6.17)
+    E. ➜ add get/put on drm_bridge accessors
+       1. ✔ drm_bridge_chain_get_first_bridge(), add cleanup action (v6.18)
+       2. ✔ drm_bridge_get_prev_bridge() (v6.18)
+       3. ✔ drm_bridge_get_next_bridge() (v6.19)
+       4. ✔ drm_for_each_bridge_in_chain() (v6.19)
+       5. ✔ drm_bridge_connector_init (v6.19)
+       6. ✔ protect encoder bridge chain with a mutex (v7.2)
+       7. ✔ of_drm_find_bridge
+          a. ✔ add of_drm_get_bridge() (v7.0),
+               convert basic direct users (v7.0-v7.1)
+          b. ✔ convert direct of_drm_get_bridge() users, part 2 (v7.0)
+          c. ✔ convert direct of_drm_get_bridge() users, part 3 (v7.0)
+          d. ✔ convert direct of_drm_get_bridge() users, part 4 (v7.1-v7.2)
+          e. ✔ bridge-only drm_of_find_panel_or_bridge() users (v7.2)
+       8. ➜ panel_bridge lifetime
+          a. ➜ cleanup DRM_PANEL in bridge drivers
+	  b. … embed a drm_bridge in every drm_panel
+       9. ✔ enforce drm_bridge_add before drm_bridge_attach (v6.19)
+    F. ✔ debugfs improvements
+       1. ✔ add top-level 'bridges' file (v6.16)
+       2. ✔ show refcount and list lingering bridges (v6.19)
+ 2. ✔ handle gracefully atomic updates during bridge removal
+    A. ✔ Add drm_bridge_enter/exit() to protect device resources (v7.0)
+    B. ✔ Add drm_bridge_clear_and_put() (v7.1)
+ 3. … DSI host-device driver interaction
+ 4. ✔ removing the need for the "always-disconnected" connector
+ 5. ✔ Migrate i.MX LCDIF driver to bridge-connector (v7.2)
+ 6. … DRM bridge hotplug
+    A. … Bridge hotplug management in the DRM core
+       1. ✔ bridge-connector: attach encoder to the connector (v7.2)
+       2. … drm bridge hotplug
+    B.   Device tree description
+
+[0] https://lore.kernel.org/lkml/20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com/#t
+
+Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 ---
- drivers/mtd/nand/raw/nuvoton-ma35d1-nand-controller.c | 1 -
- 1 file changed, 1 deletion(-)
+Changes in v4:
+- Removed 4 patches now upstream
+- Fixed commit message of the tc358767 patch
+- Link to v3: https://patch.msgid.link/20260831-drm-bridge-drm_panel-cleanup-v3-0-50efd8168b3e@bootlin.com
 
-diff --git a/drivers/mtd/nand/raw/nuvoton-ma35d1-nand-controller.c b/drivers/mtd/nand/raw/nuvoton-ma35d1-nand-controller.c
-index 1a285cd8fad6..f659d3a6b9ef 100644
---- a/drivers/mtd/nand/raw/nuvoton-ma35d1-nand-controller.c
-+++ b/drivers/mtd/nand/raw/nuvoton-ma35d1-nand-controller.c
-@@ -993,7 +993,6 @@ static int ma35_nand_probe(struct platform_device *pdev)
- 	ret = ma35_nand_chips_init(&pdev->dev, nand);
- 	if (ret) {
- 		dev_err(&pdev->dev, "failed to init NAND chips\n");
--		clk_disable(nand->clk);
- 		return ret;
- 	}
- 
--- 
-2.43.0
+Changes in v3:
+- Fixed a few patches which incorrectly removed 'select DRM_BRIDGE'
+- Added missing 'select DRM_PANEL_BRIDGE' to some patches where
+  devm_drm_of_get_bridge() is used (thanks Doug)
+- Added patch 13 for tc358764
+- Removed boucing address spanda@codeaurora.org from Cc list
+- Link to v2: https://patch.msgid.link/20260825-drm-bridge-drm_panel-cleanup-v2-0-c6c88ba7ffd2@bootlin.com
+
+Changes in v2:
+- Added maintainers and recent authors to per-patch Cc list (these are not
+  added automatically by get-maintainers because the patches touch only the
+  Kconfig file)
+- Added review trailer
+- No changes to commit messages and patch content
+- Link to v1: https://patch.msgid.link/20260812-drm-bridge-drm_panel-cleanup-v1-0-0d86734e908a@bootlin.com
+
+---
+Luca Ceresoli (9):
+      drm/bridge: tc358764: don't select unused DRM_PANEL
+      drm/bridge: ti-dlpc3433: don't depend on DRM_PANEL, select DRM_PANEL_BRIDGE
+      drm/bridge: nxp-ptn3460: select DRM_PANEL_BRIDGE, not DRM_PANEL
+      drm/bridge: parade-ps8622: select DRM_PANEL_BRIDGE, not DRM_PANEL
+      drm/bridge: tc358775: select DRM_PANEL_BRIDGE, not DRM_PANEL
+      drm/bridge: tc358767: select DRM_PANEL_BRIDGE
+      drm/bridge: tc358768: select DRM_PANEL_BRIDGE
+      drm/bridge: ssd2825: select DRM_PANEL_BRIDGE
+      drm/bridge: tc358764: select DRM_PANEL_BRIDGE
+
+ drivers/gpu/drm/bridge/Kconfig | 14 +++++++++-----
+ 1 file changed, 9 insertions(+), 5 deletions(-)
+---
+base-commit: 2d70e1401dbbfc559b6a5d1ba8275d5282d71c2c
+change-id: 20260812-drm-bridge-drm_panel-cleanup-09ed5cc10948
+
+Best regards,
+--  
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
 
