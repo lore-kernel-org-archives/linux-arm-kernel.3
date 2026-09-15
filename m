@@ -4,76 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58F6FC88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 10:55:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE556C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 11:01:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3NcK+2D6AazFJjSTKxR7cSuvqpA99SwORYNVJbXxAeM=; b=WhYsu99sbMG1SPG/I/mGuWA7We
-	4vawLwFo04Zkj5vNYUhx5uC6lmawkq6OzT5A72btMoyhYE0IZBoR7QM0FRds/+OgCkugze7WZKm13
-	aT+0bt/pKfDVfElsE56GcpOg6NTbTRw/Tx8hH7ZLRaaZQQuQAOYc7i1XmfNWY+TfM8nUYzRF4NzLO
-	jLRtFfc7RdRxLXKL3fe3Djk2gSY2LYe0syQsESzel8xO09iAcWDsfV86fhOCygyJLD1KpcojtPo49
-	FvCra3OiT3ewP+XpmQ2zs5F7m4yLPAzxQTj5vGkq4Rs/jVxnxsNcLg1I34ynYZRjTepbv8XIipUTc
-	lUWHaWKA==;
+	bh=R3NdES2zmmnH5dOJ3l6qlbKwygMQlPwsvVMB1hGOtHs=; b=ustYrjOEbIVu80w9GAMRWxiPzV
+	vrv4WCC8H2wS0xH7FhyL5GQftMv6LcljIZcykqXAUxSfrk0RkMa06K2cjBciMw21Xg0ZnYdHAW1kr
+	iSBnyFkNL4+qz5193q1xxapA67ZW3x8VqNVCd7zheboUD1268uwriXuOAKXlPCFUo1hFV6Lq5xVGo
+	z+u9Q5OO0VmvhNshSKv0agDGPbgr17zPgo0uN2anFEZYG8tZeS1aBzXeyw+2Jzh7Lx/zafOU5HQFH
+	pxSJxkGtqittn63dherkGNlYInoE3OLTtYX+DqNqfuugarS5LBcjajJokCyC6IMc4ELuFDgQrROJH
+	SpScQiUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6QoN-000000061Ts-0TEu;
-	Tue, 15 Sep 2026 10:54:51 +0000
-Received: from out30-124.freemail.mail.aliyun.com ([115.124.30.124])
+	id 1x6QuS-000000062AA-0Rkb;
+	Tue, 15 Sep 2026 11:01:08 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6QoK-000000061S3-1Veo
+	id 1x6QuQ-0000000629W-2ab8
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 15 Sep 2026 11:01:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=R3NdES2zmmnH5dOJ3l6qlbKwygMQlPwsvVMB1hGOtHs=; b=ThLE+fz2znvECzV4WDHd9Ka7OP
+	2hGSQ6i1WXEBRCr6DF7rzgT7W08Gpton/eWo6DoxlmZpGj6oIHxZwvUT4w2gIYvOSXabsvptSgXTI
+	uL8zrKW8CGHVwNebA8/4ajT22YH09fy/US4W0CWxnk3ZIjvpxQHkPr2TkGgBaBM9HTk2dDrF6TmmN
+	jptbnPneSdhZkJakufS/IFa01AhxStrxFpdxmd95iJSvZptaQSEnEY5ehEubZLX/AfD/0pjw/zOw7
+	MbckDJloKFZjpQ47SLW/fQDyCMV6g8WhR2a8tMArN+4Z34wWY5czXtll2MdO2WuBnHnkgndwur9P3
+	sqYVHfOA==;
+Received: from mail-ed2-x07.google.com ([2a00:1450:4864:33::7])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6QuM-00000006axR-21Hx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 10:54:50 +0000
+	Tue, 15 Sep 2026 11:01:05 +0000
+Received: by mail-ed2-x07.google.com with SMTP id 4fb4d7f45d1cf-6a9ab260a83so1736768a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 04:01:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789470061; cv=none;
+        d=google.com; s=arc-20260327;
+        b=n3SdRN0YYBUuko8OVn1m0Ipfj68yzJk/PrQ3/iJdJyRRXDX7qAPjxlswvDUj4u+Ksn
+         HBJdNaBuk3jQJIznM/ITwUKfY42/dUDhtNHbA/SQ6BQlvFYPsfirT+nk0y3/4kCnG4Vy
+         wbVFkqbPIH4Q98wbUr8ZKsFiHlr6IjcwE0sxABqqxh85H04G+r9Z3tH2+Zr95CYO15pL
+         z5LlbxKTcbDraS3cCJ+DLRLopV1JwMkaiXS5tbpaMDLVrIaITnt1O6GCSGB5qjYTF6lz
+         0pp+/YU0GkG2DSQQYG15ot3EqaZaPaTyDmoxLMny/4DmyzfmRLdmaz/l83dOk+wLYxYQ
+         xRhw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=R3NdES2zmmnH5dOJ3l6qlbKwygMQlPwsvVMB1hGOtHs=;
+        fh=5Tu4prpLIEN73aiI9Ozv2OBM6EjNbvWWglpTGjuCLTg=;
+        b=n5As4f6NezRll9Ral7KUqGAoYnAQdV9VJKhYq0BxeRoFeNT8NC2P6NGCIZn9vQfzkR
+         85bSycAkG+UjKfBdSAfOQHgplyui9JRxqA2h6xNtm+VQF/sB3aW+yYtEhkus6kHumZui
+         MqXNuONXd7GMa2aNfCwJM7exxRC2sX419+6Q25ZLo5NxVne3K3uacd7uCnRhiYxB3INr
+         m6ysvDXTLHruSSWQhLL/PtUQOtgkYn4hqVyzL/DVdkUDeUpEim2EMXtss5ncDbWe8bcU
+         d/lUMfihdP7QomRIoYpcb7QhZKGZG1bmKitfFWDmS/+zA4+Fo5UsqCR+7ACIUH/FrzHR
+         BRKw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1789469681; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=3NcK+2D6AazFJjSTKxR7cSuvqpA99SwORYNVJbXxAeM=;
-	b=kHy1/37sXJUJJN5yCjuUQgQVdWyXFJJyRc1jIgSd22HOtkYAXjxbcV+uqcIDxzgIaMOQR9XIGWzZTx9y6cqj9PB5WBF46bF0RjJyp1flBKZYXRWi2yy3OfyplQXWCt+3gYNvVpKrsqLekPglBvMFpN+SxFaSQ9ShrX4shfZXu3w=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R221e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=baolin.wang@linux.alibaba.com;NM=1;PH=DS;RN=33;SR=0;TI=SMTPD_---0XB1P4.X_1789469678;
-Received: from 30.74.144.126(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0XB1P4.X_1789469678 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Tue, 15 Sep 2026 18:54:39 +0800
-Message-ID: <ccd08979-d702-4dc7-90cd-f82c08c5182c@linux.alibaba.com>
-Date: Tue, 15 Sep 2026 18:54:37 +0800
+        d=gmail.com; s=20251104; t=1789470061; x=1790074861; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=R3NdES2zmmnH5dOJ3l6qlbKwygMQlPwsvVMB1hGOtHs=;
+        b=ghuKv5Xzqk+AjpIwe5s75vI5Do0ID5c74lQlHqg6Cky6HpKVKYwcBIhQKZZi8ztjXd
+         /UziWsHjKVTe2bp7+IQVOndozYDcgacn0X6LWIceOa9bViPp1Mp+MUnlm2BhvTNp1006
+         QrsYarM94R5yzq9gc9PUYz0w6wLpu5wns2alWpg4bxGr4SLh4Z5HoSJoK+AIX4srC8PM
+         hUbPB2Yb9/96hCFJ/e1ArZghFkJ4hHFyFTwwCNreISB+EAVCZlHumyZ8QUp0X8eZxfwd
+         8RuuAnXKTJyzktVVm+d+Zbw2STXupVQXZK+fKvw+Xqepe6jN1FgKbNczvB+uFnQLfbQb
+         Ej7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789470061; x=1790074861;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=R3NdES2zmmnH5dOJ3l6qlbKwygMQlPwsvVMB1hGOtHs=;
+        b=tcOGXJTonavG5wkHZ4uMpvn/KGOIgpZXbg81RSNxLLyNyM6LGJw0IqENOJkJzSAs6m
+         qfnGjIWT8D7xJgpkfIlLdeaO0tGAiSwIaWNMion+l37rKGtt7q+eYdHqDnnssX9KvJ3H
+         jp1wxGdTkYxnoETHNnApdy8lSBXqXT0x+uFAFSw4wbO5RSypePVmgtS7iuP5gjEshF2g
+         aLU1Hfz8G7iXyHaAeFqmlxQX4g8dwcHb7xvoARMGqFabS/le9yIXRg5urZnKKakezqRN
+         6ms2XMxzHS1PooJjSJ5qXZZLcxlv0fEOnxqlLOwYjHa5FBMoEMfbTLmYinnWeT8m1r4y
+         8XCQ==
+X-Forwarded-Encrypted: i=1; AKwUvByAbtajtpdzaftBWwOwJZs5sCroblzifM2UhO8CXPoZ8orWvyl5gd9Vl2uUUwHksLhCF8HPfCjC5tVL+rs4mdbL@lists.infradead.org
+X-Gm-Message-State: AFuF++kIHK8lg8WDtGK6WKEpSzid7PvSFfJrxAM9icwQMWXxrtT62wTV
+	sBaNZBD63tNdHp26kEDWd8xS/Z58x2qGKfErVebX9ZvpM9S+tFqcohdrXsIk0lUbZd7L/nBPx15
+	bP5LTVvqJM69gvMEUwDh/0fItjK4npW0=
+X-Gm-Gg: AYBFou0gnEZ3MbaLw6obAYCtUDR848PbeLYXc7BIMUNBfzOqq7T4cL/vc4CVDtKInhJ
+	DyBFHp6HxzGqcYrbROWTbQAv4csb/vZggb3sUI5UQajaXFwzngKMEivfW5XzIxfGP13TTqi9zl3
+	/uB2a/fcBS7FTVF0d0OIOzabytVmlCIA4yPsoYiiT12l7ZGHYWVYQ5ctgHBTM6pTaWt9jycGnAe
+	Y7qfA19l/MXX4xhjbzzPuSk/fPOjLZgpRVWkB4qQvik+soAi6cS1BCbVNbhhJUw5S2yGZHvtDWY
+	/PHOa0Kbt3hUzCk5aTev6a3eUj5QUaJkUNDV2CXVLszpg3QtAk7cnyYQSw==
+X-Received: by 2002:a17:907:8b91:b0:c29:52dd:317b with SMTP id
+ a640c23a62f3a-c29b86f5e2emr383389466b.29.1789470060405; Tue, 15 Sep 2026
+ 04:01:00 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 2/7] ASoC: sprd: Replace dma_request_slave_channel() by
- dma_request_chan()
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Frank Li <Frank.Li@nxp.com>, Mark Brown <broonie@kernel.org>,
- Shengjiu Wang <shengjiu.wang@nxp.com>, bui duc phuc <phucduc.bui@gmail.com>,
- Tianchu Chen <flynnnchen@tencent.com>, linux-kernel@vger.kernel.org,
- dmaengine@vger.kernel.org, linux-sound@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com
-Cc: Dave Penkler <dpenkler@gmail.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
- Shengjiu Wang <shengjiu.wang@gmail.com>, Xiubo Li <Xiubo.Lee@gmail.com>,
- Fabio Estevam <festevam@gmail.com>, Nicolin Chen <nicoleotsuka@gmail.com>,
- Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>, Daniel Mack <daniel@zonque.org>,
- Haojian Zhuang <haojian.zhuang@gmail.com>,
- Robert Jarzmik <robert.jarzmik@free.fr>, Lars-Peter Clausen
- <lars@metafoo.de>, Orson Zhai <orsonzhai@gmail.com>,
- Chunyan Zhang <zhang.lyra@gmail.com>,
- Olivier Moysan <olivier.moysan@foss.st.com>,
- Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-References: <20260915100931.3593242-1-andriy.shevchenko@linux.intel.com>
- <20260915100931.3593242-3-andriy.shevchenko@linux.intel.com>
-From: Baolin Wang <baolin.wang@linux.alibaba.com>
-In-Reply-To: <20260915100931.3593242-3-andriy.shevchenko@linux.intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20260913185849.907479-7-coiaprant@gmail.com> <178941748560.22033.7667125492368880786@kernel.org>
+In-Reply-To: <178941748560.22033.7667125492368880786@kernel.org>
+From: Coia Prant <coiaprant@gmail.com>
+Date: Tue, 15 Sep 2026 19:00:48 +0800
+X-Gm-Features: AcwNN1WuimdbnTvudxI3nS0nRX30kh2n0AVc8NeUW8GvUoUT_30BX46WRVzlpTk
+Message-ID: <CALj3r0isnSmOPyX_viMYw2w=5K2HxyyuWaC+v8137WnStJxiNg@mail.gmail.com>
+Subject: Re: [PATCH net-next v5 06/11] net: pcs: xpcs: add ANRESTART support
+ for SGMII link recovery
+To: netdev-bot+sashiko@kernel.org
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com, 
+	kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, heiko@sntech.de, vkoul@kernel.org, 
+	maxime.chevallier@bootlin.com, mcoquelin.stm32@gmail.com, 
+	alexandre.torgue@foss.st.com, prabhakar.mahadev-lad.rj@bp.renesas.com, 
+	romain.gantois@bootlin.com, hkallweit1@gmail.com, neil.armstrong@linaro.org, 
+	linux@armlinux.org.uk, shawn.lin@rock-chips.com, david@ixit.cz, 
+	netdev@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_035449_165105_0C944023 
-X-CRM114-Status: UNSURE (   5.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260915_120102_741794_3561B9DF 
+X-CRM114-Status: GOOD (  51.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,15 +142,344 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+<netdev-bot+sashiko@kernel.org> =E4=BA=8E2026=E5=B9=B49=E6=9C=8815=E6=97=A5=
+=E5=91=A8=E4=BA=8C 04:24=E5=86=99=E9=81=93=EF=BC=9A
+>
+> Thank you for your contribution! Sashiko AI review found 5 potential
+> issue(s) to consider:
+>
+> Critical: 0 =C2=B7 High: 1 =C2=B7 Medium: 4 =C2=B7 Low: 0
+>
+> - [High] In xpcs_get_state_c37_sgmii() the combination
+>   'DW_VR_MII_AN_STS_C37_ANCMPLT_INTR set + DW_VR_MII_C37_ANSGM_SP_LNKSTS=
+=E2=80=A6
+> - [Medium] Undisclosed functional change: besides the two BMCR_ANRESTART
+>   additions the commit message advertises, the patch adds a new=E2=80=A6
+> - [Medium] Device-specific quirk applied unconditionally: the commit
+>   message and the new comment at drivers/net/pcs/pcs-xpcs.c:776-781=E2=80=
+=A6
+> - [Medium] Wrong ordering in xpcs_get_state_c37_sgmii(): the latched AN-
+>   complete indication is consumed (xpcs_write(DW_VR_MII_AN_INTR_STS, 0),=
+=E2=80=A6
+> - [Medium] The patch turns the read-only-by-contract pcs_get_state()
+>   callback into a hardware-state-changing operation (BMCR read-modify-=E2=
+=80=A6
+>
+> --
+>
+> net: pcs: xpcs: add ANRESTART support for SGMII link recovery
+>
+> The patch sets BMCR_ANRESTART together with BMCR_ANENABLE when
+> xpcs_config_aneg_c37_sgmii() enables in-band AN, and makes
+> xpcs_get_state_c37_sgmii() clear DW_VR_MII_AN_INTR_STS and assert
+> BMCR_ANRESTART when the link is down with AN completion latched.  A new
+> comment explains that the DesignWare databook says AN restart is not
+> needed for MAC side SGMII, but that some parts (Rockchip RK3568) need it.
+>
+> A few questions below.
+>
+> > diff --git a/drivers/net/pcs/pcs-xpcs.c b/drivers/net/pcs/pcs-xpcs.c
+> > index 0337e2bcc0125..8c3875b6985b9 100644
+> > --- a/drivers/net/pcs/pcs-xpcs.c
+> > +++ b/drivers/net/pcs/pcs-xpcs.c
+> > @@ -769,7 +771,14 @@ static int xpcs_config_aneg_c37_sgmii(struct dw_xp=
+cs *xpcs,
+> >        *       SR_MII_AN_ADV. MAC side SGMII receives AN Tx Config from
+> >        *       PHY about the link state change after C28 AN is complete=
+d
+> >        *       between PHY and Link Partner. There is also no need to
+> > -      *       trigger AN restart for MAC-side SGMII.
+> > +      *       trigger AN restart for MAC-side SGMII on most devices.
+> > +      *
+> > +      * Note: While the DesignWare databook states that AN restart is
+> > +      *       not needed for MAC side SGMII, some implementations (e.g=
+.
+> > +      *       Rockchip RK3568) exhibit a timing quirk when integrated =
+with
+> > +      *       phylink and do not restart AN automatically when the lin=
+k
+> > +      *       comes back up. An explicit AN restart is required on tho=
+se
+> > +      *       parts to recover the link after a disconnect.
+> >        */
+>
+> [Severity: Medium]
+> The comment says the restart is only "required on those parts" and that
+> there is "no need to trigger AN restart for MAC-side SGMII on most
+> devices", and the commit message says "This is not a fix for an existing
+> mainline platform".  The code, however, applies the restart on every
+> device: no gate on xpcs->info.pma or xpcs->desc, and struct dw_xpcs gains
+> no quirk flag.
+>
+> The same function already uses that gating idiom a few lines below:
+>
+>         if (xpcs->info.pma =3D=3D WX_TXGBE_XPCS_PMA_10G_ID) {
+>                 mask |=3D DW_VR_MII_AN_CTRL_8BIT;
+>                 val |=3D DW_VR_MII_AN_CTRL_8BIT;
+>                 /* Hardware requires it to be PHY side SGMII */
+>                 tx_conf =3D DW_VR_MII_TX_CONFIG_PHY_SIDE_SGMII;
+>
+> Note that this TXGBE case is configured as PHY-side SGMII, which the
+> MAC-side/RK3568 rationale in the comment does not cover.
+>
+> Should the new restart be gated on the affected PMA (or on a new dw_xpcs
+> quirk flag) so the code matches what the comment and the commit message
+> describe?
 
+Rockchip does not own a unique PMA ID, so there is nothing to gate on.
+The restart is a standard BMCR bit, and it was tested on Wangxun and on
+older XPCS hardware without adverse effect. Enabling AN and restarting
+it in the same write is the correct sequence regardless of the return
+value.
 
-On 9/15/26 6:04 PM, Andy Shevchenko wrote:
-> Replace dma_request_slave_channel() by dma_request_chan() as suggested
-> since the former is deprecated.
-> 
-> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> ---
+> Also, phylink already has a path for this: pcs_config() may return a
+> positive value to ask phylink to call .pcs_an_restart, and
+> xpcs_an_restart() in this same driver performs exactly the same register
+> write:
+>
+>         xpcs_modify(xpcs, MDIO_MMD_VEND2, MII_BMCR, BMCR_ANRESTART,
+>                     BMCR_ANRESTART);
+>
+> Would using that framework path be preferable to open-coding the restart
+> in the config and get_state callbacks?
 
-LGTM. Thanks.
-Reviewed-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+I think enable and restart AN at once whatever returns value is correct.
+
+> > @@ -816,9 +825,14 @@ static int xpcs_config_aneg_c37_sgmii(struct dw_xp=
+cs *xpcs,
+> >       if (ret < 0)
+> >               return ret;
+> >
+> > +     /* Clear CL37 AN complete status */
+> > +     ret =3D xpcs_write(xpcs, MDIO_MMD_VEND2, DW_VR_MII_AN_INTR_STS, 0=
+);
+> > +     if (ret < 0)
+> > +             return ret;
+> > +
+>
+> [Severity: Medium]
+> The commit message describes the change as "Add BMCR_ANRESTART in two
+> places" plus a comment update, but this hunk adds a third functional
+> change that is only visible as item "5)" in the in-code numbered list.
+>
+> This write is unconditional: it runs for every xpcs_config() ->
+> xpcs_do_config() -> xpcs_config_aneg_c37_sgmii() call and for every
+> neg_mode, including PHYLINK_PCS_NEG_OUTBAND where no AN is subsequently
+> enabled.  It clears the register that xpcs_get_state_c37_sgmii() uses as
+> its only source of link/speed/duplex and of state->an_complete:
+>
+>         ret =3D xpcs_read(xpcs, MDIO_MMD_VEND2, DW_VR_MII_AN_INTR_STS);
+>
+> It also changes the value returned when neg_mode is not
+> PHYLINK_PCS_NEG_INBAND_ENABLED: the function now returns the result of
+> this AN_INTR_STS write instead of the DIG_CTRL1 modify.
+>
+> Could the commit message mention this status clear and the return value
+> change?  For reference, xpcs_config_aneg_c37_1000basex() already performs
+> the identical clear, so the write itself matches existing driver practice=
+.
+
+The clear is already performed in xpcs_get_state_c37_sgmii() before
+this patch, so the behaviour is unchanged for that path. I'll leave the
+commit message as is.
+
+> >       if (neg_mode =3D=3D PHYLINK_PCS_NEG_INBAND_ENABLED)
+> >               ret =3D xpcs_write(xpcs, MDIO_MMD_VEND2, MII_BMCR,
+> > -                              mdio_ctrl | BMCR_ANENABLE);
+> > +                              mdio_ctrl | BMCR_ANENABLE | BMCR_ANRESTA=
+RT);
+> >
+> >       return ret;
+> >  }
+> > @@ -1093,9 +1107,18 @@ static int xpcs_get_state_c37_sgmii(struct dw_xp=
+cs *xpcs,
+> >               return 0;
+> >       }
+> >
+> > -     /* Clear AN complete status or interrupt */
+> > -     if (state->an_complete)
+> > -             xpcs_write(xpcs, MDIO_MMD_VEND2, DW_VR_MII_AN_INTR_STS, 0=
+);
+> > +     if (state->an_complete) {
+> > +             /* Clear AN complete status or interrupt */
+> > +             ret =3D xpcs_write(xpcs, MDIO_MMD_VEND2, DW_VR_MII_AN_INT=
+R_STS, 0);
+> > +             if (ret < 0)
+> > +                     return ret;
+> > +
+> > +             /* Initiate the next round of AN */
+> > +             ret =3D xpcs_modify(xpcs, MDIO_MMD_VEND2, MII_BMCR, BMCR_=
+ANRESTART,
+> > +                               BMCR_ANRESTART);
+> > +             if (ret < 0)
+> > +                     return ret;
+> > +     }
+>
+> [Severity: High]
+> Is the trigger condition here really "stuck AN"?  The state reached at
+> this point is ANCMPLT latched with LNKSTS clear, taken from the same
+> register read:
+>
+>         state->an_complete =3D ret & DW_VR_MII_AN_STS_C37_ANCMPLT_INTR;
+>
+>         if (ret & DW_VR_MII_C37_ANSGM_SP_LNKSTS) {
+>                 ...
+>                 return 0;
+>         }
+>
+> For C37/SGMII, isn't that the normal steady state whenever the partner
+> PHY's media side is down?
+
+This state must trigger an ANRESTART. On an unplugged SGMII port, the
+partner PHY keeps sending a LNKSTS=3D0 config word, so the PCS completes
+AN and latches ANCMPLT while LNKSTS stays clear. Without a restart the
+PCS stays in that state indefinitely and never re-runs AN when the
+partner comes back, so the link can never recover. Re-issuing ANRESTART
+on each poll while the link is down is the mechanism that makes
+recovery possible.
+
+> The PHY keeps sending config words, the SGMII
+> AN exchange completes and latches ANCMPLT (bit 0), and the media link
+> state is carried separately in the received config word via LNKSTS
+> (bit 4), per pcs-xpcs.h:
+>
+>         #define DW_VR_MII_AN_STS_C37_ANCMPLT_INTR       BIT(0)
+>         ...
+>         #define DW_VR_MII_C37_ANSGM_SP_LNKSTS           BIT(4)
+>
+> If so, then on an unplugged port each restart re-completes within the AN
+> link timer with LNKSTS still 0 and re-latches ANCMPLT, so the condition
+> re-arms itself and a fresh AN restart is issued on every poll,
+> indefinitely.  phylink polls pcs_get_state once per second and
+> xpcs->pcs.poll is true for everything except WX_TXGBE and MP_FBNIC, so
+> this affects the existing DW_AN_C37_SGMII users (stmmac/Intel mGbE, NXP
+> SJA1105/SJA1110, Wangxun), not only RK3568.
+>
+> Two further consequences: with MAC_AUTO_SW armed, the hardware-selected
+> speed/duplex is dropped on each cycle, and because the whole status word
+> is cleared by writing 0, a restart that lands on a just-latched LNKSTS=3D=
+1
+> word destroys that link-up indication and costs an extra poll interval.
+
+The speed/duplex bits in the status word are read-only, so the
+"MAC_AUTO_SW result dropped each cycle" concern does not apply: the
+hardware re-derives them after each restart.
+
+> For the interrupt-driven case there may also be a faster loop.  The SGMII
+> AN_CTRL modify in xpcs_config_aneg_c37_sgmii() does not include
+> DW_VR_MII_AN_INTR_EN in its mask, while the 1000BASE-X path sets it:
+>
+>         if (!xpcs->pcs.poll) {
+>                 mask |=3D DW_VR_MII_AN_INTR_EN;
+>                 val |=3D DW_VR_MII_AN_INTR_EN;
+>         }
+>
+> so an enable programmed by a previous 1000BASE-X configuration persists
+> into SGMII mode.  On txgbe the AN event is routed to the link IRQ:
+>
+> drivers/net/ethernet/wangxun/txgbe/txgbe_irq.c:txgbe_misc_irq_handle() {
+>         if (eicr & (TXGBE_PX_MISC_ETH_LK | TXGBE_PX_MISC_ETH_LKDN |
+>                     TXGBE_PX_MISC_ETH_AN)) {
+>                 sub_irq =3D irq_find_mapping(txgbe->misc.domain, TXGBE_IR=
+Q_LINK);
+>         ...
+> }
+>
+> which ends in phylink_pcs_change() -> pcs_get_state(), so the restart can
+> be re-triggered at hardware rate rather than once per second.
+>
+> Would gating this on the affected PMA/quirk, or on an explicit "AN is not
+> active" hardware condition rather than on the latched AN-complete bit,
+> address this?
+
+On the loop rate: phylink only registers its own link IRQ for
+MLO_AN_FIXED with a link GPIO. For in-band SGMII, phylink either polls
+pcs_get_state() through the PCS poll timer when pcs->poll is set, or
+waits for the PCS driver to call phylink_pcs_change() from its own
+interrupt. On RK3568, xpcs->pcs.poll is set, so this runs at phylink's
+resolve interval, roughly once per second. A single MDIO register write
+per second is not a concern. On interrupt-driven parts the behaviour
+was tested by Wangxun and no adverse effect was observed.
+
+> [Severity: Medium]
+> Is the ordering here recoverable if the second access fails?  The latched
+> AN-complete indication is consumed by the xpcs_write(DW_VR_MII_AN_INTR_ST=
+S,
+> 0) before the fallible read-modify-write that actually starts the next
+> negotiation.
+>
+> If the write succeeds and the xpcs_modify() of MII_BMCR fails on the
+> register back-end, the only indication that AN completed is gone and no
+> new negotiation was started.  The block that would retry is itself gated
+> on state->an_complete, which is now read back as 0, so the restart is
+> never attempted again.  The error only reaches xpcs_get_state(), which
+> logs it from a void callback:
+>
+>                 ret =3D xpcs_get_state_c37_sgmii(xpcs, state);
+>                 if (ret)
+>                         dev_err(&xpcs->mdiodev->dev, "%s returned %pe\n",
+>                                 "xpcs_get_state_c37_sgmii", ERR_PTR(ret))=
+;
+>
+> and nothing records a pending restart.  This matters most on the hardware
+> this patch targets, where AN is not restarted automatically, so the port
+> would stay down until a fresh pcs_config().  The failure is plausible for
+> these vendor-MMD accesses: the RK3568 back-end added later in this series
+> returns errors from pm_runtime_resume_and_get() inside
+> xpcs_rk_write_reg()/xpcs_rk_read_reg().
+>
+> Would asserting BMCR_ANRESTART before clearing the status word, or
+> retrying independently of the latch, close this window?
+
+If an MDIO access fails at this point, it means an unrecoverable
+hardware error until reset. Retrying independently of the latch would
+not help in that case.
+
+> [Severity: Medium]
+> This makes pcs_get_state() change hardware state rather than only read it=
+,
+> and phylink calls that callback from contexts with no common lock.
+>
+> phylink_resolve() holds pl->state_mutex (and the phy locks) but not RTNL,
+> while these two callers hold only RTNL:
+>
+> drivers/net/phy/phylink.c:phylink_ethtool_ksettings_get() {
+>         ...
+>                 phylink_mac_pcs_get_state(pl, &link_state);
+>         ...
+> }
+>
+> drivers/net/phy/phylink.c:phylink_mii_read() {
+>         ...
+>                         phylink_mac_pcs_get_state(pl, &state);
+>         ...
+> }
+>
+> The lockset intersection is empty, and the driver holds no private lock,
+> so two CPUs can run this block at once and both assert BMCR_ANRESTART,
+> aborting each other's negotiation.  It can also interleave with the
+> multi-transaction BMCR sequence in xpcs_config_aneg_c37_sgmii(), which
+> reads BMCR, writes it with ANENABLE cleared, programs AN_CTRL/DIG_CTRL1,
+> clears AN_INTR_STS, and finally writes the cached value back:
+>
+>         mdio_ctrl =3D xpcs_read(xpcs, MDIO_MMD_VEND2, MII_BMCR);
+>         ...
+>                 ret =3D xpcs_write(xpcs, MDIO_MMD_VEND2, MII_BMCR,
+>                                  mdio_ctrl & ~BMCR_ANENABLE);
+>
+> Each xpcs_read/xpcs_write is a separate bus transaction, so an AN restart
+> can land while AN is disabled and the AN configuration is only half
+> applied.
+>
+> Both RTNL-only paths need the PCS-only case (no phydev), which is
+> reachable for inband SGMII without a PHY, and SIOCGMIIREG and
+> ETHTOOL_GLINKSETTINGS are unprivileged.  Before this patch these paths
+> only cleared the AN status word; should the restart be moved to a context
+> that is serialized with pcs_config(), such as the .pcs_an_restart op?
+
+xpcs_get_state_c73() already calls xpcs_soft_reset() and
+xpcs_do_config() from the same callback, so changing hardware state
+from pcs_get_state() is an established pattern in this driver, not
+something this patch introduces. The locking model is phylink's, and
+reworking it is out of scope for this series.
 
