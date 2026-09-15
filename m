@@ -4,49 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D149CC88E7F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:50:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DC44C982CB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:50:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZvMtKW8yG4VkbtqmdX0gKYEp4DgU6cTjqC6NKdQTHWw=; b=LXxdOKeYPksqEYWHymVMlxvc20
-	hO6Wp8OTM9CVv/iYtrH8mCPLLXqaZKMhueZmpo2fPXllHqr2B53VFM8YGY+qn41RVVv7cOD+uUjeS
-	v7fypjxw8gkmUIZXnm854DvBanaJIPsx1YYBfwyYAZkje6jk5tTEZ2AirdQk8lelR66nQTvPhVVwk
-	6fpJKwbrwTNkjHhiwshGeGUTXo+hmYeSBZlKo0jY0iJ7tDWsKM1wm6Dmb0q8Lp238DVJjrsDDrjA1
-	3nvfQDB5lRgFDckhdbdm2ADGuZHZCuUI12Atr8MtQsSklWfyH0Pn7qn/4VbZg4XqMrijGxtVUpQ4X
-	4XG3RWww==;
+	bh=K30Psrwn89KHczYZ2aUkzvixnZVD5rZyG/I/8lGb8Os=; b=ETqKrlsoL3er3wwTxpVCnbYPyP
+	6ZudbXV1KpU2V8xefDviJENw86qbEPe9r1CeMS/c6bQCbMx/4hqunHntDOm2AMGjs32CSeY99OeZF
+	8DvuGYpdDC4P1h504mAPFWzHuFQH52kor6ajMIsh4uWBdvJr5tdoNFHFyfFYjNeSCKbkguAV7FLd1
+	yj69KSkFr3IfCaMfCzGo3S5bBWeQ2Vt6hvf1qd80IDzKO28oZDwa8SMyCmh2r798kTYTQYvu7hrmd
+	pvC7Z3BVLYFwWDieD04oIJg3HZxylOKXqThF/8nuakm06EVSrZHKJN29SFdU7I1kfEswoMgopH8vx
+	FVbR6zyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VQd-00000007IlH-3VkW;
-	Tue, 15 Sep 2026 15:50:39 +0000
+	id 1x6VQf-00000007InR-1XLb;
+	Tue, 15 Sep 2026 15:50:41 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x6VQ9-00000007INl-0dfo
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 15 Sep 2026 15:50:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=K30Psrwn89KHczYZ2aUkzvixnZVD5rZyG/I/8lGb8Os=; b=dAEhNxUTEdKttZK4qsZOAosDNX
+	nU9L5d4gbQ0qeumJyLIgO0wTZlFxfVg2Nrs4VY4kMNXrlTHyWPjE8zfrVn+V/UJNIInDs3BXtbZus
+	JJLNffISdeAnRb18ZGpGzJDtMkKkwoXSXuK2PPfmep47doSBGczpmE9gwUHsHgigbM3YaMse97HJ2
+	siO2swGvd7FlpMgHPG1Cxym/b99f6thFWgDjhEf/9xOPq/xgGvRBnkrtMA+Q6S06FthPL1tzMYwgI
+	SghE11cEl4EgaFDfqOYtMiKo93OzgXP4OZPvtvIeMvwg8emLq713L8kMk/QJ3Sze/iQh7jxnH3ESu
+	xk9t902A==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VPx-00000007ICk-1sJk
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6VQ6-00000006ybc-0Zr7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 15:50:01 +0000
+	Tue, 15 Sep 2026 15:50:08 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1DA6115A1;
-	Tue, 15 Sep 2026 08:49:53 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 141D41570;
+	Tue, 15 Sep 2026 08:50:01 -0700 (PDT)
 Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 507713F882;
-	Tue, 15 Sep 2026 08:49:54 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 47D0E3FA32;
+	Tue, 15 Sep 2026 08:50:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789487396; bh=QSuE0CikkbK3d7jRBR8VtxCr0gWJsEf3ovfSqjudRaI=;
+	t=1789487404; bh=I+iiIlGTfrQKy13QypHXpMwmt+eDHgZHgtpkVV9oHQc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=qmU5CpfUedMXo6kozsqjXEMrRQkEgeoK3ehedaoinzbxgbhuQPDUO3EtE5lPS1f3h
-	 IyT8miznoGU/dX3fVCk41eoRLNGnqgjimfJKcMF/iNnbIRO7B0cXpTe4EDEcInzi88
-	 DImKhXTAnnIDgPmDZEwwBY+lue1wjV67ke+KGSMQ=
+	b=bo8GCotSIFB1anG/4UN/PYgn1Hkd/WVv6Hkfob2l8S515F0kCwMXWO5EpvbxgkPcJ
+	 EHvsnqqWwLPWSsoTN0pa8NXFFH/QPJWLXtctTNmHBjFRXDRM3+Dhs3gJiTVi8Q+O2s
+	 VPfbjD002tLZaBWimmJPKxMurdkVA/5VaGwgAjEc=
 From: Leo Yan <leo.yan@arm.com>
-Date: Tue, 15 Sep 2026 16:49:06 +0100
-Subject: [PATCH 20/25] perf cs-etm: Drain pending packets before finishing
- trace blocks
+Date: Tue, 15 Sep 2026 16:49:09 +0100
+Subject: [PATCH 23/25] perf cs-etm: Decode AUX samples into callchains and
+ branch stacks
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260915-arm_cs_support_aux_sample-v1-20-35cf6f297d20@arm.com>
+Message-Id: <20260915-arm_cs_support_aux_sample-v1-23-35cf6f297d20@arm.com>
 References: <20260915-arm_cs_support_aux_sample-v1-0-35cf6f297d20@arm.com>
 In-Reply-To: <20260915-arm_cs_support_aux_sample-v1-0-35cf6f297d20@arm.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
@@ -63,16 +78,16 @@ Cc: Ingo Molnar <mingo@kernel.org>, linux-perf-users@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789487341; l=7864;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789487341; l=19991;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=QSuE0CikkbK3d7jRBR8VtxCr0gWJsEf3ovfSqjudRaI=;
- b=ZZBCNU6WWj/S5L54s4XqqS2xuzPDvb3N5VEi679N1z4zkevOxcPZ6WHhLr+L2XzJzy7wprDUl
- 5s9VOfUPQgrAQ2QXHnAlyRAtj0cDveVBdPue2qRrDvlAd917W37O7f+
+ bh=I+iiIlGTfrQKy13QypHXpMwmt+eDHgZHgtpkVV9oHQc=;
+ b=kJvurkfssjOYXzd6If0vwjW5B3oA/3aRwhclhRRO28d2A4TpVNMFhPA/B4BWtewaqbZnyif12
+ CNTUP4BY4jTDHqgw2gSTZui3/lNO5kQYBnFC+LJ2zmHsV77IaBRnFwv
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_085000_124049_EA27ED84 
-X-CRM114-Status: GOOD (  25.24  )
+X-CRM114-CacheID: sfid-20260915_165006_570784_C5206830 
+X-CRM114-Status: GOOD (  28.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,233 +102,574 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-OpenCSD can consume the final input byte while returning WAIT with trace
-output still pending. Stopping when buf_len reaches zero leaves that
-output unprocessed before the next block resets the decoder.
+Decode raw AUX trace embedded in PERF_SAMPLE_AUX and attach missing
+callchains and branch stacks to the owning PMU samples.
 
-Add cs_etm_decoder__drain_packets() to resume a waiting decoder with
-OCSD_OP_FLUSH without supplying more input. Call it from
-cs_etm__decode_data_block() after all input has been consumed and keep the
-buffer active until draining completes.
+Select the decoder by the sampled CPU and initialize its thread context
+from the sample's PID and TID. Queue each payload temporarily for the
+shared timeless decoder, clearing packet queues and flushing thread
+stacks before decoding an independent window. The embedded trace already
+belongs to the sample, so timestamp correlation is not needed.
 
-Return a positive value while input or pending output remains, zero on
-completion, and a negative error on failure. Update timeless decoding,
-timestamp seeding and timestamped queue processing to use this contract.
-Process queued packets even on the final call. Also drain pending output
-before resetting the decoder when dumping raw packets.
+Extend cs_etm__save_sample_history() to collect callchains as well as
+branch stacks after decoding. Support --itrace=G and --itrace=L while
+preserving recorded callchains and branch stacks.
+
+Record CPU ID on AUX sampling events so each sample selects the correct
+decoder.
 
 Assisted-by: Codex:gpt-6
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- tools/perf/util/cs-etm-decoder/cs-etm-decoder.c | 17 +++++++
- tools/perf/util/cs-etm-decoder/cs-etm-decoder.h |  7 +++
- tools/perf/util/cs-etm.c                        | 59 ++++++++++++++++---------
- 3 files changed, 61 insertions(+), 22 deletions(-)
+ tools/perf/arch/arm/util/cs-etm.c |   6 +
+ tools/perf/util/cs-etm.c          | 308 +++++++++++++++++++++++++++++++++-----
+ 2 files changed, 274 insertions(+), 40 deletions(-)
 
-diff --git a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
-index 26940f1f1b0bf44c8671d80020597c672c361c1a..a7a6410481e5c99be14a951493092c145a8512ba 100644
---- a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
-+++ b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
-@@ -793,6 +793,23 @@ int cs_etm_decoder__process_data_block(struct cs_etm_decoder *decoder,
- 	return ret;
- }
+diff --git a/tools/perf/arch/arm/util/cs-etm.c b/tools/perf/arch/arm/util/cs-etm.c
+index d2861d66a6612ea213066258672ba41769e578cb..710887daad0e4cbb5f48a45aa396c7bbab4c7ead 100644
+--- a/tools/perf/arch/arm/util/cs-etm.c
++++ b/tools/perf/arch/arm/util/cs-etm.c
+@@ -450,6 +450,12 @@ static int cs_etm_recording_options(struct auxtrace_record *itr,
+ 	 */
+ 	evsel__set_sample_bit(cs_etm_evsel, CPU);
  
-+int cs_etm_decoder__drain_packets(struct cs_etm_decoder *decoder)
-+{
-+	if (OCSD_DATA_RESP_IS_WAIT(decoder->prev_return))
-+		decoder->prev_return = ocsd_dt_process_data(decoder->dcd_tree,
-+							    OCSD_OP_FLUSH,
-+							    0,
-+							    0,
-+							    NULL,
-+							    NULL);
-+
-+	if (OCSD_DATA_RESP_IS_WAIT(decoder->prev_return))
-+		return 1;
-+
-+	/* No further WAIT driven flushing is needed */
-+	return OCSD_DATA_RESP_IS_CONT(decoder->prev_return) ? 0 : -EINVAL;
-+}
-+
- void cs_etm_decoder__free(struct cs_etm_decoder *decoder)
- {
- 	if (!decoder)
-diff --git a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.h b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.h
-index 12c782fa6db285852f9f901735aa1f0e55b955e8..c187f3809ba0a350ca6ee549d2c0c67ed8e16d1e 100644
---- a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.h
-+++ b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.h
-@@ -91,6 +91,13 @@ int cs_etm_decoder__process_data_block(struct cs_etm_decoder *decoder,
- 				       u64 indx, const u8 *buf,
- 				       size_t len, size_t *consumed);
- 
-+/*
-+ * Drain pending packets after consuming a data block.
-+ * Process queued packets after each call, including the final call.
-+ * Returns 1 for WAIT, 0 when done, or a negative error.
-+ */
-+int cs_etm_decoder__drain_packets(struct cs_etm_decoder *decoder);
-+
- struct cs_etm_decoder *
- cs_etm_decoder__new(int num_cpu,
- 		    struct cs_etm_decoder_params *d_params,
-diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index 8340b8a16fed363795fc78ffbc419661a61442a3..e78c8e089f38eae34faa12bbd2f899f1f72acce4 100644
---- a/tools/perf/util/cs-etm.c
-+++ b/tools/perf/util/cs-etm.c
-@@ -129,6 +129,7 @@ struct cs_etm_queue {
- 	u8 pending_timestamp_chan_id;
- 	enum cs_etm_format format;
- 	u64 offset;
-+	/* Cleared once the current block is fully decoded and drained */
- 	const unsigned char *buf;
- 	size_t buf_len, buf_used;
- 	/* Conversion between traceID and index in traceid_queues array */
-@@ -943,6 +944,12 @@ static void cs_etm__dump_event(struct cs_etm_queue *etmq,
- 		buffer_used += consumed;
- 	} while (buffer_used < buffer->size);
- 
-+	if (!ret) {
-+		do {
-+			ret = cs_etm_decoder__drain_packets(etmq->decoder);
-+		} while (ret > 0);
-+	}
-+
- 	cs_etm_decoder__reset(etmq->decoder);
- }
- 
-@@ -1319,7 +1326,7 @@ static int cs_etm__queue_first_cs_timestamp(struct cs_etm_auxtrace *etm,
- 		 * trace for that block.
- 		 */
- 		ret = cs_etm__decode_data_block(etmq);
--		if (ret)
-+		if (ret < 0)
- 			goto out;
- 
- 		/*
-@@ -2171,14 +2178,17 @@ static void cs_etm__flush_all_stack(struct cs_etm_queue *etmq)
-  *			   if need be.
-  * Returns:	< 0	if error
-  *		= 0	if no more auxtrace_buffer to read
-- *		> 0	if the current buffer isn't empty yet
-+ *		> 0	if input or decoder output remains in the current block
-  */
- static int cs_etm__get_data_block(struct cs_etm_queue *etmq)
- {
- 	int ret;
- 
--	/* The current block is not finished */
--	if (etmq->buf_len)
-+	/*
-+	 * A non-NULL buf indicates that packets are still pending.
-+	 * Drain them before resetting for a new block.
-+	 */
-+	if (etmq->buf)
- 		return 1;
- 
- 	ret = cs_etm__get_trace(etmq);
-@@ -2555,11 +2565,22 @@ static int cs_etm__set_sample_flags(struct cs_etm_queue *etmq,
- 	return 0;
- }
- 
-+/*
-+ * Return 0 when decoding and draining are complete, 1 if another call is
-+ * needed, or a negative error. Process queued packets even on return 0.
-+ */
- static int cs_etm__decode_data_block(struct cs_etm_queue *etmq)
- {
--	int ret = 0;
-+	int ret;
- 	size_t processed = 0;
- 
-+	if (!etmq->buf_len) {
-+		ret = cs_etm_decoder__drain_packets(etmq->decoder);
-+		if (!ret)
-+			etmq->buf = NULL;
-+		return ret;
++	/* Raw AUX samples need the sampling CPU to select the trace decoder. */
++	evlist__for_each_entry(evlist, evsel) {
++		if (evsel->core.attr.aux_sample_size)
++			evsel__set_sample_bit(evsel, CPU);
 +	}
 +
  	/*
- 	 * Packets are decoded and added to the decoder's packet queue
- 	 * until the decoder packet processing callback has requested that
-@@ -2573,14 +2594,13 @@ static int cs_etm__decode_data_block(struct cs_etm_queue *etmq)
- 						 etmq->buf_len,
- 						 &processed);
- 	if (ret)
--		goto out;
-+		return ret;
+ 	 * Also the case of per-cpu mmaps, need the contextID in order to be notified
+ 	 * when a context switch happened.
+diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
+index 815a22cedc49e9281b7087f01355bb71b5e41c57..8a1b532df0d3f45fbec85b32ade9bc5ce5b58c98 100644
+--- a/tools/perf/util/cs-etm.c
++++ b/tools/perf/util/cs-etm.c
+@@ -66,6 +66,7 @@ struct cs_etm_auxtrace {
+ 	 */
+ 	bool per_thread_decoding;
+ 	bool snapshot_mode;
++	bool sampling_mode;
+ 	bool data_queued;
+ 	bool has_virtual_ts; /* Virtual/Kernel timestamps in the trace. */
+ 	bool use_thread_stack;
+@@ -77,6 +78,7 @@ struct cs_etm_auxtrace {
+ 	/* Internal reconstruction depth, see cs_etm__br_stack_init() */
+ 	unsigned int br_stack_sz_plus;
+ 	struct branch_stack *br_stack;
++	struct ip_callchain *chain;
+ 	u64 latest_kernel_timestamp;
+ 	u32 auxtrace_type;
+ 	u32 branches_filter;
+@@ -804,7 +806,8 @@ static void cs_etm__packet_swap(struct cs_etm_auxtrace *etm,
+ 	struct cs_etm_packet *tmp;
  
- 	etmq->offset += processed;
- 	etmq->buf_used += processed;
- 	etmq->buf_len -= processed;
+ 	if (etm->synth_opts.branches || etm->synth_opts.last_branch ||
+-	    etm->synth_opts.add_last_branch || etm->synth_opts.instructions) {
++	    etm->synth_opts.add_last_branch || etm->synth_opts.add_callchain ||
++	    etm->synth_opts.instructions) {
+ 		/*
+ 		 * Swap PACKET with PREV_PACKET: PACKET becomes PREV_PACKET for
+ 		 * the next incoming packet.
+@@ -961,7 +964,7 @@ static int cs_etm__flush_events(struct perf_session *session,
+ 						   auxtrace);
+ 	int ret;
  
--out:
--	return ret;
-+	return 1;
+-	if (dump_trace)
++	if (dump_trace || etm->sampling_mode)
+ 		return 0;
+ 
+ 	if (!tool->ordered_events)
+@@ -1077,6 +1080,7 @@ static void cs_etm__free(struct perf_session *session)
+ 
+ 	zfree(&aux->metadata);
+ 	zfree(&aux->br_stack);
++	zfree(&aux->chain);
+ 	zfree(&aux);
  }
  
- static int cs_etm__process_traceid_queue(struct cs_etm_queue *etmq,
-@@ -2689,7 +2709,7 @@ static int cs_etm__clear_all_traceid_queues(struct cs_etm_queue *etmq)
+@@ -1102,6 +1106,13 @@ static struct machine *cs_etm__get_machine(struct cs_etm_queue *etmq,
+ 	if (pid_fmt == CS_ETM_PIDFMT_CTXTID)
+ 		return &etmq->etm->session->machines.host;
  
- static int cs_etm__run_timeless_decoder(struct cs_etm_queue *etmq)
++	/*
++	 * AUX samples without context IDs use the owning host sample's PID/TID.
++	 * Keep EL1 trace in that host context as well.
++	 */
++	if (etmq->etm->sampling_mode && pid_fmt == CS_ETM_PIDFMT_NONE)
++		return &etmq->etm->session->machines.host;
++
+ 	/*
+ 	 * Not perfect, but otherwise assume anything in EL1 is the default
+ 	 * guest, and everything else is the host. Distinguishing between guest
+@@ -1615,7 +1626,7 @@ static void cs_etm__add_stack_event(struct cs_etm_queue *etmq,
+ 	int size;
+ 
+ 	if (!etm->synth_opts.branches && !etm->synth_opts.instructions &&
+-	    !etm->synth_opts.add_last_branch)
++	    !etm->synth_opts.add_last_branch && !etm->synth_opts.add_callchain)
+ 		return;
+ 
+ 	if (!cs_etm__packet_has_taken_branch(tidq->prev_packet))
+@@ -2059,10 +2070,17 @@ static int cs_etm__save_sample_history(struct cs_etm_auxtrace *etm,
+ 		return -ENOMEM;
+ 
+ 	/* Consume branch history so later samples cannot reuse the same window. */
+-	thread_stack__br_sample_late(thread, sample->cpu, etm->br_stack,
+-				     etm->br_stack_sz, sample->ip,
+-				     machine__kernel_start(machine));
+-	thread_stack__br_stack_consume(thread, sample->cpu);
++	if (etm->synth_opts.add_last_branch && !sample->branch_stack) {
++		thread_stack__br_sample_late(thread, sample->cpu, etm->br_stack,
++					     etm->br_stack_sz, sample->ip,
++					     machine__kernel_start(machine));
++		thread_stack__br_stack_consume(thread, sample->cpu);
++	}
++
++	if (etm->synth_opts.add_callchain && !sample->callchain)
++		thread_stack__sample_late(thread, sample->cpu, etm->chain,
++					  etm->synth_opts.callchain_sz + 1,
++					  sample->ip, machine__kernel_start(machine));
+ 
+ 	thread__put(thread);
+ 	return 0;
+@@ -2187,6 +2205,13 @@ static void cs_etm__flush_all_stack(struct cs_etm_queue *etmq)
+ 		cs_etm__flush_machine_stack(etmq, HOST_KERNEL_ID);
+ 		break;
+ 	case CS_ETM_PIDFMT_NONE:
++		/*
++		 * AUX samples provide PID/TID via PERF_SAMPLE_TID, so flush host
++		 * stacks even without traced context IDs.
++		 */
++		if (etmq->etm->sampling_mode)
++			cs_etm__flush_machine_stack(etmq, HOST_KERNEL_ID);
++		break;
+ 	default:
+ 		break;
+ 
+@@ -3064,6 +3089,61 @@ static bool cs_etm__tracing_kernel(struct cs_etm_auxtrace *etm,
+ 	return false;
+ }
+ 
++static bool cs_etm__sampling_mode(struct perf_session *session)
++{
++	struct evsel *evsel;
++
++	evlist__for_each_entry(session->evlist, evsel) {
++		if ((evsel->core.attr.sample_type & PERF_SAMPLE_AUX) &&
++		    evsel->core.attr.aux_sample_size)
++			return true;
++	}
++	return false;
++}
++
++static int cs_etm__aux_sample_init(struct cs_etm_auxtrace *etm)
++{
++	struct evsel *evsel;
++
++	if (!etm->sampling_mode) {
++		if (etm->synth_opts.add_callchain) {
++			pr_err("CS ETM: --itrace=G requires AUX samples\n");
++			return -EINVAL;
++		}
++
++		return 0;
++	}
++
++	evlist__for_each_entry(etm->session->evlist, evsel) {
++		u64 type = evsel->core.attr.sample_type;
++		u64 required = PERF_SAMPLE_IP | PERF_SAMPLE_TID | PERF_SAMPLE_CPU;
++
++		if (!(type & PERF_SAMPLE_AUX))
++			continue;
++
++		if ((type & required) != required) {
++			pr_err("CS ETM: AUX samples require IP, TID and CPU\n");
++			return -EINVAL;
++		}
++
++		/*
++		 * Synthesize the callchain from AUX trace when it is not
++		 * provided by the PMU sample.
++		 */
++		if (etm->synth_opts.add_callchain && !(type & PERF_SAMPLE_CALLCHAIN))
++			evsel->synth_sample_type |= PERF_SAMPLE_CALLCHAIN;
++	}
++
++	if (etm->synth_opts.add_callchain) {
++		etm->chain = zalloc(struct_size(etm->chain, ips,
++						etm->synth_opts.callchain_sz + 1));
++		if (!etm->chain)
++			return -ENOMEM;
++	}
++
++	return 0;
++}
++
+ static int cs_etm__br_stack_init(struct cs_etm_auxtrace *etm,
+ 				 struct perf_session *session)
  {
--	int idx, err;
-+	int idx, err, pending;
- 	struct cs_etm_traceid_queue *tidq;
- 	struct int_node *inode;
+@@ -3071,10 +3151,11 @@ static int cs_etm__br_stack_init(struct cs_etm_auxtrace *etm,
  
-@@ -2701,9 +2721,9 @@ static int cs_etm__run_timeless_decoder(struct cs_etm_queue *etmq)
+ 	evlist__for_each_entry(session->evlist, evsel) {
+ 		/*
+-		 * Only timestamped events can be matched against the decoded
+-		 * trace, so do not advertise a branch stack on any other.
++		 * AUX samples own their trace window. Other samples need a
++		 * timestamp to match against the decoded trace.
+ 		 */
+-		if (!(evsel->core.attr.sample_type & PERF_SAMPLE_TIME))
++		if (!(evsel->core.attr.sample_type &
++		      (etm->sampling_mode ? PERF_SAMPLE_AUX : PERF_SAMPLE_TIME)))
+ 			continue;
+ 		if (!(evsel->core.attr.sample_type & PERF_SAMPLE_BRANCH_STACK))
+ 			evsel->synth_sample_type |= PERF_SAMPLE_BRANCH_STACK;
+@@ -3101,9 +3182,85 @@ static int cs_etm__br_stack_init(struct cs_etm_auxtrace *etm,
+ 	return 0;
+ }
  
- 		/* Run trace decoder until the input buffer is consumed. */
- 		do {
--			err = cs_etm__decode_data_block(etmq);
--			if (err)
--				return err;
-+			pending = cs_etm__decode_data_block(etmq);
-+			if (pending < 0)
-+				return pending;
++static int cs_etm__set_sample_context(struct cs_etm_queue *etmq,
++				      const struct perf_sample *sample)
++{
++	struct machine *machine = &etmq->etm->session->machines.host;
++	struct cs_etm_traceid_queue *tidq;
++	u64 *metadata = get_cpu_data(etmq->etm, sample->cpu);
++	struct thread *thread;
++	u8 trace_id;
++	int ret;
++
++	if (!metadata)
++		return -EINVAL;
++
++	ret = cs_etm__metadata_get_trace_id(&trace_id, metadata);
++	if (ret)
++		return ret;
++
++	tidq = cs_etm__etmq_get_traceid_queue(etmq, trace_id);
++	if (!tidq)
++		return -ENOMEM;
++
++	thread = machine__findnew_thread(machine, sample->pid, sample->tid);
++	if (!thread)
++		return -ENOMEM;
++
++	tidq->kernel_start = machine__kernel_start(machine);
++	tidq->decode_el = ocsd_EL_unknown;
++	thread__put(tidq->decode_thread);
++	thread__put(tidq->frontend_thread);
++	/* Thread already holds a reference from machine__findnew_thread() */
++	tidq->decode_thread = thread;
++	tidq->frontend_thread = thread__get(thread);
++
++	return 0;
++}
++
++/* Consume the queued AUX window while its owning sample is still available. */
++static int cs_etm__process_aux_sample(struct cs_etm_auxtrace *etm,
++				      struct perf_sample *sample)
++{
++	struct cs_etm_queue *etmq = cs_etm__get_queue(etm, sample->cpu);
++	struct auxtrace_buffer buffer = {
++		.data = sample->aux_sample.data,
++		.size = sample->aux_sample.size,
++		.pid = sample->pid,
++		.tid = sample->tid,
++		.cpu = { sample->cpu },
++	};
++	struct auxtrace_queue *queue;
++	int ret;
++
++	if (!etmq || !etmq->decoder)
++		return -EINVAL;
++
++	queue = &etm->queues.queue_array[etmq->queue_nr];
++	if (!list_empty(&queue->head) || etmq->buffer)
++		return -EINVAL;
++
++	ret = cs_etm__set_sample_context(etmq, sample);
++	if (ret)
++		return ret;
++
++	cs_etm__clear_all_packet_queues(etmq);
++
++	buffer.buffer_nr = etm->queues.next_buffer_nr++;
++	list_add_tail(&buffer.list, &queue->head);
++	ret = cs_etm__run_timeless_decoder(etmq);
++
++	/* The buffer is borrowed for this decode only. */
++	list_del_init(&buffer.list);
++	etmq->buffer = NULL;
++	etmq->buf = NULL;
++	etmq->buf_len = 0;
++	return ret;
++}
++
+ /*
+- * Add decoded branch history to an existing sample. The sample keeps its own
+- * ip, callchain and event identity; only an absent branch stack is filled in.
++ * Decode the trace belonging to this sample and fill in missing history.
++ * The sample keeps its IP, event identity and any recorded stacks.
+  * A user-only PMU sample can have a zero IP when the interrupt skids into
+  * the kernel; its thread and trace window still identify valid history.
+  */
+@@ -3112,25 +3269,35 @@ static int cs_etm__process_sample(struct cs_etm_auxtrace *etm,
+ {
+ 	int err;
  
- 			/*
- 			 * Per-thread decoding uses a single traceID queue;
-@@ -2717,7 +2737,7 @@ static int cs_etm__run_timeless_decoder(struct cs_etm_queue *etmq)
- 				if (err)
- 					return err;
- 			}
--		} while (etmq->buf_len);
-+		} while (pending);
+-	if (!etm->synth_opts.add_last_branch || sample->branch_stack ||
+-	    !sample->time || sample->time == (u64)-1)
++	if ((!etm->synth_opts.add_last_branch || sample->branch_stack) &&
++	    (!etm->synth_opts.add_callchain || sample->callchain))
+ 		return 0;
  
- 		intlist__for_each_entry(inode, etmq->traceid_queues_list) {
- 			idx = (int)(intptr_t)inode->priv;
-@@ -2884,26 +2904,21 @@ static int cs_etm__process_timestamped_queues(struct cs_etm_auxtrace *etm,
+-	/* Adding branch history to existing samples supports the host only */
++	/* Adding history to existing samples supports the host only */
+ 	if (sample->cpumode == PERF_RECORD_MISC_GUEST_KERNEL ||
+ 	    sample->cpumode == PERF_RECORD_MISC_GUEST_USER)
+ 		return 0;
+ 
+-	err = cs_etm__update_queues(etm);
+-	if (err)
+-		return err;
++	if (etm->sampling_mode) {
++		if (!sample->aux_sample.size)
++			return 0;
+ 
+-	/*
+-	 * Decode every queue up to this sample's time. Afterwards the thread
+-	 * stack holds the branches that executed before the sample, and
+-	 * nothing that executed after it.
+-	 */
+-	err = cs_etm__process_timestamped_queues(etm, sample->time);
++		err = cs_etm__process_aux_sample(etm, sample);
++	} else {
++		if (!sample->time || sample->time == (u64)-1)
++			return 0;
++
++		err = cs_etm__update_queues(etm);
++		if (err)
++			return err;
++
++		/*
++		 * Decode every queue up to this sample's time. Afterwards the
++		 * thread stack holds the branches that executed before the
++		 * sample, and nothing that executed after it.
++		 */
++		err = cs_etm__process_timestamped_queues(etm, sample->time);
++	}
+ 	if (err)
+ 		return err;
+ 
+@@ -3138,9 +3305,16 @@ static int cs_etm__process_sample(struct cs_etm_auxtrace *etm,
+ 	if (err)
+ 		return err;
+ 
+-	if (etm->br_stack->nr)
++	if (etm->synth_opts.add_last_branch && !sample->branch_stack && etm->br_stack->nr)
+ 		sample->branch_stack = etm->br_stack;
+ 
++	if (etm->synth_opts.add_callchain && !sample->callchain) {
++		/* An empty history produces only a context marker and sample IP */
++		if (etm->chain->nr > 2 ||
++		    (etm->chain->nr == 2 && etm->chain->ips[1] != sample->ip))
++			sample->callchain = etm->chain;
++	}
++
+ 	return 0;
+ }
+ 
+@@ -3225,6 +3399,10 @@ static int cs_etm__process_auxtrace_event(struct perf_session *session,
+ 	struct cs_etm_auxtrace *etm = container_of(session->auxtrace,
+ 						   struct cs_etm_auxtrace,
+ 						   auxtrace);
++
++	if (etm->sampling_mode)
++		return 0;
++
+ 	if (!etm->data_queued) {
+ 		struct auxtrace_buffer *buffer;
+ 		off_t  data_offset;
+@@ -3529,14 +3707,28 @@ static int cs_etm__queue_aux_records_cb(struct perf_session *session, union perf
+ 	return ret;
+ }
+ 
+-static int cs_etm__queue_aux_records(struct perf_session *session)
++static int cs_etm__prepare_auxtrace_queues(struct cs_etm_auxtrace *etm,
++					   struct perf_session *session)
+ {
+-	struct auxtrace_index *index = list_first_entry_or_null(&session->auxtrace_index,
+-								struct auxtrace_index, list);
+-	if (index && index->nr > 0)
+-		return perf_session__peek_events(session, session->header.data_offset,
+-						 session->header.data_size,
+-						 cs_etm__queue_aux_records_cb, NULL);
++	struct auxtrace_index *index;
++	unsigned int i;
++
++	/*
++	 * AUX samples have no AUX record to describe the formatter framing.
++	 * Since it is only supported by TRBE, the trace is always unformatted.
++	 */
++	if (etm->sampling_mode) {
++		for (i = 0; i < etm->queues.nr_queues; i++) {
++			struct cs_etm_queue *etmq = etm->queues.queue_array[i].priv;
++
++			etmq->format = UNFORMATTED;
++		}
++
++		return 0;
++	}
++
++	index = list_first_entry_or_null(&session->auxtrace_index,
++					 struct auxtrace_index, list);
+ 
+ 	/*
+ 	 * We would get here if there are no entries in the index (either no auxtrace
+@@ -3546,7 +3738,12 @@ static int cs_etm__queue_aux_records(struct perf_session *session)
+ 	 *
+ 	 * In that scenario, buffers will not be split by AUX records.
+ 	 */
+-	return 0;
++	if (!index || index->nr <= 0)
++		return 0;
++
++	return perf_session__peek_events(session, session->header.data_offset,
++					 session->header.data_size,
++					 cs_etm__queue_aux_records_cb, NULL);
+ }
+ 
+ #define HAS_PARAM(j, type, param) (metadata[(j)][CS_ETM_NR_TRC_PARAMS] <= \
+@@ -3622,6 +3819,11 @@ static int cs_etm__create_queue_decoders(struct cs_etm_queue *etmq)
+ 	if (decoders == 0)
+ 		return 0;
+ 
++	if (etmq->etm->sampling_mode && decoders != 1) {
++		pr_err("CS ETM Trace: AUX samples require a per-CPU raw trace source\n");
++		return -EINVAL;
++	}
++
+ 	/*
+ 	 * Each queue can only contain data from one CPU when unformatted, so only one decoder is
+ 	 * needed.
+@@ -3679,11 +3881,12 @@ static int cs_etm__create_decoders(struct cs_etm_auxtrace *etm)
+ 		int ret;
+ 
+ 		/*
+-		 * Don't create decoders for empty queues, mainly because
+-		 * etmq->format is unknown for empty queues.
++		 * AUX sample buffers are queued when their samples are processed,
++		 * so create their decoders even though the queues are still empty.
++		 * Other empty queues have no known format or data to decode.
+ 		 */
+ 		assert(empty || etmq->format != UNSET);
+-		if (empty)
++		if (empty && !etm->sampling_mode)
+ 			continue;
+ 
+ 		ret = cs_etm__create_queue_decoders(etmq);
+@@ -3818,6 +4021,19 @@ int cs_etm__process_auxtrace_info_full(union perf_event *event,
+ 		etm->synth_opts.thread_stack = session->itrace_synth_opts->thread_stack;
+ 	}
+ 
++	etm->sampling_mode = cs_etm__sampling_mode(session);
++	if (etm->sampling_mode) {
++		/* AUX windows augment their owning samples, without synthesizing events. */
++		etm->synth_opts.instructions = false;
++		etm->synth_opts.branches = false;
++		etm->synth_opts.callchain = false;
++		etm->synth_opts.last_branch = false;
++		if (!session->itrace_synth_opts->set) {
++			etm->synth_opts.add_callchain = true;
++			etm->synth_opts.add_last_branch = true;
++		}
++	}
++
+ 	if (etm->synth_opts.calls)
+ 		etm->branches_filter |= PERF_IP_FLAG_CALL |
+ 					PERF_IP_FLAG_TRACE_BEGIN |
+@@ -3828,11 +4044,13 @@ int cs_etm__process_auxtrace_info_full(union perf_event *event,
+ 					PERF_IP_FLAG_TRACE_BEGIN |
+ 					PERF_IP_FLAG_TRACE_END;
+ 
+-	if (etm->synth_opts.callchain && !symbol_conf.use_callchain) {
++	if ((etm->synth_opts.callchain || etm->synth_opts.add_callchain) &&
++	    !symbol_conf.use_callchain) {
+ 		symbol_conf.use_callchain = true;
+ 		if (callchain_register_param(&callchain_param) < 0) {
+ 			symbol_conf.use_callchain = false;
+ 			etm->synth_opts.callchain = false;
++			etm->synth_opts.add_callchain = false;
  		}
+ 	}
  
- 		ret = cs_etm__decode_data_block(etmq);
--		if (ret)
-+		if (ret < 0)
- 			goto out;
+@@ -3859,7 +4077,7 @@ int cs_etm__process_auxtrace_info_full(union perf_event *event,
+ 		/* Use virtual timestamps if all ETMs report ts_source = 1 */
+ 		etm->has_virtual_ts = cs_etm__has_virtual_ts(metadata, num_cpu);
  
- 		cs_timestamp = cs_etm__etmq_get_timestamp(etmq, &trace_chan_id);
+-	if (!etm->has_virtual_ts)
++	if (!etm->has_virtual_ts && !etm->sampling_mode)
+ 		ui__warning("Virtual timestamps are not enabled, or not supported by the traced system.\n"
+ 			    "The time field of the samples will not be set accurately.\n"
+ 			    "For Arm CPUs prior to Armv8.4 or without support FEAT_TRF,\n"
+@@ -3875,6 +4093,8 @@ int cs_etm__process_auxtrace_info_full(union perf_event *event,
+ 	session->auxtrace = &etm->auxtrace;
  
- 		if (!cs_timestamp) {
- 			/*
--			 * Function cs_etm__decode_data_block() returns when
--			 * there is no more traces to decode in the current
--			 * auxtrace_buffer OR when a timestamp has been
--			 * encountered on any of the traceID queues.  Since we
--			 * did not get a timestamp, there is no more traces to
--			 * process in this auxtrace_buffer.  As such empty and
--			 * flush all traceID queues.
-+			 * No timestamp is available yet. Process the queued packets
-+			 * before resuming input or draining the current block.
- 			 */
- 			ret = cs_etm__clear_all_traceid_queues(etmq);
- 			if (ret)
- 				goto out;
+ 	cs_etm__setup_timeless_decoding(etm);
++	if (etm->sampling_mode)
++		etm->timeless_decoding = true;
  
--			/* Fetch another auxtrace_buffer for this etmq */
-+			/* Draining and fetch another auxtrace_buffer for this etmq */
- 			goto refetch;
- 		}
+ 	etm->tc.time_shift = tc->time_shift;
+ 	etm->tc.time_mult = tc->time_mult;
+@@ -3889,9 +4109,11 @@ int cs_etm__process_auxtrace_info_full(union perf_event *event,
+ 	etm->use_thread_stack = etm->synth_opts.thread_stack ||
+ 				etm->synth_opts.last_branch ||
+ 				etm->synth_opts.add_last_branch ||
++				etm->synth_opts.add_callchain ||
+ 				etm->synth_opts.callchain;
  
+ 	etm->use_callchain = etm->synth_opts.thread_stack ||
++			     etm->synth_opts.add_callchain ||
+ 			     etm->synth_opts.callchain;
+ 
+ 	if (etm->synth_opts.last_branch || etm->synth_opts.add_last_branch) {
+@@ -3899,13 +4121,18 @@ int cs_etm__process_auxtrace_info_full(union perf_event *event,
+ 		etm->br_stack_sz_plus = etm->br_stack_sz;
+ 	}
+ 
++	err = cs_etm__aux_sample_init(etm);
++	if (err)
++		goto err_free_queues;
++
+ 	if (etm->synth_opts.add_last_branch) {
+ 		/*
+ 		 * Existing samples are matched to decoded trace by time, so
+ 		 * the trace must carry timestamps that are correlated to perf
+ 		 * time and the queues must be decoded in time order.
+ 		 */
+-		if (etm->timeless_decoding || !etm->has_virtual_ts) {
++		if (!etm->sampling_mode &&
++		    (etm->timeless_decoding || !etm->has_virtual_ts)) {
+ 			pr_err("CS ETM Trace: --itrace=L requires virtual timestamped trace\n");
+ 			err = -EINVAL;
+ 			goto err_free_queues;
+@@ -3920,7 +4147,7 @@ int cs_etm__process_auxtrace_info_full(union perf_event *event,
+ 	if (err)
+ 		goto err_free_queues;
+ 
+-	err = cs_etm__queue_aux_records(session);
++	err = cs_etm__prepare_auxtrace_queues(etm, session);
+ 	if (err)
+ 		goto err_free_queues;
+ 
+@@ -3972,6 +4199,7 @@ int cs_etm__process_auxtrace_info_full(union perf_event *event,
+ 	session->auxtrace = NULL;
+ err_free_etm:
+ 	zfree(&etm->br_stack);
++	zfree(&etm->chain);
+ 	zfree(&etm);
+ err_free_metadata:
+ 	/* No need to check @metadata[j], free(NULL) is supported */
 
 -- 
 2.34.1
