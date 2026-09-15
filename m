@@ -4,57 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D71DC88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 17:24:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6FAAC88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 17:25:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DY+0xgImxoBM8p82Er4Yx6/Hyx1wI9449SZ2ErT8t0U=; b=EMeQdpLaLBNOMFuN+ZuHG2MBiP
-	yEvjHLwo1Ga2XyCpPY+0A7BVqGQd/6YLSyULZfXfWh1ZDfsoKBnhfMGSA1HhIfFTVBCYI8m1ZM7Sw
-	v7Hd0P2EC4Od3HUCXLX7Z8JTL2DFVsfLdwFsMsfoEK0pVpPJg94cnCHEcgrbBnnnNYS/AvjqTdaTE
-	G+d/8kzh8EvpUjOmRL4pC+qTUBuerG28rZQwJM+CiN6yze0A6OJf/hZruOduseQEI+cG3ZCX8RHE1
-	Cw67BTjz4+6IKEIAh9P+Iz0tsbfx7AKmlJC/mYdEgHsN+T6mMf+o1SNhLnC1RYa6LGtn8s/sFQkDF
-	/KqeZAqA==;
+	bh=580eTFP1NkimzWPNgS+9nYszud29IW8q8yHcoG0IgdQ=; b=AR+/uJq/2gnYG3CB+ybEaZzPa8
+	JBa/5OqU1CL37Qsa0eLGxaR7Wh6v50MhNEVH62+dMLVZhUbL3ezhU9BHMhnNSfv/QeZdDTP+8P/pJ
+	S7qngxIDfXFMl5SVVHYsx9PQIeD0JBMPrl0dwPZ2cNkwfjPNDmLnb0wsZdTFiwz5kQwhiSf/k73VR
+	I+FlzKOu5QZ5oFuvY8eZNjn914SX7dxeFbtIRaMry8+8pRGNkQt1QVWbSfOaQ/qHXcS9NDDeShRqt
+	MEO79fLDjWCyXyd6K2HjNpxwQRFALvQtM/aoct6pnLhok0hlj20OR2x29fOCYkO0f93BqZWEEiYR9
+	1sqnaFJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6WtM-00000007Zxj-1dGe;
-	Tue, 15 Sep 2026 17:24:24 +0000
+	id 1x6Wu7-00000007a6p-2FJH;
+	Tue, 15 Sep 2026 17:25:11 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6WtK-00000007ZxN-2kb2
+	id 1x6Wu6-00000007a6d-1uJ4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 17:24:22 +0000
+	Tue, 15 Sep 2026 17:25:10 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1DB78600CB;
-	Tue, 15 Sep 2026 17:24:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACC361F000FF;
-	Tue, 15 Sep 2026 17:24:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DE975600CB;
+	Tue, 15 Sep 2026 17:25:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CC2E1F000FF;
+	Tue, 15 Sep 2026 17:25:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789493061;
-	bh=DY+0xgImxoBM8p82Er4Yx6/Hyx1wI9449SZ2ErT8t0U=;
+	s=k20260515; t=1789493109;
+	bh=580eTFP1NkimzWPNgS+9nYszud29IW8q8yHcoG0IgdQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=V3P22c+ID8sVAMDYNLQZJD1aeOEcJ6JM5EE7a7bhVmk61qAA7SDs0qDGW3AfxfHrW
-	 eI5IsTro9Fy+K6/KIVp1n0rwcTd/4r/tHcNHFQv5v3F6Mtmwye+pM7WLe75MgqSgW2
-	 hNh6zMQaz6ExQZLrpHD9b8/rjfTR9BgyfBsuguBUVaOBQ1G9whUrpoXXu6ViOVGTQ0
-	 ElN2sX6s4HDRjwxYYCHSLWfUyIoyJH/STNk9pHWK8mbs00PawOz1YTX2S2o5dDjGBr
-	 DC9Vwo9vhlNQSQQbMA3TkbmjAvk0QV/Bcxb7QDFL2rIgugarV1ZX3ftFfnhWRDO4ld
-	 nzxSpntNHddhg==
+	b=hO3gh8+vlntlL5nCY1tQn6k1zDAHMnNhEaIOgyPOt+/Rilu6mgphABwRqdxLGT02q
+	 kxKsCXquKHhovd+PyJ1lRSgNLyF3HxG2F+azgQHm0L9+6W6efGDY90b10Z0yfvLAKY
+	 7iUdzTEPvXEf771V4jmgSZ9RIdGJOx5aBB9asLDHzU+7/Pw2oz2jWnk87nm/p56xuy
+	 iLjqMRI8MlZTEbzjYUkKjzWoG96JymXLDE1Z3MTe16gtXShIqci+kHpXXhwS1NTpse
+	 yACYL2FyaMdW9eWTkXVUZMAP4ZyaLc9fSS2EHn3WcUYIhhfE+wTXq+wJAnvYQc1kxv
+	 vXoS24MlOWtXw==
 From: Sudeep Holla <sudeep.holla@kernel.org>
 To: Cristian Marussi <cristian.marussi@arm.com>,
 	Roland Dreier <rolanddreier@rivian.com>
 Cc: Sudeep Holla <sudeep.holla@kernel.org>,
 	arm-scmi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/2] Couple of SCMI race fixes
-Date: Tue, 15 Sep 2026 18:24:17 +0100
-Message-ID: <178949301698.3922074.1009067435042757840.b4-ty@b4>
+	linux-kernel@vger.kernel.org,
+	Sashiko <sashiko-bot@kernel.org>
+Subject: Re: [PATCH] firmware: arm_scmi: Fix error path leak in scmi_raw_message_send()
+Date: Tue, 15 Sep 2026 18:25:04 +0100
+Message-ID: <178949307034.3922413.1605841752391153227.b4-ty@b4>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260909-scmi-async-done-race-v2-0-cc5dec25c6be@rivian.com>
-References: <20260909-scmi-async-done-race-v2-0-cc5dec25c6be@rivian.com>
+In-Reply-To: <20260909-scmi-raw-v1-1-de3fa75d2c6f@rivian.com>
+References: <20260909-scmi-raw-v1-1-de3fa75d2c6f@rivian.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -72,31 +73,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 09 Sep 2026 04:32:26 +0000, Roland Dreier wrote:
-> Noticed a couple of races in SCMI code around delayed responses that
-> time out. These are probably nearly impossible to hit in practice but
-> the fixes are pretty straightforward and it seems worth having the
-> code be sound.
-> 
-> The v1 fixes were correct as posted, despite Sashiko warning that the
-> new "delayed_response_dropped" debug counter might never increment.
-> However, that review made me think that a new debug counter for a
-> one-in-a-gazillion race condition is probably less useful than a
-> kernel error message. So the change in v2 is having the first patch
-> log an error for a delayed response that arrives in the race window it
-> closes (matching the existing "Delayed Response not expected" error in
-> scmi_msg_response_validate()). The new error is expected to be
-> extremely rare but it makes sure there is no path where a delayed
-> response gets matched and then discarded without any logging.
-> 
-> [...]
+On Wed, 09 Sep 2026 17:58:59 +0000, Roland Dreier wrote:
+> When the is_transport_polling_capable() check fails in scmi_raw_message_send(),
+> it returns -EINVAL without doing scmi_xfer_raw_put(), which will leak a
+> struct scmi_xfer.
 
 Applied to sudeep.holla/linux (for-next/scmi/updates), thanks!
 
-[1/2] firmware: arm_scmi: Protect xfer->async_done with xfer->lock
-      https://git.kernel.org/sudeep.holla/c/49fc5bc04eec
-[2/2] firmware: arm_scmi: Don't reuse raw xfers with async_done still armed
-      https://git.kernel.org/sudeep.holla/c/0543fc1443de
+[1/1] firmware: arm_scmi: Fix error path leak in scmi_raw_message_send()
+      https://git.kernel.org/sudeep.holla/c/1adabdce41b9
 -- 
 Regards,
 Sudeep
