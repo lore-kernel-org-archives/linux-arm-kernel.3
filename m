@@ -4,98 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9D7BC88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 04:45:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D0F2C88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 04:45:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1fCyBztB56Mbm6pG1VzHl6tMEqvrCbAMMCDlWGNMGAw=; b=g6FeSOumwQYD2J/y14UZS0iHk8
-	kqKSzp4oLYB6IvSAtme3j9LLofWLN62rEamPjvMLlzoF+isjhIFk7c3FURmE5Ayh9lDr2tbVRiH9a
-	qBYTsLWpQoj0WwnUd0JMRjTijobihj9AFPx/VYDU2WBdLoZsfGPhfVe3xohzl6MUsn93PoKOkKP0F
-	DTBNAxpQstiRQ0NG4anYbge9v2JnYaeikhpPzFnU/TppWASRssQcKV/yQFT6d1ogUBJeUKup7Dv/m
-	GpYnoqW1feZG99RsSn1Ecx8tEoIaHEpOrJI041BzHtO5EY/6cUDNUHiwotv8R365pVB5O9pA+zrgD
-	bFmfFcJA==;
+	bh=AVj6OOuw8+ZpNkuoXFcXlRxfZ6JLOmksHtPRzEkYO3Y=; b=oZhWkLDd7ppuLdNbTDnzjm96j0
+	G+tT+nOEb6SRDxRCJRg/slQVJTDulso7/NLNrGc1/J9kVXUS2NEZ9uUvw0yDep6GcuOAA5JMwyYCs
+	tya8sbGHl0Bv3cjGjeU45fqXhijLtxo1VBNDwBbxHSPPS5JzhMloZ0iabEavGIOh6xPQZwu2RDXV4
+	ieDPAGvoGfFeYeHRW3G/A0KBLuz46rwlWySYcxscCgHRbtyDHPqND7PBhEkjFzVIkw1PjjwlhCDid
+	wSEf4651DyKlON7+PNb+2vZbr7fnUWPVm7sbHmr/3Pf2A4ImG+qC8VolBFbpb1U8FyDPL6nRbHtxV
+	H+C90pKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6L2q-00000005Cx8-2QC2;
-	Tue, 15 Sep 2026 04:45:24 +0000
-Received: from mail-ej2-x10.google.com ([2a00:1450:4864:34::10])
+	id 1x6L3H-00000005D4M-3jDk;
+	Tue, 15 Sep 2026 04:45:51 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6L2n-00000005Cvu-2Z81
+	id 1x6L3F-00000005D3n-3eGQ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 15 Sep 2026 04:45:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
+	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=AVj6OOuw8+ZpNkuoXFcXlRxfZ6JLOmksHtPRzEkYO3Y=; b=G4YEsFdK+2lHjMvXSZA0KSmvjR
+	Q6BvZ4M6xG+Bqe+yjosptfTg6JuIlv39B/cC3bcF96FCaAB+VgaPfarhNXieKHgSw0oKml68ZlSME
+	O8xPAmGHdVxp36boEvv8V7P0SzRknIxBAUoNH7gzOgur6eOY+iVJvla0K6ZCenr3MtFQXJx8hUc8O
+	ShMtFySiq4bJQuHknpSQWvO2k2XNn7gwdcBE/OALK+YOSHe9VYKNx1pVko8YWkbt5PatifogbWMkV
+	s8CAeU4v+9xM0l/5gWBCBoVFNSntCIPV2+bqZup0LV4FKDmlpiDabVs2gc21CoNhSLSSFQxEDvy20
+	x/jA54Yw==;
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6L3C-00000006GiH-0LDp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 04:45:22 +0000
-Received: by mail-ej2-x10.google.com with SMTP id a640c23a62f3a-c254f705536so659726266b.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 21:45:21 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1789447520; cv=none;
+	Tue, 15 Sep 2026 04:45:48 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-c2940d16190so583189566b.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 21:45:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789447544; cv=none;
         d=google.com; s=arc-20260327;
-        b=NI6eANxY+CY1hSlCpFzpIm0sNayjpozNbOEaLkg+gEw147AHk56RjqoR6SxldmDid/
-         Q8+XkyByJz2bAINOBPgPoxZY8ydl6Rs/VfMH9HVc+7Z04OLez0r3jxlXUBPSDxHJwPXx
-         b/bC/TUT+8xMUYo+WzPLBNted6EGEgigFpKoBZavwfXf6gtaMngykRO6DCDiMQtAmscP
-         I89Lt5wE15RFTpTtMVlr2XjSybQaAe7xxtWB8HyWLVKdL/bZ9W6r8ciMnvf52vKTuv4s
-         xP7aSboJAhB1VZssHub+uE4WRcdsRhzRPTkzevJE0VSuY6mJQ3AITgkT2bcd+cE3yWk+
-         M9JA==
+        b=iSseLIfUHshSSFkIjaMWrI4jpCgN88dSLKPe65Tx8hBb95DOTExV6JG3ap9T3TyaRB
+         NK9vLVFNQpwfAlI/SnM7uSB2WnWSIrTNsjb7kfBU+nrLLqTHLPJErRc1GIuC7k0Mad4w
+         v5oc3fHZJMz8P21aCLdlgaBLNbUC/XZwtjxDL8LHMbARGRo6HlhK2TPMJVBBgDF1EMij
+         PHC+G2o82nsUfgs8i3bnNXJcynaIHeELAz4QLj29ZLDAXhFiuqMk+hp6juQ99C/ebZd9
+         I+CiVRlsMludb3mA6DmwRvp7p51FERDyfDBrTa6UqFXWlAi9ZiyRwG6O61HYZHW0Bt/x
+         1i+A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=1fCyBztB56Mbm6pG1VzHl6tMEqvrCbAMMCDlWGNMGAw=;
-        fh=nUuF7JsrPd5xjxoyLbC3YZC8/g+vAnkQaNGfozYHZ7g=;
-        b=VvRt7Cxvd6JqQ5irgE6rN7ciuNhxgipUa/bpzEzY2Ar9w6YjVBq1Vu3m13uy5ZjZfC
-         V1l7itRfylUEp1Haltk6EwEzALTUv+TNOu2b/KB7+2xDM+RPxRPyl9jb2oR7ns/Pmqgk
-         IaswifxgCDwL5rt7TCZCTg0b42qzr/VR3pChGwbUbscW3J1WzRDnsNG0G86Ym/e6i3M6
-         mukoEFNlYxsVKnj6MA8qKQxjAqTl+xTAX2JFBVhN2lW84l5ALS+Cepta2NnJDKA0Gzqb
-         sINfsjLHaR0zbQg7/It1JhfxKGA0QTuao9ERhR/dWe4rAIxugThad9kcY4gDc4ekaOKl
-         VQcg==;
+        bh=AVj6OOuw8+ZpNkuoXFcXlRxfZ6JLOmksHtPRzEkYO3Y=;
+        fh=8YR2tnog+e98RBf5eUD5fu5+S0f1srdIRfjXdNrscu0=;
+        b=c3ImqvsCP97REdzTEvAFQU7XFTMkpKB7xggcH9YrcfC2srXdPSi+yhZGdjOoCgxY/Z
+         SFGBMFMHkBun8b8JuFxJ8ahnRxG9kYjk84aL7rFoyIvZ2QKZASx2+Rx8fw75CrIVgII8
+         1SJ6xJceHtNEvJAkKxpWep6ZMoJrMwIg6jqfYVZs470A8FvHxdFjYD9KoE572aCGm/6l
+         y/ifOgZ9bDtcmRPiIu3g7bacbduclnd3tBknF8mOkKV0Ox7o6sjTa92FkZuZTySe9c0q
+         sghbNim1l7TQShVje77SkozUz97i20rxTAq/CL6B0XKzau81N1sltCZkgGWkbQzH2nle
+         OXIw==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789447520; x=1790052320; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1789447544; x=1790052344; darn=lists.infradead.org;
         h=content-type:cc:to:subject:message-id:date:from:in-reply-to
          :references:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=1fCyBztB56Mbm6pG1VzHl6tMEqvrCbAMMCDlWGNMGAw=;
-        b=KgbyzkGDUjDNktw3iFq62DUwYrZhEy6LClJE4ETHIqe4KcS5qXYTrkR1RBnFRteA1Q
-         kvGfZlXgisscxNaRNJrBuNoUz8m4xg92valnbZLRuUB7o25B1OK9A0eptEvFkc/4KNcG
-         JuI6AwZ8E0cvyssih/12cjaP3dfTWKsanB5PMKP/s9d5FKUOCbQzYmEXrB0mx5miH9Kx
-         6VJWLiy/IAqFNJjoP5Bs6zwd53m9EmlRiIlOQWVPv16IAoIuYwZTUVLgFHevittocQ9k
-         uNm8yLsSCfd3eKlg1Iyu5UXG0iuMkzfYIQmUd9Z0y15mZ3zS+JzX+dZAaijf2uV0W4o1
-         xnBQ==
+        bh=AVj6OOuw8+ZpNkuoXFcXlRxfZ6JLOmksHtPRzEkYO3Y=;
+        b=jr8ax6nnVJfw6IdbLmLxuk+c4VXcehn1dlAn+KE0hLeoKAtBnhH6VwGN9H9+KEIa1P
+         tOX3OAMbt8YfXR2OmDzP5S7lLSGPDH+1jkcKVDrL+ceLiyrIE0ITWlee7HqdEeK8OtxL
+         w2K4UNbSbg4yPe6sJIToR8PA8Kn4f7ssVEmbUpPf+RxzbZN1F1wxK22BIZqTYYn82Ywz
+         YUyLwvyVlzF1UtP5TviOeWfELPGSVioMOWMAvtZHkrW4IauBxOk0DQRsSUyvLXLQSvoN
+         rjOCshcoXlPHDykXYku9U0obQHUhgkUFKVkMYhRGmtjXT5+8q8HIJ+t/oC4/kILX/FTa
+         8+sg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789447520; x=1790052320;
+        d=1e100.net; s=20260707; t=1789447544; x=1790052344;
         h=content-type:cc:to:subject:message-id:date:from:in-reply-to
          :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to:content-type;
-        bh=1fCyBztB56Mbm6pG1VzHl6tMEqvrCbAMMCDlWGNMGAw=;
-        b=fDviWIgmPegwG0eGvMj9vdv9l9XD6tOpFQZpeMm2U6OkrkHqMQD2j5z3kWFbbrxrNs
-         EuWT92vF7PidH6tb6IdVoPPv2RIpVMtB+qGDa/XcNAVuWPSFdfY+XandPJ2w12FghtBj
-         u6D5nzA7Atl4bG4oOT0VP1wRk72JosmAli8P4lKYZXwtv0WodRRVes8xDcVI2+0bHAkR
-         ZSgApTs3yr4teywihUT+OB3U+KXkHjq0ARUas/K9bOxtvXxXY6Nr/nvaLexfk6Oq+4aK
-         tBhGz8m7EFqVdWoPukgJ8hVeziHuaDPp9aVLY9IFi1+k1ION161oLJfUUleBc7IPwlpr
-         q2YA==
-X-Forwarded-Encrypted: i=1; AKwUvBwliiYryy8l2E9sY6LEVEVqPMKqTfjruSKC1Hcn8XwywzkN8PBjHxQbtxPNoOF9R//ByP2I5gUoj/Fn7Fbb6vgs@lists.infradead.org
-X-Gm-Message-State: AFuF++kIq57/AoZQZsuMayF87EudeRnua5/bio+QJG18FU8nBgBupzab
-	xIP4RPeiPxtKWFKktyQ0ebO9Z8BabF3xNLiTatR2anZdUU2y8BFe5iiOOmwIP1VvMZqXy/tBEva
-	z3Vq+soDeXC/BGzEsqE5LJ38CXez5+Ko=
-X-Gm-Gg: AYBFou0ErB6y6XT+kjg/iUu6ddMMYy/BSHNHQGgdLlVlOQ9gSZIJ/+/cmzWw7YD3mun
-	NRV1+F0bP0zc80s8EdDd/C/XeTjNl4jeMfFsad/wmLuAGMZB1N91sN785kxpch5bb+W/f2bf3da
-	imm57ktHsWIbOIXQ12ppdBPsypZ4M8ijF0bgyOVBXtjCTT+CEAcq7xBhwaI4yZu984tgxm70/tt
-	kiaSsiHXvME2LSmSkv9aaoPkMQZTyUGMo0wKtvXMaaQQB8COoav93Qiy4WJNtcT9DiPn9r7N0Py
-	uV10ArOsPakiHTq+lnwJOHdXC+yb8CYIW/4YPcqQ1s96nIFBsVhlmg==
-X-Received: by 2002:a17:907:7b85:b0:c26:36c4:858e with SMTP id
- a640c23a62f3a-c29b8726f8fmr326120966b.25.1789447519950; Mon, 14 Sep 2026
- 21:45:19 -0700 (PDT)
+        bh=AVj6OOuw8+ZpNkuoXFcXlRxfZ6JLOmksHtPRzEkYO3Y=;
+        b=HOt58MhcPfCYqg7HdjTVMxpgvdm/4lQUIxbAX+4/DICQ0ptBzy8n++DWldQDuLZTPL
+         IsCvNp75SLlrEG5Eeo0JzhZ2CnhCXXP3m64nJiCs3xaPfQ8ganwJJzP4tox6jJoDdPIA
+         saLDxJVZv64deZSjTdWfw9jWLQFwlUd258Hw2Nna6R138hCdWJgUA1tU0i9RsIxGKMLJ
+         0y17TpYPYKFg7sJsz1h96CpeuLwH0a5kNAEXythL8u5RHh4Z3buuHUi3SeeBMWnZRSqg
+         Y3Tm77qNy7Sw/9MchRwbVWQE4VLuo5j58D7TDjltrsf0KQSgPPpFGe1kI6NlI4eISM3Z
+         yDTg==
+X-Forwarded-Encrypted: i=1; AKwUvBx4/F+8wjGSlbWCoZ42GvBqhOa1w/lPgG8GNuGm7qXR9wybDwi1tl2QDwuREbeaF6ipAxexMkGUa4Qin8/z8M/G@lists.infradead.org
+X-Gm-Message-State: AFuF++lp1ZgodhOscT9RAufMGbuG2yhMKYCLzxb0rM2VLoNGTKpF2nXu
+	0miJHu4LpMMsuwGMEoJHGJIpEQOw/I+ZYt4F/cboCHC+oZRyivb5wdVWzbXEEXiUAOvHXlDvPyd
+	ys9zxvffykq4Mdywj4R+5SCcHpMbMQRk=
+X-Gm-Gg: AYBFou1Xvd00g6xAOrC4JmwfYQGUZPnOMhWTw2YESi3aHwcPjS1KCKS90l/N788g+5Q
+	o1CbpSrPs0P6YbSdrEQAWzv3LDsgDgj7yX4I1Id1y1y5lFLn0rBaY7AQOutAgPeQ5HUSo4hS0fP
+	K0fzjoUqen8JbK5OgIcdEytKpWasut4syTUl9r7qI51kPKGY0ljvgE3ItvVU0zGsrq89HmVL2iO
+	n084HU1ZQKmiZ48YKDJFQrY81obR8qLtKVRgRpaCR1uEfjp3e68Tye9s1JobNUgzxCi/fhsVLD4
+	XE8Yuyxw+W4qHirqt6iUI7tXkD+uZEMUnXIMJYn0fFPVWj+oW8BkclY=
+X-Received: by 2002:a17:907:d8f:b0:c25:c54d:d1a2 with SMTP id
+ a640c23a62f3a-c29b864787dmr350678466b.18.1789447543614; Mon, 14 Sep 2026
+ 21:45:43 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260913145905.9404-1-linux.amoon@gmail.com> <20260913145905.9404-4-linux.amoon@gmail.com>
- <a835cdf1-b0b5-4719-8b5e-226fee78b856@kernel.org>
-In-Reply-To: <a835cdf1-b0b5-4719-8b5e-226fee78b856@kernel.org>
+References: <20260913145905.9404-1-linux.amoon@gmail.com> <20260913145905.9404-10-linux.amoon@gmail.com>
+ <d4174f6c-2ced-4827-b579-c54b37619023@kernel.org>
+In-Reply-To: <d4174f6c-2ced-4827-b579-c54b37619023@kernel.org>
 From: Anand Moon <linux.amoon@gmail.com>
-Date: Tue, 15 Sep 2026 10:15:03 +0530
-X-Gm-Features: AcwNN1X6uQRHhT6qwboNgDZri63s8FVYRlQvpJVAgezJWpeLkP8LX7XyBkGQ7dE
-Message-ID: <CANAwSgRETNrPmwGvv2z8Q8EF--W19u6iB1goNZHUzKp64s3_Fg@mail.gmail.com>
-Subject: Re: [PATCH v9 3/9] thermal/drivers/exynos: Handle optional triminfo
- clock correctly
+Date: Tue, 15 Sep 2026 10:15:26 +0530
+X-Gm-Features: AcwNN1XnROT-wl_Pv4SIRl9gq2osyQZq9QJ7pS3eOAiL7xJk3WzBKCm1k8F3Pac
+Message-ID: <CANAwSgQ1Uno50rGMW3Mrtrmm_DW22fgOzbLZH7uHu=StQ8_t8g@mail.gmail.com>
+Subject: Re: [PATCH v9 9/9] thermal/drivers/exynos: Select thermal emulation support
 To: Krzysztof Kozlowski <krzk@kernel.org>
 Cc: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
 	Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
@@ -106,8 +120,8 @@ Cc: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, "Rafael J. Wysocki" <rafael@
 	"moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES" <linux-arm-kernel@lists.infradead.org>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_214521_670019_E9F9E08B 
-X-CRM114-Status: GOOD (  15.32  )
+X-CRM114-CacheID: sfid-20260915_054546_597969_B5DB7157 
+X-CRM114-Status: GOOD (  20.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,24 +139,39 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Hi Krzysztof,
 
 Thanks for your review comments.
-On Mon, 14 Sept 2026 at 12:37, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+On Mon, 14 Sept 2026 at 12:30, Krzysztof Kozlowski <krzk@kernel.org> wrote:
 >
 > On 13/09/2026 16:58, Anand Moon wrote:
-> > The triminfo clock is obtained using devm_clk_get_optional_prepared(),
+> > Select THERMAL_EMULATION when EXYNOS_THERMAL is enabled, as the Exynos
+> > TMU driver provides thermal emulation support.
+> >
+> > This ensures the thermal emulation framework is enabled whenever the
+> > Exynos TMU driver is built.
+> >
+> > Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+> > ---
+> >  drivers/thermal/samsung/Kconfig | 1 +
+> >  1 file changed, 1 insertion(+)
+> >
+> > diff --git a/drivers/thermal/samsung/Kconfig b/drivers/thermal/samsung/Kconfig
+> > index e1e8035d24fb..7d5590f78185 100644
+> > --- a/drivers/thermal/samsung/Kconfig
+> > +++ b/drivers/thermal/samsung/Kconfig
+> > @@ -4,6 +4,7 @@ config EXYNOS_THERMAL
+> >       depends on THERMAL_OF
+> >       depends on HAS_IOMEM
+> >       default ARCH_EXYNOS
+> > +     select THERMAL_EMULATION
 >
-> No, it is not. It is devm_clk_get().
+> No, drivers should not select user visible symbols and also this has
+> absolutely nothing to do with Exynos.
 >
-The data->clk_sec checks were changed to handle the NULL return
- from devm_clk_get_optional_prepared() its only used by Exynos5420.
-> Order your patches correctly or do not introduce bugs in patch #1 which
-> you then fixup in next patch.
+> NAK
 >
-I will reorder / fix the series so that the clock API conversion and
-the error NULL
-handling are introduced together.
->
+Many distros do not enable it, so I wanted this selected by default.
 > Best regards,
 > Krzysztof
+
 Thanks
 -Anand
 
