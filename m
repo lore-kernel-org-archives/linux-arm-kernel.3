@@ -4,63 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69EA3C88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 12:16:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADE06C88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 12:17:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:Subject:
-	From:MIME-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NXoYVTwqvD2Mc3uJ8C8rBTgBxVVEvgW7tv7MPPRhfTM=; b=pTezt3eZmip/Uf4mH0OxVdHZS3
-	kYkxM9xuiEeGlf6m/L9tsKWbVDgTb3uEuQEqU0XNKt82b1tjLn7AhKXo8BZIWU/tQG3/37hSrWJlI
-	1859sQ6bb3mA/Cn09GpDSaeA0tabp0OVzT2rm9sHsQTJiKJwSFdvRY7QRTCp1SJMKDszybPXytQ+a
-	yk0XEQVeA8CeG22kkS6fllHyJaBkJg9YNkGansFJIYqDyWxSmVvdCZxKeu9A90pkbqkz1AF1tMywI
-	cw4ZT+Lj7g9CrLD/M7/owWUdyfeA2pefv1H96z5afPzcyHfF9Kx10PZYNyztD9IyuUjRTSho7FH8x
-	7eHtkSVg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tz3AZMGcxx7KEDHkQDwBIzmCVSV/P8yGMrcOOooV8Bg=; b=m4Qt6GzRZWsctGcUFmtFIOsn8Z
+	pOljbY7FHHaPLjt8FOy2JGk7alEGnrfbfKgnuW+/PhBfeWtp6MdxvBBWZUBMxh5JUWmccBVamMKzS
+	NF8zDhu6wwq82pRnFuiXHeYz3OyImN7QkPVq/WSjSAdokDMGKHzShxnD4TPApZeYgZEQq0xrIvnz7
+	7LdqRlNNj7O0M1737t/1zLoNahcMLe9i41V/XlovKwQzf2hW8QvyKiveYynIrASJjgjURVS5lUIm+
+	6I7CkA9nYJ698tWMnu8W9bVDwcuv/Zm+yGONatWVz/qQsdY0VPXAMd9mt/JdlLndjMyN6u6XARSL1
+	BPAYETfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6S5C-00000006Rur-0Xc7;
-	Tue, 15 Sep 2026 12:16:18 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x6S5z-00000006S9P-2A0h;
+	Tue, 15 Sep 2026 12:17:07 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6S5B-00000006RuP-1qg8;
-	Tue, 15 Sep 2026 12:16:17 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C1B07602A8;
-	Tue, 15 Sep 2026 12:16:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A99711F00893;
-	Tue, 15 Sep 2026 12:16:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789474576;
-	bh=NXoYVTwqvD2Mc3uJ8C8rBTgBxVVEvgW7tv7MPPRhfTM=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=CNterPT/ZD51jedu2KNQ9rOU/4D4o9j+Aviy118d7ID4ZpJ7DN5B0QTVxpbOLDEcp
-	 WjkOW+IygybTEM7hIhEUp9B9F8q2tKZJbdjojW7c1kYBcsALaPVXdNvNpseaoF6sxz
-	 d08hoYd15gcHpNwA06y/3FcZ6xOwqFvsocjr/EGRM5cC9tuus0kDJdaqEQg3Qm4M18
-	 ZeSXiq47TwxgervFWeMWsQkRc5DykbFskWfeoeMxtxMfVCAG1jD+nF5Voy10SVLA4z
-	 9vITY1nHgUqKUhmEPiCFbTS/22e9+k7WoslJgfuFNfW4pirOY8jtykHYXqI9jsapd+
-	 +JW1ZdYPtifnA==
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH RFC POC 41/50] KVM: guest_memfd: stop putting the
- descriptor back on failure
-To: "Christian Brauner" <brauner@kernel.org>, "Linus Torvalds" <torvalds@linux-foundation.org>
-Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, sparclinux@vger.kernel.org, "Jan
- Kara" <jack@suse.cz>, "Jens Axboe" <axboe@kernel.dk>, linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, linux-gpio@vger.kernel.org,
- =?utf-8?b?Q2hyaXN0aWFuIEJyYXVuZXIgKEFtdXRhYmxlKQ==?= <brauner@kernel.org>, "Jann
- Horn" <jannh@google.com>, linux-sh@vger.kernel.org, "David Airlie" <airlied@redhat.com>, "Michael
- S. Tsirkin" <mst@redhat.com>, linux-csky@vger.kernel.org, linux-parisc@vger.kernel.org, bpf@vger.kernel.org, linux-snps-arc@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-hexagon@vger.kernel.org, "Eugenio
- Perez" <eperezma@redhat.com>, "Ingo Molnar" <mingo@redhat.com>, "Peter
- Zijlstra" <peterz@infradead.org>, dri-devel@lists.freedesktop.org, kvm@vger.kernel.org, linux-m68k@lists.linux-m68k.org, linux-um@lists.infradead.org, linux-mm@kvack.org, virtualization@lists.linux.dev, kexec@lists.infradead.org, "Alexander
- Viro" <viro@zeniv.linux.org.uk>, linux-hyperv@vger.kernel.org, "Oleg
- Nesterov" <oleg@redhat.com>, linux-openrisc@vger.kernel.org, io-uring@vger.kernel.org, linux-fsdevel@vger.kernel.org
-In-Reply-To: <20260915-work-fd-reserve-unify-folded-v1-41-4d5217d6b246@kernel.org>
-References: <20260915-work-fd-reserve-unify-folded-v1-0-4d5217d6b246@kernel.org>
- <20260915-work-fd-reserve-unify-folded-v1-41-4d5217d6b246@kernel.org>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Tue, 15 Sep 2026 12:16:14 +0000
-Message-Id: <20260915121614.A99711F00893@smtp.kernel.org>
+	id 1x6S5y-00000006S9B-3az9
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 15 Sep 2026 12:17:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=tz3AZMGcxx7KEDHkQDwBIzmCVSV/P8yGMrcOOooV8Bg=; b=Om5CZtvkaEVtlYN+zm1TbTCWx5
+	5jOxBQlk3O6gglreTh+tW6Iey9hM3oOcflfCTiX6zQaI8JRL8uNRFlEb5Jkw7ElEK9LBXHO6xkZ9f
+	Rtl+IcsG6QvhxuRZ/a1Uy5VKQEdU2EGv3wcJNPZTGYcnKkK1vbiyeyCGCI0c++JiAjVmXX7c943Ln
+	f00ajdYLvKpJhu4nA/F+Ni7Lj8v0+1X3RbnYeq5NavhLMC/vzEJ7iNnsAfmgIMOR6NqJ8/qyuEvEg
+	fSKSVVeqdddIshHtNodP8AtjRIm6oVvGnGXcE02koLWnqE04+CcRL4fxarD4WfSFHGiOSj351r3ga
+	QYD6+dlA==;
+Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6S5v-00000006ilS-3j8X
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 15 Sep 2026 12:17:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=tz3AZMGcxx7KEDHkQDwBIzmCVSV/P8yGMrcOOooV8Bg=; b=D/aI1texgnZkg/xRoBRNqdwpEZ
+	tffyZ6F1NuQ1p4eAo4OcSVI8Xn8jEwqWNrkoK6x4hkz6tPH9kynX9SU7GPVS1McyJXK4rg35C0HlQ
+	1jxWXcZxoHDXcF7MsB3TlvhYdG3liQdyKIVUYT+nRt0lzXYpCl8O3GacUidkg9XMoEZ682Z5cDWBm
+	DhlYhaSzdJL9lAUTvq5Viju6oD2Lo7muIDoNst3duu+8lPJ6s7dsdA01MyqgX9y6OvgXc8rQ+OfWB
+	8A0FDcy+Hwd/QSp3XoDHlQ1VxWJ8eSm9SB80K/CFnsaYoFBBqv+s8TXE6w9jhDTehkKkEsPTJLwfY
+	jUFQRcBQ==;
+Received: from authenticated-user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.96)
+	(envelope-from <leitao@debian.org>)
+	id 1x6S5g-004NqD-14;
+	Tue, 15 Sep 2026 12:16:48 +0000
+Date: Tue, 15 Sep 2026 05:16:42 -0700
+From: Breno Leitao <leitao@debian.org>
+To: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	Joerg Roedel <joro@8bytes.org>, Nicolin Chen <nicolinc@nvidia.com>, 
+	Jason Gunthorpe <jgg@nvidia.com>, Pranjal Shrivastava <praan@google.com>, 
+	Mostafa Saleh <smostafa@google.com>, Thierry Reding <thierry.reding@kernel.org>, 
+	Krishna Reddy <vdumpa@nvidia.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Kyle McMartin <jkkm@meta.com>, Usama Arif <usama.arif@linux.dev>, kernel-team@meta.com, 
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, linux-tegra@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 1/2] iommu/arm-smmu-v3: Add a cmdq_max_n_shift module
+ parameter
+Message-ID: <aqk207UQxQF1leEm@gmail.com>
+References: <20260909095228.2174031-1-kas@kernel.org>
+ <20260909095228.2174031-2-kas@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260909095228.2174031-2-kas@kernel.org>
+X-Debian-User: leitao
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260915_131704_004518_94F95A13 
+X-CRM114-Status: GOOD (  14.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,18 +93,40 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: sashiko-reviews@lists.linux.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Rely on the fd exit path machinery.
->=20
-> Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
+On Wed, Sep 09, 2026 at 10:52:27AM +0100, Kiryl Shutsemau (Meta) wrote:
+> The command queue depth comes straight from the maximum the hardware
+> advertises in IDR1, which reaches megabytes of coherent DMA per queue.
+> A system with several SMMUv3 instances pays that per instance, and the
+> Tegra241 CMDQV pays it again for every VCMDQ it preallocates.
 
-Sashiko has reviewed this patch and found no issues. It looks great!
+Thanks. I've seen this issue while investigating another SMMU issue[1].
+Thanks for fixing it.
 
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20260915-work-fd-re=
-serve-unify-folded-v1-0-4d5217d6b246@kernel.org?part=3D41
+Link: https://lore.kernel.org/all/20260911-smmu_fix_aws-v1-0-75870bf9655b@debian.org/ [1]
+
+> Queue depth only bounds how many commands may be in flight before a sync.
+> A machine driving a handful of devices, or one with a tight memory budget,
+> has no use for the maximum, and no way to say so.
+> 
+> Add cmdq_max_n_shift, a cap on the depth given as the log2 of the entry
+> count, the form the hardware itself takes in the LOG2SIZE field of
+> CMDQ_BASE. Decide the depth in arm_smmu_cmdq_max_n_shift(), which caps the
+> IDR1 value for natural alignment and then applies the parameter, so the
+> queue is allocated at the requested size. The Tegra241 CMDQV sizes its
+> VCMDQs from IDR1 itself, so route that through the same helper.
+> 
+> Floor the request at one page worth of entries. Without the floor, a small
+> request trips the CMDQ_BATCH_ENTRIES check in arm_smmu_device_hw_probe()
+> and the SMMU fails to probe. The floor also costs nothing: coherent DMA is
+> page granular, so a shallower queue occupies the same memory as one that
+> fills the page.
+> 
+> Assisted-by: LLM
+> Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+
+Reviewed-by: Breno Leitao <leitao@debian.org>
 
 
