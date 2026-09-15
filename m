@@ -4,129 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 806D1C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 16:33:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC631C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 16:34:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OO4q5Xz7fWFB/Qy/cEjOmkG45lZudVrpC3cRuWwdr64=; b=apyd2hifXTY3IpwnMuK9RC9PTx
-	OlyfdgNWS7DoaSJRlaU4oFGERTtLXGN2K90Ios+6zsvO2/aQ9iRKN0Ax/0mAThxGWRKgQaMBgtfLF
-	lVoRJ9IAE9uHX0K/eznSNA6GWwuEwInYWc7HEAO9hZ0k2F5w+HXxsdcVX/G2yVcym5uZIFIL+YdCq
-	0XJrLX7wstcbfAAGOdakmJ5rg9OCguxLndNApc10eGESSNbHkOBbEEdU3Ac6LJRPkmYCrDtX8xsfb
-	+NXHXNPAwxc+ATNJddU/pfc8spUY+aBalmB5hi/D+vkgOk1lgPB4gd0vpi0e1JtK9fqIKXnCfuUMn
-	ApzedmYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6lrQWW/YEq4ebFQGF0OLKk9Iw69XrrnuLi271OSb9HA=; b=cZL/z98fvwuJBJGTBrm9acM/Wj
+	jHpMGqdbkYet+00zwBhhjIsb/la9ZDIzagWdkV7qNQl1tFF7nXm9TAvvDz9IHG/tMLmndrfkXtAMi
+	iuYZ8pi8gJsu1fYEdUpscBmx5aMOQsT24sUiUdcDo0a5iwIDmY8CHDVNXO9rGlihVUwBDlpmbXauh
+	qAkBMN3AUynndxgnDoGJlnna7OJUVfRtHzkEC8RJeDbf7ub9mEEghnJHiI+2KyIGN7rS1CoJGBTHI
+	TaZRZaBtbY9CKskoXTbCdRQU8/ghQ17IpDBRLn5YJvalswxqkUfpVJYbvZJjcZ54tDrwo/1eLPVMZ
+	RhC0qWGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6W6K-00000007Pll-24jh;
-	Tue, 15 Sep 2026 16:33:44 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1x6W6W-00000007PoD-2crC;
+	Tue, 15 Sep 2026 16:33:56 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6W6H-00000007Pkj-0rwp
+	id 1x6W6M-00000007PmN-3B4B
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 15 Sep 2026 16:33:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=6lrQWW/YEq4ebFQGF0OLKk9Iw69XrrnuLi271OSb9HA=; b=AaUJbBdpqXMLt6rCpxZhx0p7Jh
+	tZWBCMYmEKj+PO8RSUGW6UtqRg6ZiWu4swWrcQoX1lgMPvkl2DTejkFgasXyMtgkRL6wmtGgGDF2X
+	Dzio0gorQbzLaAZcRIbR401J/n4hwzs5TZd6DWsLax5o8DQmimg8L9lFDPn1FuA6wcOJ4wKmWZKNt
+	OXQ28VCQ1kQcwrflok4yOf8rJ4c8SDTrH2BAh0BC+udkmJbvY3klFip+4B1LGmOqKIUZVSZxMM/sm
+	vlQpO6/ufGV0Gszd0upnzYgSFMLIctcekPjZ0iNKwQ8t5gMVblsW5ktIQrB1d5tkFev7nKG0s6E9h
+	8VjbeVqQ==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6W6I-000000071em-3YXo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 16:33:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=n14zZDljsicRLJrsq0ijkpA1h41sEMzHGUP0QC+L+RAbb1Cu0qWeJUX+XiTzUULgujy/QBeJo17uLdh6b6ZifxTV9ClpUUcim+iVQDxnWwglmFK+et8oqGveGJirrON6RIKWcJgRJMN5tsiRfTKPtvcJkMDEoxRtOYnITl5ZbdXic98lJ86KGQKulLvX0YzCXckXXT8R7266zk0c29QzMkzAmfTlPhUQFNQX/zb6pKzV/T3CLZ9Lnsq8aszk5XN5VlhxhtTlfR895HPaqrsm2jOqbAckusVL84SYNgE1HOYmbmF1Jq+/xCjrSqcziSuZNqjob4AgNW8udVtiirShjg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OO4q5Xz7fWFB/Qy/cEjOmkG45lZudVrpC3cRuWwdr64=;
- b=XOctsimGdFutbHlSqQMzlivf7tBHlCohlp6mXXQji24EI8xXigXSblTtSUZ53dA1KfA4kY93kmKNGEhC/5E0mNyAlx0rsmA0ej2Z4QVSPPEjPEATKck4aF79zbhWKdMeRSN+zvdL5xuhRImA2TycippaFUowcJiTAFBAAAiJgtxAKmvApOA+tb7LnbWb6wqePv4YFT5HNiI6Lnuz81mXd6+ESKklnsvKjwEAITPWY2pogVcjrH1Xxf9ZotIrb/9Vn47bSSxWrtC9YtMcj9Skqp1DZx9/UK2JWlDBa/KaMoiJCuLrKrpYA4AGVGAjD7n6BG5Eoaizb+ArOIq8dL3xfw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OO4q5Xz7fWFB/Qy/cEjOmkG45lZudVrpC3cRuWwdr64=;
- b=BkVxisDL0PHvVPftpkLc4HWZ6SMwxYDeKVFpib2TkPdZD5nQvkmWvwOyY6Tbtb2ZsvULfmYJnnVAhrQ4tH3az8xlXAGNGfCcia+dbjPCtlI/hva80/BNWspnwnl7pKFaGyi49gr0Idur3cL0BW8FY1C/jxdu5FwCgp5FdgI5gBBW1uMcbH5F2WyH/1qFlKls8l5Cuc6vo9efs1XesVAixk5eQFrpaR7ilmBM2q6cubMs5Vbpo6VAj75D9jglzH+TYDqkMuwteghgHpHrwOSwUHfCSRfl4oCRMP7v3wPT7U/saFVV31mjpEnXHtLI6rR1s7P42ZOwQgCKko23czEArw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DU2PR04MB8679.eurprd04.prod.outlook.com (2603:10a6:10:2de::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Tue, 15 Sep
- 2026 16:33:36 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.012; Tue, 15 Sep 2026
- 16:33:36 +0000
-Date: Tue, 15 Sep 2026 12:33:28 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
-Cc: Viresh Kumar <vireshk@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	Binbin Zhou <zhoubinbin@loongson.cn>, Sinan Kaya <okaya@kernel.org>,
-	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH v2 1/4] dma: dw: use designated initializers for
- acpi_device_id
-Message-ID: <aqlzWNeguqifqIAZ@lizhi-Precision-Tower-5810>
-References: <20260907-acpi-dma-v2-0-0ffe4a007992@thegoodpenguin.co.uk>
- <20260907-acpi-dma-v2-1-0ffe4a007992@thegoodpenguin.co.uk>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260907-acpi-dma-v2-1-0ffe4a007992@thegoodpenguin.co.uk>
-X-ClientProxiedBy: CYXPR02CA0096.namprd02.prod.outlook.com
- (2603:10b6:930:ce::7) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Tue, 15 Sep 2026 16:33:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D36A3153B;
+	Tue, 15 Sep 2026 09:33:36 -0700 (PDT)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D028F3F882;
+	Tue, 15 Sep 2026 09:33:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789490020; bh=xx9eB9u6r/WPdeitcGw2Om+PjZvqR8Z+lIOP5XRrVY8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=vqwxgydT5NzhSN2Z0f9rmyeFnEtco07D31rIA9SQlSfdE/XzlJiHZkDflSA7mNkJc
+	 Rt7eAFb/2C7+ukOgRoKB0XBmy5vieAWEpflOB33ervcsvf9gWWnmmoGnXFejOYsblI
+	 35ZRlK1YmKTVj3O/JeUwKO91ZaT0TwGXhFYXSGAM=
+Message-ID: <e78cf6bc-2180-48ae-a384-aebf82f38832@arm.com>
+Date: Tue, 15 Sep 2026 17:33:36 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU2PR04MB8679:EE_
-X-MS-Office365-Filtering-Correlation-Id: ae5dce4b-d035-4102-2308-08df13471725
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|7416014|1800799024|366016|19092799006|11063799006|56012099006|10067099003|4143699003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: GI4BudlHo8x1gcV2D4ha644DU38GzZkEqvfylMfF6PmO923+x9CIXntZpwrsXnNUe+AnERbvGfN/mwI2RwCzaImupGUkqGLD5QgdjwaulmxsygR8ffkbwkASZsPT4k3BlpOKyWa0a9Y3G0YU+wT95ARspsuJM1gVehYWA90hgsqjFlOUGbHSxlPybkMwZNF69qm7/VTS8Mo/4GOpkjOs181x+BfAC7YBNgjwwyxoEktIhdBGYYE78Hy4qvwm6lSB9nSf8ayCfqsS2SvzQoDvywp6PM92yalMpBiPEovdL5cm5CSQ8Jd1BZmYO3fVUK089f8W+sZPbBxOj8aVd+mAch5AmrcMrHzbLiL5u0X3CW9Dgkt1Ms3O9KyEpIs1Y6kJELDFiFqvsK5/mL7nDtCbLsTx3feWcgALFjxrSF7ORKK0Z3tJQg1Mv3xUQEsBaV8beDk6TjoSsynCA6PsEAOv0ge0l6FFy6dOWyd9YJB0rA8HFMW+dhmCBY0K+oEYO0niC6yt98Ije8e591DR0ipqpA/TKWD3hg2XQ9Culp+3LGJmuzH9txgDzlt18F0nOy+DLsIUKtayhX0Qdh+O2dQcm6gtUu0z9NebEN2vbG0zGssDqnayMUUUZKiIrTJUz9vGVlg0hHYh/vdG4/MEaO5bB6iaQ4dMyPcQdAE3FOK5QcY=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(7416014)(1800799024)(366016)(19092799006)(11063799006)(56012099006)(10067099003)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Ng2+2Gmep70GpiI0UDjBej4m2HaPUHq9NyF1a+fsgPy8A5elBU+IpIyui069?=
- =?us-ascii?Q?W7f06SOr/ab4fOTg4zuHusxNflc1EHoOWpM8e8aIcEzCeqU6YahsAydoKfVG?=
- =?us-ascii?Q?3arywdtbnftzOA+f+wbY6y+SSi19lXFWG8dOmZWIcqNz2E5I2s37yH7zrJfo?=
- =?us-ascii?Q?GsaLDxUjSrfzcrwvW27dRtSSZXU/ckcXLYaWQAJ0YsfjHQ7p/RqDAHn6yiEe?=
- =?us-ascii?Q?dJkv+efJuS68sjr/zCEQlYvRu1mmdWBu7XQnTcRoqxXUK8Y/ISZVYxrMBjAA?=
- =?us-ascii?Q?0QGST5PtUg/RVxMS2uPzIMg7OLV0JS/gy9k15Dx4gTEv04Nt1joQSA0DHzeJ?=
- =?us-ascii?Q?57GbCAlJW3CmkO5+vLl+G9yseZGwY/n5yW7jw/XsiAvQBdCxozeWjEj271wU?=
- =?us-ascii?Q?VfMTEvahNfDlsJLDzso6pY21Ze4fzQpj2WttlNtMjIzcJSbmkCDDk3OV2heg?=
- =?us-ascii?Q?+iUUCUJkq3bAlYZ3MUbFcLn+jNVmEUKCfBiZPa0miF3ueJzGFCOt6O2F6jK/?=
- =?us-ascii?Q?UTw0ZDBqaAzHiVsONFhcX+RjkNwTv3Dk8AZSobJrOLxKeTIJ+LXg+SGh5i3m?=
- =?us-ascii?Q?H5qcSjucULGPQrQOhonYM7o6eU0J7GYXUd46Pp9RfNWuzkfN1QMyNEDwpDHq?=
- =?us-ascii?Q?qHB8IW1xCSCcDxzyMSKUIMcUSFO85e434BuEEF90rgXjYBP5F5LdyHDW/o0n?=
- =?us-ascii?Q?smW5v6r0aExglAEFIo6TFd6MXUffP7WCkSpZKFLMdeGflLUEpcEOiX/eAaSW?=
- =?us-ascii?Q?4JR32iG8OpwY7U4LaNqFKy7VueFbDtP3RDU9+NbGvb2Qz7GmgU+Edjdz96N2?=
- =?us-ascii?Q?44/+EtMjC21zn/vK+TKlEZ54K6LayjK/qAOh6iiSRUre7VH7UslLC5ajtjHi?=
- =?us-ascii?Q?uwUe8fsvDuiwW425jMRgJX1LT9FBfj1NoKfqRxVr8syVcyNW1UdCJY91/J5D?=
- =?us-ascii?Q?/VWHLonnehaoavwjDScctXOqKUG8kC1dnFHgSugJEos6UcWS0QpzMgD3Egui?=
- =?us-ascii?Q?qn/csUk3IYf4sOX/Ydbg/GKevrsJh1SegGgd8ORU7FC9ZsnIuSCyhxKYJHC7?=
- =?us-ascii?Q?RRfiXG0DEr2hb/dJcL8wkH0a129Ipz8l/AYlpm9x46++2BpP+m03VJaC0his?=
- =?us-ascii?Q?4Hz5fyXBEBaEv9XAsaJp4QMCTwmvwMS8CrMNSpoJKNlVGey2FTL2Y0pm7cXZ?=
- =?us-ascii?Q?BsanzpJfEdXAuTCM+iV/9Rt7kcKSXnCH12tUfn6gUUZn+ubVTzQYc/HOM8F6?=
- =?us-ascii?Q?w7ExPw6hjb2mYU0/H47r1QkduCQid5NJwomum7fsJUiHQPEsY1G5KOszEoY2?=
- =?us-ascii?Q?/yoQ/qqAQw+aVfDLXwaZyaBzPIfvSBvkEmlB+ISmQFhYPyTHLM5twhGRSCtk?=
- =?us-ascii?Q?3F1wG8t9hat5709k+nNYa2Nyi2D4Ay9545WDL7LRcUi2ujb1CE6Yq5IKAAOs?=
- =?us-ascii?Q?f9zYBBp/AF+wMP8/TdKHsAimAYrtR9nSrO69X8nIc5kCs46nVSTmaqzUekAG?=
- =?us-ascii?Q?GWj/M3tjHml9q/78DbogQ4R+qVydVwfEurwqcIp6zKCDmfAgbfHpAMN8Ywhf?=
- =?us-ascii?Q?scYUU/hRaJGh3u0CCN2ImRuYEuMoFxzi9dEYD2LftKnzmiiaJ8LnJ6xPVQAI?=
- =?us-ascii?Q?5OIJxOej+DKK2Yle0L7Ql40h46hQm9oY/z92Lki+xS2f0R99Vh0Fs7EyTROP?=
- =?us-ascii?Q?eTl5Npv7NARpLVyFfFz7Mo1U/woiQ0IqKJ0f1wq46CiMkS0JfhtMpvesjZRZ?=
- =?us-ascii?Q?wTg2Be/gF85oRjywR9v819M0TX0nC60SkySf/7pYbFWgR63Omdfb?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ae5dce4b-d035-4102-2308-08df13471725
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Sep 2026 16:33:36.3587
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: xOihXqQopZcNqHsGXV7a2OVDaaSrnimP9+CvYIfOE6He+4Mj8LmExiLwUbdRA36JPe1HHkS9i6CEgkwN7XxFVvTuwHAsGFp/7U+lj89Y3XKi0NR7GsDFvp7BrLRLbajr
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8679
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 12/14] arm_mpam: detect and enable MPAM-Fb PCC support
+To: Andre Przywara <andre.przywara@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
+ Ritwick Sharma <ritwick.sharma@arm.com>, Gavin Shan <gshan@redhat.com>,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260911112835.714162-1-andre.przywara@arm.com>
+ <20260911112835.714162-13-andre.przywara@arm.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20260911112835.714162-13-andre.przywara@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_093341_250306_5D3A355C 
-X-CRM114-Status: GOOD (  17.01  )
+X-CRM114-CacheID: sfid-20260915_173343_219613_96A19D4C 
+X-CRM114-Status: GOOD (  36.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,47 +98,302 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 07, 2026 at 04:17:43PM +0100, Pawel Zalewski wrote:
-> Use a named initializer for the acpi_device_id fields which makes the code
-> more readable and consistent with how lists are initialized in the rest of
-> the kernel code base.
->
-> Signed-off-by: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
-> Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Hi Andre,
+
+On 11/09/2026 12:28, Andre Przywara wrote:
+> The Arm MPAM-Fb specification [1] describes a protocol to access MSC
+> registers through a firmware interface. This requires a shared memory
+> region to hold the message, and a mailbox to trigger the access.
+> For ACPI this is wrapped as a PCC channel, described using existing
+> ACPI abstractions.
+> 
+> Add code to parse those PCC table descriptions associated with an MSC,
+> and store the parsed information in the MSC struct.
+> There can be multiple PCC channels, and each channel can serve multiple
+> MSCs, so we need to keep track of the channel usage, using a list and
+> a refcount.
+> 
+> This will be used by the MPAM-Fb access wrapper code.
+> 
+> [1] https://developer.arm.com/documentation/den0144/latest
+> 
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> Tested-by: Ritwick Sharma <ritwick.sharma@arm.com> # on Arm AGI CPU
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+> Tested-by: Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>
+> Reviewed-by: Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
 > ---
+>  drivers/resctrl/Kconfig         |   1 +
+>  drivers/resctrl/mpam_devices.c  | 119 +++++++++++++++++++++++++++++++-
+>  drivers/resctrl/mpam_fb.c       |  41 +++++++++++
+>  drivers/resctrl/mpam_internal.h |   2 +
+>  4 files changed, 161 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
+> index 9591d792736e5..3f81638f57be3 100644
+> --- a/drivers/resctrl/Kconfig
+> +++ b/drivers/resctrl/Kconfig
+> @@ -2,6 +2,7 @@ menuconfig ARM64_MPAM_DRIVER
+>  	bool "MPAM driver"
+>  	depends on ARM64 && ARM64_MPAM
+>  	select ACPI_MPAM if ACPI
+> +	select PCC if ACPI
+>  	select MAILBOX
+>  	help
+>  	  Memory System Resource Partitioning and Monitoring (MPAM) driver for
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index 14dc8461e4b8f..150a529458388 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -20,14 +20,19 @@
+>  #include <linux/irqdesc.h>
+>  #include <linux/list.h>
+>  #include <linux/lockdep.h>
+> +#include <linux/mailbox_client.h>
+>  #include <linux/mutex.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/printk.h>
+> +#include <linux/property.h>
+>  #include <linux/srcu.h>
+>  #include <linux/spinlock.h>
+>  #include <linux/types.h>
+>  #include <linux/workqueue.h>
+>  
+> +#include <acpi/pcc.h>
+> +#include <acpi/acpi_io.h>
+> +
+>  #include "mpam_internal.h"
+>  
+>  /* Values for the T241 errata workaround */
+> @@ -50,6 +55,87 @@ static LIST_HEAD(mpam_all_msc);
+>  
+>  struct srcu_struct mpam_srcu;
+>  
+> +/* PCC channels might be serving multiple MSCs, so keep a refcounted list. */
+> +static DEFINE_MUTEX(pcc_chan_list_lock);
+> +static LIST_HEAD(pcc_chan_list);
+> +
+> +static void mpam_pcc_chan_release(struct kref *ref)
+> +{
+> +	struct mpam_pcc_chan *cur = container_of(ref, struct mpam_pcc_chan,
+> +						 refcount);
+> +
+> +	pcc_mbox_free_channel(cur->pcc_chan);
+> +	list_del(&cur->pcc_chans);
+> +	mutex_destroy(&cur->pcc_chan_lock);
+> +	kfree(cur);
+> +}
+> +
+> +static struct mpam_pcc_chan *mpam_pcc_chan_get(struct device *dev,
+> +					       int subspace_id)
+> +{
+> +	struct mpam_pcc_chan *cur;
+> +
+> +	guard(mutex)(&pcc_chan_list_lock);
+> +
+> +	list_for_each_entry(cur, &pcc_chan_list, pcc_chans) {
+> +		if (cur->subspace_id == subspace_id) {
+> +			kref_get(&cur->refcount);
+> +
+> +			return cur;
+> +		}
+> +	}
+> +
+> +	cur = kzalloc_obj(*cur);
+> +	if (!cur)
+> +		return ERR_PTR(-ENOMEM);
+> +
+> +	cur->pcc_cl.tx_block = true;
+> +
+> +	cur->pcc_chan = pcc_mbox_request_channel(&cur->pcc_cl, subspace_id);
+> +	if (IS_ERR(cur->pcc_chan)) {
+> +		long err = PTR_ERR(cur->pcc_chan);
+> +
+> +		kfree(cur);
+> +		return ERR_PTR(err);
+> +	}
+> +
+> +	/*
+> +	 * Timeout based on the "nominal latency" in us, from the
+> +	 * PCC ACPI table. tx_tout is in ms.
+> +	 * Add some margin here to be on the safe side.
+> +	 */
+> +	cur->pcc_cl.tx_tout = DIV_ROUND_UP(cur->pcc_chan->latency * 5, 1000);
+> +
+> +	mutex_init(&cur->pcc_chan_lock);
+> +
+> +	cur->subspace_id = subspace_id;
+> +	kref_init(&cur->refcount);
+> +
+> +	list_add_tail(&cur->pcc_chans, &pcc_chan_list);
+> +
+> +	return cur;
+> +}
+> +
+> +static int mpam_pcc_chan_put(struct mpam_pcc_chan *pcc_chan)
+> +{
+> +	struct mpam_pcc_chan *cur, *tmp;
+> +
+> +	if (!pcc_chan)
+> +		return 0;
+> +
+> +	guard(mutex)(&pcc_chan_list_lock);
+> +
+> +	list_for_each_entry_safe(cur, tmp, &pcc_chan_list, pcc_chans) {
+> +		if (cur == pcc_chan) {
+> +			kref_put(&cur->refcount, mpam_pcc_chan_release);
+> +
+> +			return 0;
+> +		}
+> +	}
+> +
+> +	return -ENOENT;
+> +}
+> +
+>  /*
+>   * Number of MSCs that have been probed. Once all MSCs have been probed MPAM
+>   * can be enabled.
+> @@ -2285,6 +2371,8 @@ static void mpam_msc_drv_remove(struct platform_device *pdev)
+>  	if (!msc)
+>  		return;
+>  
+> +	mpam_pcc_chan_put(msc->pcc_chan);
+> +
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+I think this should be in mpam_msc_destroy() so we don't leak the channel on mpam_disable().
 
->  drivers/dma/dw/platform.c | 12 ++++++------
->  1 file changed, 6 insertions(+), 6 deletions(-)
->
-> diff --git a/drivers/dma/dw/platform.c b/drivers/dma/dw/platform.c
-> index c63fa52036d7f..5c1c97eb28a4a 100644
-> --- a/drivers/dma/dw/platform.c
-> +++ b/drivers/dma/dw/platform.c
-> @@ -141,14 +141,14 @@ MODULE_DEVICE_TABLE(of, dw_dma_of_id_table);
->
->  #ifdef CONFIG_ACPI
->  static const struct acpi_device_id dw_dma_acpi_id_table[] = {
-> -	{ "INTL9C60", (kernel_ulong_t)&dw_dma_chip_pdata },
-> -	{ "80862286", (kernel_ulong_t)&dw_dma_chip_pdata },
-> -	{ "808622C0", (kernel_ulong_t)&dw_dma_chip_pdata },
-> +	{ .id = "INTL9C60", .driver_data = (kernel_ulong_t)&dw_dma_chip_pdata },
-> +	{ .id = "80862286", .driver_data = (kernel_ulong_t)&dw_dma_chip_pdata },
-> +	{ .id = "808622C0", .driver_data = (kernel_ulong_t)&dw_dma_chip_pdata },
->
->  	/* Elkhart Lake iDMA 32-bit (PSE DMA) */
-> -	{ "80864BB4", (kernel_ulong_t)&xbar_chip_pdata },
-> -	{ "80864BB5", (kernel_ulong_t)&xbar_chip_pdata },
-> -	{ "80864BB6", (kernel_ulong_t)&xbar_chip_pdata },
-> +	{ .id = "80864BB4", .driver_data = (kernel_ulong_t)&xbar_chip_pdata },
-> +	{ .id = "80864BB5", .driver_data = (kernel_ulong_t)&xbar_chip_pdata },
-> +	{ .id = "80864BB6", .driver_data = (kernel_ulong_t)&xbar_chip_pdata },
->
->  	{ }
->  };
->
-> --
-> 2.43.0
->
+Thanks,
+
+Ben
+
+>  	mutex_lock(&mpam_list_lock);
+>  	mpam_msc_destroy(msc);
+>  	mutex_unlock(&mpam_list_lock);
+> @@ -2295,7 +2383,7 @@ static void mpam_msc_drv_remove(struct platform_device *pdev)
+>  static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
+>  {
+>  	int err;
+> -	u32 tmp;
+> +	u32 pcc_subspace_id;
+>  	struct mpam_msc *msc;
+>  	struct resource *msc_res;
+>  	struct device *dev = &pdev->dev;
+> @@ -2339,7 +2427,7 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
+>  	if (err)
+>  		return ERR_PTR(err);
+>  
+> -	if (device_property_read_u32(&pdev->dev, "pcc-channel", &tmp))
+> +	if (device_property_read_u32(dev, "pcc-channel", &pcc_subspace_id))
+>  		msc->iface = MPAM_IFACE_MMIO;
+>  	else
+>  		msc->iface = MPAM_IFACE_PCC;
+> @@ -2360,6 +2448,33 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
+>  		}
+>  		msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
+>  		msc->mapped_hwpage = io;
+> +	} else if (msc->iface == MPAM_IFACE_PCC) {
+> +		u32 mpam_fb_msc_id;
+> +
+> +		msc->pcc_chan = mpam_pcc_chan_get(dev, pcc_subspace_id);
+> +		if (IS_ERR(msc->pcc_chan)) {
+> +			pr_err("Failed to request MSC PCC channel\n");
+> +			return ERR_CAST(msc->pcc_chan);
+> +		}
+> +
+> +		err = mpam_fb_check_shared_buffer_size(msc);
+> +		if (err) {
+> +			mpam_pcc_chan_put(msc->pcc_chan);
+> +
+> +			return ERR_PTR(err);
+> +		}
+> +
+> +		err = mpam_fb_check_protocol_version(msc);
+> +		if (err) {
+> +			mpam_pcc_chan_put(msc->pcc_chan);
+> +
+> +			return ERR_PTR(err);
+> +		}
+> +
+> +		if (device_property_read_u32(&pdev->dev, "mpam-fb-msc-id",
+> +					     &mpam_fb_msc_id))
+> +			mpam_fb_msc_id = msc->id;
+> +		msc->mpam_fb_msc_id = mpam_fb_msc_id;
+>  	} else {
+>  		return ERR_PTR(-EINVAL);
+>  	}
+> diff --git a/drivers/resctrl/mpam_fb.c b/drivers/resctrl/mpam_fb.c
+> index 98212f761de38..8fc1d78a7b5ab 100644
+> --- a/drivers/resctrl/mpam_fb.c
+> +++ b/drivers/resctrl/mpam_fb.c
+> @@ -20,10 +20,15 @@
+>  #define MPAM_FB_PROTOCOL_ID		0x1a
+>  
+>  #define MPAM_PROTOCOL_VERSION_CMD	0x0
+> +#define MPAM_FB_VERSION_MAJOR_MASK		GENMASK_U32(31, 16)
+> +#define MPAM_FB_VERSION_MINOR_MASK		GENMASK_U32(15, 0)
+> +
+>  #define MPAM_MSC_READ_CMD		0x4
+>  #define MPAM_MSC_WRITE_CMD		0x5
+>  
+>  #define MPAM_FB_PROT_HEADER_LEN		sizeof(u32)
+> +/* The longest message is MPAM_MSC_WRITE, with 4 parameters. */
+> +#define MPAM_FB_MAX_MSG_SIZE		(4 * sizeof(u32))
+>  
+>  #define MPAM_FB_SUCCESS		 0
+>  #define MPAM_FB_ERR_NOT_SUPPORTED	-1
+> @@ -209,3 +214,39 @@ int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 value)
+>  	return mpam_fb_send_request(msc, msc->mpam_fb_msc_id, reg, &value,
+>  				    MPAM_MSC_WRITE_CMD);
+>  }
+> +
+> +/* We only support MPAM-Fb protocol version 1.x */
+> +int mpam_fb_check_protocol_version(struct mpam_msc *msc)
+> +{
+> +	u32 version;
+> +	int ret;
+> +
+> +	ret = mpam_fb_send_request(msc, 0, 0, &version,
+> +				   MPAM_PROTOCOL_VERSION_CMD);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (FIELD_GET(MPAM_FB_VERSION_MAJOR_MASK, version) != 1) {
+> +		pr_err("Incompatible MPAM-Fb protocol version %d.%d\n",
+> +		       FIELD_GET(MPAM_FB_VERSION_MAJOR_MASK, version),
+> +		       FIELD_GET(MPAM_FB_VERSION_MINOR_MASK, version));
+> +
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +int mpam_fb_check_shared_buffer_size(struct mpam_msc *msc)
+> +{
+> +	int min_buffer_size = MPAM_FB_MAX_MSG_SIZE +
+> +			      sizeof(struct acpi_pcct_ext_pcc_shared_memory);
+> +
+> +	if (msc->pcc_chan->pcc_chan->shmem_size < min_buffer_size) {
+> +		pr_err("MPAM-Fb PCC channel size too small.\n");
+> +
+> +		return -ENOMEM;
+> +	}
+> +
+> +	return 0;
+> +}
+> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+> index e5a2804facd2d..314d3b48ca9fd 100644
+> --- a/drivers/resctrl/mpam_internal.h
+> +++ b/drivers/resctrl/mpam_internal.h
+> @@ -538,6 +538,8 @@ static inline void mpam_resctrl_teardown_class(struct mpam_class *class) { }
+>  /* MPAM-Fb Firmware-backed protocol wrappers */
+>  int mpam_fb_send_read_request(struct mpam_msc *msc, u16 reg, u32 *result);
+>  int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 value);
+> +int mpam_fb_check_protocol_version(struct mpam_msc *msc);
+> +int mpam_fb_check_shared_buffer_size(struct mpam_msc *msc);
+>  
+>  /*
+>   * MPAM MSCs have the following register layout. See:
+
 
