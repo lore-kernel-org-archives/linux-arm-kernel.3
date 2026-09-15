@@ -4,127 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B806AC88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 12:40:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CDDCC88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 12:42:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
+	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rQei+xFrWR/8tHZU0Qo/Qb7KMibEAMjL/DUhroeeXK4=; b=iXCO4XY7sYDTIa+DwP6KIFqSxW
-	ebAdngJmuaechtgIOj2w+9bUysWydOH/ap/eM5yoygDM8ZfwNEgxzug+mQiLbtgyB3CH4UL95Ewya
-	Yif3oQbieIVW7wQlKirmspg0BQ7xsctwGyfIR6j/86d531RlYp+Mi9SXiCqcPz5k6Zv4mkmG+igoF
-	x1ecZIphnQbvnUKmG8b4YBRqD04TJm431fT5v/e+mTDPlbU3RHT11WmFQw8wY9lLSY7RViTB52Mws
-	VMG0T0h0qmsYzbnk5hutvXPowBYusqZB+zh+8UkRf1erwxISNqJYJlk1VQiJWUAGyenQAuRuRt4RZ
-	0CCh5HnQ==;
+	bh=Ve43d7pTFVOMTSVWgJo3u0Un/jBoaP9onTkW8Y5KW4w=; b=zdjmBNBPdvFsokRsqKy7A7NY2a
+	Wpqz+kOnTi0fEA/gjK2bvet6efk1W9AeUJu0apv92/zn63qHqVTP5Du90zabH3bkMGPI6nLLmFu1M
+	JKF7lE9ctdmZ49l7LvOKqtvHS/0vID7ixgMXeFutfd8CXEqD3FsWdSB9zXUc5liyag5YCsUUJvia0
+	qSJczVxp8yliME/k6ah528MKMZz5BHVi+OWo5B3n5sxVH+mYnNK79cZMyI9eCJ21A75eRJzN3gsHS
+	Mj23eVD0EeBbQfdFWTA8CeBm6Eg6kUBK4LHlqkKR/dwqa0BPMXz4M/H7Fx3/CtEm8FbIpuNUnpt/n
+	abi07QmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6SSN-00000006ZJU-3L3P;
-	Tue, 15 Sep 2026 12:40:15 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x6SUH-00000006aDW-35Hf;
+	Tue, 15 Sep 2026 12:42:13 +0000
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6SSG-00000006Z5Z-3K5y
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 15 Sep 2026 12:40:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=rQei+xFrWR/8tHZU0Qo/Qb7KMibEAMjL/DUhroeeXK4=; b=SBkh/VQ6bod6bMGssgL/88K9nP
-	lE19aSe0KB533GotMdKYFuercD1/dt1+GLhwx2TkVrL23AEx4Ev1vmZ+bbTrjtZ3YI+fst3vSnz8u
-	2ZKy3ozVtjvKz4tUPL92rsuIO+L6S+ggWOJaEIKIa4WmJyeTVliUCz28vQImZyf4OQrvD+apzlD5W
-	lCUDbLoYIEZlvNaka6AtC3KocBuGSUHKxWQGdkjFCUKHtVpNUmsqTLiXU+4Pbm6jOZEaB4zeyU5Qw
-	rY54ghfXgvb69bU6SETeSKnw6nPHI3WXZomGmAbegwR9HCOE0e4FWVW60vqcCYxLpq0qUXam0IBex
-	FcLBcK9A==;
-Received: from mail-pj2-x03.google.com ([2607:f8b0:4864:39::3])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6SSA-00000006kbG-2GuK
+	id 1x6SUD-00000006aC1-0l1r
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 12:40:06 +0000
-Received: by mail-pj2-x03.google.com with SMTP id 98e67ed59e1d1-3859292bb51so247747a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 05:40:01 -0700 (PDT)
+	Tue, 15 Sep 2026 12:42:11 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-48583cc7ab1so1439514f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 05:42:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789476000; x=1790080800; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=rQei+xFrWR/8tHZU0Qo/Qb7KMibEAMjL/DUhroeeXK4=;
-        b=k7TTV+We8fMLNu+BfsZX6+rIVnPxSphz+Q4UfFfOWPsjdAgqTBqyMduIoIpRmeHtuA
-         I1XJH22TdkSz8HkbqoXWlk8DCOBAiR1qRXX8YhV+AJYUrXKH18tWrpv3HMGBjM0c483M
-         S82RrLQ3Bi9ebfVmRTMahyvHyDrvhYGcLXtpLU7JKyFpsu6Mvw2YosMBKdLhvhZALmjg
-         Kjsiy2ewErpgbkH1JQ6hpwM9EoGahoBT35vnaZfcTPvXM63ZISPH+vpfvMxM11yL5Ynu
-         6S/89pfqc/Kf8rYnA3O82Pzr03ldSkOgemCScsWSmbn52C/kjMBZoaXkdvBoRxw/WTEl
-         qUDA==
+        d=baylibre.com; s=google; t=1789476127; x=1790080927; darn=lists.infradead.org;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=Ve43d7pTFVOMTSVWgJo3u0Un/jBoaP9onTkW8Y5KW4w=;
+        b=SIuv+2AqbxC8DX9AFFchYsmZRnLgfE37ttxC+3RHMTE+1Dd1ZviWbDTi3I8gdmgAGm
+         Fip2/uU4tzNzxJiFAODOvC89V4QTMeUk8Jza5SMtksXwyivfx1MYn/R0rSB7z+45CF22
+         FNXdUZyJmFeNp7wpE8Qy5oMUGPxwGJ7pbULjeur1y4LZbGOJaCu2rOL8nVmGlA3YdeoM
+         yN3IBjBmckH3EaRuh+/MdzvDUoEdYQs9Gd/CclZ/iXp13LvKg1N/dNEaKlmrkRmDqbXW
+         HTk0br635uGZEBvb6HhGqw1ad8BUS+xlzgTVq26jN+QhVh5JIupfuaJrLkcgtKGns1Ml
+         Fjqg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789476000; x=1790080800;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rQei+xFrWR/8tHZU0Qo/Qb7KMibEAMjL/DUhroeeXK4=;
-        b=oG2ILjw4USTF1HLJob4OnBkx39cJE0GEq7wG7wdHeM5k7GPEnyn1VrhZnNtygdhwuM
-         aKnDevtv+b/9NcoKIm1gGdg1oqFz/T2cL9ER2tsgbSZCA48/z/rTA6PfHIMXKJyGM22J
-         FYm64BPGWYRnE6FXq04pPAYgxrSebJWv4iFY1clfwBH4miVLvCV6ToQxBZOnPIAcIQ/W
-         gjr4pI7nZ4NMbtd71YPmyqvLIOoqRXXfT0QZANc6obkFeARxzSeMTy8HR25Cvvto+zxG
-         ClZk4x6aYOyxK+hw2fjDhj/U1PD7uZSvHWCWJEL7FZ2nwReksClzo+07WqyibPkkSzww
-         VXkQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzCFfXV4qRJqvZrxEQAuBjIPHg81Atr20x1i26hHNR6jctKQGpPNwO5zb1Jwgs+sgiN4IcIBe3coGvyqeUieOaP@lists.infradead.org
-X-Gm-Message-State: AFuF++m6fwJ9Yx9MHFAM7i6y8Ceg2Kzbe5rc1ihf51cAQwgBsyn5t7Pk
-	78FD0X486EEBQw8Wt+qnc1M6foPPFsa95JeSs/p363VfoRa3vagg8of0
-X-Gm-Gg: AYBFou3m18xQMhURmdoMQP91CynaGNNGryW55VPXSepyHIuoAAWyoMW5c8JhlfDwrlU
-	EBqdU59iEY1Qso7UoKoPymaxRZiulM0aI5YR7qY5rRjsIUrmlK2d8mSk5hj55yI2amgeZSFr+/H
-	MChOPDrX56Egx+rD5ylOjdl8J+DIGijz5tHRi7H17cYNVSU3gKdNjzPrHpXsBOr3Vix57WHjxnP
-	JELJL0fF+WoR43Mnvu+NDSFTkbZsiH85GQkMa4wId2VwcnWQJ3OQuFCk+rIDcah+TCgltOTYXNr
-	VrLBUVGXllwP2AyXIR/z3XdzATRZH9v7wHe2NlnWmukIBy2uXUnlz7pcnkVU3RpmIbJjjl1owin
-	cKmghBo6XVzE4i6I7fCor4XFj6HPbRLsOR4FCtbl9PUnpWlBDU6ay+mYNRRTSk+QwElJgyMqbbx
-	iC8mdWViZgxEpdzfujqQx9BhF2AYeED8DP63f+AAfMNTKxSlliLEDOJN8+r0fHWDK9K07oF4c=
-X-Received: by 2002:a17:90b:314c:b0:398:9bd3:d6d6 with SMTP id 98e67ed59e1d1-39dfe1901e4mr3823167a91.16.1789476000343;
-        Tue, 15 Sep 2026 05:40:00 -0700 (PDT)
-Received: from server.lan ([168.138.199.194])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39dfdd28acbsm5307259a91.10.2026.09.15.05.39.51
+        d=1e100.net; s=20260707; t=1789476127; x=1790080927;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Ve43d7pTFVOMTSVWgJo3u0Un/jBoaP9onTkW8Y5KW4w=;
+        b=mPeAz9Vj6fhwMabAjjyx3hvZcqaNZYC48IQKf4KWOc/RdikEiMR3N/jIfjAOOZf+wa
+         rRpD2U53zacyOfnEGg4MjYakH43zkVefOmjdX5+V0UkpdsE5rPU1i44UIPFgaWC152cA
+         8wZF2C6L8EmpwOLhWZ9H5QvD6/X/MKMMjRDcRkjErrqrl3r0yDnvgbBYP9XkZZ47a4gb
+         g3z4gnf/UgV2dUBM9Mk4yqZv2FYiu7YIAAInMDRccx0ye5el7J7/7ovfLAmW5Xt6Gkum
+         8RpPulRIBmsoGKCrJHGsXuVeb1SovdtABREpraJdcvWfvAPZQzO6Vz5mbdNeZsArlLKr
+         kMkw==
+X-Forwarded-Encrypted: i=1; AKwUvBwizSXolGkCe6vG9CZp0bs4926c6OYVIKVMGwqcfSm6U+hMEHrgNZYMCwCl9x6q2Xih0hUPgJ2jlPrVcOI94MXQ@lists.infradead.org
+X-Gm-Message-State: AFuF++kktLwsXrF5Sxi87QIAeUeJIzvrlDewCsfMzPhRQZidrJT49vi5
+	0CNTvhlyLuU2hqQkeO4cZlstNFAsf//Ojg3sb0R9R0rj5mx9HM8pBgGIVrtAfWV/vNE=
+X-Gm-Gg: AYBFou3f//Sn4FIkutL9ikk5yB+/Xk62JroQYTX35aZyB0F2GICdxu1i0tg03m/BRj1
+	gK/ay2CX9kkpcpQMmPEC3GCWUcaifUaCyV4UxDngDoDQRs4h6SYcaM8/Ecl4hEvOM1DfGe59owO
+	+MaWUHGIcF1DO4AeBxUWZksKUb92ZrRtDlT7LkUR/J4YGe7U0vjPAVT9hH4fq+aHrr6U45RXy7z
+	Cjoe1Rwn7F2vY07h+dn+tIooYyGNJW/ThWa7vZTNwgJGdHfx0LkmAi47BYpUNYyFh6rJkjMy7Z2
+	6Xp6UvgveJvviNdU5Y27hux1uZVQXPR5w/Gt+Xp08lDevuRGBdn2PzDnFBnNLEdIGmGrWHXMQq0
+	0GKyQ3xpE066I+GnfuE6I2rYmOXf8SS0NtfURPXV/JElplRV1LATYyC1lefpaN/oyigftIiLdll
+	nmR/1cjEc9EKM9cZCH8f2jjJFvP1uk+Tt0Jpw1M1vr6j5T84aN/eq95rr66P4mKmg/0fqjvHowD
+	IWJeKf5sX1iC7llCHM=
+X-Received: by 2002:a05:6000:470c:b0:486:f4cf:59b2 with SMTP id ffacd0b85a97d-48702aae4e6mr8151011f8f.4.1789476127347;
+        Tue, 15 Sep 2026 05:42:07 -0700 (PDT)
+Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-486eb35f3d9sm33532218f8f.35.2026.09.15.05.42.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Sep 2026 05:39:58 -0700 (PDT)
-From: Coia Prant <coiaprant@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Vinod Koul <vkoul@kernel.org>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Coia Prant <coiaprant@gmail.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	David Heidelberg <david@ixit.cz>,
-	netdev@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH net-next v6 11/11] MAINTAINERS: add entry for Rockchip XPCS driver
-Date: Tue, 15 Sep 2026 20:38:00 +0800
-Message-ID: <20260915123802.1561724-12-coiaprant@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260915123802.1561724-1-coiaprant@gmail.com>
-References: <20260915123802.1561724-1-coiaprant@gmail.com>
+        Tue, 15 Sep 2026 05:42:06 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v14 06/11] clk: realtek: Add support for gate clock
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Yu-Chun Lin <eleanor.lin@realtek.com>
+Cc: sboyd@kernel.org, bmasney+clk@redhat.com, jbrunet+clk@baylibre.com, 
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+ p.zabel@pengutronix.de, cylee12@realtek.com, afaerber@suse.com, 
+ jyanchou@realtek.com, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-realtek-soc@lists.infradead.org, james.tai@realtek.com, 
+ cy.huang@realtek.com, stanley_chang@realtek.com, 
+ Brian Masney <bmasney@redhat.com>
+In-Reply-To: <20260901072446.2563145-7-eleanor.lin@realtek.com>
+References: <20260901072446.2563145-1-eleanor.lin@realtek.com>
+ <20260901072446.2563145-7-eleanor.lin@realtek.com>
+Date: Tue, 15 Sep 2026 14:42:04 +0200
+Message-Id: <178947612411.448573.8319851834736456413.b4-reply@b4>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6855; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=582/7s3JxsfQWjUN6EMHISrALdyatqiIyfqpimTuSgs=;
+ b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBqqT0c9mkExB03yY3YHr0fhg3XGhRRzOgE7qYbx
+ W7L0HKibU6JAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCaqk9HAAKCRDm/A8cN/La
+ hUCHD/wLct30ewH+5Y3QuClGJamgZYobFou8PoCe8ZNwegUjci+LL8dHd3LcPTENTfOHXYFlgkQ
+ PVDdSqnMGkiIKdJ+TaI92nbPkyt10u920xrR5yGCGE+qZ/wPHxlqjBu6zRUo47KLDJUEGbL7D48
+ +anKtOEZ3A08V2uIO6RiH/2UsE8JJvAZHVeY0u2K84trqjeBp1DiQe/JSTEAGiSHTjA8ZttkIe3
+ 25FEOUjZ+pbm8G4MeN7gvS2VjLogBvQtHlc90hdCcViOgPqP5SrOcodAOFVeaFuZKTLjbOH6aXO
+ QhBHsQqscoL9OJiDBDe+l22fRIMiCPvDS0pwoeZC48RrFRuGikqcqk4GWCRqHEltrxgh/d31Gly
+ g7BVtv5s+ZSnyHL4p95rVQUNzzc3uAiQ8Llp3hOVayemE/TWZP4BRMLdrSPVgYAvs/yuJyFTK3l
+ FBAYULGRs2mxJmlEhjcOtyjTJDBw+6qsx8YOpgJIeawB3NBo3sM/Pw9/1D4LIfm2e69modjwPRb
+ l7WAxge1vw+kHz8c/yeIII68hVKqg0fBgEKVxUi8oIysPoL8BVtFt+NefV0TSDcNnt/CEMy3BtM
+ Ykad0qE9ldVDgxCCcebuqZMX1e/zfwRqnnJWIciP7QPGLBsUl+CVPgyvX8Aam+s6F5neGVnQO/r
+ SjATklyYSJCn07g==
+X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
+ fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_134002_668590_18545DB3 
-X-CRM114-Status: GOOD (  12.30  )
+X-CRM114-CacheID: sfid-20260915_054210_259466_10EA8008 
+X-CRM114-Status: GOOD (  23.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,38 +124,196 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a MAINTAINERS entry for the Rockchip RK3568 XPCS platform driver
-and its device tree binding.
+On 2026-09-01 15:24 +0800, Yu-Chun Lin wrote:
+> From: Cheng-Yu Lee <cylee12@realtek.com>
+> 
+> Introduce clk_regmap_gate_ops supporting enable, disable, is_enabled, and
+> for standard regmap gate clocks.
+> 
+> Add clk_regmap_gate_ro_ops as a read-only variant exposing only is_enabled.
+> 
+> Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
+> Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+> Reviewed-by: Brian Masney <bmasney@redhat.com>
+> Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+> ---
+> Changes in v14:
+> - Move Reviewed-by tag to the correct position.
+> ---
+>  drivers/clk/realtek/Makefile          |  1 +
+>  drivers/clk/realtek/clk-regmap-gate.c | 70 +++++++++++++++++++++++++++
+>  drivers/clk/realtek/clk-regmap-gate.h | 65 +++++++++++++++++++++++++
+>  3 files changed, 136 insertions(+)
+>  create mode 100644 drivers/clk/realtek/clk-regmap-gate.c
+>  create mode 100644 drivers/clk/realtek/clk-regmap-gate.h
+> 
+> diff --git a/drivers/clk/realtek/Makefile b/drivers/clk/realtek/Makefile
+> index 71edc18121c6..840aff067b61 100644
+> --- a/drivers/clk/realtek/Makefile
+> +++ b/drivers/clk/realtek/Makefile
+> @@ -3,4 +3,5 @@ obj-$(CONFIG_RTK_CLK_COMMON) += clk-rtk.o
+>  
+>  clk-rtk-y += clk-rtk-common.o
+>  clk-rtk-y += clk-pll.o
+> +clk-rtk-y += clk-regmap-gate.o
+>  clk-rtk-y += freq_table.o
+> diff --git a/drivers/clk/realtek/clk-regmap-gate.c b/drivers/clk/realtek/clk-regmap-gate.c
+> new file mode 100644
+> index 000000000000..1c32a87d97df
+> --- /dev/null
+> +++ b/drivers/clk/realtek/clk-regmap-gate.c
+> @@ -0,0 +1,70 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (C) 2017-2026 Realtek Semiconductor Corporation
+> + * Author: Cheng-Yu Lee <cylee12@realtek.com>
+> + */
+> +
+> +#include <linux/bits.h>
+> +#include <linux/clk-provider.h>
+> +#include <linux/export.h>
+> +#include <linux/regmap.h>
+> +#include "clk-regmap-gate.h"
+> +
+> +static int rtk_clk_regmap_gate_enable(struct clk_hw *hw)
+> +{
+> +	struct rtk_clk_regmap_gate *clkg = to_rtk_clk_regmap_gate(hw);
+> +	unsigned int mask;
+> +	unsigned int val;
+> +
+> +	mask = BIT(clkg->bit_idx);
+> +	val = BIT(clkg->bit_idx);
+> +
+> +	if (clkg->write_en) {
+> +		mask |= BIT(clkg->bit_idx + 1);
+> +		val |= BIT(clkg->bit_idx + 1);
+> +	}
+> +
+> +	return regmap_update_bits(clkg->clkr.regmap, clkg->gate_ofs, mask, val);
+> +}
+> +
+> +static void rtk_clk_regmap_gate_disable(struct clk_hw *hw)
+> +{
+> +	struct rtk_clk_regmap_gate *clkg = to_rtk_clk_regmap_gate(hw);
+> +	unsigned int mask;
+> +	unsigned int val;
+> +
+> +	mask = BIT(clkg->bit_idx);
+> +	val = 0;
+> +
+> +	if (clkg->write_en) {
+> +		mask |= BIT(clkg->bit_idx + 1);
+> +		val |= BIT(clkg->bit_idx + 1);
+> +	}
 
-Include the relevant mailing lists (netdev and linux-rockchip) so that
-future patches are properly distributed.
+Could add a comment explaining this write_en thing ? Some kind of volatile bit to commit the change ?
 
-Signed-off-by: Coia Prant <coiaprant@gmail.com>
----
- MAINTAINERS | 9 +++++++++
- 1 file changed, 9 insertions(+)
+> +
+> +	regmap_update_bits(clkg->clkr.regmap, clkg->gate_ofs, mask, val);
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 3b2eb2a7a89a8..f53a519da6298 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -23739,6 +23739,15 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/sound/rockchip,rk3576-sai.yaml
- F:	sound/soc/rockchip/rockchip_sai.*
- 
-+ROCKCHIP XPCS DRIVER
-+M:	Coia Prant <coiaprant@gmail.com>
-+L:	netdev@vger.kernel.org
-+L:	linux-rockchip@lists.infradead.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/net/pcs/rockchip,rk3568-xpcs.yaml
-+F:	drivers/net/pcs/pcs-xpcs-rk.c
-+F:	include/linux/pcs/pcs-xpcs-rk.h
-+
- ROCKER DRIVER
- M:	Jiri Pirko <jiri@resnulli.us>
- L:	netdev@vger.kernel.org
--- 
-2.47.3
+Nitpick: the 2 functions above more less copy/paste. 
+
+> +}
+> +
+> +static int rtk_clk_regmap_gate_is_enabled(struct clk_hw *hw)
+> +{
+> +	struct rtk_clk_regmap_gate *clkg = to_rtk_clk_regmap_gate(hw);
+> +	int ret;
+> +	u32 val;
+> +
+> +	ret = regmap_read(clkg->clkr.regmap, clkg->gate_ofs, &val);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	return !!(val & BIT(clkg->bit_idx));
+> +}
+> +
+> +const struct clk_ops rtk_clk_regmap_gate_ops = {
+> +	.enable     = rtk_clk_regmap_gate_enable,
+> +	.disable    = rtk_clk_regmap_gate_disable,
+> +	.is_enabled = rtk_clk_regmap_gate_is_enabled,
+> +};
+> +EXPORT_SYMBOL_NS_GPL(rtk_clk_regmap_gate_ops, "CLK_REALTEK");
+> +
+> +const struct clk_ops rtk_clk_regmap_gate_ro_ops = {
+> +	.is_enabled = rtk_clk_regmap_gate_is_enabled,
+> +};
+> +EXPORT_SYMBOL_NS_GPL(rtk_clk_regmap_gate_ro_ops, "CLK_REALTEK");
+> diff --git a/drivers/clk/realtek/clk-regmap-gate.h b/drivers/clk/realtek/clk-regmap-gate.h
+> new file mode 100644
+> index 000000000000..9303adda3166
+> --- /dev/null
+> +++ b/drivers/clk/realtek/clk-regmap-gate.h
+> @@ -0,0 +1,65 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2017-2026 Realtek Semiconductor Corporation
+> + * Author: Cheng-Yu Lee <cylee12@realtek.com>
+> + */
+> +
+> +#ifndef __CLK_REALTEK_CLK_REGMAP_GATE_H
+> +#define __CLK_REALTEK_CLK_REGMAP_GATE_H
+> +
+> +#include "clk-rtk-common.h"
+> +
+> +struct rtk_clk_regmap_gate {
+> +	struct rtk_clk_regmap clkr;
+> +	unsigned int gate_ofs;
+> +	u8 bit_idx;
+> +	u32 write_en : 1;
+> +};
+> +
+> +#define __rtk_clk_regmap_gate_hw(_p) __rtk_clk_regmap_hw(&(_p)->clkr)
+> +
+> +#define __RTK_CLK_REGMAP_GATE(_name, _parent, _ops, _flags, _ofs, _bit_idx, \
+> +			      _write_en)                                    \
+> +	struct rtk_clk_regmap_gate _name = {                                \
+> +		.clkr.hw.init = CLK_HW_INIT(#_name, _parent, _ops, _flags), \
+> +		.gate_ofs = _ofs,                                           \
+> +		.bit_idx = _bit_idx,                                        \
+> +		.write_en = _write_en,                                      \
+> +	}
+> +
+> +#define RTK_CLK_REGMAP_GATE(_name, _parent, _flags, _ofs, _bit_idx, _write_en)        \
+> +	__RTK_CLK_REGMAP_GATE(_name, _parent, &rtk_clk_regmap_gate_ops, _flags, _ofs, \
+> +			      _bit_idx, _write_en)
+> +
+> +#define RTK_CLK_REGMAP_GATE_RO(_name, _parent, _flags, _ofs, _bit_idx, _write_en)  \
+> +	__RTK_CLK_REGMAP_GATE(_name, _parent, &rtk_clk_regmap_gate_ro_ops, _flags, \
+> +			  _ofs, _bit_idx, _write_en)
+> +
+> +#define __RTK_CLK_REGMAP_GATE_NO_PARENT(_name, _ops, _flags, _ofs, _bit_idx,  \
+> +				    _write_en)                                \
+> +	struct rtk_clk_regmap_gate _name = {                                  \
+> +		.clkr.hw.init = CLK_HW_INIT_NO_PARENT(#_name, _ops, _flags),  \
+> +		.gate_ofs = _ofs,                                             \
+> +		.bit_idx = _bit_idx,                                          \
+> +		.write_en = _write_en,                                        \
+> +	}
+> +
+> +#define RTK_CLK_REGMAP_GATE_NO_PARENT(_name, _flags, _ofs, _bit_idx, _write_en)        \
+> +	__RTK_CLK_REGMAP_GATE_NO_PARENT(_name, &rtk_clk_regmap_gate_ops, _flags, _ofs, \
+> +				    _bit_idx, _write_en)
+> +
+> +#define RTK_CLK_REGMAP_GATE_NO_PARENT_RO(_name, _flags, _ofs, _bit_idx, _write_en)  \
+> +	__RTK_CLK_REGMAP_GATE_NO_PARENT(_name, &rtk_clk_regmap_gate_ro_ops, _flags, \
+> +				    _ofs, _bit_idx, _write_en)
+> +
+> +static inline struct rtk_clk_regmap_gate *to_rtk_clk_regmap_gate(struct clk_hw *hw)
+> +{
+> +	struct rtk_clk_regmap *clkr = to_rtk_clk_regmap(hw);
+> +
+> +	return container_of(clkr, struct rtk_clk_regmap_gate, clkr);
+> +}
+> +
+> +extern const struct clk_ops rtk_clk_regmap_gate_ops;
+> +extern const struct clk_ops rtk_clk_regmap_gate_ro_ops;
+> +
+> +#endif /* __CLK_REALTEK_CLK_REGMAP_GATE_H */
+> -- 
+> 2.43.0
+> 
+> 
+
 
 
