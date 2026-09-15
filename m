@@ -4,156 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5775FC88E7F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:47:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CA1DC88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:49:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YU/40tz1OiGsBRVDJIrOosPM2xe9ZXCtd1OUPGAbvho=; b=QO3SeI+0YQQ41gWftdphUAeGie
-	rv0qdO/LE14c2qAgztpSJHKhhiSdLJgz1+4ccvacdJLdRLn+Fk0cArtenWk7EghWVDvQAQLTkmmvt
-	56lMSnwKTwXtI8sHxd7+ZG0b77V0bjt+5zJZap5Hkwh2s3hUmj4CQlXxR82rVpldkLXLCXDadxOi9
-	eTJoE2Gv6si+4BZP+vbcFBO7blaaFjjIHHD4x8F5Bj78PM85XQFirxdErqRrhdx3aXrctAYgedY7X
-	NbJvsdwo5NXmuVKHWy9EWmbCUaOzgAtzfwyp4gQsXOiY0PJW8GgvouvnY4q7oaQ/DExAm1qLphccw
-	lPC57ddg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=JABMeoeyFaaaFpqJPJOTzlNu/8zJuRJe3EDdSamTHBc=; b=piJJgt8XjGjbdH
+	Pxf5E8BfEBwfsQ2Swg8t4nrHG8xr6FcjAy+ZLSKEgpjieQSLI19AEPqY5Q3ieNjLgBHFfP0H1KJPw
+	M8N6mITW/MlwH6COlcPA8w/R/tUAqWKgpgSGfmLdxLwrhpbVxX5MaJbvyCgpdO0pAY/XZB4tFBZKn
+	ZC+4xaZrSj4tlvzOmQu1NcQe1XCrJoYD1js+5yzDog6rs5dwsa55w1NotKFdgTc5Iq2iV30IKOfxi
+	OlVhSDhw4p3ZvN1G2nMdlYUASk+QXK8thjhFHS6iWNS7IlcD7+v30EEc8SNZxVUMNvpw32/RRkpfs
+	5rbUW+MSGcUPqE+GEpuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VNs-00000007HQG-3G7R;
-	Tue, 15 Sep 2026 15:47:48 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VNq-00000007HPN-2xJ0
+	id 1x6VPC-00000007Heg-0I10;
+	Tue, 15 Sep 2026 15:49:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x6VP9-00000007HdL-3Tbz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 15:47:47 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68FFAW08291046
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 15:47:45 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	YU/40tz1OiGsBRVDJIrOosPM2xe9ZXCtd1OUPGAbvho=; b=UuqQLGPi6RwKHBON
-	dYUZOaX4xL7lhyYzbVQ+38hF8V4hkwKxj8i7ct7SGEuUwtQU8gbbB7g9UFQVcLTE
-	Z9tY0fUXyRB7+fOWh3KJB+Ub7YhF1wNtr/PxkTmL+gOSSfOhlQ1TGNi6kDBtrTLo
-	nqVKJxSpdNQxR3kQeBsSI3SrMYadaIQZiHpHEef7O3mbT5/yg0+C10wCcyQI4OsR
-	5xBRxrFWQM8PNaAiEYgHiH4SyqdbGaFk7TgmFuQsfCL+PM5W4F+TPiUecdTlpnqk
-	aYHpmIhDlByW5YvtXqGMWxAi66Fx8ma19WynfSsXmu1lFrZ6NfK/fwG7Qv5uePuK
-	ZCXEcQ==
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gpyux2p0x-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 15:47:44 +0000 (GMT)
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2cfa4e4684bso105069435ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 08:47:44 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1789487264; cv=none;
-        d=google.com; s=arc-20260327;
-        b=k9KfgF74zY+zgBXsUgh79hHXPBsi5X9ArMeP3+ojJN8kk8XI+bci64I1keXV/AXpwH
-         bNE++Y263q9Q1YKoJkoRB8NnYtXy5C8t4hgZSr3t9EEIUx4J5LpoVTMtOc4gZant8V5S
-         KC1wDiISz9Y9YNblU/hWW3smZoxIQNG0WdGUqeSZ1eFm5ACXo96CJfk32JvA2o481uNO
-         MhHGJfno4t/Wh/nGtvR26l2pWT+BMgC9aURUh71b9uE/SnQWHvYq4+pyeEGizu1i5e9t
-         pIgM8QTxbRXV7ImEeYzB7Db5lZK53rrRH6J4ptZ5Ob9cWu6dx+tA9lrWd4FF6AJIsa3T
-         H5Sg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=YU/40tz1OiGsBRVDJIrOosPM2xe9ZXCtd1OUPGAbvho=;
-        fh=S09yzrDJGiiQFK6tWImrOE2qGZU/kXnKHIXRD3L5m+I=;
-        b=olmOsyEaxmAbK3gVXGfb506LuksVYMTfSAw/LT4f7lcjCs8gUYewsPgzMLhVGJCH8Z
-         SxHIi9ilRzvjKKmRhsdWxcyWYSCkZS/aP7vD1zWRcyDhSa6CBf6+HG7NMsyEuPoRF/Tl
-         U4yTW+7BGcjZcF6cAJH/vW4bNqhZkNwcbBwhKrcnTbpKGXbErM1yAQXHsHjpFCQOS6GT
-         FsmAA5sttrVPoxcKkNqTf8bvTGqaIWBxYUuZkRKlx3rWe0SFkLOpkh5atxKeGtW09bRw
-         SM9RbvLERK6O4ho3OeEcIOGwzMxbAA5R3SSSw70vFh1VgGHeLtD3tVVWyhVoLIklFBXi
-         qdjQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1789487264; x=1790092064; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=YU/40tz1OiGsBRVDJIrOosPM2xe9ZXCtd1OUPGAbvho=;
-        b=QUZn1RJ0+JowhaWsjeLT9WSRzyiRaXFciLg/BW+Dgp+/gpW6kj5RxYpC6U+jMcFWzz
-         RjGhvKBEMA1uLZBSCpG7WZf+FkNQLdlqdwyzpOCB0TqeIYFjuoQEuEti3e7e097PssoP
-         6KhPW7zSCgBYM2I5L/KChOCqyA/+E3KYTQbgNiUTkyv7QTnsExTkP1jSnn8p2Qt0fPp+
-         EdbHdOpqSQU5vIeou7fMlubNVPBp23GbZJ2SCrqtHtg2wSsv0Zre3f45/AADwSxyuPvb
-         prhhiNutDKI9on3zeQI7lUnrcwyhd38P/RfxRmBn77JA7ooFInIeGY7KCmYOYfOcq55H
-         /Quw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789487264; x=1790092064;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=YU/40tz1OiGsBRVDJIrOosPM2xe9ZXCtd1OUPGAbvho=;
-        b=zYx6Vcu3GvFR0tXCBLxOKXxkCcp3p1yOTpZ7i1OV3GfubOiGLCwUrriqmikQnhJMTe
-         uYqouXPPhZUQmHZM9YQXuJm7kf3p/SYcEMY9Cqdqq93K058hENkaXAUHiM7/rps0wwT8
-         8PyjBmKbPk/RE2MSQCS/EDz7cnbedRHtigCrgOPE4ywk/FAxOCjnklBGRbY152L+03oj
-         t8kovj5yEwBRLFOI9aV+6pUB2xA/5O9jD9nzingteBQ6ghebykRtzG2ZLTLYsAyqwxJB
-         Ry/fQqKgdrB10yuL5BnPg5DCWJ9r7UxGXD1UK0Q5PD1+szkPJgOcdXxjRrsbrqIaV91C
-         YCbw==
-X-Forwarded-Encrypted: i=1; AKwUvBzZUiS3pEWkKUD6kEuIhzfD4m3gSwt0N/voyVRAcKKGOPj28U3C6j+VTHuLtM128NBLfn4y8Zu9bNlWnrOEOVNg@lists.infradead.org
-X-Gm-Message-State: AFuF++l0XtdKYeYhbHrQFT6ZwfKghnRG3+Iqy68Dj57xMSjeQkhDB+/x
-	QCDpeXERDEsQE7Iqc+cq9af+1ndmkvvbeOmW+yIUBtLLQfaIcstoury33rj+YcULI22IqnFTYsT
-	JnTCpAR7y5myLLarTcXt6Q44tb6DyQY0PR8IAq0cc/FEP7eMQdKF+gdX82K9ksvoSC0SNuQDL84
-	mzoKZEQsyr1fMijJewU84E+ghR9zkmUYILCcfvuz0YoIFgzIAYchIO
-X-Gm-Gg: AYBFou3WINt/82BZUC5zHZLOMObePrCbSrE1PuAv8mYCysO3Flys+lXWminZGbjBsgq
-	zmu8MAn5WaTMAUsM5azXSfgDf1qQo8Gnv+NKrtHFb4mkMUmwAxgU8hkCpa165nZIupIIBhBqP8L
-	jHKF2eAVPY1dPt9rWXyIAOsiXaLfonnBxp3XpbxjgGMmH4OpmW/YNlkTUL7w==
-X-Received: by 2002:a17:903:3c4b:b0:2d9:b60d:7755 with SMTP id d9443c01a7336-2dd837b0f4dmr30164845ad.1.1789487263769;
-        Tue, 15 Sep 2026 08:47:43 -0700 (PDT)
-X-Received: by 2002:a17:903:3c4b:b0:2d9:b60d:7755 with SMTP id
- d9443c01a7336-2dd837b0f4dmr30164475ad.1.1789487263399; Tue, 15 Sep 2026
- 08:47:43 -0700 (PDT)
+	Tue, 15 Sep 2026 15:49:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 044491570;
+	Tue, 15 Sep 2026 08:49:00 -0700 (PDT)
+Received: from e132581.arm.com (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 39FEF3F882;
+	Tue, 15 Sep 2026 08:49:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789487343; bh=3fePGUpcFKcyg8Wmo61Zos3owlK/geK2GV8guwQ9n+k=;
+	h=From:Subject:Date:To:Cc:From;
+	b=sdb0u63EAITu5AIbhYgw8fQlKTjNqyAS1DJhxJi1Y9UeOhZaIa3LmsG5GNzD82k4g
+	 nkR4SGWkINzJ/M0VSxM64psGlDurfep/ECzQwnlZYdnQ8WKfvAw84uA0qbVc3YVpz5
+	 ND+X3byucoD4FQXlpGjEDYqgpvV7aTG07dAJkbVs=
+From: Leo Yan <leo.yan@arm.com>
+Subject: [PATCH 00/25] CoreSight / perf: Support AUX sampling
+Date: Tue, 15 Sep 2026 16:48:46 +0100
+Message-Id: <20260915-arm_cs_support_aux_sample-v1-0-35cf6f297d20@arm.com>
 MIME-Version: 1.0
-References: <20260914-a9-pwr-eth-v1-1-752005131135@amlogic.com> <CAFBinCCgvMbM5zf8OXFhjNRWjDMTjAVPu_BBJf1GRKp7JPqk=A@mail.gmail.com>
-In-Reply-To: <CAFBinCCgvMbM5zf8OXFhjNRWjDMTjAVPu_BBJf1GRKp7JPqk=A@mail.gmail.com>
-From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Date: Tue, 15 Sep 2026 17:47:32 +0200
-X-Gm-Features: AcwNN1XLltJ2FYh8c04_i-F6ztWC1xrsL6gII51QJfaGjk0kyDplWQBNgu8CYL0
-Message-ID: <CAPx+jO-Fh7RDmHz-YH=odsHxmqYaj=vj4R9iUSSmbSqcRr-p6Q@mail.gmail.com>
-Subject: Re: [PATCH] pmdomain: amlogic: Keep Amlogic A9 ETH domain always on
-To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: xianwei.zhao@amlogic.com, Ulf Hansson <ulfh@kernel.org>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Kevin Hilman <khilman@baylibre.com>,
-        Jerome Brunet <jbrunet@baylibre.com>, linux-pm@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Qingpeng Yang <qingpeng.yang@amlogic.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE1MDIzMCBTYWx0ZWRfX+qbTyY4ZRkUr
- 9eimMHy8jOOjKH9RIRfO5L7FQmxl3/QtZWNvVI9l/CHOuNUolbM8b87jipFIspIPRrkb0EAfiYO
- w7vUlGgOL2MjCePj++GWmWqd8eD8MmIrYWZbNAeoH2zXeka54U4Ld6utaPKTo7JBIVRRH/JmzBc
- cQWf1c4F/rftndyyZ3RAbix5HHa+N/4IVmejunt7KPLlhWuRW3nBPm8WAieVA89pJGpoFyxhUUh
- aONrMvtskd7izeEiC87jfKyqyVTXVCbBjiLmpUjBn+SbYsoAsaEqx7ANM7rvIKSBsUQ0AnQ7pYi
- wkPcZRcJS3Z+DVIc3WalbF61xv1uonVFmySsGYTTPAJ29IeKIdPHBcYu1VCDKwttBszYJp7N4Jk
- fytdeebQyeL2B3shZt906pWEmz8SKlIxlE06HOZdflJ3SxtCwnNs+oXVRlhQmrc2dDKXC+mHKu4
- YL/8C7BTQN65ucUtW0g==
-X-Proofpoint-ORIG-GUID: x3k9GuE-eHP0MloENgd_io7OOWonDbO7
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE1MDIzMCBTYWx0ZWRfX4DZ9pdvn1X3T
- /AXi1hFMwBR7lyN67OV4x9Fy2+pQM+zX/R6wK9iSc09KqjmoRbyRqar6+5z1lMXLyQQGWpGu9IV
- w24bum+AXCzy8DTs/+RUOtEUWCnGhHQ=
-X-Proofpoint-GUID: x3k9GuE-eHP0MloENgd_io7OOWonDbO7
-X-Authority-Analysis: v=2.4 cv=QYLzLcbv c=1 sm=1 tr=0 ts=6aa968a0 cx=c_pps
- a=IZJwPbhc+fLeJZngyXXI0A==:117 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=_glEPmIy2e8OvE2BGh3C:22 a=mK_AVkanAAAA:8 a=VwQbUJbxAAAA:8 a=BY5PBP3jAAAA:8
- a=PMt6m80IFYFBIeLpiBcA:9 a=QEXdDO2ut3YA:10 a=uG9DUKGECoFWVXl0Dc02:22
- a=3gWm3jAn84ENXaBijsEo:22 a=gQW0MTutLl7eKD3OLfcZ:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-15_04,2026-09-15_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 malwarescore=0 phishscore=0 bulkscore=0 spamscore=0
- lowpriorityscore=0 priorityscore=1501 suspectscore=0 clxscore=1015
- adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
- definitions=main-2609150230
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAN5oqWoC/x3MSwqAMAwA0atI1ha02Fq8ikgpGjXgpyQqgnh3i
+ 8u3mHlAkAkFmuwBxouE9i2hzDPo57BNqGhIBl1oWzhtVeDV9+LljHHnw4fz9hLWuKDStbG2MpU
+ xzkHqI+NI9/9uu/f9AApfwmBrAAAA
+X-Change-ID: 20260826-arm_cs_support_aux_sample-275664545588
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@arm.com>, 
+ Anshuman Khandual <anshuman.khandual@arm.com>, 
+ Yeoreum Yun <yeoreum.yun@arm.com>, Jonathan Corbet <corbet@lwn.net>, 
+ Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>
+Cc: Ingo Molnar <mingo@kernel.org>, linux-perf-users@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, coresight@lists.linaro.org, 
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
+ Leo Yan <leo.yan@arm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789487340; l=6419;
+ i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
+ bh=3fePGUpcFKcyg8Wmo61Zos3owlK/geK2GV8guwQ9n+k=;
+ b=5Ldui6l9hwo13O0cxQcRs2k0r7j9TBAfT7JQ4cWIE7ds+u+5rm0MDfZjOG0drt26+lm7Htc8F
+ avasupR7zFWChnez0rEmbcdX0xqgFbcGtVdNp6R9HXG9SSq6oa3Rtht
+X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
+ pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_084746_852673_0EA7591E 
-X-CRM114-Status: GOOD (  18.16  )
+X-CRM114-CacheID: sfid-20260915_084907_965974_98DFAB66 
+X-CRM114-Status: GOOD (  16.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,34 +88,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 14, 2026 at 12:40=E2=80=AFPM Martin Blumenstingl
-<martin.blumenstingl@googlemail.com> wrote:
->
-> On Mon, Sep 14, 2026 at 10:56=E2=80=AFAM Xianwei Zhao via B4 Relay
-> <devnull+xianwei.zhao.amlogic.com@kernel.org> wrote:
-> >
-> > From: Qingpeng Yang <qingpeng.yang@amlogic.com>
-> >
-> > Mark the A9 ethernet power domain as always-on since it is required
-> > for ethernet online wakeup and must not be powered down.
-> Is "online wakeup" a wake up from suspend?
-> If so: is the Ethernet controller listed with the "wakeup-source" flag
-> in .dts{,i}?
-> I'm wondering if the pmdomain and/or power (wakeup) frameworks in
-> Linux have other ways of managing this case (e.g. only keeping the
-> power domain active if needed).
+This series adds AUX sampling support to Arm CoreSight. A PMU sample can
+carry a window of recent AUX trace, which perf generates callchain and
+branch stack for the sampled thread. This provides execution history for
+context-based profiling.
 
-We certainly do.
+The series can be divided into four parts:
 
-For in-band wakeup we have GENPD_FLAG_ACTIVE_WAKEUP. If this is set
-for the genpd in question and the device being suspended is configured
-for system wakeup (device_awake_path() returns true), the genpd will
-remain powered on during system suspend, see genpd_finish_suspend().
+1. Patches 01 ~ 03 for event core:
 
-In genpd_finish_suspend() we also support out-band wakeups via
-checking device_out_band_wakeup(). Although, I guess that's not the
-case here.
+   The perf event core changes warn on non-positive AUX snapshot
+   returns before checking alignment padding. Space for a non-zero AUX
+   payload has already been reserved, so a zero return leaves that
+   payload unwritten. CoreSight fills unavailable trace with zeros and
+   returns the requested size.
 
-Kind regards
-Uffe
+   It also prevents AUX sampling and pause/resume from nesting through
+   an NMI. A driver guard alone can leave perf's pause state
+   (aux_paused) inconsistent with the hardware state. The event core
+   ensures only one AUX callback is exclusively invoked.
+
+   Export the output copy helpers so CoreSight can fill sample payloads
+   when the driver is built as a module.
+
+2. Patches 04 ~ 09 for ETM perf:
+
+   The ETM perf changes separate the lifetime of the published CoreSight
+   context from that of the AUX output handle.
+
+   Centralize buffer updates, and end AUX output when throttling stops
+   an event without PERF_EF_UPDATE so a later restart can acquire a
+   fresh handle.
+
+   Make hardware-state transitions reflect completed operations.
+
+3. Patches 10 ~ 13 for TRBE driver:
+
+   TRBE snapshot buffers need padding to meet the CPU's alignment and
+   wrap constraints. Use circular buffer mode for overwrite snapshots,
+   retaining Fill mode on CPUs that require the write out-of-range
+   workaround.
+
+   TRBE faults can still raise interrupts in circular mode. Track when
+   the sink is handling an interrupt so an AUX sampling NMI can skip a
+   snapshot while the interrupted handler is updating the buffer. Make
+   repeated sink disable safe for deferred cleanup after a snapshot
+   failure.
+
+4. Patches 14 ~ 25 for AUX sampling and decoding:
+
+   Shared atomic STOP and AUX action bits prevent an NMI stop from
+   tearing down the context while pause, resume or snapshot accesses it.
+   The AUX operation finishes and then completes the deferred stop,
+   publishing the stopped state only after hardware teardown.
+
+   Add snapshot_aux() to the CoreSight driver to pause the source, update
+   the sink buffer, disable the path, copy the recent trace into the PMU
+   sample, and then re-enable the path and resume the source.
+
+   Patch 17 fixes history collection for zero-IP PMU samples. Perf clears
+   the IP when a user-only sampling interrupt skids into the kernel, but
+   the timestamp and TID remain valid for matching the trace history.
+
+   In perf, decode each embedded payload as an independent trace window,
+   selecting the decoder with the sampled CPU and using the sample's
+   PID/TID and traced context IDs to attribute history to the sampled
+   thread. Refactor common timeless decoding and history collection, and
+   drain pending OpenCSD output so buffered history is not lost.
+
+   Attach reconstructed callchains and branch stacks to the original PMU
+   samples, preserving histories already present in the samples. Add a
+   test, and document the recording and decoding workflow and its
+   limitations.
+
+The initial support targets unformatted trace from per-CPU sinks such as
+TRBE. Shared formatted sinks such as ETR can mix trace from multiple CPUs,
+consuming the limited sample window with execution unrelated to the
+sampled thread.
+
+This series is based on Amir's series "perf: Add CoreSight branch
+history to existing samples" [1] for perf tool's branch / callchain
+generating.
+
+[1] https://lore.kernel.org/linux-perf-users/cover.1787005265.git.aaupov@fb.com/
+
+Signed-off-by: Leo Yan <leo.yan@arm.com>
+---
+Leo Yan (25):
+      perf/core: Reject non-positive AUX snapshot sizes
+      perf/core: Prevent AUX sampling from racing with pause/resume
+      perf/core: Export output copy helpers for CoreSight
+      coresight: perf: End AUX output when an event is throttled
+      coresight: perf: Extract AUX buffer update helper
+      coresight: perf: Simplify flow for CPUs without a path
+      coresight: perf: Validate the live context through its path
+      coresight: perf: Validate context before resuming trace
+      coresight: perf: Improve hardware state transitions
+      coresight: trbe: Pad snapshot buffers
+      coresight: trbe: Use circular buffer mode for snapshots
+      coresight: trbe: Track per-CPU sink interrupt handling
+      coresight: trbe: Handle an already disabled sink
+      coresight: perf: Look up the trace path in etm_event_pause()
+      coresight: perf: Serialize AUX pause and resume with event stops
+      coresight: perf: Support AUX sampling with per-CPU sinks
+      perf cs-etm: Allow history collection for samples with zero IP
+      perf cs-etm: Unify timeless buffer decoding
+      perf cs-etm: Propagate errors from trace queue flushing
+      perf cs-etm: Drain pending packets before finishing trace blocks
+      perf cs-etm: Complete packet draining with end of trace
+      perf cs-etm: Centralize sample history collection
+      perf cs-etm: Decode AUX samples into callchains and branch stacks
+      perf test: Add CoreSight AUX sample decoding test
+      Documentation: coresight: Document AUX sample decoding
+
+ Documentation/trace/coresight/coresight-perf.rst |  39 ++
+ drivers/hwtracing/coresight/coresight-etm-perf.c | 396 +++++++++++++-----
+ drivers/hwtracing/coresight/coresight-etm-perf.h |   2 +
+ drivers/hwtracing/coresight/coresight-trbe.c     | 122 ++++--
+ include/linux/coresight.h                        |   2 +
+ kernel/events/core.c                             |  26 +-
+ kernel/events/ring_buffer.c                      |   2 +
+ tools/perf/arch/arm/util/cs-etm.c                |   6 +
+ tools/perf/tests/shell/coresight/aux_sample.sh   | 189 +++++++++
+ tools/perf/util/cs-etm-decoder/cs-etm-decoder.c  |  39 ++
+ tools/perf/util/cs-etm-decoder/cs-etm-decoder.h  |   7 +
+ tools/perf/util/cs-etm.c                         | 491 ++++++++++++++++-------
+ 12 files changed, 1040 insertions(+), 281 deletions(-)
+---
+base-commit: 134e1295eedfc9a3c6e4e63d8ef45dc63749449b
+change-id: 20260826-arm_cs_support_aux_sample-275664545588
+
+Best regards,
+-- 
+Leo Yan <leo.yan@arm.com>
+
 
