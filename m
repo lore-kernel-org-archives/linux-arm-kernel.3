@@ -4,48 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F467C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:50:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DBFAC982C9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:50:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cOU0OkP3dbgGRFSiMQnoiuQDJrKtF1NoZnFOq7/Pl9Y=; b=eDPWs3y9oaIHdzIY7O1FS0rAQ6
-	UseftkbdaBmpXD21pIfuH5CSf5aJ0YRQY15z4yaFtxUZtfFyUuYKAX40xQPZUZK0yl+sxeTNcOzRO
-	aK9ZMYt+8QKi+84CSbiWpEOCtnv5nUvt56yLUgAyHr0DK9AIkddwnSwT5YwyGU6Zfcwa7aDszTouD
-	0ACKgAq7qMzVkFG3uAx++5DIgoeUXi0moEE9ljurzbqW3dcxL66amzVXp3p4kZZEqMT7Ly005IxFy
-	hLeHTngRY5bKDndF3Kk9XbnPQ8235Db3eIi1/C7JHasaL3xmXTV/widGLx8LYFBagbJ6B7EQ0r0VN
-	KrGzE6zQ==;
+	bh=palhLwTnxmx+3knOYeXtmMH8KG1BCauXXBUx/sh7huQ=; b=JUiOTAy9GwoaIVkiIlvy0g9Vo0
+	CR0QJg7KmwCIWApWPv9D3v5GnoM7btxcdKXVvR8JISgHYbEoIv5DDTDB4EPV8BOZS9dn0As2X67pY
+	bclcfPC9CA+VeuFhmGtg+vLv9uODDU7mpy2ZSu0vIkoMo0n+sVCn27uqFi3TVoJFoLM4sfqIxVCJf
+	zavHgpuQ3ThMgTypFlFtqdkOxENdduMedlico3/N+Fml+qXm+lvMb1G+iHlcM8nVwycwuBZxXD8pw
+	9xAJ1PMmv6bywm+haqzEwHJxoJxMNB1RfcEswXCg51B3GCKRPxg+NP/PQUpsWnDZZJd5E1qyiuUb0
+	1295HqZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VQf-00000007IoT-3aMn;
-	Tue, 15 Sep 2026 15:50:41 +0000
+	id 1x6VQg-00000007IpA-0xzN;
+	Tue, 15 Sep 2026 15:50:42 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x6VQE-00000007ISc-1O2K
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 15 Sep 2026 15:50:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=palhLwTnxmx+3knOYeXtmMH8KG1BCauXXBUx/sh7huQ=; b=hFWnGJ+cyUKjH6kKu0+DPzriXh
+	QUbadeWJarDZHg7LAhvmya6Ps+RWyAcE9m1bFVjt5LQNhBxhm4al7XUYDGMCOGpvhKU6vE3XWzuLa
+	UdnC+R0MWb+uxp2UdRSZAziC7U/M4uf5aVP0OiU/PrT4JnsGGH/U5l0IRS3W/Ysm3YvFdlKwLD/0g
+	7QIZn9EnhzcmZy2zFCDfFyjCHSDsk0tm771u+Qrn1rKr22flrruSD0muQbGwaHQTBtPKiDDM+kZQp
+	xo4K1PKzqUpvIDCTzFCSkI4IoKvnPVszutkAv91GFPuk4SjPP1kgMKcSP8NiqY4RY385hnBgQvGr+
+	MqEv8etg==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VQ8-00000007INY-2ORw
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6VQB-00000006ydD-0GZu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 15:50:09 +0000
+	Tue, 15 Sep 2026 15:50:13 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B0E6515A1;
-	Tue, 15 Sep 2026 08:50:03 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5EE711570;
+	Tue, 15 Sep 2026 08:50:06 -0700 (PDT)
 Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E7D833F882;
-	Tue, 15 Sep 2026 08:50:04 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 93D623F882;
+	Tue, 15 Sep 2026 08:50:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789487407; bh=kLfMsIfvtix9HRGhI1LbWAkQl/p2UK/wmVVuQM9xjoM=;
+	t=1789487409; bh=lVZAl+1VuCBKIxAJbqmvv4H5T5nJSZSgCMMDFerPAQM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=fPNhmIBHWs2DNgdpfsazb1noO++NHgFJIhG9JAjP7l6I2W+o15TZApYA10Fs77kRg
-	 QvwODn/gwYHrM7ujhpjvAElen4b5L32+5q+casCaNuAZUiHj8ui1nIjHFn29zLvtZ4
-	 spWTlAsvPm/JZ7XVrd1WVh7Nma6d+sWQq/8BV0iA=
+	b=ExkSaBJoAMNwxm+ZhzKUfYC/Xcf5kDN8atZv3BhBSawhhHcZEzSSuetTJ3ClfUsEK
+	 eKuGkiPPqRWVlERgQQbO49QhRWlo9s28Y/2v/I8SiSTHhWQDfpOXe4S9IXrTIJBlpN
+	 JCuQsUDmbi6Q6Y1gOoMGPZpKSuPrlz50Y95hw66Q=
 From: Leo Yan <leo.yan@arm.com>
-Date: Tue, 15 Sep 2026 16:49:10 +0100
-Subject: [PATCH 24/25] perf test: Add CoreSight AUX sample decoding test
+Date: Tue, 15 Sep 2026 16:49:11 +0100
+Subject: [PATCH 25/25] Documentation: coresight: Document AUX sample
+ decoding
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260915-arm_cs_support_aux_sample-v1-24-35cf6f297d20@arm.com>
+Message-Id: <20260915-arm_cs_support_aux_sample-v1-25-35cf6f297d20@arm.com>
 References: <20260915-arm_cs_support_aux_sample-v1-0-35cf6f297d20@arm.com>
 In-Reply-To: <20260915-arm_cs_support_aux_sample-v1-0-35cf6f297d20@arm.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
@@ -62,16 +78,16 @@ Cc: Ingo Molnar <mingo@kernel.org>, linux-perf-users@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789487341; l=6971;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789487341; l=3171;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=kLfMsIfvtix9HRGhI1LbWAkQl/p2UK/wmVVuQM9xjoM=;
- b=FB94Ni0Ju4Zb0A/OTrxX2DMxUkZ5uO+G81x6c0Sb6i5exMXh1W/H2brTyYyoXP5Isn/GDHyRW
- IGeN4xsKL05AZgapYTSQTJK6FlLDIjboWjOeyruPC3DoaUHjJVAfRWc
+ bh=lVZAl+1VuCBKIxAJbqmvv4H5T5nJSZSgCMMDFerPAQM=;
+ b=XjxNu2wRoGrUaTZHtHM2Yf1eAsTXNzo+4/Umo08aBPRMMhqEKSEPnPqtp1q9c0Kfj7e3hWMIc
+ KXpp1K5QzZrDEQ7FZ4kRoP89qkLuUIUk355gwdtfbw/ZpJbg6jXuNjk
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_085008_701885_AA132855 
-X-CRM114-Status: GOOD (  20.41  )
+X-CRM114-CacheID: sfid-20260915_165011_622743_BA48728C 
+X-CRM114-Status: GOOD (  14.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,221 +102,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a shell test that records the brstack workload with 8 KiB AUX
-samples attached to cycle events. Pin the workload to a CPU with a TRBE
-sink and use per-thread recording with trace timestamps and context IDs
-disabled, exercising decoding with the owning sample's context.
+Describe recording AUX trace in PMU samples and generating callchains
+and branch stacks with --itrace=G and --itrace=L.
 
-Check branch stacks and callchains with --itrace=L4, L64, G3 and G3L64.
-Require at least one sample to reach both requested depths, with all
-callchain frames belonging to the workload, and reject samples exceeding
-either limit. Use a callchain depth of three to match the nested calls
-in brstack.
-
-Compare with AUX decoding enabled and disabled to verify that adding
-history preserves the original PMU samples.
+Explain the default decoding behavior, preservation of recorded stacks,
+context ID requirements and decoding limitations.
 
 Assisted-by: Codex:gpt-6
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- tools/perf/tests/shell/coresight/aux_sample.sh | 189 +++++++++++++++++++++++++
- 1 file changed, 189 insertions(+)
+ Documentation/trace/coresight/coresight-perf.rst | 39 ++++++++++++++++++++++++
+ 1 file changed, 39 insertions(+)
 
-diff --git a/tools/perf/tests/shell/coresight/aux_sample.sh b/tools/perf/tests/shell/coresight/aux_sample.sh
-new file mode 100755
-index 0000000000000000000000000000000000000000..887ad6a085eacdfd192db3863fbb61dae1aa19b5
---- /dev/null
-+++ b/tools/perf/tests/shell/coresight/aux_sample.sh
-@@ -0,0 +1,189 @@
-+#!/bin/bash -e
-+# SPDX-License-Identifier: GPL-2.0
-+# CoreSight AUX samples with callchains and branch stacks (exclusive)
+diff --git a/Documentation/trace/coresight/coresight-perf.rst b/Documentation/trace/coresight/coresight-perf.rst
+index c0c82b3d26ea88dad7143afdb047c4d8f502b4a6..59eda2a5b6473ed1cb6bade5d281a12bdde76bb0 100644
+--- a/Documentation/trace/coresight/coresight-perf.rst
++++ b/Documentation/trace/coresight/coresight-perf.rst
+@@ -171,6 +171,45 @@ no branch history at all, for example samples from a thread that was never
+ traced, or samples recorded before the first or after the last trace window.
+ It is built and installed with perf's other dlfilters.
+ 
++Decode branch stack and callchain from AUX samples
++--------------------------------------------------
 +
-+export LC_ALL=C
++With a kernel that supports CoreSight AUX sampling, record an AUX trace
++window inside each cycle sample::
 +
-+skip()
-+{
-+	echo "[Skip] $1"
-+	exit 2
-+}
++  perf record --aux-sample=8192 -e '{cs_etm//u,cycles/period=100003/u}' \
++        -- ./workload
++  perf script --itrace=G16L64 -F comm,pid,tid,cpu,event,ip,brstack
 +
-+perf list pmu | grep -q 'cs_etm//' || skip "cs_etm is not available"
-+perf check feature -q libopencsd || skip "perf was built without OpenCSD"
-+[ "$(id -u)" = 0 ] || skip "No root permission"
-+command -v taskset >/dev/null || skip "taskset is not available"
++``G16`` adds a reconstructed callchain and ``L64`` adds up to 64 branches.
++Either option can be used alone. Existing callchains and branch stacks are
++preserved. Without an explicit ``--itrace`` option, both are enabled for AUX
++samples. Decoded history is available in ``perf script`` and ``perf report``.
 +
-+# AUX sample now supports per CPU sink (e.g., TRBE). Select a usable CPU
-+# and name its sink explicitly to avoid a shared sink.
-+sink=
-+for dev in /sys/bus/coresight/devices/trbe[0-9]*; do
-+	[ -d "$dev" ] || continue
-+	name=${dev##*/}
-+	cpu=${name#trbe}
-+	[ -e "/sys/bus/event_source/devices/cs_etm/cpu$cpu" ] || continue
-+	if taskset -c "$cpu" true 2>/dev/null; then
-+		sink=$name
-+		break
-+	fi
-+done
-+[ -n "$sink" ] || skip "No usable TRBE CPU is available"
++AUX sampling supports unformatted, per-CPU sink (TRBE) trace. Each sample
++selects its CPU's decoder and starts a fresh trace window. The window already
++belongs to the sample, so ETM timestamps are not required for attribution.
++Samples without decodable history receive no reconstructed stack. CPU-wide
++recordings must enable context IDs to distinguish tasks within a window; the
++default recording setup enables them.
 +
-+tmpdir=$(mktemp -d /tmp/perf-cs-aux-sample.XXXXXX)
++Callchains cover only calls visible in the captured window; callers before
++the first synchronization point cannot be recovered.
 +
-+cleanup()
-+{
-+	rm -rf "$tmpdir"
-+}
++When kernel tracing is enabled, AUX samples can include PMU interrupt-handler
++execution before the trace source is paused. The late-sample helpers trim
++this using instruction addresses, which may not uniquely identify the sample
++boundary for kernel samples.
 +
-+trap cleanup EXIT
-+trap 'exit 1' TERM INT
++Formatted sinks such as ETR are not supported. They can collect trace from
++sources on multiple CPUs in a shared buffer, mixing execution from unrelated
++threads into the AUX sample. Context IDs can distinguish these threads, but
++trace from other CPUs can consume the limited sample window, leaving little
++history for the sampled thread.
 +
-+fail()
-+{
-+	echo "$1" >&2
-+	cat "$tmpdir/stderr" >&2
-+	exit 1
-+}
++Guest samples, synthesizing instruction events, and saving reconstructed
++callchains with ``perf inject`` are also unsupported.
 +
-+cf="$tmpdir/ctl"
-+af="$tmpdir/ack"
-+mkfifo "$cf" "$af"
-+
-+# Disable trace timestamps and context IDs to use the owning sample's context.
-+# Use a per-thread mmap so the explicit sink is only used on the pinned CPU.
-+if ! taskset -c "$cpu" perf record -o "$tmpdir/data" --aux-sample=8192 \
-+	-e "{cs_etm/@$sink,timestamp=0,contextid=0/u,cycles/period=100003/u}" \
-+	--per-thread -D -1 --control fifo:"$cf","$af" -- \
-+	perf test --record-ctl fifo:"$cf","$af" -w brstack 1000000 \
-+	>/dev/null 2>"$tmpdir/stderr"; then
-+	# Kernels without snapshot_aux reject the sampling event at open time.
-+	if grep -Eq 'sys_perf_event_open.*event \(.*cycles.*\): Invalid argument' \
-+		"$tmpdir/stderr"; then
-+		skip "Kernel does not accept CoreSight AUX sampling"
-+	fi
-+	fail "Failed to record CoreSight AUX samples"
-+fi
-+
-+perf evlist -v -i "$tmpdir/data" >"$tmpdir/evlist" 2>"$tmpdir/stderr" ||
-+	fail "Failed to read AUX sample attributes"
-+grep -Eq 'sample_type:.*\|AUX(,|\|).*aux_sample_size: 8192(,|$)' \
-+	"$tmpdir/evlist" || fail "Missing AUX sample attributes"
-+
-+check_history()
-+{
-+	local options=$1
-+	local max_branches=$2
-+	local max_callchains=$3
-+	local output="$tmpdir/script-$options"
-+
-+	perf script -i "$tmpdir/data" --itrace="$options" \
-+		-F comm,pid,tid,cpu,event,ip,sym,brstack >"$output" \
-+		2>"$tmpdir/stderr" || fail "Failed to decode AUX samples with $options"
-+
-+	# Some windows may contain incomplete trace. Require at least one cycle
-+	# sample to reach both requested depths, and reject any that exceed them.
-+	if ! awk -v max_branches="$max_branches" \
-+		-v max_callchains="$max_callchains" '
-+		function check_sample() {
-+			if (in_sample == 0) {
-+				return
-+			}
-+
-+			if (branch_entries > max_branches || callchain_frames > max_callchains) {
-+				depth_exceeded = 1
-+			}
-+
-+			# Both depths must be reached in the same sample, with all
-+			# callchain frames belonging to the brstack workload.
-+			if (branch_entries == max_branches &&
-+			    callchain_frames == max_callchains &&
-+			    workload_frames == max_callchains) {
-+				found_sample = 1
-+			}
-+
-+			branch_entries = 0
-+			callchain_frames = 0
-+			workload_frames = 0
-+			in_sample = 0
-+		}
-+		{
-+			# A blank line marks the end of a sample.
-+			if (NF == 0) {
-+				check_sample()
-+				next
-+			}
-+
-+			# Sample header: comm pid/tid [cpu] event ...
-+			# The event may include a PMU prefix and configuration terms.
-+			if ($4 ~ /(^|\/)cycles([,\/:]|$)/) {
-+				check_sample()
-+				in_sample = 1
-+			}
-+			if (in_sample == 0) {
-+				next
-+			}
-+
-+			# Each branch entry is a field in 0xFROM/0xTO/... form.
-+			for (i = 1; i <= NF; i++) {
-+				if ($i ~ /^0x[[:xdigit:]]+\/0x[[:xdigit:]]+\//) {
-+					branch_entries++
-+				}
-+			}
-+
-+			# Callchain rows start with a hexadecimal IP, then a symbol.
-+			if ($1 ~ /^[[:xdigit:]]+$/) {
-+				callchain_frames++
-+				if ($2 ~ /^brstack(_|$)/) {
-+					workload_frames++
-+				}
-+			}
-+		}
-+		END {
-+			# Account for the last sample even without a trailing blank line.
-+			check_sample()
-+
-+			if (depth_exceeded != 0) {
-+				print "AUX sample history exceeds the requested depth" > "/dev/stderr"
-+				exit 1
-+			}
-+			if (found_sample == 0) {
-+				printf "No sample has %d branches and %d workload callchain frames\n", \
-+					max_branches, max_callchains > "/dev/stderr"
-+				exit 1
-+			}
-+			exit 0
-+		}
-+	' "$output"; then
-+		head -n 80 "$output" >&2
-+		fail "Missing AUX sample history or incorrect depth with $options"
-+	fi
-+}
-+
-+check_sample_identity()
-+{
-+	local fields=comm,pid,tid,cpu,event,ip
-+
-+	# Hiding history must leave exactly the original PMU samples, including
-+	# their PID/TID, CPU and sampled IP, with no synthesized events. Per-thread
-+	# recording does not require sample timestamps.
-+	perf script -i "$tmpdir/data" --no-itrace -F "$fields" \
-+		>"$tmpdir/original" 2>"$tmpdir/stderr" || fail "Failed to read cycle samples"
-+	perf script -i "$tmpdir/data" --itrace=L4 -F "$fields" \
-+		>"$tmpdir/decoded" 2>"$tmpdir/stderr" || fail "Failed to decode cycle samples"
-+	diff -u "$tmpdir/original" "$tmpdir/decoded" ||
-+		fail "AUX decoding changed the original cycle samples"
-+}
-+
-+check_history L4 4 0
-+check_history L64 64 0
-+
-+# brstack -> brstack_bench -> brstack_foo -> brstack_bar provides three
-+# nested calls whose caller frames can be reconstructed from an AUX window.
-+check_history G3 0 3
-+check_history G3L64 64 3
-+
-+check_sample_identity
-+
-+echo "CoreSight AUX sample decoding: PASS"
+ Perf test - Verify kernel and userspace perf CoreSight work
+ -----------------------------------------------------------
+ 
 
 -- 
 2.34.1
