@@ -4,82 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2CDEC88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 17:38:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42C30C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 17:44:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lNOmklwMT3+8WwCRItuHkffYh/JkNHAawYZ2FWhI2k0=; b=k3HOBn8fsP26ka0xE+Cyt4JeZE
-	pb5M4aOe6kPNQKF/YsBR0Rh7BX8/olenF9m6kuKbzHap/u4xey2BKW+DuBsCzNXF2aXIBzbOO6NQx
-	8b9m/hH0L3psCxldIt+fJrAufPr4u6IcPCkmnWRgozrXCF/ZhAzlCSfuqbfpikOLOeFRZX+GZYeI9
-	ZKxlp/eliykB/hXxzL3UTIymAM/bMQSfn50UKetENFolfc/eVEiKg2pSVV2cag+4m/XpXCmppMRJ8
-	TMZK6eewI5JGTuv0ScCsTUsjUbMqyH+uG36w5D4Ilytre4EtQtOBz4gjnoj3/+GPBtnYHwePUEhni
-	DKcr1c7Q==;
+	bh=O4vL4g4D4xkYUtuTnZrWxwAn75paIp9ZlEmZKpxq+4s=; b=iNKiiRCgBFc9FYlSuublDdYxFz
+	RsT9JGDzJPtbX35UGZNsYk0S3aWO4R2YVS66woWyxcK9qEazbhdbFF+pF0HnT58x6fiLJZb/CvHNv
+	82Qz2XWpm0HESlLZvMNH3JiUr9UabuZwinm9UoSwn1DsAtdcBkMIurXobBX07zB+bZcAYF6+dzhTW
+	/KrURHXy7ikB8U+uIyMSs5IRwEu938fqbVNf5bM1/X5Iyb0UO+slLiGez21RKozKSTZJU75aUyi1K
+	hzqRZKmyBFVgBVfccOMvPTvFZvyqjEJRHlF96qdZHR0t95wl4dxvZEQdcKsNkGJLOsrckmHfJ36Ib
+	zTHmKkgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6X6W-00000007bwz-2HlQ;
-	Tue, 15 Sep 2026 17:38:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x6XCR-00000007ciH-0kfQ;
+	Tue, 15 Sep 2026 17:44:12 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6X6V-00000007bws-0mSr
+	id 1x6XCP-00000007chu-2WfQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 17:37:59 +0000
+	Tue, 15 Sep 2026 17:44:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9EF58600D1;
-	Tue, 15 Sep 2026 17:37:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82F081F000FF;
-	Tue, 15 Sep 2026 17:37:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0B2DF40146;
+	Tue, 15 Sep 2026 17:44:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A67B11F000FF;
+	Tue, 15 Sep 2026 17:44:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789493878;
-	bh=lNOmklwMT3+8WwCRItuHkffYh/JkNHAawYZ2FWhI2k0=;
+	s=k20260515; t=1789494244;
+	bh=O4vL4g4D4xkYUtuTnZrWxwAn75paIp9ZlEmZKpxq+4s=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=BamemBGZLZEiNhzMEf53sH0aaBEGi/k7AS44kJ1lRb72jC2kMNobzBmsJjmYi4HPs
-	 B3BxYdYFv/95wWGhWlLtkqBX084LIjizXy765ex13o62PZFGhuQviruML7X3jHwNl9
-	 0pBZowc7i0vXoSJ36xFtqKoLH+7c4x2aqEU7AkRvQm/QJ8Z+CuVFktxBjV6HHmU4Am
-	 SNP34f0gL9dnEuASoKHV0rsWJZA9AnRTZfio88imGgIc0sdlsWCvj7RHjEONeIg+/P
-	 jmiGOUetPwMRYR6sordYsfjRBHVv/2mvRiomODvdIsnUBQPIotj1bZ6YcTKlGPOz3o
-	 UbkETCel8UBVA==
-Date: Tue, 15 Sep 2026 23:07:53 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Frank Li <Frank.Li@nxp.com>, Mark Brown <broonie@kernel.org>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>,
-	bui duc phuc <phucduc.bui@gmail.com>,
-	Tianchu Chen <flynnnchen@tencent.com>, linux-kernel@vger.kernel.org,
-	dmaengine@vger.kernel.org, linux-sound@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Dave Penkler <dpenkler@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Frank Li <Frank.Li@kernel.org>,
-	Shengjiu Wang <shengjiu.wang@gmail.com>,
-	Xiubo Li <Xiubo.Lee@gmail.com>, Fabio Estevam <festevam@gmail.com>,
-	Nicolin Chen <nicoleotsuka@gmail.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Olivier Moysan <olivier.moysan@foss.st.com>,
-	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
-Subject: Re: [PATCH v1 7/7] dmaengine: Remove deprecated
- dma_request_slave_channel()
-Message-ID: <aqmCcXRa3EIsIU6k@parshuram>
-References: <20260915100931.3593242-1-andriy.shevchenko@linux.intel.com>
- <20260915100931.3593242-8-andriy.shevchenko@linux.intel.com>
+	b=NsX7glzdGfpZEE+6WWH90AJUd7B1Z9i+nb36BbLufx78K77aPi++0e7cLEv02pMRO
+	 79v9J8dn9czWZeKsecddjXmXt1uTKwwqSu2aLNTTjET4zPV8zo0YA+fIytxUA0FCJC
+	 nV5q/dvI0LO03PqGBIWIndsGuI/RRIgbxqEbmN/YLKf/ST60fDO1rpY1NKEeI1g3Dc
+	 tqSfBiGz6wfdyiQYrT1qqxFj3x6d5Klx/ro3w2UZSjL11InDroA+PZIyLCONejUG0y
+	 bTu8AVRddf0bVjDrXKgfuySuEbhnhV2A/2b4qQw9HDfiyVpaQbe5H87vmkGZepuzed
+	 61Dj0wh5+jv+Q==
+Date: Tue, 15 Sep 2026 18:44:01 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kernel-team@meta.com, sashiko-bot@kernel.org
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	Breno Leitao <leitao@debian.org>,
+	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Subject: Re: [PATCH v5 7/9] firmware: arm_scmi: Add ACPI PCC transport
+Message-ID: <20260915-tidy-glaring-wasp-5b8d0f@sudeepholla>
+References: <20260915-acpi_scmi_pcc-v5-0-298579e9f359@kernel.org>
+ <20260915-acpi_scmi_pcc-v5-7-298579e9f359@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260915100931.3593242-8-andriy.shevchenko@linux.intel.com>
+In-Reply-To: <20260915-acpi_scmi_pcc-v5-7-298579e9f359@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,13 +71,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15-09-26, 12:04, Andy Shevchenko wrote:
-> No more users.
-> 
-> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+>On Tue, Sep 15, 2026 at 06:03:41PM +0100, Sudeep Holla wrote:
+>> Add an SCMI transport for ACPI-described systems using PCCT PCC
+>> subspaces through the Linux PCC mailbox layer.
+>> 
+>> Parse the SCMI Device Properties _DSD packages defined by Arm document
+>> 111115A v1.0, sections 2.2.1.1, 2.2.2.1 and 2.2.3. Map transport
+>> UIDs to PCC subspaces for common and protocol-exclusive A2P and P2A
+>> channels, validate the mappings, and cache them for channel setup.
+>> 
+>> Support the Powercap and System Telemetry protocol properties and add
+>> the System Telemetry protocol ID. Implement PCC channel management,
+>> message framing, shared-memory bounds validation, and response and
+>> notification delivery.
+>> 
+>> Add the corresponding Kconfig, module and ARML0001 ACPI matching
+>> plumbing.
+>> 
+>> Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
+>> ---
+>>  drivers/firmware/arm_scmi/common.h            |  11 +
+>>  drivers/firmware/arm_scmi/transports/Kconfig  |  12 +
+>>  drivers/firmware/arm_scmi/transports/Makefile |   2 +
+>>  drivers/firmware/arm_scmi/transports/pcc.c    | 867 ++++++++++++++++++++++++++
+>>  include/linux/scmi_protocol.h                 |   1 +
+>>  5 files changed, 893 insertions(+)
+>> 
+>> diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
+>> index 7fc9560dc4ea..ef5e19ecfe20 100644
+>> --- a/drivers/firmware/arm_scmi/common.h
+>> +++ b/drivers/firmware/arm_scmi/common.h
+>> @@ -468,6 +468,17 @@ struct scmi_transport_core_operations {
+>>  	const struct scmi_message_operations *msg;
+>>  };
+>>  
+>> +struct scmi_dsd_info {
+>> +	u32 protocol_id;
+>> +	const char *const property_name;
+>> +};
+>> +
+>> +static const struct scmi_dsd_info scmi_dsd_info_list[] __maybe_unused = {
+>> +	{ SCMI_PROTOCOL_BASE, "arm-arml0001-transport-pcc" },
+>> +	{ SCMI_PROTOCOL_POWERCAP, "arm-arml0001-protocol-pcap" },
+>> +	{ SCMI_PROTOCOL_TELEMETRY, "arm-arml0001-protocol-telemetry" },
+>> +};
+>> +
 
-Acked-by: Vinod Koul <vkoul@kernel.org>
+> [Below is copied from sashiko-bot@kernel.org review comments Severity: High]
+>
+> Since scmi_dsd_info_list is defined as a static const array in a header file,
+> won't this cause the array to be duplicated in the .rodata section of every
+> translation unit that includes common.h?
+
+> Could this array be defined in a .c file and exported via extern to prevent
+> unnecessary binary bloat?
+
+Although the header gives each translation unit its own definition, unused
+instances are discarded by the compiler. The table is referenced only by
+the SCMI core and PCC transport, which are separate modules. Moving it to a
+C file would require exporting the table and its size between those modules.
+Given that each emitted table is only 48 bytes, I prefer to avoid that
+additional interface and keep the local copies.
 
 -- 
-~Vinod
+Regards,
+Sudeep
 
