@@ -4,96 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6481C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 10:43:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE243C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 10:43:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0uZyNoOS4+9a6tqQ5tfX7sqcJOVcaT+yLp/MXx9OSW4=; b=tV2YUcOa5MIsriFKdngxwRe5Oe
-	F9MShLO1t0RzPBNIq/9ZhoHBkQV0dt9G9ygGUzhkGIb9yX91h9xjH33t6kk7BE8Re6qY2Pk9EVftC
-	G+980h0B5u94XSTGGxvoBaQd2vhsSG0eVD1Qy1nIYs0kr+9MJwh6AOay5CUAVDEtluMHX9LNSy/R4
-	DW6u7msg3kq0nuZ/oTUeTaW5keQNBBTRmaka86UocqHpuZJ8aexLlgzIdMnQEB/fXsODqe9qVIoh2
-	OvJy5Sm93XNlSPTXAj+P4Kv+5Sytkr8EMvp61uQvhoa5+LqdHj4bJqyFB84nLTzO2W/v4YNmeAvOu
-	NX/8AZDw==;
+	bh=P6/E0n0oXj35RKNOrfB7WlcbfXYrFEXx2o5InJpzTZE=; b=Ptv4x3t6COGOoYyuOPd3PMpT35
+	0WAFzFCFHs0z+vPKvNxbeO/e5sBpRTCfi0v6eJnwpeLj3vBaEkSvj/H9mL3Pw1e74EloboxhstM7E
+	yGCr4Kgwv1BRGNb5rX1sHghKJ6gofvK9QP4eU83xEboEJTdENuJJvX9y2PwwvgX8EywI35Erz7fa/
+	hHx6DRf8gcP7puXoAb8e5CB+Otc8yzdrDyfTfzv9bSIwoPzlnfMGCDWBABb7IurTDY0vaOXrlqNCZ
+	V9xUcC+y7ScT/AhX1P4jZSVL6BL16W9edQUn2P7T1apkxTWt0ir2p+jQajSTNA9ZxuDpbYKRLg30+
+	HdYTUwyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6QdT-00000005xUd-44Dh;
-	Tue, 15 Sep 2026 10:43:35 +0000
+	id 1x6Qda-00000005xaD-2NTg;
+	Tue, 15 Sep 2026 10:43:42 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6QdS-00000005xSe-2gw4
+	id 1x6QdU-00000005xTx-1aUl
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 15 Sep 2026 10:43:34 +0000
+	Tue, 15 Sep 2026 10:43:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=0uZyNoOS4+9a6tqQ5tfX7sqcJOVcaT+yLp/MXx9OSW4=; b=hiDK1QtNNaP8Wih2/WT2pm/m/j
-	31MMa0xncHkP1ZUonX4muCqDnax+z4/NZVXLojOYRHgNg4zBGSiABFUgzum0ErpzEffs7BVJEcBY9
-	+itLBcdNqwnHpPHYXro6NhYjUIQ1fc8xzK5k1g1KQ8vrJ4IvUbpfFopqOnuql0498V3krbaBjQvfV
-	2P3GO7I+GKitsKfK0hW4/eF3Aipl2PRmcvn8j4aU9tWsBnW8Jq7gsIICzi3FojAkCYAvJelH3JjSl
-	cpr3/+ON/3k3JP+r29y4rGXvI91/Dgu+0UgATIqIKKbIQhthBdJlgN/zU+i/XzrX1EsA2NiPL/OK/
-	uDsNPRPA==;
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	bh=P6/E0n0oXj35RKNOrfB7WlcbfXYrFEXx2o5InJpzTZE=; b=oRRRhcdOCCdrHyRgxhQYuE9qvi
+	Zgpzs8JP7gd4yFgRkFHuHK8UQ+SR2Iz3E1wsjESJcN+FiCQVCFoctt12wfTEDbn4xzGJ5Kw5Z16UM
+	KPao+MluVcxaokTsX2/dVxCxsiN0DGd+AMpUnEPEAaLN/3hO4Dn2tW9H7Je1LF2Sh04G02KeUMCpJ
+	IerhMdfbxG9kkJcCVn/gqgAKGY6Yn1YfPhEcGic7QSRjhl1HrArZ95x2oyagr8Rp7Zf0ogpmnW0Pz
+	/ReqrMOP3LVu0p6oEjcG2l07kwG4l2bZFOft2A5abvaJOJF+ItNVz/8hpONRTz6jdnZuVeFPEt7Jx
+	p4PJI3SA==;
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6QdP-00000006ZhA-3M6j
+	id 1x6QdP-00000006ZhD-3XJG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 10:43:33 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49b912d391aso921365e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 03:43:30 -0700 (PDT)
+	Tue, 15 Sep 2026 10:43:35 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e6c0fce17so798365e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 03:43:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789469009; x=1790073809; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1789469010; x=1790073810; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=0uZyNoOS4+9a6tqQ5tfX7sqcJOVcaT+yLp/MXx9OSW4=;
-        b=igJZJtltHUp8gqDeLlMEulm6BSo5so0MRnQrlANvQxAEWJ2BrV0hIP5/oervlodqlK
-         m0BdDMcjLEOu4IAKDim+01yeSQZe3NM8lXPtM6+QaMGtKoTZN+k2Bm13audxHuS92z5O
-         FknGvhA489W6REbXTlRGICYkgBLNDuqFQEGvhgvYzeHm/bJBkhJkDE6cRosxkXbU85ja
-         LT7UxJquie4pH7jXH6sAoqKyg73S9k+rHJuf6D+Q9vnKl9DoL9WO6RVww/Xz6CfzpU8Z
-         o+WO/WD8RDnofaW8F3A6LKvrEF24Kba3yO5m2QLE9huS3/7SZizjStSbKkhh80prqQBX
-         f1OQ==
+        bh=P6/E0n0oXj35RKNOrfB7WlcbfXYrFEXx2o5InJpzTZE=;
+        b=Ig7jyYedXb6xT3BsaVLDL9Vro0u8akmsJeIhU5QRCoqBTApwx2TouZTj8Hpq8FJRzb
+         Cc9ZeqcdBbfiUHyrkzPbRP8Jgsq+bhhDbMDQkXZKXOg5HPzqe1j66eGghM0FviX4kUfv
+         2GEMSYx78bi2zYGmoTRcSvvIOIt8AvAezRZKpcjFkBZvrO8LKLGZKobsHbCIOrEk3Q8T
+         Gaw01/victvJy3xyVyqBuow1Q/iF8syitBv32+TTrUPc5YwVckIGGuH0497z7r8HYGUm
+         00YB5Tp74wFIChsLjDufhCPYyTfgrDQHGvw85ju8E4Jbhq2zsijEoqpYxe4IPPZSnt50
+         W5lg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789469009; x=1790073809;
+        d=1e100.net; s=20260707; t=1789469010; x=1790073810;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=0uZyNoOS4+9a6tqQ5tfX7sqcJOVcaT+yLp/MXx9OSW4=;
-        b=qEFdyHKKma8d3sQ4TAoB1lvNaTnRwZhbvyrVdAaATUYzgdu2C4T7YmUN4KLNsPS12C
-         JN+ZWfgbUDC6RbCTQzkSdmc9ndQW5PWYjDxGS9/3LmawRv67hlyoHhGoimQMR7PWrVwU
-         O1BT2dMXjBhkuHkUCs13LWZV5pcoDKZR+dIiwdwEIqor/0xMp1+iohd5uTcLd7a3U13s
-         MKnIaIz/zrOWGkmKlfRe0Sid6n+2xhvCXgtvzdK+XcVBeqAOxSBX9Ld9gfoUKay43yKz
-         sCgo2mrU2Vpd8OmbtHS9c0uQ/YJZXm+qAoC4J3+b+BKzUiEEGtiapyC3gQ/WC9b/0GOV
-         nrxg==
-X-Forwarded-Encrypted: i=1; AKwUvBx6qALSdpvNMMuj/Pn+yKa5ATC8wNQnKJ7l8BgK02YbCn2nuVGJqEhEq8YdddI8FROLlnuxJSC6RUu5/7JGej0W@lists.infradead.org
-X-Gm-Message-State: AFuF++l11nNuKnCTko+n0hkX2eCWep+OFZziezYTg2jGMtUJjaSTQnIi
-	3Mq4KR1pHLUznv63bmeSB+dEeo3lAWHAtljinbZVIE47ygvL6EDF6k0OqQ4jnA==
-X-Gm-Gg: AYBFou1ynsFbuF7Mci6Tj8drVnk54T1ozYObDMijngXlX1sEEKu+auHTg8LXfaSpU6i
-	GyiyLtrzWaPpy4p3Gc/hl6CEjkWDqRRSDgKtIVRptEzubw1qhbbeCW6FsfpzpODZwFK5Qz020jb
-	dciCxAhtoxOXbvGl12riT3Z9v4QrovLbBpUOCZPXsuVnRVbon4A/3OVLJCQy+0BrmI2SaKVu1dT
-	S9L8MoXB4/oaKwiypI+zCG9Thr/bWaXKoem7xTP7UC5A5NzEzoB8nquuVzsqGJireiEFXkfjELy
-	VdVOD8yhZh2RxjQApEC1bK3TIgj6wlBQ8TPZQQJeld/snnzZYW+TBubwGAvvCL3bskVsjZPv9jR
-	zq/u8RzGxLut1b6cjWV2aCRTgfio170nhks2eb+2NFfvFgwRWSIXGBv8+sn5RKV7KlCm/Wr5OEW
-	ja19Id/H2bKjL9zaeFJJ1EouBhMyNYvtFMgardNXHh9Uf1pOLPyJGmjTfth5CPTDdxX0dOwEEjM
-	FvmxZEMmRICr9+GjY8tiQKma+7vuAGg0IRtGR0RBf4rLrQ2gfpAOb6YRcjS2wp0PsO7
-X-Received: by 2002:a05:600c:4743:b0:49e:7cfc:a9b7 with SMTP id 5b1f17b1804b1-49e82257f4bmr8382775e9.18.1789469009197;
+        bh=P6/E0n0oXj35RKNOrfB7WlcbfXYrFEXx2o5InJpzTZE=;
+        b=WjzwBuLB/sTmIuxhtOL6FUomWyqPbFWixItkHL3AqPPXK7wZ7RxoJ1ohdq+QH69n//
+         7sPTFzYWlKxSZHjZPnezdj88wRkG5ydGDBi2qgXEiGKdmZ6JV2UIG2dseSsXsVLcsZhc
+         8ylOUv9J8TVch4cq7inhgPq44NzLA1zDPlmv+yJkS3FAz9FFn9zI4KXy/8DxYJUjzdHX
+         +HqbTSaqbRGnyxBMZs7HhziCWgAlm8YqxcBkpDX1rDkwMU2yBA1G9g7aKpveZYYHkL3+
+         03f212IX+f2IK1dj+CDmKE+LIdh4nxI/btiOgjMxtUVKPfIQ6BznARHWPinE9U3SZXb7
+         raiw==
+X-Forwarded-Encrypted: i=1; AKwUvBx3Y2MckhyescfSIO3s+1AOhhDlC0aqHyQ6lVkipWmeNNUNrmDw5MqB/FRM5kiQ1R0leluRdj3U66Lp4K/vaD2z@lists.infradead.org
+X-Gm-Message-State: AFuF++lWVb99zT6y4gtNco+qj3/iA6c9DBr4ayOHloG2CR3eObtG4uW+
+	K7ICZU0BL6ZxqvhA8Rl51RiBqe1vRYUlpVyJqbm5BxCah5lrVEwONiQ+
+X-Gm-Gg: AYBFou1yg8kwuUj/y3AoGatSCpxMv8UxvZV1U65i0G3NYYHEeCbhgfLMI86X9gT9ZN2
+	zJTPLOsR0xcaE7jN+bOlCuFlX3DpRlH4MVyBN0QhjA3m8qQ30jLiK9Gjaq9lSkqIxcUmMyj0Zu9
+	3DqZSU0TDKyViH7qAXOL3kuqKdaeVcOncVRbQ1sdciX5WsNC0E2TyDhni8tL657fmACqYS2UDB1
+	6X2RKz0S+gwnd3tIUO0bPYLLM/vpAXBq4tfq5AnJ4e84+9jLCtQ2wAY2qypiWJow9+oVSnehoWb
+	mjn35xYmpieUXok+rA3JjA4pWsL2g6nSsF26kg/MBYANwUNhCnWu41Hd/zo0EdNsVPoJ7p2jvOn
+	V5KKK1rED9PKbU5AqU/oAwSwfnbPzrc9uzIUqsSUZHbsyseTZ2tC073Bo5XnDU9YP0tEoO3wj+r
+	hpurIMUeiCuWf/kYH1d9WGwB44HXaQQSulfC0IPuQWowAxdY2JgKVUygEGTKPMM3ZyJFyiQVEwn
+	kjuLiDs0QZ0jrmBCuO9QCzcOEv0VavMJg46eaOvROJUhFRzNYG4YyxGcdTDvGILjjK/
+X-Received: by 2002:a05:600c:8b54:b0:49e:7a00:b9a5 with SMTP id 5b1f17b1804b1-49e8222d27dmr8972995e9.4.1789469009914;
         Tue, 15 Sep 2026 03:43:29 -0700 (PDT)
 Received: from [127.0.1.1] (2a01cb0007c59900d73f8285c1e647ab.ipv6.abo.wanadoo.fr. [2a01:cb00:7c5:9900:d73f:8285:c1e6:47ab])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e7d2a94b9sm58001325e9.3.2026.09.15.03.43.28
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e7d2a94b9sm58001325e9.3.2026.09.15.03.43.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Sep 2026 03:43:28 -0700 (PDT)
+        Tue, 15 Sep 2026 03:43:29 -0700 (PDT)
 From: Amin Gattout <amin.gattout@gmail.com>
-Date: Tue, 15 Sep 2026 12:42:46 +0200
-Subject: [PATCH v2 1/4] dt-bindings: soc: rockchip: add rk3576 csidphy grf
- syscon
+Date: Tue, 15 Sep 2026 12:42:47 +0200
+Subject: [PATCH v2 2/4] dt-bindings: phy: rockchip-inno-csi-dphy: add
+ rk3576 variant
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260915-rk3576-dphy-v2-1-b56e68b54b8c@gmail.com>
+Message-Id: <20260915-rk3576-dphy-v2-2-b56e68b54b8c@gmail.com>
 References: <20260915-rk3576-dphy-v2-0-b56e68b54b8c@gmail.com>
 In-Reply-To: <20260915-rk3576-dphy-v2-0-b56e68b54b8c@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -105,17 +105,16 @@ Cc: Michael Riesch <michael.riesch@collabora.com>,
  linux-phy@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>, 
  Amin Gattout <amin.gattout@gmail.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789469006; l=963;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789469006; l=1762;
  i=amin.gattout@gmail.com; s=20260818; h=from:subject:message-id;
- bh=OT1ITsHPctK+L8lx0K+iSmC/XdR3PBM/mhi/vcMFiXs=;
- b=xHW4ID866vtDzWpfHwdm1uVBYofPXy1A+IXn6A13CkcRw1xUF5qIJUH44laHofEaIxFhmo/Ls
- upqPyAcWXRQCvLqafGXxKHmCv/ihMy2SrzCuxJoYmPH/nvS2amffFBs
+ bh=iI/cZyNcu0lJPo6qa1Mf+1HxYhdTetig193HzvnkFFo=;
+ b=zvkAUWKH6xsfLa5omHi8dFMZ76+DIzxdxeGwkj/eZhqT0s0dXZoIPjUvdeXPdhzqLFeXe0dAw
+ Nxt/00tRo0xBDfkMfHqcmLZPm1clsJ5PnYNVdOmNhuGDzExnxy8Wr5M
 X-Developer-Key: i=amin.gattout@gmail.com; a=ed25519;
  pk=MSIqDPkCOkwtyP8Fns1m+KFU9SgqoDl2mpLe18vL+hQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_114332_004495_3F77E705 
-X-CRM114-Status: UNSURE (   9.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260915_114332_060547_BBC452A5 
+X-CRM114-Status: GOOD (  13.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,27 +129,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document the syscon compatible for the General Register Files of the
-RK3576 MIPI CSI-2 DPHYs.
+The Rockchip RK3576 features two MIPI CSI-2 DPHYs compatible with this
+binding. Unlike the RK3588 variant, each PHY instance only has an APB
+reset line, so add the new compatible to the single-reset group as
+well.
+
+No fallback compatible is used because the RK3576 DPHYs match neither
+existing variant: their control bits sit in a dedicated CSI-DPHY GRF as
+on RK3588 (rather than in the shared VI GRF used on RK3568), while only
+a single APB reset is wired up, as on RK3568. Falling back to
+"rockchip,rk3588-csi-dphy" would make the driver request a second,
+non-existent reset, and falling back to "rockchip,rk3568-csi-dphy"
+would make it write to the wrong GRF offsets, so dedicated match data
+is required.
 
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Amin Gattout <amin.gattout@gmail.com>
 ---
- Documentation/devicetree/bindings/soc/rockchip/grf.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
-index 7bcb4e2f47ec..e94c83d7c138 100644
---- a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
-+++ b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
-@@ -32,6 +32,7 @@ properties:
-               - rockchip,rk3568-usb2phy-grf
-               - rockchip,rk3576-bigcore-grf
-               - rockchip,rk3576-cci-grf
-+              - rockchip,rk3576-csidphy-grf
-               - rockchip,rk3576-dcphy-grf
-               - rockchip,rk3576-gpu-grf
-               - rockchip,rk3576-hdptxphy-grf
+diff --git a/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml b/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
+index 03950b3cad08..92d0c961f4c4 100644
+--- a/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
++++ b/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
+@@ -21,6 +21,7 @@ properties:
+       - rockchip,rk3326-csi-dphy
+       - rockchip,rk3368-csi-dphy
+       - rockchip,rk3568-csi-dphy
++      - rockchip,rk3576-csi-dphy
+       - rockchip,rk3588-csi-dphy
+ 
+   reg:
+@@ -89,6 +90,7 @@ allOf:
+               - rockchip,rk3326-csi-dphy
+               - rockchip,rk3368-csi-dphy
+               - rockchip,rk3568-csi-dphy
++              - rockchip,rk3576-csi-dphy
+     then:
+       properties:
+         resets:
 
 -- 
 2.43.0
