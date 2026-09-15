@@ -4,66 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53D13C88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 13:26:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD62DC88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 13:27:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ErkzZ1ZFOtFbK4HOjtmx0Rkzf/fK40DMGc6473S3ltU=; b=GPht2BSs+RvezBvA4TGHAlgAjH
-	dpG7EtFC8loYVJgI+WdwJnXHZQNu3QSEQ7Hi6irOLF3KWQdJE7Nxk6wT37NE74iOpIwRak6ujI9hV
-	oyRCcLoqd0fN7wZOrM24fmC6ieWFwMEWmhQ9cXCU+J+aHAn0QdKFsOqs1FYZIMyaSZARre6tW8C/K
-	rl0XSUtyBXzBeVhxCqOXsbNc9tgSKBOOF1kUGYGqcNcVE23o1Uz2v+JUjcuM+TY+sHgpubVSMcyaf
-	eWKXny57qp732kz7SZ1KqG7gNDZaXGbiAPgOfUzP5VocVVj20EFqQi0ChTomPU/nqfmNZal4Yo3d4
-	ndKoaGBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OygZrAtFs+UkE/RG+UcvAU7GorjdYhIE8PMV7ebATNg=; b=NykO8RmXPiLtXjOlnLC9URG64K
+	1N1V+DLKZ731NCD+JPzUlrbIdHztFuD8oHWU33ZROkGfLGwh5rQzjbPMGmfUbiXIr2l1wjIPpRkq8
+	uxKt32Eu8traGwHEJQmuL3ztBnmz2n8Nq/YD5QI6H0dB+TTpel4nsF6wZa/Cs/VLbnFFd8d5NubZb
+	PsGN4mLBl4YWUTsEVSTkGOVDpfRSxrR2XDknn10AuV9JnNVh7uye3Cu498aVb7lsUdL7x9kklWmrb
+	J9UgQH17CT9OrVW+bEP1jUtu60tYsRjBNfr3Ba91xe1d6kjpWnqbILEF6Xs3vqNHO3dgPc9gGXsYo
+	IXL8DCcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6TAb-00000006j1H-3ypF;
-	Tue, 15 Sep 2026 13:25:57 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1x6TCF-00000006jGd-14Sr;
+	Tue, 15 Sep 2026 13:27:39 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6TAY-00000006j09-1EZG;
-	Tue, 15 Sep 2026 13:25:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1789478751;
-	bh=n+xfkg7b6cBRQFcEcl4DQNh7KCXdlVfEV7dSl1CI46g=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=HLzK5T+PL7+QNdbur9YPOrEAL2xCzL2s/cGPigZPIhmJuIhlSN1NWe4RggLgBfLX2
-	 ti8SoOcuFR6yA66H+oJZv8f9r4tfsZK3N3QPWbeubsfkCsAY7NpWZBnbRwCoCRTRzb
-	 bw5oHpgYjS6Z2Us+4Ha7n+vVXFM1SrhzBQy+syp1Xt9Ur1GFITkePWBbRC41o9BJVx
-	 lQFynk0uQxxLQsTbChs2TuooLRjgpYxq/AMtYqKrsWm76YkpcvosIoVQvvO8yxdTFl
-	 NzkgUeV476tlyNHkdr5F1DPG2hANy6sf4zDr6twX5rjk4aB6FjLVTEvhCu6rrHOy4c
-	 DDjkNKNJYdSXw==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8BB6117E07A9;
-	Tue, 15 Sep 2026 15:25:51 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: Matthias Brugger <matthias.bgg@gmail.com>, 
- Martino Dell'Ambrogio <tillo@tillo.ch>
-Cc: linux-mediatek@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, kees@kernel.org, tony.luck@intel.com, 
- gpiccoli@igalia.com
-In-Reply-To: <20260915141226.600486-1-tillo@tillo.ch>
-References: <20260915141226.600486-1-tillo@tillo.ch>
-Subject: Re: [PATCH v5] arm64: dts: mediatek: mt7986a-bananapi-bpi-r3: add
- ramoops region
-Message-Id: <178947875151.35150.1801064329287090544.b4-ty@b4>
-Date: Tue, 15 Sep 2026 15:25:51 +0200
+	id 1x6TCE-00000006jGM-0bQT
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 15 Sep 2026 13:27:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=OygZrAtFs+UkE/RG+UcvAU7GorjdYhIE8PMV7ebATNg=; b=H/tor6xKL/0tIUhXdP8crvrese
+	dOuEtHZtfa/rKgwlGe16b8nEQiNAvmA0TNsPlFBONTmDwC6mH3kYVOz8g3St3WxgsR9d1xmfuoz+e
+	EkJil//79K/hWwvqCAQr/qjaNYOhOd3nblSmEmYb0k9+2f/ENuBGlWoZWA9z70rc/b/Lt8A+NtWdY
+	WnN/qEKiPpD6SgWuyEZWCOIogDcatUiyxWfXrUyxXDy2tin/kizjnNXE0VQQWXiGj/fEcGr/ei01N
+	eAjWoja9cxwrRl1qm7haURYiaZ8IBClTIy1oUjFJ6D7nIhdQbsyPMw8Dj51kDAp+AUAHgpgLtxvbb
+	Lx7pnznw==;
+Received: from mgamail.intel.com ([192.198.163.8])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6TCA-00000006p2t-3jg8
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 15 Sep 2026 13:27:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1789478855; x=1821014855;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=LvQZ0lj3BE7qSBpR37PGrtquuI5nJqHwIN8zYY7oDdM=;
+  b=mUOcOR38B4azUxvMyRvoenrPAdL9o9hL28hfOODanBq9Z5P7zAV/bF0m
+   weShOfNYwx/GJXJDN8ef4eDMkWT60/nxkn6vphllRzpLHy/pP0FGpbk6i
+   BpS8ItmYFINGcoVcdZAt+Uj65Q8LHZa2/JcO8KbHSSs7xfqHHOjv6yjcz
+   09hLylF/wzsIOgidP75nd8wbvTqrJIvT+k9nBVyMBvDRyGgm33mrOF8hI
+   G88Qnm+KShtDR6JyqXEVkE2ZYROpGmXOn2y3iuBrhjT010toUFm2EWqKR
+   WFZr/xXx+GwFSpDElfb0G3Ht9vIxBAhx5FoeraYrzGTkgocddz77etUTm
+   w==;
+X-CSE-ConnectionGUID: YamXzZvVSAy4do+ld6MD2w==
+X-CSE-MsgGUID: 0Oz59/DCQPmo3xLFq7IhWw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="107353194"
+X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
+   d="scan'208";a="107353194"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Sep 2026 06:27:32 -0700
+X-CSE-ConnectionGUID: ZNMsbKv1RnuiE3ZxRK2M1Q==
+X-CSE-MsgGUID: B+6W7utzQDKDtDV+XQ1KUw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
+   d="scan'208";a="296513770"
+Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.57])
+  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Sep 2026 06:27:26 -0700
+Date: Tue, 15 Sep 2026 16:27:24 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: longzhao@ambarella.com
+Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Long Zhao <zl020895@163.com>,
+	Lee Jones <lee@kernel.org>, mfd@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+	linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v7 07/15] clk: ambarella: add CV75 RCT clock controller
+Message-ID: <aqlHvB2FkpBdlEBT@ashevche-desk.local>
+References: <20260915-cv75-v5-v7-0-3297d3fbc9c0@ambarella.com>
+ <20260915-cv75-v5-v7-7-3297d3fbc9c0@ambarella.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.16.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260915-cv75-v5-v7-7-3297d3fbc9c0@ambarella.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_062555_425816_17C45908 
-X-CRM114-Status: UNSURE (   8.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260915_142735_321737_1F22A8EE 
+X-CRM114-Status: GOOD (  17.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,28 +119,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 15 Sep 2026 14:12:26 +0200, Martino Dell'Ambrogio wrote:
-> Reserve 64 KiB of RAM just below the ARM Trusted Firmware secmon region
-> (0x42ff0000-0x43000000) for persistent kernel log storage via pstore/ramoops,
-> allowing post-panic console output and oops dumps to be recovered after a
-> warm reset. Without it, kernel crash logs on this board are lost when the
-> SoC reboots.
-> 
-> The zone sizes (record-size=8 KiB, console-size=32 KiB, ftrace-size=8 KiB,
-> pmsg-size=8 KiB) consume the full 64 KiB carve-out. The requested ecc-size=16
-> reserves a small Reed-Solomon parity block from each zone's own allocation
-> in persistent_ram_new(), which lets pstore recover dumps even when the panic
-> path truncates writes mid-record.
-> 
-> [...]
+On Tue, Sep 15, 2026 at 07:15:37PM +0800, Long Zhao via B4 Relay wrote:
 
-Applied to v7.3-next/dts64, thanks!
+> Add a table-driven CCF driver for the CV75 root clock tree. Register
+> the core PLL, AHB/APB fixed factors and UART0 composite clock, with
+> osc supplied via clk_parent_data.
 
-[1/1] arm64: dts: mediatek: mt7986a-bananapi-bpi-r3: add ramoops region
-      commit: 5b748eb481caf88e7f0b3c763dbc6247a59f6e21
+...
 
-Cheers,
-Angelo
+> +#include <linux/array_size.h>
+> +#include <linux/bitfield.h>
+> +#include <linux/bits.h>
+> +#include <linux/clk-provider.h>
+> +#include <linux/container_of.h>
+> +#include <linux/device.h>
+> +#include <linux/err.h>
+> +#include <linux/io.h>
+> +#include <linux/math64.h>
+
+> +#include <linux/mod_devicetable.h>
+
+No new driver should use this, ID tables are provided by...
+
+> +#include <linux/module.h>
+> +#include <linux/overflow.h>
+> +#include <linux/platform_device.h>
+
+^^^...this one.
+
+> +#include <linux/slab.h>
+> +#include <linux/spinlock.h>
+> +#include <linux/types.h>
+
+...
+
+> +struct cv75_fixed_factor {
+> +	const char *name;
+> +	u32 id;
+
+> +	u16 mult;
+> +	u16 div;
+
+There is struct u16_fract in math.h. Can you use it instead of these two?
+
+> +};
+
+...
+
+> +static int cv75_rct_probe(struct platform_device *pdev)
+> +{
+> +	struct clk_hw_onecell_data *data;
+> +	struct device *dev = &pdev->dev;
+> +	int ret;
+> +
+> +	spin_lock_init(&cv75_ccu.lock);
+> +
+> +	cv75_ccu.base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(cv75_ccu.base))
+> +		return PTR_ERR(cv75_ccu.base);
+
+> +	data = devm_kzalloc(dev, struct_size(data, hws, CV75_NUM_CLKS),
+> +			    GFP_KERNEL);
+
+I think it's okay to have this on a single line.
+
+> +	if (!data)
+> +		return -ENOMEM;
+> +	data->num = CV75_NUM_CLKS;
+> +
+> +	ret = cv75_register_plls(dev, data);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to register plls\n");
+> +
+> +	ret = cv75_register_fixed_factors(dev, data);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to register fixed factors\n");
+> +
+> +	ret = cv75_register_composites(dev, data);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to register composites\n");
+> +
+> +	ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, data);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to add clock provider\n");
+> +
+> +	return 0;
+> +}
+
+-- 
+With Best Regards,
+Andy Shevchenko
 
 
 
