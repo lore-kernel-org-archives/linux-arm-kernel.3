@@ -4,48 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3473C982C1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:50:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A92BC982C7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:50:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TNVt/6k15eEgUOyXCGERWU2sn/+2Dmf2OfO5NTjce5c=; b=b5LwGwEUmgG1tmPv47Ngb3wbgW
-	Nt/1XbutugFyUKYuIwTkCvaEQJs68lyIZyBM+TIqPqG5Mtcuoi8oCuDQkWhtrpTYgMXjTGW1yAYqP
-	qyyAY9+GFlVJuHzMJ7pW12ZcW8CtMXRQKP+P/Qt4yI/SHOCCoxoyIlC38XzHkvSbiHg1BuaVCwMN7
-	cJtGoPcraTY1eJVt15dz/jtrxhIZZ2FW1fENBKzusRiZHOeflz1f1T8MyRQvgoYLR20tA9S+Qe2WV
-	SafAcKM7S9jbQqHmxpJcHAPut0WDWeq2x+epm9xnK2iM512Nn2qa1pWmUCLfQ1xsDQm8bESMUrUN/
-	0r0DFAEQ==;
+	bh=Ovsa1bs617xalxVVZRHjnAMZUTQFaPyyj9viTd4jCvA=; b=jq0Dh91diSpHSlvhyThCaeBpya
+	ZLpkjfOrLFc5gag/xl0FNAj+45DUFKunKDsBv539xRtCPepp6MdTH39KOU48fX2cu/3pUnWsevtru
+	JooE8BHyxGNzv0tzyLmIjMBGGxYyP4CYXysp2kukfZbDeYkaTuICeOFxbr8n6vj7747iOQ78k2YsU
+	B2/5ON137SfrC02pScKWHEFGQkEEVxzcZ895FI1JWTcTomozPJUZ4lrtwFoAvCI5eYFKRPBL5S12W
+	T7RTcVMq1ZweqRJi2y7ejbiMMsDFoPoUyy/fnF5bba12SXNgSVhMiUn2tymge0jox0WQnNPvy/pmS
+	CNoStWfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VQd-00000007Ikd-2GFj;
-	Tue, 15 Sep 2026 15:50:39 +0000
+	id 1x6VQe-00000007ImA-1yAM;
+	Tue, 15 Sep 2026 15:50:40 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x6VQ3-00000007IJ9-3S2E
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 15 Sep 2026 15:50:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=Ovsa1bs617xalxVVZRHjnAMZUTQFaPyyj9viTd4jCvA=; b=hadScvtjju78oy4MPtVVVh99Q3
+	dPY/+8yoS+0G9DaAy1vMmV7I748eDh698NnU5UaVX2xmhwVEQD6A4YKyuAzyk+q8SbTrPny9eUk9u
+	iCWNlZGPPtfZlZu/Dmm2d0MmArNibGSqAvKea9dU/13HAiXiiWodqR/kEVleGznqaRwX9YQfZlhBz
+	hB/3c+KsgKRqrPx9baDtqAtU7YrTAJcBLqG1ntW0P+mGNZpc7WID5sZy5gS25mTKR3zR+2x6jV3g/
+	jiyn3GYCUljSRNDn3z6pi2arhWH8aN9gsNKXD0Y/vkiOBkSMIOKE+ePgzHcUowpzvPKr2neE4Ur/E
+	jaHCF9IA==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VPr-00000007I7A-3sH7
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6VQ0-00000006yYt-4AsE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 15:49:53 +0000
+	Tue, 15 Sep 2026 15:50:02 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C43081BF3;
-	Tue, 15 Sep 2026 08:49:47 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B85491570;
+	Tue, 15 Sep 2026 08:49:55 -0700 (PDT)
 Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 061ED3F882;
-	Tue, 15 Sep 2026 08:49:48 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F0A9C3F882;
+	Tue, 15 Sep 2026 08:49:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789487391; bh=gphGBW/pfYc0+60Lt5giBEwB4ytrBqfB1hnk2C3sI3A=;
+	t=1789487399; bh=HljhFJEqlq7f7W2DVP9TBWkK9RJ5OJM0OyDY6TKa7aA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ZJSZAPzr2jM5zW1l9HDakxHBwkBdOZKjeVv4MdAdu11/dEbTi4vFGjKGaL+PWbvJG
-	 KVxkdCLfNxVGO/qN9bQjyol0B/Ts3EozXmsxHJRivv4EvTpYnq/o0SUc4YkYCkhhWt
-	 6Cja+CM4epKq0yOrDMpNrkPSh/a4a4qG8E/dzDgc=
+	b=YrouDpNp8SZ2QE0byjuIbn4UIH71Pv+tBu/JVzTQEN/ByKG/NR3Dc7y3G+AHSduIh
+	 0xAhYO6MvCILzSJfiRGwCuIGPlkVUbq6lzNdOmWiMdJ2ngt9dWFO10Fbtb+viClnbv
+	 5do8HDKn1XPYcTqjFG1IjlHGeLpSh9WGiCxKDDdw=
 From: Leo Yan <leo.yan@arm.com>
-Date: Tue, 15 Sep 2026 16:49:04 +0100
-Subject: [PATCH 18/25] perf cs-etm: Unify timeless buffer decoding
+Date: Tue, 15 Sep 2026 16:49:07 +0100
+Subject: [PATCH 21/25] perf cs-etm: Complete packet draining with end of
+ trace
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260915-arm_cs_support_aux_sample-v1-18-35cf6f297d20@arm.com>
+Message-Id: <20260915-arm_cs_support_aux_sample-v1-21-35cf6f297d20@arm.com>
 References: <20260915-arm_cs_support_aux_sample-v1-0-35cf6f297d20@arm.com>
 In-Reply-To: <20260915-arm_cs_support_aux_sample-v1-0-35cf6f297d20@arm.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
@@ -62,16 +78,16 @@ Cc: Ingo Molnar <mingo@kernel.org>, linux-perf-users@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789487340; l=4213;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789487341; l=4028;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=gphGBW/pfYc0+60Lt5giBEwB4ytrBqfB1hnk2C3sI3A=;
- b=Z8fLFHV3iIRtUuX2kypLyPdTfdHlUP1B9PUzCtr/QBREGYcOjT45zxXAOtr3kLC7UDKo3MdeF
- FzUq5nWOx3vBpn+x8a821QVXxu35zElQhml+NNKX1b2XwqMeTQn5dpk
+ bh=HljhFJEqlq7f7W2DVP9TBWkK9RJ5OJM0OyDY6TKa7aA=;
+ b=o4v41o6wGnQSWzRh19HpHqvnPSpr3ZFpJWJvM/Kdl1h0QFmJjWhexacHQOm9rKrwolJzWC1r0
+ 9BXw4L71Mb6B3g4LxsHg9VlZYNN7xwD1DVYZSiOvNO9N5I0PkB3K2YU
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_084952_061877_AF2678C3 
-X-CRM114-Status: GOOD (  18.14  )
+X-CRM114-CacheID: sfid-20260915_165001_362624_DA00CBB5 
+X-CRM114-Status: GOOD (  16.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,139 +102,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Per-thread and per-CPU timeless decoding use separate loops for the same
-buffer processing. Per-thread mode already collects packets in a single
-trace ID queue, so both modes can share the queue iteration.
+OpenCSD can retain output at the end of an input block even after
+returning CONT. WAIT driven flushing alone does not use out that output
+before the decoder is reset for the next block.
 
-Use cs_etm__run_timeless_decoder() for both modes, keeping the thread
-selection in the caller. Propagate packet processing and end-of-block
-errors through the common decoding path.
+Submit OCSD_OP_EOT from cs_etm_decoder__drain_packets() after any
+pending WAIT response has been flushed. Track submission with the
+eot_sent flag and clear it on reset, make sure to submit EOT only once.
+This applies to timeless decoding, timestamped decoding and raw packet
+dumping through their existing drain calls.
+
+Return OCSD_RESP_CONT for a clean EOT without queuing a discontinuity.
+This lets the frontend finish draining while preserving trace history
+for sample processing. EOT reporting trace loss, NO_SYNC and TRACE_ON
+still generate discontinuities and flush the thread stack.
 
 Assisted-by: Codex:gpt-6
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- tools/perf/util/cs-etm.c | 68 ++++++++++++------------------------------------
- 1 file changed, 16 insertions(+), 52 deletions(-)
+ tools/perf/util/cs-etm-decoder/cs-etm-decoder.c | 24 +++++++++++++++++++++++-
+ tools/perf/util/cs-etm-decoder/cs-etm-decoder.h |  2 +-
+ 2 files changed, 24 insertions(+), 2 deletions(-)
 
-diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index baa962085dba5226d9729a0ee8039374d5fcb1a0..1a53431161e995ba6b3cfdc86e338ed26e675774 100644
---- a/tools/perf/util/cs-etm.c
-+++ b/tools/perf/util/cs-etm.c
-@@ -2681,47 +2681,9 @@ static void cs_etm__clear_all_traceid_queues(struct cs_etm_queue *etmq)
- 	}
- }
+diff --git a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
+index a7a6410481e5c99be14a951493092c145a8512ba..0fcbf91aac63bcc5c40bf1453359d3be3ece684f 100644
+--- a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
++++ b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
+@@ -46,6 +46,7 @@ struct cs_etm_decoder {
+ 	void *data;
+ 	void (*packet_printer)(const char *msg, void *data);
+ 	bool suppress_printing;
++	bool eot_sent;
+ 	dcd_tree_handle_t dcd_tree;
+ 	cs_etm_mem_cb_type mem_access;
+ 	ocsd_datapath_resp_t prev_return;
+@@ -86,6 +87,7 @@ int cs_etm_decoder__reset(struct cs_etm_decoder *decoder)
+ 	ocsd_datapath_resp_t dp_ret;
  
--static int cs_etm__run_per_thread_timeless_decoder(struct cs_etm_queue *etmq)
-+static int cs_etm__run_timeless_decoder(struct cs_etm_queue *etmq)
- {
--	int err = 0;
--	struct cs_etm_traceid_queue *tidq;
--
--	tidq = cs_etm__etmq_get_traceid_queue(etmq, CS_ETM_PER_THREAD_TRACEID);
--	if (!tidq)
--		return -EINVAL;
--
--	/* Go through each buffer in the queue and decode them one by one */
--	while (1) {
--		err = cs_etm__get_data_block(etmq);
--		if (err <= 0)
--			return err;
--
--		/* Run trace decoder until buffer consumed or end of trace */
--		do {
--			err = cs_etm__decode_data_block(etmq);
--			if (err)
--				return err;
--
--			/*
--			 * Process each packet in this chunk, nothing to do if
--			 * an error occurs other than hoping the next one will
--			 * be better.
--			 */
--			err = cs_etm__process_traceid_queue(etmq, tidq);
--
--		} while (etmq->buf_len);
--
--		if (err == 0)
--			/* Flush any remaining branch stack entries */
--			err = cs_etm__end_block(etmq, tidq);
--	}
--
--	return err;
--}
--
--static int cs_etm__run_per_cpu_timeless_decoder(struct cs_etm_queue *etmq)
--{
--	int idx, err = 0;
-+	int idx, err;
- 	struct cs_etm_traceid_queue *tidq;
- 	struct int_node *inode;
+ 	decoder->prev_return = OCSD_RESP_CONT;
++	decoder->eot_sent = false;
+ 	decoder->suppress_printing = true;
+ 	dp_ret = ocsd_dt_process_data(decoder->dcd_tree, OCSD_OP_RESET,
+ 				      0, 0, NULL, NULL);
+@@ -592,6 +594,17 @@ static ocsd_datapath_resp_t cs_etm_decoder__gen_trace_elem_printer(
  
-@@ -2731,23 +2693,23 @@ static int cs_etm__run_per_cpu_timeless_decoder(struct cs_etm_queue *etmq)
- 		if (err <= 0)
- 			return err;
+ 	type = elem->elem_type;
  
--		/* Run trace decoder until buffer consumed or end of trace */
-+		/* Run trace decoder until the input buffer is consumed. */
- 		do {
- 			err = cs_etm__decode_data_block(etmq);
- 			if (err)
- 				return err;
- 
- 			/*
--			 * cs_etm__run_per_thread_timeless_decoder() runs on a
--			 * single traceID queue because each TID has a separate
--			 * buffer. But here in per-cpu mode we need to iterate
--			 * over each channel instead.
-+			 * Per-thread decoding uses a single traceID queue;
-+			 * formatted per-CPU buffers can contain several.
- 			 */
- 			intlist__for_each_entry(inode,
- 						etmq->traceid_queues_list) {
- 				idx = (int)(intptr_t)inode->priv;
- 				tidq = etmq->traceid_queues[idx];
--				cs_etm__process_traceid_queue(etmq, tidq);
-+				err = cs_etm__process_traceid_queue(etmq, tidq);
-+				if (err)
-+					return err;
- 			}
- 		} while (etmq->buf_len);
- 
-@@ -2760,8 +2722,6 @@ static int cs_etm__run_per_cpu_timeless_decoder(struct cs_etm_queue *etmq)
- 				return err;
- 		}
- 	}
--
--	return err;
- }
- 
- static int cs_etm__process_timeless_queues(struct cs_etm_auxtrace *etm,
-@@ -2774,6 +2734,7 @@ static int cs_etm__process_timeless_queues(struct cs_etm_auxtrace *etm,
- 		struct auxtrace_queue *queue = &etm->queues.queue_array[i];
- 		struct cs_etm_queue *etmq = queue->priv;
- 		struct cs_etm_traceid_queue *tidq;
-+		int err;
- 
- 		if (!etmq)
- 			continue;
-@@ -2785,10 +2746,13 @@ static int cs_etm__process_timeless_queues(struct cs_etm_auxtrace *etm,
- 			if (!tidq)
- 				continue;
- 
--			if (tid == -1 || thread__tid(tidq->frontend_thread) == tid)
--				cs_etm__run_per_thread_timeless_decoder(etmq);
--		} else
--			cs_etm__run_per_cpu_timeless_decoder(etmq);
-+			if (tid != -1 && thread__tid(tidq->frontend_thread) != tid)
-+				continue;
-+		}
++	/*
++	 * The frontend uses EOT to drain packets buffered in OpenCSD at the
++	 * end of a data block. Return CONT for a clean EOT so the frontend
++	 * can finish draining without generating a discontinuity, preserving
++	 * trace history for sample processing. EOTs reporting trace loss
++	 * still generate a discontinuity below.
++	 */
++	if (type == OCSD_GEN_TRC_ELEM_EO_TRACE &&
++	    elem->unsync_eot_info == UNSYNC_EOT)
++		return OCSD_RESP_CONT;
 +
-+		err = cs_etm__run_timeless_decoder(etmq);
-+		if (err)
-+			return err;
- 	}
+ 	if (type == OCSD_GEN_TRC_ELEM_EO_TRACE ||
+ 	    type == OCSD_GEN_TRC_ELEM_NO_SYNC ||
+ 	    type == OCSD_GEN_TRC_ELEM_TRACE_ON)
+@@ -803,10 +816,19 @@ int cs_etm_decoder__drain_packets(struct cs_etm_decoder *decoder)
+ 							    NULL,
+ 							    NULL);
  
- 	return 0;
++	if (OCSD_DATA_RESP_IS_CONT(decoder->prev_return) && !decoder->eot_sent) {
++		decoder->prev_return = ocsd_dt_process_data(decoder->dcd_tree,
++							    OCSD_OP_EOT,
++							    0,
++							    0,
++							    NULL,
++							    NULL);
++		decoder->eot_sent = true;
++	}
++
+ 	if (OCSD_DATA_RESP_IS_WAIT(decoder->prev_return))
+ 		return 1;
+ 
+-	/* No further WAIT driven flushing is needed */
+ 	return OCSD_DATA_RESP_IS_CONT(decoder->prev_return) ? 0 : -EINVAL;
+ }
+ 
+diff --git a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.h b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.h
+index c187f3809ba0a350ca6ee549d2c0c67ed8e16d1e..876b28f6fda099db5694fdfa9552104cc270b49a 100644
+--- a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.h
++++ b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.h
+@@ -92,7 +92,7 @@ int cs_etm_decoder__process_data_block(struct cs_etm_decoder *decoder,
+ 				       size_t len, size_t *consumed);
+ 
+ /*
+- * Drain pending packets after consuming a data block.
++ * Drain pending packets and submit EOT once after consuming a data block.
+  * Process queued packets after each call, including the final call.
+  * Returns 1 for WAIT, 0 when done, or a negative error.
+  */
 
 -- 
 2.34.1
