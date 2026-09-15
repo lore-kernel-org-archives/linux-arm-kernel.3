@@ -4,67 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C5A7C88E7D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 19:56:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D8A5C88E7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 19:58:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/9/n5mwO6kR68u3vVbGR7jjrxxIi1w6BUultNSxEIyM=; b=r/Hr6jp/Qfwz/2bJ7lb+Bv9xv9
-	U1NAsNSMLRwkLG7zeC82Yo3otYUOfFPBxmC9Y75yeu+kjOvtFwMLCX+wqwhy70l3o0QuqBCPu1PBg
-	pX2uzziywbe/OQAZoNT5Kx/aJR6j63/Nw9xYwHvfsf4/jMWVN3u3mWfp+KalY94QgaYplqDdhn6Fi
-	ICy0tdX/81nJ19P6A+BCKXKmo74kkNrv7OekrbWZhMZUhraZSeUnDro6ZhN1f07CwUcm6VVUEYXNG
-	WgiEiNmrdEK74rk0z3KnwT/i+J55Cgur6Qi3bFXR6SJHFZqC88o12POJbnh52ydsQbzAeKrG6c51i
-	v2LKGsqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3hXn1baUNhRBy6ZdAycWNIKKqnZoz6mdI1Ok9vpRhU4=; b=0nJfNwDOUvu5Eav++1+ARbu+uq
+	VseSM038CnoMGXbIUhAoRqcHCSAwLEUcJQjwR9I3kOkcVQ5LfzmipokJnPzA2d2z0//qh1QFylWIj
+	My5QZrBgZKxhHeADfK6fMMFOSmcFaYk4YvXJgdoa+fw6oLW/hAsFHKB4IYwwOX1Y/aVFF6nA5Cqqn
+	kvZu24PPuakykVlhxXo8SP1ZSkxORmubIoWZiElczjAbzGsZ6adeapJdS/U7a/VBlJSni8WXBTK1l
+	rkmlS1FyPDcJgWowmIXW9zBFIUCZckzUPmKxoAQaShI8kHzginkgKmGnXMx352g1+hDLL53sLwHUK
+	9YEwmjuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6ZG1-00000007taN-2b3C;
-	Tue, 15 Sep 2026 19:55:57 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6ZFz-00000007ta0-0r7Q
+	id 1x6ZIA-00000007tlT-3iIr;
+	Tue, 15 Sep 2026 19:58:11 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x6ZI8-00000007tkl-3Ld1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 19:55:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 34FCE152B;
-	Tue, 15 Sep 2026 12:55:50 -0700 (PDT)
-Received: from [192.168.4.158] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 697A53F7B4;
-	Tue, 15 Sep 2026 12:55:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789502153; bh=os1BDjQW0NBjktNzzqxnXfDDyaHtfLgy26yzzeiQoDk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=HSa38V7N4c8nhvp7rfjuBg2mwrWCDfXnjscowE1tm7LV7+wLp8nz5bQboqStLyKAg
-	 6x3nzIcx+n5vvmtfbkNKAfYYmvtpilQoTdLxWtXv+eM/mL7XURFFSgICEmtQ6KOnro
-	 G5KtsIMp2ne2O9lN2jsJ9G5QJyqqYKUJBajyGw7Q=
-Message-ID: <6f7eef15-da58-4f7f-94ba-778772e91270@arm.com>
-Date: Tue, 15 Sep 2026 20:55:48 +0100
+	Tue, 15 Sep 2026 19:58:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=3hXn1baUNhRBy6ZdAycWNIKKqnZoz6mdI1Ok9vpRhU4=; b=bsCxyAg7Vr88tUywNVj/X/NAlB
+	F1JWOCIYcR6qiIsC8AWkNSB8NA/itPjfBE1/4jB4GvKFB3rAWKBy2xVvPWncbnN7nMmVrtBtgVTNL
+	CA/a9Nv5jaK4B7zfk+WJ+GIw0jl2CnP3uWHYog6NGsE7EPcy1LVsRk/2SvVeEQoRNaE4=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1x6ZHw-005LFQ-Mk; Tue, 15 Sep 2026 21:57:56 +0200
+Date: Tue, 15 Sep 2026 21:57:56 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Francesco Dolcini <francesco.dolcini@toradex.com>
+Cc: Francesco Dolcini <francesco@dolcini.it>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
+	Franz Schnyder <franz.schnyder@toradex.com>
+Subject: Re: [PATCH v2 3/7] arm64: dts: freescale: Add Lino iMX93
+Message-ID: <95dcbf3e-193d-460b-b6b9-cd412394e4c6@lunn.ch>
+References: <20260911091952.96233-1-francesco@dolcini.it>
+ <20260911091952.96233-4-francesco@dolcini.it>
+ <42ed88a6-d208-482b-94aa-2e45b69c173e@lunn.ch>
+ <20260915132806.GA226756@francesco-nb>
+ <100eef7b-e1d6-411b-bac5-98790e8f9ea7@lunn.ch>
+ <aqmG91HwmKe-enfy@francesco-nb>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v18 7/7] firmware: arm_rmm: Add wrappers for Realm related
- RMI commands
-Content-Language: en-GB
-To: Alper Gun <alpergun@google.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
- will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
- aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com,
- lpieralisi@kernel.org, enju.kohei@fujitsu.com
-References: <20260912083611.2513845-1-suzuki.poulose@arm.com>
- <20260912083611.2513845-8-suzuki.poulose@arm.com>
- <CABpDEukTAc1m=g+rZRPPqaTwrvhUJPsFRWpFd0PxZsyWw5mR=Q@mail.gmail.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <CABpDEukTAc1m=g+rZRPPqaTwrvhUJPsFRWpFd0PxZsyWw5mR=Q@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aqmG91HwmKe-enfy@francesco-nb>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_125555_289358_6F418798 
-X-CRM114-Status: GOOD (  14.00  )
+X-CRM114-CacheID: sfid-20260915_125808_841331_7EA82789 
+X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,58 +82,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/09/2026 20:35, Alper Gun wrote:
-> On Sat, Sep 12, 2026 at 1:37 AM Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
-> [...]
->> +/**
->> + * rmi_rtt_destroy() - Destroy an RTT
->> + * @rd: PA of the RD
->> + * @ipa: Base of the IPA range described by the RTT
->> + * @level: RTT level
->> + * @out_rtt: Pointer to write the PA of the RTT which was destroyed
->> + * @out_top: Pointer to write the top IPA of non-live RTT entries, from entry
->> + * at which the RTT walk terminated.
->> + *
->> + * Destroys an RTT. The RTT must be non-live, i.e. none of the entries in the
->> + * table are in ASSIGNED or TABLE state.
->> + *
->> + * Return: 0 on success, positive RMI result code or negative Linux error code.
->> + */
->> +static inline long rmi_rtt_destroy(unsigned long rd,
->> +                                  unsigned long ipa,
->> +                                  long level,
->> +                                  unsigned long *out_rtt,
->> +                                  unsigned long *out_top)
->> +{
->> +       struct arm_smccc_1_2_regs regs = {
->> +               SMC_RMI_RTT_DESTROY, rd, ipa, level
->> +       };
->> +       long ret = rmi_sro_execute(&regs);
->> +
->> +       if (ret != RMI_SUCCESS)
->> +               return ret;
->> +
->> +       if (out_rtt)
->> +               *out_rtt = regs.a1;
->> +       if (out_top)
->> +               *out_top = regs.a2;
->> +
->> +       return RMI_SUCCESS;
->> +}
-> 
-> Doesn't out_top (regs.a2) need to be populated on RMI_ERROR_RTT as well?
-> realm_tear_down_rtt_level() checks next_addr > addr under case
-> RMI_ERROR_RTT: to determine whether the RTT is missing or has child tables
-> that need recursive teardown.
+> Would you mind to articulate in which situation such race condition can
+> happen?
 
-You're right. The out_top is valid even when we get RMI_ERROR_RTT. I
-will fix it.
+Most PHYs have a number of interrupt sources. Taking a random example:
 
-Cheers
-Suzuki
+/* DM9161 Interrupt Register */
+#define MII_DM9161_INTR_DPLX_CHANGE     0x0010
+#define MII_DM9161_INTR_SPD_CHANGE      0x0008
+#define MII_DM9161_INTR_LINK_CHANGE     0x0004
 
-> 
-> Thanks,
-> Alper
+#define MII_DM9161_INTR_CHANGE  \
+        (MII_DM9161_INTR_DPLX_CHANGE | \
+         MII_DM9161_INTR_SPD_CHANGE | \
+         MII_DM9161_INTR_LINK_CHANGE)
 
+and a completely made up example which results in problems...
+
+Three interrupts are enabled. Say the PHY reports a duplex change
+first. That causes the interrupt line to go low, giving a downward
+edge. The interrupt handler fires, and reads the interrupt status
+register. In order the clear the interrupt you need to access another
+register about duplex. Before you do that, the link interrupt fires,
+setting the link bit in the status register. However, there is not
+another edge, because the duplex interrupt has not been cleared
+yet. The PHY driver does clear the duplex interrupt and exits the
+interrupt handler.
+
+The interrupt line is still low, indicating a link interrupt, but
+without an edge, no interrupt handler is triggered. The interrupt has
+been lost, and the link is reported down, despite being up.
+
+If however you are using level interrupts, as soon as the interrupt
+handler exits, and reenables the interrupt in the parent interrupt
+controller, it fires again, and the link interrupt is handled.
+
+If you have multiple interrupts indicated by a single line, you should
+use level handling in the parent interrupt controller.
+
+	Andrew
 
