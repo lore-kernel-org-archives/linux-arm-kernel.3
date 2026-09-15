@@ -4,107 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DDE6C88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 11:07:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3154EC88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 11:15:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N8aUdlQdF/RsB8XDx2/sEkF1W5Y0p30LeoaSGgy4yCY=; b=cugv3NViNI51CGsl9TO3eJ2GKf
-	1c0n8XZ95mK4eVc8iq7IdQ/Fc4QLSJpy3Csi3aqDnFtiVdpWOqLVKNHDbqiCb6/g34YWK6Gm4PbnT
-	gvAEMuQ3doj3dPM36H5Z8GikAxFi631sAOCwpJ4C9ItcVLu6fozYn1RB8oXGC38fMs0eaFoohKSEK
-	nls9lebDaFd1XimD7vA3iHrSDinOhrBlj5bjh6iqr3LcUhrhO/tjllivxr7xD3QQe56E9hoLl356j
-	YzO/Gpni9ZiBzUf4REYpS/6qGkGcXjBytmwxP6l9eOslJKU0s6jOiDYxSdWoUN3cK4uduihS0EgOr
-	5JuSIjtw==;
+	bh=zxnXL+adnlxMQFfV6gJJ5LO2K/Q1EM7BgnKDQeVOHJ4=; b=J3+Zj2jPRMrsBCRMnFnP9UtbFJ
+	YxQ2gODA+rTlSU1vgxCHUqYiwxDpBFHc3bC5LJICyaGNwXv87KI+FzhoejPCGcJwaT4b7rRgO0pox
+	qHPOZ4cKCnSjjKlgUz+cIeqrb5VEY1I7c+26J7E0yBgP/d3/RROE+A60EbEmrPxkxB9qEEwVgJ+5w
+	lE+mYCssUlTyuJAWJzAw35IhW9SYzH3P+laTFQh8UiAwN3RAORSTz8AsL7yqKeOjt1rwUdeya8pVm
+	VpfcIehInNnYPxBS1cAgQ+pt3+V7DLnpZrpsoAu1eafUWdFgZ2wzT7nRlphlFvtM2iWL8P3TdZVqB
+	YLzA3ZaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6R0y-000000063BI-0iAx;
-	Tue, 15 Sep 2026 11:07:52 +0000
+	id 1x6R8Y-0000000643y-2nOh;
+	Tue, 15 Sep 2026 11:15:42 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6R0x-000000063Av-0p2T
+	id 1x6R8X-0000000642P-1Qim
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 11:07:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id ED4514042E;
-	Tue, 15 Sep 2026 11:07:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B75F1F000FF;
-	Tue, 15 Sep 2026 11:07:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789470470;
-	bh=N8aUdlQdF/RsB8XDx2/sEkF1W5Y0p30LeoaSGgy4yCY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=i7gX97sxv6OOaXTl2+IyAG8mjhGIuzFFTSQRiC9GSHfa/L3sooB7RFdZc3i30MMk5
-	 nzvIiIO0oSsmjRGEJk17oEKfg1xFv3j/MXZbOJFirbYJXP6t9MUivQfLlw5ynzIaZC
-	 DlRxdt9hOsu4GFyK/7W1qh3meItMkIqSrThfqGverAU7uQ8PFX1N/0bNyDIu9n3UOX
-	 FmA3QERQoZnbrQFbhtejk3RgJ+fdvnHpJuR4wl/t8iQx996jpp/TPq2f7obAHZqg9G
-	 dN/Zn66ouGDvWBVcrJ3XbcNC+3hdOvU1Rti5AkyJWZxL5VXmP8+2OEPjq/XNmCwY34
-	 1EmL8dRUT8J5w==
-Message-ID: <bd1dc289-6285-496a-be08-e00d3dbae0e2@kernel.org>
-Date: Tue, 15 Sep 2026 13:07:46 +0200
+	Tue, 15 Sep 2026 11:15:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1C2FC43E1F;
+	Tue, 15 Sep 2026 11:15:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E2CABC2BCB8;
+	Tue, 15 Sep 2026 11:15:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1789470941;
+	bh=/EqyzhFKjVT1Spu2ADyKiMSyXx4yZn96DdPYCnXHJf8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=etofxHnH865wmnuJiGyyl5xlQmEyemS5ZhOUVXZQcumwbftMSgVt3eNcR28fhpAXb
+	 WX17M8Sb5//m7dJpQVgbk46WfIIkcx7f3B9ZOtcTAwI875N1LAQQCoIuBn95Ul3gse
+	 nhDdxE05QyRH0+2EdXxemR+CKoHTGnXLsPeUMGZr7+6xkBZV0w/k0FaMv0gUTjHdux
+	 GhQYdo/8TifE6epxaZdS6+g8ySzU5MdLwzFAKbp7u59Umzz6GZ9TDUuJZdrZsBKuyt
+	 78mTySPWcbBnUsrV1qqH5GpPV1hoV0RHMKU6ye0y73ZL9zdsd7wBxPjE9QWKyq+Wq1
+	 5zxlx1nVCuTgg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BE35CC88E53;
+	Tue, 15 Sep 2026 11:15:40 +0000 (UTC)
+From: Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>
+Date: Tue, 15 Sep 2026 19:15:31 +0800
+Subject: [PATCH v7 01/15] dt-bindings: arm: add Ambarella CV75 platforms
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iio: adc: at91-sama5d2: disable autosuspend on remove
-To: Guangshuo Li <lgs201920130244@gmail.com>,
- Eugen Hristev <ehristev@kernel.org>, Jonathan Cameron <jic23@kernel.org>,
- David Lechner <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, linux-iio@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org
-References: <20260914113422.1689331-1-lgs201920130244@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGPBBMBCgA5AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJp2mE8AAoJEBuTQ307QWKbeaIP
- /ihHTkTW4KsN/DQ945JJbyu5tI0J80Wue7QyyLPglyKfhgb5cLLNPpOC8cCIJsc7+W3i2P38
- s2c1cOH6CYGE7E9ur3Vfme8NW2S2I/Z8VC7bZnzyS23wT17LrsdS/qCpx4o8U+pt/xdXDKph
- EGRYrIEmMpUWvyYzyYKGIe25FtaayIIKpq8eZYyFcp2f/sG5IkOW5uZzHPMPdcm87jU7fyuQ
- rAU2vx9r+ulUfQ/q9Z2roC/ode3l7t2pN7BCBCsUDp6JCrUyZrtT1e7EbA0ZRP3aOBNk2P2E
- DQOgJGjGdO5Yx2Y9LFtltu6JbsBJHi1syGRX3AtQYOMc4Y1WGoeZJmMlvKj2ZqqXNkcWi2DS
- IQEWB0uW6CqFsBBIMGDa+6OzdaVO/uAVXWDWml02Men3CILdI1MbVjoh8ECqYUY7OQ+JJvNN
- vnliuq5WM3Ghd3jg/LZZrxXjdIginRHFQCjIJYLKpLZWm1/iDFedcfzqRNYmTtqscdCNHW41
- oT3Z7BmO9xwdjuwBS6nmS6JJwkbf5Ot2QR4pB/DRU7ZwjT1qHe+9r9gF32wXVQatHNGK/VVu
- sfwOnkdxCWkp/qb2gdQRmZh+SedStWshigH6sNfuHBloF/q+hjMRc8b2m326OZdrbSHwY1Sz
- vti8Hn7n8NjdHO9LKB7BIdjkA9DA5WsqOuVCzsFNBFVDXDQBEADNkrQYSREUL4D3Gws46JEo
- Z9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLueMNsWLJBv
- BaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6eiOMheesVS
- 5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wAGldWsRxb
- f3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA6z6lBZn0
- WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9YegxWKvX
- XHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt91pFzBSO
- IpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gUBLHFTg2h
- YnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/JoFzZ4B0
- p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu4vXVFBYI
- GmpyNPYzRm0QPwARAQABwsF2BBgBCgAgAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtBYpsFAmna
- YUkACgkQG5NDfTtBYptX+BAApg32CkxwNucNEi8WfWA8oKkW0y8YDuY6ORMo9FWNGiT/OTy0
- vyJrLocrpn86zwfjVp+eCrssPYh8eqJfnWqmYv6ACQtHPYzPZQ3mSo8H97Z01oUxITzCxpXm
- ZkLgPIqtDPcC2E3dPM/fVxcyowM8XsaMA9wcsaUYrta8toOq2b9tKcjleKMfMrm0gQ9u7wUc
- QbLkwj6TCLOwucb07GXzLTNF9PZmaDUpKAZjMjmrW+le+SFvQbhamx0rxLWPR0NWntXpbCn+
- +ACch03p/JyTBVktxFsFyCt7pTPE1kEaeuXBTe/a2D9iQvRxRW19LvuO2e59/u1wYUiH/orz
- wbIC2S4dBsPAPihL3ztOU1yE86GPyQtSE0kU+/7snnLt4QGi6PChf3t5gnNjAzjUUovO8rgI
- c+5yN5heq5loYHgK6OQ9OlHzsPHO9e9MOQcKlFycs1pyijFGzDwdNUm/SchK8iWT2QApTx4A
- K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
- n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
- qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260914113422.1689331-1-lgs201920130244@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260915-cv75-v5-v7-1-3297d3fbc9c0@ambarella.com>
+References: <20260915-cv75-v5-v7-0-3297d3fbc9c0@ambarella.com>
+In-Reply-To: <20260915-cv75-v5-v7-0-3297d3fbc9c0@ambarella.com>
+To: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org
+Cc: Long Zhao <longzhao@ambarella.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+ =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Long Zhao <zl020895@163.com>, Lee Jones <lee@kernel.org>, 
+ mfd@lists.linux.dev, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789470938; l=1876;
+ i=longzhao@ambarella.com; s=20260730; h=from:subject:message-id;
+ bh=a3UsADFSuMY/QlkptOgZJzk4a6/aFRhf9dYNkAufvC4=;
+ b=hbQCnE/Cbrk1zYpliTrfnPJS5xfTsnBl0k1A+p7zKECCNmneETgLVs060ab3mKSDcSQ+lDOrL
+ bjn/cCenLAcDEBPqvNuQsTZaiSgxUtIwubf8raaZJKGGu9JjeIOtzBH
+X-Developer-Key: i=longzhao@ambarella.com; a=ed25519;
+ pk=/xGhPTOX0/eYsyTWzyjjgAIW1Z/YD+IlnOnvcdRozow=
+X-Endpoint-Received: by B4 Relay for longzhao@ambarella.com/20260730 with
+ auth_id=903
+X-Original-From: Long Zhao <longzhao@ambarella.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,33 +95,69 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: longzhao@ambarella.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/09/2026 13:34, Guangshuo Li wrote:
-> at91_adc_probe() enables runtime PM autosuspend with
-> pm_runtime_use_autosuspend(). The probe error path correctly undoes
-> this setting with pm_runtime_dont_use_autosuspend(), but the normal
-> remove path only disables runtime PM.
-> 
-> The runtime PM API requires pm_runtime_use_autosuspend() to be undone
-> with pm_runtime_dont_use_autosuspend() at driver exit unless runtime PM
-> was enabled with devm_pm_runtime_enable(). Leaving the autosuspend flag
-> set therefore leaves the runtime PM state incompletely cleaned up after
-> the driver is unbound.
-> 
-> Add the missing pm_runtime_dont_use_autosuspend() call to the remove
-> path.
-> 
-> This issue was found by manual code inspection.
-> 
-> Fixes: 75d7556ac0e4 ("iio: adc: at91-sama5d2_adc: add runtime pm support")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+From: Long Zhao <longzhao@ambarella.com>
 
-Nothing improved, you again spammed with multiple independent patches so
-maintainers would need to respond TO EACH one instead of to the thread.
+Add the Ambarella vendor prefix and CV75 EVK board compatible for the
+initial SoC bring-up.
 
-Best regards,
-Krzysztof
+Reviewed-by: Linus Walleij <linusw@kernel.org>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Long Zhao <longzhao@ambarella.com>
+---
+ .../devicetree/bindings/arm/ambarella.yaml         | 24 ++++++++++++++++++++++
+ .../devicetree/bindings/vendor-prefixes.yaml       |  2 ++
+ 2 files changed, 26 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/ambarella.yaml b/Documentation/devicetree/bindings/arm/ambarella.yaml
+new file mode 100644
+index 000000000000..72946e94fa76
+--- /dev/null
++++ b/Documentation/devicetree/bindings/arm/ambarella.yaml
+@@ -0,0 +1,24 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/arm/ambarella.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Ambarella SoC platforms
++
++maintainers:
++  - Long Zhao <longzhao@ambarella.com>
++
++properties:
++  $nodename:
++    const: "/"
++
++  compatible:
++    oneOf:
++      - description: Ambarella CV75 boards
++        items:
++          - enum:
++              - ambarella,cv75-evk
++          - const: ambarella,cv75
++
++additionalProperties: true
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 85a27937832e..f48aa6dabbe9 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -112,6 +112,8 @@ patternProperties:
+     description: Amarula Solutions
+   "^amazon,.*":
+     description: Amazon.com, Inc.
++  "^ambarella,.*":
++    description: Ambarella, Inc.
+   "^amcc,.*":
+     description: Applied Micro Circuits Corporation (APM, formally AMCC)
+   "^amd,.*":
+
+-- 
+2.34.1
+
+
 
