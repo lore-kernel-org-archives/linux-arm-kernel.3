@@ -4,135 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AE91C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 16:40:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89097C88E7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 16:41:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J4v8M6TZQ1VmtJGXFaLzk3h6NLJ/ycuAO8t4dOQz6O4=; b=iuL1GufJnjhDWGaL+Poqce5G/7
-	7fiNY6zJZg0EtJW5dJ4scxn3yFkPxjOyQ1B9XZkCABVEqjXAitcuB/OccDJ/xF1k9YNVLhKG1kDBd
-	czaLEUcVe3zHwbIxE+iQAPepOTeEzR6VXLvBXhjEo775zi/FUqQbNCn7m/4rs4B+p+YZlvLMzLBoN
-	lxMrPORk2c3isSL0yFI6tbRkWYAh4xJ/Cm16eDRG3SROkZUTYHWC2u5TmuFFYKdwEhMINU7Wyjcq4
-	3ZXURkIPMOtDX5JawGiEyYV/WKLf5yxsB2Ti6VOjlvcWcf8hs2dYffNvN+IK8jQVbUX9tmPTE5HiT
-	AoKg3uPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fcB7yfs+gbM9Kg0Yi2qLEnXU+b/JC0lqih9Cs5idVN4=; b=P5rKjE8A1SEfUveQatMo9Snkav
+	Wz3d9leYbX39HT9Um7RNbRQRdW4wggnRdaDSV4UPGuU0JKazc/sBIxPUOoD0MkO3oHOxIoD7lK+K1
+	vFXRo/92k8qDwS4CsL/YyegECEZaZPpT63L93f1znxwY/Yi4fk/Ts3Q9h7pnGede+t9F+1km5FUDA
+	HH0RiVXhucOuJ/qTamJJHb0GbUNQXvE/9WTUQV84gpMYxVE2nzD0q8P2NPDF0qV6Zp6duu1sQstyp
+	uWx0amO2Zl7AtzIZMCFk2dTKgZbvDBBAddg9kgl4X4CdE62RNMAXjnJAgMm7YKUm8+EHybc5lufqR
+	o2hhlymQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6WDB-00000007Ro6-1QZQ;
-	Tue, 15 Sep 2026 16:40:52 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x6WEA-00000007SBP-3qoO;
+	Tue, 15 Sep 2026 16:41:50 +0000
+Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6WC8-00000007QvT-1iPG
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 15 Sep 2026 16:39:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=J4v8M6TZQ1VmtJGXFaLzk3h6NLJ/ycuAO8t4dOQz6O4=; b=Vu+fe5MwdFisB3YZebuGZD1rJ8
-	ME7KB5cEeKhQyZ1irYusw2gah4sxhKKZq1PWEK0Pwo9FsQ8z0Ovr/52+NEmom1d2CnSiOUSwxGnoT
-	iBBxcyZi8m9DRtw0snCFNm6mBiSX/yD+dAEjijsqzZB8XBfJjpsNanHefHilbNK8v+Feinxt099og
-	p7QnfMWKS/gWdxjI0QpjHwYDln0l6RX9arWgQAB6BcSrpyklgIHwkMR8hNybYVB4xcKhc9N9v9Obl
-	ohc9GkhkzCgq7RkgNwyrr3OtfqKvBri2BWqldQgxgVzVZKYzSc5A763xM++l9MH8HOVBu4gJ9pbbT
-	LcQF3MGw==;
-Received: from mail-eastus2azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c110::3] helo=BN8PR05CU002.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6WC5-00000007242-0EmE
+	id 1x6WE8-00000007SAP-10C9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 16:39:43 +0000
+	Tue, 15 Sep 2026 16:41:49 +0000
+Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
+	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 68FF6YI8329914;
+	Tue, 15 Sep 2026 11:41:40 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=fcB7yfs+gbM9Kg0Yi2qLEnXU+b/JC0lqih9Cs5idV
+	N4=; b=REjF8SkfPD6CvHKyVkzBZp8rshllRBlbbksi5dRqQDgNwEWKOPyNcUTer
+	VafF9uSi94FVXqtWwkAUGY7rzhL4S48Wv6ETnmDzy6BRLOy/pqLd8t1MW25gtu+3
+	F0zmI8IkB/Qr3R5Q4HNwzCY8EU5uEIasNqIOYD1gYLsuqfRF9ox/8z8sAJq2snUd
+	IW8PCPFP2qLhr+4YpegcIv+TATpkfDgLvrmCzhdzDEmXbmeW0cLMGqG1A6TDlaRl
+	mf0LqzOsK2lY2Bt4R3ose1PyBg0H79v07xLweYTTyzF04mrgvDaS4k3QmbCm+k/+
+	V8q2+wla8lxm8s+/4/zCv9/L1UqOA==
+Received: from co1pr03cu002.outbound.protection.outlook.com (mail-westus2azon11010049.outbound.protection.outlook.com [52.101.46.49])
+	by m0380145.ppops.net (PPS) with ESMTPS id 4gq58jj5mr-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Tue, 15 Sep 2026 11:41:40 -0500 (CDT)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=p83RItA7JR6sr9qL2C32uwXXkzYUmNeEGDdy5bzEtpSw0JA5ByTQB0l/eWVJNP1MfV66zsAXggGQrJlKEKxtEs0mL9h6Vey9mWFY3d7gQhXcv4tUKv1DEgN66AhGJNiW6gLRZchFi6ZF4pcxEMOj82KhaLAZ84BzNnnpBeUsgpLuTtFTvl0TrrM6PDtRUQ33vnxmWDe/AI2E5ZGLdFhI7VVkc5JbU/6T5Y15YqjQ9hG44IVW3e+oBGLDfR2FcuzPo1QBD8OG2GKIhKIEInmtUGpJpNmHd+JpRsd+6+c4jP+LLzfDfhX9yN//H0kXFYNxsGhxtpDSy47vLyLZyDVRqQ==
+ b=IWIGrmm2QgHod9jGt2llhMPErB7E72TKZutIKsAx7u0BUOL7KokeE7djAJrllvPRJ478konvGtY1jGH32EZ0JZk+DsWt6AYfwXTAnRsWHwJFdwM6rh8S9oUvZ7qyaxZv0BD0cgezRZVoM7hd4gGP8uqQOGXmCIKVdkz/fsnXJqkEiJsYBusy1opjipDuKp8yJMhRPtHB39BikYC2PQ8D3hjaKUEyx/0BUXHWTH16wPoFNSPFVrs1ISc0dQPkdxbSD7O/ERzDRqCh0ycW7Qd6iDsxb1Xm1MM7gXpxXcokOO7fp9+5ZxptMcnZ47AfpYlJyBARNEojFIMbOBEVhLws/g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=J4v8M6TZQ1VmtJGXFaLzk3h6NLJ/ycuAO8t4dOQz6O4=;
- b=jI8XDyfxEQzngoUXKdVIKtpzOLP6kMGnIwAIvszA5xLc4rIfdA+rJTr98kslW9NnLbjQ9RWhvnlpDEAIeR0Eo1hTULKD3eZVX4vZv+FFSeHCkai+H76NYT53UBlT2CIxwbKFcctn5cSx8ycihm1ptuHy02IaFs1SML/Q5WEVFrf0kraufbrwMbARWtbuNDIM0L9raaUwcapoYT2ZcL3tKZvRyabP9Q47nex8xJaEzWTv/UL6m9jnAI3/8NywgB1eBQn/I5y5MS9BPIV+UVERodcoBNRxs3ozBl5a8jkPZAn+lBsTu9TBYU5ADbumyB3oY6X8Oa8qMz7MV/CqXzg5DA==
+ bh=fcB7yfs+gbM9Kg0Yi2qLEnXU+b/JC0lqih9Cs5idVN4=;
+ b=Ethb5vx2lkYA98VvFweNo67qftFdxHWCKFERwNZ+wpp8SBre+ne4UDILdDNusyHE7Gn3CJx1tXKorlBwmTP0PQEbRWg9gSWW8HvACuOV6D2Exlmn5gliGDZfyierEJMXHA4tYygcIIdNZf8lU0gFSib3Cq6mLLatk0rh0r41s+9iX1+o+QO1XjMCd+ftIRby5LbINzqthJ9u1IL+6de1Y005doQbmn0pfHaiQHcN75/cbGqnU6RNtgc/6npCirCVfwvo814ApdE1uo4MxW0kSq6yOhcfxvbdHbA/fut0OemtUUz1X4vS/xCjZN/Ik6HWtIqcpJrKIJzTpoaYJmKMFg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
  dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=J4v8M6TZQ1VmtJGXFaLzk3h6NLJ/ycuAO8t4dOQz6O4=;
- b=kTF+YLab44DWzm08ejgmG3raSw+j9byOrHltisp+8rvkCmkdR5tEGiZ+aULP2iZ5I5C6Gk0IG4Wv1pMq9QUpxqIA/SJvCDTvVrkQIeFgRNpE9HFjdDuwoqmyPSZOAoYytVwxCPdkUXpYhjS1LKhukZvxs0BBVO076br4MB2KcJqtPTxcQoUeBdQKPlPNBxQc+ApkCKp5WZDxRG2kgKCbHzn6ALPLnJLKZUOcTLq58AqyvAVdLDUyoR86N8H7WHCAcklOt2ZR6CTxNvGgxMz8T3g6s1u6B7yDtTgeAveX4GnEb/9wMHEcHk3hCWh3d/fnyRxI7gDCO/zLvZCeaU5Ksg==
-Received: from BN9PR03CA0336.namprd03.prod.outlook.com (2603:10b6:408:f6::11)
- by DM4PR12MB6110.namprd12.prod.outlook.com (2603:10b6:8:ad::7) with Microsoft
+ bh=fcB7yfs+gbM9Kg0Yi2qLEnXU+b/JC0lqih9Cs5idVN4=;
+ b=HWjwUZrm2OJR1SLtrXpYYzzaC184oWR4RvMQJYalp1xGOqf8qXqsQvjoyFcy8foSI3OOJmcV6P82Cz97xe7nhMKlaV2tcniRm/azYTx6k6U1PSeZkSOpC8ga0eFdkWZdET2HCFOvGPwdKEz0XMTPWiNBcHbfR9weGYGyX+pzzUw=
+Received: from BY3PR05CA0022.namprd05.prod.outlook.com (2603:10b6:a03:254::27)
+ by BLAPR10MB5011.namprd10.prod.outlook.com (2603:10b6:208:333::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.9; Tue, 15 Sep
+ 2026 16:41:35 +0000
+Received: from SJ1PEPF000037B6.namprd05.prod.outlook.com
+ (2603:10b6:a03:254:cafe::95) by BY3PR05CA0022.outlook.office365.com
+ (2603:10b6:a03:254::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.428.9 via Frontend Transport; Tue, 15
+ Sep 2026 16:41:35 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ SJ1PEPF000037B6.mail.protection.outlook.com (10.167.244.203) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.406.12; Tue, 15 Sep 2026 16:39:18 +0000
-Received: from BN1PEPF0001806F.namprd04.prod.outlook.com
- (2603:10b6:408:f6:cafe::71) by BN9PR03CA0336.outlook.office365.com
- (2603:10b6:408:f6::11) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.12 via Frontend Transport; Tue,
- 15 Sep 2026 16:39:18 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- BN1PEPF0001806F.mail.protection.outlook.com (10.167.245.197) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.428.7 via Frontend Transport; Tue, 15 Sep 2026 16:39:17 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Tue, 15 Sep
- 2026 09:38:48 -0700
-Received: from drhqmail201.nvidia.com (10.126.190.180) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Tue, 15 Sep 2026 09:38:48 -0700
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.11) by mail.nvidia.com
- (10.126.190.180) with Microsoft SMTP Server id 15.2.2562.49 via Frontend
- Transport; Tue, 15 Sep 2026 09:38:47 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <will@kernel.org>, <robin.murphy@arm.com>, <jgg@nvidia.com>, "Jonathan
- Cameron" <jonathan.cameron@oss.qualcomm.com>
-CC: <joro@8bytes.org>, <bhelgaas@google.com>, <praan@google.com>,
-	<kevin.tian@intel.com>, <kees@kernel.org>, <smostafa@google.com>,
-	<baolu.lu@linux.intel.com>, Jean-Philippe Brucker <jpb@kernel.org>, "Eric
- Auger" <eric.auger@redhat.com>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-pci@vger.kernel.org>, <skaestle@nvidia.com>, <mmarrid@nvidia.com>,
-	<skolothumtho@nvidia.com>, <bbiber@nvidia.com>, <harsha.v@oss.qualcomm.com>
-Subject: [PATCH v5 13/15] PCI/ATS: Add PRI stubs
-Date: Tue, 15 Sep 2026 09:38:25 -0700
-Message-ID: <17b39a2056c9128f195a5fd0764df0b6c5f7e980.1789446520.git.nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1789446520.git.nicolinc@nvidia.com>
-References: <cover.1789446520.git.nicolinc@nvidia.com>
+ 15.21.428.7 via Frontend Transport; Tue, 15 Sep 2026 16:41:34 +0000
+Received: from DFLE200.ent.ti.com (10.64.6.58) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 15 Sep
+ 2026 11:40:29 -0500
+Received: from DFLE200.ent.ti.com (10.64.6.58) by DFLE200.ent.ti.com
+ (10.64.6.58) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 15 Sep
+ 2026 11:40:29 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE200.ent.ti.com
+ (10.64.6.58) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Tue, 15 Sep 2026 11:40:29 -0500
+Received: from [10.249.135.178] ([10.249.135.178])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68FGePSt3587292;
+	Tue, 15 Sep 2026 11:40:26 -0500
+Message-ID: <b490c984-8fba-4b92-96f0-8e4a4cc811b0@ti.com>
+Date: Tue, 15 Sep 2026 22:10:24 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: ti: k3-am62p-j722s-common-wakeup: Add GP_SW1
+ efuse node for silicon revision
+To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>
+CC: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>
+References: <20260915001304.3781247-1-jm@ti.com>
+Content-Language: en-US
+From: "Kumar, Udit" <u-kumar1@ti.com>
+In-Reply-To: <20260915001304.3781247-1-jm@ti.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN1PEPF0001806F:EE_|DM4PR12MB6110:EE_
-X-MS-Office365-Filtering-Correlation-Id: af0de1fd-e6d1-4a0d-876a-08df1347e2fd
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000037B6:EE_|BLAPR10MB5011:EE_
+X-MS-Office365-Filtering-Correlation-Id: a0ac8977-f515-4876-e90f-08df13483456
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|7416014|1800799024|376014|82310400026|56012099006|11063799006|10067099003|22082099003|18002099003|6133799003;
-X-Microsoft-Antispam-Message-Info: cK5+E0ZdXRdzy3Vbp0WIz0V24Lz8xci5u8UsHShEmC3lwsl8erWF+kT/vmfhV1ibiIvU2Og0Ma/Bt2+8tWLdFmZNIYfaRgQ9tfW1FT+qZmd871QtB2mON/dEFVpLLm6rsSvndU8Xp/wGmmRw3iO1Y7FHmLxln1ZActFaw9jOIyPOfKVI54w2c48Gou8Vq5xqaIazjChXeSfYT7w3s/1g+XSXV8xJRDxdTQ4RZtUilyO9rMdF5zFCtAMMck+S3SNjCsFNpc5vp6SLD7ixNFesbHj81S/AYFQekT6/P1c6Jo3Sa4d3B/b9+I28enBFtaxiQZCoyXcA8YtqrkdO//vyMh79XWRqSDiZEWSnK9DCXPFtHDZo0AjHjeV1RqIm6tdjpeW3DLsBAiiTj2hTONjU3pN8U3cR67IMdU7Ia6BDAarcvotqSniTluCaqRZWnRcCS++eoxmxLyv65ABAh6bmthLm7/ZPK+Ipfedy9oe1DQRPx1QYgBxVQo11iZHaVYuCTXNH7LaMVncdaKaKJ38qCYyL4jGl5Q/tetni7yn13IVCf2hRCpu5Cp0NN3WIKx4qEEnoKWR9vqvJ5Wpc0G1aYlGyJBumoYlQ3L8uoJOj4AURLH0PaJ9LQU8hoNaxUKrjHMOoIIYzp8kfHx35CL0s5XiDV8HI/MM+z7sFoucvYEkBElE0XHk5qcSSm+m9oSD/KfnJUEJQF+olAfv7uyrBeA==
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(7416014)(1800799024)(376014)(82310400026)(56012099006)(11063799006)(10067099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|82310400026|36860700016|23010399003|10067099003|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: jpiu9TPzUYrm4YPJPTFcJGidn/sTYyqVAMKVGzld3eCDr4VMRYFEK6vQzd10KQX5IBYXHyA6ebLLRFWo1Q5hWPDPTaGjokDUTzwHROddF9eHT0ULtokHhlstQGoEvhvOeiUJFiIgWM+/FFwnikxmzM40ZnsM1Z9Z9goaCbEuO3KH7IVPU58lx852Y6203W0H9eP0zX4ZDIJU11+vXiIdzIZIljAakbVRotV1H8fhrpHQyUj8tW0kVKCqJJTWdx5wcBI6d9gZmJpmX0zP2EOIGFHeoi2VEMNu/I9Yo3R0bLgB/DbjL5UaX5BNC85uiGAzUmVJBMZgHu8scs5B/xncX7d+0CJVSYIOjMWSnNfTCocHANRAWxiE/RLqtwWErCnlDBnV6JHfubvpQEpkOQJb1QHk1MJXEC6vZfXCtoMzC3B3kqJgyY+Ipay9DDMP07om+q/YvPyb01rQALszGC4Z7Ym4HwMBkOgYn+cY7VIAcudRRivodoGKCUv8fR+nTPBUmG16VG7kvAbKWz3rbPyDf29oRfxYE1WSOpNTBi4wtJPkUrdwGdcSkJjgoDxmJAnFyj9BM1TDZq+3sOIoIVn11gEIV1VlTT9qIPC2BS6T+Yiu1YuDemdOlacz1EObEdp/H+xmNHYWilXUi2Dg+wdgHnGcAiYvnyaD0dvU412kFmQaXzWYQCZzU74e/jvTE4HLquOyqF3CV7np8cVfLW1CWw==
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(1800799024)(82310400026)(36860700016)(23010399003)(10067099003)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: usdwlLiV/heq9Be1xqsT2VlgVdHbNeg3DTTJpq++FAtNdhRZMgIOPz3oJnSGdLpFGswT5+rY+sBwUciRHMmGHx0P4A17zGZc6u6pUBv65q77o8jw5IAAbuhaXeSUv+3Iiz5zPO2RrQB6l3CMhXfRxjAPEevD9a1MZYHfmYee+x18WyJIGsxoT9amkg59TGYPjaTyBiRTp4XrqTceswNBXWZWuliE8+KRY5GissFVm59FLeXmb2zlbFqABROYPdau6H6X5Tq07xJhihJHmP/YpYhoLzu0pZbpHTPQd4U2J5j2DSCH3ik8tvIwgn2PwrF1xyMOQPN3iPgNmCmVAE8eYlIGH9Rti7G2kp+aBHCChpxl83lWervIxRoLHpSYq6mArMa6/DVUNCT2K3KyrycJtiPM+F7fsvTf9VzhUORk7YrvAm+83915v5F45lkx3BQY
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Sep 2026 16:39:17.9906
+X-MS-Exchange-AntiSpam-MessageData-0: C0T/Auo2H+ylSlT6+d8ZGQKgL1Hci3AyBElA+h7G3wVrimqNPVNyqvSpOJ7X1BNC1o8RI4+VpiGl9+huCkOh/6limQCnkGuXTsHGF8Z2a/1j8X4vgwt2vOIj3f6jueTpGSqLCMr/wYsBBkF3ApKEFTaU/m9Bs9EBTWb76IwlTchNIKOURoLnwAehwai9GQ5Xo0yBV0QXM3OwInXHNcg2TZUAVJ27Lu9WaNf48C3Cn3ejz1FnA+dXI77K5S2nTmWncGfnOJMUqmrqDdXwJcrzMtBsX8xGHTeXLlkXfXF/gRQoobWZCzahH5pnzAex8Qv388hPoYqqyi0a1m9a/y3lTC7cWoHkbUyT3DpEpZu71lo0h/FojWEu6gpXWUKtzpTtXS6gm2XLV0S/ODu9uLq98fioC74aiMulq5C/bUcju1MW72f3e3JSvfOaLqBt9aJs
+X-Exchange-RoutingPolicyChecked: mDV7kCyKY7spVM9I1Xm5TKAGYMqh66EzN/xdXUfJcApnqGksYYaUqLce9kEgwx1I9Bz9+/M0TwIYJaLkTkCyoFFz89zt988g5SBqGb6TqfVra7ng8OGjz5MLk6YR/hW/auvT29tPpfUWRsUaOv/6H5YybPF7OqObHuWtDRH52U4e7MLIrN3iK4GsLcjasJCPbEmUyvBNc8rFmoAcQyK2tOh87/Hz9o/vOfLCsf66YyynkDuinaNic8zmu+ogOcLnK5unpkT/rf6QZ4HUPG26ov4LEE/IJ87OHB3ykyo07AENueivB8LQZEo2cQGsmt04MIlXh5J0tK7dttkeWewv3A==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Sep 2026 16:41:34.5881
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: af0de1fd-e6d1-4a0d-876a-08df1347e2fd
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF0001806F.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a0ac8977-f515-4876-e90f-08df13483456
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000037B6.namprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6110
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BLAPR10MB5011
+X-Authority-Analysis: v=2.4 cv=FMaOVOos c=1 sm=1 tr=0 ts=6aa97544 cx=c_pps
+ a=+5nsKerQHvRPAoQt0ERV+A==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
+ a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=gO1vWkAQAl3rybz1DQOp:22 a=sozttTNsAAAA:8 a=nHT8rZ4wS0swP3lpeygA:9
+ a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE1MDI0MyBTYWx0ZWRfX9N//LCXvYlgf
+ /kELUCzpVDfT2Yzh0n0g+GP/90yJPne1DMk3UufHiitzqvX4Snw0DzWGxc9hRVztCQkdENBocEk
+ DCpIWj1FCO7pFnBqJlURulG6GZWnIyY4sOIcmEkJgHHn3pRR6js3QaUiVtMw7uozNPTthQ1sKpG
+ i1nt8WTYGdoZXRCgSqzPt+66qhK4wXL5s31kFUvEgpbTg41AQwKZiyIPF3MYd9JeYguZO2xe1+x
+ 1SfpE2q2NqsIDuuM5ZG1fv0cj7g/ila76WgbQdrE2VyS6ODpQXL8nA8txYtGsoXM3gJtiPFO5nP
+ NS/P3w+D5IUsLceRGXubKyUcdANhtutD9a+LctBY8ctn+H2Maxt4wuvkMMmIiCSh/USatbai17L
+ Q8xaTpnp7lypfpLNo/rGxI0KfwdX9f0IlEP17ZiMvTEjhqX/WY9whEYC5dffVkpEPk08jRJinr7
+ Owg8JaMyeIwF5t+UHtQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE1MDI0MyBTYWx0ZWRfX5pcup2nDO5pb
+ wTCc0ru1OyHhf9zGckd0OvPiFIKQWgLW5yqGAs5WEbfx5sIDh472loUFovBqn3NBBM1cNBtekRv
+ yVS9AgWeG2UBAcsq1Gr1mlDxOkJ1bF8=
+X-Proofpoint-ORIG-GUID: dCjE9X3K-am2WnMVpHYXf47BGjOpWgcw
+X-Proofpoint-GUID: dCjE9X3K-am2WnMVpHYXf47BGjOpWgcw
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-15_04,2026-09-15_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 malwarescore=0 suspectscore=0 adultscore=0 priorityscore=1501
+ bulkscore=0 lowpriorityscore=0 spamscore=0 clxscore=1015 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609150243
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_173941_236220_4D2F6E70 
-X-CRM114-Status: UNSURE (   8.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260915_094148_444882_677A0FC0 
+X-CRM114-Status: GOOD (  15.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,41 +179,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jean-Philippe Brucker <jean-philippe@linaro.org>
 
-The SMMUv3 driver, which may be built without CONFIG_PCI, will shortly gain
-PRI support. Partially revert commit c6e9aefbf9db ("PCI/ATS: Remove unused
-PRI and PASID stubs") to re-introduce the PRI stubs, avoiding more #ifdefs
-in the SMMU driver.
+Hi Judith,
 
-Link: https://lore.kernel.org/iommu/20201112125519.3987595-8-jean-philippe@linaro.org/
-Acked-by: Bjorn Helgaas <bhelgaas@google.com>
-Reviewed-by: Kuppuswamy Sathyanarayanan <sathyanarayanan.kuppuswamy@linux.intel.com>
-Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
-[nicolinc: drop stale APIs]
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
----
- include/linux/pci-ats.h | 5 +++++
- 1 file changed, 5 insertions(+)
+On 9/15/2026 5:43 AM, Judith Mendez wrote:
+> Add efuse node for GP_SW1 register at offset 0x230. The GP_SW1
+> efuse register is used to determine AM62Px silicon revision.
+> Reference efuse cell from chipid node via nvmem-cells.
+> 
+> Signed-off-by: Judith Mendez <jm@ti.com>
+> ---
+>  .../boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi  | 14 ++++++++++++++
+>  1 file changed, 14 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi
+> index 8612b45e665cf..0f00e9d87f8ba 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi
+> @@ -19,9 +19,23 @@ wkup_conf: bus@43000000 {
+>  		chipid: chipid@14 {
+>  			compatible = "ti,am654-chipid";
+>  			reg = <0x14 0x4>;
+> +			nvmem-cells = <&gpsw1>;
+> +			nvmem-cell-names = "gpsw1";
+>  			bootph-all;
+>  		};
+>  
+> +		gpsw_efuse: efuse@230 {
+> +			compatible = "ti,am62p-efuse", "socionext,uniphier-efuse";
+> +			reg = <0x230 0x10>;
+> +			#address-cells = <1>;
+> +			#size-cells = <1>;
+> +			bootph-all;
+> +
+> +			gpsw1: gpsw1@4 {
+> +				reg = <0x4 0x4>;
+> +			};
 
-diff --git a/include/linux/pci-ats.h b/include/linux/pci-ats.h
-index f3723b6861294..07d24c1c3acdb 100644
---- a/include/linux/pci-ats.h
-+++ b/include/linux/pci-ats.h
-@@ -36,6 +36,11 @@ int pci_reset_pri(struct pci_dev *pdev);
- int pci_prg_resp_pasid_required(struct pci_dev *pdev);
- bool pci_pri_supported(struct pci_dev *pdev);
- #else
-+static inline int pci_enable_pri(struct pci_dev *pdev, u32 reqs)
-+{ return -ENODEV; }
-+static inline void pci_disable_pri(struct pci_dev *pdev) { }
-+static inline int pci_reset_pri(struct pci_dev *pdev)
-+{ return -ENODEV; }
- static inline bool pci_pri_supported(struct pci_dev *pdev)
- { return false; }
- #endif /* CONFIG_PCI_PRI */
--- 
-2.43.0
+For J722S, this register this marked as reserved,
+Could you update in am62-p specific dt.
+
+Thanks
+
+> +		};
+> +
+>  		opp_efuse_table: syscon@18 {
+>  			compatible = "ti,am62-opp-efuse-table", "syscon";
+>  			reg = <0x18 0x4>;
 
 
