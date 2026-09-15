@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB624C982C3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D20FBC982C1
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:49:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,41 +12,40 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4E9Qtqm6Cw3lFX8q2IDlPdhJGeFOKoozmfEKOmk/6w0=; b=0AKZHQ4gXmwTItyK0xllLffM+u
-	nYlfVXQ9OPh8mhHWrpaeVwfpoQkPwp7skZf0TMNdZgQCOOl4eiKQ9y3Cq9jGeyQRh7zSwdoQHOqQT
-	LWFTv4aSJGY+kuQ6bzduZxtXGot68Lw5snuwy2LN0YTZAON+4pEXKqEwJu6fovFZZct4ox1YFUOnx
-	SeY76BdZjk/tDC4yjzGK5TcY7obeF8Io8sBfcs1Edk+CFNMOhiwsvDJ32FBmr2cNAIl8VSIumxnhW
-	NRGXpiCYEJNlemCpzboYXR+XHUlmCMxk5d8yw4Puav2egddijjjimz4X1YuuWMZB1TzdQg1PanLna
-	kasch3vw==;
+	bh=hGjXC2kbJQKm6PevHw8xehX6sr3D0HOmtOazf2L6Udc=; b=13nZlNVOX/ZfVsOhzjnx9hiehj
+	ajpYcCpK7IwCDkOjWYCz9rt/FsMilK5Ip80Dhd1S26Q26/lVy6bnWl3D6CrITtl/boecgKJ3NzZYN
+	WkYXyNzjo/s0Zo5PKsiI47D1Yqbp1KJLtGa8A2dMInRNVwvR3DNgOh/nVGwlOJ5aN5J+F0+1bX3Q6
+	19aE7Kgq+Zrb+k+j3OHptCt1QB9YArFRapJKHM4Uc8WZ/3DLcVNpDQ+rOQgT3HYP01DcWhETxwumb
+	ByYTc1KaaqgCWC05VjxrLbjsq53f7cE70ZjEX9cXI2GhfjwwoK+49j1jAj0xLQ08WwRdHRZuty/fh
+	KQdshNhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VPm-00000007HxJ-1BXK;
+	id 1x6VPm-00000007Hyf-3G4r;
 	Tue, 15 Sep 2026 15:49:46 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VPR-00000007Hji-3nZO
+	id 1x6VPX-00000007Hll-091S
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 15:49:29 +0000
+	Tue, 15 Sep 2026 15:49:32 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4087B1570;
-	Tue, 15 Sep 2026 08:49:21 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8E1391570;
+	Tue, 15 Sep 2026 08:49:26 -0700 (PDT)
 Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 768E73F882;
-	Tue, 15 Sep 2026 08:49:22 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C2BAD3F882;
+	Tue, 15 Sep 2026 08:49:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789487364; bh=rhjgu0y5asKDIU5Zxii2LNz8ZubPzlbgrZL/U/eqBEo=;
+	t=1789487370; bh=AydmBDCGxJoieq4qMCoYXMM5JRa7TDwIw3gGM515xLI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=OduQGEJNFa8tyVkY5wFKQp9SAx8Qfw3cARQ5l45VPsp2hmU7PvqLSkxDxYqHM4WoG
-	 cSwrs5fcW3UNzwzdrU5euR6ktpIPxAM/s9PHOQZBl3Drbh6OsRz1lY39buhYttDxAU
-	 P4YG5BQJzqOspa73JAiuAqy3+FPeRe7InIEsJDTA=
+	b=ChgiyNeE2xQD0onL/5oFutj0JGE3PYEkM4/YTnJoJwh4MYSRTfGG/fvyRDvzxHRmM
+	 73uqGT5hvFRPPwYoU1EpC7qfRiCEbzXH8QwNYVN6tLx89J8hEZTvl5y8JbYo2uqxaV
+	 4NktOchFCenfKns0ljWbexDM16ZyThJ10tMxs2DU=
 From: Leo Yan <leo.yan@arm.com>
-Date: Tue, 15 Sep 2026 16:48:54 +0100
-Subject: [PATCH 08/25] coresight: perf: Validate context before resuming
- trace
+Date: Tue, 15 Sep 2026 16:48:56 +0100
+Subject: [PATCH 10/25] coresight: trbe: Pad snapshot buffers
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260915-arm_cs_support_aux_sample-v1-8-35cf6f297d20@arm.com>
+Message-Id: <20260915-arm_cs_support_aux_sample-v1-10-35cf6f297d20@arm.com>
 References: <20260915-arm_cs_support_aux_sample-v1-0-35cf6f297d20@arm.com>
 In-Reply-To: <20260915-arm_cs_support_aux_sample-v1-0-35cf6f297d20@arm.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
@@ -63,16 +62,16 @@ Cc: Ingo Molnar <mingo@kernel.org>, linux-perf-users@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789487340; l=1830;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789487340; l=2612;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=rhjgu0y5asKDIU5Zxii2LNz8ZubPzlbgrZL/U/eqBEo=;
- b=fCuwxc40dlV8yQA2S+XPYdRX5eTJanVhEXDcrqONj0/qW1wFYzGh+WPkluTb9yhSVawIdmIsO
- MEXwFEPbueCDE7JwXOlx88FVwMQHb+mO4Dw2ie6nkRPTXQKmqQc+7Yd
+ bh=AydmBDCGxJoieq4qMCoYXMM5JRa7TDwIw3gGM515xLI=;
+ b=bd4sFk+qXNO9HuRRhhh3F+uLaoxL8tn7YVQjLkFsE6GIeJ7NwBuxuMIRYAIx4ZvuAiPAk1bip
+ 6i8LIzRyHHMA8GEVzvqeMnmAN1Ge4EYpG1tqKv8++0vekOc6OW54RR7
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_084926_051455_74C77C20 
-X-CRM114-Status: GOOD (  15.22  )
+X-CRM114-CacheID: sfid-20260915_084931_186102_8682F7B4 
+X-CRM114-Status: GOOD (  17.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,55 +86,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-An AUX pause ends the current AUX output before trying to begin a new
-one. That new beginning can fail, leaving the CoreSight path published
-after the perf handle has become inactive. AUX resume may also overlap
-a normal stop which clears the per-CPU context.
+Snapshot buffers use the head as the write pointer without checking its
+alignment or the space remaining before the limit. After a stop or a
+move to another CPU, the head can be misaligned for the current TRBE.
+It can also leave too little space for the Fill mode out-of-range
+workaround.
 
-Pass the per-CPU ETM context to etm_event_resume() and centralize both
-lifetime checks there. Use perf_get_aux() to confirm that the AUX output
-handle is active and path to confirm that the context is still live.
-Resume the source only when both checks succeed.
+Pad the head to the current CPU's alignment. If the remaining buffer
+cannot hold the minimum trace region, pad to the end of buffer. Update
+the head for setting next write pointer.
 
+Fixes: 3fbf7f011f24 ("coresight: sink: Add TRBE driver")
 Assisted-by: Codex:gpt-6
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-etm-perf.c | 11 ++++++++---
- 1 file changed, 8 insertions(+), 3 deletions(-)
+ drivers/hwtracing/coresight/coresight-trbe.c | 36 ++++++++++++++++++----------
+ 1 file changed, 24 insertions(+), 12 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
-index c7454da5c881c4a8eea5cc77902c9113c297096e..e3c9d3cf84c502f357a430bc3bfa854a776618f1 100644
---- a/drivers/hwtracing/coresight/coresight-etm-perf.c
-+++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
-@@ -517,11 +517,17 @@ static void *etm_setup_aux(struct perf_event *event, void **pages,
- 	goto out;
+diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
+index c7cbca45f2debd4047b93283ea9fe5dd9e1f2ebf..a31f2ebc327cd681344a62de28c0b3840505a9cb 100644
+--- a/drivers/hwtracing/coresight/coresight-trbe.c
++++ b/drivers/hwtracing/coresight/coresight-trbe.c
+@@ -374,18 +374,6 @@ static void trbe_pad_buf(struct perf_output_handle *handle, int len)
+ 		perf_aux_output_skip(handle, len);
  }
  
--static int etm_event_resume(struct coresight_path *path)
-+static int etm_event_resume(struct etm_ctxt *ctxt)
+-static unsigned long trbe_snapshot_offset(struct perf_output_handle *handle)
+-{
+-	struct trbe_buf *buf = etm_perf_sink_config(handle);
+-
+-	/*
+-	 * The ETE trace has alignment synchronization packets allowing
+-	 * the decoder to reset in case of an overflow or corruption.
+-	 * So we can use the entire buffer for the snapshot mode.
+-	 */
+-	return buf->nr_pages * PAGE_SIZE;
+-}
+-
+ static u64 trbe_min_trace_buf_size(struct perf_output_handle *handle)
  {
-+	struct perf_output_handle *handle = &ctxt->handle;
- 	struct coresight_device *source;
-+	struct coresight_path *path;
- 	int ret;
+ 	u64 size = TRBE_TRACE_MIN_BUF_SIZE;
+@@ -405,6 +393,30 @@ static u64 trbe_min_trace_buf_size(struct perf_output_handle *handle)
+ 	return size;
+ }
  
-+	if (!perf_get_aux(handle))
-+		return 0;
++static unsigned long trbe_snapshot_offset(struct perf_output_handle *handle)
++{
++	struct trbe_buf *buf = etm_perf_sink_config(handle);
++	struct trbe_cpudata *cpudata = buf->cpudata;
++	u64 buf_size = (u64)buf->nr_pages << PAGE_SHIFT;
++	u64 head = PERF_IDX2OFF(handle->head, buf);
++	u64 next = round_up(head, cpudata->trbe_align);
 +
-+	path = etm_event_get_ctxt_path(ctxt);
- 	if (!path)
- 		return 0;
- 
-@@ -547,8 +553,7 @@ static void etm_event_start(struct perf_event *event, int flags)
- 	u64 hw_id;
- 
- 	if (flags & PERF_EF_RESUME) {
--		path = etm_event_get_ctxt_path(ctxt);
--		if (etm_event_resume(path) < 0)
-+		if (etm_event_resume(ctxt) < 0)
- 			goto fail;
- 		return;
- 	}
++	/*
++	 * A task event may migrate to a CPU with a different alignment or
++	 * errata. Make sure it has enough space, pad up to the alignment
++	 * required by the current TRBE.
++	 */
++	if (buf_size - next < trbe_min_trace_buf_size(handle))
++		next = buf_size;
++
++	if (next != head) {
++		__trbe_pad_buf(buf, head, next - head);
++		handle->head += next - head;
++	}
++
++	return buf_size;
++}
++
+ /*
+  * TRBE Limit Calculation
+  *
 
 -- 
 2.34.1
