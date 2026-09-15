@@ -4,98 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 816F6C88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 10:21:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BADFC88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 10:23:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XABCwRH1cz9pvG8xb1/rc/NU2wG7piHZfQQ4/81JX2E=; b=H6NBLSZpmSwZONYXd0QKhKZrMl
-	AuDO9hkLQm5qdBta0YVDCyjX8Y5UU+M3j3OMkqvby6f/MB6jtqg3HpSqfyKZyVIJHEoLyWnNi0nqW
-	Z6/Mg5I9NZSyF1Krj0zrBZ1vsxEcHUTMFkr4BYfeB+lq1rDJ1iFwhfHFHBQRHMu9H1xs5IE/TD70D
-	Tafnm8DvQIvqtjTIxRJA/HeGJoGZFPwvAQfpVWV6XE6GGfIezQrv9fZoahOMYjNvwjAn92C9Shidr
-	5VPcGnU6cn6T1Va7iYMpOZ7CQkZICabagIIVEm82xm1N6BFVD63+ZZkG9PHxeIXnhlMk2JpHUNkY0
-	upV0MC+w==;
+	bh=nYoTXRWm9dXxQab97Avfkm/YI6364EPnV/puvJGLZtc=; b=MyrFJdxPjpksGll1kDBupoRY9Z
+	GnVR1m475d2LYukr0KOjb2StlF+fvjtgK+ksA7aAxSrYP/C1xLUSqzlrrnalfyqSniuha8ZhqhsbO
+	PN9pMTos+qQeMmmXxOyWmm9FRDqIp/GKS72bwx8iadMG+ingeK/QGJ/Ab+JbDuZ7dTJw1YGuR8Yae
+	mjq3aFfUVsyulFMuzno6vw+cRugPoKDds7u6uQtcMMN4/aGgcrLY6riag4VflKfW3mhB8CDJB/JEd
+	Etgltr+DWQyJawTwq9DtQ89qOwROin+uyCI2Qt6stoApuRA+bqr0VwrgHisgA/DkeJXTIIlz2BGdg
+	Hh9s0RNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6QHz-00000005tcl-3daS;
-	Tue, 15 Sep 2026 10:21:23 +0000
-Received: from mail-ej2-x07.google.com ([2a00:1450:4864:34::7])
+	id 1x6QJo-00000005tyM-1Vdb;
+	Tue, 15 Sep 2026 10:23:16 +0000
+Received: from mail-ej2-x05.google.com ([2a00:1450:4864:34::5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6QHx-00000005tbd-1H1G
+	id 1x6QJl-00000005txA-1LPI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 10:21:22 +0000
-Received: by mail-ej2-x07.google.com with SMTP id a640c23a62f3a-c28e3998eb7so254227366b.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 03:21:19 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1789467678; cv=none;
+	Tue, 15 Sep 2026 10:23:14 +0000
+Received: by mail-ej2-x05.google.com with SMTP id a640c23a62f3a-c2950c25486so236813266b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 03:23:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789467791; cv=none;
         d=google.com; s=arc-20260327;
-        b=JolPgdOVS3gV7KeHM3HIAcCdcwCiK7ydjuRCVm+V0LBiQJBdkZQtSP2tqSmU2/O88E
-         v6HO78bEAvXzF0j2ek6qXK4wZqSyc4UWUcetMJEukBDBrMXspqYDNNSRmww5c9rh2Uqp
-         h7hszR+zoRsLc/G/htAXDxjFxWEXkzRI/Eoo2c0IoeZRPeZnlXapIKhqUibMOLO2gMF4
-         NvtDez79/BzCA1jDqDGp4vydV1CZs3iZWWGOdWTDM0dsZF2oouyImDZ7qkHOl72QdwA/
-         5S1uhNfUL7BCsjIRJYCybY5yxNbfkJXa6DbRl/axA8lVUvVrnQTBcxeB5gjumkZtFlSR
-         FcKg==
+        b=EXQT15azCrjHGE+PVsF+T32i15PjG83P6FldyIijpEx/vvsLkOrpfpcfWD7/k9nLPm
+         HTcttw5WZCF3dFQhmkBYU+KVOQeO9lZ7thcOPcq3WkaE1Oy8D/k6BKCr8FIKbwpdxTiq
+         rT6souRAwpO4A+GyOpmh1bhn77IkDwm4eSbDeHtsRK8KmxIrpTSd6g7qn2WhpoTTQNtZ
+         IOprHsfyrdgJXRjsfALI3x+GHuO+2B1XiW8G5A9LR2u8qDYYa+qsyd8ZI95riXDnkqK8
+         w/YwWOiw6ZVg2h4I9kxKDbqFYAmsEx7topQo0jinWHr1rm9OfG3TdYBBO2NYiZNaezrm
+         7RUw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=XABCwRH1cz9pvG8xb1/rc/NU2wG7piHZfQQ4/81JX2E=;
-        fh=X2WQylvisEDhiCClUEEbQFkA/dAJD50rBRKuauAJlY0=;
-        b=IcMa1yG1sCfAXfcXum1fXatbj4M5/FgmVQghwkZsJm5B8s0Xf+KtOqqPqNh9DFt+hy
-         OMCuMYghvyXNb256aHeS+tMMSn7oNjMvzfjxkQ9/sXx+5/FMTHSb8TvEu3gCDgvHIB9U
-         LWuD4vq3/iU4KGypCpjpk0ZwntAlzKXHyUHzmeOmk/02CXIwvOCa2dNgRD6jij9JZnqD
-         FIm/DHG7eMSVzDLnt9tUGfY5wPNrz3jwYsf5vW/qSoDxx2bXHN8u1K0hxblceZyPlR3u
-         Y4SsZ850bLfjVhDIIws+3LkEMPFANhMYaA/w4x/Ra6GSpaZtIN6ACm7/Er6HxpeK3FZH
-         BUtg==;
+        bh=nYoTXRWm9dXxQab97Avfkm/YI6364EPnV/puvJGLZtc=;
+        fh=SPyxPdqCtxQtHVvLhdlZxAyXRm4e8SWWKVwhJ+4Ja8E=;
+        b=j5HKqg26EbVTX3K+knSiB3O12iIdYRXpUT+q8w9I0t1TyzWOqt81abSrPegfCebvi9
+         s0f7z7p/TkGqgEeRX/2d18O039Ff+f183ZKjOydoXD5MZUAEXGbwSd+C5aoO8a8aFrJ/
+         IS/AmQvaP2pneXyYorDJQC16sPQle5pxIS19jZtrsmuatgbL9arZKhgSw7vUJqSntN15
+         rZ1N0D4nbVLyhmWuPSQ1grinPqaaulnz344lGRr9fhzCxSscVn+/UaiJ99oz7Kc+v2xZ
+         wVz7+OXJKjjuTeK6uDY4cAwSTqVx0bkDfOm4De5RTSJrvJ1WfY+OYyhhZlypX7FsBVcC
+         9Tig==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789467678; x=1790072478; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1789467791; x=1790072591; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=XABCwRH1cz9pvG8xb1/rc/NU2wG7piHZfQQ4/81JX2E=;
-        b=O6mzftbYdw3DGTPM2HnGamIlIGTvqhlNvo5tHkx5ILFdu9h7jdbrHKRWGgbHPKgCca
-         forQS/7RT90KCRPTO8tEMzWZiNxBg10fyYAgwLHiFQ8Bk+NOnNBrvc3d4t55NjNQLYwN
-         kMSiIiX+2fYf3cVsoUNLFprCzIAJ6aii8AdE0vhI/+ZbxP3V1/ULimBTP0MMOf8Ws8sp
-         9qBGZo6bBtLvep/FgCblLA8AMQLotY+nEtqKTW0s5phERwcWXPn+UHsrZ39uQ02dvbo+
-         arC5oq2TJr+AlF2xoxaCc6QJW1KXzLfeWs/ZoQ5WTRTx4J19mhFNhShXxFdIsJY4eU1q
-         KA+w==
+        bh=nYoTXRWm9dXxQab97Avfkm/YI6364EPnV/puvJGLZtc=;
+        b=A3HNq0ZV3W/rTicHrs4nlJfKEZ1wVI02+xDmg17XfMW4xI9o9C5P1Vw/mwpNHtZK5y
+         YXKk12QvCwA8OERQOeCtnIRxFWq/xbtSwOoKyHOoB8xCdR4IjBJNjHBE985TWQG2qby2
+         cOWUs7v0VTlhH6heXzSHNDj1uL0yqMpouwkSxqG3tBaxFCJwsDMKRG5gDIarFGFLP28s
+         zCDpRaPVSwVSDQjIj7BjfDJQ4X3EV+etFv4MIzOEnIdatyudK7XhmiLeRjqiOlWACrLS
+         egNnB6g50YMzeFp+YmoJg++AraIzCtV3e25jECNYDMDZSGTFgF3tRoC6JssARQ7r9izP
+         R0FQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789467678; x=1790072478;
+        d=1e100.net; s=20260707; t=1789467791; x=1790072591;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=XABCwRH1cz9pvG8xb1/rc/NU2wG7piHZfQQ4/81JX2E=;
-        b=06EmNNWRjUbnUgO/XmPFQb7NUhNzUH2PVb6rlhIihdbk3Y+1SvqUYGspbEFGvwXtef
-         Ila+jl5SwOAegsE9lKh8fRxwZIMlIzEfu3JgVEC5eLB8ZGHYx4pxZYQXCuxR+dP6W0qp
-         qdfj29dR/aUBhom8YGgNXEQze9D1Q1zsDzaYfjwKHaRxwmLkibfIgv/LBSGPwl/Ndl32
-         WD8BdM9qMECU+iqGTW7HZVLiaNhJo+xNRFWrv5JYpEWSxLN17r8SxGfBHzjNnuCn5yEN
-         570b65wZtFXQZQQOEDHvACbiIgyHYCDZSY7uLwfKlX1JiMh8c7oWMS9MAOkc/8qH+RYb
-         Eudw==
-X-Forwarded-Encrypted: i=1; AKwUvBz1JRXGocbvgd/ObfaTQSfQ0vMi9Z7KYwkB1yFGj41NEmgGMs1JVKq+/qDdLPPdXQdjZXG6ZkmxEUg7hdXZjwK8@lists.infradead.org
-X-Gm-Message-State: AFuF++npnxzIfvLQA9Nuxw7XtIXYe0FzyCM/Fa2A76gH0ZK8KY+y4Oup
-	3cjrETVEfFjKNmbJneFzyKbVTavzWphmF+pj5asxm3Q4TelpZVbio2YwDp9avm4L6tME9+eWB5E
-	5w7q0vNQOiw0tIPJajNAfgQ7+RZFyBCQ=
-X-Gm-Gg: AYBFou2mLXA7aAlaN0zAczq1p0GrHBzjgvVE5zynllNesyDY6fUx0/4gq1VTkIMfZN6
-	rhf9L6dL4edTBw00tRJBd4AZGf70WDKvetkyX/0eKz0IIGqbEgqBdzlZ9FwotVLNQQz9SB8c8h0
-	X1ycVcn1mc4H8T+JVtyZlZBODM7Z0j6QEg520DyLvteUqpswBDQOznmg2oUfnSLeWb2uG7Maie8
-	5OOmj4HaZ+qIUT/CzAIZCE+LQOijBZkpr6KkhwHjJq0pCbRBj+n8OOLGiZ2SYDi9fAsX/Eq8MVI
-	rFaeTaO/O95obu5H8xZxEi0ta2j+0UW90tSankeODO/G0NEKkgnSIZILLullc0gwDHsbsQ==
-X-Received: by 2002:a17:907:7241:b0:c20:3402:bd35 with SMTP id
- a640c23a62f3a-c29b86141d8mr457395166b.12.1789467677591; Tue, 15 Sep 2026
- 03:21:17 -0700 (PDT)
+        bh=nYoTXRWm9dXxQab97Avfkm/YI6364EPnV/puvJGLZtc=;
+        b=cBgYSX9AODK4e+sWJHR1Iiq81VKZIg86M5fTTA6eTNgsMZbPeXtiv7Yvtpo4nIS5Bt
+         62SfW4feeGT63ffoP2N91jmpXTJk2W+vQKgU0xAM9IL3S4z5SqYWQcX7mMWOmxFRO/JY
+         9+Bct41aBpARReraGJ2LmUMhTPNA/oK+Slj3fpby+2qdZHV9qZo+VHM0H0H3dE2b02XP
+         Bu0Gl75uoJF/eH1jHMLlpjPhHB+2fsFM9d8oZWIyrmhwCoKOvHlnT+CcXKPFLtYsiNW7
+         ZzpRbZsIUyl6kwe+vVvqkTw5c2rBvnYmHoL+TGhznyIkAV8i97ACp3/skfa8FAatzS/v
+         2Jjw==
+X-Forwarded-Encrypted: i=1; AKwUvBzTzkAHr+oKDHcElcyNLbAgm7PN3KGaqSI+8FmmhiSBUoROMQoNaEb7uOsULJF20x7SuAasJwYG+qpPVmQz5YbK@lists.infradead.org
+X-Gm-Message-State: AFuF++lOCAbTcN7a0Z96fnN/zb1yzAprFd7AwiZ5uzgvwRg0CV907sNc
+	UDlWXDEek/xspP5mEZp5EsClyF/+NXGENyrNKoqBLHtFKV1izU4BG3pQ2HFxLmcgVDMMFb3t5u7
+	GjsTJy7t5ZtIJdKABdGHXLk8dpcRjubU=
+X-Gm-Gg: AYBFou0wx8ZfabV4Oj1SDdfvE0FIc3cOsS/c86g769QXuwhD/bJvKbiafiDdHY/aaWT
+	CwAW/UplXXWMdR+cG7mNC0dkGY9zD5lL6y8Rzrj+QTaClN+0GvHDPvefyUxMiLUQIuE4gXbinR3
+	dw+HqGFaIc1lhinP2j1S6haJWdClhi/mprVLuiLq0LQqb+tJh1Kz1pr6nb+yZpdvAYbYDWnip3P
+	pLZ7raagQ9FMCn7LrtdUaOT1xg97seo2oK6acmI+vhyhsGOgx8IOB8Te5tHTAAEMaIIZuxf4U6S
+	4n+3TRi5MT0AtovCq9bqcYDC4DS4CFkOfYZ82hW1iUslXZ9eValBn3fwdw==
+X-Received: by 2002:a17:907:3d56:b0:c25:6c9a:88bc with SMTP id
+ a640c23a62f3a-c29b87339e8mr775899466b.19.1789467791028; Tue, 15 Sep 2026
+ 03:23:11 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260913185849.907479-2-coiaprant@gmail.com> <178941747507.22033.8211069120708719813@kernel.org>
-In-Reply-To: <178941747507.22033.8211069120708719813@kernel.org>
+References: <20260913185849.907479-3-coiaprant@gmail.com> <178941747711.22033.8495700704733189874@kernel.org>
+In-Reply-To: <178941747711.22033.8495700704733189874@kernel.org>
 From: Coia Prant <coiaprant@gmail.com>
-Date: Tue, 15 Sep 2026 18:21:05 +0800
-X-Gm-Features: AcwNN1U3Qit6ntXQAFPttYjh805h_onbrrSTpOF8OG9JEjoB8ua8kiIB7eBD0O4
-Message-ID: <CALj3r0gwMFRg7GADhOThGWbpJ=9CGGQYUb=xYtsDV8kLAHkMuQ@mail.gmail.com>
-Subject: Re: [PATCH net-next v5 01/11] net: stmmac: move XPCS lifetime
- management to platform drivers
+Date: Tue, 15 Sep 2026 18:22:59 +0800
+X-Gm-Features: AcwNN1XIwap_FwM1kV5GNhNfjY4yI0txPnJoW2RyomCTNzqIwhUfgmMQ2h9aiaE
+Message-ID: <CALj3r0ge_AVi=jrUZh_T8cEt954S_Ah7Hi4QxkccjEm6zug_Ag@mail.gmail.com>
+Subject: Re: [PATCH net-next v5 02/11] dt-bindings: phy: rockchip:
+ naneng-combphy: add rockchip,sgmii-mac-sel property
 To: netdev-bot+sashiko@kernel.org
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com, 
 	kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, 
@@ -111,8 +111,8 @@ Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_032121_386644_CCC0CC7B 
-X-CRM114-Status: GOOD (  40.90  )
+X-CRM114-CacheID: sfid-20260915_032313_418057_AC6A8FBD 
+X-CRM114-Status: GOOD (  18.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,207 +130,71 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 <netdev-bot+sashiko@kernel.org> =E4=BA=8E2026=E5=B9=B49=E6=9C=8815=E6=97=A5=
 =E5=91=A8=E4=BA=8C 04:24=E5=86=99=E9=81=93=EF=BC=9A
 >
-> Thank you for your contribution! Sashiko AI review found 3 potential
+> Thank you for your contribution! Sashiko AI review found 1 potential
 > issue(s) to consider:
 >
-> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 2 =C2=B7 Low: 1
+> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 0 =C2=B7 Low: 1
 >
-> - [Medium] Commit message mischaracterizes the removal of the generic
->   XPCS creation as removing dead code.
-> - [Medium] DT binding vs implementation mismatch: after this patch
->   nothing in the stmmac core reads the generic 'pcs-handle' property,=E2=
-=80=A6
-> - [Low] The commit message describes two defects, one framed as "more
->   critically" (the common code overwriting priv->hw->xpcs after a=E2=80=
-=A6
+> - [Low] Concern (validated as NOT a defect in the series context): the
+>   binding adds `rockchip,sgmii-mac-sel` while, at this commit alone, no=
+=E2=80=A6
 >
 > --
 >
-> net: stmmac: move XPCS lifetime management to platform drivers
+> dt-bindings: phy: rockchip: naneng-combphy: add rockchip,sgmii-mac-sel pr=
+operty
 >
-> The generic XPCS creation in stmmac_pcs_setup() (pcs-handle lookup and
-> mdio_bus_data->pcs_mask based xpcs_create_mdiodev()) is removed, leaving
-> only the plat->pcs_init() / plat->pcs_exit() dispatch. The Intel mGbE glu=
-e
-> grows its own pcs_init()/pcs_exit() that create and destroy the XPCS, and
-> the renesas-gbeth, rzn1 and socfpga pcs_exit() callbacks now clear
-> priv->hw->phylink_pcs after destroying the PCS.
+> This adds an optional rockchip,sgmii-mac-sel property to the naneng-combp=
+hy
+> binding so a board can select whether the RK3568 SGMII interface is route=
+d
+> to GMAC0 or GMAC1.  The property is restricted to the RK3568 compatible v=
+ia
+> the existing allOf conditional and defaults to 1 (GMAC1).
 >
-> A few questions on the commit message and on the removal of the generic
-> path.
->
-> >     First, if a device tree specifies a "pcs-handle" but no select_pcs(=
-)
-> >     callback is provided by the platform driver, the created XPCS is ne=
-ver
-> >     used. The phylink framework requires select_pcs() to actually retur=
-n
-> >     the PCS to the core, so the pcs-handle property becomes effectively
-> >     useless without the matching callback.
->
-> [Severity: Medium]
-> Is "the created XPCS is never used" accurate?  An XPCS stored in
-> priv->hw->xpcs has two consumers that do not go through select_pcs().
->
-> stmmac_phylink_setup() in stmmac_main.c uses it to widen the phylink
-> interface sets:
->
->         /* If we have an xpcs, it defines which PHY interfaces are suppor=
-ted. */
->         if (priv->hw->xpcs)
->                 pcs =3D xpcs_to_phylink_pcs(priv->hw->xpcs);
->         else
->                 pcs =3D priv->hw->phylink_pcs;
->
->         if (pcs)
->                 phy_interface_or(config->supported_interfaces, ...
->
-> and stmmac_init_phy() uses it to decide whether to attach a PHY at all:
->
->         if (priv->hw->xpcs &&
->             xpcs_get_an_mode(priv->hw->xpcs, mode) =3D=3D DW_AN_C73)
->                 return 0;
->
-> So for a dwmac instance with a pcs-handle but no plat->pcs_init, does thi=
-s
-> change narrow config->supported_interfaces (and config->lpi_interfaces) a=
-nd
-> alter the PHY-attach decision, rather than just dropping something unused=
-?
-> Would it be worth spelling that behavioural change out in the commit
-> message?
-
-The XPCS's runtime functionality is entirely driven by phylink through
-pcs_config() / pcs_get_state() / pcs_link_up(), all of which require
-the pl->pcs pointer returned by mac_select_pcs(). Without that callback,
-pl->pcs stays NULL and none of them are ever called.
-
-The two reads in stmmac_main.c are one-shot setup-time side effects.
-They do not exercise the PCS, so I consider the statement accurate in
-the sense that matters here.
-
 > [Severity: Low]
-> This isn't a bug, but could this paragraph say that no in-tree platform i=
-s
-> affected today?
+> At this commit alone, is rockchip,sgmii-mac-sel read by anything?
 >
-> All three pre-existing pcs_init() implementations store their PCS in
-> priv->hw->phylink_pcs, not priv->hw->xpcs:
+> rockchip_combphy_parse_dt() in
+> drivers/phy/rockchip/phy-rockchip-naneng-combphy.c does not look it up,
+> struct rockchip_combphy_grfcfg has no pipe_sgmii_mac_sel descriptor, and
+> no in-tree DTS sets it, so a kernel built from exactly this commit would
+> silently ignore the property.
 >
->   renesas_gmac_pcs_init()  -> priv->hw->phylink_pcs =3D miic_create(...)
->   rzn1_dwmac_pcs_init()    -> priv->hw->phylink_pcs =3D miic_create(...)
->   socfpga_dwmac_pcs_init() -> priv->hw->phylink_pcs =3D pcs
+> This resolves itself later in the same series: "phy: rockchip:
+> naneng-combphy: add SGMII MAC selection for RK3568" adds the parsing
 >
-> so the old "priv->hw->xpcs =3D xpcs;" on the pcs_init branch overwrote NU=
-LL
-> with NULL.  intel_mgbe_pcs_init() added here is the first in-tree pcs_ini=
-t()
-> that stores an XPCS, which makes this a refactor that removes a latent tr=
-ap
-> rather than a fix for observable breakage.
+>         priv->sgmii_mac_sel =3D 1;
+>         device_property_read_u32(dev, "rockchip,sgmii-mac-sel", &priv->sg=
+mii_mac_sel);
+>
+> along with the RK3568 pipe-GRF descriptor
+>
+>         .pipe_sgmii_mac_sel     =3D { 0x0040, 1, 1, 0x00, 0x01 },
+>
+> and the write in the PHY_TYPE_SGMII path of rk3568_combphy_cfg(), and
+> "arm64: dts: rockchip: rk3568-photonicat: enable SGMII LAN port" adds the
+> first user:
+>
+>         &combphy2 {
+>                 rockchip,sgmii-mac-sel =3D <0>;
+>                 status =3D "okay";
+>         };
+>
+> So this is noted only for the record, since the binding and its consumer
+> being split across consecutive patches is the normal series layout.
+>
+> The remaining point is a design question rather than a bug: is a raw
+> uint32 MAC index the interface preferred here, or would a phandle to the
+> GMAC controller node be a better fit for describing the routing?
 
-The wording is intentional. All in-tree pcs_init() implementations
-except Intel store their PCS in priv->hw->phylink_pcs, so the old
-assignment was a latent trap rather than observable breakage. Calling
-it out as critical reflects the risk it would have posed for the first
-driver that stored an XPCS there.
+The property maps directly onto a single bit in the combo PHY's own
+GRF register (PIPE_GRF_XPCS_CON0 bit 1), which selects whether the
+SGMII lane is routed to GMAC0 or GMAC1. It describes a mux setting
+inside the PHY, not a relationship to the GMAC node. A phandle would
+introduce an extra dependency edge between the combo PHY node and the
+GMAC node for no benefit, and the raw value matches how the BSP and
+the surrounding GRF properties describe similar muxes.
 
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c b/driver=
-s/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-> > index afe98ff5bdcb0..7396b68899c66 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-> > @@ -426,35 +426,14 @@ int stmmac_mdio_reset(struct mii_bus *bus)
-> >  int stmmac_pcs_setup(struct net_device *ndev)
-> >  {
-> >       struct stmmac_priv *priv =3D netdev_priv(ndev);
-> > -     struct fwnode_handle *devnode, *pcsnode;
-> > -     struct dw_xpcs *xpcs =3D NULL;
-> > -     int addr, ret;
-> > -
-> > -     devnode =3D dev_fwnode(priv->device);
-> > -
-> > -     if (priv->plat->pcs_init) {
-> > -             ret =3D priv->plat->pcs_init(priv);
-> > -     } else if (fwnode_property_present(devnode, "pcs-handle")) {
-> > -             pcsnode =3D fwnode_find_reference(devnode, "pcs-handle", =
-0);
-> > -             xpcs =3D xpcs_create_fwnode(pcsnode);
-> > -             fwnode_handle_put(pcsnode);
-> > -             ret =3D PTR_ERR_OR_ZERO(xpcs);
-> > -     } else if (priv->plat->mdio_bus_data &&
-> > -                priv->plat->mdio_bus_data->pcs_mask) {
-> > -             addr =3D ffs(priv->plat->mdio_bus_data->pcs_mask) - 1;
-> > -             xpcs =3D xpcs_create_mdiodev(priv->mii, addr);
-> > -             ret =3D PTR_ERR_OR_ZERO(xpcs);
-> > -     } else {
-> > +     int ret;
-> > +
-> > +     if (!priv->plat->pcs_init)
-> >               return 0;
-> > -     }
-> >
-> > +     ret =3D priv->plat->pcs_init(priv);
-> >       if (ret)
-> > -             return dev_err_probe(priv->device, ret, "No xPCS found\n"=
-);
-> > -
-> > -     if (xpcs)
-> > -             xpcs_config_eee_mult_fact(xpcs, priv->plat->mult_fact_100=
-ns);
-> > -
-> > -     priv->hw->xpcs =3D xpcs;
-> > +             return dev_err_probe(priv->device, ret, "Failed to initia=
-lize PCS\n");
-> >
-> >       return 0;
-> >  }
->
-> [Severity: Medium]
-> After this change, does anything in the stmmac core still read the generi=
-c
-> "pcs-handle" property?
->
-> The property is still documented generically in
-> Documentation/devicetree/bindings/net/ethernet-controller.yaml:
->
->   pcs-handle:
->     $ref: /schemas/types.yaml#/definitions/phandle-array
->     items:
->       maxItems: 1
->     description:
->       Specifies a reference to a node representing a PCS PHY device on a =
-MDIO
->       bus to link with an external PHY (phy-handle) if exists.
->
-> and snps,dwmac.yaml $refs ethernet-controller.yaml and ends with
-> "additionalProperties: true", so pcs-handle stays schema-valid on every
-> dwmac node regardless of which glue is bound.
->
-> On a glue that does not set plat->pcs_init, stmmac_pcs_setup() now return=
-s 0
-> without looking at the property, priv->hw->xpcs stays NULL, and nothing i=
-s
-> logged - whereas the removed code would at least fail probe with
-> "No xPCS found" for a bad phandle.  Should the binding be updated to say
-> pcs-handle is only honoured by specific glue drivers, or should the core
-> keep a generic path (or emit a warning) so the two agree?
->
-> The same question applies to struct stmmac_mdio_bus_data.pcs_mask.
-> stmmac_mdio_register() still treats it as "a PCS lives at these MDIO
-> addresses" and masks them out of the bus scan:
->
->         new_bus->phy_mask =3D mdio_bus_data->phy_mask | mdio_bus_data->pc=
-s_mask;
->
-> but no core code creates a PCS for those addresses any more, only
-> dwmac-intel's private intel_mgbe_pcs_init().  Does a glue that sets
-> pcs_mask without pcs_init now end up with that address neither scanned as=
- a
-> PHY nor instantiated as a PCS?
-
-This is intentional. Only platforms that set pcs_init() are considered
-to support a PCS. A glue that sets pcs-handle or pcs_mask without
-pcs_init() is misconfigured, and the new behaviour makes that explicit
-by not creating anything.
+So I'll keep the uint32 form.
 
