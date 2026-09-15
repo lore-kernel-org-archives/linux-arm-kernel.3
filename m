@@ -4,149 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59E03C88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 14:04:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DCB3C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 14:11:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3AoYDYQfWgV0a6n46AilCFtd7v355ddil7KDA13jwRM=; b=i9kIzP76+Tlhq2vOqhSXHxOsG0
-	nmI94SBdVrsIbXG4u1HEsN3J2ccaJ+E7PfJPd9njalknLjmCtqRF/YPkyhQwh8e4kDupUmM59GuFv
-	J5DW9n9x7ASnS3VplPMrUSJ4yZNZA23JNEMxV0kBGPPvZYJC9otlT6DyoEGvjMPW0afiyf3ImvHyl
-	UB6Mcfot+jdRikMlfKXW4VPDPwkWJ0uyBSW9MN9t5xM1kJ922bRghcpy6Wyfdp9QtZmgsj/N9NSmt
-	HQl7zGprEbzKkJRbOZe9wteBI8dTyiPEZAOWAvnTXhL7SGC7Gpn/seIikPtJPxpysbTi98GAfo8xq
-	PEmSrIhw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0yDZOAIm8/Q3QD8+C6s41Grxf2KSvFAj+qQW3BIcQGs=; b=3pz+Ofw6p7C907EqMGkBmZtxwg
+	fmq5kAB1AT++yALa/TXu6ieT2GEux4zVlzPGDWFPVVQFn+FQlWWDvoSJt8d/2PLk1cc3DK7INYZnL
+	b+NP1dshF02V4rtccAUeu2TJKCJMPqcPxz26zNy/LPe+h1ArfkZczemxVZnT3iIlz/X+Oa19wJVqH
+	tN1C5mRwBK5bXLyGQV0GG/bbyPYg1RD1xY9uYp13NGmq1StI8ePtIXNJMKHfZLni8xHuFbhuB8Jiv
+	jBKv2iNCPAcGU5yy2z3SgG8hC6ru73ywFbdzJdd/VSNZe0I04GogFGRxjBQs5UqQddIyMI4kuyooT
+	cpv6o1CA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6TlV-00000006rge-25kh;
-	Tue, 15 Sep 2026 14:04:05 +0000
-Received: from mail-francesouthazon11011004.outbound.protection.outlook.com ([40.107.130.4] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1x6R8h-0000000648N-167C;
+	Tue, 15 Sep 2026 11:15:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6TlR-00000006rez-0enm
+	id 1x6R8X-0000000642h-33T1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 14:04:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uF01hoDE15X+5r02aXcWmKedIXTfipRj1OT99xPNFaNn9GlkesUapXAXmMO4U38wCpmyJKJwGkpOIa/pj+AVakeBLU3YBPlJsI4iNK8oCAnhd3MrCBYCHlnA0kWWojlmsV+YKUBufdKxa+/F+wPdN2LVIOOHkK+GqsUvhVxBb5eIhY/0Ohr4dd3yO8j1haV5amYwaQVOdDmtVmndk8KMxF+qhqpXdo2TSagC0pQ+4/QiXv1F7RvxxEGt3MYTYpu9khNdLYPvNXXdSQHsqeiQDexhcKwO2SdXKJ/2GtUlW9pehrZItUrJktNvhElb73vl9hYxws7L6zE1PcjG5M4J0A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3AoYDYQfWgV0a6n46AilCFtd7v355ddil7KDA13jwRM=;
- b=KtR4RCf8y+ovqslfktergmvOvWCvedvn2h3kW8fcXPKb3/xhVwzUtwyTRiosVP7T0c2HmYLvUCpWfj+3t5PyWFDYQa6Ujh9WraDHfDBzrTqExcrHAP5t0Z5AcJ7DKI6gz3IO4YAWa5QsGjndDWlcz0aNdNZEH4fKZQRz3+d+HFgCTtfcFOudBO3tmdWu2QgVVKpx4qWzZuqn63tvZ0q+duNzVqUE04DhqkMnsc5fSRlDfbgCFXllY5vqrdSgRCFbvnpafS/SY9D1dxO55XvOZ7JTHhnkUezWzM+ezyg0fTRh5tv8nO7R5rVUQC59u3Jxh5K+1LQEGZVim7HDj83IaA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3AoYDYQfWgV0a6n46AilCFtd7v355ddil7KDA13jwRM=;
- b=q5hfy7WAXCXsk2cPD8P6pyKSc6m+/lfr5Ct89np903ux61ouYxufYnLU3J6irdhKGjUulPpnMIfDQYme+UtGeypdxu4x05DYHMuYSdtlJ+EkvyFi896QpPvJgqHE89wquFYpfloOUEcw2NZQ6PNk/HVH8fnoewbQ3rhmDkMmjn8nAZhmxNwFrwyzP9XIMLjzR/Msll1Vv5eug7lpVRMctsIPq+UoehoVxTm/1EcpAlmjfZUeNaf2+Jx40Ur7hFurUfPitPFBiGAIwsx9/Srl6L2s561DfVHFZDGno5hCdsKcpwrRO725vrrJ6/IlIGztI9EgVQoN5eZXFrsr5A6gYw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DBAPR04MB7384.eurprd04.prod.outlook.com (2603:10a6:10:1b1::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Tue, 15 Sep
- 2026 14:03:54 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.012; Tue, 15 Sep 2026
- 14:03:54 +0000
-Date: Tue, 15 Sep 2026 09:03:40 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Frank Li <Frank.Li@nxp.com>, Mark Brown <broonie@kernel.org>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>,
-	bui duc phuc <phucduc.bui@gmail.com>,
-	Tianchu Chen <flynnnchen@tencent.com>, linux-kernel@vger.kernel.org,
-	dmaengine@vger.kernel.org, linux-sound@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Dave Penkler <dpenkler@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	Shengjiu Wang <shengjiu.wang@gmail.com>,
-	Xiubo Li <Xiubo.Lee@gmail.com>, Fabio Estevam <festevam@gmail.com>,
-	Nicolin Chen <nicoleotsuka@gmail.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Olivier Moysan <olivier.moysan@foss.st.com>,
-	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
-Subject: Re: [PATCH v1 7/7] dmaengine: Remove deprecated
- dma_request_slave_channel()
-Message-ID: <aqlQPA8Bhf_F0ND2@SMW015318>
-References: <20260915100931.3593242-1-andriy.shevchenko@linux.intel.com>
- <20260915100931.3593242-8-andriy.shevchenko@linux.intel.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260915100931.3593242-8-andriy.shevchenko@linux.intel.com>
-X-ClientProxiedBy: PH8PR15CA0021.namprd15.prod.outlook.com
- (2603:10b6:510:2d2::24) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Tue, 15 Sep 2026 11:15:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 40AC944043;
+	Tue, 15 Sep 2026 11:15:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0C307C2BD04;
+	Tue, 15 Sep 2026 11:15:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1789470941;
+	bh=TA4UvtPaI6N/mD+iZIrCt55LdDwZ1OZdGI9FuRlVZFs=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=nJp7Dnq8oAZUXkrRA9yJx30cNrc+lFGg/G5laPxIL4fWB6cNU1znybkkdhxBwWMT9
+	 D+XxHDPqy4IY9jBlzyRMmFyetUDzgQc2idEFYUS8nIRwXdQi2Me3PiYqGsCNjT5kZ8
+	 JpPXqQLhYryv4lbO1vTeebD9TTedKTcVNef5WUEcWcf2eTA60pArVlbUyg4v6De8VV
+	 UxMl91Rf3j4j0bDnb8yfshO2/dvLlxmu808VNszdV8uC4g03mcDreqBm6qloK3xoIn
+	 K4v/UKLPWgik/S1MYXXd/WVcNXILW05iIGVjb0p+7GIP3awTcBcV4e3JHtPM/d1Hua
+	 QzY8HBOeEAFRQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E1065C88E75;
+	Tue, 15 Sep 2026 11:15:40 +0000 (UTC)
+From: Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>
+Date: Tue, 15 Sep 2026 19:15:33 +0800
+Subject: [PATCH v7 03/15] dt-bindings: clock: add Ambarella CV75 RCT
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DBAPR04MB7384:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7c37b006-4506-4b60-9704-08df13322d35
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|366016|23010399003|1800799024|4143699003|10067099003|56012099006|11063799006|18002099003|22082099003|41080700001;
-X-Microsoft-Antispam-Message-Info: EsByQicsKzNVsyk8K8Qml7v7+2hwrXXVi1DzC6RbeRfRmJhBjLFRhx6JbtVuzdG6XDfDGXA3oisT/TjDGbi0GepA6ieC5rFh8WTti5AnKHgSDZA1TmPf87G8ylKgQEdR3FnqjD+kIp2l7Cxjc7jg/uyD7VQNhB1YvAYpuvRe0E2y26TZ/lGpq/GOv6usqSBE/MLnKzNOWnuhjkisCR2kzmqE1OHDnIAxf0OWyIQtQI16837nO3i1kqNHi86F+AzLyaJIsPYn3XNmfoByLER56B05yO3jyfzmrBUL51KJ+PhfkM/5XoJ932EB+7w1URYJHzbgn9R4X9H6jjJZlnAHgHpTX41pRdL9gJO3b0qlmwjBU4L0/1mrCNsCExLSrbyqe8N5a7Bqz3LZpm7PMbq3cYearUPJWX7R3eUPLyQuffE07ZcQMHl4hqGjp/CBpc6Hu9b8LHSplJuidwkGADSmVu1w4f9Q77JxWpDluphskA4dZNBycjtzS0birF1u7X3/w33TxikMthkeZWOLkCl3Ryx0HJaZzE9vkCz9XAmoWPL9v+N1qWT2RDX5kCuT2zCdy2ztzYpbxzMcd+YySxqye2g6e1zA0pZe5g8oApQJWcYSCFYXdr4pGGtZSJksoKiIpyFC8ezJLhBKpKQXhz6dqpQF6bJzdkmzfNMIZv3AccrtBPHxSsd7gsGDR6Pw1Vi3qIfncBWYiEVVPiRdmLHp7tBw6QB0ujhy+36XUQqRc+I=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(366016)(23010399003)(1800799024)(4143699003)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003)(41080700001);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?5GEEVMySrd6/uViMQpOqbEUOJ1Hfx1K7ySC2NqQ3EhDT7oawPb7PXqeVvD03?=
- =?us-ascii?Q?XrKIz+8Q5ifHBL3wqPKzTsJDJ2OyMdPjt9zxWigwbzvAFKVpuuvpc5v31o9A?=
- =?us-ascii?Q?NgkwEVM+uNHgPi5hcwc1A7wP2Y4tBE+I57xzvg5zE5WXvxCCWr4Mi2UGioj0?=
- =?us-ascii?Q?DfgegMAazPQ5CGJWNcS+nTrQw4Y1ou+Jj+HplGbLUGx800wmfrxdteriaLgt?=
- =?us-ascii?Q?xMSljMVJtq8HoUL/26bYn1j6GpcHDnI5MjzkQ7KzyHt+AYzWuFUcbqMT5D1x?=
- =?us-ascii?Q?xrFPrTMYCkI/iXPVXR6NjffMyhmL64LOfLhPZDqCTnaci1A3OQbYTTj30IFT?=
- =?us-ascii?Q?uaDV+OJ9LWxYOE2lxwo5wBv5V4JG1o8aa4sAnUI6qGDDQxAV92ishgDpEgAZ?=
- =?us-ascii?Q?Jkp/EVkE/HWEaC/FKsPPypalJmTmYFG+J/lmHoBRvS1Pi7WsWujK9RArtQgP?=
- =?us-ascii?Q?0v5K3KzoPw+aNh9JSQELfzYGP6QwC7EzVyVmvclA0kJRQh+asb6627KBMPQk?=
- =?us-ascii?Q?gLqF8XD/D9/N/dsF/Cxp97EYdPKn3cGnme0QSEQQ6UwVsXfT8zDCFKb8YOwN?=
- =?us-ascii?Q?rfckl/5otsHDcZVWUXNYIbPA9VRoT7zsjvqLmyL6iBfmZaNeA6zZ8FkOKDe9?=
- =?us-ascii?Q?Wc2hk8gpiTCJPDY50cyQRz5aFWdB3/itzsOnzKtyhYocHHZw9j11oiavilUF?=
- =?us-ascii?Q?VVXJ5rfiuZp8onauUxb+1albTD3LRhxQT2iW6qiw+BKwVrTxO/dK5C2SY5Yy?=
- =?us-ascii?Q?Tf/Besu63P6PAhs8jfmeTq7BRktkHDtvN4aoBbHC/CWNpLYS7bfs4GKz1m79?=
- =?us-ascii?Q?A7T4jjFvshvFqM6umeJAoW1Rl6WX1G5coIlSydHy0D+XwPlvVij/AAI5bN3L?=
- =?us-ascii?Q?XdIR76YVlzo/y/gDSwUE0ai3PnK/QJtDBMaDunFfz2y+STaeLp5KL5AhHd9P?=
- =?us-ascii?Q?VcoJVMZg5z9oZiPp5zudP7yvbW2jYT3lZ1QMI/DammP9VPaITif/QUYi9He+?=
- =?us-ascii?Q?okDEV7sYaK85EVmzh4iao2jtRIvDu3jGPbXPPbCi9u4W4ijWt9nfaDUWA6bp?=
- =?us-ascii?Q?ecByb+u3qOPD1ZJn1AmDpGo6jrg5KW2ivurvvtf8KGZybWzlwWO1tCc6H2oU?=
- =?us-ascii?Q?4E9Mkc1IcfnwrT/sbIrwGo5vu7Yc+AIVuTgvBl0XwueOO+R+dBA8XFjdjs8q?=
- =?us-ascii?Q?1y+9N1fQu3xohClUn/jfA07+vdnl9B1T4Y3GralIOWKIaMgKmc6rYkOnrGr3?=
- =?us-ascii?Q?O1t4aYsGA8RF1sx0evefKDC4rgoORpSHUKfCA/nHSSKBjgPYBJKi/lrTHYKo?=
- =?us-ascii?Q?eldIzD9aZnFgG+aaR+5t5fOEGf8Qzik0PFkQoQAjncxL5KnrrvxG8MnzXncX?=
- =?us-ascii?Q?dE3r8Yee9W3THv5nJ8NzWeRyZe8FpkJUsrOjEN5muufH7Do1MOxu5pNcSawm?=
- =?us-ascii?Q?6Ea35zqIZzj0SLKz3Dc10jxJKz/l6nkP0Af9DPKlWw3n1xpULexeTJiQlos/?=
- =?us-ascii?Q?k4lMirPRZ8A/bPnE7wYEjjUz2Xwi5qoTSY4VfHcpL87ZH3Waan6HDio3rkEh?=
- =?us-ascii?Q?qEnznwi16R7D0+zgdgPY7xOFm0xvI0es2i/5P7vWO8Ka6yBTSwBf/JMl7mhj?=
- =?us-ascii?Q?lqOjOmh7ddfVq7nW6Et69PjY+AKA3VCD4+GOWCjfNzkWWZa+jO15nayCZY3Y?=
- =?us-ascii?Q?YQAQaK2ItnNwuvhUaYKomUKxpOzSPRc2UvfryFYbyIBJODWRTQwpdI8q/O4U?=
- =?us-ascii?Q?VY+EH6wvUSLBuKMMCUvX09DDmB9hHlt7VGCyCXJhc64HYSmaxI/A?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7c37b006-4506-4b60-9704-08df13322d35
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Sep 2026 14:03:54.0556
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: xPNkjtAt33sciPwj4dj5hHP6afIGMb0p97hnqURMymzX6d4HwAJymqvasi7plW/zOamlofEE/LF9Di/jPvwGYDPaviK++r29IDBh/6g/evTB4+hLu0sJW0IVJtAjyVuX
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7384
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_070401_614560_5780E5A5 
-X-CRM114-Status: GOOD (  14.45  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260915-cv75-v5-v7-3-3297d3fbc9c0@ambarella.com>
+References: <20260915-cv75-v5-v7-0-3297d3fbc9c0@ambarella.com>
+In-Reply-To: <20260915-cv75-v5-v7-0-3297d3fbc9c0@ambarella.com>
+To: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org
+Cc: Long Zhao <longzhao@ambarella.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+ =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Long Zhao <zl020895@163.com>, Lee Jones <lee@kernel.org>, 
+ mfd@lists.linux.dev, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789470938; l=2969;
+ i=longzhao@ambarella.com; s=20260730; h=from:subject:message-id;
+ bh=gEKr05f9YAOrNVHJfKB47io9QNiMkJyDyO/ZJBUGYg0=;
+ b=KO25cFtkAC0CyFgSD4uGMjjaQqZBC4uDyzCwdGKIQwHyAvLfkVxYk0sypPzcu7t85jQLd2Kgp
+ FSx6bPU0XlOACFAenhxOxCUN9GNh1Cv6RyYOMGy6SRYxkFYhDy+8yVS
+X-Developer-Key: i=longzhao@ambarella.com; a=ed25519;
+ pk=/xGhPTOX0/eYsyTWzyjjgAIW1Z/YD+IlnOnvcdRozow=
+X-Endpoint-Received: by B4 Relay for longzhao@ambarella.com/20260730 with
+ auth_id=903
+X-Original-From: Long Zhao <longzhao@ambarella.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,41 +95,119 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: longzhao@ambarella.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 15, 2026 at 12:04:28PM +0200, Andy Shevchenko wrote:
-> No more users.
->
-> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> ---
+From: Long Zhao <longzhao@ambarella.com>
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Document the CV75 RCT clock controller and the clock ID header used by
+DT consumers.
 
->  include/linux/dmaengine.h | 9 ---------
->  1 file changed, 9 deletions(-)
->
-> diff --git a/include/linux/dmaengine.h b/include/linux/dmaengine.h
-> index c50497ecd52d..7596ebdac466 100644
-> --- a/include/linux/dmaengine.h
-> +++ b/include/linux/dmaengine.h
-> @@ -1763,15 +1763,6 @@ void dma_run_dependencies(struct dma_async_tx_descriptor *tx);
->  #define dma_request_channel(mask, x, y) \
->  	__dma_request_channel(&(mask), x, y, NULL)
->
-> -/* Deprecated, please use dma_request_chan() directly */
-> -static inline struct dma_chan * __deprecated
-> -dma_request_slave_channel(struct device *dev, const char *name)
-> -{
-> -	struct dma_chan *ch = dma_request_chan(dev, name);
-> -
-> -	return IS_ERR(ch) ? NULL : ch;
-> -}
-> -
->  static inline struct dma_chan
->  *dma_request_slave_channel_compat(const dma_cap_mask_t mask,
->  				  dma_filter_fn fn, void *fn_param,
-> --
-> 2.50.1
->
+Document #reset-cells for the RCT reset-provider role. Soft-reset line
+IDs and the reset provider driver are deferred; this series has no
+resets= consumers.
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Long Zhao <longzhao@ambarella.com>
+---
+ .../bindings/clock/ambarella,cv75-rct.yaml         | 64 ++++++++++++++++++++++
+ include/dt-bindings/clock/ambarella,cv75-rct.h     | 14 +++++
+ 2 files changed, 78 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/clock/ambarella,cv75-rct.yaml b/Documentation/devicetree/bindings/clock/ambarella,cv75-rct.yaml
+new file mode 100644
+index 000000000000..be89bd75f9e2
+--- /dev/null
++++ b/Documentation/devicetree/bindings/clock/ambarella,cv75-rct.yaml
+@@ -0,0 +1,64 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/clock/ambarella,cv75-rct.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Ambarella CV75 RCT Clock Controller
++
++maintainers:
++  - Long Zhao <longzhao@ambarella.com>
++
++description: |
++  The RCT (Reset and Clock Tree) block on the Ambarella CV75 SoC provides
++  PLLs, clock muxes, dividers and soft-reset controls for on-chip
++  peripherals.
++
++  The same register region is also exposed as a syscon for other SoC
++  blocks (e.g. pin drive-strength), hence the "syscon" compatible.
++
++  Clock indices are defined in include/dt-bindings/clock/ambarella,cv75-rct.h.
++
++properties:
++
++  compatible:
++    items:
++      - const: ambarella,cv75-rct
++      - const: syscon
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    description: Reference crystal oscillator (typically 24 MHz)
++    maxItems: 1
++
++  clock-names:
++    const: osc
++
++  "#clock-cells":
++    const: 1
++
++  "#reset-cells":
++    const: 1
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - "#clock-cells"
++  - "#reset-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    clock-controller@ed080000 {
++        compatible = "ambarella,cv75-rct", "syscon";
++        reg = <0xed080000 0x1000>;
++        clocks = <&osc>;
++        clock-names = "osc";
++        #clock-cells = <1>;
++        #reset-cells = <1>;
++    };
+diff --git a/include/dt-bindings/clock/ambarella,cv75-rct.h b/include/dt-bindings/clock/ambarella,cv75-rct.h
+new file mode 100644
+index 000000000000..b3e965b4ff2e
+--- /dev/null
++++ b/include/dt-bindings/clock/ambarella,cv75-rct.h
+@@ -0,0 +1,14 @@
++/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
++/*
++ * Copyright (C) 2026 Ambarella, Inc.
++ */
++
++#ifndef _DT_BINDINGS_CLOCK_AMBARELLA_CV75_RCT_H
++#define _DT_BINDINGS_CLOCK_AMBARELLA_CV75_RCT_H
++
++#define CV75_GCLK_UART0		0
++#define CV75_GCLK_CORE		1
++#define CV75_GCLK_AHB		2
++#define CV75_GCLK_APB		3
++
++#endif
+
+-- 
+2.34.1
+
+
 
