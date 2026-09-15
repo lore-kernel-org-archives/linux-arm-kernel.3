@@ -4,142 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F220C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 09:28:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD166C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 09:29:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QG926t0eDXcNpKo79cGWH+PMpXq/mR3E3lyUSWxn124=; b=c37H8pOWurApWx1b9iJKVjPbwY
-	Z2s72uMGwhrYd3RpNmhxIP0JR1bFchYzZimzJz8bM5WBEU3hRhjn5aM8xTARvXDt4x9dn17F249LT
-	V1gtzSQAnpDhbYmNIjSO+Rukc2XP/lmzNfciDhac2/HkuJfa7xyvdiWogkJj+rhDyEv74s6LjLUQm
-	b4kB0i+TTExhSw6qRa4YsL73t1ul8Axfys8loUaNZ21HS/m1/QTk0088O00+GElz3d7J8c1Y4dABi
-	71B6e1AXsDw+e3EpoElPGiu6bDKymX21N/cg+DZ2oOvf4RYHKDv+S2icZBpdmiQXRxU2nfYl2Zzp4
-	bVgncUPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aJu9pMXbUu/S5XtdMwkglNmdfanvW2z8asg04Ck3FsU=; b=uTdPMeH/SPaYTQFcwa0/wrdz+/
+	vprpEc/RcVw/IWtZPhCydG9thodRhcMHlY/AKb3EeF/BvrKdXXms7zzU9vI7OsLwHg26veJEGyNMq
+	h5ZyH19aX6RSN8b3pUPOFZc3s0vrom84+GGeQ2Y/wH551X1kk+QWxB3mq5j3dj1CE9K3vrF+UNZjs
+	OfbuOA4zPwvfhFGQ6oIi5snr4s1iYBvh7asq+Nb0jc19IFYARMTuhW6OuXL8rDMxuGDU6mHgYejLo
+	AziQZVKEsOpJes7+ejz7/ZWTEny7bK/+0LgmEzQP4prLLZFtYtLzES4SZWA6dKARsvrdTAoun/dYf
+	+tLqv3Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6PSd-00000005mTs-4607;
-	Tue, 15 Sep 2026 09:28:19 +0000
-Received: from mail-japaneastazlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c405::2] helo=TYVP286CU001.outbound.protection.outlook.com)
+	id 1x6PTF-00000005mcO-0jXm;
+	Tue, 15 Sep 2026 09:28:57 +0000
+Received: from mail-norwayeastazon11013004.outbound.protection.outlook.com ([40.107.159.4] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6PSa-00000005mT2-3Pn8
+	id 1x6PTC-00000005maZ-2raW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 09:28:18 +0000
+	Tue, 15 Sep 2026 09:28:56 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WRpRRhzA3+hKrmO9b442uPwbE6zs9dQboBOoDPevFhIzvtiDic9nW+gUSPClrB6opjDMOhLgot7yhLOWekGBZshd3Teb/IXwQHKLAqT5a/b8Q+f6ldrEvUlxDSWO6zLsXRY8eZPQZq+x0t3cUvJn1TFvJc39GYLrMDW+g764NumkW58wuEAaz1ONq0aWpBErRXKZoSZNIePvlROvinoD488MJ3WU+zxWPWEnoN7iqhm1CqGBqO5+9HuTm6Hl3+NDrtZOzCdFwveuZZtY4X+rgH9y4LSMgL86pasbSosL1UgFoLIABzd/K/a/k5WXGIbrRtZIeuM+c6zJzU8ZLfjFdw==
+ b=wKeJZaW1UFN/RaYWtrzBR7/CLc77uBr25rk46eoy50JiYrZYyvEr+tE4yAoKgNy1fV41WpRhNJbT5W/o0DD382G4N12CylPicjkAp1ln5Xd0WqvnG5GgjxqzvucoNBjWn0qXAnX9GCpFTrGcU/MP2tbJkAKZ6rgd2s+50cbkmuwB14lI475mEDuXdK94C8Zt4j1W/SaPNxPpvYXTpivX9NR5LsblpOHibgNqldyXi0ROT+2V9/1KJNnRyRkrfJd8fPWTELaGa7FWienQbUP3l5cF9nz6dwXVANk/G/X5bwnAvxO8s7A1YqI18+AFjyixyeiDXaQXkFckVdOAGa/HVg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QG926t0eDXcNpKo79cGWH+PMpXq/mR3E3lyUSWxn124=;
- b=XhyjuDnXJ5y1YMTzuBu1NqMuQKnhwUXB1Of8d+db3ygPBj1+plupFrZrEYEDwWNUj4l9ceUAiOliQHorvT+NiOw/Xy3HKYcMlwF2zwKNBeaLn4cWbprykYn0icnCAE5iT63GW33fCLI81RY2tYFdGyJVyxBUkLQXSJvrIoajvo2vJY7CJhzUYeHWYaeq+USjO7KhBsuNrewVcmWylXuyabLjnGaI3n6LpKB3OruHW8kedlNtC9aa87G54FCn3kmae1jDTshZbFSLNXqMaeGxLMYLWzr6POARh+PTQCc7UEJHuXlhKmvKYLhzfXL7LgQb8Lmm9wFVaioHs7tHqSmC+A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=renesas.com; dmarc=pass action=none header.from=renesas.com;
- dkim=pass header.d=renesas.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
- s=selector1;
+ bh=aJu9pMXbUu/S5XtdMwkglNmdfanvW2z8asg04Ck3FsU=;
+ b=Y+eRefpJZKSX2Hpq6PJ+r8X5fz5z319Ypna1Vp2lluJJThIUHZNBZ5QFr6JBdBxI36aR0Dc8gTR03WK8aEf6xwgEEO5nX5yC/4f7SFfsjaJnzsXMz8A188iQQYV6pos1wvm+25h+PIrCFCBJEkkqYbIzYldzTzV0V0w8o7CLo+XOfh6xtO0wRpwWBvr6DTNzrehT9R+SAAUFEWdLJyR2J7oRN6NV28blHDQJ+dxF42Uq5u3CCBbapSt9wRAL9UVL2LJdA/q6d3U5KDSDASQnqTFYkED/XNbAE33aStPkME7WNAJlm3wULARMiEwOeC1lAzQhfALj3b/rG59sFYW43w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=iscas.ac.cn smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QG926t0eDXcNpKo79cGWH+PMpXq/mR3E3lyUSWxn124=;
- b=JarXZbEYACwf7pZHsMAtLd5y8bkNCs2gI2j6INQN22Tmfams2HrVOJcMo6ka4uYhTELyPftEBxGHZf4EJ+LK/c9Hr09ExRPmZTehlKYdbz/zkEHg7P39HAPRKCsupaw5K1cd5HACqLDKcoMl0prH23z1mYnnY7MQdx8JValQzYE=
-Received: from OSCPR01MB12769.jpnprd01.prod.outlook.com (2603:1096:604:33c::9)
- by TY7PR01MB14443.jpnprd01.prod.outlook.com (2603:1096:405:23f::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.13; Tue, 15 Sep
- 2026 09:27:51 +0000
-Received: from OSCPR01MB12769.jpnprd01.prod.outlook.com
- ([fe80::aa72:ef1b:2a85:fc2f]) by OSCPR01MB12769.jpnprd01.prod.outlook.com
- ([fe80::aa72:ef1b:2a85:fc2f%5]) with mapi id 15.21.0406.012; Tue, 15 Sep 2026
- 09:27:51 +0000
-From: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
-To: Joseph Steel <recv.jo@gmail.com>
-CC: "maxime.chevallier@bootlin.com" <maxime.chevallier@bootlin.com>,
-	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
-	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
-	"kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
-	"mcoquelin.stm32@gmail.com" <mcoquelin.stm32@gmail.com>,
-	"alexandre.torgue@foss.st.com" <alexandre.torgue@foss.st.com>,
-	"shuah@kernel.org" <shuah@kernel.org>, "joabreu@synopsys.com"
-	<joabreu@synopsys.com>, "yi.fang.gan@intel.com" <yi.fang.gan@intel.com>,
-	"jun.ann.lai@intel.com" <jun.ann.lai@intel.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-stm32@st-md-mailman.stormreply.com"
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kselftest@vger.kernel.org"
-	<linux-kselftest@vger.kernel.org>
-Subject: RE: [PATCH net v4 3/7] net: stmmac: Rework S-VLAN handling
-Thread-Topic: [PATCH net v4 3/7] net: stmmac: Rework S-VLAN handling
-Thread-Index: AQHdP7FBHec8YOvxvk68IcIebRlwK7bPZRCAgAAAqgA=
-Date: Tue, 15 Sep 2026 09:27:51 +0000
-Message-ID: <OSCPR01MB12769E621C234C53F33FA88F7D3BA2@OSCPR01MB12769.jpnprd01.prod.outlook.com>
-References: <20260908164309.59282-1-ovidiu.panait.rb@renesas.com>
- <20260908164309.59282-4-ovidiu.panait.rb@renesas.com>
- <ybotecadvx2x3ucgqjunv77fuyeaxmwl5tn77fswraztiklrdo@ajhpl4c52hcy>
-In-Reply-To: <ybotecadvx2x3ucgqjunv77fuyeaxmwl5tn77fswraztiklrdo@ajhpl4c52hcy>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=renesas.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: OSCPR01MB12769:EE_|TY7PR01MB14443:EE_
-x-ms-office365-filtering-correlation-id: 2af55dc9-96e7-48ab-e355-08df130b9d4a
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|23010399003|7416014|366016|376014|10067099003|22082099003|56012099006|5023799004|11063799006|4143699003|18002099003|38070700021;
-x-microsoft-antispam-message-info: 7otVuJNKeG27jEMPBaZQIHnDgQPSNp4dS+4oMBsB3wPcJvL27x02j1tq140llNr9Q+ZXTBiWYvLAWEmz1T1u3m5XikgThzxrNJZBKnmlb/FAKibirxDbkFjuWsvZUCLUZ6wWQrLTzcsgBOeOt+JRuJjwYTdaRTbgK1LoSAaUN72zjgNP3CH09HLiUItCSo+y4TORzfGH5yXsDJKGbbmcN1RrieeFJTT6DtLmw5Qy0JV6JSjqLppGRWp6yRy2rC7w3HXR0EzYzZ41BWnJBpVHuHaKbcTduHBlXvPV183kwYINStMtEIfvHkwaMiCN9feT2D49h1urAbdWOTCBXl/Kn4BKAe0LzbQW/CEWSn9IhSJrplgAb7emm05cTNDn4vu6W8El4WT1NSKBOyvAucOf6cJ5X4d6ytKw2WdgUEojdT9yED7Ai44iujPRXZ9cNsldbCLOZJstYSDJ6YYz2gk+TXf7m7UeZU0dQeN9xzyUQyTLaG/DQTIotnyOfKa0sH2qn4/9d//EYp526+pl4glwSmBVKnbAxjF1seYBfcqKhYQPyeDpZiRH0/zahvz5xExADbXYyGSqxgWiAJ65c3hExFZFLACKLlvEEnBeahP8UaaXmpQSETd7hdnZ+N1qHhF1xfn9mtbJJT5rgMn107GL5OH+RxR8tLSH9Gs9lnq1NM4WociVU1ajT102mzLdWlbZ1u9apBcVQa1h02dmR/bDldEjjmlIuwnOUtqWW+OHNwo=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSCPR01MB12769.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(7416014)(366016)(376014)(10067099003)(22082099003)(56012099006)(5023799004)(11063799006)(4143699003)(18002099003)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?c24PCWcCqUJQWT2f7Q+xSG0uOohJwpq/7fvRLRKfGvlwk8cnsg7PvXCf2M0U?=
- =?us-ascii?Q?xRNXSZ6pIHTCgwk3I/ij9QrStjXRvD36ux0m7Q7UaGdcC/zylB+yE0wcvcSK?=
- =?us-ascii?Q?qhXhbzhWzPNAZucj4eHH8sjxGCy9hWGCb9UzFwOX8iIneVTuWI6Q3wGKfn2h?=
- =?us-ascii?Q?Mi6RqKAdvDD7JdHIv6NBTKnr1zCxZZlTxI7yHOc7ZKHEk2yTgLe7mnOt4SSZ?=
- =?us-ascii?Q?s/LlXnj9BvBPj/uvcuLJKW+mz55MUkf0qpY5IGjdKvspSHzeT5UI5r/nDJaR?=
- =?us-ascii?Q?+J8Dh2pUWYNpyvCaJw2+9ZYgHs/Mr4Ssg9ZzOEvUlSDSsNhOiKGFhP89jZKv?=
- =?us-ascii?Q?UfKlFQahK5kekOv68r0XHUXI+8xW1ItC6mku1Kr8xOw5yukieGNmwyhlX2UW?=
- =?us-ascii?Q?mdGppc2/AKcScu834AgZH1w8dTt+cKsQka/grpcQaRB0+sQkjEpvAylz7Qqo?=
- =?us-ascii?Q?laMOspj5yMAeYoDtBC5y5MvIqQE2OuktzTKdA2m+dUzJgbGnz8Mex/ogQemc?=
- =?us-ascii?Q?4kvdUNABHD4vUnsoiO/9TvxiOsWUsFkhGdac1Dtr4l54XQB0iMFQ07aLJDfR?=
- =?us-ascii?Q?lEb8Z1bN3sEfsjc10LNhSYRvxChBM2zJv37DpyGq6aqcVNjB6hUIv28VQJ6s?=
- =?us-ascii?Q?RlTKrzKhCfcmButdTHyCgawuVIw1vEumjfQyS0x7gKYv7Go3dj2IVa9ma2I6?=
- =?us-ascii?Q?Dhe3MDupXFeC7mJbIT56SJtHiwdF/jnm16yJ2nx4ze6Ris9bhFjfFqY7tJIL?=
- =?us-ascii?Q?shfm8qy5bJjmi9y24t2jvSTbzBKK5IzdWdKbQfKirO7RVdU1Ij+Hv+TwAPTQ?=
- =?us-ascii?Q?nzk8hPsvXgwgKMu5VDcKoqEixnNJDlICO/pMZ6o4XcqfhaNOtzoYmE7q7bWX?=
- =?us-ascii?Q?yGSf5AOU+kp+nUfojD2im6RwOJ/mrpbgLA8oL8VFWHyNtqagfcf2vkHIOTD6?=
- =?us-ascii?Q?9MHAygKoUzBUFzV8HEn2W7UJfaZDd3SZf5ZVOBmC29DMvHFGLGse4HHORPLw?=
- =?us-ascii?Q?lup/5pxfB4dCQzuNtPOAKi9aOolQkuX0uZXAFCHdRRPbIHu4qUQNhSwtqzft?=
- =?us-ascii?Q?Z1wR2X8GmwP1oZQ79qoCOKkcFT8lEpXIv8/vkPnLBV4bs2UPphQFb4tDmgBV?=
- =?us-ascii?Q?wV8Ri+ZkfLWa6rlJMwARkD7ViiZZvHtVLbdZIA0URmz1z4Rd/zvqOn/UFrFU?=
- =?us-ascii?Q?2BvQE6tXLkzWnEEek0bAY7cVQH8L6+9SRmVFbqft36ZZbWsFFYnluPP5GV0T?=
- =?us-ascii?Q?G/92g/qR181Ce09SZ74MRyu02jCbVBRhQa0tYk5+VztVRk6SuzPZVRA3qu5b?=
- =?us-ascii?Q?q3T1ypQ8mGP5CBADvIBOk/w3fw4pX0VEO8yUUeQis8d1iGz0WYPoExjFU8q4?=
- =?us-ascii?Q?IXAIylaBl8fRp1L7oGxRcqdGb31AE6g1vJsnRZRmGb50z2ck8tHS4aGDr5AO?=
- =?us-ascii?Q?QHTE7pGX4FNa06Qps9WPaGiR1dZR1+9w9Je47NspLIomZwQyaXWTzRW+iLDl?=
- =?us-ascii?Q?qfw2sxyWbNopHMw4EqDli5AT2c4SvMScZuN5fyO36xbCQT9tUYKrGr7RQFkL?=
- =?us-ascii?Q?r9mb9djNjQK6KXVElkuPzSxgMkcHWnp9yU4tNEDi2jTiv8/8SNzSL0pNimkY?=
- =?us-ascii?Q?QsFBlXz4zLgMDJcZj3SP12L0XJN+BgcVFw1bZxwemoIzZ679qkb3QJwmLPl5?=
- =?us-ascii?Q?f5Do1Te6VN7kUBhIGgKo3tiMotk4//xSXSiftuuRA0XJzCCL9UtCCaRJcc6/?=
- =?us-ascii?Q?9Ji1yljT27Vn41sqoTbGJvW//USNrwU=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+ bh=aJu9pMXbUu/S5XtdMwkglNmdfanvW2z8asg04Ck3FsU=;
+ b=kKTLWv1F3xhk8Kl6BSTopIiMTc5CkJSmZ3fS4WKqT6Xrm08aqjTVu6iWEuqnuQdP2rEgtkfi4ty/wt7QeX0iRk6jGwHoSS0p9EU/QXr/WLUhg+Cmv9bGB33+J4k+TPom0dqD+LIlG3kI3WBiZFoivLUjgvVvZnYOA6oUapGrvlCN/FWlsTL3mS1a7APSneZgrK7ScD9lp9sYqpLjQDJb2vjb5APc6i0PoomQ/0dNpWWR7c4euMs9HKjwLw2hvX2PLEqC8OZI1aRXoOyUmlW+4lUP8WuWx5NyfO5wFkmA+tzP/NlWyfwd7uMBMBY8G4X50hKLPt2h5pjC5bV1B7EfmQ==
+Received: from WA2P291CA0003.POLP291.PROD.OUTLOOK.COM (2603:10a6:1d0:1e::7) by
+ AM7PR10MB3254.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:de::8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.406.12; Tue, 15 Sep 2026 09:28:44 +0000
+Received: from WA1PEPF00009B3B.eurprd05.prod.outlook.com
+ (2603:10a6:1d0:1e:cafe::40) by WA2P291CA0003.outlook.office365.com
+ (2603:10a6:1d0:1e::7) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.428.9 via Frontend Transport; Tue, 15
+ Sep 2026 09:28:44 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ WA1PEPF00009B3B.mail.protection.outlook.com (10.167.242.41) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.428.7 via Frontend Transport; Tue, 15 Sep 2026 09:28:42 +0000
+Received: from STKDAG1NODE1.st.com (10.75.128.132) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Tue, 15 Sep
+ 2026 11:34:46 +0200
+Received: from [10.48.87.93] (10.48.87.93) by STKDAG1NODE1.st.com
+ (10.75.128.132) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Tue, 15 Sep
+ 2026 11:28:41 +0200
+Message-ID: <cce8b6fb-eeb8-427e-b002-38ec6e8c9e60@foss.st.com>
+Date: Tue, 15 Sep 2026 11:28:39 +0200
 MIME-Version: 1.0
-X-OriginatorOrg: renesas.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: OSCPR01MB12769.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2af55dc9-96e7-48ab-e355-08df130b9d4a
-X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Sep 2026 09:27:51.4363
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] clocksource/drivers/st_lpc: Fix clock reference leaks
+To: Wentao Liang <vulab@iscas.ac.cn>, <daniel.lezcano@kernel.org>
+CC: <lee@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <tglx@kernel.org>, <stable@vger.kernel.org>
+References: <20260915054804.1729741-1-vulab@iscas.ac.cn>
+Content-Language: en-US
+From: Patrice CHOTARD <patrice.chotard@foss.st.com>
+In-Reply-To: <20260915054804.1729741-1-vulab@iscas.ac.cn>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.93]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE1.st.com
+ (10.75.128.132)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: WA1PEPF00009B3B:EE_|AM7PR10MB3254:EE_
+X-MS-Office365-Filtering-Correlation-Id: 86f79c6d-383e-4249-0281-08df130bbbcb
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|82310400026|23010399003|1800799024|6133799003|10067099003|56012099006|11063799006|5023799004|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: Fvj4VIC2leO+WFhw7zJaPoRvHjyO8f/KUJmRrzqe23HmLbap0K0ZZ/PeP4K+/8PZcPkV53UOC+bJj+ETiaDHVatZb7UDqt80UUpeVgTNO12lMNDJL1nkRW3P0xejHf7hN6i+r1kOQWjfV3EoTmi8uQp90tfValxt871pgCoMiX7SjHXaGMpT/1w9JAM0/rCPy194Vi0aVK6Nd22+bkU1gsMqacllia8kfiKF58ebUZTAwnFiKdnwMDQU7hHKYqIrmmURObwfAChGF6gSWE1cQVUbNeu0C6eWoBGAGCWrmBpAoC20emQbHK/c6RnITn4PCXaoNoKy+zV1ZPL3KE6FBmtIVPo+rlpPmem7KJp5fLV61X6h35wvVmfNN7hx2DEurZwOT1wHnlyR2RaVDsPmmI3cdoIwQa1dZPIVxUJpR9N5sS6U1npW+DHm9ufA3e59ecOGz21CZGvGsCsTyCcUz2Nfp0a1+WUqqlYG09keUYKkzbPPyZum0XHeksndw2g7vwkuXUjX0kXhhQipw5+4gjCLiRuh5mZ4OrDLYP+F1h0sYR97q6Dwjr2Jte1XBtISfBJ11N2GlCoGI1U1lJV/F1JH7E8eTOKvALv2Lhi+o0PZkvL7/yqoTl56m+4wAbLo31ZISb/jSU/pG0diD5kPcagWe21xAuXWIfA0gEqaoxg/NfeMqCfvc4BbjL7fQt/CR/yZw3b73o4DbcKJgk0vjA==
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(82310400026)(23010399003)(1800799024)(6133799003)(10067099003)(56012099006)(11063799006)(5023799004)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: /IvJuYR2nyXY+cqyqT8MJfypgQswKcsnDJyoTA95upFHfVcLPFoU1Nz3gfCFYeZ6dvbMcXdUYJRqXHnE9NsfI2yaUXwPCWuZ8mU/gqhOrmWnJ60DpY7wcSK0DVrP6sdapn9qrj9J4GOv9AY7GH+cXPHYD5wQMCy1tZ3Y+53AqNzu74JPEIMIO0QveaWnAYgF19W2Zh1hGlo/MTog2dR6wfLCqqSyrNKGH+95vIWzvrqKfk7013GbTUudJ+CamrUJxhvAIYqIXQF1P1FOW5qAcDSKHuLSFgoi0W4GleWMzdxUyBcaqSAbXR/O1l025B7IMOcDh+79O/waTFkbUf25PgALH66G/JwJw87dsq5q4PPeU56m2GwidTUJanWU11k5433SRw/RrJkrKmYVn57PARRYxWf1xqIeh5QL4R0/rqBiC6I8JF2MqkeyhAUUJNX9
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Sep 2026 09:28:42.5078
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: lBmBoFk5GlBh6Nd11etGGOyUCYuNrMD+b+KcLjnI6wdi3BACCCJwVEFdGCBrBWx+b+knLaEocpajVw1KpeIPdJe0PRzSfM16nBtzDrwivBo=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY7PR01MB14443
+X-MS-Exchange-CrossTenant-Network-Message-Id: 86f79c6d-383e-4249-0281-08df130bbbcb
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: WA1PEPF00009B3B.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR10MB3254
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_022816_874251_2664327A 
-X-CRM114-Status: GOOD (  19.79  )
+X-CRM114-CacheID: sfid-20260915_022854_944325_84C1B6BB 
+X-CRM114-Status: GOOD (  13.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,43 +125,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Joseph,
 
->=20
-> Hi
->=20
-> On Tue, Sep 08, 2026 at 04:43:05PM +0000, Ovidiu Panait wrote:
-> > The ESVL and DOVLTC bits control S-VLAN tag processing and have
-> > nothing to do with the double VLAN feature, which only provides a way
-> > to process an additional inner VLAN tag. However, the driver code
-> > that handles them always refers to "double VLAN", which is unrelated
-> > and makes the implementation confusing. The driver does not use any
-> > of the inner VLAN tag features, and the networking core does not
-> > support offloads for the inner tag anyway.
-> >
-> > To simplify the logic and to reduce the confusion regarding S-Tag vs
-> > double VLAN handling, drop the is_double logic and add a hw_svlan_en
-> > flag that is set when S-Tag hardware handling is enabled.
->=20
-> I believe I suggested to just change the "double" word to "svlan", and
-> not to drop the respective logic completely. The number of S-VLAN tags
-> added/removed must be still counted, otherwise any subsequent VLAN
-> S-Tag removal will disable S-VLAN processing even if there are S-Tags
-> left added.
->=20
 
-While working on this I realized we don't actually need to toggle the
-S-VLAN bits on/off whenever a S-VLAN tag is added/removed. We can just
-keep them always set as long as the NETIF_F_HW_VLAN_STAG_RX or
-NETIF_F_HW_VLAN_STAG_FILTER features are advertised.
+On 9/15/26 07:48, Wentao Liang wrote:
+> st_clksrc_setup_clk() obtains the LPC clock with of_clk_get() but
+> leaks the consumer reference on two error paths: the
+> clk_prepare_enable() failure path returns without any release, and the
+> clk_get_rate() == 0 path only does clk_disable_unprepare() without
+> clk_put().
+> 
+> Add the missing clk_put() calls, mirroring the release already done in
+> st_clksrc_of_register() error handling.
+> 
+> Fixes: 70bef01c0f1c ("clocksource: sti: Provide support for the ST LPC Clocksource IP")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+> ---
+>  drivers/clocksource/clksrc_st_lpc.c | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/drivers/clocksource/clksrc_st_lpc.c b/drivers/clocksource/clksrc_st_lpc.c
+> index 419a886876e4..574b966eeb34 100644
+> --- a/drivers/clocksource/clksrc_st_lpc.c
+> +++ b/drivers/clocksource/clksrc_st_lpc.c
+> @@ -74,12 +74,14 @@ static int __init st_clksrc_setup_clk(struct device_node *np)
+>  
+>  	if (clk_prepare_enable(clk)) {
+>  		pr_err("clksrc-st-lpc: Failed to enable LPC clock\n");
+> +		clk_put(clk);
+>  		return -EINVAL;
+>  	}
+>  
+>  	if (!clk_get_rate(clk)) {
+>  		pr_err("clksrc-st-lpc: Failed to get LPC clock rate\n");
+>  		clk_disable_unprepare(clk);
+> +		clk_put(clk);
+>  		return -EINVAL;
+>  	}
+>  
 
-This simplified the S-VLAN logic quite a bit, by getting rid of the countin=
-g.
 
-Ovidiu
+Hi Haotian
 
-> -Joseph
->=20
-> >
+Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
 
+Thanks
+Patrice
 
