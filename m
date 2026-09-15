@@ -4,129 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB484C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:56:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F1B1C88E7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:59:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BxPHWNTD4L6hnARkU6EXSH4kWdMAVfIaMl336Sudec4=; b=K3wEWBIvuIw+KLhCFvnP4jZ/ax
-	YVYmXLhN+Ywi8lUdPP23oxc76sqyA22qM84wdRXKQcDwux0zEImN8fjHMbOL8osEcggUHOuwz/g4b
-	BqAm51Du0Z4SMLZUzszDsNyRKY2h9n9GqZNbPuiegrnkLUl6Jr4nRhGejIl9GGBjrr0Tt2ukwJJ3c
-	ahzHBWWqyWzcU1QH6QJTken1H0PSTD86ovFhZ1//1KedM7jH2LfN0Mnv8QZ1K+VYLBtA+25pAFlPm
-	486oZLWiCfMnnUllzQNuCuRPoSgI2O6rvnWykgMwMgvtlXaR2W0h0KjpoRWcBsRD9bDOdu4pydOY8
-	2+/Sx2/w==;
+	bh=zoQnvWJcYM6jWh3BQe6fMcD0McD2eFAd0RK9LMhbgHY=; b=c3ez1ExbR0f1hRjZSymsdgm+e1
+	WC1U2slhz7rdWcnaZ9sEsgb5XA+cmgMYftgZtSaVA03IbTPrMTI354JKksPlm/tTtmXbMf2VyhXzz
+	TgSv11cTkPpwzBWp5Jhq5BgBZw6aijw5KC7A7WYfZnH6Zz2wqXr3Eorc20Lpe3G9SAC7r0LzRd3B6
+	j2MWgVtg4ETAV0FoCjz+l2wC7Ml2sszZwC3uD6DIBys7zrFTjzI/myO6vJsxzdV9KgZ1Te44ZOBAe
+	dn5DJkep1KXSBIpRCEL7GAkcvqeC5iL3cmS//2Z00S+whJ7A4VocPUHSSk8bCk7bPRkqtn8LKURg6
+	H7LqqI6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VW5-00000007KCM-2dJS;
-	Tue, 15 Sep 2026 15:56:17 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1x6VYz-00000007KWE-0OC5;
+	Tue, 15 Sep 2026 15:59:17 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VW3-00000007KBf-2FJt
+	id 1x6VYw-00000007KVr-30Ik
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 15:56:16 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68FFVVU91231597;
-	Tue, 15 Sep 2026 15:55:58 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=BxPHWNTD4L6hnARkU6EXSH4kWdMAVf
-	IaMl336Sudec4=; b=E9kjYKDLqa8Q+ZrT0cPcL1qYV/gnwiw+sxKC49wqewEvhH
-	tIADKnBC+dls2N51zMbDqePuAYDevMoXKHla6vFDD8JoWOv96RL1jj6HJPXY9odG
-	JycOY+BiKY/H7iElmqDltBiOUlasXOq8PQLA0kq5OKgttSeCwFYsATOXT5fmWSNk
-	3UtsJSJYHtaZYUUI1qAAJ4doLYIRSy1Iv6OBvnBRvtKV5q82PaUbMZ3bWUxo8INZ
-	qFbmqcEH6ml3syFE7jWxl8OSJiea34IxLnNV2O+fvzHqipjjTZKYNhQVmslJOv+m
-	unhB2F/cUhFrMg5fRMiEbuwvStjIdz8Kayh7V29g==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gmxcuyn9w-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 15 Sep 2026 15:55:57 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68FFAb9O4140789;
-	Tue, 15 Sep 2026 15:55:57 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gq03bt272-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 15 Sep 2026 15:55:57 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68FFtrIB49742122
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 15 Sep 2026 15:55:53 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 075C420040;
-	Tue, 15 Sep 2026 15:55:53 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 8FF5720049;
-	Tue, 15 Sep 2026 15:55:49 +0000 (GMT)
-Received: from fedora (unknown [9.5.7.39])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Tue, 15 Sep 2026 15:55:49 +0000 (GMT)
-Date: Tue, 15 Sep 2026 21:33:35 +0530
-From: Amit Machhiwal <amachhiw@linux.ibm.com>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
-        Oliver Upton <oupton@kernel.org>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Sean Christopherson <seanjc@google.com>,
-        Joey Gouly <joey.gouly@arm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu <yuzenghui@huawei.com>,
-        Steffen Eiden <seiden@linux.ibm.com>,
-        Nicholas Piggin <npiggin@gmail.com>, Will Deacon <will@kernel.org>,
-        Fuad Tabba <tabba@google.com>, kvm@vger.kernel.org,
-        kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-        linux-doc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-        linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/3] KVM: PPC: Book3S HV: Fix comment naming a
- non-existent KVM_VCPU_RUN ioctl
-Message-ID: <20260915213132.36dc8e16-c4-amachhiw@linux.ibm.com>
-Mail-Followup-To: Fuad Tabba <fuad.tabba@linux.dev>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Sean Christopherson <seanjc@google.com>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Nicholas Piggin <npiggin@gmail.com>, Will Deacon <will@kernel.org>, Fuad Tabba <tabba@google.com>, 
-	kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-doc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org
-References: <20260915084441.3846947-1-fuad.tabba@linux.dev>
- <20260915084441.3846947-4-fuad.tabba@linux.dev>
+	Tue, 15 Sep 2026 15:59:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=zoQnvWJcYM6jWh3BQe6fMcD0McD2eFAd0RK9LMhbgHY=; b=VI76M3EpiySAxSb1ktCPMFl917
+	uGZxDz42m2e5P2fP7pidWvO7Wh91SdvBCOljjulFseWXX6tiQ2g6wuDFWE1eo17x9qY//kI7mw8vF
+	8jVzOcZtbAeRN7ai/O5RETKVKDl/HsytB9VartMxeDI4gpXwJ8nD45ynQpdiXx1GGRr4=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1x6VYc-005J7m-OU; Tue, 15 Sep 2026 17:58:54 +0200
+Date: Tue, 15 Sep 2026 17:58:54 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
+Cc: Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Ryan Chen <ryan_chen@aspeedtech.com>,
+	Billy Tsai <billy_tsai@aspeedtech.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 2/2] ARM: dts: aspeed: Add ASRock Rack B650D4U BMC
+Message-ID: <a132b7f1-67db-4dcb-bf9c-39dbcf7d8e04@lunn.ch>
+References: <20260830182036.284736-1-prasanth.padarthi10@gmail.com>
+ <20260915013110.4780-1-prasanth.padarthi10@gmail.com>
+ <20260915013110.4780-3-prasanth.padarthi10@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260915084441.3846947-4-fuad.tabba@linux.dev>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE1MDIyNyBTYWx0ZWRfXzIn1dK9Rs4+u
- 1ZEQ/kXTnyAJedfW8z4wkUc+E/d/fluIN3zAK/YxHn7TBgfGnVk8JCl1Vo4xL/psXanz4tD0KHN
- Qk8+rU03trQthHv6QNcjQwVMiXf22AE=
-X-Proofpoint-ORIG-GUID: 91WZ0m3lDBs7CXxyV9apPpYw-pvyJRYH
-X-Proofpoint-GUID: gJPvzoGNYexcjx6bjMrZBuLr-2VMHt02
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE1MDIyNyBTYWx0ZWRfX2lI7grsp7nJ1
- cuAIeOKMuz8GpYcvBYKxSINyr/44QJ0DukUXFCTX9jVSMoNPc8e2hL04yKEFu6QZkdb+59nh0Jd
- ccDYNy+6xXy7HYfPOCdM84EIZwhQZrY9ZZQ02ekC92bGNvoUW2mhzmoGZOjXO5Ei3Hl061hrfbu
- 0NJ9HKjIEBmau5r4ovHptHj2vsuFpFnFVRAWe4fscsP3kI5RMn/X9VVRMv8yEumnqvg2Vf+Qo3z
- wT5KDwRX02eFMCZzPVbh0PJlqdntI1LRqViiypazFF5+zw4LbY+pn0mW8soX6sVr3xuQKrdhn3B
- nDc/Wus556R+i80gYYiOpRWubLPVyZsIAsWVgUpEqnQ7+sXqX4wTIv55rmUsRV8XdEp/1LbjVgH
- wOZVpU/TMkhz0n63NDtHhGFIu1TZDWH1VLvk13Qk7+yktxo9jecZGj/frjCTs4QdRN68mKHxqoU
- UfMVdIj4nAQR3WNm6+w==
-X-Authority-Analysis: v=2.4 cv=F+7C5ahN c=1 sm=1 tr=0 ts=6aa96a8e cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
- a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=VnNF1IyMAAAA:8
- a=e7Yo3nX338CflZNYmVUA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-15_04,2026-09-15_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 suspectscore=0 phishscore=0 clxscore=1011 malwarescore=0
- lowpriorityscore=0 bulkscore=0 spamscore=0 impostorscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609150227
+In-Reply-To: <20260915013110.4780-3-prasanth.padarthi10@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_085615_696147_45E98BDE 
-X-CRM114-Status: GOOD (  24.07  )
+X-CRM114-CacheID: sfid-20260915_085914_774829_DFCD47BD 
+X-CRM114-Status: UNSURE (   7.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,32 +78,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026/09/15 09:44 AM, Fuad Tabba wrote:
-> There is no KVM_VCPU_RUN ioctl. The one that enters the guest is
-> KVM_RUN, so refer to it by that name.
-> 
-> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
-> ---
->  arch/powerpc/kvm/book3s_hv.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/powerpc/kvm/book3s_hv.c b/arch/powerpc/kvm/book3s_hv.c
-> index dbac3573b2c89..db090f4c5e95b 100644
-> --- a/arch/powerpc/kvm/book3s_hv.c
-> +++ b/arch/powerpc/kvm/book3s_hv.c
-> @@ -269,7 +269,7 @@ static void kvmppc_fast_vcpu_kick_hv(struct kvm_vcpu *vcpu)
->   * stolen time for a vcore when it is inactive, or for a vcpu
->   * when it is in state RUNNING or NOTREADY.  NOTREADY is a bit of
->   * a misnomer; it means that the vcpu task is not executing in
-> - * the KVM_VCPU_RUN ioctl, i.e. it is in userspace or elsewhere in
-> + * the KVM_RUN ioctl, i.e. it is in userspace or elsewhere in
+> +&mac0 {
+> +	status = "okay";
+> +	phy-mode = "rgmii-id";
+> +	phy-handle = <&ethphy0>;
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_rgmii1_default>;
+> +
+> +	nvmem-cells = <&eth0_macaddress>;
+> +	nvmem-cell-names = "mac-address";
+> +};
+> +
+> +&mdio0 {
+> +	status = "okay";
+> +
+> +	ethphy0: ethernet-phy@0 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <0>;
+> +	};
+> +};
 
-The erroneous name was introduced by commit c7b676709c16 ("KVM: PPC: Book3S HV:
-Fix accounting of stolen time") and has sat untouched since.  KVM_VCPU_RUN was
-never a real ioctl; KVM_RUN is correct.
+For these nodes only:
 
-Reviewed-by: Amit Machhiwal <amachhiw@linux.ibm.com>
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-Thanks,
-Amit
+    Andrew
 
