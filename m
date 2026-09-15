@@ -4,112 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CDDCC88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 12:42:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31CD1C88E7B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 12:45:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ve43d7pTFVOMTSVWgJo3u0Un/jBoaP9onTkW8Y5KW4w=; b=zdjmBNBPdvFsokRsqKy7A7NY2a
-	Wpqz+kOnTi0fEA/gjK2bvet6efk1W9AeUJu0apv92/zn63qHqVTP5Du90zabH3bkMGPI6nLLmFu1M
-	JKF7lE9ctdmZ49l7LvOKqtvHS/0vID7ixgMXeFutfd8CXEqD3FsWdSB9zXUc5liyag5YCsUUJvia0
-	qSJczVxp8yliME/k6ah528MKMZz5BHVi+OWo5B3n5sxVH+mYnNK79cZMyI9eCJ21A75eRJzN3gsHS
-	Mj23eVD0EeBbQfdFWTA8CeBm6Eg6kUBK4LHlqkKR/dwqa0BPMXz4M/H7Fx3/CtEm8FbIpuNUnpt/n
-	abi07QmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=adr6bIcZ9Ra7g51I3aOOtyaarHG12NwHmAmurm04PUg=; b=whJyDc42DHi5ISV9DHXjkjW+W/
+	GJJyLDsXAErg9Pe/W6NJKeskGDrAgbbS2CN2jU3l/2UjBq0NDf00xzxBarEVn1tvKVJikT+Qe3abj
+	zATYStEfs4kTTwejaT0TYk/3LDme/XMjLTdcuBR2nYAMYA347JSXtw4Y0c0JppYYgXDkjfr/wdSV1
+	oDqAQJDDdekPD9Hffiw6HCGOtr0oCy1Jt4Htuh7BbWT1RMWIzyN4tHulLK6+l512R00G1b6aR8mv4
+	uQPx7jmKg6+ZvQhnnvFqo6duhz9CAX1p5JlLndjXd2CYFJv0iw/3+sziyn+mLSdseuN50BBsEL2OL
+	JdWMo1sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6SUH-00000006aDW-35Hf;
-	Tue, 15 Sep 2026 12:42:13 +0000
-Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
+	id 1x6SRO-00000006XVR-18fH;
+	Tue, 15 Sep 2026 12:39:14 +0000
+Received: from out-23.mta0.migadu.com ([2001:41d0:1004:224b::17] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6SUD-00000006aC1-0l1r
+	id 1x6SR4-00000006Wtg-00e1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 12:42:11 +0000
-Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-48583cc7ab1so1439514f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 05:42:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1789476127; x=1790080927; darn=lists.infradead.org;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=Ve43d7pTFVOMTSVWgJo3u0Un/jBoaP9onTkW8Y5KW4w=;
-        b=SIuv+2AqbxC8DX9AFFchYsmZRnLgfE37ttxC+3RHMTE+1Dd1ZviWbDTi3I8gdmgAGm
-         Fip2/uU4tzNzxJiFAODOvC89V4QTMeUk8Jza5SMtksXwyivfx1MYn/R0rSB7z+45CF22
-         FNXdUZyJmFeNp7wpE8Qy5oMUGPxwGJ7pbULjeur1y4LZbGOJaCu2rOL8nVmGlA3YdeoM
-         yN3IBjBmckH3EaRuh+/MdzvDUoEdYQs9Gd/CclZ/iXp13LvKg1N/dNEaKlmrkRmDqbXW
-         HTk0br635uGZEBvb6HhGqw1ad8BUS+xlzgTVq26jN+QhVh5JIupfuaJrLkcgtKGns1Ml
-         Fjqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789476127; x=1790080927;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Ve43d7pTFVOMTSVWgJo3u0Un/jBoaP9onTkW8Y5KW4w=;
-        b=mPeAz9Vj6fhwMabAjjyx3hvZcqaNZYC48IQKf4KWOc/RdikEiMR3N/jIfjAOOZf+wa
-         rRpD2U53zacyOfnEGg4MjYakH43zkVefOmjdX5+V0UkpdsE5rPU1i44UIPFgaWC152cA
-         8wZF2C6L8EmpwOLhWZ9H5QvD6/X/MKMMjRDcRkjErrqrl3r0yDnvgbBYP9XkZZ47a4gb
-         g3z4gnf/UgV2dUBM9Mk4yqZv2FYiu7YIAAInMDRccx0ye5el7J7/7ovfLAmW5Xt6Gkum
-         8RpPulRIBmsoGKCrJHGsXuVeb1SovdtABREpraJdcvWfvAPZQzO6Vz5mbdNeZsArlLKr
-         kMkw==
-X-Forwarded-Encrypted: i=1; AKwUvBwizSXolGkCe6vG9CZp0bs4926c6OYVIKVMGwqcfSm6U+hMEHrgNZYMCwCl9x6q2Xih0hUPgJ2jlPrVcOI94MXQ@lists.infradead.org
-X-Gm-Message-State: AFuF++kktLwsXrF5Sxi87QIAeUeJIzvrlDewCsfMzPhRQZidrJT49vi5
-	0CNTvhlyLuU2hqQkeO4cZlstNFAsf//Ojg3sb0R9R0rj5mx9HM8pBgGIVrtAfWV/vNE=
-X-Gm-Gg: AYBFou3f//Sn4FIkutL9ikk5yB+/Xk62JroQYTX35aZyB0F2GICdxu1i0tg03m/BRj1
-	gK/ay2CX9kkpcpQMmPEC3GCWUcaifUaCyV4UxDngDoDQRs4h6SYcaM8/Ecl4hEvOM1DfGe59owO
-	+MaWUHGIcF1DO4AeBxUWZksKUb92ZrRtDlT7LkUR/J4YGe7U0vjPAVT9hH4fq+aHrr6U45RXy7z
-	Cjoe1Rwn7F2vY07h+dn+tIooYyGNJW/ThWa7vZTNwgJGdHfx0LkmAi47BYpUNYyFh6rJkjMy7Z2
-	6Xp6UvgveJvviNdU5Y27hux1uZVQXPR5w/Gt+Xp08lDevuRGBdn2PzDnFBnNLEdIGmGrWHXMQq0
-	0GKyQ3xpE066I+GnfuE6I2rYmOXf8SS0NtfURPXV/JElplRV1LATYyC1lefpaN/oyigftIiLdll
-	nmR/1cjEc9EKM9cZCH8f2jjJFvP1uk+Tt0Jpw1M1vr6j5T84aN/eq95rr66P4mKmg/0fqjvHowD
-	IWJeKf5sX1iC7llCHM=
-X-Received: by 2002:a05:6000:470c:b0:486:f4cf:59b2 with SMTP id ffacd0b85a97d-48702aae4e6mr8151011f8f.4.1789476127347;
-        Tue, 15 Sep 2026 05:42:07 -0700 (PDT)
-Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-486eb35f3d9sm33532218f8f.35.2026.09.15.05.42.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Sep 2026 05:42:06 -0700 (PDT)
+	Tue, 15 Sep 2026 12:38:55 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=9BK6KSWU/pNCdY7VOPXtWIpA+Tq/NOwuoRA+4C/MS3w=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1789475931; v=1; x=1790080731;
+ b=CcZ8qJLThzDjrfhqDCYCRRWFtKc63foPJvNXHo57GxcjdmYs96KpNVVLrN/7AKL+JklT9FEC
+ Vz5xcTQeB7FQOaTFvLp2kdOqHLkonqiM5/LJeNxDfYigLBD4Nh5R39BeZbEubQ+u57QbUuBfuNV
+ Y36miWvUtqeNaDz2ur0SZQ48=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 2862c013ce371715;
+	Tue, 15 Sep 2026 12:38:50 +0000
+X-Mizu-Trace-ID: 2862c013ce371715
+X-Migadu-Flow: FLOW_OUT
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: maz@kernel.org,
+	oupton@kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	mark.rutland@arm.com,
+	vdonnefort@google.com,
+	qperret@google.com,
+	Sascha.Bischoff@arm.com,
+	steven.price@arm.com,
+	tabba@google.com
+Subject: [PATCH 0/7] KVM: arm64: pKVM host hypercall and GICv5 CPU interface fixes
+Date: Tue, 15 Sep 2026 13:38:39 +0100
+Message-Id: <20260915123846.2317931-1-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v14 06/11] clk: realtek: Add support for gate clock
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Yu-Chun Lin <eleanor.lin@realtek.com>
-Cc: sboyd@kernel.org, bmasney+clk@redhat.com, jbrunet+clk@baylibre.com, 
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
- p.zabel@pengutronix.de, cylee12@realtek.com, afaerber@suse.com, 
- jyanchou@realtek.com, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-realtek-soc@lists.infradead.org, james.tai@realtek.com, 
- cy.huang@realtek.com, stanley_chang@realtek.com, 
- Brian Masney <bmasney@redhat.com>
-In-Reply-To: <20260901072446.2563145-7-eleanor.lin@realtek.com>
-References: <20260901072446.2563145-1-eleanor.lin@realtek.com>
- <20260901072446.2563145-7-eleanor.lin@realtek.com>
-Date: Tue, 15 Sep 2026 14:42:04 +0200
-Message-Id: <178947612411.448573.8319851834736456413.b4-reply@b4>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6855; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=582/7s3JxsfQWjUN6EMHISrALdyatqiIyfqpimTuSgs=;
- b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBqqT0c9mkExB03yY3YHr0fhg3XGhRRzOgE7qYbx
- W7L0HKibU6JAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCaqk9HAAKCRDm/A8cN/La
- hUCHD/wLct30ewH+5Y3QuClGJamgZYobFou8PoCe8ZNwegUjci+LL8dHd3LcPTENTfOHXYFlgkQ
- PVDdSqnMGkiIKdJ+TaI92nbPkyt10u920xrR5yGCGE+qZ/wPHxlqjBu6zRUo47KLDJUEGbL7D48
- +anKtOEZ3A08V2uIO6RiH/2UsE8JJvAZHVeY0u2K84trqjeBp1DiQe/JSTEAGiSHTjA8ZttkIe3
- 25FEOUjZ+pbm8G4MeN7gvS2VjLogBvQtHlc90hdCcViOgPqP5SrOcodAOFVeaFuZKTLjbOH6aXO
- QhBHsQqscoL9OJiDBDe+l22fRIMiCPvDS0pwoeZC48RrFRuGikqcqk4GWCRqHEltrxgh/d31Gly
- g7BVtv5s+ZSnyHL4p95rVQUNzzc3uAiQ8Llp3hOVayemE/TWZP4BRMLdrSPVgYAvs/yuJyFTK3l
- FBAYULGRs2mxJmlEhjcOtyjTJDBw+6qsx8YOpgJIeawB3NBo3sM/Pw9/1D4LIfm2e69modjwPRb
- l7WAxge1vw+kHz8c/yeIII68hVKqg0fBgEKVxUi8oIysPoL8BVtFt+NefV0TSDcNnt/CEMy3BtM
- Ykad0qE9ldVDgxCCcebuqZMX1e/zfwRqnnJWIciP7QPGLBsUl+CVPgyvX8Aam+s6F5neGVnQO/r
- SjATklyYSJCn07g==
-X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
- fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_054210_259466_10EA8008 
-X-CRM114-Status: GOOD (  23.76  )
+X-CRM114-CacheID: sfid-20260915_053854_198924_54B68A9C 
+X-CRM114-Status: GOOD (  16.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,196 +81,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-09-01 15:24 +0800, Yu-Chun Lin wrote:
-> From: Cheng-Yu Lee <cylee12@realtek.com>
-> 
-> Introduce clk_regmap_gate_ops supporting enable, disable, is_enabled, and
-> for standard regmap gate clocks.
-> 
-> Add clk_regmap_gate_ro_ops as a read-only variant exposing only is_enabled.
-> 
-> Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
-> Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-> Reviewed-by: Brian Masney <bmasney@redhat.com>
-> Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-> ---
-> Changes in v14:
-> - Move Reviewed-by tag to the correct position.
-> ---
->  drivers/clk/realtek/Makefile          |  1 +
->  drivers/clk/realtek/clk-regmap-gate.c | 70 +++++++++++++++++++++++++++
->  drivers/clk/realtek/clk-regmap-gate.h | 65 +++++++++++++++++++++++++
->  3 files changed, 136 insertions(+)
->  create mode 100644 drivers/clk/realtek/clk-regmap-gate.c
->  create mode 100644 drivers/clk/realtek/clk-regmap-gate.h
-> 
-> diff --git a/drivers/clk/realtek/Makefile b/drivers/clk/realtek/Makefile
-> index 71edc18121c6..840aff067b61 100644
-> --- a/drivers/clk/realtek/Makefile
-> +++ b/drivers/clk/realtek/Makefile
-> @@ -3,4 +3,5 @@ obj-$(CONFIG_RTK_CLK_COMMON) += clk-rtk.o
->  
->  clk-rtk-y += clk-rtk-common.o
->  clk-rtk-y += clk-pll.o
-> +clk-rtk-y += clk-regmap-gate.o
->  clk-rtk-y += freq_table.o
-> diff --git a/drivers/clk/realtek/clk-regmap-gate.c b/drivers/clk/realtek/clk-regmap-gate.c
-> new file mode 100644
-> index 000000000000..1c32a87d97df
-> --- /dev/null
-> +++ b/drivers/clk/realtek/clk-regmap-gate.c
-> @@ -0,0 +1,70 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2017-2026 Realtek Semiconductor Corporation
-> + * Author: Cheng-Yu Lee <cylee12@realtek.com>
-> + */
-> +
-> +#include <linux/bits.h>
-> +#include <linux/clk-provider.h>
-> +#include <linux/export.h>
-> +#include <linux/regmap.h>
-> +#include "clk-regmap-gate.h"
-> +
-> +static int rtk_clk_regmap_gate_enable(struct clk_hw *hw)
-> +{
-> +	struct rtk_clk_regmap_gate *clkg = to_rtk_clk_regmap_gate(hw);
-> +	unsigned int mask;
-> +	unsigned int val;
-> +
-> +	mask = BIT(clkg->bit_idx);
-> +	val = BIT(clkg->bit_idx);
-> +
-> +	if (clkg->write_en) {
-> +		mask |= BIT(clkg->bit_idx + 1);
-> +		val |= BIT(clkg->bit_idx + 1);
-> +	}
-> +
-> +	return regmap_update_bits(clkg->clkr.regmap, clkg->gate_ofs, mask, val);
-> +}
-> +
-> +static void rtk_clk_regmap_gate_disable(struct clk_hw *hw)
-> +{
-> +	struct rtk_clk_regmap_gate *clkg = to_rtk_clk_regmap_gate(hw);
-> +	unsigned int mask;
-> +	unsigned int val;
-> +
-> +	mask = BIT(clkg->bit_idx);
-> +	val = 0;
-> +
-> +	if (clkg->write_en) {
-> +		mask |= BIT(clkg->bit_idx + 1);
-> +		val |= BIT(clkg->bit_idx + 1);
-> +	}
+Hi folks,
 
-Could add a comment explaining this write_en thing ? Some kind of volatile bit to commit the change ?
+This series consolidates three postings, which it supersedes:
+  - The stage-2 MMU pointer hypercall rejection [1]: patch 2, reworked
+    to move the hypercalls out of the always-available band instead of
+    guarding each handler, and covering __kvm_flush_vm_context() too
+    (Marc). __kvm_flush_cpu_context() stays in the set, which the
+    sketch on the thread left out.
+  - The GICv5 CPU interface series [2]: its hypercall patch reworked
+    the same way, as patch 1, and its other three as patches 3, 6 and
+    7, with 3's comment and 7's message trimmed and 6 unchanged.
+    Sascha's Reviewed-by on the reworked patch isn't carried, the code
+    having changed.
+  - The __kvm_adjust_pc() host pointer fixes [3]: patches 4 and 5,
+    with Vincent's and Joey's nits taken and their Reviewed-by
+    collected. (thanks!)
 
-> +
-> +	regmap_update_bits(clkg->clkr.regmap, clkg->gate_ofs, mask, val);
+Under pKVM, EL2 still trusts the host at the hypercall boundary in a
+few places: hypercalls the host has no use for in protected mode stay
+callable, the __kvm_adjust_pc() hypercall it does use takes a host
+vCPU nothing pins or validates, and the vgic model EL2 copies out of
+the host's struct kvm goes unchecked.
 
-Nitpick: the 2 functions above more less copy/paste. 
+Patches 1 and 2 move the GICv5 CPU interface save/restore and the
+stage-2 flushes into the band the dispatcher rejects once pKVM has
+finalised. Patch 3 validates the vgic model EL2 copies from the host.
+Patches 4 and 5 fix two host pointers dereferenced unvalidated on the
+__kvm_adjust_pc() path, the vCPU's VM and the vCPU itself: either
+panics the hypervisor if unmapped, and the VM read leaks a bit of hyp
+memory through PSR_TCO on MTE hardware. Both carry Cc: stable. The
+pKVM core series [4] carries the same two fixes as its patches 2 and
+3, in the form posted before Vincent's nits, so that it applies as
+is. Patches 6 and 7 are the rest of [2]: the EL1 side of the GICv5
+access on nVHE, and a comment fix.
 
-> +}
-> +
-> +static int rtk_clk_regmap_gate_is_enabled(struct clk_hw *hw)
-> +{
-> +	struct rtk_clk_regmap_gate *clkg = to_rtk_clk_regmap_gate(hw);
-> +	int ret;
-> +	u32 val;
-> +
-> +	ret = regmap_read(clkg->clkr.regmap, clkg->gate_ofs, &val);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	return !!(val & BIT(clkg->bit_idx));
-> +}
-> +
-> +const struct clk_ops rtk_clk_regmap_gate_ops = {
-> +	.enable     = rtk_clk_regmap_gate_enable,
-> +	.disable    = rtk_clk_regmap_gate_disable,
-> +	.is_enabled = rtk_clk_regmap_gate_is_enabled,
-> +};
-> +EXPORT_SYMBOL_NS_GPL(rtk_clk_regmap_gate_ops, "CLK_REALTEK");
-> +
-> +const struct clk_ops rtk_clk_regmap_gate_ro_ops = {
-> +	.is_enabled = rtk_clk_regmap_gate_is_enabled,
-> +};
-> +EXPORT_SYMBOL_NS_GPL(rtk_clk_regmap_gate_ro_ops, "CLK_REALTEK");
-> diff --git a/drivers/clk/realtek/clk-regmap-gate.h b/drivers/clk/realtek/clk-regmap-gate.h
-> new file mode 100644
-> index 000000000000..9303adda3166
-> --- /dev/null
-> +++ b/drivers/clk/realtek/clk-regmap-gate.h
-> @@ -0,0 +1,65 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (C) 2017-2026 Realtek Semiconductor Corporation
-> + * Author: Cheng-Yu Lee <cylee12@realtek.com>
-> + */
-> +
-> +#ifndef __CLK_REALTEK_CLK_REGMAP_GATE_H
-> +#define __CLK_REALTEK_CLK_REGMAP_GATE_H
-> +
-> +#include "clk-rtk-common.h"
-> +
-> +struct rtk_clk_regmap_gate {
-> +	struct rtk_clk_regmap clkr;
-> +	unsigned int gate_ofs;
-> +	u8 bit_idx;
-> +	u32 write_en : 1;
-> +};
-> +
-> +#define __rtk_clk_regmap_gate_hw(_p) __rtk_clk_regmap_hw(&(_p)->clkr)
-> +
-> +#define __RTK_CLK_REGMAP_GATE(_name, _parent, _ops, _flags, _ofs, _bit_idx, \
-> +			      _write_en)                                    \
-> +	struct rtk_clk_regmap_gate _name = {                                \
-> +		.clkr.hw.init = CLK_HW_INIT(#_name, _parent, _ops, _flags), \
-> +		.gate_ofs = _ofs,                                           \
-> +		.bit_idx = _bit_idx,                                        \
-> +		.write_en = _write_en,                                      \
-> +	}
-> +
-> +#define RTK_CLK_REGMAP_GATE(_name, _parent, _flags, _ofs, _bit_idx, _write_en)        \
-> +	__RTK_CLK_REGMAP_GATE(_name, _parent, &rtk_clk_regmap_gate_ops, _flags, _ofs, \
-> +			      _bit_idx, _write_en)
-> +
-> +#define RTK_CLK_REGMAP_GATE_RO(_name, _parent, _flags, _ofs, _bit_idx, _write_en)  \
-> +	__RTK_CLK_REGMAP_GATE(_name, _parent, &rtk_clk_regmap_gate_ro_ops, _flags, \
-> +			  _ofs, _bit_idx, _write_en)
-> +
-> +#define __RTK_CLK_REGMAP_GATE_NO_PARENT(_name, _ops, _flags, _ofs, _bit_idx,  \
-> +				    _write_en)                                \
-> +	struct rtk_clk_regmap_gate _name = {                                  \
-> +		.clkr.hw.init = CLK_HW_INIT_NO_PARENT(#_name, _ops, _flags),  \
-> +		.gate_ofs = _ofs,                                             \
-> +		.bit_idx = _bit_idx,                                          \
-> +		.write_en = _write_en,                                        \
-> +	}
-> +
-> +#define RTK_CLK_REGMAP_GATE_NO_PARENT(_name, _flags, _ofs, _bit_idx, _write_en)        \
-> +	__RTK_CLK_REGMAP_GATE_NO_PARENT(_name, &rtk_clk_regmap_gate_ops, _flags, _ofs, \
-> +				    _bit_idx, _write_en)
-> +
-> +#define RTK_CLK_REGMAP_GATE_NO_PARENT_RO(_name, _flags, _ofs, _bit_idx, _write_en)  \
-> +	__RTK_CLK_REGMAP_GATE_NO_PARENT(_name, &rtk_clk_regmap_gate_ro_ops, _flags, \
-> +				    _ofs, _bit_idx, _write_en)
-> +
-> +static inline struct rtk_clk_regmap_gate *to_rtk_clk_regmap_gate(struct clk_hw *hw)
-> +{
-> +	struct rtk_clk_regmap *clkr = to_rtk_clk_regmap(hw);
-> +
-> +	return container_of(clkr, struct rtk_clk_regmap_gate, clkr);
-> +}
-> +
-> +extern const struct clk_ops rtk_clk_regmap_gate_ops;
-> +extern const struct clk_ops rtk_clk_regmap_gate_ro_ops;
-> +
-> +#endif /* __CLK_REALTEK_CLK_REGMAP_GATE_H */
-> -- 
-> 2.43.0
-> 
-> 
+Patch 2 carries no Fixes: tag, no in-tree host path reaching those
+hypercalls under pKVM; patch 1 keeps the one it was posted with.
 
+The GICv5 residency and VDPEND hypercalls queued for 7.4 carry the
+per-handler check the superseded GICv5 patch used, and can move the
+same way.
+
+Superseded postings:
+  - 20260914174521.832575-1-fuad.tabba@linux.dev
+  - 20260817103228.1203140-1-fuad.tabba@linux.dev (and its v1,
+    20260806100256.371164-1-fuad.tabba@linux.dev)
+  - 20260915070418.3209779-1-fuad.tabba@linux.dev (and its v1,
+    20260914065136.3418404-1-fuad.tabba@linux.dev)
+
+Based on v7.3-rc3 (fd73f4a665989). On kvmarm/next, patches 1 and 2
+conflict with the new GICv5 hypercall IDs and patch 5 with the typed
+hypercall handlers.
+
+Cheers,
+/fuad
+
+[1] https://lore.kernel.org/all/20260914174521.832575-1-fuad.tabba@linux.dev/
+[2] https://lore.kernel.org/all/20260817103228.1203140-1-fuad.tabba@linux.dev/
+[3] https://lore.kernel.org/all/20260915070418.3209779-1-fuad.tabba@linux.dev/
+[4] https://lore.kernel.org/all/20260914113338.159227-1-fuad.tabba@linux.dev/
+
+Fuad Tabba (7):
+  KVM: arm64: Reject the GICv5 CPU interface hypercalls under pKVM
+  KVM: arm64: Reject the stage-2 flush hypercalls under pKVM
+  KVM: arm64: Validate the host-provided vgic model in pKVM
+  KVM: arm64: Validate the host vCPU's VM before reading it under pKVM
+  KVM: arm64: Pin the host vCPU before adjusting its PC under pKVM
+  KVM: arm64: vgic: Do not access the GICv5 CPU interface from EL1
+  KVM: arm64: Fix stale VGICv3 comments in the nVHE world switch
+
+ arch/arm64/include/asm/kvm_asm.h           | 16 ++++----
+ arch/arm64/kvm/hyp/exception.c             |  5 ++-
+ arch/arm64/kvm/hyp/include/hyp/adjust_pc.h | 28 +++++++++++++
+ arch/arm64/kvm/hyp/include/nvhe/pkvm.h     |  2 +
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c         | 36 +++++++++++++----
+ arch/arm64/kvm/hyp/nvhe/pkvm.c             | 47 +++++++++++++++++++++-
+ arch/arm64/kvm/hyp/nvhe/switch.c           |  4 +-
+ arch/arm64/kvm/vgic/vgic.c                 | 12 ++++--
+ 8 files changed, 125 insertions(+), 25 deletions(-)
+
+
+base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
+-- 
+2.39.5
 
 
