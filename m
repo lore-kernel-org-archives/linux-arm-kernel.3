@@ -4,78 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A262AC88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 05:57:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBD26C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 06:08:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=eVqVzXvC7FhgH2qzE30Soqpphj9qV3FTiiygsQL9+Lk=; b=D7TS912KqLzI3ikZlCDpuZqsyi
-	4rvkfPFiwZhHbOKRhHWwMx1xS4TFBa2xM4coSBXKjRTlK4n5a9hK3NKgcdzfhz88z9pcYLZnR4WZ8
-	LVKOjaOIuanDGpDNWjaCiy3Dc4xO1PRS0djm5p7UfvIaJFiDZbsYj1g3xaQx3k1h+RoCq//yzhbc0
-	A0JBOv2ZJoTho+AdKPqLsQmDL83wSWrpmRHjXqjWteuyhdiSAoN69vqggf/VDH4Lwrr6hDpCifHiW
-	01yvRHhbRfKxQcJLx1CZVLcfu7m24HfYPPUKkydapsYRYAjef2lFqk9lyN9t9IwHOAH58WV8jxUmG
-	5bR9sskw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YJ/ZVEdkNsjrbjg2YrtoA+pGCWrHgTsXZF53fBuFvuY=; b=kzbqB+9P7YqcbLp8I4tihzC4kV
+	yXp5hKxJ9d7qC8aH4egVZiAXR30AGNCRSxfCG7lwu6OuCNGhFNhcupgQy+xZ4SVcxVlBoNzdzm8K8
+	eSScUYUyJSHq5aQasGrUnyv7ccFjO510QzgwQAWGlly94u16sp5sTY/UOGknbWM4wxPXSfyW/Ph1z
+	BXb7cZPALDaD85Kg/3xApCkXAZGutSQEiUKhnSsgwOR4Yd3Swyk5tq6M0LJS7/tXipFh+voSeEUV7
+	oBgSiD2+cOmOrcQGd4RIiJ4aYFQ++L5J4q5kySUICVsCwxXxfzXse0nfIuHbPGy7RImkANZlDPPXu
+	daBH6EdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6MAC-00000005K0e-350A;
-	Tue, 15 Sep 2026 05:57:04 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1x6ML2-00000005KXc-0j1X;
+	Tue, 15 Sep 2026 06:08:16 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6MAA-00000005K04-1KX4
+	id 1x6ML0-00000005KXH-1jFo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 05:57:04 +0000
-Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
-	by APP-01 (Coremail) with SMTP id qwCowADXq+8r3qhqb1IKCA--.33350S2;
-	Tue, 15 Sep 2026 13:57:00 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: Frank.Li@nxp.com
-Cc: abelvesa@kernel.org,
-	bmasney@redhat.com,
-	festevam@gmail.com,
-	imx@lists.linux.dev,
-	kernel@pengutronix.de,
-	linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	mturquette@baylibre.com,
-	peng.fan@nxp.com,
-	s.hauer@pengutronix.de,
-	sboyd@kernel.org,
-	shawnguo@kernel.org,
-	Wentao Liang <vulab@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH] clk: imx: Fix clock reference leak in imx_obtain_fixed_clock_hw()
-Date: Tue, 15 Sep 2026 05:56:31 +0000
-Message-Id: <20260915055631.1730231-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	Tue, 15 Sep 2026 06:08:15 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-3856d6fbcb3so4005663a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 23:08:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789452493; x=1790057293; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YJ/ZVEdkNsjrbjg2YrtoA+pGCWrHgTsXZF53fBuFvuY=;
+        b=cpcqzEWQA2cfet8OCMrKm4S1aWDLVXY3g5wH0KQySBhn8WDoeJBoSy5YF5b61pSL2b
+         5M5gFJ/RjLGqAhH7FAW/ShIDMkI7sp8fzGYzsDa1Y4DSyDNIvYV32oFqwi1+lwVb3GCW
+         jvJZxPfg5NMbIG79SCXOTL+rU8EWC8gozt5I0ZpO9tm1g9V0AHEkUqyugYl/qT6ypwkb
+         QoSx4hRfflRZTrS4Zj8RtvcfHH96QWZksXXPZhUtu6OCUjDUgwsid6wg9x0PcWrik3fF
+         oCAfORuKO4CHjfryT905y2UPMMKX7YGwYxlv4YmFjKz8BqGW1o5rJfOr+eBAnuQR8LCY
+         Mdqg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789452493; x=1790057293;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=YJ/ZVEdkNsjrbjg2YrtoA+pGCWrHgTsXZF53fBuFvuY=;
+        b=ZtBY5lBz2NdvbWA5jRmaak7nmfOhuE9wsXCD3Sya4Y7WteZfccI4KA1TSApiQCWtFd
+         2uyaBaKtyK8AxOSZ0gMdJ06rNEqheVOsXRaHHvos/+sCc+dlQtHKKZPTRk2NUMIulLBP
+         kvIrU3tp5jMKy0ffwXOWToURvhNyn5I1cVSDHTKA5bBQvWsMrXA6UeFqVPaeoOQPdR8I
+         FTeO5UR2zfCVed0fdwPDoQ4dyM6W3He/BYXDwRD7U8MOMFR6BN/oqS0iZETqc0+0tVZd
+         ZTGSpmq8poR34lAbt8/rD8Zo2Z8U8rja3r6KjMLPRCnlrtKJ1oVBCUgVZ+pLq2lL62eL
+         4zrA==
+X-Forwarded-Encrypted: i=1; AKwUvByULAKQrmEUv/Q6oGE2c01STQsaPaw/K+5zZqvydr43pLsNC1m7qX98aZkAY2EBGS8E7T8fLrWrJI1M9TPwMclC@lists.infradead.org
+X-Gm-Message-State: AFuF++mYQE+YwvcGzUafXP+szeeGC2q8bhqLlWL4cY+fbvr10XU2p7an
+	5G+NoxezzHxa/NaPEZiteaph3u3DyM0DpvcOl48sZ93lfrbu7LggGoyU
+X-Gm-Gg: AYBFou0a+IqhQywe2rac5b998DfUEBxEdpyWr6+cfIgmwoI4TbsZPZRS0+LOZVGTS+y
+	90qK+YqYZMQVOHfcQ5j3otny+I4RYJ/tC74K61qznOMFUtGQ63KW5ytHoNRndnKMHI/nvkg8YKV
+	rGGio8q2uh5K9ZG7Hj6MhxJ4JYv5B857nZau7RWlA+BQboa5epZV/aFoYkhkcUT2c8nonhqB9fN
+	f7XIi1o3IqhfZjEsL/KZDRGdOWmYIw7kupOd1WvPINYdROW3EGNT3Wj280paKdu54CVr4lgvwpx
+	K7F+aCqe+ADYTcPsevw4qQJJh/Wqd4tzS3FTPij/Mvpo6nCUwWfl8qb/BCOQ7gCN0t+zxL462uf
+	5gcjsVUIFxkKnZXFoMSbwGfaPCrMtMPNMtk2p/axl4RFLMjLOyuBovWSdMisqwI5U3MQyjSy//j
+	M/f9eUgXqw+hmpwOgce/jE7fRsDckRkLc260fxGxfWx+b7Y/S3k34y9nbPGMNiR8yLGeTyVJlVk
+	dPjwxe9HOD167uZSIvYI9yRA6sOe5QrKloNjihHUMWyVumCguWXPBw=
+X-Received: by 2002:a17:90b:4a8c:b0:39e:261:4e12 with SMTP id 98e67ed59e1d1-39e02615623mr3589464a91.23.1789452493406;
+        Mon, 14 Sep 2026 23:08:13 -0700 (PDT)
+Received: from [172.19.1.47] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39dfda7d765sm3146170a91.10.2026.09.14.23.08.11
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 14 Sep 2026 23:08:12 -0700 (PDT)
+Message-ID: <4997b79c-fb9d-44be-a9ee-1af2d6e5d0f9@gmail.com>
+Date: Tue, 15 Sep 2026 14:08:09 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: qwCowADXq+8r3qhqb1IKCA--.33350S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7uw18CFWkXw1fJFy7KF4fAFb_yoW8Gr1kpr
-	4kWrWYk3ySkryS9F17Jr4UZF9Yga1kZFyUK3s3W3W8ur9xXay7tF18C34vgr40yrZYkw13
-	XF1agFn5KF4YyF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9I14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUtVWrXwAv7VC2z280aVAFwI0_Gr1j6F4UJwAm72CE4IkC6x0Yz7v_Jr
-	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E
-	8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFV
-	Cjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWl
-	x4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1I6r
-	4UMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j
-	6r1xMIIF0xvEx4A2jsIE14v26r4j6F4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJb
-	IYCTnIWIevJa73UjIFyTuYvjfUogAwDUUUU
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAMLA2qowzNfoQAAsL
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] rtc: ma35d1: fix permanent clock reference/enable-count
+ leak in probe
+To: Cong Nguyen <congnt264@gmail.com>, Jacky Huang <ychuang3@nuvoton.com>
+Cc: Shan-Chun Hung <schung@nuvoton.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260914131850.2331670-1-congnt264@gmail.com>
+Content-Language: en-US
+From: Jacky Huang <ychuang570808@gmail.com>
+In-Reply-To: <20260914131850.2331670-1-congnt264@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_225702_727430_5C1F3C73 
-X-CRM114-Status: UNSURE (   9.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260914_230814_462188_A0B6EFB9 
+X-CRM114-Status: GOOD (  13.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,46 +106,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-imx_obtain_fixed_clock_hw() obtains the clock through
-imx_obtain_fixed_clock_from_dt(), which creates a consumer reference
-via of_clk_get_from_provider(). The reference is discarded right after
-__clk_get_hw() returns the hardware pointer, leaking it.
+> diff --git a/drivers/rtc/rtc-ma35d1.c b/drivers/rtc/rtc-ma35d1.c
+> index cfcfc28060f6..43358d68565a 100644
+> --- a/drivers/rtc/rtc-ma35d1.c
+> +++ b/drivers/rtc/rtc-ma35d1.c
+> @@ -221,14 +221,10 @@ static int ma35d1_rtc_probe(struct platform_device *pdev)
+>          if (IS_ERR(rtc->rtc_reg))
+>                  return PTR_ERR(rtc->rtc_reg);
+>
+> -       clk = of_clk_get(pdev->dev.of_node, 0);
+> +       clk = devm_clk_get_enabled(&pdev->dev, NULL);
+>          if (IS_ERR(clk))
+>                  return dev_err_probe(&pdev->dev, PTR_ERR(clk), "failed to find rtc clock\n");
+>
+> -       ret = clk_prepare_enable(clk);
+> -       if (ret)
+> -               return ret;
+> -
+>          if (!(rtc_reg_read(rtc, MA35_REG_RTC_INIT) & RTC_INIT_ACTIVE)) {
+>                  ret = ma35d1_rtc_init(rtc, RTC_INIT_TIMEOUT);
+>                  if (ret)
+> --
+> 2.25.1
+>
 
-Keep the imx_clk_fixed() fallback unchanged and drop the DT-obtained
-consumer reference with clk_put() once the hardware pointer has been
-extracted.
+Hi Cong,
 
-Fixes: a4a4069f4523 ("clk: imx: Add imx_obtain_fixed_clock clk_hw based variant")
-Cc: stable@vger.kernel.org
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
----
- drivers/clk/imx/clk.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+Thanks for fixing this.
 
-diff --git a/drivers/clk/imx/clk.c b/drivers/clk/imx/clk.c
-index e113e30514fa..49e51e949f71 100644
---- a/drivers/clk/imx/clk.c
-+++ b/drivers/clk/imx/clk.c
-@@ -95,11 +95,16 @@ struct clk_hw *imx_obtain_fixed_clock_hw(
- 			const char *name, unsigned long rate)
- {
- 	struct clk *clk;
-+	struct clk_hw *hw;
- 
- 	clk = imx_obtain_fixed_clock_from_dt(name);
- 	if (IS_ERR(clk))
--		clk = imx_clk_fixed(name, rate);
--	return __clk_get_hw(clk);
-+		return __clk_get_hw(imx_clk_fixed(name, rate));
-+
-+	hw = __clk_get_hw(clk);
-+	clk_put(clk);
-+
-+	return hw;
- }
- 
- struct clk_hw *imx_obtain_fixed_of_clock(struct device_node *np,
--- 
-2.34.1
+The conversion to devm_clk_get_enabled() correctly fixes the
+clock reference and enable-count leak while preserving the RTC
+clock behavior during the device lifetime.
 
+Reviewed-by: Jacky Huang <ychuang3@nuvoton.com>
+
+Best regards,
+Jacky Huang
 
