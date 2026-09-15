@@ -4,89 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C3FDC88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 16:47:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6995BC88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 16:47:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pUuXJb2gbvQrT4HY5aqTQDJfNZC8OLXN6trFm13CIQU=; b=qPmgyrpMgftEvVQrNC9EAahwIj
-	WQ68Dz4buYXkfJfQzXvHPk29+FMXrnTEXisiSuHsvSpgkYqwaEoAm1YwGKsgo04y6Sm4RZKnYxs+7
-	YlWF8IegKqt3QrCbB2cqtflkv+vYE/kaAFI74Pke1rbz5au0u9A7jGPq1wqo9Wvkq5Rrutd7es4KQ
-	/VxhV4dWj5Y50GCUlgMuzE/k2mfrM9Hao5YODfxIOiJWDt72uZjfzcQ4ge0s4Kb5KxM5TwayrBAKi
-	FGPXq+H2KmtF0j7gNfIHXwgAmoSruhqZpW2Qq/ru1kE+DSgEILhB8y5k9ysL+tZnP5L87ga+QMVnE
-	a701vUlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4TU13u1Mejf3+R/VztpyEKMgsFgdv4lrS3jA2CK6KvQ=; b=Qy1w9dDArrqV9vJb2zJzC7KUHB
+	U4W662909pIIblh9bI2oNx3/CwtYa5UVrUIX6LlJhiMsANRRhcl2bj7RppN4DLKELGUtggs0Xf1SE
+	S0SdVdstIUgEQtZNW9tad/I8/x7/fUJEGfGZzJ5nlU+XIEzwOaQ8yYizFGsuzmbG1DsHhuhrGCXDQ
+	7cIsp0Cpw1/kIjzK4lHqCTLQY34e2Wr5L3k+eKq3SFsaIkvl/8T/P5Pyoh3vcnsVr/tvj6InzlqUU
+	lOJoHk95pdlF2zJtkDUmGG02QGXdnBbN2cvzjtbMSzZvzBwVoqy7y73sMBvEKGHiN1V050XwW9MVi
+	S/Bc3idg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6WJ8-00000007T4o-03PT;
-	Tue, 15 Sep 2026 16:46:58 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x6WJO-00000007TEs-1gFk;
+	Tue, 15 Sep 2026 16:47:14 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6WJ5-00000007T2Y-0okg
+	id 1x6WJH-00000007TBM-41uV
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 15 Sep 2026 16:47:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=4TU13u1Mejf3+R/VztpyEKMgsFgdv4lrS3jA2CK6KvQ=; b=L+yZF45OekuyC0MmxQdq2BZCQY
+	S/DWluc7SOeG1puEgnX1/jiW1/DSHPxY+e1yXr2CH4XD7a6+bwQmopnD/gnU71SbioRO3ijRI7I6r
+	OTFgkYOPe3NZK2YrBxMLfX9l7bz9eLm+wkSifArZkrvMqPsjNc+G2ltAv2lwA49Nj3uzcmEClFRBY
+	ORdIiOjz1CF96wi4BEKwf+jNMGyC+oFKHuATpJkqbycc6ckYAWGSVMAxsTxxX1fAjsk2W8abaxqqd
+	Rt0lW+MtC4AoXXwVQf3Pweg8K0RHj6aNBp1gax2ep3m1/tzdVYeXvN1Ur38lo5xcErqjt/5vuxEoy
+	xL2G4Hpw==;
+Received: from smtpout-03.galae.net ([185.246.85.4])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6WJD-000000072eu-3SmY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 16:46:56 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 464E36022A;
-	Tue, 15 Sep 2026 16:46:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C27A51F00898;
-	Tue, 15 Sep 2026 16:46:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789490814;
-	bh=pUuXJb2gbvQrT4HY5aqTQDJfNZC8OLXN6trFm13CIQU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=fwuyI8Kc0QxbkoRtgBSrhhsXjraPd1OQdElgXeLCZm8iJgsahRWiRM86cA0cc5h6J
-	 reaDpKyy5qyodOFKoda8FYy5rmFVb31ZXONLQYTWFSCtrajZLuOKgJbj75awCyhdvN
-	 tR95RtTUi9V2shqYtaoZ/lKkqIvuqwB/Zj4llLC49V6V2frgMfu6yqPbivNyyh9yKf
-	 IkOczgj9dz6XZj5GgdNULl/rtD7SC57zDTGd74H6zGGKDfxD3Yp8DQCxmqcwpyLQd6
-	 WAFRjXxiDucDVYBpqWeOEIM83NHqnMbICgLubFkv1awI1Tsr56RSW0U04p94MqKw2p
-	 bbCC+sODN2dAQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1x6WJ1-00000009G1C-0emb;
-	Tue, 15 Sep 2026 16:46:51 +0000
-Date: Tue, 15 Sep 2026 17:46:44 +0100
-Message-ID: <86o6dy5uob.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	will@kernel.org,
-	catalin.marinas@arm.com,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	steven.price@arm.com,
-	aneesh.kumar@kernel.org,
-	oupton@kernel.org,
-	gshan@redhat.com,
-	joey.gouly@arm.com,
-	tabba@google.com,
-	yuzenghui@huawei.com,
-	linux-coco@lists.linux.dev,
-	gankulkarni@os.amperecomputing.com,
-	sdonthineni@nvidia.com,
-	alpergun@google.com,
-	fj0570is@fujitsu.com,
-	WeiLin.Chang@arm.com,
-	lpieralisi@kernel.org,
-	enju.kohei@fujitsu.com,
-	Marc Zyngier <maz@krenel.org>
-Subject: Re: [PATCH v18 01/23] KVM: arm64: protected VM: Handle set_one_reg CNTVCT_EL0/CNTPCT_EL0
-In-Reply-To: <20260915160141.3543048-2-suzuki.poulose@arm.com>
-References: <20260915160141.3543048-1-suzuki.poulose@arm.com>
-	<20260915160141.3543048-2-suzuki.poulose@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: suzuki.poulose@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com, joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com, maz@krenel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Tue, 15 Sep 2026 16:47:06 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 2BE424E4063B;
+	Tue, 15 Sep 2026 16:47:03 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id CE5AF602B0;
+	Tue, 15 Sep 2026 16:47:02 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 53BDC11C7AFFA;
+	Tue, 15 Sep 2026 18:46:58 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1789490821; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=4TU13u1Mejf3+R/VztpyEKMgsFgdv4lrS3jA2CK6KvQ=;
+	b=OZDG+q6G/fkjk4cU2J4pjm8icsNa2dTMQcpHIp5JvcQ8BhKfYLXCug8d+wVaWMeQalSb0d
+	d9vYOQe2lgAHkK0U2RnW8otvWINqLtIvVAkaiEalLx4Duyi+3MNmP9c5NYiduULk+OR7VA
+	swhnPo/kv4QYJpU5dqYocYPzaxk09mT+kWKG85pWUSSlXLvX9xavOcLTnpdnST36Bv+rDK
+	lYtdz4GstXbK1CvlEc2g7Bcb+P9rx8rK+jfee4eYQuOEr8hpx1NHs6IIMdongMvEF3Hvkl
+	lbjBysUu8pukLfuQRm9IeRfJDPpj0QVvrl3etc5SMjh5stME3mnZulG/v3Hn0Q==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Date: Tue, 15 Sep 2026 18:46:16 +0200
+Subject: [PATCH v4 3/9] drm/bridge: nxp-ptn3460: select DRM_PANEL_BRIDGE,
+ not DRM_PANEL
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260915-drm-bridge-drm_panel-cleanup-v4-3-30401d9406f3@bootlin.com>
+References: <20260915-drm-bridge-drm_panel-cleanup-v4-0-30401d9406f3@bootlin.com>
+In-Reply-To: <20260915-drm-bridge-drm_panel-cleanup-v4-0-30401d9406f3@bootlin.com>
+To: Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Sean Paul <seanpaul@chromium.org>
+X-Mailer: b4 0.16.0
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260915_174703_904385_D8AF1B21 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,171 +103,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 15 Sep 2026 17:01:19 +0100,
-Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
-> 
-> Protected VMs doesn't allow setting offsets for virtual and phyiscal
-> counters, as the offset is always fixed to 0. The VM ioclt is filtered
-> out based on the cap. However we don't prevent the userspace from trying
-> to write to the CNTVCT/CNTPCT registers. This would lead to KVM triggering
-> a WARN() in timer_set_offset() as the vm_offset pointer is set to NULL.
-> 
-> Fix this by always "fixing" the timer offsets to 0 and marking that the
-> timer offset is set in the kvm->arch.flags at pKVM init time. The
-> userspace cannot use the KVM_ARM_SET_COUNTER_OFFSET, as it is blocked for a
-> protected VM.
-> 
-> A userspace writing to the SYS_CNT*CT would observe success, without
-> any real effect. This was chosen over preventing the writes to these
-> registers and returning -EPERM.
-> 
-> With that, we always have a valid vm_offset pointer, remove the checks for
-> vm_offset == NULL.
-> 
-> Reported by Sashiko here
-> https://lore.kernel.org/all/20260908164641.416911F00A3A@smtp.kernel.org
-> 
-> Fixes: f7d05ee84a6a ("KVM: arm64: Prevent host from managing timer offsets for protected VMs")
-> Suggested-by: Marc Zyngier <maz@krenel.org>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> ---
->  arch/arm64/kvm/arch_timer.c    | 15 +++++----------
->  arch/arm64/kvm/arm.c           | 15 +++++++++++++++
->  arch/arm64/kvm/hyp/nvhe/pkvm.c | 26 +++++++++++++-------------
->  include/kvm/arm_arch_timer.h   |  3 +--
->  4 files changed, 34 insertions(+), 25 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-> index 6ac3321f4c575..dda020da4c9c7 100644
-> --- a/arch/arm64/kvm/arch_timer.c
-> +++ b/arch/arm64/kvm/arch_timer.c
-> @@ -1079,14 +1079,10 @@ static void timer_context_init(struct kvm_vcpu *vcpu, int timerid)
->  
->  	ctxt->timer_id = timerid;
->  
-> -	if (!kvm_vm_is_protected(vcpu->kvm)) {
-> -		if (timerid == TIMER_VTIMER)
-> -			ctxt->offset.vm_offset = &kvm->arch.timer_data.voffset;
-> -		else
-> -			ctxt->offset.vm_offset = &kvm->arch.timer_data.poffset;
-> -	} else {
-> -		ctxt->offset.vm_offset = NULL;
-> -	}
-> +	if (timerid == TIMER_VTIMER)
-> +		ctxt->offset.vm_offset = &kvm->arch.timer_data.voffset;
-> +	else
-> +		ctxt->offset.vm_offset = &kvm->arch.timer_data.poffset;
->  
->  	hrtimer_setup(&ctxt->hrtimer, kvm_hrtimer_expire, CLOCK_MONOTONIC, HRTIMER_MODE_ABS_HARD);
->  
-> @@ -1110,8 +1106,7 @@ void kvm_timer_vcpu_init(struct kvm_vcpu *vcpu)
->  		timer_context_init(vcpu, i);
->  
->  	/* Synchronize offsets across timers of a VM if not already provided */
-> -	if (!vcpu_is_protected(vcpu) &&
-> -	    !test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &vcpu->kvm->arch.flags)) {
-> +	if (!test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &vcpu->kvm->arch.flags)) {
->  		timer_set_offset(vcpu_vtimer(vcpu), kvm_phys_timer_read());
->  		timer_set_offset(vcpu_ptimer(vcpu), 0);
->  	}
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 8b080804bc90b..7c88508cac8a1 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -214,6 +214,20 @@ static int kvm_arm_default_max_vcpus(void)
->  	return vgic_present ? kvm_vgic_get_max_vcpus() : KVM_MAX_VCPUS;
->  }
->  
-> +/*
-> + * Fix the counter offset to 0 for Protected VMs and mark the
-> + * offset flag. The user can't set the offset via KVM_ARM_SET_COUNTER_OFFSET.
-> + */
-> +static void kvm_arch_fix_timer_offsets(struct kvm *kvm)
-> +{
-> +	if (!kvm_vm_is_protected(kvm))
-> +		return;
-> +
-> +	/* Fix the counter offset to 0 and mark the offset initialised */
-> +	kvm->arch.timer_data.poffset = kvm->arch.timer_data.voffset = 0;
-> +	set_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &kvm->arch.flags);
-> +}
-> +
->  /**
->   * kvm_arch_init_vm - initializes a VM data structure
->   * @kvm:	pointer to the KVM struct
-> @@ -267,6 +281,7 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
->  
->  	kvm_vgic_early_init(kvm);
->  
-> +	kvm_arch_fix_timer_offsets(kvm);
->  	kvm_timer_init_vm(kvm);
+This driver does not use the drm_panel APIs at all, so no need to select
+DRM_PANEL.
 
-This should all be moved to the timer code.
+But it uses devm_drm_of_get_bridge(), which is enabled by DRM_PANEL_BRIDGE.
 
->  
->  	/* The maximum number of VCPUs is limited by the host's GIC model */
-> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> index 459bd9eb7e4bc..e7b38eff63bd1 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> @@ -528,19 +528,19 @@ static int init_pkvm_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu,
->  	hyp_vcpu->vcpu.arch.cflags = READ_ONCE(host_vcpu->arch.cflags);
->  	hyp_vcpu->vcpu.arch.mp_state.mp_state = KVM_MP_STATE_STOPPED;
->  
-> -	if (!pkvm_hyp_vcpu_is_protected(hyp_vcpu)) {
-> -		/*
-> -		 * Timer offsets are pointing to the untrusted KVM copy,
-> -		 * which is pinned in __pkvm_init_vm() for the VM life time.
-> -		 * It is worth noting that hyp_vm->host_kvm points to an EL2
-> -		 * linear map address and timer_get_offset() will use
-> -		 * kern_hyp_va() which is safe as it is idempotent.
-> -		 */
-> -		vcpu_vtimer(&hyp_vcpu->vcpu)->offset.vm_offset =
-> -			&hyp_vm->host_kvm->arch.timer_data.voffset;
-> -		vcpu_ptimer(&hyp_vcpu->vcpu)->offset.vm_offset =
-> -			&hyp_vm->host_kvm->arch.timer_data.poffset;
-> -	}
-> +	/*
-> +	 * Timer offsets are pointing to the untrusted KVM copy,
-> +	 * which is pinned in __pkvm_init_vm() for the VM life time.
-> +	 * It is worth noting that hyp_vm->host_kvm points to an EL2
-> +	 * linear map address and timer_get_offset() will use
-> +	 * kern_hyp_va() which is safe as it is idempotent.
-> +	 * Also for protected VMs the offset is fixed to 0 and is prevented
-> +	 * from changing.
-> +	 */
-> +	vcpu_vtimer(&hyp_vcpu->vcpu)->offset.vm_offset =
-> +		&hyp_vm->host_kvm->arch.timer_data.voffset;
-> +	vcpu_ptimer(&hyp_vcpu->vcpu)->offset.vm_offset =
-> +		&hyp_vm->host_kvm->arch.timer_data.poffset;
+Cc: Sean Paul <seanpaul@chromium.org>
+Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+---
+ drivers/gpu/drm/bridge/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-I don't think this is right. Protected guests have no offset, and this
-needs to be ensured by the hypervisor. Here, the host can change the
-offset any time it wants, and that's not acceptable.
-
->  
->  	ret = pkvm_vcpu_init_sysregs(hyp_vcpu);
->  	if (ret)
-> diff --git a/include/kvm/arm_arch_timer.h b/include/kvm/arm_arch_timer.h
-> index bc6f2fdd7ad33..4f0aa3bb69f45 100644
-> --- a/include/kvm/arm_arch_timer.h
-> +++ b/include/kvm/arm_arch_timer.h
-> @@ -176,8 +176,7 @@ static inline bool has_cntpoff(void)
->  		if (__ctxt) {						\
->  			struct arch_timer_offset *ato = &__ctxt->offset;\
->  									\
-> -			if (ato->vm_offset)				\
-> -				off += *KERN_HYP_VA(ato->vm_offset);	\
-> +			off += *KERN_HYP_VA(ato->vm_offset);		\
->  			if (ato->vcpu_offset)				\
->  				off += *KERN_HYP_VA(ato->vcpu_offset);	\
->  		}							\
-
-And as you drop the previous hunk, this also needs to be restored to
-its original state.
-
-	M.
+diff --git a/drivers/gpu/drm/bridge/Kconfig b/drivers/gpu/drm/bridge/Kconfig
+index c98f62b23b1d..1d4db73bd760 100644
+--- a/drivers/gpu/drm/bridge/Kconfig
++++ b/drivers/gpu/drm/bridge/Kconfig
+@@ -259,7 +259,7 @@ config DRM_NXP_PTN3460
+ 	tristate "NXP PTN3460 DP/LVDS bridge"
+ 	depends on OF
+ 	select DRM_KMS_HELPER
+-	select DRM_PANEL
++	select DRM_PANEL_BRIDGE
+ 	help
+ 	  NXP PTN3460 eDP-LVDS bridge chip driver.
+ 
 
 -- 
-Without deviation from the norm, progress is not possible.
+2.55.0
+
 
