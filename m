@@ -4,109 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9175DC982CA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:34:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02AEAC88E7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 15:34:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:Cc:
-	To:In-Reply-To:Message-Id:Content-Transfer-Encoding:MIME-Version:Subject:Date
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5VJr9vBmbACanL0MeXx4ma5BlMfN70MxN8Z8af1jAN8=; b=hzr4QstpVacPVvlXNTANhPP45J
-	/mW7O1YZWHVPil/N3awfWqlqPq+WwfkRETmaNhvIknKFLZl3q/Lri8NtCo5tTEOXTyEpettsQuxNp
-	CQzzt84fFji/wajYmsKHhjej5kpsdz+TA9f6w56DqduBcv3nlk4lu7m3SoGKzvqlX4YVG5D0FofA/
-	vwu/LZ6LpOiqDX2TdpLFiUOVyKnJKL3SehbsKwB4iBhfx+uKfScC/KClpk1m63cffag5m0eNrCS7I
-	qTZLQcgOzoC7L8QzIEfTBYl8brlxeXPzxJsJYkO/C2uotLdm0xDJMmpu5FAjhFNhQfj5S759LTXHw
-	TayK9QtA==;
+	bh=qK+RaY+hAtVo/2igzGegsFLyiGuKVc80X2boEt/QxL0=; b=uYeUskPjdFDP8584e8hSPP7bWD
+	ZNAf5dFOBf68/DmUHFEE6nmxa3rYEMjAAFw1tRIiuhH/gsxXwc7gKH9Frjg7CLRuRjpi7gbHk5ife
+	pnshqUh6AmHXpmhaH0Mdw9Eo6qHe6simLmrtLh2szW4QU6fvj+5jLvbQYPebGYyT5kS+WKIJGnyWl
+	GQ7XIw0CH2pVMwsm78UBHvWYHUwgfKEqOa7diDPkN2B1b0dBdjQO4nP0Qe7lZfPrxwkp8oVjUhpv2
+	goxMcxuYhPu1yA9gW1ifWT1nDJQZv3tZfzEF60XuLV5joPGdBCL5YAYGS4zx3K6Jp6BY6G+/f0iev
+	hzQsOOjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VAi-00000007DOx-1YEY;
-	Tue, 15 Sep 2026 15:34:12 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x6VAo-00000007Df1-1web;
+	Tue, 15 Sep 2026 15:34:18 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6V9T-00000007B7x-1IKN;
-	Tue, 15 Sep 2026 15:32:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=References:Content-Type:Cc:To:
-	In-Reply-To:Message-Id:Content-Transfer-Encoding:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=5VJr9vBmbACanL0MeXx4ma5BlMfN70MxN8Z8af1jAN8=; b=DVerkXoTY4uryxQZSyLeDQGjy7
-	immSycx8x0P1WAk+CX8VcV4U+9E1NlIPPsAlSWKMyXK1BZ7rM3J/wqh2zmgbqNfLMfIldKyWhcWoc
-	zZVQf0DlSt2FFcaljVNay5/Vh3uCKJdAdqYDX1ns1DRvO8RNJFRPdthjT6xrqqqchEo081aDZsQQB
-	6AlyyRQ6s0vbGR/lDV93Dld0NVwyunYEwRj0MfE50LwkVscvi3+AKJIeIN1N60RVDYQLM0Q+2EbY/
-	92HpIIQEkXaJjhP+e2g5Uilk1f3o+Ay04W4VU5VZTzDiIxIBQeH6GJIazT0oqkQn6FRcVB4SGTvKQ
-	imIWZNMQ==;
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6V9Q-00000006wgD-0kiE;
-	Tue, 15 Sep 2026 15:32:54 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260915153251euoutp02084125f938320b2f7a85111b008d57c9~ViF_sja9S0483104831euoutp02V;
-	Tue, 15 Sep 2026 15:32:51 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260915153251euoutp02084125f938320b2f7a85111b008d57c9~ViF_sja9S0483104831euoutp02V
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1789486371;
-	bh=5VJr9vBmbACanL0MeXx4ma5BlMfN70MxN8Z8af1jAN8=;
-	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=TbL4tjHB3FlMrYe92qC+NybVosVgaDcvWJfq2ZNFthYqUgBvSrdrWpSttXsWTIAiN
-	 jj9qXzq5SaDUQy/UITupzA5ZlwmNWj9+fHFBeoSIer90sZgh2kCWvy2Da3l93Wi3wT
-	 7gI0Zkmzo2ogOIboFW6nnJiI7BIfKnAdBQ/CpQsQ=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20260915153250eucas1p2132ca4040b3c35a3aed471cb816b7857~ViF9fvU4I1454914549eucas1p2X;
-	Tue, 15 Sep 2026 15:32:50 +0000 (GMT)
-Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
-	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20260915153248eusmtip1ff29e81b00d983d86a6897dddbc876f8~ViF74X4zS0616306163eusmtip1e;
-	Tue, 15 Sep 2026 15:32:48 +0000 (GMT)
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Tue, 15 Sep 2026 17:32:28 +0200
-Subject: [PATCH v4 20/20] MAINTAINERS: Add StarFive JH7110 display subsystem
- entry
+	id 1x6V9Z-00000007BG0-3vps;
+	Tue, 15 Sep 2026 15:33:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1789486379;
+	bh=cyZeVWTFO2ule5P/ArzDBKigZ7GOelSZIx1KAmrbRzU=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=N9nFW81PbZXZsgb5uOhH6owOO2DLdrXcU8JSDPAarGcKPlBnlL7eY4WUr+NXWHBKi
+	 4XMsJl6+6Gjdc+A4iwKR5yG+eEyKgTJiDLYAnDoMgSgChlFxrzNcs/imtTq8fhrmjF
+	 2v1gGU7O1/UVhMfgG5lah4/+bhULXDrcu7CE+3rZ0usQQahZdbr/hAlkbN5s3jzWq2
+	 VnES36I7YoqQ5ycCdxmVbo0awyk+AUUQNV2d3wPtpXp5ICQoj9ibrM0IXeWuwap7rF
+	 MECP3ye5nn+nZPeq7U1sdjS7j/31CZ8C2iP3Ae1jlmZjmCTgOTHYb6nTCkkrhR04iW
+	 SvP99+VZFQ/bQ==
+Received: from jupiter.universe (unknown [100.64.1.62])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519)
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A86A817E0082;
+	Tue, 15 Sep 2026 17:32:59 +0200 (CEST)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id 6A1AF48002F; Tue, 15 Sep 2026 17:32:59 +0200 (CEST)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Tue, 15 Sep 2026 17:32:49 +0200
+Subject: [PATCH v15 2/6] phy: rockchip: usbdp: Drop -EPROBE_DEFER hack
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260915-jh7110-clean-send-v4-20-f0e4fd6f2cc8@samsung.com>
-In-Reply-To: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
-To: Vinod Koul <vkoul@kernel.org>,  Neil Armstrong
-	<neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,  Krzysztof
-	Kozlowski <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>, Andrzej
-	Hajda <andrzej.hajda@intel.com>,  Robert Foss <rfoss@kernel.org>,  Laurent
-	Pinchart <Laurent.pinchart@ideasonboard.com>,  Jonas Karlman
-	<jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,  Luca Ceresoli
-	<luca.ceresoli@bootlin.com>,  Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,  Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,  Lee Jones <lee@kernel.org>, Andy
-	Yan <andy.yan@rock-chips.com>,  Philipp Zabel <p.zabel@pengutronix.de>, 
-	Emil Renner Berthing <kernel@esmil.dk>,  Hal Feng
-	<hal.feng@starfivetech.com>,  Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>,  Paul
-	Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,  Albert Ou
-	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,  Dominique
-	Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>,  Jerome
-	Brunet <jbrunet+clk@baylibre.com>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	mfd@lists.linux.dev, linux-clk@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-riscv@lists.infradead.org,  Marek Szyprowski
-	<m.szyprowski@samsung.com>,  Maud Spierings <maud_spierings@murena.io>, 
-	Graham Markall <hello@big-grey.co.uk>,  Icenowy Zheng
-	<zhengxingda@iscas.ac.cn>,  Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
-	Joshua Peisach <jpeisach@ubuntu.com>,  =?utf-8?q?Uwe_Kleine-K=C3=B6nig?=
-	<u.kleine-koenig@baylibre.com>,  Michal Wilczynski
-	<m.wilczynski@samsung.com>
-X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20260915153250eucas1p2132ca4040b3c35a3aed471cb816b7857
-X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260915153250eucas1p2132ca4040b3c35a3aed471cb816b7857
-X-EPHeader: CA
-X-CMS-RootMailID: 20260915153250eucas1p2132ca4040b3c35a3aed471cb816b7857
-References: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
-	<CGME20260915153250eucas1p2132ca4040b3c35a3aed471cb816b7857@eucas1p2.samsung.com>
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260915-b4-rockchip-usbdp-cleanup-part3-v15-2-9ad90a456953@collabora.com>
+References: <20260915-b4-rockchip-usbdp-cleanup-part3-v15-0-9ad90a456953@collabora.com>
+In-Reply-To: <20260915-b4-rockchip-usbdp-cleanup-part3-v15-0-9ad90a456953@collabora.com>
+To: Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Zhang Yubing <yubing.zhang@rock-chips.com>, 
+ Frank Wang <frank.wang@rock-chips.com>
+Cc: linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ kernel@collabora.com, Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Igor Paunovic <royalnet026@gmail.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1497;
+ i=sebastian.reichel@collabora.com; h=from:subject:message-id;
+ bh=cyZeVWTFO2ule5P/ArzDBKigZ7GOelSZIx1KAmrbRzU=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGqpZSs1cxOL/54Bz7DK6yZU9mrwVU2J5c2d5
+ yPi3kKn+k7BdokCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqqWUrAAoJENju1/PI
+ O/qa6sUQAIjrYErS6IHPpRuKdw+XTzMFitnc6m4UtFu+MlbQxxlC/jw/ZZVrmfd+6xhF/8TQwam
+ QY8jAmJLXP8riGKRSSOJaEjY08Ejp28fxzEFNPaoSQkjm5s76+Fw5AORP1OtvoIEeZ0JBKyhNG/
+ iy4CPTf2inOeG2PQdolkVEGIbv0TbE6LFpnSntdJlAfMFxmAPXrX/rnpESm7HesJDw+PKltWdq/
+ zDZKm66sg7Zix9wBN+NQbs2418Tni9QOyYirtK360OPOasi/DFRAPCNISVwjfHlyiY3FgJWW1B5
+ sFLrbUxdlpp7Lx6ZNjj3Mp8I9fB57o3VmTavQCLIxPXFZNAZugcq71we2cBj2w3nDceqDJAYtqg
+ jMhoaC0N0BPguyFdq+wrwaZxs1v/mN4HbWVL5UcXd4lgX5dVml3BQ6m76KiX8cvOYFuWMzFglZ2
+ ikHGOKQe/zGfWTDQ/ehSQU3e8Jmn36NiUWSxbSak3Hprgq+fdGQ/xO7lo1YxLn+SneRHESik2HP
+ PbWvA6uAO3FgfljdexLqQNGHQun6L220Vwl7iKhYXmm/oSrFLkfGl0Kf1fgTnXNIZNWN4XsXOCY
+ YxBxwXpTJIPdHxTC6GaMMPcEzgVW74YMml+7ZjLTPDw26u8XhzwYxEOHze9n4ZspQdRNY5bIuKn
+ c50hKFsiuWn0gMy1HrpgzRA==
+X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_163252_314075_B4E8EBB7 
-X-CRM114-Status: GOOD (  10.62  )
+X-CRM114-CacheID: sfid-20260915_083302_201404_BADC2065 
+X-CRM114-Status: GOOD (  14.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,43 +98,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The JH7110 display subsystem spans a PHY driver, a DRM bridge driver,
-a parent device and their bindings, and has no existing maintainer entry.
+The hack to return -EPROBE_DEFER when the lcpll lock timeouts is no
+longer needed. The driver now does a reset during its PHY init, which
+avoids the problem.
 
-Add an entry covering them so patches reach someone who can review them.
+Since rk_udphy_status_check() is called after the probe, it should not
+return -EPROBE_DEFER.
 
-Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
-Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+Tested-by: Igor Paunovic <royalnet026@gmail.com> # Orange Pi 5 Plus
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- MAINTAINERS | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+ drivers/phy/rockchip/phy-rockchip-usbdp.c | 12 +-----------
+ 1 file changed, 1 insertion(+), 11 deletions(-)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index c2414447892c24d58595059ca27b18775919ac12..3706b5787a25de7acba023bc4049f0fcdd078672 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -26072,6 +26072,19 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
- F:	drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
+diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+index 0f39982c70b1..144d83997a79 100644
+--- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
++++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+@@ -749,17 +749,7 @@ static int rk_udphy_status_check(struct rk_udphy *udphy)
+ 					       (val & CMN_ANA_LCPLL_LOCK_DONE), 200, 100000);
+ 		if (ret) {
+ 			dev_err(udphy->dev, "cmn ana lcpll lock timeout\n");
+-			/*
+-			 * If earlier software (U-Boot) enabled USB once already
+-			 * the PLL may have problems locking on the first try.
+-			 * It will be successful on the second try, so for the
+-			 * time being a -EPROBE_DEFER will solve the issue.
+-			 *
+-			 * This requires further investigation to understand the
+-			 * root cause, especially considering that the driver is
+-			 * asserting all reset lines at probe time.
+-			 */
+-			return -EPROBE_DEFER;
++			return ret;
+ 		}
  
-+STARFIVE JH7110 DISPLAY SUBSYSTEM
-+M:	Michal Wilczynski <m.wilczynski@samsung.com>
-+R:	Icenowy Zheng <zhengxingda@iscas.ac.cn>
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/display/bridge/starfive,jh7110-inno-hdmi-controller.yaml
-+F:	Documentation/devicetree/bindings/mfd/starfive,jh7110-hdmi-subsystem.yaml
-+F:	Documentation/devicetree/bindings/phy/starfive,jh7110-inno-hdmi-phy.yaml
-+F:	Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-vout-subsystem.yaml
-+F:	drivers/gpu/drm/bridge/jh7110-inno-hdmi.c
-+F:	drivers/phy/starfive/phy-jh7110-inno-hdmi.c
-+F:	drivers/soc/starfive/jh7110-hdmi-subsystem.c
-+F:	drivers/soc/starfive/jh7110-vout-subsystem.c
-+
- STARFIVE JH7110 DPHY RX DRIVER
- M:	Jack Zhu <jack.zhu@starfivetech.com>
- M:	Changhuang Liang <changhuang.liang@starfivetech.com>
+ 		if (!udphy->flip) {
 
 -- 
-2.34.1
+2.53.0
 
 
