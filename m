@@ -4,87 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23F18C88E7D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 08:45:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AF08C88E73
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 08:46:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H6vnXZPBZBPBLGBoC4F9BPf0LkExxgpUY6++1oeg4M8=; b=RuB06X6A6gthQq75XvVWP5hQL7
-	rohcIvTMDR0r3JIwzr0iGSiDzM+sPvpooHmNCN1nCkT773YKs43DgaZ1ujh4zRLAzplMHIzCF1EOg
-	bJyb4QP9nPjGJBpn7bF+/pcvgWdOqidB5fcT1EFiCnbYEaui7bKu1WVwuRtAx8ip9Vkx0PTyVhGct
-	nPj1GfpfNY+2/AzLr/JbZm8dQfZ9+4F27wZFj0Jv/mURMtTFcdEOYzMv5e1ZA1Wdc8BuOPsjoyGxv
-	a58zJ3kJgrobf6JNi/xs//I7H3ydDk4QeKjUPUq20464wePUg11j9Z27iQ2KtRs6ZMNUPiHQwyTUJ
-	Hlbz5YLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xaalKZpGXSdogpAvoEIeBp287a70gtQtS3ba2TJDkjw=; b=XvQ7QRpFNJQIE96OUd3Q36riS8
+	FbSDVhtlu/TYOPCCFoQjtJ8W/gHhMGljuiv8DDJmSbGDiZQKvXgEhEnCbUFVj9p+HRfq20yqVUCoT
+	0rwLXNEj12RzP2lpkjFw4w3ftp1QQ39+BI+D7GRXM3ndv0o8Re9XAm4ZF8yGuCn8u3JIt6wDr78Kg
+	A1Q9jHbuNj5E5wOyvlDwL3urNK1wU8euHoYt33F3SSnjw0nCWhmC6KThw3oPjzGpX23xcf6jIp43t
+	Q+0WkZjuERV0vYEu9DLj7OP+/n5aEIqERp7+sqkN4SdSNCV0sq+AQfRXeDOOgbmkKrE4crds604Ra
+	Ne+bUadQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Omg-00000005g1L-32KS;
-	Tue, 15 Sep 2026 08:44:58 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x6Onk-00000005gOW-3x2b;
+	Tue, 15 Sep 2026 08:46:04 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Omf-00000005fzx-1OiF
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 15 Sep 2026 08:44:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=H6vnXZPBZBPBLGBoC4F9BPf0LkExxgpUY6++1oeg4M8=; b=lZbZd0UdbQGX2tOSN0uCjIHe5K
-	ulj1CXJcao51mFkuLP75wMXle2u0rdxzAJHglMB73YSXh7W2ycsLXEvPZAOaQ2bsdm+mbPUBh26qu
-	zQ7TTzHKpzqAnCJlnFU8dajUPYzI+zOVTsVZxLH3IEgCgM3mcsrwqlB8f0ivme3SJbTYOLZvgBvin
-	mcpERC2r2vunfnidNEbv2mxMd9vN+mbuMQWD3C5DBv3ZcLJzpYkWTBWOM10irwUXCsjYgMTJI5Jq6
-	Q7EIwl7/1Zrz78D/bbOTvndZi23C2qn8vNG23QSoclCzeGlD+NpdCoMIA/DrLYvkCd+gh3sYV2hMH
-	LZyZt6YA==;
-Received: from out-93.mta0.migadu.com ([2001:41d0:1004:224b::5d] helo=mta0.migadu.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6Omc-00000006S0c-1xrW
+	id 1x6Onf-00000005gMB-37yQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 08:44:56 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=+4rM/vb9bgnywxjBITcpXSRkVe9CVyh/SFm0f0Uf3bA=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1789461892; v=1; x=1790066692;
- b=UGCwd+ZjQJHmbHAhhb/dUJy+HvKCo+/LTTvnT6HZxGYBO/JvY31hKXEtgQDE+9ACWM9gbcCk
- rqmJJiDd5o5jJIXIPtP/0TiiCOGTO3XTMHteXLWJ9o29gV68r6nniisNizEUt5INJ2xMlFAhSZv
- 6BxYO+5Qm9VjYB6w/HoM81pk=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id bf7d1fed5110460d;
-	Tue, 15 Sep 2026 08:44:52 +0000
-X-Mizu-Trace-ID: bf7d1fed5110460d
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Paolo Bonzini <pbonzini@redhat.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>
-Cc: Sean Christopherson <seanjc@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Will Deacon <will@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
-	kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
+	Tue, 15 Sep 2026 08:46:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1789461958;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=xaalKZpGXSdogpAvoEIeBp287a70gtQtS3ba2TJDkjw=;
+	b=Q0MK6ddq8Tjor2pJ+ib8Zd4jDIBFC47aSXb9npDwQUTnilAB6HKjN1Dr+Zwo5zteKpB+bA
+	vVAMapVGgps5g7pe3pL+4a03flffif+ruwCSZnoWNNZvSo7b9Xtpd5u6welXuQFQa1CHfk
+	ltMaBQwV3vEmTqos8iutIHKmnVXV5rM=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-621-Pppr5pa7PTWckKt1QuduCQ-1; Tue,
+ 15 Sep 2026 04:45:52 -0400
+X-MC-Unique: Pppr5pa7PTWckKt1QuduCQ-1
+X-Mimecast-MFC-AGG-ID: Pppr5pa7PTWckKt1QuduCQ_1789461949
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B013E1801214;
+	Tue, 15 Sep 2026 08:45:46 +0000 (UTC)
+Received: from gerbillo.redhat.com (unknown [10.44.48.83])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 86EF3180035F;
+	Tue, 15 Sep 2026 08:45:36 +0000 (UTC)
+From: Paolo Abeni <pabeni@redhat.com>
+To: maxime.chevallier@bootlin.com
+Cc: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	linux@armlinux.org.uk,
+	hkallweit1@gmail.com,
+	alexis.lothore@bootlin.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	kernel@esmil.dk,
+	minda.chen@starfivetech.com,
+	neil.armstrong@linaro.org,
+	khilman@baylibre.com,
+	jbrunet@baylibre.com,
+	martin.blumenstingl@googlemail.com,
+	jan.petrous@oss.nxp.com,
+	ovidiu.panait.rb@renesas.com,
+	Jose.Abreu@synopsys.com,
+	nb@tipi-net.de,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	thomas.petazzoni@bootlin.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 3/3] KVM: PPC: Book3S HV: Fix comment naming a non-existent KVM_VCPU_RUN ioctl
-Date: Tue, 15 Sep 2026 09:44:41 +0100
-Message-Id: <20260915084441.3846947-4-fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260915084441.3846947-1-fuad.tabba@linux.dev>
-References: <20260915084441.3846947-1-fuad.tabba@linux.dev>
+	linux-stm32@st-md-mailman.stormreply.com,
+	PKneuper@dspace.de,
+	david.laight.linux@gmail.com
+Subject: Re: [PATCH net v3 1/6] net: stmmac: selftests: Support running selftests on DSA conduits
+Date: Tue, 15 Sep 2026 10:45:30 +0200
+Message-ID: <20260915084530.75251-1-pabeni@redhat.com>
+In-Reply-To: <20260911212028.1497613-2-maxime.chevallier@bootlin.com>
+References: <20260911212028.1497613-2-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
+X-Mimecast-MFC-PROC-ID: V3d5_dOhTawk5wVgDWJ6x30kuFzTsFuFpwEsrde-7ys_1789461949
+X-Mimecast-Originator: redhat.com
 Content-Transfer-Encoding: 8bit
+content-type: text/plain; charset="US-ASCII"; x-default=true
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_094454_737043_5B9D8451 
-X-CRM114-Status: GOOD (  14.42  )
+X-CRM114-CacheID: sfid-20260915_014559_862646_CD54EA77 
+X-CRM114-Status: GOOD (  35.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,28 +110,277 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There is no KVM_VCPU_RUN ioctl. The one that enters the guest is
-KVM_RUN, so refer to it by that name.
-
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
+Full review at: https://netdev-ai.bots.linux.dev/sashiko/
 ---
- arch/powerpc/kvm/book3s_hv.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+net: stmmac: selftests: Support running selftests on DSA conduits
 
-diff --git a/arch/powerpc/kvm/book3s_hv.c b/arch/powerpc/kvm/book3s_hv.c
-index dbac3573b2c89..db090f4c5e95b 100644
---- a/arch/powerpc/kvm/book3s_hv.c
-+++ b/arch/powerpc/kvm/book3s_hv.c
-@@ -269,7 +269,7 @@ static void kvmppc_fast_vcpu_kick_hv(struct kvm_vcpu *vcpu)
-  * stolen time for a vcore when it is inactive, or for a vcpu
-  * when it is in state RUNNING or NOTREADY.  NOTREADY is a bit of
-  * a misnomer; it means that the vcpu task is not executing in
-- * the KVM_VCPU_RUN ioctl, i.e. it is in userspace or elsewhere in
-+ * the KVM_RUN ioctl, i.e. it is in userspace or elsewhere in
-  * the kernel.  We don't have any way of dividing up that time
-  * between time that the vcpu is genuinely stopped, time that
-  * the task is actively working on behalf of the vcpu, and time
+The patch wraps the selftests' dev_add_pack()/dev_remove_pack() calls in
+new stmmac_sft_add_pack()/stmmac_sft_remove_pack() helpers.  When the
+interface is a DSA conduit, an ETH_P_ALL packet_type is registered instead
+and a proxy handler, stmmac_sft_filter(), compares the ethernet header's
+h_proto before forwarding a clone to the original validator.
+
+A few questions below, one on the commit message and three on the code.
+
+> The ARP offload's packet handler is left alone, this feature is just not
+> implemented in stmmac and due for removal.
+
+[Severity: Medium]
+Is this description accurate?  ARP offload does look implemented in two
+places:
+
+drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c:
+	static void dwmac4_set_arp_offload(struct mac_device_info *hw, bool en,
+					   u32 addr)
+
+drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c:
+	static void dwxgmac2_set_arp_offload(struct mac_device_info *hw, bool en,
+					     u32 addr)
+
+dwmac4_set_arp_offload() is wired into dwmac4_ops, dwmac410_ops and
+dwmac510_ops, and dwxgmac2_set_arp_offload() into dwxgmac210_ops and
+dwxlgmac2_ops.
+
+stmmac_test_arpoffload() only bails out early with:
+
+	if (!priv->dma_cap.arpoffsel)
+		return -EOPNOTSUPP;
+
+so on those cores with arpoffsel set the test really runs, and it is still
+listed in stmmac_selftests as "ARP Offload".  Since it keeps the raw
+dev_add_pack(&tpriv->pt) with pt.type = htons(ETH_P_ARP), does it still
+report a spurious failure in ethtool -t on a DSA conduit, for the same
+ETH_P_XDSA reason this patch fixes elsewhere?  Would switching that pair to
+stmmac_sft_add_pack()/stmmac_sft_remove_pack() cover it as well?
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+> index 6372ec7c3f317..6503678b646ef 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+
+[ ... ]
+
+> @@ -237,6 +238,9 @@ struct stmmac_test_priv {
+>  	struct stmmac_packet_attrs *packet;
+>  	struct packet_type pt;
+>  	struct completion comp;
+> +	__be16 packet_type;
+> +	int (*func)(struct sk_buff *skb, struct net_device *ndev,
+> +		    struct packet_type *pt, struct net_device *orig_ndev);
+>  	int double_vlan;
+>  	int vlan_id;
+>  	int ok;
+
+[ ... ]
+
+> @@ -316,6 +320,50 @@ static int stmmac_test_loopback_validate(struct sk_buff *skb,
+>  	return 0;
+>  }
+>  
+> +static int stmmac_sft_filter(struct sk_buff *skb, struct net_device *ndev,
+> +			     struct packet_type *pt,
+> +			     struct net_device *orig_ndev)
+> +{
+> +	struct stmmac_test_priv *tpriv = pt->af_packet_priv;
+> +	struct ethhdr *hdr = eth_hdr(skb);
+> +	int ret = 0;
+> +
+> +	if (hdr->h_proto == tpriv->packet_type) {
+> +		struct sk_buff *nskb = skb_clone(skb, GFP_ATOMIC);
+> +
+> +		if (nskb)
+> +			ret = tpriv->func(nskb, ndev, pt, orig_ndev);
+> +	}
+
+[Severity: Medium]
+This compares the on-wire ethertype against the value the test registered
+in pt.type, but for the VLAN tests pt.type is the protocol *after* the tag
+has been removed:
+
+__stmmac_test_vlanfilt()      pt.type = htons(ETH_P_IP), frame is 802.1Q
+__stmmac_test_dvlanfilt()     pt.type = htons(ETH_P_8021Q), outer tag is
+                              ETH_P_8021AD
+stmmac_test_vlanoff_common()  pt.type = ETH_P_IP or ETH_P_8021Q
+
+On a normal interface the core removes the tag before the taps run:
+
+net/core/dev.c:__netif_receive_skb_core() {
+	...
+	if (eth_type_vlan(skb->protocol)) {
+		skb = skb_vlan_untag(skb);
+	...
+	list_for_each_entry_rcu(ptype, &skb->dev->ptype_all, list) {
+	...
+}
+
+but on a DSA conduit skb->protocol is ETH_P_XDSA, so eth_type_vlan() is
+false and no untagging happens there.  Doesn't that leave the driver as the
+only tag remover, and isn't that conditional?
+
+drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_rx_vlan() {
+	if ((vlan_proto == htons(ETH_P_8021Q) &&
+	     dev->features & NETIF_F_HW_VLAN_CTAG_RX) ||
+	    (vlan_proto == htons(ETH_P_8021AD) &&
+	     dev->features & NETIF_F_HW_VLAN_STAG_RX)) {
+	...
+}
+
+NETIF_F_HW_VLAN_CTAG_RX is placed in hw_features on xmac cores, so it is
+user-toggleable.  After "ethtool -K <conduit> rxvlan off", or with
+CONFIG_VLAN_8021Q disabled where neither feature nor hw_vlan_en is ever
+set, the frame should reach the filter with h_proto == 0x8100, the
+comparison against ETH_P_IP fails, the frame is freed here and the C-VLAN
+tests time out.  Would matching on the inner protocol (or skipping any
+VLAN tags before the comparison) be more robust?
+
+> +
+> +	kfree_skb(skb);
+> +	return ret;
+> +}
+
+[Severity: Medium]
+This isn't a bug introduced by this patch, but the validators reached from
+here derive header offsets from the received IPv4 ihl field while only
+checking for 33 linear bytes:
+
+stmmac_test_loopback_validate() {
+	...
+	if (skb_headlen(skb) < (STMMAC_TEST_PKT_SIZE - ETH_HLEN))
+		goto out;
+	...
+	uhdr = (struct udphdr *)((u8 *)ihdr + 4 * ihdr->ihl);
+	...
+	shdr = (struct stmmachdr *)((u8 *)uhdr + sizeof(*uhdr));
+	...
+	if (shdr->magic != cpu_to_be64(STMMAC_TEST_PKT_MAGIC))
+	...
+}
+
+With ihl == 15 the shdr->magic read lands roughly 90 bytes past the checked
+bound.  The same pattern exists in stmmac_test_vlan_validate().  This was
+already reachable before the patch through the ETH_P_IP ptype registration
+on priv->dev, and the read stays inside the RX buffer, so the practical
+effect is stale bytes and possibly a wrong verdict.  Since the new
+ETH_P_ALL tap widens the set of frames that get here, would it be
+reasonable to add a length check on the derived offsets along with it?
+
+> +
+> +static void stmmac_sft_add_pack(struct packet_type *pt)
+> +{
+> +	struct stmmac_test_priv *tpriv = pt->af_packet_priv;
+> +
+> +	if (netdev_uses_dsa(tpriv->pt.dev)) {
+> +		tpriv->packet_type = tpriv->pt.type;
+> +		tpriv->func = tpriv->pt.func;
+> +
+> +		/* DSA conduit will report ETH_P_XDSA, so our packet handler
+> +		 * won't match. Let's register a ETH_P_ALL match and filter
+> +		 * manually in stmmac_sft_filter.
+> +		 */
+> +		tpriv->pt.type = htons(ETH_P_ALL);
+> +		tpriv->pt.func = stmmac_sft_filter;
+> +		tpriv->pt.ignore_outgoing = true;
+> +	}
+> +
+> +	dev_add_pack(pt);
+> +}
+> +
+> +static void stmmac_sft_remove_pack(struct packet_type *pt)
+> +{
+> +	dev_remove_pack(pt);
+> +}
+> +
+>  static int __stmmac_test_loopback(struct stmmac_priv *priv,
+>  				  struct stmmac_packet_attrs *attr)
+>  {
+
+[ ... ]
+
+> @@ -928,7 +976,7 @@ static int __stmmac_test_vlanfilt(struct stmmac_priv *priv)
+>  	 * HASH values.
+>  	 */
+>  	tpriv->vlan_id = 0x123;
+> -	dev_add_pack(&tpriv->pt);
+> +	stmmac_sft_add_pack(&tpriv->pt);
+>  
+>  	ret = vlan_vid_add(priv->dev, htons(ETH_P_8021Q), tpriv->vlan_id);
+>  	if (ret)
+
+[Severity: High]
+Can an incoming frame from the switch oops here?  The handler is now
+installed as an ETH_P_ALL tap while attr.dst is still NULL:
+
+__stmmac_test_vlanfilt() {
+	struct stmmac_packet_attrs attr = { };
+	...
+	tpriv->packet = &attr;
+	tpriv->vlan_id = 0x123;
+	stmmac_sft_add_pack(&tpriv->pt);
+
+	ret = vlan_vid_add(priv->dev, htons(ETH_P_8021Q), tpriv->vlan_id);
+	...
+	for (i = 0; i < 4; i++) {
+		...
+		attr.dst = priv->dev->dev_addr;
+
+and the VLAN validator dereferences packet->dst without a NULL check,
+unlike stmmac_test_loopback_validate() which guards it with "if (dst)":
+
+stmmac_test_vlan_validate() {
+	...
+	if (tpriv->vlan_id) {
+		if (skb->vlan_proto != htons(proto))
+			goto out;
+		if (skb->vlan_tci != tpriv->vlan_id) {
+	...
+	ehdr = (struct ethhdr *)skb_mac_header(skb);
+	if (!ether_addr_equal_unaligned(ehdr->h_dest, tpriv->packet->dst))
+	...
+}
+
+The ETH_P_ALL tap runs before the core's __vlan_hwaccel_clear_tag(), so a
+received IPv4 frame that stmmac_rx_vlan() stripped into the hwaccel fields
+with vlan_proto == ETH_P_8021Q and vlan_tci == 0x123 passes the h_proto
+check in stmmac_sft_filter(), passes the vlan_proto/vlan_tci checks, and
+then calls ether_addr_equal_unaligned(ehdr->h_dest, NULL).
+
+Before the patch the core cleared the hwaccel tag before ETH_P_IP ptype
+dispatch, so foreign frames were rejected by the vlan_proto check and this
+window was not reachable from the wire.  Would setting attr.dst before
+stmmac_sft_add_pack(), or adding a NULL guard in the validator, close it?
+
+> @@ -1022,7 +1070,7 @@ static int __stmmac_test_dvlanfilt(struct stmmac_priv *priv)
+>  	 * HASH values.
+>  	 */
+>  	tpriv->vlan_id = 0x123;
+> -	dev_add_pack(&tpriv->pt);
+> +	stmmac_sft_add_pack(&tpriv->pt);
+>  
+>  	ret = vlan_vid_add(priv->dev, htons(ETH_P_8021AD), tpriv->vlan_id);
+>  	if (ret)
+
+[ ... ]
+
+> @@ -1293,7 +1341,7 @@ static int stmmac_test_vlanoff_common(struct stmmac_priv *priv, bool svlan)
+>  	tpriv->pt.af_packet_priv = tpriv;
+>  	tpriv->packet = &attr;
+>  	tpriv->vlan_id = 0x123;
+> -	dev_add_pack(&tpriv->pt);
+> +	stmmac_sft_add_pack(&tpriv->pt);
+>  
+>  	ret = vlan_vid_add(priv->dev, htons(proto), tpriv->vlan_id);
+>  	if (ret)
+
+[Severity: High]
+Same ordering as __stmmac_test_vlanfilt() here: the tap is registered, then
+vlan_vid_add() runs, and only afterwards does the function do
+"attr.dst = priv->dev->dev_addr;", so tpriv->packet->dst is NULL for the
+whole window.
+
+[ ... ]
 -- 
-2.39.5
+This is an AI-generated review.
 
 
