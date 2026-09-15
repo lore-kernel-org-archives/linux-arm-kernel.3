@@ -4,58 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A50DC88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 14:20:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C7B7C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Sep 2026 14:21:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
 	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YdAVgeXERX5vHZzIV1oVwqufO+/cBMo9jLBc7/JPUHQ=; b=L1NOJKJWpfGoL4
-	zuGhcmBPhu890EOGiLF6KnUKNO9m9u2Q4BHtqreo4GMhRL8+qjjESDm/XtVhaJE9iR0C6pSF86aWf
-	HBkwPy4Nr4ErfJMpRHidqRcLu2KLk9YY/qFkE/iRV38uiVVvdDo4s1Fm2KaBlpstBvpwyMooO/9NJ
-	+T6BymdNjIoOPd8FgLtcA4k2DYX44SJd4Ely6XWaTOBrzRxwfN89nkwGCHlKqJCAkRwUE8NCb8J3g
-	6pkErpY6u7Ee33e/zD0qLZrm6zFvABB71rVSFnx3pDQdLXITs5/VFPi9+SQb8CzFecYDS/C6WrZRj
-	zlqMwHwv1SmcJCHoXCcQ==;
+	List-Owner; bh=qdW9aBAWYtF2a7cHNlg0ZUdW7R/41cFQiuZoqmyaai0=; b=Jn9tOv6HKsA64F
+	1ic5a3XVJP1WFmmGrCYYxlY+7ImZnHbFNmuqI6BIiUvQ7LoJkdlAa3x7JATLvuq3B3gccuHRZdxZO
+	E03LCcdQoW5anHJvF3QIAkeqntB+WmoON8FIwB1XE09qlaicFdFYDznJ9kXCHIbvhGipo8WsH7JOF
+	uPDuy2G3IHy17IUlr8PrVFNX+CJPMjRNCFd+gd8sExMn8q8oeiuTuBVjOh08aCWUVupD7UbffZwcz
+	Bd4qNxVXuai+uBYh9J7nESO3mZQjPaxTOi3RERdYoAaJCzt9Uczb/Bl4okNfk5qG7zbEiJs0QSb4w
+	sdIDXm89u1cJGDDMksSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6U1i-00000006ucF-08rB;
-	Tue, 15 Sep 2026 14:20:50 +0000
+	id 1x6U22-00000006uj3-0pxo;
+	Tue, 15 Sep 2026 14:21:10 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6U1d-00000006ub6-3PtA
+	id 1x6U1z-00000006uiF-2Z6h
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Sep 2026 14:20:48 +0000
+	Tue, 15 Sep 2026 14:21:08 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9148D1516;
-	Tue, 15 Sep 2026 07:20:40 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 558261516;
+	Tue, 15 Sep 2026 07:21:03 -0700 (PDT)
 Received: from [10.0.152.207] (unknown [10.0.152.207])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 22AE93F7B4;
-	Tue, 15 Sep 2026 07:20:40 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7228C3F7B4;
+	Tue, 15 Sep 2026 07:21:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789482044; bh=2u1WRwtXNhXm73Ue2XxSdKSGILE1jFRWOpVWkmsxetU=;
+	t=1789482066; bh=8kgnQwL/0VBtF0XCi65qh7izruKbtNAb+I2J2OSqPYs=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Mic4QpiY+dhL0ouH2OU0z2B0axfu3sJbz2hWwvyY72H7lDzQ+5hkDdN4BI48BrHYE
-	 wgbcPT9ZSXB/InX/24zFCJURl1Nx8pC0vWZtGMjPTOWnIbNHPmA0+5aYdQnr/JUHna
-	 KQ1ySVJS3dRYObwDn2HJ2iJGXWzi4LpJVG45eefc=
-Message-ID: <625240ea-c4e2-414d-b53f-4b3d361d8b30@arm.com>
-Date: Tue, 15 Sep 2026 15:20:38 +0100
+	b=u2x7AyH3rzvJaL/E5rRKKWZew33lKE9xTelpEjt5w8ejIjdXo5y568qfagnCugAVc
+	 ml63aQPy1N9ysR2RDt3avZWoyfSvnEzRK/kpWHNnr53BvhHjh8CW+KbzR9s7gHSv3/
+	 JTCydre/4J1Nh7vc/NhfjTYVB/DD3qsMUNxAJ/8c=
+Message-ID: <b78df0e5-9375-47d6-a203-95b931c988d7@arm.com>
+Date: Tue, 15 Sep 2026 15:21:01 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 20/21] arm64: percpu: Implement preemptible CMPXCHG128
- ops
+Subject: Re: [PATCH v4 21/21] arm64: percpu: Remove _pcp_protect*() wrappers
 To: Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org
 References: <20260908151741.394589-1-mark.rutland@arm.com>
- <20260908151741.394589-21-mark.rutland@arm.com>
+ <20260908151741.394589-22-mark.rutland@arm.com>
 Content-Language: en-GB
 From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <20260908151741.394589-21-mark.rutland@arm.com>
+In-Reply-To: <20260908151741.394589-22-mark.rutland@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_072046_319473_F9D8751D 
-X-CRM114-Status: GOOD (  21.24  )
+X-CRM114-CacheID: sfid-20260915_072107_730783_AAA774E1 
+X-CRM114-Status: GOOD (  17.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,95 +71,11 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 9/8/26 16:17, Mark Rutland wrote:
-> Use the PCPU GPR infrastructure to implement this_cpu_cmpxchg128().
+> Now that all this_cpu_*() operations are preemptible, there are no users
+> of _pcp_protect() or _pcp_protect_return().
 > 
-> Note that before this patch, the LL/SC and LSE implementation was chosen
-> with an alternative branch. After this patch the implementations are
-> patched inline, matching the style of the other percpu ops.
-> 
-> The sub-optimal register shuffling before and after this patch occurs
-> because we hard-code specific registers, as LLVM (currently) lacks a way
-> to place a 128-bit type in a compiler-allocated even-odd pair of
-> registers for inline assembly. We should be able to improve that in
-> future, given compiler support.
-> 
-> Test case:
-> 
-> | u128 outline_this_cpu_cmpxchg128(u128 __percpu *p, u128 old, u128 new)
-> | {
-> | 	return this_cpu_cmpxchg128(*p, old, new);
-> | }
-> 
-> Generated code before this patch (v7.2-rc4):
-> 
-> | <outline_this_cpu_cmpxchg128>:
-> |        paciasp
-> |        stp     x29, x30, [sp, #-32]!
-> |        mov     x6, x0
-> |        mov     x0, x2
-> |        mov     x29, sp
-> |        mov     x1, x3
-> |        mrs     x2, sp_el0
-> |        ldr     w7, [x2, #8]
-> |        add     w7, w7, #0x1
-> |        str     w7, [x2, #8]
-> |        mrs     x2, tpidr_el1
-> |        add     x6, x6, x2
-> |        b       4f
-> |        mov     x2, x4
-> |        mov     x3, x5
-> |        mov     x4, x6
-> |        mov     x5, x0
-> |        mov     x7, x1
-> |        casp    x0, x1, x2, x3, [x6]
-> | 1:     mrs     x3, sp_el0
-> |        ldr     x2, [x3, #8]
-> |        sub     x2, x2, #0x1
-> |        str     w2, [x3, #8]
-> |        cbz     x2, 2f
-> |        ldr     x2, [x3, #8]
-> |        cbnz    x2, 3f
-> | 2:     stp     x0, x1, [sp, #16]
-> |        bl      preempt_schedule_notrace
-> |        ldp     x0, x1, [sp, #16]
-> | 3:     ldp     x29, x30, [sp], #32
-> |        autiasp
-> |        ret
-> | 4:     prfm    pstl1strm, [x6]
-> | 5:     ldxp    x8, x7, [x6]
-> |        cmp     x8, x0
-> |        ccmp    x7, x3, #0x0, eq
-> |        b.ne    6f
-> |        stxp    w2, x4, x5, [x6]
-> |        cbnz    w2, 5b
-> | 6:     mov     x0, x8
-> |        mov     x1, x7
-> |        b       1b
-> 
-> Generated code after this patch:
-> 
-> | <outline_this_cpu_cmpxchg128>:
-> |        mov     x6, x0
-> |        mov     x1, x3
-> |        mov     x0, x2
-> |        mov     x3, x5
-> |        mrs     x7, sp_el0
-> |        mov     x2, x4
-> |        mov     w5, #0x10a6
-> |        strh    w5, [x7, #20]
-> |        mrs     x5, tpidr_el1
-> |        add     x4, x6, x5
-> |        prfm    pstl1strm, [x4]
-> | 1:     ldxp    x9, x10, [x4]
-> |        cmp     x9, x0
-> |        ccmp    x10, x1, #0x0, eq
-> |        b.ne    2f
-> |        stxp    w8, x2, x3, [x4]
-> |        cbnz    w8, 1b
-> | 2:     strh    wzr, [x7, #20]
-> |        mov     x0, x9
-> |        mov     x1, x10
-> |        ret
+> Remove them both, along with the associated comment regarding
+> preemption.
 > 
 > Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 > Tested-by: Muhammad Usama Anjum <usama.anjum@arm.com>
@@ -175,90 +90,47 @@ On 9/8/26 16:17, Mark Rutland wrote:
 > Cc: Will Deacon <will@kernel.org>
 > Cc: Yang Shi <yang@os.amperecomputing.com>
 > ---
->  arch/arm64/include/asm/percpu.h | 70 +++++++++++++++++++++++++++------
->  1 file changed, 57 insertions(+), 13 deletions(-)
+>  arch/arm64/include/asm/percpu.h | 27 ---------------------------
+>  1 file changed, 27 deletions(-)
 > 
 > diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
-> index f19a82437b3fd..5cd98e20e825d 100644
+> index 5cd98e20e825d..6ec6e212932d3 100644
 > --- a/arch/arm64/include/asm/percpu.h
 > +++ b/arch/arm64/include/asm/percpu.h
-> @@ -490,19 +490,63 @@ PERCPU_CMPXCHG_OP(x,  , 64)
+> @@ -368,33 +368,6 @@ PERCPU_CMPXCHG_OP(x,  , 64)
+>  #undef PERCPU_XCHG_OP
+>  #undef PERCPU_CMPXCHG_OP
 >  
->  #define this_cpu_cmpxchg64(pcp, o, n)	this_cpu_cmpxchg_8(pcp, o, n)
->  
-> -#define this_cpu_cmpxchg128(pcp, o, n)					\
+> -/*
+> - * It would be nice to avoid the conditional call into the scheduler when
+> - * re-enabling preemption for preemptible kernels, but doing that in a way
+> - * which builds inside a module would mean messing directly with the preempt
+> - * count. If you do this, peterz and tglx will hunt you down.
+> - *
+> - * Not to mention it'll break the actual preemption model for missing a
+> - * preemption point when TIF_NEED_RESCHED gets set while preemption is
+> - * disabled.
+> - */
+> -
+> -#define _pcp_protect(op, pcp, ...)					\
 > -({									\
-> -	typedef typeof(pcp) pcp_op_T__;					\
-> -	u128 old__, new__, ret__;					\
-> -	pcp_op_T__ *ptr__;						\
-> -	old__ = o;							\
-> -	new__ = n;							\
 > -	preempt_disable_notrace();					\
-> -	ptr__ = raw_cpu_ptr(&(pcp));					\
-> -	ret__ = cmpxchg128_local((void *)ptr__, old__, new__);		\
+> -	op(raw_cpu_ptr(&(pcp)), __VA_ARGS__);				\
 > -	preempt_enable_notrace();					\
-> -	ret__;								\
 > -})
-> +static inline u128
-> +__percpu_cmpxchg_128(void __percpu *pcp, u128 old, u128 new)
-> +{
-> +	u16 *gprs = &current_thread_info()->pcpu_gprs;
-> +	unsigned long addr;
-> +	unsigned long off;
-> +	union __u128_halves r, o = { .full = (old) },
-> +			       n = { .full = (new) };
-> +	register unsigned long ol asm ("x0") = o.low;
-> +	register unsigned long oh asm ("x1") = o.high;
-> +	register unsigned long nl asm ("x2") = n.low;
-> +	register unsigned long nh asm ("x3") = n.high;
-> +	unsigned long rl, rh;
-> +	unsigned long tmp;
-> +
-> +	asm volatile (
-> +	__PCPU_GPRS_BEGIN("%[gprs]", "%[pcp]", "%[off]", "%[addr]")
-> +	ARM64_LSE_ATOMIC_INSN(
-> +	/* LL/SC */
-> +       "       prfm    pstl1strm, [%[addr]]\n"
-> +       "1:     ldxp    %[rl], %[rh], [%[addr]]\n"
-> +       "       cmp     %[rl], %[ol]\n"
-> +       "       ccmp    %[rh], %[oh], 0, eq\n"
-> +       "       b.ne    2f\n"
-> +       "       stxp    %w[tmp], %[nl], %[nh], [%[addr]]\n"
-> +       "       cbnz    %w[tmp], 1b\n"
-> +       "2:\n"
-> +	,
-> +	/* LSE atomics */
-> +	"	casp	%[ol], %[oh], %[nl], %[nh], [%[addr]]\n"
-> +	"	mov	%[rl], %[ol]\n"
-> +	"	mov	%[rh], %[oh]\n"
-> +	__nops(4)
-> +	)
-> +	__PCPU_GPRS_END("%[gprs]")
-> +	: [gprs] "=Qo" (*gprs),
-> +	  [addr] "=&r" (addr),
-> +	  [off] "=&r" (off),
-> +	  [tmp] "=&r" (tmp),
-> +	  [ol] "+&r" (ol),
-> +	  [oh] "+&r" (oh),
-> +	  [rl] "=&r" (rl),
-> +	  [rh] "=&r" (rh)
-> +	: [pcp] "r" (pcp),
-> +	  [nl] "r" (nl),
-> +	  [nh] "r" (nh)
-> +	: "memory", "cc"
-> +	);
-> +
-> +	r.low = rl;
-> +	r.high = rh;
-> +
-> +	return r.full;
-> +}
-> +
-> +#define this_cpu_cmpxchg128(pcp, o, n)	\
-> +	_pcp_wrap_return(__percpu_cmpxchg_128, pcp, o, n)
->  
->  #ifdef __KVM_NVHE_HYPERVISOR__
->  extern unsigned long __hyp_per_cpu_offset(unsigned int cpu);
+> -
+> -#define _pcp_protect_return(op, pcp, args...)				\
+> -({									\
+> -	typeof(pcp) __retval;						\
+> -	preempt_disable_notrace();					\
+> -	__retval = (typeof(pcp))op(raw_cpu_ptr(&(pcp)), ##args);	\
+> -	preempt_enable_notrace();					\
+> -	__retval;							\
+> -})
+> -
+>  #define _pcp_wrap(op, pcp, ...)						\
+>  ({									\
+>  	op(&(pcp), __VA_ARGS__);					\
 > -- 2.30.2
 > 
 
