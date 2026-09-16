@@ -4,85 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1388C88E5C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 10:13:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45BE1C88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 10:18:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tWX9XTTIbsH6CkE09cBAkYAuFL80K/bMW6Qsdf7VxgA=; b=oBXb/CkyClWCCreFCsrLxceEm/
-	BLLh2UBUTGre9DEXGeQ/tNCsM8tA2EbhF3pVcMF+XuW53JJhNX77WAUSuO+i92YqXF3mvkZZl26aw
-	F1+5slFDxhCCOUpbD4ymdAj7tllbmli4JV3gDj6W4c11gJE3FTxHToOCZXPe8FHeUHO/NoNwdWkmJ
-	BUAIJgbwF8WYQWdZE2cj/8WDDprOxhwDwpnxFK3bQizwAeambNH/J1Mgojseu/eE9m7dcI2aSQUnD
-	4KfAcyzAJLbZoBk3Ty9SL8zsC6pvOnum9IAQg/vxC82XsVTpJuk2rGyA1PeX1AOAZU7tIIx0+yVUp
-	g4MpOgzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=t3hmWtdZP0Fd0Xr4e68FJlMw+IYfmh5JRzNHS/YOcT0=; b=koKuJRxm+dpubBksV1b3HGbNUm
+	F5MXyY9jJTOPhk3m3dQGia++bsGd6G/EkW435GSHX6yb8OX3cevzxki0tfNYFznAWFCEur/q5uMgY
+	swPU7N7P6ArkI01NGwVgriRVCHTNscyDVo9gKTzda/ZaTj9IlizHHSHD5sOuQ542vs/fRmvcmK1wM
+	Z7CmOfCGprQ1uHyzjmRWCiD61fwfRDI/tS7cxLMZy7ejJOo9cmYfehWNssiJGt3+fsdF6pR2VYT5j
+	YTwC7DXTJZagvKENmffJPe8lVf5fG2OtoxbHclw80mT7juywD8J/y3ibSAKuzZ6wevT93VIIH0ukT
+	Pq9LzBFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6meB-00000008wmY-40y6;
-	Wed, 16 Sep 2026 10:13:47 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x6miB-00000008x8B-2BUg;
+	Wed, 16 Sep 2026 10:17:55 +0000
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6meA-00000008wmA-2yxC
+	id 1x6mi7-00000008x78-3ljz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 10:13:46 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id EF2596053C;
-	Wed, 16 Sep 2026 10:13:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13E2E1F00893;
-	Wed, 16 Sep 2026 10:13:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789553625;
-	bh=tWX9XTTIbsH6CkE09cBAkYAuFL80K/bMW6Qsdf7VxgA=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=XL0PWXG44WQGiuE+d5v5410XtKkGdRPNMn/8Zvt9F0p4DkYZQXhN+c779oG7yxNFJ
-	 4kd2AC9DsART3a/Qzg5sDQ0jhFbx9PuJ76yqP8whSoWNqKhOLky+Xa2mKqAlmGU7t2
-	 dqEd8pmaDyFNtR1ZspVa0TzxkcG7HU79bmh9PwVYDp353Fv9QYCXa7azn5ZVxkh8oI
-	 ZEGc0LF88FuIWX9QJkk73Jy4umyt2rRg3V5SUAszmiP4cRVlMhreqlQL8YcZr16qqx
-	 2ljVrq9FQW7tN1hppXcnH4Y9iDFULtKw0dxkdkElaeEoCYyCFmBZqZVc84r7al2F5h
-	 Uiuv7OKTm3lMw==
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfauth.ams.internal (Postfix) with ESMTP id 3A58D198006B;
-	Wed, 16 Sep 2026 06:13:43 -0400 (EDT)
-Received: from ams-imap-11 ([10.64.2.31])
-  by ams-compute-02.internal (MEProxy); Wed, 16 Sep 2026 06:13:43 -0400
-X-ME-Sender: <xms:1WuqauEb7ZIVxkuWchGLCPSFQ0nUEdoJYy7CGw3Dc67gg3jirfR7MA>
-    <xme:1WuqaqLY-0JGs5fQ3X5x33fEBKrt-pstD6wogkBUuWh8UN_QMpLGbIQvUwTx8HqSI
-    ZqnX75Lnas3qI2SV9lc1tgcyvTYbiSqUPH-n_hQqrXlF7r1_J-TUEc>
-X-ME-Proxy-Cause: dmFkZTGmUXuEW/3d4cAi8SqE8L3ARbJy7mmUeFN9ytA9sCvUWqzTSx1wi0ub4wVqQw/XVC
-    Gh4Q4SyQjlSHpC/XrKQ56ZrwkIkbS1m7+TA9vt9R8oRidnhDDNeaKFlNUqqyqdyA+143iO
-    a926gTui8euD0SvUcbnuekcmNOw/yIdkZpE5t8iYblKVj6qXb2UMtS5v4maiQPyZbNMFOF
-    4TF7mNOMiby1sHBFvOiaAorGXiq8uCngDJTmb1mIhCrubcho80qsBoSO+73jFCNnnwelOs
-    nTiaETOxp8fQEcxURkd6VU5XngdF/7DA6hvQRpnuYLNCudeoPC0Hxa0V/kWcxG/Tb/24To
-    xgWsGbFbjE71zzCuTYZ1XFWPpK8IzNCWc2vnYyD2A1rx1RFnp7uezGSWMQ0OgrCtsDGZXP
-    ZcwwqSEDKCu1guOdWvrq45fVgJ7PIGrmOtcwS33Yxf8bAE4prqeL16QqFx3EKAvbkQ8RdK
-    M2tnsS8FhAxXSpZ7/QUA/bmnApSDXekqQmTAKO1+rtJkN5fgabN05t4ltJUiSe1uGYYkLL
-    EItm5kbQbEAz7a8lIepEhkXnOKzw2iaZLmTt+KDoGOcofCiz7s8Q6LmN3S8IpSpAaXOZyb
-    dm16Sn1qxm3u6/MueZiA47FQirjwN6lDb0lPFaSWjbuPb2eSOdSFDiGXT6HQ
-X-ME-Proxy: <xmx:12uqajyQZjNkFahfPowdOOPii0bUJ9RuWR9Mwl6F0aeAlOCtgz6RIA>
-    <xmx:12uqaknBfutezEqnVHZn5GCs5eiGARD6-EukAOgFRigIqlDOXW4DLA>
-    <xmx:12uqakmxYQquFjmXSj34HPZEUL_aGh3WlYle-vT8l06iXCD4KQW4_w>
-    <xmx:12uqauwwXH3aatReegpugzX8_uk5R74OoXXud1dIkkplWlRgdibTvw>
-    <xmx:12uqahpTzQOxXhT9ZhGsQyqxKltqb3ZjdAP-ECNnpTunFWrz0585L135>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 97F7FF80080; Wed, 16 Sep 2026 06:13:41 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-MIME-Version: 1.0
-Date: Wed, 16 Sep 2026 12:13:21 +0200
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Vladimir Murzin" <vladimir.murzin@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: "Catalin Marinas" <catalin.marinas@arm.com>,
- "Will Deacon" <will@kernel.org>, liulhong617 <liulhong617@gmail.com>,
- "Mike Rapoport" <rppt@kernel.org>
-Message-Id: <947a1506-dfe4-4906-9673-6a7227946433@app.fastmail.com>
-In-Reply-To: <20260908162033.74509-1-vladimir.murzin@arm.com>
-References: <20260908162033.74509-1-vladimir.murzin@arm.com>
-Subject: Re: [PATCH] arm64: mm: Fix pfn_is_map_memory() misreporting mapped memory
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+	Wed, 16 Sep 2026 10:17:54 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e71cdb22bso5532945e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 03:17:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1789553870; x=1790158670; darn=lists.infradead.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:mime-version:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=t3hmWtdZP0Fd0Xr4e68FJlMw+IYfmh5JRzNHS/YOcT0=;
+        b=hJBoJVFupzPBZuXuFDmU9kN/LV38DTjCMu5ClT3rIdWAHE4mBNoS6YBbfItw23G3RV
+         pWymEPOU4cVtBT+FPR7wOByWK4V1SZ56q2piuXWimYzvyNW112c2qQkzI31vD2YeTNkm
+         0+2Ug5Rp8aXYsmGEnDCruagrivZgOMOe945JFyQ308V+AsErSmfwcrOyTS5hX3Wp0NsI
+         gJKb8GsivyJBQS/VhEb/AxG8cwxZN2ZjPRFUZ2E+v3VpOkFJYt2roIBr2WJ8xZOVBOLt
+         41BIIzf6VT4Qvmf0FTUm3aYmQZI2VGF4iksVqOWIOMnu4Ulaq+v8LXV+HDBXs+YMhc6g
+         bF5A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789553870; x=1790158670;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=t3hmWtdZP0Fd0Xr4e68FJlMw+IYfmh5JRzNHS/YOcT0=;
+        b=P53U+qvU/lVIVFT1bOD1EJp4+EEpirpbErTAXhpU8iibcVvd3z1DHI2jrKVzeHDCXY
+         c1owmE7SCiI8kNogYlWQ8EZ3tRECxYS2GTzQNr66Mtx6bSHnIKmXOdT6mlr8K3Pwi9Lz
+         4o6z1zKmHFY3RS4lrwJlfXEKJUYyhaOKBg2YWOoQlgJlPbx2MVnyQGH03AciwmJFqG4n
+         DpQ6dLUiJ/9rjmyBkQsB7vpfytDQZvYelpmligyCCaSnOAONCMim/ud36HugY3BLwtZh
+         Uug6gPHjA3nTBpEAbv18q1fXu4gp+Ln44m5YrnOQkPuKALljLVvfnTZdk61QNz0cA0Hs
+         OW2Q==
+X-Forwarded-Encrypted: i=1; AKwUvBz/SlOf2jYL6ZyEoa9l/POOnNy/05DeYhd8I7yDK4Vw+509SIiafWgVU2Tc4K1srcgNfoptGBbhg8kr/JMtJndL@lists.infradead.org
+X-Gm-Message-State: AFuF++lWlL33zOncCsIPH1UU57C0H0qpgOEERkgK7CNrQDBBukmB4PpP
+	A3HloMT9RhwV+lb0eGC50ZLIFRelU3JiVZ4JybbJDYzXp4Ra3yQMzUNrzll+kY4HnjA=
+X-Gm-Gg: AYBFou03hA32xSxgRMJwBNjXOX1W+2/3Hd4FMdTwT5lNSS2EojBZYaCP5B8BRPz1lKQ
+	GthPA2nAX4EN0gvaoSh2Ybs6Ay1eU+Mr2WyqP8wPDLzvMdU4in4E05vTZg7vJubxbfD0LsS79v6
+	rn69+GZAKa0jpSqKnUBuu1bv9AzXa9Zve1v6//LTowgproi19aV31TUT5I7dLg+mIUi1A45Kgo0
+	5DDUPew2Y89PJsqnSq/mPyR0GqiHYiOESxHTLx8Ssm6db/5U/yUzIoggReWNl9gDWGSnV9uMGIJ
+	X1fqxUnWjNre0qLIgi/4/onuB1a7AVlyqOrqpbV0SaNdL/zQQyD7gEQMFxgJTZ3FMVDT/qulP4/
+	gn7zebBRL9yqcqoBATnQp4HDYhkN3cG5df3LlhaXSi/yVDVnP9BnNYc2mlLXboDgRvyD7XkEoCT
+	yEMWxBmQpm2StMDYV7M27h+AA/aG8VHSaGAxIrXGYRwXIsu9btcySsWvPxJvoDLB5SiQ==
+X-Received: by 2002:a05:600c:4e89:b0:49c:f504:2af5 with SMTP id 5b1f17b1804b1-49eac463892mr21836755e9.1.1789553870070;
+        Wed, 16 Sep 2026 03:17:50 -0700 (PDT)
+Received: from localhost ([2001:4091:a245:8029:665d:b7b:5fa4:7ad0])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4870bf462cesm6129385f8f.37.2026.09.16.03.17.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 16 Sep 2026 03:17:49 -0700 (PDT)
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=4294f4665fca826925ab73fbe6c2302da13aa0714ec0f2a34bb309cea55b;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Wed, 16 Sep 2026 12:17:42 +0200
+Message-Id: <DLGNWF2DSXZI.7WRJZRZLGW8@baylibre.com>
+Cc: "Nishanth Menon" <nm@ti.com>, "Vignesh Raghavendra" <vigneshr@ti.com>,
+ "Tero Kristo" <kristo@kernel.org>, "Rob Herring" <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
+ <conor+dt@kernel.org>, "Nathan Chancellor" <nathan@kernel.org>, "Nick
+ Desaulniers" <nick.desaulniers+lkml@gmail.com>, "Bill Wendling"
+ <morbo@google.com>, "Justin Stitt" <justinstitt@google.com>, "Judith
+ Mendez" <jm@ti.com>, "Daniel Schultz" <d.schultz@phytec.de>, "Andrew Davis"
+ <afd@ti.com>, "Siddharth Vadapalli" <s-vadapalli@ti.com>, "Paresh Bhagat"
+ <p-bhagat@ti.com>, "Bryan Brattlof" <bb@ti.com>, "Jai Luthra"
+ <jai.luthra@ideasonboard.com>, "Devarsh Thakkar" <devarsht@ti.com>,
+ "Beleswar Padhi" <b-padhi@ti.com>, "Francesco Dolcini"
+ <francesco.dolcini@toradex.com>, "Stefano Radaelli"
+ <stefano.radaelli21@gmail.com>, "Nick Desaulniers"
+ <ndesaulniers@google.com>, "Vishal Mahaveer" <vishalm@ti.com>, "Kevin
+ Hilman" <khilman@baylibre.com>, "Sebin Francis" <sebin.francis@ti.com>,
+ "Kendall Willis" <k-willis@ti.com>, "Akashdeep Kaur" <a-kaur@ti.com>,
+ <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <llvm@lists.linux.dev>, "Hari Nagalla"
+ <hnagalla@ti.com>
+Subject: Re: [PATCH v8 9/9] arm64: dts: ti: Add wkup R5F nodes to pre-ram
+ bootphase
+From: "Markus Schneider-Pargmann" <msp@baylibre.com>
+To: "Francesco Dolcini" <francesco@dolcini.it>, "Markus Schneider-Pargmann
+ (TI)" <msp@baylibre.com>
+X-Mailer: aerc 0.21.0-146-gb5c16ebe1835
+References: <20260903-topic-am62a-ioddr-dt-v6-19-v8-0-74c650dfdea6@baylibre.com> <20260903-topic-am62a-ioddr-dt-v6-19-v8-9-74c650dfdea6@baylibre.com> <20260911052428.GB5377@francesco-nb>
+In-Reply-To: <20260911052428.GB5377@francesco-nb>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260916_031752_249867_4479AA47 
+X-CRM114-Status: GOOD (  19.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,83 +119,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-(cc Mike)
+--4294f4665fca826925ab73fbe6c2302da13aa0714ec0f2a34bb309cea55b
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-On Tue, 8 Sep 2026, at 18:20, Vladimir Murzin wrote:
-> Commit 7ace06a01efa ("arm64: mm: fix accidental linear mapping of
-> no-map reserved memory") removed sub-page no-map regions from the
-> linear mapping. However, pfn_is_map_memory() can still report that
-> such a region is mapped.
+Hi Francesco,
+
+On Fri Sep 11, 2026 at 7:24 AM CEST, Francesco Dolcini wrote:
+> Hello Markus
 >
-> For instance, with 64K pages, say we have
+> On Thu, Sep 03, 2026 at 02:39:30PM +0200, Markus Schneider-Pargmann (TI) =
+wrote:
+>> For IO+DDR the wkup_r5fss0_core0 and the
+>> wkup_r5fss0_core0_lpm_metadata_region need to be accessed before RAM
+>> setup is done. These are used to read the lpm metadata region in
+>> which data is stored to resume. This needs to be done before RAM is
+>> in use to avoid overwriting data.
+>>=20
+>> Add the bootph-pre-ram flag to the wkup_r5fss0_core0 node in both
+>> ipc-firmware dtsi files and to the lpm metadata region nodes of the
+>> AM62A and AM62P boards.
+>>=20
+>> The board level bootph-pre-ram flag of k3-am62d2-evm.dts becomes
+>> redundant with the dtsi-wide flag and is dropped.
+>>=20
+>> Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
+> ...
 >
-> normal:        ...=E2=80=930xa2007fff
-> no-map: 0xa2008000=E2=80=930xa200ffff
-> normal: 0xa2010000=E2=80=93...
+>> diff --git a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi b/arch/arm64/bo=
+ot/dts/ti/k3-am62p-verdin.dtsi
+>> index 45ab9d947b3a..8976c0424cd1 100644
+>> --- a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+>> +++ b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+>> @@ -184,6 +184,7 @@ wkup_r5fss0_core0_lpm_metadata_region: memory@9ca080=
+00 {
+>>  			compatible =3D "shared-dma-pool";
+>>  			reg =3D <0x00 0x9ca08000 0x00 0x1000>;
+>>  			no-map;
+>> +			bootph-pre-ram;
+>>  		};
 >
-> The range 0xa2000000=E2=80=930xa200ffff is not linearly mapped, but
-> pfn_is_map_memory(__phys_to_pfn(0xa2008000)) aligns the address to
-> page granularity and passes 0xa2000000 to memblock_is_map_memory().
-> That address belongs to the preceding normal memblock region, so the
-> no-map region is ignored and the function returns true.
->
-> Fix that by checking if entire page is subset of memory block.
->
-> Fixes: 7ace06a01efa ("arm64: mm: fix accidental linear mapping of=20
-> no-map reserved memory")
-> Assisted-by: LLM
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-> ---
->  arch/arm64/mm/init.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-> index fbf215ecc7d0..5da80e1e1727 100644
-> --- a/arch/arm64/mm/init.c
-> +++ b/arch/arm64/mm/init.c
-> @@ -172,7 +172,8 @@ int pfn_is_map_memory(unsigned long pfn)
->  	if (PHYS_PFN(addr) !=3D pfn)
->  		return 0;
->=20
-> -	return memblock_is_map_memory(addr);
-> +	return memblock_is_region_memory(addr, PAGE_SIZE) &&
-> +		memblock_is_map_memory(addr);
->  }
->  EXPORT_SYMBOL(pfn_is_map_memory);
->=20
+> verdin-am62p has the various bootph tags only in the U-Boot dtsi
+> (k3-am62p5-verdin-wifi-dev-u-boot.dtsi) as of now, I am not convinced it
+> is a good idea to just add this single one here.
 
-memblock_is_region_memory() only tells you whether the range in
-question is covered by a single entry in memblock.memory.regions[].
+I don't see any bootph-* flags for any of the related memory regions in
+k3-am62p5-verdin-wifi-dev-u-boot.dtsi. Is it in a different dtsi?
 
-memblock has other flags, which may or may not be set on sub-page
-regions too. So I don't think this is the right solution in the
-general case, even if it fixes your example.
+In general I am counting 72 bootph-* flags in the upstream devicetrees:
 
-Given that the no-map attribute fundamentally only applies to page
-granular regions, it would make sense to round those outwards
-whenever they are created.
+git grep bootph- | grep 'am62p' | sed 's/:.*//g' | sort | uniq -c
+     38 arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+      4 arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
+      9 arch/arm64/boot/dts/ti/k3-am62p5-var-som-symphony.dts
+      3 arch/arm64/boot/dts/ti/k3-am62p.dtsi
+     14 arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+      2 arch/arm64/boot/dts/ti/k3-am62p-j722s-common-mcu.dtsi
+      2 arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi
 
---- a/mm/memblock.c
-+++ b/mm/memblock.c
-@@ -1119,6 +1119,10 @@
- int __init_memblock memblock_mark_nomap(phys_addr_t base, phys_addr_t s=
-ize)
- {
-+       phys_addr_t end =3D PAGE_ALIGN(base + size);
-+
-+       base &=3D PAGE_MASK;
-+       size =3D end - base;
-        return memblock_setclr_flag(&memblock.memory, base, size, 1, MEM=
-BLOCK_NOMAP);
- }
-=20
+Best
+Markus
 
-Note that I recently removed the frivolous use of MEMBLOCK_NOMAP in
-__map_mem() so the remaining calls should mostly be true reservations
-originating from the boot environment.
+--4294f4665fca826925ab73fbe6c2302da13aa0714ec0f2a34bb309cea55b
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
 
+iKMEABYKAEsWIQSJYVVm/x+5xmOiprOFwVZpkBVKUwUCaqpsxhsUgAAAAAAEAA5t
+YW51MiwyLjUrMS4xMiwyLDIRHG1zcEBiYXlsaWJyZS5jb20ACgkQhcFWaZAVSlPF
+ZAD/eDJUC404z4tekZfsmiBsSdeLivl6qN7wKJXrKvbZT8oA+wcDLzFFZE77sGVB
+8TuajZIIVN4aNTNdZ3YIBLPrhFkO
+=F8Zw
+-----END PGP SIGNATURE-----
 
-
-
+--4294f4665fca826925ab73fbe6c2302da13aa0714ec0f2a34bb309cea55b--
 
