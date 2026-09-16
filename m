@@ -4,74 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 209B8C982C1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 09:40:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D5E1C88E5C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 09:42:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=A55i9BfJHMidgmc8tK5EfrQXSsHaTEHchuqr258s9DU=; b=ii/Q+2XJBayZARLaID2r+5Be9l
-	NCSyDMNSpVN2fbECJ/j4UcyqEU4466XyLS4HL+zI+vFv+rfSzMMmOwu4rpcjpSrkJdRBqnYykB+3y
-	LxcJU+bjKSRVQnMZICy8jE0MJe868mUQUGsvLFX6bQKhpfXdYiXe3qTgGT79qYsDENofLH6hPC+NT
-	Ls1xDmwbRpsbOHAUgt9N7b7umFBStLP+NpcBSFu6cnbMa/MDbHduZeFAVgu60D30pTf0LN6HJsWpc
-	hXxOFAlfCsrVdwgkFK+mMztqMiEXGqUjqoh52+PFM2+ans1ahFmHuwsNlsefohOiWB7coz4WC73xK
-	bImb6DYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OAYn1OR/urJcX7Y1PYkiEnveKTXrW8w2C8NfOif91L8=; b=ah96ct/1d5ws3BrfaJUL/G3u4v
+	8u8+2b99RN5t8mCmZz6PO44d8WyHe3Z9jOI7FTf3venDV8g0JoosWoa52AdqLsmI7UrvRU2Xvr5BP
+	4hjythohrKpN0g9NajeHSYnveydwkVD47Mkc0+8qOR61G1RpGMPgSFgmBJeuSesKDNjMvzwRap/zW
+	U32zEl4E5Fky7utyiJDSfJuVuAgZC/7fdHa+9qWPWXZsnpq5HyRbnYEMrNmnsqy3jfey3GVmpELGc
+	OgQOnU0J0rQfIS7DpLNrmjyaF+us2fmqXJdsOpWr3oraICVIlSvVqW/lAIrUaOavudZx2Gdm1W5Yc
+	VrpwV7gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6m7O-00000008rp2-3N4W;
-	Wed, 16 Sep 2026 09:39:54 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1x6m9j-00000008sFc-0tJs;
+	Wed, 16 Sep 2026 09:42:19 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6m7K-00000008ro4-1Epl
+	id 1x6m9i-00000008sFP-0Vj1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 09:39:53 +0000
-Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
-	by APP-03 (Coremail) with SMTP id rQCowAC3wkDeY6pqGorgBw--.1498S2;
-	Wed, 16 Sep 2026 17:39:42 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: alistair@popple.id.au
-Cc: andrew@codeconstruct.com.au,
-	eajames@linux.ibm.com,
-	gregkh@linuxfoundation.org,
-	joel@jms.id.au,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-fsi@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
-	ninad@linux.ibm.com,
-	Wentao Liang <vulab@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH] fsi: master-aspeed: Fix of_node reference leak in fsi_master_aspeed_probe()
-Date: Wed, 16 Sep 2026 09:39:14 +0000
-Message-Id: <20260916093914.2005582-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	Wed, 16 Sep 2026 09:42:18 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id BDA7E43ECC
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 09:42:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DAA41F008A2
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 09:42:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789551737;
+	bh=OAYn1OR/urJcX7Y1PYkiEnveKTXrW8w2C8NfOif91L8=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=DIBXyWb7UH5fiTMzXNE37a2F+G9RIUwumVarRFiKNAZBsd99X6vZXzaa9EATH9e0P
+	 /+ofei18bmy0VfPJC4iHaMTvZnQs6kyqXxu/UUHKaK385/aV7yYjBIl+xBhHJ2mGIE
+	 14L0i49LA/xQPxgMOQ2waI9AzgehLyjrTCAln0GBeyyu6a3JEZhq2sW6VblSycwkn4
+	 T1zQS4e1h7dc7R123LzQUJzZgyqxLihnLBPKyg7YHcpmc2prefCKoozmsXKfkTlZNT
+	 D1iTlKgwEuKzjP413TGKYMB8MMlQq79pjYd/phOTBhUcUZgVzzlHRBvpGchaO5BRPV
+	 581T61ApkigvQ==
+Received: by mail-lr2-f38.google.com with SMTP id 38308e7fff4ca-3a306a4f797so5548471fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 02:42:17 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBznShDPOmhacoPqqct19esUNVFnz1tH/zDlmBLDK7eFzU9DASXJUwblU7jHoPfySFn2ogV6eU4dhSovf01B5WXp@lists.infradead.org
+X-Gm-Message-State: AFuF++ltlAkVmMY5JMqJjc9kC7XB6AFMyNuu5fy01As3OKUz7nk9L5Z8
+	+LtGxkiwScQkedCcOqhzfEq94prfjgFX31JDh/QPrQ7nRWROVqkKI4UmjeGQpARvQnVKDgaDvip
+	oQe7e7QxRkooDjQK9OEusOEq/yMfPKfvnUzYAxb7m5g==
+X-Received: by 2002:a05:651c:2107:b0:3a5:bb28:3324 with SMTP id
+ 38308e7fff4ca-3a5dca282a3mr3987981fa.28.1789551736240; Wed, 16 Sep 2026
+ 02:42:16 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 16 Sep 2026 09:42:15 +0000
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 16 Sep 2026 09:42:15 +0000
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260915080501.329424-1-mehmet.fide@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowAC3wkDeY6pqGorgBw--.1498S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrZr4ruw15Ww4UKw45Xr1kKrg_yoWkGwcE93
-	W8uF93JFWUCFWkJws0yanIvw4qkF9rWFyxKrZ7ta1Sg34UZrZ8JFW5Xrs3Ca17WrWxJFWD
-	Ar1DKw4rGrW3GjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbaxFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_
-	Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
-	jxv20xvE14v26r126r1DMcIj6I8E87Iv67AKxVW8Jr0_Cr1UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x
-	0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2
-	zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr
-	1lIxAIcVC0I7IYx2IY6xkF7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_
-	JF4lIxAIcVC2z280aVAFwI0_Gr0_Cr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYx
-	BIdaVFxhVjvjDU0xZFpf9x0JUJWrAUUUUU=
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBgMMA2qqPpSecAAAsO
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_023952_099169_F82F98C1 
-X-CRM114-Status: UNSURE (   7.99  )
-X-CRM114-Notice: Please train this message.
+References: <20260915080501.329424-1-mehmet.fide@gmail.com>
+Date: Wed, 16 Sep 2026 09:42:15 +0000
+X-Gmail-Original-Message-ID: <CAMRc=MdmqkG02q=4_wJAVjeBzP_8KqQWNx6cBaL=FUTn_wxw-Q@mail.gmail.com>
+X-Gm-Features: AcwNN1UbxaY2LXeizQ7uYjEouexjsvFGbwv4lQlNYZHZGCxRnPnk9_dWQHfZ6g8
+Message-ID: <CAMRc=MdmqkG02q=4_wJAVjeBzP_8KqQWNx6cBaL=FUTn_wxw-Q@mail.gmail.com>
+Subject: Re: [PATCH v6 0/4] gpio: mmio: report the line direction on chips
+ without direction registers
+To: Mehmet Fide <mehmet.fide@gmail.com>
+Cc: Haibo Chen <haibo.chen@nxp.com>, Dong Aisheng <aisheng.dong@nxp.com>, 
+	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>, Jacky Bai <ping.bai@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, imx@lists.linux.dev, 
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Mehmet Fide <mehmet.fide@screeningeagle.com>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Linus Walleij <linusw@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,35 +87,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In fsi_master_aspeed_probe(), a reference to the device tree node is
-taken with of_node_get() and stored in master.dev.of_node.  If
-fsi_master_register() fails, the error path frees the master without
-putting that reference, leaking it.
+On Tue, 15 Sep 2026 10:04:57 +0200, Mehmet Fide <mehmet.fide@gmail.com> said:
+>
+> On trees: Linus offered to take patch 2 through pinctrl, and patch 1 is
+> pinctrl as well. Patch 4 gives wrong answers without patch 2 (an
+> undecoded pad register would seed every requested line as an output), so
+> I would rather the two pinctrl patches land first or in the same cycle
+> as the two gpio patches, whichever way you two prefer to split it.
+>
 
-Put the device node reference before returning on the error path.
-of_node_put() tolerates a NULL node, so the earlier err_release path
-via opb_readl() is unaffected.
+Linus can put the first two on an immutable branch for me to pull.
 
-Fixes: 606397d67f41 ("fsi: Add ast2600 master driver")
-Cc: stable@vger.kernel.org
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
----
- drivers/fsi/fsi-master-aspeed.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/fsi/fsi-master-aspeed.c b/drivers/fsi/fsi-master-aspeed.c
-index aa1380cdff33..7c7f30c2b8e6 100644
---- a/drivers/fsi/fsi-master-aspeed.c
-+++ b/drivers/fsi/fsi-master-aspeed.c
-@@ -640,6 +640,7 @@ static int fsi_master_aspeed_probe(struct platform_device *pdev)
- 	return 0;
- 
- err_release:
-+	of_node_put(aspeed->master.dev.of_node);
- 	clk_disable_unprepare(aspeed->clk);
- err_free_aspeed:
- 	kfree(aspeed);
--- 
-2.34.1
-
+Bart
 
