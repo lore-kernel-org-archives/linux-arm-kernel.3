@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E678BC982C1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 09:32:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5821DC88E5C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 09:36:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mP7FQL5HjcwNV8Xehg/d3gNT+XNR2SrjNIEhJ8VBWCs=; b=y2WUUNl6LATviJWiuQlBS1Jrdr
-	VjXZTh62/9skHIC8VFTkzUKnyoifynRc5FWx8s2qRl9o55RNLj+WqKYjMt+54d4UPZIVpnN1g2Kln
-	ANisuzxwQk8raMBTQTYWwrpzXQVRKRK7RFlwQUVmaT4K1c0xU67c2MyPAuhedDlEOvknZFAvqIT6E
-	AZPOzfj0jwlsJae1skHrKSYma/GJ4r5fsi8KtcfNJ7N82tT9PANvGTfNPWw9mYD1AR1BybFt0pXjN
-	e/RZEAcClCJvn4vAm6BHZGevAZ5MIV3bP8Yve587f7i7iOK8M5sGwrGYGd5Z/BAx7ghZ+z+mzDjAp
-	dat+GIXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=i8KQnL2/4WkeJNW646kevDNZ7P73axxo8GxkdWXAlmI=; b=OCRqIBXdvvCWwsWaisEQCFBhN7
+	5y4fKEevVKdpJIBOXAYFzlM8GOp3qUrHdOQsBRuiplrf6Phe5pROcXnBqwTpZgFAslXK6SlWjW19q
+	cjXjXDMhZtjVS3WMYg7/whLBhhSAbzcEEQmQEiMtyrecSOfGDgEiaflAuO6T4pwPvZFvXpUa5V9Tz
+	hhlC+MesXTeO5YTvXro1rPII1W0CQYhW2M4z/53Qzc5tCggpcTzkYUQW9BIjcd9mtP/MMcjNK0Uh7
+	DUuhMCauhPf71rsbQcVHi6lcUvCtxqKO8opPGxDAB427kBSuFf0w3/HgEzUn0HYpZg2fSxZn4WTKw
+	QoY88U4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6lzf-00000008qXA-0kzV;
-	Wed, 16 Sep 2026 09:31:55 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x6m3d-00000008rAX-3rEY;
+	Wed, 16 Sep 2026 09:36:01 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6lzd-00000008qWN-2MSU
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 16 Sep 2026 09:31:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=mP7FQL5HjcwNV8Xehg/d3gNT+XNR2SrjNIEhJ8VBWCs=; b=OY3atGHJkjVaGQKd+M6UqD3dlH
-	fkqOvG2QFHCEjyaADqfm6BMZvNa0DiIybr+dwgmb39hhO9CWnwgf0UApXdemveQfm68UfsW2Dav5o
-	RrdrMJ4v1aUJnvjxkaXd90dOvwazxswxcl7XbgibWZtv7ewifiLVmMgVSF6y1sttE9Ie//UlIAgQW
-	NqGBWk+a+/a59XFXxkCaAdzc20iEyTRi1SaXJicuYn4++ndONqvfmc07SvjNPQG56f6gyeD1uL+nM
-	cuEd+nIJkKPTo00NdymUXgQ4IQ0Wye7BStT29GcuH4mJDt+k8EwkEBQwazQdAObsL4kE/YMDIcCHF
-	wZ6PV/GQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6lzZ-00000007gwH-46aT
+	id 1x6m3a-00000008r8n-2Af4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 09:31:52 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EE2B71516;
-	Wed, 16 Sep 2026 02:31:44 -0700 (PDT)
-Received: from localhost (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 20E763F86F;
-	Wed, 16 Sep 2026 02:31:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789551108; bh=la8IZH7YDw9SpimkZ00WJV6Uu78AQvTllZ8srncgV48=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tkVrWgyNZIfYoSjTq2nXj1v9dgPhjECHns2uDsk8j/reWdWO6k/k8YYt6AgeoYT1a
-	 KHNlXDLeOLKCtLL5y3AvmboVa4iBJd7+Nn/EJaFVi5nkdgZzEdybvRvpaaFpDP+ih1
-	 tUtY6+ZH1VaWfJrw5ZqDBzW1UyWC06AJ9qGirzfo=
-Date: Wed, 16 Sep 2026 10:31:46 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: will@kernel.org, mark.rutland@arm.com, ilkka@os.amperecomputing.com,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2] perf/arm-cmn: Fix multi-filter encoding
-Message-ID: <20260916093146.GG200420@e132581.arm.com>
-References: <ec590cd4cc61b54d6ad3b306b69777ad7729c9d6.1789475062.git.robin.murphy@arm.com>
+	Wed, 16 Sep 2026 09:36:00 +0000
+Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
+	by APP-03 (Coremail) with SMTP id rQCowACnqjj7YqpqpXTgBw--.42407S2;
+	Wed, 16 Sep 2026 17:35:55 +0800 (CST)
+From: Wentao Liang <vulab@iscas.ac.cn>
+To: arm-scmi@vger.kernel.org
+Cc: cristian.marussi@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	sudeep.holla@kernel.org,
+	Wentao Liang <vulab@iscas.ac.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH] firmware: arm_scmi: Fix msg use-after-free in virtio_mark_txdone()
+Date: Wed, 16 Sep 2026 09:35:27 +0000
+Message-Id: <20260916093527.2004594-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ec590cd4cc61b54d6ad3b306b69777ad7729c9d6.1789475062.git.robin.murphy@arm.com>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: rQCowACnqjj7YqpqpXTgBw--.42407S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7KF18CrW5CF4kJr4DKFW5GFg_yoW8AFy5pF
+	4qga9xGw4UJF4xta48AF4kuFya9anYgr9xWry29aykCan8JF18XrWUAwn0gFyUArWxGa4j
+	kF4ktrZrGF1DZrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvj14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
+	6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Gr1j6F4UJwAm72CE4IkC6x0Yz7v_Jr
+	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7MxkF7I0En4kS14v2
+	6r126r1DMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrV
+	AFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUAVWUtwCI
+	c40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1I6r4UMIIF0xvE2Ix0cI8IcVCY1x0267
+	AKxVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r4j
+	6F4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvjfUOM
+	KuUUUUU
+X-Originating-IP: [36.110.52.2]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiCRQMA2qqP4eVTAAAsz
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_103150_286203_F373990D 
-X-CRM114-Status: GOOD (  14.68  )
+X-CRM114-CacheID: sfid-20260916_023558_924343_E256A242 
+X-CRM114-Status: GOOD (  10.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,31 +80,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 15, 2026 at 01:24:22PM +0100, Robin Murphy wrote:
-> The current special-case for EVICT_STATE_SEL filtering effectively
-> assigns the "filter" and "filter2" controls in the opposite order from
-> how the CMN S3 r2 TRM states "Filtering is programmed in pmu_hbt_lbt_sel
-> and pmu_evict_state_sel". On reflection, not only does this seem
-> unnecessarily non-obvious to users, but it's also likely to be a problem
-> for scaling to a full multi-filter abstraction in future. There is a
-> logical order to filters based on their bitfield positions in the
-> pmu_event_sel register, which the TRM descriptions allude to, and the
-> cmn_filter_select enum already (almost) follows, so let's fix the UABI
-> to follow suit while it's still unreleased.
-> 
-> Fixes: 09178f536bb9 ("perf/arm-cmn: Plumb in new filter types")
-> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+virtio_mark_txdone() can drop the last reference of a polled message
+while msg->poll_lock is still held, returning the message to the
+free-list where a concurrent sender can re-allocate it and race with
+the unlock at the end of the critical section. Hold a spare reference
+across the poll_lock critical section and drop it after the unlock.
 
-It's hard to say how useful my review is, but I went through the patch
-and also asked AI to explain the rationale. It makes sense to me:
+Fixes: 5a3b7185c47c ("firmware: arm_scmi: Add atomic mode support to virtio transport")
+Cc: stable@vger.kernel.org
+Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+---
+ drivers/firmware/arm_scmi/transports/virtio.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-Reviewed-by: Leo Yan <leo.yan@arm.com>
+diff --git a/drivers/firmware/arm_scmi/transports/virtio.c b/drivers/firmware/arm_scmi/transports/virtio.c
+index 326c4a93e44b..4bbd9dd2de83 100644
+--- a/drivers/firmware/arm_scmi/transports/virtio.c
++++ b/drivers/firmware/arm_scmi/transports/virtio.c
+@@ -616,6 +616,14 @@ static void virtio_mark_txdone(struct scmi_chan_info *cinfo, int ret,
+ 		return;
+ 	}
+ 
++	/*
++	 * Hold a spare reference to msg so that it is not returned to the
++	 * free-list while it is still accessed under poll_lock: a message
++	 * sitting on the free-list can be re-allocated and re-initialized
++	 * without taking poll_lock.
++	 */
++	scmi_vio_msg_acquire(msg);
++
+ 	spin_lock_irqsave(&msg->poll_lock, flags);
+ 	/* Do not free timedout polled messages only if still inflight */
+ 	if (ret != -ETIMEDOUT || msg->poll_status == VIO_MSG_POLL_DONE)
+@@ -624,6 +632,8 @@ static void virtio_mark_txdone(struct scmi_chan_info *cinfo, int ret,
+ 		msg->poll_status = VIO_MSG_POLL_TIMEOUT;
+ 	spin_unlock_irqrestore(&msg->poll_lock, flags);
+ 
++	scmi_vio_msg_release(vioch, msg);
++
+ 	scmi_vio_channel_release(vioch);
+ }
+ 
+-- 
+2.34.1
 
-Seems we could implement a generic way to navigate filters based on
-the hardware bitfield ordering, e.g. filter_next(sel) and
-filter_prev(sel). This can be deferred until we have more combined
-filters.
-
-Thanks,
-Leo
 
