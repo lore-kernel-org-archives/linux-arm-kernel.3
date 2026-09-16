@@ -4,72 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82C4EC88E5C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 05:52:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EA3AC88E5C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 05:55:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0dOkaG0OwDR9mA0cZ/v0JZWI6uiu5UK7Ue5qjXYjTls=; b=0TdEGg0dAGsoH8Px3CJYoDC46J
-	+fj+R0x1PRm/tR61vTYhxQRHXYq1oT06vNZakJ00Z9pnKDkLobXcTAqOMcgMN427oqQba3kvGGq1D
-	vV+HnMjxnyLhw4AGyQqzQiTROzuX2h4AvvkX7xs8zQt1d5pwRb0bDSd9pdDn1RsJoFPSb5R3cva0H
-	P1hoMI8XFUUt7YjTk47SMTj4YYvMc0nWLI6V4bQw4H9+y+Shj3MM/WRoEBjfwDxaUC1d4Blf/AIpa
-	3G7CVaFh1qQN/j/VfnI1vuQZeyPw/hxUiLdeBmQRP4QmOnuSjH3Jv0HigPkUnJ9d4/yCYS+n9BDTU
-	YQcXW62g==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MqFU5BpLPG1Ad79y0zq7m4k9RGfhTKwi6mVEHKHgkMk=; b=3mKloPl/P/jp9TKPrSV0Q0II9k
+	0PVPLYmN3MJPq1FUdn32azf7JNj2gRFH4a+Wpf+LEPARfzToRFdWaSpKu/yTIsZCi2OyDi0p0YvJX
+	bm2yT03LxbtZ88JETdMCmJHs43oFubKqCOjKFNTBQkOrLAG11ya7xmmYbiUD38eLF3FzqyemWAE/V
+	bgVujrSZPaCEecLzibJxgBEGYZPOdI0xoOZ75eSiCQh9JUbqBQh5vvVVDJqS9PwD/3MPTFy20OgiK
+	tsQYPg1qIR/BXgnuQg5H5J1J9kwzb/inDJRsdPlwJtj5YPkU63GmtRLBL2qWfs1yr4lZqYPlRJbmu
+	eO57e2ZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6iYm-00000008Pzd-3Qgt;
-	Wed, 16 Sep 2026 05:51:56 +0000
+	id 1x6ic2-00000008QP0-0igk;
+	Wed, 16 Sep 2026 05:55:18 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6iYk-00000008PzQ-3jLa
+	id 1x6iby-00000008QO2-2zxG
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 16 Sep 2026 05:51:55 +0000
+	Wed, 16 Sep 2026 05:55:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=0dOkaG0OwDR9mA0cZ/v0JZWI6uiu5UK7Ue5qjXYjTls=; b=kOy3bxrHKFws5skJKXXsFqnx8/
-	DVIyNXSbqa0QrHQFGNIkEmNdFEJ92OVhsCwRhGmRwneyG1QfVMmUxIS6HTVrI00BhG20uvUgHqb7U
-	HjD2o22xj8a3xs9s3g0BKJCPSSp2aKipw7qVePtauSrVBSecI4KIpYdJbjUF4yN528Yyj7H8erMOP
-	ThgExKSnqRpkMsi0L/OUZdrN7CAl63RwKtlY/s1zc+kIcFlfXDEFBIuZsW1e4J/c2V+UgKjmNj2ck
-	6/uhEjbN6SIT8RBpMoMEZJjlloB2RGYgmWY5aP2cI2h5eN5GT64YVXt7RwoXKhaHugpppyixuNnc+
-	4bojP93Q==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6iYh-00000007VsO-1W6c
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=MqFU5BpLPG1Ad79y0zq7m4k9RGfhTKwi6mVEHKHgkMk=; b=f+AE9t5IcA3Fs+QG7oU3+RmbpP
+	fBrImqBuRlB2CiG6m75uMUxOjw0LDGHH1LEmQMVm7AnbpFgkYUcgZiNJ/uxrxT3XlR2WgmyZnN+OU
+	i3C2geKbBJV6kOusT8TY6ZfOPe6CzzqjZDlqvVjy/QdWwrKwT/CN6QGBJDdE5gjmI4oj562v/REpK
+	i0B8Zl+gBztc71GsWdKgnNIyLteWbsQFooVa1IxOPENPu1JFBb69PWQ3O502fRgkFI6ZeiffgO+e9
+	NE2Xcy9MPK4K1p9iYO5zEVFnsmXF4YMiTMzYBjzxlKZJx41PWCsAMkvse+iBf32v9+YuB67Z6htFQ
+	3YTbZkZw==;
+Received: from mail-oo2-x0b.google.com ([2607:f8b0:4864:31::b])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6ibv-00000007VzJ-0cUj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 05:51:53 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6DB6A152B;
-	Tue, 15 Sep 2026 22:51:44 -0700 (PDT)
-Received: from localhost (a085714.arm.com [10.164.19.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4CC653F86F;
-	Tue, 15 Sep 2026 22:51:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789537908; bh=eVbFWNjui3f6RsC9RSFYFqpFfBkLBBW1TiTcOIGgLmc=;
-	h=From:To:Cc:Subject:Date:From;
-	b=W8dyi54hYTplNiTNQpahZzW3Bl+gbg9Pf9InR/Y9a+CEL6LSViuNxmZ8HkijYZnKv
-	 0JMAe8CNESZ/6tqa8f+5MJ0jkGm88oOTN8PS2vFMi/2e5lwaokSRMVJ7PhPpw+GBbQ
-	 mZWTcecaxyBPdvjHHDpfx0FV2i1TXzJFnTOr7b3E=
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64/cpufeature: Change description for ARM64_HAS_LPA2
-Date: Wed, 16 Sep 2026 11:21:41 +0530
-Message-ID: <20260916055141.2702145-1-anshuman.khandual@arm.com>
-X-Mailer: git-send-email 2.43.0
+	Wed, 16 Sep 2026 05:55:13 +0000
+Received: by mail-oo2-x0b.google.com with SMTP id 46e09a7af769-7f4ddb9adf4so2134789a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 22:55:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789538109; x=1790142909; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=MqFU5BpLPG1Ad79y0zq7m4k9RGfhTKwi6mVEHKHgkMk=;
+        b=rsoJejBB8Hg+dcVmjB8mDPSHYFlJo/GnFdy3sYRZyfbH6BOG338EEyV8vDwyxj25hs
+         /IRUrLA2GHDyqB7y/MjBaCLdUIgPAK83FlATJv8oiEfqrYhIG/UWZVDhhUioNTJK19TR
+         q/ZAPmpUVDowLta2ENj0OjnJa4+b/fSUXEq07LkkA6ikq1//LiotGQasJvNqRIGyBT9K
+         XgiEqqk5MfAd+5pdoYo1Dij5m3ghOL7tIG952wMzpg2zhkjxQkobEWPHeXF04boy5hls
+         LP+9mQLz9Por2tV9vUc9YGXAFqb07pdM5/ffa4DReTpkry8xNHwtunSEj2NrK0Yd2KU3
+         zL0A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789538109; x=1790142909;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=MqFU5BpLPG1Ad79y0zq7m4k9RGfhTKwi6mVEHKHgkMk=;
+        b=PwBsNm0wdYwP8gNB0xJFnnjthk773tKiJDVbVxpOFG5Xl2kkDmHw3hL4V4Zls2t17V
+         r2wx/jIjWk9+i9gZr08FiOreUS1wfcEb4JnI1Sm21zlbU/GBttx/TpAE/fxW9+v7o2wt
+         AA8TwIAMo0Gb/R2QVRrKfq8Si7Zw7fILlCwhUFq3bsqMmaIqt0GxnU8TwVuJeBfT2fxZ
+         3OzDwnK0snzPo/auwLQBhq3NesQyIN5atZddn6G04qQb6hsI0fwBVc/grogoSpIgV1Gb
+         USif9xVnBpjcA38zVW3BnXQPLkT/VF8vUMWVvmrGuteTJ1TgKCzlEXuOeMHdFQsTMOE5
+         mnQQ==
+X-Forwarded-Encrypted: i=1; AKwUvBykbkIz2Vd260hGP8Lh2RsluYIv4gMuRFjXgXvGV8U/Kj2/4a9YRNQoybUwcXBGLdL3CfiFhHND6ynjvpv+nkcd@lists.infradead.org
+X-Gm-Message-State: AFuF++lai3MlRib40VYCRX878SU5mv4+IR+ZstJK0dBZkd6aPbte7rJU
+	1JRimi+f9AYR9YVZMqsZe/EIAK7rEb8cBEoaP3FglcNHjVUgvVuaTRhD
+X-Gm-Gg: AYBFou1bHwI5P6AiqYWSD3wTIHd3xCnIJ8gHpsRH7XeYCLUow5xi2XoE3DrtoQJOcEx
+	fGsb1qasaCWCi97Jamaodx41V4+IhHznjqzHTapEKe0uMi1zltDJFbBesOucpdRKGWFgrb8e0J9
+	Ygrr8duPDl89h7vbiCSMfzprU8SaSOt1OkQUmxRNuMOc4n27kaSmB0bDW8lrPMt1rqJrKhLjrNO
+	vzMX8MS6F/JLCe1SPZ412pVovCHyvYtX67aAegRqZ/nTYp0ZmjRQpgT5bEo6Rf7QHS4a88vJHGI
+	fReO/363f7D/mncLh0JtoMbqqkmUYODPXCHP9UpYQJKdHD56T35oBDkWp+tsi8CZE8NMCSU1Dgx
+	bMp8Ek/J7EsJACt0yXZOlWGwcwpHEYhd2vKxl9KQYICF9a0fF5XZizyKazAxvJCcOJPlaeYKO7j
+	eq6XBDfmsJ+djwb6CcyxEo7EtGMfl8tADnHwuEagYPkEzeoszD9qy0JKxeMfxs6AlnIm6Mx5IYM
+	G9aebQ1PJAv8xI/
+X-Received: by 2002:a05:6820:188e:b0:6b3:f4b8:bb86 with SMTP id 006d021491bc7-6c7d1bc852cmr1410414eaf.22.1789538108821;
+        Tue, 15 Sep 2026 22:55:08 -0700 (PDT)
+Received: from ?IPV6:2600:8804:5716:d800::b712? ([2600:8804:5716:d800::b712])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6c7a78ac1c6sm1949699eaf.13.2026.09.15.22.55.05
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 15 Sep 2026 22:55:07 -0700 (PDT)
+Message-ID: <b9a58aac-4a49-43ed-93f9-32c295609312@gmail.com>
+Date: Wed, 16 Sep 2026 00:55:05 -0500
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/3] drivers: gpu: drm: panel: Add BOE NT51021 driver
+To: Nickolay Goppen <setotau@mainlining.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Jessica Zhang <jesszhan0024@gmail.com>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Alexey Minnekhanov <alexeymin@minlexx.ru>,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20260913-qcom-novatek-nt51021-panels-v3-0-266bc5d7e8c9@mainlining.org>
+ <20260913-qcom-novatek-nt51021-panels-v3-2-266bc5d7e8c9@mainlining.org>
+Content-Language: en-US
+From: Ryan Brue <ryanbrue.dev@gmail.com>
+In-Reply-To: <20260913-qcom-novatek-nt51021-panels-v3-2-266bc5d7e8c9@mainlining.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_065151_716164_0CE7DCD1 
-X-CRM114-Status: GOOD (  11.04  )
+X-CRM114-CacheID: sfid-20260916_065511_419355_2C4158CD 
+X-CRM114-Status: UNSURE (   8.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,38 +130,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ARM64_HAS_LPA2 represents CPU capability detection for FEAT_LPA2 both in S1
-and S2, regardless whether KVM gets enabled and uses the same subsequently.
-ARM64_HAS_LPA2 in itself is not really anything KVM specific, although the
-description suggests otherwise. Drop 'KVM' from the description and update
-it appropriately.
+Not sure if I was supposed to reply with the trailer again, but to the 
+individual patch, or if I should leave it since I already messed it up 
+in the thread, so I hope I'm not doing this wrong:
 
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Ryan Roberts <ryan.roberts@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
----
-This patch applies on v7.2-rc3
+Tested-by: Ryan Brue <ryanbrue.dev@gmail.com> # Amazon Fire HD 10 
+(2017), boe,tv101wum-nm0
 
- arch/arm64/kernel/cpufeature.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 9a22df0c5120..c63c1050a32d 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -3068,7 +3068,7 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
- 		.matches = has_bbml2_noabort,
- 	},
- 	{
--		.desc = "52-bit Virtual Addressing for KVM (LPA2)",
-+		.desc = "52-bit Virtual-Physical Addressing in S1 and S2 (LPA2)",
- 		.capability = ARM64_HAS_LPA2,
- 		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
- 		.matches = has_lpa2,
--- 
-2.43.0
-
+Best regards,
+Ryan
 
