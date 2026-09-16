@@ -4,71 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39335C88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 13:26:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21E95C982C3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 13:29:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YtkaVv43Pec3AOIxiqWSFZ+tIxDdW8sLL0vvHYtrwqQ=; b=LiqoytDS8uTrwRLxkAhYEF4ZzA
-	88iJRfuED/uXw9da1vq6K//WTf8Os4ctjcXTkjmDKh5ap36wkTcZU25bHlP+49cF1bgPmK2WLP3Fl
-	x1wcBzAshc0hNVg7MW6hb6JdAIxKFnONItPoa8l9S1bfo0QNBgXC57BOfPGSmwM9AuoDGAicZ9WIx
-	z0m5+sLdjYsrE+zxpplPoJboTwOGFDcJmav1WVXUa/RKdEb9Ki+K0w69Lp4bmVEMGcTHTMAbwQV8B
-	/XwmblbDdV7QoaZnvEJpi1gn+BHYqTjLNR4quuoUhfdL6LcfnI8U42cIthboE24SxbmJtvQZUvZZT
-	9HokDKvA==;
+	bh=TqbeODdYQEEftgsPxXsYkF97yhYGAJosPirzjv//pFQ=; b=F4ZdGoDPpiNejk/Vk6Bm910itb
+	qdv/CkwlcMpj/ecnHv7hQKcI8x10BTP5d9mD9RW9yJ5t5Wu5Kxfb1wRwAiRl+y2TC0IGS64N1bs+U
+	4NrJjj10W+Q+rSWmO6tkwGxhRfuqTS9X41I3kGVQdWiqQ1QDZRyXqfyPuHYD7b7I78xgZBcjPcGK8
+	l4r0QoOzcDKO9dYMqYg1lIQEiPD/dlk7p072V5SxlQBoQoAmaIu3qOAAPOPKOHuVCZ/x9hJ9vOCon
+	QzdJV4Pt6W4d86hI20wcxkraEq2CxZW5mzJ8UhLSVmHxmWZJINQNQbZR+u8GUJrFaUx/RevV9NdM3
+	aK/rNmLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6pe5-00000009Fyq-1zVx;
-	Wed, 16 Sep 2026 13:25:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6pe1-00000009Fxr-1TmB
+	id 1x6ph4-00000009GJX-18wd;
+	Wed, 16 Sep 2026 13:28:58 +0000
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x6ph0-00000009GIh-3kbj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 13:25:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 40E7F152B;
-	Wed, 16 Sep 2026 06:25:42 -0700 (PDT)
-Received: from LeoBrasDK.cambridge.arm.com (unknown [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E08DC3F86F;
-	Wed, 16 Sep 2026 06:25:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789565145; bh=cGVvjXNh01uco9P4TObFJJ6STEQrLkR65na6DpvO3wk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=UZIzzNnCJnq+5NTtRsFxr5h9tDPp71kwrxcKq3gOU+0tjJ2PvHKza6XEztBr8WPrh
-	 lbZtOrCiQIc3Dl9gLEc13Ar7JnRR25NFS3ZGN19SnBT6vtRHMFVKhIhBN75TujQDzb
-	 0lHzOMTPzNT6ZTh09jdh+tyM+Mhf5ZaK375LuWfU=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
+	Wed, 16 Sep 2026 13:28:56 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49fbc3db5fbso139645e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 06:28:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789565333; x=1790170133; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=TqbeODdYQEEftgsPxXsYkF97yhYGAJosPirzjv//pFQ=;
+        b=iZ7ygLsCSNJexHvSk6quL72jXCskCMMpP2leItgIBjZBXKmzclR8NFFsLpMjrbaptn
+         doz4GkuHkzRq0zMHmdFErloLFj3Yb3G1xsh2NK6WTNY5aKmQ3rqOtslBP+efAoq0+YTW
+         LUT9tSYQGAKHqIt3X9N3BwwlSJQ3RepVvkC27El4ILZxuB7xt95OD6uJQnKcEQQOhH6E
+         pfETO30+R65sBGKIn9KO8z/DneoDJWNNogMw2UYYxcOj5wIerwm7odAsM4R48HTcG2KV
+         /jT75buwH3Ey6bzCPxg+vwHlXd27dCeMotcgVZznJT6fZ+/ZPoHecOAKx/HQs1NRC4G1
+         /NWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789565333; x=1790170133;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=TqbeODdYQEEftgsPxXsYkF97yhYGAJosPirzjv//pFQ=;
+        b=HyVvp3zrGBgduKv7EAhJO5aXIdnApaMvxBC9xwJ2AwsKujv2A0oklE+tEmcgQjS2JC
+         YuvcSj+xfKQnWu48x2T9jP/Jt/8VfVcEf19EZZoQ/pOUOTZCDQkFiC9rP7/RJGU2BpAB
+         58+KXx/cJFGGMINs7yHoXlvzsi4JGDCdoA8ZTmvOarthSiCiyXTws9ZORCOVmqU2U9m9
+         XLde2CPfSG1976B4qlxBLkku0x2DEJtvJGdM/A9L8SNDWER/avG7J/m5lr7fmUv+4AkJ
+         tdnFCwo/PVRKjkdNCwAPSemPmZ4bE0EXUuq09Q9+JB7X2xBFNGrZQUSo5ygxCfmJ4bGc
+         2wog==
+X-Forwarded-Encrypted: i=1; AKwUvBzt92WTjJJtkTfbmDk5UvamIw3FRnsryWEaDcMaBZIyFieH86gBGVLB/RcUKVi0k8ianbDS6xv/AlmvXaq9igiV@lists.infradead.org
+X-Gm-Message-State: AFuF++nYyI9E9+ydbj9vp7ExR4qyaIjBOnueyrEB9pqGPFhiQeGnYw0v
+	p9jSjoQKgZPhQbxnw653FkEnt+wjFFVbgNieqQo9PCGLP2gBxGCRBVaK
+X-Gm-Gg: AYBFou0FohkJU335BxGjYPP+HBcMrqHrfb3rO3jeS52HA0PHfZFnTudom3SE3ollfnJ
+	mcJWX/IXZG+6mtZPWLnSw9eJctep3O25M4aIulucb3r83qC7L3AS89llWp5T55zFhnnrSzXfYnu
+	gjrp7nxRka/QrtBy+YguYP+wH24lBWdCjpLvXpb8OtAEeOiscndmsBaE1siK7tOigABj9C5tmLr
+	TXLIzfhN3ExNeeJAqWpp2jWLggzhFzcCwZz01pHsv5nJ5nUYC/vmJOBi2qfcLdRj1mHk+4OdiCX
+	HGpx6GCtKn0cYZ/eJmUies9Qtiw5bD0uS9r79B5suschGfq9yatMxjOl5+hcUKF7WBZo2AHNDaf
+	kIyW9MLxKynC53aAy9nu4XMUCtp3IaeCw9zIYRX1PDI3hNAAYrO8XN+xj35/91GO7DgYClXiFac
+	jkvkWvqovLPpQsw29mbmiGlhr3z9ApE1on8v+DWXzb3TG+oQOoAS/B9nRJTB6K2gFybTLi6KO1e
+	WX5aMYdBHjIzm1MuHbDmFgOlAlvAoGDf+v7MuZTgdImpRJqTSYk5dbdl+VzyjmMuWKf7DwekDDT
+	b30=
+X-Received: by 2002:a05:600c:4e89:b0:49e:745d:5768 with SMTP id 5b1f17b1804b1-49eac4112e9mr27160505e9.0.1789565332521;
+        Wed, 16 Sep 2026 06:28:52 -0700 (PDT)
+Received: from OrangePi5-Plus.BB-HOME (20014C4E1B8E02001A623C292D45A2B3.dsl.pool.telekom.hu. [2001:4c4e:1b8e:200:1a62:3c29:2d45:a2b3])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e847da0cdsm594135e9.2.2026.09.16.06.28.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 16 Sep 2026 06:28:52 -0700 (PDT)
+From: Igor Paunovic <royalnet026@gmail.com>
+To: Jiaxing Hu <gahing@gahingwoo.com>
+Cc: Tomeu Vizoso <tomeu@tomeuvizoso.net>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Joerg Roedel <joro@8bytes.org>,
 	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	Tian Zheng <zhengtian10@huawei.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Ulf Hansson <ulfh@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Oded Gabbay <ogabbay@kernel.org>,
+	Elaine Zhang <zhangqing@rock-chips.com>,
+	Abel Vesa <abel.vesa@oss.qualcomm.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Sidong Yang <sidong.yang@furiosa.ai>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Diederik de Haas <diederik@cknow-tech.com>,
+	Alexey Charkov <alchark@flipper.net>,
+	dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
+	iommu@lists.linux.dev,
+	linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH 1/5] KVM: arm64: pgtables: Change write bit from S2AP_W to DBM
-Date: Wed, 16 Sep 2026 14:25:41 +0100
-Message-ID: <aqqY1QiB0ZBAQkwc@LeoBrasDK>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <86fqz95qwe.wl-maz@kernel.org>
-References: <20260901171558.2674031-1-leo.bras@arm.com> <20260901171558.2674031-2-leo.bras@arm.com> <86bja17cg7.wl-maz@kernel.org> <aql8jY4o8SzjJuFU@LeoBrasDK> <aqnku2TcFzIKhjQl@kernel.org> <aqp73SxO78o7LJTs@LeoBrasDK> <86fqz95qwe.wl-maz@kernel.org>
+	linux-kernel@vger.kernel.org,
+	Igor Paunovic <royalnet026@gmail.com>
+Subject: Re: [PATCH v13 03/14] accel/rocket: wait for a running IRQ handler before resetting a core
+Date: Wed, 16 Sep 2026 15:28:24 +0200
+Message-ID: <20260916132824.13527-1-royalnet026@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260915104328.45901-4-gahing@gahingwoo.com>
+References: <20260915104328.45901-1-gahing@gahingwoo.com> <20260915104328.45901-4-gahing@gahingwoo.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_062549_542215_CFEF8523 
-X-CRM114-Status: GOOD (  52.36  )
+X-CRM114-CacheID: sfid-20260916_062854_949471_082DE324 
+X-CRM114-Status: GOOD (  11.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,131 +125,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 16, 2026 at 01:20:33PM +0100, Marc Zyngier wrote:
-> On Wed, 16 Sep 2026 12:22:05 +0100,
-> Leonardo Bras <leo.bras@arm.com> wrote:
-> > 
-> > On Tue, Sep 15, 2026 at 05:37:15PM -0700, Oliver Upton wrote:
-> > > On Tue, Sep 15, 2026 at 06:12:45PM +0100, Leonardo Bras wrote:
-> > > > > Yes, the HW should ignore it. But we have also
-> > > > > seen quite a few broken designs in this area...
-> > > > > 
-> > > > 
-> > > > I lack experience on what bad thing could happen. So I will expand on what 
-> > > > I belive to understand up to here:
-> > > > 
-> > > > - The PTE is in memory, so the DBM bit can be set regardless of being RES0
-> > > > - For SW pagetable walking, I don't think 'bit 51 == 0' is checked
-> > > > - For HW pagetable walking, maybe some faulty implementation may rely on 
-> > > >   bit51 being RES0, and fault otherwise.
-> > > > 
-> > > > If that's the case, then we would have to actually support both encodings, 
-> > > > and only enable the new one if HAFDBS is available in the system. 
-> > > > 
-> > > > I just wonder how high are the chances to have such a broken design, 
-> > > > or other broken designs did not come to my mind, and if we have to start 
-> > > > with that multiple-encoding option.
-> > > 
-> > > FWIW, the host stage-1 already uses the DBM bit unconditionally,
-> > > treating it as a software bit on implementations without HAFDBS.
-> > > Although given the quality of any garden variety Arm MMU I understand
-> > > where Marc is coming from.
-> > > 
-> > > I don't think the HAFDBS enablement is complicated enough to be done in
-> > > a separate series without any meaningful users, nor would I really be
-> > > interested in taking it without, say, HDBSS.
-> > > 
-> > > Can you please work with Tian to get a combined series out for this?
-> > > 
-> > 
-> > Hi Oliver, thanks for reviewing!
-> > 
-> > Sure, one of the reasons I sent like this is so Tian could use it as a base 
-> > for his next version.
-> > 
-> > 
-> > > > > > diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-> > > > > > index 17123f0b6dab..eb8dfffc32c7 100644
-> > > > > > --- a/arch/arm64/kvm/nested.c
-> > > > > > +++ b/arch/arm64/kvm/nested.c
-> > > > > > @@ -379,21 +379,23 @@ static int walk_nested_s2_pgd(struct kvm_vcpu *vcpu, phys_addr_t ipa,
-> > > > > >  	}
-> > > > > >  
-> > > > > >  	addr_bottom += contiguous_bit_shift(desc, wi, level);
-> > > > > >  
-> > > > > >  	/* Calculate and return the result */
-> > > > > >  	paddr = (desc & GENMASK_ULL(47, addr_bottom)) |
-> > > > > >  		(ipa & GENMASK_ULL(addr_bottom - 1, 0));
-> > > > > >  	out->output = paddr;
-> > > > > >  	out->block_size = 1UL << ((3 - level) * stride + wi->pgshift);
-> > > > > >  	out->readable = desc & KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R;
-> > > > > > -	out->writable = desc & KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
-> > > > > > +	/* Takes care of both RO/RW and RO/WC/WD encodings */
-> > > > > > +	out->writable = desc & (KVM_PTE_LEAF_ATTR_HI_S2_DBM |
-> > > > > > +				KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W);
-> > > > > 
-> > > > > Absolutely NOT. For a start, NV doesn't support FEAT_HAFDBS. But even
-> > > > > if it did, you are now actively corrupting memory by turning a RO
-> > > > > mapping with a spurious DBM bit set into a writable mapping.
-> > > > > VTCR_EL2.HD exists for a reason.
-> > > > > 
-> > > > > Do you see why your blanket approach of equating DBM with writable is
-> > > > > plain wrong?
-> > > > 
-> > > > Sorry, not really... please help me understand it.
-> > > > 
-> > > > When you say a spurious DBM bit, what does it mean?
-> > > 
-> > > You've implemented the exact sort of bug that was alluded to above. In
-> > > this case it's a software page table walker consuming DBM regardless of
-> > > the value of VTCR_EL2.HD.
-> > > 
-> > 
-> > So you mean that DBM being treated as "writable" could _only_ happen if we 
-> > have VTCR_EL2.HD=1? I was previously under the impression that it could be 
-> > used regardless of HD value.
-> 
-> Then you have failed to understand the architecture. When
-> VTCR_EL2.HD==0, DBM can be treated as RES0, RES0, or RES0.
-> 
-> R_XZFQH and R_BRFGY are pretty clear that DBM can only be evaluated
-> when dirty hw update is enabled, and I_MHJZP tells you what it means
-> for S2 to have this enabled.
+Hi Jiaxing,
 
-Right, I_MHJZP says that if VTCR_EL2.HD is 1, then dirty state hardware 
-management is enabled.
+Thanks for flagging the job_lock change in the cover. I re-ran the
+same protocol today on v13 as posted, 2+3 and 2+3+4, three runs each,
+same board, base and config as on 12 September (JOB_TIMEOUT_MS=2,
+PROVE_LOCKING, DEBUG_ATOMIC_SLEEP): 73 induced resets with nothing
+from the driver beyond the timeout message itself, no MMU faults, no
+lockdep report or warning, and lockdep still armed at the end on both
+kernels. Of the 126 inferences scored, 118 matched the CPU reference
+within 1 on all 48 channels, and 8 missed on all 48 with the channels
+the scorer prints reading 0x80; in the two runs traced with the
+kprobe, those 5 results sit exactly where the 5 -ECANCELED completions
+do.
 
-Then, R_XZFQH and R_BRFGY say that if (DBM+S2AP) bit combination is the 
-given and the dirty state hardware management is enabled then a block 
-descriptor is WC/WD.
+The limits are those of my 12 September mail (all resets on core 0,
+one client), plus one more: the model is a single 1x1 convolution,
+which Mesa submits as a one-task job (one completion interrupt per
+good inference), so hw_submit() never ran from the IRQ thread, which
+the race you describe needs. So this shows the lock adds no lockdep
+report or hang on this path, not that it closes the race. On that
+basis the tag stands for the v13 form of 3/14, with the same comment:
 
-R_XZFQH header, as an example:
-For each translation stage using Direct permissions, if all of the 
-following apply, then a Block descriptor or Page descriptor is described 
-as writable-clean[...]
+Tested-by: Igor Paunovic <royalnet026@gmail.com> # RK3588, three cores, induced reset, JOB_TIMEOUT_MS=2
 
-It says: 
-"if all apply, the block is WC", 
-it does not say 
-"only if all apply, the block is WC".
-so it forces one way, but not the other.
+If 4/14 changes shape in v14, I will re-run that arm. The scripts and
+the tallies were prepared with an LLM assistant; every number above
+was counted from the raw files of each run (scorer output, kernel and
+serial logs, kprobe trace), not from the scripts' summaries.
 
-So I previously understood that we could also use the encoding for WC/WD in 
-software, to avoid having 2 distinct encodings, when VTCR_EL2.HD=0. 
-
-If that's not possible, as you mentioned, then yes, I failed to get that 
-part. I also see that you mention it being RES0 when VTCR_EL2.HD==0, but I 
-honestly could not find reference to that. :(
-
-What I could find on Arm ARM M.cc was Table D8-53, which states for 
-bit 51 that it's DBM if indirect permissions are disabled, or PIINDEX[1] 
-if they are enabled. There is also no such information in D8.5.2 about this 
-res0 behavior. 
-
-So I am possibly missing the proper place to look for that information. 
-Could you please share that with me so I can improve and maybe avoid being 
-a inconvenience in the future?
-
-Thanks!
-Leo
+Regards,
+Igor
 
