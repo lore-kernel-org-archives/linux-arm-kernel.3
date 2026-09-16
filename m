@@ -4,162 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D522BC88E5C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 08:45:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A18CAC88E5C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 08:48:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b1fYQlKK4Z5jSC4WP88E0Oc7f/fULS2/pKPT2PzeWXM=; b=GsXet5DSBg30bZhRqRpmSs82GM
-	wJP6z4I/pLgoQKQ9L4997Y69MdwEdS7lN7ZO+Iml7G7RzIJym8tCDKbx/bXJMujYgQaSj+IWlisXJ
-	ay07V9PsQ7CF89qKo9iRRFnAMZ042+eTm854r9kLo9+Q+WTJMBWXHhg36a0lR/sYm+7vtz76bvTtX
-	KFuJBhruW6C2IgTY/eCjXhnDvVqWI62Jy/hDUICc0pJvgcc8ZzcVjy60tDfGglx4Pkr8FRqXsiM0x
-	CF1IR/mXg3SQsSs/j2X+ysmr+POKKzvZXok8nVKOeo01XnEbGsoCxtt9qK0xVKSxab0KV7pXR4p4f
-	2/AGAaYg==;
+	bh=gLsBgp6/np47MXvoT7Gy3Dsz1JT/6o4ck60MxFMEbMs=; b=rx3mB+ykW7Q1FBsxEc1MOYf85k
+	7n0efo8t8h8R8vxSbl3rDuRZLVGJ2D1nq9f9uEQpX3u2hSaxOBeGoI8FqfQZdh5kHS3Jg4gMycAHv
+	AJ6vj2V2jGXGbJ5O+vEYgmmmtXrhWpAH61kR/yWPR5BRztl0SKdpGKKq63h3lKpQx57rHRHJ72nd+
+	Mgy4/C9jtWvyM9EoLvWUXB48sn9zW6UCBLjkApMS5iZ5tbl3JDDuiGxDcEp8nviRSnQUImZFs9AJJ
+	3psSnnvtaYT6pLPzkWndtXBtSpTh5sHXkLwIGCaDa0/MrFQJt8K3nm+gh9UCU2UboYwcUZj3ZjCbC
+	NtaRclPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6lGW-00000008l45-01hH;
-	Wed, 16 Sep 2026 08:45:16 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1x6lJa-00000008le9-2xV2;
+	Wed, 16 Sep 2026 08:48:26 +0000
+Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6lG2-00000008kVD-0zCF
+	id 1x6lJX-00000008ldT-3VLr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 08:44:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uhx8Hl1DaUbMD/OCr/p24F/xRo+AqVEN388HeFZDP5F+AYhIReP+JLseJRqjR8zm691FB46JmOGNb890m/9O2A50WiAEv/MWHovpBsPSt4AYkoDHBzI5eNrSWfz0u7m4nNFA/txNFJw/pu0cDgA9+XN0X49Nv5fFBiPR2goqpYajr06fb7HRjzMRjT912AaYRGOMXXYONXgtAu8ubL2/OEJ+saM52ftWE5G36f8cLzV7GvcRvafTLdZPA88f2x8J5P/rOIAXcu9uLORYAp3tmjeU75OLIl8spIXIE9bQXISijSHfVZUxpKuEi4c33E6Nwxx9LVKbt9Vy5y0I42VyXQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=b1fYQlKK4Z5jSC4WP88E0Oc7f/fULS2/pKPT2PzeWXM=;
- b=Ol1Z06UTF+evxKiZDkkpeqrAHR29rbQQpOlAawsY/1Slj/tVNti5DEW7eC2jElodchsPKd/qRHPw3KgBhZaCmLfFIjjzwujf/xnnQiYlllh1bACEQ1W5L4qXynmrpiB+ZaDx9zr/kDrn0q7whxKQMdNpdIYQoobH3KabAkQzskOb5an3eyLviRjOzFpWjGj/c5zCLFqkXXsVyk+bVZe8TzgY+5DyHNthXkUm5Rj/72rDL3ImsbosKqwxNaEOXGFNaxRjvyf54zCCeK7qMiMOA0JfklkhljZNdibNa2CKAFSBALPUXARtrxhAsAKLnz5kUkiI/wiuTJf2vnKo5lQGgQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=b1fYQlKK4Z5jSC4WP88E0Oc7f/fULS2/pKPT2PzeWXM=;
- b=G9ZbvvjAP7myXJCw5ePUruVvbmPJMxhmm8GyKf6ZbkH37jBss45YabWdtWR1Bk1mcOXXepz4iVfzYV/kplY94njBRPVT+kmQU/UrocIgrBPohug3azj9l+PcFFujCOCJKAvI2/MtGOkJoq6Fyf6/MLbCsJuRPuvf2JtbDA37ExfldZfhmuqrRjXy6ySNN4vf/dNKGSGEgAJyHJ9Twtt+h/x8fy9Ch/Kx2dx0C2bYq1AMhcZxkJTA/hHPRpXax6J2bXGPY5otNA42EVF9YBeiueMTQqmexg20t9743zYwRsB1DPHJmsIay7WQxMvwgmzjoL6zJOGm+X2N4tMKjjw4Sg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB12558.eurprd04.prod.outlook.com
- (2603:10a6:150:368::10) by DUZPR04MB9981.eurprd04.prod.outlook.com
- (2603:10a6:10:4d8::20) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.11; Wed, 16 Sep
- 2026 08:44:35 +0000
-Received: from GV2PR04MB12558.eurprd04.prod.outlook.com
- ([fe80::cd9f:102:ea58:4c49]) by GV2PR04MB12558.eurprd04.prod.outlook.com
- ([fe80::cd9f:102:ea58:4c49%6]) with mapi id 15.21.0428.009; Wed, 16 Sep 2026
- 08:44:35 +0000
-From: Larisa Grigore <larisa.grigore@oss.nxp.com>
-To: Larisa Grigore <larisa.grigore@oss.nxp.com>,
-	NXP S32 Linux Team <s32@nxp.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Avri Altman <avri.altman@sandisk.com>,
-	Bart Van Assche <bvanassche@acm.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-	"Martin K. Petersen" <mkp@kernel.org>,
-	Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
-	Ajay Neeli <ajay.neeli@amd.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	=?UTF-8?q?Pedro=20Sousa=20=C2=A0?= <pedrom.sousa@synopsys.com>
-Cc: linux-scsi@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	clizzi@redhat.com,
-	aruizrui@redhat.com,
-	eballetb@redhat.com,
-	echanude@redhat.com
-Subject: [PATCH v3 10/10] MAINTAINERS: Add NXP S32N7 UFS host controller entry
-Date: Wed, 16 Sep 2026 10:44:11 +0200
-Message-ID: <20260916084411.941297-11-larisa.grigore@oss.nxp.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260916084411.941297-1-larisa.grigore@oss.nxp.com>
-References: <20260916084411.941297-1-larisa.grigore@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AM8P190CA0020.EURP190.PROD.OUTLOOK.COM
- (2603:10a6:20b:219::25) To GV2PR04MB12558.eurprd04.prod.outlook.com
- (2603:10a6:150:368::10)
+	Wed, 16 Sep 2026 08:48:25 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=gLsBgp6/np47MXvoT7Gy3Dsz1JT/6o4ck60MxFMEbMs=;
+	b=pwFpmz5vgTArTKuy9hoBMaxXTwMiImRuPfz1SMKaEY4dU87GFBeCYZzKgiyt7j3nWyPocpbir
+	dGC4zhwfvAOZ8QlKI51gBGvKxSAC5Z4WcbRSxg+ABFESZINwusMyW9RiN1NR7O2pIqCAUmdsEhQ
+	CSnC4mKrHAUWQRrBnVCTpNc=
+Received: from mail.maildlp.com (unknown [172.19.162.140])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4hlC1B1LZ8zcb3J;
+	Wed, 16 Sep 2026 16:37:02 +0800 (CST)
+Received: from kwepemk300012.china.huawei.com (unknown [7.202.194.175])
+	by mail.maildlp.com (Postfix) with ESMTPS id 87A952017D;
+	Wed, 16 Sep 2026 16:48:13 +0800 (CST)
+Received: from DESKTOP-A37P9LK.huawei.com (10.67.109.17) by
+ kwepemk300012.china.huawei.com (7.202.194.175) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Wed, 16 Sep 2026 16:48:12 +0800
+From: Xie Yuanbin <xieyuanbin1@huawei.com>
+To: <sashal@kernel.org>, <gregkh@linuxfoundation.org>,
+	<linux@armlinux.org.uk>, <bigeasy@linutronix.de>, <clrkwllms@kernel.org>,
+	<rostedt@goodmis.org>, <rmk+kernel@armlinux.org.uk>, <linusw@kernel.org>,
+	<kuninori.morimoto.gx@renesas.com>, <arnd@arndb.de>, <xiqi2@huawei.com>,
+	<ljs@kernel.org>, <wozizhi@huaweicloud.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-rt-devel@lists.linux.dev>, <stable@vger.kernel.org>,
+	<patches@lists.linux.dev>, <lisongze2@huawei.com>, <wangbing6@huawei.com>,
+	Xie Yuanbin <xieyuanbin1@huawei.com>
+Subject: [PATCH 5.10.y/5.15.y 0/4] ARM: fix might_sleep() WARNING for mmap_write_lock() around show_pte()
+Date: Wed, 16 Sep 2026 16:48:07 +0800
+Message-ID: <20260916084807.176359-1-xieyuanbin1@huawei.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260916080011.170295-1-xieyuanbin1@huawei.com>
+References: <20260916080011.170295-1-xieyuanbin1@huawei.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB12558:EE_|DUZPR04MB9981:EE_
-X-MS-Office365-Filtering-Correlation-Id: e97a9df9-3727-4df2-4df7-08df13cebc6e
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|19092799006|366016|23010399003|921020|10067099003|11063799006|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: 2dZxZD7z486S9WSjxSqabL9WIfvPvF1qz51jiC+hYK3pLH8PT3Y5+EuCJaRlzASTEQtBg84t4m4vWsEPSBMfg5fJ+QkqxEegkNWyjSS7hCr1xTwEB7L5YfZdXiWWKP7MWQMhfKJ5UnHIx54wvJXOIghyWIEqoG8vZkIFX3CRezuFb5syy62Hbx1z5a3Hks3cqq7vgyXQB+q4uDAXNbXL4i2OxmuIe3ISFfT4JDQjKHeXWZ66Q6cL1De/aPhRiZGkoA887kGEqEq5KrxGOOwEWQ6pYZtI5wXwx8HjaPhCh9k0IwLMTjs2FqE8Pp7WADheIOFiFHgCwxt98mvfFs1XQAMv94ZjJFtJPJY3ZlpB2caAVqnTC/rCgHHNZSCEWNyitbFMZA5zHzvmF6Hd2JjGrXpd4QF9uheehK6WzrSc007Njn6EoXJSI7FQAb+P5CvkZT7BGPix0sNv4U0TIAdVzUiDPSmTmVFDtBCkteTsh683k1zlXK1WNzV46pYIr9UNq7XVWByLd9JMMzNVG+wkcnQl9sTv0QI0oELFwgMNv3Tndp3sLLWGKxM8M9nqq8DEGWqB2cmH2Y+1Env851VdGB3eSRWONPt1Xh11WJTzY7vDhRcQK1MPGtwiP5M+Kq/kmIyZGXT/vKST7WJsaWG34W7NWs3OCgdsSydSHtqBTi/pCHBupZsBxoXTT8tjyIK9B+VKg6XmmPA/DWJUefrkNQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12558.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(19092799006)(366016)(23010399003)(921020)(10067099003)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?c2dwYVZkaUFtbUNHRTBjYytFM2M1Njkza25mVW54UFNVNTMxTWVablh5ejNM?=
- =?utf-8?B?Q1JSY3VXcW9rS1lwblRWN0dpSlpIVzIyZUxoSGNTc1dJSk9lelBUc3Y2eUI4?=
- =?utf-8?B?TExyN1JtajFSd2toVkJKWnZyV0pPajJoY1BzMG9QaVNYdTJkcEo1SWtuV2FY?=
- =?utf-8?B?UktkbGtkd0krUFdpWFFsdzVqTmhOZ2tWVk9GRTBueWZ1enJmNzUvcHQwL3RP?=
- =?utf-8?B?TjNwR0VnTnhqd2twNHpIS0Z0bkVSa2lvNi9rU09Hc05qc1I4VHdoV2RISVdY?=
- =?utf-8?B?VUltZFFxbkt2T3NTakswWnBQZFgxMjVpdGFqYWVXVnlhbXFUdVZ0Y2EyL1FH?=
- =?utf-8?B?SC9aRzB4V0pZKzJacCtkZ3pHNUk2ZW9CTTY0L1lPQVVVUHNnTEovQ3lFR0t1?=
- =?utf-8?B?UjdkSndiQXVET1J4SzZyMEhWeHcwS0t1VHhnYnJ2b1h1TWZqWEw5cW1NTmJW?=
- =?utf-8?B?R0NnalVwWGNFSW82dnIvbC9nS0ZmUHhjVHljZjVHSFk3eThROFBBdHhtaDdM?=
- =?utf-8?B?OEdlU3hoWnEyckJCWHE2SEFGdktmUkk4YW50aE5FajlTc1VvQmg1Yk5pM0Vh?=
- =?utf-8?B?S0NtMG9IeExmMmE3eUxBNWRDZDhZMzhzaUphWHp5VFkyWHRBT24rcERNY3Uv?=
- =?utf-8?B?VG9qa25rZ2MzZERZYmlkSWNPa1F6MXBzcnROTXZTMno0a2oxNGF5OFRMUVNQ?=
- =?utf-8?B?dlpjQ05nd055aDE1NytBWmtPczNWMjlvRmZGbi9PQjk3dnRad05RVHg0Wnl3?=
- =?utf-8?B?N3JJUFJUMUNVcForVjRWcUJPSnp0dWUrczhhM2c3emNROXpwTURkZitRcXFr?=
- =?utf-8?B?YUJEWEVhbGJRVGwxZmw2Z2FOOGxrY1g2eXdGUllra2FjeEZqVGE3OWQ5ZGh6?=
- =?utf-8?B?VEtZYjdKbXdlVWpXRU5UYnBKVHRlODFXdzBJLzBONllrdHRkMGNGZ0l6YWVV?=
- =?utf-8?B?UUxLeGFxOUttSjNrcm8zWkVKczlSNmRmSzg2bEdaQ3dwMXBUYW5IRUlTcUdH?=
- =?utf-8?B?MGF5TUpJV1Zsekt2TGUvUlJYM3JKVVY2dkJzb05SL1FOUnVJbjJUVXY1UkZ5?=
- =?utf-8?B?SC8zNlhmbktQYVVJU1FuWkZSc0wxYy9ac01HdE5lRW10SmIvRUprMGJ3eExr?=
- =?utf-8?B?K1Q2cTBycHBCY3FCd3duQ3Y1ZTV6VlQ4eW1rUnQrTFQvMGx2Yll4SzhndE0v?=
- =?utf-8?B?aXhaajdodGZ6anFueWg0em1xQzljLzNyU1Z1NGtneXp0U1RFVTVkSzZ5bThT?=
- =?utf-8?B?MWJtQnpLcm84bWdEdnBtYlBpMzlFTmFLMkN2YlpyaGcvVlZKZmF6T0l0YjlL?=
- =?utf-8?B?QlZxdVpMQW9aa0tCWi9paElLZDVlaEdZMlJxbmIrZVNZTkZLWW9IL0haeUFS?=
- =?utf-8?B?dlBqN29TekZKVzMrWm51b3pHVHp5UUsxRmk4NTlmeHNOTS9TTkVTMjNNOFI3?=
- =?utf-8?B?K1Y1TUE0amV2ZDVEb2VhRk9WVm90NTI1cXJzVlZORFV6WkpvL2NBNEZaL0Qz?=
- =?utf-8?B?ZGxNbzVKbDJhc1NLaWZMZ2xRei9MZWNqdGV0UnZRcDFVaTZzQ1ZXSHRMS0xp?=
- =?utf-8?B?eUdUaE9wZnYvYUFmaTF6Qld0T2lGVHE3TE1QOWdqUDk4cm1jd2hNZTdZWXJj?=
- =?utf-8?B?VTZDSFRzamppeU9KWTlVL3lpWmg4SURjQVYwWWQ1ZjJDc1dpWE9tSXU5QkJP?=
- =?utf-8?B?OW9xOStVSnpwaElZVzJWOFJhc29jSTBPalhOUjJGL3FPYmFwUWEvd2pHM2g0?=
- =?utf-8?B?VVc0dnBqZ3RzdDhNKzBhSlVLQ3REQTVTcEdpZnk5MVFBbDZ0MnVOM3lXVzF0?=
- =?utf-8?B?dGRKNVhWd3hLRStEUHFuQmxJcWI0TGF3OFlXOVF6ZklDU2hreUhOUExiaDU2?=
- =?utf-8?B?TVNiVXhZNUNOWTY2K0RUaGVDK2VNZG1OQ3J0a2FoZjMvd3ZjcEh4SUpXMllH?=
- =?utf-8?B?RyttcFF6OGpVbGNYZ3VscVMyNW5BOXpNZTd5bkZUTHd5em9XMjRYZmZLK1Aw?=
- =?utf-8?B?OURqRktMQ2lxTDJWQmtXdnloYTkrNVNYcnNiQzBoYmo1VHVjcDlXQUtkN3pS?=
- =?utf-8?B?K294QlFPcHpJNWtpN2xYdUVnbTRBNDFwV2VOamFkRWkwc21VbFQrYTFkTzVU?=
- =?utf-8?B?UkVZTXdhZG9WMFkwOTN6ZytvN1NBZlRPQ2JEMGZyT2MyQzgwQWpxU1pjRy9o?=
- =?utf-8?B?cUs1NW1XN080T1pKcmRsNW1XN0ZDb0R2WXc0TitmTEZ4VHEyU1MwUFpvRzJC?=
- =?utf-8?B?RlVEdkVxbHhBdk5KaTkvaFhRcVc1alo0UVRZOWZWbHkxcnhnVmI0RHM0eXdQ?=
- =?utf-8?B?VXlKNllDelkybGRxRjl4c1lra3hNenNZSHJDN09RWktJZlhQc2ZJU3Rsbzdh?=
- =?utf-8?Q?K1uu7orlHFRqOlro=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e97a9df9-3727-4df2-4df7-08df13cebc6e
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12558.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Sep 2026 08:44:35.6166
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: oHuu7889wvvNawrOV19Jn90VJrrmlidG06NxAkTaNVQTq1+sT1c/50fYUionlCcJavUjWqAvV1tEOQxwn4oVGQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR04MB9981
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.67.109.17]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemk300012.china.huawei.com (7.202.194.175)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_014446_293936_26461402 
-X-CRM114-Status: UNSURE (   9.90  )
+X-CRM114-CacheID: sfid-20260916_014824_368503_2F8F702D 
+X-CRM114-Status: UNSURE (   8.24  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -175,33 +84,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add maintainer for S32N7 UFS host controller driver.
+On linux-5.10.y and linux-5.15.y, commit 07e4d5380f2a844ab7a1 ("ARM:
+9485/1: mm: acquire mmap write lock around show_pte() for user faults")
+introduces a might_sleep() WARNING when using mmap write lock. This is
+due to the lack of upstream commit 59e4f3b45b96a24fc9b7 ("ARM: ensure
+interrupts are enabled in __do_user_fault()") and
+commit e79ca91165d4fd18549c ("ARM: 9484/1: enable interrupts when
+unhandled user faults are triggered") .
 
-Signed-off-by: Larisa Grigore <larisa.grigore@oss.nxp.com>
----
- MAINTAINERS | 8 ++++++++
- 1 file changed, 8 insertions(+)
+This series backports all these upstream patches into the linux-5.10.y:
+1. commit 7733bc7d299d682f2723 ("ARM: fix hash_name() fault")
+2. commit fd2dee1c6e2256f726ba ("ARM: fix branch predictor hardening")
+3. commit 59e4f3b45b96a24fc9b7 ("ARM: ensure interrupts are enabled in
+   __do_user_fault()")
+4. commit e79ca91165d4fd18549c ("ARM: 9484/1: enable interrupts when
+   unhandled user faults are triggered")
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 3b2eb2a7a89a..32b01db895f9 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -28096,6 +28096,14 @@ L:	linux-scsi@vger.kernel.org
- S:	Maintained
- F:	drivers/ufs/host/ufs-renesas.c
- 
-+UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER S32N7 HOOKS
-+M:	Larisa Grigore <larisa.grigore@oss.nxp.com>
-+R:	NXP S32 Linux Team <s32@nxp.com>
-+L:	linux-scsi@vger.kernel.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/ufs/nxp,s32n79-ufshc.yaml
-+F:	drivers/ufs/host/ufs-nxp-s32n7.c
-+
- UNIWILL LAPTOP DRIVER
- M:	Armin Wolf <W_Armin@gmx.de>
- L:	platform-driver-x86@vger.kernel.org
--- 
-2.43.0
-
+In the upstream version, the following patches are a patch set:
+a. commit dea20281ac8822661576 ("ARM: group is_permission_fault() with
+   is_translation_fault()")
+b. commit 40b466db1dffb41f0529 ("ARM: allow __do_kernel_fault() to report
+   execution of memory faults")
+c. commit 7733bc7d299d682f2723 ("ARM: fix hash_name() fault"):
+   which is 1.
+d. commit fd2dee1c6e2256f726ba ("ARM: fix branch predictor hardening"):
+   which is 2.
+The fixed issues by this patch set also exist in linux-5.10 && linux-5.15.
+a. and b. do not need to be backported, and after c. and d.
+is backported, 3. and 4. can be safely patched.
 
