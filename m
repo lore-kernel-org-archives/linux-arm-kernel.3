@@ -4,144 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A6C6C88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 03:06:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 650BBC88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 03:08:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MgQQ1ieDrz14jHVjSOAFgvrUNMC3OQ4cZc63yBFnDZ0=; b=RCgkRKyE7pO6bw1dRw1nGNGkQV
-	Oqm43y4hDYuw42vcReuGpjne0CiHyTeEGnER01bBfzqVlo+msffHm2688iosfa9dTHdzkPL60/pj9
-	85ZkJHJq78doYRcEE9/JM0c9Fsdm8gr0nq+xVm122lfwgZvMARXTvEk46dSSDRQ6mABzY37GL5TxV
-	PRELHPxqHZ+cZD13gKs8pTcangl5HVCi0vpjHqlBsUzigRSDSVSQXqmgd76sTDe01nSAytj1I7dEU
-	oBGkULvv3Zwn5sn7J2/2bglP7k5qWTw8BdmGhAyUgfL/QF74lno5eJYS6BtghSJSpw/ruimRPsn6e
-	tumLAUOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=QS2BYMR+x6ZlCVJM56HodZfD/aY2Xxc0QJwlrpiO7pc=; b=CE5ONg4ns0ysL5
+	Sk1qO2XoxGeJGWaumJQtGxQbljR+lAAAqchFKfIdS9hgeKNjAWTcQUcK2cUvfbm/WtMDueRskmerw
+	N7OzkyGImQ36AgsTQ8X9pzcX2nFUWBPCckXVFykiIKeRhOTZbPX6Q+3Sqildw9J1U5UimdpXcUaIR
+	ZLwtbT3nnp28RFXan+i5ga3z0xXMcor8F6W9tw6R/b9XhYaiM6TLjMv8VUDZuCF8utCdXl0v1541+
+	VrMjp/JrlMdTBATL4NzqLcD6SmHLqXGjCgDmtoxPpN2huFrUcrUzy+G3UuRmAQv5oDCAffn2o6+oV
+	lFJ5+cwoztBASQj76MIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6fyu-00000008DaY-3U3S;
-	Wed, 16 Sep 2026 03:06:44 +0000
-Received: from mail-northeuropeazon11010052.outbound.protection.outlook.com ([52.101.84.52] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1x6g0Z-00000008DiV-0Trf;
+	Wed, 16 Sep 2026 03:08:27 +0000
+Received: from mail-oo2-x0d.google.com ([2607:f8b0:4864:31::d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6fys-00000008Da0-14Rj
+	id 1x6g0W-00000008Dhf-3Wf2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 03:06:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VTDF18HbZsYmcn++5TpHeZ0LODmXAh/nGCcZbPBfQqF09NOUkmbNESAwt0ZriEd4gVgKJI00MS+4ffBvnwcXWMD/5GfH5qLsS5IEscc5jca89kkXkIk3BoI08WYA0QBGluTQaj+cC4hJyjFgncWcBwO79NvQctv42DKvMWYK8j3wVZnnitvoyxWaiTLUrKfLQvD5sJrL8gvmcLxZu6ndHm73TG+0lbQpZjV/74fElmQPUKwSDmfXST8NT8DugIOSBx4lQhNawzzHcQrKUO2TPbjOoRO0pxNpL5XAADGa9J5yJXw5ty0eqTuqFq5SNWXPjapjq3Gd1iqAHZfEyz78Zw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MgQQ1ieDrz14jHVjSOAFgvrUNMC3OQ4cZc63yBFnDZ0=;
- b=kvO/6AZ5Am1XEyWveVN/BitWlBU1Mho2tISqf5TLNLaQTKtlbDvqe5KynprhVcRvJhEDtRxyPrSnOdnX1kYcmrqjTgwXZkm1GNGNs4SvE3l2UjUPRp3x0H8CQ4IXNfG5qcTizlbGkOjbkd2Ks8oVZUifL54txPYM30rgQGIMLi5CIGgLIeuL2b6vA8aXXCCfH1t4JZuYMSH2QuQQv9JK+apSYS+uRSnt882Fj2UG+kOb9vDBlSrzA43UpxPwqdXGMox6K/CM7ShlXeRy8JxpC4PBfPSaounxTagFzFRwo5rUJANFVP44yKe/xOjXxBYF2J9irumyiRwuAf2fAj2KBQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MgQQ1ieDrz14jHVjSOAFgvrUNMC3OQ4cZc63yBFnDZ0=;
- b=ZGLhur45DQYweG+F/t7wkpOb8E8SNwNqaCncE42DbXweKPwCAtHYiBd+7FZRh3TyKbV4+dfQLKK5vhsfB31nIUJv31iIbM/58J/+X0FMewgnjOoEP4ypwFOFT7QHl9693MW5xdj1ZTyJM38i6ratnhgMgd0GyRKUtN2Ta8wcsXH/wrtfk2iIneku4Oyade+cmUT9ioWDuXAigf0LEo3ioF+OwAkosM8ugRmz5KIXzpXzTcaA3Va2w4Iq+KVfwhg64IOkb0DYm1Rk2hIyjNKFyRLS3aSG3pt2ZBNn5JurCHGPaL49Xgvw86k4eAgEFGS5aICUUQCeD9dtW04BASMfNQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AMBPR04MB827909.eurprd04.prod.outlook.com
- (2603:10a6:20b:788::6) by GV2PR04MB11935.eurprd04.prod.outlook.com
- (2603:10a6:150:2f1::11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Wed, 16 Sep
- 2026 03:06:35 +0000
-Received: from AMBPR04MB827909.eurprd04.prod.outlook.com
- ([fe80::1fe5:6183:37cd:b5b6]) by AMBPR04MB827909.eurprd04.prod.outlook.com
- ([fe80::1fe5:6183:37cd:b5b6%5]) with mapi id 15.21.0406.012; Wed, 16 Sep 2026
- 03:06:35 +0000
-Message-ID: <ed3e2377-7a1a-454d-8031-ac1834977584@oss.nxp.com>
-Date: Wed, 16 Sep 2026 11:06:02 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] pmdomain: imx8m-blk-ctrl: Serialize power on/off across
- sibling domains
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Ulf Hansson <ulfh@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
- Peng Fan <peng.fan@nxp.com>, Lucas Stach <l.stach@pengutronix.de>,
- linux-pm@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Zhou Peng <eagle.zhou@nxp.com>, Xiahong Bao <xiahong.bao@nxp.com>,
- Ming Zhou <ming.zhou@nxp.com>
-References: <20260915-imx8mp-blk-ctrl-v1-1-b3b4e6e7e676@oss.nxp.com>
- <aqlSerHyjCB-03IR@SMW015318>
-From: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>
-In-Reply-To: <aqlSerHyjCB-03IR@SMW015318>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SI2PR02CA0027.apcprd02.prod.outlook.com
- (2603:1096:4:195::14) To AMBPR04MB827909.eurprd04.prod.outlook.com
- (2603:10a6:20b:788::6)
+	Wed, 16 Sep 2026 03:08:26 +0000
+Received: by mail-oo2-x0d.google.com with SMTP id 006d021491bc7-6b1ae6f1635so247470eaf.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 20:08:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789528103; x=1790132903; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=QS2BYMR+x6ZlCVJM56HodZfD/aY2Xxc0QJwlrpiO7pc=;
+        b=Ivw4EcG8GLimwLOUU+utIoafSU0sp9/kEDyIh/RY0UuMKmBMhuQwzJjeZx9CgeheMO
+         mZBSqO3K1ZrSsxLFYaJaGrb6ayS5V0w4M2NF3afNIjWiRtzaO9zbl1uYE7j7macnamTE
+         xYN1O1deUdTk8mlZLhzQ/88NPh5cl2zczYLG4g9OF13Ei9uQhWrbzEUrLgwuJLq+QdE0
+         qqft2F9KIfW/TwXvu8xZaI21sspd/+4LPWAKYNYIqWIsD2vJrf7vrcdDCCajHylj+TAr
+         GTV7l9GQU+WkYgvN8llG5t570PyurfpfA/q+nwBeZxOFj+7ScZoCvam7ilSY6DY1+kdy
+         5j1A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789528103; x=1790132903;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=QS2BYMR+x6ZlCVJM56HodZfD/aY2Xxc0QJwlrpiO7pc=;
+        b=BCZ5mpwRflDBrshXuxLj1CXVvnEnOpJrfiNcccgoezIfptfdm7zcq6x2/z35fQxfO3
+         xH05Hg0/6lD9I8+u0xjZtzHnbrc7qPjjymjBOyE5x08RLELKOO9YstlUVH+hRX8FKE1B
+         hb0tPOYMly2qKCWtOhob90F7NF3oirdwdH07v6+m2BPd6XbJjaAOk05c/X14oULsUox9
+         F5EURb3alm0eVf6Mhyl7Zj0EVyy9trGljrYHUvJUD0RRWaatnZKl5Qg5EDse/dsy6dR5
+         QmV4jzt7hM2fMEMBOlmOdYEW48kVDHuZY08YMDQ6vP7aTRf/EGIXA4xSdtLt4yPKqSEJ
+         +vAg==
+X-Forwarded-Encrypted: i=1; AKwUvBxBL8m5eZEkV/Y7ElvzLmiEQ3LxUaNnlyyYDP1PeLdZKtD62r/3LS6x4Y2HugAnh8+h1DmqVUDeigkyyU1HiAtE@lists.infradead.org
+X-Gm-Message-State: AFuF++mVY7/UzI0Jjppgb6QcYZd34Co208ahtpW7S8AHR8QISldHXpLc
+	iycCvtI6TapbYjT+tLCzm/Xbf+D69G1ZzbSqt+EkpUK3PFrO78llie17
+X-Gm-Gg: AYBFou1+nEzqTH3CH/qvZ/G/8/Rakf7iRvJWvsMrXPRxngGwEKuTpIQ9JYVYQ5yL2d/
+	zLqcWFjleg/hofjd7AejlAmDyU7R3kmbvDKE25qcAUJdtg0Pi6n1vJHgRH3KC3BotA5rbaW02+9
+	Z28PKMiqByYyy28a3sx9hPNAa+K7/6aCW//KLfRsliDqE2wPoeEArl/VK2rf3qjzI8mwQVURyJx
+	JCIlZtlXpRDrdVwWM902A0XTO7WgKqtw/SXEoC7RVQdsqBvzcdFEMgzMdeO8WdKNdoFR5KFSeL4
+	73Z8xcui7NxZQx3NqwppDgU79RYr2PSUq5McjB5AEFanAuvatTcs9op92MLA4E55IMwddArqQa0
+	3OVrlGjiaCqjYsyALHi9AqglRuvtFAMG9aTMSzxDA7VhwMBeIsJ18w63SuBZBXf41ThhhKGabKG
+	D3w+dwe2E5+CD9PuZLBVn81SzLjB3fnXxt1E9Gg760u3Lbneg4loIlqbn7Mrahvclbr0p7SGA0I
+	YqyZpw1eC5yGXp4vz62zM3pmpAFGVmBIwpvMpJ9tOy7CoIl+yzTgg9KJIijxPWvs4XlVyZql2r+
+	jFmg5ccVD0QqNfmMs/aZ+EcWVYy7wUgRLoaNpKc0cIzG7Mhq4/4hWLcl/G7sG81wRsAeCAWOv98
+	s6M6lhs79AgmtyuFspm+zSg==
+X-Received: by 2002:a05:6820:624:b0:6bd:ea89:56d5 with SMTP id 006d021491bc7-6c7d1fca49amr1195068eaf.22.1789528103375;
+        Tue, 15 Sep 2026 20:08:23 -0700 (PDT)
+Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6c7a677b3bdsm1718078eaf.6.2026.09.15.20.08.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 15 Sep 2026 20:08:22 -0700 (PDT)
+From: James Hilliard <james.hilliard1@gmail.com>
+Subject: [PATCH net-next v2 0/2] net: stmmac: add Allwinner H616 EMAC1
+ support
+Date: Tue, 15 Sep 2026 21:07:39 -0600
+Message-Id: <20260915-submit-h616-emac1-v1-v2-0-322b32e40eb9@gmail.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AMBPR04MB827909:EE_|GV2PR04MB11935:EE_
-X-MS-Office365-Filtering-Correlation-Id: b1389e62-6ffe-4bf9-23c2-08df139f8439
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|19092799006|23010399003|6133799003|18002099003|22082099003|4143699003|10067099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: LDVrO8hLDIDQqE8+9VhoeXAz+0mg70j8uloDMXh+/ckI99ZqVYPV5xsPmrc4zYn+Ee/w31o2NPy1gojxu1KEOTBKnNPKPJqPvKqeAi6ud3a7iV4wy2HKYSH+J33c6mKE2qxGzeZG5lJ8y3G4+G24yTOnlh6mnQyVO/ggb1MQrMAYH+zBtXlUFq4pPUHcv3qfV0zGTbIzx7k0O76qRiB7hvs2+EP3p7FfJj/54w1jWlUBmR3reY7brB604cPfmlaBuu7HdndjI0jXMVwcpXK1AER914X/Kiqxpssj934pW43z9SQCcvxftjHQF2BlaXq2rhCXTAvd9/1WaEdhE72GApFAeRzfQBOzvlg1CfuDLMSObXEDNTSkWMS4ADAiUNC90wfca2jsCDnQQtyCZ4o4Bcryq4biB5hvsopZkeyW4PNJWjq/pEQNq3DbAS3H5SPfOc69D4DhfLvFsDkiu1tHocWBiDoHOhH00rglIwH9FPfdR9pPEQJQfz5tMuT+BrZhPuKuudKe8/FHZKrBdRibIeb9+xxsQI6b7frC4ixBam3MuXVV99n4OW4KZGIqX5twNTjiuVlRdOKvghRr63USFIHV/2gFisFrbV/9ICWTDcnaJxsm0Yd20TuQ83MNBQueDmCrGxQnQUIvWnUTv+/NkH1snTCXarZeBy0h9pUpDSA=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AMBPR04MB827909.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(19092799006)(23010399003)(6133799003)(18002099003)(22082099003)(4143699003)(10067099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NFA2WGR3TTUzNWJlSnV0R3k5NUVDRnVZNG5uVkMxbG9DL29hS2VibC9sbHNW?=
- =?utf-8?B?OEY0SkIvR3hDN2hhRzlWZzVKdkNzcEpQTHZpMWU1R09OVC80YU1VSS8xSjNl?=
- =?utf-8?B?T3U4ZUtuL2tIUTNhRVNKd3RSTENaV1U2SFd3TjBOZ1ZobzBBZWdYZ0R5UlJX?=
- =?utf-8?B?SUZ3UFpWU1YzYWNQV0JWL2RRVjdRKzhUbXVXaTZBUGYyYVQ0Y3M2WndyQ3Ni?=
- =?utf-8?B?SVlGNWRNWXZiM21WSFlqS1lFZWhBSkhEY3JDcCtpOGEyR3QxMWUwaHJ4YnlQ?=
- =?utf-8?B?dERZTGZjR3AyWm92VDNuMjg5UkR0SmlyZ3YrVXZNd2ZyckE1N0RlT1IwaGlz?=
- =?utf-8?B?OEc3YzlKK0pmczhrNE5vR3d4QnV5UVI1b052RzVsTTJwRCtkM3RLcmJRR2ZO?=
- =?utf-8?B?eFB4TW1oYW1HT0tjRTIxbjV2OExtM1lXU0EwU3VMNU5jaWhYckNWc2gwbmlm?=
- =?utf-8?B?Rzc2RDhoUVROYzRQbEtEa0pKeFY1ajFhRWxTRjRvTmd3MFVkQS9Wb1RXak9X?=
- =?utf-8?B?WHd5R29RUkN5L1J5MWRXT2I2elJpeWNzRVppakVYenMvclJ4amhnQ0pPb200?=
- =?utf-8?B?VDNPVFNwRU1GKzJPYnczWWtCemUwMGNlZXZlM1hSVG9hVGI1VTE2SllmNFRy?=
- =?utf-8?B?aFVkb3ZwTy8wSlpmSkFLMnMrZ2ZZR28xeTJWZnRMYWEzNFZvLzBDbVBST3ps?=
- =?utf-8?B?T0Vla0hPNUcwa1puUGV3TDlaTjZDajVLS0NyUW5WTVFXY0JDRnpwRXVrN2pl?=
- =?utf-8?B?L3RQS0xoNVh5Uy95WUxmMG9ranRlV00xeW5hY0ZKNDE2Q3JQM0p2alovbFJH?=
- =?utf-8?B?eXZheHg1NDZCU3NsZmVWcUZIZXBpVEFoci9PWldGbkhsOTBzYnNBSVRjM3Uy?=
- =?utf-8?B?MVVYWGpXMWdhUzJ5M3RBbmRnWFE3dkJTLzI4VGtQaUg4ZXFPS0V3a3ZmaUZa?=
- =?utf-8?B?Y09BT1pEMkovblkrbXgvWlV5Wk5vVC9jc1crTUVHeDNGL1k5NEZ3ODBhZHFn?=
- =?utf-8?B?aHBQSEtqYXBuaUsydDNsOC9uckdHcFI3RWFKZ2gyOVB6SWxud0kzbmNlYVFD?=
- =?utf-8?B?UVVXWjdaOW5ieXpTb0R2MlV2TnVoYmtHazdNeitJREdNaEgyN3ViMHlmbGVZ?=
- =?utf-8?B?elNwRVI1bE1zL1Z4OURVeEkxMGxadWRqbVBSemNDRUExQ1FweVJwd2hrR2FT?=
- =?utf-8?B?bXhmZVVtcmdqckxELzJPS0xMUURaaEJmT0YwWFhlQ3RESmRhN3NGL2tQS3Fu?=
- =?utf-8?B?Z2RRWi9PU0xVTG82aVF5NGdCbFczYUFPTVVwNmREdTEvZCtWMFdIRzdVUGZk?=
- =?utf-8?B?SnpRMEdnVXNDRGVySEhnTG94cjJLd2F1V1ZkdTNkeVJYUnFpTjlzNTdVOUdv?=
- =?utf-8?B?M3dTZGJTNk43Tkw1M2tmYno2MldQcVRJbk9KY2xkOWROZmlVTHZGbVFPVzBs?=
- =?utf-8?B?VEs0VHdOS0U0NHFDZ2MzR1RVZjVPZzJCb0pFUlNQU2tHVDRQeWdZMDI4b3ds?=
- =?utf-8?B?dWp0ZDhsaHpZSW9DT1RBY283cXRrb1B3dTJIT0hjYzVNbnBzVWRiQ2g2RVRX?=
- =?utf-8?B?WXJwRWJsRFBCK20rNVVBM3JVVkZVL3BnV1BPMnRuQVRYZDNmTVBUR0M5cDBY?=
- =?utf-8?B?KzZFTFp3azJZakdFZ1dCSHVMWTdaNnJsdnpNT09iMWVuZnFlRE1iL2F5d0J1?=
- =?utf-8?B?Nm1ERmtXTWR4V1dWM2EzY3ZZOFRvb2twSnNCRCtTbWlzSkpSMGc4TkhJS1Yw?=
- =?utf-8?B?ZE9DdXV4dFQyckIyNDhHZFlZYmFWRGpERGVsRXB6d1dnbHRIS0N5eVBkemRO?=
- =?utf-8?B?SGxnRzRUUUgvbU82ZGgrbXRhcGw5ajJza1VNaVduRzNUZWs0WlZPRlNLQ3BY?=
- =?utf-8?B?dWZsQmdzcHRiR3VhOU9XN0ZkVlI5K1lHcmNxVFFTMEFmT0dNa1E4M2IraHJh?=
- =?utf-8?B?RFJXVXdaY3ArS25EY1NrbHk1ODhBZGFlbE9EcDVtNFJLeEorOHQrZDM2RmMz?=
- =?utf-8?B?VmZOdmVEZFY5c3dqVWVQQmtCTVZyNnVZZXZEclk1d2ZZQ2pEZ0ZNVFRwRjVj?=
- =?utf-8?B?ZE44NGxBUm1iL2pHZUNCQXNpMkpaY2pacWxqZXNnUGd6R0R4eFJYazhaVVR6?=
- =?utf-8?B?clRGTFBNMHdSWHFMQXBSWm5oYWNsUmtCV245bVRFN1FFZnp4cS9FcEszdi8y?=
- =?utf-8?B?d2dobXpIdzJENFNWeW04NkhvZnpMV3hscmZHYWRkaVZxYXcyeDlEQzRDc2sx?=
- =?utf-8?B?a1dSRERTTEpPRU9rREF4NFJWYVhXUlRKV1JLMEhXVGU1Ri9xRzV3TS9QMTND?=
- =?utf-8?B?L1oyV1ZOQ1NSNFVHZjhiV01ZNnNFUzVPL0lrY09idUFJZ3ZRckNKQT09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b1389e62-6ffe-4bf9-23c2-08df139f8439
-X-MS-Exchange-CrossTenant-AuthSource: AMBPR04MB827909.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Sep 2026 03:06:35.3414
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: bPaXKstl3YT6V+nxsqd8m0d1TJK40nd71lKDt/mHG0gShbKkGfk8DUejAZ0/lCvazjCKB64wke5Xu3qNsy1IsQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11935
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/22OzQ6CMBCEX4Xs2Zq2/IiefA/DoS0LrLHFtJVgC
+ O9uQY8mc5nMzje7QEBPGOCSLeBxokCjS0YeMjCDcj0yapMHyWXFz6Jg4aUtRTZUomJolRFsEkw
+ U+YnndSGV1pCqT48dzTv2Bg4jczhHaL5JItzRxI263Q4U4ujf+weT2Bu/sfL/WBJn4ly2yLUWX
+ a2uvVX0OJrRQrOu6wcKN2vx1AAAAA==
+X-Change-ID: 20260914-submit-h616-emac1-v1-143703842abb
+To: Richard Genoud <richard.genoud@bootlin.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
+ Jose Abreu <joabreu@synopsys.com>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>
+Cc: Maxime Ripard <mripard@kernel.org>, netdev@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ James Hilliard <james.hilliard1@gmail.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_200642_450526_243E345B 
-X-CRM114-Status: GOOD (  30.41  )
+X-CRM114-CacheID: sfid-20260915_200824_889557_FD6BDFBA 
+X-CRM114-Status: GOOD (  11.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,160 +121,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+The H616 secondary EMAC supports RMII at 10/100 Mbps and uses a separate
+system-control clock register at offset 0x34. Add its binding and a
+sun8i stmmac variant using that register. A distinct compatible without
+an older fallback prevents the driver from using EMAC0's clock register.
 
-On 9/15/2026 10:13 PM, Frank Li wrote:
-> On Tue, Sep 15, 2026 at 07:09:43PM +0900, Ming Qian wrote:
->> On i.MX8MP, running the VC8000E encoder and the G1/G2 decoders
->> concurrently rarely and non-deterministically leaves a VPU stuck in
->> reset: its block registers read back all zeros. A decoder then times out
->> (G1/G2 reset failed) or the encoder fails its format check reading a
->> read-only capability register (VC8000E reset failed). Raising the
->> runtime-PM autosuspend delay hides it, which points at the blk-ctrl
->> power on/off path.
->>
->> The VPU blk-ctrl exposes G1, G2 and VC8000E as three separate genpds
->> whose power_on/power_off are serialized only by the per-genpd lock, so on
->> SMP the callbacks of different domains can run concurrently. Each domain
->> only manipulates its own bit in the shared BLK_SFT_RSTN/BLK_CLK_EN
->> registers, so this is not a matter of siblings corrupting each other's
->> register bits.
->>
->> However the sibling power transitions still interact through the shared
->> VPUMIX resources: the VPUMIX bus power domain, the VPU_NOC and the ADB400
->> handshake. power_on asserts a domain's reset, enables its clock and
->> releases the reset after a short udelay, relying on the reset propagating
->> through that shared path. The GPC does not ack-verify the ADB400
->> handshake on power-up (it only delays), and per ERR050531 the VPU_NOC
->> handshake is timing sensitive during VC8000E/VPUMIX power up/down
->> cycling. So when a sibling's power_on/power_off runs while another domain
->> is inside its reset window, it disturbs the shared VPU_NOC/ADB/AXI clock
->> timing and the victim's reset fails to take effect, leaving its block in
->> reset with registers reading zero.
->>
->> This is a blk-ctrl defect: the VPU power domains' power up/down sequences
->> must not interleave, yet the driver deliberately avoids a genpd
->> parent/child hierarchy (to meet its sequencing requirements) and so gets
->> no cross-sibling serialization from the genpd core.
->>
->> Add a per-blk-ctrl mutex around the blk-ctrl register and reset sequence
->> and the synchronous power-up path, so a sibling domain cannot run its
->> sequence while another domain is inside its reset window. The GPC
->> power-down is queued by pm_runtime_put() and still completes outside the
->> lock; serializing the reset sequences is what fixes the observed failure.
->> The bus domain's GENPD_NOTIFY_ON notifier runs in the same call stack
->> while the lock is held and must not take it.
-> 
-> Thanks you for detail descript problem, basically it is power up/down
-> reset, clock have not serialized.
-> 
-> Can you help summery to cut message shorter end emphase most important
-> part?
+EMAC1 connects internally to the co-packaged AC200 or AC300 EPHY and has
+no external PHY pins. Leave PHY initialization to the PHY driver instead
+of using the H3 internal-PHY controls. The RMII-only variant does not
+expose the RGMII clock-delay properties.
 
-Thanks for the review. Your summary is right: the power up/down reset
-and clock sequences of the sibling VPU domains are not serialized
-against each other.
+The AC200/AC300 EPHY driver and package bindings are already in
+net-next. This series separates the H616 EMAC1 MAC driver and binding
+support from the earlier combined series. PWM, MFD and device-tree
+enablement are being handled separately.
 
-Below is the shortened commit message. Does it look acceptable to you?
+Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+---
+Changes in v2:
+- Drop EMAC1 TX/RX clock-delay property support and keep the existing
+  RGMII-only delay descriptions unchanged, as requested by Maxime Ripard.
+- Clarify that EMAC1 connects internally to a co-packaged PHY, not an
+  external PHY or the H3-style internal-PHY controls.
+- Rebase onto current net-next.
+- Link to v1: https://patch.msgid.link/20260915-submit-h616-emac1-v1-v1-0-195de0bb1f8a@gmail.com
 
-On i.MX8MP the VPU blk-ctrl exposes G1, G2 and VC8000E as three separate
-genpds, each serialized only by its own genpd lock, so their power_on
-and power_off callbacks can run concurrently on SMP.
+---
+James Hilliard (2):
+      dt-bindings: net: allwinner: add H616 EMAC1
+      net: stmmac: sun8i: add support for Allwinner H616 EMAC1
 
-The sequences are not independent: they share the VPUMIX bus domain, the
-VPU_NOC and the ADB400 handshake. On power up the GPC cannot ack-verify
-the ADB400 handshake - the ack only completes once blk-ctrl sets the bus
-clk-en bit - so it just waits a fixed delay instead of polling hskack. A
-sibling transition landing inside another domain's reset window disturbs
-that shared clock and handshake timing, the victim's reset does not take
-effect, and its block registers read back all zeros: the decoder times
-out or the encoder fails its format check.
+ .../bindings/net/allwinner,sun8i-a83t-emac.yaml          | 13 +++++++++++++
+ Documentation/devicetree/bindings/net/snps,dwmac.yaml    |  2 ++
+ drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c        | 16 ++++++++++++++++
+ 3 files changed, 31 insertions(+)
+---
+base-commit: 87b80c2f6b05cad9f0ff9136709c62a0f59923e3
+change-id: 20260914-submit-h616-emac1-v1-143703842abb
 
-Serialize the blk-ctrl reset sequence with a per-blk-ctrl mutex; the
-driver deliberately avoids a genpd hierarchy, so the genpd core gives no
-cross-sibling serialization.
+Best regards,
+--  
+James Hilliard <james.hilliard1@gmail.com>
 
-
-Thanks,
-Ming
-
-> 
-> Frank
-> 
->>
->> Fixes: a1a5f15f7f6c ("soc: imx: imx8m-blk-ctrl: add i.MX8MP VPU blk ctrl")
->> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
->> ---
->> Reproduced on i.MX8MP with an Android 6.18 kernel: running an H.264
->> decode and an H.264 encode concurrently hits the failure within one to
->> two hours. A VPU comes up stuck in reset, its block registers read back
->> all zeros, and the decoder times out or the encoder fails its format
->> check.
->>
->> With this patch applied the same test ran overnight, over 14 hours,
->> without a single occurrence.
->> ---
->>   drivers/pmdomain/imx/imx8m-blk-ctrl.c | 15 +++++++++++++++
->>   1 file changed, 15 insertions(+)
->>
->> diff --git a/drivers/pmdomain/imx/imx8m-blk-ctrl.c b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
->> index 479789009c7f..f8105e87ea3c 100644
->> --- a/drivers/pmdomain/imx/imx8m-blk-ctrl.c
->> +++ b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
->> @@ -15,6 +15,7 @@
->>   #include <linux/pm_runtime.h>
->>   #include <linux/regmap.h>
->>   #include <linux/clk.h>
->> +#include <linux/mutex.h>
->>
->>   #include <dt-bindings/power/imx8mm-power.h>
->>   #include <dt-bindings/power/imx8mn-power.h>
->> @@ -34,6 +35,12 @@ struct imx8m_blk_ctrl {
->>   	struct regmap *regmap;
->>   	struct imx8m_blk_ctrl_domain *domains;
->>   	struct genpd_onecell_data onecell_data;
->> +	/*
->> +	 * Serializes the blk-ctrl reset/clock sequence across sibling domains;
->> +	 * their transitions interact through the shared VPUMIX bus domain,
->> +	 * VPU_NOC and the not-ack-verified ADB400 handshake (ERR050531).
->> +	 */
->> +	struct mutex power_lock;
->>   };
->>
->>   struct imx8m_blk_ctrl_domain_data {
->> @@ -98,6 +105,8 @@ static int imx8m_blk_ctrl_power_on(struct generic_pm_domain *genpd)
->>   	struct imx8m_blk_ctrl *bc = domain->bc;
->>   	int ret;
->>
->> +	guard(mutex)(&bc->power_lock);
->> +
->>   	/* make sure bus domain is awake */
->>   	ret = pm_runtime_get_sync(bc->bus_power_dev);
->>   	if (ret < 0) {
->> @@ -164,6 +173,8 @@ static int imx8m_blk_ctrl_power_off(struct generic_pm_domain *genpd)
->>   	const struct imx8m_blk_ctrl_domain_data *data = domain->data;
->>   	struct imx8m_blk_ctrl *bc = domain->bc;
->>
->> +	guard(mutex)(&bc->power_lock);
->> +
->>   	/* put devices into reset and disable clocks */
->>   	if (data->mipi_phy_rst_mask)
->>   		regmap_clear_bits(bc->regmap, BLK_MIPI_RESET_DIV, data->mipi_phy_rst_mask);
->> @@ -202,6 +213,10 @@ static int imx8m_blk_ctrl_probe(struct platform_device *pdev)
->>
->>   	bc->dev = dev;
->>
->> +	ret = devm_mutex_init(dev, &bc->power_lock);
->> +	if (ret)
->> +		return ret;
->> +
->>   	bc_data = of_device_get_match_data(dev);
->>
->>   	base = devm_platform_ioremap_resource(pdev, 0);
->>
->> ---
->> base-commit: 6e30287eaf3e41b86dfb86df3b811526693d74b4
->> change-id: 20260911-imx8mp-blk-ctrl-c46f26783073
->>
->>
 
