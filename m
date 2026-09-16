@@ -4,90 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FBC6C88E5C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 08:42:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB58CC88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 08:44:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uCt+S52i9jhWLqP9Ai43Jys+VpUMZGBQ6OzhaRvb6Io=; b=BU3XetS9+QMcV1K0EArp2XX/kf
-	tboXwuIgsaCx7kVwTJtYcJUJdb7mCApyKUnoYZvF2LokPIhC1DTZGb/ctIsK4MC/fXrSyV6PgXPUP
-	tIGs1yLySxS8e+W72KUBp81zGSUq6pinqNCogu2PWx9v4vTNPswbQdFL2gSh538ML2PKhqLFnQcNy
-	qVs9iAG6hUzMbzi11G0DniH/mx2HYQ80SyKeGXaFOz8KygFHL6riHh+v36xBN0zctQsSd0DtJPq57
-	ttZq3QYXTl25GbWj1kQylrY4u7UIuQyki7tt79VNo+hAMJ1XhSZbs1t9Zwf6HtyT0sjT4HHRvFMP/
-	woRmSVfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ASF/WpIYGZkEbpolc/F3Wi3P1TTRk1E6xzIEUVemjeI=; b=Hpx1PNaShMnf46ARb0cii/JsMx
+	j2laKbWFx7DL2jU8eiSf8DR40RmgqfaNi67Q48EkKYufuGFm5ecvJyHctqd3NgR5zrFCxzVZdqL3S
+	hdS+3QT+kDh8jMao4HnIlE7pEz53e2GDrJemeh6VpdlmGlFikW+Le6rN7LPB+Q/PtrhMiDc9L8/0Z
+	aV0DjQMmZRO/BUKwyIUDyLf7UnvH4U3KPY3M710v6ekMY8oerMa2HOLXfxG15BI6+UO5Vv8XAdsW0
+	maxVYz8rkGS/URQJc+dTPu129K28Wt5WDUV70Tk7uhGj96dxZVeh5rnDsk5frU4016SWzlviBsej5
+	az+sez0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6lDy-00000008jwx-0RKm;
-	Wed, 16 Sep 2026 08:42:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x6lFT-00000008kJO-1URE;
+	Wed, 16 Sep 2026 08:44:11 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6lDw-00000008jw2-3O0M
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 16 Sep 2026 08:42:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Message-Id:Date:References:In-Reply-To
-	:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=uCt+S52i9jhWLqP9Ai43Jys+VpUMZGBQ6OzhaRvb6Io=; b=WzWlFx55KbuusyF83J5gc4ZHh5
-	musalOq1SXKQW6hnndWdyLOvkeljDKPS8WDwAKSm1sVgRRbJbl97mDM4NNbLbOyUMt1EYwhKUrHlD
-	qxhQ7TD1hjuBbolCUO1F5BO5QMHXrUX888Z5k2H4+DM9TqikYqoKN03G9SJWDsQLFShAjbCcB5DUE
-	8Ksj2DVljxsG+H1CDdWtw25CMGHQabdYJXgdtUZs99JtlPSeKEFUIhABmut7CSdOh+JL/zK6oUXiv
-	uZa4W4wrwxGBlbpXeeEHyG3x51p90up8dhOMF68/bfMHVC4QMCRiHgtr8jFxctlIy+ydLYReCEic0
-	JJaCWaIQ==;
-Received: from smtpout-02.galae.net ([185.246.84.56])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6lDq-00000007dud-16hK
+	id 1x6lFQ-00000008kHe-1n2g
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 08:42:35 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id EF7C11A08DB;
-	Wed, 16 Sep 2026 08:42:28 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id C39AF60337;
-	Wed, 16 Sep 2026 08:42:28 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3C28611C7B017;
-	Wed, 16 Sep 2026 10:42:25 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1789548147; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=uCt+S52i9jhWLqP9Ai43Jys+VpUMZGBQ6OzhaRvb6Io=;
-	b=0gRJMAIfWz6BUbxtkOAo8e6cSqhth/n/K1YBrrTpLgEVFbS2QnVoq/U8AKVLciIeHSaxT5
-	FzWDbx7Thb7Ers94EYnPTVOk41nLLyZIIooATPJQuNfsDyra7GKkz8wxo3JgN5FCsD0kF7
-	S1dF6e3LTlw1mgMup3nDG3hdrFxqcFIEZGEaXZbkQEjsdqC3X0/ErSZllYp7+mfCRlbvd/
-	hLXc8nXyRnrocos4BsnqafeBfYMlTdhskVIsFNmi/lyneHeKuwkI/bdRwSt5Gy9yN/I3OX
-	r/RRLkuIedIxrpCuuy7e6mdn170mFrR6KuAW2m4yzaFB3x3R1MvN+wv1s6wx7g==
+	Wed, 16 Sep 2026 08:44:09 +0000
+Date: Wed, 16 Sep 2026 10:44:04 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1789548245;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ASF/WpIYGZkEbpolc/F3Wi3P1TTRk1E6xzIEUVemjeI=;
+	b=x0XjFA0+VS6BEKMMEdfX7q5Mr7EzX5vKE1y8qLI28gVtUd4fqQ0gJZvoX1zIdSzgBweSvZ
+	DHJ0iNK3IgVzJ3ASqIH1f1M1R33T0DszXC4siJCzMIu9Wpd9xZXhqSSCUJzXU/0/9JHfaR
+	yyCZVH64c8Wc9x3iXPCsKGtZful+hF2cMgASgIlNe7Rt9VdQSBdHTtD/DO0q8f6XoSKQRS
+	1KVnPvm8tihat2j8M+RtsbcfExXVE++fWc0GBhT2xR/jsT6Fx9ftzEbs+H8Ha6UFa5458f
+	lU2j+Q3iAb6TfbdBU0OXUbqddMY8RkwC3PJNM9HR2ffX/J1Llv7WItTKPSed6A==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1789548245;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ASF/WpIYGZkEbpolc/F3Wi3P1TTRk1E6xzIEUVemjeI=;
+	b=1ptiGNVr4mlsFj9znayV4gv6dZ4sSq/SvRX/Iy9R4YOr4p6vIgSVu9BW8La9EtFdlCrxcy
+	ouInbmvfiVhXKVBw==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Karl Mehltretter <kmehltretter@gmail.com>
+Cc: Russell King <linux@armlinux.org.uk>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Pierre Gondois <pierre.gondois@arm.com>,
+	Linus Walleij <linusw@kernel.org>, Radu Rendec <rrendec@redhat.com>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rt-devel@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Arnd Bergmann <arnd@arndb.de>
+Subject: Re: [PATCH 0/4] ARM: allocate the cacheinfo early to fix the
+ PREEMPT_RT boot warning
+Message-ID: <20260916084404.fjkCQKUK@linutronix.de>
+References: <20260912195552.76673-1-kmehltretter@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v4 3/4] ARM: dts: imx6ull-colibri: Set LCDIF bus-width
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-To: Francesco Dolcini <francesco@dolcini.it>
-Cc: Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Francesco Dolcini <francesco.dolcini@toradex.com>, 
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org
-In-Reply-To: <20260813092836.38367-4-francesco@dolcini.it>
-References: <20260813092836.38367-1-francesco@dolcini.it>
- <20260813092836.38367-4-francesco@dolcini.it>
-Date: Wed, 16 Sep 2026 10:42:13 +0200
-Message-Id: <178954813309.214898.9623998050171113140.b4-review@b4>
-X-Mailer: b4 0.16.0
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260912195552.76673-1-kmehltretter@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_094233_360583_5F1A8579 
-X-CRM114-Status: GOOD (  10.64  )
+X-CRM114-CacheID: sfid-20260916_014408_674273_A783DF16 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,41 +84,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Francesco,
+On 2026-09-12 21:55:48 [+0200], Karl Mehltretter wrote:
+> This series moves ARM cacheinfo allocation to the boot CPU to avoid
+> sleeping-lock warnings during PREEMPT_RT secondary-CPU startup. It is
+> based on 5225b8eec4c9 (7.3-rc2 plus one day).
+> 
+> Patches 1-3 prepare for early allocation: bound cache-leaf writes,
+> include external caches in the allocation size, and guard CLIDR reads
+> on older CPUs. Patch 4 enables early allocation. Please take all four
+> patches together for stable.
+> 
+> Tested on QEMU virt (Cortex-A15), vexpress-a9 (Cortex-A9 with PL310),
+> and realview-eb-mpcore (ARM11 MPCore) with PREEMPT_RT, plus non-RT
+> virt and vexpress-a9 builds. Cache sysfs output is unchanged for the
+> normal platform DTs, and CPU hotplug passes where supported. Additional
+> checks cover DT leaf undercounting with KASAN and ARM11 DT cache
+> descriptions.
+> 
+> The full series also passes on a Raspberry Pi 400 with a 32-bit
+> PREEMPT_RT 7.2.6-rc1 kernel: the boot warning is absent and all 12 cache
+> sysfs entries match the baseline. CPU hotplug is unavailable there.
 
-> The lcd DPI interface on colibri imx6ull uses a 18-bit width bus, set
-> the bus-width property accordingly.
->
-> Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
->
-> diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi
-> index ec3c1e7301f4..1eb1cf2d7395 100644
-> --- a/arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi
-> +++ b/arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi
-> @@ -229,6 +229,7 @@ &lcdif {
->
->  	port {
->  		lcdif_out: endpoint {
-> +			bus-width = <18>;
+This makes sense.
 
-I don't know the hardware in detail, but the datasheet [0] mentions 16, 18
-and 24 bits, and says "Up to 24-bit color (18-bit recommended)". More
-details in ection 5.6.1.
+Tested-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
-This patch would force 18 bits, but "recommended" suggests 24 bits makes
-sense in some cases, no?
-
-Can you elaborate on this?
-
-Same for patch 4.
-
-[0] https://docs.toradex.com/104446-colibri-arm-som-imx6ull-datasheet.pdf
-
-Luca
-
--- 
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
-
+Sebastian
 
