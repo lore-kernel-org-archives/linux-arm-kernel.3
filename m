@@ -4,71 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52F77C982C1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 16:46:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD2D6C982CF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 16:50:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XRjLa7qlFX6dJVmeGqjKmWH1z03VST/FAeIvkxhWRZ8=; b=kbgU/xCcBP1nRpryZzGOOBbM3V
-	Styw4nOL9h9YpSnAzYRzIGOu9siapIVCVNN5QvJ9abRTEHTlMc2zJ6ZRdKDnjTL3q1+rDraIrz1os
-	HmCsBrFYVymrpvfRP54ao5t9Z0FKsDQzUfpZrePWdFrSIMima4IN81PQOgkUbG6z8PXCZuN06GQRI
-	a9d4xSlzCyS1JX8TTRibyQ3PaRnov32sqqZnFRB1xN4izI1L350jQKzra44m/h1QD6lDOx10xmFw1
-	Udk48WwQdvJ6yD+dEkf3+Y3aS8W7V5FreOXL/irm7AuAeEagPH56ZMMg555aGqbe3S6qRWmVj16c+
-	WPMGBEKQ==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ggb+PcHRJDo/Cz5nvBOFJMC2dQF5gLYbmIeM6Iqn8Mw=; b=UFHVeSeMY3A34Fbvz6l0qNh34w
+	pvSahDIKfKW3TqwSkKKoaiGle1G10/FLtWrzL5C/H7C/nPw5O13K9ljPzhOkWe5RyjvAFEnKRXJG+
+	/XS+aDE6QENDQyX3icSiRUM3rQk+V9pZlney10IR8ltQnxgKVadelGcFV4okdI59GKkFIjc73m72Y
+	baMuC+GurE6ZH1S5c4YX1mqbLn9E08IkZ8pUKH0uEwOzb/NciwG+3JS8SecAyzpcIlcubNcOSIdmp
+	mcItLD+8norwJnDqT+cT4pKSC5k/fXebSN94VVSsuqavXBKzJLKJl1iKo/Ie8I8KQb04yZVL2R/OW
+	WNmrT4vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6slc-00000009mNn-12D4;
-	Wed, 16 Sep 2026 16:45:52 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1x6spV-00000009mto-3OOP;
+	Wed, 16 Sep 2026 16:49:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6slZ-00000009mMm-3fXC
+	id 1x6spU-00000009mtV-2usO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 16:45:51 +0000
-Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
-	by APP-05 (Coremail) with SMTP id zQCowABn0jy6x6pqIOZtCA--.22817S2;
-	Thu, 17 Sep 2026 00:45:46 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: daniel@zonque.org
-Cc: dbrownell@users.sourceforge.net,
-	gregkh@linuxfoundation.org,
-	haojian.zhuang@gmail.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-usb@vger.kernel.org,
-	robert.jarzmik@free.fr,
-	Wentao Liang <vulab@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH] usb: gadget: Fix transceiver leak in pxa_udc_probe()
-Date: Wed, 16 Sep 2026 16:45:18 +0000
-Message-Id: <20260916164518.2084871-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	Wed, 16 Sep 2026 16:49:52 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 12BD7601FD
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 16:49:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC9AC1F0089E
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 16:49:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789577391;
+	bh=Ggb+PcHRJDo/Cz5nvBOFJMC2dQF5gLYbmIeM6Iqn8Mw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=HHEKiZSqg7+GyH1kW7u2Hjh6n954PQBWjugWOQSucOvoJpAfVng+ngPvsQ9NcH4mi
+	 xtk7OuOd/JleKPjNisP2KjwOjHIlYAmHsKORnWbSLqnopk/P8kruswK9aha5jKrh2h
+	 T5+u99gibJ/LLILgQgGSpKR/8Olwo6hpZbKotqNrJYNTrMVnF8YOJ9y+Y6i4ALwW4H
+	 C6w1r6Db2dXNgKyLToIc40EzB8gYnT8NftrmIEs6OAPDomnrsefuQKe0nCSYGQfS55
+	 ndgO1nZRsZEjKDvPuli5DD2CV2kvHzdB3pu0VtMl2TRvS1qfTm7mjpI/uYPSwFuoyo
+	 g+RkIzLA2y8Fg==
+Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b5e4f16f16so1120198e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 09:49:51 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvByl0IDzZOeTVcObp/nNQrpuIzfu2mwtVdr4CUn4466h6vw/TfyKioMyAQDvfYd1BsNOZuuiKKt+CzdA0Sf3zocz@lists.infradead.org
+X-Gm-Message-State: AFuF++kCtYYgy+frUhxnmD5UUMsQNog+aWoRs8LhLxFgRXv0VUtz2YHR
+	4G/5+x1SSxy6IpZByztKLxmrJLezTSBKNg6UnHGfKGWSMrzdGTcCtQIlKgalPtBVYWc+wVolOax
+	FdGKEJLIXhPetyczbmZV838oisGssZ0A=
+X-Received: by 2002:a05:6512:1595:b0:5b6:422:a61c with SMTP id
+ 2adb3069b0e04-5b8b666eb43mr1907989e87.28.1789577390371; Wed, 16 Sep 2026
+ 09:49:50 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowABn0jy6x6pqIOZtCA--.22817S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7try3urW7KrW8WF45Zr48tFb_yoW8tFWxpa
-	nruayrtry5Aa93t393Jwn8ZF1rAF17tFyqkrWIyan5ua13Xr42yw45JFyaga18CFykW3y7
-	tFsxtw4fCFWDur7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9a14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26F4j6r4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr
-	1j6F4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv
-	7VC0I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r
-	1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02
-	628vn2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4
-	IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1r
-	MI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUCV
-	W8JwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWU
-	JVWUCwCI42IY6I8E87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJr
-	UvcSsGvfC2KfnxnUUI43ZEXa7VUbo5l5UUUUU==
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBwQMA2qqpVhQ8wAAsS
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_094550_288169_22828ECD 
-X-CRM114-Status: GOOD (  13.22  )
+References: <20260909132153.1596191-1-arnd@kernel.org> <20260909132153.1596191-3-arnd@kernel.org>
+In-Reply-To: <20260909132153.1596191-3-arnd@kernel.org>
+From: Linus Walleij <linusw@kernel.org>
+Date: Wed, 16 Sep 2026 18:49:37 +0200
+X-Gmail-Original-Message-ID: <CAD++jLnHa+1e0N8V0znwzeTZSX1Y5YDAa=cVKSYjeFpZM0o_OQ@mail.gmail.com>
+X-Gm-Features: AcwNN1Whb6PQ06lQN_GxsWNtotsS8LqxjoSrqgaYpOWlLWlGsW2D5EFYiCtujyY
+Message-ID: <CAD++jLnHa+1e0N8V0znwzeTZSX1Y5YDAa=cVKSYjeFpZM0o_OQ@mail.gmail.com>
+Subject: Re: [PATCH 02/14] mfd: remove unused rdc321x southbridge support
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Lee Jones <lee@kernel.org>, mfd@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>, 
+	Daniel Thompson <danielt@kernel.org>, Jingoo Han <jingoohan1@gmail.com>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Guenter Roeck <linux@roeck-us.net>, Bartosz Golaszewski <brgl@kernel.org>, 
+	Jonathan Cameron <jic23@kernel.org>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+	Pavel Machek <pavel@kernel.org>, Michael Hennerich <michael.hennerich@analog.com>, 
+	Support Opensource <support.opensource@diasemi.com>, Sebastian Reichel <sre@kernel.org>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Helge Deller <deller@gmx.de>, 
+	dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-hwmon@vger.kernel.org, patches@opensource.cirrus.com, 
+	linux-watchdog@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-iio@vger.kernel.org, linux-input@vger.kernel.org, 
+	linux-leds@vger.kernel.org, linux-pm@vger.kernel.org, 
+	linux-rtc@vger.kernel.org, linux-fbdev@vger.kernel.org, 
+	linux-sound@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	llvm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,68 +97,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the device is probed from platform data instead of device tree,
-pxa_udc_probe() takes a reference on the USB2 transceiver with
-usb_get_phy(USB_PHY_TYPE_USB2). This reference is only released in
-pxa_udc_remove(), but the error paths taken after the transceiver has
-been acquired return directly: a failed D+ gpio lookup, a failed
-devm_clk_get() or clk_prepare() call, a failed devm_request_irq() and
-a failed usb_add_gadget_udc() or udc_enable() call all leak the
-reference.
+On Wed, Sep 9, 2026 at 3:22=E2=80=AFPM Arnd Bergmann <arnd@kernel.org> wrot=
+e:
 
-Route those error paths to the existing err label so that the
-transceiver is put together with the clk_unprepare() cleanup. The put
-is guarded by !of_have_populated_dt(), because in the device tree case
-the reference is taken by devm_usb_get_phy_by_phandle() and released
-by devres when the probe fails.
+> From: Arnd Bergmann <arnd@arndb.de>
+>
+> The rdc321x was a 486-class SoC developed by RDC. While RDC's later
+> products closely resemble the DM&P Vortex86 product line and are still
+> sold under both names, I checked the datasheets for those and found that
+> the GPIO and WDT blocks on them are incompatible with the rtc321x.
+>
+> Remove this driver, as there is no way to run Linux any more on the
+> older chips after i486 support has been removed.
+>
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 
-Fixes: 7fec3c25b773 ("USB: pxa27x_udc: add otg transceiver support")
-Cc: stable@vger.kernel.org
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
----
- drivers/usb/gadget/udc/pxa27x_udc.c | 13 +++++++++----
- 1 file changed, 9 insertions(+), 4 deletions(-)
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
-diff --git a/drivers/usb/gadget/udc/pxa27x_udc.c b/drivers/usb/gadget/udc/pxa27x_udc.c
-index 1abea0d48c35..5f4f66e571f9 100644
---- a/drivers/usb/gadget/udc/pxa27x_udc.c
-+++ b/drivers/usb/gadget/udc/pxa27x_udc.c
-@@ -2421,18 +2421,21 @@ static int pxa_udc_probe(struct platform_device *pdev)
- 	if (IS_ERR(udc->gpiod)) {
- 		dev_err(&pdev->dev, "Couldn't find or request D+ gpio : %ld\n",
- 			PTR_ERR(udc->gpiod));
--		return PTR_ERR(udc->gpiod);
-+		retval = PTR_ERR(udc->gpiod);
-+		goto err;
- 	}
- 	if (udc->gpiod)
- 		gpiod_direction_output(udc->gpiod, 0);
- 
- 	udc->clk = devm_clk_get(&pdev->dev, NULL);
--	if (IS_ERR(udc->clk))
--		return PTR_ERR(udc->clk);
-+	if (IS_ERR(udc->clk)) {
-+		retval = PTR_ERR(udc->clk);
-+		goto err;
-+	}
- 
- 	retval = clk_prepare(udc->clk);
- 	if (retval)
--		return retval;
-+		goto err;
- 
- 	udc->vbus_sensed = 0;
- 
-@@ -2471,6 +2474,8 @@ static int pxa_udc_probe(struct platform_device *pdev)
- 		usb_unregister_notifier(udc->transceiver, &pxa27x_udc_phy);
- err:
- 	clk_unprepare(udc->clk);
-+	if (!of_have_populated_dt() && !IS_ERR_OR_NULL(udc->transceiver))
-+		usb_put_phy(udc->transceiver);
- 	return retval;
- }
- 
--- 
-2.34.1
-
+Yours,
+Linus Walleij
 
