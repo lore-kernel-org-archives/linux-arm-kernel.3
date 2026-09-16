@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF19DC88E5C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 13:41:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C4F4C88E5C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 13:45:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a6kjCxP9yBKoDCDGJpxropE2U03Q16iuU4HbhIBJf+A=; b=SmuWZNVDcpWeqJTYRXozZATlWc
-	hNAPN48JexpQIpRhft7iE7bNcsUCbWKx+w7krLD22GsiBr+UKOTBbFW951wOiKJvWrsmtw5il4QWz
-	xiUu8MYTvFMvbuZkgOnYwYFXhXYnxbapDBzJqXPBMugARYeHYK4FGAj1uhPvZ7Ku0tHpXzPBLK2TR
-	mnHzrTH8uhNr3zAIrbYvgvHTol2dMPSc+VGXIE6C0tTUKGzrJNZHvXhlgFszLYhsEEovAsq2Y8urU
-	3uaNY/firho2Do+nem2BBWl+H3i5c+9OwWHLKQeJs0MczBxsDgkWR6ONCGFGMGu0DZGzh8qGaulsj
-	Dt0cYE5Q==;
+	bh=Rz4lcGVbF1yUlfwUYSE8Dhf9yMKHKYOJ0oKPXz0YBxA=; b=p8QPp2KOX0MzHvhBeuK+auM7iI
+	Ly8MABTQJuisw07cnSunaGwp0Hauov/hDrSSqG7p1L9PopJyJy9jYyESe4dgf0oLBSvXJVgccYOGs
+	ADLrzz9cHK7nam04yJKlNm4/vJ4zyp5F3bEpggowZbL8JIN1JbrKW7EBA502Fmn9qVVv/C61GiOdP
+	S3HJiSj+bnZHGhrWNbv+IcK0913QalUy++eX/JgNQ+6mHdz8JUhfAiqQY2woS/iG/l1a7OAWexkvQ
+	t/S5yEWPKyYSHt2lNohc5De0sxt56EeIBaiaIL3GUZtHA3VrH8OM8nG4xhqEVpUxEg2juuXk5MQpB
+	mAdWSJHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6ptO-00000009Hwk-1lrl;
-	Wed, 16 Sep 2026 13:41:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x6pwk-00000009IED-40Qn;
+	Wed, 16 Sep 2026 13:45:10 +0000
+Received: from xs1.mindbit.ro ([80.86.107.70] helo=mail.mindbit.ro)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6ptM-00000009Hwc-3plf
+	id 1x6pwi-00000009IDg-11An
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 13:41:40 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A9F3C41A21;
-	Wed, 16 Sep 2026 13:41:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F4001F000FF;
-	Wed, 16 Sep 2026 13:41:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789566100;
-	bh=a6kjCxP9yBKoDCDGJpxropE2U03Q16iuU4HbhIBJf+A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=jlLD6yuFDosHEmd6JzFv/rPZm04Jd/L0IencJCYXxb65CisXMkNidUNhwaDOZsD5p
-	 cM7KEQ8mbz1fxDWDQPDd02HLkioIVNmVIPX+9pme9NckO9RuD92oU52O33Y/0rLS5L
-	 yp23VOHR8uJX3zOEqKf+Sst8wyQEgidw7WkMwhPW6M+bNXp8YU+/ztMXgqkpCIvvuv
-	 +33wxUGO31GXBEGLK/j8nNTVK5CNaJsu61ffdl4mKBVty8Vv+K//kufvTaJ+E9+yfh
-	 eFanxfBigamyNqn/1TCCvEiMOw4MINMe4k4fnxLc31nAxIeYFCX/Cb5czHSrTIsVzZ
-	 hlJfasBj+UcZQ==
-Date: Wed, 16 Sep 2026 14:41:34 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Mike Rapoport <rppt@kernel.org>, Linu Cherian <linu.cherian@arm.com>, 
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Subject: Re: [PATCH V2 01/14] mm: Add read-write accessors for vm_page_prot
-Message-ID: <aqqchzV9bgKYPPyn@gremlin>
-References: <20260907035030.2839978-1-anshuman.khandual@arm.com>
- <20260907035030.2839978-2-anshuman.khandual@arm.com>
- <69a7987f-15fb-4793-81b6-cc436525224e@kernel.org>
+	Wed, 16 Sep 2026 13:45:09 +0000
+Received: from dog.kanata.rendec.net (pool-174-112-193-187.cpe.net.cable.rogers.com [174.112.193.187])
+	by mail.mindbit.ro (Postfix) with ESMTPSA id 6B1CCCCDB9;
+	Wed, 16 Sep 2026 16:45:03 +0300 (EEST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.mindbit.ro 6B1CCCCDB9
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rendec.net;
+	s=default; t=1789566305;
+	bh=Rz4lcGVbF1yUlfwUYSE8Dhf9yMKHKYOJ0oKPXz0YBxA=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=BLQLurJYU6bQtoY9c8Hxq0VK8XTcKwNPQ9tskS7tPRl1NghzP/keeLoV5Uwyxl858
+	 33AJXv/Ocly7tN1PpVOMkRtOrHMCUvjjXo6UvjkHyr1RNo2pQ2b+xiI3fDCgrG8Ohm
+	 mcxDrKFuUvrkTKvL3UHaszy2sIdrk7sLHuQJK7k9YsHJ6xJRLq5RDfEaZzixRcfvUa
+	 dOk1jL584saJZk+5ajlwQwF2ddCBDIH/qucPWdOjLbqOakqDg9RvFXHyou6bOnLrsi
+	 lMOQ3gs/WaQUG7a7zM5nm4LTIDQrehzIdS6eFCqL25kyy7DC7vGeOLknKpPFlugRLh
+	 7S+UPUZnrdV6w==
+Message-ID: <73bdecf75ba186db00e559f5ff508790ca6e2362.camel@rendec.net>
+Subject: Re: [PATCH] irqchip/imx-intmux: fix runtime PM teardown on remove
+From: Radu Rendec <radu@rendec.net>
+To: Guangshuo Li <lgs201920130244@gmail.com>, Thomas Gleixner
+ <tglx@kernel.org>,  Frank Li <Frank.Li@nxp.com>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team	 <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Joakim Zhang	
+ <qiangqing.zhang@nxp.com>, Marc Zyngier <maz@kernel.org>, Zhipeng Wang	
+ <zhipeng.wang_1@nxp.com>
+Cc: stable@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, 	linux-arm-kernel@lists.infradead.org
+Date: Wed, 16 Sep 2026 09:45:01 -0400
+In-Reply-To: <20260914134211.1734163-1-lgs201920130244@gmail.com>
+References: <20260914134211.1734163-1-lgs201920130244@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <69a7987f-15fb-4793-81b6-cc436525224e@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260916_064508_455488_1BA9989D 
+X-CRM114-Status: GOOD (  26.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,90 +76,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 16, 2026 at 03:23:13PM +0200, David Hildenbrand (Arm) wrote:
-> On 9/7/26 05:50, Anshuman Khandual wrote:
-> > Currently vma->vm_page_prot is safely read from and written to, without any
-> > locks with READ_ONCE() and WRITE_ONCE(). But with introduction of D128 page
-> > tables on arm64 platform, vm_page_prot grows to 128 bits which can't safely
-> > be handled with READ_ONCE() and WRITE_ONCE().
-> >
-> > Add read and write accessors for vm_page_prot like pgprot_[read|write]()
-> > which any platform can override when required, although still defaulting as
-> > READ_ONCE() and WRITE_ONCE(), thus preserving the functionality for others.
-> >
-> > Cc: Andrew Morton <akpm@linux-foundation.org>
-> > Cc: David Hildenbrand <david@kernel.org>
-> > Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-> > Cc: Mike Rapoport <rppt@kernel.org>
-> > Cc: linux-mm@kvack.org
-> > Cc: linux-kernel@vger.kernel.org
-> > Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> > Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> > ---
-> >  include/linux/pgtable.h | 14 ++++++++++++++
-> >  mm/huge_memory.c        |  4 ++--
-> >  mm/memory.c             |  2 +-
-> >  mm/migrate.c            |  2 +-
-> >  mm/mmap.c               |  2 +-
-> >  5 files changed, 19 insertions(+), 5 deletions(-)
-> >
-> > diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-> > index e3c8ab96941c..0df57a5c19ef 100644
-> > --- a/include/linux/pgtable.h
-> > +++ b/include/linux/pgtable.h
-> > @@ -524,6 +524,20 @@ static inline pgd_t pgdp_get(pgd_t *pgdp)
-> >  }
-> >  #endif
-> >
-> > +#ifndef pgprot_read
-> > +static inline pgprot_t pgprot_read(pgprot_t *prot)
->
-> Try passing "const pgprot_t *prot" instead.
->
-> [...]
->
-> > diff --git a/mm/migrate.c b/mm/migrate.c
-> > index 15b45832bcfa..579152cce502 100644
-> > --- a/mm/migrate.c
-> > +++ b/mm/migrate.c
-> > @@ -387,7 +387,7 @@ static bool remove_migration_pte(struct folio *folio,
-> >
-> >  		folio_get(folio);
-> >  		new = folio_page(folio, idx);
-> > -		pte = mk_pte(new, READ_ONCE(vma->vm_page_prot));
-> > +		pte = mk_pte(new, pgprot_read(&vma->vm_page_prot));
-> I do wonder whether a
->
-> ogprot_t vma_get_page_prot(const struct vm_area_struct *vma)
->
-> where we hide the pgprot access would be a good complement for vma_set_page_prot().
+On Mon, 2026-09-14 at 21:42 +0800, Guangshuo Li wrote:
+> imx_intmux_probe() enables the IPG clock and then drops its runtime PM
+> reference with pm_runtime_put(). With CONFIG_PM enabled, the runtime
+> suspend callback disables the IPG clock. With CONFIG_PM disabled, the
+> clock remains enabled after probe.
+>=20
+> imx_intmux_remove() accesses the CHANIER registers without first making
+> sure that the device is runtime active. The device may therefore be
+> runtime suspended with the IPG clock disabled when these registers are
+> accessed. In addition, the remove path only calls pm_runtime_disable()
+> and does not balance the clock enable when CONFIG_PM is disabled.
+>=20
+> Resume the device and acquire a runtime PM reference before accessing
+> the registers. If resume fails, skip the register accesses but still
+> tear down the chained handlers and IRQ domains. Disable runtime PM
+> afterwards, drop the acquired reference without triggering another
+> runtime suspend, and explicitly disable the IPG clock.
+>=20
+> This keeps the clock enabled while the hardware registers are accessed
+> and balances the clk_prepare_enable() performed during probe for both
+> CONFIG_PM configurations.
+>=20
+> This issue was found by manual code inspection.
+>=20
+> Fixes: bb403111e017 ("irqchip/imx-intmux: Implement intmux runtime power =
+management")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+> ---
+> =C2=A0drivers/irqchip/irq-imx-intmux.c | 15 ++++++++++++---
+> =C2=A01 file changed, 12 insertions(+), 3 deletions(-)
+>=20
 
-Yes please! :)
++ Zhipeng
 
->
-> Just a thought.
->
->
-> > diff --git a/mm/mmap.c b/mm/mmap.c
-> > index 4bf26b0f1e6e..729bc244b317 100644
-> > --- a/mm/mmap.c
-> > +++ b/mm/mmap.c
-> > @@ -89,7 +89,7 @@ void vma_set_page_prot(struct vm_area_struct *vma)
-> >  		vm_page_prot = vma_pgprot_modify(vm_page_prot, vma_flags);
-> >  	}
-> >  	/* remove_protection_ptes reads vma->vm_page_prot without mmap_lock */
-> > -	WRITE_ONCE(vma->vm_page_prot, vm_page_prot);
-> > +	pgprot_write(&vma->vm_page_prot, vm_page_prot);
-> >  }
-> >
-> >  /*
->
->
-> --
-> Cheers,
->
-> David
+The patch looks good to me but I'm wondering if it's not a better idea
+to fix it in a similar manner to the imx-irqsteer driver. Please see
+https://lore.kernel.org/all/20260821101039.4037925-7-Zhipeng.wang_1@oss.nxp=
+.com/
 
---
-Cheers, Lorenzo
+The two drivers are already similar, so I think it makes sense to keep
+them aligned. It would also address some of the issues that sashiko
+flagged (probably, I haven't looked very closely).
+
+> diff --git a/drivers/irqchip/irq-imx-intmux.c b/drivers/irqchip/irq-imx-i=
+ntmux.c
+> index 47c2681d138a..de2a8f98f625 100644
+> --- a/drivers/irqchip/irq-imx-intmux.c
+> +++ b/drivers/irqchip/irq-imx-intmux.c
+> @@ -288,12 +288,16 @@ static int imx_intmux_probe(struct platform_device =
+*pdev)
+> =C2=A0static void imx_intmux_remove(struct platform_device *pdev)
+> =C2=A0{
+> =C2=A0	struct intmux_data *data =3D platform_get_drvdata(pdev);
+> -	int i;
+> +	int i, ret;
+> +
+> +	ret =3D pm_runtime_resume_and_get(&pdev->dev);
+> +	if (ret < 0)
+> +		dev_warn(&pdev->dev, "failed to resume device: %d\n", ret);
+> =C2=A0
+> =C2=A0	for (i =3D 0; i < data->channum; i++) {
+> =C2=A0		/* disable all interrupt sources of this channel */
+> -		writel_relaxed(0, data->regs + CHANIER(i));
+> -
+> +		if (ret >=3D 0)
+> +			writel_relaxed(0, data->regs + CHANIER(i));
+> =C2=A0		irq_set_chained_handler_and_data(data->irqchip_data[i].irq,
+> =C2=A0						 NULL, NULL);
+> =C2=A0
+> @@ -301,6 +305,11 @@ static void imx_intmux_remove(struct platform_device=
+ *pdev)
+> =C2=A0	}
+> =C2=A0
+> =C2=A0	pm_runtime_disable(&pdev->dev);
+> +	if (ret >=3D 0) {
+> +		pm_runtime_put_noidle(&pdev->dev);
+> +		clk_disable_unprepare(data->ipg_clk);
+> +		pm_runtime_set_suspended(&pdev->dev);
+> +	}
+> =C2=A0}
+> =C2=A0
+> =C2=A0#ifdef CONFIG_PM
+
+--=20
+Regards,
+Radu
 
