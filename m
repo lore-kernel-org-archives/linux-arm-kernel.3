@@ -4,96 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEE2FC982C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 14:33:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BA6AC982C3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 14:36:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=661YqMQMz5cvzMjOWZLBiKVm+v1hNc27gm9Uci44zK0=; b=KcHW3Qoc8nQZjTI8a1Xs5CbkwA
-	d0nRvoImqtbxQtH+wVBkvpYznitiZ+O5c/h5CSvMmKszVBp1QYj/KcQVkRU3RRp/ePG1ePBl3Zw7/
-	zWX8/no5w1LLZNLxjShZ71OARVjQDHmR/BusHAhAbDXrSNM2oyEFbH/Z3Wxl0PEnZoiEDtk9yrdPX
-	KnqEF/2wvDMgnQQGyYUEq8168MRCb4FLG0juydx6VgQ0h1K3qH50qLqNGW/sU98+IL8fF2iIjwVsY
-	j0rSV8P3cf9nTeUhGjfkLsTRYtm2SLOcf6onKtQGOm/lAXlyv9etBZxUhJ3W0Qv+xwUpFNKb7pwHe
-	CUMXWqbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dRzGIp8BZC3HTfXO+TCW/m41vLXjfhf9X+2OCoM1kLM=; b=1N4Ah2kLaTQx8SPAt2iU9y6mSd
+	rzBFJMhzWofxZstvXHfiJfgLp+oopmdS92Gr6fKw5F2/VdQIygpj+PcepkPS8CJISrSuG6sfl02ZA
+	DGZ+bB2mopp9r+F1Gqd6TLRU9x6GaEn7jhe0uyQS2aqrvNGliyvbQCY1zAa/93yNj6b8jmY5MrOln
+	dK0gD14PqvfWaN9vmB8XZxQNUgWZqoiQHcGPdLcVUIbWRxb7iNbcCdPKUCzr6/Ag1gNYeoPWGsoLs
+	g1Nu5/gnYiTZar5qUPNRrqynWKrUpVdNZ6Lwr2dV9O7aLpD7bmHMy+sF4vd7eV1kp3+CFD8BWd+gW
+	b7fhi3qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6qgy-00000009QPC-21jC;
-	Wed, 16 Sep 2026 14:32:56 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x6qjs-00000009RK6-1J3D;
+	Wed, 16 Sep 2026 14:35:56 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6qgh-00000009QGn-3U0Q;
-	Wed, 16 Sep 2026 14:32:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=661YqMQMz5cvzMjOWZLBiKVm+v1hNc27gm9Uci44zK0=; b=AoTctt6HcLm0pk1qEu2u2n8rQQ
-	f0WL5TLmWtkbJCOQBl9IzoyBo0q2qVR6ffWP9iJyKui5hMZcfsuNkWZDab57iWJCtODBZvLA407sH
-	DtxejwIF0GgzrbazKCIDw1+K+yHKI148gq/cb/L0hzpp5XsNwjFKRlM++6wE2OJTZTQnwAr8n0QGf
-	uKNEnRq89MLBsRyJuzW7vAcPoUiPJ3oPtzWKxUWO/2ani6dXLK0THwNYI8stBnp7g6H/+hq0TjCxB
-	De1qmoHywumS49FWqZWqOZgbN33CPSDDM7xd6IU920D4IBhuZ7wXTDbpEm+EzJbo6bUy8iC+3b2CP
-	v7XBUYhg==;
-Received: from perceval.ideasonboard.com ([213.167.242.64])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6qgd-00000007z0e-2Qpw;
-	Wed, 16 Sep 2026 14:32:38 +0000
-Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c69:85de:a3c9:9357:b164:bf0b])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id B5C781D9D;
-	Wed, 16 Sep 2026 16:25:08 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1789568709;
-	bh=KdHne8JVWl00C76d/vQ/deohl8aXPm/dOynE+3pXqa4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=cPX5g+piqUc/DkzohvliUcjGHPQC1qfekEToOOQL4CN3R/c8QfGq6JNtGN8U2THC0
-	 gPvXzXxlFoZU0Fu+e6AJkbYdEpvqdywKLKH44qB7UhcOxiEnZvOeUy9NzFN9amRh/x
-	 rzhx3S4yp4icmRzhh+iDZxM/P6FwiL/DRQkmRahA=
-From: Jai Luthra <jai.luthra@ideasonboard.com>
-Date: Wed, 16 Sep 2026 19:55:36 +0530
-Subject: [PATCH v4 6/6] platform/raspberrypi: vchiq: Register vc-sm-cma as
- a platform driver
+	id 1x6qjq-00000009RIs-3nLc
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 16 Sep 2026 14:35:55 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 28FCC60008;
+	Wed, 16 Sep 2026 14:35:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 284711F00893;
+	Wed, 16 Sep 2026 14:35:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789569353;
+	bh=dRzGIp8BZC3HTfXO+TCW/m41vLXjfhf9X+2OCoM1kLM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=FA5kMueDfHQy6e7vnoQFHpYhwZpX7iem27nD89IbZJX2O9EUmarZgs1YNP4KAYjAK
+	 QifdGNffl2hCcco37lyGuH3hnSh6qg+tY3yJtb3RWolk50ac+Z7PmhikxXXLCDUc3l
+	 CnuwVmM9f3JUI5Ylx7XQYhbg4O78htzc8S2XmH7oHC9F2WbMqRXZ2mLRizxW4+c6IK
+	 wLhbL7RGjN9QRqvaBL7HmI70fgIgjcWABsFnNBBIbszSofHGVMPtQmr61SstIQUgeI
+	 nEaLyqYTCaYzHG7enXG6FfKdw6evl82vQs3bPs+7qBV93sYtEKnTZ4HL2C4CoAyN71
+	 tmAdxw/yHaJMw==
+Date: Wed, 16 Sep 2026 16:35:50 +0200
+From: Frederic Weisbecker <frederic@kernel.org>
+To: "Paul E. McKenney" <paulmck@kernel.org>
+Cc: Josef Bacik <josef@toxicpanda.com>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Boqun Feng <boqun@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>, x86@kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Puranjay Mohan <puranjay@kernel.org>,
+	Xu Kuohai <xukuohai@huaweicloud.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Zqiang <qiang.zhang@linux.dev>, Juergen Gross <jgross@suse.com>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	linux-kernel@vger.kernel.org, rcu@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, bpf@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	xen-devel@lists.xenproject.org
+Subject: Re: [PATCH RFC v3 03/13] rcu-tasks: Add a Tasks RCU implementation
+ for reader-marked trampolines
+Message-ID: <aqqpRoTfywUuTgoC@localhost.localdomain>
+References: <20260915-b4-rcu-tasks-preempt-qs-v3-0-0ad30c4c5ee7@toxicpanda.com>
+ <20260915-b4-rcu-tasks-preempt-qs-v3-3-0ad30c4c5ee7@toxicpanda.com>
+ <aqlgxKGk_AEKls_1@localhost.localdomain>
+ <edc7cca2-a5c5-455c-8969-ea05dbdb08f7@paulmck-laptop>
+ <aqqONH8flTIpOUqT@localhost.localdomain>
+ <91687748-0781-4133-baed-43cf82f35ff5@paulmck-laptop>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260916-b4-vc-sm-cma-v4-6-476d1142b5df@ideasonboard.com>
-References: <20260916-b4-vc-sm-cma-v4-0-476d1142b5df@ideasonboard.com>
-In-Reply-To: <20260916-b4-vc-sm-cma-v4-0-476d1142b5df@ideasonboard.com>
-To: Florian Fainelli <florian.fainelli@broadcom.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
- bcm-kernel-feedback-list@broadcom.com, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- Phil Elwell <phil@raspberrypi.com>, Hans Verkuil <hverkuil@kernel.org>, 
- Mauro Carvalho Chehab <mchehab+samsung@kernel.org>
-Cc: Stefan Wahren <wahrenst@gmx.net>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Kieran Bingham <kieran.bingham@ideasonboard.com>, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-rpi-kernel@lists.infradead.org, linux-media@vger.kernel.org, 
- Jai Luthra <jai.luthra@ideasonboard.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1651;
- i=jai.luthra@ideasonboard.com; h=from:subject:message-id;
- bh=5ezLzp30SU9AON3EIsJ/DU9IOTPIGbTZONyPk3ksxLs=;
- b=owEBbQKS/ZANAwAKAUPekfkkmnFFAcsmYgBqqqcBDk6V1seiAyxqg7E6I4IbgwOcvEAQPAqr+
- IfBQMggEoGJAjMEAAEKAB0WIQRN4NgY5dV16NRar8VD3pH5JJpxRQUCaqqnAQAKCRBD3pH5JJpx
- RTtxD/4oxIaT/c2vR2R4zKvJsx9C5/OzoeW+0x35u2KOLw1ES0VNz7jyCkAJWyECgCL55vsxYKr
- 8CXVrcUAbEVV2s7f5bOg35jEdb45+ykmXP/EMpYdrLMKkyAtDvfDfedl9T5Ox+ZnhVsrwaCKvw5
- xT61fFFGGPlJ21Wzlv4jSmXvgiDrk+3xEgEkupqXVwY2TUSw/I7lP4P90ZyXrtWM3iELdSb/jJt
- GQT8p0CCJKcFOpYCau4s/4gqMwptzaNLwbmOi9bHADj/qScY2dq4AL266ADVPPXNW6d5nHzAJ7m
- J1JOnab5NfTeTiGZ4s5Jcnp8G75xyMH6B3SMLKGY7GsrXonZpFJop92zcUyPQpw3JmyNazEOwn5
- u8gfyBCGxOLmISBlusqAlxSr4pJxqblMpBBcCgKhHjBYLx8AjVcK3BOORQ9hfjq5F67M0SYg3bC
- a/MYj6cd/jOw2lFP/8Y06fK6+MthPfz7owh/QPBzepcaZNqwklvkXO6TvJVeV0ORaTBA0HuCQ6Y
- D1XpqIYPXpTQh128VjUfVw5OtRK13Grv7cWQD2AjO0qTHwRfbthQPvfxVTl+W8CDXxzUQk9RWcG
- A8pCZMHmGsXOeStPkFX9DVcoPhuSbW7JKUed46GK4Va4gbiHqJNROSeFpFiaSEExyusZZQjQ6oo
- KCDz4g7hzYTAVOA==
-X-Developer-Key: i=jai.luthra@ideasonboard.com; a=openpgp;
- fpr=4DE0D818E5D575E8D45AAFC543DE91F9249A7145
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_153235_774002_A21948D9 
-X-CRM114-Status: GOOD (  11.20  )
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <91687748-0781-4133-baed-43cf82f35ff5@paulmck-laptop>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,51 +99,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Le Wed, Sep 16, 2026 at 07:26:35AM -0700, Paul E. McKenney a écrit :
+> On Wed, Sep 16, 2026 at 02:40:20PM +0200, Frederic Weisbecker wrote:
+> > Le Tue, Sep 15, 2026 at 04:56:41PM -0700, Paul E. McKenney a écrit :
+> > > > Alternatively the approach could be generalized to vanilla RCU, it could be
+> > > > possible to define a .text.rcu_no_qs section within which code running is
+> > > > considered as an RCU reader (with a pause while on the explicit RCU tasks
+> > > > section). It would be forbidden to voluntary sleep inside
+> > > > and to put explicit preemption points (CONFIG_PROVE_RCU could report misuses).
+> > > > 
+> > > > Based on IP, RCU could consider those interrupted section as readers. This would
+> > > > require PREEMPT_RCU though.
+> > > > 
+> > > > And then synchronize_rcu() would do the 1, 2, 4 jobs.
+> > > 
+> > > If I am following correctly (ha!), sleepable BPF programs rule out use
+> > > of RCU in this manner.
+> > > 
+> > > But your point is nevertheless valid, in that SRCU could be used.
+> > > And because rcu_read_lock_trace() is a thin wrapper around SRCU-fast, we
+> > > *might* be able to instead use rcu_read_lock_tasks_trace(), which would
+> > > skip the task-struct increment and decrement, saving a few instructions.
+> > > Then, instead of waiting for each task's counter to go to zero, instead
+> > > just invoke synchronize_rcu_tasks_trace().
+> > > 
+> > > Which is pretty close to what Josef is proposing, just with the new RCU
+> > > Tasks Trace read-side primitives.  I think.  ;-)
+> > > 
+> > > This assumes that we do not need to flatten partially overlapping RCU
+> > > Tasks Trace readers into one big reader.
+> > > 
+> > > Or am I missing something here?
+> > 
+> > Yes I think that's what Josef does in this patchset. The problem is about
+> > handling the few instructions:
+> > 
+> > 1) between the begining of the trampoline and the call to rcu_read_lock_trace()
+> > 
+> > 2) between the call to rcu_read_unlock_trace() and the end of the trampoline
+> > 
+> > So what I'm proposing is to make those two parts implicit RCU read lock sections.
+> > 
+> > So the whole trampoline would be .text.rcu_no_qs:
+> > 
+> > .text.rcu_no_qs trampoline:
+> >   __________________________________________________________________________________________
+> >  |Few instructions 1 | rcu_read_lock_trace() .... rcu_read_unlock_trace | Few instructions 2|
+> >  ___________________________________________________________________________________________
+> > 
+> > Then when a tick fires, rcu_flavor_sched_clock_irq() discards the interrupted
+> > code as QS if the IP was within .text.rcu_no_qs _unless_ it is in the
+> > rcu_read_lock_trace. Both are easy and quick to verify.
+> > 
+> > Also preempt_schedule_irq() would make sure to verify the same condition and
+> > enqueue the task as a GP blocker if preempting inside "Few instructions 1"
+> > or "Few instructions 2".
+> 
+> Ah, OK, I might be following now.  ;-)
+> 
+> We also need both versions of rcu_exp_handler() to check the IP as well,
+> given that sooner or later someone is going to want trampoline removal
+> to go faster.  Or am I still missing a turn in here somewhere?
 
-Register the vc-sm-cma driver as a platform driver under vchiq.
+Yes indeed, missed the exp part!
 
-Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
----
- drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c | 2 ++
- include/linux/raspberrypi/vchiq_arm.h                    | 1 +
- 2 files changed, 3 insertions(+)
+> 
+> > And since RCU tasks already does a synchronize RCU before and after the scan,
+> > that's all we would have to do.
+> 
+> This is going to need some *serious* documentation.
 
-diff --git a/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c b/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c
-index d5a25033a261..ec951ab19d67 100644
---- a/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c
-+++ b/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c
-@@ -1414,6 +1414,7 @@ static int vchiq_probe(struct platform_device *pdev)
- 	vchiq_debugfs_init(&mgmt->state);
- 
- 	mgmt->audio_dev = vchiq_device_register(&pdev->dev, "bcm2835-audio");
-+	mgmt->vcsm_cma_dev = vchiq_device_register(&pdev->dev, "vcsm-cma");
- 
- 	return 0;
- }
-@@ -1422,6 +1423,7 @@ static void vchiq_remove(struct platform_device *pdev)
- {
- 	struct vchiq_drv_mgmt *mgmt = dev_get_drvdata(&pdev->dev);
- 
-+	vchiq_device_unregister(mgmt->vcsm_cma_dev);
- 	vchiq_device_unregister(mgmt->audio_dev);
- 	vchiq_debugfs_deinit();
- 	vchiq_deregister_chrdev();
-diff --git a/include/linux/raspberrypi/vchiq_arm.h b/include/linux/raspberrypi/vchiq_arm.h
-index 541b4efd64d9..d59837eaaa8c 100644
---- a/include/linux/raspberrypi/vchiq_arm.h
-+++ b/include/linux/raspberrypi/vchiq_arm.h
-@@ -62,6 +62,7 @@ struct vchiq_drv_mgmt {
- 	 * the interface.
- 	 */
- 	struct vchiq_device *audio_dev;
-+	struct vchiq_device *vcsm_cma_dev;
- };
- 
- struct user_service {
+Yes :-)
+
+> Also, what would be a good way to add tests for this to rcutorture?
+> Designate some new rcutorture function as being in .text.rcu_no_qs and
+> add this as another type of rcutorture reader?  Or is there a better way?
+
+Yes that sounds good!
+
+> 
+> 							Thanx, Paul
 
 -- 
-2.55.0
-
+Frederic Weisbecker
+SUSE Labs
 
