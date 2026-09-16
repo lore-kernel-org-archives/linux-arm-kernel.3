@@ -4,63 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 155C4C88E5C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 10:30:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0A67C88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 10:32:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zn63cm/mRTcrEP1XbNHHeSVGm3J5bUYZLy6K+aCa8t4=; b=wUcGXfbDemlKKFZXQrB7GEdCKB
-	B6hP30WYdmjtPuDQ+yisAAkWhKYRvXHf8cwmG1mGhHxdI2/AVmc4ejFJducURw6Q7gaX+5PsDJhR9
-	EF93YvEiO5EpKcWORFENaWGNlEWldkiaVVRJin9Yt9Sj4sy4c0Zx2Z3DYSMnM/J97/qr8aVOyBOjn
-	oYWU9+SsYR5ETuYB5sYW0ddXZDAv6EOySpRIG5Thtm41qi/soyJPvKtofSCYMNKB427hgRs2Miqjb
-	D1YSUsLeYi70Nh0d/7IT7HJgKibiGaqHrf5x8HegPGmltNKuMBemr6ayFue6PLUPwQCcN4nqtfPqP
-	ZGRTaIcg==;
+	bh=08PC1Zy0osrxD5uEEq52omja9Cyu6/fzLf/OJPTukEs=; b=yx1NGn5wzHTrcY2jHcz95GS6Sk
+	LazhNYuvALqMDWydY6E8gPYQOx3RGbOruy74pGqZZarruKEEGRVps7z18G8++139gHzlgM1itD6dO
+	5OwxCHR36115g/99CZpl0cBeLpowYp6R0/QDUyOSPtKtCdsc4tnbprmbOj+mwpKNzIXIFbmpWKnXd
+	dCvsiYEc6XqLobIBuIUF+syxrBvJRMo2v+vF0rpfFIDME1YMdFkBrFP6ImBUtQIrR7FMddQ7fi+OW
+	ENfHyVAMUx4cAA2/OU9FdHAXMz9/+luvgGoNPaXpiWJ1M4k4upoo17vvuvkPO4vvjIajhJYbiuany
+	ojEdFv3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6muf-00000008yfX-24Ti;
-	Wed, 16 Sep 2026 10:30:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6mud-00000008yf5-0POi
+	id 1x6mwf-00000008yvU-3oF6;
+	Wed, 16 Sep 2026 10:32:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x6mwe-00000008yvK-1PYD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 10:30:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 115FD152B;
-	Wed, 16 Sep 2026 03:30:41 -0700 (PDT)
-Received: from localhost (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4D2073F882;
-	Wed, 16 Sep 2026 03:30:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789554644; bh=zn63cm/mRTcrEP1XbNHHeSVGm3J5bUYZLy6K+aCa8t4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Y/cNdbP3zllaWYF53BXFM/UbYsHBifjobDxKZbicVgR4+d3X/zvvao5hrk6LDfPjJ
-	 ywtt3Is2/VDNoihyEoLO+4Py2hp1bcBD8fS+gENV1YRFDg4jrMj2VfAv87fA9/WnnH
-	 X5MCrHsjV6B6nLaQ2LVHGCYi/LDX4jOef4I7PSck=
-Date: Wed, 16 Sep 2026 11:30:42 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	kernel@oss.qualcomm.com, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH] coresight: handle runtime PM resume failures
-Message-ID: <20260916103042.GH200420@e132581.arm.com>
-References: <20260911-b4-coresight-runtime-pm-failures-v1-1-acdf49756e11@qti.qualcomm.com>
+	Wed, 16 Sep 2026 10:32:52 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C5E31401F8;
+	Wed, 16 Sep 2026 10:32:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 268951F00898;
+	Wed, 16 Sep 2026 10:32:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1789554771;
+	bh=08PC1Zy0osrxD5uEEq52omja9Cyu6/fzLf/OJPTukEs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=tbywcfMnjR9YbGgjGoowoWtoypFwkV04/m0T075x2cdlw9JNqAq64HWPaf0Ohm/MZ
+	 luOknS14HacrIaIWw5qRZgHVabt0VQBt+nhPjnhMa3JT15e5lbIKna3i7eHjypHE9p
+	 3oCBhYdbi4A7ucwJ2UOq7epdMiLyPmYfllsvdQyk=
+Date: Wed, 16 Sep 2026 10:44:53 +0100
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Wentao Liang <vulab@iscas.ac.cn>
+Cc: alistair@popple.id.au, andrew@codeconstruct.com.au,
+	eajames@linux.ibm.com, joel@jms.id.au,
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+	linux-fsi@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+	ninad@linux.ibm.com, stable@vger.kernel.org
+Subject: Re: [PATCH] fsi: master-aspeed: Fix of_node reference leak in
+ fsi_master_aspeed_probe()
+Message-ID: <2026091644-equipment-landlady-c1c0@gregkh>
+References: <20260916093914.2005582-1-vulab@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260911-b4-coresight-runtime-pm-failures-v1-1-acdf49756e11@qti.qualcomm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_033047_402205_4549EF92 
-X-CRM114-Status: GOOD (  10.09  )
+In-Reply-To: <20260916093914.2005582-1-vulab@iscas.ac.cn>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,29 +69,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 11, 2026 at 03:28:52AM -0700, Yuanfang Zhang wrote:
+On Wed, Sep 16, 2026 at 09:39:14AM +0000, Wentao Liang wrote:
+> In fsi_master_aspeed_probe(), a reference to the device tree node is
+> taken with of_node_get() and stored in master.dev.of_node.  If
+> fsi_master_register() fails, the error path frees the master without
+> putting that reference, leaking it.
+> 
+> Put the device node reference before returning on the error path.
+> of_node_put() tolerates a NULL node, so the earlier err_release path
+> via opb_readl() is unaffected.
+> 
+> Fixes: 606397d67f41 ("fsi: Add ast2600 master driver")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+> ---
+>  drivers/fsi/fsi-master-aspeed.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/drivers/fsi/fsi-master-aspeed.c b/drivers/fsi/fsi-master-aspeed.c
+> index aa1380cdff33..7c7f30c2b8e6 100644
+> --- a/drivers/fsi/fsi-master-aspeed.c
+> +++ b/drivers/fsi/fsi-master-aspeed.c
+> @@ -640,6 +640,7 @@ static int fsi_master_aspeed_probe(struct platform_device *pdev)
+>  	return 0;
+>  
+>  err_release:
+> +	of_node_put(aspeed->master.dev.of_node);
+>  	clk_disable_unprepare(aspeed->clk);
+>  err_free_aspeed:
+>  	kfree(aspeed);
+> -- 
+> 2.34.1
+> 
+> 
 
-[...]
-
-> Replace the remaining pm_runtime_get_sync() calls with
-> pm_runtime_resume_and_get(), which restores the runtime PM usage count
-> when resume fails. Abort before accessing hardware and propagate the
-> error to the caller.
-
-The change makes sense to me.
-
-> In coresight_get_ref(), unwind the module and device references.
-
-Sashiko reported a pre-existing issue where the callers don't handle
-errors returned by coresight_get_ref() [1]. In this case, we need to
-remove nodes from path->path_list and release them. However, this
-should be done in a separate patch.
-
-[1] https://sashiko.dev/#/patchset/20260911-b4-coresight-runtime-pm-failures-v1-1-acdf49756e11%40qti.qualcomm.com
-
-> Signed-off-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
-
-Thanks for the fix! Feel free to add:
-
-Reviewed-by: Leo Yan <leo.yan@arm.com>
+did you forget an Assisted-by: tag?
 
