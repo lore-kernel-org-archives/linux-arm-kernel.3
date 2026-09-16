@@ -4,42 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89112C982C9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:10:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECA6FC982C3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:10:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IsBPvKUje3f+2ExPKKzn4AsC/tBgf5IioHXNc8hORXo=; b=y44a6ApDoVVwKYM9Uaza1PSqCG
-	9YZLBgl8ZbT0oRuekLLOZYAL+K9r/FqUwWRSwL/0+tiZplaVlOBZkvuK/8ymgWbj/khZzU3mdghJG
-	0WMx2gxULNnDtyTJRCH6YS6AUEsj4rYV0UZpGrAxAL1UbHIEHvfVno+mt4h/egwDoG3IP7eD84vzZ
-	S0+Ujq5a7g84gZLQekvOBw8pJJhlD34rMNeU3by7iSsZjPuPe8c77lG30YRCDT41iZlKZp6U2awBi
-	2ZD87q6arXA3+3Q6tCYi3mayCuMyCQGJl0yAphjlMqBbvdkLlFYS/IIEhylqjZ7dsAG+vFbRPyHDv
-	TyRQ8dPg==;
+	bh=h1SRVsY/0+Guap2KTqKbc4VoQu0cYIfwBRc4uN/UP4E=; b=dhv64jfXBkzfVD+fdWKu0oChux
+	5M60TkvPcADi1nCxhYSQfJv82hetk69/UfwRr68TjIIr0xb4vQEFUGWM8T9Rfl6BcU3fxstuHopOj
+	CAkiFnr+rp9KohVDclMzNFfkaEj+JGdCtbFN08tEhkqKPhKFlJTknqIEwPpTGBBcd4Kg4RgVsJEtj
+	rcW4UVIi06Tft/sOU83/+o59+Zv5tBzqX+uiUlBxcK0PmUF1xZPLT6p2y2a7SmyuBeFnnPvcLY/II
+	1y6XT55PnFSlZg5FXlx53JN3uzbD7jxoj4GmDgKZaIYWzXo+UhIvgivcazix4GLXKlbjJYyAaMOvz
+	K8xLbvkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rGx-00000009VxZ-2E5l;
-	Wed, 16 Sep 2026 15:10:07 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x6rGs-00000009VwL-3GVh;
+	Wed, 16 Sep 2026 15:10:06 +0000
+Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rGj-00000009Vq8-3I1s;
+	id 1x6rGg-00000009VoP-13xp;
 	Wed, 16 Sep 2026 15:09:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=IsBPvKUje3f+2ExPKKzn4AsC/tBgf5IioHXNc8hORXo=; b=f5Hjv13Mx+vjOj5JeB3EquoUVv
-	YrDZsJZ8JVhQZENkFRRi8bqI/7aWbXqsyQGdWY9b4nh1Pb3giM7s1S5gEiZIU4OXCK0lUhudpZwKc
-	D+auCLj7Fl6L2GKab1i6+Jenzh9jN9MfYRs4StoEOHrNTtHyBD20jbmqQ07pCeCnR7GSj403HyIZ4
-	AKmYC4aG8whYdJohHwVS6WAT3mhKtp0d7CQnSRfVqgzVvrXfMu6FT8S8h7T29dcs3NEkW2N1j5ECp
-	BmLGHwfLznVUSx5uYlkXmkTE9+XOQqiZ2jZ1VUSQO0PTdSya1C9TroyNnfagufGZ1XtIDQKDGbvO9
-	ZmgSm3UQ==;
-Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6rGg-000000081Ig-3Bhs;
-	Wed, 16 Sep 2026 15:09:52 +0000
 X-PTX-Original-Recipient: ezequiel@vanguardiasur.com.ar
 X-PTX-Original-Recipient: jacob-chen@iotwrt.com
 X-PTX-Original-Recipient: mchehab@kernel.org
@@ -56,20 +42,21 @@ X-PTX-Original-Recipient: s.pueschel@pengutronix.de
 X-PTX-Original-Recipient: m.tretter@pengutronix.de
 Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
 	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 174532020F4;
-	Wed, 16 Sep 2026 17:09:47 +0200 (CEST)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 7EF132059F0;
+	Wed, 16 Sep 2026 17:09:48 +0200 (CEST)
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
 	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.96)
 	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1x6rGc-001Fsx-37;
-	Wed, 16 Sep 2026 17:09:47 +0200
+	id 1x6rGe-001Fsx-1G;
+	Wed, 16 Sep 2026 17:09:48 +0200
 From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Date: Wed, 16 Sep 2026 17:09:42 +0200
-Subject: [PATCH v2 01/17] media: rockchip: rga: zero cmdbuf in shared code
+Date: Wed, 16 Sep 2026 17:09:44 +0200
+Subject: [PATCH v2 03/17] media: rockchip: rga: move early return into if
+ condition in vidioc_enum_fmt
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260916-spu-rga3multicore-v2-1-23aa2cb74e61@pengutronix.de>
+Message-Id: <20260916-spu-rga3multicore-v2-3-23aa2cb74e61@pengutronix.de>
 References: <20260916-spu-rga3multicore-v2-0-23aa2cb74e61@pengutronix.de>
 In-Reply-To: <20260916-spu-rga3multicore-v2-0-23aa2cb74e61@pengutronix.de>
 To: Jacob Chen <jacob-chen@iotwrt.com>, 
@@ -84,8 +71,8 @@ Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
  =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_160950_990015_EF0CE3B3 
-X-CRM114-Status: GOOD (  13.54  )
+X-CRM114-CacheID: sfid-20260916_080950_443553_443DBC79 
+X-CRM114-Status: GOOD (  13.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,71 +87,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Zero the command buffer (cmdbuf) in the shared code instead of the
-individual RGA2/RGA3 implementations. Besides centralizing the memset
-operation this also uses the cmdbuf_size member for the memset size,
-which is also used as the size for the actual allocation.
+Instead of a doing an early return when we don't have a capture device,
+merge the condition with the following if condition. This improves
+readability, as the condition now explicitly contains a check for a
+capture device instead of returning when we don't have a capture device.
+
+Also use the V4L2_TYPE_IS_CAPTURE helper and improve the comment.
+
+The early return if was copied from the vivid drivers
+vivid_enum_fmt_vid function.
 
 Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
 ---
- drivers/media/platform/rockchip/rga/rga-hw.c  | 2 --
- drivers/media/platform/rockchip/rga/rga.c     | 1 +
- drivers/media/platform/rockchip/rga/rga.h     | 3 +++
- drivers/media/platform/rockchip/rga/rga3-hw.c | 2 --
- 4 files changed, 4 insertions(+), 4 deletions(-)
+ drivers/media/platform/rockchip/rga/rga.c | 14 ++++++++------
+ 1 file changed, 8 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media/platform/rockchip/rga/rga-hw.c
-index be1bc8ddbd03b..4d7b0a03820a1 100644
---- a/drivers/media/platform/rockchip/rga/rga-hw.c
-+++ b/drivers/media/platform/rockchip/rga/rga-hw.c
-@@ -443,8 +443,6 @@ static void rga_cmd_set(struct rga_ctx *ctx,
- 
- static void rga_hw_setup_cmdbuf(struct rga_ctx *ctx)
- {
--	memset(ctx->cmdbuf_virt, 0, RGA_CMDBUF_SIZE);
--
- 	rga_cmd_set_mode(ctx);
- 	rga_cmd_set_trans_info(ctx);
- }
 diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
-index b3cb6bf8eb863..bd0afd33affe4 100644
+index efe5541078214..8c03422d669cf 100644
 --- a/drivers/media/platform/rockchip/rga/rga.c
 +++ b/drivers/media/platform/rockchip/rga/rga.c
-@@ -41,6 +41,7 @@ static void device_run(void *prv)
- 	spin_lock_irqsave(&rga->ctrl_lock, flags);
- 	if (ctx->cmdbuf_dirty) {
- 		ctx->cmdbuf_dirty = false;
-+		memset(ctx->cmdbuf_virt, 0, rga->hw->cmdbuf_size);
- 		rga->hw->setup_cmdbuf(ctx);
- 	}
- 	spin_unlock_irqrestore(&rga->ctrl_lock, flags);
-diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
-index bd431534d0d39..2b4f5694375a4 100644
---- a/drivers/media/platform/rockchip/rga/rga.h
-+++ b/drivers/media/platform/rockchip/rga/rga.h
-@@ -152,6 +152,9 @@ struct rga_hw {
- 	u8 stride_alignment;
- 	u8 features;
+@@ -372,12 +372,14 @@ static int vidioc_enum_fmt(struct file *file, void *priv, struct v4l2_fmtdesc *f
+ 	if (ret != 0)
+ 		return ret;
  
-+	/*
-+	 * Requires that the cmdbuf is already zeroed.
-+	 */
- 	void (*setup_cmdbuf)(struct rga_ctx *ctx);
- 	void (*start)(struct rockchip_rga *rga,
- 		      struct rga_vb_buffer *src, struct rga_vb_buffer *dst);
-diff --git a/drivers/media/platform/rockchip/rga/rga3-hw.c b/drivers/media/platform/rockchip/rga/rga3-hw.c
-index c4a71306278ba..46ba6d270f232 100644
---- a/drivers/media/platform/rockchip/rga/rga3-hw.c
-+++ b/drivers/media/platform/rockchip/rga/rga3-hw.c
-@@ -261,8 +261,6 @@ static void rga3_cmd_set_wr_format(struct rga_ctx *ctx)
- 
- static void rga3_hw_setup_cmdbuf(struct rga_ctx *ctx)
- {
--	memset(ctx->cmdbuf_virt, 0, RGA3_CMDBUF_SIZE);
+-	if (f->type != V4L2_BUF_TYPE_VIDEO_CAPTURE &&
+-	    f->type != V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE)
+-		return 0;
 -
- 	rga3_cmd_set_win0_format(ctx);
- 	rga3_cmd_set_trans_info(ctx);
- 	rga3_cmd_set_wr_format(ctx);
+-	/* allow changing the quantization and xfer func for YUV formats */
+-	if (v4l2_is_format_yuv(v4l2_format_info(f->pixelformat)))
++	/*
++	 * Allow changing the quantization and ycbcr_enc func for YUV formats
++	 * on the capture side for RGB -> YUV conversions.
++	 *
++	 * These flags are only relevant for capture devices.
++	 */
++	if (V4L2_TYPE_IS_CAPTURE(f->type) &&
++	    v4l2_is_format_yuv(v4l2_format_info(f->pixelformat)))
+ 		f->flags |= V4L2_FMT_FLAG_CSC_QUANTIZATION |
+ 			    V4L2_FMT_FLAG_CSC_YCBCR_ENC;
+ 
 
 -- 
 2.55.0
