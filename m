@@ -4,71 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B8AEC982CC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:59:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11465C982C9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 16:00:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lu5guPXgXFd1BuNfLIuo3ivfuL40g3z62BH6glpWOfI=; b=3cPoLbEThusRNLTLToIj0nLGmG
-	m776Ht2kl7lw3yg84U5aBHBWTeCqWggva5iyCFFLkqgdN2z8NlFGCDoi30B26TK9JIsifrEDKso0C
-	0G47GzHyqsBoQWSTDj3vhdRupYYanxp045EEK9npMHtio9yd7E1QxHu51orREIgUUwuTkH3x9HnFq
-	ulCveWCPnON2JH2JhVrJJrZJGCR4YjpZ4qYsMwvw8NBK7NeOnslEiQs6vcsWkjQ7e2Htw/E/eTqbd
-	iCXSjL3ujhb4pwBvofLjB0YLDXiPQ2Rn9rR5t7CcKxZl/HRkTVwI0u4Yo7WzX8A2FozxGtOAlrPGD
-	r9O/hA2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Brzq1+lLBNFr+bk2j3Rb+JV/YKNAySvoirb0/4mGr2w=; b=YP37d5rgByt9ELvnhpN5O2ez8h
+	2IENX+EaQShCKAMggmvQWxqOgGEw4ihknnqLNqReEXzTS/UPDZGSLobBORQXHn+muXCqLGhEycLHX
+	xRbuP3sLtAmGTbkmT0XpjNjw+xBy2zKU7wip8MEeBbhw606m289Xz2ioSHfp+9MHkK/P7vx+Ci8tN
+	xTYK+IoZ8ylD/AyOgWS29XbdQGnvUO6iyri7hWoLlr8LA6sfVaIRUf64yuw77ZaqCX95ZB1pcb/hR
+	ldsoDAe9i37hRo1N3Nd+FoYtnAKc8dPNIy6l94B9XGaKNzXnfkxiMTLDtAmcNxovzPUrO7HJ8RahQ
+	64FG3Phw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6s2S-00000009fMA-0dzw;
-	Wed, 16 Sep 2026 15:59:12 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1x6s3y-00000009faZ-1bDp;
+	Wed, 16 Sep 2026 16:00:46 +0000
+Received: from mout02.posteo.de ([185.67.36.66])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6s2P-00000009fLM-0hzk
+	id 1x6s3v-00000009fYh-2iUC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 15:59:11 +0000
-Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
-	by APP-05 (Coremail) with SMTP id zQCowAAHcz3JvKpqj0RtCA--.21547S2;
-	Wed, 16 Sep 2026 23:59:05 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: andi.shyti@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	piotr.wojtaszczyk@timesys.com,
-	stigge@antcom.de,
-	vz@mleia.com,
-	wsa@kernel.org,
-	Wentao Liang <vulab@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH] i2c: pnx: Fix of_node reference leak in i2c_pnx_probe()
-Date: Wed, 16 Sep 2026 15:58:38 +0000
-Message-Id: <20260916155838.2078067-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	Wed, 16 Sep 2026 16:00:44 +0000
+Received: from submission (posteo.de [185.67.36.169]) 
+	by mout02.posteo.de (Postfix) with ESMTPS id F2BCE240106
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 18:00:38 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de;
+	s=1984.8680eb; t=1789574438;
+	bh=Brzq1+lLBNFr+bk2j3Rb+JV/YKNAySvoirb0/4mGr2w=;
+	h=From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:To:Cc:Autocrypt:OpenPGP:From;
+	b=JUSMcvGnuTI0YZW7NkfExOIqKXtIcAe7YUPJqHrG7vA3ft6zcuneefHi9YWnIKlft
+	 HfekoaAOUqZL3VsAR6OLpKzN5h+VS8iVK5G2kbX3sHZYNPJj9m6HweoH0g3uMF4VPf
+	 JDtrZiIoxbk+/cBt+7y9n0uKxnV/Wy+LnfnRnHp2VbKj/CtYjt7tU9v40b40MtOe1q
+	 Tjr9NrklEDN7s6uWJ0T2qZJkubtRlQ1uwwtu/mxeI40IwTwosxyNymLsMXw2OwRiqA
+	 RzULOUN/QQBUDbZ6xSwTbi8qNnvgCvLsEjrXg4D3HaF4AQYg/lmhAKcEksoo+Hl17R
+	 20GYXLLHSdsJA==
+Received: from customer (localhost [127.0.0.1])
+	by submission (posteo.de) with ESMTPSA id 4hlNs053Ydz9rxG;
+	Wed, 16 Sep 2026 18:00:36 +0200 (CEST)
+From: Markus Probst <markus.probst@posteo.de>
+Date: Wed, 16 Sep 2026 16:00:38 +0000
+Subject: [PATCH v9 2/6] rtc: s35390a: Add missing newline to dev_err
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowAAHcz3JvKpqj0RtCA--.21547S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Cw1rKry7Xr13Kr4DJr4DCFg_yoW8trW7pa
-	9rGFZIvr4UJFn7KrWkXr1UZFy5tw4ftrW8K3W3uw1kCanxKrWUJr4aqFyFvFWFkFWvq3WY
-	qF1DJFWfuF1kuFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9I14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Gr1j6F4UJwAm72CE4IkC6x0Yz7v_Jr
-	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E
-	8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFV
-	Cjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWl
-	x4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1I6r
-	4UMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j
-	6r1xMIIF0xvEx4A2jsIE14v26F4j6r4UJwCI42IY6I8E87Iv6xkF7I0E14v26F4UJVW0ob
-	IYCTnIWIevJa73UjIFyTuYvjfUrrWFUUUUU
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBwUMA2qqpVg55wADst
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260916-rtc_s35390a_int1-v9-2-b2567a3e4959@posteo.de>
+References: <20260916-rtc_s35390a_int1-v9-0-b2567a3e4959@posteo.de>
+In-Reply-To: <20260916-rtc_s35390a_int1-v9-0-b2567a3e4959@posteo.de>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <uwe@kleine-koenig.org>, 
+ Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, 
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
+ Michael Langer <michael.brainbug.langer@googlemail.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Linus Walleij <linusw@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Markus Probst <markus.probst@posteo.de>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=693;
+ i=markus.probst@posteo.de; h=from:subject:message-id;
+ bh=njz0LoIjBX+iLSp+6dhCTZ9IUn801irSwkTWARXUa2I=;
+ b=owEBiQJ2/ZANAwAIATR2H/jnrUPSAcsmYgBqqr0fsHfMQ5xhmA6UlFvDLVBV0NCrCpGAHC1X1
+ XYwSpNUL4yJAk8EAAEIADkWIQSCdBjE9KxY53IwxHM0dh/4561D0gUCaqq9HxsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQNHYf+OetQ9IJhA//Rr531OEKae/8VjFnfeqfbMD4VUagf/K
+ RA3sn5m++OJ7H5gF2xTyRC77AvOxeLQG3v7TRWKSNofCUb9Q/e5sJfYVRMuWyfWUon8NWLTRycB
+ Pn39Vvd7Rbh+ar31qxGKELB3KklUMFG5NWpTFPNrzjE+bd79tHFrSBO8Pa2c/ArhTFbbcWmdCRu
+ YE7OEGX5RM8YWTlFKnZZIajyajVR7CpDo6PtIzjC450ukL3SeyvZOB//SYAdKwBd7boId8ohMH8
+ KeJrdZPp8hyGkHULXVm4jvRNhuhIab7u7WhgJsfB8e0vyXHNPbTcC8h7q+XlFKEAWPpA9Dge1TX
+ URHUNqXGm82W6C5iIBnnbUBF3eKNQMwm+NhyzzkjS0dphf0+TCVQvqU33qcGd2C1LLGgxTQPsgN
+ /57h4jT2IIUKPO2hgrX8Dk2ttCoeE7r30WbUN0Dfn2kb5ZKnxdtMtT7hqaSHRdd2YtV4NWeiKhs
+ BylP/Yf1whP3pcI3D7utjEmqc31nIEkzFEuA7HTNqp8zaRsyDb7A0sOoZVbfJ4TTlTLw6beSzEw
+ PrrcRJyKZxkRAEnigclLyL87FmPKnqeS1zz6OfeZBmvKzXryrOvGxvEA9BpBC7zjBlqXrdhokDt
+ viGHuasH1tcuE+y9MfIWDHGaPCSa6yxYG8iYINKYLXhLbfGxf9j8=
+X-Developer-Key: i=markus.probst@posteo.de; a=openpgp;
+ fpr=827418C4F4AC58E77230C47334761FF8E7AD43D2
+Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
+  keydata=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
+  aBeNN4ijKZchBXHPgVx+YtWRHfcm4l8=
+OpenPGP: url=https://posteo.de/keys/markus.probst@posteo.de.asc; preference=encrypt
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_085909_575671_77AB1720 
-X-CRM114-Status: GOOD (  12.24  )
+X-CRM114-CacheID: sfid-20260916_090043_989955_206FBFBC 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,75 +141,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The device node reference taken with of_node_get() for the adapter
-device is never released: the early probe error paths return without
-dropping it, and neither the late error paths nor i2c_pnx_remove() put
-it back. The i2c core does not release the adapter device's of_node
-either.
-
-Route the clock, I/O mapping and clock-enable error paths to a common
-label that drops the node reference, and drop the reference after
-i2c_del_adapter() in the remove path.
-
-Fixes: b41a216dafe4 ("i2c: Add device tree support to i2c-pnx.c")
-Cc: stable@vger.kernel.org
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+Fixes: 3bd32722c827d ("rtc: s35390a: improve irq handling")
+Signed-off-by: Markus Probst <markus.probst@posteo.de>
 ---
- drivers/i2c/busses/i2c-pnx.c | 17 ++++++++++++-----
- 1 file changed, 12 insertions(+), 5 deletions(-)
+ drivers/rtc/rtc-s35390a.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/i2c/busses/i2c-pnx.c b/drivers/i2c/busses/i2c-pnx.c
-index 8daa0008bd05..b2a686b132ea 100644
---- a/drivers/i2c/busses/i2c-pnx.c
-+++ b/drivers/i2c/busses/i2c-pnx.c
-@@ -644,20 +644,24 @@ static int i2c_pnx_probe(struct platform_device *pdev)
- 	}
- #endif
- 	alg_data->clk = devm_clk_get(&pdev->dev, NULL);
--	if (IS_ERR(alg_data->clk))
--		return PTR_ERR(alg_data->clk);
-+	if (IS_ERR(alg_data->clk)) {
-+		ret = PTR_ERR(alg_data->clk);
-+		goto err_of_node;
-+	}
- 
- 	snprintf(alg_data->adapter.name, sizeof(alg_data->adapter.name),
- 		 "%s", pdev->name);
- 
- 	/* Register I/O resource */
- 	alg_data->ioaddr = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
--	if (IS_ERR(alg_data->ioaddr))
--		return PTR_ERR(alg_data->ioaddr);
-+	if (IS_ERR(alg_data->ioaddr)) {
-+		ret = PTR_ERR(alg_data->ioaddr);
-+		goto err_of_node;
-+	}
- 
- 	ret = clk_prepare_enable(alg_data->clk);
- 	if (ret)
--		return ret;
-+		goto err_of_node;
- 
- 	freq = clk_get_rate(alg_data->clk);
- 
-@@ -707,6 +711,8 @@ static int i2c_pnx_probe(struct platform_device *pdev)
- 
- out_clock:
- 	clk_disable_unprepare(alg_data->clk);
-+err_of_node:
-+	of_node_put(alg_data->adapter.dev.of_node);
- 	return ret;
- }
- 
-@@ -716,6 +722,7 @@ static void i2c_pnx_remove(struct platform_device *pdev)
- 
- 	i2c_del_adapter(&alg_data->adapter);
- 	clk_disable_unprepare(alg_data->clk);
-+	of_node_put(alg_data->adapter.dev.of_node);
- }
- 
- #ifdef CONFIG_OF
+diff --git a/drivers/rtc/rtc-s35390a.c b/drivers/rtc/rtc-s35390a.c
+index b72eef4fb099..4cfe7034c516 100644
+--- a/drivers/rtc/rtc-s35390a.c
++++ b/drivers/rtc/rtc-s35390a.c
+@@ -494,7 +494,7 @@ static int s35390a_probe(struct i2c_client *client)
+ 		buf = 0;
+ 		err = s35390a_set_reg(s35390a, S35390A_CMD_STATUS2, &buf, 1);
+ 		if (err < 0) {
+-			dev_err(dev, "error disabling alarm");
++			dev_err(dev, "error disabling alarm\n");
+ 			return err;
+ 		}
+ 	} else {
+
 -- 
-2.34.1
+2.55.0
 
 
