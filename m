@@ -4,84 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 412FEC982C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:22:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07690C982C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:22:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GWSnfUETFJ8IS5MyDxX07yaboTmHXjE+3Z4OhmUc6+s=; b=2e8ktwOmmSIYypTZc1CZycnxHH
-	segRaZdWQaroBR8AaBlW6IeRiyefkLvw5dk0yQS0FZhA4DKSI42upwRzGZO3l3/3O6AyHG3obnzQV
-	5nQ0DLN35EO/WtXqycrLVOwMMSC+UHUGjJTASG2C9KBeHiEGtW12mK7V0i+NJLOccOt6GX4cmMqMr
-	s6wlvyYiZDWdZnDEhk1chKWBPgCA1OFaIjcJ75fB/E4wRKc10EaPSCp8d9jTtPR+fWGF8/YVHrh5K
-	3yFY+fi6kbHFnsE+g/mzjuHOHkDRlOw/HCQ3VIvGoeUmcKUnIzfrHqgJ6qhhf3HeKMj+tb80eFB4v
-	PPfmxz/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8tD6Xr9J2ucQ5/OOmstOBkaQazxoKsfY0YaWI5fIV5g=; b=AocXSoBOJ8PDB1mZmmoZUggtoU
+	b36w3hJ71PTNpbhbFMF990ANTyYqp1StKGhZJYS0ZEBPZdjIgSSoscEx8SKIwqLypQLhS26NVLf+D
+	69drgAGAwV/DJI8MwgQYYdHVsnN3HxSkhn1W8VHZadYqwUwca7uBxF5O1eEKllaF2tHT8PAOBsZQo
+	n4NrSx1EnAgm8TCAcvDv/j/LgLImvMrL3dXvotGoYKY6w2gcA98iAS0AGE38FWtLcTD1ILe/UliZU
+	suPhw+8uOp6P+rrOaYjsYLlHCgL8BFfZ+amzpZOYuq9vaS7UGTG8DgpoAfM87TuG/7kPr3X8GsaGR
+	1HMUsVZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rSX-00000009Z6I-3IYe;
-	Wed, 16 Sep 2026 15:22:05 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x6rSi-00000009Z9M-2IrY;
+	Wed, 16 Sep 2026 15:22:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rSW-00000009Z5g-2Mho
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 16 Sep 2026 15:22:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=GWSnfUETFJ8IS5MyDxX07yaboTmHXjE+3Z4OhmUc6+s=; b=SagfuKLt8Bt3aL2DHWqV90C9M5
-	VUrse2iot0hHBPD8IPL2AfS7WQw7tSkRIfmGDKQlEeO6Ic23chGhVzb+VvN0DeO0kx+0qYbhy4kG2
-	SrzcPIUsmtMK5NHhl9XZuNBb2TV+jNMysjQ3jdlirnCtbAYsW6nQXIC123oFy1mimEVf5j9+XYiuC
-	gaQd9KEadgxFuY0+S97t8qRLrfkQBK1lMsV2tVQug+5KYNdwl7Icxa1HaqFuTfaIg3HV5QWcexDnl
-	A4XWq51ukfdjif1FEMn7/wOEnUYhPe5nG1RQ8cfJu9qVUYXkRdTOF+bMQfxsz+kb95mSjfehvvtDA
-	9ZeVboBQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6rSS-000000082Cl-36kp
+	id 1x6rSa-00000009Z7D-1Jvw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 15:22:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BF8FE1516;
-	Wed, 16 Sep 2026 08:21:54 -0700 (PDT)
-Received: from [192.168.4.158] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EAB3A3F86F;
-	Wed, 16 Sep 2026 08:21:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789572118; bh=yLzqZqOmebTBUGiFGKZgcketuLUgJ8qsgeE7eEWH3WE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GvLhrGBrgZKQ6UXMR1KePllYx/JYkHFtc+ee1sTloowa55iV/kp0tYM9EhtuLmniH
-	 I+zaQNzi/XSmbxH+mUYEgbR4/Gh6h8QSKEXJkA4bbi39s6Rm8oLQKJWj4baA1kl7ei
-	 HRfBS4WSl9qLmbfTIAm9o8Ey3xM6GSWbycm80Q28=
-Message-ID: <bb59b1e0-2550-4a9d-8738-a54e5f106f45@arm.com>
-Date: Wed, 16 Sep 2026 16:21:54 +0100
+	Wed, 16 Sep 2026 15:22:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id F36DC4360D;
+	Wed, 16 Sep 2026 15:22:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3D191F00893;
+	Wed, 16 Sep 2026 15:22:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789572127;
+	bh=8tD6Xr9J2ucQ5/OOmstOBkaQazxoKsfY0YaWI5fIV5g=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject;
+	b=ghwDoUYQfT6LqJhAL5A6kG9TMoaCptirC39o32HGg7XG01YipLD+Lk2WqNjipGxu2
+	 UKAFVY7SM+TOQWwPrJgXEvQOvqs6JKOWjehSZwPJAzTDkMB++EOtdb0iGGllqiGulf
+	 gseRWbN+//EfJXylS6lTsAwveesUkZnK6LcsR4mwkQT8ASC5ZXJ3MXAdVLIHuQZWtg
+	 Qz4sxNxJT4QPrAq2dK6cFfeIalrHwUHttgOwxiVv0TAmiP7dafVn7XziOAezZ1mHAW
+	 Z2mvSIUHiLaR78mhPW2rym4XtHu+ntuK+mzekWfWRhwmLqgJT9Zg9ntdgDO5I5Zyez
+	 1V7i3im/MJ1Gw==
+Date: Wed, 16 Sep 2026 10:22:06 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 4/7] arm64: realm: Move Realm memory encryption ops to
- RSI code
-Content-Language: en-GB
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
- linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Cc: Jason Gunthorpe <jgg@nvidia.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Greg KH <gregkh@linuxfoundation.org>, Jeremy Linton <jeremy.linton@arm.com>,
- Jonathan Cameron <jic23@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Will Deacon <will@kernel.org>, Steven Price <steven.price@arm.com>,
- Andre Przywara <andre.przywara@arm.com>
-References: <20260914060511.277948-1-aneesh.kumar@kernel.org>
- <20260914060511.277948-5-aneesh.kumar@kernel.org>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260914060511.277948-5-aneesh.kumar@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_162201_802635_F430773C 
-X-CRM114-Status: UNSURE (   7.65  )
-X-CRM114-Notice: Please train this message.
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ Eric Dumazet <edumazet@google.com>, linux-kernel@vger.kernel.org, 
+ linux-sunxi@lists.linux.dev, Chen-Yu Tsai <wens@kernel.org>, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Paolo Abeni <pabeni@redhat.com>, Samuel Holland <samuel@sholland.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+ netdev@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ "David S . Miller" <davem@davemloft.net>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Russell King <linux@armlinux.org.uk>
+To: Alastair D'Silva <alastair@d-silva.org>
+In-Reply-To: <20260916044119.475666-4-alastair@d-silva.org>
+References: <20260916044119.475666-1-alastair@d-silva.org>
+ <20260916044119.475666-4-alastair@d-silva.org>
+Message-Id: <178957206885.228671.2262343816324087676.robh@kernel.org>
+Subject: Re: [PATCH net-next 3/4] dt-bindings: net:
+ allwinner,sun8i-a83t-emac: Add Allwinner H616 EMAC1 and syscon index
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,19 +81,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/09/2026 07:05, Aneesh Kumar K.V (Arm) wrote:
-> Realm memory encryption callbacks are CCA-specific. Keep the Realm callback
-> registration with the RSI initialization code instead of pageattr.c, which
-> only needs to provide the low-level page-attribute transition helper.
-> 
-> Export __set_memory_enc_dec() within arm64 so the RSI code can wrap it with
-> the Realm-specific encrypt/decrypt callbacks and warning policy.
-> 
-> No functional changes in this patch.
-> 
-> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@ram.com>
+On Wed, 16 Sep 2026 14:41:18 +1000, Alastair D'Silva wrote:
+> Document the Allwinner H616 EMAC1 and internal EMAC compatible strings
+> ("allwinner,sun50i-h616-emac1" and "allwinner,sun50i-h616-internal-emac").
+> Update the syscon property schema to support an optional register index
+> offset argument, allowing boards to reference the secondary EMAC clock
+> register on H616/H618 SoCs.
+> 
+> Assisted-by: LLM
+> Signed-off-by: Alastair D'Silva <alastair@d-silva.org>
+> ---
+> 
+> Notes:
+>     Tested against Allwinner H616/H618 device trees in Armbian, verifying
+>     schema validation with dt_binding_check.
+> 
+>  .../bindings/net/allwinner,sun8i-a83t-emac.yaml    | 14 +++++++++++---
+>  1 file changed, 11 insertions(+), 3 deletions(-)
+> 
+
+My bot found errors running 'make dt_binding_check' on your patch:
+
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml: properties:syscon:items:0: {'minItems': 1, 'maxItems': 2, 'items': [{'description': 'Phandle to the device containing the EMAC or GMAC clock register'}, {'description': 'Register index offset (0 for EMAC0, 1 for EMAC1)'}]} should not be valid under {'required': ['maxItems']}
+	hint: "maxItems" is not needed with an "items" list
+	from schema $id: http://devicetree.org/meta-schemas/items.yaml
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.kernel.org/project/devicetree/patch/20260916044119.475666-4-alastair@d-silva.org
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
