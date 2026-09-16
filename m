@@ -4,28 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86EBCC982C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:11:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC5C9C982C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:15:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w9BgAMPfOq5G70sfoDCdZtMrn814U1/chAn1JHy3tR0=; b=r8aZrkxYrfWZNxlWQ2NlWxbuI+
-	yrirfwxkDIUgszlRmswgfw3J1GpMcxTrnUJqXiYrSKjAhqhxoozCqopwI5g0t+9LUeORchyWP1Dpd
-	sTv5dFq8xDtQrpIOIEhuYo6z5lIRwCe0QA7FwH42I01LhwnEzNJAuREEQJXiOQ3Fk2DaCriKiFXkS
-	42z2FYqxxaf0wETvMv84pSHgZhbzVKyONLhYPVQI6XoBrrzSXlYtT5hDXqUOTb3hjubi+f9jEiD5F
-	ECsTqyygZjRk/5ZMcitSrpyhpZviMS5Lqku9VqdE/cU7wiB8dnEyW26NMi94t4bGeLj2iuBfQuoPA
-	Advwi/+A==;
+	bh=n3sefut7na8W9ISmWkPATT8KcDt3jrAfUcBfX9sSxF0=; b=SOrxVpo2Bd1907XjTSFQF5N1Jk
+	aWwjA0g9VKgJTFb/e8CVHqEeqTThoi2PMMP2/vw8HmHMyaJWO33ppbKHu4afLtoeYNZXAq0pR3Dso
+	DYV6BdyUpc+PTlB4jaB0Z9N8/YI5BW2zkjlfvIYZCeGYbRgFeEUkVp7xAiHzlHUhpHvzUtYKFRLWI
+	RthMEhJDKOm70zBmk/HKxMDY47nnq4pbzU7cFnOr7ZVdHjjGUdu7KbAX8azWm1sQaCtWf8wv/nTF7
+	d7NWp2lPUfuI05M1Z2GRqLkAZRt+o2FN++FZeBXyVA3Cx1UiIpXA53tp/ebnmuynJy7miSVmuzSJb
+	qTkU0qdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rHp-00000009Wd1-068L;
-	Wed, 16 Sep 2026 15:11:01 +0000
+	id 1x6rLj-00000009Xda-2Rm5;
+	Wed, 16 Sep 2026 15:15:03 +0000
 Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rGl-00000009Vqo-3JKi;
-	Wed, 16 Sep 2026 15:10:05 +0000
+	id 1x6rLg-00000009Xc3-221U;
+	Wed, 16 Sep 2026 15:15:02 +0000
 X-PTX-Original-Recipient: ezequiel@vanguardiasur.com.ar
 X-PTX-Original-Recipient: jacob-chen@iotwrt.com
 X-PTX-Original-Recipient: mchehab@kernel.org
@@ -42,21 +42,21 @@ X-PTX-Original-Recipient: s.pueschel@pengutronix.de
 X-PTX-Original-Recipient: m.tretter@pengutronix.de
 Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
 	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id CF4A32059FC;
-	Wed, 16 Sep 2026 17:09:52 +0200 (CEST)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 7998C205A01;
+	Wed, 16 Sep 2026 17:14:58 +0200 (CEST)
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
 	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.96)
 	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1x6rGi-001Fsx-2K;
-	Wed, 16 Sep 2026 17:09:52 +0200
+	id 1x6rGl-001Fsx-25;
+	Wed, 16 Sep 2026 17:09:55 +0200
 From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Date: Wed, 16 Sep 2026 17:09:50 +0200
-Subject: [PATCH v2 09/17] media: rockchip: rga: adjust get_version to
- return the version
+Date: Wed, 16 Sep 2026 17:09:54 +0200
+Subject: [PATCH v2 13/17] media: rockchip: rga: move core initialization
+ from bind to probe
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260916-spu-rga3multicore-v2-9-23aa2cb74e61@pengutronix.de>
+Message-Id: <20260916-spu-rga3multicore-v2-13-23aa2cb74e61@pengutronix.de>
 References: <20260916-spu-rga3multicore-v2-0-23aa2cb74e61@pengutronix.de>
 In-Reply-To: <20260916-spu-rga3multicore-v2-0-23aa2cb74e61@pengutronix.de>
 To: Jacob Chen <jacob-chen@iotwrt.com>, 
@@ -71,8 +71,8 @@ Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
  =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_080956_152631_C698DB21 
-X-CRM114-Status: GOOD (  14.02  )
+X-CRM114-CacheID: sfid-20260916_081500_682117_5E2BE8AD 
+X-CRM114-Status: GOOD (  19.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,89 +87,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Adjust get_version to return the version instead of directly updating it
-in the rockchip_rga structure. This is done in preparation for a
-multi-core support to check that cores with the same compatible share the
-same version.
+Move the core initialization from the core binding function to the core
+probing function. This better matches the actual sequence, where the
+core probe initializes most things and the bind function just binds the
+core to the actual rga struct from the master device.
+
+As the probe has no rockchip_rga struct, it has to get the
+rga_hw struct from the of match data to determine if the given core has
+an iommu.
 
 Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
----
- drivers/media/platform/rockchip/rga/rga-hw.c  | 10 +++++++---
- drivers/media/platform/rockchip/rga/rga.c     |  2 +-
- drivers/media/platform/rockchip/rga/rga.h     |  2 +-
- drivers/media/platform/rockchip/rga/rga3-hw.c |  8 +++++---
- 4 files changed, 14 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media/platform/rockchip/rga/rga-hw.c
-index 4d7b0a03820a1..190104f3b2954 100644
---- a/drivers/media/platform/rockchip/rga/rga-hw.c
-+++ b/drivers/media/platform/rockchip/rga/rga-hw.c
-@@ -474,10 +474,14 @@ static bool rga_handle_irq(struct rockchip_rga *rga)
- 	return intr & RGA_INT_COMMAND_FINISHED;
- }
- 
--static void rga_get_version(struct rockchip_rga *rga)
-+static struct rockchip_rga_version rga_get_version(struct rockchip_rga *rga)
- {
--	rga->version.major = (rga_read(rga, RGA_VERSION_INFO) >> 24) & 0xFF;
--	rga->version.minor = (rga_read(rga, RGA_VERSION_INFO) >> 20) & 0x0F;
-+	u32 version = rga_read(rga, RGA_VERSION_INFO);
-+
-+	return (struct rockchip_rga_version) {
-+		.major = (version >> 24) & 0xFF,
-+		.minor = (version >> 20) & 0x0F,
-+	};
- }
- 
- static struct rga_fmt formats[] = {
+---
+v2
+- indirectly fixed component_add error path not using goto err_put_clk
+  by using devres version for pm (pointed out by Sashiko and Nicolas)
+- reordered commit for a better diff
+- Avoid NULL pointer deref when interrupt fires on an unbound core
+---
+ drivers/media/platform/rockchip/rga/rga.c | 97 ++++++++++++++++++-------------
+ 1 file changed, 55 insertions(+), 42 deletions(-)
+
 diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
-index c24bc8e26b91e..2107d0f4a1659 100644
+index 37ccac5b406a4..fa34b93b1b7a5 100644
 --- a/drivers/media/platform/rockchip/rga/rga.c
 +++ b/drivers/media/platform/rockchip/rga/rga.c
-@@ -860,7 +860,7 @@ static int rga_probe(struct platform_device *pdev)
- 	if (ret < 0)
- 		goto rel_m2m;
+@@ -72,6 +72,10 @@ static irqreturn_t rga_isr(int irq, void *prv)
+ 	struct rga_core *core = prv;
+ 	struct rockchip_rga *rga = core->rga;
  
--	rga->hw->get_version(rga);
-+	rga->version = rga->hw->get_version(rga);
++	/* ignore interrupt on an unbound core */
++	if (!rga)
++		return IRQ_HANDLED;
++
+ 	if (rga->hw->handle_irq(core)) {
+ 		struct vb2_v4l2_buffer *src, *dst;
+ 		struct rga_ctx *ctx = core->curr;
+@@ -740,55 +744,16 @@ static int rga_parse_dt(struct rga_core *core)
  
- 	v4l2_info(&rga->v4l2_dev, "HW Version: 0x%02x.%02x\n",
- 		  rga->version.major, rga->version.minor);
-diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
-index 0e62337f8dd38..0e854cdf739f4 100644
---- a/drivers/media/platform/rockchip/rga/rga.h
-+++ b/drivers/media/platform/rockchip/rga/rga.h
-@@ -158,7 +158,7 @@ struct rga_hw {
- 	void (*start)(struct rockchip_rga *rga,
- 		      struct rga_vb_buffer *src, struct rga_vb_buffer *dst);
- 	bool (*handle_irq)(struct rockchip_rga *rga);
--	void (*get_version)(struct rockchip_rga *rga);
-+	struct rockchip_rga_version (*get_version)(struct rockchip_rga *rga);
- 	void *(*adjust_and_map_format)(struct rga_ctx *ctx,
- 				       struct v4l2_pix_format_mplane *format,
- 				       bool is_output);
-diff --git a/drivers/media/platform/rockchip/rga/rga3-hw.c b/drivers/media/platform/rockchip/rga/rga3-hw.c
-index 46ba6d270f232..a80dd7609ccfe 100644
---- a/drivers/media/platform/rockchip/rga/rga3-hw.c
-+++ b/drivers/media/platform/rockchip/rga/rga3-hw.c
-@@ -299,12 +299,14 @@ static bool rga3_handle_irq(struct rockchip_rga *rga)
- 	return FIELD_GET(RGA3_INT_FRM_DONE, intr);
- }
- 
--static void rga3_get_version(struct rockchip_rga *rga)
-+static struct rockchip_rga_version rga3_get_version(struct rockchip_rga *rga)
+ static int rga_core_bind(struct device *dev, struct device *master, void *data)
  {
- 	u32 version = rga_read(rga, RGA3_VERSION_NUM);
+-	struct platform_device *pdev = to_platform_device(dev);
+ 	struct rockchip_rga *rga = data;
+-	struct rga_core *core;
++	struct rga_core *core = dev_get_drvdata(dev);
+ 	struct video_device *vfd;
+ 	int ret = 0;
+-	int irq;
+-
+-	if (!pdev->dev.of_node)
+-		return -ENODEV;
+-
+-	core = devm_kzalloc(&pdev->dev, sizeof(*core), GFP_KERNEL);
+-	if (!core)
+-		return -ENOMEM;
  
--	rga->version.major = FIELD_GET(RGA3_VERSION_NUM_MAJOR, version);
--	rga->version.minor = FIELD_GET(RGA3_VERSION_NUM_MINOR, version);
-+	return (struct rockchip_rga_version) {
-+		.major = FIELD_GET(RGA3_VERSION_NUM_MAJOR, version),
-+		.minor = FIELD_GET(RGA3_VERSION_NUM_MINOR, version),
-+	};
+ 	core->rga = rga;
+-	core->dev = &pdev->dev;
+ 
+ 	rga->cores[0] = core;
+ 
+-	ret = rga_parse_dt(core);
+-	if (ret)
+-		return dev_err_probe(&pdev->dev, ret, "Unable to parse OF data\n");
+-
+-	ret = devm_pm_runtime_enable(core->dev);
+-	if (ret)
+-		return ret;
+-
+-	pm_runtime_set_autosuspend_delay(core->dev, 50);
+-	pm_runtime_use_autosuspend(core->dev);
+-
+-	core->regs = devm_platform_ioremap_resource(pdev, 0);
+-	if (IS_ERR(core->regs))
+-		return PTR_ERR(core->regs);
+-
+-	irq = platform_get_irq(pdev, 0);
+-	if (irq < 0)
+-		return irq;
+-
+-	ret = devm_request_irq(core->dev, irq, rga_isr,
+-			       rga_has_internal_iommu(rga) ? 0 : IRQF_SHARED,
+-			       dev_name(core->dev), core);
+-	if (ret < 0)
+-		return dev_err_probe(core->dev, ret, "failed to request irq\n");
+-
+-	ret = dma_set_mask_and_coherent(core->dev, DMA_BIT_MASK(32));
+-	if (ret)
+-		dev_err_probe(core->dev, ret, "32-bit DMA not supported");
+-
+-	ret = v4l2_device_register(&pdev->dev, &rga->v4l2_dev);
++	ret = v4l2_device_register(dev, &rga->v4l2_dev);
+ 	if (ret)
+ 		return ret;
+ 	vfd = video_device_alloc();
+@@ -804,7 +769,6 @@ static int rga_core_bind(struct device *dev, struct device *master, void *data)
+ 	video_set_drvdata(vfd, rga);
+ 	rga->vfd = vfd;
+ 
+-	platform_set_drvdata(pdev, core);
+ 	rga->m2m_dev = v4l2_m2m_init(&rga_m2m_ops);
+ 	if (IS_ERR(rga->m2m_dev)) {
+ 		v4l2_err(&rga->v4l2_dev, "Failed to init mem2mem device\n");
+@@ -855,6 +819,8 @@ static void rga_core_unbind(struct device *dev, struct device *master,
+ 	v4l2_m2m_release(rga->m2m_dev);
+ 	video_unregister_device(rga->vfd);
+ 	v4l2_device_unregister(&rga->v4l2_dev);
++
++	core->rga = NULL;
  }
  
- static struct rga3_fmt rga3_formats[] = {
+ static const struct component_ops rga_core_ops = {
+@@ -864,7 +830,54 @@ static const struct component_ops rga_core_ops = {
+ 
+ static int rga_core_probe(struct platform_device *pdev)
+ {
++	struct rga_core *core;
++	const struct rga_hw *hw;
+ 	int ret = 0;
++	int irq;
++
++	if (!pdev->dev.of_node)
++		return -ENODEV;
++
++	hw = of_device_get_match_data(&pdev->dev);
++	if (!hw)
++		return dev_err_probe(&pdev->dev, -ENODEV, "failed to get match data\n");
++
++	core = devm_kzalloc(&pdev->dev, sizeof(*core), GFP_KERNEL);
++	if (!core)
++		return -ENOMEM;
++
++	core->dev = &pdev->dev;
++
++	ret = rga_parse_dt(core);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret, "Unable to parse OF data\n");
++
++	ret = devm_pm_runtime_enable(core->dev);
++	if (ret)
++		return ret;
++
++	pm_runtime_set_autosuspend_delay(core->dev, 50);
++	pm_runtime_use_autosuspend(core->dev);
++
++	core->regs = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(core->regs))
++		return PTR_ERR(core->regs);
++
++	irq = platform_get_irq(pdev, 0);
++	if (irq < 0)
++		return irq;
++
++	ret = devm_request_irq(core->dev, irq, rga_isr,
++			       hw->has_internal_iommu ? 0 : IRQF_SHARED,
++			       dev_name(core->dev), core);
++	if (ret < 0)
++		return dev_err_probe(core->dev, ret, "failed to request irq\n");
++
++	ret = dma_set_mask_and_coherent(core->dev, DMA_BIT_MASK(32));
++	if (ret)
++		dev_err_probe(core->dev, ret, "32-bit DMA not supported");
++
++	platform_set_drvdata(pdev, core);
+ 
+ 	ret = component_add(&pdev->dev, &rga_core_ops);
+ 	if (ret < 0)
 
 -- 
 2.55.0
