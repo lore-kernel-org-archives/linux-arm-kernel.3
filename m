@@ -4,124 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE4F3C982C9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 17:19:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DABD7C982C9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 17:19:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gYPgihDng5OCKuceMHWgLUI8Nqzp5cD+eH/JcUxG6I4=; b=rMNiGkO7RfwXgCnmR0qmiSJ+Nn
-	4KaYnludF43X2aGXskltV/CsPLdVq9EqR2KHSLRUxiTbFuxM4h/wE2U9EuGGrFzPzva0NiDlpiHLS
-	6MVUGWxqjhX5N352t7QuyX96WJvC7b6pVV0LHnkgOXB+KtNy51I11v51wAEq4cGjYV+z3GfXfgAvd
-	K6d/ip22oqYYUufbG4WArYlGvAElHgAq3SIxg3YBVaCpfVeFB4EzeyJgJfZQDP3ZeEY21SDbHaYYE
-	hD4MlA1rUiYcG0Q0GnRDzCYYuIPXRu6SoqAYCCsCTHa97K/t0D9G60GiwzUR/59c6com3cKy6q+TW
-	KK3PTbjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GvpDqPtcVDHmIGNRN5Cwdl96zxBMwJm//wszUGDWEyE=; b=Pspk9irymObqLU8AUczxKl+Byh
+	prmDcsr/hxSWIb66tGUfrOlrfJPRnDbL3TIhFw0mDvGr4wYCEoJNj8H1fyrvZ+QeTX3kTaRGod0aO
+	IOx1wyGFUzEnqi8PYpvRuLFJyQMsDQDIcaeUik4QMS/JSnuxI3E6a9b45A4piYuFs1w+ArZnCkD/Y
+	NEzEwEUQq0S4M1l6IyxkltERnzjYtiVolQ2kO2DD1fari3y1Ql35YUo55dkaQADZp7HJucFo8V0Xb
+	q1lhym62wJWwQhPF9cVCMHvV9+s1SZQLNufUjZB7QkUdFb/MRBLDG1EaROQHd18Kk1kEpehYxfn9G
+	A2c8gtnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6tHc-00000009r3m-1pqu;
-	Wed, 16 Sep 2026 17:18:56 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1x6tIV-00000009rCX-2rOH;
+	Wed, 16 Sep 2026 17:19:51 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6tHZ-00000009r31-3juk
+	id 1x6tIU-00000009rC2-0DWl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 17:18:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ldDF6thAICo5/1Xu7YOt3VkEUSiZ+sIKRHLBZjAk4EZ662DmxexMvkFLrciWt7EYkMZjexoa805iXIEUeAriDrEHih5rk5WdY/njTJzI3twXG8neOikBfqHqtYA2YMyR4D6vKGzXnKRJ+G7e9DrySncq5ua3MoTyXW1cLclyfCmZTnVDkopMnJgbHDHlt9o0sSGd7e9I0qyJpW6Np3klhpEugWhl4hh/S4FaZkBJljrIw32nHjM62rzhHhy2oa5rpl2+ONlCplKoeSVXvXJCBDHLayTXCK9NtTNlShpe4EGYopldLus0o+kioRSji4fOkLUnkb+ATsvfMtGN8fLAQQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gYPgihDng5OCKuceMHWgLUI8Nqzp5cD+eH/JcUxG6I4=;
- b=BvZn9lnBYtHQ0DYpiCUZ3I1JgDrNx3FnlPVFaG0Hp/Q+hN3GWcISFv59mXTiaXc9xvm/XIaiv++OXgYfJz92lu2kKFFvVnWaja0NrvgR/VtieQxElrSDgMSRTi7uWW3xwJkObHz3k83+B8pJWxlwEUUo38BOALFXdTGfzXYU4YH+8+XnS0W2/zEBJwj2aVcehZjfmXMPPSP8Ho2WA4naW+Ys2ZjEWgP1eQFbuSVyniQIGtu6DjsxD8BkkO4Ow9vVUiMS3FpTSZmZTcJc6e6R+1nuWHt2OXIIP/SVjyIbGQqIzNbWvp05AthXBGLJOmBwY8+XGhKRpVmi+sj0SCnitg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gYPgihDng5OCKuceMHWgLUI8Nqzp5cD+eH/JcUxG6I4=;
- b=T88UEuiMR6dVYPbMauQrN600WarCc8DgLeYsA0zrhBEntuGbK/3BkuRt9Ad3wrGlL7lgQLyHoR9jSI19Qa3djYtgOY1Hd3lqimsYPHVTVVSN+RcQ2qLeuKmN72RUHC3N3SO58onAkNP24408CQWIlkOCqr2O3mpFxuFp7tSBQ7y7UQbVHmXpVshPsPAdAAQQ0w1kl04y4+S5IV83u1tXQYDCRNEFJ5O6hXEPAsP1n+t7XK35FEerjmrBkPmWFWLptz3lKDKZVvmSPuIm9kcMX8Tw2nj3WdyiI+AemQC/+gf+JfNiJ96CrV+o/qGlKKFNWA2kuv+17zksRJ2bQLubfA==
-Received: from AS4P189CA0064.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:659::24)
- by PA4PR10MB5682.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:264::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.11; Wed, 16 Sep
- 2026 17:18:46 +0000
-Received: from DB1PEPF000509F4.eurprd02.prod.outlook.com
- (2603:10a6:20b:659:cafe::9e) by AS4P189CA0064.outlook.office365.com
- (2603:10a6:20b:659::24) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.428.11 via Frontend Transport; Wed,
- 16 Sep 2026 17:18:46 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- DB1PEPF000509F4.mail.protection.outlook.com (10.167.242.150) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.428.7 via Frontend Transport; Wed, 16 Sep 2026 17:18:45 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 16 Sep
- 2026 19:24:49 +0200
-Received: from localhost (10.48.86.251) by STKDAG1NODE2.st.com (10.75.128.133)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 16 Sep
- 2026 19:18:44 +0200
-From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-Date: Wed, 16 Sep 2026 19:18:38 +0200
-Subject: [PATCH v3] iio: adc: stm32-adc: fix check on internal channel
- availability
+	Wed, 16 Sep 2026 17:19:50 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B1F4B43D74
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 17:19:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9668E1F00898
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 17:19:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789579189;
+	bh=GvpDqPtcVDHmIGNRN5Cwdl96zxBMwJm//wszUGDWEyE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=UoJeGhwPyLW8ilCTa6I+PhjeWrHSN2Q49sMY1cb2yvVyBm48OIxmEr+3pNizbM9HR
+	 KZ2HcdqhA8GwzgeVhykmzvBdvqkCWZlVMhQx8Fk0K6ZYTgpiX7bVpw6c9WxbY2Q4tP
+	 vuTO5kH1hYhqq3ycpDvHsjNvnePStrU1wPMe/qPkF8THXf4VZRpAklw/Zs9J2ljoTj
+	 muwXBbm33JRjDsM7wjxzvPrffatvwAxi2tNORvSuaQtDvVobNj9FjyFjL8T8dgd6p5
+	 OfmTLfC7/u+jTpq5MRqWsNOq9fH2UEOSHVkg1xYClXQtsi4lrUEmKbfbbMU/6yj20e
+	 CdNVnepyCtiNA==
+Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b5e4f15b78so1230533e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 10:19:49 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBz1XyOAT3fJDCLSs/XJ3zb2pwxnMF5S0KT8jbZMY7FaOqOSU2vgVlswYoq3kk086T15z77PiZ/TOljHDKDIYKcU@lists.infradead.org
+X-Gm-Message-State: AFuF++lAXWoBJ8mGxwN8IkB1a8utdi1BxbSkUuvwaTv+MfECVU5jtlgf
+	3h23mSl5UMTrsYzML2cCRhkrCkjSBuqE+n8q2k/U6y3HW4JJ9IReKeIkpkA8OwIq9P3DyYouOc8
+	guaQZ/s2la3OsAkopISR0b88H0/WkV84=
+X-Received: by 2002:a05:6512:2388:b0:5b5:e7a8:9b1d with SMTP id
+ 2adb3069b0e04-5b8b6625ba5mr1991668e87.13.1789579188303; Wed, 16 Sep 2026
+ 10:19:48 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260916-adc-fix-intchan-v1-v3-1-b5f05b86bc60@foss.st.com>
-X-B4-Tracking: v=1; b=H4sIAG3PqmoC/32NywrCMBBFf0WyNmWS0oeu/A9xkcfURrCRTAxK6
- b+b1I2CCLM5cObcmREGh8T2m5kFTI6cnzLU2w0zo5rOyJ3NzCTIFnai4coaPrgHd1MsAk+C1xa
- t6g0a3QDLj7eA2Vijx9Ob6a4vaGIpFWN0FH14rqtJFO/vQD7Bu1YooesGQOjD4IkqipXxV1Ymk
- vyMtD8jMkdw6EArNBZ6+R1ZluUFYL8+nw0BAAA=
-X-Change-ID: 20260915-adc-fix-intchan-v1-3deda8cecb50
-To: Jonathan Cameron <jic23@kernel.org>, David Lechner
-	<dlechner@baylibre.com>, =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, "Andy
- Shevchenko" <andy@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Olivier Moysan
-	<olivier.moysan@foss.st.com>
-CC: <linux-iio@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Jonathan Cameron <jic23@kernel.org>, Sashiko <sashiko-bot@kernel.org>,
-	<stable@vger.kernel.org>, Andy Shevchenko <andriy.shevchenko@intel.com>,
-	Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-X-Mailer: b4 0.16.0
-X-Originating-IP: [10.48.86.251]
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB1PEPF000509F4:EE_|PA4PR10MB5682:EE_
-X-MS-Office365-Filtering-Correlation-Id: c148b88f-3d21-48a8-f927-08df141690b2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|82310400026|1800799024|36860700016|13003099007|10067099003|56012099006|11063799006|18002099003;
-X-Microsoft-Antispam-Message-Info: XckR9unBDH9NUMWPKHoJWJv9bE0/0/6zNTgoEpHPAA7Mw2iGFPUwCsfD/r/SGSEUhWUi/5TCtDuBX6a6Ly3ptXxTfEoWCrNRhZT26UrsuH5dLb2LP+pq2z651v2i9VhMm4psSPQgGzrzJPWSQnsZom4gsZ8VI3wPm+54Rb9vacc0gFYOgXxBTGH6XPaUujDXfnu+K5x5ecz9LQn5KJjh5vabTCzFoNMfu2nQdpbQL9yYXRX7D2IUAclCKGc/eEeY1IrNWFGNOkY+QLUHkzussSqkmZCAh/LXwdpYrvV2mtNtMCPP6HMLnz9547FOMx9I1aUpjHWs5LL37JcxUVyO2p/Z2txm0aSz9fvV/RSRXIWkHlEeGS4p/AsTMz2JRXtVnepvrwGQcP89of4ZqlJcg6iSjrmDM8TCoKNqoH3no5lclDS0rrLhpuiFFMP9doyjhaPpAa4kO9YHlomomaMHM1rdORG4MomtDPSqTXZLe++3dyWu3f5VAWq/8+i61jC4QVHsUSlznL70xW+jkiIxelmjWI7q8MpRAvlVYpBgaDF1qniJRmZz7cRGIlAsT0Gt0F2bTYaBUSrLgPsyG2qgHSXwZsPnlp/5SNazA99i7f5GYjlhlSxBOwKMxN/lny9Tt1C2qBMfisc5cb9aLfeVctqT75bWYemQqXB6bP+Fc3k=
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(82310400026)(1800799024)(36860700016)(13003099007)(10067099003)(56012099006)(11063799006)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: RbpFfhxsrbkDW6r9LeT1XWR2lXMLHMoHApptmsFP3LNH7UIspgQw2S2BSmHaQRuv6bDPQFOKmh7d6xXFO+BjucT2ux6bBwjqBsrfBdgAdB3EARuxT7uRMlLVC3FGgApnHrU74U5nJamD+MFDwFYifAxrCn5kwGHPjlHFbIIGBxK2SToazdoVCXB8nViIcoSetZWiVS7ZrQjrZdAUUV8BOpOXdgJQ06oyyiZBykQgMK+Fnv7/RitZujOJQMqRePAFexBQF26AQCAOpMvY86p6nfX429UATRM4KbULNPv0Z53Jo1tA9ABUhr/DMoHwWY+bXlqxy6SkDvUYIROWG3WJ5ZeGg2ob3d+/75YAyo9JQSIn/VlF9WiwQ+2s03J9czDjN9X1avoNVWazTHrfxafcYfVBJwATJKoOi21DcdOEWshESedJWMSJiaXgNB9aWEkO
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Sep 2026 17:18:45.8182
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c148b88f-3d21-48a8-f927-08df141690b2
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509F4.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR10MB5682
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_101853_936424_8790C075 
-X-CRM114-Status: GOOD (  15.46  )
+References: <20260913040312.21966-1-mhun512@gmail.com>
+In-Reply-To: <20260913040312.21966-1-mhun512@gmail.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Wed, 16 Sep 2026 19:19:35 +0200
+X-Gmail-Original-Message-ID: <CAD++jLn=6K7EZLuXnP7vcNe2s1TpNF+gVCnGqh2e0AnPeB=r+A@mail.gmail.com>
+X-Gm-Features: AcwNN1VsVf0Ab2PJqc6NKhxiLm0epWqyyaiftJvVfZNznCffNKfZ2aSXL8uXvug
+Message-ID: <CAD++jLn=6K7EZLuXnP7vcNe2s1TpNF+gVCnGqh2e0AnPeB=r+A@mail.gmail.com>
+Subject: Re: [PATCH] pinctrl: single: free the IRQ on domain creation failure
+To: Myeonghun Pak <mhun512@gmail.com>
+Cc: Tony Lindgren <tony@atomide.com>, Haojian Zhuang <haojian.zhuang@linaro.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org, Ijae Kim <ae878000@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,108 +81,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If an unsupported internal channel like vddgpu is requested, the driver
-prints a warning but falls through and assigns it a valid int_ch below.
+On Sun, Sep 13, 2026 at 6:03=E2=80=AFAM Myeonghun Pak <mhun512@gmail.com> w=
+rote:
 
-This causes a problem later during setup:
-stm32_adc_int_ch_enable() {
-    ...
-    case STM32_ADC_INT_CH_VDDGPU:
-        stm32_adc_set_bits(adc, adc->cfg->regs->or_vddgpu.reg,
-                           adc->cfg->regs->or_vddgpu.mask);
-    ...
-}
+> pcs_irq_init_chained_handler() requests a shared IRQ on affected SoCs, bu=
+t
+> its domain creation failure path only removes a chained handler. That doe=
+s
+> not release the action installed by request_irq(). The probe can continue
+> without interrupt support while leaving the shared IRQ action registered.
+>
+> Use pcs_irq_free() to undo the appropriate type of handler registration.
+> At this point pcs->domain is NULL, so the helper only releases the parent
+> IRQ handler. Then mark the IRQ invalid, as the other initialization error
+> paths already do, to prevent another release from a later probe unwind or
+> remove.
+>
+> This issue was identified during our ongoing static-analysis research whi=
+le
+> reviewing kernel code.
+>
+> Fixes: 3e6cee1786a1 ("pinctrl: single: Add support for wake-up interrupts=
+")
+> Cc: stable@vger.kernel.org
+> Assisted-by: OpenAI:GPT-5.6
+> Co-developed-by: Ijae Kim <ae878000@gmail.com>
+> Signed-off-by: Ijae Kim <ae878000@gmail.com>
+> Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
 
-Because the register offset is uninitialized (0), this performs a
-read-modify-write on offset 0, which corresponds to the ISR register.
+Patch applied for fixes.
 
-Fix this by returning before a valid int_ch is assigned. Choice is
-made to keep current driver behavior to warn about the channel name.
-
-Fixes: cf0fb80ae167 ("iio: adc: stm32-adc: add stm32mp13 support")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/all/20260911162602.D323F1F000FF@smtp.kernel.org/
-Cc: stable@vger.kernel.org
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
-Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
----
-Changes in v3:
-- Comment from Andy: use Closes instead of Link in the commit message
-- Add collected Andy's Reviewed-by
-- Link to v2: https://patch.msgid.link/20260916-adc-fix-intchan-v1-v2-1-ef70baecd082@foss.st.com
-
-Changes in v2:
-- Review comments from Andy: use bool flag closer to the channel
-  availabilty checks. Add a default case.
-- Link to v1: https://patch.msgid.link/20260915-adc-fix-intchan-v1-v1-1-761a1b35001b@foss.st.com
----
- drivers/iio/adc/stm32-adc.c | 34 +++++++++++++++++++---------------
- 1 file changed, 19 insertions(+), 15 deletions(-)
-
-diff --git a/drivers/iio/adc/stm32-adc.c b/drivers/iio/adc/stm32-adc.c
-index 5c6c06b269be..b77f39f305d8 100644
---- a/drivers/iio/adc/stm32-adc.c
-+++ b/drivers/iio/adc/stm32-adc.c
-@@ -2263,33 +2263,37 @@ static int stm32_adc_populate_int_ch(struct iio_dev *indio_dev, const char *ch_n
- 
- 	for (i = 0; i < STM32_ADC_INT_CH_NB; i++) {
- 		if (!strncmp(stm32_adc_ic[i].name, ch_name, STM32_ADC_CH_SZ)) {
-+			bool na;
-+
- 			/* Check internal channel availability */
- 			switch (i) {
- 			case STM32_ADC_INT_CH_VDDCORE:
--				if (!adc->cfg->regs->or_vddcore.reg)
--					dev_warn(&indio_dev->dev,
--						 "%s channel not available\n", ch_name);
-+				na = !adc->cfg->regs->or_vddcore.reg;
- 				break;
- 			case STM32_ADC_INT_CH_VDDCPU:
--				if (!adc->cfg->regs->or_vddcpu.reg)
--					dev_warn(&indio_dev->dev,
--						 "%s channel not available\n", ch_name);
-+				na = !adc->cfg->regs->or_vddcpu.reg;
- 				break;
- 			case STM32_ADC_INT_CH_VDDQ_DDR:
--				if (!adc->cfg->regs->or_vddq_ddr.reg)
--					dev_warn(&indio_dev->dev,
--						 "%s channel not available\n", ch_name);
-+				na = !adc->cfg->regs->or_vddq_ddr.reg;
- 				break;
- 			case STM32_ADC_INT_CH_VREFINT:
--				if (!adc->cfg->regs->ccr_vref.reg)
--					dev_warn(&indio_dev->dev,
--						 "%s channel not available\n", ch_name);
-+				na = !adc->cfg->regs->ccr_vref.reg;
- 				break;
- 			case STM32_ADC_INT_CH_VBAT:
--				if (!adc->cfg->regs->ccr_vbat.reg)
--					dev_warn(&indio_dev->dev,
--						 "%s channel not available\n", ch_name);
-+				na = !adc->cfg->regs->ccr_vbat.reg;
- 				break;
-+			default:
-+				return -EINVAL;
-+			}
-+
-+			if (na) {
-+				/*
-+				 * Channel label matches an internal STM32 ADC channel.
-+				 * Warn about it, as there's normally no restriction on the
-+				 * name but that's not among available internal channels.
-+				 */
-+				dev_warn(&indio_dev->dev, "no %s internal channel\n", ch_name);
-+				return 0;
- 			}
- 
- 			if (stm32_adc_ic[i].idx != STM32_ADC_INT_CH_VREFINT) {
-
----
-base-commit: 8d3ae59288f1e7d58d76558a6ee96d533bc5019f
-change-id: 20260915-adc-fix-intchan-v1-3deda8cecb50
-
-Best regards,
---  
-Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-
+Yours,
+Linus Walleij
 
