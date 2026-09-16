@@ -4,78 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7FE1C982C1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 22:08:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC758C982C9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 22:20:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fiPjcCfrZDpkJa9XggDDghz/xr0MLnU4sclLIpuyUTI=; b=dVf2ei61oqdxNQCqgjA5a5wOIi
-	iASyN9HEi4KH6xqOsRKv0fatT1y4j36YtEkJGdRfkWfjRoDpSeJt9jhwD0+58C8uVdDCAk75/mpmk
-	QW2cqYYsq04c6TORfiVBpteXMnQV8QttAEezqtNCyYmqFtt2LMeg0l09LHYw0rFKzbxbSI79GKGhk
-	NvjYG0fsaL26Be1VtOm+E4kobjqIZo/BHQcUIbwJy//xIfEEnE6EhdPvK+EpJ+s9HiJRKseUOf59i
-	U9CzxFHWIy5MsNdBQdrqGxe75D9F8qu3z+MzvvEPDHwJP9QDwnXeShv8PO5KSyfQkOOVlCF5LzHZV
-	KBOeqXWA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0jjaJqT+4yE26s3Gd2hr+zhg3vtd5fJJJh6Wg8rfPjg=; b=hImlyD3tT1hcNoNs4NUTx9jfWo
+	GLvP9ir7olSc4slYxeSRnclLspBYBDyNyhr1Uy3h0qhGfAPXN0yaCTHhKeAWP2qID8RK+CiKYlNB4
+	wgWstTdjf0eqIEZJsNMKfR7CFxazJ88CwtvmUp2loNbrf9Pj6vPuADY23sXD9hEDgXkYSi8its/PR
+	3RLPOJOyxwnsB6Mi5gWgMN91EcDHGsRMYxaZ/V+ojaNebgKB0SyOQPCCuJuz9sGUJjQesRfI8Pykm
+	rBVOIum6PLj4UPGvZMCgAydH+ED+S4ICH9kG/T1gHSQSX4Qv32kxDtEGLKyLoG0YQqm1Tr+b7DCJA
+	H7VgRVQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6xnY-0000000ABzh-3EWU;
-	Wed, 16 Sep 2026 22:08:12 +0000
-Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
+	id 1x6xz4-0000000ACHE-2yl3;
+	Wed, 16 Sep 2026 22:20:06 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6xnW-0000000ABzJ-3uKl
+	id 1x6xz1-0000000ACGH-1Gt7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 22:08:12 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4hlY1255bnzKnRx;
-	Thu, 17 Sep 2026 00:08:06 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1789596486;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=fiPjcCfrZDpkJa9XggDDghz/xr0MLnU4sclLIpuyUTI=;
-	b=Tvn5BVv1h8c17a+fi2zeZYQeAMX8ihT4R2nuaWZKmho8kAuX9dHwvwQvYZeeSzFAH5baki
-	8eVfL5wBRlETcIqKXRQdxCH/vxrknU9MwDn42BKOMTQmNMgJE0oWOP+kxsH8e3hBKq/brf
-	ELGmNWSlqIV774Q6WzkVoeofRxPI73NMRJsqULVg7elw6ebNU0bd15ZCO+cP0fo8pdvH4y
-	E8NsFNkxqSD/oxMVMQvaNz17zCn3ImYtvps2GVfpkqtxyQnseOIZzotZYz8pI9e/L7clVK
-	ysT3+aptVMPH8u5zTFbrbgC2sw86zwNUillvp6klXMNjALeU8gEF3bnkfQqsDQ==
-From: Marek Vasut <marek.vasut+renesas@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1789596485;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=fiPjcCfrZDpkJa9XggDDghz/xr0MLnU4sclLIpuyUTI=;
-	b=GTRVOv6cqtQ1UV+EdzjVKukp2M1CnIycMBElJ6FoxZgjnCA9DiZZetJHxkaLkXs1nn6XIB
-	eG8Ydm1GjP0CXXEE8px/tZIwLLMrQ8aPljMdTS0LO2TOTGr/Y0mOGp3nvsEgzZrEtQLDUc
-	6Bayr39kOIb4tfFT1MclCIivknVKKu5MoGgfYYKKaomyTMir2TGo+Hdb5n03n0ZqAgqa9v
-	tSle3+39nxSZQrUbt08Og16/lWP3Qo/xhVxE76B8QClgZ1pm/JcHU9I3g3dQiKirKpZAhx
-	HNZQ3upOR8bej2dAulFW9x+K+j5GV7UIyYamTa5Wmc9zlDcW5RVzVEj5bvGG6Q==
-To: linux-arm-kernel@lists.infradead.org
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH] arm64: dts: renesas: ironhide: Align inline ECC carveout sizes with bootloader settings
-Date: Thu, 17 Sep 2026 00:07:45 +0200
-Message-ID: <20260916220801.240796-1-marek.vasut+renesas@mailbox.org>
+	Wed, 16 Sep 2026 22:20:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:From:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:From:Reply-To;
+	bh=0jjaJqT+4yE26s3Gd2hr+zhg3vtd5fJJJh6Wg8rfPjg=; b=FJ1GGUUqC8SfggqGAFpM/dbaxC
+	/6H9VEZaA7bVJZaF6Sg2vwo3NrVxh/g1JW0sKYJhxcuTnL/RXl43YgNKSRU/Jv12SMgzzJSKtji/p
+	6E4O7hjbQPZ5Z/N3+N8dm/KYVyniukxbdWoj5z1gxViAVdzFiARjH0cDQ+XJ1mpYL/BOp3p0oiFMt
+	v0bo5+CTx4t3QxIf+MCt1cGnhjPfYAf7SA9kuKysxpkdk9vIHJvhl6mFUmTIwgDsh9O511Wuh50cq
+	vIG7Th5Vb/AeoCHTywm65bN4JdacomMltdgJfEpPL4xKm8tigNPoevpDdSQ/ypuIo3q79vjqvZYpF
+	Bls852nQ==;
+Received: from [177.172.123.214] (helo=[192.168.15.100])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+	id 1x6xyb-0039Hm-2L; Thu, 17 Sep 2026 00:19:37 +0200
+Message-ID: <6fa4e1e3-c023-465c-9490-ce2f18ffaa91@igalia.com>
+Date: Wed, 16 Sep 2026 19:19:36 -0300
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 00/13] syscalls: Add a shared table for all archs
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Christian Brauner <brauner@kernel.org>, linux-kernel@vger.kernel.org,
+ linux-kbuild@vger.kernel.org, kernel-dev@igalia.com,
+ Masami Hiramatsu <mhiramat@kernel.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ linux-alpha@vger.kernel.org, linux-s390@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev,
+ linux-mips@vger.kernel.org, sparclinux@vger.kernel.org
+References: <20260828-tonyk-syscall_table-v6-0-fdd358456cf1@igalia.com>
+ <95b693c0-ca51-4355-99ba-2b37a1ab2169@app.fastmail.com>
+Content-Language: en-US
+From: =?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
+In-Reply-To: <95b693c0-ca51-4355-99ba-2b37a1ab2169@app.fastmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: bd14e6954791015599b
-X-MBO-RS-META: dj669y3ffcji7xcyikz3xcy5jjri9fua
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_150811_116422_486460DF 
-X-CRM114-Status: GOOD (  10.87  )
+X-CRM114-CacheID: sfid-20260916_152004_660803_8304BB33 
+X-CRM114-Status: GOOD (  26.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,68 +77,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The DBSC5 DRAM controller protects DRAM content using inline ECC. The
-current set of carveouts follows SoC documentation, which describes the
-three trailing carveouts as larger than the rest.
+Em 15/09/2026 04:45, Arnd Bergmann escreveu:
+> On Sat, Aug 29, 2026, at 01:19, André Almeida wrote:
+>> While implementing a new syscall, we need to wire up it's number to the arch
+>> table. Since syscall number 403, all architectures are on sync regarding the
+>> number (except alpha), which make things a lot easier but more repetitive as
+>> well. Have a look at commit b36d4b6aa88 ("arch: hookup listns() system call"),
+>> with 15 lines of mostly:
+>>
+>>    +470    common  listns                          sys_listns
+>>
+>> There's already a "common" table shared with a bunch of archs at
+>> `scripts/syscall.tbl`, but due to historical reasons some archs will never be
+>> able to move to this table and share all the numbers.
+>>
+>> The generic table starts from 403 (clock_gettime64), the first common syscall.
+>>
+>> I've compile tested for arm32, arm64, s390, mips, sparc and alpha by comparing
+>> the syscalls_*.h and unistd_*.h files generated before and after this patchset.
+>> For most of cases the files are identical, for the few cases that they are not,
+>> there's a note in the commit explaining why they are equivalent.
+> 
+> I've tried merging these for the asm-generic tree now, and would like to
+> send them for 7.4.
+> 
+> Unfortunately, the build bot flagged problems on mips, see the patch below
+> for my workarounds=, but I think we have to improve that still and didn't
+> just fold it into your patch.
+> 
+> As you took out the dependencies on the syscall_*.tbl files, the
+> output does not get rebuilt if changes are made to the table, and I
+> have not come up with a good solution for mips. My hack just adds both
+> input files to all outputs, which works but is not technically correct.
+> 
 
-Both the downstream IPL and mainline U-Boot on RSIP configure the ECC
-carveouts to the same size for all eight carveouts. Align the carveout
-sizes with the controller configuration set by the bootloader.
+Thanks for testing! I believe I found a simple solution for this. I 
+modified syscall_o32.tbl and can confirm it triggers a rebuild now:
 
-This makes 1638 MiB of DRAM available for each of the three carveouts,
-which adds up to a total of 4915 MiB of newly accessible DRAM on this
-platform with this fix.
+diff --git a/arch/mips/kernel/syscalls/Makefile 
+b/arch/mips/kernel/syscalls/Makefile
+index aaa5443ea906..9e31d1ce5015 100644
+--- a/arch/mips/kernel/syscalls/Makefile
++++ b/arch/mips/kernel/syscalls/Makefile
+@@ -40,10 +40,10 @@ src_n32 := $(src)/syscall_n.tbl
+  src_n64 := $(src)/syscall_n.tbl
+  src_o32 := $(src)/syscall_o32.tbl
 
-Making this memory available does not pose a danger, since the current
-set of carveouts were carefully set to a larger size to prevent any
-possible issues until a confirmation from the hardware team become
-available, that it is safe to apply these less restrictive settings.
+-$(kapi)/unistd_nr_%.h: $(systbl_common) $(sysnr) FORCE
++$(kapi)/unistd_nr_%.h: $(systbl_common) $(src_%) $(sysnr) FORCE
+         $(call if_changed,sysnr)
 
-Fixes: 6fa6ee724d8d ("arm64: dts: renesas: ironhide: Describe inline ECC carveouts")
-Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
----
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Magnus Damm <magnus.damm@gmail.com>
-Cc: Rob Herring <robh@kernel.org>
-Cc: devicetree@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-renesas-soc@vger.kernel.org
----
- arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+-$(kapi)/syscall_table_%.h: $(systbl) $(systbl_common) FORCE
++$(kapi)/syscall_table_%.h: $(systbl) $(systbl_common) $(src_%) FORCE
+         $(call if_changed,systbl)
 
-diff --git a/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts b/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts
-index 8e68266bb0ab0..239175c54b937 100644
---- a/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts
-+++ b/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts
-@@ -161,18 +161,18 @@ ecc@18cccc0000 {
- 			no-map;
- 		};
- 
--		ecc@1a66660000 {
--			reg = <0x1a 0x66660000 0x0 0x999a0000>;
-+		ecc@1acccc0000 {
-+			reg = <0x1a 0xcccc0000 0x0 0x33340000>;
- 			no-map;
- 		};
- 
--		ecc@1c66660000 {
--			reg = <0x1c 0x66660000 0x0 0x999a0000>;
-+		ecc@1ccccc0000 {
-+			reg = <0x1c 0xcccc0000 0x0 0x33340000>;
- 			no-map;
- 		};
- 
--		ecc@1e66660000 {
--			reg = <0x1e 0x66660000 0x0 0x999a0000>;
-+		ecc@1ecccc0000 {
-+			reg = <0x1e 0xcccc0000 0x0 0x33340000>;
- 			no-map;
- 		};
- 	};
--- 
-2.53.0
+  uapisyshdr-y           += unistd_n32.h                 \
+
+> The rt_sigtimedwait and ustat entries had a typo that caused a link
+> error, but I did not check if there were any additional mistakes that
+> caused incorrect output data without causing a link failure.
+> 
+
+Ops, my bad. I had another round comparing the tables, and I found 
+another case that needed a fix:
+
+diff --git a/arch/mips/kernel/syscalls/syscall_n.tbl 
+b/arch/mips/kernel/syscalls/syscall_n.tbl
+index e3d278f715b7..1882527053af 100644
+--- a/arch/mips/kernel/syscalls/syscall_n.tbl
++++ b/arch/mips/kernel/syscalls/syscall_n.tbl
+@@ -43,7 +43,7 @@
+  33     common  pause                           sys_pause
+  34     common  nanosleep                       sys_nanosleep 
+sys_nanosleep_time32
+  35     common  getitimer                       sys_getitimer 
+compat_sys_getitimer
+-36     common  setitimer                       sys_setitimer 
+compat_setitimer
++36     common  setitimer                       sys_setitimer 
+compat_sys_setitimer
+  37     common  alarm                           sys_alarm
+  38     common  getpid                          sys_getpid
+  39     common  sendfile                        sys_sendfile64 
+compat_sys_sendfile
+
+Let me know if both diffs look good to you, and then I can send a v7.
+
+Thanks!
+
+>         Arnd
+> 
+> diff --git a/arch/mips/kernel/syscalls/Makefile b/arch/mips/kernel/syscalls/Makefile
+> index aaa5443ea906..51b9939ecff0 100644
+> --- a/arch/mips/kernel/syscalls/Makefile
+> +++ b/arch/mips/kernel/syscalls/Makefile
+> @@ -40,10 +40,10 @@ src_n32 := $(src)/syscall_n.tbl
+>   src_n64 := $(src)/syscall_n.tbl
+>   src_o32 := $(src)/syscall_o32.tbl
+>   
+> -$(kapi)/unistd_nr_%.h: $(systbl_common) $(sysnr) FORCE
+> +$(kapi)/unistd_nr_%.h: $(src_o32) $(src_n64) $(systbl_common) $(sysnr) FORCE
+>          $(call if_changed,sysnr)
+>   
+> -$(kapi)/syscall_table_%.h: $(systbl) $(systbl_common) FORCE
+> +$(kapi)/syscall_table_%.h: $(src_o32) $(src_n64) $(systbl) $(systbl_common) FORCE
+>          $(call if_changed,systbl)
+>   
+>   uapisyshdr-y           += unistd_n32.h                 \
+> diff --git a/arch/mips/kernel/syscalls/syscall_n.tbl b/arch/mips/kernel/syscalls/syscall_n.tbl
+> index e3d278f715b7..84c35c1f0c3e 100644
+> --- a/arch/mips/kernel/syscalls/syscall_n.tbl
+> +++ b/arch/mips/kernel/syscalls/syscall_n.tbl
+> @@ -133,14 +133,14 @@
+>   123    common  capget                          sys_capget
+>   124    common  capset                          sys_capset
+>   125    common  rt_sigpending                   sys_rt_sigpending       compat_sys_rt_sigpending
+> -126    common  rt_sigtimedwait                 sys_rt_sigtimedwait_time        compat_sys_rt_sigtimedwait_time32
+> +126    common  rt_sigtimedwait                 sys_rt_sigtimedwait     compat_sys_rt_sigtimedwait_time32
+>   127    common  rt_sigqueueinfo                 sys_rt_sigqueueinfo     compat_sys_rt_sigqueueinfo
+>   128    common  rt_sigsuspend                   sys_rt_sigsuspend       compat_sys_rt_sigsuspend
+>   129    common  sigaltstack                     sys_sigaltstack         compat_sys_sigaltstack
+>   130    common  utime                           sys_utime               sys_utime32
+>   131    common  mknod                           sys_mknod
+>   132    common  personality                     sys_personality         sys_32_personality
+> -133    common  ustat                           sys_usta                compat_sys_usta
+> +133    common  ustat                           sys_ustat               compat_sys_ustat
+>   134    common  statfs                          sys_statfs              compat_sys_statfs
+>   135    common  fstatfs                         sys_fstatfs             compat_sys_fstatfs
+>   136    common  sysfs                           sys_sysfs
 
 
