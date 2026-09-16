@@ -4,93 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17A5FC982CC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:41:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09B0EC982CC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:54:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sGvzKbFPjf+oPN6Vq1aebGYY5v8J+QGBuqhmyn8aUVA=; b=1i+q8thiojZF565DsrGSgoMll/
-	4hAhJlTBgjxaXtpwwy5dMCpEorgmXolmCLeLdnlTBQrs4IUXiUjnOdqiUzV3/kh36EVvNFPROMiDl
-	g1+xMmNehNn2rrPTDe9OhxQvF3aXVestWy5i+rCIQjmfp9sKjaOskhOdQnmjwqndwYRC/ISkyFmK6
-	yfZTm0EcWVE0dQUoQaN0LMG9t3XPgOhwSgud6XXscgXbbcLvGGbl5qkKF66dSoiytndUE/s5RBCc/
-	r+3V2jEHVhPviTG7Ini+na3p+21xqwZrRrkq3M6f8AF32BwXIUGZ+dXej2RjOBy3fYm4MRb7Dh/TP
-	vrUVBF2Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=58gw7C6sIw0cJgzSUdQgD7v2NjCskUQal007zbiBg8g=; b=4u8ZyeyHq+V7ajtzy3x/tkdKNg
+	NdHpAigju/9+ujgiR/qOVbIIMvoDjJrA8fi21rJ8FKDFbvIxk6pRqI/iNzgrZuU73l7/PFoxsB5dp
+	CkTG1GYjIbFxFfZSrfk5VRbJnyyRvD07gVqanf8GC0R0Y5b/2AA7JnpUb1jGuPPVLnKWWQnYW8gYF
+	8uL7d/cc9EPtan+lzkQpBaN15ANArfh9HOcMCiX4XU2jYaiFzmgon9TEfgWV5Zes7E1q9IwP9m9bL
+	DQNrahCM9XZQRT8sBlpikbWDnMgYkE2+xuq0WQQcsBf8hSqrQkimhHpzTYjS+cR3zfNtVQmrZdh4m
+	DOXu0KRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rlT-00000009ciQ-2FRo;
-	Wed, 16 Sep 2026 15:41:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rlS-00000009ci8-0Vjj
+	id 1x6rxi-00000009eRE-1dHQ;
+	Wed, 16 Sep 2026 15:54:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x6rxg-00000009eQH-0vBi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 15:41:38 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 601636020C;
-	Wed, 16 Sep 2026 15:41:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0560E1F00898;
-	Wed, 16 Sep 2026 15:41:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789573297;
-	bh=sGvzKbFPjf+oPN6Vq1aebGYY5v8J+QGBuqhmyn8aUVA=;
-	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To;
-	b=KIYUEz2FGcRHG+Ssklm2bHmtEXBGohs83s4Od39AMcZubOJsE9RcpEkF2MgFpaJyw
-	 cRxlDEaoPOVjTBiub0GC4lMMtcPW5Ai2f1xdjaWDEWMvi39Rl+gSqxtwEHJWheUE9m
-	 h8vHINDZAmYdg6E6FA6HEIujkaLUYdjPBXyiGd3emqo+GbGuJoiOmurbsPEcPhZ39A
-	 HzIPstpdtUBGHOY7LAsWpCzyaUAh+S2igBzAKhzvbQRIoKHL6/ON5LVD5FfW5y58Al
-	 UD8E7AGKumNniUj/FyucyAAXgQ+SyVefcwHGcFDMHxy4FOBWJ/JdVyW3WqSbC4G+Bq
-	 /anXSiz9gu+gQ==
-Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
-	id 89BBFCE04DE; Wed, 16 Sep 2026 08:41:36 -0700 (PDT)
-Date: Wed, 16 Sep 2026 08:41:36 -0700
-From: "Paul E. McKenney" <paulmck@kernel.org>
-To: Frederic Weisbecker <frederic@kernel.org>
-Cc: Josef Bacik <josef@toxicpanda.com>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Boqun Feng <boqun@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>, x86@kernel.org,
+	Wed, 16 Sep 2026 15:54:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E44131516;
+	Wed, 16 Sep 2026 08:54:09 -0700 (PDT)
+Received: from LeoBrasDK.cambridge.arm.com (unknown [10.2.212.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 010A33F86F;
+	Wed, 16 Sep 2026 08:54:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789574053; bh=nO4Kn93ujWWbTNUYfpF4vz6nJjE3M3ST8VDInheB/xM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=GO9DOhLvZ/DGzXfpVS8yK4dMAvP1O9cckOp//wu6Try+wwspMAOB0cOXWMJtzfHgk
+	 Nl86Bdsq6QCoFb7iuqdyeT51odxfHzvDXxTl9zveaVaBOgafYJZMelvldXwIROLKNz
+	 MEJ6nW37XFxyPUjf8TwqwpgiCsDUCeOrl8gxRIJE=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Leonardo Bras <leo.bras@arm.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Puranjay Mohan <puranjay@kernel.org>,
-	Xu Kuohai <xukuohai@huaweicloud.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Zqiang <qiang.zhang@linux.dev>, Juergen Gross <jgross@suse.com>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	linux-kernel@vger.kernel.org, rcu@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org, bpf@vger.kernel.org,
+	Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
 	linux-arm-kernel@lists.infradead.org,
-	xen-devel@lists.xenproject.org
-Subject: Re: [PATCH RFC v3 03/13] rcu-tasks: Add a Tasks RCU implementation
- for reader-marked trampolines
-Message-ID: <8b73e1b3-0580-4ba9-b2e0-6363e429808d@paulmck-laptop>
-References: <20260915-b4-rcu-tasks-preempt-qs-v3-0-0ad30c4c5ee7@toxicpanda.com>
- <20260915-b4-rcu-tasks-preempt-qs-v3-3-0ad30c4c5ee7@toxicpanda.com>
- <aqlgxKGk_AEKls_1@localhost.localdomain>
- <edc7cca2-a5c5-455c-8969-ea05dbdb08f7@paulmck-laptop>
- <aqqONH8flTIpOUqT@localhost.localdomain>
- <91687748-0781-4133-baed-43cf82f35ff5@paulmck-laptop>
- <aqqpRoTfywUuTgoC@localhost.localdomain>
- <aqqsAUVV8a1yrQzX@localhost.localdomain>
- <6afb0afe-e7b8-46b4-9fea-2c7cf4791044@paulmck-laptop>
- <aqq0cwvRDsorGwgc@localhost.localdomain>
+	kvmarm@lists.linux.dev,
+	Usama Anjum <usama.anjum@arm.com>
+Subject: Re: [PATCH v2] arm64: clear_page[s] using memset
+Date: Wed, 16 Sep 2026 16:54:09 +0100
+Message-ID: <aqq7oZzutLP82WYB@LeoBrasDK>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <aqq1sxdQNZ93oV9A@LeoBrasDK>
+References: <20260916-aarch64-clear-pages-c-v2-1-0393769f7912@kernel.org> <aqq1sxdQNZ93oV9A@LeoBrasDK>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <aqq0cwvRDsorGwgc@localhost.localdomain>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260916_085416_362564_C4CBFFB3 
+X-CRM114-Status: GOOD (  39.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,128 +76,237 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: paulmck@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 16, 2026 at 05:23:31PM +0200, Frederic Weisbecker wrote:
-> Le Wed, Sep 16, 2026 at 07:55:02AM -0700, Paul E. McKenney a écrit :
-> > On Wed, Sep 16, 2026 at 04:47:29PM +0200, Frederic Weisbecker wrote:
-> > > Le Wed, Sep 16, 2026 at 04:35:50PM +0200, Frederic Weisbecker a écrit :
-> > > > Le Wed, Sep 16, 2026 at 07:26:35AM -0700, Paul E. McKenney a écrit :
-> > > > > On Wed, Sep 16, 2026 at 02:40:20PM +0200, Frederic Weisbecker wrote:
-> > > > > > Le Tue, Sep 15, 2026 at 04:56:41PM -0700, Paul E. McKenney a écrit :
-> > > > > > > > Alternatively the approach could be generalized to vanilla RCU, it could be
-> > > > > > > > possible to define a .text.rcu_no_qs section within which code running is
-> > > > > > > > considered as an RCU reader (with a pause while on the explicit RCU tasks
-> > > > > > > > section). It would be forbidden to voluntary sleep inside
-> > > > > > > > and to put explicit preemption points (CONFIG_PROVE_RCU could report misuses).
-> > > > > > > > 
-> > > > > > > > Based on IP, RCU could consider those interrupted section as readers. This would
-> > > > > > > > require PREEMPT_RCU though.
-> > > > > > > > 
-> > > > > > > > And then synchronize_rcu() would do the 1, 2, 4 jobs.
-> > > > > > > 
-> > > > > > > If I am following correctly (ha!), sleepable BPF programs rule out use
-> > > > > > > of RCU in this manner.
-> > > > > > > 
-> > > > > > > But your point is nevertheless valid, in that SRCU could be used.
-> > > > > > > And because rcu_read_lock_trace() is a thin wrapper around SRCU-fast, we
-> > > > > > > *might* be able to instead use rcu_read_lock_tasks_trace(), which would
-> > > > > > > skip the task-struct increment and decrement, saving a few instructions.
-> > > > > > > Then, instead of waiting for each task's counter to go to zero, instead
-> > > > > > > just invoke synchronize_rcu_tasks_trace().
-> > > > > > > 
-> > > > > > > Which is pretty close to what Josef is proposing, just with the new RCU
-> > > > > > > Tasks Trace read-side primitives.  I think.  ;-)
-> > > > > > > 
-> > > > > > > This assumes that we do not need to flatten partially overlapping RCU
-> > > > > > > Tasks Trace readers into one big reader.
-> > > > > > > 
-> > > > > > > Or am I missing something here?
-> > > > > > 
-> > > > > > Yes I think that's what Josef does in this patchset. The problem is about
-> > > > > > handling the few instructions:
-> > > > > > 
-> > > > > > 1) between the begining of the trampoline and the call to rcu_read_lock_trace()
-> > > > > > 
-> > > > > > 2) between the call to rcu_read_unlock_trace() and the end of the trampoline
-> > > > > > 
-> > > > > > So what I'm proposing is to make those two parts implicit RCU read lock sections.
-> > > > > > 
-> > > > > > So the whole trampoline would be .text.rcu_no_qs:
-> > > > > > 
-> > > > > > .text.rcu_no_qs trampoline:
-> > > > > >   __________________________________________________________________________________________
-> > > > > >  |Few instructions 1 | rcu_read_lock_trace() .... rcu_read_unlock_trace | Few instructions 2|
-> > > > > >  ___________________________________________________________________________________________
-> > > > > > 
-> > > > > > Then when a tick fires, rcu_flavor_sched_clock_irq() discards the interrupted
-> > > > > > code as QS if the IP was within .text.rcu_no_qs _unless_ it is in the
-> > > > > > rcu_read_lock_trace. Both are easy and quick to verify.
-> > > > > > 
-> > > > > > Also preempt_schedule_irq() would make sure to verify the same condition and
-> > > > > > enqueue the task as a GP blocker if preempting inside "Few instructions 1"
-> > > > > > or "Few instructions 2".
-> > > > > 
-> > > > > Ah, OK, I might be following now.  ;-)
-> > > > > 
-> > > > > We also need both versions of rcu_exp_handler() to check the IP as well,
-> > > > > given that sooner or later someone is going to want trampoline removal
-> > > > > to go faster.  Or am I still missing a turn in here somewhere?
+On Wed, Sep 16, 2026 at 04:28:51PM +0100, Leonardo Bras wrote:
+> On Wed, Sep 16, 2026 at 12:03:56PM +0200, Linus Walleij wrote:
+> > There is no need to try to second-guess the compiler when
+> > clearing memory. Just call memset() like everyone else.
 > > 
-> > I should add that the thing that I really like about Frederic's approach
-> > is that avoids the task-list scan.  Or at least has the potential to
-> > do so.  Such scans have proven problematic in the past.
+> > Since memset() already has an architecture-local MOPS
+> > optimization, we do not need to do anything else to preserve
+> > the MOPS optimization.
 > > 
-> > > > Yes indeed, missed the exp part!
-> > > 
-> > > What remains to handle also is non-preemptible RCU because if the task is
-> > > preempted by an IRQ while in the .text.rcu_no_qs, we may still need to keep
-> > > track of that somewhere.
+> > While at it, implement the shorthand for directly calling
+> > the new prototype clear_pages() for larger page chunks.
 > > 
-> > Perhaps in rcu_core() in kernels booted with use_softirq?  I am thinking
-> > specifically of the checks for deferred quiescent states.  I don't (yet)
-> > see a need to modify rcu_check_quiescent_state().
+> > No performance regressions can be seen, the fastpath
+> > benchmarks differences are in the noise.
 > > 
-> > Maybe other places as well.  ;-)
+> > Usama Anjum tested next-20260821 with one warm-up and three repeats
+> > in four sessions, for a total of 12 measured runs. The commands were:
+> > 
+> >   perf bench mem memset -k 1GB -f default -s 16GB
+> >   perf bench mem mmap -p 1GB -f demand -s 32GB -l 5
+> >   perf bench mem mmap -p 4KB -f demand -s 32GB -l 5
+> > 
+> > The results were:
+> > 
+> > aws-m7g.metal:
+> >   Benchmark    Base bytes/sec   Change with patch
+> >   memset 1GB   63932542232.12                1.92%
+> >   mmap 1GB     63272579168.03               -0.57%
+> >   mmap 4KB     49692830849.48               -1.11%
+> > 
+> > cesw-aarch64-ampereone-1s-a192-32x:
+> >   Benchmark    Base bytes/sec   Change with patch
+> >   memset 1GB   33895562998.71                0.25%
+> >   mmap 1GB     34338454210.17                1.16%
+> >   mmap 4KB     25687107580.90               -0.85%
+> > 
+> > Assisted-by: LLM
+> > Suggested-by: Will Deacon <will@kernel.org>
+> > Tested-by: Usama Anjum <usama.anjum@arm.com>
+> > Link: https://lore.kernel.org/linux-arm-kernel/20260303-aarch64-clear-pages-v1-1-ad0c3ee9a555@kernel.org/
+> > Link: https://lore.kernel.org/linux-arm-kernel/67ab6c51-4511-46ab-931b-a4323551147a@arm.com/
+> > Signed-off-by: Linus Walleij <linusw@kernel.org>
+> > ---
+> > Changes in v2:
+> > - Rebased on v7.3-rc1
+> > - Include Usama Anjum's performance results and Tested-by tag.
+> > - Link to v1: https://lore.kernel.org/r/20260306-aarch64-clear-pages-c-v1-1-77c1bb0f1c21@kernel.org
+> > ---
+> >  arch/arm64/include/asm/page.h    | 13 +++++++++-
+> >  arch/arm64/kernel/image-vars.h   |  1 -
+> >  arch/arm64/kvm/hyp/nvhe/Makefile |  2 +-
+> >  arch/arm64/lib/Makefile          |  2 +-
+> >  arch/arm64/lib/clear_page.S      | 53 ----------------------------------------
+> >  5 files changed, 14 insertions(+), 57 deletions(-)
+> > 
+> > diff --git a/arch/arm64/include/asm/page.h b/arch/arm64/include/asm/page.h
+> > index 58200de8a221..b2eaa63d9056 100644
+> > --- a/arch/arm64/include/asm/page.h
+> > +++ b/arch/arm64/include/asm/page.h
+> > @@ -13,6 +13,7 @@
+> >  #ifndef __ASSEMBLER__
+> >  
+> >  #include <linux/personality.h> /* for READ_IMPLIES_EXEC */
+> > +#include <linux/string.h> /* for memset() */
+> >  #include <linux/types.h> /* for gfp_t */
+> >  #include <asm/pgtable-types.h>
+> >  
+> > @@ -20,7 +21,17 @@ struct page;
+> >  struct vm_area_struct;
+> >  
+> >  extern void copy_page(void *to, const void *from);
+> > -extern void clear_page(void *to);
+> > +
+> > +static inline void clear_pages(void *addr, unsigned int npages)
+> > +{
+> > +	memset(addr, 0, npages * PAGE_SIZE);
+> > +}
+> > +#define clear_pages clear_pages
+> > +
+> > +static inline void clear_page(void *addr)
+> > +{
+> > +	clear_pages(addr, 1);
+> > +}
+> >  
+> >  void copy_user_highpage(struct page *to, struct page *from,
+> >  			unsigned long vaddr, struct vm_area_struct *vma);
+> > diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
+> > index 14beb7b9d304..facda8137d9b 100644
+> > --- a/arch/arm64/kernel/image-vars.h
+> > +++ b/arch/arm64/kernel/image-vars.h
+> > @@ -119,7 +119,6 @@ KVM_NVHE_ALIAS(__start___kvm_ex_table);
+> >  KVM_NVHE_ALIAS(__stop___kvm_ex_table);
+> >  
+> >  /* Position-independent library routines */
+> > -KVM_NVHE_ALIAS_HYP(clear_page, __pi_clear_page);
+> >  KVM_NVHE_ALIAS_HYP(copy_page, __pi_copy_page);
+> >  KVM_NVHE_ALIAS_HYP(memcpy, __pi_memcpy);
+> >  KVM_NVHE_ALIAS_HYP(memset, __pi_memset);
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
+> > index f57450ebcb49..2ed489bf544e 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/Makefile
+> > +++ b/arch/arm64/kvm/hyp/nvhe/Makefile
+> > @@ -17,7 +17,7 @@ ccflags-y += -fno-stack-protector	\
+> >  hostprogs := gen-hyprel
+> >  HOST_EXTRACFLAGS += -I$(objtree)/include
+> >  
+> > -lib-objs := clear_page.o copy_page.o memcpy.o memset.o tishift.o
+> > +lib-objs := copy_page.o memcpy.o memset.o tishift.o
+> >  lib-objs := $(addprefix ../../../lib/, $(lib-objs))
+> >  
+> >  CFLAGS_switch.nvhe.o += -Wno-override-init
+> > diff --git a/arch/arm64/lib/Makefile b/arch/arm64/lib/Makefile
+> > index b33e1ca4a781..38ffd359123c 100644
+> > --- a/arch/arm64/lib/Makefile
+> > +++ b/arch/arm64/lib/Makefile
+> > @@ -5,7 +5,7 @@ KCSAN_SANITIZE_delay.o := n
+> >  
+> >  lib-y		:= clear_user.o delay.o copy_from_user.o		\
+> >  		   copy_to_user.o copy_page.o				\
+> > -		   clear_page.o csum.o insn.o memchr.o memcpy.o		\
+> > +		   csum.o insn.o memchr.o memcpy.o			\
+> >  		   memset.o memcmp.o strcmp.o strncmp.o strlen.o	\
+> >  		   strnlen.o strchr.o strrchr.o tishift.o
+> >  
+> > diff --git a/arch/arm64/lib/clear_page.S b/arch/arm64/lib/clear_page.S
+> > deleted file mode 100644
+> > index bd6f7d5eb6eb..000000000000
+> > --- a/arch/arm64/lib/clear_page.S
+> > +++ /dev/null
+> > @@ -1,53 +0,0 @@
+> > -/* SPDX-License-Identifier: GPL-2.0-only */
+> > -/*
+> > - * Copyright (C) 2012 ARM Ltd.
+> > - */
+> > -
+> > -#include <linux/linkage.h>
+> > -#include <linux/const.h>
+> > -#include <asm/assembler.h>
+> > -#include <asm/page.h>
+> > -
+> > -/*
+> > - * Clear page @dest
+> > - *
+> > - * Parameters:
+> > - *	x0 - dest
+> > - */
+> > -SYM_FUNC_START(__pi_clear_page)
+> > -#ifdef CONFIG_AS_HAS_MOPS
+> > -	.arch_extension mops
+> > -alternative_if_not ARM64_HAS_MOPS
+> > -	b	.Lno_mops
+> > -alternative_else_nop_endif
+> > -
+> > -	mov	x1, #PAGE_SIZE
+> > -	setpn	[x0]!, x1!, xzr
+> > -	setmn	[x0]!, x1!, xzr
+> > -	seten	[x0]!, x1!, xzr
+> > -	ret
+> > -.Lno_mops:
+> > -#endif
+> > -	mrs	x1, dczid_el0
+> > -	tbnz	x1, #4, 2f	/* Branch if DC ZVA is prohibited */
+> > -	and	w1, w1, #0xf
+> > -	mov	x2, #4
+> > -	lsl	x1, x2, x1
+> > -
+> > -1:	dc	zva, x0
+> > -	add	x0, x0, x1
+> > -	tst	x0, #(PAGE_SIZE - 1)
+> > -	b.ne	1b
+> > -	ret
+> > -
+> > -2:	stnp	xzr, xzr, [x0]
+> > -	stnp	xzr, xzr, [x0, #16]
+> > -	stnp	xzr, xzr, [x0, #32]
+> > -	stnp	xzr, xzr, [x0, #48]
+> > -	add	x0, x0, #64
+> > -	tst	x0, #(PAGE_SIZE - 1)
+> > -	b.ne	2b
+> > -	ret
+> > -SYM_FUNC_END(__pi_clear_page)
+> > -SYM_FUNC_ALIAS(clear_page, __pi_clear_page)
+> > -EXPORT_SYMBOL(clear_page)
+> > 
+> > ---
+> > base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+> > change-id: 20260305-aarch64-clear-pages-c-590dae98c333
+> > 
+> > Best regards,
+> > --  
+> > Linus Walleij <linusw@kernel.org>
+> > 
+> > 
 > 
-> Hmm this tracking would have to happen on preempt_schedule() just like we
-> do for PREEMPT_RCU. Or am I missing something? And then we would need a
-> list scan of those tasks.
+> Oh, cool!
+> You remove an in-kernel asm implementation to favor the standard memset(), 
+> which allows you to also have a batched clear_pages() version, which should 
+> also be a bit more optimized than the do-while loop running clear_page().
+> 
+> Last thing I would check is if there is any particular part of the current 
+> clear_page() that could have different behavior than the one in memset(), 
+> and if it would cause any kind of unexpected impact. 
+> 
+> Looking on that, I see that the memset() implementation uses setp, setm, 
+> sete, while the clear_page()'s uses setpn, setmn, setn for the case with 
+> MOPS. But then, reading into the docs, the instructions seem pretty much 
+> the same thing. 
+> 
+> The arguments seem the same idea, exept for clear_page() always being xzr 
+> instead of the memset value in xn, but should be the same thing.
+> 
+> The generic (no-MOPS) version is very different, though, which is expected 
+> as the purpose of clean_page() is a particular case of memset(). Was any 
+> test ran in machines without FEAT_MOPS?
+> 
+> Thanks!
+> Leo
 
-I am thinking of the case where a trampoline is interrupted before entering
-(or after leaving) its RCU Tasks Trace read-side critical section.  Then
-there is a softirq handler on the back of that interrupt handler, and
-RCU_SOFTIRQ is invoked, calling rcu_core().  Specifically:
+Oh, I browsed a bit here, and IIUC none of the tested machines have 
+FEAT_MOPS, is that right?
 
-	/* Report any deferred quiescent states if preemption enabled. */
-	if (IS_ENABLED(CONFIG_PREEMPT_COUNT) && (!(preempt_count() & PREEMPT_MASK))) {
-		rcu_preempt_deferred_qs(current);
-	} else if (rcu_preempt_need_deferred_qs(current)) {
-		guard(irqsave)();
-		set_need_resched_current();
-	}
+If that's the case, the tests are exactly to what is different between 
+patched and current versions. There should be no impact on MOPS version as 
+the instructions are basically the same.
 
-Preemption is enabled, but we should not report a quiescent state because
-we have interrupted a trampoline.  Correct?
+If I got that right, then, FWIW:
+Reviewed-by: Leonardo Bras <leo.bras@arm.com>
 
-> Or we can build the blocked task list handling, that we already have for PREEMPT_RCU,
-> when CONFIG_RCU_TASKS && !CONFIG_PREEMPT_RCU. We would just only add tasks when
-> preempted in .text.rcu_no_qs since rcu_read_lock() would still disable
-> preemption on normal explicit readers. So I wouldn't expect more overhead due to
-> that blocked list tracking built since it would rarely track tasks.
-
-Yes, we could avoid the list of tasks by treating the preemption within
-the trampoline the same as preemption within an RCU read-side critical
-section, but there might not be an rcu_read_unlock() to clean up.
-Which could be a problem.
-
-Trampolines that transfer control to tracing code could supply the needed
-cleanup call.  But last I checked, there were trampolines that transferred
-directly back to the original code, with no opportunity for cleaning up.
-
-Or am I still missing a trick here?
-
-							Thanx, Paul
+Thanks!
+Leo
 
