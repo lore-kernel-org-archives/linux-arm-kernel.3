@@ -4,81 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67E96C982C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:28:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CB16C982CA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:28:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=272OvMcHmohpZ1MgcLqkDT/DpXSmh2FGVJu3ZCPDf88=; b=uCkeGGWZrIdLBUvAbfvpwJEont
-	0LNrT4fGhJIzrKP6CTU8AvDMJNAJv4IkqlZ5cfVwTqa2VoP6AAHUIUhK2Rfh0k4HB7472gqJJt81j
-	iz+OH6RS3x8m1c8lOcAQ90PyjSVWJDQNMulUrAHXoWTNoMyFAJKW8qEdekNQLyrWzhlqy3YL3rgFl
-	0fmfxnbGMdiAIB0rm9EayYg1ZuGcyqAH/BYOA93gFIWsIkEgrhecixh/F1mEIXsAdmukFbVv+lNA4
-	4TCHPohrQ6TVfW5l+Cd+Ud3q8QY2JNf2tz3FjGusX4qRzIuPmbfQhL0jPSIrRDhe4S30glGh94652
-	QSzZSacQ==;
+	bh=6/+QTxJeld428JJetLUQ3w0n69IV3ON69coAVWlYDS8=; b=JMYQiP8TN/hWX6PZZPXqTkbJ/X
+	QRbl2TAmYA9VDOVcgTU5uZnWr+kYeqKMwATqq+GFnHaRYiMGrDwHP79MBR6SW0n49YEVpUe+cX7Ek
+	Abb+HClAoIsXlYDiBCD0ix3jFGO76Yh+P20k9mygtJxwbiC0Y5C6CillxNMAUR5Yg5qm97/Va+ntW
+	28HYSv1/U/wcqxr8WEie2AnYv+XtVP7UHnx3Z4PWUoJHgyjcrJD8dpRV7dDL7yAEIfFV1PMubzjLR
+	T7icXaBsEQwqThu8KfcOq+qKpMhrbqGjjlT4tSK7rlyRqtp9OTQWLl8nQ3dA9H5XiQt0TcE9neIbY
+	4JPJLh6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rYP-00000009aAm-44Hy;
-	Wed, 16 Sep 2026 15:28:09 +0000
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	id 1x6rYR-00000009aBy-15cn;
+	Wed, 16 Sep 2026 15:28:11 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rYI-00000009a6t-1Qub
+	id 1x6rYN-00000009a9a-2IeL
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 16 Sep 2026 15:28:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=6/+QTxJeld428JJetLUQ3w0n69IV3ON69coAVWlYDS8=; b=M5hQIzbD8EFKUNebMGskGQ5Ao5
+	i93yACByzWY4+8jcJClo5VBJX2SBLHEpedewyQqqRr1tzSRiwfkbBpbK3hRPxkSg9KrDlckp7zNIO
+	2oQZzYUV1i8EhsKpk7jvWBc55VfXPLY3UXOC98yEahq9Zmw5v/9fht0cwzFsO5Gu2IdCW+okxd3/o
+	uBK2Ci7NvZFjjrxAgm8o8j1XyIjqvT91TWjGsufEpaRh+1G0Zm4pOtR16Lpb5l5ErErB5iZULLg4R
+	bTJ5yD+pzb7MBhjvUBA4NEIXeMfRTFuuUGSNbp2fNqg6+oAtgLGOsvlvyTJU3CA+JoypYY/BFBSM1
+	nKgIE19Q==;
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6rYJ-000000082Wg-2Z4p
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 15:28:03 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e66390995so6618335e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 08:28:01 -0700 (PDT)
+	Wed, 16 Sep 2026 15:28:06 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-4843172bff4so557766f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 08:28:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=thegoodpenguin-co-uk.20251104.gappssmtp.com; s=20251104; t=1789572480; x=1790177280; darn=lists.infradead.org;
+        d=thegoodpenguin-co-uk.20251104.gappssmtp.com; s=20251104; t=1789572481; x=1790177281; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=272OvMcHmohpZ1MgcLqkDT/DpXSmh2FGVJu3ZCPDf88=;
-        b=gXjJkGSsf+SyApyIFV00dL1YjzZ4Kj0kw9pq3dK6KZhIUoDD5Am5grD6sKCraqK77b
-         a40fJ8GCaAgfJYnK+hKp7MBNbXne6nK4AoxGz3O6f75ig1nkUjYVZpizbdhtHJaxzxuT
-         QRKqZpfYmooFThI5eVvJ6zyWXl5zzgYkaphOTMzxKMVD8lrLG6sphy8X9LJHtlQGf4Hv
-         XgoxEsrAb5S/hFjisSlF7Sf2rJRU4RpyE4PqAXIGK3Xo1hCglXhDRw2tQajkmFQL7k64
-         47wNm8rpU23ygUy19LUxYRScTuJpSX94yBu9NqYGZYQ5Uogrmpqoa+ND6omnPU7YC4M4
-         52iw==
+        bh=6/+QTxJeld428JJetLUQ3w0n69IV3ON69coAVWlYDS8=;
+        b=r2Q9uLv93F4M0Pr+115Ne4tSXEZ9Ynss1y05VHRJ9BoiFJj8ZXa6fPyaW/X+10cjlf
+         ajtWw7pgGraSgOUCciE9IlRiVoIwBdDAgUKhfJA74psfcrb7CgtBYhutS3nNKQTBHbmY
+         f1uPps0SnlKNE22XjWQgf5eWwme6DVVhdFcJ0q8UjPNIeJE6Ou9Cfqj4u+N/oMdw1hw3
+         1hTy3a04u4tpV63fXuO4+KxoMjNEe6CHYfSIX6vNN27EMSW/H1Ek2R/3Dv8itjvDIeTL
+         lgFbRZMfkkRO/W2Cw1Dq/bLE0hZgA2vGKywzOSEGziZsMEA1/YD3noziiZl7cNnB04Ue
+         /Amg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789572480; x=1790177280;
+        d=1e100.net; s=20260707; t=1789572481; x=1790177281;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=272OvMcHmohpZ1MgcLqkDT/DpXSmh2FGVJu3ZCPDf88=;
-        b=kQVbS5vZTYIEEGVepD0cyw1jgQqZesDTMt9gRhzmAuxTOCd+Sy7y74uGDXWsAIpGT5
-         PBYEaXrlgfJERhW9uTi1YzlL5mp71LVBig6dqip1j+INJaVOFGaJwbd0wq0Yc29zbili
-         AcIrzc///H+kXPdxGyd5Yk/rA20fr6/CgeFBCrk5Pwt642WYtipF19J68SohB1RJvv/I
-         O9UZMvKgTGvijLjMDfzKsAWmGSVDXSObkYdxE3EteCSVRCdKbvgiY5/QYGJXZhTgurx+
-         4S47mufxRoChCJzVjBTUXazaxvv3qxzJF/MLp7TCvNLOPjy7G/2w1AFmmQKZNf9Her2g
-         VPZg==
-X-Forwarded-Encrypted: i=1; AKwUvByMEnOzhpa0EuSIS6Uvfh2jldnmtT3S1fP+56KfTQq5jfIWL35o1usEzj/k8ScJtW3uXSHB+ZAMefBUq0Ts/qLx@lists.infradead.org
-X-Gm-Message-State: AFuF++kyqB5gPIn+eOso/1qHxHH/Pc7hJCwGbu3ungaiOM9y4qodl+fx
-	piEWgfLYAS5KcBZZBI2rjvzqHSaR37Aj0wshav3lvvAP49ON5xDCQRr3nHrhTZ0UgYY=
-X-Gm-Gg: AYBFou2w8yN0YbIdNTA9uvu9fUdgguC7Cza9RC1s/5awCTQiX1HIzuETMwLwE4BM33n
-	3Sh0HSUNLr/SA4BwsR4rBKZqOJolLAmJHj3kM8OLES8TiAeC2lL1CQbdqDIAXemzqcUtZ5jTu7f
-	wGNaMLP0UjwiRRpEDirFCbpJA3kDerxtGDi5xWeX0ijP10mSiROXbg7XXdZHqf3EPvfTDm7OsKH
-	FqXsWmdM+TxgdgYZ8vQQ33jIUMnOejxHZbhmXeayyKqtamwciqMIxULxjh1sNukyyvQIHLSBQ26
-	p//MIh8vmvDVN7T/Pu7xfBdCZn6vti4qlp9ZM0MmSGG9yDF7zxR9GlswkFaxR6uEWD2sRbwVaBL
-	f/MB8VvR6dhAXXGCj0xDFJeyASuWsNR1Y3S2pc4c8DJ2qurzu/rqoN+x775kn6cK6SKKQwMtpqY
-	TKe6wClVFrHHeNgtrgeV2QfczVc4926Y2jYY8HH8IFh71UPgxLW08+DIfDkR3q9PqxZRa3cDv2B
-	cCTTc3l5ALqT3Y=
-X-Received: by 2002:a05:600c:8011:b0:49c:ffe3:2b3f with SMTP id 5b1f17b1804b1-49eac45c233mr34194015e9.3.1789572480413;
-        Wed, 16 Sep 2026 08:28:00 -0700 (PDT)
+        bh=6/+QTxJeld428JJetLUQ3w0n69IV3ON69coAVWlYDS8=;
+        b=17b2u9s9ulVN6hjeZ7PqW6GfQ8ZEInX60oBc3whcUXcMkxPlfZ/cXtnhXNgBRhNSKT
+         7BhEGKe6hSHdLCGilcOTKhar34e4pSifHOhUKWfta6e6pKkyWOYzVzVfI1pksvgNCyih
+         ZprcScBcpQ4xwNEzsNfI9edHJqEGkmOPHYTtdYXusxdGRU4YoPFscQlM5s5y2cIj852n
+         E+P0dHOahtmbPpI27rcyFldO1s31Fe+wB+2NggD4VJ4IN99RTa0tbtNXXSOkU/E0uOlK
+         X1Ow41ygYOgLEfEWuAONM/pafwZvoDPE0Yevy7uVHeZvJKrGlK6ToyJ6Sv7TdNbrdDJG
+         TCNw==
+X-Forwarded-Encrypted: i=1; AKwUvBw5Wx/wFzwd1N46PMzSOD58QzajMS461LT8ANTO6064iRiGD0VDx1qkxkd5Edo8rWjcacucWwWQvOlq2/PHI15v@lists.infradead.org
+X-Gm-Message-State: AFuF++mCw77J/L23QznYV6W6SCjdlRK75e1T+1uIhQGL8rblZ0DZsNsJ
+	718+ms8MMYlStsTAo82JBvVdIHY9H0CKiOBn0eJqDwpkTWphu5CZF18lSo0NaoBa8ho=
+X-Gm-Gg: AYBFou1DzRZW7OqGo+Dq7bn/wBA4Q07bc7/ZACzuP/3WdjWc32hbwC7Xysxsre8EX/W
+	+6vzUy8dw5jTNNRzw/EoaHasw867dmVGsYt3QicfXeJS35nZF/87WhSasS7ev2tLuAiJ56+KO0y
+	jtwB1F/m1Cutp98gS+mxzEuY6cH2w+YrZYrxAB1Vf7y1lfSVpWxdEOG93VhEgJAY8V1FxFo3TLi
+	qcmXnMVjhk8PIMa+JL4CoqYT6F4NE8ApmWKzWVVWPXycwOCTv80APVCozxhVWodhjmAYjrf2d1N
+	6/iqEA4RycmLH+soq7ib6oqluvRXmowqQr/70zlXi7KIYGj3AD8L7IUPB39NJMqeMdVtuLZVHWG
+	DUSLtErDKec+92TcbJDd8ym9PgcRea4iD+fnPXgDgkPEdUlyw3rxOavgukEKJQtNfy1VbOqGgFu
+	04d92GMk+3B0njG3j8WW0i94c9q2X5Dn394a80eACw8pSr7MdQZtLJgF10SFZxySRuSHMfhhfob
+	B9KpGfKDNKWF7Q=
+X-Received: by 2002:a05:6000:4690:b0:487:d2e:144a with SMTP id ffacd0b85a97d-4870d2e14damr2660370f8f.4.1789572481423;
+        Wed, 16 Sep 2026 08:28:01 -0700 (PDT)
 Received: from [10.42.0.1] ([2a00:23c7:1d1a:9c01:f89:61fa:af44:9a4f])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4870bf37e69sm7886646f8f.29.2026.09.16.08.27.59
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4870bf37e69sm7886646f8f.29.2026.09.16.08.28.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Sep 2026 08:27:59 -0700 (PDT)
+        Wed, 16 Sep 2026 08:28:00 -0700 (PDT)
 From: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
-Date: Wed, 16 Sep 2026 16:27:54 +0100
-Subject: [PATCH v3 1/4] dmaengine: dw: use designated initializers for
+Date: Wed, 16 Sep 2026 16:27:55 +0100
+Subject: [PATCH v3 2/4] dmaengine: loongson: use named initializers for
  acpi_device_id
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260916-acpi-dma-v3-1-0dac05654967@thegoodpenguin.co.uk>
+Message-Id: <20260916-acpi-dma-v3-2-0dac05654967@thegoodpenguin.co.uk>
 References: <20260916-acpi-dma-v3-0-0dac05654967@thegoodpenguin.co.uk>
 In-Reply-To: <20260916-acpi-dma-v3-0-0dac05654967@thegoodpenguin.co.uk>
 To: Viresh Kumar <vireshk@kernel.org>, 
@@ -87,19 +102,18 @@ To: Viresh Kumar <vireshk@kernel.org>,
  Binbin Zhou <zhoubinbin@loongson.cn>, Sinan Kaya <okaya@kernel.org>
 Cc: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
- Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>, 
- Frank Li <Frank.Li@nxp.com>
+ Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789572477; l=1636;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789572477; l=1307;
  i=pzalewski@thegoodpenguin.co.uk; s=20260430; h=from:subject:message-id;
- bh=/JpbrBR+OVjJpbG1LD4MSanTICNv4h/sWdJw0dgCPcI=;
- b=TI2PRLu+PWJwKb49U1K2vwZ2j85bEZfhXEHR8NJ+d63p/wSMy7K3t4wGWHCvZRvfhjdfwrpJj
- mt4OqQOoSpSBmb96hvLhHcQlKlhLNCaAB/spt580AE9pnNsSg/0wgfv
+ bh=mcQe2swm15Nmq8Y4i0Yhh/Z95MEtTy60FNwFlQB0qyY=;
+ b=mCAMVQGsOjrzZnlE1KDLWefw6z2YDoXVc9+9UX4SNJa9SUb7C+WIzubLJibyTbBdmwrLp9uRR
+ BUqsHUJnqkiCke3WPg7G/XSghdGEVnHkp6NzQewgkYj4D37bFTu/4N1
 X-Developer-Key: i=pzalewski@thegoodpenguin.co.uk; a=ed25519;
  pk=vHq4n9IonORH2GTzLv8r6CWAFHzgfBuNkQPXA8NSly0=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_082802_398477_D3B6BDD9 
-X-CRM114-Status: GOOD (  11.78  )
+X-CRM114-CacheID: sfid-20260916_162803_736935_D0058785 
+X-CRM114-Status: GOOD (  13.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,38 +132,31 @@ Use a named initializer for the acpi_device_id fields which makes the code
 more readable and consistent with how lists are initialized in the rest of
 the kernel code base.
 
-Signed-off-by: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
- drivers/dma/dw/platform.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+Unify the list terminator to have a single space between the brackets and
+no trailing comma.
 
-diff --git a/drivers/dma/dw/platform.c b/drivers/dma/dw/platform.c
-index c63fa52036d7f..5c1c97eb28a4a 100644
---- a/drivers/dma/dw/platform.c
-+++ b/drivers/dma/dw/platform.c
-@@ -141,14 +141,14 @@ MODULE_DEVICE_TABLE(of, dw_dma_of_id_table);
+Signed-off-by: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
+Reviewed-by: Binbin Zhou <zhoubinbin@loongson.cn>
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+---
+ drivers/dma/loongson/loongson2-apb-cmc-dma.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/dma/loongson/loongson2-apb-cmc-dma.c b/drivers/dma/loongson/loongson2-apb-cmc-dma.c
+index 1c9a542edc859..70880625c6e92 100644
+--- a/drivers/dma/loongson/loongson2-apb-cmc-dma.c
++++ b/drivers/dma/loongson/loongson2-apb-cmc-dma.c
+@@ -709,8 +709,8 @@ static const struct of_device_id loongson2_cmc_dma_of_match[] = {
+ MODULE_DEVICE_TABLE(of, loongson2_cmc_dma_of_match);
  
- #ifdef CONFIG_ACPI
- static const struct acpi_device_id dw_dma_acpi_id_table[] = {
--	{ "INTL9C60", (kernel_ulong_t)&dw_dma_chip_pdata },
--	{ "80862286", (kernel_ulong_t)&dw_dma_chip_pdata },
--	{ "808622C0", (kernel_ulong_t)&dw_dma_chip_pdata },
-+	{ .id = "INTL9C60", .driver_data = (kernel_ulong_t)&dw_dma_chip_pdata },
-+	{ .id = "80862286", .driver_data = (kernel_ulong_t)&dw_dma_chip_pdata },
-+	{ .id = "808622C0", .driver_data = (kernel_ulong_t)&dw_dma_chip_pdata },
- 
- 	/* Elkhart Lake iDMA 32-bit (PSE DMA) */
--	{ "80864BB4", (kernel_ulong_t)&xbar_chip_pdata },
--	{ "80864BB5", (kernel_ulong_t)&xbar_chip_pdata },
--	{ "80864BB6", (kernel_ulong_t)&xbar_chip_pdata },
-+	{ .id = "80864BB4", .driver_data = (kernel_ulong_t)&xbar_chip_pdata },
-+	{ .id = "80864BB5", .driver_data = (kernel_ulong_t)&xbar_chip_pdata },
-+	{ .id = "80864BB6", .driver_data = (kernel_ulong_t)&xbar_chip_pdata },
- 
- 	{ }
+ static const struct acpi_device_id loongson2_cmc_dma_acpi_match[] = {
+-	{ "LOON0014", .driver_data = (kernel_ulong_t)&ls2k3000_cmc_dma_config },
+-	{ /* sentinel */ }
++	{ .id = "LOON0014", .driver_data = (kernel_ulong_t)&ls2k3000_cmc_dma_config },
++	{ }
  };
+ MODULE_DEVICE_TABLE(acpi, loongson2_cmc_dma_acpi_match);
+ 
 
 -- 
 2.43.0
