@@ -4,93 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D702CC88E5C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 04:58:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A600EC88E5C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 05:01:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dF++227s426dvSNFc818Auu+DPoHM/RnvGPblP6+Cwg=; b=ooSXJUTwtpGmzuBIYDB0R+pbbc
-	abr+mfkSsbmTqIegrU98LMy+9ranMAZIauxH1ict6aKT/TMmzhg3wI8rMMN9wYMXqnajRvyDbMIXU
-	72cAk18Bb65S2VY1uFN4M6CjJ27dEkO8PUtbEJbAlgIVcg0YyK5ZIjcD4kFFkcIKLwD3OblqZ9omw
-	AQByh8ECVr6ArsG3/ik6b5g1AHMhRJBrNazfeugPCmGgMtFVt40+VACyO78nYL4PN+Bgy8dPRaCx0
-	1meSrTT+qdn3Dv8VF25Xi4F/cNW8psKqvQH/a+dFKEbYpRSx5Y7BvlW+eqUuyO8fBBIyRuRXuw874
-	bobf8eLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iARb8n/qcGnTWsohfRgsSXvgkdWyuqUiUdH2ru4qCBI=; b=zaGXlTnocJ2OiNLsHKobRNQvfQ
+	aFwOE1WA86cYkGwbP9vHuqK4ys8j2MzL7I0p0Z67w2AQqp5uxSkoAKr6UHvqItKOnMSiQZCwbKV8h
+	XRPvt/l/jC12YFIko0SUdZUdxIjWMY6QhnFCx6RYsLcgAEP0fku6MgFOwdbgOdswlZorYcgbW1rWx
+	6IhNf4kONFC6WtrO6VaLuQEm19r0nRKkCmm6J0eG1ubQ7krqDWeK92GLufIvRtMw5zUay2bjYXAk+
+	wg0UdH/YcLrMzy4T89cmx0aL4ox/RNrHGUUKur6Bi2EBhXRjDGZAhz0U5tfrhGY5OA8YNHO+QYLu9
+	M1e0ANEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6hit-00000008L06-0BFw;
-	Wed, 16 Sep 2026 04:58:19 +0000
-Received: from esa7.hc1455-7.c3s2.iphmx.com ([139.138.61.252])
+	id 1x6hlI-00000008LAK-2GMa;
+	Wed, 16 Sep 2026 05:00:48 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6hip-00000008Kzm-2jLb
+	id 1x6hlG-00000008L9M-0ndI
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 16 Sep 2026 05:00:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=iARb8n/qcGnTWsohfRgsSXvgkdWyuqUiUdH2ru4qCBI=; b=Z28R1N1LMCkXdh6He39GMzp8lc
+	cXvknvBVmSXYW6eRxbWWBMR64r+BHeHCPd7ivsoVNUHbLd1RoxJ2C3nn51AyMUrKiJcuPanxk/ihS
+	hK/aE7Q6h6p2lKQsq5m0M2p1ngHq02PKnF1J1vVhT4Kw8D040WPiVgZujo2NpQKTv7QmKcqUC6Qn0
+	2f05CbEePld4V9YzI50AFAipliQGLy3sALNWra/e0pZ+3kxq6lTOX3vJYkwobGoss5IAdkUFM2CIz
+	54B/YhzjpfeOUA1KDyjVLLHtZ94tlHxAWsRbUWkeILX44Br9oCIyGn8zDxMaKKp0EfXc1OtOcZWpv
+	jy1cTjEA==;
+Received: from mail-pz2-x0f.google.com ([2607:f8b0:4864:3b::f])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6hl9-00000007UH7-3orZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 04:58:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1789534695; x=1821070695;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=SnAcro5Dui87SihtGm652xAlG5XwDxA05uuCThf6Qp4=;
-  b=QXDKNpb9mzgYKH76Iu2S3ysReBd1CCr+O3qFruHmYBH3EwRJiG28iwu0
-   OINTv3Tqh9IXnjyE3bIIXJ2GvahBzEfQRxabu2kXi0MtX/pQIbcjmTWKS
-   P4tWntamTKy5pVsQI8XGIx2M+raZy6gz7l2JipCkjEMCj+CFRATxBJ8v+
-   Xk6JQk6/+S394z7wV6cbay6o1u2OFX5GAVDU8gMPtxp5i38LF4eQ3jfcM
-   LFkJdcJ9GmzdcKWSktWtpi+g565a5WS4HXqp8a0oRhHDKLJ0Jq3Uk6S4X
-   Td3R5bLP8pmnhOKlDJ/iIudJhcy1884HOFzl5da02oBetHR4sIH/X2MGL
-   A==;
-X-CSE-ConnectionGUID: 5NqHYmkkS0SnFCYsYdWi1A==
-X-CSE-MsgGUID: UZYg2bKJQgSL7ZpqMWHyuw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="234108883"
-X-IronPort-AV: E=Sophos;i="6.27,103,1786978800"; 
-   d="scan'208";a="234108883"
-Received: from gmgwnl01.global.fujitsu.com ([52.143.17.124])
-  by esa7.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Sep 2026 13:58:12 +0900
-Received: from az2nlsmgm2.o.css.fujitsu.com (unknown [10.150.26.202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by gmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id B412742A33D
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 04:58:12 +0000 (UTC)
-Received: from az2nlsmom3.fujitsu.com (unknown [10.150.26.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2nlsmgm2.o.css.fujitsu.com (Postfix) with ESMTPS id 63B801C00148
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 04:58:12 +0000 (UTC)
-Received: from sm-arm-grace07 (unknown [10.124.178.20])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2nlsmom3.fujitsu.com (Postfix) with ESMTPS id 497CD100019E;
-	Wed, 16 Sep 2026 04:58:06 +0000 (UTC)
-Date: Wed, 16 Sep 2026 13:58:03 +0900
-From: Itaru Kitayama <itaru.kitayama@fujitsu.com>
-To: Wei-Lin Chang <weilin.chang@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Wang Han <wanghan@linux.alibaba.com>,
-	Shuai Xue <xueshuai@linux.alibaba.com>,
-	"Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Subject: Re: [PATCH v6 0/7] KVM: arm64: nv: Implement nested stage-2 reverse
- map
-Message-ID: <aqoh27cSs5gMHeAL@sm-arm-grace07>
-References: <20260915154305.3852871-1-weilin.chang@arm.com>
+	Wed, 16 Sep 2026 05:00:44 +0000
+Received: by mail-pz2-x0f.google.com with SMTP id d2e1a72fcca58-85469d20963so289300b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 22:00:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789534837; x=1790139637; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=iARb8n/qcGnTWsohfRgsSXvgkdWyuqUiUdH2ru4qCBI=;
+        b=YnBN2OrlH8aRelc7fTmiBUdYtuSwOBrobnTjt/N16yzse/UyUBP9Zee6/XwLbPBp+V
+         jEADoKA+dwHDHBs4kL1xRobvSJ9xjjqbkMNclBmXr0XhT9ylqDJo/pT5vBq9JRQ6pZGr
+         lpoTyQExz1pcUVO2Ad5H6kQ0rkcvh/4T1K57pajY8XXgSbQAQVRgQOcRH5/o2YDRAOLD
+         f/cGoFy9erEnDg+eCrmCzZApLSWzYzTHQ20f95aVTiEIzOU9/U6EaT1/PViehKEq06Fh
+         H+6zPNMwGlcNLyth/dJl/YIO0iZHMHB76sdlVo0GZ8tzDcdAaTFVj5vWMKc0Se+VqSqy
+         8kdw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789534837; x=1790139637;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=iARb8n/qcGnTWsohfRgsSXvgkdWyuqUiUdH2ru4qCBI=;
+        b=nG3wAeWBcCQCDmpCuNxPiB6pUweeKP0kAkMAEGgtLxg2gQfNOuVcD9Pykihq3BL7Ln
+         Bl7KURh0RFomoEwkJ7bpTV0dZ8/aBRzXQ/LRS9TEyRqM5QryODE0FFio4RsKmRCF1Dp1
+         eMqa0BoLyvVMMoQ4e3fY9GI92N2QmMBgbVo21zIhfGQ1BIUUGRePE9RIoalZrOV8fUMp
+         tiYOrO8dQkAQ1poTKRfwTx8WxNlHIHLQNcArS3ynsHFgA55JJTNor4kRp7Zm+Hou1zDb
+         +QOC68jaGSakZjdEk94DrshbfwZaWH5QtG4YHSY2YMHiCSnCTR6R477QuDzgho4bx5mD
+         9tpg==
+X-Forwarded-Encrypted: i=1; AKwUvBzlXTUa//5HkSzynU032rO0pKJE+iyY2xy7qLkgvcaYwz7PpAdrABRdkw+LcP3k9Qti3yicZVOb9XPHfyFB0Wdx@lists.infradead.org
+X-Gm-Message-State: AFuF++m5hJjHnoo+NX1AsKf/AD+1umJQPsBqZbIAfErS/ikhqXpB+qUs
+	Mt9hqu/VLaErWN0FDOPZ4Sp+SNTKDkOx7NCtRCJhlc0hNOKw72yS9IUV
+X-Gm-Gg: AYBFou27OBQT0YMqEsCOB1IZIpZuFW3Cm8Nk6CyxrcR/qxG2Yqph4toumKdb4Sujko4
+	79X1UaOFHvFlikbl+4tBGj6pv4jMO74+qhrXoPgLWXo/LrBuv7GPzd2jheXIV5uwk2f2HdL/Gvw
+	AAKe1OsIFdyksfeJ7H/JFEggkOq7Ae9J56WImrNXEWVxRgzcVilGg2mNpkse5Vuxgw9O49ARnPU
+	d5oDmKf6+Mkph9QydSCgQpPCyzwiJtuzXMR0lcVoesE27pORJyAGYSm6TK8uYWY0N7snc0Nglqj
+	TiytHr3lEYQHNQ/PJBh6HrsMTmUFgJ8HbxEpqoXMUHYpZMgOWXSA5C3QKEvPKtzF1wiTECJ+V3R
+	gjCSatsmbfmm+bFUEpEq0bRUs/8i7cFYKmZok2wbdGG6cDOz3A0XMA6EvKZXJXGYEeXxVkiNag8
+	uI5oVDJhhgeedyYXmMgmqAXKY3HXejh0G8ViKmzDj2BM5vwoYVscxnAsBWLY0or81NaExH1Cyrt
+	wmkMnvtOQmLmTsuA9dK8g/0vRoJDAMVditetVfOXUVrwZHaS9P8mxt1jTBDDPo4qwHVRrYdJVjJ
+	xeWWlVgfW6lXHOZL
+X-Received: by 2002:a05:6300:6697:b0:3be:b0b3:3962 with SMTP id adf61e73a8af0-3dd5f44a0camr3248100637.9.1789534836913;
+        Tue, 15 Sep 2026 22:00:36 -0700 (PDT)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc50abb1776sm850589a12.27.2026.09.15.22.00.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 15 Sep 2026 22:00:36 -0700 (PDT)
+From: phucduc.bui@gmail.com
+To: Mark Brown <broonie@kernel.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Cezary Rojewski <cezary.rojewski@intel.com>,
+	Cyril Chao <Cyril.Chao@mediatek.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Dan Carpenter <error27@gmail.com>,
+	cassiogabrielcontato@gmail.com,
+	linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [PATCH v3 00/12] ASoC: mediatek: mt8189: Improve error handling
+Date: Wed, 16 Sep 2026 12:00:07 +0700
+Message-ID: <20260916050020.14575-1-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260915154305.3852871-1-weilin.chang@arm.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_215816_221589_11298FCE 
-X-CRM114-Status: GOOD (  26.97  )
+X-CRM114-CacheID: sfid-20260916_060042_692874_E64BF6C4 
+X-CRM114-Status: GOOD (  12.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,95 +125,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Wei-Lin,
+From: bui duc phuc <phucduc.bui@gmail.com>
 
-On Tue, Sep 15, 2026 at 04:42:58PM +0100, Wei-Lin Chang wrote:
-> Hi,
-> 
-> This is v6 of optimizing the shadow s2 mmu unmapping during MMU
-> notifiers.
-> 
-> This version fixes a few issues, and adds Marc's space optimization
-> for kvm_guest_s2_mapping [1]. Please see the changelog for the details.
-> 
-> Tested by booting L3, and running in-kernel targetted tests described
-> in [2]. v5 got some tested-by's from Itaru and Wang (thanks), I didn't
-> carry them over since some bugs fixed in v6 are non-obvious. Some
-> retest would be much appreciated!
-> 
-> Series based on v7.3-rc3 + Marc's nested mmu lifecycle fixes [3].
+Hi all,
 
-Observed on QEMU (accel tcg) only, but I saw:
+This series addresses part of the error handling in the MT8189 AFE driver.
 
-[ 1812.052752] BUG: sleeping function called from invalid context at kernel/locking/rwsem.c:1630
-[ 1812.052896] in_atomic(): 1, irqs_disabled(): 0, non_block: 0, pid: 596, name: shadow_stage2
+It propagates errors from clock operations and runtime resume, validates
+clock parameters, and removes redundant error messages.
 
-The kernel is built on top of Marc's fix and your version six series, but
-the fix for debugfs will be posted later?
+In v2, there was discussion about checking the return value of 
+regmap_update_bits(). While opinions differed, the existing driver already 
+checks it in mt8189_afe_enable_top_cg(), which is used by 
+mt8189_apll1_enable() and mt8189_apll2_enable() touched by this series.
 
-Your hello_nested and shadow_stage2 ran without an issue.
+Therefore, I keep these checks and add the corresponding error paths for 
+consistency.
 
-Tested-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+Compile-tested only.
 
-Thanks,
-Itaru.
+Link v1 : 
+https://lore.kernel.org/all/20260910125742.150902-1-phucduc.bui@gmail.com/
+Link v2:
+https://lore.kernel.org/all/20260914072842.24420-1-phucduc.bui@gmail.com/
 
-> 
-> * Changes from v5 [4]:
-> 
->   - Align the addresses down to the mapping size when recording the
->     guest s2 mappings. s2fd->fault_ipa isn't necessarily PAGE_SIZE aligned.
-> 
->   - Record guest s2 mappings even when page table maps return -EAGAIN.
->     kvm_pgtable_stage2_map() can create mappings while returning -EAGAIN.
->     For example, a 2M block map (A) could race with a 4K page map (B):
->     1. (A) maps the 2M block in kvm_pgtable_visitor_cb()
->     2. (B) breaks that block into a table and maps 4K
->     3. (A) reloads and finds the table after kvm_pgtable_visitor_cb(),
->        then descends into it.
->     4. (A) maps some 4K, but before it finishes reads entry mapped by (B).
->     5. (A) returns -EAGAIN although it had mapped a few pages.
->     In this case, we don't know what subrange is mapped, just track the whole
->     requested mapping range.
-> 
->   - Don't remove tracked mappings from the interval trees if they only
->     partially overlap the removal range. Because of the previous bullet point
->     we can have a 4K shadow mapping tracked as a 2M range in the interval
->     trees. It would be wrong to remove the 2M range when a guest TLBI doesn't
->     touch the 4K mapped.
-> 
->   - Check mmu->pgt during mmu unmap notifier, as it could race against
->     MMU teardown.
-> 
->   - Make guest_s2_tracking_destroy() canonical mmu only. We simply don't
->     need to detach the nodes from the nested mmus' trees. Freeing them
->     during canonical mmu's teardown is enough.
-> 
-> Thanks!
-> 
-> [1]: https://lore.kernel.org/kvmarm/86h5jv7qrd.wl-maz@kernel.org/
-> [2]: https://lore.kernel.org/kvmarm/gerjpm62a2gszzggc6vuai22bf3prfquvfsp7ueumps7vz2ev3@odlmovaklg2b/
-> [3]: https://lore.kernel.org/kvmarm/20260911162203.1919330-1-maz@kernel.org/
-> [4]: https://lore.kernel.org/kvmarm/20260810205038.118843-1-weilin.chang@arm.com/
-> 
-> Marc Zyngier (1):
->   KVM: arm64: nv: Drop kvm_s2_mmu pointer from kvm_guest_s2_mapping
-> 
-> Wei-Lin Chang (6):
->   KVM: arm64: Use a variable for the canonical IPA in kvm_s2_fault_map()
->   KVM: arm64: nv: Introduce guest stage-2 tracking structures
->   KVM: arm64: nv: Track guest stage-2 mapping creation
->   KVM: arm64: nv: Track guest stage-2 mapping removal
->   KVM: arm64: nv: Avoid full shadow stage-2 unmap
->   KVM: arm64: Refactor kvm_unmap_gfn_range() with common variables
-> 
->  arch/arm64/include/asm/kvm_host.h   |  31 +++++-
->  arch/arm64/include/asm/kvm_nested.h |   7 ++
->  arch/arm64/kvm/mmu.c                | 109 +++++++++++++++++++---
->  arch/arm64/kvm/nested.c             | 140 +++++++++++++++++++++++++++-
->  4 files changed, 269 insertions(+), 18 deletions(-)
-> 
-> -- 
-> 2.43.0
-> 
+Changes in v2:
+ - Update the names of the goto labels.
+ - Check for zero frequency since freq is unsigned. 
+Changes in v3:
+ - Add Angelo's Reviewed-by tag.
+ - Restore the existing afe->regmap checks, 
+   making the separate patch for missing regmap unnecessary.
+ - Do not pre-initialize ret; set ret = 0 in the default case throughout 
+   the series.
+
+Best regards,
+Phuc
+
+bui duc phuc (12):
+  ASoC: mediatek: mt8189: Propagate APLL enable errors
+  ASoC: mediatek: mt8189: Propagate MCK enable errors
+  ASoC: mediatek: mt8189: Validate MCK ID
+  ASoC: mediatek: mt8189: Propagate reg_rw clock errors
+  ASoC: mediatek: mt8189: Use dev_err_probe() for clock errors
+  ASoC: mediatek: mt8189: Propagate runtime resume errors
+  ASoC: mediatek: mt8189: Remove redundant error message
+  ASoC: mediatek: mt8189: Propagate APLL errors
+  ASoC: mediatek: mt8189: Propagate MCLK errors
+  ASoC: mediatek: mt8189: Validate sysclk frequency
+  ASoC: mediatek: mt8189: Propagate TDM clock errors
+  ASoC: mediatek: mt8189: Validate TDM MCLK frequency
+
+ sound/soc/mediatek/mt8189/mt8189-afe-clk.c | 134 +++++++++++++++------
+ sound/soc/mediatek/mt8189/mt8189-afe-pcm.c |  45 ++++---
+ sound/soc/mediatek/mt8189/mt8189-dai-i2s.c |  18 ++-
+ sound/soc/mediatek/mt8189/mt8189-dai-tdm.c |  19 ++-
+ 4 files changed, 154 insertions(+), 62 deletions(-)
+
+-- 
+2.43.0
+
 
