@@ -4,75 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D5E1C88E5C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 09:42:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BFC9C88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 09:49:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OAYn1OR/urJcX7Y1PYkiEnveKTXrW8w2C8NfOif91L8=; b=ah96ct/1d5ws3BrfaJUL/G3u4v
-	8u8+2b99RN5t8mCmZz6PO44d8WyHe3Z9jOI7FTf3venDV8g0JoosWoa52AdqLsmI7UrvRU2Xvr5BP
-	4hjythohrKpN0g9NajeHSYnveydwkVD47Mkc0+8qOR61G1RpGMPgSFgmBJeuSesKDNjMvzwRap/zW
-	U32zEl4E5Fky7utyiJDSfJuVuAgZC/7fdHa+9qWPWXZsnpq5HyRbnYEMrNmnsqy3jfey3GVmpELGc
-	OgQOnU0J0rQfIS7DpLNrmjyaF+us2fmqXJdsOpWr3oraICVIlSvVqW/lAIrUaOavudZx2Gdm1W5Yc
-	VrpwV7gw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q3JIgNKPC6ybCnerbwPJX2RD18vyVuXpIXPctA84TMY=; b=2VaLwBKJsXwn8bczfwXr94o7K9
+	YMBqY+hmR2jHIMniO0m/gKuzXCl9oLnEUGBlb1KnKfX+f4xydEf6jm6dK/0VCtIHXrdtGdy8oBeAl
+	F2LV0FVXPw+IxC1Q20cIXJ/DfI+5zAQ9kGtqKgPfmBb5T8XMrW6sbDGGxCJ2EWHGYBFr2KRewbntD
+	4WdSAw3HUAfNHzz9s9ut7wR/BNvzDAcBMhYTf+pvaQUiyvX+YB6B/sk0NoOwHjxuTg77AcZaGXnNm
+	z6dDMbaq4P4qH2ikOBtKZlLwLljZzno4Q52R4EEalhRPhL/OYgPu20iCXUPrnvJArqnjq77u1rNzi
+	0gg3hy7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6m9j-00000008sFc-0tJs;
-	Wed, 16 Sep 2026 09:42:19 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6m9i-00000008sFP-0Vj1
+	id 1x6mGf-00000008tJN-0yMK;
+	Wed, 16 Sep 2026 09:49:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x6mGc-00000008tIN-0dSj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 09:42:18 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BDA7E43ECC
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 09:42:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DAA41F008A2
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 09:42:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789551737;
-	bh=OAYn1OR/urJcX7Y1PYkiEnveKTXrW8w2C8NfOif91L8=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=DIBXyWb7UH5fiTMzXNE37a2F+G9RIUwumVarRFiKNAZBsd99X6vZXzaa9EATH9e0P
-	 /+ofei18bmy0VfPJC4iHaMTvZnQs6kyqXxu/UUHKaK385/aV7yYjBIl+xBhHJ2mGIE
-	 14L0i49LA/xQPxgMOQ2waI9AzgehLyjrTCAln0GBeyyu6a3JEZhq2sW6VblSycwkn4
-	 T1zQS4e1h7dc7R123LzQUJzZgyqxLihnLBPKyg7YHcpmc2prefCKoozmsXKfkTlZNT
-	 D1iTlKgwEuKzjP413TGKYMB8MMlQq79pjYd/phOTBhUcUZgVzzlHRBvpGchaO5BRPV
-	 581T61ApkigvQ==
-Received: by mail-lr2-f38.google.com with SMTP id 38308e7fff4ca-3a306a4f797so5548471fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 02:42:17 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBznShDPOmhacoPqqct19esUNVFnz1tH/zDlmBLDK7eFzU9DASXJUwblU7jHoPfySFn2ogV6eU4dhSovf01B5WXp@lists.infradead.org
-X-Gm-Message-State: AFuF++ltlAkVmMY5JMqJjc9kC7XB6AFMyNuu5fy01As3OKUz7nk9L5Z8
-	+LtGxkiwScQkedCcOqhzfEq94prfjgFX31JDh/QPrQ7nRWROVqkKI4UmjeGQpARvQnVKDgaDvip
-	oQe7e7QxRkooDjQK9OEusOEq/yMfPKfvnUzYAxb7m5g==
-X-Received: by 2002:a05:651c:2107:b0:3a5:bb28:3324 with SMTP id
- 38308e7fff4ca-3a5dca282a3mr3987981fa.28.1789551736240; Wed, 16 Sep 2026
- 02:42:16 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 16 Sep 2026 09:42:15 +0000
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 16 Sep 2026 09:42:15 +0000
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260915080501.329424-1-mehmet.fide@gmail.com>
+	Wed, 16 Sep 2026 09:49:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EB8041516;
+	Wed, 16 Sep 2026 02:49:18 -0700 (PDT)
+Received: from [10.2.212.8] (unknown [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 445E73F86F;
+	Wed, 16 Sep 2026 02:49:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789552162; bh=KuO14YuSIMliHThLNP9CFnL/2L6g8T7HPTMoBngDAQQ=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=ARyNLCNZkGUYpKmy5uBK9NEea7T0DnlON4jVwojrWrqR+y2L8389NX9ZkBoDdHaH7
+	 SDH1ldmrUffCGGg/ci8ztuMCsrDMA+f1d32D5ipJKsuFnkU+sgU8NvKUyv7fpshSKm
+	 EKjwNkN9yrL/JG7dZahf5u/oa2a8XSSY8QGckcW4=
+Message-ID: <2c682691-3037-4d62-a941-bc41baca35aa@arm.com>
+Date: Wed, 16 Sep 2026 10:49:19 +0100
 MIME-Version: 1.0
-References: <20260915080501.329424-1-mehmet.fide@gmail.com>
-Date: Wed, 16 Sep 2026 09:42:15 +0000
-X-Gmail-Original-Message-ID: <CAMRc=MdmqkG02q=4_wJAVjeBzP_8KqQWNx6cBaL=FUTn_wxw-Q@mail.gmail.com>
-X-Gm-Features: AcwNN1UbxaY2LXeizQ7uYjEouexjsvFGbwv4lQlNYZHZGCxRnPnk9_dWQHfZ6g8
-Message-ID: <CAMRc=MdmqkG02q=4_wJAVjeBzP_8KqQWNx6cBaL=FUTn_wxw-Q@mail.gmail.com>
-Subject: Re: [PATCH v6 0/4] gpio: mmio: report the line direction on chips
- without direction registers
-To: Mehmet Fide <mehmet.fide@gmail.com>
-Cc: Haibo Chen <haibo.chen@nxp.com>, Dong Aisheng <aisheng.dong@nxp.com>, 
-	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>, Jacky Bai <ping.bai@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, imx@lists.linux.dev, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Mehmet Fide <mehmet.fide@screeningeagle.com>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Linus Walleij <linusw@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm_mpam: resctrl: Catch and propagate error from
+ get_cpu_cacheinfo_id()
+From: Ben Horgan <ben.horgan@arm.com>
+To: Andre Przywara <andre.przywara@arm.com>, James Morse <james.morse@arm.com>
+Cc: Reinette Chatre <reinette.chatre@intel.com>,
+ Fenghua Yu <fenghuay@nvidia.com>, Tony Luck <tony.luck@intel.com>,
+ Dave Martin <Dave.Martin@arm.com>, Yin Li <yin.li@oss.qualcomm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260902143757.3469690-1-andre.przywara@arm.com>
+ <ea42f2a7-f4f7-46ab-a5e0-239c74174499@arm.com>
+Content-Language: en-US
+In-Reply-To: <ea42f2a7-f4f7-46ab-a5e0-239c74174499@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260916_024926_257911_957EDD89 
+X-CRM114-Status: GOOD (  18.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,16 +74,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 15 Sep 2026 10:04:57 +0200, Mehmet Fide <mehmet.fide@gmail.com> said:
->
-> On trees: Linus offered to take patch 2 through pinctrl, and patch 1 is
-> pinctrl as well. Patch 4 gives wrong answers without patch 2 (an
-> undecoded pad register would seed every requested line as an output), so
-> I would rather the two pinctrl patches land first or in the same cycle
-> as the two gpio patches, whichever way you two prefer to split it.
->
+Hi Andre,
 
-Linus can put the first two on an immutable branch for me to pull.
+On 07/09/2026 13:59, Ben Horgan wrote:
+> Hi Andre,
+> 
+> On 02/09/2026 15:37, Andre Przywara wrote:
+>> get_cpu_cacheinfo_id() can fail, in which case it returns a negative
+>> error value.
+>>
+>> Check the returned value for this error condition, before passing the
+>> value on to other code, which would hide the negative number in some high
+>> value in the unsigned type.
+>>
+>> Fixes: 36528c7681b8 ("arm_mpam: resctrl: Add support for 'MB' resource")
+>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> 
+> This looks good to me. Out of interest what led you to find this?
+> 
+> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
 
-Bart
+I seem to have been a bit hasty here.
+
+Sashiko points out at [1] that 0xFFFFFFFF is the only value we were previously considering invalid
+and that the value coming from dt or acpi can provid other valid values that would after this patch
+be considered invalid.
+
+[1] https://sashiko.dev/#/patchset/20260902143757.3469690-1-andre.przywara%40arm.com
+
+Thanks,
+
+Ben>
+> Thanks,
+> 
+> Ben
+> 
+>> ---
+>>  drivers/resctrl/mpam_resctrl.c | 5 ++++-
+>>  1 file changed, 4 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+>> index 9d223057953ab..a5e661eff86d7 100644
+>> --- a/drivers/resctrl/mpam_resctrl.c
+>> +++ b/drivers/resctrl/mpam_resctrl.c
+>> @@ -786,7 +786,10 @@ static u32 get_mba_min(struct mpam_props *cprops)
+>>  /* Find the L3 cache that has affinity with this CPU */
+>>  static int find_l3_equivalent_bitmask(int cpu, cpumask_var_t tmp_cpumask)
+>>  {
+>> -	u32 cache_id = get_cpu_cacheinfo_id(cpu, 3);
+>> +	int cache_id = get_cpu_cacheinfo_id(cpu, 3);
+>> +
+>> +	if (cache_id < 0)
+>> +		return -ENOENT;
+>>  
+>>  	lockdep_assert_cpus_held();
+>>  
+> 
+> 
+
 
