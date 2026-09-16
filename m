@@ -4,78 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91C31C88E5C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 04:50:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE7B1C88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 04:56:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0brGLsUCM8OjbH30xJ1GI8+aQZaH1XqCveD1VKrsWZs=; b=FjMVKimsr+YEx52O2XbenplTa2
-	VJW1CDK7NnyTTVUklj7HCq5zkUVGE3123orWVZOnwz4JHKHP+OA1XIrzXmHLyfBbQTFa9v80QmzUT
-	EUfkpnlajkrByk4Y6ypbGdaH9vb8s2kEkwxndfpO0w2u/a16PcOO9HNsjNaWtfvengu09n2cNWzPk
-	MzyPAvyKJvT89A26+oTVSVunhSuAqCt7vOdzyQV4vnVeYlWQxLFNTxVLnsJO3EQP7oW9aDif6tPqv
-	ObyyV5SWg2F1AgwQ2z9FN4ZpHEoepYtUNoZSSaTQ83nhnPZrDt8z07Px9EGsuvs1eCDqdHTFv9Ga4
-	Zqb2edGg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=C3tZpMYh27w/dm8oruC2ikSebTIKfee6UIDxXeFEmbY=; b=i0oIRl9K7gvpQp
+	gA1ziiP9yUBP2ueKuK2IbLqCx9asOY0mK5jV8qLRb0AMt8koGaNgZKWXQ8EJAD/ev676ZlseUFBGJ
+	H8p4F1/X7fiB9ey4mYr8+SQ0+U7dpZelX80DC/o/RYHdLp2QsulgrzWBU8A3L0mGu5yhE0w97izUA
+	UZmUsliWioa25T9oXe4P84+RoAB4zYu3z3H9AK5+pfYIqv2ZahIqweFuWIiITW6Kp1E3w4d5hQ4FC
+	VGc2j3w4FqqmQ9dYAfYIJhxroVA3Oh6h+4mWM3tns4LorBm7SoHex/+5iwV9PPUjSvLJAyxub6zfq
+	XSdBb4hvfZzaSilcIPug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6hbg-00000008Kdb-35RD;
-	Wed, 16 Sep 2026 04:50:53 +0000
-Received: from m16.mail.163.com ([117.135.210.5])
+	id 1x6hhM-00000008KrC-3HeP;
+	Wed, 16 Sep 2026 04:56:44 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6hbd-00000008Kbp-3nBG
+	id 1x6hhL-00000008Kr6-2lsp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 04:50:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=0brGLsUCM8OjbH30xJ1GI8+aQZaH1XqCveD1VKrsWZs=; b=c
-	ozk4Wq4p0a+DYAskc3v9AeRJoPdFWFJor9rVy8GTBoM2VubqyAPdxTZ6dRvW8RyZ
-	qXdVJoirnouBR8BM6pThOkUfT62bcjnWVEPGMy5OWgP6o852ML5VEF7Mn6bzmsEg
-	Simst3JWQ+tkbh3OetC6/1WiW62pyZkPkW5yxTQPY4=
-Date: Wed, 16 Sep 2026 12:49:46 +0800 (CST)
-From: zl020895  <zl020895@163.com>
-To: "Andy Shevchenko" <andriy.shevchenko@linux.intel.com>
-Cc: longzhao@ambarella.com, "Arnd Bergmann" <arnd@arndb.de>,
-	"Krzysztof Kozlowski" <krzk@kernel.org>,
-	"Alexandre Belloni" <alexandre.belloni@bootlin.com>,
-	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	"Rob Herring" <robh@kernel.org>,
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,
-	"Conor Dooley" <conor+dt@kernel.org>,
-	"Michael Turquette" <mturquette@baylibre.com>,
-	"Stephen Boyd" <sboyd@kernel.org>,
-	"Jerome Brunet" <jbrunet@baylibre.com>,
-	"Linus Walleij" <linusw@kernel.org>,
-	"Bartosz Golaszewski" <brgl@kernel.org>,
-	"Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
-	"Jiri Slaby" <jirislaby@kernel.org>,
-	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	"Catalin Marinas" <catalin.marinas@arm.com>,
-	"Will Deacon" <will@kernel.org>, "Lee Jones" <lee@kernel.org>,
-	mfd@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re:Re: [PATCH v7 09/15] gpiolib: regmap: add gpio_regmap_get_chip()
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
- 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 163com
-In-Reply-To: <aqlknvOejkE5zutq@ashevche-desk.local>
-References: <20260915-cv75-v5-v7-0-3297d3fbc9c0@ambarella.com>
- <20260915-cv75-v5-v7-9-3297d3fbc9c0@ambarella.com>
- <aqlknvOejkE5zutq@ashevche-desk.local>
-X-NTES-SC: AL_Qu2TC/mYu0kj4CiRZekcn0wRhug/UMa4u/sm3YNXc+gGgS7rxD0iflpxF2DKzOe1GTqXuzGSbTdPyMZYULtmDWHgzTizjvt8es72bjBGWA==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	Wed, 16 Sep 2026 04:56:43 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0C95D43EE8
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 04:56:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D53C71F0089E
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 04:56:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789534602;
+	bh=C3tZpMYh27w/dm8oruC2ikSebTIKfee6UIDxXeFEmbY=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=UropqgucTk1RLrJBamQ3AklerGyhVADL72cabcJr+qZiALC9/pt00Six1PqD/aBWp
+	 IjQoI5eEEc9XLBgpC6ZuL9CIe1FxKMhm4kmmiDZ+t8ChixGlHWjVGbFcB5SKFcDO7y
+	 rfKDerJ430tO0RXwSgEXx7sykmqAQu32509yFRqrY47Js4c6V+os/iOcIvCozIlZqM
+	 Fyrw1stapVkSsw2zz3EzIz1adYgf3ei4Xyl+MiIA4wZ3V29U2Dub/L+QSZe5swtJ5e
+	 z7v6TW2YZ62M0k3suNhAi0GKNZHCObVneAyhnTkZ2WmQA8gATF/s1Foe7pHhrroFSx
+	 U8aGmSxEREqQg==
+Received: by mail-lf2-f13.google.com with SMTP id 2adb3069b0e04-5b5e4f16cd1so452302e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 21:56:42 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvByDcSXGMvpqOdzZvQrdoEz7+bXfqNoqiveVJUZMTJPHwRcX3VrzwX4Otgw5T8bw8yeX/cUlARYM9HijXrxh98GY@lists.infradead.org
+X-Gm-Message-State: AFuF++lEJAXTyjUfHfP7z6ElYWMO8lx6asmGB49p2bql+jy5pdRHgnvP
+	Md+xoH+jL2YWUk/by31L1xpJTsO93MaAE6ZA8CNTq/23IB+EIQw1kpsy5ouXuzVh2E3k61CNUzv
+	m13GPpEhuY4MavwLRki0/0YmfmsOCL6w=
+X-Received: by 2002:a05:6512:b87:b0:5b6:1a7c:fd86 with SMTP id
+ 2adb3069b0e04-5b8b6652ac6mr244953e87.44.1789534601132; Tue, 15 Sep 2026
+ 21:56:41 -0700 (PDT)
 MIME-Version: 1.0
-Message-ID: <327d09fc.4043.1a0a88cad9b.Coremail.zl020895@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: iCgvCgD334PqH6pqGGFHAA--.23892W
-X-CM-SenderInfo: d2oqjiqyzvqiywtou0bp/xtbCxgtHuGqqH+vnbAAA3N
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_215050_276545_287A5F9D 
-X-CRM114-Status: GOOD (  10.73  )
+References: <20260916044119.475666-1-alastair@d-silva.org>
+In-Reply-To: <20260916044119.475666-1-alastair@d-silva.org>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Wed, 16 Sep 2026 12:56:28 +0800
+X-Gmail-Original-Message-ID: <CAGb2v64HZoqBscyKTkTin6DnMv5_kZpBxoS+cm7aYy09pRc7hA@mail.gmail.com>
+X-Gm-Features: AcwNN1UfVwvH_TTNjxWxYFWqmDiwY6R0M22kYyQVnOwJYHGWocQFI_cDBu05Ups
+Message-ID: <CAGb2v64HZoqBscyKTkTin6DnMv5_kZpBxoS+cm7aYy09pRc7hA@mail.gmail.com>
+Subject: Re: [PATCH net-next 0/4] net: Add Allwinner H616/H618 EMAC1 and AC300
+ EPHY support
+To: "Alastair D'Silva" <alastair@d-silva.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
+	Russell King <linux@armlinux.org.uk>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Maxime Chevallier <maxime.chevallier@bootlin.com>, "David S . Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	James Hilliard <james.hilliard1@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,40 +85,79 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgQW5keSwgCgpUaGFua3MgZm9yIHRoZSByZXZpZXcuCgpJdCBpc24ndDsgdGhhdCB3YXMgbGVm
-dG92ZXIgZnJvbSBkcm9wcGluZyBnaXJxLiB2OCB3aWxsIHJlc3RvcmUgdGhlCm9yaWdpbmFsIGF0
-dGFjaCBjb2RlLiBUaGUgcmVhbCBhZGRpdGlvbiBpcyBncGlvX3JlZ21hcF9nZXRfY2hpcCgpLCBz
-bwpQTDA2MSBjYW4gY3JlYXRlIGl0cyBpcnEgZG9tYWluIGFmdGVyIHJlZ2lzdGVyLgoKQmVzdCBy
-ZWdhcmRzLApMb25nIFpoYW8KCkF0IDIwMjYtMDktMTUgMjM6MzA6MzgsICJBbmR5IFNoZXZjaGVu
-a28iIDxhbmRyaXkuc2hldmNoZW5rb0BsaW51eC5pbnRlbC5jb20+IHdyb3RlOgo+T24gVHVlLCBT
-ZXAgMTUsIDIwMjYgYXQgMDc6MTU6MzlQTSArMDgwMCwgTG9uZyBaaGFvIHZpYSBCNCBSZWxheSB3
-cm90ZToKPgo+PiBMZXQgZHJpdmVycyB0aGF0IGltcGxlbWVudCBhIGN1c3RvbSBpcnFjaGlwIHJl
-dHJpZXZlIHRoZSBncGlvX2NoaXAKPj4gYWZ0ZXIgcmVnaXN0cmF0aW9uLiBBdHRhY2ggYSBjYWxs
-ZXItcHJvdmlkZWQgaXJxX2RvbWFpbiBvbmx5IHdoZW4gaXQKPj4gaXMgcHJlc2VudC4KPgo+Li4u
-Cj4KPj4gIHN0cnVjdCBncGlvX3JlZ21hcCAqZ3Bpb19yZWdtYXBfcmVnaXN0ZXIoY29uc3Qgc3Ry
-dWN0IGdwaW9fcmVnbWFwX2NvbmZpZyAqY29uZmlnKQo+PiAgewo+PiAtCXN0cnVjdCBpcnFfZG9t
-YWluICppcnFfZG9tYWluOwo+PiAgCXN0cnVjdCBncGlvX3JlZ21hcCAqZ3BpbzsKPj4gIAlzdHJ1
-Y3QgZ3Bpb19jaGlwICpjaGlwOwo+PiAgCWludCByZXQ7Cj4KPj4gICNpZmRlZiBDT05GSUdfUkVH
-TUFQX0lSUQo+PiAgCWlmIChjb25maWctPnJlZ21hcF9pcnFfY2hpcCkgewo+PiArCQlzdHJ1Y3Qg
-aXJxX2RvbWFpbiAqaXJxX2RvbWFpbjsKPj4gKwo+PiAgCQlncGlvLT5yZWdtYXBfaXJxX2xpbmUg
-PSBjb25maWctPnJlZ21hcF9pcnFfbGluZTsKPj4gIAkJcmV0ID0gcmVnbWFwX2FkZF9pcnFfY2hp
-cF9md25vZGUoZGV2X2Z3bm9kZShjb25maWctPnBhcmVudCksIGNvbmZpZy0+cmVnbWFwLAo+PiAg
-CQkJCQkJIGNvbmZpZy0+cmVnbWFwX2lycV9saW5lLCBjb25maWctPnJlZ21hcF9pcnFfZmxhZ3Ms
-Cj4+IEBAIC00MjAsMTIgKzQyNywxNSBAQCBzdHJ1Y3QgZ3Bpb19yZWdtYXAgKmdwaW9fcmVnbWFw
-X3JlZ2lzdGVyKGNvbnN0IHN0cnVjdCBncGlvX3JlZ21hcF9jb25maWcgKmNvbmZpZwo+PiAgCQkJ
-Z290byBlcnJfcmVtb3ZlX2dwaW9jaGlwOwo+PiAgCj4+ICAJCWlycV9kb21haW4gPSByZWdtYXBf
-aXJxX2dldF9kb21haW4oZ3Bpby0+aXJxX2NoaXBfZGF0YSk7Cj4+ICsJCWlmIChpcnFfZG9tYWlu
-KSB7Cj4+ICsJCQlyZXQgPSBncGlvY2hpcF9pcnFjaGlwX2FkZF9kb21haW4oY2hpcCwgaXJxX2Rv
-bWFpbik7Cj4+ICsJCQlpZiAocmV0KQo+PiArCQkJCWdvdG8gZXJyX3JlbW92ZV9ncGlvY2hpcDsK
-Pj4gKwkJfQo+PiAgCX0gZWxzZQo+PiAgI2VuZGlmCj4+IC0JaXJxX2RvbWFpbiA9IGNvbmZpZy0+
-aXJxX2RvbWFpbjsKPj4gLQo+PiAtCWlmIChpcnFfZG9tYWluKSB7Cj4+IC0JCXJldCA9IGdwaW9j
-aGlwX2lycWNoaXBfYWRkX2RvbWFpbihjaGlwLCBpcnFfZG9tYWluKTsKPj4gKwlpZiAoY29uZmln
-LT5pcnFfZG9tYWluKSB7Cj4+ICsJCXJldCA9IGdwaW9jaGlwX2lycWNoaXBfYWRkX2RvbWFpbihj
-aGlwLCBjb25maWctPmlycV9kb21haW4pOwo+PiAgCQlpZiAocmV0KQo+PiAgCQkJZ290byBlcnJf
-cmVtb3ZlX2dwaW9jaGlwOwo+PiAgCX0KPgo+SSBkbyBub3QgdW5kZXJzdGFuZCBob3cgaXQncyBk
-aWZmZXJlbnQgZnJvbSB0aGUgb3JpZ2luYWwgb25lLiBDYW4geW91IGVsYWJvcmF0ZT8KPgo+LS0g
-Cj5XaXRoIEJlc3QgUmVnYXJkcywKPkFuZHkgU2hldmNoZW5rbwo+Cg==
+On Wed, Sep 16, 2026 at 12:41=E2=80=AFPM Alastair D'Silva <alastair@d-silva=
+.org> wrote:
+>
+> This series adds support for the secondary Ethernet MAC controller (EMAC1=
+)
+> and the co-packaged AC300 Fast Ethernet Physical Layer (EPHY) found on
+> Allwinner H616 and H618 SoCs.
+>
+> The Allwinner H616/H618 SoCs feature two EMAC instances: EMAC0 (typically
+> used with an external RGMII Gigabit PHY) and EMAC1 (Fast Ethernet,
+> connected internally to the co-packaged AC300 EPHY). EMAC1 uses a
+> dedicated clock control register in the syscon register space, which is
+> accessed via an offset index in the DT syscon property.
+>
+> The AC300 is an integrated 10/100M (100BASE-TX / 10BASE-T) Fast Ethernet
+> PHY communicating over MDIO at address 16 + phy_addr. It requires
+> retrieving factory bandgap calibration data from the SID nvmem controller=
+,
+> managing internal power rails and clocks, and optimizing transceiver sign=
+al
+> parameters.
+
+There is already a series from James covering the same thing. Please check
+the mailing list and possibly our wiki (linux-sunxi.org) to avoid duplicate
+work and subjecting the maintainers to the same discussions again.
+
+
+ChenYu
+
+> To ensure reliable link establishment and MAC software reset with the
+> internal PHY, dwmac-sun8i is updated to defer MAC software reset until
+> sun8i_dwmac_init() after the internal PHY has powered on and begun
+> clock generation.
+>
+> The series is structured as follows:
+> - Patch 1: DT binding for Allwinner AC300 EPHY.
+> - Patch 2: PHY driver for Allwinner AC300 EPHY.
+> - Patch 3: DT binding update for Allwinner H616 EMAC1 and syscon index.
+> - Patch 4: dwmac-sun8i driver support for H616 EMAC1 clock index and
+>            internal PHY deferred reset.
+>
+> Testing:
+> - Tested on physical Mellow Fly-C5 hardware (Allwinner H618) running
+>   Armbian with sustained 100Mbps full-duplex network traffic (DHCP,
+>   iperf3, NFS rootfs).
+> - Device tree bindings validated with dt_binding_check.
+> - Separate SoC and board DTS additions will be submitted via the
+>   linux-sunxi tree.
+>
+> Alastair D'Silva (4):
+>   dt-bindings: net: phy: Add Allwinner AC300 EPHY binding
+>   net: phy: Add Allwinner AC300 EPHY driver
+>   dt-bindings: net: allwinner,sun8i-a83t-emac: Add Allwinner H616 EMAC1
+>     and syscon index
+>   net: stmmac: dwmac-sun8i: Add Allwinner H616 EMAC clock index and
+>     internal PHY support
+>
+>  .../net/allwinner,sun50i-h618-ac300-ephy.yaml |  79 +++++
+>  .../net/allwinner,sun8i-a83t-emac.yaml        |  14 +-
+>  .../net/ethernet/stmicro/stmmac/dwmac-sun8i.c |  65 +++-
+>  drivers/net/phy/Kconfig                       |   9 +
+>  drivers/net/phy/Makefile                      |   1 +
+>  drivers/net/phy/ac300-phy.c                   | 331 ++++++++++++++++++
+>  6 files changed, 486 insertions(+), 13 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/net/allwinner,sun50=
+i-h618-ac300-ephy.yaml
+>  create mode 100644 drivers/net/phy/ac300-phy.c
+>
+> --
+> 2.53.0
+>
 
