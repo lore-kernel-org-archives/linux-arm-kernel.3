@@ -4,143 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E06CDC982CC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 16:14:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B29C1C982C9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 16:18:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pt2GMmq8I2JratckoCB+SY3Z/zgksw8qiMvd40TXSWc=; b=DNAGBvO6o6gl/MnF0drp2k1J7d
-	HB0TlbiaSoYf5IPEJiZKw4BJtWIBLgx/ZppZs7+JzuEhuFNmyINYRx7RbdxF3Z4Xfg1yakSzLenc5
-	nQIO1mzS4tS/C1LQ+sc+7FMkBFMQMAPviKE8biUt3Ty1SCVQp2LX7mygzxji018D8b+4DFhfZXMXt
-	ZeUvT6dLcsZB7ixJwyz8kuOqkP3OiVGLGS76bqF6T9NzSd4xD5wGFLmg2P7AqL+E9PxFB8sDvAZzT
-	L0IdUUHHV1MmyUgdAZ25NZHlXUfSZ3v85yi1oJMr6bRbBiC5QDGVRf87YVQ3vsbM0tAqh9uMV1QGM
-	c3aaC4QQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MlX8okBR8xYqhukbp3PV4Dc6sNPcX2NRxhmNZMa+XYw=; b=nAh4dQY0m3t4fvE6MDEC7nXfgr
+	cm/aoBUrcj1Xt9uROQiqjljDeaXfwuN3V7gwr+M+VpAalC71DJ2j43JEr5+QcVbS9BK0nEPynSnqi
+	mfIUIMRGswrWtv7ceEnC6AlBwNozJEarf3xRciUqtQS66lv2+tAPlQbQ+5YvZW7VBvIViaEa6m7wZ
+	UBWzuMvlcKu/LBqAsiYNB51CMEi/A/mKR+Ujbb4jDXjECox0cuvJAC/wdcDH9lLAQ6Hovulz+kwEr
+	SwB8Zf7LBJnlzObtYVb9r0Y5pM+jwCj+9/+1Z9s/a6DX4qfQ+Sa+L3H+xnpLZZ7QmUsDZcEJ4mLPL
+	yEexhdGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6sHa-00000009hwU-33Vp;
-	Wed, 16 Sep 2026 16:14:50 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6sHY-00000009hvP-3bM8
+	id 1x6sKd-00000009iLs-1TAD;
+	Wed, 16 Sep 2026 16:17:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x6sKb-00000009iL5-16CF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 16:14:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=krr3an8MAJgOfB76gJjTiuc8xSM7ZvDAKCl/sYc/6dUpQAGiS3qY4K+n/cvR28eNi7zFFQF3/NovqhoE39CYvVDVNEmLuaDyV3xgydNDwwx6X/KELBfRN2XiEFtRJHXQJCUvVzSebwueZW0XEpG0GVPmPfyJV84WqVbhe5lNKhTNG95pe+AFP8mFDw9HlEjo8ZMo98yL+7PAsqt0RrdgQajOo1XTbRX5S7MnkcfWvX83rsOD1B1KPPieC3TcxeLU0JU4pb6lMfvThi7Zpy3KF7Iil0IeiKjnW8YQorkOV34Jb//hfz0Y2Ao+Du6ZklpM+UfWFOnX1n+jt8MRKyEfgg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Pt2GMmq8I2JratckoCB+SY3Z/zgksw8qiMvd40TXSWc=;
- b=QDdtznyjJ97puZvCkN3Yt1maXsgvdxX/Z9KV7M9HNz6WbZt2XbboicWmHkuCU7FZaiH6nIW8m/hy60uGfOzJpoQ/b1UU5EXzCTiahU/NW3aMjqpzw4n7Lq1UF0k7dszTQcBlY8gmOxGyGnlZ/EeuAqA7r3Y4LDR8RitpnyBkguVQZ6Cipt0GGBO50LwY034RojwY/w0jzhAQ2it+Yxkyb1fynfQI1xS9RtUZYqUPizJvUfOFXkj/YWfWnGBnk+tpU0qX+U7yRSgvUDyTj+7X/9idFnh2Uo01rXuhqFG4s6+TIIcjcqvrttcG+ZOna6Z3giQNTll4SlveqWEQ6/AiBA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Pt2GMmq8I2JratckoCB+SY3Z/zgksw8qiMvd40TXSWc=;
- b=SHtZfFJ2B44pLtOTeqFPJlqaAVZ2g6oyhg7KlH1LnuSrreeegxbjfoFGmODWZnc3wgtcr+Pyny0d4WhOhuG0GGXiqh6nVMOpslAHQcnoNk4aB6N4aKppAUhv2Dqdj+ndXJ6bw6DcvOGVJS0d7rqrgg59WRsvTQr+hLGkffxjIqYSWUo6Tqf7LBCnAJt7CKM6xGu69h23GYTWm+O+X8uvYFdOYsRhHohkTkXt9B5DqZptDfidAy7AMfJBAPhuxBtYXfoiX2TmneQM7XyFLGDV9gYsJDb08OL85iW0c4ufJQvAFxy3889pqRLA63O+2CtZlN3atuQ2DxDXn9c1ZgziFQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by MRWPR04MB12041.eurprd04.prod.outlook.com (2603:10a6:501:93::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Wed, 16 Sep
- 2026 16:14:42 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.012; Wed, 16 Sep 2026
- 16:14:42 +0000
-Date: Wed, 16 Sep 2026 11:14:29 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Larisa Grigore <larisa.grigore@oss.nxp.com>
-Cc: NXP S32 Linux Team <s32@nxp.com>, Alim Akhtar <alim.akhtar@samsung.com>,
-	Avri Altman <avri.altman@sandisk.com>,
-	Bart Van Assche <bvanassche@acm.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	"Martin K. Petersen" <mkp@kernel.org>,
-	Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
-	Ajay Neeli <ajay.neeli@amd.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Pedro Sousa =?iso-8859-1?Q?=A0?= <pedrom.sousa@synopsys.com>,
-	linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	clizzi@redhat.com, aruizrui@redhat.com, eballetb@redhat.com,
-	echanude@redhat.com
-Subject: Re: [PATCH v3 01/10] ufs: unipro: Move Tx/Rx FSM state definitions
- to unipro.h
-Message-ID: <aqrAZfkcU29Oq7Jo@SMW015318>
-References: <20260916084411.941297-1-larisa.grigore@oss.nxp.com>
- <20260916084411.941297-2-larisa.grigore@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260916084411.941297-2-larisa.grigore@oss.nxp.com>
-X-ClientProxiedBy: PH0PR07CA0016.namprd07.prod.outlook.com
- (2603:10b6:510:5::21) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Wed, 16 Sep 2026 16:17:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BCF451516;
+	Wed, 16 Sep 2026 09:17:51 -0700 (PDT)
+Received: from [10.57.8.14] (unknown [10.57.8.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 76BF43F7B4;
+	Wed, 16 Sep 2026 09:17:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789575475; bh=p3tHar0dLjbf4nNwS6ekOIUqzn63ULh+WZ3W0oLTGoo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=cn6Vo8NCPcegLEUNK1RPA8H5PEILXVRQTJQ0cZ22KykkzbVPmh3J4vOId9XA0Z+Rc
+	 kQVHuuBeJR4G+Z4A3QZ5PHT0nng89xsb+GtY1WCGoGnODFg4yXAbRUtfTx4ZRskudM
+	 CY59agMktmzbpubX7yNFseXn1IiE4HaasgegGCpc=
+Message-ID: <05239c7a-bdee-4d24-9375-c5b3497a4f78@arm.com>
+Date: Wed, 16 Sep 2026 17:17:51 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|MRWPR04MB12041:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0c3ad411-a4be-40e6-7fb5-08df140d9d8c
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|23010399003|7416014|1800799024|366016|6133799003|22082099003|18002099003|4143699003|11063799006|10067099003|56012099006;
-X-Microsoft-Antispam-Message-Info: dFtrQHY9WNVVYEayQ/62z3dzFZh15WzxCO+b+kZcpW2ve+rbwV8YStzXP97D0RgZ4IWLNdC/2fTfBkctMkGYK+EFP+l94SdTlC6zZF5ijMX6nQmE04TZRpNv0Ww6KuXGsG+4bKGB8l8XaY4IsbdaoT85hcKpz8k+2NQmrl0VTNeq/AwOg6Ico8Z5WrW560pLg7ZAu5BfIRvgw2KVdCc5/BKvw4lcnXA0EIa0+321gmGS3OaNBPULWGdg6jWFwFcSc/U6OmhQ5gBarzKwo4VyH1M3Y5IamOcL2WSEqVM43fKTOGUL8edpBZ2FRUj6cPr0pXdiPKyWmSeWR3r/hr8rlbN4YpTR3XL++30VTj7ubcNLrdPdAdoEjwckVewRw8UbaQOkeULfZdcCWgHFRugbT7FG9FRriquhHYl2fTUFIkqtfBXs3CxBKFZh4ZOWjbN2qk4INcYaGIvYzEkbpWoOM54TTF9bmTu0Dq+LoUeGhKdRkMGmarUUntmrMVnP9wfl3i9u69hOds8oOBSFXld12qO+dfsch3y5l8/XTgEhvpXoXrQQ7JMUaV0BkBssD3BuDlnZztmOrYvOmlVzTNFEtOIGFqOYhLOsdamhtchrhdHXEYolIpsgUgbh0xykaKEJNrZXkfoKZSHxyO+oJp9FkKqnp4WypG71KZdw2iiydlE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(23010399003)(7416014)(1800799024)(366016)(6133799003)(22082099003)(18002099003)(4143699003)(11063799006)(10067099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?OmbF2M9st9ZFBDCI8tm9x2oPnUhEPIu14LBugM+G2NiSab6YUm8ZQw3vOIBs?=
- =?us-ascii?Q?AWDfDwA4b+yH13yL73VMYSlWCf2ku0RLhfLb+7EBHqRCGJ1kAleZQ9zmE/UI?=
- =?us-ascii?Q?yB0dZDZ2O3BSQ6htv7lFqJO7zjOCQ8zmOIRG03fAMSrMgX24nxihldeeZnWO?=
- =?us-ascii?Q?Hdkdk5nZuG+oOsHfMleegR09Ib73sJ7aaBNyKZm6QmuZA1ZrIPSUyOza+Hec?=
- =?us-ascii?Q?5pMU6FDHmxiHH7JfxSNgduI8DMx7xITI2k/gBQraj1os2bdxXfthqK/EoeAl?=
- =?us-ascii?Q?sFitYo+5bZTzPn1cvTJfX3A03mEpIf31oW8haMBuVritdL7lQBCLeCC+lKaJ?=
- =?us-ascii?Q?HhEyiRD8ZsRlCXO+MZPaAtV5i3/5vRZBBJ45Al+4gf5DQ3z3ChhFWLJ6Ssat?=
- =?us-ascii?Q?818Iglze0az1B69xMEMCJvrVDPlq24dM6WSOux/UKz9595LJvsL4LEwjEK4T?=
- =?us-ascii?Q?uW8ulK90KtrzXaeW6N6pgtnOiLv2TYP1OnepWQwx9tEiXZqBAP/9ftzlCMKL?=
- =?us-ascii?Q?Ucvo5Tj5cWvU4WTQvZ2kF4/G8cnQxRHAe/ip6rSN1ZgpAQo7onRNQP93Okjz?=
- =?us-ascii?Q?suMrFcNRVEmKf6MkJyGSWZ+trrx5xTUbBDNWhPPfHfYQOi1GSsFxknvf7/it?=
- =?us-ascii?Q?lIQ9pm0p92c3drnimVl19laF0qP/lyS2SAvqKVffmxdjb93ZiqlAA0syiBxp?=
- =?us-ascii?Q?PuQ1m8n4Zc0Fmklo8LS0HHu6tpVJEhSoKlgqlX24JgDRDA8Rx9I5XoGZIYS9?=
- =?us-ascii?Q?Og14XXIrCA4CBSlAIeIoIOebFjmBMvxt7EHtkMqHxWCsWX6JVjPVkDcKk+KC?=
- =?us-ascii?Q?6DyfIvUDvTmT3sHBOj/Xd4Ewy5Dcu/AP1U63NZ9TuOLqMcLweCdoCAuAkoBk?=
- =?us-ascii?Q?hXj0RDurZfFoDY3CymviIhGvK1hSlzNWa6RRnu8Ke1norqW6YnOSjMMhCJCb?=
- =?us-ascii?Q?0sgDfG0JBnzzagG0m6i3pLy0Z/mySL2K6dnfvdNAa02EBeHR917jmIC9Ed8T?=
- =?us-ascii?Q?8Y/SZ07H7GH5vhn3AkkMHDcflk4xd8zpQR8NPsCQRHHFhraX1X41O9BhcqXH?=
- =?us-ascii?Q?ZbcEWcNF17JHzoqq43GcyzlktGts2KfrdW2I/xy8airmCJn1dnqtIm8EAsPu?=
- =?us-ascii?Q?6aAPRW4jRhz+eXXnTR5LkRMfesn0q9U8KLIeqMV/FoKC9wJ9mp9+eW+k5q/P?=
- =?us-ascii?Q?ZGpJVgoI5HCOSuAi9BnmygtBkoz4vhpeUP/t25SMSiCmLGiA2dMo4y6+Dumc?=
- =?us-ascii?Q?eJxgsJ7CQsUMPIxTeIuJmolZ/+jhcrIxrHQgDJXzzNItWeUBBRw922PmAbeN?=
- =?us-ascii?Q?Gq7Lif5atQXUU5WODApHCL/+bLpxpQx21Z+13VOivTayn9t0W3KPg0RzFl9w?=
- =?us-ascii?Q?lQHW1+uXeeEY5v7QaY4oj0xhB3n1+4PRigsmQv9BGt+aOPYXFAlz22KcqF0E?=
- =?us-ascii?Q?c3JxR/etbWVzLHOVeRZ3KtKtG/xtYeon8yFN+MGpzahBaFLzcdwCwOgDUssY?=
- =?us-ascii?Q?c54edgzAuLVnRAzDLVb46e/RddYRoV3D3p1z5mycfQJUzXWE6vFtzOQT3/xj?=
- =?us-ascii?Q?1W+Kjt5gDeHtY87U1/2kacrWVWEWd6CI73D7YQhVykvUKLI3XKm5LfuoUSJN?=
- =?us-ascii?Q?UgXzGtkx7mnwyOqP+4Y7vGZjCr47Tpdt1lrW/ULlV2xw9T5RbQrbbpMjkgv8?=
- =?us-ascii?Q?p2fIqJ8qq/K9Q+hZDUG0C34OU6tWT2zjKkFQ8SgRZ85VVpsIfo+xBcWNxR72?=
- =?us-ascii?Q?MyJbGY8d5p5Ah/o6RqCi6FbR9QrR6ndtb6ANRE3u2/qr4Sf4WMgh?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0c3ad411-a4be-40e6-7fb5-08df140d9d8c
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Sep 2026 16:14:42.3920
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /N/n1cugs9haB1wbLFs6gVd52Iso2ytc0z2Os5S5ch+02dPA8JIeOPijg62PpLw4s4ZnI1jS9W0FyC1tTOy3fSVQZ7fibXQUSkOwEfreTG/rimKAwnRax3STHbUcWowt
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MRWPR04MB12041
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 9/9] arm64: realm: Expose the CCA shared granule size
+ through mem_encrypt ops
+Content-Language: en-GB
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+ linux-coco@lists.linux.dev, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ iommu@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Jason Gunthorpe
+ <jgg@ziepe.ca>, Marc Zyngier <maz@kernel.org>,
+ Marek Szyprowski <m.szyprowski@samsung.com>,
+ Robin Murphy <robin.murphy@arm.com>, Steven Price <steven.price@arm.com>,
+ Thomas Gleixner <tglx@kernel.org>, Will Deacon <will@kernel.org>
+References: <20260904103452.1197239-1-aneesh.kumar@kernel.org>
+ <20260904103452.1197239-10-aneesh.kumar@kernel.org>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20260904103452.1197239-10-aneesh.kumar@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_091449_071936_4B5B727C 
-X-CRM114-Status: GOOD (  25.19  )
+X-CRM114-CacheID: sfid-20260916_091757_396978_B0C45381 
+X-CRM114-Status: GOOD (  25.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,167 +78,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 16, 2026 at 10:44:02AM +0200, Larisa Grigore wrote:
-> Move the Tx/Rx FSM state definitions from ufshcd-dwc.h to
-> include/ufs/unipro.h.
->
-> These state values are UniPro/M-PHY related and are not specific to
-> the DesignWare UFS host controller implementation, so unipro.h is a
-> more appropriate location for sharing them.
->
-> As part of this move, drop the driver-private TX_FSM_HIBERN8 define in
-> ufs-hisi and ufs-qcom and repoint their Hibern8 checks at the shared
-> TX_STATE_HIBERN8 enum constant. This is a no-op change: TX_FSM_HIBERN8
-> was 0x1 and TX_STATE_HIBERN8 is 1, so the compared values are identical.
->
-> This also prepares for using these definitions in a subsequent commit.
->
-> Signed-off-by: Larisa Grigore <larisa.grigore@oss.nxp.com>
+On 04/09/2026 11:34, Aneesh Kumar K.V (Arm) wrote:
+> CCA guests must align shared/private memory transitions to the size
+> reported by the host for IPA state changes. This size can be larger than
+> PAGE_SIZE, so allowing a guest to convert only a PAGE_SIZE-sized subrange
+> can leave the remaining part of that host-sized range in the wrong state.
+> 
+> Cache the RHI-reported IPA sate change alignment during Realm
+> initialization and expose it through a new arm64 mem_encrypt callback. Use
+> PAGE_SIZE as the default shared granule size when no backend callback is
+> registered.
+> 
+> Validate both the address and byte size passed to set_memory_encrypted()
+> and set_memory_decrypted() against mem_cc_shared_granule_size() before
+> calling into the backend. This prevents callers from converting only part
+> of a host-managed page.
+> 
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+
+Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+
+
 > ---
-
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-
->  drivers/ufs/host/ufs-hisi.c   |  8 ++++----
->  drivers/ufs/host/ufs-hisi.h   |  1 -
->  drivers/ufs/host/ufs-qcom.c   |  4 ++--
->  drivers/ufs/host/ufs-qcom.h   |  1 -
->  drivers/ufs/host/ufshcd-dwc.h | 19 -------------------
->  include/ufs/unipro.h          | 20 ++++++++++++++++++++
->  6 files changed, 26 insertions(+), 27 deletions(-)
->
-> diff --git a/drivers/ufs/host/ufs-hisi.c b/drivers/ufs/host/ufs-hisi.c
-> index 993e20ac211d..2d214ce9620e 100644
-> --- a/drivers/ufs/host/ufs-hisi.c
-> +++ b/drivers/ufs/host/ufs-hisi.c
-> @@ -34,8 +34,8 @@ static int ufs_hisi_check_hibern8(struct ufs_hba *hba)
->  				      &tx_fsm_val_0);
->  		err |= ufshcd_dme_get(hba,
->  		    UIC_ARG_MIB_SEL(MPHY_TX_FSM_STATE, 1), &tx_fsm_val_1);
-> -		if (err || (tx_fsm_val_0 == TX_FSM_HIBERN8 &&
-> -			tx_fsm_val_1 == TX_FSM_HIBERN8))
-> +		if (err || (tx_fsm_val_0 == TX_STATE_HIBERN8 &&
-> +			tx_fsm_val_1 == TX_STATE_HIBERN8))
->  			break;
->
->  		/* sleep for max. 200us */
-> @@ -56,8 +56,8 @@ static int ufs_hisi_check_hibern8(struct ufs_hba *hba)
->  	if (err) {
->  		dev_err(hba->dev, "%s: unable to get TX_FSM_STATE, err %d\n",
->  			__func__, err);
-> -	} else if (tx_fsm_val_0 != TX_FSM_HIBERN8 ||
-> -			 tx_fsm_val_1 != TX_FSM_HIBERN8) {
-> +	} else if (tx_fsm_val_0 != TX_STATE_HIBERN8 ||
-> +			 tx_fsm_val_1 != TX_STATE_HIBERN8) {
->  		err = -1;
->  		dev_err(hba->dev, "%s: invalid TX_FSM_STATE, lane0 = %d, lane1 = %d\n",
->  			__func__, tx_fsm_val_0, tx_fsm_val_1);
-> diff --git a/drivers/ufs/host/ufs-hisi.h b/drivers/ufs/host/ufs-hisi.h
-> index 5a90c0f4e90c..6af6a268458d 100644
-> --- a/drivers/ufs/host/ufs-hisi.h
-> +++ b/drivers/ufs/host/ufs-hisi.h
-> @@ -43,7 +43,6 @@
->   * M-TX Configuration Attributes for Hixxxx
->   */
->  #define MPHY_TX_FSM_STATE	0x41
-> -#define TX_FSM_HIBERN8	0x1
->
->  /*
->   * Hixxxx UFS HC specific Registers
-> diff --git a/drivers/ufs/host/ufs-qcom.c b/drivers/ufs/host/ufs-qcom.c
-> index 954be9343f42..38897d01fde2 100644
-> --- a/drivers/ufs/host/ufs-qcom.c
-> +++ b/drivers/ufs/host/ufs-qcom.c
-> @@ -393,7 +393,7 @@ static int ufs_qcom_check_hibern8(struct ufs_hba *hba)
->  				UIC_ARG_MIB_SEL(MPHY_TX_FSM_STATE,
->  					UIC_ARG_MPHY_TX_GEN_SEL_INDEX(0)),
->  				&tx_fsm_val);
-> -		if (err || tx_fsm_val == TX_FSM_HIBERN8)
-> +		if (err || tx_fsm_val == TX_STATE_HIBERN8)
->  			break;
->
->  		/* sleep for max. 200us */
-> @@ -413,7 +413,7 @@ static int ufs_qcom_check_hibern8(struct ufs_hba *hba)
->  	if (err) {
->  		dev_err(hba->dev, "%s: unable to get TX_FSM_STATE, err %d\n",
->  				__func__, err);
-> -	} else if (tx_fsm_val != TX_FSM_HIBERN8) {
-> +	} else if (tx_fsm_val != TX_STATE_HIBERN8) {
->  		err = tx_fsm_val;
->  		dev_err(hba->dev, "%s: invalid TX_FSM_STATE = %d\n",
->  				__func__, err);
-> diff --git a/drivers/ufs/host/ufs-qcom.h b/drivers/ufs/host/ufs-qcom.h
-> index a5ad5ce44a19..3c6cb2281af0 100644
-> --- a/drivers/ufs/host/ufs-qcom.h
-> +++ b/drivers/ufs/host/ufs-qcom.h
-> @@ -11,7 +11,6 @@
->  #include <ufs/ufshcd.h>
->
->  #define MPHY_TX_FSM_STATE       0x41
-> -#define TX_FSM_HIBERN8          0x1
->  #define HBRN8_POLL_TOUT_MS      100
->  #define DEFAULT_CLK_RATE_HZ     1000000
->  #define MAX_SUPP_MAC		64
-> diff --git a/drivers/ufs/host/ufshcd-dwc.h b/drivers/ufs/host/ufshcd-dwc.h
-> index c618bb914904..a5e40e7604a1 100644
-> --- a/drivers/ufs/host/ufshcd-dwc.h
-> +++ b/drivers/ufs/host/ufshcd-dwc.h
-> @@ -39,25 +39,6 @@
->  #define RX_AFE_CTLE_IDAC(n)	(0x4001 + ((n) * 0x100))
->  #define FW_CALIB_CCFG(n)	(0x404D + ((n) * 0x100))
->
-> -/* Tx/Rx FSM state */
-> -enum rx_fsm_state {
-> -	RX_STATE_DISABLED = 0,
-> -	RX_STATE_HIBERN8 = 1,
-> -	RX_STATE_SLEEP = 2,
-> -	RX_STATE_STALL = 3,
-> -	RX_STATE_LSBURST = 4,
-> -	RX_STATE_HSBURST = 5,
-> -};
-> -
-> -enum tx_fsm_state {
-> -	TX_STATE_DISABLED = 0,
-> -	TX_STATE_HIBERN8 = 1,
-> -	TX_STATE_SLEEP = 2,
-> -	TX_STATE_STALL = 3,
-> -	TX_STATE_LSBURST = 4,
-> -	TX_STATE_HSBURST = 5,
-> -};
-> -
->  struct ufshcd_dme_attr_val {
->  	u32 attr_sel;
->  	u32 mib_val;
-> diff --git a/include/ufs/unipro.h b/include/ufs/unipro.h
-> index 9c168703b104..e0f490e11c7f 100644
-> --- a/include/ufs/unipro.h
-> +++ b/include/ufs/unipro.h
-> @@ -466,4 +466,24 @@ enum {
->  	CPORT_CONNECTED,
->  };
->
-> +/* RX_FSM_State encoding, MIPI M-PHY v6.0 Table 50 (M-RX Status Attributes) */
-> +enum ufs_rx_fsm_state {
-> +	RX_STATE_DISABLED = 0,
-> +	RX_STATE_HIBERN8 = 1,
-> +	RX_STATE_SLEEP = 2,
-> +	RX_STATE_STALL = 3,
-> +	RX_STATE_LSBURST = 4,
-> +	RX_STATE_HSBURST = 5,
-> +};
+>   arch/arm64/include/asm/mem_encrypt.h |  4 ++++
+>   arch/arm64/mm/mem_encrypt.c          | 32 ++++++++++++++++++++++++----
+>   drivers/firmware/arm_rmm/rsi.c       | 13 ++++++++++-
+>   3 files changed, 44 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/mem_encrypt.h b/arch/arm64/include/asm/mem_encrypt.h
+> index ef8b8463e52b..890faeed0eb3 100644
+> --- a/arch/arm64/include/asm/mem_encrypt.h
+> +++ b/arch/arm64/include/asm/mem_encrypt.h
+> @@ -10,6 +10,7 @@ struct device;
+>   struct arm64_mem_crypt_ops {
+>   	int (*encrypt)(unsigned long addr, int numpages);
+>   	int (*decrypt)(unsigned long addr, int numpages);
+> +	size_t (*cc_shared_granule_size)(void);
+>   };
+>   
+>   int arm64_mem_crypt_ops_register(const struct arm64_mem_crypt_ops *ops);
+> @@ -18,6 +19,9 @@ int set_memory_encrypted(unsigned long addr, int numpages);
+>   int set_memory_decrypted(unsigned long addr, int numpages);
+>   int __set_memory_enc_dec(unsigned long addr, int numpages, bool encrypt);
+>   
+> +#define mem_cc_shared_granule_size mem_cc_shared_granule_size
+> +size_t mem_cc_shared_granule_size(void);
 > +
-> +/* TX_FSM_State encoding, MIPI M-PHY v6.0 Table 47 (M-TX Status Attributes) */
-> +enum ufs_tx_fsm_state {
-> +	TX_STATE_DISABLED = 0,
-> +	TX_STATE_HIBERN8 = 1,
-> +	TX_STATE_SLEEP = 2,
-> +	TX_STATE_STALL = 3,
-> +	TX_STATE_LSBURST = 4,
-> +	TX_STATE_HSBURST = 5,
-> +};
+>   static inline bool force_dma_unencrypted(struct device *dev)
+>   {
+>   	return is_realm_world() || is_protected_kvm_guest();
+> diff --git a/arch/arm64/mm/mem_encrypt.c b/arch/arm64/mm/mem_encrypt.c
+> index ee3c0ab04384..69783c6a3c08 100644
+> --- a/arch/arm64/mm/mem_encrypt.c
+> +++ b/arch/arm64/mm/mem_encrypt.c
+> @@ -17,8 +17,7 @@
+>   #include <linux/compiler.h>
+>   #include <linux/err.h>
+>   #include <linux/mm.h>
+> -
+> -#include <asm/mem_encrypt.h>
+> +#include <linux/mem_encrypt.h>
+>   
+>   static const struct arm64_mem_crypt_ops *crypt_ops;
+>   
+> @@ -33,18 +32,43 @@ int arm64_mem_crypt_ops_register(const struct arm64_mem_crypt_ops *ops)
+>   
+>   int set_memory_encrypted(unsigned long addr, int numpages)
+>   {
+> -	if (likely(!crypt_ops) || WARN_ON(!PAGE_ALIGNED(addr)))
+> +	unsigned long size = (unsigned long)numpages << PAGE_SHIFT;
 > +
->  #endif /* _UNIPRO_H_ */
-> --
-> 2.43.0
->
->
+> +	if (likely(!crypt_ops))
+>   		return 0;
+>   
+> +	if (WARN_ON(!IS_ALIGNED(addr, mem_cc_shared_granule_size())))
+> +		return -EINVAL;
+> +
+> +	if (WARN_ON(!IS_ALIGNED(size, mem_cc_shared_granule_size())))
+> +		return -EINVAL;
+> +
+>   	return crypt_ops->encrypt(addr, numpages);
+>   }
+>   EXPORT_SYMBOL_GPL(set_memory_encrypted);
+>   
+>   int set_memory_decrypted(unsigned long addr, int numpages)
+>   {
+> -	if (likely(!crypt_ops) || WARN_ON(!PAGE_ALIGNED(addr)))
+> +	unsigned long size = (unsigned long)numpages << PAGE_SHIFT;
+> +
+> +	if (likely(!crypt_ops))
+>   		return 0;
+>   
+> +	if (WARN_ON(!IS_ALIGNED(addr, mem_cc_shared_granule_size())))
+> +		return -EINVAL;
+> +
+> +	if (WARN_ON(!IS_ALIGNED(size, mem_cc_shared_granule_size())))
+> +		return -EINVAL;
+> +
+>   	return crypt_ops->decrypt(addr, numpages);
+>   }
+>   EXPORT_SYMBOL_GPL(set_memory_decrypted);
+> +
+> +size_t mem_cc_shared_granule_size(void)
+> +{
+> +	if (likely(!crypt_ops) || !crypt_ops->cc_shared_granule_size)
+> +		return PAGE_SIZE;
+> +
+> +	return crypt_ops->cc_shared_granule_size();
+> +}
+> +EXPORT_SYMBOL_GPL(mem_cc_shared_granule_size);
+> diff --git a/drivers/firmware/arm_rmm/rsi.c b/drivers/firmware/arm_rmm/rsi.c
+> index 2cd53f82432f..eeb797c6c2c7 100644
+> --- a/drivers/firmware/arm_rmm/rsi.c
+> +++ b/drivers/firmware/arm_rmm/rsi.c
+> @@ -19,6 +19,7 @@
+>   
+>   static struct realm_config config;
+>   static struct kobject *cca_kobj;
+> +static unsigned long ipa_state_change_granule_size;
+>   
+>   unsigned long prot_ns_shared;
+>   EXPORT_SYMBOL(prot_ns_shared);
+> @@ -155,9 +156,17 @@ static int realm_set_memory_decrypted(unsigned long addr, int numpages)
+>   	return ret;
+>   }
+>   
+> +static size_t realm_cc_shared_granule_size(void)
+> +{
+> +	if (is_realm_world())
+> +		return ipa_state_change_granule_size;
+> +	return PAGE_SIZE;
+> +}
+> +
+>   static const struct arm64_mem_crypt_ops realm_crypt_ops = {
+>   	.encrypt = realm_set_memory_encrypted,
+>   	.decrypt = realm_set_memory_decrypted,
+> +	.cc_shared_granule_size = realm_cc_shared_granule_size,
+>   };
+>   
+>   static int realm_register_memory_enc_ops(void)
+> @@ -167,7 +176,7 @@ static int realm_register_memory_enc_ops(void)
+>   
+>   /* we need an aligned struct for rsi_host_call. slab is not yet ready */
+>   static struct rsi_host_call hostconf_call __initdata;
+> -static unsigned long __maybe_unused __init get_ipa_state_change_alignment(void)
+> +static unsigned long __init get_ipa_state_change_alignment(void)
+>   {
+>   	long ret;
+>   	unsigned long shared_granule_size;
+> @@ -218,6 +227,8 @@ void __init arm64_rsi_init(void)
+>   		return;
+>   	if (WARN_ON(rsi_get_realm_config(lm_alias(&config))))
+>   		return;
+> +
+> +	ipa_state_change_granule_size = get_ipa_state_change_alignment();
+>   	prot_ns_shared = __phys_to_pte_val(BIT(config.ipa_bits - 1));
+>   
+>   	if (arm64_ioremap_prot_hook_register(realm_ioremap_hook))
+
 
