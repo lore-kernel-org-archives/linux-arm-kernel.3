@@ -4,59 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BA3BC88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 13:33:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5687C88E5C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 13:34:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=00AtnTFlOjg772nPZMamjWO4ohHiTS+GbA6l0F4f6G4=; b=EWoepCb5bPL/s5DePcrOakXasp
-	su7uBL++YrY9LSzf+fHKLtpE9m4aI14QhtqwXazZG9ztWAK8JRosZrbqNyryTWIZpWX61jI0LRCQ2
-	abOogUgn6f/5lQrhKpSi35s92ghn/KQt6v60CgJZXi3pmwBc74MQs/PCE5oA1jwYEoLT0MKGKCbmf
-	puFLO0aE7XjkPdjxea09QYq47PVxHx3a91lnjvcPNvYs+4eTWL/yRzj2v/j3CG7KLvtTzi1LpgrT5
-	nAsd2sbPsDtJ+gsraFbhqyIrmi+RZ1/BYZcuEct1amXzycdZdVza6l47Q5Ai9uz5tg/srCjchCPR6
-	WwPTchhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9FuvqUYTUk3zI7XdM9JIf0yiGW/Yy2hsDkmp1yVcauY=; b=q7baZF3DC3ATFfpZqAg1WREwc4
+	lyeQEurtSAVL0hTdGHYAuEyu3gidMT+jbUK5r8OH6pTTYq6Qt0KoYXe2r+h7DVWQIUKxexdOV8RsO
+	DEhg+X7FiIBSryDNTtI9up1eESYac+9E1TxHvZX1Q4Me74XqV0h+LCVz1fXP6FFTNw7AylkWf5YVT
+	RLomuJpw4TDOaKB3/RHrTzN9z4zQYL2lLYMI72KQfZ7h9luO6CN/LwfcTKbTAOJCXpRlCjHRi1efE
+	EcRjbIJXpmDf1bFOrW+EAu7hHN52+c7rqe1xy7PV3KBMDo/OgvPjUqfEQnyqpCrtP/fkxD3BvYbtQ
+	hOdWXPmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6or6-00000009B7A-3dEc;
-	Wed, 16 Sep 2026 12:35:16 +0000
+	id 1x6pmL-00000009GwC-31wu;
+	Wed, 16 Sep 2026 13:34:25 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6or4-00000009B6k-4ASG
+	id 1x6pmI-00000009GvV-1VCy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 12:35:16 +0000
+	Wed, 16 Sep 2026 13:34:23 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9389A152B;
-	Wed, 16 Sep 2026 05:35:09 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C38CA3F7B4;
-	Wed, 16 Sep 2026 05:35:11 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7B09F152B;
+	Wed, 16 Sep 2026 06:34:17 -0700 (PDT)
+Received: from [10.41.4.144] (e142021.arm.com [10.41.4.144])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 94C873F86F;
+	Wed, 16 Sep 2026 06:34:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789562113; bh=Op1NyF8N8G6gt5qdhV5aOHeCjZNmST0Aq6Tq9dA/a5I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JNlDyhNIEisaCgDhSdHO7WiOYNl/Y63Jc+5Helh/6XuIeSWv9m1IlE19liB5WB74P
-	 rIucpaZ/17XnM5mevYWlHl2XylaZi7Rl1QSUX147RTq8MzibUucMKYvekGu9oOem1i
-	 /4k/2OUi+BGxjQ1Ja7x+RCow9gQM9cpaxe+8E6aM=
-Date: Wed, 16 Sep 2026 13:35:08 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Zeng Heng <zengheng@huaweicloud.com>
-Cc: anshuman.khandual@arm.com, gshan@redhat.com, will@kernel.org,
-	suzuki.poulose@arm.com, zengheng4@huawei.com,
-	linux-kernel@vger.kernel.org, wangkefeng.wang@huawei.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2] arm64: io: Reject non-user protection in
- ioremap_prot()
-Message-ID: <aqqM_NoRRePxXzOO@arm.com>
-References: <20260911015859.71164-1-zengheng@huaweicloud.com>
+	t=1789565661; bh=ftIdCVik7QqH4xKTjNDb9LuQ3p0M9m/C7lYXHanN8u4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=al3ayKYA2ld+DoLtfVmbjgfXPiCPeVw7LGeHrB75PUIsZ/FCejl2MbsdfDN7P7v37
+	 LaDa5paWpboAEyq7fpEuJRCqgMiJ+iIxZpKgSZu7Er74jM4wT5EKGvV5r459TEWfrl
+	 9kneuZzDGCUYfXp/MkgEiO4JeXyu7DM7ghxzFkXs=
+Message-ID: <4f35abf6-6dac-4c60-9ece-c1af02a98c9c@arm.com>
+Date: Wed, 16 Sep 2026 15:34:06 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260911015859.71164-1-zengheng@huaweicloud.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm_mpam: resctrl: Catch and propagate error from
+ get_cpu_cacheinfo_id()
+To: Ben Horgan <ben.horgan@arm.com>, James Morse <james.morse@arm.com>
+Cc: Reinette Chatre <reinette.chatre@intel.com>,
+ Fenghua Yu <fenghuay@nvidia.com>, Tony Luck <tony.luck@intel.com>,
+ Dave Martin <Dave.Martin@arm.com>, Yin Li <yin.li@oss.qualcomm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260902143757.3469690-1-andre.przywara@arm.com>
+ <ea42f2a7-f4f7-46ab-a5e0-239c74174499@arm.com>
+ <2c682691-3037-4d62-a941-bc41baca35aa@arm.com>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <2c682691-3037-4d62-a941-bc41baca35aa@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_053515_072675_F39C00FD 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20260916_063422_479909_73AA326B 
+X-CRM114-Status: GOOD (  22.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,29 +75,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 11, 2026 at 09:58:59AM +0800, Zeng Heng wrote:
-> diff --git a/arch/arm64/include/asm/io.h b/arch/arm64/include/asm/io.h
-> index 21c8e400107c..31e67f6bd4a7 100644
-> --- a/arch/arm64/include/asm/io.h
-> +++ b/arch/arm64/include/asm/io.h
-> @@ -272,7 +272,8 @@ static inline void __iomem *ioremap_prot(phys_addr_t phys, size_t size,
->  	pgprot_t prot;
->  	ptval_t user_prot_val = pgprot_val(user_prot);
->  
-> -	if (WARN_ON_ONCE(!(user_prot_val & PTE_USER)))
-> +	/* Reject PROT_NONE and exec-only */
-> +	if (!(user_prot_val & PTE_USER))
->  		return NULL;
->  
->  	prot = __pgprot_modify(PAGE_KERNEL, PTE_ATTRINDX_MASK,
+Hi,
 
-Looks alright to me:
+On 9/16/26 11:49, Ben Horgan wrote:
+> Hi Andre,
+> 
+> On 07/09/2026 13:59, Ben Horgan wrote:
+>> Hi Andre,
+>>
+>> On 02/09/2026 15:37, Andre Przywara wrote:
+>>> get_cpu_cacheinfo_id() can fail, in which case it returns a negative
+>>> error value.
+>>>
+>>> Check the returned value for this error condition, before passing the
+>>> value on to other code, which would hide the negative number in some high
+>>> value in the unsigned type.
+>>>
+>>> Fixes: 36528c7681b8 ("arm_mpam: resctrl: Add support for 'MB' resource")
+>>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+>>
+>> This looks good to me. Out of interest what led you to find this?
+>>
+>> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+> 
+> I seem to have been a bit hasty here.
+> 
+> Sashiko points out at [1] that 0xFFFFFFFF is the only value we were previously considering invalid
+> and that the value coming from dt or acpi can provid other valid values that would after this patch
+> be considered invalid.
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Fair, and I can easily change the check to only check explicitly for -1.
 
-It would be good to get Sashiko's finding sorted out as well
-(pre-existing issue). I reckon that should go in the core code.
+But this is somewhat broken already, right? I mean the return type for 
+the existing get_cpu_cacheinfo_id() has always been "int". It looks like 
+this comes from the x86 world, where the cache IDs never get that large? 
+I can have a deeper look, but my gut feeling is that this is practically 
+irrelevant, since we barely see Aff3 at all, not to mention high values 
+of it.
 
--- 
-Catalin
+Cheers,
+Andre
+
+> 
+> [1] https://sashiko.dev/#/patchset/20260902143757.3469690-1-andre.przywara%40arm.com
+> 
+> Thanks,
+> 
+> Ben>
+>> Thanks,
+>>
+>> Ben
+>>
+>>> ---
+>>>   drivers/resctrl/mpam_resctrl.c | 5 ++++-
+>>>   1 file changed, 4 insertions(+), 1 deletion(-)
+>>>
+>>> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+>>> index 9d223057953ab..a5e661eff86d7 100644
+>>> --- a/drivers/resctrl/mpam_resctrl.c
+>>> +++ b/drivers/resctrl/mpam_resctrl.c
+>>> @@ -786,7 +786,10 @@ static u32 get_mba_min(struct mpam_props *cprops)
+>>>   /* Find the L3 cache that has affinity with this CPU */
+>>>   static int find_l3_equivalent_bitmask(int cpu, cpumask_var_t tmp_cpumask)
+>>>   {
+>>> -	u32 cache_id = get_cpu_cacheinfo_id(cpu, 3);
+>>> +	int cache_id = get_cpu_cacheinfo_id(cpu, 3);
+>>> +
+>>> +	if (cache_id < 0)
+>>> +		return -ENOENT;
+>>>   
+>>>   	lockdep_assert_cpus_held();
+>>>   
+>>
+>>
+> 
+
 
