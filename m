@@ -4,113 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21E95C982C3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 13:29:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33F43C88E5C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 13:31:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TqbeODdYQEEftgsPxXsYkF97yhYGAJosPirzjv//pFQ=; b=F4ZdGoDPpiNejk/Vk6Bm910itb
-	qdv/CkwlcMpj/ecnHv7hQKcI8x10BTP5d9mD9RW9yJ5t5Wu5Kxfb1wRwAiRl+y2TC0IGS64N1bs+U
-	4NrJjj10W+Q+rSWmO6tkwGxhRfuqTS9X41I3kGVQdWiqQ1QDZRyXqfyPuHYD7b7I78xgZBcjPcGK8
-	l4r0QoOzcDKO9dYMqYg1lIQEiPD/dlk7p072V5SxlQBoQoAmaIu3qOAAPOPKOHuVCZ/x9hJ9vOCon
-	QzdJV4Pt6W4d86hI20wcxkraEq2CxZW5mzJ8UhLSVmHxmWZJINQNQbZR+u8GUJrFaUx/RevV9NdM3
-	aK/rNmLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rLqupxzjXmzvfUPsB8zm1Mahn5C+EFV39FmCjpXtCPE=; b=QxQMUyu3GrZDuhUtY8Kmit8SmV
+	x0fxbEhlBvgziaS8OkRB3LsnRu0mEOjWVl31KnVFM2G4W5VqJNreyLBA7MUnYF7xvdDJXsD2oQLgF
+	dWJWL1o69qNmV4m9F4R8goM6uqkxfGpFSDdFBHFHqyGlM32wguC5o+6uuOJFM4obRTAJ65Q6B+sY8
+	na6aVobE8cTKNlMflemfDvJMu/H9EBkBnRoYoK84LbCPNbZidAdZMFDXgA7FGif17vp5PHNceZVQ2
+	T4oHD9/90VstdSCIaJqj1HchqnF4p0yZeNlPkEMBRK6X7nPJwxSyokCUCDHwd8NSI+ssydsroJId7
+	TglO+hOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6ph4-00000009GJX-18wd;
-	Wed, 16 Sep 2026 13:28:58 +0000
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	id 1x6pix-00000009GWr-2YLl;
+	Wed, 16 Sep 2026 13:30:55 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6ph0-00000009GIh-3kbj
+	id 1x6pis-00000009GVi-0i9w
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 13:28:56 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49fbc3db5fbso139645e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 06:28:54 -0700 (PDT)
+	Wed, 16 Sep 2026 13:30:53 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68GCYYPx3636729
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 13:30:33 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=rLqupxzjXmzvfUPsB8zm1M
+	ahn5C+EFV39FmCjpXtCPE=; b=Gys/7DUhcmYcSGG/8N80nL+MQLYqGttWhw+nxa
+	2x7fiei3Qw+Vo1JQ1SEXrqJhTsPsvAelZ3DDOEMnHlysX7fi/C2vQAzDNH3PN/eD
+	h2+bw+u+qt2MIw2JVaGUd/66bUCvA1mN6yW/TPI87C/Ij8kHq479GC3fWgr5Yepd
+	+xxcp9XRpLcWkTL7EZDkdZi5rck7D5Y7/BI/UO1RaQiVoEkqlWssYYPt2/rEHHIo
+	SOhlxdnjW7CK3ILTvhrhmQ3TWVPC3ntMyLYWGvsS+RE8L66yfFyOnwAudKYXPVsv
+	XL2XqhGnKd5J1TUml6qNg3GDW2pFQGAZmmv66uUWBq2WUdCg==
+Received: from mail-vs1-f69.google.com (mail-vs1-f69.google.com [209.85.217.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gqpu2sdm8-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 13:30:33 +0000 (GMT)
+Received: by mail-vs1-f69.google.com with SMTP id ada2fe7eead31-78fa7ff1a44so1336083137.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 06:30:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789565333; x=1790170133; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=TqbeODdYQEEftgsPxXsYkF97yhYGAJosPirzjv//pFQ=;
-        b=iZ7ygLsCSNJexHvSk6quL72jXCskCMMpP2leItgIBjZBXKmzclR8NFFsLpMjrbaptn
-         doz4GkuHkzRq0zMHmdFErloLFj3Yb3G1xsh2NK6WTNY5aKmQ3rqOtslBP+efAoq0+YTW
-         LUT9tSYQGAKHqIt3X9N3BwwlSJQ3RepVvkC27El4ILZxuB7xt95OD6uJQnKcEQQOhH6E
-         pfETO30+R65sBGKIn9KO8z/DneoDJWNNogMw2UYYxcOj5wIerwm7odAsM4R48HTcG2KV
-         /jT75buwH3Ey6bzCPxg+vwHlXd27dCeMotcgVZznJT6fZ+/ZPoHecOAKx/HQs1NRC4G1
-         /NWQ==
+        d=oss.qualcomm.com; s=google; t=1789565431; x=1790170231; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=rLqupxzjXmzvfUPsB8zm1Mahn5C+EFV39FmCjpXtCPE=;
+        b=FctzUJT8oaimKH2qALnCpS/BBmOHq9E/39jVzcj47ftchJUE2RsCN6O2rwySjFRtp/
+         KYhWOkirSecugHul1/zZNWkGk2FbKZQbkAvK+q1CsOgbfStBFyNJ9/ZrAWxNppRqfGjG
+         WxSBfHZQA6hy9gUJkru2KH6MuCUdm9doFjI3nkOshyWzpcMrxp6jp8kQh2e19iIcAQvA
+         ZjeI14RogU5lDuoLA+RbzvNgX22kh3YxjuczfeDvthh3z9yOXXsRtnjeI+mmz+MMotAl
+         7beaZwiwbOUQpMXxMUybnyG0HTTNO5+0Fzx8xpe9w/G58UoVaGZfbNXXjNbxrhX/AcOU
+         vIAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789565333; x=1790170133;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=TqbeODdYQEEftgsPxXsYkF97yhYGAJosPirzjv//pFQ=;
-        b=HyVvp3zrGBgduKv7EAhJO5aXIdnApaMvxBC9xwJ2AwsKujv2A0oklE+tEmcgQjS2JC
-         YuvcSj+xfKQnWu48x2T9jP/Jt/8VfVcEf19EZZoQ/pOUOTZCDQkFiC9rP7/RJGU2BpAB
-         58+KXx/cJFGGMINs7yHoXlvzsi4JGDCdoA8ZTmvOarthSiCiyXTws9ZORCOVmqU2U9m9
-         XLde2CPfSG1976B4qlxBLkku0x2DEJtvJGdM/A9L8SNDWER/avG7J/m5lr7fmUv+4AkJ
-         tdnFCwo/PVRKjkdNCwAPSemPmZ4bE0EXUuq09Q9+JB7X2xBFNGrZQUSo5ygxCfmJ4bGc
-         2wog==
-X-Forwarded-Encrypted: i=1; AKwUvBzt92WTjJJtkTfbmDk5UvamIw3FRnsryWEaDcMaBZIyFieH86gBGVLB/RcUKVi0k8ianbDS6xv/AlmvXaq9igiV@lists.infradead.org
-X-Gm-Message-State: AFuF++nYyI9E9+ydbj9vp7ExR4qyaIjBOnueyrEB9pqGPFhiQeGnYw0v
-	p9jSjoQKgZPhQbxnw653FkEnt+wjFFVbgNieqQo9PCGLP2gBxGCRBVaK
-X-Gm-Gg: AYBFou0FohkJU335BxGjYPP+HBcMrqHrfb3rO3jeS52HA0PHfZFnTudom3SE3ollfnJ
-	mcJWX/IXZG+6mtZPWLnSw9eJctep3O25M4aIulucb3r83qC7L3AS89llWp5T55zFhnnrSzXfYnu
-	gjrp7nxRka/QrtBy+YguYP+wH24lBWdCjpLvXpb8OtAEeOiscndmsBaE1siK7tOigABj9C5tmLr
-	TXLIzfhN3ExNeeJAqWpp2jWLggzhFzcCwZz01pHsv5nJ5nUYC/vmJOBi2qfcLdRj1mHk+4OdiCX
-	HGpx6GCtKn0cYZ/eJmUies9Qtiw5bD0uS9r79B5suschGfq9yatMxjOl5+hcUKF7WBZo2AHNDaf
-	kIyW9MLxKynC53aAy9nu4XMUCtp3IaeCw9zIYRX1PDI3hNAAYrO8XN+xj35/91GO7DgYClXiFac
-	jkvkWvqovLPpQsw29mbmiGlhr3z9ApE1on8v+DWXzb3TG+oQOoAS/B9nRJTB6K2gFybTLi6KO1e
-	WX5aMYdBHjIzm1MuHbDmFgOlAlvAoGDf+v7MuZTgdImpRJqTSYk5dbdl+VzyjmMuWKf7DwekDDT
-	b30=
-X-Received: by 2002:a05:600c:4e89:b0:49e:745d:5768 with SMTP id 5b1f17b1804b1-49eac4112e9mr27160505e9.0.1789565332521;
-        Wed, 16 Sep 2026 06:28:52 -0700 (PDT)
-Received: from OrangePi5-Plus.BB-HOME (20014C4E1B8E02001A623C292D45A2B3.dsl.pool.telekom.hu. [2001:4c4e:1b8e:200:1a62:3c29:2d45:a2b3])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e847da0cdsm594135e9.2.2026.09.16.06.28.50
+        d=1e100.net; s=20260707; t=1789565431; x=1790170231;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=rLqupxzjXmzvfUPsB8zm1Mahn5C+EFV39FmCjpXtCPE=;
+        b=dLhJxpyi6ZsNH5mqLNhwFU6onH+V154+z7KeMyOfVc4HqHts2KrCGH/7jGcGnEj9cC
+         CNzr/RglUjwOZRWTAiW2RfL34ZeJOXq1GTMDq2Aso29qeURN4HO6CFu24lFg0ug0swoF
+         /RqEBA898b0Ts68ZgoCBN/cNl5Yndp81D9fcj6GRz09/IdRR0XUyrLODW3hbUhaHFF0f
+         8DOlI4s07GADEIQP5usZRD1a1UJuzelBiVIYpWko9Eb4fRGDNcqA7v9FqJy1F7z8p9qo
+         O/fyy4O2mWh9M8keSeXQepk8YibGVGqDn23UWF0q4aAR/Oz+GiSpG9YB573OIrxojxKR
+         F4VQ==
+X-Forwarded-Encrypted: i=1; AKwUvBw/sBmShPeNScTTzzH2uPAR8L6u6CBgl2c0Y95O/SqudlvL1zEM/IpKbHkBHxeFB9zkjE3I3S2xFqIW0PYC+Acr@lists.infradead.org
+X-Gm-Message-State: AFuF++n3koqPh3irKY87R1cqN3B++pVkYf9IjgHa6RA4dnC5ZWSpPqyc
+	uXy5+lKElLfho+HSPRptyJvnRj4rYz//HLzjU0rUjGQZrs61sBkidqM8evaB0mWVtftvfZ1GFBL
+	Rm4i78zmfCcHZtQQPdmy5V6ODDLhzp5FWBFAOsSvJGO04xoZ0vwVmmyiiOMEedW3L/rKz+uUbUL
+	1Rxtcgn2j7Rg==
+X-Gm-Gg: AYBFou1Zb0QRHDBD8cWobJEOQqYjXdovIK9EtbwRX5EfBQ+hlEnG/InuR5gXnLgUt0V
+	Ztc2KHkPyifJvSny5iH2kJ3PdnmFvFHNeLO+WQrsADm3X66RKnh2+AqkBWY/By6Oa4PLK3c81d/
+	rtXXbG9SuUD4NVUbbL/9ajv2NvKmVx18qoxr2c7QeBp/N8in4Erxb1qt0azZ7EAvdL0qv4cNRh8
+	u7FqhcTUSsSmsyp8+Pnm4pSTFY9JIlNaLTHxm8veaz3JfyBRmjxfryZULeiRzNRiM4MO9Gd08Sr
+	f4m8aNTsGzfHv620Qf5Stl+O8n6pf8K07gCYVIC5U7BnuJ01vTLpmhExzi4gUY/WRj0Sh81aIjn
+	7mWZ6Kl87u71eiA==
+X-Received: by 2002:a05:6102:1495:b0:79d:dab6:66c5 with SMTP id ada2fe7eead31-7a024dcd3a9mr2963941137.2.1789565431479;
+        Wed, 16 Sep 2026 06:30:31 -0700 (PDT)
+X-Received: by 2002:a05:6102:1495:b0:79d:dab6:66c5 with SMTP id ada2fe7eead31-7a024dcd3a9mr2963772137.2.1789565430895;
+        Wed, 16 Sep 2026 06:30:30 -0700 (PDT)
+Received: from localhost ([188.216.77.92])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c29de5b22b2sm136121366b.36.2026.09.16.06.30.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Sep 2026 06:28:52 -0700 (PDT)
-From: Igor Paunovic <royalnet026@gmail.com>
-To: Jiaxing Hu <gahing@gahingwoo.com>
-Cc: Tomeu Vizoso <tomeu@tomeuvizoso.net>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Ulf Hansson <ulfh@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Oded Gabbay <ogabbay@kernel.org>,
-	Elaine Zhang <zhangqing@rock-chips.com>,
-	Abel Vesa <abel.vesa@oss.qualcomm.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Sidong Yang <sidong.yang@furiosa.ai>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Diederik de Haas <diederik@cknow-tech.com>,
-	Alexey Charkov <alchark@flipper.net>,
-	dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
-	iommu@lists.linux.dev,
-	linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Igor Paunovic <royalnet026@gmail.com>
-Subject: Re: [PATCH v13 03/14] accel/rocket: wait for a running IRQ handler before resetting a core
-Date: Wed, 16 Sep 2026 15:28:24 +0200
-Message-ID: <20260916132824.13527-1-royalnet026@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260915104328.45901-4-gahing@gahingwoo.com>
-References: <20260915104328.45901-1-gahing@gahingwoo.com> <20260915104328.45901-4-gahing@gahingwoo.com>
+        Wed, 16 Sep 2026 06:30:30 -0700 (PDT)
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Date: Wed, 16 Sep 2026 15:30:13 +0200
+Subject: [PATCH net] net: ethernet: mtk_eth_soc: unregister net_devices in
+ case of probe failure
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260916-mtk_eth_soc-netdev-fix-v1-1-5dac50eb65b1@oss.qualcomm.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2MUQqDMBAFryL73YUkVqG9ipQg+lKX0kSSIIJ4d
+ xc/5zFvDirIgkLv5qCMTYqkqGAfDU3LGL9gmZXJGdebl+35X38edfElTRxRZ2wcZOfRdQgtume
+ AIT2vGTrf4YHUo895XppOe8ZtAAAA
+X-Change-ID: 20260916-mtk_eth_soc-netdev-fix-a25ef3e54fe0
+To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+        Sean Wang <sean.wang@mediatek.com>
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-mediatek@lists.infradead.org,
+        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Proofpoint-ORIG-GUID: KQRQiw8fnPf6rlxdfZoBDVyim5-bFqiK
+X-Authority-Analysis: v=2.4 cv=NelzRGD4 c=1 sm=1 tr=0 ts=6aaa99f9 cx=c_pps
+ a=5HAIKLe1ejAbszaTRHs9Ug==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
+ a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
+ a=EUspDBNiAAAA:8 a=q-zEs5IEZV_uNfpMk_gA:9 a=QEXdDO2ut3YA:10
+ a=gYDTvv6II1OnSo0itH1n:22
+X-Proofpoint-GUID: KQRQiw8fnPf6rlxdfZoBDVyim5-bFqiK
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE2MDE4MSBTYWx0ZWRfX9cRj1wnHztAt
+ 97Md0n3jEQDTTGk0+c9NLFFeZsPG1wCo4syrcQexrLKpnCcG+0oFoPqmJ156yOgLuYC+XX+C+Ut
+ zsj4azG5mtjWiNeMFsE7+JEoBPJzyVrjMhil7314Ew/4edymLr6y3j3wLiuoL927AHeTGeG/nR+
+ vF8k0keg32WFHkc96cZVcBnf6KV+j1IwoL/F+9U1zbMJasO0JoWUQKJ8yzH2AfbqSt8CZT6gfjD
+ inpt6nBkosXg2tKXPtLRJDg5N0gieBVZ0r1nTwH/jkd4to/Cjn6MB9rQZbKogc3clbjar+lCMNS
+ nbNYP20JACpQsvVhVC3mNnrBNqaMsE4ZCJNdJuxGXLxFTa9L0cVG1/1VxX58+XsvzdLC+tsIWwW
+ 0+PSm1Ni0DQUaNodiUPlcFRL4XSgnFja2gHV5xtWbcwKYgrqZvjBOO0SuKDbeXDGDgcNAHyNhXx
+ YBJl8IFSNazvlcezLPg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE2MDE4MSBTYWx0ZWRfXzW6cYHEUiCj9
+ teulOWuWXAri1mbqpXhfiAGTgZUkqSu3cqBMUlqbAHrbt7Qt8pdFURe1pCWRGTKKKu35RLDvSbd
+ 9RQIpJdH/PXPBzen6Mtmv5HyG78Id9I=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-16_02,2026-09-15_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 adultscore=0 impostorscore=0 spamscore=0 clxscore=1015
+ bulkscore=0 malwarescore=0 suspectscore=0 lowpriorityscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609160181
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_062854_949471_082DE324 
-X-CRM114-Status: GOOD (  11.53  )
+X-CRM114-CacheID: sfid-20260916_063050_301707_63E56FE2 
+X-CRM114-Status: GOOD (  15.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,35 +156,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jiaxing,
+If register_netdev() fails for one of the MTK_MAX_DEVS devices in
+mtk_probe(), the error path jumps to err_deinit_ppe, skipping
+mtk_unreg_dev(). The previously registered net_devices are then freed by
+mtk_free_dev() while still in NETREG_REGISTERED state, hitting the
+BUG_ON(dev->reg_state != NETREG_UNREGISTERED).
 
-Thanks for flagging the job_lock change in the cover. I re-ran the
-same protocol today on v13 as posted, 2+3 and 2+3+4, three runs each,
-same board, base and config as on 12 September (JOB_TIMEOUT_MS=2,
-PROVE_LOCKING, DEBUG_ATOMIC_SLEEP): 73 induced resets with nothing
-from the driver beyond the timeout message itself, no MMU faults, no
-lockdep report or warning, and lockdep still armed at the end on both
-kernels. Of the 126 inferences scored, 118 matched the CPU reference
-within 1 on all 48 channels, and 8 missed on all 48 with the channels
-the scorer prints reading 0x80; in the two runs traced with the
-kprobe, those 5 results sit exactly where the 5 -ECANCELED completions
-do.
+Route the register_netdev() failure to err_unreg_netdev so the net_devices
+registered so far are properly unregistered before being freed.
 
-The limits are those of my 12 September mail (all resets on core 0,
-one client), plus one more: the model is a single 1x1 convolution,
-which Mesa submits as a one-task job (one completion interrupt per
-good inference), so hw_submit() never ran from the IRQ thread, which
-the race you describe needs. So this shows the lock adds no lockdep
-report or hang on this path, not that it closes the race. On that
-basis the tag stands for the v13 form of 3/14, with the same comment:
+Fixes: 8a8a9e89f801 ("net: ethernet: mediatek: cleanup error path inside mtk_hw_init")
+Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+---
+ drivers/net/ethernet/mediatek/mtk_eth_soc.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-Tested-by: Igor Paunovic <royalnet026@gmail.com> # RK3588, three cores, induced reset, JOB_TIMEOUT_MS=2
+diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+index fd7a49ae88d0..2ea5dfe85539 100644
+--- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
++++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+@@ -4509,6 +4509,10 @@ static int mtk_unreg_dev(struct mtk_eth *eth)
+ 		mac = netdev_priv(eth->netdev[i]);
+ 		if (MTK_HAS_CAPS(eth->soc->caps, MTK_QDMA))
+ 			unregister_netdevice_notifier(&mac->device_notifier);
++
++		if (eth->netdev[i]->reg_state != NETREG_REGISTERED)
++			continue;
++
+ 		unregister_netdev(eth->netdev[i]);
+ 	}
+ 
+@@ -5344,7 +5348,7 @@ static int mtk_probe(struct platform_device *pdev)
+ 		err = register_netdev(eth->netdev[i]);
+ 		if (err) {
+ 			dev_err(eth->dev, "error bringing up device\n");
+-			goto err_deinit_ppe;
++			goto err_unreg_netdev;
+ 		} else
+ 			netif_info(eth, probe, eth->netdev[i],
+ 				   "mediatek frame engine at 0x%08lx, irq %d\n",
 
-If 4/14 changes shape in v14, I will re-run that arm. The scripts and
-the tallies were prepared with an LLM assistant; every number above
-was counted from the raw files of each run (scorer output, kernel and
-serial logs, kprobe trace), not from the scripts' summaries.
+---
+base-commit: ceac0de741bfb47ca255eee075257b3bb31f0651
+change-id: 20260916-mtk_eth_soc-netdev-fix-a25ef3e54fe0
 
-Regards,
-Igor
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+
 
