@@ -4,76 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FFD0C88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 11:44:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A891C88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 11:50:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cUpSAShM1iFVA9tQq7QEj0VN9vBy+vZF0uG3dEujTMA=; b=cfP1BWkanvEzl39m9fqTzfAKvE
-	j3PNPqAgMriW6+7CrD8JEjveX1QF/mi0M4UKKcf8cjFh6MWwxxcc8UtdZqxHCTM05R2XQVZEi7r2o
-	178Vl/hLSmbAgzEmwQ1fdWv/jG65ybSHiYuo77Whuxe047PVUQKSyD4hTl92S9oFE44xUuVPyZuYv
-	U5K95hBOZPUAvzZP4lc8GuIE/96nXsqhqd2N5Mo2+n97KqiWhjVw7RdHx0om2p62kfzJmM8jU/xZO
-	ByrNTGJVi6cx/h/PC+Wi/jughdIiyVTMpq2UUxDd8uS12hqzuZiyxmWnAVUw/NsUh4T11hTpX13I6
-	YJm6+OtA==;
+	bh=LjgLSw2MeL5vGjW/rbVSbpNes7RvuqTBrpBub5QjU2E=; b=bNo1bTDboK0tTxR7keQ8A2FsKT
+	qVp9RXLukmuvUVgx8S67Iwu8X7dpq450qrJAfpMwSNiD3RZGIJdvDKQWa3/yWU+pOc66KD+aEGZLH
+	lZ6PUJrFHQ6YxQ/N1VFaSNNyhu1pnFwj5GQAqVArzFhGuP9pWrpVsJHlYogBI7M9QprUyrfyxGY3Q
+	CAlNXM5NoBwtJaBZMsSzXzuN2mGEn+Y5Q6rUONsIPi30IjvIldXH6FUw2bW36/CYlGG42gaUwBbu8
+	uqZNavdnwd203eFaBcwGTeXlHgKvxguHhB7EBn4M0K6oaMrWams/7HnwYat0Ol7GbIWcVkt1kBzFx
+	qdR0DRfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6o3R-000000096aA-345d;
-	Wed, 16 Sep 2026 11:43:57 +0000
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	id 1x6o9G-0000000973c-3CQF;
+	Wed, 16 Sep 2026 11:49:58 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6o3P-000000096Z0-1zd1
+	id 1x6o9F-0000000973R-0Ald
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 11:43:56 +0000
-Received: from francesco-nb (xcpe-178-82-167-143.dyn.res.sunrise.net [178.82.167.143])
-	by mail11.truemail.it (Postfix) with ESMTPA id 9B7621F822;
-	Wed, 16 Sep 2026 13:43:51 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1789559032;
-	bh=cUpSAShM1iFVA9tQq7QEj0VN9vBy+vZF0uG3dEujTMA=; h=From:To:Subject;
-	b=iGnsgwB1t8BQiAyma9+PcqCCNUQ9kO/L0seDWZDZH+D/kRhX3fW9nyl42r81Xwv5S
-	 gN7DtrHKezx9zkqKAUoa5LZknZ/J+RlZNghUtueWC0RVf17cR7HlEsLg42SUaPmxTQ
-	 P5w+CKq/cAbAM1d80+SNuHyccsYQCHEYF9IYBlxkgyz/i76jI4qKH6tgNjbP2Yl25Q
-	 KfBTudr6/BAMpKGPLwip98RsojigAteaPIjhQoQ+w+Gl26cO1qOzTput1VECqE4Y0+
-	 8mUFyTlWf5lCARIja/AQi+Bts2B8zln5XJjQj8I+6/Xu1IsgXy63Xc5XWrCG73ggJe
-	 cGenXn2sstU3A==
-Date: Wed, 16 Sep 2026 13:43:50 +0200
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Francesco Dolcini <francesco@dolcini.it>, Marek Vasut <marex@denx.de>,
-	Stefan Agner <stefan@agner.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Alexander Stein <alexander.stein@ew.tq-group.com>
-Subject: Re: [PATCH v4 2/4] drm: mxsfb: Add optional DPI output bus-width
- configuration
-Message-ID: <20260916114350.GB284106@francesco-nb>
-References: <20260813092836.38367-1-francesco@dolcini.it>
- <20260813092836.38367-3-francesco@dolcini.it>
- <178954813309.214898.6895255097019153080.b4-review@b4>
- <20260916091543.GA277833@francesco-nb>
- <DLGP7GKZJBOP.350QK94UOGRYV@bootlin.com>
+	Wed, 16 Sep 2026 11:49:57 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id BB6EF4082A;
+	Wed, 16 Sep 2026 11:49:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5DCB1F000FF;
+	Wed, 16 Sep 2026 11:49:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789559396;
+	bh=LjgLSw2MeL5vGjW/rbVSbpNes7RvuqTBrpBub5QjU2E=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=V5d9o3/Q56q/nqPu66WlLzFTSH6eWM2fvDyPPX8s53fRCK2Q4O8mXKdFR0+sbs4IM
+	 2Uwtw0HbQW92rHuVl1BRdMmS+JBi+A53ws4jhb/0x8xMqEmbrJRf1ez2/gq+XxywCD
+	 sX0MDaUpqS4H6oIy3MWelsBGsGl3NISxAI19FIlqC/bHydqGRsQbF4m/Ge31FLNRqo
+	 i93OKRE2fMcVSlBPlRY6NsueMZQiQDCdiSR0GDDp/8Gg/gaWIhL75hrID+CApdizns
+	 VfNMFIbiltLrr+zVODBlxTccoWGyG6MiEPtm8myDzVO+ORhK8XGt/eg9J6VtSngcQX
+	 FKcxG7AGCUPOA==
+Subject: Re: [PATCH net] net: axienet: bound TX completion cleanup by the NAPI budget
+From: netdev-bot+sashiko@kernel.org
+To: maimon.sagi@gmail.com
+Cc: radhey.shyam.pandey@amd.com, netdev@vger.kernel.org,
+ robert.hancock@calian.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, michal.simek@amd.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Wed, 16 Sep 2026 11:49:55 +0000
+Message-ID: <178955939540.22033.11518643324722820075@kernel.org>
+In-Reply-To: <20260914114821.55503-1-maimon.sagi@gmail.com>
+References: <20260914114821.55503-1-maimon.sagi@gmail.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <DLGP7GKZJBOP.350QK94UOGRYV@bootlin.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_044355_724861_E9C28C8B 
-X-CRM114-Status: GOOD (  34.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,72 +71,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 16, 2026 at 01:19:08PM +0200, Luca Ceresoli wrote:
-> On Wed Sep 16, 2026 at 11:15 AM CEST, Francesco Dolcini wrote:
-> > Hello Luca,
-> >
-> > On Wed, Sep 16, 2026 at 10:42:13AM +0200, Luca Ceresoli wrote:
-> >> > LCDIF programs LCD_DATABUS_WIDTH from the selected media bus format. The
-> >> > format reported by the downstream panel or bridge describes the display
-> >> > input, but it does not describe how the LCDIF data pins are physically
-> >> > wired on the board.
-> >> >
-> >> > These can differ. For example, a 16-bit LCDIF bus can be connected to a
-> >> > 24-bit display by wiring the available color bits to the corresponding
-> >> > display inputs. In that case, using the display's 24-bit format to
-> >> > configure LCDIF selects the wrong data-bus mode and changes the assignment
-> >> > of color bits on the LCD_DATA pins.
-> >> >
-> >> > Read the optional bus-width endpoint property from the LCDIF output port
-> >> > and use it to select the media bus format used to configure LCDIF. This
-> >> > allows the LCDIF bus mode to describe the physical interface
-> >> > independently of the downstream display format.
-> >> >
-> >> > When the optional property is absent, or it has an invalid value, continue
-> >> > using the format reported by the downstream display device, preserving
-> >> > the existing behavior. The code is not validating the DT for
-> >> > correctness and just fall back to the previous behavior in case of
-> >> > errors.
-> >>
-> >> Why? Generally speaking errors are better spotted immediately, not ignored
-> >> silently.
-> >
-> > My understanding is that the C driver code should not validate the DT
-> > and that this is the general recommendation when parsing properties from
-> > the DT.
-> >
-> > The DT checker is going to spot errors in the DT even earlier and in a
-> > static way.
-> 
-> Drivers typically check for invalid values.
-> 
-> And people writing their private dts can do mistakes and not run the static
-> checks. Bad on their side, sure, but having a runtime error would be useful
-> there.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider:
 
-Understood. I would personally not do it. I can add the required error
-checking code. No other DRM maintainer/reviewer commented so far, so I
-am taking this as a request.
+Critical: 0 · High: 1 · Medium: 0 · Low: 1
 
-What should I do in case there is an invalid value? Fail or have a
-warning message?
+- [High] drivers/net/ethernet/xilinx/xilinx_axienet_main.c:795 — the
+  newly added `if (!force && packets >= budget) break;` is evaluated at…
+- [Low] The kernel-doc block of axienet_free_tx_chain()
+  (drivers/net/ethernet/xilinx/xilinx_axienet_main.c:768-781) was not…
 
-> Also consider potential regressions. Say someone has an invalid value in
-> their product, say bus-width = <15>, which works because the default 18
-> which gets used as a fallback happens to be the correct value for their
-> hardware. Some years later we implement the new bus-width = <15>, and then
-> that user upgrades to a newer kernel and their display won't work because
-> it will start using that incorrect bus-witch = <15>. Better stopping this
-> before it starts, IMO.
+--
 
-I do not see this situation honestly, if you have a wrong value, e.g. 15
-bits, before this patch is ignored, and after this patch is also
-ignored ...
+net: axienet: bound TX completion cleanup by the NAPI budget
 
-The default in the code is equivalent to the bus-width property not
-present, and therefore we use whatever is coming from the panel aka the
-next bridge.
+This adds a break in axienet_free_tx_chain() so the TX completion loop
+stops once the NAPI budget has been spent, instead of being bounded only
+by the TX ring size.  The check is skipped when @force is set.
 
-Francesco
+> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> index 1722b7038f340..4381643227139 100644
+> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> @@ -788,6 +788,13 @@ static int axienet_free_tx_chain(struct axienet_local *lp, u32 first_bd,
+>  	dma_addr_t phys;
+>  
+>  	for (i = 0; i < nr_bds; i++) {
+> +		/* A NAPI poll must not return more than its budget.  Stop on a
+> +		 * packet boundary once it is spent - cur_p->skb is only set on
+> +		 * a packet's last descriptor, so no packet is left half-freed.
+> +		 */
+> +		if (!force && packets >= budget)
+> +			break;
+> +
 
+[Severity: High]
+What happens on this path when budget is 0 and force is false?  The test
+is evaluated before any descriptor is looked at, and 0 >= 0 is true, so
+the loop breaks at i == 0.
+
+netpoll calls the poll function with a budget of exactly 0:
+
+net/core/netpoll.c:poll_one_napi() {
+	...
+	/* We explicitly pass the polling call a budget of 0 to
+	 * indicate that we are clearing the Tx path only.
+	 */
+	work = napi->poll(napi, 0);
+	...
+}
+
+lp->napi_tx is registered with netif_napi_add() in axienet_probe(), so it
+is on dev->napi_list and poll_napi() reaches axienet_tx_poll(), which
+forwards the budget unchanged with force = false:
+
+	packets = axienet_free_tx_chain(lp, lp->tx_bd_ci, lp->tx_bd_num, false,
+					&size, budget);
+
+With the new break taken at i == 0, does this turn the netpoll TX reclaim
+into a no-op?  No dma_unmap_single() or napi_consume_skb() runs, and
+lp->tx_bd_ci += i leaves the consumer index unchanged.
+
+Since packets is then 0, axienet_tx_poll() also skips the if (packets)
+block containing netdev_completed_queue() and netif_wake_queue(), and
+packets < budget (0 < 0) is false, so napi_complete_done() and the
+re-write of lp->tx_dma_cr that re-enables TX completion interrupts are
+skipped too.
+
+Can this stall netconsole/kgdboe output when interrupts are disabled, for
+example during an oops, where the TX completion interrupt and the NAPI
+softirq will never run?  Ring-full detection depends only on software
+clearing cur_p->cntrl:
+
+drivers/net/ethernet/xilinx/xilinx_axienet_main.c:axienet_check_tx_bd_space() {
+	...
+	if (cur_p->cntrl)
+		return NETDEV_TX_BUSY;
+	...
+}
+
+and cur_p->cntrl is cleared solely by axienet_free_tx_chain(), so
+netif_xmit_stopped(txq) stays true and __netpoll_send_skb()'s bounded
+retry loop, which calls netpoll_poll_dev() to "tickle device maybe there
+is some cleanup", exhausts its tries with the skbs still pinned on the
+ring.
+
+Before this patch the same call cleaned every completed descriptor, with
+budget only used as the napi_consume_skb() bulk-free hint, and
+napi_consume_skb(skb, 0) degrades to dev_consume_skb_any().
+
+Would it work to make budget 0 mean "clean everything, report no work",
+for instance:
+
+	if (!force && budget && packets >= budget)
+		break;
+
+or alternatively leave the loop unbounded and clamp the value returned by
+axienet_tx_poll() to the budget?
+
+The commit message reasons about budget 0 only for the force path:
+
+  "The check is skipped on the @force path, which cleans up
+   after a DMA mapping failure with a @budget of 0."
+
+Could the netpoll caller be covered as well, since it uses budget 0 with
+force = false?
+
+[Severity: Low]
+Should the kernel-doc block just above axienet_free_tx_chain() be updated
+in the same patch?  It still reads:
+
+ * @nr_bds:	Max number of descriptors to clean up
+ ...
+ * @budget:	NAPI budget (use 0 when not called from NAPI poll)
+
+@nr_bds is no longer the only cleanup bound for the !force path, and
+@budget is no longer just a napi_consume_skb() hint.  A caller that
+follows the documented advice of passing 0 outside NAPI poll with
+force = false now reclaims nothing and does not advance lp->tx_bd_ci.
+Could the @budget line state that cleanup stops after @budget completed
+packets when @force is false?
+
+>  		cur_p = &lp->tx_bd_v[(first_bd + i) % lp->tx_bd_num];
+>  		status = cur_p->status;
+>
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260914114821.55503-1-maimon.sagi%40gmail.com
 
