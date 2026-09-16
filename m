@@ -4,60 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3387C982C9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 23:10:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F00F3C982C9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 23:27:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=y00T1vmj1UNGlqOvYl58ewkG2IXit9qkBHxOO+JErbk=; b=RhfL9VHyLSoR7v
-	KX2EEJxm/ZRqHaJV4DaJvqh3ll44t8/GJ0JvwJfSW+xfF4PmLSjn9NBhIEtIWYyzxVk/DJM3JnbxN
-	H92zGHOCsEpKxx3djL9Qf51ITfV1gZss7FmuR5OKDzMZZTPA2gT2cVjNs2XyGv9W7laqSaOmdnJgU
-	dwOaAxP7DSbwisHfrljW3eLdMjoaat9kGsfhH9l2C0cJzVz/bo6C3Tc9KTOp70zukohhKI7V05riW
-	5lsxqe1DJqfCJ83waZb5bgbfaf/D+PheqXkbJTZm+GSYX5pI6asjW6UBD24Di/mlsdG+3jM0V5zv2
-	QkArnBMgskdEdp0Gt2jg==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DdxpGXS/wnimnfN1olqkWbYsmp9jSsthllf3I7l40Ts=; b=Dc2GikgUGDSw/8Hcc27Rl8fA37
+	UlqMO12YKdeSvJaejgnylyl4BuTqD2h+n2nrtLTgdY5u/eBIIXgIFs7MJOoQdCz7pV8iQPJH0LEOz
+	EZ3U66/oA6vd06QeLgEjNRklxT2ydjsmkvMYKd03YU6Hy+zeOSbvYaq3BKAjfZ129CuNQEyih+cBi
+	DtPA9Tf1HDMHteMgUgUow/5UEQgjld8ck+bczZ5z6EP21Mht0JlilPzFP1+XSXh7VxqHUZwNSVPZi
+	f0oWwLekwkOpqZ4hli5gars9Qct4PXYE/cqPhPhAAY1YTfVCBl80O7bUS2BVNKR6fumH30tNORLQU
+	Ae2BH5Eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6ylu-0000000AE6p-3ekq;
-	Wed, 16 Sep 2026 23:10:34 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x6z2C-0000000AEwi-0o6r;
+	Wed, 16 Sep 2026 23:27:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6ylt-0000000AE6g-3pZS;
-	Wed, 16 Sep 2026 23:10:34 +0000
+	id 1x6z29-0000000AEwb-3FrR
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 16 Sep 2026 23:27:22 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5A525601EF;
-	Wed, 16 Sep 2026 23:10:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D482E1F000FF;
-	Wed, 16 Sep 2026 23:10:30 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1AEE9401BB;
+	Wed, 16 Sep 2026 23:27:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD1371F000FF;
+	Wed, 16 Sep 2026 23:27:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789600231;
-	bh=y00T1vmj1UNGlqOvYl58ewkG2IXit9qkBHxOO+JErbk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To;
-	b=kwdgEypZlQDkuCoFOh0C/E21c0yGWzeULgahWnxF1Iu1g+8uMV4XcSCFfZsj9Sy8N
-	 MbtJcyqXbrQaeCQmE05ttgEz2xMI4OMelHLRnlW7kVCX6quKsZJ4wu18xUwMZzd03s
-	 rJwLQDd4CRfL6kdxM/9uqkO2MC+5hjL6noZQ7dPNnfcko+72dvFQEY9Q88lcBacnPu
-	 30D2JY73JbWiXUCZ9mYTAVR0oJP/52ozLf6+/g8XYXFSQcRMjV8aFm3zSiNM5h+cZC
-	 dO7j3GNju0sVIT/SmgOZX90zZEajsBFBLAAPDlYPg+xhlBtbCnEfMIJPlntWdMauRQ
-	 rbOl0fOIZ9u6Q==
-Date: Wed, 16 Sep 2026 18:10:29 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Sangwoo Han <sangwoo.han@nearthlab.com>
-Cc: Thomas Gleixner <tglx@kernel.org>, jim2101024@gmail.com,
-	florian.fainelli@broadcom.com, lpieralisi@kernel.org,
-	kwilczynski@kernel.org, mani@kernel.org, bhelgaas@google.com,
-	bcm-kernel-feedback-list@broadcom.com, robh@kernel.org,
-	linux-pci@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Inochi Amaoto <inochiama@gmail.com>
-Subject: Re: [PATCH] PCI: brcmstb: Reserve only the MSI vectors that are
- handed out
-Message-ID: <20260916231029.GA988000@bhelgaas>
+	s=k20260515; t=1789601241;
+	bh=DdxpGXS/wnimnfN1olqkWbYsmp9jSsthllf3I7l40Ts=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=kequ4qrLA/stLLGW3CIkibGQx0JSpzNkkyEC2GB6l4KbXM1pbpDkBhKYpRYWyRIwm
+	 caDnU8ZHFn/B0sKQskme34CLjplcus9b7TlWQJacNToFnA5bAbOllLlXZYmDH6zMAm
+	 BXDoZnZZixhR6e0K0+UCYtZ5PemfnyR03j1heAsH8SrfhE6fWfTDnJoje2bpD5xFml
+	 DnzY5Qkw80HsnXUwaPjQDtVsHgv0yFNKNOwH0BcPlZ2kCqNFiEGbI5HkXrq3RxF3bS
+	 dCDvCwKGfBp8TcOEIkQbawKkW9Lox0zzpsfJ6q9uANwzcHOQHf6I8KpzbqcV35R5vS
+	 UCDetSCvp93rw==
+Date: Wed, 16 Sep 2026 16:27:19 -0700
+From: Oliver Upton <oupton@kernel.org>
+To: Leonardo Bras <leo.bras@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Tian Zheng <zhengtian10@huawei.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH 5/5] KVM: arm64: Enable HAFDBS for guests not on
+ migration
+Message-ID: <aqsl1_IqnV2r8kUL@kernel.org>
+References: <20260901171558.2674031-1-leo.bras@arm.com>
+ <20260901171558.2674031-6-leo.bras@arm.com>
+ <aqneWnlsdpocLIl6@kernel.org>
+ <aqqhDs3NyjtkZzXK@LeoBrasDK>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <87cxuo3fl9.ffs@fw13>
+In-Reply-To: <aqqhDs3NyjtkZzXK@LeoBrasDK>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,140 +81,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 07, 2026 at 11:40:34PM +0200, Thomas Gleixner wrote:
-> On Mon, Sep 07 2026 at 11:34, Bjorn Helgaas wrote:
-> > [+cc Thomas, Inochi for MSI expertise]
-> >
-> > I want to revive this thread because I think there's a real problem
-> > here, and we should solve it for all the PCI controller drivers.
-> >
-> > There's nothing brcm-specific about the bitmap alloc/free except the
-> > size of the msi->used bitmap, so I don't want to copy/paste this sort
-> > of fix in all the affected drivers.
-> >
-> > I'd also like to avoid the extra align_mask and
-> > bitmap_find_next_zero_area() followed by manual bitmap_set().
-> > bitmap_find_free_region() already takes care of the alignment and
-> > setting the allocated bits.
-> >
-> > The MSI Multiple Message Enable situation of enabling more vectors in
-> > the device than the driver wants is generic to all devices that
-> > advertise Multiple Message Capable, and I don't think we should have
-> > to deal with this in every host controller driver.
+On Wed, Sep 16, 2026 at 03:00:46PM +0100, Leonardo Bras wrote:
+> On Tue, Sep 15, 2026 at 05:10:02PM -0700, Oliver Upton wrote:
+> > Hi,
+> > 
+> > On Tue, Sep 01, 2026 at 06:15:56PM +0100, Leonardo Bras wrote:
+> > > When dirty-logging is disabled, even non-write faults make a page dirty,
+> > > which avoids a second fault when the page is actually written to.
+> > > 
+> > > On dirty-logging enable, this approach causes all (writable) pages on the
+> > > memslot to be marked clean, even if they were not written to, which can
+> > > take a lot of time, while holding the MMU lock, doing atomic writes to
+> > > PTEs.
+> > 
+> > Do you have any performance numbers for this? Enabling HAFDBS seems a
+> > bit involved to avoid some stores on the first pass.
 > 
-> Correct.
-> 
-> > If a driver requests 3 vectors, we have to enable 4 because MSI only
-> > supports power-of-two number of vectors.  This tells the device it is
-> > allowed to use all 4 vectors, and I think the PCI MSI core should
-> > assume they all *will* be used instead of relying on the driver's
-> > claim that it will only use 3.
-> 
-> That's not really a good idea because e.g. the irq affinity stuff relies
-> on the accurate number of interrupts the driver requested with the
-> minvec/maxvec range. We can't magically spread more interrupts than the
-> driver is able/willing to handle.
-> 
-> But we can fix that without changing the consumer side (device drivers)
-> visible behaviour and handle it solely in the core code.
-> 
->  1) MSI interrupts are special because they have msi_desc::nvec_used >
->     1, so the allocation and the free path can take care of the power of
->     two requirement. That just allocates more resources than the driver
->     wants but they are just memory.
-> 
->  2) All MSI parent domain implementations should be able to handle
->     domain_ops::free() with nr_irqs > 1. That's something which can be
->     trivialy audited.
-> 
->     I really have no memories why the bulk remove function iterates the
->     interrupts one by one instead of doing in one go, but this is also
->     used by non MSI domains, which might have issues with a bulk remove.
-> 
->     If we establish that all MSI parent domain implementations can
->     handle the free() callback with nr_irqs > 1, then
->     irq_domain_free_irqs_hierarchy can check whether
->     IRQ_DOMAIN_FLAG_MSI_PARENT is set in the domain_flags and avoid the
->     loop for that case.
->     
-> Something like the completely untested below.
+> Not yet, but if the idea does not look too crazy I can find hardware and 
+> collect some data :)
 
-Sangwoo, is there any chance you can test this and see whether it
-fixes the issue?
+TBH this looks like a micro-optimization so I'm not expecting the
+performance gains to justify the behavior change.
 
-If it does, I guess we'll have to ask Thomas to post it with the
-appropriate Signed-off-by, etc.
+> > > 						      has_vhe() &&
+> > 
+> > I don't see a reason why this needs to be constrained to VHE-only.
+> > 
+> 
+> Humm, in nVHE would not the host kernel run in EL1?
+> I thought that this being a feature that depends on EL2 registers host 
+> would need to be in EL2 to make use of it.
+> 
+> That being said, I understand very little of how this works, so I 
+> constrained to VHE only at the start.
+> 
+> Would this work in nVHE?
 
-> ---
-> diff --git a/kernel/irq/irqdomain.c b/kernel/irq/irqdomain.c
-> index 4fdcb6df5306..b3f6cc6ae2ce 100644
-> --- a/kernel/irq/irqdomain.c
-> +++ b/kernel/irq/irqdomain.c
-> @@ -1611,6 +1611,13 @@ static void irq_domain_free_irqs_hierarchy(struct irq_domain *domain,
->  	if (!domain->ops->free)
->  		return;
->  
-> +	/* CHECKME: Are all MSI parent domains capable ? */
-> +	if (domain->flags & IRQ_DOMAIN_FLAG_MSI_PARENT) {
-> +		if (irq_domain_get_irq_data(domain, irq_base))
-> +			domain->ops->free(domain, irq_base, nr_irqs);
-> +		return;
-> +	}
-> +
->  	for (i = 0; i < nr_irqs; i++) {
->  		if (irq_domain_get_irq_data(domain, irq_base + i))
->  			domain->ops->free(domain, irq_base + i, 1);
-> diff --git a/kernel/irq/msi.c b/kernel/irq/msi.c
-> index fb5f372215bf..2835b09899ea 100644
-> --- a/kernel/irq/msi.c
-> +++ b/kernel/irq/msi.c
-> @@ -1333,20 +1333,28 @@ static int __msi_domain_alloc_irqs(struct device *dev, struct irq_domain *domain
->  
->  		ops->set_desc(&arg, desc);
->  
-> -		virq = __irq_domain_alloc_irqs(domain, -1, desc->nvec_used,
-> +		/* Make sure a MULTI-MSI allocation is power of two */
-> +		unsigned int nvec_aligned = roundup_pow_of_two(desc->nvec_used);
-> +
-> +		virq = __irq_domain_alloc_irqs(domain, -1, nvec_aligned,
->  					       dev_to_node(dev), &arg, false,
->  					       desc->affinity);
->  		if (virq < 0)
->  			return msi_handle_pci_fail(domain, desc, allocated);
->  
-> -		for (i = 0; i < desc->nvec_used; i++) {
-> +		for (i = 0; i < nvec_aligned; i++) {
->  			irq_set_msi_desc_off(virq, i, desc);
->  			irq_debugfs_copy_devname(virq + i, dev);
->  			ret = msi_init_virq(domain, virq + i, vflags);
->  			if (ret)
->  				return ret;
->  		}
-> +
->  		if (info->flags & MSI_FLAG_DEV_SYSFS) {
-> +			/*
-> +			 * This only exposes desc->nvec_used and ignores the
-> +			 * overallocated MULTI-MSI ones.
-> +			 */
->  			ret = msi_sysfs_populate_desc(dev, desc);
->  			if (ret)
->  				return ret;
-> @@ -1610,13 +1618,15 @@ static void __msi_domain_free_irqs(struct device *dev, struct irq_domain *domain
->  			continue;
->  
->  		/* Make sure all interrupts are deactivated */
-> -		for (i = 0; i < desc->nvec_used; i++) {
-> +		unsigned int nvec_aligned = roundup_pow_of_two(desc->nvec_used);
-> +
-> +		for (i = 0; i < nvec_aligned; i++) {
->  			irqd = irq_domain_get_irq_data(domain, desc->irq + i);
->  			if (irqd && irqd_is_activated(irqd))
->  				irq_domain_deactivate_irq(irqd);
->  		}
->  
-> -		irq_domain_free_irqs(desc->irq, desc->nvec_used);
-> +		irq_domain_free_irqs(desc->irq, nvec_aligned);
->  		if (info->flags & MSI_FLAG_DEV_SYSFS)
->  			msi_sysfs_remove_desc(dev, desc);
->  		desc->irq = 0;
+We already pass a stage-2 MMU configuration to EL2 from EL1 in nVHE and
+hVHE. How is this any different?
+
+I'm not opposed to making features VHE-only, but there needs to be some
+amount of reasoning to justify it.
+
+> > > +		!kvm_vcpu_has_nv(kvm) && cpus_have_final_cap(ARM64_HW_DBM);
+> > 
+> > Same thing goes for nested... KVM can make use of HAFDBS in the
+> > canonical stage-2 MMU (or even a shadow stage-2) independent of the
+> > guest hypervisor.
+> > 
+> 
+> Humm, I remember reaching the conclusion that it could not be used if the 
+> guest supported NV. Let's say:
+> 
+> L0 - Host	- Has HAFDBS enabled
+> L1 - Hypervisor - Has HAFDBS disabled
+> L2 - Guest	-
+> 
+> Let's say guest writes to a page, and the shadow S2 has DBM=1, so it's 
+> marked as WD by HAFDBS. Since no fault was taken, how would the L1 be able 
+> to update it's S2 pagetables to mark the page dirty?
+> 
+> (We would have to transverse the Shadow S2 Pagetable updating the original 
+> S2 pagetable)
+> 
+> I was wondering, thought, that we could emulate it in the last level 
+> hypervisor, if it's guest does not support nested guests. That would mean 
+> we can have the last-1 level hypervisor to update the S2 pagetable on the 
+> last level hypervisor without it having to fault. Ex:
+> 
+> L0 Host - HAFDBS disabled
+> [...]
+> Ln-1 Hypervisor - HAFDBS disabled
+> Ln   Hypervisor - HAFDBS enabled
+> Ln+1 Guest - No E2H feature
+> 
+> When the guest writes to a page, the host should receive a fault, that IIUC 
+> have to propagate down up to Ln Hyp. If Ln Hyp has HAFDBS, we could skip 
+> injecting a fault in Ln Hyp, as  Ln-1 Hyp could emulate HAFDBS and write 
+> the dirty bit to S2 pagetagle of Ln+1 guest, that resides in Ln memory.
+> 
+> Not sure if the troulbe would be worth, though.
+> Does it make sense?
+
+I'm not following your reasoning here. Treat the shadow stage-2 MMU as a
+TLB; that TLB is filled with a writable translation when S2AP[1]=1 in the
+L1 translation.
+
+The dirty state of the pseudo-TLB is completely internal. You could then
+layer HAFDBS for the L1 translation on top of this (which we don't
+support) by potentially relaxing the descriptor _before_ evaluating the
+resulting permissions. You'd then take write permission faults to set
+S2AP[1] in the L1 translation.
+
+> > The name would suggest this thing takes a vcpu pointer...
+> > 
+> 
+> Ah, that name was based on
+> #define kvm_vcpu_has_feature(k, f)  __vcpu_has_feature(&(k)->arch, #(f))
+> 
+> That takes a kvm struct to check the kvm_arch one, instead of looking into 
+> the vcpu. I did it like this because there were some scenarios it was not 
+> quite straightforward to get the vcpu to use vcpu_has_nv(), which takes a 
+> vcpu.
+
+This thing probably should've been "kvm_has_vcpu_feature()" or similar to
+massage the expected typing.
+
+Thanks,
+Oliver
 
