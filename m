@@ -4,132 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A26E3C88E5C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 07:50:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ADBFC88E5C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 07:51:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h8OKSRDRWsryUNd9de2j/r7okLSQONw+qKcCQrO6hFM=; b=cUJZ5pJouPBXVCVVvrSNLmTMWv
-	Fe81YUW+CfXrl7etnbQy0OnWFAeMgYwUJGgQu9WeDkX4huJKg09KT3sKszz4dFvVOD5X5UiveaFtP
-	yF0SbU7Ylpr1lfktKOkNZIw3u8OB/2+Jy0yefWRxMQQGqS4ddc4SJvd48Zmu9UDYO3wHW/HI9r/9n
-	raH5EC4qnxnijy7RuhxwvsfMPCXJ3vNEzyUyNO0Lzs0pzOCBr3ScE7uwbHCHzTMGvgX4mRL8d4kxf
-	X9SO5udTqyJx9HpUU5miPUQ5L0aYjs9uRauYFQsV9msckp39xluP4sCfrCmomn0WUj1/wSs36DBF8
-	ygbvh5gg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XBhtVBTat+R1KWkqHRDVuXf9g4iyat+P91M6XkPAv2w=; b=QgaPNlWf4UaWDq1DzRY9MOm/ns
+	p63cUL4rWBemjlra93cRpHpdbEpjQFq9YLTL69rQhpB94ea+vV4Phc8rXrxMmnwV8l826Weu3RzPL
+	e+53V9I+ZQvBiJwTLPrttgaqRwVcSwYUdTZ7Ue6DsoLsdf+ZNjmdYnClFxS22ubM4Zoam1b4No+mu
+	AVTSB7qAnIjlSGieA4umavfjZGWpQ+ZMf72RowI98kMUIP/NLfSnwizWyUe4y0UZeBEyvj+2JpVSL
+	LAZ7aO3vDigap0wHhJwV9zmYPWc3+phurgLyS5DTSt1MFJanrAYJhVU0sX2RgBKY0TKTYR49MSgoJ
+	Odt+tb/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6kPA-00000008ctL-116m;
-	Wed, 16 Sep 2026 07:50:08 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x6kQU-00000008d8S-28jL;
+	Wed, 16 Sep 2026 07:51:30 +0000
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6kP8-00000008ct5-1kdS
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 16 Sep 2026 07:50:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:References:In-Reply-To:Date:CC:To:From:Subject:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=h8OKSRDRWsryUNd9de2j/r7okLSQONw+qKcCQrO6hFM=; b=phPY16QBlkCk2wvnht1f8s3caD
-	J5mPWJ0LiEx3ZxAUOxKithPAEuB9XoQGU7GKWmekjsly2gOFB8gbo0fLLxLT8ZEIbbPetTdhhlfpu
-	9Wob885SaNsn/SYs9yv1BaR09HPts3qAcx7ExupoiipzGdCGCdKOFvK3mbPq8y2Z48ydBGaFiC9DA
-	hhKrWpFcnUAFOMEHBKRW//fI+g/mB+uqaFupSlPKiZBg0wE9VgxXTo2/HbRZviRkyXYGLPOUzgNwx
-	2Lh0p5z1fTDsGjGeCxt3mEANa6PFWMMQZuDqLv0RS9vUfVV+DZEwTkh8wp3ITmfNj07vldui4RR9s
-	88Esrzeg==;
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6kP2-00000007b8E-3aLL
+	id 1x6kQQ-00000008d7b-1bpU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 07:50:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eBfKjg4Z2uTBJ792yz3ITxjQsyrq5ZMN/T1oONmWTnD34Bf+giMa5GO3xc0CvantPNr/c4bYLYJ/s2AMBuqndZHtWHjTWxdvoR8Lwe8sk3p3wDSRDU/pPpUwOFfdPs7cPYdDV46Zomlhs83qstl8tOuyIcvB1Ru/3JZ+bvgiFnup0iNgoXbgFrjlON5c+ImkEME+njZo/DGjl4rwx7R74+kQrS/sbG08csUgMHh/kONK0gsJlZNLOy9Nl4pQsa9XImWLJNGfeu9M6vgmWWvaYP7pfaxNjkWupSVAGO6eAjbSfiLzHUkwyo9OdZHQP9Md72E61ItxwjXdqlt3FFIvDg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=h8OKSRDRWsryUNd9de2j/r7okLSQONw+qKcCQrO6hFM=;
- b=HFb+UotQZr/OWI1ZRR+cOLTWXk3RZcWXGUCFBjGmPe5Hqd1JQFFcvYl7ViVwN8llMQH/KQIotZ/uaB/m9O49jZz3p5sznCUcwbHxZzJ6S/n+wvG3kBp13mWsZJClatZ/RTbgJXeU+STmFXsF14RcKjTPWQZqPE59LUqNwrbcJXyE3+lHzfm5VzNhiC0MxXyDaGzJjlgbgbCwXid+b4K5McbJQkT1pMuGmToBTuqn/gT9nIy1U2MOwv/UUDAumEppKOBqzeN+FZod3KHLGC1v45ZeVHk+BYcuTgEmpA3zBPwHoz7oz+xrDTtf7CeG6Po3ownbDEOPZlzKAMw48QO9LA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=gmail.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=h8OKSRDRWsryUNd9de2j/r7okLSQONw+qKcCQrO6hFM=;
- b=HpsNMwU3ZTPzDGdbEKlWPwkjM74ymhyRY5cDq+nwl5jiBDoi44MkUIyCOmelfv8AdYNl7P7O+D+MZNVmLWQ2tr4mhDLXjmXCLHy+mfpKW3JNDjxrVDe+PGb4zRRlKU/j13lk3IAcO9pUO+ijPp9wM2u3EeH4ZUN0M+p9OHcMvNmsoTGXEoVSCqjMWmXSmjyWUpcUEJ0RzF24EPx3qynZkrcuunF06tJPjhC2+838Ybs+cLHDX4glEjb/b7/DYKK1oyre38ssvcZoMkFzgHaEesxcHnt10zylyfBU0GPgmNYrmcez7lfgXtTDVL05cobfA+x82hyc2AUYPwiiANms9Q==
-Received: from PAZP264CA0066.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:1fd::23)
- by GV1PR10MB6610.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:150:82::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Wed, 16 Sep
- 2026 07:49:50 +0000
-Received: from MA3PEPF00000405.eurprd04.prod.outlook.com
- (2603:10a6:102:1fd:cafe::9c) by PAZP264CA0066.outlook.office365.com
- (2603:10a6:102:1fd::23) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.428.11 via Frontend Transport; Wed,
- 16 Sep 2026 07:49:50 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- MA3PEPF00000405.mail.protection.outlook.com (10.167.241.150) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.428.7 via Frontend Transport; Wed, 16 Sep 2026 07:49:50 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 16 Sep
- 2026 09:55:20 +0200
-Received: from [192.168.8.15] (10.252.27.207) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 16 Sep
- 2026 09:49:48 +0200
-Message-ID: <42229fe3eb17bbd7375fc84d1c0509eca8bf2aaa.camel@foss.st.com>
-Subject: Re: [Linux-stm32] [PATCH] rtc: stm32: fix clock leak on pinctrl
- probe failure
-From: Antonio Borneo <antonio.borneo@foss.st.com>
-To: Cong Nguyen <congnt264@gmail.com>, Alexandre Belloni
-	<alexandre.belloni@bootlin.com>
-CC: <linux-rtc@vger.kernel.org>, Linus Walleij <linusw@kernel.org>,
-	<linux-kernel@vger.kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>
-Date: Wed, 16 Sep 2026 09:49:46 +0200
-In-Reply-To: <20260914132914.2371788-1-congnt264@gmail.com>
-References: <20260914132914.2371788-1-congnt264@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.48.4 
+	Wed, 16 Sep 2026 07:51:29 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 404C41FD86;
+	Wed, 16 Sep 2026 07:51:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1789545080; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=XBhtVBTat+R1KWkqHRDVuXf9g4iyat+P91M6XkPAv2w=;
+	b=BxQzUfzoqAIHFY0Ykr5vgXzbVKLviRIY7hccIBoiF0VOwuulTxGuADWpvUhUQGE+dtvh6x
+	3vN3THPQlyMTgaSmtlFC8E/xSCtAvNR4pl0Y78zwc64vtFl+S/JL6W18IKobHCawM233/6
+	sqXYRyZdz9GCSXrRWvGRYHQ1PVG3uV8=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1789545080;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=XBhtVBTat+R1KWkqHRDVuXf9g4iyat+P91M6XkPAv2w=;
+	b=lCBuT9OuoBHAwbbbQn7B51DQOeRuFn6J7gbvd5edmEp/evS0eeAuQT8S9jVqh8UkB94o8U
+	qjgOLhXNZcO2jyAQ==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b="II3l/jzB";
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=ucPKXdWy
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1789545076; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=XBhtVBTat+R1KWkqHRDVuXf9g4iyat+P91M6XkPAv2w=;
+	b=II3l/jzBRy236VBKXLz7gLYqUZsYcddfazBTpq8CVwqWHn3k4en4Tv5GHhIazbrHUJIGwK
+	vm8f28e1ZkgsVFsf4uANGqPfeKkzJpof49bKphUnOo3yLSjwWLCS30PmEyIeuJehsiTG8+
+	CnPVBO8r96Y8mAYMuU0iAqn7oPc5BaA=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1789545076;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=XBhtVBTat+R1KWkqHRDVuXf9g4iyat+P91M6XkPAv2w=;
+	b=ucPKXdWyMHsByG8+jpc4ABTYOK6OpiDIOhFzz69x9AXbFTAGbG/3PxJQtkShM3fc5d7X5h
+	7Z4Ia2cIthQ1fwAA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 51DDA136A5;
+	Wed, 16 Sep 2026 07:51:15 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id Kr1lAXNKqmpDJwAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Wed, 16 Sep 2026 07:51:15 +0000
+Message-ID: <9a248432-31df-484d-abc3-3fc73b42a43c@suse.de>
+Date: Wed, 16 Sep 2026 09:51:14 +0200
 MIME-Version: 1.0
-X-Originating-IP: [10.252.27.207]
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MA3PEPF00000405:EE_|GV1PR10MB6610:EE_
-X-MS-Office365-Filtering-Correlation-Id: 30690346-ea92-4de8-0df3-08df13c71646
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700016|23010399003|376014|18002099003|22082099003|11063799006|10067099003|56012099006;
-X-Microsoft-Antispam-Message-Info: MGWFqH8gY6avVvGcbhXKkh0/2FGyJA9pfchKYpqWoWdmEtKqM8q/9HF0ExttdBQeFciJI3V0qQe7F5NBYTKcUN18sf8xbpqdWRCJ5CZkZKbF1Bwx52ttR1JI9tdz2rvwwgmP8T+SUMKF/CShc99PzXVZXannQrpFJGfMJJ03eBd8aFd51ogcGprvJ0pzyNa3/Lh7k1MTl22/hnOMQmBudv/UgXC0sk0u4+X9EY2J4EOYjw0GzfIFGYsZcwO2v1GTBK2rXus+WG+NQR1TQdAcE6dCX3Epo82cVn2umnAi9N0ymOjZb0NQkBJq0sc1ikI8nRpl8lBM8qXBnpkSdC6iIVsWGsL10hd1XLGXDqOTo2tC9I9HU41lyc1f7QThUpN88/SgssahlOTwgAGX21rkLVtwu1ySrQZyMZPWH3cFG59qRd+9hpPTsNhq6daJCQm0mBiIm5Mc2pZHQGcF95orJqnItLrlwYXrqMnVI0dnlCbEp7+GQsD67GZUq4Zh92z6LSPVeq13b+NpubH3nRZGJtU9AMNaEIG4LNsSBOjZtlCdcNotGlToO+Mw5QxPKJZuBDeYJSKZb+bTaNoaezMyqWBJ4FURxichMwpvLt1gsYd/C+gungf7Sn/O85FBJXH5eRSV8wMbVe2AIEbpkPxJSZVL7b52wS37pS0Lu8UwXjdD6EMqQbjK91MjQzuX3MG2ZGVIf8EYtwvYKNaUVqBKjg==
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700016)(23010399003)(376014)(18002099003)(22082099003)(11063799006)(10067099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 229HNnrZiqgU9XiFZ5S5uWpUqAfM1QjypEsvSrYbDk8ng6scXKbnW8mqDfAjIpmoovox+hAeh58uEe1aVQlh/RijQCZ2QyxfCROpLKCVr1+luWG01kP+8cbXQpHSl5pxuk2xaeZ6LdKUr/OwdRUIC0idO2aFrXcaiNmv1kWJ0fQ4VtxiIHdyM65mAso1NInr0V9mkSla1T3tOx4s6F2NSfXjkC8zYTX3jTc3yWDL0/BXoa55mogenLewVQejKMW7nnL/EiU15Px6Lnf6Dz3itDGStzJQJTTpn97kakBCsBcExQz0xYCITfARknuw3CaSDApiKnW75BK0ecX5NoCoBvYLfbx/i73TGcG/0zWNIR9RBMQRNQjfTh8d4nwAiyeYxZleVnOwyzG/ViOAUKR+j8pMb0rDhryjKOVWC7AuCh42l+w8MaNTZIz6gIsMTjX0
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Sep 2026 07:49:50.1756
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 30690346-ea92-4de8-0df3-08df13c71646
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: MA3PEPF00000405.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR10MB6610
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/2] drm/imx: replace struct drm_simple_display_pipe
+ with regular atomic helpers
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Ze Huang <ze.huang@oss.qualcomm.com>,
+ Alexey Brodkin <abrodkin@synopsys.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Linus Walleij <linusw@kernel.org>,
+ Hans de Goede <hansg@kernel.org>, Alex Lanzano <lanzano.alex@gmail.com>,
+ Oleksandr Andrushchenko <oleksandr_andrushchenko@epam.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+ Marian Cichy <m.cichy@pengutronix.de>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-aspeed@lists.ozlabs.org,
+ linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+ xen-devel@lists.xenproject.org
+References: <20260727-drm-simple-kms-removal-v3-0-de36e534f7a1@oss.qualcomm.com>
+ <20260727-drm-simple-kms-removal-v3-2-de36e534f7a1@oss.qualcomm.com>
+ <8e4c84be-5c89-4d84-adda-aad4c7de0c8a@suse.de> <aqpJKSSKunElnQ3o@houat>
+Content-Language: en-US
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Autocrypt: addr=tzimmermann@suse.de; keydata=
+ xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
+ XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
+ BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
+ hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
+ 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
+ AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
+ AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
+ AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
+ lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
+ U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
+ vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
+ 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
+ j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
+ T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
+ 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
+ GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
+ hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
+ EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
+ C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
+ yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
+ SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
+ Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
+ 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
+In-Reply-To: <aqpJKSSKunElnQ3o@houat>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Action: no action
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Rspamd-Queue-Id: 404C41FD86
+X-Spamd-Result: default: False [-3.01 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	ARC_NA(0.00)[];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	RCPT_COUNT_TWELVE(0.00)[25];
+	MIME_TRACE(0.00)[0:+];
+	FREEMAIL_CC(0.00)[oss.qualcomm.com,synopsys.com,linux.intel.com,gmail.com,ffwll.ch,jms.id.au,codeconstruct.com.au,nxp.com,pengutronix.de,kernel.org,epam.com,lists.freedesktop.org,vger.kernel.org,lists.ozlabs.org,lists.infradead.org,lists.linux.dev,lists.xenproject.org];
+	RCVD_TLS_ALL(0.00)[];
+	DKIM_TRACE(0.00)[suse.de:+];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	MID_RHS_MATCH_FROM(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	TAGGED_RCPT(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.com:url,suse.de:dkim,suse.de:mid]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_085002_777260_CDB38DE5 
-X-CRM114-Status: UNSURE (   8.48  )
+X-CRM114-CacheID: sfid-20260916_005128_047969_59DB794F 
+X-CRM114-Status: UNSURE (   9.50  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -145,32 +186,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2026-09-14 at 20:29 +0700, Cong Nguyen wrote:
-> stm32_rtc_probe() enables rtc_ck/pclk early and unwinds them through
-> the err: label on every later failure -- except a failing
-> devm_pinctrl_register_and_init() or pinctrl_enable(), which both
-> return directly, leaking both clocks. -EPROBE_DEFER is a routine
-> outcome from pinctrl lookups during boot, so each deferred retry
-> leaks another reference.
->=20
-> Route both through the existing err: label, matching every other
-> post-enable failure path in this function.
->=20
-> Fixes: 16ad2bc09efb ("rtc: stm32: add pinctrl and pinmux interfaces")
-> Assisted-by: Claude:claude-opus-4
+Hi
 
-Shouldn't it be
-Assisted-by: LLM
-accordingly to commit 816d9992d9ed in latest
-Documentation/process/coding-assistants.rst ?
+Am 16.09.26 um 09:46 schrieb Maxime Ripard:
+> On Wed, Sep 16, 2026 at 08:50:21AM +0200, Thomas Zimmermann wrote:
+>>> +static const struct drm_plane_funcs imx_lcdc_plane_funcs = {
+>>> +	.update_plane		= drm_atomic_helper_update_plane,
+>>> +	.disable_plane		= drm_atomic_helper_disable_plane,
+>>> +	.destroy		= drm_plane_cleanup,
+>>> +	.reset			= drm_atomic_helper_plane_reset,
+> Also, this needs to be drm_atomic_helper_plane_create_state
+>
+>>> +static const struct drm_crtc_funcs imx_lcdc_crtc_funcs = {
+>>> +	.reset			= drm_atomic_helper_crtc_reset,
+>   and drm_atomic_helper_crtc_create_state
 
-> Signed-off-by: Cong Nguyen <congnt264@gmail.com>
-> ---
+Right. I forgot that create_state is available already.
 
-Apart from the comment above,
+Best regards
+Thomas
 
-Reviewed-by: Antonio Borneo <antonio.borneo@foss.st.com>
+>
+> Maxime
 
-Thanks!
-Antonio
+-- 
+--
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
+GF: Jochen Jaser, Andrew McDonald, (HRB 36809, AG Nürnberg)
+
+
 
