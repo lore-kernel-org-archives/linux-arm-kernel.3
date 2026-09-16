@@ -4,92 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 733BCC982C1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 09:02:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 977EAC88E5C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 09:07:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
-	:From:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u3prVhhjxauBWG8qfoe+eEDvbRKE6KXSyVNyWaZNvTE=; b=ZnE02ZoHKjTBUloRnqoVEmL6yn
-	Vsa1wQE8u5ELaSSotNTCMyBCjszr3EeWc8gyztOh4S5gAtwrd9rxgR2OPpUsgOq4Btafj6uPNFdFE
-	hfmH8gdRqUK7MeZFLHFY8zciPckOOWBYkMDfHiqgZORL30HjUHF2iJnoOuzfGFW1/G9s3GaSOLHEp
-	vQeIuHzPZVpSOcLZD6cc/Kdet7QLgjMmWkKJ2br9BNVKYhhpd1lD3jefTAxhRnhAbgQV+al6WSg1F
-	bfvt3x+RPKzR6lhXOrEVUG7InfVptDoQwGYRT7tf+15Lfot50o0f0hvcvhx7TnfXKut/24ozaM5Rq
-	M77sRZ2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LsY47ZHVBk+xnShayVgIM8uxx3XU0jhz6YujtnB6ZVo=; b=qu5cA1jstw5yhi1agEWvKCc7a3
+	5itxcZX694omLwJZShJ0RvmCO9FivwifxxkyTqTjBH/pmoxNezerNC5eKTQthe5jsVB8MnlPtbt1i
+	CWR1IlwV3Pfh0lEXMmn01EuM/WhdXBGn0VnUXmBhePfg2m5FErDIYGPEpPvW7Eav+QISgAbqi2cyj
+	PG+hw9j1nhg1rozBMW2QuoznCwuVRvsXrKS14yhleHzj3qET7tTqsenaZlvML5VSJn9a8AX7gxmeA
+	dKpZSBlJZ6zQXazA3kYchKqsTyIaf97nZDgvaIJA5hpda6KO67P8wyRVRvXFnZJQ5Yb5U1+sjKW0H
+	NCo63m7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6lXB-00000008nB0-0JbY;
-	Wed, 16 Sep 2026 09:02:29 +0000
-Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
+	id 1x6lbX-00000008nYU-2P5b;
+	Wed, 16 Sep 2026 09:06:59 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6lX5-00000008n9U-2xgZ
+	id 1x6lbV-00000008nXi-13HO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 09:02:26 +0000
-Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-485b1d2874aso448144f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 02:02:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1789549341; x=1790154141; darn=lists.infradead.org;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :content-type:mime-version:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=u3prVhhjxauBWG8qfoe+eEDvbRKE6KXSyVNyWaZNvTE=;
-        b=KDHuCR3r6aXLZzvq0fNk+3aVUnJkUKlr0Yb8Jpl2tj5FNrX77dCXGsee/3Se+TcmAh
-         vKTgx9pouxmROck373iciuQMYnaTTOW2eDwClap/bDNsfn8qpO5JNF58fQwdGwcJ2CdG
-         ynyXe9xHdTbv4yJAFkTVplgvmxdzQkFcEVJ152ZA3+cyGXVoHnkD4fviJmvs0+Cb5OBU
-         vpZit2KVpkcXTOklk2+k0vRwzkMRdq8k2ItVIJyWoWvMJpXD+RmYj+06JA7IZmI/65LB
-         hPF20maqqxzrUDYd5LOsG3nG8rk/dcibD2YX6emriFel5aNYkUEx3XVx1Y0aMfN2w1If
-         MlPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789549341; x=1790154141;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :content-type:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=u3prVhhjxauBWG8qfoe+eEDvbRKE6KXSyVNyWaZNvTE=;
-        b=bwA1Q/H9AHgaT11cbFTEEqqF1epNJlF24R+7rYu/LiBn4wOcL9XOq0p+M0YPp6DEtq
-         9m46vWAd+9PPAWIeoSeorFNtOwO2Tkix1E02kU2AmtUTCWK0Lwx+uYy0usu/82mc2V09
-         O2l85bbd9pY5mjKNSu7lHFZBnEM6U8YYQfkD+p+teYUMKxc9tjgC+FYxDXjFVtxsZlAe
-         5K2Z5wmMG/gckopF84HgCPg4jYUCa1kTNbeG+2+cRWFwU6YJPRLP4bpdTKdCkRnmgu41
-         KNmgISvfDOb53fVAGKftq6kAMsnLpams3b3JcbSgjIETuBMFQnNgKG5nSCZzfdv8nD7k
-         WYvg==
-X-Forwarded-Encrypted: i=1; AKwUvBxQNNigCyLUBNx1ZVLlwB9osCAn76x1uWWSMt9q7bdc8XLw/AMUn8/E8pOLAbVURQXh4qCzafhsaGZ12qFty/xe@lists.infradead.org
-X-Gm-Message-State: AFuF++mhxLt5jSiTFhIuMMbUbelmz0AKmN8ubg1KzWMtFkf40WI5J03L
-	LMOVSeb4f/05/bRidCySEf+o/gwFvkjwzYZz4zqi5nckgMY6jTVGx3Rt6w/MrrOyr3o=
-X-Gm-Gg: AYBFou07YPFCJd919q1+5RrRlHv3D8V2vO85towai+CQ0l7XpvNR5gsuJKtl2I6Dtbs
-	Y1eHfDABKg+eibCooRk8kgsiQENXdILcYftQCafrUXKsJb9wxWFm8YxJ4YFtJi15hIMA35+u1Yj
-	3PhBEydkeEJ68o/O9ui4rR9XfY3o6rG8LBWJHuEHk3s23hiwKpCz5aVHDgtYjbRDtpai6uFOgcV
-	vXX4lvaFKjqovGIxqgyaJH1chfWDcDigUpeD5Ti8szjKIlmPSGMb/HGK2U6Yex3q7+cEmZ5XLTR
-	Lxt9Lx2FlD2yJWERV50krFD+DBKWdBcsqAnRvjWr/6QGTErtWQcU7k1k7fe4BYgiyllOpfZDuo0
-	joaj9dagqV3MU0gz6CtuhwDuvMkEBNPSXJFLwoodEis9BPohtH8DK8bq+0o+LEXC4XKRuMdxK8I
-	1SfxKira1lp4IDBe25xKjr06mYA4Cr4GvI0+WgzcBiO0dDAgcKoALO7h5+vqRjVmuRkg==
-X-Received: by 2002:a05:6000:40cc:b0:487:403:f2eb with SMTP id ffacd0b85a97d-4870d0452d3mr4199288f8f.17.1789549341185;
-        Wed, 16 Sep 2026 02:02:21 -0700 (PDT)
-Received: from localhost ([2001:4091:a245:8029:665d:b7b:5fa4:7ad0])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4870bf33e01sm6702324f8f.23.2026.09.16.02.02.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Sep 2026 02:02:20 -0700 (PDT)
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=0a03f14af8c74b8b8ae71ef6964c726a8430f5297d9c30f5afc655f5a6b4;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Wed, 16 Sep 2026 11:02:15 +0200
-Message-Id: <DLGMAND8UBI6.394OZTY3JSLDX@baylibre.com>
-Subject: Re: [PATCH] clocksource/drivers/timer-ti-dm: Register
- clocksource/event only for am654
-From: "Markus Schneider-Pargmann" <msp@baylibre.com>
-To: "H. Nikolaus Schaller" <hns@goldelico.com>, "Markus Schneider-Pargmann
- (TI)" <msp@baylibre.com>
-Cc: "Andreas Kemnade" <andreas@kemnade.info>, "Daniel Lezcano"
- <daniel.lezcano@kernel.org>, "Thomas Gleixner" <tglx@kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-omap@vger.kernel.org>, <letux-kernel@openphoenux.org>
-X-Mailer: aerc 0.21.0-146-gb5c16ebe1835
-References: <20260828-v7-3-next-topic-ti-timer-dm-clocksource-omap-fix-v1-1-85f0e4dc6f9f@baylibre.com> <20260828230445.3c2510b9@kemnade.info> <E27F05E3-DE4F-4C77-95E3-1701B3410E93@goldelico.com>
-In-Reply-To: <E27F05E3-DE4F-4C77-95E3-1701B3410E93@goldelico.com>
+	Wed, 16 Sep 2026 09:06:59 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=LsY47ZHVBk+xnShayVgIM8uxx3XU0jhz6YujtnB6ZVo=;
+	b=Bu08H0VKagF+CgSOWdWA5oFIAnpqMF35EOahBxRS9Uagr7emyb23aKjHhvadC629qCHJOobEm
+	xRVBIOMn8W7I4PTVabFAOX0L66FwkRimxVlyHM5F4lhptcdqwGS5ERxVnMpS7yKMNzOEnYqt4Xm
+	2dRWn1bE+ZOQk/zgTtRerF8=
+Received: from mail.maildlp.com (unknown [172.19.163.127])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4hlCQq6cYZzLlSh;
+	Wed, 16 Sep 2026 16:55:47 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id 9214240572;
+	Wed, 16 Sep 2026 17:06:46 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ kwepemk200008.china.huawei.com (7.202.194.74) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Wed, 16 Sep 2026 17:06:45 +0800
+Message-ID: <c02d298b-4e2d-412a-908a-16c017799c45@huawei.com>
+Date: Wed, 16 Sep 2026 17:06:45 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 32/38] arm64: nmi: Add Kconfig for NMI
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
+	<maz@kernel.org>, <lpieralisi@kernel.org>, <liaochang1@huawei.com>
+References: <20260914102102.68597-1-vladimir.murzin@arm.com>
+ <20260914102102.68597-33-vladimir.murzin@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260914102102.68597-33-vladimir.murzin@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_020223_764700_86CCFB22 
-X-CRM114-Status: GOOD (  13.26  )
+X-CRM114-CacheID: sfid-20260916_020657_637001_9A73D6BB 
+X-CRM114-Status: GOOD (  14.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,65 +79,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---0a03f14af8c74b8b8ae71ef6964c726a8430f5297d9c30f5afc655f5a6b4
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
 
-On Sat Aug 29, 2026 at 9:23 AM CEST, H. Nikolaus Schaller wrote:
->
->> Am 28.08.2026 um 23:04 schrieb Andreas Kemnade <andreas@kemnade.info>:
->>=20
->> On Fri, 28 Aug 2026 20:47:45 +0200
->> "Markus Schneider-Pargmann (TI)" <msp@baylibre.com> wrote:
->>=20
->>> Registering clocksource/clockevent for the older platforms breaks
->>> booting them. The older platforms have their own implementation in earl=
-y
->>> boot that is used to register clocksource/clockevent in
->>> timer-ti-dm-systimer.c.
->>>=20
->>> With am654, the timer is much more complex with more dependencies so
->>> doing this in early boot with the other driver is very difficult and
->>> gets ugly. Instead it is implemented in the platform driver for am654.
->>> However the old platforms may not register clocksource/clockevent in
->>> this driver as that would break the boot.
->>>=20
->>> Add a system_timer_capable flag that is only set for am654-timer that
->>> gates the clocksource/clockevent registration.
->>>=20
->>> Reported-by: H. Nikolaus Schaller <hns@goldelico.com>
->>> Closes: https://lore.kernel.org/r/2013A99A-0502-4128-ACFA-B04886224393@=
-goldelico.com
->>> Fixes: b8eeeca55456 ("clocksource/drivers/timer-ti-dm: Add clocksource =
-support")
->>> Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
->>=20
->> Tested-by: Andreas Kemnade <andreas@kemnade.info> # OMAP3 GTA04
->
-> Tested-by: H. Nikolaus Schaller <hns@goldelico.com> # OMAP3 OpenPandora
->
-> BR and thanks,
-> Nikolaus
->
-> PS: I would suggest that patches for omap-dm-timer are also routed to lin=
-ux-omap@vger.kernel.org
 
-I agree, it should be added to the MAINTAINERS file.
+在 2026/9/14 18:20, Vladimir Murzin 写道:
+> From: Mark Brown <broonie@kernel.org>
+> 
+> Since NMI handling is in some fairly hot paths we provide a Kconfig
+> option which allows support to be compiled out when not needed.
+> 
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> ---
+>  arch/arm64/Kconfig | 18 ++++++++++++++++++
+>  1 file changed, 18 insertions(+)
+> 
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 2738637ccb92..df5ff59715d1 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -2251,6 +2251,24 @@ endmenu # "ARMv8.7 architectural features"
+>  config AS_HAS_MOPS
+>  	def_bool $(as-instr,.arch_extension mops)
+>  
+> +menu "ARMv8.8 architectural features"
+> +
+> +config ARM64_NMI
+> +	bool "Enable support for Non-maskable Interrupts (NMI)"
+> +	default y
 
-Best
-Markus
+We should select HAVE_PERF_EVENTS_NMI to enable perf-NMI-based
+hardlockup detector as pseudo NMI do.
 
---0a03f14af8c74b8b8ae71ef6964c726a8430f5297d9c30f5afc655f5a6b4
-Content-Type: application/pgp-signature; name="signature.asc"
+arch/arm64/Kconfig:     select HAVE_PERF_EVENTS_NMI if ARM64_PSEUDO_NMI
+|| ARM64_NMI
 
------BEGIN PGP SIGNATURE-----
+> +	help
+> +	  Non-maskable interrupts are an architecture and GIC feature
+> +	  which allow the system to configure some interrupts to be
+> +	  configured to have superpriority, allowing them to be handled
+> +	  before other interrupts and masked for shorter periods of time.
+> +
+> +	  The feature is detected at runtime, and will remain disabled
+> +	  if the cpu does not implement the feature. It will also be
+> +	  disabled if pseudo NMIs are enabled at runtime.
+> +
+> +endmenu # "ARMv8.8 architectural features"
+> +
+> +
+>  menu "ARMv8.9 architectural features"
+>  
+>  config ARM64_POE
 
-iKMEABYKAEsWIQSJYVVm/x+5xmOiprOFwVZpkBVKUwUCaqpbFxsUgAAAAAAEAA5t
-YW51MiwyLjUrMS4xMiwyLDIRHG1zcEBiYXlsaWJyZS5jb20ACgkQhcFWaZAVSlOC
-6AEAy1JS2SlpxrlOQuQLSOsZO+CBah23b1Dff4+ir0VdUhYBAOU9suaTsiifYV/k
-vBrj8QHXWS0SbgbXDKjzES1Abp0O
-=kqWV
------END PGP SIGNATURE-----
-
---0a03f14af8c74b8b8ae71ef6964c726a8430f5297d9c30f5afc655f5a6b4--
 
