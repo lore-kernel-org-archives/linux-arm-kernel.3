@@ -4,129 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C26C4C982CC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:39:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D66A9C982CC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:40:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jo7fj0OabLD4A0y61eCm5FPcNJvNG5wUYGX28KzvjLo=; b=Id+GgLPLdGlbGuLVqRM52n8BG8
-	MlbtZBQSZBe/ojW92t/2c2AEcHFCwATUChxh3uM29C99zqO0kTplG8W6u+8jLK1fdKlcE/KcqHHph
-	bcv4HVGUL5g0ehbD6mXSTndwE6tsT3j02j+LmLY3pCZS+avOjmTHv5Tznmja/U2XGtfs7oYc51aDt
-	6WzMb3yicct5KcyRuQcQBPztcQQNPf2wAGZrAGbVQPCnzb63B4bf5C1BbzE7jt8WRUsaoRazSZRzs
-	puy+mSmo7l/R2zaiTGNZI4e1AXRTF6LWao2k0cR1OgbnIV2hoPvVgQS9B5uRUIGoQpD/49LAZTEox
-	TExcGGwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+jNVvA23hlsp7KGNObjrBr9Zcw4R6+mc3dMMlXbSnIk=; b=QunOKEdDvf142kezlvex9jcw44
+	4m2KCjZICpiCYvcECikSPODcDRYt5Go/vzJtBJvnrFH323PbLZ6xOAJWL2DqLVlmnMxsQE8pR34IV
+	DwQULY8ZTbT6EFBLYppJfU+5yXA2nk57b8enGm7f/PkQ9rvfk+mBKNYbMYpPYiAoFha/5caIfWzA7
+	7CG4ZeF1I3I4e8SgMOB59pWyey/aJoAGXNB/rM+MXV8KK481vhlwZXnT5yhkcAo0E1+9domrQJ8qS
+	lewWQvrK/ZB7p0wxRsHvBWzA74PiVSBGlY4jX82w+3WGf1EwocLsmhIlG0sn4hWxgu2UDx1QcssAN
+	hiOW5hHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6riq-00000009bfI-1jgL;
-	Wed, 16 Sep 2026 15:38:56 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1x6rjq-00000009bsj-0WN3;
+	Wed, 16 Sep 2026 15:39:58 +0000
+Received: from m16.mail.163.com ([220.197.31.2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rio-00000009beh-14Kq
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 15:38:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=S1PRBXwmGYhIUifl0ehHAlO2rJlT0S5wmax07cnwANkYmLH9g40lgyb1y3H/sN/zaOVmK0TrcN1OGnlPjUBFPAV5IYQiiu9gw9rcPSKF0UbX0rvjNWBis696+KBXINjthVaZE4TEcf5zvq9gwQhoxOF+viJD7ZOtRSLfkSRAiqCQY6hw+D6wsffAVGT0eL2rn2Y0prFVdHNDW29urpTUZ0bzULkW2yAK7KFf6kfiVv+VZarBZcNSapceXcCQaRmio/IUE7jl44VYNGoUGbDk8FSMwmO22wAUqSbIRvGuLL32WlhgM2P/TdCHC5eqxeBRZkEcr7lgZA50RQgEtVioZw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jo7fj0OabLD4A0y61eCm5FPcNJvNG5wUYGX28KzvjLo=;
- b=sqMbrWvzbChXRftXerU9XqDQAEkHiPvz41FT7J9cY5Ki2AP8Q7XzKmaEsObWNP6MXwrx3jkFdjKOMmQqBeFpcu6bxN2RgUG8DnN+wBWnoQfaGKt1miLXNzmoEjVwvdFUIxQFVT/t6ZpVfriqq1pSK72ISXL0AZ8SEA4buZNKVi8+c7FmRWOmi4MlyuGgiDavqHJv1M5wPW2cWO22WN+/fDceUgqPu4HXgUxmPksoth4RUR1cuUCspQBPYpCEtw5nU4OwtnFRVXp9DnbjKTsHAKlpg3BpOREgnXIphiz5myuR+8f3E0rtbBgZSQVViPeE/Wxoa0m4AaZCQFT2YRdPqg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jo7fj0OabLD4A0y61eCm5FPcNJvNG5wUYGX28KzvjLo=;
- b=A9hyFsjCpfhF9xqaJ7DLSxqy+0sAjjF4JBnGa085j1BDthRRhsAKHdJa0M65jhFSy4mRWdZZHvRME+C+ngP5iLN4HHcNWppL1/28ONeFb761Y8UO2LBFn8Jc6lC4JlgcjTJuaYtocLCD1N4xkh4X1HvsxtuDFjYYZq6L+4vl9uH5AVH3SUGCwJJf0z7LQbDKjphqlWAy6YdsxeWWPr8kF+JKlU5O8KTG/t+F19vUWAjYiy+Cj1EvG8pANsjCg1tLIds7zxxpT8V/sLXGL7+xn1PYb3XPuTVJq7s1+14PqpRs03gNmwGvBGM5e2OxJczbdsaDQdpg3ttTOkeSO4ncMA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DU4PR04MB10316.eurprd04.prod.outlook.com (2603:10a6:10:567::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.11; Wed, 16 Sep
- 2026 15:38:49 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.012; Wed, 16 Sep 2026
- 15:38:49 +0000
-Date: Wed, 16 Sep 2026 10:38:39 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Guangshuo Li <lgs201920130244@gmail.com>
-Cc: Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Joakim Zhang <qiangqing.zhang@nxp.com>,
-	Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] irqchip/imx-intmux: fix runtime PM teardown on remove
-Message-ID: <aqq3_5QInBbdxAHM@SMW015318>
-References: <20260914134211.1734163-1-lgs201920130244@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260914134211.1734163-1-lgs201920130244@gmail.com>
-X-ClientProxiedBy: PH0PR07CA0049.namprd07.prod.outlook.com
- (2603:10b6:510:e::24) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	id 1x6rjn-00000009bp8-1fc9;
+	Wed, 16 Sep 2026 15:39:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=+j
+	NVvA23hlsp7KGNObjrBr9Zcw4R6+mc3dMMlXbSnIk=; b=FM77KUzoz/q8V8sDF2
+	+TE+4kpAcuHGX25nB6VwCaL9r0/gLitmPWkUsAEn3cHc5ySfNe0ZPvtU7g+IZpyt
+	X3l/7hzIOmnykzRKvfG4p6xtFTM10cLLbb/YjiB/2NCOdAqeMGiA5xyMqt7P8n2g
+	qtkhm0ytoTGC7EhNcm3uvdkC4=
+Received: from zhb.. (unknown [])
+	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wDnbxQduKpqGzAlBA--.54876S3;
+	Wed, 16 Sep 2026 23:39:11 +0800 (CST)
+From: Hans Zhang <18255117159@163.com>
+To: lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	bhelgaas@google.com,
+	helgaas@kernel.org,
+	heiko@sntech.de,
+	mani@kernel.org,
+	yue.wang@Amlogic.com
+Cc: pali@kernel.org,
+	neil.armstrong@linaro.org,
+	robh@kernel.org,
+	jingoohan1@gmail.com,
+	khilman@baylibre.com,
+	jbrunet@baylibre.com,
+	martin.blumenstingl@googlemail.com,
+	cassel@kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Hans Zhang <18255117159@163.com>
+Subject: [PATCH v9 1/3] PCI: Match the hierarchy's MPS to a device's MPSS as necessary
+Date: Wed, 16 Sep 2026 23:39:05 +0800
+Message-Id: <20260916153907.60344-2-18255117159@163.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260916153907.60344-1-18255117159@163.com>
+References: <20260916153907.60344-1-18255117159@163.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU4PR04MB10316:EE_
-X-MS-Office365-Filtering-Correlation-Id: b499cfd5-491c-4e0c-b9fc-08df14089a64
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|23010399003|376014|7416014|18002099003|22082099003|6133799003|56012099006|11063799006|10067099003;
-X-Microsoft-Antispam-Message-Info: TkQx/rKEjFj7AGBFHzuveHgMHm+lMiMVas4o2ga4JgCvDPvx+az+aktjxKsbSnAag9WeJIAy0BYfvxkvEW96EpyzJecm3UaPSmVU5IXjNmEkfWLL72RiqXMlMfHXBNzHNt0ZnqgZbFg25i7ldponDMuFrO4NOPWszCucB9fIzozzQglwsbtizskHnOC8203+UWE14uptRoIOkkBtjEysYjd5Mw1deh43Q0SggJ1QhjJv9e8nO/ImknuJrI3GJ6PPnZ8HyHIw7vmRst498fNAWb2clukDpp7Ia1oJZKVhpIzc2qhUIz9ABX6iF3GDe5Hxq/XQ8bGaX86N26s7yneIEEkN3u8roJzP7tXe0nRQQDHR7o/oKWa939Cq2zLvQPab3U8qZDcmI4fcnxtaZn1XWRqCHb+OVoFGaZCESpJitBdW0VPgkcoaoRc9gyOFRnt88kNJbzEZYE6OOlNTe9JhYAZUKu2X3TRg6ttZAaixQuI9SveBt8J799RB2GQM+Z/ScAZFUD0Ogiu/ED3BoTJoMbK4XWPqybtqbYCJnTna0ywUZ/QrkKvav0EE67Kv2woMVRQcJr1fz1hM15BNAf6phQC2yFlIVbCI8BrHW+Uq+ladV/cmQJHXoo/fyt8yQtTQ/dFxagDMe+LiF3xEr8EzjCemkNFqX7mu4tV0GSwb9Jw=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(23010399003)(376014)(7416014)(18002099003)(22082099003)(6133799003)(56012099006)(11063799006)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?rePTdUbqcmU+XkJ9ZZ3YVnZQiqsUulsR0bZ4Lcu/sj/JQCdMI0dLMlMSvXbK?=
- =?us-ascii?Q?8e2ajJUCMH9KrR8rW8nrU/3BVDur8/3sKBl/abFN1bECqFSlMNRVEvrPb20C?=
- =?us-ascii?Q?RfdQM9K0UztqC1fss0pVVpc2J8tT5idrLyBtfJL8X7SVhXjTYIkOutvyG7x5?=
- =?us-ascii?Q?e916nocYuQ4KR/8UR9HNFw2hjbTnwA4lwoPiRCZNffjpUcKhiB8lNzwMWPsh?=
- =?us-ascii?Q?abtwzkC0tv/F1O6f+SyVqculSbatkknxpRphYLV/X+285TAfr0cVI5ID1meB?=
- =?us-ascii?Q?/6r0ZF80a8uLAbQXF3Dg32bLLUZbd7GqqPqzkNZGW9f8FUR49Aa4nug6FenM?=
- =?us-ascii?Q?8uK0LSOLx58bdAOsGXz3KMO9IMwAsIw1ZEcF+V1oz6jZT+KVgYFnpkw+fFcy?=
- =?us-ascii?Q?MurpifvoNwkAoXN6DMK591fg70/RvoHXuOnMChzNFRwQhQ/Rpp2N+yQsYPdD?=
- =?us-ascii?Q?rvl5AKf2jRRVaN9vofGMwN2V0+rKT5L7MmrEWMUANHamU/qDWRF96q95LM8a?=
- =?us-ascii?Q?Yox9zJctEj5OFOyIAIcLrUKUBG9oIouOQ3gZ2EuHb91SqVGGf5CMEsOP77q+?=
- =?us-ascii?Q?XMyk57ydm76eT3aP0FzHky/VhPpJo6otEPONOGe13KcH8bxmqAonh/kqJNQi?=
- =?us-ascii?Q?ZuSFoFxSpbxhoJrWtdiRgjKKGrJCQNHs+1THyg50AJb+bzdJHC2J6p3CIhVp?=
- =?us-ascii?Q?pFDfwMTvXOjIze5hsr7zT3M+Wk51uYIREICejluVbjRGGamjTxuaCYzPgJHk?=
- =?us-ascii?Q?aSJ98wJ1zebHpkk9CiDVbmYXB7UfUj4oCQnrNeMoIDzzO74BlYPL+bpWmWpb?=
- =?us-ascii?Q?zH3hF+idALCSo2GlANJICb+RC5neAY5+mereR5VSGPVPuSqlF5kCrmNbniEb?=
- =?us-ascii?Q?MaVdbBHtvLL4tCpeuuBOx7OkIPA43SPvgEDl6hylq+GoLIU7xSMPkFy7utQ5?=
- =?us-ascii?Q?YYzxFhIDQuxr+5QD5qYsrf3FqZgsNXA5IUVxqj+ycXivgZrrmbWH6JNQHdKl?=
- =?us-ascii?Q?i77V4Xex6Rc6ZM6JlQtvtW42VqqfrxjRmNEFqJQwweDkUZyRVDj3RFzEVlRb?=
- =?us-ascii?Q?+lR0pqsbCendBr87GbakxFpe3eXsxvB23MU+ox17PmGtTpBRCExAs0142RRz?=
- =?us-ascii?Q?sgHFpZEjFEn+yC1MZwHhEDrJ7SHSKNyOGiWFdlqX7jGyy8H+sQdij9lRUEo2?=
- =?us-ascii?Q?9LB1kk8fU/Mw2bks5+jyVUmAjd+6r3o35E8SMsT41wKMQDL1d5FErUNerU0K?=
- =?us-ascii?Q?BFcmwtYVxcgtBfWnpRwsFQFb/ooEsZYYpQcA1tTdrjDCi4iIe37f+GIpx8Rs?=
- =?us-ascii?Q?DcIt3GNNLLjVV4/v5A15eKJZ7M+FUrSZpMyXGfs0LZRG4eSP2p3i5JC7xzL9?=
- =?us-ascii?Q?WZltF4Ao/Km4zR9my1ZE05tMYoYJ2IZahMlbjN7cKgRVTkr9rQ4/iHDLK5eN?=
- =?us-ascii?Q?C2NBxQ81eDqcYfEsYyV/2H5m9hDgqwt61+kCb9tfyGZh5xHHiYpXUhBqtnBr?=
- =?us-ascii?Q?1vKP3/QHnh3OumpI5QKGAUFhupE1/ak2GPEP+KeIrxhomroCtQukIMvy8r8k?=
- =?us-ascii?Q?OXmHHQSLl646clGtzpXfDnAvqsYW8BvY5Y0ybIvOvz7TFk0aM8LVSnMopjuv?=
- =?us-ascii?Q?6734InDnO8zcvxAVzzcBpH9xEXebtvepvsjDpr/XJVvG4fx6g0FOTTJ5VPLl?=
- =?us-ascii?Q?VI8INprg6jbEoDX1txScaDn8RLtHG083WglLDAwwt177NXHarTJ5TWn/CSq+?=
- =?us-ascii?Q?yHPN9wBThxs8OlhBaCI8d7LYK4UzuerKEWgGWVa8WLeS12lb6k/2?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b499cfd5-491c-4e0c-b9fc-08df14089a64
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Sep 2026 15:38:49.5510
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: RE+Yt+EUg9OluWNwI10WGeOqeAFZgHfGdsUUYxQT/JzI1UFmMIfN4iLjDcajvlMAx62hh4H98YE0eVEegMGYzHmvTZcb8Y4N2Y9lF2BnD3wRU9ayC6PnG39IVCyvZ6OL
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10316
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wDnbxQduKpqGzAlBA--.54876S3
+X-Coremail-Antispam: 1Uf129KBjvJXoWxXr4fJFyxJrWfWF45tF17trb_yoWrJw43pa
+	sxWFWS9r4kGryfJa1av3W8uas8Jrs3ZayrAay3J340va1aqFW5tr9Yyr4ftw1xGrWxXFy3
+	JF4Dt34UC3Z8uaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piGNtfUUUUU=
+X-Originating-IP: [240e:b8f:91b3:d000:a95a:12fc:887a:b0f1]
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCxB96HmqquB9tlQAA3g
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_083854_314565_ECFBFC05 
-X-CRM114-Status: GOOD (  27.11  )
+X-CRM114-CacheID: sfid-20260916_083955_802351_8B84223E 
+X-CRM114-Status: GOOD (  19.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,78 +89,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 14, 2026 at 09:42:11PM +0800, Guangshuo Li wrote:
-> imx_intmux_probe() enables the IPG clock and then drops its runtime PM
-> reference with pm_runtime_put(). With CONFIG_PM enabled, the runtime
-> suspend callback disables the IPG clock. With CONFIG_PM disabled, the
-> clock remains enabled after probe.
->
-> imx_intmux_remove() accesses the CHANIER registers without first making
-> sure that the device is runtime active. The device may therefore be
-> runtime suspended with the IPG clock disabled when these registers are
-> accessed. In addition, the remove path only calls pm_runtime_disable()
-> and does not balance the clock enable when CONFIG_PM is disabled.
->
-> Resume the device and acquire a runtime PM reference before accessing
-> the registers. If resume fails, skip the register accesses but still
-> tear down the chained handlers and IRQ domains. Disable runtime PM
-> afterwards, drop the acquired reference without triggering another
-> runtime suspend, and explicitly disable the IPG clock.
->
-> This keeps the clock enabled while the hardware registers are accessed
-> and balances the clk_prepare_enable() performed during probe for both
-> CONFIG_PM configurations.
->
-> This issue was found by manual code inspection.
->
-> Fixes: bb403111e017 ("irqchip/imx-intmux: Implement intmux runtime power management")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
-> ---
+pci_configure_mps() enumerates top-down and programs each device's Maximum
+Payload Size (MPS) to match its upstream bridge.  When a device's MPS
+Supported (MPSS) is too small to match, commit 9f0e89359775 ("PCI: Match
+Root Port's MPS to endpoint's MPSS as necessary") reduces the upstream
+bridge instead, but only when that bridge is a Root Port.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+That covers an endpoint directly below a Root Port and nothing else.  With
+a Switch in between, the Switch ports have already inherited the Root
+Port's larger MPS, the reduction is skipped because the upstream bridge is
+a Switch Downstream Port, and pcie_set_mps() then fails with -EINVAL for
+the endpoint.  The endpoint is left at 128 bytes below a port programmed
+for more, so any larger TLP it receives is treated as Malformed.
 
->  drivers/irqchip/irq-imx-intmux.c | 15 ++++++++++++---
->  1 file changed, 12 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/irqchip/irq-imx-intmux.c b/drivers/irqchip/irq-imx-intmux.c
-> index 47c2681d138a..de2a8f98f625 100644
-> --- a/drivers/irqchip/irq-imx-intmux.c
-> +++ b/drivers/irqchip/irq-imx-intmux.c
-> @@ -288,12 +288,16 @@ static int imx_intmux_probe(struct platform_device *pdev)
->  static void imx_intmux_remove(struct platform_device *pdev)
->  {
->  	struct intmux_data *data = platform_get_drvdata(pdev);
-> -	int i;
-> +	int i, ret;
-> +
-> +	ret = pm_runtime_resume_and_get(&pdev->dev);
-> +	if (ret < 0)
-> +		dev_warn(&pdev->dev, "failed to resume device: %d\n", ret);
->
->  	for (i = 0; i < data->channum; i++) {
->  		/* disable all interrupt sources of this channel */
-> -		writel_relaxed(0, data->regs + CHANIER(i));
-> -
-> +		if (ret >= 0)
-> +			writel_relaxed(0, data->regs + CHANIER(i));
->  		irq_set_chained_handler_and_data(data->irqchip_data[i].irq,
->  						 NULL, NULL);
->
-> @@ -301,6 +305,11 @@ static void imx_intmux_remove(struct platform_device *pdev)
->  	}
->
->  	pm_runtime_disable(&pdev->dev);
-> +	if (ret >= 0) {
-> +		pm_runtime_put_noidle(&pdev->dev);
-> +		clk_disable_unprepare(data->ipg_clk);
-> +		pm_runtime_set_suspended(&pdev->dev);
-> +	}
->  }
->
->  #ifdef CONFIG_PM
-> --
-> 2.43.0
->
->
+Multi-function devices hit the same hole from the other direction:
+reducing the Root Port for a function with a small MPSS leaves the sibling
+functions already programmed to the larger value.
+
+Walk the hierarchy from the Root Port down and reduce every device that is
+above the new value.  Reducing only the ports between the device and the
+Root Port is not sufficient, because a Switch may not fragment or
+repackage TLPs: an already programmed sibling left at the larger MPS could
+emit a TLP too large for its egress port.
+
+This only affects PCIE_BUS_DEFAULT.  PCIE_BUS_SAFE already converges the
+hierarchy on the smallest MPSS in pcie_bus_configure_settings(), while
+PCIE_BUS_TUNE_OFF and PCIE_BUS_PEER2PEER return before this point.
+
+Fixes: 9f0e89359775 ("PCI: Match Root Port's MPS to endpoint's MPSS as necessary")
+Co-developed-by: Niklas Cassel <cassel@kernel.org>
+Signed-off-by: Niklas Cassel <cassel@kernel.org>
+Signed-off-by: Hans Zhang <18255117159@163.com>
+---
+ drivers/pci/probe.c | 38 ++++++++++++++++++++++++++++++++++----
+ 1 file changed, 34 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
+index 27008e2ea5af..232bce2819f0 100644
+--- a/drivers/pci/probe.c
++++ b/drivers/pci/probe.c
+@@ -2200,9 +2200,28 @@ int pci_setup_device(struct pci_dev *dev)
+ 	return 0;
+ }
+ 
++static int pcie_reduce_mps(struct pci_dev *dev, void *data)
++{
++	int mps = *(int *)data;
++	int ret;
++
++	/* MPS is of type 'RsvdP' for VFs */
++	if (!pci_is_pcie(dev) || dev->is_virtfn)
++		return 0;
++
++	if (pcie_get_mps(dev) > mps) {
++		ret = pcie_set_mps(dev, mps);
++		if (ret)
++			dev_warn(&dev->dev, "failed to set MPS\n");
++	}
++
++	return 0;
++}
++
+ static void pci_configure_mps(struct pci_dev *dev)
+ {
+ 	struct pci_dev *bridge = pci_upstream_bridge(dev);
++	struct pci_dev *rp;
+ 	int mps, mpss, p_mps, rc;
+ 
+ 	if (!pci_is_pcie(dev))
+@@ -2252,10 +2271,21 @@ static void pci_configure_mps(struct pci_dev *dev)
+ 		return;
+ 
+ 	mpss = 128 << dev->pcie_mpss;
+-	if (mpss < p_mps && pci_pcie_type(bridge) == PCI_EXP_TYPE_ROOT_PORT) {
+-		pcie_set_mps(bridge, mpss);
+-		pci_info(dev, "Upstream bridge's Max Payload Size set to %d (was %d, max %d)\n",
+-			 mpss, p_mps, 128 << bridge->pcie_mpss);
++	rp = pcie_find_root_port(bridge);
++	if (mpss < p_mps && rp) {
++		/*
++		 * dev cannot be programmed to the MPS already in use above
++		 * it, so reduce the hierarchy to what dev supports.  A Switch
++		 * may not repackage TLPs, so reducing only the upstream
++		 * bridge is not enough: every port up to the Root Port has to
++		 * come down as well, and so do the devices already programmed
++		 * below that Root Port, which would otherwise be left sending
++		 * TLPs too large for their egress port.
++		 */
++		pcie_reduce_mps(rp, &mpss);
++		pci_walk_bus(rp->subordinate, pcie_reduce_mps, &mpss);
++		pci_info(dev, "Max Payload Size of %s hierarchy set to %d (was %d)\n",
++			 pci_name(rp), mpss, p_mps);
+ 		p_mps = pcie_get_mps(bridge);
+ 	}
+ 
+-- 
+2.34.1
+
 
