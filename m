@@ -4,128 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 393C7C982C1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 16:43:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52F77C982C1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 16:46:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LNMO8XLh/P//rTxtlnaw2Rxq/9bsyltTfRpwCoSjgSY=; b=NBfcDpqTRxaIoVc5kVkRs46GWz
-	g8vwefaEFYJn5Xzp2MB1CuZNmfQ5R81aB4LZKv1MZUHJtLrWzT2UXlmHr5WaxbBDorWvmZfHaIdyj
-	Fx0UDkgMbQi8+K/UkPx4mh8QcTcgLeC8nt2GSsy0Y7gb/6wD4rpAcZ/8iEiHS1JL2pe496Dtf5SQG
-	5ER8SrUCnQ474iwfM8e24VJwo5i4ZoC1518rhTq4wWNvGtsL5RC7Sv0BwA9W3lS7rpv7GmV0bOVTH
-	qjFJ2/i7V0n3Rqe6SU3I1lDnsng3jt+xxzlHJTVBAvsSFvBjhftNH8/4nF3HTokUttzA/wWoyl7af
-	c8wa1xYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XRjLa7qlFX6dJVmeGqjKmWH1z03VST/FAeIvkxhWRZ8=; b=kbgU/xCcBP1nRpryZzGOOBbM3V
+	Styw4nOL9h9YpSnAzYRzIGOu9siapIVCVNN5QvJ9abRTEHTlMc2zJ6ZRdKDnjTL3q1+rDraIrz1os
+	HmCsBrFYVymrpvfRP54ao5t9Z0FKsDQzUfpZrePWdFrSIMima4IN81PQOgkUbG6z8PXCZuN06GQRI
+	a9d4xSlzCyS1JX8TTRibyQ3PaRnov32sqqZnFRB1xN4izI1L350jQKzra44m/h1QD6lDOx10xmFw1
+	Udk48WwQdvJ6yD+dEkf3+Y3aS8W7V5FreOXL/irm7AuAeEagPH56ZMMg555aGqbe3S6qRWmVj16c+
+	WPMGBEKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6sjQ-00000009m3d-48Lw;
-	Wed, 16 Sep 2026 16:43:37 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1x6slc-00000009mNn-12D4;
+	Wed, 16 Sep 2026 16:45:52 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6sjP-00000009m2T-0NQr
+	id 1x6slZ-00000009mMm-3fXC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 16:43:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Qd2ggFblsu9A8inp5DV1r53HT/3s+uALPfVXknFHUcqCF4JGJvzuSzMM8lN+TqdaFIgx4J9SZA1uKOy6EBvC3EBsLKGz8NL90XUxdX9NtPIM6t495BKjZcWBbpPXRrHi0/tdbyOFNsAJOatjjqoeJj4ncDNoB4v0+xmdQOYxQYGaTCG+iTpTmfQWdxNNDUDgfy0t6Zdt2eBxuCmbC2/ZzwToqSTUmKLwbs+oKCG1+of+nXW1+hwvFw18mORTmSsVl2jCH4svLZSvHIA04eAXoBZYWijJnnUIZeYqEASswTmMSRRa+lkc6gwUUCc3BEq1a0heiglE5Y9434Krh2zuKg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LNMO8XLh/P//rTxtlnaw2Rxq/9bsyltTfRpwCoSjgSY=;
- b=StFsXaEnOn7u1ewY7oMNtgm1ItRTfwxJLpZhDFFz9sWcxzRON9CspdG/kidTRy1yfqA0ANuuD1YeqEwPXUc+glU0cYOeQNSrI2KLj9svmLNmdYwWinT+sKQOEB9RVN3ZzqRlXis66+c+2Y2PI7JWsYLDJgwdlfrwyF9b1cKvoMHPbFux3kY7aS6f10GH2Ti8+z2mPQ/E7RMmw5R1UEqn9/F0dH093EgGlU/8LQrPbR+mS+3DQNRzU+u3izzHB6AGymtOukNMFsqtOdtkwA+JdbI9ORDk0CaZ4zjLIEzmv/iWRtl8YteuhOPGm72W85a0BfxAiqKMAFZrfKIqgVGbwA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LNMO8XLh/P//rTxtlnaw2Rxq/9bsyltTfRpwCoSjgSY=;
- b=Dd1OoXxUrRyfwlmarXkuFnXxOTn67vwrQs3ImuVC7ZiYJiA4Tci9eGj9mwu6aLQVkBix0K0JAR3Vli72/01ecU2Vu0kBnQUiuhk67CXCiUn84pmC4WlykUdFcfXawD8zJ2ziSxnOhaMgYU/BK6TS7B5h6xVmqtV88yWjnzmXTwy429ZziMuraBuShe6Xm4uTwMQXqpCL76tcY77243hQswWmpMganehx6HQs7D8uBxd8pQaYK1IY8BdgwoBhtmAWN+e5Uzt0aj9PQZUpkLFRaSepRHA1esFcPaoDWzp6Q5jQN9B9YuyBRRLmcRJfTFuDX/BAELzSAygDagWWzTdPOQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PA2PR04MB10446.eurprd04.prod.outlook.com (2603:10a6:102:415::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Wed, 16 Sep
- 2026 16:43:28 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.012; Wed, 16 Sep 2026
- 16:43:28 +0000
-Date: Wed, 16 Sep 2026 11:43:18 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Dong Aisheng <aisheng.dong@nxp.com>, Andi Shyti <andi.shyti@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-i2c@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH] i2c: imx-lpi2c: use dmaengine_get_dma_device() for DMA
- mapping
-Message-ID: <aqrHJsO5xYBO4WvB@SMW015318>
-References: <20260916-i2c-dma-v1-1-6dd4f1916910@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260916-i2c-dma-v1-1-6dd4f1916910@nxp.com>
-X-ClientProxiedBy: PH7P220CA0019.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:326::26) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Wed, 16 Sep 2026 16:45:51 +0000
+Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
+	by APP-05 (Coremail) with SMTP id zQCowABn0jy6x6pqIOZtCA--.22817S2;
+	Thu, 17 Sep 2026 00:45:46 +0800 (CST)
+From: Wentao Liang <vulab@iscas.ac.cn>
+To: daniel@zonque.org
+Cc: dbrownell@users.sourceforge.net,
+	gregkh@linuxfoundation.org,
+	haojian.zhuang@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-usb@vger.kernel.org,
+	robert.jarzmik@free.fr,
+	Wentao Liang <vulab@iscas.ac.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH] usb: gadget: Fix transceiver leak in pxa_udc_probe()
+Date: Wed, 16 Sep 2026 16:45:18 +0000
+Message-Id: <20260916164518.2084871-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA2PR04MB10446:EE_
-X-MS-Office365-Filtering-Correlation-Id: b07a7abc-e6b5-451c-2003-08df1411a267
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|23010399003|19092799006|376014|10067099003|22082099003|18002099003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: 5Vkl830Y8AXCtdvhO9ehaL2/9bH7WteRrNWblPwcmCGX0cO2MG/bKDTzRhp0+BfoTm1Qjc+gUi+/40ecjuGmIVZI2gv9OSUT9UleD7Z2JdbdS5fQfbprbUFXyd9Fabpix5OjPEndLU5kOUg5UyeLYs7hUCb8zNFuhSwkspvxLhLsCBIZ+cuDpdn2nBXNnKWlqgTWWzDRScPAd0yxffB2vtpjsfDuBGi4VoybP0MUiN6N/kaMpaI6a+IjxGO1sFgVoB7o3msKoaqCGRQV8mjTZcij6JpII0qfbXfTohDBmg4aCzOT3oytmR7KC5t6GNpvverbAl7JWoFDwSvihxumyyJ012ADNjZiNaraL4XVjPhcjQKjy0oGXM+sIaKMguDw0240ILrWUFbVcFjNXR9HahBXCLkcTaoimROzLe6Ctuluh2dccUKmFWp07KNI80xxc6TS/2ccR5fmDcl3Qx0bhdKQ55JXIcIUktLBYxopUh2WC4Ye+2TJ+dqMKycNUkgijJx2WBhB9tS/g+UXLbz5pudnvrXM/e4HmzKOpxGbz9TWB2khORkCcCmIvaYQXFROmSCQiIy5H5PWaheU2Zpj9t9AnTcs7Y9mSJA1zPh2varT7HMnWwnoCKqGIWvnapzKIJDSUmK2ebzfEH8nOh6cwhgjnG98KAdzHSLF6UNTOrM=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(23010399003)(19092799006)(376014)(10067099003)(22082099003)(18002099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?j1eJav19ht2sysMFHGvabuUc4NxmBsfpHGwczn4vyinhq4W/ipSHS+L3dwSD?=
- =?us-ascii?Q?CcgNlqWW7THabspVE07sp50QwXX4nSjuLxF7mrSRVfq9C6E7pbMEOyTwDPsK?=
- =?us-ascii?Q?xEftqDtuI8lPf3kuYKxGwUOEgHF9RUiYZwFLtXMjtcKmp0OJXpCsrgJZHK+E?=
- =?us-ascii?Q?aTTHCamZFPkDzcovhLC0lZiQzMfX2qQBQ8KCAsro9r4CJu039G+DL0gyRPOF?=
- =?us-ascii?Q?OITmNbahA4dyDJgGa5QF+Ma/ESlzRgXFtYjt/VXt1O5AuKpzJk6dgB/ImKWK?=
- =?us-ascii?Q?u3kaw0hwn+yhbg+ZsDPj42TLWpy+bZKg/DQxiOHyEtl9c9IQOGYY/0QQBkXd?=
- =?us-ascii?Q?fuG0FX1gZF8RKk4jvDejk1KB1rH9Z2n++Re18/oGon01mW1qTS9mwIZSRTln?=
- =?us-ascii?Q?26rdiluzP6SoUbyLG/JwqaRxwSz5z5aY6FGWfTPMCpgELqjllyhkeO7g6AIZ?=
- =?us-ascii?Q?emFngMc+nsOyC4igNYVWc6qDyVWwMC1mWxvsWT6SGfxaHit2qsOZJsdLkspl?=
- =?us-ascii?Q?X3jrgp/AxSehy8zEZ2xd3DsyZBUr4657EFQEFwb9eWgg126dwS7JtVUOxPNY?=
- =?us-ascii?Q?kQzwHODBPlGkLcX8NkzBpbigItwAv8iytkwzKDhAqK22phXfueRWl/8uQ9KK?=
- =?us-ascii?Q?t1NixECiZXhVbVE1+QdN+wTuwsQnTFEmPHllNnJOHnCBqKLDkj0fvq5g3vgM?=
- =?us-ascii?Q?QqYDt71bwwMh0xS8OKTDykA6V/DmWmNnEmcXZwEJ+hNzCSXohgnZ+mWCZbhj?=
- =?us-ascii?Q?C2V5thlWgxVH+VoHvp/ThwfTybRrVgarSQLjs9rIRN/f/ALur7zw42wqM1to?=
- =?us-ascii?Q?w/xDVZqU8Jl1vNIOVBs/Dnfv9SAKsWJGk2EKY1h73nhQSOmpbqYlkyevR+34?=
- =?us-ascii?Q?h9fyoYRJ0XpgZYmjkYUUldKHtQkBHGk/puXzLiXxbTx1o7yy93hqG1yBnXwR?=
- =?us-ascii?Q?mc7y+7hVxLU4d5PVvIiGG0wXWSSbY0YjqGjbe6ZDQOlcwmnIdnW0ap2u3QMM?=
- =?us-ascii?Q?ozd3MztvbBz+e6V0nhIIyRg1lZJF5qjK6gKw7jxKlsGh5u6mwjLi8uzm7Mo5?=
- =?us-ascii?Q?8uEHyAFhEh/CJ2aAGspj7ZCDzn4hWZWIp9Nbrx0IE+87U0yu3Jk4i7MBn8e4?=
- =?us-ascii?Q?9t9uhcwptxWUjopluSNL6DTMbmtYY4yUnOfLqQ2VG5G2c7fHttbPVjHcazs6?=
- =?us-ascii?Q?5Ej7/ENzTV+Jlv0w1kjTi5x9Zb4qzxGpoXTB0lQCJg6jLOguFVUS9axuqlaU?=
- =?us-ascii?Q?07Gmno8ADnv/YQfDQlC0PprTBqvUMwZORBVUcaDxpQM8R2hExDLPv92opokj?=
- =?us-ascii?Q?WZlLTrjU3sZg1pMRwU/DzouZd2rDa7ZyJVKkTIh+7ljLDDSiY6emkT2mA139?=
- =?us-ascii?Q?+wTOyaD74eEtGsFUA0ebIwPGlDWFL7h2t+3Q3V70aXUTgTjc8jg1TvkbyZqs?=
- =?us-ascii?Q?7L69ZEhLGIVFtnUOP9TGPIodOH3uSov4q6j1vcv7B/yQk4y4R/ninrNBWQ6V?=
- =?us-ascii?Q?+ryXy5k11/6lUupGQ/xY0i6vx/63okUYEPygeaP4XF7znFhX+/BGcQHJ3ewX?=
- =?us-ascii?Q?o1wr3TD8UVqEjBuKq3HG8ZZGQB26SaEZP8Sbcm8VzuOjvj+5jvEHL8MrZpiU?=
- =?us-ascii?Q?bQ4peVHn9VapW+s4GlUm+BFP7/gE05wyEle2Wfp+5dI4Ue9C99Wz3k5zliq4?=
- =?us-ascii?Q?wqP69Ksj7PEmc0VWX2iDzJm57jDioFl2c6r4KU+1bxLq6GPFnconFYBTgryT?=
- =?us-ascii?Q?l1fseC3G7y6/KlrF8itXBI6WvJ9m7lpvXXQJL3JPck0mFx5rL5zj?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b07a7abc-e6b5-451c-2003-08df1411a267
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Sep 2026 16:43:28.4628
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: EkKp5NBu5ZrXXjaLRm+eT6ZsJ8wg7gikc01sjjjdk0PVNgdCNIikpEWDSEYEdjNAdSvmZEmEbuUclOqchbvqmBlx5YKpoPaC2wgwd1zY3gXGedX3cLjvHmQEkMlmYUMb
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10446
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: zQCowABn0jy6x6pqIOZtCA--.22817S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7try3urW7KrW8WF45Zr48tFb_yoW8tFWxpa
+	nruayrtry5Aa93t393Jwn8ZF1rAF17tFyqkrWIyan5ua13Xr42yw45JFyaga18CFykW3y7
+	tFsxtw4fCFWDur7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9a14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
+	6r4UJwA2z4x0Y4vEx4A2jsIE14v26F4j6r4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr
+	1j6F4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv
+	7VC0I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r
+	1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02
+	628vn2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4
+	IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1r
+	MI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUCV
+	W8JwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWU
+	JVWUCwCI42IY6I8E87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJr
+	UvcSsGvfC2KfnxnUUI43ZEXa7VUbo5l5UUUUU==
+X-Originating-IP: [36.110.52.2]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBwQMA2qqpVhQ8wAAsS
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_094335_134961_DF37C254 
-X-CRM114-Status: GOOD (  18.22  )
+X-CRM114-CacheID: sfid-20260916_094550_288169_22828ECD 
+X-CRM114-Status: GOOD (  13.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,103 +83,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 16, 2026 at 11:25:26PM +0800, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
->
-> Replace all chan->device->dev references with
-> dmaengine_get_dma_device(chan) so that DMA mapping goes through the
-> correct device when the DMA controller has per-channel IOMMU domains
-> (chan_dma_dev=true). Without this, DMA map/unmap bypasses the IOMMU
-> context configured by the eDMA driver.
->
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
+When the device is probed from platform data instead of device tree,
+pxa_udc_probe() takes a reference on the USB2 transceiver with
+usb_get_phy(USB_PHY_TYPE_USB2). This reference is only released in
+pxa_udc_remove(), but the error paths taken after the transceiver has
+been acquired return directly: a failed D+ gpio lookup, a failed
+devm_clk_get() or clk_prepare() call, a failed devm_request_irq() and
+a failed usb_add_gadget_udc() or udc_enable() call all leak the
+reference.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Route those error paths to the existing err label so that the
+transceiver is put together with the clk_unprepare() cleanup. The put
+is guarded by !of_have_populated_dt(), because in the device tree case
+the reference is taken by devm_usb_get_phy_by_phandle() and released
+by devres when the probe fails.
 
+Fixes: 7fec3c25b773 ("USB: pxa27x_udc: add otg transceiver support")
+Cc: stable@vger.kernel.org
+Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+---
+ drivers/usb/gadget/udc/pxa27x_udc.c | 13 +++++++++----
+ 1 file changed, 9 insertions(+), 4 deletions(-)
 
->  drivers/i2c/busses/i2c-imx-lpi2c.c | 18 +++++++++---------
->  1 file changed, 9 insertions(+), 9 deletions(-)
->
-> diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c-imx-lpi2c.c
-> index 49aabef7f115c..60547006f8b44 100644
-> --- a/drivers/i2c/busses/i2c-imx-lpi2c.c
-> +++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
-> @@ -780,7 +780,7 @@ static void lpi2c_dma_unmap(struct lpi2c_imx_dma *dma)
->  	struct dma_chan *chan = dma->dma_data_dir == DMA_FROM_DEVICE
->  				? dma->chan_rx : dma->chan_tx;
->
-> -	dma_unmap_single(chan->device->dev, dma->dma_addr,
-> +	dma_unmap_single(dmaengine_get_dma_device(chan), dma->dma_addr,
->  			 dma->dma_len, dma->dma_data_dir);
->
->  	dma->dma_data_dir = DMA_NONE;
-> @@ -789,7 +789,7 @@ static void lpi2c_dma_unmap(struct lpi2c_imx_dma *dma)
->  static void lpi2c_cleanup_rx_cmd_dma(struct lpi2c_imx_dma *dma)
->  {
->  	dmaengine_terminate_sync(dma->chan_tx);
-> -	dma_unmap_single(dma->chan_tx->device->dev, dma->dma_tx_addr,
-> +	dma_unmap_single(dmaengine_get_dma_device(dma->chan_tx), dma->dma_tx_addr,
->  			 dma->rx_cmd_buf_len, DMA_TO_DEVICE);
->  }
->
-> @@ -817,10 +817,10 @@ static int lpi2c_dma_rx_cmd_submit(struct lpi2c_imx_struct *lpi2c_imx)
->  	struct dma_chan *txchan = dma->chan_tx;
->  	dma_cookie_t cookie;
->
-> -	dma->dma_tx_addr = dma_map_single(txchan->device->dev,
-> +	dma->dma_tx_addr = dma_map_single(dmaengine_get_dma_device(txchan),
->  					  dma->rx_cmd_buf, dma->rx_cmd_buf_len,
->  					  DMA_TO_DEVICE);
-> -	if (dma_mapping_error(txchan->device->dev, dma->dma_tx_addr)) {
-> +	if (dma_mapping_error(dmaengine_get_dma_device(txchan), dma->dma_tx_addr)) {
->  		dev_err(&lpi2c_imx->adapter.dev, "DMA map failed, use pio\n");
->  		return -EINVAL;
->  	}
-> @@ -844,12 +844,12 @@ static int lpi2c_dma_rx_cmd_submit(struct lpi2c_imx_struct *lpi2c_imx)
->  	return 0;
->
->  desc_prepare_err_exit:
-> -	dma_unmap_single(txchan->device->dev, dma->dma_tx_addr,
-> +	dma_unmap_single(dmaengine_get_dma_device(txchan), dma->dma_tx_addr,
->  			 dma->rx_cmd_buf_len, DMA_TO_DEVICE);
->  	return -EINVAL;
->
->  submit_err_exit:
-> -	dma_unmap_single(txchan->device->dev, dma->dma_tx_addr,
-> +	dma_unmap_single(dmaengine_get_dma_device(txchan), dma->dma_tx_addr,
->  			 dma->rx_cmd_buf_len, DMA_TO_DEVICE);
->  	dmaengine_desc_free(rx_cmd_desc);
->  	return -EINVAL;
-> @@ -872,9 +872,9 @@ static int lpi2c_dma_submit(struct lpi2c_imx_struct *lpi2c_imx)
->  		dma->dma_transfer_dir = DMA_MEM_TO_DEV;
->  	}
->
-> -	dma->dma_addr = dma_map_single(chan->device->dev,
-> +	dma->dma_addr = dma_map_single(dmaengine_get_dma_device(chan),
->  				       dma->dma_buf, dma->dma_len, dma->dma_data_dir);
-> -	if (dma_mapping_error(chan->device->dev, dma->dma_addr)) {
-> +	if (dma_mapping_error(dmaengine_get_dma_device(chan), dma->dma_addr)) {
->  		dev_err(&lpi2c_imx->adapter.dev, "DMA map failed, use pio\n");
->  		return -EINVAL;
->  	}
-> @@ -1085,7 +1085,7 @@ static int lpi2c_imx_dma_xfer(struct lpi2c_imx_struct *lpi2c_imx,
->  	}
->
->  	if (dma->dma_msg_flag & I2C_M_RD)
-> -		dma_unmap_single(dma->chan_tx->device->dev, dma->dma_tx_addr,
-> +		dma_unmap_single(dmaengine_get_dma_device(dma->chan_tx), dma->dma_tx_addr,
->  				 dma->rx_cmd_buf_len, DMA_TO_DEVICE);
->  	lpi2c_dma_unmap(dma);
->
->
-> ---
-> base-commit: e6e35979777d646fe3c7c94dca7dd32fb25d45f4
-> change-id: 20260916-i2c-dma-e9cd42e4e7ff
->
-> Best regards,
-> --
-> Peng Fan <peng.fan@nxp.com>
->
->
+diff --git a/drivers/usb/gadget/udc/pxa27x_udc.c b/drivers/usb/gadget/udc/pxa27x_udc.c
+index 1abea0d48c35..5f4f66e571f9 100644
+--- a/drivers/usb/gadget/udc/pxa27x_udc.c
++++ b/drivers/usb/gadget/udc/pxa27x_udc.c
+@@ -2421,18 +2421,21 @@ static int pxa_udc_probe(struct platform_device *pdev)
+ 	if (IS_ERR(udc->gpiod)) {
+ 		dev_err(&pdev->dev, "Couldn't find or request D+ gpio : %ld\n",
+ 			PTR_ERR(udc->gpiod));
+-		return PTR_ERR(udc->gpiod);
++		retval = PTR_ERR(udc->gpiod);
++		goto err;
+ 	}
+ 	if (udc->gpiod)
+ 		gpiod_direction_output(udc->gpiod, 0);
+ 
+ 	udc->clk = devm_clk_get(&pdev->dev, NULL);
+-	if (IS_ERR(udc->clk))
+-		return PTR_ERR(udc->clk);
++	if (IS_ERR(udc->clk)) {
++		retval = PTR_ERR(udc->clk);
++		goto err;
++	}
+ 
+ 	retval = clk_prepare(udc->clk);
+ 	if (retval)
+-		return retval;
++		goto err;
+ 
+ 	udc->vbus_sensed = 0;
+ 
+@@ -2471,6 +2474,8 @@ static int pxa_udc_probe(struct platform_device *pdev)
+ 		usb_unregister_notifier(udc->transceiver, &pxa27x_udc_phy);
+ err:
+ 	clk_unprepare(udc->clk);
++	if (!of_have_populated_dt() && !IS_ERR_OR_NULL(udc->transceiver))
++		usb_put_phy(udc->transceiver);
+ 	return retval;
+ }
+ 
+-- 
+2.34.1
+
 
