@@ -4,57 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1856C982C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 14:25:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4582CC982C3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 14:25:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Ql9bkct6aKj9VVqsEavAC8t4AuOf4e62Wuo7PakyPF0=; b=bf4SBykFDadVLp
-	sbPgzQ+N9Ud7l2I8n3GGfQJ6Icr4Kh+sgGKGDPbjOUSA388od+lOXJs3dKjXGNrFQ2OCMAPTycF2g
-	So1RW7URzavSHcPLKNzCwbFi8hDqBzUSLTDYsiCK8UZW97F90kdwyGOaHKYLiGrAgZAEAHk/dnxGN
-	IWnKGK212EeIn/s/6FqP48QReugzTJpNfia4JA/IfsRcawnjeFJW4Bn2RvGtncMqXKxVUdXglH4E/
-	ws4syeo9oNCTAh4lcSZoEg7e9bCkJhiUgN6n8KmPKD+U+kMHAYTCLzCIi3sbMHcdu7OluR1VY7gH7
-	7vb9rDjlzJ3rxYihLs+Q==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5aWRJWR6JA0i2juUYsty9pizjjFdUj7YgK+zeY4lOn0=; b=IAEszfLKKtc2bTMvzsWAqdmrOq
+	lAq8RhDuWI25vJ7RmFddj1n8mYSqfAtVolUEj/bWw9v99A1OlSGXtojENH5WSXLg24rspqtW5lWcS
+	A1Fz15gO8xE7X7q8R/Ya3TPVNpm5TOOZ/29j/tcyLXYQB23J+3K1q6kYycLPZQkfY1fRvyifk7pqZ
+	ItqqbBABnRjKRan2ypQJKHvefAEpDAPUCZp83a7m0EBW1/FXiORpCNKk3YpLhrsGaOBJ4x4ZHb03j
+	6V+F8OGrnxXmi5lo9UC+TCAjWPlHH9MeNQqZ2MX57SO3ANgjef+LOoRYPbx1dIqlL3p4QCrxtDCB9
+	lDwk6qWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6qZt-00000009OL4-1Stw;
-	Wed, 16 Sep 2026 14:25:37 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1x6qa7-00000009OT1-01Gm;
+	Wed, 16 Sep 2026 14:25:51 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6qZp-00000009OJ4-1ARh;
-	Wed, 16 Sep 2026 14:25:35 +0000
+	id 1x6qZy-00000009OOU-2Gmx;
+	Wed, 16 Sep 2026 14:25:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=5aWRJWR6JA0i2juUYsty9pizjjFdUj7YgK+zeY4lOn0=; b=dOvsGLDUI8Ax1s5LzQxEWpBGoH
+	ONM4+TV1Sz4STaREOuUeKeQdEYj0TZebZEZXvzQ+7570eC6ytKg3l+Ta1U810FYZ+Rzf6m7tkxfjA
+	vL1g8/EJdcyNpOIIKq6nmfIGLALtPVGEC/LJEjxEqYldn02i5s+xUJOh6YlAwLV6EJSGlkuAGDXEp
+	OPLWXOHhTEIJrUqU0uWCa5dykTk+4MJ599Gg/K2XybQR4KpuTVIcHMvoR71lEWjZ9E/uLMsmU6XjE
+	JMXs4imj/SfJufiNwQvcM22IV9PaIZHz7eU06D0yZXpmHZ7iMCiTuB7zWizZFsLjskZy19XHRhfE0
+	bHpsajdg==;
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6qZv-00000007yVK-2S70;
+	Wed, 16 Sep 2026 14:25:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1789568730;
-	bh=PXSGCK4XJImXzJ5Tnr0mvlaxq0Mq/XyWM5fDlTAcs/8=;
-	h=From:Subject:Date:To:Cc:From;
-	b=jCbHDjhXr35px6io3hf26zcFdpIELxPyr3fRYjU8uNWLarE5F14tZtXaGIFhiVFq5
-	 UiBcT2FBFyuoEZCNi4+PsM+c6M5XYZFvzGHDEcFVxFBZLroER9532dX69mnXVW55wf
-	 WwQ1cVHHSdW7DHsM0/vzNpvjtjYKd2Wfxjj8hHGZ1FrSr/8Uw1aw8Pgz/lISJP82He
-	 xR/fx2wJv6rydnYiZDaGUCl2x6ijiWoAJtOPEB7xGgOGYYTXAcgo35CP+ilOip+SgY
-	 CJqWGJjzN/FI6Lzi6LzGCQ+2SlHftHzVfF2LAImXFffRkhuGGjzMPBj7ugvSQqnGIL
-	 OGtC58cuISjGQ==
+	s=mail; t=1789568734;
+	bh=Fxe8yW3F1jNzKsru3sFOSL1At3sZumtvqZQlyoS5WYU=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=kaeMnSd1+Nle9exhcSlW7s2cTufLBn7oxmmsA9ZcJkgt4L2v9ZZ3gYuOAyACaaV5q
+	 72EIlf0O9gclljHKtvi5l+2/o/ElRAM2n03IWfrqInJknfMX/RZsunNa2sTt34PDep
+	 A8Uzz0b7UGOtdxkySvSe8YqEAd/5+EAzpYlK22wmq10z9cFOzgfN6Y9P0ujhE50uxx
+	 Kg/P8Te0Qyy5vn+dM3VPar6G3TC5jBRmgTJVuRsHuNaCheye/4cjMfadCRslAhO731
+	 3UMaO3VR8k2mgpNM9Fh66MICToQpXvM8cg+lcgaRTtOPjrszvWyjv4d9pHTIYzLANM
+	 haw8eI7M+/mNQ==
 Received: from [192.168.0.15] (unknown [100.64.0.170])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8D46E17E0070;
-	Wed, 16 Sep 2026 16:25:28 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6356817E047B;
+	Wed, 16 Sep 2026 16:25:32 +0200 (CEST)
 From: Detlev Casanova <detlev.casanova@collabora.com>
-Subject: [PATCH 0/4] media: Track v4l2 buffers through an allocator
-Date: Wed, 16 Sep 2026 10:25:25 -0400
-Message-Id: <20260916-v4l2-add-mem-tracker-v1-0-900fa45e3e6a@collabora.com>
+Date: Wed, 16 Sep 2026 10:25:27 -0400
+Subject: [PATCH 2/4] media: Store v4l2_fh in the vb_queue
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/0WO0Q6CMAxFf4Xs2SVlzoL8iuGhlE6nIroNYmL8d
- 4eY+HiT03P6UlGCl6ia4qWCzD768ZZHuSkUn+h2FO37vJUBg4Cl0bO9Gk19rwcZdArEFwm6J4C
- 65soSWpVP70Gcf361h3bdcerOwmlx/Yggjyn30or9c02xxqD+x9xSEk3CKJVDIORmNouooyiax
- 2HwqSkQyTnaVuyIIcP5Y2bbsbMEuOuAd8ZVUu5V+35/ALgbmPL7AAAA
-X-Change-ID: 20260612-v4l2-add-mem-tracker-da0088c74a64
+Message-Id: <20260916-v4l2-add-mem-tracker-v1-2-900fa45e3e6a@collabora.com>
+References: <20260916-v4l2-add-mem-tracker-v1-0-900fa45e3e6a@collabora.com>
+In-Reply-To: <20260916-v4l2-add-mem-tracker-v1-0-900fa45e3e6a@collabora.com>
 To: Tomasz Figa <tfiga@chromium.org>, 
  Marek Szyprowski <m.szyprowski@samsung.com>, 
  Mauro Carvalho Chehab <mchehab@kernel.org>, 
@@ -68,8 +79,8 @@ Cc: kernel@collabora.com, linux-kernel@vger.kernel.org,
  Detlev Casanova <detlev.casanova@collabora.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_072533_637655_A30388FB 
-X-CRM114-Status: GOOD (  17.77  )
+X-CRM114-CacheID: sfid-20260916_152539_776835_20C2ED10 
+X-CRM114-Status: GOOD (  15.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,114 +95,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
-
-Currently, the only way to track buffers allocated by v4l2 from usespace
-is to use the subsystem available debug information (e.g.:
-/sys/kernel/debug/dma_buf/bufinfo).
-But that information is generic and cannot be matched to a v4l2 driver or
-to a userspace application: It is merely information about the allocation.
-
-Other types of allocations require the developper to find where they are
-exposed and how to link them to their test.
-
-This can become hard to track when mutliple drivers are working at the
-same time.
-
-To improve that, add a small wrapper around buffer allocations to keep
-track of them at the video device level so that we can add debug
-information to them like a name, userspace pid/fd that did the
-allocation,... and expose them to userspace via a debugfs entry.
-
-It currently only supports DMA buffer allocations and adds support for
-VB2 allocations too.
-Other kind of memory tracking can be added later.
-The verisilicon and rkvdec drivers have been ported to use the tracked
-dma alloactions.
-
-Note that this depends on the ftrace support patch series[1] that
-provides fd/pid info in the v4l2_fh struct.
-That series is a bit old, so this is based on an older linux version, but
-that only changes things for the last 2 commits.
-
-A v4l2top utility[2] has been made, to be used in parallel with the
-fdinfo patch series[3], to show the list of active streams with their HW
-and memory usage.
-
-With this, debugfs looks like this when decoding a HEVC 1080p stream with
-rkvdec on rk3588:
-
-  root # cat /sys/kernel/debug/v4l2/fdc38100.video-codec/mem 
-  created-by                      fd              pid             size            label
-  -------------------------------------------------------------------------------------
-  gst-launch-1.0                  7               635             39184           vdpu381-hevc-priv-tbl
-  gst-launch-1.0                  7               635             4177920         cap-00000000ac34392e-7
-  gst-launch-1.0                  7               635             4177920         cap-00000000ac34392e-6
-  gst-launch-1.0                  7               635             4177920         cap-00000000ac34392e-5
-  gst-launch-1.0                  7               635             4177920         cap-00000000ac34392e-4
-  gst-launch-1.0                  7               635             4177920         cap-00000000ac34392e-3
-  gst-launch-1.0                  7               635             4177920         cap-00000000ac34392e-2
-  gst-launch-1.0                  7               635             4177920         cap-00000000ac34392e-1
-  gst-launch-1.0                  7               635             4177920         cap-00000000ac34392e-0
-  gst-launch-1.0                  7               635             3133440         out-000000005c0230f6-1
-  gst-launch-1.0                  7               635             3133440         out-000000005c0230f6-0
-  =====================================================================================
-  Total size: 39729424
-
-[1]: https://lore.kernel.org/all/20260610-v4l2-add-ftrace-v2-0-9756edf72ac1@collabora.com/
-[2]: https://github.com/cazou/v4l2top/tree/upstream
-[3]: https://lore.kernel.org/all/20260706-v4l2-add-fdinfo-v3-0-d556568cf38e@collabora.com/
+To be able to show the fd in the debug fs, add the v4l2_fh pointer to the
+queue so that vb2 allocations can retrieve it.
 
 Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
 ---
-Detlev Casanova (4):
-      media: Add a v4l2 memory allocations tracker
-      media: Store v4l2_fh in the vb_queue
-      media: verisilicon: Switch to tracked dma allocations
-      media: rkvdec: Switch to tracked dma allocations
+ drivers/media/common/videobuf2/v4l2-allocator.c       | 16 +++++++++++-----
+ drivers/media/common/videobuf2/videobuf2-dma-contig.c |  1 +
+ include/media/v4l2-allocator.h                        |  2 +-
+ include/media/videobuf2-core.h                        |  1 +
+ 4 files changed, 14 insertions(+), 6 deletions(-)
 
- drivers/media/common/videobuf2/Makefile            |   1 +
- drivers/media/common/videobuf2/v4l2-allocator.c    | 186 +++++++++++++++++++++
- .../media/common/videobuf2/videobuf2-dma-contig.c  |  27 ++-
- .../media/platform/rockchip/rkvdec/rkvdec-h264.c   |  14 +-
- .../media/platform/rockchip/rkvdec/rkvdec-hevc.c   |  14 +-
- .../media/platform/rockchip/rkvdec/rkvdec-rcb.c    |  21 ++-
- .../platform/rockchip/rkvdec/rkvdec-vdpu381-h264.c |  14 +-
- .../platform/rockchip/rkvdec/rkvdec-vdpu381-hevc.c |  14 +-
- .../platform/rockchip/rkvdec/rkvdec-vdpu383-h264.c |  14 +-
- .../platform/rockchip/rkvdec/rkvdec-vdpu383-hevc.c |  14 +-
- .../media/platform/rockchip/rkvdec/rkvdec-vp9.c    |  33 ++--
- drivers/media/platform/rockchip/rkvdec/rkvdec.c    |   4 +
- drivers/media/platform/verisilicon/hantro.h        |   1 +
- drivers/media/platform/verisilicon/hantro_drv.c    |   4 +
- drivers/media/platform/verisilicon/hantro_h264.c   |   7 +-
- drivers/media/platform/verisilicon/hantro_hevc.c   | 100 ++++++-----
- drivers/media/platform/verisilicon/hantro_mpeg2.c  |  16 +-
- .../media/platform/verisilicon/hantro_postproc.c   |  14 +-
- drivers/media/platform/verisilicon/hantro_vp8.c    |  25 +--
- drivers/media/platform/verisilicon/hantro_vp9.c    |  34 +++-
- .../verisilicon/rockchip_vpu981_hw_av1_dec.c       | 160 +++++++++++-------
- drivers/media/v4l2-core/v4l2-device.c              |   4 +-
- include/media/v4l2-allocator.h                     |  26 +++
- include/media/v4l2-device.h                        |   2 +
- include/media/videobuf2-core.h                     |   3 +
- 25 files changed, 555 insertions(+), 197 deletions(-)
----
-base-commit: 66affa37cfac0aec061cc4bcf4a065b0c52f7e19
-change-id: 20260612-v4l2-add-mem-tracker-da0088c74a64
-prerequisite-change-id: 20260608-v4l2-add-ftrace-aec6e7f60a6c:v2
-prerequisite-patch-id: bd45b4df66799a7f9f22b49973a78d1bd3590a4a
-prerequisite-patch-id: 6a5ed5615f08257cf854d441785066b5ff4d5d47
-prerequisite-patch-id: 02594c869498b9e91e416d70242afbaa6b3a8d6a
-prerequisite-patch-id: 9f25ec78f3b99ac1c5d42eb732f5bd9eae73fadd
-prerequisite-patch-id: 4ed2c2e8c3abfa7f6328d0ea4f488ca5a3eec8fb
-prerequisite-patch-id: 8787d50eb80e1a63a57a123268cade23c9e64618
-prerequisite-patch-id: bfe85822378fa771f9bbc3e1e8c8ff6bce0eb7fd
-prerequisite-patch-id: 784d0801da320f7b41194f4632ee422c32f1b5b8
-prerequisite-patch-id: 362c8366e2efbfb5e6f1a3f71cfddbd46e8d1506
+diff --git a/drivers/media/common/videobuf2/v4l2-allocator.c b/drivers/media/common/videobuf2/v4l2-allocator.c
+index 9dde9d4a342b..935fbbacd667 100644
+--- a/drivers/media/common/videobuf2/v4l2-allocator.c
++++ b/drivers/media/common/videobuf2/v4l2-allocator.c
+@@ -108,8 +108,8 @@ void v4l2_allocator_cleanup(struct v4l2_device *v4l2_dev)
+ }
+ EXPORT_SYMBOL_GPL(v4l2_allocator_cleanup);
+ 
+-static int v4l2_allocator_add(struct v4l2_device *v4l2_dev, size_t size,
+-			      dma_addr_t dma_addr, const char *name)
++static int v4l2_allocator_add(struct v4l2_device *v4l2_dev, size_t size, dma_addr_t dma_addr,
++			      struct v4l2_fh *fh, const char *name)
+ {
+ 	struct v4l2_allocator *allocator = v4l2_dev->v4l2_allocator;
+ 	struct v4l2_allocator_entry *entry;
+@@ -125,7 +125,13 @@ static int v4l2_allocator_add(struct v4l2_device *v4l2_dev, size_t size,
+ 	entry->dma_addr = dma_addr;
+ 	strscpy(entry->name, name, sizeof(entry->name));
+ 	get_task_comm(entry->creator, current->group_leader);
+-	entry->tgid = current->tgid;
++	if (fh) {
++		entry->fd = fh->fd;
++		entry->tgid = fh->tgid;
++	} else {
++		entry->fd = 0;
++		entry->tgid = current->tgid;
++	}
+ 
+ 	mutex_lock(&allocator->lock);
+ 	list_add(&entry->list, &allocator->list);
+@@ -156,12 +162,12 @@ static void v4l2_allocator_remove(struct v4l2_device *v4l2_dev, size_t size, dma
+ 
+ void *v4l2_dma_alloc_attrs(struct v4l2_device *v4l2_dev, struct device *dev,
+ 			   size_t size, dma_addr_t *dma_handle,
+-			   gfp_t flag, unsigned long attrs, const char *name)
++			   gfp_t flag, unsigned long attrs, struct v4l2_fh *fh, const char *name)
+ {
+ 	void *ret = dma_alloc_attrs(dev, size, dma_handle, flag, attrs);
+ 
+ 	if (ret && v4l2_dev)
+-		v4l2_allocator_add(v4l2_dev, size, *dma_handle, name);
++		v4l2_allocator_add(v4l2_dev, size, *dma_handle, fh, name);
+ 
+ 	return ret;
+ }
+diff --git a/drivers/media/common/videobuf2/videobuf2-dma-contig.c b/drivers/media/common/videobuf2/videobuf2-dma-contig.c
+index b6b7ddc96b9c..30e136dd02b7 100644
+--- a/drivers/media/common/videobuf2/videobuf2-dma-contig.c
++++ b/drivers/media/common/videobuf2/videobuf2-dma-contig.c
+@@ -205,6 +205,7 @@ static int vb2_dc_alloc_coherent(struct vb2_dc_buf *buf)
+ 					   &buf->dma_addr,
+ 					   GFP_KERNEL | q->gfp_flags,
+ 					   buf->attrs,
++					   q->v4l2_fh,
+ 					   name);
+ 	if (!buf->cookie)
+ 		return -ENOMEM;
+diff --git a/include/media/v4l2-allocator.h b/include/media/v4l2-allocator.h
+index f3fe0da10321..cdf0569bea0a 100644
+--- a/include/media/v4l2-allocator.h
++++ b/include/media/v4l2-allocator.h
+@@ -19,7 +19,7 @@ void v4l2_allocator_cleanup(struct v4l2_device *v4l2_dev);
+ 
+ void *v4l2_dma_alloc_attrs(struct v4l2_device *v4l2_dev, struct device *dev,
+ 			   size_t size, dma_addr_t *dma_handle,
+-			   gfp_t flag, unsigned long attrs, const char *name);
++			   gfp_t flag, unsigned long attrs, struct v4l2_fh *fh, const char *name);
+ 
+ void v4l2_dma_free_attrs(struct v4l2_device *v4l2_dev, struct device *dev,
+ 			 size_t size, void *cpu_addr,
+diff --git a/include/media/videobuf2-core.h b/include/media/videobuf2-core.h
+index 83a5aea34f3c..aa47f1c7c9d1 100644
+--- a/include/media/videobuf2-core.h
++++ b/include/media/videobuf2-core.h
+@@ -604,6 +604,7 @@ struct vb2_queue {
+ 	unsigned int			io_modes;
+ 	struct device			*dev;
+ 	struct v4l2_device		*v4l2_dev;
++	struct v4l2_fh			*v4l2_fh;
+ 	unsigned long			dma_attrs;
+ 	unsigned int			bidirectional:1;
+ 	unsigned int			fileio_read_once:1;
 
-Best regards,
---  
-Detlev Casanova <detlev.casanova@collabora.com>
+-- 
+2.55.0
 
 
