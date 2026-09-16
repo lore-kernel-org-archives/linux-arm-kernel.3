@@ -4,123 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1265BC88E5C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 14:13:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BF4AC982C3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 14:25:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=324p2Cfe//Shb2BLQKnxO87X9B2RZ+K5uWEfkM6+JbI=; b=BEWMHwt+gdm77bT6CNAwtsQz7t
-	TLpbikCjo0L0U6jFvNqjevhp8MSOAhU8dT2ySG+kzGP55RwSFsbp17Yw1Ac/VH51PBRquOeTMF7vc
-	OLj+Y+PARCwbAgVdxG9KFQuycyG8mmF5gDqqphC3Adow38dW+hFBORqJ9iwmncmLmoMHMuSLFhs9v
-	QO9/wq8JNRiopFWkyvq+LBBuCs1CDej3HZr6PBM1j/XOgZd6prDrY8p4IFnSt4Iz6oZVn3ek6axDN
-	mtBHSd1K3CT3rLhXQTM05/e49Vsc9qViEcjM3D15bdsuGgW9LjMAAfitPgY9EyXkoOKyqkQ/HdkBY
-	k+o601nA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Vil656UqbjprUdNpPyb3+DTzB2N5swUB89QchYpl8Yo=; b=nLI2ec+xeYkuTI1ZHma3kzCwM3
+	3H1NLHx0uJZqTYiwnGrxwgH0VOJ0J0dxbKsFFKeIJLiGKSHG5zYTVZ1p/Heppw1n3EZNMw4XRv6em
+	39/Imv2R6oNdjmjQLQrAUqj+u+y4mQw3m5Fon0oQY5ZCj8wcUspu/elX8P6ly8OUszlWoFG28BgdC
+	/BF7h3f138tBhhLpDW68seFiI84PTfojqUaBfS9zIRcaZkGL0Gsff/TlU/2SOBI6zpnMypzInU1bS
+	pFflL4XxVvtkEASQCI7GaixA1Gh4sBZr2qW8JxUeRbOgx0w0N1fIgBdtiHj/49/F7M953SuE5/QCP
+	oWUxBuJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6qOQ-00000009NX1-2kco;
-	Wed, 16 Sep 2026 14:13:46 +0000
-Received: from mail-francesouthazon11011042.outbound.protection.outlook.com ([40.107.130.42] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1x6qZh-00000009OIC-3LnU;
+	Wed, 16 Sep 2026 14:25:25 +0000
+Received: from desiato.infradead.org ([90.155.92.199])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6qOJ-00000009NWD-33qs
+	id 1x6qZg-00000009OHs-2uII
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 16 Sep 2026 14:25:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Vil656UqbjprUdNpPyb3+DTzB2N5swUB89QchYpl8Yo=; b=AY2RHPaJgAl281YUwUH0cQfJU4
+	58jbbYNSi8JrR7ACAwnYD3DOX2eT243Qz1PZ4/4lYZuX5LkL1vb5yjMuM18cBhUCERs7KFmWhswiq
+	qGx6qRGj8eT5Qw5jfGdCanb4woWAB33xR6Xf7eP5Ca6KvGYw4SPNxpF8OUOjkZawPID1WvCP50sIT
+	3IBpueuPt0cHuIyxUVoImgtja8V47wG4dkMmUS59DplpsBJrWep6hwP74BJ2nWJH2Epl2m369RawO
+	Y2vhh4iptdIVXZET8oVS5/dU+2WRSwsLkN2WJQOFFLWmsP9+9eIMJymCkV73XZCdCiIqZADmXud7t
+	TNYlegCw==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6qZC-00000007ySf-1ncV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 14:13:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ABZ4B0qmXl6X3yqg8Pt3HT8PVgYLC1P9T12NcqBm15ps/DELhYj3uVUVuoWNaLt+G5MqEkHcxe9rMqFODIeb4yNpD+WT3z+7YPCRoUKO3NHHXuZn7Rbzq7gFYQngOdQOSb4+ow4Th0Y0NTaXrSeJKC5NLDh0brlr4Va8gkbPFQZZV7XPNXlnPb2Z/5W5JoOeR83VLldUyAAgTwe0kTt3vlNIi2kciASdyrd8AVnzvS5I2GTylchZhXLp16QhD316gvCf1pPfX4pZ7wXUmHpjfIDBLtaM0qu1LNwUCwunNWzMPjUgGdaUkZnE6Ry9Gw8BLqWICp3dJlBfMvYopKJPEw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=324p2Cfe//Shb2BLQKnxO87X9B2RZ+K5uWEfkM6+JbI=;
- b=hmoTIEvt2v0yHqJt5MOFvOslPhpwvUnStvq0jnyd10uG9UskCTeBzC1e475qeS2x12TTmlsXmITv4lCSvFRgHmyznLkG37f3NmEkN2FhhxwLDt4f6KqDKTgRkAdpi+an58Qzku34dKmOURn8clsM8PLog01D4bY2pC03OkOhs8NSasw8IvAW3t1JCRx+sLVCHLgSSN73wPPpOPgTaC3DraFctsJPg4MaUyn+kTmNgplxbLCByN2zjOW3vL9jJA6v9W8dqr+JVHkiixp28kfPkrOGu19tjxvY2gdBumkQCZUXlelwnpnjo7OKXVx7KxCDve1JowwlbYiHeII7AP3y+A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=baylibre.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=324p2Cfe//Shb2BLQKnxO87X9B2RZ+K5uWEfkM6+JbI=;
- b=Bw85ub8uz111OQmUV1HDbYvtasVlvPBKVS82ZoLR0eArIoP1F77liH7U4/85xE/M0axPFmRXxCBPd/Kd8wAoWVHgXJDcREl/lgLMc8glPEO+OtF1DfMTsoUcnGMv6/6LbIQm7RrI0dHWOtVodZlfZyQ1JczqGtKqkmEDD03wpUaOwpdG6slohEV1Kf6cG2WPUy6zrfPnt/CDJSxyfrTkXW5B6qYNnCfuthtWeLyRA+hArT31mXVuBMSo+fwBKX9+vjfr4hp4d6pFdGoOkR+A5Lc6ZP8iZVFrLAxVRk/EPSr1EKQLCWvRri5Za7wqWipJ2mKh66wXk1x6VSOHQLWxZw==
-Received: from DUZPR01CA0118.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4bc::29) by PRAPR10MB5177.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:102:29c::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.11; Wed, 16 Sep
- 2026 14:13:32 +0000
-Received: from DU2PEPF00028D05.eurprd03.prod.outlook.com
- (2603:10a6:10:4bc:cafe::8f) by DUZPR01CA0118.outlook.office365.com
- (2603:10a6:10:4bc::29) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.428.11 via Frontend Transport; Wed,
- 16 Sep 2026 14:13:32 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- DU2PEPF00028D05.mail.protection.outlook.com (10.167.242.165) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.428.7 via Frontend Transport; Wed, 16 Sep 2026 14:13:31 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 16 Sep
- 2026 16:19:36 +0200
-Received: from localhost (10.48.86.251) by STKDAG1NODE2.st.com (10.75.128.133)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 16 Sep
- 2026 16:13:31 +0200
-From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-Date: Wed, 16 Sep 2026 16:13:23 +0200
-Subject: [PATCH v2] iio: adc: stm32-adc: fix check on internal channel
- availability
+	Wed, 16 Sep 2026 14:24:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E627C143D;
+	Wed, 16 Sep 2026 07:24:28 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 49B2F3F7B4;
+	Wed, 16 Sep 2026 07:24:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789568672; bh=y5EcF/bDhZcEM0MZ71FZRncO8e+ADBprizKCsXz5T/4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XFwGhLhdM0FUDVlGeDxONnYI05qsWbPanwiPxV7rUn1ovngADP+E+OqTp0JTNNG9u
+	 IhD4negOLdgD55P0ZSDuKVRdVawQbCJ+TX+t/bCkZBtuigg7fOj6WvbtHalrJHIunz
+	 PVs5cThOhvok9bST1s7Hk6X1unFr6OdbAAHwDidM=
+Date: Wed, 16 Sep 2026 15:24:24 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: =?utf-8?B?QW5kcsOp?= Almeida <andrealmeid@igalia.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Florian Weimer <fweimer@redhat.com>,
+	Darren Hart <dvhart@infradead.org>, Ingo Molnar <mingo@kernel.org>,
+	Davidlohr Bueso <dave@stgolabs.net>, Arnd Bergmann <arnd@arndb.de>,
+	Uros Bizjak <ubizjak@gmail.com>,
+	Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org, kernel-dev@igalia.com
+Subject: Re: [PATCH v8 1/4] arm64: vdso: Prepare for robust futex unlock
+ support
+Message-ID: <aqqmmNTDnzT5d-ZT@J2N7QTR9R3>
+References: <20260821-tonyk-robust_arm-v8-0-077707b6f1c7@igalia.com>
+ <20260821-tonyk-robust_arm-v8-1-077707b6f1c7@igalia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260916-adc-fix-intchan-v1-v2-1-ef70baecd082@foss.st.com>
-X-B4-Tracking: v=1; b=H4sIAAKkqmoC/32NywrCMBBFf0Vm7ZRMS+tj5X9IF3lMbQQbycSil
- P67Sd0Ld3Pg3HsXEI6eBc67BSLPXnyYMtT7HdhRTzdG7zJDrepOnahF7SwO/o1+SkXAmbBx7PT
- RsjWtglx8Rs7GNnrtfywvc2ebylIxRi8pxM/2OlPx/h7kEB460mSaVikylyGIVJIqGx7Qr+v6B
- eRri5vIAAAA
-X-Change-ID: 20260915-adc-fix-intchan-v1-3deda8cecb50
-To: Jonathan Cameron <jic23@kernel.org>, David Lechner
-	<dlechner@baylibre.com>, =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, "Andy
- Shevchenko" <andy@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Olivier Moysan
-	<olivier.moysan@foss.st.com>
-CC: <linux-iio@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Jonathan Cameron <jic23@kernel.org>, Sashiko <sashiko-bot@kernel.org>,
-	<stable@vger.kernel.org>, Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-X-Mailer: b4 0.16.0
-X-Originating-IP: [10.48.86.251]
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PEPF00028D05:EE_|PRAPR10MB5177:EE_
-X-MS-Office365-Filtering-Correlation-Id: db68f70c-5e6c-4783-1562-08df13fcb057
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|82310400026|23010399003|1800799024|36860700016|13003099007|10067099003|56012099006|11063799006|18002099003;
-X-Microsoft-Antispam-Message-Info: LIyPJ5uk92MmTAzObPSTJsX55pBYOD9O7B61Qgcd/A0vrQdHLaL9xS6ScW8hJ5S93V/dXbu8ufH52vPpQekFLvnzsbS6jCD/4FLfmBwCpJ4LiDwjCLdeEVrxRQ7SfuirtArgYUgxVHxLfF4ijRGlAjdJqw69I+UBzTMUlFexja6THQIxuOAn538M8xtWLKi/0THK790GfRd4KUNbE0z4vnOGtysoxup7veMYRqKIBxBv8Zdo5Y7gTqPPUvCEY8YqAmDbo/fYhKaxruHRgbzt3QcImIsFJnNHyslub6HRDU4HRRCnn4wumoDFDWWceSv2XDGNfeEg945pL/ITWp0cHlR7MWMUaDdMXGCP3njD6MQHnLZmwVc1b80gZUlCkaUrxXPg3s53mhg0YWOlaS27yPwH2RutvRwQsjf+M7NpWpmk8Pgd3R7ReDabosIZ8ChzFtmwptgH+DPUmfulXLvb+MtZaf0MmkMIaOS/T/EEizIw5lfFRq9Y7OUuJjy7sWwpa8JiSwcRofkz51Fms3UGLVVMnEGJVammkoDuvf6htEhZlDDT0ZOkyNfRmRrxfiK50xHDCtVjISH7sIJVL0NeNfUvo3xUZ7PQ8HAeuMvUFiLit0RHUZXbTV8mV1fBhVdY5NvQiO66nG7WaFVvYgGKypeShmrthK9EdwlX8HEJ74c=
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(82310400026)(23010399003)(1800799024)(36860700016)(13003099007)(10067099003)(56012099006)(11063799006)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: aesdlYevOfCcnZnyUivmtJRIgO2b8h2qIzl+r0TjX/VQqK4Cq3rWHO218WkqM3iAJEtfLq9G6hvWLn/uUUsUaSClBOlvcGGa44YnW2MGgGMg0GEkAkbqJJ0uVNMYr4sRVcn8fZT7AXp63tY+pdwl9ILwiJG+e2x1Si3TfjZyyO2MYRI+MmCSCP0AMxR6OWwVl1nluI+XMveRhdMhJ2noeZK2oWJB1NWgLNEe4P7SOvN3578ocxa3HvuGlSShTy4k0IZTK1geevKtkWlF4nq9dGM0Bjga1EkbNAfltmMFGUHiT9KYoVep77ZXn5WYWZMwq+ShDLLRCOVesSv/U3xi3LiWaUWe1g1spLCuraczLUjQx6fGHWyH8wZorpBIgkA/iCTnh8GBVtophIBnfPPaFy6qZRW8PO8Hw4/9iWVo47BgPAKvICGVcUXviMTgV4NV
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Sep 2026 14:13:31.9816
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: db68f70c-5e6c-4783-1562-08df13fcb057
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D05.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PRAPR10MB5177
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260821-tonyk-robust_arm-v8-1-077707b6f1c7@igalia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_071341_989338_56C37C9F 
-X-CRM114-Status: GOOD (  14.31  )
+X-CRM114-CacheID: sfid-20260916_152454_741669_987C7F5B 
+X-CRM114-Status: GOOD (  44.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,102 +96,248 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If an unsupported internal channel like vddgpu is requested, the driver
-prints a warning but falls through and assigns it a valid int_ch below.
+Hi André,
 
-This causes a problem later during setup:
-stm32_adc_int_ch_enable() {
-    ...
-    case STM32_ADC_INT_CH_VDDGPU:
-        stm32_adc_set_bits(adc, adc->cfg->regs->or_vddgpu.reg,
-                           adc->cfg->regs->or_vddgpu.mask);
-    ...
-}
+I have a few comments here; mostly minor nits.
 
-Because the register offset is uninitialized (0), this performs a
-read-modify-write on offset 0, which corresponds to the ISR register.
+On Fri, Aug 21, 2026 at 06:50:42PM -0300, André Almeida wrote:
+> To solve the robust futex's list_pending_op clearing race condition,
+> prepare for implement __vdso_futex_robust_try_unlock() for arm64 with the
+> following steps:
+> 
+> - Create a helper function that sets the struct futex_mm_data with the
+> VDSO's labels addresses. The robust futex fixup mechanism needs to
+> compare the current instruction pointer to the VDSO instructions range.
+> 
+> - Split vdso_mremap() in vdso_mremap() and aarch32_mremap(), this allows
+> the VDSO to be setup correctly regarding the instructions addresses for
+> both ABIs when a mremap happens.
 
-Fix this by returning before a valid int_ch is assigned. Choice is
-made to keep current driver behavior to warn about the channel name.
+When I commented back on v5, I'd meant that the mremap changes should be
+a separate patch. I've included a patch for that below; are you're happy
+to take that as a prefix of this series?
 
-Fixes: cf0fb80ae167 ("iio: adc: stm32-adc: add stm32mp13 support")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Link: https://lore.kernel.org/all/20260911162602.D323F1F000FF@smtp.kernel.org/
-Cc: stable@vger.kernel.org
-Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+> - Implement arch_futex_robust_unlock_get_pop() for arm64, checking for r2
+> and r3 registers values for the fixup function. The role of this registers
+> is explained in the commit that implement the assembly portion of the VDSO.
+> 
+> Signed-off-by: André Almeida <andrealmeid@igalia.com>
+> ---
+> v6:
+>  - Restructured this commit. Move the arch bits away, kept just the
+>  generic/helper functions.
+> 
+> v4:
+> - Guard symbols from vdso.lds.S with ifdef
+> - drop update_ips() from sigpage remap function
+> 
+> v3:
+>  - Fix adding vdso base addr twice
+>  - Call vdso_futex_robust_unlock_update_ips() on remap as well
+> v2:
+>  - Fixed linker not finding VDSO symbols
+> ---
+> ---
+>  arch/arm64/include/asm/futex_robust.h | 19 +++++++++++++++++++
+>  arch/arm64/kernel/vdso.c              | 27 ++++++++++++++++++++++++++-
+>  2 files changed, 45 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/futex_robust.h b/arch/arm64/include/asm/futex_robust.h
+> new file mode 100644
+> index 000000000000..4ff783bb2dc3
+> --- /dev/null
+> +++ b/arch/arm64/include/asm/futex_robust.h
+> @@ -0,0 +1,19 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef _ASM_ARM64_FUTEX_ROBUST_H
+> +#define _ASM_ARM64_FUTEX_ROBUST_H
+> +
+> +#include <asm/ptrace.h>
+> +
+> +static __always_inline void __user *arm64_futex_robust_unlock_get_pop(struct pt_regs *regs)
+> +{
+> +	/*
+> +	 * w3 stores the result of the stlxr instruction. If it's zero, the then
+> +	 * the ll/sc cmpxchg succeeded and the pending op pointer needs to be cleared.
+> +	 */
+
+It would be good if the comment could refer to the functions with the
+critical sections, e.g.
+
+	/*
+	 * In the asm for __vdso_futex_robust_list{64,32}_try_unlock(), ...
+	 */
+
+That way it will be easier for folk to cross-reference this later.
+
+> +	return (regs->user_regs.regs[3]) ? NULL : (void __user *) regs->user_regs.regs[2];
+
+You can use 'regs->regs[n]' in place of 'regs->user_regs.regs[n]' here,
+which will make this a bit shorter and easier to read.
+
+I reckon this might also be clearer as:
+
+| 	if (regs->regs[3])
+| 		return NULL;
+| 	
+| 	return (void __user *)regs->regs[2];
+
+Do we need a __force cast here, or is sparse happy without that?
+
+> +}
+> +
+> +#define arch_futex_robust_unlock_get_pop(regs) \
+> +	arm64_futex_robust_unlock_get_pop(regs)
+> +
+> +#endif /* _ASM_ARM64_FUTEX_ROBUST_H */
+> diff --git a/arch/arm64/kernel/vdso.c b/arch/arm64/kernel/vdso.c
+> index 592dd8668de4..3ef331b5b240 100644
+> --- a/arch/arm64/kernel/vdso.c
+> +++ b/arch/arm64/kernel/vdso.c
+> @@ -11,6 +11,7 @@
+>  #include <linux/clocksource.h>
+>  #include <linux/elf.h>
+>  #include <linux/err.h>
+> +#include <linux/futex.h>
+>  #include <linux/errno.h>
+>  #include <linux/gfp.h>
+>  #include <linux/kernel.h>
+> @@ -57,6 +58,22 @@ static struct vdso_abi_info vdso_info[] __ro_after_init = {
+>  #endif /* CONFIG_COMPAT_VDSO */
+>  };
+>  
+> +#ifdef CONFIG_FUTEX_ROBUST_UNLOCK
+> +static inline void __vdso_futex_update_ips(struct mm_struct *mm, bool is_32bit, void *startp,
+> +					   void *endp)
+> +{
+> +	unsigned long start = (unsigned long) startp;
+> +	unsigned long end = (unsigned long) endp;
+
+Nit: there shouldn't be a space between the cast and the expression:
+
+	unsigned long start = (unsigned long)startp;
+	unsigned long end = (unsigned long)endp;
+
+> +	struct futex_mm_data *fd = &mm->futex;
+> +
+> +	futex_set_vdso_cs_range(fd, is_32bit ? 1 : 0, start, end, is_32bit);
+
+On arm64 (and every architecture other than x86, AFAICT), the
+native/compat VDSOs are mutually exclusive, and a single mm can only
+have one of them.
+
+Given that, I think we can make this:
+
+	futex_set_vdso_cs_range(fd, 0, start, end, is_32bit);
+
+That way we'll avoid confusing/bikesheeding over 'is_32bit ? 1 : 0',
+without having to add mnemnonics for the native/compat CS indices.
+
+That said, what's the plan for 32-bit robust lists on a 64-bit host?
+IIUC you wanted that for emulation, and AFAICT you have no way to call
+__vdso_futex_robust_list32_try_unlock() from a native task.
+
+> +}
+> +
+> +#else
+> +static inline void __vdso_futex_update_ips(struct mm_struct *mm, bool is_32bit, void *startp,
+> +					   void *endp)
+> +#endif /* CONFIG_FUTEX_ROBUST_UNLOCK */
+> +
+>  static int vdso_mremap(const struct vm_special_mapping *sm,
+>  		struct vm_area_struct *new_vma)
+>  {
+> @@ -162,6 +179,14 @@ static int aarch32_sigpage_mremap(const struct vm_special_mapping *sm,
+>  	return 0;
+>  }
+>  
+> +static int aarch32_mremap(const struct vm_special_mapping *sm,
+> +		struct vm_area_struct *new_vma)
+> +{
+> +	current->mm->context.vdso = (void *)new_vma->vm_start;
+> +
+> +	return 0;
+> +}
+> +
+>  static struct vm_special_mapping aarch32_vdso_maps[] = {
+>  	[AA32_MAP_VECTORS] = {
+>  		.name	= "[vectors]", /* ABI */
+> @@ -174,7 +199,7 @@ static struct vm_special_mapping aarch32_vdso_maps[] = {
+>  	},
+>  	[AA32_MAP_VDSO] = {
+>  		.name = "[vdso]",
+> -		.mremap = vdso_mremap,
+> +		.mremap = aarch32_mremap,
+>  	},
+>  };
+
+As above, I'd prefer if the mremap changes were a separate patch, e.g.
+as below.
+
+Mark.
+
+---->8----
+From 39029dfea82a54bd7b511cc036d10ef8e8ee4ccd Mon Sep 17 00:00:00 2001
+From: Mark Rutland <mark.rutland@arm.com>
+Date: Wed, 16 Sep 2026 11:03:32 +0100
+Subject: [PATCH] arm64: vdso: Split native/compat mremap callbacks
+
+Currently the native and compat VDSOs share a common vdso_mremap()
+function which is used as their vm_special_mapping::mremap callback.
+
+In subsequent patches the native and compat VDSOs will need distinct
+mremap logic, which will be easier to manage with separate functions.
+
+Give the compat VDSO its own aarch32_vdso_mremap() function. For now
+this is identical to vdso_mremap().
+
+At the same time, fix the odd whitespace in the vdso_mremap() prototype.
+
+There should be no functional change as a result of this patch.
+
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 ---
-Changes in v2:
-- Review comments from Andy: use bool flag closer to the channel
-  availabilty checks. Add a default case.
-- Link to v1: https://patch.msgid.link/20260915-adc-fix-intchan-v1-v1-1-761a1b35001b@foss.st.com
----
- drivers/iio/adc/stm32-adc.c | 34 +++++++++++++++++++---------------
- 1 file changed, 19 insertions(+), 15 deletions(-)
+ arch/arm64/kernel/vdso.c | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/iio/adc/stm32-adc.c b/drivers/iio/adc/stm32-adc.c
-index 5c6c06b269be..b77f39f305d8 100644
---- a/drivers/iio/adc/stm32-adc.c
-+++ b/drivers/iio/adc/stm32-adc.c
-@@ -2263,33 +2263,37 @@ static int stm32_adc_populate_int_ch(struct iio_dev *indio_dev, const char *ch_n
+diff --git a/arch/arm64/kernel/vdso.c b/arch/arm64/kernel/vdso.c
+index 592dd8668de46..089a70d962204 100644
+--- a/arch/arm64/kernel/vdso.c
++++ b/arch/arm64/kernel/vdso.c
+@@ -58,7 +58,7 @@ static struct vdso_abi_info vdso_info[] __ro_after_init = {
+ };
  
- 	for (i = 0; i < STM32_ADC_INT_CH_NB; i++) {
- 		if (!strncmp(stm32_adc_ic[i].name, ch_name, STM32_ADC_CH_SZ)) {
-+			bool na;
-+
- 			/* Check internal channel availability */
- 			switch (i) {
- 			case STM32_ADC_INT_CH_VDDCORE:
--				if (!adc->cfg->regs->or_vddcore.reg)
--					dev_warn(&indio_dev->dev,
--						 "%s channel not available\n", ch_name);
-+				na = !adc->cfg->regs->or_vddcore.reg;
- 				break;
- 			case STM32_ADC_INT_CH_VDDCPU:
--				if (!adc->cfg->regs->or_vddcpu.reg)
--					dev_warn(&indio_dev->dev,
--						 "%s channel not available\n", ch_name);
-+				na = !adc->cfg->regs->or_vddcpu.reg;
- 				break;
- 			case STM32_ADC_INT_CH_VDDQ_DDR:
--				if (!adc->cfg->regs->or_vddq_ddr.reg)
--					dev_warn(&indio_dev->dev,
--						 "%s channel not available\n", ch_name);
-+				na = !adc->cfg->regs->or_vddq_ddr.reg;
- 				break;
- 			case STM32_ADC_INT_CH_VREFINT:
--				if (!adc->cfg->regs->ccr_vref.reg)
--					dev_warn(&indio_dev->dev,
--						 "%s channel not available\n", ch_name);
-+				na = !adc->cfg->regs->ccr_vref.reg;
- 				break;
- 			case STM32_ADC_INT_CH_VBAT:
--				if (!adc->cfg->regs->ccr_vbat.reg)
--					dev_warn(&indio_dev->dev,
--						 "%s channel not available\n", ch_name);
-+				na = !adc->cfg->regs->ccr_vbat.reg;
- 				break;
-+			default:
-+				return -EINVAL;
-+			}
-+
-+			if (na) {
-+				/*
-+				 * Channel label matches an internal STM32 ADC channel.
-+				 * Warn about it, as there's normally no restriction on the
-+				 * name but that's not among available internal channels.
-+				 */
-+				dev_warn(&indio_dev->dev, "no %s internal channel\n", ch_name);
-+				return 0;
- 			}
+ static int vdso_mremap(const struct vm_special_mapping *sm,
+-		struct vm_area_struct *new_vma)
++		       struct vm_area_struct *new_vma)
+ {
+ 	current->mm->context.vdso = (void *)new_vma->vm_start;
  
- 			if (stm32_adc_ic[i].idx != STM32_ADC_INT_CH_VREFINT) {
-
----
-base-commit: 8d3ae59288f1e7d58d76558a6ee96d533bc5019f
-change-id: 20260915-adc-fix-intchan-v1-3deda8cecb50
-
-Best regards,
---  
-Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+@@ -162,6 +162,14 @@ static int aarch32_sigpage_mremap(const struct vm_special_mapping *sm,
+ 	return 0;
+ }
+ 
++static int aarch32_vdso_mremap(const struct vm_special_mapping *sm,
++			       struct vm_area_struct *new_vma)
++{
++	current->mm->context.vdso = (void *)new_vma->vm_start;
++
++	return 0;
++}
++
+ static struct vm_special_mapping aarch32_vdso_maps[] = {
+ 	[AA32_MAP_VECTORS] = {
+ 		.name	= "[vectors]", /* ABI */
+@@ -174,7 +182,7 @@ static struct vm_special_mapping aarch32_vdso_maps[] = {
+ 	},
+ 	[AA32_MAP_VDSO] = {
+ 		.name = "[vdso]",
+-		.mremap = vdso_mremap,
++		.mremap = aarch32_vdso_mremap,
+ 	},
+ };
+ 
+-- 
+2.30.2
 
 
