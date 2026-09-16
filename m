@@ -4,110 +4,193 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05B36C982C1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 20:52:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31C2EC982C9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 20:53:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ey3W3pKciCj569G+4LgYiLWMcVQFEIDuHCi49VskP+U=; b=DpJHsrwGw3SfYP/fSmacIWZUef
-	p7pzSEYOVFlEWubV7jtQXBseNySUKFCDO/aLlVLBXww4ZtkxXWY6G+tbMsDuDAPe8i6I7S/xss38b
-	dt+Wnjc/aKazEGfQGLhCJ+fYEtBVx/eed/KtOqcKXQzdXflncgjfynJrUYvahVL+Hbjmn2Ds/s4Ko
-	LEmnn2hRxU9DvTNwT/z5DuFV3ZXrACOSG719n87MtVk8uM4hKpZOkQ9aK+Mq6lRkyN4qTY0nCaoD1
-	bDNWc/kWuIOyw503KVERFC2sde8U0flc7QTeOJQgxPMDNrUXDj1bzntK+4mOlQrFoCAuBIucVPKRE
-	Oscuo8Qg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lHYvBiaXUUaCf5uIlhDHTXAjfmYXqL3JSnpJ9dONupU=; b=wlGL9GK6MCQPLShTTPn6q61lsh
+	4CXLeDJdwtyn9d8coRiZfKt7NRZYu+4yEGYJ2X3Yk2GxiSEbCPRPlcmFnsNL873IgtgkUsEA06nLf
+	sND2V1zUbBtZ6nvllCpCjnWmI6h1m6E8B4IU5dLroBlpdSkS257Yvzwyb7bb5h1EMPHG2kTA+NWsj
+	bOA5z1M9oFooEkq2YU/cxBpac+mYLdqXITH7M9wM4VGPB0WD0UOFJZWMT99UaqiSZKVX9HB1a0LYU
+	GPNz84rsPUDaWc43joY5Uwe1DY+mF+9A8irEOfVcjmZhNsEJUE8TSO88mbMQyZ6ubwDG2zSjebdrS
+	lKyhXAwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6wcW-0000000A6RK-1YYA;
-	Wed, 16 Sep 2026 20:52:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x6wct-0000000A6UD-254E;
+	Wed, 16 Sep 2026 20:53:07 +0000
+Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6wcV-0000000A6RE-003H
+	id 1x6wcp-0000000A6TE-3kRq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 20:52:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6F0C34046F;
-	Wed, 16 Sep 2026 20:52:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43EE21F000FF;
-	Wed, 16 Sep 2026 20:52:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789591962;
-	bh=Ey3W3pKciCj569G+4LgYiLWMcVQFEIDuHCi49VskP+U=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=ouMR13huu5OQMXLIi9ax5ZG63fAyvLf1MQXdqu3/bBaQNT1VysEngDLv5oAqXB6At
-	 T0kSNphFFGskAnHPTw50obhHLKuke4PAPLgm6neF2yLepzVEALpHq4Bzu07SPBVuGj
-	 Jb++QA0MpeievYbtMMlx4PDRXX1S/Z6PB0ZIbDLRrw9ZNX+kDgxy9K/ZM0BdMUvJvV
-	 oFqJ45zrHoCXOq5UD7ZL8m7BN5HcnGA4TnmrOP4WypR/zXSmen8okZCGYGo5runEix
-	 oo29j2+Iey/ty97LpRVPy3td13KxN6bXktmKFme/NhcLceD44vWRfUXvDnwsvGFPn2
-	 Nxm3He0YcAfNg==
-Message-ID: <c2dca0c1-6dd3-4601-be2f-e5409518bedd@kernel.org>
-Date: Wed, 16 Sep 2026 22:52:35 +0200
+	Wed, 16 Sep 2026 20:53:05 +0000
+Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68GIjIBM3900570;
+	Wed, 16 Sep 2026 15:52:52 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=proofpoint-05-2026; bh=lHYvBiaXUUaCf5u
+	IlhDHTXAjfmYXqL3JSnpJ9dONupU=; b=GiK3HAWFH4PFUzddxeh8rNozap6Vi5n
+	X65OYdzftUjwk+Kpe6zyagj66t+OFY5pJQsIXFHFE+SmEYOBuNB2VeNU9Hq4GhEP
+	lI/DEf0GDJXpWXqEiZ5LfrF7Nmvet8a4P7fZtv/9mfqWnAbzRA/GW4HLaM/rblsG
+	dJpVlXpaBub2SAqd9abG3JWscHpHEfBoCvUBYwOr/Y43UeAInvsXSZ857F0CGWo1
+	sfmy8tW4YCuOjPLXA2RcCnNxV4pCRMuggnaxdLalZ3oixSx+byhWAbRKYz+X9THt
+	4Ztj++1pFM2XvyBxAfUwFAwhIF1HYo5hvmDCFRymZBMi6s9owaX/lgA==
+Received: from ph7pr06cu001.outbound.protection.outlook.com (mail-westus3azon11010056.outbound.protection.outlook.com [52.101.201.56])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4gqqmdcx7w-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 16 Sep 2026 15:52:52 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JxT2CDTCoC6oFuFaPJYstVa/xFTpbo7781/2gOWb1ruiT3+oJgCDQ2pNHG3RL+zGQPUc8HfM6IiBWpRPFPmIjnVh3216MfnhC9DDO4RinKOJEvEaRcZEx1WaYll64H5XC5tLwEQ0cZIMkbZpE1RH1lsk3uacojyIHmdSG9Y4OAaWOee5Wf+VzIAR0Znc8BzH2CPPgfrF+oRnkuywDMpa+8D8z1B+TBecb18A8E0fqvw129oRIhUa7wuAa0yaHCC6ox5nO50RbxCNLPRde26lb8ue/jSULAwyzVOIzv7sFUEeYBfqFSuEJ2qbcuOjIHXGAdGxQoX1RAZT326HwjJREg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=lHYvBiaXUUaCf5uIlhDHTXAjfmYXqL3JSnpJ9dONupU=;
+ b=p2ssUK3+8Nuq4nhyj5xXYLYqu4gBYXNVtyEJyHYLnzDSlACI3lRsXUrMGu9zVdChl0E/NovUtS8NLv3lghIKxM2FpYdqgs10Aqp1cORbEv2BMQ2HbsYi/3tJR+1InBj+HFUG2gRIAoPqVTvANhfDJJUmzPU8vzF9f7RBPI6iLg+kEZnau/EELOGdIiXilUNrv/EXLoqaSyB+ubpMklCZLbo2QD2+XNp4k66y06vqvJy+0cU/AATvmghjQrJRVqwTbN1UJ9WMVY2Z9PtYbPC2+KLh86OsVl5avyNAcZKTJK/RYeT7JcIz9bbI1a3ZxJ2QUidltVDdxPiIoni/3/hNug==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=lHYvBiaXUUaCf5uIlhDHTXAjfmYXqL3JSnpJ9dONupU=;
+ b=cqpwqapbNCprOywods6TKatcQ8EoneztvwX0uiUV1xEyVNZhE4ogrgPmozEgAkdLF//6776H7dCG0QvbD25WT9iKZjnmC8IlwGJgtO10IC2M7kdNxh1HbJvPNrE60MHKNkP7VUs6Yp51ERyzSBJ2m+Jn18SY1/CG5jddyW6ua5k=
+Received: from SJ0PR13CA0074.namprd13.prod.outlook.com (2603:10b6:a03:2c4::19)
+ by MN6PR10MB7520.namprd10.prod.outlook.com (2603:10b6:208:478::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.5; Wed, 16 Sep
+ 2026 20:52:49 +0000
+Received: from SJ5PEPF000001D5.namprd05.prod.outlook.com
+ (2603:10b6:a03:2c4:cafe::a0) by SJ0PR13CA0074.outlook.office365.com
+ (2603:10b6:a03:2c4::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.7 via Frontend Transport; Wed, 16
+ Sep 2026 20:52:46 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ SJ5PEPF000001D5.mail.protection.outlook.com (10.167.242.57) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.428.7 via Frontend Transport; Wed, 16 Sep 2026 20:52:46 +0000
+Received: from DLEE205.ent.ti.com (157.170.170.85) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 16 Sep
+ 2026 15:52:36 -0500
+Received: from DLEE210.ent.ti.com (157.170.170.112) by DLEE205.ent.ti.com
+ (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 16 Sep
+ 2026 15:52:36 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE210.ent.ti.com
+ (157.170.170.112) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Wed, 16 Sep 2026 15:52:36 -0500
+Received: from localhost (uda0506412.dhcp.ti.com [128.247.81.196])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68GKqa911706592;
+	Wed, 16 Sep 2026 15:52:36 -0500
+Date: Wed, 16 Sep 2026 15:52:36 -0500
+From: Kendall Willis <k-willis@ti.com>
+To: "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
+CC: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        "Tero
+ Kristo" <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        "Nathan
+ Chancellor" <nathan@kernel.org>,
+        Nick Desaulniers
+	<nick.desaulniers+lkml@gmail.com>,
+        Bill Wendling <morbo@google.com>,
+        "Justin
+ Stitt" <justinstitt@google.com>, Judith Mendez <jm@ti.com>,
+        Daniel Schultz
+	<d.schultz@phytec.de>, Andrew Davis <afd@ti.com>,
+        Siddharth Vadapalli
+	<s-vadapalli@ti.com>,
+        Paresh Bhagat <p-bhagat@ti.com>, Bryan Brattlof
+	<bb@ti.com>,
+        Jai Luthra <jai.luthra@ideasonboard.com>,
+        Devarsh Thakkar
+	<devarsht@ti.com>, Beleswar Padhi <b-padhi@ti.com>,
+        Francesco Dolcini
+	<francesco.dolcini@toradex.com>,
+        Stefano Radaelli
+	<stefano.radaelli21@gmail.com>,
+        Nick Desaulniers <ndesaulniers@google.com>,
+        Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>,
+        "Sebin
+ Francis" <sebin.francis@ti.com>,
+        Akashdeep Kaur <a-kaur@ti.com>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <llvm@lists.linux.dev>, Hari Nagalla
+	<hnagalla@ti.com>
+Subject: Re: [PATCH v8 0/9] arm64: dts: ti: Split wkup R5F memory region for
+ IO+DDR resume
+Message-ID: <20260916205236.hemdlwzjchmf6jm4@uda0506412>
+References: <20260903-topic-am62a-ioddr-dt-v6-19-v8-0-74c650dfdea6@baylibre.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] arm64: dts: qcom: Suppress a few intentional
- redundant whitespaces
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Saravana Kannan <saravanak@kernel.org>,
- cros-qcom-dts-watchers@chromium.org, Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>,
- Peter Griffin <peter.griffin@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org
-References: <20260916-b4-dts-style-checker-suppress-v1-0-81b86685d068@oss.qualcomm.com>
- <20260916-b4-dts-style-checker-suppress-v1-2-81b86685d068@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260916-b4-dts-style-checker-suppress-v1-2-81b86685d068@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260903-topic-am62a-ioddr-dt-v6-19-v8-0-74c650dfdea6@baylibre.com>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001D5:EE_|MN6PR10MB7520:EE_
+X-MS-Office365-Filtering-Correlation-Id: b6bc6e6d-9090-4c09-5e58-08df14347644
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|82310400026|36860700016|1800799024|23010399003|56012099006|5023799004|18002099003|10067099003|22082099003|13003099007;
+X-Microsoft-Antispam-Message-Info: iQOS0K65FvcVXuQ9WVALXmol5wTzVBACrfk2uVFCGHxBLf6gQOMPmDYdiHgWK/JcHRgZBwhr/VqbNsGHipF8edM12Jcpgrg/B/Xtn7vFpb/lsUGncMys7UtaRYnTmClZ9lRCooWGiyB8zsB7miCXbkE7VyE+JtPruf/Zt161wYq7dNYpiv6D6QRcHiAHvQSylLBn+/M/3/nD0c3gQA52JeIzOshlWx0Xo5Rrft+sd1NS1h30agekSXuwcwsg/2gBv1ifKKIFPDYWDJjvGnNRr1kik23qcgY6FwY2OZ9Y56osK9h+XU85cSGinl3sbEvqWjnWUA12hCMKoivooK/o/fTLmDlASErYM2YMbI/HM9PBaPhJ6EKkeiNddcDXhnvn/XXQ64WVXXMcfMQOqgEG8mlpD0CSIgIdexglM+S5g8dTatpL1yG6Bac4gI2bjo6UknpwcdN+CjwbcpG0Q0M97Ckt8VMciZzLAEcn/4NOP13sh/vDXp9yFUFY58duQ6TM4x0XllFXYaln9iDwl2SkAvsyOKgKcrnOA6FhbZLHl9tYjSIRmms60bPOioKlm8Gsdhk3VGUghni43YKwaBHRjIndPbY/z7E5Wl+EpE36z+08dHyJDdXxc8c2DmrwaZrN+Q35lCYtbkdQs1PRy18ae5CVLhnv1Bt+JTMnCtt4cEJ10MAMTkG6PWubPKkVJJqrQjE3K3V9zI3Rtb1fgr+eKg==
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(82310400026)(36860700016)(1800799024)(23010399003)(56012099006)(5023799004)(18002099003)(10067099003)(22082099003)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 4lTpa9H2pZMw2wI2erS8Ynj2wwRJNXPuha41OINBQtPd6rcQ6ybYH54WFIN2amgIGrZqTBIEp299VI9XMw+BCNQLff2Gsw2dqLueA2OwZ04BxM0DJjx8RVMxKmm7/tcXWqPaUzUPE3EDWVDcT1AfxbfZ4gnMW7HPPIhCtiwN9h6PcjQGArRKpS7fIr4/6nXLQqO/xrfe7/KEbaqPajTv1IPUDOgCTD8XVctqcfSAJIzRvHrkgoi2OX5duo7HYj5BRclNz7XaYWOlyLFnrdQUTEcKJnvgmRkdz4HPCGpqf8+rWxxZh0xRCgx8VIyrTlQZdrp+pAI7R2wRkMSNSG3ouT7kZ6WC9kf36vXVp2ds+xNxIbB3oeSbC7Emm4bZn2nL/PancJi2I4D6Iq5nGQm9mjtXuoZ783KlY0dQGBneFyG+4sGyGEVobOAIEQZnvw2H
+X-Exchange-RoutingPolicyChecked: 0Z9WTldtRhMCyxaPwzPHiY2r6MB8yHtLxyk7HXzjxRfScBX89x7sdTJNsSZKsJIgsh3tqhhg7HH2im1p10v08RhS/cuAum08P9bETz/JR0Vbn1Z4YkWahZuONQ8ovYEn5NlTpbKsqSXASncMcQOhNK9NWCLZx2Hx4Bm7DF2Jb/+4SjywXxZ1CoClve+voPrd3dz6MytAMh+9TeLR/JoTs4ZW6iWe/wRNPTazex/R8Cp3k91CHyVXOVczP7QJhKmWrFnUPnpJ+DW237TCxiphQzbozNSrZYJmJl13+tph/Y/2EWghNVGggDJA+clBixmWvn1qyysmHTlCxVVp0kw5uQ==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Sep 2026 20:52:46.3533
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b6bc6e6d-9090-4c09-5e58-08df14347644
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001D5.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN6PR10MB7520
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE2MDI5MCBTYWx0ZWRfX/wue9ZoPBJ7a
+ EsAWd25hTdejZAS3fgnWboTMsdO1z/f2FrGmJoHk8ij86hqtg0j6CJMlqtbx9ptFsQZIsHkvJnn
+ Nzf7tXubTCBCoMVR8zP/BKx9qPUGe6f0ZVakKVeYzO/azv5kptES/misvLl9yoGi//rCRiZBkSP
+ ImpPJypjD7j4ExsVxWSaf9k9N0ujNDaYF16T5diwUmr2JZJbULv3jStl1pguJndMzUxONn634yd
+ RI3r3xCjwntQx12c5rcgrBVllP3iG1zI/rko3SwkFeVGFr6OAgSSX9BwSKZcXEq7fUTQnfftzQt
+ tmlUQcuTq30mbzScdUktieTC2xdbd+dfaSYB+Se8/NJEMGnZ1R/wj6oftXdMy4bJqPl3L3o36kN
+ VhqWdRCEtzYb67oIlYhUT7mV11C//hrUEECTC1vDSD6OTHn8cKoTVGy/VASZE6lVnKyU0jDE7P9
+ 04DSFHVA6Esm+BinEIw==
+X-Authority-Analysis: v=2.4 cv=S6JMU4sP c=1 sm=1 tr=0 ts=6aab01a4 cx=c_pps
+ a=wszTalFPv2ofqEyTcV7qHQ==:117 a=WotqVVQAdb04rnGuttW3Kw==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10
+ a=s63m1ICgrNkA:10 a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=Z8NIEmU8O1QQgoT56wFK:22 a=fPAWb5peG099m5CrUpKH:22 a=VwQbUJbxAAAA:8
+ a=sozttTNsAAAA:8 a=IpJZQVW2AAAA:8 a=_OlWVxyZ5w-zuUO0vw0A:9 a=CjuIK1q_8ugA:10
+ a=IawgGOuG5U0WyFbmm1f5:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE2MDI5MCBTYWx0ZWRfX8tsCvbzJZgW8
+ IJRPhyq6S4LCISzWNIuCGHcd+iGSjcVDR73d/Egqs6453ARrjqLZ3YZzE/Ryxav2ORIV+jbf7k9
+ 0l1sDqVTgeKivNilXT+dtgfldTKALS0=
+X-Proofpoint-GUID: g17eH6XFoyVL_RKjXPdHdLtZCBS71Qqi
+X-Proofpoint-ORIG-GUID: g17eH6XFoyVL_RKjXPdHdLtZCBS71Qqi
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-16_03,2026-09-16_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 adultscore=0 spamscore=0 bulkscore=0 lowpriorityscore=0
+ suspectscore=0 malwarescore=0 clxscore=1011 priorityscore=1501 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609160290
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260916_135304_177612_0F8CE4C5 
+X-CRM114-Status: GOOD (  19.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,83 +205,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/09/2026 22:46, Krzysztof Kozlowski wrote:
-> Ignore redundant whitespaces in a few places to suppress warnings from
-> `dt-check-style --mode relaxed` like:
+On 14:39-20260903, Markus Schneider-Pargmann (TI) wrote:
+> Hi,
 > 
->   sc7280-herobrine.dtsi:357: [redundant-whitespace] extra whitespace after :
+> Split the firmware memory region in more specific parts so it is better
+> described where which information is stored. Specifically the LPM metadata
+> region is important as bootloader software like U-Boot has to know where
+> that data is to be able to read that data and resume from RAM.
 > 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> ---
->  arch/arm64/boot/dts/qcom/sc7280-herobrine.dtsi | 6 ++++++
->  arch/arm64/boot/dts/qcom/sm8750.dtsi           | 4 ++++
->  2 files changed, 10 insertions(+)
+> The bindings are already applied. The remaining patches use the new
+> layout for the platforms that are capable to support IO+DDR. For IO+DDR
+> the new layout is necessary as it defines the location of the LPM
+> metadata.
 > 
-> diff --git a/arch/arm64/boot/dts/qcom/sc7280-herobrine.dtsi b/arch/arm64/boot/dts/qcom/sc7280-herobrine.dtsi
-> index 58ea0532c0fb..21179ca1219b 100644
-> --- a/arch/arm64/boot/dts/qcom/sc7280-herobrine.dtsi
-> +++ b/arch/arm64/boot/dts/qcom/sc7280-herobrine.dtsi
-> @@ -354,11 +354,13 @@ keyboard_backlight: led-0 {
->  pp1256_s8b: &vreg_s8b_1p256 {};
->  
->  pp1800_l18b_s0: &vreg_l18b_1p8 {};
-> +/* dt-check-style disable=redundant-whitespace */
->  pp1800_l18b:    &vreg_l18b_1p8 {};
->  
->  vreg_l19b_s0: &vreg_l19b_1p8 {};
->  
->  pp1800_alc5682: &vreg_l2c_1p8 {};
-> +/* dt-check-style disable=redundant-whitespace */
->  pp1800_l2c:     &vreg_l2c_1p8 {};
->  
->  vreg_l4c: &vreg_l4c_1p8_3p0 {};
-> @@ -368,14 +370,17 @@ keyboard_backlight: led-0 {
->  pp3000_l7c: &vreg_l7c_3p0 {};
->  
->  pp1800_prox: &vreg_l8c_1p8 {};
-> +/* dt-check-style disable=redundant-whitespace */
->  pp1800_l8c:  &vreg_l8c_1p8 {};
->  
->  pp2950_l9c: &vreg_l9c_2p96 {};
->  
-> +/* dt-check-style disable=redundant-whitespace */
->  pp1800_lcm:  &vreg_l12c_1p8 {};
->  pp1800_mipi: &vreg_l12c_1p8 {};
->  pp1800_l12c: &vreg_l12c_1p8 {};
->  
-> +/* dt-check-style disable=redundant-whitespace */
->  pp3300_lcm:  &vreg_l13c_3p0 {};
->  pp3300_mipi: &vreg_l13c_3p0 {};
->  pp3300_l13c: &vreg_l13c_3p0 {};
-> @@ -384,6 +389,7 @@ keyboard_backlight: led-0 {
->  
->  vreg_edp_bl: &ppvar_sys {};
->  
-> +/* dt-check-style disable=redundant-whitespace */
->  ts_avdd:      &pp3300_left_in_mlb {};
->  vreg_edp_3p3: &pp3300_left_in_mlb {};
->  
-> diff --git a/arch/arm64/boot/dts/qcom/sm8750.dtsi b/arch/arm64/boot/dts/qcom/sm8750.dtsi
-> index ed3d29e13021..afeb6e57e0aa 100644
-> --- a/arch/arm64/boot/dts/qcom/sm8750.dtsi
-> +++ b/arch/arm64/boot/dts/qcom/sm8750.dtsi
-> @@ -2480,6 +2480,7 @@ swr3: soundwire@6ab0000 {
->  			qcom,din-ports = <4>;
->  			qcom,dout-ports = <9>;
->  
-> +			/* dt-check-style disable=redundant-whitespace-strict */
->  			qcom,ports-sinterval =		/bits/ 16 <0x07 0x1f 0x3f 0x07 0x1f 0x3f 0x18f 0x18f 0x18f 0x0f 0x0f 0xff 0x31f>;
+> Additionally the two important devicetree nodes for resuming from IO+DDR
+> have the bootph-pre-ram flag added as this data needs to be read before
+> the RAM is in use.
+> 
+> The changes in this series were suggested as part of the IO+DDR u-boot series:
+>   https://lore.kernel.org/r/814c211f-a9eb-4311-bb84-165b1a69755f@ti.com
+> 
+> Note that concerns about uboot fixup of memory region fixups were
+> discussed here:
+>   https://lore.kernel.org/r/DJD1Y3G9S1SP.2GHOZ5X4RYJFA@baylibre.com
+> 
+> Best
+> Markus
+> 
+> Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
 
-The comment should be placed before node and is not really important
-here, because it is from 'strict' ruleset, unlike the herobrine ones.
+For the series,
 
-I should have called this RFC to show intentions and whether this is the
-code we would like to maintain.
+Reviewed-by: Kendall Willis <k-willis@ti.com>
 
->  			qcom,ports-offset1 =		/bits/ 8 <0x01 0x03 0x05 0x02 0x04 0x15 0x00 0x00 0x00 0x06 0x0d 0xff 0x00>;
->  			qcom,ports-offset2 =		/bits/ 8 <0xff 0x07 0x1f 0xff 0x07 0x1f 0xff 0xff 0xff 0xff 0xff 0xff 0xff>;
-
-
-Best regards,
-Krzysztof
+Best,
+Kendall
 
