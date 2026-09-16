@@ -4,59 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 739D3C88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 11:12:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 087C9C88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 11:19:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:
-	Subject:From:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
 	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u02QRcLt049ZAT6aaaZxvp9GLfHLpQsKy5lJH5r5naM=; b=O6qU3U153pTA3YVp7i6Frrhfke
-	cifz56NAVjCXzywdhh6JhYm/c0AbDBQcp+gE1726ap0v3EPiKSa9WZrc7HylylXFrx/Gs+4oOpQMi
-	U6LNPhMnPFIqvctNiI5ohQB+yQVNmVMlyKjg/2FkTakOKZqEssS02Se5qYiNDRss8CPV3ARR0uulS
-	D0USdgv2OHz3MskuwLZgazg/NgFPfN431a8QZmIc0gSFt0C0VinKLnvXjOifzc2SFa5QFP5Pnho3Y
-	fLcDA5dCm4xx+TqjLE8rdVvpB8LnQ9eYwv8T+158MSu/GuVYYX4mUtuN1jEMEx2HOOEt8nJrS+WuJ
-	Rd6P9tdg==;
+	bh=DQyerW7t6Bd+bJtenwArRhRB5Pn1kPMUDZ4Lln1tqfw=; b=hRoomfvbpYnkP7AQGGOtLuuViT
+	1xWQOsVB3a2tXSi66FRmGiK72Z6fFDDlPvsX5TlCzip0f/vzqqyas2pzhz1lAjJrbMQSDFyycpHk+
+	IWwUgJ0emnzncAeYd7M778c3lNr4nJpLpAaS9mbrSeyiJxMdAfTUmULC9y+FEdUrq+JlQyCGzYGHb
+	2azyohd7iWozdSYFJg+B/bEHTmzRBohMU48uUmCy3XJWnvqb7Uj3lVWD29pCD2tGdmXRM+maPIV11
+	mLUfaN0ma6VB2qSxNdrlOK1Lj5nepXBM7EMmwzy4OJONbS5dDF0kecoTXZIDaHXVoLXoabe4KoNyo
+	9Bg8W/sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6nZM-0000000942D-025N;
-	Wed, 16 Sep 2026 11:12:52 +0000
+	id 1x6nfh-000000094Gt-2zJO;
+	Wed, 16 Sep 2026 11:19:25 +0000
 Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6nZH-0000000941g-44fP
+	id 1x6nff-000000094GU-0qBc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 11:12:50 +0000
+	Wed, 16 Sep 2026 11:19:25 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 20D421A07A8;
-	Wed, 16 Sep 2026 11:12:44 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id B0EA31A07A8;
+	Wed, 16 Sep 2026 11:19:19 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id E53FF60337;
-	Wed, 16 Sep 2026 11:12:43 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 265ED11C7AFE8;
-	Wed, 16 Sep 2026 13:12:31 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 80BB360337;
+	Wed, 16 Sep 2026 11:19:19 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BD72A11C7AFE8;
+	Wed, 16 Sep 2026 13:19:09 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1789557158; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1789557554; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=u02QRcLt049ZAT6aaaZxvp9GLfHLpQsKy5lJH5r5naM=;
-	b=QSKFtydsijs/fSver9QSpsKcj+EVggX6o7OLuUT/sZ+HCtCtYOnV96tLPkTKOlOio9bt/a
-	nCdzJ8o1x+njqGiZ+98ZrOlpHGlGd4ah/cSkldvIee+ChcYUXs4u0K3ECyFeM+HMxOKD4U
-	kNDC/+2WExsg9VwFJTlaM5uXjCZB6/WzitNoDe6n/yj8nEvMC/3NEsAtR8LEejtnmrSCy0
-	nwaIHrc7Yu2fCIPrIlWWit/1kR7PhISe2+ViYCPIYWeYm0wwCpL/Htik2t4PT9vdBZKopV
-	IHOH4HBywuyEOyad0QtjCFk4/Y2uwg098nN+Veq6bBGlqXBtBizUmVJm7gUsfQ==
+	bh=DQyerW7t6Bd+bJtenwArRhRB5Pn1kPMUDZ4Lln1tqfw=;
+	b=rGjgbUUnMZGoIULBVDkMYvcKXJhf8MHhxSVLnCW7abAyI2qrXQMPNGaH5Kxf5T6waKZcQ8
+	reHjxvtYnTQVp7h5B0F+T7Ijeg8nJjtfAHwIJcoI0HLnMMAPQGhw8M5iOfTgFdEAHp0DXg
+	tP/VjECAntD4GF9T65VpU1jpwEs3tl6K9jF59W0AimgMer1/QzNwBjyjqYrqnehnFzc001
+	OiLl1s37pkgwnWePBneyITwjpC8lOhqe/FUyqLWnF+EXp3uRt1sYTbnZb6+YLQOfOXWP8B
+	50UbFG5DdH+0QkPG91JjF+9C8pQg8oXMmnP/nr5NTM2KQGRnRdbJDSJVHsjk8Q==
 Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Date: Wed, 16 Sep 2026 13:12:30 +0200
-Message-Id: <DLGP2DKCP2T1.1HOJ6X8CS2GET@bootlin.com>
-To: "Francesco Dolcini" <francesco@dolcini.it>, "Luca Ceresoli"
- <luca.ceresoli@bootlin.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v4 3/4] ARM: dts: imx6ull-colibri: Set LCDIF bus-width
-Cc: "Marek Vasut" <marex@denx.de>, "Stefan Agner" <stefan@agner.ch>, "David
- Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Maarten
- Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
- <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "Rob
+Date: Wed, 16 Sep 2026 13:19:08 +0200
+Message-Id: <DLGP7GKZJBOP.350QK94UOGRYV@bootlin.com>
+Subject: Re: [PATCH v4 2/4] drm: mxsfb: Add optional DPI output bus-width
+ configuration
+Cc: "Marek Vasut" <marex@denx.de>, "Stefan Agner" <stefan@agner.ch>,
+ "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
+ <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "David
+ Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Rob
  Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
  "Conor Dooley" <conor+dt@kernel.org>, "Frank Li" <Frank.Li@nxp.com>,
  "Sascha Hauer" <s.hauer@pengutronix.de>, "Pengutronix Kernel Team"
@@ -64,17 +62,21 @@ Cc: "Marek Vasut" <marex@denx.de>, "Stefan Agner" <stefan@agner.ch>, "David
  Dolcini" <francesco.dolcini@toradex.com>,
  <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
  <linux-kernel@vger.kernel.org>, <imx@lists.linux.dev>,
- <linux-arm-kernel@lists.infradead.org>
+ <linux-arm-kernel@lists.infradead.org>, "Alexander Stein"
+ <alexander.stein@ew.tq-group.com>
+To: "Francesco Dolcini" <francesco@dolcini.it>, "Luca Ceresoli"
+ <luca.ceresoli@bootlin.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
 X-Mailer: aerc 0.22.0
 References: <20260813092836.38367-1-francesco@dolcini.it>
- <20260813092836.38367-4-francesco@dolcini.it>
- <178954813309.214898.9623998050171113140.b4-review@b4>
- <20260916092242.GB277833@francesco-nb>
-In-Reply-To: <20260916092242.GB277833@francesco-nb>
+ <20260813092836.38367-3-francesco@dolcini.it>
+ <178954813309.214898.6895255097019153080.b4-review@b4>
+ <20260916091543.GA277833@francesco-nb>
+In-Reply-To: <20260916091543.GA277833@francesco-nb>
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_041248_166539_4B5A4BBE 
-X-CRM114-Status: GOOD (  19.86  )
+X-CRM114-CacheID: sfid-20260916_041923_402424_CF01D226 
+X-CRM114-Status: GOOD (  23.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,58 +91,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Francesco,
-
-On Wed Sep 16, 2026 at 11:22 AM CEST, Francesco Dolcini wrote:
-> Hi Luca,
-> thanks for the review.
+On Wed Sep 16, 2026 at 11:15 AM CEST, Francesco Dolcini wrote:
+> Hello Luca,
 >
 > On Wed, Sep 16, 2026 at 10:42:13AM +0200, Luca Ceresoli wrote:
->> > The lcd DPI interface on colibri imx6ull uses a 18-bit width bus, set
->> > the bus-width property accordingly.
+>> > LCDIF programs LCD_DATABUS_WIDTH from the selected media bus format. T=
+he
+>> > format reported by the downstream panel or bridge describes the displa=
+y
+>> > input, but it does not describe how the LCDIF data pins are physically
+>> > wired on the board.
 >> >
->> > Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+>> > These can differ. For example, a 16-bit LCDIF bus can be connected to =
+a
+>> > 24-bit display by wiring the available color bits to the corresponding
+>> > display inputs. In that case, using the display's 24-bit format to
+>> > configure LCDIF selects the wrong data-bus mode and changes the assign=
+ment
+>> > of color bits on the LCD_DATA pins.
 >> >
->> > diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi b/arch/arm=
-/boot/dts/nxp/imx/imx6ull-colibri.dtsi
->> > index ec3c1e7301f4..1eb1cf2d7395 100644
->> > --- a/arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi
->> > +++ b/arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi
->> > @@ -229,6 +229,7 @@ &lcdif {
+>> > Read the optional bus-width endpoint property from the LCDIF output po=
+rt
+>> > and use it to select the media bus format used to configure LCDIF. Thi=
+s
+>> > allows the LCDIF bus mode to describe the physical interface
+>> > independently of the downstream display format.
 >> >
->> >  	port {
->> >  		lcdif_out: endpoint {
->> > +			bus-width =3D <18>;
+>> > When the optional property is absent, or it has an invalid value, cont=
+inue
+>> > using the format reported by the downstream display device, preserving
+>> > the existing behavior. The code is not validating the DT for
+>> > correctness and just fall back to the previous behavior in case of
+>> > errors.
 >>
->> I don't know the hardware in detail, but the datasheet [0] mentions 16, =
-18
->> and 24 bits, and says "Up to 24-bit color (18-bit recommended)". More
->> details in ection 5.6.1.
->>
->> This patch would force 18 bits, but "recommended" suggests 24 bits makes
->> sense in some cases, no?
->>
->> Can you elaborate on this?
+>> Why? Generally speaking errors are better spotted immediately, not ignor=
+ed
+>> silently.
 >
-> The colibri family standard defines only 18-bit for the parallel RGB
-> interface on the edge connector, the additional 6-bit are mapped on
-> different pins that are not on fixed position, depend on the actual SoM
-> and can also be not present at all. The standard/generic colibri family
-> carrier boards can only rely on the 18-bits being available therefore.
+> My understanding is that the C driver code should not validate the DT
+> and that this is the general recommendation when parsing properties from
+> the DT.
 >
-> 24-bit is possible and makes sense only on a specific combo
-> carrier+module, and not as a generic SoM feature. Assuming you would
-> have such combo you should just override the property on the carrier
-> board dts file deviating from the standard colibri family.
+> The DT checker is going to spot errors in the DT even earlier and in a
+> static way.
 
-Ah, that's clear now, thanks!
+Drivers typically check for invalid values.
 
-> let me know if you want such detailed explanation in the commit message
+And people writing their private dts can do mistakes and not run the static
+checks. Bad on their side, sure, but having a runtime error would be useful
+there.
 
-Yes please. With that added you can add:
-+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-
-Same for patch 4.
+Also consider potential regressions. Say someone has an invalid value in
+their product, say bus-width =3D <15>, which works because the default 18
+which gets used as a fallback happens to be the correct value for their
+hardware. Some years later we implement the new bus-width =3D <15>, and the=
+n
+that user upgrades to a newer kernel and their display won't work because
+it will start using that incorrect bus-witch =3D <15>. Better stopping this
+before it starts, IMO.
 
 Luca
 
