@@ -4,82 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F7F6C982C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 14:42:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68111C982C3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 14:47:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kmDqQIff/5oYJAGtJK9uI+caNNZiUk0Mjotz9S71NDg=; b=aORcSdL0loO7NuNG86+SECcVJb
-	ApWy2Irj5685ktCzmoG0uH75e4tXO2/RSQJ9MZnUKK00BKIV7bmK5c0HGSrp/RiMIlQuIag59SDtl
-	15D0D9IOlrgsQc76lRAKsJvcHRfTINMOFeDa7FmaY42C3+JCnfPW8VpBSpLUS2K+dFrorikEDf9dC
-	P1Yun0cLt1K75Io04eZOQBn7aS3IHEkLe11P1XMK68hU60de8jdU6m2a7LS2phB2KauJj+Ue4ub7x
-	e2nQd+hbvszeJ4aL+tkb/NHee51beBCrfofYnZfniBY6sRki5AZk9XX77FUcfigqmtYRwAIEpzL47
-	VbcHgvQw==;
+	bh=nEwQ5laeGMbsqBGqeW1j1B+pVXcHOGrBCoV3rMszFqI=; b=xFEF/IvzG4dcm8RDH5kCv/UctF
+	cQD05CdYVb7uo+PR89L9G+wcmi9mAgFbB+XO3HpSjNf685XhxMxBab34/R1R9MDK5VzQYbu7PwlwZ
+	takxWzcTxE+KtvUyx+IRggkxGlTERmBpOgJ7RJ90olB2hIiwLf5n2eOx0+1BwhOpN/gRAEy6GFsUk
+	x10m2JqPKgAYAu2U4SWWgSxFpjwEqTZ1yl8YPFGzYNWaIZBZvEaUSomEG6jLq9KPW/mmPe+cby92H
+	xGYicutK6Rl+K829Ixg1BGvOH7CAGlOCDDzuS38z60av950dhCCaj8rwQSPMupx2Py1tC+fGz3CyQ
+	rqrTiu5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6qq4-00000009SPt-3BOM;
-	Wed, 16 Sep 2026 14:42:20 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
+	id 1x6qv8-00000009T18-2nYk;
+	Wed, 16 Sep 2026 14:47:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6qq2-00000009SPY-2QT6
+	id 1x6qv7-00000009T0b-0kYd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 14:42:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789569738; x=1821105738;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=cbIbcN2NjFJuDqfTD/XK1wViyDpDBpXaPgRkFuFpLJU=;
-  b=Q285DGulAVa0qJumuYcx8yg4oNxbJGC/Q71ST7CLPYF4OmF2yR/lasmN
-   CuDsAj5U9Xx02qciyAvlBdex6XUcskvcqODjJuTDTwu0+0QKf1VUnoPpY
-   NHo/Y5XLtzDvbsTssc4TWu7oYkRFj1KYv3HCJ24BmuP2B6Nk1OJRajB4/
-   VnKrWh7ZQgCuHoyb0SLD2nmdqB0K0Zpw2Vk0sNU9UH2841e/X/lscE969
-   /yuz1wGBCNbmqhvGSo/9MQIfdrjzOQU5Rc5vfdSgf7sQjI02B/xFlkz59
-   30s8Qw1jmrTjenDn0IOa+WdYxNjzUheehh+Bq3/HZqzcGJEUxqCwFOU++
-   A==;
-X-CSE-ConnectionGUID: TWYW+npVRA23OIjBWTL4Dg==
-X-CSE-MsgGUID: PMZL/dk4RK2HZYxkkU8PYg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="93772598"
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="93772598"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Sep 2026 07:42:18 -0700
-X-CSE-ConnectionGUID: KQrFpFo2QC+AYMHhteg1DA==
-X-CSE-MsgGUID: ZrzcNjOASNGVSByuCdYPoQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="271905206"
-Received: from ettammin-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.145])
-  by orviesa010-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Sep 2026 07:42:15 -0700
-Date: Wed, 16 Sep 2026 17:42:12 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Olivier Moysan <olivier.moysan@foss.st.com>,
-	linux-iio@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Sashiko <sashiko-bot@kernel.org>, stable@vger.kernel.org
-Subject: Re: [PATCH v2] iio: adc: stm32-adc: fix check on internal channel
- availability
-Message-ID: <aqqqxMakUVzXM9te@ashevche-desk.local>
-References: <20260916-adc-fix-intchan-v1-v2-1-ef70baecd082@foss.st.com>
+	Wed, 16 Sep 2026 14:47:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6DAB36057A;
+	Wed, 16 Sep 2026 14:47:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E8D21F00898;
+	Wed, 16 Sep 2026 14:47:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789570052;
+	bh=nEwQ5laeGMbsqBGqeW1j1B+pVXcHOGrBCoV3rMszFqI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ESfNYJff1sk7IiuwwG3HvTPMmCGAx8UgjOjjnCy2TviZOIYSqWqg0sdwtZLMQ4SFB
+	 GyQc6zB66KFJ3Hi63acec2mkm3/wskIaQUWVvFemdJFFUL1G7AfAM8FQYe7cuyIbHB
+	 miyVE3hyVQL8kdra34J+OCKDwWqkJmxHNhFMtUeYQ1viY/hUvEL0XJvzopfNZi1HSQ
+	 A4bpEm24o23fCoTayuANP3RG7p91ZWCy73UOFpsXrGlDJhyXXuUUk57L8Td1dVTqGE
+	 QqMx7zWctlVHg2zHVM5GFk/JJcNw4M0KV7vjs9yEPLrAQdLvmK0jdT5zjbjd0ikjFM
+	 Zz70PSLp81qDA==
+Date: Wed, 16 Sep 2026 16:47:29 +0200
+From: Frederic Weisbecker <frederic@kernel.org>
+To: "Paul E. McKenney" <paulmck@kernel.org>
+Cc: Josef Bacik <josef@toxicpanda.com>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Boqun Feng <boqun@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>, x86@kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Puranjay Mohan <puranjay@kernel.org>,
+	Xu Kuohai <xukuohai@huaweicloud.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Zqiang <qiang.zhang@linux.dev>, Juergen Gross <jgross@suse.com>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	linux-kernel@vger.kernel.org, rcu@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, bpf@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	xen-devel@lists.xenproject.org
+Subject: Re: [PATCH RFC v3 03/13] rcu-tasks: Add a Tasks RCU implementation
+ for reader-marked trampolines
+Message-ID: <aqqsAUVV8a1yrQzX@localhost.localdomain>
+References: <20260915-b4-rcu-tasks-preempt-qs-v3-0-0ad30c4c5ee7@toxicpanda.com>
+ <20260915-b4-rcu-tasks-preempt-qs-v3-3-0ad30c4c5ee7@toxicpanda.com>
+ <aqlgxKGk_AEKls_1@localhost.localdomain>
+ <edc7cca2-a5c5-455c-8969-ea05dbdb08f7@paulmck-laptop>
+ <aqqONH8flTIpOUqT@localhost.localdomain>
+ <91687748-0781-4133-baed-43cf82f35ff5@paulmck-laptop>
+ <aqqpRoTfywUuTgoC@localhost.localdomain>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20260916-adc-fix-intchan-v1-v2-1-ef70baecd082@foss.st.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_074218_654322_67511937 
-X-CRM114-Status: GOOD (  13.64  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aqqpRoTfywUuTgoC@localhost.localdomain>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,45 +100,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 16, 2026 at 04:13:23PM +0200, Fabrice Gasnier wrote:
-> If an unsupported internal channel like vddgpu is requested, the driver
-> prints a warning but falls through and assigns it a valid int_ch below.
+Le Wed, Sep 16, 2026 at 04:35:50PM +0200, Frederic Weisbecker a écrit :
+> Le Wed, Sep 16, 2026 at 07:26:35AM -0700, Paul E. McKenney a écrit :
+> > On Wed, Sep 16, 2026 at 02:40:20PM +0200, Frederic Weisbecker wrote:
+> > > Le Tue, Sep 15, 2026 at 04:56:41PM -0700, Paul E. McKenney a écrit :
+> > > > > Alternatively the approach could be generalized to vanilla RCU, it could be
+> > > > > possible to define a .text.rcu_no_qs section within which code running is
+> > > > > considered as an RCU reader (with a pause while on the explicit RCU tasks
+> > > > > section). It would be forbidden to voluntary sleep inside
+> > > > > and to put explicit preemption points (CONFIG_PROVE_RCU could report misuses).
+> > > > > 
+> > > > > Based on IP, RCU could consider those interrupted section as readers. This would
+> > > > > require PREEMPT_RCU though.
+> > > > > 
+> > > > > And then synchronize_rcu() would do the 1, 2, 4 jobs.
+> > > > 
+> > > > If I am following correctly (ha!), sleepable BPF programs rule out use
+> > > > of RCU in this manner.
+> > > > 
+> > > > But your point is nevertheless valid, in that SRCU could be used.
+> > > > And because rcu_read_lock_trace() is a thin wrapper around SRCU-fast, we
+> > > > *might* be able to instead use rcu_read_lock_tasks_trace(), which would
+> > > > skip the task-struct increment and decrement, saving a few instructions.
+> > > > Then, instead of waiting for each task's counter to go to zero, instead
+> > > > just invoke synchronize_rcu_tasks_trace().
+> > > > 
+> > > > Which is pretty close to what Josef is proposing, just with the new RCU
+> > > > Tasks Trace read-side primitives.  I think.  ;-)
+> > > > 
+> > > > This assumes that we do not need to flatten partially overlapping RCU
+> > > > Tasks Trace readers into one big reader.
+> > > > 
+> > > > Or am I missing something here?
+> > > 
+> > > Yes I think that's what Josef does in this patchset. The problem is about
+> > > handling the few instructions:
+> > > 
+> > > 1) between the begining of the trampoline and the call to rcu_read_lock_trace()
+> > > 
+> > > 2) between the call to rcu_read_unlock_trace() and the end of the trampoline
+> > > 
+> > > So what I'm proposing is to make those two parts implicit RCU read lock sections.
+> > > 
+> > > So the whole trampoline would be .text.rcu_no_qs:
+> > > 
+> > > .text.rcu_no_qs trampoline:
+> > >   __________________________________________________________________________________________
+> > >  |Few instructions 1 | rcu_read_lock_trace() .... rcu_read_unlock_trace | Few instructions 2|
+> > >  ___________________________________________________________________________________________
+> > > 
+> > > Then when a tick fires, rcu_flavor_sched_clock_irq() discards the interrupted
+> > > code as QS if the IP was within .text.rcu_no_qs _unless_ it is in the
+> > > rcu_read_lock_trace. Both are easy and quick to verify.
+> > > 
+> > > Also preempt_schedule_irq() would make sure to verify the same condition and
+> > > enqueue the task as a GP blocker if preempting inside "Few instructions 1"
+> > > or "Few instructions 2".
+> > 
+> > Ah, OK, I might be following now.  ;-)
+> > 
+> > We also need both versions of rcu_exp_handler() to check the IP as well,
+> > given that sooner or later someone is going to want trampoline removal
+> > to go faster.  Or am I still missing a turn in here somewhere?
 > 
-> This causes a problem later during setup:
-> stm32_adc_int_ch_enable() {
->     ...
->     case STM32_ADC_INT_CH_VDDGPU:
->         stm32_adc_set_bits(adc, adc->cfg->regs->or_vddgpu.reg,
->                            adc->cfg->regs->or_vddgpu.mask);
->     ...
-> }
-> 
-> Because the register offset is uninitialized (0), this performs a
-> read-modify-write on offset 0, which corresponds to the ISR register.
-> 
-> Fix this by returning before a valid int_ch is assigned. Choice is
-> made to keep current driver behavior to warn about the channel name.
-> 
-> Fixes: cf0fb80ae167 ("iio: adc: stm32-adc: add stm32mp13 support")
-> Reported-by: Sashiko <sashiko-bot@kernel.org>
-> Link: https://lore.kernel.org/all/20260911162602.D323F1F000FF@smtp.kernel.org/
+> Yes indeed, missed the exp part!
 
-Closes: ^^^
-
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-> ---
-> Changes in v2:
-> - Review comments from Andy: use bool flag closer to the channel
->   availabilty checks. Add a default case.
-> - Link to v1: https://patch.msgid.link/20260915-adc-fix-intchan-v1-v1-1-761a1b35001b@foss.st.com
-
-With the above amendment,
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+What remains to handle also is non-preemptible RCU because if the task is
+preempted by an IRQ while in the .text.rcu_no_qs, we may still need to keep
+track of that somewhere.
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
-
+Frederic Weisbecker
+SUSE Labs
 
