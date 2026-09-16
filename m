@@ -4,72 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D500BC88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 01:16:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 765CDC88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 01:18:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wj5xqr16b+MiF4gXbOwrdteITzUjU5K79Zm5S/GYYos=; b=Uc5u5Elm65ZH2lFPKIUWinz7wq
-	Ma55vdeUDPSfiih1AWGsYR9DNwPVScJYnZ8qHyge+hxRs2sqmx4LWZJwRMlYBrwQWM4tpMPpTNKfj
-	oxO/dfH+JVR1K4UAqviCczUWjkh9l8tOswr1DHSK/ZDp7lOERoxk8cMrJicD5SC5vYh92+kBOqYlj
-	YU9e31BD3c1/WbNBSbialfr1O5KYChn+bpWUVbACBWIFF/Hh7aePU1KO0LSRE5Bh8H8zWWtC+A6J0
-	07/XM47/u2CUWYXG3XirRKst1DOvf8wmwb4uRob5Qkzc7S1lbenxvT3W/cs2M5Efdr0vAXr77zKoJ
-	USXMMr6Q==;
+	bh=Fc/KEcEpePX8jQDme+fWQ04KtaWAl60QQBLlVHiy7uw=; b=XzZRsM2CWw+JTXTsCHfb9jPteI
+	bcwBn+Y/FVKJ4UP7Tp4uifEpiCbgKnQRGM0EbTXkEvIXy+V8+R6kjhuw5nJ/Wdv9NwWpQq5t521hs
+	D85Xp+gbw/b81FqxLCoSf+J+nEVMDXdFfZxZKKp3mPv1VmsXwACThREcf/qukG2H64Za3PGsfma9R
+	UJlZOXhvaT/O4PArhB6NJ9qBBwFeHGPSOc3m7iOLHqa/unOyghO5jehCp2/W969vN0OW6btPhPEmD
+	4edTUZuv64uTp2JB9Cl0LW/lxcbTaZJ8MZ/CcPOw8GOhQeoj7jFGjFIESiHmm2hh+rD3yGV0XHOGT
+	1cOOIRQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6eFw-000000089K9-3Mrr;
-	Wed, 16 Sep 2026 01:16:12 +0000
-Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
+	id 1x6eHy-000000089Rq-0SSo;
+	Wed, 16 Sep 2026 01:18:18 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6eFq-000000089JZ-3Amx
+	id 1x6eHv-000000089Rk-4BBS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 01:16:11 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=Wj5xqr16b+MiF4gXbOwrdteITzUjU5K79Zm5S/GYYos=;
-	b=6UUP6TpG0J+fyZ3faJJH2xKA7tmsEgCYAzlBcLo25E83gIbC0jyMxX8/rysB+6+2zm6RY9vuP
-	I83KyOVhB+bjkh3+me+WYUltdWmprtK8nGUWVZNGU/Um6XJfOAVpIFEtkn1tvH3Psjx3mzOWlc5
-	qlNaZjrzTFVw4F+aN2vZZZ8=
-Received: from mail.maildlp.com (unknown [172.19.163.163])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4hl0zf2CKvz1K9B2;
-	Wed, 16 Sep 2026 09:05:02 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id E326F4057A;
-	Wed, 16 Sep 2026 09:16:00 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- kwepemk200008.china.huawei.com (7.202.194.74) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Wed, 16 Sep 2026 09:16:00 +0800
-Message-ID: <eaf9019f-ae88-4ede-9bcf-36e0b6e88155@huawei.com>
-Date: Wed, 16 Sep 2026 09:15:59 +0800
+	Wed, 16 Sep 2026 01:18:16 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4900743A19;
+	Wed, 16 Sep 2026 01:18:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3BCD1F000FF;
+	Wed, 16 Sep 2026 01:18:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789521495;
+	bh=Fc/KEcEpePX8jQDme+fWQ04KtaWAl60QQBLlVHiy7uw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=FNtgh9fDxH8JeM8YBWXHATb5KHD5TagJYZLPIxf0lhUydsQ3+FHSIPB61e1Ye2uzJ
+	 qjTSn36WE/iNZ0+l12XZguvkY+BHcIDKhSokDiUyZBF8aPAUnwA0hjSTMp5grSS+uf
+	 m4cV6t3ZGjrDveXPdhRkeveX9/Hrs2eMVF/pt1DY9P8WfSeyZjHCJ7fshRt2XaHaz/
+	 w/ViKNEQigfGPi2AB0UPbJK7VrTxSg9aQu7KQWyE2/aqvir/szxt1dlDjZxzF/45f9
+	 yL+MqWZ+DQSFEgcdbXrQFwxlGpBcXxX94VjpKqB0uORPXNiCZouNuKeBXfxaM15AY9
+	 VMwRfTNwAjJww==
+From: Jakub Kicinski <kuba@kernel.org>
+To: suraj.gupta2@amd.com
+Cc: Jakub Kicinski <kuba@kernel.org>,
+	radhey.shyam.pandey@amd.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	pabeni@redhat.com,
+	michal.simek@amd.com,
+	netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net] net: xilinx: axienet: Free outstanding DMA buffers on dmaengine stop
+Date: Tue, 15 Sep 2026 18:17:38 -0700
+Message-ID: <20260916011737.1638482-2-kuba@kernel.org>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260910141946.3017164-1-suraj.gupta2@amd.com>
+References: <20260910141946.3017164-1-suraj.gupta2@amd.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 03/19] cpu/hotplug: Avoid busy-polling on archs where
- cpu_relax() is a no-op
-To: Will Deacon <will@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
-	Borislav Petkov <bp@alien8.de>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, David Woodhouse <dwmw@amazon.co.uk>,
-	Peter Zijlstra <peterz@infradead.org>, Marc Zyngier <maz@kernel.org>
-References: <20260907164024.17164-1-will@kernel.org>
- <20260907164024.17164-4-will@kernel.org>
- <0fa7d64c-9ccb-4a25-b40a-6ffbf5e33406@huawei.com>
- <aqP6wy6BBZXI80vq@willie-the-truck>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <aqP6wy6BBZXI80vq@willie-the-truck>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemk200008.china.huawei.com (7.202.194.74)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_181607_439711_C6E601EA 
-X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,40 +76,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Let's fix what AI is pointing out in another patch in the same series?
+Or please explain in the commit msg why the issue is not real,
+I'm not very familiar with the DMA engine API, TBH.
 
+AI review:
+---
+net: xilinx: axienet: Free outstanding DMA buffers on dmaengine stop
 
-在 2026/9/11 20:57, Will Deacon 写道:
-> On Fri, Sep 11, 2026 at 03:16:23PM +0800, Jinjie Ruan wrote:
->> 在 2026/9/8 0:40, Will Deacon 写道:
->>> diff --git a/kernel/cpu.c b/kernel/cpu.c
->>> index 97a9bfe4edad..d9fe204f02cb 100644
->>> --- a/kernel/cpu.c
->>> +++ b/kernel/cpu.c
->>> @@ -303,7 +303,13 @@ static inline void cpuhp_ap_update_sync_state(enum cpuhp_sync_state state)
->>>  	(void)atomic_xchg(st, state);
->>>  }
->>>  
->>> -void __weak arch_cpuhp_sync_state_poll(void) { cpu_relax(); }
->>> +void __weak arch_cpuhp_sync_state_poll(atomic_t *st, int old)
->>> +{
->>> +	if (old < SYNC_STATE_ALIVE)
->>> +		cpu_relax();
->>> +	else
->>> +		atomic_cond_read_relaxed(st, VAL != old);
->>> +}
->>
->> As sashiko pointed out, it seems that the else branch unreachable for
->> the call of cpuhp_wait_for_sync_state(cpu, SYNC_STATE_ALIVE,
->> SYNC_STATE_SHOULD_ONLINE), the old state can only be "SYNC_STATE_KICKED"
->> or "SYNC_STATE_SHOULD_DIE", which go the if branch.
-> 
-> Ah yes, it's a harmless leftover from my initial (failed) attempt to use
-> cpuhp_wait_for_sync_state() in cpuhp_ap_sync_alive(). I can drop this
-> part and reword the commit message.
+This adds clearing of the ring slot skb pointer in the TX and RX dmaengine
+completion callbacks, and makes axienet_stop() walk the TX and RX rings
+after terminating the channels to unmap and free any slot that still has a
+non-NULL skb, instead of only kfree()ing the ring shells.
 
-Thanks, looking forward to your update — that will be nice.
+> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> index 1722b7038f340..7828fbb09dc87 100644
+> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
 
-> 
-> Will
+[ ... ]
 
+> @@ -1171,6 +1172,7 @@ static void axienet_dma_rx_cb(void *data, const struct dmaengine_result *result)
+>  						       &meta_max_len);
+>  	dma_unmap_single(lp->dev, skbuf_dma->dma_address, lp->max_frm_size,
+>  			 DMA_FROM_DEVICE);
+> +	skbuf_dma->skb = NULL;
+>  
+>  	if (IS_ERR(app_metadata)) {
+>  		if (net_ratelimit())
+
+> @@ -1752,16 +1754,40 @@ static int axienet_stop(struct net_device *ndev)
+>  		free_irq(lp->rx_irq, ndev);
+>  		axienet_dma_bd_release(ndev);
+>  	} else {
+> +		struct skbuf_dma_descriptor *skbuf_dma;
+> +
+>  		dmaengine_terminate_sync(lp->tx_chan);
+>  		dmaengine_synchronize(lp->tx_chan);
+>  		dmaengine_terminate_sync(lp->rx_chan);
+>  		dmaengine_synchronize(lp->rx_chan);
+>  
+> -		for (i = 0; i < TX_BD_NUM_MAX; i++)
+> -			kfree(lp->tx_skb_ring[i]);
+> +		/* dmaengine_terminate_sync() aborts the descriptors still owned
+> +		 * by the DMA engine without running their completion callbacks.
+> +		 * A ring slot owns a live, DMA-mapped SKB iff its skb pointer is
+> +		 * non-NULL (the callbacks clear it on completion), so unmap and
+> +		 * free those here. Otherwise every outstanding TX/RX SKB and its
+> +		 * DMA mapping is leaked on ifdown.
+> +		 */
+
+[ ... TX ring loop snipped ... ]
+
+> +
+> +		for (i = 0; i < RX_BUF_NUM_DEFAULT; i++) {
+> +			skbuf_dma = lp->rx_skb_ring[i];
+> +			if (skbuf_dma && skbuf_dma->skb) {
+> +				dma_unmap_single(lp->dev, skbuf_dma->dma_address,
+> +						 lp->max_frm_size, DMA_FROM_DEVICE);
+> +				dev_kfree_skb_any(skbuf_dma->skb);
+> +			}
+> +			kfree(skbuf_dma);
+> +		}
+>  		kfree(lp->rx_skb_ring);
+>  
+>  		dma_release_channel(lp->rx_chan);
+
+[Severity: High]
+
+Is the invariant described in the comment, "A ring slot owns a live,
+DMA-mapped SKB iff its skb pointer is non-NULL", guaranteed to hold once
+the terminate calls have returned?
+
+axienet_dma_rx_cb() re-arms the RX channel unconditionally at the end of
+every completion, with no check against a stopping flag or
+netif_running():
+
+drivers/net/ethernet/xilinx/xilinx_axienet_main.c:axienet_dma_rx_cb() {
+	...
+rx_submit:
+	for (i = 0; i < CIRC_SPACE(lp->rx_ring_head, lp->rx_ring_tail,
+				   RX_BUF_NUM_DEFAULT); i++)
+		axienet_rx_submit_desc(lp->ndev);
+	dma_async_issue_pending(lp->rx_chan);
+}
+
+Note lp->stopping is only set in the !lp->use_dmaengine branch of
+axienet_stop(), so it does not fence this path.
+
+The callback runs from the provider tasklet with chan->lock dropped, so it
+can run on another CPU while axienet_stop() is between the terminate and
+the free loop:
+
+drivers/dma/xilinx/xilinx_dma.c:xilinx_dma_chan_desc_cleanup() {
+	...
+	spin_unlock_irqrestore(&chan->lock, flags);
+	dmaengine_desc_get_callback_invoke(&desc->async_tx, &result);
+	spin_lock_irqsave(&chan->lock, flags);
+}
+
+If the callback wins that race, axienet_rx_submit_desc() maps a fresh
+buffer, installs it in the slot and submits it:
+
+	skbuf_dma->skb = skb;
+	skbuf_dma->dma_address = sg_dma_address(skbuf_dma->sgl);
+	skbuf_dma->desc = dma_rx_desc;
+	...
+	lp->rx_ring_head++;
+	dmaengine_submit(dma_rx_desc);
+
+and xilinx_dma_tx_submit() queues it and clears the provider's guard:
+
+	append_desc_queue(chan, desc);
+	...
+	chan->terminating = false;
+
+The following dma_async_issue_pending() then restarts the channel.
+dmaengine_synchronize() is only tasklet_kill() here:
+
+drivers/dma/xilinx/xilinx_dma.c:
+static void xilinx_dma_synchronize(struct dma_chan *dchan)
+{
+	struct xilinx_dma_chan *chan = to_xilinx_chan(dchan);
+
+	tasklet_kill(&chan->tasklet);
+}
+
+so it waits for the callback to return but does not abort the descriptor the
+callback just submitted.
+
+In that case the new RX loop sees skbuf_dma->skb != NULL for that slot and
+performs dma_unmap_single() plus dev_kfree_skb_any() on a buffer the engine
+still owns.  Can this let the hardware write into a freed, unmapped skb, or
+trigger an IOMMU fault?
+
+There is also the ordering of kfree(lp->rx_skb_ring) before
+dma_release_channel(lp->rx_chan).  If the late descriptor completes in that
+window, axienet_dma_rx_cb() does:
+
+	skbuf_dma = axienet_get_rx_desc(lp, lp->rx_ring_tail++);
+	skb = skbuf_dma->skb;
+
+Is that a use-after-free of lp->rx_skb_ring?
+
+Before this change the same window only leaked the buffer.  Would it make
+sense to fence resubmission first, for example by setting the stopping flag
+for the dmaengine path before the terminate calls and checking it in
+axienet_dma_rx_cb() before the rx_submit loop, and to release the channels
+before freeing the rings?
+
+Note also that dmaengine_terminate_sync() already ends with
+dmaengine_synchronize(), so the explicit dmaengine_synchronize() calls that
+follow it here are redundant, though harmless.
+-- 
+pw-bot: cr
 
