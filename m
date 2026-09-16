@@ -4,104 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41553C88E5C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 08:02:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75619C88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 08:04:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qySEvs8hSKqFW9xRbMnFJTfjwY1BWKalrlpW2SDfROM=; b=PloJP572t8ITAZkZ3C/Kwux1zk
-	zGgM4bnXXqWMSQXzTiNRUuoFkcYmmMp7BoAO7TOZPLvC0roudSH+d2qHygIsky/RBwZ31xYg726uV
-	UygafEOTFIUAbK+XbEcleIvJuTxZir2Gdjeu2Ts22Hp1q9WuEFjalzmBwwrFLl5S2EAvxYrD551gK
-	MLXxxJCgsIKD/go7mewxeh7P3iVLBzm66PD+R4nokq63UyP6sVTFoUf6WdXhPVEfcOF7he9mJH3yp
-	vDn+5gVbqMTPbhSDwfchTk5tcC1OVKgvj555xw8kq/MGydE2OwXoh9lBOiuFoRNAShOL+PmpdjPZW
-	pZbPLRVQ==;
+	bh=3Ecnaj3AKGyX1m3l7eOuM3CrzBXHNWQhHtc+psZy9ew=; b=kh/Djt/lQmHbJd0mjODDrLADSu
+	TNbiXDrRKIQ4wYYNxtOO5b/YTTQCkhk780n+h1tJYLBEXtqHsHKQ2K2R5GuAkmqsC7W1hFscHfkNf
+	PhCniAWHNffeacUte1A89KCCJu6Jmd/p3b1w6Npn1MVs6m4TubUCaKllOFeU3fr/qqi1cC/o88ex/
+	p/h3nN2F1vl2WX6acbeNQU0lXP6rkXQCHJc0MlRql5ofQek5EW1FBvr5HlranuKbCjEPJ/L49WSLq
+	XQ5aYcSo/DXJ2GuxChjiFK7Y/8om0BOZWc/Ho4a04TD9YFxuJyPsHtT73uF84Owqoq38/kNX7Qh8/
+	XBCSZwSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6kbF-00000008ftG-2aFW;
-	Wed, 16 Sep 2026 08:02:37 +0000
-Received: from watt.d-silva.org ([119.15.109.137] helo=www.nmnhosting.com)
+	id 1x6kcz-00000008g8y-0WGU;
+	Wed, 16 Sep 2026 08:04:25 +0000
+Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6kb2-00000008fpC-1zbd
+	id 1x6kcv-00000008g7V-4Aqe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 08:02:36 +0000
-Received: from hawking.lan (ntp.lan [10.0.1.1])
-	by www.nmnhosting.com (Postfix) with ESMTPSA id BD2FE424F0;
-	Wed, 16 Sep 2026 18:02:08 +1000 (AEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=d-silva.org; s=2025a;
-	t=1789545728;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=qySEvs8hSKqFW9xRbMnFJTfjwY1BWKalrlpW2SDfROM=;
-	b=1ti+bg6oQ0pvM5B9lpqBTOzlQQQRN2HUkiO1sKJvUdK+t8WqTnb3l3iXJfbLU31bcj2WU2
-	Q+vZ0sPRUkFymCQciORp9qEReBUuqz64To8pjdEfCMaG8dJHbMjFchecehW1e/ooZz7b8d
-	EhEWI9J7fRcZGo9Q0yEBIrXD+te4Mv4PSKqd+O6OMS0TDYzA7Cgq7gsO1pMsTJ6RAmMS7F
-	6Ogcgssfprnnfu02QKpZBzAaJvdApxWeoWyTF8DUcAQoTZFtXGXW8ZqVqVFnzj/P1mWnbS
-	uOZMKGoJCscQiyeL4ed7T0dEXkNyxbE9JtzuM6bowZicxJ8KgBkl/26c4kC3rw==
-X-GPT-Reason: legitimate; the email is a technical discussion regarding
-	Linux kernel patches (net-next) for Allwinner H616/H618 hardware,
-	which perfectly matches the technical nature of the "alastair@d-silva.org" mailbox;
-	 the sender domain "d-silva.org" aligns with the "From" header,
-	and the content is a detailed, multi-paragraph engineering analysis
-	with no signs of marketing, phishing, or urgency; there are no URLs
-	or suspicious requests for credentials, and the conversation thread
-	follows a standard developer mailing list format.
-Message-ID: <a5fed5614eb09f958772fae636e748069851e059.camel@d-silva.org>
-Subject: Re: [PATCH net-next 0/4] net: Add Allwinner H616/H618 EMAC1 and
- AC300 EPHY support
-From: Alastair D'Silva <alastair@d-silva.org>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>, James Hilliard
-	 <james.hilliard1@gmail.com>, wens@kernel.org
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Heiner Kallweit
- <hkallweit1@gmail.com>,  Russell King <linux@armlinux.org.uk>, Alexandre
- Torgue <alexandre.torgue@foss.st.com>, "David S . Miller"	
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski	
- <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
- <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, 	netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, 	linux-sunxi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, Jernej Skrabec
- <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>
-Date: Wed, 16 Sep 2026 18:02:08 +1000
-In-Reply-To: <3196ccec-7cf3-434b-b7bb-dec64fe29583@bootlin.com>
-References: <20260916044119.475666-1-alastair@d-silva.org>
-	 <CAGb2v64HZoqBscyKTkTin6DnMv5_kZpBxoS+cm7aYy09pRc7hA@mail.gmail.com>
-	 <CADvTj4qRMviM=KXinCKi657pVC_kj7Kt1yizW_EGDu4m7VKQFg@mail.gmail.com>
-	 <2ac659ffa08eeddc6654827f5a8fbd7fe374a128.camel@d-silva.org>
-	 <3196ccec-7cf3-434b-b7bb-dec64fe29583@bootlin.com>
-Autocrypt: addr=alastair@d-silva.org; prefer-encrypt=mutual;
- keydata=mQINBGactvoBEADBFM2HqfQUUM4j40ZQPyYzmnM8S6zrycO0ipDDPMs7nZMzyzGzOdqfS
- VB/tuYvZOOKVWzJuWJ5aT/YyHx54r3L+D5hTkEG0sXPVJky3yTS9sbHEMSLBHb8TVVuhPVPuieV4g
- Nkqg5POMTidk8xAw50WpV++tUlewXVSciehnuCQPXhXMP7FcCh4uO8LdN7E8m7ir1LafKTFfoWPah
- KVT8NGG9r+ucrFcN5F+VnHxTDaI68yRPkNdtUWmp22wIX1KwDCtKFrndYO4p5Hv2hlDKomsuIIHHn
- muQGRwuh0xpf0nVJNF8ETZHMzxQLfo3e/HvxBFOTkwY9w7CuuQFZchbhS0I3PfmGT0+jiNcdfqjDC
- fPPB5uhy+DkR6wO72vuwFYUrpU2mdliDSdKEtWBHulnXMJjpBOXetfIwhI8G2dTVg59lN5i9DvJZc
- 7y1Sp+qfZQ4P9qpYZyQEKR4GNDOdnm6F2LW2cZkcyAU/Ii765zdDMTQMIzZNSxT/FcDd0K1voTNRl
- QHbQw+kmIMhzSv2JefcC9oNbE0XYzcBDNP5T3O/4itOQ90GCKQEPAbIPeBjlQif7kkyvo/H6yv4s9
- duuK7zbJD9AID/+KGLkpU3p68VDB/C2ZSb9rQz3p1CJNSfsX/CPk7sPqA7RKZ4a2B0hSJ2pJCncNZ
- KXtMlkkm/FmewARAQABtCdBbGFzdGFpciBEJ1NpbHZhIDxhbGFzdGFpckBkLXNpbHZhLm9yZz6JAl
- EEEwEKADsWIQTQGemDFwqYyU/dBWv75AdnjVo60gUCZpy2+gIbAwULCQgHAgIiAgYVCgkICwIEFgI
- DAQIeBwIXgAAKCRD75AdnjVo60qHZEACJnLfpS71Hk8bX0CLCNJ5wgqdZD3pBHEdbv9Ux9kRlZp4a
- ZFwlg9ltwBjl2dZP3PLtD9xQdsdYKVippKd5a7ZZC2y81oDaHjeC9LnPYn8+ce3mGE/+gRyoNfToY
- N06DeUNJKSlZ9t11UIqZCgfp12u16/Yrigy8C4ihEeHXlLhNX6JkeJR5gsHXJnC7vSuMZY+Qz2R72
- ZidWg+cd2WDMGop5sbTvc+55q94A7vTMlWzaix5HdbEUA3sd2U0dMBju5QodRGGhDQMcCu64TydRD
- MtMzzOk9ThJ036ze3HASWGOppyQmaw58k+XNzbHlr9Sc1LsFUNF7zpWXac2rzlywbyRAdFIT/TC76
- hy9zOkwIo2nwA/tdIwLx1j0UZPpAMQmcDUvJqZh6sE+fv6HN0yMPr+sSYJmriMt8Z6leCEHQXOHVI
- SI5z5FvV3coMmHYRq6aXpfs/8SLiYgkV3B0HE/E18Y3j1OkeLYoqIH1VfzQZeCSL/S77NYvk60/MV
- 1HFSyqLdUR3uWZI4uZzoEcMoB0GX33uCTp2Ntc00+wSntwekCUQLCMLUb7dZrbpVuobHoWWtkiD2I
- uE5kAiaVwwwzM0BUwiM6VzVoKbeECz93rdsNtwoDqM0NtzoISC46H/BKVQ9mRNXDO4ThEBpJ4H2Tn
- mPNRYYcR0u2mNy1EJII04w==
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-9 
+	Wed, 16 Sep 2026 08:04:24 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=3Ecnaj3AKGyX1m3l7eOuM3CrzBXHNWQhHtc+psZy9ew=;
+	b=IrMNpRVpvYOhH5wgWDkxhUQXpee6ma/HN229fbqv8ym6hhxwjJGpLt+WftiZ0CnuDeKTWW7TN
+	Fbv5ZrTFEcCSaOKUlWeG4KWeQJ3LS9DDadnPoYMT34dAq/nobiLlbST50tmPFk6ONdQIsHB/9Vk
+	01X9FTKgkhrq8MB511mMr5k=
+Received: from mail.maildlp.com (unknown [172.19.162.223])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4hlB2l2zlBzRhQs;
+	Wed, 16 Sep 2026 15:53:19 +0800 (CST)
+Received: from kwepemk300012.china.huawei.com (unknown [7.202.194.175])
+	by mail.maildlp.com (Postfix) with ESMTPS id 8764640561;
+	Wed, 16 Sep 2026 16:04:15 +0800 (CST)
+Received: from DESKTOP-A37P9LK.huawei.com (10.67.109.17) by
+ kwepemk300012.china.huawei.com (7.202.194.175) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Wed, 16 Sep 2026 16:04:14 +0800
+From: Xie Yuanbin <xieyuanbin1@huawei.com>
+To: <sashal@kernel.org>, <gregkh@linuxfoundation.org>,
+	<linux@armlinux.org.uk>, <bigeasy@linutronix.de>, <clrkwllms@kernel.org>,
+	<rostedt@goodmis.org>, <rmk+kernel@armlinux.org.uk>, <linusw@kernel.org>,
+	<kuninori.morimoto.gx@renesas.com>, <arnd@arndb.de>, <xiqi2@huawei.com>,
+	<ljs@kernel.org>, <wozizhi@huaweicloud.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-rt-devel@lists.linux.dev>, <stable@vger.kernel.org>,
+	<patches@lists.linux.dev>, <lisongze2@huawei.com>, <wangbing6@huawei.com>,
+	Xie Yuanbin <xieyuanbin1@huawei.com>
+Subject: [PATCH 5.10.y/5.15.y 4/4] ARM: 9484/1: enable interrupts when unhandled user faults are triggered
+Date: Wed, 16 Sep 2026 16:00:11 +0800
+Message-ID: <20260916080011.170295-4-xieyuanbin1@huawei.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260916080011.170295-1-xieyuanbin1@huawei.com>
+References: <20260916080011.170295-1-xieyuanbin1@huawei.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.67.109.17]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemk300012.china.huawei.com (7.202.194.175)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_010224_715198_AD538DAF 
-X-CRM114-Status: GOOD (  27.68  )
+X-CRM114-CacheID: sfid-20260916_010422_399034_9F1F66B9 
+X-CRM114-Status: UNSURE (   9.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,103 +84,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+[ Upstream commit e79ca91165d4fd18549c536abdb86101e889052f ]
 
-On Wed, 2026-09-16 at 09:06 +0200, Maxime Chevallier wrote:
-> Hi,
-> On 9/16/26 08:49, Alastair D'Silva wrote:
->=20
-> > There is one subtle timing issue worth highlighting from our
-> > Armbian
-> > testing on the Mellow Fly-C5 (H618):
-> >=20
-> > In James's dwmac patch, setting soc_has_internal_phy =3D false causes
-> > sun8i_dwmac_probe() to fall through to sun8i_dwmac_reset(priv). The
-> > Synopsys EMAC DMA soft reset (EMAC_BASIC_CTL1 bit 0) requires a
-> > running
-> > RMII clock from the PHY to clear.
-> >=20
-> > While this reset succeeds when the PHY driver is built-in and
-> > probes
-> > synchronously, if CONFIG_XPOWERS_ACX00_PHY is built as a module
-> > (=3Dm)
-> > or if the PHY probe defers (-EPROBE_DEFER on
-> > regulator/clock/nvmem),
-> > the PHY is unpowered and not clocking when sun8i_dwmac_probe()
-> > runs.
-> >=20
-> > This causes sun8i_dwmac_reset() to time out after 100ms ("EMAC
-> > reset
-> > timeout"), failing MAC driver probe. In our testing, deferring the
-> > MAC
-> > reset until sun8i_dwmac_init() (which runs upon ndo_open after
-> > phylink
-> > has attached and the PHY is active) avoided this probe failure.
->=20
-> I'm OK with going with James' version, however this seems like a
-> valid
-> point that needs to be figured out.
->=20
-> James, can you add Alastair in CC of your next iterations, and
-> Alastair
-> it would be great if you could give James's patches a test when he
-> submits them :)
->=20
-> There's more stuff in the dwmac part for Alastair's version, some
-> -EPROBEFER handling for clocks, the reset thing as well as the MUX
-> part, for which use-cases is all of that required ?
->=20
-> If that's something that needs to land with proper EMAC1 support,
-> maybe
-> this could be split out from Alastair's work (in individual patches
-> please), and integrated in James's series ?
->=20
-> Maxime
+PREEMPT_RT requires interrupts to be enabled when sending signals.
 
-Thanks Maxime. Here is the breakdown of why those pieces were in my
-earlier patch and how they relate to James's series:
+When do_DataAbort()/do_PrefetchAbort() triggers unhandled user faults,
+that is `inf->fn()` return a non-zero value, and the interrupts are not
+enabled within the hook function, force_sig_fault() will be called
+with interrupts disabled.
 
-1. MDIO MUX & H3_EPHY_SELECT:
-   These are NOT needed for James's series.
-   My initial test tree was using the legacy
-   "allwinner,sun8i-h3-mdio-mux" node inherited from older
-   vendor/Armbian DTs. That mux driver attempts to toggle
-   H3_EPHY_SELECT (bit 0 of SYSCON), which on H616 register 0x34 is
-   actually SYSCON_EPIT (interface type), so I had to mask it out.
-   With James's series, there is no fake mdio-mux node (direct MDIO bus
-   with the ethernet-phy-package), which is much cleaner and completely
-   bypasses all H3 mux code.
+This can be triggered by user programs executing the bkpt instruction,
+with kernel config CONFIG_PERF_EVENTS=n.
 
-2. -EPROBE_DEFER handling in get_ephy_nodes():
-   Also NOT needed for H616 EMAC1.
-   get_ephy_nodes() is only called when soc_has_internal_phy =3D true.
-   In James's series, all PHY clocks, regulators, and NVMEM cells are
-   managed inside the PHY package driver
-   (drivers/net/phy/xpowers/ac300.c), where -EPROBE_DEFER is already
-   handled cleanly via dev_err_probe().
-   (The get_ephy_nodes() fix is only relevant as an independent=C2=A0
-   cleanup=C2=A0for legacy H3/V3s platforms).
+Enable interrupts in do_DataAbort()/do_PrefetchAbort() when unhandled
+user faults are triggered to fix the issue.
 
-3. MAC Soft Reset timing (The one piece that IS needed):
-   This is the one issue that affects James's series.
-   Because emac_variant_h616_emac1 sets soc_has_internal_phy =3D false,
-   sun8i_dwmac_probe() falls through to line 1221:
-       ret =3D sun8i_dwmac_reset(priv);
+Fixes: c6e61c06d606 ("ARM: 9463/1: Allow to enable RT")
+Link: https://lore.kernel.org/20260629123349.134224-1-xieyuanbin1@huawei.com
+Suggested-by: Russell King <rmk+kernel@armlinux.org.uk>
+Reviewed-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Reviewed-by: Linus Walleij <linusw@kernel.org>
+Signed-off-by: Xie Yuanbin <xieyuanbin1@huawei.com>
+Signed-off-by: Russell King <rmk+kernel@armlinux.org.uk>
+---
+ arch/arm/mm/fault.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-   The Allwinner EMAC DMA soft reset (EMAC_BASIC_CTL1 bit 0) requires
-   the RMII clock from the PHY to toggle in order to complete.
-   If CONFIG_XPOWERS_ACX00_PHY is built as a module (=3Dm), or if any of
-   the AC300 package resources defer probe, the PHY is unpowered and
-   not clocking during sun8i_dwmac_probe(). sun8i_dwmac_reset() will
-   time out after 100ms ("EMAC reset timeout"), aborting the MAC probe
-   completely.
-   For EMAC1, skipping sun8i_dwmac_reset() during probe and letting it
-   run in sun8i_dwmac_init() (which runs upon ndo_open after phylink
-   has connected and the PHY is clocked) avoids this probe failure.
+diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
+index 8b31d7704626..7ac46e1b85a6 100644
+--- a/arch/arm/mm/fault.c
++++ b/arch/arm/mm/fault.c
+@@ -585,6 +585,9 @@ do_DataAbort(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
+ 	if (!inf->fn(addr, fsr & ~FSR_LNX_PF, regs))
+ 		return;
+ 
++	if (likely(user_mode(regs)))
++		local_irq_enable();
++
+ 	pr_alert("8<--- cut here ---\n");
+ 	pr_alert("Unhandled fault: %s (0x%03x) at 0x%08lx\n",
+ 		inf->name, fsr, addr);
+@@ -623,6 +626,9 @@ do_PrefetchAbort(unsigned long addr, unsigned int ifsr, struct pt_regs *regs)
+ 	if (!inf->fn(addr, ifsr | FSR_LNX_PF, regs))
+ 		return;
+ 
++	if (likely(user_mode(regs)))
++		local_irq_enable();
++
+ 	pr_alert("8<--- cut here ---\n");
+ 	pr_alert("Unhandled prefetch abort: %s (0x%03x) at 0x%08lx\n",
+ 		inf->name, ifsr, addr);
+-- 
+2.55.0
 
-James, I'm happy to test your next revision on physical Mellow Fly-C5
-(H618) hardware as both a builtin driver, and a module.
-
---=20
-Alastair D'Silva
-0493 18 5566
 
