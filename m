@@ -4,62 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30E0CC88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 11:01:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49F24C88E5C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 11:02:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bpupaYPnuoNq1+oiQvi9YAVwDplDQohdEFd2S9+cj6U=; b=rvvgFsvsk8MzMA3I76dP1tS5wV
-	ddWaUik3THnYzdah6AI7S3HxH54Ca13Sbad+nV+H0N6Uo15Wz4IagitD8IbDEKHRrpBe1hL9FkTeZ
-	4vwDvB3pHpHcuni8PQtvYcz2z223vZadI5xqPD0Pjez7rRW9LsAz/bRlOLQ1ccYdmKWn8jG8TFP74
-	iF2O6BeUqrjFvaBpl6V9h1RcPs1Vggz4L3PpCOgG80UsSFBjuKgz6kv6BrYn9gIhQNX9SSvYqx8NE
-	YR/tC4XWYIHKyfkGaRyd/QNIsXWmpyVn+2OSKcGa7RhfkGkSJYxf18J1G63qlCg9izLApHiH9gJWn
-	cKxM+MzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XWYr4ENYidcskbtv9TLVflYBJ2nrgan0itQw24BVLf4=; b=YSsdZ/m4dbIQsq01HQwAdxP82Q
+	cXnDfKqYN3+qFCGu4CrpH42MVU9EEQQTOg4La22gmnmDhUil19SFR8k7XjgU+y2bodaib5P12iOjB
+	Ri+FWCRlxqi/Mrb0OjHE+BdTJkKreDsVrcPU6mDqPlLD3UJgtynNBeLdir74njjpzDUdVU6qBfsIv
+	I1yBhEGbHaq8vC88FtkGGPxMFlY84I9hpE/ePsnPCfYsxGqjVXCeHBb2FJlfi3OtdaNmuGtbBw7qs
+	fZ+5i67mLNgfzB/d9VRi0HKbrcGEto2RJpBijBKJKscMtQmBQvX5nCGFO2fi6HtOlHNq4+ZBSDiMd
+	m1a2sFWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6nNx-000000091rg-0jxk;
-	Wed, 16 Sep 2026 11:01:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6nNu-000000091qS-3uN4
+	id 1x6nPA-000000091z1-1Ru5;
+	Wed, 16 Sep 2026 11:02:20 +0000
+Received: from m16.mail.163.com ([117.135.210.3])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x6nP8-000000091yO-05k1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 11:01:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 45062152B;
-	Wed, 16 Sep 2026 04:00:56 -0700 (PDT)
-Received: from e143914.arm.com (e143914.arm.com [10.2.213.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C886E3F882;
-	Wed, 16 Sep 2026 04:00:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789556459; bh=le64yFWu89IwQTgKsaA74r4GubOSVodhBlaIxBJsy1Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VeHro92U0oRR3vwxd1JwJpCnnmvxSmWT5qbm9wVCD7uvApw8F7Ka2crYiiXwI/uTp
-	 vYgQG5zxs0l8zCLSiKde0WIau2Hjc31y+np0XjwrxTCwkutglwEtnOahfk5+ISkDxT
-	 ywM/0JFHlDAknHew+79UxH+X+H1IL6vXMKYOgB44=
-Date: Wed, 16 Sep 2026 12:00:52 +0100
-From: Joey Gouly <joey.gouly@arm.com>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	catalin.marinas@arm.com, will@kernel.org, seiden@linux.ibm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com,
-	vdonnefort@google.com, qperret@google.com, Sascha.Bischoff@arm.com,
-	steven.price@arm.com, tabba@google.com
-Subject: Re: [PATCH 3/7] KVM: arm64: Validate the host-provided vgic model in
- pKVM
-Message-ID: <aqp25JLeqyCKtCQH@e143914.arm.com>
-References: <20260915123846.2317931-1-fuad.tabba@linux.dev>
- <20260915123846.2317931-4-fuad.tabba@linux.dev>
+	Wed, 16 Sep 2026 11:02:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=XWYr4ENYidcskbtv9TLVflYBJ2nrgan0itQw24BVLf4=; b=Q
+	XJHNWltJ0xSQ2jiM+iN+TKdx/QfKg5EV2QfGCCC7ecN9ytw5qTQGeyoQSRXfXT77
+	Mb0SBvpZRv6x4NjIJ1X7n8qKqfQfcw/OEN8q2EGHfn3rUe3/LYnW4kH9sj1lXB7w
+	Prdy6/f38S5VaZxWVmvZMZs2mJDy2dYjcORs+da+x0=
+Date: Wed, 16 Sep 2026 19:01:10 +0800 (CST)
+From: zl020895  <zl020895@163.com>
+To: "Andy Shevchenko" <andriy.shevchenko@linux.intel.com>
+Cc: "Linus Walleij" <linusw@kernel.org>,
+	"Bartosz Golaszewski" <brgl@kernel.org>, soc@lists.linux.dev,
+	longzhao@ambarella.com,
+	"Long Zhao via B4 Relay" <devnull+longzhao.ambarella.com@kernel.org>,
+	"Rob Herring" <robh@kernel.org>,
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+	"Conor Dooley" <conor+dt@kernel.org>,
+	"Michael Turquette" <mturquette@baylibre.com>,
+	"Stephen Boyd" <sboyd@kernel.org>,
+	"Jerome Brunet" <jbrunet@baylibre.com>,
+	"Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+	"Jiri Slaby" <jirislaby@kernel.org>,
+	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	"Catalin Marinas" <catalin.marinas@arm.com>,
+	"Will Deacon" <will@kernel.org>, "Lee Jones" <lee@kernel.org>,
+	mfd@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
+	linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org,
+	"Krzysztof Kozlowski" <krzysztof.kozlowski@oss.qualcomm.com>,
+	"Arnd Bergmann" <arnd@arndb.de>,
+	"Krzysztof Kozlowski" <krzk@kernel.org>,
+	"Alexandre Belloni" <alexandre.belloni@bootlin.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re:Re: [PATCH v7 00/15] Ambarella CV75 SoC minimal bring-up
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
+ 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 163com
+In-Reply-To: <aqpuMcqbra9i6UDq@ashevche-desk.local>
+References: <20260915-cv75-v5-v7-0-3297d3fbc9c0@ambarella.com>
+ <CAMRc=McEOcWq8i3B01AR1PnfBzSQaLEaOzE6Qa+QdVXrvS_YrA@mail.gmail.com>
+ <CAD++jLnRL_s9zPNkSj2UnHWPx+QHAXV19DA7dEmGZu0AkxxyaA@mail.gmail.com>
+ <aqpuMcqbra9i6UDq@ashevche-desk.local>
+X-NTES-SC: AL_Qu2TC/meuUws5iaYYOkcn0wRhug/UMa4u/sm3YNXc+0EmQv84jsnW19JAXbm4NmSDCydmwSSfylD1ctrZLJSSmM9ix4F2GWSJfiNOy6P3A==
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260915123846.2317931-4-fuad.tabba@linux.dev>
+Message-ID: <23d61058.962b.1a0a9e0b355.Coremail.zl020895@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: ZigvCgB3r9v2dqpqhlJIAA--.26232W
+X-CM-SenderInfo: d2oqjiqyzvqiywtou0bp/xtbCxhYgkWqqdvZsNQAA34
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_040103_013012_EBA94322 
-X-CRM114-Status: GOOD (  21.61  )
+X-CRM114-CacheID: sfid-20260916_040218_516279_9A8BDD15 
+X-CRM114-Status: GOOD (  18.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,63 +94,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Question(s)
-   |
-   |
-   v
-
-On Tue, Sep 15, 2026 at 01:38:42PM +0100, Fuad Tabba wrote:
-> EL2 copies vgic_model from the host's struct kvm unchecked, and the nVHE
-> world switch dispatches on it with no cpucap guard. A host writing
-> KVM_DEV_TYPE_ARM_VGIC_V5 makes EL2 access GICv5 CPU interface registers
-> that are UNDEFINED without FEAT_GCIE, and panics the hypervisor on any
-> GICv3 machine.
-> 
-> Accept only GICv3, the one model pKVM supports, forcing anything else
-> to 0.
-> 
-> Fixes: 9b8e3d4ca0e73 ("KVM: arm64: gic-v5: Implement GICv5 load/put and save/restore")
-> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
-> ---
->  arch/arm64/kvm/hyp/nvhe/pkvm.c | 10 ++++++++--
->  1 file changed, 8 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> index 459bd9eb7e4bc..4c33c863e90e1 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> @@ -340,13 +340,19 @@ static void pkvm_init_features_from_host(struct pkvm_hyp_vm *hyp_vm, const struc
->  {
->  	struct kvm *kvm = &hyp_vm->kvm;
->  	unsigned long host_arch_flags = READ_ONCE(host_kvm->arch.flags);
-> +	u32 vgic_model = READ_ONCE(host_kvm->arch.vgic.vgic_model);
->  	DECLARE_BITMAP(allowed_features, KVM_VCPU_MAX_FEATURES);
->  
->  	/* CTR_EL0 is always under host control, even for protected VMs. */
->  	hyp_vm->kvm.arch.ctr_el0 = host_kvm->arch.ctr_el0;
->  
-> -	/* Preserve the vgic model so that GICv3 emulation works */
-> -	hyp_vm->kvm.arch.vgic.vgic_model = host_kvm->arch.vgic.vgic_model;
-> +	/*
-> +	 * GICv3 is the only model pKVM runs, and the GICv5 world switch
-> +	 * touches registers UNDEFINED at EL2 without FEAT_GCIE.
-> +	 */
-> +	if (vgic_model != KVM_DEV_TYPE_ARM_VGIC_V3)
-> +		vgic_model = 0;
-> +	hyp_vm->kvm.arch.vgic.vgic_model = vgic_model;
-
-A bit confused by what is expected by writing 0 here? I would have maybe
-expected to refuse running this VM? What happens if the host writes some
-garbage here, so vgic_model=0, but then tries to access gic-v3
-registers?
-
-Thanks,
-Joey
-
->  
->  	/* No restrictions for non-protected VMs. */
->  	if (!kvm_vm_is_protected(kvm)) {
-> -- 
-> 2.39.5
-> 
+VGhhbmtzIEJhcnQsIExpbnVzLCBBbmR5LgoKQUNLOiBHUElPIGJpdHMgdGhyb3VnaCB0aGUgR1BJ
+TyB0cmVlLCB0aGVuIGFuIElCIGZvciB0aGUgU29DIHRyZWUuCkkgd2lsbCBrZWVwIGEgdW5pZmll
+ZCBzZXJpZXMgZm9yIG5vdy4KCnJlZ21hcC1pcnEgY2Fubm90IGRvIFBMMDYxIHR5cGUgKElTL0lC
+RS9JRVYsIGJvdGgtZWRnZSkgcGx1cyB0aGUKQU1CQSBjaGFpbmVkIGRlbXV4LgoKVHdvIG9wdGlv
+bnMgZm9yIHY4IOKAlCBBbmR5LCB3aGljaCBkbyB5b3UgcHJlZmVyPwogIDEpIENvbnZlcnQgUEww
+NjEgTU1JTyB0byByZWdtYXAgb25seS4gS2VlcCB0aGUgZXhpc3RpbmcgZ3Bpb19jaGlwCiAgICAg
+YW5kIGlycWNoaXAvZ2lycSAoZG91YmxlLXdyaXRlIHN0YXlzIGluIHRoZSBkcml2ZXIpLiBBbWJh
+cmVsbGEKICAgICBsYXlvdXQgY2FuIGJlIGEgZm9sbG93LXVwIG9uIHRoYXQuIE5vIGdwaW8tcmVn
+bWFwIHlldC4KCiAgMikgQWZ0ZXIgKDEpLCBhbHNvIG1vdmUgZ2V0L3NldC9kaXJlY3Rpb24gdG8g
+Z3Bpby1yZWdtYXAuIElSUQogICAgIHdvdWxkIHN0YXkgYSBjdXN0b20gUEwwNjEgaXJxY2hpcCAo
+bm90IHJlZ21hcC1pcnEpLiBJIGFtIG5vdAogICAgIHN1cmUgd2UgY2FuIGF2b2lkIGEgd2F5IHRv
+IGdldCB0aGUgZ3Bpb19jaGlwIGZvcgogICAgIGdwaW9jaGlwXypfaXJxKCkgLyB0aGUgY2hhaW5l
+ZCBoYW5kbGVyLgoKSSBhbSBsZWFuaW5nIHRvICgxKSBmb3IgdjguCgpCZXN0IHJlZ2FyZHMsCkxv
+bmcgWmhhbwoK5ZyoIDIwMjYtMDktMTYgMTg6MjM6NDXvvIwiQW5keSBTaGV2Y2hlbmtvIiA8YW5k
+cml5LnNoZXZjaGVua29AbGludXguaW50ZWwuY29tPiDlhpnpgZPvvJoKPk9uIFdlZCwgU2VwIDE2
+LCAyMDI2IGF0IDExOjQyOjU2QU0gKzAyMDAsIExpbnVzIFdhbGxlaWogd3JvdGU6Cj4+IE9uIFdl
+ZCwgU2VwIDE2LCAyMDI2IGF0IDExOjE04oCvQU0gQmFydG9zeiBHb2xhc3pld3NraSA8YnJnbEBr
+ZXJuZWwub3JnPiB3cm90ZToKPj4gPiBPbiBUdWUsIDE1IFNlcCAyMDI2IDEzOjE1OjMwICswMjAw
+LCBMb25nIFpoYW8gdmlhIEI0IFJlbGF5Cj4+ID4gPGRldm51bGwrbG9uZ3poYW8uYW1iYXJlbGxh
+LmNvbUBrZXJuZWwub3JnPiBzYWlkOgo+PiA+ID4gVGhpcyBzZXJpZXMgYWRkcyBtaW5pbWFsIEFt
+YmFyZWxsYSBDVjc1IHN1cHBvcnQgZm9yIGVhcmx5IGJyaW5nLXVwIHdpdGgKPj4gPiA+IGEgc2Vy
+aWFsIGNvbnNvbGU6IERUIGJpbmRpbmdzLCBSQ1QgY2xvY2tzLCBwaW5jdHJsLCBQTDA2MSBHUElP
+IHZpYQo+PiA+ID4gZ3Bpby1yZWdtYXAsIDgyNTBfZHcgVUFSVCBxdWlya3MsIEFSQ0hfQU1CQVJF
+TExBLCBDVjc1IEVWSyBEVCwgYW5kCj4+ID4gPiBNQUlOVEFJTkVSUy4KPj4gPiA+Cj4+ID4gPiBU
+aGlzIGlzIGEgc2luZ2xlIHVuaWZpZWQgc2VyaWVzLiBQbGVhc2UgYXBwbHkgdmlhIHRoZSBTb0MK
+Pj4gPiA+IHRyZWU7IHN1YnN5c3RlbSBtYWludGFpbmVycyBhcmUgQ2MnZCBmb3IgdGhlaXIgcGll
+Y2VzLgo+PiA+Cj4+ID4gSSB3b3VsZCBwcmVmZXIgdG8gdGFrZSB0aGUgR1BJTyByZWdtYXAgYml0
+cyB0aHJvdWdoIHRoZSBHUElPIHRyZWUgYW5kIHByb3ZpZGUKPj4gPiBhbiBpbW11dGFibGUgYnJh
+bmNoIHRvIHRoZSBTb0MgdHJlZSBhcyBpdCBoYXMgcG90ZW50aWFsIGZvciBjb25mbGljdHMgdGhh
+dAo+PiA+IGVhcmx5IGludG8gdGhlIGN5Y2xlLgo+PiAKPj4gUXVldWUgdGhlbSB1cCBhbmQgc2Vu
+ZCB1cyB0aGUgSUIgaWYgeW91IHRoaW5rIHRoZXkgYXJlIHJlYWR5IQo+PiAKPj4gTG9uZyBjYW4g
+cHJvYmFibHkgc2VuZCBhIFBSIGJhc2VkIG9uIHRoYXQgSUIgZm9yIHRoZSByZXN0IHRvIHRoZQo+
+PiBTb0MgdHJlZSwgYSBiaXQgdHJpY2tzeSBidXQgaXQgd29ya3MuCj4KPkknbSBzdGlsbCB1bnN1
+cmUgd2h5IHdlIGNhbid0IHVzZSBJUlEgZmFjaWxpdHkgZnJvbSBncGlvLXJlZ21hcC4KPkNhbiB5
+b3UgaGF2ZSBhIGxvb2sgdGhlcmU/Cj4KPldpdGggdGhhdCBiZWluZyBzYWlkLCBJJ20gbm90IHN1
+cmUgdGhhdCB0aGUgcGF0Y2ggdGhhdCBleHBvc2luZyBncGlvX2NoaXAKPmZyb20gZ3Bpby1yZWdt
+YXAgaXMganVzdGlmaWVkLgo+Cj5UaGUgd2hvbGUgR1BJTyByZXdvcmsgbmVlZHMgYSBiaXQgbW9y
+ZSByb3V0aW5lIHdvcmsgKHJlc3BsaXR0aW5nLCByZWZhY3RvcmluZywKPmV0IGNldGVyYSksIHNv
+IGxhdGVyIHdlIG1heSBzZWUgY2xlYXJlciB3aGF0J3MgZ29pbmcgb24uCj4KPi0tIAo+V2l0aCBC
+ZXN0IFJlZ2FyZHMsCj5BbmR5IFNoZXZjaGVua28KPgo=
 
