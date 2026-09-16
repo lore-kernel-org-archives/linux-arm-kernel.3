@@ -4,70 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84D48C982C9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 16:06:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E657C982CC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 16:07:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bnWAq69vwGAi5ud+TrWqWhxgVm98sUaSZ8rWU2iShco=; b=qBg8ZSR19pd8pFT1L1keUw1lQq
-	xG+fBXGIxvbD0PhkM4nuj3/Zc8snzU9HXxWxH/miSyYA+jG6rh6iozPTtRK6l0yq2WFY2UfHWMlzK
-	ymuzoOx9WVxHRe+Rojza90hCgQ68xaxZOmAeyyLsODZ4MG0xckBjzl9WF9+Eyv2TNLuswvxjsvrsw
-	ziX1elJh6uwv0fV90fwpDqcDMsGjoUJCbZ6tjoAs76KN0NfBq/rTf6+yucbpOa3/lOOrDxYo5WSQh
-	K303X8T9vsCnFvJU7MGKY4LAm7dbpHXDZoMGbalkm00iK/zwOHLXYpD08VEmAXwP+OGB4CxV/XjzX
-	Iw3tZiGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
+	:From:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JT7BltXK/O+RVr7HZDUyFWjcaSBcl/b5sxD3x657pVM=; b=Rc1Sp/2rEGmFd3DIvAa4XIjiRi
+	E6tIWkENd/ykh6BoUb8E9CHspkzk0Zdqp4eIBOn+37iKTAS/Q769svdQ42kdjeTIgzhcbzZjab5wk
+	2IT1LkLBigHOHsyEjloonD8B5uHQU8o+IxGohJ+jqykNYtYg4pc+BPn6U/RCVWTk2tt55dxpRCzuh
+	ipPJ89HM/xa3SHQSvplX2IJG6kRWuLYvdzTNnlC+//uktjsRt8dLRTJt7HNih/taJmKZwZKkl8QqY
+	wyfo3Cviq//5sX1K/MDq9HY7Vnc78F0cAIJuwkbuw8PlU71DzxgONrxfl0JytDkVIUn5scY74BIFr
+	F245JajA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6s97-00000009gmi-0q4D;
-	Wed, 16 Sep 2026 16:06:05 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1x6sAT-00000009gyQ-362Q;
+	Wed, 16 Sep 2026 16:07:29 +0000
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6s93-00000009gll-2hhr
+	id 1x6sAQ-00000009gx3-2qmf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 16:06:03 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 3539C1A08D9;
-	Wed, 16 Sep 2026 16:05:56 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 0668B60337;
-	Wed, 16 Sep 2026 16:05:56 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 02D3C11C7B053;
-	Wed, 16 Sep 2026 18:05:44 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1789574755; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=bnWAq69vwGAi5ud+TrWqWhxgVm98sUaSZ8rWU2iShco=;
-	b=la3DREcByALAvaeKzr1rFNUAZMu7d6ehHOEwFB8PqZLPg+C5yxIZCuckD4uYQY8hWtCvhF
-	qwQdrEOhmvUMGb/pleBm+Lx+roDm/h8woj0hHnTYUD47MQ0/ftpNxPVxJRBuGomMoNuwev
-	7pxWTH6Pq0NMb+fF9UAWpgshe5uT7C7KuGxydpSJiEtVN5N75YNL70OiIobLQak+20LgLT
-	rIxYv0ve7mJXnTkUZsxCzTkaAZYp5IkSwhd84vtY/TP6X1S3tjt8wlJSjNbJX46susGfI2
-	6rC0D4LUzol7N4ZpXxnuXyGQ8kJtNGF+kSXVo4wNJ6andpHm9+ynM0ql9bkcQw==
-Message-ID: <2ec95f84-2eaf-407f-8372-6f6e89eb1e3b@bootlin.com>
-Date: Wed, 16 Sep 2026 18:05:43 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: stmmac: fix rx Scatter-Gather support
-To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jose Abreu <Jose.Abreu@synopsys.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20260916-stmmac-rx-sg-fix-v1-1-b49b7b8f725f@oss.qualcomm.com>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20260916-stmmac-rx-sg-fix-v1-1-b49b7b8f725f@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+	Wed, 16 Sep 2026 16:07:28 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49cc9f581c4so4562225e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 09:07:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1789574845; x=1790179645; darn=lists.infradead.org;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:mime-version:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=JT7BltXK/O+RVr7HZDUyFWjcaSBcl/b5sxD3x657pVM=;
+        b=D16b0LjX7mdeHmWJaEaYzpRFqmx786pgKwUroPOcgJz42MBSnIkpKRCgTNvEmZp5E8
+         +h+a9a5AGfc66ObCR8FOYdpVHL7Or3xlMMy4pyxTU+Q/k/b+IYgXoQkyrmHZk21RT9aQ
+         qQZtquoQj45NciAyEfG3TijXilZcj2b/ptzBE9vWcLWjjyw44m24kDi0+AIBJgJ4iJYN
+         aMjyctr2eI4YCaFz6lTwiVgkhGBgML9wHrcT1PTsyILzsGcX4A4nH0PejjgST9/r5XMr
+         o/+f2A/Tn1ibO5SNMLfoFeA02gGauOjyWH9bED5j7wdgbruOECaxujWLr9DtWN5BQ6Rv
+         Ttnw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789574845; x=1790179645;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=JT7BltXK/O+RVr7HZDUyFWjcaSBcl/b5sxD3x657pVM=;
+        b=2VU5Kh+O/j2iVAdad/em/9nfeJs7JIATh46nc+H6G16fgQLifF6e2134Tv5GL+Whyk
+         uXPfDLO5KYx97Eq0G4Rx5vfLxdGiHdL5tLo9I3ALVeev5jMUM1SzqIsfoa/KCY67JXiY
+         /x5RjgkhUv4EEFcpt2ltP7TFMTcJWIlF6qTf6rxwJf3ov8oIxFmc3gjIcNL+HoAiaauM
+         4jMviKcpsHc1A0zU9eIifjjqSK5uoDfVnmLi7zFuK89U9toegZV9xVJlVGYdjK2rhuI9
+         WeENRhWPnfkTfn9N4owxDTWTORIGWNjHKwFq9VCMqld37IUuKnnnlmyOrHQq/byvAa2i
+         6Q4Q==
+X-Forwarded-Encrypted: i=1; AKwUvBxmFqwJEj9voYN/bZh0s2lpUDHFcmESIeDXAjjWw1EkTn+nOlc9eFrSNErqUQElCf/h/PP1o2kNqvMxZH4SM6Bf@lists.infradead.org
+X-Gm-Message-State: AFuF++nsAcyBjn8FuVCRV5BOTM4QpL1ZNmKEd+GNozGBNQqCAmRUcJsL
+	q2jp1JKIY6XsZzzxC9lq0nSLNh8Yt53kSw+M1aNp2SgJmRhG0a/o+b55ZYFUyNeDK5c=
+X-Gm-Gg: AYBFou1KA6CUoibSpbNC0pP6WuEAJQcLQFtQbFgTZlBoSvKa0oSKASMqEg59gFaVs5w
+	B3YcAFH3iWu5sRrouUgYnjEw+M525f+1OR3XpH8/qfMOO076yA9vgwnm6/0rWE+brXQp6WukAIE
+	hjjFOqOSV23Mur/eVailMnp40SRiU0uaA/FSVza+aYtnwJrCx2XOnb3CfH4hNVORrkjz1qbmBQF
+	cqVbhZMfIwCnLkD17hqKZMWYJ99KjbUPIdYnG+IwSFvw09ePQNe0/UPcmWtYfwU89uThHXYBxhE
+	6XSFRcYp9mdIF0iNLIEIjrSVDD3VWcQzsOLOoNl95D8sa/4vXkisDoh9tnfAa4Vu2Z/Z7IU43EU
+	97q31ZKILLP1dcYlG5q5ur5X0l2xb4Z6ojmzCrerg3PC2gIj36YCcrw0cUkQfFVNgZ7CyYq6saw
+	khKDYeZkeHKlwZII6B31j9OO2dFB707s+WFHgZXUtPdFMdmxYbmCkAGZr5ede3z2/KHA==
+X-Received: by 2002:a05:600c:1992:b0:49b:8f5e:51fb with SMTP id 5b1f17b1804b1-49fbd1af43dmr2094185e9.3.1789574844730;
+        Wed, 16 Sep 2026 09:07:24 -0700 (PDT)
+Received: from localhost ([2001:4091:a245:8029:665d:b7b:5fa4:7ad0])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fbd232b25sm1173905e9.4.2026.09.16.09.07.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 16 Sep 2026 09:07:24 -0700 (PDT)
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=efd0b5b3ebc06a57040b85351ecf90f4d001a63d5dfa687974f195763dd4;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Wed, 16 Sep 2026 18:07:16 +0200
+Message-Id: <DLGVC2B0B20H.12SWQB4JAGCJ0@baylibre.com>
+Subject: Re: [PATCH v8 9/9] arm64: dts: ti: Add wkup R5F nodes to pre-ram
+ bootphase
+From: "Markus Schneider-Pargmann" <msp@baylibre.com>
+To: "Francesco Dolcini" <francesco@dolcini.it>, "Markus Schneider-Pargmann"
+ <msp@baylibre.com>
+Cc: "Nishanth Menon" <nm@ti.com>, "Vignesh Raghavendra" <vigneshr@ti.com>,
+ "Tero Kristo" <kristo@kernel.org>, "Rob Herring" <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
+ <conor+dt@kernel.org>, "Nathan Chancellor" <nathan@kernel.org>, "Nick
+ Desaulniers" <nick.desaulniers+lkml@gmail.com>, "Bill Wendling"
+ <morbo@google.com>, "Justin Stitt" <justinstitt@google.com>, "Judith
+ Mendez" <jm@ti.com>, "Daniel Schultz" <d.schultz@phytec.de>, "Andrew Davis"
+ <afd@ti.com>, "Siddharth Vadapalli" <s-vadapalli@ti.com>, "Paresh Bhagat"
+ <p-bhagat@ti.com>, "Bryan Brattlof" <bb@ti.com>, "Jai Luthra"
+ <jai.luthra@ideasonboard.com>, "Devarsh Thakkar" <devarsht@ti.com>,
+ "Beleswar Padhi" <b-padhi@ti.com>, "Francesco Dolcini"
+ <francesco.dolcini@toradex.com>, "Stefano Radaelli"
+ <stefano.radaelli21@gmail.com>, "Nick Desaulniers"
+ <ndesaulniers@google.com>, "Vishal Mahaveer" <vishalm@ti.com>, "Kevin
+ Hilman" <khilman@baylibre.com>, "Sebin Francis" <sebin.francis@ti.com>,
+ "Kendall Willis" <k-willis@ti.com>, "Akashdeep Kaur" <a-kaur@ti.com>,
+ <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <llvm@lists.linux.dev>, "Hari Nagalla"
+ <hnagalla@ti.com>
+X-Mailer: aerc 0.21.0-146-gb5c16ebe1835
+References: <20260903-topic-am62a-ioddr-dt-v6-19-v8-0-74c650dfdea6@baylibre.com> <20260903-topic-am62a-ioddr-dt-v6-19-v8-9-74c650dfdea6@baylibre.com> <20260911052428.GB5377@francesco-nb> <DLGNWF2DSXZI.7WRJZRZLGW8@baylibre.com> <20260916104017.GA284106@francesco-nb>
+In-Reply-To: <20260916104017.GA284106@francesco-nb>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_090601_965590_B460ED20 
-X-CRM114-Status: GOOD (  28.96  )
+X-CRM114-CacheID: sfid-20260916_090726_742188_25FC6433 
+X-CRM114-Status: GOOD (  24.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,135 +119,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lorenzo
+--efd0b5b3ebc06a57040b85351ecf90f4d001a63d5dfa687974f195763dd4
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-On 9/16/26 17:25, Lorenzo Bianconi wrote:
-> When a received frame is larger than dma_buf_sz, the DMA scatters it
-> across multiple RX descriptors (rx Scatter-Gather). The secondary RX
-> buffer (sec_page) was only allocated and programmed when split-header
-> (SPH) was active, so for regular frames buffer2 was neither allocated
-> nor backed by a valid mapping. As soon as an incoming frame overflowed
-> buffer1, the DMA wrote the overflow into the unmapped secondary-buffer
-> address, triggering an SMMU translation fault on IOMMU-based platforms:
-> 
-> arm-smmu 15000000.iommu: Unhandled context fault: fsr=0x402, iova=0x00000000, fsynr=0x7f0011, cbfrsynra=0x1c90, cb=11
-> arm-smmu 15000000.iommu: FSR    = 00000402 [Format=2 TF], SID=0x1c90
-> arm-smmu 15000000.iommu: FSYNR0 = 007f0011 [S1CBNDX=127 WNR PLVL=1]
-> 
-> Enable scatter-gather for non-SPH frames: always allocate the secondary
-> RX buffer and always mark buffer2 as valid in stmmac_init_rx_buffers()
-> and stmmac_rx_refill(), and account for it in the buffer length
-> computation. stmmac_rx_buf1_len() now returns min(dma_buf_sz, plen - len)
-> on the last descriptor, while stmmac_rx_buf2_len() returns the remaining
-> bytes on the last descriptor and dma_buf_sz on the intermediate ones. The
-> GMAC4 + split-header path keeps using the accumulated payload length
-> semantics, since there an intermediate descriptor's buffer2 can be only
-> partially filled.
-> 
-> Fixes: 88ebe2cf7f3f ("net: stmmac: Rework stmmac_rx()")
-> Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Hi Francesco,
 
-Ah this is also nice ! Ran into that with the Jumbo Frame selftest, it
-spills into the next desc and it doesn't end well (at least on dwmac1000).
+On Wed Sep 16, 2026 at 12:40 PM CEST, Francesco Dolcini wrote:
+> On Wed, Sep 16, 2026 at 12:17:42PM +0200, Markus Schneider-Pargmann wrote=
+:
+>> Hi Francesco,
+>>=20
+>> On Fri Sep 11, 2026 at 7:24 AM CEST, Francesco Dolcini wrote:
+>> > Hello Markus
+>> >
+>> > On Thu, Sep 03, 2026 at 02:39:30PM +0200, Markus Schneider-Pargmann (T=
+I) wrote:
+>> >> For IO+DDR the wkup_r5fss0_core0 and the
+>> >> wkup_r5fss0_core0_lpm_metadata_region need to be accessed before RAM
+>> >> setup is done. These are used to read the lpm metadata region in
+>> >> which data is stored to resume. This needs to be done before RAM is
+>> >> in use to avoid overwriting data.
+>> >>=20
+>> >> Add the bootph-pre-ram flag to the wkup_r5fss0_core0 node in both
+>> >> ipc-firmware dtsi files and to the lpm metadata region nodes of the
+>> >> AM62A and AM62P boards.
+>> >>=20
+>> >> The board level bootph-pre-ram flag of k3-am62d2-evm.dts becomes
+>> >> redundant with the dtsi-wide flag and is dropped.
+>> >>=20
+>> >> Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
+>> > ...
+>> >
+>> >> diff --git a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi b/arch/arm64=
+/boot/dts/ti/k3-am62p-verdin.dtsi
+>> >> index 45ab9d947b3a..8976c0424cd1 100644
+>> >> --- a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+>> >> +++ b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+>> >> @@ -184,6 +184,7 @@ wkup_r5fss0_core0_lpm_metadata_region: memory@9ca=
+08000 {
+>> >>  			compatible =3D "shared-dma-pool";
+>> >>  			reg =3D <0x00 0x9ca08000 0x00 0x1000>;
+>> >>  			no-map;
+>> >> +			bootph-pre-ram;
+>> >>  		};
+>> >
+>> > verdin-am62p has the various bootph tags only in the U-Boot dtsi
+>> > (k3-am62p5-verdin-wifi-dev-u-boot.dtsi) as of now, I am not convinced =
+it
+>> > is a good idea to just add this single one here.
+>>=20
+>> I don't see any bootph-* flags for any of the related memory regions in
+>> k3-am62p5-verdin-wifi-dev-u-boot.dtsi. Is it in a different dtsi?
+>
+> What I meant is that any bootph- property is in
+> arch/arm/dts/k3-am6p25-verdin-wifi-dev-u-boot.dtsi=20
+>
+> And I would not start adding spreading this in 2 different places.
 
-I don't know how you've tested that, can you test it in conjunction with
-this patch too ?
+As I said, there are 72 bootph- properties in am62p related devicetrees
+in the kernel devicetrees. For k3-am62p-verdin*.dts the relevant ones
+are probably:
 
-https://lore.kernel.org/netdev/20260911212028.1497613-6-maxime.chevallier@bootlin.com/
+      3 arch/arm64/boot/dts/ti/k3-am62p.dtsi
+     14 arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+      2 arch/arm64/boot/dts/ti/k3-am62p-j722s-common-mcu.dtsi
+      2 arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi
 
-It changes the way we select the dma_buf_sz based on the MTU.
+Also if I understand correctly, it is preferred to get these bootph-
+tags into the upstream devicetree:
 
-I'll run your series on the boards I have and report if anything weird happens,
-but if you have some testing commands to share that would be awesome :)
+  https://lore.kernel.org/u-boot/20260903144032.GI1764417@bill-the-cat/
 
-Maxime
+Best
+Markus
 
-> ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 25 ++++++++---------------
->  1 file changed, 8 insertions(+), 17 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 1fb5f804ea23..be7cb0cafeb5 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -1659,17 +1659,14 @@ static int stmmac_init_rx_buffers(struct stmmac_priv *priv,
->  		buf->page_offset = stmmac_rx_offset(priv);
->  	}
->  
-> -	if (priv->sph_active && !buf->sec_page) {
-> +	if (!buf->sec_page) {
->  		buf->sec_page = page_pool_alloc_pages(rx_q->page_pool, gfp);
->  		if (!buf->sec_page)
->  			return -ENOMEM;
->  
->  		buf->sec_addr = page_pool_get_dma_addr(buf->sec_page);
-> -		stmmac_set_desc_sec_addr(priv, p, buf->sec_addr, true);
-> -	} else {
-> -		buf->sec_page = NULL;
-> -		stmmac_set_desc_sec_addr(priv, p, buf->sec_addr, false);
->  	}
-> +	stmmac_set_desc_sec_addr(priv, p, buf->sec_addr, true);
->  
->  	buf->addr = page_pool_get_dma_addr(buf->page) + buf->page_offset;
->  
-> @@ -5097,7 +5094,7 @@ static inline void stmmac_rx_refill(struct stmmac_priv *priv, u32 queue)
->  				break;
->  		}
->  
-> -		if (priv->sph_active && !buf->sec_page) {
-> +		if (!buf->sec_page) {
->  			buf->sec_page = page_pool_alloc_pages(rx_q->page_pool, gfp);
->  			if (!buf->sec_page)
->  				break;
-> @@ -5108,10 +5105,7 @@ static inline void stmmac_rx_refill(struct stmmac_priv *priv, u32 queue)
->  		buf->addr = page_pool_get_dma_addr(buf->page) + buf->page_offset;
->  
->  		stmmac_set_desc_addr(priv, p, buf->addr);
-> -		if (priv->sph_active)
-> -			stmmac_set_desc_sec_addr(priv, p, buf->sec_addr, true);
-> -		else
-> -			stmmac_set_desc_sec_addr(priv, p, buf->sec_addr, false);
-> +		stmmac_set_desc_sec_addr(priv, p, buf->sec_addr, true);
->  		stmmac_refill_desc3(priv, rx_q, p);
->  
->  		rx_q->rx_count_frames++;
-> @@ -5160,7 +5154,7 @@ static unsigned int stmmac_rx_buf1_len(struct stmmac_priv *priv,
->  	plen = stmmac_get_rx_frame_len(priv, p, coe);
->  
->  	/* First descriptor and last descriptor and not split header */
-> -	return min_t(unsigned int, priv->dma_conf.dma_buf_sz, plen);
-> +	return min_t(unsigned int, priv->dma_conf.dma_buf_sz, plen - len);
->  }
->  
->  static unsigned int stmmac_rx_buf2_len(struct stmmac_priv *priv,
-> @@ -5170,10 +5164,6 @@ static unsigned int stmmac_rx_buf2_len(struct stmmac_priv *priv,
->  	int coe = priv->hw->rx_csum;
->  	unsigned int plen = 0;
->  
-> -	/* Not split header, buffer is not available */
-> -	if (!priv->sph_active)
-> -		return 0;
-> -
->  	/* For GMAC4, when split header is enabled, in some rare cases, the
->  	 * hardware does not fill buf2 of the first descriptor with payload.
->  	 * Thus we cannot assume buf2 is always fully filled if it is not
-> @@ -5188,8 +5178,9 @@ static unsigned int stmmac_rx_buf2_len(struct stmmac_priv *priv,
->  	 * Thus 'plen - len' always gives the correct length of buf2.
->  	 */
->  
-> -	/* Not GMAC4 and not last descriptor */
-> -	if (priv->plat->core_type != DWMAC_CORE_GMAC4 && (status & rx_not_ls))
-> +	/* Not GMAC4, or non-SPH and not last descriptor */
-> +	if ((priv->plat->core_type != DWMAC_CORE_GMAC4 || !priv->sph_active) &&
-> +	    (status & rx_not_ls))
->  		return priv->dma_conf.dma_buf_sz;
->  
->  	/* GMAC4 or last descriptor */
-> 
-> ---
-> base-commit: ceac0de741bfb47ca255eee075257b3bb31f0651
-> change-id: 20260916-stmmac-rx-sg-fix-a8d2d8a3ba01
-> 
-> Best regards,
+--efd0b5b3ebc06a57040b85351ecf90f4d001a63d5dfa687974f195763dd4
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iKMEABYKAEsWIQSJYVVm/x+5xmOiprOFwVZpkBVKUwUCaqq+tBsUgAAAAAAEAA5t
+YW51MiwyLjUrMS4xMiwyLDIRHG1zcEBiYXlsaWJyZS5jb20ACgkQhcFWaZAVSlMa
+CwD/UzU/bEn+SvEhbYhrvo356ps/AZUBbSCU7LIcWlv3E5YBAJxIt80j3RbsiuhH
+LWCPbjxjKVKr3P1SKVvEXWAyHpEF
+=8soS
+-----END PGP SIGNATURE-----
+
+--efd0b5b3ebc06a57040b85351ecf90f4d001a63d5dfa687974f195763dd4--
 
