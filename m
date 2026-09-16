@@ -4,64 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD57AC88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 12:52:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41F17C88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 12:53:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GsoRHD8aMQ2FeGGWT4vMQiPcLcCsPohhSBsh5dfsoR8=; b=o79n4WYqazx6LWiQ2wSs8joZMv
-	jy0vm+TkBamzCD4BN6x/+boCfH1XBxjZdwghLFxFFTnVbAFasSK6NbWFnMs5qcTwunnfD4QmWbOrQ
-	V39DxpMhHfs6qaF0TQd6TAAmy+pgOqTn39HbtnAluCTg4QvkpY+6L2PpN/P5mc2n57c9UIV4XKvl8
-	+eKF56onUKlgImbVAgyq+G7ToImeHxQJ4tPtx96nGotD8XbmGtdGVYXeovVbrVsg9UOKUpN8MeN5Q
-	Y+6oYubCkUUg7pOk8tEokcz3hYNgGAwR6Z6w84uEL62bq2VzxBzweGt4n967M9hq8NhKMsYUOxHrS
-	4JVSAqdA==;
+	bh=d86Tf0LllrXXpe+yggb0gJXtQSGuOtZBdvyxrLeFofM=; b=LNP7J5JU05GQZ4f8XqxKXz64LS
+	hwCNS+37jPzWJDNDcU6mpf68JMEk+Hs5eeaBdj0yb38KIst0GEun2Z50bIcAoJMJEXDtmoKa2axFW
+	qmV7eVR3Y9y9vv38ejMiCkndm+U8LWLQFKxOJVjmay4FWi4R8Wg6J4QZ5+Z1CJ8AoR6NiWTD5svSR
+	PyOACz758K+cWpMpdciAMklsem82dZhbuteDs5WyCGiCjeqt0FGDPssvN+Qf9daQw9fWtU7xXZ5GP
+	bZUikXJ8itHZkH84ljOsIuIYluDLzYPMwyKO6KONVF+/tRLMpfO0je8cnhi14+hJh74zZHCzCZhXW
+	ejjy9IKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6p82-00000009Cmq-1AIv;
-	Wed, 16 Sep 2026 12:52:46 +0000
+	id 1x6p8n-00000009CuO-3sLr;
+	Wed, 16 Sep 2026 12:53:33 +0000
 Received: from abb.hmeau.com ([180.181.231.80])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6p7z-00000009Clv-2una
+	id 1x6p8l-00000009Ctd-2KLL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 12:52:45 +0000
+	Wed, 16 Sep 2026 12:53:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
-	from:content-type:reply-to; bh=GsoRHD8aMQ2FeGGWT4vMQiPcLcCsPohhSBsh5dfsoR8=; 
-	b=LE0u9hq7xq92TCZFjhSploUls9vq66y9yxFfK53u964GTDRy+KhuMu/k8p/a56krkiZ2t7HRxlg
-	OjMnndUbyuM+dLQ8LSEM4JanmRfc3LwsE+0WaYSpVU/NgrFXYnhwnWSOFQWAGy2caN7drtnkjejhe
-	lipA3I8mSTSg8VjluPlpWcMSDhrJpJx3o/LGQz/TVq98nwqAm2XoPuWcZTS/+Ee/YCZ+PNrgDMLls
-	j45fGqJ7NyWrPdl/LG8kwoGHmrvXapj/K1p9QwFp+kYEbhbty46TnuRlMIw7SMix3yXJ3TMyj5188
-	zkbfEqyeb/27UXBdZLhK3FEj/Wz/uzUXbNDw==;
+	from:content-type:reply-to; bh=d86Tf0LllrXXpe+yggb0gJXtQSGuOtZBdvyxrLeFofM=; 
+	b=tM1doCnjaU5WeMhOXF7rJ8vHCR2pK2UIp4JEwU2GFPbWi89ekVLHxquWQB/ij1vIKgUvbybiwEM
+	S9FF1kV0uGkYcI29bx4aVhL5Tju4moOY09AhcKV30CXPLx2X1AE/cFjSix1BzWOk9Pw8jWRKH9Ghf
+	I06a0I/U+yCeLQiN9qWjIM9iCpKS3xrxMZ1sUZmnBLB14noURu8MP0mTDenDZ/3THFEdCixfC4dV5
+	SZnPbf3LvPAF0Fnm8OolNkxf8rsxsSnozCNB3ewEVUwfAOIudWwiH92bkm2Kirp0VLYk5pDiIdfbC
+	eqnvkdvatQn5K9pEnDQLgAGNH6ZvCIcBSYhA==;
 Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
 	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
-	id 1x6p7k-0000000EcWS-3aNJ;
-	Wed, 16 Sep 2026 20:52:29 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Wed, 16 Sep 2026 22:52:28 +1000
-Date: Wed, 16 Sep 2026 22:52:28 +1000
+	id 1x6p8d-0000000EcXk-3WFx;
+	Wed, 16 Sep 2026 20:53:24 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Wed, 16 Sep 2026 22:53:23 +1000
+Date: Wed, 16 Sep 2026 22:53:23 +1000
 From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Karl Mehltretter <kmehltretter@gmail.com>
+To: Thorsten Blum <blum@kernel.org>
 Cc: "David S. Miller" <davem@davemloft.net>,
-	Thorsten Blum <thorsten.blum@linux.dev>,
 	Nicolas Ferre <nicolas.ferre@microchip.com>,
 	Alexandre Belloni <alexandre.belloni@bootlin.com>,
 	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
 	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] crypto: atmel-tdes - sync output bounce buffer before
- DMA
-Message-ID: <aqqRDIBn_joIAnIM@gondor.apana.org.au>
-References: <20260902192323.29337-1-kmehltretter@gmail.com>
+Subject: Re: [PATCH] crypto: atmel-tdes - simplify DMA buffer initialization
+Message-ID: <aqqRQ-vn3l2-bjWs@gondor.apana.org.au>
+References: <20260903210845.162790-2-blum@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260902192323.29337-1-kmehltretter@gmail.com>
+In-Reply-To: <20260903210845.162790-2-blum@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_055243_735895_289BC5DB 
-X-CRM114-Status: GOOD (  20.83  )
+X-CRM114-CacheID: sfid-20260916_055331_593362_5B029DD8 
+X-CRM114-Status: GOOD (  12.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,61 +74,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 02, 2026 at 09:23:23PM +0200, Karl Mehltretter wrote:
-> The slow path maps its output bounce buffer once at probe time with
-> dma_map_single() and DMA_FROM_DEVICE, then reuses the mapping for every
-> request.  After the CPU copies a result from the buffer,
-> dma_sync_single_for_device() must hand the buffer back to the device before
-> the next DMA transfer.  The driver omits this call, so cache lines from the
-> previous result can remain valid while the device writes the next one.
+On Thu, Sep 03, 2026 at 11:08:46PM +0200, Thorsten Blum wrote:
+> Calculate the buffer length in a single statement and simplify the error
+> handling. Inline the dma_mapping_error() checks and return -ENOMEM from
+> the common error path. If mapping the output buffer fails, unmap the
+> previously mapped input buffer first.
 > 
-> This bug was masked by the completion paths calling
-> dma_sync_single_for_device() immediately before the CPU copied the output,
-> where dma_sync_single_for_cpu() was required.  For DMA_FROM_DEVICE on
-> ARM926, dma_sync_single_for_device() invokes arm926_dma_map_area(), which
-> invalidates the cache lines.  The misplaced call therefore discarded the
-> stale lines before every copy-out.
+> Also use dev_err() to log errors and %zu to format size_t, and clarify
+> the error messages.
 > 
-> Commit c8a9a647532f ("crypto: atmel-tdes - fix DMA sync direction")
-> correctly changed the completion paths to call dma_sync_single_for_cpu().
-> On ARM926, that function invokes arm926_dma_unmap_area(), which is a no-op.
-> The missing pre-DMA dma_sync_single_for_device() was therefore exposed on
-> ARM926-based SAM9X60 and SAM9X7 SoCs.
-> 
-> With CONFIG_CRYPTO_SELFTESTS=y all four DES/TDES algorithms fail on
-> SAM9X75:
-> 
->   alg: skcipher: atmel-ecb-tdes encryption test failed (wrong result) on
->   test vector 2, cfg="unaligned buffer, offset=1"
-> 
-> Call dma_sync_single_for_device() for the output buffer before starting DMA
-> in both atmel_tdes_crypt_pdc() and atmel_tdes_crypt_dma().
-> 
-> Fixes: c8a9a647532f ("crypto: atmel-tdes - fix DMA sync direction")
-> Cc: stable@vger.kernel.org
-> Assisted-by: LLM
-> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+> Signed-off-by: Thorsten Blum <blum@kernel.org>
 > ---
-> Changes in v2:
-> - Reword the changelog and use full function names. No code changes.
->   (Thorsten)
-> 
-> Link to v1:
->   https://lore.kernel.org/r/20260829045316.92931-1-kmehltretter@gmail.com/
-> 
-> Tested on top of:
-> 
->   crypto: atmel-tdes - zero-initialize device state
->   https://lore.kernel.org/r/20260829035821.67220-1-kmehltretter@gmail.com/
-> 
-> Without that fix, on the tested SAM9X75 the DES/TDES self-tests hang on
-> their first requests before reaching this test vector, so the failure
-> fixed here is not observable on an otherwise unpatched tree.
-> 
-> The two patches are independent and apply in either order.
-> 
->  drivers/crypto/atmel-tdes.c | 4 ++++
->  1 file changed, 4 insertions(+)
+>  drivers/crypto/atmel-tdes.c | 36 ++++++++++++------------------------
+>  1 file changed, 12 insertions(+), 24 deletions(-)
 
 Patch applied.  Thanks.
 -- 
