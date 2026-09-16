@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 939F4C88E7F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 10:37:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6286DC88E5C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 10:39:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XKci5+csun7MDLLcGkBrE9e7KB8BbabndTKcg+DB8r8=; b=kaj5jBL1/YCTLSmbskJPmzUEwb
-	D2fsPaTG5qahobWk5K0AIjlOaZb8zrmOdfAqE7sa9Wgvd/aYqAvwvNXASl7njXrVRic6skKPnuTWD
-	o+WweW8wYmNGhIgnF7n7dldjFlS989MtplUj3Edfrr4JXADZaMGaPF1e4UpWDUeQxnis39OYw8Tnf
-	8bBcJmowlfkXAYiIBo3yTWqo+331/gQ/TScUYTGh3wh1pAusR0bQ3z0dgBofs0aMu73cfRRFYK1h1
-	3fbMsqv/fj0CdPoxa8BGaU1y8qFIO+2GSg7aVeVThGIS7u/V/QwHEH2rhmMQTKCHb4ixmBSGwBL9v
-	o+S4DkqQ==;
+	bh=afzDQkWCM1UrVIWCB7uZ9l1LLYbZ4/y/LSYbWzKvuYs=; b=A+O45GlunAgmyzJmD7GGKeNGsN
+	Tl5iqANBj8ElNIW4Oa6Ck7GNOhWumuMTHlNgKXt24BgMs7z//j6J9L8Bsduy11NZ5DGk/XAHFiGnQ
+	SnCQH6Q24KQg8+cUaXtJsGJidy94RuHZDG/R0qwiqZ3Q09Z4fzcXBEn/kD1ExtPXv3U9tlaj6/l0Q
+	HLVB/ZmqjImB7IEcLZ6UOIOwo/HIBcLIIRNJ2SE0gwFmdPy2yqwRJfg3amej7gFtyuyjdr7amehl8
+	1a6PsJu72gjXmi/018VJsrMkAY+iJcj/M+URpcPDBrI+kWe72iLVwWO10DcfQyfIuzJdIEuLc1d+3
+	76m3XvAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6n1N-00000008zLc-2wS6;
-	Wed, 16 Sep 2026 10:37:45 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1x6n2T-00000008zV7-3oyi;
+	Wed, 16 Sep 2026 10:38:53 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6n1K-00000008zL7-3NbY;
-	Wed, 16 Sep 2026 10:37:44 +0000
+	id 1x6n2R-00000008zUL-3p4i;
+	Wed, 16 Sep 2026 10:38:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1789555059;
-	bh=D9FLIJZO8QSfHmJQ7HJ1vUHDWHscdlD8COtFiTPpb5o=;
+	s=mail; t=1789555129;
+	bh=wlK7T+thxGW2u82RLGOMg5hccJ0lex45IGnPBtdSf+0=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=CKukPzsqZFLhoiLDPwPA9YYkGO1+KUamch3lJpo6XwsbdDjPNBdj5kzrkzxa4vlZa
-	 JbySdpvggr3o1DJLKa5wAcBZnDXAbWLhPYiEk9EsLQoZvJaXF6rA18VpXWn8+xWTKf
-	 s/dkw24GqK/8lTLscTVSVlvIuZMl0qzqBiiyWZKsAQ8FHuAYbF0VjATEJKkOO38WN2
-	 ETRK5CP1WFZ2RuGHVv4tEsiqzP42n32iIXfYeMJL7p4SvRPIytUR0Iy5ICgXPH2wMP
-	 YIuHjUuRSvJdqYWvx1y5REgIdDfb1eYFirByg67LR+mQZzwaNHCwQYPlmAHQjPaVeD
-	 VoDLj5YPWp0UA==
+	b=XDkcVR4fSHHhOs1N1vcHFg47P3vFhftFp6pUVCKCejhDlKhHl0YV2j4ccwYKtB78D
+	 VE5OdeUcSdGfZ8Og+BySib3uUH6sJ4QtT6DEv2KTrcmfnHc7BNgVkUvCy2cr9byTyi
+	 nsZbCe+KDJDncoB+lP1hhb9oMqt+XmtKdaYTu+NH3sXM0iF+zp1SFPj0ds+Zrxyefu
+	 QKrNRLv21aRh8WJdFFW4r4now/D/7afQ2a/L6llIqLA+Mb/FXJDSvsEKGvLmm3Sz6C
+	 kVzGcYE93SZ8m844omREpFeZLOn+A/dxODdiOLNCH45wnOJIPf6ABjv5Vo7SvOrK96
+	 DSC0PFNcQM2sA==
 Received: from [100.64.1.21] (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange x25519)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id EC3D317E0420;
-	Wed, 16 Sep 2026 12:37:38 +0200 (CEST)
-Message-ID: <e7d5b410-8a0c-4add-b4c5-9e9573fa9c68@collabora.com>
-Date: Wed, 16 Sep 2026 12:37:38 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id EC37317E0420;
+	Wed, 16 Sep 2026 12:38:48 +0200 (CEST)
+Message-ID: <bcd66bb6-d7f0-4c31-b527-c1b710df3909@collabora.com>
+Date: Wed, 16 Sep 2026 12:38:48 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] spmi: mtk-pmif: Add workaround for FSM lockup/error in
- read operation
-To: sboyd@kernel.org
-Cc: matthias.bgg@gmail.com, justin.yeh@mediatek.com,
- gregkh@linuxfoundation.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- kernel@collabora.com
-References: <20260701121908.19327-1-angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH 0/2] phy: mediatek: xsphy: add eUSB2 repeater support for
+ USB2 ports
+To: Julien Massot <julien.massot@collabora.com>, kernel@collabora.com,
+ Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260826-mtk-usb2-repeater-usb2-v1-0-e8e48e2fd6d8@collabora.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20260701121908.19327-1-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20260826-mtk-usb2-repeater-usb2-v1-0-e8e48e2fd6d8@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_033742_997784_BB37F33E 
-X-CRM114-Status: GOOD (  32.88  )
+X-CRM114-CacheID: sfid-20260916_033852_097782_F9B0AD02 
+X-CRM114-Status: GOOD (  11.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,113 +80,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/1/26 14:19, AngeloGioacchino Del Regno wrote:
-> The SPMI PMIF in some SoCs like MT8196 is affected by a hardware
-> issue that makes the first read operation on each SID to fail as
-> the FSM locks up after sending the read command, and this happens
-> at least in the following conditions:
->   - At boot, after bootloader handoff; and
->   - At every suspend->resume cycle.
+On 8/26/26 14:38, Julien Massot wrote:
+> Some USB2 PHY ports are connected to an external eUSB2 repeater chip
+> that sits between the PHY and the USB connector. To support such
+> configurations, this series adds an optional phys property to the
+> MediaTek xsphy port sub-node and integrates the repeater into the USB2
+> PHY init, exit and mode handling.
 > 
-> This critical bug may produce unwanted issues in regulator drivers
-> which may fail to set voltages, making the platform to end up in a
-> undervoltage or, a bit more critically, an overvoltage condition,
-> producing instability or ... worse.
+> The binding follows the same pattern as the Synopsys eUSB2 PHY, which
+> already uses a phys property at the sub-node level to reference an
+> external repeater. The driver change similarly manages the repeater PHY
+> alongside the MediaTek USB2 PHY.
 > 
-> In order to work around this issue, add a retry mechanism into the
-> pmif_spmi_read_cmd() callback which will resend the read command
-> up to 3 times in the following conditions:
->   - Software Interface returns an error; or
->   - Software Interface never gets in WFVLDCLR state.
-> 
-> As to avoid uselessly blocking for too much time, only during the
-> read-retry loop, the maximum SWINF polling time for each trial is
-> reduced to PMIF_TIMEOUT_US / 2: this was tested on multiple SoCs
-> and seems to always be enough, as when any read succeeds it will
-> always take less than 40ms.
-> In any case, this is still allowing 1.5 times the previous maximum
-> polling time, reaching a total maximum (for 3 retries) of 150ms.
-> 
-> Worst case testing that I performed saw a third retry only 3 times
-> out of ~100 reboots.
-> 
-> Fixes: 1f5be2d7f743 ("spmi: mtk-pmif: Add support for MT8196 SPMI Controller")
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> Signed-off-by: Julien Massot <julien.massot@collabora.com>
 
-This is a *fix*, and has been waiting for 2.5 months.
+Series is
 
-Can anyone please apply it?
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-Thanks,
+Cheers,
 Angelo
 
 > ---
->   drivers/spmi/spmi-mtk-pmif.c | 38 +++++++++++++++++++++++++++---------
->   1 file changed, 29 insertions(+), 9 deletions(-)
+> Julien Massot (2):
+>        dt-bindings: phy: mediatek,xsphy: add optional repeater phys property
+>        phy: mediatek: xsphy: add optional repeater support for USB2 ports
 > 
-> diff --git a/drivers/spmi/spmi-mtk-pmif.c b/drivers/spmi/spmi-mtk-pmif.c
-> index 1048420b5afb..61c916edaec4 100644
-> --- a/drivers/spmi/spmi-mtk-pmif.c
-> +++ b/drivers/spmi/spmi-mtk-pmif.c
-> @@ -21,6 +21,7 @@
->   #define SWINF_WFVLDCLR	0x06
->   
->   #define GET_SWINF(x)	(((x) >> 1) & 0x7)
-> +#define GET_SWINFERR(x) (((x) >> 18) & 0x1)
->   
->   #define PMIF_CMD_REG_0		0
->   #define PMIF_CMD_REG		1
-> @@ -349,6 +350,7 @@ static int pmif_spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
->   	struct pmif *arb = to_mtk_pmif(ctrl);
->   	struct ch_reg *inf_reg;
->   	int ret;
-> +	u8 retry = 0;
->   	u32 data, cmd;
->   	unsigned long flags;
->   
-> @@ -385,17 +387,35 @@ static int pmif_spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
->   		return ret;
->   	}
->   
-> -	/* Send the command. */
->   	cmd = (opc << 30) | (sid << 24) | ((len - 1) << 16) | addr;
-> -	pmif_writel(arb, pbus, cmd, inf_reg->ch_send);
-> +	do {
-> +		/* Send the command. */
-> +		pmif_writel(arb, pbus, cmd, inf_reg->ch_send);
-> +
-> +		/*
-> +		 * Wait for Software Interface FSM state to be WFVLDCLR or to
-> +		 * return an error.
-> +		 *
-> +		 * If this is WFVLDCLR, read the data and clear the valid flag;
-> +		 * If error or timeout, retry for a maximum of 3 times as a
-> +		 * workaround for an hardware issue.
-> +		 */
-> +		ret = readl_poll_timeout_atomic(pbus->base + arb->data->regs[inf_reg->ch_sta],
-> +						data,
-> +						GET_SWINF(data) == SWINF_WFVLDCLR ||
-> +						GET_SWINFERR(data),
-> +						PMIF_DELAY_US, PMIF_TIMEOUT_US / 2);
-> +		if (ret < 0)
-> +			continue;
-> +
-> +		if (GET_SWINFERR(data)) {
-> +			ret = -EIO;
-> +			continue;
-> +		}
-> +
-> +		break;
-> +	} while (++retry < 3);
->   
-> -	/*
-> -	 * Wait for Software Interface FSM state to be WFVLDCLR,
-> -	 * read the data and clear the valid flag.
-> -	 */
-> -	ret = readl_poll_timeout_atomic(pbus->base + arb->data->regs[inf_reg->ch_sta],
-> -					data, GET_SWINF(data) == SWINF_WFVLDCLR,
-> -					PMIF_DELAY_US, PMIF_TIMEOUT_US);
->   	if (ret < 0) {
->   		raw_spin_unlock_irqrestore(&pbus->lock, flags);
->   		dev_err(&ctrl->dev, "failed to wait for SWINF_WFVLDCLR\n");
+>   .../devicetree/bindings/phy/mediatek,xsphy.yaml    |  5 +++++
+>   drivers/phy/mediatek/phy-mtk-xsphy.c               | 26 ++++++++++++++++++++--
+>   2 files changed, 29 insertions(+), 2 deletions(-)
+> ---
+> base-commit: 917df6be58562d024374b4076e6e7618876a0c4a
+> change-id: 20260826-mtk-usb2-repeater-usb2-7d5bad6afce8
+> 
+> Best regards,
+
 
