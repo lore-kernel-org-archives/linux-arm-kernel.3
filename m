@@ -4,97 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3564C88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 10:24:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6464CC88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 10:26:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OmoapqsTP/x09ZC8Vq70tFPLb6TkdXSkL5FbXgBmNkg=; b=Ehh3g/lm0MCkWGnBJBwSOq0rD6
-	WKGqYK51B4mXvyBcXtPfIMoTmfzKNlFqxDDnuF/066IHbK7obq0FBjZ1e4Xwe5icnz2liT0wlUs4O
-	cIoP2E0rbmndfS8RQeoNb3eMhpDGG2EK/5IPQPYOhiQOWTLOi18bvzmtq1en68u/qMatQh/RRYqQY
-	yLS+8wlTd2eeeV4ZHxDLzQ5ou0ZjJL3VL2k1KtEX2AmQSv5b377v1tGZpMj8JcDBT+bCzPSvzTSOR
-	hug1QfGTeBEMADOBCBObp6fTnIpfG/0YViQX8ngbDdA38ZNYDNk7y2Jh10DuWPFju07A9xZAzZ5hD
-	3Q4lCcQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fefEqK5zfKOXV9NLq6khj1jGWiDvrdVkbBqTevoSgmA=; b=fRit1MIuoeZHkXCwSU+413MEEY
+	Kty1yae0QKHNMY7TovJoo1j8dHDi+6i1h8mPFj4SIG6uEcYIGhLKvwO/ro74YRYZcDhRx+Up+xnFS
+	m6jZstJB6F/n1g+afApe4KEuk2xnpxcyw5BC14E35VEkOhEOTq6ej0g8yJ3u7/G/wATiFhzKPKP/Z
+	4T61i6UZJVx52ujeykqZFhIWLQXUm5MpCXZ1P8ey3rJXgV1J7lahq/5ioE8hCqMgH/KjzTBN0C+ea
+	wCK3O9bpRFVBGDYFV/VgkO7QfW/NgQ704W9u+z7z+tKCWOv/fSAbk0VRW/fPDslFW639JCHxiPSjU
+	Q4KjRPhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6moC-00000008y3G-1vJH;
-	Wed, 16 Sep 2026 10:24:08 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1x6mq2-00000008yK2-3j2t;
+	Wed, 16 Sep 2026 10:26:02 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6mny-00000008xz8-3ueP
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 10:24:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789554235; x=1821090235;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=PeVfyJvNsLA4HGK44/YoeVENKrqs3ZCDtZ1Sly+fN/8=;
-  b=QLRj44dP+lzFm9iYVC2SPv9txz8TEbyhwkrPgY/lNntkRb8SsOhRcHmo
-   isKy4xp5jZ6pAvz9qpyk9LF2GAL0AX2g+qUtx0zn/DcAO8uP2uXcaqT+f
-   /ThYODAi3DibevsoULV3kK/14yLupWZnBRdcFrdqOfhDVqqPoThazxo2d
-   sLCVilxU4j9KWQO6ADR4P87FkYJCUdxTbQFovQTUelir5W25OTZEYxGNd
-   eWhst9frLlA+Eaq4ZrLFrcG+acoj3ZFQph0DAsbKw67oMu6H+UV7MEfuI
-   kPrv7qhG2xHFdWXOXXUelTUUuHdhY6dKztvY9hSKUdPLWZJiUyOnYHII4
-   A==;
-X-CSE-ConnectionGUID: fcRclNrkQX2FvcmV2Pm+Dg==
-X-CSE-MsgGUID: SalNyZTLTJKI3D8V0sdgcg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="93798678"
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="93798678"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Sep 2026 03:23:54 -0700
-X-CSE-ConnectionGUID: zZTsqc9USHyL5sqH2UfPDg==
-X-CSE-MsgGUID: 8JRWbhnbR4S5o23MCxAirA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="311581967"
-Received: from ettammin-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.145])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Sep 2026 03:23:48 -0700
-Date: Wed, 16 Sep 2026 13:23:45 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Linus Walleij <linusw@kernel.org>
-Cc: Bartosz Golaszewski <brgl@kernel.org>, soc@lists.linux.dev,
-	longzhao@ambarella.com,
-	Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Long Zhao <zl020895@163.com>,
-	Lee Jones <lee@kernel.org>, mfd@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org,
+	id 1x6mq0-00000008yJc-1fxg;
+	Wed, 16 Sep 2026 10:26:01 +0000
+Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
+	by APP-03 (Coremail) with SMTP id rQCowAD3+Te1bqpq6A3hBw--.1939S2;
+	Wed, 16 Sep 2026 18:25:58 +0800 (CST)
+From: Wentao Liang <vulab@iscas.ac.cn>
+To: brgl@kernel.org
+Cc: heiko@sntech.de,
+	jay.xu@rock-chips.com,
+	linusw@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v7 00/15] Ambarella CV75 SoC minimal bring-up
-Message-ID: <aqpuMcqbra9i6UDq@ashevche-desk.local>
-References: <20260915-cv75-v5-v7-0-3297d3fbc9c0@ambarella.com>
- <CAMRc=McEOcWq8i3B01AR1PnfBzSQaLEaOzE6Qa+QdVXrvS_YrA@mail.gmail.com>
- <CAD++jLnRL_s9zPNkSj2UnHWPx+QHAXV19DA7dEmGZu0AkxxyaA@mail.gmail.com>
+	linux-rockchip@lists.infradead.org,
+	Wentao Liang <vulab@iscas.ac.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH] gpio: rockchip: Fix debounce clock leak in rockchip_get_bank_data()
+Date: Wed, 16 Sep 2026 10:25:29 +0000
+Message-Id: <20260916102529.2019277-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAD++jLnRL_s9zPNkSj2UnHWPx+QHAXV19DA7dEmGZu0AkxxyaA@mail.gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-CM-TRANSID: rQCowAD3+Te1bqpq6A3hBw--.1939S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7uFy8KrW7tw4UZF13WFW3KFg_yoW8WF13pa
+	n8WrW5Kwn7GFn2gF1DAF15AFWFv3ZFyay3Wrn7G3WxCw13tFy7tFWUWFWvqF45Aryvkay5
+	Ar43Ga4UGr43Zr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9S14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_JF0_Jw1lYx0Ex4A2jsIE14v26r4UJVWxJr1lOx8S6xCaFVCjc4AY6r
+	1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02
+	628vn2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4
+	IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1r
+	MI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUCV
+	W8JwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJwCI42IY6xAIw20EY4v20xvaj40_
+	Jr0_JF4lIxAIcVC2z280aVAFwI0_Cr0_Gr1UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Cr1j6r
+	xdYxBIdaVFxhVjvjDU0xZFpf9x0JUJWrAUUUUU=
+X-Originating-IP: [36.110.52.2]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAEMA2qqP7m20QAAsj
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_032355_950423_612254CD 
-X-CRM114-Status: GOOD (  20.27  )
+X-CRM114-CacheID: sfid-20260916_032600_804252_61D02C72 
+X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,39 +82,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 16, 2026 at 11:42:56AM +0200, Linus Walleij wrote:
-> On Wed, Sep 16, 2026 at 11:14 AM Bartosz Golaszewski <brgl@kernel.org> wrote:
-> > On Tue, 15 Sep 2026 13:15:30 +0200, Long Zhao via B4 Relay
-> > <devnull+longzhao.ambarella.com@kernel.org> said:
-> > > This series adds minimal Ambarella CV75 support for early bring-up with
-> > > a serial console: DT bindings, RCT clocks, pinctrl, PL061 GPIO via
-> > > gpio-regmap, 8250_dw UART quirks, ARCH_AMBARELLA, CV75 EVK DT, and
-> > > MAINTAINERS.
-> > >
-> > > This is a single unified series. Please apply via the SoC
-> > > tree; subsystem maintainers are Cc'd for their pieces.
-> >
-> > I would prefer to take the GPIO regmap bits through the GPIO tree and provide
-> > an immutable branch to the SoC tree as it has potential for conflicts that
-> > early into the cycle.
-> 
-> Queue them up and send us the IB if you think they are ready!
-> 
-> Long can probably send a PR based on that IB for the rest to the
-> SoC tree, a bit tricksy but it works.
+rockchip_get_bank_data() obtains the debounce clock with of_clk_get()
+for GPIO v2 banks and stores it in bank->db_clk for later use by the
+debounce handling, but the reference is never released anywhere in the
+driver.  When rockchip_gpiolib_register() fails in rockchip_gpio_probe()
+or when the device unbinds, the debounce clock reference leaks.
 
-I'm still unsure why we can't use IRQ facility from gpio-regmap.
-Can you have a look there?
+Release the references returned by of_clk_get() with clk_put() when
+probe fails after the gpiochip registration and when the device is
+removed.  The bank clock reference is dropped as well since it suffers
+from the same problem.
 
-With that being said, I'm not sure that the patch that exposing gpio_chip
-from gpio-regmap is justified.
+Fixes: 3bcbd1a85b68 ("gpio/rockchip: support next version gpio controller")
+Cc: stable@vger.kernel.org
+Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+---
+ drivers/gpio/gpio-rockchip.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-The whole GPIO rework needs a bit more routine work (resplitting, refactoring,
-et cetera), so later we may see clearer what's going on.
-
+diff --git a/drivers/gpio/gpio-rockchip.c b/drivers/gpio/gpio-rockchip.c
+index 69a7cd8c9a1a..cab1ac78c48f 100644
+--- a/drivers/gpio/gpio-rockchip.c
++++ b/drivers/gpio/gpio-rockchip.c
+@@ -755,6 +755,8 @@ static int rockchip_gpio_probe(struct platform_device *pdev)
+ 	ret = rockchip_gpiolib_register(bank);
+ 	if (ret) {
+ 		clk_disable_unprepare(bank->clk);
++		clk_put(bank->clk);
++		clk_put(bank->db_clk);
+ 		mutex_unlock(&bank->deferred_lock);
+ 		return ret;
+ 	}
+@@ -797,6 +799,8 @@ static void rockchip_gpio_remove(struct platform_device *pdev)
+ 
+ 	clk_disable_unprepare(bank->clk);
+ 	gpiochip_remove(&bank->gpio_chip);
++	clk_put(bank->clk);
++	clk_put(bank->db_clk);
+ }
+ 
+ static const struct of_device_id rockchip_gpio_match[] = {
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.34.1
 
 
