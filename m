@@ -4,82 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C64C4C982C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 14:39:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACB6BC982C3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 14:39:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9/EnXB3OfGjg/mZD1m8+aHh6UqrBK8LUyoH1Ya5uEAw=; b=GdF+iO0a+zeGfZJKlI0yL0+E8b
-	nVhYTpXVhYBnR8uBI6Db0tf5IgBedo6qJgei1TEVxwSH7VR1ywg6z+4ECXrk5tVc80y/TMLhGF7yK
-	h0d+/R4Q4454RKh9eGShCi7vMXLvJPVP0w2xhpduZXuF7ctgW7npvasgro4s64TST6wWuEvRdVDUH
-	Exq2oWhoG0ylZN+/1YVwHinwfC6v6Zb6uMf0lEKCSh/FiVgow8bE8VtNhdS4pIEcOxLOhBoi4WPdC
-	+7aAgtcj+4UK2Cl28GMqCnvgwRVGc/kyfrb8fTC7AF86UxAmFqi9yprfWPcHF8aU/LKJyCtKx+gty
-	li4kSaqg==;
+	bh=KlgGVtA8L34wEftTlpYt844a7X84eA7HeSvovPfV4CQ=; b=JGqLzk12g4VEqcicUgVuJlBrG0
+	rqF2iKrgdc2qA1FE+B5LAwMipUZY8JH6r6mGc2qzYLnwXo37JpWHBlHT+7zzYzElaOl5MVv6x4moN
+	JJrhmELUuO+SJeRANYsVU/ZPy50tGMXoc5FL7+1wrV5MCKNUW74gSkz5S67Zp7lUZZz7Vc1jCywmE
+	5WJC/EyindBfrmEBDE9MwTHhptdccQTT8RO5/T9+vNgjcGUoL1zTdY0gNVAQFfcZl9jWRhVqNcbxa
+	YnLi8DcZO3F6FylHxrQi4CGEWm8hnOfRVWzKx/oiRd5qetZv2nGSPVAbjY0aVeiZ3GP/Dm1b66iKd
+	x8tDPKhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6qn4-00000009Rwb-2Y8e;
-	Wed, 16 Sep 2026 14:39:14 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1x6qnR-00000009S1x-1isE;
+	Wed, 16 Sep 2026 14:39:37 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6qn1-00000009Rw6-1UCN
+	id 1x6qnN-00000009S06-1yTc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 14:39:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789569551; x=1821105551;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=XrmV5AYtnPtVAHzQnffCQxg/8kqWWYTjiNeJHagDZwA=;
-  b=J5iWqCSEhawVHsAIvpz3zjMhnJyN6luR3VJNNuW5HVWRFGCIMSLm18SD
-   8NxNAR0nQKt0vZUpWQcdXBNB7SHuG+CCjTiDgnCaHNqBO/+KqwrpcRLsI
-   3cU7mCDug8MZbIserpWnPEHZ4hbRlkKqcglu1GQAjtEV6EVgS7dWCLkkF
-   o7dbCgQTKTi8XxhbkYNiSotyIam58KYQyZkGWDSvM97pbDsPPtNfjmq4m
-   r4kz3xcfTGMynlHQEtWmh2bm5xYSaC5KRMn9S6Z8mxGs14VRiwZECayu5
-   /tAoYPHIUA1rMrGTbhYjFa1xb5kf0f+tAy2e+irqC5GnOdEky4hpCQyi8
-   w==;
-X-CSE-ConnectionGUID: z2UbawDCRJeVXFnS2DWfBA==
-X-CSE-MsgGUID: BDFAQ0W9QDqmJgRWk8l72w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="115483552"
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="115483552"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Sep 2026 07:39:11 -0700
-X-CSE-ConnectionGUID: FstFep20SDOsQTM+1NaYBw==
-X-CSE-MsgGUID: qK+yDxxsQBWJyllQdob0Ww==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="269657357"
-Received: from ettammin-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.145])
-  by fmviesa010-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Sep 2026 07:39:07 -0700
-Date: Wed, 16 Sep 2026 17:39:05 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Olivier Moysan <olivier.moysan@foss.st.com>,
-	linux-iio@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Sashiko <sashiko-bot@kernel.org>, stable@vger.kernel.org
-Subject: Re: [PATCH v2] iio: adc: stm32-adc: fix possible division by zero in
- processed channel
-Message-ID: <aqqqCf6mQPMoKZRj@ashevche-desk.local>
-References: <20260916-adc-fix-div0-v2-1-f702d3ed782c@foss.st.com>
-MIME-Version: 1.0
+	Wed, 16 Sep 2026 14:39:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=neBrsLUWJk7SC4zIFapkOA7rAqWECc4Q17J7hE3xsDl9Wt5HTRlTpI6I2wY1FJCtivMODHSHhASjZRZP7JkXXpvGNEldKv00ENskqSZnsS/u9D1rrA76aE+0FfqI+G+kkC9A0TMAEUqxSP1Lx4WNCVBEiyisQpMNTyRw9rID/ovHf5F4jQg/yDgGEjWLJ5XhkfoOxGbQ2l9yac4gIH1GEF9IsG1p+SCRJqCrTH0oHVZmz37pDxBIgbrok1tRUaLY7AJIfI5Z136gFxhk31b3T4GEzJ07iWVA/obhpGyQGXhzRh9MekRs6y+ZLkgY1zeJX6sA8ENYs4+iM7YazG5QIg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=KlgGVtA8L34wEftTlpYt844a7X84eA7HeSvovPfV4CQ=;
+ b=Noy0FKK7OwVvyUX51IQJQ3E80Rn8pBDKjG0aASJksD8fE9zBi9UJwkd4XUCXP7iLcLw9VmRQTwQh1CfMvHORe+25rB4fc0FIdwHB5quGvmVN+kjftHQpdEQ1CdfMXNbVkvppw02bKURi3MokoNHm1xjMD1RsCelpuJvrdz5Om1QikvlO9Esa2FIVEM7uQDXt639zg3nTwPOIM/lu/FhbSNHxAWCxwPyd1yxsJlHRd3s6UD3h31ivey9gLha9fx+WnohEGDaVlaCJsFTUErLnpGgn7EEqridQeGcykKOp3NJTVbwIx19d8kw0COhe7C2p4X3CYLa04cj7N7AuJculHw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KlgGVtA8L34wEftTlpYt844a7X84eA7HeSvovPfV4CQ=;
+ b=saDtv7CeVhSMe6M1ytxZ2viYLeqgVJ6EXX1r2RWSFmQgd4wNW3GCEdpoZqnovpY3vo6dk3OjpUr0EKHjGXbvyuALq6wnME15IaJbZEfFM8tGNNrm/u9f9ICDf3qFPmLikwP5C3j2MpIfcY/YgV8WSNKalacKR/Kn5m/2KN6qkb2YUpqflaCAj9YLAgdqZUdTOSmGl33yLKD17YRJgta4i6WAKoL7sXvq7mBBu+XpxIeIyQ8BSJCYdSNU1NFTmyWrdQBq2jA9Q3LNC4nSdocZ1XYEnQk83FTpJzi4Rdf30ba4tBIWE2v9on77lMQsiogfjpjE7XcRSSW8IT/BXfaeaA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AM7PR04MB7077.eurprd04.prod.outlook.com (2603:10a6:20b:11c::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Wed, 16 Sep
+ 2026 14:39:24 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.012; Wed, 16 Sep 2026
+ 14:39:24 +0000
+Date: Wed, 16 Sep 2026 09:39:10 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: pankaj.gupta@oss.nxp.com, Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Pankaj Gupta <pankaj.gupta@nxp.com>,
+	Randy Dunlap <rdunlap@infradead.org>, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v51 5/7] firmware: imx: adds miscdev
+Message-ID: <aqqqDnOMmlfqit6u@SMW015318>
+References: <20260915-imx-se-if-v51-0-4a7dac612cb5@nxp.com>
+ <20260915-imx-se-if-v51-5-4a7dac612cb5@nxp.com>
+ <2034fb2f-f169-46a5-85e8-fa723ddb0360@app.fastmail.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260916-adc-fix-div0-v2-1-f702d3ed782c@foss.st.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+In-Reply-To: <2034fb2f-f169-46a5-85e8-fa723ddb0360@app.fastmail.com>
+X-ClientProxiedBy: PH7PR17CA0013.namprd17.prod.outlook.com
+ (2603:10b6:510:324::6) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM7PR04MB7077:EE_
+X-MS-Office365-Filtering-Correlation-Id: fa934929-69fa-4e21-d779-08df14004d1c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|23010399003|1800799024|366016|10067099003|4143699003|56012099006|11063799006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: aaLMXoeN7qGmuOoQRcvA+4J6s4n2vNqtYU8F4XxwTY+HFGISC2snHd5SBJRe9y4o1xJZTgepcP9/UUPiMDYYjpwN3paT2b4wjoGk8oDyIVajx1DtCysvqwLN8hy3mSNsAxul2V4e5riK4/3gZASHdSBhJ2fALr/XguJwtUxK25YVTWLYL0Wir4egAxv7M24/dO9d5d2gFDdyZ9IzgJfbKB/XTwVTuH+3ZTS+N4xUIEzUaJd/gRrJaHOg+jIennfqWqr4w/ibI48xvnES5o0p2dNQ7Jq0SmmQCQ+krvzdzob0f6qLWQFtgpftWBp6h2f5cIhiDwSb83mmembTuYi9dwIBX3o/qevmp96QUFuG5rwrJ8ACAJj1IsccD+QqKtbTpoWp/Ata9gv5Lh4x6x7XBBnTur0lRd98BaTHmN7vvKQG8+2P+zbKxN8983XcvVFvdPjCKx9o3kUB7GC/4KtsbG465a94q9juc6BtnnMZgDnuEWvShLaitbZawU1KoisoHG1oiqh5m4USJvH28fRmkrGEXC9ZB1u4ylMf0o10YkHrCIkIh/yotJLKlNE9VWZ3xm3+klnOJdXziM8kTLxj8IFP06bDmcNZ9/ynDLoZyPo3SJ6YNU2r4IW14av+ZqD7EXXzoxrWkUB3ZZ/MOk+lJvSJeBbEYXoECjILQbB2Qfo=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(23010399003)(1800799024)(366016)(10067099003)(4143699003)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2Ynp58bmFrojSRei40WJ02sndR7unWBx1IXRVmf9wqwT3Pf+mrcnfrkUwSLx?=
+ =?us-ascii?Q?CoxY3CbzZrAEqIXF7wWBtSjBHgU4MhTPseRx86/JV0D5clSwUbZeGSvgcpTY?=
+ =?us-ascii?Q?VyWirxhZR8Bc+MsS+/hb/lA4isGmYrvI+ijRiuycI3JNB3DF8POt/tBaxBII?=
+ =?us-ascii?Q?JTyoP5SicR2iZ8IiQXbcSVoCvso8lZ5rF2AU2ujt4BM6bMbu4OIdwZj5YGid?=
+ =?us-ascii?Q?Z4jJHHiUFg40MElULDze3Z2PNJvBNr16W+WD2Ux9+XlEsh8RhMlHN5pAVPkG?=
+ =?us-ascii?Q?2Ozib3TsnNTQC2hH3N0kOzGhR+RTKLBtr8co6VcJw0uEa8N0hmxbxevvoT19?=
+ =?us-ascii?Q?sBKDgv+NO3rqogBMyMb+2tJtGkRR5QnA3acUfWzM8v4JPZGNhE4Q40dyKe7W?=
+ =?us-ascii?Q?0XdLBMZTqXWTMe3FAgm14+hKGuvznua8nDghbnzSBW9lAJVfDnkfp8n+TsLY?=
+ =?us-ascii?Q?DvCwRPV0s5lN9MJUFHuLal48jAmPvn7Ubak+QEAuYsT2DpE9r5wOaWTblX6/?=
+ =?us-ascii?Q?kdGOonJMxcL+S0HSewHci0vwX/nVJVfcoje68X6xCABxdDkGGS3IGrSmI0uJ?=
+ =?us-ascii?Q?angCsAOBEFVyq44IW+TAzDdlGB027aj1gFPYl05nEOdjAXcVdUowLOAnDvNC?=
+ =?us-ascii?Q?FGpCkurGtnFJuKoxUQh2rfp9UzLZDaB/AelBRl5Bospg5zCSsXhFk2Ca23/P?=
+ =?us-ascii?Q?ODDRclXxmBWrBusH0sSIIUO4bghkD1KUkiBFrhXiMm+XPujwM0SBoUfJg40M?=
+ =?us-ascii?Q?Fe2abSMSZ1xA9CdehTmpFLl4WbAu1DxHNCk37T10w26HBRNsy13s64+Hh4de?=
+ =?us-ascii?Q?kBbfVSx4oJb1K4QsoWZGwWeXbiuFEpxHDqiR/1p2dY/OkogPBKJsF4al/07p?=
+ =?us-ascii?Q?S6vXgYW/wDWGS2tr9RVM1ghMuv4KZCM0y/ygM0KIC6fg8l5AehTBZuFmZN+W?=
+ =?us-ascii?Q?iHdtHkYfiGVE0SLdjjk/r10YdejLAIRgfkeNRL7xt8Bud3h4UnDdJhUgYQWv?=
+ =?us-ascii?Q?deLN02M+3zYOBtKWVGTaQqH1aEgz1SPmOT0vwzCz7LJ0wBwkm+Hjpp8bwZ+6?=
+ =?us-ascii?Q?eERlid2FFCUN+2e3H+2PtOr+kLV2aFePqYxNPiR5HWVOaPYFQjXZOCGFAqyX?=
+ =?us-ascii?Q?tYNbAMhgWvZJamGrYWEPUzlOWL0AG+5RBVZqQyoKLltCXVIDAccHkie0/nb4?=
+ =?us-ascii?Q?I/QyLW1BDH1vdSJ90hFFA2ea3ir1QjHjXy86J9zBp19J4HfJoSOKUCcLBRYK?=
+ =?us-ascii?Q?t8mJHlMg8w8JPbsEtRQRHFeXF+lXTcvbeSptCyj5vQTXyj3/UlxA6S6I+CUQ?=
+ =?us-ascii?Q?1fgNkiWrCNYprxJ/S1ds59joOXGxtqpQEBsfnhAh7hY+vrfd1zIuiqfDpoyk?=
+ =?us-ascii?Q?/7kb7GyHaUQu+w8NHjgHYqHGl7LFs3ITZkoMg5E8Ep2EjwN+Ascj5pkbA7AK?=
+ =?us-ascii?Q?2UdUTNz7CXndOm6iwWigSEeW9iWF8Ve/Rnwjc9XSA9seR6YZiJEfQovUp8cF?=
+ =?us-ascii?Q?FRl3uy834lTHo+qQ7MKr1ai8QeaipP/riCrGyzXN4MeD/4TfdUJHo4pdWaWo?=
+ =?us-ascii?Q?wyPeFYbP5IvmaG/YrykvmlrNpHZ2qeBpwlxVrNuQnYW7KCnaRtAXCkO9eUJD?=
+ =?us-ascii?Q?Wkf/JoXtt05+7NKquumlDcm8Px4RyZsKN80735woioRdD+W4AK+gTJyd/En/?=
+ =?us-ascii?Q?J1//SoxXq0KxAOc7pHOZnmdF1XDQFK3tbXADQGD2DXQpkwli1ysG1f9mK+uq?=
+ =?us-ascii?Q?QE5IxBeKw2a8TEA5R9Vt9Km8PZE9g2ObWESdQFi3iPEAH0Np+DlR?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fa934929-69fa-4e21-d779-08df14004d1c
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Sep 2026 14:39:23.9613
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: TmjHVTPIsynBAg/x5qOyEOeaKbk3Xm45q+BNYSK7NUMDOCVH1i3qh89V1VLSWJxmeHG4BdZIGVUySlEoCEyFtCHObgx6QNx7nq7dbkDf0g1D48pJd/xCUH1H3MiFeemk
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB7077
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_073911_597944_565E9231 
-X-CRM114-Status: GOOD (  16.05  )
+X-CRM114-CacheID: sfid-20260916_073933_521606_0D7A202C 
+X-CRM114-Status: GOOD (  27.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,93 +147,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 16, 2026 at 04:10:05PM +0200, Fabrice Gasnier wrote:
-> In case the conversion has failed or returned zero, processing *val
-> can lead to a division by zero. Need to check for errors, or converted
-> value is zero, before processing the data. In case the converted value
-> is zero, e.g. the Vrefint channel, this should be considered as invalid
-> in all cases.
+On Wed, Sep 16, 2026 at 03:16:13PM +0200, Arnd Bergmann wrote:
+> On Mon, Sep 14, 2026, at 21:40, pankaj.gupta@oss.nxp.com wrote:
+> > From: Pankaj Gupta <pankaj.gupta@nxp.com>
+> >
+> > Adds the driver for communication interface to secure-enclave, that
+> > enables exchanging messages with NXP secure enclave HW IP(s)
+> > like EdgeLock Enclave, from:
+> > - User-Space Applications via character driver.
+> >
+> > ABI documentation for the NXP secure-enclave driver.
+>
+> I just saw this in linux-next, where it has caused a build failure
+> for a missing include of linux/slab.h. I hadn't see the series
+> before (even though it is a v51, which seems crazy), but I am
 
-...
+It is in linux-next about v37, but build bot find many problems, I dropped
+it and request to fix it. And sashiko is online recently and also find many
+risk. I request to clean up it, and local AI environment have difference
+with sashiko, so bump to v51.
 
-> Reported-by: Sashiko <sashiko-bot@kernel.org>
-> Link: https://lore.kernel.org/all/20260911161555.244F31F000FF@smtp.kernel.org/
+I put to linux-next again to make sure that pass all build test.
 
-Closes: ^^^
+Other two problems, need more time to check whole review history. reply
+you later.
 
+Frank
 
-> +		if (mask == IIO_CHAN_INFO_PROCESSED) {
-> +			int vrefint_raw;
-> +
-> +			if (ret < 0) {
-> +				iio_device_release_direct(indio_dev);
-> +				return ret;
-> +			}
-> +
-> +			vrefint_raw = *val;
-
-> +
-
-Unneeded blank line.
-
-> +			if (vrefint_raw == 0) {
-> +				iio_device_release_direct(indio_dev);
-> +				return -EINVAL;
-> +			}
-> +
-> +			*val = STM32_ADC_VREFINT_VOLTAGE * adc->vrefint.vrefint_cal / vrefint_raw;
-> +		}
-
-Let's look at the current code in this switch-case
-
-	case IIO_CHAN_INFO_PROCESSED:
-		if (!iio_device_claim_direct(indio_dev))
-			return -EBUSY;
-		if (chan->type == IIO_VOLTAGE)
-			ret = stm32_adc_single_conv(indio_dev, chan, val);
-		else
-			ret = -EINVAL;
-
-		if (mask == IIO_CHAN_INFO_PROCESSED)
-			*val = STM32_ADC_VREFINT_VOLTAGE * adc->vrefint.vrefint_cal / *val;
-
-		iio_device_release_direct(indio_dev);
-		return ret;
-
-In the previous version you were trying to keep goto-less approach.
-However in the current state of affairs I don't think the goto is
-too bad (after all we need to backport this to the kernels that may
-not have IIO_DEV_ACQUIRE_DIRECT_MODE() macro).
-
-Also checking 'ret' under another condition seems unusual.
-
-What about
-
-	case IIO_CHAN_INFO_PROCESSED:
-		if (!iio_device_claim_direct(indio_dev))
-			return -EBUSY;
-		if (chan->type == IIO_VOLTAGE)
-			ret = stm32_adc_single_conv(indio_dev, chan, val);
-		else
-			ret = -EINVAL;
-		iio_device_release_direct(indio_dev);
-		if (ret)
-			return ret;
-
-		if (*val == 0)
-			return -EINVAL;
-
-		if (mask == IIO_CHAN_INFO_PROCESSED)
-			*val = STM32_ADC_VREFINT_VOLTAGE * adc->vrefint.vrefint_cal / *val;
-
-		return 0;
-
-? (Yes, we leave that line untouched, but we get the change cleaner.)
-
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+> curious about it now.
+>
+> > User-space library using this driver:
+> > - i.MX Secure Enclave library:
+> >   -- URL: https://github.com/nxp-imx/imx-secure-enclave.git,
+> > - i.MX Secure Middle-Ware:
+> >   -- URL: https://github.com/nxp-imx/imx-smw.git
+>
+> I assume this will hit the soc tree eventually, so I want to
+> make sure the reviews have covered all the important aspects here,
+> and I don't see the answers in the cover letter:
+>
+> - Who has reviewed the user interface from outside of NXP?
+>   Since this is not a vendor-independent API, I think we have
+>   to be extra careful and make sure this does not duplicate
+>   anything that is already in the standard firmware interfaces.
+>
+> - Why is there a low-level passthrough to the firmware from
+>   userspace? This looks rather irregular, since it is the kernel's
+>   job to abstract the platform and provide vendor-independent
+>   interfaces. In particular the bit about shared memory and
+>   the generic send/receiv ioctl look like they should not
+>   be there, as those would allow side-channels from userspace.
+>
+>       Arnd
+>
 
