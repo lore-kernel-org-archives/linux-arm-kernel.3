@@ -4,71 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42386C88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 13:04:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86844C88E5C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 13:05:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=18IjD7SeiHh4eJGt0YRry9/8xTM6gYOZOYmLwwYU0qs=; b=QtGYN25OliThhvtRxdU4HoWA9i
-	qJReRF0Y0oG0wnRFQOfFDb9owxaIkK8Zn/ZenBxWDngiSdHvnRIwgGu4F/4q1jKc6MOwkRb1D0hdw
-	MTLbkr52I3EQBCZZ6jBMNeFA3cC4sHuK/YrCitxqW+bISaCff/fusFUAZVMckxgZ8sCU4Jz+WwhVF
-	SIx8z4N8uWo+0G7W+Qv2LWrNPHJ+AL/WeFoVNbpcWKB31cK2966W1AyP3eSBacO/Q1YjmWzCAOQw2
-	FY1dudFHgNh4UaJozW5dMBStEEv69IiyxsBKPofv9Q2jZVnx9XY65KVOGB4SqCOEgok/szqSEDZlO
-	cbkH0/oQ==;
+	bh=telJkgEX5dfuQTlALPM+8B3+Clo7PpLoK+svOYh28IU=; b=0dR9Ft+VkGojUXTXKrtKZw4GPG
+	YOWqqx0Bk1zmuB0PmTaFs5bCTUG4/vJPfot1S/4vs/qGfCkdarmfF9k6bW9wZnke4Gbu3xyh4rL0S
+	vSzq3Am8koJLfBRgnyiUIfGUklDPlpEqpujfeAxd798NXAny3C4ZMzi3sBi/V94Fi1UpEYuuaP2/Y
+	g70TUy70nieVwY2E2hAQjco4sGHxfwoq8Da1vQX8xVXPeJs1/lTJ32pFVgiohvQ+cgEaEgcT94BPQ
+	3tuUOI6Np9Y/0O9nDVg9rKPMXvc4JRWCZHhtqut1IhVa1J1dWTe81MkBBxu9tfe77bjU0cTuJSQD2
+	JM+I6OBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6pJJ-00000009EcV-001c;
-	Wed, 16 Sep 2026 13:04:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6pIn-00000009EW6-3y7A
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 13:03:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 568B8176A;
-	Wed, 16 Sep 2026 06:03:48 -0700 (PDT)
-Received: from LeoBrasDK.cambridge.arm.com (unknown [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F40CD3F86F;
-	Wed, 16 Sep 2026 06:03:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789563831; bh=ybBOpgHUoAg23QCDB90NXKXwaf6KfWZrKX6JSKHFY2U=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=s7qg14swUJqwHx4qs2CJRJcQNy3SpPMyRCPrj9MDw6COoF5iFUz3ZmH3rCe4B7ipH
-	 8ySUNAVrnJ6a15LsFhwaqLtP6xOJki+3hPTuhZh+aBiP8QlrldBSGh8BHzm2bzHRIU
-	 NHSc0HKHhHGgZMGL4hLIQLmeQJG5hEpDlPhfgPjk=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	Tian Zheng <zhengtian10@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH 1/5] KVM: arm64: pgtables: Change write bit from S2AP_W to DBM
-Date: Wed, 16 Sep 2026 14:03:41 +0100
-Message-ID: <aqqTrWW-kUjb0pGJ@LeoBrasDK>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <86h5jp61jo.wl-maz@kernel.org>
-References: <20260901171558.2674031-1-leo.bras@arm.com> <20260901171558.2674031-2-leo.bras@arm.com> <86bja17cg7.wl-maz@kernel.org> <aql8jY4o8SzjJuFU@LeoBrasDK> <86h5jp61jo.wl-maz@kernel.org>
+	id 1x6pJm-00000009Ein-159Y;
+	Wed, 16 Sep 2026 13:04:54 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x6pJh-00000009Ehc-2olT;
+	Wed, 16 Sep 2026 13:04:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1789563887;
+	bh=tzgn5QzvgAOKeLXGf261rOeljkROqctlS7y9i8NT/c8=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=Gpe3jnNvfWdB77XGJ+zQTMyb9U/czO40qvphwhB+wioEsWLYZWZ/HmULQ4ZTOK5i5
+	 JpAMDQXgHsYOHaESuuPrwFAAYn8uLUOUlgro+o9/TnkowC1XqxIDYy8gq/56Kag1QV
+	 GgQOIc0xw7WDGIIDKMSoiQisBjurKEhZxgKA/GRJ29u5+I/SD0mR5TztecOivACHNd
+	 TmkfB5VofSsofq/h++GUCB6jqghVMHy1AgIftZIISS4F8YN18pvHUxUXxTldUvctjT
+	 WfveNFlqLDIMopZUDF6O6Ih/x858NBUKh5hXuI9Tauz9GobM2TiTBgKPKTHZNioLJt
+	 xSedt0Ty0KIMw==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5E70617E03B6;
+	Wed, 16 Sep 2026 15:04:47 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: Matthias Brugger <matthias.bgg@gmail.com>, 
+ Chen-Yu Tsai <wenst@chromium.org>
+Cc: devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Icenowy Zheng <zhengxingda@iscas.ac.cn>, YoungJoon Lee <getfeus@gmail.com>
+In-Reply-To: <20260916035953.3111607-1-wenst@chromium.org>
+References: <20260916035953.3111607-1-wenst@chromium.org>
+Subject: Re: [PATCH RESEND v4 1/2] arm64: dts: mediatek: mt8173: Fix
+ MFG_ASYNC power domain clock
+Message-Id: <178956388732.116277.1060079303641396273.b4-ty@b4>
+Date: Wed, 16 Sep 2026 15:04:47 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.16.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_060354_140199_CA76A11D 
-X-CRM114-Status: GOOD (  60.59  )
+X-CRM114-CacheID: sfid-20260916_060449_975079_72D6DA5B 
+X-CRM114-Status: UNSURE (   8.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,275 +77,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 16, 2026 at 09:30:35AM +0100, Marc Zyngier wrote:
-> On Tue, 15 Sep 2026 18:12:45 +0100,
-> Leonardo Bras <leo.bras@arm.com> wrote:
-> > 
-> > On Sun, Sep 13, 2026 at 10:00:40AM +0100, Marc Zyngier wrote:
-> > > On Tue, 01 Sep 2026 18:15:52 +0100,
-> > > Leonardo Bras <leo.bras@arm.com> wrote:
-> > > > 
-> > > > As a first step of changing the encoding for the Stage2 PTE descriptor,
-> > > > introduce the DBM bit, and adapt every usage of writable to use the DBM bit
-> > > > (51) instead of S2AP[1]/Dirty bit (7).
-> > > > 
-> > > > For this step, we convert usages of RW(Dirty) -> WD(DBM|Dirty).
-> > > > 
-> > > > Signed-off-by: Leonardo Bras <leo.bras@arm.com>
-> > > > ---
-> > > >  arch/arm64/include/asm/kvm_pgtable.h | 3 +++
-> > > >  arch/arm64/kvm/hyp/pgtable.c         | 8 +++++---
-> > > >  arch/arm64/kvm/nested.c              | 4 +++-
-> > > >  arch/arm64/kvm/ptdump.c              | 4 ++--
-> > > >  4 files changed, 13 insertions(+), 6 deletions(-)
-> > > > 
-> > > > diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-> > > > index 41a8687938eb..37baa86d6fd8 100644
-> > > > --- a/arch/arm64/include/asm/kvm_pgtable.h
-> > > > +++ b/arch/arm64/include/asm/kvm_pgtable.h
-> > > > @@ -86,24 +86,27 @@ typedef u64 kvm_pte_t;
-> > > >  #define KVM_PTE_LEAF_ATTR_HI		GENMASK(63, 50)
-> > > >  
-> > > >  #define KVM_PTE_LEAF_ATTR_HI_SW		GENMASK(58, 55)
-> > > >  
-> > > >  #define KVM_PTE_LEAF_ATTR_HI_S1_XN	BIT(54)
-> > > >  #define KVM_PTE_LEAF_ATTR_HI_S1_UXN	BIT(54)
-> > > >  #define KVM_PTE_LEAF_ATTR_HI_S1_PXN	BIT(53)
-> > > >  
-> > > >  #define KVM_PTE_LEAF_ATTR_HI_S2_XN	GENMASK(54, 53)
-> > > >  
-> > > > +#define KVM_PTE_LEAF_ATTR_HI_S2_DBM	BIT(51)
-> > > > +
-> > > >  #define KVM_PTE_LEAF_ATTR_HI_S1_GP	BIT(50)
-> > > >  
-> > > >  #define KVM_PTE_LEAF_ATTR_S2_PERMS	(KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R | \
-> > > >  					 KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W | \
-> > > > +					 KVM_PTE_LEAF_ATTR_HI_S2_DBM | \
-> > > >  					 KVM_PTE_LEAF_ATTR_HI_S2_XN)
-> > > >  
-> > > >  /* pKVM invalid pte encodings */
-> > > >  #define KVM_INVALID_PTE_TYPE_MASK	GENMASK(63, 60)
-> > > >  #define KVM_INVALID_PTE_ANNOT_MASK	~(KVM_PTE_VALID | \
-> > > >  					  KVM_INVALID_PTE_TYPE_MASK)
-> > > >  
-> > > >  enum kvm_invalid_pte_type {
-> > > >  	/*
-> > > >  	 * Used to indicate a pte for which a 'break-before-make'
-> > > > diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-> > > > index b74dd5ce1efd..ca49f1bd7c34 100644
-> > > > --- a/arch/arm64/kvm/hyp/pgtable.c
-> > > > +++ b/arch/arm64/kvm/hyp/pgtable.c
-> > > > @@ -725,42 +725,43 @@ static int stage2_set_prot_attr(struct kvm_pgtable *pgt, enum kvm_pgtable_prot p
-> > > >  	}
-> > > >  
-> > > >  	r = stage2_set_xn_attr(prot, &attr);
-> > > >  	if (r)
-> > > >  		return r;
-> > > >  
-> > > >  	if (prot & KVM_PGTABLE_PROT_R)
-> > > >  		attr |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R;
-> > > >  
-> > > >  	if (prot & KVM_PGTABLE_PROT_W)
-> > > > -		attr |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
-> > > > +		attr |= KVM_PTE_LEAF_ATTR_HI_S2_DBM | KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
-> > > 
-> > > What makes it acceptable to always set DBM? This is an optional
-> > > feature, and I'm not exactly comfortable setting bits that are
-> > > supposed to be RES0. 
-> > 
-> > The alternative would be to introduce WC/WD as an alternative encoding
-> > infrastructure, and keep making decisions based on having HAFDBS available 
-> > or in the system. My intention was to adapt things in a way to avoid 
-> > multiple behaviors if we could avoid.
-> > 
-> > My rationale is, based on our possibility of setting DBM=1:
-> > If HAFDBS/HDBSS/HACDBS are not available, or available but disabled, 
-> > then the DBM bit is just ignored:
-> > RO -> RO
-> > WC -> RO
-> > WD -> RW
-> > 
-> > (for reference:
-> > - Read-Only (RO):      DBM=0, S2AP[1]=0
-> > - Writable-Clean (WC): DBM=1, S2AP[1]=0
-> > - Writable-Dirty (WD): DBM=1, S2AP[1]=1
-> > )
-> > 
-> > And the behavior should just the same as what we have today.
-> > 
-> > 
-> > > Yes, the HW should ignore it. But we have also
-> > > seen quite a few broken designs in this area...
-> > > 
-> > 
-> > I lack experience on what bad thing could happen. So I will expand on what 
-> > I belive to understand up to here:
-> > 
-> > - The PTE is in memory, so the DBM bit can be set regardless of being RES0
-> > - For SW pagetable walking, I don't think 'bit 51 == 0' is checked
-> > - For HW pagetable walking, maybe some faulty implementation may rely on 
-> >   bit51 being RES0, and fault otherwise.
-> > 
-> > If that's the case, then we would have to actually support both encodings, 
-> > and only enable the new one if HAFDBS is available in the system. 
-> > 
-> > I just wonder how high are the chances to have such a broken design, 
-> > or other broken designs did not come to my mind, and if we have to start 
-> > with that multiple-encoding option.
-> > 
-> > > > +
-> > > >
-> > > 
-> > > Spurious newline.
-> > > 
-> > 
-> > Oh, ok, will get rid of it.
-> > 
-> > > >  	if (!kvm_lpa2_is_enabled())
-> > > >  		attr |= FIELD_PREP(KVM_PTE_LEAF_ATTR_LO_S2_SH, sh);
-> > > >  
-> > > >  	attr |= KVM_PTE_LEAF_ATTR_LO_S2_AF;
-> > > >  	attr |= prot & KVM_PTE_LEAF_ATTR_HI_SW;
-> > > >  	*ptep = attr;
-> > > >  
-> > > >  	return 0;
-> > > >  }
-> > > 
-> > > I don't know how you have configured git on your end, but there is *a
-> > > lot* of context...
-> > > 
-> > 
-> > diff.context=10, i.e. 10 lines before and after a change.
-> > To me it looks helpful to get more context around the change. 
-> > 
-> > I can change it back to 5 if it bothers you.
-> > 
-> > > >  
-> > > >  enum kvm_pgtable_prot kvm_pgtable_stage2_pte_prot(kvm_pte_t pte)
-> > > >  {
-> > > >  	enum kvm_pgtable_prot prot = pte & KVM_PTE_LEAF_ATTR_HI_SW;
-> > > >  
-> > > >  	if (!kvm_pte_valid(pte))
-> > > >  		return prot;
-> > > >  
-> > > >  	if (pte & KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R)
-> > > >  		prot |= KVM_PGTABLE_PROT_R;
-> > > > -	if (pte & KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W)
-> > > > +	if (pte & KVM_PTE_LEAF_ATTR_HI_S2_DBM)
-> > > >  		prot |= KVM_PGTABLE_PROT_W;
-> > > >  
-> > > >  	switch (FIELD_GET(KVM_PTE_LEAF_ATTR_HI_S2_XN, pte)) {
-> > > >  	case 0b00:
-> > > >  		prot |= KVM_PGTABLE_PROT_PX | KVM_PGTABLE_PROT_UX;
-> > > >  		break;
-> > > >  	case 0b01:
-> > > >  		prot |= KVM_PGTABLE_PROT_UX;
-> > > >  		break;
-> > > >  	case 0b11:
-> > > > @@ -1281,20 +1282,21 @@ static int stage2_update_leaf_attrs(struct kvm_pgtable *pgt, u64 addr,
-> > > >  		*orig_pte = data.pte;
-> > > >  
-> > > >  	if (level)
-> > > >  		*level = data.level;
-> > > >  	return 0;
-> > > >  }
-> > > >  
-> > > >  int kvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
-> > > >  {
-> > > >  	return stage2_update_leaf_attrs(pgt, addr, size, 0,
-> > > > +					KVM_PTE_LEAF_ATTR_HI_S2_DBM |
-> > > >  					KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W,
-> > > >  					NULL, NULL,
-> > > >  					KVM_PGTABLE_WALK_IGNORE_EAGAIN);
-> > > >  }
-> > > >  
-> > > >  void kvm_pgtable_stage2_mkyoung(struct kvm_pgtable *pgt, u64 addr,
-> > > >  				enum kvm_pgtable_walk_flags flags)
-> > > >  {
-> > > >  	int ret;
-> > > >  
-> > > > @@ -1361,21 +1363,21 @@ int kvm_pgtable_stage2_relax_perms(struct kvm_pgtable *pgt, u64 addr,
-> > > >  	s8 level;
-> > > >  	int ret;
-> > > >  
-> > > >  	if (prot & KVM_PTE_LEAF_ATTR_HI_SW)
-> > > >  		return -EINVAL;
-> > > >  
-> > > >  	if (prot & KVM_PGTABLE_PROT_R)
-> > > >  		set |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R;
-> > > >  
-> > > >  	if (prot & KVM_PGTABLE_PROT_W)
-> > > > -		set |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
-> > > > +		set |= KVM_PTE_LEAF_ATTR_HI_S2_DBM | KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
-> > > >  
-> > > >  	if (prot & KVM_PGTABLE_PROT_X) {
-> > > >  		ret = stage2_set_xn_attr(prot, &xn);
-> > > >  		if (ret)
-> > > >  			return ret;
-> > > >  
-> > > >  		set |= xn & KVM_PTE_LEAF_ATTR_HI_S2_XN;
-> > > >  		clr |= ~xn & KVM_PTE_LEAF_ATTR_HI_S2_XN;
-> > > >  	}
-> > > >  
-> > > > diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-> > > > index 17123f0b6dab..eb8dfffc32c7 100644
-> > > > --- a/arch/arm64/kvm/nested.c
-> > > > +++ b/arch/arm64/kvm/nested.c
-> > > > @@ -379,21 +379,23 @@ static int walk_nested_s2_pgd(struct kvm_vcpu *vcpu, phys_addr_t ipa,
-> > > >  	}
-> > > >  
-> > > >  	addr_bottom += contiguous_bit_shift(desc, wi, level);
-> > > >  
-> > > >  	/* Calculate and return the result */
-> > > >  	paddr = (desc & GENMASK_ULL(47, addr_bottom)) |
-> > > >  		(ipa & GENMASK_ULL(addr_bottom - 1, 0));
-> > > >  	out->output = paddr;
-> > > >  	out->block_size = 1UL << ((3 - level) * stride + wi->pgshift);
-> > > >  	out->readable = desc & KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R;
-> > > > -	out->writable = desc & KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
-> > > > +	/* Takes care of both RO/RW and RO/WC/WD encodings */
-> > > > +	out->writable = desc & (KVM_PTE_LEAF_ATTR_HI_S2_DBM |
-> > > > +				KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W);
-> > > 
-> > > Absolutely NOT. For a start, NV doesn't support FEAT_HAFDBS. But even
-> > > if it did, you are now actively corrupting memory by turning a RO
-> > > mapping with a spurious DBM bit set into a writable mapping.
-> > > VTCR_EL2.HD exists for a reason.
-> > > 
-> > > Do you see why your blanket approach of equating DBM with writable is
-> > > plain wrong?
-> > 
-> > Sorry, not really... please help me understand it.
-> > 
-> > When you say a spurious DBM bit, what does it mean?
-> > 
-> > All I can think is something like a buggy HW implementation setting DBM in 
-> > a HAFDBS-disabled machine, which has been unnoticed up to now, and now 
-> > could cause problems.
+On Wed, 16 Sep 2026 11:59:51 +0800, Chen-Yu Tsai wrote:
+> The MFG_ASYNC domain, which is likely associated to the whole MFG block,
+> currently specifies clk26m as its domain clock. This is bogus, since the
+> clock is an external crystal with no controls. Also, the MFG block has
+> a independent CLK_TOP_AXI_MFG_IN_SEL clock, which according to the block
+> diagram, gates access to the hardware registers. Having this one as the
+> domain clock makes much more sense. This also fixes access to the MFGTOP
+> registers.
 > 
-> And pray tell, what is it to have HAFDBS being disabled at S2? Instead
-> of throwing the book at me, you should probably read it, and specially
-> the effects of VTCR_EL2.HD.
+> [...]
 
-Sorry, I did not mean to "trow a book" at you here, I was just trying to 
-figure out what was wrong, and given I was not able to do it by myself I 
-thought it was a good idea to ask you.
+Applied to v7.3-next/dts64, thanks!
 
-I just did not want to do that in an effortless way, so I gathered the 
-stuff that I previously thougt to understand, and brought them to the 
-discussion so it could be easier to point what I got wrong. 
+[1/2] arm64: dts: mediatek: mt8173: Fix MFG_ASYNC power domain clock
+      commit: c9b3c82c9f1f86cdb2449d47e4ca66a19159ee12
+[2/2] arm64: dts: mediatek: mt8173: Add GPU device nodes
+      commit: f0d8c2b05e2d384c0162b41d3728433c1bb23972
 
-As for your question, the effects of VTCR_EL2.HD is to actually mark the 
-page as dirty (S2AP=1) when an writable-clean page (DBM=1, S2AP=0) gets 
-writen to. DBM seems to act as permission to let the hardware change the 
-S2AP bit when HAFDBS available & enabled. 
+Cheers,
+Angelo
 
-So if we want to use DBM as writable, we have to make sure we have 
-VTCR_EL2.HD=0, or we are indeed intending to use HAFDBS here.
-
-Not sure if I get your point here.
-
-Thanks!
-Leo
 
 
