@@ -4,68 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2D22C982CA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:22:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C02EC982C3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:23:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8EztYNQsdjLqlbOEDEsuqybbRRUCXbpkuwA/2dp5qRI=; b=1qdRS43Umj14AqFWCbe0Pz/rrg
-	ze8k8/GhXMf0miObxW0KJdBHJb+3NON1+Qx+7QRH5iVwDdXnpHpxmEW7ri/20Iws+6XWXgwCj9h7H
-	4HYrytfT98cZE4n9yeE5xJs3VYldSM+1JoAkZEYlr7bfdI52oGsl1ZicSu6XSis+nx7URhGz+b3qO
-	OTh0sPsFHfw86CGqS023AAHHwqfVpKpTpcxNvlAfriKYwSDezMWa/el3V3u3MFueIBvpq8jJqW5MG
-	uZxfirDZZNfvSDPyW5/6Rvg34iqrn2GXLExtXRICzrRrBcIJQyqS1Tuxw8MsiDT/kpGtNhlR0RmE9
-	l4FPCfaQ==;
+	bh=gUBqB4Fqzqc99qDiZRC6rn2LnblCueCLqVsZm7n7TfU=; b=k760BjOmN3NTDH+QoYy/yZgskE
+	gSz1E5izMR2C2ZCuxpRy5pr7jUjNTjbu7fR6I619cS3Zxd4YTXp/UX74rsj1Y/fv6K37atGVrc0ep
+	TKmyyE4FylY+HmDZySKCixOsbzL7jPOoKHcfVTVvhGO6xM9FqGkjZTL5UD+UOJDXyDxBauC2uHbIh
+	Sh6j4udc3EgKkPCA3VbEjCGAXaSQP7VZYXfO6+DCDvLisLIHd6rrCOEMOZjoY3BeHLqo5GZS51IdG
+	2ArBOFGqzldLp6EBC0WENNOnrrldblAmUJ2aNKhDtz/Clw0uuw0E+6QtWL3i+kBxLgRf2erCKNW5C
+	PV8ljEMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rSh-00000009Z8i-40Ja;
-	Wed, 16 Sep 2026 15:22:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x6rU0-00000009ZR7-1BJM;
+	Wed, 16 Sep 2026 15:23:36 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rSZ-00000009Z6t-2DJL
+	id 1x6rTy-00000009ZQr-106B
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 15:22:07 +0000
+	Wed, 16 Sep 2026 15:23:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id F2EDE60234;
-	Wed, 16 Sep 2026 15:22:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76A611F000FF;
-	Wed, 16 Sep 2026 15:22:06 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0310C43670;
+	Wed, 16 Sep 2026 15:23:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 341851F000FF;
+	Wed, 16 Sep 2026 15:23:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789572126;
-	bh=8EztYNQsdjLqlbOEDEsuqybbRRUCXbpkuwA/2dp5qRI=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject;
-	b=opLOvjeGosMppia9uO8Q/Y0ZFmvqlKZvofdW32/kTovLCJvHaJEayYOKbu4chKGNL
-	 5hsNx+GTdLM7tS2SmzRggY9wFOz6uEM1hIyBzUxgWOyERkELVKd2hUfnyWJfIe6uLV
-	 Rinjqu7DvXGC4BFwYD47POgPlE8TWZzzFv7DqKtt4Nbb82Iws037PyXZLt2geRDVXC
-	 0bzPVRALj9OPpxmriQlotbjN6nD5oEYfMDXiwIAh53rVk+SBUuElHThnWULatSij7W
-	 vpWIUtl8yA1g5KKxF98iEejoYgMd0+II91sTJIjVlbdskZ5y23NB7qY9KrvBZ/FZd4
-	 8pfPsN5e/kgJw==
-Date: Wed, 16 Sep 2026 10:22:00 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1789572213;
+	bh=gUBqB4Fqzqc99qDiZRC6rn2LnblCueCLqVsZm7n7TfU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Zms7zbQMXsV+X5ghNSF6YjMl6cJUjNxOkr2rrVhGM0XFYBR9/EjTqpLFG0bk/C0J+
+	 F29El3ZivUeVL99Zn3f4rNP0UQ71wVGtSaM4Wr/EMConrjhwND2seSG6X9LdI8PKKt
+	 wBlIcZKq1r/aZ74++NVwbVmjyfyz5z1nYuTWwX+kD2jkBcYRdj7Mi6GJnPNsh85OIT
+	 Wt/c6bCxiBrWxpCWyEuLB8YAvC09SN9sOOK19ICTHSvz2x5HNnAUJXlBqgbo7+D6OZ
+	 nx0j/Hi/XmglqjOXV6BadfdwTE/hibURx5tCXMkuCpoOvvLMWTRan6RTc2WQiI6iCr
+	 47EQKZi3eSznQ==
+Date: Wed, 16 Sep 2026 17:23:31 +0200
+From: Frederic Weisbecker <frederic@kernel.org>
+To: "Paul E. McKenney" <paulmck@kernel.org>
+Cc: Josef Bacik <josef@toxicpanda.com>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Boqun Feng <boqun@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>, x86@kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Puranjay Mohan <puranjay@kernel.org>,
+	Xu Kuohai <xukuohai@huaweicloud.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Zqiang <qiang.zhang@linux.dev>, Juergen Gross <jgross@suse.com>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	linux-kernel@vger.kernel.org, rcu@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, bpf@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	xen-devel@lists.xenproject.org
+Subject: Re: [PATCH RFC v3 03/13] rcu-tasks: Add a Tasks RCU implementation
+ for reader-marked trampolines
+Message-ID: <aqq0cwvRDsorGwgc@localhost.localdomain>
+References: <20260915-b4-rcu-tasks-preempt-qs-v3-0-0ad30c4c5ee7@toxicpanda.com>
+ <20260915-b4-rcu-tasks-preempt-qs-v3-3-0ad30c4c5ee7@toxicpanda.com>
+ <aqlgxKGk_AEKls_1@localhost.localdomain>
+ <edc7cca2-a5c5-455c-8969-ea05dbdb08f7@paulmck-laptop>
+ <aqqONH8flTIpOUqT@localhost.localdomain>
+ <91687748-0781-4133-baed-43cf82f35ff5@paulmck-laptop>
+ <aqqpRoTfywUuTgoC@localhost.localdomain>
+ <aqqsAUVV8a1yrQzX@localhost.localdomain>
+ <6afb0afe-e7b8-46b4-9fea-2c7cf4791044@paulmck-laptop>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Heiner Kallweit <hkallweit1@gmail.com>, Paolo Abeni <pabeni@redhat.com>, 
- netdev@vger.kernel.org, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Jakub Kicinski <kuba@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- "David S . Miller" <davem@davemloft.net>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, Eric Dumazet <edumazet@google.com>, 
- Samuel Holland <samuel@sholland.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
- linux-sunxi@lists.linux.dev, Russell King <linux@armlinux.org.uk>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>
-To: Alastair D'Silva <alastair@d-silva.org>
-In-Reply-To: <20260916044119.475666-2-alastair@d-silva.org>
-References: <20260916044119.475666-1-alastair@d-silva.org>
- <20260916044119.475666-2-alastair@d-silva.org>
-Message-Id: <178957206753.228275.3543582001774069181.robh@kernel.org>
-Subject: Re: [PATCH net-next 1/4] dt-bindings: net: phy: Add Allwinner
- AC300 EPHY binding
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <6afb0afe-e7b8-46b4-9fea-2c7cf4791044@paulmck-laptop>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,56 +102,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 16 Sep 2026 14:41:16 +1000, Alastair D'Silva wrote:
-> Add device tree binding documentation for the Allwinner AC300
-> Fast Ethernet Physical Layer (EPHY) co-packaged on Allwinner
-> H616 and H618 SoCs.
+Le Wed, Sep 16, 2026 at 07:55:02AM -0700, Paul E. McKenney a écrit :
+> On Wed, Sep 16, 2026 at 04:47:29PM +0200, Frederic Weisbecker wrote:
+> > Le Wed, Sep 16, 2026 at 04:35:50PM +0200, Frederic Weisbecker a écrit :
+> > > Le Wed, Sep 16, 2026 at 07:26:35AM -0700, Paul E. McKenney a écrit :
+> > > > On Wed, Sep 16, 2026 at 02:40:20PM +0200, Frederic Weisbecker wrote:
+> > > > > Le Tue, Sep 15, 2026 at 04:56:41PM -0700, Paul E. McKenney a écrit :
+> > > > > > > Alternatively the approach could be generalized to vanilla RCU, it could be
+> > > > > > > possible to define a .text.rcu_no_qs section within which code running is
+> > > > > > > considered as an RCU reader (with a pause while on the explicit RCU tasks
+> > > > > > > section). It would be forbidden to voluntary sleep inside
+> > > > > > > and to put explicit preemption points (CONFIG_PROVE_RCU could report misuses).
+> > > > > > > 
+> > > > > > > Based on IP, RCU could consider those interrupted section as readers. This would
+> > > > > > > require PREEMPT_RCU though.
+> > > > > > > 
+> > > > > > > And then synchronize_rcu() would do the 1, 2, 4 jobs.
+> > > > > > 
+> > > > > > If I am following correctly (ha!), sleepable BPF programs rule out use
+> > > > > > of RCU in this manner.
+> > > > > > 
+> > > > > > But your point is nevertheless valid, in that SRCU could be used.
+> > > > > > And because rcu_read_lock_trace() is a thin wrapper around SRCU-fast, we
+> > > > > > *might* be able to instead use rcu_read_lock_tasks_trace(), which would
+> > > > > > skip the task-struct increment and decrement, saving a few instructions.
+> > > > > > Then, instead of waiting for each task's counter to go to zero, instead
+> > > > > > just invoke synchronize_rcu_tasks_trace().
+> > > > > > 
+> > > > > > Which is pretty close to what Josef is proposing, just with the new RCU
+> > > > > > Tasks Trace read-side primitives.  I think.  ;-)
+> > > > > > 
+> > > > > > This assumes that we do not need to flatten partially overlapping RCU
+> > > > > > Tasks Trace readers into one big reader.
+> > > > > > 
+> > > > > > Or am I missing something here?
+> > > > > 
+> > > > > Yes I think that's what Josef does in this patchset. The problem is about
+> > > > > handling the few instructions:
+> > > > > 
+> > > > > 1) between the begining of the trampoline and the call to rcu_read_lock_trace()
+> > > > > 
+> > > > > 2) between the call to rcu_read_unlock_trace() and the end of the trampoline
+> > > > > 
+> > > > > So what I'm proposing is to make those two parts implicit RCU read lock sections.
+> > > > > 
+> > > > > So the whole trampoline would be .text.rcu_no_qs:
+> > > > > 
+> > > > > .text.rcu_no_qs trampoline:
+> > > > >   __________________________________________________________________________________________
+> > > > >  |Few instructions 1 | rcu_read_lock_trace() .... rcu_read_unlock_trace | Few instructions 2|
+> > > > >  ___________________________________________________________________________________________
+> > > > > 
+> > > > > Then when a tick fires, rcu_flavor_sched_clock_irq() discards the interrupted
+> > > > > code as QS if the IP was within .text.rcu_no_qs _unless_ it is in the
+> > > > > rcu_read_lock_trace. Both are easy and quick to verify.
+> > > > > 
+> > > > > Also preempt_schedule_irq() would make sure to verify the same condition and
+> > > > > enqueue the task as a GP blocker if preempting inside "Few instructions 1"
+> > > > > or "Few instructions 2".
+> > > > 
+> > > > Ah, OK, I might be following now.  ;-)
+> > > > 
+> > > > We also need both versions of rcu_exp_handler() to check the IP as well,
+> > > > given that sooner or later someone is going to want trampoline removal
+> > > > to go faster.  Or am I still missing a turn in here somewhere?
 > 
-> Assisted-by: LLM
-> Signed-off-by: Alastair D'Silva <alastair@d-silva.org>
-> ---
+> I should add that the thing that I really like about Frederic's approach
+> is that avoids the task-list scan.  Or at least has the potential to
+> do so.  Such scans have proven problematic in the past.
 > 
-> Notes:
->     Tested on Mellow Fly-C5 (Allwinner H618) under Armbian with Linux 6.18 and
->     7.x kernels, verifying schema validation with dt_binding_check.
+> > > Yes indeed, missed the exp part!
+> > 
+> > What remains to handle also is non-preemptible RCU because if the task is
+> > preempted by an IRQ while in the .text.rcu_no_qs, we may still need to keep
+> > track of that somewhere.
 > 
->  .../net/allwinner,sun50i-h618-ac300-ephy.yaml | 79 +++++++++++++++++++
->  1 file changed, 79 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/allwinner,sun50i-h618-ac300-ephy.yaml
+> Perhaps in rcu_core() in kernels booted with use_softirq?  I am thinking
+> specifically of the checks for deferred quiescent states.  I don't (yet)
+> see a need to modify rcu_check_quiescent_state().
 > 
+> Maybe other places as well.  ;-)
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Hmm this tracking would have to happen on preempt_schedule() just like we
+do for PREEMPT_RCU. Or am I missing something? And then we would need a
+list scan of those tasks.
 
-yamllint warnings/errors:
+Or we can build the blocked task list handling, that we already have for PREEMPT_RCU,
+when CONFIG_RCU_TASKS && !CONFIG_PREEMPT_RCU. We would just only add tasks when
+preempted in .text.rcu_no_qs since rcu_read_lock() would still disable
+preemption on normal explicit readers. So I wouldn't expect more overhead due to
+that blocked list tracking built since it would rarely track tasks.
 
-dtschema/dtc warnings/errors:
-Documentation/devicetree/bindings/net/allwinner,sun50i-h618-ac300-ephy.example.dtb: ethernet-phy@0 (ethernet-phy-id0044.1400): compatible: 'oneOf' conditional failed, one must be fixed:
-	['ethernet-phy-id0044.1400', 'allwinner,sun50i-h618-ac300-ephy', 'ethernet-phy-ieee802.3-c22'] is too long
-	'ethernet-phy-ieee802.3-c22' was expected
-	'ethernet-phy-ieee802.3-c45' was expected
-	from schema $id: http://devicetree.org/schemas/net/allwinner,sun50i-h618-ac300-ephy.yaml
-Documentation/devicetree/bindings/net/allwinner,sun50i-h618-ac300-ephy.example.dtb: ethernet-phy@0 (ethernet-phy-id0044.1400): compatible: 'oneOf' conditional failed, one must be fixed:
-	['ethernet-phy-id0044.1400', 'allwinner,sun50i-h618-ac300-ephy', 'ethernet-phy-ieee802.3-c22'] is too long
-	'ethernet-phy-ieee802.3-c22' was expected
-	'ethernet-phy-ieee802.3-c45' was expected
-	from schema $id: http://devicetree.org/schemas/net/ethernet-phy.yaml
+Thanks.
 
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.kernel.org/project/devicetree/patch/20260916044119.475666-2-alastair@d-silva.org
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+-- 
+Frederic Weisbecker
+SUSE Labs
 
