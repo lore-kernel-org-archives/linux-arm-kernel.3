@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC7D5C982C9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 16:51:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82DBBC982C1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 16:52:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aPNoc/IlVGOzrz4AF5oUnZbB8ytSLfqRYFF3aP/E0sQ=; b=PT/L4SOyvNDxBTqUiUeYq4V4zi
-	OTq8cmGnKD9vDWS/SauN1kK5/9YN8Ad1L1UqeSNBX3jSj/1G4iZazL7+43eTTbYyjiIMp7QYiVq0D
-	MAv1Eys1IGxgc/2jVWNQa+bkirN24BQaXqIvzeeu85qLUrlMfa7RcQZQY4ROfE4xlYGD/YPpkLii2
-	ccUCCzcHUWCBvmMl/Fnd9WaadUIXPbChebuA+hgIgMPfVLukUrbosYDusdcAkL/KUgK4bnsfajYki
-	J8Kal2EYbG6POWCLK+Zc0QHSiNq8F3WM9HDTLufTxYkOOAW3mUjGwkqgFbxg06blDxJbb6uPFATp9
-	mqkQhtyg==;
+	bh=jlDHHiMVqeXgdpn1Zj7e0N2hLgqwzeWFJxceKYb+YHU=; b=q0zB7hM7oBVVsm+5zQ/TwXq9je
+	q0hQqXmST/+XsjVbG6dWvDfRZ84a392WMwrG1w5jqMrSF4PEORvIqHWwAabLVLEzegoywOnvT+RHi
+	r6mDetLM81cdBw7MRouqRnT05y/BW5lSHLqpFHqhjfnJj4qzR00L9JSk7RN7xaln+BqKLox1/bcCC
+	OK/zA/yyci9CJuFi8H5s64kFYrEoENwsgYPkh0MiPcTE8jZiNeTnA37XONTVQuq9fUeVT5tK9ili/
+	7dADXSH8BEttQkAcZigl1nlyJY3waiAm82k4zJeJxkI77BA03CpP8qhb4Nat3g2GZfaECalMZi8JN
+	c+3OM+mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6sqc-00000009n9e-0hAo;
-	Wed, 16 Sep 2026 16:51:02 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x6srQ-00000009nKL-1Lvd;
+	Wed, 16 Sep 2026 16:51:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6sqa-00000009n9C-1QtY
+	id 1x6srO-00000009nK8-2ZxB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 16:51:00 +0000
+	Wed, 16 Sep 2026 16:51:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EDB4443BC4
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 16:50:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA4E01F008A4
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 16:50:59 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 128266022C
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 16:51:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC5151F0089B
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 16:51:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789577459;
-	bh=aPNoc/IlVGOzrz4AF5oUnZbB8ytSLfqRYFF3aP/E0sQ=;
+	s=k20260515; t=1789577509;
+	bh=jlDHHiMVqeXgdpn1Zj7e0N2hLgqwzeWFJxceKYb+YHU=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=KDzpsTWg/z/5krxTobDbUSigXfKLPKN3GY+kPVHqBR7Qs64CjzbIot5CkPAxP2KI+
-	 Upq0GS82M9H0w++Czaj9svBiDTIMQmYdYP/CnWtiPeFrOEHUujcdjRSLexmI83DV+8
-	 d3OQKB1DCYTLA88vtfqbmhxp+3cXxscBoXEspNQE0qlsMYOfCwjg24mnoTiNgsl1/S
-	 2qLgSSSaznjuc0hKlv6DMiusMtJMUHjJIhhSSySZ7vl9callQF4Q+5MgOlSemRyTDx
-	 yueZt3Uscllvxw64KPLdcYhjZOLgiIXI50AcSMUhvVtuef5e/bhhcPutASFv5vSY+5
-	 AtaQQrqZxPKdg==
-Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b5e4f13d76so1334927e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 09:50:59 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBwl+1AjWZteVsW7h/A7r0Qvk5DssNssMUtoNBdnZQ2MCJxHjG8XCdwcHxnX4kUgzLE9nA9szp2yGgqBY/yAMaf3@lists.infradead.org
-X-Gm-Message-State: AFuF++mggO1+DYM784gLjD9eachxJIw8rXrC1d09X190iJlW7FCwdyiz
-	hDLlhx0sbxs1tuqAv+U0ixGQJtdUNcfhF7WPF8LJc97N7COouin0genn/hRIVrv2EshM1Cn3bgr
-	5FEp3VxEAHqnDFGNl+IrSunAv+m1iJpc=
-X-Received: by 2002:a05:6512:4023:b0:5b8:b419:c8ad with SMTP id
- 2adb3069b0e04-5b8b6617917mr969995e87.17.1789577458536; Wed, 16 Sep 2026
- 09:50:58 -0700 (PDT)
+	b=JcbHzxFvgLrpPJkR5R3XBY3y2SfCcwhDFnSiLhJ1B+/JTtnxdxndb4zLLznpRuxMr
+	 zDUB6DlQP+4KRhUFQ8qZIwmbtMSg4Sa213btbd920xJW3yvf/Rn4Qzedge0V2JpjlX
+	 DSseYM02zkMboFVManwZ9pkz7gBcwpL3z/fAJjcC2l/MJBjBv12ZukFan7Y5adtLR5
+	 PKISREbVUR980BR6UCPR2TSmSQ7nhb1eCTbfCo2hB8HPqtX95CCZxk0cjc1OeNxXHC
+	 wHby+UM/xrpkpvxH7mvJSJwmMZRLimAjK/eOXdvW4CtjMIwx6V8jFLqWrsv0qByTdb
+	 TzMjmwn1jm1BA==
+Received: by mail-lf2-f13.google.com with SMTP id 2adb3069b0e04-5b5e4f15b7aso1242447e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 09:51:49 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvByLTAo0etJnOqSXcpyFAPsQ3D0zWz5RS/PxMC6yF5IqA85RG+pmZrrGLQM4h2EXxsQNeMlBT6ziumGbkcBtVSGg@lists.infradead.org
+X-Gm-Message-State: AFuF++ljKd3L2Hp6sYI1hbfh91ZyM9L+y+VO9IseDUZTOrfVfRsSnQGl
+	ruNJtd6cphelwYJIh9QRxlh+L3rhaWFPIv+XLlaSQKSAldc72KSJDx2RaKy6qopXnUyya6OZ91n
+	GcOG+6bc4Z/Ke0mQe62WFFmZFzf3vutY=
+X-Received: by 2002:a05:6512:3d10:b0:5b6:17b6:2224 with SMTP id
+ 2adb3069b0e04-5b8b665478emr1974764e87.23.1789577508492; Wed, 16 Sep 2026
+ 09:51:48 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260909132153.1596191-1-arnd@kernel.org> <20260909132153.1596191-9-arnd@kernel.org>
-In-Reply-To: <20260909132153.1596191-9-arnd@kernel.org>
+References: <20260909132153.1596191-1-arnd@kernel.org> <20260909132153.1596191-13-arnd@kernel.org>
+In-Reply-To: <20260909132153.1596191-13-arnd@kernel.org>
 From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 16 Sep 2026 18:50:45 +0200
-X-Gmail-Original-Message-ID: <CAD++jL=dBJNiZMwRfYtVXC=qfWEU8WY1DRRzDA1o9Ngsd_VRqg@mail.gmail.com>
-X-Gm-Features: AcwNN1VWCbypMBp0nAwSnIVxOHs3QNpjZkwVGv_5Swi1QUA8mHWSb92JoMn3LYg
-Message-ID: <CAD++jL=dBJNiZMwRfYtVXC=qfWEU8WY1DRRzDA1o9Ngsd_VRqg@mail.gmail.com>
-Subject: Re: [PATCH 08/14] mfd: remove unused aat2870 driver
+Date: Wed, 16 Sep 2026 18:51:35 +0200
+X-Gmail-Original-Message-ID: <CAD++jLm253spmn1Tq2Jekiw2Q9xD_HDQ+AFRgWovLyE=veAfhA@mail.gmail.com>
+X-Gm-Features: AcwNN1Xrn_ibUNrql-q0n8N3iTosx-ZSLrxjHuJr9HzfGfgIlGS2dfpxQ3q588w
+Message-ID: <CAD++jLm253spmn1Tq2Jekiw2Q9xD_HDQ+AFRgWovLyE=veAfhA@mail.gmail.com>
+Subject: Re: [PATCH 12/14] mfd: remove unused mcp-sa11x0/ucb1x00 driver
 To: Arnd Bergmann <arnd@kernel.org>
 Cc: Lee Jones <lee@kernel.org>, mfd@lists.linux.dev, linux-kernel@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>, 
@@ -97,13 +97,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 9, 2026 at 3:23=E2=80=AFPM Arnd Bergmann <arnd@kernel.org> wrot=
+On Wed, Sep 9, 2026 at 3:24=E2=80=AFPM Arnd Bergmann <arnd@kernel.org> wrot=
 e:
 
 > From: Arnd Bergmann <arnd@arndb.de>
 >
-> This driver was apparently never used, as it has has no devicetree
-> support and never had corresponding platform_data definitions.
+> The sa1100 platform has been removed, so these drivers are no longer
+> used anywhere.
 >
 > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 
