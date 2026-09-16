@@ -4,67 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84048C88E5C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 08:54:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9AEFC982C1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 09:01:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OdGRqtcPUgvr9d7/8kROmhFaMo4CDuCszhCRyj6sFbw=; b=Sm245qt2l4HLF1NjZy85Vxjcw+
-	GVruGHlFJJB6I1LcwT+YZHhtPdagAKu6ZJ5JADMFaZ6oAmauxK1GGGJvzlaeYf9PA1nQRQzrewVAN
-	EXlTRjwmO2EfdVz7c38Vgm3w+0TiD0BX1uDGZHu+d94/9NpPbQL40oWRDl0dwJjvrKOX1gWJdKTRZ
-	J1rXOJMqiTRhfEJGUtM+iKYBWvnYGg1X+bbwOAn4ePsn+gKMYPQjS0fIEzFaUOjmsejEGG45PGFTs
-	d/eeUpswnLtZqpiELA5FVUgp9cEdvDB0HmVAFDHq36JoXSx8eYLSan9hjyGVvlhEtiM7ZZ0JpzIO5
-	bJI0Z4YQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ndY4ZVKXn4jYxy2ap4ChhJIz6Pf0w0TMQtMwao0c/s4=; b=N1wSny5i5V/TdWqX20IAGH8qSP
+	ZFk5YWNaUa9m9IwLCjfYfF0JmXcQcFHxIk48QLT0r/gHVNWWjReVCeUjB6EE/tO2sD1KgeT50jzQA
+	YPopx53acjFBSU2IlTacKySKxVoxXBvmyMFEtFe8Y96zZdLWW6kqHmDS+ZOu74B/gKExQxaP2P54l
+	+nR8pIBHrh4DnjvBeVcNS318zlZclnljExYJVrrnDerp64egmlwFKlsfvydxbE4abeqz+Z0vHMk2Y
+	2wJfXGg59McKRMpD7YXmUrnNGQShTkLaEVvu7RByded7CDoLSzAwfy3WdjJAebf8ns381qUH58iAe
+	iypd6ucw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6lPA-00000008mGo-1FxX;
-	Wed, 16 Sep 2026 08:54:12 +0000
-Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
+	id 1x6lVv-00000008mr5-2sMs;
+	Wed, 16 Sep 2026 09:01:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6lP7-00000008mGA-33DQ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 08:54:11 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=OdGRqtcPUgvr9d7/8kROmhFaMo4CDuCszhCRyj6sFbw=;
-	b=0iUFIuSmMjsxIaFI1Rs/lIOIZnOASyq7DsisPSrd/gzc0/DXDnAExisvyFqIkMDdXg6nUeVTM
-	JDCq3/bQoYgMYJly6bo7wmbZbpPq7LDRTlifJc8Ct+BRIzJ4sSY88QEd4Wh+bqO1VZrkGspU2+O
-	hFeI36JXvYZNMcaA/fuYP70=
-Received: from mail.maildlp.com (unknown [172.19.163.104])
-	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4hlC881LkvzRhVN;
-	Wed, 16 Sep 2026 16:43:04 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id 666BB4058F;
-	Wed, 16 Sep 2026 16:54:00 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- kwepemk200008.china.huawei.com (7.202.194.74) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Wed, 16 Sep 2026 16:53:59 +0800
-Message-ID: <f84359c7-34d6-4658-8378-db3da94c674d@huawei.com>
-Date: Wed, 16 Sep 2026 16:53:58 +0800
+	id 1x6lVs-00000008mqD-3lV2;
+	Wed, 16 Sep 2026 09:01:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4478743A51;
+	Wed, 16 Sep 2026 09:01:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5292E1F0089A;
+	Wed, 16 Sep 2026 09:01:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789549268;
+	bh=ndY4ZVKXn4jYxy2ap4ChhJIz6Pf0w0TMQtMwao0c/s4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=AumnpGhaRDz4R/OANmzzZG+60wVb7KKHlLqeRbzur2rPpJXJ+bSfzUwzzC5ntEdX/
+	 k2O4TX/o4wTaK24YTKSYeDi6Z1xNup/y0HiQJJ2Kirvk2xH1IykfBjzRH7zSIZhCnx
+	 14SA24CeuBJNR7vqi3LN0PN7V6vbfiG4TeJclZxgNbq67C9nYZtqbsId6UYS/rI812
+	 vxYfu77u3+0mr3rF9Q+LebrLCvhnssBgk+1qvFZ432Xmwj5afxGwOgyvOEKV+f+jSJ
+	 haZpG5Fi0eQOBUyRRKs7NdnL98JJ+LP/kj+7kvjJ+sSbl9do4hVO0z4dIomZJ4r7AG
+	 v1guUypbrXsUQ==
+Date: Wed, 16 Sep 2026 11:01:03 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Zhentao Guo <zhentao.guo@amlogic.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, 
+	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v9 3/6] media: dt-bindings: Add Amlogic V4L2 video decoder
+Message-ID: <20260916-fat-enthusiastic-termite-44b2e2@quoll>
+References: <20260914-b4-s4-vdec-upstream-v9-0-72fdb0d71b02@amlogic.com>
+ <20260914-b4-s4-vdec-upstream-v9-3-72fdb0d71b02@amlogic.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 20/38] arm64: probes: Reject stepping over ALLINT
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
-	<maz@kernel.org>, <lpieralisi@kernel.org>, <liaochang1@huawei.com>
-References: <20260914102102.68597-1-vladimir.murzin@arm.com>
- <20260914102102.68597-21-vladimir.murzin@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260914102102.68597-21-vladimir.murzin@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- kwepemk200008.china.huawei.com (7.202.194.74)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_015409_955994_76668720 
-X-CRM114-Status: GOOD (  15.46  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260914-b4-s4-vdec-upstream-v9-3-72fdb0d71b02@amlogic.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,58 +73,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Sep 14, 2026 at 04:10:20PM +0800, Zhentao Guo wrote:
+> Describe the initial support for the V4L2 stateless video decoder
+> driver used with the Amlogic S4 (S805X2) platform.
 
+Drop driver. Describe the hardware instead.
 
-在 2026/9/14 18:20, Vladimir Murzin 写道:
-> ALLINT instructions are not safe for probing. Both the register and
-> immediate forms of MSR for ALLINT are currently rejected because they
-> match aarch64_insn_is_msr_{imm,reg}(). However, MRS instructions
-> accessing ALLINT need to be rejected explicitly.
 > 
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> Signed-off-by: Zhentao Guo <zhentao.guo@amlogic.com>
 > ---
->  arch/arm64/include/asm/insn.h          |  1 +
->  arch/arm64/kernel/probes/decode-insn.c | 11 +++++++----
->  2 files changed, 8 insertions(+), 4 deletions(-)
+>  .../devicetree/bindings/media/amlogic,s4-vdec.yaml | 114 +++++++++++++++++++++
+>  1 file changed, 114 insertions(+)
 > 
-> diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
-> index 1ce75a442638..0a81b5feb2ed 100644
-> --- a/arch/arm64/include/asm/insn.h
-> +++ b/arch/arm64/include/asm/insn.h
-> @@ -118,6 +118,7 @@ enum aarch64_insn_special_register {
->  	AARCH64_INSN_SPCLREG_SP_EL0	= 0xC208,
->  	AARCH64_INSN_SPCLREG_SPSEL	= 0xC210,
->  	AARCH64_INSN_SPCLREG_CURRENTEL	= 0xC212,
-> +	AARCH64_INSN_SPCLREG_ALLINT	= 0xC218,
->  	AARCH64_INSN_SPCLREG_DAIF	= 0xDA11,
->  	AARCH64_INSN_SPCLREG_NZCV	= 0xDA10,
->  	AARCH64_INSN_SPCLREG_FPCR	= 0xDA20,
-> diff --git a/arch/arm64/kernel/probes/decode-insn.c b/arch/arm64/kernel/probes/decode-insn.c
-> index 4137cc5ef031..a98d9d30fb4a 100644
-> --- a/arch/arm64/kernel/probes/decode-insn.c
-> +++ b/arch/arm64/kernel/probes/decode-insn.c
-> @@ -36,11 +36,14 @@ static bool __kprobes aarch64_insn_is_steppable(u32 insn)
->  		/*
->  		 * The MRS instruction may not return a correct value when
->  		 * executing in the single-stepping environment. We do make one
-> -		 * exception, for reading the DAIF bits.
-> +		 * exception, for reading the DAIF and ALLINT bits.
->  		 */
-> -		if (aarch64_insn_is_mrs(insn))
-> -			return aarch64_insn_extract_system_reg(insn)
-> -			     != AARCH64_INSN_SPCLREG_DAIF;
-> +		if (aarch64_insn_is_mrs(insn)) {
-> +			u32 sysreg = aarch64_insn_extract_system_reg(insn);
+> diff --git a/Documentation/devicetree/bindings/media/amlogic,s4-vdec.yaml b/Documentation/devicetree/bindings/media/amlogic,s4-vdec.yaml
+> new file mode 100644
+> index 000000000000..d350b3e68a38
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/media/amlogic,s4-vdec.yaml
+> @@ -0,0 +1,114 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +# Copyright (C) 2025 Amlogic, Inc. All rights reserved
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/media/amlogic,s4-vdec.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +			return (sysreg != AARCH64_INSN_SPCLREG_DAIF) &&
-> +			       (sysreg != AARCH64_INSN_SPCLREG_ALLINT);
+> +title: Amlogic Video Decode Accelerator
+> +
+> +maintainers:
+> +  - Zhentao Guo <zhentao.guo@amlogic.com>
+> +
+> +description:
+> +  The Video Decoder Accelerator present on Amlogic SOCs.
+> +  It supports stateless h264 decoding.
+> +
+> +properties:
+> +  compatible:
+> +    const: amlogic,s4-vdec
+> +
+> +  reg:
+> +    maxItems: 2
+> +
+> +  reg-names:
+> +    items:
+> +      - const: dos
+> +      - const: dmc
+> +
+> +  interrupts:
+> +    maxItems: 2
+> +
+> +  interrupt-names:
+> +    items:
+> +      - const: core_hvdec
+> +      - const: core_vdec
 
-LGTM
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+Drop "core_" from both... or rather some consistency would be more
+useful. Below you call them core_v and core_h, but there is also:
 
-> +		}
->  
->  		/*
->  		 * The HINT instruction is steppable only if it is in whitelist
+> +
+> +  clocks:
+> +    items:
+> +      - description: Clock for dos core
+
+core dos?
+
+> +      - description: Clock for vdec core
+> +      - description: Clock for hvdec core
+> +
+> +  clock-names:
+> +    items:
+> +      - const: dos
+> +      - const: core_v
+
+hvdec?
+
+> +      - const: core_h
+
+vdec? to keep the naming and order of interrupts?
+
+> +
+> +  power-domains:
+> +    maxItems: 2
+> +
+> +  power-domain-names:
+> +    items:
+> +      - const: dos_v
+> +      - const: dos_h
+
+So there is also dos variant v and h?
+
+Pretty confusing.
+
+> +
+> +  resets:
+> +    maxItems: 1
+> +
+> +  amlogic,canvas:
+> +    description: Canvas maintains an index-to-physical-address
+> +     mapping table that allows the 16-bit AMRISC decoder core
+> +     to access 32-bit or 64-bit physical address.
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +
+> +  amlogic,secure-monitor:
+> +    description: Used to decrypt and load the signed decoder
+> +     firmware through ARM SMC (Secure Monitor Call).
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - reg-names
+> +  - interrupts
+> +  - clocks
+> +  - clock-names
+> +  - power-domains
+> +  - power-domain-names
+> +  - resets
+> +  - amlogic,canvas
+> +  - amlogic,secure-monitor
+> +
+> +additionalProperties: false
+
+Best regards,
+Krzysztof
 
 
