@@ -4,66 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE743C982C1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 17:08:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 512ECC982C1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 17:11:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E5wNtv0wDkIe9aO5f3le6LmPTDNX74MWkohjzIuB+hQ=; b=av9DsVp9lFtSf/wl8CWJICHTUa
-	dyP7TJJtRE9DnwSC6VdZVUGz7Fzcn/3UgmA5/gI08JA5insLLj6tSeAQAWcyp2qKtWop+bI+Yd35z
-	KaAVZbZtmJKeZXNJ9ly/ZnNE31A/PfWG+PZyJH2yctTCrg7wVg0wC9+Z60iNW/4HUQD9CLgMZQ+3S
-	0p7OfwjFEobcuccYEh3+DoUMlij7PFmeCNorzQDTpyfIOsGzS/BgxvjeOm3+D6G4taPVQSKftOSRV
-	jX+GgJBekuuWptNbgNARDLs+zYAcrK+/kSo248Q0rCjrEWuFFk0iZZjUL0NsUYeaU12a0UmWQM51b
-	PBUdmiAQ==;
+	bh=Ljrz3/ym5aL3W5hSXMvMnSrl28+5TPjOO+yW6zlyHRo=; b=ne9SVb05puROABDKlcUO1G6Q08
+	bwh26Y38z2hr+AMEQCdIXrkpXI+BgvGkWtn4k5cvSr2G0/Mm/de07SkTAR4kXQdFvVZrVUtMSblji
+	BCt6swQ8czr/7fOvbEMibwj0knPkXUtHlP0U4ODZrANtYyKC/7PqbUXsbEwqF+AEEb42A6bZYGAX5
+	cxl2LruYJuqldETYW1Cq4NbGJDI+HN/AtNb4muYHk2gPGG8ATycTGgyyvLummJifK1Ea8V0oQdwTA
+	4M0HMFcYI2elQp+Tkl3Fj1UatbXuwnTp+5IOqG42t6on6k+M26xFliQOo0dF2UK79OPfF/w/30FZr
+	plE9rUjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6t7R-00000009pny-36eX;
-	Wed, 16 Sep 2026 17:08:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x6t9w-00000009q4x-0YOS;
+	Wed, 16 Sep 2026 17:11:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6t7P-00000009pni-3FIX
+	id 1x6t9u-00000009q4T-3WC6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 17:08:23 +0000
+	Wed, 16 Sep 2026 17:10:58 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E652E6022B
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 17:08:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 914391F0089C
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 17:08:22 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3117743D27
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 17:10:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 190C71F0089F
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 17:10:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789578502;
-	bh=E5wNtv0wDkIe9aO5f3le6LmPTDNX74MWkohjzIuB+hQ=;
+	s=k20260515; t=1789578658;
+	bh=Ljrz3/ym5aL3W5hSXMvMnSrl28+5TPjOO+yW6zlyHRo=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=fvQIKcZ0BSExGtlyc2FZkuUme8eICV13j8MfU6a/QfHlpMnHaAxJF+/NOvji76qW0
-	 tXDpoH+2uenQ0cyGKI5VeS5JqKmGqCq5xFHCE86dc8wVE2pX9JJLVTYSRJc+qE4tpj
-	 JeEN1KJWH/OyQsBVPCSSGU9MLXqPPZgwCWdTmOCEgW7/uTyJCiPg7za1pw6/aKXL+2
-	 Nup06Hm2bqpJLZg/KuQd5AWgIS+8G5q4mxHzrtdSnNSA5AHVhrHzyybYkLsaftXVIJ
-	 bNVSZT4qqXAXnOHll3Wqq2UDapA3vUEKkHKLqDh2YbIdVmCwEDY7c997RSw66OGPxw
-	 WNgI1685s3eiQ==
-Received: by mail-lf2-f13.google.com with SMTP id 2adb3069b0e04-5b899413537so1673329e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 10:08:22 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBwrHF76lUv7oh8WADxDeDjqbJswexa4JPVBVKpGqp0nFNafMrhzhVaynYjqfMVoMd67e8QovbsNpfqDCdgZR/2x@lists.infradead.org
-X-Gm-Message-State: AFuF++mAuWWMtt+ushpmz1OZIaFet/ZuheZzGicx55nYmn+BZ13tUsXv
-	dckmnn5QMO2Z8mvFAGyGDpst55nZqACRXD/8N34vrd9G33QH0g73nvBCwbTx5yp2jOcNtTZiPg2
-	FY/qHkZtPmni2F/RFRgziTGRsjnbmA1A=
-X-Received: by 2002:a05:6512:3a85:b0:5b6:183b:d215 with SMTP id
- 2adb3069b0e04-5b8b6666edbmr1065811e87.60.1789578501266; Wed, 16 Sep 2026
- 10:08:21 -0700 (PDT)
+	b=bkqqu8zpSudVqSwPAfClBSGzFquPbiDxvce8sshFCNObsZ20EVP/0+iQzww+yfp8h
+	 Knbx0yTBFbbg49xHF8gW8s+G3B1aFJGWbztT0XAQo30gHGaiqTduMHKVHXb7kB+H6c
+	 mvn+fXe6B9Bz6mDWQt54CzQN3zDlB8QudJtk3YxqvGM41WtbLCgA8GZ3SFkd3DzgTj
+	 cDE5eAQR4RDiHyjmkUOBumOtsbxf0ByycNeNrGtmIcoPk44EridtqKqIQbfeAXkKup
+	 qO7xUIYCvHiXN41Z9HY9sqJ/dg4bKfxhSrL6uuSJx6mY/Bt5IyiN8xytKMeVJebbia
+	 27Eoxxefe5HTw==
+Received: by mail-lf2-f13.google.com with SMTP id 2adb3069b0e04-5b5e4f15b79so1163636e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 10:10:57 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBw0zBYlJPJd2LzPvI7z9Ve5ZPh9bbzI+FGN87cuIdFUxCuR38zMuvKYIvTMoCwnbRsnnr8y5JnbC9tiw07NPzgR@lists.infradead.org
+X-Gm-Message-State: AFuF++nYy7fFlPzQygAArIaAcWQ8iA0X6urFJ13gLAdFEAfYF112I/hd
+	tBo0EScsNqNkMhDvWp5MqH7Zg70bK1nko3x1c5oTb5vbBmzmWLTU0LRndmhpn6goRJszvgm7f/l
+	eHpxJp5pSiF2aChxzd/5RmK9X3SUGDrw=
+X-Received: by 2002:a05:6512:1329:b0:5b7:65c0:8b92 with SMTP id
+ 2adb3069b0e04-5b8b6624616mr2095448e87.12.1789578656776; Wed, 16 Sep 2026
+ 10:10:56 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260914100744.1039050-1-andre.przywara@arm.com>
-In-Reply-To: <20260914100744.1039050-1-andre.przywara@arm.com>
+References: <20260910133519.459011-1-andre.przywara@arm.com>
+In-Reply-To: <20260910133519.459011-1-andre.przywara@arm.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 16 Sep 2026 19:08:08 +0200
-X-Gmail-Original-Message-ID: <CAD++jLnMB_Fr0i=FgjsqoBj3tOc=nrKy89zsZLMQGup_+Xh0FA@mail.gmail.com>
-X-Gm-Features: AcwNN1UmIpTpGrnLd6YNTpMeKuWu3aLaJO6OkS3CIGZ1a2xTye0vQ771yZj10e0
-Message-ID: <CAD++jLnMB_Fr0i=FgjsqoBj3tOc=nrKy89zsZLMQGup_+Xh0FA@mail.gmail.com>
-Subject: Re: [PATCH v2] pinctrl: sunxi: A523: fix voltage withstand encoding
+Date: Wed, 16 Sep 2026 19:10:43 +0200
+X-Gmail-Original-Message-ID: <CAD++jLnR-pyB8ZZXwn0ffDBQ5n3eWoqMnbxH59B1U6oDHDiRTA@mail.gmail.com>
+X-Gm-Features: AcwNN1WMRMLXV0VY47rk_rDL7ZhlcD1BjU6erIZy7wdE15mC-YpMq3fTzq6SO-U
+Message-ID: <CAD++jLnR-pyB8ZZXwn0ffDBQ5n3eWoqMnbxH59B1U6oDHDiRTA@mail.gmail.com>
+Subject: Re: [PATCH 0/7] pinctrl: sunxi: Add Allwinner A733 support
 To: Andre Przywara <andre.przywara@arm.com>
-Cc: Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, linux-gpio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Jerome Brunet <jbrunet@baylibre.com>, Yixun Lan <dlan@gentoo.org>, 
+	Enzo Adriano <enzo.adriano.code@gmail.com>, 
+	Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -80,31 +85,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 14, 2026 at 12:07=E2=80=AFPM Andre Przywara <andre.przywara@arm=
-.com> wrote:
+On Thu, Sep 10, 2026 at 3:35=E2=80=AFPM Andre Przywara <andre.przywara@arm.=
+com> wrote:
 
-> The Allwinner A523 uses the same GPIO voltage "withstand" programming
-> (setting the input level voltage thresholds) as the previous SoCs, but
-> for some odd reason inverts the encoding of 1.8V vs. 3.3V.
->
-> Add a new bias voltage type to note this difference, and select it for
-> the A523. At the same time also use the newer "CTL" version, which in
-> addition allows to turn off the withstand programming for I/O voltages
-> other than exact 1.8V or 3.3V (for instance for 2.5V sometimes used for
-> Ethernet PHYs). The A523 has that enable register, but didn't use it
-> so far.
->
-> This fixes eMMC and reportedly Ethernet operation on some A523 boards.
->
-> Fixes: 648be4cd9517 ("pinctrl: sunxi: Add support for the Allwinner A523"=
-)
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> Tested-by: Per Larsson <per@palvencia.se>
-> Tested-by: Juan Manuel Lopez Carrillo <juanmanuellopezcarrillo@gmail.com>
-> Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
-> Tested-by: Chen-Yu Tsai <wens@kernel.org> # Fixes eMMC on Orange Pi 4A
+> more than a year(!) after the RFC, now the first "proper" version of the
+> pinctrl and GPIO IP support for the new Allwinner A733 SoC.
 
-Patch applied for fixes!
+Perseverance and grit!
+
+Patches applied for 7.4.
+
+Look into Sashikos comments and address with follow-up
+patches if applicable, I'm not a friend of the perpetual back-and-forth
+Sashiko causes and prefer to just apply and fix in-tree.
 
 Yours,
 Linus Walleij
