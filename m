@@ -4,65 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC758C982C9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 22:20:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7685C982C9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 22:42:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0jjaJqT+4yE26s3Gd2hr+zhg3vtd5fJJJh6Wg8rfPjg=; b=hImlyD3tT1hcNoNs4NUTx9jfWo
-	GLvP9ir7olSc4slYxeSRnclLspBYBDyNyhr1Uy3h0qhGfAPXN0yaCTHhKeAWP2qID8RK+CiKYlNB4
-	wgWstTdjf0eqIEZJsNMKfR7CFxazJ88CwtvmUp2loNbrf9Pj6vPuADY23sXD9hEDgXkYSi8its/PR
-	3RLPOJOyxwnsB6Mi5gWgMN91EcDHGsRMYxaZ/V+ojaNebgKB0SyOQPCCuJuz9sGUJjQesRfI8Pykm
-	rBVOIum6PLj4UPGvZMCgAydH+ED+S4ICH9kG/T1gHSQSX4Qv32kxDtEGLKyLoG0YQqm1Tr+b7DCJA
-	H7VgRVQQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wqgRj8Zu/oLhBcm8V6wCiIRsYY69FuThlNcNP+a4SnE=; b=YHRyKD5nNmOSxzv1zUbpgZBZQE
+	jXW8wQhZhv5FPOvbJPXc8tuL3PHhIBP5T48togDfhYmq1VyfSeymlvWRJtcVDfMkDUowXjQrVW3lh
+	4tGlZR2z1G0BR2IQU1s7djFK6hvFyv04JMqCkKWPND8uzGaydtSENiceY92XCZz2oc4eX88ZAv2KS
+	GmuOsCuJivsafipef8qLYqcmENibzd+ErpXm4Gq+aTA6338G5gj8SAiIn04SlwVmjzmWLMbTSc6GT
+	evWWxGeXcoYJHTr3BYe0eULacPN3nCMYnSCbWc/7Sh/9RbbzL9WbhlAox+uoftcAC29OkhcaWdAC7
+	xnh5fmIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6xz4-0000000ACHE-2yl3;
-	Wed, 16 Sep 2026 22:20:06 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1x6yKJ-0000000ADDF-1Y70;
+	Wed, 16 Sep 2026 22:42:03 +0000
+Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6xz1-0000000ACGH-1Gt7
+	id 1x6yKH-0000000ADCW-0Ldo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 22:20:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Content-Transfer-Encoding:Content-Type:From:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:From:Reply-To;
-	bh=0jjaJqT+4yE26s3Gd2hr+zhg3vtd5fJJJh6Wg8rfPjg=; b=FJ1GGUUqC8SfggqGAFpM/dbaxC
-	/6H9VEZaA7bVJZaF6Sg2vwo3NrVxh/g1JW0sKYJhxcuTnL/RXl43YgNKSRU/Jv12SMgzzJSKtji/p
-	6E4O7hjbQPZ5Z/N3+N8dm/KYVyniukxbdWoj5z1gxViAVdzFiARjH0cDQ+XJ1mpYL/BOp3p0oiFMt
-	v0bo5+CTx4t3QxIf+MCt1cGnhjPfYAf7SA9kuKysxpkdk9vIHJvhl6mFUmTIwgDsh9O511Wuh50cq
-	vIG7Th5Vb/AeoCHTywm65bN4JdacomMltdgJfEpPL4xKm8tigNPoevpDdSQ/ypuIo3q79vjqvZYpF
-	Bls852nQ==;
-Received: from [177.172.123.214] (helo=[192.168.15.100])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
-	id 1x6xyb-0039Hm-2L; Thu, 17 Sep 2026 00:19:37 +0200
-Message-ID: <6fa4e1e3-c023-465c-9490-ce2f18ffaa91@igalia.com>
-Date: Wed, 16 Sep 2026 19:19:36 -0300
+	Wed, 16 Sep 2026 22:42:02 +0000
+Received: by mail-pj2-x10.google.com with SMTP id d9443c01a7336-2d8fe517774so2808275ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 15:42:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789598519; x=1790203319; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=wqgRj8Zu/oLhBcm8V6wCiIRsYY69FuThlNcNP+a4SnE=;
+        b=oOowRF3pTqtBXLf4GTkTPetyWEBypqy6svmmeTYbsueYVwe+9K+hx20+y5l6FiW3c8
+         cLRuTLIqhNX1l70Aha0BwELQ/kfcjRkEQy0Hx/eFbd8ovfMIJn7ineyERuVANfaMUJf8
+         FRUMJauTMJeteOifpEI02JxlZsPMia48yT5ZTiD90vxi+nFce22HxcZKWH6GDNXQxqZL
+         EV5rHDIJmXgczlLb4a58w5KqwqZbgV0F2jVBC2ovbShzx8jUQRNGTqRrNSR+90txjJNP
+         nrA8BFJwDroAd708R0/QKd1sTy8QsrhJZ14smYpEoBDwGUnDKT4UIlD5eUH2I2n997K3
+         kE3A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789598519; x=1790203319;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=wqgRj8Zu/oLhBcm8V6wCiIRsYY69FuThlNcNP+a4SnE=;
+        b=b+LJ2CqsUhk6YD1E1les/8xivL6ewUKb/9F8KpPvt4KGy9OfvFIzywP4l/oLcrCvQX
+         yBVIagH4cqhMoV4kdKmhoe0Wo2X9Uy+6MlQsZtcl3TaBIaR30C/4F0m5ytZtiqYdzbpe
+         ozam2vt4sKSwOlNI+vHleB+De4JAZ2TEhZBA3kzG5wfNmoEzr+0MjE8IvKuIzQlJBgKp
+         /m2CiOdVrs04Z0JyWsbPSo5lu+Kdan6Ja032adC+OLOQLwlHVK/EcK+nroQ5jhXqW5Bd
+         PL0bI2zKRJDjX4Tm7Vrtmgyda45zRzCJ0HXA5EPDZig+jPfA68XolVYnIJtjLHSF4y5R
+         rLow==
+X-Forwarded-Encrypted: i=1; AKwUvBxPNSeS6yVqdTPyEWko3k1E89Z2DGc7wkC7+o1gW+927zhT2xzzU9+fznU9cffmbahrBC8zH+dZyLtv0Mob/Sck@lists.infradead.org
+X-Gm-Message-State: AFuF++mreWEJAR8jqbpr3Ut1IyLIvxSFA0iFFG3+IiDXCtECaA5zcOun
+	LTmG9uM/luwELkQZSl5Fm30DsEkYhwQUAtq74a/apKKROBQpfLiq2Hqp
+X-Gm-Gg: AYBFou0FL1HlVGHgrxOLKrFvSiHJhBiZPmav8+GB7S+WWqRUCBaLxXFfvHZ3vYZAXZH
+	2SnEnJA+c+iR/l8DqMvmMAUjB5WtLguEmYhY3xUkQem1EtgYFdKmQfQi+dnHgOC9pftQ78fQiCY
+	0tYagaUfiyUTPQj9ccBVdXjAOVtNNU0qh9T0e1UOBQ9OwmzOmnAsiXl40Ow5Yjd7wxkA5nufpL2
+	h6ZI6zBrX7Zjw8CrMwYaFugWgN9geQdMupkaMM8Yk/pqmnDavZ/sLOz/J87ksH1zh4zcIYmHgLv
+	IDwmcVjzUTX5L9qJLVcmv1TFe2xsFHnHG1ykftJii75rQt20RQhzFZ7l/O20e8DGXO4hbBSY5LY
+	AzisDXu5oYNnalnkzQncKzxvX23wZcpph+cRZ9w83XcyQZvBrxHozsdIm9cTq983Ys12YucB/Pi
+	3qcbs1ohPdrYetTBkeLHLj3uImwM4Izt9Jcea5A3MoBpiad2ancyUnCSdSNtAsc95qavRuT7S6r
+	MNvlHMp5Vg0HaVqy/LVp9rdQqtu2YMYxTgqZuzN4czVLmXR4iP06QSTuh2oLa3zvLXO6+XQD3/r
+	eIQVirSf0F5qXnMxAqmtzk/9JSL4WP2jwLVYRUQOgC2h2aar
+X-Received: by 2002:a17:90b:560e:b0:39e:3bd2:8998 with SMTP id 98e67ed59e1d1-39e3bd28b84mr1304054a91.22.1789598519204;
+        Wed, 16 Sep 2026 15:41:59 -0700 (PDT)
+Received: from ryzen.lan ([2601:644:8000:7a86::e35])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-14395caccf1sm8260106c88.2.2026.09.16.15.41.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 16 Sep 2026 15:41:58 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: dmaengine@vger.kernel.org
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Frank Li <Frank.Li@kernel.org>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	linux-kernel@vger.kernel.org (open list),
+	linuxppc-dev@lists.ozlabs.org (open list:FREESCALE SOC DRIVERS),
+	linux-arm-kernel@lists.infradead.org (moderated list:FREESCALE SOC DRIVERS)
+Subject: [PATCHv2] dmaengine: bestcomm: use platform machinery to get irq
+Date: Wed, 16 Sep 2026 15:41:56 -0700
+Message-ID: <20260916224156.276511-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 00/13] syscalls: Add a shared table for all archs
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Christian Brauner <brauner@kernel.org>, linux-kernel@vger.kernel.org,
- linux-kbuild@vger.kernel.org, kernel-dev@igalia.com,
- Masami Hiramatsu <mhiramat@kernel.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- linux-alpha@vger.kernel.org, linux-s390@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev,
- linux-mips@vger.kernel.org, sparclinux@vger.kernel.org
-References: <20260828-tonyk-syscall_table-v6-0-fdd358456cf1@igalia.com>
- <95b693c0-ca51-4355-99ba-2b37a1ab2169@app.fastmail.com>
-Content-Language: en-US
-From: =?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-In-Reply-To: <95b693c0-ca51-4355-99ba-2b37a1ab2169@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_152004_660803_8304BB33 
-X-CRM114-Status: GOOD (  26.20  )
+X-CRM114-CacheID: sfid-20260916_154201_122621_2575B1C5 
+X-CRM114-Status: GOOD (  20.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,133 +101,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Em 15/09/2026 04:45, Arnd Bergmann escreveu:
-> On Sat, Aug 29, 2026, at 01:19, André Almeida wrote:
->> While implementing a new syscall, we need to wire up it's number to the arch
->> table. Since syscall number 403, all architectures are on sync regarding the
->> number (except alpha), which make things a lot easier but more repetitive as
->> well. Have a look at commit b36d4b6aa88 ("arch: hookup listns() system call"),
->> with 15 lines of mostly:
->>
->>    +470    common  listns                          sys_listns
->>
->> There's already a "common" table shared with a bunch of archs at
->> `scripts/syscall.tbl`, but due to historical reasons some archs will never be
->> able to move to this table and share all the numbers.
->>
->> The generic table starts from 403 (clock_gettime64), the first common syscall.
->>
->> I've compile tested for arm32, arm64, s390, mips, sparc and alpha by comparing
->> the syscalls_*.h and unistd_*.h files generated before and after this patchset.
->> For most of cases the files are identical, for the few cases that they are not,
->> there's a note in the commit explaining why they are equivalent.
-> 
-> I've tried merging these for the asm-generic tree now, and would like to
-> send them for 7.4.
-> 
-> Unfortunately, the build bot flagged problems on mips, see the patch below
-> for my workarounds=, but I think we have to improve that still and didn't
-> just fold it into your patch.
-> 
-> As you took out the dependencies on the syscall_*.tbl files, the
-> output does not get rebuilt if changes are made to the table, and I
-> have not come up with a good solution for mips. My hack just adds both
-> input files to all outputs, which works but is not technically correct.
-> 
+platform_get_irq() avoids having to explicitly map and dispose of an irq
+by having the platform_device machinery take care of it.
 
-Thanks for testing! I believe I found a simple solution for this. I 
-modified syscall_o32.tbl and can confirm it triggers a rebuild now:
+This requires replacing the device_node with a platform_device in the
+bcom_eng struct so that platform_get_irq() can use it.
 
-diff --git a/arch/mips/kernel/syscalls/Makefile 
-b/arch/mips/kernel/syscalls/Makefile
-index aaa5443ea906..9e31d1ce5015 100644
---- a/arch/mips/kernel/syscalls/Makefile
-+++ b/arch/mips/kernel/syscalls/Makefile
-@@ -40,10 +40,10 @@ src_n32 := $(src)/syscall_n.tbl
-  src_n64 := $(src)/syscall_n.tbl
-  src_o32 := $(src)/syscall_o32.tbl
+Conveniently, this also allows getting rid of of_node_get and
+of_node_put as the platform_device machinery also handles that.
 
--$(kapi)/unistd_nr_%.h: $(systbl_common) $(sysnr) FORCE
-+$(kapi)/unistd_nr_%.h: $(systbl_common) $(src_%) $(sysnr) FORCE
-         $(call if_changed,sysnr)
+Replace the open-coded resource lookup, request_mem_region, ioremap and
+the manual iounmap/release_mem_region cleanup in probe/remove with the
+managed devm_platform_get_and_ioremap_resource() helper. This removes the
+now-unused error-unmap/release paths and simplifies the driver.
 
--$(kapi)/syscall_table_%.h: $(systbl) $(systbl_common) FORCE
-+$(kapi)/syscall_table_%.h: $(systbl) $(systbl_common) $(src_%) FORCE
-         $(call if_changed,systbl)
+Adjust the goto labels in bcom_task_alloc to match what is being freed.
 
-  uapisyshdr-y           += unistd_n32.h                 \
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ v2: resend.
+ drivers/dma/bestcomm/bestcomm.c            | 47 ++++++++--------------
+ include/linux/fsl/bestcomm/bestcomm_priv.h |  2 +-
+ 2 files changed, 18 insertions(+), 31 deletions(-)
 
-> The rt_sigtimedwait and ustat entries had a typo that caused a link
-> error, but I did not check if there were any additional mistakes that
-> caused incorrect output data without causing a link failure.
-> 
-
-Ops, my bad. I had another round comparing the tables, and I found 
-another case that needed a fix:
-
-diff --git a/arch/mips/kernel/syscalls/syscall_n.tbl 
-b/arch/mips/kernel/syscalls/syscall_n.tbl
-index e3d278f715b7..1882527053af 100644
---- a/arch/mips/kernel/syscalls/syscall_n.tbl
-+++ b/arch/mips/kernel/syscalls/syscall_n.tbl
-@@ -43,7 +43,7 @@
-  33     common  pause                           sys_pause
-  34     common  nanosleep                       sys_nanosleep 
-sys_nanosleep_time32
-  35     common  getitimer                       sys_getitimer 
-compat_sys_getitimer
--36     common  setitimer                       sys_setitimer 
-compat_setitimer
-+36     common  setitimer                       sys_setitimer 
-compat_sys_setitimer
-  37     common  alarm                           sys_alarm
-  38     common  getpid                          sys_getpid
-  39     common  sendfile                        sys_sendfile64 
-compat_sys_sendfile
-
-Let me know if both diffs look good to you, and then I can send a v7.
-
-Thanks!
-
->         Arnd
-> 
-> diff --git a/arch/mips/kernel/syscalls/Makefile b/arch/mips/kernel/syscalls/Makefile
-> index aaa5443ea906..51b9939ecff0 100644
-> --- a/arch/mips/kernel/syscalls/Makefile
-> +++ b/arch/mips/kernel/syscalls/Makefile
-> @@ -40,10 +40,10 @@ src_n32 := $(src)/syscall_n.tbl
->   src_n64 := $(src)/syscall_n.tbl
->   src_o32 := $(src)/syscall_o32.tbl
->   
-> -$(kapi)/unistd_nr_%.h: $(systbl_common) $(sysnr) FORCE
-> +$(kapi)/unistd_nr_%.h: $(src_o32) $(src_n64) $(systbl_common) $(sysnr) FORCE
->          $(call if_changed,sysnr)
->   
-> -$(kapi)/syscall_table_%.h: $(systbl) $(systbl_common) FORCE
-> +$(kapi)/syscall_table_%.h: $(src_o32) $(src_n64) $(systbl) $(systbl_common) FORCE
->          $(call if_changed,systbl)
->   
->   uapisyshdr-y           += unistd_n32.h                 \
-> diff --git a/arch/mips/kernel/syscalls/syscall_n.tbl b/arch/mips/kernel/syscalls/syscall_n.tbl
-> index e3d278f715b7..84c35c1f0c3e 100644
-> --- a/arch/mips/kernel/syscalls/syscall_n.tbl
-> +++ b/arch/mips/kernel/syscalls/syscall_n.tbl
-> @@ -133,14 +133,14 @@
->   123    common  capget                          sys_capget
->   124    common  capset                          sys_capset
->   125    common  rt_sigpending                   sys_rt_sigpending       compat_sys_rt_sigpending
-> -126    common  rt_sigtimedwait                 sys_rt_sigtimedwait_time        compat_sys_rt_sigtimedwait_time32
-> +126    common  rt_sigtimedwait                 sys_rt_sigtimedwait     compat_sys_rt_sigtimedwait_time32
->   127    common  rt_sigqueueinfo                 sys_rt_sigqueueinfo     compat_sys_rt_sigqueueinfo
->   128    common  rt_sigsuspend                   sys_rt_sigsuspend       compat_sys_rt_sigsuspend
->   129    common  sigaltstack                     sys_sigaltstack         compat_sys_sigaltstack
->   130    common  utime                           sys_utime               sys_utime32
->   131    common  mknod                           sys_mknod
->   132    common  personality                     sys_personality         sys_32_personality
-> -133    common  ustat                           sys_usta                compat_sys_usta
-> +133    common  ustat                           sys_ustat               compat_sys_ustat
->   134    common  statfs                          sys_statfs              compat_sys_statfs
->   135    common  fstatfs                         sys_fstatfs             compat_sys_fstatfs
->   136    common  sysfs                           sys_sysfs
+diff --git a/drivers/dma/bestcomm/bestcomm.c b/drivers/dma/bestcomm/bestcomm.c
+index 241a91936fe8..1006030ff167 100644
+--- a/drivers/dma/bestcomm/bestcomm.c
++++ b/drivers/dma/bestcomm/bestcomm.c
+@@ -47,6 +47,7 @@ bcom_task_alloc(int bd_count, int bd_size, int priv_size)
+ {
+ 	int i, tasknum = -1;
+ 	struct bcom_task *tsk;
++	int irq;
+ 
+ 	/* Don't try to do anything if bestcomm init failed */
+ 	if (!bcom_eng)
+@@ -67,30 +68,32 @@ bcom_task_alloc(int bd_count, int bd_size, int priv_size)
+ 	if (tasknum < 0)
+ 		return NULL;
+ 
++	irq = platform_get_irq(bcom_eng->pdev, tasknum);
++	if (irq < 0)
++		goto err1;
++
+ 	/* Allocate our structure */
+ 	tsk = kzalloc(sizeof(struct bcom_task) + priv_size, GFP_KERNEL);
+ 	if (!tsk)
+-		goto error;
++		goto err1;
+ 
+ 	tsk->tasknum = tasknum;
+ 	if (priv_size)
+ 		tsk->priv = (void*)tsk + sizeof(struct bcom_task);
+ 
+ 	/* Get IRQ of that task */
+-	tsk->irq = irq_of_parse_and_map(bcom_eng->ofnode, tsk->tasknum);
+-	if (!tsk->irq)
+-		goto error;
++	tsk->irq = irq;
+ 
+ 	/* Init the BDs, if needed */
+ 	if (bd_count) {
+ 		tsk->cookie = kmalloc_array(bd_count, sizeof(void *),
+ 					    GFP_KERNEL);
+ 		if (!tsk->cookie)
+-			goto error;
++			goto err2;
+ 
+ 		tsk->bd = bcom_sram_alloc(bd_count * bd_size, 4, &tsk->bd_pa);
+ 		if (!tsk->bd)
+-			goto error;
++			goto err3;
+ 		memset_io(tsk->bd, 0x00, bd_count * bd_size);
+ 
+ 		tsk->num_bd = bd_count;
+@@ -99,17 +102,12 @@ bcom_task_alloc(int bd_count, int bd_size, int priv_size)
+ 
+ 	return tsk;
+ 
+-error:
+-	if (tsk) {
+-		if (tsk->irq)
+-			irq_dispose_mapping(tsk->irq);
+-		bcom_sram_free(tsk->bd);
+-		kfree(tsk->cookie);
+-		kfree(tsk);
+-	}
+-
++err3:
++	kfree(tsk->cookie);
++err2:
++	kfree(tsk);
++err1:
+ 	bcom_eng->tdt[tasknum].stop = 0;
+-
+ 	return NULL;
+ }
+ EXPORT_SYMBOL_GPL(bcom_task_alloc);
+@@ -125,7 +123,6 @@ bcom_task_free(struct bcom_task *tsk)
+ 	bcom_eng->tdt[tsk->tasknum].stop  = 0;
+ 
+ 	/* Free everything */
+-	irq_dispose_mapping(tsk->irq);
+ 	bcom_sram_free(tsk->bd);
+ 	kfree(tsk->cookie);
+ 	kfree(tsk);
+@@ -377,16 +374,12 @@ static int mpc52xx_bcom_probe(struct platform_device *op)
+ 	if (IS_ERR(regs))
+ 		return PTR_ERR(regs);
+ 
+-	/* Get the bestcomm node */
+-	of_node_get(op->dev.of_node);
+-
+ 	/* Prepare SRAM */
+ 	ofn_sram = of_find_matching_node(NULL, mpc52xx_sram_ids);
+ 	if (!ofn_sram) {
+ 		printk(KERN_ERR DRIVER_NAME ": "
+ 			"No SRAM found in device tree\n");
+-		rv = -ENODEV;
+-		goto error_ofput;
++		return -ENODEV;
+ 	}
+ 	rv = bcom_sram_init(ofn_sram, DRIVER_NAME);
+ 	of_node_put(ofn_sram);
+@@ -394,7 +387,7 @@ static int mpc52xx_bcom_probe(struct platform_device *op)
+ 	if (rv) {
+ 		printk(KERN_ERR DRIVER_NAME ": "
+ 			"Error in SRAM init\n");
+-		goto error_ofput;
++		return rv;
+ 	}
+ 
+ 	/* Get a clean struct */
+@@ -405,8 +398,7 @@ static int mpc52xx_bcom_probe(struct platform_device *op)
+ 	}
+ 
+ 	/* Save the node */
+-	bcom_eng->ofnode = op->dev.of_node;
+-
++	bcom_eng->pdev = op;
+ 	bcom_eng->regs = regs;
+ 	bcom_eng->regs_base = res_bcom->start;
+ 
+@@ -426,8 +418,6 @@ static int mpc52xx_bcom_probe(struct platform_device *op)
+ 	kfree(bcom_eng);
+ 	bcom_eng = NULL;
+ 	bcom_sram_cleanup();
+-error_ofput:
+-	of_node_put(op->dev.of_node);
+ 
+ 	printk(KERN_ERR "DMA: MPC52xx BestComm init failed !\n");
+ 
+@@ -443,9 +433,6 @@ static void mpc52xx_bcom_remove(struct platform_device *op)
+ 	/* Cleanup SRAM */
+ 	bcom_sram_cleanup();
+ 
+-	/* Release the node */
+-	of_node_put(bcom_eng->ofnode);
+-
+ 	/* Release memory */
+ 	kfree(bcom_eng);
+ 	bcom_eng = NULL;
+diff --git a/include/linux/fsl/bestcomm/bestcomm_priv.h b/include/linux/fsl/bestcomm/bestcomm_priv.h
+index 3b52f3ffbdf8..cddde7c74cb5 100644
+--- a/include/linux/fsl/bestcomm/bestcomm_priv.h
++++ b/include/linux/fsl/bestcomm/bestcomm_priv.h
+@@ -66,7 +66,7 @@ struct bcom_tdt {
+  * This holds all info needed globaly to handle the engine
+  */
+ struct bcom_engine {
+-	struct device_node		*ofnode;
++	struct platform_device		*pdev;
+ 	struct mpc52xx_sdma __iomem     *regs;
+ 	phys_addr_t                      regs_base;
+ 
+-- 
+2.55.0
 
 
