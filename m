@@ -4,141 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 292B2C982C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:21:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 412FEC982C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:22:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ipVMZzl2alJceUAJbkaECO2Hin2V2nk6DBICtBXBmRw=; b=O/FxB+4ySihKhAA9U/YZu6cyQD
-	q5ZnpJF+ccH7RyLn4FfKk8A/yrshquXEEaR16wFT2hKN+lYo/3uY441O5FLz8RQz5fnATEk9RjuQG
-	3UP0qiipF20lkV5uVAV0jk/U15qV3sUG7u1h+7hnKSxlI9/M2z+zjWoRMH8YaxFeWsL+tERuRgenC
-	BbF/RpktaG+zpdlrfeuJG61Oph0KDnQvnivEN1ua7XataunWnd5QtAaRN4l/A5nWJW7X4pEl9sCvT
-	KVZgP1+SjEvAf+L7UOt4jINfMbnzrxlrotHWhOTB6erj6V5e3QiiRgWJpZAb+gyT1w3iu/VvLoWkj
-	MMZFoKfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GWSnfUETFJ8IS5MyDxX07yaboTmHXjE+3Z4OhmUc6+s=; b=2e8ktwOmmSIYypTZc1CZycnxHH
+	segRaZdWQaroBR8AaBlW6IeRiyefkLvw5dk0yQS0FZhA4DKSI42upwRzGZO3l3/3O6AyHG3obnzQV
+	5nQ0DLN35EO/WtXqycrLVOwMMSC+UHUGjJTASG2C9KBeHiEGtW12mK7V0i+NJLOccOt6GX4cmMqMr
+	s6wlvyYiZDWdZnDEhk1chKWBPgCA1OFaIjcJ75fB/E4wRKc10EaPSCp8d9jTtPR+fWGF8/YVHrh5K
+	3yFY+fi6kbHFnsE+g/mzjuHOHkDRlOw/HCQ3VIvGoeUmcKUnIzfrHqgJ6qhhf3HeKMj+tb80eFB4v
+	PPfmxz/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rRl-00000009Yt5-0QCa;
-	Wed, 16 Sep 2026 15:21:17 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1x6rSX-00000009Z6I-3IYe;
+	Wed, 16 Sep 2026 15:22:05 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rRi-00000009Yrw-2y9t
+	id 1x6rSW-00000009Z5g-2Mho
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 16 Sep 2026 15:22:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=GWSnfUETFJ8IS5MyDxX07yaboTmHXjE+3Z4OhmUc6+s=; b=SagfuKLt8Bt3aL2DHWqV90C9M5
+	VUrse2iot0hHBPD8IPL2AfS7WQw7tSkRIfmGDKQlEeO6Ic23chGhVzb+VvN0DeO0kx+0qYbhy4kG2
+	SrzcPIUsmtMK5NHhl9XZuNBb2TV+jNMysjQ3jdlirnCtbAYsW6nQXIC123oFy1mimEVf5j9+XYiuC
+	gaQd9KEadgxFuY0+S97t8qRLrfkQBK1lMsV2tVQug+5KYNdwl7Icxa1HaqFuTfaIg3HV5QWcexDnl
+	A4XWq51ukfdjif1FEMn7/wOEnUYhPe5nG1RQ8cfJu9qVUYXkRdTOF+bMQfxsz+kb95mSjfehvvtDA
+	9ZeVboBQ==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6rSS-000000082Cl-36kp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 15:21:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uMug0GCzs1AydHUZLzI+hnjbpVHY/hIlMRD6EpJ/oZVJLZsm+G/D13qPtK3LdOoKRoB/oQZOHmFM51tzY1icgMcPpb0NmQvHvwuBkY5ITKVFUCGSP3CJLaZpFVT7IrYyU1BfiYIDDDI2anwzGirmfduHeb1RmNvPZiC5YlX/NM6kJJp+EN3ze9CLXuBiHLwpm5Y6lSnce9Nhvxsa2cg/1+TwfOBgvszUx0hQI2Te9SILaI1ZnxV+2ll2xL6Rh9XtPPiCIgNTok1YXb4MUt/bvrL2ouUJD29aW10YMr3DMAxBKsMO5UVQZzieIbWLR9tiQl5qxybDWcDDhX66ubWmMQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ipVMZzl2alJceUAJbkaECO2Hin2V2nk6DBICtBXBmRw=;
- b=zAd3oV1/OtrcUhKfSN2WOkPExEz3Kd+XSUXr7Kjezsz11LPjfYYZHZXCQYTqMHYtlcR+pbn80QjxHSyrWmdqlMCHJzfIivYIA8rueKvgn9QrS1tIUwgXT6TT0wn2N/+OvBQV7d8gyIRn/Zd+vgoiyPpuCA5L7Z5826CiWlYC3p16Od38LB6QigNAiwvtylFofofiegL51mHhyNQjiKp2Be9KGPsQexc8Ga41K+MKeVWvCCdZRUSatuJOd43fB6TMKTaZf1a1yUOPaB06/9iPaX/7vhe4dnYSTKSzwhwEKSvD7zo1m/AoVG13wXQKbOyOrNdXdVZt1h7AZqdC+C46IA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ipVMZzl2alJceUAJbkaECO2Hin2V2nk6DBICtBXBmRw=;
- b=RBP8xq28+kulX9xDgcuJny0GIXrh/62ZjKLfV2fkhwAMt32AcyyRiIymwdd1Xi7TC20YfRTcsfGOpcCIzHjSNSlEHFcieWje9e1CXmOhvD0goh8EY/HLbXmUSYshLfb/24VArxWfleWB4q/8vHpuB7iwuUxHWwp+Ryf6xqRpsK1ZDm0imz4kQH2yf1ephiweCNniXIYhp3Yy6onO6Q2oNZkU+0IihtieNfet+t+PcQ7W+bkI5tdj+NGUeuAvCfMgzLeMZrKqWBDJWGBQ/j1MnNxJbLthXqOFjg5H0b4y39cxNCsLMyoKJ+seChQPcR9TELhOlduraWLoPOm4J04Mgg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by PA6PR04MB11912.eurprd04.prod.outlook.com (2603:10a6:102:51a::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.9; Wed, 16 Sep
- 2026 15:21:10 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0428.009; Wed, 16 Sep 2026
- 15:21:10 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Date: Wed, 16 Sep 2026 23:25:26 +0800
-Subject: [PATCH] i2c: imx-lpi2c: use dmaengine_get_dma_device() for DMA
- mapping
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260916-i2c-dma-v1-1-6dd4f1916910@nxp.com>
-X-B4-Tracking: v=1; b=H4sIAOW0qmoC/yXM3QpAMBjG8VvRe2zF0sStyAHbM17low2p5d4Nh
- 7/6P08gD8fwVCeBHE72vC4ReZqQHrtlgGATTTKTKqtyJVhqYeZOoNKmkChQWkux3hwsX99T0/7
- 2Rz9B7++c7vsB8Kn0C2sAAAA=
-X-Change-ID: 20260916-i2c-dma-e9cd42e4e7ff
-To: Dong Aisheng <aisheng.dong@nxp.com>, Andi Shyti <andi.shyti@kernel.org>, 
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-i2c@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.16-dev-7bc12
-X-ClientProxiedBy: SI1PR02CA0034.apcprd02.prod.outlook.com
- (2603:1096:4:1f6::10) To AM8PR04MB7874.eurprd04.prod.outlook.com
- (2603:10a6:20b:24d::9)
+	Wed, 16 Sep 2026 15:22:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BF8FE1516;
+	Wed, 16 Sep 2026 08:21:54 -0700 (PDT)
+Received: from [192.168.4.158] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EAB3A3F86F;
+	Wed, 16 Sep 2026 08:21:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789572118; bh=yLzqZqOmebTBUGiFGKZgcketuLUgJ8qsgeE7eEWH3WE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GvLhrGBrgZKQ6UXMR1KePllYx/JYkHFtc+ee1sTloowa55iV/kp0tYM9EhtuLmniH
+	 I+zaQNzi/XSmbxH+mUYEgbR4/Gh6h8QSKEXJkA4bbi39s6Rm8oLQKJWj4baA1kl7ei
+	 HRfBS4WSl9qLmbfTIAm9o8Ey3xM6GSWbycm80Q28=
+Message-ID: <bb59b1e0-2550-4a9d-8738-a54e5f106f45@arm.com>
+Date: Wed, 16 Sep 2026 16:21:54 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|PA6PR04MB11912:EE_
-X-MS-Office365-Filtering-Correlation-Id: 98a4459f-63b1-4eaa-2c76-08df14062339
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|1800799024|376014|366016|10067099003|11063799006|56012099006|18002099003;
-X-Microsoft-Antispam-Message-Info: x+kUFXI8rCNaYvr4JJMPXrGeHuC5NAwMhFaloBKlYr3qovblH/8jsgGHhC7XeOvJhm0R/mwk1Dg4yBC6hL0X/3SgzPvnetsnQW5HA6oi9VEWt2nIq7uNNLT2VkD9j2bDmFhW6VsvGvd3Sr6gJZ1IWuIlgduKjS8cEaTw5S0NES7L0Zb8wTrVHCafyZhGL23fxDIr6rgB/rLy6BEpKRytsBkPinDErqLRISaD0lD7LSiGJgQYf+Ganb5up/sCfZk/z0zqydJdEkYeENyi6aC+EqcwiMd2RpHXmSxaNovGJ0YHPs/hSJPRCvscqkfdLyemRkFpWMFTzZlZc6ElgXHcdr/3K/UxyaSFbq0EMN6U5NKiZ1yPbDpb8kN2L9LBWqSRQrKdcNrQTbDfcco1ZYXN/MaTCdAUCmZHqE8h2nWOLcykr02TNCrDwPM0ZjAy/DCiJXpxkGlT1rvOwPHdypPLDAe700BvSQj8O03gSF5WT2WMRDd6ji5ckK23P7fL96fiVlOHeNjYfZ06uOHVvrfa9KFAwripGnM8ODSsXT0FE3e1HJ6t740at/syScn4650UdX72zrfDJfVL9MOZv/L3Knan/ujHPoK/AV4tmYpAiI4dJXvvR3GyEG/JIlRNX/TyLwbX1i66WOKPVPXssW5ryA8sQPOlHB6CVpwyDHn6wKI=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(1800799024)(376014)(366016)(10067099003)(11063799006)(56012099006)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SHJxdmJ0Mi91T2lvSm15dnBsMzQvamtiTjJ2Z1BOWHhHc0pMd0V3cWFzb2ht?=
- =?utf-8?B?SXhVZDU2VS9yMnUwV2VnTENIWjlyaDRVQ0JJaW9UekJVS1huM0laNHVNbHE4?=
- =?utf-8?B?eTgreFRIanZQZnVCa1pqVG9RV2xSUEF4ZmF4Y2o2NEMxNWpId1JwKzZpeUlt?=
- =?utf-8?B?em1NcnhNT24yVXluSEZGMWF0VzJyTDNIcnVrUGJaMUM0ZkJjdndRd25tN0Q3?=
- =?utf-8?B?dEVrUUdSRVAwSVRoR2Q3eVdZSGJYd1NSVFpZS1hxVGQ4Zkc0MnV5NStQd2Nk?=
- =?utf-8?B?UlhUcHAyMWdRRXpaOVZMVlZ2MDJWVGJRc3dxNklrQjZTWFRWNTV2Sk54M2Vp?=
- =?utf-8?B?UDJ4cFY4THZaYjhadUlxcGF6QjJ0SHE5ZHJhdUw3UUdpaDFucDVoWG11cERt?=
- =?utf-8?B?bzZ3bHRabjBML1FWN3NsSXVuZXRiTGEyWFlXTmJxQk5POG8yQTdtYklYazZx?=
- =?utf-8?B?S2hNaTY2ZlJ2bEJhSjgzU012UmdYdnMyeEZwRWF5SHdYMzl6N0dUMU9RazBL?=
- =?utf-8?B?ZnhWVXdsNHMvNHVSNWdMQ0tiVmVHVXhiYlZBT2g5c0hyY3M3ZmpWV3lXam9V?=
- =?utf-8?B?Uy9RK0xPdTRVeU9WTlF0Z3B4aS9BZEVDVFI1V0lmTDdPNytRZHZMRFVrVHJ4?=
- =?utf-8?B?ZnZtMTJ0QUZsazBqaDFqTUdLQ2tvNEFJUUJsanUrejY2cFpuR3M1Zmp2eUtr?=
- =?utf-8?B?V2haQnhZSWhWRlRWSDJHenFSUTNYdVFoZU95YnFMOEVoa3U5cDh2cUhINVdO?=
- =?utf-8?B?UlhZYlJwQmlVQUJHUTBHaXh1S1pLUmRiZEZBcUxtVkZTVUkveEVLZ2w4NEhP?=
- =?utf-8?B?amxZZ2JRTEludzBhNWV5amw5U284VGx6Ym1saWVQMWZ4VTE4ZXVFT21kcW8y?=
- =?utf-8?B?bzRiMEhHNTRIL0daS1FlTGxCeksrV1VPdTRycjhuT25JQVRZaUJpRThERjJn?=
- =?utf-8?B?UHBXWXJlTDJocTZiZHpIbkdDWWUwQTUxUDZQaGRrRk1PSkNTTG5yQWFwbHJn?=
- =?utf-8?B?YkZGY01sN0tORE1MRDJDQUZTZStCbDkyc29FZzNxMXZqQThCREYyc3E2eDVH?=
- =?utf-8?B?a0dDS3had0JmVXBKMTAzNFZDWUFkQks3aHhNckNUaEE5bG1DUm5laE1NV3Jk?=
- =?utf-8?B?NDh5WTVtTldzN3BWcUEySnI4OG1nQVVhT0hqYmo2LzI3K1NOanJkaGtZcFdM?=
- =?utf-8?B?WnhoM2hUekxCUnJia3lqazNGMEZGSzRueDZpYnV6UCtyQ2pWT3hkR3B5S0Rh?=
- =?utf-8?B?S21aYnFqN0R3dEFrZGVRRkU2VlFnNGVjUHE5STNqNXZ5dzd5S2h5WWdnSU1K?=
- =?utf-8?B?dSt0WWxiRXBmV01ydXR5M2REUFYyMWQ3K3ZOUlJiOHoxKy9RZEpaV0xJTG5o?=
- =?utf-8?B?TWlvRm53c3EzY2FEMFpOS2hJeFdNYVJvK0JnaGMyN2RreGphdDd4SGQ5OEM5?=
- =?utf-8?B?L1RyaTRzVkM4bTJiL2F2c0ZyTG02NkNBR0Y4a1lqZktVRmlYT3YzZTdrcWFD?=
- =?utf-8?B?R2JKYmhWbnVySTlHbyt4UzdHRmJWUTdHb3YzV0lpenpSZXN3OG02dEk5bGFr?=
- =?utf-8?B?SFVOejEwMGg5QjVyOHVHblp0TkJrci9OK1J0eEcvUnlySGk2OUp6eGxDWFFk?=
- =?utf-8?B?UFBEc2hlRGp3Q2Y0b0dnMTlucjE4ZjNKQ3h3eFhyc1pQeFRpRXE5eHlpbFdE?=
- =?utf-8?B?ajFDdng2Y2NpZk14M0ZBNGRETnUyMVUzaFYvN0hBR0J4Qko0OFcwWHB3ek1P?=
- =?utf-8?B?Y3VLcCtBNm1IL3I5elVwOVVKaHFhNW9PbkxBTGFxR28xdVVmeGZrRnlWQW9y?=
- =?utf-8?B?YVpORThrMHZRaENoeWNmU2ZsdnhWKzlaS2NsQm9qS2tFZGJoRDNzdkFtRGVH?=
- =?utf-8?B?Y0U4elo3U2hjUlQ1VWlRanlBdmVOMUpnanBReGhVSllNUXg4a3NVS1k0OG9Y?=
- =?utf-8?B?djRYd2hPczEwRmZsSXpNVnFJUThicGFHSnl3OHZMNy9rekJXVXcwQTNkcnFm?=
- =?utf-8?B?RzJwVXp2d2lUMUVYNCtvd0lkN1c3blBmT0Y0WXBTVzN5MzJ6UHQvd01WcjVv?=
- =?utf-8?B?dnlhaTJ5TlJqV1JLL3N3eDJTT3pVV1NBNmc3Z3ErT0FpdHQ1bzYyZHBab1Fx?=
- =?utf-8?B?MnIxVEtBWWtWL3RkSnI0dGZYSlpUQU5QQzZ6MEpmV1ZWRC9JYm5YUURVTXBo?=
- =?utf-8?B?RlVBU3VnTzNiZHZIRDQ1b1FmS1l3aHVBbGFUM3I2UmFkaHZzK1NWRXNFNElx?=
- =?utf-8?B?VXkwUEwrNkY5Q0E2SHgxZFNCR25RRGRVbloybU84SFA0NzdKQmllRDdGbEp3?=
- =?utf-8?B?b1FhTWlLUkQ5WTFLeGRyYjNHa0s2SmtocHlQY3MvcFhTaDFJT2hBSWdMVUZ4?=
- =?utf-8?Q?R3MwwR+fcJoNgQevbCedwYsqq+DPz2kR1CGt4?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 98a4459f-63b1-4eaa-2c76-08df14062339
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Sep 2026 15:21:10.4342
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: cvXuMVNlNrcA7UjZoeMfU8JFGuJVAzt5u6GUI5jeJ5Gq+KTzxHeKk4oFwJHWJFWsXrsoBlXanvENFZ2D0uNnFMOVPNCDJ8uBm3lEMlcY7Z/vyfzAK0PPBO0M0ztvpFmx
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA6PR04MB11912
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v11 4/7] arm64: realm: Move Realm memory encryption ops to
+ RSI code
+Content-Language: en-GB
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+ linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Cc: Jason Gunthorpe <jgg@nvidia.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Greg KH <gregkh@linuxfoundation.org>, Jeremy Linton <jeremy.linton@arm.com>,
+ Jonathan Cameron <jic23@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Will Deacon <will@kernel.org>, Steven Price <steven.price@arm.com>,
+ Andre Przywara <andre.przywara@arm.com>
+References: <20260914060511.277948-1-aneesh.kumar@kernel.org>
+ <20260914060511.277948-5-aneesh.kumar@kernel.org>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20260914060511.277948-5-aneesh.kumar@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_082114_857690_EB844845 
-X-CRM114-Status: GOOD (  10.10  )
+X-CRM114-CacheID: sfid-20260916_162201_802635_F430773C 
+X-CRM114-Status: UNSURE (   7.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,97 +96,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peng Fan <peng.fan@nxp.com>
+On 14/09/2026 07:05, Aneesh Kumar K.V (Arm) wrote:
+> Realm memory encryption callbacks are CCA-specific. Keep the Realm callback
+> registration with the RSI initialization code instead of pageattr.c, which
+> only needs to provide the low-level page-attribute transition helper.
+> 
+> Export __set_memory_enc_dec() within arm64 so the RSI code can wrap it with
+> the Realm-specific encrypt/decrypt callbacks and warning policy.
+> 
+> No functional changes in this patch.
+> 
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 
-Replace all chan->device->dev references with
-dmaengine_get_dma_device(chan) so that DMA mapping goes through the
-correct device when the DMA controller has per-channel IOMMU domains
-(chan_dma_dev=true). Without this, DMA map/unmap bypasses the IOMMU
-context configured by the eDMA driver.
-
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- drivers/i2c/busses/i2c-imx-lpi2c.c | 18 +++++++++---------
- 1 file changed, 9 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c-imx-lpi2c.c
-index 49aabef7f115c..60547006f8b44 100644
---- a/drivers/i2c/busses/i2c-imx-lpi2c.c
-+++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
-@@ -780,7 +780,7 @@ static void lpi2c_dma_unmap(struct lpi2c_imx_dma *dma)
- 	struct dma_chan *chan = dma->dma_data_dir == DMA_FROM_DEVICE
- 				? dma->chan_rx : dma->chan_tx;
- 
--	dma_unmap_single(chan->device->dev, dma->dma_addr,
-+	dma_unmap_single(dmaengine_get_dma_device(chan), dma->dma_addr,
- 			 dma->dma_len, dma->dma_data_dir);
- 
- 	dma->dma_data_dir = DMA_NONE;
-@@ -789,7 +789,7 @@ static void lpi2c_dma_unmap(struct lpi2c_imx_dma *dma)
- static void lpi2c_cleanup_rx_cmd_dma(struct lpi2c_imx_dma *dma)
- {
- 	dmaengine_terminate_sync(dma->chan_tx);
--	dma_unmap_single(dma->chan_tx->device->dev, dma->dma_tx_addr,
-+	dma_unmap_single(dmaengine_get_dma_device(dma->chan_tx), dma->dma_tx_addr,
- 			 dma->rx_cmd_buf_len, DMA_TO_DEVICE);
- }
- 
-@@ -817,10 +817,10 @@ static int lpi2c_dma_rx_cmd_submit(struct lpi2c_imx_struct *lpi2c_imx)
- 	struct dma_chan *txchan = dma->chan_tx;
- 	dma_cookie_t cookie;
- 
--	dma->dma_tx_addr = dma_map_single(txchan->device->dev,
-+	dma->dma_tx_addr = dma_map_single(dmaengine_get_dma_device(txchan),
- 					  dma->rx_cmd_buf, dma->rx_cmd_buf_len,
- 					  DMA_TO_DEVICE);
--	if (dma_mapping_error(txchan->device->dev, dma->dma_tx_addr)) {
-+	if (dma_mapping_error(dmaengine_get_dma_device(txchan), dma->dma_tx_addr)) {
- 		dev_err(&lpi2c_imx->adapter.dev, "DMA map failed, use pio\n");
- 		return -EINVAL;
- 	}
-@@ -844,12 +844,12 @@ static int lpi2c_dma_rx_cmd_submit(struct lpi2c_imx_struct *lpi2c_imx)
- 	return 0;
- 
- desc_prepare_err_exit:
--	dma_unmap_single(txchan->device->dev, dma->dma_tx_addr,
-+	dma_unmap_single(dmaengine_get_dma_device(txchan), dma->dma_tx_addr,
- 			 dma->rx_cmd_buf_len, DMA_TO_DEVICE);
- 	return -EINVAL;
- 
- submit_err_exit:
--	dma_unmap_single(txchan->device->dev, dma->dma_tx_addr,
-+	dma_unmap_single(dmaengine_get_dma_device(txchan), dma->dma_tx_addr,
- 			 dma->rx_cmd_buf_len, DMA_TO_DEVICE);
- 	dmaengine_desc_free(rx_cmd_desc);
- 	return -EINVAL;
-@@ -872,9 +872,9 @@ static int lpi2c_dma_submit(struct lpi2c_imx_struct *lpi2c_imx)
- 		dma->dma_transfer_dir = DMA_MEM_TO_DEV;
- 	}
- 
--	dma->dma_addr = dma_map_single(chan->device->dev,
-+	dma->dma_addr = dma_map_single(dmaengine_get_dma_device(chan),
- 				       dma->dma_buf, dma->dma_len, dma->dma_data_dir);
--	if (dma_mapping_error(chan->device->dev, dma->dma_addr)) {
-+	if (dma_mapping_error(dmaengine_get_dma_device(chan), dma->dma_addr)) {
- 		dev_err(&lpi2c_imx->adapter.dev, "DMA map failed, use pio\n");
- 		return -EINVAL;
- 	}
-@@ -1085,7 +1085,7 @@ static int lpi2c_imx_dma_xfer(struct lpi2c_imx_struct *lpi2c_imx,
- 	}
- 
- 	if (dma->dma_msg_flag & I2C_M_RD)
--		dma_unmap_single(dma->chan_tx->device->dev, dma->dma_tx_addr,
-+		dma_unmap_single(dmaengine_get_dma_device(dma->chan_tx), dma->dma_tx_addr,
- 				 dma->rx_cmd_buf_len, DMA_TO_DEVICE);
- 	lpi2c_dma_unmap(dma);
- 
-
----
-base-commit: e6e35979777d646fe3c7c94dca7dd32fb25d45f4
-change-id: 20260916-i2c-dma-e9cd42e4e7ff
-
-Best regards,
---  
-Peng Fan <peng.fan@nxp.com>
+Reviewed-by: Suzuki K Poulose <suzuki.poulose@ram.com>
 
 
