@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC95AC88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 01:41:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74C80C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 02:00:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VbjMS8Ne6mpuUeH6m6IA3igIpuxTJmLYypQ89AF2BsU=; b=k64KIBrfKcKDXYYU+y/+4h30fm
-	B4Halq1+Tf4Gw5R2xdkjfFJBx7uFqPybJawR4WlUyMe4HMOaKnKzEAoM/vBd+BGOXGH3Spzwt20El
-	MY2VxE6/mZinU+/5oT6K2h10LZL8rhBpuZe2HhWw08LnNTPPoBQGnu8qQ9Yu7o1siWinyJLDFk8jz
-	P2Pc+dmOqAAZ3IP3DihcgURecq+qWXmpjUJmudQVHGHTh3cMXvkfyHQTFUqcUFtxxWd6qTNnKn+L/
-	ZvJoj9kh3bpf1cvtOx6f8NO7hdApHabg9TGM1pPboJyK0wgizkkpOPAt1/aqJVNx78FcU7M3hrFyS
-	1ypYcCVw==;
+	bh=loqpFx2us6AzXdnwENCyISIbEFmke5V5K2ft3dn7wXk=; b=P4M/OQS8cpBXsStmHipoPPkRfk
+	3lAWrJLUquzM96ySWDyBZ7Se0VxGrMmnm0lqjMw0xg8ti94jCm7rLlnb9R3mg/jdEiy/dZY6pt8gf
+	BW3PW0kS8Yk+OKd8KKaIPAwUDqOqhnO8og/xOiDd5hGfbJT3tp2k0uz/pXeR/d7BiO8pg7jXxBchh
+	tTtdOupPrFKv+zE7mioo/RdKEMT47eBxEHYf+oT2mWX68kv0WHAzPTbx1QypXwUd+ZD4O14POg6OF
+	jrjrkmNU24VVdHnFyduNUUGIKMvJhdU6kH7+oqZhDU+CpoYxHWuoJERn6/ysYF/lGofxxfPzP87Se
+	3C2k82ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6ee9-00000008AHG-0KEw;
-	Wed, 16 Sep 2026 01:41:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x6ewo-00000008Awi-3XBo;
+	Wed, 16 Sep 2026 02:00:30 +0000
+Received: from mail-m49224.qiye.163.com ([45.254.49.224])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6ee8-00000008AHA-00vf
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 01:41:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C7A22600E2;
-	Wed, 16 Sep 2026 01:41:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E1F81F000FF;
-	Wed, 16 Sep 2026 01:41:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789522870;
-	bh=VbjMS8Ne6mpuUeH6m6IA3igIpuxTJmLYypQ89AF2BsU=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=mdqBBr+JRXi9IJ3Ib4XtXu5S4WACPR7xwsjfIG03a8F5EBo8J+VTmhnkjtlVt9Zaa
-	 vMsRIE5xfBOjfFM/85EPV2+ih6SRCus/geT5BX58InbwVU5rrOlTt9RLo+SBki2Ns+
-	 Mg/I4dv1VcZcEIH+j5hk10L4cSEFlVd48DAJXLZm+7UamB0dhGdGMXdQLJ6uANg8rq
-	 6GY1DTMEDHDcXjbrbEIUDOzHekpvTJ0CdF/POwpxTFGT9sI5kBnoWulPidFgXbp7+7
-	 9hhWojIfP3V2xppP241W+IIYiDhzLPGnNQEe6l3vb4xGY+dypS9ay9SX2YXtmh4sN+
-	 jI3LZClC+ie/A==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 197E53927075;
-	Wed, 16 Sep 2026 01:40:06 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1x6ewl-00000008Aw1-0kWw;
+	Wed, 16 Sep 2026 02:00:29 +0000
+Received: from [127.0.0.1] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 4deb4f28d;
+	Wed, 16 Sep 2026 09:55:12 +0800 (GMT+08:00)
+Message-ID: <37f6edb3-7e25-4bcc-9af0-f816bab011e0@rock-chips.com>
+Date: Wed, 16 Sep 2026 09:54:59 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 0/3] DSI Controller improvements for Rockchip platforms
+To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Chaoyi Chen <kernel@airkyi.com>
+Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Quentin Schulz <quentin.schulz@cherry.de>
+References: <20260914013331.108-1-kernel@airkyi.com>
+ <3800544.yaVYbkx8dN@diego>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <3800544.yaVYbkx8dN@diego>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v2] net: stmmac: do not overwrite phc_index when no
- PTP
- clock is registered
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <178952280488.2353777.12003404021238471731.git-patchwork-notify@kernel.org>
-Date: Wed, 16 Sep 2026 01:40:04 +0000
-References: <20260914-stmmac-fix-phc_index-v2-1-bf3d90373fe4@oss.qualcomm.com>
-In-Reply-To: <20260914-stmmac-fix-phc_index-v2-1-bf3d90373fe4@oss.qualcomm.com>
-To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, gal@nvidia.com,
- rrameshbabu@nvidia.com, cjubran@nvidia.com, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
+X-HM-Tid: 0aa0a7ecdabe03a7kunm8248de34c3a4d1
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDGB1IVh8ZTxlNSBpNHxpOH1YVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
+	pKQk1VSktLVUpCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=hrHjWyjOUkhry66qfs0cSuuOdicD2DmJlD9XhO3AJTaukjIoXOCohSzeMYjEyoAkpZCToUL3Z0FyV2W8VNTZSw8RUIOoivFWt7ldo/ecx6DQ98zsHN4y2NhY9Ap2WJIqGgJB9pktMJnPB4Vd6byovgMlKXPwcZqKA9ppaj40C5E=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=loqpFx2us6AzXdnwENCyISIbEFmke5V5K2ft3dn7wXk=;
+	h=date:mime-version:subject:message-id:from;
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260915_190027_792922_4F8804E7 
+X-CRM114-Status: GOOD (  26.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,32 +77,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Hello Heiko,
 
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Mon, 14 Sep 2026 09:41:07 +0200 you wrote:
-> stmmac_get_ts_info() reports phc_index as 0 when hardware timestamping
-> is supported but no PTP clock has been registered yet (e.g. while the
-> interface is down). Zero is a valid PHC index and would make userspace
-> resolve the wrong clock; the absence of a clock should be reported as
-> -1.
+On 9/15/2026 9:36 PM, Heiko Stübner wrote:
+> Hi,
 > 
-> The ethtool core already initializes phc_index to -1 before invoking
-> the get_ts_info callback (ethtool_init_tsinfo()), so just drop the
-> erroneous assignment.
+> Am Montag, 14. September 2026, 03:33:28 Mitteleuropäische Sommerzeit schrieb Chaoyi Chen:
+>> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>>
+>> This series is dedicated to enhancing the DSI controller and PHY timing
+>> interaction, refining the lane rate calculation, and addressing the
+>> associated hardware limitations.
 > 
-> [...]
+> 
+> Took me a bit to finally test all the different variants for a display
+> that shows strange behaviour. Sorry this gets a bit longer.
+> 
+> 
+> The display in question is the ltk050h3148w [0], display in portrait
+> orientation.
+> 
+> Ever since commit ac87d23694f4 ("drm/bridge: synopsys: dw-mipi-dsi: Use
+> pixel clock rate to calculate lbcc") [1] and the subsequent fix in commit
+> 93e82bb4de01 ("drm/bridge: synopsys: dw-mipi-dsi: Fix hcomponent lbcc for
+> burst mode") [2], that display has its output shifted about 20 pixels to
+> the right, with the line then continuing on the next display line.
+> 
+> We have this display running on all the Theobroma-System modules, so there
+> is a lot of variant data :-) .
+> 
+> Your series actually fixed the PX30 part of that shifted output, but for
+> the RK3399 the results are sort of mixed:
+> 
+> 
+> What was confusing me was that in the Rockchip vendor kernel, _all_ DSI
+> variants use the standard px30 phy settings? The whole original lookup
+> table seems to be gone? And that replicating that setting actually fixes
+> the shifted output on RK3399 too?
+> 
 
-Here is the summary with links:
-  - [net,v2] net: stmmac: do not overwrite phc_index when no PTP clock is registered
-    https://git.kernel.org/netdev/net/c/f0ef4b1eaed0
+Thanks a lot for the thorough testing!
 
-You are awesome, thank you!
+The RK3399 results are surprising, as the Synopsys databook
+configuration actually performs worse than the PX30 PHY configuration.
+As for the vendor changes, unfortunately the specific reasons are lost
+to history. But what is certain is that the original intent was to
+resolve the interoperability issues with INNO PHY on PX30 and
+subsequent platforms. 
+
+So I've gone with a compromise in this series to distinguish INNO PHY
+and Synopsys PHY. I'm not sure if using the same configuration for both
+would work out completely, but so far no related issues have been
+reported in the vendor kernel.
+
+I don't have a better idea for patch 3 right now, because different 
+platforms and panels may have different requirements for target_mbps. 
+In vendor kernel, we read the DTS to override target_mbps like this:
+
+/* optional override of the desired bandwidth */
+if (!of_property_read_u32(dev->of_node, "rockchip,lane-rate", &value)) {
+	target_mbps = value;
+}
+
+Would you consider this modification acceptable as an alternative to
+patch 3? Thank you.
+
+> 
+> RK3399:
+> 	original:
+> 		shifted
+> 		mode-clock 59400, target_mbps 450
+> 
+> 	patches 1+2:
+> 		shifted
+> 		mode-clock 59400, target_mbps 450
+> 
+> 	patch 3:
+> 		blank disiplay
+> 		mode-clock 59400, target_mbps 400
+> 
+> 	use static px30 phy with patch3:
+> 		image is compressed in height and displayed two times one below the other
+> 		image is _not_ shifted anymore (so left+right alignment are correct)
+> 		mode-clock 59400, target_mbps 400
+> 	
+> 	use static px30 phy without patch3:
+> 		image is _not_ shifted anymore
+> 		output is correct
+> 		mode-clock 59400, target_mbps 450
+> 
+> 
+> PX30:
+> 	original
+> 		shifted
+> 		mode-clock 59556, target_mbps 450
+> 
+> 	patches 1+2:
+> 		output is correct
+> 		image is _not_ shifted anymore (so left+right alignment are correct)
+> 		mode-clock 59556, target_mbps 450
+> 
+> 	patch 3:
+> 		output is still correct
+> 		mode-clock 59556, target_mbps 400
+> 
+> RK3588 (DSI2) for reference:
+> 	output is correct
+> 	mode-clock 59756, lane_mbps 398
+> 
+> 
+> Do you have any insight, what could go wrong here?
+> 
+> I'll apply patches 1+2 as they're correct, but will keep patch3 out
+> for now.
+> 
+> Also Sashiko seems to still be unhappy with patch3.
+> 
+> 
+> Thanks a lot
+> Heiko
+> 
+> 
+> [0] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/gpu/drm/panel/panel-leadtek-ltk050h3146w.c#n299
+> [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ac87d23694f44af44a98d21dd77016f2756b6b1b
+> [2] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=93e82bb4de0196c4caeca1d8a6eef67863981d8f
+
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Best, 
+Chaoyi
 
