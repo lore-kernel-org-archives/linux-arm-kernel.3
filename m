@@ -4,28 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECA6FC982C3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:10:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32AD7C982C9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:10:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h1SRVsY/0+Guap2KTqKbc4VoQu0cYIfwBRc4uN/UP4E=; b=dhv64jfXBkzfVD+fdWKu0oChux
-	5M60TkvPcADi1nCxhYSQfJv82hetk69/UfwRr68TjIIr0xb4vQEFUGWM8T9Rfl6BcU3fxstuHopOj
-	CAkiFnr+rp9KohVDclMzNFfkaEj+JGdCtbFN08tEhkqKPhKFlJTknqIEwPpTGBBcd4Kg4RgVsJEtj
-	rcW4UVIi06Tft/sOU83/+o59+Zv5tBzqX+uiUlBxcK0PmUF1xZPLT6p2y2a7SmyuBeFnnPvcLY/II
-	1y6XT55PnFSlZg5FXlx53JN3uzbD7jxoj4GmDgKZaIYWzXo+UhIvgivcazix4GLXKlbjJYyAaMOvz
-	K8xLbvkg==;
+	bh=h1N8/KVAqOCQAD4EiIZyR8heh+iQu7kAXIa7beDEF1s=; b=KIhN78SqoapRTqg+1aFCvvo9U4
+	w78lGOlBX2zYtlW1ds0Ua3QKD+naEBB5y8NKkpBp+voCTnleyZUQjU/G32T3NvrQlQbgCbFnK3ai+
+	N3YNQ0V5I3/jZpDWzbv8ulKSaOKoJcO2LQkMrvlkI2pZU3neYhz/ju3nzNq4ZYsEvDkmaBgxo1+wX
+	vZADC0/HbThEdQ8Kih+XhW57znkZLcYgZ3od7W4uFVlLZsltzfA+7bIE6aAC4kGAZPkdj4uY7jh6q
+	jy5EP/4iPUQWI9aTg3kkXu/twN5GCaToWYU0NKiksbmyb6WG+spWrbJH2tKGqS7rXXdrXMSS5JUmg
+	9aj+QzAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rGs-00000009VwL-3GVh;
-	Wed, 16 Sep 2026 15:10:06 +0000
-Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
+	id 1x6rH7-00000009W6D-2hLF;
+	Wed, 16 Sep 2026 15:10:17 +0000
+Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rGg-00000009VoP-13xp;
-	Wed, 16 Sep 2026 15:09:53 +0000
+	id 1x6rGk-00000009VqM-3JLM;
+	Wed, 16 Sep 2026 15:09:56 +0000
 X-PTX-Original-Recipient: ezequiel@vanguardiasur.com.ar
 X-PTX-Original-Recipient: jacob-chen@iotwrt.com
 X-PTX-Original-Recipient: mchehab@kernel.org
@@ -42,21 +42,21 @@ X-PTX-Original-Recipient: s.pueschel@pengutronix.de
 X-PTX-Original-Recipient: m.tretter@pengutronix.de
 Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
 	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 7EF132059F0;
-	Wed, 16 Sep 2026 17:09:48 +0200 (CEST)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id E87682059F3;
+	Wed, 16 Sep 2026 17:09:49 +0200 (CEST)
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
 	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.96)
 	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1x6rGe-001Fsx-1G;
-	Wed, 16 Sep 2026 17:09:48 +0200
+	id 1x6rGf-001Fsx-2g;
+	Wed, 16 Sep 2026 17:09:49 +0200
 From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Date: Wed, 16 Sep 2026 17:09:44 +0200
-Subject: [PATCH v2 03/17] media: rockchip: rga: move early return into if
- condition in vidioc_enum_fmt
+Date: Wed, 16 Sep 2026 17:09:46 +0200
+Subject: [PATCH v2 05/17] media: rockchip: rga: use devres version of
+ pm_runtime_enable
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260916-spu-rga3multicore-v2-3-23aa2cb74e61@pengutronix.de>
+Message-Id: <20260916-spu-rga3multicore-v2-5-23aa2cb74e61@pengutronix.de>
 References: <20260916-spu-rga3multicore-v2-0-23aa2cb74e61@pengutronix.de>
 In-Reply-To: <20260916-spu-rga3multicore-v2-0-23aa2cb74e61@pengutronix.de>
 To: Jacob Chen <jacob-chen@iotwrt.com>, 
@@ -71,8 +71,8 @@ Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
  =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_080950_443553_443DBC79 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20260916_080955_289179_F90B75BF 
+X-CRM114-Status: GOOD (  13.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,46 +87,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Instead of a doing an early return when we don't have a capture device,
-merge the condition with the following if condition. This improves
-readability, as the condition now explicitly contains a check for a
-capture device instead of returning when we don't have a capture device.
+Use the devres version of pm_runtime_enable named
+devm_pm_runtime_enable to ease up the cleanup handling. Also it avoids
+having a mixed cleanup order due to the following
+devm_platform_ioremap_resource being cleaned up anyways after the probe
+function has returned.
 
-Also use the V4L2_TYPE_IS_CAPTURE helper and improve the comment.
-
-The early return if was copied from the vivid drivers
-vivid_enum_fmt_vid function.
+This also changes some dev_err calls to dev_err_probe for convenient
+returning. This may not print these messages in the error case, as
+dev_err_probe may handle them differently based on the error (e.g.
+ENOMEM won't be printed).
 
 Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+
 ---
- drivers/media/platform/rockchip/rga/rga.c | 14 ++++++++------
- 1 file changed, 8 insertions(+), 6 deletions(-)
+v2
+- added
+---
+ drivers/media/platform/rockchip/rga/rga.c | 34 +++++++++++--------------------
+ 1 file changed, 12 insertions(+), 22 deletions(-)
 
 diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
-index efe5541078214..8c03422d669cf 100644
+index 8c03422d669cf..d7f0712177b70 100644
 --- a/drivers/media/platform/rockchip/rga/rga.c
 +++ b/drivers/media/platform/rockchip/rga/rga.c
-@@ -372,12 +372,14 @@ static int vidioc_enum_fmt(struct file *file, void *priv, struct v4l2_fmtdesc *f
- 	if (ret != 0)
- 		return ret;
+@@ -797,37 +797,31 @@ static int rga_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return dev_err_probe(&pdev->dev, ret, "Unable to parse OF data\n");
  
--	if (f->type != V4L2_BUF_TYPE_VIDEO_CAPTURE &&
--	    f->type != V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE)
--		return 0;
+-	pm_runtime_enable(rga->dev);
++	ret = devm_pm_runtime_enable(rga->dev);
++	if (ret)
++		return ret;
+ 
+ 	rga->regs = devm_platform_ioremap_resource(pdev, 0);
+-	if (IS_ERR(rga->regs)) {
+-		ret = PTR_ERR(rga->regs);
+-		goto err_put_clk;
+-	}
++	if (IS_ERR(rga->regs))
++		return PTR_ERR(rga->regs);
+ 
+ 	irq = platform_get_irq(pdev, 0);
+-	if (irq < 0) {
+-		ret = irq;
+-		goto err_put_clk;
+-	}
++	if (irq < 0)
++		return irq;
+ 
+ 	ret = devm_request_irq(rga->dev, irq, rga_isr,
+ 			       rga_has_internal_iommu(rga) ? 0 : IRQF_SHARED,
+ 			       dev_name(rga->dev), rga);
+-	if (ret < 0) {
+-		dev_err(rga->dev, "failed to request irq\n");
+-		goto err_put_clk;
+-	}
++	if (ret < 0)
++		return dev_err_probe(rga->dev, ret, "failed to request irq\n");
+ 
+ 	ret = dma_set_mask_and_coherent(rga->dev, DMA_BIT_MASK(32));
+-	if (ret) {
+-		dev_err(rga->dev, "32-bit DMA not supported");
+-		goto err_put_clk;
+-	}
++	if (ret)
++		dev_err_probe(rga->dev, ret, "32-bit DMA not supported");
+ 
+ 	ret = v4l2_device_register(&pdev->dev, &rga->v4l2_dev);
+ 	if (ret)
+-		goto err_put_clk;
++		return ret;
+ 	vfd = video_device_alloc();
+ 	if (!vfd) {
+ 		v4l2_err(&rga->v4l2_dev, "Failed to allocate video device\n");
+@@ -877,8 +871,6 @@ static int rga_probe(struct platform_device *pdev)
+ 	video_device_release(vfd);
+ unreg_v4l2_dev:
+ 	v4l2_device_unregister(&rga->v4l2_dev);
+-err_put_clk:
+-	pm_runtime_disable(rga->dev);
+ 
+ 	return ret;
+ }
+@@ -892,8 +884,6 @@ static void rga_remove(struct platform_device *pdev)
+ 	v4l2_m2m_release(rga->m2m_dev);
+ 	video_unregister_device(rga->vfd);
+ 	v4l2_device_unregister(&rga->v4l2_dev);
 -
--	/* allow changing the quantization and xfer func for YUV formats */
--	if (v4l2_is_format_yuv(v4l2_format_info(f->pixelformat)))
-+	/*
-+	 * Allow changing the quantization and ycbcr_enc func for YUV formats
-+	 * on the capture side for RGB -> YUV conversions.
-+	 *
-+	 * These flags are only relevant for capture devices.
-+	 */
-+	if (V4L2_TYPE_IS_CAPTURE(f->type) &&
-+	    v4l2_is_format_yuv(v4l2_format_info(f->pixelformat)))
- 		f->flags |= V4L2_FMT_FLAG_CSC_QUANTIZATION |
- 			    V4L2_FMT_FLAG_CSC_YCBCR_ENC;
+-	pm_runtime_disable(rga->dev);
+ }
  
+ static int __maybe_unused rga_runtime_suspend(struct device *dev)
 
 -- 
 2.55.0
