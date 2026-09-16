@@ -4,109 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75E30C88E5C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 03:57:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D80D4C88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 04:00:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xQDR48WjHEqsMRL2A1gJmeKRcqUr2W7BIowYB3PxMEA=; b=vt75/077gl3bsmCOVGNSfE+KFc
-	MJolR7zNVMptsCjFh8z0zNy6XOrOPsHPGge1oFXOMcLDvO6lX7QgLQAd8JAqgYU1YtUgcNPI+Y+Rv
-	Z6VXxUcjA2ONvu8+fMOwZqG2t1J8EWfuuJX/8/q1jTzT1QYmDW5NJh3IhbofJ+co4+d+o1c+gcSRf
-	+f3CrTI6YsU15Td2ldyOwGpaP1INuhU2x/ngX2xrZ2ckKxE+Y4Vpi+nNlX70i+fW9fItRVS0buYA/
-	Pn8YWT+AkAgJfaQ0fsggYdjFox78G9el1grAhOASv0OA7SQYdhafb12268Hags5pfx8B8OWiZR3Gf
-	shDYjWOg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=26iBpb4QpSVJzFjDwMEtgMp27OAl8lT0VVg/30n4/sA=; b=vYTHIRwzh37e8uVl5+yRLYI3w0
+	aNi1W/fK4Kv5kECffmPqj2qBvYjEvsSgD8zbDOh9fND95/8jYCbj0wJMlcAWTpzmYNigsmMmEYHkz
+	6mkJ75ncneZvFW8/x9BgkL1xJ1fJBYWL8A27ahGXZYVcC3BV/RlCEv5OQNYsKNSBeLVJ3wU+9QKiI
+	US8vbnXe8dtMqs8BwkHXs434kKoNyx3RMFXAzpqjZ9O3NI6Ozd1oGqpOXz5BUGKgR62k9/gem3/hs
+	Gec+RZrAc4aG/A19gSjwgJz7r7emYEsk0aOBRoA86R7jnsSVJ0Yw02pzn/9bWor6+WEJ0F42YtE6S
+	/FEie2Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6gm5-00000008Gq3-4C1E;
-	Wed, 16 Sep 2026 03:57:34 +0000
-Received: from mail-lf2-x11.google.com ([2a00:1450:4864:36::11])
+	id 1x6gog-00000008HQK-1gsp;
+	Wed, 16 Sep 2026 04:00:14 +0000
+Received: from mail-pj2-x11.google.com ([2607:f8b0:4864:39::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6gm2-00000008Gpe-1h6D
+	id 1x6god-00000008HOp-1zri
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 03:57:31 +0000
-Received: by mail-lf2-x11.google.com with SMTP id 2adb3069b0e04-5b5e4f18010so430579e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 20:57:26 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1789531045; cv=none;
-        d=google.com; s=arc-20260327;
-        b=YJxsZEHVCIeww15dDYcvn1AmJZZO/uM6yBsy2Tlgy7RJpI8vj3JLHevLnWBNNqkX8H
-         0pZKv8wLvNpDkn+gfoVVG0KU4x/01p5OTGx0scy3Tw8Byp69VC33W0q27FIA4lBEibFu
-         0xvK74x73sAH57CBpUG2zbcII7+zuCCw4yuIfb+907Y/yp6v+QFfPVwZmJpn7Tlh7GKl
-         rnmHhpHj9DJ398DrOqK6z8gP2Nm/eltDD1G8pC0UL7JzW0i22bHticE2wXULY7GKje+w
-         lUOod1A/dXfGct4HHLvBSh+VwO+v72ogYjE2t+NrRmfI2nce34OfuypwfKt+mQd7deXr
-         x45g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=xQDR48WjHEqsMRL2A1gJmeKRcqUr2W7BIowYB3PxMEA=;
-        fh=8QalpKl4XYB65OO94AV/IzjGpib2EYD/gBex6ard5l0=;
-        b=no8KT7oBMlZc60kZzJJsxox8aJKsxRzY4xYOfO/gRw9KWsKsNUWlQ26ePELuDKMUlW
-         Ir20QXB6IInNESy7y3+0IDSA0u7jKs4YfNAUpRP4DUFpYFw+eLgjxpjc8dFGhSP66Mu5
-         O0HUZXePaRQmUNWYLbsOYnYcl13NkhaRWyw9NGsrzflvU4qHT0DZ5WPIfDD/EROLVTKC
-         25Jjz4qxKViYff1d1ZDk5L1RNUumXxie2Yd8+R/NvEc3JqbJheCYut5gdZzvW+Dv8Hen
-         lra+Y5+v4VtOggaFT/lXd0a3QL8q4IZFv8IteH3BOqyM7h/iUs26naHuXoxasE2TpqB/
-         J3nA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Wed, 16 Sep 2026 04:00:13 +0000
+Received: by mail-pj2-x11.google.com with SMTP id 98e67ed59e1d1-396ccb652d7so392169a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 21:00:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789531045; x=1790135845; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=xQDR48WjHEqsMRL2A1gJmeKRcqUr2W7BIowYB3PxMEA=;
-        b=cof5to0o3jtlYr6fmcYXRtPMcSnx1dUmPHBaOmXa02uAaUGWrAq3knEhXCSGkcTjso
-         BoyDXQOTVrBTjRXX1+cC9AYf8hqqlrehZ6oEfyMPiQLsrYKDwtV8Hh+BxgFoXgL8Ueun
-         aV0vjoboBJ+MFegfrMnWt0XnJ8nAzOPrIICWSbA22sVNjWDbY31J5oPpy7Fmvw2D7ADX
-         NmJ3slOoLIlmFgXch5/JwUXAxL5Xi73lyjq2SvxoHZeACGo7UHuBJFsA3LM9YbNtccdr
-         bvpWRmK+MJWmVkBXEualxQd2k5iXDHt69PqQIxy9ft6Qu6IUfZS8nVaflxDCZaAiaFNW
-         I4LQ==
+        d=chromium.org; s=google; t=1789531210; x=1790136010; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=26iBpb4QpSVJzFjDwMEtgMp27OAl8lT0VVg/30n4/sA=;
+        b=Tj9fRP/K9SYkJRq+4nSs2HTx7BxXyBwXQkE1D+KCb3Hcjymz1YjkGEYe/eowGEGaL9
+         NLbFSXFCCi4SQAm4rWFiRCJyOrzCM/8Si9+ddtdNBUO7I4Ue3G2OFrZnXbBGULvqoArO
+         fS9QSK51ErsUk+syK/+B82VouvEAuoMVKpGqA=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789531045; x=1790135845;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=xQDR48WjHEqsMRL2A1gJmeKRcqUr2W7BIowYB3PxMEA=;
-        b=QQUsVCLm3BO8qxdxmaFizyGEbE19PqwhiFL9f6UDG3Z7ZX/LsGGHf64a6FzlzT8NoL
-         e7FmByWuanyQcQyWbcSigS3mo2G4n1kusXEFVLRqvU8y5wiDmlPdppIvvzrd0c1zVp+c
-         ayUWe2hb4ZilYS/YEwaoe+DZm2tv0s2yondj3/DkyinDEIIhx4KHYv78fzPXe5eb2mEL
-         Q6BtHHH08c/GlKBxNi/SmwSutbtxP9VlXU50lC4grsOHoElEv/DM6nF+h0NQ/aNkNA7V
-         1oMrOAFVqOT6GA8JPuQUG2KL4mxdFhnPPq/xz+1+mB6Xri+FThHaiAKIGACGNsWOqS4b
-         6Tgw==
-X-Forwarded-Encrypted: i=1; AKwUvBxquCno410EJJUOdOTy1266pvv9RKTLKRYatAwYavK8WxDNE5JrLxF7mVrrThtfLhxUWVmf0l/RpVxG/3sjsXCN@lists.infradead.org
-X-Gm-Message-State: AFuF++kSPrxlWuSs5EiCo21iQleamCr9UtlBTtePugs2qi3hV4yG8aSi
-	DWz+eOGIt3Wg5AprUzMkFZsJqjTQvlpEN/45eUW2vO6UgQAxo5Y18AHOyIJp0r/FH/Ji7PrYD9y
-	RyiEMugW13gm7K8zl3KfUS+ZvXfIDgnYRfe6ZqkA=
-X-Gm-Gg: AYBFou2y/PYtdJEnYb5q57Tf/9aBfHkBGUELBVcskk/xGS53bzsVAGJ5/juc6G8wguV
-	Rz3CKj/j/uBgPcZBaauiqFym/1yUo/iJzAy0tWK//xeX3vct96qoeCwWWMuaOxfgTFvLfCWknxd
-	DCPwDlxzOre7HYgUqWuqdMl7EJuq4Rpg2cUTabnsQnAyDze9wLLGaghiF4+MddePOCsNPmDn7Vp
-	KqsVleU9URq4aHlZtErCoiOnn/HpUI/rC00YvbO2vy54VLv+LxqiYFc1rhzOgY7kUe1piQc7sQS
-	AWdoWzI0LzcJQ8YiHz2Hts4ddRJ1hpohZW6/rM4hhNeTyEbb9Ir6og==
-X-Received: by 2002:ac2:51c3:0:b0:5b2:158e:9918 with SMTP id
- 2adb3069b0e04-5b8b661e3b2mr186213e87.19.1789531044560; Tue, 15 Sep 2026
- 20:57:24 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1789531210; x=1790136010;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=26iBpb4QpSVJzFjDwMEtgMp27OAl8lT0VVg/30n4/sA=;
+        b=bNKks/awtCCtooXy1ucl9E4g+eKf/63xaW8+lSutSRkIyonH9hp2XOeS8ibfjrmSrS
+         S13UwSDb7rcf+ceJ7KfhBmwj7aff1LCY7VMo4kvPzf7LF9QtCynm3SwRtG8MREvSw695
+         ob5Oz/kXvlfMAcC+KUWWL6q/SjLmQuv40Vk6lMiqwd9odfO1SVJ6bwBcAWEl0Nohzfgt
+         kaPnpvgMQ780iZkxeYCvdHB1Z3LHQMlo0dpClhOFKwo1eGNYPh1/JN1DfTEhKIpYk7qA
+         A+tzhmpdTh0GqVrPqJwvrU2ezCP10h3kCEASRYPFOADnc1Ylmd7lCIT9BnCVG+3Roebb
+         CyUA==
+X-Forwarded-Encrypted: i=1; AKwUvBzs5m9EGUWx9Mkc1sJl8zzz6zgw2pMzQbqRH5eqIWMCIKYlkKvFFU5OIJp/n/2P/n7FU132ndFjXNu8mSR514du@lists.infradead.org
+X-Gm-Message-State: AFuF++nxoCQ5rlahinzlg1udlydGZTLraSRM2r4oMd29AdvPg7SNuv3r
+	vmXMHPJWam0Pk5cQ+r4RdNMW7x+M63DgH1PEaw0TG/lf9fRbthbd5MfFElxoK73Ag22M3qPApgu
+	Nsko=
+X-Gm-Gg: AYBFou0mNzeXMpd9GG4z7KbzdAo+9eP4u9udAcZupggIGl6LR6zOYBYZX7v3f//bQKG
+	vrE0AZdBJ4Ls/5fdPnmbHz9ClRls5mbfgiINORJmrw7hvYwoHLFQeM1U64YmDWhudeJ9sAB009i
+	nyc/M5b/FZvNBht7u73VUhIhUvApxI1gHF65O/zXFcr2+8kz69HJEf3ghYrcSS7RMeWDi4YVkAy
+	obxHuGn+LG/838DHGpUiLmEIInAO0/QNZRKYPA0uI0r+WvJh38yMarV0LvTK8P6XtQlWmdvD+8v
+	YZQ8ILfe4kpkv6b/F7BFG8Txr8Cl4bY04hvz1qC2rhqqtws/rtlf/owPwiTuQ6q2hECIOFmeFb6
+	ZFcCHFuaoHi58tCNMuorwPwjkNYSwYecWeBW8Mc1WfgQ6uJbegjq/qpUV9dHMkZZDqumJ3gqTg/
+	+gPOvN1Npi5kunwqrf2chCP8U9otSKL16tclL/X8oLKUXbs/43RW8ESjanAZE/eshEKQYqQnG5F
+	DD6s1z9M2ilmRhlydq5gzQuyO1cObS0DoW8b3D+zG1ho9WUw80sYNsRhSC0WLb+pADW
+X-Received: by 2002:a17:90b:4ecf:b0:398:e96a:8999 with SMTP id 98e67ed59e1d1-39e1e49a802mr2704118a91.16.1789531210421;
+        Tue, 15 Sep 2026 21:00:10 -0700 (PDT)
+Received: from wenst-7875.tpe.corp.google.com ([2a00:79e0:203d:7:1f62:7622:5d61:2578])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39e1b7a3cc9sm2030139a91.14.2026.09.15.21.00.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 15 Sep 2026 21:00:09 -0700 (PDT)
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
+	devicetree@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Icenowy Zheng <zhengxingda@iscas.ac.cn>,
+	YoungJoon Lee <getfeus@gmail.com>
+Subject: [PATCH RESEND v4 1/2] arm64: dts: mediatek: mt8173: Fix MFG_ASYNC power domain clock
+Date: Wed, 16 Sep 2026 11:59:51 +0800
+Message-ID: <20260916035953.3111607-1-wenst@chromium.org>
+X-Mailer: git-send-email 2.55.0.1032.g73a4cd73de-goog
 MIME-Version: 1.0
-References: <20260915065534.102249-1-maimon.sagi@gmail.com> <6acfc82e-7690-4759-90df-22b64a5441ba@lunn.ch>
-In-Reply-To: <6acfc82e-7690-4759-90df-22b64a5441ba@lunn.ch>
-From: Sagi Maimon <maimon.sagi@gmail.com>
-Date: Wed, 16 Sep 2026 06:56:58 +0300
-X-Gm-Features: AcwNN1VE21f4CHLNHevQeu2epcwUcVn4gToPTCHI40hLednW88eNlo6h6UQyzGs
-Message-ID: <CAMuE1bHKr_-cE7VpSMc_8nYGgaH9Y901XMqRLzvKYodn8CHiXA@mail.gmail.com>
-Subject: Re: [PATCH net-next] net: axienet: add a TX timeout handler to
- recover a lost DMA interrupt
-To: andrew@lunn.ch
-Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, netdev@vger.kernel.org, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Michal Simek <michal.simek@amd.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_205730_499351_5702A828 
-X-CRM114-Status: GOOD (  29.49  )
+X-CRM114-CacheID: sfid-20260915_210011_573616_0A7A8145 
+X-CRM114-Status: GOOD (  15.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,71 +100,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 15, 2026 at 7:15=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote:
->
-> On Tue, Sep 15, 2026 at 09:55:34AM +0300, Sagi Maimon wrote:
-> > axienet_dma_err_handler() is the driver's only reset path, and the only
-> > two places that schedule it are axienet_tx_irq() and axienet_rx_irq(),
-> > both on the XAXIDMA_IRQ_ERROR_MASK branch.  Every route into recovery
-> > therefore depends on a DMA interrupt being delivered.
-> >
-> > If a completion interrupt is lost the queue stops making progress with
-> > descriptors unreclaimed, and nothing ever schedules the reset: the erro=
-r
-> > branch cannot run because no interrupt arrives, and NAPI is not polled
-> > because it is only scheduled from those same handlers.  The interface
-> > stays wedged until the driver is unloaded.
-> >
-> > Add an .ndo_tx_timeout handler so the netdev watchdog provides a route
-> > into the existing reset path that does not depend on the interrupt that
-> > was lost.  The handler only queues the work; axienet_dma_err_handler()
-> > then performs the reset in process context, as it already does for the
-> > error-interrupt case.
-> >
-> > .ndo_tx_timeout is added to axienet_netdev_ops alone.  On the dmaengine
-> > path lp->dma_err_task is never initialised - INIT_WORK() for it lives i=
-n
-> > axienet_init_legacy_dma() - so scheduling it there would be a bug, and
-> > watchdog_timeo is set in the same branch for that reason.
-> >
-> > Tested on a Xilinx AXI Ethernet MAC by clearing PCI_MSIX_FLAGS_ENABLE
-> > underneath a running interface to drop completion interrupts: without
-> > this patch the TX queue stalls permanently, with it the watchdog fires
-> > and the interface resumes passing traffic.
->
-> Have you seen the hardware wedge without faking it by clearing
-> PCI_MSIX_FLAGS_ENABLE?
->
->         Andrew
+The MFG_ASYNC domain, which is likely associated to the whole MFG block,
+currently specifies clk26m as its domain clock. This is bogus, since the
+clock is an external crystal with no controls. Also, the MFG block has
+a independent CLK_TOP_AXI_MFG_IN_SEL clock, which according to the block
+diagram, gates access to the hardware registers. Having this one as the
+domain clock makes much more sense. This also fixes access to the MFGTOP
+registers.
 
-No, I haven't seen a naturally occurring lost completion interrupt.
-The scenario was reproduced via fault injection by disabling MSI-X delivery=
-.
+Change the MFG_ASYNC domain clock to CLK_TOP_AXI_MFG_IN_SEL.
 
-I do see occasional hangs on my development platform,
-but those are caused by an unrelated FPGA bug that clears BAR0 and
-PCI_COMMAND at runtime.
-In that case the watchdog fires and recovery is attempted, but reset
-cannot succeed because the MMIO window is no longer accessible.
-I don't consider that relevant evidence for this patch.
+Fixes: 8b6562644df9 ("arm64: dts: mediatek: Add mt8173 power domain controller")
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Tested-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+---
+ arch/arm64/boot/dts/mediatek/mt8173.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-My rationale is primarily structural.
-axienet_dma_err_handler() is the driver's only reset path,and it is
-currently reachable only from axienet_tx_irq() and axienet_rx_irq()
-on the XAXIDMA_IRQ_ERROR_MASK path.
-If a completion interrupt is never delivered, NAPI is never scheduled,
-descriptors are never reclaimed, and there is no recovery path back
-into the driver.
+diff --git a/arch/arm64/boot/dts/mediatek/mt8173.dtsi b/arch/arm64/boot/dts/mediatek/mt8173.dtsi
+index b78dbedfeca8..e75ed4bd458f 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8173.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8173.dtsi
+@@ -505,7 +505,7 @@ power-domain@MT8173_POWER_DOMAIN_USB {
+ 				};
+ 				mfg_async: power-domain@MT8173_POWER_DOMAIN_MFG_ASYNC {
+ 					reg = <MT8173_POWER_DOMAIN_MFG_ASYNC>;
+-					clocks = <&clk26m>;
++					clocks = <&topckgen CLK_TOP_AXI_MFG_IN_SEL>;
+ 					clock-names = "mfg";
+ 					#address-cells = <1>;
+ 					#size-cells = <0>;
+-- 
+2.55.0.1032.g73a4cd73de-goog
 
-The watchdog provides an independent route into the existing reset
-logic that does not itself depend on the interrupt that went missing.
-
-I'm happy to reword the commit message to make it clear that the
-validation was performed via fault injection rather than from an
-observed field failure.
-If you feel that scenario alone does not justify the additional code,
-I can drop the patch.
-
-Thanks,
-Sagi
 
