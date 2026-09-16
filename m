@@ -4,121 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E42E0C88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 08:01:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14EA0C88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 08:02:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R/vaPDanA3j6zkOBVwes5rnF9vpdWJpKDteNb10H5RQ=; b=g9g9QqaoPjaDmug4EoSBEobUra
-	NO72b3eYFt4XM1+XNwtzsUBtDA1xWYGDbKG05fJn+9rZpoBIeMhlHaJybl7QpzT8U7o1faS3ULldo
-	pju3xJpjzWoxEKVdVQKKveQJSHpU+vyJQ6fXk+wpKfgB0soOnjcYl6AqqkulRY1DmQdONqP7UcS4R
-	rIGnvmg6PgmNn0Rj4Rei0tck9cdGCce+76nw5Q0nmCV9r/E3b+YGVnLt5ksl9QlNovxNsGwFgbIB6
-	vzNWAHG1LVLUwtfgQvvcHrJ5lCkR97kFe1hH8oYVNFH2qageiZe7WQYQiLEVyUoxGHcw7B3i+RfsW
-	tfMchE1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WDM88kOtl2CKjxeWB03RZeGQ+B90JmuMn6GcClQMRFs=; b=EO7Vg49Lj0jimCyh54yEN4134M
+	6iyVqoT7uuWt7w/6Qxr0u2wuDNd9o7DkUfbTZkBcJCo1yQkB3EPiAxMMo3r93T7eR6jOWm697ykRi
+	D63maTNYta9MmupzNXL2yIrf3Jvn3ZwLLBx5QPbR0GyOW5tQvR5TetAW73TZiXzZh0jFBBehgUeeb
+	MX7DVtrOFxIOrRNAeAiCQ/zTT+zcLWR1DMb5nkSRVeH2uH5/b7cNBUfRtdCPXqFnsozpuzquF5W9n
+	6jRbEi6CnqHbrGRGr7OE9MSzNDBR5zI0Rfy+srDHf2bBxFFla0XXTrV8MDPLXVDRnBva22qm1M9nJ
+	bok9bLaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6kZa-00000008fDY-0vqE;
-	Wed, 16 Sep 2026 08:00:54 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x6kab-00000008fi1-1vBh;
+	Wed, 16 Sep 2026 08:01:57 +0000
+Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6kYV-00000008eaI-0gVU
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 16 Sep 2026 08:00:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=R/vaPDanA3j6zkOBVwes5rnF9vpdWJpKDteNb10H5RQ=; b=gTDbd0GFeo79t817y8SVTFRds2
-	vS2R0Jm9xyU/WTQFow5Jf7I4VsreoNYIEPiimAeIumOk8LgnfSeDUxUs9tGPYETk19MzrmnWvyrfH
-	j4X/xdMNM6uHF7sTDDxY/cvwJF2AbP2nt2y1ALbWKOlySdK8p9wD8lKaqV/IjAImBsUBGA5y06GQf
-	mBtTk4ZonM6gbHidyEJxoz9tlKI9q3RrWHtpLolcNvX56bIWIQyOz8HnFxQpbQM5Pq4qjEq0VoOC4
-	wUp3x59FPVGG9SbeS5tRsd+iMY8ANIKosj59LybwOWDDcJ6wx2G0q/N5OYeYflQQaDQnrJFch524R
-	l768F1Pg==;
-Received: from mail-pj2-x11.google.com ([2607:f8b0:4864:39::11])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6kYQ-00000007bfT-2fhm
+	id 1x6kaT-00000008feW-1i7t
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 07:59:46 +0000
-Received: by mail-pj2-x11.google.com with SMTP id 98e67ed59e1d1-398cb5615deso607623a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 00:59:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1789545581; x=1790150381; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=R/vaPDanA3j6zkOBVwes5rnF9vpdWJpKDteNb10H5RQ=;
-        b=mwmemuoLgqZQcG7ZcQoFGlnq1jLpU6uw+PZz0AaaQBDcC5pj9gMjIVTKMJHa1EPTSh
-         Vfjg0aaLls4SZtIKDBmZ6E1moI6TFu/bh5/gpTguy7U5yoNJhhWnnjnZCw9XU2h8M1bN
-         BiYIaJka0rBVqTsQ0S3y/esllk9NfOJ4AKul8=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789545581; x=1790150381;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=R/vaPDanA3j6zkOBVwes5rnF9vpdWJpKDteNb10H5RQ=;
-        b=h/i6ViFhRhJXdvCcQRyd9GEfYNhZroZexS/4aqTwa0c2Vm1D+GgOf377sZkcSsH+FG
-         F+iEfAdBNqOh2zLzYUJ+RrFkUU8ZoUPK1pqL3+pIpMyhNTLAnEaGYZjqNDgo4zsLUKdl
-         m0UJaPsC13wh5sg9ZbExyStdOIp1/K28GuIxHznsE3O2ZiwB1aYD79+USNovJtp0hMAp
-         zTNkQiu9HtcakPYim8EtZlkaYtjiZ2iLKLnY36B7ggI0/XHpGVggD3ok5n+jem8l+4uk
-         93ZrqZ+4G2gzbk2uopmerLvjTJV6WGOMn4/slG60JAQbO15inbTKZk5023TWqNXN2+nM
-         wOlQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxLLSDbVqQeQ0BVDZpS9YYSRvJMhOjLB9/T5dGovquMuAR/1kzuF6hGfJcr5l/QjhC8rv86NPK1l48GVx7tSyf0@lists.infradead.org
-X-Gm-Message-State: AFuF++nJN7QnSK/Epa+keTF8ZFwc9+kP8plrZPwG3Cnu5jD5meiQFfMH
-	iE1CV1QPrykyjsyw52UztsUHxSd20+OvWDagGPD/buQuYNokm71WIokKDVwH7CN7Aw==
-X-Gm-Gg: AYBFou2JQyaNTARqyS3RedtF2JWanJ3nrEIItB/cdfu0+hoNTiZ/XbnU5rSHv+fukcT
-	hiSNtPpeJq52rOvM772AeommMiQs5DHV9qyv/mwGt/RI4RcBjdQtVL7Mqq+jCbq+XE1iXYvrO4X
-	5Mf8QZI9TZtpO7MGxaXqxLPfBnBN67xjDubdjh4c/DQipPEdDPnS6P+zIhNyPG4Ow+EW1kTvDVx
-	+zNHJKYYM1N6EgRiH4aJKRbpYPe8ku3dQen4nj4FqacqRtUqE9HsaTogX+w2kIDCCaQ2MAQBmat
-	t77bXE9/zrEEeCVQkvmDAzt6aqYJCeEx1sUpsFTMIuUFxGN6WFJwEwYRbd6zo3mmhFed2vEOgBt
-	GgQoICbNNG3Ow+8ceu7gRR+JhCm1xQgHq+4/sY1UzL2OLybdvhB+thhhLoVuWZPNtMm7t0aw7Lt
-	JFmjLNBzEF3t8n953eKs3VphVusYzUHv+URVPa3pufvrVeXUtoeyO9IfT15uColH+1Oz1x6W4iq
-	Kp6etcArTCWPCz3ze8lRSsTT7XXvDcCFA6c2WR9YuxlJor6MUDE+rz+ktE=
-X-Received: by 2002:a17:90b:33c9:b0:39e:1bff:b383 with SMTP id 98e67ed59e1d1-39e1e51bdf8mr4030101a91.24.1789545580791;
-        Wed, 16 Sep 2026 00:59:40 -0700 (PDT)
-Received: from wenst-7875.tpe.corp.google.com ([2a00:79e0:203d:7:1f62:7622:5d61:2578])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39e1b7acba2sm4348197a91.16.2026.09.16.00.59.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Sep 2026 00:59:40 -0700 (PDT)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Bartosz Golaszewski <brgl@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	linux-acpi@vger.kernel.org,
-	driver-core@lists.linux.dev,
-	linux-pm@vger.kernel.org,
-	linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Alan Stern <stern@rowland.harvard.edu>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Subject: [PATCH v9 15/15] arm64: dts: mediatek: mt8188-geralt: Add WiFi/BT as M.2 E-key slot
-Date: Wed, 16 Sep 2026 15:57:41 +0800
-Message-ID: <20260916075745.3549953-16-wenst@chromium.org>
-X-Mailer: git-send-email 2.55.0.1032.g73a4cd73de-goog
-In-Reply-To: <20260916075745.3549953-1-wenst@chromium.org>
-References: <20260916075745.3549953-1-wenst@chromium.org>
+	Wed, 16 Sep 2026 08:01:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kA+jh6QCHf+K4qc+krblx01Yr6t/k0TvumFYqAhZ8RJcsjpXbJ8s9dIcBDZWjZMtefT5h99BPXECtE2tuCBQXTrUAIyWNUfI3ERzIUDy30g5q+SUxSr2bCqCxs5s0GKnMh9URpy6y6iIpQeFNtFOOIwXDHlwl/+3UPZlOq7aY3IoknPAqWtq1V8JVt3uG0pgKFjiQm415Miz+mU32O32Gpb1Pps9J2t6yNr08FPghn6i4076IQAcrpLBu5wz8nd14qDeQYaLsrCrrovX901zlXMUvg3APXiRL1dQmp/CKhpHdFOXilve3RZoyFsY4X7mi7Z+WASMc6kcAqyTosCeSA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WDM88kOtl2CKjxeWB03RZeGQ+B90JmuMn6GcClQMRFs=;
+ b=ureHEaJIVJbn8VGkHmD/NxVHCxJLQCfRxCe/EFEzqKc7r+BJYAna7hTPkbf5GXEue9jyBFZr0iZ6D7EVr3cdflx6C8Fuf7uVTk9TkC/UXDPKgUB++uF2m+YDW59MHxd40scHtgqrhSHTFLWb+QtRnzkdUcpwaem2EcTKdECRwZmO0VQKMlQnr2aHvzo2sSHK1M/2Xl52AQ/lO42D22YVdpaWqCXQ4une6LGevUFdX1wpgCrIDS5B+RMxNzdTYHenMdJb7K+4D8a2RdTdiyqXrv1MXhkGBYBtpMKUa/vnC57ojA8DJp7gAVHKWWoQLl0oYOX/sdKb2MxJLdyFCFWGWQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WDM88kOtl2CKjxeWB03RZeGQ+B90JmuMn6GcClQMRFs=;
+ b=3Vn8d/970OJfJaDSEBwhQdhli8Mn2bnySF4lfTC2/d6/8l51vkDCKqQy3QOiMIb9IkCV3zHJwMbQTghwaR4FU7uWwFNkwogQPVl2g5MV+JGjGyhUBPzOtcSgmeASm3wW2P1ZRgwK/fn/7hUy16jXtIkDvPrAm/SxKirofeu3nSo=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from SN7PR12MB8147.namprd12.prod.outlook.com (2603:10b6:806:32e::5)
+ by CH2PR12MB4167.namprd12.prod.outlook.com (2603:10b6:610:7a::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Wed, 16 Sep
+ 2026 08:01:36 +0000
+Received: from SN7PR12MB8147.namprd12.prod.outlook.com
+ ([fe80::3923:c1a4:778b:56f2]) by SN7PR12MB8147.namprd12.prod.outlook.com
+ ([fe80::3923:c1a4:778b:56f2%3]) with mapi id 15.21.0428.008; Wed, 16 Sep 2026
+ 08:01:36 +0000
+Message-ID: <cab3aede-940d-4ebb-80ac-41f4755d6d78@amd.com>
+Date: Wed, 16 Sep 2026 13:31:26 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2 0/8] Add Xilinx TSN Endpoint Ethernet MAC
+ driver
+To: Jakub Kicinski <kuba@kernel.org>, Srinivas Neeli <srinivas.neeli@amd.com>
+Cc: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Richard Cochran <richardcochran@gmail.com>,
+ Michal Simek <michal.simek@amd.com>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+ Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rt-devel@lists.linux.dev, neelisrinivas18@gmail.com, git@amd.com
+References: <20260909-patches_v2_external-v2-0-3a40babaff4c@amd.com>
+ <20260915172232.04df37b2@kernel.org>
+Content-Language: en-US
+From: "Neeli, Srinivas" <srneeli@amd.com>
+In-Reply-To: <20260915172232.04df37b2@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: PN4PR01CA0076.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:26d::7) To SN7PR12MB8147.namprd12.prod.outlook.com
+ (2603:10b6:806:32e::5)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN7PR12MB8147:EE_|CH2PR12MB4167:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8eed17a1-9295-408c-78bb-08df13c8bb13
+X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|23010399003|366016|1800799024|6133799003|18002099003|22082099003|4143699003|10067099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: YDW0deLW1vJIl0Q7DRdpvp7PigHoTbIhUbqwn6uWIWCOCvQzh8XkFHCswG1HuaAp+X14lqd2FBsye0mXsuzLkKE+rAe3uJgcCq+Q/tTqz7GSn5VfONI7e/gPqPL15zNha65aVyHHvZz4pA2cyEL9xtIXomJBTeVj9gvFgU74jFxDgSViK0aWG5kDQzfir6J9a7LfeYGZSMF8ROaEQZwXn01rqIcvXdJesCw5eIeA68csPciuswHmT1AboMGKISLA3jE2Cp+CJ9E9Vg9y5kkxCTbtL8sfwfIsZR2ybyi6x5qoDK2FGodcuVUJigVAQWcQZYqu3Z6JHED4RehYAlTX7Yi+3F01FMJYRE3IlmoH9IuHbMmSbWrG/c7DIDh2R1Gq6UIU2GWxQpZlsJ4TvaWMBGQah/A77QSC9rzOie9Nr+B+WDVl1Msz3yXkmJ5dBXpdTEv9UjsU3ueD02xRi5Qlrhh8fH5tAWZFmQ3rJpgEsVuti9lcjen/+l7OIRQacyoCBIqbsxTLUMfc2aw6yHypA8inc+roUyLaglNrS+Uu0Ubce1LkXyzptWh1dGdmLSJCYK5yn+s76kYT1lyc5fhErSgKxx9mviw/icS9qppTX8atyMT0Q1h0QxfLrZXWXbYkDiQLtmdqDseOr5f8tEnQpiN4y2p4jsxzargTHRi+Cmk=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN7PR12MB8147.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(366016)(1800799024)(6133799003)(18002099003)(22082099003)(4143699003)(10067099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OGZjazBWTVZzQVkvS0J5aTlBYmJqMnBPSnVQMG9YdTh1ZEtCT1JvNXZFb1RR?=
+ =?utf-8?B?Qnk0UjZld0hVcUhjTUtMVFRrWWlHZFA4SnMvOU04OXArcTh5ZEx3THdkOTdK?=
+ =?utf-8?B?d0Vrc0xpOGZFNDgvdzBDVjlFL1hybmwvOGc0OHlKYkFHN3BQdVc0eE9lK1dx?=
+ =?utf-8?B?bERxYnZ1Wjd5TE5CdEQ0eWtBUVF0LzlndVB6ZzkzdWdHMlVOQzNRelNaVXFJ?=
+ =?utf-8?B?dmdPc0gwc0pramlMV2xjQ2lnTEh0eXFRQU9SNzk3OG9aZU9TTnFjRHFEQ010?=
+ =?utf-8?B?VkkzS0tnYmJqYWNhOWhDUGRaMkNxWkFqZWVYa3lCWGtDVFJrUlMxRUNZZUt4?=
+ =?utf-8?B?UGFMSllIRGhwUVdGN3JlL05KMkV4dlVPUStJelhnNnc5R2l2OFRpdG02THRy?=
+ =?utf-8?B?WXM1dGQrUmlIZXZ0cnYxOGdKNUZHOVlsVDZzekswZXgrbzBWem5USUJLQVJv?=
+ =?utf-8?B?K0V6ZE8xMzNBWEdzb08xOTdiN2V6c0pwUmNQTEdKRGNvbzJ1V01tMk5NT0hu?=
+ =?utf-8?B?TnV1b0c4S3NDUW9KRFlNZ05OR0QyZWFSWVZyVVVqTEFZMzZHSFBTU1VveWxB?=
+ =?utf-8?B?QTBVY0F3cDY4eEJxbDNMdVBlY3ArQ3lsVnU0cTREN0VWbGkyK3BaUU5tdUMv?=
+ =?utf-8?B?YUxTMk9LVWZkMEh6MWtXQTZYTEQxWjJhbEZlOUUzaHZEQUp5VVhnUld4NWxj?=
+ =?utf-8?B?QWxSRWtOK2VYRjU5UVU4OEtlN0ZWV1pCdERab2t2MitmcEorU2VwSklueEpJ?=
+ =?utf-8?B?SnBoOCtwTlAwWkxOZmxVeTQ2anJPZkxpK3A0YmoydXdiQ295RW1kcXdFOFd0?=
+ =?utf-8?B?b00xSkljMzB1QlU0WW1PaXFEaWIyWHI0Q1JXMmx6d00ybStuZUpPYlVhSU9O?=
+ =?utf-8?B?cSszdUJoVWE1SkpKZGwya20vSTI1cEpmOXEyeGNHeCtkTVp6ckxkeWVlTDMx?=
+ =?utf-8?B?MjdzaHo3bHgvU09ibWtjbUxhSWJoREE3MnFrdmZHZnN5TkFaQm5lTUZxS0l6?=
+ =?utf-8?B?dml2YXAvdSsvM01oaEU0aHdIUVVaTWRITnF2UHVCU0dZRHpKSlJyYmtYdHBh?=
+ =?utf-8?B?MmhrVVhzRkFDbkx0Q3FpUkpEalJjQlVqcU9nZ0tEMUhLVXVoN1lBKzgxQVBO?=
+ =?utf-8?B?SUZoVWN5cER6TW5WbHYzdGVIRGd3Q1JzNEhsbmt2ZWtMN2tZUVVMWXN4N09q?=
+ =?utf-8?B?cmE3enIvakV3SHBvSXVqWS9zTk9WZnZvbGowNDYweER5dFZ1SXFheFM0UU5F?=
+ =?utf-8?B?VXh0MTRUOGpQbEIxYjBNSklleUFsRkxadER5a0dVRFlSdG9GSHBPd2ZIajJ4?=
+ =?utf-8?B?UGFIU1B1UGwrRWVPTWJGakNNRGJMemJ1Q1hmVXdvcTA1ZnpEVlI5TmxON0x3?=
+ =?utf-8?B?SWlvS3RkaGFMUWxtVEtOOTU4TnNCbDVZRnMya3JvTWFLNE5ROWNSSlFzVWE2?=
+ =?utf-8?B?bHQwcXVZeFNUYW9NZ3c3UW5EWVpPOUFqSDd5TUJCZi9mb1ZhdzhPRkZSWWRi?=
+ =?utf-8?B?THd2OUhHM2h6Q01kVkJrNXh5bXFaY1o2RVJESnEwclFlcVhUY05sK050bW16?=
+ =?utf-8?B?blBBaE9GVjJHN0tqY2F0Zi9GSXJKOHFoMy9QNERHY3ZsWkEvQjRiL2ZFaTVS?=
+ =?utf-8?B?Kzd0OXVjK2cxblRYV000eDkxT3hVSCsyTHR0N3RUWGh4aCtOcWRPZDJWUTFm?=
+ =?utf-8?B?R1YzZHFwSitKaW5leU4xcURVM3VKZkF5bTJZVHYzcitkbzUrdTNnbGIveE84?=
+ =?utf-8?B?Q1E0bGlVQTZBU1VTeGc5MEJTcWwwTFFkOUFpck5TdGw3MGYwRXk2Z1hkR09r?=
+ =?utf-8?B?Q1gxSjFDSlg0cTd1RDRjdnVnZFg3NFZVYzhhWnFwQ2RFNDQyOEtyQ3NoejNK?=
+ =?utf-8?B?YWs3T09yN1lBQVZTbnRZRFdTRG8xMWRjSnBvN3dqdEs2SEdMM0JqL1lOTzM4?=
+ =?utf-8?B?SUZUT0FmSlAzMDMvNGRrU0ZRalEyWWdMd2hpbVZ4Ulc5YldmeEU4Z0gxazMy?=
+ =?utf-8?B?YW5aQ2k1STVISEJMOTJuUk9VYXNPaWxHeTkxYjhmQ25pd0NZcjJ2T2JmelIv?=
+ =?utf-8?B?YzUweHoxWXJoaWFaVDFRUzJXSkpIb3BoeTJuWG5YMW56aWJ5YmI2b3N3bDFF?=
+ =?utf-8?B?WWtKbHNWUWRrdFJRVU5vZkVuN3VkMWFhZ1pQQ1RYNEp3bENjbVM4d3phVnps?=
+ =?utf-8?B?T3dTWHVTNGtyZHJTSitESEI2NU9kODRNc1lCWk5XZUFYQVE3MnRpYWxZSUNl?=
+ =?utf-8?B?TjhoeXZOVzRmcGsweWt1TmJ1WlUrbVMwelFFWlN6T1Q0QytyeXg4eXVPQUNo?=
+ =?utf-8?Q?peIB/73zhK6AydWJFg?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8eed17a1-9295-408c-78bb-08df13c8bb13
+X-MS-Exchange-CrossTenant-AuthSource: SN7PR12MB8147.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Sep 2026 08:01:36.6309
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 5ob/sNni5ql0ceeG8oGhBUsi/HUg6xQhg7pz4939c0Ss4E8a5HkPW/jzj1pyTPM4
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4167
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_085943_042390_B5ACEB41 
-X-CRM114-Status: GOOD (  17.81  )
+X-CRM114-CacheID: sfid-20260916_010154_307360_EDD3199B 
+X-CRM114-Status: GOOD (  20.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,185 +158,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MT8188 Geralt design features a chip-on-board WiFi/BT solution. This
-is a M.2 E-key WiFi/BT board layout directly inserted into the mainboard
-design. The connections to the rest of the board are almost the same as
-if it were a separate M.2 card. The only addition is the PMU_EN pin on
-the chip; on M.2 cards this would be tied to the primary power source.
+Hi Jakub,
 
-Model the chip-on-board WiFi/BT solution as a M.2 E-key slot with PCIe,
-USB and auxiliary signals. The PMU_EN pin, which enables the internal
-power controls and regulators, is modeled as a regulator fed by the
-pp3300_wlan regulator. Since power sequencing is now correctly modeled
-using the M.2 E-key slot, drop the "regulator-always-on" property one
-pp3300_wlan regulator. Also drop the comment in xhci2 saying "MT7921's
-power is controlled by PCIe".
+On 9/16/2026 5:52 AM, Jakub Kicinski wrote:
+> On Wed, 9 Sep 2026 00:49:48 +0530 Srinivas Neeli wrote:
+>> This series adds the wrapper and endpoint side of the IP. The switch-facing
+>> part is exposed through the Distributed Switch Architecture (DSA) framework
+>> in a follow-up series, so that MAC1 and MAC2 show up to Linux as switch
+>> ports with the endpoint acting as the CPU/conduit port. The endpoint frames
+>> are already classified by source-port id and tagged with DSA port metadata
+>> here, so the switch series can consume them without further endpoint
+>> change.
+> I'm not sure why you're implementing this as DSA.
+> This needs to be explained, if a single driver can bind and control
+> the whole thing, that's AFAIU preferable. You can keep the
+> implementation details in the driver without exposing the conduit
+> to user space
+When we sent the 
+RFC(https://lore.kernel.org/lkml/5f884e29-151a-4ee7-9e1a-d7e1f84d9f6c@lunn.ch/), 
+Andrew framed the choice as: if the host sees a netdev connected to a 
+port of the switch, it is most likely a DSA switch. That matches our 
+hardware,
+the host sees the Endpoint as a netdev on a switch port, with the two 
+external MACs as user ports, so we implemented it as DSA.
 
-Also drop the voltage range on the pp3300_wlan regulator. This
-"regulator" is just a load switch and does not provide any regulation.
+The Endpoint is not only the switch conduit. It is also a scheduling 
+endpoint in its own. It drives a dedicated hardware block for 
+time-triggered per-stream
+scheduling (IEEE 802.1Qcc-2018, Annex U.1.3, "Using per-stream 
+scheduling"). That block is armed by a schedule programmed on the 
+Endpoint's own Qbv scheduler, which acts
+as its time trigger. Configuring that schedule and the per-stream 
+trigger requires an Endpoint netdev, so we keep it to expose the 
+Endpoint's Qbv/taprio configuration,
+distinct from the wire-port schedules on the user netdevs.
 
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
----
-Changes since v2:
-- Drop default GPIO output state from kill pins pinconfig
----
- .../boot/dts/mediatek/mt8188-geralt.dtsi      | 92 ++++++++++++++++++-
- 1 file changed, 88 insertions(+), 4 deletions(-)
+On the data path, DSA maps onto the hardware cleanly. On RX, the EP DMA 
+path delivers the source port in sideband metadata, which feeds DSA's 
+existing metadata-based
+demultiplexing to the per-port netdevs. On TX, the normal data path has 
+no destination-port selector and the switch has no independent per-port 
+forwarding mask, so
+standalone isolation is done with a private VLAN containing only the 
+selected port and the EP. The next version uses DSA's tag_8021q helpers 
+to manage those VLANs, insert
+the destination port's VLAN tag (which the hardware strips before wire 
+egress), and handle the transitions between standalone and bridged 
+operation.
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-index ba3dcfc50956..4704abaebcf8 100644
---- a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-@@ -93,13 +93,11 @@ pp3300_z1: regulator-pp3300-z1 {
- 	pp3300_wlan: regulator-pp3300-wlan {
- 		compatible = "regulator-fixed";
- 		regulator-name = "pp3300_wlan";
--		regulator-always-on;
--		regulator-min-microvolt = <3300000>;
--		regulator-max-microvolt = <3300000>;
- 		enable-active-high;
- 		gpio = <&pio 12 GPIO_ACTIVE_HIGH>;
- 		pinctrl-0 = <&wlan_en>;
- 		pinctrl-names = "default";
-+		/* load switch */
- 		vin-supply = <&pp3300_z1>;
- 	};
- 
-@@ -166,6 +164,17 @@ ppvar_mipi_disp_avee: regulator-ppvar-mipi-disp-avee {
- 		vin-supply = <&pp5000_z1>;
- 	};
- 
-+	/* PMU_EN pin controls internal regulators and power sequence */
-+	wlan_pmu: regulator-wlan-pmu {
-+		compatible = "regulator-fixed";
-+		regulator-name = "wlan-pmu";
-+		enable-active-high;
-+		gpio = <&pio 145 GPIO_ACTIVE_HIGH>;
-+		pinctrl-0 = <&wlan_pmu_en>;
-+		pinctrl-names = "default";
-+		vin-supply = <&pp3300_wlan>;
-+	};
-+
- 	reserved_memory: reserved-memory {
- 		#address-cells = <2>;
- 		#size-cells = <2>;
-@@ -200,6 +209,39 @@ adsp_dma_mem: memory@61000000 {
- 			no-map;
- 		};
- 	};
-+
-+	wifi-bt-connector {
-+		compatible = "pcie-m2-e-connector";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&m2_e_key_kill_pins>;
-+		vpcie1v8-supply = <&mt6359_vcn18_ldo_reg>;
-+		vpcie3v3-supply = <&wlan_pmu>;
-+		w-disable1-gpios = <&pio 13 GPIO_ACTIVE_LOW>;
-+		w-disable2-gpios = <&pio 14 GPIO_ACTIVE_LOW>;
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			/* PCIe for WiFi */
-+			port@0 {
-+				reg = <0>;
-+
-+				wifi_ep: endpoint {
-+					remote-endpoint = <&pcie_ep>;
-+				};
-+			};
-+
-+			/* USB for Bluetooth */
-+			port@2 {
-+				reg = <2>;
-+
-+				bt_ep: endpoint {
-+					remote-endpoint = <&usb2_ep>;
-+				};
-+			};
-+		};
-+	};
- };
- 
- &adsp {
-@@ -664,6 +706,22 @@ &pcie {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pcie_pins>;
- 	status = "okay";
-+
-+	pcie@0 {
-+		compatible = "pciclass,0604";
-+		reg = <0 0 0 0 0>;
-+		device_type = "pci";
-+		num-lanes = <1>;
-+		#address-cells = <3>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		port {
-+			pcie_ep: endpoint {
-+				remote-endpoint = <&wifi_ep>;
-+			};
-+		};
-+	};
- };
- 
- &pciephy {
-@@ -1007,6 +1065,13 @@ pins-bus {
- 		};
- 	};
- 
-+	m2_e_key_kill_pins: m2-e-key-kill-pins {
-+		pins-kill {
-+			pinmux = <PINMUX_GPIO13__FUNC_B_GPIO13>,
-+				 <PINMUX_GPIO14__FUNC_B_GPIO14>;
-+		};
-+	};
-+
- 	mipi_disp_avdd_en: mipi-disp-avdd-en-pins {
- 		pins-en-ppvar-mipi-disp {
- 			pinmux = <PINMUX_GPIO3__FUNC_B_GPIO3>;
-@@ -1179,6 +1244,13 @@ pins-bus {
- 		};
- 	};
- 
-+	wlan_pmu_en: wlan-pmu-en-pins {
-+		pins-wlan-pmu-en {
-+			pinmux = <PINMUX_GPIO145__FUNC_B_GPIO145>;
-+			output-low;
-+		};
-+	};
-+
- 	wlan_en: wlan-en-pins {
- 		pins-en-pp3300-wlan {
- 			pinmux = <PINMUX_GPIO12__FUNC_B_GPIO12>;
-@@ -1422,10 +1494,22 @@ vdosys1_ep_ext: endpoint@1 {
- };
- 
- &xhci2 {
--	/* no power supply since MT7921's power is controlled by PCIe */
- 	/* MT7921's USB BT has issues with USB2 LPM */
- 	usb2-lpm-disable;
- 	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@1 {
-+			reg = <1>;
-+
-+			usb2_ep: endpoint {
-+				remote-endpoint = <&bt_ep>;
-+			};
-+		};
-+	};
- };
- 
- #include <arm/cros-ec-keyboard.dtsi>
--- 
-2.55.0.1032.g73a4cd73de-goog
+A single driver could control the whole block, but it would still have 
+to reimplement the same pieces, RX demultiplexing, TX tagging, the VLAN 
+lifecycle, and the per-port
+netdevs. We chose DSA to reuse that existing infrastructure while 
+keeping the Endpoint and wire-port scheduling controls separate.
+
+
+Thanks,
+Srinivas Neeli
 
 
