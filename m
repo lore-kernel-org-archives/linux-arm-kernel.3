@@ -4,67 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C888C982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 20:55:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBAE2C982C9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 21:01:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0fKQ3LgrFx8+J421uQJCrt69RgRQl0uYZ6P+iMcW8dk=; b=VHD5oQE4PvRrhImhh6iQiLoXq9
-	iZJIZvb+CPop5xFg+piXMBORE5RiSC+G2BXC/9UgUTPGKwYwrAftw3+FoZczA1sc70mqXVBGWtsKk
-	xM2dDNWYx/Ntfaplkdbnj8HnNXQcWdBXjSS+55hou1XNMYqgxN5bA6kKW55pbb/0R/qqx8bXMEcS4
-	PyuSjWkK2kJtpgF6kYvAxuflS07UmdNfsh1Q5lTSP5dG/KVnR3CGusWFBDgtKvoXq/MtzR+i+W8uu
-	++7uUE5WSFFqYAB7msXKQo+GQZWtuI+bvLLkVj5rwgTGSI9qGhWgZBKpbvtdvwilA2LsbkiIkRfGZ
-	KIzAvbOA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AuXdN9aGbtMyg5CPBRFzrLlbAoIxrshk4vqYbfwx7zk=; b=m96MBxDCYSnWB9Ak5gdBxASDWW
+	eObciuOzRz/F0OGKPb6u0eMw9M2hkV3ahmTdFxsbbgCUD+CYZQNSbJFdvgcZ9H8eHQyV+twmZE5bH
+	G9uyBW+6GMzqezfnWTNx4nyFj14TxEwS79Tq1PUqKxGxCxCj2i8/wIjToyYMZG3BnjMQAVydI3/qq
+	FIaSnbUM4V1g6h/mJ5XLli8w9e2f607JYZ08w8qP+oPN+cg/wAuBQUDhDHmG6kTtDIMPusEu5pLyY
+	PO60fYgKH3g9hXPI5h/nQL3WB/oyuaXQH7+lo01U0iHJ1r+cDvu6wvmupOrcaKpkiOwsVyofArsNh
+	g7DEsstw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6wfQ-0000000A6mX-0IqJ;
-	Wed, 16 Sep 2026 20:55:44 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1x6wki-0000000A7A3-2xp8;
+	Wed, 16 Sep 2026 21:01:12 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6wfJ-0000000A6k3-2xca
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 20:55:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lineageos.org;
- h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
- Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-2eefaa527c;
- t=1789592136; bh=0fKQ3LgrFx8+J421uQJCrt69RgRQl0uYZ6P+iMcW8dk=;
- b=0NqvjQ2kC2gCAlcZ0U9NPysblpOgYqrfFsowbckXbIKfxtvWYln5Zscl6EUiNsAsYapB2W96I
- FMYeYrVbfjJouLwBp9BTPr6bmxEAivuYdky2hb6uwztsz4fTtEM6D5IylcljpTnJjv0SQYWZ1NM
- uU28hcQrCRbNw+FpBjVz/Mk=
-X-Forward-Email-ID: 6aab024707c281602cddbf67
-X-Forward-Email-Sender: rfc822; tturner@lineageos.org,
- smtp.forwardemail.net, 121.127.44.73
-X-Forward-Email-Version: 2.14.2
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-From: Thomas Turner <tturner@lineageos.org>
-To: krzk@kernel.org,
-	peter.griffin@linaro.org,
-	robh@kernel.org,
-	conor+dt@kernel.org,
-	semen.protsenko@linaro.org,
-	alexey.klimov@linaro.org
-Cc: alim.akhtar@samsung.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	id 1x6wkh-0000000A79m-2Owk;
+	Wed, 16 Sep 2026 21:01:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id A4C57601EF;
+	Wed, 16 Sep 2026 21:01:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57EF91F000FF;
+	Wed, 16 Sep 2026 21:01:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789592470;
+	bh=AuXdN9aGbtMyg5CPBRFzrLlbAoIxrshk4vqYbfwx7zk=;
+	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To;
+	b=VLsv+qLjeEIuF/7HFCetYAKnkSVM5+afDqKwl5Y8elt8ggAsqiPrhgm4AUridwMkZ
+	 JUa/cwQ/dxaF73pjj0bh5Ea48hlBTsaO7xkt7UY85+gDWHJAiA0zaZcTgyxZpgv6EC
+	 ELBkBjoksOM7pw9H8botxyJsD9MYY7j8/DYTvyTL9MFcP0HCWvkWWRUJ9ByrjCfXQl
+	 KWduc61DCtV4CGtkrPp5KybVTRm4pkPGA+/bKX+YtW1sYJGir6pRy5Jxm0D9VLtQ6F
+	 Rvf6IRZo1UuWBgHDIs6r1Nd0FO/i2zgnCWxdK0D/W252zvXizTdtNEbtUXvhoLsSVW
+	 0jXP1K4b/uJ6A==
+Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
+	id 9923BCE0503; Wed, 16 Sep 2026 14:01:07 -0700 (PDT)
+Date: Wed, 16 Sep 2026 14:01:07 -0700
+From: "Paul E. McKenney" <paulmck@kernel.org>
+To: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+Cc: Bradley Morgan <brads@mainlining.org>, frederic@kernel.org,
+	neeraj.upadhyay@kernel.org, boqun@kernel.org, joelagnelf@nvidia.com,
+	rcu@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+	Arnd Bergmann <arnd@arndb.de>, linux-arch@vger.kernel.org,
+	Vineet Gupta <vgupta@kernel.org>,
+	linux-snps-arc@lists.infradead.org,
+	Russell King <linux@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org, Guo Ren <guoren@kernel.org>,
+	linux-csky@vger.kernel.org,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Rich Felker <dalias@libc.org>, linux-sh@vger.kernel.org,
+	Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 2/2] arm64: dts: exynos: Add initial support for Samsung Galaxy A21s (SM-A217F)
-Date: Wed, 16 Sep 2026 21:55:22 +0100
-Message-ID: <20260916205522.159393-3-tturner@lineageos.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260916205522.159393-1-tturner@lineageos.org>
-References: <20260916205522.159393-1-tturner@lineageos.org>
+Subject: Re: [PATCH 5/6] sh: Emulate two-byte cmpxchg
+Message-ID: <ed3ef87e-b9c8-4aa6-90ca-c1da3e97a8e3@paulmck-laptop>
+References: <20260911192540.20983-1-brads@mainlining.org>
+ <20260911192540.20983-6-brads@mainlining.org>
+ <1835e3f1b7e936479964f5e40583133484510d25.camel@physik.fu-berlin.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_135537_799157_711EE06B 
-X-CRM114-Status: GOOD (  19.26  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <1835e3f1b7e936479964f5e40583133484510d25.camel@physik.fu-berlin.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,282 +79,55 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: paulmck@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add initial support for the Samsung Galaxy A21s (a21s) phone. It was
-launched in 2020, and it's based on the Exynos 850 SoC. It has multiple
-RAM configurations: 3GB, 4GB and 6GB.
+On Wed, Sep 16, 2026 at 09:16:16PM +0200, John Paul Adrian Glaubitz wrote:
+> Hi Bradley,
+> 
+> On Fri, 2026-09-11 at 19:25 +0000, Bradley Morgan wrote:
+> > SH has no byte or halfword atomic memory operations, so the
+> > __cmpxchg() switch routes case 1 through cmpxchg_emu_u8() and
+> > lets case 2 fall through to __cmpxchg_called_with_bad_pointer(),
+> > which is declared but never defined, so a two-byte cmpxchg()
+> > fails at link time. Route case 2 through the new cmpxchg_emu_u16().
+> > 
+> > Signed-off-by: Bradley Morgan <brads@mainlining.org>
+> > ---
+> >  arch/sh/include/asm/cmpxchg.h | 2 ++
+> >  1 file changed, 2 insertions(+)
+> > 
+> > diff --git a/arch/sh/include/asm/cmpxchg.h b/arch/sh/include/asm/cmpxchg.h
+> > index 1e5dc5ccf7bf..477d3025a441 100644
+> > --- a/arch/sh/include/asm/cmpxchg.h
+> > +++ b/arch/sh/include/asm/cmpxchg.h
+> > @@ -59,6 +59,8 @@ static inline unsigned long __cmpxchg(volatile void * ptr, unsigned long old,
+> >  	switch (size) {
+> >  	case 1:
+> >  		return cmpxchg_emu_u8(ptr, old, new);
+> > +	case 2:
+> > +		return cmpxchg_emu_u16(ptr, old, new);
+> >  	case 4:
+> >  		return __cmpxchg_u32(ptr, old, new);
+> >  	}
+> 
+> Odd, I thought this series was merged long time ago. Was there anything holding it back?
 
-Since our bootloader does not set up memory nodes beforehand, default to
-the 3GB variant. Custom bootloaders can be used to initialise other
-nodes per RAM configuration.
+You might be thinking of the cmpxchg_emu_u8() series from a few years back.
+This is cmpxchg_emu_u16().
 
-The Exynos DPU clocks required by simple-framebuffer are not kept
-enabled during boot. Add the DECON, DMA, DPP, PPMU and SSMU DPU clocks
-to the simple-framebuffer node so simpledrm maintains references to
-them. Without these clocks, the framebuffer fails to remain operational
-further into boot.
+							Thanx, Paul
 
-This device tree adds support for the following:
-
-- SimpleFB
-- Buttons
-- 3GB RAM
-- Ramoops
-- GPU
-- MMC
-- USB
-- Watchdog
-
-Signed-off-by: Thomas Turner <tturner@lineageos.org>
----
-Changes in v3:
- - Add gpu node with dummy regulator
- - Re-order feature list in patch msg and mention GPU
- - Rebase patch on top of for-next
-
-Changes in v2:
- - Re-order properties/nodes to pass dt-check-style --mode strict
-
- arch/arm64/boot/dts/exynos/Makefile           |   1 +
- .../arm64/boot/dts/exynos/exynos850-a217f.dts | 200 ++++++++++++++++++
- arch/arm64/boot/dts/exynos/exynos850.dtsi     |   2 +-
- 3 files changed, 202 insertions(+), 1 deletion(-)
- create mode 100644 arch/arm64/boot/dts/exynos/exynos850-a217f.dts
-
-diff --git a/arch/arm64/boot/dts/exynos/Makefile b/arch/arm64/boot/dts/exynos/Makefile
-index 8c48ce2e02e5..7534b773d28f 100644
---- a/arch/arm64/boot/dts/exynos/Makefile
-+++ b/arch/arm64/boot/dts/exynos/Makefile
-@@ -13,6 +13,7 @@ dtb-$(CONFIG_ARCH_EXYNOS) += \
- 	exynos7870-j7xelte.dtb		\
- 	exynos7870-on7xelte.dtb		\
- 	exynos7885-jackpotlte.dtb	\
-+	exynos850-a217f.dtb		\
- 	exynos850-e850-96.dtb		\
- 	exynos8855-smdk.dtb		\
- 	exynos8895-dreamlte.dtb		\
-diff --git a/arch/arm64/boot/dts/exynos/exynos850-a217f.dts b/arch/arm64/boot/dts/exynos/exynos850-a217f.dts
-new file mode 100644
-index 000000000000..b5b66c015e1e
---- /dev/null
-+++ b/arch/arm64/boot/dts/exynos/exynos850-a217f.dts
-@@ -0,0 +1,200 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Samsung Galaxy A21s (a21s/SM-A217F) device tree source
-+ *
-+ * Copyright (c) 2026, Thomas Turner <tturner@lineageos.org>
-+ */
-+
-+/dts-v1/;
-+#include "exynos850.dtsi"
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/input/input.h>
-+
-+/ {
-+	model = "Samsung Galaxy A21s";
-+	compatible = "samsung,a217f", "samsung,exynos850";
-+
-+	chosen {
-+		ranges;
-+		#address-cells = <2>;
-+		#size-cells = <1>;
-+
-+		framebuffer0: framebuffer@fa000000 {
-+			compatible = "simple-framebuffer";
-+			reg = <0x0 0xfa000000 (720 * 1600 * 4)>;
-+			width = <720>;
-+			height = <1600>;
-+			stride = <(720 * 4)>;
-+			format = "a8r8g8b8";
-+			clocks = <&cmu_dpu CLK_GOUT_DPU_DECON0_ACLK>,
-+				 <&cmu_dpu CLK_GOUT_DPU_DMA_ACLK>,
-+				 <&cmu_dpu CLK_GOUT_DPU_DPP_ACLK>,
-+				 <&cmu_dpu CLK_GOUT_DPU_PPMU_ACLK>,
-+				 <&cmu_dpu CLK_GOUT_DPU_PPMU_PCLK>,
-+				 <&cmu_dpu CLK_GOUT_DPU_SMMU_CLK>;
-+		};
-+	};
-+
-+	/*
-+	 * RTC clock (XrtcXTI); external, must be 32.768 kHz.
-+	 *
-+	 * TODO: Remove this once RTC clock is implemented properly as part of
-+	 *       PMIC driver.
-+	 */
-+	rtcclk: clock-rtcclk {
-+		compatible = "fixed-clock";
-+		clock-output-names = "rtcclk";
-+		#clock-cells = <0>;
-+		clock-frequency = <32768>;
-+	};
-+
-+	gpio-keys {
-+		compatible = "gpio-keys";
-+		pinctrl-0 = <&key_voldown &key_volup>;
-+		pinctrl-names = "default";
-+
-+		voldown-key {
-+			label = "Volume Down";
-+			gpios = <&gpa1 0 GPIO_ACTIVE_LOW>;
-+			linux,code = <KEY_VOLUMEDOWN>;
-+		};
-+
-+		volup-key {
-+			label = "Volume Up";
-+			gpios = <&gpa0 7 GPIO_ACTIVE_LOW>;
-+			linux,code = <KEY_VOLUMEUP>;
-+		};
-+	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x0 0x80000000 0x3c900000>,
-+		      <0x0 0xc0000000 0x20000000>,
-+		      <0x0 0xe0d00000 0x1f300000>,
-+		      <0x8 0x80000000 0x20000000>,
-+		      <0x8 0xa0000000 0x20000000>;
-+	};
-+
-+	/* TODO: Remove this once PMIC is implemented  */
-+	reg_dummy: regulator-0 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "dummy_reg";
-+	};
-+
-+	reserved-memory {
-+		ranges;
-+		#address-cells = <2>;
-+		#size-cells = <1>;
-+
-+		ramoops@f0000000 {
-+			compatible = "ramoops";
-+			reg = <0x0 0xf0000000 0x200000>;
-+			record-size = <0x20000>;
-+			console-size = <0x20000>;
-+			ftrace-size = <0x100000>;
-+			pmsg-size = <0x20000>;
-+		};
-+
-+		cont_splash_mem: framebuffer@fa000000 {
-+			reg = <0x0 0xfa000000 (720 * 1600 * 4)>;
-+			no-map;
-+		};
-+	};
-+};
-+
-+&cmu_hsi {
-+	clocks = <&oscclk>, <&rtcclk>,
-+		 <&cmu_top CLK_DOUT_HSI_BUS>,
-+		 <&cmu_top CLK_DOUT_HSI_MMC_CARD>,
-+		 <&cmu_top CLK_DOUT_HSI_USB20DRD>;
-+	clock-names = "oscclk", "rtcclk", "dout_hsi_bus",
-+		      "dout_hsi_mmc_card", "dout_hsi_usb20drd";
-+};
-+
-+&gpu {
-+	mali-supply = <&reg_dummy>;
-+
-+	status = "okay";
-+};
-+
-+&mmc_0 {
-+	compatible = "samsung,exynos7-dw-mshc";
-+	mmc-hs200-1_8v;
-+	mmc-hs400-1_8v;
-+	cap-mmc-highspeed;
-+	non-removable;
-+	mmc-hs400-enhanced-strobe;
-+	card-detect-delay = <200>;
-+	clock-frequency = <800000000>;
-+	bus-width = <8>;
-+
-+	pinctrl-0 = <&sd0_clk_pins &sd0_cmd_pins &sd0_rdqs_pins &sd0_nreset_pins
-+		     &sd0_bus1_pins &sd0_bus4_pins &sd0_bus8_pins>;
-+	pinctrl-names = "default";
-+
-+	samsung,dw-mshc-ciu-div = <3>;
-+	samsung,dw-mshc-sdr-timing = <0 4>;
-+	samsung,dw-mshc-ddr-timing = <2 4>;
-+	samsung,dw-mshc-hs400-timing = <0 2>;
-+
-+	status = "okay";
-+};
-+
-+&oscclk {
-+	clock-frequency = <26000000>;
-+};
-+
-+&pinctrl_alive {
-+	key_voldown: key-voldown-pins {
-+		samsung,pins = "gpa1-0";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5420_PIN_DRV_LV1>;
-+	};
-+
-+	key_volup: key-volup-pins {
-+		samsung,pins = "gpa0-7";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5420_PIN_DRV_LV1>;
-+	};
-+};
-+
-+&rtc {
-+	clocks = <&cmu_apm CLK_GOUT_RTC_PCLK>, <&rtcclk>;
-+	clock-names = "rtc", "rtc_src";
-+
-+	status = "disabled";
-+};
-+
-+&timer {
-+	/*
-+	 * Non-updatable, broken stock Samsung bootloader does not
-+	 * configure CNTFRQ_EL0
-+	 */
-+	clock-frequency = <26000000>;
-+};
-+
-+&usbdrd {
-+	vdd10-supply = <&reg_dummy>;
-+	vdd33-supply = <&reg_dummy>;
-+
-+	status = "okay";
-+};
-+
-+&usbdrd_dwc3 {
-+	dr_mode = "otg";
-+	maximum-speed = "high-speed";
-+};
-+
-+&usbdrd_phy {
-+	status = "okay";
-+};
-+
-+&watchdog_cl0 {
-+	status = "okay";
-+};
-+
-+&watchdog_cl1 {
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/exynos/exynos850.dtsi b/arch/arm64/boot/dts/exynos/exynos850.dtsi
-index 7fae8888952a..c8e4c234223c 100644
---- a/arch/arm64/boot/dts/exynos/exynos850.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynos850.dtsi
-@@ -160,7 +160,7 @@ psci {
- 		method = "smc";
- 	};
- 
--	timer {
-+	timer: timer {
- 		compatible = "arm,armv8-timer";
- 		/* Hypervisor Virtual Timer interrupt is not wired to GIC */
- 		interrupts =
--- 
-2.47.3
-
+> Either way:
+> 
+> Acked-by: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+> 
+> Adrian
+> 
+> -- 
+>  .''`.  John Paul Adrian Glaubitz
+> : :' :  Debian Developer
+> `. `'   Physicist
+>   `-    GPG: 62FF 8A75 84E0 2956 9546  0006 7426 3B37 F5B5 F913
 
