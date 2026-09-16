@@ -4,90 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F804C88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 00:45:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 053D9C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 01:12:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s2V8BnF8h+8Uq8u8VZxp/reb7V9zH1peGA2ahNF542Q=; b=s836fPzxqBOy/STh2+EyXQ0l5z
-	Yg+wJcEu56F73TVsI1LBTPbI+yTEKR3ngtucqwtgD7JIhda+ahMNE4KWIhGDsvdXY1o/F3FeOfl2+
-	4HXhHl5kZqCC7YIv7neX1ZaPXllkma6tJu/sN7SaFmG/VI9Xtvtz37+aD2JX5B0gr3ffLa+SIuZKs
-	bCtWylnbVaFWcMwDlEyvHQ1IphAPkIIJJ2Q9sLUFpl9/9hwgPvol5tZSRoodE7xUO9/5ptC0dXj4D
-	BBVAM+VlKHxJkXgcWpei21CUzQOwgA1cPkGJJVLLxcQ6CXfrT7r5+cKIXrt3V93QEnMiIPVtLEU5H
-	TLPoPeQA==;
+	bh=gcINrIiKjfT87EVSmsf+LXjiB4qB+V1qRG5mJ9yWdIQ=; b=JZAuiUT8IWappzrQNMsfEAf7Lh
+	Sv8nqCR0icT+d3fHUa0GcJJeHDEYP3t7ZTf5H3ZDM5ZOuDZCKe42Yw7jX01UNvmJe02MWmSdtdHEx
+	mH/k9De5+Br3McQGIjDWmEG6AJrqXnAySUB2M2C7EgXlzq7ei9vy8gKcEa5bYJp4nnjLYLdghbL2M
+	Nzzp66JbORN/wbC4WYZTPo0taz/WCAoyym5M6Ppgtwopp5aZ846j75y/MMIu0VYa9uXldV6QPN6za
+	a52OqW3l92SGlC9aX2p8eA5wFHLv1zTGXqL44pD7NQRvPVBx3v/BkMdnh6RKSOUkVzPeoQiNSzwvD
+	oqhkjVFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6dmP-000000088BT-2mzA;
-	Wed, 16 Sep 2026 00:45:41 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1x6eCh-0000000898U-1ggi;
+	Wed, 16 Sep 2026 01:12:51 +0000
+Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6dmM-0000000889t-0Zml
+	id 1x6eCd-00000008984-3KQJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 00:45:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ubuntu.com;
- h=In-Reply-To: References: To: From: Subject: Cc: Message-Id: Date:
- Content-Type: Content-Transfer-Encoding: Mime-Version; q=dns/txt;
- s=fe-953a8a3ca9; t=1789519536;
- bh=s2V8BnF8h+8Uq8u8VZxp/reb7V9zH1peGA2ahNF542Q=;
- b=XRW9PQnk7SBEuQDcaC3PMm0TRFUrm2H/Wgd+yUY/ufRi1WtsVoU4xICtlXlOjq+6vd5X27/Nl
- fQVJnViLukaeBzGf81Vrw4v9Le05qmrX7o6u9z44+huxEGLMeMNzTyr2lWG9y9e772GgCHwoWwY
- 1fbbcMGhmbxPCGIZdlckMJcbZSNbneb+eLxXnmY6ISyS6AjlEcOtbI/8+lT5D59D7LEX74RKYuO
- o4ArkORrAjdIoReonvjOcEooYsSsaIe59/RE8rLZeaPV7uXT+eYt61V3+JQesfLB3LYnbu4uoVi
- ZkPZ+wkUJtpGPLEzlNhuBOuwBRYw7/+HO8FA5aM/pC+Q==
-X-Forward-Email-ID: 6aa9e69076866d48a84e7189
-X-Forward-Email-Sender: rfc822; jpeisach@ubuntu.com, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 2.14.2
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8; format=Flowed
-Date: Tue, 15 Sep 2026 20:45:01 -0400
-Message-Id: <DLGBPXP4F8E0.9X0QMZ9GFQVF@ubuntu.com>
-Cc: <linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
- <mfd@lists.linux.dev>, <linux-clk@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
- "Marek Szyprowski" <m.szyprowski@samsung.com>, "Maud Spierings"
- <maud_spierings@murena.io>, "Graham Markall" <hello@big-grey.co.uk>,
- "Icenowy Zheng" <zhengxingda@iscas.ac.cn>, "Chaoyi Chen"
- <chaoyi.chen@rock-chips.com>, "Joshua Peisach" <jpeisach@ubuntu.com>,
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-Subject: Re: [PATCH v4 00/20] drm: starfive: jh7110: Enable display
- subsystem
-From: "Joshua Peisach" <jpeisach@ubuntu.com>
-To: "Michal Wilczynski" <m.wilczynski@samsung.com>, "Vinod Koul"
- <vkoul@kernel.org>, "Neil Armstrong" <neil.armstrong@linaro.org>, "Rob
- Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Andrzej Hajda"
- <andrzej.hajda@intel.com>, "Robert Foss" <rfoss@kernel.org>, "Laurent
- Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
- <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Luca
- Ceresoli" <luca.ceresoli@bootlin.com>, "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
- "Thomas Zimmermann" <tzimmermann@suse.de>, "Lee Jones" <lee@kernel.org>,
- "Andy Yan" <andy.yan@rock-chips.com>, "Philipp Zabel"
- <p.zabel@pengutronix.de>, "Emil Renner Berthing" <kernel@esmil.dk>, "Hal
- Feng" <hal.feng@starfivetech.com>, "Michael Turquette"
- <mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>, "Heiko
- Stuebner" <heiko@sntech.de>, "Paul Walmsley" <pjw@kernel.org>, "Palmer
- Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
- "Alexandre Ghiti" <alex@ghiti.fr>, "Dominique Belhachemi" <db@domibel.de>,
- "Brian Masney" <bmasney+clk@redhat.com>, "Jerome Brunet"
- <jbrunet+clk@baylibre.com>
-X-Mailer: aerc 0.21.0
-References: <CGME20260915153213eucas1p148f013af239a334fc78cdc249c0f8a61@eucas1p1.samsung.com> <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
-In-Reply-To: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
+	Wed, 16 Sep 2026 01:12:50 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=gcINrIiKjfT87EVSmsf+LXjiB4qB+V1qRG5mJ9yWdIQ=;
+	b=YZvHJBfU1zhvPg6AJ6KTqvoCZ5aaz686uvtpBiON6Rj/D27fEu2DDGdV56gjK+BlxN3GutQVc
+	d2VePqmIjy24sf/kDvr3aPhZHCpLBF+sU6ppVTaC/tAWoogp0Yy3uXNfH+oVENCCd9sLwtL6zEU
+	y67fBEjSHIYfkoXBSt57dnA=
+Received: from mail.maildlp.com (unknown [172.19.163.127])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4hl0vn104xz1cyPY;
+	Wed, 16 Sep 2026 09:01:41 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id E43C340572;
+	Wed, 16 Sep 2026 09:12:38 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ kwepemk200008.china.huawei.com (7.202.194.74) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Wed, 16 Sep 2026 09:12:38 +0800
+Message-ID: <5384bd16-f3da-4449-bbdb-6c73101e5103@huawei.com>
+Date: Wed, 16 Sep 2026 09:12:37 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 12/19] arm64: cpu_ops: Make 'cpu_operations' pointer
+ global instead of per-cpu
+To: Will Deacon <will@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+	Borislav Petkov <bp@alien8.de>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, David Woodhouse <dwmw@amazon.co.uk>,
+	Peter Zijlstra <peterz@infradead.org>, Marc Zyngier <maz@kernel.org>
+References: <20260907164024.17164-1-will@kernel.org>
+ <20260907164024.17164-13-will@kernel.org>
+ <ed47c328-6906-4bad-9a0e-a01f067dc812@huawei.com>
+ <aqP6XQbNBCzLrFnw@willie-the-truck>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <aqP6XQbNBCzLrFnw@willie-the-truck>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_174538_448594_90049B8A 
-X-CRM114-Status: GOOD (  15.18  )
+X-CRM114-CacheID: sfid-20260915_181248_498326_70DDA62D 
+X-CRM114-Status: GOOD (  15.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,86 +84,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue Sep 15, 2026 at 11:32 AM EDT, Michal Wilczynski wrote:
->
-> Testing
-> =3D=3D=3D=3D=3D=3D=3D
->
-> Tested on a VisionFive 2 v1.3B using modetest.
 
-I.. got nothing. I did have to manually modprobe the modules, but
-unless I am doing something wrong.. I didn't get anything and modetest
-just gave -2.
 
-> ---
-> Michal Wilczynski (20):
->       dt-bindings: phy: Add starfive,jh7110-inno-hdmi-phy
->       dt-bindings: display: bridge: Add starfive,jh7110-inno-hdmi-control=
-ler
->       dt-bindings: mfd: Add starfive,jh7110-hdmi-subsystem
->       dt-bindings: soc: starfive: Add starfive,jh7110-vout-syscon
->       dt-bindings: display: verisilicon: Add starfive,jh7110-dc8200
->       dt-bindings: soc: starfive: Add starfive,jh7110-vout-subsystem
->       drm/bridge: inno-hdmi: Split probe out of bind
->       drm/bridge: inno-hdmi: Allow the register map to come from a parent
->       drm/bridge: inno-hdmi: Add .disable platform operation
->       drm/bridge: inno-hdmi: Add .mode_valid platform operation
->       drm/bridge: inno-hdmi: Make the PHY configuration table optional
->       soc: starfive: Add jh7110-hdmi-subsystem driver
->       soc: starfive: Add jh7110-vout-subsystem driver
->       clk: starfive: jh7110-vout: Allow pixel clock rate propagation
->       drm/bridge: starfive: Add JH7110 HDMI controller driver
->       phy: Add common Innosilicon HDMI PHY helpers
->       phy: rockchip: inno-hdmi: Use the common Innosilicon PHY helpers
->       phy: starfive: Add jh7110-inno-hdmi-phy driver
->       riscv: dts: starfive: jh7110: Update DT for display subsystem
->       MAINTAINERS: Add StarFive JH7110 display subsystem entry
->
->  .../starfive,jh7110-inno-hdmi-controller.yaml      | 121 +++++
->  .../bindings/display/verisilicon,dc.yaml           |   1 +
->  .../mfd/starfive,jh7110-hdmi-subsystem.yaml        |  95 ++++
->  .../phy/starfive,jh7110-inno-hdmi-phy.yaml         |  49 ++
->  .../soc/starfive/starfive,jh7110-syscon.yaml       |   1 +
->  .../starfive/starfive,jh7110-vout-subsystem.yaml   | 218 ++++++++
->  MAINTAINERS                                        |  13 +
->  arch/riscv/boot/dts/starfive/jh7110-common.dtsi    | 121 ++++-
->  arch/riscv/boot/dts/starfive/jh7110.dtsi           | 105 +++-
->  drivers/clk/starfive/clk-starfive-jh7110-vout.c    |   6 +-
->  drivers/gpu/drm/bridge/Kconfig                     |  11 +
->  drivers/gpu/drm/bridge/Makefile                    |   1 +
->  drivers/gpu/drm/bridge/inno-hdmi.c                 | 112 +++-
->  drivers/gpu/drm/bridge/jh7110-inno-hdmi.c          | 297 +++++++++++
->  drivers/phy/Kconfig                                |   8 +
->  drivers/phy/Makefile                               |   1 +
->  drivers/phy/phy-inno-hdmi.c                        | 298 +++++++++++
->  drivers/phy/rockchip/Kconfig                       |   1 +
->  drivers/phy/rockchip/phy-rockchip-inno-hdmi.c      | 168 +-----
->  drivers/phy/starfive/Kconfig                       |  20 +
->  drivers/phy/starfive/Makefile                      |   1 +
->  drivers/phy/starfive/phy-jh7110-inno-hdmi.c        | 579 +++++++++++++++=
-++++++
->  drivers/soc/Kconfig                                |   1 +
->  drivers/soc/Makefile                               |   1 +
->  drivers/soc/starfive/Kconfig                       |  43 ++
->  drivers/soc/starfive/Makefile                      |   3 +
->  drivers/soc/starfive/jh7110-hdmi-subsystem.c       |  73 +++
->  drivers/soc/starfive/jh7110-vout-subsystem.c       |  82 +++
->  include/drm/bridge/inno_hdmi.h                     |  10 +-
->  include/linux/phy/inno-hdmi-phy.h                  |  85 +++
->  30 files changed, 2337 insertions(+), 188 deletions(-)
-> ---
-> base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
-> change-id: 20251031-jh7110-clean-send-7d2242118026
->
-> Best regards,
+在 2026/9/11 20:55, Will Deacon 写道:
+> On Tue, Sep 08, 2026 at 07:32:06PM +0800, Jinjie Ruan wrote:
+>> 在 2026/9/8 0:40, Will Deacon 写道:
+>>> diff --git a/arch/arm64/kernel/cpu_ops.c b/arch/arm64/kernel/cpu_ops.c
+>>> index e133011f64b5..eacfb88a0c0c 100644
+>>> --- a/arch/arm64/kernel/cpu_ops.c
+>>> +++ b/arch/arm64/kernel/cpu_ops.c
+>>> @@ -20,7 +20,8 @@ extern const struct cpu_operations acpi_parking_protocol_ops;
+>>>  #endif
+>>>  extern const struct cpu_operations cpu_psci_ops;
+>>>  
+>>> -static const struct cpu_operations *cpu_ops[NR_CPUS] __ro_after_init;
+>>> +static const struct cpu_operations *cpu_ops __ro_after_init;
+>>> +static bool boot_cpu_has_enable_method __ro_after_init;
+>>>  
+>>>  static const struct cpu_operations *const dt_supported_cpu_ops[] __initconst = {
+>>>  	&smp_spin_table_ops,
+>>> @@ -40,6 +41,9 @@ static const struct cpu_operations * __init cpu_get_ops(const char *name)
+>>>  {
+>>>  	const struct cpu_operations *const *ops;
+>>>  
+>>> +	if (!name)
+>>> +		return NULL;
+>>> +
+>>>  	ops = acpi_disabled ? dt_supported_cpu_ops : acpi_supported_cpu_ops;
+>>>  
+>>>  	while (*ops) {
+>>> @@ -49,6 +53,7 @@ static const struct cpu_operations * __init cpu_get_ops(const char *name)
+>>>  		ops++;
+>>>  	}
+>>>  
+>>> +	pr_warn("Unsupported enable-method: %s\n", name);
+>>>  	return NULL;
+>>>  }
+>>>  
+>>> @@ -94,25 +99,31 @@ static const char *__init cpu_read_enable_method(int cpu)
+>>>  	return enable_method;
+>>>  }
+>>>  /*
+>>> - * Read a cpu's enable method and record it in cpu_ops.
+>>> + * Read a cpu's enable method and update/check cpu_ops.
+>>>   */
+>>>  int __init init_cpu_ops(int cpu)
+>>>  {
+>>>  	const char *enable_method = cpu_read_enable_method(cpu);
+>>> +	const struct cpu_operations *ops = cpu_get_ops(enable_method);
+>>>  
+>>> -	if (!enable_method)
+>>> +	if (!ops)
+>>>  		return -ENODEV;
+>>>  
+>>> -	cpu_ops[cpu] = cpu_get_ops(enable_method);
+>>> -	if (!cpu_ops[cpu]) {
+>>> -		pr_warn("Unsupported enable-method: %s\n", enable_method);
+>>> -		return -EOPNOTSUPP;
+>>> -	}
+>>> +	if (!cpu_ops)
+>>> +		cpu_ops = ops;
+>>> +	else if (cpu_ops != ops)
+>>> +		return -EBUSY;
+>>
+>> Should we return the original error code of init_cpu_ops() in
+>> smp_cpu_setup()?
+> 
+> I don't think it matters (the only caller of smp_cpu_setup() just cares
+> about 0 vs !0) and I don't see a reason to change it as part of this
+> series.
 
-By the way, something weird happenined while I applied the patches
-using git am. Somehow, some were out of order. The 10th patch
-adding .mode_valid tried to be applied before .disable even though
-in the series, the order is correctly set? git would obviously
-fail because the .disable entry did not exist in the header, so I had
-to manually put those in.
+That's indeed the case — currently there's only one caller, and it
+doesn't care what the return value is.
 
-I guess it's possible that something went wrong here? I personally
-pulled the mailbox from the lore.kernel.org mbox.gz file.
+> 
+>> Otherwise LGTM
+>> Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> 
+> Thanks,
+> 
+> Will
+
 
