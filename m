@@ -4,118 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 778EDC88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 03:48:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75E30C88E5C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 03:57:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KZUnuuFf09iEV4TXLpHshSHcyHegz5o15LfPCufyx+E=; b=bUwQ3a5uFNtrx/iFxQWyRWqAKT
-	GYJ5DEhy6CUTa/+M4WMmq+YIH9/FQJSRfY73ToYngZWgi05pGWCM8iO5mjmdHdXHfcLaZqvGYHxpR
-	4ja0++CwosFzS9v7x+sueg4+CI7T/WJszG1/RGMfbf/Lo7aQftkyIKra1jmOL/FZ2+ZmTUslfHaf/
-	wFUgbxHX+wN1NQNm1Sl0YqGedXsmIfIjFO1A+JyQbV8UYZwArTtb7PU5ofBa9CEDCa4d9AScCt691
-	Fp598km6ANSLuzPfQUxRIutRe7VZNIGQ4tZpYlSZu9KT+ogqQ9nQ22PipxlzuC/O4B9MoB6WjsH0D
-	FBUjzF5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xQDR48WjHEqsMRL2A1gJmeKRcqUr2W7BIowYB3PxMEA=; b=vt75/077gl3bsmCOVGNSfE+KFc
+	MJolR7zNVMptsCjFh8z0zNy6XOrOPsHPGge1oFXOMcLDvO6lX7QgLQAd8JAqgYU1YtUgcNPI+Y+Rv
+	Z6VXxUcjA2ONvu8+fMOwZqG2t1J8EWfuuJX/8/q1jTzT1QYmDW5NJh3IhbofJ+co4+d+o1c+gcSRf
+	+f3CrTI6YsU15Td2ldyOwGpaP1INuhU2x/ngX2xrZ2ckKxE+Y4Vpi+nNlX70i+fW9fItRVS0buYA/
+	Pn8YWT+AkAgJfaQ0fsggYdjFox78G9el1grAhOASv0OA7SQYdhafb12268Hags5pfx8B8OWiZR3Gf
+	shDYjWOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6gcr-00000008GXs-2uFU;
-	Wed, 16 Sep 2026 03:48:01 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x6gm5-00000008Gq3-4C1E;
+	Wed, 16 Sep 2026 03:57:34 +0000
+Received: from mail-lf2-x11.google.com ([2a00:1450:4864:36::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6gcp-00000008GXV-0bIo
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 16 Sep 2026 03:48:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
-	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
-	bh=KZUnuuFf09iEV4TXLpHshSHcyHegz5o15LfPCufyx+E=; b=j+2DKK/okMtFFlJqeHvDbGoiSn
-	5IwOYa2surdSEPq7QQUAqd2wbdqf46f3Vq85OrCe51YQo5IVB0tnzVBIEjZIXhkeltdypzlmZ92tE
-	L6CvWoFgWkexw8tsbEUetR6bNpVNAU/1lUFN+xsaQfzpKoDqyq2M2UXe0lcT4iQIwJbL24G5pjIPt
-	qb8RPcseq4/lAdEXuKpM9uAkW+TX9tuGff5TOyilDnPur3KE/Bm6RQWZSaHoUlADBa4aZsHjYzkq6
-	5fTusnDVLlDSIVR9jtCzifnQWGV9tp3wfl2LOoE75RCDWwjauXkQ3W6ogN1iy7PicYIBwScneVaCM
-	YBq25E6w==;
-Received: from mail-oi2-x06.google.com ([2607:f8b0:4864:32::6])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6gcm-00000007Swj-0DmR
+	id 1x6gm2-00000008Gpe-1h6D
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 03:47:58 +0000
-Received: by mail-oi2-x06.google.com with SMTP id 5614622812f47-4b374c2cf2cso925717b6e.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 20:47:55 -0700 (PDT)
+	Wed, 16 Sep 2026 03:57:31 +0000
+Received: by mail-lf2-x11.google.com with SMTP id 2adb3069b0e04-5b5e4f18010so430579e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 20:57:26 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789531045; cv=none;
+        d=google.com; s=arc-20260327;
+        b=YJxsZEHVCIeww15dDYcvn1AmJZZO/uM6yBsy2Tlgy7RJpI8vj3JLHevLnWBNNqkX8H
+         0pZKv8wLvNpDkn+gfoVVG0KU4x/01p5OTGx0scy3Tw8Byp69VC33W0q27FIA4lBEibFu
+         0xvK74x73sAH57CBpUG2zbcII7+zuCCw4yuIfb+907Y/yp6v+QFfPVwZmJpn7Tlh7GKl
+         rnmHhpHj9DJ398DrOqK6z8gP2Nm/eltDD1G8pC0UL7JzW0i22bHticE2wXULY7GKje+w
+         lUOod1A/dXfGct4HHLvBSh+VwO+v72ogYjE2t+NrRmfI2nce34OfuypwfKt+mQd7deXr
+         x45g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=xQDR48WjHEqsMRL2A1gJmeKRcqUr2W7BIowYB3PxMEA=;
+        fh=8QalpKl4XYB65OO94AV/IzjGpib2EYD/gBex6ard5l0=;
+        b=no8KT7oBMlZc60kZzJJsxox8aJKsxRzY4xYOfO/gRw9KWsKsNUWlQ26ePELuDKMUlW
+         Ir20QXB6IInNESy7y3+0IDSA0u7jKs4YfNAUpRP4DUFpYFw+eLgjxpjc8dFGhSP66Mu5
+         O0HUZXePaRQmUNWYLbsOYnYcl13NkhaRWyw9NGsrzflvU4qHT0DZ5WPIfDD/EROLVTKC
+         25Jjz4qxKViYff1d1ZDk5L1RNUumXxie2Yd8+R/NvEc3JqbJheCYut5gdZzvW+Dv8Hen
+         lra+Y5+v4VtOggaFT/lXd0a3QL8q4IZFv8IteH3BOqyM7h/iUs26naHuXoxasE2TpqB/
+         J3nA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789530474; x=1790135274; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=KZUnuuFf09iEV4TXLpHshSHcyHegz5o15LfPCufyx+E=;
-        b=iiNFxP9H3IBkL/7KykMaXJN5e2ArvAlNyybj0IxDf2rUKxewi0dFdCxzb5dhaHwtOk
-         ZXZmCbo4JP6Zip/3gQBZyZJQp4U85VjlW9RJzx573AC0IiZEFQD+nIalBExJ0gaN3zX5
-         IrgrMvbSE0OUiE0iZOK9/dOANUpePWpk/GyRmEBvyh2fHaGjRzHECmWndnmJuck/c4MV
-         f9y2tl3g251cPKT0Uv9uecv0aeiiVhRysiT7XSL2e6ZM78eocvYJmSvi5//9UZL8+he3
-         j5Nbpj3Kq1MvhDycdMRJOsE6eoMj2UazazSekyqrAB/MT56rbclIRmcB/qw4a06MOjYX
-         Mm7Q==
+        d=gmail.com; s=20251104; t=1789531045; x=1790135845; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=xQDR48WjHEqsMRL2A1gJmeKRcqUr2W7BIowYB3PxMEA=;
+        b=cof5to0o3jtlYr6fmcYXRtPMcSnx1dUmPHBaOmXa02uAaUGWrAq3knEhXCSGkcTjso
+         BoyDXQOTVrBTjRXX1+cC9AYf8hqqlrehZ6oEfyMPiQLsrYKDwtV8Hh+BxgFoXgL8Ueun
+         aV0vjoboBJ+MFegfrMnWt0XnJ8nAzOPrIICWSbA22sVNjWDbY31J5oPpy7Fmvw2D7ADX
+         NmJ3slOoLIlmFgXch5/JwUXAxL5Xi73lyjq2SvxoHZeACGo7UHuBJFsA3LM9YbNtccdr
+         bvpWRmK+MJWmVkBXEualxQd2k5iXDHt69PqQIxy9ft6Qu6IUfZS8nVaflxDCZaAiaFNW
+         I4LQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789530474; x=1790135274;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=KZUnuuFf09iEV4TXLpHshSHcyHegz5o15LfPCufyx+E=;
-        b=PeZR2kwauxhE1bBbMGEe1zBvrIwaNhJ6Tv4sQDHDWPvivtHHHoOnvSoFWOb0CDdd1c
-         MpBaoXae5lqUfu9o5os/kLy38zX2/zbDiRU/bsNyPpqsWKjBsnee8WYdzneDZuaGiJls
-         +ZjHQNHGQQHCEypVffZvg5ZJDcjq0Xtqaz3HfM9nBzCmMvt+MKoMmckGxhYy5S/1YRdu
-         YEi6/GNKky4/LeBYtSO//X/crClEYsyKXZWEU2fKf7WLE2cl1yH+BCVu2KQm5lLq9uu5
-         20y4eft5syOw1L9mi/C0IU/0G6+6DG6RK0FrfNz7x7EfRWBnmn7z1MaNKGaeSJislTko
-         onLA==
-X-Forwarded-Encrypted: i=1; AKwUvByFaIOw6mCgck23BvkULMU6hpBOL2CkXxoBurecSjorhJ8srAypc9SqAaOZUjwzehuxVekJzpxf6bjlCkqxcwul@lists.infradead.org
-X-Gm-Message-State: AFuF++loRLMH1Si6oDlYYO5/8UUnUycxBLK8V9pdP7zX+Z5WYMvZ6OBE
-	MK421Ld0gJmmiDnppD1XcbfS6/tzzI2cESQ1S/JmENbEwbjA+bXVGDPb
-X-Gm-Gg: AYBFou2lmnQbMMf8fIFmaN+E/UoBqzr61lMQeBl8biOtO5kV1xRrR5E4l+mXeKvaFC+
-	cNXcudTx6ljyadXy3CFURe41Ed3dwafqHfCKdQnF1owogqCOuN2g5wLimIjXy2loSWbQKnGq6qA
-	CbPfZe8E7Sx0x8f7sy/3HI640MIp6DtboYMfAbPANdix3LMy7f83QWybbJafeJzm3uvrCLJI/7Y
-	7CH5IGWFXk5XLxSTDQq20g71fMcn1WtNGR9alD5XimIifPZ6j4BdHDYtCaSFXwMsnY4cvyH728v
-	auZs9JXsWukPsB7FugijMwm8N9f+Vyqpnt4h7H9iWv74rnwyBzrzWX6qi5GBXQxKBIUAm0XK++K
-	7Ed3Ahsq+mCTpNMgXTL+E/FkpGFvBy2fMdfqFPyViWAzNn82ykH8LHx2A4s9haSTXaz6PHdFz+Y
-	6QAunB6xLibotui6lZT8m5iH+oXIhMXoWRdr4Y3wZgNyg6zs0tKC1cIEsS92Nau01D0w8=
-X-Received: by 2002:a05:6808:4fcb:b0:4c2:e38d:4de3 with SMTP id 5614622812f47-4ca4a9047a1mr1733472b6e.17.1789530473675;
-        Tue, 15 Sep 2026 20:47:53 -0700 (PDT)
-Received: from [192.168.18.164] ([2600:8804:5716:d800::b712])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-4ca2377aae6sm1446666b6e.7.2026.09.15.20.47.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Sep 2026 20:47:53 -0700 (PDT)
-From: Ryan Brue <ryanbrue.dev@gmail.com>
-Date: Tue, 15 Sep 2026 22:47:50 -0500
-Subject: [PATCH] dt-bindings: input: mediatek,mt6779-keypad: add the MT8173
- keypad
+        d=1e100.net; s=20260707; t=1789531045; x=1790135845;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=xQDR48WjHEqsMRL2A1gJmeKRcqUr2W7BIowYB3PxMEA=;
+        b=QQUsVCLm3BO8qxdxmaFizyGEbE19PqwhiFL9f6UDG3Z7ZX/LsGGHf64a6FzlzT8NoL
+         e7FmByWuanyQcQyWbcSigS3mo2G4n1kusXEFVLRqvU8y5wiDmlPdppIvvzrd0c1zVp+c
+         ayUWe2hb4ZilYS/YEwaoe+DZm2tv0s2yondj3/DkyinDEIIhx4KHYv78fzPXe5eb2mEL
+         Q6BtHHH08c/GlKBxNi/SmwSutbtxP9VlXU50lC4grsOHoElEv/DM6nF+h0NQ/aNkNA7V
+         1oMrOAFVqOT6GA8JPuQUG2KL4mxdFhnPPq/xz+1+mB6Xri+FThHaiAKIGACGNsWOqS4b
+         6Tgw==
+X-Forwarded-Encrypted: i=1; AKwUvBxquCno410EJJUOdOTy1266pvv9RKTLKRYatAwYavK8WxDNE5JrLxF7mVrrThtfLhxUWVmf0l/RpVxG/3sjsXCN@lists.infradead.org
+X-Gm-Message-State: AFuF++kSPrxlWuSs5EiCo21iQleamCr9UtlBTtePugs2qi3hV4yG8aSi
+	DWz+eOGIt3Wg5AprUzMkFZsJqjTQvlpEN/45eUW2vO6UgQAxo5Y18AHOyIJp0r/FH/Ji7PrYD9y
+	RyiEMugW13gm7K8zl3KfUS+ZvXfIDgnYRfe6ZqkA=
+X-Gm-Gg: AYBFou2y/PYtdJEnYb5q57Tf/9aBfHkBGUELBVcskk/xGS53bzsVAGJ5/juc6G8wguV
+	Rz3CKj/j/uBgPcZBaauiqFym/1yUo/iJzAy0tWK//xeX3vct96qoeCwWWMuaOxfgTFvLfCWknxd
+	DCPwDlxzOre7HYgUqWuqdMl7EJuq4Rpg2cUTabnsQnAyDze9wLLGaghiF4+MddePOCsNPmDn7Vp
+	KqsVleU9URq4aHlZtErCoiOnn/HpUI/rC00YvbO2vy54VLv+LxqiYFc1rhzOgY7kUe1piQc7sQS
+	AWdoWzI0LzcJQ8YiHz2Hts4ddRJ1hpohZW6/rM4hhNeTyEbb9Ir6og==
+X-Received: by 2002:ac2:51c3:0:b0:5b2:158e:9918 with SMTP id
+ 2adb3069b0e04-5b8b661e3b2mr186213e87.19.1789531044560; Tue, 15 Sep 2026
+ 20:57:24 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260915-rbrue-suez-upstreaming-mt8173-keypad-v1-1-96c325efacbe@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3Nyw6CMBBG4Vchs3aSFgwXX8W4qPQHJ4baTKlRC
- e9uw/LbnLNRggoSXaqNFG9J8goF9lTR+HBhBosvptrUrRnsmfWuGZwyfpxjWhVukTDzsva2a/i
- Jb3SeJ+/HxrYOZuippKJiks+xud72/Q+w0P5JdgAAAA==
-X-Change-ID: 20260914-rbrue-suez-upstreaming-mt8173-keypad-fddc316ae098
-To: Mattijs Korpershoek <mkorpershoek@kernel.org>, 
- Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-input@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, Ryan Brue <ryanbrue.dev@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789530471; l=2015;
- i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
- bh=iB6N5HJd5gxJ6JfDRUspRgFcS0Yl2pln4xko2Z2q6Tg=;
- b=ALF9MhZ4iDbh4vFTTUxFBuixvjgq+QLsNGyPYSFi+QRZHCViQOngwQy98zKiBOP33E4wyYcbz
- YQjSzhJfhYlCnTGnNHLmhDpo9Ie+KvCnRBPR12NrzDy5tFpdqQ85FYX
-X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
- pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
+References: <20260915065534.102249-1-maimon.sagi@gmail.com> <6acfc82e-7690-4759-90df-22b64a5441ba@lunn.ch>
+In-Reply-To: <6acfc82e-7690-4759-90df-22b64a5441ba@lunn.ch>
+From: Sagi Maimon <maimon.sagi@gmail.com>
+Date: Wed, 16 Sep 2026 06:56:58 +0300
+X-Gm-Features: AcwNN1VE21f4CHLNHevQeu2epcwUcVn4gToPTCHI40hLednW88eNlo6h6UQyzGs
+Message-ID: <CAMuE1bHKr_-cE7VpSMc_8nYGgaH9Y901XMqRLzvKYodn8CHiXA@mail.gmail.com>
+Subject: Re: [PATCH net-next] net: axienet: add a TX timeout handler to
+ recover a lost DMA interrupt
+To: andrew@lunn.ch
+Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, netdev@vger.kernel.org, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Michal Simek <michal.simek@amd.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_044756_447268_0F83653D 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20260915_205730_499351_5702A828 
+X-CRM114-Status: GOOD (  29.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,50 +121,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MT8173's keypad controller is the same block this driver already handles.
-Its register map agrees offset for offset with the MT6779 one -- STA 0x00,
-MEM1..MEM5 0x04..0x14, DEBOUNCE 0x18, SEL 0x20, EN 0x24 -- and
-mt6779-keypad drives it with no code change, so the node only needs the
-fallback compatible in second position. Add the mt8173 string to the
-existing enum, which is what mt6873, mt8183, mt8365 and mt8516 already do.
+On Tue, Sep 15, 2026 at 7:15=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote:
+>
+> On Tue, Sep 15, 2026 at 09:55:34AM +0300, Sagi Maimon wrote:
+> > axienet_dma_err_handler() is the driver's only reset path, and the only
+> > two places that schedule it are axienet_tx_irq() and axienet_rx_irq(),
+> > both on the XAXIDMA_IRQ_ERROR_MASK branch.  Every route into recovery
+> > therefore depends on a DMA interrupt being delivered.
+> >
+> > If a completion interrupt is lost the queue stops making progress with
+> > descriptors unreclaimed, and nothing ever schedules the reset: the erro=
+r
+> > branch cannot run because no interrupt arrives, and NAPI is not polled
+> > because it is only scheduled from those same handlers.  The interface
+> > stays wedged until the driver is unloaded.
+> >
+> > Add an .ndo_tx_timeout handler so the netdev watchdog provides a route
+> > into the existing reset path that does not depend on the interrupt that
+> > was lost.  The handler only queues the work; axienet_dma_err_handler()
+> > then performs the reset in process context, as it already does for the
+> > error-interrupt case.
+> >
+> > .ndo_tx_timeout is added to axienet_netdev_ops alone.  On the dmaengine
+> > path lp->dma_err_task is never initialised - INIT_WORK() for it lives i=
+n
+> > axienet_init_legacy_dma() - so scheduling it there would be a bug, and
+> > watchdog_timeo is set in the same branch for that reason.
+> >
+> > Tested on a Xilinx AXI Ethernet MAC by clearing PCI_MSIX_FLAGS_ENABLE
+> > underneath a running interface to drop completion interrupts: without
+> > this patch the TX queue stalls permanently, with it the watchdog fires
+> > and the interface resumes passing traffic.
+>
+> Have you seen the hardware wedge without faking it by clearing
+> PCI_MSIX_FLAGS_ENABLE?
+>
+>         Andrew
 
-Verified on an MT8173 board (Amazon Fire HD 10 2017): the volume rocker
-reports through mt6779-keypad with no driver modification.
+No, I haven't seen a naturally occurring lost completion interrupt.
+The scenario was reproduced via fault injection by disabling MSI-X delivery=
+.
 
-Assisted-by: LLM
-Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
----
-This is the binding half only. The board device tree that uses it, an Amazon
-Fire HD 10 (2017), is not upstream yet and comes with the rest of that
-board's nodes later; adding the compatible first keeps that submission from
-carrying a forward reference.
+I do see occasional hangs on my development platform,
+but those are caused by an unrelated FPGA bug that clears BAR0 and
+PCI_COMMAND at runtime.
+In that case the watchdog fires and recovery is attempted, but reset
+cannot succeed because the MMIO window is no longer accessible.
+I don't consider that relevant evidence for this patch.
 
-No driver change goes with it. mt6779-keypad matches on the fallback, which
-is how mt8183, mt8365 and mt8516 bind today -- only mt6779 and mt6873 are in
-the driver's own match table.
----
- Documentation/devicetree/bindings/input/mediatek,mt6779-keypad.yaml | 1 +
- 1 file changed, 1 insertion(+)
+My rationale is primarily structural.
+axienet_dma_err_handler() is the driver's only reset path,and it is
+currently reachable only from axienet_tx_irq() and axienet_rx_irq()
+on the XAXIDMA_IRQ_ERROR_MASK path.
+If a completion interrupt is never delivered, NAPI is never scheduled,
+descriptors are never reclaimed, and there is no recovery path back
+into the driver.
 
-diff --git a/Documentation/devicetree/bindings/input/mediatek,mt6779-keypad.yaml b/Documentation/devicetree/bindings/input/mediatek,mt6779-keypad.yaml
-index 914dd3283df3..b45dbf805ac8 100644
---- a/Documentation/devicetree/bindings/input/mediatek,mt6779-keypad.yaml
-+++ b/Documentation/devicetree/bindings/input/mediatek,mt6779-keypad.yaml
-@@ -27,6 +27,7 @@ properties:
-       - items:
-           - enum:
-               - mediatek,mt6873-keypad
-+              - mediatek,mt8173-keypad
-               - mediatek,mt8183-keypad
-               - mediatek,mt8365-keypad
-               - mediatek,mt8516-keypad
+The watchdog provides an independent route into the existing reset
+logic that does not itself depend on the interrupt that went missing.
 
----
-base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
-change-id: 20260914-rbrue-suez-upstreaming-mt8173-keypad-fddc316ae098
+I'm happy to reword the commit message to make it clear that the
+validation was performed via fault injection rather than from an
+observed field failure.
+If you feel that scenario alone does not justify the additional code,
+I can drop the patch.
 
-Best regards,
---  
-Ryan Brue <ryanbrue.dev@gmail.com>
-
+Thanks,
+Sagi
 
