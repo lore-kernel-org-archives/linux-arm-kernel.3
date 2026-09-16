@@ -4,62 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BFC9C88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 09:49:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEC35C88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 09:50:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q3JIgNKPC6ybCnerbwPJX2RD18vyVuXpIXPctA84TMY=; b=2VaLwBKJsXwn8bczfwXr94o7K9
-	YMBqY+hmR2jHIMniO0m/gKuzXCl9oLnEUGBlb1KnKfX+f4xydEf6jm6dK/0VCtIHXrdtGdy8oBeAl
-	F2LV0FVXPw+IxC1Q20cIXJ/DfI+5zAQ9kGtqKgPfmBb5T8XMrW6sbDGGxCJ2EWHGYBFr2KRewbntD
-	4WdSAw3HUAfNHzz9s9ut7wR/BNvzDAcBMhYTf+pvaQUiyvX+YB6B/sk0NoOwHjxuTg77AcZaGXnNm
-	z6dDMbaq4P4qH2ikOBtKZlLwLljZzno4Q52R4EEalhRPhL/OYgPu20iCXUPrnvJArqnjq77u1rNzi
-	0gg3hy7g==;
+	bh=79YAdtaHEv3S3nDvYc6X9C5ar06F3FncZEtUncQdJQ4=; b=o7fxpuHsRtKq8/l8DElJ8F9hjI
+	GSPqHjdtgL3p844CUFsXRILQbA8FU5O8FD3BUjEUYHZX6HCJHRa+Rb4bzW+zfj97lJf31NOzQh9Nd
+	UJh1l10aQVW4jhxU7vzyPnN8qbbIP3YI+wJ0WbfDZX35bUVgALgOVQLEDGQvTj+q9veCFkFaNNWSG
+	FgwRdAOTa2MbILjxUL3XclOPMZo7ilKyp27YZmeq9hqQV3ZaUfGtUFi6mMn23+kpRNrIKi0bBez3j
+	vR4+4Jh4YlvRCt2IeiyJP77l8MSgp8QXAKKIaI6vJ34vjC704oJxdGe+mx9kI4yeqW5H5Qi9aj6qu
+	hbxtoxOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6mGf-00000008tJN-0yMK;
-	Wed, 16 Sep 2026 09:49:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6mGc-00000008tIN-0dSj
+	id 1x6mHb-00000008tY1-43Ck;
+	Wed, 16 Sep 2026 09:50:30 +0000
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x6mHU-00000008tVg-472i
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 09:49:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EB8041516;
-	Wed, 16 Sep 2026 02:49:18 -0700 (PDT)
-Received: from [10.2.212.8] (unknown [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 445E73F86F;
-	Wed, 16 Sep 2026 02:49:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789552162; bh=KuO14YuSIMliHThLNP9CFnL/2L6g8T7HPTMoBngDAQQ=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=ARyNLCNZkGUYpKmy5uBK9NEea7T0DnlON4jVwojrWrqR+y2L8389NX9ZkBoDdHaH7
-	 SDH1ldmrUffCGGg/ci8ztuMCsrDMA+f1d32D5ipJKsuFnkU+sgU8NvKUyv7fpshSKm
-	 EKjwNkN9yrL/JG7dZahf5u/oa2a8XSSY8QGckcW4=
-Message-ID: <2c682691-3037-4d62-a941-bc41baca35aa@arm.com>
-Date: Wed, 16 Sep 2026 10:49:19 +0100
+	Wed, 16 Sep 2026 09:50:24 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e8185e037so3877785e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 02:50:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789552219; x=1790157019; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=79YAdtaHEv3S3nDvYc6X9C5ar06F3FncZEtUncQdJQ4=;
+        b=YG8IDu1hpzeRLp17FHzRQhSgPoc14fmyUrHOWLvQmNou39MjUIsKQ6Gs+TVGl1s4Gi
+         eQ+QjmC8Lun7yXfPZn/cmsTIUDhXFVaMGAuBBsFfDVvg8hRyB3/gb4wKK2iZryoH6J/j
+         8jouLiHOwQjzAkMkZud4zpjZ73U664++80qnGNdeJ7RTZE9NfVmavAmV47oWLafecf4q
+         QLZcjQ8JV5nV0JDpkrKNapX1La+SKFhaWkeAekpTi46zXrPv90shxGHIkfHMDp/eFV9N
+         AG5BgfVm6/KWZR46/ISmicLqzexuA1X0hKKksIL/XXIcbH0lbDTtMRgQiPigB8Gp6CMy
+         QM2Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789552219; x=1790157019;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=79YAdtaHEv3S3nDvYc6X9C5ar06F3FncZEtUncQdJQ4=;
+        b=mGORlOXqolQ3uzVPnhNacUi9CoYfBNXkf/pSFe4j2zAXBQrdO5DrPlpaCyCdGToysr
+         iU9tl4BDx7nxcymedunSiuDOOl8omeHuDcCcKeXwNygQ6fiZuOdwaAmYs9WimlRtp5qe
+         6ZXtdDeRCuyfdxf6mptu++OeBBi/q59cVmb16CIHq8foiqDVgn0kc0nVRhIpYe5Cn3Ay
+         8whAwhaz/0hsiWDqvch9Xgr/Lsf7m8+RRlSZl8HcYcR8eX36Cr78oI7da/QbBWplI76H
+         ZhY9eZugfsET1aHzaB6NqmzzGanG/mwD8Jr6Ad2cfcnIHwqzplQcv9NBiMQSFGZNyzzF
+         +Udw==
+X-Forwarded-Encrypted: i=1; AKwUvBx+PdLPSLWtqt/Ll8FJLUND0lxF5Yg3JgDB8W0fzBGr1TrqYvueP3zYvVbmu4qpslmgamPuQDnziQjJWa/3Cx4k@lists.infradead.org
+X-Gm-Message-State: AFuF++ntKzgbHeDxAycES0sq/3evthRwxSGSKRrotVsxUVjkvmJfxWSj
+	nXGiOxnEe1yPU9vevG2LDJR8oq5yZ/28ALZNJv4UqbuuKXv3iTYCKajM
+X-Gm-Gg: AYBFou2Z5kS968Yr+JwtWIwY1mATCJa+n1pJ3pmF8NgvpQ5tzP9S8Pw3IvFrtT8wq+G
+	pEAh9HQnbaEASNk1gvdHzkKF4lPXO0YSmSCpo0DbQZHI2Z5b6IFplZi8qDtlck2aRaB53FAD/nJ
+	EmMlY1CRTUAAVyhmXwdEef7bfAEZ+ddi9AFJLsdPrznuUSphjGbX3URU8p96hxesD87IV8aeHbr
+	Zix58SzS7roBocMOKzVuZf3wkDWAU2u8nCWGyCLPGFpRXsAD7SI7O/ezWocW3O32hoAuXZVcw47
+	E7HTytqmAl2oRW1cKq/rHVewNJCkHrRFRZAbOXo4OtNhZ8+wvdEXxz1bnz41JRQq8odqQr/8CxT
+	odnENOjaw3xX9GVcXdYmFzfT6tPzfhAYJIJnqiOWWXab9yOEpLskSAWsYjWYMqJdUDi512fyHD9
+	K7UZABLWww2njXmOGS9OaqQLAbiHJaPGjt3n3TyCfsbZ2uOdcS0fnOsa0GW9505fkWKpnN04f9y
+	1IShkaNz+nrFGP8LKB8VhTOU9AyLyUJ87EiJ+KMYF6zkWo=
+X-Received: by 2002:a05:600c:4ec6:b0:49c:fea3:8633 with SMTP id 5b1f17b1804b1-49eb732aec0mr19444455e9.24.1789552219000;
+        Wed, 16 Sep 2026 02:50:19 -0700 (PDT)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e83b02245sm84055225e9.10.2026.09.16.02.50.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 16 Sep 2026 02:50:18 -0700 (PDT)
+Date: Wed, 16 Sep 2026 10:50:17 +0100
+From: David Laight <david.laight.linux@gmail.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Jann Horn <jannh@google.com>, Christian Brauner <brauner@kernel.org>,
+ Alexander Viro <viro@zeniv.linux.org.uk>, Jan Kara <jack@suse.cz>, Ingo
+ Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, Oleg Nesterov <oleg@redhat.com>,
+ linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+ linux-hexagon@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linux-sh@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-um@lists.infradead.org, Jens Axboe
+ <axboe@kernel.dk>, io-uring@vger.kernel.org, netdev@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-gpio@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ bpf@vger.kernel.org, David Airlie <airlied@redhat.com>,
+ virtualization@lists.linux.dev, kvm@vger.kernel.org,
+ kexec@lists.infradead.org, linux-hyperv@vger.kernel.org
+Subject: Re: [PATCH RFC POC 00/50] file: handle files on syscall exit
+Message-ID: <20260916105017.13ea5e36@pumpkin>
+In-Reply-To: <CAHk-=wi3Kkqgfg6zUTHpQoZNL2VOB4vYqpi6RX0WNO++29UtyQ@mail.gmail.com>
+References: <20260915-work-fd-reserve-unify-folded-v1-0-4d5217d6b246@kernel.org>
+	<CAG48ez1RsdT=O=-0city3vjgWhDvY424KtTmrCJntWy5ds3HBQ@mail.gmail.com>
+	<CAHk-=wi3Kkqgfg6zUTHpQoZNL2VOB4vYqpi6RX0WNO++29UtyQ@mail.gmail.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm_mpam: resctrl: Catch and propagate error from
- get_cpu_cacheinfo_id()
-From: Ben Horgan <ben.horgan@arm.com>
-To: Andre Przywara <andre.przywara@arm.com>, James Morse <james.morse@arm.com>
-Cc: Reinette Chatre <reinette.chatre@intel.com>,
- Fenghua Yu <fenghuay@nvidia.com>, Tony Luck <tony.luck@intel.com>,
- Dave Martin <Dave.Martin@arm.com>, Yin Li <yin.li@oss.qualcomm.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260902143757.3469690-1-andre.przywara@arm.com>
- <ea42f2a7-f4f7-46ab-a5e0-239c74174499@arm.com>
-Content-Language: en-US
-In-Reply-To: <ea42f2a7-f4f7-46ab-a5e0-239c74174499@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_024926_257911_957EDD89 
-X-CRM114-Status: GOOD (  18.83  )
+X-CRM114-CacheID: sfid-20260916_025021_678743_5492FA27 
+X-CRM114-Status: GOOD (  29.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,62 +118,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andre,
+On Tue, 15 Sep 2026 12:08:57 -0700
+Linus Torvalds <torvalds@linux-foundation.org> wrote:
 
-On 07/09/2026 13:59, Ben Horgan wrote:
-> Hi Andre,
+> On Tue, 15 Sept 2026 at 10:52, Jann Horn <jannh@google.com> wrote:
+> >
+> > Is this mainly about stuff like "we installed a file descriptor and
+> > then the following put_user() failed"? Because if so, I think a nicer
+> > fix would be to have a policy of "if userspace provides unwritable
+> > memory to a syscall, just keep going and pretend the access worked",
+> > and maybe have a sysctl that kills the process when this happens to
+> > emphasize that userspace should not be doing this.  
 > 
-> On 02/09/2026 15:37, Andre Przywara wrote:
->> get_cpu_cacheinfo_id() can fail, in which case it returns a negative
->> error value.
->>
->> Check the returned value for this error condition, before passing the
->> value on to other code, which would hide the negative number in some high
->> value in the unsigned type.
->>
->> Fixes: 36528c7681b8 ("arm_mpam: resctrl: Add support for 'MB' resource")
->> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> We've done that before, where we just ignore put_user() errors and the
+> user gets whatever the user gets.
 > 
-> This looks good to me. Out of interest what led you to find this?
+> It is maybe not optimal, but it's fine. You can find quite a lot of
+> unchecked put_user() calls with a pattern like
 > 
-> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+>         git grep '^[[:space:]]*put_user(.*);'
+> 
+> and some of them are in core code - see the two in kernel/fork.c, for example.
+> 
+> One of them says "if userspace has not set up a proper pointer then
+> tough luck". The other one doesn't even bother with a comment.
 
-I seem to have been a bit hasty here.
+I think the code should try to return EFAULT (IIRC that is too hard
+in one of the exec cases).
+Otherwise very unexpected things might happen if the memory is just
+readonly.
+If you ignore the error and the pointer is invalid the application will
+get a SIGSEGV and (usually) die.
+But winding back kernel data because a user copy failed is likely to
+be problematic/difficult and at best have error path code that isn't
+really tested.
 
-Sashiko points out at [1] that 0xFFFFFFFF is the only value we were previously considering invalid
-and that the value coming from dt or acpi can provid other valid values that would after this patch
-be considered invalid.
+As well as writing fd numbers to userspace, some sockopt code tries to
+wind back if the write to optlen fails (which has been read earlier).
 
-[1] https://sashiko.dev/#/patchset/20260902143757.3469690-1-andre.przywara%40arm.com
+I've forgotten which Unix converted EFAULT to SIGSEGV in the system
+call exit code - I'm sure one of the ones I've used did.
 
-Thanks,
+David
 
-Ben>
-> Thanks,
 > 
-> Ben
+> The scheduler has two cases too, although one of them is admittedly
+> for another error case.
 > 
->> ---
->>  drivers/resctrl/mpam_resctrl.c | 5 ++++-
->>  1 file changed, 4 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
->> index 9d223057953ab..a5e661eff86d7 100644
->> --- a/drivers/resctrl/mpam_resctrl.c
->> +++ b/drivers/resctrl/mpam_resctrl.c
->> @@ -786,7 +786,10 @@ static u32 get_mba_min(struct mpam_props *cprops)
->>  /* Find the L3 cache that has affinity with this CPU */
->>  static int find_l3_equivalent_bitmask(int cpu, cpumask_var_t tmp_cpumask)
->>  {
->> -	u32 cache_id = get_cpu_cacheinfo_id(cpu, 3);
->> +	int cache_id = get_cpu_cacheinfo_id(cpu, 3);
->> +
->> +	if (cache_id < 0)
->> +		return -ENOENT;
->>  
->>  	lockdep_assert_cpus_held();
->>  
+> So yes, saying "if you pass bogus arguments, you get what you get" is
+> a valid model. It's perhaps not the *preferred* model, but it's not
+> wrong.
 > 
+> It *would* be wrong to take code that already has error handling and
+> remove the error handling, though.
+> 
+>                   Linus
 > 
 
 
