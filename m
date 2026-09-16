@@ -4,84 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9ED3C88E5C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 10:12:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1388C88E5C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 10:13:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Y8c6GtQD6LASomrAXdkGEmadEZfNr7D1BkhMYTZkBKs=; b=qEl+6OF9CBCCe+/jYHMqZX7c0y
-	K6FS4kYImosvSFNJCyIqGORMC23dMQacDmhPNYm/saOxcetnKWr5TJpmjuTCxvZLYbCyHiaZBwHAY
-	Z6vDmBR+3SnHyMrDuEq1jPCwDVqrxUaDPG4OJitYLQfu7/hLzedpfUZZ4ljeaE4Tph/axntmqvbNW
-	7uoQ5HngC0Y/C6JODOC7TPdA9/ygQV8fYgzgfzvYWdmXJR3wX/TvktXkRHm0tZbpR6rq+2KJQqZmr
-	dVGFfgBH5io9mB9JCHBftMRfcJLqqKSYzhGZStxPqLlRm4i6O5iNRBe0dan5WlsHQCJHHHl7Bt3xS
-	6KHs0dAg==;
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tWX9XTTIbsH6CkE09cBAkYAuFL80K/bMW6Qsdf7VxgA=; b=oBXb/CkyClWCCreFCsrLxceEm/
+	BLLh2UBUTGre9DEXGeQ/tNCsM8tA2EbhF3pVcMF+XuW53JJhNX77WAUSuO+i92YqXF3mvkZZl26aw
+	F1+5slFDxhCCOUpbD4ymdAj7tllbmli4JV3gDj6W4c11gJE3FTxHToOCZXPe8FHeUHO/NoNwdWkmJ
+	BUAIJgbwF8WYQWdZE2cj/8WDDprOxhwDwpnxFK3bQizwAeambNH/J1Mgojseu/eE9m7dcI2aSQUnD
+	4KfAcyzAJLbZoBk3Ty9SL8zsC6pvOnum9IAQg/vxC82XsVTpJuk2rGyA1PeX1AOAZU7tIIx0+yVUp
+	g4MpOgzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6mcw-00000008wYS-2Cb1;
-	Wed, 16 Sep 2026 10:12:30 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1x6meB-00000008wmY-40y6;
+	Wed, 16 Sep 2026 10:13:47 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6mct-00000008wXg-17OO
+	id 1x6meA-00000008wmA-2yxC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 10:12:28 +0000
-Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
-	by APP-03 (Coremail) with SMTP id rQCowACnrTt+a6pqrujgBw--.42778S2;
-	Wed, 16 Sep 2026 18:12:15 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: Frank.Li@nxp.com
-Cc: Laurent.pinchart@ideasonboard.com,
-	airlied@gmail.com,
-	andrzej.hajda@intel.com,
-	dri-devel@lists.freedesktop.org,
-	festevam@gmail.com,
-	imx@lists.linux.dev,
-	jernej.skrabec@gmail.com,
-	jonas@kwiboo.se,
-	kernel@pengutronix.de,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	luca.ceresoli@bootlin.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org,
-	s.hauer@pengutronix.de,
-	simona@ffwll.ch,
-	tzimmermann@suse.de,
-	victor.liu@nxp.com,
-	Wentao Liang <vulab@iscas.ac.cn>
-Subject: [PATCH] drm/bridge: imx8mp-hdmi-pvi: Fix next_bridge reference leak
-Date: Wed, 16 Sep 2026 10:11:46 +0000
-Message-Id: <20260916101146.2015255-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	Wed, 16 Sep 2026 10:13:46 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id EF2596053C;
+	Wed, 16 Sep 2026 10:13:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13E2E1F00893;
+	Wed, 16 Sep 2026 10:13:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789553625;
+	bh=tWX9XTTIbsH6CkE09cBAkYAuFL80K/bMW6Qsdf7VxgA=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=XL0PWXG44WQGiuE+d5v5410XtKkGdRPNMn/8Zvt9F0p4DkYZQXhN+c779oG7yxNFJ
+	 4kd2AC9DsART3a/Qzg5sDQ0jhFbx9PuJ76yqP8whSoWNqKhOLky+Xa2mKqAlmGU7t2
+	 dqEd8pmaDyFNtR1ZspVa0TzxkcG7HU79bmh9PwVYDp353Fv9QYCXa7azn5ZVxkh8oI
+	 ZEGc0LF88FuIWX9QJkk73Jy4umyt2rRg3V5SUAszmiP4cRVlMhreqlQL8YcZr16qqx
+	 2ljVrq9FQW7tN1hppXcnH4Y9iDFULtKw0dxkdkElaeEoCYyCFmBZqZVc84r7al2F5h
+	 Uiuv7OKTm3lMw==
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfauth.ams.internal (Postfix) with ESMTP id 3A58D198006B;
+	Wed, 16 Sep 2026 06:13:43 -0400 (EDT)
+Received: from ams-imap-11 ([10.64.2.31])
+  by ams-compute-02.internal (MEProxy); Wed, 16 Sep 2026 06:13:43 -0400
+X-ME-Sender: <xms:1WuqauEb7ZIVxkuWchGLCPSFQ0nUEdoJYy7CGw3Dc67gg3jirfR7MA>
+    <xme:1WuqaqLY-0JGs5fQ3X5x33fEBKrt-pstD6wogkBUuWh8UN_QMpLGbIQvUwTx8HqSI
+    ZqnX75Lnas3qI2SV9lc1tgcyvTYbiSqUPH-n_hQqrXlF7r1_J-TUEc>
+X-ME-Proxy-Cause: dmFkZTGmUXuEW/3d4cAi8SqE8L3ARbJy7mmUeFN9ytA9sCvUWqzTSx1wi0ub4wVqQw/XVC
+    Gh4Q4SyQjlSHpC/XrKQ56ZrwkIkbS1m7+TA9vt9R8oRidnhDDNeaKFlNUqqyqdyA+143iO
+    a926gTui8euD0SvUcbnuekcmNOw/yIdkZpE5t8iYblKVj6qXb2UMtS5v4maiQPyZbNMFOF
+    4TF7mNOMiby1sHBFvOiaAorGXiq8uCngDJTmb1mIhCrubcho80qsBoSO+73jFCNnnwelOs
+    nTiaETOxp8fQEcxURkd6VU5XngdF/7DA6hvQRpnuYLNCudeoPC0Hxa0V/kWcxG/Tb/24To
+    xgWsGbFbjE71zzCuTYZ1XFWPpK8IzNCWc2vnYyD2A1rx1RFnp7uezGSWMQ0OgrCtsDGZXP
+    ZcwwqSEDKCu1guOdWvrq45fVgJ7PIGrmOtcwS33Yxf8bAE4prqeL16QqFx3EKAvbkQ8RdK
+    M2tnsS8FhAxXSpZ7/QUA/bmnApSDXekqQmTAKO1+rtJkN5fgabN05t4ltJUiSe1uGYYkLL
+    EItm5kbQbEAz7a8lIepEhkXnOKzw2iaZLmTt+KDoGOcofCiz7s8Q6LmN3S8IpSpAaXOZyb
+    dm16Sn1qxm3u6/MueZiA47FQirjwN6lDb0lPFaSWjbuPb2eSOdSFDiGXT6HQ
+X-ME-Proxy: <xmx:12uqajyQZjNkFahfPowdOOPii0bUJ9RuWR9Mwl6F0aeAlOCtgz6RIA>
+    <xmx:12uqaknBfutezEqnVHZn5GCs5eiGARD6-EukAOgFRigIqlDOXW4DLA>
+    <xmx:12uqakmxYQquFjmXSj34HPZEUL_aGh3WlYle-vT8l06iXCD4KQW4_w>
+    <xmx:12uqauwwXH3aatReegpugzX8_uk5R74OoXXud1dIkkplWlRgdibTvw>
+    <xmx:12uqahpTzQOxXhT9ZhGsQyqxKltqb3ZjdAP-ECNnpTunFWrz0585L135>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 97F7FF80080; Wed, 16 Sep 2026 06:13:41 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowACnrTt+a6pqrujgBw--.42778S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrtF1kuFW8XF4DJFy7Ar47urg_yoWkCFg_uF
-	n8ZrW8Xr43Cr1qgw12yr43ZasFy3WDWFW7uF12grZ3trWavr9avw47XrykWry7ZF4fGF9r
-	Ar4qqFWkZr17CjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbaAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j
-	6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUtVWrXwAv7VC2z280aVAFwI0_Gr1j6F4UJwAm72CE4IkC6x0Yz7v_Jr
-	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E
-	8cxan2IY04v7MxkF7I0En4kS14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFV
-	Cjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWl
-	x4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1I6r
-	4UMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr1UMIIF0xvE42xK8VAvwI8IcIk0rVWU
-	JVWUCwCI42IY6I8E87Iv67AKxVWxJVW8Jr1lIxAIcVC2z280aVCY1x0267AKxVWxJr0_Gc
-	JvcSsGvfC2KfnxnUUI43ZEXa7sRiNeOPUUUUU==
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBwEMA2qqQJWpwwAAs2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_031227_690916_C51281F8 
-X-CRM114-Status: UNSURE (   8.93  )
-X-CRM114-Notice: Please train this message.
+Date: Wed, 16 Sep 2026 12:13:21 +0200
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Vladimir Murzin" <vladimir.murzin@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Will Deacon" <will@kernel.org>, liulhong617 <liulhong617@gmail.com>,
+ "Mike Rapoport" <rppt@kernel.org>
+Message-Id: <947a1506-dfe4-4906-9673-6a7227946433@app.fastmail.com>
+In-Reply-To: <20260908162033.74509-1-vladimir.murzin@arm.com>
+References: <20260908162033.74509-1-vladimir.murzin@arm.com>
+Subject: Re: [PATCH] arm64: mm: Fix pfn_is_map_memory() misreporting mapped memory
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,31 +97,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-imx8mp_hdmi_pvi_probe() takes a reference to the next bridge in the
-pipeline with of_drm_find_and_get_bridge() and stores it in
-pvi->bridge.next_bridge, but the reference is never released, leaking
-the bridge on driver unbind.  Drop the reference in
-imx8mp_hdmi_pvi_remove() once the bridge has been unregistered.
+(cc Mike)
 
-Fixes: 7654c807f207 ("drm/bridge: imx8mp-hdmi-pvi: convert to of_drm_find_and_get_bridge()")
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
----
- drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pvi.c | 1 +
- 1 file changed, 1 insertion(+)
+On Tue, 8 Sep 2026, at 18:20, Vladimir Murzin wrote:
+> Commit 7ace06a01efa ("arm64: mm: fix accidental linear mapping of
+> no-map reserved memory") removed sub-page no-map regions from the
+> linear mapping. However, pfn_is_map_memory() can still report that
+> such a region is mapped.
+>
+> For instance, with 64K pages, say we have
+>
+> normal:        ...=E2=80=930xa2007fff
+> no-map: 0xa2008000=E2=80=930xa200ffff
+> normal: 0xa2010000=E2=80=93...
+>
+> The range 0xa2000000=E2=80=930xa200ffff is not linearly mapped, but
+> pfn_is_map_memory(__phys_to_pfn(0xa2008000)) aligns the address to
+> page granularity and passes 0xa2000000 to memblock_is_map_memory().
+> That address belongs to the preceding normal memblock region, so the
+> no-map region is ignored and the function returns true.
+>
+> Fix that by checking if entire page is subset of memory block.
+>
+> Fixes: 7ace06a01efa ("arm64: mm: fix accidental linear mapping of=20
+> no-map reserved memory")
+> Assisted-by: LLM
+> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> ---
+>  arch/arm64/mm/init.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+> index fbf215ecc7d0..5da80e1e1727 100644
+> --- a/arch/arm64/mm/init.c
+> +++ b/arch/arm64/mm/init.c
+> @@ -172,7 +172,8 @@ int pfn_is_map_memory(unsigned long pfn)
+>  	if (PHYS_PFN(addr) !=3D pfn)
+>  		return 0;
+>=20
+> -	return memblock_is_map_memory(addr);
+> +	return memblock_is_region_memory(addr, PAGE_SIZE) &&
+> +		memblock_is_map_memory(addr);
+>  }
+>  EXPORT_SYMBOL(pfn_is_map_memory);
+>=20
 
-diff --git a/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pvi.c b/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pvi.c
-index 15fbb1be07cd..80e33d810a69 100644
---- a/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pvi.c
-+++ b/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pvi.c
-@@ -179,6 +179,7 @@ static void imx8mp_hdmi_pvi_remove(struct platform_device *pdev)
- 	struct imx8mp_hdmi_pvi *pvi = platform_get_drvdata(pdev);
- 
- 	drm_bridge_remove(&pvi->bridge);
-+	drm_bridge_put(pvi->bridge.next_bridge);
- 
- 	pm_runtime_disable(&pdev->dev);
+memblock_is_region_memory() only tells you whether the range in
+question is covered by a single entry in memblock.memory.regions[].
+
+memblock has other flags, which may or may not be set on sub-page
+regions too. So I don't think this is the right solution in the
+general case, even if it fixes your example.
+
+Given that the no-map attribute fundamentally only applies to page
+granular regions, it would make sense to round those outwards
+whenever they are created.
+
+--- a/mm/memblock.c
++++ b/mm/memblock.c
+@@ -1119,6 +1119,10 @@
+ int __init_memblock memblock_mark_nomap(phys_addr_t base, phys_addr_t s=
+ize)
+ {
++       phys_addr_t end =3D PAGE_ALIGN(base + size);
++
++       base &=3D PAGE_MASK;
++       size =3D end - base;
+        return memblock_setclr_flag(&memblock.memory, base, size, 1, MEM=
+BLOCK_NOMAP);
  }
--- 
-2.34.1
+=20
+
+Note that I recently removed the frivolous use of MEMBLOCK_NOMAP in
+__map_mem() so the remaining calls should mostly be true reservations
+originating from the boot environment.
+
+
+
+
 
 
