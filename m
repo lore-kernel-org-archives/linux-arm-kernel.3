@@ -4,117 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58E4EC88E5C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 07:36:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1E49C88E5C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 07:38:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dFdl8Va7Swxkjw5uQRSJKt+eRYekF3RPnToHL1YscsE=; b=XMa/XQ1/hccUHqihS8WyOzWtkJ
-	Lq8RAur7NESTPqcEGlH52Aq/ozfarupSv+CimCmjdiEnkl9GqRB9PMDXCNy2SaOhc/NKyZOaEuTpw
-	u7pkO/13l1o3uPGtnbYVHGqT4KaYUCugaG94M9SRAwseX74qX7Tmgoxgc9WdRGMbjFg8cQ1emVYS6
-	33BXllnhxlcXWSFLcGIC1Qp/akt4Lv4GwH9SIvmm88lvXbnsNHo3OoSrVLFnB11P5YNydaNJN0vE/
-	6lVBKG3Un/v2MWFDC1lXQlI1+txlZHSS407iXaBkv1BHHO19rD/Bh8bNNXuLkWBkgloGdBzyKnSrt
-	cCn4ju3Q==;
+	bh=hQYBSbI5ZDykG/tHrbEEtWawqAnT4ZwcW8GfIYLRIEU=; b=KKnxbHxMqe+HV/8ozFpo441Ayd
+	yo3omOdOYCSPhTeE1n1hvcU1km8PZ/DJcu7AOycWJGabe5TvoqlCgycdf3XHGL4eTll+U0wSjoBfB
+	obQiYOgcvd+8Yiv7HA9E3Ir9fLVsD16PA81X4K9tDAk96pFu2EZrNuim+/Q3NoWbk8gbAWuOXKC5n
+	+Y+cWzDhh3vigw/3tiRkPhkWSSZqMV+1qNr/mketZbjTWujfX1D47xSGP2xQXAS1NCsSw1hOKjN+r
+	q1OHDeo9bzoJfb67aas1UnC6YBlnaxhZYmZI9t8wPSpRglUviJGENHTifdQHrFh68mBkVAgVVR7iS
+	K3pYGKEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6kCH-00000008bQb-0rld;
-	Wed, 16 Sep 2026 07:36:49 +0000
-Received: from mail-vs2-x0d.google.com ([2a00:1450:4864:3a::d])
+	id 1x6kE0-00000008bhe-3ANx;
+	Wed, 16 Sep 2026 07:38:36 +0000
+Received: from mail-qv2-x10.google.com ([2607:f8b0:4864:33::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6kCE-00000008bPC-2ChG
+	id 1x6kDv-00000008bhC-3KWV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 07:36:47 +0000
-Received: by mail-vs2-x0d.google.com with SMTP id ada2fe7eead31-78564421fdbso151930137.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 00:36:46 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1789544205; cv=none;
+	Wed, 16 Sep 2026 07:38:33 +0000
+Received: by mail-qv2-x10.google.com with SMTP id 6a1803df08f44-90cdfe57a3aso5642816d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 00:38:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789544310; cv=none;
         d=google.com; s=arc-20260327;
-        b=YeWVA9gFOVPGnadVtV+/O+JvZGM0sAmfEjAk0mp70sGlZerPSoNy9OhvTDe9urYkkN
-         m/b8MB4bV65vQ1jQCHyQD74YAp5ucEV9DPTKs+tvrT17ESGvQikWbBEuXZ5lyctv5IcJ
-         b0LvG2uCIX7pR5UXScH+jX5uWp4sxNWh+UEB/c86oGflg0eaRWtinPo+jOoc9jYVVmzl
-         mtIJNEuOz0dbHn/khWC8mBEXhI8Wsr5DVjQ0Y6Eo9HHQ8itj/49BYfxOxN/oBTAwJgaS
-         fLFRTSfwG14pC+tK6n1VeRHb2W9la73W01iZWZaGm1aQlRhsxQMudsrBanNhbQScVxn2
-         faiA==
+        b=OSyWrLgNTmPBMMb+9O5N/6hIUBj2yPciyNJreFMI4vm7MEIlwR0WaVBCQjHWGveTVO
+         ckU7fwHZEbXtJSz3OCDH0z/6Ns6TLLASJF+9VMKY1hTNr3Wg3s3zHCae35Y2a2zGIH9X
+         8Od5Ez+4DSXr1TTpn99wGoT+hQinL0pbf8ckuaKq3GMv10iH45pDPJ0m5/3eR+0627k+
+         jNRGGczsEmvZEQtybv49fC6nCDmLmC1scxS4MOM0JodE/HaSRjvXp1MZz5gtn1MHjtlp
+         158/zmvQgCZhx0CCNVHJ7B1X59tFCm3lgiXBKkxL3mo7Wqx2fAnTHystya4j6Dg9sS3j
+         QlCQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=dFdl8Va7Swxkjw5uQRSJKt+eRYekF3RPnToHL1YscsE=;
-        fh=m1UjxzN5CKXQbeV/GReX8L2OEybyiJH54rIEZoGPHqY=;
-        b=ki3AbZc5ihAPV+7C0hwu54rHjZq0214V7ncyskdA1jF5omOW1kP42EJu04/AqcQouv
-         avCtMqdUL3POrtOntH/mH73Yh9KZ+R5QyEIM3cT2BO4PREQMxoxszZn6iAHpAecKXm+l
-         z/ew97jmaj4piWPtpm5bZcDfpM76JNDw8Keleo9c97aYBypH5PAknMf/7FbR0lyNFVq0
-         g2RUkI7r/siFpszIaETfJr7xWwYOS8L0YikD7WCZjzbKxyCPSqfaKZlRZhcfDx3tcDR7
-         A9iIc1foGKncpRQvbnA7Lq+pbW+7Iedz3g+7HJ35KXIl4f6nB2gFxdI6FI+b+xL1mSqM
-         cnkg==;
+        bh=hQYBSbI5ZDykG/tHrbEEtWawqAnT4ZwcW8GfIYLRIEU=;
+        fh=+em7za2C4VUMR4PV3DyE+DYhRdxUpCtP/90bU9W0h24=;
+        b=d/WyyMPmQM0D4dxNb7rBMMfuh23f9pRrnS0ch1hIizT2y6/dEjCknRxSIegJkYI3SA
+         ZIyWZn0s4o2ycs02CTW1vmNcAUUM2GXbeiDTQKvOr3bSyDBKD8AQNZxyRVRtbk+chQUw
+         B6/8JbcLTud2JAKQufGvdFPVgu1OTLHCpHjyZ5/bFm/5vVTZQky73lONsfSWhXAIZxrp
+         z2ZnZHmXvY4TmjhAXhu3BIGJAmSoUZfZRr9HbVkSoe9tjKc74dElYaDCezijDdxuKMOO
+         oKr/CFLf4pIDegqLkMhK++SQwxJa7HIK3GOgNmzkbbG21ypbFWOEU9tTj5hMQwkoM1Gq
+         r0pQ==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789544205; x=1790149005; darn=lists.infradead.org;
+        d=thegoodpenguin-co-uk.20251104.gappssmtp.com; s=20251104; t=1789544310; x=1790149110; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=dFdl8Va7Swxkjw5uQRSJKt+eRYekF3RPnToHL1YscsE=;
-        b=LwTXbKcRfzDZ5YR5iQTVqaS9JiyuOigybhjzlJJIN/JsLt3CDz4eZEE0P4l0pHejNT
-         IzzPzl9zpz4gTyFsG36FYVdUtYnuHI58SR+6cWPUKLZUmPwmSfrUVXm5ymsPVuAfCu2T
-         FWcvpQmwxejoF/X0C1xWQxhy8+rROrizaJ6a1mu5npeY7A1DvoHz/A+dCr6jKT3huNU8
-         XfZmYqjj5U3Tufj9NidUX0jZ9Z6/pJRQAR2dUB0WUow8yF1ncBZF3REO2DAE5N3thfu8
-         jmq89me1ZMhhi+2Cje6EFe0q9u81fR8hweYRPhpq8+nNzjw+STanmH4X4DoHq8bhmAeN
-         WvNw==
+        bh=hQYBSbI5ZDykG/tHrbEEtWawqAnT4ZwcW8GfIYLRIEU=;
+        b=e/Yl81HBDDMwxDNqi1FSmjikxNBreaVDOmQnAS1ywNUN/nJqn3G/unFd6F07NSDqr0
+         63rDTzd9sRaplDdJOdpYRbFu0+ROvr/CZUZVxliCgh+0rDU6O8Kw2cxMuBJDpoY358wR
+         R5WT6ay0rMFP41Etezn/rZT5E6I99GpLXb8k7QjjTUwHHZFNSKE9+dJEffo92CFKfSwp
+         O1e3q6HCXCjSHK5VsW/t7cCAFYgdr2kpgBIIhjTkewr6gvi8MINOWkVrPAIPWgDFOdAS
+         qk7IVQshlisEzKNwSnm1OwLcznQu2vYsj3wtfdfN+Qes/urNz7oWQQmyqh7/ajYuMvNM
+         Lf7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789544205; x=1790149005;
+        d=1e100.net; s=20260707; t=1789544310; x=1790149110;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=dFdl8Va7Swxkjw5uQRSJKt+eRYekF3RPnToHL1YscsE=;
-        b=x60Ml62dhQVGiwwcXtpKO9hVJX4nkejkygl4D8+T3DQU9bXVLxgkFTloIfvNH20nY/
-         Rnyet4GoFz8OYvy37i/muiWRlO/rTqmyoHQVAzAwC+wxaO7i6XrNI2AxmruVTNMTtul7
-         fk6lyynInB9T+GMQfmrsGOjFA4V19dBklSbuQ2IeHoNCgII4S+ob7aHFzu6QqU/bxS9L
-         1+UKt0UfuxWH4Aj1SkPlA4MXNPC/wMYpVNHRHOjuiEEm2N1Yi5JRGOzbxNewS9WhYqRk
-         8iubBU0W7UDrE2GiRfcmzUbb00U9akOoagnm4cbr38UXSK7PLuYI6PIUR/Hs+FoWrQJm
-         1dDw==
-X-Forwarded-Encrypted: i=1; AKwUvBzvdV6tTJ2KO+rBBBkze64/bNsaCuGzX8PZR96mBm81cozOKUqkIO5wRaE39JngHDw+Fc9ooNGViWyR5nblCf9c@lists.infradead.org
-X-Gm-Message-State: AFuF++l+1258pbnRI/rQKU0e0cx07M5Alnvi2o4DkDSxrGdni4vmDbcy
-	4ZXBIaNciPrQBW/lbkzZXXTzj4+2sEEtBOdF6pr14XWHYaQhcaccO9KiQVyDY3lHMnZpAqXxMHi
-	r6z8FZBYzGAGb/v0ncWbFjr0vDasKQjY=
-X-Gm-Gg: AYBFou3krpTKbU6DLC4KQgdpTtVwUM3s6G5/urPEc/o06N8b3Fv/X5Sak7RZaA1Q8gp
-	S607atF/Vzj2hrRU+t+xPWZNCdZBMo6O60L8B1XL1WD9IJW7rk0xuyfbrP5zaX9f54CgxoqXI44
-	uDD6WLAjebo288Zodr9+flfJGyaqRqbqUE2WccvMgmFf6c4pJPEM2FWnBZJhJxOHCN+GxpANixF
-	1IXob2akzPYS9zQX090hdWb45AxBQfJ8SuHsymYCMG54VH3oRPB5R5EL279I2Z/HnAfDs3b8U1Z
-	HU4aLQzEmkHsIuXhBm5qybUVua7E5IoliM4imtPixIlok4YTTwSZMfDSzR8dfjB2btowv2a7vFz
-	+4Y0M6OGW2yDFibyoQ80A8MqEQ7Xj7pmlyYiiWsYlLLRe29oRM0RUlDGPysn1JdoNV/K9QZjq8y
-	yss5KflP/AJfNKsrddZ7v5nD9OQaJoB2bXcoU0HZduJ8tC8cxsnWMd43kA
-X-Received: by 2002:a05:6102:4bc2:b0:79d:c493:f1d3 with SMTP id
- ada2fe7eead31-7a026c4142dmr757332137.7.1789544205003; Wed, 16 Sep 2026
- 00:36:45 -0700 (PDT)
+        bh=hQYBSbI5ZDykG/tHrbEEtWawqAnT4ZwcW8GfIYLRIEU=;
+        b=tvcwbXevPv9jDZ73sA7X52MbvGnY7IP/2ohfjqw8hxErw8C1k+X+qE8w8IyU3xhsZv
+         hty37Hzroa3AJHt6X5QZRP8mCN+HSzzAEpMywFePMLdUV9FAc6oTHhPr4YfYElPAys5c
+         sWc30yD9upReV9s2T49TNWBn3EfyQ+6Faws7BjvyqgnAQ36FR8b8tyzGxeSeETpZXl8r
+         OMEzWvS1b3CQWpJHnX5KKoJtKozJjLJ7jLWbvyyrEzVM9qaapAng/powQbuB1Sjw0ka9
+         d0+1ysErv13imYXA4XYplegPudWHnsKaZ5g3pTuKN8B0lyR2VIX0xrm3x8Ndya66klrL
+         lI6Q==
+X-Forwarded-Encrypted: i=1; AKwUvBzsPZx7y4IDGdgjG+dpebDn8NfF/+s9JoM7uQscbJ3iUhVgmmHFxyk8HhamerMYHaHx3/kxvYgDFWzfrxpLuadN@lists.infradead.org
+X-Gm-Message-State: AFuF++kycpmnhaxyvq01zvXNndX7EaT/HYf0Y3UpgkzbrHt1uu0HRjWk
+	FjZfMbns+I54HWE10DGu5Jq4B50jnS303eij726wdx7Wl9nqU0A+Q2SFJ7inuZxssvde5ZJv80F
+	i+ZRJ0LF9nrhArb88Dzov0WFRrvFVTPIg5ts+tF+yig==
+X-Gm-Gg: AYBFou1NEW2UA6qLD0tTguy6wgve0R+AwQ5Gh9KQwq51zMAp8yQQ+sxD92AVOP9dFUk
+	W9dBpVoSqQt4DJrLhdaAGsI5Ybnjw8SbxJPrsFQR3mIevYIn6/UZn390FRP7VzWFa6BwOJSZX/h
+	niNb7o1bjJvDOnb4Phs6OtT4X7PHAs6iOruXxnFseW+WET704Xte4xeFCAw/9d0FyTdNb8NFwbS
+	udiXTF1fNB9AS6XVMMaoAiY2EvLIDR2broa6MzwuGEtnwKBi+bI3ScNSodr6l+FzJKo9GNCDIr4
+	6QTh/nWyFjpMueOhnaXofRhRH2vrDaauJk3ylvD0v2x+I/F0qLN4ZfSsRFmVmPyjYFu4SAU0Mb0
+	6rFNntpbt6Epn
+X-Received: by 2002:a05:6214:500c:b0:910:6ffd:a941 with SMTP id
+ 6a1803df08f44-9123d721985mr29575576d6.5.1789544309746; Wed, 16 Sep 2026
+ 00:38:29 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260915-submit-h616-emac1-v1-v2-0-322b32e40eb9@gmail.com>
- <20260915-submit-h616-emac1-v1-v2-1-322b32e40eb9@gmail.com> <14e61e7a-29ad-4cc6-8993-dea7a8d7c846@arm.com>
-In-Reply-To: <14e61e7a-29ad-4cc6-8993-dea7a8d7c846@arm.com>
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Wed, 16 Sep 2026 01:36:34 -0600
-X-Gm-Features: AcwNN1WscQQGHuBz-gQadqFD8U_llvHSSS-ajPx5e079eC1kBH6r8x1MbCO5ieo
-Message-ID: <CADvTj4qtuV_JEW5Byix86eQZJBsc_dmPR75ypVWn4xjem9rpAw@mail.gmail.com>
-Subject: Re: [PATCH net-next v2 1/2] dt-bindings: net: allwinner: add H616 EMAC1
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Richard Genoud <richard.genoud@bootlin.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
-	Jose Abreu <joabreu@synopsys.com>, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Maxime Ripard <mripard@kernel.org>, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com
+References: <20260907-acpi-dma-v2-0-0ffe4a007992@thegoodpenguin.co.uk>
+ <20260907-acpi-dma-v2-3-0ffe4a007992@thegoodpenguin.co.uk> <aqlzjZigicrtyh7o@lizhi-Precision-Tower-5810>
+In-Reply-To: <aqlzjZigicrtyh7o@lizhi-Precision-Tower-5810>
+From: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
+Date: Wed, 16 Sep 2026 08:38:17 +0100
+X-Gm-Features: AcwNN1Vn5ljoRLzFV2GiG-9S0jHlKDZRzXLPscawH2jK-lpFtONtbul3vK317do
+Message-ID: <CAA6zWZ+tBBWdsZFGySWFsRKFq-FYy36QAYVQtUOPZ4GVGDYudA@mail.gmail.com>
+Subject: Re: [PATCH v2 3/4] dma: qcom: use named initializers for acpi_device_id
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Viresh Kumar <vireshk@kernel.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
+	Binbin Zhou <zhoubinbin@loongson.cn>, Sinan Kaya <okaya@kernel.org>, dmaengine@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_003646_582091_51AE199B 
-X-CRM114-Status: GOOD (  23.13  )
+X-CRM114-CacheID: sfid-20260916_003832_096530_450BE10D 
+X-CRM114-Status: UNSURE (   7.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,107 +123,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 16, 2026 at 1:26=E2=80=AFAM Andre Przywara <andre.przywara@arm.=
-com> wrote:
+> Please update subject, correct tag is dmaengine
 >
-> Hi,
+> dmaengine: qcom: ....
 >
-> On 9/16/26 05:07, James Hilliard wrote:
-> > The H616 secondary EMAC uses a separate system-control clock register
-> > and supports only RMII at 10/100 Mbps. Add its distinct compatible
-> > without an older fallback, since using the primary EMAC clock register
-> > would not work.
-> >
-> > Constrain the PHY interface mode to RMII, matching the hardware.
-> >
-> > Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
->
-> Where does this come from? If Richard is the author, then please reflect
-> this in the patch (git commit --amend --author ...), so a From: line
-> appears in the body of the email.
-> If not, it's unclear why this line is here.
+> Frank
 
-This was loosely based off of a patch he wrote I guess, although it has
-diverged a good bit so maybe should just drop it, idk.
-
->
-> The actual patch looks good to me:
->
-> Reviewed-by: Andre Przywara <andre.przywara@arm.com>
->
-> Cheers,
-> Andre
->
-> > Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
-> > ---
-> >   .../devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml  | 13 ++++=
-+++++++++
-> >   Documentation/devicetree/bindings/net/snps,dwmac.yaml       |  2 ++
-> >   2 files changed, 15 insertions(+)
-> >
-> > diff --git a/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t=
--emac.yaml b/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-ema=
-c.yaml
-> > index 323a669fa982..2cae0133b3cd 100644
-> > --- a/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.y=
-aml
-> > +++ b/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.y=
-aml
-> > @@ -21,6 +21,7 @@ select:
-> >             - allwinner,sun8i-r40-gmac
-> >             - allwinner,sun8i-v3s-emac
-> >             - allwinner,sun50i-a64-emac
-> > +          - allwinner,sun50i-h616-emac1
-> >             - allwinner,sun55i-a523-gmac200
-> >     required:
-> >       - compatible
-> > @@ -33,6 +34,7 @@ properties:
-> >         - const: allwinner,sun8i-r40-gmac
-> >         - const: allwinner,sun8i-v3s-emac
-> >         - const: allwinner,sun50i-a64-emac
-> > +      - const: allwinner,sun50i-h616-emac1
-> >         - items:
-> >             - enum:
-> >                 - allwinner,sun20i-d1-emac
-> > @@ -91,6 +93,17 @@ required:
-> >
-> >   allOf:
-> >     - $ref: snps,dwmac.yaml#
-> > +  - if:
-> > +      properties:
-> > +        compatible:
-> > +          contains:
-> > +            const: allwinner,sun50i-h616-emac1
-> > +
-> > +    then:
-> > +      properties:
-> > +        phy-mode:
-> > +          const: rmii
-> > +
-> >     - if:
-> >         properties:
-> >           compatible:
-> > diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Do=
-cumentation/devicetree/bindings/net/snps,dwmac.yaml
-> > index 2ed4564ae99d..b20149c3e850 100644
-> > --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> > +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> > @@ -57,6 +57,7 @@ properties:
-> >           - allwinner,sun8i-r40-gmac
-> >           - allwinner,sun8i-v3s-emac
-> >           - allwinner,sun50i-a64-emac
-> > +        - allwinner,sun50i-h616-emac1
-> >           - amlogic,meson6-dwmac
-> >           - amlogic,meson8b-dwmac
-> >           - amlogic,meson8m2-dwmac
-> > @@ -623,6 +624,7 @@ allOf:
-> >                   - allwinner,sun8i-r40-gmac
-> >                   - allwinner,sun8i-v3s-emac
-> >                   - allwinner,sun50i-a64-emac
-> > +                - allwinner,sun50i-h616-emac1
-> >                   - loongson,ls2k-dwmac
-> >                   - loongson,ls7a-dwmac
-> >                   - ingenic,jz4775-mac
-> >
->
+I checked the history of all files touched in this series and all
+existing commits are tagged with the dmaengine tag=E2=80=94I'll have to
+correct all of them. Usually the tag/list name matches the in-tree
+directory name, which caused my confusion. Thanks.
 
