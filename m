@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63A93C88E7F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 19:06:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F5C5C88E7F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 19:08:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pbbUmrdGU6bz0H3n83rBFxfE3QoKPmrdlRRBmXNDWvI=; b=YxhSduQJb+Q7tiSXWdAkyvbBU+
-	+QTjgq0MmwbI1cJYm5CLg59YIY+MRbYyQ5IOA6E1tEFznUP3ZzCE/BrxAQ/ksZduxZNRPh9l/G7H1
-	fh47m96N6xD742gSQaUfYZd5xYwlzExd3EINaxjP1YD8coJKdZ0jQw/MaGPD5zfmysX5+Wgc9pI5O
-	FjqtKqSZANp0TS5pkxSz+LGIkfdYgqfFURFZjqFS/fHtYlT6BctBdXaWFZ+kivZXuSw4gYPmLWJpc
-	Ej8VHA8O4Ooy9KhzKGQt9om9uSp6hV2dsHDvftSiVxbIyz4nCq7+kTHypse+rU9M6OjnvpbyfVYEA
-	gnA3AtDw==;
+	bh=HUTO67W7pIQuxtDQ4EVl7HKeWGIRh9KyGHjp+5VkxDg=; b=RpZzUQfOH6LedDWXj2CIznDkps
+	8Y55iGiwEZiRKVCYOPcS+oNkXEDT86tZ+MG5OqSAihQRoJtW92ywBWjUsD+9ZM2sigzIQ8+karxVd
+	/Fz6zMTrkizju5d1omenKoFlUsom6WWv9MlKdJUGUuzJwo9AuBgVBr9TVJVVZCZpXdj9kXYo+ZWZ9
+	VDu55N43+HAITcoTwc7m/xiWeNpSEOEdh8wvtnkUsjWAgGqJ67JxlKkYVVuno4VrnUNxRdU6y/Q1Q
+	KIjCGQzZV8djbA1MyU8PCAxBM6Bx8s9TlSqqKZuNewpSkrX1yNFB3EfB9Ap8wkpEMLXlRECG1aTd1
+	nEvpkiVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6uxw-0000000A0IV-0fY1;
-	Wed, 16 Sep 2026 19:06:44 +0000
-Received: from out-239.mta0.migadu.com ([2001:41d0:1004:224b::ef] helo=mta0.migadu.com)
+	id 1x6uzK-0000000A0Pe-21HC;
+	Wed, 16 Sep 2026 19:08:10 +0000
+Received: from out-42.mta0.migadu.com ([2001:41d0:1004:224b::2a] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6uxt-0000000A0I6-0hQo
+	id 1x6uzH-0000000A0P8-3DQw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 19:06:42 +0000
+	Wed, 16 Sep 2026 19:08:09 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=clIAd+ElCPuqeSOiRCrGYr2080Rs0+u4Ja4zpAJS57o=;
+DKIM-Signature: a=rsa-sha256; bh=+TDPxJtL8DsDFOfZOcxmuxXF09ysKs2kKWxtP5RDI3c=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1789585598; v=1; x=1790190398;
- b=j4HVSBXlzGh/HNYrMKRKgUlTOPXfajjOzXSSEYprn75koVYDytcKHIm5UkY2GJdJ8UuWJKG4
- DLffegUpHQdbYEkeiPb0zLGjiBgAJPZGgoXQg0Iw9e59NsCfO4fev3FBVMahHC8sd0W74pY40Dc
- Fsnx2gST7SYrNbJR47JvBLys=
+ t=1789585685; v=1; x=1790190485;
+ b=RRY2e5IOu8715wz1XFDgSDXNL2LgN3QRqGa0N1jrrGXcjJ7S/fCWH3FBUeddt70tXuzuv0TW
+ kg9h6L5aOZhCPpsRqtKMmC30nKQDn6D/6yGzVuCNA8HUC/JQrpwlCeXcdAsvmS6qp4hSvCiD+xW
+ SunU4EYCONT8wY3KfEb/pnP8=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 3e262ba15e872a09;
-	Wed, 16 Sep 2026 19:06:38 +0000
-X-Mizu-Trace-ID: 3e262ba15e872a09
+Received: by smtp.migadu.com with ESMTPS id c1e3ff26580b4df5;
+	Wed, 16 Sep 2026 19:08:05 +0000
+X-Mizu-Trace-ID: c1e3ff26580b4df5
 X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b78e073980so847e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 12:06:34 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvByV5/RChlL2e+xQoXFIZssWhyTfdZwXS6BDbLKD8WQN6LQ+vLo/AFoA2s2wb67tSHyrqsZj5xMuhNFon5fN/jI8@lists.infradead.org
-X-Gm-Message-State: AFuF++mibT/7UjDpB6CvipEiNzgGLGMkej8vvSGAKXm0vlsWoAAw3RHB
-	VGsxFN6ASWfimiTZsvwcSFYH2a9ptOTScJPpwEMZriW0Ia02vBzs8ooDugqbGH3lFz9eS66NNZ8
-	5nzcYwLkwqwgyNpELohAM6WqQ33aolnfpQZda+fQV
-X-Received: by 2002:a05:6512:3d10:b0:5b8:b380:3c89 with SMTP id
- 2adb3069b0e04-5b8ba99b7ffmr23508e87.0.1789585593571; Wed, 16 Sep 2026
- 12:06:33 -0700 (PDT)
+Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b78e073980so862e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 12:08:05 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvByKF7bwh9rIebKapfon5EKvUhcGbIaG84cWnMJg6ncyr/P8FWwqmZJYOhNwzg3xjsrwNscTw27RcF3A3QLLt7eh@lists.infradead.org
+X-Gm-Message-State: AFuF++mg/sofaskXpuRazM7gfZU1M2ATTHeUN41de7RT2zXxnnEC+V/h
+	DZTMr9+RVdGW7290KJ6siIgmJ4l61XGR+3w3/qjrO4MAaoOaEzokfMgL8blXKH9jyW3t4Wiq8nr
+	Ok4F/bqi8k5tc86QSqJSr0j0i9VdgA/zGIAj+pQsS
+X-Received: by 2002:a05:6512:2526:b0:5ae:b918:79d5 with SMTP id
+ 2adb3069b0e04-5b8baa4c0afmr22017e87.2.1789585684442; Wed, 16 Sep 2026
+ 12:08:04 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260914113338.159227-1-fuad.tabba@linux.dev> <20260914113338.159227-15-fuad.tabba@linux.dev>
- <86bj9x5fhj.wl-maz@kernel.org>
-In-Reply-To: <86bj9x5fhj.wl-maz@kernel.org>
+References: <20260914113338.159227-1-fuad.tabba@linux.dev> <20260914113338.159227-16-fuad.tabba@linux.dev>
+ <86a4ph5fb9.wl-maz@kernel.org>
+In-Reply-To: <86a4ph5fb9.wl-maz@kernel.org>
 From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Wed, 16 Sep 2026 20:05:57 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTy8R3yxFHmTti9mBgjQGJKnH44v9WvDQ2k9cWFECaYoQg@mail.gmail.com>
-X-Gm-Features: AcwNN1X5PZX5WDCSedlv_R_n84PSTr-QRRvORTCqs34THsNi7n9PRABFR4_9-2c
-Message-ID: <CA+EHjTy8R3yxFHmTti9mBgjQGJKnH44v9WvDQ2k9cWFECaYoQg@mail.gmail.com>
-Subject: Re: [PATCH v3 14/18] KVM: arm64: Add per-EC entry/exit state
- marshalling for protected guests
+Date: Wed, 16 Sep 2026 20:07:28 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTzCQkeXQQcCDwABLR2w+NTmKTG3V6RSmhzYNayaoYXw3g@mail.gmail.com>
+X-Gm-Features: AcwNN1WM-tTkNGmfulRqkmQ-SKP25Un1Bu-f9T35yz7K6_Zjf4OVrGXAUm-nH7c
+Message-ID: <CA+EHjTzCQkeXQQcCDwABLR2w+NTmKTG3V6RSmhzYNayaoYXw3g@mail.gmail.com>
+Subject: Re: [PATCH v3 15/18] KVM: arm64: Reject host access to protected VM
+ private state
 To: Marc Zyngier <maz@kernel.org>
 Cc: oupton@kernel.org, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
@@ -69,8 +69,8 @@ Cc: oupton@kernel.org, kvmarm@lists.linux.dev,
 	qperret@google.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_120641_436204_C2433F39 
-X-CRM114-Status: GOOD (  17.67  )
+X-CRM114-CacheID: sfid-20260916_120807_945596_74FC820B 
+X-CRM114-Status: GOOD (  19.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,63 +87,47 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Marc,
 
-On Wed, 16 Sept 2026 at 17:27, Marc Zyngier <maz@kernel.org> wrote:
+On Wed, 16 Sept 2026 at 17:30, Marc Zyngier <maz@kernel.org> wrote:
 [...]
-> > diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
 [...]
-> > +static void handle_pvm_entry_sys64(struct pkvm_hyp_vcpu *hyp_vcpu)
-[...]
-> > +        /* If the host emulated a read access, update the register */
-> > +        if (pc_update &&
-> > +            !pvm_sys64_is_write(hyp_vcpu->vcpu.arch.fault.esr_el2)) {
-> > +                /* r0 as transfer register between the guest and the host. */
-> > +                u64 rt_val = READ_ONCE(host_vcpu->arch.ctxt.regs.regs[0]);
->
-> Why isn't this
->
->                 rt_val = READ_ONCE(vcpu_gp_regs(host_vcpu)->regs[0]);
->
-> and similarly everywhere else?
-
-Old code momentum. I'll use the accessors throughout in v4.
-
-[...]
-> > +static void handle_pvm_exit_sys64(struct pkvm_hyp_vcpu *hyp_vcpu)
+> > +/*
+> > + * Once a protected vCPU has run, the host copy is not the guest's state,
+> > + * and EL2 has read mp_state, which it does only at hyp vCPU creation.
+> > + */
+> > +static long pkvm_filter_vcpu_ioctl(struct kvm_vcpu *vcpu, unsigned int ioctl)
 > > +{
-> > +        struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
-> > +        u32 esr_el2 = hyp_vcpu->vcpu.arch.fault.esr_el2;
+> > +        switch (ioctl) {
+> > +        case KVM_ARM_VCPU_INIT:
+> > +        case KVM_SET_ONE_REG:
+> > +        case KVM_GET_ONE_REG:
+> > +                if (vcpu_is_protected(vcpu) && vcpu_has_run_once(vcpu))
+> > +                        return -EPERM;
+> > +        }
 > > +
-> > +        /* The mode is required for the host to emulate some sysregs */
-> > +        host_vcpu->arch.ctxt.regs.pstate =
-> > +                pvm_host_pstate(hyp_vcpu->vcpu.arch.ctxt.regs.pstate);
+> > +        return 0;
+> > +}
 > > +
-> > +        /* r0 as transfer register between the guest and the host. */
-> > +        if (pvm_sys64_is_write(esr_el2)) {
-> > +                int rt = kvm_vcpu_sys_get_rt(&hyp_vcpu->vcpu);
-> > +                u64 rt_val = vcpu_get_reg(&hyp_vcpu->vcpu, rt);
-> > +
-> > +                host_vcpu->arch.ctxt.regs.regs[0] = rt_val;
 >
-> and this should be
+> I'm not keen on returning -EPERM for the ONE_REG stuff. For a start,
+> X0 *is* valid on MMIO, and when you want to support LD64B and co,
+> you'll need to show the actual data there.
 >
->                 vcpu_set_reg(host_vcpu, 0, rt_val);
->
-> assuming you don't need a WRITE_ONCE() to match the READ_ONCE() in the
-> other direction.
+> I'd rather return what is in the host vcpu structure, as normal.
 
-No WRITE_ONCE() needed, EL2 is the only writer on the way out. I'll
-switch to vcpu_set_reg().
-
-[...]
-> > +static void handle_pvm_exit_iabt(struct pkvm_hyp_vcpu *hyp_vcpu)
-> > +{
-> > +        hyp_vcpu->host_vcpu->arch.fault.hpfar_el2 =
-> > +                hyp_vcpu->vcpu.arch.fault.hpfar_el2;
->
-> Please keep assignments on a single line (everywhere).
-
-Will do.
+I think we should keep the error, for the reason s390 returns -EINVAL
+from ONE_REG on a protected vCPU and x86 does from the register ioctls
+for protected VM types: once the vCPU has run, the copy is the VMM's
+boot state plus what the exit handlers copy out, and the VMM can't
+distinguish them. x0 on MMIO is one of those fields, but the VMM reads
+it from kvm_run->mmio. For LD64B, EL2 would copy the operands out the
+same way and the error could be relaxed to those registers. Loosening
+later breaks nobody. The comment and the message do overstate it by
+calling the copy "not the guest's state", and I'll reword both in v4.
+More on the kvmtool thread [1].
 
 Cheers,
 /fuad
+
+[1] https://lore.kernel.org/all/CA+EHjTwCs8B4du2=rAdoTOpOfh64p5cbW902e5g0u6NZT=r=gA@mail.gmail.com/
 
