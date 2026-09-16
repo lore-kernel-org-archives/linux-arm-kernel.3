@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C8FCC982C5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 05:31:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9CCDC982C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 05:31:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=BnRRw77nHC6VfPtNfaAtrd6qZk/5RVZB+C8QhDpbDJo=; b=EMIvMTRVSAEs8x
-	L/7iwnelSSljt1ztAoyRIoVc6xJjg+UlVrT1FuwAcA1GV21D/RH3mPM6WpAWaKBqcbWhVL8PdODaQ
-	a4NyDoM8+Jqb7ioqgryV659i0AKm4mRMX81psuye5xtA5hETSY9Xo7Ygc3oalCD0KXtMC8OIF+3FP
-	n5e/shJ/G5R3AHhoH31SkbMXGdUXamivEqvd5C68U0BBQ144/dbSmednf1BjjfSfeAMQu3qvJq7aZ
-	Pb04MWolJvqh64GMSoih5l8Vd5Rqin3YclMc3WZQklBeU8YxJFKlR6NIvhO8/+NXgfks0bJN652B+
-	mdhiUbGnLTcZFwINj4Fg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jNQAJY0VrRNOcqodeuBlYf2NAb7EX7MKHfLgKkoDvxE=; b=C3jLoDx34NU0aoda90kstqcSW2
+	Htdk8+NJd+buPHJBhgOdzCA+AtYsU7u9ODlhaEW3ZY84T3z7iXM/r7oeCk8AV90uZwY1mg/IXvi2r
+	LU3etjTgQZP7WxOylnNS3ucO9eBus8PwpCWMA1LnPMWnc1MoJSB1tQ48WJ0ORZ8vhi+LWICu4YQvJ
+	lcXq8h62ns1fMSdW3h6N/QrNEmE5afXqVwxjsYZvd38uSiQMVGmUTmdSLaJ7OCBoV7hhWhTLgCG4Q
+	joRAXtWnjIq8kcVZ0nQFMTFx8SyY2mPCE3vDV8dEm9TALz0mpwxCmU6CtG/u+4+dfi9QUO+lxy/vs
+	4/cpgyBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6iEM-00000008O5i-1Bw3;
-	Wed, 16 Sep 2026 05:30:50 +0000
+	id 1x6iEU-00000008O7s-2feB;
+	Wed, 16 Sep 2026 05:30:58 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6iEG-00000008O3Q-2DaP
+	id 1x6iEJ-00000008O3Q-0Bd0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 05:30:46 +0000
+	Wed, 16 Sep 2026 05:30:50 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 16 Sep
@@ -35,17 +35,14 @@ Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
  Transport; Wed, 16 Sep 2026 13:30:39 +0800
 From: Ryan Chen <ryan_chen@aspeedtech.com>
-Subject: [PATCH v3 0/9] Add Aspeed AST2700 SDRAM EDAC support
-Date: Wed, 16 Sep 2026 13:30:37 +0800
-Message-ID: <20260916-edac-v3-0-23e9ed2fbdf9@aspeedtech.com>
+Date: Wed, 16 Sep 2026 13:30:38 +0800
+Subject: [PATCH v3 1/9] dt-bindings: edac: aspeed: Add AST2700 SDRAM EDAC
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAH0pqmoC/2WMQQ6CMBQFr2K6tqZ8pLSuvIdxUdqHdCGQljQaw
- t0t4MLE5by8mZlFBI/ILoeZBSQf/dBnKI8HZjvTP8C9y8xIkBSSKg5nLFfQUkAQ6rZm+ToGtP6
- 1ZW73zJ2P0xDeWzUV67oHVEF7IBVccFFqTXAwpOuriSPgJtjuZIcnWyuJfkw6f03KplVONY3UZ
- aXkn7ksywcacb//1wAAAA==
-X-Change-ID: 20260625-edac-8e960e02e7f7
+Message-ID: <20260916-edac-v3-1-23e9ed2fbdf9@aspeedtech.com>
+References: <20260916-edac-v3-0-23e9ed2fbdf9@aspeedtech.com>
+In-Reply-To: <20260916-edac-v3-0-23e9ed2fbdf9@aspeedtech.com>
 To: Stefan Schaeckeler <sschaeck@cisco.com>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
 	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
@@ -54,18 +51,19 @@ CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>,
 	<linux-edac@vger.kernel.org>, Borislav Petkov <bp@suse.de>, Ryan Chen
 	<ryan_chen@aspeedtech.com>, Krzysztof Kozlowski
-	<krzysztof.kozlowski@oss.qualcomm.com>, <stable@vger.kernel.org>
+	<krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789536639; l=3666;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789536639; l=1457;
  i=ryan_chen@aspeedtech.com; s=20251126; h=from:subject:message-id;
- bh=jF7dS+LaTcmKJc441ec+O4pds9YXaUH8sdUjNr2plvU=;
- b=0/mKUPlFexaPBkHdPMSrkgl29sOtUWm46rl23cLfpr3cBwWE3T8/LcqDcqxrWvmiM4Ah/4mJB
- +IY3O7hbpExD5oCJNUgoKgsE/H34WRdeGxqs8nq+qLPWc0cvUGd+GAS
+ bh=/rj5B9ojWffAdYkp2s4TIp84wfNqe/zSqKMEbEuHOX4=;
+ b=GYkP/XZWtwiUUJWsJIWzmy8RkaKbHmY9uylzU6cltcIxAENQV5d84N21V4EbKHLNnveLuQxnp
+ JAis4C6OwSAAyrM6rN+wWlRAxdB+67ehvhBV+Ut3MA6dpFsW7x33/pP
 X-Developer-Key: i=ryan_chen@aspeedtech.com; a=ed25519;
  pk=Xe73xY6tcnkuRjjbVAB/oU30KdB3FvG4nuJuILj7ZVc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_223044_668920_B5C9964F 
-X-CRM114-Status: GOOD (  17.38  )
+X-CRM114-CacheID: sfid-20260915_223047_139390_338E3D6D 
+X-CRM114-Status: UNSURE (   9.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,78 +78,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add ECC error reporting for the Aspeed AST2700 SoC to the existing
-aspeed_edac driver.
-
-The AST2700 memory controller keeps the same overall EDAC programming
-model as the earlier Aspeed BMC SoCs, but uses a different register
-layout, a split interrupt status/clear/mask scheme and DDR4/DDR5 memory.
-Rather than fork the driver, the existing code is first tidied and
-generalised, then the AST2700 is added as one more per-SoC variant.
-
-Patches 2-5 are bug fixes and cleanups to the existing driver. Patches 6
-and 7 rework the implementation to accommodate the AST2700. Patch 8 adds
-the AST2700 support itself, and patch 9 adds a reviewer entry for the
-driver.
+Add the "aspeed,ast2700-sdram-edac" compatible and note DDR5 support.
 
 Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 ---
-Changes in v3:
-- Establish the AST2700 interrupt mask in the driver rather than
-  deriving it from the register's contents: ast2700_set_irq() now
-  writes the mask outright, masking every source and unmasking only
-  the ECC ones, and the mask is established before the interrupt is
-  requested.
-- New patch: add myself as a reviewer for the driver in MAINTAINERS.
-- Tested on an AST2600 with CONFIG_PROVE_LOCKING=y; injected correctable
-  errors are reported from the interrupt handler with no lockdep reports.
-- Link to v2: https://lore.kernel.org/r/20260824-edac-v2-0-c8d8bb693586@aspeedtech.com
+ .../devicetree/bindings/edac/aspeed,ast2400-sdram-edac.yaml         | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-Changes in v2:
-- New patch: free the ECC interrupt before the mem_ctl_info in
-  aspeed_remove(). The interrupt is requested with devm_request_irq() and
-  is only released after .remove() has returned, so edac_mc_free() could
-  free the handler's context while the handler was still running on
-  another CPU.
-- Acquire the register lock with the irqsave variant in init_csrows() and
-  in aspeed_probe(). The interrupt handler takes the same lock in hardirq
-  context.
-- Move the dev_dbg() of the interrupt status register out of the
-  raw_spinlock critical section in the interrupt handler.
-- Opt aspeed_edac.o into context analysis in drivers/edac/Makefile. The
-  check is opt-in per object, so without it the __guarded_by() annotation
-  added by the same patch was never actually verified.
-- Return IRQ_NONE from ast2700_dramc_isr() when no ECC interrupt status
-  bit is set; the handler clears only the ECC bits, so unconditionally
-  claiming the interrupt could livelock the level-triggered line.
-- Tested v2 on both AST2600 and AST2700 by injecting a correctable
-  error with the memory controller's ECC error injection; each is
-  reported as a CE with the expected failure address.
-- Link to v1: https://lore.kernel.org/r/20260812-edac-v1-0-03992edea297@aspeedtech.com
+diff --git a/Documentation/devicetree/bindings/edac/aspeed,ast2400-sdram-edac.yaml b/Documentation/devicetree/bindings/edac/aspeed,ast2400-sdram-edac.yaml
+index 09735826d707..685b6815f293 100644
+--- a/Documentation/devicetree/bindings/edac/aspeed,ast2400-sdram-edac.yaml
++++ b/Documentation/devicetree/bindings/edac/aspeed,ast2400-sdram-edac.yaml
+@@ -10,8 +10,9 @@ maintainers:
+   - Stefan Schaeckeler <sschaeck@cisco.com>
+ 
+ description: >
+-  The Aspeed BMC SoC supports DDR3 and DDR4 memory with and without ECC (error
+-  correction check).
++  The Aspeed BMC SoCs support DDR memory with and without ECC (error
++  correction check): DDR3 and DDR4 on the AST2400, AST2500 and AST2600,
++  and DDR4 and DDR5 on the AST2700.
+ 
+   The memory controller supports SECDED (single bit error correction, double bit
+   error detection) and single bit error auto scrubbing by reserving 8 bits for
+@@ -25,6 +26,7 @@ properties:
+       - aspeed,ast2400-sdram-edac
+       - aspeed,ast2500-sdram-edac
+       - aspeed,ast2600-sdram-edac
++      - aspeed,ast2700-sdram-edac
+ 
+   reg:
+     maxItems: 1
 
----
-Ryan Chen (9):
-      dt-bindings: edac: aspeed: Add AST2700 SDRAM EDAC
-      EDAC/aspeed: Set the DIMM grain
-      EDAC/aspeed: Free the interrupt before the mem_ctl_info on remove
-      EDAC/aspeed: Clean up whitespace and include ordering
-      EDAC/aspeed: Free the mem_ctl_info unconditionally on remove
-      EDAC/aspeed: Replace regmap with direct register access
-      EDAC/aspeed: Abstract SoC differences behind chip data
-      EDAC/aspeed: Add AST2700 support
-      MAINTAINERS: Add a reviewer for the Aspeed EDAC driver
-
- .../bindings/edac/aspeed,ast2400-sdram-edac.yaml   |   6 +-
- MAINTAINERS                                        |   1 +
- drivers/edac/Makefile                              |   1 +
- drivers/edac/aspeed_edac.c                         | 426 ++++++++++++++-------
- 4 files changed, 285 insertions(+), 149 deletions(-)
----
-base-commit: 5464985e42c04e335fb30e38fbc409c997db9bec
-change-id: 20260625-edac-8e960e02e7f7
-
-Best regards,
 -- 
-Ryan Chen <ryan_chen@aspeedtech.com>
+2.34.1
 
 
