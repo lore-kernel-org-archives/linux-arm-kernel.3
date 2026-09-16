@@ -4,167 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EE19C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 02:30:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74A22C88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 02:34:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UpGhqUpVQqb/n6saMxotWbAoMDKWAg1M5PagdsTso4A=; b=plgbfecTEjL3HGuKKyK1LGtSes
-	dTthwJE3dGz8yclHnwNL21sqByTyqQYVK831EAMrSu8U8prl6ndk8GlP7ZTYFyt4f1BrnX22tGl5I
-	nrA3SGsEXD2F24Bhvue0Wo4NtH+AN7cNwZ41B90ywgdRho1fbu+7pM8xAMBenn0fP7W2E3ZpfBLia
-	pzLSUfl+CiqPJjeBKxV8r5glZH3l84K2eFPxmvf+/uCU0OEtTbFkIk78YIoTxRf+PwZqz+ZBVHtdd
-	ZU1Jfs0f/N/n0mcUzGQ2wyZaWnRosNmTwmcDsRcQcWvpDs7c6LdvPOCEaFZXWq0VdcWUosxNjNz7S
-	Rb6lqxXg==;
+	bh=ib231hSrUutdnOZqRRhD3YN7lmhWNHZ9uGVCcHvxjVs=; b=df34e2GGxFiavmYkOT+O6q6yef
+	fPd/Wlg051qtbq0bFOv6gi32XLNSEGXYR6uhwCaaNynCAV6zBH7lkIrz67pvYD7i69CKLV1Mv4UCw
+	970U58KNPB5jbUfYcavB/n+YdgkWrx9IwfAF0BguutUyZIk3PHseAWod6LOVetMPgwkW8i1juDA82
+	IoDnRfCRKvbs7q1n3436UhCLTV7hjzVnt3q5pnp3iaDwkCHRV2FFeU0m/RiKbO9Iljk4/7eP/Mwzx
+	Y0UyHgj1d7JEoPj7kewOmFfMhVJfuNOuO3TviwDAe4TPajTWPPjvaHy8sqZf0OJjcsWP4HjJN3Gff
+	Q6ZHrqSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6fPA-00000008Bui-1zkp;
-	Wed, 16 Sep 2026 02:29:48 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1x6fTd-00000008CIK-0Auz;
+	Wed, 16 Sep 2026 02:34:25 +0000
+Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6fP7-00000008BuF-3QkG
+	id 1x6fTY-00000008CHV-1jQf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 02:29:47 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68FLYsdY1668879
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 02:29:45 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	UpGhqUpVQqb/n6saMxotWbAoMDKWAg1M5PagdsTso4A=; b=kqdl1V1OM+OqHvIp
-	BVmWXlPgbEtCr/1GUwUhfXnLte557DAPHtvtUxyS9fZhTvr42JuKaV91Um1NJbPc
-	w5GT3qinYQDDWEBp0k326JGua63HInJdsnFlQO/S0g4TKUp38zKn8JSzktRzDzLK
-	FBgVjBJWiDNasWFEl3q8mGVAfiYZVtfqQ8JV+WTohjqxlmNn/tAHLZ6hAEsJFjND
-	6i7Qk4GunShob3BaYnlRYoL6GjVd/duPOd08jeODrLwBKPUkQUuhNGkoekl0MWUg
-	h6W0ejzZNmtZtrBaNSKMHuAfCaOcSNcbmnHsTlbsMuCvRwuGPmxBFosuTx60eB4A
-	mc91Hg==
-Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com [209.85.210.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gq6kc3fab-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 02:29:45 +0000 (GMT)
-Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-8696b921ac0so8283378b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 19:29:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1789525785; x=1790130585; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=UpGhqUpVQqb/n6saMxotWbAoMDKWAg1M5PagdsTso4A=;
-        b=CPHx/HFreDD8yQFzLu+d/NZopMbrHHEuIrJA078zNb/FX9Ho+Qs48L9cfYn1qOg72t
-         uJyoDmw2gj853R/BhIHbr/2BXxrOiyFaM791Btqks5dYFwPDpDHOvp/0WSHf40YM/NYu
-         C6hE8upCfWSjN4lxbyNXJcJabSwiXisxirMyjNdlpZKx0AdTCUa17kbTzugpRSsBp4xA
-         WtpVgMz2aQw9Kuv6fdtGX+nkBuIVRTf0qF4WhUU6Ugpr7EXZ1XUrjTeF9+EX6zbtt9Fi
-         Y2cnzdPQyogN7IpVUcPdWBW4YupYa46PzGTNrNn/3oNkGIbLw8QNIVHoqzhmUWbMWtPg
-         g4vQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789525785; x=1790130585;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=UpGhqUpVQqb/n6saMxotWbAoMDKWAg1M5PagdsTso4A=;
-        b=WEPrKaJH79e/chQF2/bOUSd4rajenzq4isfSRAjpzWth+scys9Ngl83xWcB47q+X6a
-         3fQP5/VUmLV3UuGqOHYlbe4TXaynLBJ64mY4ggStfKkfcCCCTi0fi5werJExijJIskpp
-         pD+TtVUEEi4KZ1Wf6LTybNRQVPx3Df/swIuFrDGB57j4pSafwhlxkuUD4rZWrPt45fru
-         0L5AQ6tqO46dV4ONneDtKSyj8fbkAZOGayki+xb8EyPMkB5tt676q7N0ovCux/ZXCYMg
-         3zT5tVnnerbH6S5TKgUpCJL4dlPKeRwgDNCmIi5zbUqUYyDGNSQW6ge4cwfy0eMgS2Dy
-         8I+A==
-X-Forwarded-Encrypted: i=1; AKwUvBxlcDQFFogGJgn7b51rtBa0969HmVZecah7xiuBuf7rB/uYr18PwEACIQti8WRX3O+BpaQbiqLVMYPCDNe+PAXU@lists.infradead.org
-X-Gm-Message-State: AFuF++msSLrTvAMxsyHlzzXHWKcwxESQoLFpogxxWrceeKLuDINsIPbG
-	3tYFAtuAqXsQkQLToKaFU/uXARkOEmQWC69jF4FO6bZzPhKfv7LI18xiCbhqrBurg9/cUlOa/GL
-	fkRVJBc2pLyxhLuvUDnT60psA6J6U/8ciP2txMhf/AiWadUppf0j7s7+xwvtqNrRTwk+SJrLUyU
-	hcvQ==
-X-Gm-Gg: AYBFou2DXTnqIpJdQ6jQC1IFLLYnspC+A5VKPwwB+RmLvuEwcFCi+Qy2pZ5dkLyp90L
-	YeA+S75R59X2XV5HF+pI0z+pUzq6PZ0VS/kJXZfUEtjbl1JLT22C3zvSCCQ3bKxwpkMp0WE4qiw
-	nG0sCH7Ic+HreaCLKR0GTLyb2M1T/c0WpqYq2PoS/tzOzIuzIiscVfULWKrF5MWxieTkynLGiGK
-	Ojws6tKSENJNOYGLq9TLP7Va4R+KFsdw7ziz01wQ5sWII2Y4ZqIEtYztFdv5bcnAbGy/56xxkFH
-	RoakOTGK+I1QCFCbHveyqbfQke/0hfYgEZQpKJOW6b0GkGEG1TE9Z+gF91G78+3rEZQqszJA/Hx
-	9vqLfyYERHR6AOgFeLGqw5Vkp6BA7ZH2UvCMUaoewAXTGcVePaKlD2MLi6YELPnXA
-X-Received: by 2002:a05:6a00:3698:b0:857:72f8:dc97 with SMTP id d2e1a72fcca58-8723b394555mr1364743b3a.24.1789525784538;
-        Tue, 15 Sep 2026 19:29:44 -0700 (PDT)
-X-Received: by 2002:a05:6a00:3698:b0:857:72f8:dc97 with SMTP id d2e1a72fcca58-8723b394555mr1364691b3a.24.1789525784087;
-        Tue, 15 Sep 2026 19:29:44 -0700 (PDT)
-Received: from [10.133.33.134] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-872024e6a39sm411715b3a.56.2026.09.15.19.29.36
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 15 Sep 2026 19:29:43 -0700 (PDT)
-Message-ID: <305e37ca-c576-4ded-b4ff-1f4eea3cb712@oss.qualcomm.com>
-Date: Wed, 16 Sep 2026 10:29:35 +0800
+	Wed, 16 Sep 2026 02:34:23 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=ib231hSrUutdnOZqRRhD3YN7lmhWNHZ9uGVCcHvxjVs=;
+	b=2feBQNUF6Jmmklotoj5ljj3FQ8hmgKUrgH6edAQuUORuB5eObH51JGoPPcyqf3kgHADRVGpiA
+	nZjsg5+EgfNyIAwopSdaxepaglv520WpCuWypTP0U9Omq6kEdd9AIRvJ6o6sWfryLvtNmGUwD3r
+	zt7apRk7RC/8D+ezGjCniOU=
+Received: from mail.maildlp.com (unknown [172.19.163.163])
+	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4hl2jn6pDhzKmTc;
+	Wed, 16 Sep 2026 10:23:09 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id 1D2EA4048B;
+	Wed, 16 Sep 2026 10:34:12 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ kwepemk200008.china.huawei.com (7.202.194.74) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Wed, 16 Sep 2026 10:34:11 +0800
+Message-ID: <18e3c3d9-562d-42c6-80f6-7744adfad79d@huawei.com>
+Date: Wed, 16 Sep 2026 10:34:10 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v2 04/10] cacheinfo: Expose the code to generate a
- cache-id from a device_node
-To: Andre Przywara <andre.przywara@arm.com>,
-        James Morse
- <james.morse@arm.com>, Rob Herring <robh@kernel.org>,
-        Shanker Donthineni <sdonthineni@nvidia.com>,
-        Ben Horgan
- <ben.horgan@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Catalin Marinas
- <catalin.marinas@arm.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Danilo Krummrich <dakr@kernel.org>,
-        Reinette Chatre <reinette.chatre@intel.com>,
-        Fenghua Yu
- <fenghuay@nvidia.com>, Jonathan Cameron <jic23@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Gavin Shan <gshan@redhat.com>
-Cc: Drew Fustini <fustini@kernel.org>,
-        =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-        Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
-        trilok.soni@oss.qualcomm.com, aiqun.yu@oss.qualcomm.com,
-        ganapatrao.kulkarni@oss.qualcomm.com,
-        Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
-        Huang Yiwei <huang.yiwei@oss.qualcomm.com>,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, driver-core@lists.linux.dev,
-        devicetree@vger.kernel.org
-References: <20260914-mpam-resctrl-dt-knp-support-v2-0-bf6645bb2f65@oss.qualcomm.com>
- <20260914-mpam-resctrl-dt-knp-support-v2-4-bf6645bb2f65@oss.qualcomm.com>
- <317682e8-63e7-4047-9106-deea7bf96388@arm.com>
- <a340505d-9495-4f68-8ed1-c7e8772c28e4@oss.qualcomm.com>
- <e8a33eea-c54d-471c-9936-41762453feb7@arm.com>
-Content-Language: en-US
-From: Yin Li <yin.li@oss.qualcomm.com>
-In-Reply-To: <e8a33eea-c54d-471c-9936-41762453feb7@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH 18/19] arm64: smp: Use generic HOTPLUG_PARALLEL machinery
+ for CPU onlining
+To: Will Deacon <will@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+	Borislav Petkov <bp@alien8.de>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, David Woodhouse <dwmw@amazon.co.uk>,
+	Peter Zijlstra <peterz@infradead.org>, Marc Zyngier <maz@kernel.org>
+References: <20260907164024.17164-1-will@kernel.org>
+ <20260907164024.17164-19-will@kernel.org>
+ <23be2187-4618-400d-b817-023e6bc8f4bc@huawei.com>
+ <aqP6kv9ZfNRWmngj@willie-the-truck>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <aqP6kv9ZfNRWmngj@willie-the-truck>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE2MDAzMyBTYWx0ZWRfXxtrZe27L4DkG
- kUsgTuvcNN3/ttnKhxYDw8FDJnwXi8NV22au6so2SnOerLnIwM/bhYagcbcN4dM0AK3RGcEnw2U
- 67Z3INNNe0dLeAvLCV+K46XedrzOJ8M=
-X-Proofpoint-GUID: 7T_yI2-qKoNCILxzw97q45Ck7hEqqSnL
-X-Authority-Analysis: v=2.4 cv=ZINCCn7b c=1 sm=1 tr=0 ts=6aa9ff19 cx=c_pps
- a=rEQLjTOiSrHUhVqRoksmgQ==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=NSEGM1D4AEf8_kYA:21 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
- a=7CQSdrXTAAAA:8 a=EUspDBNiAAAA:8 a=brJ-6TMN6zN7E94x2iYA:9 a=3ZKOabzyN94A:10
- a=QEXdDO2ut3YA:10 a=2VI0MkxyNR6bbpdq8BZq:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-ORIG-GUID: 7T_yI2-qKoNCILxzw97q45Ck7hEqqSnL
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE2MDAzMyBTYWx0ZWRfX0pa59ymwgr0k
- y+Yk7+Jp15MqHQn+ouUHK7lMLbrL2IFZugcn540IPokT3/KU7XTD++BuxS1GeblewrgbDhIjoGl
- uypUt4KkVrRglTm9Y0JoePeuhq3Xb7wbC8hk9dgA1QxH4YEQHr4U+hEjpz8HrzfwHJspd2OD9uo
- ALb+PtW1w+hNlK9n3Fv/7wkgjlb3l9s71SSzTm3N/A2bw7LwU2GmhU5qc/m49gmUORqWm4HUsuc
- qny1th7upXlkXgGGNxwr23fhAcutk9lz2junPrSH1FQXbL+xYfBXFLLlLrLsPMEROS3RIFLye/0
- kxDNrF4ZeCh9ZuCFRw1epAwHxzroyFabRj0QallQr521CwNjqYcJcfEkVopMhQIJCtfgGfckJ/O
- LoXjQ8AbUcKT/W/5WNz20nejMFpMQzvlKD9o6ydH17LsfptqHbu58VGNigjPl2n4QdyE7tYl3G7
- zOeAnMqLPHW/u8EP+sw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-15_05,2026-09-15_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 spamscore=0 clxscore=1015 lowpriorityscore=0 impostorscore=0
- adultscore=0 bulkscore=0 phishscore=0 priorityscore=1501 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609160033
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_192945_866323_E5413E6D 
-X-CRM114-Status: GOOD (  47.08  )
+X-CRM114-CacheID: sfid-20260915_193421_082339_BF0CC2F3 
+X-CRM114-Status: GOOD (  22.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,194 +86,133 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 9/15/2026 3:59 PM, Andre Przywara wrote:
-> Hi Yin,
-> 
-> thanks for the reply!
-> 
-> On 9/15/26 08:49, Yin Li wrote:
+在 2026/9/11 20:56, Will Deacon 写道:
+> On Tue, Sep 08, 2026 at 09:05:18PM +0800, Jinjie Ruan wrote:
+>> 在 2026/9/8 0:40, Will Deacon 写道:
+>>> diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
+>>> index 17868b497d7c..bec4bc1b12db 100644
+>>> --- a/arch/arm64/kernel/head.S
+>>> +++ b/arch/arm64/kernel/head.S
+>>> @@ -393,7 +393,6 @@ SYM_FUNC_START_LOCAL(__secondary_switched)
+>>>  	mov	x0, x20
+>>>  	bl	finalise_el2
+>>>  
+>>> -	str_l	xzr, __early_cpu_boot_status, x3
+>>>  	adr_l	x5, vectors
+>>>  	msr	vbar_el1, x5
+>>>  	isb
+>>> @@ -439,15 +438,15 @@ SYM_FUNC_END(set_cpu_boot_mode_flag)
+>>>   * with MMU turned off.
+>>>   *
+>>>   * update_early_cpu_boot_status tmp, status
+>>> - *  - Corrupts tmp1, tmp2
+>>> - *  - Writes 'status' to __early_cpu_boot_status and makes sure
+>>> + *  - Corrupts tmp1
 >>
+>> Corrupts tmp1, tmp2 ?
+> 
+> Well spotted, thanks.
+> 
+>>> @@ -125,45 +135,42 @@ int arch_cpuhp_kick_ap_alive(unsigned int cpu, struct task_struct *idle)
+>>>  
+>>>  void arch_cpuhp_cleanup_kick_cpu(unsigned int cpu, bool is_alive)
+>>>  {
+>>> -	long status;
+>>> +	union secondary_status status;
+>>>  
+>>>  	if (is_alive)
+>>>  		return;
+>>>  
+>>> -	secondary_data.task = NULL;
+>>> -	status = READ_ONCE(secondary_data.status);
+>>> -	if (status == CPU_MMU_OFF)
+>>> -		status = READ_ONCE(__early_cpu_boot_status);
+>>> -
+>>>  	/* A CPU has failed to boot. Try to figure out what happened. */
+>>> -	switch (status & CPU_BOOT_STATUS_MASK) {
+>>> -	default:
+>>> -		pr_err("CPU%u: failed in unknown state : 0x%lx\n",
+>>> -		       cpu, status);
+>>> -		cpus_stuck_in_kernel++;
+>>> -		break;
+>>> -	case CPU_KILL_ME:
+>>> -		if (cpumask_test_cpu(cpu, &secondary_data.cpu_died_early_mask))
+>>> -			set_cpu_present(cpu, false);
+>>> +	if (smp_parallel_bringup)
+>>> +		pr_warn_once("Parallel CPU bringup failed; consider passing \"cpuhp.parallel=off\" for a more accurate diagnosis.\n");
 >>
->> On 9/14/2026 8:26 PM, Andre Przywara wrote:
->>> Hi,
->>>
->>> On 9/14/26 11:37, Yin Li wrote:
->>>> From: James Morse <james.morse@arm.com>
->>>>
->>>> The MPAM driver identifies caches by id for use with resctrl. It
->>>> needs to know the cache-id when probe-ing, but the value isn't set
->>>> in cacheinfo until device_initcall(). Even after device_initcall(),
->>>> the cache-id is only available if at least one CPU associated with
->>>> the cache is online.
->>>>
->>>> Instead of making the driver wait, expose the code that generates the
->>>> cache-id. The parts of the MPAM driver that run early can use this to
->>>> set up the resctrl structures before cacheinfo is ready in
->>>> device_initcall().
->>>>
->>>> Signed-off-by: James Morse <james.morse@arm.com>
->>>> [ Yin Li: fix context conflicts in cacheinfo.c and cacheinfo.h; 
->>>> guard the
->>>>    cache_of_calculate_id() declaration with CONFIG_OF to prevent build
->>>>    errors when CONFIG_OF is not set ]
->>>
->>> You can shorten that part in square brackets: doing adjustments due 
->>> to rebasing is surely implied, and you can shorten the rest, like:
->>> [ Yin Li: guard cache_of_calculate_id() prototype ]
->>>
->>> Speaking of which ...
->>>
->>>> Signed-off-by: Yin Li <yin.li@oss.qualcomm.com>
->>>> ---
->>>>   drivers/base/cacheinfo.c  | 17 ++++++++++++-----
->>>>   include/linux/cacheinfo.h |  3 +++
->>>>   2 files changed, 15 insertions(+), 5 deletions(-)
->>>>
->>>> diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c
->>>> index 9f9c72727a05..f75e7f64038b 100644
->>>> --- a/drivers/base/cacheinfo.c
->>>> +++ b/drivers/base/cacheinfo.c
->>>> @@ -226,8 +226,7 @@ static bool match_cache_node(struct device_node 
->>>> *cpu,
->>>>   #define arch_compact_of_hwid(_x)    (_x)
->>>>   #endif
->>>> -static void cache_of_set_id(struct cacheinfo *this_leaf,
->>>> -                struct device_node *cache_node)
->>>> +u32 cache_of_calculate_id(struct device_node *cache_node)
->>>>   {
->>>>       struct device_node *cpu;
->>>>       u32 min_id = ~0;
->>>> @@ -238,15 +237,23 @@ static void cache_of_set_id(struct cacheinfo 
->>>> *this_leaf,
->>>>           id = arch_compact_of_hwid(id);
->>>>           if (FIELD_GET(GENMASK_ULL(63, 32), id)) {
->>>>               of_node_put(cpu);
->>>> -            return;
->>>> +            return ~0;
->>>>           }
->>>>           if (match_cache_node(cpu, cache_node))
->>>>               min_id = min(min_id, id);
->>>>       }
->>>> -    if (min_id != ~0) {
->>>> -        this_leaf->id = min_id;
->>>> +    return min_id;
->>>> +}
->>>> +
->>>> +static void cache_of_set_id(struct cacheinfo *this_leaf,
->>>> +                struct device_node *cache_node)
->>>> +{
->>>> +    u32 id = cache_of_calculate_id(cache_node);
->>>> +
->>>> +    if (id != ~0) {
->>>> +        this_leaf->id = id;
->>>>           this_leaf->attributes |= CACHE_ID;
->>>>       }
->>>>   }
->>>> diff --git a/include/linux/cacheinfo.h b/include/linux/cacheinfo.h
->>>> index fc879ac4cc4f..c33bb3c8bd63 100644
->>>> --- a/include/linux/cacheinfo.h
->>>> +++ b/include/linux/cacheinfo.h
->>>> @@ -113,6 +113,9 @@ int acpi_get_cache_info(unsigned int cpu,
->>>>   #endif
->>>>   const struct attribute_group *cache_get_priv_group(struct 
->>>> cacheinfo *this_leaf);
->>>> +#ifdef CONFIG_OF
->>>
->>> Why is that, exactly? First IIUC it's quite uncommon to use #ifdef 
->>> guards around prototypes (unless they are stubbed without the symbol 
->>> defined). Using types protected by those symbols if certainly another 
->>> reason, and it looks like this would be the case here, but I had no 
->>> trouble building the kernel for x86, where CONFIG_OF is not defined.
->>> So can you share a .config example (or give a hint) as to where this 
->>> fails building?
->>> And if it does, wouldn't it be better to always include <linux/of.h> 
->>> in that file instead? I think I see a similar pattern elsewhere 
->>> (rfkill- gpio.c, sound/ac97/bus.c).
->>>
+>> For some production systems, restarting to reproduce the issue may be
+>> troublesome.
+> 
+> These errors _really_ shouldn't happen with production systems. They are
+> caused by critical, deterministic errors such as the secondary CPU not
+> supporting the system page size. If you can't reboot in that situation,
+> then you have no system!
+
+That does seem to be the case — this kind of situation is usually more
+common with firmware issues or during the testing phase before a chip is
+commercially available, and these boot problems should already have been
+resolved before production systems.
+
+> 
+> The parallel bringup code will detect the issue, it just won't be able
+> to tell you which CPU caused which issue.
+
+Indeed.
+
+> 
+>>> +	if (cpumask_test_cpu(cpu, &secondary_data.cpu_died_early_mask)) {
+>>> +		set_cpu_present(cpu, false);
+>>>  		if (!op_cpu_kill(cpu)) {
+>>>  			pr_crit("CPU%u: died during early boot\n", cpu);
+>>> -			break;
+>>> +			return;
+>>>  		}
+>>> -		pr_crit("CPU%u: may not have shut down cleanly\n", cpu);
+>>> -		fallthrough;
+>>> -	case CPU_STUCK_IN_KERNEL:
+>>> -		pr_crit("CPU%u: is stuck in kernel\n", cpu);
+>>> -		if (status & CPU_STUCK_REASON_52_BIT_VA)
+>>> -			pr_crit("CPU%u: does not support 52-bit VAs\n", cpu);
+>>> -		if (status & CPU_STUCK_REASON_NO_GRAN) {
+>>> -			pr_crit("CPU%u: does not support %luK granule\n",
+>>> -				cpu, PAGE_SIZE / SZ_1K);
+>>> -		}
+>>> -		cpus_stuck_in_kernel++;
+>>> -		break;
+>>> -	case CPU_PANIC_KERNEL:
+>>> -		panic("CPU%u detected unsupported configuration\n", cpu);
+>>>  	}
+>>> +
+>>> +	pr_crit_once("CPUs may be stuck in kernel\n");
 >>
->> Hi Andre,
+>> Need we print the "cpu"
+> 
+> You should already get something like:
+> 
+>   CPUn: will not boot
+
+"will not boot" is only for "cpu_died_early_mask" case, I meant the
+"unknown state" case in the original default branch of the switch.
+
+> 
+> so I don't think we need anything extra (as, as above, we don't know
+> exactly which CPUs are stuck).
+> 
+>>>  static void init_gic_priority_masking(void)
+>>> @@ -407,12 +414,8 @@ void __noreturn cpu_die_early(void)
+>>>  
+>>>  	cpumask_set_cpu(cpu, &secondary_data.cpu_died_early_mask);
 >>
->> On the #ifdef CONFIG_OF: I also verified that removing the guard doesn't
->> break the build. However, since the implementation in cacheinfo.c is
->> itself guarded by #ifdef CONFIG_OF, exposing the prototype
->> unconditionally could cause a link error on CONFIG_OF=n builds if called
+>> It seems unsafe for multiple secondary CPUs to update
+>> cpu_died_early_mask concurrently.
 > 
-> How so? Just exposing a prototype wouldn't be a problem, as long as you 
-> don't try to call that function. And that would be caught by the linker, 
-> and then you have a different problem anyway (the caller).
+> Why? cpumask_set_cpu() is atomic and each CPU only sets their own bit.
+
+Oh! Sorry, I misread it — the underlying implementation uses atomic LSE
+or LDXR/STXR instructions.
+
 > 
-> The only reason to protect the prototype would be if a type used in the 
-> parameters is not defined. And on the face of it "struct device_node" is 
-> an OF specific type, declared in include/linux/of.h, but as mentioned, I 
-> can't produce a compiler error, and even if so, would prefer to include 
-> of.h instead.
-> 
-
-Hi Andre,
-
-Thanks for the review.
-
-I'll drop the #ifdef guard in the next version.
-
-Just to clarify: MPAM depends on ARM64, which selects OF, so CONFIG_OF 
-is always set in any configuration that enables MPAM. I had kept the 
-guard as a precaution for potential callers outside that dependency 
-chain, though I take your point that this would be a caller-side issue 
-rather than something to address in the header.
-
-
->> from outside the ARM64/MPAM path. A more idiomatic approach might be to
->> use a stub to keep the header consistent with the implementation:
->>
->>    #ifdef CONFIG_OF
->>    u32 cache_of_calculate_id(struct device_node *np);
->>    #else
->>    static inline u32 cache_of_calculate_id(struct device_node *np)
->>    {
->>        return ~0U;
->>    }
->>    #endif
->>
->> Would that work for you?
-> 
-> That's not necessary and doesn't solve the problem: the struct 
-> device_node would be present in both branches, so that doesn't help. And 
-> given there are no preprocessor protections for OF or ACPI in the whole 
-> of mpam_devices.c, that's a non-issue, I'd say.
-> 
->> Otherwise I'm happy to just drop the guard in
->> the next version.
-> 
-> So can you say whether you have a .config that does not build? Or was 
-> that issue just pointed out by some picky AI review tool?
-> Otherwise I would drop the guards, and wait for the kernel test robot or 
-> Arnd's infamous randconfig builds to show up the exact problem.
-> 
-
-For context: I did experiment with wrapping all the OF-specific code in
-mpam_devices.c with #ifdef CONFIG_OF, but dropped it for the same reason
-— the MPAM driver depends on ARM64 which selects OF. I then kept only 
-the header guard as a precaution for potential external users, but as 
-you point out, that's not necessary either.
-
-Thanks,
-Yin
-
-> Cheers,
-> Andre
-> 
->>>
->>>> +u32 cache_of_calculate_id(struct device_node *np);
->>>> +#endif
->>>>   /*
->>>>    * Get the cacheinfo structure for the cache associated with @cpu at
->>>>
->>>
->>
-> 
-
--- 
-Thx and BRs,
-Yin
+> Will
 
 
