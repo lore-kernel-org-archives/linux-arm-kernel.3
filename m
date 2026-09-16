@@ -4,66 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DB7DC982C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 00:38:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F804C88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 00:45:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qWqknZdcQhdeJ3cusKZn9xll6uj9AfBii96LLhPluG0=; b=MXf28mZlbWt+vVZnAOijd9c+Hc
-	xQRi0SgUm4rhW62pvYTkrkYmF0SjUqEkukNpjwZ/1Cj+amdGEplhWnVZVmm8EcteAnFn03O0r+sfT
-	2R9dk0bdoKbNRoFUCvm8h56W+vuABQZ1GE5Vm6aH4QnVbUp27L5+1kS1xlnFVsdXHu4gaNBd6VcK0
-	ICmuipr/vnmbsQBk7CXq1rakYQVQZN+mrx87qR+HRgEsdM/45zpylYHuyuXGwfKGTGrmPnngoHFbV
-	Cc9cVr3i2OcYZTona1FGO0cLIZn7UwDm5MsMY7GgYloqmnLwfj2lEdMn7poh5RRafFTyXnfaGYHTC
-	LO8Thxow==;
+	bh=s2V8BnF8h+8Uq8u8VZxp/reb7V9zH1peGA2ahNF542Q=; b=s836fPzxqBOy/STh2+EyXQ0l5z
+	Yg+wJcEu56F73TVsI1LBTPbI+yTEKR3ngtucqwtgD7JIhda+ahMNE4KWIhGDsvdXY1o/F3FeOfl2+
+	4HXhHl5kZqCC7YIv7neX1ZaPXllkma6tJu/sN7SaFmG/VI9Xtvtz37+aD2JX5B0gr3ffLa+SIuZKs
+	bCtWylnbVaFWcMwDlEyvHQ1IphAPkIIJJ2Q9sLUFpl9/9hwgPvol5tZSRoodE7xUO9/5ptC0dXj4D
+	BBVAM+VlKHxJkXgcWpei21CUzQOwgA1cPkGJJVLLxcQ6CXfrT7r5+cKIXrt3V93QEnMiIPVtLEU5H
+	TLPoPeQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6dfS-000000087cL-2E8x;
-	Wed, 16 Sep 2026 00:38:30 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
+	id 1x6dmP-000000088BT-2mzA;
+	Wed, 16 Sep 2026 00:45:41 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6dfQ-000000087WT-1aCn;
-	Wed, 16 Sep 2026 00:38:29 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 16 Sep
- 2026 08:38:02 +0800
-Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Wed, 16 Sep 2026 08:38:02 +0800
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-Date: Wed, 16 Sep 2026 08:38:03 +0800
-Subject: [PATCH v4 3/3] MAINTAINERS: Add ASPEED USB3 PHY driver
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260916-upstream_usb3phy-v4-3-812e76037d01@aspeedtech.com>
-References: <20260916-upstream_usb3phy-v4-0-812e76037d01@aspeedtech.com>
-In-Reply-To: <20260916-upstream_usb3phy-v4-0-812e76037d01@aspeedtech.com>
-To: Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, "Andrew
- Jeffery" <andrew@codeconstruct.com.au>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Manivannan Sadhasivam <mani@kernel.org>, Billy Tsai
-	<billy_tsai@aspeedtech.com>
-CC: <linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
-	<linux-kernel@vger.kernel.org>, Ryan Chen <ryan_chen@aspeedtech.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789519082; l=938;
- i=ryan_chen@aspeedtech.com; s=20251126; h=from:subject:message-id;
- bh=EVwN71wwvZW6YXvP8NIxr+H0Thmoc9M41v8NtPW4CyY=;
- b=I3XcJ6lH056nVbxCeR1AxRKmCn1q+W8ECtAu22NciH6/1pPCvrxWPWjdJ6i3B62pvkhUqtiIu
- 2Jd9r6PTMcLAwQ7G9JEpgatjVC5/q8FgQOIuFqn7aXhlkmbx90MtML4
-X-Developer-Key: i=ryan_chen@aspeedtech.com; a=ed25519;
- pk=Xe73xY6tcnkuRjjbVAB/oU30KdB3FvG4nuJuILj7ZVc=
+	id 1x6dmM-0000000889t-0Zml
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 16 Sep 2026 00:45:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ubuntu.com;
+ h=In-Reply-To: References: To: From: Subject: Cc: Message-Id: Date:
+ Content-Type: Content-Transfer-Encoding: Mime-Version; q=dns/txt;
+ s=fe-953a8a3ca9; t=1789519536;
+ bh=s2V8BnF8h+8Uq8u8VZxp/reb7V9zH1peGA2ahNF542Q=;
+ b=XRW9PQnk7SBEuQDcaC3PMm0TRFUrm2H/Wgd+yUY/ufRi1WtsVoU4xICtlXlOjq+6vd5X27/Nl
+ fQVJnViLukaeBzGf81Vrw4v9Le05qmrX7o6u9z44+huxEGLMeMNzTyr2lWG9y9e772GgCHwoWwY
+ 1fbbcMGhmbxPCGIZdlckMJcbZSNbneb+eLxXnmY6ISyS6AjlEcOtbI/8+lT5D59D7LEX74RKYuO
+ o4ArkORrAjdIoReonvjOcEooYsSsaIe59/RE8rLZeaPV7uXT+eYt61V3+JQesfLB3LYnbu4uoVi
+ ZkPZ+wkUJtpGPLEzlNhuBOuwBRYw7/+HO8FA5aM/pC+Q==
+X-Forward-Email-ID: 6aa9e69076866d48a84e7189
+X-Forward-Email-Sender: rfc822; jpeisach@ubuntu.com, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 2.14.2
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8; format=Flowed
+Date: Tue, 15 Sep 2026 20:45:01 -0400
+Message-Id: <DLGBPXP4F8E0.9X0QMZ9GFQVF@ubuntu.com>
+Cc: <linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+ <mfd@lists.linux.dev>, <linux-clk@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
+ "Marek Szyprowski" <m.szyprowski@samsung.com>, "Maud Spierings"
+ <maud_spierings@murena.io>, "Graham Markall" <hello@big-grey.co.uk>,
+ "Icenowy Zheng" <zhengxingda@iscas.ac.cn>, "Chaoyi Chen"
+ <chaoyi.chen@rock-chips.com>, "Joshua Peisach" <jpeisach@ubuntu.com>,
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+Subject: Re: [PATCH v4 00/20] drm: starfive: jh7110: Enable display
+ subsystem
+From: "Joshua Peisach" <jpeisach@ubuntu.com>
+To: "Michal Wilczynski" <m.wilczynski@samsung.com>, "Vinod Koul"
+ <vkoul@kernel.org>, "Neil Armstrong" <neil.armstrong@linaro.org>, "Rob
+ Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Andrzej Hajda"
+ <andrzej.hajda@intel.com>, "Robert Foss" <rfoss@kernel.org>, "Laurent
+ Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
+ <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Luca
+ Ceresoli" <luca.ceresoli@bootlin.com>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "Lee Jones" <lee@kernel.org>,
+ "Andy Yan" <andy.yan@rock-chips.com>, "Philipp Zabel"
+ <p.zabel@pengutronix.de>, "Emil Renner Berthing" <kernel@esmil.dk>, "Hal
+ Feng" <hal.feng@starfivetech.com>, "Michael Turquette"
+ <mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>, "Heiko
+ Stuebner" <heiko@sntech.de>, "Paul Walmsley" <pjw@kernel.org>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Alexandre Ghiti" <alex@ghiti.fr>, "Dominique Belhachemi" <db@domibel.de>,
+ "Brian Masney" <bmasney+clk@redhat.com>, "Jerome Brunet"
+ <jbrunet+clk@baylibre.com>
+X-Mailer: aerc 0.21.0
+References: <CGME20260915153213eucas1p148f013af239a334fc78cdc249c0f8a61@eucas1p1.samsung.com> <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
+In-Reply-To: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_173828_442030_C01C478E 
-X-CRM114-Status: UNSURE (   8.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260915_174538_448594_90049B8A 
+X-CRM114-Status: GOOD (  15.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,35 +102,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add maintainer entry for ASPEED USB3 PHY driver.
+On Tue Sep 15, 2026 at 11:32 AM EDT, Michal Wilczynski wrote:
+>
+> Testing
+> =3D=3D=3D=3D=3D=3D=3D
+>
+> Tested on a VisionFive 2 v1.3B using modetest.
 
-Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
----
- MAINTAINERS | 8 ++++++++
- 1 file changed, 8 insertions(+)
+I.. got nothing. I did have to manually modprobe the modules, but
+unless I am doing something wrong.. I didn't get anything and modetest
+just gave -2.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index fe10d29b7657..01d893612abb 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -4096,6 +4096,14 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/usb/aspeed,ast2600-udc.yaml
- F:	drivers/usb/gadget/udc/aspeed_udc.c
- 
-+ASPEED USB3 PHY DRIVER
-+M:	Ryan Chen <ryan_chen@aspeedtech.com>
-+L:	linux-aspeed@lists.ozlabs.org (moderated for non-subscribers)
-+L:	linux-phy@lists.infradead.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/phy/aspeed,ast2700-usb3-phy.yaml
-+F:	drivers/phy/aspeed/phy-aspeed-usb3.c
-+
- ASPEED VIDEO ENGINE DRIVER
- M:	Eddie James <eajames@linux.ibm.com>
- L:	linux-media@vger.kernel.org
+> ---
+> Michal Wilczynski (20):
+>       dt-bindings: phy: Add starfive,jh7110-inno-hdmi-phy
+>       dt-bindings: display: bridge: Add starfive,jh7110-inno-hdmi-control=
+ler
+>       dt-bindings: mfd: Add starfive,jh7110-hdmi-subsystem
+>       dt-bindings: soc: starfive: Add starfive,jh7110-vout-syscon
+>       dt-bindings: display: verisilicon: Add starfive,jh7110-dc8200
+>       dt-bindings: soc: starfive: Add starfive,jh7110-vout-subsystem
+>       drm/bridge: inno-hdmi: Split probe out of bind
+>       drm/bridge: inno-hdmi: Allow the register map to come from a parent
+>       drm/bridge: inno-hdmi: Add .disable platform operation
+>       drm/bridge: inno-hdmi: Add .mode_valid platform operation
+>       drm/bridge: inno-hdmi: Make the PHY configuration table optional
+>       soc: starfive: Add jh7110-hdmi-subsystem driver
+>       soc: starfive: Add jh7110-vout-subsystem driver
+>       clk: starfive: jh7110-vout: Allow pixel clock rate propagation
+>       drm/bridge: starfive: Add JH7110 HDMI controller driver
+>       phy: Add common Innosilicon HDMI PHY helpers
+>       phy: rockchip: inno-hdmi: Use the common Innosilicon PHY helpers
+>       phy: starfive: Add jh7110-inno-hdmi-phy driver
+>       riscv: dts: starfive: jh7110: Update DT for display subsystem
+>       MAINTAINERS: Add StarFive JH7110 display subsystem entry
+>
+>  .../starfive,jh7110-inno-hdmi-controller.yaml      | 121 +++++
+>  .../bindings/display/verisilicon,dc.yaml           |   1 +
+>  .../mfd/starfive,jh7110-hdmi-subsystem.yaml        |  95 ++++
+>  .../phy/starfive,jh7110-inno-hdmi-phy.yaml         |  49 ++
+>  .../soc/starfive/starfive,jh7110-syscon.yaml       |   1 +
+>  .../starfive/starfive,jh7110-vout-subsystem.yaml   | 218 ++++++++
+>  MAINTAINERS                                        |  13 +
+>  arch/riscv/boot/dts/starfive/jh7110-common.dtsi    | 121 ++++-
+>  arch/riscv/boot/dts/starfive/jh7110.dtsi           | 105 +++-
+>  drivers/clk/starfive/clk-starfive-jh7110-vout.c    |   6 +-
+>  drivers/gpu/drm/bridge/Kconfig                     |  11 +
+>  drivers/gpu/drm/bridge/Makefile                    |   1 +
+>  drivers/gpu/drm/bridge/inno-hdmi.c                 | 112 +++-
+>  drivers/gpu/drm/bridge/jh7110-inno-hdmi.c          | 297 +++++++++++
+>  drivers/phy/Kconfig                                |   8 +
+>  drivers/phy/Makefile                               |   1 +
+>  drivers/phy/phy-inno-hdmi.c                        | 298 +++++++++++
+>  drivers/phy/rockchip/Kconfig                       |   1 +
+>  drivers/phy/rockchip/phy-rockchip-inno-hdmi.c      | 168 +-----
+>  drivers/phy/starfive/Kconfig                       |  20 +
+>  drivers/phy/starfive/Makefile                      |   1 +
+>  drivers/phy/starfive/phy-jh7110-inno-hdmi.c        | 579 +++++++++++++++=
+++++++
+>  drivers/soc/Kconfig                                |   1 +
+>  drivers/soc/Makefile                               |   1 +
+>  drivers/soc/starfive/Kconfig                       |  43 ++
+>  drivers/soc/starfive/Makefile                      |   3 +
+>  drivers/soc/starfive/jh7110-hdmi-subsystem.c       |  73 +++
+>  drivers/soc/starfive/jh7110-vout-subsystem.c       |  82 +++
+>  include/drm/bridge/inno_hdmi.h                     |  10 +-
+>  include/linux/phy/inno-hdmi-phy.h                  |  85 +++
+>  30 files changed, 2337 insertions(+), 188 deletions(-)
+> ---
+> base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
+> change-id: 20251031-jh7110-clean-send-7d2242118026
+>
+> Best regards,
 
--- 
-2.34.1
+By the way, something weird happenined while I applied the patches
+using git am. Somehow, some were out of order. The 10th patch
+adding .mode_valid tried to be applied before .disable even though
+in the series, the order is correctly set? git would obviously
+fail because the .disable entry did not exist in the header, so I had
+to manually put those in.
 
+I guess it's possible that something went wrong here? I personally
+pulled the mailbox from the lore.kernel.org mbox.gz file.
 
