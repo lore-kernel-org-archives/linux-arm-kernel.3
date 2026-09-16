@@ -4,93 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE65CC88E5C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 10:21:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6067BC88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 10:23:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J3B364dBrdRxwMkKBJm+pPNZfd2rGkdAWnPGcxnB04U=; b=e98xkDDWrTKzGC2nV190gQj0CT
-	3hYxGhu06iz9sxAbDsT216+IPdt2KtM60oogJFdrdQqwAzWJPyaLujq5wMPWp+3UypPDay+TMgNE9
-	QKd0H5jq8hBzgxOyY0nZRuF34wC6L0rfPuAd01JbjWzvEVWpjgwnLPzPEg5u2tbT3XqRB79pG4Yw0
-	RNUmA8kyVib/Nm1dqm/miyGNbdOrMMhe0eIwYzDPWcVDCnVvMWy9qnBMFlRktn6uMRmy8flIYOv/Z
-	7pCMK2IO5MAyeWpp3KcN3WzPxOGH3r6dmRpTqIyyRXWLZo9kg5givauE6bnKFbdZwMXnk5iEIODtt
-	zPX4eDkg==;
+	bh=MusB319/W5rKi26RtEZ1yy6e5hMKt8D1KmhppeMb+Rg=; b=LENO+UPm9SMxFEjBpq2qcj0xb4
+	9Eiarfh5PgA2KxHbYcwM8fqW79yw4ee3YoVPUFJWnf3hosiHdn7mwcOYt57pqBVZSq8/im7ja8jqB
+	4khClOU2f4icpT8jRvzX3a5wdIybC+6OmylsQIlAnC4YCqazT4uLG2ako+z8luqErnlfE1a6LQ9DU
+	TYp8XgG2L5SHQ7u4e5pPTKv/wF5NM7knvM6IbLLrIQS9K6wRCtEmYUQhq96FDBsiNCTvFsNGbMjJP
+	+6NgSIdDQWwooonOQ4PJJk+LrT/jPDc0rggUa66iuARCWrieuuMsFo8o9kMbv1YiAVeMk/hW4HKVd
+	dtV+CigA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6mln-00000008xdi-1r3Z;
-	Wed, 16 Sep 2026 10:21:41 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1x6mnD-00000008xon-2r1K;
+	Wed, 16 Sep 2026 10:23:07 +0000
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6mlf-00000008xcA-2vhU
+	id 1x6mn9-00000008xnz-2cEs
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 10:21:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789554092; x=1821090092;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=n152J+oW0inBpcepl+1yWkdMqbhm6d/xZ403pWrV3Ew=;
-  b=bB8oqqCYgY50jD8Z2rimp+vCEgrHH91z7tCPhnRNE40WVdBT39Q28TOy
-   BUNgpPITXmD4YoqEPgmgca7AdLwP4Sh55JPx2RtQLx+0VkBz1KQyPCa/c
-   x8C/bp9KeLaoArK9b5WzEcSjHw6abZQ143HBgCT3UO6jP8lVQaPyGo/Dt
-   ynWrAPU6H6rofo3U9tEt9qjBWVqOniVf+v2MeU9S4emxupE5Q/oI8S1n5
-   qDl80/Pa+Stt268r/oflfycIkG3Yl/rb3IcpFh8ZgvZRnqhYQcKOrjVdN
-   2uyRyDvgwHj4ee/AWj/bxTnVJdydzTtLyQ8X2jOoN0AK/J6e1gcZ6k70x
-   w==;
-X-CSE-ConnectionGUID: txDs8VQ9SbWII6rAH8VprQ==
-X-CSE-MsgGUID: 9mDo8JzkQ+KFloWolT7m3A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="89062967"
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="89062967"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Sep 2026 03:21:29 -0700
-X-CSE-ConnectionGUID: DcsR/rdNR8SqKlqBIDDynw==
-X-CSE-MsgGUID: 6lqV8nerQouNtUP4U2SofA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="273266901"
-Received: from ettammin-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.145])
-  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Sep 2026 03:21:24 -0700
-Date: Wed, 16 Sep 2026 13:21:21 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: longzhao@ambarella.com
-Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Long Zhao <zl020895@163.com>,
-	Lee Jones <lee@kernel.org>, mfd@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 10/15] gpio: pl061: convert to gpio-regmap and a
- custom irqchip
-Message-ID: <aqptoZYyclWSE_-A@ashevche-desk.local>
-References: <20260915-cv75-v5-v7-0-3297d3fbc9c0@ambarella.com>
- <20260915-cv75-v5-v7-10-3297d3fbc9c0@ambarella.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260915-cv75-v5-v7-10-3297d3fbc9c0@ambarella.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+	Wed, 16 Sep 2026 10:23:05 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-4843c3ea1f6so331160f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 03:23:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1789554181; x=1790158981; darn=lists.infradead.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:mime-version:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=MusB319/W5rKi26RtEZ1yy6e5hMKt8D1KmhppeMb+Rg=;
+        b=AMEXjC7RoIJouu7sfFcFS59GmqOMd56dGFZbNo5mj7uiCCsQBEcP1HfVKBFD9TpnOl
+         QhY5zIbJPI6Wd6oXcIZJP8eFnUbStvsiM6lJoGD51M/kSB31fHeOdTPqFqofQnK7TIzV
+         UT8WR6F8opoo4NiPLa02ObcRBMSIRoeOAjMEVd5EzLSqx1sFj9ISB00GJJoDpq2Wset9
+         NrFGc6bNg7PwrscFc9Ub8LXEz9TtMhq3QbOQ7dgB1s460jZC+GSH99GtyKC3ktEfY7K6
+         KeoGjVROlUcWxHNeQTwnGQxB5a1KEqmK7MqUndlsu1UFVxDvP0skgk7huXqR+R5SL0g0
+         bwcA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789554181; x=1790158981;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=MusB319/W5rKi26RtEZ1yy6e5hMKt8D1KmhppeMb+Rg=;
+        b=bWZ/1/EG36STN7vztXJxP32wg1qH8VFyKm1LB6srxZzbJfvSJWMfES9Z0cq1x3K0LZ
+         OwQhC3dEFxaPS1QLvFX7Nu3lglwNsqPNFBBOWfn3yoqXbRnufX8zl1xHRiLx6wi9xBfG
+         oviJkwea8hi2WKZD8sfIu3twMnjL8rk65n8cj3NwWM0ZfHQ8Ny0WOib7VFlz0tyy1xO8
+         L2nTbTIfca/YjID5Cdd4W9l++7zosvnKoFC08LF6YNkgfFd9liMKps+dRMKZSjdivrv/
+         NXh9IRK0wv6AlJcl82DtITJczQIZOqSP1FSDiJHhJD4ygjeeMI4gyAfWlTbArTAPrU8U
+         /ZvA==
+X-Forwarded-Encrypted: i=1; AKwUvBwaoRm/Eq2vG7Rs/IqcDdifZxLxydTZFJP/UCddSQSayGMmULpIHIB3PRHo19xhtccKZd+1VhtIhc2uaQJbls5h@lists.infradead.org
+X-Gm-Message-State: AFuF++nQOqTu6k40x/9XMG3I/lWQRp1WSUAnfaNHuD1fA3ou9aCz6bEh
+	pqYqT6RiFkdF0D2sXaB96fzTIePwVBP/Vaqk+9FBSCorSg9cCw/VXTe5XYeoJ80RlkI=
+X-Gm-Gg: AYBFou2w3irXypviNXVIY4T55AX69qzf0kdPQS1zUg/7zT7KUeRh2aqrtsdnjfd/pto
+	Cp7MJxQIfY0PKlRd+B25l+YolQVRGAWjYmeLhlzY1NBTaotDskYGM6lIuEkx49NKHHchBSxwHra
+	OCrAl/p8YP5C/x0OC21IuyVTKVDhecKBKDyfgHVLNLijXdIoHrF8QzOlQopEtfeE6raDRBRYyc6
+	MnedQM5eoonAgqnq3D5L699R3iwJ/cYoqjvlgDqDa4xrpLgDmyYbWF7cN2hoO2SMpGmaDFTre2i
+	yoYQB1eYT+MIoaIsVcUwaZV0shMft/OfiBqwuo8viuol2m1xvTIyHcJ9Fx6SuaApaElmTxirY18
+	DyuFaUNXPiJOrtobnyyaAikIWmFP7Nj2TOCgO6jtW/SqjmPftaczElPW3zIrRENBANL68gs8DC7
+	HFBAZhq7uBaOoE9dLkc2CDdCg9O/Z4sBLVy/YjmV4gvv0qIp1SkILboe1TwSV32FSSk7uD5Xh21
+	Qpt
+X-Received: by 2002:a05:6000:1789:b0:487:528:cd3b with SMTP id ffacd0b85a97d-4870d057324mr2601650f8f.53.1789554181539;
+        Wed, 16 Sep 2026 03:23:01 -0700 (PDT)
+Received: from localhost ([2001:4091:a245:8029:665d:b7b:5fa4:7ad0])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4870bf26c8dsm6429347f8f.14.2026.09.16.03.23.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 16 Sep 2026 03:23:00 -0700 (PDT)
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=68b57a79f45fdd2628e3309e87a886a7672c2f724b17241988aa32f7178f;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Wed, 16 Sep 2026 12:22:55 +0200
+Message-Id: <DLGO0EVE0R9G.3MLT4ORYWOK8D@baylibre.com>
+Cc: "Vignesh Raghavendra" <vigneshr@ti.com>, "Tero Kristo"
+ <kristo@kernel.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Nathan
+ Chancellor" <nathan@kernel.org>, "Nick Desaulniers"
+ <nick.desaulniers+lkml@gmail.com>, "Bill Wendling" <morbo@google.com>,
+ "Justin Stitt" <justinstitt@google.com>, "Judith Mendez" <jm@ti.com>,
+ "Daniel Schultz" <d.schultz@phytec.de>, "Andrew Davis" <afd@ti.com>,
+ "Siddharth Vadapalli" <s-vadapalli@ti.com>, "Paresh Bhagat"
+ <p-bhagat@ti.com>, "Bryan Brattlof" <bb@ti.com>, "Jai Luthra"
+ <jai.luthra@ideasonboard.com>, "Devarsh Thakkar" <devarsht@ti.com>,
+ "Beleswar Padhi" <b-padhi@ti.com>, "Francesco Dolcini"
+ <francesco.dolcini@toradex.com>, "Stefano Radaelli"
+ <stefano.radaelli21@gmail.com>, "Nick Desaulniers"
+ <ndesaulniers@google.com>, "Vishal Mahaveer" <vishalm@ti.com>, "Kevin
+ Hilman" <khilman@baylibre.com>, "Sebin Francis" <sebin.francis@ti.com>,
+ "Kendall Willis" <k-willis@ti.com>, "Akashdeep Kaur" <a-kaur@ti.com>,
+ <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <llvm@lists.linux.dev>, "Hari Nagalla"
+ <hnagalla@ti.com>
+Subject: Re: [PATCH v8 9/9] arm64: dts: ti: Add wkup R5F nodes to pre-ram
+ bootphase
+From: "Markus Schneider-Pargmann" <msp@baylibre.com>
+To: "Nishanth Menon" <nm@ti.com>, "Markus Schneider-Pargmann (TI)"
+ <msp@baylibre.com>
+X-Mailer: aerc 0.21.0-146-gb5c16ebe1835
+References: <20260903-topic-am62a-ioddr-dt-v6-19-v8-0-74c650dfdea6@baylibre.com> <20260903-topic-am62a-ioddr-dt-v6-19-v8-9-74c650dfdea6@baylibre.com> <20260911074213.uucibicxngghf4rt@famine>
+In-Reply-To: <20260911074213.uucibicxngghf4rt@famine>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_032131_781534_FBE8EA59 
-X-CRM114-Status: GOOD (  31.19  )
+X-CRM114-CacheID: sfid-20260916_032303_679244_F0C6D9DD 
+X-CRM114-Status: GOOD (  14.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,235 +120,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 15, 2026 at 07:15:40PM +0800, Long Zhao via B4 Relay wrote:
-> 
-> Move line get/set/direction onto gpio-regmap. Keep the existing ARM
-> masked data addresses and write-after-direction behaviour.
-> 
-> Do not use gpiochip irqchip setup (girq) or regmap-irq. gpio-regmap
-> owns gpiochip registration, so girq would have to be plumbed through
-> that helper. PL061 IRQ type programming needs IS/IBE/IEV, including
-> both-edge, plus a hardirq chained demux from the parent AMBA IRQ;
-> regmap-irq is a poor fit for that.
-> 
-> Create a linear irq_domain with gpio_chip as host data, attach it with
-> gpiochip_irqchip_add_domain(), and chain the parent IRQ in this driver.
+--68b57a79f45fdd2628e3309e87a886a7672c2f724b17241988aa32f7178f
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Besides some comments below about splitting more of this patch to better
-isolated logical changes, this one can also be split to a few stages. For
-example, one stage is to move to regmap (from direct MMIO access) without
-really switching over to gpio-regmap.
+On Fri Sep 11, 2026 at 9:42 AM CEST, Nishanth Menon wrote:
+> On 14:39-20260903, Markus Schneider-Pargmann (TI) wrote:
+> [...]
+>
+>> diff --git a/arch/arm64/boot/dts/ti/k3-am62p-ti-ipc-firmware.dtsi b/arch=
+/arm64/boot/dts/ti/k3-am62p-ti-ipc-firmware.dtsi
+>> index 84dfbfd1986c..a343166b815e 100644
+>> --- a/arch/arm64/boot/dts/ti/k3-am62p-ti-ipc-firmware.dtsi
+>> +++ b/arch/arm64/boot/dts/ti/k3-am62p-ti-ipc-firmware.dtsi
+>> @@ -53,6 +53,7 @@ &wkup_r5fss0_core0 {
+>>  			      "lpm-metadata", "lpm-context",
+>>  			      "dm-firmware";
+>>  	status =3D "okay";
+>> +	bootph-pre-ram;
+>
+> Additionally, please check for dt style (status comes last and has an
+> EoL prefix).
+>
+> Documentation/devicetree/bindings/dts-coding-style.rst
+>
+> Could you kindly see closer with dt-style-check --strict as well (it is
+> a bit noisy atm, but it does need manual check on the log)
+>
+> This specific one was caught by review-prompts[1].
+>
+> [1] https://github.com/masoncl/review-prompts
 
-...
+Thanks, indeed, I will fix these. Also thanks for the link I didn't know
+that existed.
 
-> +#include <linux/err.h>
->  #include <linux/errno.h>
+Best
+Markus
 
-Now errno.h can be removed as basic errno is provided by err.h.
+--68b57a79f45fdd2628e3309e87a886a7672c2f724b17241988aa32f7178f
+Content-Type: application/pgp-signature; name="signature.asc"
 
-...
+-----BEGIN PGP SIGNATURE-----
 
-> -#include <linux/irqchip/chained_irq.h>
+iKMEABYKAEsWIQSJYVVm/x+5xmOiprOFwVZpkBVKUwUCaqpt/xsUgAAAAAAEAA5t
+YW51MiwyLjUrMS4xMiwyLDIRHG1zcEBiYXlsaWJyZS5jb20ACgkQhcFWaZAVSlN/
+DwD/TUtAHwXUjrcmYytdre2lYelDM8Hv7O5A38tPdzGKZyEBALivuMFtjvENBV4o
+sYGZRRl4K26KXxKWAlRx8OBIAYwJ
+=8jd7
+-----END PGP SIGNATURE-----
 
-> +#include <linux/irqchip/chained_irq.h>
-
-Unneeded churn.
-
-...
-
-> -	if ((trigger & (IRQ_TYPE_LEVEL_HIGH | IRQ_TYPE_LEVEL_LOW)) &&
-> -	    (trigger & (IRQ_TYPE_EDGE_RISING | IRQ_TYPE_EDGE_FALLING)))
-> -	{
-
-> +	if ((trigger & IRQ_TYPE_LEVEL_MASK) && (trigger & IRQ_TYPE_EDGE_BOTH)) {
-
-See below, this belongs to a separate change.
-
-...
-
-> @@ -142,14 +121,19 @@ static int pl061_irq_type(struct irq_data *d, unsigned trigger)
->  		return -EINVAL;
->  	}
->  
-> -
->  	raw_spin_lock_irqsave(&pl061->lock, flags);
-
-Stray change. If required, should be in a separate patch.
-
-...
-
-> -	if (trigger & (IRQ_TYPE_LEVEL_HIGH | IRQ_TYPE_LEVEL_LOW)) {
-> +	if (trigger & IRQ_TYPE_LEVEL_MASK) {
-
-This change should be in a separate patch.
-
-...
-
-> -	writeb(gpiois, pl061->base + GPIOIS);
-> -	writeb(gpioibe, pl061->base + GPIOIBE);
-> -	writeb(gpioiev, pl061->base + GPIOIEV);
-> +	ret = regmap_write(pl061->regmap, regs->is, gpiois);
-> +	if (ret)
-> +		goto out;
-> +	ret = regmap_write(pl061->regmap, regs->ibe, gpioibe);
-> +	if (ret)
-> +		goto out;
-> +	ret = regmap_write(pl061->regmap, regs->iev, gpioiev);
-> +	if (ret)
-> +		goto out;
-> +	if (pl061->data->clear_irq_on_type)
-> +		ret = regmap_write(pl061->regmap, regs->ic, bit);
->  
-> +out:
->  	raw_spin_unlock_irqrestore(&pl061->lock, flags);
-> -
-> -	return 0;
-> +	return ret;
-
-Make an additional patch to move current driver to use cleanup.h, id est
-guard()() and possibly scoped_guard() from there.
-
-Then in this patch those ton's of goto:s should be replaced with simple
-'return ret;'.`
-
->  }
-
-...
-
-> +	if (!regmap_read(pl061->regmap, pl061->data->regs->mis, &mis) && mis) {
-
-Why not handling error properly here?
-
-	ret = regmap_read(...);
-	if (ret)
-		goto out_irq_exit;
-
-> +		pending = mis;
-> +		for_each_set_bit(offset, &pending, pl061->data->ngpio)
-> +			generic_handle_domain_irq(pl061->irq_domain, offset);
->  	}
-
-...
-
-> +static int pl061_irq_domain_map(struct irq_domain *d, unsigned int virq,
-> +				irq_hw_number_t hwirq)
-> +{
-> +	struct gpio_chip *gc = d->host_data;
-> +	struct pl061 *pl061 = pl061_from_gpio_chip(gc);
-> +
-> +	irq_set_chip_data(virq, gc);
-> +	irq_set_chip_and_handler(virq, &pl061_irqchip, handle_bad_irq);
-> +	irq_set_noprobe(virq);
-> +	irq_set_parent(virq, pl061->parent_irq);
-
-
-Is lockdep happy with this?
-
-> +	return 0;
-> +}
-
-...
-
-> +static void pl061_remove_irq(void *data)
-> +{
-> +	struct pl061 *pl061 = data;
-> +
-> +	irq_set_chained_handler_and_data(pl061->parent_irq, NULL, NULL);
-> +
-> +	for (unsigned int i = 0; i < pl061->data->ngpio; i++) {
-
-> +		unsigned int virq = irq_find_mapping(pl061->irq_domain, i);
-
-Split assignment
-
-		unsigned int virq;
-
-		virq = irq_find_mapping(pl061->irq_domain, i);
-		if (virq)
-
-> +		if (virq)
-> +			irq_dispose_mapping(virq);
-> +	}
-> +
-> +	irq_domain_remove(pl061->irq_domain);
-> +}
-
-...
-
->  	struct device *dev = &adev->dev;
-> +	const struct pl061_drvdata *data = id->data;
-
-Split assignment as it is validated later on.
-
-> +	const struct pl061_regs *regs;
-> +	struct gpio_regmap_config config = {};
-> +	struct gpio_regmap *gpio_regmap;
-> +	struct gpio_chip *gc;
->  	struct pl061 *pl061;
-> -	struct gpio_irq_chip *girq;
-> +	void __iomem *base;
->  	int ret, irq;
->  
-> +	if (!data)
-> +		return -EINVAL;
-
--ENODATA?
-
-> +	regs = data->regs;
-
-...
-
-> +	for (offset = 0; offset < pl061->data->ngpio; offset++) {
-> +		if (!(dir & BIT(offset)))
-> +			continue;
-
-for_each_set_bit(), but make sure the type of the variable is unsigned long
-(might require a temporary one).
-
-> +		ret = regmap_read_bypassed(pl061->regmap,
-> +					   BIT(offset + PL061_DATA_OFFSET),
-> +					   &val);
-> +		if (ret)
-> +			return ret;
-> +		pl061->saved_dat |= val;
->  	}
-
-...
-
-> +	for (offset = 0; offset < pl061->data->ngpio; offset++) {
-> +		if (!(dir & BIT(offset)))
-> +			continue;
-
-Ditto.
-
-> +		ret = regmap_write(pl061->regmap,
-> +				   BIT(offset + PL061_DATA_OFFSET),
-> +				   !!(pl061->saved_dat & BIT(offset)) << offset);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-> +	return regcache_sync_region(pl061->regmap, regs->is, regs->ie);
->  }
-
-...
-
-> static const struct amba_id pl061_ids[] = {
->  	{
->  		.id	= 0x00041061,
->  		.mask	= 0x000fffff,
-> +		.data	= (void *)&pl061_arm,
-
-Oh, this is something that needs to be fixed (but it's not your issue).
-Why on earth this is not const?
-
->  	},
->  	{ 0, 0 },
->  };
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+--68b57a79f45fdd2628e3309e87a886a7672c2f724b17241988aa32f7178f--
 
