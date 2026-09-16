@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89381C88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 00:22:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B16BC88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 00:23:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H8DSLS94/4rn/IDEYTvnb/3NOSmuiboyBVGoAfDceNw=; b=G/Ohnb5CNw5j3CnNdb5zxKYsvd
-	Qd30A0CmTJvfWdYfF2apDLNusuQ8VDEup7Vk9zEXU3LW78G3sZvZOYWQ/mJR97lP0c/9cSCKwT7LS
-	GI/9liNlds4sDjew4sBQKi9fzDv48JcCVu6FoFeSmdktL4zpMBHSE+9tuGJhJ2b+3J7Uu/pWm0Zug
-	mEvLRpfOJzfe764QoOkG6omIcliSQoz0mc5BIXXJi/qdlJ15Rsbs2i1R8vZ2iQnRaY5s8aMYBRd/Y
-	3/VilCezUpwOO3Vg+kXW+bA5i+WIZMDpAtHsbCAttuX01IpjZ7nJGnCe2LExHDp055bkDihz1Y/Xm
-	KBqIiz3A==;
+	bh=SYS4/jXrEtXSvNBADZuOsax1XwEPG6mdqebHxu+RWyk=; b=Zg8c3nj6XSi3rGggahLvkRnqVi
+	hjPgixREFBYx1J0mML3WYY8wNTt1NdnQCx14GlQ0SzNfC+OIuDPRSz4kJXV/3lTRE8xd4g+aMCuBb
+	FkE9Z+DXvDdo19ayfgkmFN89FK/y/eZHrdpR8LSNItjp5Nstt9V1LUWGieuLZoaWAn2v+SFgUkMZT
+	ubzvgWiw8OAYPJ75d55QpxZN5QyLgzqNPOwutTUJn8Hz68WAGLrfmyiK+Yr65ep5TLWbaViQFZvFX
+	x0kLlPUa9HlaHnL6kNML17wjzOirXSH/OiaT8xVQsT24z26nppaurlcCsjhfisWUmiwPETaRlVO12
+	eSXd+G3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6dQ3-000000086TG-0y9k;
-	Wed, 16 Sep 2026 00:22:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x6dQw-000000086YH-1ckL;
+	Wed, 16 Sep 2026 00:23:30 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6dQ2-000000086TA-31XR
+	id 1x6dQv-000000086Y3-240Y
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 00:22:34 +0000
+	Wed, 16 Sep 2026 00:23:29 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2E546433E5;
-	Wed, 16 Sep 2026 00:22:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66CBD1F00893;
-	Wed, 16 Sep 2026 00:22:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EFC69406D5;
+	Wed, 16 Sep 2026 00:23:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FD8B1F000FF;
+	Wed, 16 Sep 2026 00:23:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789518154;
-	bh=H8DSLS94/4rn/IDEYTvnb/3NOSmuiboyBVGoAfDceNw=;
+	s=k20260515; t=1789518208;
+	bh=SYS4/jXrEtXSvNBADZuOsax1XwEPG6mdqebHxu+RWyk=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=FemkOq0Cn++Rtx1GJ2eUSVXAfe6MyPicArFasJFuqHZgwSVWAp53cdkoCx5f/63cT
-	 shPokNu2TsUSWSNW/WCLm9QAB7Ov+0sCMaAtrLUeR2YKNwAlOwhRT2She0oZfQhiwG
-	 cGY8qvxYkpAApkOGVj4rUJrSIbghNY7endSgCyJmAbe9V4C9BjKXggM98XB5MWXUzZ
-	 GZpFF46WwlYgeqpJtqPhHYy28AXSPOcYQ/vuFGcoMHVqQMjFmGOKkRnWy1vA30KWZx
-	 l+ZACWWDaZ3ayDG6Gax8c0mXqPgaTBCkHxscSItqjDXeSvUwmx0qdtEhHtfQh/IcgX
-	 lNeeKGvr9Cc/Q==
-Date: Tue, 15 Sep 2026 17:22:32 -0700
+	b=Mma+gYTBjeieo9W8jbYk7KdLlVhJZ0kSPcF9zz5jyJpvvPh2peZOX/IpGtHPGhvrF
+	 bzdYRv0DptmaUsjlm7rtUyr05czJWd0NTzLeUj/lTgjCfJQejzPYTYIOuIhNjxJKSo
+	 072v0vTnIP7bhu5HVSsxx6CJEPb3wOqQxzssYoxMG8gVBmGinv1rp8Y69N+OGLeF9N
+	 g3erWhgzclUFWAXvM8meOX0CrmI+S7w5mEZ4pBn8eaYqqVaWn6sNnQtFESc9/txd27
+	 9q4p6Cz2MxR/DcKQ4aSJiJJUWJQTU4IK7/l7u+/vBaz95NBWOlIlk3ZJ9sTK/BzYJ8
+	 QrjiOKnbF7jgg==
+Date: Tue, 15 Sep 2026 17:23:27 -0700
 From: Jakub Kicinski <kuba@kernel.org>
 To: Srinivas Neeli <srinivas.neeli@amd.com>
 Cc: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>, Andrew Lunn
@@ -56,11 +56,12 @@ Cc: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>, Andrew Lunn
  <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
  <linux-arm-kernel@lists.infradead.org>, <linux-rt-devel@lists.linux.dev>,
  <neelisrinivas18@gmail.com>, <git@amd.com>
-Subject: Re: [PATCH net-next v2 0/8] Add Xilinx TSN Endpoint Ethernet MAC
- driver
-Message-ID: <20260915172232.04df37b2@kernel.org>
-In-Reply-To: <20260909-patches_v2_external-v2-0-3a40babaff4c@amd.com>
+Subject: Re: [PATCH net-next v2 3/8] net: xilinx: tsn: add endpoint MAC
+ driver skeleton
+Message-ID: <20260915172327.1691aece@kernel.org>
+In-Reply-To: <20260909-patches_v2_external-v2-3-3a40babaff4c@amd.com>
 References: <20260909-patches_v2_external-v2-0-3a40babaff4c@amd.com>
+	<20260909-patches_v2_external-v2-3-3a40babaff4c@amd.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
@@ -78,18 +79,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 9 Sep 2026 00:49:48 +0530 Srinivas Neeli wrote:
-> This series adds the wrapper and endpoint side of the IP. The switch-facing
-> part is exposed through the Distributed Switch Architecture (DSA) framework
-> in a follow-up series, so that MAC1 and MAC2 show up to Linux as switch
-> ports with the endpoint acting as the CPU/conduit port. The endpoint frames
-> are already classified by source-port id and tagged with DSA port metadata
-> here, so the switch series can consume them without further endpoint
-> change.
+On Wed, 9 Sep 2026 00:49:51 +0530 Srinivas Neeli wrote:
+> +	ndev = alloc_netdev(sizeof(*ep), "ep%d", NET_NAME_ENUM, ether_setup);
 
-I'm not sure why you're implementing this as DSA.
-This needs to be explained, if a single driver can bind and control 
-the whole thing, that's AFAIU preferable. You can keep the
-implementation details in the driver without exposing the conduit
-to user space
+It's up to user space to name netdevs, this is just an ethernet device,
+use the standard name.
 
