@@ -4,70 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFF3CC88E5C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 08:53:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84048C88E5C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 08:54:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NGsPUd4c4/jiwAM0z4uKJZVSAM5wKncJVyzSk3d45QY=; b=w/Nu9qjC0o2bCCheWDp5TUd7ox
-	qh8wZMT7xA+DjWBIchF1efhM8Yy918yDdwjP4qaNxmtRhWz4sDAeGmT6nO0AzlmzR99OsctlqSGsF
-	hBLyXCSNBqz+tXEEHX8L8TAhkNuqM5ozTJUcJqyznKPoCz/Rxwn/7ta0LWZ7k/NB2vrEeCv2wXqQt
-	DhFYp56V0TKAsWDeKSozwIQzn+cSxa2KDMnbuzMZ0TwjJZVOLTWLM2Uv3JNo4QFNmlgAyRcFxYBCs
-	nw8XxcCOyRfXQGR4po85AIbX2fambFG0FgfLyxC28z9B0Rwb1JOCp0TbdjBVfM4OvGsJbZjk0+nkw
-	BUnY3m/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OdGRqtcPUgvr9d7/8kROmhFaMo4CDuCszhCRyj6sFbw=; b=Sm245qt2l4HLF1NjZy85Vxjcw+
+	GVruGHlFJJB6I1LcwT+YZHhtPdagAKu6ZJ5JADMFaZ6oAmauxK1GGGJvzlaeYf9PA1nQRQzrewVAN
+	EXlTRjwmO2EfdVz7c38Vgm3w+0TiD0BX1uDGZHu+d94/9NpPbQL40oWRDl0dwJjvrKOX1gWJdKTRZ
+	J1rXOJMqiTRhfEJGUtM+iKYBWvnYGg1X+bbwOAn4ePsn+gKMYPQjS0fIEzFaUOjmsejEGG45PGFTs
+	d/eeUpswnLtZqpiELA5FVUgp9cEdvDB0HmVAFDHq36JoXSx8eYLSan9hjyGVvlhEtiM7ZZ0JpzIO5
+	bJI0Z4YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6khO-00000008gkb-3U7n;
-	Wed, 16 Sep 2026 08:08:58 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x6lPA-00000008mGo-1FxX;
+	Wed, 16 Sep 2026 08:54:12 +0000
+Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6khM-00000008gkO-2UvO;
-	Wed, 16 Sep 2026 08:08:57 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A31E360234;
-	Wed, 16 Sep 2026 08:08:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57A701F000FF;
-	Wed, 16 Sep 2026 08:08:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789546135;
-	bh=NGsPUd4c4/jiwAM0z4uKJZVSAM5wKncJVyzSk3d45QY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ca4k+47D8o+zL7G76OczRVJ7a2qkrBHqI1/Od4RNEPo8JwVuyHFH1drWChaxTzMVx
-	 rzivByJWrrPNPjNcwUROqglLsqdxSI0Pwmt1OseLUucgoLpZ6SRxGJAcuiyqTiQHgH
-	 YhCxZ8D0YfcysSM37Do7LNFweJjSI3JpPOJxaljmY9aJVkzqysWBGY7KK4f3zefMZG
-	 snx5LEIMjOywY6TRK+DA37/AmXX6lVZ3X1YMjyTYXQsOX5FB995aGl+U0goeoEuPbF
-	 9Rxdbw2kP1zJ5MLILiUJoPaSOnDceCxHNZQWqEYkj12JmbNv67cRA7nTXw0pl6pDsD
-	 UOROGyIchJRQw==
-Received: from johan by xi.lan with local (Exim 4.99.5)
-	(envelope-from <johan@kernel.org>)
-	id 1x6khI-00000005w7O-3XCS;
-	Wed, 16 Sep 2026 10:08:52 +0200
-Date: Wed, 16 Sep 2026 10:08:52 +0200
-From: Johan Hovold <johan@kernel.org>
-To: Joshua Crofts <joshua.crofts1@gmail.com>
-Cc: Peter Chen <peter.chen@kernel.org>, Pawel Laszczak <pawell@cadence.com>,
-	Roger Quadros <rogerq@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Mathias Nyman <mathias.nyman@intel.com>,
-	Chunfeng Yun <chunfeng.yun@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, stable@vger.kernel.org
-Subject: Re: [PATCH 1/6] usb: core: add missing
- pm_runtime_dont_use_autosuspend() call
-Message-ID: <aqpOlKtxeROh-G_s@hovoldconsulting.com>
-References: <20260915090223.1346-1-joshua.crofts1@gmail.com>
- <20260915090223.1346-2-joshua.crofts1@gmail.com>
+	id 1x6lP7-00000008mGA-33DQ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 16 Sep 2026 08:54:11 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=OdGRqtcPUgvr9d7/8kROmhFaMo4CDuCszhCRyj6sFbw=;
+	b=0iUFIuSmMjsxIaFI1Rs/lIOIZnOASyq7DsisPSrd/gzc0/DXDnAExisvyFqIkMDdXg6nUeVTM
+	JDCq3/bQoYgMYJly6bo7wmbZbpPq7LDRTlifJc8Ct+BRIzJ4sSY88QEd4Wh+bqO1VZrkGspU2+O
+	hFeI36JXvYZNMcaA/fuYP70=
+Received: from mail.maildlp.com (unknown [172.19.163.104])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4hlC881LkvzRhVN;
+	Wed, 16 Sep 2026 16:43:04 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id 666BB4058F;
+	Wed, 16 Sep 2026 16:54:00 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ kwepemk200008.china.huawei.com (7.202.194.74) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Wed, 16 Sep 2026 16:53:59 +0800
+Message-ID: <f84359c7-34d6-4658-8378-db3da94c674d@huawei.com>
+Date: Wed, 16 Sep 2026 16:53:58 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260915090223.1346-2-joshua.crofts1@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 20/38] arm64: probes: Reject stepping over ALLINT
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
+	<maz@kernel.org>, <lpieralisi@kernel.org>, <liaochang1@huawei.com>
+References: <20260914102102.68597-1-vladimir.murzin@arm.com>
+ <20260914102102.68597-21-vladimir.murzin@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260914102102.68597-21-vladimir.murzin@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260916_015409_955994_76668720 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,45 +79,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 15, 2026 at 09:02:18AM +0000, Joshua Crofts wrote:
-> The fail label in usb_new_device() disables pm_runtime on failure, but
-> doesn't call pm_runtime_dont_use_autosuspend(), causing resource leaks.
 
-No it does not, as the device itself is about to be freed. Sure we could
-disable autosuspend again here, but it does not really matter.
 
-You could consider balancing the runtime pm count as well, as I guess
-both of these could trip up static checkers (cf. [1]).
-
-> Add the missing pm_runtime_dont_use_autosuspend() call.
+在 2026/9/14 18:20, Vladimir Murzin 写道:
+> ALLINT instructions are not safe for probing. Both the register and
+> immediate forms of MSR for ALLINT are currently rejected because they
+> match aarch64_insn_is_msr_{imm,reg}(). However, MRS instructions
+> accessing ALLINT need to be rejected explicitly.
 > 
-> Found using Coccinelle.
-> 
-> Fixes: fcc4a01eb866 ("USB: use the runtime-PM autosuspend implementation")
-> Cc: <stable@vger.kernel.org>
-
-But this one should not have a Fixes tag and does not need to be
-backported.
-
-> Signed-off-by: Joshua Crofts <joshua.crofts1@gmail.com>
+> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
 > ---
->  drivers/usb/core/hub.c | 1 +
->  1 file changed, 1 insertion(+)
+>  arch/arm64/include/asm/insn.h          |  1 +
+>  arch/arm64/kernel/probes/decode-insn.c | 11 +++++++----
+>  2 files changed, 8 insertions(+), 4 deletions(-)
 > 
-> diff --git a/drivers/usb/core/hub.c b/drivers/usb/core/hub.c
-> index 3345b3298daf..dec6d5c49759 100644
-> --- a/drivers/usb/core/hub.c
-> +++ b/drivers/usb/core/hub.c
-> @@ -2745,6 +2745,7 @@ int usb_new_device(struct usb_device *udev)
->  fail:
->  	usb_set_device_state(udev, USB_STATE_NOTATTACHED);
->  	pm_runtime_disable(&udev->dev);
-> +	pm_runtime_dont_use_autosuspend(&udev->dev);
->  	pm_runtime_set_suspended(&udev->dev);
->  	return err;
->  }
+> diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
+> index 1ce75a442638..0a81b5feb2ed 100644
+> --- a/arch/arm64/include/asm/insn.h
+> +++ b/arch/arm64/include/asm/insn.h
+> @@ -118,6 +118,7 @@ enum aarch64_insn_special_register {
+>  	AARCH64_INSN_SPCLREG_SP_EL0	= 0xC208,
+>  	AARCH64_INSN_SPCLREG_SPSEL	= 0xC210,
+>  	AARCH64_INSN_SPCLREG_CURRENTEL	= 0xC212,
+> +	AARCH64_INSN_SPCLREG_ALLINT	= 0xC218,
+>  	AARCH64_INSN_SPCLREG_DAIF	= 0xDA11,
+>  	AARCH64_INSN_SPCLREG_NZCV	= 0xDA10,
+>  	AARCH64_INSN_SPCLREG_FPCR	= 0xDA20,
+> diff --git a/arch/arm64/kernel/probes/decode-insn.c b/arch/arm64/kernel/probes/decode-insn.c
+> index 4137cc5ef031..a98d9d30fb4a 100644
+> --- a/arch/arm64/kernel/probes/decode-insn.c
+> +++ b/arch/arm64/kernel/probes/decode-insn.c
+> @@ -36,11 +36,14 @@ static bool __kprobes aarch64_insn_is_steppable(u32 insn)
+>  		/*
+>  		 * The MRS instruction may not return a correct value when
+>  		 * executing in the single-stepping environment. We do make one
+> -		 * exception, for reading the DAIF bits.
+> +		 * exception, for reading the DAIF and ALLINT bits.
+>  		 */
+> -		if (aarch64_insn_is_mrs(insn))
+> -			return aarch64_insn_extract_system_reg(insn)
+> -			     != AARCH64_INSN_SPCLREG_DAIF;
+> +		if (aarch64_insn_is_mrs(insn)) {
+> +			u32 sysreg = aarch64_insn_extract_system_reg(insn);
+> +
+> +			return (sysreg != AARCH64_INSN_SPCLREG_DAIF) &&
+> +			       (sysreg != AARCH64_INSN_SPCLREG_ALLINT);
 
-Johan
+LGTM
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 
-[1] https://lore.kernel.org/all/aivMnTkZ-jTRH2Jy@hovoldconsulting.com/
+> +		}
+>  
+>  		/*
+>  		 * The HINT instruction is steppable only if it is in whitelist
+
 
