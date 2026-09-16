@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4731EC982C9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 21:25:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CEE7C982C9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 21:27:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hmKfVCLen13baZ+o0Le6d7BN5zcAvr0TjZzOdGbyQ1o=; b=cHp61o6kDr/FS+OcfaCAr20LW+
-	DuM6BBjyIAfH5qjJ512NED+f57fJ5VOjK08G8OIbdfElbTJ7gUXbme58IX363zZJ1tcGERrfSTBz3
-	cSYiPdxLh3rnXpLmTk5lpX0XAn/DXYTRrG5pSv/w3hFDXGIxjJMNquehp6lUPfedmvZ4J1VFDd029
-	/ZCtjrlRxVU5ygUf1Pq64ORj1JCxaEmkNQu/ZUgTCwx3i8nkK2GXvOycm+rxUDp2WIqOlG1TWw7KW
-	8VvNpzpD3iKHUOmx8P8l6BDljbfJKAt3BM4jr5jfaqHm8UZGQvjXPzPqgDNhzCXJQ0iUro7sQU6z8
-	dXJOjwLQ==;
+	bh=Awx/qSMJsfDp5YFKo98US/4IxChQqsFBIzOvN17lZ2g=; b=w2Ix11nn4h5AgGJbzszD3edpgE
+	4i7wHxLasecejMpgg1AgVLC/bxWoD5fwz4dMfuLt+yTI7dyUNC4hmPfn/cvB6KTHXH62cQJo+pEvS
+	akcV0bUGdVpfz12kqz2Q362rVKDpShVdtNYd4z5KeSR6CK3I0RUXHcQkXZDLSNJWaJ9nCeVVvokdb
+	Q79bLKIYv+yHeq9nY8BnlBP/JYqIl+Y85OpjnlperxRm4Nf9AlwdXlS9bjUMgmbOaUCqPBpihByeN
+	CdNfzM2QyB5opF1d15pdzobd8aqTvpnj6ko1p5jNXFStLcVMrsDPzOrvMcW7Qx9KHn2N7KQkbVnOU
+	ANlJhcFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6x86-0000000A94B-1PWM;
-	Wed, 16 Sep 2026 21:25:22 +0000
-Received: from out-34.mta0.migadu.com ([2001:41d0:1004:224b::22] helo=mta0.migadu.com)
+	id 1x6x9h-0000000A9En-2QKO;
+	Wed, 16 Sep 2026 21:27:01 +0000
+Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6x83-0000000A93Z-3rz4
+	id 1x6x9e-0000000A9Dg-3V3g
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 21:25:21 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=hmKfVCLen13baZ+o0Le6d7BN5zcAvr0TjZzOdGbyQ1o=;
- c=simple/simple; d=jimenezcarrero.com;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1789593917; v=1; x=1790198717;
- b=KOnT0/gU98JSnvnA855IUEQ9iqQafxrHbA/uLbGbck5GKZFKeL6YKO89padINqo6OzWA3VDz
- zXRJj+86vLsqp7rrMLBdWPuaxbu0bh1kHgl7ckjxsYTFBTm9ntiaBQBjK6wFKMRf10bDbRDwMQP
- UYwAVdjhcWyt73WNYnfArrFK2b8iJ0zsJ4yNmay93HUebrhH1muKqJg3SA1cBjhxTIYv41mT2Ee
- fgxGsyQKElysYvBidYQA4m5wc3TvqG+BtiR3r6I1HUvOWLMLyjCc2JdBQzhSn5Q7AmNp68TLgeZ
- 9NhDVnOPAt0jWiVaX/zzEEg+CArfk4j/1338fejI0L0Gw==
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 3a560847db53b00c;
-	Wed, 16 Sep 2026 21:25:17 +0000
-X-Mizu-Trace-ID: 3a560847db53b00c
-X-Migadu-Flow: FLOW_OUT
-From: Juan Jimenez Carrero <juan@jimenezcarrero.com>
-To: khalilst@gmail.com
-Cc: khalil@rentman.nl,
-	rf@opensource.cirrus.com,
-	broonie@kernel.org,
-	hansg@kernel.org,
-	ilpo.jarvinen@linux.intel.com,
-	patches@opensource.cirrus.com,
-	linux-spi@vger.kernel.org,
-	platform-driver-x86@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	daniel@zonque.org,
-	haojian.zhuang@gmail.com,
-	robert.jarzmik@free.fr
-Subject: Re: [PATCH v3 3/3] spi: pxa2xx: Handle clock gating for GPIO chip select devices
-Date: Wed, 16 Sep 2026 23:24:28 +0200
-Message-ID: <20260916212428.7293-1-juan@jimenezcarrero.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260901192625.1497791-4-khalil@rentman.nl>
-References: <20260901192625.1497791-4-khalil@rentman.nl>
+	Wed, 16 Sep 2026 21:27:00 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4hlX5R3dNfzKnS3;
+	Wed, 16 Sep 2026 23:26:51 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1789594011;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Awx/qSMJsfDp5YFKo98US/4IxChQqsFBIzOvN17lZ2g=;
+	b=im9OzdkXDGajHZYTNlRcWyDBOZJholJgFLe9R9NjoSNZx9LsAyzSKTgO0N4qur+kW7FVMl
+	6uIO5coBY64vQfHI19PRRAz8r9Y61KHNE6QiQXBOcvFp54qBdKnAzCwsSvO8p55VtbradN
+	33PYThsRqzNNfr20VYG5IlfQc6JXCt7rlPbmPNm5xoXzqioeOqJL32KIFHVpUnS/0jiQSX
+	8xpJezTHawYbzcHWLtZRW+GFNgpbWQiqmU8++1MKJIlx9JIC/2D0g2/fomqOwWBXQ7Kslt
+	FsGHAhDPfX4KALihngTSnIZepHa4d+JYfNWSUo4Q47NSqAHusHdRhSPxJ6RU1g==
+Message-ID: <805629d1-ba2b-4e59-8d29-c374528367f9@mailbox.org>
+Date: Wed, 16 Sep 2026 23:26:47 +0200
 MIME-Version: 1.0
+Subject: Re: [PATCH v2] arm64: dts: renesas: sparrow-hawk: Add overlay for
+ WaveShare 2CH CANFD HAT
+To: Rob Herring <robh@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm
+ <magnus.damm@gmail.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+References: <20260909151423.28358-1-marek.vasut+renesas@mailbox.org>
+ <CAMuHMdVVcbwz1OK9tL9zn5RR_4YyML6++OUVUgmswPpaxdmRSA@mail.gmail.com>
+ <34f4c088-5268-4add-aef4-33b3d3623c12@mailbox.org>
+ <CAL_JsqK8--7X5g4T05Y6bEGzsxrhTq2QyQRpE5E5uHBot3jLWA@mail.gmail.com>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <CAL_JsqK8--7X5g4T05Y6bEGzsxrhTq2QyQRpE5E5uHBot3jLWA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-MBO-RS-META: h3pk3hdfad8iwfsccm1r6mrg3escspem
+X-MBO-RS-ID: 442b280c29c53d01ed2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_142520_099738_D665930D 
-X-CRM114-Status: UNSURE (   4.32  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260916_142659_017252_6DD4C7F9 
+X-CRM114-Status: GOOD (  13.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,12 +83,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 1 Sep 2026 21:26:25 +0200, Khalil wrote:
-> On Intel LPSS SPI controllers (Cannon Lake and later) with dynamic
+On 9/16/26 10:49 PM, Rob Herring wrote:
+> On Wed, Sep 9, 2026 at 10:55 AM Marek Vasut <marek.vasut@mailbox.org> wrote:
+>>
+>> On 9/9/26 5:31 PM, Geert Uytterhoeven wrote:
+>>
+>> Hello Geert,
+>>
+>>>> +       /*
+>>>> +        * SPI_1 is operated as GPIO SPI, because MSIOF5 can not be
+>>>> +        * muxed on the pins allocated for SPI_1 on this CANFD HAT.
+>>>> +        */
+>>>> +       spi {   /* SPI_1 */
+>>>
+>>> As this lives at the root node, I'd rather change it back to
+>>> spi-ws-2ch-canfd while applying, if you don't mind?
+>> Please make sure the DT schema check does not complain about it,
+>> otherwise it is fine, thank you.
+> 
+> It does complain:
+> 
+>        1 spi-ws-2ch-canfd (spi-gpio): Unevaluated properties are not
+> allowed ('#address-cells', '#size-cells', 'can@0' were unexpected)
+>        1 spi-ws-2ch-canfd (spi-gpio): $nodename:0: 'spi-ws-2ch-canfd'
+> does not match '^spi(@.*|-([0-9]|[1-9][0-9]+))?$'
+> 
+> The 1st warning is a side effect of the 2nd warning.
+> 
+> "spi-1" like the comment says if just "spi" does not work.
+Geert send this fix today:
 
-Tested on an HP EliteBook 8 G1i 14 inch (DMI board 8D8A) with 2x
-CS35L54, together with 2/3 and without 1/3. Details in my reply to the
-cover letter.
+[PATCH] spi: dt-bindings: Relax node name suffixes again
 
-Tested-by: Juan Jimenez Carrero <juan@jimenezcarrero.com>
+Maybe that works too ?
 
