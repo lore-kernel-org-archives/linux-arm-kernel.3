@@ -4,71 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F444C982C1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 23:05:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3387C982C9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 23:10:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mIY3kQ/rqom2CHUFVot9LfFPX3TJilMq8XIt5R0Ja1w=; b=m/VStAewh4e5J01KcxTPEaDOQU
-	nmk3eELoyWFo3LaUUNZs3dIUWvBgqVro2qDXe0Y7zDPdugUDJ4xktc1Icrpuv8QLrxkeWNmIE+Vhn
-	X2kG+rj6WJDvci3t7I3lHGb4CzzlOyEfXPtZSI8X+fiDmD4SDWFl+sb6wNchne3JOax5UCP4+E1j5
-	GY8ibNnFSMJS8wf2iPB/DeX5gqOU66mmRD5+nOS1sSGjlojPUEWM/uw0efMEF2aXZTa70tgueBVzi
-	i9UF716DIK+HhzPi4rJSzjEuknneIUxA+Cqb+5XhL/eDr2sbw6KnfvUewLJelnkkWy8zbrwBnHyoc
-	U43I5UHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=y00T1vmj1UNGlqOvYl58ewkG2IXit9qkBHxOO+JErbk=; b=RhfL9VHyLSoR7v
+	KX2EEJxm/ZRqHaJV4DaJvqh3ll44t8/GJ0JvwJfSW+xfF4PmLSjn9NBhIEtIWYyzxVk/DJM3JnbxN
+	H92zGHOCsEpKxx3djL9Qf51ITfV1gZss7FmuR5OKDzMZZTPA2gT2cVjNs2XyGv9W7laqSaOmdnJgU
+	dwOaAxP7DSbwisHfrljW3eLdMjoaat9kGsfhH9l2C0cJzVz/bo6C3Tc9KTOp70zukohhKI7V05riW
+	5lsxqe1DJqfCJ83waZb5bgbfaf/D+PheqXkbJTZm+GSYX5pI6asjW6UBD24Di/mlsdG+3jM0V5zv2
+	QkArnBMgskdEdp0Gt2jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6ygg-0000000ADkr-166l;
-	Wed, 16 Sep 2026 23:05:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6ygX-0000000ADim-3bMd
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 23:05:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 68C5A1516;
-	Wed, 16 Sep 2026 16:04:56 -0700 (PDT)
-Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DE8323F7B4;
-	Wed, 16 Sep 2026 16:04:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789599900; bh=vi57qo/8SMKA7ce5milDFGhdsFoRJ0qsi5qR9nbde/c=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=pF7L6UA2zHJqy59tQ07hSXxqT0O700GRTGRub53WtpRgDJZIe/eH6oq3DcCXPO+Au
-	 XxRkeTzfwxduIE5+qBdar4R3GY5mZFF8umnXJDTpnjqhS9rWSexjq6MQYN5p3bn+9h
-	 5S+cUqbue86mYNqrS/1zYANFhNVzrABbEhEWc7uI=
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Cc: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Sebastian Ene <sebastianene@google.com>,
-	Itaru Kitayama <itaru.kitayama@fujitsu.com>,
-	Wei-Lin Chang <weilin.chang@arm.com>,
-	stable@vger.kernel.org
-Subject: [PATCH v3 2/2] KVM: arm64: ptdump: Fix shadow ptdump sleep-in-atomic-context problem
-Date: Thu, 17 Sep 2026 00:03:37 +0100
-Message-ID: <20260916230337.4162485-3-weilin.chang@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260916230337.4162485-1-weilin.chang@arm.com>
-References: <20260916230337.4162485-1-weilin.chang@arm.com>
+	id 1x6ylu-0000000AE6p-3ekq;
+	Wed, 16 Sep 2026 23:10:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x6ylt-0000000AE6g-3pZS;
+	Wed, 16 Sep 2026 23:10:34 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5A525601EF;
+	Wed, 16 Sep 2026 23:10:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D482E1F000FF;
+	Wed, 16 Sep 2026 23:10:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789600231;
+	bh=y00T1vmj1UNGlqOvYl58ewkG2IXit9qkBHxOO+JErbk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=kwdgEypZlQDkuCoFOh0C/E21c0yGWzeULgahWnxF1Iu1g+8uMV4XcSCFfZsj9Sy8N
+	 MbtJcyqXbrQaeCQmE05ttgEz2xMI4OMelHLRnlW7kVCX6quKsZJ4wu18xUwMZzd03s
+	 rJwLQDd4CRfL6kdxM/9uqkO2MC+5hjL6noZQ7dPNnfcko+72dvFQEY9Q88lcBacnPu
+	 30D2JY73JbWiXUCZ9mYTAVR0oJP/52ozLf6+/g8XYXFSQcRMjV8aFm3zSiNM5h+cZC
+	 dO7j3GNju0sVIT/SmgOZX90zZEajsBFBLAAPDlYPg+xhlBtbCnEfMIJPlntWdMauRQ
+	 rbOl0fOIZ9u6Q==
+Date: Wed, 16 Sep 2026 18:10:29 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Sangwoo Han <sangwoo.han@nearthlab.com>
+Cc: Thomas Gleixner <tglx@kernel.org>, jim2101024@gmail.com,
+	florian.fainelli@broadcom.com, lpieralisi@kernel.org,
+	kwilczynski@kernel.org, mani@kernel.org, bhelgaas@google.com,
+	bcm-kernel-feedback-list@broadcom.com, robh@kernel.org,
+	linux-pci@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Inochi Amaoto <inochiama@gmail.com>
+Subject: Re: [PATCH] PCI: brcmstb: Reserve only the MSI vectors that are
+ handed out
+Message-ID: <20260916231029.GA988000@bhelgaas>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_160501_991380_1BD62C96 
-X-CRM114-Status: GOOD (  20.05  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <87cxuo3fl9.ffs@fw13>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,162 +72,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Previously we exposed shadow page tables by creating a debugfs ptdump
-file whenever a nested mmu instance gets bound to a new context, and
-deleting the debugfs file whose context was getting unbound.
+On Mon, Sep 07, 2026 at 11:40:34PM +0200, Thomas Gleixner wrote:
+> On Mon, Sep 07 2026 at 11:34, Bjorn Helgaas wrote:
+> > [+cc Thomas, Inochi for MSI expertise]
+> >
+> > I want to revive this thread because I think there's a real problem
+> > here, and we should solve it for all the PCI controller drivers.
+> >
+> > There's nothing brcm-specific about the bitmap alloc/free except the
+> > size of the msi->used bitmap, so I don't want to copy/paste this sort
+> > of fix in all the affected drivers.
+> >
+> > I'd also like to avoid the extra align_mask and
+> > bitmap_find_next_zero_area() followed by manual bitmap_set().
+> > bitmap_find_free_region() already takes care of the alignment and
+> > setting the allocated bits.
+> >
+> > The MSI Multiple Message Enable situation of enabling more vectors in
+> > the device than the driver wants is generic to all devices that
+> > advertise Multiple Message Capable, and I don't think we should have
+> > to deal with this in every host controller driver.
+> 
+> Correct.
+> 
+> > If a driver requests 3 vectors, we have to enable 4 because MSI only
+> > supports power-of-two number of vectors.  This tells the device it is
+> > allowed to use all 4 vectors, and I think the PCI MSI core should
+> > assume they all *will* be used instead of relying on the driver's
+> > claim that it will only use 3.
+> 
+> That's not really a good idea because e.g. the irq affinity stuff relies
+> on the accurate number of interrupts the driver requested with the
+> minvec/maxvec range. We can't magically spread more interrupts than the
+> driver is able/willing to handle.
+> 
+> But we can fix that without changing the consumer side (device drivers)
+> visible behaviour and handle it solely in the core code.
+> 
+>  1) MSI interrupts are special because they have msi_desc::nvec_used >
+>     1, so the allocation and the free path can take care of the power of
+>     two requirement. That just allocates more resources than the driver
+>     wants but they are just memory.
+> 
+>  2) All MSI parent domain implementations should be able to handle
+>     domain_ops::free() with nr_irqs > 1. That's something which can be
+>     trivialy audited.
+> 
+>     I really have no memories why the bulk remove function iterates the
+>     interrupts one by one instead of doing in one go, but this is also
+>     used by non MSI domains, which might have issues with a bulk remove.
+> 
+>     If we establish that all MSI parent domain implementations can
+>     handle the free() callback with nr_irqs > 1, then
+>     irq_domain_free_irqs_hierarchy can check whether
+>     IRQ_DOMAIN_FLAG_MSI_PARENT is set in the domain_flags and avoid the
+>     loop for that case.
+>     
+> Something like the completely untested below.
 
-This turned out to be buggy, as the instance<->context binding process
-is done with the mmu_lock held, and debugfs creation/deletion can sleep.
+Sangwoo, is there any chance you can test this and see whether it
+fixes the issue?
 
-Change the approach and create a shadow ptdump file for each nested mmu
-instead during kvm_vcpu_init_nested(), in a sleepable context. The files
-will be named nested_mmu<index>, and reading it will return the nested
-context's VTTBR, VTCR, and s2 enabled or not before dumping the shadow
-page tables, given the nested mmu is valid.
+If it does, I guess we'll have to ask Thomas to post it with the
+appropriate Signed-off-by, etc.
 
-Fixes: 19e15dc73f0f ("KVM: arm64: nv: Expose shadow page tables in debugfs")
-Reported-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
-Closes: https://lore.kernel.org/kvmarm/aiuF0KSvvv-ZozI1@sm-arm-grace07/
-Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
-Cc: stable@vger.kernel.org
----
- arch/arm64/include/asm/kvm_host.h |  4 ----
- arch/arm64/include/asm/kvm_mmu.h  |  6 ++----
- arch/arm64/kvm/nested.c           |  9 ++++-----
- arch/arm64/kvm/ptdump.c           | 32 +++++++++++++++----------------
- 4 files changed, 21 insertions(+), 30 deletions(-)
-
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index cd9b9d2462f9..db177af9149f 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -217,10 +217,6 @@ struct kvm_s2_mmu {
- 	 */
- 	bool	nested_stage2_enabled;
- 
--#ifdef CONFIG_PTDUMP_STAGE2_DEBUGFS
--	struct dentry *shadow_pt_debugfs_dentry;
--#endif
--
- 	/*
- 	 * true when this MMU needs to be unmapped before being used for a new
- 	 * purpose.
-diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
-index 6eae7e7e2a68..ac2b0637692a 100644
---- a/arch/arm64/include/asm/kvm_mmu.h
-+++ b/arch/arm64/include/asm/kvm_mmu.h
-@@ -392,12 +392,10 @@ static inline bool kvm_supports_cacheable_pfnmap(void)
- 
- #ifdef CONFIG_PTDUMP_STAGE2_DEBUGFS
- void kvm_s2_ptdump_create_debugfs(struct kvm *kvm);
--void kvm_nested_s2_ptdump_create_debugfs(struct kvm_s2_mmu *mmu);
--void kvm_nested_s2_ptdump_remove_debugfs(struct kvm_s2_mmu *mmu);
-+void kvm_nested_s2_ptdump_create_debugfs(struct kvm_s2_mmu *mmu, int idx);
- #else
- static inline void kvm_s2_ptdump_create_debugfs(struct kvm *kvm) {}
--static inline void kvm_nested_s2_ptdump_create_debugfs(struct kvm_s2_mmu *mmu) {}
--static inline void kvm_nested_s2_ptdump_remove_debugfs(struct kvm_s2_mmu *mmu) {}
-+static inline void kvm_nested_s2_ptdump_create_debugfs(struct kvm_s2_mmu *mmu, int idx) {}
- #endif /* CONFIG_PTDUMP_STAGE2_DEBUGFS */
- 
- #endif /* __ASSEMBLER__ */
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index b191365d97cc..41253fe45941 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -124,6 +124,9 @@ int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
- 			return ret;
- 		}
- 
-+		for (i = 0; i < S2_MMU_PER_VCPU; i++)
-+			kvm_nested_s2_ptdump_create_debugfs(&tmp[i], i + kvm->arch.nested_mmus_size);
-+
- 		guard(write_lock)(&kvm->mmu_lock);
- 
- 		for (i = 0; i < S2_MMU_PER_VCPU; i++)
-@@ -837,10 +840,8 @@ static struct kvm_s2_mmu *get_s2_mmu_nested(struct kvm_vcpu *vcpu)
- 	kvm->arch.nested_mmus_next = (i + 1) % kvm->arch.nested_mmus_size;
- 
- 	/* Make sure we don't forget to do the laundry */
--	if (kvm_s2_mmu_valid(s2_mmu)) {
--		kvm_nested_s2_ptdump_remove_debugfs(s2_mmu);
-+	if (kvm_s2_mmu_valid(s2_mmu))
- 		s2_mmu->pending_unmap = true;
--	}
- 
- 	/*
- 	 * The virtual VMID (modulo CnP) will be used as a key when matching
-@@ -854,8 +855,6 @@ static struct kvm_s2_mmu *get_s2_mmu_nested(struct kvm_vcpu *vcpu)
- 	s2_mmu->tlb_vtcr = vcpu_read_sys_reg(vcpu, VTCR_EL2);
- 	s2_mmu->nested_stage2_enabled = vcpu_read_sys_reg(vcpu, HCR_EL2) & HCR_VM;
- 
--	kvm_nested_s2_ptdump_create_debugfs(s2_mmu);
--
- out:
- 	atomic_inc(&s2_mmu->refcnt);
- 
-diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
-index 4ead856c181a..9411d6c2dafb 100644
---- a/arch/arm64/kvm/ptdump.c
-+++ b/arch/arm64/kvm/ptdump.c
-@@ -17,7 +17,7 @@
- 
- #define MARKERS_LEN		2
- #define KVM_PGTABLE_MAX_LEVELS	(KVM_PGTABLE_LAST_LEVEL + 1)
--#define S2FNAMESZ		sizeof("0x0123456789abcdef-0x0123456789abcdef-s2-disabled")
-+#define S2FNAMESZ		sizeof("nested_mmu0000")
- 
- struct kvm_ptdump_guest_state {
- 	struct kvm_s2_mmu	*mmu;
-@@ -173,6 +173,15 @@ static int kvm_ptdump_guest_show(struct seq_file *m, void *unused)
- 		.seq		= m,
- 	};
- 
-+	if (kvm_is_nested_s2_mmu(kvm, mmu)) {
-+		if (kvm_s2_mmu_valid(mmu))
-+			seq_printf(m, "VTCR: 0x%016llx VTTBR: 0x%016llx s2: %s\n",
-+				   mmu->tlb_vtcr, mmu->tlb_vttbr,
-+				   mmu->nested_stage2_enabled ? "enabled" : "disabled");
-+		else
-+			return 0;
-+	}
-+
- 	ret = kvm_pgtable_walk(mmu->pgt, 0, BIT(mmu->pgt->ia_bits), &walker);
- 	if (ret)
- 		return ret;
-@@ -299,26 +308,15 @@ static const struct file_operations kvm_pgtable_levels_fops = {
- 	.release	= kvm_pgtable_debugfs_close,
- };
- 
--void kvm_nested_s2_ptdump_create_debugfs(struct kvm_s2_mmu *mmu)
-+void kvm_nested_s2_ptdump_create_debugfs(struct kvm_s2_mmu *mmu, int idx)
- {
--	struct dentry *dent;
- 	char file_name[S2FNAMESZ];
- 
--	snprintf(file_name, sizeof(file_name), "0x%016llx-0x%016llx-s2-%sabled",
--		 mmu->tlb_vttbr,
--		 mmu->tlb_vtcr,
--		 mmu->nested_stage2_enabled ? "en" : "dis");
--
--	dent = debugfs_create_file(file_name, 0400,
--				   mmu->arch->debugfs_nv_dentry, mmu,
--				   &kvm_ptdump_guest_fops);
-+	snprintf(file_name, sizeof(file_name), "nested_mmu%d", idx);
- 
--	mmu->shadow_pt_debugfs_dentry = dent;
--}
--
--void kvm_nested_s2_ptdump_remove_debugfs(struct kvm_s2_mmu *mmu)
--{
--	debugfs_remove(mmu->shadow_pt_debugfs_dentry);
-+	debugfs_create_file(file_name, 0400,
-+			    mmu->arch->debugfs_nv_dentry, mmu,
-+			    &kvm_ptdump_guest_fops);
- }
- 
- void kvm_s2_ptdump_create_debugfs(struct kvm *kvm)
--- 
-2.43.0
-
+> ---
+> diff --git a/kernel/irq/irqdomain.c b/kernel/irq/irqdomain.c
+> index 4fdcb6df5306..b3f6cc6ae2ce 100644
+> --- a/kernel/irq/irqdomain.c
+> +++ b/kernel/irq/irqdomain.c
+> @@ -1611,6 +1611,13 @@ static void irq_domain_free_irqs_hierarchy(struct irq_domain *domain,
+>  	if (!domain->ops->free)
+>  		return;
+>  
+> +	/* CHECKME: Are all MSI parent domains capable ? */
+> +	if (domain->flags & IRQ_DOMAIN_FLAG_MSI_PARENT) {
+> +		if (irq_domain_get_irq_data(domain, irq_base))
+> +			domain->ops->free(domain, irq_base, nr_irqs);
+> +		return;
+> +	}
+> +
+>  	for (i = 0; i < nr_irqs; i++) {
+>  		if (irq_domain_get_irq_data(domain, irq_base + i))
+>  			domain->ops->free(domain, irq_base + i, 1);
+> diff --git a/kernel/irq/msi.c b/kernel/irq/msi.c
+> index fb5f372215bf..2835b09899ea 100644
+> --- a/kernel/irq/msi.c
+> +++ b/kernel/irq/msi.c
+> @@ -1333,20 +1333,28 @@ static int __msi_domain_alloc_irqs(struct device *dev, struct irq_domain *domain
+>  
+>  		ops->set_desc(&arg, desc);
+>  
+> -		virq = __irq_domain_alloc_irqs(domain, -1, desc->nvec_used,
+> +		/* Make sure a MULTI-MSI allocation is power of two */
+> +		unsigned int nvec_aligned = roundup_pow_of_two(desc->nvec_used);
+> +
+> +		virq = __irq_domain_alloc_irqs(domain, -1, nvec_aligned,
+>  					       dev_to_node(dev), &arg, false,
+>  					       desc->affinity);
+>  		if (virq < 0)
+>  			return msi_handle_pci_fail(domain, desc, allocated);
+>  
+> -		for (i = 0; i < desc->nvec_used; i++) {
+> +		for (i = 0; i < nvec_aligned; i++) {
+>  			irq_set_msi_desc_off(virq, i, desc);
+>  			irq_debugfs_copy_devname(virq + i, dev);
+>  			ret = msi_init_virq(domain, virq + i, vflags);
+>  			if (ret)
+>  				return ret;
+>  		}
+> +
+>  		if (info->flags & MSI_FLAG_DEV_SYSFS) {
+> +			/*
+> +			 * This only exposes desc->nvec_used and ignores the
+> +			 * overallocated MULTI-MSI ones.
+> +			 */
+>  			ret = msi_sysfs_populate_desc(dev, desc);
+>  			if (ret)
+>  				return ret;
+> @@ -1610,13 +1618,15 @@ static void __msi_domain_free_irqs(struct device *dev, struct irq_domain *domain
+>  			continue;
+>  
+>  		/* Make sure all interrupts are deactivated */
+> -		for (i = 0; i < desc->nvec_used; i++) {
+> +		unsigned int nvec_aligned = roundup_pow_of_two(desc->nvec_used);
+> +
+> +		for (i = 0; i < nvec_aligned; i++) {
+>  			irqd = irq_domain_get_irq_data(domain, desc->irq + i);
+>  			if (irqd && irqd_is_activated(irqd))
+>  				irq_domain_deactivate_irq(irqd);
+>  		}
+>  
+> -		irq_domain_free_irqs(desc->irq, desc->nvec_used);
+> +		irq_domain_free_irqs(desc->irq, nvec_aligned);
+>  		if (info->flags & MSI_FLAG_DEV_SYSFS)
+>  			msi_sysfs_remove_desc(dev, desc);
+>  		desc->irq = 0;
 
