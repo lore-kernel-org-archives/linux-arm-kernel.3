@@ -4,129 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4161BC88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 09:51:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B385C88E5C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 09:51:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MNrtt7QAjnKfCZfemi/DOxqaTqOYXDgqMMH9wuegbsE=; b=wRpXdlj5FOOHCrz2S4eaJ7cglv
-	Sul2rwbT3CpaCpA4XMuaTmM0kYNkgpWWBRQ4JGHhUFnSszz1ecvAs4tny+uQ04iuhgK+Drsel6z09
-	kfebdgVnTPC7Q+VwKjP8wUjAQ17iqqsdIL1VWRkNPFlhu0QUGODG9FWO3SH8WVM903tUtlR+zCgPp
-	C5MO+TjEwprLfUjtRNkPMRwL0g6buQoSOK1mQ2Nm0py9nZfr3WRjEFPsMODZ5hYB0dnr1twsuFvTj
-	sRjGD4QDT3VcapOD4iYO3XGn8anvLoAV/SKmjPxUX8SpQLW2zoiVM0z6bIScJv5/GQStKQQfNd5QV
-	Wg4oUNHA==;
+	bh=QL6jKas1cmdLyBHfqWeojKDHQRuRtzuhcu/gUwSMtHk=; b=Xrysc3AWPqFgVrSrHJmtflacse
+	sEhevXABM5NB3RCEi1Z5CSAKfU0l3GiLN0ORWjNOqJx7dV1ovZ7CEt+oVPTMV2U7RnLogy3OmtJdm
+	y/gERQGnxxLcnM8Lypx7ZnoklaBWsB+WKSmjNhntJnm5l9aswXFKLQiGpXq7Dpkno2Cta2xfwksmH
+	D5XV3mzRlT9f0mNNXyp/0HvkWjuD/q27nP0UZSz9g1bZnrtydCooynGN/GppQEWab+x7EpS00d+oE
+	BWFrckeUfijgskPukYLsIuPvb00JAkkGjPV/p7ZDqRbBGKsZQY4m0OfZkyg+E0Apl3EPVdcYAjNwe
+	bb2QOsoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6mI5-00000008tij-2sAn;
-	Wed, 16 Sep 2026 09:50:57 +0000
-Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
+	id 1x6mIP-00000008tpw-3rFx;
+	Wed, 16 Sep 2026 09:51:18 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6mHz-00000008tgH-104Q
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 09:50:56 +0000
-Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-482f6350f88so370722f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 02:50:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1789552249; x=1790157049; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:organization
-         :autocrypt:content-language:references:cc:to:subject:reply-to:from
-         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=MNrtt7QAjnKfCZfemi/DOxqaTqOYXDgqMMH9wuegbsE=;
-        b=Ufhr+JWf5aHXYYsMsQfoYc2+m/2DDPY01TXXratjAqqjMTCKP0bv0LjZmw8WKQhJj8
-         SjlWYfPWq/fLjkRVrY3tNolJsfHv7XF5OvP322tGZcdZvq7aBr37b6j1hRRhXMkBjb/A
-         rRBkb9ZyxBch0x6RcqGL1al4mLQoWzYriNDCLt3wb4C09/dE+SaXItMoYgECq5HfMZyL
-         wTeO5inxoreqjIbUeLll4t6s5n4HsC8VkiVH0NVd9bpzMUrcjwaR+C6hJZEbAQByBrWh
-         imAoV4qyCY+Jd6qV070CWHtUvJFIPNZLkI2Jq19xbVFljJAF1oouYKJA5nwe1Rm3pDl6
-         EjLg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789552249; x=1790157049;
-        h=content-transfer-encoding:content-type:in-reply-to:organization
-         :autocrypt:content-language:references:cc:to:subject:reply-to:from
-         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=MNrtt7QAjnKfCZfemi/DOxqaTqOYXDgqMMH9wuegbsE=;
-        b=gJ4+KUiGGkDeQovHsZ9dOYYBbvZtaLV7R3QBOqtdv1a9Rt64m8DsyX2nlOcEsDDo25
-         1tsrFR9qPhPx9Ey4yPs61kZYgWcVbLnKxLQJQbqA3XcGXNJ+Fwl+4mtIadDAB/S6SK8Z
-         hPKh+5x5Rv/2cfIny/dlZIPzfMlZEJxLaqL2A18GzxeTwI0GV+Q33IchOERi7wYN0daz
-         N8gmaA/LFGCaVGO4eQBe0xHp+/Z74bG3maZBTtfxnwKVp9ar1YyVXJ/lB4mgnKkV84kR
-         aoaeXxhDKEWhykW9m9hRxb20ssSu/v+svw13BweCgqgSoOPCKqQYRE4rpY5Zzn4SrDxD
-         hFBA==
-X-Forwarded-Encrypted: i=1; AKwUvBweM6+8fDOeVCejMi2bPkdKrTs/CvIHGfwFnCMQaUGGrAZf4IeL6gDLS/DQBVyRGv6egRPIOqRO73Ffq5hE82sn@lists.infradead.org
-X-Gm-Message-State: AFuF++kq9KZXmVrLLNCzSrBQtux/484uXp/YUOGnv4SHkNavtte/BCgF
-	VGyiAa3cB/r9YqeOIePxY8dv0ZUi2kmVIrLIL3RWeN+bPnkW1avCEEGhAscgPkCL8A0=
-X-Gm-Gg: AYBFou2wSz7Ps/Yu5jZw28nolJY4+5/OJJproBAuKUp3vycqS6M/cALJKIDI4GKC0hy
-	3Qd/pdKcG/aQAyK8K+WUrpv/Gojw3OO0GB4H6xp9Rw46W9X6rUjKWaPUOX+RDues7k4RrWlKNce
-	2RCOCJuMywQZiz0q1Xq/S/FWW069OWWgvUy2fw43Cs323bxhWuEhNKdGFwlWUVW+Y/fqsoBiKf5
-	WFtiWuhlfpoBwKlNGixnxdbcKKegEhGgDyAkWFfemazr+jyXF4zKaBymFbc1wI4vlyMj+SyrMst
-	/6Xha3J+NmWV71YOIHwn46ysHnRMhQplCPS/u/y4baYz13ar5TFrXW2TKvZ7VChtjRPUt3UuNLY
-	n1zUMNuyQrEJyGLozFEX5Tc7OF/m5yVBBqLCrLcpBT8xdB9xHhurrwducJBMLu6EWraexa8XjL0
-	9ZOYH31z5sWMwawJKgersK4IfHtM19Zc08sjJ5vwLn239mG8Qx9MnRxdH5qaqHGgkCgCB1pjCjK
-	MfsywGPAYL64zXrP8HzvhCQAOP1oRtX44G9PeTWRbolCaUs/3yeeA==
-X-Received: by 2002:a5d:64e2:0:b0:487:ae0:6459 with SMTP id ffacd0b85a97d-4870d169884mr2405331f8f.40.1789552248673;
-        Wed, 16 Sep 2026 02:50:48 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:106d:1080:449b:f2fb:7cc4:bd4e? ([2a01:e0a:106d:1080:449b:f2fb:7cc4:bd4e])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4870bef7642sm5657003f8f.5.2026.09.16.02.50.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 16 Sep 2026 02:50:48 -0700 (PDT)
-Message-ID: <af593f11-9334-4206-8006-cadd9d5c15c2@linaro.org>
-Date: Wed, 16 Sep 2026 11:50:47 +0200
+	id 1x6mIG-00000008tls-0RHN;
+	Wed, 16 Sep 2026 09:51:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1789552268; x=1821088268;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=UIwWPNKRQ8FW7Bu3jbEPy9yWyv1Y+CRFZBuPobR95d0=;
+  b=WSIipDdzxEAMVRuShekuIWphl5WaGPdtNe7r7XOzARhPxXJdkm1gvB+Y
+   JkKbAaNka2+L3d7S1+/l+VHAqLbCZ4R3gf7UhEO9wj1SW9E2klbkkfP08
+   UyHoxH3aiEj9o+zMidCkHaAqxWOCcvyBuLxaR6OMY4zzmCoZGqMjNkXow
+   86bPdJ6ubGycuZWHSPqcPgeE4IOhhLr9c+ppx95GkF8SKAWrwNoDBEbAs
+   KFRbvhqNMyxuVfjpixjI1vFhYHLXTvF4ORX9FhsN5qDiO/LpZxGi8jH1O
+   bzeYlXqPCwa644GVT1HMWH49fWeNY4++MOMh2qpXo6ZmiITYwH1Lwh/Lw
+   g==;
+X-CSE-ConnectionGUID: F2KUMXLjTGikjIni6oSIUg==
+X-CSE-MsgGUID: 1u4U3+ArRBGAXsSI4Uyw/Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="101270152"
+X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
+   d="scan'208";a="101270152"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Sep 2026 02:51:06 -0700
+X-CSE-ConnectionGUID: KfvqFqviTauBpXirtJ5MXw==
+X-CSE-MsgGUID: RK56W2AkRI2hfojlaoS2QQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
+   d="scan'208";a="267080866"
+Received: from ettammin-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.145])
+  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Sep 2026 02:51:01 -0700
+Date: Wed, 16 Sep 2026 12:50:58 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Ryan Brue <ryanbrue.dev@gmail.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Lee Jones <lee@kernel.org>, linux-iio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, mfd@lists.linux.dev,
+	Roman Vivchar <rva333@protonmail.com>,
+	Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Subject: Re: [PATCH 0/3] iio: adc: add mt6397 PMIC AUXADC support
+Message-ID: <aqpmgliQW7FW53o5@ashevche-desk.local>
+References: <20260915-rbrue-suez-upstreaming-mt6397-auxadc-v1-0-d35d2ac3d6f0@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH v2 0/4] amlogic: t7: give the MMC bus pipeline clock real
- consumers
-To: Lucas Tanure <tanure@linux.com>,
- Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Cc: Ulf Hansson <ulfh@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>,
- Kevin Hilman <khilman@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
- Chuan Liu <chuan.liu@amlogic.com>, Jian Hu <jian.hu@amlogic.com>,
- Ronald Claveau <linux-kernel-dev@aliel.fr>, linux-mmc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260905153234.133217-1-tanure@linux.com>
- <CAPx+jO8oWZxgkWTv3v5odp8K2oWMY-KhJVR3U+iqY4mQ9LrG9w@mail.gmail.com>
- <dbf50a87-cf43-452d-8a82-6d7ee9af02a6@linux.com>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <dbf50a87-cf43-452d-8a82-6d7ee9af02a6@linux.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260915-rbrue-suez-upstreaming-mt6397-auxadc-v1-0-d35d2ac3d6f0@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_025051_300520_4BD1EE73 
-X-CRM114-Status: GOOD (  15.54  )
+X-CRM114-CacheID: sfid-20260916_025108_193094_816F1C68 
+X-CRM114-Status: GOOD (  10.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,74 +93,22 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/15/26 17:55, Lucas Tanure wrote:
-> On 11/09/2026 16:40, Ulf Hansson wrote:
->> On Sat, Sep 5, 2026 at 5:32 PM Lucas Tanure <tanure@linux.com> wrote:
->>>
->>> The previous series for the intermittent boot hangs on the VIM4
->>> marked sys_ampipe_nand as critical. But as Chuan Liu from Amlogic
->>> explained, sys_ampipe_nand clocks a pipeline stage that the
->>> hardware design inserts in the bus path between the SD/eMMC
->>> controllers and the NIC_MATRIX fabric to help timing closure.
->>>
->>> So the clock has real consumers: reference it from the three MMC
->>> controller nodes and drop CLK_IS_CRITICAL instead.
->>>
->>> The series crosses three trees; patch 4 (clk) must only land after
->>> patches 1-3, otherwise the DMA hangs fixed by 43e1705ecab9 come back.
->>>
->>> Changes since v1 [3]:
->>>   - Dropped the Fixes: tag; this series is an improvement and should not
->>>     be picked up by stable (Jerome Brunet)
->>>   - Moved the patch 4 dependency note below the --- so it is not kept
->>>     for posterity (Jerome Brunet)
->>>   - Dropped the e-mail address from the Assisted-by trailer, see
->>>     Documentation/process/coding-assistants.rst (Jerome Brunet)
->>>   - Fixed the space-indented error path added to meson_mmc_probe() in
->>>     patch 2, it did not pass checkpatch
->>>   - Dropped the CLK_PIPELINE() macro from patch 2; has_pipeline_clk is a
->>>     capability flag, not an SD_EMMC_CLOCK register field
->>>
->>> Thanks,
->>> Lucas
->>>
->>> Lucas Tanure (4):
->>>    dt-bindings: mmc: amlogic,meson-gx-mmc: document the T7 pipeline clock
->>>    mmc: meson-gx: enable the bus pipeline clock on T7
->>>    arm64: dts: amlogic: t7: add the pipeline clock to the MMC controllers
->>>    clk: meson: t7: don't mark sys_ampipe_nand as critical
->>>
->>>   .../bindings/mmc/amlogic,meson-gx-mmc.yaml    | 29 ++++++++++++++++++-
->>>   arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi   | 15 ++++++----
->>>   drivers/clk/meson/t7-peripherals.c            | 10 +++----
->>>   drivers/mmc/host/meson-gx-mmc.c               | 20 +++++++++++++
->>>   4 files changed, 62 insertions(+), 12 deletions(-)
->>>
->>> -- 
->>> 2.55.0
->>>
->>
->> Patch 1 and patch2 applied for next, thanks!
->>
->> Kind regards
->> Uffe
-> Hi Neil,
-> 
-> Any chance you could queue patch 3 for this cycle? Patch 2 is already in
-> next, and until the DTS lands the MMC probe fails on T7 with "missing
-> pipeline clock".
+On Tue, Sep 15, 2026 at 11:15:25PM -0500, Ryan Brue wrote:
+> The MediaTek mt6397 PMIC has a 10-bit AUXADC that nothing in-tree can
+> reach. On boards built around it that ADC is the only path to the battery:
+> the SoC's AUXADC is wired to board thermistors, and the charger ICs these
+> boards use have no ADC at all, so without it there is no pack voltage and
+> no state of charge.
 
-Done !
+This doesn't explain why a brand new driver? Perhaps we have existing code that
+may be updated to support this device?
 
-Thanks,
-Neil
+-- 
+With Best Regards,
+Andy Shevchenko
 
-> 
-> Thanks
-> Lucas
 
 
