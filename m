@@ -4,77 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A707C982CD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:40:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6B77C982C9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:40:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+CcYzq1fPBKkeFjAunrawbz06tsDi+w7l4bgn1rNWTU=; b=nSQi/YoHDHzgT+y+LtcmtdWYm9
-	kdDDG7Y+RDs+NXL4hDN/dId3lnOUil3K63MtMDcbRnDUDwmST5ovNP/SOPmcwErTGeOLvlH+9IDK4
-	jwnwNeuL4jy4mMkuXgLrfAVWK6eDK64ULgbKdPUdok4uxujT715SWbjL6+YZI2gRA7JWUAtPygQDj
-	576fy8pk2r/CyZQBFUjqqPTmO3i5KDB9BdWqsIyqX8OGM+hzF0tM9bZbIN3lgnUbmmTTGMWyUrQ+4
-	MVqHQJtIE1ruS82N61DxVMrpz4jchf13bVawdJP/syav7qIwWnFFUDIxFpnqPc9vX9L251e2j0V47
-	q2awdOXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DEjxJKXaAGxplJW4QgiS1iOmL+hx3WIbZcxYAGZIJ4Y=; b=n28Xq13Bs5mSX91O4seQfr/lMs
+	sJe92dCTWgqCKsO5LKhOQKws6uV9ROwXOO/8a8Bx0IrU+3abkG5xqzwDVNBXNBnXvpSa+8/sQ8n3A
+	qRcI7F2gV2wbPyHTibISs13rYeXk6Lop7Aj6fbma2GPnGDgYf/gJfmMdnxm9soLVhxu/xr+IIPFAI
+	BLyiwS8d+lzMsRMJMQd8V8dzeBnrNN5h6ys2c39WCrqNZeLSEwZEPpqduCmj/d4HjQbvy9Y3tEdlH
+	3tx9GgsLV9sKXCPEvcq+IagjC4soZ/BFWsZK5uY9uLIH/z+ybN8JgUfhKARuenjyRdcIPcnRnhq6/
+	Qjk/L7Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rjw-00000009byW-1PBN;
-	Wed, 16 Sep 2026 15:40:04 +0000
-Received: from m16.mail.163.com ([117.135.210.2])
+	id 1x6rjx-00000009c0T-2ZTC;
+	Wed, 16 Sep 2026 15:40:05 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rjn-00000009boA-3LrQ;
-	Wed, 16 Sep 2026 15:39:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=+C
-	cYzq1fPBKkeFjAunrawbz06tsDi+w7l4bgn1rNWTU=; b=Iwjw8jhDmstaC72nRm
-	WmlNYw2GD3Nnzb13EYpSEXZ5CL5Y5iow7+ve5z3uIgFAwybzkiE6G0y7kOMUgJr9
-	Wa9H1KnPSwrB+4gkX94+XfIeiAv3lRXLYFfDwpgFbXrnDKBRuhAiqJfqGQj5GeOn
-	znutz6hKemPIM1Q2xikS210eg=
-Received: from zhb.. (unknown [])
-	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wDnbxQduKpqGzAlBA--.54876S5;
-	Wed, 16 Sep 2026 23:39:13 +0800 (CST)
-From: Hans Zhang <18255117159@163.com>
-To: lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	bhelgaas@google.com,
-	helgaas@kernel.org,
-	heiko@sntech.de,
-	mani@kernel.org,
-	yue.wang@Amlogic.com
-Cc: pali@kernel.org,
-	neil.armstrong@linaro.org,
-	robh@kernel.org,
-	jingoohan1@gmail.com,
-	khilman@baylibre.com,
-	jbrunet@baylibre.com,
-	martin.blumenstingl@googlemail.com,
-	cassel@kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Hans Zhang <18255117159@163.com>
-Subject: [PATCH v9 3/3] PCI: dwc: Remove redundant MPS configuration
-Date: Wed, 16 Sep 2026 23:39:07 +0800
-Message-Id: <20260916153907.60344-4-18255117159@163.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260916153907.60344-1-18255117159@163.com>
-References: <20260916153907.60344-1-18255117159@163.com>
+	id 1x6rjq-00000009bsV-1lYI
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 16 Sep 2026 15:39:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1789573198; x=1821109198;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=do7fs/RqIazZyqQPcXOJDXYuoCBird5b0yM0GMe8rv8=;
+  b=K3IiCsviL9TPrGqOrMwG7H+VOH3g32ZNcPCrNt8CPyhHi11m6EjtjEeu
+   XXRfDswXa+OjO5cLSr5cp6rxtE2ydKGFj2JyPiQdT66u2xxYiDcU0YVBX
+   PQbV26Pq4izWhUZqeYFcC8oQ+gLL6pq3rDAb7yvbz202/8FTGGNN14ezZ
+   ldiTMnUmotE5P2c3l8tt2lw6ph/zV3rizZo3j9pFUuRVFYqQmLYLN6Rk4
+   amYohvHVf8BfaKZO0+HqCqVn5kphXGQogye0LhbRcqoVSCyP5Ou419rEj
+   Aqpvfd1vpiK/laLyqL48Mj8rAxwfJrSMqKRId/qIyd24kUE5IRDPNCSdh
+   A==;
+X-CSE-ConnectionGUID: C85HLp+yRPyW05u/BQW1lw==
+X-CSE-MsgGUID: L+rdNt62QJ27qlvuLOcYGQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="93656708"
+X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
+   d="scan'208";a="93656708"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Sep 2026 08:39:57 -0700
+X-CSE-ConnectionGUID: hKF6xc+KSeSiJwBW663bRQ==
+X-CSE-MsgGUID: 2yn5LcLKSd+cphrjWLOTJg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
+   d="scan'208";a="272903448"
+Received: from ettammin-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.145])
+  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Sep 2026 08:39:54 -0700
+Date: Wed, 16 Sep 2026 18:39:52 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Olivier Moysan <olivier.moysan@foss.st.com>,
+	linux-iio@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Sashiko <sashiko-bot@kernel.org>, stable@vger.kernel.org
+Subject: Re: [PATCH v2] iio: adc: stm32-adc: fix possible division by zero in
+ processed channel
+Message-ID: <aqq4SD2eR9tDQ0aj@ashevche-desk.local>
+References: <20260916-adc-fix-div0-v2-1-f702d3ed782c@foss.st.com>
+ <aqqqCf6mQPMoKZRj@ashevche-desk.local>
+ <538c8203-3880-47aa-ba4e-014a345b3cb9@foss.st.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wDnbxQduKpqGzAlBA--.54876S5
-X-Coremail-Antispam: 1Uf129KBjvJXoWxury8Kr15XF43Gw4ftrWkWFg_yoW5trWfpF
-	y3WF4vkF4rJr45Wr4qkan5Ca13tFnxAr17Jr9rWw4Sv3ZIyFsrJa4akFWFk3yxXrWDWF9Y
-	krn8Gr48Z3Wrtr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0ziBT5dUUUUU=
-X-Originating-IP: [240e:b8f:91b3:d000:a95a:12fc:887a:b0f1]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbC6wF7H2qquCHiEAAA3l
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <538c8203-3880-47aa-ba4e-014a345b3cb9@foss.st.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_083956_207088_52899485 
-X-CRM114-Status: GOOD (  11.80  )
+X-CRM114-CacheID: sfid-20260916_083958_637820_98D1BA38 
+X-CRM114-Status: GOOD (  19.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,99 +96,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Meson PCIe controller driver manually configures maximum payload
-size (MPS) through meson_set_max_payload, duplicating functionality now
-centralized in the PCI core.  Deprecating redundant code simplifies the
-driver and aligns it with the consolidated MPS management strategy,
-improving long-term maintainability.
+On Wed, Sep 16, 2026 at 05:20:48PM +0200, Fabrice Gasnier wrote:
+> On 9/16/26 16:39, Andy Shevchenko wrote:
 
-With meson_set_max_payload() gone, meson_size_to_payload() is only used
-for MRRS.  Rename it to meson_size_to_mrrs(), update the warning message,
-and drop the now-unused PCIE_CAP_MAX_PAYLOAD_SIZE and MAX_PAYLOAD_SIZE
-macros.
+[ snip ]
 
-Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
-Signed-off-by: Hans Zhang <18255117159@163.com>
----
- drivers/pci/controller/dwc/pci-meson.c | 25 +++----------------------
- 1 file changed, 3 insertions(+), 22 deletions(-)
+> > Let's look at the current code in this switch-case
+> 
+> Thanks for you suggestions !
+> 
+> Let's keep in the picture the 'normal' raw case:
 
-diff --git a/drivers/pci/controller/dwc/pci-meson.c b/drivers/pci/controller/dwc/pci-meson.c
-index 8559d132dcde..1d3687566dda 100644
---- a/drivers/pci/controller/dwc/pci-meson.c
-+++ b/drivers/pci/controller/dwc/pci-meson.c
-@@ -21,7 +21,6 @@
- 
- #define to_meson_pcie(x) dev_get_drvdata((x)->dev)
- 
--#define PCIE_CAP_MAX_PAYLOAD_SIZE(x)	((x) << 5)
- #define PCIE_CAP_MAX_READ_REQ_SIZE(x)	((x) << 12)
- 
- /* PCIe specific config registers */
-@@ -37,7 +36,6 @@
- #define PM_CURRENT_STATE(x)		(((x) >> 7) & 0x1)
- 
- #define PORT_CLK_RATE			100000000UL
--#define MAX_PAYLOAD_SIZE		256
- #define MAX_READ_REQ_SIZE		256
- #define PCIE_RESET_DELAY		500
- #define PCIE_SHARED_RESET		1
-@@ -256,7 +254,7 @@ static void meson_pcie_ltssm_enable(struct meson_pcie *mp)
- 	meson_cfg_writel(mp, val, PCIE_CFG0);
- }
- 
--static int meson_size_to_payload(struct meson_pcie *mp, int size)
-+static int meson_size_to_mrrs(struct meson_pcie *mp, int size)
- {
- 	struct device *dev = mp->pci.dev;
- 
-@@ -266,35 +264,19 @@ static int meson_size_to_payload(struct meson_pcie *mp, int size)
- 	 * than 2^12, just set to default size 2^(1+7).
- 	 */
- 	if (!is_power_of_2(size) || size < 128 || size > 4096) {
--		dev_warn(dev, "payload size %d, set to default 256\n", size);
-+		dev_warn(dev, "MRRS %d, set to default 256\n", size);
- 		return 1;
- 	}
- 
- 	return fls(size) - 8;
- }
- 
--static void meson_set_max_payload(struct meson_pcie *mp, int size)
--{
--	struct dw_pcie *pci = &mp->pci;
--	u32 val;
--	u16 offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
--	int max_payload_size = meson_size_to_payload(mp, size);
--
--	val = dw_pcie_readl_dbi(pci, offset + PCI_EXP_DEVCTL);
--	val &= ~PCI_EXP_DEVCTL_PAYLOAD;
--	dw_pcie_writel_dbi(pci, offset + PCI_EXP_DEVCTL, val);
--
--	val = dw_pcie_readl_dbi(pci, offset + PCI_EXP_DEVCTL);
--	val |= PCIE_CAP_MAX_PAYLOAD_SIZE(max_payload_size);
--	dw_pcie_writel_dbi(pci, offset + PCI_EXP_DEVCTL, val);
--}
--
- static void meson_set_max_rd_req_size(struct meson_pcie *mp, int size)
- {
- 	struct dw_pcie *pci = &mp->pci;
- 	u32 val;
- 	u16 offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
--	int max_rd_req_size = meson_size_to_payload(mp, size);
-+	int max_rd_req_size = meson_size_to_mrrs(mp, size);
- 
- 	val = dw_pcie_readl_dbi(pci, offset + PCI_EXP_DEVCTL);
- 	val &= ~PCI_EXP_DEVCTL_READRQ;
-@@ -363,7 +345,6 @@ static int meson_pcie_host_init(struct dw_pcie_rp *pp)
- 
- 	pp->bridge->ops = &meson_pci_ops;
- 
--	meson_set_max_payload(mp, MAX_PAYLOAD_SIZE);
- 	meson_set_max_rd_req_size(mp, MAX_READ_REQ_SIZE);
- 
- 	return 0;
+Ah, an important detail!
+
+> 	case IIO_CHAN_INFO_RAW:
+> > 	case IIO_CHAN_INFO_PROCESSED:
+> > 		if (!iio_device_claim_direct(indio_dev))
+> > 			return -EBUSY;
+> > 		if (chan->type == IIO_VOLTAGE)
+> > 			ret = stm32_adc_single_conv(indio_dev, chan, val);
+> > 		else
+> > 			ret = -EINVAL;
+> > 
+> > 		if (mask == IIO_CHAN_INFO_PROCESSED)
+> > 			*val = STM32_ADC_VREFINT_VOLTAGE * adc->vrefint.vrefint_cal / *val;
+> > 
+> > 		iio_device_release_direct(indio_dev);
+> > 		return ret;
+> > 
+> > In the previous version you were trying to keep goto-less approach.
+> > However in the current state of affairs I don't think the goto is
+> > too bad (after all we need to backport this to the kernels that may
+> > not have IIO_DEV_ACQUIRE_DIRECT_MODE() macro).
+> > 
+> > Also checking 'ret' under another condition seems unusual.
+> > 
+> > What about
+> > 
+> > 	case IIO_CHAN_INFO_PROCESSED:
+> > 		if (!iio_device_claim_direct(indio_dev))
+> > 			return -EBUSY;
+> > 		if (chan->type == IIO_VOLTAGE)
+> > 			ret = stm32_adc_single_conv(indio_dev, chan, val);
+> > 		else
+> > 			ret = -EINVAL;
+> > 		iio_device_release_direct(indio_dev);
+> > 		if (ret)
+> > 			return ret;
+> > 
+> > 		if (*val == 0)
+> > 			return -EINVAL;
+> 
+> So *val == 0 is normally a valid value, for 'normal' raw channels.
+> 
+> > 		if (mask == IIO_CHAN_INFO_PROCESSED)
+> > 			*val = STM32_ADC_VREFINT_VOLTAGE * adc->vrefint.vrefint_cal / *val;
+> 
+> With you suggestion, moving if (*val == 0) to here should be fine ?
+
+Yep.
+
+> 		if (mask == IIO_CHAN_INFO_PROCESSED) {
+> 			if (*val == 0)
+> 				return -EINVAL;
+> 			*val = STM32_ADC_VREFINT_VOLTAGE * adc->vrefint.vrefint_cal / *val;
+> 		}
+> 
+> > 		return 0;
+> > 
+> > ? (Yes, we leave that line untouched, but we get the change cleaner.)
+
 -- 
-2.34.1
+With Best Regards,
+Andy Shevchenko
+
 
 
