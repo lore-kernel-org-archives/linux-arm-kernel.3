@@ -4,93 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6987C88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 10:51:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30452C88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 10:52:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FNAPLeXvS/tFg50EoyCbm6x82GXfrOBF+R3wO613ajU=; b=0FgpVa4rV6e0ElKpD6aA0W6phV
-	zhAulJx9GkeUaUeL4RRuy+llfSPEUlxP7wK0Q7VjNjyKSflaKBdl2egzcLbR5nJjdliiA3n9pujFg
-	EUg2bzUvqRSwZXKZWpO4pxXOR9eeNHR01JI2uVkHatVtAO+di3GF6mn7FJxwPP1QLkhfrs5S47eVk
-	GrI5Kt1jKqG70YZQFkE3DxU58UO3lKSgUttMLho77axgb2tkJF6tESRbdOfMnh2C0qDOt+K8WOfFm
-	KNFy2UEcLzxbz+k0UkDGrvbemajKNdxOd7nzB+2zQ4s7UO6InpCqnDYAl5vtTOkoiutWV+8seuJ32
-	B7OC1g9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tMa6zFvLf4yWYKXjQgqxzfLhILFoyAQ4PaywI3rafUY=; b=jASnd6+xLJ/+sWMkSMdckKrebC
+	o+S8paHo51L2dDq8ZChYKjCXJIXR7Vc31qIeTSdwPA0+nO2f/p00v8pPAQ8b3OUsNZVMTo63jkp5O
+	ta1SeUPlhQu8PPk2MXHdPCKb4RSI5CNraTIUD3lLggfrVNgBK9yryZX6S9SQAWjm69+dmQqFTdF+b
+	5mOYzGhV4Dl4k/BX0NLj3OFJosASbpIkd75uXSDy45Yr7/DUM+Qis0XPL+fi6lOyRH2n+Xm/GwTGY
+	XHK8z1hs+AE6L4C44YaCoCogPxgoX/JfwVDqwnbZ/Yj9n3PO/lH4TIcDzyKw3TOi8/SDLQL+2Oo1R
+	DT4bE1Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6nEg-000000090cU-3ncs;
-	Wed, 16 Sep 2026 10:51:30 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6nEe-000000090bz-2LPi
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 10:51:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789555888; x=1821091888;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=3dnspZBBhdBbFMeM0WCDXZI0ml0DomVOCTSEv9AUE24=;
-  b=nrSFWzLiOz2fYV8VxWSZ1y6s6XvT9UIUkEvHTxdrHJUBvqA0eXKfky8U
-   +i2ew3SXpBsVPtAE16hcEP2cs3VslMp1xDxHKnajKttzDC5vc8vb+oaBA
-   HVispOqWywsHA4C1EqmX2A2y1UgXe6rTvGwmqtUdJmsQ0LaeZeODnJivL
-   Qc4ga/Wk3h6iduqUukujgi2SybxK1VqBeojG8ezmuD0IHvgtn0jlssOmI
-   uoJZ4cYe/TQXZlcdjD3fikRCFWLPpNlaWQZrIO8QpWo9NxSfeaTrvVWqh
-   igK+3q507JYKGu8oHziI7WiAF2itsbeEMArrWg+k+CBURjMq2xp39iiNm
-   g==;
-X-CSE-ConnectionGUID: W7xbjnUcTpK7kSkPidr1XQ==
-X-CSE-MsgGUID: U1+9FN8OSlGd39GP0gYe+g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="90063475"
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="90063475"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Sep 2026 03:51:27 -0700
-X-CSE-ConnectionGUID: f53uaTkgRHSVd4aHVEbG+w==
-X-CSE-MsgGUID: siQuExozT/yqdlSyeZN/dw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="296795155"
-Received: from ettammin-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.145])
-  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Sep 2026 03:51:21 -0700
-Date: Wed, 16 Sep 2026 13:51:19 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: longzhao@ambarella.com
-Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Long Zhao <zl020895@163.com>,
-	Lee Jones <lee@kernel.org>, mfd@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 11/15] gpio: pl061: add Ambarella register-layout
- variant
-Message-ID: <aqp0pxBOc-amrmCz@ashevche-desk.local>
-References: <20260915-cv75-v5-v7-0-3297d3fbc9c0@ambarella.com>
- <20260915-cv75-v5-v7-11-3297d3fbc9c0@ambarella.com>
+	id 1x6nFs-000000090nN-1KOU;
+	Wed, 16 Sep 2026 10:52:44 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x6nFp-000000090mx-2C6E;
+	Wed, 16 Sep 2026 10:52:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 21DB1152B;
+	Wed, 16 Sep 2026 03:52:34 -0700 (PDT)
+Received: from [192.168.178.100] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 862EB3F882;
+	Wed, 16 Sep 2026 03:52:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789555957; bh=RhduKqcItE584Gog2HHjq9v4nZ1t5cRd+2u1AHvp/Pk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=k+QPQZ+7lFhCUxzwB5qWc/aVin1L+Ty0HMKoeDTdKQNkahM0tK+cYSMFOw9EPXdAo
+	 tX5VERC5gj1tGwCTKOJI9xmdx7BHPsNI6W1G5AhCwLINtZMxU0+AaaM9dXBVOgrIGo
+	 o1IbXWjEdyKMbcLMH+LPLmm7NStwCDN4mFkR0t0o=
+Message-ID: <55538466-2203-42ec-a0bd-b743c04a3b38@arm.com>
+Date: Wed, 16 Sep 2026 12:52:33 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260915-cv75-v5-v7-11-3297d3fbc9c0@ambarella.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/2] arm64: topology: fix arch_freq_get_on_cpu()
+ overflow above 4.19 GHz
+To: Oleg Keri <okerixx@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Sumit Gupta <sumitg@nvidia.com>,
+ Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
+ Beata Michalska <beata.michalska@arm.com>,
+ Russell King <linux@armlinux.org.uk>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
+ Viresh Kumar <viresh.kumar@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, driver-core@lists.linux.dev,
+ linux-pm@vger.kernel.org, jonathan.cameron@oss.qualcomm.com,
+ sibi.sankar@oss.qualcomm.com
+References: <20260910063440.4677-1-okerixx@gmail.com>
+ <20260910063440.4677-2-okerixx@gmail.com>
+Content-Language: en-GB
+From: Dietmar Eggemann <dietmar.eggemann@arm.com>
+In-Reply-To: <20260910063440.4677-2-okerixx@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_035128_664872_C37CAFE7 
-X-CRM114-Status: GOOD (  10.01  )
+X-CRM114-CacheID: sfid-20260916_035241_643483_587AA52F 
+X-CRM114-Status: GOOD (  12.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,22 +83,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 15, 2026 at 07:15:41PM +0800, Long Zhao via B4 Relay wrote:
+On 10.09.26 08:34, Oleg Keri wrote:
 
-> Add a 32-bit, 32-line layout with DAT/DIR/IS/IBE/IEV/IE/MIS/IC plus
-> MASK and ENABLE. Probe unmasks the bank and enables the controller.
-> IRQ type changes also clear the pending bit. This derivative does not
-> need write-after-direction or system suspend save/restore.
-> 
-> Match the part with designer AMBA_VENDOR_AMBARELLA (JEP106 identity
-> 0x68, bit 7 set) and part number 0x061.
+[...]
 
-Yep, this one looks nice now!
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+> index d28438f8b83f..0eca321ff113 100644
+> --- a/arch/arm64/kernel/topology.c
+> +++ b/arch/arm64/kernel/topology.c
+> @@ -245,8 +245,7 @@ int arch_freq_get_on_cpu(int cpu)
+>  	 * (see amu_scale_freq_tick for details)
+>  	 */
+>  	scale = arch_scale_freq_capacity(cpu);
+> -	freq = scale * arch_scale_freq_ref(cpu);
+> -	freq >>= SCHED_CAPACITY_SHIFT;
+> +	freq = (scale * arch_scale_freq_ref(cpu)) >> SCHED_CAPACITY_SHIFT;
+>  	return freq;
+>  }
 
--- 
-With Best Regards,
-Andy Shevchenko
+In task scheduler code we use cap_scale(v, s) for CPU capacity related
+scaling.
 
+We could move its definition from private task scheduler include file
+kernel/sched/sched.h to include/linux/topology.h to be able to use it
+also outside the task scheduler?
+
+Only compile tested on arm64 and x86.
+
+-->8--
+
+diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+index 0eca321ff113..180a7aa97752 100644
+--- a/arch/arm64/kernel/topology.c
++++ b/arch/arm64/kernel/topology.c
+@@ -186,7 +186,6 @@ int arch_freq_get_on_cpu(int cpu)
+      struct amu_cntr_sample *amu_sample;
+      unsigned int start_cpu = cpu;
+      unsigned long last_update;
+-     unsigned int freq = 0;
+      u64 scale;
+
+      if (!amu_fie_cpu_supported(cpu) || !arch_scale_freq_ref(cpu))
+@@ -245,8 +244,7 @@ int arch_freq_get_on_cpu(int cpu)
+      * (see amu_scale_freq_tick for details)
+      */
+      scale = arch_scale_freq_capacity(cpu);
+-     freq = (scale * arch_scale_freq_ref(cpu)) >> SCHED_CAPACITY_SHIFT;
+-     return freq;
++     return cap_scale(arch_scale_freq_ref(cpu), scale);
+ }
+
+ static void amu_fie_setup(const struct cpumask *cpus)
+diff --git a/include/linux/topology.h b/include/linux/topology.h
+index 709a2dcf4c73..0a4ee12a98d5 100644
+--- a/include/linux/topology.h
++++ b/include/linux/topology.h
+@@ -351,4 +351,6 @@ static inline unsigned long
+topology_get_cpu_scale(int cpu)
+
+ void topology_set_cpu_scale(unsigned int cpu, unsigned long capacity);
+
++#define cap_scale(v, s)               ((v)*(s) >> SCHED_CAPACITY_SHIFT)
++
+ #endif /* _LINUX_TOPOLOGY_H */
+diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
+index 6c3ad70e58b8..45796fccdc84 100644
+--- a/kernel/sched/sched.h
++++ b/kernel/sched/sched.h
+@@ -236,8 +236,6 @@ static inline int task_has_dl_policy(struct
+task_struct *p)
+        return dl_policy(p->policy);
+ }
+
+-#define cap_scale(v, s)               ((v)*(s) >> SCHED_CAPACITY_SHIFT)
+-
+ static inline void update_avg(u64 *avg, u64 sample)
+ {
+        s64 diff = sample - *avg;
 
 
