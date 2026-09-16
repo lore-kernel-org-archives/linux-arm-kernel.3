@@ -4,76 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76736C88E7F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 00:11:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89381C88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 00:22:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h0jvqgC79bdg0pdzTtOyCEQHgcIpzw+yLTKCSTLmEGk=; b=FJ3yMYAJyUV2/eVLnvosaMbP4+
-	RVy2iJYB2d5LAAfiXlJ9PKNk7JB/schCWOZGuN5hx+rFS1TEm1FBjNesGn9dbzqveHEnDsHYGlg51
-	NTl4SLuIqMWDfOuf+CgNdnASEZiYMCfGFqNpFXJH+N90VLr1erfxbl8Gv14h/kPt6EsSscJl3lWcN
-	AW6EjaSPhfYWxQfkA9qn3NhcxvSU2l5MGuq17CDmeErXdmlY2UEMt4JcBPdGdaHRBc6PL11ANQnGO
-	+6POT+TSvZuoNrLGWZ5hymRN+U0geaOZY29OMBu75qtEkc5YGAcJmO3KRjsMJCpZMGb246NaqRt5R
-	gQ3XYntA==;
+	bh=H8DSLS94/4rn/IDEYTvnb/3NOSmuiboyBVGoAfDceNw=; b=G/Ohnb5CNw5j3CnNdb5zxKYsvd
+	Qd30A0CmTJvfWdYfF2apDLNusuQ8VDEup7Vk9zEXU3LW78G3sZvZOYWQ/mJR97lP0c/9cSCKwT7LS
+	GI/9liNlds4sDjew4sBQKi9fzDv48JcCVu6FoFeSmdktL4zpMBHSE+9tuGJhJ2b+3J7Uu/pWm0Zug
+	mEvLRpfOJzfe764QoOkG6omIcliSQoz0mc5BIXXJi/qdlJ15Rsbs2i1R8vZ2iQnRaY5s8aMYBRd/Y
+	3/VilCezUpwOO3Vg+kXW+bA5i+WIZMDpAtHsbCAttuX01IpjZ7nJGnCe2LExHDp055bkDihz1Y/Xm
+	KBqIiz3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6dFG-000000085wC-3JQC;
-	Wed, 16 Sep 2026 00:11:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x6dQ3-000000086TG-0y9k;
+	Wed, 16 Sep 2026 00:22:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6dFA-000000085vM-3hFJ;
-	Wed, 16 Sep 2026 00:11:22 +0000
+	id 1x6dQ2-000000086TA-31XR
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 16 Sep 2026 00:22:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2360D444FB;
-	Wed, 16 Sep 2026 00:11:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF13C1F000FF;
-	Wed, 16 Sep 2026 00:11:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2E546433E5;
+	Wed, 16 Sep 2026 00:22:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66CBD1F00893;
+	Wed, 16 Sep 2026 00:22:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789517480;
-	bh=h0jvqgC79bdg0pdzTtOyCEQHgcIpzw+yLTKCSTLmEGk=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=Ybu/t1Q5PHjEuRAqiE1/J148VOgeQo8iYgqqmzI/3iXvFuos5aSOQOLpHXOliNZRG
-	 V9Ceo1ZveZADvGVvuNzgK5B1vAG3A8BKupH2AYbFtcjypMJxLkxlUqlkwf6iViIytd
-	 GhpJmSiPUMs/MIlh7tEKA0PA/atih+k/ElG0HkfPddeCqXsw+r5zrbAVoHvYCcQfa/
-	 R6hmDwp/R+8U8lMOJU+RNqgFudRZYhGogexXbCNTotX/AZ+bQ4OE5EV4HSHEOn/VEE
-	 +HCxUaB912DLsy3MjZZFOKUHd6jzEsmNUXZtGlUx9xEUbJ1j9sIUnDmpIBoIiTilzG
-	 cMLcWkbhcAlHw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 939E7392706C;
-	Wed, 16 Sep 2026 00:10:15 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20260515; t=1789518154;
+	bh=H8DSLS94/4rn/IDEYTvnb/3NOSmuiboyBVGoAfDceNw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=FemkOq0Cn++Rtx1GJ2eUSVXAfe6MyPicArFasJFuqHZgwSVWAp53cdkoCx5f/63cT
+	 shPokNu2TsUSWSNW/WCLm9QAB7Ov+0sCMaAtrLUeR2YKNwAlOwhRT2She0oZfQhiwG
+	 cGY8qvxYkpAApkOGVj4rUJrSIbghNY7endSgCyJmAbe9V4C9BjKXggM98XB5MWXUzZ
+	 GZpFF46WwlYgeqpJtqPhHYy28AXSPOcYQ/vuFGcoMHVqQMjFmGOKkRnWy1vA30KWZx
+	 l+ZACWWDaZ3ayDG6Gax8c0mXqPgaTBCkHxscSItqjDXeSvUwmx0qdtEhHtfQh/IcgX
+	 lNeeKGvr9Cc/Q==
+Date: Tue, 15 Sep 2026 17:22:32 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Srinivas Neeli <srinivas.neeli@amd.com>
+Cc: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, "Eric
+ Dumazet" <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Richard Cochran <richardcochran@gmail.com>,
+ Michal Simek <michal.simek@amd.com>, "Sebastian Andrzej Siewior"
+ <bigeasy@linutronix.de>, Clark Williams <clrkwllms@kernel.org>, Steven
+ Rostedt <rostedt@goodmis.org>, <netdev@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-rt-devel@lists.linux.dev>,
+ <neelisrinivas18@gmail.com>, <git@amd.com>
+Subject: Re: [PATCH net-next v2 0/8] Add Xilinx TSN Endpoint Ethernet MAC
+ driver
+Message-ID: <20260915172232.04df37b2@kernel.org>
+In-Reply-To: <20260909-patches_v2_external-v2-0-3a40babaff4c@amd.com>
+References: <20260909-patches_v2_external-v2-0-3a40babaff4c@amd.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v2 net-next] dt-bindings: net: Use consistent indentation
- in
- the example
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <178951741413.2328807.13052906737611774655.git-patchwork-notify@kernel.org>
-Date: Wed, 16 Sep 2026 00:10:14 +0000
-References: <20260914155645.112508-2-krzysztof.kozlowski@oss.qualcomm.com>
-In-Reply-To: <20260914155645.112508-2-krzysztof.kozlowski@oss.qualcomm.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: justin.chen@broadcom.com, florian.fainelli@broadcom.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, ulli.kroll@googlemail.com, linusw@kernel.org,
- clement.leger@bootlin.com, olteanv@gmail.com, hkallweit1@gmail.com,
- linux@armlinux.org.uk, hayashi.kunihiko@socionext.com, mhiramat@kernel.org,
- nbd@nbd.name, lorenzo@kernel.org, ryder.lee@mediatek.com,
- shayne.chen@mediatek.com, sean.wang@mediatek.com, johannes@sipsolutions.net,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
- jjohnson@kernel.org, richardcochran@gmail.com, geert+renesas@glider.be,
- magnus.damm@gmail.com, vineetha.g.jaya.kumaran@intel.com,
- claudiu.manoil@nxp.com, alexandre.belloni@bootlin.com, elder@kernel.org,
- s-vadapalli@ti.com, rogerq@kernel.org, bcm-kernel-feedback-list@broadcom.com,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-renesas-soc@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-wireless@vger.kernel.org, linux-mediatek@lists.infradead.org,
- ath10k@lists.infradead.org
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,30 +78,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+On Wed, 9 Sep 2026 00:49:48 +0530 Srinivas Neeli wrote:
+> This series adds the wrapper and endpoint side of the IP. The switch-facing
+> part is exposed through the Distributed Switch Architecture (DSA) framework
+> in a follow-up series, so that MAC1 and MAC2 show up to Linux as switch
+> ports with the endpoint acting as the CPU/conduit port. The endpoint frames
+> are already classified by source-port id and tagged with DSA port metadata
+> here, so the switch series can consume them without further endpoint
+> change.
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Mon, 14 Sep 2026 17:56:46 +0200 you wrote:
-> Correct indentation in the examples to consistent 2- or 4-spaces
-> indentation to fix dt-check-style warnings ("example 0
-> [indent-consistent] indent mismatch ...").  Preferred is 4-spaces, but
-> re-indenting entire example just for that is too much churn.
-> 
-> In cortina,gemini-ethernet.yaml also drop the wrongly indented mdio bus,
-> because it is not necessary for the example.
-> 
-> [...]
-
-Here is the summary with links:
-  - [v2,net-next] dt-bindings: net: Use consistent indentation in the example
-    https://git.kernel.org/netdev/net-next/c/032ef43b9dab
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+I'm not sure why you're implementing this as DSA.
+This needs to be explained, if a single driver can bind and control 
+the whole thing, that's AFAIU preferable. You can keep the
+implementation details in the driver without exposing the conduit
+to user space
 
