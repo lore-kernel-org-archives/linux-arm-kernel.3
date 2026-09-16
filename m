@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 511A4C982CC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 17:45:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EE69C982C9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 17:46:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BQX5u7EIxGzspS9y6lVMIsO1LhHcOtkZEQ0httCNGZU=; b=DNsh8/lOIKJmgErHj3vN2z9twQ
-	gBSZmm2aHCjMIJ3l1+mzGV5Qb59yR0Lq4tw+9/Twj3VGshv2bKu3t/wZBmIdBNzSNooptfvzCWZCs
-	LmSPTXRdX3/KX2GMz9mWpH+nXywYfXZBFJG6e6pyQ0qxg8PazgjHnV/gJeQhYMs0TxL8SLcTeru8T
-	aRxabvHCq3GHmJXx5FdsrbvgcvZCOtKeOIYLph8yWgIBB+29RYq4wi7/mrLYonBN3ZHxu342sSSV0
-	eJd4ot8ZUJCBIMx96SD/Rxvn8lJUXjVc5arh7mOCZAReg+8q5bR/RO2JWwjp5tTllhcohXMDx0Xt3
-	aHG3a3lQ==;
+	bh=PVuQmAiOaYTtdLMl6Vu2wGbKIi9w/X82YdThUN4Z8Yo=; b=W8l07u4aCmFZnCBCz4lnV922oO
+	WWb8uAYv9iAlZh7sewMbMJFEE0Hoq2VCBqrR/Rdp9x6JjJ7vDRSJrs2ARqpaX12G2JHPlcE+IKpJs
+	SUFnGN1d7z3ZPDUZuvJLcV6YVsLbBwwgsdpxikbWvLXklBD7ItTVKxGTgsFVm5eGbUAU+YocF1hda
+	hChPxQhsJg+WH+cQd8FPR2B89kXOxI7Scz71h1Hxh4c5dp7Tvn7v+cI9BbZqft9ARfNmb2ZA8w1+t
+	gmyYV9mPyXBvWPAK3AkRYCAuf85VbSyP2jTtCUZf/uSi3qEjtTYLnu/TCH8eRT1YTi5vmEDXA4Z7H
+	GwNhjnzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6tgs-00000009tOF-3xYF;
-	Wed, 16 Sep 2026 17:45:02 +0000
+	id 1x6tiB-00000009tZt-1UBH;
+	Wed, 16 Sep 2026 17:46:23 +0000
 Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6tgq-00000009tNP-2sNe;
-	Wed, 16 Sep 2026 17:45:02 +0000
+	id 1x6ti8-00000009tZB-1jg7;
+	Wed, 16 Sep 2026 17:46:22 +0000
 Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
-	by APP-05 (Coremail) with SMTP id zQCowACXATyS1apq+9duCA--.23293S2;
-	Thu, 17 Sep 2026 01:44:50 +0800 (CST)
+	by APP-05 (Coremail) with SMTP id zQCowAD3J0Lj1apqitxuCA--.23616S2;
+	Thu, 17 Sep 2026 01:46:11 +0800 (CST)
 From: Wentao Liang <vulab@iscas.ac.cn>
 To: airlied@gmail.com
 Cc: dri-devel@lists.freedesktop.org,
@@ -45,16 +45,16 @@ Cc: dri-devel@lists.freedesktop.org,
 	simona@ffwll.ch,
 	tzimmermann@suse.de,
 	Wentao Liang <vulab@iscas.ac.cn>
-Subject: [PATCH] drm/meson: Fix next_bridge reference leak in meson_encoder_cvbs_probe()
-Date: Wed, 16 Sep 2026 17:44:22 +0000
-Message-Id: <20260916174422.2088967-1-vulab@iscas.ac.cn>
+Subject: [PATCH] drm/meson: Fix next_bridge reference leak in meson_encoder_dsi_probe()
+Date: Wed, 16 Sep 2026 17:45:43 +0000
+Message-Id: <20260916174543.2089062-1-vulab@iscas.ac.cn>
 X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowACXATyS1apq+9duCA--.23293S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7KF1kZF17Gry8ury3AF4ruFg_yoW8ZFyrpr
-	Z7tanxtry8Xw1rAw1DAF45AFsaywsrZF4fGw4qvw4fu34fCF1Utr93AF4Ykr1UCa90qF4r
-	t3Z5Xr48WFW5CaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+X-CM-TRANSID: zQCowAD3J0Lj1apqitxuCA--.23616S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7CF4UZw4rGry3ZFyxZFW8Zwb_yoW8XrWkpr
+	ZxWay3tF18J348Aw1DAF45CF4ay3WqqFWfGayktws3uw13W3WUtr93AF45ur1UZayYvFs3
+	trn5Wry8uFW5CaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
 	9KBjDU0xBIdaVrnRJUUU9v14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
 	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
@@ -69,10 +69,10 @@ X-Coremail-Antispam: 1UD129KBjvJXoW7KF1kZF17Gry8ury3AF4ruFg_yoW8ZFyrpr
 	rVWUJVWUCwCI42IY6I8E87Iv67AKxVWxJVW8Jr1lIxAIcVC2z280aVCY1x0267AKxVWxJr
 	0_GcJvcSsGvfC2KfnxnUUI43ZEXa7VU1go2UUUUUU==
 X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAAMA2qqpO9ruAAAsb
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBgcMA2qqok9zVQABsE
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_104501_102684_439383E2 
-X-CRM114-Status: UNSURE (   8.84  )
+X-CRM114-CacheID: sfid-20260916_104620_826594_F7AE4D37 
+X-CRM114-Status: UNSURE (   9.97  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,54 +88,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The failure paths after drm_bridge_add() return without removing the
-bridge, so the bridge stays in the global bridge list, the reference
-dropped by drm_bridge_add() is never released and the bridge is never
-freed, leaking the next_bridge reference as well. Remove the bridge on
-the encoder init, bridge attach and bridge connector error paths.
+The reference on the next bridge returned by
+of_drm_find_and_get_bridge() is never released when
+drm_simple_encoder_init() or drm_bridge_attach() fails. Drop it on
+both error paths before returning.
 
-Fixes: 47fa48b3faa7 ("drm/meson: encoder_cvbs: get/put the next bridge")
+Fixes: bfb8f5d0a9e7 ("drm/meson: encoder_dsi: get/put the next bridge")
 Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
 ---
- drivers/gpu/drm/meson/meson_encoder_cvbs.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+ drivers/gpu/drm/meson/meson_encoder_dsi.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/gpu/drm/meson/meson_encoder_cvbs.c b/drivers/gpu/drm/meson/meson_encoder_cvbs.c
-index 41071d6e05e5..a4d280c5f8ed 100644
---- a/drivers/gpu/drm/meson/meson_encoder_cvbs.c
-+++ b/drivers/gpu/drm/meson/meson_encoder_cvbs.c
-@@ -259,9 +259,11 @@ int meson_encoder_cvbs_probe(struct meson_drm *priv)
+diff --git a/drivers/gpu/drm/meson/meson_encoder_dsi.c b/drivers/gpu/drm/meson/meson_encoder_dsi.c
+index eba246791c68..5f2eeeaf93b8 100644
+--- a/drivers/gpu/drm/meson/meson_encoder_dsi.c
++++ b/drivers/gpu/drm/meson/meson_encoder_dsi.c
+@@ -135,17 +135,21 @@ int meson_encoder_dsi_probe(struct meson_drm *priv)
  	/* Encoder */
- 	ret = drm_simple_encoder_init(priv->drm, &meson_encoder_cvbs->encoder,
- 				      DRM_MODE_ENCODER_TVDAC);
+ 	ret = drm_simple_encoder_init(priv->drm, &meson_encoder_dsi->encoder,
+ 				      DRM_MODE_ENCODER_DSI);
 -	if (ret)
 +	if (ret) {
-+		drm_bridge_remove(&meson_encoder_cvbs->bridge);
++		drm_bridge_put(meson_encoder_dsi->bridge.next_bridge);
  		return dev_err_probe(priv->dev, ret,
- 				     "Failed to init CVBS encoder\n");
+ 				     "Failed to init DSI encoder\n");
 +	}
  
- 	meson_encoder_cvbs->encoder.possible_crtcs = BIT(0);
+ 	meson_encoder_dsi->encoder.possible_crtcs = BIT(0);
  
-@@ -270,14 +272,17 @@ int meson_encoder_cvbs_probe(struct meson_drm *priv)
- 				DRM_BRIDGE_ATTACH_NO_CONNECTOR);
- 	if (ret) {
- 		dev_err(priv->dev, "Failed to attach bridge: %d\n", ret);
-+		drm_bridge_remove(&meson_encoder_cvbs->bridge);
- 		return ret;
- 	}
- 
- 	/* Initialize & attach Bridge Connector */
- 	connector = drm_bridge_connector_init(priv->drm, &meson_encoder_cvbs->encoder);
--	if (IS_ERR(connector))
-+	if (IS_ERR(connector)) {
-+		drm_bridge_remove(&meson_encoder_cvbs->bridge);
- 		return dev_err_probe(priv->dev, PTR_ERR(connector),
- 				     "Unable to create CVBS bridge connector\n");
+ 	/* Attach DSI Encoder Bridge to Encoder */
+ 	ret = drm_bridge_attach(&meson_encoder_dsi->encoder, &meson_encoder_dsi->bridge, NULL, 0);
+-	if (ret)
++	if (ret) {
++		drm_bridge_put(meson_encoder_dsi->bridge.next_bridge);
+ 		return dev_err_probe(priv->dev, ret,
+ 				     "Failed to attach bridge\n");
 +	}
  
- 	drm_connector_attach_encoder(connector, &meson_encoder_cvbs->encoder);
- 
+ 	/*
+ 	 * We should have now in place:
 -- 
 2.34.1
 
