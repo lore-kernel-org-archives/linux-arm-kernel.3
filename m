@@ -4,85 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E0D0C88E5C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 04:42:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34F71C88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 04:48:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YF/1pjayfOlwmv8drW2kZBXUotBXt7gAJUwr6YSztco=; b=2xJb7aKmhEoBR9D/NKE3rhpHIk
-	7Fog/KOPAy5P4mj8k+c6gba6iB9o91HPirDP5rYo9g9095PfxjfAITMWO8S1Ycu+I5CAUfdmgo1Y5
-	kHnjU4cUgoscWj6nlMhi3blLRqBxtl4/O05HiWqcbQjqqYrwoHO80Bs1/yMC4QBmiqYwOkqWSt9Ah
-	58pU+I9WN2ut+iu5Umz+4D52lfJpp3XyRk8VkcZ3u5DTu1vPikTYjW3hHvtAmONgc5jJwjMgx5suc
-	HYtYS+CPcz2zomFI6VjlRS7+THgdP98oLdcEp88MW0ekb33Oz+iFMJ8vaY1x6kr6hkTegI4DEs5wz
-	/8ex+SgA==;
+	bh=KFaDAPKfM2HmPMVbVkz7VrTW3XXo+f0MOpGfLpNabmg=; b=32Yhl0ve3jCx+9jYth9Snj/HRO
+	BuXE0vYxcgpXG0oaV/jwbsGC12IHheAANo58vU51eg2/PTXUz83DlSbMu2H/wVpf+z4azsntKOA+l
+	G9WGjQpPz6urwA6/egEQMZ19O+O74y1Ibrk8nNYPqRbEfW8ZS2Sc/rZLr/F8/HLB9LT+boLidplXj
+	iJHXkN1eHR9A7/oBYwnfP1PzYbWVS3h7+Q38UIx0s8CAiszjfCAfJyhna88/bfkqOJpsKNgUjlHFl
+	ZzwP9I5SCunh1c+13FhSpuk2BGSdlT5O8aWPtdXGFZ1N0F3jKri0ZlnG9KIqpBFD6bfxiNN8a8S9N
+	bZd4Cn6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6hTI-00000008JW0-0cvf;
-	Wed, 16 Sep 2026 04:42:12 +0000
-Received: from watt.d-silva.org ([119.15.109.137] helo=www.nmnhosting.com)
+	id 1x6hZk-00000008KBf-35vZ;
+	Wed, 16 Sep 2026 04:48:52 +0000
+Received: from m16.mail.163.com ([220.197.31.2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6hTC-00000008JSc-0wEb
+	id 1x6hZi-00000008K9v-19UB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 04:42:08 +0000
-Received: from Hawking.lan (hawking.lan [10.0.1.4])
-	by www.nmnhosting.com (Postfix) with ESMTP id 6A10443BD0;
-	Wed, 16 Sep 2026 14:41:55 +1000 (AEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=d-silva.org; s=2025a;
-	t=1789533715;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=YF/1pjayfOlwmv8drW2kZBXUotBXt7gAJUwr6YSztco=;
-	b=k8nOuG05Z+CeUrqH2ZSIqdlJmph3gWW3orj/DZdoNJlTJMAYQjT5UEPAK/1+Ij7LxVqni/
-	SkfcGj58RTHYg4SMGaaRf5Xl1nd6OFiWu3qr9Ttnf0w06sZ1ZZLLpDA87RFfvYHAw4TzPX
-	ehIpEtU1cYyZ6LzqEBxn+JmEXKNQs+5B+16TSyGTN4sgHRxDXdc4/X2XGzhIaQAUNJBMI4
-	qSip0kFU7tXOPPPBZoa+N5dOAyK9bXGZmhKoEH9jUwTvWj9gl4IGuA77duHIo88tslJEdV
-	oDXjmNmW6TDuNZzOg+QpwQWDOMrlK4smcMpxmjbejxZHs/txuQgWqCQC/2bcZQ==
-X-GPT-Reason: legitimate_transactional_technical_patch_submission_The
-	email is a technical kernel patch submission for the Linux kernel
-	(net-next), which perfectly aligns with the personal/professional
-	context of the alastair@d-silva.org mailbox. The From domain matches
-	the signature and content, and the body consists of a standard
-	git diff and technical notes regarding the Allwinner H616 EMAC
-	clock index. There are no phishing indicators, no external links,
-	and no urgency/scare tactics.
-From: Alastair D'Silva <alastair@d-silva.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Alastair D'Silva <alastair@d-silva.org>
-Subject: [PATCH net-next 4/4] net: stmmac: dwmac-sun8i: Add Allwinner H616 EMAC clock index and internal PHY support
-Date: Wed, 16 Sep 2026 14:41:19 +1000
-Message-ID: <20260916044119.475666-5-alastair@d-silva.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260916044119.475666-1-alastair@d-silva.org>
-References: <20260916044119.475666-1-alastair@d-silva.org>
+	Wed, 16 Sep 2026 04:48:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=KFaDAPKfM2HmPMVbVkz7VrTW3XXo+f0MOpGfLpNabmg=; b=D
+	Wvr+AeFfbMpnUxum/pll/sqRn3+yDlqhRA616exB2sNt9nRSGPk/j2bj+4h1woZC
+	7/w432cqSyQOQ2PGWAuyU4y1dUItBDCBaItKjzolGn/Alf5bucUzcrF5wO3XygL2
+	LkjPgSciKgYJUS989PjlelRAC4MF94HxT3ABNxZ+R0=
+Date: Wed, 16 Sep 2026 12:47:38 +0800 (CST)
+From: zl020895  <zl020895@163.com>
+To: "Andy Shevchenko" <andriy.shevchenko@linux.intel.com>
+Cc: longzhao@ambarella.com, "Arnd Bergmann" <arnd@arndb.de>,
+	"Krzysztof Kozlowski" <krzk@kernel.org>,
+	"Alexandre Belloni" <alexandre.belloni@bootlin.com>,
+	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	"Rob Herring" <robh@kernel.org>,
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+	"Conor Dooley" <conor+dt@kernel.org>,
+	"Michael Turquette" <mturquette@baylibre.com>,
+	"Stephen Boyd" <sboyd@kernel.org>,
+	"Jerome Brunet" <jbrunet@baylibre.com>,
+	"Linus Walleij" <linusw@kernel.org>,
+	"Bartosz Golaszewski" <brgl@kernel.org>,
+	"Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+	"Jiri Slaby" <jirislaby@kernel.org>,
+	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	"Catalin Marinas" <catalin.marinas@arm.com>,
+	"Will Deacon" <will@kernel.org>, "Lee Jones" <lee@kernel.org>,
+	mfd@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
+	linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re:Re: [PATCH v7 08/15] gpiolib: regmap: add write_data_after_dir
+ quirk
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
+ 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 163com
+In-Reply-To: <aqlfJ3PnFib1smnV@ashevche-desk.local>
+References: <20260915-cv75-v5-v7-0-3297d3fbc9c0@ambarella.com>
+ <20260915-cv75-v5-v7-8-3297d3fbc9c0@ambarella.com>
+ <aqlfJ3PnFib1smnV@ashevche-desk.local>
+X-NTES-SC: AL_Qu2TC/mYu0gu7iifY+kcn0wRhug/UMa4u/sm3YNXc+gGgS7rxD0iflpxF2DKzOe1GTqXuzGSbTdPyMZYULtmxAyHsDsqPgM1X0Q8/rJ0pQ==
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Message-ID: <20ea407c.4010.1a0a88ab987.Coremail.zl020895@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: iCgvCgD334NqH6pq2mBHAA--.23889W
+X-CM-SenderInfo: d2oqjiqyzvqiywtou0bp/xtbCxgsnmGqqH2vUjgAA3c
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_214207_433348_8DBF38DA 
-X-CRM114-Status: GOOD (  21.98  )
+X-CRM114-CacheID: sfid-20260915_214850_770954_BDFB68F3 
+X-CRM114-Status: GOOD (  12.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,182 +91,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Support EMAC1 and the internal Fast Ethernet PHY (AC300) on Allwinner
-H616 and H618 SoCs:
-- Allow reading a register index from the syscon property to offset the
-  regmap field for EMAC1's dedicated clock control register.
-- Add emac_variant_h616_internal with support for internal PHY, MII,
-  RMII, and RGMII modes.
-- Delay the MAC software reset until sun8i_dwmac_init() when using the
-  internal PHY, ensuring the PHY has powered on and begun generating
-  the receive clock before the MAC attempts to reset.
-- Skip setting H3_EPHY_SELECT for H616 internal EMAC, which does not
-  use the H3-style EPHY select bit.
-- Handle -EPROBE_DEFER cleanly during clock and reset control acquisition
-  in get_ephy_nodes().
-
-Assisted-by: LLM
-Signed-off-by: Alastair D'Silva <alastair@d-silva.org>
----
-
-Notes:
-    Tested on Mellow Fly-C5 (Allwinner H618) under Armbian, verifying stable
-    EMAC1 probe, deferred soft reset with the internal AC300 EPHY, and 100M full
-    duplex operation under load.
-
- .../net/ethernet/stmicro/stmmac/dwmac-sun8i.c | 65 ++++++++++++++++---
- 1 file changed, 55 insertions(+), 10 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-index 48c52eb96233..1728893589a6 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-@@ -130,6 +130,16 @@ static const struct emac_variant emac_variant_a64 = {
- 	.tx_delay_max = 7,
- };
- 
-+static const struct emac_variant emac_variant_h616_internal = {
-+	.syscon_field = &sun8i_syscon_reg_field,
-+	.soc_has_internal_phy = true,
-+	.support_mii = true,
-+	.support_rmii = true,
-+	.support_rgmii = true,
-+	.rx_delay_max = 31,
-+	.tx_delay_max = 7,
-+};
-+
- static const struct emac_variant emac_variant_h6 = {
- 	.syscon_field = &sun8i_syscon_reg_field,
- 	/* The "Internal PHY" of H6 is not on the die. It's on the
-@@ -570,6 +580,7 @@ static const struct stmmac_dma_ops sun8i_dwmac_dma_ops = {
- };
- 
- static int sun8i_dwmac_power_internal_phy(struct stmmac_priv *priv);
-+static int sun8i_dwmac_reset(struct stmmac_priv *priv);
- 
- static int sun8i_dwmac_init(struct device *dev, void *priv)
- {
-@@ -589,6 +600,10 @@ static int sun8i_dwmac_init(struct device *dev, void *priv)
- 		ret = sun8i_dwmac_power_internal_phy(netdev_priv(ndev));
- 		if (ret)
- 			goto err_disable_regulator;
-+
-+		ret = sun8i_dwmac_reset(netdev_priv(ndev));
-+		if (ret)
-+			goto err_disable_regulator;
- 	}
- 
- 	return 0;
-@@ -784,16 +799,23 @@ static int get_ephy_nodes(struct stmmac_priv *priv)
- 	/* Seek for internal PHY */
- 	for_each_child_of_node_scoped(mdio_internal, iphynode) {
- 		gmac->ephy_clk = of_clk_get(iphynode, 0);
--		if (IS_ERR(gmac->ephy_clk))
--			continue;
-+		if (IS_ERR(gmac->ephy_clk)) {
-+			ret = PTR_ERR(gmac->ephy_clk);
-+			if (ret == -EPROBE_DEFER) {
-+				of_node_put(mdio_internal);
-+				return ret;
-+			}
-+			gmac->ephy_clk = NULL;
-+		}
- 		gmac->rst_ephy = of_reset_control_get_exclusive(iphynode, NULL);
- 		if (IS_ERR(gmac->rst_ephy)) {
- 			ret = PTR_ERR(gmac->rst_ephy);
- 			if (ret == -EPROBE_DEFER) {
-+				clk_put(gmac->ephy_clk);
- 				of_node_put(mdio_internal);
- 				return ret;
- 			}
--			continue;
-+			gmac->rst_ephy = NULL;
- 		}
- 		dev_info(priv->device, "Found internal PHY node\n");
- 		of_node_put(mdio_internal);
-@@ -871,7 +893,9 @@ static int mdio_mux_syscon_switch_fn(int current_child, int desired_child,
- 		switch (desired_child) {
- 		case DWMAC_SUN8I_MDIO_MUX_INTERNAL_ID:
- 			dev_info(priv->device, "Switch mux to internal PHY");
--			val = (reg & ~H3_EPHY_MUX_MASK) | H3_EPHY_SELECT;
-+			val = (reg & ~H3_EPHY_MUX_MASK);
-+			if (gmac->variant != &emac_variant_h616_internal)
-+				val |= H3_EPHY_SELECT;
- 			gmac->use_internal_phy = true;
- 			break;
- 		case DWMAC_SUN8I_MDIO_MUX_EXTERNAL_ID:
-@@ -892,10 +916,13 @@ static int mdio_mux_syscon_switch_fn(int current_child, int desired_child,
- 		} else {
- 			sun8i_dwmac_unpower_internal_phy(gmac);
- 		}
--		/* After changing syscon value, the MAC need reset or it will
-+		/* After changing syscon value, the MAC needs reset or it will
- 		 * use the last value (and so the last PHY set).
-+		 * For internal PHY, the MAC reset will timeout because the PHY
-+		 * is not yet enabled/clocked. Delay the reset to dwmac_init.
- 		 */
--		ret = sun8i_dwmac_reset(priv);
-+		if (!gmac->use_internal_phy)
-+			ret = sun8i_dwmac_reset(priv);
- 	}
- 	return ret;
- }
-@@ -1000,9 +1027,13 @@ static int sun8i_dwmac_set_syscon(struct device *dev,
- 
- static void sun8i_dwmac_unset_syscon(struct sunxi_priv_data *gmac)
- {
--	if (gmac->variant->soc_has_internal_phy)
--		regmap_field_write(gmac->regmap_field,
--				   (H3_EPHY_SHUTDOWN | H3_EPHY_SELECT));
-+	if (gmac->variant->soc_has_internal_phy) {
-+		u32 val = H3_EPHY_SHUTDOWN;
-+
-+		if (gmac->variant != &emac_variant_h616_internal)
-+			val |= H3_EPHY_SELECT;
-+		regmap_field_write(gmac->regmap_field, val);
-+	}
- }
- 
- static void sun8i_dwmac_exit(struct device *dev, void *priv)
-@@ -1111,6 +1142,7 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
- 	struct stmmac_priv *priv;
- 	struct net_device *ndev;
- 	struct regmap *regmap;
-+	u32 syscon_idx = 0;
- 	int ret;
- 
- 	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
-@@ -1163,8 +1195,15 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
- 		return ret;
- 	}
- 
-+	ret = of_property_read_u32_index(pdev->dev.of_node, "syscon", 1,
-+					 &syscon_idx);
- 	gmac->regmap_field = devm_regmap_field_alloc(dev, regmap,
--						     *gmac->variant->syscon_field);
-+						     (const struct reg_field) {
-+							.reg = gmac->variant->syscon_field->reg +
-+							       syscon_idx * sizeof(u32),
-+							.lsb = gmac->variant->syscon_field->lsb,
-+							.msb = gmac->variant->syscon_field->msb,
-+						     });
- 	if (IS_ERR(gmac->regmap_field)) {
- 		ret = PTR_ERR(gmac->regmap_field);
- 		dev_err(dev, "Unable to map syscon register: %d\n", ret);
-@@ -1278,6 +1317,12 @@ static const struct of_device_id sun8i_dwmac_match[] = {
- 		.data = &emac_variant_a64 },
- 	{ .compatible = "allwinner,sun50i-h6-emac",
- 		.data = &emac_variant_h6 },
-+	{ .compatible = "allwinner,sun50i-h616-emac",
-+		.data = &emac_variant_h6 },
-+	{ .compatible = "allwinner,sun50i-h616-emac1",
-+		.data = &emac_variant_h6 },
-+	{ .compatible = "allwinner,sun50i-h616-internal-emac",
-+		.data = &emac_variant_h616_internal },
- 	{ }
- };
- MODULE_DEVICE_TABLE(of, sun8i_dwmac_match);
--- 
-2.53.0
-
+SGkgQW5keSwKCk9LLiB2OCB3aWxsIGlnbm9yZSBib3RoIGdwaW9fcmVnbWFwX3NldCgpIHJldHVy
+bnMsIHNhbWUgYXMgYmVmb3JlLgpPbmx5IHRoZSBleHRyYSB3cml0ZSBmb3IgdGhlIFBMMDYxIHF1
+aXJrIHN0YXlzLgoKQmVzdCByZWdhcmRzLApMb25nIFpoYW8KCkF0IDIwMjYtMDktMTUgMjM6MDc6
+MTksICJBbmR5IFNoZXZjaGVua28iIDxhbmRyaXkuc2hldmNoZW5rb0BsaW51eC5pbnRlbC5jb20+
+IHdyb3RlOgo+T24gVHVlLCBTZXAgMTUsIDIwMjYgYXQgMDc6MTU6MzhQTSArMDgwMCwgTG9uZyBa
+aGFvIHZpYSBCNCBSZWxheSB3cm90ZToKPgo+PiBTb21lIGNvbnRyb2xsZXJzIGlnbm9yZSBkYXRh
+LXJlZ2lzdGVyIHdyaXRlcyB3aGlsZSBhIGxpbmUgaXMgc3RpbGwgYW4KPj4gaW5wdXQuIE9wdGlv
+bmFsbHkgd3JpdGUgdGhlIG91dHB1dCB2YWx1ZSBhZ2FpbiBhZnRlciBzd2l0Y2hpbmcgdGhlCj4+
+IGRpcmVjdGlvbiwgbWF0Y2hpbmcgdGhlIGV4aXN0aW5nIFBMMDYxIGJlaGF2aW91ci4KPgo+Li4u
+Cj4KPj4gLQlncGlvX3JlZ21hcF9zZXQoY2hpcCwgb2Zmc2V0LCB2YWx1ZSk7Cj4+ICsJcmV0ID0g
+Z3Bpb19yZWdtYXBfc2V0KGNoaXAsIG9mZnNldCwgdmFsdWUpOwo+PiArCWlmIChyZXQpCj4+ICsJ
+CXJldHVybiByZXQ7Cj4KPkkgdGhpbmsgdGhhdCB0aGlzIG1pZ2h0IGxlYWQgdG8gcmVncmVzc2lv
+bnMgd2hlbiB0aGUgZW5kIGRyaXZlciBqdXN0IGxlYXZlcwo+dGhlIG91dHB1dCBpbiB0aGUgcHJl
+dmlvdXMgc3RhdGUgaW4gY2FzZSBvZiBlcnJvcnMuIEluIGFueSBjYXNlLCBldmVuIGlmIHRoaXMK
+PmlzIGEgY29ycmVjdCB1cGRhdGUsIGl0IG5lZWRzIHRvIGJlIGRvbmUgc2VwYXJhdGVseSB3aXRo
+IHRoZSBqdXN0aWZpY2F0aW9uCj50aGF0IHNob3dzIHRoYXQgYWxsIGN1cnJlbnQgdXNlcnMgd29u
+J3QgaGF2ZSByZWdyZXNzaW9ucyBvciB0aGUgcmVncmVzc2lvbiBpcwo+YWN0dWFsbHkgYSBmaXgg
+b2YgdGhlIGJlaGF2aW91ci4KPgo+PiArCXJldCA9IGdwaW9fcmVnbWFwX3NldF9kaXJlY3Rpb24o
+Y2hpcCwgb2Zmc2V0LCB0cnVlKTsKPj4gKwlpZiAocmV0KQo+PiArCQlyZXR1cm4gcmV0Owo+PiAg
+Cj4+IC0JcmV0dXJuIGdwaW9fcmVnbWFwX3NldF9kaXJlY3Rpb24oY2hpcCwgb2Zmc2V0LCB0cnVl
+KTsKPj4gKwkvKgo+PiArCSAqIGdwaW8gdmFsdWUgaXMgc2V0IGFnYWluLCBiZWNhdXNlIHBsMDYx
+IGRvZXNuJ3QgYWxsb3cgdG8gc2V0IHZhbHVlIG9mCj4+ICsJICogYSBncGlvIHBpbiBiZWZvcmUg
+Y29uZmlndXJpbmcgaXQgaW4gT1VUIG1vZGUuCj4+ICsJICovCj4+ICsJaWYgKGdwaW8tPndyaXRl
+X2RhdGFfYWZ0ZXJfZGlyKQo+PiArCQlyZXR1cm4gZ3Bpb19yZWdtYXBfc2V0KGNoaXAsIG9mZnNl
+dCwgdmFsdWUpOwo+Cj5UYWtpbmcgdGhlIGFib3ZlIGludG8gYWNjb3VudCBJJ20gbm90IHN1cmUg
+aWYgd2Ugd2FudCB0aGUgaW5jb25zaXN0ZW5jeSB3aXRoCj50aGUgYWJvdmUuIFBlcmhhcHMgYWxz
+byBpZ25vcmUgdGhlIHJldHVybmVkIHZhbHVlIGZvciBub3c/Cj4KPj4gKwlyZXR1cm4gMDsKPgo+
+LS0gCj5XaXRoIEJlc3QgUmVnYXJkcywKPkFuZHkgU2hldmNoZW5rbwo+Cg==
 
