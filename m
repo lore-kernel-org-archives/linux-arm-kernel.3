@@ -4,102 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9AECC88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 08:21:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BC3FC88E5C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 08:28:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bw432elLmhA4oy2qWRZIhT4M5eB1za1G9hSrgeusNHM=; b=1xupGzjqbWbkxAWmo2vxcz3ugU
-	NKyLfu/CX/8M8WBYd6Oi0q+1hIonwh0dHqQJNz//1qu8/Fm0ZNinulYHSSPPRF/wao6S66Z5nklJn
-	thGUfm0hphfbOa1RWDVpOCd2B8h0QFrTYs88QtiFo/sGFnxADXMhc4KKwkQKDFJ9AgaENEyBNnvs9
-	1Zb1y9RpVXjXnSqciGoCbD3beqLQx7rVgSbZ8JfWChkM2f+CbfXR6cv88z/lXRp9NLX9N+4D1RN8V
-	r5lu60jilaRo5CplsQ+ZgNSsIrXKROhOlJPe710RUG5CGE8TgRIzflLasFgHVlK4n5T+AEf6ulFJG
-	Q1p4sKPA==;
+	bh=svE2nEz2pNAWNk2SquIJRiE6s0jQ+oYHF6ukp5jSzXw=; b=Lt7Sm83PZxDBYJVml8ZeW06vF7
+	fA3z7LCMtUdABk+7G8A2mHL4c6umm75NnI2Ipc6nAE6gYCFFdWTKgUTpHKDhN/RsLLRdkPTeJVU+g
+	owI25GsJXWGhcai5oDKotYomnNEO/+yyMSxX6bNncBU1dFLnPgVgLz/U1UzF5nVbRGTlrDdHYmDRp
+	cR17OeFyMAAplyFFYOGwTY1SeHi5rMWEZk/CQJrOv6XHl6oraRyWPnrAaPgZMaaX7gwVDM+RQ7itK
+	P1/g2JQUa4bNKSfNIrD798FFtaDI6kDwVICkPaRYrwRIR2AacR2N2s+hvgc1RNswb9X0ekgG+sPY1
+	ztouJ+4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6ktg-00000008hsY-2H07;
-	Wed, 16 Sep 2026 08:21:40 +0000
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	id 1x6kzn-00000008iML-3Z0O;
+	Wed, 16 Sep 2026 08:27:59 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6ktc-00000008hrS-1MV9
+	id 1x6kzl-00000008iM6-22Wg
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 16 Sep 2026 08:27:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=svE2nEz2pNAWNk2SquIJRiE6s0jQ+oYHF6ukp5jSzXw=; b=PpFAbKadQ9CyiMGI8+I1ZoGUIH
+	wo5/wEZ4Nvs0AtfkZR0fnjktDZ64so7PJjRPVfy2UM8f0VXn4alVtX3YrdRx06DqNCSh+8BX399P3
+	XFT8ltlCykWdaLMln3pIrJwc0h3aWvlkt9TY9y2kSKCpmD2/8zY87FGNUjHZ9T02aD+LukFwZayy4
+	XU2mTM8FekuwQNg6tvSbdcFBhtKPD7Jeoo2HZ6kadwCRht+214+Jp1stW7w0/sk4QTJXgwBolvXMK
+	ekYkT1D0+xtuI1zENCaiCtA288flaDvq7ds0f/QqEZJRSw1gH1oRbmtvFK1DB5MbKWLforOBEl0pg
+	hCzK54MA==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6kzi-00000007d0e-0aIh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 08:21:38 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e6c0fce17so3324665e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 01:21:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789546894; x=1790151694; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Bw432elLmhA4oy2qWRZIhT4M5eB1za1G9hSrgeusNHM=;
-        b=WQSC3Xo326XsLU2+mN5PPx53Gt4YMe9n6eANRF9jqaMzkep/uc/KJ4yvAkkOA2i/39
-         +1RPjuQIHB3YTTeM9f6N7CRhN14BrEAaqmw01XO/7fHeXjav90FP0s733c5JNwikOTAK
-         YH4wDGBRtG+WlWb/ePfl4azo0fd1Q4YQv5lftj8WXwgNp8qvtjuM3kpThtda1ADX6nge
-         MEiFCJOevak2tJ3yfEMeh6ObkkhjxqIoYIqGTcCMmTOyMUIkMwFKFKL1c4550WJVR+Pj
-         wmScAcn5vIx6m9r1WiWCjGnEKBrhn1Ugz43QsbSeuh0Z6klHRDOaq+FCMU9o/7DFrlP2
-         jqlw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789546894; x=1790151694;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Bw432elLmhA4oy2qWRZIhT4M5eB1za1G9hSrgeusNHM=;
-        b=qIEmGMZec6Vd7bB4Kv5xzSaEXbpZj0iX9Vt4mt9vWl63q9hGNN+F9aCC/FJxt00LzU
-         yhYlSPRFBG3L8GyHtSOpkx0bFP8egT7Lau37qFcgPw8ioD6xxFkAk4CelO2ZmgzHROTP
-         pcnpfVFHSMLNXPu73jJ8LoDIqn0SpDZRGxhYrRdRsBTMo9H6kt2wcg9QsHsdEoPY7RDM
-         l6Bct+P+GkpWEm7ORn8G0fYvHnpPGb8pv5aSr1hUsn/NOQ12Yf4BL6sh1TFznhoWh1ly
-         rmi0b1AUQYlzian2X7IjtOTD+0ZpW0fR47+fMQzYtrVG+bYTvV/ZpAQqfJDIakxQtuVI
-         XLCQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxk5lzDWSRYjGol20HvthEnwR+YuymhcXQw1XjxPPjuNueJHZQn+k83rAcC7DniMEVb2kpNmGYn9NEmedQOEU+E@lists.infradead.org
-X-Gm-Message-State: AFuF++mvRd1Zq8cLrKQLsk7FZTcjRG9IEnRf04xpIboKObregmSjJHVo
-	xhwUbikioDQOo+FQZi1Xvy5N9NrlB1itjj7of5COxd7ByELo1wVUaf6a
-X-Gm-Gg: AYBFou0F/yfeMUTbj+4lu06zTEDNwZHsgV5+l7ag5Lba9vmJLLDqyDtiaSrk4BwSu+Y
-	sgK+0x10f5Hlrn4+SgcJD0ep+gAXn/4Xn3EcIwblzFnql7/johuLwIf/gGKvnpfgQJi1sNIh9M0
-	JAbsPY1tr42XSj4PACQHprZe9q60xLknI+cgYOBhs6yVXdQXiTzK703MJMnSulW60SZzkm1PkFO
-	+5XmkTKASEIq42k1y39zoe8QstS6ynurI8ON1KFbDwOB9lzwKCyYaP203V+8ucnfbhG5vz2oGvX
-	9vcfw3LLyml8jZkutDjG1H3uPScVSXaSkcpBFNZhr5F0T/Y2TnQCyg1WU4KXJFvw+sWU58vdfUu
-	JTIMmuTRBF1GVmCgcywyML6CUtdxv3gPJZu/BHIAvlrV5uUUvTOnFlx4IuHA8AIeczQIj2GQ9yL
-	F7ciW87bH3phCITkeEi2rKrpiTfMVxXfk7h0HntUbHvQcEjmzxc/SpJYMpp8odOsnd6DXLG/1ea
-	p2uQ0qXUPOcFswEYsPRprLqIdeFvqHojGuFdjY0P+PzMQq9Pe/+uPgYit1uLdJMFRA2zC9aXJr0
-	jJtRqNfufzLAE99Rg/b6c3pqZEyYl8rNS31GuwmILRm7Its4Ad+sRzfxRddVL9rEh75NrOcuorX
-	kR9VnW7MiF7r9jgEhbvAr/mkAUxebHHYhq9laaWMSIZ0Dl0rLxxe7UseBI4Yht5nm7dSKU4EM3m
-	fFfPzg
-X-Received: by 2002:a05:600c:470a:b0:49e:6bce:b0f9 with SMTP id 5b1f17b1804b1-49eb732cc87mr17337945e9.16.1789546893641;
-        Wed, 16 Sep 2026 01:21:33 -0700 (PDT)
-Received: from localhost (90-182-112-124.rcp.o2.cz. [90.182.112.124])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e83da071asm73394925e9.8.2026.09.16.01.21.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Sep 2026 01:21:33 -0700 (PDT)
-Date: Wed, 16 Sep 2026 10:21:32 +0200
-From: Joshua Crofts <joshua.crofts1@gmail.com>
-To: Johan Hovold <johan@kernel.org>
-Cc: Peter Chen <peter.chen@kernel.org>, Pawel Laszczak <pawell@cadence.com>,
- Roger Quadros <rogerq@kernel.org>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, Mathias Nyman <mathias.nyman@intel.com>,
- Chunfeng Yun <chunfeng.yun@mediatek.com>, Matthias Brugger
- <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, Heikki Krogerus
- <heikki.krogerus@linux.intel.com>, linux-usb@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, stable@vger.kernel.org
-Subject: Re: [PATCH 1/6] usb: core: add missing
- pm_runtime_dont_use_autosuspend() call
-Message-ID: <20260916102132.00005129@gmail.com>
-In-Reply-To: <aqpOlKtxeROh-G_s@hovoldconsulting.com>
-References: <20260915090223.1346-1-joshua.crofts1@gmail.com>
-	<20260915090223.1346-2-joshua.crofts1@gmail.com>
-	<aqpOlKtxeROh-G_s@hovoldconsulting.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+	Wed, 16 Sep 2026 08:27:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E8033152B;
+	Wed, 16 Sep 2026 01:27:48 -0700 (PDT)
+Received: from [10.0.128.139] (unknown [10.0.128.139])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4A97B3F882;
+	Wed, 16 Sep 2026 01:27:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789547272; bh=SC9sfcMnJ/PEFobWZVnmMbUTIFBvDkYTVdafgFGlQM4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=cZLOlYqdunxqc5S8b7CsUOJR8q77ehv8styLLAf+uYgcAzeNJ/oXYr8R0jA/Ycd0U
+	 KN2fN/br8WnzGMNA7hcXsuDr0ExCzIwtWprwMg3biLx/h0ryGDAIcjyuTEq/eM/wDt
+	 IEbppHN1ZOW6OEyEnesegpbr7fdkusEc4UKbYE3M=
+Message-ID: <5c4a9d72-2f46-4121-8e9f-ae85f28eff1f@arm.com>
+Date: Wed, 16 Sep 2026 09:27:47 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v18 01/23] KVM: arm64: protected VM: Handle set_one_reg
+ CNTVCT_EL0/CNTPCT_EL0
+Content-Language: en-GB
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, will@kernel.org,
+ catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
+ aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
+ Marc Zyngier <maz@krenel.org>
+References: <20260915160141.3543048-1-suzuki.poulose@arm.com>
+ <20260915160141.3543048-2-suzuki.poulose@arm.com>
+ <86o6dy5uob.wl-maz@kernel.org> <7c26c860-0543-459e-974b-72c59af261f9@arm.com>
+ <a4e7e6c3-d325-4f35-a17c-e02791cca326@arm.com> <86ik45626u.wl-maz@kernel.org>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <86ik45626u.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_012136_392542_FE2C6F5A 
-X-CRM114-Status: GOOD (  17.97  )
+X-CRM114-CacheID: sfid-20260916_092754_631743_77D5B45F 
+X-CRM114-Status: GOOD (  17.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,35 +96,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 16 Sep 2026 10:08:52 +0200
-Johan Hovold <johan@kernel.org> wrote:
-
-> On Tue, Sep 15, 2026 at 09:02:18AM +0000, Joshua Crofts wrote:
-> > The fail label in usb_new_device() disables pm_runtime on failure, but
-> > doesn't call pm_runtime_dont_use_autosuspend(), causing resource leaks.  
+On 16/09/2026 09:16, Marc Zyngier wrote:
+> On Tue, 15 Sep 2026 22:20:36 +0100,
+> Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+>>
+>> This is how it looks like now, reworked.
+>>
+>>
+>> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+>> index 6ac3321f4c575..1c8fac222a643 100644
+>> --- a/arch/arm64/kvm/arch_timer.c
+>> +++ b/arch/arm64/kvm/arch_timer.c
+>> @@ -1110,8 +1110,7 @@ void kvm_timer_vcpu_init(struct kvm_vcpu *vcpu)
+>>                  timer_context_init(vcpu, i);
+>>
+>>          /* Synchronize offsets across timers of a VM if not already
+>> provided */
+>> -       if (!vcpu_is_protected(vcpu) &&
+>> -           !test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET,
+>> &vcpu->kvm->arch.flags)) {
+>> +       if (!test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET,
+>> &vcpu->kvm->arch.flags)) {
+>>                  timer_set_offset(vcpu_vtimer(vcpu), kvm_phys_timer_read());
+>>                  timer_set_offset(vcpu_ptimer(vcpu), 0);
+>>          }
+>> @@ -1133,6 +1132,15 @@ void kvm_timer_init_vm(struct kvm *kvm)
+>>           */
+>>          for (int i = 0; i < NR_KVM_TIMERS; i++)
+>>                  kvm->arch.timer_data.ppi[i] = get_vgic_ppi(kvm,
+>> default_ppi[i]);
+>> +
+>> +       /*
+>> +        * For the protected VMs, fix the counter offset to 0 by marking the
+>> +        * KVM_ARCH_FLAG_VM_COUNTER_OFFSET. This would also prevent
+>> userspace
+>> +        * writes to CNTVCT_ELO & CNTPCT_EL0.
+>> +        * The user can't set the offset via vm ioctl
+>> KVM_ARM_SET_COUNTER_OFFSET.
+>> +        */
 > 
-> No it does not, as the device itself is about to be freed. Sure we could
-> disable autosuspend again here, but it does not really matter.
+> This is a bit wordy. Something like:
+> 
+> 	Protected VMs don't allow any offset being set from userspace,
+> 	either set via writes to the counters or using the dedicated
+> 	ioctl. Pretend the offset has already been set and rely on the
+> 	default offset being 0.
+> 
+>> +       if (kvm_vm_is_protected(kvm))
+>> +               set_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &kvm->arch.flags);
+>>   }
+>>
+>>   void kvm_timer_cpu_up(void)
+> 
+> Otherwise LGTM.
+
+Thanks,
+
+Cheers
+Suzuki
+
+> 
+> 	M.
 > 
 
-Okay, commit message aside, you still need to call dont_use_autosuspend()
-on teardown as the driver doesn't use the devm_* counterparts. Currently
-(according to my cocci SmPL [1]) there are 195 instances of this in the kernel.
-
-...
-
-> But this one should not have a Fixes tag and does not need to be
-> backported.
-
-Yeah, you already mentioned this in IIO once [2]. I found several instances
-of patches like these being backported however, so perhaps times have changed.
-
-[1] https://lore.kernel.org/cocci/20260915064327.1377-1-joshua.crofts1@gmail.com/
-[2] https://lore.kernel.org/linux-iio/aoQEyeHUiTwWenBL@hovoldconsulting.com/
-
-
-
--- 
-Kind regards,
-Joshua Crofts
 
