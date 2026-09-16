@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20168C88E5C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 13:39:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95542C88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 13:39:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uB6n1K3LCaEVCrqPWgjTTDdDBNC3FP5MLx4HfaiqvKA=; b=I86+edrgqSrBpfImK7eRYPZOw3
-	brZfJKYmeRqtmpKClP0yQTbF15Q7NxkZ//l+2lh7lQH2duJSjTXCdTiTrN9lgX/bUEPXhy+ZEe+8z
-	13jaXEqizcqLSXQJPHndjr/DfBCrIaPF7/sj5cBImoJZ6zw+Aa3O7c3i82GkekNcPPVmz4MSlBv0I
-	00ZbFoHBsc2hxHSadO4adZONO93OQM39Zu0i/naWjxExOlCpE1TayYKkvUfz2NLe4KAaC7je+/Ljb
-	xUDOCL7MQ7ZnaADraIP9yZB3jSG0jLghSbHxzk2oBhVOgAv8YitcS8SoIquLloExYrsXSis9fw3Dw
-	mxYOc/ZQ==;
+	bh=8CJKTKLi7BcZoiOMOqeOWLjpP8wwIDKBXVGpShZbw04=; b=Otos+CUK0JMQuKfIzZTrz+TpXo
+	mdZwUONcV3pkfIbLTaghu/xqKDxlW+yj4doOdz9U1p3zwGwLxnhFyaxkQOYzPpeQHYESernkxYM+G
+	+ToS1mcioVlVAWyo4QiO8zSigT//Vfw8GWHx5ZXO/e095gf6t1IFCjFUHLyfpCMGRVjicu9unmxBZ
+	EgyeuWANckK12tWpeThhiYwWimJnvYA2SyoNKpjbzjCDnbPt5NqlieFsoAPYGkIughh6ZP4tqLJ8a
+	VSa4grw2bJzXKm2JtbxSrEFNNmclobZ37fDobQumYZ9B2An2XOrjj1YSoRuw4EsO5fUrEO/94Yb7S
+	ksFEx7SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6pqx-00000009HfV-3DBl;
-	Wed, 16 Sep 2026 13:39:11 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x6prO-00000009HjI-03Dh;
+	Wed, 16 Sep 2026 13:39:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6pqw-00000009HfM-2HHo
+	id 1x6prM-00000009Hj7-3SHv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 13:39:10 +0000
+	Wed, 16 Sep 2026 13:39:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3453B4145E;
-	Wed, 16 Sep 2026 13:39:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5EC81F000FF;
-	Wed, 16 Sep 2026 13:39:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7D1F540064;
+	Wed, 16 Sep 2026 13:39:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 124571F000FF;
+	Wed, 16 Sep 2026 13:39:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789565950;
-	bh=uB6n1K3LCaEVCrqPWgjTTDdDBNC3FP5MLx4HfaiqvKA=;
+	s=k20260515; t=1789565976;
+	bh=8CJKTKLi7BcZoiOMOqeOWLjpP8wwIDKBXVGpShZbw04=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=JSfXnglF0N3PtBmzFz52fRvW/pwX6FqS6EyRHa2wwVpaoCOJBaGFPgMuWG+ODgm57
-	 uzUdyTc9y4b7iiFWbatxIpIKXgXXfxwYzyQf62fwn3dreu18PdoYBOJSapkhTnjMx5
-	 kYYH3g0YTT1WsS1k5JiV0UL8DU8Ekyk3frjNZsRlkvymK+oJQR6gA7VLvdusvGKExm
-	 gGfbrjjQ0+6m1CVxfALv14O9PRixN0G9mH9svEYusD7Xf13kvHRIzI5kMdKdjusYlg
-	 JpqDCF6yF5H2tRUsQEnvE2Qy9MofukMIlRcMhuOGPkWPxNdv6jpUs3JEUqS3QBoJTc
-	 lLdZgRRvkC2dw==
-Message-ID: <ef85271a-a1a3-4b9b-8c99-c1f871a13c6b@kernel.org>
-Date: Wed, 16 Sep 2026 15:39:05 +0200
+	b=WXQtV7ay4gN/YNNAauRSJqHtJ0VSotrNqFfDJUGMVHnVWut9ye6AgxhWmmWcVk7ag
+	 fUv5fSxpMSSRWPTgqzAl8ayMt0cQ2qnQ712DFhyu6FKIgxuR+tDm5J8se/eE9Nn831
+	 /Lr7fnIbv67BsV1wXPovIpJWyeaJs+5GW+qqkK/arJtUCXzwcczMF+UQhFa8bPezFT
+	 7D0hc3CcgIeqmuKB3MlqiNCfPysFgetZusD+wdfqQCuDcRjyJD6n7nVQVbKpMbpVRW
+	 nrm0xblVIENDvUYC4ox0BgMVLyUmRFLjYH9gnzEwwV8XNXSncO+ovWJRPr+FLbSjtW
+	 7T3veWrMx3aDQ==
+Message-ID: <51993407-083f-45b7-990b-105a0c08a5a0@kernel.org>
+Date: Wed, 16 Sep 2026 15:39:31 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V2 04/14] arm64/mm: Route all pgtable atomics to central
- helpers
+Subject: Re: [PATCH V2 05/14] arm64/mm: Override read-write accessors for
+ vm_page_prot
 To: Anshuman Khandual <anshuman.khandual@arm.com>,
  linux-arm-kernel@lists.infradead.org
 Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
@@ -56,7 +56,7 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  Mike Rapoport <rppt@kernel.org>, Linu Cherian <linu.cherian@arm.com>,
  linux-kernel@vger.kernel.org, linux-mm@kvack.org
 References: <20260907035030.2839978-1-anshuman.khandual@arm.com>
- <20260907035030.2839978-5-anshuman.khandual@arm.com>
+ <20260907035030.2839978-6-anshuman.khandual@arm.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -103,7 +103,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260907035030.2839978-5-anshuman.khandual@arm.com>
+In-Reply-To: <20260907035030.2839978-6-anshuman.khandual@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -121,13 +121,8 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 9/7/26 05:50, Anshuman Khandual wrote:
-> Route all cmpxchg() operations performed on various page table entries to a
-> new ptval_cmpxchg_relaxed() helper. Similarly route all xchg() operations
-> performed on page table entries to a new ptval_xchg_relaxed() helper.
-> 
-> Currently these helpers just forward to the same APIs that were previously
-> called direct, but in future we will change the routing for D128 which is
-> too long to use the standard APIs.
+> Override pgprot_[read|write]() accessors using ptval_[get|set]() providing
+> required single copy atomic operation for vma->vm_page_prot.
 > 
 > Cc: Catalin Marinas <catalin.marinas@arm.com>
 > Cc: Will Deacon <will@kernel.org>
@@ -137,31 +132,24 @@ On 9/7/26 05:50, Anshuman Khandual wrote:
 > Cc: linux-kernel@vger.kernel.org
 > Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 > ---
-
-[...]
-
->  	case PAGE_SIZE:
-> @@ -1400,7 +1411,7 @@ static inline void ___ptep_set_wrprotect(struct mm_struct *mm,
->  	do {
->  		old_pte = pte;
->  		pte = pte_wrprotect(pte);
-> -		pte_val(pte) = cmpxchg_relaxed(&pte_val(*ptep),
-> +		pte_val(pte) = ptval_cmpxchg_relaxed(&pte_val(*ptep),
->  					       pte_val(old_pte), pte_val(pte));
-
-Indentation goes out of sync here.
-
->  	} while (pte_val(pte) != pte_val(old_pte));
+>  arch/arm64/include/asm/pgtable.h | 12 ++++++++++++
+>  1 file changed, 12 insertions(+)
+> 
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index 66bf5bbe484e..2b457db19be0 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -122,6 +122,18 @@ static inline pgd_t pgdp_get(pgd_t *pgdp)
+>  	return ptval_get(*pgdp);
 >  }
-> @@ -1438,7 +1449,7 @@ static inline void __clear_young_dirty_pte(struct vm_area_struct *vma,
->  		if (flags & CYDP_CLEAR_DIRTY)
->  			pte = pte_mkclean(pte);
 >  
-> -		pte_val(pte) = cmpxchg_relaxed(&pte_val(*ptep),
-> +		pte_val(pte) = ptval_cmpxchg_relaxed(&pte_val(*ptep),
->  					       pte_val(old_pte), pte_val(pte));
+> +#define pgprot_read pgprot_read
+> +static inline pgprot_t pgprot_read(pgprot_t *prot)
+> +{
+> +	return ptval_get(*prot);
+> +}
 
-Same here
+Similarly a const pointer here.
 
 Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
 
