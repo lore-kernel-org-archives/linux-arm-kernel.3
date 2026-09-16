@@ -4,91 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D54CC982C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 14:55:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F377AC982C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 14:59:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QV82UNlXLIGXwYDB+EGE0wWjQDs7Krio9WNaWSO5xfQ=; b=hK56QcCPpPdlukuOez/M6g9x1q
-	lEnxumweVJAKzrogPsQFooy9kOSM6A2i03VxEgI6540ck9/NrmIO5FjISbwZfeNeHOzgMjE8rrSuh
-	DTydTRVp0AFXV46dDMx95zpnDJuboj3N3Thl8Ss6q2gwwhic/GQ5kNJD/xzm8GXWpYJlNAOiC4c33
-	2jt/8r1UpfiyfFSr8oVufZ9cBzqSiGJP3JjJ3n3JJs/mZ5NtAvvVl/7d5SA8dm8ncWZx1saW18Rn+
-	MfCvnQsRXlBIncPMrbc95ogR7ohqATD/GqF3mgzDOpWM2V2BWnRNpD3o3LTaKuz/dNkehZDZsiSoy
-	w9N6HvUA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+EhvbHvTRMfk+FNJc3PI+E8opF0dWbchhnbhCKCLtRY=; b=Dai65IklctLq/XQfnURLZ2d6Hk
+	yaEIKiCmsQTfgdu3eNHQYWf3uwvgFrQ4nPkPl2mfiNumzAPeXIL67MupF/ekc5Xc6CivcNwwEU+Pd
+	H6yFvPhLRq4X7tOy08dheuwbPEO8b44Lme/JEgECSKVA0VMUx0BC2diMg2tm6tq4IgY/XPdhbJEVp
+	RtkqJcGTzRqT6hpg5mmNKbgg1o+XoqQSRFUZBwfwujRfIa1jTSPqfbZo55yIxwspEgFxdGV+xamMR
+	Opg0TWbDXvsDUgIg8pclshwPJhfl9ESHZge35Nr17C5Xsp/Il4K2G9VQz9Do6xSxeIWg5SVQSw3Yb
+	hqN1CYfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6r2O-00000009Tkm-3BPJ;
-	Wed, 16 Sep 2026 14:55:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6r2N-00000009TkU-3kNI
+	id 1x6r6o-00000009UDV-1i5N;
+	Wed, 16 Sep 2026 14:59:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x6r6l-00000009UCd-1b4S
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 14:55:04 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DAA3341820;
-	Wed, 16 Sep 2026 14:55:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1D151F000FF;
-	Wed, 16 Sep 2026 14:55:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789570502;
-	bh=QV82UNlXLIGXwYDB+EGE0wWjQDs7Krio9WNaWSO5xfQ=;
-	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To;
-	b=WzoyCkX6qile7VqKWaszhfBXITo1Vva2+0mj6NaQsOyenrrABW3jFSk/WQfJacLrS
-	 swxPQeQStUtlNnTb+NFoYnsOzLHKbKCy1SDiJA95sbZqsJQVCBqHLPLNYZvvlIv8wQ
-	 erkCQQ0YASVigmBa6cSO5aiMovZ7W2Gekrh9Y1mcwIOBUe0eLhD7Fa4KhblMJQBRXy
-	 a7qqgENAA49mGyM3i2AajSuIwgC2KGSJh0IxZtlr6wQmpfStpfaz9d875V82OB/h92
-	 B0Oy45XssMrBhorahUjjMDJS+76TYEIiUGYH0KMWUCQWE0ASKp0vHT5E8Cr30QCw1+
-	 pTumMZ0fkABgw==
-Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
-	id 22DAECE04DE; Wed, 16 Sep 2026 07:55:02 -0700 (PDT)
-Date: Wed, 16 Sep 2026 07:55:02 -0700
-From: "Paul E. McKenney" <paulmck@kernel.org>
-To: Frederic Weisbecker <frederic@kernel.org>
-Cc: Josef Bacik <josef@toxicpanda.com>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Boqun Feng <boqun@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>, x86@kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Puranjay Mohan <puranjay@kernel.org>,
-	Xu Kuohai <xukuohai@huaweicloud.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Zqiang <qiang.zhang@linux.dev>, Juergen Gross <jgross@suse.com>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	linux-kernel@vger.kernel.org, rcu@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org, bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	xen-devel@lists.xenproject.org
-Subject: Re: [PATCH RFC v3 03/13] rcu-tasks: Add a Tasks RCU implementation
- for reader-marked trampolines
-Message-ID: <6afb0afe-e7b8-46b4-9fea-2c7cf4791044@paulmck-laptop>
-References: <20260915-b4-rcu-tasks-preempt-qs-v3-0-0ad30c4c5ee7@toxicpanda.com>
- <20260915-b4-rcu-tasks-preempt-qs-v3-3-0ad30c4c5ee7@toxicpanda.com>
- <aqlgxKGk_AEKls_1@localhost.localdomain>
- <edc7cca2-a5c5-455c-8969-ea05dbdb08f7@paulmck-laptop>
- <aqqONH8flTIpOUqT@localhost.localdomain>
- <91687748-0781-4133-baed-43cf82f35ff5@paulmck-laptop>
- <aqqpRoTfywUuTgoC@localhost.localdomain>
- <aqqsAUVV8a1yrQzX@localhost.localdomain>
+	Wed, 16 Sep 2026 14:59:37 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5FAC01516;
+	Wed, 16 Sep 2026 07:59:29 -0700 (PDT)
+Received: from [10.2.212.8] (unknown [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A69FE3F7B4;
+	Wed, 16 Sep 2026 07:59:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789570772; bh=gdiAq7W2RiooAAYYrX9jy5tLi+pRLzukmFQakocw9j4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=tRV2QeLsvP/HNcvwjbrB2SWTGZA/2PriicTdL/wlrw56ul7hEF+KtStM0SLTLYzzL
+	 9a8cAXByTJ6kzMbSTe/EOe8Jm4x+zhOv7N50abVLITn6RzId1bB5US3fE3AntzBZgI
+	 KSnm6IW2ift1VKmdYNE1VGr8BvnoYK6tUEqnOSU0=
+Message-ID: <1f0a6421-109b-4578-910a-584bd80387ad@arm.com>
+Date: Wed, 16 Sep 2026 15:59:30 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm_mpam: resctrl: Catch and propagate error from
+ get_cpu_cacheinfo_id()
+To: Andre Przywara <andre.przywara@arm.com>, James Morse <james.morse@arm.com>
+Cc: Reinette Chatre <reinette.chatre@intel.com>,
+ Fenghua Yu <fenghuay@nvidia.com>, Tony Luck <tony.luck@intel.com>,
+ Dave Martin <Dave.Martin@arm.com>, Yin Li <yin.li@oss.qualcomm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260902143757.3469690-1-andre.przywara@arm.com>
+ <ea42f2a7-f4f7-46ab-a5e0-239c74174499@arm.com>
+ <2c682691-3037-4d62-a941-bc41baca35aa@arm.com>
+ <4f35abf6-6dac-4c60-9ece-c1af02a98c9c@arm.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <4f35abf6-6dac-4c60-9ece-c1af02a98c9c@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <aqqsAUVV8a1yrQzX@localhost.localdomain>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260916_075935_613520_9A4EEE07 
+X-CRM114-Status: GOOD (  24.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,89 +73,95 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: paulmck@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 16, 2026 at 04:47:29PM +0200, Frederic Weisbecker wrote:
-> Le Wed, Sep 16, 2026 at 04:35:50PM +0200, Frederic Weisbecker a �crit :
-> > Le Wed, Sep 16, 2026 at 07:26:35AM -0700, Paul E. McKenney a �crit :
-> > > On Wed, Sep 16, 2026 at 02:40:20PM +0200, Frederic Weisbecker wrote:
-> > > > Le Tue, Sep 15, 2026 at 04:56:41PM -0700, Paul E. McKenney a �crit :
-> > > > > > Alternatively the approach could be generalized to vanilla RCU, it could be
-> > > > > > possible to define a .text.rcu_no_qs section within which code running is
-> > > > > > considered as an RCU reader (with a pause while on the explicit RCU tasks
-> > > > > > section). It would be forbidden to voluntary sleep inside
-> > > > > > and to put explicit preemption points (CONFIG_PROVE_RCU could report misuses).
-> > > > > > 
-> > > > > > Based on IP, RCU could consider those interrupted section as readers. This would
-> > > > > > require PREEMPT_RCU though.
-> > > > > > 
-> > > > > > And then synchronize_rcu() would do the 1, 2, 4 jobs.
-> > > > > 
-> > > > > If I am following correctly (ha!), sleepable BPF programs rule out use
-> > > > > of RCU in this manner.
-> > > > > 
-> > > > > But your point is nevertheless valid, in that SRCU could be used.
-> > > > > And because rcu_read_lock_trace() is a thin wrapper around SRCU-fast, we
-> > > > > *might* be able to instead use rcu_read_lock_tasks_trace(), which would
-> > > > > skip the task-struct increment and decrement, saving a few instructions.
-> > > > > Then, instead of waiting for each task's counter to go to zero, instead
-> > > > > just invoke synchronize_rcu_tasks_trace().
-> > > > > 
-> > > > > Which is pretty close to what Josef is proposing, just with the new RCU
-> > > > > Tasks Trace read-side primitives.  I think.  ;-)
-> > > > > 
-> > > > > This assumes that we do not need to flatten partially overlapping RCU
-> > > > > Tasks Trace readers into one big reader.
-> > > > > 
-> > > > > Or am I missing something here?
-> > > > 
-> > > > Yes I think that's what Josef does in this patchset. The problem is about
-> > > > handling the few instructions:
-> > > > 
-> > > > 1) between the begining of the trampoline and the call to rcu_read_lock_trace()
-> > > > 
-> > > > 2) between the call to rcu_read_unlock_trace() and the end of the trampoline
-> > > > 
-> > > > So what I'm proposing is to make those two parts implicit RCU read lock sections.
-> > > > 
-> > > > So the whole trampoline would be .text.rcu_no_qs:
-> > > > 
-> > > > .text.rcu_no_qs trampoline:
-> > > >   __________________________________________________________________________________________
-> > > >  |Few instructions 1 | rcu_read_lock_trace() .... rcu_read_unlock_trace | Few instructions 2|
-> > > >  ___________________________________________________________________________________________
-> > > > 
-> > > > Then when a tick fires, rcu_flavor_sched_clock_irq() discards the interrupted
-> > > > code as QS if the IP was within .text.rcu_no_qs _unless_ it is in the
-> > > > rcu_read_lock_trace. Both are easy and quick to verify.
-> > > > 
-> > > > Also preempt_schedule_irq() would make sure to verify the same condition and
-> > > > enqueue the task as a GP blocker if preempting inside "Few instructions 1"
-> > > > or "Few instructions 2".
-> > > 
-> > > Ah, OK, I might be following now.  ;-)
-> > > 
-> > > We also need both versions of rcu_exp_handler() to check the IP as well,
-> > > given that sooner or later someone is going to want trampoline removal
-> > > to go faster.  Or am I still missing a turn in here somewhere?
+Hi Andre,
 
-I should add that the thing that I really like about Frederic's approach
-is that avoids the task-list scan.  Or at least has the potential to
-do so.  Such scans have proven problematic in the past.
-
-> > Yes indeed, missed the exp part!
+On 16/09/2026 14:34, Andre Przywara wrote:
+> Hi,
 > 
-> What remains to handle also is non-preemptible RCU because if the task is
-> preempted by an IRQ while in the .text.rcu_no_qs, we may still need to keep
-> track of that somewhere.
+> On 9/16/26 11:49, Ben Horgan wrote:
+>> Hi Andre,
+>>
+>> On 07/09/2026 13:59, Ben Horgan wrote:
+>>> Hi Andre,
+>>>
+>>> On 02/09/2026 15:37, Andre Przywara wrote:
+>>>> get_cpu_cacheinfo_id() can fail, in which case it returns a negative
+>>>> error value.
+>>>>
+>>>> Check the returned value for this error condition, before passing the
+>>>> value on to other code, which would hide the negative number in some high
+>>>> value in the unsigned type.
+>>>>
+>>>> Fixes: 36528c7681b8 ("arm_mpam: resctrl: Add support for 'MB' resource")
+>>>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+>>>
+>>> This looks good to me. Out of interest what led you to find this?
+>>>
+>>> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+>>
+>> I seem to have been a bit hasty here.
+>>
+>> Sashiko points out at [1] that 0xFFFFFFFF is the only value we were previously considering invalid
+>> and that the value coming from dt or acpi can provid other valid values that would after this patch
+>> be considered invalid.
+> 
+> Fair, and I can easily change the check to only check explicitly for -1.
+> 
+> But this is somewhat broken already, right? I mean the return type for the existing
+> get_cpu_cacheinfo_id() has always been "int". It looks like this comes from the x86 world, where the
+> cache IDs never get that large? I can have a deeper look, but my gut feeling is that this is
 
-Perhaps in rcu_core() in kernels booted with use_softirq?  I am thinking
-specifically of the checks for deferred quiescent states.  I don't (yet)
-see a need to modify rcu_check_quiescent_state().
+The cache_id being in the PPTT table is a fairly new addition introduced for PPTT table version 3
+and introduced to drivers/acpi/pptt.c as part of the preparations for the MPAM driver at the end of
+2025. At this point, it seems I neglected to consider any potential effect on
+get_cpu_cacheinfo_id(). The pptt cacheid takes any u32 value apart from 0. I haven't joined all the
+dots but I expect there might be some tidying up needed in this area.
 
-Maybe other places as well.  ;-)
+> practically irrelevant, since we barely see Aff3 at all, not to mention high values of it.
 
-							Thanx, Paul
+Does Aff3 effect the cache id on acpi systems?
+
+Thanks,
+
+Ben>
+> Cheers,
+> Andre
+> 
+>>
+>> [1] https://sashiko.dev/#/patchset/20260902143757.3469690-1-andre.przywara%40arm.com
+>>
+>> Thanks,
+>>
+>> Ben>
+>>> Thanks,
+>>>
+>>> Ben
+>>>
+>>>> ---
+>>>>   drivers/resctrl/mpam_resctrl.c | 5 ++++-
+>>>>   1 file changed, 4 insertions(+), 1 deletion(-)
+>>>>
+>>>> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+>>>> index 9d223057953ab..a5e661eff86d7 100644
+>>>> --- a/drivers/resctrl/mpam_resctrl.c
+>>>> +++ b/drivers/resctrl/mpam_resctrl.c
+>>>> @@ -786,7 +786,10 @@ static u32 get_mba_min(struct mpam_props *cprops)
+>>>>   /* Find the L3 cache that has affinity with this CPU */
+>>>>   static int find_l3_equivalent_bitmask(int cpu, cpumask_var_t tmp_cpumask)
+>>>>   {
+>>>> -    u32 cache_id = get_cpu_cacheinfo_id(cpu, 3);
+>>>> +    int cache_id = get_cpu_cacheinfo_id(cpu, 3);
+>>>> +
+>>>> +    if (cache_id < 0)
+>>>> +        return -ENOENT;
+>>>>         lockdep_assert_cpus_held();
+>>>>   
+>>>
+>>>
+>>
+> 
+
 
