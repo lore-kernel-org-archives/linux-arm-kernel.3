@@ -4,107 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B006AC982C3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 14:30:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BC36C982C3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 14:31:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nRPwui//DdZeQJe3FFPtKCePfUSwnp41dl+UxM2JXEA=; b=Po9fUfQQ+HTbJsQ2t/4/uMiU6C
-	fnCxEZn7rKpHr47tLn+dFOyXbDAw9ze11Bmgxds8AxDoTeUcaW6iR128ZvnXiJcyTDA5Rmw7N5yt4
-	V9qsTPvfUBT07ag7nvMcfunwQnqGCTAEiwN+jzTn0cZaOQ+XIYn3WQbuyFdrS6A8LoUTf/RRjVeqN
-	C8rh1ClzA5z+VbKSg6GbZ/NEvPqFJ6CrHuffgnnxTF2Fc8DcE1tzVvGmmFehWrY+g1sf060oFYQXi
-	QJLHepW6OvqH/iSWKqoQGJJhWjiYCKs6Ww3KJ1PoxqVP47qavA1zNnMgV3W5N1tPotr1Jc//IKXr4
-	8gLS4JKQ==;
+	bh=ifWQ8YaMc5CQm1ni9DW+Z7Yqh55h/cFdZBqgsTVphkY=; b=RCoqtX0PK3E6fUXrthP8gTysdE
+	MN+SYx/mcmt8lTp/lavBqKqrvqHn7jv5EoM3DLUvFqShob7UhyDB32uBymympl+p34xMh5AJq0hVc
+	HVrrvbGP+b61v8QXPU1D/VsaNOWTmjSObRy27+zikZQhzOJY4tdXxkImiciC4vXTNAxk0Ar0kAp0v
+	72IJ81Y3WbdOHgChMZo6ZfdnnTyqXs+NuSR3dJDOKydu2owPxjvLR8ezLnjCJs9XtbHEJwNyE3ACq
+	/8LGv0oonSkdfYqOsWwnlaiARAnPug8Zgk0ipEHrtZzkdfO2oCk8xGJJaXBic4HlYRPoe9TTY8J67
+	lYE6RQiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6qeM-00000009Pif-0JEH;
-	Wed, 16 Sep 2026 14:30:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x6qf4-00000009Pqa-2yZZ;
+	Wed, 16 Sep 2026 14:30:58 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6qeJ-00000009PiL-2bSv
+	id 1x6qf0-00000009PoV-2Kw1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 14:30:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EA31E415CE;
-	Wed, 16 Sep 2026 14:30:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83B581F00893;
-	Wed, 16 Sep 2026 14:30:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789569010;
-	bh=nRPwui//DdZeQJe3FFPtKCePfUSwnp41dl+UxM2JXEA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=ZbOE9AMCGmYoHwYcnarKJaXI6uAMxVQfXWxur+hh8bApx/N3MdVr5/9UMcQ1tM+lH
-	 dJy3cTT6U5b5ws+hkUqJsIfENsyI2AryeulCzNceohcyJfzupz9grf85us2YvbYJ/K
-	 MlGiGPzwHqcXqUSm7I+vH309ANU2K9p8XP/Yc+Qi/4plXhBPiZAKdg9+E2Uh7ENeGN
-	 bX9r+ZMUodz3EJowHmZFAJJOdkM91PFDKp4pMubfLfeTPq7DXJSuba0y5bD6+MvLy0
-	 RLb2ZHvhBO0F5hoFNWgKQX7x+PiH3sePCO+ifp48KfAnQMTo77S/eiZnO8rJSYNzff
-	 ijUhgnLsqNusA==
-Message-ID: <be1c0a62-4589-4fe4-a500-d3fe16a6e610@kernel.org>
-Date: Wed, 16 Sep 2026 16:30:05 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V2 06/14] arm64/mm: Enable fixmap with 5 level page table
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>,
- Lorenzo Stoakes <ljs@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
- Mike Rapoport <rppt@kernel.org>, Linu Cherian <linu.cherian@arm.com>,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org
-References: <20260907035030.2839978-1-anshuman.khandual@arm.com>
- <20260907035030.2839978-7-anshuman.khandual@arm.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20260907035030.2839978-7-anshuman.khandual@arm.com>
+	Wed, 16 Sep 2026 14:30:57 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 450961A08AB;
+	Wed, 16 Sep 2026 14:30:51 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 1645860337;
+	Wed, 16 Sep 2026 14:30:51 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C273711C7B024;
+	Wed, 16 Sep 2026 16:30:38 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1789569045; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=ifWQ8YaMc5CQm1ni9DW+Z7Yqh55h/cFdZBqgsTVphkY=;
+	b=PAFHXDgagaMbICkI8pF/F5Nz5W1gjfLrs/YkppCqVP1pMYNSPxgzDNoh7q+DYhGicdwrYf
+	PT5MKU1C05LYJEvG7c2FAjeCDXZt49uyTEXYiGNsgQEZUIFo9Gn3dNx1y9W9wkLfU/7aPb
+	vzohVysiTuf4GVtby1VsmN8oKU9d8Q7ZUe89SyFGWHWqfmxt14PRsnXT7ywBVYdGwH5OlH
+	jqCvJ05G71TC8RvUYP+fNsTf78dwavvp6emdYAP1L54EDJ9LaoeEcGMIrOf0hq9e7O2q6s
+	lH0l7yhmzYU7wIfR98nbme6zK7TkBj3xK17AW9YJl4T1VYqxyZnDThae3cpVdw==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Date: Wed, 16 Sep 2026 16:30:37 +0200
+Message-Id: <DLGTA297W2SP.36MAJCYAC9O2X@bootlin.com>
+Subject: Re: [PATCH v4 2/4] drm: mxsfb: Add optional DPI output bus-width
+ configuration
+Cc: "Marek Vasut" <marex@denx.de>, "Stefan Agner" <stefan@agner.ch>,
+ "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
+ <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "David
+ Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Rob
+ Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Frank Li" <Frank.Li@nxp.com>,
+ "Sascha Hauer" <s.hauer@pengutronix.de>, "Pengutronix Kernel Team"
+ <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>, "Francesco
+ Dolcini" <francesco.dolcini@toradex.com>,
+ <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <imx@lists.linux.dev>,
+ <linux-arm-kernel@lists.infradead.org>, "Alexander Stein"
+ <alexander.stein@ew.tq-group.com>
+To: "Francesco Dolcini" <francesco@dolcini.it>, "Luca Ceresoli"
+ <luca.ceresoli@bootlin.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+X-Mailer: aerc 0.22.0
+References: <20260813092836.38367-1-francesco@dolcini.it>
+ <20260813092836.38367-3-francesco@dolcini.it>
+ <178954813309.214898.6895255097019153080.b4-review@b4>
+ <20260916091543.GA277833@francesco-nb>
+ <DLGP7GKZJBOP.350QK94UOGRYV@bootlin.com>
+ <20260916114350.GB284106@francesco-nb>
+In-Reply-To: <20260916114350.GB284106@francesco-nb>
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260916_073055_066522_704F7DF0 
+X-CRM114-Status: GOOD (  35.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,40 +93,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/7/26 05:50, Anshuman Khandual wrote:
-> FEAT_D128 halves PTRS_PER_PXX thus shrinking the VA range coverage
-> for each page table level. Hence in order to preserve all existing
-> VA range configurations, some geometry now need to become 5-level.
-> 
+On Wed Sep 16, 2026 at 1:43 PM CEST, Francesco Dolcini wrote:
+> On Wed, Sep 16, 2026 at 01:19:08PM +0200, Luca Ceresoli wrote:
+>> On Wed Sep 16, 2026 at 11:15 AM CEST, Francesco Dolcini wrote:
+>> > Hello Luca,
+>> >
+>> > On Wed, Sep 16, 2026 at 10:42:13AM +0200, Luca Ceresoli wrote:
+>> >> > LCDIF programs LCD_DATABUS_WIDTH from the selected media bus format=
+. The
+>> >> > format reported by the downstream panel or bridge describes the dis=
+play
+>> >> > input, but it does not describe how the LCDIF data pins are physica=
+lly
+>> >> > wired on the board.
+>> >> >
+>> >> > These can differ. For example, a 16-bit LCDIF bus can be connected =
+to a
+>> >> > 24-bit display by wiring the available color bits to the correspond=
+ing
+>> >> > display inputs. In that case, using the display's 24-bit format to
+>> >> > configure LCDIF selects the wrong data-bus mode and changes the ass=
+ignment
+>> >> > of color bits on the LCD_DATA pins.
+>> >> >
+>> >> > Read the optional bus-width endpoint property from the LCDIF output=
+ port
+>> >> > and use it to select the media bus format used to configure LCDIF. =
+This
+>> >> > allows the LCDIF bus mode to describe the physical interface
+>> >> > independently of the downstream display format.
+>> >> >
+>> >> > When the optional property is absent, or it has an invalid value, c=
+ontinue
+>> >> > using the format reported by the downstream display device, preserv=
+ing
+>> >> > the existing behavior. The code is not validating the DT for
+>> >> > correctness and just fall back to the previous behavior in case of
+>> >> > errors.
+>> >>
+>> >> Why? Generally speaking errors are better spotted immediately, not ig=
+nored
+>> >> silently.
+>> >
+>> > My understanding is that the C driver code should not validate the DT
+>> > and that this is the general recommendation when parsing properties fr=
+om
+>> > the DT.
+>> >
+>> > The DT checker is going to spot errors in the DT even earlier and in a
+>> > static way.
+>>
+>> Drivers typically check for invalid values.
+>>
+>> And people writing their private dts can do mistakes and not run the sta=
+tic
+>> checks. Bad on their side, sure, but having a runtime error would be use=
+ful
+>> there.
+>
+> Understood. I would personally not do it. I can add the required error
+> checking code. No other DRM maintainer/reviewer commented so far, so I
+> am taking this as a request.
+>
+> What should I do in case there is an invalid value? Fail or have a
+> warning message?
 
-Hmm, wasn't this 5-levels before, but other code allocated+initialized the p4d
-table for us?
+Just fail. You are in the probe path, so it's OK.
 
-I mean, I see how we are filling in another level, but I don't see how we would
-reconfigure something to use 5 page table levels?
+>> Also consider potential regressions. Say someone has an invalid value in
+>> their product, say bus-width =3D <15>, which works because the default 1=
+8
+>> which gets used as a fallback happens to be the correct value for their
+>> hardware. Some years later we implement the new bus-width =3D <15>, and =
+then
+>> that user upgrades to a newer kernel and their display won't work becaus=
+e
+>> it will start using that incorrect bus-witch =3D <15>. Better stopping t=
+his
+>> before it starts, IMO.
+>
+> I do not see this situation honestly, if you have a wrong value, e.g. 15
+> bits, before this patch is ignored, and after this patch is also
+> ignored ...
 
-> Since fixmap is used to build and manipulate page tables early on
-> during boot the mapping must also gain that additional level which
-> was not required earlier.
+There is no problem with the code in this patch alone.
 
-I am no expert ... but I am confused :)
+The problem is when in two years in the future we do implement 15
+bits. (That's an example to explain the principle, I don't expect it to
+happen with this driver.) But imagine in the future we add:
 
-We do have a loop only in early_fixmap_init_pmd(). So we cannot possibly span
-more than a single ... PTE table?
+	switch (bus_width) {
+    +	case 15:
+    +		mxsfb->bus_format =3D MEDIA_BUS_FMT_RGB555_1X15;
+    +		break;
+	case 16:
+		mxsfb->bus_format =3D MEDIA_BUS_FMT_RGB565_1X16;
+		break;
 
-> 
-> Enable fixmap with 5 level page table when required. This creates table
-> entries at the PGD level. Add a fallback stub for pgd_page_paddr() when
-> (PGTBALE_LEVELS <= 4) which helps in intercepting any unintended usage.
+At that point the device in the wild with the incorrect 'bus-width =3D <15>=
+'
+will start using RGB555 and fail, because they really have a 18 bit panel
+which worked thanks to the automagic "if DT is wrong, let's go with the
+default". That's a regression for that device.
 
+Reporting an error from day 0 means 'bus-width =3D <15>' will be blocked, t=
+he
+device won't probe and the mistake in the device tree gets fixed before
+shipping.
 
-Again, I am very confused. Is it really just "As the page table layout changes,
-we might no longer have a p4d table pre-populated for the range our fixmap falls
-into. So if there is no p4d table yet, populate a static one just like we do for
-the other levels."
+I hope it's clearer now.
 
--- 
 Cheers,
+Luca
 
-David
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
