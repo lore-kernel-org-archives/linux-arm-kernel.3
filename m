@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C770FC88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 13:36:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 382F6C88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 13:37:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bwyk+5gUmPQM5HlVeH3up+pJy3bi1L00FIGnnBnAiJY=; b=C4B3Jj1M3dhkUjhL/ZDpvS9zNY
-	tAtyNkWeTxVt31XOGdycyob11AIJpMrCqn33JSVHd09CflxVn76MGV2j7kuMiW5rXtDnYa1mna1g3
-	/SVQK4HOvcviFTKcZEssI5f3tB9GkLzynEO3CnsSIB2xiHvXm/yOyTKF0SDsekXJ146A23HJFPnuu
-	+bj59qOflFxuGd83olXs5rwWe4Va/N5L49pPaQEDU03IsYE2pbRAu0edZWWFwQLz82sh8Ny3r9l8t
-	m23hmGNZwxZ/p+xASlMgSCYMN37IlHMre16H+k49cM7msR48BSPdtpT3Gtb0fG06aW+7j3+jYBFj9
-	GoY74lmQ==;
+	bh=aIOwNGA0MU/NVfhrdRk/6kNhj0M02kW7XmE+rQcbLdU=; b=KYQDmhneufOGC0sbIZf9OrbqgZ
+	QfCyJIcD7XX5cNXEywe7AjyjCiMi/MRag+vLJAKEafpAKTrZKGIifuxe0DEC/59YoirC5f55u/KHn
+	d1hypjfw2kxnCc0LL33Ad0jfdr49R88QsItYxvYQ/YZoCn6CKrbIZ1VzVJOD9/oVwsfgkeXHDAwkb
+	e/VHlf/EcWPjnDz9KOyHM1LAdYJVpBnwiDOEDBfwKEbnCySeIJdUcOxZC9XWm+pP9jz5VRG61DCQO
+	xJM6Z/uWHsTs1J7hJMKwlpxVeuGoR+7jLO3cMW7JTrOFAVPdr06qqsJnBCHlxNEPekQbW7DzKl1R+
+	HSVLMe+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6pnw-00000009HGf-1po2;
-	Wed, 16 Sep 2026 13:36:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x6poj-00000009HOR-2VLq;
+	Wed, 16 Sep 2026 13:36:53 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6pnv-00000009HG9-1AQc
+	id 1x6poh-00000009HOC-2ozx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 13:36:03 +0000
+	Wed, 16 Sep 2026 13:36:51 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C911740B46;
-	Wed, 16 Sep 2026 13:36:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90E7C1F000FF;
-	Wed, 16 Sep 2026 13:36:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0F5F240C2C;
+	Wed, 16 Sep 2026 13:36:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C46AF1F000FF;
+	Wed, 16 Sep 2026 13:36:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789565762;
-	bh=bwyk+5gUmPQM5HlVeH3up+pJy3bi1L00FIGnnBnAiJY=;
+	s=k20260515; t=1789565810;
+	bh=aIOwNGA0MU/NVfhrdRk/6kNhj0M02kW7XmE+rQcbLdU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=it8+CdwkIuYEVwHgoARhILclAx9xQneyJikZNFw5FuiXfBQKZjuHAWEm1zRK0HBEZ
-	 MBu8dds16gBsPre5OB1tdPNsQ7AjwC6eW7VT293sDASWfg9+7a48j7tkMR5WSTWBrR
-	 MQ3ogNFN3BPDxIc2an8RVAS0fZ8ZLOBdLClqi18I0wbMhkJmcCXLWK111NF7U8OHz7
-	 Qo9Nlk4gyT0emWDUu+ufaY+JkFfXl/FeYDomMFI+af5BkmAhJVhVY2w5tdRVIuXMr2
-	 R4LMRQYCkHDCI7geEAOMv3M4ixqW1W/ccumk8vv55zTvPL9ytZ6NtixXG/NRqT+xD0
-	 triSr+ZAmcSaw==
-Message-ID: <1d2108bc-6b67-43ce-ab13-70ed241024e4@kernel.org>
-Date: Wed, 16 Sep 2026 15:35:58 +0200
+	b=VMrwujIiBik3+7HDLtAyBMSxqEQWSXE0OgnntRCHHaB5GYadUH37/KcxMw42L3T8L
+	 nJdH3tcLXAVs4Zikcm+jbbIYjZSLbXaHWS/xq8G4GZ5h2jvs15Ic9dCeORiZksuSSr
+	 hoOYQBXv/yIHBQClwmbsoOMdFkGzkb9askn2F3LTRlvt61DFyEAtnT9S2tGXL1rzjW
+	 GcjRh09Shyk8i6mjZ95MvwynQOq9UOtr7zTqtph2Vg45+QF/R5CEdI5vkX0THYygg+
+	 GokAyhksjgm6lKVLOXdfIevQ2BzHUnLqpFdYIcYQLFdU3NaoLkru65InaACrorxf0K
+	 vYtXjGRLlD7ZQ==
+Message-ID: <2cb3bb6b-df38-4568-987d-8e71b3244279@kernel.org>
+Date: Wed, 16 Sep 2026 15:36:46 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V2 02/14] arm64/mm: Route all pgtable reads via
- ptval_get()
+Subject: Re: [PATCH V2 03/14] arm64/mm: Route all pgtable writes via
+ ptval_set()
 To: Anshuman Khandual <anshuman.khandual@arm.com>,
  linux-arm-kernel@lists.infradead.org
 Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
@@ -56,7 +56,7 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  Mike Rapoport <rppt@kernel.org>, Linu Cherian <linu.cherian@arm.com>,
  linux-kernel@vger.kernel.org, linux-mm@kvack.org
 References: <20260907035030.2839978-1-anshuman.khandual@arm.com>
- <20260907035030.2839978-3-anshuman.khandual@arm.com>
+ <20260907035030.2839978-4-anshuman.khandual@arm.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -103,7 +103,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260907035030.2839978-3-anshuman.khandual@arm.com>
+In-Reply-To: <20260907035030.2839978-4-anshuman.khandual@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -121,9 +121,9 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 9/7/26 05:50, Anshuman Khandual wrote:
-> Define arm64 platform specific implementations for new pxdp_get() helpers.
-> These resolve into READ_ONCE(), thus ensuring required single copy atomic
-> semantics for the page table entry reads.
+> Currently ptval_set() is defined as WRITE_ONCE() but this will change for
+> D128 pgtable builds, for which WRITE_ONCE() is not sufficient for single
+> copy atomicity.
 > 
 > In future this infrastructure can be used for D128 to maintain single copy
 > atomicity semantics with inline asm blocks.
