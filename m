@@ -4,126 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E7B8C982C9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:56:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0F72C982CC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:57:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YNbyEy/5l+x2pHZ/vteOnkSOQvEAB7hYPgk9ZKHJiS4=; b=dIp8LWZHR7d2MFz6gVB+g/zZ7I
-	5kVQWwvoGKBtudvAaa6dth0x87EmdgzlZ7kko4PkutErQgwvz3a0PoVAEilweE7mGglf15/xxnvSy
-	Kor+/CxBUyh3umr/z4+CwPJZPT+xN6QXDVIe774AOxKDQmUmOAfI/YecmpITWqvaU9AwPOM7ad7vj
-	TZ/b+PoKB4lRIpaRcYH2uq1tLQekJkLCpPefHYUtheKAjzaSt+E/R836ebc2/Ie680TsFlmoBWmX4
-	4Qxr23/uubN9RM7hd2y2CBzmaRMyCURrtfw51zR8UGkCpQxyupkfjYNVWfRuwx3Qa1M9s0/KNi/GK
-	bb+BZJeg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iWvwV0Yb3kbxokRESrXjcOjAU5pqGLAd63JQ2bS+4jo=; b=MFSSwcd5OeUeRYESbQJ/Z25HKG
+	ZkpzU+zA4zQ56yO6Cwje12SsynFX/mn5/UzlyY5/uv2VXg0tasz2kfr4E/NaKR9MYEwexPd/P8BFk
+	Vjlxjr07zmNxYxcOl3/9ho9RoSn6S3gvwqZLJ3yPFHnLzlQVCKGHugI95qsT7DzIFq1XjlSQG4tOg
+	SkQWD/ECHZ+RPsE5LEfJU1hibUCbwBphCThiHRX/ZOAhAN0LMiHjvIeqBqtvH+m/P9KppoaZ37kfW
+	x35iUpRa1c88qXpAm7C/7nth1magrMSqZsGjU5E3Q856jet37Dx5RlGQLCjVD/UE/EpokQDiptdwO
+	nlZALNCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rzV-00000009esF-2gB5;
-	Wed, 16 Sep 2026 15:56:09 +0000
-Received: from mail-francesouthazon11011014.outbound.protection.outlook.com ([40.107.130.14] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1x6rji-00000009bnL-2hMR;
+	Wed, 16 Sep 2026 15:39:50 +0000
+Received: from m16.mail.163.com ([220.197.31.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rzT-00000009erK-0B86
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 15:56:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hefXjHmsCINkc0rnVLPxxR8r+R4AsI66IqBbtZm8U39kXRS8NVxz3bsnMDFikpHzDdQCSF0jy12FeYp0MzcK8lAkeV8LriBMV34qNUSZgVmW39vaZQHxrUABJwlCrdwnED+Qsk4m9DWSoJPD/sXsCbvseklaSopJYoqTdpSya6p3R/3Qx0y5krxixcN/IqNzmr+OsuFYOfxKylPZpMLXYS7IUpE/rUhKxWLbzWigRw++JFgP4Acoky9WkhnMtRwNQ3Bu9lA0tW1uu6GyG3BuUxDLbP1W01SfEIEH68xvlpHKYShPkpqaIodvjVmfVQOcOIc6OZhqyyDnyGYNjht3Aw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YNbyEy/5l+x2pHZ/vteOnkSOQvEAB7hYPgk9ZKHJiS4=;
- b=hKiJaOOmPwqfXorgeZNu9FNdyIXsINmeTgvnkt3kDYLBcnjrIykjTB5rOyjy0LPXKehA1WBiie7x4Xo+TlkfbHU9/sbxzlgkB9O2J5BaNZuLfzPbOux8ozCEDIKRmJr1Ybgpx1WN/YEkjfcaeTPbfUjpgDV8wL9fH40rG6on6v1LSpSwAheJRqvwS2pD/GgNLop9Dl5/77puZpbo1fH059ZAL0UfJ9wRLRuKPW2wgJiys38zTNcZvy/z4kOP/WmPK3SDd3f5KdHILHXmYS2e3hRaFfZ9FLaSDL+y6D2K6R5IBFjca9BatKe8Yc2AHlc2OFGFDJ3FV/nmbTZdxmm65A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YNbyEy/5l+x2pHZ/vteOnkSOQvEAB7hYPgk9ZKHJiS4=;
- b=gI44mYulAD6l/O8bm1q0DXgK3E0xTqOp66WUOfGorshcA7JL08PndsbbMSYOo9GJ+woKSTbgh84Z8rjnQquA9BiaitjNgG3oH7QFrs4VDQP0rurfiBAd/gmwZiwLFR1O10MDiNugWCiTHK6HIFj3QA2n3waSuhkfpfv4mrmcnpq05dL2QBBtfA2CLLgo03z6cKoz/CFXvRxmZRc9mD0i2nASxrMi0nsfq3AhZXXZ7TbhpNQfl/OzNd65F2OT4OcTVuad6I7EZyIV0UuTutsNedekLyERyBJkXXHQAszcjIuHu1j+qUtGeOq+1INj71KK2dM6LNabsLHVnvi87zCKGA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AM0PR04MB156053.eurprd04.prod.outlook.com (2603:10a6:20b:7f4::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.11; Wed, 16 Sep
- 2026 15:56:02 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.012; Wed, 16 Sep 2026
- 15:56:01 +0000
-Date: Wed, 16 Sep 2026 10:55:52 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Wentao Liang <vulab@iscas.ac.cn>
-Cc: Frank.Li@kernel.org, andy.shevchenko@gmail.com,
-	dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
-	okaya@kernel.org, vkoul@kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] dmaengine: qcom_hidma: Fix runtime PM leak in
- hidma_issue_task()
-Message-ID: <aqq8CIu0vJ2CaOf-@SMW015318>
-References: <20260916093032.2003397-1-vulab@iscas.ac.cn>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260916093032.2003397-1-vulab@iscas.ac.cn>
-X-ClientProxiedBy: CY8PR10CA0048.namprd10.prod.outlook.com
- (2603:10b6:930:4b::14) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	id 1x6rjg-00000009bm9-03y1;
+	Wed, 16 Sep 2026 15:39:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=iW
+	vwV0Yb3kbxokRESrXjcOjAU5pqGLAd63JQ2bS+4jo=; b=QS0V/U/giChb2KR5sQ
+	V+yWTFSjAoudfwbEijimVCSMr1afHSjxX/Tyb23a+NMLNa8yXADc5efgLNfbdm7A
+	8EBmG0hGd+7ZXkpBhhJ/IXV+EnjCbX2b8Zl1Nm0H8ZS3iXCHiB3k6rG7AONIgcNe
+	jVpFfRN1d7XtvxD4j5slmRFq8=
+Received: from zhb.. (unknown [])
+	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wDnbxQduKpqGzAlBA--.54876S2;
+	Wed, 16 Sep 2026 23:39:10 +0800 (CST)
+From: Hans Zhang <18255117159@163.com>
+To: lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	bhelgaas@google.com,
+	helgaas@kernel.org,
+	heiko@sntech.de,
+	mani@kernel.org,
+	yue.wang@Amlogic.com
+Cc: pali@kernel.org,
+	neil.armstrong@linaro.org,
+	robh@kernel.org,
+	jingoohan1@gmail.com,
+	khilman@baylibre.com,
+	jbrunet@baylibre.com,
+	martin.blumenstingl@googlemail.com,
+	cassel@kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Hans Zhang <18255117159@163.com>
+Subject: [PATCH v9 0/3] PCI: Configure Root Port MPS during host probing
+Date: Wed, 16 Sep 2026 23:39:04 +0800
+Message-Id: <20260916153907.60344-1-18255117159@163.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM0PR04MB156053:EE_
-X-MS-Office365-Filtering-Correlation-Id: f331407f-b244-46a9-97d2-08df140b017f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|366016|19092799006|7416014|376014|10067099003|18002099003|56012099006|11063799006|5023799004|22082099003;
-X-Microsoft-Antispam-Message-Info: QOUDpR21HkxgL1h229LflxKuZcZF5zq7MXhIZHrUCA2zQ1WBHy/0/02zm6OfV+lAG1lkQGsLmSU4lEi2joczW+7jKCnGr27lMSuvuATs+43a4vU/XHJzB1MreTRUJUzNxquTJFek9iUZTJsYS52k5o0H7SQ+JXiV1/wTrTLv7Vp9JYvKPPn4+kUU7XA37Js6EMQnNDVxIdzFrkWeBWrEvgDn35v/zqIpIyaVMhcoBhAuRomm+GBa/UWqE7ri6FXFTjo3HtdQNKAYkKDon+rRGnzj57BlT3IxlwPsSiCgwi9Z8c8miTaN3ScucHjIV/lt+negNbk2M8xAH8v6Yuoal9f2Gr1cGAHrrckKK58VYH/iGLtR5m77ySWcsqnqhCBGYXDXH51YBPILp7SGkd/9pPaTHhtfOxDJwcHv0vnCM5L3d8sCbQr2NlaYRSoRZzBqryNhuSNAYzpM7wK9YPSkv8pGLwBkCbYvYA6WETFwnwovVpA8p9MhkX6DnWJB+N8byVivaDq0OXQYfNrIBFG782s5LthbQmAsMrfU+jFM6kW2rY28NcS4U6pLDv1gMxFg4qHOXqHR7ZzSAS5rGLIePJDqpqsKWzGMBCYeeTpXrGVh2Rc3O4zs3ZQNNejIw4ABvTkEYJOaRHM5KeiCn2gSWWbakG4kT0EBHYYAyEt4OOE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(366016)(19092799006)(7416014)(376014)(10067099003)(18002099003)(56012099006)(11063799006)(5023799004)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JJ7FnSUZJFyvgzjec/EYrHIQ3QTaYwBAJUadqwGIU4sQWt8N/xkbhBvjKRwY?=
- =?us-ascii?Q?PTkivOXNH+PBQbXyTAUNet8p/sk4iyg0+qmuFxwQL8MoT+1hSF8UhzTM+PGe?=
- =?us-ascii?Q?FY4MWDgRBrA+EvSW079rIYtqIgaBC852YLIVPXa6RsdyT/QtUY3uzItRbWeW?=
- =?us-ascii?Q?WQh1UYq5ABvy9vqbkHZIs1qSLsdVpixfWKQItXEbdxhBB2tKQYq8xqz44inq?=
- =?us-ascii?Q?CCQ3ZAJGxnLy/GSK8eQ6Y8OuVr02iWjCtCyCH8EPogml9iJecywYnGWcP5/W?=
- =?us-ascii?Q?1uSq/z8N1oWT+/igRNQhc6ny2DbGO2rHGmwANpHPsjP/zB6P9ZKWVHUELrTq?=
- =?us-ascii?Q?RDICCu0H+IWX7fquwIOES2C0iLyJyoAFe1UgTalj/EQJiFGQj7MVT4G4rwse?=
- =?us-ascii?Q?5vKMVMIbLGYqlrxVUVyFGz2oqEyubCuvYY6pNO8EoZT7IlbZB+kT5/hx/nNo?=
- =?us-ascii?Q?Ncg047p59MHmSVs9iurY3rbKkkELBLuUUTW12xLRepZz0yv2RC5JdeH6ftYd?=
- =?us-ascii?Q?VlRe4Q9S+e1sXLwugr2SyRxoLjJOtFP0m3JlKQB4dMipEXLzwQDZxD/4viwg?=
- =?us-ascii?Q?EfdIUGyiBTpKCtovJDY2sCIEtfdmkC2sn2dOwg4d9DOH/eB53wwxjaC3YASw?=
- =?us-ascii?Q?9nLIX1BmmBnM6i/WRnqDALT4IWbOUnNzePex1inhpcn3ohE7vLWjdci4pqzZ?=
- =?us-ascii?Q?25hIzn/yvrggz3dSIsVzxxAJkq61X/X+N4T/SnITf9wzxBp9kmy3yX5ycx77?=
- =?us-ascii?Q?ehS/haVz+FQtoTr3x4dv9DRInFYaXkzEBF+34i5IiZ58xv36pbkxLWdvP0p+?=
- =?us-ascii?Q?6+/IOZ6kpoePqCYLOzGPXHFEbkmbmgb2OmqHcwTEj2Gz4kDsr0miDdVcTZCs?=
- =?us-ascii?Q?xkAX2FC7xt+APb2fEm3RR5W3bu8dK2HnwT6xz//WgrrHd9F2NaITcFnpcrG9?=
- =?us-ascii?Q?6NcLvcKrZmJRoXUcQV00fORu6ZlTYvjm0XGJfWbstODVOC3MOfm8d3tL4O4D?=
- =?us-ascii?Q?iOev4wP2M2WVZSKaZlGQENq7ri/xMM3y38rYRh/CO6GmbUzRs/w1fkRjZZuK?=
- =?us-ascii?Q?QGvk3KrJU/uAFRC1O5nZPBRfNITkuIF5A9dIYaWzI5w+vAD5reuzuM+dtLjI?=
- =?us-ascii?Q?gLwD8k8mqDKSum0uYBUUC50WXaPIuJ6B6x5IJa1zSqtcWrmHr+aRcHcFdjVD?=
- =?us-ascii?Q?W+ELd+BpOySdQ02Txxp3BnR1R046NHYcVQcIHkDUTiTbeX6curghZFhVpbhz?=
- =?us-ascii?Q?2pkWeaZeIBHfTjref9ca4AQGIacBDcBANGg1yVwtmfll2xtF4XxK+7LvYbrk?=
- =?us-ascii?Q?8xNAwTUNUJjMzhw4jLE8ttohna+BethrS56lXO9K01B45K93v0bVA1m4CDyQ?=
- =?us-ascii?Q?In+garicqDKIoRcvBe3YWeJbHGN6/VYbG++kJiXpAvyL36Taxc0+M5DFHW1b?=
- =?us-ascii?Q?8pDJvCLg8sAlO9zBRLz9AdyYjzYfNFhHNIfFjJ4KbUoylNuUiMkczIY2SKuW?=
- =?us-ascii?Q?UB4DBpVIOCLs+DwNVgPPZogJaKw+SiWoC8W8Q0sTkPq4smVCqZk0GWMqylNh?=
- =?us-ascii?Q?1E3UYlMhTfF6Yjzr2I0vMRpytUvFDu8vzxcdixEx589PZi+PoXCfMIHlPXG/?=
- =?us-ascii?Q?LR7gISRVLSQc+raXX/E0Kv/UvUG0wNhKNSByVdE7O3a/C+MyKVQGOEca90k2?=
- =?us-ascii?Q?t4VmdRfxXqBlegxdqqFAX8afmtdZeSpfQLEJ2/R6z/b7A+m/FdsKIh4D0bMR?=
- =?us-ascii?Q?RWXxCS/Dr1ZI8iGtWxEkrEp8ehXyyFeBAGD2p7YAFLpadmPew66W?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f331407f-b244-46a9-97d2-08df140b017f
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Sep 2026 15:56:01.5153
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Q4ihKrVrOZTZb+zvR3bkYxgC8O4h/ykE8dR/o5Z3IlzE/DaKbxyRPqq0RxC+r70LoLwRnjn7fd7Ky9h8ufyWriu4Tf6kJFs2HAYfY2sXNPZiCFZ6BA8jJtk76CdUbqjs
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB156053
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wDnbxQduKpqGzAlBA--.54876S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxZrWUZr4xKry7trW8JrWfAFb_yoWrCryUpF
+	WFqFsagrs7Gry3Ga17Cw42kFyYgws3A3y5Jw45K34fZF4YvF1jqrWv9F4Fvry7Xr4ag3WI
+	qFZFq34Fkw1jvaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pi0JP_UUUUU=
+X-Originating-IP: [240e:b8f:91b3:d000:a95a:12fc:887a:b0f1]
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCxB56HmqquB5tiAAA39
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_085607_079981_EBF06F51 
-X-CRM114-Status: GOOD (  22.83  )
+X-CRM114-CacheID: sfid-20260916_083948_458646_F7083C67 
+X-CRM114-Status: GOOD (  14.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,50 +87,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 16, 2026 at 09:30:32AM +0000, Wentao Liang wrote:
-> [You don't often get email from vulab@iscas.ac.cn. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
->
-> hidma_issue_task() bumps the device usage counter with
-> pm_runtime_get_sync() without checking the return value. The counter
-> is incremented even when the resume fails, e.g. when runtime PM has
-> been disabled or the device is suspending, and nothing drops it in
-> that case, so each failure leaves the device with an elevated usage
-> count and it can no longer runtime suspend.
->
-> Bail out and drop the leaked increment with pm_runtime_put_noidle()
-> when the resume fails, and only start the transfer when the device is
-> actually resumed. The counter for a successful resume is still
-> dropped by hidma_callback() as before.
->
-> Fixes: 67a2003e0607 ("dmaengine: add Qualcomm Technologies HIDMA channel driver")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
-> ---
->  drivers/dma/qcom/hidma.c | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/dma/qcom/hidma.c b/drivers/dma/qcom/hidma.c
-> index 5a8dca8db5ce..03a73dc9b066 100644
-> --- a/drivers/dma/qcom/hidma.c
-> +++ b/drivers/dma/qcom/hidma.c
-> @@ -220,7 +220,10 @@ static void hidma_issue_task(struct tasklet_struct *t)
->  {
->         struct hidma_dev *dmadev = from_tasklet(dmadev, t, task);
->
-> -       pm_runtime_get_sync(dmadev->ddev.dev);
-> +       if (pm_runtime_get_sync(dmadev->ddev.dev) < 0) {
+Current PCIe enumeration configures each device's Maximum Payload Size
+(MPS) top-down to match its upstream bridge.  Root Ports, however, return
+early from pci_configure_mps() because they have no upstream bridge, so
+their MPS may remain at firmware defaults and fail to use the controller's
+full capability.
 
-use pm_runtime_resume_and_get()
+There is also a hierarchy problem when a device's MPS Supported (MPSS) is
+smaller than the MPS already programmed above it.  The existing reduction
+only lowers a Root Port.  If a Switch is in between, the Switch ports keep
+the larger MPS and the endpoint is left mismatched, which can cause
+Malformed TLPs.
 
-Frank
+This series addresses both issues:
 
-> +               pm_runtime_put_noidle(dmadev->ddev.dev);
-> +               return;
-> +       }
->         hidma_ll_start(dmadev->lldev);
->  }
->
-> --
-> 2.34.1
->
+1. Patch 1 fixes pci_configure_mps() so that when a device's MPSS is
+   smaller than the MPS already in use above it, the whole Root Port
+   hierarchy is reduced as necessary, including Switch ports and
+   already-programmed sibling devices.
+
+2. Patch 2 safely initializes Root Port MPS to its maximum supported value
+   during host probing.  Patch 1 ensures this larger initial value is
+   reduced again when downstream devices require a smaller MPS.
+   PCIE_BUS_TUNE_OFF and PCIE_BUS_PEER2PEER are left untouched.
+
+3. Patch 3 removes the now-redundant Meson PCIe driver MPS programming and
+   cleans up the resulting dead macros and misleading MRRS helper name.
+
+---
+Changes in v9:
+- Add patch 1 to reduce the whole Root Port hierarchy when a downstream device
+  has a smaller MPSS, addressing the Switch case reported by sashiko.
+- Patch 2 keeps the Root Port max-MPS initialization, adds error handling, and
+  relies on patch 1 for later reduction.
+- Patch 3 drops PCIE_CAP_MAX_PAYLOAD_SIZE and MAX_PAYLOAD_SIZE, renames
+  meson_size_to_payload() to meson_size_to_mrrs(), and updates the warning.
+
+Changes in v8:
+https://patchwork.kernel.org/project/linux-pci/patch/20260911132145.211380-1-18255117159@163.com/
+
+- Rebase to v7.3-rc1.
+
+Changes in v7:
+https://patchwork.kernel.org/project/linux-pci/cover/20251127170908.14850-1-18255117159@163.com/
+
+- Exclude PCIE_BUS_PEER2PEER mode from Root Port MPS configuration
+- Remove redundant check for upstream bridge (Root Ports don't have one)
+- Improve commit message and code comments as per Bjorn.
+
+Changes for v6:
+https://patchwork.kernel.org/project/linux-pci/patch/20251104165125.174168-1-18255117159@163.com/
+
+- Modify the commit message and comments. (Bjorn)
+- Patch 1/2 code logic: Add !bridge check to configure MPS only for Root Ports
+  without an upstream bridge (root bridges), avoiding incorrect handling of
+  non-root-bridge Root Ports (Niklas).
+
+Changes for v5:
+https://patchwork.kernel.org/project/linux-pci/patch/20250620155507.1022099-1-18255117159@163.com/
+
+- Use pcie_set_mps directly instead of pcie_write_mps.
+- The patch 1 commit message were modified.
+
+Changes for v4:
+https://patchwork.kernel.org/project/linux-pci/patch/20250510155607.390687-1-18255117159@163.com/
+
+- The patch [v4 1/2] add a comment to explain why it was done this way.
+- The patch [v4 2/2] have not been modified.
+- Drop patch [v3 3/3]. The Maintainer of the pci-aardvark.c file suggests
+  that this patch cannot be submitted. In addition, Mani also suggests
+  dropping this patch until this series of issues is resolved.
+
+Changes for v3:
+https://patchwork.kernel.org/project/linux-pci/patch/20250506173439.292460-1-18255117159@163.com/
+
+- The new split is patch 2/3 and 3/3.
+- Modify the patch 1/3 according to Niklas' suggestion.
+
+Changes for v2:
+https://patchwork.kernel.org/project/linux-pci/patch/20250425095708.32662-1-18255117159@163.com/
+
+- According to the Maintainer's suggestion, limit the setting of MPS
+  changes to platforms with controller drivers.
+- Delete the MPS code set by the SOC manufacturer.
+---
+
+Hans Zhang (3):
+  PCI: Match the hierarchy's MPS to a device's MPSS as necessary
+  PCI: Configure Root Port MPS during host probing
+  PCI: dwc: Remove redundant MPS configuration
+
+ drivers/pci/controller/dwc/pci-meson.c | 25 ++----------
+ drivers/pci/probe.c                    | 53 ++++++++++++++++++++++++--
+ 2 files changed, 52 insertions(+), 26 deletions(-)
+
+
+base-commit: 08df884136f1c1197bab2a27814404fd329d9aac
+-- 
+2.34.1
+
 
