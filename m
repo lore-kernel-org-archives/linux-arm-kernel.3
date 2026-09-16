@@ -4,67 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ACF9C88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 09:02:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 733BCC982C1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 09:02:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9klhCRQ2JK/Zzt1mCcKryj4pkGbz3FBRTqrcllkqgzU=; b=4UcA+B6opJl7zfioQ0vhBGrEbI
-	EYh+JVMcJrvMt4485+u6nTu40ibb6o/vwHWrdDx1YLKuReAQh9gpvEEs8lrfu9K2fAYdWM7j7bJUC
-	g3GiwFAuZUuZgATQGGCoIH6TnA+sUENaYrx6lg59ZrMXRkqlKhE72ZQuxWyxa+230G4TJJ7SXOyJC
-	jBKoPku/eGKfvRTlnWis3D6KzOD1dxVjkCF/duRIY0jA9cl0og8vfZXnPFzE1mpW87atbqcf9DMZ+
-	h5kr+Cs1x9mv6j2XAizJtDfy/G4keHoBQ/96JRzc1v1PfiMuP9YwSHYIEGwnFsMvKPxuMTiAXZyy0
-	8WpF35iw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
+	:From:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u3prVhhjxauBWG8qfoe+eEDvbRKE6KXSyVNyWaZNvTE=; b=ZnE02ZoHKjTBUloRnqoVEmL6yn
+	Vsa1wQE8u5ELaSSotNTCMyBCjszr3EeWc8gyztOh4S5gAtwrd9rxgR2OPpUsgOq4Btafj6uPNFdFE
+	hfmH8gdRqUK7MeZFLHFY8zciPckOOWBYkMDfHiqgZORL30HjUHF2iJnoOuzfGFW1/G9s3GaSOLHEp
+	vQeIuHzPZVpSOcLZD6cc/Kdet7QLgjMmWkKJ2br9BNVKYhhpd1lD3jefTAxhRnhAbgQV+al6WSg1F
+	bfvt3x+RPKzR6lhXOrEVUG7InfVptDoQwGYRT7tf+15Lfot50o0f0hvcvhx7TnfXKut/24ozaM5Rq
+	M77sRZ2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6lWZ-00000008n1w-3bGx;
-	Wed, 16 Sep 2026 09:01:51 +0000
-Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
+	id 1x6lXB-00000008nB0-0JbY;
+	Wed, 16 Sep 2026 09:02:29 +0000
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6lWU-00000008n01-2Ucw
+	id 1x6lX5-00000008n9U-2xgZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 09:01:49 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=9klhCRQ2JK/Zzt1mCcKryj4pkGbz3FBRTqrcllkqgzU=;
-	b=oyPzwbIGSL93WiilF9OkD1KQYXlqWFVqQ218TdpgxuXQUIy41Esnhp8qxiPmF4PWk3koD3bC2
-	WOlfTZKXBGpIuCfy/sVfv3UfWhJjXNvGqsUhmflvMvNSEgiTMUGYFPLVm3paqeVPPG0fMiCacej
-	TJw2+c9iH3qIMH6f9Ryrm/8=
-Received: from mail.maildlp.com (unknown [172.19.163.200])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4hlCJw4lxwz1cyPY;
-	Wed, 16 Sep 2026 16:50:40 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id A364040563;
-	Wed, 16 Sep 2026 17:01:38 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- kwepemk200008.china.huawei.com (7.202.194.74) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Wed, 16 Sep 2026 17:01:38 +0800
-Message-ID: <aa6bd598-e801-424a-b2b6-73c3a5ba0900@huawei.com>
-Date: Wed, 16 Sep 2026 17:01:37 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 30/38] arm64: smp: Abstract SGI and LPI operations
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
-	<maz@kernel.org>, <lpieralisi@kernel.org>, <liaochang1@huawei.com>
-References: <20260914102102.68597-1-vladimir.murzin@arm.com>
- <20260914102102.68597-31-vladimir.murzin@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260914102102.68597-31-vladimir.murzin@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- kwepemk200008.china.huawei.com (7.202.194.74)
+	Wed, 16 Sep 2026 09:02:26 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-485b1d2874aso448144f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 02:02:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1789549341; x=1790154141; darn=lists.infradead.org;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:mime-version:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=u3prVhhjxauBWG8qfoe+eEDvbRKE6KXSyVNyWaZNvTE=;
+        b=KDHuCR3r6aXLZzvq0fNk+3aVUnJkUKlr0Yb8Jpl2tj5FNrX77dCXGsee/3Se+TcmAh
+         vKTgx9pouxmROck373iciuQMYnaTTOW2eDwClap/bDNsfn8qpO5JNF58fQwdGwcJ2CdG
+         ynyXe9xHdTbv4yJAFkTVplgvmxdzQkFcEVJ152ZA3+cyGXVoHnkD4fviJmvs0+Cb5OBU
+         vpZit2KVpkcXTOklk2+k0vRwzkMRdq8k2ItVIJyWoWvMJpXD+RmYj+06JA7IZmI/65LB
+         hPF20maqqxzrUDYd5LOsG3nG8rk/dcibD2YX6emriFel5aNYkUEx3XVx1Y0aMfN2w1If
+         MlPA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789549341; x=1790154141;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=u3prVhhjxauBWG8qfoe+eEDvbRKE6KXSyVNyWaZNvTE=;
+        b=bwA1Q/H9AHgaT11cbFTEEqqF1epNJlF24R+7rYu/LiBn4wOcL9XOq0p+M0YPp6DEtq
+         9m46vWAd+9PPAWIeoSeorFNtOwO2Tkix1E02kU2AmtUTCWK0Lwx+uYy0usu/82mc2V09
+         O2l85bbd9pY5mjKNSu7lHFZBnEM6U8YYQfkD+p+teYUMKxc9tjgC+FYxDXjFVtxsZlAe
+         5K2Z5wmMG/gckopF84HgCPg4jYUCa1kTNbeG+2+cRWFwU6YJPRLP4bpdTKdCkRnmgu41
+         KNmgISvfDOb53fVAGKftq6kAMsnLpams3b3JcbSgjIETuBMFQnNgKG5nSCZzfdv8nD7k
+         WYvg==
+X-Forwarded-Encrypted: i=1; AKwUvBxQNNigCyLUBNx1ZVLlwB9osCAn76x1uWWSMt9q7bdc8XLw/AMUn8/E8pOLAbVURQXh4qCzafhsaGZ12qFty/xe@lists.infradead.org
+X-Gm-Message-State: AFuF++mhxLt5jSiTFhIuMMbUbelmz0AKmN8ubg1KzWMtFkf40WI5J03L
+	LMOVSeb4f/05/bRidCySEf+o/gwFvkjwzYZz4zqi5nckgMY6jTVGx3Rt6w/MrrOyr3o=
+X-Gm-Gg: AYBFou07YPFCJd919q1+5RrRlHv3D8V2vO85towai+CQ0l7XpvNR5gsuJKtl2I6Dtbs
+	Y1eHfDABKg+eibCooRk8kgsiQENXdILcYftQCafrUXKsJb9wxWFm8YxJ4YFtJi15hIMA35+u1Yj
+	3PhBEydkeEJ68o/O9ui4rR9XfY3o6rG8LBWJHuEHk3s23hiwKpCz5aVHDgtYjbRDtpai6uFOgcV
+	vXX4lvaFKjqovGIxqgyaJH1chfWDcDigUpeD5Ti8szjKIlmPSGMb/HGK2U6Yex3q7+cEmZ5XLTR
+	Lxt9Lx2FlD2yJWERV50krFD+DBKWdBcsqAnRvjWr/6QGTErtWQcU7k1k7fe4BYgiyllOpfZDuo0
+	joaj9dagqV3MU0gz6CtuhwDuvMkEBNPSXJFLwoodEis9BPohtH8DK8bq+0o+LEXC4XKRuMdxK8I
+	1SfxKira1lp4IDBe25xKjr06mYA4Cr4GvI0+WgzcBiO0dDAgcKoALO7h5+vqRjVmuRkg==
+X-Received: by 2002:a05:6000:40cc:b0:487:403:f2eb with SMTP id ffacd0b85a97d-4870d0452d3mr4199288f8f.17.1789549341185;
+        Wed, 16 Sep 2026 02:02:21 -0700 (PDT)
+Received: from localhost ([2001:4091:a245:8029:665d:b7b:5fa4:7ad0])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4870bf33e01sm6702324f8f.23.2026.09.16.02.02.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 16 Sep 2026 02:02:20 -0700 (PDT)
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=0a03f14af8c74b8b8ae71ef6964c726a8430f5297d9c30f5afc655f5a6b4;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Wed, 16 Sep 2026 11:02:15 +0200
+Message-Id: <DLGMAND8UBI6.394OZTY3JSLDX@baylibre.com>
+Subject: Re: [PATCH] clocksource/drivers/timer-ti-dm: Register
+ clocksource/event only for am654
+From: "Markus Schneider-Pargmann" <msp@baylibre.com>
+To: "H. Nikolaus Schaller" <hns@goldelico.com>, "Markus Schneider-Pargmann
+ (TI)" <msp@baylibre.com>
+Cc: "Andreas Kemnade" <andreas@kemnade.info>, "Daniel Lezcano"
+ <daniel.lezcano@kernel.org>, "Thomas Gleixner" <tglx@kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-omap@vger.kernel.org>, <letux-kernel@openphoenux.org>
+X-Mailer: aerc 0.21.0-146-gb5c16ebe1835
+References: <20260828-v7-3-next-topic-ti-timer-dm-clocksource-omap-fix-v1-1-85f0e4dc6f9f@baylibre.com> <20260828230445.3c2510b9@kemnade.info> <E27F05E3-DE4F-4C77-95E3-1701B3410E93@goldelico.com>
+In-Reply-To: <E27F05E3-DE4F-4C77-95E3-1701B3410E93@goldelico.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_020147_034800_8806471B 
-X-CRM114-Status: GOOD (  20.09  )
+X-CRM114-CacheID: sfid-20260916_020223_764700_86CCFB22 
+X-CRM114-Status: GOOD (  13.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,245 +104,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+--0a03f14af8c74b8b8ae71ef6964c726a8430f5297d9c30f5afc655f5a6b4
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
+On Sat Aug 29, 2026 at 9:23 AM CEST, H. Nikolaus Schaller wrote:
+>
+>> Am 28.08.2026 um 23:04 schrieb Andreas Kemnade <andreas@kemnade.info>:
+>>=20
+>> On Fri, 28 Aug 2026 20:47:45 +0200
+>> "Markus Schneider-Pargmann (TI)" <msp@baylibre.com> wrote:
+>>=20
+>>> Registering clocksource/clockevent for the older platforms breaks
+>>> booting them. The older platforms have their own implementation in earl=
+y
+>>> boot that is used to register clocksource/clockevent in
+>>> timer-ti-dm-systimer.c.
+>>>=20
+>>> With am654, the timer is much more complex with more dependencies so
+>>> doing this in early boot with the other driver is very difficult and
+>>> gets ugly. Instead it is implemented in the platform driver for am654.
+>>> However the old platforms may not register clocksource/clockevent in
+>>> this driver as that would break the boot.
+>>>=20
+>>> Add a system_timer_capable flag that is only set for am654-timer that
+>>> gates the clocksource/clockevent registration.
+>>>=20
+>>> Reported-by: H. Nikolaus Schaller <hns@goldelico.com>
+>>> Closes: https://lore.kernel.org/r/2013A99A-0502-4128-ACFA-B04886224393@=
+goldelico.com
+>>> Fixes: b8eeeca55456 ("clocksource/drivers/timer-ti-dm: Add clocksource =
+support")
+>>> Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
+>>=20
+>> Tested-by: Andreas Kemnade <andreas@kemnade.info> # OMAP3 GTA04
+>
+> Tested-by: H. Nikolaus Schaller <hns@goldelico.com> # OMAP3 OpenPandora
+>
+> BR and thanks,
+> Nikolaus
+>
+> PS: I would suggest that patches for omap-dm-timer are also routed to lin=
+ux-omap@vger.kernel.org
 
-在 2026/9/14 18:20, Vladimir Murzin 写道:
-> SGI and LPI backed IPIs require different setup, enable, disable and
-> send operations. These differences are currently handled by repeatedly
-> checking percpu_ipi_descs. As the implementation specific logic grows,
-> these checks make the common IPI code increasingly difficult to
-> follow.
-> 
-> Introduce an operations structure for each implementation to
-> encapsulate the specific of SGI and LPI handling, leaving the common
-> IPI paths generic.
-> 
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-> Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> ---
->  arch/arm64/kernel/smp.c | 135 ++++++++++++++++++++++++++--------------
->  1 file changed, 88 insertions(+), 47 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-> index 3d7060aedd66..46cdcc114997 100644
-> --- a/arch/arm64/kernel/smp.c
-> +++ b/arch/arm64/kernel/smp.c
-> @@ -77,11 +77,18 @@ static DEFINE_PER_CPU_READ_MOSTLY(struct ipi_descs, pcpu_ipi_desc);
->  
->  #define get_ipi_desc(__cpu, __ipi) (per_cpu_ptr(&pcpu_ipi_desc, __cpu)->descs[__ipi])
->  
-> -static bool percpu_ipi_descs __ro_after_init;
-> +struct ipi_irq_ops {
-> +	void (*setup)(int ipi, int ncpus);
-> +	void (*disable)(int cpu, int ipi);
-> +	void (*enable)(int cpu, int ipi);
-> +	void (*send)(const cpumask_t *mask, unsigned int nr);
-> +};
-> +
-> +static const struct ipi_irq_ops *ipi_ops __ro_after_init;
->  
->  static bool crash_stop;
->  
-> -static void ipi_setup(int cpu);
-> +static void ipi_enable(int cpu);
->  
->  #ifdef CONFIG_HOTPLUG_CPU
->  static void ipi_teardown(int cpu);
-> @@ -242,7 +249,7 @@ asmlinkage notrace void secondary_start_kernel(void)
->  	 */
->  	notify_cpu_starting(cpu);
->  
-> -	ipi_setup(cpu);
-> +	ipi_enable(cpu);
->  
->  	numa_add_cpu(cpu);
->  
-> @@ -937,13 +944,7 @@ void __noreturn panic_smp_self_stop(void)
->  
->  static void arm64_send_ipi(const cpumask_t *mask, unsigned int nr)
->  {
-> -	unsigned int cpu;
-> -
-> -	if (!percpu_ipi_descs)
-> -		__ipi_send_mask(get_ipi_desc(0, nr), mask);
-> -	else
-> -		for_each_cpu(cpu, mask)
-> -			__ipi_send_single(get_ipi_desc(cpu, nr), cpu);
-> +	ipi_ops->send(mask, nr);
->  }
->  
->  static void arm64_backtrace_ipi(cpumask_t *mask)
-> @@ -1074,54 +1075,37 @@ static bool ipi_should_be_nmi(enum ipi_msg_type ipi)
->  	}
->  }
->  
-> -static void ipi_setup(int cpu)
-> +static void ipi_enable(int cpu)
->  {
-> -	int i;
-> +	int ipi;
->  
->  	if (WARN_ON_ONCE(!ipi_irq_base))
->  		return;
->  
-> -	for (i = 0; i < nr_ipi; i++) {
-> -		if (!percpu_ipi_descs) {
-> -			if (ipi_should_be_nmi(i)) {
-> -				prepare_percpu_nmi(ipi_irq_base + i);
-> -				enable_percpu_nmi(ipi_irq_base + i, 0);
-> -			} else {
-> -				enable_percpu_irq(ipi_irq_base + i, 0);
-> -			}
-> -		} else {
-> -			enable_irq(irq_desc_get_irq(get_ipi_desc(cpu, i)));
-> -		}
-> -	}
-> +	for (ipi = 0; ipi < nr_ipi; ipi++)
-> +		ipi_ops->enable(cpu, ipi);
->  }
->  
->  #ifdef CONFIG_HOTPLUG_CPU
->  static void ipi_teardown(int cpu)
->  {
-> -	int i;
-> +	int ipi;
->  
->  	if (WARN_ON_ONCE(!ipi_irq_base))
->  		return;
->  
-> -	for (i = 0; i < nr_ipi; i++) {
-> -		if (!percpu_ipi_descs) {
-> -			if (ipi_should_be_nmi(i)) {
-> -				disable_percpu_nmi(ipi_irq_base + i);
-> -				teardown_percpu_nmi(ipi_irq_base + i);
-> -			} else {
-> -				disable_percpu_irq(ipi_irq_base + i);
-> -			}
-> -		} else {
-> -			disable_irq_nosync(irq_desc_get_irq(get_ipi_desc(cpu, i)));
-> -		}
-> -	}
-> +	for (ipi = 0; ipi < nr_ipi; ipi++)
-> +		ipi_ops->disable(cpu, ipi);
->  }
->  #endif
->  
-> -static void ipi_setup_sgi(int ipi)
-> +static void ipi_sgi_setup(int ipi, int ncpus)
->  {
->  	int err, irq, cpu;
->  
-> +	if (WARN_ON_ONCE(ncpus))
-> +		return;
-> +
->  	irq = ipi_irq_base + ipi;
->  
->  	if (ipi_should_be_nmi(ipi)) {
-> @@ -1138,7 +1122,53 @@ static void ipi_setup_sgi(int ipi)
->  	irq_set_status_flags(irq, IRQ_HIDDEN);
->  }
->  
-> -static void ipi_setup_lpi(int ipi, int ncpus)
-> +static void ipi_sgi_enable(int cpu, int ipi)
-> +{
-> +	int irq = ipi_irq_base + ipi;
-> +
-> +	if (ipi_should_be_nmi(ipi)) {
-> +		prepare_percpu_nmi(irq);
-> +		enable_percpu_nmi(irq, 0);
-> +	} else {
-> +		enable_percpu_irq(irq, 0);
-> +	}
-> +}
-> +
-> +static void ipi_sgi_disable(int cpu, int ipi)
-> +{
-> +	int irq = ipi_irq_base + ipi;
-> +
-> +	if (ipi_should_be_nmi(ipi)) {
-> +		disable_percpu_nmi(irq);
-> +		teardown_percpu_nmi(irq);
-> +	} else {
-> +		disable_percpu_irq(irq);
-> +	}
-> +}
-> +
-> +static void ipi_sgi_send(const cpumask_t *mask, unsigned int nr)
-> +{
-> +	__ipi_send_mask(get_ipi_desc(0, nr), mask);
-> +}
-> +
-> +static const struct ipi_irq_ops ipi_sgi_ops = {
-> +	.setup = ipi_sgi_setup,
-> +	.disable = ipi_sgi_disable,
-> +	.enable = ipi_sgi_enable,
-> +	.send = ipi_sgi_send,
-> +};
-> +
-> +static void ipi_lpi_enable(int cpu, int ipi)
-> +{
-> +	enable_irq(irq_desc_get_irq(get_ipi_desc(cpu, ipi)));
-> +}
-> +
-> +static void ipi_lpi_disable(int cpu, int ipi)
-> +{
-> +	disable_irq_nosync(irq_desc_get_irq(get_ipi_desc(cpu, ipi)));
-> +}
-> +
-> +static void ipi_lpi_setup(int ipi, int ncpus)
->  {
->  	for (int cpu = 0; cpu < ncpus; cpu++) {
->  		int err, irq;
-> @@ -1158,6 +1188,20 @@ static void ipi_setup_lpi(int ipi, int ncpus)
->  	}
->  }
->  
-> +static void ipi_lpi_send(const cpumask_t *mask, unsigned int nr) {
+I agree, it should be added to the MAINTAINERS file.
 
-Sashiko pointed out a typo in the formatting.
+Best
+Markus
 
-static void ipi_lpi_send(const cpumask_t *mask, unsigned int nr)
-{
+--0a03f14af8c74b8b8ae71ef6964c726a8430f5297d9c30f5afc655f5a6b4
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> +	int cpu;
-> +
-> +	for_each_cpu(cpu, mask)
-> +		__ipi_send_single(get_ipi_desc(cpu, nr), cpu);
-> +}
-> +
-> +static const struct ipi_irq_ops ipi_lpi_ops = {
-> +	.setup = ipi_lpi_setup,
-> +	.disable = ipi_lpi_disable,
-> +	.enable = ipi_lpi_enable,
-> +	.send = ipi_lpi_send,
-> +};
-> +
->  void __init set_smp_ipi_range_percpu(int ipi_base, int n, int ncpus)
->  {
->  	int i;
-> @@ -1165,18 +1209,15 @@ void __init set_smp_ipi_range_percpu(int ipi_base, int n, int ncpus)
->  	WARN_ON(n < MAX_IPI);
->  	nr_ipi = min(n, MAX_IPI);
->  
-> -	percpu_ipi_descs = !!ncpus;
->  	ipi_irq_base = ipi_base;
->  
-> -	for (i = 0; i < nr_ipi; i++) {
-> -		if (!percpu_ipi_descs)
-> -			ipi_setup_sgi(i);
-> -		else
-> -			ipi_setup_lpi(i, ncpus);
-> -	}
-> +	ipi_ops = ncpus ? &ipi_lpi_ops : &ipi_sgi_ops;
-> +
-> +	for (i = 0; i < nr_ipi; i++)
-> +		ipi_ops->setup(i, ncpus);
->  
->  	/* Setup the boot CPU immediately */
-> -	ipi_setup(smp_processor_id());
-> +	ipi_enable(smp_processor_id());
->  }
->  
->  void arch_smp_send_reschedule(int cpu)
+-----BEGIN PGP SIGNATURE-----
 
+iKMEABYKAEsWIQSJYVVm/x+5xmOiprOFwVZpkBVKUwUCaqpbFxsUgAAAAAAEAA5t
+YW51MiwyLjUrMS4xMiwyLDIRHG1zcEBiYXlsaWJyZS5jb20ACgkQhcFWaZAVSlOC
+6AEAy1JS2SlpxrlOQuQLSOsZO+CBah23b1Dff4+ir0VdUhYBAOU9suaTsiifYV/k
+vBrj8QHXWS0SbgbXDKjzES1Abp0O
+=kqWV
+-----END PGP SIGNATURE-----
+
+--0a03f14af8c74b8b8ae71ef6964c726a8430f5297d9c30f5afc655f5a6b4--
 
