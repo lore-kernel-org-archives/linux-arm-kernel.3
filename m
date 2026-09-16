@@ -4,152 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43880C982C3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:09:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13D2DC982C3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:10:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gcoUu8W8E4EKdFS9q9NwstZkdoHGZGNtawN29LCmo4Q=; b=X0LeJ+v1XRlg72NM0mWH/iWz2W
-	k4rrdKrIVgWZG3mYG4ArOylqTrhCJUxojKy/QHE28neQY9wxQsj//emAh7oz8gQZHvL8/i9p6ywpl
-	XOD0BcAiQ1/qz87t3t4HC6M1pBxLm1yUIl4Bt0BX8zqrSCpy8hkxSpuxRoWERTqAXXiympusCrQng
-	pXmfoaiBongdUYrHDMel3xh8PmQDbrrJGtyA9TPU3h8gaTFKbBdyTiIRI4AkTK+hDbE5HN2YksQvv
-	WmwAbHgBJ2CFifGwnyf3BQlCMgQpBi4r90vJoY+WurdEk3XJ1B0W1c/MSgf/Mu7r3hCGpUVE52WmA
-	0PRMf35A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Xd/UwfIOo2zC/ZV1618XX1gClMq2BAn6JwEX9in4MTk=; b=wB6JxbSOnmpQ4zeLIfFB5CVXKB
+	yWl135+75/B+YsNHLbInW7ZjzdWI2D7CIntolWG5qc59U00EA6qYXhaXxxw/yVYnNkfRqH3yVaxoY
+	vf5nBjK2K8W0vUvlbCqgJoS+tUVayR8gdFRodtYEew+lIfTj2bxDoT9GirHf+BQLLwEspcmBPq1zF
+	ZdtwBIzYgXfcPrrPKbcRTFVkW2x4A1JThHJckH1+3V9ULcjRhQNsYSAmqZyy+ixz0ubKGjsRlCGVK
+	MRnDIWFiaPuGpPl3fzmG9Pt97zGj226jzbMOhwKo6zK7e5ludq+hqknfW1ghsqrqnpf0bXiY2l/7I
+	M+sL78Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rFm-00000009VRF-3iyp;
-	Wed, 16 Sep 2026 15:08:54 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x6rGj-00000009Vqk-3gmQ;
+	Wed, 16 Sep 2026 15:09:54 +0000
+Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rFh-00000009VOf-3dFH
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 16 Sep 2026 15:08:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=gcoUu8W8E4EKdFS9q9NwstZkdoHGZGNtawN29LCmo4Q=; b=DKOBl3FNFwFd5YwvhGQrop1siD
-	Ejw0sU9dYOVliz+PDuLC6JOKDFXNa6CqWBQDi3pHUKhA5PD8vti0/QRXtXqsrMgbrTfU8ixNUMnOb
-	6DUZy8gZIWrasdvSn+cqAUaZGS9EMPlTTbCZcN6YFsQ1cnqyOHXTf6ON6I2g78cGnRx2iZAyUjTZx
-	NvRVmBe1EDnMip/w/nH5vxhB/M8R36kGRQqDosuJ64J6iwxpqgaWzNJd/aUoO0Qmcswk5vU4HA7iy
-	lK8IyFg6eW9/7FjKx+lOh8LEmeg6uGxrfQ+jpT9G8otf0hDAmxhZueZudynpCU7IOsSasZju8A3UR
-	jYWUYriA==;
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6rFe-000000081Dd-1Vqs
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 15:08:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=R0wtCBilsTB3X1SFcDQzkwgejvhojtdWfVoj7Uk7AIGizn7NnRMfMpv+d31TGz92qhUZ9m2HDPzmLNjysQdeb/sBpToZq0eUN85wLJCPiuVGGuEUmt+r52JkL00Ve1br5CC0FOtufR+jgXYBDTcQobXjdHqg+aUcvmZRhbAO1tDRtbcRHBMN3ZjkJhb1GSrsjrLVmC0o2iWDgJTbXMIkZKDVD7H+cYAkQU/FrnT0X99EP4Mgzpj2dHzUygC68JFOOFco85BzaX9OrpiAGWT1GdE4LrE9dgXPzgjIJCS9WtVF5Hbau+k+FUkLdB7rPi/sOtPU/YkP4CRfae+/OWGiHA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gcoUu8W8E4EKdFS9q9NwstZkdoHGZGNtawN29LCmo4Q=;
- b=MsOnUyGoIvmZQICzTsLzQsdUNgap7d6RYZJALrqaLJTZ28LT5T9R6CAclurhA0arp0RAEHmwMh0bB/DaTOd1nabyfM0YodB3q0QiFBlTvhvKOPcVe12rmXpxgmy48CA6UND1ExhxtlSw8BMNY5zd7ZZmQZ8kDnSeiejgxyNzk8f7A1/MIih/tZepNKLZ3tUteDWTBMB8d2VTzf6yzjzblPaXVjZ5ZYIAaIGLG0tsfeWV+BGPSa/dUweAlVJefOVQ7jIyfOjbMeODzye/6d7Synq6wrtHAOWqTs+Zgg70/u3BlI3n5UFkDB/XaGPz3216CWeG5YjYtJiIRHh+Xx/qQw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gcoUu8W8E4EKdFS9q9NwstZkdoHGZGNtawN29LCmo4Q=;
- b=uGMB5tQmG8cZ3NUZI8koJm2dpqVe8751D+A+hcEe+7AZLI4Fj/sLus6CXDzVU+81suNd95AYxabnVucuoZm+FgRw/4aqHvWt0i2oFzJLqfO1TzAQcPiiHvj3+aLoHkNLHzRg9eX8bFxNKXrPWfySc8JT8UsTw20oRx8s2tHlPVQwxMy7JuOGTKRyvB8TMKTPHbiXek2FAh46UcE3WDME4aOXcKybuEdr0UBEZO+9o+MA8xYDo5+AvUyGGWbXpyvzvnsdaFVDL3mJk+mW34lJ9js9fiBOimrqMWQ6U8/8vmntV70hccYlLR91FYCLGcPSUtC65ds+Jom+8aaPca6OTw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by MIWPR04MB714835.eurprd04.prod.outlook.com (2603:10a6:290:90::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.11; Wed, 16 Sep
- 2026 15:08:42 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0428.009; Wed, 16 Sep 2026
- 15:08:42 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Date: Wed, 16 Sep 2026 23:12:37 +0800
-Subject: [PATCH RFC 4/4] iommu/arm-smmu-v3: Wire up shared-SID STE ordering
- and feature gating
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260916-smmu-shared-sid-v1-4-517384504aee@nxp.com>
-References: <20260916-smmu-shared-sid-v1-0-517384504aee@nxp.com>
-In-Reply-To: <20260916-smmu-shared-sid-v1-0-517384504aee@nxp.com>
-To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
- "Joerg Roedel (AMD)" <joro@8bytes.org>, 
- Jean-Philippe Brucker <jpb@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>
-Cc: linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.16-dev-7bc12
-X-ClientProxiedBy: SI2PR02CA0002.apcprd02.prod.outlook.com
- (2603:1096:4:194::22) To AM8PR04MB7874.eurprd04.prod.outlook.com
- (2603:10a6:20b:24d::9)
+	id 1x6rGg-00000009VoK-0EvO;
+	Wed, 16 Sep 2026 15:09:53 +0000
+X-PTX-Original-Recipient: ezequiel@vanguardiasur.com.ar
+X-PTX-Original-Recipient: jacob-chen@iotwrt.com
+X-PTX-Original-Recipient: mchehab@kernel.org
+X-PTX-Original-Recipient: detlev.casanova@collabora.com
+X-PTX-Original-Recipient: heiko@sntech.de
+X-PTX-Original-Recipient: linux-kernel@vger.kernel.org
+X-PTX-Original-Recipient: linux-media@vger.kernel.org
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-PTX-Original-Recipient: linux-rockchip@lists.infradead.org
+X-PTX-Original-Recipient: lgs201920130244@gmail.com
+X-PTX-Original-Recipient: p.zabel@pengutronix.de
+X-PTX-Original-Recipient: kernel@pengutronix.de
+X-PTX-Original-Recipient: s.pueschel@pengutronix.de
+X-PTX-Original-Recipient: m.tretter@pengutronix.de
+Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
+	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id C10552059ED;
+	Wed, 16 Sep 2026 17:09:47 +0200 (CEST)
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
+	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.96)
+	(envelope-from <s.pueschel@pengutronix.de>)
+	id 1x6rGd-001Fsx-2A;
+	Wed, 16 Sep 2026 17:09:47 +0200
+From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
+Date: Wed, 16 Sep 2026 17:09:43 +0200
+Subject: [PATCH v2 02/17] media: rockchip: rga: add comment about pixel
+ alignment for YUV formats
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|MIWPR04MB714835:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6e56df59-bbcd-4428-d39a-08df1404653c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|19092799006|23010399003|22082099003|6133799003|10067099003|11063799006|56012099006|18002099003;
-X-Microsoft-Antispam-Message-Info: xB8paPq8cNw//MQceCs18S7QheJDzvHzSjI49Q4P8corQ8iNgoxTWEFmpsAL825uGZF2qlubx0i03hv7xEsFwVkWF8bzp0pqNmJTwsxqyjpz0XPo3O/1VFbjjb44XQZ/AlPe8osVbBV1u38kz1xU28Pj/R2xTj0+IwN+p4vEKbQ2NPb72yTC05QLHLxLOxrKO1t+TJ8sd0dixTk0apIwD7AO+Kr0qTG/9TSOeninhVkomNvXNedLT4TtuvO01iXOYqLrAU0skpoaUR6rt7NbI8NVW5ZjkjBQCVLSo6mieZ+8A4WcjFegPdQ5iDwjZ/VtkfOoVv6Z2Dhq1h8wBVQTrYsoYnU6KOZw8RsbYQ2291bwTCVpVdUXAaaAn+77mu5w/4FfyRgh3AizaQHC0mx1M4JY2iLe1rpjSsvobFN21X/BVNRp8iceleRqu7ngtFPggaj2EI2x4yOxY6AxYNCGSn8cmKA+SKo8L2lfs0ONNLHlETATMxkIrVg9G8Hk+TMRD9/ZvEQWbOWBvq67idaVmmHZB+94uNdnDaK5xG4PR1VshdE4ANOJSp+bYGW6I41OSIrBeFB6rj3/TwqxdGXBncigM3VPU6YsjSTCVloIaDCT6oCA85OZBrBeXMnj4XGXdqEI5Pxenps/lws7PI9cDjEhwpe2f3Mb8HWO3nm194Y=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(19092799006)(23010399003)(22082099003)(6133799003)(10067099003)(11063799006)(56012099006)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?U2FqZ3p0d2NJdUZiZ0Z0WDVsV3IyRUdNcXd0czRmRWIyTEJ0aTNwSmJyVStv?=
- =?utf-8?B?MnYwSFJFUHVhMWY5S0wxTGVnWEdPeEFXUVd3aE1mMU1jak9EVERsRVhEWDdO?=
- =?utf-8?B?dGltV2VONGZxbis1YUlZcjdQczJOWUNyVTVGWm5SUXkrcllLVXhjTVliVVB6?=
- =?utf-8?B?RU91ZXBZTW5wS3EzSXlXRUp3WDBpUTVLMmxwa1ZnanF2ZmQvWkkwRzk5bFdQ?=
- =?utf-8?B?RFk4Ykc5azF1OTBiemtVbVd0WDlzbXpmWkl0Z21tOE1UUGVwZUczOG5RNGky?=
- =?utf-8?B?YTk0MXl1UDRSdDhBMWpNNHYvVU1ONXFJNU1BRWZTVzRzSTg2UElxVHdybUNE?=
- =?utf-8?B?M2g4MFMrd0FxSkN1dVJhSFBxaE92bkQvdlhWc2grQjIyeEloZ2xubER2Y0Fx?=
- =?utf-8?B?M2IycVdhSnM2aGFZZlhjSE16VytybC9CUWdSM3BpMTNCVmpiVzlQNC9TQjhi?=
- =?utf-8?B?bVkzZlZHRnpNM1RoNnVyb0xsaVU5QlRLS082VGticVpYUnpqSmhyZURSeHJB?=
- =?utf-8?B?T0M1T2EyZ1hmV3ZCYTdWTWlCblJzZ1BUWHFIZnJXRFZITFRCaTJvZnlVTWIw?=
- =?utf-8?B?eEhMTE1sTm92MUJzbklsUkQvZTBncGFTZk9YMTRkUHdqNEJLbURIR2I1Mm44?=
- =?utf-8?B?Y0Z3L05NTkgwUGprcnFsVGFjaUVRTmcrdlV0bUF6Q0dTeG5DWVVJOThZcldu?=
- =?utf-8?B?a2pOb0NhTW4xaTVSWVZ3Zjl6a0dzZnRKc2RCTUUyUkFkQ0tnaW1xbkpqTHkv?=
- =?utf-8?B?MVdiV1lDcktHUDRjZEFJczJQTXE2eGM1d3krdkZHak5jNVZkR1FFNTNCSnY2?=
- =?utf-8?B?V0VBUjFqV1E1QWJIZzdmRCtZZUhwNmlyRWhFVEI0ajdTNE9aaG1CbnB3V1pU?=
- =?utf-8?B?cTU0ZnB1ZE1HaGhycXV6Y3dPeHRvQWs4Ti9hay81aVV0TXF6NUZnV2FqQWdO?=
- =?utf-8?B?Ukc4UndRZmVMZGNhY041N1lDa2Yxem9PWGI2eFhtUFp6MGlueVM5TXFySFlV?=
- =?utf-8?B?UnY1VzB1RjRhQmUrcFUrVWxIa3FVcnpLc3lLQ2tOYXkvUEF1WVl1dFZDSW4v?=
- =?utf-8?B?dnNHelhGZkZrWEptQ2R1cEVPdWVGL1gyZVlNOFVzMUpnS1dOQXorSS9HN3Rs?=
- =?utf-8?B?WGhqeTlqVHpRR2x1aEl1aWt1TWNXMXhOYStPVEVnS29BTkh6WE93ZHM2c2Yr?=
- =?utf-8?B?c29ab05uNWhKQ1pPQzdxMkZvaFE2RVBISzFpS3Q0QlVxeGF3UVFWQnNKQmQ3?=
- =?utf-8?B?VTdtRzNVWWZ1Y0ZoZktzN2JNVmZmYkpGK09hcGxmL2RWNjhRVEg4Mmc3aFBM?=
- =?utf-8?B?RFVIY2dpVUw2akFwb1lNQUpTSTNkVURxRmhqN3BlT01NYXRrVThEWWppbzBi?=
- =?utf-8?B?SU5oWTh2eHRUc2NjNlZtVlhHYjlKN1kvVkdyTUxKRHRvaVJ6VHBDT3BJK3pE?=
- =?utf-8?B?U004RU9La01GRm5jcnFucTJOYVg5K3hwb21qczNscGpXZm54ZTVYYk5GZDVQ?=
- =?utf-8?B?MTFqZHh6MThyam9rT0JZVEROVGNuZHQ5UmluK1IwWXIvMDZKMm1lTzdibmRp?=
- =?utf-8?B?KzZYSGFPUWZhdHJQQnZJZzUydFl5ZWpZMFMrKzNsUW1kTHh4Tlg5NHl4djJ0?=
- =?utf-8?B?Z3FZMUVHZmhVWlFSbUwzek5IbzJHSXNzcG1ZQmdtUEFQR0xzSXlrYXBxVHQ2?=
- =?utf-8?B?bVZGc1E2QytqY2pYT2ExcFoyWHRSV0hIN0tYTUtmRkZvcmxTODdOclFURjVH?=
- =?utf-8?B?eERmZEFWMkg2bi81c2I1WldhWVNtaHJBdWtPbWlpdTZtM3d2eFRTeS85MWl6?=
- =?utf-8?B?ZGxKLzVIRU0zbGdCeStCT0FFUUVwS0g0Q0UybmU3cXRIUzFJSUZNdXpEUGJ0?=
- =?utf-8?B?L1RnZ1NENmZ5OU16OU1oUnBiVWExOU12SnZSeHdlVjk2N3dIZnc4UXdzQWt2?=
- =?utf-8?B?cmxJbWpxc010NlBJOW1vd2swNHFWdVh0ZnF1dHRmazE4K1dkT2RMWTRmWmU1?=
- =?utf-8?B?WjlsTkRaUWNsWENDSW1NWEc0dzRFZy8zbUg5ZU5aUnZreDlmZmpwS015RFZl?=
- =?utf-8?B?cHpKUXh5WUxxalRVUk85MlFTVUZwd2FFSVZXWnkxSExiZ0ZWZUZKN3VoUUQ4?=
- =?utf-8?B?T2g3V21ETmJrYUw2Slh0WWhudWsrMFdjdFBiUi84T3JpMldwdHUyWlBIRlNo?=
- =?utf-8?B?dDNxWktSZ2VMd0FDcmdvUzhnUWpJQ0gybjhHOTVBdlRTeGR2UFRrNmRKQ1ds?=
- =?utf-8?B?WkdpUGlHV1ErWlo4SndPajlYUUViYnhleW1lZGNrNGU2T20yMVRWRmZtY005?=
- =?utf-8?B?ZmUvaGR2dTVNSXY3MUFBM1lBYkV1ZUZObkxPeC9mdVNyQ1JCZEZ6VXZuaVZz?=
- =?utf-8?Q?9W5vR1S7dAOk7oTmR2mgAe87t7KqsYTs13XDm?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6e56df59-bbcd-4428-d39a-08df1404653c
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Sep 2026 15:08:42.3321
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: tHFaRhN4yEEn7+lX7Ui3Yl83YLaXYAB6WQXf/RuVLFcrt+Xj/LI1d+Jy3jMBG24II41F/67djfzX7f0yDPGStbWtcs8+R4KkAn6xnTlo5wul/K0ECt8W3nvNL6TJdOs3
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MIWPR04MB714835
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260916-spu-rga3multicore-v2-2-23aa2cb74e61@pengutronix.de>
+References: <20260916-spu-rga3multicore-v2-0-23aa2cb74e61@pengutronix.de>
+In-Reply-To: <20260916-spu-rga3multicore-v2-0-23aa2cb74e61@pengutronix.de>
+To: Jacob Chen <jacob-chen@iotwrt.com>, 
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ kernel@pengutronix.de, Detlev Casanova <detlev.casanova@collabora.com>, 
+ Michael Tretter <m.tretter@pengutronix.de>, 
+ Guangshuo Li <lgs201920130244@gmail.com>, 
+ =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_160846_503123_0E775832 
-X-CRM114-Status: GOOD (  23.07  )
+X-CRM114-CacheID: sfid-20260916_080950_242653_D7CB48E8 
+X-CRM114-Status: GOOD (  11.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,168 +87,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peng Fan <peng.fan@nxp.com>
+Add a comment to clarify the use of fixed step_height values for all YUV
+formats. While the commit introducing the change already explains the
+reasoning, add an explicit comment to improve the visibility of the
+reasoning.
 
-For shared SIDs, only the first master to attach writes the STE
-(tracked by ste_installed under streams_mutex); subsequent masters
-skip the write. On teardown, only the last master writes the ABORT
-STE (ref_count == 1). This is handled by arm_smmu_skip_shared_ste().
-
-Fault events on shared SIDs cannot be attributed to a specific master,
-so arm_smmu_find_master() returns NULL when ref_count > 1.
-
-Disable SVA, IOPF/stall, and vSMMU nesting for shared-SID masters
-since all three require unambiguous SID-to-device mapping.
-
-Assisted-by: Claude:claude-opus-4-6
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
+Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
 ---
- .../iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c    |  4 +-
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c    |  7 +++
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c        | 59 ++++++++++++++++++++--
- 3 files changed, 65 insertions(+), 5 deletions(-)
+ drivers/media/platform/rockchip/rga/rga.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-index ab1078a97d801..258ca42917f07 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-@@ -308,8 +308,10 @@ static int arm_vsmmu_vdevice_init(struct iommufd_vdevice *vdev)
- 	/*
- 	 * arm_vsmmu_vsid_to_sid() maps a vSID to master->streams[0] alone, so
- 	 * more streams would leave the rest stale and none reads out of bounds.
-+	 * Shared SIDs are also unsupported for vSMMU since the STE is shared
-+	 * between multiple masters.
- 	 */
--	if (master->num_streams != 1)
-+	if (master->num_streams != 1 || master->shared_sid)
- 		return -EOPNOTSUPP;
- 	return 0;
- }
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-index 0a429c64fbf3e..43f8cc81bfdd1 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-@@ -271,6 +271,13 @@ static int arm_smmu_sva_set_dev_pasid(struct iommu_domain *domain,
- 	if (!(master->smmu->features & ARM_SMMU_FEAT_SVA))
- 		return -EOPNOTSUPP;
+diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
+index bd0afd33affe4..efe5541078214 100644
+--- a/drivers/media/platform/rockchip/rga/rga.c
++++ b/drivers/media/platform/rockchip/rga/rga.c
+@@ -414,6 +414,16 @@ static int vidioc_try_fmt(struct file *file, void *priv, struct v4l2_format *f)
+ 		.step_height = 1,
+ 	};
  
 +	/*
-+	 * SVA requires stall-based fault handling which cannot be supported
-+	 * when multiple devices share a SID (fault routing is ambiguous).
++	 * Technically 4:2:2 YUV formats don't need a step_height of 2.
++	 * But for the RGA3 this is explicitly documented in  section 5.6.3
++	 * of the RK3588 TRM Part 2.
++	 * And the RGA2 vendor driver also checks that the height (and width)
++	 * is aligned to 2 when a YUV format is used.
++	 *
++	 * Therefore be safe and always align width and height to 2
++	 * when a YUV format is used.
 +	 */
-+	if (master->shared_sid)
-+		return -EOPNOTSUPP;
-+
- 	/* Prevent arm_smmu_mm_release from being called while we are attaching */
- 	if (!mmget_not_zero(domain->mm))
- 		return -EINVAL;
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index bb3ee25d10d6e..13968191b1452 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -2034,6 +2034,13 @@ arm_smmu_find_master(struct arm_smmu_device *smmu, u32 sid)
- 	stream = xa_load(&smmu->streams, sid);
- 	if (!stream)
- 		return NULL;
-+	/*
-+	 * For shared SIDs (ref_count > 1) we cannot determine which master
-+	 * triggered the fault, so return NULL to let the caller handle it
-+	 * as an unresolvable event.
-+	 */
-+	if (stream->ref_count > 1)
-+		return NULL;
- 	return stream->master;
- }
- 
-@@ -2944,11 +2951,43 @@ arm_smmu_get_step_for_sid(struct arm_smmu_device *smmu, u32 sid)
- 	}
- }
- 
-+/*
-+ * For shared SIDs, check whether this master should skip the STE write.
-+ *
-+ * Setup path: only the first master writes the STE; subsequent masters
-+ * skip because ste_installed is already true.
-+ *
-+ * Teardown path (ABORT): skip while other masters still share the SID
-+ * (ref_count > 1).  Only the last remaining master writes the ABORT STE.
-+ *
-+ * Returns true if the STE write should be skipped for this SID.
-+ */
-+static bool arm_smmu_skip_shared_ste(struct arm_smmu_device *smmu,
-+				     u32 sid, bool is_abort)
-+{
-+	struct arm_smmu_stream *stream;
-+	bool skip = false;
-+
-+	mutex_lock(&smmu->streams_mutex);
-+	stream = xa_load(&smmu->streams, sid);
-+	if (stream) {
-+		if (is_abort)
-+			skip = stream->ref_count > 1;
-+		else if (stream->ste_installed)
-+			skip = true;
-+		else
-+			stream->ste_installed = true;
-+	}
-+	mutex_unlock(&smmu->streams_mutex);
-+	return skip;
-+}
-+
- void arm_smmu_install_ste_for_dev(struct arm_smmu_master *master,
- 				  const struct arm_smmu_ste *target)
- {
- 	int i, j;
- 	struct arm_smmu_device *smmu = master->smmu;
-+	bool is_abort;
- 
- 	master->cd_table.in_ste =
- 		FIELD_GET(STRTAB_STE_0_CFG, le64_to_cpu(target->data[0])) ==
-@@ -2957,10 +2996,12 @@ void arm_smmu_install_ste_for_dev(struct arm_smmu_master *master,
- 		FIELD_GET(STRTAB_STE_1_EATS, le64_to_cpu(target->data[1])) ==
- 		STRTAB_STE_1_EATS_TRANS;
- 
-+	is_abort = (FIELD_GET(STRTAB_STE_0_CFG, le64_to_cpu(target->data[0])) ==
-+		    STRTAB_STE_0_CFG_ABORT);
-+
- 	for (i = 0; i < master->num_streams; ++i) {
- 		u32 sid = master->streams[i].id;
--		struct arm_smmu_ste *step =
--			arm_smmu_get_step_for_sid(smmu, sid);
-+		struct arm_smmu_ste *step;
- 
- 		/* Bridged PCI devices may end up with duplicated IDs */
- 		for (j = 0; j < i; j++)
-@@ -2969,6 +3010,11 @@ void arm_smmu_install_ste_for_dev(struct arm_smmu_master *master,
- 		if (j < i)
- 			continue;
- 
-+		if (master->shared_sid &&
-+		    arm_smmu_skip_shared_ste(smmu, sid, is_abort))
-+			continue;
-+
-+		step = arm_smmu_get_step_for_sid(smmu, sid);
- 		arm_smmu_write_ste(master, sid, step, target);
- 	}
- }
-@@ -3116,8 +3162,13 @@ static int arm_smmu_enable_iopf(struct arm_smmu_master *master,
- 	if (!master->stall_enabled)
- 		return 0;
- 
--	/* We're not keeping track of SIDs in fault events */
--	if (master->num_streams != 1)
-+	/*
-+	 * We're not keeping track of SIDs in fault events, and stall/PRI
-+	 * cannot be supported when multiple devices share a SID because page
-+	 * fault responses are routed by RID/SID and we cannot distinguish
-+	 * which device triggered the fault.
-+	 */
-+	if (master->num_streams != 1 || master->shared_sid)
- 		return -EOPNOTSUPP;
- 
- 	if (master->iopf_refcount) {
+ 	if (v4l2_is_format_yuv(v4l2_format_info(pix_fmt->pixelformat))) {
+ 		frmsize.step_width = 2;
+ 		frmsize.step_height = 2;
 
 -- 
-2.34.1
+2.55.0
 
 
