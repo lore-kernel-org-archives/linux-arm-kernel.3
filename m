@@ -4,68 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C803FC982C9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 19:04:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63A93C88E7F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 19:06:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KAjK1m7cq3KNJF1HISGGMJWMTPBF7VYwWbKJTTHv0rQ=; b=pTv/xa+3X85bOOaQ+Ra5D60aMd
-	FZsD0iKCxHysL2OaX9zW8EOLy8H3JzehsS6TIleXWI9sina88IkDeV5Hg1B/fhJBs8lt3b7Ld1Cu9
-	yhuxF0ZdQF4Z9jQVTGBTR1tEI3twQpOa/SiPPyydx1zh/O6TpWv6hA5tdOzN9OPhGzX2wDbhZ3s6W
-	qNV1e/kGnaRa6cYuV11XnfCq8FHNwdrXeBRhENNo7EJ89RW7KkgYoKHRYW/nZbtkR9gZGrka+jPoI
-	HU/px8Kc8Kvqaq+l3Z64EOhHepTLn/eZDiqHcuHbXIKSUOzSTow0mS907A6/3UP9BdiYWnvhDbHif
-	/lmk6R5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pbbUmrdGU6bz0H3n83rBFxfE3QoKPmrdlRRBmXNDWvI=; b=YxhSduQJb+Q7tiSXWdAkyvbBU+
+	+QTjgq0MmwbI1cJYm5CLg59YIY+MRbYyQ5IOA6E1tEFznUP3ZzCE/BrxAQ/ksZduxZNRPh9l/G7H1
+	fh47m96N6xD742gSQaUfYZd5xYwlzExd3EINaxjP1YD8coJKdZ0jQw/MaGPD5zfmysX5+Wgc9pI5O
+	FjqtKqSZANp0TS5pkxSz+LGIkfdYgqfFURFZjqFS/fHtYlT6BctBdXaWFZ+kivZXuSw4gYPmLWJpc
+	Ej8VHA8O4Ooy9KhzKGQt9om9uSp6hV2dsHDvftSiVxbIyz4nCq7+kTHypse+rU9M6OjnvpbyfVYEA
+	gnA3AtDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6uve-0000000A08m-3evk;
-	Wed, 16 Sep 2026 19:04:22 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1x6uxw-0000000A0IV-0fY1;
+	Wed, 16 Sep 2026 19:06:44 +0000
+Received: from out-239.mta0.migadu.com ([2001:41d0:1004:224b::ef] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6uvc-0000000A08Q-0Upm
+	id 1x6uxt-0000000A0I6-0hQo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 19:04:22 +0000
-Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
-	by APP-05 (Coremail) with SMTP id zQCowADnVD8w6Kpq0hBwCA--.24957S2;
-	Thu, 17 Sep 2026 03:04:16 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: claudiu.beznea@tuxon.dev
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	maz@kernel.org,
-	tglx@kernel.org,
-	Wentao Liang <vulab@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH] irqchip/mchp-eic: Fix clock reference leak in mchp_eic_probe()
-Date: Wed, 16 Sep 2026 19:03:49 +0000
-Message-Id: <20260916190349.2094401-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	Wed, 16 Sep 2026 19:06:42 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=clIAd+ElCPuqeSOiRCrGYr2080Rs0+u4Ja4zpAJS57o=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1789585598; v=1; x=1790190398;
+ b=j4HVSBXlzGh/HNYrMKRKgUlTOPXfajjOzXSSEYprn75koVYDytcKHIm5UkY2GJdJ8UuWJKG4
+ DLffegUpHQdbYEkeiPb0zLGjiBgAJPZGgoXQg0Iw9e59NsCfO4fev3FBVMahHC8sd0W74pY40Dc
+ Fsnx2gST7SYrNbJR47JvBLys=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 3e262ba15e872a09;
+	Wed, 16 Sep 2026 19:06:38 +0000
+X-Mizu-Trace-ID: 3e262ba15e872a09
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b78e073980so847e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 12:06:34 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvByV5/RChlL2e+xQoXFIZssWhyTfdZwXS6BDbLKD8WQN6LQ+vLo/AFoA2s2wb67tSHyrqsZj5xMuhNFon5fN/jI8@lists.infradead.org
+X-Gm-Message-State: AFuF++mibT/7UjDpB6CvipEiNzgGLGMkej8vvSGAKXm0vlsWoAAw3RHB
+	VGsxFN6ASWfimiTZsvwcSFYH2a9ptOTScJPpwEMZriW0Ia02vBzs8ooDugqbGH3lFz9eS66NNZ8
+	5nzcYwLkwqwgyNpELohAM6WqQ33aolnfpQZda+fQV
+X-Received: by 2002:a05:6512:3d10:b0:5b8:b380:3c89 with SMTP id
+ 2adb3069b0e04-5b8ba99b7ffmr23508e87.0.1789585593571; Wed, 16 Sep 2026
+ 12:06:33 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowADnVD8w6Kpq0hBwCA--.24957S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7WFWUKF4ftr48AFW8Wry7GFg_yoW8GFW7pF
-	4UJa9avrs3GayFkrs5Aw4DZFyYyw1UKFy3K393G3ZrWwnxJ3srJFW0va4DZan8AFWxCa1v
-	kwn8tFy8AF4DZFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUv014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r
-	xl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj
-	6xIIjxv20xvE14v26r1q6rW5McIj6I8E87Iv67AKxVW8Jr0_Cr1UMcvjeVCFs4IE7xkEbV
-	WUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lc7CjxVAaw2AF
-	wI0_JF0_Jw1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4
-	xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r126r1D
-	MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I
-	0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWx
-	JVW8Jr1lIxAIcVC2z280aVCY1x0267AKxVWxJr0_GcJvcSsGvfC2KfnxnUUI43ZEXa7VUb
-	khL5UUUUU==
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBwMMA2qqpViGvwABsO
+References: <20260914113338.159227-1-fuad.tabba@linux.dev> <20260914113338.159227-15-fuad.tabba@linux.dev>
+ <86bj9x5fhj.wl-maz@kernel.org>
+In-Reply-To: <86bj9x5fhj.wl-maz@kernel.org>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Wed, 16 Sep 2026 20:05:57 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTy8R3yxFHmTti9mBgjQGJKnH44v9WvDQ2k9cWFECaYoQg@mail.gmail.com>
+X-Gm-Features: AcwNN1X5PZX5WDCSedlv_R_n84PSTr-QRRvORTCqs34THsNi7n9PRABFR4_9-2c
+Message-ID: <CA+EHjTy8R3yxFHmTti9mBgjQGJKnH44v9WvDQ2k9cWFECaYoQg@mail.gmail.com>
+Subject: Re: [PATCH v3 14/18] KVM: arm64: Add per-EC entry/exit state
+ marshalling for protected guests
+To: Marc Zyngier <maz@kernel.org>
+Cc: oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	catalin.marinas@arm.com, will@kernel.org, joey.gouly@arm.com, 
+	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	mark.rutland@arm.com, steven.price@arm.com, vdonnefort@google.com, 
+	qperret@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_120420_530681_700F2F46 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20260916_120641_436204_C2433F39 
+X-CRM114-Status: GOOD (  17.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,45 +85,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-of_clk_get_by_name() returns the clock with an elevated reference count
-that mchp_eic_probe() keeps for the lifetime of the driver, but none of
-the probe error paths drops it, so the reference is leaked whenever
-probe fails after the clock has been obtained.
+Hi Marc,
 
-Put the reference in the error cleanup.  The clk_prepare_enable()
-failure path must jump there directly as it cannot call
-clk_disable_unprepare() on a clock that was never enabled.
+On Wed, 16 Sept 2026 at 17:27, Marc Zyngier <maz@kernel.org> wrote:
+[...]
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+[...]
+> > +static void handle_pvm_entry_sys64(struct pkvm_hyp_vcpu *hyp_vcpu)
+[...]
+> > +        /* If the host emulated a read access, update the register */
+> > +        if (pc_update &&
+> > +            !pvm_sys64_is_write(hyp_vcpu->vcpu.arch.fault.esr_el2)) {
+> > +                /* r0 as transfer register between the guest and the host. */
+> > +                u64 rt_val = READ_ONCE(host_vcpu->arch.ctxt.regs.regs[0]);
+>
+> Why isn't this
+>
+>                 rt_val = READ_ONCE(vcpu_gp_regs(host_vcpu)->regs[0]);
+>
+> and similarly everywhere else?
 
-Fixes: 00fa3461c86d ("irqchip/mchp-eic: Add support for the Microchip EIC")
-Cc: stable@vger.kernel.org
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
----
- drivers/irqchip/irq-mchp-eic.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+Old code momentum. I'll use the accessors throughout in v4.
 
-diff --git a/drivers/irqchip/irq-mchp-eic.c b/drivers/irqchip/irq-mchp-eic.c
-index be007d325e67..5250e6baff63 100644
---- a/drivers/irqchip/irq-mchp-eic.c
-+++ b/drivers/irqchip/irq-mchp-eic.c
-@@ -233,7 +233,7 @@ static int mchp_eic_probe(struct platform_device *pdev, struct device_node *pare
- 
- 	ret = clk_prepare_enable(eic->clk);
- 	if (ret)
--		goto unmap;
-+		goto clk_put;
- 
- 	for (i = 0; i < MCHP_EIC_NIRQ; i++) {
- 		struct of_phandle_args irq;
-@@ -270,6 +270,8 @@ static int mchp_eic_probe(struct platform_device *pdev, struct device_node *pare
- 
- clk_unprepare:
- 	clk_disable_unprepare(eic->clk);
-+clk_put:
-+	clk_put(eic->clk);
- unmap:
- 	iounmap(eic->base);
- free:
--- 
-2.34.1
+[...]
+> > +static void handle_pvm_exit_sys64(struct pkvm_hyp_vcpu *hyp_vcpu)
+> > +{
+> > +        struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
+> > +        u32 esr_el2 = hyp_vcpu->vcpu.arch.fault.esr_el2;
+> > +
+> > +        /* The mode is required for the host to emulate some sysregs */
+> > +        host_vcpu->arch.ctxt.regs.pstate =
+> > +                pvm_host_pstate(hyp_vcpu->vcpu.arch.ctxt.regs.pstate);
+> > +
+> > +        /* r0 as transfer register between the guest and the host. */
+> > +        if (pvm_sys64_is_write(esr_el2)) {
+> > +                int rt = kvm_vcpu_sys_get_rt(&hyp_vcpu->vcpu);
+> > +                u64 rt_val = vcpu_get_reg(&hyp_vcpu->vcpu, rt);
+> > +
+> > +                host_vcpu->arch.ctxt.regs.regs[0] = rt_val;
+>
+> and this should be
+>
+>                 vcpu_set_reg(host_vcpu, 0, rt_val);
+>
+> assuming you don't need a WRITE_ONCE() to match the READ_ONCE() in the
+> other direction.
 
+No WRITE_ONCE() needed, EL2 is the only writer on the way out. I'll
+switch to vcpu_set_reg().
+
+[...]
+> > +static void handle_pvm_exit_iabt(struct pkvm_hyp_vcpu *hyp_vcpu)
+> > +{
+> > +        hyp_vcpu->host_vcpu->arch.fault.hpfar_el2 =
+> > +                hyp_vcpu->vcpu.arch.fault.hpfar_el2;
+>
+> Please keep assignments on a single line (everywhere).
+
+Will do.
+
+Cheers,
+/fuad
 
