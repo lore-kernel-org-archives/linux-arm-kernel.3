@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4583DC982C3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:15:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C15BC982C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:15:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jOrO+lzOsedSdgTaJ6SomY+EHWnWkwszxQMkizdHQMw=; b=iF0wQaThpwDYfy0RHSpEVGl3Ou
-	SqAnc01tHMe0Ajn7Eb0Ki4G/FCUUtnZ9dG5VC/2EekJNbQTkBr6NUQUBl86q2K6bf2pmspDkP9eSP
-	HzRTdo0YjUDxrAix3suHTpy5D6SqcjdFTEqLLhMyNSeSKk4iXjkBzM2vGACiOgqPCCDhGHGXqNU1R
-	LxWMZJyRTjqt4CFDbIdBmopZ7fjICkD3Qk1E+PrlnPajGRALQ84Jqx09PUi/TlYFVoKYgY0YLiOGI
-	iw50sknGtT8g45Hy4y2zH5i5tSVNXb7ZePxcban0zs6tXb1Np0BaWxDTtxHLB6RHBB3mf6cv9VOJU
-	DMkgwL8Q==;
+	bh=DWtMehhOBBly+cc/eZkQRIYEkfGE21VjXKNKRTHSlYY=; b=yDPJKJKkVTFmdPdBIEovMey7XD
+	MLg1HXrx2VL3H9MVw0Y4oKhBizOIXyuU8+hXlNxMDNC3WBmF96SOfo9ZhaykjvtM0aRpeDHQXuOZ4
+	7lCidrkFIUnaMlgAGGhgPOOXZ8aWzBKYM0Nj2UdLRM+VpLNBPRVymNre0PuAg0dZdjmUfhVYy1zWM
+	NXcv0ynsKNl2wJIS+CmxwFJYWp6iSOptpcKjQyrBcxJW3CaxCNmkrXizP+pykQug6thcUyBEDZzF6
+	6tRb+Bl4lFj29OgYRKY1YDPXbosCjf4RLy6ITM7sjLUeiVcscVA8G2kKll7tI1+IoSXQg9jR3wf4w
+	fJz+w02A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rLw-00000009XqP-1nEe;
-	Wed, 16 Sep 2026 15:15:16 +0000
+	id 1x6rM6-00000009Y5U-3uHg;
+	Wed, 16 Sep 2026 15:15:27 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rLq-00000009Xgk-2d7G;
-	Wed, 16 Sep 2026 15:15:10 +0000
+	id 1x6rLt-00000009Xk8-0mOw;
+	Wed, 16 Sep 2026 15:15:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=jOrO+lzOsedSdgTaJ6SomY+EHWnWkwszxQMkizdHQMw=; b=Fx16KIUVX2HJnopCml98K/eVec
-	7DBa8tb11RWm29p5bSWH4wtBcNdJ+39b2XM1PCPAWFYVvu3nmadsplMkkYVqL2qBUlThB6w4Tiqof
-	L7ipSgN4YmpsB0afGhuR0/LIIfKCrWF0TYKMKNqJ16D2YB0dpVGXfE0qlyWQWMRJLsQ0/IgLZBTdI
-	zy8PJK3gWROYqiMgSCfrt9ap3cD/ZN4GuB7fk4Yun0NVz+XhTs7vnc+hJQEFI78dK1TpgPISTDAw6
-	9Et0WsDHxOb2RoVXM/E/iVZJaEA+aSf2KnORnd88VvcSxlcH3nScudiH4luFuOvM0iygyC1nJUDXM
-	9yWJfBVA==;
-Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
+	bh=DWtMehhOBBly+cc/eZkQRIYEkfGE21VjXKNKRTHSlYY=; b=Syvd4dykz0YXzLZdFZFxq0XV4N
+	jGrk6Mf5Q0HLG8Sn7XSF2c3Ky/Chn0seU2Vqc6cepte+L4+tvU+5pgIHrNcQpEi6B56GaBhU/7od5
+	rbxUH4zdzQM00JKeXq6kJU02VCDm6rhKBdavKNtO70+yIBnDxWIYi/HwfIQjjvl6y6FFejndCPY1B
+	nKVLXvTbt1YFlcFsVnM4hoFQYF2H0K17cq4MDT7Rx3khtzAKS7YXkLLCKh8G00FS5Mo8z4gldNpGW
+	eqnGWV0xm6daXYe+E6hCh3nKuiWf7El5eeZfcbccwdqDmgFVHVlGGa6d7f348Yx8e5PnxhwVooRBy
+	8km7Go9Q==;
+Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6rLg-000000081lx-1cL3;
-	Wed, 16 Sep 2026 15:15:07 +0000
+	id 1x6rLj-000000081mX-31Su;
+	Wed, 16 Sep 2026 15:15:08 +0000
 X-PTX-Original-Recipient: ezequiel@vanguardiasur.com.ar
 X-PTX-Original-Recipient: jacob-chen@iotwrt.com
 X-PTX-Original-Recipient: mchehab@kernel.org
@@ -56,21 +56,21 @@ X-PTX-Original-Recipient: s.pueschel@pengutronix.de
 X-PTX-Original-Recipient: m.tretter@pengutronix.de
 Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
 	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id A5AD3205A03;
-	Wed, 16 Sep 2026 17:14:58 +0200 (CEST)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 111FD205A09;
+	Wed, 16 Sep 2026 17:14:59 +0200 (CEST)
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
 	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.96)
 	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1x6rGn-001Fsx-2l;
-	Wed, 16 Sep 2026 17:09:57 +0200
+	id 1x6rGk-001Fsx-0d;
+	Wed, 16 Sep 2026 17:09:54 +0200
 From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Date: Wed, 16 Sep 2026 17:09:57 +0200
-Subject: [PATCH v2 16/17] media: rockchip: rga: put all cores into first
- core iommu domain
+Date: Wed, 16 Sep 2026 17:09:52 +0200
+Subject: [PATCH v2 11/17] media: rockchip: rga: use components to manage
+ multiple cores
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260916-spu-rga3multicore-v2-16-23aa2cb74e61@pengutronix.de>
+Message-Id: <20260916-spu-rga3multicore-v2-11-23aa2cb74e61@pengutronix.de>
 References: <20260916-spu-rga3multicore-v2-0-23aa2cb74e61@pengutronix.de>
 In-Reply-To: <20260916-spu-rga3multicore-v2-0-23aa2cb74e61@pengutronix.de>
 To: Jacob Chen <jacob-chen@iotwrt.com>, 
@@ -85,8 +85,8 @@ Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
  =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_161505_254867_E9562647 
-X-CRM114-Status: GOOD (  14.82  )
+X-CRM114-CacheID: sfid-20260916_161506_109899_B3D9A837 
+X-CRM114-Status: GOOD (  33.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,71 +101,371 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Put all cores into the iommu domain of the first core to allow them to
-be used by any core. All buffers accessed by the hardware are allocated
-on the first core, as the scheduling to a specific core is done after
-the allocation. Therefore put all cores into the same domain to have the
-same iommu mapping on all cores.
+Use component helpers to manage multiple cores and aggregate them into a
+central master device. This gives us a dedicated master device and
+ensures that all cores (components) are properly set up before creating
+the video device.
+
+This commit only sets up a basic component device. Instead of the
+rga_disable_multicore function only the first core is added to the
+master device. To avoid the secondary core creating an additional video
+device the whole core probe implementation is moved to the bind method,
+which is only called when the core is bound to a master device.
+
+As we use devres (devm_*) functions for resource cleanup in the probe,
+it is technically incorrect to use them in a component bind function.
+It'll be properly split out again in the follow-up commits to avoid
+having one big migration commit.
+
+The implementation is based on the etnaviv gpu driver, which also groups
+multiple gpu cores under a single etnaviv master device.
 
 Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
 
 ---
 v2
-- Fixed domain not being an err ptr
-  (https://sashiko.dev/#/patchset/20260606-spu-rga3multicore-v1-0-3ec2b15675f7%40pengutronix.de?part=14)
-- Detach domain on unbind callback
-  (https://sashiko.dev/#/patchset/20260606-spu-rga3multicore-v1-0-3ec2b15675f7%40pengutronix.de?part=14)
+- clarify that devres in component bind functions is technically
+  incorrect and only done to keep the commits split up
+- use dev_err_probe instead of dev_err + return for a failed
+  component_add
+- remove if (!match) check in rga_probe, as it's only called when we
+  have found at least one dt entry (and sashiko pointed out that it's
+  an err ptr)
+- add platform_device_id table to avoid a manual binding
 ---
- drivers/media/platform/rockchip/rga/rga.c | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
+ drivers/media/platform/rockchip/rga/rga.c | 263 ++++++++++++++++++++++++------
+ 1 file changed, 209 insertions(+), 54 deletions(-)
 
 diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
-index 5348fcc03c525..b2eeae0a61771 100644
+index bcfc19d29af74..367df0ee7b02f 100644
 --- a/drivers/media/platform/rockchip/rga/rga.c
 +++ b/drivers/media/platform/rockchip/rga/rga.c
-@@ -10,6 +10,7 @@
+@@ -5,6 +5,7 @@
+  */
+ 
+ #include <linux/clk.h>
++#include <linux/component.h>
+ #include <linux/debugfs.h>
  #include <linux/delay.h>
  #include <linux/fs.h>
- #include <linux/interrupt.h>
-+#include <linux/iommu.h>
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/of_platform.h>
-@@ -761,6 +762,19 @@ static int rga_core_bind(struct device *dev, struct device *master, void *data)
- 		  rga->version.major, rga->version.minor);
+@@ -737,51 +738,9 @@ static int rga_parse_dt(struct rga_core *core)
+ 	return 0;
+ }
  
- 	if (rga->num_cores) {
-+		/* Attach to the first cores iommu */
-+		struct iommu_domain *domain = iommu_get_domain_for_dev(rga->cores[0]->dev);
-+
-+		if (!domain) {
-+			dev_err(core->dev, "Couldn't get domain of the first core\n");
-+			return -ENODEV;
-+		}
-+		ret = iommu_attach_device(domain, core->dev);
-+		if (ret) {
-+			dev_err(core->dev, "Couldn't attach to the domain of the first core\n");
-+			return ret;
-+		}
-+
- 		/* we are not the first core, expect that we have the same version */
- 		if (rga->version.major != version.major || rga->version.minor != version.minor) {
- 			v4l2_err(&rga->v4l2_dev, "Detected multi-core setup with different core versions!\n");
-@@ -788,6 +802,14 @@ static void rga_core_unbind(struct device *dev, struct device *master,
- 		if (rga->cores[i] != core)
- 			continue;
+-/*
+- * Some SoCs, like RK3588 have multiple identical RGA3 cores, but the
+- * kernel is currently missing support for multi-core handling. Exposing
+- * separate devices for each core to userspace is bad, since that does
+- * not allow scheduling tasks properly (and creates ABI). With this workaround
+- * the driver will only probe for the first core and early exit for the other
+- * cores. Once the driver gains multi-core support, the same technique
+- * for detecting the main core can be used to cluster all cores together.
+- */
+-static int rga_disable_multicore(struct device *dev)
+-{
+-	struct device_node *node = NULL;
+-	const char *compatible;
+-	bool is_main_core;
+-	int ret;
+-
+-	/* Intentionally ignores the fallback strings */
+-	ret = of_property_read_string(dev->of_node, "compatible", &compatible);
+-	if (ret)
+-		return ret;
+-
+-	/* The first compatible and available node found is considered the main core */
+-	do {
+-		node = of_find_compatible_node(node, NULL, compatible);
+-		if (of_device_is_available(node))
+-			break;
+-	} while (node);
+-
+-	if (!node)
+-		return -EINVAL;
+-
+-	is_main_core = (dev->of_node == node);
+-
+-	of_node_put(node);
+-
+-	if (!is_main_core) {
+-		dev_info(dev, "missing multi-core support, ignoring this instance\n");
+-		return -ENODEV;
+-	}
+-
+-	return 0;
+-}
+-
+-static int rga_probe(struct platform_device *pdev)
++static int rga_core_bind(struct device *dev, struct device *master, void *data)
+ {
++	struct platform_device *pdev = to_platform_device(dev);
+ 	struct rockchip_rga *rga;
+ 	struct rga_core *core;
+ 	struct video_device *vfd;
+@@ -791,10 +750,6 @@ static int rga_probe(struct platform_device *pdev)
+ 	if (!pdev->dev.of_node)
+ 		return -ENODEV;
  
-+		if (i) {
-+			/* Detach from the first core iommu */
-+			struct iommu_domain *domain = iommu_get_domain_for_dev(rga->cores[0]->dev);
+-	ret = rga_disable_multicore(&pdev->dev);
+-	if (ret)
+-		return ret;
+-
+ 	rga = devm_kzalloc(&pdev->dev, sizeof(*rga) + 1 * sizeof(*rga->cores), GFP_KERNEL);
+ 	if (!rga)
+ 		return -ENOMEM;
+@@ -900,9 +855,10 @@ static int rga_probe(struct platform_device *pdev)
+ 	return ret;
+ }
+ 
+-static void rga_remove(struct platform_device *pdev)
++static void rga_core_unbind(struct device *dev, struct device *master,
++			    void *data)
+ {
+-	struct rga_core *core = platform_get_drvdata(pdev);
++	struct rga_core *core = dev_get_drvdata(dev);
+ 	struct rockchip_rga *rga = core->rga;
+ 
+ 	v4l2_info(&rga->v4l2_dev, "Removing\n");
+@@ -912,6 +868,27 @@ static void rga_remove(struct platform_device *pdev)
+ 	v4l2_device_unregister(&rga->v4l2_dev);
+ }
+ 
++static const struct component_ops rga_core_ops = {
++	.bind = rga_core_bind,
++	.unbind = rga_core_unbind,
++};
 +
-+			if (domain)
-+				iommu_detach_device(domain, core->dev);
++static int rga_core_probe(struct platform_device *pdev)
++{
++	int ret = 0;
++
++	ret = component_add(&pdev->dev, &rga_core_ops);
++	if (ret < 0)
++		return dev_err_probe(&pdev->dev, ret, "failed to register component\n");
++
++	return 0;
++}
++
++static void rga_core_remove(struct platform_device *pdev)
++{
++	component_del(&pdev->dev, &rga_core_ops);
++}
++
+ static int __maybe_unused rga_runtime_suspend(struct device *dev)
+ {
+ 	struct rga_core *core = dev_get_drvdata(dev);
+@@ -928,11 +905,12 @@ static int __maybe_unused rga_runtime_resume(struct device *dev)
+ 	return clk_bulk_prepare_enable(core->num_clks, core->clks);
+ }
+ 
+-static const struct dev_pm_ops rga_pm = {
++static const struct dev_pm_ops rga_core_pm = {
+ 	SET_RUNTIME_PM_OPS(rga_runtime_suspend,
+ 			   rga_runtime_resume, NULL)
+ };
+ 
++/* add new compatibles also to the rga_ids struct */
+ static const struct of_device_id rockchip_rga_match[] = {
+ 	{
+ 		.compatible = "rockchip,rk3288-rga",
+@@ -951,17 +929,194 @@ static const struct of_device_id rockchip_rga_match[] = {
+ 
+ MODULE_DEVICE_TABLE(of, rockchip_rga_match);
+ 
++static struct platform_driver rga_core_pdrv = {
++	.probe = rga_core_probe,
++	.remove = rga_core_remove,
++	.driver = {
++		.name = RGA_NAME "-core",
++		.pm = &rga_core_pm,
++		.of_match_table = rockchip_rga_match,
++	},
++};
++
++static int rga_bind(struct device *dev)
++{
++	int ret;
++
++	ret = component_bind_all(dev, NULL);
++	if (ret) {
++		dev_err(dev, "component bind failed\n");
++		return ret;
++	}
++
++	return 0;
++}
++
++static void rga_unbind(struct device *dev)
++{
++	component_unbind_all(dev, NULL);
++}
++
++struct component_master_ops rga_master_ops = {
++	.bind = rga_bind,
++	.unbind = rga_unbind,
++};
++
++static int rga_probe(struct platform_device *pdev)
++{
++	const struct of_device_id *match_desc = pdev->dev.platform_data;
++	struct device *dev = &pdev->dev;
++	struct component_match *match = NULL;
++	struct device_node *core_node;
++
++	if (!match_desc)
++		return dev_err_probe(dev, -ENODEV, "missing platform data\n");
++
++	for_each_compatible_node(core_node, NULL, match_desc->compatible) {
++		if (!of_device_is_available(core_node))
++			continue;
++
++		of_node_get(core_node);
++		component_match_add_release(dev, &match, component_release_of,
++					    component_compare_of, core_node);
++
++		/*
++		 * As multi core is not implemented yet,
++		 * break out of the loop to only have one core per rockchip_rga struct.
++		 * Also put the node, which otherwise would've been done by the loop iteration.
++		 */
++		of_node_put(core_node);
++		break;
++	}
++
++	return component_master_add_with_match(dev, &rga_master_ops, match);
++}
++
++static void rga_remove(struct platform_device *pdev)
++{
++	component_master_del(&pdev->dev, &rga_master_ops);
++}
++
++/*
++ * Keep in sync with the compatible names of rockchip_rga_match, as we name the
++ * virtual component master platform device (allocating the /dev/video device)
++ * based on the compatible value.
++ */
++static struct platform_device_id rga_ids[] = {
++	{
++		.name = "rockchip,rk3288-rga",
++	},
++	{
++		.name = "rockchip,rk3399-rga",
++	},
++	{
++		.name = "rockchip,rk3588-rga3",
++	},
++	{},
++};
++
+ static struct platform_driver rga_pdrv = {
+ 	.probe = rga_probe,
+ 	.remove = rga_remove,
+ 	.driver = {
+ 		.name = RGA_NAME,
+-		.pm = &rga_pm,
+-		.of_match_table = rockchip_rga_match,
+ 	},
++	.id_table = rga_ids,
+ };
+ 
+-module_platform_driver(rga_pdrv);
++static bool rga_of_has_available_node(const char *compat)
++{
++	struct device_node *node;
++
++	for_each_compatible_node(node, NULL, compat) {
++		if (of_device_is_available(node)) {
++			of_node_put(node);
++			return true;
 +		}
++	}
 +
- 		rga->cores[i] = rga->cores[rga->num_cores - 1];
- 		rga->num_cores--;
- 		break;
++	return false;
++}
++
++static int rga_create_platform_device(struct platform_device **ppdev,
++				      const struct of_device_id *match)
++{
++	struct platform_device *pdev;
++	int ret;
++
++	pdev = platform_device_alloc(match->compatible, PLATFORM_DEVID_NONE);
++	if (!pdev)
++		return -ENOMEM;
++
++	ret = platform_device_add_data(pdev, match, sizeof(*match));
++	if (ret)
++		goto free_platform_device;
++
++	ret = platform_device_add(pdev);
++	if (ret)
++		goto free_platform_device;
++
++	*ppdev = pdev;
++
++	return 0;
++
++free_platform_device:
++	platform_device_put(pdev);
++	return ret;
++}
++
++static struct platform_device *master_pdevs[ARRAY_SIZE(rockchip_rga_match) - 1];
++
++static int __init rga_init(void)
++{
++	int ret;
++	unsigned int i;
++
++	ret = platform_driver_register(&rga_core_pdrv);
++	if (ret != 0)
++		return ret;
++
++	ret = platform_driver_register(&rga_pdrv);
++	if (ret != 0)
++		goto unregister_core_driver;
++
++	for (i = 0; i < ARRAY_SIZE(master_pdevs); i++) {
++		if (!rga_of_has_available_node(
++			    rockchip_rga_match[i].compatible))
++			continue;
++
++		ret = rga_create_platform_device(&master_pdevs[i],
++						 &rockchip_rga_match[i]);
++		if (ret)
++			goto unregister_platform_devices;
++	}
++
++	return 0;
++
++unregister_platform_devices:
++	for (i = 0; i < ARRAY_SIZE(master_pdevs); i++) {
++		platform_device_unregister(master_pdevs[i]);
++		master_pdevs[i] = NULL;
++	}
++	platform_driver_unregister(&rga_pdrv);
++unregister_core_driver:
++	platform_driver_unregister(&rga_core_pdrv);
++	return ret;
++}
++module_init(rga_init);
++
++static void __exit rga_exit(void)
++{
++	unsigned int i;
++
++	for (i = 0; i < ARRAY_SIZE(master_pdevs); i++) {
++		platform_device_unregister(master_pdevs[i]);
++		master_pdevs[i] = NULL;
++	}
++	platform_driver_unregister(&rga_pdrv);
++	platform_driver_unregister(&rga_core_pdrv);
++}
++module_exit(rga_exit);
+ 
+ MODULE_AUTHOR("Jacob Chen <jacob-chen@iotwrt.com>");
+ MODULE_DESCRIPTION("Rockchip Raster 2d Graphic Acceleration Unit");
 
 -- 
 2.55.0
