@@ -4,92 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07375C88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 05:19:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21B76C88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 05:24:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IuUZGoiNHCcd6WaoCznRINiS0bC0Kq9wMArlqVtdSjs=; b=iVxxPwD0ly9h+9nHyc9I8imFf0
-	BRPnYPEKaYcUlHDoviCZpQLODrRznf0IdOLNht4E3xUAJ1VboX65cttqkehM5C9ALNmrWWpqBRxY+
-	dLZNSMi6wwUd9fTKnY07CXaafoNgFQ0seJV6+HZsEhn/koTrCpQ8WlAIWzSzaDBQMp6EbL3/qEv7U
-	huswrmCI2/qSk7TxQ1c0TUZCAWyAEZgl+tz1VdryAB6hMaB77Zy89fpq6qBnoUxlKKeXh3ljvPBJv
-	xGSMIOegeeBLN3nz0/I8jk85Kjyi4yaUaozNdpKcz74az6JDHllq1uEO0ZK1dlR9Powl7UqQn7AfY
-	HmTXzp0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zSwtxaUSQ7K0oB62qUITKeVKiPbi0vng9/BLzWTtzOE=; b=NuoNMzGpFNrVJIyUsM4ELJJZx7
+	NdGbwq/XuZibMxuJ90YLxq+pCyKiZ+I/qh3eVXgx4o2LU514YANJEORQA8hQu7W6GADyvytJXEKX3
+	8Lxs5DTRCvk5muitkCOtgL7cFQ310pHBeV5fqJ1lYlaHO3X4oNHFPhn1ir4JcPIyrxJ6Hz0iM+CVC
+	0tWCVjHoGI7Pv32LPOy2d4PC+6oCTcfNZ6luLaLovaNOcp4X0JXmrlua6AnXSAnYAj6hi3cgo7bbq
+	oF6alDQZccdksIb8dugTfQK4HXGU5gigYH7OZvCDD1xFWjXAoOHF5+dH4QtiZQcCsXFZPnrelJX9H
+	YdLHO+6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6i3c-00000008NLm-1R93;
-	Wed, 16 Sep 2026 05:19:44 +0000
-Received: from mail-pj2-x0f.google.com ([2607:f8b0:4864:39::f])
+	id 1x6i7y-00000008NcE-0M3Q;
+	Wed, 16 Sep 2026 05:24:14 +0000
+Received: from mail-oo2-x05.google.com ([2607:f8b0:4864:31::5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6i3a-00000008NKw-18JL
+	id 1x6i7v-00000008NbV-2ZIj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 05:19:43 +0000
-Received: by mail-pj2-x0f.google.com with SMTP id d9443c01a7336-2db1ca069c8so4752745ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 22:19:41 -0700 (PDT)
+	Wed, 16 Sep 2026 05:24:13 +0000
+Received: by mail-oo2-x05.google.com with SMTP id 46e09a7af769-7f748fe2947so2247367a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 22:24:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789535981; x=1790140781; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=IuUZGoiNHCcd6WaoCznRINiS0bC0Kq9wMArlqVtdSjs=;
-        b=R8sj4ROgmULETl3j/jl8KlhKKpzJL87+mb6bBu2B+HH87poz+reVrPtIDMk5jnea0m
-         38E3YjCJ1W3AXpTi9MSRguH7Iu6V+0vUpmQZZNrcmehoogo3KX/nX/jWNlaurMXgfW7R
-         DqoD+mCmavKibdDE/12yRoK/jmJBZ2gJj5Ht2B7ChUFgAKCFip0hFvZEX0hPV1ef7KZ9
-         R0rPGn3wQwbMLpL5kXEtqW7yUcW2Wp3ztIkR0xDebAuLMAfuPHRCYUP4kaceaskurJcz
-         ZAgpxgtPI4LJn0JapJ3lZeMF5v5eB07XmPxoS+N9a6kF1apdZrhvomGt23R1Fgg4Mc+4
-         Zm/g==
+        d=gmail.com; s=20251104; t=1789536250; x=1790141050; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=zSwtxaUSQ7K0oB62qUITKeVKiPbi0vng9/BLzWTtzOE=;
+        b=oNRL6AdDXHpHVeOGraXzqwkfNZKljw32smiv2zcfkd+HdxPtboXBPW/RZfh7bNBc6m
+         kRB1VEFcCOdCSWSEJFDYc20o4ZKhgg0Il3l13FdhmQV0WSA1VYFWzCx24RuQDi32fSR5
+         hj7t2jxjHEkMQYV7oM6jBpfzFEiSuLznbrvsaXBPHKCNnyx5cmPqZoZw8zo46XcXkPWR
+         wlXIKt27O0ClPr2qfmhiZt0Jsg/NGkbhwWaQaHM4M6SdX9bHocx0gt4ibewnBnxC9bW+
+         nT2LIk2Tmx/EvXKZemaapvSZm4LqaAzIt5O75kDKuUo63Tr2OTO1JOan8X0oEkMSCXb9
+         B/Rg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789535981; x=1790140781;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=IuUZGoiNHCcd6WaoCznRINiS0bC0Kq9wMArlqVtdSjs=;
-        b=Fi6cRcGrZzrFzOrV6LJCj5vFawK48uUi+j/89kFZF6llursUrUFISmhulwsO3izPio
-         073YghCqRp5SBe23Wj5ak78ckEkNmei+sHvMYodfK1zed9shv+X4iElid4TwdoqyJsJj
-         And/cehsh6h5B9KPnHK4Ji3kWN3D73lDKY/BowbvikF5hFiXyIfzlAx8HHdlw1YisM4B
-         2G2POynAaOJ1h8kytOBAF6PokuEnezl1wmy28WuS7XWHaCT3Zbe88DxBubCshroDG+3S
-         0GL4IiRwGOkcHMmOvwRBc0rBP/t6iS5K/0x4007gCpQV6Vepg6ErZ5ajRkwd5FAdYKyE
-         taFA==
-X-Forwarded-Encrypted: i=1; AKwUvBy3ECOx8eKcXO5DF3UM0r6hBCHsF7ZKVHIs0lq7dr0ry+XYWdJ2J5qHIo/2rsLEgYrrErdHJjS2ksgwjIRojRnw@lists.infradead.org
-X-Gm-Message-State: AFuF++mNqnoIevcM7rDQ+N2PML+owq+hSIX0vlEikyZmsqArSrUwE5Fg
-	cHoaJg4+mgLUrPY2F5hBk4KJp2vbMt99DjQeAmId4cgsqa6qjUNGujnQ
-X-Gm-Gg: AYBFou1TN1ARqcyLseY5fg3doNlA525IbvFuicRdilBhqE4IR3TP8LigrhRRHs8o7v3
-	RH42G76vAFoF4AI8gfg5RqdXR3VKTarLyzzKbIRVFGoZDTy/2J8/E8aG8i8gfcAxgsZQUOz88RL
-	8MyZtG54/GcJs9E99JlYmhSEH4pMmBKFLjS7x6psQcOZYvzxgBRmJDlcl8A42VdWJgBTtoiCnno
-	MTG09nemf1PRVckxASPvKnaNvk6QXX+1qV7LXlatmthSuagBELKj8NBjOorpNlFvS4oyDo/Fdpo
-	+MsmYGFGANSD9/nNOSDs40R8wciQ1swvaHWpAcO+6xzd9Ib8ffxD6Ztb4BTOzJ6D8ZRi/HxCG6h
-	3mU/R7suFULZGXhwAaHYlJE5CdpmPMgnF0L1oxKi6KC/ihz+Ryaqk7usy2IwGV/lRFkFFS/speF
-	WPuNGcvziK1Jn77Z+Z+tir7HMtdxnl+rY+52zNL5mKfMiFiTyEaG8yXycigPS6XW6PCwljWaqWV
-	R9f0rVjrRfA36Um430J0G2EUhFET7295OBcUFybZLPkZYcc1cXNKW3m
-X-Received: by 2002:a17:903:1251:b0:2d8:d4d0:792c with SMTP id d9443c01a7336-2dd8e752f13mr25316615ad.16.1789535980862;
-        Tue, 15 Sep 2026 22:19:40 -0700 (PDT)
-Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2dd89e92c0fsm5325165ad.23.2026.09.15.22.19.38
+        d=1e100.net; s=20260707; t=1789536250; x=1790141050;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=zSwtxaUSQ7K0oB62qUITKeVKiPbi0vng9/BLzWTtzOE=;
+        b=eJz+VjZOrR4fQQYm5CxIvko4naTZIkHhn3I1rMaXXX/6iTvzc5D9Cu+UViM/cPFqOt
+         hTIIUNaESt94MI73TY9FFnOqzhIz2be24T5WHujqDDmD7wyUM64TlnMq1a4nwhwPp9Gb
+         ZXUG9U4TMnEclLfsOVMrArw4KlpBbpV6ldONed6XAf2UAhiW9kd51Lwh3GEF5/wBRoKs
+         8c0J/UMuiqFJ/z9O7ld7jqTirD8pjO31j+KAA6bNuqK3WoKSvaQsARrY9sqFiVkZFuWR
+         cezRXJix6mEJs4qkE/XHbF/2hqJNDjwjNwW9vP7r9mbFhm73jxOscHheI7SW/unAa4u+
+         8njA==
+X-Forwarded-Encrypted: i=1; AKwUvBw1IBs9CCYa478ZrTV2V8Rk9I0jMd6ZPuHj/+CkKF3FhZ/PctXRe4DWYfN1NcWPSu4fdepIBe6FrrBAAqJ/DbQ0@lists.infradead.org
+X-Gm-Message-State: AFuF++kUhQRgQfKmlzyEGaQmYwIg8LCrXkE+hD7L/2YIr3xacjk1M/EH
+	g/CyiNyH2In1b8OkKJhdtT8bwcDbUMo+xoa9988QLp9OdkVqC/oT22sq
+X-Gm-Gg: AYBFou1Bka0zU4wpmlzI+pVOUZpAc8lEGi639Z31otPrVt4ojELjmRRNrLWV2YvGl34
+	zt1NLcUs8PIzPM0qtyYmAsLie8arrMbSPJZE60j/+4atJJaCEIjA+wx3DIh3Y1u6j2YDMhJgEwI
+	b0Bp9JgaUyy0z5j0OYMcuDx8mN/TZyKnkxvFLChcvmhLZuSrxLjuCd/Av4Tpd9viHGxtRo1QD5/
+	GODV4wOE4QxYHru3xH1/kyQqqH0BXvLKcXiRbk9NDrpszqnjow078C5lcMJKw8miU3lo20Vy2yQ
+	/mxrwfEO8QdIYOonexp58bGInIbin+qoTK2kKWqOSg6bxGc7Zepm7ueOAJhU0hDrKrn6LRO/4Ux
+	zrOeAdwYWFP86GgGVUrxuPynMv5h+8Mlci0rdYyqyMLQ5NzPV7+zCEFGyHjZF2Etx9f9EUhaXlr
+	C+e/NkUbY2tJ79enkR8u4o2uBPtO75uqx0ENUKrSpLGNpVjtEqgMLEC9RMNHQ6RRDoffI=
+X-Received: by 2002:a05:6830:6d2e:b0:80a:45e1:7677 with SMTP id 46e09a7af769-80b2f3ac500mr1403318a34.23.1789536250381;
+        Tue, 15 Sep 2026 22:24:10 -0700 (PDT)
+Received: from [192.168.18.164] ([2600:8804:5716:d800::b712])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-80b07ad0294sm1562819a34.24.2026.09.15.22.24.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Sep 2026 22:19:40 -0700 (PDT)
-From: Zi-Yu Chen <zychennvt@gmail.com>
-To: Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: ychuang3@nuvoton.com,
-	schung@nuvoton.com,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	mkl@pengutronix.de,
-	Zi-Yu Chen <zychennvt@gmail.com>
-Subject: [PATCH v4] arm64: dts: nuvoton: ma35d1: add CAN nodes
-Date: Wed, 16 Sep 2026 13:18:27 +0800
-Message-Id: <20260916051827.919538-1-zychennvt@gmail.com>
-X-Mailer: git-send-email 2.34.1
+        Tue, 15 Sep 2026 22:24:09 -0700 (PDT)
+From: Ryan Brue <ryanbrue.dev@gmail.com>
+Date: Wed, 16 Sep 2026 00:24:00 -0500
+Subject: [PATCH] drm/mediatek: dsi: force command mode in mtk_dsi_poweron()
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260916-rbrue-suez-upstreaming-mtk-dsi-cmd-mode-v1-1-b37f167e25cb@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3NwQqDMAyA4VeRnBeonYjuVcYO2kQXRqskdoyJ7
+ 27x+F3+fwdjFTZ4VDsof8VkSQX1rYLwHtLMKFQM3vnW9XWLOmpmtMx/zKttykOUNGPcPkgmGCJ
+ hXIiRunsTnO+nZuyg1FblSX7X6fk6jhM0/FZ9eQAAAA==
+X-Change-ID: 20260916-rbrue-suez-upstreaming-mtk-dsi-cmd-mode-d834c029f4b8
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Ryan Brue <ryanbrue.dev@gmail.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789536248; l=2721;
+ i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
+ bh=hpjXRGa4viZcbFnNO5KBT0ICAECMSKtgFaKjk3ZUers=;
+ b=YGYtnMBV27PnM1edrgMETUOi3yg7VZTGrzPFHJou4Uz1zxAGKN1TiUeZkDDsyt2+fjf5MWWPb
+ W6IpgB8c/lLB0mGPpb7e2KK71MSkVE3pVyuDUNsENUDYOqVIuiy9cDh
+X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
+ pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_221942_327168_06CDECCB 
-X-CRM114-Status: GOOD (  12.76  )
+X-CRM114-CacheID: sfid-20260915_222411_685944_734865DE 
+X-CRM114-Status: GOOD (  16.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,155 +112,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add controller nodes for the four Bosch M_CAN blocks found on the
-Nuvoton MA35D1 SoC.
+mtk_dsi_reset_engine() does not touch DSI_MODE_CTRL, so whatever the
+bootloader left there survives power-on. On boards where the bootloader
+lights the panel for a boot logo and hands the DSI over still running, the
+leftover value is a video mode, and the first mtk_dsi_host_transfer() then
+takes the "already streaming" path: it stops the stream and waits for
+VM_DONE, which never arrives, because the engine reset has already stopped
+the stream. The panel's very first command fails and it is never
+initialised:
 
-Additionally, configure pinctrl and enable CAN1 and CAN3 on the
-MA35D1 SOM board. Also, update the APLL frequency to 160MHz to ensure
-the CAN controllers receive the required input clock for 80MHz operation.
+  [drm] Wait DSI IRQ(0x00000008) Timeout
+  *ERROR* failed to switch cmd mode
+  sending dcs data 8f a5 failed: -62
 
-Signed-off-by: Zi-Yu Chen <zychennvt@gmail.com>
+Set command mode right after the engine reset, so DSI_MODE_CTRL describes
+the state the reset leaves the engine in. The video mode is programmed by
+mtk_dsi_set_mode() when the stream is actually started, exactly as today.
+
+Seen on the Amazon Fire HD 10 (2017), whose LK bootloader draws its logo
+over DSI in video mode and never stops the stream before jumping to the
+kernel.
+
+Assisted-by: LLM
+Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
 ---
-v4:
- - Add hardware reset properties for CANFD0 through CANFD3.
-v3:
- - Change CAN clock to 80MHz and APLL to 160MHz to use a higher multiple
-   of 40MHz, as suggested by Marc.
-v2: 
- - Move assigned-clocks and assigned-clock-rates configurations of
-   CAN_DIV from SoC-level ma35d1.dtsi to board-level ma35d1-som-256m.dts
- - Update APLL frequency to 200MHz to ensure the CAN controllers
-   receive the required 50MHz input clock.
+The board this was found on, an Amazon Fire HD 10 (2017), is not upstream
+yet, so no in-tree board regresses without this. It is a state-consistency
+fix either way: mtk_dsi_reset_engine() stops the stream but leaves
+DSI_MODE_CTRL still describing the mode the bootloader was driving, and
+nothing writes that register again until mtk_dsi_set_mode() at stream start.
 
- .../boot/dts/nuvoton/ma35d1-som-256m.dts      | 32 ++++++++++-
- arch/arm64/boot/dts/nuvoton/ma35d1.dtsi       | 56 +++++++++++++++++++
- 2 files changed, 87 insertions(+), 1 deletion(-)
+This touches the same lines as "drm/mediatek: mtk_dsi: Transfer register
+offsets to per-SoC const" from the MT8196 series; I will rebase on top of
+that if it lands first.
+---
+ drivers/gpu/drm/mediatek/mtk_dsi.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts b/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-index a029b660e8dc..e2d3fde1dab3 100644
---- a/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-+++ b/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-@@ -39,6 +39,22 @@ clk_hxt: clock-hxt {
- 	};
- };
+diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
+index 7961139333ad..4cb486f54653 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dsi.c
++++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
+@@ -737,6 +737,15 @@ static int mtk_dsi_poweron(struct mtk_dsi *dsi)
+ 		       dsi->regs + dsi->driver_data->reg_shadow_dbg_off);
  
-+&can1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_can1>;
-+	assigned-clocks = <&clk CAN1_DIV>;
-+	assigned-clock-rates = <80000000>;
-+	status = "okay";
-+};
+ 	mtk_dsi_reset_engine(dsi);
 +
-+&can3 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_can3>;
-+	assigned-clocks = <&clk CAN3_DIV>;
-+	assigned-clock-rates = <80000000>;
-+	status = "okay";
-+};
++	/*
++	 * mtk_dsi_reset_engine() leaves DSI_MODE_CTRL alone, so a video mode
++	 * left there by a bootloader that handed the panel over still running
++	 * would make the first command wait for a VM_DONE that never arrives.
++	 * mtk_dsi_set_mode() programs the real mode when the stream starts.
++	 */
++	mtk_dsi_set_cmd_mode(dsi);
 +
- &clk {
- 	assigned-clocks = <&clk CAPLL>,
- 			  <&clk DDRPLL>,
-@@ -47,7 +63,7 @@ &clk {
- 			  <&clk VPLL>;
- 	assigned-clock-rates = <800000000>,
- 			       <266000000>,
--			       <180000000>,
-+			       <160000000>,
- 			       <500000000>,
- 			       <102000000>;
- 	nuvoton,pll-mode = "integer",
-@@ -58,6 +74,20 @@ &clk {
- };
+ 	mtk_dsi_phy_timconfig(dsi);
  
- &pinctrl {
-+	can-grp {
-+		pinctrl_can1: can1-pins {
-+			nuvoton,pins = <11 14 4>,
-+				       <11 15 4>;
-+			bias-disable;
-+		};
-+
-+		pinctrl_can3: can3-pins {
-+			nuvoton,pins = <11 10 3>,
-+				       <11 11 3>;
-+			bias-disable;
-+		};
-+	};
-+
- 	uart-grp {
- 		pinctrl_uart0: uart0-pins {
- 			nuvoton,pins = <4 14 1>,
-diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-index 7228ad4735b5..b3b8c8673a2a 100644
---- a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-+++ b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-@@ -244,6 +244,62 @@ gpion: gpio@340 {
- 			};
- 		};
- 
-+		can0: can@403c0000 {
-+			compatible = "bosch,m_can";
-+			reg = <0x0 0x403c0000 0x0 0x200>, <0x0 0x403c0200 0x0 0x2000>;
-+			reg-names = "m_can", "message_ram";
-+			interrupts = <GIC_SPI 71 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 131 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "int0", "int1";
-+			resets = <&sys MA35D1_RESET_CANFD0>;
-+			clocks = <&clk HCLK3>, <&clk CAN0_GATE>;
-+			clock-names = "hclk", "cclk";
-+			bosch,mram-cfg = <0x0 4 4 32 32 32 8 8>;
-+			status = "disabled";
-+		};
-+
-+		can1: can@403d0000 {
-+			compatible = "bosch,m_can";
-+			reg = <0x0 0x403d0000 0x0 0x200>, <0x0 0x403d0200 0x0 0x2000>;
-+			reg-names = "m_can", "message_ram";
-+			interrupts = <GIC_SPI 100 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 132 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "int0", "int1";
-+			resets = <&sys MA35D1_RESET_CANFD1>;
-+			clocks = <&clk HCLK3>, <&clk CAN1_GATE>;
-+			clock-names = "hclk", "cclk";
-+			bosch,mram-cfg = <0x0 4 4 32 32 32 8 8>;
-+			status = "disabled";
-+		};
-+
-+		can2: can@403e0000 {
-+			compatible = "bosch,m_can";
-+			reg = <0x0 0x403e0000 0x0 0x200>, <0x0 0x403e0200 0x0 0x2000>;
-+			reg-names = "m_can", "message_ram";
-+			interrupts = <GIC_SPI 125 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "int0", "int1";
-+			resets = <&sys MA35D1_RESET_CANFD2>;
-+			clocks = <&clk HCLK3>, <&clk CAN2_GATE>;
-+			clock-names = "hclk", "cclk";
-+			bosch,mram-cfg = <0x0 4 4 32 32 32 8 8>;
-+			status = "disabled";
-+		};
-+
-+		can3: can@403f0000 {
-+			compatible = "bosch,m_can";
-+			reg = <0x0 0x403f0000 0x0 0x200>, <0x0 0x403f0200 0x0 0x2000>;
-+			reg-names = "m_can", "message_ram";
-+			interrupts = <GIC_SPI 126 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 134 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "int0", "int1";
-+			resets = <&sys MA35D1_RESET_CANFD3>;
-+			clocks = <&clk HCLK3>, <&clk CAN3_GATE>;
-+			clock-names = "hclk", "cclk";
-+			bosch,mram-cfg = <0x0 4 4 32 32 32 8 8>;
-+			status = "disabled";
-+		};
-+
- 		uart0: serial@40700000 {
- 			compatible = "nuvoton,ma35d1-uart";
- 			reg = <0x0 0x40700000 0x0 0x100>;
--- 
-2.34.1
+ 	mtk_dsi_ps_control(dsi, true);
+
+---
+base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
+change-id: 20260916-rbrue-suez-upstreaming-mtk-dsi-cmd-mode-d834c029f4b8
+
+Best regards,
+--  
+Ryan Brue <ryanbrue.dev@gmail.com>
 
 
