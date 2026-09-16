@@ -4,64 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A873C88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 10:04:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7830AC88E5C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 10:04:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ObFj00wIHFA7DTCd+I7yWf9pDIB4PkYQ8Z0z1qqyAag=; b=DWdEC+V26UAMsUXy0a+qLqoUNO
-	+3ztE7W0y7Sp9TvpeIMdnr2liPtcjIJu0ZB7AOpGt3U4vT4d249llFPEWbYgS0eB5Yjl2lmu6lorQ
-	my2D5seAELL9HBgRg1iL6/OCZh8M3/ZNEqF3iXjGL/1yK09PUZ3Xg+32tEv5WlXaMxTUu+hZ2POdb
-	V3gZrIgyswBRM7BpeAFkzDYlpn9VrD0cZVWRj3eKknPlkj7Nyp8xE3QRxvai11VL/U5+rh0HjXl9r
-	h79cwuz3VcBYyk5UdizaIwvNkioM413FJkRZ6FPFFVd3C6xKN2Wsu7Saa6w8kKJng5Pfhcjtfn3g2
-	gZcP463Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1+LP4xptQa+2C+BD1oGDKA67ZCLFNM3ainCw+VzoD2s=; b=xd9Bs0Wf+tJBXUK6NYHRsEFg/G
+	HHpewE/RTe5qIivSKN2bETaVjXxohXnnUocS/SuN084EmFiE3AptnNgVoPXHYmAcJ8QkJZqnKfQ+0
+	7s5m/6gKvfxLcMP2yUBHiaZz3SUz33wjuPSe5+yqeQ+tPxOf7SEzJY6useDfZ/ZsG3IY+YoGRIOWj
+	mY4zjUgMfsxvtfv1jLR1qOP/gGWL58TcMZtsUD/XTyTZl/+/Pj4jq+w2rmxcTTxsBzar7ODTpuvr8
+	FQGDJ0s+EaWa6SHxK4BmHmN34NN3tOj6Bl+U7imVh3dMhriIq/cuVR/5aDTTjJMlBTPddi9m/uJ9m
+	F0kKjd3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6mUn-00000008vap-0kjZ;
-	Wed, 16 Sep 2026 10:04:05 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x6mV4-00000008vfy-1j2U;
+	Wed, 16 Sep 2026 10:04:22 +0000
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6mUm-00000008vaR-2JcP
+	id 1x6mV1-00000008vez-3Xi6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 10:04:04 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A06CA602CC;
-	Wed, 16 Sep 2026 10:04:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A6041F000FF;
-	Wed, 16 Sep 2026 10:04:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789553043;
-	bh=ObFj00wIHFA7DTCd+I7yWf9pDIB4PkYQ8Z0z1qqyAag=;
-	h=From:Date:Subject:To:Cc;
-	b=Q2vMO8tmDn3vmTiCgTl/LG5qLSCeJ6EyP+5S5r7XeOq7LSJegmrI17jaqD0U6whhc
-	 I6fT9RJ+gm3zPxmGWDBgoJexB/VGlVqcKzxT2g/ew2UAMRDMA0nxyeEFwRltJlpCoW
-	 2H8sksqMOnb4A+3htP7NZjeCafqAtq4XEoo/3QyCbqbwmlyAbEP1sTU95mdqfeXL7y
-	 NTZDEg9jFs7kiZF/RyqhyP424PrsI9dE8gZvaUVJpuC0tt+ehaiLwMqh+nuIOWMcrp
-	 gQ4vIosejIKpxlPr2MMzZv6+scZMQaIfmaQFAY4zKcjXjZ306DeJpzaha9M9TYATZb
-	 8xg2hJ9DIEJ4A==
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 16 Sep 2026 12:03:56 +0200
-Subject: [PATCH v2] arm64: clear_page[s] using memset
+	Wed, 16 Sep 2026 10:04:21 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-482f6350f89so361807f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 03:04:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1789553058; x=1790157858; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:date:message-id
+         :subject:references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=1+LP4xptQa+2C+BD1oGDKA67ZCLFNM3ainCw+VzoD2s=;
+        b=EOiXVdu85uo7PVqNqNkRl6YzcwAYOWu8rN2AO8+I40wFobYGlvN1Y4imkzPK37Wgpo
+         gPnDMUeXxz6WyH2Z4H96ZXbFPlqHH0JhXoIEFQDP6z0xZ6zaKxk27m3poLHObQxYm88w
+         NiofLzMEbdghUr/jSGWwwKeIaddkCLsWUqZ8sWas0XcmfnYHbPgforXNqqSZNI5NggUR
+         EpBZOHUGeWdbGgSjlDYFUg27sA08+ROfaSJqNgtY9BaeS7M4EAzRiAozc2aNv3MlQu7w
+         eXyhMI2zKUsTTt9+BADezsRVDrblFB90NxwXRI9RhVZA3uyN6EMM5k422HJzm+4KYke0
+         xA2A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789553058; x=1790157858;
+        h=content-transfer-encoding:content-type:mime-version:date:message-id
+         :subject:references:in-reply-to:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=1+LP4xptQa+2C+BD1oGDKA67ZCLFNM3ainCw+VzoD2s=;
+        b=1ysb3g5woxjjtPe9EJKuWkC2TmWRznpetrgcmH7qSTiMaGN+V7sTkLA48d8qjbvFhP
+         U8LbteEj5FW/b5UEoojaExFqDMy2HqwhfD07s3DlYgIjp/r4JA9v/avxkbHLM+oGH6bb
+         oF6U3THVfGUmCHt/7W6OsUTbCRCZ3vQ9835WVhXpHDET5UBtNdwwxjXX40g9pQKHdgFD
+         MjdYhnG8CyWCLoK9Bmd2+nsl/sAl7BemHNsmvrlI+rqk5kd/Z3+5yn2wWaqAwKsnUR7F
+         7stvC9leqQqrl63SrX5q4EQ14QRH3ZMQg6y/YZwatT7VXbePAvnx8r9Zzmbqsp/J7CJO
+         ttWA==
+X-Forwarded-Encrypted: i=1; AKwUvBzbAZbvl8+PcnOpkXPSWDHqciRG+3EVr45sf+14pAlUBUpSonjNYA/npYTgY+rJcpuJ37cozHf5ppvMYTUkhY0G@lists.infradead.org
+X-Gm-Message-State: AFuF++n/wl5LcjQdEzVG74RB2iJalsSYRyqpjgYLtAzI4aC0CxVuB4cR
+	6M5umPykH/bDinOLl2QLmPYpOKMLfNPiVh5/RtRu9B+wTpjI/myFCOqQwMLAKYQhTXE=
+X-Gm-Gg: AYBFou2UUsLTwpluUMENtmJfXKpahTqf06l6+o/uy5cudb4dpJalfDQlcjL+p26C27B
+	z0FoKHU0zUYkFYgQAmiG+z7YoXQIbHPQt+l5tDnlizV4WRQ1c28g1zEB/rgOO4ZIpMFewUWTJqm
+	e1b+X/u9rfGMC3muEQNPbt/IC+hPc7LLfjhZ0zuFtfy0ex/x5E0zmkvgaaRohs3bkg1uzU4B30M
+	2uFLzT+RyWTPgS00CP1ncjhX/+6cq0f63vGdFJE3yYDHr1v1R9/Q51LYUovk1hy5xQTt3c8ayYz
+	N0Ec7hNcaIws2lUcLV7xYkB0Qj9CO+cuABvCGT4K6w6mzYao0UKlnvG6V8O4IaCZwYUTJllhHcc
+	Ui2QvoacHZs3rTBaitc/wsE7/LbGQLqZKmsfyqg2CNAm/NeI7yKp0cGHv8epQ/29lOhjevL5g3r
+	cIq6GOi6vLAULVgm9Cwm5PaRiPtUgX2DznXWFpOzUTZ78I1281C70F0yfeJMXrfrwvwvndXhPz0
+	ujzP9fgs5S8
+X-Received: by 2002:a05:600c:3584:b0:49c:ee36:10fc with SMTP id 5b1f17b1804b1-49eac4678b6mr26145655e9.8.1789553057754;
+        Wed, 16 Sep 2026 03:04:17 -0700 (PDT)
+Received: from arrakeen-2.home ([2a01:e0a:106d:1080:52eb:f6ff:feb3:451a])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e84805db6sm35844635e9.3.2026.09.16.03.04.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 16 Sep 2026 03:04:17 -0700 (PDT)
+From: Neil Armstrong <neil.armstrong@linaro.org>
+To: Ulf Hansson <ulfh@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Lucas Tanure <tanure@linux.com>
+Cc: Brian Masney <bmasney+clk@redhat.com>, 
+ Chuan Liu <chuan.liu@amlogic.com>, Jian Hu <jian.hu@amlogic.com>, 
+ Ronald Claveau <linux-kernel-dev@aliel.fr>, linux-mmc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20260905153234.133217-1-tanure@linux.com>
+References: <20260905153234.133217-1-tanure@linux.com>
+Subject: Re: (subset) [PATCH v2 0/4] amlogic: t7: give the MMC bus pipeline
+ clock real consumers
+Message-Id: <178955305678.2918771.10810230842213506975.b4-ty@b4>
+Date: Wed, 16 Sep 2026 12:04:16 +0200
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260916-aarch64-clear-pages-c-v2-1-0393769f7912@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WNSw6CQBAFr0J6bZv5CAgr72FYDE0DEwlDegzRE
- O7uSOLSZVXy6m0QWTxHqLMNhFcffZgTmFMGNLp5YPRdYjDKFMqqHJ0TGosL0sROcHEDRyTMK9U
- 5rq5krYW0XYR7/zq69ybx6OMzyPu4WfXX/orFn+KqUWNZkm5b1Wsy+vZgmXk6Bxmg2ff9A1OWq
- fK7AAAA
-X-Change-ID: 20260305-aarch64-clear-pages-c-590dae98c333
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
- Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
- Usama Anjum <usama.anjum@arm.com>, Linus Walleij <linusw@kernel.org>
-X-Mailer: b4 0.16.0
+X-Mailer: b4 0.15.1
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260916_030419_914894_83925D64 
+X-CRM114-Status: GOOD (  14.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,194 +111,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There is no need to try to second-guess the compiler when
-clearing memory. Just call memset() like everyone else.
+Hi,
 
-Since memset() already has an architecture-local MOPS
-optimization, we do not need to do anything else to preserve
-the MOPS optimization.
+On Sat, 05 Sep 2026 16:32:30 +0100, Lucas Tanure wrote:
+> The previous series for the intermittent boot hangs on the VIM4
+> marked sys_ampipe_nand as critical. But as Chuan Liu from Amlogic
+> explained, sys_ampipe_nand clocks a pipeline stage that the
+> hardware design inserts in the bus path between the SD/eMMC
+> controllers and the NIC_MATRIX fabric to help timing closure.
+> 
+> So the clock has real consumers: reference it from the three MMC
+> controller nodes and drop CLK_IS_CRITICAL instead.
+> 
+> [...]
 
-While at it, implement the shorthand for directly calling
-the new prototype clear_pages() for larger page chunks.
+Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git (v7.4/arm64-dt)
 
-No performance regressions can be seen, the fastpath
-benchmarks differences are in the noise.
+[3/4] arm64: dts: amlogic: t7: add the pipeline clock to the MMC controllers
+      https://git.kernel.org/amlogic/c/065957517880dc7053e0723cc9532b6e78c8855c
 
-Usama Anjum tested next-20260821 with one warm-up and three repeats
-in four sessions, for a total of 12 measured runs. The commands were:
+These changes has been applied on the intermediate git tree [1].
 
-  perf bench mem memset -k 1GB -f default -s 16GB
-  perf bench mem mmap -p 1GB -f demand -s 32GB -l 5
-  perf bench mem mmap -p 4KB -f demand -s 32GB -l 5
+The v7.4/arm64-dt branch will then be sent via a formal Pull Request to the Linux SoC maintainers
+for inclusion in their intermediate git branches in order to be sent to Linus during
+the next merge window, or sooner if it's a set of fixes.
 
-The results were:
+In the cases of fixes, those will be merged in the current release candidate
+kernel and as soon they appear on the Linux master branch they will be
+backported to the previous Stable and Long-Stable kernels [2].
 
-aws-m7g.metal:
-  Benchmark    Base bytes/sec   Change with patch
-  memset 1GB   63932542232.12                1.92%
-  mmap 1GB     63272579168.03               -0.57%
-  mmap 4KB     49692830849.48               -1.11%
+The intermediate git branches are merged daily in the linux-next tree [3],
+people are encouraged testing these pre-release kernels and report issues on the
+relevant mailing-lists.
 
-cesw-aarch64-ampereone-1s-a192-32x:
-  Benchmark    Base bytes/sec   Change with patch
-  memset 1GB   33895562998.71                0.25%
-  mmap 1GB     34338454210.17                1.16%
-  mmap 4KB     25687107580.90               -0.85%
+If problems are discovered on those changes, please submit a signed-off-by revert
+patch followed by a corrective changeset.
 
-Assisted-by: LLM
-Suggested-by: Will Deacon <will@kernel.org>
-Tested-by: Usama Anjum <usama.anjum@arm.com>
-Link: https://lore.kernel.org/linux-arm-kernel/20260303-aarch64-clear-pages-v1-1-ad0c3ee9a555@kernel.org/
-Link: https://lore.kernel.org/linux-arm-kernel/67ab6c51-4511-46ab-931b-a4323551147a@arm.com/
-Signed-off-by: Linus Walleij <linusw@kernel.org>
----
-Changes in v2:
-- Rebased on v7.3-rc1
-- Include Usama Anjum's performance results and Tested-by tag.
-- Link to v1: https://lore.kernel.org/r/20260306-aarch64-clear-pages-c-v1-1-77c1bb0f1c21@kernel.org
----
- arch/arm64/include/asm/page.h    | 13 +++++++++-
- arch/arm64/kernel/image-vars.h   |  1 -
- arch/arm64/kvm/hyp/nvhe/Makefile |  2 +-
- arch/arm64/lib/Makefile          |  2 +-
- arch/arm64/lib/clear_page.S      | 53 ----------------------------------------
- 5 files changed, 14 insertions(+), 57 deletions(-)
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git
+[2] https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
+[3] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
 
-diff --git a/arch/arm64/include/asm/page.h b/arch/arm64/include/asm/page.h
-index 58200de8a221..b2eaa63d9056 100644
---- a/arch/arm64/include/asm/page.h
-+++ b/arch/arm64/include/asm/page.h
-@@ -13,6 +13,7 @@
- #ifndef __ASSEMBLER__
- 
- #include <linux/personality.h> /* for READ_IMPLIES_EXEC */
-+#include <linux/string.h> /* for memset() */
- #include <linux/types.h> /* for gfp_t */
- #include <asm/pgtable-types.h>
- 
-@@ -20,7 +21,17 @@ struct page;
- struct vm_area_struct;
- 
- extern void copy_page(void *to, const void *from);
--extern void clear_page(void *to);
-+
-+static inline void clear_pages(void *addr, unsigned int npages)
-+{
-+	memset(addr, 0, npages * PAGE_SIZE);
-+}
-+#define clear_pages clear_pages
-+
-+static inline void clear_page(void *addr)
-+{
-+	clear_pages(addr, 1);
-+}
- 
- void copy_user_highpage(struct page *to, struct page *from,
- 			unsigned long vaddr, struct vm_area_struct *vma);
-diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
-index 14beb7b9d304..facda8137d9b 100644
---- a/arch/arm64/kernel/image-vars.h
-+++ b/arch/arm64/kernel/image-vars.h
-@@ -119,7 +119,6 @@ KVM_NVHE_ALIAS(__start___kvm_ex_table);
- KVM_NVHE_ALIAS(__stop___kvm_ex_table);
- 
- /* Position-independent library routines */
--KVM_NVHE_ALIAS_HYP(clear_page, __pi_clear_page);
- KVM_NVHE_ALIAS_HYP(copy_page, __pi_copy_page);
- KVM_NVHE_ALIAS_HYP(memcpy, __pi_memcpy);
- KVM_NVHE_ALIAS_HYP(memset, __pi_memset);
-diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
-index f57450ebcb49..2ed489bf544e 100644
---- a/arch/arm64/kvm/hyp/nvhe/Makefile
-+++ b/arch/arm64/kvm/hyp/nvhe/Makefile
-@@ -17,7 +17,7 @@ ccflags-y += -fno-stack-protector	\
- hostprogs := gen-hyprel
- HOST_EXTRACFLAGS += -I$(objtree)/include
- 
--lib-objs := clear_page.o copy_page.o memcpy.o memset.o tishift.o
-+lib-objs := copy_page.o memcpy.o memset.o tishift.o
- lib-objs := $(addprefix ../../../lib/, $(lib-objs))
- 
- CFLAGS_switch.nvhe.o += -Wno-override-init
-diff --git a/arch/arm64/lib/Makefile b/arch/arm64/lib/Makefile
-index b33e1ca4a781..38ffd359123c 100644
---- a/arch/arm64/lib/Makefile
-+++ b/arch/arm64/lib/Makefile
-@@ -5,7 +5,7 @@ KCSAN_SANITIZE_delay.o := n
- 
- lib-y		:= clear_user.o delay.o copy_from_user.o		\
- 		   copy_to_user.o copy_page.o				\
--		   clear_page.o csum.o insn.o memchr.o memcpy.o		\
-+		   csum.o insn.o memchr.o memcpy.o			\
- 		   memset.o memcmp.o strcmp.o strncmp.o strlen.o	\
- 		   strnlen.o strchr.o strrchr.o tishift.o
- 
-diff --git a/arch/arm64/lib/clear_page.S b/arch/arm64/lib/clear_page.S
-deleted file mode 100644
-index bd6f7d5eb6eb..000000000000
---- a/arch/arm64/lib/clear_page.S
-+++ /dev/null
-@@ -1,53 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0-only */
--/*
-- * Copyright (C) 2012 ARM Ltd.
-- */
--
--#include <linux/linkage.h>
--#include <linux/const.h>
--#include <asm/assembler.h>
--#include <asm/page.h>
--
--/*
-- * Clear page @dest
-- *
-- * Parameters:
-- *	x0 - dest
-- */
--SYM_FUNC_START(__pi_clear_page)
--#ifdef CONFIG_AS_HAS_MOPS
--	.arch_extension mops
--alternative_if_not ARM64_HAS_MOPS
--	b	.Lno_mops
--alternative_else_nop_endif
--
--	mov	x1, #PAGE_SIZE
--	setpn	[x0]!, x1!, xzr
--	setmn	[x0]!, x1!, xzr
--	seten	[x0]!, x1!, xzr
--	ret
--.Lno_mops:
--#endif
--	mrs	x1, dczid_el0
--	tbnz	x1, #4, 2f	/* Branch if DC ZVA is prohibited */
--	and	w1, w1, #0xf
--	mov	x2, #4
--	lsl	x1, x2, x1
--
--1:	dc	zva, x0
--	add	x0, x0, x1
--	tst	x0, #(PAGE_SIZE - 1)
--	b.ne	1b
--	ret
--
--2:	stnp	xzr, xzr, [x0]
--	stnp	xzr, xzr, [x0, #16]
--	stnp	xzr, xzr, [x0, #32]
--	stnp	xzr, xzr, [x0, #48]
--	add	x0, x0, #64
--	tst	x0, #(PAGE_SIZE - 1)
--	b.ne	2b
--	ret
--SYM_FUNC_END(__pi_clear_page)
--SYM_FUNC_ALIAS(clear_page, __pi_clear_page)
--EXPORT_SYMBOL(clear_page)
-
----
-base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
-change-id: 20260305-aarch64-clear-pages-c-590dae98c333
-
-Best regards,
---  
-Linus Walleij <linusw@kernel.org>
+-- 
+Neil
 
 
