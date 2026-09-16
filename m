@@ -4,28 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FA4FC982C7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 00:38:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84A5DC88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 00:38:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=vWYll36YW2pV6zpDuR42fgg8c3Jz+zEvT7ZMbaK9z/k=; b=UEmROuyX/CC8iB
-	r2SqUaU7TlhP7/8u1fQMchcsX+W+et9xQxO54mwK5BYDaVmE/C3274ak70asAx9YswCT5d/7Zk2A1
-	0WEc7zlmZjhR6b61bsic3/I60doRWtr2GbWsQpzCMf0efRdIXAniZAFx3ik9+Lmt4IjnPpAClKKxB
-	KPDDcJzgjnrfyhoEDuo7zDyKWj6K5rI0CZgs4fxRoROR5JWW5BuFyQQ6RQYHiPSvzROF2yJdQsFKE
-	EZk8KzZxXEeAKclYPgQcgFacaKLf5Mi81h9BHPeO/Bk5FgzOzn1ZK84rKnt1jO61v4IcCWyoajZy2
-	Ql2bb52TXdmDPSrWWx7g==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qFZmNBf4qfYWyxV7HR/s5jPguRDPbuw+lPYCabWVA4A=; b=BcAS2fOxDFek9M9TzG2ZbqspFr
+	wbsSYPH9BTNNQtVO0yg5MWzQuADP80N8888ZQF+wWbQBxek2Ulm71/bFsBQoug6FyPAfHfExwnUwP
+	8UvbsUSj3rK6C4Om2xq2lqhpkI8re0JP6xPf6ofSbi6OpppQhDP4sJtoGHZA0LUJanIFEaI8khKpn
+	2dDn+O9GP/Zp0BjUKOAPjijHza/R9VNEsNRYoMSZ2hNBWMrmKvOYbkhU09lvNyyp1Q81OusWoICjg
+	Gfn460PK5wmYa/R3GWHt0OeYRE77gKOwlyUvG//LWJ/KPTjDKZ0CILcHB8Sqv2JvdjVDiNv5mv+vZ
+	SiHmYLIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6dfJ-000000087Xy-0OYT;
-	Wed, 16 Sep 2026 00:38:21 +0000
+	id 1x6dfS-000000087bm-1bbs;
+	Wed, 16 Sep 2026 00:38:30 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6dfF-000000087WT-2KG9;
-	Wed, 16 Sep 2026 00:38:19 +0000
+	id 1x6dfN-000000087WT-11tZ;
+	Wed, 16 Sep 2026 00:38:27 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 16 Sep
@@ -34,17 +34,14 @@ Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
  Transport; Wed, 16 Sep 2026 08:38:02 +0800
 From: Ryan Chen <ryan_chen@aspeedtech.com>
-Subject: [PATCH v4 0/3] Add AST2700 USB3.2 PHY driver
-Date: Wed, 16 Sep 2026 08:38:00 +0800
-Message-ID: <20260916-upstream_usb3phy-v4-0-812e76037d01@aspeedtech.com>
+Date: Wed, 16 Sep 2026 08:38:02 +0800
+Subject: [PATCH v4 2/3] phy: aspeed: Add AST2700 USB3.2 PHY driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAOjkqWoC/23NTQqDMBCG4atI1k3JJGqarnqPUoqaSc3CHxINF
- fHujUJpQZfvB/PMTDw6i55ck5k4DNbbro2RnhJS1UX7Qmp1bMIZzxkAp2PvB4dF8xx9Kfp6ohI
- gNxdtUEpF4lnv0Nj3Rt4fsWvrh85N24cA6/rF0j0WgDLKMVOZYiVyLW+F7xH1gFV9rrqGrGLg/
- 0p+oPCosJJVyggsc5MeKuKnSAYHilgVhsAFZFFRO2VZlg+SNrajQQEAAA==
-X-Change-ID: 20260112-upstream_usb3phy-7116f8dfe779
+Message-ID: <20260916-upstream_usb3phy-v4-2-812e76037d01@aspeedtech.com>
+References: <20260916-upstream_usb3phy-v4-0-812e76037d01@aspeedtech.com>
+In-Reply-To: <20260916-upstream_usb3phy-v4-0-812e76037d01@aspeedtech.com>
 To: Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
 	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, "Andrew
@@ -54,20 +51,18 @@ To: Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
 CC: <linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
 	<linux-kernel@vger.kernel.org>, Ryan Chen <ryan_chen@aspeedtech.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, "Manivannan
- Sadhasivam" <manivannan.sadhasivam@oss.qualcomm.com>
+	Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789519082; l=2215;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789519082; l=11212;
  i=ryan_chen@aspeedtech.com; s=20251126; h=from:subject:message-id;
- bh=oarP0zPWM7rU28jobfWNT27FoqPEuVIEmWhjt7NQyxA=;
- b=EMxjupueFd3ly98mgyHjXZFSFYeEy5k3r9ojtvQp8xpLiU0BzwUoqM8AjVd4Nvf6dSJEliGbq
- c7jvntvp256C7r8BFUfOvv4eGFuPLhH+1YLRaYDsABQoho8QbymxBnj
+ bh=oCJAxByK5/0L3PDNVLGEo5PitCkaMXRWfGb2v4ns6J4=;
+ b=QWp3sMwpU92WXAttQP0ufCkTkCI2TeJC2gqur4jeMogAgBKzxuLhcTNuCvac5hIP0SyjI/9jD
+ 3M7AyCiOoABB+LAJEGOt54sGXKzjCxFMkXEWnzEfe6g+6wdzdoXd/TR
 X-Developer-Key: i=ryan_chen@aspeedtech.com; a=ed25519;
  pk=Xe73xY6tcnkuRjjbVAB/oU30KdB3FvG4nuJuILj7ZVc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_173817_602970_ECA9F821 
-X-CRM114-Status: UNSURE (   8.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260915_173826_461596_6DE63D5C 
+X-CRM114-Status: GOOD (  23.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,11 +77,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add AST2700 USB3.2 PHY support.
- - Supports Super Speed Plus Gen2x1 (10 Gbps), Super Speed (5 Gbps),
-   High Speed (480 Mbps), Full Speed (12Mbps), and Low Speed (1.5 Mbps).
+Add a driver for the USB3.2 PHY on the Aspeed AST2700, which is paired
+with the DWC3 controller.
+
+The PHY draws its configuration from an internal SRAM in both of the
+available modes, so the driver must wait for PHY3S00_INIT_DONE before
+selecting one. PHY3S00_SRAM_BYPASS selects the default design
+configuration and PHY3S00_SRAM_EXT_LOAD the ROM code configuration; the
+driver uses the latter.
 
 Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+
 ---
 Changes in v4:
 - Indent the register bitfield definitions so they are distinguishable
@@ -95,44 +97,313 @@ Changes in v4:
   the SRAM leaves the PHY on the default RTL design configuration,
   whereas the external load path applies the ROM patch so the PHY runs
   the ROM configuration.
-- Describe the SRAM handshake in the driver's commit message.
-- Link to v3: https://lore.kernel.org/r/20260701-upstream_usb3phy-v3-0-00e12315b6f9@aspeedtech.com
-
-Changes in v3:
-- Wire drivers/phy/aspeed/ into drivers/phy/Kconfig and
-  drivers/phy/Makefile so the driver is actually built.
-- Fix the Makefile config symbol to CONFIG_PHY_ASPEED_USB3 to match
-  the Kconfig symbol.
-- Expand the Kconfig help text.
-- Link to v2: https://lore.kernel.org/r/20260116-upstream_usb3phy-v2-0-0b0c9f3eb6f4@aspeedtech.com
-
-Changes in v2:
-- aspeed,ast2700-usb3-phy.yaml
- - Drop clocks, resets descripton.
-- Kconfig
- - add COMPILE_TEST, remove default n
-- Link to v1: https://lore.kernel.org/r/20260114-upstream_usb3phy-v1-0-2e59590be2d7@aspeedtech.com
-
+- Describe the SRAM handshake in the commit message, answering Andrew's
+  question on v2 about why the driver waits for the SRAM to initialise.
 ---
-Ryan Chen (3):
-      dt-bindings: phy: aspeed: Document AST2700 USB3.2 PHY
-      phy: aspeed: Add AST2700 USB3.2 PHY driver
-      MAINTAINERS: Add ASPEED USB3 PHY driver
+ drivers/phy/Kconfig                  |   1 +
+ drivers/phy/Makefile                 |   1 +
+ drivers/phy/aspeed/Kconfig           |  15 +++
+ drivers/phy/aspeed/Makefile          |   2 +
+ drivers/phy/aspeed/phy-aspeed-usb3.c | 236 +++++++++++++++++++++++++++++++++++
+ 5 files changed, 255 insertions(+)
 
- .../bindings/phy/aspeed,ast2700-usb3-phy.yaml      |  48 +++++
- MAINTAINERS                                        |   8 +
- drivers/phy/Kconfig                                |   1 +
- drivers/phy/Makefile                               |   1 +
- drivers/phy/aspeed/Kconfig                         |  15 ++
- drivers/phy/aspeed/Makefile                        |   2 +
- drivers/phy/aspeed/phy-aspeed-usb3.c               | 236 +++++++++++++++++++++
- 7 files changed, 311 insertions(+)
----
-base-commit: f82a5da2f04960df9fb57489992d03dd5e64ec6f
-change-id: 20260112-upstream_usb3phy-7116f8dfe779
+diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
+index 19f3b7d12b7d..85fa381978f8 100644
+--- a/drivers/phy/Kconfig
++++ b/drivers/phy/Kconfig
+@@ -171,6 +171,7 @@ config PHY_XGENE
+ source "drivers/phy/allwinner/Kconfig"
+ source "drivers/phy/amlogic/Kconfig"
+ source "drivers/phy/apple/Kconfig"
++source "drivers/phy/aspeed/Kconfig"
+ source "drivers/phy/axiado/Kconfig"
+ source "drivers/phy/broadcom/Kconfig"
+ source "drivers/phy/cadence/Kconfig"
+diff --git a/drivers/phy/Makefile b/drivers/phy/Makefile
+index d7aa516bcc49..c6dd02003bbe 100644
+--- a/drivers/phy/Makefile
++++ b/drivers/phy/Makefile
+@@ -23,6 +23,7 @@ obj-$(CONFIG_PHY_XGENE)			+= phy-xgene.o
+ obj-$(CONFIG_GENERIC_PHY)		+= allwinner/	\
+ 					   amlogic/	\
+ 					   apple/	\
++					   aspeed/	\
+ 					   axiado/	\
+ 					   broadcom/	\
+ 					   cadence/	\
+diff --git a/drivers/phy/aspeed/Kconfig b/drivers/phy/aspeed/Kconfig
+new file mode 100644
+index 000000000000..7b5f48db2be8
+--- /dev/null
++++ b/drivers/phy/aspeed/Kconfig
+@@ -0,0 +1,15 @@
++# SPDX-License-Identifier: GPL-2.0-only
++
++#
++# PHY drivers for ASPEED
++#
++
++config PHY_ASPEED_USB3
++	tristate "ASPEED USB3 PHY driver"
++	select GENERIC_PHY
++	depends on (ARCH_ASPEED || COMPILE_TEST)
++	help
++	  Enable this to support the USB 3.2 PHY on the Aspeed AST2700 SoC.
++	  It supports SuperSpeedPlus Gen2x1 (10 Gbps), SuperSpeed (5 Gbps),
++	  High Speed (480 Mbps), Full Speed (12 Mbps) and Low Speed
++	  (1.5 Mbps), and is paired with the DWC3 USB controller.
+diff --git a/drivers/phy/aspeed/Makefile b/drivers/phy/aspeed/Makefile
+new file mode 100644
+index 000000000000..d96d9d73a009
+--- /dev/null
++++ b/drivers/phy/aspeed/Makefile
+@@ -0,0 +1,2 @@
++# SPDX-License-Identifier: GPL-2.0
++obj-$(CONFIG_PHY_ASPEED_USB3)		+= phy-aspeed-usb3.o
+diff --git a/drivers/phy/aspeed/phy-aspeed-usb3.c b/drivers/phy/aspeed/phy-aspeed-usb3.c
+new file mode 100644
+index 000000000000..6f371cae02f3
+--- /dev/null
++++ b/drivers/phy/aspeed/phy-aspeed-usb3.c
+@@ -0,0 +1,236 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Copyright 2026 Aspeed Technology Inc.
++ */
++
++#include <linux/bitfield.h>
++#include <linux/clk.h>
++#include <linux/io.h>
++#include <linux/iopoll.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/phy/phy.h>
++#include <linux/platform_device.h>
++#include <linux/reset.h>
++
++#define PHY3S00				0x00
++#define  PHY3S00_INIT_DONE		BIT(15)
++#define  PHY3S00_SRAM_BYPASS		BIT(7)
++#define  PHY3S00_SRAM_EXT_LOAD		BIT(6)
++#define PHY3S04				0x04
++#define PHY3C00				0x08
++#define PHY3C04				0x0c
++#define PHY3P00				0x10
++#define  PHY3P00_RX_ADAPT_AFE_EN_G1	BIT(0)
++#define  PHY3P00_RX_ADAPT_AFE_EN_G2	BIT(1)
++#define  PHY3P00_RX_ADAPT_DFE_EN_G1	BIT(2)
++#define  PHY3P00_RX_ADAPT_DFE_EN_G2	BIT(3)
++#define  PHY3P00_RX_CDR_VCO_LOWFREQ_G1	BIT(4)
++#define  PHY3P00_RX_CDR_VCO_LOWFREQ_G2	BIT(5)
++#define  PHY3P00_RX_EQ_AFE_GAIN_G1	GENMASK(9, 6)
++#define  PHY3P00_RX_EQ_AFE_GAIN_G2	GENMASK(13, 10)
++#define  PHY3P00_RX_EQ_ATT_LVL_G1	GENMASK(16, 14)
++#define  PHY3P00_RX_EQ_ATT_LVL_G2	GENMASK(19, 17)
++#define  PHY3P00_RX_EQ_CTLE_BOOST_G1	GENMASK(24, 20)
++#define  PHY3P00_RX_EQ_CTLE_BOOST_G2	GENMASK(29, 25)
++#define  PHY3P00_RX_EQ_DELTA_IQ_G1_LO	GENMASK(31, 30)
++
++#define PHY3P04				0x14
++#define  PHY3P04_RX_EQ_DELTA_IQ_G1_HI	GENMASK(1, 0)
++#define  PHY3P04_RX_EQ_DELTA_IQ_G2	GENMASK(5, 2)
++#define  PHY3P04_RX_EQ_DFE_TAP1_G1	GENMASK(13, 6)
++#define  PHY3P04_RX_EQ_DFE_TAP1_G2	GENMASK(21, 14)
++#define  PHY3P04_RX_LOS_LFPS_EN		BIT(22)
++#define  PHY3P04_RX_LOS_THRESHOLD	GENMASK(25, 23)
++#define  PHY3P04_RX_TERM_CTRL		GENMASK(28, 26)
++#define  PHY3P04_TX_EQ_MAIN_G1_LO	GENMASK(31, 29)
++
++#define PHY3P08				0x18
++#define  PHY3P08_TX_EQ_MAIN_G1_HI	GENMASK(1, 0)
++#define  PHY3P08_TX_EQ_MAIN_G2		GENMASK(6, 2)
++#define  PHY3P08_TX_EQ_OVRD		BIT(7)
++#define  PHY3P08_TX_EQ_POST_G1		GENMASK(12, 9)
++#define  PHY3P08_TX_EQ_POST_G2		GENMASK(16, 13)
++#define  PHY3P08_TX_EQ_PRE_G1		GENMASK(20, 17)
++#define  PHY3P08_TX_EQ_PRE_G2		GENMASK(24, 21)
++#define  PHY3P08_TX_IBOOST_LVL		GENMASK(28, 25)
++#define  PHY3P08_TX_TERM_CTRL		GENMASK(31, 29)
++
++#define PHY3P0C				0x1c
++#define  PHY3P0C_TX_VBOOST_EN		BIT(0)
++
++#define PHY3CMD				0x40
++
++#define PHY3P_RX_EQ_CTLE_BOOST_G1_DEFAULT	0x7
++#define PHY3P_RX_EQ_CTLE_BOOST_G2_DEFAULT	0x7
++#define PHY3P_RX_EQ_DELTA_IQ_G1_DEFAULT		0x3
++#define PHY3P_RX_EQ_DELTA_IQ_G2_DEFAULT		0x5
++#define PHY3P_RX_LOS_THRESHOLD_DEFAULT		0x3
++#define PHY3P_RX_TERM_CTRL_DEFAULT		0x2
++#define PHY3P_TX_EQ_MAIN_G1_DEFAULT		0xa
++#define PHY3P_TX_EQ_MAIN_G2_DEFAULT		0x9
++#define PHY3P_TX_EQ_POST_G1_DEFAULT		0x4
++#define PHY3P_TX_EQ_POST_G2_DEFAULT		0x3
++#define PHY3P_TX_EQ_PRE_G2_DEFAULT		0x2
++#define PHY3P_TX_IBOOST_LVL_DEFAULT		0xf
++#define PHY3P_TX_TERM_CTRL_DEFAULT		0x2
++
++#define PHY3P00_DEFAULT ( \
++	PHY3P00_RX_ADAPT_AFE_EN_G1 | \
++	PHY3P00_RX_ADAPT_AFE_EN_G2 | \
++	PHY3P00_RX_ADAPT_DFE_EN_G1 | \
++	PHY3P00_RX_ADAPT_DFE_EN_G2 | \
++	FIELD_PREP(PHY3P00_RX_EQ_CTLE_BOOST_G1, PHY3P_RX_EQ_CTLE_BOOST_G1_DEFAULT) | \
++	FIELD_PREP(PHY3P00_RX_EQ_CTLE_BOOST_G2, PHY3P_RX_EQ_CTLE_BOOST_G2_DEFAULT) | \
++	FIELD_PREP(PHY3P00_RX_EQ_DELTA_IQ_G1_LO, \
++		   PHY3P_RX_EQ_DELTA_IQ_G1_DEFAULT & 0x3) \
++)
++
++#define PHY3P04_DEFAULT ( \
++	FIELD_PREP(PHY3P04_RX_EQ_DELTA_IQ_G1_HI, \
++		   PHY3P_RX_EQ_DELTA_IQ_G1_DEFAULT >> 2) | \
++	FIELD_PREP(PHY3P04_RX_EQ_DELTA_IQ_G2, PHY3P_RX_EQ_DELTA_IQ_G2_DEFAULT) | \
++	PHY3P04_RX_LOS_LFPS_EN | \
++	FIELD_PREP(PHY3P04_RX_LOS_THRESHOLD, PHY3P_RX_LOS_THRESHOLD_DEFAULT) | \
++	FIELD_PREP(PHY3P04_RX_TERM_CTRL, PHY3P_RX_TERM_CTRL_DEFAULT) | \
++	FIELD_PREP(PHY3P04_TX_EQ_MAIN_G1_LO, \
++		   PHY3P_TX_EQ_MAIN_G1_DEFAULT & 0x7) \
++)
++
++#define PHY3P08_DEFAULT ( \
++	FIELD_PREP(PHY3P08_TX_EQ_MAIN_G1_HI, PHY3P_TX_EQ_MAIN_G1_DEFAULT >> 3) | \
++	FIELD_PREP(PHY3P08_TX_EQ_MAIN_G2, PHY3P_TX_EQ_MAIN_G2_DEFAULT) | \
++	FIELD_PREP(PHY3P08_TX_EQ_POST_G1, PHY3P_TX_EQ_POST_G1_DEFAULT) | \
++	FIELD_PREP(PHY3P08_TX_EQ_POST_G2, PHY3P_TX_EQ_POST_G2_DEFAULT) | \
++	FIELD_PREP(PHY3P08_TX_EQ_PRE_G2, PHY3P_TX_EQ_PRE_G2_DEFAULT) | \
++	FIELD_PREP(PHY3P08_TX_IBOOST_LVL, PHY3P_TX_IBOOST_LVL_DEFAULT) | \
++	FIELD_PREP(PHY3P08_TX_TERM_CTRL, PHY3P_TX_TERM_CTRL_DEFAULT) \
++)
++
++#define PHY3P0C_DEFAULT \
++	PHY3P0C_TX_VBOOST_EN
++
++struct aspeed_usb3_phy {
++	void __iomem *regs;
++	struct reset_control *rst;
++	struct device *dev;
++	struct clk *clk;
++};
++
++static int aspeed_usb3_phy_init(struct phy *phy)
++{
++	struct aspeed_usb3_phy *aspeed_phy = phy_get_drvdata(phy);
++	u32 val;
++	int ret;
++
++	ret = clk_prepare_enable(aspeed_phy->clk);
++	if (ret) {
++		dev_err(aspeed_phy->dev, "Failed to enable clock %d\n", ret);
++		return ret;
++	}
++
++	ret = reset_control_deassert(aspeed_phy->rst);
++	if (ret)
++		goto err_disable_clk;
++
++	/* Wait for USB3 PHY internal SRAM initialization done */
++	ret = readl_poll_timeout(aspeed_phy->regs + PHY3S00, val,
++				 val & PHY3S00_INIT_DONE,
++				 USEC_PER_MSEC, 10 * USEC_PER_MSEC);
++	if (ret) {
++		dev_err(aspeed_phy->dev, "SRAM init timeout\n");
++		goto err_assert_reset;
++	}
++
++	val = readl(aspeed_phy->regs + PHY3S00);
++	val |= PHY3S00_SRAM_EXT_LOAD;
++	writel(val, aspeed_phy->regs + PHY3S00);
++
++	/* Set protocol1_ext signals as default PHY3 settings based on SNPS documents.
++	 * Including PCFGI[54]: protocol1_ext_rx_los_lfps_en for better compatibility
++	 */
++	writel(PHY3P00_DEFAULT, aspeed_phy->regs + PHY3P00);
++	writel(PHY3P04_DEFAULT, aspeed_phy->regs + PHY3P04);
++	writel(PHY3P08_DEFAULT, aspeed_phy->regs + PHY3P08);
++	writel(PHY3P0C_DEFAULT, aspeed_phy->regs + PHY3P0C);
++
++	return 0;
++
++err_assert_reset:
++	reset_control_assert(aspeed_phy->rst);
++err_disable_clk:
++	clk_disable_unprepare(aspeed_phy->clk);
++	return ret;
++}
++
++static int aspeed_usb3_phy_exit(struct phy *phy)
++{
++	struct aspeed_usb3_phy *aspeed_phy = phy_get_drvdata(phy);
++
++	reset_control_assert(aspeed_phy->rst);
++	clk_disable_unprepare(aspeed_phy->clk);
++
++	return 0;
++}
++
++static const struct phy_ops aspeed_usb3_phy_ops = {
++	.init		= aspeed_usb3_phy_init,
++	.exit		= aspeed_usb3_phy_exit,
++	.owner		= THIS_MODULE,
++};
++
++static int aspeed_usb3_phy_probe(struct platform_device *pdev)
++{
++	struct aspeed_usb3_phy *aspeed_phy;
++	struct phy_provider *phy_provider;
++	struct device *dev = &pdev->dev;
++	struct phy *phy;
++
++	aspeed_phy = devm_kzalloc(dev, sizeof(*aspeed_phy), GFP_KERNEL);
++	if (!aspeed_phy)
++		return -ENOMEM;
++
++	aspeed_phy->dev = dev;
++
++	aspeed_phy->clk = devm_clk_get(dev, NULL);
++	if (IS_ERR(aspeed_phy->clk))
++		return PTR_ERR(aspeed_phy->clk);
++
++	aspeed_phy->rst = devm_reset_control_get_exclusive(dev, NULL);
++	if (IS_ERR(aspeed_phy->rst))
++		return PTR_ERR(aspeed_phy->rst);
++
++	aspeed_phy->regs = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(aspeed_phy->regs))
++		return PTR_ERR(aspeed_phy->regs);
++
++	phy = devm_phy_create(dev, NULL, &aspeed_usb3_phy_ops);
++	if (IS_ERR(phy))
++		return PTR_ERR(phy);
++
++	phy_set_drvdata(phy, aspeed_phy);
++
++	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
++	return PTR_ERR_OR_ZERO(phy_provider);
++}
++
++static const struct of_device_id aspeed_usb3_phy_match_table[] = {
++	{
++		.compatible = "aspeed,ast2700-usb3-phy",
++	},
++	{ }
++};
++MODULE_DEVICE_TABLE(of, aspeed_usb3_phy_match_table);
++
++static struct platform_driver aspeed_usb3_phy_driver = {
++	.probe		= aspeed_usb3_phy_probe,
++	.driver		= {
++		.name	= KBUILD_MODNAME,
++		.of_match_table	= aspeed_usb3_phy_match_table,
++	},
++};
++module_platform_driver(aspeed_usb3_phy_driver);
++
++MODULE_LICENSE("GPL");
++MODULE_DESCRIPTION("ASPEED USB3.2 PHY Driver");
++MODULE_AUTHOR("Ryan Chen <ryan_chen@aspeedtech.com>");
 
-Best regards,
 -- 
-Ryan Chen <ryan_chen@aspeedtech.com>
+2.34.1
 
 
