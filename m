@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F5C5C88E7F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 19:08:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0647C88E7F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 19:09:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HUTO67W7pIQuxtDQ4EVl7HKeWGIRh9KyGHjp+5VkxDg=; b=RpZzUQfOH6LedDWXj2CIznDkps
-	8Y55iGiwEZiRKVCYOPcS+oNkXEDT86tZ+MG5OqSAihQRoJtW92ywBWjUsD+9ZM2sigzIQ8+karxVd
-	/Fz6zMTrkizju5d1omenKoFlUsom6WWv9MlKdJUGUuzJwo9AuBgVBr9TVJVVZCZpXdj9kXYo+ZWZ9
-	VDu55N43+HAITcoTwc7m/xiWeNpSEOEdh8wvtnkUsjWAgGqJ67JxlKkYVVuno4VrnUNxRdU6y/Q1Q
-	KIjCGQzZV8djbA1MyU8PCAxBM6Bx8s9TlSqqKZuNewpSkrX1yNFB3EfB9Ap8wkpEMLXlRECG1aTd1
-	nEvpkiVg==;
+	bh=OTxzLNSYnPWU+NIWpMusw3nkquTrF9GQgF6IBC5wI0Q=; b=a30A6RhpLPGNXSfwkk0Lmh/jFD
+	BNWMSKWgACVbqrx142kzs213AkGOM6Um0zbJIHpxXqOSph1GPvYgSvV2CFS7q4L/R22XAhj8DmeyR
+	TPEAPNqFWs9+jBf+v4LLEE7g+1ptloShu3824SEM5O5BJLBuCznHpgCS4/iTOezN3FNKMdvhprHvC
+	1QBI/LzynfpIKHByqEOTuSnN/lyQ9M2tQYwutrPtpLLuzcprmtBvOdLLJLcT9aNGyZU4/zzFKhHEr
+	9S8fw80ghXdRkJTKhzx0r60k+twWbbeaH7NDYWUKzGLdAu7fbONumc3In+vpeK4lzqoL0XN6GDj78
+	CLbx7ISw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6uzK-0000000A0Pe-21HC;
-	Wed, 16 Sep 2026 19:08:10 +0000
-Received: from out-42.mta0.migadu.com ([2001:41d0:1004:224b::2a] helo=mta0.migadu.com)
+	id 1x6v03-0000000A0UU-2uzx;
+	Wed, 16 Sep 2026 19:08:55 +0000
+Received: from out-77.mta0.migadu.com ([2001:41d0:1004:224b::4d] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6uzH-0000000A0P8-3DQw
+	id 1x6v00-0000000A0Ti-3hit
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 19:08:09 +0000
+	Wed, 16 Sep 2026 19:08:54 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=+TDPxJtL8DsDFOfZOcxmuxXF09ysKs2kKWxtP5RDI3c=;
+DKIM-Signature: a=rsa-sha256; bh=eFc2+iQ2uor4nljrCfWRFp6wcNqGR5KKJNmBsadf8CM=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1789585685; v=1; x=1790190485;
- b=RRY2e5IOu8715wz1XFDgSDXNL2LgN3QRqGa0N1jrrGXcjJ7S/fCWH3FBUeddt70tXuzuv0TW
- kg9h6L5aOZhCPpsRqtKMmC30nKQDn6D/6yGzVuCNA8HUC/JQrpwlCeXcdAsvmS6qp4hSvCiD+xW
- SunU4EYCONT8wY3KfEb/pnP8=
+ t=1789585730; v=1; x=1790190530;
+ b=YaYv4fMkZ6vg1YDOLtJVew4Of92vMsVjhCRu17w1D9QxvuGU+nf6VdHXPQoSnpX9XAfutrrx
+ WOCCaDiV3CgM9HSXRhTH4i2yntAT68COMfIRgnSYf5rtNDsdZ264zxSfC4Iy3HxjJenBntrPfr5
+ JZzvELN0Bc95tbdACBhLpprk=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id c1e3ff26580b4df5;
-	Wed, 16 Sep 2026 19:08:05 +0000
-X-Mizu-Trace-ID: c1e3ff26580b4df5
+Received: by smtp.migadu.com with ESMTPS id 2f36bad5e75937a0;
+	Wed, 16 Sep 2026 19:08:50 +0000
+X-Mizu-Trace-ID: 2f36bad5e75937a0
 X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b78e073980so862e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 12:08:05 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvByKF7bwh9rIebKapfon5EKvUhcGbIaG84cWnMJg6ncyr/P8FWwqmZJYOhNwzg3xjsrwNscTw27RcF3A3QLLt7eh@lists.infradead.org
-X-Gm-Message-State: AFuF++mg/sofaskXpuRazM7gfZU1M2ATTHeUN41de7RT2zXxnnEC+V/h
-	DZTMr9+RVdGW7290KJ6siIgmJ4l61XGR+3w3/qjrO4MAaoOaEzokfMgL8blXKH9jyW3t4Wiq8nr
-	Ok4F/bqi8k5tc86QSqJSr0j0i9VdgA/zGIAj+pQsS
-X-Received: by 2002:a05:6512:2526:b0:5ae:b918:79d5 with SMTP id
- 2adb3069b0e04-5b8baa4c0afmr22017e87.2.1789585684442; Wed, 16 Sep 2026
- 12:08:04 -0700 (PDT)
+Received: by mail-lf2-f13.google.com with SMTP id 2adb3069b0e04-5b4a0b17359so1273e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 12:08:50 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwvp0TaNNkq97b1b6M2qyyslJcyvA+9YIlc0xxoYEOyocmWyI9CF9WQWgG/Jw6tEWlliq5oJUATAMc4azgy/1zJ@lists.infradead.org
+X-Gm-Message-State: AFuF++kKQzuDkOfoe0kgNeK6A9m8WgMNwYc+4kPTg7Co4rIp+C/TyhST
+	MLrWWt2OFcMHAuxgnWfjN6j0im/2rHnG8qDnyLVebBnIkvXROfgeiCwB2YlyssKkc7OwPyodFGB
+	7m33yWD2KRf5t1ty/1HoWYZl+XRFtYOBB9FvZs5QZ
+X-Received: by 2002:a05:6512:2355:b0:5b6:4ae:3ff0 with SMTP id
+ 2adb3069b0e04-5b8bab3fbc9mr21749e87.15.1789585729580; Wed, 16 Sep 2026
+ 12:08:49 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260914113338.159227-1-fuad.tabba@linux.dev> <20260914113338.159227-16-fuad.tabba@linux.dev>
- <86a4ph5fb9.wl-maz@kernel.org>
-In-Reply-To: <86a4ph5fb9.wl-maz@kernel.org>
+References: <20260914113338.159227-1-fuad.tabba@linux.dev> <20260914113338.159227-17-fuad.tabba@linux.dev>
+ <868q515eqf.wl-maz@kernel.org>
+In-Reply-To: <868q515eqf.wl-maz@kernel.org>
 From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Wed, 16 Sep 2026 20:07:28 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTzCQkeXQQcCDwABLR2w+NTmKTG3V6RSmhzYNayaoYXw3g@mail.gmail.com>
-X-Gm-Features: AcwNN1WM-tTkNGmfulRqkmQ-SKP25Un1Bu-f9T35yz7K6_Zjf4OVrGXAUm-nH7c
-Message-ID: <CA+EHjTzCQkeXQQcCDwABLR2w+NTmKTG3V6RSmhzYNayaoYXw3g@mail.gmail.com>
-Subject: Re: [PATCH v3 15/18] KVM: arm64: Reject host access to protected VM
- private state
+Date: Wed, 16 Sep 2026 20:08:12 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTw1HKxntc_XsBGK6ugVYyL8HVLMzUtiRin7OgCVic8bVQ@mail.gmail.com>
+X-Gm-Features: AcwNN1XhAbmtcjnzFyAA7N0SNImoWsnKazUmdDqXvnrAn69zT4QFsz2-FY_zZUU
+Message-ID: <CA+EHjTw1HKxntc_XsBGK6ugVYyL8HVLMzUtiRin7OgCVic8bVQ@mail.gmail.com>
+Subject: Re: [PATCH v3 16/18] KVM: arm64: Reject host power-on of a vCPU that
+ EL2 holds powered off
 To: Marc Zyngier <maz@kernel.org>
 Cc: oupton@kernel.org, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
@@ -69,8 +69,8 @@ Cc: oupton@kernel.org, kvmarm@lists.linux.dev,
 	qperret@google.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_120807_945596_74FC820B 
-X-CRM114-Status: GOOD (  19.55  )
+X-CRM114-CacheID: sfid-20260916_120853_061527_D5B99867 
+X-CRM114-Status: GOOD (  15.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,47 +87,41 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Marc,
 
-On Wed, 16 Sept 2026 at 17:30, Marc Zyngier <maz@kernel.org> wrote:
+On Wed, 16 Sept 2026 at 17:43, Marc Zyngier <maz@kernel.org> wrote:
 [...]
-> > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-[...]
-> > +/*
-> > + * Once a protected vCPU has run, the host copy is not the guest's state,
-> > + * and EL2 has read mp_state, which it does only at hyp vCPU creation.
-> > + */
-> > +static long pkvm_filter_vcpu_ioctl(struct kvm_vcpu *vcpu, unsigned int ioctl)
-> > +{
-> > +        switch (ioctl) {
-> > +        case KVM_ARM_VCPU_INIT:
-> > +        case KVM_SET_ONE_REG:
-> > +        case KVM_GET_ONE_REG:
-> > +                if (vcpu_is_protected(vcpu) && vcpu_has_run_once(vcpu))
-> > +                        return -EPERM;
-> > +        }
-> > +
-> > +        return 0;
-> > +}
-> > +
+> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> > index 37d0721d39a45..2e2c051dd8e62 100644
+> > --- a/arch/arm64/include/asm/kvm_host.h
+> > +++ b/arch/arm64/include/asm/kvm_host.h
+> > @@ -922,6 +922,8 @@ struct kvm_vcpu_arch {
+> >          /* vcpu power state */
+> >          struct kvm_mp_state mp_state;
+> >          spinlock_t mp_state_lock;
+> > +        /* EL2 holds the protected vCPU powered off. Under mp_state_lock. */
+> > +        bool pkvm_powered_off;
 >
-> I'm not keen on returning -EPERM for the ONE_REG stuff. For a start,
-> X0 *is* valid on MMIO, and when you want to support LD64B and co,
-> you'll need to show the actual data there.
+> I'm definitely not keen on yet another random boolean to describe some
+> new state. We already have mp_state. Why can't we use one of the
+> unused encodings and check that, since it very much looks like a case
+> of "let userspace change the MP_STATE unless EL2 says otherwise".
 >
-> I'd rather return what is in the host vcpu structure, as normal.
+> Can that be made to work?
 
-I think we should keep the error, for the reason s390 returns -EINVAL
-from ONE_REG on a protected vCPU and x86 does from the register ioctls
-for protected VM types: once the vCPU has run, the copy is the VMM's
-boot state plus what the exit handlers copy out, and the VMM can't
-distinguish them. x0 on MMIO is one of those fields, but the VMM reads
-it from kvm_run->mmio. For LD64B, EL2 would copy the operands out the
-same way and the error could be relaxed to those registers. Loosening
-later breaks nobody. The comment and the message do overstate it by
-calling the copy "not the guest's state", and I'll reword both in v4.
-More on the kvmtool thread [1].
+Yes. The bool kept the VMM's STOPPED and EL2's off apart without a new
+userspace-visible value, but a distinct mp_state value does that and
+lets the VMM see why RUNNABLE is rejected.
+
+It's set where the bool is set today, on the guest's CPU_OFF and at
+hyp vCPU creation for a vCPU that starts STOPPED, and only the guest's
+CPU_ON sets it back to RUNNABLE. KVM_SET_MP_STATE returns -EPERM for
+RUNNABLE and SUSPENDED on it and -EINVAL for the value itself, STOPPED
+and kvm_prepare_system_event() leave it in place, and
+kvm_arm_vcpu_stopped() returns true for it.
+
+KVM_MP_STATE_UNINITIALIZED looks like the closest fit, a vCPU the
+guest has yet to bring up. I'll use that in v4 unless you'd rather
+another.
 
 Cheers,
 /fuad
-
-[1] https://lore.kernel.org/all/CA+EHjTwCs8B4du2=rAdoTOpOfh64p5cbW902e5g0u6NZT=r=gA@mail.gmail.com/
 
