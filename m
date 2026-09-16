@@ -4,107 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45BE1C88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 10:18:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2DDAC88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 10:20:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t3hmWtdZP0Fd0Xr4e68FJlMw+IYfmh5JRzNHS/YOcT0=; b=koKuJRxm+dpubBksV1b3HGbNUm
-	F5MXyY9jJTOPhk3m3dQGia++bsGd6G/EkW435GSHX6yb8OX3cevzxki0tfNYFznAWFCEur/q5uMgY
-	swPU7N7P6ArkI01NGwVgriRVCHTNscyDVo9gKTzda/ZaTj9IlizHHSHD5sOuQ542vs/fRmvcmK1wM
-	Z7CmOfCGprQ1uHyzjmRWCiD61fwfRDI/tS7cxLMZy7ejJOo9cmYfehWNssiJGt3+fsdF6pR2VYT5j
-	YTwC7DXTJZagvKENmffJPe8lVf5fG2OtoxbHclw80mT7juywD8J/y3ibSAKuzZ6wevT93VIIH0ukT
-	Pq9LzBFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oifjO2FRqSI1P+f2ZcUoFrwoF0E599KhTMFfFuhSdvI=; b=xyDfcKDRHVvMxG+rGOl/u/CJ4N
+	1kPi3aVawoZtO7v5qc3Inj2IQNIR+7O40UmiEggZTXmxYQkm99So03V0t26dz8579Yn4vKINxTb0j
+	NV/qRWVHeAJ4iFPA218AkBor+L4Cww8h46rQQ9TqzOizUa4jhQxTDop8bk6gRxIvhzh0daOEK2qZK
+	AO3O4//WOylI3FHLLiOGcH7eRDPy8o6bKcVCTko3e7FI3R7G+H9SHIfNncaDBKsZyhd1+uqlWSIBW
+	MDVCqaw2taH8V7s3B+FkfzC/XdRMIksfR28Ub6tzzBTXLMWqgqS4gxEkSq5HN3Zv39bJjnZIUy5ER
+	Ua5ORvyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6miB-00000008x8B-2BUg;
-	Wed, 16 Sep 2026 10:17:55 +0000
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	id 1x6mkG-00000008xKZ-3hbc;
+	Wed, 16 Sep 2026 10:20:04 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6mi7-00000008x78-3ljz
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 10:17:54 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e71cdb22bso5532945e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 03:17:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1789553870; x=1790158670; darn=lists.infradead.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:mime-version:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=t3hmWtdZP0Fd0Xr4e68FJlMw+IYfmh5JRzNHS/YOcT0=;
-        b=hJBoJVFupzPBZuXuFDmU9kN/LV38DTjCMu5ClT3rIdWAHE4mBNoS6YBbfItw23G3RV
-         pWymEPOU4cVtBT+FPR7wOByWK4V1SZ56q2piuXWimYzvyNW112c2qQkzI31vD2YeTNkm
-         0+2Ug5Rp8aXYsmGEnDCruagrivZgOMOe945JFyQ308V+AsErSmfwcrOyTS5hX3Wp0NsI
-         gJKb8GsivyJBQS/VhEb/AxG8cwxZN2ZjPRFUZ2E+v3VpOkFJYt2roIBr2WJ8xZOVBOLt
-         41BIIzf6VT4Qvmf0FTUm3aYmQZI2VGF4iksVqOWIOMnu4Ulaq+v8LXV+HDBXs+YMhc6g
-         bF5A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789553870; x=1790158670;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=t3hmWtdZP0Fd0Xr4e68FJlMw+IYfmh5JRzNHS/YOcT0=;
-        b=P53U+qvU/lVIVFT1bOD1EJp4+EEpirpbErTAXhpU8iibcVvd3z1DHI2jrKVzeHDCXY
-         c1owmE7SCiI8kNogYlWQ8EZ3tRECxYS2GTzQNr66Mtx6bSHnIKmXOdT6mlr8K3Pwi9Lz
-         4o6z1zKmHFY3RS4lrwJlfXEKJUYyhaOKBg2YWOoQlgJlPbx2MVnyQGH03AciwmJFqG4n
-         DpQ6dLUiJ/9rjmyBkQsB7vpfytDQZvYelpmligyCCaSnOAONCMim/ud36HugY3BLwtZh
-         Uug6gPHjA3nTBpEAbv18q1fXu4gp+Ln44m5YrnOQkPuKALljLVvfnTZdk61QNz0cA0Hs
-         OW2Q==
-X-Forwarded-Encrypted: i=1; AKwUvBz/SlOf2jYL6ZyEoa9l/POOnNy/05DeYhd8I7yDK4Vw+509SIiafWgVU2Tc4K1srcgNfoptGBbhg8kr/JMtJndL@lists.infradead.org
-X-Gm-Message-State: AFuF++lWlL33zOncCsIPH1UU57C0H0qpgOEERkgK7CNrQDBBukmB4PpP
-	A3HloMT9RhwV+lb0eGC50ZLIFRelU3JiVZ4JybbJDYzXp4Ra3yQMzUNrzll+kY4HnjA=
-X-Gm-Gg: AYBFou03hA32xSxgRMJwBNjXOX1W+2/3Hd4FMdTwT5lNSS2EojBZYaCP5B8BRPz1lKQ
-	GthPA2nAX4EN0gvaoSh2Ybs6Ay1eU+Mr2WyqP8wPDLzvMdU4in4E05vTZg7vJubxbfD0LsS79v6
-	rn69+GZAKa0jpSqKnUBuu1bv9AzXa9Zve1v6//LTowgproi19aV31TUT5I7dLg+mIUi1A45Kgo0
-	5DDUPew2Y89PJsqnSq/mPyR0GqiHYiOESxHTLx8Ssm6db/5U/yUzIoggReWNl9gDWGSnV9uMGIJ
-	X1fqxUnWjNre0qLIgi/4/onuB1a7AVlyqOrqpbV0SaNdL/zQQyD7gEQMFxgJTZ3FMVDT/qulP4/
-	gn7zebBRL9yqcqoBATnQp4HDYhkN3cG5df3LlhaXSi/yVDVnP9BnNYc2mlLXboDgRvyD7XkEoCT
-	yEMWxBmQpm2StMDYV7M27h+AA/aG8VHSaGAxIrXGYRwXIsu9btcySsWvPxJvoDLB5SiQ==
-X-Received: by 2002:a05:600c:4e89:b0:49c:f504:2af5 with SMTP id 5b1f17b1804b1-49eac463892mr21836755e9.1.1789553870070;
-        Wed, 16 Sep 2026 03:17:50 -0700 (PDT)
-Received: from localhost ([2001:4091:a245:8029:665d:b7b:5fa4:7ad0])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4870bf462cesm6129385f8f.37.2026.09.16.03.17.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Sep 2026 03:17:49 -0700 (PDT)
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=4294f4665fca826925ab73fbe6c2302da13aa0714ec0f2a34bb309cea55b;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Wed, 16 Sep 2026 12:17:42 +0200
-Message-Id: <DLGNWF2DSXZI.7WRJZRZLGW8@baylibre.com>
-Cc: "Nishanth Menon" <nm@ti.com>, "Vignesh Raghavendra" <vigneshr@ti.com>,
- "Tero Kristo" <kristo@kernel.org>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
- <conor+dt@kernel.org>, "Nathan Chancellor" <nathan@kernel.org>, "Nick
- Desaulniers" <nick.desaulniers+lkml@gmail.com>, "Bill Wendling"
- <morbo@google.com>, "Justin Stitt" <justinstitt@google.com>, "Judith
- Mendez" <jm@ti.com>, "Daniel Schultz" <d.schultz@phytec.de>, "Andrew Davis"
- <afd@ti.com>, "Siddharth Vadapalli" <s-vadapalli@ti.com>, "Paresh Bhagat"
- <p-bhagat@ti.com>, "Bryan Brattlof" <bb@ti.com>, "Jai Luthra"
- <jai.luthra@ideasonboard.com>, "Devarsh Thakkar" <devarsht@ti.com>,
- "Beleswar Padhi" <b-padhi@ti.com>, "Francesco Dolcini"
- <francesco.dolcini@toradex.com>, "Stefano Radaelli"
- <stefano.radaelli21@gmail.com>, "Nick Desaulniers"
- <ndesaulniers@google.com>, "Vishal Mahaveer" <vishalm@ti.com>, "Kevin
- Hilman" <khilman@baylibre.com>, "Sebin Francis" <sebin.francis@ti.com>,
- "Kendall Willis" <k-willis@ti.com>, "Akashdeep Kaur" <a-kaur@ti.com>,
- <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <llvm@lists.linux.dev>, "Hari Nagalla"
- <hnagalla@ti.com>
-Subject: Re: [PATCH v8 9/9] arm64: dts: ti: Add wkup R5F nodes to pre-ram
- bootphase
-From: "Markus Schneider-Pargmann" <msp@baylibre.com>
-To: "Francesco Dolcini" <francesco@dolcini.it>, "Markus Schneider-Pargmann
- (TI)" <msp@baylibre.com>
-X-Mailer: aerc 0.21.0-146-gb5c16ebe1835
-References: <20260903-topic-am62a-ioddr-dt-v6-19-v8-0-74c650dfdea6@baylibre.com> <20260903-topic-am62a-ioddr-dt-v6-19-v8-9-74c650dfdea6@baylibre.com> <20260911052428.GB5377@francesco-nb>
-In-Reply-To: <20260911052428.GB5377@francesco-nb>
+	id 1x6mkD-00000008xJa-48fB;
+	Wed, 16 Sep 2026 10:20:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1789553998;
+	bh=ZdiiynkTSEzixqoDULJaTjJ2JCfd9M9hNholTnj5GQU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=mSIn0NIG7emGT1WDtVPOGhV9vO5/hD739A2wU0lUdlnlJ41tHMC0YYehbWqSPjDW/
+	 BKKJg5d4OVpSEsvqIbRt7c2DlxJ90fxG09yH6/OqQBobMrbLh7OwxhUCOSEBY/zkvG
+	 /UFoRyGIc4zvqn9/6YvV4hEgFqAdUKHla2Yx0UbqIqJjBqh8rtwPVjUaFt9LQGQblx
+	 d+oebwWbgh8eYTHB1kx3h+UOy+45/ex9QtheyI+CSWJz08SIzYMMA1eONeNbLqutNX
+	 6F2kd72D2QJD5KHhRjMQ9ciHXyiqjek7+nXguzHMgLPE7u5ierx9Ircz9sWpHi3l+0
+	 KicQ1/YeeHGjQ==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id CC5AF17E0420;
+	Wed, 16 Sep 2026 12:19:57 +0200 (CEST)
+Message-ID: <c8fb208f-c9a8-45ae-93f2-161279f2ba37@collabora.com>
+Date: Wed, 16 Sep 2026 12:19:57 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 00/12] ASoC: mediatek: mt8189: Improve error handling
+To: phucduc.bui@gmail.com, Mark Brown <broonie@kernel.org>
+Cc: Liam Girdwood <lgirdwood@gmail.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>, Cezary Rojewski <cezary.rojewski@intel.com>,
+ Cyril Chao <Cyril.Chao@mediatek.com>,
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+ Dan Carpenter <error27@gmail.com>, cassiogabrielcontato@gmail.com,
+ linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260916050020.14575-1-phucduc.bui@gmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20260916050020.14575-1-phucduc.bui@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_031752_249867_4479AA47 
-X-CRM114-Status: GOOD (  19.79  )
+X-CRM114-CacheID: sfid-20260916_032002_229862_FB2D470D 
+X-CRM114-Status: GOOD (  17.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,78 +80,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---4294f4665fca826925ab73fbe6c2302da13aa0714ec0f2a34bb309cea55b
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+On 9/16/26 07:00, phucduc.bui@gmail.com wrote:
+> From: bui duc phuc <phucduc.bui@gmail.com>
+> 
+> Hi all,
+> 
+> This series addresses part of the error handling in the MT8189 AFE driver.
+> 
+> It propagates errors from clock operations and runtime resume, validates
+> clock parameters, and removes redundant error messages.
+> 
+> In v2, there was discussion about checking the return value of
+> regmap_update_bits(). While opinions differed, the existing driver already
+> checks it in mt8189_afe_enable_top_cg(), which is used by
+> mt8189_apll1_enable() and mt8189_apll2_enable() touched by this series.
+> 
+> Therefore, I keep these checks and add the corresponding error paths for
+> consistency.
+> 
+> Compile-tested only.
 
-Hi Francesco,
+Series is
 
-On Fri Sep 11, 2026 at 7:24 AM CEST, Francesco Dolcini wrote:
-> Hello Markus
->
-> On Thu, Sep 03, 2026 at 02:39:30PM +0200, Markus Schneider-Pargmann (TI) =
-wrote:
->> For IO+DDR the wkup_r5fss0_core0 and the
->> wkup_r5fss0_core0_lpm_metadata_region need to be accessed before RAM
->> setup is done. These are used to read the lpm metadata region in
->> which data is stored to resume. This needs to be done before RAM is
->> in use to avoid overwriting data.
->>=20
->> Add the bootph-pre-ram flag to the wkup_r5fss0_core0 node in both
->> ipc-firmware dtsi files and to the lpm metadata region nodes of the
->> AM62A and AM62P boards.
->>=20
->> The board level bootph-pre-ram flag of k3-am62d2-evm.dts becomes
->> redundant with the dtsi-wide flag and is dropped.
->>=20
->> Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
-> ...
->
->> diff --git a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi b/arch/arm64/bo=
-ot/dts/ti/k3-am62p-verdin.dtsi
->> index 45ab9d947b3a..8976c0424cd1 100644
->> --- a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
->> +++ b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
->> @@ -184,6 +184,7 @@ wkup_r5fss0_core0_lpm_metadata_region: memory@9ca080=
-00 {
->>  			compatible =3D "shared-dma-pool";
->>  			reg =3D <0x00 0x9ca08000 0x00 0x1000>;
->>  			no-map;
->> +			bootph-pre-ram;
->>  		};
->
-> verdin-am62p has the various bootph tags only in the U-Boot dtsi
-> (k3-am62p5-verdin-wifi-dev-u-boot.dtsi) as of now, I am not convinced it
-> is a good idea to just add this single one here.
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-I don't see any bootph-* flags for any of the related memory regions in
-k3-am62p5-verdin-wifi-dev-u-boot.dtsi. Is it in a different dtsi?
+Cheers,
+Angelo
 
-In general I am counting 72 bootph-* flags in the upstream devicetrees:
-
-git grep bootph- | grep 'am62p' | sed 's/:.*//g' | sort | uniq -c
-     38 arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-      4 arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
-      9 arch/arm64/boot/dts/ti/k3-am62p5-var-som-symphony.dts
-      3 arch/arm64/boot/dts/ti/k3-am62p.dtsi
-     14 arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
-      2 arch/arm64/boot/dts/ti/k3-am62p-j722s-common-mcu.dtsi
-      2 arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi
-
-Best
-Markus
-
---4294f4665fca826925ab73fbe6c2302da13aa0714ec0f2a34bb309cea55b
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iKMEABYKAEsWIQSJYVVm/x+5xmOiprOFwVZpkBVKUwUCaqpsxhsUgAAAAAAEAA5t
-YW51MiwyLjUrMS4xMiwyLDIRHG1zcEBiYXlsaWJyZS5jb20ACgkQhcFWaZAVSlPF
-ZAD/eDJUC404z4tekZfsmiBsSdeLivl6qN7wKJXrKvbZT8oA+wcDLzFFZE77sGVB
-8TuajZIIVN4aNTNdZ3YIBLPrhFkO
-=F8Zw
------END PGP SIGNATURE-----
-
---4294f4665fca826925ab73fbe6c2302da13aa0714ec0f2a34bb309cea55b--
+> 
+> Link v1 :
+> https://lore.kernel.org/all/20260910125742.150902-1-phucduc.bui@gmail.com/
+> Link v2:
+> https://lore.kernel.org/all/20260914072842.24420-1-phucduc.bui@gmail.com/
+> 
+> Changes in v2:
+>   - Update the names of the goto labels.
+>   - Check for zero frequency since freq is unsigned.
+> Changes in v3:
+>   - Add Angelo's Reviewed-by tag.
+>   - Restore the existing afe->regmap checks,
+>     making the separate patch for missing regmap unnecessary.
+>   - Do not pre-initialize ret; set ret = 0 in the default case throughout
+>     the series.
+> 
+> Best regards,
+> Phuc
+> 
+> bui duc phuc (12):
+>    ASoC: mediatek: mt8189: Propagate APLL enable errors
+>    ASoC: mediatek: mt8189: Propagate MCK enable errors
+>    ASoC: mediatek: mt8189: Validate MCK ID
+>    ASoC: mediatek: mt8189: Propagate reg_rw clock errors
+>    ASoC: mediatek: mt8189: Use dev_err_probe() for clock errors
+>    ASoC: mediatek: mt8189: Propagate runtime resume errors
+>    ASoC: mediatek: mt8189: Remove redundant error message
+>    ASoC: mediatek: mt8189: Propagate APLL errors
+>    ASoC: mediatek: mt8189: Propagate MCLK errors
+>    ASoC: mediatek: mt8189: Validate sysclk frequency
+>    ASoC: mediatek: mt8189: Propagate TDM clock errors
+>    ASoC: mediatek: mt8189: Validate TDM MCLK frequency
+> 
+>   sound/soc/mediatek/mt8189/mt8189-afe-clk.c | 134 +++++++++++++++------
+>   sound/soc/mediatek/mt8189/mt8189-afe-pcm.c |  45 ++++---
+>   sound/soc/mediatek/mt8189/mt8189-dai-i2s.c |  18 ++-
+>   sound/soc/mediatek/mt8189/mt8189-dai-tdm.c |  19 ++-
+>   4 files changed, 154 insertions(+), 62 deletions(-)
+> 
 
