@@ -4,84 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6B77C982C9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:40:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 756B6C982CF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:40:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DEjxJKXaAGxplJW4QgiS1iOmL+hx3WIbZcxYAGZIJ4Y=; b=n28Xq13Bs5mSX91O4seQfr/lMs
-	sJe92dCTWgqCKsO5LKhOQKws6uV9ROwXOO/8a8Bx0IrU+3abkG5xqzwDVNBXNBnXvpSa+8/sQ8n3A
-	qRcI7F2gV2wbPyHTibISs13rYeXk6Lop7Aj6fbma2GPnGDgYf/gJfmMdnxm9soLVhxu/xr+IIPFAI
-	BLyiwS8d+lzMsRMJMQd8V8dzeBnrNN5h6ys2c39WCrqNZeLSEwZEPpqduCmj/d4HjQbvy9Y3tEdlH
-	3tx9GgsLV9sKXCPEvcq+IagjC4soZ/BFWsZK5uY9uLIH/z+ybN8JgUfhKARuenjyRdcIPcnRnhq6/
-	Qjk/L7Uw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tXXLyITMJT1yST+MFquna26ESmZnA30Nae1jXyWuEoU=; b=m0jb0YbYw0tWik14h5xBulycts
+	3Z6n1LRdMyPnEW+esl42TBjDpAbqg8e/YOF6KR18D207nZMpM4Azn8NPhq3b9CPZbVwQMgRyCpWdj
+	FF5beNejvZkI3WU1zzxo5qrSqFIFJszey3/QF5ubP6QGEQGjlb/4m2Rm1anw9i9Mq4FzzmRBbYMeB
+	7V0TOGWaTGJ3a2iYo9FpGqAgLXkOGSb4I3ELH2gYpYQrqs3j4EW/rF5lIWI8/KMls5yOZi64WGsxb
+	3rkKhuc+L4xTEWE4mXVyHcAIHtPDEKJ444K6B+d/nd1pri1SItVX1/U+fMaIhzs2O+q4s9fG+ZMlq
+	RZp19q2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rjx-00000009c0T-2ZTC;
-	Wed, 16 Sep 2026 15:40:05 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1x6rjy-00000009c1M-00xG;
+	Wed, 16 Sep 2026 15:40:06 +0000
+Received: from m16.mail.163.com ([117.135.210.3])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rjq-00000009bsV-1lYI
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 15:39:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789573198; x=1821109198;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=do7fs/RqIazZyqQPcXOJDXYuoCBird5b0yM0GMe8rv8=;
-  b=K3IiCsviL9TPrGqOrMwG7H+VOH3g32ZNcPCrNt8CPyhHi11m6EjtjEeu
-   XXRfDswXa+OjO5cLSr5cp6rxtE2ydKGFj2JyPiQdT66u2xxYiDcU0YVBX
-   PQbV26Pq4izWhUZqeYFcC8oQ+gLL6pq3rDAb7yvbz202/8FTGGNN14ezZ
-   ldiTMnUmotE5P2c3l8tt2lw6ph/zV3rizZo3j9pFUuRVFYqQmLYLN6Rk4
-   amYohvHVf8BfaKZO0+HqCqVn5kphXGQogye0LhbRcqoVSCyP5Ou419rEj
-   Aqpvfd1vpiK/laLyqL48Mj8rAxwfJrSMqKRId/qIyd24kUE5IRDPNCSdh
-   A==;
-X-CSE-ConnectionGUID: C85HLp+yRPyW05u/BQW1lw==
-X-CSE-MsgGUID: L+rdNt62QJ27qlvuLOcYGQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="93656708"
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="93656708"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Sep 2026 08:39:57 -0700
-X-CSE-ConnectionGUID: hKF6xc+KSeSiJwBW663bRQ==
-X-CSE-MsgGUID: 2yn5LcLKSd+cphrjWLOTJg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="272903448"
-Received: from ettammin-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.145])
-  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Sep 2026 08:39:54 -0700
-Date: Wed, 16 Sep 2026 18:39:52 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Olivier Moysan <olivier.moysan@foss.st.com>,
-	linux-iio@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Sashiko <sashiko-bot@kernel.org>, stable@vger.kernel.org
-Subject: Re: [PATCH v2] iio: adc: stm32-adc: fix possible division by zero in
- processed channel
-Message-ID: <aqq4SD2eR9tDQ0aj@ashevche-desk.local>
-References: <20260916-adc-fix-div0-v2-1-f702d3ed782c@foss.st.com>
- <aqqqCf6mQPMoKZRj@ashevche-desk.local>
- <538c8203-3880-47aa-ba4e-014a345b3cb9@foss.st.com>
+	id 1x6rjs-00000009bsp-2Zcn;
+	Wed, 16 Sep 2026 15:40:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=tX
+	XLyITMJT1yST+MFquna26ESmZnA30Nae1jXyWuEoU=; b=R4mSVdX04i829VBmYT
+	cmXwOwWC7FEurPwMRCcJeY0lIReA6OQdYVbBFjfxBeKwNXP0pHKRfK+uFKw4qmlf
+	tMVnF5VOgpVzljpaGoGx40wnuzRu0CmRZsTGDVEdLTDEuPuwhtOlNVPAgC53Bgbt
+	C1DZTQj8Sl3frPxwHVVqYEhco=
+Received: from zhb.. (unknown [])
+	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wDnbxQduKpqGzAlBA--.54876S4;
+	Wed, 16 Sep 2026 23:39:12 +0800 (CST)
+From: Hans Zhang <18255117159@163.com>
+To: lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	bhelgaas@google.com,
+	helgaas@kernel.org,
+	heiko@sntech.de,
+	mani@kernel.org,
+	yue.wang@Amlogic.com
+Cc: pali@kernel.org,
+	neil.armstrong@linaro.org,
+	robh@kernel.org,
+	jingoohan1@gmail.com,
+	khilman@baylibre.com,
+	jbrunet@baylibre.com,
+	martin.blumenstingl@googlemail.com,
+	cassel@kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Hans Zhang <18255117159@163.com>,
+	Mahesh Vaidya <mahesh.vaidya@altera.com>,
+	Ricardo Pardini <ricardo@pardini.net>,
+	Shawn Lin <shawn.lin@rock-chips.com>
+Subject: [PATCH v9 2/3] PCI: Configure Root Port MPS during host probing
+Date: Wed, 16 Sep 2026 23:39:06 +0800
+Message-Id: <20260916153907.60344-3-18255117159@163.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260916153907.60344-1-18255117159@163.com>
+References: <20260916153907.60344-1-18255117159@163.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <538c8203-3880-47aa-ba4e-014a345b3cb9@foss.st.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wDnbxQduKpqGzAlBA--.54876S4
+X-Coremail-Antispam: 1Uf129KBjvJXoWxJF4fJF15AF47uFWUuw4UArb_yoW5GrWkpa
+	yUWanYyFs7GF4fZFsrZ3WFvFyYqF93Zry3GrZ3Z3s0van8Zr9rJrWaya95Jw1kGrZ7KFya
+	vFn8try8u3ZIvFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pEVyIbUUUUU=
+X-Originating-IP: [240e:b8f:91b3:d000:a95a:12fc:887a:b0f1]
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCxAB7H2qquCBtpwAA3y
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_083958_637820_98D1BA38 
-X-CRM114-Status: GOOD (  19.13  )
+X-CRM114-CacheID: sfid-20260916_084000_997506_A4A86371 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,79 +92,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 16, 2026 at 05:20:48PM +0200, Fabrice Gasnier wrote:
-> On 9/16/26 16:39, Andy Shevchenko wrote:
+Current PCIe initialization logic may leave Root Ports operating with
+non-optimal Maximum Payload Size (MPS) settings. The existing code in
+pci_configure_mps() returns early for devices without an upstream bridge
+which includes Root Ports, so their MPS values remain at firmware
+defaults. This fails to utilize the controller's full capabilities,
+leading to suboptimal data transfer efficiency across the PCIe hierarchy.
 
-[ snip ]
+With this patch, during the host controller probing phase:
+- When PCIe bus tuning is enabled (not PCIE_BUS_TUNE_OFF) and not
+  PCIE_BUS_PEER2PEER (which requires the default 128 bytes for optimal
+  peer-to-peer operation), and
+- The device is a Root Port, the Root Port's MPS is set to its maximum
+  supported value.
 
-> > Let's look at the current code in this switch-case
-> 
-> Thanks for you suggestions !
-> 
-> Let's keep in the picture the 'normal' raw case:
+Note that this initial maximum MPS setting may be reduced later, during
+downstream device enumeration, if any downstream device does not support
+the Root Port's maximum MPS.
 
-Ah, an important detail!
+This change ensures Root Ports are initialized to their maximum MPS before
+downstream devices negotiate MPS, while maintaining backward compatibility
+via the PCIE_BUS_TUNE_OFF check and not interfering with the
+PCIE_BUS_PEER2PEER strategy.
 
-> 	case IIO_CHAN_INFO_RAW:
-> > 	case IIO_CHAN_INFO_PROCESSED:
-> > 		if (!iio_device_claim_direct(indio_dev))
-> > 			return -EBUSY;
-> > 		if (chan->type == IIO_VOLTAGE)
-> > 			ret = stm32_adc_single_conv(indio_dev, chan, val);
-> > 		else
-> > 			ret = -EINVAL;
-> > 
-> > 		if (mask == IIO_CHAN_INFO_PROCESSED)
-> > 			*val = STM32_ADC_VREFINT_VOLTAGE * adc->vrefint.vrefint_cal / *val;
-> > 
-> > 		iio_device_release_direct(indio_dev);
-> > 		return ret;
-> > 
-> > In the previous version you were trying to keep goto-less approach.
-> > However in the current state of affairs I don't think the goto is
-> > too bad (after all we need to backport this to the kernels that may
-> > not have IIO_DEV_ACQUIRE_DIRECT_MODE() macro).
-> > 
-> > Also checking 'ret' under another condition seems unusual.
-> > 
-> > What about
-> > 
-> > 	case IIO_CHAN_INFO_PROCESSED:
-> > 		if (!iio_device_claim_direct(indio_dev))
-> > 			return -EBUSY;
-> > 		if (chan->type == IIO_VOLTAGE)
-> > 			ret = stm32_adc_single_conv(indio_dev, chan, val);
-> > 		else
-> > 			ret = -EINVAL;
-> > 		iio_device_release_direct(indio_dev);
-> > 		if (ret)
-> > 			return ret;
-> > 
-> > 		if (*val == 0)
-> > 			return -EINVAL;
-> 
-> So *val == 0 is normally a valid value, for 'normal' raw channels.
-> 
-> > 		if (mask == IIO_CHAN_INFO_PROCESSED)
-> > 			*val = STM32_ADC_VREFINT_VOLTAGE * adc->vrefint.vrefint_cal / *val;
-> 
-> With you suggestion, moving if (*val == 0) to here should be fine ?
+Suggested-by: Niklas Cassel <cassel@kernel.org>
+Suggested-by: Manivannan Sadhasivam <mani@kernel.org>
+Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
+Signed-off-by: Hans Zhang <18255117159@163.com>
+Tested-by: Mahesh Vaidya <mahesh.vaidya@altera.com>
+Tested-by: Ricardo Pardini <ricardo@pardini.net> # on Odroid-HC4
+Tested-by: Shawn Lin <shawn.lin@rock-chips.com>
+---
+ drivers/pci/probe.c | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-Yep.
-
-> 		if (mask == IIO_CHAN_INFO_PROCESSED) {
-> 			if (*val == 0)
-> 				return -EINVAL;
-> 			*val = STM32_ADC_VREFINT_VOLTAGE * adc->vrefint.vrefint_cal / *val;
-> 		}
-> 
-> > 		return 0;
-> > 
-> > ? (Yes, we leave that line untouched, but we get the change cleaner.)
-
+diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
+index 232bce2819f0..08af75aa7366 100644
+--- a/drivers/pci/probe.c
++++ b/drivers/pci/probe.c
+@@ -2248,6 +2248,21 @@ static void pci_configure_mps(struct pci_dev *dev)
+ 		return;
+ 	}
+ 
++	/*
++	 * Unless MPS strategy is PCIE_BUS_TUNE_OFF (don't touch MPS at all) or
++	 * PCIE_BUS_PEER2PEER (use minimum MPS for peer-to-peer), set Root Ports'
++	 * MPS to their maximum supported value. Depending on the MPS strategy
++	 * and MPSS of downstream devices, a Root Port's MPS may be reduced
++	 * later during device enumeration.
++	 */
++	if (pci_pcie_type(dev) == PCI_EXP_TYPE_ROOT_PORT &&
++	    pcie_bus_config != PCIE_BUS_TUNE_OFF &&
++	    pcie_bus_config != PCIE_BUS_PEER2PEER) {
++		rc = pcie_set_mps(dev, 128 << dev->pcie_mpss);
++		if (rc)
++			dev_warn(&dev->dev, "failed to set root port MPS\n");
++	}
++
+ 	if (!bridge || !pci_is_pcie(bridge))
+ 		return;
+ 
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.34.1
 
 
