@@ -4,28 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58B48C982C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:11:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FF63C982C5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:11:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=qNx4VIwpoA5ckwP9Zuvy2yd8V1VbK5lf7GoGptWnzfU=; b=2BjPPKGXFwswr5
-	WKHuIvwHESQ1ZLgdQE8UMoImVCBAsYhCHJWl5ppk8+pLadeYwgRH9PQxGaH9XXr8bBWBDlUgUKgWr
-	AuEiqdAic2LpF0qRX8yc77NY7+tVmmglf7jgMw8jxZvXSgGHezJ8OLX8SZkpN75OaVI0tiLHgyzM9
-	k13B5jqWAFpGScW7HI/oYFiOOe0dsB9ZsJTbRG2ra2XhFjdFXvkLzN0b6VyU7AYxK+1K0REcItXPj
-	qdekFxYDRgyJ7ssk7N5fxe/GKFQMXQ1LIwSgobVdxTc4qr3t9bttp5upnMibP6spkhvOq0lI0Te3n
-	WSo5nRtj3VGpxB0wuSog==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bSNpnl3YoGJtc9BnTit8G19EBus5Id7TAijalgyO3vc=; b=C3s5vEyKuCFG7pY6fRmYlacRpi
+	yZxeXj8bP3/v3pDqm0Y6A+5fSe0d29vOV6DPsCiFxri3srwo5e1yA33mSD2vLD7MGFqxnX1+8Dph+
+	88LNMBao8acY5SPUKo54L5J588MWD94QC/sht+UyleRsFOQHwZCjbvWwaKpNnqjTbs3mDrOOzBys6
+	R5YSoxL7klxh9YlTh5QLwVoNelHblOeWII0T3LJuNtfOgxbqK84pOhJKTL1yyLzHhXtST1DJbIRkB
+	jwSaIOc6SIJzWbnKq5uczjm9wG2qDqBDYEp2Vs1RQaTCYIEbcbNR/oSsYFIvaDhaZ0MDJ0QSAKbZF
+	sUMtmwWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rHf-00000009WUr-0C2G;
-	Wed, 16 Sep 2026 15:10:52 +0000
-Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
+	id 1x6rHo-00000009Wbi-0YtU;
+	Wed, 16 Sep 2026 15:11:00 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rGf-00000009Vni-410U;
-	Wed, 16 Sep 2026 15:10:00 +0000
+	id 1x6rGn-00000009VsR-2rB1;
+	Wed, 16 Sep 2026 15:09:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=bSNpnl3YoGJtc9BnTit8G19EBus5Id7TAijalgyO3vc=; b=bl8KL755RX0Mj5lcHBrtp/MSDD
+	LNmkz9t6rBAmLKNLsYI5cIhO6CsS2OYSlEHzSEMh+H4Dx+J70i72xOWVdznGWPZsaItOm+/RL7G7E
+	j+sHTAm2bveBCkAWN99122kbBoSiR4aBV3DDcU+CZ33uW8YfmPK2N/XoBROtTJq2Avb81n5xfv/lE
+	P6aZP8TdnYf/MZ0PIKrphf4ztSCCS6/jXjeGKX0f6xADFO7JFimjgy/jE8Hppl85WqT7pWN5T4Xod
+	aBjjDSsWhqG4VzWtz6gOVQtFepo2m1Fis8zofC/nOA1+nKj0a3E8Qa6e+inmp33e0EylzZg0At/io
+	PRYneUCA==;
+Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x6rGk-000000081KS-1FzW;
+	Wed, 16 Sep 2026 15:09:56 +0000
 X-PTX-Original-Recipient: ezequiel@vanguardiasur.com.ar
 X-PTX-Original-Recipient: jacob-chen@iotwrt.com
 X-PTX-Original-Recipient: mchehab@kernel.org
@@ -42,25 +56,23 @@ X-PTX-Original-Recipient: s.pueschel@pengutronix.de
 X-PTX-Original-Recipient: m.tretter@pengutronix.de
 Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
 	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 59E73201F41;
-	Wed, 16 Sep 2026 17:09:46 +0200 (CEST)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 2277C2059FA;
+	Wed, 16 Sep 2026 17:09:52 +0200 (CEST)
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
 	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.96)
 	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1x6rGc-001Fsx-0m;
-	Wed, 16 Sep 2026 17:09:46 +0200
+	id 1x6rGi-001Fsx-01;
+	Wed, 16 Sep 2026 17:09:52 +0200
 From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Subject: [PATCH v2 00/17] media: rockchip: rga: Add multi-core support
-Date: Wed, 16 Sep 2026 17:09:41 +0200
-Message-Id: <20260916-spu-rga3multicore-v2-0-23aa2cb74e61@pengutronix.de>
+Date: Wed, 16 Sep 2026 17:09:49 +0200
+Subject: [PATCH v2 08/17] media: rockchip: rga: move power handling to
+ device_run
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/22Nyw6CMBBFf4XM2pq2hIKu/A/DopQBxmhL+iAYw
- r8LGHcuT3LuuQsE9IQBrtkCHicK5OwG8pSBGbTtkVG7MUguFVdcsjAm5nudv9IzknEemcbKVEZ
- 3XOAFtt3osaP5aN7rL4fUPNDEPbQbA4Xo/Ps4ncTu/frqT38SjLMcjWxEocqiK28j2j5F7yzN5
- xahXtf1A/QpsljJAAAA
-X-Change-ID: 20260602-spu-rga3multicore-ae8c8caf01e9
+Message-Id: <20260916-spu-rga3multicore-v2-8-23aa2cb74e61@pengutronix.de>
+References: <20260916-spu-rga3multicore-v2-0-23aa2cb74e61@pengutronix.de>
+In-Reply-To: <20260916-spu-rga3multicore-v2-0-23aa2cb74e61@pengutronix.de>
 To: Jacob Chen <jacob-chen@iotwrt.com>, 
  Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
  Mauro Carvalho Chehab <mchehab@kernel.org>, 
@@ -73,8 +85,8 @@ Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
  =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_080950_155032_E92D60F5 
-X-CRM114-Status: GOOD (  21.38  )
+X-CRM114-CacheID: sfid-20260916_160954_537399_071D9FDE 
+X-CRM114-Status: GOOD (  17.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,139 +101,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add multi-core support to the RGA (Raster Graphic Accelerator) driver
-for Rockchip SoCs. This works by scheduling the given work to multiple
-identical RGA cores. Previously other identical cores were discarded
-while probing with -ENODEV to avoid exposing multiple video devices for
-identical cores and breaking the ABI when adding an in-kernel scheduling.
+Move the power handling to the device_run function in preparation for
+enabling multiple cores. This allows to power the only the necessary cores
+instead of powering all available cores.
 
-This series targets the RK3588 SoC, which has one RGA2-Enhance core
-and two RGA3 cores (see [1] for an overview of the different RGA cores).
-The slimmed down RK3576 SoC also features two RGA2-Pro
-(also described as RGA2.5) cores, but is currently not supported by
-the driver. Tests are done on a Radxa Rock 5T SBC.
+As the decision on which core the given job is executed will be done in
+device_run, we can only power to correct core there.
 
-The scheduling is done only on a context level, which causes no
-increased performance for a single stream (which uses only one mem2mem
-context). Therefore at least N parallel stream are necessary to utilize
-N cores. This avoids the more complex buffer handling required to avoid
-mixing the frame ordering when one core is slightly faster than the
-other (e.g. due to memory transfer timings or different clocks).
-
-While the work is based on Detlev Casanova's multi-core series for the
-rkvdec driver [2], it differs in two major aspects:
-
-(1) It doesn't directly call v4l2_m2m_job_finish to mark the current job
-as finished in the device_run callback. Detlev used this to trick the
-m2m framework to directly schedule the next job. This looked like a
-dirty hack and had me running into some of it's pitfalls (e.g. the
-difference between the v4l2_m2m_buf_done and the newly introduced
-v4l2_m2m_buf_done_manual function).
-Instead I've dropped the current curr_ctx member of the v4l2_m2m_dev
-struct and added a max_parallel_jobs member to specify the maximum
-number of parallel jobs. This allows the driver to set it's maximum
-number of parallel jobs with the newly introduced
-v4l2_m2m_set_max_parallel_jobs function. The RGA driver uses it to set
-it's number of parallel jobs to it's number of available cores. The m2m
-framework then schedules the first N jobs on it's job queue to the
-device_run callback instead of only one.
-
-(2) Instead of attaching an identical RGA core on probe to the first
-probed RGA core instance, use component helpers to add all cores as
-components to a virtual platform device. This has the advantage of only
-creating the video device after all cores have been probed successfully
-and tearing it down if one core is being removed (e.g. by the sysfs),
-which otherwise could lead to nasty memory bugs. The implementation is
-based on the driver of the etnaviv gpu. As the virtual platform device
-doesn't has an iommu, we still allocate all relevant drives on the first
-core, which shares it's iommu domain with all other cores.
-
-v4l2-compliance results:
-    v4l2-compliance 1.32.0, 64 bits, 64-bit time_t
-    ...
-    	Card type        : rga2
-    ...
-    Total for rockchip-rga device /dev/video0: 48, Succeeded: 48, Failed: 0, Warnings: 0
-    
-    v4l2-compliance 1.32.0, 64 bits, 64-bit time_t
-    ...
-    	Card type        : rga3
-    ...
-    Total for rockchip-rga device /dev/video1: 48, Succeeded: 48, Failed: 0, Warnings: 0
-
-Patch 1-3 address review comments from my last RGA3 patch series
-Patch 4-5 additional driver cleanup/improvements
-Patch 6-7 implements support for parallel jobs in the m2m framework
-Patch 8-10 add multi core preparations to the driver
-Patch 11-15 rework the driver to use component helpers
-Patch 16 puts all cores into the same iommu domain
-Patch 17 enables the multi-core support
-
-[1] https://codeberg.org/airockchip/librga/src/branch/main/docs/Rockchip_Developer_Guide_RGA_EN.md#design-index
-[2] https://lore.kernel.org/linux-media/20260409-rkvdec-multicore-v1-0-62b316abf0f7@collabora.com/
+To avoid unpowering the core in a streaming state switch to autosuspend.
+This avoids powering down the core when the next frame is scheduled in
+the next 50ms. The timeout maps to a framerate of 20fps, which should be
+pretty uncommon in a normal video stream.
 
 Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
----
-Changes in v2:
-- split v4l2-core change into two commits
-- move pm_runtime_enable to it's devres version
-- add missing pm_use_autosuspend call
-- fix NULL pointer deref when unbinding and rebinding a core
-- allow manual binding the component master without needing a driver
-  override
-- various fixups in the error paths
-- extend spinlock usage for their data structures
-- moved core bind to probe commit for a better diff
-- export the v4l2_m2m_set_max_parallel_jobs symbol
-- document the new v4l2_m2m_set_max_parallel_jobs function
-- dropped cherry-picked patches (now included in media/next)
-- add Guangshuo Li regarding multi-core in mtk-jpeg
-- Link to v1: https://patch.msgid.link/20260606-spu-rga3multicore-v1-0-3ec2b15675f7@pengutronix.de
-
-To: Jacob Chen <jacob-chen@iotwrt.com>
-To: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>
-To: Heiko Stuebner <heiko@sntech.de>
-To: Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-media@vger.kernel.org
-Cc: linux-rockchip@lists.infradead.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
 
 ---
-Sven Püschel (17):
-      media: rockchip: rga: zero cmdbuf in shared code
-      media: rockchip: rga: add comment about pixel alignment for YUV formats
-      media: rockchip: rga: move early return into if condition in vidioc_enum_fmt
-      media: rockchip: rga: removed unused regmap member
-      media: rockchip: rga: use devres version of pm_runtime_enable
-      media: v4l2-mem2mem: drop curr_ctx member from v4l2_m2m_dev struct
-      media: v4l2-mem2mem: support running multiple jobs in parallel
-      media: rockchip: rga: move power handling to device_run
-      media: rockchip: rga: adjust get_version to return the version
-      media: rockchip: rga: add rga_core structure
-      media: rockchip: rga: use components to manage multiple cores
-      media: rockchip: rga: move rockchip_rga allocation to master probe
-      media: rockchip: rga: move core initialization from bind to probe
-      media: rockchip: rga: move video device to the master
-      media: rockchip: rga: bind all cores to the master
-      media: rockchip: rga: put all cores into first core iommu domain
-      media: rockchip: rga: schedule jobs to multiple cores
-
- drivers/media/platform/rockchip/rga/rga-buf.c |  16 +-
- drivers/media/platform/rockchip/rga/rga-hw.c  |  40 +-
- drivers/media/platform/rockchip/rga/rga.c     | 556 +++++++++++++++++++-------
- drivers/media/platform/rockchip/rga/rga.h     |  44 +-
- drivers/media/platform/rockchip/rga/rga3-hw.c |  32 +-
- drivers/media/v4l2-core/v4l2-mem2mem.c        |  94 +++--
- include/media/v4l2-mem2mem.h                  |  18 +
- 7 files changed, 560 insertions(+), 240 deletions(-)
+v2
+- also set autosuspend flag with pm_runtime_use_autosuspend
+  (https://sashiko.dev/#/patchset/20260606-spu-rga3multicore-v1-0-3ec2b15675f7%40pengutronix.de?part=6)
 ---
-base-commit: 27953c044974baf7e24dee3e9342fe0103dea80c
-change-id: 20260602-spu-rga3multicore-ae8c8caf01e9
+ drivers/media/platform/rockchip/rga/rga-buf.c | 12 ------------
+ drivers/media/platform/rockchip/rga/rga.c     | 13 +++++++++++++
+ 2 files changed, 13 insertions(+), 12 deletions(-)
 
-Best regards,
---  
-Sven Püschel <s.pueschel@pengutronix.de>
+diff --git a/drivers/media/platform/rockchip/rga/rga-buf.c b/drivers/media/platform/rockchip/rga/rga-buf.c
+index c0ea6003336bf..3f7c3c68e0cb8 100644
+--- a/drivers/media/platform/rockchip/rga/rga-buf.c
++++ b/drivers/media/platform/rockchip/rga/rga-buf.c
+@@ -242,14 +242,6 @@ static int rga_buf_prepare_streaming(struct vb2_queue *q)
+ static int rga_buf_start_streaming(struct vb2_queue *q, unsigned int count)
+ {
+ 	struct rga_ctx *ctx = vb2_get_drv_priv(q);
+-	struct rockchip_rga *rga = ctx->rga;
+-	int ret;
+-
+-	ret = pm_runtime_resume_and_get(rga->dev);
+-	if (ret < 0) {
+-		rga_buf_return_buffers(q, VB2_BUF_STATE_QUEUED);
+-		return ret;
+-	}
+ 
+ 	if (V4L2_TYPE_IS_OUTPUT(q->type))
+ 		ctx->osequence = 0;
+@@ -261,11 +253,7 @@ static int rga_buf_start_streaming(struct vb2_queue *q, unsigned int count)
+ 
+ static void rga_buf_stop_streaming(struct vb2_queue *q)
+ {
+-	struct rga_ctx *ctx = vb2_get_drv_priv(q);
+-	struct rockchip_rga *rga = ctx->rga;
+-
+ 	rga_buf_return_buffers(q, VB2_BUF_STATE_ERROR);
+-	pm_runtime_put(rga->dev);
+ }
+ 
+ const struct vb2_ops rga_qops = {
+diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
+index d7f0712177b70..c24bc8e26b91e 100644
+--- a/drivers/media/platform/rockchip/rga/rga.c
++++ b/drivers/media/platform/rockchip/rga/rga.c
+@@ -37,6 +37,14 @@ static void device_run(void *prv)
+ 	struct rockchip_rga *rga = ctx->rga;
+ 	struct vb2_v4l2_buffer *src, *dst;
+ 	unsigned long flags;
++	int ret;
++
++	ret = pm_runtime_resume_and_get(rga->dev);
++	if (ret < 0) {
++		v4l2_m2m_buf_done_and_job_finish(rga->m2m_dev, ctx->fh.m2m_ctx,
++						 VB2_BUF_STATE_ERROR);
++		return;
++	}
+ 
+ 	spin_lock_irqsave(&rga->ctrl_lock, flags);
+ 	if (ctx->cmdbuf_dirty) {
+@@ -81,6 +89,8 @@ static irqreturn_t rga_isr(int irq, void *prv)
+ 		v4l2_m2m_buf_done(src, VB2_BUF_STATE_DONE);
+ 		v4l2_m2m_buf_done(dst, VB2_BUF_STATE_DONE);
+ 		v4l2_m2m_job_finish(rga->m2m_dev, ctx->fh.m2m_ctx);
++
++		pm_runtime_put_autosuspend(rga->dev);
+ 	}
+ 
+ 	return IRQ_HANDLED;
+@@ -801,6 +811,9 @@ static int rga_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
+ 
++	pm_runtime_set_autosuspend_delay(rga->dev, 50);
++	pm_runtime_use_autosuspend(rga->dev);
++
+ 	rga->regs = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(rga->regs))
+ 		return PTR_ERR(rga->regs);
+
+-- 
+2.55.0
 
 
