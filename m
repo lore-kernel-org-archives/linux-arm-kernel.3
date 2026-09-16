@@ -4,143 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 878AFC982C1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 16:35:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31D49C982C9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 16:35:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+nKOoaZ7t5T3ebmbmfmEUPXanm7w3XGHxIVUUzK4z2w=; b=Vw2RlY1b2Qlz7kjGAePRYJe8G6
-	Tso2UBgMcaGP/kWNllP6b7JPBWt0iXi17GQOYAmCUK3Lg9Qfbm6Rov7G6ooTC6Ildix+IOAJ5n5i/
-	9EvmLEqaKnvbG0mmSJywUsTeWzA2FfKX+OCg+GaixwkAeR+1Iq4P6EHjLnGTtK0HGOjpcTCNjVb1a
-	bj/5UK/fXdy7girP3E4u+L8NpgAPJuEHskRCJVBEaq8EAUjsizo7QQ/aGSmBA0M7nO6DZxY2w5kq5
-	PqhDs6BljHMCa+xmxLKNcXjmK57mhzbYRYQnMIDIKh85LxjhcPIEzSXHvhbx14iJPbMZbXWOXVYpK
-	BqzaJidg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=044CrMqm1hX472GyboH+P8q+RWHr3VuP6wQdlD4joxs=; b=Yu8LfSs+f9tL5BRJHJ9Yvb0tbJ
+	aR8SQL8lCHVtI8Fi8RjId7XWAdLM5IXoNX1uNDlsmSPq7hcRDaTILqOYfJj1MN+Kpp3cTrevBaNgi
+	J8eLMyIuW/45tDLIUfKVCSRC19dZI9dMPlCNxXtc2bePKsVFGpghfeots+aXjPKDq+PILbPOuOPwk
+	w1wHjGtwvoC+WqM7L1fLmraksk62ssoW5vKZ1+2GWWSG0CmhRzSIuFERN8LfLf0mTCI8Ugh1ReoWr
+	6Gqi64J6m58iW5cW1Fe1k6C+VG9JtT7c2z2QSTO1KgqEVD/l6ycueEgK3urt2flD695pDUEklmE05
+	8xfzkNsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6sb3-00000009kiz-12gu;
-	Wed, 16 Sep 2026 16:34:57 +0000
-Received: from mail-westeuropeazon11013013.outbound.protection.outlook.com ([52.101.72.13] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1x6sbd-00000009krc-1fNQ;
+	Wed, 16 Sep 2026 16:35:33 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6sb1-00000009kiN-1eQf
+	id 1x6sbc-00000009kr8-20xb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 16:34:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bfPR330gft/kPYgQAt+qWFDG/ZkEsFaeWYXW+qeFPFZV6odFmvFPtU92qcp+U9XcTVcw29KB8zscOP5+UD3GOk2S5y81SIK8a2iocWgje2b1hdsU5RVbZcO2ik9iY1161uQiNmi8yoVpzTqtv5YhO8CgN2+YOZm5M+hrfanPLpv3daNVvw7He0P36Fb7ERzi4bgd5hIfmsO9k0hybqesIwZ3Ox74+IxzGGUThDhqA1uJVHCDlux2j7qebYG5BDBGOlmhDwSwGiIFMH77pXsyrmyR9zTXybfkyunfYTDaEoBQtfCtbg0dCXlfHrvGdYZnCkKvFVw2DzMsSoK9XEY1hQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+nKOoaZ7t5T3ebmbmfmEUPXanm7w3XGHxIVUUzK4z2w=;
- b=kXWRO/0AiAzKhCxCZ71kP3QlHMLUkJvZys3GGtkfumiQMOyQjRsHBGgFEfyZq1R7f4BBO0rZ+zk6EdNeO1Q9HZAgQl7ylNW1VD1B7oJWce9eV9QmRrU8CNDBQMacncx/oUgY+UHAiFUf3i0RWkAlKuqpMU0HiI0lw6dkGU7JZUr2gJcCBSyJeKKBTOcZ6dwrnoAGmlTpG6NgnNSUSpf20Gp8DOWlka9tGbJnJev4CSiyusPP9XoodaOdX6eOhfO0xdaIqOMmlkOgOgmDfaO5T371aw3D2dWX2HdwaUWaf8gDD6GckLiNEI67TIuWJKr1qB6Pejm7pt+tenl8f1BJpA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+nKOoaZ7t5T3ebmbmfmEUPXanm7w3XGHxIVUUzK4z2w=;
- b=aOHqwQ1NI9Sez94Il4Ynvxgg4DqDuW2Nfe/0Xk05IPHqkQYi8H7n3F70gvbwPUh5zJJEfo7I9W2fMbYnG5QzMISIPtir7oL6Gqv+c8Y3RYiA5s5ZI0atev8UHB7XUDaXMYesCjBt/0GA+0aSyAqjLJ09rRPVyEdHZqtsrUVcrq/d3dFXkuhmdJem6zz6lnsU/R0nObD8Ljg4/RkjXZJ0YdYyGcQValuWDCVqVLr0U088/7LEBFu5RBiN8ACzdOXOBrbP9rXWS0zhaGfQb5isLnLZd7MBTKihYiaheSpXGHj2ru2Asboomrg03gRA4Hc8NMHd0FndJP3rzPKtqQJvng==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DUZPR04MB10063.eurprd04.prod.outlook.com (2603:10a6:10:4af::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.9; Wed, 16 Sep
- 2026 16:34:49 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.012; Wed, 16 Sep 2026
- 16:34:49 +0000
-Date: Wed, 16 Sep 2026 11:34:36 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Larisa Grigore <larisa.grigore@oss.nxp.com>
-Cc: NXP S32 Linux Team <s32@nxp.com>, Alim Akhtar <alim.akhtar@samsung.com>,
-	Avri Altman <avri.altman@sandisk.com>,
-	Bart Van Assche <bvanassche@acm.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	"Martin K. Petersen" <mkp@kernel.org>,
-	Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
-	Ajay Neeli <ajay.neeli@amd.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Pedro Sousa =?iso-8859-1?Q?=A0?= <pedrom.sousa@synopsys.com>,
-	linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	clizzi@redhat.com, aruizrui@redhat.com, eballetb@redhat.com,
-	echanude@redhat.com
-Subject: Re: [PATCH v3 06/10] dt-bindings: ufs: Add NXP S32N79 UFS host
- controller
-Message-ID: <aqrFHDFd6G5wPVFl@SMW015318>
-References: <20260916084411.941297-1-larisa.grigore@oss.nxp.com>
- <20260916084411.941297-7-larisa.grigore@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260916084411.941297-7-larisa.grigore@oss.nxp.com>
-X-ClientProxiedBy: CYZPR05CA0025.namprd05.prod.outlook.com
- (2603:10b6:930:a3::26) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Wed, 16 Sep 2026 16:35:32 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 373F441314
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 16:35:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B4001F000FF
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 16:35:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789576532;
+	bh=044CrMqm1hX472GyboH+P8q+RWHr3VuP6wQdlD4joxs=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=ev8qH/SxBCpyuGF3HU5REG17ahp3YJOMTf5VMWq89VmLTcd29cME/my0j+xE39SBh
+	 753CcdI1sS4+tA6b9wrI4PtI4S0Juz6E7sXIBeOvJQRwVcMP3knbNwUQOjO0aypvo8
+	 i2Ah48QVlUpeykjmGRWTci0GzvQU8w1ZY9GoZEaN4zUkY07aA3+VjZ7eJL/jH2yZ4f
+	 x/oA2Hr74NxP5/ed70hXaRmYNJhbqYxKPxjo2CWTAXqlUHBaJnUPY2Fu4Mq41e5p/0
+	 bMZ6JEMmisL3sPEO14aYX+EVc6AkO0TMRDh1/7HE/WPIAE5whK0oCWO/zbmOyOtxrV
+	 6VngY2T8yyjEA==
+Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5b76694fb7aso2025823e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 09:35:32 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBxpKlJaH4+8e67YzO84HN9vRTAMRpqQuL+UWy2VQFSB5SoOFvh5Ry0r7E+O7dS9g02ub8Rz86YITCrMsAFWCY8K@lists.infradead.org
+X-Gm-Message-State: AFuF++nwWJ3ktDjBGb4nwM/6V7XSjv7uR8Scgv42msT0IYTdhGxJyosf
+	FqiL5AMVgmkV2c986WKYKezlyAgO++OlB7d+4f4w1IcvjSFM2sqD1H1CyCQSeyeQO+w+STVOqCi
+	pa+4MNCjTg4lsPWoSLVbSRp0x0j2OqkU=
+X-Received: by 2002:a05:6512:63d7:20b0:5b8:9999:2f14 with SMTP id
+ 2adb3069b0e04-5b8ba5eba89mr50407e87.19.1789576530843; Wed, 16 Sep 2026
+ 09:35:30 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DUZPR04MB10063:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7e4aee57-6c1d-49cb-6411-08df14106ce8
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|376014|1800799024|7416014|19092799006|56012099006|11063799006|4143699003|10067099003|22082099003|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info: bhtoGiyneFDtbcJhWSppxGUZ0LZMVaPLL7lfXa0AkomZvGWGwtCJpCN5TW+BX13J+c+2SIuw6azxhNvviXS1JblFHpkikTs+Dca0Key+eAyzOw1K/AVh02/0Oqjv5N2UJAw8zi6TglwLN/V23BGgYtCb9saFw4dciAk4R3nwT4Gnq3LJ+dl/hhpecp4Z47LQi5UHRBjA7mr6p7fS/mmnIz84dR8FpKxkSL3HnSFyl/imSdbIeI/jZhkD74se6pbsFEgEUtJ7RzN7dJOThaIFQh7VX6PXKNMrnr3m6mlB5O4Fp9QJufxJi5hWhm3igpv/ALGi96r1u2UPZRgNbL6LiLOOkAPMyV5ZLvfn104VWqj7Pol1qEhSpCaT1B/FEBlJhZir1nisBYsctxfgvSuaP5ABjbKcqiMpCVoQeZnwrIdYG51dZWTZJWc9fg+jlkdOsVCDFdvqGq9nVFyemTYYt8zNxAKTt2ft631+oUTAXKXdAbb//EgcxH6wYZmZqkhKaHolLznvm6Zf4ZvFaiXfSWdFt6av4FYr6gFN34PE1TMZi6EwmMoiesF+RLWovLV2Vau95gxbr1S2rt3y5JU+lA3EC2pxfnO9+p5ajHs/sv1amHcxhB81jrJb/ELGER1N
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(1800799024)(7416014)(19092799006)(56012099006)(11063799006)(4143699003)(10067099003)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?mnap/f2gmZMa839Gyh9b6PFXrkUDDT6t1O+aSTQq9aVKd/IDRvMTM7O2muLH?=
- =?us-ascii?Q?6OIwbLuEoQSIzAeXCOhzRZQ9nq5daRItNQj2iaAjsGWypQpyR1YBIOXgF1yC?=
- =?us-ascii?Q?CYSkOcf03QGdNJ2nNRFG+3YREpbUwuusuMmFyvX0+F3r2aQSVvO54zdtIEVF?=
- =?us-ascii?Q?2ciJmNksAoss4bH6LNw5WfkVpHrFtSsgSF9Nn0+zBdF3hbk0wLkARsGEzkJR?=
- =?us-ascii?Q?Ft+idk0zrcL/p7q7mc4FN1fyoQ7hTdCVXSZFnFm/s1f2kp3pwiqdyDgueUHS?=
- =?us-ascii?Q?3a3NbFEG+JrA+5CtxkHFmoo1QgoyPPc0iOEChlPsI8pQ8t5o4gSI5jfgExTZ?=
- =?us-ascii?Q?h3dubKqDjuVZgsyCEwTRcP8Z6CtiHEDCg5anmQAL2IAqVv20upbyV/uC0REG?=
- =?us-ascii?Q?8yC0VMOg0duT+cJ+IlIZ2620deW0JdgsD+wXJWGN7YEFujmWwYi09iJFtdbR?=
- =?us-ascii?Q?zDIoDp9x+X0kfMsMV6JR1w08HamCF10dsTUiqu2zNF5uzHaAjw3zC8HI/vOu?=
- =?us-ascii?Q?p7XRQdde1sBw15BWKsDxet/75YjJIhLyyNQqNjJYGXHakbKUdtuFf+KtupkB?=
- =?us-ascii?Q?IWo7Vb4L68YyDG9XGOZa9Bh+cHq6x7Drv8MMOl27olicKOk8vjjV1ojWA4D7?=
- =?us-ascii?Q?KlOXYU+BYckY+jyujfZI4DDZwWQW2XiZd711LB5e4r8YcWSrlZ6JM8AfS+xA?=
- =?us-ascii?Q?khUKm++p4We02d1gyeojdhSdSf7drrl87gSPmUg0KQ31NW9Fm5MmddO4bEZ9?=
- =?us-ascii?Q?oNRaf/P/MYwDA7DEwb6vr18qW6W6NMVGAUH1AOl77Urx0y0fZcFFZtwh6Tp8?=
- =?us-ascii?Q?Ns+R+ErVkQY55SWggU+XiqlgeUf3wBe3tPOWML65Jrd25MT9GqA6fNreX6wu?=
- =?us-ascii?Q?7i5c/V9ygL5zCvJeMofYkAJ7Th8sPjNhBTTJDPey//Z1a3vHX0HKGW0P+dLx?=
- =?us-ascii?Q?sIrHv5LDXkr4wAQ6CqrBCR6jSd/gCdwC8JqzWIbz+l1v/6rrkqhbv40nYQrR?=
- =?us-ascii?Q?PTqagcD5RfHBF0Cj5x1qf5HoMZPYcMgZlIK6X8Hgq3wMgIhD5TjcgNum5XiG?=
- =?us-ascii?Q?sc4l2bxIc8JMD8QkKzyd7qy5tj+NAGP07dDIJTlzQbE+TTiT1QyiVj8uQJvJ?=
- =?us-ascii?Q?UrbH2AN2ITuu2wek3PzQnoBF89zGVND9D4J8TwQ0YMNp2or0g0wE3mV5NXxr?=
- =?us-ascii?Q?QaOSusR/ZjZGH+i0Djpn/kSzeMe2Lq0qNcr/+QPR/PLUq0D2S8b3ryjyxbFb?=
- =?us-ascii?Q?81sUcD71SmiEtFmwcw6wLGEexrk1gloPv4RWflAK8U0N9QU+EjDGBdduvuSh?=
- =?us-ascii?Q?+ySGI+v/X6vZrJl9qG1LFi3ztiJsxltujiqJTtFqEWPpDAbYz/m7d8Zrd0ia?=
- =?us-ascii?Q?bIvzBOcKrK+7lcHjKYBaLWHoqpKLVjJMgOoxLOihXLB3bjq5Z0PAPaGRp1Nz?=
- =?us-ascii?Q?R478WlGvz8QG7avL49LlQecRF+eMxTGChXA3psWMsn05JOlmKhdfpRIq1LtL?=
- =?us-ascii?Q?n+Vk6TmBmxCQWo2DlURXqV+4v4IEAH5iORHKll/7JdvDht6vybQ2yQDr+3EC?=
- =?us-ascii?Q?QFInf4nmQadPcBIAPQSfuSzApj11Z4ke/LXjs94f8XW9XPA1qyGR2Cv3yeq8?=
- =?us-ascii?Q?Gb89OnnF76i2qCNFGr0MVQlqSkjrMxNGRSSOirl8zR3QsMOmOrPUkVEXCnX/?=
- =?us-ascii?Q?YNIEUubVnsZUnPERsokQc9qM2CSujpJPRvSslvSY1/0UqfO5pJD1XQhcDJlC?=
- =?us-ascii?Q?cNDfXx/H4U16TlhfED3Atg+yFp+hqozKB8HnIfHg4S8ZqiWVVYte?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7e4aee57-6c1d-49cb-6411-08df14106ce8
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Sep 2026 16:34:49.2203
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Pl7eFiN/Nc5ILLnhhc+akDL9pHL3+upwcg+/pIDfMW++BgY++s+EAjOMLtJKMpo/kHBbEaoGMdyvBIkXzDF6BEjcrsVjIVy3gsui7qpo6Tov6NqEo+eq56ImE741kUjL
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR04MB10063
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_093455_438648_3F95DF42 
-X-CRM114-Status: GOOD (  16.71  )
+References: <20260723035823.2041832-1-justin.yeh@mediatek.com> <20260723035823.2041832-2-justin.yeh@mediatek.com>
+In-Reply-To: <20260723035823.2041832-2-justin.yeh@mediatek.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Wed, 16 Sep 2026 18:35:18 +0200
+X-Gmail-Original-Message-ID: <CAD++jL=3YWAQsYZUTiRUpX_WOkeNYe5NdADwNeoFky+gY=OX5w@mail.gmail.com>
+X-Gm-Features: AcwNN1VvaG_CTHc5Gx7LSXS7f1odDC4A4LezNnphRUFVM6XIRyS7EcYx1dfz_o0
+Message-ID: <CAD++jL=3YWAQsYZUTiRUpX_WOkeNYe5NdADwNeoFky+gY=OX5w@mail.gmail.com>
+Subject: Re: [PATCH v7 1/5] pinctrl: mediatek: use devm_gpiochip_add_data()
+ for GPIO chip
+To: Justin Yeh <justin.yeh@mediatek.com>
+Cc: Sean Wang <sean.wang@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Project_Global_Chrome_Upstream_Group@mediatek.com, 
+	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Chen-Yu Tsai <wenst@chromium.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,91 +84,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 16, 2026 at 10:44:07AM +0200, Larisa Grigore wrote:
-> Document the UFS host controller on the NXP S32N79 SoC.
->
-> Signed-off-by: Larisa Grigore <larisa.grigore@oss.nxp.com>
-> ---
->  .../bindings/ufs/nxp,s32n79-ufshc.yaml        | 61 +++++++++++++++++++
->  1 file changed, 61 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/ufs/nxp,s32n79-ufshc.yaml
->
-> diff --git a/Documentation/devicetree/bindings/ufs/nxp,s32n79-ufshc.yaml b/Documentation/devicetree/bindings/ufs/nxp,s32n79-ufshc.yaml
-> new file mode 100644
-> index 000000000000..2bede50a9b6f
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/ufs/nxp,s32n79-ufshc.yaml
-> @@ -0,0 +1,61 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/ufs/nxp,s32n79-ufshc.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: NXP S32N79 Universal Flash Storage (UFS) Controller
-> +
-> +maintainers:
-> +  - Larisa Grigore <larisa.grigore@oss.nxp.com>
-> +
-> +# Select only our matches, not all jedec,ufs
-> +select:
-> +  properties:
-> +    compatible:
-> +      contains:
-> +        const: nxp,s32n79-ufshc
-> +  required:
-> +    - compatible
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - const: nxp,s32n79-ufshc
-> +      - const: jedec,ufs-2.0
+On Thu, Jul 23, 2026 at 5:58=E2=80=AFAM Justin Yeh <justin.yeh@mediatek.com=
+> wrote:
 
-I have not seen driver parse it even though other vendor use it at dts
-and yaml.
-
-leave dt team to comment it.
-
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> +
-> +  reg:
-> +    items:
-> +      - description: UFS Host Controller registers
-> +      - description: System Control Module registers
-> +
-> +  reg-names:
-> +    items:
-> +      - const: ufshc
-> +      - const: scm
-> +
-> +  clocks:
-> +    maxItems: 1
-> +    description: UFS core clock
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - reg-names
-> +  - clocks
-> +
-> +allOf:
-> +  - $ref: ufs-common.yaml
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    ufshc@4ac80000 {
-> +        compatible = "nxp,s32n79-ufshc", "jedec,ufs-2.0";
-> +        reg = <0x4ac80000 0x1000>, <0x4ac40000 0x1000>;
-> +        reg-names = "ufshc", "scm";
-> +        interrupt-parent = <&irqsteer_coss>;
-> +        interrupts = <211>;
-> +        clocks = <&clks 0x92>;
-> +    };
-> --
-> 2.43.0\
+> The gpio_chip is allocated with device-managed memory but registered with
+> the non-managed gpiochip_add_data(). This was harmless while the drivers
+> were built-in, but once they can be built as modules and unbound/rmmod'd,
+> devm frees the gpio_chip's memory while it is still registered, causing a
+> use-after-free.
 >
+> Register it with devm_gpiochip_add_data() so it shares the same
+> device-managed lifecycle, which also lets the manual gpiochip_remove()
+> error paths go away.
 >
+> Fixes: a6df410d420a ("pinctrl: mediatek: Add Pinctrl/GPIO driver for mt81=
+35.")
+> Fixes: 805250982bb5 ("pinctrl: mediatek: add pinctrl-paris that implement=
+s the vendor dt-bindings")
+> Fixes: e78d57b2f87c ("pinctrl: mediatek: add pinctrl-moore that implement=
+s the generic pinctrl dt-bindings")
+> Signed-off-by: Justin Yeh <justin.yeh@mediatek.com>
+> Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
+
+This patch does not apply to current v7.3-rc1.
+Please rebase and resend!
+
+Yours,
+Linus Walleij
 
