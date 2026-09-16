@@ -4,61 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78C96C88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 05:28:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C8FCC982C5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 05:31:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=66PyGPF5wXahXxW5sg6wPuZ0lhWWMmXUKvHfOKoSdYs=; b=mofL4n8Ed43EAyGGZTEYpn3xi1
-	W0gEZuxJstSU+LDS3EK2KSyUEOG1H7lhxC9V9y2iFja0k1u/sFxgheQ72cTJf6TChXKGjIe59eymc
-	NzmEejqA3KHpYxxIAXRF2n2QD/FHfbW3mUSKPtRX7dP8RAv6xU3VldTpvbQae5HEozoAH8VpPxzct
-	fnmjdwwrx+OJWX3fIYcOgxQFvzmswgPg7a9LlZ6D1rNDTv2WbsUjDSENEDmvnBlnbPT888jZ7IyvM
-	akKvmqxRKfoNs4QlkwFktmM8zP2oQoviBCrKbwtOwGkg59yCQ7bB+oiIpe4+pgIezYpvCJQzfBJq/
-	Sf4h466Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=BnRRw77nHC6VfPtNfaAtrd6qZk/5RVZB+C8QhDpbDJo=; b=EMIvMTRVSAEs8x
+	L/7iwnelSSljt1ztAoyRIoVc6xJjg+UlVrT1FuwAcA1GV21D/RH3mPM6WpAWaKBqcbWhVL8PdODaQ
+	a4NyDoM8+Jqb7ioqgryV659i0AKm4mRMX81psuye5xtA5hETSY9Xo7Ygc3oalCD0KXtMC8OIF+3FP
+	n5e/shJ/G5R3AHhoH31SkbMXGdUXamivEqvd5C68U0BBQ144/dbSmednf1BjjfSfeAMQu3qvJq7aZ
+	Pb04MWolJvqh64GMSoih5l8Vd5Rqin3YclMc3WZQklBeU8YxJFKlR6NIvhO8/+NXgfks0bJN652B+
+	mdhiUbGnLTcZFwINj4Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6iCG-00000008NrN-3LKW;
-	Wed, 16 Sep 2026 05:28:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x6iEM-00000008O5i-1Bw3;
+	Wed, 16 Sep 2026 05:30:50 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6iC9-00000008Nr6-1ZYn
+	id 1x6iEG-00000008O3Q-2DaP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 05:28:35 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BF1784198D;
-	Wed, 16 Sep 2026 05:28:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD5301F000FF;
-	Wed, 16 Sep 2026 05:28:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789536512;
-	bh=66PyGPF5wXahXxW5sg6wPuZ0lhWWMmXUKvHfOKoSdYs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=AYZzAj5zgFh920pxLpGKuWZ8NFaBVz6NPYkQGl1EIBxUvvkhG8GyY4i53xxm/U6nQ
-	 nLyVV6jbYqY0XmojBX/9D/t9eC1msZQsf/q4508X9g/8PdkVHRolfaIm5e0QrGF7EL
-	 3fqdQ9bNXEh7n6NKwybOOZTqlxm1zGMv+JGQDkGihNzMxVOViYveQL+vR4+/SLbL7k
-	 yZ+nGRgE8+lk3izvSS+jxsbLmCmo7JRkzZOPJeSeWDQvVkOCLWuuS7MvAv59frQu10
-	 WHbdydez2ikJiB0FxpPkRuLPnwAmi9t3ebrIFneJqse6qS+boNZlphsRvVITCnmJjp
-	 mVh4BnFZtNlvA==
-Date: Wed, 16 Sep 2026 07:28:28 +0200
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Guangshuo Li <lgs201920130244@gmail.com>
-Cc: Oleksij Rempel <o.rempel@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, Gao Pan <b54642@freescale.com>, 
-	Fugang Duan <B38611@freescale.com>, Wolfram Sang <wsa@kernel.org>, linux-i2c@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] i2c: imx: disable autosuspend on remove
-Message-ID: <aqoolBhfLIG1hK8h@zenone.zhora.eu>
-References: <20260914091544.1667137-1-lgs201920130244@gmail.com>
+	Wed, 16 Sep 2026 05:30:46 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 16 Sep
+ 2026 13:30:39 +0800
+Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Wed, 16 Sep 2026 13:30:39 +0800
+From: Ryan Chen <ryan_chen@aspeedtech.com>
+Subject: [PATCH v3 0/9] Add Aspeed AST2700 SDRAM EDAC support
+Date: Wed, 16 Sep 2026 13:30:37 +0800
+Message-ID: <20260916-edac-v3-0-23e9ed2fbdf9@aspeedtech.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260914091544.1667137-1-lgs201920130244@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAH0pqmoC/2WMQQ6CMBQFr2K6tqZ8pLSuvIdxUdqHdCGQljQaw
+ t0t4MLE5by8mZlFBI/ILoeZBSQf/dBnKI8HZjvTP8C9y8xIkBSSKg5nLFfQUkAQ6rZm+ToGtP6
+ 1ZW73zJ2P0xDeWzUV67oHVEF7IBVccFFqTXAwpOuriSPgJtjuZIcnWyuJfkw6f03KplVONY3UZ
+ aXkn7ksywcacb//1wAAAA==
+X-Change-ID: 20260625-edac-8e960e02e7f7
+To: Stefan Schaeckeler <sschaeck@cisco.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Borislav Petkov <bp@alien8.de>, Tony Luck <tony.luck@intel.com>
+CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>,
+	<linux-edac@vger.kernel.org>, Borislav Petkov <bp@suse.de>, Ryan Chen
+	<ryan_chen@aspeedtech.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski@oss.qualcomm.com>, <stable@vger.kernel.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789536639; l=3666;
+ i=ryan_chen@aspeedtech.com; s=20251126; h=from:subject:message-id;
+ bh=jF7dS+LaTcmKJc441ec+O4pds9YXaUH8sdUjNr2plvU=;
+ b=0/mKUPlFexaPBkHdPMSrkgl29sOtUWm46rl23cLfpr3cBwWE3T8/LcqDcqxrWvmiM4Ah/4mJB
+ +IY3O7hbpExD5oCJNUgoKgsE/H34WRdeGxqs8nq+qLPWc0cvUGd+GAS
+X-Developer-Key: i=ryan_chen@aspeedtech.com; a=ed25519;
+ pk=Xe73xY6tcnkuRjjbVAB/oU30KdB3FvG4nuJuILj7ZVc=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260915_223044_668920_B5C9964F 
+X-CRM114-Status: GOOD (  17.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,36 +80,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Guangshuo,
+Add ECC error reporting for the Aspeed AST2700 SoC to the existing
+aspeed_edac driver.
 
-On Mon, Sep 14, 2026 at 05:15:44PM +0800, Guangshuo Li wrote:
-> i2c_imx_probe() enables runtime PM autosuspend with
-> pm_runtime_use_autosuspend(). The probe error path correctly undoes
-> this setting with pm_runtime_dont_use_autosuspend(), but the normal
-> remove path only disables runtime PM.
-> 
-> The runtime PM API requires pm_runtime_use_autosuspend() to be undone
-> with pm_runtime_dont_use_autosuspend() at driver exit unless runtime PM
-> was enabled with devm_pm_runtime_enable(). Leaving the autosuspend flag
-> set therefore leaves the runtime PM state incompletely cleaned up after
-> the driver is unbound.
-> 
-> Add the missing pm_runtime_dont_use_autosuspend() call to the remove
-> path.
-> 
-> This issue was found by manual code inspection.
-> 
-> Fixes: 588eb93ea49f ("i2c: imx: add runtime pm support to improve the performance")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+The AST2700 memory controller keeps the same overall EDAC programming
+model as the earlier Aspeed BMC SoCs, but uses a different register
+layout, a split interrupt status/clear/mask scheme and DDR4/DDR5 memory.
+Rather than fork the driver, the existing code is first tidied and
+generalised, then the AST2700 is added as one more per-SoC variant.
 
-merged to i2c/i2c-fixes.
+Patches 2-5 are bug fixes and cleanups to the existing driver. Patches 6
+and 7 rework the implementation to accommodate the AST2700. Patch 8 adds
+the AST2700 support itself, and patch 9 adds a reviewer entry for the
+driver.
 
-I applied this patch only because someone spent some time to
-review it.
+Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+---
+Changes in v3:
+- Establish the AST2700 interrupt mask in the driver rather than
+  deriving it from the register's contents: ast2700_set_irq() now
+  writes the mask outright, masking every source and unmasking only
+  the ECC ones, and the mask is established before the interrupt is
+  requested.
+- New patch: add myself as a reviewer for the driver in MAINTAINERS.
+- Tested on an AST2600 with CONFIG_PROVE_LOCKING=y; injected correctable
+  errors are reported from the interrupt handler with no lockdep reports.
+- Link to v2: https://lore.kernel.org/r/20260824-edac-v2-0-c8d8bb693586@aspeedtech.com
 
-Please, follow Krzysztof advice. group all the patches together,
-version them and add a changelog.
+Changes in v2:
+- New patch: free the ECC interrupt before the mem_ctl_info in
+  aspeed_remove(). The interrupt is requested with devm_request_irq() and
+  is only released after .remove() has returned, so edac_mc_free() could
+  free the handler's context while the handler was still running on
+  another CPU.
+- Acquire the register lock with the irqsave variant in init_csrows() and
+  in aspeed_probe(). The interrupt handler takes the same lock in hardirq
+  context.
+- Move the dev_dbg() of the interrupt status register out of the
+  raw_spinlock critical section in the interrupt handler.
+- Opt aspeed_edac.o into context analysis in drivers/edac/Makefile. The
+  check is opt-in per object, so without it the __guarded_by() annotation
+  added by the same patch was never actually verified.
+- Return IRQ_NONE from ast2700_dramc_isr() when no ECC interrupt status
+  bit is set; the handler clears only the ECC bits, so unconditionally
+  claiming the interrupt could livelock the level-triggered line.
+- Tested v2 on both AST2600 and AST2700 by injecting a correctable
+  error with the memory controller's ECC error injection; each is
+  reported as a CE with the expected failure address.
+- Link to v1: https://lore.kernel.org/r/20260812-edac-v1-0-03992edea297@aspeedtech.com
 
-Andi
+---
+Ryan Chen (9):
+      dt-bindings: edac: aspeed: Add AST2700 SDRAM EDAC
+      EDAC/aspeed: Set the DIMM grain
+      EDAC/aspeed: Free the interrupt before the mem_ctl_info on remove
+      EDAC/aspeed: Clean up whitespace and include ordering
+      EDAC/aspeed: Free the mem_ctl_info unconditionally on remove
+      EDAC/aspeed: Replace regmap with direct register access
+      EDAC/aspeed: Abstract SoC differences behind chip data
+      EDAC/aspeed: Add AST2700 support
+      MAINTAINERS: Add a reviewer for the Aspeed EDAC driver
+
+ .../bindings/edac/aspeed,ast2400-sdram-edac.yaml   |   6 +-
+ MAINTAINERS                                        |   1 +
+ drivers/edac/Makefile                              |   1 +
+ drivers/edac/aspeed_edac.c                         | 426 ++++++++++++++-------
+ 4 files changed, 285 insertions(+), 149 deletions(-)
+---
+base-commit: 5464985e42c04e335fb30e38fbc409c997db9bec
+change-id: 20260625-edac-8e960e02e7f7
+
+Best regards,
+-- 
+Ryan Chen <ryan_chen@aspeedtech.com>
+
 
