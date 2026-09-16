@@ -4,116 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EF18C88E5C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 05:03:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACF38C88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 05:12:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9y50VuB/l2kLa1542VqPbt/G57KIRr9fbdB6tbrEkBk=; b=CXJuA96mF4rdhyuOGFz44l2/Fk
-	macJrbDfp5r3yLX4Gm8lLKTexU0XF4AVCJjLnHXi6cdKrgsw2mkBpsyz8S/5guAQ0kSSR1ph7X2gP
-	M/O8YMQ1k11DPtWKst0a2jVDnKBVd87abd77VVRISmY7rjNc5edRwMlgO2wYe7GDpZL4v5suGHa1t
-	fEhuVB36XY33X+N+NnobFL9Xr8/O+ZNOgUYZGpEmtaF9H6De1m5D8SuBYFMMPb6dEVo7juOBt0Wsb
-	RsEtmz5OQ/3bD6CueyQGM3Cpx4B2opzbS/5UILvnWBpLJJwB7QCB+5auAYhihfQeKeDzTngWKMJIO
-	MpveLJdw==;
+	bh=EVAkoIa4qb/USGuXY22Fjfb1KpGXE+Xb86EIM7n4PT8=; b=bZIOwO0Hc+iwRYOWPENTXcmt3x
+	2t7T7WkeLQ++W9xDbGG2aWmqdS0w9LDiiweJRuSJbdw1i3xSxnx9qvOp5tjSLL6sn+TQKn4QUTO5t
+	4OY2UE9GRUz/wW6oRAzCH9Vok0bfmqU6yOUsijQyWRqddlZ3KTpdo0zzRXq2lsnjhJqNDF+6+pPS0
+	GZhG8ecXF5xyUt91yJUfq7GYG4N29VqwFs19ymQOcU2/h6/+NESdCbcdxVn1PjoMQ4YKkwzRFIw8r
+	yWloFT+QFavvlwYwD3XS3Zz3W6hlz4+dSmG4NKTZ+ZtaNJ1TG3XuOqxJR+p+zdNJRqtUVqyAMkSq+
+	A0NbJ28w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6hnm-00000008MSc-1mRM;
-	Wed, 16 Sep 2026 05:03:23 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x6hwe-00000008MwC-154V;
+	Wed, 16 Sep 2026 05:12:32 +0000
+Received: from mail-vs2-x10.google.com ([2a00:1450:4864:3a::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6hng-00000008MRb-0qUw
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 16 Sep 2026 05:03:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=9y50VuB/l2kLa1542VqPbt/G57KIRr9fbdB6tbrEkBk=; b=ag3L33WWm4LPrMldTm5DhM88gq
-	hisGAWTqjFgXO/76DrfudOrAy/5TrzGQTqqUbC7t/PjrUL0MeaNKHorqYE7exYLESsdnZDlJsy/+L
-	4EZMsMeVVJ1OO178Ab5ERkvqHth4Ot0DGO4xe35XnG2YT7sjBCT8FH/OX6iW35N+8AThBczvbX6Xh
-	8AKC615lbdlCak5AE/tF8w5soZ3KaK/yTai3en2a5fa5t/zYCcJEy3QxO0CRF8pIfk1gWDahq+YCR
-	wVzUhRc4dDs3wo/uACArXrW4TS9f076zFnPOy8MpnqOnndOz2E6kfdZ1AKWhmpnoelyME0khKTzFS
-	iyi3PvvA==;
-Received: from mail-pz2-x28.google.com ([2607:f8b0:4864:3b::28])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6hmB-00000007UNZ-2Knp
+	id 1x6hwb-00000008Mvg-39Y9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 05:03:14 +0000
-Received: by mail-pz2-x28.google.com with SMTP id 41be03b00d2f7-cc1cea34f01so495515a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 22:01:42 -0700 (PDT)
+	Wed, 16 Sep 2026 05:12:31 +0000
+Received: by mail-vs2-x10.google.com with SMTP id 71dfb90a1353d-5c67e52ff5dso357244e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 22:12:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789535548; cv=none;
+        d=google.com; s=arc-20260327;
+        b=mWT8TdKKHQTGSgI+jGUqQItaRbH5ABWzaQGfjelyTcwR3Ds0MBbhq8eXZ5uwgyEh3G
+         8Gd4W9jnrbjl3PMR+S5Np6/SF479ar4KuOaiNjXWLSvx0NBfToqQs9rvGfWQpVbP7kVf
+         LbDUhQp0PFFr+CBPZTobB5mxBZIDJmKnvnBO5LL+JK+SvzJHhUfzV29F6pcgEI+9/vfA
+         RPrDuiTEHN8qOyY2l3sssT0sEQno1uTFRLC3ydq+kXnZIbZC5QxR6kHsAkAOeT8Mk9Qb
+         GG1cG/t3EzufqgGAyv5PGFzhxTkVB7YNzTfXLWO1jdAVCiOGU9SsbitXEAPgc/ZH4I1e
+         q9vg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=EVAkoIa4qb/USGuXY22Fjfb1KpGXE+Xb86EIM7n4PT8=;
+        fh=m15ra3DnmNfolBm0mr+e5mI4EMNMXRqt+7+SPJBix0I=;
+        b=BmQ2fn1a2A/5GVueV95zdITWGIdPnrHuIr+ESp1WiMyc9XgrXlTKS/g9VtStY8pqMP
+         DziNIkjW+QejVdLe2AhKP+TabT1/bycN3Z/UXH9MVVrR+gtYUFrILbA/hkkP+OreJ0y7
+         LGjYQSvYFnaU1j9WJZDylWyt7SNsHPWCwlkJi4REHPxwikdS6QRNkTlQGQb2uM0qTA3I
+         MIMjVSz9IP4tNBDtPYImDCo85c9cmzYMxgugVAUHbwQoYjW3qEvpsRHuMkGuflKjYy7E
+         te7Yn+NywXBNC07eZxOfdqeRfmyJsODoECXd59c4T2P6288IuBBRdlAbAKGKzjNfxY0l
+         UvYQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789534901; x=1790139701; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=9y50VuB/l2kLa1542VqPbt/G57KIRr9fbdB6tbrEkBk=;
-        b=dhHct5a05ZJlXMbotd3fzvOb82n7FarnZSQ0Q/3DKwMWs8MhOGE+HpILbKAPeEnkVG
-         tGg9zPYf8T+F2mmY4hftLI0P/1kwU2PFC63NbMZS0KrLJ7YjptvoIqv1LPz38vzYKX2X
-         v+mE2kgFe53ktVLj1qMpcADrQ67bCTGnSXXkWAaSwhKIfMDseva+h1/A0R7oNuUPXvL0
-         AL5/zRxG5hPzDoD0u3dHIHLN0jZnCa0YA5lmbTLPqGUhrpOT2WJ5MXTJixSyOfq3zUw+
-         cOE5sJiGpT4Eu0gse7+zjSQ+vMoOCHkM0UQDcvHaZD6kheumKHUVStmthHe+ZnKqTeNR
-         o4HA==
+        d=gmail.com; s=20251104; t=1789535548; x=1790140348; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=EVAkoIa4qb/USGuXY22Fjfb1KpGXE+Xb86EIM7n4PT8=;
+        b=PglEFrUboMWufxH712V5AKC93AOvdpaMhEluseBlVczUckYCrRYPTxXODvWUdbw3r0
+         +bLPprvnrcMhlHblj++ayeh7hXZ3FvciBIqPdRIlQdPEebOHFl6Wqo7IL0jb2isVNtZl
+         pMUEH3WpmzrCdVss9LPxPUi3Z0UGHg03G9gVOdEojBd8ja6jWHf454cWzj4F1qlmNlvs
+         WXNksNJj0ZatVn4eh7zzFOn4GorVzfRXVfLs/gZ/8dX5fUyOMxH0RuWetm5Ngv5YLp1T
+         ljrlXi63guWppfP6twV2/vNhDQZkeiURALfAJqKvp6JQzIV//1eqn5FTI1ukqNSsLrzB
+         1DYg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789534901; x=1790139701;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=9y50VuB/l2kLa1542VqPbt/G57KIRr9fbdB6tbrEkBk=;
-        b=uTzud/W1dQHasH878REM5aKfmUeaBMDgaHgfyzUQyMAVdj0prb2taluJ3WmPY5rCBD
-         ZHzy/qFmwKEQEiDJSF2C1UrkGU1ry3SjRdrs9LHK2zDapNAZQarTicLtwEHrH7PUT25P
-         4iow+Ozw9XHYR+7SCzeMm7z/pipMmbKW3aazn7WMcWi80swxD91lurIw97aay1jaPcog
-         ZSg88gsJDpIThXhPsrrQzCThJoAhmNQJzCcubieDFteQyCkIcsqTZaueKeaUunO1RukH
-         UHHMzbaNTIL28JIvxsH1wKMpi2OTrTnIXkS3WUMX+qVGtTqtbNPntCtJC7hiX18ND4an
-         VQGw==
-X-Forwarded-Encrypted: i=1; AKwUvBwiV9dMBY1kpPG0z9V5MzexhyXBTzeRVSPYjuRepm6w62olbKoFp0vQUqu2u0fZV7/G888MEw1jxDnf7uT2a6Kt@lists.infradead.org
-X-Gm-Message-State: AFuF++nGNRH1Ts1MgIoKeI6UsEJiV9SsFE3QXMxERTwqWpA8DV2u4yzg
-	aD+4PkwoXYyB/hUzMqpiqZeMj12HwBVmn4PJSXFEeT6HA1fkNQDwqtl5
-X-Gm-Gg: AYBFou2qW3D5EtT1kaoiUKpG1J6y5WxQBESoWQ1AazLU4CXuoW9ovW6weu1ZS3/myMk
-	HDT3ly1/AfDkXcGPnz/gqZDjPBMky1v9T0azf26GRJivYvP/LIEoKINW5H/dXVacxWh/IArASFc
-	jglP75/4OiVr1Md1mPlF1ouKTxTNS0TnlmPg3Mtd7xS5402KLsp9NJ6UNUUeOodnzTE0gD+qOnH
-	Vq/KzJcXll/mZ6UCU3Zj7u7Lwo4PCZNtKBuZsjl6VfjsgmWFVDuQ1phmuEjlHzG8lcMvue2SpoB
-	wFN6r1v6qcUVjvAIpa5fq2Yrv+AvnoQEjfvaUEJ6Aew2y8Ndv0OZd4igmIB9WsSK32bY2yxiu9T
-	l/JMs4g41hrklEQ2VQvH9w7OrPgnUaST1HbJAROrxxN241/WLa5rdhPUdY5RwGRqKhNVauBGHiT
-	Om+lL97ZxYBLUtRe/Th8LgM0AwPEtbS1OA8Yd+uDw8to+NJiheMyj6fMVbVY/xpcyMcKABwd/bf
-	eLlrauLk2mgrHsBrEuYlTPa3wZMi7+bXjvi+RLkVydPh1lzOP0wjSwQRUMEU7GMgpPAJOy77R3/
-	glq23sOTQpLaSKk=
-X-Received: by 2002:a05:6a21:6803:b0:3da:e1b5:2baa with SMTP id adf61e73a8af0-3dd5f4041a7mr2929083637.2.1789534900789;
-        Tue, 15 Sep 2026 22:01:40 -0700 (PDT)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc50abb1776sm850589a12.27.2026.09.15.22.01.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Sep 2026 22:01:39 -0700 (PDT)
-From: phucduc.bui@gmail.com
-To: Mark Brown <broonie@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Cezary Rojewski <cezary.rojewski@intel.com>,
-	Cyril Chao <Cyril.Chao@mediatek.com>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	Dan Carpenter <error27@gmail.com>,
-	cassiogabrielcontato@gmail.com,
-	linux-sound@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH v3 12/12] ASoC: mediatek: mt8189: Validate TDM MCLK frequency
-Date: Wed, 16 Sep 2026 12:00:19 +0700
-Message-ID: <20260916050020.14575-13-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260916050020.14575-1-phucduc.bui@gmail.com>
-References: <20260916050020.14575-1-phucduc.bui@gmail.com>
+        d=1e100.net; s=20260707; t=1789535548; x=1790140348;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=EVAkoIa4qb/USGuXY22Fjfb1KpGXE+Xb86EIM7n4PT8=;
+        b=rLGp/+aTVzNgHsGyhZvxozAW5JN2B621HjEEJ3ntR2yLcJmsxhn5Okxy5BhBUp/NSF
+         sdF0WDy0ZiqDUIO1pTSgwGOLRe5oq2IEamY10E/j3+x0gcK7rW1ElSf+yozfvcY5cvAt
+         XyaMHD1XdZF7h4BwJM0P2yzrVGWcgX6ddFbyAscdycOfiI/OhvgDlxSuLyz738YMjNxz
+         nJiEARZelMIs1swApEQpoDIbyzf1Hwo5V/rVt/0qPTuKzcgF9NbzP9OqKdFEBn1e1xRS
+         SA5lvy2QLzW259e0SSehN0In0Uq9Hh/nKZ5uZZR5Ms+UF3uC1EGBlOfedrfe9OsW+fe7
+         1wig==
+X-Forwarded-Encrypted: i=1; AKwUvBzjaMtKpIW0qHvPM9e7qzjKe9SiwK0QUh6l5gwoF2PJi3A/1fH2kZCA582aPWrpo6CehAWgLTypACYLgBqcQkVV@lists.infradead.org
+X-Gm-Message-State: AFuF++kmGgfYi0TDIqY9Vk2w8TrtSiI0pa+ZM8Ks91A0VdOoGpz6RsIl
+	is8b+X/dGs1CcCWYZmy2FyDCsl3E+yuH0NFAGbrXcB3KWAI49OJWpzwOtukm8nFxE5WmXbLh63K
+	LNhyTBIW7Ihz/pD72ZzNVJ5uj1Nkda+w=
+X-Gm-Gg: AYBFou0FJHqePGPlnTANgPkAzTvsBB13mQ65rcAsWLSw2n7WWasqEsf+21BMCLlnTHN
+	sgA2j9FgbWDB192fGb5rv6HZjYeMJVm7wiOc2E7zaKiD478VKS8b1UHVQabWDBV9vLwhc4JY9we
+	lWg/DKTJmw8xkBAqCX9H+rY8aTSramhuVC9GyDTzjMHdr0o2Le5Hi4CMbLWmgtsn6gV8Fc4+pdT
+	9QlfBNn2uHPrab/4fcdY0BVRkLaLwjnEMCsFaWJDkBIhG0/VZoKJTlEULVvw61SrBluZnKZC+hZ
+	F4kUhoiA0oKJaXZUFqpG3WFkHWfP0snTqlLy/lsbDZza3ipXMUG+nUFCTa0cyBMo8f5i2+C/YKO
+	exw8sVz05kSYBQLZOp+6gF4os1U9iiECVOxteKZjoOx+qX72Sx008SJtqBUQfNiEFcEyOW0P47F
+	JUm0cUXY5P/jq91oLDdj380pDNJYKBFVWbDEeccm+ejurf
+X-Received: by 2002:a05:6102:38ca:b0:79e:caaf:de9 with SMTP id
+ ada2fe7eead31-7a02acc855amr1205112137.6.1789535548385; Tue, 15 Sep 2026
+ 22:12:28 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260916044119.475666-1-alastair@d-silva.org> <CAGb2v64HZoqBscyKTkTin6DnMv5_kZpBxoS+cm7aYy09pRc7hA@mail.gmail.com>
+In-Reply-To: <CAGb2v64HZoqBscyKTkTin6DnMv5_kZpBxoS+cm7aYy09pRc7hA@mail.gmail.com>
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Tue, 15 Sep 2026 23:12:17 -0600
+X-Gm-Features: AcwNN1UNecxTndtUibx9ggVDgut-WAi8ElAvEyyyzRhfanBmsu20NosAEZK33OI
+Message-ID: <CADvTj4qRMviM=KXinCKi657pVC_kj7Kt1yizW_EGDu4m7VKQFg@mail.gmail.com>
+Subject: Re: [PATCH net-next 0/4] net: Add Allwinner H616/H618 EMAC1 and AC300
+ EPHY support
+To: wens@kernel.org
+Cc: "Alastair D'Silva" <alastair@d-silva.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Maxime Chevallier <maxime.chevallier@bootlin.com>, "David S . Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_060154_864370_235C329E 
-X-CRM114-Status: GOOD (  10.87  )
+X-CRM114-CacheID: sfid-20260915_221229_822885_B7EA9B95 
+X-CRM114-Status: GOOD (  23.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,37 +128,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+On Tue, Sep 15, 2026 at 10:56=E2=80=AFPM Chen-Yu Tsai <wens@kernel.org> wro=
+te:
+>
+> On Wed, Sep 16, 2026 at 12:41=E2=80=AFPM Alastair D'Silva <alastair@d-sil=
+va.org> wrote:
+> >
+> > This series adds support for the secondary Ethernet MAC controller (EMA=
+C1)
+> > and the co-packaged AC300 Fast Ethernet Physical Layer (EPHY) found on
+> > Allwinner H616 and H618 SoCs.
+> >
+> > The Allwinner H616/H618 SoCs feature two EMAC instances: EMAC0 (typical=
+ly
+> > used with an external RGMII Gigabit PHY) and EMAC1 (Fast Ethernet,
+> > connected internally to the co-packaged AC300 EPHY). EMAC1 uses a
+> > dedicated clock control register in the syscon register space, which is
+> > accessed via an offset index in the DT syscon property.
+> >
+> > The AC300 is an integrated 10/100M (100BASE-TX / 10BASE-T) Fast Etherne=
+t
+> > PHY communicating over MDIO at address 16 + phy_addr. It requires
+> > retrieving factory bandgap calibration data from the SID nvmem controll=
+er,
+> > managing internal power rails and clocks, and optimizing transceiver si=
+gnal
+> > parameters.
+>
+> There is already a series from James covering the same thing. Please chec=
+k
+> the mailing list and possibly our wiki (linux-sunxi.org) to avoid duplica=
+te
+> work and subjecting the maintainers to the same discussions again.
 
-mtk_dai_tdm_cal_mclk() accepts zero or negative frequencies.
-Reject invalid frequencies before configuring the TDM clock.
+See:
+https://git.kernel.org/netdev/net-next/c/783f6f1fdcd5
+https://git.kernel.org/netdev/net-next/c/6cc2fbceb49b
+https://lore.kernel.org/all/20260915-submit-h616-emac1-v1-v2-2-322b32e40eb9=
+@gmail.com/
 
-Fixes: 9f202872ba04 ("ASoC: mediatek: mt8189: support TDM in platform driver")
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
----
-
-Changes in v3:
- - Add Angelo's Reviewed-by tag.
-
- sound/soc/mediatek/mt8189/mt8189-dai-tdm.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/sound/soc/mediatek/mt8189/mt8189-dai-tdm.c b/sound/soc/mediatek/mt8189/mt8189-dai-tdm.c
-index 9aebd0320614..e113c52fe06a 100644
---- a/sound/soc/mediatek/mt8189/mt8189-dai-tdm.c
-+++ b/sound/soc/mediatek/mt8189/mt8189-dai-tdm.c
-@@ -383,6 +383,9 @@ static int mtk_dai_tdm_cal_mclk(struct mtk_base_afe *afe,
- 	int apll;
- 	int apll_rate;
- 
-+	if (freq <= 0)
-+		return -EINVAL;
-+
- 	apll = mt8189_get_apll_by_rate(afe, freq);
- 	apll_rate = mt8189_get_apll_rate(afe, apll);
- 
--- 
-2.43.0
-
+>
+>
+> ChenYu
+>
+> > To ensure reliable link establishment and MAC software reset with the
+> > internal PHY, dwmac-sun8i is updated to defer MAC software reset until
+> > sun8i_dwmac_init() after the internal PHY has powered on and begun
+> > clock generation.
+> >
+> > The series is structured as follows:
+> > - Patch 1: DT binding for Allwinner AC300 EPHY.
+> > - Patch 2: PHY driver for Allwinner AC300 EPHY.
+> > - Patch 3: DT binding update for Allwinner H616 EMAC1 and syscon index.
+> > - Patch 4: dwmac-sun8i driver support for H616 EMAC1 clock index and
+> >            internal PHY deferred reset.
+> >
+> > Testing:
+> > - Tested on physical Mellow Fly-C5 hardware (Allwinner H618) running
+> >   Armbian with sustained 100Mbps full-duplex network traffic (DHCP,
+> >   iperf3, NFS rootfs).
+> > - Device tree bindings validated with dt_binding_check.
+> > - Separate SoC and board DTS additions will be submitted via the
+> >   linux-sunxi tree.
+> >
+> > Alastair D'Silva (4):
+> >   dt-bindings: net: phy: Add Allwinner AC300 EPHY binding
+> >   net: phy: Add Allwinner AC300 EPHY driver
+> >   dt-bindings: net: allwinner,sun8i-a83t-emac: Add Allwinner H616 EMAC1
+> >     and syscon index
+> >   net: stmmac: dwmac-sun8i: Add Allwinner H616 EMAC clock index and
+> >     internal PHY support
+> >
+> >  .../net/allwinner,sun50i-h618-ac300-ephy.yaml |  79 +++++
+> >  .../net/allwinner,sun8i-a83t-emac.yaml        |  14 +-
+> >  .../net/ethernet/stmicro/stmmac/dwmac-sun8i.c |  65 +++-
+> >  drivers/net/phy/Kconfig                       |   9 +
+> >  drivers/net/phy/Makefile                      |   1 +
+> >  drivers/net/phy/ac300-phy.c                   | 331 ++++++++++++++++++
+> >  6 files changed, 486 insertions(+), 13 deletions(-)
+> >  create mode 100644 Documentation/devicetree/bindings/net/allwinner,sun=
+50i-h618-ac300-ephy.yaml
+> >  create mode 100644 drivers/net/phy/ac300-phy.c
+> >
+> > --
+> > 2.53.0
+> >
 
