@@ -4,70 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BED2C982C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:06:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C356FC982C3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:08:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qlCJSKLUS9B63fmKa0acz9npjUMvdKnN6lO3guHAid8=; b=uBh7paYs129SQPt9UPh8RapK7g
-	gHJaA10adcNUkz5P/uRlIzd561hemqBMFJOmUXbMKS7mYzs1G2lzhV+rB+uCBe9MQzVipsZCHYY+K
-	sld+3LeCj7nf/udI0XkLi9oo2gnOX5JqZVp72keR9QF3i/DaKRqTTTklwTwWJ/Ya2vSjPhsxKPxYk
-	pXYYNes48sVIjXAG8y5oi3wT2cxzuZ2PJgwBPdW8qOLIGMSOsBrKhVEqgmJT9f4eOLhwrxtwMGmuV
-	zSCo8/+FLAMNEDxkeUkQkjOp/EljFrWqAmSyE9m3YWqYoKjdEHLAZqGdXoWKurgk8v6j7X7bbRjNA
-	Ry0OlgnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Fks/oUCAzR2TISL41k1Ym/4qnB2JZ6ihuZ03XwlY+UA=; b=T1vI2X/gUvUYx5vZ3+aXY2S/Yz
+	XK07O0B40FV9poiBML4FC5GJr5+TwF6zxIYigq5T9P+CTs2JN5Hw/UTwE4JoBPEe3Uy+n2r4GfmMB
+	cSF3Z5iOChuLwNVsWcJwAFvhF2m2vxL3JBWhMOd6gaYWSjyPpIw8UpJt8WyEggJeBk3bOitmPHMhO
+	p7azxVYaT5kbQzYf+baOKNDpLgj06GDXsBBZ222FN5nKZFxQCxgbpB/Otr457Y+NhaZDIxX8miGNd
+	wrpvN7gqNDtwRtA4waBB/F1/BRB8eO0PHOe+8rDdIhYNUnXx1uXK8IVrKGCzXtcWbsKNUjk8sfa4t
+	DfxPPDrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rCw-00000009V2l-1Tw7;
-	Wed, 16 Sep 2026 15:05:58 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1x6rFO-00000009VFx-0wED;
+	Wed, 16 Sep 2026 15:08:30 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rCu-00000009V29-1fQO
+	id 1x6rFL-00000009VFH-3DBI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 15:05:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=qlCJSKLUS9B63fmKa0acz9npjUMvdKnN6lO3guHAid8=; b=oN5thaAGSofYCg8N66dhpPqX3O
-	9KVghMxg+yCffRUadxPNqKnEsvMizdKky/aQ/PcTXbC4gWjD0jUQlJKNymPjarclSRq2ZnaLCaT93
-	1sgksytLC4JKdLrJbMe16FKNWf8Q1jfg6saOKLV9vfmuoILWw/295GYJFH7oVMXuImNc=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1x6rCe-005Uwr-IB; Wed, 16 Sep 2026 17:05:40 +0200
-Date: Wed, 16 Sep 2026 17:05:40 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Alastair D'Silva <alastair@d-silva.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-sunxi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>
-Subject: Re: [PATCH net-next 2/4] net: phy: Add Allwinner AC300 EPHY driver
-Message-ID: <18bb9de4-38bf-48ba-bb24-2b0564474945@lunn.ch>
-References: <20260916044119.475666-1-alastair@d-silva.org>
- <20260916044119.475666-3-alastair@d-silva.org>
+	Wed, 16 Sep 2026 15:08:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dNjUaPvgtQGZup0GzzfQRlA2mbCLk5BC54GahltZFdveE1mBVJUu2zbG/DckwO/uYeWrJtKbTEjO+WJkEwchsxkMgSGdaI6/e1GWHZhZM0N2BgP/qafHCUTcZI2ZMzqh9FbjlVuDDOYfRvaYO9F3pVFDEMzgQRaF2tLhy0SzfQ3S7PRUNRs8assPOV33FeUJGeJ8pCBzOsB0Fg23xrto1OorssRmDrGTkOjERF0ogJYoFmB5tWQN4euriQXTvVgyYPnU4T64khSvqtJ9XqZQnRDHdqVlgwg3JiIbqkfjFn80LhevtTOpF7LC1YLbz3FIDC4uijTTOTXPykid8/METw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Fks/oUCAzR2TISL41k1Ym/4qnB2JZ6ihuZ03XwlY+UA=;
+ b=axWlQ33E8B27TK9Orlp6B+H9WEPT7QAx46r7U2eqiJmkustgK2rN9QGvh1cqQ08mbbyH64xab4O05/HPICClvXFSYqOZvmVLc2Buu34tM1ajgtTbagPCd58yTt5W7SPqWnA8A5cw646ZU8JfGs1EC9DKrKzUzg5nN4l0miRO4zqZ/BTn40bOGRQikSS9Ol+XJzMNcSrciT9fFvJh4+NWSKWBYuWoqFclFnxhMXj5E2ZoceMHQdr3whaQW4EAV8BZa0Xm5FMWT3byvDmqG1bLld9ol1QhR3gAS3bsT4OOvxRqXrg91b4uRMQvhx5yofA2SDI9dg4YvrxpD2vtnNvU+g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Fks/oUCAzR2TISL41k1Ym/4qnB2JZ6ihuZ03XwlY+UA=;
+ b=qtYScvQOkSIGcHLpeuxJlaxiwuj1yfhjg1iDQVTA+FZkuUQatoO9md+Yfj4703LzZvD/q2/018YtAjbUqmUqgTEmOLe5UetSH4QhSm18wd3XPI4GVg6HF7b2H2gDBgku/FeYGwwJZY2sqQ4LgcMKLhKL6AWzSLUjEkh5ttUy5zC4onp6aY46FNC7B0pHJhsH54Z+gaGcARhL1pOwElE1JJlGRDCg+BpOW8HSKynep4nAoeKSF0Y1mo/gdZF55djOCuoM8CZEsWUqQTq+1YJV4ST1CYln0Ups/+ShNjZ+fOGN1QALTLvmu+PJlkwwpEyl4QYbkxzf9Zy4ZUs87xXmww==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
+ by BR2PR04MB921731.eurprd04.prod.outlook.com (2603:10a6:2c8:2::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Wed, 16 Sep
+ 2026 15:08:21 +0000
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0428.009; Wed, 16 Sep 2026
+ 15:08:21 +0000
+From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Subject: [PATCH RFC 0/4] iommu/arm-smmu-v3: Support shared Stream IDs
+Date: Wed, 16 Sep 2026 23:12:33 +0800
+Message-Id: <20260916-smmu-shared-sid-v1-0-517384504aee@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAOKxqmoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDS0Mz3eLc3FLd4ozEotQU3eLMFN1UEwuLNLNkkxSTNAMloK6CotS0zAq
+ widFKQW7OSrEQweLSpKzU5BKQWUq1tQCqtVBKeAAAAA==
+X-Change-ID: 20260916-smmu-shared-sid-e488f6c4d4f0
+To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+ "Joerg Roedel (AMD)" <joro@8bytes.org>, 
+ Jean-Philippe Brucker <jpb@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>
+Cc: linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+X-Mailer: b4 0.16-dev-7bc12
+X-ClientProxiedBy: SI2PR01CA0030.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:192::15) To AM8PR04MB7874.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24d::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260916044119.475666-3-alastair@d-silva.org>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|BR2PR04MB921731:EE_
+X-MS-Office365-Filtering-Correlation-Id: 165f23a4-9df0-4245-9187-08df140458b7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|366016|376014|1800799024|10067099003|11063799006|56012099006|18002099003;
+X-Microsoft-Antispam-Message-Info: fnFhUHAzV6lKqc+MN5IdyIafTUtajtyh27i0DvBXkrPIIQjyEOxz/IXISz0BIAuZEcW1O3esm5SkH8sJN/Zk0HgEXZ+OmVPPkqTsj/g6etPcOZuWps5aoOXq3rLL7Pppe9P6nkPzlCmnnGrZ6yWgHRQa3GAaTKbWbTOAIlvWUm01hW1ZZhMwXikfiZGIk9OeztIARLyN1A6I2rnytAmQh4NQxYkcdnSgEYNpH6zFECj0eACDDAykyoEIsfKs4VBT5zEiRcB1QIcXUQ7Dslg4msJxZwaeHg3OAv5SdRHdtxgSohoqLyinDgeKu/TRADXAa4tdd8q2PSBWtHPshiUbYmJQVi267O08gwUKe685Z1RK1KNKAtL2TPgUdOU9npaWaDvbjQYplscQvvWrHPE2PLKRFjlfpX8B6sIUjHLgy0HpJ4iy/jQ90UekRa5imjxuIpgjD0iTktoA+ftiSVU4xa4qRjvafFE3tBzoeJk7Hb6OEfvMB7o3+AsdzEs9eLAAxDr66OGapd6YXvdoBauBpBXb8RJy4raELY9/Bz55Ly7avpwP7deEpCVfznfpxsV74x2ctwihgC48Dgb6wfvQWGZ4NCGmfhRVmBhUROTdpMnqDtzLmfWqrAMh9mwo6Rnn08EuGPE4k5cjEuQBGTMD59t7htJhc5J6cVwmgLagVpU=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(366016)(376014)(1800799024)(10067099003)(11063799006)(56012099006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bmI1enVleW9aMDBUU28yeHVDblA2dWFUNnBOVzFzbFc0TUxUS29zTEdhblNJ?=
+ =?utf-8?B?TFMzby8yZ2pvWldjTll5NUFIL3dyN0pBM21SbFI4VDYwSDh2bVRtdmJDWmFM?=
+ =?utf-8?B?WHozeURnR1NHa0c3cmNTU2ZRYXlhMGVDUnBFMGp0SVp4TGZmUnlBdVN5Nnds?=
+ =?utf-8?B?UjZyUEhTTEdjWDNIVmpxOXVRTHU4MFNCbi8rSkZ1TUp4V2JFMm5Va1VnOUxK?=
+ =?utf-8?B?a3VzTFJNUmJKZjhpbUZJalNIb1BHeVFvMVZWR2lVaUlaTWpUd1ZVQVY1MlZi?=
+ =?utf-8?B?VXJ5WTZNK1VLaWorQ2xMSjh4dFpMb1JDR3FORkZmb3J6eXNuQ1RNSFNkUjNa?=
+ =?utf-8?B?VlBsOFdTcE95ZU84ZHc4ZTRCMGtmOG1pUmVkckM5ekIxMHJ4TkxidmxYbk5n?=
+ =?utf-8?B?ZjF6dzhoTDhCVXA3Q0Z2MkdJSy9uZmNPM0JSanpHK3gwdHFhd2p5VW8ySXZQ?=
+ =?utf-8?B?eTI2K2FjS3lxWXhRRDR2WnBiaHhLM21LaUltWGdPUjZOVVphcTZWYTc5OC94?=
+ =?utf-8?B?UFZKdEV5eVFzMXlmclR5WmliM0p2WkVDdDBqbS9sZDVFY3JYaEtSbERPQ3Fm?=
+ =?utf-8?B?VEJZRll3eGhBbUkzTzhJNExhQXVvL0NqZnZBOXlsa20vT1FWcUxPWHk3OUVl?=
+ =?utf-8?B?cXBKcklZd1Y1MnRoNDZvcTRidEdKNjVJNkQ0N1BIWlFaWTF6OEZzRC9KZ080?=
+ =?utf-8?B?dVdrOUh1MWdzdGUyMlRSV1FIMXUxcFp1TkxnbVo1clMyVUtXeCtrcVlQRWZh?=
+ =?utf-8?B?ZzBLR2tLR0pmelc3N1hObFpma1dUaVRpZGJQZHNKYS9IZXkxSTVneHhVSWE2?=
+ =?utf-8?B?RnFiSDVPTWJBNVBCN09WTE5UVm5kbEk4endoYnNlaXZQeXBMREZUS2Fla1ZQ?=
+ =?utf-8?B?b0ErWnprcDZFdlJYR1k3SkUzTGNodDZGUWxiOTRET2FGa2Z0a3ptNHlvSWtw?=
+ =?utf-8?B?a3B3Ymg5ZGp0aW5JNEFJdGE1WjFqMWR2bUJFSUZtVDk1NTJ2YklJa2NTOTBY?=
+ =?utf-8?B?ZERWQmJHZGRPYU9aU3UrUFNpL3BIWG1wSHZqdFk4V1E5RnozcDcxVFVwaEtK?=
+ =?utf-8?B?blFEanFqSElCT0wrZytkbkZsRE5uWGdtbkt6b3NSZzdMRFB5R281WTlCSXl3?=
+ =?utf-8?B?WEFLRTJZUmRLTW1OZGQ5UTgzREVHcjBHNUxFMlNGUVlTcHc2SHR2SFFQdHdr?=
+ =?utf-8?B?N3hxU2lsVGRUdW1iMUVjVHl6MzA0OCtYeW5OUHdPNytrczNzYkNhQXdlcGxQ?=
+ =?utf-8?B?amZ6UkdvS2J3VVlMV043enFPbytTdFdvL2loQjBFcmFFQlkzaUZqNDJqWVZ5?=
+ =?utf-8?B?aHZaMXVBeC9pdUVXU2FkQ3dWZzVhSUFnNVZLUjIyNUcxMHNpOVNsaGRBa0p0?=
+ =?utf-8?B?Mi9uazllSzR6S2V3Q0dyYzZoTWhrMTNRaURyMVZRY1QxSVF0ZG5VUjJKL2Vj?=
+ =?utf-8?B?Qm5rcGFGU1g4dkVqUVhHSDZ4bDBYdTVoNVYrTWRLVjdod3podVJtdkdFdmE3?=
+ =?utf-8?B?WXFiUUNaeEtuaWo5a3lPbU9lem5FQkFKcVVyWGZvekRSNDFRNXhueDAzeWRX?=
+ =?utf-8?B?SWdwcGVRTzZiMmpiUVY0Y08yNkJ6M3Q2ZXdmZVBkYTdtRkZGSW1UTy9qUC9t?=
+ =?utf-8?B?cEJlODlVTnI5L3g0QlpqYzEwb1ZYZUZQZXF1WThsbS9ZeFd4VXg5MnlEK3Ez?=
+ =?utf-8?B?NXBJWUg4ZGJnSVp6NVFLV3RIend2b1R2M0NxNHhKc0N3ZDl5QURCTW5uaHFN?=
+ =?utf-8?B?b3hiRWNvdTByZGZuWHU4eTRsbVFtdHpDcUlvNkZzY2hWbjdlOHJOZVZ4KzJv?=
+ =?utf-8?B?cEZWRVFNMU9PMytVVmZVYWNJS25pODJTZWR4MHgvSTBCbzVEaDIxVlhaZGdq?=
+ =?utf-8?B?K3ZvMnNCbGdLVHA2dHVOd2F4bzFZM2FNWUJMNFk5QkpWbGRzaUlwdXc1bDhn?=
+ =?utf-8?B?Qmd6ZzJpNXRHdnVEWXo1ZmxyRU01SU1CMitKVUw4RGZZMFZxc1BraituZjR0?=
+ =?utf-8?B?Ti9rUTNIWmdCMVRIYzFzWDhzbitadVdvZC85SlZNOWFhNVFETk96WW5GZWVz?=
+ =?utf-8?B?MHJYelBSUWtQeklKcmRxZnVnMkV3TkJiVFNaY0FyZDlXbDJBelF0UDBTa0U4?=
+ =?utf-8?B?N1k2cklSQitRR0piQ2ludEQxV0g0N2w1b0NKU0FhQ01hOUU3L0piRlJjRG9C?=
+ =?utf-8?B?K2VmZXR1V29TeTFyS0lZZ3EwQTNXTXgweTI1ZEdHZUtuT1FzS09FaHhRMmRy?=
+ =?utf-8?B?RGM3UEs4b0lzM0dMUDNpWVdySUFRM0NhL0NuUmg5d3ZaTWVuWjBIQkUzb0dt?=
+ =?utf-8?B?V095Z1BkQXQxWmxvYlYzWlgrNW9TcU52R0RjWm9Uayt1RnpXeVQ3VEFqdUxJ?=
+ =?utf-8?Q?OhpI3mrm7iS0NmK0ieIaZ+9gMxItC9MD8YVaK?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 165f23a4-9df0-4245-9187-08df140458b7
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Sep 2026 15:08:21.2975
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: jQJpSZvozm+BDY18v2cKYv16R1x3MmgoWPMCInZF5lnK589owiqrjB6Ix6fngZWCOyX8BVBFu0Yv3+57v1vX907sB2zuOHZTGFhlX7ig/e4YcuKhSh8Sz/2fWOcN2vTT
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BR2PR04MB921731
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_080556_436136_4CA40389 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20260916_080827_852783_5F45A9DD 
+X-CRM114-Status: UNSURE (   9.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,58 +151,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +static int ac300_phy_config_init(struct phy_device *phydev)
-> +{
-> +	struct ac300_phy_priv *priv = phydev->priv;
-> +	int ret;
-> +
-> +	/* Write page-based EPHY transceiver and signal path optimizations */
-> +	ret = phy_write(phydev, 0x1f, 0x0100); /* Switch to Page 1 */
-> +	if (ret)
-> +		return ret;
-> +	ret = phy_write(phydev, 0x12, 0x4824); /* Disable APS */
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = phy_write(phydev, 0x1f, 0x0200); /* Switch to Page 2 */
-> +	if (ret)
+Some SoCs have a limited number of IOMMU Stream IDs (SIDs) and
+hardware that inherently shares them. For example, the NXP i.MX95
+eDMA controller has 64 channels where each TX/RX pair is assigned
+a single SID by the hardware - the two channel devices are distinct
+from Linux's perspective but present the same SID to the SMMU.
 
-Please implement .read_page and .write.page in struct phy_driver.
+The current ARM SMMUv3 driver rejects this with:
+  "Aliasing StreamID unsupported, expect DMA to be broken"
 
-> +	/* Disable 802.3az EEE */
-> +	ret = phy_write(phydev, 0x1f, 0x0200); /* Switch to page 2 */
-> +	if (ret)
-> +		return ret;
+I took comments in [1] and implement this patchset and only want to
+support a very simple case that multiple platform devices share one SID.
 
-Is it broken? phy_disable_eee()?
+This series adds support for multiple masters to share a single
+SID, allowing per-channel DMA devices behind an IOMMU without
+requiring one SID per channel.
 
-> +	return phy_clear_bits_mmd(phydev, 0x7, 0x3c, BIT(1));
+Patch 1 converts the streams RB tree to an XArray for O(1) SID
+lookup, simplifying duplicate-SID handling.
 
-MDIO_MMD_AN, MDIO_AN_EEE_ADV.
+Patch 2 adds reference counting to streams so that multiple
+masters can share a SID. Insert increments the refcount; remove
+either transfers ownership or decrements. A per-SID linked list
+tracks co-sharing masters.
 
-With those magic numbers replaced with macros, i then have to ask what
-is going on with EEE.
+Patch 3 places devices that share a SID into the same IOMMU
+group, ensuring they share a single IOMMU domain.
 
-I also hope you see why magic numbers are bad and should where ever
-possible be replaced to meaningful macros.
+Patch 4 wires up STE write ordering (first master writes, last
+master tears down) and gates features that require unambiguous
+SID-to-device mapping: SVA, IOPF/stall, and vSMMU nesting are
+disabled for shared-SID masters.
 
-> +	/* Read calibration data from NVMEM/SID */
-> +	ret = nvmem_cell_read_u16(dev, "calibration", &priv->caldata);
-> +	if (ret) {
-> +		if (ret == -EPROBE_DEFER)
-> +			return -EPROBE_DEFER;
-> +		dev_warn(dev, "Failed to read EPHY calibration (%pe)\n", ERR_PTR(ret));
+[1] https://lore.kernel.org/linux-iommu/DU0PR04MB94172CB3F138AD39E9B6DEEF887F9@DU0PR04MB9417.eurprd04.prod.outlook.com/
 
-Take a look at dev_err_probe().
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+---
+Peng Fan (4):
+      iommu/arm-smmu-v3: Convert streams from RB tree to XArray
+      iommu/arm-smmu-v3: Support shared SIDs in insert/remove_master
+      iommu/arm-smmu-v3: Group aliasing devices into the same IOMMU group
+      iommu/arm-smmu-v3: Wire up shared-SID STE ordering and feature gating
 
-> +static int ac300_phy_match_phy_device(struct phy_device *phydev,
-> +				      const struct phy_driver *phydrv)
-> +{
-> +	return of_device_is_compatible(phydev->mdio.dev.of_node,
-> +				       "allwinner,sun50i-h618-ac300-ephy");
-> +}
+ .../iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c    |   4 +-
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c    |   7 +
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c        | 265 ++++++++++++++++-----
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h        |  34 ++-
+ 4 files changed, 247 insertions(+), 63 deletions(-)
+---
+base-commit: e6e35979777d646fe3c7c94dca7dd32fb25d45f4
+change-id: 20260916-smmu-shared-sid-e488f6c4d4f0
 
-Why?
+Best regards,
+--  
+Peng Fan <peng.fan@nxp.com>
 
-	Andrew
 
