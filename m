@@ -4,62 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20F75C982C1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 16:39:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAE52C982C1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 16:42:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qbUkCe6/Hy5YMIMHuDCsF2qVBQnZjqVmCyW7U93VnXM=; b=U7P4fisjI+c+A1qQ/OnXErlZRH
-	oIU90XzU60EGkAEyQy6ZtoLcwfcXiOXqvDUeAkTO9XsKwARMRKg2vWrrLR3lkUYAQhagYAzyB18Qu
-	d/jLn5j/SP9tZgFmbm6WXIRZU4260929MJKS8d5KQn1+DYKGoXl5buNLqHl2IxJGMEUbBUvL1MNTj
-	OYhjVUL6VRJK040Nre3goUAEAOId+/4wkWcMGIcYsqyg/NGP7Ty5PuKmOtgNgRJpV/eAPBAxKbjZ7
-	WTD1VIXAPx6I4GNd/upEpJ+8do3is2H7gbz1PXO2zIDIxhm/lKouU62EZgFOI07bNDY6JmbfpnEuq
-	DBRgdQhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aon2dbJnCr/S2AeRAdi+xJK6D/wc/t0gWjIMopRk3mY=; b=x8FEx09vhhGxytyz9MkAdTIFQX
+	45bc8PmtJON7VLZgWOfH+tbcn5iMZtBc/s8NJCyIAkA6LFOemsDv8V8kj+T4IGXO0xmgLDFf/4PEy
+	Vyfxh9laRy2QXsvcMKMneJXYsRaT3eXf0Fu+5keFmgbgvrpGOe1/hC3wEPboWDnrEhuTjIUsix6DO
+	yTq0eL0Wf8Pyp50EaoriyewN7ZY58iIAMg5Nxn1bUMD9T7J/3ipyhT5+EwOWYTBTPkK6TAsPcVlwX
+	vNqfC1zBN+8BbgwUt2XVPH0B1wAHGcbXpCu1TDUXmQb3fys+tXXeWS+Ulbu93QNCs1ktfQpORichi
+	4TEp2N1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6sfX-00000009lNk-0cy1;
-	Wed, 16 Sep 2026 16:39:35 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6sfT-00000009lMv-4A0M
+	id 1x6si7-00000009lm6-2f4J;
+	Wed, 16 Sep 2026 16:42:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x6si6-00000009llo-1B3X
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 16:39:33 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8B9A41516;
-	Wed, 16 Sep 2026 09:39:26 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8E2973F7B4;
-	Wed, 16 Sep 2026 09:39:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789576770; bh=tpRIZijp9OVz8xJ1EeL+tPf3ChFeQoiLXmvmWlNF4Eg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VTTpRpO/bXvOGdJEE2whk8i4bgjlyM4Oe4CK8N8HAJRuPmsS+tN8MXN42RXbgm3Sc
-	 f6K3/OxKnrKjaSuMPpqKf/X+YxnbfWi+9aQ4r9mef1QEHKjGlliCtpz9+wMnNi2U8l
-	 fztfrqPEyKMI4cNjC0OP4zktopb5mSoOGIwd3hPw=
-Date: Wed, 16 Sep 2026 17:39:24 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
-	will@kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
-	aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
-	joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
-	linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
-	sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
-	WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
-Subject: Re: [PATCH v18] arm64: mm: Handle Granule Protection Faults (GPFs)
-Message-ID: <aqrGPK0lFBFXL2qY@arm.com>
-References: <20260913070459.2547407-1-suzuki.poulose@arm.com>
+	Wed, 16 Sep 2026 16:42:14 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 51FD6601FD
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 16:42:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 086841F008A1
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 16:42:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789576933;
+	bh=aon2dbJnCr/S2AeRAdi+xJK6D/wc/t0gWjIMopRk3mY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=LmpZX2of13S/6KVObhaOb4/ezUF9BOl2ZBn3oI+UabvrNP/MuVjZlkdwzKswKJ0YT
+	 2frPNdkEs75UvwL05GEhlIm+sbYW0bZreMufLpWKG1yETNfWd7mhq/JF9x3Ez/5j2K
+	 IYpigV1vdVaVCP9oAG0o2FjlWOqy+haqutQrjyDDyJMMYbCmeqXwR8QENib2V1MiFg
+	 jSP3a9KwW0n5G/yqqY6Er7YYCqMbHnfepVGakNrssd1Wmcrkk69kyYW7bSTqpTGyia
+	 hBdw03sEpx7SgY97mKseZouE+w3i66pVKCgef0VVnuE/WL6XLy6CxoWmOoMDZutD+R
+	 OqvlKsrOun1qQ==
+Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b74dbc7359so1135772e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 09:42:12 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwQ4FgyZbGhDHxkIVkPCsdica3JUfOfrLtG3/jwqJ7PQya62hL44wtfRodQ/58vGaUvwzg6H26qPYDlPQVSb/E7@lists.infradead.org
+X-Gm-Message-State: AFuF++kWJgZmCn+WGTS2dZA7Ng5LXJ54G1yFVAWuB+zMLjhbqJF7+kZM
+	k3jJBQOGgFP0pywKD27H9ETzafSy9Lcz7Qg4sop135JWSK2nQ3kPBGIbnqd0HyBgjZeUKhxJfUo
+	0dkWt6MXVVv5dJxGFScxRJ5KAMzkv3xM=
+X-Received: by 2002:a05:6512:3188:b0:5b6:1a7c:59c8 with SMTP id
+ 2adb3069b0e04-5b8b6643a5bmr963863e87.34.1789576931685; Wed, 16 Sep 2026
+ 09:42:11 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260913070459.2547407-1-suzuki.poulose@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_093932_116043_1E134AD5 
-X-CRM114-Status: GOOD (  30.77  )
+References: <20260905080235.33785-1-kmehltretter@gmail.com>
+In-Reply-To: <20260905080235.33785-1-kmehltretter@gmail.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Wed, 16 Sep 2026 18:41:56 +0200
+X-Gmail-Original-Message-ID: <CAD++jL=U6TmJm8ALpv8m78XC2wvCFqQDbto7UcSLoZ9udJ7vMA@mail.gmail.com>
+X-Gm-Features: AcwNN1Xzz7Vr8iQ0kYrCMzI5XzKo9WytuY39-tP1Q1YM7-T14r0eH_M3K4Ta9tk
+Message-ID: <CAD++jL=U6TmJm8ALpv8m78XC2wvCFqQDbto7UcSLoZ9udJ7vMA@mail.gmail.com>
+Subject: Re: [PATCH] pinctrl: stm32: Drop the nonexistent CONFIG_MACH_STM32MP25
+ from the STM32MP257 default
+To: Karl Mehltretter <kmehltretter@gmail.com>
+Cc: Antonio Borneo <antonio.borneo@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, linux-gpio@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,98 +82,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 13, 2026 at 08:04:58AM +0100, Suzuki K Poulose wrote:
-> From: Steven Price <steven.price@arm.com>
-> 
-> If the host attempts to access granules that have been delegated for use
-> in a realm these accesses will be caught and will trigger a Granule
-> Protection Fault (GPF).
-> 
-> A fault during a page walk signals a bug in the kernel and is handled by
-> oopsing the kernel. A non-page walk fault could be caused by user space
-> having access to a page which has been delegated to the kernel and will
-> trigger a SIGBUS to allow debugging why user space is trying to access a
-> delegated page.
-> 
-> There is work in progress to unmap the guest_memfd backed private pages from the
-> linear map. Until we get that support, we could get spurious GPFs from within
-> the kernel, e.g., load_unaligned_zeropad(). So, try to fix them up for now.
-> 
-> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> ---
-> Changes since v17:
->  * Pass untagged address to die_kernel_fault() - Sashiko
->  * Explicitly check !user_mode() for fixups - Catalin
->  * Switch to BUS_OBJERR for si_code from SI_KERNEL - Catalin
->  * Clarify the commit description about the upcoming work on
->    unmapping guest_memfd backed pages from linear map
-> Changes since v16:
->  * Update the commit description to indicate why we try to fixup GPFs
-> Changes since v10:
->  * Don't call arm64_notify_die() in do_gpf() but simply return 1.
-> Changes since v2:
->  * Include missing "Granule Protection Fault at level -1"
-> ---
->  arch/arm64/mm/fault.c | 30 ++++++++++++++++++++++++------
->  1 file changed, 24 insertions(+), 6 deletions(-)
-> 
-> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-> index 75c3e463df2ef..dc3a87902a60c 100644
-> --- a/arch/arm64/mm/fault.c
-> +++ b/arch/arm64/mm/fault.c
-> @@ -914,6 +914,24 @@ static int do_tag_check_fault(unsigned long far, unsigned long esr,
->  	return 0;
->  }
->  
-> +static int do_gpf_ptw(unsigned long far, unsigned long esr, struct pt_regs *regs)
-> +{
-> +	const struct fault_info *inf = esr_to_fault_info(esr);
-> +	unsigned long addr = untagged_addr(far);
-> +
-> +	die_kernel_fault(inf->name, addr, esr, regs);
-> +	return 0;
-> +}
-> +
-> +static int do_gpf(unsigned long far, unsigned long esr, struct pt_regs *regs)
-> +{
-> +	if (!user_mode(regs) && !is_el1_instruction_abort(esr) &&
-> +	    fixup_exception(regs, esr))
-> +		return 0;
-> +
-> +	return 1;
-> +}
+On Sat, Sep 5, 2026 at 10:02=E2=80=AFAM Karl Mehltretter <kmehltretter@gmai=
+l.com> wrote:
 
-We discussed briefly offline. With the latest patches around, would we
-ever end up with private memory mapped in the VMM and hence the GPF? If
-not, I would still keep this handling but add a
-WARN_ON_ONCE(user_mode(regs)).
+> Commit 619f8ca4a73d ("pinctrl: stm32: add stm32mp257 pinctrl support")
+> made CONFIG_PINCTRL_STM32MP257 default to MACH_STM32MP25, following the
+> MACH_* pattern of the arm32 entries above it, but no Kconfig symbol of
+> that name exists and git log -S finds no Kconfig file that ever defined
+> one: the STM32MP25 family is arm64 only, where CONFIG_ARCH_STM32 covers
+> it. Commit dba0aff2b89b ("pinctrl: stm32: Allow compile as module for
+> stm32mp257") added "|| (ARCH_STM32 && ARM64)" next to it, so the first
+> half now evaluates to n and changes no configuration.
+>
+> Drop the first half.
+>
+> Fixes: 619f8ca4a73d ("pinctrl: stm32: add stm32mp257 pinctrl support")
+> Assisted-by: LLM
+> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
 
-However, can we end up delegating a non-guest_memfd memslot page as
-protected?
+Patch applied as nonurgent fix.
 
-I played a bit with codex and it reckons it's possible if a guest_memfd
-memslot is deleted after its IPA range has been initialised with
-RIPAS=RAM. Removing the memslot unmaps and undelegates any data pages
-but leaves the RMM state as RAM. The VMM can then install an ordinary
-memslot over the same GPA range.
-
-A subsequent private-IPA S2 fault sees the non-guest_memfd slot, takes
-user_mem_abort(), GUPs the user page and passes it to
-realm_map_protected(). The userspace mapping remains present, so a later
-EL0 access can generate a GPF.
-
-What's worse, I think it can even trick the kernel into doing a memcpy()
-access (via GUP). Hmm, does such ordinary slot page even remain pinned?
-There are other kernel parts that could access it.
-
-I don't think it changes this patch but if the above is possible, we
-should definitely get it tightened on the other series (and here we can
-add the warning).
-
--- 
-Catalin
+Yours,
+Linus Walleij
 
