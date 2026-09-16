@@ -4,28 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66BA2C982C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:15:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 500DAC982CE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:15:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4JnE2mYQ6aIccqmVyqw7jqDQIjCMOYMPfE0PgAcBbb8=; b=wgJFYeHq3kwIfw0YITdf0Ft91v
-	roz9Bjv3ZKEetKqRUAf85HYM/441JGFepvMfNPtQzSpwb/YPdTGrZdz+TL42spP47MVmCEC+4KGSZ
-	SgFYc/KBJ6qMXMnjLXHkVipz2Y6NzyHx8CuMqnttP/LZlypShNc2pQIHEN8c+EPIVNJGWQzb+QeYo
-	mIQ2qRSaQ4xFCjHHP8SYHh9wxNdGNL5Pbj7Uay/TD0XHZmUUos9GrdcaCi54Hq8ugyclQd+/uXRKF
-	NKn5XSHzGzdXodN/aqR+b3rBFT+MvDF03lSTufVMHVtP/d3NsZt3pXhceLPAbgr8ufX1oetBMVhSi
-	ibtRvjsQ==;
+	bh=k6cF3RUNu03d987n+mVm/Clu96dbsoels6F+e/WqMKk=; b=FA95xtD57/Z+lflYrLcMyY+Fl5
+	7RAPcgyYxPJrzfVWJaEjCJAQbFke0/g5khvwgyXy9zV3n9s/nSrEYQG+sI6NSfmkQXlY/NmFTdm4g
+	0kv126WGmx+eTkoWxvOSNSSm6Pf5rF5fTg9LM1qzNIBKMq9JnzMl/kikukp1RQRpQtDZE3rAaMHTS
+	covrMzRjFW9AdwmQFtpJ8n+K0VFfGeU2Zk7QfuxTQ5lXTQ5iUTAzRmwkembd8JC5XeHcisWnviMlk
+	iRww+ZETg4ibFYDWJZv4GsTGiLPU2867ZtHNgOYh/X/DPdKU/+T40N6cbGLNvMqkHryoX3ANNtOA4
+	edYWF+nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rLs-00000009Xk3-1rJr;
-	Wed, 16 Sep 2026 15:15:12 +0000
+	id 1x6rLr-00000009XiO-3J7z;
+	Wed, 16 Sep 2026 15:15:11 +0000
 Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rLj-00000009XdI-3fO8;
-	Wed, 16 Sep 2026 15:15:05 +0000
+	id 1x6rLg-00000009Xc4-2rzG;
+	Wed, 16 Sep 2026 15:15:03 +0000
 X-PTX-Original-Recipient: ezequiel@vanguardiasur.com.ar
 X-PTX-Original-Recipient: jacob-chen@iotwrt.com
 X-PTX-Original-Recipient: mchehab@kernel.org
@@ -42,21 +42,21 @@ X-PTX-Original-Recipient: s.pueschel@pengutronix.de
 X-PTX-Original-Recipient: m.tretter@pengutronix.de
 Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
 	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id EA247205A08;
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 8F694205A02;
 	Wed, 16 Sep 2026 17:14:58 +0200 (CEST)
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
 	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.96)
 	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1x6rGm-001Fsx-1G;
-	Wed, 16 Sep 2026 17:09:56 +0200
+	id 1x6rGo-001Fsx-1s;
+	Wed, 16 Sep 2026 17:09:58 +0200
 From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Date: Wed, 16 Sep 2026 17:09:55 +0200
-Subject: [PATCH v2 14/17] media: rockchip: rga: move video device to the
- master
+Date: Wed, 16 Sep 2026 17:09:58 +0200
+Subject: [PATCH v2 17/17] media: rockchip: rga: schedule jobs to multiple
+ cores
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260916-spu-rga3multicore-v2-14-23aa2cb74e61@pengutronix.de>
+Message-Id: <20260916-spu-rga3multicore-v2-17-23aa2cb74e61@pengutronix.de>
 References: <20260916-spu-rga3multicore-v2-0-23aa2cb74e61@pengutronix.de>
 In-Reply-To: <20260916-spu-rga3multicore-v2-0-23aa2cb74e61@pengutronix.de>
 To: Jacob Chen <jacob-chen@iotwrt.com>, 
@@ -71,8 +71,8 @@ Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
  =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_081504_213370_203F9331 
-X-CRM114-Status: GOOD (  23.35  )
+X-CRM114-CacheID: sfid-20260916_081500_886355_D3987B8D 
+X-CRM114-Status: GOOD (  18.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,205 +87,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the video device allocation and registration to the master
-component bind function in preparation for binding multiple cores
-to the master. Moving it to the master bind function allows to
-only register the v4l2 device when all cores have been successfully
-bound to the master device. This also causes the video device to be
-bound against the master platform device instead of a specific core.
+Schedule jobs to multiple cores to utilize all RGA cores. To avoid race
+conditions when selecting the next free core a dedicated spinlock is added.
 
-As v4l2_device_register sets the drvdata (if it hasn't been set) to it's
-v4l2_device struct pointer, v4l2_device_unregister also zeroes it if the
-drvdata matches this pointer. This creates a problem, as the driver
-allocates it's main rockchip_rga struct during probe and sets it as it's
-drvdata. As the v4l2_device struct is the first element of the
-rockchip_rga struct, it has the same pointer than the rockchip_rga
-struct. Therefore v4l2_device_unregister incorrectly assumes that it has
-set the drvdata and clears it. This causes problems, as unbinding a
-core will unbind the master component, but not remove it. Therefore when
-adding the core again, the master component will be bound again and
-tries to access an NULL pointer.
-
-As the rga core binding expects the rockchip_rga struct to be fully
-initialized, bind the cores as the last step of the rga master bind.
-This also avoids a potential isr to hit just between the core bind and
-the actual initialization of the m2m device.
+Note that this doesn't increase the max frame rate of a single
+stream, as a context will wait for the job to finish before starting
+the next device_run call.
 
 Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
 
 ---
 v2
-- unbind components in the error handling of rga bind
-  (https://sashiko.dev/#/patchset/20260606-spu-rga3multicore-v1-0-3ec2b15675f7%40pengutronix.de?part=11)
-- Bind cores at the end, as they expect a fully initialized rga struct
-  (https://sashiko.dev/#/patchset/20260606-spu-rga3multicore-v1-0-3ec2b15675f7%40pengutronix.de?part=11)
-- Fix v4l2_device_unregister clearing the drvdata set on probe
+- Set core->curr to null first in pm_runtime_resume_and_get error path
+  (https://sashiko.dev/#/patchset/20260606-spu-rga3multicore-v1-0-3ec2b15675f7%40pengutronix.de?part=15)
+- Also protect adding/removing cores with the spinlock in bind/unbind
 ---
- drivers/media/platform/rockchip/rga/rga.c | 109 ++++++++++++++++--------------
- 1 file changed, 58 insertions(+), 51 deletions(-)
+ drivers/media/platform/rockchip/rga/rga.c | 30 +++++++++++++++++++++++++++---
+ drivers/media/platform/rockchip/rga/rga.h |  1 +
+ 2 files changed, 28 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
-index fa34b93b1b7a5..39fcb5623095b 100644
+index b2eeae0a61771..6294825eaacfd 100644
 --- a/drivers/media/platform/rockchip/rga/rga.c
 +++ b/drivers/media/platform/rockchip/rga/rga.c
-@@ -746,39 +746,15 @@ static int rga_core_bind(struct device *dev, struct device *master, void *data)
+@@ -38,13 +38,29 @@ static void device_run(void *prv)
  {
+ 	struct rga_ctx *ctx = prv;
+ 	struct rockchip_rga *rga = ctx->rga;
+-	struct rga_core *core = rga->cores[0];
++	struct rga_core *core = NULL;
+ 	struct vb2_v4l2_buffer *src, *dst;
+ 	unsigned long flags;
+ 	int ret;
++	unsigned int i;
++
++	spin_lock_irqsave(&rga->cores_lock, flags);
++	for (i = 0; i < rga->num_cores; i++) {
++		if (!rga->cores[i]->curr) {
++			core = rga->cores[i];
++			core->curr = ctx;
++			break;
++		}
++	}
++	spin_unlock_irqrestore(&rga->cores_lock, flags);
++
++	WARN_ONCE(!core, "No free core although max parallel jobs matches the core count!\n");
++	if (!core)
++		return;
+ 
+ 	ret = pm_runtime_resume_and_get(core->dev);
+ 	if (ret < 0) {
++		core->curr = NULL;
+ 		v4l2_m2m_buf_done_and_job_finish(rga->m2m_dev, ctx->fh.m2m_ctx,
+ 						 VB2_BUF_STATE_ERROR);
+ 		return;
+@@ -58,8 +74,6 @@ static void device_run(void *prv)
+ 	}
+ 	spin_unlock_irqrestore(&rga->ctrl_lock, flags);
+ 
+-	core->curr = ctx;
+-
+ 	src = v4l2_m2m_next_src_buf(ctx->fh.m2m_ctx);
+ 	src->sequence = ctx->osequence++;
+ 
+@@ -748,6 +762,7 @@ static int rga_core_bind(struct device *dev, struct device *master, void *data)
  	struct rockchip_rga *rga = data;
  	struct rga_core *core = dev_get_drvdata(dev);
--	struct video_device *vfd;
+ 	struct rockchip_rga_version version;
++	unsigned long flags;
  	int ret = 0;
  
  	core->rga = rga;
- 
- 	rga->cores[0] = core;
- 
--	ret = v4l2_device_register(dev, &rga->v4l2_dev);
--	if (ret)
--		return ret;
--	vfd = video_device_alloc();
--	if (!vfd) {
--		v4l2_err(&rga->v4l2_dev, "Failed to allocate video device\n");
--		ret = -ENOMEM;
--		goto unreg_v4l2_dev;
--	}
--	*vfd = rga_videodev;
--	vfd->lock = &rga->mutex;
--	vfd->v4l2_dev = &rga->v4l2_dev;
--
--	video_set_drvdata(vfd, rga);
--	rga->vfd = vfd;
--
--	rga->m2m_dev = v4l2_m2m_init(&rga_m2m_ops);
--	if (IS_ERR(rga->m2m_dev)) {
--		v4l2_err(&rga->v4l2_dev, "Failed to init mem2mem device\n");
--		ret = PTR_ERR(rga->m2m_dev);
--		goto rel_vdev;
--	}
--
- 	ret = pm_runtime_resume_and_get(core->dev);
- 	if (ret < 0)
--		goto rel_m2m;
-+		return ret;
- 
- 	rga->version = rga->hw->get_version(core);
- 
-@@ -787,38 +763,13 @@ static int rga_core_bind(struct device *dev, struct device *master, void *data)
+@@ -785,7 +800,9 @@ static int rga_core_bind(struct device *dev, struct device *master, void *data)
  
  	pm_runtime_put(core->dev);
  
--	ret = video_register_device(vfd, VFL_TYPE_VIDEO, -1);
--	if (ret) {
--		v4l2_err(&rga->v4l2_dev, "Failed to register video device\n");
--		goto rel_m2m;
--	}
--
--	v4l2_info(&rga->v4l2_dev, "Registered %s as /dev/%s\n",
--		  vfd->name, video_device_node_name(vfd));
--
++	spin_lock_irqsave(&rga->cores_lock, flags);
+ 	rga->cores[rga->num_cores++] = core;
++	spin_unlock_irqrestore(&rga->cores_lock, flags);
+ 
  	return 0;
--
--rel_m2m:
--	v4l2_m2m_release(rga->m2m_dev);
--rel_vdev:
--	video_device_release(vfd);
--unreg_v4l2_dev:
--	v4l2_device_unregister(&rga->v4l2_dev);
--
--	return ret;
  }
- 
- static void rga_core_unbind(struct device *dev, struct device *master,
- 			    void *data)
- {
+@@ -796,6 +813,7 @@ static void rga_core_unbind(struct device *dev, struct device *master,
  	struct rga_core *core = dev_get_drvdata(dev);
--	struct rockchip_rga *rga = core->rga;
--
--	v4l2_info(&rga->v4l2_dev, "Removing\n");
--
--	v4l2_m2m_release(rga->m2m_dev);
--	video_unregister_device(rga->vfd);
--	v4l2_device_unregister(&rga->v4l2_dev);
+ 	struct rockchip_rga *rga = core->rga;
+ 	u8 i;
++	unsigned long flags;
  
- 	core->rga = NULL;
- }
-@@ -944,20 +895,76 @@ static struct platform_driver rga_core_pdrv = {
- static int rga_bind(struct device *dev)
- {
- 	struct rockchip_rga *rga = dev_get_drvdata(dev);
-+	struct video_device *vfd;
- 	int ret;
+ 	/* Remove our core from the list */
+ 	for (i = 0; i < rga->num_cores; i++) {
+@@ -810,8 +828,10 @@ static void rga_core_unbind(struct device *dev, struct device *master,
+ 				iommu_detach_device(domain, core->dev);
+ 		}
  
-+	ret = v4l2_device_register(dev, &rga->v4l2_dev);
-+	if (ret)
-+		return ret;
-+	vfd = video_device_alloc();
-+	if (!vfd) {
-+		v4l2_err(&rga->v4l2_dev, "Failed to allocate video device\n");
-+		ret = -ENOMEM;
-+		goto unreg_v4l2_dev;
-+	}
-+	*vfd = rga_videodev;
-+	vfd->lock = &rga->mutex;
-+	vfd->v4l2_dev = &rga->v4l2_dev;
-+
-+	video_set_drvdata(vfd, rga);
-+	rga->vfd = vfd;
-+
-+	rga->m2m_dev = v4l2_m2m_init(&rga_m2m_ops);
-+	if (IS_ERR(rga->m2m_dev)) {
-+		v4l2_err(&rga->v4l2_dev, "Failed to init mem2mem device\n");
-+		ret = PTR_ERR(rga->m2m_dev);
-+		goto rel_vdev;
-+	}
-+
-+	ret = video_register_device(vfd, VFL_TYPE_VIDEO, -1);
-+	if (ret) {
-+		v4l2_err(&rga->v4l2_dev, "Failed to register video device\n");
-+		goto rel_m2m;
-+	}
-+
- 	ret = component_bind_all(dev, rga);
- 	if (ret) {
- 		dev_err(dev, "component bind failed\n");
--		return ret;
-+		goto rel_m2m;
++		spin_lock_irqsave(&rga->cores_lock, flags);
+ 		rga->cores[i] = rga->cores[rga->num_cores - 1];
+ 		rga->num_cores--;
++		spin_unlock_irqrestore(&rga->cores_lock, flags);
+ 		break;
  	}
  
-+	v4l2_info(&rga->v4l2_dev, "Registered %s as /dev/%s\n",
-+		  vfd->name, video_device_node_name(vfd));
-+
- 	return 0;
-+
-+rel_m2m:
-+	v4l2_m2m_release(rga->m2m_dev);
-+rel_vdev:
-+	video_device_release(vfd);
-+unreg_v4l2_dev:
-+	v4l2_device_unregister(&rga->v4l2_dev);
-+	dev_set_drvdata(dev, rga);
-+	return ret;
- }
+@@ -977,6 +997,9 @@ static int rga_bind(struct device *dev)
+ 		goto rel_m2m;
+ 	}
  
- static void rga_unbind(struct device *dev)
- {
-+	struct rockchip_rga *rga = dev_get_drvdata(dev);
++	/* after binding all cores num_cores has the proper number of cores */
++	v4l2_m2m_set_max_parallel_jobs(rga->m2m_dev, rga->num_cores);
 +
-+	v4l2_info(&rga->v4l2_dev, "Removing\n");
-+
- 	component_unbind_all(dev, NULL);
-+
-+	v4l2_m2m_release(rga->m2m_dev);
-+	video_unregister_device(rga->vfd);
-+	v4l2_device_unregister(&rga->v4l2_dev);
-+	/*
-+	 * As &rga->v4l2_dev == rga, v4l2_device_unregister (incorrectly)
-+	 * clears the drvdata. Therefore just set it again
-+	 * (ensuring it's correct regardless of the struct member position)
-+	 */
-+	dev_set_drvdata(dev, rga);
- }
+ 	v4l2_info(&rga->v4l2_dev, "Registered %s as /dev/%s\n",
+ 		  vfd->name, video_device_node_name(vfd));
  
- struct component_master_ops rga_master_ops = {
+@@ -1047,6 +1070,7 @@ static int rga_probe(struct platform_device *pdev)
+ 		return dev_err_probe(dev, -ENODEV, "failed to get match data\n");
+ 
+ 	spin_lock_init(&rga->ctrl_lock);
++	spin_lock_init(&rga->cores_lock);
+ 	mutex_init(&rga->mutex);
+ 
+ 	dev_set_drvdata(dev, rga);
+diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
+index 522021c3e0249..b046083244bf6 100644
+--- a/drivers/media/platform/rockchip/rga/rga.h
++++ b/drivers/media/platform/rockchip/rga/rga.h
+@@ -86,6 +86,7 @@ struct rockchip_rga {
+ 	struct mutex mutex;
+ 	/* ctrl parm lock */
+ 	spinlock_t ctrl_lock;
++	spinlock_t cores_lock;
+ 
+ 	const struct rga_hw *hw;
+ 
 
 -- 
 2.55.0
