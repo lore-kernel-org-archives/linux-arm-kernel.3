@@ -4,108 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18B9DC88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 13:23:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B68D3C88E5C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 13:26:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t1n21esTWFIARb22DabL327mvFBcDYA8LulYh58X1JM=; b=OYX2DXfWc71x1C+u9pDnlc1FgB
-	yL7Wh9p/03jtd8xn2aivZGDqiOwR/TzbEIgfeoMAVdkSghLzBG33DpsCnST80H5ofcu9jb+V6G/g0
-	Z1yl04ctv3cOuj4x37SVFx15oBRKahlLw6LHERVnHAcB1qVMHnt7CjkKHOHqudtZpOy68oW1v/wUV
-	s+ZyBGrZ99WlCZKFDu2E+MMzzRJigMoCubZXFCDeDjRdqkTu9YqumMgW9wiK6HnuIQQGz5UnqSTpS
-	xClTF/P1woWMENn2q8dnx0oc7sEam3ea3w4KhoTaSrB3yvHKBBg0Q6dcnwtM/YD9mqNogBxLKAT5f
-	0RCRf8Rg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P3GZnsIqGJt/Q9jqWsO1mRVfTjIxTFkI2wwtbDLa31M=; b=E6P/IJ0BnMY25A68glfJdUs1xT
+	liwgN1EhboYdyW5wPah2zu4L8UmP52T9XowohRTJZevgOv7FyyiUase0ilV/bSX6ShMKkzaUdhW4+
+	4BhWI9qvNNUZVVy3SzATPzz4oMcVhHtCCLz26Fsv84jXcAQdjFpdzEgIfcJgU1rrvYbCIPa5eUWP3
+	wa+m6oPDKeMAxfpbY7Wgqp7nMaMSISwUHKvc3ruceLjsY2Fl/d4Fyn5aapiEMRHpHcPSk+bF3KfMD
+	yFx9fr53dXGt4KVXn7ekZd6XMABvQpptG14v0H82yYXWyHbOh3s5FAJOnbic9FawXyX0ccGCqWkjF
+	s7jhne8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6pbc-00000009Fnt-0bX9;
-	Wed, 16 Sep 2026 13:23:20 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x6pe6-00000009FzI-1CAS;
+	Wed, 16 Sep 2026 13:25:54 +0000
+Received: from mail-southcentralusazon11013045.outbound.protection.outlook.com ([40.93.196.45] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6pbb-00000009Fnl-0VP2
+	id 1x6pe3-00000009FyG-2PbB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 13:23:19 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 43984602CB;
-	Wed, 16 Sep 2026 13:23:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E2A01F000FF;
-	Wed, 16 Sep 2026 13:23:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789564998;
-	bh=t1n21esTWFIARb22DabL327mvFBcDYA8LulYh58X1JM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=iyqfQ56RCSKneDh03pMqIw3w4xWZI6hlxEMUUXydQndV49m08vRmeRcTuK5Ef+WjO
-	 o9QTFocyfQEIerKgrSC3l9RQGmjvcP7quw6zXK6TDxv+tr+tGyrXLlnRm8CHnm3ts+
-	 tZvsitIFUR7yj7H2xjQR3atAhMD4MMwUeaYpSbFJr1tTo5hnQ/mJwAMDS0kIW9DA4Y
-	 smXDfOHMOFBUa+BqOm7WKQrGUCUIWZb4o1HXfMHnzR4W/Arupulis00Ym4dCVjWJOG
-	 sUb/pChJrOO216PGv0ZVv3oiEsr/qZPi8j5QkjKCq8XIJ2IYqoCb8aVDZiELS49uiE
-	 TLZchf3Rqv8Xw==
-Message-ID: <69a7987f-15fb-4793-81b6-cc436525224e@kernel.org>
-Date: Wed, 16 Sep 2026 15:23:13 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V2 01/14] mm: Add read-write accessors for vm_page_prot
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>,
- Lorenzo Stoakes <ljs@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
- Mike Rapoport <rppt@kernel.org>, Linu Cherian <linu.cherian@arm.com>,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-References: <20260907035030.2839978-1-anshuman.khandual@arm.com>
- <20260907035030.2839978-2-anshuman.khandual@arm.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
+	Wed, 16 Sep 2026 13:25:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Jck8gIlCJsBGNedDW7i8HZ795bXRBUk+SODmKhizGwGWUOa3m7TCa4ukOI7NVoubiXhH6AVwy9NzIlVKislXrnN2kbW+oFdTPzRDyYAm4fsI0c9YhwBLYGUpAAIVKxXlPw5VglRsJWh39CN4ymYoVOYieUDSZlsxkWQokiTok0DcoQa676mFjB3NUl88TIn8VakdXFVuzgo2ElWn1QaM114WSn1AQ+f9syPuSE4zHfcR6qU1bABh2QbsrXhLNsSN9I36kOdArTcxrjAxhhNeM4CzJGbi/0vXlTSdYRrXnohoQmW83yAM6heYRW6Wxn7qUPkIE6PAv+knvtsGQezmbw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=P3GZnsIqGJt/Q9jqWsO1mRVfTjIxTFkI2wwtbDLa31M=;
+ b=g3sPOZv1JTAiLMM3YGprqf+P+0xCbu439RwZdyx1p8tJBelpqSe8A1kA/R7IVVjo28jQEwZaxf4ox2WBSbmQdan4yBXR9WL6hFE1a6IK4hgk0+/vPNZOC67+cHqJmGmiykuzUkXRBS4Z3HVvTqFB+XEDvgbtT05AhjvK4qr53IMLggJ8EFyjSzX86XYdaligrXzWftdj1Vgs6Bnod+dcUD4eNxilGQS7Ab1eCeXOOUyKkONvxzkIqipnFGK9jHhmUCrMh2h/yiA4kEtpmYGq8NHm3hGo8Em2Vz9fCWYoSY72oHZexn1mNu9MRZ90FXCPIzR0J0d4+sTxIE8nYzStvw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=P3GZnsIqGJt/Q9jqWsO1mRVfTjIxTFkI2wwtbDLa31M=;
+ b=uMsrTnwddXbRj94HscuN9wSuWTju+UEf3oZjJrSkMcZa1utu3tr0UqbMgqDaAjOe8Xdjg5CCnmdPm5nlS+JtiAZMWdCcTuTZqzGB7Ms0hhJBHlHlMfqrvPGSF5h9gsAfNd7uYTqJC+bDt5F4+fYt6+LvOkN2ZYeJs4BFzFF8cMFOQBGcqooEiT9Lhqa8ft39tregfVF7gugiwMk2ei7I/lH2IExBXefXr7wXQMAkDbictaHQUkeXdSKdFjM9tZBSMVtA39yVakGcYJWkLSLkXae8A3A6eoAZqyd3Q7bYreufWTHgR1fPmw2lVXWd9UGFFy8CPAe0hOppgLZg+dxGnA==
+Received: from PH7PR12MB8593.namprd12.prod.outlook.com (2603:10b6:510:1b1::7)
+ by MW4PR12MB6922.namprd12.prod.outlook.com (2603:10b6:303:207::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Wed, 16 Sep
+ 2026 13:25:44 +0000
+Received: from PH7PR12MB8593.namprd12.prod.outlook.com
+ ([fe80::9c70:35c0:f8b2:8f77]) by PH7PR12MB8593.namprd12.prod.outlook.com
+ ([fe80::9c70:35c0:f8b2:8f77%6]) with mapi id 15.21.0428.008; Wed, 16 Sep 2026
+ 13:25:44 +0000
+From: Shameer Kolothum Thodi <skolothumtho@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>, Sasha Levin <sashal@kernel.org>
+CC: Wentao Guan <guanwentao@uniontech.com>, Jason Gunthorpe <jgg@nvidia.com>,
+	"will@kernel.org" <will@kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "stable@vger.kernel.org" <stable@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH 7.2.y] iommu/arm-smmu-v3: Disable implementations during
+ devm teardown
+Thread-Topic: [PATCH 7.2.y] iommu/arm-smmu-v3: Disable implementations during
+ devm teardown
+Thread-Index: AQHdQPFkFkV9WGtWYEGMTOjALaeTo7bJ9r6AgAT0HoCAAP1YAIABU4gg
+Date: Wed, 16 Sep 2026 13:25:44 +0000
+Message-ID: <PH7PR12MB85931FD4E700A0619EF619F2ABB92@PH7PR12MB8593.namprd12.prod.outlook.com>
+References: <aqR/n+VtlgpjJrAV@nvidia.com>
+ <daily-reply-0001-re-arm-smmu-v3-devm-teardown-6-18@kernel.org>
+ <aql76pp8QQ2XIVcW@nvidia.com>
+In-Reply-To: <aql76pp8QQ2XIVcW@nvidia.com>
+Accept-Language: en-US, en-GB
 Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20260907035030.2839978-2-anshuman.khandual@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PH7PR12MB8593:EE_|MW4PR12MB6922:EE_
+x-ms-office365-filtering-correlation-id: cfe188a6-d069-4891-fe93-08df13f60302
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|23010399003|10067099003|56012099006|22082099003|4143699003|11063799006|18002099003|38070700021;
+x-microsoft-antispam-message-info: VGjh85y0zWQ2BD0mbtJdiH31FmuyNeVZt0m70raRCcedLLBKUAIIsXUaxGh/F169lYqYPVtfkoLx0IqD4cWTIn/i0GdJxWFROa6TSSVr66UR13cg7K78Xozuv07oya3nNHzQKcAcQKhzzn4m95RzqEKjOO12WoPSYmnbwg2VimGBLNQq7HRDN9P17P2Y5NYQ1U+0AJactShdbWSfoN2dcSVySXsqhAl8nzHn3CVehGyjHW8Yb+kC/Rl5iGcuTvPyzxbrWRh/L6obGEtcDyhhK9N4B7EsuTPjxVr7diqRBfjqvY7GxD0opBU9JWsIHkkOt7bEwK0JM/TD/4TurjuddbSOuNwvtP/Pg5NBXKybroHejzX0req+2DdXnPKzTV19H0FskEBWwt8MwPQ7Em4qpdhD/aYu4XCy8YnPN+2gUiQqvlNkzphw0Bi8eLt+snKcpe+NMVcS2AHQmClTIkXr/ZQ48tknRlUeKoijaKk0JNfpcMu8UAvvBABUUirt73N/CSPWhrFKfse76+KV2MZMR51sSc+Azk/mr+hm4I5+kgUknmGngdfUvUUOG9Ff5PgKVoLCzkbvaJ6WGtoj1agfgsaSgXBiQvV+IftnKXe18BfU9kgkwG4wbCGaIl0b/TFphLGCGrsvhzokl2g7TrIVE0GXjAPgG70HluwxrR7R1PpXwDskXHIVOycTo3UB8GTLoT2KwM/givcCa9sv4WT/OKzAkXrDlZhsGgkqk+5FWWo=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB8593.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(23010399003)(10067099003)(56012099006)(22082099003)(4143699003)(11063799006)(18002099003)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?DJjTwxTsuRG9/O9pFRYDYvHLgQjX9bOUL9oFUnGIdNSwAfbtZqiun5ur0uDK?=
+ =?us-ascii?Q?8cEvWYlhQ7dPBqKrPj/T+iqi66bk5olQ2o++ocqNp5NihGIoUuuUew20CI0p?=
+ =?us-ascii?Q?IysHeMtJttuOBL8X3SDocLLf2AO2KrkSky7R3WcrD0x5TrMK8Guga+DBFZgI?=
+ =?us-ascii?Q?mGYUdmjm/9pTQ8cF+R2qPeh/42nJD09JJpKSQNOlzyR7CXDRjmURHvVjT6XB?=
+ =?us-ascii?Q?rY1+SdwAfLRKClhDxjMNl7IUd0tydLoOTLBGtZ0n3hF7kQLzoA0PmqtUlwk0?=
+ =?us-ascii?Q?n6S3Acpre5yu4nJcYZWVVELMOtN3Wv5xZ486n7u8hBSIHp1eHaYNJSO9qVvk?=
+ =?us-ascii?Q?BhyJ2Oyh/6/lVhbpFE8/5kNZKZUCJu3Moz2wF0w/MpozdFLVkM9qnMEjwWDq?=
+ =?us-ascii?Q?bftmKB9FHqqLF2uxKQ4Fy7Zr1obqZ19X6fZT854LRw2VPwLZkcckL2/7nDPn?=
+ =?us-ascii?Q?4PUD3EDewlzEZb0DgbCLdTgU3339NBSJ1e7pD6lPzcBOYof2BvHZnt2guWRf?=
+ =?us-ascii?Q?+RAYCBzzkbainENjNbibfiErOh6uSj5IC3GXKMphKgs3uiafb4gN53+TnU29?=
+ =?us-ascii?Q?IZNdoPY+wioKe36/ngUjjq+nqkvmKXE4/Cln52G7MpjHTqeu/g6DMisFP2FM?=
+ =?us-ascii?Q?Crzw01JXZxCy7+1yIScK+CtllVa02C7SeYz64l9aG4MmOmrQDQgX+g+OhC1M?=
+ =?us-ascii?Q?G0tzMRypVPKqDVe44rb3/lX+qT5qm110fpfPduVsTMPIy7bqzkYLfuz4uZm1?=
+ =?us-ascii?Q?S+wF1SX50c370BrZeEk2mRbwSP0uTG4DpK7J0s3HEKpXj7Sn7g93RrHXWzug?=
+ =?us-ascii?Q?29RHOxQ+Ykq0ce1z7qn8QLLQCHSvCC28UNdnPRyUyvLDbLu4Kg5lKMgH8ONT?=
+ =?us-ascii?Q?MwEXox7mn4Tb3KDT9FXIX7oOccfs13iGZzz3Ix1nzKUQnkbeQFMGRX/K2qYl?=
+ =?us-ascii?Q?gBgwPXbibqs0gyF2gPdNWyc3auZaU9tTG7SjfzSXFIhlocEkaT2DyMBpZrBM?=
+ =?us-ascii?Q?YcwvW9xFOVeLWylIx0o2TetIueAINGaIuxTMywOsHGffX01OXAGVKxheAtFK?=
+ =?us-ascii?Q?8Z1GLCUEYr4Xyw/nvBUBsDlVqjziNBCBGVLAyQ8dwJRCmKH5gE9GkrjckpB+?=
+ =?us-ascii?Q?RP107hb7XUTwR3BXhqymboWknYKUogJ0HATrQdcZXRudvOixDnVAMUOLMG7+?=
+ =?us-ascii?Q?mq6UmtzSbUgARfc4Yi0yrwR6aYR+Hd4Uc30gXlUKE7LLc0Izm/0o5A1NELc/?=
+ =?us-ascii?Q?RmkXEjbzLxWNa3OivwP6rIEe8+B6QPSMSQdUSRCbZ+zXu2b0aJUaz+Z7m66q?=
+ =?us-ascii?Q?OczGGIEuskx8dranLekhh2Bb9iBDnyaWk01XE7ikGgN5PJXGbeY2Ryoz4PGg?=
+ =?us-ascii?Q?W9Qh25ifnvcb5R9QioOcLsjGFrjOiJtoLUycmUG1V7HBdsCUONBaQcfsYQ/w?=
+ =?us-ascii?Q?UsUQsRXU8PMFO0b2XLduOP9vGs/dsN56k9TpxZBKo/rA2Rz0PVYlLagMhp7v?=
+ =?us-ascii?Q?yEObXqMJ+XRrmXge47Bq+yih4S1MfPqzDSFbzMLyRkZ13cju82OcEBVuPfEe?=
+ =?us-ascii?Q?6fSkibjkcIoAR6uz4FZqbVyaJwMwG4CkzPeeH+EPOxfZgp27YEB163PRsl6f?=
+ =?us-ascii?Q?B6f8cUaW6Hpo6z2RzH/eBqxz8pRmA2OVY5CpYw18VsXBNg5pZ15g6PN9rUeG?=
+ =?us-ascii?Q?cvoLUVBn6VmiCavjg1XcXysin1axt97pHOVZ1sgnN+4e1/5UVAFITJ9m1+L8?=
+ =?us-ascii?Q?OeIvZV/0aw=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB8593.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cfe188a6-d069-4891-fe93-08df13f60302
+X-MS-Exchange-CrossTenant-originalarrivaltime: 16 Sep 2026 13:25:44.2207
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: mSOn5fK68d2coQhrIBY/E5kXWH/fwfsdqV9vaDYa54ojll12QmkAlxn1CLRCGm9hwXB+oFFgS59RI9DUli3yVA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB6922
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260916_062551_616282_7038890F 
+X-CRM114-Status: GOOD (  16.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,83 +145,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/7/26 05:50, Anshuman Khandual wrote:
-> Currently vma->vm_page_prot is safely read from and written to, without any
-> locks with READ_ONCE() and WRITE_ONCE(). But with introduction of D128 page
-> tables on arm64 platform, vm_page_prot grows to 128 bits which can't safely
-> be handled with READ_ONCE() and WRITE_ONCE().
-> 
-> Add read and write accessors for vm_page_prot like pgprot_[read|write]()
-> which any platform can override when required, although still defaulting as
-> READ_ONCE() and WRITE_ONCE(), thus preserving the functionality for others.
-> 
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: David Hildenbrand <david@kernel.org>
-> Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-> Cc: Mike Rapoport <rppt@kernel.org>
-> Cc: linux-mm@kvack.org
-> Cc: linux-kernel@vger.kernel.org
-> Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> ---
->  include/linux/pgtable.h | 14 ++++++++++++++
->  mm/huge_memory.c        |  4 ++--
->  mm/memory.c             |  2 +-
->  mm/migrate.c            |  2 +-
->  mm/mmap.c               |  2 +-
->  5 files changed, 19 insertions(+), 5 deletions(-)
-> 
-> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-> index e3c8ab96941c..0df57a5c19ef 100644
-> --- a/include/linux/pgtable.h
-> +++ b/include/linux/pgtable.h
-> @@ -524,6 +524,20 @@ static inline pgd_t pgdp_get(pgd_t *pgdp)
->  }
->  #endif
->  
-> +#ifndef pgprot_read
-> +static inline pgprot_t pgprot_read(pgprot_t *prot)
-
-Try passing "const pgprot_t *prot" instead.
-
-[...]
-
-> diff --git a/mm/migrate.c b/mm/migrate.c
-> index 15b45832bcfa..579152cce502 100644
-> --- a/mm/migrate.c
-> +++ b/mm/migrate.c
-> @@ -387,7 +387,7 @@ static bool remove_migration_pte(struct folio *folio,
->  
->  		folio_get(folio);
->  		new = folio_page(folio, idx);
-> -		pte = mk_pte(new, READ_ONCE(vma->vm_page_prot));
-> +		pte = mk_pte(new, pgprot_read(&vma->vm_page_prot));
-I do wonder whether a
-
-ogprot_t vma_get_page_prot(const struct vm_area_struct *vma)
-
-where we hide the pgprot access would be a good complement for vma_set_page_prot().
-
-Just a thought.
 
 
-> diff --git a/mm/mmap.c b/mm/mmap.c
-> index 4bf26b0f1e6e..729bc244b317 100644
-> --- a/mm/mmap.c
-> +++ b/mm/mmap.c
-> @@ -89,7 +89,7 @@ void vma_set_page_prot(struct vm_area_struct *vma)
->  		vm_page_prot = vma_pgprot_modify(vm_page_prot, vma_flags);
->  	}
->  	/* remove_protection_ptes reads vma->vm_page_prot without mmap_lock */
-> -	WRITE_ONCE(vma->vm_page_prot, vm_page_prot);
-> +	pgprot_write(&vma->vm_page_prot, vm_page_prot);
->  }
->  
->  /*
+> -----Original Message-----
+> From: Nicolin Chen <nicolinc@nvidia.com>
+> Sent: 15 September 2026 18:10
+> To: Sasha Levin <sashal@kernel.org>; Shameer Kolothum Thodi
+> <skolothumtho@nvidia.com>
+> Cc: Wentao Guan <guanwentao@uniontech.com>; Jason Gunthorpe
+> <jgg@nvidia.com>; will@kernel.org; linux-arm-kernel@lists.infradead.org;
+> iommu@lists.linux.dev; stable@vger.kernel.org; linux-kernel@vger.kernel.o=
+rg
+> Subject: Re: [PATCH 7.2.y] iommu/arm-smmu-v3: Disable implementations
+> during devm teardown
+>=20
+> On Mon, Sep 14, 2026 at 10:03:17PM -0400, Sasha Levin wrote:
+> > > Patch itself looks good to me for v7.2 stable and v6.8 longterm.
+> >
+> > Queued for 6.18, thanks.
+> >
+> > > But v6.12 longterm might need some extra fix, Sasha?
+> >
+> > It does, but a different one. 6.12 has the devm teardown conversion
+> > and never got 9ff145a25c5c ("iommu/tegra241-cmdqv: Fix CMD_SYNC
+> > use-after-free on
+> > teardown") at all, so what it is missing is that commit rather than
+> > this ordering fixup. It does not apply to 6.12 as-is either, because
+> > the
+> > tegra241_cmdqv_destroy_vintf_user() hunk has no counterpart there.
+> >
+> > Could one of you send an adapted 6.12.y version with that hunk dropped?
+>=20
+> Shameer, would you mind helping backport your patch onto 6.12.y?
 
+Sure, I will take a look.
 
--- 
-Cheers,
-
-David
+Thanks,
+Shameer
 
