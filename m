@@ -4,68 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19039C982CC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 17:27:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80416C88E7F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 17:41:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yu4I8aA/dSCWiNzd0EiMaIb1hEBPZBMS5B0bclDwg3U=; b=hgqp9D0OZPgwCnVstJvw9LOr+O
-	IAVxESVepaHd0+UQwrSU53yWkITNWTM1n7AKanbvAt30XbuDj+o+PYJxwy9vNTCpsB7/RpkpzeYPr
-	2N52pBpnHtq6Y5h/B5UFGNif8QGYN9DZyTfaj4NY9EPIXK+UxRQoLl4TC79a3V3c81c9yzKsgZril
-	UyfxKXT2YNJeJhhzJitqESneETBmokbXmSaH+lDd9GLbgHMUBhydcsIuW9zZRYhUC+WkCWdcBCos4
-	/JMbRfsqJdzTEVyWzpq3/XBz1GvJg/95pTT1jF6mbJgzTwxIW4B3vcOEZ2NzmafFNAJ+oIOwDWIDu
-	iqGSkTbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cmZSFBCj0dF6WrT68cnSLMk6ioSk6fWZxtfG/SmbA1Y=; b=2NiEonZ2ge3ckinX4YPA8Zcut4
+	0w5hWy9m87DcslYtDgj4GsB+mXxelIYwaX6sgwX93rDna7BVkmcsavZoM40o3sDh0xtqFg7+R1tJP
+	qGZapMJqbbF6ScFVN5lH7poCmCEvBMR8F+SpIK1ebpp/aegEd4dy4v31NpT+yX+QC4u1o3HH50ggj
+	GhFFt8wZTTis0eaAv54GiOv+z4mRNk1nKen3DIh8ODKinSaxdqOoRAndjP9orK+1S/rppWDmewGtZ
+	Yo1yiYNXOH+UyE2JCirL0jjG7mYk76oXI8FITuwB3Hmm1d0SNCL015Rguqk1rixRCwOV223muriaE
+	r8sBBPvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6tPn-00000009rxB-3TbQ;
-	Wed, 16 Sep 2026 17:27:23 +0000
-Received: from sender5-op-o11.zoho.com ([165.173.182.11])
+	id 1x6tdX-00000009suV-13cm;
+	Wed, 16 Sep 2026 17:41:35 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6tPk-00000009rwC-3FHp;
-	Wed, 16 Sep 2026 17:27:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1789579634; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=OcWGWbCtQyAF4qkrN7p4azhGGDdw+5U5j8VyYOYLb1gBsSy3qgD5MLDMhBmn9+QjxkOqvYGfCX1flfr+kKYJxLwzsFX1cRUoA0iZWajNauXTL5DcfCF6+8H/CZOCKHJH9rZ8Z0yGzLIHMXFqU38Th52vBvswiwzlz/YcrTqiqrM=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1789579634; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=yu4I8aA/dSCWiNzd0EiMaIb1hEBPZBMS5B0bclDwg3U=; 
-	b=j1EjAJDPWLzUqrtf/AWps9jhj7K6lk233J0lmD2EGKZD6Xs1NfIr5FzpvHJvh4jpa3HwPTEXTskgBmeApmAwq8PIskOPdChg2bnHC/+cNVLIvBRe5ar9uK6zK/DSVa3694wXupmzLoyL1VBtW45k49r78EvTopgQqZ+yBA0WQrI=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=detlev.casanova@collabora.com;
-	dmarc=pass header.from=<detlev.casanova@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1789579634;
-	s=zohomail; d=collabora.com; i=detlev.casanova@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=yu4I8aA/dSCWiNzd0EiMaIb1hEBPZBMS5B0bclDwg3U=;
-	b=JCN6Jf3VoU2FPQcE7Cla4Ac5E0bw+bPSvMGe+NiYJCMTz422U1TYnCsuRJOreAtD
-	2ca+SRFf5xxKjMxM/+jr4coKAkqbDzVU5gThzZjCCf30AOZ+/Ypuvxar3/2759XUcmy
-	W5TjQELzpkBQvDKB8T7xNYVjeI5pzIdNItz7RHY0=
-Received: by mx.zohomail.com with SMTPS id 1789579634133586.5912753636819;
-	Wed, 16 Sep 2026 10:27:14 -0700 (PDT)
-From: Detlev Casanova <detlev.casanova@collabora.com>
-To: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Hans Verkuil <hverkuil+cisco@kernel.org>, linux-media@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Guangshuo Li <lgs201920130244@gmail.com>
-Cc: Guangshuo Li <lgs201920130244@gmail.com>, stable@vger.kernel.org
-Subject: Re: [PATCH] media: rkvdec: do not destroy borrowed SRAM pool
-Date: Wed, 16 Sep 2026 13:27:12 -0400
-Message-ID: <h_fJ5CZXS3anfaQzbf4v3w@collabora.com>
-In-Reply-To: <20260915140511.2429792-1-lgs201920130244@gmail.com>
-References: <20260915140511.2429792-1-lgs201920130244@gmail.com>
+	id 1x6tdU-00000009stw-0HgK;
+	Wed, 16 Sep 2026 17:41:33 +0000
+Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
+	by APP-05 (Coremail) with SMTP id zQCowAA3pD7F1KpqYcxuCA--.22580S2;
+	Thu, 17 Sep 2026 01:41:25 +0800 (CST)
+From: Wentao Liang <vulab@iscas.ac.cn>
+To: airlied@gmail.com
+Cc: angelogioacchino.delregno@collabora.com,
+	chunkuang.hu@kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	matthias.bgg@gmail.com,
+	nancy.lin@mediatek.com,
+	p.zabel@pengutronix.de,
+	simona@ffwll.ch,
+	Wentao Liang <vulab@iscas.ac.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH] drm/mediatek: Fix pdev reference leak in mtk_drm_bind()
+Date: Wed, 16 Sep 2026 17:40:58 +0000
+Message-Id: <20260916174058.2088709-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
-X-ZohoMailClient: External
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: zQCowAA3pD7F1KpqYcxuCA--.22580S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrur4fJw13KFykGw4kJFyDGFg_yoWkuFb_C3
+	ZY9rZrWrsrCr1qkw47A3WxZry2yFZY9F4rJr15ta4Iqry7Xr1jqryqqF9xXFsrXw4xAFyD
+	J3srZFyfGF1I9jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUb-8FF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j
+	6F4UJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6xkF7I0E14v26F
+	4UJVW0owAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv
+	7VC0I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Cr0_Gr1UMcvjeVCFs4IE7xkEbV
+	WUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7Cj
+	xVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4I
+	kC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWU
+	WwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JF
+	I_Gr1lIxAIcVC0I7IYx2IY6xkF7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_
+	Jr0_JF4lIxAIcVC2z280aVAFwI0_Cr0_Gr1UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Cr1j6r
+	xdYxBIdaVFxhVjvjDU0xZFpf9x0JUtgA7UUUUU=
+X-Originating-IP: [36.110.52.2]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBwgMA2qqpVhohAAAsR
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_102720_871386_F2F32DB2 
-X-CRM114-Status: GOOD (  21.20  )
+X-CRM114-CacheID: sfid-20260916_104132_476095_22AAE8B8 
+X-CRM114-Status: GOOD (  10.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,60 +85,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Guangshuo,
+When the device is not the mmsys master, mtk_drm_bind() returns early
+after taking a reference on the disp-mutex device via
+of_find_device_by_node(), without ever dropping it: mtk_drm_unbind()
+only puts mutex_dev for the master. Drop the reference before returning
+from the non-master path.
 
-On Tuesday, 15 September 2026 10:05:11 EDT Guangshuo Li wrote:
-> rkvdec_probe() obtains a provider-owned SRAM pool with
-> of_gen_pool_get(), but its error path incorrectly destroys the borrowed
-> pool with gen_pool_destroy().
-> 
-> of_gen_pool_get() returns a pool managed by the SRAM provider. The pool
-> is not created or owned by the rkvdec driver and is destroyed by the
-> provider when its own managed resources are released.
-> 
-> Destroying it when rkvdec_v4l2_init() fails can invalidate the pool
-> while the provider and other consumers still reference it, and can also
-> result in the provider attempting to destroy it again later.
-> 
-> Remove the incorrect gen_pool_destroy() call from the probe failure
-> path.
+Fixes: 1ef7ed48356c ("drm/mediatek: Modify mediatek-drm for mt8195 multi mmsys support")
+Cc: stable@vger.kernel.org
+Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+---
+ drivers/gpu/drm/mediatek/mtk_drm_drv.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-This is indeed invalid, as the gen_pool is already created when this driver is 
-being probe()'d.
-The sram module can only be built-in, not a module, so we know that the 
-gen_pool will never be destroyed while rkvdec uses it. That allows rkvdec to 
-just get the pool pointer and not have to call a matching put() function as 
-there is no need for ref counting.
-
-Reviewed-by: Detlev Casanova <detlev.casanova@collabora.com>
-
-> This issue was found by manual code inspection.
-> 
-> Fixes: e5640dbb991c ("media: rkvdec: Add RCB and SRAM support")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
-> ---
->  drivers/media/platform/rockchip/rkvdec/rkvdec.c | 3 ---
->  1 file changed, 3 deletions(-)
-> 
-> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> b/drivers/media/platform/rockchip/rkvdec/rkvdec.c index
-> 061281f903f3..4541ef9ee3b9 100644
-> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> @@ -1857,9 +1857,6 @@ static int rkvdec_probe(struct platform_device *pdev)
->  	pm_runtime_dont_use_autosuspend(&pdev->dev);
->  	pm_runtime_disable(&pdev->dev);
-> 
-> -	if (rkvdec->sram_pool)
-> -		gen_pool_destroy(rkvdec->sram_pool);
-> -
->  	return ret;
->  }
-
-Regards,
-Detlev.
-
-
+diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+index c86a3f54f35b..e46f3ab2673f 100644
+--- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
++++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+@@ -638,8 +638,10 @@ static int mtk_drm_bind(struct device *dev)
+ 	private->mtk_drm_bound = true;
+ 	private->dev = dev;
+ 
+-	if (!mtk_drm_get_all_drm_priv(dev))
++	if (!mtk_drm_get_all_drm_priv(dev)) {
++		put_device(private->mutex_dev);
+ 		return 0;
++	}
+ 
+ 	drm = drm_dev_alloc(&mtk_drm_driver, dev);
+ 	if (IS_ERR(drm)) {
+-- 
+2.34.1
 
 
