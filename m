@@ -4,28 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A4E2C982C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:10:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58B48C982C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:11:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IUf3E9TPCOMjZf4eJ5nybMFdlZABpkv6gva9zjANrN4=; b=XQkhSfEQGwjs6ht1spTzzmE/9J
-	HUGN0xKtutBBVkugPP6FOzXpubGXgtFyfBD0gjaglsSrC392aCu6pPKYP5iAxmdK4lLMdOo0TJ+xY
-	f9diTwtt02z/jxc8rfd4F2jNR1zF9hYcFr4IYJfc5kH7LYay3oTGVdJWJUK5yhOGgaev6Q1445JUx
-	v0agV1s8mvRRDv96CEa1bvxWtvaH4Nske3Coso20CguRKi9AEwSXyI+sLJNfeicTvR82S9bkXhWGZ
-	n6/sD4v+VBFuTDkT2chPmxKZwABSoOqYFvQdFdMw3MJW6EdE2fwJsqOIgPBZEZfWBW4ByJYCDVySO
-	DVWm4ivg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=qNx4VIwpoA5ckwP9Zuvy2yd8V1VbK5lf7GoGptWnzfU=; b=2BjPPKGXFwswr5
+	WKHuIvwHESQ1ZLgdQE8UMoImVCBAsYhCHJWl5ppk8+pLadeYwgRH9PQxGaH9XXr8bBWBDlUgUKgWr
+	AuEiqdAic2LpF0qRX8yc77NY7+tVmmglf7jgMw8jxZvXSgGHezJ8OLX8SZkpN75OaVI0tiLHgyzM9
+	k13B5jqWAFpGScW7HI/oYFiOOe0dsB9ZsJTbRG2ra2XhFjdFXvkLzN0b6VyU7AYxK+1K0REcItXPj
+	qdekFxYDRgyJ7ssk7N5fxe/GKFQMXQ1LIwSgobVdxTc4qr3t9bttp5upnMibP6spkhvOq0lI0Te3n
+	WSo5nRtj3VGpxB0wuSog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rHY-00000009WPS-1NXt;
-	Wed, 16 Sep 2026 15:10:44 +0000
-Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
+	id 1x6rHf-00000009WUr-0C2G;
+	Wed, 16 Sep 2026 15:10:52 +0000
+Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rGk-00000009Vq9-1zYb;
-	Wed, 16 Sep 2026 15:09:59 +0000
+	id 1x6rGf-00000009Vni-410U;
+	Wed, 16 Sep 2026 15:10:00 +0000
 X-PTX-Original-Recipient: ezequiel@vanguardiasur.com.ar
 X-PTX-Original-Recipient: jacob-chen@iotwrt.com
 X-PTX-Original-Recipient: mchehab@kernel.org
@@ -42,23 +42,25 @@ X-PTX-Original-Recipient: s.pueschel@pengutronix.de
 X-PTX-Original-Recipient: m.tretter@pengutronix.de
 Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
 	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id A68D72059F6;
-	Wed, 16 Sep 2026 17:09:50 +0200 (CEST)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 59E73201F41;
+	Wed, 16 Sep 2026 17:09:46 +0200 (CEST)
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
 	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.96)
 	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1x6rGg-001Fsx-1n;
-	Wed, 16 Sep 2026 17:09:50 +0200
+	id 1x6rGc-001Fsx-0m;
+	Wed, 16 Sep 2026 17:09:46 +0200
 From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Date: Wed, 16 Sep 2026 17:09:47 +0200
-Subject: [PATCH v2 06/17] media: v4l2-mem2mem: drop curr_ctx member from
- v4l2_m2m_dev struct
+Subject: [PATCH v2 00/17] media: rockchip: rga: Add multi-core support
+Date: Wed, 16 Sep 2026 17:09:41 +0200
+Message-Id: <20260916-spu-rga3multicore-v2-0-23aa2cb74e61@pengutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260916-spu-rga3multicore-v2-6-23aa2cb74e61@pengutronix.de>
-References: <20260916-spu-rga3multicore-v2-0-23aa2cb74e61@pengutronix.de>
-In-Reply-To: <20260916-spu-rga3multicore-v2-0-23aa2cb74e61@pengutronix.de>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/22Nyw6CMBBFf4XM2pq2hIKu/A/DopQBxmhL+iAYw
+ r8LGHcuT3LuuQsE9IQBrtkCHicK5OwG8pSBGbTtkVG7MUguFVdcsjAm5nudv9IzknEemcbKVEZ
+ 3XOAFtt3osaP5aN7rL4fUPNDEPbQbA4Xo/Ps4ncTu/frqT38SjLMcjWxEocqiK28j2j5F7yzN5
+ xahXtf1A/QpsljJAAAA
+X-Change-ID: 20260602-spu-rga3multicore-ae8c8caf01e9
 To: Jacob Chen <jacob-chen@iotwrt.com>, 
  Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
  Mauro Carvalho Chehab <mchehab@kernel.org>, 
@@ -71,8 +73,8 @@ Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
  =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_080955_237674_65781992 
-X-CRM114-Status: GOOD (  19.77  )
+X-CRM114-CacheID: sfid-20260916_080950_155032_E92D60F5 
+X-CRM114-Status: GOOD (  21.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,174 +89,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Drop the curr_ctx member from the v4l2_m2m_dev struct in preparation of
-adding support for running multiple jobs in parallel.
+Add multi-core support to the RGA (Raster Graphic Accelerator) driver
+for Rockchip SoCs. This works by scheduling the given work to multiple
+identical RGA cores. Previously other identical cores were discarded
+while probing with -ENODEV to avoid exposing multiple video devices for
+identical cores and breaking the ABI when adding an in-kernel scheduling.
 
-The curr_ctx member of a v4l2_m2m_dev was used to track the
-currently running context. But the currently running context will always
-be at the top of the job_queue. As the TRANS_RUNNING flag can be used to
-check if the queue head is already running, the curr_ctx member can be
-completely dropped.
+This series targets the RK3588 SoC, which has one RGA2-Enhance core
+and two RGA3 cores (see [1] for an overview of the different RGA cores).
+The slimmed down RK3576 SoC also features two RGA2-Pro
+(also described as RGA2.5) cores, but is currently not supported by
+the driver. Tests are done on a Radxa Rock 5T SBC.
 
-By eliminating the struct member the code is mostly agnostic whenever
-only one job is running at a time or multiple run at the same time. The
-main exception is the v4l2_m2m_get_curr_priv function, which is by it's
-design incompatible with running multiple jobs in parallel.
+The scheduling is done only on a context level, which causes no
+increased performance for a single stream (which uses only one mem2mem
+context). Therefore at least N parallel stream are necessary to utilize
+N cores. This avoids the more complex buffer handling required to avoid
+mixing the frame ordering when one core is slightly faster than the
+other (e.g. due to memory transfer timings or different clocks).
+
+While the work is based on Detlev Casanova's multi-core series for the
+rkvdec driver [2], it differs in two major aspects:
+
+(1) It doesn't directly call v4l2_m2m_job_finish to mark the current job
+as finished in the device_run callback. Detlev used this to trick the
+m2m framework to directly schedule the next job. This looked like a
+dirty hack and had me running into some of it's pitfalls (e.g. the
+difference between the v4l2_m2m_buf_done and the newly introduced
+v4l2_m2m_buf_done_manual function).
+Instead I've dropped the current curr_ctx member of the v4l2_m2m_dev
+struct and added a max_parallel_jobs member to specify the maximum
+number of parallel jobs. This allows the driver to set it's maximum
+number of parallel jobs with the newly introduced
+v4l2_m2m_set_max_parallel_jobs function. The RGA driver uses it to set
+it's number of parallel jobs to it's number of available cores. The m2m
+framework then schedules the first N jobs on it's job queue to the
+device_run callback instead of only one.
+
+(2) Instead of attaching an identical RGA core on probe to the first
+probed RGA core instance, use component helpers to add all cores as
+components to a virtual platform device. This has the advantage of only
+creating the video device after all cores have been probed successfully
+and tearing it down if one core is being removed (e.g. by the sysfs),
+which otherwise could lead to nasty memory bugs. The implementation is
+based on the driver of the etnaviv gpu. As the virtual platform device
+doesn't has an iommu, we still allocate all relevant drives on the first
+core, which shares it's iommu domain with all other cores.
+
+v4l2-compliance results:
+    v4l2-compliance 1.32.0, 64 bits, 64-bit time_t
+    ...
+    	Card type        : rga2
+    ...
+    Total for rockchip-rga device /dev/video0: 48, Succeeded: 48, Failed: 0, Warnings: 0
+    
+    v4l2-compliance 1.32.0, 64 bits, 64-bit time_t
+    ...
+    	Card type        : rga3
+    ...
+    Total for rockchip-rga device /dev/video1: 48, Succeeded: 48, Failed: 0, Warnings: 0
+
+Patch 1-3 address review comments from my last RGA3 patch series
+Patch 4-5 additional driver cleanup/improvements
+Patch 6-7 implements support for parallel jobs in the m2m framework
+Patch 8-10 add multi core preparations to the driver
+Patch 11-15 rework the driver to use component helpers
+Patch 16 puts all cores into the same iommu domain
+Patch 17 enables the multi-core support
+
+[1] https://codeberg.org/airockchip/librga/src/branch/main/docs/Rockchip_Developer_Guide_RGA_EN.md#design-index
+[2] https://lore.kernel.org/linux-media/20260409-rkvdec-multicore-v1-0-62b316abf0f7@collabora.com/
 
 Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+---
+Changes in v2:
+- split v4l2-core change into two commits
+- move pm_runtime_enable to it's devres version
+- add missing pm_use_autosuspend call
+- fix NULL pointer deref when unbinding and rebinding a core
+- allow manual binding the component master without needing a driver
+  override
+- various fixups in the error paths
+- extend spinlock usage for their data structures
+- moved core bind to probe commit for a better diff
+- export the v4l2_m2m_set_max_parallel_jobs symbol
+- document the new v4l2_m2m_set_max_parallel_jobs function
+- dropped cherry-picked patches (now included in media/next)
+- add Guangshuo Li regarding multi-core in mtk-jpeg
+- Link to v1: https://patch.msgid.link/20260606-spu-rga3multicore-v1-0-3ec2b15675f7@pengutronix.de
+
+To: Jacob Chen <jacob-chen@iotwrt.com>
+To: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>
+To: Heiko Stuebner <heiko@sntech.de>
+To: Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-media@vger.kernel.org
+Cc: linux-rockchip@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
 
 ---
-v2:
-- split curr_ctx removal into a separate commit
-- add WARN_ON to _v4l2_m2m_job_finish to prevent mismatching context to
-  device (and an unused m2m_dev argument)
-- rewrite v4l2_m2m_get_curr_priv to get private data inside the spinlock
-  (https://sashiko.dev/#/patchset/20260606-spu-rga3multicore-v1-0-3ec2b15675f7%40pengutronix.de?part=5)
+Sven Püschel (17):
+      media: rockchip: rga: zero cmdbuf in shared code
+      media: rockchip: rga: add comment about pixel alignment for YUV formats
+      media: rockchip: rga: move early return into if condition in vidioc_enum_fmt
+      media: rockchip: rga: removed unused regmap member
+      media: rockchip: rga: use devres version of pm_runtime_enable
+      media: v4l2-mem2mem: drop curr_ctx member from v4l2_m2m_dev struct
+      media: v4l2-mem2mem: support running multiple jobs in parallel
+      media: rockchip: rga: move power handling to device_run
+      media: rockchip: rga: adjust get_version to return the version
+      media: rockchip: rga: add rga_core structure
+      media: rockchip: rga: use components to manage multiple cores
+      media: rockchip: rga: move rockchip_rga allocation to master probe
+      media: rockchip: rga: move core initialization from bind to probe
+      media: rockchip: rga: move video device to the master
+      media: rockchip: rga: bind all cores to the master
+      media: rockchip: rga: put all cores into first core iommu domain
+      media: rockchip: rga: schedule jobs to multiple cores
+
+ drivers/media/platform/rockchip/rga/rga-buf.c |  16 +-
+ drivers/media/platform/rockchip/rga/rga-hw.c  |  40 +-
+ drivers/media/platform/rockchip/rga/rga.c     | 556 +++++++++++++++++++-------
+ drivers/media/platform/rockchip/rga/rga.h     |  44 +-
+ drivers/media/platform/rockchip/rga/rga3-hw.c |  32 +-
+ drivers/media/v4l2-core/v4l2-mem2mem.c        |  94 +++--
+ include/media/v4l2-mem2mem.h                  |  18 +
+ 7 files changed, 560 insertions(+), 240 deletions(-)
 ---
- drivers/media/v4l2-core/v4l2-mem2mem.c | 61 ++++++++++++++++++----------------
- 1 file changed, 33 insertions(+), 28 deletions(-)
+base-commit: 27953c044974baf7e24dee3e9342fe0103dea80c
+change-id: 20260602-spu-rga3multicore-ae8c8caf01e9
 
-diff --git a/drivers/media/v4l2-core/v4l2-mem2mem.c b/drivers/media/v4l2-core/v4l2-mem2mem.c
-index a65cbb124cfe0..60cca94195166 100644
---- a/drivers/media/v4l2-core/v4l2-mem2mem.c
-+++ b/drivers/media/v4l2-core/v4l2-mem2mem.c
-@@ -84,7 +84,6 @@ static const char * const m2m_entity_name[] = {
-  *			v4l2_m2m_unregister_media_controller().
-  * @intf_devnode:	&struct media_intf devnode pointer with the interface
-  *			with controls the M2M device.
-- * @curr_ctx:		currently running instance
-  * @job_queue:		instances queued to run
-  * @job_spinlock:	protects job_queue
-  * @job_work:		worker to run queued jobs.
-@@ -93,7 +92,6 @@ static const char * const m2m_entity_name[] = {
-  * @kref:		device reference count
-  */
- struct v4l2_m2m_dev {
--	struct v4l2_m2m_ctx	*curr_ctx;
- #ifdef CONFIG_MEDIA_CONTROLLER
- 	struct media_entity	*source;
- 	struct media_pad	source_pad;
-@@ -232,8 +230,14 @@ void *v4l2_m2m_get_curr_priv(struct v4l2_m2m_dev *m2m_dev)
- 	void *ret = NULL;
- 
- 	spin_lock_irqsave(&m2m_dev->job_spinlock, flags);
--	if (m2m_dev->curr_ctx)
--		ret = m2m_dev->curr_ctx->priv;
-+	if (!list_empty(&m2m_dev->job_queue)) {
-+		struct v4l2_m2m_ctx *first_ctx =
-+			list_first_entry(&m2m_dev->job_queue,
-+					 struct v4l2_m2m_ctx, queue);
-+
-+		if (first_ctx->job_flags & TRANS_RUNNING)
-+			ret = first_ctx->priv;
-+	}
- 	spin_unlock_irqrestore(&m2m_dev->job_spinlock, flags);
- 
- 	return ret;
-@@ -252,14 +256,9 @@ EXPORT_SYMBOL(v4l2_m2m_get_curr_priv);
- static void v4l2_m2m_try_run(struct v4l2_m2m_dev *m2m_dev)
- {
- 	unsigned long flags;
-+	struct v4l2_m2m_ctx *chosen_ctx;
- 
- 	spin_lock_irqsave(&m2m_dev->job_spinlock, flags);
--	if (NULL != m2m_dev->curr_ctx) {
--		spin_unlock_irqrestore(&m2m_dev->job_spinlock, flags);
--		dprintk("Another instance is running, won't run now\n");
--		return;
--	}
--
- 	if (list_empty(&m2m_dev->job_queue)) {
- 		spin_unlock_irqrestore(&m2m_dev->job_spinlock, flags);
- 		dprintk("No job pending\n");
-@@ -272,13 +271,18 @@ static void v4l2_m2m_try_run(struct v4l2_m2m_dev *m2m_dev)
- 		return;
- 	}
- 
--	m2m_dev->curr_ctx = list_first_entry(&m2m_dev->job_queue,
--				   struct v4l2_m2m_ctx, queue);
--	m2m_dev->curr_ctx->job_flags |= TRANS_RUNNING;
-+	chosen_ctx = list_first_entry(&m2m_dev->job_queue, struct v4l2_m2m_ctx, queue);
-+	if (chosen_ctx->job_flags & TRANS_RUNNING) {
-+		spin_unlock_irqrestore(&m2m_dev->job_spinlock, flags);
-+		dprintk("Another instance is running, won't run now\n");
-+		return;
-+	}
-+
-+	chosen_ctx->job_flags |= TRANS_RUNNING;
- 	spin_unlock_irqrestore(&m2m_dev->job_spinlock, flags);
- 
--	dprintk("Running job on m2m_ctx: %p\n", m2m_dev->curr_ctx);
--	m2m_dev->m2m_ops->device_run(m2m_dev->curr_ctx->priv);
-+	dprintk("Running job on m2m_ctx: %p\n", chosen_ctx);
-+	m2m_dev->m2m_ops->device_run(chosen_ctx->priv);
- }
- 
- /*
-@@ -469,15 +473,16 @@ static void v4l2_m2m_schedule_next_job(struct v4l2_m2m_dev *m2m_dev,
- static bool _v4l2_m2m_job_finish(struct v4l2_m2m_dev *m2m_dev,
- 				 struct v4l2_m2m_ctx *m2m_ctx)
- {
--	if (!m2m_dev->curr_ctx || m2m_dev->curr_ctx != m2m_ctx) {
-+	if (!m2m_ctx || !(m2m_ctx->job_flags & TRANS_RUNNING)) {
- 		dprintk("Called by an instance not currently running\n");
- 		return false;
- 	}
- 
--	list_del(&m2m_dev->curr_ctx->queue);
--	m2m_dev->curr_ctx->job_flags &= ~(TRANS_QUEUED | TRANS_RUNNING);
--	wake_up(&m2m_dev->curr_ctx->finished);
--	m2m_dev->curr_ctx = NULL;
-+	WARN_ON(m2m_dev != m2m_ctx->m2m_dev);
-+
-+	list_del(&m2m_ctx->queue);
-+	m2m_ctx->job_flags &= ~(TRANS_QUEUED | TRANS_RUNNING);
-+	wake_up(&m2m_ctx->finished);
- 	return true;
- }
- 
-@@ -548,12 +553,15 @@ void v4l2_m2m_suspend(struct v4l2_m2m_dev *m2m_dev)
- 
- 	spin_lock_irqsave(&m2m_dev->job_spinlock, flags);
- 	m2m_dev->job_queue_flags |= QUEUE_PAUSED;
--	curr_ctx = m2m_dev->curr_ctx;
-+	if (list_empty(&m2m_dev->job_queue)) {
-+		spin_unlock_irqrestore(&m2m_dev->job_spinlock, flags);
-+		return;
-+	}
-+
-+	curr_ctx = list_first_entry(&m2m_dev->job_queue, struct v4l2_m2m_ctx, queue);
- 	spin_unlock_irqrestore(&m2m_dev->job_spinlock, flags);
- 
--	if (curr_ctx)
--		wait_event(curr_ctx->finished,
--			   !(curr_ctx->job_flags & TRANS_RUNNING));
-+	wait_event(curr_ctx->finished, !(curr_ctx->job_flags & TRANS_RUNNING));
- }
- EXPORT_SYMBOL(v4l2_m2m_suspend);
- 
-@@ -896,10 +904,8 @@ int v4l2_m2m_streamoff(struct file *file, struct v4l2_m2m_ctx *m2m_ctx,
- 	q_ctx->num_rdy = 0;
- 	spin_unlock_irqrestore(&q_ctx->rdy_spinlock, flags);
- 
--	if (m2m_dev->curr_ctx == m2m_ctx) {
--		m2m_dev->curr_ctx = NULL;
-+	if (m2m_ctx->job_flags & TRANS_RUNNING)
- 		wake_up(&m2m_ctx->finished);
--	}
- 	spin_unlock_irqrestore(&m2m_dev->job_spinlock, flags_job);
- 
- 	return 0;
-@@ -1194,7 +1200,6 @@ struct v4l2_m2m_dev *v4l2_m2m_init(const struct v4l2_m2m_ops *m2m_ops)
- 	if (!m2m_dev)
- 		return ERR_PTR(-ENOMEM);
- 
--	m2m_dev->curr_ctx = NULL;
- 	m2m_dev->m2m_ops = m2m_ops;
- 	INIT_LIST_HEAD(&m2m_dev->job_queue);
- 	spin_lock_init(&m2m_dev->job_spinlock);
-
--- 
-2.55.0
+Best regards,
+--  
+Sven Püschel <s.pueschel@pengutronix.de>
 
 
