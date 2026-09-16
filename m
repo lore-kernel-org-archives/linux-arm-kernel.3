@@ -4,77 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3451C88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 11:07:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED6F7C982C5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 11:08:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QidgRzXNwa2MtDG6Xj8clhuntQWwg8PG8FKxih6T2BA=; b=fXOMgmjhrtD/0BfNoJiony1Xkt
-	npVQTNk2OyxwaBffHApnppQCun1J+aVuAcWBv8GtA+Y2lY4MbqH+ZmOXc0xta4O3QtXhXGyruRejP
-	vdjW0bw/yWZz5cCnnpdn7gUdqfYpj1kYt1ZyMLZ9hWI9dVV3BHPPkQQliS8wYtQTloIU50bhHD5Je
-	X4XVcnnBunvTKwU4XjRDK1mg5iAGGI7rKe8eJaXP/IA6H4REvIAZDVYqjsR/ack00dFnR13tFwIYW
-	wc4jfjjK8gzgzaCDj68F0NMnv9BsDRBrZp9hR12VJu6gHpYODzVvAJpZ8PG7QALHViL0EX0AccfXo
-	G4GgCpMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eSAGX47Hy8b0egmNyWcSXVJm5ulCSGW/EmuhPogSmCo=; b=HGWQ3cnif/9gZUAdTgxaDP6kKE
+	2X1T7orbXgX06ThxZzeEh9dZ0o4EEDOxEvbvPvKK6qoGKF7B0xt9u+wJhrybIWBnb8rz0tL56KKEe
+	/lUr4WK01SDhZ4okqB2UB6Ankn1w1Sty4UND467cEgJGXfrVVZ/w2XIu1RZQsxZfe8e9wtAEcxG75
+	F0G0c6Tm6it8VhTuL/qi5zb4Z+ZUGPZ8LO8ZVgLkW1TMgzQAjUQCinBIDzS1QkoONB4RyyMjickqw
+	A5EpHwJuCLR3682WRici/uP4iKe9KBRlWo2k4+576Qp4urOprMSZL5Sp5csvfvjF87EOsKLfPY8yQ
+	trT3YEeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6nUB-000000092Fy-3uzs;
-	Wed, 16 Sep 2026 11:07:31 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1x6nVD-000000092Nh-0qpb;
+	Wed, 16 Sep 2026 11:08:35 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6nU8-000000092FR-3dGV
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 11:07:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789556849; x=1821092849;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=6MyMFTYyqXiVc+zeIiupA0xmhMyyGJOE11wnLVfHtjw=;
-  b=lcR1IViDCGBN0wBp1pNZsSzrJ+2Kyd657YCXTzTQfGvmAS2RrtOKrVWc
-   t/oHdUv0qij8W7FUGyX+OZAiW8e/nl5ikPzaoLc4Rqd8tm1X5YFX0T9N0
-   lc3W1X8FB71GI8aDUktGfILQFsLKNz0b9+TsKzb4Bdh5YT0+sKC5DfL0P
-   MA3v5mE6jrgbAzgInRLc2KQyAG/+tbe2Ogi8ckCr78rHSPANy8xYPLkx0
-   2+mlsEsy07/2u1BnJCxGE188CD6aVOElAbOjbdeb276PGUZjK2WsHmddg
-   BomP9Rc4hsLILAmHEO8vRJNq2mDFyo79O/sMjrHKqH+1HV+LlAsI54mUu
-   Q==;
-X-CSE-ConnectionGUID: FJIlEj/MQXOo+qurZMGi4g==
-X-CSE-MsgGUID: C1aIdfrrQluyHFVdb9MwLA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="92437160"
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="92437160"
-Received: from fmviesa013.fm.intel.com ([10.60.135.153])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Sep 2026 04:07:28 -0700
-X-CSE-ConnectionGUID: yma97Ag8RTmey/OQha+7TQ==
-X-CSE-MsgGUID: dZZW5ZDQRvaQEgVXOGIE3Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="1709838"
-Received: from ettammin-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.145])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Sep 2026 04:07:26 -0700
-Date: Wed, 16 Sep 2026 14:07:23 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Malathi A <malathi.a2000@gmail.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] serial: 8250_uniphier: Disable clock on probe error path
-Message-ID: <aqp4a5YmwC1Lt1TL@ashevche-desk.local>
-References: <20260916095438.20837-1-malathi.a2000@gmail.com>
+	id 1x6nVB-000000092MA-0tDr;
+	Wed, 16 Sep 2026 11:08:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1789556909;
+	bh=mvbGJKU7g8urQTzwwQuSXtCvZqjpvJmauyF4amfDJEo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=GN6eTxhS/ALFNxkyrBHL9dWeqBtnw7EBL2VDx83iRjR+y0Ef793/Zmsb3hrPFLZyf
+	 ybayf5bILV7z7l1m8AHR3zG8pUd6oxbvmMxoy9sLxHGPHAb0AdtsIKP5OYO7JKhMLc
+	 5giPtPEtC/zD4F416dMqPlcO2ih4QfJUL4zW376C08ryvlofChQtLlkcG0nBxzZRgj
+	 jYqsVRrVxqJDE1AhY2/+YMkBWotE2aOn7Qhk3FhgAuq1ObEWy7gWmB+e3RPGdVFAaA
+	 UmUXiaD1BnBE4UbZ6/7TdEVdjMWn2uAOXIJhWR+NH7LYweZX7vRK1h+lrb3ev1XiBC
+	 C6Rpr2RYQ3cHw==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1789B17E091A;
+	Wed, 16 Sep 2026 13:08:29 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: chunkuang.hu@kernel.org
+Cc: p.zabel@pengutronix.de,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	jitao.shi@mediatek.com,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kernel@collabora.com,
+	justin.yeh@mediatek.com,
+	jason-jh.lin@mediatek.com,
+	CK Hu <ck.hu@mediatek.com>
+Subject: [PATCH v9 01/13] dt-bindings: display: mediatek: dsc: Add MT8196 compatible
+Date: Wed, 16 Sep 2026 13:08:13 +0200
+Message-ID: <20260916110825.102631-2-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260916110825.102631-1-angelogioacchino.delregno@collabora.com>
+References: <20260916110825.102631-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260916095438.20837-1-malathi.a2000@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_040728_965333_9919557C 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20260916_040833_426159_067283F2 
+X-CRM114-Status: UNSURE (   9.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,26 +92,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 16, 2026 at 09:54:36AM +0000, Malathi A wrote:
-> uniphier_uart_probe() calls clk_prepare_enable() on priv->clk before it
-> reads the port properties, but returns directly when
-> uart_read_port_properties() fails, leaving the clock prepared and
-> enabled.
-> 
-> The intent is clear from the surrounding code: the next error path, when
-> serial8250_register_8250_port() fails, calls clk_disable_unprepare(), as
-> does uniphier_uart_remove(). Add the missing call so the early failure
-> behaves the same way.
-> 
-> Found by smatch:
-> 
->   drivers/tty/serial/8250/8250_uniphier.c:232 uniphier_uart_probe() warn: 'priv->clk' from clk_prepare_enable() not released on lines: 205.
+Add compatible for the Display Stream Compression (DSC) IP found
+in the display controller of the MT8196 SoC.
 
-Why not using devm_clk_get_enabled() instead?
+This IP is compatible with the one found in MT8195.
 
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: CK Hu <ck.hu@mediatek.com>
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ .../devicetree/bindings/display/mediatek/mediatek,dsc.yaml    | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,dsc.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,dsc.yaml
+index a5b88eb97e3b..c8b3e86943e4 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,dsc.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,dsc.yaml
+@@ -23,7 +23,9 @@ properties:
+       - enum:
+           - mediatek,mt8195-disp-dsc
+       - items:
+-          - const: mediatek,mt8188-disp-dsc
++          - enum:
++              - mediatek,mt8188-disp-dsc
++              - mediatek,mt8196-disp-dsc
+           - const: mediatek,mt8195-disp-dsc
+ 
+   reg:
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.55.0
 
 
