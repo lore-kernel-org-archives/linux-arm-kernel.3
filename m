@@ -4,85 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40241C88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 12:20:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 504DDC88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 12:24:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QiMiil7nH4k58e8PUllAg94lSTZSG0PK0yVGK/5CbjU=; b=PyMXO4XKI/iAG9JMHJWXJp6M/g
-	5teGWYAUoGBkRy1hw4lYqxjYUaHZQlUhJ8YBhnfQ/dOuL6oKurAa5OPlLsgXdU6tlUwcQtP3rzCg8
-	8E8bp6q3seSPHSaWYu1JI8qnKdvhR/aU3nxaSxvMoN5V6BjC9ZxxK5HfivOQ/R7Aommj7+m0W8BTh
-	zDElO2fNHeyk4zpwYDbd8gP5ojtJkInw0+XOTGHHfuGqBlf2ycPnZxo5/M+lmDWAwhAi9+g+L8ISI
-	uQUVspi2tm7+arsxYjEu0GPzYW+KRhehnfXXYEG3KDLTi5VLS/906ixYYOT8lB4kids83g2rPWb1z
-	n+a9ttbQ==;
+	bh=ak8Q6+fNBlU8q7MtsTksV589MUX4tYAzsPks4YDw7Cw=; b=S2aVhKKav1jmU2dwsl9UmYHVgE
+	ZoEzKbxDSNHKM0G0GdyHJVJZIoRKYDylmqbeyEAo4zxEJ6WoJhWN3l5eAWhzNMYdazoyyGOrPXuXv
+	Z7ESkYHNNf5zLG2oDTKwW2x1FC0p41ofjRXmr+mkrSfyj0BvVFOHVl03wGy5VhIBg6On3ZZlyJYdc
+	+2c/+eeGQ1mZ2fjufXe3gO+tWLGO6QYD4ZqeUJckwhO5Qgfx+fMOOXPH50YsTUWuoWbGVV8GgVzAc
+	gsuc7S06J0Ri0uT0+sioVvTwUSiFL5r2aCWXLk+zpSyAe0lfRXTAWgT8vYhWcU9PD41AOh4jVTL+W
+	rtmNCCjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6ocv-000000099tc-42M7;
-	Wed, 16 Sep 2026 12:20:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x6ogD-00000009A7a-3L9v;
+	Wed, 16 Sep 2026 12:24:01 +0000
+Received: from mailout3.samsung.com ([203.254.224.33])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6ocu-000000099tO-30uw
+	id 1x6ogA-00000009A6g-2H4C
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 12:20:36 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 78CC64060B;
-	Wed, 16 Sep 2026 12:20:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57E591F000FF;
-	Wed, 16 Sep 2026 12:20:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789561236;
-	bh=QiMiil7nH4k58e8PUllAg94lSTZSG0PK0yVGK/5CbjU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=YLgF5pmg3/uy8QkZeytemK8Km6GMYdoFe6ct3IUrmp8cwR/aWpC9o84BdMzs4DRVR
-	 /bJl7j4DAnUuHQf25m8bdb+prT/1HoiP2nneNGijieCOkmV/P7YDLfhFOi1AzeLRk+
-	 8Z/ENTiyUemNovj6EE1253G92b03uumhcZAU4RvdvHQsiMLVSXKseuAGsMo5HopSDr
-	 /7sx/AsBGJJvI3+gKHv40DrSCZy0jq9gnRS4IlCvbtNvPFgUybIak9wNCGiNS9mvIZ
-	 ZfTwE5jmShoQNBpLlRfTISq5DSk/CHF77jrP3jGHfGJbgWzwou9/01OJIbxYL1W6st
-	 UVbGEVqRkG0mw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1x6ocr-00000009bLG-3kTc;
-	Wed, 16 Sep 2026 12:20:34 +0000
-Date: Wed, 16 Sep 2026 13:20:33 +0100
-Message-ID: <86fqz95qwe.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Leonardo Bras <leo.bras@arm.com>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	Tian Zheng <zhengtian10@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
+	Wed, 16 Sep 2026 12:24:00 +0000
+Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20260916122353epoutp039c82c2edd3a3c6d6cd07f60bc94021b3~VzKRe2o890364703647epoutp03c
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 12:23:53 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20260916122353epoutp039c82c2edd3a3c6d6cd07f60bc94021b3~VzKRe2o890364703647epoutp03c
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1789561433;
+	bh=ak8Q6+fNBlU8q7MtsTksV589MUX4tYAzsPks4YDw7Cw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=KRuigGo21EnzTGn37Qtx8/XKXocFtIRjwbsd6H1CIhwuAHebhQhkewcBzfMKFXOIk
+	 ijwuW+33coa2ZIIKTgLBSmHkHlcIaUtSP8FrYFQusiPRxgJAEc10pN/PwlQD1TAIUu
+	 aFk0t3gMgy2SFiyx2XMiSYCvVwMUUeclJwwc8POw=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
+	20260916122352epcas5p41a603ccf6197f984cd6a2b2de9559880~VzKRAL0uK2362423624epcas5p4t;
+	Wed, 16 Sep 2026 12:23:52 +0000 (GMT)
+Received: from epcas5p3.samsung.com (unknown [182.195.38.90]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4hlJ2v5YsMz2SSKX; Wed, 16 Sep
+	2026 12:23:51 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20260916122351epcas5p37666f1232d3b2bcc1d02a96ab0df4142~VzKPm3pDt1908719087epcas5p3E;
+	Wed, 16 Sep 2026 12:23:51 +0000 (GMT)
+Received: from vega.samsungds.net (unknown [107.108.73.84]) by
+	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20260916122347epsmtip285ac663cc543167bf9709afe33e86de0~VzKMCPPGx1922219222epsmtip2q;
+	Wed, 16 Sep 2026 12:23:47 +0000 (GMT)
+From: Selvarasu Ganesan <selvarasu.g@samsung.com>
+To: krzk@kernel.org, peter.griffin@linaro.org, alim.akhtar@samsung.com,
+	gregkh@linuxfoundation.org, robh@kernel.org, conor+dt@kernel.org,
+	Thinh.Nguyen@synopsys.com, mani@kernel.org, selvarasu.g@samsung.com,
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH 1/5] KVM: arm64: pgtables: Change write bit from S2AP_W to DBM
-In-Reply-To: <aqp73SxO78o7LJTs@LeoBrasDK>
-References: <20260901171558.2674031-1-leo.bras@arm.com>
-	<20260901171558.2674031-2-leo.bras@arm.com>
-	<86bja17cg7.wl-maz@kernel.org>
-	<aql8jY4o8SzjJuFU@LeoBrasDK>
-	<aqnku2TcFzIKhjQl@kernel.org>
-	<aqp73SxO78o7LJTs@LeoBrasDK>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: leo.bras@arm.com, oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, rananta@google.com, zhengtian10@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Cc: jh0801.jung@samsung.com, h10.kim@samsung.com, dh10.jung@samsung.com,
+	akash.m5@samsung.com, hongpooh.kim@samsung.com, eomji.oh@samsung.com,
+	shijie.cai@samsung.com, muhammed.ali@samsung.com, thiagu.r@samsung.com
+Subject: [PATCH v2 1/3] MAINTAINERS: add Samsung USB DT binding to
+ ARM/SAMSUNG entry
+Date: Wed, 16 Sep 2026 17:52:27 +0530
+Message-Id: <20260916122229.2604003-2-selvarasu.g@samsung.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20260916122229.2604003-1-selvarasu.g@samsung.com>
+X-CMS-MailID: 20260916122351epcas5p37666f1232d3b2bcc1d02a96ab0df4142
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20260916122351epcas5p37666f1232d3b2bcc1d02a96ab0df4142
+References: <20260916122229.2604003-1-selvarasu.g@samsung.com>
+	<CGME20260916122351epcas5p37666f1232d3b2bcc1d02a96ab0df4142@epcas5p3.samsung.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260916_052358_763518_D83E78B6 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,98 +95,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 16 Sep 2026 12:22:05 +0100,
-Leonardo Bras <leo.bras@arm.com> wrote:
-> 
-> On Tue, Sep 15, 2026 at 05:37:15PM -0700, Oliver Upton wrote:
-> > On Tue, Sep 15, 2026 at 06:12:45PM +0100, Leonardo Bras wrote:
-> > > > Yes, the HW should ignore it. But we have also
-> > > > seen quite a few broken designs in this area...
-> > > > 
-> > > 
-> > > I lack experience on what bad thing could happen. So I will expand on what 
-> > > I belive to understand up to here:
-> > > 
-> > > - The PTE is in memory, so the DBM bit can be set regardless of being RES0
-> > > - For SW pagetable walking, I don't think 'bit 51 == 0' is checked
-> > > - For HW pagetable walking, maybe some faulty implementation may rely on 
-> > >   bit51 being RES0, and fault otherwise.
-> > > 
-> > > If that's the case, then we would have to actually support both encodings, 
-> > > and only enable the new one if HAFDBS is available in the system. 
-> > > 
-> > > I just wonder how high are the chances to have such a broken design, 
-> > > or other broken designs did not come to my mind, and if we have to start 
-> > > with that multiple-encoding option.
-> > 
-> > FWIW, the host stage-1 already uses the DBM bit unconditionally,
-> > treating it as a software bit on implementations without HAFDBS.
-> > Although given the quality of any garden variety Arm MMU I understand
-> > where Marc is coming from.
-> > 
-> > I don't think the HAFDBS enablement is complicated enough to be done in
-> > a separate series without any meaningful users, nor would I really be
-> > interested in taking it without, say, HDBSS.
-> > 
-> > Can you please work with Tian to get a combined series out for this?
-> > 
-> 
-> Hi Oliver, thanks for reviewing!
-> 
-> Sure, one of the reasons I sent like this is so Tian could use it as a base 
-> for his next version.
-> 
-> 
-> > > > > diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-> > > > > index 17123f0b6dab..eb8dfffc32c7 100644
-> > > > > --- a/arch/arm64/kvm/nested.c
-> > > > > +++ b/arch/arm64/kvm/nested.c
-> > > > > @@ -379,21 +379,23 @@ static int walk_nested_s2_pgd(struct kvm_vcpu *vcpu, phys_addr_t ipa,
-> > > > >  	}
-> > > > >  
-> > > > >  	addr_bottom += contiguous_bit_shift(desc, wi, level);
-> > > > >  
-> > > > >  	/* Calculate and return the result */
-> > > > >  	paddr = (desc & GENMASK_ULL(47, addr_bottom)) |
-> > > > >  		(ipa & GENMASK_ULL(addr_bottom - 1, 0));
-> > > > >  	out->output = paddr;
-> > > > >  	out->block_size = 1UL << ((3 - level) * stride + wi->pgshift);
-> > > > >  	out->readable = desc & KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R;
-> > > > > -	out->writable = desc & KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
-> > > > > +	/* Takes care of both RO/RW and RO/WC/WD encodings */
-> > > > > +	out->writable = desc & (KVM_PTE_LEAF_ATTR_HI_S2_DBM |
-> > > > > +				KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W);
-> > > > 
-> > > > Absolutely NOT. For a start, NV doesn't support FEAT_HAFDBS. But even
-> > > > if it did, you are now actively corrupting memory by turning a RO
-> > > > mapping with a spurious DBM bit set into a writable mapping.
-> > > > VTCR_EL2.HD exists for a reason.
-> > > > 
-> > > > Do you see why your blanket approach of equating DBM with writable is
-> > > > plain wrong?
-> > > 
-> > > Sorry, not really... please help me understand it.
-> > > 
-> > > When you say a spurious DBM bit, what does it mean?
-> > 
-> > You've implemented the exact sort of bug that was alluded to above. In
-> > this case it's a software page table walker consuming DBM regardless of
-> > the value of VTCR_EL2.HD.
-> > 
-> 
-> So you mean that DBM being treated as "writable" could _only_ happen if we 
-> have VTCR_EL2.HD=1? I was previously under the impression that it could be 
-> used regardless of HD value.
+Add the Samsung USB devicetree binding file path under the existing
+ARM/Samsung SoC maintainership.
 
-Then you have failed to understand the architecture. When
-VTCR_EL2.HD==0, DBM can be treated as RES0, RES0, or RES0.
+Signed-off-by: Selvarasu Ganesan <selvarasu.g@samsung.com>
+---
+ MAINTAINERS | 1 +
+ 1 file changed, 1 insertion(+)
 
-R_XZFQH and R_BRFGY are pretty clear that DBM can only be evaluated
-when dirty hw update is enabled, and I_MHJZP tells you what it means
-for S2 to have this enabled.
-
-	M.
-
+diff --git a/MAINTAINERS b/MAINTAINERS
+index a53620839407..87a1ab24a375 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -3576,6 +3576,7 @@ F:	Documentation/devicetree/bindings/arm/samsung/
+ F:	Documentation/devicetree/bindings/hwinfo/samsung,*
+ F:	Documentation/devicetree/bindings/power/pd-samsung.yaml
+ F:	Documentation/devicetree/bindings/soc/samsung/
++F:	Documentation/devicetree/bindings/usb/samsung,*
+ F:	arch/arm/boot/dts/samsung/
+ F:	arch/arm/mach-exynos*/
+ F:	arch/arm/mach-s3c/
 -- 
-Without deviation from the norm, progress is not possible.
+2.17.1
+
 
