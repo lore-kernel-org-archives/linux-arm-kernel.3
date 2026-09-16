@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 504DDC88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 12:24:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CA49C88E5C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 12:24:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ak8Q6+fNBlU8q7MtsTksV589MUX4tYAzsPks4YDw7Cw=; b=S2aVhKKav1jmU2dwsl9UmYHVgE
-	ZoEzKbxDSNHKM0G0GdyHJVJZIoRKYDylmqbeyEAo4zxEJ6WoJhWN3l5eAWhzNMYdazoyyGOrPXuXv
-	Z7ESkYHNNf5zLG2oDTKwW2x1FC0p41ofjRXmr+mkrSfyj0BvVFOHVl03wGy5VhIBg6On3ZZlyJYdc
-	+2c/+eeGQ1mZ2fjufXe3gO+tWLGO6QYD4ZqeUJckwhO5Qgfx+fMOOXPH50YsTUWuoWbGVV8GgVzAc
-	gsuc7S06J0Ri0uT0+sioVvTwUSiFL5r2aCWXLk+zpSyAe0lfRXTAWgT8vYhWcU9PD41AOh4jVTL+W
-	rtmNCCjQ==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	List-Owner; bh=BZnyq9Veye6+ufVVuEqP6BfT4hxNX17wkGGrO1drTUY=; b=FQzTQwL5CDJzWt
+	cNk0FH0WJNw4BopJ6LxGf3pipttoV0OMHNNuV0rxHqcaf9m4SSaf7bGGrkkQu8PQUvjfGwWkakDdj
+	7FTtr+Lao3d3zp8okhJtXcLfY/vi48A0A5jB62ysWOKAKSPEr8QMQ6ulT4DRJv/fRAL3JkhRq2pZE
+	bcOseeROkmgVgSD+4jjHsVheiiGhccmR7Yv53CD5s4DcjONqVUWLdUJQb88p8MXJcDflM/buFsIYv
+	xYzgLxykhzGGJKvDERMFNGpdS6TZNkbG2rQ11tKjc5scj0GqtJYZAgR7MWStv/z1pUATRDvc1U7BL
+	8mhw2Tb1HFpUpVMbt7sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6ogD-00000009A7a-3L9v;
-	Wed, 16 Sep 2026 12:24:01 +0000
-Received: from mailout3.samsung.com ([203.254.224.33])
+	id 1x6ogE-00000009A7e-0fqd;
+	Wed, 16 Sep 2026 12:24:02 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6ogA-00000009A6g-2H4C
+	id 1x6og9-00000009A6f-1XtE
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 16 Sep 2026 12:24:00 +0000
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20260916122353epoutp039c82c2edd3a3c6d6cd07f60bc94021b3~VzKRe2o890364703647epoutp03c
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 12:23:53 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20260916122353epoutp039c82c2edd3a3c6d6cd07f60bc94021b3~VzKRe2o890364703647epoutp03c
+Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20260916122349epoutp022a207b59d0e4ab594a80e55d3c243273~VzKODy1EO1976519765epoutp02G
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 12:23:49 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20260916122349epoutp022a207b59d0e4ab594a80e55d3c243273~VzKODy1EO1976519765epoutp02G
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1789561433;
-	bh=ak8Q6+fNBlU8q7MtsTksV589MUX4tYAzsPks4YDw7Cw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=KRuigGo21EnzTGn37Qtx8/XKXocFtIRjwbsd6H1CIhwuAHebhQhkewcBzfMKFXOIk
-	 ijwuW+33coa2ZIIKTgLBSmHkHlcIaUtSP8FrYFQusiPRxgJAEc10pN/PwlQD1TAIUu
-	 aFk0t3gMgy2SFiyx2XMiSYCvVwMUUeclJwwc8POw=
-Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
-	20260916122352epcas5p41a603ccf6197f984cd6a2b2de9559880~VzKRAL0uK2362423624epcas5p4t;
-	Wed, 16 Sep 2026 12:23:52 +0000 (GMT)
-Received: from epcas5p3.samsung.com (unknown [182.195.38.90]) by
-	epsnrtp02.localdomain (Postfix) with ESMTP id 4hlJ2v5YsMz2SSKX; Wed, 16 Sep
-	2026 12:23:51 +0000 (GMT)
+	s=mail20170921; t=1789561429;
+	bh=BZnyq9Veye6+ufVVuEqP6BfT4hxNX17wkGGrO1drTUY=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=A71J4W9hLJQNpjok+1HwdX4sRCyCWwBXguzo/PQZFRa6kXY1PzdXRk9Y1watHkKah
+	 9Vjmfzwn6hcap0xD3rVxWALhb+QVaNtqFoL9mWGWQ4Us4bRup491IZk6dvAqy8bFK5
+	 0BpefsEbU9bXUOv9K6vCPyuZUoJHugEzzM07zoik=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
+	20260916122348epcas5p31c4318d2b535edd2096b90a9bb79abdb~VzKNYvzaX1679016790epcas5p3c;
+	Wed, 16 Sep 2026 12:23:48 +0000 (GMT)
+Received: from epcas5p4.samsung.com (unknown [182.195.38.88]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4hlJ2r1NXQz6B9m7; Wed, 16 Sep
+	2026 12:23:48 +0000 (GMT)
 Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
 	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
-	20260916122351epcas5p37666f1232d3b2bcc1d02a96ab0df4142~VzKPm3pDt1908719087epcas5p3E;
-	Wed, 16 Sep 2026 12:23:51 +0000 (GMT)
+	20260916122346epcas5p376bd1f05910537d3e0025aac2a62ddf2~VzKLmJUH92587525875epcas5p34;
+	Wed, 16 Sep 2026 12:23:46 +0000 (GMT)
 Received: from vega.samsungds.net (unknown [107.108.73.84]) by
 	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20260916122347epsmtip285ac663cc543167bf9709afe33e86de0~VzKMCPPGx1922219222epsmtip2q;
-	Wed, 16 Sep 2026 12:23:47 +0000 (GMT)
+	20260916122343epsmtip238d3a5d0068aef2b1b5d55f5177ced2d~VzKIxlwz41938919389epsmtip2f;
+	Wed, 16 Sep 2026 12:23:43 +0000 (GMT)
 From: Selvarasu Ganesan <selvarasu.g@samsung.com>
 To: krzk@kernel.org, peter.griffin@linaro.org, alim.akhtar@samsung.com,
 	gregkh@linuxfoundation.org, robh@kernel.org, conor+dt@kernel.org,
@@ -63,24 +63,21 @@ To: krzk@kernel.org, peter.griffin@linaro.org, alim.akhtar@samsung.com,
 Cc: jh0801.jung@samsung.com, h10.kim@samsung.com, dh10.jung@samsung.com,
 	akash.m5@samsung.com, hongpooh.kim@samsung.com, eomji.oh@samsung.com,
 	shijie.cai@samsung.com, muhammed.ali@samsung.com, thiagu.r@samsung.com
-Subject: [PATCH v2 1/3] MAINTAINERS: add Samsung USB DT binding to
- ARM/SAMSUNG entry
-Date: Wed, 16 Sep 2026 17:52:27 +0530
-Message-Id: <20260916122229.2604003-2-selvarasu.g@samsung.com>
+Subject: [PATCH v2 0/3] Add USB DWC3 support for Samsung Exynos8855
+Date: Wed, 16 Sep 2026 17:52:26 +0530
+Message-Id: <20260916122229.2604003-1-selvarasu.g@samsung.com>
 X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20260916122229.2604003-1-selvarasu.g@samsung.com>
-X-CMS-MailID: 20260916122351epcas5p37666f1232d3b2bcc1d02a96ab0df4142
+X-CMS-MailID: 20260916122346epcas5p376bd1f05910537d3e0025aac2a62ddf2
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
 CMS-TYPE: 105P
 cpgsPolicy: CPGSC10-542,Y
 X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20260916122351epcas5p37666f1232d3b2bcc1d02a96ab0df4142
-References: <20260916122229.2604003-1-selvarasu.g@samsung.com>
-	<CGME20260916122351epcas5p37666f1232d3b2bcc1d02a96ab0df4142@epcas5p3.samsung.com>
+X-CMS-RootMailID: 20260916122346epcas5p376bd1f05910537d3e0025aac2a62ddf2
+References: <CGME20260916122346epcas5p376bd1f05910537d3e0025aac2a62ddf2@epcas5p3.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_052358_763518_D83E78B6 
-X-CRM114-Status: GOOD (  10.91  )
+X-CRM114-CacheID: sfid-20260916_052358_140545_52B91162 
+X-CRM114-Status: GOOD (  14.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,26 +92,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the Samsung USB devicetree binding file path under the existing
-ARM/Samsung SoC maintainership.
+The Samsung Exynos8855 SoC implements a Synopsys DesignWare USB3 DRD
+controller. The DWC3 core on the Exynos8855 is instantiated with the
+generic DWC3 platform driver using a flattened model, where the
+controller is directly addressable without a separate glue layer.
 
-Signed-off-by: Selvarasu Ganesan <selvarasu.g@samsung.com>
----
- MAINTAINERS | 1 +
- 1 file changed, 1 insertion(+)
+This is the first Samsung Exynos binding using the flattened
+representation and this series adds the device tree binding and platform
+driver support for this configuration. The binding follows
+qcom,snps-dwc3 pattern, a single node referencing snps,dwc3-common.yaml
+for shared DWC3 properties, with per-SoC constraints enforced via
+if-then conditionals.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index a53620839407..87a1ab24a375 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -3576,6 +3576,7 @@ F:	Documentation/devicetree/bindings/arm/samsung/
- F:	Documentation/devicetree/bindings/hwinfo/samsung,*
- F:	Documentation/devicetree/bindings/power/pd-samsung.yaml
- F:	Documentation/devicetree/bindings/soc/samsung/
-+F:	Documentation/devicetree/bindings/usb/samsung,*
- F:	arch/arm/boot/dts/samsung/
- F:	arch/arm/mach-exynos*/
- F:	arch/arm/mach-s3c/
+The MAINTAINERS entry is updated first so that the new binding falls
+under the existing ARM/Samsung SoC maintainership.
+
+Changes in v2:
+- Commit 2/3: Clarify this is the first Samsung Exynos binding using
+  the flattened node representation.
+- Commit 3/3: Add the compatible entry in alphabetical order in the
+  of_match_table.
+- Link to v1:
+  https://lore.kernel.org/all/20260903071250.3421499-1-selvarasu.g@samsung.com/
+
+Selvarasu Ganesan (3):
+  MAINTAINERS: add Samsung USB DT binding to ARM/SAMSUNG entry
+  dt-bindings: usb: Introduce samsung,snps-dwc3
+  usb: dwc3: Add Exynos8855 to the generic platform driver
+
+ .../bindings/usb/samsung,snps-dwc3.yaml       | 98 +++++++++++++++++++
+ MAINTAINERS                                   |  1 +
+ drivers/usb/dwc3/dwc3-generic-plat.c          |  5 +-
+ 3 files changed, 102 insertions(+), 2 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/usb/samsung,snps-dwc3.yaml
+
 -- 
 2.17.1
 
