@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF540C88E5C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 13:46:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCBA3C88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 13:46:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VGcTy6f0Ll8C9rnyFjUhYOXAZUo1mPpaSmiZJ/9wm2c=; b=iZBfScYMJS08ZtOS6Du567H2kc
-	D6GJUQ6ibxZBBZ3NEwzgSW12QIPAGjbNyo8OeZpOvTS3j6Iq/hYq6w05jrzv9sHPK8dfEYy/+hhAg
-	QHSOU3Ncrn+yvI4boLG8+v6jSRJK8joNXAFjcCyfFjz8kkeo0sgZFir5/ISQqrJuYepMoQ5qVlR7v
-	tDsccmBVkJMR/r6fh4CM2w0QD6KXuz8iwlFy4alnh63mdRHrqOtspwGG7KlY1HViGjFzlmbQ6DgWh
-	sliMoF4u2R+XlXlI7MWFCRUHbLjChVbs8N6z8ql5E3f4t15E3hlvUhT22MEnr/jMgEUoNA2lS6hmK
-	AMcwVuWQ==;
+	bh=3E/DleiMuFSTLVuEtlsom3pL9KlwnB1jDhq/hJdTS2s=; b=BHoIbE55y0sDMCDdDEZhGeayfR
+	PGNHSJGMzuoL5/LdbNeIT+XbEHGY2H5BW2rQlxvRaWAJOzD0qxy7+HTFYbnBwGWrHGWOmzsF2nP1o
+	SX2PkwWKrnSqJ/HwvnUzyYnajA4PwUWdwNMiZ+CwSKl/lDS/BtxO1zsczISknplr24WVp2ME2PtbI
+	mWYzKjLPccotvEo+Nqz6NFruBIBG6OEE2zFPfr4E25TyrRyv0FAvYR7cCzi4xQBL180mK3j+IGgUo
+	ROCwQLjb9SJEf2+6ChAZX3AlAds3g8jVHdnBnR5xI6XSi/pPLF6B+C9q53SMHXQiXAj2zAxO+982L
+	wyRkf5pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6pxt-00000009Ibt-3X5a;
-	Wed, 16 Sep 2026 13:46:22 +0000
+	id 1x6pyA-00000009Imy-2HHu;
+	Wed, 16 Sep 2026 13:46:38 +0000
 Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6pxb-00000009ISZ-1pox;
-	Wed, 16 Sep 2026 13:46:04 +0000
+	id 1x6pxh-00000009IUE-37ho
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 16 Sep 2026 13:46:11 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 45F30C5CD58;
-	Wed, 16 Sep 2026 13:46:45 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 8E345C5CD60;
+	Wed, 16 Sep 2026 13:46:51 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 47AEF60337;
-	Wed, 16 Sep 2026 13:46:01 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id F028A11C7B031;
-	Wed, 16 Sep 2026 15:45:52 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 93E7660337;
+	Wed, 16 Sep 2026 13:46:07 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 680BF11C7B03A;
+	Wed, 16 Sep 2026 15:45:59 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1789566358; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1789566365; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=VGcTy6f0Ll8C9rnyFjUhYOXAZUo1mPpaSmiZJ/9wm2c=;
-	b=ZPALrDjdz3TB141LdfvYONuMS9LDNcQYGrg3ty0iQvv7KwogBRI0eE7pVTXCe6Ixe+SL2D
-	CXjLjjWG1o9Vc1yKPc30O3KleM6ArW51aNq/J9FXVIBJDwUkpVE8qVALVSbnuDHdLccss5
-	j2CoC4X67Jitr5IlOzGHmeNdK9zINGThF/ZyVFBVVMpyP4bVAU2e1QVL0FNBD0fmNWoP4Q
-	nZ8hK0LPfdV1A+6KjGAX6SyncA/GvCUMiVv8MEmnHhs6HlKvS9t7r6NJAOwqgJMBN5ZqpB
-	x46HaF0f3PjSEuKtjUSLi3UKYzAUSdD5geWD9bEASgDaS1595E3yQRVAYgkaQw==
+	bh=3E/DleiMuFSTLVuEtlsom3pL9KlwnB1jDhq/hJdTS2s=;
+	b=jcyziUB5f+XKLfGg0f90awIzxC9+e4tQ7SBLyDxK0rsPfvMLTF/a2qIzDM0NZi0kGUNKne
+	cbt+3Rru48IUeIruFPwUZUSISizy3iItoVOFjctwMItV1OpG03FznkKpmPBWIVom9xf+wI
+	EmagRqAsvGSlWwzMPa28+1FmoP6oE36mk31CxUyiG64POfR+CsxoVfGTmuelDsBIpgXTi7
+	ZYS75G+tvuFOeirSEfjvRdF0Nk3y/mEy5Q5JkFvoLefR7LzLlARB1MWqGHjEXOYlj+isor
+	HZ7SOc6wQ+B02C7cASkwslK1d+3XxFFOEpdT73v/qM70wTYvxFwamny/OmVmcQ==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Wed, 16 Sep 2026 15:45:26 +0200
-Subject: [PATCH v3 02/19] drm: of: remove now unnecessary forward
- declarations
+Date: Wed, 16 Sep 2026 15:45:27 +0200
+Subject: [PATCH v3 03/19] drm/panel: move to a new module
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260916-drm-bridge-every-panel-v3-2-83afb4f1a707@bootlin.com>
+Message-Id: <20260916-drm-bridge-every-panel-v3-3-83afb4f1a707@bootlin.com>
 References: <20260916-drm-bridge-every-panel-v3-0-83afb4f1a707@bootlin.com>
 In-Reply-To: <20260916-drm-bridge-every-panel-v3-0-83afb4f1a707@bootlin.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -87,9 +87,8 @@ Cc: Albert Esteve <aesteve@redhat.com>,
 X-Mailer: b4 0.16.0
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_064603_744025_E8330492 
-X-CRM114-Status: UNSURE (   9.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260916_064610_049768_4B3004F5 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,41 +103,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These forward declarations are now redundant after having moved
-drm_of_find_panel_or_bridge():
+Work is in progress for every drm_panel to embed a drm_bridge, which will
+make the drm_panel code (currently in the drm module) depend on the
+drm_kms_helper module.
 
- * struct drm_panel is not referenced in this file
+To avoid the main drm module to depend on other drm modules and create a
+depepdency loop, move drm_panel.o to a new drm_panel module, so the module
+dependency will be drm_panel -> drm_kms_helper instead.
 
- * struct drm_bridge is now referenced only inside an
-
-      #if IS_ENABLED(CONFIG_OF) && IS_ENABLED(CONFIG_DRM_PANEL_BRIDGE)
-
-   block, and in this case struct drm_bridge is already declared thanks to
-   these lines:
-
-      #if IS_ENABLED(CONFIG_OF) && IS_ENABLED(CONFIG_DRM_PANEL_BRIDGE)
-      ...
-      #include <drm/drm_bridge.h>
-      #endif
-
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 ---
- include/drm/drm_of.h | 2 --
- 1 file changed, 2 deletions(-)
+ drivers/gpu/drm/Makefile      | 2 +-
+ drivers/gpu/drm/panel/Kconfig | 2 +-
+ include/drm/drm_panel.h       | 4 ++--
+ 3 files changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/include/drm/drm_of.h b/include/drm/drm_of.h
-index 402f5db11e47..f6dad2c6e9b9 100644
---- a/include/drm/drm_of.h
-+++ b/include/drm/drm_of.h
-@@ -14,8 +14,6 @@ struct component_match;
- struct device;
- struct drm_device;
- struct drm_encoder;
--struct drm_panel;
--struct drm_bridge;
- struct device_node;
- struct mipi_dsi_device_info;
- struct mipi_dsi_host;
+diff --git a/drivers/gpu/drm/Makefile b/drivers/gpu/drm/Makefile
+index e635fcffd379..29c9c1d90c11 100644
+--- a/drivers/gpu/drm/Makefile
++++ b/drivers/gpu/drm/Makefile
+@@ -79,7 +79,6 @@ drm-$(CONFIG_DRM_CLIENT) += \
+ 	drm_client_modeset.o \
+ 	drm_client_sysrq.o
+ drm-$(CONFIG_COMPAT) += drm_ioc32.o
+-drm-$(CONFIG_DRM_PANEL) += drm_panel.o
+ drm-$(CONFIG_OF) += drm_of.o
+ drm-$(CONFIG_PCI) += drm_pci.o
+ drm-$(CONFIG_DEBUG_FS) += \
+@@ -96,6 +95,7 @@ drm-$(CONFIG_DRM_PANIC_SCREEN_QR_CODE) += drm_panic_qr.o
+ drm-$(CONFIG_DRM_RAS) += drm_ras.o drm_ras_nl.o drm_ras_genl_family.o
+ obj-$(CONFIG_DRM)	+= drm.o
+ 
++obj-$(CONFIG_DRM_PANEL) += drm_panel.o
+ obj-$(CONFIG_DRM_PANEL_ORIENTATION_QUIRKS) += drm_panel_orientation_quirks.o
+ obj-$(CONFIG_DRM_PANEL_BACKLIGHT_QUIRKS) += drm_panel_backlight_quirks.o
+ 
+diff --git a/drivers/gpu/drm/panel/Kconfig b/drivers/gpu/drm/panel/Kconfig
+index 747f47347521..0a79a0558101 100644
+--- a/drivers/gpu/drm/panel/Kconfig
++++ b/drivers/gpu/drm/panel/Kconfig
+@@ -1,6 +1,6 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ config DRM_PANEL
+-	bool
++	tristate
+ 	depends on DRM
+ 	help
+ 	  Panel registration and lookup framework.
+diff --git a/include/drm/drm_panel.h b/include/drm/drm_panel.h
+index bf15e40fd796..34fcbcdda2c8 100644
+--- a/include/drm/drm_panel.h
++++ b/include/drm/drm_panel.h
+@@ -336,7 +336,7 @@ void drm_panel_disable(struct drm_panel *panel);
+ 
+ int drm_panel_get_modes(struct drm_panel *panel, struct drm_connector *connector);
+ 
+-#if defined(CONFIG_OF) && defined(CONFIG_DRM_PANEL)
++#if defined(CONFIG_OF) && IS_ENABLED(CONFIG_DRM_PANEL)
+ struct drm_panel *of_drm_find_panel(const struct device_node *np);
+ int drm_of_find_panel_or_bridge(const struct device_node *np,
+ 				int port, int endpoint,
+@@ -357,7 +357,7 @@ static inline int drm_of_find_panel_or_bridge(const struct device_node *np,
+ }
+ #endif
+ 
+-#if defined(CONFIG_DRM_PANEL)
++#if IS_ENABLED(CONFIG_DRM_PANEL)
+ bool drm_is_panel_follower(struct device *dev);
+ int drm_panel_add_follower(struct device *follower_dev,
+ 			   struct drm_panel_follower *follower);
 
 -- 
 2.55.0
