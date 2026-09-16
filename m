@@ -4,69 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE985C982C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 14:28:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B006AC982C3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 14:30:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1eMAGDwLFJwfjXNy8EMjLxUE+XbLaSzdsN8U7xolnhk=; b=3eswCLdvrXZoro+YB4RZ1Ra/ek
-	Ksq3QoRqajx5DfmLjIEGeKWkvT/a6XrA2pMSgPqFpVC/zQ4cTv8VAZcUUTOQ/RhhkdS3rqcpt/wXH
-	+0QBBb/U93K0S5QI8fqRoQ3GB5q86HkhkpOxJcExy/jzk0HUmbkaFXkR0yeBZurgrw4zafdP0H2xI
-	/ysGjmWR75wJcWyUbAtjVEhZjDEv+WdoeSmnmivr30VsPOV04hZwJ8uD0Nt57ftVL8kwHa+TEerPS
-	AfliX8XD/nB2yjR4mRAe1HRf5m9DVK1gmyazuIU6V3G8eaPNdAgYktZ1XQVHiPVsipX77ohc7l+0t
-	l8ZVjInw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nRPwui//DdZeQJe3FFPtKCePfUSwnp41dl+UxM2JXEA=; b=Po9fUfQQ+HTbJsQ2t/4/uMiU6C
+	fnCxEZn7rKpHr47tLn+dFOyXbDAw9ze11Bmgxds8AxDoTeUcaW6iR128ZvnXiJcyTDA5Rmw7N5yt4
+	V9qsTPvfUBT07ag7nvMcfunwQnqGCTAEiwN+jzTn0cZaOQ+XIYn3WQbuyFdrS6A8LoUTf/RRjVeqN
+	C8rh1ClzA5z+VbKSg6GbZ/NEvPqFJ6CrHuffgnnxTF2Fc8DcE1tzVvGmmFehWrY+g1sf060oFYQXi
+	QJLHepW6OvqH/iSWKqoQGJJhWjiYCKs6Ww3KJ1PoxqVP47qavA1zNnMgV3W5N1tPotr1Jc//IKXr4
+	8gLS4JKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6qcb-00000009PSS-3c9k;
-	Wed, 16 Sep 2026 14:28:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6qcX-00000009PRZ-3mLm
+	id 1x6qeM-00000009Pif-0JEH;
+	Wed, 16 Sep 2026 14:30:14 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x6qeJ-00000009PiL-2bSv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 14:28:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B5439176A;
-	Wed, 16 Sep 2026 07:28:17 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0C1383F7B4;
-	Wed, 16 Sep 2026 07:28:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789568901; bh=spNPD9k6Nx8PbLEKYN8+WDsvPmPgkuszTarX6izkHIo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=syNLQ6zBnM1gt+74Ot0yxpVXugmjywzlyYa0Y4SMoh089PhsftIdlhEyUiuHdpw/p
-	 8j18sZ84YHcwZ4wx2N3C8ItSn/iYaDMUYNb+m1mp/PBK9o1z2BHBWV7fzKo2cptBHl
-	 HEakV4AtFAP8iLh9d8zNfp8KVg3Nh1blHLuEenc8=
-Date: Wed, 16 Sep 2026 15:28:16 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: =?utf-8?B?QW5kcsOp?= Almeida <andrealmeid@igalia.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Florian Weimer <fweimer@redhat.com>,
-	Darren Hart <dvhart@infradead.org>, Ingo Molnar <mingo@kernel.org>,
-	Davidlohr Bueso <dave@stgolabs.net>, Arnd Bergmann <arnd@arndb.de>,
-	Uros Bizjak <ubizjak@gmail.com>,
-	Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org, kernel-dev@igalia.com
-Subject: Re: [PATCH v8 4/4] arm64: vdso32: Implement
- __vdso_futex_robust_try_unlock()
-Message-ID: <aqqngEKC_CsrS62n@J2N7QTR9R3>
-References: <20260821-tonyk-robust_arm-v8-0-077707b6f1c7@igalia.com>
- <20260821-tonyk-robust_arm-v8-4-077707b6f1c7@igalia.com>
+	Wed, 16 Sep 2026 14:30:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id EA31E415CE;
+	Wed, 16 Sep 2026 14:30:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83B581F00893;
+	Wed, 16 Sep 2026 14:30:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789569010;
+	bh=nRPwui//DdZeQJe3FFPtKCePfUSwnp41dl+UxM2JXEA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=ZbOE9AMCGmYoHwYcnarKJaXI6uAMxVQfXWxur+hh8bApx/N3MdVr5/9UMcQ1tM+lH
+	 dJy3cTT6U5b5ws+hkUqJsIfENsyI2AryeulCzNceohcyJfzupz9grf85us2YvbYJ/K
+	 MlGiGPzwHqcXqUSm7I+vH309ANU2K9p8XP/Yc+Qi/4plXhBPiZAKdg9+E2Uh7ENeGN
+	 bX9r+ZMUodz3EJowHmZFAJJOdkM91PFDKp4pMubfLfeTPq7DXJSuba0y5bD6+MvLy0
+	 RLb2ZHvhBO0F5hoFNWgKQX7x+PiH3sePCO+ifp48KfAnQMTo77S/eiZnO8rJSYNzff
+	 ijUhgnLsqNusA==
+Message-ID: <be1c0a62-4589-4fe4-a500-d3fe16a6e610@kernel.org>
+Date: Wed, 16 Sep 2026 16:30:05 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260821-tonyk-robust_arm-v8-4-077707b6f1c7@igalia.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_072823_604035_DA743591 
-X-CRM114-Status: GOOD (  28.10  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V2 06/14] arm64/mm: Enable fixmap with 5 level page table
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>,
+ Lorenzo Stoakes <ljs@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
+ Mike Rapoport <rppt@kernel.org>, Linu Cherian <linu.cherian@arm.com>,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org
+References: <20260907035030.2839978-1-anshuman.khandual@arm.com>
+ <20260907035030.2839978-7-anshuman.khandual@arm.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20260907035030.2839978-7-anshuman.khandual@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,166 +119,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 21, 2026 at 06:50:45PM -0300, André Almeida wrote:
-> Based on aarch64 implementation, provide a 32 bit entry point for
-> this vDSO.
+On 9/7/26 05:50, Anshuman Khandual wrote:
+> FEAT_D128 halves PTRS_PER_PXX thus shrinking the VA range coverage
+> for each page table level. Hence in order to preserve all existing
+> VA range configurations, some geometry now need to become 5-level.
 > 
-> In order to keep compatibility with arm64_futex_robust_unlock_get_pop(),
-> make sure to store the pop address at r2 and the compare result value
-> at r3.
 
-Before we add this to the compat vdso, we'll need to implement this on
-arch/arm/.
+Hmm, wasn't this 5-levels before, but other code allocated+initialized the p4d
+table for us?
 
-Otherwise, my comments on the patch for the native vdso functions apply
-here too.
+I mean, I see how we are filling in another level, but I don't see how we would
+reconfigure something to use 5 page table levels?
 
-Mark.
+> Since fixmap is used to build and manipulate page tables early on
+> during boot the mapping must also gain that additional level which
+> was not required earlier.
+
+I am no expert ... but I am confused :)
+
+We do have a loop only in early_fixmap_init_pmd(). So we cannot possibly span
+more than a single ... PTE table?
 
 > 
-> Signed-off-by: André Almeida <andrealmeid@igalia.com>
-> ---
-> v7:
->  - The store needs to be a release store, so s/strex/stlex/
->  - result reg clobber modified to "=&r" to make sure the compiler don't use
->  the r3 reg for something else
->  - pop_reg will be read after the execution so it should be an output
->  parameter with "+Q"
-> ---
->  arch/arm64/kernel/vdso.c            | 15 ++++++++++++++-
->  arch/arm64/kernel/vdso32/Makefile   |  4 ++++
->  arch/arm64/kernel/vdso32/vdso.lds.S |  9 +++++++++
->  arch/arm64/kernel/vdso32/vfutex.c   | 34 ++++++++++++++++++++++++++++++++++
->  4 files changed, 61 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/kernel/vdso.c b/arch/arm64/kernel/vdso.c
-> index dc6b582736d0..5cae9c17ec72 100644
-> --- a/arch/arm64/kernel/vdso.c
-> +++ b/arch/arm64/kernel/vdso.c
-> @@ -78,11 +78,19 @@ static inline void vdso_futex_update_ips(struct mm_struct *mm)
->  				VDSO_SYMBOL(vdso, futex_list64_try_unlock_cs_end));
->  }
->  
-> +static inline void aarch32_vdso_futex_update_ips(struct mm_struct *mm)
-> +{
-> +	unsigned long vdso = (unsigned long) mm->context.vdso;
-> +
-> +	__vdso_futex_update_ips(mm, true,
-> +				VDSO_SYMBOL(vdso, futex_list32_try_unlock_cs_start),
-> +				VDSO_SYMBOL(vdso, futex_list32_try_unlock_cs_end));
-> +}
->  #else
->  static inline void vdso_futex_update_ips(struct mm_struct *mm) {}
-> +static inline void aarch32_vdso_futex_update_ips(struct mm_struct *mm) {}
->  #endif /* CONFIG_FUTEX_ROBUST_UNLOCK */
->  
-> -
->  static int vdso_mremap(const struct vm_special_mapping *sm,
->  		struct vm_area_struct *new_vma)
->  {
-> @@ -195,6 +203,8 @@ static int aarch32_mremap(const struct vm_special_mapping *sm,
->  {
->  	current->mm->context.vdso = (void *)new_vma->vm_start;
->  
-> +	aarch32_vdso_futex_update_ips(current->mm);
-> +
->  	return 0;
->  }
->  
-> @@ -327,6 +337,7 @@ static int aarch32_sigreturn_setup(struct mm_struct *mm)
->  	return PTR_ERR_OR_ZERO(ret);
->  }
->  
-> +
->  int aarch32_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
->  {
->  	struct mm_struct *mm = current->mm;
-> @@ -347,6 +358,8 @@ int aarch32_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
->  	}
->  
->  	ret = aarch32_sigreturn_setup(mm);
-> +
-> +	aarch32_vdso_futex_update_ips(mm);
->  out:
->  	mmap_write_unlock(mm);
->  	return ret;
-> diff --git a/arch/arm64/kernel/vdso32/Makefile b/arch/arm64/kernel/vdso32/Makefile
-> index 4bd60f059f4a..f3190125c68b 100644
-> --- a/arch/arm64/kernel/vdso32/Makefile
-> +++ b/arch/arm64/kernel/vdso32/Makefile
-> @@ -97,6 +97,10 @@ munge := ../../../arm/vdso/vdsomunge
->  hostprogs := $(munge)
->  
->  c-obj-vdso := note.o
-> +ifdef CONFIG_FUTEX_ROBUST_UNLOCK
-> +  c-obj-vdso += vfutex.o
-> +endif
-> +
->  c-obj-vdso-gettimeofday := vgettimeofday.o
->  
->  ifneq ($(c-gettimeofday-y),)
-> diff --git a/arch/arm64/kernel/vdso32/vdso.lds.S b/arch/arm64/kernel/vdso32/vdso.lds.S
-> index 12bfc39e8aab..52ced27d6045 100644
-> --- a/arch/arm64/kernel/vdso32/vdso.lds.S
-> +++ b/arch/arm64/kernel/vdso32/vdso.lds.S
-> @@ -89,6 +89,15 @@ VERSION
->  #endif /* CONFIG_COMPAT_32BIT_TIME */
->  		__vdso_clock_gettime64;
->  		__vdso_clock_getres_time64;
-> +#ifdef CONFIG_FUTEX_ROBUST_UNLOCK
-> +		__vdso_futex_robust_list32_try_unlock;
-> +#endif
->  	local: *;
->  	};
->  }
-> +
-> +#ifdef CONFIG_FUTEX_ROBUST_UNLOCK
-> +VDSO_futex_list32_try_unlock_cs_success = __futex_list32_try_unlock_cs_success;
-> +VDSO_futex_list32_try_unlock_cs_start = __futex_list32_try_unlock_cs_start;
-> +VDSO_futex_list32_try_unlock_cs_end = __futex_list32_try_unlock_cs_end;
-> +#endif
-> diff --git a/arch/arm64/kernel/vdso32/vfutex.c b/arch/arm64/kernel/vdso32/vfutex.c
-> new file mode 100644
-> index 000000000000..0d9080b17965
-> --- /dev/null
-> +++ b/arch/arm64/kernel/vdso32/vfutex.c
-> @@ -0,0 +1,34 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +#include <linux/stringify.h>
-> +#include <vdso/futex.h>
-> +
-> +__u32 __vdso_futex_robust_list32_try_unlock(__u32 *lock, __u32 tid, __u32 *pop)
-> +{
-> +	register __u32 *pop_reg asm("r2") = pop, result_reg asm("r3") = 0;
-> +	__u32 val, zero = 0;
-> +
-> +	asm volatile (
-> +		".globl						  "
-> +		"__futex_list32_try_unlock_cs_start,		  "
-> +		"__futex_list32_try_unlock_cs_success,		  "
-> +		"__futex_list32_try_unlock_cs_end		\n"
-> +
-> +		"retry:						\n"
-> +		"	ldrex %[val], %[lock]			\n"
-> +		"	cmp %[tid], %[val]			\n"
-> +		"	bne __futex_list32_try_unlock_cs_end	\n"
-> +		"	stlex %[result], %[zero], %[lock]	\n"
-> +		"__futex_list32_try_unlock_cs_start:		\n"
-> +		"	cmp %[result], #0			\n"
-> +		"	bne retry				\n"
-> +		"__futex_list32_try_unlock_cs_success:		\n"
-> +		"	str %[zero], %[pop_reg]			\n"
-> +		"__futex_list32_try_unlock_cs_end:		\n"
-> +
-> +		: [val] "=&r" (val), [result] "=&r" (result_reg), [pop_reg] "+Q" (*pop_reg)
-> +		: [tid] "r" (tid), [lock] "Q" (*lock), [zero] "r" (zero)
-> +		: "cc", "memory"
-> +	);
-> +
-> +	return val;
-> +}
-> 
-> -- 
-> 2.55.0
-> 
+> Enable fixmap with 5 level page table when required. This creates table
+> entries at the PGD level. Add a fallback stub for pgd_page_paddr() when
+> (PGTBALE_LEVELS <= 4) which helps in intercepting any unintended usage.
+
+
+Again, I am very confused. Is it really just "As the page table layout changes,
+we might no longer have a p4d table pre-populated for the range our fixmap falls
+into. So if there is no p4d table yet, populate a static one just like we do for
+the other levels."
+
+-- 
+Cheers,
+
+David
 
