@@ -4,87 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F68C88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 13:45:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06E75C88E5C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 13:46:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ur21vGZjFEaXGQGVl1ymEBShpak0h6eYuaOGDEy6bqw=; b=1fBofj4QJkLj7iiFhGsgxKOtP/
-	bbmx1UoVsZRXURBBztNWZLZ8lTNJyBMUtizyYaDKn2rOSZlWuLkxS44eUR+YocdVL11eEM/rBABUF
-	90skGr31UJtYAyieppfI2sE+YU8ZUhsO5IPIhbiq2Aft6tNwjBiglkrsY2YxqwOk/lXPeRR1pHD+I
-	ZhXa+bCHwQKseXHfuu+tf1+MN3ZsN5PHldJrm8OL8FQIsnK/xXjErPWd1+h/5us5sB32IBSlc9ILI
-	VLtqNePSRPlwQYzyNjVk2be2evQ5IuFWe3O+A4zjqCZl7Y8Tg5WXj8hVmGE7PjJvfYUTffpkWPSUC
-	FcW5jUZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=q4C1pzG9+EtJ/2hH0YXWQ40f9dRoQswHxQlqElZewcs=; b=mXXH4jFvFFqa+u
+	mRveKIoEkRgB9XYcX6nLCQuyvcEDMnrHrtj9vj8MiZEd7yPzOCtXgHHIRTF/jJKxfXsjqyLoFJKKf
+	z46zVkrNhW4qhwNpSVSKGeENk2I5kRddkBxSVQtDGmnphkgY2+3jUg8yZbPPNTKP5QbA4DWTDx+dK
+	TXnc/hdXUMFLNI/FbGFFduMyjZabd+2pBQeM4KR2sr4XxYkLbmqtYQwmi+FfpO04KHVLFHp6TWNuo
+	FFwo91q/OwXxunNtcUfHaVDSSO6WwQ1ChNqvK/tmKMQGPBPrc8M83vFrXtKCABjw17dzfjlhDknXU
+	My6re0CEOWZN6U8caCXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6pwy-00000009IHn-1Maf;
-	Wed, 16 Sep 2026 13:45:24 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1x6pxk-00000009IVs-3EjE;
+	Wed, 16 Sep 2026 13:46:12 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6pwv-00000009IGT-2zmr;
-	Wed, 16 Sep 2026 13:45:22 +0000
-X-UUID: d8b57af0b1d411f1afed4741b24580c9-20260916
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:CC:To:From:Date; bh=Ur21vGZjFEaXGQGVl1ymEBShpak0h6eYuaOGDEy6bqw=;
-	b=DlaEo+LxkSG4pI352czj3D2m28avaKZ58wIprEDYkyEH1CGoyxFRH3be+/Pza1T4YwvCNJf7azAg4d4tGtTdNO5IQPwjnB3kSr8wAHIu7Y6AyixhfBv6RJ0Yh6DWOc932KgrfFjcRX7VmQ9kXTNVRuuQ0a5HbmifdqxRb3HiaLE=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:f5a9d5e6-e0be-4f46-985c-ad90919098c0,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:7db8b62,CLOUDID:032ddedc-e2a3-4c41-83fa-4adacd638ae3,B
-	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|136|836|865|888|898,TC:-5,Cont
-	ent:0|15|50|99,EDM:-3|-100,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:
-	-1,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: d8b57af0b1d411f1afed4741b24580c9-20260916
-Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw01.mediatek.com
-	(envelope-from <zhengping.zhang@airoha.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1155330138; Wed, 16 Sep 2026 06:45:15 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Wed, 16 Sep 2026 21:45:12 +0800
-Received: from mediatek.com (172.18.153.129) by mtkmbs11n2.mediatek.inc
- (172.21.101.73) with Microsoft SMTP Server id 15.2.2562.29 via Frontend
- Transport; Wed, 16 Sep 2026 21:45:12 +0800
-Date: Wed, 16 Sep 2026 21:45:12 +0800
-From: Zhengping Zhang <zhengping.zhang@airoha.com>
-To: Christian Marangi <ansuelsmth@gmail.com>
-CC: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Simon Horman
-	<horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
-	<skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, Lorenzo
- Bianconi <lorenzo@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>, Philipp Zabel <p.zabel@pengutronix.de>,
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers
-	<ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, Justin Stitt
-	<justinstitt@google.com>, <netdev@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>, <llvm@lists.linux.dev>,
-	<yalei.zang@airoha.com>, <lei.dong@airoha.com>
-Subject: Re: [PATCH net-next v15 12/12] net: airoha: add phylink support
-Message-ID: <aqqdaMsN1NndJdSI@mediatek.com>
-References: <20260901083001.8044-1-ansuelsmth@gmail.com>
- <20260901083001.8044-13-ansuelsmth@gmail.com>
+	id 1x6pxP-00000009IP6-460R
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 16 Sep 2026 13:45:55 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 5C32F1A07A8;
+	Wed, 16 Sep 2026 13:45:48 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 20DC660337;
+	Wed, 16 Sep 2026 13:45:48 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 70B7511C7B031;
+	Wed, 16 Sep 2026 15:45:30 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1789566345; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=q4C1pzG9+EtJ/2hH0YXWQ40f9dRoQswHxQlqElZewcs=;
+	b=n3aO308IOwzLiSpBj6Rpkxe9ZNqdqPI0CmCQMKrNSfN9UPSPY5uVwsfDsm/D9PMNLSGDAz
+	D3NsmMr0PdC9qhjOn9RXm3tf2sw3OQwvoKGTpxWxbs0JtsMoE5Lg76KnpwBvIj9Wqrd+Vz
+	tXwe77zGb9Se2LcKSr36bWDFRtdgAP7SgOUYwZtFaBAT/vqQwTmcliaWroX5T+REJdc8qQ
+	J0GMPNron3ITx86jJFd+8gtaLAY/dp9wsxse3bzg1iseCzrGdyC/7fNtanZ+k1RNrezSSo
+	T581sGjN2JOLUhCCMjM0zc0YtHluFtfSdpVRRdTnrMNbpbCj31YbMx3WcmzZgw==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Subject: [PATCH v3 00/19] drm/panel: embed a drm_bridge into every
+ drm_panel
+Date: Wed, 16 Sep 2026 15:45:24 +0200
+Message-Id: <20260916-drm-bridge-every-panel-v3-0-83afb4f1a707@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Disposition: inline
-In-Reply-To: <20260901083001.8044-13-ansuelsmth@gmail.com>
-X-MTK: N
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WQ3WrDMAyFXyX4eh7+Texc7T3GGLasrB7Nz5zEr
+ JS++5yEUQbrnQ6SviOdK5kxRZxJW11JwhznOA5FyKeKwMkNH0hjKJoIJmpmuKAh9dSnGEoHM6Y
+ LndyAZ+q4tnWosUOnSFmeEnbxewe/vh16Xv0nwrLRtolTnJcxXXbnzLe5XxP1yCRzyii3ELRoG
+ gATXvw4Luc4PMPYk80mizvIMvkQJApIOG8QhdLS4F/Q7Tg44ddaAlmOL+55tNV/aZTy/aDDGd2
+ wTpRZDBqAM6tMm/dYvJuRFo8+Lm3lwDMNRmiUVpbSKBe8Vo3wnfe8AcOkdNZ25aDbD/C9UqmpA
+ QAA
+X-Change-ID: 20260812-drm-bridge-every-panel-a1596d6efea4
+To: Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Jessica Zhang <jesszhan0024@gmail.com>, 
+ Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>, 
+ Lucas Stach <l.stach@pengutronix.de>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Paul Cercueil <paul@crapouillou.net>, 
+ Paul Kocialkowski <paulk@sys-base.io>, Linus Walleij <linusw@kernel.org>, 
+ Inki Dae <inki.dae@samsung.com>, Jagan Teki <jagan@amarulasolutions.com>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, Sean Paul <sean@poorly.run>, 
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+ Randy Dunlap <rdunlap@infradead.org>
+Cc: Albert Esteve <aesteve@redhat.com>, 
+ Anusha Srivatsa <asrivats@redhat.com>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-mips@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-stm32@st-md-mailman.stormreply.com, asahi@lists.linux.dev, 
+ linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org, 
+ linux-tegra@vger.kernel.org, linux-doc@vger.kernel.org, 
+ linux-samsung-soc@vger.kernel.org, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
+X-Mailer: b4 0.16.0
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_064521_811723_0F4FCBAF 
-X-CRM114-Status: GOOD (  37.30  )
+X-CRM114-CacheID: sfid-20260916_064552_316129_A8DCF4B0 
+X-CRM114-Status: GOOD (  19.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,381 +108,246 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Tested-by: Zhengping Zhang <zhengping.zhang@airoha.com>
+This series embeds a drm_bridge into every drm_panel, as previously
+discussed [1][2] and in previous iterations.
 
-Tested on an AN7581 board with AN8831 USXGMII PHY at GDM2/4;
-the link came up at 10G.
+This will allow bridges and encoders to interact with the next pipeline
+component always with the bridge API, not caring whether it is a panel or
+another device (e.g. a bridge from a bus to another bus).
 
-On Tue, Sep 01, 2026 at 10:29:27AM +0200, Christian Marangi wrote:
-> Add phylink support for each GDM port. For GDM1 add the internal interface
-> mode as the only supported mode. For GDM2/3/4 add the required
-> configuration of the PCS to make the external PHY or attached SFP cage
-> work.
-> 
-> These needs to be defined in the GDM port node using the pcs-handle
-> property.
-> 
-> Update and provide a .get/set_link_ksettings function that use phylink
-> for ethtool OPs now that we fully support phylink.
-> 
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> ---
->  drivers/net/ethernet/airoha/Kconfig       |   2 +
->  drivers/net/ethernet/airoha/airoha_eth.c  | 199 +++++++++++++++++++++-
->  drivers/net/ethernet/airoha/airoha_eth.h  |   5 +
->  drivers/net/ethernet/airoha/airoha_regs.h |  12 ++
->  4 files changed, 215 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/airoha/Kconfig b/drivers/net/ethernet/airoha/Kconfig
-> index 1f6640a15fc9..5c54a07d2a76 100644
-> --- a/drivers/net/ethernet/airoha/Kconfig
-> +++ b/drivers/net/ethernet/airoha/Kconfig
-> @@ -20,6 +20,8 @@ config NET_AIROHA
->  	depends on NET_DSA || !NET_DSA
->  	select NET_AIROHA_NPU
->  	select PAGE_POOL
-> +	select PCS_AIROHA
-> +	select PHYLINK
->  	help
->  	  This driver supports the gigabit ethernet MACs in the
->  	  Airoha SoC family.
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-> index 64619e9a704d..c3827bf9791b 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> @@ -6,6 +6,7 @@
->  #include <linux/of.h>
->  #include <linux/of_net.h>
->  #include <linux/of_reserved_mem.h>
-> +#include <linux/pcs/pcs.h>
->  #include <linux/platform_device.h>
->  #include <linux/tcp.h>
->  #include <linux/u64_stats_sync.h>
-> @@ -1915,10 +1916,18 @@ static int airoha_dev_open(struct net_device *netdev)
->  	struct airoha_qdma *qdma;
->  	int err;
->  
-> +	err = phylink_of_phy_connect(dev->phylink, netdev->dev.of_node, 0);
-> +	if (err) {
-> +		netdev_err(netdev, "could not attach PHY: %d\n", err);
-> +		return err;
-> +	}
-> +
-> +	phylink_start(dev->phylink);
-> +
->  	netif_tx_start_all_queues(netdev);
->  	err = airoha_set_vip_for_gdm_port(dev, true);
->  	if (err)
-> -		return err;
-> +		goto err_phy_stop;
->  
->  	qdma = airoha_qdma_deref(dev);
->  	if (netdev_uses_dsa(netdev))
-> @@ -1938,6 +1947,13 @@ static int airoha_dev_open(struct net_device *netdev)
->  				    pse_port);
->  
->  	return 0;
-> +
-> +err_phy_stop:
-> +	netif_tx_stop_all_queues(netdev);
-> +	phylink_stop(dev->phylink);
-> +	phylink_disconnect_phy(dev->phylink);
-> +
-> +	return err;
->  }
->  
->  static int airoha_dev_stop(struct net_device *netdev)
-> @@ -1945,6 +1961,8 @@ static int airoha_dev_stop(struct net_device *netdev)
->  	struct airoha_gdm_dev *dev = netdev_priv(netdev);
->  	struct airoha_gdm_port *port = dev->port;
->  
-> +	phylink_stop(dev->phylink);
-> +
->  	netif_tx_disable(netdev);
->  	airoha_set_vip_for_gdm_port(dev, false);
->  
-> @@ -1954,6 +1972,9 @@ static int airoha_dev_stop(struct net_device *netdev)
->  		airoha_set_gdm_port_fwd_cfg(dev->eth,
->  					    REG_GDM_FWD_CFG(port->id),
->  					    FE_PSE_PORT_DROP);
-> +
-> +	phylink_disconnect_phy(dev->phylink);
-> +
->  	return 0;
->  }
->  
-> @@ -2509,6 +2530,24 @@ airoha_ethtool_get_rmon_stats(struct net_device *netdev,
->  	} while (u64_stats_fetch_retry(&dev->stats.syncp, start));
->  }
->  
-> +static int
-> +airoha_ethtool_get_link_ksettings(struct net_device *netdev,
-> +				  struct ethtool_link_ksettings *cmd)
-> +{
-> +	struct airoha_gdm_dev *dev = netdev_priv(netdev);
-> +
-> +	return phylink_ethtool_ksettings_get(dev->phylink, cmd);
-> +}
-> +
-> +static int
-> +airoha_ethtool_set_link_ksettings(struct net_device *netdev,
-> +				  const struct ethtool_link_ksettings *cmd)
-> +{
-> +	struct airoha_gdm_dev *dev = netdev_priv(netdev);
-> +
-> +	return phylink_ethtool_ksettings_set(dev->phylink, cmd);
-> +}
-> +
->  static int airoha_qdma_set_chan_tx_sched(struct net_device *netdev,
->  					 int channel, enum tx_sched_mode mode,
->  					 const u16 *weights, u8 n_weights)
-> @@ -3353,7 +3392,8 @@ static const struct ethtool_ops airoha_ethtool_ops = {
->  	.get_drvinfo		= airoha_ethtool_get_drvinfo,
->  	.get_eth_mac_stats      = airoha_ethtool_get_mac_stats,
->  	.get_rmon_stats		= airoha_ethtool_get_rmon_stats,
-> -	.get_link_ksettings	= phy_ethtool_get_link_ksettings,
-> +	.get_link_ksettings	= airoha_ethtool_get_link_ksettings,
-> +	.set_link_ksettings	= airoha_ethtool_set_link_ksettings,
->  	.get_link		= ethtool_op_get_link,
->  };
->  
-> @@ -3409,6 +3449,155 @@ bool airoha_is_valid_gdm_dev(struct airoha_eth *eth,
->  	return false;
->  }
->  
-> +/* Nothing to do in MAC, everything is handled in PCS */
-> +static void airoha_mac_config(struct phylink_config *config, unsigned int mode,
-> +			      const struct phylink_link_state *state)
-> +{
-> +}
-> +
-> +static void airoha_mac_link_up(struct phylink_config *config, struct phy_device *phy,
-> +			       unsigned int mode, phy_interface_t interface,
-> +			       int speed, int duplex, bool tx_pause, bool rx_pause)
-> +{
-> +	struct airoha_gdm_dev *dev = container_of(config, struct airoha_gdm_dev,
-> +						  phylink_config);
-> +	struct airoha_gdm_port *port = dev->port;
-> +	struct airoha_eth *eth = dev->eth;
-> +	u32 frag_size_tx, frag_size_rx;
-> +
-> +	/* TX/RX frag is configured only for GDM4 */
-> +	if (port->id != AIROHA_GDM4_IDX)
-> +		return;
-> +
-> +	switch (speed) {
-> +	case SPEED_10000:
-> +	case SPEED_5000:
-> +		frag_size_tx = 8;
-> +		frag_size_rx = 8;
-> +		break;
-> +	case SPEED_2500:
-> +		frag_size_tx = 2;
-> +		frag_size_rx = 1;
-> +		break;
-> +	default:
-> +		frag_size_tx = 1;
-> +		frag_size_rx = 0;
-> +		break;
-> +	}
-> +
-> +	mutex_lock(&port->link_lock);
-> +
-> +	/* Configure TX/RX frag based on speed */
-> +	if (dev->nbq == 1) {
-> +		airoha_fe_rmw(eth, REG_FE_GDM4_TMBI_FRAG,
-> +			      GDM4_SGMII1_TX_FRAG_SIZE_MASK,
-> +			      FIELD_PREP(GDM4_SGMII1_TX_FRAG_SIZE_MASK,
-> +					 frag_size_tx));
-> +
-> +		airoha_fe_rmw(eth, REG_FE_GDM4_RMBI_FRAG,
-> +			      GDM4_SGMII1_RX_FRAG_SIZE_MASK,
-> +			      FIELD_PREP(GDM4_SGMII1_RX_FRAG_SIZE_MASK,
-> +					 frag_size_rx));
-> +	} else {
-> +		airoha_fe_rmw(eth, REG_FE_GDM4_TMBI_FRAG,
-> +			      GDM4_SGMII0_TX_FRAG_SIZE_MASK,
-> +			      FIELD_PREP(GDM4_SGMII0_TX_FRAG_SIZE_MASK,
-> +					 frag_size_tx));
-> +
-> +		airoha_fe_rmw(eth, REG_FE_GDM4_RMBI_FRAG,
-> +			      GDM4_SGMII0_RX_FRAG_SIZE_MASK,
-> +			      FIELD_PREP(GDM4_SGMII0_RX_FRAG_SIZE_MASK,
-> +					 frag_size_rx));
-> +	}
-> +
-> +	mutex_unlock(&port->link_lock);
-> +}
-> +
-> +/* Nothing to do in MAC, everything is handled in PCS */
-> +static void airoha_mac_link_down(struct phylink_config *config, unsigned int mode,
-> +				 phy_interface_t interface)
-> +{
-> +}
-> +
-> +static const struct phylink_mac_ops airoha_phylink_ops = {
-> +	.mac_config = airoha_mac_config,
-> +	.mac_link_up = airoha_mac_link_up,
-> +	.mac_link_down = airoha_mac_link_down,
-> +};
-> +
-> +static int airoha_fill_available_pcs(struct phylink_config *config,
-> +				     struct phylink_pcs **available_pcs,
-> +				     unsigned int num_possible_pcs)
-> +{
-> +	struct device *dev = config->dev;
-> +
-> +	return fwnode_phylink_pcs_parse(dev_fwnode(dev), available_pcs,
-> +					num_possible_pcs);
-> +}
-> +
-> +static int airoha_setup_phylink(struct net_device *netdev)
-> +{
-> +	struct airoha_gdm_dev *dev = netdev_priv(netdev);
-> +	struct device_node *np = netdev->dev.of_node;
-> +	struct airoha_gdm_port *port = dev->port;
-> +	struct phylink_config *config;
-> +	phy_interface_t phy_mode;
-> +	struct phylink *phylink;
-> +	int err;
-> +
-> +	err = of_get_phy_mode(np, &phy_mode);
-> +	if (err) {
-> +		dev_err(&netdev->dev, "incorrect phy-mode\n");
-> +		return err;
-> +	}
-> +
-> +	config = &dev->phylink_config;
-> +	config->dev = &netdev->dev;
-> +	config->type = PHYLINK_NETDEV;
-> +
-> +	/*
-> +	 * GDM1 only supports internal for Embedded Switch
-> +	 * and doesn't require a PCS.
-> +	 */
-> +	if (port->id == AIROHA_GDM1_IDX) {
-> +		config->mac_capabilities = MAC_ASYM_PAUSE | MAC_SYM_PAUSE |
-> +					   MAC_10000FD;
-> +
-> +		__set_bit(PHY_INTERFACE_MODE_INTERNAL,
-> +			  config->supported_interfaces);
-> +	} else {
-> +		config->mac_capabilities = MAC_ASYM_PAUSE | MAC_SYM_PAUSE |
-> +					   MAC_10 | MAC_100 | MAC_1000 |
-> +					   MAC_2500FD | MAC_5000FD | MAC_10000FD;
-> +
-> +		config->num_possible_pcs = fwnode_phylink_pcs_count(dev_fwnode(config->dev));
-> +		config->fill_available_pcs = airoha_fill_available_pcs;
-> +
-> +		__set_bit(PHY_INTERFACE_MODE_SGMII,
-> +			  config->supported_interfaces);
-> +		__set_bit(PHY_INTERFACE_MODE_1000BASEX,
-> +			  config->supported_interfaces);
-> +		__set_bit(PHY_INTERFACE_MODE_2500BASEX,
-> +			  config->supported_interfaces);
-> +		__set_bit(PHY_INTERFACE_MODE_10GBASER,
-> +			  config->supported_interfaces);
-> +		__set_bit(PHY_INTERFACE_MODE_USXGMII,
-> +			  config->supported_interfaces);
-> +
-> +		phy_interface_copy(config->pcs_interfaces,
-> +				   config->supported_interfaces);
-> +	}
-> +
-> +	phylink = phylink_create(config, of_fwnode_handle(np),
-> +				 phy_mode, &airoha_phylink_ops);
-> +	if (IS_ERR(phylink))
-> +		return PTR_ERR(phylink);
-> +
-> +	dev->phylink = phylink;
-> +
-> +	return 0;
-> +}
-> +
->  static int airoha_alloc_gdm_device(struct airoha_eth *eth,
->  				   struct airoha_gdm_port *port,
->  				   int nbq, struct device_node *np)
-> @@ -3474,7 +3663,7 @@ static int airoha_alloc_gdm_device(struct airoha_eth *eth,
->  	dev->nbq = nbq;
->  	port->devs[index] = dev;
->  
-> -	return 0;
-> +	return airoha_setup_phylink(netdev);
->  }
->  
->  static int airoha_alloc_gdm_port(struct airoha_eth *eth,
-> @@ -3510,6 +3699,7 @@ static int airoha_alloc_gdm_port(struct airoha_eth *eth,
->  
->  	port->id = id;
->  	spin_lock_init(&port->stats_lock);
-> +	mutex_init(&port->link_lock);
->  	eth->ports[p] = port;
->  
->  	err = airoha_metadata_dst_alloc(port);
-> @@ -3706,6 +3896,8 @@ static int airoha_probe(struct platform_device *pdev)
->  			netdev = netdev_from_priv(dev);
->  			if (netdev->reg_state == NETREG_REGISTERED)
->  				unregister_netdev(netdev);
-> +			if (dev->phylink)
-> +				phylink_destroy(dev->phylink);
->  			of_node_put(netdev->dev.of_node);
->  		}
->  		airoha_metadata_dst_free(port);
-> @@ -3744,6 +3936,7 @@ static void airoha_remove(struct platform_device *pdev)
->  
->  			netdev = netdev_from_priv(dev);
->  			unregister_netdev(netdev);
-> +			phylink_destroy(dev->phylink);
->  			of_node_put(netdev->dev.of_node);
->  		}
->  		airoha_metadata_dst_free(port);
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-> index fa9a8edce22f..83daec003257 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.h
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
-> @@ -595,6 +595,9 @@ struct airoha_gdm_dev {
->  	 * QDMA migration.
->  	 */
->  	spinlock_t txq_lock[AIROHA_NUM_NETDEV_TX_RINGS];
-> +
-> +	struct phylink *phylink;
-> +	struct phylink_config phylink_config;
->  };
->  
->  struct airoha_gdm_port {
-> @@ -604,6 +607,8 @@ struct airoha_gdm_port {
->  
->  	/* protect concurrent hw_stats accesses */
->  	spinlock_t stats_lock;
-> +	/* protect concurrent GDM4 register access */
-> +	struct mutex link_lock;
->  
->  	struct metadata_dst *dsa_meta[AIROHA_MAX_DSA_PORTS];
->  };
-> diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethernet/airoha/airoha_regs.h
-> index 442b48c9b991..4ea89057b560 100644
-> --- a/drivers/net/ethernet/airoha/airoha_regs.h
-> +++ b/drivers/net/ethernet/airoha/airoha_regs.h
-> @@ -357,6 +357,18 @@
->  #define IP_FRAGMENT_PORT_MASK		GENMASK(8, 5)
->  #define IP_FRAGMENT_NBQ_MASK		GENMASK(4, 0)
->  
-> +#define REG_FE_GDM4_TMBI_FRAG		0x2028
-> +#define GDM4_SGMII1_TX_WEIGHT_MASK	GENMASK(31, 26)
-> +#define GDM4_SGMII1_TX_FRAG_SIZE_MASK	GENMASK(25, 16)
-> +#define GDM4_SGMII0_TX_WEIGHT_MASK	GENMASK(15, 10)
-> +#define GDM4_SGMII0_TX_FRAG_SIZE_MASK	GENMASK(9, 0)
-> +
-> +#define REG_FE_GDM4_RMBI_FRAG		0x202c
-> +#define GDM4_SGMII1_RX_WEIGHT_MASK	GENMASK(31, 26)
-> +#define GDM4_SGMII1_RX_FRAG_SIZE_MASK	GENMASK(25, 16)
-> +#define GDM4_SGMII0_RX_WEIGHT_MASK	GENMASK(15, 10)
-> +#define GDM4_SGMII0_RX_FRAG_SIZE_MASK	GENMASK(9, 0)
-> +
->  #define REG_MC_VLAN_EN			0x2100
->  #define MC_VLAN_EN_MASK			BIT(0)
->  
-> -- 
-> 2.53.0
-> 
+Currently a drm_panel does not have a corresponding drm_bridge when it is
+created. A panel_bridge is often created afterwards by the component
+accessing it (typically the previous bridge or encoder). This creates a
+mismatch between the drm_panel and the drm_bridge (part of the
+panel_bridge), in terms of lifetime and devm ownership. It also makes
+implementing bridge hotplug close to impossible in some cases.
+
+This work leverages the work done by Anusha Srivatsa and Albert Esteve to
+implement drm_panel lifetime.
+
+== panel_bridge API impact
+
+This series moves the panel_bridge code inside drm_panel.c and changes it
+to be reusable by the panel code. However this implies the old panel_bridge
+behaviour (drm_panel_bridge_add() and derivatives create a panel_bridge, to
+name one) cannot coexist with the new behaviour (devm_drm_panel_alloc()
+allocates an embedded drm_bridge and initializes it).
+
+To handle this, the old panel_bridge API is kept to not break its users,
+but now behaves differently:
+
+ * drm_panel_bridge_add() and derivatives don't create a bridge, they
+   just drm_bridge_get() and return a pointer to the existing one
+ * drm_panel_bridge_remove() and devm_drm_panel_bridge_release() don't
+   remove the bridge, they just drm-bridge_put() it
+ * The other panel_bridge functions stack on those listed in the previous 2
+   bullets, so their behaviour is changed correspondingly
+
+As a result, all drivers using the panel_bridge now behave the new way
+without any changes. Converting them to not stop using the panel_bridge is
+a goal, but can be done over time. Still this series converts a few
+drivers.
+
+== Series outline
+
+ 1. move code around in preparation
+
+      drm: of: move drm_of_find_panel_or_bridge() from drm_of.c to drm_panel.c
+      drm: of: remove now unnecessary forward declarations
+      drm/panel: move to a new module
+      drm/bridge: panel: move all code to drm_panel.c
+
+ 2. The main change
+
+      drm/panel: embed a drm_bridge into every drm_panel
+
+ 3. API cleanup
+
+      drm/bridge: remove devm_drm_put_bridge()
+      drm/panel: deprecate panel-bridge APIs
+      drm/todo: add entry for removing the panel_bridge API
+
+ 4. Update some drivers to not create a panel_bridge
+
+      drm/bridge: tc358767: don't create a panel_bridge
+      drm/bridge: waveshare-dsi: don't create a panel_bridge
+      drm/mcde: dsi: remove unused includes
+      drm/mcde: dsi: don't create a panel_bridge
+      drm/bridge: fsl-ldb: don't create a panel_bridge
+      drm/bridge: samsung-dsim: don't create a panel_bridge
+      drm/bridge: tc358768: don't create a panel_bridge
+      drm/bridge: ssd2825: don't create a panel_bridge
+      drm/omap: dss: don't create a panel_bridge
+      drm/tve200: don't create a panel_bridge
+      drm/bridge: analogix_dp: don't create a panel_bridge
+
+== Dependencies
+
+This series depends on:
+
+ * "drm/bridge: Kconfig: cleanup DRM_PANEL usage"
+   https://lore.kernel.org/r/20260915-drm-bridge-drm_panel-cleanup-v4-0-30401d9406f3@bootlin.com
+   Reason: trivial, both touch drivers/gpu/drm/bridge/Kconfig, would
+           conflict otherwise
+
+== Grand plan
+
+This is part of the work to support hotplug of DRM bridges. The grand plan
+was discussed in [0].
+
+Here's the work breakdown (➜ marks the current series):
+
+ 1. ➜ add refcounting to DRM bridges struct drm_bridge,
+      based on devm_drm_bridge_alloc()
+    A. ✔ add new alloc API and refcounting (v6.16)
+    B. ✔ convert all bridge drivers to new API (v6.17)
+    C. ✔ kunit tests (v6.17)
+    D. ✔ add get/put to drm_bridge_add/remove() + attach/detach()
+         and warn on old allocation pattern (v6.17)
+    E. ➜ add get/put on drm_bridge accessors
+       1. ✔ drm_bridge_chain_get_first_bridge(), add cleanup action (v6.18)
+       2. ✔ drm_bridge_get_prev_bridge() (v6.18)
+       3. ✔ drm_bridge_get_next_bridge() (v6.19)
+       4. ✔ drm_for_each_bridge_in_chain() (v6.19)
+       5. ✔ drm_bridge_connector_init (v6.19)
+       6. ✔ protect encoder bridge chain with a mutex (v7.2)
+       7. ✔ of_drm_find_bridge
+          a. ✔ add of_drm_get_bridge() (v7.0),
+               convert basic direct users (v7.0-v7.1)
+          b. ✔ convert direct of_drm_get_bridge() users, part 2 (v7.0)
+          c. ✔ convert direct of_drm_get_bridge() users, part 3 (v7.0)
+          d. ✔ convert direct of_drm_get_bridge() users, part 4 (v7.1-v7.2)
+          e. ✔ bridge-only drm_of_find_panel_or_bridge() users (v7.2)
+       8. ➜ panel_bridge lifetime
+          a. … cleanup DRM_PANEL in bridge drivers
+	  b. ➜ add a panel_bridge to every panel
+       9. ✔ enforce drm_bridge_add before drm_bridge_attach (v6.19)
+    F. ✔ debugfs improvements
+       1. ✔ add top-level 'bridges' file (v6.16)
+       2. ✔ show refcount and list lingering bridges (v6.19)
+ 2. ✔ handle gracefully atomic updates during bridge removal
+    A. ✔ Add drm_bridge_enter/exit() to protect device resources (v7.0)
+    B. ✔ Add drm_bridge_clear_and_put() (v7.1)
+ 3. … DSI host-device driver interaction
+ 4. ✔ removing the need for the "always-disconnected" connector
+ 5. ✔ Migrate i.MX LCDIF driver to bridge-connector (v7.2)
+ 6. … DRM bridge hotplug
+    A. … Bridge hotplug management in the DRM core
+       1. ✔ bridge-connector: attach encoder to the connector (v7.2)
+       2. … drm bridge hotplug
+    B.   Device tree description
+
+[0] https://lore.kernel.org/lkml/20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com/#t
+
+[1]  https://lore.kernel.org/all/emuj2innmp6zmzd7pyakqzjqpdzhly6qfhakya3ydwmd63pl26@5jwxaidpikjw/
+[2]  https://lore.kernel.org/lkml/20250206-hotplug-drm-bridge-v6-8-9d6f2c9c3058@bootlin.com/
+
+Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+---
+Changes in v3:
+- Move the panel_bridge code to drm_panel.c, don't duplicate it, and change
+  the panel_bridge API to just wrap the newly embedded drm_bridge
+- Remove deprecated devm_drm_put_bridge() and TODO entry
+- Deprecate panel_bridge APIA, add TODO entry for its removal
+- Link to v2: https://patch.msgid.link/20260903-drm-bridge-every-panel-v2-0-2ab8ee24538e@bootlin.com
+
+Changes in v2:
+- Totally new approach: embed a drm_bridge, don't create it dynamically
+- New approach to module dependencies management: new drm_panel module etc
+- Convert more drivers, including a complex, multi-user one (analogix_dp)
+- Add Albert and Anusha to Cc list
+- Minor improvements
+- Link to v1: https://patch.msgid.link/20260814-drm-bridge-every-panel-v1-0-19cd5277cc8d@bootlin.com
+
+---
+Luca Ceresoli (19):
+      drm: of: move drm_of_find_panel_or_bridge() from drm_of.c to drm_panel.c
+      drm: of: remove now unnecessary forward declarations
+      drm/panel: move to a new module
+      drm/bridge: panel: move all code to drm_panel.c
+      drm/panel: embed a drm_bridge into every drm_panel
+      drm/bridge: remove devm_drm_put_bridge()
+      drm/panel: deprecate panel-bridge APIs
+      drm/todo: add entry for removing the panel_bridge API
+      drm/bridge: tc358767: don't create a panel_bridge
+      drm/bridge: waveshare-dsi: don't create a panel_bridge
+      drm/mcde: dsi: remove unused includes
+      drm/mcde: dsi: don't create a panel_bridge
+      drm/bridge: fsl-ldb: don't create a panel_bridge
+      drm/bridge: samsung-dsim: don't create a panel_bridge
+      drm/bridge: tc358768: don't create a panel_bridge
+      drm/bridge: ssd2825: don't create a panel_bridge
+      drm/omap: dss: don't create a panel_bridge
+      drm/tve200: don't create a panel_bridge
+      drm/bridge: analogix_dp: don't create a panel_bridge
+
+ Documentation/gpu/todo.rst                         |  33 +-
+ drivers/gpu/drm/Makefile                           |   3 +-
+ drivers/gpu/drm/adp/adp-mipi.c                     |   1 +
+ drivers/gpu/drm/arm/display/komeda/komeda_crtc.c   |   1 +
+ drivers/gpu/drm/bridge/Kconfig                     |  10 +-
+ drivers/gpu/drm/bridge/analogix/Kconfig            |   1 +
+ drivers/gpu/drm/bridge/analogix/analogix_dp_core.c |  40 +-
+ drivers/gpu/drm/bridge/aux-bridge.c                |   1 +
+ drivers/gpu/drm/bridge/cadence/cdns-dsi-core.c     |   1 +
+ drivers/gpu/drm/bridge/fsl-ldb.c                   |  19 +-
+ drivers/gpu/drm/bridge/imx/imx93-pdfc.c            |   1 +
+ drivers/gpu/drm/bridge/panel.c                     | 563 -----------------
+ drivers/gpu/drm/bridge/samsung-dsim.c              |  24 +-
+ drivers/gpu/drm/bridge/ssd2825.c                   |  23 +-
+ drivers/gpu/drm/bridge/tc358767.c                  |  64 +-
+ drivers/gpu/drm/bridge/tc358768.c                  |  25 +-
+ drivers/gpu/drm/bridge/ti-tdp158.c                 |   1 +
+ drivers/gpu/drm/bridge/waveshare-dsi.c             |  17 +-
+ drivers/gpu/drm/display/drm_bridge_connector.c     |   1 +
+ drivers/gpu/drm/drm_bridge.c                       |  17 -
+ drivers/gpu/drm/drm_of.c                           |  63 --
+ drivers/gpu/drm/drm_panel.c                        | 664 +++++++++++++++++++--
+ drivers/gpu/drm/exynos/exynos_dp.c                 |  36 +-
+ drivers/gpu/drm/imx/dc/dc-kms.c                    |   1 +
+ drivers/gpu/drm/imx/dcss/Kconfig                   |   1 +
+ drivers/gpu/drm/ingenic/Kconfig                    |   1 +
+ drivers/gpu/drm/logicvc/Kconfig                    |   1 +
+ drivers/gpu/drm/mcde/Kconfig                       |   2 +-
+ drivers/gpu/drm/mcde/mcde_display.c                |   1 +
+ drivers/gpu/drm/mcde/mcde_dsi.c                    |  45 +-
+ drivers/gpu/drm/msm/dp/dp_display.c                |   1 +
+ drivers/gpu/drm/msm/dsi/dsi.c                      |   3 +-
+ drivers/gpu/drm/omapdrm/dss/omapdss.h              |   1 -
+ drivers/gpu/drm/omapdrm/dss/output.c               |  42 +-
+ drivers/gpu/drm/panel/Kconfig                      |   2 +-
+ drivers/gpu/drm/pl111/Kconfig                      |   1 +
+ drivers/gpu/drm/rockchip/Kconfig                   |   2 +
+ drivers/gpu/drm/rockchip/analogix_dp-rockchip.c    |   9 -
+ drivers/gpu/drm/stm/Kconfig                        |   1 +
+ drivers/gpu/drm/tegra/rgb.c                        |   1 +
+ drivers/gpu/drm/tidss/Kconfig                      |   1 +
+ drivers/gpu/drm/tve200/Kconfig                     |   2 +-
+ drivers/gpu/drm/tve200/tve200_drm.h                |   1 -
+ drivers/gpu/drm/tve200/tve200_drv.c                |  30 +-
+ include/drm/bridge/analogix_dp.h                   |   1 -
+ include/drm/drm_bridge.h                           |  54 --
+ include/drm/drm_of.h                               |  15 +-
+ include/drm/drm_panel.h                            |  99 ++-
+ 48 files changed, 855 insertions(+), 1072 deletions(-)
+---
+base-commit: acb05c825e393b0584adb5472bfbb17c8033a99f
+change-id: 20260812-drm-bridge-every-panel-a1596d6efea4
+prerequisite-change-id: 20260812-drm-bridge-drm_panel-cleanup-09ed5cc10948:v4
+prerequisite-patch-id: e15ab172f92263f58d86253708d0ad31d0a876e2
+prerequisite-patch-id: 8e8841279db302d98d060c2311781c51673031cd
+prerequisite-patch-id: 45c8dac16aad1187d7573c3680117954544b75ff
+prerequisite-patch-id: 9afefac08440b7aab2979bb919baf78ba60af1c0
+prerequisite-patch-id: 904a81179c02e6a3fe9e85d9a356cf265a4f4d11
+prerequisite-patch-id: 665576b9273a19567a410888e2eaf1ac3221ae3e
+prerequisite-patch-id: 9578cfffb25341935a89501736a5a59e59c50c56
+prerequisite-patch-id: ec32062a627672377ee6621cf73a7a1b99680403
+prerequisite-patch-id: d311eba3ac81be3b6af2264442369ff2b8fd5e48
+
+Best regards,
+--  
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
 
