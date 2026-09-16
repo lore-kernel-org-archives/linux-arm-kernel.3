@@ -4,100 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21B76C88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 05:24:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78C96C88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 05:28:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zSwtxaUSQ7K0oB62qUITKeVKiPbi0vng9/BLzWTtzOE=; b=NuoNMzGpFNrVJIyUsM4ELJJZx7
-	NdGbwq/XuZibMxuJ90YLxq+pCyKiZ+I/qh3eVXgx4o2LU514YANJEORQA8hQu7W6GADyvytJXEKX3
-	8Lxs5DTRCvk5muitkCOtgL7cFQ310pHBeV5fqJ1lYlaHO3X4oNHFPhn1ir4JcPIyrxJ6Hz0iM+CVC
-	0tWCVjHoGI7Pv32LPOy2d4PC+6oCTcfNZ6luLaLovaNOcp4X0JXmrlua6AnXSAnYAj6hi3cgo7bbq
-	oF6alDQZccdksIb8dugTfQK4HXGU5gigYH7OZvCDD1xFWjXAoOHF5+dH4QtiZQcCsXFZPnrelJX9H
-	YdLHO+6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=66PyGPF5wXahXxW5sg6wPuZ0lhWWMmXUKvHfOKoSdYs=; b=mofL4n8Ed43EAyGGZTEYpn3xi1
+	W0gEZuxJstSU+LDS3EK2KSyUEOG1H7lhxC9V9y2iFja0k1u/sFxgheQ72cTJf6TChXKGjIe59eymc
+	NzmEejqA3KHpYxxIAXRF2n2QD/FHfbW3mUSKPtRX7dP8RAv6xU3VldTpvbQae5HEozoAH8VpPxzct
+	fnmjdwwrx+OJWX3fIYcOgxQFvzmswgPg7a9LlZ6D1rNDTv2WbsUjDSENEDmvnBlnbPT888jZ7IyvM
+	akKvmqxRKfoNs4QlkwFktmM8zP2oQoviBCrKbwtOwGkg59yCQ7bB+oiIpe4+pgIezYpvCJQzfBJq/
+	Sf4h466Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6i7y-00000008NcE-0M3Q;
-	Wed, 16 Sep 2026 05:24:14 +0000
-Received: from mail-oo2-x05.google.com ([2607:f8b0:4864:31::5])
+	id 1x6iCG-00000008NrN-3LKW;
+	Wed, 16 Sep 2026 05:28:41 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6i7v-00000008NbV-2ZIj
+	id 1x6iC9-00000008Nr6-1ZYn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 05:24:13 +0000
-Received: by mail-oo2-x05.google.com with SMTP id 46e09a7af769-7f748fe2947so2247367a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 22:24:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789536250; x=1790141050; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=zSwtxaUSQ7K0oB62qUITKeVKiPbi0vng9/BLzWTtzOE=;
-        b=oNRL6AdDXHpHVeOGraXzqwkfNZKljw32smiv2zcfkd+HdxPtboXBPW/RZfh7bNBc6m
-         kRB1VEFcCOdCSWSEJFDYc20o4ZKhgg0Il3l13FdhmQV0WSA1VYFWzCx24RuQDi32fSR5
-         hj7t2jxjHEkMQYV7oM6jBpfzFEiSuLznbrvsaXBPHKCNnyx5cmPqZoZw8zo46XcXkPWR
-         wlXIKt27O0ClPr2qfmhiZt0Jsg/NGkbhwWaQaHM4M6SdX9bHocx0gt4ibewnBnxC9bW+
-         nT2LIk2Tmx/EvXKZemaapvSZm4LqaAzIt5O75kDKuUo63Tr2OTO1JOan8X0oEkMSCXb9
-         B/Rg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789536250; x=1790141050;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=zSwtxaUSQ7K0oB62qUITKeVKiPbi0vng9/BLzWTtzOE=;
-        b=eJz+VjZOrR4fQQYm5CxIvko4naTZIkHhn3I1rMaXXX/6iTvzc5D9Cu+UViM/cPFqOt
-         hTIIUNaESt94MI73TY9FFnOqzhIz2be24T5WHujqDDmD7wyUM64TlnMq1a4nwhwPp9Gb
-         ZXUG9U4TMnEclLfsOVMrArw4KlpBbpV6ldONed6XAf2UAhiW9kd51Lwh3GEF5/wBRoKs
-         8c0J/UMuiqFJ/z9O7ld7jqTirD8pjO31j+KAA6bNuqK3WoKSvaQsARrY9sqFiVkZFuWR
-         cezRXJix6mEJs4qkE/XHbF/2hqJNDjwjNwW9vP7r9mbFhm73jxOscHheI7SW/unAa4u+
-         8njA==
-X-Forwarded-Encrypted: i=1; AKwUvBw1IBs9CCYa478ZrTV2V8Rk9I0jMd6ZPuHj/+CkKF3FhZ/PctXRe4DWYfN1NcWPSu4fdepIBe6FrrBAAqJ/DbQ0@lists.infradead.org
-X-Gm-Message-State: AFuF++kUhQRgQfKmlzyEGaQmYwIg8LCrXkE+hD7L/2YIr3xacjk1M/EH
-	g/CyiNyH2In1b8OkKJhdtT8bwcDbUMo+xoa9988QLp9OdkVqC/oT22sq
-X-Gm-Gg: AYBFou1Bka0zU4wpmlzI+pVOUZpAc8lEGi639Z31otPrVt4ojELjmRRNrLWV2YvGl34
-	zt1NLcUs8PIzPM0qtyYmAsLie8arrMbSPJZE60j/+4atJJaCEIjA+wx3DIh3Y1u6j2YDMhJgEwI
-	b0Bp9JgaUyy0z5j0OYMcuDx8mN/TZyKnkxvFLChcvmhLZuSrxLjuCd/Av4Tpd9viHGxtRo1QD5/
-	GODV4wOE4QxYHru3xH1/kyQqqH0BXvLKcXiRbk9NDrpszqnjow078C5lcMJKw8miU3lo20Vy2yQ
-	/mxrwfEO8QdIYOonexp58bGInIbin+qoTK2kKWqOSg6bxGc7Zepm7ueOAJhU0hDrKrn6LRO/4Ux
-	zrOeAdwYWFP86GgGVUrxuPynMv5h+8Mlci0rdYyqyMLQ5NzPV7+zCEFGyHjZF2Etx9f9EUhaXlr
-	C+e/NkUbY2tJ79enkR8u4o2uBPtO75uqx0ENUKrSpLGNpVjtEqgMLEC9RMNHQ6RRDoffI=
-X-Received: by 2002:a05:6830:6d2e:b0:80a:45e1:7677 with SMTP id 46e09a7af769-80b2f3ac500mr1403318a34.23.1789536250381;
-        Tue, 15 Sep 2026 22:24:10 -0700 (PDT)
-Received: from [192.168.18.164] ([2600:8804:5716:d800::b712])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-80b07ad0294sm1562819a34.24.2026.09.15.22.24.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Sep 2026 22:24:09 -0700 (PDT)
-From: Ryan Brue <ryanbrue.dev@gmail.com>
-Date: Wed, 16 Sep 2026 00:24:00 -0500
-Subject: [PATCH] drm/mediatek: dsi: force command mode in mtk_dsi_poweron()
+	Wed, 16 Sep 2026 05:28:35 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id BF1784198D;
+	Wed, 16 Sep 2026 05:28:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD5301F000FF;
+	Wed, 16 Sep 2026 05:28:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789536512;
+	bh=66PyGPF5wXahXxW5sg6wPuZ0lhWWMmXUKvHfOKoSdYs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=AYZzAj5zgFh920pxLpGKuWZ8NFaBVz6NPYkQGl1EIBxUvvkhG8GyY4i53xxm/U6nQ
+	 nLyVV6jbYqY0XmojBX/9D/t9eC1msZQsf/q4508X9g/8PdkVHRolfaIm5e0QrGF7EL
+	 3fqdQ9bNXEh7n6NKwybOOZTqlxm1zGMv+JGQDkGihNzMxVOViYveQL+vR4+/SLbL7k
+	 yZ+nGRgE8+lk3izvSS+jxsbLmCmo7JRkzZOPJeSeWDQvVkOCLWuuS7MvAv59frQu10
+	 WHbdydez2ikJiB0FxpPkRuLPnwAmi9t3ebrIFneJqse6qS+boNZlphsRvVITCnmJjp
+	 mVh4BnFZtNlvA==
+Date: Wed, 16 Sep 2026 07:28:28 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Guangshuo Li <lgs201920130244@gmail.com>
+Cc: Oleksij Rempel <o.rempel@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, Gao Pan <b54642@freescale.com>, 
+	Fugang Duan <B38611@freescale.com>, Wolfram Sang <wsa@kernel.org>, linux-i2c@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] i2c: imx: disable autosuspend on remove
+Message-ID: <aqoolBhfLIG1hK8h@zenone.zhora.eu>
+References: <20260914091544.1667137-1-lgs201920130244@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260916-rbrue-suez-upstreaming-mtk-dsi-cmd-mode-v1-1-b37f167e25cb@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3NwQqDMAyA4VeRnBeonYjuVcYO2kQXRqskdoyJ7
- 27x+F3+fwdjFTZ4VDsof8VkSQX1rYLwHtLMKFQM3vnW9XWLOmpmtMx/zKttykOUNGPcPkgmGCJ
- hXIiRunsTnO+nZuyg1FblSX7X6fk6jhM0/FZ9eQAAAA==
-X-Change-ID: 20260916-rbrue-suez-upstreaming-mtk-dsi-cmd-mode-d834c029f4b8
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Ryan Brue <ryanbrue.dev@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789536248; l=2721;
- i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
- bh=hpjXRGa4viZcbFnNO5KBT0ICAECMSKtgFaKjk3ZUers=;
- b=YGYtnMBV27PnM1edrgMETUOi3yg7VZTGrzPFHJou4Uz1zxAGKN1TiUeZkDDsyt2+fjf5MWWPb
- W6IpgB8c/lLB0mGPpb7e2KK71MSkVE3pVyuDUNsENUDYOqVIuiy9cDh
-X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
- pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_222411_685944_734865DE 
-X-CRM114-Status: GOOD (  16.23  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260914091544.1667137-1-lgs201920130244@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,70 +73,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mtk_dsi_reset_engine() does not touch DSI_MODE_CTRL, so whatever the
-bootloader left there survives power-on. On boards where the bootloader
-lights the panel for a boot logo and hands the DSI over still running, the
-leftover value is a video mode, and the first mtk_dsi_host_transfer() then
-takes the "already streaming" path: it stops the stream and waits for
-VM_DONE, which never arrives, because the engine reset has already stopped
-the stream. The panel's very first command fails and it is never
-initialised:
+Hi Guangshuo,
 
-  [drm] Wait DSI IRQ(0x00000008) Timeout
-  *ERROR* failed to switch cmd mode
-  sending dcs data 8f a5 failed: -62
+On Mon, Sep 14, 2026 at 05:15:44PM +0800, Guangshuo Li wrote:
+> i2c_imx_probe() enables runtime PM autosuspend with
+> pm_runtime_use_autosuspend(). The probe error path correctly undoes
+> this setting with pm_runtime_dont_use_autosuspend(), but the normal
+> remove path only disables runtime PM.
+> 
+> The runtime PM API requires pm_runtime_use_autosuspend() to be undone
+> with pm_runtime_dont_use_autosuspend() at driver exit unless runtime PM
+> was enabled with devm_pm_runtime_enable(). Leaving the autosuspend flag
+> set therefore leaves the runtime PM state incompletely cleaned up after
+> the driver is unbound.
+> 
+> Add the missing pm_runtime_dont_use_autosuspend() call to the remove
+> path.
+> 
+> This issue was found by manual code inspection.
+> 
+> Fixes: 588eb93ea49f ("i2c: imx: add runtime pm support to improve the performance")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
 
-Set command mode right after the engine reset, so DSI_MODE_CTRL describes
-the state the reset leaves the engine in. The video mode is programmed by
-mtk_dsi_set_mode() when the stream is actually started, exactly as today.
+merged to i2c/i2c-fixes.
 
-Seen on the Amazon Fire HD 10 (2017), whose LK bootloader draws its logo
-over DSI in video mode and never stops the stream before jumping to the
-kernel.
+I applied this patch only because someone spent some time to
+review it.
 
-Assisted-by: LLM
-Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
----
-The board this was found on, an Amazon Fire HD 10 (2017), is not upstream
-yet, so no in-tree board regresses without this. It is a state-consistency
-fix either way: mtk_dsi_reset_engine() stops the stream but leaves
-DSI_MODE_CTRL still describing the mode the bootloader was driving, and
-nothing writes that register again until mtk_dsi_set_mode() at stream start.
+Please, follow Krzysztof advice. group all the patches together,
+version them and add a changelog.
 
-This touches the same lines as "drm/mediatek: mtk_dsi: Transfer register
-offsets to per-SoC const" from the MT8196 series; I will rebase on top of
-that if it lands first.
----
- drivers/gpu/drm/mediatek/mtk_dsi.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
-
-diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
-index 7961139333ad..4cb486f54653 100644
---- a/drivers/gpu/drm/mediatek/mtk_dsi.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
-@@ -737,6 +737,15 @@ static int mtk_dsi_poweron(struct mtk_dsi *dsi)
- 		       dsi->regs + dsi->driver_data->reg_shadow_dbg_off);
- 
- 	mtk_dsi_reset_engine(dsi);
-+
-+	/*
-+	 * mtk_dsi_reset_engine() leaves DSI_MODE_CTRL alone, so a video mode
-+	 * left there by a bootloader that handed the panel over still running
-+	 * would make the first command wait for a VM_DONE that never arrives.
-+	 * mtk_dsi_set_mode() programs the real mode when the stream starts.
-+	 */
-+	mtk_dsi_set_cmd_mode(dsi);
-+
- 	mtk_dsi_phy_timconfig(dsi);
- 
- 	mtk_dsi_ps_control(dsi, true);
-
----
-base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
-change-id: 20260916-rbrue-suez-upstreaming-mtk-dsi-cmd-mode-d834c029f4b8
-
-Best regards,
---  
-Ryan Brue <ryanbrue.dev@gmail.com>
-
+Andi
 
