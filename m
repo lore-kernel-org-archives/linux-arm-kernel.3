@@ -4,85 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A8DAC982C1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 07:08:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3306C88E5C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 07:10:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iPPSs8t6HCHVvLUXUgpO1nMbCgpWJ+6yj0K1jackD7s=; b=GjuOl9l3fg4zAvMzRS3VrJpVq1
-	g8FSIZ9HXPTxaCh3FHRfsx1J/DKC9jpspA9r+r9IrtaFYj8zV9ti/OMXv5+v5VRH6JlqiWRbdZM1v
-	Xf7Vh1gqUxqLOSRcyzfE81O/P3wcePvmcKFQp+b7B4OcJMmiBpnUp/TEi7e030n6oH0uF1gZYCjyt
-	dLHJcTtZVTHJpuFQijCgoULTR+0ZcmFdg3rzL1njxrHyBz9HHVqXrgohjR7OjUdPWc8EGRtXV6AUK
-	e5iIk9dSxY+eHW0UuxXRUr8wMSUndxyw27S8VcLpthsGfPREeGcFXQe+nCcRHkkXoXmdI5h3yH+qV
-	GzDcE1vA==;
+	bh=p2gx8+1v2YG2nXZ5rZ43ZGOVbgNWYwB+4lHcBSPfXX4=; b=w3JBLNqjG0z4LBBLqrC/sX/gzQ
+	1kkMWZJQygP8qNOFzUd3DSvv8t/1iWoq1RmgCwyKIvISAVxr4Xo4aKrpA3K0i8qomLjEwrxcjFjeN
+	Z23IU7JGCs9JA/hZUE77GG3+t74YlOfFGc7GbkWSK8GKgpMJ0EX1rPEBewKaRzIzJJUnuUvQ2SJwQ
+	/fz/C/vSdgFBrgnYLIhHFv0iSzWbaweAed3Lfnb1c1yKosG8KWtjn0AUlpdNzPrwnfiAHK0S98S00
+	lJoNW9nNxyy/lrx99M/pPIhdyVD/tCZtz+tIwGh1IyZca1Cer+adbVlO5O/0XQuIAhWnted+se5wX
+	Uq8hH+GQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6jkm-00000008Yq5-42vO;
-	Wed, 16 Sep 2026 07:08:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x6jmG-00000008Yyq-1Qsb;
+	Wed, 16 Sep 2026 07:09:56 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6jkl-00000008YpQ-1bn8
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 07:08:23 +0000
+	id 1x6jmE-00000008YyS-1T8t;
+	Wed, 16 Sep 2026 07:09:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B8CEC41259;
-	Wed, 16 Sep 2026 07:08:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98EB31F00898;
-	Wed, 16 Sep 2026 07:08:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id ADAFF6053A;
+	Wed, 16 Sep 2026 07:09:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 165081F000FF;
+	Wed, 16 Sep 2026 07:09:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789542502;
-	bh=iPPSs8t6HCHVvLUXUgpO1nMbCgpWJ+6yj0K1jackD7s=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=YkY9epgZqkRRY9guKEgBDs7Lrde5h0502AJqdL3UjjLO4zAiKI+VCt5VduXcMAem3
-	 oqZ6jDg1cYkvxGBIDMn2widDGu+3Cbmy5bBn2ESdQcsU9I5qwg+mQ/sV4p/4aNiVCb
-	 f7+yEXm64vKGHUL6SNWMneQ5YkEZ+9TzVX2s295G/FF7oqJUGpWcfCj8uqzeUcUJNe
-	 KaAysJjArdWcETF2PGvOLrgKqqobWEobF9ySCIBHAjln4M/juXRQXFltsBctqWWBfU
-	 LwC+gjm5rEcD7Ee4qicj38SzW2ixE80V3baShhwOpG+ZSZWzdy/aZlEqQ1OinGeaU1
-	 ZAUW/CB7gEXNA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1x6jki-00000009Tp9-2nPE;
-	Wed, 16 Sep 2026 07:08:20 +0000
-Date: Wed, 16 Sep 2026 08:08:20 +0100
-Message-ID: <86ld9165cr.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Itaru Kitayama <itaru.kitayama@fujitsu.com>
-Cc: Wei-Lin Chang <weilin.chang@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Wang Han <wanghan@linux.alibaba.com>,
-	Shuai Xue <xueshuai@linux.alibaba.com>,
-	"Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Subject: Re: [PATCH v6 0/7] KVM: arm64: nv: Implement nested stage-2 reverse map
-In-Reply-To: <aqnUWp_VJXUCcJnQ@sm-arm-grace07>
-References: <20260915154305.3852871-1-weilin.chang@arm.com>
-	<aqm9hXB6X9IQ8wHz@sm-arm-grace07>
-	<m6ldbr7hdafmoycx7xjcbsg62mblcakcu52ndowwzqgxdjb3q3@huv4i5bfxtza>
-	<aqnUWp_VJXUCcJnQ@sm-arm-grace07>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: itaru.kitayama@fujitsu.com, weilin.chang@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, wanghan@linux.alibaba.com, xueshuai@linux.alibaba.com, ljs@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20260515; t=1789542593;
+	bh=p2gx8+1v2YG2nXZ5rZ43ZGOVbgNWYwB+4lHcBSPfXX4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=K7SwAZ5TQox94KhnzDZgdWak9JeascnEJT6tgsdFitx13oH/yvHVurs3emFIQIidi
+	 xcR0gIE20GLza50nMYtjBg//0e7WD22sTKu3OHciVTO0Egw6dpfNvS97BoC4LpWgvN
+	 ZD0aZmUahuws0zfu0FGKie6dskhpn2wDFZH1gLvxR0Y/XLP3PDKD59Q3XEFPNj3iGd
+	 l3nMpo+kKycUGKylVUc5DFObZlUBNTgMifgw32kRkszA3iFJ9ppTn7CES9cJYrH1JE
+	 XD/gyr3hXov/6xjsaqqL1FGY+8ZmWmmW0Gqlh80XrHJbwZzvXyNf+hmB3sQ+DilGUR
+	 S0XyD3cx8I3Gw==
+Date: Wed, 16 Sep 2026 09:09:41 +0200
+From: Christian Brauner <brauner@kernel.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Alexander Viro <viro@zeniv.linux.org.uk>, Jann Horn <jannh@google.com>, 
+	Jan Kara <jack@suse.cz>, Ingo Molnar <mingo@redhat.com>, 
+	Peter Zijlstra <peterz@infradead.org>, linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-mm@kvack.org, Oleg Nesterov <oleg@redhat.com>, linux-alpha@vger.kernel.org, 
+	linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
+	linux-hexagon@vger.kernel.org, linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
+	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, linux-sh@vger.kernel.org, 
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org, Jens Axboe <axboe@kernel.dk>, 
+	io-uring@vger.kernel.org, netdev@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-gpio@vger.kernel.org, linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	bpf@vger.kernel.org, David Airlie <airlied@redhat.com>, 
+	virtualization@lists.linux.dev, kvm@vger.kernel.org, kexec@lists.infradead.org, 
+	linux-hyperv@vger.kernel.org
+Subject: Re: [PATCH RFC POC 00/50] file: handle files on syscall exit
+Message-ID: <20260916-seilbahn-heimvorteil-edelmut-bad3637b3a95@brauner>
+References: <20260915-work-fd-reserve-unify-folded-v1-0-4d5217d6b246@kernel.org>
+ <CAHk-=wjeamU=_RYT9cR3dZJ2N-Teo-N1+aYh7jwhrB=iWXD0cg@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <CAHk-=wjeamU=_RYT9cR3dZJ2N-Teo-N1+aYh7jwhrB=iWXD0cg@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,39 +79,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 16 Sep 2026 00:27:22 +0100,
-Itaru Kitayama <itaru.kitayama@fujitsu.com> wrote:
+On Tue, Sep 15, 2026 at 09:02:31AM -0700, Linus Torvalds wrote:
+> On Tue, 15 Sept 2026 at 04:31, Christian Brauner <brauner@kernel.org> wrote:
+> >
+> > TL;DR, this lets arch code handle fd install and cleanup. fd_prepare()
+> > allocates a descriptor like get_unused_fd_flags() does and records it in
+> > a slot on the task. fd_stage() attaches the file to that slot and
+> > returns the number.
 > 
-> On Wed, Sep 16, 2026 at 12:22:30AM +0100, Wei-Lin Chang wrote:
-> > On Wed, Sep 16, 2026 at 06:49:57AM +0900, Itaru Kitayama wrote:
-> > > On Tue, Sep 15, 2026 at 04:42:58PM +0100, Wei-Lin Chang wrote:
-> > > > Hi,
-> > > > 
-> > > > This is v6 of optimizing the shadow s2 mmu unmapping during MMU
-> > > > notifiers.
-> > > > 
-> > > > This version fixes a few issues, and adds Marc's space optimization
-> > > > for kvm_guest_s2_mapping [1]. Please see the changelog for the details.
-> > > > 
-> > > > Tested by booting L3, and running in-kernel targetted tests described
-> > > > in [2]. v5 got some tested-by's from Itaru and Wang (thanks), I didn't
-> > > > carry them over since some bugs fixed in v6 are non-obvious. Some
-> > > > retest would be much appreciated!
-> > > 
-> > > How did you boot into L3, with KVM selftest or recrusively boot on HW?
-> > 
-> > I just recrusively booted VMs on hardware. :)
-> 
-> Good. Then I actually tried that on Grace CPUs, but letting L1 boot 
-> with nested mode did not print "VHE+NV2" KVM init log in dmesg, thus not
-> able to boot L3. Do I need to add other than kvm.arm-mode=nested to command line?
+> Honestly, I am *not* a fan. At all.
 
-kvm-arm.mode=nested, as documented. That also puts in perspective your
-TB tag on the whole series...
+I'm really glad that you don't like it! I hate it too.
 
-	M.
+To quote back from the cover letter:
 
+> The idea in this series is old-ish and really never let go of me and so
+> I wanted to at least dump it onto the list once even if it's just for
+> illustrative purposes.
 
--- 
-Without deviation from the norm, progress is not possible.
+I think the cleanup-based solution we've added a couple of releases ago
+is the better appraoch. Which is why I chose it over this.
+
+But this install-on-the-way-out idea has been brought up quite a few
+times as the "better approach". I never really believed it would work
+nicely. Now we have an implementation on the list that we can point to
+and we can move on from this.
 
