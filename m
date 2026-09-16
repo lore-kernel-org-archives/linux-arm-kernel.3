@@ -4,122 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8D1BC88E5C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 10:03:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A873C88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 10:04:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KIcrIfWx+TSEvxGKy6/D5I9qUebgG2wvJxELHA4JgfM=; b=bhTQFuBioUCy+PcWxcnfu7RYNc
-	owxk70k9v0MR9iTj+mqzmY2dI/sbG8OKQ2bhVjbRFHvVIP3+7Wn6V7176cq3As5NXXRZgbYyfBqja
-	pU68jHqZg1GtgBdRe1fpJHf3bqwcNhOp6xghC3tppr/3h2RkICKSAOKvcCsJo5hVYRSJCmEfHUTBb
-	jcn8am3SRQTS+V9tf9UOkr7Yy88QeYnA7GRy4xS1+Pj4EHo+cKASQzCI/jYj1E5ia9arx5jEedvEC
-	y31VnNLX7+ggeoYsNi9x2mZqOJdm5+wfuDNM+SEBGutuZDRZrtOwYeAz6jSRQEQ6f9MaEG+C86SVP
-	bJ75fzRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ObFj00wIHFA7DTCd+I7yWf9pDIB4PkYQ8Z0z1qqyAag=; b=DWdEC+V26UAMsUXy0a+qLqoUNO
+	+3ztE7W0y7Sp9TvpeIMdnr2liPtcjIJu0ZB7AOpGt3U4vT4d249llFPEWbYgS0eB5Yjl2lmu6lorQ
+	my2D5seAELL9HBgRg1iL6/OCZh8M3/ZNEqF3iXjGL/1yK09PUZ3Xg+32tEv5WlXaMxTUu+hZ2POdb
+	V3gZrIgyswBRM7BpeAFkzDYlpn9VrD0cZVWRj3eKknPlkj7Nyp8xE3QRxvai11VL/U5+rh0HjXl9r
+	h79cwuz3VcBYyk5UdizaIwvNkioM413FJkRZ6FPFFVd3C6xKN2Wsu7Saa6w8kKJng5Pfhcjtfn3g2
+	gZcP463Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6mTo-00000008vTS-06vL;
-	Wed, 16 Sep 2026 10:03:04 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1x6mUn-00000008vap-0kjZ;
+	Wed, 16 Sep 2026 10:04:05 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6mTk-00000008vSS-2R0y
+	id 1x6mUm-00000008vaR-2JcP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 10:03:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dfyUAUg1IIQJuP20/VSdKtPTICGllYhDQB+DYpIlmesUDc5v7dsl9Rjl8a2f7uPYI2NmM4FM4ftTU19H31R5ml0LpcfqlDMZVLhNKC+BjRMwfFyR2c1e6qJYB7K/J6cLG3tk+goOAu1PFQYJI8K635fjj/Rq1X5A2O0zLtVigxlqp3DLoIgUyiVPJA2Qs9MeMN/C0X6oNePtcMlAu4m1t5Icrkze6iqPcQcaKXJtpCcjNIZ5GxLxmRPLn4BzyIwBkX0frVuOvr60TfQ2SUFGraioFki77ZbiOszEbTkz3MuUGre531GIWOlpkfN2tMCKxF7qH+NlWv+TpYiuB8hbeQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KIcrIfWx+TSEvxGKy6/D5I9qUebgG2wvJxELHA4JgfM=;
- b=ySPWwFKyn2Cb/F4NFQg7MzDAR1lGfALdsspHmTXDrDRJM43JmjDjjOOb9cpDwZEwC+OuGHM8MnfqDyO8ONPhZttQL3EMu1Z2mD1wNTOBpITcnD/o2COhRkgnYGkol1o2M+IxvcG/VFPGse9+poTDqIg6uuULvaemV+wcj2D7NabNOaJbjsi7ftx1GV0pFMLueZ4ctAAyOVg8YpIy2qKaAZNchVOlI6W/xF9WygUnYYTE9x3VJfJi+FYo2aVqjpCQp4p1GGXNrDSr4CCM96MIn4QLGk6ZyC90Lzq/G7lXpkrXsicZiHOUfIGEq122djEh+ByoSDr9xsxhhu8XV93PZg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=intel.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KIcrIfWx+TSEvxGKy6/D5I9qUebgG2wvJxELHA4JgfM=;
- b=L5/F30B/nt/mdMJ4VCyoFAv6tVlXI7KuvheFfkMCajP9xMCDc9HdwNBzYBo8YyKztQfK5nrkiC/81avcl9ZkLMu4GbAcQT95FbnRQB0VBpgtMJAfSx46OTDjaJdyuYxBqaHoy6Y5v+D1rDKsB5mCdtWXgZAtfP18+VTZqzbJ0vz8lTBYmL4PIsdX39h/Gu4Hdu6TVRHKYQY0bObx/mD5gEwzsX5zPQHRer09QBiAMLZscIwmXh1mQ8FYJgy1vn+9p634LYUMbGjHjVVEao5U46x7AwPQU+/W02B1r6FFNOAcHIqGznqu7k7dB3aXcIhCuGyzXgt+iWXX1oiTJhKzcA==
-Received: from DU2PR04CA0309.eurprd04.prod.outlook.com (2603:10a6:10:2b5::14)
- by WAWPR10MB601896.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:1d0:49::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.9; Wed, 16 Sep
- 2026 10:02:52 +0000
-Received: from DB1PEPF00050A01.eurprd03.prod.outlook.com
- (2603:10a6:10:2b5:cafe::47) by DU2PR04CA0309.outlook.office365.com
- (2603:10a6:10:2b5::14) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.13 via Frontend Transport; Wed,
- 16 Sep 2026 10:02:51 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- DB1PEPF00050A01.mail.protection.outlook.com (10.167.242.43) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.428.7 via Frontend Transport; Wed, 16 Sep 2026 10:02:51 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 16 Sep
- 2026 12:08:55 +0200
-Received: from [10.48.86.251] (10.48.86.251) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 16 Sep
- 2026 12:02:49 +0200
-Message-ID: <eb5dad33-9344-4b70-b7dd-a0e808f43ed8@foss.st.com>
-Date: Wed, 16 Sep 2026 12:02:48 +0200
+	Wed, 16 Sep 2026 10:04:04 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id A06CA602CC;
+	Wed, 16 Sep 2026 10:04:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A6041F000FF;
+	Wed, 16 Sep 2026 10:04:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789553043;
+	bh=ObFj00wIHFA7DTCd+I7yWf9pDIB4PkYQ8Z0z1qqyAag=;
+	h=From:Date:Subject:To:Cc;
+	b=Q2vMO8tmDn3vmTiCgTl/LG5qLSCeJ6EyP+5S5r7XeOq7LSJegmrI17jaqD0U6whhc
+	 I6fT9RJ+gm3zPxmGWDBgoJexB/VGlVqcKzxT2g/ew2UAMRDMA0nxyeEFwRltJlpCoW
+	 2H8sksqMOnb4A+3htP7NZjeCafqAtq4XEoo/3QyCbqbwmlyAbEP1sTU95mdqfeXL7y
+	 NTZDEg9jFs7kiZF/RyqhyP424PrsI9dE8gZvaUVJpuC0tt+ehaiLwMqh+nuIOWMcrp
+	 gQ4vIosejIKpxlPr2MMzZv6+scZMQaIfmaQFAY4zKcjXjZ306DeJpzaha9M9TYATZb
+	 8xg2hJ9DIEJ4A==
+From: Linus Walleij <linusw@kernel.org>
+Date: Wed, 16 Sep 2026 12:03:56 +0200
+Subject: [PATCH v2] arm64: clear_page[s] using memset
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iio: adc: stm32-adc: fix check on internal channel
- availability
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-CC: Jonathan Cameron <jic23@kernel.org>, David Lechner
-	<dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, "Andy
- Shevchenko" <andy@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Olivier Moysan
-	<olivier.moysan@foss.st.com>, <linux-iio@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Sashiko <sashiko-bot@kernel.org>, <stable@vger.kernel.org>
-References: <20260915-adc-fix-intchan-v1-v1-1-761a1b35001b@foss.st.com>
- <aqpJCsBNKDSKlfFD@ashevche-desk.local>
-Content-Language: en-US
-From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-In-Reply-To: <aqpJCsBNKDSKlfFD@ashevche-desk.local>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.251]
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB1PEPF00050A01:EE_|WAWPR10MB601896:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2aeac330-ee11-4904-a181-08df13d9ab5a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|376014|23010399003|7416014|1800799024|10067099003|56012099006|11063799006|4143699003|22082099003|18002099003|13003099007;
-X-Microsoft-Antispam-Message-Info: thci0OiEXEv8ELqyxe36IHjahLog4u6qfBz1mfNRigcZLGG1ABbsgqbkmpLB0mzB7XPADW8F6JgwO182dd1wjgMTooBFArIpmZ33yVRB5nx7fNrY0vC0PokE5EpyvVUDPqtUUP/uZ7qo8x4GB/Y6M7VCAMx+bvzZzWlAVff4iQn2724tOxy8vgFmHOClLp7UIxc2urop3+g8kjn08D9M8FYIndzupa+8bhbrlhJ0s07ODvlQ+EN7WCanapCPUfjSEYxoqLpTC2wDl8yk6oufcEYUAVhkDy7h33aVIrbVs0k8Z9aSNdwxEmL/tvpAe+PppRHxpvyDaE0Usvx+UEg/5A3AXRkJ9b2RdmvA64ywe2Mt3dRP+/Zh20Qv5agtzvmHspSWcVtrfBP/ABUzj2TjkbuLCh5+GZduhi/xCHZNiRftJklM6NKQjDUBN6kOU7tMmHf0mmfu/h+R2dNPwxxHCbiXvKGV7J9Hgc8NXGaGZM3jGhsFUVRlxABX9k/lVWNGh5FmRyqFgCD2sHYlbg0RnGjU1zXHPbfUZSm/yvGQEIcH+fxx1j8QFgy3C3Gzt08QRkppVDBEBVeFbzf5lD4iZ0sE4h8+EPNDrgjUh5dTVvSM6sLYkdL8kOCbfg3LEEKBWljG82aXJL/uPHZbkwLgBxCfnSQcY00igsB0RHMXr0etw5Phw+LjErRez/gobXQKjcD4jDCzvoV+ooI5IZQBMA==
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(376014)(23010399003)(7416014)(1800799024)(10067099003)(56012099006)(11063799006)(4143699003)(22082099003)(18002099003)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: qkxoX1nMm2v/vHAaATEQyX6GyWuRy2xw3wDbXgRn4aVJYTcVlkj93gDfZnj/quvHnYyl0yoI9CQMCA4AQCy9RZvPui2ByY2Ls6WdObBRWHZ+1TwJS/PdboTtpAWvtO3uNeMFwAafdGbmZbHpwVp2ZJknsvDn8zioJaG6sUYNmmiHpvzKy//YnZemmy+oJbbCRK+jCofBT3XPL58P42HThgY9PPpjE6iG6odCS7A6L+klDxxYkZbyWAWON9tSR03CF9sh3Ek8wdCOHWnPc/0uaLSm6xmXQYIQbLNz13fscx6kJkLWOgL4KtLISPryxYlJnEjASGIp5DVNRqYEEwZGzuc5bragsLV0dAhePPpZK4vYZGtSaigPseEKt0UVnpy138oa8hhdK+9177a0sQEQBv/tmhrKPaf/Q5rkNZmnCH47l4WwWmiOTw5pmU3h7IEx
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Sep 2026 10:02:51.2392
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2aeac330-ee11-4904-a181-08df13d9ab5a
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF00050A01.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: WAWPR10MB601896
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_030300_879102_1820B3BB 
-X-CRM114-Status: GOOD (  26.48  )
+Message-Id: <20260916-aarch64-clear-pages-c-v2-1-0393769f7912@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WNSw6CQBAFr0J6bZv5CAgr72FYDE0DEwlDegzRE
+ O7uSOLSZVXy6m0QWTxHqLMNhFcffZgTmFMGNLp5YPRdYjDKFMqqHJ0TGosL0sROcHEDRyTMK9U
+ 5rq5krYW0XYR7/zq69ybx6OMzyPu4WfXX/orFn+KqUWNZkm5b1Wsy+vZgmXk6Bxmg2ff9A1OWq
+ fK7AAAA
+X-Change-ID: 20260305-aarch64-clear-pages-c-590dae98c333
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+ Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Zenghui Yu <yuzenghui@huawei.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+ Usama Anjum <usama.anjum@arm.com>, Linus Walleij <linusw@kernel.org>
+X-Mailer: b4 0.16.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,142 +76,194 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/16/26 09:45, Andy Shevchenko wrote:
-> On Tue, Sep 15, 2026 at 06:15:49PM +0200, Fabrice Gasnier wrote:
->> If an unsupported internal channel like vddgpu is requested, the driver
->> prints a warning but falls through and assigns it a valid int_ch below.
->>
->> This causes a problem later during setup:
->> stm32_adc_int_ch_enable() {
->>     ...
->>     case STM32_ADC_INT_CH_VDDGPU:
->>         stm32_adc_set_bits(adc, adc->cfg->regs->or_vddgpu.reg,
->>                            adc->cfg->regs->or_vddgpu.mask);
->>     ...
->> }
->>
->> Because the register offset is uninitialized (0), this performs a
->> read-modify-write on offset 0, which corresponds to the ISR register.
->>
->> Fix this by returning before a valid int_ch is assigned.
->> Choice is made to just warn about the channel name as it could
->> be confusing, rather than making the probe fail.
-> 
-> Are this and the other patch made with AI assistance?
+There is no need to try to second-guess the compiler when
+clearing memory. Just call memset() like everyone else.
 
-Hi Andy,
+Since memset() already has an architecture-local MOPS
+optimization, we do not need to do anything else to preserve
+the MOPS optimization.
 
-Not the solution (patch content) to fix the issue.
+While at it, implement the shorthand for directly calling
+the new prototype clear_pages() for larger page chunks.
 
-But most of the commit message is copied from Sashiko, as I find it
-clear, see:
-Link:
-https://lore.kernel.org/all/20260911162602.D323F1F000FF@smtp.kernel.org/
+No performance regressions can be seen, the fastpath
+benchmarks differences are in the noise.
 
-I've added Reported-by tag. Do you think I should add more tags ?
+Usama Anjum tested next-20260821 with one warm-up and three repeats
+in four sessions, for a total of 12 measured runs. The commands were:
 
-The code bellow isn't assisted-by anything.
+  perf bench mem memset -k 1GB -f default -s 16GB
+  perf bench mem mmap -p 1GB -f demand -s 32GB -l 5
+  perf bench mem mmap -p 4KB -f demand -s 32GB -l 5
 
-> 
-> ...
-> 
->>  	struct stm32_adc *adc = iio_priv(indio_dev);
->>  	u16 vrefint;
->> -	int i, ret;
->> +	int i, ret = 0;
-> 
-> No, either assign closer to its first user, or do even better.
-> 
->>  	for (i = 0; i < STM32_ADC_INT_CH_NB; i++) {
->>  		if (!strncmp(stm32_adc_ic[i].name, ch_name, STM32_ADC_CH_SZ)) {
->> @@ -2267,31 +2267,36 @@ static int stm32_adc_populate_int_ch(struct iio_dev *indio_dev, const char *ch_n
->>  			switch (i) {
->>  			case STM32_ADC_INT_CH_VDDCORE:
->>  				if (!adc->cfg->regs->or_vddcore.reg)
->> -					dev_warn(&indio_dev->dev,
->> -						 "%s channel not available\n", ch_name);
->> +					ret = -ENOENT;
-> 
-> This is a repetition of the same value. Instead add a boolean flag and do here
-> 
-> 	bool na;
-> 	...
-> 			na = false; // or can be dropped with 'default' case
-> 			switch (i) {
-> 			case STM32_ADC_INT_CH_VDDCORE:
-> 				na = !adc->cfg->regs->or_vddcore.reg;
+The results were:
 
-Ack, thanks for suggesting! I will update in v2.
+aws-m7g.metal:
+  Benchmark    Base bytes/sec   Change with patch
+  memset 1GB   63932542232.12                1.92%
+  mmap 1GB     63272579168.03               -0.57%
+  mmap 4KB     49692830849.48               -1.11%
 
-> 
->>  				break;
->>  			case STM32_ADC_INT_CH_VDDCPU:
->>  				if (!adc->cfg->regs->or_vddcpu.reg)
->> -					dev_warn(&indio_dev->dev,
->> -						 "%s channel not available\n", ch_name);
->> +					ret = -ENOENT;
->>  				break;
->>  			case STM32_ADC_INT_CH_VDDQ_DDR:
->>  				if (!adc->cfg->regs->or_vddq_ddr.reg)
->> -					dev_warn(&indio_dev->dev,
->> -						 "%s channel not available\n", ch_name);
->> +					ret = -ENOENT;
->>  				break;
->>  			case STM32_ADC_INT_CH_VREFINT:
->>  				if (!adc->cfg->regs->ccr_vref.reg)
->> -					dev_warn(&indio_dev->dev,
->> -						 "%s channel not available\n", ch_name);
->> +					ret = -ENOENT;
->>  				break;
->>  			case STM32_ADC_INT_CH_VBAT:
->>  				if (!adc->cfg->regs->ccr_vbat.reg)
->> -					dev_warn(&indio_dev->dev,
->> -						 "%s channel not available\n", ch_name);
->> +					ret = -ENOENT;
->>  				break;
-> 
-> Don't you also need a default?
+cesw-aarch64-ampereone-1s-a192-32x:
+  Benchmark    Base bytes/sec   Change with patch
+  memset 1GB   33895562998.71                0.25%
+  mmap 1GB     34338454210.17                1.16%
+  mmap 4KB     25687107580.90               -0.85%
 
-Ack, I was wondering too. I will add a default in v2.
+Assisted-by: LLM
+Suggested-by: Will Deacon <will@kernel.org>
+Tested-by: Usama Anjum <usama.anjum@arm.com>
+Link: https://lore.kernel.org/linux-arm-kernel/20260303-aarch64-clear-pages-v1-1-ad0c3ee9a555@kernel.org/
+Link: https://lore.kernel.org/linux-arm-kernel/67ab6c51-4511-46ab-931b-a4323551147a@arm.com/
+Signed-off-by: Linus Walleij <linusw@kernel.org>
+---
+Changes in v2:
+- Rebased on v7.3-rc1
+- Include Usama Anjum's performance results and Tested-by tag.
+- Link to v1: https://lore.kernel.org/r/20260306-aarch64-clear-pages-c-v1-1-77c1bb0f1c21@kernel.org
+---
+ arch/arm64/include/asm/page.h    | 13 +++++++++-
+ arch/arm64/kernel/image-vars.h   |  1 -
+ arch/arm64/kvm/hyp/nvhe/Makefile |  2 +-
+ arch/arm64/lib/Makefile          |  2 +-
+ arch/arm64/lib/clear_page.S      | 53 ----------------------------------------
+ 5 files changed, 14 insertions(+), 57 deletions(-)
 
-> 
-> 			default:
-> 				return -EINVAL; // for example...
-> 
->>  			}
-> 
-> 			if (na) {
-> 				...
-> 				return 0;
-> 			}
-> 
->>  
->> +			if (ret) {
->> +				/*
->> +				 * Confusing channel label matches an internal STM32 ADC channel.
->> +				 * Just warn about it, as there's normally no restriction on the
->> +				 * name but that's not among supported internal channels.
->> +				 */
->> +				dev_warn(&indio_dev->dev, "no %s internal channel\n", ch_name);
->> +				return 0;
-> 
-> My gosh, the ret value is even ignored!
+diff --git a/arch/arm64/include/asm/page.h b/arch/arm64/include/asm/page.h
+index 58200de8a221..b2eaa63d9056 100644
+--- a/arch/arm64/include/asm/page.h
++++ b/arch/arm64/include/asm/page.h
+@@ -13,6 +13,7 @@
+ #ifndef __ASSEMBLER__
+ 
+ #include <linux/personality.h> /* for READ_IMPLIES_EXEC */
++#include <linux/string.h> /* for memset() */
+ #include <linux/types.h> /* for gfp_t */
+ #include <asm/pgtable-types.h>
+ 
+@@ -20,7 +21,17 @@ struct page;
+ struct vm_area_struct;
+ 
+ extern void copy_page(void *to, const void *from);
+-extern void clear_page(void *to);
++
++static inline void clear_pages(void *addr, unsigned int npages)
++{
++	memset(addr, 0, npages * PAGE_SIZE);
++}
++#define clear_pages clear_pages
++
++static inline void clear_page(void *addr)
++{
++	clear_pages(addr, 1);
++}
+ 
+ void copy_user_highpage(struct page *to, struct page *from,
+ 			unsigned long vaddr, struct vm_area_struct *vma);
+diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
+index 14beb7b9d304..facda8137d9b 100644
+--- a/arch/arm64/kernel/image-vars.h
++++ b/arch/arm64/kernel/image-vars.h
+@@ -119,7 +119,6 @@ KVM_NVHE_ALIAS(__start___kvm_ex_table);
+ KVM_NVHE_ALIAS(__stop___kvm_ex_table);
+ 
+ /* Position-independent library routines */
+-KVM_NVHE_ALIAS_HYP(clear_page, __pi_clear_page);
+ KVM_NVHE_ALIAS_HYP(copy_page, __pi_copy_page);
+ KVM_NVHE_ALIAS_HYP(memcpy, __pi_memcpy);
+ KVM_NVHE_ALIAS_HYP(memset, __pi_memset);
+diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
+index f57450ebcb49..2ed489bf544e 100644
+--- a/arch/arm64/kvm/hyp/nvhe/Makefile
++++ b/arch/arm64/kvm/hyp/nvhe/Makefile
+@@ -17,7 +17,7 @@ ccflags-y += -fno-stack-protector	\
+ hostprogs := gen-hyprel
+ HOST_EXTRACFLAGS += -I$(objtree)/include
+ 
+-lib-objs := clear_page.o copy_page.o memcpy.o memset.o tishift.o
++lib-objs := copy_page.o memcpy.o memset.o tishift.o
+ lib-objs := $(addprefix ../../../lib/, $(lib-objs))
+ 
+ CFLAGS_switch.nvhe.o += -Wno-override-init
+diff --git a/arch/arm64/lib/Makefile b/arch/arm64/lib/Makefile
+index b33e1ca4a781..38ffd359123c 100644
+--- a/arch/arm64/lib/Makefile
++++ b/arch/arm64/lib/Makefile
+@@ -5,7 +5,7 @@ KCSAN_SANITIZE_delay.o := n
+ 
+ lib-y		:= clear_user.o delay.o copy_from_user.o		\
+ 		   copy_to_user.o copy_page.o				\
+-		   clear_page.o csum.o insn.o memchr.o memcpy.o		\
++		   csum.o insn.o memchr.o memcpy.o			\
+ 		   memset.o memcmp.o strcmp.o strncmp.o strlen.o	\
+ 		   strnlen.o strchr.o strrchr.o tishift.o
+ 
+diff --git a/arch/arm64/lib/clear_page.S b/arch/arm64/lib/clear_page.S
+deleted file mode 100644
+index bd6f7d5eb6eb..000000000000
+--- a/arch/arm64/lib/clear_page.S
++++ /dev/null
+@@ -1,53 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0-only */
+-/*
+- * Copyright (C) 2012 ARM Ltd.
+- */
+-
+-#include <linux/linkage.h>
+-#include <linux/const.h>
+-#include <asm/assembler.h>
+-#include <asm/page.h>
+-
+-/*
+- * Clear page @dest
+- *
+- * Parameters:
+- *	x0 - dest
+- */
+-SYM_FUNC_START(__pi_clear_page)
+-#ifdef CONFIG_AS_HAS_MOPS
+-	.arch_extension mops
+-alternative_if_not ARM64_HAS_MOPS
+-	b	.Lno_mops
+-alternative_else_nop_endif
+-
+-	mov	x1, #PAGE_SIZE
+-	setpn	[x0]!, x1!, xzr
+-	setmn	[x0]!, x1!, xzr
+-	seten	[x0]!, x1!, xzr
+-	ret
+-.Lno_mops:
+-#endif
+-	mrs	x1, dczid_el0
+-	tbnz	x1, #4, 2f	/* Branch if DC ZVA is prohibited */
+-	and	w1, w1, #0xf
+-	mov	x2, #4
+-	lsl	x1, x2, x1
+-
+-1:	dc	zva, x0
+-	add	x0, x0, x1
+-	tst	x0, #(PAGE_SIZE - 1)
+-	b.ne	1b
+-	ret
+-
+-2:	stnp	xzr, xzr, [x0]
+-	stnp	xzr, xzr, [x0, #16]
+-	stnp	xzr, xzr, [x0, #32]
+-	stnp	xzr, xzr, [x0, #48]
+-	add	x0, x0, #64
+-	tst	x0, #(PAGE_SIZE - 1)
+-	b.ne	2b
+-	ret
+-SYM_FUNC_END(__pi_clear_page)
+-SYM_FUNC_ALIAS(clear_page, __pi_clear_page)
+-EXPORT_SYMBOL(clear_page)
 
-Yes, That's what I try to explain in the comment, e.g. Just warn (as it
-is doing currently).
+---
+base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+change-id: 20260305-aarch64-clear-pages-c-590dae98c333
 
-The purpose of the fix is not to change current driver behavior but to
-address the undesired subsequent int_ch assignment which ends-up in
-writing bits in stm32_adc_int_ch_enable() in an uncontrolled way.
-
-Semantically, this ret value introduced in v1, will be turned into a
-bool as you suggest. Hope you agree with this approach ?
-
-BR,
-Fabrice
-
-> 
->> +			}
-> 
+Best regards,
+--  
+Linus Walleij <linusw@kernel.org>
 
 
