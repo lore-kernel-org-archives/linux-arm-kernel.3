@@ -4,99 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88338C982C3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:21:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08F1FC982C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 15:21:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EQAR28J/9MYs1JBQtzQCnbS9XqpVotVO20f8EF1wSQg=; b=h1TkLPQH7pqarCnEzje0q/oJ+j
-	uRwzj2sfvD7FmPFtnnas8mAi3QP1dWWNBurwygNRPP1JFySc0qHw/q6piN+RLEdCHnMy4hYt8Dqv7
-	W0VMozzhtjy7+k+hR/pTS0IwhnWX9zM64lOOMzCz0jckkCz0KM3ekNMPa9/8AaDsmt/7ARFTvyJu6
-	1AdTa8EeRL5ztWMlvx4ef8wBHGPHrAf7HoVgiDAr3xKmihzmbw1GKFwE7p24m/gFNvcw+KCw+QnDt
-	ncJevVAATev4OCyFVgaDjqbrPb6UYBJA7fXyJr+CzTCRdB5jIRXdgCH6YXquRTS/PyUV1NFXHYqzP
-	HiK9qEZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DtGzm6tEc3XcJquEfnKIWlwzb+MTWiEzzs6vwOqrLVI=; b=l9d4uXI0cPqtusUPGYMu33djy9
+	TiGM2y93ad+pjj2Ba/YwbB4I29Gx9+0/8gis2zaWjxpc4zkf9NnCwDBal70PWQw/o53v5fetdrVdI
+	WbPlrHYH69QMG95uUfXaUPwQMH3PF9PV0D5xLBQk9XrDwnboh74R5LWl/BX6IgTFVfvdDA+q1uDIb
+	grDWDZwDZF+IqY50B5SLo2XrQRhFQuh2w2rZwgFy2yV7u+MWK0xKOwaImTVWloqoz3ZZHROOsq589
+	0Albc1rReEoA6jLvdqLzTYX2BStjHAf5CKmKjx19HE8vIqItyBIOqOdbClK8SOGGa6Irj6+EAuGhD
+	JDdwM8kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rRM-00000009YlJ-2e6t;
-	Wed, 16 Sep 2026 15:20:52 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1x6rRX-00000009Yo8-3JwK;
+	Wed, 16 Sep 2026 15:21:03 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6rRK-00000009YkW-0K1x
+	id 1x6rRU-00000009YmK-1Elb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 15:20:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789572051; x=1821108051;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=ABPqlFY+qgVQVQriZmgkEfnyudsflUMPcXg+FS+S01s=;
-  b=ZLr7rTLrXSSs97W2yzd9mI4IbmUKZmV4Yt3QpEeY9T5gMLHzgH10jGwG
-   2DZwgFpe4qhsediAF88V31X7MMCMvW0187+dloF15JJWlp63uLO2cjA0K
-   dDs2uE0NHvPOZO6/WfMUK0M7U/noiFJqDLywvtD0GuTSNR3OgW+asmqGj
-   2glPmXsn83FcksoutupZLG5CbThPOWnr3GnVSC/HTzo1l/upZD7msMvQo
-   Go1uF1W2UCBRG7A2nfPiNH6QPdaNQgZgZDbYc8hTx5dJtQc/P901w4//Y
-   TAj/ymVo+amIbSO2v8KAflXhMWoJ/5cYSLqHewIfk9SnGb2MnDOeYpEDu
-   Q==;
-X-CSE-ConnectionGUID: /c49hALGTUKFDsfWK4CEPg==
-X-CSE-MsgGUID: 7U52kNHwRc+jVcvTsscE1A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="93653722"
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="93653722"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Sep 2026 08:20:50 -0700
-X-CSE-ConnectionGUID: JwexR3oJQzatmu4g5LEWDA==
-X-CSE-MsgGUID: vFlYH9tyRkangFMS75Q85w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="296853472"
-Received: from ettammin-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.145])
-  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Sep 2026 08:20:43 -0700
-Date: Wed, 16 Sep 2026 18:20:40 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: zl020895 <zl020895@163.com>
-Cc: Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>, soc@lists.linux.dev,
-	longzhao@ambarella.com,
-	Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Lee Jones <lee@kernel.org>,
-	mfd@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: Re: [PATCH v7 00/15] Ambarella CV75 SoC minimal bring-up
-Message-ID: <aqqzyPR-2JKr-2Me@ashevche-desk.local>
-References: <20260915-cv75-v5-v7-0-3297d3fbc9c0@ambarella.com>
- <CAMRc=McEOcWq8i3B01AR1PnfBzSQaLEaOzE6Qa+QdVXrvS_YrA@mail.gmail.com>
- <CAD++jLnRL_s9zPNkSj2UnHWPx+QHAXV19DA7dEmGZu0AkxxyaA@mail.gmail.com>
- <aqpuMcqbra9i6UDq@ashevche-desk.local>
- <23d61058.962b.1a0a9e0b355.Coremail.zl020895@163.com>
+	Wed, 16 Sep 2026 15:21:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vprTMfdGeTCWe9kH3QRH3yJn/r+zVW1R86gOzrLvLK/VlhpcQ1nnuicVxzdalEmsuZo/UL8d1NSpfsSEpSgZFsdS7HqxlDjpoC0NgdfeMxwb3LwmAVYYptnR9nq+9rQWG6MOJe89KogSMrl9euqL/axnSocv05hwo/sPPKGKlqHjAsbd07V0XwJR0lmmc2/MujidDFzjOK7CvdEVR1almMoEJL6A90TFOCfazPQcx2Xe7Q4MJtLU1aDnQoKnUuWkZogBxsqxuP6GmrFWHPdoS6pnTAKX0PIIE4PIPGJXKSoPPco4ta6isjP+5ozvrXuVBjk7j0u4RKmFU8qJ/2abnA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DtGzm6tEc3XcJquEfnKIWlwzb+MTWiEzzs6vwOqrLVI=;
+ b=L5BLOwIfAWExiyTfztR7VIfpJInYaWigIHT8SpQ3bEX9jFlAiuasE4q38wD3vTcvhIawMRE1VlPCU2s+WAbrsJyofqEGU5Ck8C6dxomIBVr6ppht6YvM0J8NIG0oW2Uun3aBvY+1LjpdqL+93t2fRDDqJN2Ry9qq0+sbVEvVUnDIbBIQ6VwFyS/bTGgcYn/Zi2Nf826jJOL1Hoy5IxugHqF5RfSiMClQNOkXeOpZe5UZReZwasYxEcUH/s8hf8kGRXZWOX/cnfFj7XE9HFqQtlMB/J984Y93C0PvX830T8aoSmTsPwA1nGbXZaAKMMtcWFVyfoTh8w8tDRgH0OQWzA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=intel.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DtGzm6tEc3XcJquEfnKIWlwzb+MTWiEzzs6vwOqrLVI=;
+ b=AWA1x/pfEPo7jyhpw2LjZ+MBoBncJxZ7VDz8U6feq2aTtQkfV9Uownx90rxialXjehVpNDUll9eRG46X3jpuk6D9RIL0h7vh5Nda2uMK6Dnv1Nv1GbTNQ5cJbyDM3MghyGQ4URX16HxIS+c/cx6qnRzaIdzXfFA6IA1HB3125iGKbT1nlWqgXIIsM2rMIi11TYG9VqupMubB6GgpU7kMP15Attsx48w7NtIKi5M0Rcv4UlGWzjZoMf6so67d131ZJCtt2MHaSbVbKQNLsm5qUulzypLHziWOYPWkrQqZyOHaUQeSqt1XOgeEnkPpkLGlu3P4TkKovUlC3oBi0KSW4w==
+Received: from LO4P123CA0327.GBRP123.PROD.OUTLOOK.COM (2603:10a6:600:18c::8)
+ by GV1PR10MB243114.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:150:13c::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Wed, 16 Sep
+ 2026 15:20:52 +0000
+Received: from MAD0EPF000008C1.eurprd05.prod.outlook.com
+ (2603:10a6:600:18c:cafe::6d) by LO4P123CA0327.outlook.office365.com
+ (2603:10a6:600:18c::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.428.11 via Frontend Transport; Wed,
+ 16 Sep 2026 15:20:51 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ MAD0EPF000008C1.mail.protection.outlook.com (10.167.241.197) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.428.7 via Frontend Transport; Wed, 16 Sep 2026 15:20:51 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 16 Sep
+ 2026 17:26:55 +0200
+Received: from [10.48.86.251] (10.48.86.251) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 16 Sep
+ 2026 17:20:49 +0200
+Message-ID: <538c8203-3880-47aa-ba4e-014a345b3cb9@foss.st.com>
+Date: Wed, 16 Sep 2026 17:20:48 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <23d61058.962b.1a0a9e0b355.Coremail.zl020895@163.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] iio: adc: stm32-adc: fix possible division by zero in
+ processed channel
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+CC: Jonathan Cameron <jic23@kernel.org>, David Lechner
+	<dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, "Andy
+ Shevchenko" <andy@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Olivier Moysan
+	<olivier.moysan@foss.st.com>, <linux-iio@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Sashiko <sashiko-bot@kernel.org>, <stable@vger.kernel.org>
+References: <20260916-adc-fix-div0-v2-1-f702d3ed782c@foss.st.com>
+ <aqqqCf6mQPMoKZRj@ashevche-desk.local>
+Content-Language: en-US
+From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+In-Reply-To: <aqqqCf6mQPMoKZRj@ashevche-desk.local>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.86.251]
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MAD0EPF000008C1:EE_|GV1PR10MB243114:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6c7ed850-4d14-4b10-8a03-08df140617f4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|1800799024|7416014|36860700016|82310400026|22082099003|18002099003|4143699003|10067099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: MmfaAf4JUY2G2fzQ1soTq0QxJAAqQNSJJhpm3tUCfp7xIQScMgbTi1WH3n829ZRPztudDv2ciaSCdeAdexnL1HdDSh1q8uq/jHeDzAXuT7NogvMqL2ZSlqCBgz9qE/ueNdQegV62/W6QQ5yZtRiA4tSSbCXZmD/fSLgTvRkC+8qj1wLOMlG/D584543mxC9l+SFxzDgoKgKmST6e15HaUWh2wuD1uS6P789XYx2dCcwtgOQE9pHZJVFYikYYa9rotcfap5GB5m/Q+O4LM1uC5eMESinlC3yiw041WRHNN87/N/7FdlZiSefeRD1xWdfHHSPjQmZGFyYWhzugBYYVYAKjZXoqlFFYwPIQdYnF31zlJZIvWACGwKnaQaGP5nAtXWBDoY22vnGVRCF567mgufFHhCVmD9lvE7nh17F6r89eLA+3DpnoYhfvN+eb8xobwutWSvkSkqBVAvi6L9aeuVAXkQ/evcyrhIdx6BweFfjHhySUq5MDyVTNiGd3XJxMKZL3v8E97npH/W66p+LJbVK1dOKFQbYqgS2+k45hFdiMlWz4EbELuWB5arHZmkjDwWj8UkHrIkNWxYIhoP2nmIk88atg7CdAK2KWUbc+pCEYJGWiOujACYdtSQk/kr09lpNXyCIcwggWRr56k4IMo2MMFvbaEiFIAP0WYEgE6iJH1BZbgaAzrLS9gKGHJtJcZrXgLZTgBD6k1FcCGmKcNg==
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(23010399003)(1800799024)(7416014)(36860700016)(82310400026)(22082099003)(18002099003)(4143699003)(10067099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 7TVERqhwM5xys1OMW1oyoVpKuqVJd4YbNIoWcNgOWlvwR+Y+Bc1FLg7jDR3j3uNSrPAdE6ZxMTRUPLihbulSzzi0uOn9nwosFS2R+Qdq7U8XRQ3cg6qCy7SeLJIhaMEiHRamGeXFnMROddY0F1SoNfQY67dBunPzij7WsXACeVKdhvNEBu+bYivGiuwSTWXLyG7RNR8NdB7PetB8OW9r4yjhyTdeLmoNn+Ah0CPEnzdvUJJYGyQO7pEIapAI7ExwLMgLDF1QsBXlVNAQjJLeNhDpPPWqFmhUWx583FPEneNO69pK82gQ6On1MXLtx3uqVNSV3S5RmfXTD2wevYJhz5NpYtvUdkC1h/0xBnuJPan74LYIilp1qbqHSRXPa+3gE1TmILnjJF6eSbe5AYgrdw+q7XhPvT01QOqzjCIA6zQl3xHqpl01naLWD+CqWAOO
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Sep 2026 15:20:51.3001
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6c7ed850-4d14-4b10-8a03-08df140617f4
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: MAD0EPF000008C1.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR10MB243114
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_082050_178402_00B58CDE 
-X-CRM114-Status: GOOD (  29.41  )
+X-CRM114-CacheID: sfid-20260916_082100_466426_20D04E59 
+X-CRM114-Status: GOOD (  13.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,65 +134,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 16, 2026 at 07:01:10PM +0800, zl020895 wrote:
+On 9/16/26 16:39, Andy Shevchenko wrote:
 
-> ACK: GPIO bits through the GPIO tree, then an IB for the SoC tree.
-> I will keep a unified series for now.
+[ snip ]
+
+> Let's look at the current code in this switch-case
 > 
-> regmap-irq cannot do PL061 type (IS/IBE/IEV, both-edge) plus the
-> AMBA chained demux.
+
+Hi Andy,
+
+Thanks for you suggestions !
+
+Let's keep in the picture the 'normal' raw case:
+
+	case IIO_CHAN_INFO_RAW:
+> 	case IIO_CHAN_INFO_PROCESSED:
+> 		if (!iio_device_claim_direct(indio_dev))
+> 			return -EBUSY;
+> 		if (chan->type == IIO_VOLTAGE)
+> 			ret = stm32_adc_single_conv(indio_dev, chan, val);
+> 		else
+> 			ret = -EINVAL;
 > 
-> Two options for v8 — Andy, which do you prefer?
->   1) Convert PL061 MMIO to regmap only. Keep the existing gpio_chip
->      and irqchip/girq (double-write stays in the driver). Ambarella
->      layout can be a follow-up on that. No gpio-regmap yet.
+> 		if (mask == IIO_CHAN_INFO_PROCESSED)
+> 			*val = STM32_ADC_VREFINT_VOLTAGE * adc->vrefint.vrefint_cal / *val;
 > 
->   2) After (1), also move get/set/direction to gpio-regmap. IRQ
->      would stay a custom PL061 irqchip (not regmap-irq). I am not
->      sure we can avoid a way to get the gpio_chip for
->      gpiochip_*_irq() / the chained handler.
+> 		iio_device_release_direct(indio_dev);
+> 		return ret;
 > 
-> I am leaning to (1) for v8.
+> In the previous version you were trying to keep goto-less approach.
+> However in the current state of affairs I don't think the goto is
+> too bad (after all we need to backport this to the kernels that may
+> not have IIO_DEV_ACQUIRE_DIRECT_MODE() macro).
+> 
+> Also checking 'ret' under another condition seems unusual.
+> 
+> What about
+> 
+> 	case IIO_CHAN_INFO_PROCESSED:
+> 		if (!iio_device_claim_direct(indio_dev))
+> 			return -EBUSY;
+> 		if (chan->type == IIO_VOLTAGE)
+> 			ret = stm32_adc_single_conv(indio_dev, chan, val);
+> 		else
+> 			ret = -EINVAL;
+> 		iio_device_release_direct(indio_dev);
+> 		if (ret)
+> 			return ret;
+> 
+> 		if (*val == 0)
+> 			return -EINVAL;
 
-I would prefer to see (2) and then we can discuss to roll-back if it looks not
-good enough.
+So *val == 0 is normally a valid value, for 'normal' raw channels.
 
-Either way your PM runtime support for gpio-regmap is a good change.
+> 
+> 		if (mask == IIO_CHAN_INFO_PROCESSED)
+> 			*val = STM32_ADC_VREFINT_VOLTAGE * adc->vrefint.vrefint_cal / *val;
 
-> 在 2026-09-16 18:23:45，"Andy Shevchenko" <andriy.shevchenko@linux.intel.com> 写道：
-> >On Wed, Sep 16, 2026 at 11:42:56AM +0200, Linus Walleij wrote:
-> >> On Wed, Sep 16, 2026 at 11:14 AM Bartosz Golaszewski <brgl@kernel.org> wrote:
-> >> > On Tue, 15 Sep 2026 13:15:30 +0200, Long Zhao via B4 Relay
-> >> > <devnull+longzhao.ambarella.com@kernel.org> said:
-> >> > > This series adds minimal Ambarella CV75 support for early bring-up with
-> >> > > a serial console: DT bindings, RCT clocks, pinctrl, PL061 GPIO via
-> >> > > gpio-regmap, 8250_dw UART quirks, ARCH_AMBARELLA, CV75 EVK DT, and
-> >> > > MAINTAINERS.
-> >> > >
-> >> > > This is a single unified series. Please apply via the SoC
-> >> > > tree; subsystem maintainers are Cc'd for their pieces.
-> >> >
-> >> > I would prefer to take the GPIO regmap bits through the GPIO tree and provide
-> >> > an immutable branch to the SoC tree as it has potential for conflicts that
-> >> > early into the cycle.
-> >> 
-> >> Queue them up and send us the IB if you think they are ready!
-> >> 
-> >> Long can probably send a PR based on that IB for the rest to the
-> >> SoC tree, a bit tricksy but it works.
-> >
-> >I'm still unsure why we can't use IRQ facility from gpio-regmap.
-> >Can you have a look there?
-> >
-> >With that being said, I'm not sure that the patch that exposing gpio_chip
-> >from gpio-regmap is justified.
-> >
-> >The whole GPIO rework needs a bit more routine work (resplitting, refactoring,
-> >et cetera), so later we may see clearer what's going on.
+With you suggestion, moving if (*val == 0) to here should be fine ?
 
--- 
-With Best Regards,
-Andy Shevchenko
+		if (mask == IIO_CHAN_INFO_PROCESSED) {
+			if (*val == 0)
+				return -EINVAL;
+			*val = STM32_ADC_VREFINT_VOLTAGE * adc->vrefint.vrefint_cal / *val;
+		}
 
+Best Regards,
+Fabrice
+
+> 
+> 		return 0;
+> 
+> ? (Yes, we leave that line untouched, but we get the change cleaner.)
+> 
+> 
 
 
