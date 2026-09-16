@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 382F6C88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 13:37:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A2BAC88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 13:38:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aIOwNGA0MU/NVfhrdRk/6kNhj0M02kW7XmE+rQcbLdU=; b=KYQDmhneufOGC0sbIZf9OrbqgZ
-	QfCyJIcD7XX5cNXEywe7AjyjCiMi/MRag+vLJAKEafpAKTrZKGIifuxe0DEC/59YoirC5f55u/KHn
-	d1hypjfw2kxnCc0LL33Ad0jfdr49R88QsItYxvYQ/YZoCn6CKrbIZ1VzVJOD9/oVwsfgkeXHDAwkb
-	e/VHlf/EcWPjnDz9KOyHM1LAdYJVpBnwiDOEDBfwKEbnCySeIJdUcOxZC9XWm+pP9jz5VRG61DCQO
-	xJM6Z/uWHsTs1J7hJMKwlpxVeuGoR+7jLO3cMW7JTrOFAVPdr06qqsJnBCHlxNEPekQbW7DzKl1R+
-	HSVLMe+w==;
+	bh=8O/kTujFJZONtx3CvzXCpeeJEvu3qXIvPhXpAUcAqVQ=; b=Ns3rXvMI82sZWbyt0oSREmeZpg
+	WOZQqrRMs2wKQeypBkLbvYjEEIaigw/leHqBoyf2zpCFkIxP4mv0ip5T6M4sjNyOE4XzhVUjDLrMp
+	jO3JPYMV8jThQBuG6YpTRvvZT48CyfitAGxqX012WgXC/gmX0VcwGtMdRtkg5vP/BKQYgdjF9SpmV
+	l79oQJW/vjUiuTnRYqqrKmGNJ7vc9RjFceFx2n6As/sePY9kvg5XFbV+0rYE5GDnOmbFP9i2PT7zj
+	m8VbzdQbFYotxq5KY6USgK50vi3MT/3t13e5NwAFeQNMndDXWEHdHO2tTA6h6lK3CVTFvcTnXuFl9
+	TxDeeeeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6poj-00000009HOR-2VLq;
-	Wed, 16 Sep 2026 13:36:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x6pq8-00000009HXK-2uN3;
+	Wed, 16 Sep 2026 13:38:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6poh-00000009HOC-2ozx
+	id 1x6pq7-00000009HXE-1pYc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 13:36:51 +0000
+	Wed, 16 Sep 2026 13:38:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0F5F240C2C;
-	Wed, 16 Sep 2026 13:36:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C46AF1F000FF;
-	Wed, 16 Sep 2026 13:36:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C4E64602CC;
+	Wed, 16 Sep 2026 13:38:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 333591F000FF;
+	Wed, 16 Sep 2026 13:38:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789565810;
-	bh=aIOwNGA0MU/NVfhrdRk/6kNhj0M02kW7XmE+rQcbLdU=;
+	s=k20260515; t=1789565898;
+	bh=8O/kTujFJZONtx3CvzXCpeeJEvu3qXIvPhXpAUcAqVQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=VMrwujIiBik3+7HDLtAyBMSxqEQWSXE0OgnntRCHHaB5GYadUH37/KcxMw42L3T8L
-	 nJdH3tcLXAVs4Zikcm+jbbIYjZSLbXaHWS/xq8G4GZ5h2jvs15Ic9dCeORiZksuSSr
-	 hoOYQBXv/yIHBQClwmbsoOMdFkGzkb9askn2F3LTRlvt61DFyEAtnT9S2tGXL1rzjW
-	 GcjRh09Shyk8i6mjZ95MvwynQOq9UOtr7zTqtph2Vg45+QF/R5CEdI5vkX0THYygg+
-	 GokAyhksjgm6lKVLOXdfIevQ2BzHUnLqpFdYIcYQLFdU3NaoLkru65InaACrorxf0K
-	 vYtXjGRLlD7ZQ==
-Message-ID: <2cb3bb6b-df38-4568-987d-8e71b3244279@kernel.org>
-Date: Wed, 16 Sep 2026 15:36:46 +0200
+	b=Fx3YHqggFxvjzHFans8rkrcDlx1fMvYHzrGvqOo+1s026Bzc8WI9z/avq4l9D57Zt
+	 dllGsX9dg3RqDjBmvjZVJZiTSraEpfgGcoGm6BywAYxpmHfOwB//Wt29SD5euw6se4
+	 +aFDWdLsxUm+bjMjEgqVSRcH5tkRmlji2cP+Zn+mrmZCSi3aN7WujfWTRarDIjw/fA
+	 CmDX9ZWcv7rCHbtX1KIXxfmPMjudO06rG6W5dwOYiGBoS6GtIW/oqvwmb800imD9ri
+	 405fUEYGBFv/DiduUnVedCTInxho8qbJ9C1xE1DV/H5gm/saOZznPOOqscQngcrGOU
+	 4uowKDeQAAssg==
+Message-ID: <05a7ac7a-b7bb-4f75-a395-6854874fb8c7@kernel.org>
+Date: Wed, 16 Sep 2026 15:38:13 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V2 03/14] arm64/mm: Route all pgtable writes via
- ptval_set()
+Subject: Re: [PATCH V2 02/14] arm64/mm: Route all pgtable reads via
+ ptval_get()
 To: Anshuman Khandual <anshuman.khandual@arm.com>,
  linux-arm-kernel@lists.infradead.org
 Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
@@ -56,7 +56,7 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  Mike Rapoport <rppt@kernel.org>, Linu Cherian <linu.cherian@arm.com>,
  linux-kernel@vger.kernel.org, linux-mm@kvack.org
 References: <20260907035030.2839978-1-anshuman.khandual@arm.com>
- <20260907035030.2839978-4-anshuman.khandual@arm.com>
+ <20260907035030.2839978-3-anshuman.khandual@arm.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -103,7 +103,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260907035030.2839978-4-anshuman.khandual@arm.com>
+In-Reply-To: <20260907035030.2839978-3-anshuman.khandual@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -121,9 +121,9 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 9/7/26 05:50, Anshuman Khandual wrote:
-> Currently ptval_set() is defined as WRITE_ONCE() but this will change for
-> D128 pgtable builds, for which WRITE_ONCE() is not sufficient for single
-> copy atomicity.
+> Define arm64 platform specific implementations for new pxdp_get() helpers.
+> These resolve into READ_ONCE(), thus ensuring required single copy atomic
+> semantics for the page table entry reads.
 > 
 > In future this infrastructure can be used for D128 to maintain single copy
 > atomicity semantics with inline asm blocks.
@@ -136,8 +136,25 @@ On 9/7/26 05:50, Anshuman Khandual wrote:
 > Cc: linux-kernel@vger.kernel.org
 > Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 > ---
-
-Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+>  arch/arm64/include/asm/pgtable.h | 38 +++++++++++++++++++++++++++-----
+>  1 file changed, 32 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index 83087b70f192..f764132ca34e 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -84,6 +84,32 @@ static inline void arch_leave_lazy_mmu_mode(void)
+>  	arch_flush_lazy_mmu_mode();
+>  }
+>  
+> +#define ptval_get(x)		READ_ONCE(x)
+> +
+> +#define pmdp_get pmdp_get
+> +static inline pmd_t pmdp_get(pmd_t *pmdp)
+> +{
+> +	return ptval_get(*pmdp);
+> +}
+Ah, one thing: you could pass a const pointer to all these read helpers.
 
 -- 
 Cheers,
