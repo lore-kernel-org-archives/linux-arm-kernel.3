@@ -4,142 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0689C982D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 00:28:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDAA8C982C1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 00:29:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=89kzCuNDxgvFM4ZPxvVm9+RE4vSCbxS9uCI/TwDHMhw=; b=DNNiLY6vWKGPvufh0nBeFiaS6I
-	6orqQIf0seH7NdEuAUP2hFFyR7OBizZ+exYYVxi6eUWJ6jbnX9uFUv0niDCIdJofpmL/oqbHGKaFF
-	k4TbSc/0KKq6Vuv1lG6Q9FMSLFw6MfbfrRvbNQZ61mwayDyg9xp3NiDwMPa3H0t9sos5ej+y6/ni7
-	8z05fpXT7OSqaYBanqUxnJM9H9i9iwXoYw1ndCWRrueQaDgIWGg2xPd2JrjkFTdY6JFe6i/29kYwA
-	LXWz8Y+nW0cVXpt0Jiv+d3FB/yCNIX/7udyAx5i2dO7zDnH1iseMvOSGBKdNO972LJE0U8mqmj16R
-	KvI70TvQ==;
+	bh=I6vHaZFFw3iOWw8/jtHHFZibW/y6sOiPqWI9OvgWuHw=; b=M9XXy1kDiK5MUpSD//SO0jF1dZ
+	Ftn8w9NZEOG/fyyKN/QATiJMiOqIIsNSK2j71auXUFe6lEevwBWHUQZicuujNLsDuuNopVtN4cNwE
+	BS6Jq3O3AwN/KV3rDlAIUG4fmGgIpXdWOFPPAHb/plC6JIF1kwIu9pmlrghc/TLESEnt7JQ2KD5od
+	yXvQUxEkoPt1kTZxW3PTOmuMr4idAIS4JYvwNN5s0yjOTPVk5xNqASZxrEA+jj9qj8MVbnJSgoVJc
+	uWsE4eVZotxXGvHxM46mbX7hwkrsL+CSMfJ3XVKsY+/gIPvUdL/yZ8tr/y7wtYYlaVTgB9/72GnQM
+	Zl6BjvKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6zzN-0000000AKtf-0MMm;
-	Thu, 17 Sep 2026 00:28:33 +0000
-Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1x6zQW-0000000AGUk-2Xjx;
+	Wed, 16 Sep 2026 23:52:32 +0000
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6zz1-0000000AKW0-3TeV
+	id 1x6zQT-0000000AGQd-46NX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 00:28:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xKo0+wPiXMdBKg/a3nDaIEevForOPqmGHJR58cmaBIDNKbCazg9VVDQHJWey/Rpk9pXlgKqNX2vyMEjFae7E6pbvB0iCFOKsIVFW6HH3jbJ9S9oeMaE8BMgua3WGNOydM+H2IsXHoMcml+tJ+mSXabuhv0ceccHWwKLOkEU1UyZFrjWRIPhmDP1BKQ7ele6d338cCsvL63Bu/SXZg6XqoVIDxRdz0ELZ1zkAL6YkfpcAWafR9dsFPtPxHtHTgWtsAmPZXCJLn+/HaVXpmPNqw589kARcIKyQygJ81FLXR8i+XySuR4tN+0RLmQAZ09U5qrnpSEqofAfNkwpZ4wB8Wg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=89kzCuNDxgvFM4ZPxvVm9+RE4vSCbxS9uCI/TwDHMhw=;
- b=iBSKKOOzwQmGhmiJoXSaLe6YVD+tO5JxFTOqbu3VNxrX62eD3qubtS4QmoDeIu3l5YZjL/4bbWEM4/2tskoZfeI9zefWdQeK0oLYFttUDwt6XE3Gzpb29e3ZZBNJ5927i0uuehIDPPu4DG+1KSuAUK1fwpOvmzf1FFL41ctleOe7V/2sFUKugF2n7CduFAZNIBK9PNBJBHNJjtVXOGAeefEqn+Wqpe9Uv9Jg1ZKl7JGnPmdykjIgn1owpIiIgpzfVGC4Vrr+oXfN+7ZN0ugNPTvkw5NhlxtLwZ91HTjx9xMN4rhZu03USiTDScwJ+Uvud7XBMHlgM+mlqCd465hzZQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=89kzCuNDxgvFM4ZPxvVm9+RE4vSCbxS9uCI/TwDHMhw=;
- b=APXZ1U4JByL5XHZtbw+faCXYelwAHhJ1z1GSkPdGmFJTyn+pzhYlT2Zy/IcjGI11toIzUJk8I45mWV6rz03tCkepkhuYuoe5IVmWxJxXBgVflPcZxzCiR5xXkcxU4GTRfqdEO3jYTU2QJDIi5kIXY0929CLXFm8aF2vZwuUh1Y4Werla8L+wRO9xvcW3Slc2IxRlnNP3NYnptFAvDrr6svAaAaJZYR++pBa/+K6JeOO5flc0sUqNZSgxoe9tw+dZfXHbjGZSZF0K/yslfGB6+/Y5c5OwObN8WPQHKXO3wAK50mHBcBjfPmzGrrzpXCqqQ6yc2lqM4BVI2iLE9vQOnA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12) by DM4PR12MB6160.namprd12.prod.outlook.com
- (2603:10b6:8:a7::13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.9; Thu, 17 Sep
- 2026 00:27:53 +0000
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0428.011; Thu, 17 Sep 2026
- 00:27:53 +0000
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
+	Wed, 16 Sep 2026 23:52:31 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-4843cedd129so169864f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 16:52:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789602748; x=1790207548; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=I6vHaZFFw3iOWw8/jtHHFZibW/y6sOiPqWI9OvgWuHw=;
+        b=Z0PhuO+qkBVDgN5zzHm/CR+6E4FUf0ps0rtMz2+4k67w6Dpx7h+wRqSn7RRUdCanoq
+         vnjNGaXu69FR7v+jtbEiNE6bmZWnZnu14HQFdRvJMqzewYTj1eEYp5vpkaRPZS1hA1dS
+         /hKDlDLouCnG6kG8j2UPoR23e0aXITPVVY/L/2Xkl6Z2wVKb2cge96flP0NrCHujZ2bv
+         XMUZUz6SUHzUwe4PDhiqjKjDTBF1qnd+L62wXgvUZWyXu70lcXdqSw0dxyVAsEADGz4V
+         nuDfWdbkm18JX+Y8uz7xstkzMYXEZQEtRfOniNUA21RdITaSziM5FP85aP/owu3FKb0I
+         nlbQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789602748; x=1790207548;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=I6vHaZFFw3iOWw8/jtHHFZibW/y6sOiPqWI9OvgWuHw=;
+        b=m5NTAfJ851SqWQhs29y24QO9d2NXeyadA3B+ryk+2L0fvFYN4Y+W4xhSyTEjw/txC6
+         bttnrrdQS28f/QMBqs5Az/UnREeBFZzrmW1iF8FOP7Uzybj/qp80jbbo4i6WWh5hFt+9
+         PO2NoV3sw7deHtVZxm3pJyxFdIcFF6h6zJxRxltHwPoMymxEEkvEgTUvWIup/igqaBzV
+         cwHRTOU68sCwGIpF3tzVNWWG0VQmiiLZKImK0KAYi7UguMe4+BUNF3valYPGWbkvQ15/
+         37ng5sQ6IMYnRR43nXG+HsS0Tnf9Sfo5BLgubbp+l88NsUE6xxVpT3Crm04coxth/QQ1
+         hAqA==
+X-Forwarded-Encrypted: i=1; AKwUvBxUvayd0/Zx/RbE7o767SBDOBgFYG5ZrnTV3FHhEIxlmThFUAJGt/j8RnevmR08ZjaBzGL3PEzDB4Bw2aRVo823@lists.infradead.org
+X-Gm-Message-State: AFuF++lj1iyU3MoQ/2Oo7OoEOTIn/h1KrxaIwSVFhhOjyuRa8i1QHI93
+	10NZhMrzUdC4DRphrcqssz0j9eMSDTayJbwfhSlUaz/7WCw3+j0jyRyy
+X-Gm-Gg: AYBFou1OYxVxb7NcB2AfOIMWpdQY7zrN/As1a6sLv0IcFI0cyexFAzA7YGkbfK7jgCl
+	p/FoKgzbGIMohJg9rd2orI5/ekh0hDI/NnhhKGnI9h7lCb/yoLfd7jfKTqzhHhF8CxcOLAL+Hgt
+	rycYWKI0at6xt5+4RkM/0z+tUjHPS+qWM9IfWpCiCab2qzTkSiotsG0b4IEMk7la5zmCMo/DGF+
+	zgoQX/TQeK3SfY0rZKP4rkzvR+UmLVdVJ4H+GE15GT0AnpH6NXjzAYuMjfCiEpkWXZvPEm92CPa
+	nkKnbkYQ3mXqBl8Z0WLs3smV1OvYAE18sUn9ErVB5osL5IvXNGNRni+oD/K4F4cYKjThOaX6ex2
+	pEpfoHQqIEiPZRXN3SejvhfKrZl+4CbJi7IMyjEoMqqFQffmf2MtfuPTH+aO5J7VM++vKC8dDDV
+	+mHLtjhbyA17h4RMb0iQp0gijjPCB5rn87WIIplmVw4osjiutlSsDrN6K/Olp6NOHDW09tq+0kH
+	x+n3jBCu30A+qNF45/FSzyEwKmcCWs3j8mkrHdV8FEEQ0yySCaRSnR2ZGLy7ig=
+X-Received: by 2002:a05:6000:654:b0:487:72f:fb42 with SMTP id ffacd0b85a97d-4870cf29d90mr10063576f8f.14.1789602748293;
+        Wed, 16 Sep 2026 16:52:28 -0700 (PDT)
+Received: from Ansuel-XPS24.localdomain (host-79-26-252-140.retail.telecomitalia.it. [79.26.252.140])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-4870bef7687sm11861104f8f.1.2026.09.16.16.52.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 16 Sep 2026 16:52:27 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Simon Horman <horms@kernel.org>,
 	Jonathan Corbet <corbet@lwn.net>,
-	iommu@lists.linux.dev,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Robin Murphy <robin.murphy@arm.com>,
 	Shuah Khan <skhan@linuxfoundation.org>,
-	Will Deacon <will@kernel.org>
-Cc: David Matlack <dmatlack@google.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	patches@lists.linux.dev,
-	Pranjal Shrivastava <praan@google.com>,
-	Samiullah Khawaja <skhawaja@google.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	stable@vger.kernel.org,
-	Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
-Subject: [PATCH v6 6/9] iommu/arm-smmu-v3: Precompute the invalidation commands
-Date: Wed, 16 Sep 2026 21:27:47 -0300
-Message-ID: <6-v6-9cd17417d355+281836-smmu_tlbi_jgg@nvidia.com>
-In-Reply-To: <0-v6-9cd17417d355+281836-smmu_tlbi_jgg@nvidia.com>
-References: 
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: BN0PR08CA0020.namprd08.prod.outlook.com
- (2603:10b6:408:142::8) To CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12)
+	Randy Dunlap <rdunlap@infradead.org>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	llvm@lists.linux.dev
+Subject: [PATCH net-next v16 06/12] net: phylink: support late PCS provider attach
+Date: Thu, 17 Sep 2026 01:51:32 +0200
+Message-ID: <20260916235200.20712-7-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260916235200.20712-1-ansuelsmth@gmail.com>
+References: <20260916235200.20712-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|DM4PR12MB6160:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2426c521-7fa3-4209-2efd-08df145282a4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|23010399003|366016|1800799024|921020|11063799006|10067099003|18002099003|56012099006|22082099003|3023799007;
-X-Microsoft-Antispam-Message-Info: jKWuLreepiZVbxaSOjZvNS9hdCTdJ8nO83KHuugBfGyYVdD8WGfE3/HLbYioN5kNkoZjdmg0vIeXPwz9JgB9l+WP40U19uV3l0M1Kv7ueJMtYMO+JM4DpOOUe8UgBEXvFaR4sDoIj0iUUls19ma2i8U44D4kO+Ojf5DJOutYOKJcARmc/hVzwnimkXG/WziaNxEGcas+UYNimG6zvgwN2sXViBojn0xfXelNYzCJuGtrJpqYwUSPUdcP1ru+Uo5vcXoQqbLfZo1wjJtEXur3OqSC7ZGiUazvJVGpBlQs4oT7fwh5jV+8o7Vfdr4KmM9EdEZSaQNElHtrFwmIu7Bp/eGoIQydRgsN4cA5zgEAEEVnT+tegSx8TNYwkgYnBp/YqF5tFiAma9gsnUeAxwfM55MGpqwTM0B+vjbHmarwNMiy1yHsg5yd6Iw0XF3exy0f0M174+m+IcdktMCllOjhUlobojXpOkDgqKmjaR998fJiALvT4XCqOPdiJLikZcupjjvKY/Sr+uENtj/9f16mDEMphuwW77Rj+H65MTzfAQrTY7HniIa5BzVOPIzZI5OQmDeHds6IdcrXKELLO+w8LTP86426VVyQzHz6NnRaA60uYy/cr5Ia0A13iyhzP6MkSaWzNKXBzhSSDSz1mPtIaOg5OhveCC9rSPF8fIEMx52cwd+Hl2Gj6Ni32sDO5nu70ehKMSDHlOm8LawBaSsFBQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(366016)(1800799024)(921020)(11063799006)(10067099003)(18002099003)(56012099006)(22082099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?u2lpnNaq/aS8JhNHzjNbj3mTOK4eCOV242Xjdku4JcsSjyRDZPFhLyYO4fr1?=
- =?us-ascii?Q?4osOP4BVN+3N5d/l0gWF85Tgiz5+xvg27DhZt02Jp13ljPfTUfGwYy2ZeMKv?=
- =?us-ascii?Q?bXFYmUojXGOxfyRg7yPwpV89Z4EQ6n1FSS7SroJB+xrC8gvDLOSSwqJoAnLN?=
- =?us-ascii?Q?L1a+ykISDM4dSGgEXdSwbGGRj0Zzprn3fla1TVttFcAyqQHBAGrTTfENddRt?=
- =?us-ascii?Q?kLTzrIQLLpgUM0e/lB6gaJ7129WkuecENYbWvU+i3wrEsZLxMALuoRAHWcY0?=
- =?us-ascii?Q?7MZDUPZPMo++QnbEsmBWyh4a8B87hr/5aWoovVcu1OHe/ncUl5u0k5Z2QSbh?=
- =?us-ascii?Q?fwvtnk38fFfccboUtilunus/x9ApYmp4ltCvZVRm+JCGwdy5XxXxGKE+ZegH?=
- =?us-ascii?Q?HFCAPa161PKCeenh5MXR1EStTfsgj9DseOJm6ptoRhsxa46Dg/P/VwJCDgHP?=
- =?us-ascii?Q?J/1KrZe5gRJyhxvqM0pU6gvJ9gXRMyN8A5KBhpgM1Zp3+g8A6DPQKHNve6Ev?=
- =?us-ascii?Q?eJCQaByin7LXjq7mlU3kQVb4tZOyHa+sYtIcHsIKZV7iSNnk74fLIMZgvZ88?=
- =?us-ascii?Q?bjQlo7aX86ywk1NL21prsgLF85YI3FiXJ1D46PPOHbpWSkeQHEeQ7my0JmT9?=
- =?us-ascii?Q?Gz8E3WZL516MaIIRqtd+74fA762DjCAGCSK0z/6x7/FD5TO3zCeskhLJ3iPV?=
- =?us-ascii?Q?2HMTTjey6wCqusYYuzMTYXwMCN8/DUuUiSwUmI7X+JLoG8MkvvBZeuxoYxd3?=
- =?us-ascii?Q?7NxPnHhYHY1du5KyBg8FXKlv4srYpFmPOPra5IWO9MOmCZb6TOJkRYM5f+KM?=
- =?us-ascii?Q?8Co0rguijQmgwtEFkcMn0gHSuCrrtFbpLuFC3MYxN/+nCw8v/v423dWkFgPe?=
- =?us-ascii?Q?lv2z6wXB2HfOME7N48TswzALKOINmtLgNyBcXbnCCUZo+QmB3Nq+81zDlH9e?=
- =?us-ascii?Q?yDWY1KZBsS+P2+jyLJpWoYIqMMulhYFzLIQRtoi/SlDOyd3OSZmFxfyslKww?=
- =?us-ascii?Q?nXmGT0oF/zv1smx6Y45/KWVAnSMIFyJrmkIhz1PC5a9Pj1+TPeoTVlnka5kO?=
- =?us-ascii?Q?tLLhekyfRjR0x2cmUW5z6d/liFvw2+A6JFJo2FgJLoWd4klX2pco1JJ6CFyH?=
- =?us-ascii?Q?B2nz+4GBbIDnT10DNbCt8q10EE8TBKWmPnYiV3N4L7uwLAQ9yxNGqWyJfMxf?=
- =?us-ascii?Q?RCr6MAQyVoMVupltlIQ2Fp+0JQeuK0au1rmrTTZCdr0DTgO9uljAtklStCP6?=
- =?us-ascii?Q?yFs4Q67MHljHUL9gUQfThufWLQAN5w1eG+8aRP1Dc6kBoLGh1n50hL7xDe3X?=
- =?us-ascii?Q?x482I7HG/oUFJFyW1zShNTkBj5bbwdK8BWRLMSx1L5RdqeKKnv2XRpndEFq/?=
- =?us-ascii?Q?XraSouBdQ1VyKDrVu3V4eA/Ahhsj+brSHkaKwCys3Lhk7+FrlstlJn+ro8lp?=
- =?us-ascii?Q?4/1/a4oPoRnRDi/2UmcsOkwPUuk0/Z9I2uifV8c4RI5n3Gs512sFB25Kh3HJ?=
- =?us-ascii?Q?oGhrdQ8Wlxk0MF12AA9PyewcnUapVvclNTIirFPQzEpohO0eXNb0xnQooj2M?=
- =?us-ascii?Q?C//6qhjHnPRGq0Swz13UY7i3QaiZUoPbIvS9bFk9U38su55z2D0MRIqBc3fE?=
- =?us-ascii?Q?AIeYI5FxDT3f7ewr3/oSOAQ9rAwGWWB9q76DHVAXUltkb0NDdECrFkCs+uSd?=
- =?us-ascii?Q?0Igbbs1/k+bAuyA1ewR0PZX7VNFwQjOaiNZVxI7eA+KnV5sJ?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2426c521-7fa3-4209-2efd-08df145282a4
-X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2026 00:27:52.2823
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: MWWwiyEjfcUPuoe1cw+lXnaXmX6Nxr7HE7ueD88DELIkgB9OxQnWlONOYwvqJ767
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6160
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_172811_890812_674BD312 
-X-CRM114-Status: GOOD (  22.37  )
+X-CRM114-CacheID: sfid-20260916_165230_080485_2ED10450 
+X-CRM114-Status: GOOD (  27.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,296 +125,262 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Store the required cmd data in the tlbi and just copy it out when
-processing each item in the invs list. The cmd form only depends on
-if the instance supports RIL or not, otherwise it is always the same.
+Add support for late PCS provider attachment to a phylink instance.
+Similar to FWNODE_PCS_PROVIDER_DEL, FWNODE_PCS_PROVIDER_ADD is added to
+address the case where a PCS provider is added after a phylink instance is
+created and started.
 
-This avoids redundant calculations for each invs entry.
+The PCS notifier will emit the event FWNODE_PCS_PROVIDER_ADD every time
+a new PCS provider is added.
 
-Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
-Tested-by: Nicolin Chen <nicolinc@nvidia.com>
-Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+If a related PCS is found, then such PCS is added to the phylink
+instance PCS list.
+
+Such PCS is then linked to the phylink instance and the supported
+interfaces of the phylink instance get refreshed.
+
+If we are in a major_config_failed scenario an interface reconfiguration
+is triggered in the next phylink resolve.
+
+In the example scenario where the link was previously torn down due to
+removal of PCS, the link will be established again as the PCS came back
+and is now available to phylink.
+
+Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 141 +++++++++++---------
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  12 +-
- 2 files changed, 91 insertions(+), 62 deletions(-)
+ drivers/net/pcs/pcs.c     | 22 +++++++++++
+ drivers/net/phy/phylink.c | 82 +++++++++++++++++++++++++++++++--------
+ include/linux/pcs/pcs.h   | 31 +++++++++++++++
+ 3 files changed, 118 insertions(+), 17 deletions(-)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 670ffa87c076ef..0ac832534311f6 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -2516,14 +2516,12 @@ static struct arm_smmu_ril_range arm_smmu_ril_init_end(u64 last_tg, u64 num_tg)
- 	return ril;
- }
+diff --git a/drivers/net/pcs/pcs.c b/drivers/net/pcs/pcs.c
+index 25b3248e8b93..fef560eddf2a 100644
+--- a/drivers/net/pcs/pcs.c
++++ b/drivers/net/pcs/pcs.c
+@@ -69,6 +69,10 @@ fwnode_pcs_add_provider(struct fwnode_handle *fwnode,
  
--static void arm_smmu_cmdq_batch_add_ril(struct arm_smmu_device *smmu,
--					struct arm_smmu_cmdq_batch *cmds,
--					struct arm_smmu_cmd *ref_cmd,
--					bool leaf_only,
-+static void arm_smmu_tlbi_add_range_cmd(struct arm_smmu_tlbi *tlbi,
- 					const struct arm_smmu_ril_range *ril,
- 					u8 ttl, u8 tg_enc)
- {
--	struct arm_smmu_cmd cmd;
-+	struct arm_smmu_cmd *cmd =
-+		&tlbi->range.cmds[tlbi->range.num_cmds++];
- 	unsigned int tgsz_lg2 = tg_enc * 2 + 10;
- 	u64 iova = ril->start_tg << tgsz_lg2;
- 	unsigned int num = ril->num - 1;
-@@ -2552,18 +2550,16 @@ static void arm_smmu_cmdq_batch_add_ril(struct arm_smmu_device *smmu,
- 	if (!num && !ril->scale && !ttl)
- 		tg_enc = 0;
+ 	mutex_unlock(&fwnode_pcs_mutex);
  
--	cmd.data[0] = ref_cmd->data[0] | FIELD_PREP(CMDQ_TLBI_0_NUM, num) |
--		      FIELD_PREP(CMDQ_TLBI_0_SCALE, ril->scale);
--	cmd.data[1] = ref_cmd->data[1] |
--		      FIELD_PREP(CMDQ_TLBI_1_LEAF, leaf_only) |
--		      FIELD_PREP(CMDQ_TLBI_1_TTL, ttl) |
--		      FIELD_PREP(CMDQ_TLBI_1_TG, tg_enc) | iova;
--	arm_smmu_cmdq_batch_add_cmd_p(smmu, cmds, &cmd);
-+	cmd->data[0] = FIELD_PREP(CMDQ_TLBI_0_NUM, num) |
-+		       FIELD_PREP(CMDQ_TLBI_0_SCALE, ril->scale);
-+	cmd->data[1] = FIELD_PREP(CMDQ_TLBI_1_LEAF, tlbi->leaf_only) |
-+		       FIELD_PREP(CMDQ_TLBI_1_TTL, ttl) |
-+		       FIELD_PREP(CMDQ_TLBI_1_TG, tg_enc) | iova;
- }
- 
- /*
-- * Issue up to two range TLBI commands covering [iova, iova+size). Returns true
-- * if successful, false if the range is too large to fit into RIL commands.
-+ * Generate up to two range TLBI command payloads covering [iova, iova+size).
-+ * Sets use_full_inv if the range is too large to represent.
-  *
-  * Normally the first RIL is the largest representable span which does not
-  * exceed the requested range. If necessary, the second RIL is the smallest
-@@ -2571,14 +2567,12 @@ static void arm_smmu_cmdq_batch_add_ril(struct arm_smmu_device *smmu,
-  * excess coverage from the second RIL overlaps the first instead of exceeding
-  * the requested range.
-  *
-- * If a SVA is being invalidated and the SMMU has the ARM_SMMU_OPT_FULL_CONT_RIL
-- * errata this produces only a single RIL and overinvalidates to ensure any
-- * potential CONT is covered with a single RIL.
-+ * For SVA on an invs containing an SMMU with ARM_SMMU_OPT_FULL_CONT_RIL,
-+ * produce only a single RIL and overinvalidate so any potential CONT is
-+ * covered by one command.
-  */
--static bool arm_smmu_cmdq_batch_add_range(struct arm_smmu_device *smmu,
--					  struct arm_smmu_cmdq_batch *cmds,
--					  struct arm_smmu_cmd *cmd,
--					  struct arm_smmu_tlbi *tlbi)
-+static void arm_smmu_tlbi_calc_range(struct arm_smmu_tlbi *tlbi,
-+				     bool single_ril)
- {
- 	u8 tgsz_lg2 = tlbi->tgsz_lg2;
- 	struct arm_smmu_ril_range first = { .start_tg = tlbi->iova >>
-@@ -2589,9 +2583,6 @@ static bool arm_smmu_cmdq_batch_add_range(struct arm_smmu_device *smmu,
- 	struct arm_smmu_ril_range trail;
- 	u8 ttl = 0;
- 
--	if (!tlbi->size)
--		return false;
--
- 	/*
- 	 * Determine what level the granule is at. For non-leaf, both
- 	 * io-pgtable and SVA pass a nominal last-level granule because they
-@@ -2612,10 +2603,11 @@ static bool arm_smmu_cmdq_batch_add_range(struct arm_smmu_device *smmu,
- 	first.scale = arm_smmu_ril_calc_scale(num_tg);
- 	if (first.scale > 31) {
- 		/* Range too large for a single command do full invalidation */
--		return false;
-+		tlbi->range.use_full_inv = true;
-+		return;
- 	}
- 
--	if (tlbi->has_cont && (smmu->options & ARM_SMMU_OPT_FULL_CONT_RIL)) {
-+	if (single_ril) {
- 		/*
- 		 * Produce a single invalidation by rounding up and disabling
- 		 * the trailer.
-@@ -2631,40 +2623,27 @@ static bool arm_smmu_cmdq_batch_add_range(struct arm_smmu_device *smmu,
- 		trail = arm_smmu_ril_init_end(
- 			last_tg, num_tg - ((u64)first.num << first.scale));
- 	}
--	arm_smmu_cmdq_batch_add_ril(smmu, cmds, cmd, tlbi->leaf_only, &first,
--				    ttl, tg_enc);
-+	arm_smmu_tlbi_add_range_cmd(tlbi, &first, ttl, tg_enc);
- 
- 	if (trail.num)
--		arm_smmu_cmdq_batch_add_ril(smmu, cmds, cmd, tlbi->leaf_only,
--					    &trail, ttl, tg_enc);
--	return true;
-+		arm_smmu_tlbi_add_range_cmd(tlbi, &trail, ttl, tg_enc);
- }
- 
- /*
-  * One TLBI command per IOTLB entry, assuming the entries are all at least
-- * iopte_granule sized. Returns false if too many commands would be needed which
-- * indicates too high a latency. The threshold is similar to MAX_DVM_OPS in
-- * arch/arm64/include/asm/tlbflush.h for the 4k PAGE_SIZE.
-+ * iopte_granule sized. Sets use_full_inv if too many commands would be needed
-+ * which indicates too high a latency. The threshold is similar to MAX_DVM_OPS
-+ * in arch/arm64/include/asm/tlbflush.h for the 4k PAGE_SIZE.
-  */
--static bool arm_smmu_cmdq_batch_add_single(struct arm_smmu_device *smmu,
--					   struct arm_smmu_cmdq_batch *cmds,
--					   struct arm_smmu_cmd *cmd,
--					   struct arm_smmu_tlbi *tlbi)
-+static void arm_smmu_tlbi_calc_single(struct arm_smmu_tlbi *tlbi)
- {
- 	unsigned long num_ops = tlbi->size / tlbi->iopte_size;
--	unsigned long iova = tlbi->iova;
--	unsigned long i;
- 
--	if (!num_ops || num_ops > 512)
--		return false;
--
--	for (i = 0; i < num_ops; i++) {
--		cmd->data[1] = FIELD_PREP(CMDQ_TLBI_1_LEAF, tlbi->leaf_only) |
--			       (iova & ~GENMASK_U64(11, 0));
--		arm_smmu_cmdq_batch_add_cmd_p(smmu, cmds, cmd);
--		iova += tlbi->iopte_size;
-+	if (!num_ops || num_ops > 512) {
-+		tlbi->single.use_full_inv = true;
-+		return;
- 	}
--	return true;
-+	tlbi->single.num = num_ops;
- }
- 
- static void arm_smmu_inv_all_cmd(struct arm_smmu_inv *inv,
-@@ -2684,16 +2663,37 @@ static bool arm_smmu_inv_to_cmdq_batch(struct arm_smmu_inv *inv,
- 				       struct arm_smmu_cmd *cmd,
- 				       struct arm_smmu_tlbi *tlbi)
- {
-+	u64 iova = tlbi->iova;
-+	unsigned int i;
++	blocking_notifier_call_chain(&fwnode_pcs_notify_list,
++				     FWNODE_PCS_PROVIDER_ADD,
++				     pp);
 +
- 	if (inv->smmu->features & ARM_SMMU_FEAT_RANGE_INV) {
--		if (arm_smmu_cmdq_batch_add_range(inv->smmu, cmds, cmd, tlbi))
--			return false;
--	} else {
--		if (arm_smmu_cmdq_batch_add_single(inv->smmu, cmds, cmd, tlbi))
--			return false;
-+		if (tlbi->range.use_full_inv) {
-+			arm_smmu_inv_all_cmd(inv, cmds, cmd);
-+			return true;
-+		}
-+		for (i = 0; i < tlbi->range.num_cmds; i++) {
-+			struct arm_smmu_cmd range_cmd = tlbi->range.cmds[i];
-+
-+			range_cmd.data[0] |= cmd->data[0];
-+			range_cmd.data[1] |= cmd->data[1];
-+			arm_smmu_cmdq_batch_add_cmd_p(inv->smmu, cmds,
-+						      &range_cmd);
-+		}
-+		return false;
- 	}
+ 	pr_debug("Added pcs provider from %pfwf\n", fwnode);
  
--	arm_smmu_inv_all_cmd(inv, cmds, cmd);
--	return true;
-+	if (tlbi->single.use_full_inv) {
-+		arm_smmu_inv_all_cmd(inv, cmds, cmd);
-+		return true;
-+	}
-+
-+	for (i = 0; i < tlbi->single.num; i++) {
-+		cmd->data[1] = FIELD_PREP(CMDQ_TLBI_1_LEAF, tlbi->leaf_only) |
-+			       (iova & ~GENMASK_U64(11, 0));
-+		iova += tlbi->iopte_size;
-+		arm_smmu_cmdq_batch_add_cmd_p(inv->smmu, cmds, cmd);
-+	}
-+	return false;
+ 	return pp;
+@@ -201,6 +205,24 @@ struct phylink_pcs *fwnode_pcs_get(const struct fwnode_handle *fwnode, unsigned
  }
+ EXPORT_SYMBOL_GPL(fwnode_pcs_get);
  
- static inline bool arm_smmu_invs_end_batch(struct arm_smmu_inv *cur,
-@@ -2712,8 +2712,8 @@ static inline bool arm_smmu_invs_end_batch(struct arm_smmu_inv *cur,
- 	return false;
- }
- 
--static void __arm_smmu_domain_inv_range(struct arm_smmu_tlbi *tlbi,
--					struct arm_smmu_invs *invs)
-+static void arm_smmu_domain_tlbi_inv(struct arm_smmu_tlbi *tlbi,
-+				     struct arm_smmu_invs *invs)
- {
- 	struct arm_smmu_inv *used_s12_vmall = NULL;
- 	struct arm_smmu_cmdq_batch cmds = {};
-@@ -2808,11 +2808,17 @@ void arm_smmu_domain_inv_range(struct arm_smmu_domain *smmu_domain,
- 		.iova = iova,
- 		.size = size,
- 		.iopte_size = granule,
--		.has_cont = smmu_domain->stage == ARM_SMMU_DOMAIN_SVA,
- 		.leaf_only = leaf,
- 	};
- 	struct arm_smmu_invs *invs;
- 
-+	if (!size || size == SIZE_MAX) {
-+		tlbi.single.use_full_inv = true;
-+		tlbi.range.use_full_inv = true;
-+	} else {
-+		arm_smmu_tlbi_calc_single(&tlbi);
-+	}
++struct phylink_pcs *fwnode_pcs_get_from_provider(struct fwnode_pcs_provider *provider,
++						 const struct fwnode_handle *fwnode,
++						 int index)
++{
++	struct fwnode_reference_args pcsspec;
++	struct phylink_pcs *pcs;
++	int ret;
 +
- 	/*
- 	 * An invalidation request must follow some IOPTE change and then load
- 	 * an invalidation array. In the meantime, a domain attachment mutates
-@@ -2843,6 +2849,19 @@ void arm_smmu_domain_inv_range(struct arm_smmu_domain *smmu_domain,
- 	rcu_read_lock();
- 	invs = rcu_dereference(smmu_domain->invs);
++	ret = fwnode_parse_pcsspec(fwnode, index, NULL, &pcsspec);
++	if (ret)
++		return ERR_PTR(ret);
++
++	pcs = __fwnode_pcs_get_from_pcsspec_provider(&pcsspec, provider);
++	fwnode_handle_put(pcsspec.fwnode);
++	return pcs;
++}
++EXPORT_SYMBOL_GPL(fwnode_pcs_get_from_provider);
++
+ bool fwnode_pcs_matches_provider(struct fwnode_pcs_provider *provider,
+ 				 const struct fwnode_handle *fwnode,
+ 				 struct phylink_pcs *pl_pcs)
+diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
+index 88570a59ba9e..fb3fb522769b 100644
+--- a/drivers/net/phy/phylink.c
++++ b/drivers/net/phy/phylink.c
+@@ -1928,6 +1928,27 @@ int phylink_set_fixed_link(struct phylink *pl,
+ }
+ EXPORT_SYMBOL_GPL(phylink_set_fixed_link);
  
++static void phylink_add_pcs(struct phylink *pl, struct phylink_pcs *pcs)
++{
++	struct phylink_pcs *tmp;
++
 +	/*
-+	 * Only precalculate RIL if it will be used, invs generation ensures
-+	 * this matches the instances used for invalidation.
++	 * Make sure state mutex is locked to protect concurrent
++	 * access to phylink instance PCS list from
++	 * initial fill_available_pcs and late PCS attach
 +	 */
-+	if (invs->has_range_inv) {
-+		if (!tlbi.range.use_full_inv) {
-+			arm_smmu_tlbi_calc_range(
-+				&tlbi,
-+				smmu_domain->stage == ARM_SMMU_DOMAIN_SVA &&
-+					invs->has_full_cont_ril);
-+		}
-+	}
++	lockdep_assert_held(&pl->state_mutex);
 +
- 	/*
- 	 * Avoid locking unless ATS is being used. No ATC invalidation can be
- 	 * going on after a domain is detached.
-@@ -2851,10 +2870,10 @@ void arm_smmu_domain_inv_range(struct arm_smmu_domain *smmu_domain,
- 		unsigned long flags;
++	list_for_each_entry(tmp, &pl->pcs_list, list)
++		if (tmp == pcs)
++			return;
++
++	list_add_tail(&pcs->list, &pl->pcs_list);
++
++	/* Link PCS to phylink */
++	pcs->phylink = pl;
++}
++
+ static int phylink_fill_available_pcs(struct phylink *pl,
+ 				      struct phylink_config *config)
+ {
+@@ -1960,7 +1981,7 @@ static int phylink_fill_available_pcs(struct phylink *pl,
+ 		if (!pcs)
+ 			continue;
  
- 		read_lock_irqsave(&invs->rwlock, flags);
--		__arm_smmu_domain_inv_range(&tlbi, invs);
-+		arm_smmu_domain_tlbi_inv(&tlbi, invs);
- 		read_unlock_irqrestore(&invs->rwlock, flags);
- 	} else {
--		__arm_smmu_domain_inv_range(&tlbi, invs);
-+		arm_smmu_domain_tlbi_inv(&tlbi, invs);
+-		list_add_tail(&pcs->list, &pl->pcs_list);
++		phylink_add_pcs(pl, pcs);
  	}
  
- 	rcu_read_unlock();
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index d38cc176c2ce6d..49ea829354b723 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -828,8 +828,18 @@ struct arm_smmu_tlbi {
- 	unsigned int iopte_size;
- 	/* Base Translation Granule of the page table */
- 	u8 tgsz_lg2;
--	bool has_cont;
- 	bool leaf_only;
+ out:
+@@ -2006,27 +2027,57 @@ static int pcs_provider_notify(struct notifier_block *self,
+ 	struct fwnode_pcs_provider *pp = data;
+ 	struct phylink_pcs *pcs, *tmp;
+ 	bool resolve = false;
++	int count, i;
+ 
+-	rtnl_lock();
++	/*
++	 * On PCS provider deletion hold rtnl lock as one of
++	 * PCS can be currently in use by the phylink instance
++	 * and ethtool OPs can reference it.
++	 */
++	if (val == FWNODE_PCS_PROVIDER_DEL)
++		rtnl_lock();
+ 
+ 	mutex_lock(&pl->state_mutex);
+ 
+-	/*
+-	 * Loop all the PCS for phylink instance and check if
+-	 * this notification is relevant for some of them.
+-	 */
+-	list_for_each_entry_safe(pcs, tmp, &pl->pcs_list, list) {
+-		if (!fwnode_pcs_matches_provider(pp, pl->fwnode, pcs))
+-			continue;
++	switch (val) {
++	case FWNODE_PCS_PROVIDER_ADD:
++		count = fwnode_phylink_pcs_count(pl->fwnode);
++		for (i = 0; i < count; i++) {
++			pcs = fwnode_pcs_get_from_provider(pp, pl->fwnode, i);
++			if (IS_ERR(pcs))
++				continue;
 +
-+	struct {
-+		bool use_full_inv;
-+		u16 num;
-+	} single;
++			phylink_add_pcs(pl, pcs);
++			resolve = true;
++		}
 +
-+	struct {
-+		bool use_full_inv;
-+		u8 num_cmds;
-+		struct arm_smmu_cmd cmds[2];
-+	} range;
++		/* Force an interface reconfig if major config fail */
++		if (resolve && pl->major_config_failed)
++			pl->force_major_config = true;
+ 
+-		phylink_del_pcs(pl, pcs);
+-		resolve = true;
++		break;
++	case FWNODE_PCS_PROVIDER_DEL:
++		/*
++		 * Loop all the PCS for phylink instance and check if
++		 * this notification is relevant for some of them.
++		 */
++		list_for_each_entry_safe(pcs, tmp, &pl->pcs_list, list) {
++			if (!fwnode_pcs_matches_provider(pp, pl->fwnode, pcs))
++				continue;
++
++			phylink_del_pcs(pl, pcs);
++			resolve = true;
++		}
++		break;
+ 	}
+ 
+ 	/* Exit early if nothing has changed */
+ 	if (!resolve) {
+ 		mutex_unlock(&pl->state_mutex);
+-		rtnl_unlock();
++
++		if (val == FWNODE_PCS_PROVIDER_DEL)
++			rtnl_unlock();
++
+ 		return NOTIFY_DONE;
+ 	}
+ 
+@@ -2040,7 +2091,8 @@ static int pcs_provider_notify(struct notifier_block *self,
+ 
+ 	mutex_unlock(&pl->state_mutex);
+ 
+-	rtnl_unlock();
++	if (val == FWNODE_PCS_PROVIDER_DEL)
++		rtnl_unlock();
+ 
+ 	phylink_run_resolve(pl);
+ 
+@@ -2268,10 +2320,6 @@ struct phylink *phylink_create(struct phylink_config *config,
+ 
+ 	mutex_lock(&pl->state_mutex);
+ 
+-	/* Link available PCS to phylink */
+-	list_for_each_entry(pcs, &pl->pcs_list, list)
+-		pcs->phylink = pl;
+-
+ 	phy_interface_copy(pl->supported_interfaces,
+ 			   pl->config->supported_interfaces);
+ 
+diff --git a/include/linux/pcs/pcs.h b/include/linux/pcs/pcs.h
+index 83e0a2ad4b09..00a636c82c65 100644
+--- a/include/linux/pcs/pcs.h
++++ b/include/linux/pcs/pcs.h
+@@ -5,6 +5,7 @@
+ #include <linux/phylink.h>
+ 
+ enum fwnode_pcs_notify_event {
++	FWNODE_PCS_PROVIDER_ADD,
+ 	FWNODE_PCS_PROVIDER_DEL,
  };
  
- struct arm_smmu_evtq {
+@@ -50,6 +51,28 @@ int unregister_fwnode_pcs_notifier(struct notifier_block *nb);
+ struct phylink_pcs *fwnode_pcs_get(const struct fwnode_handle *fwnode,
+ 				   unsigned int index);
+ 
++/**
++ * fwnode_pcs_get_from_provider() - Retrieve a PCS from a specific provider
++ * @provider: PCS provider to use
++ * @fwnode: firmware node
++ * @index: index fwnode PCS handle in firmware node
++ *
++ * Get a PCS from the firmware node at index specifically provided by
++ * passed PCS provider.
++ *
++ * Unlike fwnode_pcs_get(), this function does not search the global list of
++ * PCS providers. The caller must provide the provider responsible for the
++ * referenced PCS.
++ *
++ * Returns: a pointer to the phylink_pcs or a negative error pointer. Can
++ * return -ENODEV if the PCS is not present in global providers list (either
++ * due to driver still needs to be probed or it failed to probe/removed) or
++ * can return -EINVAL if the PCS provider doesn't expose any PCS for the fwnode.
++ */
++struct phylink_pcs *fwnode_pcs_get_from_provider(struct fwnode_pcs_provider *provider,
++						 const struct fwnode_handle *fwnode,
++						 int index);
++
+ /**
+  * fwnode_pcs_matches_provider() - Check whether a PCS belongs to a provider
+  * @provider: PCS provider to check
+@@ -120,6 +143,14 @@ static inline struct phylink_pcs *fwnode_pcs_get(const struct fwnode_handle *fwn
+ 	return ERR_PTR(-ENOENT);
+ }
+ 
++static inline struct phylink_pcs *
++fwnode_pcs_get_from_provider(struct fwnode_pcs_provider *provider,
++			     const struct fwnode_handle *fwnode,
++			     int index)
++{
++	return ERR_PTR(-ENOENT);
++}
++
+ static inline bool fwnode_pcs_matches_provider(struct fwnode_pcs_provider *provider,
+ 					       const struct fwnode_handle *fwnode,
+ 					       struct phylink_pcs *pl_pcs)
 -- 
-2.43.0
+2.55.0
 
 
