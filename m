@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91CAEC88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 10:16:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70A3FC88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 10:19:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=g4bFFdd/Bsp2KuCWCbp17NJh09+GDQwLCTzypYyzVkI=; b=e43Imhwetm6FXGdE71ehRDgjQQ
-	7O24oNhCgJfakRvpxB1WzbWup6S+56T1hn5UvzjEKZlFVOEUDRIGq+HpoB1AbSoFL03GDpXF97UZ9
-	UlChy60+HS3bzvCR0SeU5g5EQdjIFaF8Q74DP/nUQDHDBwcr+EtrC65l8MAem1KSXahk/0FNX9EO/
-	20kZlQlnnZbnIcnvHEzofyc15ke/FV4RkelP62rhGb8epGGU/dELDBe6sSng29rQQxMWaVxa2kSHi
-	2itlh2WqSLDp/cAgh7mTRQswHsooRrMTOxOZvChsu5y1doRDeqjsXJxsbxzSMqWKMqAjN3vE1GatW
-	lucPUvwg==;
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uDXtF86VK1gu27NEV85R0MtRyEx8CrnTliqhkEYUPmM=; b=LIdVHhDL03M/I0zciDkUxeVQNu
+	+DJf+o0xTCCXd8E1ZN3AAmWEQFkkumkmglCstR3zmDcQ+HJddMzxC1LRAT6V6XWz3bkjcD+kH4SZ1
+	dvDlIGljLKJtP/5RKlX4eC1IZR/PZLFJLfGMCYn9kq84iYa1PMxhIxMkxQB76eLob5bC7Q1f39D0I
+	qI9ROvPTRpPLNH4ju2HVES+Soqty9mlbTt3Z4HB1zgF+tw5EatsPup8xI+8LSqlqRdRtPLP9wgtXy
+	rS34bWtpgLbcbfK/rX3ZtgUTpB22Ewrlv+2gGP7wVHuvSv9iSqooMNVfn1Jkp3F83Bx3zunbif8AY
+	5dzM7q2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x79AK-0000000B5De-3Kvy;
-	Thu, 17 Sep 2026 10:16:28 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1x79D0-0000000B5Lk-1U1m;
+	Thu, 17 Sep 2026 10:19:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x79AH-0000000B5DJ-3rn0
+	id 1x79Cz-0000000B5Ld-1WLo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 10:16:27 +0000
-Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
-	by APP-05 (Coremail) with SMTP id zQCowAA3oDr3vatqq29+CA--.404S2;
-	Thu, 17 Sep 2026 18:16:23 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: alexandre.belloni@bootlin.com
-Cc: bbrezillon@kernel.org,
-	claudiu.beznea@tuxon.dev,
-	krzk@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	nicolas.ferre@microchip.com,
-	Wentao Liang <vulab@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH] memory: atmel-ebi: Fix SMC clock reference leak in atmel_ebi_probe()
-Date: Thu, 17 Sep 2026 10:16:23 +0000
-Message-Id: <20260917101623.2146392-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	Thu, 17 Sep 2026 10:19:13 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 80661600D4;
+	Thu, 17 Sep 2026 10:19:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 152A51F000FF;
+	Thu, 17 Sep 2026 10:19:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789640352;
+	bh=uDXtF86VK1gu27NEV85R0MtRyEx8CrnTliqhkEYUPmM=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=OjTpgD3TK3YALyveSRIcZAuTFmzjC4x4yu0+yJKGV1QTvERP2/ksnYAQhcHB7xhI1
+	 bM6pgBptqq+635wj35ZiQY2a+d/d9Jhrab884NXyPYVAQQwJ/BzB+RJgvwFr41fxtR
+	 kAg5LNXdtcHodwUVKbFWcxoLOvVoeyi5JHbOynw4pr8kEl+c1jeVmUHSC1XKv2vFjg
+	 1j0CbZCcZADxy5HnOnvtprq6gDqguuW5aSAFnojR/wDVtF5GQh/Fpv1UEmNU6j3SWF
+	 vXUc+kSkOfBXLOcUMQTGMMw5VJAhtStindIACkMj16wjBioGcb4qtsKyrR22KlVCwO
+	 nFeRPG9YXCGKQ==
+From: Mark Brown <broonie@kernel.org>
+To: Itai Handler <itai.handler@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-spi@vger.kernel.org, michal.simek@amd.com, stable@vger.kernel.org
+In-Reply-To: <20260910174832.873352-1-itai.handler@gmail.com>
+References: <20260910174832.873352-1-itai.handler@gmail.com>
+Subject: Re: [PATCH v2] spi: spi-zynqmp-gqspi: stop the controller on
+ shutdown
+Message-Id: <178957983642.100121.2784046911009039548.b4-ty@b4>
+Date: Wed, 16 Sep 2026 18:30:36 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowAA3oDr3vatqq29+CA--.404S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Kr48Kw1UZFW8KFW5Zr4DXFb_yoW8Gry5pF
-	4rWrWjkrs5X3yftanrJFyDua4Fgay8trWakFy2kas7u3WYyFy3Wa4rZFW2qF1DZFWkZ3y3
-	t3W8JF4kXFWUZr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUB2b7Iv0xC_KF4lb4IE77IF4wAFc2x0x2IEx4CE42xK8VAvwI8I
-	cIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2
-	AK021l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v2
-	6F4j6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxV
-	W0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv
-	7VC0I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Gr1j6F4UJwAm72CE4IkC6x0Yz7
-	v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0E0s8F02x267IIx4CEVc8vx2IErcIFxwCY
-	1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCF04k20xvE74AGY7Cv6cx26r48Zr
-	WUJr1UMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCj
-	r7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6x
-	IIjxv20xvE14v26r1I6r4UMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWxJVW8Jr1lIxAIcVCF
-	04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r4UJVWxJr1lIxAIcVC2z280aV
-	CY1x0267AKxVW0oVCq3bIYCTnIWIevJa73UjIFyTuYvjxU7WE_DUUUU
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBwMNA2qrrRk+TwAAsO
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_031626_357273_9990A9F5 
-X-CRM114-Status: GOOD (  12.00  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1122; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=sYOBPCQZCZz6ppPtm4bDuvKorzgrYBsny7NWNCPiBkw=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqq76c3YimaI4GlY4gTxTHdyj0qP0RsZYlS2kuA
+ K2/+wEMG6qJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaqu+nAAKCRAk1otyXVSH
+ 0MtAB/9xDXzGPp+XGSGH3Re/gsQvAACubZO5NHSS8ey5YdEa1OW4Pj5RU7pN+fbOUW/Zqq+lQa1
+ JwDAf27dyCeANWu6+QIkjQgCUHEThXGYHlC/724BN26tgLaY1oXv1dIM54F9A1fuCaDXEmhUNkG
+ 6gaNT6Xp0MmWWLGzySuav6+pthg6SSsjCAAiMa3gVlWP0+1V9DI6Ru/q9Gy1zmC9YwOPWmTfngf
+ w9bZsbdxbGGxqYv5whRTHuIS8TNgb2jJC5sAjuIL/fLFlaPg6SjIzfQffpBw3/DOZxN1iMTAOn8
+ tEoZFW+BMe2fwlsG9zj9vhI2hm/Gs93yMfvwDXraNascwWHh
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,44 +81,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-atmel_ebi_probe() takes a reference to the SMC clock with
-of_clk_get(), stores it in ebi->smc.clk and enables it, but the
-reference is never released: the driver has no remove callback and
-none of the error paths after the clock has been enabled call
-clk_put(), so the reference leaks on the success path and on every
-error path.
+On Thu, 10 Sep 2026 20:48:32 +0300, Itai Handler wrote:
+> spi: spi-zynqmp-gqspi: stop the controller on shutdown
 
-Drop the reference with clk_put() once the clock has been prepared
-and enabled.  The clock itself stays enabled, as the driver needs it
-to keep the SMC registers accessible.
+Applied to
 
-Fixes: 87108dc78eb8 ("memory: atmel-ebi: Enable the SMC clock if specified")
-Cc: stable@vger.kernel.org
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
----
- drivers/memory/atmel-ebi.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.3
 
-diff --git a/drivers/memory/atmel-ebi.c b/drivers/memory/atmel-ebi.c
-index 8db970da9af9..cd138a3b793c 100644
---- a/drivers/memory/atmel-ebi.c
-+++ b/drivers/memory/atmel-ebi.c
-@@ -561,8 +561,13 @@ static int atmel_ebi_probe(struct platform_device *pdev)
- 		ebi->smc.clk = NULL;
- 	}
- 	ret = clk_prepare_enable(ebi->smc.clk);
--	if (ret)
-+	if (ret) {
-+		clk_put(ebi->smc.clk);
- 		return ret;
-+	}
-+
-+	/* The clock stays enabled; drop the unneeded consumer reference. */
-+	clk_put(ebi->smc.clk);
- 
- 	/*
- 	 * The sama5d3 does not provide an EBICSA register and thus does need
--- 
-2.34.1
+Thanks!
+
+[1/1] spi: spi-zynqmp-gqspi: stop the controller on shutdown
+      https://git.kernel.org/broonie/spi/c/e922bad8b2d5
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
