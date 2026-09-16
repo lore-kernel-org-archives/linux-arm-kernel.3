@@ -4,141 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13070C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 03:04:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A6C6C88E77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 03:06:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Mt4vKOZALY1yI7qCOWowx88+jkqRlUaEI4ns7rSpbY=; b=vBCBF2HXgrh9lNtnqQaQcvcUU4
-	W7cDWlNK5F+lpSiFnNJIa62bvOueJgdgIhti4k4NXHrMct6bGs6s69VpdaRveTZxhvP9HFs5+T4Kk
-	P8T/R/SEbemDASeP6vgOUeVBeS7VYv7+zXRqOzfuKkFXCDZhgUCzpUgQToYC3wY4Lse89bMgXHvVz
-	E/p4vj6xzKyy/+ra/e4nk1ik2I86X/pbkcGnAAyjkBipACJ5+mByRPkb2K3i45QtI3qnqLVj/v47U
-	RQ4/JnN/8isCSGwNyNiI01QTZJRheiKq/N3EJV4VOxc0eVxNCyX1jW8WOqt6JQVro2awKUNvQwo15
-	1TjFtlXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MgQQ1ieDrz14jHVjSOAFgvrUNMC3OQ4cZc63yBFnDZ0=; b=RCgkRKyE7pO6bw1dRw1nGNGkQV
+	Oqm43y4hDYuw42vcReuGpjne0CiHyTeEGnER01bBfzqVlo+msffHm2688iosfa9dTHdzkPL60/pj9
+	85ZkJHJq78doYRcEE9/JM0c9Fsdm8gr0nq+xVm122lfwgZvMARXTvEk46dSSDRQ6mABzY37GL5TxV
+	PRELHPxqHZ+cZD13gKs8pTcangl5HVCi0vpjHqlBsUzigRSDSVSQXqmgd76sTDe01nSAytj1I7dEU
+	oBGkULvv3Zwn5sn7J2/2bglP7k5qWTw8BdmGhAyUgfL/QF74lno5eJYS6BtghSJSpw/ruimRPsn6e
+	tumLAUOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6fwl-00000008DSD-0GRQ;
-	Wed, 16 Sep 2026 03:04:31 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1x6fyu-00000008DaY-3U3S;
+	Wed, 16 Sep 2026 03:06:44 +0000
+Received: from mail-northeuropeazon11010052.outbound.protection.outlook.com ([52.101.84.52] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6fwi-00000008DRr-0KSN
+	id 1x6fys-00000008Da0-14Rj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 03:04:29 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68FLYdE03680394
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 03:04:26 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	1Mt4vKOZALY1yI7qCOWowx88+jkqRlUaEI4ns7rSpbY=; b=V5E96PD8JDfAzOlY
-	rYURV+EVteT0BEUWkzaCgwi92Zoa9ICO/4OhQ4SX+Cp9yO4o5EvgQ+aW8T2qdGPW
-	qDAdw25yuFiJKDcuZSvmJmOfxfjZnVyK1bckD4oyBLrfp02+wKQomCogYy7zKkW0
-	W/ZR7pwgJABwUHJqHlfjE75CWtPPYaw5SCdwBv9jgPoeNTJDb8nGghXDZ4iFViOP
-	y9HBe2Uxjtveyhje0MC7w1CT+Y8hk2zY+5gzhSnGXMrmFD1U5dcaQdYoNQKZ4Oef
-	hja++lJNKhxjSzDdA0DivpOG9Z0m1YxJJ5cPA72PHC44Z+5z+FHZ8dnb3WTNx/hd
-	4eAnVQ==
-Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gqe1r8yr2-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 03:04:25 +0000 (GMT)
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-86a2639398cso8197638b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Sep 2026 20:04:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1789527865; x=1790132665; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=1Mt4vKOZALY1yI7qCOWowx88+jkqRlUaEI4ns7rSpbY=;
-        b=gBiT/WAqfp/aSE3zsxy+V5+LL4vd3hLyDx6VtmxVkBDXWC2PIj/EyBkmQH3FpxXFhs
-         0OBw2njOSa7v1goEG6IgU0gq6/uQhaT4ZneNdyh7qrtCHWaE6AcnJzMqewURDpeFfpGC
-         6zs7RTYzG9XDGVJ7WjbjIZAyyZ63LM531aQpFVMZuY5tULBa5GusJ5OTidKEoD9Y4v6b
-         4CBieIhWxJvyrPrHNq5gXXIzrtt4j0aJ+mXr8/ddqIK1QL1jjzycGlLnO2Yn/MFK/jVd
-         IzMmVuXMrs+ciEnb9KdnacbgRs30g9y4TnYrpsNhj3lYRQeov0JM6Ja5FRbqWn5oAcEL
-         30Kg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789527865; x=1790132665;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=1Mt4vKOZALY1yI7qCOWowx88+jkqRlUaEI4ns7rSpbY=;
-        b=lrsNRVna/Qly3lh0HvtaSmMa8UxJAbEgjECiV6bOwE9ig1y56ZLceRt62Bb6JAixx6
-         QkJfYI6JX8TsaHzZ/o9EBzSvYoSRKcDL4LjV5IwJqoMgwicwWo1hEb892f0j9WZ9WzZT
-         AxuFan7S0X4z8hMxxEfKFxF0oIJyecv531YP+jP0whVGuyrRJjzEDkIZ39UK45NftSal
-         UnmEz9NX8Mt3mozYYBz1Da1WND+JYQhF3W1OHzl2ibpXwt0ng5bhLsiTyrTGXhcMfsHq
-         nbssY7PTgTYWjVtjdT1T+KYQZrOOb+ju+1rcbUAHA67+vpt5VzBOLSbuHY0AfMTV2kv7
-         6+OA==
-X-Forwarded-Encrypted: i=1; AKwUvByQnYACn9iy3K0QoGcrX+2jrGHkdoTY5xQJm1TpTT9gXZkWUzm4eMiDeZGu8BAjaVinhI3QuLhVwXeZwpY0cbPq@lists.infradead.org
-X-Gm-Message-State: AFuF++mAqgnk/36FKpuGPB5g4JJheOnfF5+QyiMVt1HsPjDT+/lBKjg6
-	UXpu6bFc/PjKNIodmVqESXwuo9ux7Wr7XGsRN6+1tDIFfpZuko4rpNvcJy5l3ORhD87iEOAnNN8
-	pwdXgd0xO4L1oAkUb8EKHDrBE4mpIldJIifscdJgRozZ9Xy95v3jgLoCA2vZ70Sqo1woxqk8kdB
-	ML0Q==
-X-Gm-Gg: AYBFou29Munl4x+2zXIE9j8T2VN+clSHgrLwKXcN6Fp3QHQMTdTiQFgP8SE66/vtQd3
-	94RRNpOXKCPd3uYcWbS1mxfpPU9hi5Ub3yAtOk+5VeZ2+4VVLq+WnBy4gYdCYHQYCL8hr/QNA80
-	WFNd/Ks+WpPUqvD9OAOxFOyD9pdT27QgZXFJ70vtZvMAkENm5slLfFOu6LcAphrD3KLTXaJZFIv
-	ct/L3I1/6fTV1QalhdM7r23tiWl+BADo6JJfQZjkWpMHzU9YTOdaWbRaBkvph9sTsD0630pDmUm
-	IHj9P3J1Z8GDJmtDEUWT7tYr4udFJhCyM3Xv8lw/9oILY0la11wjJrFKzyb5uaUZgBrKbfs0kMu
-	Yqd7T1PmPZ9U/rNiyc6VwQHuOINy0HZo8PHxANzVozrUs2bVXEL7WkyMjvKYMUOWjdA==
-X-Received: by 2002:a05:6a00:17a6:b0:845:e9e8:645c with SMTP id d2e1a72fcca58-8723a7a4fa1mr1400447b3a.6.1789527865173;
-        Tue, 15 Sep 2026 20:04:25 -0700 (PDT)
-X-Received: by 2002:a05:6a00:17a6:b0:845:e9e8:645c with SMTP id d2e1a72fcca58-8723a7a4fa1mr1400412b3a.6.1789527864705;
-        Tue, 15 Sep 2026 20:04:24 -0700 (PDT)
-Received: from [10.133.33.124] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8720124322esm442266b3a.31.2026.09.15.20.04.21
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 15 Sep 2026 20:04:24 -0700 (PDT)
-Message-ID: <b803b63c-8278-4159-9305-f71ed001bdc7@oss.qualcomm.com>
-Date: Wed, 16 Sep 2026 11:04:20 +0800
-MIME-Version: 1.0
+	Wed, 16 Sep 2026 03:06:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VTDF18HbZsYmcn++5TpHeZ0LODmXAh/nGCcZbPBfQqF09NOUkmbNESAwt0ZriEd4gVgKJI00MS+4ffBvnwcXWMD/5GfH5qLsS5IEscc5jca89kkXkIk3BoI08WYA0QBGluTQaj+cC4hJyjFgncWcBwO79NvQctv42DKvMWYK8j3wVZnnitvoyxWaiTLUrKfLQvD5sJrL8gvmcLxZu6ndHm73TG+0lbQpZjV/74fElmQPUKwSDmfXST8NT8DugIOSBx4lQhNawzzHcQrKUO2TPbjOoRO0pxNpL5XAADGa9J5yJXw5ty0eqTuqFq5SNWXPjapjq3Gd1iqAHZfEyz78Zw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MgQQ1ieDrz14jHVjSOAFgvrUNMC3OQ4cZc63yBFnDZ0=;
+ b=kvO/6AZ5Am1XEyWveVN/BitWlBU1Mho2tISqf5TLNLaQTKtlbDvqe5KynprhVcRvJhEDtRxyPrSnOdnX1kYcmrqjTgwXZkm1GNGNs4SvE3l2UjUPRp3x0H8CQ4IXNfG5qcTizlbGkOjbkd2Ks8oVZUifL54txPYM30rgQGIMLi5CIGgLIeuL2b6vA8aXXCCfH1t4JZuYMSH2QuQQv9JK+apSYS+uRSnt882Fj2UG+kOb9vDBlSrzA43UpxPwqdXGMox6K/CM7ShlXeRy8JxpC4PBfPSaounxTagFzFRwo5rUJANFVP44yKe/xOjXxBYF2J9irumyiRwuAf2fAj2KBQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MgQQ1ieDrz14jHVjSOAFgvrUNMC3OQ4cZc63yBFnDZ0=;
+ b=ZGLhur45DQYweG+F/t7wkpOb8E8SNwNqaCncE42DbXweKPwCAtHYiBd+7FZRh3TyKbV4+dfQLKK5vhsfB31nIUJv31iIbM/58J/+X0FMewgnjOoEP4ypwFOFT7QHl9693MW5xdj1ZTyJM38i6ratnhgMgd0GyRKUtN2Ta8wcsXH/wrtfk2iIneku4Oyade+cmUT9ioWDuXAigf0LEo3ioF+OwAkosM8ugRmz5KIXzpXzTcaA3Va2w4Iq+KVfwhg64IOkb0DYm1Rk2hIyjNKFyRLS3aSG3pt2ZBNn5JurCHGPaL49Xgvw86k4eAgEFGS5aICUUQCeD9dtW04BASMfNQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AMBPR04MB827909.eurprd04.prod.outlook.com
+ (2603:10a6:20b:788::6) by GV2PR04MB11935.eurprd04.prod.outlook.com
+ (2603:10a6:150:2f1::11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Wed, 16 Sep
+ 2026 03:06:35 +0000
+Received: from AMBPR04MB827909.eurprd04.prod.outlook.com
+ ([fe80::1fe5:6183:37cd:b5b6]) by AMBPR04MB827909.eurprd04.prod.outlook.com
+ ([fe80::1fe5:6183:37cd:b5b6%5]) with mapi id 15.21.0406.012; Wed, 16 Sep 2026
+ 03:06:35 +0000
+Message-ID: <ed3e2377-7a1a-454d-8031-ac1834977584@oss.nxp.com>
+Date: Wed, 16 Sep 2026 11:06:02 +0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/1] coresight: tmc-etr: Sync the trace buffer for the
- device
-To: NoNine <chenmin83@gmail.com>, suzuki.poulose@arm.com
-Cc: mike.leach@linaro.org, james.clark@linaro.org,
-        alexander.shishkin@linux.intel.com, coresight@lists.linaro.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Min Chen <min.chen@siengine.com>
-References: <20260915130503.645953-1-min.chen@siengine.com>
- <20260915130503.645953-2-min.chen@siengine.com>
-Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <20260915130503.645953-2-min.chen@siengine.com>
+Subject: Re: [PATCH] pmdomain: imx8m-blk-ctrl: Serialize power on/off across
+ sibling domains
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Ulf Hansson <ulfh@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+ Peng Fan <peng.fan@nxp.com>, Lucas Stach <l.stach@pengutronix.de>,
+ linux-pm@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Zhou Peng <eagle.zhou@nxp.com>, Xiahong Bao <xiahong.bao@nxp.com>,
+ Ming Zhou <ming.zhou@nxp.com>
+References: <20260915-imx8mp-blk-ctrl-v1-1-b3b4e6e7e676@oss.nxp.com>
+ <aqlSerHyjCB-03IR@SMW015318>
+From: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>
+In-Reply-To: <aqlSerHyjCB-03IR@SMW015318>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE2MDAzOSBTYWx0ZWRfX0trWSSz26pUo
- sdYJPYmmY+h1Rcjy7Ge2VdzpaZ5smrcNEOZ8xZmcK0/LkRTyS9Wi27isINpyGX9Z01oOFMjBUeg
- PoQmMZJtiZ3Svgesx/coUz+wJO0+USM=
-X-Proofpoint-GUID: CPYO0dwfIwSA51NZDqY21KZ04xjIHVOO
-X-Proofpoint-ORIG-GUID: CPYO0dwfIwSA51NZDqY21KZ04xjIHVOO
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE2MDAzOSBTYWx0ZWRfX2Quo5lHk4KL4
- RBnKh6Eahm9F4KpRnA3Dcr6wXLYuAj3SAMCpO1t8VSSoL1yLUZLFbDweZ8FabUlwaOqHYeU9G5y
- dNIxn69czNH0ItOfCGmQVBS1j5R/MyNHma8Pf/5BsReAaleHJvh88epSO0CFIEjnFwbbJHLzWoN
- CQGyGwsT7yqCEIcr7RIEfVgpKY7qFTPCyLcJOKfEapjJdWate590Qz/MVWdK6IXZYia0539/2A1
- LMQwUXzxeoPWF9j4P4ggK+aqwi7TcdSlfvDJ4H3IpOgiGNZz0huPG1ZXCJ63PsWl4VOTsgD3fbi
- 7IvrgekGY6VHjwRDdillKULYcxJ1Riz1Gm4l1MKox2M3EfFJ/HCRT6ZMoDrtZi+cRBGz57DonN8
- kT5ZfOq6SMjeXTMk6ZtISfHJw+GzwRifdgFEq12WiVycWiZ1SbOCBmZH5S4uKCAfKsl2ljW63Cq
- dqGWZxq2Ez7Abg4/G7Q==
-X-Authority-Analysis: v=2.4 cv=ZIhCCn7b c=1 sm=1 tr=0 ts=6aaa0739 cx=c_pps
- a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=UdC6xETiAAAA:8 a=HTs3lNVCq07o06pvmvIA:9 a=QEXdDO2ut3YA:10
- a=zc0IvFSfCIW2DFIPzwfm:22 a=ybX9D8xwk0CjW0O53t9p:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-15_05,2026-09-15_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 priorityscore=1501 clxscore=1015 spamscore=0 phishscore=0
- impostorscore=0 lowpriorityscore=0 bulkscore=0 adultscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609160039
+X-ClientProxiedBy: SI2PR02CA0027.apcprd02.prod.outlook.com
+ (2603:1096:4:195::14) To AMBPR04MB827909.eurprd04.prod.outlook.com
+ (2603:10a6:20b:788::6)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AMBPR04MB827909:EE_|GV2PR04MB11935:EE_
+X-MS-Office365-Filtering-Correlation-Id: b1389e62-6ffe-4bf9-23c2-08df139f8439
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|19092799006|23010399003|6133799003|18002099003|22082099003|4143699003|10067099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: LDVrO8hLDIDQqE8+9VhoeXAz+0mg70j8uloDMXh+/ckI99ZqVYPV5xsPmrc4zYn+Ee/w31o2NPy1gojxu1KEOTBKnNPKPJqPvKqeAi6ud3a7iV4wy2HKYSH+J33c6mKE2qxGzeZG5lJ8y3G4+G24yTOnlh6mnQyVO/ggb1MQrMAYH+zBtXlUFq4pPUHcv3qfV0zGTbIzx7k0O76qRiB7hvs2+EP3p7FfJj/54w1jWlUBmR3reY7brB604cPfmlaBuu7HdndjI0jXMVwcpXK1AER914X/Kiqxpssj934pW43z9SQCcvxftjHQF2BlaXq2rhCXTAvd9/1WaEdhE72GApFAeRzfQBOzvlg1CfuDLMSObXEDNTSkWMS4ADAiUNC90wfca2jsCDnQQtyCZ4o4Bcryq4biB5hvsopZkeyW4PNJWjq/pEQNq3DbAS3H5SPfOc69D4DhfLvFsDkiu1tHocWBiDoHOhH00rglIwH9FPfdR9pPEQJQfz5tMuT+BrZhPuKuudKe8/FHZKrBdRibIeb9+xxsQI6b7frC4ixBam3MuXVV99n4OW4KZGIqX5twNTjiuVlRdOKvghRr63USFIHV/2gFisFrbV/9ICWTDcnaJxsm0Yd20TuQ83MNBQueDmCrGxQnQUIvWnUTv+/NkH1snTCXarZeBy0h9pUpDSA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AMBPR04MB827909.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(19092799006)(23010399003)(6133799003)(18002099003)(22082099003)(4143699003)(10067099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NFA2WGR3TTUzNWJlSnV0R3k5NUVDRnVZNG5uVkMxbG9DL29hS2VibC9sbHNW?=
+ =?utf-8?B?OEY0SkIvR3hDN2hhRzlWZzVKdkNzcEpQTHZpMWU1R09OVC80YU1VSS8xSjNl?=
+ =?utf-8?B?T3U4ZUtuL2tIUTNhRVNKd3RSTENaV1U2SFd3TjBOZ1ZobzBBZWdYZ0R5UlJX?=
+ =?utf-8?B?SUZ3UFpWU1YzYWNQV0JWL2RRVjdRKzhUbXVXaTZBUGYyYVQ0Y3M2WndyQ3Ni?=
+ =?utf-8?B?SVlGNWRNWXZiM21WSFlqS1lFZWhBSkhEY3JDcCtpOGEyR3QxMWUwaHJ4YnlQ?=
+ =?utf-8?B?dERZTGZjR3AyWm92VDNuMjg5UkR0SmlyZ3YrVXZNd2ZyckE1N0RlT1IwaGlz?=
+ =?utf-8?B?OEc3YzlKK0pmczhrNE5vR3d4QnV5UVI1b052RzVsTTJwRCtkM3RLcmJRR2ZO?=
+ =?utf-8?B?eFB4TW1oYW1HT0tjRTIxbjV2OExtM1lXU0EwU3VMNU5jaWhYckNWc2gwbmlm?=
+ =?utf-8?B?Rzc2RDhoUVROYzRQbEtEa0pKeFY1ajFhRWxTRjRvTmd3MFVkQS9Wb1RXak9X?=
+ =?utf-8?B?WHd5R29RUkN5L1J5MWRXT2I2elJpeWNzRVppakVYenMvclJ4amhnQ0pPb200?=
+ =?utf-8?B?VDNPVFNwRU1GKzJPYnczWWtCemUwMGNlZXZlM1hSVG9hVGI1VTE2SllmNFRy?=
+ =?utf-8?B?aFVkb3ZwTy8wSlpmSkFLMnMrZ2ZZR28xeTJWZnRMYWEzNFZvLzBDbVBST3ps?=
+ =?utf-8?B?T0Vla0hPNUcwa1puUGV3TDlaTjZDajVLS0NyUW5WTVFXY0JDRnpwRXVrN2pl?=
+ =?utf-8?B?L3RQS0xoNVh5Uy95WUxmMG9ranRlV00xeW5hY0ZKNDE2Q3JQM0p2alovbFJH?=
+ =?utf-8?B?eXZheHg1NDZCU3NsZmVWcUZIZXBpVEFoci9PWldGbkhsOTBzYnNBSVRjM3Uy?=
+ =?utf-8?B?MVVYWGpXMWdhUzJ5M3RBbmRnWFE3dkJTLzI4VGtQaUg4ZXFPS0V3a3ZmaUZa?=
+ =?utf-8?B?Y09BT1pEMkovblkrbXgvWlV5Wk5vVC9jc1crTUVHeDNGL1k5NEZ3ODBhZHFn?=
+ =?utf-8?B?aHBQSEtqYXBuaUsydDNsOC9uckdHcFI3RWFKZ2gyOVB6SWxud0kzbmNlYVFD?=
+ =?utf-8?B?UVVXWjdaOW5ieXpTb0R2MlV2TnVoYmtHazdNeitJREdNaEgyN3ViMHlmbGVZ?=
+ =?utf-8?B?elNwRVI1bE1zL1Z4OURVeEkxMGxadWRqbVBSemNDRUExQ1FweVJwd2hrR2FT?=
+ =?utf-8?B?bXhmZVVtcmdqckxELzJPS0xMUURaaEJmT0YwWFhlQ3RESmRhN3NGL2tQS3Fu?=
+ =?utf-8?B?Z2RRWi9PU0xVTG82aVF5NGdCbFczYUFPTVVwNmREdTEvZCtWMFdIRzdVUGZk?=
+ =?utf-8?B?SnpRMEdnVXNDRGVySEhnTG94cjJLd2F1V1ZkdTNkeVJYUnFpTjlzNTdVOUdv?=
+ =?utf-8?B?M3dTZGJTNk43Tkw1M2tmYno2MldQcVRJbk9KY2xkOWROZmlVTHZGbVFPVzBs?=
+ =?utf-8?B?VEs0VHdOS0U0NHFDZ2MzR1RVZjVPZzJCb0pFUlNQU2tHVDRQeWdZMDI4b3ds?=
+ =?utf-8?B?dWp0ZDhsaHpZSW9DT1RBY283cXRrb1B3dTJIT0hjYzVNbnBzVWRiQ2g2RVRX?=
+ =?utf-8?B?WXJwRWJsRFBCK20rNVVBM3JVVkZVL3BnV1BPMnRuQVRYZDNmTVBUR0M5cDBY?=
+ =?utf-8?B?KzZFTFp3azJZakdFZ1dCSHVMWTdaNnJsdnpNT09iMWVuZnFlRE1iL2F5d0J1?=
+ =?utf-8?B?Nm1ERmtXTWR4V1dWM2EzY3ZZOFRvb2twSnNCRCtTbWlzSkpSMGc4TkhJS1Yw?=
+ =?utf-8?B?ZE9DdXV4dFQyckIyNDhHZFlZYmFWRGpERGVsRXB6d1dnbHRIS0N5eVBkemRO?=
+ =?utf-8?B?SGxnRzRUUUgvbU82ZGgrbXRhcGw5ajJza1VNaVduRzNUZWs0WlZPRlNLQ3BY?=
+ =?utf-8?B?dWZsQmdzcHRiR3VhOU9XN0ZkVlI5K1lHcmNxVFFTMEFmT0dNa1E4M2IraHJh?=
+ =?utf-8?B?RFJXVXdaY3ArS25EY1NrbHk1ODhBZGFlbE9EcDVtNFJLeEorOHQrZDM2RmMz?=
+ =?utf-8?B?VmZOdmVEZFY5c3dqVWVQQmtCTVZyNnVZZXZEclk1d2ZZQ2pEZ0ZNVFRwRjVj?=
+ =?utf-8?B?ZE44NGxBUm1iL2pHZUNCQXNpMkpaY2pacWxqZXNnUGd6R0R4eFJYazhaVVR6?=
+ =?utf-8?B?clRGTFBNMHdSWHFMQXBSWm5oYWNsUmtCV245bVRFN1FFZnp4cS9FcEszdi8y?=
+ =?utf-8?B?d2dobXpIdzJENFNWeW04NkhvZnpMV3hscmZHYWRkaVZxYXcyeDlEQzRDc2sx?=
+ =?utf-8?B?a1dSRERTTEpPRU9rREF4NFJWYVhXUlRKV1JLMEhXVGU1Ri9xRzV3TS9QMTND?=
+ =?utf-8?B?L1oyV1ZOQ1NSNFVHZjhiV01ZNnNFUzVPL0lrY09idUFJZ3ZRckNKQT09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b1389e62-6ffe-4bf9-23c2-08df139f8439
+X-MS-Exchange-CrossTenant-AuthSource: AMBPR04MB827909.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Sep 2026 03:06:35.3414
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: bPaXKstl3YT6V+nxsqd8m0d1TJK40nd71lKDt/mHG0gShbKkGfk8DUejAZ0/lCvazjCKB64wke5Xu3qNsy1IsQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11935
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_200428_140758_2A9FFA74 
-X-CRM114-Status: GOOD (  33.16  )
+X-CRM114-CacheID: sfid-20260915_200642_450526_243E345B 
+X-CRM114-Status: GOOD (  30.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,111 +156,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Frank,
 
-On 9/15/2026 9:05 PM, NoNine wrote:
-> From: Min Chen <min.chen@siengine.com>
+On 9/15/2026 10:13 PM, Frank Li wrote:
+> On Tue, Sep 15, 2026 at 07:09:43PM +0900, Ming Qian wrote:
+>> On i.MX8MP, running the VC8000E encoder and the G1/G2 decoders
+>> concurrently rarely and non-deterministically leaves a VPU stuck in
+>> reset: its block registers read back all zeros. A decoder then times out
+>> (G1/G2 reset failed) or the encoder fails its format check reading a
+>> read-only capability register (VC8000E reset failed). Raising the
+>> runtime-PM autosuspend delay hides it, which points at the blk-ctrl
+>> power on/off path.
+>>
+>> The VPU blk-ctrl exposes G1, G2 and VC8000E as three separate genpds
+>> whose power_on/power_off are serialized only by the per-genpd lock, so on
+>> SMP the callbacks of different domains can run concurrently. Each domain
+>> only manipulates its own bit in the shared BLK_SFT_RSTN/BLK_CLK_EN
+>> registers, so this is not a matter of siblings corrupting each other's
+>> register bits.
+>>
+>> However the sibling power transitions still interact through the shared
+>> VPUMIX resources: the VPUMIX bus power domain, the VPU_NOC and the ADB400
+>> handshake. power_on asserts a domain's reset, enables its clock and
+>> releases the reset after a short udelay, relying on the reset propagating
+>> through that shared path. The GPC does not ack-verify the ADB400
+>> handshake on power-up (it only delays), and per ERR050531 the VPU_NOC
+>> handshake is timing sensitive during VC8000E/VPUMIX power up/down
+>> cycling. So when a sibling's power_on/power_off runs while another domain
+>> is inside its reset window, it disturbs the shared VPU_NOC/ADB/AXI clock
+>> timing and the victim's reset fails to take effect, leaving its block in
+>> reset with registers reading zero.
+>>
+>> This is a blk-ctrl defect: the VPU power domains' power up/down sequences
+>> must not interleave, yet the driver deliberately avoids a genpd
+>> parent/child hierarchy (to meet its sequencing requirements) and so gets
+>> no cross-sibling serialization from the genpd core.
+>>
+>> Add a per-blk-ctrl mutex around the blk-ctrl register and reset sequence
+>> and the synchronous power-up path, so a sibling domain cannot run its
+>> sequence while another domain is inside its reset window. The GPC
+>> power-down is queued by pm_runtime_put() and still completes outside the
+>> lock; serializing the reset sequences is what fixes the observed failure.
+>> The bus domain's GENPD_NOTIFY_ON notifier runs in the same call stack
+>> while the lock is held and must not take it.
 > 
-> The flat ETR buffer comes from dma_alloc_noncoherent(), which zeroes it
-> with CPU stores.  The DMA API requires the caller to sync the buffer for
-> the device before the device writes into it, but the TMC driver only
-> ever syncs for the CPU afterwards.  On a non-coherent sink the zero fill
-> is therefore still dirty in cache when the ETR starts writing, and its
-> write-back lands on top of the trace data.
+> Thanks you for detail descript problem, basically it is power up/down
+> reset, clock have not serialized.
 > 
+> Can you help summery to cut message shorter end emphase most important
+> part?
 
-Agree, without the sync, the dirty data may overwrites the trace data.
+Thanks for the review. Your summary is right: the power up/down reset
+and clock sequences of the sibling VPU domains are not serialized
+against each other.
 
-> Add a sync_for_device() buffer operation and call it from
-> __tmc_etr_enable_hw() just before the TMC is enabled.  Only the flat
-> buffer implements it.  The ETR_SG and CATU data pages are synced by
-> dma_map_page() when they are allocated; their remaining corner case, a
-> barrier packet followed by a live-drain re-arm, is left for a separate
-> change.
-> 
-> Tested on an AD1000 EVB: five first windows on freshly allocated
-> buffers, including the first capture of a boot, all without the
-> previous all-zero-formatter-frame runs.
-> 
-> Signed-off-by: Min Chen <min.chen@siengine.com>
-> ---
->   .../hwtracing/coresight/coresight-tmc-etr.c   | 29 +++++++++++++++++++
->   drivers/hwtracing/coresight/coresight-tmc.h   |  1 +
->   2 files changed, 30 insertions(+)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> index 76a8cb2..bf1d6c6 100644
-> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> @@ -689,10 +689,29 @@ static ssize_t tmc_etr_get_data_flat_buf(struct etr_buf *etr_buf,
->   	return len;
->   }
->   
-> +/*
-> + * tmc_etr_sync_flat_buf_for_device: Drop any CPU cache lines over the trace
-> + * buffer before the ETR is allowed to write into it.  The buffer is allocated
-> + * with dma_alloc_noncoherent(), which zeroes it with CPU stores, and the DMA
-> + * API requires a sync for the device before the device writes into the
-> + * memory.  Without it a non-coherent sink writes into memory while the zero
-> + * fill is still dirty in cache, and the write-back lands on top of the trace
-> + * data.
-> + */
-> +static void tmc_etr_sync_flat_buf_for_device(struct etr_buf *etr_buf)
-> +{
-> +	struct etr_flat_buf *flat_buf = etr_buf->private;
-> +	struct device *real_dev = flat_buf->dev->parent;
-> +
-> +	dma_sync_single_for_device(real_dev, flat_buf->daddr, etr_buf->size,
-> +				   DMA_FROM_DEVICE);
-> +}
-> +
->   static const struct etr_buf_operations etr_flat_buf_ops = {
->   	.alloc = tmc_etr_alloc_flat_buf,
->   	.free = tmc_etr_free_flat_buf,
->   	.sync = tmc_etr_sync_flat_buf,
-> +	.sync_for_device = tmc_etr_sync_flat_buf_for_device,
->   	.get_data = tmc_etr_get_data_flat_buf,
->   };
->   
-> @@ -1113,6 +1132,16 @@ static int __tmc_etr_enable_hw(struct tmc_drvdata *drvdata)
->   	writel_relaxed(ffcr, drvdata->base + TMC_FFCR);
->   
->   	writel_relaxed(drvdata->trigger_cntr, drvdata->base + TMC_TRG);
-> +
-> +	/*
-> +	 * Hand the buffer over in a state the device can write into: drop
-> +	 * any dirty CPU cache lines first, or they get written back over
-> +	 * the trace data the ETR produces.  Only the flat buffer needs
-> +	 * this; the ETR_SG and CATU data pages are synced by
-> +	 * dma_map_page() when they are allocated.
-> +	 */
-> +	if (etr_buf->ops->sync_for_device)
-> +		etr_buf->ops->sync_for_device(etr_buf);
+Below is the shortened commit message. Does it look acceptable to you?
 
-Can we add a condition to perform the synchronization only when flat_buf 
-mode is enabled, instead of introducing a new operation that is required 
-only for flat_buf mode?
+On i.MX8MP the VPU blk-ctrl exposes G1, G2 and VC8000E as three separate
+genpds, each serialized only by its own genpd lock, so their power_on
+and power_off callbacks can run concurrently on SMP.
 
-if (etr_buf->mode == ETR_MODE_FLAT)
-	tmc_etr_sync_flat_buf_for_device(etr_buf);
+The sequences are not independent: they share the VPUMIX bus domain, the
+VPU_NOC and the ADB400 handshake. On power up the GPC cannot ack-verify
+the ADB400 handshake - the ack only completes once blk-ctrl sets the bus
+clk-en bit - so it just waits a fixed delay instead of polling hskack. A
+sibling transition landing inside another domain's reset window disturbs
+that shared clock and handshake timing, the victim's reset does not take
+effect, and its block registers read back all zeros: the decoder times
+out or the encoder fails its format check.
+
+Serialize the blk-ctrl reset sequence with a per-blk-ctrl mutex; the
+driver deliberately avoids a genpd hierarchy, so the genpd core gives no
+cross-sibling serialization.
+
 
 Thanks,
-Jie
+Ming
 
->   	tmc_enable_hw(drvdata);
->   
->   	CS_LOCK(drvdata->base);
-> diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
-> index 6541a27..3dd17da 100644
-> --- a/drivers/hwtracing/coresight/coresight-tmc.h
-> +++ b/drivers/hwtracing/coresight/coresight-tmc.h
-> @@ -277,6 +277,7 @@ struct etr_buf_operations {
->   	int (*alloc)(struct tmc_drvdata *drvdata, struct etr_buf *etr_buf,
->   		     int node, void **pages);
->   	void (*sync)(struct etr_buf *etr_buf, u64 rrp, u64 rwp);
-> +	void (*sync_for_device)(struct etr_buf *etr_buf);
->   	ssize_t (*get_data)(struct etr_buf *etr_buf, u64 offset, size_t len,
->   			    char **bufpp);
->   	void (*free)(struct etr_buf *etr_buf);
-
+> 
+> Frank
+> 
+>>
+>> Fixes: a1a5f15f7f6c ("soc: imx: imx8m-blk-ctrl: add i.MX8MP VPU blk ctrl")
+>> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+>> ---
+>> Reproduced on i.MX8MP with an Android 6.18 kernel: running an H.264
+>> decode and an H.264 encode concurrently hits the failure within one to
+>> two hours. A VPU comes up stuck in reset, its block registers read back
+>> all zeros, and the decoder times out or the encoder fails its format
+>> check.
+>>
+>> With this patch applied the same test ran overnight, over 14 hours,
+>> without a single occurrence.
+>> ---
+>>   drivers/pmdomain/imx/imx8m-blk-ctrl.c | 15 +++++++++++++++
+>>   1 file changed, 15 insertions(+)
+>>
+>> diff --git a/drivers/pmdomain/imx/imx8m-blk-ctrl.c b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
+>> index 479789009c7f..f8105e87ea3c 100644
+>> --- a/drivers/pmdomain/imx/imx8m-blk-ctrl.c
+>> +++ b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
+>> @@ -15,6 +15,7 @@
+>>   #include <linux/pm_runtime.h>
+>>   #include <linux/regmap.h>
+>>   #include <linux/clk.h>
+>> +#include <linux/mutex.h>
+>>
+>>   #include <dt-bindings/power/imx8mm-power.h>
+>>   #include <dt-bindings/power/imx8mn-power.h>
+>> @@ -34,6 +35,12 @@ struct imx8m_blk_ctrl {
+>>   	struct regmap *regmap;
+>>   	struct imx8m_blk_ctrl_domain *domains;
+>>   	struct genpd_onecell_data onecell_data;
+>> +	/*
+>> +	 * Serializes the blk-ctrl reset/clock sequence across sibling domains;
+>> +	 * their transitions interact through the shared VPUMIX bus domain,
+>> +	 * VPU_NOC and the not-ack-verified ADB400 handshake (ERR050531).
+>> +	 */
+>> +	struct mutex power_lock;
+>>   };
+>>
+>>   struct imx8m_blk_ctrl_domain_data {
+>> @@ -98,6 +105,8 @@ static int imx8m_blk_ctrl_power_on(struct generic_pm_domain *genpd)
+>>   	struct imx8m_blk_ctrl *bc = domain->bc;
+>>   	int ret;
+>>
+>> +	guard(mutex)(&bc->power_lock);
+>> +
+>>   	/* make sure bus domain is awake */
+>>   	ret = pm_runtime_get_sync(bc->bus_power_dev);
+>>   	if (ret < 0) {
+>> @@ -164,6 +173,8 @@ static int imx8m_blk_ctrl_power_off(struct generic_pm_domain *genpd)
+>>   	const struct imx8m_blk_ctrl_domain_data *data = domain->data;
+>>   	struct imx8m_blk_ctrl *bc = domain->bc;
+>>
+>> +	guard(mutex)(&bc->power_lock);
+>> +
+>>   	/* put devices into reset and disable clocks */
+>>   	if (data->mipi_phy_rst_mask)
+>>   		regmap_clear_bits(bc->regmap, BLK_MIPI_RESET_DIV, data->mipi_phy_rst_mask);
+>> @@ -202,6 +213,10 @@ static int imx8m_blk_ctrl_probe(struct platform_device *pdev)
+>>
+>>   	bc->dev = dev;
+>>
+>> +	ret = devm_mutex_init(dev, &bc->power_lock);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>>   	bc_data = of_device_get_match_data(dev);
+>>
+>>   	base = devm_platform_ioremap_resource(pdev, 0);
+>>
+>> ---
+>> base-commit: 6e30287eaf3e41b86dfb86df3b811526693d74b4
+>> change-id: 20260911-imx8mp-blk-ctrl-c46f26783073
+>>
+>>
 
