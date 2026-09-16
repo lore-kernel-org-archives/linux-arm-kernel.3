@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F358C88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 12:54:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64B3CC88E5C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 13:01:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=payEqoM1tt7cXO6DPJ23pvWYjxDt/TMkkk/2jV3eSmc=; b=uugTpD3wiJOx2B9/bQnaYEocx2
-	kUAwTJMXjwtqXVkMPpKKymPE0p4tLqvOPrqb8cKGkmYn0AZTwP7wQNQTVW96vMl/lVR5YXLfgEdea
-	q0gZ6Tp1+qFRLeYSJJuONkilcFXB6kPE2wSZgaCZzCUJlsH8aN31yw31t83Cs9I+1soL/3yYwZngx
-	52UlECqmxmMhZl5osU9I+yulxGx6n8/l8G7IC/kZ72jrjAUH3JQJZyV0mBQt59LZDC3xyDTCe4pgU
-	GnApTGhFXUzUy/ihD6Lz7LFK5lkPoVMW8e/1gxZp0uxu+1qlSXEQUsRb6rJLRe+ta+nnhYC3UOPNw
-	JKeT7rMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GadAe13GlwJprJiMN10++IkoLVf6ePl7KeCEDTlx6JU=; b=GMbo2m6PWD96fUzXw9hGXUUrwb
+	eRHRV41Bt512bbzGQHS/821yK0UAqGgA89QlR5JjWCWF0xevnc+rQfsmeZx7O2yOLsU9vEqNggAy+
+	VzPYoZylSQbpqZ0lXEfbB4MxFy92M4ofGSPq/87PcDSvdIinJiIkrnZe10JOeWAI0IuWDb6HL/+64
+	wCNmZHnfnnI3k2y1rneJv16/p4tA3oeQR3zK+aL3gWxJrEG9atGZS1p7cEC/epSxFfbwtUxPER9CM
+	T8bZJtrcSC0ul8FGrnpQMR6wIVHRXZs0yYMbzrqtKFabhrfta5pZsFQ483Mc1GGLrNbe2BTDjNR/d
+	M/rM0BRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6p98-00000009Cye-0Oc1;
-	Wed, 16 Sep 2026 12:53:54 +0000
-Received: from abb.hmeau.com ([180.181.231.80])
+	id 1x6pGW-00000009Dzm-3mnN;
+	Wed, 16 Sep 2026 13:01:32 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6p94-00000009CxJ-3dG1
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 12:53:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
-	from:content-type:reply-to; bh=payEqoM1tt7cXO6DPJ23pvWYjxDt/TMkkk/2jV3eSmc=; 
-	b=bA9oBbaR538zvmY75y7VkC3r6IzWRP51+euLRh29gg+M0XCrbcW+CiqSGe2bsQYeoEo0G3WweWB
-	zgWvCnFv3IHHoKGD15FI0HyMuDsfFHclEOg5Vnmj72t6Ece5z5Ny8GBZ0VGlLiCPGo8ALSnasUnO2
-	rboWcAFapExQQeII4/5XbQcj5nyM2YTX9WVUwkHAN9j2AWlujzFY/b6r9Otmz0amgYJsJA28+rZxy
-	BTDCSPu7EsDwtwRXGpACoUp5TYR9ep+CKt+x5Xhg8ijxt4fHNq2NiXYKKyptcey/hPVPt7PFbUs4+
-	aNygkQoLXABMQ4oTP2M6y9d3wGivE2hVtexw==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
-	id 1x6p8p-0000000EcYS-0e8d;
-	Wed, 16 Sep 2026 20:53:36 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Wed, 16 Sep 2026 22:53:35 +1000
-Date: Wed, 16 Sep 2026 22:53:35 +1000
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Hemanth Selam <hemanth.selam@gmail.com>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	George Cherian <gcherian@marvell.com>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	John Allen <john.allen@amd.com>,
-	Gilad Ben-Yossef <gilad@benyossef.com>,
-	Ayush Sawal <ayush.sawal@chelsio.com>,
-	Srujana Challa <schalla@marvell.com>,
-	Bharat Bhushan <bbhushan2@marvell.com>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Vladimir Zapolskiy <vz@mleia.com>, linux-kernel@vger.kernel.org,
-	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org, linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH] crypto: fix typos in comments
-Message-ID: <aqqRT6L16_qBpYuM@gondor.apana.org.au>
-References: <20260904114345.27509-1-hemanth.selam@gmail.com>
+	id 1x6pGU-00000009Dyv-0f81;
+	Wed, 16 Sep 2026 13:01:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1789563687;
+	bh=BfWXz0hTyEvZDYQuGgOzHryecYGfoukaVueR1V16vZY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=QK13jFgvAS8N5Ui3mQo1fEcCOEI31/YaZ3tSMEP+XqTpzZ5Tsb9ekWH9F8ZwIJZEi
+	 90rVcpKWXariDEcFJ5Yu1ThnnTUNBM+p0bcUZvqATr5zhIGDH2FQFlv+9FhKEc2cXs
+	 1WxHw45Egm5d/JRIm4imXp7H6n+/wVOZTxWgp/B93my9IHta6yYkhmoM4F5qRce6yB
+	 fRRPGi1U35uB+FwT1sK3ZPsudOIDEVFOzYThQG8DhXKVdQqv/Yox8MIac3lN+iJ6Jx
+	 Cqq4BIYvev7JgcTxRPudKu47L8pIcb6w9oNvfxOK03MGXbR5jS93RJDJE7jr0+Nx+4
+	 Mp98lkomBXUnA==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E07C717E087F;
+	Wed, 16 Sep 2026 15:01:26 +0200 (CEST)
+Message-ID: <2554743c-1eaf-4799-b64c-4a384f8ea353@collabora.com>
+Date: Wed, 16 Sep 2026 15:01:26 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260904114345.27509-1-hemanth.selam@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] dt-bindings: iio: adc: mediatek,mt2701-auxadc: add mt6572
+To: rva333@protonmail.com, Jonathan Cameron <jic23@kernel.org>,
+ David Lechner <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, Zhiyong Tao <zhiyong.tao@mediatek.com>
+Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20260916-6572-dt-auxadc-v1-1-e8190d614c33@protonmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20260916-6572-dt-auxadc-v1-1-e8190d614c33@protonmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_055350_997750_18E957F1 
-X-CRM114-Status: GOOD (  10.13  )
+X-CRM114-CacheID: sfid-20260916_060130_720882_8F4A50DD 
+X-CRM114-Status: GOOD (  13.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,32 +80,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 04, 2026 at 05:13:39PM +0530, Hemanth Selam wrote:
-> Fix typos in comments, reported by scripts/checkpatch.pl using the
-> misspelling list in scripts/spelling.txt.  Only touches comments, no code
-> changes.
+On 9/16/26 13:42, Roman Vivchar via B4 Relay wrote:
+> From: Roman Vivchar <rva333@protonmail.com>
 > 
-> Assisted-by: Cursor:claude-opus-5
-> Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
-> ---
->  drivers/crypto/atmel-sha.c                       |  4 ++--
->  drivers/crypto/cavium/cpt/cptpf_main.c           | 12 ++++++------
->  drivers/crypto/cavium/cpt/cptvf_main.c           |  4 ++--
->  drivers/crypto/cavium/cpt/cptvf_mbox.c           |  4 ++--
->  drivers/crypto/cavium/nitrox/nitrox_main.c       |  2 +-
->  drivers/crypto/ccp/ccp-dev.c                     |  2 +-
->  drivers/crypto/ccree/cc_buffer_mgr.c             |  4 ++--
->  drivers/crypto/chelsio/chcr_algo.c               |  2 +-
->  drivers/crypto/hisilicon/sec/sec_algs.c          |  2 +-
->  drivers/crypto/marvell/octeontx/otx_cptvf_mbox.c |  4 ++--
->  drivers/crypto/omap-sham.c                       |  4 ++--
->  drivers/crypto/qce/aead.c                        |  2 +-
->  drivers/crypto/s5p-sss.c                         |  2 +-
->  13 files changed, 24 insertions(+), 24 deletions(-)
+> Add a compatible string for the mt6572 AUXADC, that is compatible with
+> mt8173 IP.
+> 
+> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
 
-Patch applied.  Thanks.
--- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+
+> ---
+>   Documentation/devicetree/bindings/iio/adc/mediatek,mt2701-auxadc.yaml | 1 +
+>   1 file changed, 1 insertion(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/iio/adc/mediatek,mt2701-auxadc.yaml b/Documentation/devicetree/bindings/iio/adc/mediatek,mt2701-auxadc.yaml
+> index d9e825e5054f..750e1e837fb8 100644
+> --- a/Documentation/devicetree/bindings/iio/adc/mediatek,mt2701-auxadc.yaml
+> +++ b/Documentation/devicetree/bindings/iio/adc/mediatek,mt2701-auxadc.yaml
+> @@ -38,6 +38,7 @@ properties:
+>             - const: mediatek,mt7986-auxadc
+>         - items:
+>             - enum:
+> +              - mediatek,mt6572-auxadc
+>                 - mediatek,mt6893-auxadc
+>                 - mediatek,mt8183-auxadc
+>                 - mediatek,mt8186-auxadc
+> 
+> ---
+> base-commit: 8cd9520d35a6c38db6567e97dd93b1f11f185dc6
+> change-id: 20260814-6572-dt-auxadc-e6df20ab3248
+> 
+> Best regards,
+> --
+> Roman Vivchar <rva333@protonmail.com>
+
 
