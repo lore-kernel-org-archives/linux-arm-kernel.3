@@ -4,71 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B4DFC88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 07:07:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A8DAC982C1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 07:08:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gptmgwRgAWgj1S2nzX5zydzh84m6VfpFaBldhfF+Jg8=; b=frdpyIB96zqc+FnX2qE/xP01By
-	qg+XQ2KD1Y5UmMqBnU+Gk+pEmy32Y5UezJiAuFaqraH7a7NrFZSKOVxTdraOCJeBL55G/JKBLyaet
-	oPABAZJJR6Zu3kW9cH3TkZ8JKRxL+qlmNQoq/dLL/Ku1+NBUCe2b3RYUR9vP3oGDq8+RgRL2ctqMD
-	O1+fa50SyVFnUvn4ukhHWEvI54tp+dy7wGsjMqWUWgMf4j/FzLcC8/rEMddDAWWqMV7OgC8q9u700
-	wX8K4HzxXqpht+KSXbeGQwZRpsu8vovVVvi3Ryqtybn6m0b5XLg735kxBeiY2cJ4F7w4wgUGBYUMX
-	phZe+QSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iPPSs8t6HCHVvLUXUgpO1nMbCgpWJ+6yj0K1jackD7s=; b=GjuOl9l3fg4zAvMzRS3VrJpVq1
+	g8FSIZ9HXPTxaCh3FHRfsx1J/DKC9jpspA9r+r9IrtaFYj8zV9ti/OMXv5+v5VRH6JlqiWRbdZM1v
+	Xf7Vh1gqUxqLOSRcyzfE81O/P3wcePvmcKFQp+b7B4OcJMmiBpnUp/TEi7e030n6oH0uF1gZYCjyt
+	dLHJcTtZVTHJpuFQijCgoULTR+0ZcmFdg3rzL1njxrHyBz9HHVqXrgohjR7OjUdPWc8EGRtXV6AUK
+	e5iIk9dSxY+eHW0UuxXRUr8wMSUndxyw27S8VcLpthsGfPREeGcFXQe+nCcRHkkXoXmdI5h3yH+qV
+	GzDcE1vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6jjY-00000008YWD-2LYY;
-	Wed, 16 Sep 2026 07:07:08 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1x6jkm-00000008Yq5-42vO;
+	Wed, 16 Sep 2026 07:08:25 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6jjU-00000008YVD-0SXV
+	id 1x6jkl-00000008YpQ-1bn8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 07:07:07 +0000
-Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
-	by APP-03 (Coremail) with SMTP id rQCowAD3+TcUQKpqxeveBw--.65276S2;
-	Wed, 16 Sep 2026 15:07:00 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: alchark@gmail.com
-Cc: andi.shyti@kernel.org,
-	krzk@kernel.org,
+	Wed, 16 Sep 2026 07:08:23 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B8CEC41259;
+	Wed, 16 Sep 2026 07:08:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98EB31F00898;
+	Wed, 16 Sep 2026 07:08:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789542502;
+	bh=iPPSs8t6HCHVvLUXUgpO1nMbCgpWJ+6yj0K1jackD7s=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=YkY9epgZqkRRY9guKEgBDs7Lrde5h0502AJqdL3UjjLO4zAiKI+VCt5VduXcMAem3
+	 oqZ6jDg1cYkvxGBIDMn2widDGu+3Cbmy5bBn2ESdQcsU9I5qwg+mQ/sV4p/4aNiVCb
+	 f7+yEXm64vKGHUL6SNWMneQ5YkEZ+9TzVX2s295G/FF7oqJUGpWcfCj8uqzeUcUJNe
+	 KaAysJjArdWcETF2PGvOLrgKqqobWEobF9ySCIBHAjln4M/juXRQXFltsBctqWWBfU
+	 LwC+gjm5rEcD7Ee4qicj38SzW2ixE80V3baShhwOpG+ZSZWzdy/aZlEqQ1OinGeaU1
+	 ZAUW/CB7gEXNA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1x6jki-00000009Tp9-2nPE;
+	Wed, 16 Sep 2026 07:08:20 +0000
+Date: Wed, 16 Sep 2026 08:08:20 +0100
+Message-ID: <86ld9165cr.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+Cc: Wei-Lin Chang <weilin.chang@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-i2c@vger.kernel.org,
+	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	linux@prisktech.co.nz,
-	wsa@kernel.org,
-	Wentao Liang <vulab@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH 04/20] i2c: viai2c-wmt: Fix clock leak in wmt_i2c_probe()
-Date: Wed, 16 Sep 2026 07:06:31 +0000
-Message-Id: <20260916070631.1965713-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowAD3+TcUQKpqxeveBw--.65276S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7XryDKF17CrWrJF1ktF43Jrb_yoWktrbEkF
-	4DC3srZr17GFn5tw1UXr4av3yvkF4ku348Ka10yr4ayryUWwn3G3Wqv3s3ZrsrWw42gFyY
-	q3WjqFWfZw13ZjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUb3kFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_
-	Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
-	jxv20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVWxJVW8Jr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
-	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
-	67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
-	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
-	MIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIda
-	VFxhVjvjDU0xZFpf9x0JUKdgAUUUUU=
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiCRUMA2qqP4cDTwAAsn
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_000706_399861_F20C8D6C 
-X-CRM114-Status: GOOD (  10.78  )
+	Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Wang Han <wanghan@linux.alibaba.com>,
+	Shuai Xue <xueshuai@linux.alibaba.com>,
+	"Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Subject: Re: [PATCH v6 0/7] KVM: arm64: nv: Implement nested stage-2 reverse map
+In-Reply-To: <aqnUWp_VJXUCcJnQ@sm-arm-grace07>
+References: <20260915154305.3852871-1-weilin.chang@arm.com>
+	<aqm9hXB6X9IQ8wHz@sm-arm-grace07>
+	<m6ldbr7hdafmoycx7xjcbsg62mblcakcu52ndowwzqgxdjb3q3@huv4i5bfxtza>
+	<aqnUWp_VJXUCcJnQ@sm-arm-grace07>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: itaru.kitayama@fujitsu.com, weilin.chang@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, wanghan@linux.alibaba.com, xueshuai@linux.alibaba.com, ljs@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,35 +97,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In wmt_i2c_probe(), i2c->clk is acquired using of_clk_get(). If any
-subsequent operation fails or when the module is unloaded, the clock
-reference count is never decremented via clk_put(), leading to a
-resource leak.
+On Wed, 16 Sep 2026 00:27:22 +0100,
+Itaru Kitayama <itaru.kitayama@fujitsu.com> wrote:
+> 
+> On Wed, Sep 16, 2026 at 12:22:30AM +0100, Wei-Lin Chang wrote:
+> > On Wed, Sep 16, 2026 at 06:49:57AM +0900, Itaru Kitayama wrote:
+> > > On Tue, Sep 15, 2026 at 04:42:58PM +0100, Wei-Lin Chang wrote:
+> > > > Hi,
+> > > > 
+> > > > This is v6 of optimizing the shadow s2 mmu unmapping during MMU
+> > > > notifiers.
+> > > > 
+> > > > This version fixes a few issues, and adds Marc's space optimization
+> > > > for kvm_guest_s2_mapping [1]. Please see the changelog for the details.
+> > > > 
+> > > > Tested by booting L3, and running in-kernel targetted tests described
+> > > > in [2]. v5 got some tested-by's from Itaru and Wang (thanks), I didn't
+> > > > carry them over since some bugs fixed in v6 are non-obvious. Some
+> > > > retest would be much appreciated!
+> > > 
+> > > How did you boot into L3, with KVM selftest or recrusively boot on HW?
+> > 
+> > I just recrusively booted VMs on hardware. :)
+> 
+> Good. Then I actually tried that on Grace CPUs, but letting L1 boot 
+> with nested mode did not print "VHE+NV2" KVM init log in dmesg, thus not
+> able to boot L3. Do I need to add other than kvm.arm-mode=nested to command line?
 
-Switch to devm_clk_get() so that the clock is automatically managed
-and released.
+kvm-arm.mode=nested, as documented. That also puts in perspective your
+TB tag on the whole series...
 
-Fixes: 560746eb79d3 ("i2c: vt8500: Add support for I2C bus on Wondermedia SoCs")
-Cc: stable@vger.kernel.org
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
----
- drivers/i2c/busses/i2c-viai2c-wmt.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+	M.
 
-diff --git a/drivers/i2c/busses/i2c-viai2c-wmt.c b/drivers/i2c/busses/i2c-viai2c-wmt.c
-index 2cf3cc0165fb..74ca93b44347 100644
---- a/drivers/i2c/busses/i2c-viai2c-wmt.c
-+++ b/drivers/i2c/busses/i2c-viai2c-wmt.c
-@@ -117,7 +117,7 @@ static int wmt_i2c_probe(struct platform_device *pdev)
- 		return dev_err_probe(&pdev->dev, err,
- 				"failed to request irq %i\n", i2c->irq);
- 
--	i2c->clk = of_clk_get(np, 0);
-+	i2c->clk = devm_clk_get(&pdev->dev, NULL);
- 	if (IS_ERR(i2c->clk))
- 		return dev_err_probe(&pdev->dev, PTR_ERR(i2c->clk),
- 				     "unable to request clock\n");
+
 -- 
-2.34.1
-
+Without deviation from the norm, progress is not possible.
 
