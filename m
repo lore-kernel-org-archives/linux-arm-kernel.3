@@ -4,90 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B673C88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 10:35:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 939F4C88E7F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Sep 2026 10:37:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t3FEA+oyST18v1zQTtRjBsrs8LKBIAI2sSiAsUdrn1Q=; b=RaVmEnVTP3GmtVyHzzGGfF8NWo
-	3YHgzaQIB6pBrw0e6W933TpPsYwB/PmfrS0DHJQGuLGSiIK0DzwstY4lEbtCcDitYrj+ZlWeJ/q0s
-	4x/+LEs4WWHS8zf2jRTFv/l5ZP/UaAcL3pbnxMr6YTuh6/Lrq5j5qVp/B3JuuCK/VCfLnZbAsVpQ/
-	mqo1RnR4jATTyAYdd0Q/akswZLaGMiO9jwGvwZR+53G/4eHXydr7QNyT73Yix0XUOEZamxp78dR9w
-	7HgBdhB3WlCpCRDHlnNM8qjWsiD8kASAbLSvOPCSaeFYiHIrEPern2MoDYxnJ3/GGFvb+JsOfPHod
-	BX5C3E3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XKci5+csun7MDLLcGkBrE9e7KB8BbabndTKcg+DB8r8=; b=kaj5jBL1/YCTLSmbskJPmzUEwb
+	D2fsPaTG5qahobWk5K0AIjlOaZb8zrmOdfAqE7sa9Wgvd/aYqAvwvNXASl7njXrVRic6skKPnuTWD
+	o+WweW8wYmNGhIgnF7n7dldjFlS989MtplUj3Edfrr4JXADZaMGaPF1e4UpWDUeQxnis39OYw8Tnf
+	8bBcJmowlfkXAYiIBo3yTWqo+331/gQ/TScUYTGh3wh1pAusR0bQ3z0dgBofs0aMu73cfRRFYK1h1
+	3fbMsqv/fj0CdPoxa8BGaU1y8qFIO+2GSg7aVeVThGIS7u/V/QwHEH2rhmMQTKCHb4ixmBSGwBL9v
+	o+S4DkqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6mv2-00000008yis-2Uff;
-	Wed, 16 Sep 2026 10:31:12 +0000
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	id 1x6n1N-00000008zLc-2wS6;
+	Wed, 16 Sep 2026 10:37:45 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6muz-00000008yhu-2L2K
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Sep 2026 10:31:11 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49b912e4ad9so4030045e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 03:31:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ffroot-co-za.20251104.gappssmtp.com; s=20251104; t=1789554666; x=1790159466; darn=lists.infradead.org;
-        h=content-type:mime-version:message-id:date:user-agent:references
-         :in-reply-to:subject:cc:to:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=t3FEA+oyST18v1zQTtRjBsrs8LKBIAI2sSiAsUdrn1Q=;
-        b=cqdWoCvRgTKRyo8eMHLGeYWz4cP4MnYf898Ob3OIrwfSeYf2h1wL6cC2VXVwmBJgdj
-         o7KhCaj+31pmb0i4X23FVNMpTs3HH1us26Ldf/hAZWUdSRkQlVcWQRQePgvauzuacXVt
-         88xQJEL9Cffiqp0fdOcf+X0wXvmb/QCCzbVS61irBMfMfD/GHoI3SVVAInErscg+xxQY
-         Klanhc3wbgX7zwl0E8KvcXVqDoFMUjw4vf0SR/1Y+T7OtcY2JQSNNX7bB0dOHHG2/Fwt
-         AykvqVZOUvqlhs9QLqmmHUHkt2v3byveKEa2amQcn02ieZ8Eetp2/smTar7LTF8AQNzZ
-         v6MA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789554666; x=1790159466;
-        h=content-type:mime-version:message-id:date:user-agent:references
-         :in-reply-to:subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=t3FEA+oyST18v1zQTtRjBsrs8LKBIAI2sSiAsUdrn1Q=;
-        b=FXa/Laiqpot56wWVBjSLKUxlC0y5SLahBqf349y8Rb1i4mQNJDXuYG1JYjfzvTt7bX
-         kMByHBh/YYtPT0ZufI8Qd8Kcf3IY7xEoIo9jf7asBUQH/7RMfQuZbHEMDpJxrz5AMmRc
-         x3NLom8HcKie+4/Ld80eWhaCCIwvG+PACcLpRhNo9QK4YQUFiJFtoKznrCPMzUp+t8cO
-         LmOMawZ7+9vckNAtg9QFWyWrJ5H3w8uVFnU4S4YAPLrWbMsao+63fn2CpLTMc0whodTP
-         2kpmCwl8+fcpQ9ZbyuZk4cEBAYQoJn4/55oSxGzmzMTwZHbbnGp5nkQAGiePcCq7EMll
-         RqRw==
-X-Forwarded-Encrypted: i=1; AKwUvBx7AqxfhC+dbRf5go/qwneicEyq+csfMQXc2qyvgTc+P0dpsZXg7xtBNB6NcGxDgvlbNUU0GL8AFWtDhSTQMcEx@lists.infradead.org
-X-Gm-Message-State: AFuF++lNaRGfzg3IVqSSakYvyrJ0Cdn99RlapmiUSA4c1NwibQlPDy4p
-	TIOiHWWBs/avRLF5dSCdI2EnUD39smfWiIg9kXSUMzWqz7fYmFW3hrbAmcK7Xn2z8Zs=
-X-Gm-Gg: AYBFou3r9CMGaPJCS8XmiZDFUxLow1Q+Sg8cA26gYqoRbQ51Tie4e0/LyJMbxXnnfUB
-	Q2PWDvvYjCePPS/EBnqajVLCPesrzvFFckUqd6OrLAmguf+K5iiTSHSGunGaHTorABHwdBdSAxA
-	zSOnNYqFpEEJmKvyCUmN6J06lCfkI3zeCW6YHb95ou9yN3mjbO7VJ17MWBUZvLEHHsbETtsyz4M
-	Tbvxrdh4Jtw2B+h/49iB0T4AXMXaUKNxlPwPdkvOge4tVQzrKD3h2uCD6s+sk4jczHky8R57ccp
-	HobRCAcvtXzo83w7q1H5olHHAU6zg9rYP9qxwt43/3fWo+ot29Cp2uDTbp/+gCD8MY8ZJuPRXHh
-	5m23NkAoK3HzZgf41OtcWoHFsgqlMWooH5V17fNSQk9BrrggiLzP692eYn48/j8k4fX6t53GxCO
-	JjDJw3p275BHPhQtISOUBgRsYSDsbMzn0cu/FpqDyxt2KmSvcsH+zoRzgVzQ4bJ2X03hvDjjOSo
-	Kod/fte5ejL+g0=
-X-Received: by 2002:a05:600c:3492:b0:49e:7c4b:1753 with SMTP id 5b1f17b1804b1-49eb72fb6c2mr20631655e9.12.1789554665907;
-        Wed, 16 Sep 2026 03:31:05 -0700 (PDT)
-Received: from dev-ag ([102.33.165.38])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e83dbb0c1sm71813665e9.14.2026.09.16.03.31.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Sep 2026 03:31:05 -0700 (PDT)
-From: Andrew Gaylard <ag@ffroot.co.za>
-To: Julian Braha <julianbraha@gmail.com>
-Cc: linux@armlinux.org.uk,  dvorkin@tibbo.com,  wellslutw@gmail.com,
-  linusw@kernel.org,  arnd@arndb.de,  afd@ti.com,  aaro.koskinen@iki.fi,
-  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org,
-  linux-gpio@vger.kernel.org
-Subject: Re: [PATCH] pinctrl: fix PINCTRL_SPPCTL=m
-In-Reply-To: <20260904121825.43320-1-julianbraha@gmail.com> (Julian Braha's
-	message of "Fri, 4 Sep 2026 13:18:25 +0100")
-References: <20260904121825.43320-1-julianbraha@gmail.com>
-User-Agent: mu4e 1.12.14; emacs 30.2
-Date: Wed, 16 Sep 2026 12:31:00 +0200
-Message-ID: <sa6fqz9ij2z.fsf@dev-ag>
+	id 1x6n1K-00000008zL7-3NbY;
+	Wed, 16 Sep 2026 10:37:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1789555059;
+	bh=D9FLIJZO8QSfHmJQ7HJ1vUHDWHscdlD8COtFiTPpb5o=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=CKukPzsqZFLhoiLDPwPA9YYkGO1+KUamch3lJpo6XwsbdDjPNBdj5kzrkzxa4vlZa
+	 JbySdpvggr3o1DJLKa5wAcBZnDXAbWLhPYiEk9EsLQoZvJaXF6rA18VpXWn8+xWTKf
+	 s/dkw24GqK/8lTLscTVSVlvIuZMl0qzqBiiyWZKsAQ8FHuAYbF0VjATEJKkOO38WN2
+	 ETRK5CP1WFZ2RuGHVv4tEsiqzP42n32iIXfYeMJL7p4SvRPIytUR0Iy5ICgXPH2wMP
+	 YIuHjUuRSvJdqYWvx1y5REgIdDfb1eYFirByg67LR+mQZzwaNHCwQYPlmAHQjPaVeD
+	 VoDLj5YPWp0UA==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id EC3D317E0420;
+	Wed, 16 Sep 2026 12:37:38 +0200 (CEST)
+Message-ID: <e7d5b410-8a0c-4add-b4c5-9e9573fa9c68@collabora.com>
+Date: Wed, 16 Sep 2026 12:37:38 +0200
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] spmi: mtk-pmif: Add workaround for FSM lockup/error in
+ read operation
+To: sboyd@kernel.org
+Cc: matthias.bgg@gmail.com, justin.yeh@mediatek.com,
+ gregkh@linuxfoundation.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ kernel@collabora.com
+References: <20260701121908.19327-1-angelogioacchino.delregno@collabora.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20260701121908.19327-1-angelogioacchino.delregno@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_033109_878976_BC852640 
-X-CRM114-Status: GOOD (  14.25  )
+X-CRM114-CacheID: sfid-20260916_033742_997784_BB37F33E 
+X-CRM114-Status: GOOD (  32.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,26 +77,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Julian Braha <julianbraha@gmail.com> writes:
+On 7/1/26 14:19, AngeloGioacchino Del Regno wrote:
+> The SPMI PMIF in some SoCs like MT8196 is affected by a hardware
+> issue that makes the first read operation on each SID to fail as
+> the FSM locks up after sending the read command, and this happens
+> at least in the following conditions:
+>   - At boot, after bootloader handoff; and
+>   - At every suspend->resume cycle.
+> 
+> This critical bug may produce unwanted issues in regulator drivers
+> which may fail to set voltages, making the platform to end up in a
+> undervoltage or, a bit more critically, an overvoltage condition,
+> producing instability or ... worse.
+> 
+> In order to work around this issue, add a retry mechanism into the
+> pmif_spmi_read_cmd() callback which will resend the read command
+> up to 3 times in the following conditions:
+>   - Software Interface returns an error; or
+>   - Software Interface never gets in WFVLDCLR state.
+> 
+> As to avoid uselessly blocking for too much time, only during the
+> read-retry loop, the maximum SWINF polling time for each trial is
+> reduced to PMIF_TIMEOUT_US / 2: this was tested on multiple SoCs
+> and seems to always be enough, as when any read succeeds it will
+> always take less than 40ms.
+> In any case, this is still allowing 1.5 times the previous maximum
+> polling time, reaching a total maximum (for 3 retries) of 150ms.
+> 
+> Worst case testing that I performed saw a third retry only 3 times
+> out of ~100 reboots.
+> 
+> Fixes: 1f5be2d7f743 ("spmi: mtk-pmif: Add support for MT8196 SPMI Controller")
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-> The PINCTRL_SPPCTL option is defined as a tristate in Kconfig, and the
-> help text suggests that the user can build it as a module by setting to
-> 'm'.
-[...]
-> Note that I have only compile-tested this change, since I do not have the
-> hardware to runtime-test it. Please advise if it would be better to change
-> PINCTRL_SPPCTL to 'bool' and remove the help text suggesting that it can
-> be set to 'm'.
+This is a *fix*, and has been waiting for 2.5 months.
 
-Hi Julian,
+Can anyone please apply it?
 
-I've tested this on real hardware, and it fails to boot.  I don't think
-it makes sense for this to be a module, since most of the devices in
-this SoC are pin-mappable and need muxing to be configured before they
-can be probed.
+Thanks,
+Angelo
 
-Let's rather fix this by making it a bool.  I'll send a patch shortly.
-
--- 
-Andrew
+> ---
+>   drivers/spmi/spmi-mtk-pmif.c | 38 +++++++++++++++++++++++++++---------
+>   1 file changed, 29 insertions(+), 9 deletions(-)
+> 
+> diff --git a/drivers/spmi/spmi-mtk-pmif.c b/drivers/spmi/spmi-mtk-pmif.c
+> index 1048420b5afb..61c916edaec4 100644
+> --- a/drivers/spmi/spmi-mtk-pmif.c
+> +++ b/drivers/spmi/spmi-mtk-pmif.c
+> @@ -21,6 +21,7 @@
+>   #define SWINF_WFVLDCLR	0x06
+>   
+>   #define GET_SWINF(x)	(((x) >> 1) & 0x7)
+> +#define GET_SWINFERR(x) (((x) >> 18) & 0x1)
+>   
+>   #define PMIF_CMD_REG_0		0
+>   #define PMIF_CMD_REG		1
+> @@ -349,6 +350,7 @@ static int pmif_spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+>   	struct pmif *arb = to_mtk_pmif(ctrl);
+>   	struct ch_reg *inf_reg;
+>   	int ret;
+> +	u8 retry = 0;
+>   	u32 data, cmd;
+>   	unsigned long flags;
+>   
+> @@ -385,17 +387,35 @@ static int pmif_spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+>   		return ret;
+>   	}
+>   
+> -	/* Send the command. */
+>   	cmd = (opc << 30) | (sid << 24) | ((len - 1) << 16) | addr;
+> -	pmif_writel(arb, pbus, cmd, inf_reg->ch_send);
+> +	do {
+> +		/* Send the command. */
+> +		pmif_writel(arb, pbus, cmd, inf_reg->ch_send);
+> +
+> +		/*
+> +		 * Wait for Software Interface FSM state to be WFVLDCLR or to
+> +		 * return an error.
+> +		 *
+> +		 * If this is WFVLDCLR, read the data and clear the valid flag;
+> +		 * If error or timeout, retry for a maximum of 3 times as a
+> +		 * workaround for an hardware issue.
+> +		 */
+> +		ret = readl_poll_timeout_atomic(pbus->base + arb->data->regs[inf_reg->ch_sta],
+> +						data,
+> +						GET_SWINF(data) == SWINF_WFVLDCLR ||
+> +						GET_SWINFERR(data),
+> +						PMIF_DELAY_US, PMIF_TIMEOUT_US / 2);
+> +		if (ret < 0)
+> +			continue;
+> +
+> +		if (GET_SWINFERR(data)) {
+> +			ret = -EIO;
+> +			continue;
+> +		}
+> +
+> +		break;
+> +	} while (++retry < 3);
+>   
+> -	/*
+> -	 * Wait for Software Interface FSM state to be WFVLDCLR,
+> -	 * read the data and clear the valid flag.
+> -	 */
+> -	ret = readl_poll_timeout_atomic(pbus->base + arb->data->regs[inf_reg->ch_sta],
+> -					data, GET_SWINF(data) == SWINF_WFVLDCLR,
+> -					PMIF_DELAY_US, PMIF_TIMEOUT_US);
+>   	if (ret < 0) {
+>   		raw_spin_unlock_irqrestore(&pbus->lock, flags);
+>   		dev_err(&ctrl->dev, "failed to wait for SWINF_WFVLDCLR\n");
 
