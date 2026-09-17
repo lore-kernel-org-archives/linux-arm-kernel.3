@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3D4AC982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 18:38:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15FB5C982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 18:38:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yxebnu98m4tIYnDFX7Ssph7AnvZbMmHlUSJWYuXN+jw=; b=dKtlyiNBDKx2ZHOMpjhWRsDcs9
-	Z1Sig5S8kHsy+BNQL+y3TJKsJSynSZnorp+lf1PCdHqT3fql7p+ESCb6CBbKq+LXWXjA87HE7y7di
-	Eo8tsrjS0wEfIJUcGZrp8YxyQAzFAlsIdtAWPzcotVUSg3o+THRWYEOsJHwLbFLSQ3LJ44b/m2XPf
-	GP+qE9gQ2v/zc99CR4x8wH9WwELrXF8LjiGAinqksJDfRhOli+oMcixcGKwQr5JllRA1rxht30WsR
-	DB7NB81T5mU7uU2Gl4lU03DPP7QJSFrfTUg7MffUEAXNMUHrmowMfNiWioV4rxHPBRPyYNMhkCEfg
-	Yo2wognQ==;
+	bh=zf1kCUu8WM4L383+s6LUcW/esuJTLzipcrstdCcOVKA=; b=cqk2zH2wNk4XOUyB27vZeLBkTy
+	S4T2AVMEKtZ4jLTmhplidkaFOxJvmGZCXgjn8JRuPfne3c11bu5/H+bo/nF3K58y7c8lwLfEYPZCo
+	sqd65LU7JmFwqzyGqJDL8SlcF/g1ad7OTBrTOJ1WjHLzu1zPtFKQofNbxTQp9L2QG7Q1xeru32/QG
+	Czs2JLyhjWx7/IcCiVEd9IWEUk+tW2TVFy+uxln58vRf/OGhHBglhcBRxpvzqDwrW722yxagh1zXl
+	bcqpVUshYRMUV6cK0RS6/iHQQpGJCxZScjRDXxrYWoAJlQFbCv2mC1k/LfZbWEfgBS52NzVBHDps4
+	/XI5NeCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Gzw-0000000CFGh-0SV2;
-	Thu, 17 Sep 2026 18:38:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x7H07-0000000CFMS-1Ukr;
+	Thu, 17 Sep 2026 18:38:27 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Gzq-0000000CFEk-3wYr;
-	Thu, 17 Sep 2026 18:38:11 +0000
+	id 1x7Gzu-0000000CFG1-2n6j;
+	Thu, 17 Sep 2026 18:38:14 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C194E600D4;
-	Thu, 17 Sep 2026 18:38:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E79FA1F00893;
-	Thu, 17 Sep 2026 18:38:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BDEEC6053B;
+	Thu, 17 Sep 2026 18:38:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14C461F00893;
+	Thu, 17 Sep 2026 18:38:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789670289;
-	bh=yxebnu98m4tIYnDFX7Ssph7AnvZbMmHlUSJWYuXN+jw=;
+	s=k20260515; t=1789670293;
+	bh=zf1kCUu8WM4L383+s6LUcW/esuJTLzipcrstdCcOVKA=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Z8ljo9ih31/foT9aRUgqlAoM2YjYSBOuxI8gBJwP/Kq9cRZlpzVPz+gD8By6pVDH+
-	 phpLR//Njg7RPEsmD6K2vQ6twMkCjY/oM0yYOSr/uUBICYrgdWueJqYnSv62M/xEKf
-	 2j8nOmAdcmOqfSmltzjZr2nGOfjCSGAD5s0Nd32+qIqMJC04ZeFa5IrdmPISufInEQ
-	 edztpctqu8vcDcmAothpwmvpXhGM9hWOvP7mqNSEegRXyWsdE7vefFFyj8IWg0uNeA
-	 Zdlsm87M79WfTxgPovHPiL7XOfCOvfGKBGBNjavhQWeF9ijBNG7YO55T9EcSKl64y7
-	 hkd/CpZs4UEDw==
-Subject: Re: [PATCH net-next v6 02/11] dt-bindings: phy: rockchip:
- naneng-combphy: add rockchip,sgmii-mac-sel property
+	b=hhTSq03iQ6zoXwR+lFp9B+FXwhS0dIOeXGbEXOWMBs/CNKPCppfi1QtjswRE53GWN
+	 h/uHSXBfV6IikDxZFYH8r8ZjaKwVNhQDGxAB1SM+zISsFK9jDzRQzI9ZttyfLq87u/
+	 nQ/LewJ9rby5oxBwUpDul8rm1bzMEI0myliNMGS9mkcmVGjxo6hP3jfc8GaxCze6qI
+	 tZ5SY4YgLK/7Ls1epXeLpxVxInifmWRTp3nyWKUma1XpGJSIfuEwp61mo8S/EBrNhd
+	 q0oHpNzI4mOl6ArkcPORR1TthO7EUbpdH+Ti8vU3AqwpSkhO1gyrVQKnOwSJqw8i+Y
+	 0GDIvGNrX0bPw==
+Subject: Re: [PATCH net-next v6 04/11] dt-bindings: net: pcs: add
+ rockchip,rk3568-xpcs support
 From: netdev-bot+sashiko@kernel.org
 To: coiaprant@gmail.com
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
@@ -56,11 +56,11 @@ Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
  linux-stm32@st-md-mailman.stormreply.com, linux-renesas-soc@vger.kernel.org
-Date: Thu, 17 Sep 2026 18:38:07 +0000
-Message-ID: <178967028750.22033.16679846848252928482@kernel.org>
-In-Reply-To: <20260915123802.1561724-3-coiaprant@gmail.com>
-References: <20260915123802.1561724-3-coiaprant@gmail.com>
-X-sashiko-severity: Low
+Date: Thu, 17 Sep 2026 18:38:11 +0000
+Message-ID: <178967029166.22033.17008867040431994896@kernel.org>
+In-Reply-To: <20260915123802.1561724-5-coiaprant@gmail.com>
+References: <20260915123802.1561724-5-coiaprant@gmail.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
@@ -78,66 +78,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 1 potential
+Thank you for your contribution! Sashiko AI review found 3 potential
 issue(s) to consider:
 
-Critical: 0 · High: 0 · Medium: 0 · Low: 1
+Critical: 0 · High: 0 · Medium: 1 · Low: 2
 
-- [Low] Concern (verified FALSE POSITIVE, retained only per validation
-  policy): the binding was said to document `rockchip,sgmii-mac-sel`…
+- [Medium] The 'required:' list of the new schema mandates 'phys' and
+  'phy-names', but the SoC-level node added by the companion patch…
+- [Low] Concern: the binding invents a per-port child-node ABI
+  ('ethernet-pcs-mii@[0-3]') and mandatory property set that no in-tree…
+- [Low] Concern: the binding omits 'resets'/'reset-names' (RK3568 CRU
+  exposes SRST_XPCS, SRST_XPCS_TX_DIV10, SRST_XPCS_RX_DIV10,…
 
 --
 
-dt-bindings: phy: rockchip: naneng-combphy: add rockchip,sgmii-mac-sel property
+dt-bindings: net: pcs: add rockchip,rk3568-xpcs support
 
-This adds an optional uint32 property rockchip,sgmii-mac-sel to the
-naneng-combphy binding, gated so it is only accepted for
-rockchip,rk3568-naneng-combphy.  The value selects whether SGMII is routed
-to GMAC0 (0) or GMAC1 (1), with 1 documented as the hardware reset value.
+This adds a new YAML binding for the Synopsys DesignWare XPCS block
+integrated on the Rockchip RK3568 SoC.  The block is described as being
+accessed over APB3, fed by a Naneng Combo SerDes PHY, and exposing four
+MII ports as child nodes selected through pcs-handle from a MAC node.
 
-> diff --git a/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml b/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
-> index 379b08bd9e97a..8e898bce9af73 100644
-> --- a/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
-> +++ b/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
-> @@ -80,6 +80,15 @@ properties:
->      description:
->        Some additional pipe settings are accessed through GRF regs.
->  
-> +  rockchip,sgmii-mac-sel:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    enum: [0, 1]
-> +    default: 1
-> +    description:
-> +      Select gmac0 or gmac1 to be used as SGMII controller.
-> +      The hardware reset value is GMAC1 (1). Set this to 0 to route
-> +      SGMII to GMAC0.
+A few questions below, mostly about how the required property list lines
+up with the dtsi node added in the same series.
+
+> diff --git a/Documentation/devicetree/bindings/net/pcs/rockchip,rk3568-xpcs.yaml b/Documentation/devicetree/bindings/net/pcs/rockchip,rk3568-xpcs.yaml
+> new file mode 100644
+> index 0000000000000..703fcff0e3f70
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/net/pcs/rockchip,rk3568-xpcs.yaml
+> @@ -0,0 +1,110 @@
+
+[ ... ]
+
+> +  phys:
+> +    maxItems: 1
 > +
+> +  phy-names:
+> +    const: serdes
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +patternProperties:
+> +  "^ethernet-pcs-mii@[0-3]$":
+> +    type: object
+> +    description:
+> +      One of the four MII ports of the XPCS. The port is linked to an
+> +      Ethernet MAC controller via the pcs-handle property in the MAC's
+> +      device tree node.
 
 [Severity: Low]
-This isn't a bug, just a note on patch ordering for anyone reading this
-patch on its own: at this commit there is no in-tree consumer of
-rockchip,sgmii-mac-sel yet, so the new ABI looks inert here.
 
-Checking the rest of the series, the consumer does arrive immediately
-after in "phy: rockchip: naneng-combphy: add SGMII MAC selection for
-RK3568", which parses the property in rockchip_combphy_parse_dt():
+This isn't a bug, but as a standalone patch this per-port child node
+scheme documents an ABI that nothing in the tree consumes yet.  With the
+rest of the series applied it does line up:
 
-    priv->sgmii_mac_sel = 1;
-    device_property_read_u32(dev, "rockchip,sgmii-mac-sel", &priv->sgmii_mac_sel);
+drivers/net/pcs/pcs-xpcs-rk.c:xpcs_rk_create() {
+	if (of_property_read_u32(np, "reg", &port))
+		return ERR_PTR(-EINVAL);
+	...
+	pcs_np = of_get_parent(np);
+	...
+	if (!of_match_node(xpcs_rk_of_ids, pcs_np))
 
-and applies it in the PHY_TYPE_SGMII branch of rk3568_combphy_cfg():
+and the consumer side resolves the same node:
 
-    rockchip_combphy_param_write(priv->pipe_grf, &cfg->pipe_sgmii_mac_sel,
-                                 priv->sgmii_mac_sel > 0);
+drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c:rk_pcs_init() {
+	pcs_node = of_parse_phandle(np, "pcs-handle", 0);
+	...
+	xpcs = xpcs_rk_create(priv->device, pcs_node);
 
-with the RK3568 descriptor .pipe_sgmii_mac_sel = { 0x0040, 1, 1, 0x00, 0x01 },
-and the Photonicat DT patch then sets rockchip,sgmii-mac-sel = <0> on
-&combphy2.  So the GMAC0 routing does work at the end of the series and
-there is nothing to fix; would it be worth mentioning the driver patch in
-this commit message so the dependency is obvious when the binding is
-reviewed in isolation?
+Would it be worth mentioning in the changelog which patch in the series
+implements and consumes the ethernet-pcs-mii@N children, so the ABI is
+not read as unexercised?
 
-> [ ... ]
+> +
+> +    properties:
+> +      reg:
+> +        description: MII port number.
+> +        enum: [0, 1, 2, 3]
+> +
+> +    required:
+> +      - reg
+> +
+> +    additionalProperties: false
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - "#address-cells"
+> +  - "#size-cells"
+> +  - clocks
+> +  - clock-names
+> +  - phys
+> +  - phy-names
+> +  - power-domains
+
+[Severity: Medium]
+
+Does making phys and phy-names mandatory here conflict with the SoC node
+added by "arm64: dts: rockchip: rk3568: add XPCS and fixed-clock nodes"?
+
+arch/arm64/boot/dts/rockchip/rk3568.dtsi:
+
+	xpcs: ethernet-pcs@fda00000 {
+		compatible = "rockchip,rk3568-xpcs";
+		#address-cells = <1>;
+		#size-cells = <0>;
+		reg = <0x0 0xfda00000 0x0 0x200000>;
+		clocks = <&cru PCLK_XPCS>, <&cru CLK_XPCS_EEE>;
+		clock-names = "csr", "eee";
+		power-domains = <&power RK3568_PD_PIPE>;
+		status = "disabled";
+
+The SerDes link is only filled in at board level:
+
+arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts:
+
+	&xpcs {
+		phys = <&combphy2 PHY_TYPE_SGMII>;
+		phy-names = "serdes";
+		status = "okay";
+	};
+
+dt-validate checks disabled nodes too, so wouldn't make CHECK_DTBS=y
+report missing required properties phys and phy-names for the xpcs node
+on every rk3568 board dtb other than Photonicat?
+
+Should phys/phy-names be dropped from the required list (or gated), or
+should rk3568.dtsi carry them instead?
+
+> +
+> +additionalProperties: false
+
+[Severity: Low]
+
+This isn't a bug, but the RK3568 CRU exposes SRST_XPCS,
+SRST_XPCS_TX_DIV10, SRST_XPCS_RX_DIV10 and SRST_XPCS_XGXS_RX for this
+block, and the schema has no resets/reset-names, while
+additionalProperties: false forbids describing them.
+
+Nothing in the tree needs them today: git grep SRST_XPCS at the end of
+the series only matches include/dt-bindings/clock/rk3568-cru.h,
+drivers/net/pcs/pcs-xpcs-rk.c requests no reset control, and
+resynchronisation goes through the in-IP soft reset:
+
+drivers/net/pcs/pcs-xpcs.c:
+	static int xpcs_soft_reset(struct dw_xpcs *xpcs,
+				   const struct dw_xpcs_compat *compat)
+
+The power-cycle case is also avoided in the driver, which keeps PD_PIPE
+powered:
+
+drivers/net/pcs/pcs-xpcs-rk.c:xpcs_rk_serdes_phy_poweron() {
+	ret = dev_pm_genpd_rpm_always_on(dev, true);
+
+Adding optional resets later stays backward compatible, so this is only
+a suggestion: is it intentional to leave the CRU reset lines out of the
+binding?
+
+[ ... ]
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260915123802.1561724-1-coiaprant%40gmail.com
