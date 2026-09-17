@@ -4,137 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5482C982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 18:36:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 018A5C88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 18:38:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dG5hI+Cor1Em41kKpC9DR4Hn2/oROzRr0QAhmlT4EuM=; b=u3pIwG3iwqfOw9Qz0JImYSJUGy
-	JsInAL0yCbaGyvQd3ejTZCfcGGjb4Sa+b5LHgtm9eLwtjE0YeJrBi2imIJWNWoK2hkzxBXrLhrVYo
-	DTXl4dYyVSjA1oDLWTvwZILFeM810MbMCiqJ+NA3LSSE6qxTBjlEDKDecR5GwzjADaYsoFXHhVKEz
-	25ZydYhdL+bsY7CXHKA4XQa3MZOH4g1FfvdDIzOLnG3tevyxzFOKzmOYJAW2ittHqqNAXOSk+dSoQ
-	9O1Vs1psoTKwqnxQ0G7p6IoThTvOnoRQvuKS5gdaj1vz3sITtyH4BoRG29Z56iW6pq0cw8E9kgbXE
-	V/ZISVYg==;
+	bh=Yl0NIoaTbzqJUGwioU/MGVk1zJpCWvzCqfyTcfij6Dc=; b=p3rVJlY2GCNTDy31pU7jstiHAo
+	4vTv5fIS+EiuvsBL2e1O2HooHeLYdCLRKxvIM/Wo+HE6lxZuoULV2ttsJwr+u5hW8kZQ86Gt24C9a
+	xX6UN3FeNOpR/U0zjEGtRxOChmFrxivWVC+f44z1mDz037pQadbFWOq2K8j9Mcf0TCAAG3NuJJGnD
+	J9LP0VFb05q/pn4AfA+mYG+3EAAIpilbbJwmZaBD2LrYrIJpR8uv3G3vnBH2kkroO7zMTSJH5J2tC
+	+gEpqk3tL5rDj8u1hR9LHikzsXZOMw308hJyNHEqdGHhAeGtojGscheSGIRfKjK1Kes0EWDPoe1ty
+	LV35ubhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7GyE-0000000CF33-2bbU;
-	Thu, 17 Sep 2026 18:36:30 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1x7Gzo-0000000CFE1-3kFt;
+	Thu, 17 Sep 2026 18:38:08 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7GyC-0000000CF1v-1ZoU
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 18:36:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nfiMNKonrZqn5kM/Hr3vMQg2LX6/89RtgF703xd1/Ov1B/cJDR8yXb7pNmJ5QOgk2cTeTEPNTK689HqXPVwJ+tmY5itk8m93dBuOM++1asflx69kgYgZVZhkHjvVKZ9z0EjwPlKqgxq0Z+rjK4S0bAQGON/XUFA6BDPDpYlp0yOnMZdviAmkAY14Nr0LiGuKXagI9Z/XBSh++z+EVF4pFJRhegt5CjtF9vwHMSGZlRsOFoVjpp6iOghkc3pNvA9J6g7KAEZ7w20/YRLh+mtvL/5fm6ww6QCzWv4hix0xIPMTeHoPZXj/W0ocH2mX/HCAgABvr2xBZOmeU+ITlh9Oxw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dG5hI+Cor1Em41kKpC9DR4Hn2/oROzRr0QAhmlT4EuM=;
- b=ODHnIPvUIN2/oEECwiB5Rk1EeHfod923axCg5v37xwj7zG358S5j3G2Aaq3r6mKSuP+fbBZT59pjhPYS7Xc+gCTzaPg5rYK5kGsmrRJfIj0JxqnUng54Qq+u6pqnLTZbEGd0/x+39nAiHOy85djnGdD5/39OJ/DxePnS9v5/Hv0EgO++dlRB5D9WEmmcyUEYiFV64YDsKqjKOZi4wwBlXTIG7rjpISnUbKZsF0Sm+l1+16MviFEVAyFpOdDyaurFwilQFZ1W8qLGPAXY+6sqouSxB2BEZeY10PQ8PRsQd7GCwddiAN9q3xEP3/VdZYX8MX2STcXx28G9DmHm8UWpgw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dG5hI+Cor1Em41kKpC9DR4Hn2/oROzRr0QAhmlT4EuM=;
- b=M0LEWp4y5ZHbNAUhLqSMj1owi9D+uyOlRHnur5UIji0LzKjfNGonamC2V5txAmMRRW4kg2k4FCF8v5+L5UqpOLhnpSZgDqgaa41+oxAN+b7mHFmSyzckQNYKa/59KtcEcCRPNYW/orxx0MG6eHOdGjRZT/rxpDyQdMu7YwdUqZmauw4F8+gwbP+o2YT7Gh+Pzd5topx0Dfle5LUykfirx5l7kOKKsdj5RnRVrnD5mCJUfQKUoKox/s+dSYq1J8EAmW1zKUqyWnX2quI/4J3SEfJjPCbIgtBsHBiXT3Wf69fDxMoSCGtYhqqwT97SxZIIvk3fa3Pm/39ADpvLthiH7g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by GVXPR04MB9757.eurprd04.prod.outlook.com (2603:10a6:150:115::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Thu, 17 Sep
- 2026 18:36:20 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.012; Thu, 17 Sep 2026
- 18:36:20 +0000
-Date: Thu, 17 Sep 2026 13:36:11 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Joshua Crofts <joshua.crofts1@gmail.com>
-Cc: Johan Hovold <johan@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>, Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-clk@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] clk: imx: add missing
- pm_runtime_dont_use_autosuspend() calls
-Message-ID: <aqwzG_24bZSSQhTS@SMW015318>
-References: <20260915103345.1334-1-joshua.crofts1@gmail.com>
- <aqpgUPWUGZp5Cjzt@hovoldconsulting.com>
- <aqq_ymTi1I951uQp@SMW015318>
- <20260917102429.00002faf@gmail.com>
- <20260917104233.00007a85@gmail.com>
- <aqwUky1jSMGbiXCf@SMW015318>
- <CALoEA-zMXhy1VX1MLVCy3d9pmC0fx22sJULamLhMmBX6xHutwg@mail.gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CALoEA-zMXhy1VX1MLVCy3d9pmC0fx22sJULamLhMmBX6xHutwg@mail.gmail.com>
-X-ClientProxiedBy: PH7PR03CA0030.namprd03.prod.outlook.com
- (2603:10b6:510:339::35) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	id 1x7Gzn-0000000CFDp-2qT4;
+	Thu, 17 Sep 2026 18:38:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6F3524055D;
+	Thu, 17 Sep 2026 18:38:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0F1F1F000FF;
+	Thu, 17 Sep 2026 18:38:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789670287;
+	bh=Yl0NIoaTbzqJUGwioU/MGVk1zJpCWvzCqfyTcfij6Dc=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=UsSoSZesD2MFZH9rCwaj7Gc1bo170eGg8BvlSC3/WwSqqtLBuusJaI82UdKYRYFNW
+	 +2MVe7VjJW5STpBjkJUoQ/P5DeoQ9kS7E45GUej6ZJi2cnRBOJr1URc9d+q9WSPZu5
+	 o+D3iUo90/k87HqbFn2u6oC8Sx9RKNwC5BHoZUwTNwQ1GmfNSoivfv42CR54AHVgjf
+	 E6LGN/T2HGs2LHbGFLsc60NjSmDmt8/xHlanG/KM93KdBxNiY1KjG2TciM16RMUyJZ
+	 fPFkbvsH76j3XI0Ak0FFqYqpLg8Ggx0V4RMkCaRy5qIwZkbYAI6nHQhv/uvTjlyVwP
+	 DLE4y24ETx49Q==
+Subject: Re: [PATCH net-next v6 01/11] net: stmmac: move XPCS lifetime
+ management to platform drivers
+From: netdev-bot+sashiko@kernel.org
+To: coiaprant@gmail.com
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, heiko@sntech.de, vkoul@kernel.org,
+ maxime.chevallier@bootlin.com, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, prabhakar.mahadev-lad.rj@bp.renesas.com,
+ romain.gantois@bootlin.com, hkallweit1@gmail.com, neil.armstrong@linaro.org,
+ linux@armlinux.org.uk, shawn.lin@rock-chips.com, david@ixit.cz,
+ netdev@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, linux-renesas-soc@vger.kernel.org
+Date: Thu, 17 Sep 2026 18:38:05 +0000
+Message-ID: <178967028545.22033.5966180145855511133@kernel.org>
+In-Reply-To: <20260915123802.1561724-2-coiaprant@gmail.com>
+References: <20260915123802.1561724-2-coiaprant@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GVXPR04MB9757:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4aa89ea4-0141-46d3-841d-08df14ea9157
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|19092799006|23010399003|6133799003|18002099003|22082099003|4143699003|10067099003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: YH+qob/40Kg4maheW/fd4EHb1M7iJDu6+k+RwCkRzQMFWLVfGlZEI12q3CGbCggmobHkVI6LKbgnkXigLXEmOkDTniRQacw2m5EQW7RY8yMb7YZVtQzf0NRhMgTJEAKjW1T9lCobZbF4yDLeX8CHkq9t+n4Emes7A4NPzIiL4B7xvKL1IPlisLDeQi2lQ2nh5anCUzHdm5UW4wH4tgT9PiYMTgNEcjbVKw1MhLPZErTOPZbA2ZD/IafHTFNQq3zUIW/bbFUzVBbItoVQXZZvnNusazRKzXT2YaoWfM0RQQduAjdVfoiBIWfAFJogpIOGnLvslWWvtNv4l0xQlSUVUyjBV5drZK1292jJ4WXHzmR3DYuVIISncQovbpKzxmSBPS69C6b0cx4fAhvPEk3jc5IjQtbHChOJrGKin/wg/Wko9/PkWwdE1wikS+0z0WeZKm5tLRHn7KMjhSuyCEiiStUWKp/zPWHl247ui6o0bq1ciko5YRfgaR6MwlZIC08s2W/jSKwXuBlhwDLQER36Dcq3rrAD4VDAN+MCn150zM0jY6F0QXHHsUn20P1UxYgtVDnBCVqnvKWwnK4eX5m2lVTORIICqogYDV+uLdblpcUhUwRxafzklWhTJ45hatmN1FU+jOUo6M5l09nuEV44VzQ0k85ILyBu5886D7OTH/U=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(19092799006)(23010399003)(6133799003)(18002099003)(22082099003)(4143699003)(10067099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?eJHNCR4ijJxIRqqXEYdvPoBht0v8HmLWfrJhJis8SlrpwmVQpYZ2cU0RP469?=
- =?us-ascii?Q?+prMy4cp8spHc/7fhSsg5I1JIM+T+eBboDur3Xpz8C/lWFPA0yLQxPyjwmV8?=
- =?us-ascii?Q?uvcW/4NN/wliw4m5zOBbWP89PwCBQpflb0QYgmR/4qPS1sJrFdSqndEqeOCt?=
- =?us-ascii?Q?A2cOeDU8juJwtpnM3nB5Vdfz93Ml12Faih0ZYSsREFa9NKp2cLoOXl15huAu?=
- =?us-ascii?Q?pGdoTH5mu9p9Kv9WIKeK/nFvQBlUgdFvDc9ZZn90JxG0lOy8chB0Fzkg/6Ya?=
- =?us-ascii?Q?tJ+5oAfKSLmstnp8DWfLb6eHRuRAgANpmWJwqgC3bTK5Bn6z1Cf66diVEwFm?=
- =?us-ascii?Q?p00oQyuh+6ebaapZHqhrS6w2SaVMbg2ZVdQeSOlkUyegiQi6HlgyAXBwnWi1?=
- =?us-ascii?Q?WeN8V1wbSDE0guBVX4/OResmQWbH4Xfn2PK+QEoQy/YNMNK86kmFyhyia5xF?=
- =?us-ascii?Q?tgacv6zhaqymQotvBz9VC2TfnHxvZpYGQpM0WJ2SC1VgKBOOb6ZV6at2QN1t?=
- =?us-ascii?Q?XgF1i0Nh75aMaO8ns9DuTnl4SmjsRMFcNOm5pjMblGReSg3yDorHfscjVebU?=
- =?us-ascii?Q?7CGmcH9WPbMo2+83c+ikKHNqolgGg/Fuhpnkqwpo343OLy86Jqgv/mDSbGRC?=
- =?us-ascii?Q?TGlcurs9GwT8EUF+zin1+9K68iVZJwYxEIWvJmbIkeVV5jOi9ivtU12YIzJr?=
- =?us-ascii?Q?2KD9XYp8UGeCDji/DdLM7FCj9IPYYxBj488+A68YMZM5gsv4/faCNQywmx9V?=
- =?us-ascii?Q?BmePktq9bHyeFYjzFkKkkP3ZBM+HCXTrOsKTIlcH2nDzBiIDAOe8IIpOpYcf?=
- =?us-ascii?Q?FIkc4zrAuufRXlxOX/XasNEixwfqE9+yegrhsryY+UT7VTmRutZl93vvnIBv?=
- =?us-ascii?Q?6G+vJm1tX7N1+BixwWqI31hvxDaK+aILqp550dNOTnAlSuqClOskCT2mfm0K?=
- =?us-ascii?Q?26NvCHzRto7t3usFGZwWZYvPQoO0CmpA8AB8Kzi8n2CcM1jg/t7K0xk9c+FY?=
- =?us-ascii?Q?7Y8+PbT1KKQ96d10vIqlPamsvTXeOomK5BolfX9P9h9dnpt119TsJVF4z3MQ?=
- =?us-ascii?Q?1Dn8hMSgBJWXgvQqqbhgvRjs3RSAKFhgIdJLwCiFntH3nSY8ATuf+Ak2WffQ?=
- =?us-ascii?Q?k98FFB4POLIT+6XwAXKzyGmKgeXxTVOzkAiIqqiplp+O0l3dnyRdHK07k9Bt?=
- =?us-ascii?Q?TH1BtSRk4tIgWfNEcJZzYooawzhvFyyRB6vZsICPukFgsIh6NHhkFMfYWdux?=
- =?us-ascii?Q?uae4A4/drD7rVuovdMrm2KLSob0OJfSK8ghMhvHfC9YnEBLQpHQr1u+Htr4c?=
- =?us-ascii?Q?WqMRKSGUy7S4hDs2Y6qrIUOH1o/4DUsiIZmelqYoG7D4VWgVoQUXR4fc8f5v?=
- =?us-ascii?Q?sqHi0TS4gmSQTj21ngqKaSDhfl5Nv5/9YIrl7qSd7LNjd3mI2MLuSzYkmYZX?=
- =?us-ascii?Q?JBsKiPtgaEcZfPY2monACp+GUFjwfQQkcDYapH4S5xzv7Kd/aDgKhWmLghT0?=
- =?us-ascii?Q?Uf9CcM+FQICd9oKLhU7nrEFy3KCOE0ouy0YK8VfkavUgZYpXjQZcMySY//4F?=
- =?us-ascii?Q?hSYwgVRozrlZYxJa+/pkDrv/hxtIQPREERRkozjl+biq1CYFu4VuUdFg7TcN?=
- =?us-ascii?Q?Ie4YyDa486U8ERc3WTT1ZOMgRMHRyoN1PBa4kVQ37jCGvdCeHiVLkdpUjmm4?=
- =?us-ascii?Q?DO9KxFL7V352v2fnxmB3X0IYei5JC0daP0IXyaK0ZO6d0GH3s05GGTyue0zK?=
- =?us-ascii?Q?O1DIF/hTiW0jMG/AbaoccsGZK5DvTAIcFU3+rV6kj7B61+vA83qT?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4aa89ea4-0141-46d3-841d-08df14ea9157
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2026 18:36:20.6052
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: RuvJzGNvIL9/y/fn2yZEfALm0jHv4oDssVfBiK6xE7zNR8Fck6frNiQXk2aGDuvXXk/nST3AZPINOKZhWi1gpwrKKN7nmMfq0omOeqw+emZQhYtMky0xr3xZzL/11cQO
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB9757
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_113628_433810_7F554196 
-X-CRM114-Status: GOOD (  29.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,68 +78,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 07:15:29PM +0200, Joshua Crofts wrote:
-> On Thu, 17 Sept 2026 at 18:26, Frank Li <Frank.li@oss.nxp.com> wrote:
-> >
-> > On Thu, Sep 17, 2026 at 10:42:33AM +0200, Joshua Crofts wrote:
-> > > On Thu, 17 Sep 2026 10:24:29 +0200
-> > > Joshua Crofts <joshua.crofts1@gmail.com> wrote:
-> > >
-> > > > On Wed, 16 Sep 2026 11:11:54 -0500
-> > > > Frank Li <Frank.li@oss.nxp.com> wrote:
-> > > >
-> > > > > On Wed, Sep 16, 2026 at 11:24:32AM +0200, Johan Hovold wrote:
-> > > > > > On Tue, Sep 15, 2026 at 10:33:43AM +0000, Joshua Crofts wrote:
-> > > > > > > Several drivers in the clk subsystem forget to call dont_use_autosuspend()
-> > > > > > > on teardown or error, causing potential resource leaks. This series adds
-> > > > > > > the missing calls.
-> > > > > >
-> > > > > > No, as I've explained repeatedly elsewhere, it does not cause any
-> > > > > > resource leaks. [1][2]
-> > > > > >
-> > > > > > The autosuspend setting leaks if you will, but that only matters in the
-> > > > > > theoretical corner case of someone rebinding a different driver (which
-> > > > > > will soon also taint the kernel).
-> > > > > >
-> > > > > > So don't exaggerate the impact, this is essentially just a cleanup,
-> > > > > > which is fine in itself.
-> > > > >
-> > > > > Is it possilbe to create/improve runtime pm API, let runtime_pm enable/disable
-> > > > > include these pair functions.
-> > > > >
-> > > > > I get many similar patches since scan tools is more powerful now.
-> > > >
-> > > > I suppose that could work. One would still have to scrub the kernel of legacy
-> > > > use/dont_use_autosuspend() calls though, so it could end up being a large
-> > > > patchset.
-> > > >
-> > >
-> > > On second thought, some drivers do tend to disable PM runtime system sleep
-> > > etc. so it probably isn't as simple as adding the autosuspend stuff to
-> > > enable/disable.
-> >
-> > if runtime pm disable, does autosuspend still work? suppose it should be
-> > disable also
->
-> If we add dont_use_autosuspend to disable then every time the system suspends
-> and resumes we lose the autosuspend config, meaning it will never autosuspend
-> again.
->
-> I guess adding dont_use manually to the driver's remove() function is the only
-> way (which according to my cocci script it's 195 drivers that should be patched)
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider:
 
-Extend with exist pm_runtime_enable() and passdown delay value. if delay
-value is 0, actually it is no autosuspend version.
+Critical: 0 · High: 0 · Medium: 1 (1) · Low: 0
 
-and merge dont_use_autosuspend() into disable function. And actually
-I don't understand why need two varible autosuspend_delay and use_autosuspend.
+- [Medium] stmmac_pcs_setup()
+  (drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c:426) loses the only…
 
-when autosuspend_delay 0, means take action immediately.
+Pre-existing issues:
+- [Medium] Clock reference leak in the XPCS constructor now invoked from
+  intel_mgbe_pcs_init(): xpcs_init_clks() (drivers/net/pcs/pcs-…
 
-Frank
+--
 
->
-> --
-> Kind regards,
-> Joshua Crofts
+net: stmmac: move XPCS lifetime management to platform drivers
+
+This moves XPCS creation and destruction out of the common
+stmmac_pcs_setup()/stmmac_pcs_clean() and into plat->pcs_init()/
+plat->pcs_exit(), converts the Intel mGbE glue to create its own XPCS,
+and makes the renesas-gbeth, rzn1 and socfpga pcs_exit() callbacks clear
+priv->hw->phylink_pcs after destroying the PCS.
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
+> index f5f9fa67ecd77..4308dccbf2570 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
+> @@ -603,13 +603,47 @@ static void common_default_data(struct plat_stmmacenet_data *plat)
+>  	plat->mdio_bus_data->needs_reset = true;
+>  }
+>  
+> +static int intel_mgbe_pcs_init(struct stmmac_priv *priv)
+> +{
+> +	struct fwnode_handle *devnode, *pcsnode;
+> +	struct dw_xpcs *xpcs;
+> +	int addr;
+> +
+> +	devnode = dev_fwnode(priv->device);
+> +
+> +	if (fwnode_property_present(devnode, "pcs-handle")) {
+> +		pcsnode = fwnode_find_reference(devnode, "pcs-handle", 0);
+> +		xpcs = xpcs_create_fwnode(pcsnode);
+> +		fwnode_handle_put(pcsnode);
+> +	} else {
+> +		addr = ffs(priv->plat->mdio_bus_data->pcs_mask) - 1;
+> +		xpcs = xpcs_create_mdiodev(priv->mii, addr);
+> +	}
+> +
+> +	if (IS_ERR(xpcs))
+> +		return PTR_ERR(xpcs);
+
+[Severity: Medium]
+This isn't a bug introduced by this patch, but since the XPCS constructor
+call now lives here, it may be worth noting: can the failure path inside
+xpcs_init_clks() in drivers/net/pcs/pcs-xpcs.c leak the clk references?
+
+xpcs_init_clks() takes the references and, if enabling fails, returns
+without putting them back:
+
+	ret = clk_bulk_get_optional(dev, DW_XPCS_NUM_CLKS, xpcs->clks);
+	if (ret)
+		return dev_err_probe(dev, ret, "Failed to get clocks\n");
+
+	ret = clk_bulk_prepare_enable(DW_XPCS_NUM_CLKS, xpcs->clks);
+	if (ret)
+		return dev_err_probe(dev, ret, "Failed to enable clocks\n");
+
+xpcs_create() then takes the error path:
+
+	ret = xpcs_init_clks(xpcs);
+	if (ret)
+		goto out_free_data;
+
+out_free_data calls xpcs_free_data() (mdio_device_put() plus kfree(xpcs)),
+so xpcs_clear_clks() - the only caller of clk_bulk_put() - never runs and
+the xpcs->clks array is freed with the references still held.
+
+intel_mgbe_pcs_init() only receives an ERR_PTR here, so it has no way to
+release them. Would adding clk_bulk_put() on the failed
+clk_bulk_prepare_enable() path in xpcs_init_clks() be the right fix?
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+> index afe98ff5bdcb0..7396b68899c66 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+> @@ -426,35 +426,14 @@ int stmmac_mdio_reset(struct mii_bus *bus)
+>  int stmmac_pcs_setup(struct net_device *ndev)
+>  {
+>  	struct stmmac_priv *priv = netdev_priv(ndev);
+> -	struct fwnode_handle *devnode, *pcsnode;
+> -	struct dw_xpcs *xpcs = NULL;
+> -	int addr, ret;
+> -
+> -	devnode = dev_fwnode(priv->device);
+> -
+> -	if (priv->plat->pcs_init) {
+> -		ret = priv->plat->pcs_init(priv);
+> -	} else if (fwnode_property_present(devnode, "pcs-handle")) {
+> -		pcsnode = fwnode_find_reference(devnode, "pcs-handle", 0);
+> -		xpcs = xpcs_create_fwnode(pcsnode);
+> -		fwnode_handle_put(pcsnode);
+> -		ret = PTR_ERR_OR_ZERO(xpcs);
+> -	} else if (priv->plat->mdio_bus_data &&
+> -		   priv->plat->mdio_bus_data->pcs_mask) {
+> -		addr = ffs(priv->plat->mdio_bus_data->pcs_mask) - 1;
+> -		xpcs = xpcs_create_mdiodev(priv->mii, addr);
+> -		ret = PTR_ERR_OR_ZERO(xpcs);
+> -	} else {
+> +	int ret;
+> +
+> +	if (!priv->plat->pcs_init)
+>  		return 0;
+> -	}
+>  
+> +	ret = priv->plat->pcs_init(priv);
+>  	if (ret)
+> -		return dev_err_probe(priv->device, ret, "No xPCS found\n");
+> -
+> -	if (xpcs)
+> -		xpcs_config_eee_mult_fact(xpcs, priv->plat->mult_fact_100ns);
+> -
+> -	priv->hw->xpcs = xpcs;
+> +		return dev_err_probe(priv->device, ret, "Failed to initialize PCS\n");
+>  
+>  	return 0;
+>  }
+
+[Severity: Medium]
+This removes the only generic reader of the documented "pcs-handle"
+property (and of mdio_bus_data->pcs_mask). For a glue driver that does not
+install plat->pcs_init, stmmac_pcs_setup() now returns 0 before looking at
+the firmware node at all.
+
+Does that make "pcs-handle" a silent no-op for the plain Synopsys
+compatibles handled by dwmac-generic.c?
+
+	static const struct of_device_id dwmac_generic_match[] = {
+		{ .compatible = "snps,dwmac-4.10a"},
+		{ .compatible = "snps,dwmac"},
+		{ .compatible = "snps,dwxgmac-2.10"},
+
+dwmac_generic_probe() sets no pcs_init, while "pcs-handle" is defined
+generically in Documentation/devicetree/bindings/net/ethernet-controller.yaml
+and imported unrestricted by snps,dwmac.yaml. Previously such a node got an
+XPCS via xpcs_create_fwnode(); now priv->hw->xpcs stays NULL and the
+former probe diagnostic ("No xPCS found" on -EPROBE_DEFER/-ENODEV) is gone
+with nothing in its place. Should the bindings be updated, or should a
+generic pcs_init helper keep honouring the property?
+
+The commit message says:
+
+    First, if a device tree specifies a "pcs-handle" but no select_pcs()
+    callback is provided by the platform driver, the created XPCS is never
+    used.
+
+Is that accurate? priv->hw->xpcs has two consumers besides select_pcs().
+stmmac_phylink_setup() uses it to widen the interface masks:
+
+	/* If we have an xpcs, it defines which PHY interfaces are supported. */
+	if (priv->hw->xpcs)
+		pcs = xpcs_to_phylink_pcs(priv->hw->xpcs);
+	else
+		pcs = priv->hw->phylink_pcs;
+
+	if (pcs)
+		phy_interface_or(config->supported_interfaces, ...
+
+and stmmac_init_phy() uses it to skip PHY attachment:
+
+	if (priv->hw->xpcs &&
+	    xpcs_get_an_mode(priv->hw->xpcs, mode) == DW_AN_C73)
+		return 0;
+
+The commit message also says:
+
+    Platforms that do not need an XPCS simply leave the callbacks as NULL
+    and no change in behavior occurs.
+
+For a platform that relied on the generic "pcs-handle" path, does behavior
+change - narrowed config->supported_interfaces (and config->lpi_interfaces
+when priv->dma_cap.eee is set), plus an unconditional PHY attach where the
+DW_AN_C73 bypass used to apply?
+
+There appear to be no in-tree DTS files pairing "snps,dwmac" with an
+"snps,dw-xpcs" node today (RZ/N1, RZ/T2H, SoCFPGA and Rockchip all go
+through glue that sets pcs_init, and pcs_mask is set only by dwmac-intel,
+which this patch converts), and the gap is not filled later in the series -
+at the end of the series stmmac_mdio.c still only dispatches to
+plat->pcs_init and "pcs-handle" is parsed only by dwmac-intel,
+dwmac-renesas-gbeth, dwmac-rzn1 and the new dwmac-rk. Could the commit
+message state plainly that generic device tree XPCS attachment is being
+removed?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260915123802.1561724-1-coiaprant%40gmail.com
 
