@@ -4,93 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D082EC982CC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 00:01:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D73EC982CC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 00:02:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QRPSaO5+XQixGFbnKMRKXwxYFIVhldNMoYMkzm/WB5M=; b=S7koE2QcpNZmHcgktqGvPucCAA
-	4VTtugfiO4qkiEtaVFj/+ZH5KLHoNCO1Ozw7VjuOrR8koUwjFQG+oFsY4u8I+WLvh4aIfzfZ1ITZ5
-	3ezgvqHRpWbb4MGSmBd0pZjjQW2K6oThe4wRckK5r5TEQJiTADIJXVaf5SE8qB5wVGFqovgKGXKQ4
-	4UO0x8B8ZR/tuglGpd7GMbSeoXNQ8dIOmyFuU26xmZOCEeO9N7QIyJ51w1hVJC7+CJsojb8khINQS
-	K9EZB0I+olg2VVfpV7rrvi1M2t5OjQc9+l4B41UrgDI+tpvlyupYSECIf45TbYBylzyDF7EVNbL+u
-	8rgj7W1A==;
+	bh=rnYsw47RhsCpAUpS/1U4sBUyj70+B1dKJy3nD1W6Sig=; b=MEN0BJcpkQAUFsD47WwwOQVVBO
+	vATjHjFuvxXqh2UEf4Ep0nVJochFGXMqLE9xtgCwoCtsBiUEyKyhZbGh8OXfg/jx55CfZZe4w8ac0
+	sHCnchQ0agDmKTBMplTm78vEptgi8NL4Hxgtex1m8kmGJGb1H3ONkhSYQCFPGgon9LkcsytuZaPa4
+	28Wjj6UJnz0JBdWDyS3uPYYteOy5SrDbrkkLUEpA9eXzZL5eZZMi3RnZ94aZQF9Z1lrM4u6M/CLW0
+	HeUThxpaSh6YqP3gXa3zt/EUp5ULMr1CUglDL2oVDuV3v/DpSecrBpH7OV9X1pnVgGNiOsHXvLAHq
+	ePe2LZ/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6zZX-0000000AIZi-1h1m;
-	Thu, 17 Sep 2026 00:01:51 +0000
-Received: from mail-pj1-x1064.google.com ([2607:f8b0:4864:20::1064])
+	id 1x6zZg-0000000AIcC-0S8E;
+	Thu, 17 Sep 2026 00:02:00 +0000
+Received: from mail-qv1-xf62.google.com ([2607:f8b0:4864:20::f62])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6zZV-0000000AIYd-0FnX
+	id 1x6zZV-0000000AIYc-2T4h
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 00:01:50 +0000
-Received: by mail-pj1-x1064.google.com with SMTP id 98e67ed59e1d1-39266382df6so74141a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 17:01:48 -0700 (PDT)
+	Thu, 17 Sep 2026 00:01:51 +0000
+Received: by mail-qv1-xf62.google.com with SMTP id 6a1803df08f44-90ccb6102a1so599496d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 17:01:49 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1789603308; x=1790208108;
         h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=QRPSaO5+XQixGFbnKMRKXwxYFIVhldNMoYMkzm/WB5M=;
-        b=dF5JDo/779pc7oKkkm6vYVPSbXCpV2IAjPHkIP0l5vK99iPVgfkK4uyAvN11u1nsjA
-         LR+HWTIxefHibLHZ6QTp9/J6hYVsQZhtvXYBFhLpN1AYcTjho+1Jfl+YSY/+iO2hIX+q
-         FpkamODvd6y2dPjqNHUUiZJEhfSr3K3GAukfYa2hGAqj8fMLABIxq9ocqK67vK2af36r
-         eQYOxQY3A+QwKGskdo9jbCDuebgVQWMaxiGv2//Zs2tYUa+au5Pl7x8r/RdXXp7/70xR
-         rkke6LoUa3Qy+GuIpmJhAbLrRJ6+ic2wp3edb1+n6YL36jtKELboa0sEhCTdD1GANbfk
-         tiGQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzfvEIdwe4CTLqQBR2YT2O6gx6KMXDgcOnVDr7kc7WTe+rhl37/0PSM4DSC0RxISmxUSZRxxTa5aiG6/XtZ1pgX@lists.infradead.org
-X-Gm-Message-State: AFuF++lAY53pmwrog6uzPur03/m9ecvdhoIfnrA6YXeUmfqFNt7tu61V
-	mpmwNKW/xS5n0iRJ9F813jfYvsDuFEnAD21FHXffgdK6sDP6P7ESuJ4Ozd+sV8VUWJ3BR331Xj3
-	Iy+ReGUc3P1tdojOspWO6DWMRYBMoa0cdGxnCda21bVFEuH/S5Z3cKL2enfNZgbQz+F+/MnmbM3
-	+d6wvnGHqnpQbO0VDkn3BiG/ZSx5n3OyI0TDqQLgik5250FLMaXvdr9UiOMoDxWeW/o9lVNdpQ4
-	LIS4GFc2scj/C+cm+7nNKtGX5F7vIDvMFc=
-X-Gm-Gg: AYBFou2Bj+vskf/U6XyHpoKk79k7YYTaehP6F4C3TMz6B5o0D1QS0oCuahPvGNDQ6x4
-	4BsWy1qIpaMGCfXXxV2eADJubjQ1NA0pwlLOyrLRZx+ayV35MyBhVtF6OS2p/MFkqMLrcBO+PyX
-	W5jc0reHZ85rGtVOgQKQGJJvwvu8HhpcVImgdr94I/bShIBsj525zi2var0hwtQwTWt/uBrBvMd
-	uRf9MF89qrRznxB6IlK9+ziaDGBs8FDnzMPwAHK7A+EdXBB+B4bu09aigVpQMYlldaDvDpBi+Ck
-	/cV+8/j60MEw1urQn9WSMnFVU+ClRS/cqy1Zn9mcpOVwI9u4BXmX9Vru668eA3a274YPxvvaFf+
-	1UdOqE+BD2uksGFqVEVKMxRZZpsedCqTHtJwdkMD9KxZlmtkeikNEdRae9Y0nhA9w+m3qXv8T8q
-	PrjSrs/9TS9ERVQar1VEfFr2IVbprx/6hveU8ptr2ZSB4=
-X-Received: by 2002:a17:90b:544e:b0:39e:35e4:d31b with SMTP id 98e67ed59e1d1-39e35e4d992mr5900333a91.5.1789603308009;
-        Wed, 16 Sep 2026 17:01:48 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-125.dlp.protect.broadcom.com. [144.49.247.125])
-        by smtp-relay.gmail.com with ESMTPS id 41be03b00d2f7-cc51b89b525sm208081a12.0.2026.09.16.17.01.47
+        bh=rnYsw47RhsCpAUpS/1U4sBUyj70+B1dKJy3nD1W6Sig=;
+        b=gP5YHSnNZddAg6fDVaLi58GF4/uiI4sMlI4ZdPZt/SAp7nUwo36UqzhvTPrwhRwIDm
+         kZetik4ATFPpvc7Wobw2r6ebNTt1f4uCzUpI/uzyFVUNUn1sMy1L8tLtNw9C2vhr5hbv
+         cjhupElRaSvWItF3NrX5jWSEXlQnDy6I1AqrJbpm8kt2j88OcaKhnmZGoTX8NlHaI/1G
+         7jVx+XQzZxKSYw0Ytbz/tnxW4qQIKGtAqYe5Sob8x6nmJNTU1pxWeyJFF/HiwTnihx+c
+         DJ9r4zu28v54JIw1vzFGpRN03kQfK+UGyBmRyhU8eSWFo7MkrSd40faJzQOXKmGhA1rE
+         Zc0A==
+X-Forwarded-Encrypted: i=1; AKwUvBzwakxEDIUtEp0+Zki3KAvS940WXhXPKCOoRRUnIN1KHlb8FAle2tTcGEYNmkJNzLlHRRF/iUXNiPI3gJDdmbXV@lists.infradead.org
+X-Gm-Message-State: AFuF++lOM91CXE8QjpqevwCgSTZdeqdnTWYElMb1QWKtjxekiJCt/7fB
+	GlSahrc/7zhkzPYB7FxamjQ2ssJ0CKOrMIMk+/fvdP/gpPRpjrypBtYy6MwhxKzePDRVZHWGVgG
+	oYibmEs6mFpW8ojJu8BjVXmDmY9wKEqtKuNPq4IiZXQrC6IlggF9MBidu4L55jUD0yaJTCiBffc
+	BuxyAZ81iQ+iFKCvWuHfxMM5y8dJ0S7IaQqrAxwRJX3XcXl8tyNQ+Vcu1goZfYsohu3Wrjaz+g1
+	FqRg+3kE7elraGqzUSaniipHjZMeo8SYyc=
+X-Gm-Gg: AYBFou1RQoYe3MAOjcLJJlNWiZeZqn28khYOrbsnOEnSDJOSBp06+nmoCV4pGrITv1O
+	yXcGCIUvq100oyey8/H91hGTG3ZwfDwtI1LGhSKlx+KT/eqeeAIAwxzWowF88ONllVtSqDCcYs5
+	uBJR2Wt/yVw6NyVW5QsPxtO8HO7D3WM+OEBgs6OW0p/dCIpdXjcOcdFaSUyzdBnP7JlQXdKaQ+b
+	a+EEEtuRXxu2lQdIhszv9dgSxDX+85BWQOSuN4i2duFjMuV5DxGZ5W48TNeN9gxn2hmjuTKsKIf
+	g25M9bsuijNla02ZoMRihSBrs2mAfBZHiMDRB9Bjei0wKZ8A9CJgJW7KuMoKk0laVf5xY/bxFMk
+	FQhu/J2q8Lh48MfJIuQg5l5vVfLVsIsEvKgCfnVdgVgXrOKWcyHX+0DJo5Gr90g9x3ONMMgBzVU
+	51UDh/Zme/4LYk4Od4MF0hqQy5zN22zYF1JDAunRUx
+X-Received: by 2002:a05:6a21:3986:b0:3c3:8d86:9855 with SMTP id adf61e73a8af0-3dd5f454cc0mr10508405637.7.1789603255294;
+        Wed, 16 Sep 2026 17:00:55 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-29.dlp.protect.broadcom.com. [144.49.247.29])
+        by smtp-relay.gmail.com with ESMTPS id 41be03b00d2f7-cc50abc1222sm1943406a12.3.2026.09.16.17.00.54
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 16 Sep 2026 17:01:48 -0700 (PDT)
+        Wed, 16 Sep 2026 17:00:55 -0700 (PDT)
 X-Relaying-Domain: broadcom.com
 X-CFilter-Loop: Reflected
-Received: by mail-oo1-f72.google.com with SMTP id 006d021491bc7-6c6e939ccdeso257739eaf.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 17:01:47 -0700 (PDT)
+Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-cc1cdfb337eso346803a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 17:00:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1789603306; x=1790208106; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1789603253; x=1790208053; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=QRPSaO5+XQixGFbnKMRKXwxYFIVhldNMoYMkzm/WB5M=;
-        b=D8r++H5kUAGslsS8cOPw12vNfcQ3LAN3FXwB4/bK2JuLSNQX4UMRMA5vVf6c8OKxPj
-         3gai1pfLzT+PxQJHdZ99cZey3Msso7S1sFJcal7G5y7ANgaJf8Vhe1TR2OgHx5sWUDk6
-         T507FTQIgWYjS9wjQGGraa+0ZesjOEYcdyKHg=
-X-Forwarded-Encrypted: i=1; AKwUvBwc5d839pQQQLYn9fE1ZEJt6hmdpGzkhJpT9kKJ9leclL/KAbEQi5/iqIiQQxkXV8rCKxjIIr3xkBWrIkG76kX8@lists.infradead.org
-X-Received: by 2002:a05:6820:1c86:b0:6b3:b9d1:f629 with SMTP id 006d021491bc7-6c7d46e699amr6935905eaf.31.1789603306397;
-        Wed, 16 Sep 2026 17:01:46 -0700 (PDT)
-X-Received: by 2002:a05:6820:1c86:b0:6b3:b9d1:f629 with SMTP id 006d021491bc7-6c7d46e699amr6935845eaf.31.1789603305914;
-        Wed, 16 Sep 2026 17:01:45 -0700 (PDT)
+        bh=rnYsw47RhsCpAUpS/1U4sBUyj70+B1dKJy3nD1W6Sig=;
+        b=dy+6UIjCXImnuWPDL66XhbKozUFkCw0IB7L8AqPn3sd1bXn1TJyHDDAukv2snOLQ6p
+         3Wg1YvMmL/zf/i29dHYpRSFyucW0DphSPhNCc6G8CMeQ5KPLzb4r2jjyDHUpn1qrQ5p1
+         SXGaGl2pYJKvTnkBnQAvlsSOG9tmMkVJ0jOlE=
+X-Forwarded-Encrypted: i=1; AKwUvByPz/ouEKVS5EopM4bviJPy9jjXwj58eyjREQTDeBaWb6fKmHLL2GnLPVGOi/HFpVuN/S8b94hjt2sgOL/87byN@lists.infradead.org
+X-Received: by 2002:a17:90b:510a:b0:39e:423:bb8f with SMTP id 98e67ed59e1d1-39e1e24fa7amr14368862a91.1.1789603253334;
+        Wed, 16 Sep 2026 17:00:53 -0700 (PDT)
+X-Received: by 2002:a17:90b:510a:b0:39e:423:bb8f with SMTP id 98e67ed59e1d1-39e1e24fa7amr14368771a91.1.1789603252848;
+        Wed, 16 Sep 2026 17:00:52 -0700 (PDT)
 Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33bf5aee8b0sm21269531eec.23.2026.09.16.17.01.44
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33bf5aee8b0sm21263234eec.23.2026.09.16.17.00.51
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 16 Sep 2026 17:01:45 -0700 (PDT)
-Message-ID: <5c9e48d7-7f6e-44d3-bf0d-e23df1329621@broadcom.com>
-Date: Wed, 16 Sep 2026 17:01:44 -0700
+        Wed, 16 Sep 2026 17:00:52 -0700 (PDT)
+Message-ID: <f93d3063-956b-432d-a106-7b0e092d8ef5@broadcom.com>
+Date: Wed, 16 Sep 2026 17:00:50 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 05/13] PCI: brcmstb: Declare and assign quirk
- OB_WIN_MAXSZ_128MB
+Subject: Re: [PATCH 03/13] PCI: brcmstb: Add Broadcom quirks macro
 To: Jim Quinlan <james.quinlan@broadcom.com>, linux-pci@vger.kernel.org,
  Nicolas Saenz Julienne <nsaenz@kernel.org>,
  Bjorn Helgaas <bhelgaas@google.com>,
@@ -105,7 +104,7 @@ Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
  <linux-arm-kernel@lists.infradead.org>,
  open list <linux-kernel@vger.kernel.org>
 References: <20260911233541.1650895-1-james.quinlan@broadcom.com>
- <20260911233541.1650895-6-james.quinlan@broadcom.com>
+ <20260911233541.1650895-4-james.quinlan@broadcom.com>
 Content-Language: en-US, fr-FR
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
@@ -140,13 +139,13 @@ Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
  MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
  7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
  95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20260911233541.1650895-6-james.quinlan@broadcom.com>
+In-Reply-To: <20260911233541.1650895-4-james.quinlan@broadcom.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_170149_106069_E8060B97 
-X-CRM114-Status: UNSURE (   6.68  )
+X-CRM114-CacheID: sfid-20260916_170149_632796_8F50A902 
+X-CRM114-Status: UNSURE (   6.49  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -163,9 +162,8 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 9/11/26 16:35, Jim Quinlan wrote:
-> Even though only BMIPs chips have this quirk, it is more uniform and
-> readable to define this specific quirk where each outbound window is must
-> be <= SZ_128M.
+> Introduce a 'BQUIRK()' macro to shorten the calculation of a specific
+> quirk's value.
 > 
 > Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
 
