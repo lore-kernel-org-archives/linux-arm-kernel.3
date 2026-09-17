@@ -4,40 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 127D1C982CC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 01:43:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B3C5C982CC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 01:43:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4nTVWx1eFMoMCmrlcVKbyFxDZNBr92/ao7gbE5buu7E=; b=NGnGmW6eBrh23JBsnmquIfeR0g
-	omAeGZdTi11FR5KJi+leL0FUtIzxg6ZPQb4xHwt+hCKGf3jLh42DQqOvM1Lx/NAHnFe3RwPPQZPSE
-	G81VnrtQAfht6wMSrBFQL+9S23z9/A/qBdOHe0fkynHVjxL1ol1yA+ZPLgrGdjq+k/qpQkc7ljgFc
-	vJ8sL7/DofcKh5hYpDmqL7ku8lgc1sc3iFjkcLOno+rIYvxq7fHEr0xvvrISXKVcoN9DsvNY86eeW
-	oPOJ+UeXe2Kfr+Ojyfyfi5l8ixdVJHn2O9Yk0tL74WwcEb7+B0SUnUO6y3b7pB5WGaxgl3X5Lhjzi
-	fk1njilw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=l11dzaGJa/3l8/IgdpLrw+5Ip4TCD8Y34A7puwW47Xw=; b=2eexWs3nmgAXEbr7OtxOmD8tyM
+	dUM6ERGIK9VHQf26HWaAk5um34AbbcEMJVxbMVGm1eEG/2AM2bbZt+BwLF6lvexzVEND95ROmE0/Z
+	PMvaHQx3PrbJnNcrQjHjYSWto4ecnkc1n4w3kSzGfHF9fyh8NjHfG4oZHYwyU2YXJTqoMWFEe5mgW
+	EZCRJ0HuxPZBc4NdNTOaXPus2Gmat6eZu/4fe6I8WvklUUJarpNtH3Xcvz/CBcaawLi/XOn7S9DR0
+	fAnU5cqwcUg0aIxR1JsZ6Ktym4TF1TQPxdliCyn4Z6oPRkg5fphHW+h1kK6daS99Y151vb6aJM4ME
+	rzD/SnVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x719q-0000000AQTg-1rUO;
+	id 1x719q-0000000AQTc-1Qub;
 	Thu, 17 Sep 2026 01:43:26 +0000
 Received: from mx.nabladev.com ([178.251.229.89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x719n-0000000AQSg-1mCy
+	id 1x719n-0000000AQSd-1n4A
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 01:43:25 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0848010490C;
-	Thu, 17 Sep 2026 03:43:20 +0200 (CEST)
+	Thu, 17 Sep 2026 01:43:24 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CA187101B3A;
+	Thu, 17 Sep 2026 03:43:18 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1789609401; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=4nTVWx1eFMoMCmrlcVKbyFxDZNBr92/ao7gbE5buu7E=;
-	b=OpwCBQBFIiri9GHPnf1Y1IJTEd66iRc5r9T/KE4/kNi1aG+Eubnsi66WIgkNQA2u0eslfw
-	PtMxd3+lnqDBJXCpFQ5nC865dFwQAWsEPSbgqNilo2ZzWlIanQYeq1/eBWc0biaOkfe5PT
-	cXzqmt7NvEFO+seOiU+mp5Gp5LiPfz7fPRADV0PODlbivwkaDcFx8RQprvIbozzeOyOI5h
-	QYPSr0kefQkXzEYIwLiuLCv6Xl+hUTw1rPU8yH9dft4k+Q0W/oVopMBO409UfsLBUHkhyo
-	5bCNmjkzrVX89rdmLJfyV6BqItx4mK71RFhpqSEX0WkAuvAGpRzeMZ/HidDyWQ==
+	s=dkim; t=1789609400; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=l11dzaGJa/3l8/IgdpLrw+5Ip4TCD8Y34A7puwW47Xw=;
+	b=h1Qe/9P7o7a9jSJFv8iJR6QD/Ow31YTgUjo3/AbQn/SVbojOM74PZpyklM/E91KCypmSiT
+	nE2+GKZUgKJDzSuFfu5NxhayqdkuaLbYF1BQp8lZ1EjJDlyewEwPww8iaccus+D+mY6eoX
+	CE2kEIOTRWQJuuhodbYiKGdSE/Kq1cDv6rs2NNea6EShInKdRCXM4Wd1P/fXYbxoJ13ZCK
+	HdlWeQzgNUucmapjr/uN3dBx0NP97HzScmco5Mz2bT9oqYLHX6F866RLLecvV4osnsMw38
+	DJks6/qeuIiDeBRXd1/D4v7y/WX4VevlXtaBg5dBSyAMieEfI60p8h47lmcpAw==
 From: Marek Vasut <marex@nabladev.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Marek Vasut <marex@nabladev.com>,
@@ -52,18 +51,16 @@ Cc: Marek Vasut <marex@nabladev.com>,
 	imx@lists.linux.dev,
 	linux-can@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/3] dt-bindings: arm: fsl: Document Data Modul i.MX95 eDM SBC
-Date: Thu, 17 Sep 2026 03:43:03 +0200
-Message-ID: <20260917014314.472079-2-marex@nabladev.com>
+Subject: [PATCH v2 1/3] dt-bindings: phy: ti,tcan104x-can: Document Microchip ATA6563
+Date: Thu, 17 Sep 2026 03:43:02 +0200
+Message-ID: <20260917014314.472079-1-marex@nabladev.com>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260917014314.472079-1-marex@nabladev.com>
-References: <20260917014314.472079-1-marex@nabladev.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_184323_605535_5103EF03 
-X-CRM114-Status: UNSURE (   7.89  )
+X-CRM114-CacheID: sfid-20260916_184323_612026_F8E0E599 
+X-CRM114-Status: UNSURE (   7.58  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,9 +76,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document Data Modul i.MX95 eDM SBC board. This is an evaluation
-board for various custom display units. Currently supported are
-serial console, ethernet, eMMC, SD, SPI NOR, USB host and PCIe.
+Microchip ATA6563 is High-Speed CAN Transceiver with Standby Mode.
+It is pin-compatible with TI TCAN1042 and has a compatible programming
+model, therefore use ti,tcan1042 as fallback compatible.
 
 Signed-off-by: Marek Vasut <marex@nabladev.com>
 ---
@@ -100,21 +97,21 @@ Cc: linux-kernel@vger.kernel.org
 ---
 V2: No change
 ---
- Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
+ Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
-index 36e28e0e4ad99..04abae2018043 100644
---- a/Documentation/devicetree/bindings/arm/fsl.yaml
-+++ b/Documentation/devicetree/bindings/arm/fsl.yaml
-@@ -1548,6 +1548,7 @@ properties:
-       - description: i.MX95 based Boards
-         items:
+diff --git a/Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml b/Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml
+index 9f5c37ca6496a..75c276548e122 100644
+--- a/Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml
++++ b/Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml
+@@ -18,6 +18,7 @@ properties:
+       - items:
            - enum:
-+              - dmo,imx95-data-modul-edm-sbc # i.MX95 eDM SBC
-               - fsl,imx95-15x15-ab2       # i.MX95 15x15 Audio Board V2
-               - fsl,imx95-15x15-evk       # i.MX95 15x15 EVK Board
-               - fsl,imx95-15x15-frdm      # i.MX95 15x15 FRDM Board
+               - microchip,ata6561
++              - microchip,ata6563
+               - ti,tcan1051
+           - const: ti,tcan1042
+       - items:
 -- 
 2.53.0
 
