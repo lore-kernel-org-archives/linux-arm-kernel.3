@@ -4,111 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BA05C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 15:08:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25E7FC982D6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 15:08:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aJWfRz/qUQ+jC0/O5zIduIK06j1/9KJXZaDkdj0AX0s=; b=EPxTuf8cGgGf75Gc6GbWz4D/Xb
-	VhZtDLnSEmZ98xgKT5xqPCpLqKx4d+BZ6Dwlkl+u5L568/zQLLAycdFOlnaD0JAcfINzf4JTnf7VS
-	AbMQbIYhCA3PnJSutAOYZ1mbomVFZhn2AcswLNWytCmsiawdlKfDNuhNdr/+XN7NnuNZuuAHioPu8
-	NHWWd9vFfpdKdt18rmwl17HO12q5JJ9gCZnYJh9t7t2x0YddEq5HtIiENM3RwOmvFPmyx+TFGH/b2
-	TEE3B+DUdMOzgr4rHhGPzExt1EM+dI2H6fIcwqhqtI/1DJd5JGO8y/bJGYPCxZ+MPCz+z0p6F6mnW
-	CZcpYfOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2iGhgSepTfMvTest9R2671rFzQ55p8ybqQp29LxKFTc=; b=br0otif9X9b7DUHzvPDMw8i861
+	N283RG6q8DpsyEe98jXYetM29yEhDGrYKLscC1afOmkgmZApgevNrKBt6/4Bdit+5VzJ8ox5ShKSR
+	3MauQJQlkQm6s7QjwYA36oKPy9MApXM6zexIC1glYMWbOLmJ0WcGxDd6g98LYKLfpQCatLxQY6zl/
+	OVzgsfNJAGjaBxV6k2swsmK4XDIgyqfyPWMCMfxsA6vR/JFHsDZmeRsqlfADP+s0MB5xVsfORLF9M
+	3+a5Ht9C+2dNaGmRjnakXlVE1Hgze3NoAlE2dYVewsrzZHZ0pNh0sRVgkALbb3VZ/q9emO31EtQXa
+	uOJR8qmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7DiO-0000000BdHX-3Qkg;
-	Thu, 17 Sep 2026 15:07:56 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1x7Din-0000000BdMX-00mm;
+	Thu, 17 Sep 2026 15:08:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7DiM-0000000BdHD-10Nq
+	id 1x7Dil-0000000BdMG-3OS0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 15:07:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1789657671;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=aJWfRz/qUQ+jC0/O5zIduIK06j1/9KJXZaDkdj0AX0s=;
-	b=Qr836y6DqCgPTLwcvVp8taBKQUSdhYJMI9sBOpAG1fpPH3L/ImGcf+WbYcuPsbgCsAuAGV
-	HBUQ1xvikVSB9/3FEUEOFntlX65PlAl7qgT8OdUsXdvhSE269ZUu76xwVIac8lsx+ZCXtx
-	K6BqmmrtPGrKWCvQzzMAVLng+597AIA=
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com
- [209.85.219.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-93-XvSxWZ9SM1-PWbJkCih4tA-1; Thu, 17 Sep 2026 11:07:50 -0400
-X-MC-Unique: XvSxWZ9SM1-PWbJkCih4tA-1
-X-Mimecast-MFC-AGG-ID: XvSxWZ9SM1-PWbJkCih4tA_1789657670
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-90e80ce3597so21039336d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 08:07:50 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789657670; x=1790262470;
-        h=content-transfer-encoding:content-type:mime-version:date:message-id
-         :subject:references:in-reply-to:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=aJWfRz/qUQ+jC0/O5zIduIK06j1/9KJXZaDkdj0AX0s=;
-        b=Z1WHTV9RofzlYmXwuI7oeaMjIHpRYVGQ++bbwFlrNoFPiZD+ubk9x+uqq7vizAzRyf
-         h6rX9pB0H8GsoMj+Ow33NALkOD3ScAAKT+krOilT7Z9Jgl2ahIO0EH799jiB43iLT9Bt
-         ydAWVm/EaQpLIUqllSpOQxw4MG0VYD0Hvlv6z5ZKACwuwxYfhO2uUvTe+ybZ6kfYpMh5
-         0xVd8wJ4pvnTaPcUeAt4lvE5Vbuk3yMWOeoJT5xwHzAtbeuVY4DOHVgL/lDkzrjVV4tt
-         XjAhU7vGD393EQgmwr804/fh1ukFkZfGiwG6zZjLz94//liUlIIsxYyJ40qQv+rekWmV
-         fXYA==
-X-Forwarded-Encrypted: i=1; AKwUvBzPfaUpU2BTG/aAhvU2k0/65sNq3wf03YiDNpzvYhP7DvK2AHSTPkpeQ0BJzoXoiX2YWH0JCbQucAceSDCHZ5vx@lists.infradead.org
-X-Gm-Message-State: AFuF++kyj6qdtCyRXDqQlTlejbDqucR106OQTCOGMCZTsRPha42oxO0j
-	2JuB2tg0uJB+TEEb3a/k+CkumL5FkXGm1E/tFlU25E1CTiHetfKxSwFk5d+v4dk/3DpBHw4EFYO
-	ILm+KGjKi7Fz3Sm9fCfGkqDiGLhc3aBoIxd1ldfWpQXJjozwG2XKJL+MWza+gC6wOoSBzCtsNf0
-	xB
-X-Gm-Gg: AYBFou1WjEhP/FjMMNagD+AfZP+Wrr8mhlivbz00pJhLC9Oti2DkP3F2m2CspR9pkjn
-	UYB25iwxbYEPXzEMDHF9P/nOMIls0GWhSNG0Tx8XKf0G1+XVrNnw/oI7ynircyELhS+/xMYbX3r
-	UV0GEAi/akwujnHqCBcFlv0glVOKIV/CJ64UIHKf47TkcuH+3INz9khND4V21rgkPq4LPIRU8oZ
-	o+hgIt0WT/u+cmvorSih47HAA9Xqd3GrvhbGY1v4Gw6S/CHZX4fYoAkkS78DopvpDzD+s65B9FC
-	DfvNkbtwRgLbGneS0+iBkE7lf/xKQop/K7JOJwpiBQLwiKhVYKZqVwux1OGaFZRmruo/aY1M8k3
-	rX7cSNJ54GkQUl7h5Fi98tAV5S/NIVokdnWcUuz4=
-X-Received: by 2002:a05:6214:2528:b0:912:3cfe:2dcf with SMTP id 6a1803df08f44-9123d722381mr122578676d6.4.1789657669520;
-        Thu, 17 Sep 2026 08:07:49 -0700 (PDT)
-X-Received: by 2002:a05:6214:2528:b0:912:3cfe:2dcf with SMTP id 6a1803df08f44-9123d722381mr122577906d6.4.1789657669090;
-        Thu, 17 Sep 2026 08:07:49 -0700 (PDT)
-Received: from [192.168.1.3] (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-9123beb4884sm53020536d6.37.2026.09.17.08.07.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 17 Sep 2026 08:07:47 -0700 (PDT)
-From: Brian Masney <bmasney@redhat.com>
-To: Stephen Boyd <sboyd@kernel.org>, Pengpeng Hou <hppiscas@163.com>
-Cc: Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, 
- Taichi Sugaya <sugaya.taichi@socionext.com>, 
- Takao Orito <orito.takao@socionext.com>, linux-clk@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260906033924.84982-1-hppiscas@163.com>
-References: <20260906033924.84982-1-hppiscas@163.com>
-Subject: Re: [PATCH] clk: milbeaut: Return divider update timeouts
-Message-Id: <178965765056.360090.17314142622981965069.b4-ty@b4>
-Date: Thu, 17 Sep 2026 11:07:30 -0400
-MIME-Version: 1.0
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=294; i=bmasney@redhat.com;
- s=20250903; h=from:subject:message-id;
- bh=Zw0k9Wy8piJ6fXZzS55E7Sk9e3u/FCgs7eWCZAOw1LM=;
- b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGLLWMFkzxxy8tU/vtPXT5zMC10rp8Xi55LyM3ls241nW1
- 47Vx17e7ShlYRDjYpAVU2RZkmtUEJG6yvbeHU0WmDmsTCBDGLg4BWAiW14y/A8s+zJz+29Hoe75
- rBftzdJOZLttuj1l+Zq+Jwrfw3QNUm4wMrQELLB+OmHS3l3LC2e3H7riUzHl6faCFwLHe66fC7S
- av5cJAA==
-X-Developer-Key: i=bmasney@redhat.com; a=openpgp;
- fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 36ML_XVbk99IG-Q2AO8Lz2UJDrUSLrdmjmnJKvyFVbI_1789657670
-X-Mimecast-Originator: redhat.com
+	Thu, 17 Sep 2026 15:08:19 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 42C8542438;
+	Thu, 17 Sep 2026 15:08:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41B671F000FF;
+	Thu, 17 Sep 2026 15:08:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789657699;
+	bh=2iGhgSepTfMvTest9R2671rFzQ55p8ybqQp29LxKFTc=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=jl9qAJD3FmxNKwOaalSgcsSphrCK9ND2fSQ70tv01efnCKfqh5cn27jfjw/u4Ov+t
+	 4+i21OUJJHtmKAvZrAKtmKfDMUdSybA2Afg8Camf5k7K5vFU5r9WesMPzBejE6Qulr
+	 d+JieLRmXDXhN0PI+SoWMdEeHSE+Ziu5FxXrC5rRSKB8xJlZ+k7MVX8jpHFjujCsZH
+	 y/dm+bGpg5alcjOMW3nHXrJhIppNPGNO+lmdnrea6GANJJ1xxoVK6wqiKW7F+VkAJL
+	 GiTeTG/oRdKjQHJSDlb8fnw8OsWJB/nz+OU7h0uOpJO1I0FMgnc1BPzToCbbf5u1WK
+	 U9NdQNcH3OLGg==
+Subject: Re: [PATCH net v7 1/2] net: stmmac: selftests: Prevent RXC from being
+ disabled in LPI
+From: netdev-bot+sashiko@kernel.org
+To: peilinhe2020@163.com
+Cc: netdev@vger.kernel.org, alexandre.torgue@foss.st.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ he.peilin@zte.com.cn, jiang.kun2@zte.com.cn, kuba@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com, maxime.chevallier@bootlin.com,
+ mcoquelin.stm32@gmail.com, pabeni@redhat.com, vbridgers2013@gmail.com,
+ xu.xin16@zte.com.cn
+Date: Thu, 17 Sep 2026 15:08:17 +0000
+Message-ID: <178965769776.22033.13374439300724313005@kernel.org>
+In-Reply-To: <20260914150612.9798-2-peilinhe2020@163.com>
+References: <20260914150612.9798-2-peilinhe2020@163.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_080754_356194_D4F33D03 
-X-CRM114-Status: UNSURE (   5.51  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,17 +75,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider:
 
-On Sun, 06 Sep 2026 11:39:24 +0800, Pengpeng Hou wrote:
-> clk: milbeaut: Return divider update timeouts
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-Applied, thanks!
+- [Medium] The last paragraph of the commit message describes the
+  `eee_rx_clk_stop_enable` precondition backwards.
 
-[1/1] clk: milbeaut: Return divider update timeouts
-      commit: 526066a4bd5658962800fa64bd3e5432e1f7f92b
+--
 
-Best regards,
+net: stmmac: selftests: Prevent RXC from being disabled in LPI
+
+The patch wraps the selftest loop in stmmac_selftest_run() with
+phylink_rx_clk_stop_block() / phylink_rx_clk_stop_unblock() so the PHY
+does not stop the receive clock while the MAC is in loopback. The code
+change itself looks balanced and is a no-op when the phylink config does
+not allow RX clock stop.
+
+The question below is only about the changelog, so the diff hunk is not
+quoted.
+
+>     As the NETIF_F_VLAN_FEATURES may be empty on some platforms once the
+>     software vlan stripping is removed, the phylink config attribute
+>     'eee_rx_clk_stop_enable' may no longer be inconditionnally set to
+>     true, hence allowing RXC to be disabled during LPI on platforms
+>     that don't have any VLAN features.
+
+[Severity: Medium]
+Is the true/false direction here inverted?
+
+include/linux/phylink.h documents the field as:
+
+ * @eee_rx_clk_stop_enable: if true, PHY can stop the receive clock during LPI
+
+So true is what permits the PHY to stop RXC, which makes "may no longer
+be inconditionnally set to true, hence allowing RXC to be disabled"
+read as its own opposite.
+
+The code in stmmac_phylink_setup() also goes the other way, setting the
+flag when the VLAN feature mask is empty:
+
+	/* Disable EEE RX clock stop to ensure VLAN register access works
+	 * correctly.
+	 */
+	if (!(priv->plat->flags & STMMAC_FLAG_RX_CLK_RUNS_IN_LPI) &&
+	    !(priv->dev->features & NETIF_F_VLAN_FEATURES))
+		config->eee_rx_clk_stop_enable = true;
+
+In the current tree __stmmac_dvr_probe() sets, under
+STMMAC_VLAN_TAG_USED:
+
+	ndev->features |= NETIF_F_HW_VLAN_CTAG_RX | NETIF_F_HW_VLAN_STAG_RX;
+
+so with CONFIG_VLAN_8021Q=y the flag is never true today, and it only
+becomes true once the software VLAN stripping removal drops that
+assignment. Would it be clearer to say that the flag starts being set to
+true, thereby letting the PHY stop RXC?
+
+Related to that, should the changelog also mention that
+CONFIG_VLAN_8021Q=n builds are already affected today? With
+STMMAC_VLAN_TAG_USED undefined in common.h, no VLAN features are ever
+set, so eee_rx_clk_stop_enable is already true on platforms without
+STMMAC_FLAG_RX_CLK_RUNS_IN_LPI and the selftests can already fail there.
+
+As written it is hard to tell whether this fixes a live failure or is a
+prerequisite for the following patch in the series, which also makes the
+Fixes tag range hard to check.
+
+There is also a spelling slip in the same paragraph: "inconditionnally"
+should be "unconditionally".
+
 -- 
-Brian Masney <bmasney@redhat.com>
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260914150612.9798-1-peilinhe2020%40163.com
 
