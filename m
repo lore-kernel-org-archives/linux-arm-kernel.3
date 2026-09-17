@@ -4,73 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1856C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 11:25:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAD05C982CF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 11:37:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jxCLEz1PghbmSfANEGJ8sv05BrOJB/Cjk6EI/rqDqno=; b=Gk/vM1H8C/t/glwCcXGummfRyt
-	g+kodISwiP7wyaj5Urjups7nF5wTfRbLP9LGI3z7jIFSAipO/p1bvk4o7/2LUEm3Hf4za2EV9YJj4
-	RfxCeApdLcFoTdwAQ8bWovyfS6fd/6VSQs5QLMvfTTKD2zmtXrkhDgx99s7v6vLuSuo/scZpi4yRT
-	D6n1l2/0TvI/pN+J4sr1vtTPVhHrDxqjfMNdKijEc06GYTSb3zUKMX8QWkIp6gkt7V4S0FlrD2bmW
-	esIHlrNSPga99c+q+5I3GTaFZY5WLQRjY2G/yc+md0LRuIxl+SqaHde/YFP8XhOqkkens9Hmcut8f
-	G0stwC+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=L/dQxRg/kROy8iG4mRPU8BaUTlLittQMl1h6HbieP18=; b=XEpZwH+lyssmv7Wq0e8q+RuGX7
+	KzRMbsr+8U69QnwIY5+YOjJ/3zM506vTPpzkxj8K/eI81tnGNoBWSpxyqK9MZgMvRXU6DdfpV7N2z
+	eNMnG0JoPjR/55GDJFlFHLOZme2aD0RAWLZ3eFQedTmC/RubvBR03okOKMkOsESUi7CkF8oxuL/8D
+	t7zrvmlWciEuqnL1Q3W3/h20kY5TA0nxbeCQkeA2pI1UXebf9OGlgn0nAcvahmmgXJUQeVNVqIHJE
+	MD8DS7PtAKmC2YI1iyjS+GwGQVNvF7ZeE6GT10KuJZHXsmFYKWfCHrJBGX9GjbJnOcP2RyGaghS1D
+	sAN4/X7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7AEj-0000000BBLa-0P4U;
-	Thu, 17 Sep 2026 11:25:05 +0000
-Received: from out-155.mta0.migadu.com ([2001:41d0:1004:224b::9b] helo=mta0.migadu.com)
+	id 1x7AQK-0000000BC8J-0ycp;
+	Thu, 17 Sep 2026 11:37:04 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7AEg-0000000BBKu-0BHU
+	id 1x7AQH-0000000BC7J-1ecg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 11:25:03 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=6cLtGQr3NeN6cuI+wwoUX8J3Vbq5/m8fhyoeTXSQu5k=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1789644299; v=1; x=1790249099;
- b=AtFsGbdnKtv1QCYZ5c7GAg/57poJEc+AZLtD111yKUx4LYe6k35Mru4Wz0H9Z3kLXdkqtN57
- kHsNDdaNAnPqqk3CkwrxrMUp5fgO/JfaEpSOJD1WLhImUg1eGJsTJG+DPUQSCfUDG7EMGmeRD74
- ytEdwJLHz0+oaq+Ja/CILpT0=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 08be7c9af8d1d308;
-	Thu, 17 Sep 2026 11:24:59 +0000
-X-Mizu-Trace-ID: 08be7c9af8d1d308
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-5b83c1421ecso868e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 04:24:59 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBylg313BV6bPdvVmV17UFRbRBgGlZOF39YEiX7qH9gG/gzkF7piQ9Ri9h9PKw8q+89Xluhqt/SX1JvQBy/+kN6o@lists.infradead.org
-X-Gm-Message-State: AFuF++mJlnbtxjT+9P5ilOj01us4/ov15+XWU/aVCzxqcH5PPa//Yl2I
-	23u80Kad3E5OzuRpKDrdCHEAOvwGsW1wNrhhvGZewrreg+r++5W5MJETCoIou4JPWpwT/+0ctQ9
-	cL8q/qOrUHjVPMn+4PpFR2KJIkfqUtIPTmZFvAABs
-X-Received: by 2002:a05:6512:3054:b0:5b6:4ad:d6ba with SMTP id
- 2adb3069b0e04-5b8bff4a5d7mr13058e87.15.1789644298430; Thu, 17 Sep 2026
- 04:24:58 -0700 (PDT)
+	Thu, 17 Sep 2026 11:37:03 +0000
+Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
+	by APP-05 (Coremail) with SMTP id zQCowAAHKkPW0Ktqj7F_CA--.42390S2;
+	Thu, 17 Sep 2026 19:36:54 +0800 (CST)
+From: Wentao Liang <vulab@iscas.ac.cn>
+To: alexandre.torgue@foss.st.com
+Cc: andrew+netdev@lunn.ch,
+	clabbe.montjoie@gmail.com,
+	davem@davemloft.net,
+	edumazet@google.com,
+	jernej.skrabec@gmail.com,
+	kuba@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-sunxi@lists.linux.dev,
+	mcoquelin.stm32@gmail.com,
+	netdev@vger.kernel.org,
+	pabeni@redhat.com,
+	samuel@sholland.org,
+	wens@kernel.org,
+	Wentao Liang <vulab@iscas.ac.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH] net: stmmac: dwmac-sun8i: Fix EPHY clock leak in get_ephy_nodes()
+Date: Thu, 17 Sep 2026 11:36:54 +0000
+Message-Id: <20260917113654.2149268-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20260915160141.3543048-1-suzuki.poulose@arm.com> <20260915160141.3543048-6-suzuki.poulose@arm.com>
-In-Reply-To: <20260915160141.3543048-6-suzuki.poulose@arm.com>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Thu, 17 Sep 2026 12:24:21 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTz65G0MM=tOrzmk=jMweBX1us6FqfrmSkQs4KSyAEoxhg@mail.gmail.com>
-X-Gm-Features: AcwNN1VFMe-nqpetX5NFULE-T8FsNAG-h344sw-wYzui_i8Ztl6ucWB9ep0N7uI
-Message-ID: <CA+EHjTz65G0MM=tOrzmk=jMweBX1us6FqfrmSkQs4KSyAEoxhg@mail.gmail.com>
-Subject: Re: [PATCH v18 05/23] KVM: arm64: Track the type of VM in kvm_arch
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org, 
-	will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, steven.price@arm.com, 
-	aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com, 
-	joey.gouly@arm.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev, 
-	gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com, 
-	alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com, 
-	lpieralisi@kernel.org, enju.kohei@fujitsu.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: zQCowAAHKkPW0Ktqj7F_CA--.42390S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7ZF45tF4rKFW8AFW8Jry5Jwb_yoW8Aryfpr
+	Z7uFyYv34fArWSg3Z8tr1UZF98Zay2qF4rGr1ftan3Canayayjv34a9Fy5XFn8AF4rWa4a
+	qr48G3Z3C3WDArUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPvb7Iv0xC_KF4lb4IE77IF4wAFc2x0x2IEx4CE42xK8VAvwI8I
+	cIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2
+	AK021l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v2
+	6F4j6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxV
+	W0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv
+	7VC0I7IYx2IY67AKxVWUtVWrXwAv7VC2z280aVAFwI0_Gr1j6F4UJwAm72CE4IkC6x0Yz7
+	v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0E0s8F02x267IIx4CEVc8vx2IErcIFxwAC
+	I402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrw
+	CF04k20xvE74AGY7Cv6cx26r48ZrWUJr1UMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E
+	5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZV
+	WrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY
+	1x0267AKxVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14
+	v26r4UJVWxJr1lIxAIcVC2z280aVCY1x0267AKxVW0oVCq3bIYCTnIWIevJa73UjIFyTuY
+	vjxUVpBTUUUUU
+X-Originating-IP: [36.110.52.2]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiCRINA2qrq016GgAAsS
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_042502_394078_CA4B8E51 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20260917_043701_902699_0827975B 
+X-CRM114-Status: GOOD (  10.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,38 +92,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Suzuki,
+get_ephy_nodes() stores the clock returned by of_clk_get() directly in
+gmac->ephy_clk before the reset control is obtained. When the reset
+lookup fails, the loop continues or returns without releasing that
+clock, and sun8i_dwmac_probe() then jumps to dwmac_remove, which does
+not call clk_put(). Keep the clock in a local variable and release it
+on the error paths.
 
-On Tue, 15 Sep 2026 17:01:23 +0100, Suzuki K Poulose
-<suzuki.poulose@arm.com> wrote:
-[...]
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-[...]
-> +#define kvm_vm_hyp_is_pkvm(kvm)                (is_protected_kvm_enabled())
+Fixes: 634db83b8265 ("net: stmmac: dwmac-sun8i: Handle integrated/external MDIOs")
+Cc: stable@vger.kernel.org
+Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+---
+ drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
-I'd keep is_protected_kvm_enabled() at the three call sites: this
-takes a VM and ignores it, so it reads as per-VM when it's the mode,
-and patch 20's comment about not being able to use the kvm_vm_ helpers
-with a NULL kvm goes away too.
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+index 48c52eb96233..38d7e71de925 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+@@ -783,18 +783,22 @@ static int get_ephy_nodes(struct stmmac_priv *priv)
+ 
+ 	/* Seek for internal PHY */
+ 	for_each_child_of_node_scoped(mdio_internal, iphynode) {
+-		gmac->ephy_clk = of_clk_get(iphynode, 0);
+-		if (IS_ERR(gmac->ephy_clk))
++		struct clk *ephy_clk;
++
++		ephy_clk = of_clk_get(iphynode, 0);
++		if (IS_ERR(ephy_clk))
+ 			continue;
+ 		gmac->rst_ephy = of_reset_control_get_exclusive(iphynode, NULL);
+ 		if (IS_ERR(gmac->rst_ephy)) {
+ 			ret = PTR_ERR(gmac->rst_ephy);
++			clk_put(ephy_clk);
+ 			if (ret == -EPROBE_DEFER) {
+ 				of_node_put(mdio_internal);
+ 				return ret;
+ 			}
+ 			continue;
+ 		}
++		gmac->ephy_clk = ephy_clk;
+ 		dev_info(priv->device, "Found internal PHY node\n");
+ 		of_node_put(mdio_internal);
+ 		return 0;
+-- 
+2.34.1
 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-[...]
-> @@ -432,7 +432,7 @@ static void init_pkvm_hyp_vm(struct kvm *host_kvm, struct pkvm_hyp_vm *hyp_vm,
->
->          hyp_vm->host_kvm = host_kvm;
->          hyp_vm->kvm.created_vcpus = nr_vcpus;
-> -        hyp_vm->kvm.arch.pkvm.is_protected = READ_ONCE(host_kvm->arch.pkvm.is_protected);
-> +        hyp_vm->kvm.arch.vm_flavor = READ_ONCE(host_kvm->arch.vm_flavor);
-
-Could EL2 reduce this to VM_PKVM or VM_PROTECTED_PKVM here instead of
-storing what it reads? The host supplies the value, and it's now an
-enum rather than a bool. Patch 12 relies on EL2 only ever seeing those
-two, and with VM_REALM above the marker a host-written value passes
-kvm_vm_is_protected() but not the == form, if EL2 ever adds one.
-
-Both hunks are new since v17, which is where I gave the Reviewed-by.
-Happy to keep it if you can settle these please.
-
-Cheers,
-/fuad
 
