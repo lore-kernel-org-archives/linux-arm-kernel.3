@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E7F9C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 23:07:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9B71C88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 23:11:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JqPJCohWRfB+hmB+wfsL1AB/26UvRNHnj0EqsWJvN/o=; b=QRxj5QccjV9GNwVRSF0ZqEpuGx
-	YJRB34VBT+mTZ/urC6Fnvxv1WQ4niFaoAKrkBnv7hYZbM6WweHpNwIy7sknEs6YcTwM1Kyrns/Fz/
-	kbczdcAsviBT8ehTrtpqOC8r7MhUCwm+Cea5qBqtihPDFXfib9zGWLcGyK33wtjoiYLfdAQFRIJJ0
-	OQhjiEh3wEtTfnSlbYygK61XF+NNKKTGGrb4zPQ/Lhn8NPMTyxqUKfqX2PLRhuIX/GdNGdJX9Giry
-	C0cPUj06Dyq6N+Y8hoChd8He5lozNYMaSp7PNRYTVjxTyUp8LiqPwDKcrGMbwUOLGxVTKjZ/EDlbi
-	SFBi4FLA==;
+	bh=0j0ieVVk4Rd36XnMVFkrdt7aCshgiSP2WPCEyAt7c1w=; b=PJW6UsmqxmMRocNdtXo/025ct+
+	ldNBlhN+sn2rMotp4n1vfdeJwxN7A69EG3pWCUUjM4736Iny2xxF797qO76TuhWcKtPwxtJJiiltN
+	BhjTpQfLEZ2N5qhdkH4WygglVbsT0LAUWAVf2faUlD584k2flGls2n8U0JPz+5KZu25zzlYEM4i0o
+	FnnkOi4tKddWLqZEvR4oXch1XmeRUXolD03Tn3ybPEokLSwhrNYN7KuG7JuMqo5UUO1iUxSeQJmhR
+	sTsjMU9OzJ355vXswZ3eclDrpCveN/hgNi4xIvMIdPH3VhmSnrrafkUV+iWgyMSxHwiHzBvQJcGEm
+	cmq+J33Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7LBx-0000000ClPh-3dr9;
-	Thu, 17 Sep 2026 23:06:57 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1x7LFv-0000000Clmh-1TTJ;
+	Thu, 17 Sep 2026 23:11:03 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7LBu-0000000ClP7-0hhq
+	id 1x7LFs-0000000ClmH-0s9y
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 23:06:55 +0000
+	Thu, 17 Sep 2026 23:11:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789686414; x=1821222414;
+  t=1789686660; x=1821222660;
   h=date:from:to:cc:subject:message-id;
-  bh=T00cRbJWA1mIWzkfIK7sOzC6zDWZ87VR5K8qIyu3k/8=;
-  b=EE6ceUhdsbtcPbLojUelWl028GRxnJsg6TI4qqOsAqvmh8faJaeKwCjS
-   uA2PTNLWG3mYFLmdXTdnFMWj5k6GDDJRamSO4yM9YaJCyhOf5ENlgVg0H
-   ECAMP2Isc4aHPG3fmUBnDaJDW2WSYf+qrywq1CJpJPGG9C8RajTWCGW/O
-   v4he4vmmSgfNUmofyu3CvFJbKDnmb9GjjIpd3/3+NlSEAkjYZWcL/QUn8
-   PHL5kG2tvPQ2iisVj1qTVdxoLgGzWIe2IgiU38iIxB7F1wzKCaCSnoGTR
-   TB1+Rs8mc6IfQ0Kwq3HsaVf4fWBtzc4v2N0VEmx4Np3Yv3nOlIj3d87LT
-   Q==;
-X-CSE-ConnectionGUID: CBTfMKZ6SkGnRIpjTMDZ4A==
-X-CSE-MsgGUID: laCdxXqkSOeLPPzC6oOkmA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="101506410"
+  bh=JHfJjaRv2oSI6Ug1JCjIl9GH1qgN+bihdCHgkRxpQxA=;
+  b=LEd5hHX4dEY2cuvo+VrmLGfx/M2ds1BeLXCxTmx1jKRhGZVb4xyw/lwj
+   jWpaZGiKBhh5Hg7iNQcad/32GCMlFueTz5wBlmkUlHKoDaSKBZWt12Mzf
+   ihvXDdQHsb+D1Fac1vCvcy0CQma7lMSlmW877vXWFlTTaLNbFdmDowzLX
+   J3WqaKRZ/qVQ+2yjt9KICHS32hi8OR9IRZfhQ3Wswx8AF9sMbm8HTKPlP
+   J+o/UQFp9RQKzldcY/jiI/CuZnexk9mOPwu7EvSc65yGhJ7ortX8P3wUt
+   /ox8fXkUWa1eIOEPcxAIp/kcRIFg6oSJLqpprk0Xe6dYXnnAQ3lZbHF9I
+   w==;
+X-CSE-ConnectionGUID: zjX34hblSF2rN5WBJ7U61Q==
+X-CSE-MsgGUID: pmnCYgmISB+dbgTwtp4siw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="115693907"
 X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="101506410"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Sep 2026 16:06:53 -0700
-X-CSE-ConnectionGUID: Lt5XgMtRSEWaFdkpWllYTA==
-X-CSE-MsgGUID: tkkrAqJbQgWtXy2c1I0eLA==
+   d="scan'208";a="115693907"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Sep 2026 16:10:59 -0700
+X-CSE-ConnectionGUID: cDh37XVdRJGK34YEXWkUmA==
+X-CSE-MsgGUID: 96+Rs6EARVKzAZlVizyyiw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="299157915"
+   d="scan'208";a="270369662"
 Received: from lkp-server01.sh.intel.com (HELO 462990a40a85) ([10.239.97.150])
-  by fmviesa001.fm.intel.com with ESMTP; 17 Sep 2026 16:06:52 -0700
+  by fmviesa010.fm.intel.com with ESMTP; 17 Sep 2026 16:10:58 -0700
 Received: from kbuild by 462990a40a85 with local (Exim 4.98.2)
 	(envelope-from <lkp@intel.com>)
-	id 1x7LBq-000000008fR-0JZH;
-	Thu, 17 Sep 2026 23:06:50 +0000
-Date: Fri, 18 Sep 2026 07:06:10 +0800
+	id 1x7LFn-000000008gH-2E6J;
+	Thu, 17 Sep 2026 23:10:55 +0000
+Date: Fri, 18 Sep 2026 07:10:17 +0800
 From: kernel test robot <lkp@intel.com>
 To: Linus Walleij <linusw@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org
-Subject: [linusw-nomadik:b4:ab8500-charger-dt] BUILD SUCCESS
- 7679100f669c88dda6e4e970aa9c06ab3a40f6c4
-Message-ID: <202609180702.D7KcUzya-lkp@intel.com>
+Subject: [linusw-nomadik:b4:ab8500-charging] BUILD SUCCESS
+ f92b868a72444b5b9fd37b0ab811f5adc05f4c53
+Message-ID: <202609180706.InP7QN7U-lkp@intel.com>
 User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_160654_223195_7643AAE6 
-X-CRM114-Status: UNSURE (   5.16  )
+X-CRM114-CacheID: sfid-20260917_161100_923819_611D4E6E 
+X-CRM114-Status: UNSURE (   5.05  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,8 +83,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-nomadik.git b4/ab8500-charger-dt
-branch HEAD: 7679100f669c88dda6e4e970aa9c06ab3a40f6c4  ARM: dts: ux500: Drop AB8505 main charger interrupts
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-nomadik.git b4/ab8500-charging
+branch HEAD: f92b868a72444b5b9fd37b0ab811f5adc05f4c53  ARM: dts: ux500: Drop AB8505 main charger interrupts
 
 elapsed time: m
 
