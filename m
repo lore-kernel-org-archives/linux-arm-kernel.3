@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4CA3C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 13:49:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EB02C982D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 13:49:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ku3uTlcU3+slq8eyYb3I2vaPU9xUB8K+yF35OsHRHyM=; b=YMvhXPGX4NtywcgLx7UKfHH1eu
-	fbC0EI+5/HGmCi6raijTVzHo2PPPmx2IqCPWb3z5Nwn41wy/6HS/MCeXigcUPRgSvK9ZdSXrcZ11d
-	if6mnzAItjgDcppaAMgqyrfmoEEsJLCZvPUqfz8OCKbgv2LF0CwcK5xq0by7wh8ft+P5sUhStAhY3
-	9d0nKbr5bzVmcUaGIRF8zJpdDuULbvnUqgzCbWJ8WNVwA62rStcvJHjSmXZ7gNxExLpAt/ft4Vzib
-	S007W3ED/QnZGIgkIQ9gnmhNoDXrUaBmI2nZJOr937FexX/LYUUOYpbrP5Kq8FYRQ3jYRBOYyH79j
-	G67/HNWQ==;
+	bh=LuSdbCS6PnEOFW/yBPEagnpefQJlzkts0oUQFSt4QkQ=; b=4mYDV97+CRfyikiyl3y7I6JXlD
+	/5bRy/eaKSgi8suu3DC8vtF3UQqLH+pmzi6hG16YDoNrL6Fb65o/jnvxSQZ5lXJGvFkhO6LfBrGBo
+	vbDLqvu6WY3ked4bZIahDronndNeR7PcI3u2P0Utnrziq3tRHq8CKNRcRk5bOJX+OosT8UPUMwpwe
+	VXVjgDfVKUBzDO0OvHZ7UQMwUh82ngBqchHVx16VJdRHAFwSmsK3wLr8UmLWMKK5JNK+mF0dwQRuK
+	6jzKO9JZk9qFOoRqPFb/dp8lNY9fDK51bHS+umFuJMJFXuyEFJCXjlRfAdB6cajgVqYms/xokPgzN
+	ZS5nyGfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7CUa-0000000BRPb-0FuE;
-	Thu, 17 Sep 2026 13:49:36 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1x7CUb-0000000BRUA-2SWh;
+	Thu, 17 Sep 2026 13:49:37 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7CUO-0000000BRIr-3oXX;
-	Thu, 17 Sep 2026 13:49:27 +0000
+	id 1x7CUS-0000000BRKj-42Fr;
+	Thu, 17 Sep 2026 13:49:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1789652961;
-	bh=UNAUWNTqDPEuEuXC9mWoAT2pgMMEmi++BoO2+4ivAP0=;
+	s=mail; t=1789652962;
+	bh=VXjQmgPNcP6TxrE9fEJyZi07Hi5P0Q3culnMpUj9c98=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=QWtL5Hv64RSxvsWPTnFge8bSBeiW7EN9/oozxPtun3Kl0YtP1o69BpM3NYl/+XIuX
-	 fuPVXt5eUbwlXp8GX4/2eRNuC6RuD/guFJF8xGSf8XEyVfXSMQse//35ODOi9+LV/j
-	 PNbYM5zLPhmmENuQKahj6FbE/bBdeUyuRPGdU5mJQBuX6ns8RWm+9FExgLS3Jx+YmD
-	 xRaJtDMuIKaNaXM0q6QHdecBYOcN01+QP6UUI7Sh1Xpuq7TnqAq7OU6YDFxnN29Ve/
-	 tdTlMlYkBHDZ2RO+XCZZRQ6o/Vuj2Y3JpKYqsNW+9Mt6xpxhufGtH2BR2tpJOmV50e
-	 vTQWC5moqS/Lw==
+	b=L/TADqrjmFPk2K1ZX7k+LW5ZVhcd2vFs6kFuZZA6Jlhddudj5mKXh83EctWmN0tqt
+	 5rMwd1BHGe+slfldSeYdjDPi0oWUZZCCdMgsNvPyofWih3Wgx7LpkvAednoRqRxPeE
+	 aQ7sm3sRmykZOJG5NhjLapX/c6W22z6JVknnsw2SjFVJUD+KQVEa7u0fIcMzbIFdaG
+	 qcDysICHQsCWfIZXY2loWh61qOZKX4NvI6AvXn475qG+ud4TBKhP/rxSOKm1r++m64
+	 tpJYKsVTFVoafTpDDIs1FC3siumxQrosMrib23Jup1YdVziIgI6qI2P2jfwLiNyUv0
+	 MmFc5c7eJuW+Q==
 Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange x25519)
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C4EC717E01C5;
-	Thu, 17 Sep 2026 15:49:21 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 222FB17E0D43;
+	Thu, 17 Sep 2026 15:49:22 +0200 (CEST)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id 7B372480029; Thu, 17 Sep 2026 15:49:21 +0200 (CEST)
+	id 83215480038; Thu, 17 Sep 2026 15:49:21 +0200 (CEST)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Thu, 17 Sep 2026 15:49:13 +0200
-Subject: [PATCH 1/8] dt-bindings: clock: rk3588: add PCLK_DDR_MON_CH clocks
+Date: Thu, 17 Sep 2026 15:49:18 +0200
+Subject: [PATCH 6/8] clk: rockchip: rk3588: add PCLK_DDR_MON_CH gate
+ branches
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260917-rockchip-dfi-cleanup-v1-1-4f00a97a69a6@collabora.com>
+Message-Id: <20260917-rockchip-dfi-cleanup-v1-6-4f00a97a69a6@collabora.com>
 References: <20260917-rockchip-dfi-cleanup-v1-0-4f00a97a69a6@collabora.com>
 In-Reply-To: <20260917-rockchip-dfi-cleanup-v1-0-4f00a97a69a6@collabora.com>
 To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
@@ -68,27 +69,26 @@ Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
  linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
  kernel@collabora.com, Sebastian Reichel <sebastian.reichel@collabora.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=973;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1856;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=C8FVn7J52GHndEtJHzBBi/WU5EQNwPsmo9I3eNfLHLk=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGqr7+G5gRT1Y4SWiCAXtzY+PZrOUVvQFThyX
- 3ZOnEBDhOdfyokCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqq+/hAAoJENju1/PI
- O/qavMYP/AzsS7ugEUE3K3xXEw6TD5yZa8uBWSquhlmiqN5Auuyx7WMZR7HIeQU9Af+oDbqsDC2
- UXrIuELVmKvxF3F9Sv4+f2zmLKnHIrbvf3Oh8uCeEPHcdnkudRDcSLWg+2Lv0dUY12kSgiZcDtv
- USUDx7WRjKSIvE+YsbDk2NtRU9DidmeWVej7Q8PvLsBGGfyola+lczebuEtXGy0n1CMvyUGLtkt
- QXRz3elKmfN7wXLnsNWN3SKjC/CF/9+2vSyIFMMMXwOR4s2+CsUKYa4XgMci7wO5W0E69gMWVim
- bx2AuSOKFt4mJgC//ARlzq06jEkPd0cRghW27LkxLbidVkV+qZIgezz2I4tN+Ca1QoP5dqSlWME
- vInOIo6gYPC6QPp9xSNjRB7UE3GCRybgdsVu5Zm9Cla42FyCawaHm2Hs3a4Z82uB9pgK9kmNvP/
- DDi1rJrk6RFK80U6tzYweqPeA2nPJTqn5hHZXfyhmriUtpl7eevmcaoKnFBu654dajaD2xCoxlb
- KifHY7ABV09ioBEeIWoNckhHUXN7Zj0E6wc9bBsVftPnXz28shCDyDBRTS1IaUfqkOyXf80hqgN
- bH8PFnHB9vINmMI9fJskWnt/aI3XogEB5MdEWI+AFBciiP1r6BLK+2YU5TbLF1UN1+3vvr8rr/Q
- bMc/s/Ix26Gbo/6DQrTkn5g==
+ bh=WfqRSjYFz7+ljRQE5uaOc11qdMoKK31EtGs4gkDrNM4=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGqr7+FXLCthP7tD49VfVvHeEO0xRiIMMWLgb
+ bnWmG28Z5g7+okCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqq+/hAAoJENju1/PI
+ O/qaTb0P/A/x5egj1nQnkPWKzWJD+O+aQG9ru/DmIrFaBLMjgGQrkSHhtEIZ8awBiU0V3dMMoH+
+ IDh/siTsRM7qE5prdXcGNwomi4yfg2uhlfSNAKfXSXMEWfA3W2dqypLAPqoepd4Nwb125f9+tU3
+ NRgBy6NZRNnXfY1cdeqLtLEcuGT5xXVzS0T3xMIGRPErATCCwG826QuCv5qV0d/8dpswZW/f6fz
+ K3Df5RDIa/jLXjpA262tTj+BFgz2TI+ISm9oYvLtISL1ACHRUxDTMlbZ+euWTaoySFa6XcWcbpo
+ h8bgi5d8K0YkW6t7lwgCmtK4WeAGHLthgQCQa2ndYiz9mMRlrk0p6cqV9xOJwJrTJElzrt3yAeE
+ E775KVtDdK+JhhFWwnSRl0drOyZOIE5khUf1KJyn/N5RA+GTNc3lcoQ3x0JWilijOiM7dQYTR/q
+ RzUe+xEWItOEDnpmtfkwHo86FzBH2DHEC/ht3ZFu1hz126rDKjvK7ZHnY1SsGwuw0uiOgb0aE51
+ 7LbAXuouUGATBzvyJ9Hb27Kfd3bHYjDKezCA2OiI0udmD1EyTenElgTNi3G4iF+BuIRABkCB4o7
+ 4DLTPUSRI+LnSIOkJBKRDowlqsr6O4u/z2UMstpgKjQW3folhlQ+QT0iEUmA1HRmV043byt8Qoi
+ rBK2hfyG7aKXuLpeFftkuKA==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_064925_101387_C112A59B 
-X-CRM114-Status: UNSURE (   9.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260917_064929_178921_C7ACF20E 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,31 +105,42 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-On RK3588, each memory channel has its own DDR bandwidth monitor
-silicon, and each instance of that has its own clock gate that drives
-the monitor logic.
+On the Rockchip RK3588, each memory channel has some bandwidth
+monitoring silicon (hence the "DDR_MON"), which is driven by a clock
+gated by PCLK_DDR_MON_CH0/1/2/3.
+
+These clock branches were left out of the mainline clock tree until now.
+
+Add them, with the proper CRU reg bits, and the proper parent.  They are
+given the "CLK_IGNORE_UNUSED" flag, so that older device trees with
+newer kernels don't turn off the clocks because they're seen as not in
+use.
 
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- include/dt-bindings/clock/rockchip,rk3588-cru.h | 4 ++++
- 1 file changed, 4 insertions(+)
+ drivers/clk/rockchip/clk-rk3588.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/include/dt-bindings/clock/rockchip,rk3588-cru.h b/include/dt-bindings/clock/rockchip,rk3588-cru.h
-index 7528034cff56..6ea25019ebb4 100644
---- a/include/dt-bindings/clock/rockchip,rk3588-cru.h
-+++ b/include/dt-bindings/clock/rockchip,rk3588-cru.h
-@@ -738,6 +738,10 @@
- #define I2S1_8CH_MCLKOUT_TO_IO		723
- #define I2S2_2CH_MCLKOUT_TO_IO		724
- #define I2S3_2CH_MCLKOUT_TO_IO		725
-+#define PCLK_DDR_MON_CH0		726
-+#define PCLK_DDR_MON_CH1		727
-+#define PCLK_DDR_MON_CH2		728
-+#define PCLK_DDR_MON_CH3		729
- 
- /* scmi-clocks indices */
- 
+diff --git a/drivers/clk/rockchip/clk-rk3588.c b/drivers/clk/rockchip/clk-rk3588.c
+index 24baa0ef9bf3..0485faf27163 100644
+--- a/drivers/clk/rockchip/clk-rk3588.c
++++ b/drivers/clk/rockchip/clk-rk3588.c
+@@ -1349,6 +1349,14 @@ static struct rockchip_clk_branch rk3588_early_clk_branches[] __initdata = {
+ 	COMPOSITE(CLK_DDR_CM0_RTC, "clk_ddr_cm0_rtc", mux_24m_32k_p, CLK_IS_CRITICAL,
+ 			RK3588_CLKSEL_CON(166), 5, 1, MFLAGS, 0, 5, DFLAGS,
+ 			RK3588_CLKGATE_CON(70), 4, GFLAGS),
++	GATE(PCLK_DDR_MON_CH0, "pclk_ddr_mon_ch0", "pclk_center_root", CLK_IGNORE_UNUSED,
++			RK3588_CLKGATE_CON(20), 1, GFLAGS),
++	GATE(PCLK_DDR_MON_CH1, "pclk_ddr_mon_ch1", "pclk_center_root", CLK_IGNORE_UNUSED,
++			RK3588_CLKGATE_CON(20), 14, GFLAGS),
++	GATE(PCLK_DDR_MON_CH2, "pclk_ddr_mon_ch2", "pclk_center_root", CLK_IGNORE_UNUSED,
++			RK3588_CLKGATE_CON(23), 1, GFLAGS),
++	GATE(PCLK_DDR_MON_CH3, "pclk_ddr_mon_ch3", "pclk_center_root", CLK_IGNORE_UNUSED,
++			RK3588_CLKGATE_CON(23), 14, GFLAGS),
+ 	GATE(PCLK_WDT, "pclk_wdt", "pclk_center_root", 0,
+ 			RK3588_CLKGATE_CON(70), 7, GFLAGS),
+ 	GATE(PCLK_TIMER, "pclk_timer", "pclk_center_root", 0,
 
 -- 
 2.53.0
