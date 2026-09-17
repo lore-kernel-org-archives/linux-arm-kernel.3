@@ -4,80 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6511CC982CF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 11:52:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA03BC982CF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 11:55:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kseQKRvQdNnN8LYBnsMt6SWVvkkwfz7j+iCs7tAx5Sw=; b=QkVORXF2gasMC0UzugVk4mwfUz
-	2iXVdh9kAnU5VYmvuB0HHxSouZ9CMokQ0TQWxMXkqcYe2q7U2W/ExBHTXK9rVWLtUPxoowXqz74cg
-	imEqbIkHrptXLdHKlmEbmDhSxkcyWVH+2sv6qGZN6KmjW/DqyUw4PbU3CHZnxTcCdXca+JUxlAX9Z
-	drGtrdVpoMe5WkJBjk3UHbNdmDwWH1RRVqXb9G35Dp7icgNSutZwv8cwR+QnaHOpaBbyzWgaDCOX8
-	ut5ZEqm+9bhpMICW6lj84aVS/W+RrqPqk/SwDbPqeCVrCpY7+xTWKobB5ZULZ5OIMGEDTZClsX4BN
-	DOkcNcLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pcOiooG2G+sVvJmhsG5x6mYKgDHj4Ma1u4mxqtvuOgo=; b=Hsvpk4ieO5REzjr7+NFCk6x5tp
+	mb8Uvf9mhn4tpo5C9znP3DqnYORnUhHVO6g1rutG1Wz7bOd0i30KrgOBmXzVaJm1RWjpNCWURSFLr
+	VIPuaTkUOjqM+Y3ZXy/l/vvLH5g7+rcu3KwfzndstLZ7FwLhQFo4WFmrejARifKkNw3vrzzjMlZIY
+	JQKu0leKk0SPZsZXHlRYb2ApbIBXqPJNeKxliLdlN5E1O0VmXRINSh4r1PGEEs3E3xLiHQVWdB68t
+	Jx4z3+Qvt+///53IpfTBSUEtrVm6yk5+qLFAqSLL1gDt8YCpL/6tfSaXN6UDoQ1zRM7TghqUAZHlu
+	UafyG7+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Aem-0000000BETZ-3iKF;
-	Thu, 17 Sep 2026 11:52:00 +0000
-Received: from sender6-op-o15.zoho.com ([165.173.180.15])
+	id 1x7Ai3-0000000BEhC-1Txx;
+	Thu, 17 Sep 2026 11:55:23 +0000
+Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Aed-0000000BERH-3djB
+	id 1x7Ahz-0000000BEgn-2pHk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 11:51:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1789645872; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Pd82UWvfSs6YpVrv1vAog2PUcpE+Ombq1RArsu0V0jTFZTQtWDh0bYMe6p2rTteg9h++P5hRHi4cDvwe9KTHSgt5I+nSV+Y1BmfeAxqi0foyCAdK3OaWDXaCc/gyIeRHM7oMFN22tAmqqQPlK1pP6+5y4DzvhMkxKfkwOE0trTk=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1789645872; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=kseQKRvQdNnN8LYBnsMt6SWVvkkwfz7j+iCs7tAx5Sw=; 
-	b=bKNa4ZfgdhmY6u6pSqaA/IS4XO5OJNN59WJTndP4weOKGmlMy7BMyjWaI+Ab+hLd8RTpB2VikQ7KMh02VopEmjgf7/ExO9TVTr5Z0aFd0mZthVYX/NEPis2wME2wrbGTF2G5wLFEkqZCcWyestNKUwsfRls7x1fooQ8ooqeIWQw=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1789645872;
-	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=kseQKRvQdNnN8LYBnsMt6SWVvkkwfz7j+iCs7tAx5Sw=;
-	b=EcwjcfxStg1/MXXpii5AtWo3avKE4bU5Fkdyodhl8QYdZlmR2jz2kZC9/NL/xnYL
-	A+ZyeFJfs+U9gbLyO94UdPXQHJ6LVvAg9mvUovNw5Kfjfhl4SQV7xmGW0H/G9PncBSL
-	0/jTXWOqZXEY4skU+BoGiZDgTBzePxvpCjDWKVQMEPVHdCMJ6tU0hK3hC6FGEbSPIaT
-	vpHHuJ7MIt+BJ5CGp4NqR8tOab8PwdbFqHBWZEPzZHFtTffjW+6ZsUReOVExE6zZmP4
-	A5MucyOfpQUmneVrHeDziFb84wPTO9VCboxzUcBiiQq2qiCEPl30c6XC5dp1OV2W9cy
-	UsdO2QKvZQ==
-Received: by smtp.zohomail.com with SMTPS id 1789645871551851.4316439919276;
-	Thu, 17 Sep 2026 04:51:11 -0700 (PDT)
-Message-ID: <c70b6dbe42aa5ba489dba7634ad604b41925146a.camel@icenowy.me>
-Subject: Re: [PATCH RFT v2 0/5] drm: Add and use
- drm_fb_dma_get_gem_clipped_addr() helper
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Liu Ying <victor.liu@nxp.com>, Laurentiu Palcu
- <laurentiu.palcu@oss.nxp.com>,  Lucas Stach <l.stach@pengutronix.de>,
- Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej@kernel.org>,  Samuel
- Holland <samuel@sholland.org>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard	 <mripard@kernel.org>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie	 <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, 	linux-sunxi@lists.linux.dev,
- imx@lists.linux.dev, 	dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, 	linux-kernel@vger.kernel.org
-Date: Thu, 17 Sep 2026 19:51:05 +0800
-In-Reply-To: <CAGXv+5FHiW8umZ=wLLb5wK5Qz3hf-mbxC_zH5v+pwxxyUNTwew@mail.gmail.com>
-References: <20260916033327.3054126-1-wenst@chromium.org>
-	 <6d21e808d343283264665ec16d297317000fdf4d.camel@icenowy.me>
-	 <CAGXv+5FHiW8umZ=wLLb5wK5Qz3hf-mbxC_zH5v+pwxxyUNTwew@mail.gmail.com>
-Organization: Anthon Open-Source Community
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 
+	Thu, 17 Sep 2026 11:55:21 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=pcOiooG2G+sVvJmhsG5x6mYKgDHj4Ma1u4mxqtvuOgo=;
+	b=cxw7qayv1a5Siaj9L1VfdzxrHF6Qgwz9VehGMpaIvQWE+AfpFR3OweTSMuzehuhUrITIegkoM
+	4I0u3hGUuQxmnAg/ZzOqBVe6wNJZCtWYVMAXzgj1LPcS267SV9PKoPLToSu72tUs7zwjahpsXu+
+	sGmIPlX5BpgIYNWKjJBdxX0=
+Received: from mail.maildlp.com (unknown [172.19.163.127])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4hlv6f5hzdz1cyPY;
+	Thu, 17 Sep 2026 19:44:10 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id 7FFC8402AB;
+	Thu, 17 Sep 2026 19:55:09 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ kwepemk200008.china.huawei.com (7.202.194.74) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Thu, 17 Sep 2026 19:55:08 +0800
+Message-ID: <e43f3ac8-a1f6-4d6d-8247-c64a181f588a@huawei.com>
+Date: Thu, 17 Sep 2026 19:55:07 +0800
 MIME-Version: 1.0
-X-ZohoMailClient: External
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 37/38] genirq: Do not call add_interrupt_randomness() in
+ NMI context
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
+	<maz@kernel.org>, <lpieralisi@kernel.org>, <liaochang1@huawei.com>
+References: <20260914102102.68597-1-vladimir.murzin@arm.com>
+ <20260914102102.68597-38-vladimir.murzin@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260914102102.68597-38-vladimir.murzin@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_045151_939137_2BB14997 
-X-CRM114-Status: GOOD (  33.71  )
+X-CRM114-CacheID: sfid-20260917_045520_204233_C39F3FE7 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,141 +80,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E5=9C=A8 2026-09-17=E5=9B=9B=E7=9A=84 19:42 +0800=EF=BC=8CChen-Yu Tsai=E5=
-=86=99=E9=81=93=EF=BC=9A
-> On Thu, Sep 17, 2026 at 7:16=E2=80=AFPM Icenowy Zheng <uwu@icenowy.me> wr=
-ote:
-> >=20
-> > =E5=9C=A8 2026-09-16=E4=B8=89=E7=9A=84 11:33 +0800=EF=BC=8CChen-Yu Tsai=
-=E5=86=99=E9=81=93=EF=BC=9A
-> > > Hi,
-> > >=20
-> > > This is v2 of my drm_fb_dma_get_gem_clipped_addr() series.
-> > >=20
-> > > Changes since v1:
-> > > - Add and use new drm_framebuffer_get_block_offset() helper
-> > > (Thomas)
-> > >=20
-> > >=20
-> > > This series adds a helper to retrieve the buffer starting address
-> > > of
-> > > a
-> > > "clipped" framebuffer. This contrasts with
-> > > drm_fb_dma_get_gem_addr(),
-> > > which gives the address of the full buffer.
-> >=20
-> > Should vs_fb_get_dma_addr() in verisilicon/vs_plane.c be replaced
-> > with
-> > this helper too?
-> >=20
-> > I implemented manual framebuffer offset addition here.
->=20
-> Didn't I replace vs_fb_get_dma_addr() with drm_fb_dma_get_gem_addr()
 
-Yes, it seems so. I checked newest rc, but this change is in drm-misc-
-next. Sorry for the noise.
 
-> already? At the time only primary and cursor planes were supported by
-> the driver. The primary plane can't be clipped, and the cursor plane
-> had some custom clipping, but seemed to want the unclipped address.
+在 2026/9/14 18:21, Vladimir Murzin 写道:
+> handle_irq_event_percpu() calls add_interrupt_randomness(). Similarly
+> to 512718bbc51b ("genirq/chip: Don't call add_interrupt_randomness()
+> for NMIs"), calling it while handling an NMI is not safe.
+> 
+> Stop calling add_interrupt_randomness() when handle_irq_event_percpu()
+> runs in NMI context.
+> 
+> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> ---
+>  kernel/irq/handle.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/kernel/irq/handle.c b/kernel/irq/handle.c
+> index b7d52821837b..114fd63b0210 100644
+> --- a/kernel/irq/handle.c
+> +++ b/kernel/irq/handle.c
+> @@ -245,7 +245,8 @@ irqreturn_t handle_irq_event_percpu(struct irq_desc *desc)
+>  
+>  	retval = __handle_irq_event_percpu(desc);
+>  
+> -	add_interrupt_randomness(desc->irq_data.irq);
+> +	if (!in_nmi())
+> +		add_interrupt_randomness(desc->irq_data.irq);
 
-Yes it looks like thedrm_fb_dma_get_gem_addr() helper already handled
-the non-clipping source offset.
 
-Thanks,
-Icenowy
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 
->=20
->=20
-> ChenYu
->=20
-> > Thanks,
-> > Icenowy
-> >=20
-> > >=20
-> > > Some drivers program their hardware with clipped dimensions, so
-> > > they
-> > > should be using the clipped buffer address as well, unless the
-> > > hardware
-> > > can advance the scanout directly. (Side note: many drivers still
-> > > use
-> > > the non-clipped dimensions.)
-> > >=20
-> > > While at it, also pull out the offset calculation of
-> > > drm_fb_dma_get_gem_addr()
-> > > into a separate helper in drm_framebuffer.[ch], thereby
-> > > separating
-> > > responsibilities.
-> > >=20
-> > > The sun4i driver was recently incorrectly converted to use the
-> > > unclipped
-> > > drm_fb_dma_get_gem_addr() helper. This broke offsets into
-> > > subsampled
-> > > pixel groups, but also exposed the mismatch between the
-> > > dimensions
-> > > used
-> > > vs the buffer address. Two other drivers were also touched.
-> > >=20
-> > >=20
-> > > Patch 1 adds a new helper to return the byte offset into a
-> > > framebuffer
-> > > for the start of the pixel block of the given pixel coordinates.
-> > >=20
-> > > Patch 2 adds the new helper to return the buffer address based on
-> > > clipped coordinates.
-> > >=20
-> > > Patch 3 switches the sun4i driver to the new helper, and fixes
-> > > the
-> > > luma plane buffer address offset for subsampled YUV formats.
-> > >=20
-> > > Patch 4 converts the imx/dc driver to use the new helper. This
-> > > fixes
-> > > a
-> > > mismatch between the programmed coordinates and the buffer
-> > > address.
-> > >=20
-> > > Patch 5 replaces the open coded buffer address calculation in the
-> > > imx/dcss driver with the new helper. Existing behavior, which
-> > > might
-> > > be
-> > > wrong, is preserved.
-> > >=20
-> > >=20
-> > > Please help test. The series is only compile tested on my end.
-> > > The
-> > > sun4i
-> > > changes should revert its behavior to before the
-> > > drm_fb_dma_get_gem_addr()
-> > > was adopted. The imx/dcss changes should not have any behavioral
-> > > difference.
-> > >=20
-> > >=20
-> > > Thanks
-> > > ChenYu
-> > >=20
-> > > Chen-Yu Tsai (5):
-> > > =C2=A0 drm: Split framebuffer pixel offset calculation from
-> > > =C2=A0=C2=A0=C2=A0 drm_fb_dma_get_gem_addr()
-> > > =C2=A0 drm/fb-dma-helper: Add drm_fb_dma_get_gem_clipped_addr()
-> > > =C2=A0 drm/sun4i: layers: Fix VI buffer address for clipped offsets
-> > > =C2=A0 drm/imx/dc: plane: Switch to drm_fb_dma_get_gem_clipped_addr()
-> > > =C2=A0 drm/imx/dcss: plane: Switch to
-> > > drm_fb_dma_get_gem_clipped_addr()
-> > >=20
-> > > =C2=A0drivers/gpu/drm/drm_fb_dma_helper.c=C2=A0=C2=A0=C2=A0 | 61 ++++=
-++++++++++------
-> > > ----
-> > > --
-> > > =C2=A0drivers/gpu/drm/drm_framebuffer.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
- | 45 +++++++++++++++++++
-> > > =C2=A0drivers/gpu/drm/imx/dc/dc-plane.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
- |=C2=A0 4 +-
-> > > =C2=A0drivers/gpu/drm/imx/dcss/dcss-plane.c=C2=A0 | 34 ++++++--------
-> > > =C2=A0drivers/gpu/drm/sun4i/sun8i_ui_layer.c |=C2=A0 2 +-
-> > > =C2=A0drivers/gpu/drm/sun4i/sun8i_vi_layer.c | 16 ++++++-
-> > > =C2=A0include/drm/drm_fb_dma_helper.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 |=C2=A0 4 ++
-> > > =C2=A0include/drm/drm_framebuffer.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 3 ++
-> > > =C2=A08 files changed, 118 insertions(+), 51 deletions(-)
+>  
+>  	if (!irq_settings_no_debug(desc))
+>  		note_interrupt(desc, retval);
+
+-- 
+Best regards,
+Jinjie
+
 
