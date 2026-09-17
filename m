@@ -4,95 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85553C982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 21:03:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C9F9C982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 21:03:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OrTs8R98RYpxja2qfNL5l+wSlcq0HfU9S2hHFoYZzL8=; b=aiPDdNzwR8c1qyYS28qJn5DG+g
-	R+0mHg0CDqei0CJrhN1r39/oNRU2RkaHSj6+XDs1QRBtDxdFHeQhZYyn7KJt3jd5iAVv+GvO2yyJx
-	ac9L7n2UOObD7Mi7N/QjZcP9U7kku1L+EBs1EUuh2Z5YbuEYiW5A4y7AYsaZvHn3csewdnwSXsWjJ
-	85z+732IbMpkevBl3QIpky5+V55QcLo+ReSCpHrwogSG2hvvZdzda/BaECRdkuVagM03wXyld/J5n
-	Cmla60C1wbrajehxlEvLrDHBIFuYJsQ8NnScnyq0gw4JMW/10mGGC4XXybRF3xMKQEQaCSmEdPpGs
-	rzLsZXBQ==;
+	bh=BVSFbjnkl8UpNcArJJM1cv5lAji7DzunjkCRs+hQbqc=; b=MTCLBy3EEwJreMHSou4xbwhYpv
+	XEctpksfg2MJ1iJrtlBLl5hwl2cvAzbxYe10VSaCzst5lBJoWIXJnuc8zfVYeWXIavwdHaUNWwHgF
+	/TqP3LC7mT8KFURbO1noD0CXY3rn4Z1Fg/r430AmC4gQnnL9HjUy4NabPU5G/68H3DKL+2DQKAnnE
+	ef0K0h8ucSLpJEVqTylHeD1dbV4Gr7iET7IvhpqapcVEbuUSCKF3Dj2O3gXPsU8LrbGSLtlj29H7u
+	tuSoF/CeWc1/o8YvR2ZM2mfdOB7psoPqYR7vND7Ls9aHAiJFX+YgnCiOE3TVrBWcf1bg99558OdT5
+	yDF/15BA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7JGe-0000000CWVP-20N0;
-	Thu, 17 Sep 2026 21:03:40 +0000
+	id 1x7JGn-0000000CWbO-43so;
+	Thu, 17 Sep 2026 21:03:50 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7JGa-0000000CWRD-16aB
+	id 1x7JGj-0000000CWYl-2sRW
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 17 Sep 2026 21:03:36 +0000
+	Thu, 17 Sep 2026 21:03:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=OrTs8R98RYpxja2qfNL5l+wSlcq0HfU9S2hHFoYZzL8=; b=ZQThzQ9Gm0NS16MSn9vwk+9WSl
-	t0OF9fac196muksfp3XrUsLX2GR3ypcfLitx0G8QqNZTNAJIitDQuiGvrKZAu0nQgTMSxzxzI7Yzc
-	rK/o0kG7D5Ah2XZ150ViNJQQJE/rVzEtPVCCrdK2PlfbmZtiEzlXm+JnQtnYhzRQ7nshAaDM/knv4
-	1Wy03iFtn0v3NB1oAHlDi1Vm6nr65uTeym/BELZ0TiDWhehduXe17uELGF+WoK25ekUp/qfwKZPAU
-	a5Zasv8XtGbVv8wacUJyg9qIRC+pW+IKnE9c6dz4TRQDVzh2rVWnZiRSgEDjjrBo5++801Ssq3Qbz
-	wzttErRg==;
+	bh=BVSFbjnkl8UpNcArJJM1cv5lAji7DzunjkCRs+hQbqc=; b=b2uD3NkHwuXeohHf9BYkPRXQBs
+	7YcCe53Joh5qjP5yBFMjvJc5ueMTS38z1WnyAwIMsa/x0/w077RA2H5jXG1n+WI2W+bQo34lPDR6u
+	0qm+ymoxqoGxAWc+xdJTvQy5YwgfRfqsPvhZE6ALmifEwCisOIn2ml69mm+ss3SzCV26NdnMRsk5E
+	l8AICeiNV5CBRKV6YW4XMekKnrdVY3Y+bRHaIs814xnjDdiCdRvg9YgwVb9yKcRJY+QfS1qF/IcpS
+	bHB1eJSgNCnVixiEPeTQ1huQv8QfwYy0YLR1gMsi0OpmeVBI9Dky5TSTi7GSJ5e+wTMYDRAHolmzT
+	g2DDudeg==;
 Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x7JFs-00000009GdC-251H
+	id 1x7JFs-00000009Gd8-3K04
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 21:03:35 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49cc9f581c4so352515e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 14:02:47 -0700 (PDT)
+	Thu, 17 Sep 2026 21:03:41 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e79a408deso326855e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 14:02:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1789678966; x=1790283766; darn=lists.infradead.org;
+        d=baylibre.com; s=google; t=1789678963; x=1790283763; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=OrTs8R98RYpxja2qfNL5l+wSlcq0HfU9S2hHFoYZzL8=;
-        b=kXUGaWTM9fdq8Zh4mY0n9lJcdoZvZL5rtfM6EnoWHmkCrNytdpHjfn48p+jrXI/HJj
-         a0Zn6xxRaaLjAcehHEXyXts9DQt2R6/aCkGLkUWxTafozeE+kfqb3H8Ub/3rHO5kmXgV
-         6dms5tLAH2onVRTRH4RrMLQkoIyiFLe7xDHBkk6q737qpdK14M+jvMP3Can6NZuJu3Gi
-         62xnwOk3a7A0d1QFzTxl2HUr7r7MCPyOyJWav32ilXCjgwkj/CBRRybsnCR75Gm1A9Kd
-         aHBcreh+Ks31mAAMNYYvZvADMWNzc2LFu+EDLWwIwLRoUKWAAGEB9GdfGwG1vT0Ui3oF
-         LaaA==
+        bh=BVSFbjnkl8UpNcArJJM1cv5lAji7DzunjkCRs+hQbqc=;
+        b=DRsmKJq07YM4/nW4TqqPOMIS0KUCTePZ8qWPV8N86N9LCzM9T3LU/Lkp8uxkdPenxM
+         FpOP0mIo3JClI66bYdeGVzjWbXd2WN7ZaHueR28lRjUho08xPq7YQAeksv1eFncDQp9S
+         BuFGAA+gHcMcdwgcIMfXWXFiIUhT1tXLkfL2nW8Zbg/zXel9ODnGIh756PUZCrCbICz+
+         5qG47ANxT1uxw+VXwNcsSzG8cxbdLzmS5ZRqLMHWezwcCpiMD8KsGmYI7PNI0IShg612
+         tnj0D9N4NhfWiv1GfgYZN23shaUtJv6Ona8LHwGfNsu3jMhvAM81oSmy0DtAiqdRS+P0
+         kVig==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789678966; x=1790283766;
+        d=1e100.net; s=20260707; t=1789678963; x=1790283763;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=OrTs8R98RYpxja2qfNL5l+wSlcq0HfU9S2hHFoYZzL8=;
-        b=Akf+abzonhPLP8EO93fOz3yaPf088jO22pEfs/MRBhtVePwfFdyT2hZCL49ccjQ7WN
-         KB3LXO33wtx1EZGsgPeKSF0YRn8/FmAk9HPnnOZgvJ8NUYV8L+1swG8f56vgu/Q6lpm9
-         kmkUBkFcgYtKQr2XmWvwy0ZBoBXkaq8UlBlr2ivb4INbLcD13tCI5mtfEnxqBsA2E5iq
-         6S4rHhN5OWGFmHX9RtvYnSqD8qRkYnZjTRIWHoZHRsi3+Fib7eaFNjhrOso94GtibLr+
-         /QT5kpJYXcLwDFQVxJKmv7IvV8anKovDk7oTNyP9PuuEhdXRG7aBcblXK+Ldt60iKrvY
-         K83A==
-X-Forwarded-Encrypted: i=1; AKwUvBxOUKHukmt3UCIMFgqhE9OCGBZcwmV2C7/LPkp5xx1PAz7WDNsP3TkVAZ4UGLsmy2iigucBAN/hqPvU5qQ6ZPrk@lists.infradead.org
-X-Gm-Message-State: AFuF++nFAANCM/7EFpnmcSmJMqWuT7J5qUxzfCqFRRB2j/qyaIOgcsTq
-	MqwZjxW+Ck+BDzifDTsypjl88s1MsaKmqAfR+i5PrPFMmaSqdfDLs8jwSYQOm49asbg=
-X-Gm-Gg: AYBFou1xBx0Gi2o7CwstlM4qrsi++UAUgSAx4pn8QEX2kAR1h0AorCQyKlEEZV/msuv
-	iUFwxwEzDhsafLULS8bNSs740m0oAVeRqMa7pxwHO47E4fNkDvjMUsx+C1VyWfBV2akRnU7Twux
-	5u/RnKAtLY0l7J5JyRnwGDckxbSwblqwMtQ26G+zUce/3OwpR0xkKNVV311wH89ZxZwP4lBLcFE
-	TUWJ8yC90WOx/PnrhUTTw9WrETJCDRQPQXe6XNsaxy2zSA2MJD9tC0hUawxOrP1XAGlpv06f7GA
-	j2cBzVDNQyw1bhsLoMhPStSYxuPkAcRONADSHXK9sDDKuE78sTYEXwF72jB92hw7jWN+FigsqHh
-	y/y07GeXdypuLTUS1BuNXvfp1S+0hsv6GXd9VQRIaTeoLezfx2ZErgZpi5eg9HIRUIM2tetmrMF
-	WGhgMWgAapDeOv8hU147QvGjRigYhcKhhaIi23qiLvcmI4sJwMEgA9yGbLONh0mnSUl+hd4MDX9
-	RM7
-X-Received: by 2002:a05:600c:1d06:b0:49e:8222:3451 with SMTP id 5b1f17b1804b1-49fc5001358mr4202515e9.14.1789678966047;
-        Thu, 17 Sep 2026 14:02:46 -0700 (PDT)
+        bh=BVSFbjnkl8UpNcArJJM1cv5lAji7DzunjkCRs+hQbqc=;
+        b=kzKtwj4b9H+/abKCCKkMTwoZv3eofWdELTumDlArZrjQzQ5c6aXs/eHCb18Qqv6EeP
+         /yeO6orZYybwab3xtkXpBcj4wo4R8oVcrNM+PTgGIE1zrnNMnSTxU8TU/fQfyVCNn8fE
+         cUHjSqbJ3sAKFg5CoizOPtavpa03ii26kKr8D8IE4jLJqydAY9TrkQLKT6KZngGcioIz
+         IgBYTJ4mlronvXZyZV2eyhsY5FNv2/fKT4YXRzBAbySTY/n78SHRRZYz4EjUyuGwRMuI
+         qrC8L8sa4Of3KVTj/+73lC/4AZGUMBOF+MTjKLzPBB7M8p9cwkgMvKxByail77kLWiaA
+         235A==
+X-Forwarded-Encrypted: i=1; AKwUvBxjuWaFbAIDjfOSMypTtYV7un8S5qT4FZ84xLHQrpqtpi8+qW68GwP8YmutpOUq/7JVC/I2Pm3z4A7WZmaVoK1b@lists.infradead.org
+X-Gm-Message-State: AFuF++kYZaozdznH7WBRjDaBJTR+pIKOmwd7wlNg/6NLjcMLBu00Wtq7
+	ZlkiOI2LZn/7cbjAlma9RxkjyPZuBFJYxeU4woVmk+YO6sT+smFj8HvN/fqIXUOj7Q8=
+X-Gm-Gg: AYBFou0hfo3825GJwSgZVelChbxhzfy8H6jOkMv14qcbxG7NMRo1G02zQndt2WyxJ2c
+	AIfVuyqVr//88km+Zv7mExHXnSLz0KdVwCXpb/0sz+uL/4lCgnjaKI8VXNnGwynlFWBaZ3e4U8P
+	rpKbWgHzLjUhyRnK7JOaByZbDkJouaWrqqAs+XZqEZuzqBCXRCWR61O6oAc8x2pds+1HnlNoMrI
+	s9SBzy//E01sQsuDMMGnPVrHyK44rw+mbzhDtjQ2C2rTsOOfjOmmVmWdkPCJ0gd8m+GK5p2M5CG
+	WDtaOSWWXWooVzq3oNKtZADGMTzUCZlbB1lD9rbXPYPZdvgSuCaqr/qT+UZkhJefX8E3Nl4/Dnf
+	qfnh6LQkYJkiQWUsyaKQFT2hElddbKOgO1/Tho44dKNuySjZMUBukw4eLe6tBuB0qii9l4d3AnM
+	lPZ8rMUGm5nX2sJBDuHILK19iMmMNZe4C75gKkER83WMH8vUObd6q/ygX3EuH5kSTGfUaugtcYO
+	6hxMQ==
+X-Received: by 2002:a05:600c:34d0:b0:495:6e68:5df2 with SMTP id 5b1f17b1804b1-49fc56ef520mr1779275e9.12.1789678962730;
+        Thu, 17 Sep 2026 14:02:42 -0700 (PDT)
 Received: from [127.0.1.1] ([151.42.87.32])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fc5755c40sm3106095e9.3.2026.09.17.14.02.45
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fc5755c40sm3106095e9.3.2026.09.17.14.02.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 17 Sep 2026 14:02:45 -0700 (PDT)
+        Thu, 17 Sep 2026 14:02:42 -0700 (PDT)
 From: Valerio Setti <vsetti@baylibre.com>
-Date: Thu, 17 Sep 2026 23:02:36 +0200
-Subject: [PATCH v2 6/6] arm64: dts: amlogic: gx: add AUDIN node
+Date: Thu, 17 Sep 2026 23:02:33 +0200
+Subject: [PATCH v2 3/6] ASoC: meson: add AUDIN driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260917-audin-v2-6-38de4bc1de34@baylibre.com>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260917-audin-v2-3-38de4bc1de34@baylibre.com>
 References: <20260917-audin-v2-0-38de4bc1de34@baylibre.com>
 In-Reply-To: <20260917-audin-v2-0-38de4bc1de34@baylibre.com>
 To: Jerome Brunet <jbrunet@baylibre.com>, 
@@ -107,17 +107,17 @@ Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Valerio Setti <vsetti@baylibre.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3080; i=vsetti@baylibre.com;
- h=from:subject:message-id; bh=TZWXiYpGe3PgSXyHXeQpQDxriAYLZIkbRgm507qkSqQ=;
- b=owGbwMvMwCV2z3ty7kUrRgbG02pJDFlrQvNmvF8unFH9eH6EzySORvUZecWKr2zfpoin7n3IZ
- Pr0cfujjlIWBjEuBlkxRRaW6fd+F5SqPTROOFkAM4eVCWQIAxenAExkUTIjw8en9zJ2svh/+rbU
- ff5ZllW67KenBohvO8zx3b2e5fi9Un6G/9GnGbPtczkErYJuBjNXp/QLT67Xi2s6cP1A6E+3vFf
- OrAA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=28710; i=vsetti@baylibre.com;
+ h=from:subject:message-id; bh=AOYdmWNtnAPFdoV4iO0i0WTAgTqFKle4O5cMxyzJiHY=;
+ b=owGbwMvMwCV2z3ty7kUrRgbG02pJDFlrQnP129+eXbGoZhOPl/omz6CUdeccfzf5MNx8/H7Op
+ l1SYjEbO0pZGMS4GGTFFFlYpt/7XVCq9tA44WQBzBxWJpAhDFycAjCRZdcYGf4y/Z7A8m9fh45B
+ 1d6/ojcf/1EsmngsjUPtpQXLuSe7T9ow/OEv0PnQ+8juoPpktoZDwozMYmW9ptztZQJzL+/vdmA
+ R5wEA
 X-Developer-Key: i=vsetti@baylibre.com; a=openpgp;
  fpr=0497DEFB707526E13360C970DE4B936DD13A0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_220311_976888_04ACD74F 
-X-CRM114-Status: GOOD (  11.05  )
+X-CRM114-CacheID: sfid-20260917_220320_807870_AFD485D6 
+X-CRM114-Status: GOOD (  33.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,101 +132,869 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-AUDIN provides audio input support to Amlogic Meson GXBB/GXL platforms.
+AUDIN provides audio input support to the Amlogic GX based platforms
+(GXBB/GXL). It is the counterpart of AIU for capture and it strictly
+follows the same structure:
+- It takes the ownership of the entire register range;
+- It sets up peripheral clock and handles the reset;
+- It adds support for I2S data formatter through a widget;
+- It instantiates each of the FIFOs as component's DAI.
 
-What's missing after this to get capture support working is to connect a
-capture capable codec to the SoC. For example to test these changes an
-NXP SGTL5000 chip has been connected to an OdroidC2 (Meson GXBB) board
-using a custom hat board.
+Both I2S data formatter and FIFO code live separate files
+('audin-formatter-i2s' and 'audin-fifo', respectively) for a better
+code organization. Unfortunately it wasn't possible to add them as
+independent devices due to the messy register layout organization that
+has been implemented by the manufacturer on this platform.
 
-The following additions/overlay are required on top of
-'amlogic/meson-gxbb-odroidc2.dts' to make that hat board to work:
+This component could ideally handle multiple input sources (SPDIF, I2S,
+PCM, HDMI), but for the time being only I2S is added and has been tested.
 
-    &sound {
-            audio-routing = "AUDIN I2S Formatter", "AIU I2S Encoder Capture";
+Note: due to default register configuration, at boot all FIFO input sources
+are set to "SPDIF". In order to be able to test I2S they must be switched
+to "I2S". This can easily be achieved with:
 
-            dai-link-1 {
-                    codec-1 {
-                            sound-dai = <&sgtl5000>;
-                    };
-            };
-
-            dai-link-3 {
-                    sound-dai = <&audin 0>;
-            };
-    };
-
-    &audin {
-            status = "okay";
-    };
-
-Then, from userspace:
-
-    $ amixer sset 'AUDIN FIFO0 SRC SEL' 'I2S'
-    $ arecord -l  # find the "FIFO Capture" device
-    $ arecord -D hw:0,<N> -f S16_LE -r 48000 -c 2 /tmp/in.wav
+  $ amixer sset 'AUDIN FIFO0 SRC SEL' 'I2S'
 
 Signed-off-by: Valerio Setti <vsetti@baylibre.com>
 ---
- arch/arm64/boot/dts/amlogic/meson-gx.dtsi   | 9 +++++++++
- arch/arm64/boot/dts/amlogic/meson-gxbb.dtsi | 6 ++++++
- arch/arm64/boot/dts/amlogic/meson-gxl.dtsi  | 6 ++++++
- 3 files changed, 21 insertions(+)
+ sound/soc/meson/Kconfig               |   9 +
+ sound/soc/meson/Makefile              |   4 +
+ sound/soc/meson/audin-fifo.c          | 367 ++++++++++++++++++++++++++++++++++
+ sound/soc/meson/audin-formatter-i2s.c | 174 ++++++++++++++++
+ sound/soc/meson/audin.c               | 186 +++++++++++++++++
+ sound/soc/meson/audin.h               |  30 +++
+ 6 files changed, 770 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/amlogic/meson-gx.dtsi b/arch/arm64/boot/dts/amlogic/meson-gx.dtsi
-index c1d8e81d95cb..54b6cc0bb8ff 100644
---- a/arch/arm64/boot/dts/amlogic/meson-gx.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/meson-gx.dtsi
-@@ -436,6 +436,15 @@ watchdog@98d0 {
- 				reg = <0x0 0x098d0 0x0 0x10>;
- 				clocks = <&xtal>;
- 			};
+diff --git a/sound/soc/meson/Kconfig b/sound/soc/meson/Kconfig
+index 4c40bf60dc4e..9d8589b5a88f 100644
+--- a/sound/soc/meson/Kconfig
++++ b/sound/soc/meson/Kconfig
+@@ -17,6 +17,14 @@ config SND_MESON_AIU
+ 	  Select Y or M to add support for the Audio output subsystem found
+ 	  in the Amlogic Meson8, Meson8b and GX SoC families
+ 
++config SND_MESON_AUDIN
++	tristate "Amlogic AUDIN"
++	select REGMAP_MMIO
++	select SND_MESON_GX_FORMATTER
++	help
++	  Select Y or M to add support for the audio input subsystem found
++	  in the Amlogic GX SoC family. Currently only I2S input is supported.
 +
-+			audin: audio-controller@a000 {
-+				compatible = "amlogic,gx-audin";
-+				reg = <0x0 0xa000 0x0 0x148>;
-+				interrupts = <GIC_SPI 7 IRQ_TYPE_EDGE_RISING>;
-+				sound-name-prefix = "AUDIN";
-+				#sound-dai-cells = <1>;
-+				status = "disabled";
-+			};
- 		};
+ config SND_MESON_AXG_FIFO
+ 	tristate
+ 	select REGMAP_MMIO
+@@ -113,6 +121,7 @@ config SND_MESON_GX_SOUND_CARD
+ 	tristate "Amlogic GX Sound Card Support"
+ 	select SND_MESON_CARD_UTILS
+ 	imply SND_MESON_AIU
++	imply SND_MESON_AUDIN
+ 	help
+ 	  Select Y or M to add support for the GXBB/GXL SoC sound card
  
- 		gic: interrupt-controller@c4301000 {
-diff --git a/arch/arm64/boot/dts/amlogic/meson-gxbb.dtsi b/arch/arm64/boot/dts/amlogic/meson-gxbb.dtsi
-index a9c830a570cc..7ad69992a226 100644
---- a/arch/arm64/boot/dts/amlogic/meson-gxbb.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/meson-gxbb.dtsi
-@@ -84,6 +84,12 @@ &aiu {
- 	resets = <&reset RESET_AIU>;
- };
+diff --git a/sound/soc/meson/Makefile b/sound/soc/meson/Makefile
+index 1b1fbe8a0458..4af75df0d19b 100644
+--- a/sound/soc/meson/Makefile
++++ b/sound/soc/meson/Makefile
+@@ -10,6 +10,9 @@ snd-soc-meson-aiu-y += aiu-fifo.o
+ snd-soc-meson-aiu-y += aiu-fifo-i2s.o
+ snd-soc-meson-aiu-y += aiu-fifo-spdif.o
+ snd-soc-meson-gx-formatter-y := gx-formatter.o
++snd-soc-meson-audin-y := audin.o
++snd-soc-meson-audin-y += audin-formatter-i2s.o
++snd-soc-meson-audin-y += audin-fifo.o
+ snd-soc-meson-axg-fifo-y := axg-fifo.o
+ snd-soc-meson-axg-frddr-y := axg-frddr.o
+ snd-soc-meson-axg-toddr-y := axg-toddr.o
+@@ -30,6 +33,7 @@ snd-soc-meson-t9015-y := t9015.o
  
-+&audin {
-+	compatible = "amlogic,gxbb-audin", "amlogic,gx-audin";
-+	clocks = <&clkc CLKID_I2S_SPDIF>;
-+	resets = <&reset RESET_AUDIN>;
+ obj-$(CONFIG_SND_MESON_AIU) += snd-soc-meson-aiu.o
+ obj-$(CONFIG_SND_MESON_GX_FORMATTER) += snd-soc-meson-gx-formatter.o
++obj-$(CONFIG_SND_MESON_AUDIN) += snd-soc-meson-audin.o
+ obj-$(CONFIG_SND_MESON_AXG_FIFO) += snd-soc-meson-axg-fifo.o
+ obj-$(CONFIG_SND_MESON_AXG_FRDDR) += snd-soc-meson-axg-frddr.o
+ obj-$(CONFIG_SND_MESON_AXG_TODDR) += snd-soc-meson-axg-toddr.o
+diff --git a/sound/soc/meson/audin-fifo.c b/sound/soc/meson/audin-fifo.c
+new file mode 100644
+index 000000000000..39ca65e3cee9
+--- /dev/null
++++ b/sound/soc/meson/audin-fifo.c
+@@ -0,0 +1,367 @@
++// SPDX-License-Identifier: GPL-2.0
++//
++// Copyright (c) 2026 BayLibre, SAS.
++// Author: Valerio Setti <vsetti@baylibre.com>
++
++#include <linux/bitfield.h>
++#include <linux/dma-mapping.h>
++#include <linux/hrtimer.h>
++#include <linux/math64.h>
++#include <linux/regmap.h>
++#include <linux/slab.h>
++#include <linux/wordpart.h>
++#include <sound/pcm_params.h>
++#include <sound/soc.h>
++#include <sound/soc-dai.h>
++
++#include "audin.h"
++
++/* FIFO registers */
++#define AUDIN_FIFO_START	0x00
++#define AUDIN_FIFO_END		0x04
++#define AUDIN_FIFO_PTR		0x08
++
++/* FIFOx_CTRL1 registers and bits */
++#define AUDIN_FIFO_CTRL1			0x18
++#define  AUDIN_FIFO_CTRL1_DIN_BYTE_NUM_MASK	GENMASK(3, 2)
++#define  AUDIN_FIFO_CTRL1_DIN_POS_01_MASK	GENMASK(1, 0)
++
++/* When the FIFO is full the data is bulk transferred to memory. */
++#define AUDIN_FIFO_LANE_SIZE		8 /* bytes */
++#define AUDIN_FIFO_I2S_BLOCK		(AUDIN_FIFO_LANE_SIZE * 32) /* 256 bytes */
++
++static const struct snd_pcm_hardware audin_fifo_pcm_hw = {
++	.info = (SNDRV_PCM_INFO_INTERLEAVED |
++		 SNDRV_PCM_INFO_MMAP |
++		 SNDRV_PCM_INFO_MMAP_VALID |
++		 SNDRV_PCM_INFO_BLOCK_TRANSFER |
++		 SNDRV_PCM_INFO_PAUSE),
++	.formats = SNDRV_PCM_FMTBIT_S16_LE,
++	.rate_min = 5512,
++	.rate_max = 192000,
++	.channels_min = 2,
++	.channels_max = 2,
++	/*
++	 * The FIFO only moves data to the memory once it is full, so its pointer
++	 * progresses one block at a time.
++	 */
++	.period_bytes_min = 2 * AUDIN_FIFO_I2S_BLOCK,
++	.period_bytes_max = UINT_MAX, /* Bounded by buffer_bytes_max */
++	.periods_min = 2,
++	.periods_max = UINT_MAX,
++	/*
++	 * It's 1 MB. There is no physical constraint for this; it's only meant to
++	 * provide some decently large buffer size where to store incoming data
++	 * and fit various period_bytes requests.
++	 */
++	.buffer_bytes_max = 4096 * AUDIN_FIFO_I2S_BLOCK,
 +};
 +
- &aobus {
- 	pinctrl_aobus: pinctrl@14 {
- 		compatible = "amlogic,meson-gxbb-aobus-pinctrl";
-diff --git a/arch/arm64/boot/dts/amlogic/meson-gxl.dtsi b/arch/arm64/boot/dts/amlogic/meson-gxl.dtsi
-index d5e0f72892f8..9181eba81eb7 100644
---- a/arch/arm64/boot/dts/amlogic/meson-gxl.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/meson-gxl.dtsi
-@@ -100,6 +100,12 @@ &aiu {
- 	resets = <&reset RESET_AIU>;
- };
- 
-+&audin {
-+	compatible = "amlogic,gxl-audin", "amlogic,gx-audin";
-+	clocks = <&clkc CLKID_I2S_SPDIF>;
-+	resets = <&reset RESET_AUDIN>;
++struct audin_fifo_dai_data {
++	/*
++	 * The AUDIN peripheral has an IRQ to signal when data is received, but
++	 * it cannot grant a periodic behavior. The reason is that the register
++	 * which holds the address which triggers the IRQ must be updated
++	 * continuously. This creates a risk of overflow if for any reason the
++	 * ISR execution is delayed. Using a periodic timer is therefore simpler
++	 * and more reliable.
++	 */
++	struct hrtimer polling_timer;
++	struct snd_soc_dai *dai;
++	struct snd_pcm_substream *substream;
++	unsigned int period_bytes;
++	unsigned int byte_rate;
++	unsigned int last_pos; /* Position inside the allocated read buffer. */
++	bool running;
 +};
 +
- &apb {
- 	usb2_phy0: phy@78000 {
- 		compatible = "amlogic,meson-gxl-usb2-phy";
++static unsigned int audin_fifo_pos(struct snd_soc_dai *dai,
++				   struct snd_pcm_runtime *runtime)
++{
++	unsigned int ptr = lower_32_bits(runtime->dma_addr);
++
++	regmap_read(dai->component->regmap, dai->driver->base + AUDIN_FIFO_PTR, &ptr);
++
++	return ptr - lower_32_bits(runtime->dma_addr);
++}
++
++static ktime_t audin_fifo_bytes_to_ns(struct audin_fifo_dai_data *data,
++				      unsigned int bytes)
++{
++	return div_u64((u64)bytes * NSEC_PER_SEC, data->byte_rate);
++}
++
++static int audin_fifo_dai_trigger(struct snd_pcm_substream *substream, int cmd,
++				  struct snd_soc_dai *dai)
++{
++	struct audin_fifo_dai_data *data = snd_soc_dai_dma_data_get_capture(dai);
++	struct snd_soc_component *component = dai->component;
++
++	switch (cmd) {
++	case SNDRV_PCM_TRIGGER_START:
++	case SNDRV_PCM_TRIGGER_RESUME:
++	case SNDRV_PCM_TRIGGER_PAUSE_RELEASE:
++		snd_soc_component_update_bits(component, dai->driver->base + AUDIN_FIFO_CTRL,
++					      AUDIN_FIFO_CTRL_EN,
++					      AUDIN_FIFO_CTRL_EN);
++		WRITE_ONCE(data->running, true);
++		hrtimer_start(&data->polling_timer,
++			      audin_fifo_bytes_to_ns(data, data->period_bytes),
++			      HRTIMER_MODE_REL_SOFT);
++		break;
++	case SNDRV_PCM_TRIGGER_SUSPEND:
++	case SNDRV_PCM_TRIGGER_PAUSE_PUSH:
++	case SNDRV_PCM_TRIGGER_STOP:
++		WRITE_ONCE(data->running, false);
++		/*
++		 * PCM stream lock is held here. If the timer callback is running
++		 * (i.e. it cannot be stopped) there is also hrtimer_cancel()
++		 * in hw_free().
++		 */
++		hrtimer_try_to_cancel(&data->polling_timer);
++		snd_soc_component_update_bits(component, dai->driver->base + AUDIN_FIFO_CTRL,
++					      AUDIN_FIFO_CTRL_EN, 0);
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	return 0;
++}
++
++static int audin_fifo_dai_prepare(struct snd_pcm_substream *substream,
++				  struct snd_soc_dai *dai)
++{
++	struct audin_fifo_dai_data *data = snd_soc_dai_dma_data_get_capture(dai);
++	struct snd_soc_component *component = dai->component;
++	struct snd_pcm_runtime *runtime = substream->runtime;
++	dma_addr_t dma_end = runtime->dma_addr + runtime->dma_bytes - AUDIN_FIFO_LANE_SIZE;
++	unsigned int val;
++
++	data->last_pos = 0;
++
++	/*
++	 * Setup memory boundaries.
++	 * Note: DMA has a 32-bit mask, so it's OK to take lower 32 bits.
++	 */
++	snd_soc_component_write(component, dai->driver->base + AUDIN_FIFO_START,
++				lower_32_bits(runtime->dma_addr));
++	snd_soc_component_write(component, dai->driver->base + AUDIN_FIFO_PTR,
++				lower_32_bits(runtime->dma_addr));
++	snd_soc_component_write(component, dai->driver->base + AUDIN_FIFO_END,
++				lower_32_bits(dma_end));
++
++	/* Load new addresses (both LOAD and UG are self-clearing). */
++	val = AUDIN_FIFO_CTRL_LOAD | AUDIN_FIFO_CTRL_UG;
++	snd_soc_component_update_bits(component, dai->driver->base + AUDIN_FIFO_CTRL, val, val);
++
++	/* Reset (RST is self-clearing). */
++	snd_soc_component_update_bits(component, dai->driver->base + AUDIN_FIFO_CTRL,
++				      AUDIN_FIFO_CTRL_RST,
++				      AUDIN_FIFO_CTRL_RST);
++
++	return 0;
++}
++
++static int audin_fifo_dai_hw_params(struct snd_pcm_substream *substream,
++				    struct snd_pcm_hw_params *params,
++				    struct snd_soc_dai *dai)
++{
++	struct snd_soc_component *component = dai->component;
++	struct audin_fifo_dai_data *data = snd_soc_dai_dma_data_get_capture(dai);
++	unsigned int val;
++
++	/*
++	 * The I2S input decoder passes 24 bits of left-justified data
++	 * but for the time being we only support 16 bit formatted samples
++	 * which means that we drop the LSB.
++	 */
++	val = FIELD_PREP(AUDIN_FIFO_CTRL1_DIN_POS_01_MASK, 1);
++	snd_soc_component_update_bits(component, dai->driver->base + AUDIN_FIFO_CTRL1,
++				      AUDIN_FIFO_CTRL1_DIN_POS_01_MASK,
++				      val);
++
++	/* Set sample size to 2 bytes (16 bit) */
++	val = FIELD_PREP(AUDIN_FIFO_CTRL1_DIN_BYTE_NUM_MASK, 1);
++	snd_soc_component_update_bits(component, dai->driver->base + AUDIN_FIFO_CTRL1,
++				      AUDIN_FIFO_CTRL1_DIN_BYTE_NUM_MASK,
++				      val);
++
++	/*
++	 * This is a bit counterintuitive. Even though the platform has a single
++	 * pin for I2S input which would mean that we can only support 2
++	 * channels, doing so would cause samples to be stored in a weird way
++	 * into the FIFO: all the samples from the 1st channel on the 1st half
++	 * of the FIFO, then samples from the 2nd channel in the other half. Of
++	 * course extra work would be required to properly interleave them
++	 * before returning to the userspace.
++	 * Setting a single channel mode instead solves the problem: samples
++	 * from 1st and 2nd channel are stored interleaved and sequentially in
++	 * the FIFO.
++	 */
++	val = FIELD_PREP(AUDIN_FIFO_CTRL_CHAN_MASK, 1);
++	snd_soc_component_update_bits(component, dai->driver->base + AUDIN_FIFO_CTRL,
++				      AUDIN_FIFO_CTRL_CHAN_MASK, val);
++
++	/*
++	 * FIFO is filled line by line and each of them is 8 bytes. The
++	 * problem is that each line is filled starting from the end,
++	 * so we need to properly reorder them before moving to the
++	 * RAM. This is the value required to properly re-order samples stored
++	 * in 16 bit format.
++	 */
++	val = FIELD_PREP(AUDIN_FIFO_CTRL_ENDIAN_MASK, 6);
++	snd_soc_component_update_bits(component, dai->driver->base + AUDIN_FIFO_CTRL,
++				      AUDIN_FIFO_CTRL_ENDIAN_MASK, val);
++
++	/* Used by the polling timer to convert a byte count into a delay. */
++	data->period_bytes = params_period_bytes(params);
++	data->byte_rate = params_rate(params) * params_channels(params) *
++			  params_physical_width(params) / BITS_PER_BYTE;
++
++	data->substream = substream;
++
++	return 0;
++}
++
++static int audin_fifo_dai_startup(struct snd_pcm_substream *substream,
++				  struct snd_soc_dai *dai)
++{
++	int ret;
++
++	snd_soc_set_runtime_hwparams(substream, &audin_fifo_pcm_hw);
++
++	ret = snd_pcm_hw_constraint_step(substream->runtime, 0,
++					 SNDRV_PCM_HW_PARAM_BUFFER_BYTES,
++					 AUDIN_FIFO_I2S_BLOCK);
++	if (ret < 0) {
++		dev_err(dai->dev, "Failed to set constraint on buffer_bytes %d\n", ret);
++		return ret;
++	}
++
++	ret = snd_pcm_hw_constraint_step(substream->runtime, 0,
++					 SNDRV_PCM_HW_PARAM_PERIOD_BYTES,
++					 AUDIN_FIFO_I2S_BLOCK);
++	if (ret < 0) {
++		dev_err(dai->dev, "Failed to set constraint on period_bytes %d\n", ret);
++		return ret;
++	}
++
++	return 0;
++}
++
++static int audin_fifo_dai_pcm_new(struct snd_soc_pcm_runtime *rtd,
++				  struct snd_soc_dai *dai)
++{
++	int ret;
++
++	ret = dma_coerce_mask_and_coherent(dai->dev, DMA_BIT_MASK(32));
++	if (ret) {
++		dev_err(dai->dev, "Failed to set DMA mask %d\n", ret);
++		return ret;
++	}
++
++	ret = snd_pcm_set_managed_buffer_all(rtd->pcm, SNDRV_DMA_TYPE_DEV,
++					     dai->dev,
++					     audin_fifo_pcm_hw.buffer_bytes_max,
++					     audin_fifo_pcm_hw.buffer_bytes_max);
++	if (ret) {
++		dev_err(dai->dev, "Failed to set PCM managed buffer %d\n", ret);
++		return ret;
++	}
++
++	return 0;
++}
++
++static enum hrtimer_restart audin_fifo_timer_cb(struct hrtimer *timer)
++{
++	struct audin_fifo_dai_data *data =
++		container_of(timer, struct audin_fifo_dai_data, polling_timer);
++	struct snd_pcm_runtime *runtime = data->substream->runtime;
++	unsigned int curr_pos, delta, sleep_time;
++
++	if (!READ_ONCE(data->running))
++		return HRTIMER_NORESTART;
++
++	curr_pos = audin_fifo_pos(data->dai, runtime);
++	delta = (curr_pos >= data->last_pos) ?
++		curr_pos - data->last_pos :
++		(runtime->dma_bytes - data->last_pos) + curr_pos;
++
++	/* Report only when the period is completed. */
++	if (delta >= data->period_bytes) {
++		data->last_pos = curr_pos;
++		delta = delta % data->period_bytes;
++		snd_pcm_period_elapsed(data->substream);
++	}
++
++	/* Sleep until the period is completed. */
++	sleep_time = round_up(data->period_bytes - delta, AUDIN_FIFO_I2S_BLOCK);
++	hrtimer_forward_now(timer, audin_fifo_bytes_to_ns(data, sleep_time));
++
++	if (!READ_ONCE(data->running))
++		return HRTIMER_NORESTART;
++	return HRTIMER_RESTART;
++}
++
++static int audin_fifo_dai_probe(struct snd_soc_dai *dai)
++{
++	struct audin_fifo_dai_data *data;
++
++	data = kzalloc_obj(*data);
++	if (!data)
++		return -ENOMEM;
++
++	data->dai = dai;
++
++	hrtimer_setup(&data->polling_timer, audin_fifo_timer_cb, CLOCK_MONOTONIC,
++		      HRTIMER_MODE_REL_SOFT);
++
++	snd_soc_dai_dma_data_set_capture(dai, data);
++
++	return 0;
++}
++
++static int audin_fifo_dai_remove(struct snd_soc_dai *dai)
++{
++	kfree(snd_soc_dai_dma_data_get_capture(dai));
++
++	return 0;
++}
++
++const struct snd_soc_dai_ops audin_fifo_dai_ops = {
++	.trigger	= audin_fifo_dai_trigger,
++	.prepare	= audin_fifo_dai_prepare,
++	.hw_params	= audin_fifo_dai_hw_params,
++	.startup	= audin_fifo_dai_startup,
++	.pcm_new	= audin_fifo_dai_pcm_new,
++	.probe		= audin_fifo_dai_probe,
++	.remove		= audin_fifo_dai_remove,
++};
++
++snd_pcm_uframes_t audin_fifo_component_pointer(struct snd_soc_component *component,
++					       struct snd_pcm_substream *substream)
++{
++	struct snd_pcm_runtime *runtime = substream->runtime;
++	struct snd_soc_pcm_runtime *rtd = snd_soc_substream_to_rtd(substream);
++	struct snd_soc_dai *dai = snd_soc_rtd_to_cpu(rtd, 0);
++
++	return bytes_to_frames(runtime, audin_fifo_pos(dai, runtime));
++}
++
++/*
++ * sync_stop() is called before hw_params(), hw_free(), suspend(), prepare().
++ * Cancelling the hrtimer here ensures the timer is really stopped even in
++ * case the stream is run->stop->prepare->start.
++ */
++int audin_fifo_sync_stop(struct snd_soc_component *component, struct snd_pcm_substream *substream)
++{
++	struct snd_soc_pcm_runtime *rtd = snd_soc_substream_to_rtd(substream);
++	struct snd_soc_dai *dai = snd_soc_rtd_to_cpu(rtd, 0);
++	struct audin_fifo_dai_data *data = snd_soc_dai_dma_data_get_capture(dai);
++
++	hrtimer_cancel(&data->polling_timer);
++	WRITE_ONCE(data->running, false);
++
++	return 0;
++}
+diff --git a/sound/soc/meson/audin-formatter-i2s.c b/sound/soc/meson/audin-formatter-i2s.c
+new file mode 100644
+index 000000000000..8bbb5cdb52dc
+--- /dev/null
++++ b/sound/soc/meson/audin-formatter-i2s.c
+@@ -0,0 +1,174 @@
++// SPDX-License-Identifier: GPL-2.0
++//
++// Copyright (c) 2026 BayLibre, SAS.
++// Author: Valerio Setti <vsetti@baylibre.com>
++
++#include <linux/bitfield.h>
++#include <linux/regmap.h>
++#include <sound/soc.h>
++#include <sound/soc-dai.h>
++
++#include "audin.h"
++#include "gx-formatter.h"
++
++/* I2SIN_CTRL register and bits */
++#define AUDIN_I2SIN_CTRL			0x40
++#define  AUDIN_I2SIN_CTRL_I2SIN_DIR		BIT(0)
++#define  AUDIN_I2SIN_CTRL_I2SIN_CLK_SEL		BIT(1)
++#define  AUDIN_I2SIN_CTRL_I2SIN_LRCLK_SEL	BIT(2)
++#define  AUDIN_I2SIN_CTRL_I2SIN_BCLK_INV	BIT(3)
++#define  AUDIN_I2SIN_CTRL_I2SIN_LRCLK_SKEW_MASK	GENMASK(6, 4)
++#define  AUDIN_I2SIN_CTRL_I2SIN_LRCLK_INV	BIT(7)
++#define  AUDIN_I2SIN_CTRL_I2SIN_SIZE_MASK	GENMASK(9, 8)
++#define  AUDIN_I2SIN_CTRL_I2SIN_CHAN_EN_MASK	GENMASK(13, 10)
++#define  AUDIN_I2SIN_CTRL_I2SIN_EN		BIT(15)
++
++static struct snd_soc_dai *
++audin_formatter_i2s_get_be(struct snd_soc_dapm_widget *w)
++{
++	struct snd_soc_dapm_path *p;
++	struct snd_soc_dai *be;
++
++	snd_soc_dapm_widget_for_each_source_path(w, p) {
++		if (!p->connect)
++			continue;
++
++		if (p->source->id == snd_soc_dapm_dai_out)
++			return (struct snd_soc_dai *)p->source->priv;
++
++		be = audin_formatter_i2s_get_be(p->source);
++		if (be)
++			return be;
++	}
++
++	return NULL;
++}
++
++static struct gx_stream *
++audin_formatter_i2s_get_stream(struct snd_soc_dapm_widget *w)
++{
++	struct snd_soc_dai *be = audin_formatter_i2s_get_be(w);
++
++	if (!be)
++		return NULL;
++
++	return snd_soc_dai_dma_data_get_capture(be);
++}
++
++static void audin_formatter_i2s_enable(struct regmap *map)
++{
++	regmap_update_bits(map, AUDIN_I2SIN_CTRL,
++			   AUDIN_I2SIN_CTRL_I2SIN_EN,
++			   AUDIN_I2SIN_CTRL_I2SIN_EN);
++}
++
++static void audin_formatter_i2s_disable(struct regmap *map)
++{
++	regmap_update_bits(map, AUDIN_I2SIN_CTRL,
++			   AUDIN_I2SIN_CTRL_I2SIN_EN, 0);
++}
++
++static int audin_formatter_i2s_prepare(struct regmap *map,
++				       const struct gx_formatter_hw *quirks,
++				       struct gx_stream *ts)
++{
++	unsigned int val;
++	int ret;
++
++	/*
++	 * I2S decoder always outputs 24 bits to the FIFO according to the
++	 * manual. The only thing we can change through
++	 * AUDIN_I2SIN_CTRL_I2SIN_SIZE_MASK is the following:
++	 * - 0 -> output[23:0] = {original[23:8],8’d0}
++	 * - 1 -> output[23:0] = {original[23:6],6’d0}
++	 * - 2 -> output[23:0] = {original[23:4],4’d0}
++	 * - 3 -> output[23:0] = {original[23:0]}
++	 *
++	 * We use 3 here and, in case of 16 bit format, we filter unnecessary
++	 * bytes at FIFO stage.
++	 * Note: data is left-justified, so in case of 16 bits samples, this
++	 *       means that the LSB is to be discarded at FIFO level and the
++	 *       relevant part is in bits [23:8].
++	 */
++	val = FIELD_PREP(AUDIN_I2SIN_CTRL_I2SIN_SIZE_MASK, 3);
++	ret = regmap_update_bits(map, AUDIN_I2SIN_CTRL,
++				 AUDIN_I2SIN_CTRL_I2SIN_SIZE_MASK, val);
++	if (ret)
++		return ret;
++
++	/*
++	 * The manual claims that this platform supports up to 4 streams
++	 * (8 channels), but currently only 1 stream (2 channels) has been
++	 * tested and it's supported.
++	 */
++	val = FIELD_PREP(AUDIN_I2SIN_CTRL_I2SIN_CHAN_EN_MASK, 1);
++	ret = regmap_update_bits(map, AUDIN_I2SIN_CTRL,
++				 AUDIN_I2SIN_CTRL_I2SIN_CHAN_EN_MASK, val);
++	if (ret)
++		return ret;
++
++	/*
++	 * Use clocks from AIU and not from the pads since we only want to
++	 * support master mode.
++	 */
++	val = AUDIN_I2SIN_CTRL_I2SIN_CLK_SEL |
++	      AUDIN_I2SIN_CTRL_I2SIN_LRCLK_SEL |
++	      AUDIN_I2SIN_CTRL_I2SIN_DIR;
++	ret = regmap_update_bits(map, AUDIN_I2SIN_CTRL, val, val);
++	if (ret)
++		return ret;
++
++	switch (ts->iface->fmt & SND_SOC_DAIFMT_INV_MASK) {
++	case SND_SOC_DAIFMT_IB_NF:
++		val = AUDIN_I2SIN_CTRL_I2SIN_BCLK_INV;
++		break;
++	case SND_SOC_DAIFMT_NB_IF:
++		val = AUDIN_I2SIN_CTRL_I2SIN_LRCLK_INV;
++		break;
++	case SND_SOC_DAIFMT_IB_IF:
++		val = AUDIN_I2SIN_CTRL_I2SIN_BCLK_INV | AUDIN_I2SIN_CTRL_I2SIN_LRCLK_INV;
++		break;
++	case SND_SOC_DAIFMT_NB_NF:
++		val = 0;
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	ret = regmap_update_bits(map, AUDIN_I2SIN_CTRL,
++				 AUDIN_I2SIN_CTRL_I2SIN_LRCLK_INV |
++				 AUDIN_I2SIN_CTRL_I2SIN_BCLK_INV, val);
++	if (ret)
++		return ret;
++
++	switch (ts->iface->fmt & SND_SOC_DAIFMT_FORMAT_MASK) {
++	case SND_SOC_DAIFMT_I2S:
++		val = 1;
++		break;
++	case SND_SOC_DAIFMT_LEFT_J:
++		val = 0;
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	val = FIELD_PREP(AUDIN_I2SIN_CTRL_I2SIN_LRCLK_SKEW_MASK, val);
++	ret = regmap_update_bits(map, AUDIN_I2SIN_CTRL,
++				 AUDIN_I2SIN_CTRL_I2SIN_LRCLK_SKEW_MASK,
++				 val);
++	if (ret)
++		return ret;
++
++	return 0;
++}
++
++static const struct gx_formatter_ops audin_formatter_i2s_ops = {
++	.get_stream	= audin_formatter_i2s_get_stream,
++	.prepare	= audin_formatter_i2s_prepare,
++	.enable		= audin_formatter_i2s_enable,
++	.disable	= audin_formatter_i2s_disable,
++};
++
++const struct gx_formatter_driver audin_formatter_i2s_drv = {
++	.ops		= &audin_formatter_i2s_ops,
++};
+diff --git a/sound/soc/meson/audin.c b/sound/soc/meson/audin.c
+new file mode 100644
+index 000000000000..ec024267ac29
+--- /dev/null
++++ b/sound/soc/meson/audin.c
+@@ -0,0 +1,186 @@
++// SPDX-License-Identifier: GPL-2.0
++//
++// Copyright (c) 2026 BayLibre, SAS.
++// Author: Valerio Setti <vsetti@baylibre.com>
++
++#include <linux/clk.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/regmap.h>
++#include <linux/reset.h>
++#include <sound/soc.h>
++
++#include "audin.h"
++#include "gx-formatter.h"
++
++#define AUDIN_FIFO0_BASE	0x80
++#define AUDIN_FIFO1_BASE	0xCC
++#define AUDIN_FIFO2_BASE	0x114
++
++static const char * const audin_fifo_input_sel_texts[] = {
++	"SPDIF", "I2S", "PCM", "HDMI", "Demodulator"
++};
++
++static SOC_ENUM_SINGLE_DECL(audin_fifo0_input_sel_enum, AUDIN_FIFO0_BASE + AUDIN_FIFO_CTRL,
++			    AUDIN_FIFO_CTRL_DIN_SEL_OFF,
++			    audin_fifo_input_sel_texts);
++static SOC_ENUM_SINGLE_DECL(audin_fifo1_input_sel_enum, AUDIN_FIFO1_BASE + AUDIN_FIFO_CTRL,
++			    AUDIN_FIFO_CTRL_DIN_SEL_OFF,
++			    audin_fifo_input_sel_texts);
++static SOC_ENUM_SINGLE_DECL(audin_fifo2_input_sel_enum, AUDIN_FIFO2_BASE + AUDIN_FIFO_CTRL,
++			    AUDIN_FIFO_CTRL_DIN_SEL_OFF,
++			    audin_fifo_input_sel_texts);
++
++static const struct snd_kcontrol_new audin_fifo0_input_sel_mux =
++	SOC_DAPM_ENUM("FIFO0 Input Source", audin_fifo0_input_sel_enum);
++static const struct snd_kcontrol_new audin_fifo1_input_sel_mux =
++	SOC_DAPM_ENUM("FIFO1 Input Source", audin_fifo1_input_sel_enum);
++static const struct snd_kcontrol_new audin_fifo2_input_sel_mux =
++	SOC_DAPM_ENUM("FIFO2 Input Source", audin_fifo2_input_sel_enum);
++
++#define AUDIN_WIDGET_I2S_FORMATTER	0
++
++static struct snd_soc_dapm_widget audin_dapm_widgets[] = {
++	[AUDIN_WIDGET_I2S_FORMATTER] =
++		SND_SOC_DAPM_PGA_E("I2S Formatter", SND_SOC_NOPM, 0, 0, NULL, 0,
++				   gx_formatter_event,
++				   (SND_SOC_DAPM_PRE_PMU | SND_SOC_DAPM_PRE_PMD)),
++	SND_SOC_DAPM_MUX("FIFO0 SRC SEL", SND_SOC_NOPM, 0, 0,
++			 &audin_fifo0_input_sel_mux),
++	SND_SOC_DAPM_MUX("FIFO1 SRC SEL", SND_SOC_NOPM, 0, 0,
++			 &audin_fifo1_input_sel_mux),
++	SND_SOC_DAPM_MUX("FIFO2 SRC SEL", SND_SOC_NOPM, 0, 0,
++			 &audin_fifo2_input_sel_mux),
++};
++
++static const struct snd_soc_dapm_route audin_dapm_routes[] = {
++	{ "FIFO0 SRC SEL", "I2S", "I2S Formatter" },
++	{ "FIFO0 Capture", NULL, "FIFO0 SRC SEL" },
++	{ "FIFO1 SRC SEL", "I2S", "I2S Formatter" },
++	{ "FIFO1 Capture", NULL, "FIFO1 SRC SEL" },
++	{ "FIFO2 SRC SEL", "I2S", "I2S Formatter" },
++	{ "FIFO2 Capture", NULL, "FIFO2 SRC SEL" },
++};
++
++static struct snd_soc_dai_driver audin_dai_drv[] = {
++	{
++		.name = "FIFO0",
++		.base = AUDIN_FIFO0_BASE,
++		.capture = {
++			.stream_name	= "FIFO0 Capture",
++			.channels_min	= 2,
++			.channels_max	= 2,
++			.rates		= SNDRV_PCM_RATE_CONTINUOUS,
++			.rate_min	= 5512,
++			.rate_max	= 192000,
++			.formats	= SNDRV_PCM_FMTBIT_S16_LE,
++		},
++		.ops = &audin_fifo_dai_ops,
++	},
++	{
++		.name = "FIFO1",
++		.base = AUDIN_FIFO1_BASE,
++		.capture = {
++			.stream_name	= "FIFO1 Capture",
++			.channels_min	= 2,
++			.channels_max	= 2,
++			.rates		= SNDRV_PCM_RATE_CONTINUOUS,
++			.rate_min	= 5512,
++			.rate_max	= 192000,
++			.formats	= SNDRV_PCM_FMTBIT_S16_LE,
++		},
++		.ops = &audin_fifo_dai_ops,
++	},
++	{
++		.name = "FIFO2",
++		.base = AUDIN_FIFO2_BASE,
++		.capture = {
++			.stream_name	= "FIFO2 Capture",
++			.channels_min	= 2,
++			.channels_max	= 2,
++			.rates		= SNDRV_PCM_RATE_CONTINUOUS,
++			.rate_min	= 5512,
++			.rate_max	= 192000,
++			.formats	= SNDRV_PCM_FMTBIT_S16_LE,
++		},
++		.ops = &audin_fifo_dai_ops,
++	},
++};
++
++static const struct snd_soc_component_driver audin_component = {
++	.dapm_widgets = audin_dapm_widgets,
++	.num_dapm_widgets = ARRAY_SIZE(audin_dapm_widgets),
++	.dapm_routes = audin_dapm_routes,
++	.num_dapm_routes = ARRAY_SIZE(audin_dapm_routes),
++	.pointer = audin_fifo_component_pointer,
++	.sync_stop = audin_fifo_sync_stop,
++};
++
++static const struct regmap_config audin_regmap_cfg = {
++	.reg_bits	= 32,
++	.val_bits	= 32,
++	.reg_stride	= 4,
++	.max_register	= 0x148,
++};
++
++static int audin_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	void __iomem *mmio;
++	struct regmap *regmap;
++	struct clk *clk;
++	int ret;
++
++	ret = device_reset(dev);
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to reset device\n");
++
++	mmio = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(mmio))
++		return dev_err_probe(dev, PTR_ERR(mmio), "Failed to ioremap memory\n");
++
++	regmap = devm_regmap_init_mmio(dev, mmio, &audin_regmap_cfg);
++	if (IS_ERR(regmap))
++		return dev_err_probe(dev, PTR_ERR(regmap), "Failed to init regmap\n");
++
++	clk = devm_clk_get_enabled(dev, NULL);
++	if (IS_ERR(clk))
++		return dev_err_probe(dev, PTR_ERR(clk), "Failed to get clock\n");
++
++	ret = gx_formatter_create(dev, &audin_dapm_widgets[AUDIN_WIDGET_I2S_FORMATTER],
++				  &audin_formatter_i2s_drv, regmap);
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to allocate formatter\n");
++
++	ret = devm_snd_soc_register_component(dev, &audin_component,
++					      audin_dai_drv, ARRAY_SIZE(audin_dai_drv));
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to register component\n");
++
++	return 0;
++}
++
++static void audin_remove(struct platform_device *pdev)
++{
++	gx_formatter_free(&audin_dapm_widgets[AUDIN_WIDGET_I2S_FORMATTER]);
++}
++
++static const struct of_device_id audin_of_match[] = {
++	{ .compatible = "amlogic,gx-audin" },
++	{ }
++};
++MODULE_DEVICE_TABLE(of, audin_of_match);
++
++static struct platform_driver audin_driver = {
++	.driver = {
++		.name = "gx-audin",
++		.of_match_table = audin_of_match,
++	},
++	.probe = audin_probe,
++	.remove = audin_remove,
++};
++module_platform_driver(audin_driver);
++
++MODULE_DESCRIPTION("Meson GX AUDIN driver");
++MODULE_AUTHOR("Valerio Setti <vsetti@baylibre.com>");
++MODULE_LICENSE("GPL");
+diff --git a/sound/soc/meson/audin.h b/sound/soc/meson/audin.h
+new file mode 100644
+index 000000000000..7f3b58a780c0
+--- /dev/null
++++ b/sound/soc/meson/audin.h
+@@ -0,0 +1,30 @@
++/* SPDX-License-Identifier: (GPL-2.0 OR MIT) */
++/*
++ * Copyright (c) 2026 BayLibre, SAS.
++ * Author: Valerio Setti <vsetti@baylibre.com>
++ */
++
++#ifndef _MESON_AUDIN_H
++#define _MESON_AUDIN_H
++
++#include "gx-formatter.h"
++
++/* FIFOx CTRL registers and bits */
++#define AUDIN_FIFO_CTRL			0x14
++#define  AUDIN_FIFO_CTRL_EN		BIT(0)
++#define  AUDIN_FIFO_CTRL_RST		BIT(1)
++#define  AUDIN_FIFO_CTRL_LOAD		BIT(2)
++#define  AUDIN_FIFO_CTRL_DIN_SEL_OFF	3
++#define  AUDIN_FIFO_CTRL_ENDIAN_MASK	GENMASK(10, 8)
++#define  AUDIN_FIFO_CTRL_CHAN_MASK	GENMASK(14, 11)
++#define  AUDIN_FIFO_CTRL_UG		BIT(15)
++
++extern const struct gx_formatter_driver audin_formatter_i2s_drv;
++
++extern const struct snd_soc_dai_ops audin_fifo_dai_ops;
++extern snd_pcm_uframes_t audin_fifo_component_pointer(struct snd_soc_component *component,
++						      struct snd_pcm_substream *substream);
++extern int audin_fifo_sync_stop(struct snd_soc_component *component,
++				struct snd_pcm_substream *substream);
++
++#endif
 
 -- 
 2.47.3
