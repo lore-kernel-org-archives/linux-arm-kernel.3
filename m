@@ -4,74 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50C51C982D6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 15:55:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3282C982D6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 15:57:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vqEFvvHV/L3sKvFUjQ6Yn8sSGdOHHV39s6af9+YkAzo=; b=a2XhDrGNUgriRbn5aeISqFVIKq
-	t0lH6MxiujSy8LS/dbWCFN+ARO2jHp8memD64ayLnmMXabOQbF6mcYenvxU8iGrwcD+UcMJP6+Xfp
-	ilQnkR4CPgec1h/jDO1va4rHSRuIQSIYZzKR0Z/n2BRZbVrmj+9u7WncV0mBeOzGv/Ar6betrsVJ+
-	4OBuQ49xWShIRgEesb5Ift2q7xx/MoUEyZ2EpdOmNg/QdD74IGMOyArNGt7ad/qlZ04pkq/M6eIg9
-	lC4cqaLFRclx0bFsmPzAYzBaoDhP/rpQ0xRjhhG39qfoR4ezM8qTZhGo03ATErIuGUCjUWwt2Kwv0
-	NRpTdeMA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3rxmew9ejmFKQPEF28KKIfrgBOL2FlEjiVav3iuQOyA=; b=Dh6ZD8a7zlGx9GHk7+22C7uwbS
+	DYJKxbbIc/hWu68CocTxHTbTQbc6hxiIiEp+DDhGykuh7ww1oi2i8O8XbMXuPB6yg1b28dkDID+2L
+	DOma72+pPxhEZQUbgNp+50tUjFQ54cyjADP7S+zyKN61Gm8xOSuAuEbFXjRHGif085eVky4cOqDiB
+	xPViq3NYjzJQTccyXGNCLDJ4y0ppLg8fT6afBxBYC+b9HT5a5Gi/rCerGV1wI/YAJt7Ioli7/DQuQ
+	oqc58qqSim1cvmt8vJFBPc//WM0sSJ0raTwOtkEqZXT4DeXWKlazip2ZRiXcZI4Ui3CE2IGl7uy+j
+	s2X4Y9mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7ESn-0000000BmJl-0Wje;
-	Thu, 17 Sep 2026 15:55:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7ESl-0000000BmJL-2Eu6
+	id 1x7ETr-0000000BmUb-1R34;
+	Thu, 17 Sep 2026 15:56:59 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x7ETn-0000000BmT0-2jMD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 15:55:52 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0819A1476;
-	Thu, 17 Sep 2026 08:55:46 -0700 (PDT)
-Received: from [192.168.178.100] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AA3B53F7B4;
-	Thu, 17 Sep 2026 08:55:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789660549; bh=pu6OxP7sHRarHbFxvyGvIy2jdeMp3whl0Ww+2w+Yqk4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=FLgeeuFP12OYalq4ufgX2DESTMiE2Tp/2noR1ohfQnyzFdFKH/4YTsCF7BL2DiffS
-	 yxR8VV9A+e9avG4QOYLmvQPUlvbQisERazLgW5Sg35hefwU7+8YHgN/SAyL/A5/1+4
-	 JIApr13pTg/Sab2zAkV1CufEkYRfeIXMoxFgX9VE=
-Message-ID: <b7fbe8bc-56b4-4705-b5d8-4a377eb062ee@arm.com>
-Date: Thu, 17 Sep 2026 17:55:44 +0200
+	Thu, 17 Sep 2026 15:56:58 +0000
+Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
+	by APP-05 (Coremail) with SMTP id zQCowAC3HzrCDaxqPPmDCA--.6369S2;
+	Thu, 17 Sep 2026 23:56:50 +0800 (CST)
+From: Wentao Liang <vulab@iscas.ac.cn>
+To: gregkh@linuxfoundation.org
+Cc: ilpo.jarvinen@linux.intel.com,
+	jirislaby@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-serial@vger.kernel.org,
+	schung@nuvoton.com,
+	ychuang3@nuvoton.com,
+	Wentao Liang <vulab@iscas.ac.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH] serial: ma35d1: Fix clock reference leak in ma35d1serial_probe()
+Date: Thu, 17 Sep 2026 15:56:50 +0000
+Message-Id: <20260917155650.2161274-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/2] arm64: topology: fix arch_freq_get_on_cpu()
- overflow above 4.19 GHz
-To: Peter Zijlstra <peterz@infradead.org>, Oleg Keri <okerixx@gmail.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Ingo Molnar <mingo@redhat.com>,
- Juri Lelli <juri.lelli@redhat.com>,
- Vincent Guittot <vincent.guittot@linaro.org>,
- Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
- Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
- K Prateek Nayak <kprateek.nayak@amd.com>, Sumit Gupta <sumitg@nvidia.com>,
- Beata Michalska <beata.michalska@arm.com>,
- Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
- Sudeep Holla <sudeep.holla@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- driver-core@lists.linux.dev, Viresh Kumar <viresh.kumar@linaro.org>,
- linux-pm@vger.kernel.org
-References: <20260917125112.2283-1-okerixx@gmail.com>
- <20260917125112.2283-2-okerixx@gmail.com>
- <20260917153224.GJ4121339@noisy.programming.kicks-ass.net>
-Content-Language: en-GB
-From: Dietmar Eggemann <dietmar.eggemann@arm.com>
-In-Reply-To: <20260917153224.GJ4121339@noisy.programming.kicks-ass.net>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: zQCowAC3HzrCDaxqPPmDCA--.6369S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7KFWUXF1ktr4rCryxuw4DArb_yoW8Xw4xpF
+	srKrZ5KayUGa48tw1Duw15Zr4fZw4Uta4xCrW7Ga4fuanIqr93tryfJa4jva1UCFykWF47
+	Jr1Iy345uF4jy37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPSb7Iv0xC_tr1lb4IE77IF4wAFc2x0x2IEx4CE42xK8VAvwI8I
+	cIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2
+	AK021l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v2
+	6F4j6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxV
+	W0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv
+	7VC0I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Cr1j6rxdMcvjeVCFs4IE7xkEbV
+	WUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VAI37AI020EjII2zVCS5cI20VAGYxC7M4II
+	rI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMx
+	AIw28IcVCjz48v1sIEY20_Gr43Wr1UJr1l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAq
+	x4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r
+	43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF
+	7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxV
+	W8Jr0_Cr1UMIIF0xvEx4A2jsIEc7CjxVAFwI0_GcCE3sUvcSsGvfC2KfnxnUUI43ZEXa7I
+	U1oUDJUUUUU==
+X-Originating-IP: [36.110.52.2]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBgENA2qr888+PAAAs2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_085551_627121_3E2049F4 
-X-CRM114-Status: GOOD (  10.25  )
+X-CRM114-CacheID: sfid-20260917_085656_059508_42A1279D 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,27 +84,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17.09.26 17:32, Peter Zijlstra wrote:
-> On Thu, Sep 17, 2026 at 02:51:11PM +0200, Oleg Keri wrote:
+of_clk_get() returns a clock with a reference that has to be released
+with clk_put(). ma35d1serial_probe() never does that, so the reference
+is leaked on the probe error paths and also when the port is removed.
 
-[...]
->> diff --git a/include/linux/topology.h b/include/linux/topology.h
->> index 709a2dcf4c73..0a4ee12a98d5 100644
->> --- a/include/linux/topology.h
->> +++ b/include/linux/topology.h
->> @@ -351,4 +351,6 @@ static inline unsigned long topology_get_cpu_scale(int cpu)
->>  
->>  void topology_set_cpu_scale(unsigned int cpu, unsigned long capacity);
->>  
->> +#define cap_scale(v, s)		((v)*(s) >> SCHED_CAPACITY_SHIFT)
-> 
-> This might not be a very good generic helper, since it relies on either
-> of the variables to be u64 for correctness.
+Release it on the error paths and in ma35d1serial_remove().
 
-So moving it to a static inline function instead?
+Fixes: 930cbf92db01 ("tty: serial: Add Nuvoton ma35d1 serial driver support")
+Cc: stable@vger.kernel.org
+Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+---
+ drivers/tty/serial/ma35d1_serial.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-static inline u64 cap_scale(u64 value, u64 scale)
-{
-       return value * scale >> SCHED_CAPACITY_SHIFT;
-}
+diff --git a/drivers/tty/serial/ma35d1_serial.c b/drivers/tty/serial/ma35d1_serial.c
+index 285b0fe41a86..a073648cc5e4 100644
+--- a/drivers/tty/serial/ma35d1_serial.c
++++ b/drivers/tty/serial/ma35d1_serial.c
+@@ -720,7 +720,7 @@ static int ma35d1serial_probe(struct platform_device *pdev)
+ 
+ 	ret = clk_prepare_enable(up->clk);
+ 	if (ret)
+-		goto err_iounmap;
++		goto err_put_clk;
+ 
+ 	if (up->port.line != 0)
+ 		up->port.uartclk = clk_get_rate(up->clk);
+@@ -747,6 +747,9 @@ static int ma35d1serial_probe(struct platform_device *pdev)
+ err_clk_disable:
+ 	clk_disable_unprepare(up->clk);
+ 
++err_put_clk:
++	clk_put(up->clk);
++
+ err_iounmap:
+ 	iounmap(up->port.membase);
+ 	return ret;
+@@ -762,6 +765,7 @@ static void ma35d1serial_remove(struct platform_device *dev)
+ 
+ 	uart_remove_one_port(&ma35d1serial_reg, port);
+ 	clk_disable_unprepare(up->clk);
++	clk_put(up->clk);
+ }
+ 
+ static int ma35d1serial_suspend(struct platform_device *dev, pm_message_t state)
+-- 
+2.34.1
+
 
