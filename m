@@ -4,135 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 973C9C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 16:26:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B18B6C982D6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 16:35:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tPd2UVQXPdOc6gHZF2nG0Ex2MAq2RguYsiVPpPYb3p8=; b=qvpIHTSL1J2yr/MWZClNrB9lHp
-	Jw2iQgCM0HIsreuTjARshdHWjpPPinMxnl0fF6ybiqNJu9qiiH5MZNTdo7TPOTm9LhMXyd2GoSCsm
-	KfdG7dx5QjIM/AzLmQOk7OUgdx7pLMtHMnI/JFgdvtZRPKSxRMBSy1CokUrcF55f21h4wE2NIDfK9
-	oXTon460T5z0908H3Bs5GaUU7IvlQSUbqQGW0vdeT8jQ5e6y5NC5PSj3fBJO46WiBNgo/30s4C5sC
-	qmjkS+zKjDk3dON7W5t/jnMCCHiX7eUDbHg0SCfgNW22yr4ThHfoPM3h+EmHDGrPFWrEHSHH71bQ/
-	IoZAQI/g==;
+	bh=BF23L7IjgM1pfHyM3ghg4jPhGbV/DtVtyTw2lo+n/XU=; b=APh+cEw/EPSMtYVFybpnxB4EKw
+	1bQH+lXZpioIWzTT7o8qEvzSiEAOrlyHDbowmv3c156RKM12EHDLAYWLqmQxpqdN3Pg6CR47PhYJf
+	5S89EEmSezTg8vC6mT83IuTt4HehqazKGtIrgcfJN10st1rMzob0Ycn/9AxxNabzJrq4TXCAnDbPH
+	6juT3mPn9JWCG7DnQvHFMiSp7+iUe5B0MYaLSp6RUI25b+XQ2Vn3hvum7Av+lsCTaGwh6nJo4MlOw
+	chtsEmdS8EqdJi/rON6P72mU7OF4qxVHjVlpj949xi8pobj2jgkuZQnqd98yMg2tmo1u27rgvmwer
+	kwjAx5Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Ew9-0000000BtF8-41pj;
-	Thu, 17 Sep 2026 16:26:13 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1x7F5A-0000000BvvF-19Ed;
+	Thu, 17 Sep 2026 16:35:32 +0000
+Received: from mail-qk2-x0e.google.com ([2607:f8b0:4864:34::e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Ew8-0000000BtES-1sGL
+	id 1x7F58-0000000BvuV-0Ctx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 16:26:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SQGA2ML83Pm/3yi0F6WVpqI71F0HbxCRpSZYOQo6SgBACE+Qy3lMDa+kGrHv1L78cvFvaVr7K6Mk2xvEbrctDuBRlCmzAtxMIrH8pD+nbf6Lh+9JaRvhdc8RLsiHqeXBCC0mAnsd1p6lcs4qR/kPOZxB4ZwUDQWVt+U2YWXjShjzbX94gU7PURmb6qY8ZVSGJaymkRtiIrG9jSKq2kP3e0GFEF1IPogHE0rlAVvoVgW076tcj3EftK5jRRhB+F4yOoWfDLzk4PSNyustk61c6osqsq7cvBQetzrPMy0D///HQ876/yOwY6BTIERYEr/MbJUmCHDaBDN7UsrxBsdO1A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tPd2UVQXPdOc6gHZF2nG0Ex2MAq2RguYsiVPpPYb3p8=;
- b=dN78ckQlQ2xs+7pxJr2vMa/UQrR4CUCk9pgQFzwcE54MzspbjgomurrL+b8Lh2yNeFO61CqhI5PxnalUgRTpRoZXRilL3ywm7hJykZkhfZMkW1fZb7SaRb17/rtBrd6joxbmeilBuox7l24JTprAH60jhsoWx573HrPHIxfAvD31Ii9Rza9WvtRh8bM4xsfJhViyjw22FObIEqsmJ3uJu3r9cDu7uDJaDs/RWqPeVRa/oogStWLLfd/Nj9TVTKfwQBsUBbyTLaIU8fKCHF96ojy/paMtUKgyGedY/NSl9ISXPNl9lxQp9p1+xTkFIP8Z/e3ZKzAneG3fqw5UO1wIXg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tPd2UVQXPdOc6gHZF2nG0Ex2MAq2RguYsiVPpPYb3p8=;
- b=rVqJ2L6NtEXGp+4pnbpmCxME21+45Y9zjMlMaTeywfZPvFI7DXs8BeYjfPqiZe4KiIPKQtffGexmMgo2VKNJ2WsDq58u55L5Y1ibaPtBgqKDNBeNEJvcHtPObzEd/otXfQ43Hg9vDa1qPHfaUSu0PkfAnMFrzuE+1bPxlkOh1pj/ENFdn64vblbbicF2bCVbkVgq15sC2iB6JFWpEah6p5d4HIP/Hti3WNr3hkANXgE3SlJVfq4GRXbCqsxGB1FlIOAON55y8t4AJE2fBr6N48RdZme7dbUIBYc3tT48A6n47FO1v58PHVrZaDpfe/eWrl1AQ65C7AlIBVDG397qtQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by VI0PR04MB10999.eurprd04.prod.outlook.com (2603:10a6:800:266::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Thu, 17 Sep
- 2026 16:26:05 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.012; Thu, 17 Sep 2026
- 16:26:05 +0000
-Date: Thu, 17 Sep 2026 11:25:55 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Joshua Crofts <joshua.crofts1@gmail.com>
-Cc: Johan Hovold <johan@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>, Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-clk@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] clk: imx: add missing
- pm_runtime_dont_use_autosuspend() calls
-Message-ID: <aqwUky1jSMGbiXCf@SMW015318>
-References: <20260915103345.1334-1-joshua.crofts1@gmail.com>
- <aqpgUPWUGZp5Cjzt@hovoldconsulting.com>
- <aqq_ymTi1I951uQp@SMW015318>
- <20260917102429.00002faf@gmail.com>
- <20260917104233.00007a85@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260917104233.00007a85@gmail.com>
-X-ClientProxiedBy: CY5PR15CA0019.namprd15.prod.outlook.com
- (2603:10b6:930:14::31) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Thu, 17 Sep 2026 16:35:31 +0000
+Received: by mail-qk2-x0e.google.com with SMTP id d75a77b69052e-52fb76c9df1so12233991cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 09:35:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=toxicpanda.com; s=google; t=1789662929; x=1790267729; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:subject:cc:to:from:message-id:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=BF23L7IjgM1pfHyM3ghg4jPhGbV/DtVtyTw2lo+n/XU=;
+        b=MAfTcPId1w3aGeBzjG6VHtMrV7+bpRUFMrvET6DwvDtGnPMCDEbJCg6UkGoW1f8vzr
+         50CeDOlUT9BcfpDNLKCbgJ9HF/Xzhzfzbnv7HoLLNlC18/6ewu865Wzo8hU8y/8FaK2v
+         AWjPFXAKRBo5j/0bgroVQ/c2OjqnGCnOoBAm78iWNBRzfdQXVjtSU1hwS2Z14bG58KMB
+         NvugsO3c2gGFfnHKhGmUS6t5EbNI61MGc++gjWgCvAE42r4hF6i3Sfk+0HHl+dIkdyFl
+         DKGFV5ahbxYTkerloJ+DTEfbzEKsEymodNyW97JMNAYGjwFzLO/W9zsZ2Ca/F/mhoKuL
+         lMcw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789662929; x=1790267729;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:subject:cc:to:from:message-id:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=BF23L7IjgM1pfHyM3ghg4jPhGbV/DtVtyTw2lo+n/XU=;
+        b=CfdteAd08aoWfFHPMzYM5ExO4LrR0tM93JwnDS1yRsOIyHb19jK3/yWjotMQ7Zdnhk
+         p5y6BcU8819OdC4C/hzu/y96MLi794x2BIWBSSwsvtYfo4HfgamYh9+CbuhO7EApgklF
+         0FZOztO0tu1nhjnZZZDSHg8KqyxMNKUpVsTh+Q8SSK8ET9QrqUthd8dBGTUiV46VZ08z
+         Z/2/0a6c/r3XzLMKtFbaFFReSqTkswe+TMcrB1dY9Au3qhX294REgPbZu0ZeKjAyCP9m
+         FQ0yHbl5tJp/16IyqTvNGy/fP6veoQ4fAcSJ9jXrEnwKtPzUWeo+XA/cpAyR4OeMzfhr
+         PalA==
+X-Forwarded-Encrypted: i=1; AKwUvBx6X5gwr7/EvR23/C0vz7IPV9SiuaGDizAiwgyhm9mEOVwYRZvShr1OymippO6b5bNbfuEXGscd86KoIb4dLsjl@lists.infradead.org
+X-Gm-Message-State: AFuF++mXCAZF/MKkrPLzXGnjnQp5Pn1gypsmNmiasA2X4s0VyHl2Aef7
+	9vP0zOgCO+L2s5BwuhP/yd/0RoIMH6X4y6E019vbW/Lbk5LOSUhsl3+2qxSWAbJ6p4Y=
+X-Gm-Gg: AYBFou2ebLEae3HxM1NENp2xOCnNFdtDfySx5cF+kN6Vg9/x524so8BZzuKbtig9kJk
+	yk8Akwa7um3NKK15Eh5VWmGPq+yUzEBmuS/ncMEJXzlA32VBkFAPpdDFfeKlgn2vG/7avzRroFI
+	fOAqRTQJ2M0paJV+O8fA0OHPaHdGTP68JRqOLJRcqbHQSXMAONZESknYk5VaJ8O9Ad5+zYxZiKf
+	XPl8UlTnV56nGwxWqQyiikESZDAa6VU57cYLGeoAcaSSZPAJDk9iW9OPN++3Efw4RH5S9633X0e
+	rKQfYKBJEa40Rw/PdiqoZ20p6pAea+1ziy44Ol0msGFDge1yNmWVirdydRNC0h2rSPrpiHFnwHf
+	GmvcOJa82B0GiUXRh4UAJsq85+c6M/1AJA0ArCw66IEzG0Ty8j/6hzvqnD5a+so1tPWDSWPNUYi
+	ZI9nZhRSUs8peoQQtMb4d+wfozeEUyMJqUnJjne7bISgLcXFG3XmlUu0vjQM4mPu+zVVSuhyGil
+	YWf0ypvOuXOujGzP3oWmSJJxFXd8CB90P4ADn5edYvJOPg0MYayRfJI
+X-Received: by 2002:a05:622a:1ba0:b0:530:b2e1:2f3b with SMTP id d75a77b69052e-5329b61d526mr11929121cf.50.1789662928648;
+        Thu, 17 Sep 2026 09:35:28 -0700 (PDT)
+Received: from toxicpanda.com (ec2-34-228-114-98.compute-1.amazonaws.com. [34.228.114.98])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-5326208ea78sm56756741cf.24.2026.09.17.09.35.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 17 Sep 2026 09:35:27 -0700 (PDT)
+Date: Thu, 17 Sep 2026 16:35:19 +0000
+Message-ID: <c51591e0e96c837bcd762c207e5e1869.josef@toxicpanda.com>
+From: Josef Bacik <josef@toxicpanda.com>
+To: "Paul E. McKenney" <paulmck@kernel.org>, Frederic Weisbecker <frederic@kernel.org>
+Cc: Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, Joel Fernandes <joelagnelf@nvidia.com>, 
+	Boqun Feng <boqun@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Steven Rostedt <rostedt@goodmis.org>, 
+	Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, x86@kernel.org, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Puranjay Mohan <puranjay@kernel.org>, Xu Kuohai <xukuohai@huaweicloud.com>, 
+	Andy Lutomirski <luto@kernel.org>, Josh Triplett <josh@joshtriplett.org>, 
+	Uladzislau Rezki <urezki@gmail.com>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
+	Lai Jiangshan <jiangshanlai@gmail.com>, Zqiang <qiang.zhang@linux.dev>, 
+	Juergen Gross <jgross@suse.com>, Luis Chamberlain <mcgrof@kernel.org>, 
+	Ihor Solodrai <ihor.solodrai@linux.dev>, linux-kernel@vger.kernel.org, rcu@vger.kernel.org, 
+	linux-trace-kernel@vger.kernel.org, bpf@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, xen-devel@lists.xenproject.org
+Subject: Re: [PATCH RFC v3 03/13] rcu-tasks: Add a Tasks RCU implementation for reader-marked trampolines
+In-Reply-To: <8fea176a-0ca0-4a70-8cf9-8240a22359e4@paulmck-laptop>
+References: <20260915-b4-rcu-tasks-preempt-qs-v3-0-0ad30c4c5ee7@toxicpanda.com> <20260915-b4-rcu-tasks-preempt-qs-v3-3-0ad30c4c5ee7@toxicpanda.com> <aqlgxKGk_AEKls_1@localhost.localdomain> <edc7cca2-a5c5-455c-8969-ea05dbdb08f7@paulmck-laptop> <aqqONH8flTIpOUqT@localhost.localdomain> <91687748-0781-4133-baed-43cf82f35ff5@paulmck-laptop> <aqqpRoTfywUuTgoC@localhost.localdomain> <aqqsAUVV8a1yrQzX@localhost.localdomain> <6afb0afe-e7b8-46b4-9fea-2c7cf4791044@paulmck-laptop> <aqq0cwvRDsorGwgc@localhost.localdomain> <8b73e1b3-0580-4ba9-b2e0-6363e429808d@paulmck-laptop> <aqvZwfUVsiEI7q7y@localhost.localdomain> <8fea176a-0ca0-4a70-8cf9-8240a22359e4@paulmck-laptop>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI0PR04MB10999:EE_
-X-MS-Office365-Filtering-Correlation-Id: 52db561b-2ee4-4175-2815-08df14d85ede
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|23010399003|376014|7416014|56012099006|11063799006|4143699003|10067099003|22082099003|18002099003|6133799003;
-X-Microsoft-Antispam-Message-Info: PG/jSEOGg3StMFh4HIkTdGU1HpXdsSJeDZvUEKB1edhcWvG70rb67Mkww8Nskoky3ih2aeL344T+OGZ6k2Kej9+KOK0KViPOR4i1xv4sWEFfkxVWmi4JWIOR19NVaZGU9AcopPDGlijEJR7IVJtMuBd8hC40NzhVXSLNMb5GV7bJulDaE0l2v7z2FgBTbyUGAm9muhhXTdRpDAdBbinFZVQ9QEtRfbn9SIZoSzqNgkDm6UAOB/QwQMJijBa+rKnxEq8CtyRoEiddE0Aafl2ECNWsDYeT8oJjkteDmKC3KfIWxPjAugTPyxXgVT/PFWUxKflpdjpIGT2uu5m1Q5QRhnja+eDEoqOKWLYWNdn5aL6e9vJzva3lq0rctUDxAsmCDhTRVe3eMFXQBOj6EU1rqOMWrI6XCi2ilKQEweFPOM3b5/UMyiFkmsweLKmXGWeieG3NZxe1aoSfo9A38z9sOzulC+O5MXSPPKYBH4NV/kcAVANzYoDXg9xt7GrCiu2+iZPHL54eUXHxsFvS9y6Q06v1IdUr5RN+eTwsfjPqU4LGVZOG3Buda0xsqI9vynGk3Ut5LwL82VTe4HPwsRyu+ahzGVmsNiE4/J/zNJG82ku7q648MEyOY8rDuJ6JfmJNJ8gbB6O8qI7e+HRVZ6wZsE8/HVJ0t48KCEXdnxKMxIc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(23010399003)(376014)(7416014)(56012099006)(11063799006)(4143699003)(10067099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?RJvKLdVOWo4BXD4dLLziGPNMxafA7xUiEIasICN1AYTx760ivcJOYKM1R/Zu?=
- =?us-ascii?Q?kuToaGNJMjgTez+UwiHVJYlTOzS6D3ffHYIn+0dqNfL63EBh3DeMjqD/Vv6W?=
- =?us-ascii?Q?wocz0ne63Np1B4FMnRJCDrsReFwCUS8UCGUKmtKe6ZAZGasoM1kI3zwO85p3?=
- =?us-ascii?Q?wLpeEWqZ0GAoR55sO1fR2WOqIOzNqmsEDtjscQbZnDpXiufE413VNphe9Mbd?=
- =?us-ascii?Q?B/sodxeBgpWSef/BcslPlh6K2kxWjtlQHHjpJkJ7yfYfhw+A3bX84tnRuMJX?=
- =?us-ascii?Q?/esLqukQ/+Qf0AWIjfmSnvMg/5FZTsCvPGyZFYOjuKbJEpAMcGB5pSah3qYO?=
- =?us-ascii?Q?JODcnlKm210Kpkc7srBBOYEJ342pb6jjpeYbNoFsTNx6MUAMPU63wrfp6QEj?=
- =?us-ascii?Q?mGpLOyUhJqcYLlYFZsvccnCUr2Gt4JU1cYJVukWsNG3jlw5FraNVOs6aXFlp?=
- =?us-ascii?Q?xZcQ6iXesPdjKZVj0oyDJx7VOT/0eXAqkQzpADut8jHQx5OOyG4LTeOGlix8?=
- =?us-ascii?Q?+yg06Y5kcWKxjnN0vFryclspA0QIf2LAjm6kfQDbDsAnlVPWKmRyUzWceFaa?=
- =?us-ascii?Q?qvK8XwG37L5HziuXjAs7zX8ehFh8JtoWdiio0zr+rPaukgyvw3ICfGOrz7fq?=
- =?us-ascii?Q?qFurGlOHRWcagDagGjOHb/s14Oy+r3P2LyI/40hUv+5e4Sfdcw6vbSpY0Thd?=
- =?us-ascii?Q?ve87+p0+8P4t328lcfXBYRKf5uca6gCxhWmNoCDqLDUSoAYZBDcQC1qECNOk?=
- =?us-ascii?Q?DkI905M+7OqtmpSUtZDATWuUMz0JRLEoyjMSoTWrNwddUhTTCAEX18pR9VMQ?=
- =?us-ascii?Q?JqSuX+vzP5Ly7i5MruPw+i4B5/OPuvxuCM56RhplnIegJ15F5QcwruYqp4Uf?=
- =?us-ascii?Q?h7rr6HjhH8jXLXCFcbhVZfPf3KE6QNoglLAAaVtf/1619YvNpwLUZCsD5k09?=
- =?us-ascii?Q?VcS3IyDzie7AX1UNIbsaxQz+YTwEVS2OFpoTD+6QrPnNhEtgbS7dgVZ5Poe7?=
- =?us-ascii?Q?HfQZPId09oobCbz1AdLIwc6d1ad+oVV8LFA1YpONmyO4AE1/qySlIynBNpda?=
- =?us-ascii?Q?a9cxXMyLMkH3UVlOMeSDDW7IHOyLbsupsLtX857aYUtbH7Kgm11VXtHM+yQL?=
- =?us-ascii?Q?nHc+DhHEMXI+066QbgBnhkMMG1H9yx1dibB6MeoRTK0S4mUZNqnsiOLNMeAD?=
- =?us-ascii?Q?2nQXlELfqxs7XVZ2fdpL+JlqmlQ1ij58akvi9PTKTO1KxSaeBCg0S+lRTpHQ?=
- =?us-ascii?Q?gWt/kD1VFnRAxfRsLoLp4USwee2VDl4+A48LQhwZLf82QPWWB7hTg57f4Wx8?=
- =?us-ascii?Q?2NoBcDGo1tlJ1FyBqkESnNEYWu/JlDTATDSL3MKV4btXFwRxtgXOrGYk0wtU?=
- =?us-ascii?Q?y3+D7y4clGTl4DXhtl3zcQuNwTg/5QZf5nDpOpQwZRh2knw4qCXFUfsmq46o?=
- =?us-ascii?Q?rYZQ7kUDAGP0jF0BXQRqEUr8gNvLjrpSmeacO6ztclQ056DhA3rGH3SAVyWu?=
- =?us-ascii?Q?nKJ9BCMfoOyPsn0xJXZViF/wF1/oVOCH/WI6UoigeQzkU5ZelrXPXmIwwKHM?=
- =?us-ascii?Q?2fG+7bZaFSmbBM4g7qaZHvgTaSMqG/Zmop144i4jB6bVL2F01rA4nXJmsIte?=
- =?us-ascii?Q?ouS7DfKXNV+cOHUOB+q5EmtWwuM6eYy5yqk9OsWXpv7yNrJm0SHk+vYDiLPr?=
- =?us-ascii?Q?FTBdsM0RcOSZoVHXxdN8o9HAgimcJiN7JSHHrFsDV+xRHjvU2MxFTtTqh/8v?=
- =?us-ascii?Q?bmE03VcFdpSIA7WigXe33Xx5wGcCfJ4/CUEEL/ggAiTeRceWKLTF?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 52db561b-2ee4-4175-2815-08df14d85ede
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2026 16:26:05.0000
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: BA7m5GbTPNlFk2HXFhVQfdju2XzzqvQYOnRlXv0wSiF5xnOBbzxPFJl1Sup/DurMZBHEl2fOtjlIDrFI6b8KTNb1v/RsPRFaImqmuonM2g1WLheZXaQy9ISIliX3PO0w
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10999
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_092612_492319_02F6B508 
-X-CRM114-Status: GOOD (  25.34  )
+X-CRM114-CacheID: sfid-20260917_093530_099843_FA09809D 
+X-CRM114-Status: GOOD (  13.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,50 +113,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 10:42:33AM +0200, Joshua Crofts wrote:
-> On Thu, 17 Sep 2026 10:24:29 +0200
-> Joshua Crofts <joshua.crofts1@gmail.com> wrote:
+On Thu, 17 Sep 2026 08:40:10 -0700, Paul E. McKenney wrote:
+> On Thu, Sep 17, 2026 at 02:14:57PM +0200, Frederic Weisbecker wrote:
+> > You're right. So we'll indeed need to reuse the deferred qs points here.
 >
-> > On Wed, 16 Sep 2026 11:11:54 -0500
-> > Frank Li <Frank.li@oss.nxp.com> wrote:
-> >
-> > > On Wed, Sep 16, 2026 at 11:24:32AM +0200, Johan Hovold wrote:
-> > > > On Tue, Sep 15, 2026 at 10:33:43AM +0000, Joshua Crofts wrote:
-> > > > > Several drivers in the clk subsystem forget to call dont_use_autosuspend()
-> > > > > on teardown or error, causing potential resource leaks. This series adds
-> > > > > the missing calls.
-> > > >
-> > > > No, as I've explained repeatedly elsewhere, it does not cause any
-> > > > resource leaks. [1][2]
-> > > >
-> > > > The autosuspend setting leaks if you will, but that only matters in the
-> > > > theoretical corner case of someone rebinding a different driver (which
-> > > > will soon also taint the kernel).
-> > > >
-> > > > So don't exaggerate the impact, this is essentially just a cleanup,
-> > > > which is fine in itself.
-> > >
-> > > Is it possilbe to create/improve runtime pm API, let runtime_pm enable/disable
-> > > include these pair functions.
-> > >
-> > > I get many similar patches since scan tools is more powerful now.
-> >
-> > I suppose that could work. One would still have to scrub the kernel of legacy
-> > use/dont_use_autosuspend() calls though, so it could end up being a large
-> > patchset.
-> >
+> Except this is getting a bit involved.
 >
-> On second thought, some drivers do tend to disable PM runtime system sleep
-> etc. so it probably isn't as simple as adding the autosuspend stuff to
-> enable/disable.
+> Don't get me wrong, if Josef is happy to take this on, far be it from me
+> to stand in his way.  But if not, we should be willing to treat this
+> optimization as a follow-on effort, whether by Josef or someone else.
 
-if runtime pm disable, does autosuspend still work? suppose it should be
-disable also
+Follow-on works for me. For what it's worth 03/13 is already fairly
+close to what Frederic describes, just outside the core flavor: no
+task-list scan (the GP waits per CPU for a pass through __schedule() or
+an EQS), the irq-exit preemption path checks the interrupted IP and
+queues the task as a holdout before the switch, and the holdout is keyed
+on where the task was interrupted so nothing is needed from the
+trampoline tail. Moving that IP check into the tick / rcu_exp_handler() /
+deferred-QS paths and reusing the blocked-tasks list is something I'm
+happy to look at once this has settled.
 
-Frank
+v4 will pick up Alexei's ask (reader emitted by the BPF JIT around the
+fentry and fexit regions rather than in the glue) and the idle-CPU hole
+Sashiko found.
 
->
-> --
-> Kind regards,
-> Joshua Crofts
+Thanks,
+
+Josef
 
