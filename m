@@ -4,68 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E01C0C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 12:06:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AE5CC982CF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 12:10:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+zlJ5jz2kN0YvLvgk4BOhxj/9a64emmfZfUdw4MOTMM=; b=M/VW1NeEkoL2777E0//JoFf3h7
-	TI6iL+Uwe87fYwTVnIALN6ba110ev6zzvccNnLG43bkCMoXFoKMC4fuYqqS7/6tQ1fdVrObwJyzYv
-	3Mq7kKhsN15nYfVE1JkaR8w+SFTS6CFCZRjxWDkXdwAiNISxrbPT5vGPUoFaVGUGGO6sJJ/zjxyCU
-	1BQKXtVcoDfxGqdx1UQS4SNPaXt2SxdRDIqjvXLSOr1imhDBpa5STZdfZ1wU8MdXVWXURRb6yU7Xv
-	79WHa1ZgEZAT6AqLjIsyGP5rzsTqxdW6rQCGOy9fMe4GfjX1ZqE1sEQ61qWu21ifWe2uWjTfLDAd7
-	1gGpoM6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mKjsFpB6jwr7wMWoJ78ZFWtD8MGuhFV57vssMVJYZzY=; b=3VyELqGkdadwx/5Ik8QktuvOoI
+	tFNo9GWNLxuMH2xPQ+vn2fYbYzYdE+9ZHkwlC6VgSyT4a9eec7wE/brYEjPDR+2oSZadvXMW9kMGL
+	ohLeQ30xNVZTATcnABRmFwHATYxnOh3Kgoc/LXix+ob/rtdpw7maMWaZyzvwd+3KWTtsIhiQPHfZs
+	UCLJV+nZd1hl4QunOQ8+m3D/0EN+VDmANj5PRpOsSk2wDQO5YF+CWJgVYvkgrSiSJkVaRjAXQytJN
+	1hAaS5bbHopJvfDUmxZLKMF5WDkIq8cW/2rccnTZDVB6Pl6mMWfxmXvqBkAPw7KTpoR6xxPcHOcEK
+	rRbt8ehw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7At1-0000000BFjL-38NG;
-	Thu, 17 Sep 2026 12:06:43 +0000
-Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
+	id 1x7AwC-0000000BFxt-0ssN;
+	Thu, 17 Sep 2026 12:10:00 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Asy-0000000BFiH-0xbe
+	id 1x7Aw8-0000000BFxQ-2Opn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 12:06:42 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=+zlJ5jz2kN0YvLvgk4BOhxj/9a64emmfZfUdw4MOTMM=;
-	b=4q4vjrkTUCXKLTMtujghu1eQ1Zme+sc/BL+0HesWEnOvuXN3nORa4ZfmvJcbBSiHZzMD3ZcT8
-	B134asOLVgQR3UxXPAmxxJSfQEk+JK4jfyGfP68k/pFQV9ffTuytjtDyTfcpSOduw39knhM91AJ
-	aO31HcnZ3qR6lyf8tGZVl4A=
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4hlvMl57yhz1K9B1;
-	Thu, 17 Sep 2026 19:55:31 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id 3DB2640586;
-	Thu, 17 Sep 2026 20:06:31 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- kwepemk200008.china.huawei.com (7.202.194.74) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Thu, 17 Sep 2026 20:06:30 +0800
-Message-ID: <77313765-ba3d-40ba-b693-0b78a518d504@huawei.com>
-Date: Thu, 17 Sep 2026 20:06:29 +0800
+	Thu, 17 Sep 2026 12:09:58 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 2505726CF;
+	Thu, 17 Sep 2026 14:08:10 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1789646890;
+	bh=YSUw6AYQlpCx82S4qpDEzxcG4DE/YEviLxFC0Ymvx3E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=o7G8FZ/hOwdQOujtMAOm5FePU3dG5oP+IXOFBBhNqaC7ABrSMy/umq4pNzJB+c/K6
+	 Zod4K0czm1r3cdez1i0c8X0OZhOvAslAfXFzIQ3MvHtPgjuKaDBWgEHjVQ7qgHGa1r
+	 NByD4KeT5VtZ6RKIMXbYjDqg+sBSEu5BnT80uebk=
+Date: Thu, 17 Sep 2026 15:09:50 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: arash golgol <arash.golgol@gmail.com>
+Cc: Hans Verkuil <hverkuil+cisco@kernel.org>, linux-media@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	yong.deng@magewell.com, paulk@sys-base.io, mchehab@kernel.org,
+	wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org
+Subject: Re: [PATCH v1 0/3] media: sunxi: Resend active-state conversions
+Message-ID: <20260917120950.GA44274@killaraus.ideasonboard.com>
+References: <20260804072630.28745-1-arash.golgol@gmail.com>
+ <CAMxPZkgk4+idrZowJ1z-ddAzaD-hx-NJP+KSj8pUrSfL0HH4aQ@mail.gmail.com>
+ <CAMxPZkhjurfpPvvymamJqTuia8CtFw1gRyYA4KBwFcQoH5jz3A@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 36/38] genirq: Trust local irqchip when considering IRQ
- for NMI
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
-	<maz@kernel.org>, <lpieralisi@kernel.org>, <liaochang1@huawei.com>
-References: <20260914102102.68597-1-vladimir.murzin@arm.com>
- <20260914102102.68597-37-vladimir.murzin@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260914102102.68597-37-vladimir.murzin@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemk200008.china.huawei.com (7.202.194.74)
+In-Reply-To: <CAMxPZkhjurfpPvvymamJqTuia8CtFw1gRyYA4KBwFcQoH5jz3A@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_050640_970732_9B8B41DA 
-X-CRM114-Status: GOOD (  17.19  )
+X-CRM114-CacheID: sfid-20260917_050956_779062_8F18187F 
+X-CRM114-Status: GOOD (  24.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,65 +71,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Arash,
 
+Your patches have been merged in
+https://gitlab.freedesktop.org/linux-media/media-committers. I'm sorry
+it took so long. I really appreciate the work you've done here.
 
-在 2026/9/14 18:21, Vladimir Murzin 写道:
-> Generic IRQ code sanitises whether an IRQ can be considered for NMI
-> use. Currently, it only considers IRQs managed by the root irqchip.
+On Mon, Sep 07, 2026 at 08:15:02AM +0330, arash golgol wrote:
+> On Wed, Aug 12, 2026 at 9:50 AM arash golgol wrote:
+> > On Tue, Aug 4, 2026 at 10:57 AM Arash Golgol wrote:
+> > >
+> > > These three patches convert the sun6i-mipi-csi2, sun8i-a83t-mipi-csi2,
+> > > and sun6i-csi bridge drivers to use the V4L2 subdev active state API.
+> > >
+> > > Each patch has already received review and testing individually in
+> > > previous postings (see the changelog and links within each patch for
+> > > that history), but none have been picked up and none currently have
+> > > a delegate on patchwork. Resending together to make it easier to
+> > > review and apply as a group.
+> > >
+> > > No code changes since the last posted version of each patch.
+> > >
+> > > Arash Golgol (3):
+> > >   media: sun6i-mipi-csi2: Use V4L2 subdev active state
+> > >   media: sun8i-a83t-mipi-csi2: Use V4L2 subdev active state
+> > >   media: sun6i-csi: bridge: Use V4L2 subdev active state
+> > >
+> > >  .../sunxi/sun6i-csi/sun6i_csi_bridge.c        | 155 ++++++++----------
+> > >  .../sunxi/sun6i-csi/sun6i_csi_bridge.h        |   9 -
+> > >  .../sunxi/sun6i-csi/sun6i_csi_capture.c       |  27 ++-
+> > >  .../sunxi/sun6i-mipi-csi2/sun6i_mipi_csi2.c   | 107 ++++++------
+> > >  .../sunxi/sun6i-mipi-csi2/sun6i_mipi_csi2.h   |   2 -
+> > >  .../sun8i_a83t_mipi_csi2.c                    | 112 +++++++------
+> > >  .../sun8i_a83t_mipi_csi2.h                    |   2 -
+> > >  7 files changed, 194 insertions(+), 220 deletions(-)
+> > >
+> > > --
+> > > 2.34.1
+> >
+> > I've been trying to get these patches merged for a while.
+> > Multiple pings and followups have been sent, but they haven't
+> > been applied yet. This series is just a collection of my
+> > individual patches.
+> >
+> > All patches have full Reviewed-by/Tested-by coverage from
+> > Laurent Pinchart and Paul Kocialkowski. Current status of all
+> > patches are still New in patchwork, without a delegate.
+> >
+> > Link: https://patchwork.linuxtv.org/project/linux-media/list/?series=28738
+> >
+> > Given the review is complete, would you be able to pick these
+> > up, or let me know if something else is blocking them?
 > 
-> GICv5 IPIs belong to a logical domain built on top of the LPI domain.
-> Consequently, generic IRQ code rejects these IPIs for NMI use, even
-> though their hardware state is managed by the root LPI domain.
-> 
-> One way to allow GICv5 IPIs to be used as NMIs would be to adjust the
-> sanitisation logic to account for this domain hierarchy. However, the
-> generic IRQ code can instead trust the local irqchip.
-> 
-> Remove the root irqchip check and use the local irqchip when
-> considering an IRQ for NMI use.
-> 
-> Suggested-by: Marc Zyngier <maz@kernel.org>
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-> ---
->  include/linux/irq.h | 2 +-
->  kernel/irq/manage.c | 5 -----
->  2 files changed, 1 insertion(+), 6 deletions(-)
-> 
-> diff --git a/include/linux/irq.h b/include/linux/irq.h
-> index f485369b1b4f..92d3ad639ae8 100644
-> --- a/include/linux/irq.h
-> +++ b/include/linux/irq.h
-> @@ -563,7 +563,7 @@ struct irq_chip {
->   * IRQCHIP_ONESHOT_SAFE:              One shot does not require mask/unmask
->   * IRQCHIP_EOI_THREADED:              Chip requires eoi() on unmask in threaded mode
->   * IRQCHIP_SUPPORTS_LEVEL_MSI:        Chip can provide two doorbells for Level MSIs
-> - * IRQCHIP_SUPPORTS_NMI:              Chip can deliver NMIs, only for root irqchips
-> + * IRQCHIP_SUPPORTS_NMI:              Chip can deliver NMIs
->   * IRQCHIP_ENABLE_WAKEUP_ON_SUSPEND:  Invokes __enable_irq()/__disable_irq() for wake irqs
->   *                                    in the suspend path if they are in disabled state
->   * IRQCHIP_AFFINITY_PRE_STARTUP:      Default affinity update before startup
-> diff --git a/kernel/irq/manage.c b/kernel/irq/manage.c
-> index 57eff26fa646..c9ad79743ef6 100644
-> --- a/kernel/irq/manage.c
-> +++ b/kernel/irq/manage.c
-> @@ -1370,11 +1370,6 @@ static bool irq_supports_nmi(struct irq_desc *desc)
->  {
->  	struct irq_data *d = irq_desc_get_irq_data(desc);
->  
-> -#ifdef CONFIG_IRQ_DOMAIN_HIERARCHY
-> -	/* Only IRQs directly managed by the root irqchip can be set as NMI */
-> -	if (d->parent_data)
-> -		return false;
-> -#endif
-
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
-
->  	/* Don't support NMIs for chips behind a slow bus */
->  	if (d->chip->irq_bus_lock || d->chip->irq_bus_sync_unlock)
->  		return false;
+> Just following up on this series.
+> Link to series:
+> https://patchwork.linuxtv.org/project/linux-media/list/?series=28738
 
 -- 
-Best regards,
-Jinjie
+Regards,
 
+Laurent Pinchart
 
