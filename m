@@ -4,91 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EA6CC982D6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 15:42:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA25BC88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 15:42:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+G+IlMUQeaVUIvgPiPnf+R5hSWuSFY3wPT2JU/ScS5o=; b=2fYv0VkHDNfgxSRZ/w5gKtmNp6
-	mJ9CTg0iNaPYUaqWw3dPz79FKlZ+EYR946cnAPCK50bVIfeFXgL1EXg8hOl3x0E5i1ftUyf9he2YC
-	1s8/xBqqN6WsW9n3cuhQqSIHdv0CSkV3X+NvU3SGYbhRXPCk8Sy1qXq1JU7M5jVtKF+xqwR4qH5QJ
-	fQjS+FrC86rJ2IcAcMJiNQxTPvDR/OMFEmCWKh306+xiDZeUoIqgDVGf8CVnqWQ8jd1fL90uT7EaG
-	MyPhC/7wF24gB80SdRKhKq9E0xiDbxQDMXET+k8uU/sFSksM5XGJOSgU7uvr38fW6gzvWPW360bnh
-	GmTU7OPA==;
+	bh=d2rqoANqapE2XLn2dSVmJasoPdWmDd7pHjTlHIBVe84=; b=WOxbC6GuAd3YzyVgdguUSbevxR
+	2JE47lSijSlGbJqies8ShH1AIcGaapbZGIfwphfnZkK63w8PAsCXulc3EqSQSOvd96H8mRCzJ9ku9
+	bvY1ijS9EbKYXAB1JYHkf5VpvSGrkqZq39O/kyoWs6Qo6Fubry6NXGK6kfE8HJBljy5eu8V6Q8smP
+	SGywGMjpIlV6Ee4YZTTHQ0h/Sl5922i3lgnASl+G1Jxubyxj8fVAZYrN4ManZ4rBF8+G065FntM4H
+	Gr+BGgZ07k4GWxp57ondGHjP+M0ADXo7w6cfzsYSojflZuz4fTfdn31JmQ1SyWwM4BXiu08AorC3n
+	3nB8e0Mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7CUZ-0000000BRPJ-44ce;
-	Thu, 17 Sep 2026 13:49:35 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1x7EFo-0000000BjT7-0gyQ;
+	Thu, 17 Sep 2026 15:42:28 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7CUO-0000000BRIu-2zjS;
-	Thu, 17 Sep 2026 13:49:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1789652962;
-	bh=aT58dFKDyhiJqaN2cKniCqERGQtyp3W/fZdagjPbqYo=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=nENDayZu5h86a+lobdB+0pkGYEghVc+bobhgshkO8kmUW5CkYKrK6Qh2fIrFQUvoO
-	 7QM9sq/80J8HXBPyFqxMAdbCSF7pnrrR+p4aSpWIb+qOqOQWU5Tn7ENhL/urEntFAJ
-	 8JaOyZccLpSnjkr+ZgKNUBZaTGAQu+cW4RlggrDhVUnDj1NrLZ6xkvTyuekP/iUcrR
-	 KSTPucE7BoA2qC7brIzJEivrxJnYH2l4FJzqGc6xvIXyMi8CZov++63WgvkFvxCVR2
-	 0pGYwpIsxuRnPaLCvxLGHP1ttI+05y2ps4ZhSdgmvtmbVRnhVkraoLZhfS7BzNtg6/
-	 26rSqNMUJ+oJg==
-Received: from jupiter.universe (unknown [100.64.1.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C762017E09B5;
-	Thu, 17 Sep 2026 15:49:21 +0200 (CEST)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id 7DA5C480030; Thu, 17 Sep 2026 15:49:21 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Thu, 17 Sep 2026 15:49:15 +0200
-Subject: [PATCH 3/8] PM / devfreq: rockchip-dfi: move to per-variant const
- structs
+	id 1x7EFl-0000000BjRQ-1qiI
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Sep 2026 15:42:27 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 77C981A0936;
+	Thu, 17 Sep 2026 15:42:22 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 3D55B5FAA3;
+	Thu, 17 Sep 2026 15:42:22 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9F31B11C7B08E;
+	Thu, 17 Sep 2026 17:42:08 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1789659741; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=d2rqoANqapE2XLn2dSVmJasoPdWmDd7pHjTlHIBVe84=;
+	b=qPyeDytc6bpI47/fo2F8590mMjNdIVvnDgNp/VK4Fun4Y3og5etZTf9HZSnkI4+3OzQ6ui
+	jXA5j99C2SpiNChuy0wB6OnT4BxlkK7QQIR7s2ruzKCH8PJoqknJd4iMxSTzqSJdLk6v6O
+	VNIiUKQCUgol/O0uD8gShdUWovfZ2e968YGZAHdfv8cjpfrpucZ5pq3iftlkGv/UAoXt5r
+	bHLNUdt1TX1ITell1ijyNgZf3H9KcXb4cVsRgppayH3PaCSjnCyjx3seeudIuAfQfS5cRX
+	H6jB//8zMVCx8Hd4eEVW2lHB+VCKeakjp3nWhkRaOb88otGc7XjhwS5c6i813A==
+Message-ID: <067b8ae8-7de4-47cb-bf49-ec6fde1f34d6@bootlin.com>
+Date: Thu, 17 Sep 2026 17:42:07 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260917-rockchip-dfi-cleanup-v1-3-4f00a97a69a6@collabora.com>
-References: <20260917-rockchip-dfi-cleanup-v1-0-4f00a97a69a6@collabora.com>
-In-Reply-To: <20260917-rockchip-dfi-cleanup-v1-0-4f00a97a69a6@collabora.com>
-To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Chanwoo Choi <cw00.choi@samsung.com>, 
- MyungJoo Ham <myungjoo.ham@samsung.com>, 
- Kyungmin Park <kyungmin.park@samsung.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
- kernel@collabora.com, Sebastian Reichel <sebastian.reichel@collabora.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=9544;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=y65RBL8I0JRF1EhPVMN7EiGUEBnlIwsg0XksNw4AoAc=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGqr7+Fnij/OsEOFye8+laUQi9WXJoNmxfBL4
- 6+Iao1KkhJfnYkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqq+/hAAoJENju1/PI
- O/qaaGsP/RUiYEaltcRqOAl2464GnmWS6SSYVs2ChA4uuDGPYN0+ZvkO6nKOZv14WAc4ZpHkzl9
- EJ6la7DDZpKApyjosKs0w8yAFWvDdM8r7BPMO8Jx1fr60tAmTyfVBgxPMeiM7goUueupY4vrYr3
- hKKb377dIXlyztX4F5TRqYxkfzcm0lBSWXOtoAw5cGlSZIHo0jsFdtMpEMGQpBDdnv9vWVOPwJl
- HftuyqgSfvNKp/aW8Y4RoWHakuxM7JkLQLoU41AM+kBWK5El8l36l74mERzgjDctAh3fUpouuM4
- AgXhVo7x46ez8F5D4TBTOnnVz3FasC5ZaGi90aZPpbOXQK92j9PfVaSGwAbPM0AATfKoCQKO2Ke
- dbAfxMNyK4dliL08RywCuqd5D25a98S8ozo/6qqN448+OBFEXULU4VxGkCKK11f+/rLSZTyDM0z
- ahhvQBWiyuvsWbMUv0zRgxccVwBybAoiM7H56VvMMJhfWQ9J3GEYO2+WaezXmOWU7c7P/YBsnFl
- Jqbj6xWKLq8hQxkLkzOi6QrZkdm8a0PKWsQmXEWlh5uFH5HEiUsxV0Buy8b/1viBGGacfIDNU0f
- pEnD3YXgVGBcYLu/LPAwu1wM2GFA6Mxfe5iLmagNhtd2qH4NW+/jYdtRAqAd+jxSayw2Lkhl6Yg
- KhmK04eR8EI32k6EEqp4t3w==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v7 1/2] net: stmmac: selftests: Prevent RXC from being
+ disabled in LPI
+To: netdev-bot+sashiko@kernel.org, peilinhe2020@163.com
+Cc: netdev@vger.kernel.org, alexandre.torgue@foss.st.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ he.peilin@zte.com.cn, jiang.kun2@zte.com.cn, kuba@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com, mcoquelin.stm32@gmail.com,
+ pabeni@redhat.com, vbridgers2013@gmail.com, xu.xin16@zte.com.cn
+References: <20260914150612.9798-2-peilinhe2020@163.com>
+ <178965769776.22033.13374439300724313005@kernel.org>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <178965769776.22033.13374439300724313005@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_064924_956187_C7932B8E 
-X-CRM114-Status: GOOD (  23.42  )
+X-CRM114-CacheID: sfid-20260917_084225_615113_52C2A80A 
+X-CRM114-Status: GOOD (  14.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,275 +82,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Hi
 
-The rockchip-dfi driver supports several variants of the DDR monitoring
-hardware. The differences in these variants are handled with one init
-function for each variant.
+On 9/17/26 17:08, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 1 potential
+> issue(s) to consider:
+> 
+> Critical: 0 · High: 0 · Medium: 1 · Low: 0
+> 
+> - [Medium] The last paragraph of the commit message describes the
+>   `eee_rx_clk_stop_enable` precondition backwards.
+> 
+> --
+> 
+> net: stmmac: selftests: Prevent RXC from being disabled in LPI
+> 
+> The patch wraps the selftest loop in stmmac_selftest_run() with
+> phylink_rx_clk_stop_block() / phylink_rx_clk_stop_unblock() so the PHY
+> does not stop the receive clock while the MAC is in loopback. The code
+> change itself looks balanced and is a no-op when the phylink config does
+> not allow RX clock stop.
+> 
+> The question below is only about the changelog, so the diff hunk is not
+> quoted.
+> 
+>>     As the NETIF_F_VLAN_FEATURES may be empty on some platforms once the
+>>     software vlan stripping is removed, the phylink config attribute
+>>     'eee_rx_clk_stop_enable' may no longer be inconditionnally set to
+>>     true, hence allowing RXC to be disabled during LPI on platforms
+>>     that don't have any VLAN features.
+> 
+> [Severity: Medium]
+> Is the true/false direction here inverted?
 
-However, some of the members that these init functions set are actually
-constants, specific to that variant, with no runtime involvement from
-reading registers or anything.
+Yeah should say "eee_rx_clk_stop_enable' may no longer be unconditionnally
+set to false", my bad...
 
-Refactor the code to move those values (and the soc_init function
-pointer) into a new struct. Declare some const instances of this variant
-struct, and use it wherever needed.
+Code is correct though.
+> 
+> Related to that, should the changelog also mention that
+> CONFIG_VLAN_8021Q=n builds are already affected today? 
+I'm fine with it.
 
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
----
- drivers/devfreq/event/rockchip-dfi.c | 94 +++++++++++++++++++++---------------
- 1 file changed, 54 insertions(+), 40 deletions(-)
+Peilin He, are you ok with changing the commit log if you send another
+iteration ?
 
-diff --git a/drivers/devfreq/event/rockchip-dfi.c b/drivers/devfreq/event/rockchip-dfi.c
-index 255aee1bdd91..5339616f7ca6 100644
---- a/drivers/devfreq/event/rockchip-dfi.c
-+++ b/drivers/devfreq/event/rockchip-dfi.c
-@@ -103,7 +103,6 @@ struct rockchip_dfi {
- 	struct mutex mutex;
- 	u32 ddr_type;
- 	unsigned int channel_mask;
--	unsigned int max_channels;
- 	enum cpuhp_state cpuhp_state;
- 	struct hlist_node node;
- 	struct pmu pmu;
-@@ -112,11 +111,17 @@ struct rockchip_dfi {
- 	int active_events;
- 	int burst_len;
- 	int buswidth[DMC_MAX_CHANNELS];
--	int ddrmon_stride;
--	bool ddrmon_ctrl_single;
- 	u32 lp5_bank_mode;
- 	bool lp5_ckr;	/* true if in 4:1 command-to-data clock ratio mode */
- 	unsigned int count_multiplier;	/* number of data clocks per count */
-+	const struct rockchip_dfi_variant *variant;
-+};
-+
-+struct rockchip_dfi_variant {
-+	int (*init)(struct rockchip_dfi *dfi);
-+	int stride;
-+	bool ctrl_single;
-+	unsigned int max_channels;
- };
- 
- static int rockchip_dfi_ddrtype_to_ctrl(struct rockchip_dfi *dfi, u32 *ctrl)
-@@ -188,7 +193,7 @@ static int rockchip_dfi_enable(struct rockchip_dfi *dfi)
- 	if (ret)
- 		goto out;
- 
--	for (i = 0; i < dfi->max_channels; i++) {
-+	for (i = 0; i < dfi->variant->max_channels; i++) {
- 
- 		if (!(dfi->channel_mask & BIT(i)))
- 			continue;
-@@ -197,16 +202,16 @@ static int rockchip_dfi_enable(struct rockchip_dfi *dfi)
- 		writel_relaxed(FIELD_PREP_WM16(DDRMON_CTRL_TIMER_CNT_EN, 0) |
- 			       FIELD_PREP_WM16(DDRMON_CTRL_SOFTWARE_EN, 0) |
- 			       FIELD_PREP_WM16(DDRMON_CTRL_HARDWARE_EN, 0),
--			       dfi_regs + i * dfi->ddrmon_stride + DDRMON_CTRL);
-+			       dfi_regs + i * dfi->variant->stride + DDRMON_CTRL);
- 
--		writel_relaxed(ctrl, dfi_regs + i * dfi->ddrmon_stride +
-+		writel_relaxed(ctrl, dfi_regs + i * dfi->variant->stride +
- 			       DDRMON_CTRL);
- 
- 		/* enable count, use software mode */
- 		writel_relaxed(FIELD_PREP_WM16(DDRMON_CTRL_SOFTWARE_EN, 1),
--			       dfi_regs + i * dfi->ddrmon_stride + DDRMON_CTRL);
-+			       dfi_regs + i * dfi->variant->stride + DDRMON_CTRL);
- 
--		if (dfi->ddrmon_ctrl_single)
-+		if (dfi->variant->ctrl_single)
- 			break;
- 	}
- out:
-@@ -229,14 +234,14 @@ static void rockchip_dfi_disable(struct rockchip_dfi *dfi)
- 	if (dfi->usecount > 0)
- 		goto out;
- 
--	for (i = 0; i < dfi->max_channels; i++) {
-+	for (i = 0; i < dfi->variant->max_channels; i++) {
- 		if (!(dfi->channel_mask & BIT(i)))
- 			continue;
- 
- 		writel_relaxed(FIELD_PREP_WM16(DDRMON_CTRL_SOFTWARE_EN, 0),
--			       dfi_regs + i * dfi->ddrmon_stride + DDRMON_CTRL);
-+			       dfi_regs + i * dfi->variant->stride + DDRMON_CTRL);
- 
--		if (dfi->ddrmon_ctrl_single)
-+		if (dfi->variant->ctrl_single)
- 			break;
- 	}
- 
-@@ -250,17 +255,17 @@ static void rockchip_dfi_read_counters(struct rockchip_dfi *dfi, struct dmc_coun
- 	u32 i;
- 	void __iomem *dfi_regs = dfi->regs;
- 
--	for (i = 0; i < dfi->max_channels; i++) {
-+	for (i = 0; i < dfi->variant->max_channels; i++) {
- 		if (!(dfi->channel_mask & BIT(i)))
- 			continue;
- 		res->c[i].read_access = readl_relaxed(dfi_regs +
--				DDRMON_CH0_RD_NUM + i * dfi->ddrmon_stride);
-+				DDRMON_CH0_RD_NUM + i * dfi->variant->stride);
- 		res->c[i].write_access = readl_relaxed(dfi_regs +
--				DDRMON_CH0_WR_NUM + i * dfi->ddrmon_stride);
-+				DDRMON_CH0_WR_NUM + i * dfi->variant->stride);
- 		res->c[i].access = readl_relaxed(dfi_regs +
--				DDRMON_CH0_DFI_ACCESS_NUM + i * dfi->ddrmon_stride);
-+				DDRMON_CH0_DFI_ACCESS_NUM + i * dfi->variant->stride);
- 		res->c[i].clock_cycles = readl_relaxed(dfi_regs +
--				DDRMON_CH0_COUNT_NUM + i * dfi->ddrmon_stride);
-+				DDRMON_CH0_COUNT_NUM + i * dfi->variant->stride);
- 	}
- }
- 
-@@ -297,7 +302,7 @@ static int rockchip_dfi_get_event(struct devfreq_event_dev *edev,
- 	rockchip_dfi_read_counters(dfi, &count);
- 
- 	/* We can only report one channel, so find the busiest one */
--	for (i = 0; i < dfi->max_channels; i++) {
-+	for (i = 0; i < dfi->variant->max_channels; i++) {
- 		u32 a, c;
- 
- 		if (!(dfi->channel_mask & BIT(i)))
-@@ -336,7 +341,7 @@ static void rockchip_ddr_perf_counters_add(struct rockchip_dfi *dfi,
- 	const struct dmc_count *last = &dfi->last_perf_count;
- 	int i;
- 
--	for (i = 0; i < dfi->max_channels; i++) {
-+	for (i = 0; i < dfi->variant->max_channels; i++) {
- 		res->c[i].read_access = dfi->total_count.c[i].read_access +
- 			(u32)(now->c[i].read_access - last->c[i].read_access);
- 		res->c[i].write_access = dfi->total_count.c[i].write_access +
-@@ -477,11 +482,11 @@ static u64 rockchip_ddr_perf_event_get_count(struct perf_event *event)
- 		count = total.c[0].clock_cycles * dfi->count_multiplier;
- 		break;
- 	case PERF_EVENT_READ_BYTES:
--		for (i = 0; i < dfi->max_channels; i++)
-+		for (i = 0; i < dfi->variant->max_channels; i++)
- 			count += total.c[i].read_access * blen * dfi->buswidth[i];
- 		break;
- 	case PERF_EVENT_WRITE_BYTES:
--		for (i = 0; i < dfi->max_channels; i++)
-+		for (i = 0; i < dfi->variant->max_channels; i++)
- 			count += total.c[i].write_access * blen * dfi->buswidth[i];
- 		break;
- 	case PERF_EVENT_READ_BYTES0:
-@@ -509,7 +514,7 @@ static u64 rockchip_ddr_perf_event_get_count(struct perf_event *event)
- 		count = total.c[3].write_access * blen * dfi->buswidth[3];
- 		break;
- 	case PERF_EVENT_BYTES:
--		for (i = 0; i < dfi->max_channels; i++)
-+		for (i = 0; i < dfi->variant->max_channels; i++)
- 			count += total.c[i].access * blen * dfi->buswidth[i];
- 		break;
- 	}
-@@ -726,14 +731,10 @@ static int rk3399_dfi_init(struct rockchip_dfi *dfi)
- 	dfi->ddr_type = FIELD_GET(RK3399_PMUGRF_OS_REG2_DDRTYPE, val);
- 
- 	dfi->channel_mask = GENMASK(1, 0);
--	dfi->max_channels = 2;
- 
- 	dfi->buswidth[0] = FIELD_GET(RK3399_PMUGRF_OS_REG2_BW_CH0, val) == 0 ? 4 : 2;
- 	dfi->buswidth[1] = FIELD_GET(RK3399_PMUGRF_OS_REG2_BW_CH1, val) == 0 ? 4 : 2;
- 
--	dfi->ddrmon_stride = 0x14;
--	dfi->ddrmon_ctrl_single = true;
--
- 	return 0;
- };
- 
-@@ -756,13 +757,9 @@ static int rk3568_dfi_init(struct rockchip_dfi *dfi)
- 		dfi->ddr_type |= FIELD_GET(RK3568_PMUGRF_OS_REG3_DRAMTYPE_INFO_V3, reg3) << 3;
- 
- 	dfi->channel_mask = BIT(0);
--	dfi->max_channels = 1;
- 
- 	dfi->buswidth[0] = FIELD_GET(RK3568_PMUGRF_OS_REG2_BW_CH0, reg2) == 0 ? 4 : 2;
- 
--	dfi->ddrmon_stride = 0x0; /* not relevant, we only have a single channel on this SoC */
--	dfi->ddrmon_ctrl_single = true;
--
- 	return 0;
- };
- 
-@@ -791,9 +788,7 @@ static int rk3588_dfi_init(struct rockchip_dfi *dfi)
- 	dfi->buswidth[3] = FIELD_GET(RK3588_PMUGRF_OS_REG2_BW_CH1, reg4) == 0 ? 4 : 2;
- 	dfi->channel_mask = FIELD_GET(RK3588_PMUGRF_OS_REG2_CH_INFO, reg2) |
- 			    FIELD_GET(RK3588_PMUGRF_OS_REG2_CH_INFO, reg4) << 2;
--	dfi->max_channels = 4;
- 
--	dfi->ddrmon_stride = 0x4000;
- 	dfi->count_multiplier = 2;
- 
- 	if (dfi->ddr_type == ROCKCHIP_DDRTYPE_LPDDR5) {
-@@ -807,10 +802,30 @@ static int rk3588_dfi_init(struct rockchip_dfi *dfi)
- 	return 0;
- };
- 
-+static const struct rockchip_dfi_variant rk3399_variant = {
-+	.init = rk3399_dfi_init,
-+	.stride = 0x14,
-+	.ctrl_single = true,
-+	.max_channels = 2,
-+};
-+
-+static const struct rockchip_dfi_variant rk3568_variant = {
-+	.init = rk3568_dfi_init,
-+	.stride = 0x0,
-+	.ctrl_single = true,
-+	.max_channels = 1,
-+};
-+
-+static const struct rockchip_dfi_variant rk3588_variant = {
-+	.init = rk3588_dfi_init,
-+	.stride = 0x4000,
-+	.max_channels = 4,
-+};
-+
- static const struct of_device_id rockchip_dfi_id_match[] = {
--	{ .compatible = "rockchip,rk3399-dfi", .data = rk3399_dfi_init },
--	{ .compatible = "rockchip,rk3568-dfi", .data = rk3568_dfi_init },
--	{ .compatible = "rockchip,rk3588-dfi", .data = rk3588_dfi_init },
-+	{ .compatible = "rockchip,rk3399-dfi", .data = &rk3399_variant },
-+	{ .compatible = "rockchip,rk3568-dfi", .data = &rk3568_variant },
-+	{ .compatible = "rockchip,rk3588-dfi", .data = &rk3588_variant },
- 	{ },
- };
- 
-@@ -822,17 +837,16 @@ static int rockchip_dfi_probe(struct platform_device *pdev)
- 	struct rockchip_dfi *dfi;
- 	struct devfreq_event_desc *desc;
- 	struct device_node *np = pdev->dev.of_node, *node;
--	int (*soc_init)(struct rockchip_dfi *dfi);
- 	int ret;
- 
--	soc_init = of_device_get_match_data(&pdev->dev);
--	if (!soc_init)
--		return -EINVAL;
--
- 	dfi = devm_kzalloc(dev, sizeof(*dfi), GFP_KERNEL);
- 	if (!dfi)
- 		return -ENOMEM;
- 
-+	dfi->variant = of_device_get_match_data(dev);
-+	if (!dfi->variant)
-+		return -EINVAL;
-+
- 	dfi->regs = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(dfi->regs))
- 		return PTR_ERR(dfi->regs);
-@@ -854,7 +868,7 @@ static int rockchip_dfi_probe(struct platform_device *pdev)
- 	desc->driver_data = dfi;
- 	desc->name = np->name;
- 
--	ret = soc_init(dfi);
-+	ret = dfi->variant->init(dfi);
- 	if (ret)
- 		return ret;
- 
+Thanks for you work and for including this patch :)
 
--- 
-2.53.0
-
+Maxime
 
