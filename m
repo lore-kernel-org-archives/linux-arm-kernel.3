@@ -4,93 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 531D8C982D6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 17:02:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47FD2C88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 17:02:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gxPZVE1iSWk/YnSJluT38WV/TFUzwOd3jUqgVOgD/J4=; b=jjXJ+dUriQbaUONyk7qoMrAsYP
-	S2HE8q0gsHeVPELkD0Dvx/TymSk+6p6r/2MaC1pXTpdfs+f82iztn8/hj2fAxfnfYqbboaF7Dalji
-	rBBDI85MQdtAjmyzWW3dV3nk3J9wsmPdgmUFLSctwwRmUlQF87NxqgyQ56RkfD8EUf1pa2t0vmXrw
-	pEmBiyJuJbktE7/wRqWJoIQpUF0fRoaY+zpCfPe2FKCI5iKibLq0nxeydG3r1qbEB0bVftUKEYwdn
-	qYdCvUHC7JSt4PtnInMOC+vKOv55AZVgRpLpKIwBuz4gZDT4QSevaePMBgkPlTbdm8HZ0qH2H8Jbp
-	j6EXDfGw==;
+	bh=Qfn3wdW1gpkbyJCwfcMHDnOUrZzvlnPPmgTV0TGUklg=; b=nApyb3UXL7Mg7g+mN5yX1CTkeC
+	wxllsyc742ezA9hriXVOVmK797pvH5Z5xG3LMIk5/GfRhD3PQ6OE3s/FhqNY/JwjnZgMG+zWLJO7H
+	jgfRG8TfzL/9IPffwJT720bacDKDCcvvdWRpyO+Keg5aM3CLQ1QcQ5U5JTvXFYkNtviSmxycNdsdO
+	GmwH4sZPFxcEfEDE/EMDZAZ3TJwU7fgKHtNJL6E96KXHMJRyXllabaqpjJFtXWXvL7htWHABdFRi0
+	rFhwpEpV5XkC2jsKL6I5hEMRbsSx6u8ri/OUHrvOhYWUbw9o3I1fc8QFKiD1vL+NHcm+GLzJSMnfv
+	MXmEcPAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7FUr-0000000C1kj-2i2G;
-	Thu, 17 Sep 2026 17:02:05 +0000
-Received: from mail-pf1-x462.google.com ([2607:f8b0:4864:20::462])
+	id 1x7FVJ-0000000C1rj-3WLk;
+	Thu, 17 Sep 2026 17:02:33 +0000
+Received: from mail-vk1-xa64.google.com ([2607:f8b0:4864:20::a64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7FUo-0000000C1jY-1ak7
+	id 1x7FVG-0000000C1qj-2Xcb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 17:02:04 +0000
-Received: by mail-pf1-x462.google.com with SMTP id d2e1a72fcca58-862815e2683so178209b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 10:02:02 -0700 (PDT)
+	Thu, 17 Sep 2026 17:02:32 +0000
+Received: by mail-vk1-xa64.google.com with SMTP id 71dfb90a1353d-5c847eaa0aaso133460e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 10:02:30 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789664521; x=1790269321;
+        d=1e100.net; s=20260707; t=1789664549; x=1790269349;
         h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=gxPZVE1iSWk/YnSJluT38WV/TFUzwOd3jUqgVOgD/J4=;
-        b=Huboy7dT/96mP9DPxxAVKmkfMvkcUMn4CS/n7IITiM0rASeFKqqGOebIkUvpSLW57j
-         uY7ZVANNk8EAQnddDZZ/kFZpMQel9FKgnO7CVTHgHcEEnc1rUgQQKzrF4elzA27sm3s+
-         cY6X/IFV9pKWvWWJo4UKrA9ApRPf0K5ghUlA0jLlOS8893iMfdcZ35FLnF+YRkj91/rj
-         QdN7TkNq6BfNETgkUMfayBKyT1mwnkF64Ru7OnWEdCsaOQOPpKC3CSaUcPVA5agLRQBj
-         SMWhoSZ6KyM4eraN2PdMbCVzOWYXn4T3Wz3g2W1ix9lcu5AHJKVrh83GNCnNQhukPQu/
-         A81A==
-X-Forwarded-Encrypted: i=1; AKwUvBwgNzgSRNiHaW6ewtC+s/Mt+v4JZVeh9BdY54x8pIOzou07g/ic7+fgSLDxKjljbwyNb1yymAvd+Y6e0AOjP51r@lists.infradead.org
-X-Gm-Message-State: AFuF++mGWGe8kDITwGHx69q4+LwzmSmiYq5e24fsH3Gi09hapF9Tyl0m
-	0l+yUo2I7PX1djyk8ljmJ9Q/R8FKyUgG4rVhWyw6fS3fN5xF1OHzzo+Uz8KwuEGRXShv8PdKVjp
-	55z13KAwW7ej12Ais50P9fwCtlfgLdD3TZFHOL80wvM30nd89P+gH3Shi2+28ZgwKrexT8Za7RM
-	du+SqfxZrXL2D7awiUQh6HAg700/q1kAyd+jZm44PzV+mBqwh4mzscFeG9TxIPJompJF6d8Hpq7
-	/8K6RskOvtg6RiOtVaWzftOYPAD20WRdlw=
-X-Gm-Gg: AYBFou0oO1GQiRS5OF5hdTGUxuXogyQeraE4eDABNmHlxkGopXCn6uCq3LpRyH668uL
-	hzN0jUkSCguio+iTSN+c7Y8xe3kGDc5+keVnu5dDUs3CwL2wdNS6EtdoEPWmlT0Xx4TpgTmaxBS
-	ouV0V48YolU2KjOV86LxAdvS6OmWeUnrzEfsH15h2CF2POqF/I5QuG/+n3u+n5/KI00I4MN6sz1
-	Y1x7XK6yuzLpJoRzzU8X77XPo7JEabeBozd/kIQ+cxY7ApxAruWuhhtYEDfschW+28XL4XnExun
-	7Cul5qEAWW6A/wI17RvpnDpKBeJXVByVT25ESbAiHuLZUNTG3TFHAY0aQ1liaIp37JQqhkBj2nL
-	dEpOUUAyJ0x9gWmo3zEF15pvYTrMdAAuXX4c9MWdM9co0mBtwJqyIfd5PuB7wnkcp8JybFGKkk3
-	X9IILJ3vK+i4IKPQOqHgm4v3/0AdNofA1mBYkdJwPv
-X-Received: by 2002:a05:6a20:7349:b0:3d0:cc29:ff63 with SMTP id adf61e73a8af0-3dd5f4a85c9mr17102802637.12.1789664521247;
-        Thu, 17 Sep 2026 10:02:01 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-98.dlp.protect.broadcom.com. [144.49.247.98])
-        by smtp-relay.gmail.com with ESMTPS id 41be03b00d2f7-cc50ad01c80sm2785766a12.8.2026.09.17.10.02.00
+        bh=Qfn3wdW1gpkbyJCwfcMHDnOUrZzvlnPPmgTV0TGUklg=;
+        b=woEpjVXREYremcdv9VuSWBqBExcqpMQfJnaq1Sva7K1e9ZJdi+5TWaDcnYvi3t1vC1
+         iau+1/Yl6BqN7VNc8aT6hHKjTq9+i2uQ/kJP1XkaTE50Vuov2MfH0V4gkPm1DA0ViDTa
+         Iu4GlK2mj5N/Cyj5Lq3lqE52xdYyadylGtdpACjCZ5y+PRKi/v/dp0sXnG20u4O9Ycqv
+         k91MpTBAYVzkPGdzV5iDUWgpfD7qRMQzbKc2UMXTPja6JrsuPAe6xJ/HNarkd7cZDhkD
+         b8iu5q6aoQke5k/tG2ZxyGfTfigfWYtTMAAlU+V9tXFw+02lycUSkG4Z6ctAgI2yz3Le
+         bgIg==
+X-Forwarded-Encrypted: i=1; AKwUvByZwIMYuzuAkoWLWEExjZiV89HDdWM/PPZ5HOut99vn5DEMJy9wj0msLq3IYJ5IUgveGhfgSRDSNt/9Y8CpGBc+@lists.infradead.org
+X-Gm-Message-State: AFuF++mt84KJJ/+ih1Sg+6WPcTs8rRVZIglsRjFX9NdL96FSayxbygW7
+	91pRQef+BQvqoFQhLnasfyXZtqXCVG3Zw0wUbULzLeC+mTEUKfVoHtL6lp7FNUlUu+zMXru99lQ
+	jom9Oe2OyUUWGS/QATP9AC2ccRRZkxL2+r/abi14ggDAXrs8K8e4oTuqsfoORa/AjRQ85+mG+Od
+	ayY0vC0cex1W1cBa+v8jllmSkxVGrhstl//bHXLAERH/FYLmilb2VJ9lyKEzm/2FlLWoT9jXrCA
+	xXTXy1fHIdRzAA1T/APV0ItoeYMpoJBGds=
+X-Gm-Gg: AYBFou1QYVj1vSPmD5GYkW6U79CibKxjAcjytP7emoFu8/VQQDBHmcWHyPaEjMMGSqE
+	xKF5CLlnvdwJWWKSEAubMOvOsMSEYBSVWMl9GOdIr4J+TNEy4wj309mGmNmX5Pbqr3nJj8iwGqH
+	V78ZFuSKzY5HRJnDppLNpHfgkRu5w6shX0LgBKsmv30O/CfCykkFYWWxZPX/Ug5istggMafAcQf
+	kwmf4q0RwQbDP99rE3O7oKiyI+abrNceBvrd+rCndmbRW2p7FfGAKIEZD1kmYgsjhpmBFOX3YW8
+	7GIK+rjzOlj2hjUzhqgloxyDpf7geiQzgfm/YPKfQsIYSpx6zchPr0Ly/LOYmaxFf5SsJnU29i1
+	EouCbPtea+i0og98UDwFAKoegmxxxItEiGSCf4rKsni17xyF+2g1f8GJBU/kRDOeiwcPQm6GG6Q
+	bbmrx80Wx0fxq8t8tWESAE3QDoI+95EZTTOJvsPuWG
+X-Received: by 2002:a05:6122:512:b0:5bd:71b1:d5c6 with SMTP id 71dfb90a1353d-5c99ac67d45mr6512937e0c.4.1789664549094;
+        Thu, 17 Sep 2026 10:02:29 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-29.dlp.protect.broadcom.com. [144.49.247.29])
+        by smtp-relay.gmail.com with ESMTPS id 71dfb90a1353d-5c9a52a0231sm1238358e0c.5.2026.09.17.10.02.28
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 17 Sep 2026 10:02:01 -0700 (PDT)
+        Thu, 17 Sep 2026 10:02:29 -0700 (PDT)
 X-Relaying-Domain: broadcom.com
 X-CFilter-Loop: Reflected
-Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-87088f3b83dso1511306b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 10:02:00 -0700 (PDT)
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-cc52c77089bso118517a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 10:02:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1789664519; x=1790269319; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1789664548; x=1790269348; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=gxPZVE1iSWk/YnSJluT38WV/TFUzwOd3jUqgVOgD/J4=;
-        b=hBQ6tQ6xSbQm9s1VPXgwe3Jry+LbfjiuuP8SGxl5JlElc8kwZf2VO7Pf5crQNbyWPv
-         RYxwanB4wdmJ8AWcbwz1lsKfnc2VWH4MLVpD/4vUfmGlyrMn/hvT+0A5W0EAPRl0uYFP
-         +j+BUl1Hm2Oo3x+1OSZGGAk80GXfULKtFFq2Q=
-X-Forwarded-Encrypted: i=1; AKwUvByQEV9ACQJkVphrFpH1D5GEErd9Wv+aOfnHtKzGdFN7glp1xIj/asziW0bMjgEfgbLpXGTwqwKP2MsYO1CMBVmn@lists.infradead.org
-X-Received: by 2002:a05:6a00:bd0e:b0:868:e6d3:fc18 with SMTP id d2e1a72fcca58-8723878af11mr14585795b3a.15.1789664519370;
-        Thu, 17 Sep 2026 10:01:59 -0700 (PDT)
-X-Received: by 2002:a05:6a00:bd0e:b0:868:e6d3:fc18 with SMTP id d2e1a72fcca58-8723878af11mr14585750b3a.15.1789664518960;
-        Thu, 17 Sep 2026 10:01:58 -0700 (PDT)
+        bh=Qfn3wdW1gpkbyJCwfcMHDnOUrZzvlnPPmgTV0TGUklg=;
+        b=EPt4nvjlu0FUt1jWTT89jhuOwNhkaUFRkyXi039SCELR5nC1VmXCjKxx/C25s+ZLQw
+         fAVuzgVg4npvOgqQ9MzFOyiHKl/6emvdSuZcyw+CrweI0fznx2Khkr4RX9DsGJq6iAKD
+         bvf/j6fx6AyZ1G0muZsrFQZoKj/LRv330DKxE=
+X-Forwarded-Encrypted: i=1; AKwUvByP+fyzIzyfzgKlQxJ+5WjVbnBxiobqCDdI0edReWYEEoJ124k8kuqisJLG1qhUyFz0H7JXMCqiufomdIa6vmvL@lists.infradead.org
+X-Received: by 2002:a05:6a20:72a6:b0:3c3:7179:a640 with SMTP id adf61e73a8af0-3dd5f3c0a6cmr18483882637.3.1789664547821;
+        Thu, 17 Sep 2026 10:02:27 -0700 (PDT)
+X-Received: by 2002:a05:6a20:72a6:b0:3c3:7179:a640 with SMTP id adf61e73a8af0-3dd5f3c0a6cmr18483813637.3.1789664547377;
+        Thu, 17 Sep 2026 10:02:27 -0700 (PDT)
 Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-87201735415sm3213840b3a.42.2026.09.17.10.01.56
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc50aa987ccsm3699978a12.3.2026.09.17.10.02.25
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 17 Sep 2026 10:01:58 -0700 (PDT)
-Message-ID: <e8ea945c-97a9-40ce-be06-896a701d8ac9@broadcom.com>
-Date: Thu, 17 Sep 2026 10:01:55 -0700
+        Thu, 17 Sep 2026 10:02:26 -0700 (PDT)
+Message-ID: <79467ff1-caf0-4bc5-bd5f-f6196659e690@broadcom.com>
+Date: Thu, 17 Sep 2026 10:02:24 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 09/13] PCI: brcmstb: Declare and assign quirk
- EARLY_PERST_ASSERT
+Subject: Re: [PATCH 10/13] PCI: brcmstb: Declare and assign quirk
+ PERST_PCIE_REV_CUTOFF
 To: Jim Quinlan <james.quinlan@broadcom.com>, linux-pci@vger.kernel.org,
  Nicolas Saenz Julienne <nsaenz@kernel.org>,
  Bjorn Helgaas <bhelgaas@google.com>,
@@ -105,7 +105,7 @@ Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
  <linux-arm-kernel@lists.infradead.org>,
  open list <linux-kernel@vger.kernel.org>
 References: <20260911233541.1650895-1-james.quinlan@broadcom.com>
- <20260911233541.1650895-10-james.quinlan@broadcom.com>
+ <20260911233541.1650895-11-james.quinlan@broadcom.com>
 Content-Language: en-US, fr-FR
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
@@ -140,13 +140,13 @@ Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
  MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
  7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
  95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20260911233541.1650895-10-james.quinlan@broadcom.com>
+In-Reply-To: <20260911233541.1650895-11-james.quinlan@broadcom.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_100202_417808_D23863C2 
-X-CRM114-Status: UNSURE (   5.93  )
+X-CRM114-CacheID: sfid-20260917_100230_662042_92FD7D88 
+X-CRM114-Status: UNSURE (   7.35  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -163,8 +163,9 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 9/11/26 16:35, Jim Quinlan wrote:
-> Declare and assign a quirk where PERST# must be asserted prior to an
-> internal bus being turned on.
+> The SW behavior for asserting PERST# for some SoCs only works up to a
+> specific PCIe HW version.  Declare this as a quirk and assign it
+> accordingly.
 > 
 > Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
 
