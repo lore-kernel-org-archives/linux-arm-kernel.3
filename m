@@ -4,69 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 467DBC982D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 13:10:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B310DC982CF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 13:13:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=49KKopQY6+HtPgSWhhO2mvQBSzsdRuTDP1Z1snMU7Nk=; b=AhcAW9KNPFs1Zle2uAJ40CcYKP
-	tTPKxDJQxvXjuslI48gYMbjPFdI9AquX1qn3GKGXdtK272X7nASjpCVXjyTdg1c1eaRm9LwEu3tRG
-	IGz2H7EBW0CNZU6WGhBB3cZNytcJITvtBthkVfri0ocFGFtESiBQGfrTUCckBofzVRfLgBlL5xRSz
-	jtQQKCq+PuEUlsV65CL0tJBAvHUeG6mwh3Rwpegr7tueY4vlsGkxXCrPMW5p/hTRByn6g56AdUkuy
-	ljeLRNm5FBVbhkdke9Bs/YiBGssKlc9uTmnyXBtZRjtuUcPTBY8FzLy22edFOac8kTRbKlo2FvBjT
-	c7ktR6ww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0KczUTT4pZjvn6++/hJJmxB3shK0qpHFg6zLRVauhpc=; b=JYH5yih0INsLkCvfsHAxtiv19Y
+	pzuWJhurywwbdhjhUtT/1nRBx3GIr30VpkYDRUBGfGtJiHGlj6H3IDV+2FZN24Uer7L9JaQ9pbQy6
+	IMLXsPKmpcP9AWpSdJAiuheX9PglUc499cs9fN0rOiGst3ABLCi8h9EcBJ45zgap6YDigAK9N5TTi
+	HgRerraR/LOhih/eAQm1reUGL7FjSlTjQf4q9xvGtlTBSXxyzJ3OcjKOduKTl8pxsLZYxwfwoZo06
+	aWuxjHMy5d9f0xR2DrPZQ6nibBV1MNg83yDOuvZjgwUKdwP0OADx0zYTNjImw4Hz5ItaTXgToi3Nu
+	PThUk35Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Bsd-0000000BN7h-2RRs;
-	Thu, 17 Sep 2026 13:10:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7BsZ-0000000BN7I-2ZgD
+	id 1x7BvX-0000000BNQG-0e6U;
+	Thu, 17 Sep 2026 13:13:23 +0000
+Received: from m16.mail.126.com ([220.197.31.7])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x7BvT-0000000BNPQ-3wZL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 13:10:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 18C83143D;
-	Thu, 17 Sep 2026 06:10:14 -0700 (PDT)
-Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B59773F7B4;
-	Thu, 17 Sep 2026 06:10:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789650617; bh=8g2Hl15QHCdOC9CCW8r88cxWOvni9RLKJzm2oJjk8hU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NJe9mzHoryiEfw6XtB5v8p8/e2oE3zGCJA7l8BfNRixqxKExCGwFMO8sOWitejOKH
-	 hebfkN6+0WygqeddyugzEWlz/aVq/BjEqdTwWeZaLj2pGear6JwdunwS2Ajk9ZNeoi
-	 aew8XnHW2Qt/tdO/vbtT+8TuoDxGmvql4AeyXDDA=
-Date: Thu, 17 Sep 2026 14:10:00 +0100
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: Itaru Kitayama <itaru.kitayama@fujitsu.com>, 
-	Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Oliver Upton <oupton@kernel.org>, 
-	Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Wang Han <wanghan@linux.alibaba.com>, Shuai Xue <xueshuai@linux.alibaba.com>, 
-	"Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Subject: Re: [PATCH v6 0/7] KVM: arm64: nv: Implement nested stage-2 reverse
- map
-Message-ID: <rxvpsusccy6xanwik5ierefwi5jgue5ifgqd27pxaxzhbqlovl@odobtcfgizzx>
-References: <20260915154305.3852871-1-weilin.chang@arm.com>
- <aqm9hXB6X9IQ8wHz@sm-arm-grace07>
- <m6ldbr7hdafmoycx7xjcbsg62mblcakcu52ndowwzqgxdjb3q3@huv4i5bfxtza>
- <aqnUWp_VJXUCcJnQ@sm-arm-grace07>
- <86ld9165cr.wl-maz@kernel.org>
- <aquN5ytDxt44uORD@sm-arm-grace07>
+	Thu, 17 Sep 2026 13:13:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=0K
+	czUTT4pZjvn6++/hJJmxB3shK0qpHFg6zLRVauhpc=; b=QpfbabbTZkCwDzEnji
+	P/YGDYIXN2PHrAgiAiifICcVq8iZQ9BQhbU62wexvvBsuAp19SfTzgsddgzyjcnU
+	Plv5P7acDWSt/qMyUOXfn3FGFo7PU4qy1G+d/X+PHwbtLKIlZlNupp5WvWZR2x4p
+	GbVMHykVRFKu6bV8TNr2m8SOo=
+Received: from localhost.localdomain (unknown [])
+	by gzsmtp4 (Coremail) with SMTP id PykvCgD3N1VF56tq0unFHw--.22915S2;
+	Thu, 17 Sep 2026 21:12:39 +0800 (CST)
+From: Linkui Xiao <xiaolinkui@126.com>
+To: maxime.chevallier@bootlin.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com
+Cc: netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Linkui Xiao <xiaolinkui@kylinos.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH net] net: stmmac: ethtool: validate TX coalesce before reprogramming RX
+Date: Thu, 17 Sep 2026 21:12:35 +0800
+Message-Id: <20260917131235.1360959-1-xiaolinkui@126.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aquN5ytDxt44uORD@sm-arm-grace07>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: PykvCgD3N1VF56tq0unFHw--.22915S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxGF4xXrW7XFW8uF1rtrWrZrb_yoW5XryDpr
+	WkGFZavryDJr43Jw1DJw48uFy5t397tFZxX348J34fuF45GFyFqr1aqryrWFnFkrWxZrWa
+	gr4qva4Dua98A3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UYzuZUUUUU=
+X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBlQeQZ2qr50eIyQAA3F
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_061019_754992_F408AD2A 
-X-CRM114-Status: GOOD (  26.54  )
+X-CRM114-CacheID: sfid-20260917_061320_365860_DFEF4D16 
+X-CRM114-Status: GOOD (  14.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,59 +80,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 03:51:19PM +0900, Itaru Kitayama wrote:
-> On Wed, Sep 16, 2026 at 08:08:20AM +0100, Marc Zyngier wrote:
-> > On Wed, 16 Sep 2026 00:27:22 +0100,
-> > Itaru Kitayama <itaru.kitayama@fujitsu.com> wrote:
-> > > 
-> > > On Wed, Sep 16, 2026 at 12:22:30AM +0100, Wei-Lin Chang wrote:
-> > > > On Wed, Sep 16, 2026 at 06:49:57AM +0900, Itaru Kitayama wrote:
-> > > > > On Tue, Sep 15, 2026 at 04:42:58PM +0100, Wei-Lin Chang wrote:
-> > > > > > Hi,
-> > > > > > 
-> > > > > > This is v6 of optimizing the shadow s2 mmu unmapping during MMU
-> > > > > > notifiers.
-> > > > > > 
-> > > > > > This version fixes a few issues, and adds Marc's space optimization
-> > > > > > for kvm_guest_s2_mapping [1]. Please see the changelog for the details.
-> > > > > > 
-> > > > > > Tested by booting L3, and running in-kernel targetted tests described
-> > > > > > in [2]. v5 got some tested-by's from Itaru and Wang (thanks), I didn't
-> > > > > > carry them over since some bugs fixed in v6 are non-obvious. Some
-> > > > > > retest would be much appreciated!
-> > > > > 
-> > > > > How did you boot into L3, with KVM selftest or recrusively boot on HW?
-> > > > 
-> > > > I just recrusively booted VMs on hardware. :)
-> > > 
-> > > Good. Then I actually tried that on Grace CPUs, but letting L1 boot 
-> > > with nested mode did not print "VHE+NV2" KVM init log in dmesg, thus not
-> > > able to boot L3. Do I need to add other than kvm.arm-mode=nested to command line?
-> > 
-> > kvm-arm.mode=nested, as documented. That also puts in perspective your
-> > TB tag on the whole series...
-> 
-> Yes. Using kvmtool's --nested option did not bring vCPU with the VHE+NV2 boot
-> log. The Host kernel is Wei-Lin's version 6 booted on Grace CPUs, and
-> the guest kernel is today's kvmarm/fixes plus Wei-Lin's shadow stage 2 ptdump fix.
+From: Linkui Xiao <xiaolinkui@kylinos.cn>
 
-I'm not sure what you did exactly, but just to be clear, you need to
-pass kvm-arm.mode=nested to L1's command line as well, in addition to
-kvmtool's --nested option.
+__stmmac_set_coalesce() applies the RX part of the request first and
+only afterwards checks the TX parameters. The RX path already calls
+stmmac_rx_watchdog() and stores rx_riwt[] and rx_coal_frames[], so when
+the TX check rejects the request the driver returns -EINVAL after having
+silently changed the hardware. A following ethtool -c then reports the
+new RX values even though the command failed.
 
-./lkvm run --nested -p kvm-arm.mode=nested <...>
+This became easy to hit once the per-queue interface was added.
+__stmmac_get_coalesce() reports tx-usecs and tx-frames as 0 for a queue
+index that is RX-only, and ethtool applies per-queue coalesce by reading
+the current values first and sending them straight back. The next set is
+therefore guaranteed to trip the test for both TX fields being zero,
+right after the RX watchdog has been reprogrammed.
 
-Thanks,
-Wei-Lin Chang
+Move both TX checks in front of the RX block so a request is either
+applied completely or rejected without touching the device.
 
-> 
-> Thanks,
-> Itaru.
-> 
-> > 
-> > 	M.
-> > 
-> > 
-> > -- 
-> > Without deviation from the norm, progress is not possible.
+Fixes: db2f2842e6f5 ("net: stmmac: add per-queue TX & RX coalesce ethtool support")
+Cc: stable@vger.kernel.org
+Signed-off-by: Linkui Xiao <xiaolinkui@kylinos.cn>
+---
+ .../ethernet/stmicro/stmmac/stmmac_ethtool.c  | 21 ++++++++++++-------
+ 1 file changed, 13 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+index 154cc0c7623d..325db062f72a 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+@@ -850,6 +850,19 @@ static int __stmmac_set_coalesce(struct net_device *dev,
+ 	else if (queue >= max_cnt)
+ 		return -EINVAL;
+ 
++	/* Check the TX parameters before anything is applied: the RX part
++	 * below already writes to the hardware, so rejecting the request
++	 * afterwards would leave the device with only half of the settings
++	 * the caller asked for while reporting a failure.
++	 */
++	if (ec->tx_coalesce_usecs == 0 &&
++	    ec->tx_max_coalesced_frames == 0)
++		return -EINVAL;
++
++	if (ec->tx_coalesce_usecs > STMMAC_MAX_COAL_TX_TICK ||
++	    ec->tx_max_coalesced_frames > STMMAC_TX_MAX_FRAMES)
++		return -EINVAL;
++
+ 	if (priv->use_riwt) {
+ 		rx_riwt = stmmac_usec2riwt(ec->rx_coalesce_usecs, priv);
+ 
+@@ -875,14 +888,6 @@ static int __stmmac_set_coalesce(struct net_device *dev,
+ 		}
+ 	}
+ 
+-	if ((ec->tx_coalesce_usecs == 0) &&
+-	    (ec->tx_max_coalesced_frames == 0))
+-		return -EINVAL;
+-
+-	if ((ec->tx_coalesce_usecs > STMMAC_MAX_COAL_TX_TICK) ||
+-	    (ec->tx_max_coalesced_frames > STMMAC_TX_MAX_FRAMES))
+-		return -EINVAL;
+-
+ 	if (all_queues) {
+ 		int i;
+ 
+-- 
+2.25.1
+
 
