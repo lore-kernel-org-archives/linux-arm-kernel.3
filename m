@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28149C982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 21:42:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65A94C982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 21:43:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=sfgTjkTMc5KT6QQReeCBUecnTymzx5L9VFdHS6YdI9Y=; b=em9GYPYh/2fecnhv9ZCGG16Pad
-	FAlilFbwORi8l7oPMWm6cMI3+Hlhg6saWLFJnMmcDMLTwo/ZRXRv4T1w2Y+fa9PkPdYvgO0oWgJIz
-	B3CccOzOQ9AKkICWfDAb5gFyUWqHWDTDmdg1Fux2VJawibFLfOqwMiLjQelLauW48FyR2m6MJS8cE
-	OC/XKWJFXFbDQWP05uxkO/nwGQ6eZxLlCQIxZeFhJITERzbkF4fjkaI5azuz9KDE4U4ZLQXOmeJZS
-	ERZV47kNL51yi8/lTEyCFCyZtOTp5M0lGXtafIRY6kuHvXJT5+Ip68Td8PwgvrUXp4u/jCFRcQ2yL
-	PVvfjmjA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5+kbPNJox0X/P2MDcyMgA7wG5rNBDdNCA12l0p06a8w=; b=DnQEdjaeTgKS3qt/kGcOCZH9tQ
+	o/jNnwCK1qRny9lp5MndqqLYOlNU2i76h160P8TFGGWvrzqwy8NyH3dHVq6Ia3r/aBPKdtnFwiytq
+	A4n/s32ZCNLwZnjvcwdt/3+8V8tBQyLOT5NVyGtVz2vaSrJbRijmTvAixZvVzUEeIKOSdlATB5VJY
+	EPUVRJMr02JSyCL1EFvYtRh/l6fZQZsSECCefHrsutiuQEokT5TDzyb8HJJSFPgPNG4379yGTGuH4
+	FQCfxQOOR6qGTc1+LAYgDpucdyxvMQ+C3AL79LhdwRph0Q79QeJKrL3N920SuDLEqgLOMGI4N+NZZ
+	S06eDkeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7JsR-0000000CZnm-38tK;
-	Thu, 17 Sep 2026 21:42:43 +0000
+	id 1x7Jsd-0000000CZtS-0ZqP;
+	Thu, 17 Sep 2026 21:42:55 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7JsP-0000000CZn8-3GaL
+	id 1x7Jsa-0000000CZrE-0s3X
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 21:42:43 +0000
+	Thu, 17 Sep 2026 21:42:53 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5C2401476;
-	Thu, 17 Sep 2026 14:42:36 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 077951596;
+	Thu, 17 Sep 2026 14:42:47 -0700 (PDT)
 Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B91C53F7B4;
-	Thu, 17 Sep 2026 14:42:36 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6697A3F7B4;
+	Thu, 17 Sep 2026 14:42:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789681359; bh=gcbmT+sZ4SM4YBTJ+Ao+lynYhehA9kw/yxtrgAdddD8=;
-	h=From:To:Cc:Subject:Date:From;
-	b=K56y6lHPcLee/72BUwAqq3PYR11u7WIpJUa4yIA7oApC3+bPJFJdeKnrSl8WmrgrM
-	 eniXASUwWeSOE4P2xEDc4AEvpJBYQiNWGLxMgvBW7sEt2b349ZnzYuyedBATuFQ1uF
-	 FMX3V5zhRLQZcgzSgaW8Cb+4eyDxDmFg/WBwXjO8=
+	t=1789681370; bh=+w+K3RyabmLpuqtKSmYuMaQ4+sQQEcnPLOH8AtHmFDo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=AilCQqIGPWmkwXPA3QPx47V8r7tEAHPf6dVVvrVNYkx0D8kz9embwVVG34yron5qN
+	 i2I1lbxJKB8XfOwNPUVVHJHRuisSAzYgvRiSxjzcSJWimFU4NnzWyT/k12IH/WPYIF
+	 we4ZZ5Fy8DTuYiwQKCeKalfh4INCHl64X5r41rAM=
 From: Wei-Lin Chang <weilin.chang@arm.com>
 To: linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
@@ -62,15 +62,17 @@ Cc: Marc Zyngier <maz@kernel.org>,
 	Thomas Huth <thuth@redhat.com>,
 	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
 	Wei-Lin Chang <weilin.chang@arm.com>
-Subject: [PATCH v2 0/4] KVM: arm64: Properly advertise !FEAT_LPA2 for NV
-Date: Thu, 17 Sep 2026 22:42:10 +0100
-Message-ID: <20260917214215.74135-1-weilin.chang@arm.com>
+Subject: [PATCH v2 3/4] KVM: arm64: Reset TCR_EL2 according to guest's E2H mode
+Date: Thu, 17 Sep 2026 22:42:13 +0100
+Message-ID: <20260917214215.74135-4-weilin.chang@arm.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260917214215.74135-1-weilin.chang@arm.com>
+References: <20260917214215.74135-1-weilin.chang@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_144241_969606_B898B383 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20260917_144252_297140_145BFB33 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,72 +87,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Marc Zyngier <maz@kernel.org>
 
-This v2 fixes a few naming and styling issues, collects Mark's
-Reviewed-by tag, and adds Marc's TCR_EL2 reset patch [1]. Please see
-details below.
+Previously vCPU TCR_EL2's reset value didn't consider TCR_EL2's
+different formats based on the value of HCR_EL2.E2H. It always resets to
+the E2H == 0 version.
 
-* Changes from v1 [2]:
+This didn't cause any problem because the bits set in the E2H == 0
+version (TCR_EL2_RES1) all reset to UNKNOWN for E2H == 1 per the
+architecture.
 
-  - Renamed tcr_el2_vhe_* to vhe_tcr_el2_*, rename tcr_el2_nvhe_* to
-    tcr_el2_* to better align with the TCR_EL2 macros. (Marc)
+Still, it's better to fix it. Choose the correct reset value by checking
+KVM_ARM_VCPU_HAS_EL2_E2H0.
 
-  - Added Marc's TCR_EL2 reset patch (thanks!).
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+---
+ arch/arm64/kvm/sys_regs.c | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
 
-  - Put each == comparison on one line. (Marc)
-
-  - Added Fixes and Cc: stable tags to patch 1.
-
-  - Collected Reviewed-by tag from Mark (thanks!).
-
-Series based on v7.3-rc3.
-
-Below is the same cover from v1:
-
-Previously for NV FEAT_LPA2 is accidentally exposed to the guest at
-stage-1 if hardware supports it. Stage-2 is correctly sanitised out in
-ID_AA64MMFR0_EL1 but not stage-1. This is wrong on two fronts:
-
-- There is no FEAT_LPA2 support for NV yet.
-- It is non-architectural to advertise different FEAT_LPA2 support in
-  stage-1 and stage-2.
-
-This series first removes FEAT_LPA2 from TGRAN4, TGRAN16 for NV, to
-present a !FEAT_LPA2 system. Then guest TCR_EL2 sanitisation is added,
-to make the DS bit RES0 for NV guests. Note that this sanitisation
-can't cover all cases, as we don't trap VHE L1 accesses to the vCPU's
-TCR_EL2 via TCR_EL1.
-
-TCR_EL2 sanitisation differs slightly from the AARCHMRS, please see the
-commits for details.
-
-For testing I booted a 4K 52-bit nVHE L1 and checked:
-1. It is using 48-bit VAs in stage-1.
-2. Writing 1 to TCR_EL2.DS and reading it back reads 0.
-
-Thanks!
-
-[1]: https://lore.kernel.org/kvmarm/86pkyk6us5.wl-maz@kernel.org/
-[2]: https://lore.kernel.org/kvmarm/20260909222015.3046432-1-weilin.chang@arm.com/
-
-Marc Zyngier (1):
-  KVM: arm64: Reset TCR_EL2 according to guest's E2H mode
-
-Wei-Lin Chang (3):
-  KVM: arm64: nv: Don't advertise FEAT_LPA2 for guest stage-1
-  arm64: sysreg: Add TCR_EL2 to sysreg infrastructure
-  KVM: arm64: Convert TCR_EL2 to config-driven sanitisation
-
- arch/arm64/include/asm/kvm_arm.h  |  13 ----
- arch/arm64/include/asm/kvm_host.h |   2 +-
- arch/arm64/include/asm/sysreg.h   |   1 -
- arch/arm64/kvm/config.c           | 113 +++++++++++++++++++++++++++
- arch/arm64/kvm/nested.c           |  15 ++++
- arch/arm64/kvm/sys_regs.c         |  10 ++-
- arch/arm64/tools/sysreg           | 125 ++++++++++++++++++++++++++++++
- 7 files changed, 263 insertions(+), 16 deletions(-)
-
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 44aae52c473d..62c059747fbb 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -3275,6 +3275,14 @@ static u64 reset_mdcr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r)
+ 	return vcpu->kvm->arch.nr_pmu_counters;
+ }
+ 
++static u64 reset_tcr_el2(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r)
++{
++	__vcpu_assign_sys_reg(vcpu, r->reg,
++			      vcpu_has_feature(vcpu, KVM_ARM_VCPU_HAS_EL2_E2H0) ?
++			      TCR_EL2_RES1 : VHE_TCR_EL2_RES1);
++	return __vcpu_sys_reg(vcpu, r->reg);
++}
++
+ /*
+  * Architected system registers.
+  * Important: Must be sorted ascending by Op0, Op1, CRn, CRm, Op2
+@@ -3853,7 +3861,7 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+ 
+ 	EL2_REG(TTBR0_EL2, access_rw, reset_val, 0),
+ 	EL2_REG(TTBR1_EL2, access_rw, reset_val, 0),
+-	EL2_REG(TCR_EL2, access_rw, reset_val, TCR_EL2_RES1),
++	EL2_REG(TCR_EL2, access_rw, reset_tcr_el2, 0),
+ 	EL2_REG_FILTERED(TCR2_EL2, access_rw, reset_val, TCR2_EL2_RES1,
+ 			 tcr2_el2_visibility),
+ 	EL2_REG_VNCR(VTTBR_EL2, reset_val, 0),
 -- 
 2.43.0
 
