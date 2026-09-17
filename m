@@ -4,112 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68CBBC982CF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 01:46:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8213CC982CC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 01:52:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+/oI6OE+gqvIMbXOYDHCCFZTXA+5DVoFDE03BakR8Jk=; b=G/PeCuFJor4+MgIMZ3mwZr7fg9
-	LHd+YUEzU+90KVN+7+iD2fMoRQKnaFwty+0kmVgjn4YZktD2u44KO4AYOJO0irTlIvQ/4odTOGb6O
-	ebQlhMiERvXEI5MxwLUTHj65/ib+dFLA7ElZZqigt4lIgso+7OJOmDx0+d974UxMKvEzD3PuG4L9S
-	NYJeKycNjfD0gqB2f4boYKC9qpR0nuDYzqkQrE5fjjWnuG41vCnK+Ii6XbKYtoGSJ2DABGCzr9fy5
-	mrccwExRJ313VmUrjE6wLSKyust6948GImHjLVwCNYxNMBixBYtDYmuDmt64VnQgl6W09D5nAXP5h
-	vPepTznw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ui/DZNuFV1lfTC8BArSoe/QZMWoES/IR9f3RK1Wh4NY=; b=Kp/qBRQ1KkPDyY40hNrCrsIWki
+	23K63AeepesI+PrGCK9/0i3qrwcuZyUxLg2erXGQ/l9IkQDXidUK5fXRsWZQ5TQP32dI5vnsLWkgg
+	/VAVG6sakSgteW/CmTC016LY8iQk7iKecD16Enz5RxQIz8vncFzTUPRrq7hNhKOYiOnH2x5hEo+lb
+	I3gCl+49TlUiys4eGFUvX7wPe9TAxpy5DFciYfS6R6C9SwprnXUu8ccjwLs2PI84KNSEklQvUs2d3
+	iYPcCrrV3f7qaVRPLtAhrX+Ja2kap2Zzt9ehGJVCNQmfdpoLIsluONxr0XczkZK1wZKcjk5MQkOp7
+	FITBX8pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x71CW-0000000AQql-46Ku;
-	Thu, 17 Sep 2026 01:46:12 +0000
-Received: from mail-yx2-x11.google.com ([2607:f8b0:4864:41::11])
+	id 1x71IB-0000000ARDX-2PZE;
+	Thu, 17 Sep 2026 01:52:03 +0000
+Received: from mail-westus2azon11020131.outbound.protection.outlook.com ([52.101.46.131] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x71CT-0000000AQq5-1sRX
+	id 1x71I9-0000000ARDB-19wN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 01:46:10 +0000
-Received: by mail-yx2-x11.google.com with SMTP id 956f58d0204a3-6713d20d375so322842d50.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 18:46:08 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1789609567; cv=none;
-        d=google.com; s=arc-20260327;
-        b=MfI6j2zwFmhIg8+88nvRHK9CC33/A938xGY+xzZu+R6fISp3dD93oTp2TfqUWOt4to
-         awhx7CUkVn+GArtqFJPH/u6YKZr+5HEQUNRzKuIHXSxlPtlydwTEciKH0J2gfInGBSTt
-         dXGgXDDCm+3GBfE+ynbGMvG21rs0P3b5S5yZ+ciNDO6N62nQYyzRt3uo65MQjRp/ceYv
-         sk+auA/2JnvlnlTfImz75GFBmlbgWDMGp0vLjtAt3WAxE+7PwhjYpA50YpYBoLGaDxt6
-         ldkihSQXZj+3R6HezUuImWVDOL6R7f72R3N+xznUvWHi4amO6ihrekEZECRHywp3VLK8
-         17Cg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=+/oI6OE+gqvIMbXOYDHCCFZTXA+5DVoFDE03BakR8Jk=;
-        fh=iqFozT01D6InVE/ROPKhmk/xwwNxhi1UcyDeGG1HiRA=;
-        b=Puy/BeuubbL/u+p5ypHPuAd1JfQbF8jDK5gQHL0l+XHo5esR3Vw2uGKL51fn7HgvAV
-         J28Q5ayifHHD4xaiW71G58aQDM/yue6ZxJf4iHQ0grIlc1cBqcUzk2tGYqiVAP2NXLyZ
-         Se8+LNeoU7Mih6IqYSCf4XfCRnu9LMHh/xgEvO/Qs6XUzvEgfErqZL2qwSsUgDSc9B50
-         Y2X6nPkQ5zwMrQAwoMGXC4ecipFOkWuoica0hR8mSINRagZBnXK1hEc1P2nKtGYNimRH
-         /6xmEAP1cpxiPs5OjMcF5mZPblHcl43mKnwDcDHPfOrE7Qpc+G4r05L5Eal/NIRpg9WY
-         LBCA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Thu, 17 Sep 2026 01:52:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=g912cKWwwhkulMvTj2PiFrlh1+lMMxOEcaz27dly7HjIMkX/2RNaY8n8WEaw/mooDwE6/wzXgWdIlYpatBfEL77NxSXu+fpmQcRwpnlzMLVvdU60AkAo/hppNtUN8h08Qrjfm3v3ZhIyMWL8R/dutq5B9jM1qArm8ibr2sly3234LqVIir89nQI6ZbSAE7Fc/BW3piXCc0u5q+pzz5Zaz7Po5l0Mj45QJQNj1PLdny6GRXh3Shdudwnn5Kky5U1Boke5mkdjo6nwyxWkAHKmXeaIfisRw/3XCQLmqhBW6/PBOborjgIG7D5tAPMSQU2G86OEsbYClnVg+KJzf8Ppmg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ui/DZNuFV1lfTC8BArSoe/QZMWoES/IR9f3RK1Wh4NY=;
+ b=DzzXBmXmUhYs6426wj2HjRwFW8AlcwfIbFe346Ks1+Z3bHb3zTGm3rGwmu3XsSkH725Zvh9MCp3aKckgMqrdw755yN/IACFZltvsAMnqikK/XlUD1pFwsf+7YRodEerW760zDKpxwhN86on0hCJkE+o0eEkWWz246ENgbINKlKnv6jvnxdHj93ueVYUj4rzF6/7wQaWEtRSnTKRBrUXqOKfBGPtfnNOy+jGUCXeSiG+UarIE112/xnssHy8Py0vv9mKk1v1i0LJ6l/G52ft2MeHkwBfOHiszRsV04on0V9qyA+FPvA9oH6nRvj6k7ocnJn+SWZoYPkTlPP2H8pf3PA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789609567; x=1790214367; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=+/oI6OE+gqvIMbXOYDHCCFZTXA+5DVoFDE03BakR8Jk=;
-        b=DOLUd52/Ft3nuTHSS2KYcqpNCj2qSO7PJzDDgopC2tRwX8qrjaJopIgXyv0iIrSc0V
-         FVhJZFfHPJle9DUPyrsdHvuC7ofqJfduWPEDrM+N8Mnc387kiGAvjZXHX3OOvfJWVLUq
-         FXVAF7tnmDItZ4Twg2UYjjC3Lox01rzAEyxacb3mBaTW3JU6iznr8rLVYWEKPDinWXJM
-         1NphXAEEz53Na0RNgY2eJunLrARFWw30KoYkjWJlobI8NFahhmZYCPb3z5DgaqrsDRZ4
-         Pnc0eYsYzBkQ3r4zArECC7OPcFDpvIn2ZcZYepEbW6iPgIKd30IMnh/YVjCQRCNcISuY
-         iZ2A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789609567; x=1790214367;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+/oI6OE+gqvIMbXOYDHCCFZTXA+5DVoFDE03BakR8Jk=;
-        b=EgivpHyY5hzdGrsWrHe/TC3lIpnnV5pXcKx61HZcYJJ1YB1YY/gO4wxqFWMveYVKPz
-         NbEcjHoJPJhQX9oa/ubNJ90pbBb3YuZuNxnPh0wNCvYHQMkTunOSobR6tl4lm8GmzIVl
-         k8sUm5ZdzchmnAnpBXZFaRpqY0E0Z2Gfx7901bRtvDxBCXWB4K/vL7w7YeDFWndaQ9Zd
-         VMXrgzkbjHYyReco8qabfwmBHyZQULEc0/2zEVafZr4PoiKGT3PFFx30Go1w/sy3w06C
-         yNriTMBxHGmOhQLxrxL2JXx8qz0LUbUxREQekVqe3rqpEhXOlC/GlYrWyrIX41cqUO/8
-         BV2w==
-X-Forwarded-Encrypted: i=1; AKwUvBznUySZ9+8squdnVt+Xt8JT5UtsFYipMGGDvcv/tY/cDLHx3dahvyd2AVh8Zk8J/vhTj5/uc8UJo2H4t132Jx5V@lists.infradead.org
-X-Gm-Message-State: AFuF++luWfQd6NtIpojqYrJgfKNW9f0ipq4UmRPWCBkFjWgNC1VNjbpq
-	6OcLlziEmWdExx3KsX0Mi2HJEkXvXAm47UE/zRiNB1/LPn1+y+5MbtTj6wGykyfA6+jSDFO8D24
-	UvpXfIRdkpfWowPzWBpedHqu5zeBw04Y=
-X-Gm-Gg: AYBFou1/Mdr87Wg9D0NDb7ww6eIVnQ3cMRvbuyU71JbhUwPlkwyTla5OE2z7FXNNMx0
-	kpJHCG5TnDbok2ed3/TPF6OwulNLhnJ67PqfmKShHipfhEpAPfBI9N+7946YYurp3v0RtaDGlR2
-	SMBN5sozVEau+iOg8uLf5/33wFJ9lrAL7uZ85irtxfLc0RJC1AB0/mG9Bpq8CDcBniPVGmNRzv4
-	Q2seuhWEDTiFbUjva1UJoxZte3M1QFO7+0cvUr7LacD7PsPLLW9pXzFzVCG9KLqQWEt3E9juoHR
-	zXicVLKJ9jz5kJAXvDBu5VElSOIy7Xhnxw6VhSJn71CEplKehxTzemJPZ8J3B8GTFct68efu75D
-	omTyRUdYfXRSSNA==
-X-Received: by 2002:a05:690e:1448:b0:671:3b67:8a7a with SMTP id
- 956f58d0204a3-6716f1503b4mr822727d50.42.1789609567316; Wed, 16 Sep 2026
- 18:46:07 -0700 (PDT)
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ui/DZNuFV1lfTC8BArSoe/QZMWoES/IR9f3RK1Wh4NY=;
+ b=cipouyF0SjK1YdV85ULD9xVQQFQxJJttG1l5WbQJz5BEMLTQa8zzlIlCGkfbuWaJ7CE/yubBS600Hrtty7oOZAVtJpYW1HApEMT/y9e30sPSifWxzlieSVdDuPxNmjnBp/56U3WFG4pZZgVS9DUWfINs3TEs7DwRSIaSoERQRTU=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from MN2PR01MB5615.prod.exchangelabs.com (2603:10b6:208:11c::29) by
+ SAWPR01MB994596.prod.exchangelabs.com (2603:10b6:806:4c2::24) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.406.9; Thu, 17 Sep 2026 01:51:54 +0000
+Received: from MN2PR01MB5615.prod.exchangelabs.com
+ ([fe80::996f:e4f2:dbd8:120e]) by MN2PR01MB5615.prod.exchangelabs.com
+ ([fe80::996f:e4f2:dbd8:120e%6]) with mapi id 15.21.0428.008; Thu, 17 Sep 2026
+ 01:51:54 +0000
+Date: Wed, 16 Sep 2026 18:51:49 -0700 (PDT)
+From: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+To: Robin Murphy <robin.murphy@arm.com>
+cc: will@kernel.org, mark.rutland@arm.com, ilkka@os.amperecomputing.com, 
+    leo.yan@arm.com, linux-perf-users@vger.kernel.org, 
+    linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2] perf/arm-cmn: Fix multi-filter encoding
+In-Reply-To: <ec590cd4cc61b54d6ad3b306b69777ad7729c9d6.1789475062.git.robin.murphy@arm.com>
+Message-ID: <614aa3c0-b9b1-815e-f9e3-d1844f4d2587@os.amperecomputing.com>
+References: <ec590cd4cc61b54d6ad3b306b69777ad7729c9d6.1789475062.git.robin.murphy@arm.com>
+Content-Type: text/plain; format=flowed; charset=US-ASCII
+X-ClientProxiedBy: MW4PR04CA0200.namprd04.prod.outlook.com
+ (2603:10b6:303:86::25) To MN2PR01MB5615.prod.exchangelabs.com
+ (2603:10b6:208:11c::29)
 MIME-Version: 1.0
-References: <20260830182036.284736-1-prasanth.padarthi10@gmail.com>
- <20260915013110.4780-1-prasanth.padarthi10@gmail.com> <20260915013110.4780-3-prasanth.padarthi10@gmail.com>
- <178954999459.14468.3220034594197550391.b4-review@b4>
-In-Reply-To: <178954999459.14468.3220034594197550391.b4-review@b4>
-From: Prasanth <prasanth.padarthi10@gmail.com>
-Date: Thu, 17 Sep 2026 07:15:56 +0530
-X-Gm-Features: AcwNN1UdrXBNsGeffpdFdIkqCffMMWj64Hnt-znjfLcodjJc9sYsCQEWLc2Z4pg
-Message-ID: <CAMFFDGircqrsDSOCPo+nzcpXoNi2Yu93BBQ+dkXw5rC4dWRjtQ@mail.gmail.com>
-Subject: Re: [PATCH v5 2/2] ARM: dts: aspeed: Add ASRock Rack B650D4U BMC
-To: Tan Siewert <tan.siewert@9elements.com>
-Cc: Andrew Jeffery <andrew@codeconstruct.com.au>, Joel Stanley <joel@jms.id.au>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Ryan Chen <ryan_chen@aspeedtech.com>, Billy Tsai <billy_tsai@aspeedtech.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN2PR01MB5615:EE_|SAWPR01MB994596:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0ad0f582-9053-484f-3342-08df145e3f9c
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|10067099003|11063799006|56012099006|55112099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: q6i5C5eLkkzi37JVjLJIhVYwPaxOMflaDaZ8SkphTdtuVvoBsQvCcOty82ZOQwhDb1dC4UJBfYHtjJZQUhhu2UHZn5h8MjFnyq6ZhsKDRrF961V4bfGy9nb1NpADOrcCLy2Ty5zROAfFIlBGUTiSwb242C0Y/SA2ELUcZApUX36lxsgiM0dZLxurhqrDLs7N6tboNFmW8gbH3mR9gulAHbg+UxVryu4WcjJNzgP4s+3GD1O7xOUcXAbTjWPFTf9UkRggfcmfFunTDR5Wc5j2RCZgTfiaggevuOmncrhzN6mHTvWrbvLd7HCNtmV8uu3JUVWZvf1CmZOizT0fka9jj7F1J1NBZAKhWQsLF2Fx6gq1FPPCSwnxs+B/cL3yMXlw77YNGpvTy8pgXjSxp2wtVhPM55v/qRmQZSD7MF1rOYXcw4Ymd8cEZA3/GsaY+MCy7HsGX7UPOcB4ZXyrbmRVwglDL0FgSoi9DPeeUXv7gsM9xEYd3fjFBmgwYmQZ8WZvj0OKItnyPHFcDkhjfXaYen+Uu7naH6oBiK6qOnZKIDIe2dkWFE0SgHwwT3fJqQPdOHjW0kH9h49lfg5U20ADy6Fm6QfiL2tVTCH4AhfYtREa7Xby0tb5/tQJNsXmGWgl2IWYHI9/irWHPHL0vO0+z9w+hxdtA+wuJEOZqVFjjJs=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR01MB5615.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(10067099003)(11063799006)(56012099006)(55112099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?vLYcsmD1OPGtYue2DsBi9SzeRpmnVQ6nCSjj4GMgjwlBfmGLzaTJpcQkEYfw?=
+ =?us-ascii?Q?86c8pEq95KAvzNccCPGHclVuZvV3hjwt4T/nB3TGjsOJS1bh7meTwQ3EXLQa?=
+ =?us-ascii?Q?PtIpBQfpQU8lewgZbCwfQ5eGb+bfb19NV2+X91IifYz/tqNbKfCttcDjl9S/?=
+ =?us-ascii?Q?q/4G6wK+oNmsdpus+ufItxKqOlE+jOqyaal7tkoV6qqeziQ1TcsqzTzCK+Aa?=
+ =?us-ascii?Q?uVP3IrYOUia9rjU70DyPVwRQ9w3nl5qEAuJ59jz01QY/iB37VO9/Uv/OIHwU?=
+ =?us-ascii?Q?Cr8HxRABGbdH6KEykdwGWUlW3qQu6iwnmFjPmNjGRNshvlMOHXz/PvL54rZM?=
+ =?us-ascii?Q?I0z08D4rhnl/zYPySczlPvJjSwE1Qoo3l6TWNcDv/A1JB+7UndOSuXLcdcXr?=
+ =?us-ascii?Q?awMP17RbsGe59roHhJdPB1TYn7+amn4cAYjZJnk9RscXNWR9x6NZZZwDOZxD?=
+ =?us-ascii?Q?iXBvtAfJYXW/7Y2BlTF6kLxBreSSezrF/3dsX+PKcqxAUpDl6OCdAtfGKSUv?=
+ =?us-ascii?Q?nwJyADt3F6QSabiAfWtaLq51f+m2WOzmoJA8DjfmMLzmMrYHwy7qAw947M3y?=
+ =?us-ascii?Q?YnB5ntOQdn3/jS6z3DKsey8W1PeYjv5gixDPoQ7f7XE7x9VnW4XEMsZI3Tyu?=
+ =?us-ascii?Q?1KsfkKDVgG4mpxiIR/qbpul2hnST/fGl2hcTBbPd9AyAgy3/sw8Kn/2D+tgX?=
+ =?us-ascii?Q?6rtXFl1Dg9bvrGMo0GfYJu6Z0z3AUQcANfxQzmSWZ56dPQKJKeHlBsOxCyMp?=
+ =?us-ascii?Q?Ps4uWX74UQeQEibb1Gq0JWIAFvG+NYCAP1zTnGiJMNQwiDARmtG7842xQGds?=
+ =?us-ascii?Q?EeLOLz50odX5m0cUVFbJchfJHBwqByhNxfq7mzSxUnduv7V0IW6Kp40wkizq?=
+ =?us-ascii?Q?GSP88QsPX3o3iAwvJo6IsHOnSVlnOOV4ObUzL0E3Yb6PBkYEsiXUyujDwnQt?=
+ =?us-ascii?Q?mDqP+lVCsqUmUXWnGYKSQSdOzGJDr/8apdZydCytRqMAZjsZnxg5TvIlX+tA?=
+ =?us-ascii?Q?HNPn0V176GxL/eEqyIYM1HfX1otk2cLuODLMN6sV7tNQvQZrlHpquoMg1Hvs?=
+ =?us-ascii?Q?jo9fxwHiOVnwJLttV/TMkMUiVgVn09hB43eF+KPL8LGcvJPPnPxRYlPP2P7u?=
+ =?us-ascii?Q?2Y5xImHsd32I4gpZRZGywX47yAvqJxcRveqBP9s1Jew5g/fnYicJl3JxVCo9?=
+ =?us-ascii?Q?u6Aslt6wDL9lxgVYVE6Ehi5X1fZ/FsO5wTqxdGLPVUBjoRuVU/G5cI6h4wnq?=
+ =?us-ascii?Q?4W25zHraxdhGiwPm4Gx7kut+PW3IqBM3/XBIQpTLmVFzKgvPifQ6OFW0D5sR?=
+ =?us-ascii?Q?pnWFGYLW/5dup5TMsbsNT8ACY4S/+0a2S1ccz7bTshJl4GDB9tlFiBqSclLR?=
+ =?us-ascii?Q?gjRg7zppqItyaSRlQTYNl3aacEsKAPF2FNL3N+uZX9xtpBG6LZK2VOLr3lvb?=
+ =?us-ascii?Q?oqmRepGEH5HU7YJ9538o/dtjfvejO8xBj7JnYP14fl0uZzjX4fuDGngmDwhO?=
+ =?us-ascii?Q?2gHCvMNGP0VL8AHmRA/v1uigdQHsXNAZsrSNJEgGazLjSRie2IqzQpG68cAh?=
+ =?us-ascii?Q?65hUSidihu/DwljNoeF7ws5l5ALL/hAl9l3zLFR3LJ2dWyPRTE9wAgPLmUcX?=
+ =?us-ascii?Q?RDbQK9mb6764L9jHuVy/BfHneeq9LF0zis3krBEi2hWhwy0s55WDVK8fsQnr?=
+ =?us-ascii?Q?dw6n1vzPmqTD5XW2Eew8lJH03PDbcarKZpCopSK99u8wXsY7GBpHfZH/p9BI?=
+ =?us-ascii?Q?bPpB9yzMwyVWDedKrHMyhSXgZ7gzrgU=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0ad0f582-9053-484f-3342-08df145e3f9c
+X-MS-Exchange-CrossTenant-AuthSource: MN2PR01MB5615.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2026 01:51:53.8610
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: uLgxH92JkJxkcVEpIi4WGbnAP4fBPCoE1PhMQx/8u61LOqdu3DC9+pIo+2Ie6f5DqGWhmWF1sM4PvuYx7UPD9JlTLFe7cYuLYhNEgl000WTMJLtc3gG3kIQdUIGzXwM2
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SAWPR01MB994596
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_184609_508225_E1FD2E70 
-X-CRM114-Status: GOOD (  24.95  )
+X-CRM114-CacheID: sfid-20260916_185201_330288_35D7B9DA 
+X-CRM114-Status: GOOD (  23.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,211 +136,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Tan,
 
-Thanks for pointing this out. I had identified P3 from runtime GPIO
-observations while exercising host power control, but after checking
-the AST2600 pinctrl definitions I see that P0-P5 provide the
-THRUIN/THRUOUT functions, so that observation alone was not sufficient
-to establish the board-level signal mapping. I'll update this in the
-next revision based on your schematic information.
 
-Thanks,
-Prasanth
+On Tue, 15 Sep 2026, Robin Murphy wrote:
+> The current special-case for EVICT_STATE_SEL filtering effectively
+> assigns the "filter" and "filter2" controls in the opposite order from
+> how the CMN S3 r2 TRM states "Filtering is programmed in pmu_hbt_lbt_sel
+> and pmu_evict_state_sel". On reflection, not only does this seem
+> unnecessarily non-obvious to users, but it's also likely to be a problem
+> for scaling to a full multi-filter abstraction in future. There is a
+> logical order to filters based on their bitfield positions in the
+> pmu_event_sel register, which the TRM descriptions allude to, and the
+> cmn_filter_select enum already (almost) follows, so let's fix the UABI
+> to follow suit while it's still unreleased.
+>
+> Fixes: 09178f536bb9 ("perf/arm-cmn: Plumb in new filter types")
+> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
 
-On Wed, Sep 16, 2026 at 2:43=E2=80=AFPM Tan Siewert <tan.siewert@9elements.=
-com> wrote:
+Uh, I just realized I replied to v1 although I reviewed v2...
+Anyway, this patch looks good to me
+
+Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+
+> ---
 >
-> > Add the device tree for the ASRock Rack B650D4U BMC, which is
-> > based on the ASPEED AST2600 SoC.
-> >
-> > Describe the BMC memory, SPI NOR flash layout, UART console,
-> > GPIO line names, video framebuffer memory, I2C EEPROM, and MAC0
-> > connected to an RTL8211F Ethernet PHY.
-> >
-> > Use the EEPROM on I2C7 as the NVMEM provider for the MAC0 address.
-> >
-> > Configure MAC0 to use the RTL8211F in RGMII-ID mode.
-> >
-> > Signed-off-by: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
+> v2: Also fix filter lookup order and missing return in set_event_filter
 >
-> dt-check-style --mode strict reports issues:
+> drivers/perf/arm-cmn.c | 58 +++++++++++++++++++++++++-----------------
+> 1 file changed, 34 insertions(+), 24 deletions(-)
 >
->     arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts:8: [property-o=
-rder] property 'compatible' out of canonical order (should sort before 'mod=
-el')
->     arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts:26: [property-=
-order] property 'ranges' out of canonical order (should sort before '#size-=
-cells')
->     arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts:30: [property-=
-order] property 'alignment' out of canonical order (should sort before 'siz=
-e')
->     arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts:31: [property-=
-order] property 'compatible' out of canonical order (should sort before 'al=
-ignment')
->     arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts:39: [property-=
-order] property 'memory-region' out of canonical order (should sort before =
-'status')
->     arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts:70: [property-=
-order] property 'spi-max-frequency' out of canonical order (should sort bef=
-ore 'm25p,fast-read')
->     arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts:72: [required-=
-blank-lines] "status" must be preceded by a blank line
->     arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts:80: [property-=
-order] property 'phy-mode' out of canonical order (should sort before 'stat=
-us')
->     arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts:81: [property-=
-order] property 'phy-handle' out of canonical order (should sort before 'ph=
-y-mode')
->     arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts:83: [property-=
-order] property 'pinctrl-0' out of canonical order (should sort before 'pin=
-ctrl-names')
->     arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts:85: [property-=
-order] property 'nvmem-cells' out of canonical order (should sort before 'p=
-inctrl-0')
+> diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
+> index b162de3d9d16..33e8a040c903 100644
+> --- a/drivers/perf/arm-cmn.c
+> +++ b/drivers/perf/arm-cmn.c
+> @@ -305,9 +305,9 @@ enum cmn_filter_select {
+> 	SEL_NONE,
+> 	SEL_OCCUP1_ID,
+> 	SEL_CLASS_OCCUP_ID,
+> -	SEL_CBUSY_SNTHROTTLE_SEL,
+> 	SEL_HBT_LBT_SEL,
+> 	SEL_SN_HOME_SEL,
+> +	SEL_CBUSY_SNTHROTTLE_SEL,
+> 	SEL_SNP_VC_SEL,
+> 	SEL_ENHANCED_HBT_LBT_SEL,
+> 	SEL_EVICT_STATE_SEL,
+> @@ -978,10 +978,14 @@ static umode_t arm_cmn_event_attr_is_visible(struct kobject *kobj,
+> 	_CMN_EVENT_HNS(_model, _name##_all, _event, _sel, 0),		\
+> 	_CMN_EVENT_HNS(_model, _name##_hbt, _event, _sel, 1),		\
+> 	_CMN_EVENT_HNS(_model, _name##_lbt, _event, _sel, 2)
+> -#define _CMN_EVENT_HNS_HBT2(_model, _name, _event, _fsel1, f1)		\
+> -	_CMN_EVENT_HNS(_model, _name##_all, _event, _fsel1, f1, SEL_HBT_LBT_SEL, 0), \
+> -	_CMN_EVENT_HNS(_model, _name##_hbt, _event, _fsel1, f1, SEL_HBT_LBT_SEL, 1), \
+> -	_CMN_EVENT_HNS(_model, _name##_lbt, _event, _fsel1, f1, SEL_HBT_LBT_SEL, 2)
+> +#define _CMN_EVENT_HNS_EVICT(_model, _name, _event, _fsel1, f1)			\
+> +	_CMN_EVENT_HNS(_model, _name##_all, _event, _fsel1, f1, SEL_EVICT_STATE_SEL, 0), \
+> +	_CMN_EVENT_HNS(_model, _name##_eu, _event, _fsel1, f1, SEL_EVICT_STATE_SEL, 1), \
+> +	_CMN_EVENT_HNS(_model, _name##_en, _event, _fsel1, f1, SEL_EVICT_STATE_SEL, 2), \
+> +	_CMN_EVENT_HNS(_model, _name##_su, _event, _fsel1, f1, SEL_EVICT_STATE_SEL, 3), \
+> +	_CMN_EVENT_HNS(_model, _name##_sn, _event, _fsel1, f1, SEL_EVICT_STATE_SEL, 4), \
+> +	_CMN_EVENT_HNS(_model, _name##_mu, _event, _fsel1, f1, SEL_EVICT_STATE_SEL, 5), \
+> +	_CMN_EVENT_HNS(_model, _name##_mn, _event, _fsel1, f1, SEL_EVICT_STATE_SEL, 6)
 >
-> >
-> > diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspe=
-ed/Makefile
-> > index 6b68671f9379..b109491d5c8f 100644
-> > --- a/arch/arm/boot/dts/aspeed/Makefile
-> > +++ b/arch/arm/boot/dts/aspeed/Makefile
-> > @@ -10,6 +10,7 @@ dtb-$(CONFIG_ARCH_ASPEED) +=3D \
-> >       aspeed-bmc-ampere-mtmitchell.dtb \
-> >       aspeed-bmc-arm-stardragon4800-rep2.dtb \
-> >       aspeed-bmc-asrock-altrad8.dtb \
-> > +     aspeed-bmc-asrock-b650d4u.dtb \
-> >       aspeed-bmc-asrock-e3c246d4i.dtb \
-> >       aspeed-bmc-asrock-e3c256d4i.dtb \
-> >       aspeed-bmc-asrock-paul-ipmi-card.dtb \
-> > diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts b/a=
-rch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts
-> > new file mode 100644
-> > index 000000000000..6585bda56a4c
-> > --- /dev/null
-> > +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts
-> > @@ -0,0 +1,120 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/dts-v1/;
-> > +
-> > +#include "aspeed-g6.dtsi"
-> > +
-> > +/ {
-> > +     model =3D "ASRock Rack B650D4U BMC";
-> > +     compatible =3D "asrock,b650d4u-bmc", "aspeed,ast2600";
-> > +
-> > +     aliases {
-> > +             serial0 =3D &uart5;
-> > +     };
-> > +
-> > +     chosen {
-> > +             stdout-path =3D "serial0:115200n8";
-> > +     };
-> > +
-> > +     memory@80000000 {
-> > +             device_type =3D "memory";
-> > +             reg =3D <0x80000000 0x20000000>;
-> > +     };
-> > +
-> > +     reserved-memory {
-> > +             #address-cells =3D <1>;
-> > +             #size-cells =3D <1>;
-> > +             ranges;
-> > +
-> > +             gfx_memory: framebuffer {
-> > +                     size =3D <0x01000000>;
-> > +                     alignment =3D <0x01000000>;
-> > +                     compatible =3D "shared-dma-pool";
-> > +                     reusable;
-> > +             };
-> > +     };
-> > +};
-> > +
-> > +&gfx {
-> > +     status =3D "okay";
-> > +     memory-region =3D <&gfx_memory>;
-> > +};
-> > +
-> > +&gpio0 {
-> > +     gpio-line-names =3D
-> > +             /* A0-A7 */     "","","","","","","","",
-> > +             /* B0-B7 */     "","","","","","","","",
-> > +             /* C0-C7 */     "","","","","","","","",
-> > +             /* D0-D7 */     "","","","","","","","",
-> > +             /* E0-E7 */     "","","","","","","","",
-> > +             /* F0-F7 */     "","","","","","button-reset-n","","",
+> #define CMN_EVENT_HNS_OCC(_model, _name, _event)			\
+> 	CMN_EVENT_HN_OCC(_model, hns_##_name, CMN_TYPE_HNS, _event),	\
+> @@ -1014,13 +1018,9 @@ static umode_t arm_cmn_event_attr_is_visible(struct kobject *kobj,
+> 	_CMN_EVENT_HNS(CMNS3R2, _name##_ccglcn, _event, SEL_ENHANCED_HBT_LBT_SEL, 5), \
+> 	_CMN_EVENT_HNS(CMNS3R2, _name##_ccgrn, _event, SEL_ENHANCED_HBT_LBT_SEL, 6)
+> #define CMN_EVENT_HNS_EVICT(_model, _name, _event)			\
+> -	_CMN_EVENT_HNS_HBT2(_model, _name##_all, _event, SEL_EVICT_STATE_SEL, 0), \
+> -	_CMN_EVENT_HNS_HBT2(_model, _name##_eu, _event, SEL_EVICT_STATE_SEL, 1), \
+> -	_CMN_EVENT_HNS_HBT2(_model, _name##_en, _event, SEL_EVICT_STATE_SEL, 2), \
+> -	_CMN_EVENT_HNS_HBT2(_model, _name##_su, _event, SEL_EVICT_STATE_SEL, 3), \
+> -	_CMN_EVENT_HNS_HBT2(_model, _name##_sn, _event, SEL_EVICT_STATE_SEL, 4), \
+> -	_CMN_EVENT_HNS_HBT2(_model, _name##_mu, _event, SEL_EVICT_STATE_SEL, 5), \
+> -	_CMN_EVENT_HNS_HBT2(_model, _name##_mn, _event, SEL_EVICT_STATE_SEL, 6)
+> +	_CMN_EVENT_HNS_EVICT(_model, _name##_all, _event, SEL_HBT_LBT_SEL, 0), \
+> +	_CMN_EVENT_HNS_EVICT(_model, _name##_hbt, _event, SEL_HBT_LBT_SEL, 1), \
+> +	_CMN_EVENT_HNS_EVICT(_model, _name##_lbt, _event, SEL_HBT_LBT_SEL, 2)
 >
-> How did you confirm this? According to the schematic it should be P0 (P0-=
-P5
-> have GPIO passthrough functionality).
+> #define CMN_EVENT_HNSR0_HBT(_name, _event)				\
+> 	_CMN_EVENT_HNS_HBT(CMN700 | CMNS3R01, _name, _event, SEL_HBT_LBT_SEL)
+> @@ -1856,10 +1856,12 @@ static void arm_cmn_val_add_event(struct arm_cmn *cmn, struct arm_cmn_val *val,
 >
-> > +             /* G0-G7 */     "","","","","","","","",
-> > +             /* H0-H7 */     "","","","","","","","",
-> > +             /* I0-I7 */     "","","","","","","","",
-> > +             /* J0-J7 */     "","","","","","","","",
-> > +             /* K0-K7 */     "","","","","","","","",
-> > +             /* L0-L7 */     "","","","","","","","",
-> > +             /* M0-M7 */     "","","","","","","","",
-> > +             /* N0-N7 */     "","","","","","","","",
-> > +             /* O0-O7 */     "","","","","","","","",
-> > +             /* P0-P3 */     "","","","control-power-n";
+> 		val->dtm_count[dtm]++;
 >
-> Personally, I'm not a fan when `gpio-line-names` doesn't match with the a=
-mount
-> of defined `ngpios`, but that doesn't mean it's wrong. Maybe Andrew Jeffr=
-ey has
-> a different opinion on that.
+> +		if (sel == SEL_EVICT_STATE_SEL) {
+> +			val->filter[dtm][sel] = CMN_EVENT_FILTER2(event) + 1;
+> +			sel = SEL_HBT_LBT_SEL;
+> +		}
+> 		if (sel)
+> 			val->filter[dtm][sel] = CMN_EVENT_FILTER(event) + 1;
+> -		if (sel == SEL_EVICT_STATE_SEL)
+> -			val->filter[dtm][SEL_HBT_LBT_SEL] = CMN_EVENT_FILTER2(event) + 1;
 >
-> > +};
-> > +
-> > +&fmc {
-> > +     status =3D "okay";
-> > +
-> > +     flash@0 {
-> > +             compatible =3D "jedec,spi-nor";
-> > +             reg =3D <0>;
-> > +             label =3D "bmc";
-> > +             m25p,fast-read;
-> > +             spi-max-frequency =3D <50000000>;
-> > +             spi-rx-bus-width =3D <4>;
-> > +             status =3D "okay";
-> > +
-> > +#include "openbmc-flash-layout-64.dtsi"
-> > +     };
-> > +};
-> > +
-> > +&mac0 {
-> > +     status =3D "okay";
-> > +     phy-mode =3D "rgmii-id";
-> > +     phy-handle =3D <&ethphy0>;
-> > +     pinctrl-names =3D "default";
-> > +     pinctrl-0 =3D <&pinctrl_rgmii1_default>;
-> > +
-> > +     nvmem-cells =3D <&eth0_macaddress>;
-> > +     nvmem-cell-names =3D "mac-address";
-> > +};
-> > +
-> > +&mdio0 {
-> > +     status =3D "okay";
-> > +
-> > +     ethphy0: ethernet-phy@0 {
-> > +             compatible =3D "ethernet-phy-ieee802.3-c22";
-> > +             reg =3D <0>;
-> > +     };
-> > +};
-> > +
-> > +&uart5 {
-> > +     status =3D "okay";
-> > +};
-> > +
-> > +&i2c7 {
+> 		if (type != CMN_TYPE_WP)
+> 			continue;
+> @@ -1910,14 +1912,17 @@ static int arm_cmn_validate_group(struct arm_cmn *cmn, struct perf_event *event)
+> 		if (val->dtm_count[dtm] == CMN_DTM_NUM_COUNTERS)
+> 			goto done;
 >
-> Please sort your nodes, as per the device-tree style guideline [0].
+> +		if (sel == SEL_EVICT_STATE_SEL) {
+> +			if (val->filter[dtm][sel] &&
+> +			    val->filter[dtm][sel] != CMN_EVENT_FILTER2(event) + 1)
+> +				goto done;
+> +			sel = SEL_HBT_LBT_SEL;
+> +		}
+> +
+> 		if (sel && val->filter[dtm][sel] &&
+> 		    val->filter[dtm][sel] != CMN_EVENT_FILTER(event) + 1)
+> 			goto done;
 >
-> [0] https://docs.kernel.org/devicetree/bindings/dts-coding-style.html
+> -		if (sel == SEL_EVICT_STATE_SEL && val->filter[dtm][SEL_HBT_LBT_SEL] &&
+> -		    val->filter[dtm][SEL_HBT_LBT_SEL] != CMN_EVENT_FILTER2(event) + 1)
+> -			goto done;
+> -
+> 		if (type != CMN_TYPE_WP)
+> 			continue;
 >
-> Tan
+> @@ -1946,7 +1951,7 @@ static enum cmn_filter_select arm_cmn_event_filter(const struct arm_cmn *cmn,
+> 	for (int i = 0; i < ARRAY_SIZE(arm_cmn_event_attrs) - 1; i++) {
+> 		e = container_of(arm_cmn_event_attrs[i], typeof(*e), attr.attr);
+> 		if (e->model & model && e->type == type && e->eventid == eventid)
+> -			return e->filter[0].sel;
+> +			return e->filter[1].sel ?: e->filter[0].sel;
+> 	}
+> 	return SEL_NONE;
+> }
+> @@ -2077,16 +2082,21 @@ static void arm_cmn_event_clear(struct arm_cmn *cmn, struct perf_event *event,
+> static int arm_cmn_set_event_filter(struct arm_cmn_node *dn, struct perf_event *event)
+> {
+> 	enum cmn_filter_select fsel = to_cmn_hw(event)->filter_sel;
+> +	bool evict_state = fsel == SEL_EVICT_STATE_SEL;
+> 	int ret = 0;
 >
-> --
-> Tan Siewert <tan.siewert@9elements.com>
+> +	if (evict_state) {
+> +		ret = arm_cmn_set_event_sel_hi(dn, fsel, CMN_EVENT_FILTER2(event));
+> +		if (ret)
+> +			return ret;
+> +		fsel = SEL_HBT_LBT_SEL;
+> +	}
+> 	if (fsel)
+> 		ret = arm_cmn_set_event_sel_hi(dn, fsel, CMN_EVENT_FILTER(event));
+>
+> -	if (fsel == SEL_EVICT_STATE_SEL && !ret) {
+> -		ret = arm_cmn_set_event_sel_hi(dn, SEL_HBT_LBT_SEL, CMN_EVENT_FILTER2(event));
+> -		if (ret)
+> -			dn->filter[fsel].count--;
+> -	}
+> +	if (ret && evict_state)
+> +		dn->filter[SEL_EVICT_STATE_SEL].count--;
+> +
+> 	return ret;
+> }
+>
+> -- 
+> 2.54.0.dirty
+>
+>
 
