@@ -4,62 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AED61C982D2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 21:14:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30D5FC88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 21:14:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qoTLL+Y9jDbvbklS4smBLhLmCpbDdyoDpotOBwhiSEE=; b=Z0L3YVbVBXZWOQ7e+jpPvr0ivI
-	JZCMfpudeCZKtlSBISge6GyzuvKNnHVZ0GJLLeUmwJh9uNhAUsRmnd3oalradqGMAXVXjpQ47IfsQ
-	/bVrW981XN4/ln2LTRiLnAZN0hfcVtbwgTzN+rlR1+MjeMhXSdr2KkUo9fcZlIL7b2CsVuswQ5TrM
-	+VXZQAJ/3Zsw50eA5mx/pSi9H/Fwb2pJj/5v4ua8jELrmGp7wuW3+INFO+iO/BXqJCHbn1e6DqbBO
-	+kiTZFoUDD/D4ErcE9Autnrli7FCbMX7rty2thTn2/d0Mp/+lO5dwl+9UQ50OQRc2/GszPc325VQb
-	TTKvhffg==;
+	bh=MxhYj/TCLftR3RtPNjj7inhN0NiI4tVG0507jQCqhRg=; b=m/Io8esAy9pNMPBqiRmaFM06/J
+	7kCWgaA1mhM+4X7vd9vzctXXCNVglmAO80QxB+rRZ5URN/UPY6AMV3qo0/Ed3XdWn3dPwlXH6tEw7
+	1lsU9hs3Q6HqzzYtWUD2NI6xCu0PXo3anEtV7Y5PQNr3RvSqZSBQ9p9bgNM20/5KJH7NksoCI0g32
+	o7llN+BrjqtgDeClwwie6tWrTUndGQQMx98bQntbRQtnZvqqRhq8Kc+BeZwfyoODUpC+jfbMpub3+
+	rwYXC6lkz6IUzeuRIWedlPUjgtY20LF/1RxuxvoBsdREavStF4sIT0BwQzMkgfVpUNgXikf/chix0
+	KY1NoQEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7JRB-0000000CXpH-2IBA;
-	Thu, 17 Sep 2026 21:14:33 +0000
+	id 1x7JRR-0000000CXuV-2lU6;
+	Thu, 17 Sep 2026 21:14:49 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7JRA-0000000CXoz-3G9C
+	id 1x7JRR-0000000CXuB-00ZF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 21:14:32 +0000
+	Thu, 17 Sep 2026 21:14:49 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0104E6020A;
-	Thu, 17 Sep 2026 21:14:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD83B1F000FF;
-	Thu, 17 Sep 2026 21:14:30 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 737D0600AA;
+	Thu, 17 Sep 2026 21:14:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A4501F000FF;
+	Thu, 17 Sep 2026 21:14:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789679670;
-	bh=qoTLL+Y9jDbvbklS4smBLhLmCpbDdyoDpotOBwhiSEE=;
+	s=k20260515; t=1789679688;
+	bh=MxhYj/TCLftR3RtPNjj7inhN0NiI4tVG0507jQCqhRg=;
 	h=From:To:Cc:Subject:Date;
-	b=Uz4njpgXvyWV3DujjdkHYWfIyFct1dS8d0PQLGeiBdWccXTCJhGY2bYOrWWAITwsJ
-	 shPPCbN6cCD/Ge8UM8iQNzvQPgDd2uWcZHZ+uBA/X3JdX1XxWJ1NQ+9SFCzkXl72Xk
-	 n33CLWxghtgZbXnf1s2oM5e0EHWQq/ywNUxHniXs4ZyvG2vmhUTOwzMyoh6BR9sQgb
-	 XcVAbW7W5o77FmyxcB4u2o7PgCHR23hLHlMEk2M5w4HRWzdNQL3R6RLULuEMLcqJGb
-	 pXPUS7hymK4IJh0jx9T1Y9IpsIlBHqq9tlb2aLG9xmymVss4OtaeThr4mSbxF5oktl
-	 9EFbmSjHm4CQQ==
+	b=O+Eku6Em6poaJSB+sJt9uhb0C/4prcjcv161Wyqsr62B3JIG6XlEpC69XlQzXYInQ
+	 pjWOXBEPX3YChNbCnQeJI15HwHSpK8PfCu6kLiYwQk5d2XtxAGJHtaX0I2cv8GQlSs
+	 zcAmXl2I8kqD6GWbcskNi52ZUXBuWHo96GuK8GO+QqlGJ89jGDnb7UBKV8RmHMlB9L
+	 pAa3Xdwjd33KS0O25/0AouaLQPVjqj9QtLLW+eFGmcDFzzfKB6qZtkXGKcnjUw/kLM
+	 jzjr5xf7hFw7KXAIJpjZ9n/KuJOw+SMY11h6RH7YZ4yzcwLuVcEMbVgOV6mC9Uw5Ed
+	 k6usDEUHuTp8w==
 From: Kees Cook <kees@kernel.org>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: Dong Aisheng <aisheng.dong@nxp.com>
 Cc: Kees Cook <kees@kernel.org>,
 	Kees Cook <kees+treewide@kernel.org>,
-	Mike Leach <mike.leach@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Leo Yan <leo.yan@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	coresight@lists.linaro.org,
+	Fabio Estevam <festevam@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Jacky Bai <ping.bai@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	NXP S32 Linux Team <s32@nxp.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	linux-gpio@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-hardening@vger.kernel.org
-Subject: [PATCH] coresight: cti: Add const to con_groups allocation type
-Date: Thu, 17 Sep 2026 14:14:29 -0700
-Message-Id: <20260917211428.i.947-kees@kernel.org>
+Subject: [PATCH] pinctrl: imx: Remove const from group_names allocation type
+Date: Thu, 17 Sep 2026 14:14:47 -0700
+Message-Id: <20260917211446.i.153-kees@kernel.org>
 X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1975; i=kees@kernel.org; h=from:subject:message-id; bh=ZslHx5VqRft6I3xit3Pnoajg45iE4Y2S12l25+/PhA4=; b=owGbwMvMwCVmps19z/KJym7G02pJDFlrIkw/hRYIix5MaOzW1Y3SEfwRcn7Z09/sCmo7jr98v 26rTdbejlIWBjEuBlkxRZYgO/c4F4+37eHucxVh5rAygQxh4OIUgIlYJDIyHHO89X7OVpEZh09+ f98kc2m1/Ye9CQuS17dWz9oSfatqey7DP2PpvJk/VpQ88c7QKfj22W/K7hXb3WVeFP1YomZaWON 1lw8A
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1900; i=kees@kernel.org; h=from:subject:message-id; bh=SI/CPd6XS8ei4Q7rFs30/ZmKJ1M1jnctDK7KU6kGplE=; b=owGbwMvMwCVmps19z/KJym7G02pJDFlrItwsPm22mrBI0vl9duYClhDJq0/zi9zaT+pJfeX0n ZpiJdvTUcrCIMbFICumyBJk5x7n4vG2Pdx9riLMHFYmkCEMXJwCMJEntYwMDxe/5a8U8g0zrjf8 +jyEbWqRs0wg+9c9SdXcH187qKk7MDI0NpnenPJNNSvtmgNDddMbV88qxn8hfFPvTvy/7ce5ZaF cAA==
 X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -84,42 +88,46 @@ matches the type of the variable being assigned. (Before, the allocator
 would always return "void *", which can be implicitly cast to any
 pointer type.)
 
-The assigned type is "const struct attribute_group **", but the
-converted allocation type would be "struct attribute_group **", which is
-the same type without the const qualifier. As there is no general way to
-safely add const qualifiers, take the size from the assignment target
-instead. No change in allocation size results.
+The assigned type is "const char **", but the converted allocation type
+would be "const char * const *", as the size was taken from
+"*func->groups", whose type "const char * const" is const qualified. As
+there is no general way to remove const qualifiers, take the size from
+the assignment target instead. No change in allocation size results.
 
-Build tested ARCH=arm64 allmodconfig with GCC aarch64-linux-gnu 16.1.0:
-drivers/hwtracing/coresight/coresight-cti-sysfs.o
+Build tested ARCH=x86_64 allmodconfig with GCC 16.2.0:
+drivers/pinctrl/freescale/pinctrl-imx.o
 
 Assisted-by: LLM coccinelle
 Signed-off-by: Kees Cook <kees+treewide@kernel.org>
 ---
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Mike Leach <mike.leach@arm.com>
-Cc: James Clark <james.clark@linaro.org>
-Cc: Leo Yan <leo.yan@arm.com>
-Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Cc: <coresight@lists.linaro.org>
+Cc: Dong Aisheng <aisheng.dong@nxp.com>
+Cc: Fabio Estevam <festevam@gmail.com>
+Cc: Frank Li <Frank.Li@nxp.com>
+Cc: Jacky Bai <ping.bai@nxp.com>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+Cc: NXP S32 Linux Team <s32@nxp.com>
+Cc: Linus Walleij <linusw@kernel.org>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>
+Cc: <linux-gpio@vger.kernel.org>
+Cc: <imx@lists.linux.dev>
 Cc: <linux-arm-kernel@lists.infradead.org>
 ---
- drivers/hwtracing/coresight/coresight-cti-sysfs.c | 2 +-
+ drivers/pinctrl/freescale/pinctrl-imx.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-cti-sysfs.c b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-index 3fe2c916d228..2ed5d8eb1dda 100644
---- a/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-+++ b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-@@ -1132,7 +1132,7 @@ static int cti_create_cons_groups(struct device *dev, struct cti_device *ctidev)
- 	/* nr groups = dynamic + static + NULL terminator */
- 	nr_groups = ctidev->nr_trig_con + CORESIGHT_CTI_STATIC_GROUPS_MAX;
- 	ctidev->con_groups = devm_kcalloc(dev, nr_groups,
--					  sizeof(struct attribute_group *),
-+					  sizeof(*ctidev->con_groups),
- 					  GFP_KERNEL);
- 	if (!ctidev->con_groups)
+diff --git a/drivers/pinctrl/freescale/pinctrl-imx.c b/drivers/pinctrl/freescale/pinctrl-imx.c
+index 9a45b376d36f..c11d220d982a 100644
+--- a/drivers/pinctrl/freescale/pinctrl-imx.c
++++ b/drivers/pinctrl/freescale/pinctrl-imx.c
+@@ -600,7 +600,7 @@ static int imx_pinctrl_parse_functions(struct device_node *np,
+ 	}
+ 
+ 	group_names = devm_kcalloc(ipctl->dev, func->ngroups,
+-				   sizeof(*func->groups), GFP_KERNEL);
++				   sizeof(*group_names), GFP_KERNEL);
+ 	if (!group_names)
  		return -ENOMEM;
+ 	i = 0;
 -- 
 2.34.1
 
