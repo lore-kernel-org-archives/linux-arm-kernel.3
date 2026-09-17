@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F01AFC982CC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 01:06:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ABADC982CC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 01:06:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aOKc3GAX/DzVO/6pOM5G/XYbmrZwk8wVPbh4MkPLzqQ=; b=Sq3/vKXAOYYuC1Ro1uLmZcHIcy
-	IYQkYWFNroxnP+G3+uKLdUUlHty20NAZlgudWJgg9EpwIRz1rq2+q7gxdVJpZ6O1qgEdDsyQzXtVK
-	WcXliYtL0VjyyTZg7ZB3kBeWy2qIJNk5+6lGYkI453/JTDKSghmL0du9ImFAgSCmEYqqLyQRs9Hu4
-	nDnINkin1uw9FOWFciEVVBXPjiS5wKivwPnVElovsuhul8K3fuWuvGVvcGQGu58P+ilBlemT7F9ZY
-	w9JPJwggKKbNPsBGi1ea1iEkpM9cUxmxJQsD/oSALJEeoogvfzvbm24u+4vXV44egyBBoRR3+HsBG
-	RVFh2lvg==;
+	bh=kK8U6zcu30eUa/1IbzABeDAbejpvCtmmWV8KgWoo5Rk=; b=JeqK/GHoDmuSKmr/HQwTSbJRgv
+	DY20jld50+9jqIqzTGWQUZRb0nSbbEwNWdCexEF/4re9RrQwXZhOMWAeIYmALxp/ay211F2fLtsWa
+	O7drP18qI+sPAuD1UTSnkQqEkTvwN3KOqjswpsie5WfKvRoBS2E2HbmkOi2lj3cNPEZ+xjye2TD9i
+	ftJW5dlJy/uaN591eWH8+/uxO9EGEEq2CsWKgtjPI709uQTiQdw+YCwYLZWJxcOFBK/tmkWjkUF80
+	DrovecGEaGAusV87yLDFwtfnnjuMiRO19fEjlQU8uQcu9ONTd0AvslC5kQJESeP5rfs0faHqjzA0K
+	79Aoo1ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x70Zo-0000000ANxR-0ion;
-	Thu, 17 Sep 2026 01:06:12 +0000
+	id 1x70aM-0000000AO0u-1ClS;
+	Thu, 17 Sep 2026 01:06:46 +0000
 Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x70Zk-0000000ANx4-2Ngz
+	id 1x70aJ-0000000AO0M-2iEh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 01:06:10 +0000
+	Thu, 17 Sep 2026 01:06:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
 	s=20170329; h=Content-Transfer-Encoding:Content-Type:From:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:From:Reply-To;
-	bh=aOKc3GAX/DzVO/6pOM5G/XYbmrZwk8wVPbh4MkPLzqQ=; b=c5X+lKH9a7oYqzQuFsSU95KQqk
-	hEU+bBiBtc/rK/h1uO1JctQKYG0gBcurBp2bzk2YyIa3pRSEwkAuWv816qQtTjHu8DFND9UD3c7cp
-	Ak6cxgjxzHKN7X/3Bhy7C1HJ83LVWh/juo4wTygdpJK2hqGwgsCSEZdBOEnGBk6TwXI/XHPQW4xz5
-	rcc+GXDmPUYoaENkDLuXpzDBmtW9Oo3LN1XDcSqKBldHVsUsjRImj1qbluGYCcLjungiF4HMGy8Wm
-	U5yiWU3u0Zi1Hiuo6WPT02TE/ogy7o6E6mtMvau0Tdfquns3ERICyX4eBAJykKjDAvX5tgufCCMss
-	ol5XfzdQ==;
+	bh=kK8U6zcu30eUa/1IbzABeDAbejpvCtmmWV8KgWoo5Rk=; b=cwNGCf8MIXZ2L60DbxLuFPmX7W
+	JiVby/b8Yhn2u12nHkMVRivHAqQoSblV+6t3Rf1Tbiz+lpm3A5JwL6m3tE/GoblOR2pWa8SVAgViZ
+	GBIwyfXZUBTj13/6roIKj6qIeidn0mieCAO0ayuwdbAROtmT365vBWyffznNMnOvvVhRbekBLwvim
+	nrEy1RYAuoaLf9wB3uNg6BNvI+WWBhXtElbEpXaohqhVcbCDf9zxrSOE0gv0YB2YPAItpWx4rakhA
+	v9dnjJRyUubB0DJvfnXrD5c1xcXbbQvKPYDvzOfNOJHm6uIMFLLvbsQIH6ARYBL/RJEd4jMPapItY
+	P/SdQEng==;
 Received: from [177.172.123.214] (helo=[192.168.15.100])
 	by fanzine2.igalia.com with esmtpsa 
 	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
-	id 1x70ZI-003BpB-F1; Thu, 17 Sep 2026 03:05:40 +0200
-Message-ID: <4cc1a199-8917-4a93-91f8-138ca1511cff@igalia.com>
-Date: Wed, 16 Sep 2026 22:05:38 -0300
+	id 1x70a2-003Bpv-Nq; Thu, 17 Sep 2026 03:06:26 +0200
+Message-ID: <9d9a804f-c1f3-4c0c-b12a-975206f6c34c@igalia.com>
+Date: Wed, 16 Sep 2026 22:06:25 -0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 1/4] arm64: vdso: Prepare for robust futex unlock
- support
+Subject: Re: [PATCH v8 2/4] arm64: vdso: Implement
+ __vdso_futex_robust_try_unlock()
 To: Mark Rutland <mark.rutland@arm.com>
 Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  Thomas Gleixner <tglx@kernel.org>,
@@ -59,16 +59,16 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
  kernel-dev@igalia.com
 References: <20260821-tonyk-robust_arm-v8-0-077707b6f1c7@igalia.com>
- <20260821-tonyk-robust_arm-v8-1-077707b6f1c7@igalia.com>
- <aqqmmNTDnzT5d-ZT@J2N7QTR9R3>
+ <20260821-tonyk-robust_arm-v8-2-077707b6f1c7@igalia.com>
+ <aqqkX8GyxgdtoOmc@J2N7QTR9R3>
 Content-Language: en-US
 From: =?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-In-Reply-To: <aqqmmNTDnzT5d-ZT@J2N7QTR9R3>
+In-Reply-To: <aqqkX8GyxgdtoOmc@J2N7QTR9R3>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_180608_799725_2FDBF36D 
-X-CRM114-Status: GOOD (  41.40  )
+X-CRM114-CacheID: sfid-20260916_180643_690544_0495A5AD 
+X-CRM114-Status: GOOD (  28.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,182 +83,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Em 16/09/2026 11:24, Mark Rutland escreveu:
+Em 16/09/2026 11:27, Mark Rutland escreveu:
 > Hi André,
 > 
-> I have a few comments here; mostly minor nits.
+> I have a few comments below. I'm not sure what the plan is for 32-bit
+> robust lists, and I think there are a few problems with the assembly.
 > 
+> On Fri, Aug 21, 2026 at 06:50:43PM -0300, André Almeida wrote:
 
-Thanks for the review!
+[...]
 
-> On Fri, Aug 21, 2026 at 06:50:42PM -0300, André Almeida wrote:
->> To solve the robust futex's list_pending_op clearing race condition,
->> prepare for implement __vdso_futex_robust_try_unlock() for arm64 with the
->> following steps:
->>
->> - Create a helper function that sets the struct futex_mm_data with the
->> VDSO's labels addresses. The robust futex fixup mechanism needs to
->> compare the current instruction pointer to the VDSO instructions range.
->>
->> - Split vdso_mremap() in vdso_mremap() and aarch32_mremap(), this allows
->> the VDSO to be setup correctly regarding the instructions addresses for
->> both ABIs when a mremap happens.
 > 
-> When I commented back on v5, I'd meant that the mremap changes should be
-> a separate patch. I've included a patch for that below; are you're happy
-> to take that as a prefix of this series?
-> 
-
-Sure thing, thanks for the patch :)
-
->> - Implement arch_futex_robust_unlock_get_pop() for arm64, checking for r2
->> and r3 registers values for the fixup function. The role of this registers
->> is explained in the commit that implement the assembly portion of the VDSO.
->>
->> Signed-off-by: André Almeida <andrealmeid@igalia.com>
->> ---
->> v6:
->>   - Restructured this commit. Move the arch bits away, kept just the
->>   generic/helper functions.
->>
->> v4:
->> - Guard symbols from vdso.lds.S with ifdef
->> - drop update_ips() from sigpage remap function
->>
->> v3:
->>   - Fix adding vdso base addr twice
->>   - Call vdso_futex_robust_unlock_update_ips() on remap as well
->> v2:
->>   - Fixed linker not finding VDSO symbols
->> ---
->> ---
->>   arch/arm64/include/asm/futex_robust.h | 19 +++++++++++++++++++
->>   arch/arm64/kernel/vdso.c              | 27 ++++++++++++++++++++++++++-
->>   2 files changed, 45 insertions(+), 1 deletion(-)
->>
->> diff --git a/arch/arm64/include/asm/futex_robust.h b/arch/arm64/include/asm/futex_robust.h
->> new file mode 100644
->> index 000000000000..4ff783bb2dc3
->> --- /dev/null
->> +++ b/arch/arm64/include/asm/futex_robust.h
->> @@ -0,0 +1,19 @@
->> +/* SPDX-License-Identifier: GPL-2.0 */
->> +#ifndef _ASM_ARM64_FUTEX_ROBUST_H
->> +#define _ASM_ARM64_FUTEX_ROBUST_H
+>> +	register __u64 *pop_reg asm("x2") = pop;
+>> +	register __u32 result_reg asm("w3") = 0;
+>> +	__u32 val;
 >> +
->> +#include <asm/ptrace.h>
+>> +	asm volatile (
+>> +		".globl						  "
+>> +		"__futex_list64_try_unlock_cs_start,		  "
+>> +		"__futex_list64_try_unlock_cs_success,		  "
+>> +		"__futex_list64_try_unlock_cs_end		\n"
+> 
+> Sorry, when I mentioned putting these within the assembly, I meant doing
+> something like:
+> 
+> | #define LABEL(l)						\
+> | 	"	.globl " #l "\n"				\
+> | 	#l ":\n"
+> 
+> ... and within the asssembly, having:
+> 
+> | 	"	insn1					\n"
+> | 	"	insn2					\n"
+> | 	LABEL(__futex_list64_try_unlock_cs_start)
+> | 	"	insn2					\n"
+> | 	LABEL(__futex_list64_try_unlock_cs_start)
+> | 	"	insn4					\n"
+> | 	LABEL(__futex_list64_try_unlock_cs_success)
+> | 	"	insn5					\n"
+> 
+> That way we use the full strings, which are easy to grep for, and we
+> only have to define each label string once.
+
+Oh, I see, thanks! I will change that for the next version.
+
+> 
 >> +
->> +static __always_inline void __user *arm64_futex_robust_unlock_get_pop(struct pt_regs *regs)
->> +{
->> +	/*
->> +	 * w3 stores the result of the stlxr instruction. If it's zero, the then
->> +	 * the ll/sc cmpxchg succeeded and the pending op pointer needs to be cleared.
->> +	 */
+>> +		"	prfm pstl1strm, %[lock]			\n"
+>> +		"retry:						\n"
+>> +		"	ldxr %w[val], %[lock]			\n"
+>> +		"	cmp %w[tid], %w[val]			\n"
+>> +		"	bne __futex_list64_try_unlock_cs_end	\n"
 > 
-> It would be good if the comment could refer to the functions with the
-> critical sections, e.g.
+> The 'bne' here should be 'b.ne'. IIUC assemblers accept the former by
+> historical accident, and 'b.<cond>' is the architecturally defined
+> mnemonic.
 > 
-> 	/*
-> 	 * In the asm for __vdso_futex_robust_list{64,32}_try_unlock(), ...
-> 	 */
+> As general thing, we format assembly with a tab between the instruction
+> and first operand, so the above should be:
 > 
-> That way it will be easier for folk to cross-reference this later.
+> | 	"	prfm	pstl1strm, %[lock]			\n"
+> | 	"retry:							\n"
+> | 	"	ldxr	%w[val], %[lock]			\n"
+> | 	"	cmp	%w[tid], %w[val]			\n"
+> | 	"	b.ne	__futex_list64_try_unlock_cs_end	\n"
 > 
->> +	return (regs->user_regs.regs[3]) ? NULL : (void __user *) regs->user_regs.regs[2];
+>> +		"	stlxr %w[result], wzr, %[lock]		\n"
+>> +		"__futex_list64_try_unlock_cs_start:		\n"
+>> +		"	cbnz %w[result], retry			\n"
+>> +		"__futex_list64_try_unlock_cs_success:		\n"
+>> +		"	str xzr, %[pop_reg]			\n"
+>> +		"__futex_list64_try_unlock_cs_end:		\n"
+>> +
+>> +		: [val] "=&r" (val), [result] "=&r" (result_reg), [pop_reg] "+Q" (*pop_reg)
+>> +		: [tid] "r" (tid), [lock] "Q" (*lock)
+>> +		: "cc", "memory"
+>> +	);
 > 
-> You can use 'regs->regs[n]' in place of 'regs->user_regs.regs[n]' here,
-> which will make this a bit shorter and easier to read.
+> As a general note, for assembly constaints, please put each constraint
+> on its own line, e.g.
 > 
-> I reckon this might also be clearer as:
+> 	: [val] "=&r" (val),
+> 	  [result] "=&r" (result_reg),
+> 	  [pop_reg] "+Q" (*pop_reg)
+> 	: [tid] "r" (tid),
+> 	  [lock] "Q" (*lock)
+> 	: "cc", "memory"
 > 
-> | 	if (regs->regs[3])
-> | 		return NULL;
-> | 	
-> | 	return (void __user *)regs->regs[2];
+> That formatting makes it much easier to read each constraint
+> individually, and it makes it easier to review changes to individual
+> constaints.
 > 
-> Do we need a __force cast here, or is sparse happy without that?
+> Generally, for asm we have a preferred style:
+> 
+> 	asm volatile(
+> 	"	// string starts aligned with 'asm'	\n"
+> 	"	// with 1 tab indend within that.	\n"
+> 	"						\n"
+> 	"	insn	operand1, operand2		\n"
+> 	"label:						\n"
+> 	"	insn	operand1, operand2		\n"
+> 	: [output1] "=r" (...),
+> 	  [output2] "=r" (...)
+> 	: [input1] "r" (...).
+> 	  [input2] "r" (...)
+> 	: "clobbers"
+> 	);
+> 
+> I see a couple of problems with the constraints as-is.
+> 
+> Firstly, the constraints for [pop_reg] doesn't guarantee that x2 is
+> used. The "+Q" constraint takes a memory operand (in this case the
+> location pointed to by 'pop_reg', and limits the addressing mode to a
+> single base register with no offset. The operand is the memroy location,
+> not the register holding the memory location, so this constraint won't
+> necessarily use x2. Unless 'pop_reg' itself is passed into a register
+> constraint, the compiler might not ensure that 'x2' is populated.
+> 
+> For example:
+> 
+> | [mark@gravadlaks:~/tests/asm-operands-q-reg]% cat test.c
+> | unsigned long foo(unsigned long *ptr)
+> | {
+> |         register unsigned long *ptr_reg asm("x2") = ptr;
+> |         unsigned long val;
+> |
+> |         asm volatile(
+> |         "       ldr     %[val], %[qptr]\n"
+> |         : [val] "=&r" (val)
+> |         : [qptr] "Q" (*ptr_reg)
+> |         );
+> |
+> |         return val;
+> | }
+> | [mark@gravadlaks:~/tests/asm-operands-q-reg]% usekorg 16.2.0 aarch64-linux-gcc -c test.c -O2
+> | [mark@gravadlaks:~/tests/asm-operands-q-reg]% usekorg 16.2.0 aarch64-linux-objdump -d test.o
+> |
+> | test.o:     file format elf64-littleaarch64
+> |
+> |
+> | Disassembly of section .text:
+> |
+> | 0000000000000000 <foo>:
+> |    0:   f9400001        ldr     x1, [x0]
+> |    4:   aa0103e0        mov     x0, x1
+> |    8:   d65f03c0        ret
+> 
+> We will need an "r" input constraint for 'pop_reg' to ensure that x2 is
+> allocated. Either in addition to an "=Q" output constraint for the
+> actual memory write, or we rely on the memory clobber to hazaard against
+> other memory accesses.
+> 
+> Secondly, the "Q" input constaint for 'lock' looks inaccurate, given
+> that we both read and write to 'lock'. Either that should be a "+Q"
+> output constraint, or we rely on the memory clobber to hazard against
+> other memory accesses.
+> 
 
-I've just re-compiled those patches with C=1, and didn't find any 
-warning for this.
+Thank you very much Mark, that is a lot of good information about 
+writing arm64 asm!
 
+If I understood correctly, the correct approach here would be to use 
+pop_reg as an input operand, making sure that we store the address hold 
+by *pop on x2 register right? So something along the lines:
+
+__u32 __vdso_futex_robust_list64_try_unlock(__u32 *lock, __u32 tid, 
+__u64 *pop)
+{
+	register __u64 pop_reg asm("x2") = (__u64) pop;
+
+...
+
+		"	str 	xzr, [%x[pop_reg]]		\n"
+...
+
+		: [val] "=&r" (val),
+		  [result] "=&r" (result_reg),
+		  [lock] "+Q" (*lock)
+		: [tid] "r" (tid),
+		  [pop_reg] "r" (pop_reg)
+		: "cc", "memory"
+
+Does that looks right?
+
+Thanks again for the help
+
+
+> Mark.
 > 
+>> +
+>> +	return val;
 >> +}
->> +
->> +#define arch_futex_robust_unlock_get_pop(regs) \
->> +	arm64_futex_robust_unlock_get_pop(regs)
->> +
->> +#endif /* _ASM_ARM64_FUTEX_ROBUST_H */
->> diff --git a/arch/arm64/kernel/vdso.c b/arch/arm64/kernel/vdso.c
->> index 592dd8668de4..3ef331b5b240 100644
->> --- a/arch/arm64/kernel/vdso.c
->> +++ b/arch/arm64/kernel/vdso.c
->> @@ -11,6 +11,7 @@
->>   #include <linux/clocksource.h>
->>   #include <linux/elf.h>
->>   #include <linux/err.h>
->> +#include <linux/futex.h>
->>   #include <linux/errno.h>
->>   #include <linux/gfp.h>
->>   #include <linux/kernel.h>
->> @@ -57,6 +58,22 @@ static struct vdso_abi_info vdso_info[] __ro_after_init = {
->>   #endif /* CONFIG_COMPAT_VDSO */
->>   };
->>   
->> +#ifdef CONFIG_FUTEX_ROBUST_UNLOCK
->> +static inline void __vdso_futex_update_ips(struct mm_struct *mm, bool is_32bit, void *startp,
->> +					   void *endp)
->> +{
->> +	unsigned long start = (unsigned long) startp;
->> +	unsigned long end = (unsigned long) endp;
-> 
-> Nit: there shouldn't be a space between the cast and the expression:
-> 
-> 	unsigned long start = (unsigned long)startp;
-> 	unsigned long end = (unsigned long)endp;
-> 
->> +	struct futex_mm_data *fd = &mm->futex;
->> +
->> +	futex_set_vdso_cs_range(fd, is_32bit ? 1 : 0, start, end, is_32bit);
-> 
-> On arm64 (and every architecture other than x86, AFAICT), the
-> native/compat VDSOs are mutually exclusive, and a single mm can only
-> have one of them.
-> 
-> Given that, I think we can make this:
-> 
-> 	futex_set_vdso_cs_range(fd, 0, start, end, is_32bit);
-> 
-> That way we'll avoid confusing/bikesheeding over 'is_32bit ? 1 : 0',
-> without having to add mnemnonics for the native/compat CS indices.
-
-Perfect, I will simplify that then.
-
-> 
-> That said, what's the plan for 32-bit robust lists on a 64-bit host?
-> IIUC you wanted that for emulation, and AFAICT you have no way to call
-> __vdso_futex_robust_list32_try_unlock() from a native task.
-
-Yes, the plan is to be able to use the 32-bit robust lists on a 64-bit 
-hosts, with a new interface (set/get_robust_list2[1]). That means that a 
-64-bit kernel will be able to process an user robust list made of 32-bit 
-pointers. So the emulator will call set_robust_list2() one time for it's 
-own list, and another time for the emulated app list.
-
-However, what we have agreed for the moment is that, while there's no 
-support for that, we will not expose the 32-bit functions yet [2]:
-
-"...that requires also the ability to register a 32-bit robust list for 
-a 64-bit process, which is not supported right now. So no, we are not 
-exposing something half functional..."
-
-So yes, in the near future I will need to expose 
-__vdso_futex_robust_list32_try_unlock() to 64-bit apps as well, to be 
-able to do this handling with 32-bit pointers, but we are not doing it 
-right now.
-
-[1] 
-https://lore.kernel.org/lkml/20251122-tonyk-robust_futex-v6-0-05fea005a0fd@igalia.com/
-
-[2] https://lore.kernel.org/lkml/878q9vwote.ffs@tglx/
+>>
+>> -- 
+>> 2.55.0
+>>
 
 
