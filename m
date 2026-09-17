@@ -4,69 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70A3FC88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 10:19:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78BBCC88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 10:20:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uDXtF86VK1gu27NEV85R0MtRyEx8CrnTliqhkEYUPmM=; b=LIdVHhDL03M/I0zciDkUxeVQNu
-	+DJf+o0xTCCXd8E1ZN3AAmWEQFkkumkmglCstR3zmDcQ+HJddMzxC1LRAT6V6XWz3bkjcD+kH4SZ1
-	dvDlIGljLKJtP/5RKlX4eC1IZR/PZLFJLfGMCYn9kq84iYa1PMxhIxMkxQB76eLob5bC7Q1f39D0I
-	qI9ROvPTRpPLNH4ju2HVES+Soqty9mlbTt3Z4HB1zgF+tw5EatsPup8xI+8LSqlqRdRtPLP9wgtXy
-	rS34bWtpgLbcbfK/rX3ZtgUTpB22Ewrlv+2gGP7wVHuvSv9iSqooMNVfn1Jkp3F83Bx3zunbif8AY
-	5dzM7q2A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jnTw1ry++C6kkEUqeK5mZKwrgCH94f2NvHop25VWd5I=; b=N0BC0zViEGFNtkKyEuruRzFOF6
+	eK6UU6POaMmNTJnFvNumh3TgFBdyYGAdFrTgm00CDeskzey/6NU2x6D4p0yZ4TBcIV3e3nIWbJHeB
+	Isa5NALxNAOvgYDJaQ1TWHiUQFW5hUGgwJTbIF/xp3FPlyA1n+fMgsvEt3ClUWXZtjNm5ysnz6Lat
+	0qxIlxAC9xBWEnLxvI99BhhwgnpqOiRwEWstiDq0orwKaXyNKE1sv3k3mjUoXCjXY9Xl4XswvDuWs
+	Q+HQFCoQGh6tCcbPtLqYi0VYFAzZeUCdMjv6Zw/SOGDeDysPwCU+3vucgNiaoY/7OaDDH1CNGN9AV
+	LSSX2Hog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x79D0-0000000B5Lk-1U1m;
-	Thu, 17 Sep 2026 10:19:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x79E9-0000000B5UJ-2ARb;
+	Thu, 17 Sep 2026 10:20:25 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x79Cz-0000000B5Ld-1WLo
+	id 1x79E5-0000000B5St-0kbE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 10:19:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 80661600D4;
-	Thu, 17 Sep 2026 10:19:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 152A51F000FF;
-	Thu, 17 Sep 2026 10:19:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789640352;
-	bh=uDXtF86VK1gu27NEV85R0MtRyEx8CrnTliqhkEYUPmM=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=OjTpgD3TK3YALyveSRIcZAuTFmzjC4x4yu0+yJKGV1QTvERP2/ksnYAQhcHB7xhI1
-	 bM6pgBptqq+635wj35ZiQY2a+d/d9Jhrab884NXyPYVAQQwJ/BzB+RJgvwFr41fxtR
-	 kAg5LNXdtcHodwUVKbFWcxoLOvVoeyi5JHbOynw4pr8kEl+c1jeVmUHSC1XKv2vFjg
-	 1j0CbZCcZADxy5HnOnvtprq6gDqguuW5aSAFnojR/wDVtF5GQh/Fpv1UEmNU6j3SWF
-	 vXUc+kSkOfBXLOcUMQTGMMw5VJAhtStindIACkMj16wjBioGcb4qtsKyrR22KlVCwO
-	 nFeRPG9YXCGKQ==
-From: Mark Brown <broonie@kernel.org>
-To: Itai Handler <itai.handler@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-spi@vger.kernel.org, michal.simek@amd.com, stable@vger.kernel.org
-In-Reply-To: <20260910174832.873352-1-itai.handler@gmail.com>
-References: <20260910174832.873352-1-itai.handler@gmail.com>
-Subject: Re: [PATCH v2] spi: spi-zynqmp-gqspi: stop the controller on
- shutdown
-Message-Id: <178957983642.100121.2784046911009039548.b4-ty@b4>
-Date: Wed, 16 Sep 2026 18:30:36 +0100
+	Thu, 17 Sep 2026 10:20:22 +0000
+Received: from francesco-nb.. (xcpe-178-82-167-143.dyn.res.sunrise.net [178.82.167.143])
+	by mail11.truemail.it (Postfix) with ESMTPA id CD76E22814;
+	Thu, 17 Sep 2026 12:20:18 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1789640419;
+	bh=jnTw1ry++C6kkEUqeK5mZKwrgCH94f2NvHop25VWd5I=; h=From:To:Subject;
+	b=gqF3j6uKvuytPqHp60/HVrumoniVz8lSmy0zlnm19In44ZM0soW6vIxIh/Can/h1t
+	 OxjmEQzoeW34HAFOmso4ggxaqqCBUFDPI9AVW74TtHo4OPM//lTD0GrBS3jXBPV7Bg
+	 tbKKPYaQHngSn1eJ93wKsWITqpQ/1pOgcRQYdjEqduOc7teD5mcv9aHgFLVPoEhE7e
+	 vpwaioyyIvNlR7bAeKPbTf1jrIRVaYy43YngkRI+mUQTOb/qSkN1IrYYHoQgIQMK4T
+	 WV/QiDcHWhQbEf30lEKc6VmaK+tllYfK+HFYjkyey9SZI44pVtWse+8dJA2mlsZd4E
+	 17W7Z5LBSsxog==
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>
+Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2 0/2] arm64: dts: freescale: Add Toradex OSM iMX95
+Date: Thu, 17 Sep 2026 12:20:07 +0200
+Message-ID: <20260917102011.69071-1-francesco@dolcini.it>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1122; i=broonie@kernel.org;
- h=from:subject:message-id; bh=sYOBPCQZCZz6ppPtm4bDuvKorzgrYBsny7NWNCPiBkw=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqq76c3YimaI4GlY4gTxTHdyj0qP0RsZYlS2kuA
- K2/+wEMG6qJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaqu+nAAKCRAk1otyXVSH
- 0MtAB/9xDXzGPp+XGSGH3Re/gsQvAACubZO5NHSS8ey5YdEa1OW4Pj5RU7pN+fbOUW/Zqq+lQa1
- JwDAf27dyCeANWu6+QIkjQgCUHEThXGYHlC/724BN26tgLaY1oXv1dIM54F9A1fuCaDXEmhUNkG
- 6gaNT6Xp0MmWWLGzySuav6+pthg6SSsjCAAiMa3gVlWP0+1V9DI6Ru/q9Gy1zmC9YwOPWmTfngf
- w9bZsbdxbGGxqYv5whRTHuIS8TNgb2jJC5sAjuIL/fLFlaPg6SjIzfQffpBw3/DOZxN1iMTAOn8
- tEoZFW+BMe2fwlsG9zj9vhI2hm/Gs93yMfvwDXraNascwWHh
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260917_032021_383225_E9A7A5EA 
+X-CRM114-Status: UNSURE (   8.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,35 +77,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 10 Sep 2026 20:48:32 +0300, Itai Handler wrote:
-> spi: spi-zynqmp-gqspi: stop the controller on shutdown
+From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-Applied to
+This patch series adds support for the Toradex OSM iMX95 SoM and its OSM
+Development Board.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.3
+The Toradex OSM iMX95 is a SoM compliant with the OSM V1.2 specification
+from SGET, based on the NXP i.MX95 SoC and available in Size L
+(45x45 mm).
 
-Thanks!
+Link: https://www.toradex.com/computer-on-modules/osm-arm-family/nxp-imx95
+Link: https://www.toradex.com/products/carrier-board/osm-development-board
 
-[1/1] spi: spi-zynqmp-gqspi: stop the controller on shutdown
-      https://git.kernel.org/broonie/spi/c/e922bad8b2d5
+v2: removed unused pinctrl_pcie_wake from PCIe nodes
+v1: https://lore.kernel.org/all/20260917094217.59508-1-francesco@dolcini.it/
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+Antoine Gouby (2):
+  dt-bindings: arm: fsl: Add Toradex OSM iMX95
+  arm64: dts: freescale: Add Toradex OSM iMX95
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+ .../devicetree/bindings/arm/fsl.yaml          |    6 +
+ arch/arm64/boot/dts/freescale/Makefile        |    1 +
+ .../dts/freescale/imx95-toradex-osm-dev.dts   |  404 +++++++
+ .../boot/dts/freescale/imx95-toradex-osm.dtsi | 1032 +++++++++++++++++
+ 4 files changed, 1443 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx95-toradex-osm-dev.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/imx95-toradex-osm.dtsi
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
+-- 
+2.47.3
 
 
