@@ -4,73 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2760C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 14:41:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76179C982D6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 14:44:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AcGlwILbAigYPbHp2UpTCzPJPin2iJgiGFZE+fP0U6A=; b=1Hb/irNl8uQY6zVKc5bWKX+11P
-	YjXgacDmTPVCITNtGOt2IMkeVdYzjzUyMLcHWiM16bnZrsPtlTua8OWOBzZnLqEO/JUM5erNoK1bb
-	WXYGD87vYdzKiwYOVtVcgB0umMDYqFaT7wqarffvRdiu2+DlRZ1m8pjPDTjMS1Ty7I2v5yyzLYQHS
-	yP4bRryzmg9huHhXw53KtPqsuUOKQiwZQRHMowaYeFfdCPfKO2Sa0ofx+CmtYL10voFpsAth9UHTi
-	9WKs3hJK+OkA23O5GzbuHWID4XDNHJ03AS03qTLgl5rry0FlyZGfWwPRZUNgEf25jTm1aNSHJHPul
-	eNr/hRIQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HrDk21UY7OLFOZBR0vjrLvOMR24vY5+kMD8RCheOxbI=; b=R8mKjMYf4LXYpgS0e3I4QFXCgk
+	9ubsre+VZPP2mcCL6AhdFY6C9gcvcmQvMuFFMzA54FPs8BwNuYi6CyIXkkp7WDTfRa87nAGlwul4i
+	nn7Dqm9L0xH0JOm6L8n4cCpHik8L0rgLqgDkmx24GIDVypYlxLNB1xSuZFGAysf7NzGaHnri7Rgrb
+	exYNSoqVUJRSwcjc+ivAn4RYRQWuJ1N8E8/hrn/r5Na8OSNj9NjrHDMiLjf/FAF92ZrZspt9GDmeU
+	rQBxpk/sXhP12omgH63IRIrcS5as5iZEW9GIJogRjty6AVBMURHE3zkH/NoQmAeJaHjTJ0O3muuJ1
+	s8lTJO+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7DIt-0000000BZ9a-23Ck;
-	Thu, 17 Sep 2026 14:41:35 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1x7DLL-0000000BZf5-3bsW;
+	Thu, 17 Sep 2026 14:44:07 +0000
+Received: from mail-pz2-x10.google.com ([2607:f8b0:4864:3b::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7DIq-0000000BZ8Z-0Yg0
+	id 1x7DLJ-0000000BZeK-0DOR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 14:41:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Content-Transfer-Encoding:Content-Type:From:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:From:Reply-To;
-	bh=AcGlwILbAigYPbHp2UpTCzPJPin2iJgiGFZE+fP0U6A=; b=KL9WhOlAUJRZ5QgUzNtZiS8IlH
-	pkxe8NN+TZJcfiAZ5s+JwvNtO+7Ez7pcbfVvCqKU/7JgCTILNHEiKwicbxaW0ivRJomjNkyAkLCXD
-	aXrAYB1ZO5XaFp2bW4wK0s4DYGRZnyAJcdCV7Zyrw5ZvWVjpA0TefVpzNB9OX01R9pciJVeiVLCaZ
-	0hkZEkTT4t2ZBzL2i+Z7o66ud062Czqazrrf8RKuUgQjfBK+DU28gy8hvFL8MZ9/gYtXh4yXt06Pj
-	MuKxucN0l1CdGykw2Up7LWD73GQ35lBs0Xgvpsw8L7YzJzgEorjCui9h3xvRexJ78+aLTqQzzISpt
-	F2NpTMWA==;
-Received: from [177.172.123.214] (helo=[192.168.15.100])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
-	id 1x7DIa-003U2s-A4; Thu, 17 Sep 2026 16:41:16 +0200
-Message-ID: <23596300-b89e-4cff-a6ce-e7bf54e90c05@igalia.com>
-Date: Thu, 17 Sep 2026 11:41:15 -0300
+	Thu, 17 Sep 2026 14:44:06 +0000
+Received: by mail-pz2-x10.google.com with SMTP id d2e1a72fcca58-85469d249c4so795577b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 07:44:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789656244; x=1790261044; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=HrDk21UY7OLFOZBR0vjrLvOMR24vY5+kMD8RCheOxbI=;
+        b=QcPO+Y67x/+Lo9mf4/Ef/50iuXEjpycG4RaArYZipcIWQ/9mQrVY/+tBhtMwNp6bb5
+         UgQEgldCZY743InklLELo4fCxQjhwpSYvEq+nRbmFJr9Lygumcdu4UqdqG696Wv8Zy1a
+         Gyf/OumJR7GjxX0aR1LyO+CbKWUzfalWQmvGyw/AXBWAxpOQFVaWaHvU4htuJPH1iozX
+         7Lydmxvqj34h1p2qhk3sNyaJKhtKwd0RWwYHJBaMll8Di6+CXtiybDBKpii5nhZu9tS1
+         gYFlQeSyKWhpplFXm+pO0bLBRW+cvolBBk5hFIBJKsLJmIpliFj9n1lDWdixQlP+SjBn
+         jWsw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789656244; x=1790261044;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=HrDk21UY7OLFOZBR0vjrLvOMR24vY5+kMD8RCheOxbI=;
+        b=VTR5q9+CVATyjn9u0SP/4+2p3esdEqKodtnO19ylhASaRVjS9NqNdIbhVYIRERtQcF
+         9gCdphbukWdcx/p2ICBzd1BafGK2PC8t+wQv10FLMvJoxtXuDtEBmQULr+ImqvtpkNrB
+         JhXPA3VFggYOutcy7Mo57UssMMeubmLEcdKufIL0Yl1zsWJMrAHN9Ph/3m4isEI7G9d6
+         v/oh7SX4bz6UpiOOS/G3WsC5CQ5vssub3rLhASvUcMQwQupsr392H0ZeAMsBoZnKWtUI
+         OWvx5T9YQBqkfeGeSiupVwu9X/q0uHUgg6XM5/LWsBGTf+ab1JJ/Fj7kionB9IdTi7j6
+         +hqA==
+X-Forwarded-Encrypted: i=1; AKwUvBx7sreqI0Kr9V723/Y3jwOkrz3o4sJrGa0mGmKPnZ+rY0lqSYymXxGc2yo3py2CSCyEEJR1FLUnvlqiXI5CvZSe@lists.infradead.org
+X-Gm-Message-State: AFuF++mApPWo3EcNZHHUJdptM1vGvjgwR2XRfE6ZFLiLOy9PzdDlJ/X/
+	oGpbS89EuuteYGrsM6hOFdo9ttjvURZN9MB4HWM/MEocqT099Oo4BHFVyqjLK/3kwHA=
+X-Gm-Gg: AYBFou1me9NHrAmbNZwGajTaQQFV7Quc5yQ5t5d8WSLPmMvh+FIn0ulAMGE5Z0OMXba
+	u8IvKxW2IEom3lK+rsk0PE2nWduvSQ+ZxnH1LrOaCga+lUQgeEPuC1iCYQtqk8SE9o2qwmK+6sn
+	r4W82dAbigew2/Ir0pxub/AH0RUX2fZepkCt2VAPW8y2F8ORJVL1KorJQuducl6y7hWWL58rkyy
+	8BgqD5fL4n1dA648IQ4rP/CxC9evHzQDZ1Xp4BHSuVhd+9zPgmzbekJOguXcKTMEc7ftA4FHH0D
+	XX65EhYG0/y6+1Qlcnvtuzxp4b0whOK78s2/W6BZggb97HdtH5JCEMFnXP0a7Sd+VmZeyVmVFQO
+	fo4DNcWF5vdC7EI2ZOITJti35gOHdXOGhPtJNk9/OnAcOiOBK4cNvNRMOPbjjnUwg0S0sNgAQ/i
+	9NPk6jtvH6IgHe71jzYQgOUi5WbO5oJpRVOZqPzf9DwQQpb6nse6G9gJrM6vvg2N3WH4RFEMTol
+	4v1zN6lv/ZxvhkCYoGB8ILw8wr0iH5NhsEWAYPZuQ==
+X-Received: by 2002:a05:6a00:1887:b0:85f:1492:61a8 with SMTP id d2e1a72fcca58-87236fd6341mr14621831b3a.7.1789656243473;
+        Thu, 17 Sep 2026 07:44:03 -0700 (PDT)
+Received: from localhost.localdomain (59-127-145-64.hinet-ip.hinet.net. [59.127.145.64])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-87201d1b275sm2962034b3a.51.2026.09.17.07.44.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 17 Sep 2026 07:44:03 -0700 (PDT)
+From: Zhi-Jun You <hujy652@gmail.com>
+To: Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Sujuan Chen <sujuan.chen@mediatek.com>,
+	Rex.Lu@mediatek.com,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Zhi-Jun You <hujy652@gmail.com>
+Subject: [PATCH net v4 1/3] net: ethernet: mtk_wed: skip ring reset in wdma_tx_ring_setup for WED v3
+Date: Thu, 17 Sep 2026 22:43:33 +0800
+Message-ID: <20260917144335.19466-1-hujy652@gmail.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 4/4] arm64: vdso32: Implement
- __vdso_futex_robust_try_unlock()
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- Peter Zijlstra <peterz@infradead.org>, Florian Weimer <fweimer@redhat.com>,
- Darren Hart <dvhart@infradead.org>, Ingo Molnar <mingo@kernel.org>,
- Davidlohr Bueso <dave@stgolabs.net>, Arnd Bergmann <arnd@arndb.de>,
- Uros Bizjak <ubizjak@gmail.com>, =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?=
- <linux@weissschuh.net>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
- kernel-dev@igalia.com
-References: <20260821-tonyk-robust_arm-v8-0-077707b6f1c7@igalia.com>
- <20260821-tonyk-robust_arm-v8-4-077707b6f1c7@igalia.com>
- <aqqngEKC_CsrS62n@J2N7QTR9R3>
- <d0c5ada8-929f-4d39-9f8e-32860fa5b853@igalia.com>
- <aqvGEiZEtZFEWvjL@J2N7QTR9R3>
-Content-Language: en-US
-From: =?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-In-Reply-To: <aqvGEiZEtZFEWvjL@J2N7QTR9R3>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_074132_181858_252DEFFE 
-X-CRM114-Status: GOOD (  11.91  )
+X-CRM114-CacheID: sfid-20260917_074405_092708_8B90CF65 
+X-CRM114-Status: GOOD (  13.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,37 +109,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Em 17/09/2026 07:50, Mark Rutland escreveu:
-> On Wed, Sep 16, 2026 at 10:11:01PM -0300, André Almeida wrote:
->> Em 16/09/2026 11:28, Mark Rutland escreveu:
->>> On Fri, Aug 21, 2026 at 06:50:45PM -0300, André Almeida wrote:
->>>> Based on aarch64 implementation, provide a 32 bit entry point for
->>>> this vDSO.
->>>>
->>>> In order to keep compatibility with arm64_futex_robust_unlock_get_pop(),
->>>> make sure to store the pop address at r2 and the compare result value
->>>> at r3.
->>>
->>> Before we add this to the compat vdso, we'll need to implement this on
->>> arch/arm/.
->>>
->>> Otherwise, my comments on the patch for the native vdso functions apply
->>> here too.
->>
->> Right, and the compat entry point at arch/arm64/ would point to the
->> __vdso_futex_robust_list32_try_unlock implementation at arch/arm/?
-> 
-> So far we've had arm64 provide its own copy (which e.g. might use
-> sequences relying on ARMv8+ instructions), so I think we'd do the same
-> here.
-> 
-> The key thing is that 32-bit tasks on arm64 should see the same ABI as
-> native tasks on 32-bit arm. As there's a risk that 32-bit arm might have
-> some ABI quirks (e.g. due to older processors), we don't want to enable
-> features for compat tasks on arm64 before that's been implemented on
-> 32-bit arm.
-Gotcha, makes perfect sense.
+Currently WED v3 tx wdma ring, ring reset happens in a separate code
+block unconditionally.
 
-Thanks!
-	André
+Moreover, v3 has double the size of wdma_desc and has different init
+values. mtk_wed_ring_reset doens't deal with that and would corrupt the
+wdma_desc.
+
+Fix this by skipping mtk_wed_ring_reset in mtk_wdma_tx_ring_setup for
+WED v3.
+
+Fixes: e2f64db13aa1 ("net: ethernet: mtk_wed: introduce WED support for MT7988")
+Signed-off-by: Zhi-Jun You <hujy652@gmail.com>
+---
+Changes in v4:
+- no change
+- Link to v3: https://lore.kernel.org/all/20260724172040.1653-1-hujy652@gmail.com/
+Changes in v3:
+- new patch addressing WED v3 ring reset issue raised by Sashiko
+- Link to the review: https://lore.kernel.org/netdev/20260630144831.1109-1-hujy652@gmail.com/
+---
+ drivers/net/ethernet/mediatek/mtk_wed.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/net/ethernet/mediatek/mtk_wed.c b/drivers/net/ethernet/mediatek/mtk_wed.c
+index 53d3b7e00e1c..d55042ccaff1 100644
+--- a/drivers/net/ethernet/mediatek/mtk_wed.c
++++ b/drivers/net/ethernet/mediatek/mtk_wed.c
+@@ -1938,7 +1938,7 @@ mtk_wed_wdma_tx_ring_setup(struct mtk_wed_device *dev, int idx, int size,
+ 	wdma_w32(dev, MTK_WDMA_RING_TX(idx) + MTK_WED_RING_OFS_CPU_IDX, 0);
+ 	wdma_w32(dev, MTK_WDMA_RING_TX(idx) + MTK_WED_RING_OFS_DMA_IDX, 0);
+ 
+-	if (reset)
++	if (!mtk_wed_is_v3_or_greater(dev->hw) && reset)
+ 		mtk_wed_ring_reset(wdma, MTK_WED_WDMA_RING_SIZE, true);
+ 
+ 	if (!idx)  {
+-- 
+2.47.3
+
 
