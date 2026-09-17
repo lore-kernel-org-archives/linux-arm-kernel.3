@@ -4,70 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03991C982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 09:39:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 897DDC982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 09:42:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xL8D+x8zSShAzS42oaIFDP2dOoseL67pe2y72te8lnk=; b=DgxoUYRPVmEAwuYbEFqodVZ7cq
-	hMb2HhNrCxtmkhRSgfaKA+aSFE8ltUH6RvJ5HsENa9581/cu3B5Pu2KvqcTwHNOpIw/4rxjkkljen
-	1HXayZNjabWjYO4gOBMj9YlMz8VmufYAdLibhuX+dOwUrn1q9CJUIQiHcs7XRC9vUzQec09wEnfvE
-	uxTuySY1gF36pNWguVRae7CRwF6/60G4dGE83LsL+xvHySxsEwXh2NgFlucAJFJkbI7wRgXhgQzTC
-	OZUsWNjDptq9Q645cF/mTJQwKYRdpYCR+d3Clfc9KNA8JeV2lO5y9NGksN1GHvn6ewMqMsolrErMo
-	Wqyr+KoA==;
+	bh=GrKwQSnBM5TlJwrXeIy0ESWxGzkPY7jGMX9Hplkjm+I=; b=W4phaMekgu+yN50JTrH89VI4Ne
+	5eZ9Zy7V2FcnKHQegVwpiRDb8dR7Ark36LBJmNvszASgQxD7DXHJB4dIBuH/GfYenZAJWfGScjWFL
+	Tlhwf5V+s+SiwhFgDodFe6rkFdUrF2nF4LC/bfeVCoJANp1HwN/fiDXyEZrt/e9u5sidr1iQMsJIa
+	6WuN4mq3Hr3xWlK424KxaP1BOnQtRuJfQv+n7z05qPQoKu4S2op37KsBamKTW8hW5US+zlAiq3Ymj
+	q7mRAIcmXlF6o5zMo4j4ZnaeKGu7C+oDGElrrQKqwzrBUkkiSKBFgku6dpxoxSRg0uJTYawT633QY
+	LimhENJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x78aX-0000000B1WX-1HNw;
-	Thu, 17 Sep 2026 09:39:29 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1x78dW-0000000B1tF-3yOo;
+	Thu, 17 Sep 2026 09:42:34 +0000
+Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x78aT-0000000B1VQ-3fgM;
-	Thu, 17 Sep 2026 09:39:27 +0000
-Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
-	by APP-05 (Coremail) with SMTP id zQCowADH+EJLtatqTtJ9CA--.40665S2;
-	Thu, 17 Sep 2026 17:39:23 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: angelogioacchino.delregno@collabora.com
-Cc: bibby.hsieh@mediatek.com,
-	ck.hu@mediatek.com,
-	jassisinghbrar@gmail.com,
-	linux-arm-kernel@lists.infradead.org,
+	id 1x78dT-0000000B1rZ-0qLG
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Sep 2026 09:42:33 +0000
+Received: from francesco-nb.. (xcpe-178-82-167-143.dyn.res.sunrise.net [178.82.167.143])
+	by mail11.truemail.it (Postfix) with ESMTPA id AD9B11F8D0;
+	Thu, 17 Sep 2026 11:42:23 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1789638144;
+	bh=GrKwQSnBM5TlJwrXeIy0ESWxGzkPY7jGMX9Hplkjm+I=; h=From:To:Subject;
+	b=EEE1jeZrGpYBbkm7jBaZiYUVn3vsNzRXoUuZhAf67BVk3zc5f9yRT5a8E/Y2PUF/c
+	 he/WR0tgGu6vRr6nutCipM6oltnj0DBJGkCJrWiyKJUdCPNDLZJmBc0nUaT5PKhJwi
+	 gVDukL/i1IFT7q1lcdTTs++m54HtxP9w9geGUHGYbYzhpJaEGnPaisMIoSID4DU1Dm
+	 KiKLuDXtbTJkPWU4duiRl/tO+bgAQrr7aYqW8nAp1SrmH4V/1duZ5+GVwfTkpuBfqX
+	 Vm5Kw+9dztp+nvB6kk0H3WiOybZcPIX12ZTfUIzKANJ7wlOBKb2OtWQ63m6RmdfseZ
+	 JJvaEhK/jFNZg==
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>
+Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	matthias.bgg@gmail.com,
-	Wentao Liang <vulab@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH] mailbox: mtk-cmdq: Fix runtime PM leak in cmdq_mbox_flush()
-Date: Thu, 17 Sep 2026 09:39:23 +0000
-Message-Id: <20260917093923.2145007-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v1 0/2] arm64: dts: freescale: Add Toradex OSM iMX95
+Date: Thu, 17 Sep 2026 11:42:13 +0200
+Message-ID: <20260917094217.59508-1-francesco@dolcini.it>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowADH+EJLtatqTtJ9CA--.40665S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7tF4UCF48CryUZF15Cr13XFb_yoW8XFy3pF
-	Wjqa43GFW8XF47ZF1qk3Z3XFyaka40qrWDA3ySgas5Zwn8J3WrXa45K3sYqF1kCr15tFWU
-	J3s7t347CF1qkFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9E1xkIjI8I6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AE
-	w4v_Jr0_Jr4l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2
-	IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxVWxJVW8Jr1l84ACjcxK6I8E
-	87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c
-	8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jrv_
-	JF1lYx0Ex4A2jsIE14v26r4UJVWxJr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7V
-	AKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kIc2xKxwCY1x02
-	62kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCF04k20xvE74AGY7Cv6cx26r48ZrWUJr
-	1UMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xv
-	wVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjx
-	v20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20E
-	Y4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Cr0_Gr1UMIIF0xvEx4A2jsIEc7CjxV
-	AFwI0_GcCE3sUvcSsGvfC2KfnxnUUI43ZEXa7VU1eWlPUUUUU==
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiCRUNA2qrq00tEQAAsJ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_023926_316394_FE38743C 
-X-CRM114-Status: GOOD (  10.10  )
+X-CRM114-CacheID: sfid-20260917_024232_132471_9368A5DD 
+X-CRM114-Status: UNSURE (   7.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,47 +77,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pm_runtime_get_sync() leaves the runtime PM usage counter incremented
-even when it fails, but cmdq_mbox_flush() returns the error without
-dropping it.  The same happens when the GCE thread does not drain in
-time and the function bails out with -EFAULT.
+From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-Undo the reference on both error paths.
+This patch series adds support for the Toradex OSM iMX95 SoM and its OSM
+Development Board.
 
-Fixes: b0524f7c9635 ("mailbox: mediatek: implement flush function")
-Cc: stable@vger.kernel.org
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
----
- drivers/mailbox/mtk-cmdq-mailbox.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+The Toradex OSM iMX95 is a SoM compliant with the OSM V1.2 specification
+from SGET, based on the NXP i.MX95 SoC and available in Size L
+(45x45 mm).
 
-diff --git a/drivers/mailbox/mtk-cmdq-mailbox.c b/drivers/mailbox/mtk-cmdq-mailbox.c
-index eadd340f8fee..07a8c2382c93 100644
---- a/drivers/mailbox/mtk-cmdq-mailbox.c
-+++ b/drivers/mailbox/mtk-cmdq-mailbox.c
-@@ -565,8 +565,10 @@ static int cmdq_mbox_flush(struct mbox_chan *chan, unsigned long timeout)
- 	int ret;
- 
- 	ret = pm_runtime_get_sync(cmdq->mbox.dev);
--	if (ret < 0)
-+	if (ret < 0) {
-+		pm_runtime_put_noidle(cmdq->mbox.dev);
- 		return ret;
-+	}
- 
- 	spin_lock_irqsave(&thread->chan->lock, flags);
- 	if (list_empty(&thread->task_busy_list))
-@@ -603,6 +605,9 @@ static int cmdq_mbox_flush(struct mbox_chan *chan, unsigned long timeout)
- 		dev_err(cmdq->mbox.dev, "Fail to wait GCE thread 0x%x done\n",
- 			(u32)(thread->base - cmdq->base));
- 
-+		pm_runtime_mark_last_busy(cmdq->mbox.dev);
-+		pm_runtime_put_autosuspend(cmdq->mbox.dev);
-+
- 		return -EFAULT;
- 	}
- 	pm_runtime_mark_last_busy(cmdq->mbox.dev);
+Link: https://www.toradex.com/computer-on-modules/osm-arm-family/nxp-imx95
+Link: https://www.toradex.com/products/carrier-board/osm-development-board
+
+Antoine Gouby (2):
+  dt-bindings: arm: fsl: Add Toradex OSM iMX95
+  arm64: dts: freescale: Add Toradex OSM iMX95
+
+ .../devicetree/bindings/arm/fsl.yaml          |    6 +
+ arch/arm64/boot/dts/freescale/Makefile        |    1 +
+ .../dts/freescale/imx95-toradex-osm-dev.dts   |  404 +++++++
+ .../boot/dts/freescale/imx95-toradex-osm.dtsi | 1036 +++++++++++++++++
+ 4 files changed, 1447 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx95-toradex-osm-dev.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/imx95-toradex-osm.dtsi
+
 -- 
-2.34.1
+2.47.3
 
 
