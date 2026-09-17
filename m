@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80441C982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 21:54:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5A25C982D2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 21:54:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=db9kiRUqojTT6icRWrq9tkilEuRiipOUqaP3av78n68=; b=v6qqjprKWLDQU/3LzseHCl/BIe
-	mGKDkqTTi8E2Qqsg4IOM8KBGMfsMJWBJ6mlFoceN4qXN1+KFZA0TiOVUhzQS2D9ozUljuVTHZ4pO5
-	uIQWkrDYHKGmB+0kqzmsPR0paiCjtlGTEUDiHk5v2eo3PxIj1CslGVz+SuLJVdxr+IQlFpglvrtob
-	NdjaPtfA7CedqlcDKKM///+BBWNyK1W+NHte+n0Y8vsAGV7nCtOz5GJMPdkNTSzD/ScjKfbrm+3MJ
-	2VBY9xDA98PM3u4IdSA/1xFhrZ4IConmx+BpEcm7821JWRaPFKD9GZnsmJlbGLe9P7dQqCmyK1MgN
-	aBYVEGtQ==;
+	bh=3ws2khTiEkVn3RET/TZ4kJ8Lw2HegLOZvwO/z1SoMCE=; b=qG2oAtI0JtWtPesGgh5MTibae3
+	s7cTA1LK0f9Bjrpi4psdHl8sX8X5hVoC/uxaNtMzK9GooiPSiFXtV+NBweZeTOXGR3rAyoUuvmT+m
+	z/1KO5gh1m70CUlYcpVUDHTBp+4eZNKoip54yIv+9L97Vm61+cHrFDDEi99XHYfXD8QqDMuapY2ht
+	tIArh3WgUUbOk+YCvbeDSoQ/0rk3rlD7KSE2PzDY5uPD93NntaTUf7IP0viptVu/GfDcVDlfRnxpV
+	fv5gSS/IeOuQdU3q7pW2xXbYQ0//KeH5jnNx/21dyE/dI1BAXyLFlwJSG/SgQ6hD3MxZ3Jpo95Ho8
+	XOnNqj/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7K3b-0000000CbJT-3zX3;
-	Thu, 17 Sep 2026 21:54:15 +0000
+	id 1x7K3n-0000000CbOs-1Mko;
+	Thu, 17 Sep 2026 21:54:27 +0000
 Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7K3T-0000000CbGK-3Jyc
+	id 1x7K3c-0000000CbJL-0phx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 21:54:09 +0000
+	Thu, 17 Sep 2026 21:54:17 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 610271A0952;
-	Thu, 17 Sep 2026 21:54:06 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id A3D791A093E;
+	Thu, 17 Sep 2026 21:54:14 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 3517F5FF03;
-	Thu, 17 Sep 2026 21:54:06 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1C2BD11C7B078;
-	Thu, 17 Sep 2026 23:53:59 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 778515FF03;
+	Thu, 17 Sep 2026 21:54:14 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2D93411C7B08A;
+	Thu, 17 Sep 2026 23:54:09 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1789682044; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1789682052; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=db9kiRUqojTT6icRWrq9tkilEuRiipOUqaP3av78n68=;
-	b=czj1k2vkY9pYJFQe8+ympcPKTYmLGy8XBl1PJrwbWoGxJxaMev1/JoX1LzRAl89+jAkrFh
-	gfjKMLaBO1Meoj0HJqZNpYVvVCxJgTDHFVQ052PGzuU1jYgeLxnKhBSk0KJqU8FKOEjwFS
-	BMBaZciaGHfykuH/8vRyoUpKf3J7ZvkAHjQz/211yRKt1gb5B+wiOaXMzWKCiqiPjOjQ7H
-	etwHJ161PRuVd+MQcNfTzlI+SIikW5aIRi8GLpNVoyEy0RIik2M+Q+CqwIzF/yJp1mSXZ3
-	18LL0L5x7Yuh7yv0T4eqhOJ3OBzwbfYe55jBer3ak+O0ezR3eRDomfEJUKwb7w==
+	bh=3ws2khTiEkVn3RET/TZ4kJ8Lw2HegLOZvwO/z1SoMCE=;
+	b=ncDGFZnsLJDpsaGWXJ0s8QdmyE0cEWrdkVJUCGJWZqrX1bXEht0TiSrtohZJ67QH6u71dU
+	zAcEkpdJUXvi9gkVwcIlsH2IOziraqWBa01kF5x6hn3fYNOY+ZoX9g1Z/tWq3xojV1dfdC
+	7B1L4oakZDNyW5iEYp0QVaeMKUb+hiCSGxsJpTHfLjnujCmoUxbrtNYH8pI7wA01IM9aVA
+	OOjfmFN0G1r6BHQnRVheB4o6HI5B3OYNrez+1tp+536w82S5aO8l2DUhkCCl3+RVME/kAY
+	tFxN8VR3UMY0w5Lo9dv04iy8+1jErwIQ6J+sIO7V0yFADtZQDca/epSDZ1qMaA==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	davem@davemloft.net,
@@ -73,9 +73,9 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	PKneuper@dspace.de,
 	David Laight <david.laight.linux@gmail.com>
-Subject: [PATCH net v4 2/7] net: stmmac: selftests: Validate EEE based on the actual LPI timer value
-Date: Thu, 17 Sep 2026 23:53:33 +0200
-Message-ID: <20260917215339.2022523-3-maxime.chevallier@bootlin.com>
+Subject: [PATCH net v4 4/7] net: stmmac: selftests: Capture all packets for vlan checks
+Date: Thu, 17 Sep 2026 23:53:35 +0200
+Message-ID: <20260917215339.2022523-5-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260917215339.2022523-1-maxime.chevallier@bootlin.com>
 References: <20260917215339.2022523-1-maxime.chevallier@bootlin.com>
@@ -83,8 +83,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_145407_987160_2C75AAB3 
-X-CRM114-Status: GOOD (  19.14  )
+X-CRM114-CacheID: sfid-20260917_145416_526828_A4E0B1DE 
+X-CRM114-Status: GOOD (  15.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,140 +99,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The EEE selftest is a 2-step test :
- - It validates that we enter in LPI mode with the
-   irq_tx_path_in_lpi_mode_n counter
- - It then validates that we exit LPI when sending a frame, with the
-   irq_tx_path_exit_lpi_mode_n counter.
+While we use vlan_vid_add to trigger the tag filtering machinery
+in the driver, there's no netdev associated to the VLAN. This causes the
+skb to arrive with empty skb->vlan_tci fields, as the packet is marked
+OTHERHOST in __netif_receive_skb_core(), and we fail our validation.
 
-The current state of the test lacks 2 main things :
+Let's use the proxy mechanism introduced for DSA, that registers a
+ETH_P_ALL packet handler that runs earlier, before the vlan netdev
+lookup, then filters for the correct ethertype before passing an skb
+clone to our validation function.
 
- - We don't know exactly when was the previous frame sent (it's from the
-   previous selftest)
-
- - The timeout is hardcoded, while the LPI is entered after a
-   user-configurable delay. On top of that, the timeout loop uses a
-   pre-decrement iterator (--retries) that actually only iterate nine
-   times, so 900ms while the default LPI value is 1 second.
-
-Let's therefore make it more deterministic :
-
- - Send a frame at the beginning of the test
- - Wait for more than the lpi timer value, we timeout after about twice
-   the value,
- - Then send another frame, and verify that we do go out of LPI, also
-   with a timeout.
-
-As LPI timer can get pretty high, bail out if LPI timer is over 5
-seconds.
-
-Note that the test's goal isn't to validate the LPI timer value itself,
-only that we enter/leave LPI mode.
+As we may receive external frames with the right tag from the outside,
+let's move the address check in the vlan validation function earlier.
 
 Fixes: 091810dbded9 ("net: stmmac: Introduce selftests support")
 Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
 Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- .../stmicro/stmmac/stmmac_selftests.c         | 44 ++++++++++++++++---
- 1 file changed, 37 insertions(+), 7 deletions(-)
+ .../stmicro/stmmac/stmmac_selftests.c         | 19 +++++++++++++------
+ 1 file changed, 13 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-index 614b5995dec5..2f9f7746c40a 100644
+index de02c0da56dc..43b8411c5112 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-@@ -30,6 +30,7 @@ struct stmmachdr {
- 			      sizeof(struct stmmachdr))
- #define STMMAC_TEST_PKT_MAGIC	0xdeadcafecafedeadULL
- #define STMMAC_LB_TIMEOUT	msecs_to_jiffies(200)
-+#define STMMAC_SFT_MAX_LPI	(5 * USEC_PER_SEC)
- 
- struct stmmac_packet_attrs {
- 	int vlan;
-@@ -462,12 +463,16 @@ static int stmmac_test_mmc(struct stmmac_priv *priv)
- static int stmmac_test_eee(struct stmmac_priv *priv)
+@@ -242,6 +242,7 @@ struct stmmac_test_priv {
+ 	__be16 packet_type;
+ 	int (*func)(struct sk_buff *skb, struct net_device *ndev,
+ 		    struct packet_type *pt, struct net_device *orig_ndev);
++	bool capture_all;
+ 	int double_vlan;
+ 	int vlan_id;
+ 	int ok;
+@@ -344,13 +345,15 @@ static void stmmac_sft_add_pack(struct packet_type *pt)
  {
- 	struct stmmac_extra_stats *initial, *final;
--	int retries = 10;
-+	unsigned long timeout, max_duration;
- 	int ret;
+ 	struct stmmac_test_priv *tpriv = pt->af_packet_priv;
  
- 	if (!priv->dma_cap.eee || !priv->eee_active)
- 		return -EOPNOTSUPP;
+-	if (netdev_uses_dsa(tpriv->pt.dev)) {
++	if (netdev_uses_dsa(tpriv->pt.dev) || tpriv->capture_all) {
+ 		tpriv->packet_type = tpriv->pt.type;
+ 		tpriv->func = tpriv->pt.func;
  
-+	/* Bail out if the configured LPI timer is too long */
-+	if (priv->tx_lpi_timer > STMMAC_SFT_MAX_LPI)
-+		return -EOPNOTSUPP;
+ 		/* DSA conduit will report ETH_P_XDSA, so our packet handler
+ 		 * won't match. Let's register a ETH_P_ALL match and filter
+-		 * manually in stmmac_sft_filter.
++		 * manually in stmmac_sft_filter. This is also useful for
++		 * VLAN tests, to capture packets otherwise marked as
++		 * OTHERHOST.
+ 		 */
+ 		tpriv->pt.type = htons(ETH_P_ALL);
+ 		tpriv->pt.func = stmmac_sft_filter;
+@@ -943,6 +946,11 @@ static int stmmac_test_vlan_validate(struct sk_buff *skb,
+ 		goto out;
+ 	if (skb_headlen(skb) < (STMMAC_TEST_PKT_SIZE - ETH_HLEN))
+ 		goto out;
 +
- 	initial = kzalloc_obj(*initial);
- 	if (!initial)
- 		return -ENOMEM;
-@@ -478,14 +483,21 @@ static int stmmac_test_eee(struct stmmac_priv *priv)
- 		goto out_free_initial;
++	ehdr = (struct ethhdr *)skb_mac_header(skb);
++	if (!ether_addr_equal_unaligned(ehdr->h_dest, tpriv->packet->dst))
++		goto out;
++
+ 	if (tpriv->vlan_id) {
+ 		if (skb->vlan_proto != htons(proto))
+ 			goto out;
+@@ -954,10 +962,6 @@ static int stmmac_test_vlan_validate(struct sk_buff *skb,
+ 		}
  	}
  
-+	/* Snapshot stats, we want to count the in_lpi events. We may enter
-+	 * LPI just after the packet was sent.
-+	 */
- 	memcpy(initial, &priv->xstats, sizeof(*initial));
+-	ehdr = (struct ethhdr *)skb_mac_header(skb);
+-	if (!ether_addr_equal_unaligned(ehdr->h_dest, tpriv->packet->dst))
+-		goto out;
+-
+ 	ihdr = ip_hdr(skb);
+ 	if (tpriv->double_vlan)
+ 		ihdr = (struct iphdr *)(skb_network_header(skb) + 4);
+@@ -999,6 +1003,7 @@ static int __stmmac_test_vlanfilt(struct stmmac_priv *priv)
+ 	tpriv->pt.dev = priv->dev;
+ 	tpriv->pt.af_packet_priv = tpriv;
+ 	tpriv->packet = &attr;
++	tpriv->capture_all = true;
  
-+	/* Send a frame, then wait to enter LPI */
- 	ret = stmmac_test_mac_loopback(priv);
+ 	/*
+ 	 * As we use HASH filtering, false positives may appear. This is a
+@@ -1095,6 +1100,7 @@ static int __stmmac_test_dvlanfilt(struct stmmac_priv *priv)
+ 	tpriv->pt.dev = priv->dev;
+ 	tpriv->pt.af_packet_priv = tpriv;
+ 	tpriv->packet = &attr;
++	tpriv->capture_all = true;
+ 
+ 	/*
+ 	 * As we use HASH filtering, false positives may appear. This is a
+@@ -1375,6 +1381,7 @@ static int stmmac_test_vlanoff_common(struct stmmac_priv *priv, bool svlan)
+ 	tpriv->pt.af_packet_priv = tpriv;
+ 	tpriv->packet = &attr;
+ 	tpriv->vlan_id = 0x123;
++	tpriv->capture_all = true;
+ 
+ 	ret = vlan_vid_add(priv->dev, htons(proto), tpriv->vlan_id);
  	if (ret)
- 		goto out_free_final;
- 
-+	max_duration = usecs_to_jiffies(2 * priv->tx_lpi_timer);
-+
- 	/* We have no traffic in the line so, sooner or later it will go LPI */
--	while (--retries) {
-+	timeout = jiffies + max_duration;
-+	while (!time_after(jiffies, timeout)) {
- 		memcpy(final, &priv->xstats, sizeof(*final));
- 
- 		if (final->irq_tx_path_in_lpi_mode_n >
-@@ -494,20 +506,38 @@ static int stmmac_test_eee(struct stmmac_priv *priv)
- 		msleep(100);
- 	}
- 
--	if (!retries) {
-+	memcpy(final, &priv->xstats, sizeof(*final));
-+	if (final->irq_tx_path_in_lpi_mode_n <=
-+	    initial->irq_tx_path_in_lpi_mode_n) {
- 		ret = -ETIMEDOUT;
- 		goto out_free_final;
- 	}
- 
--	if (final->irq_tx_path_in_lpi_mode_n <=
--	    initial->irq_tx_path_in_lpi_mode_n) {
--		ret = -EINVAL;
-+	/* Re-snapshot, as we want to measure exit_lpi events. We should be
-+	 * in LPI right now.
-+	 */
-+	memcpy(initial, &priv->xstats, sizeof(*initial));
-+
-+	/* TX something so we go out of LPI */
-+	ret = stmmac_test_mac_loopback(priv);
-+	if (ret)
- 		goto out_free_final;
-+
-+	/* Wait for the exit LPI interrupt */
-+	timeout = jiffies + max_duration;
-+	while (!time_after(jiffies, timeout)) {
-+		memcpy(final, &priv->xstats, sizeof(*final));
-+
-+		if (final->irq_tx_path_exit_lpi_mode_n >
-+		    initial->irq_tx_path_exit_lpi_mode_n)
-+			break;
-+		msleep(100);
- 	}
- 
-+	memcpy(final, &priv->xstats, sizeof(*final));
- 	if (final->irq_tx_path_exit_lpi_mode_n <=
- 	    initial->irq_tx_path_exit_lpi_mode_n) {
--		ret = -EINVAL;
-+		ret = -ETIMEDOUT;
- 		goto out_free_final;
- 	}
- 
 -- 
 2.55.0
 
