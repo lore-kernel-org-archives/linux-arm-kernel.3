@@ -4,77 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C10C7C982CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 06:42:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AC22C982C1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 06:47:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/GSmXDwmertwXe0HkM935tbNyBQxGsgPGDwzb0ouUuA=; b=R9ND33fu5hdrtoiC8iFxNirTND
-	L5KHEl+AYPiv9ZlCeMlj4KvMHsyL5DaqSaLNLKKzlO5aZ1HwuPs2W/NC+JFc5/r4bUSt1JOdpGrZh
-	eE2Nkbc2irXiZhvEOnkfD4VStjfzLNdRZF1DHRM9jDdJyAui0z/jQaYxJ/Tkbi3vVWN3YE0da3RbZ
-	j3WvR6rpbOYAqmwu6dnBn2DU1oYoNyNYLRhUeO31pHgSqLpVxUVuZW+GuMTo6Si8JJu75cGVSvoGG
-	eBxkdxYsKHviQJgJSTHujlF/kpRhjdXghf4kjhQ1pnwCSlokVvvvYmmaZ4XWpnHB1aMy6k3uIJ0mg
-	wjvh4OEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=y3wbvAbBWnutdIwHnF3F6m/7uEF6jqU2B+avYv0omNg=; b=bCXtI6fASZjhI1ZLwb5hByqCjq
+	zAYCOXE1SPF2kq+BrGzKfYSE1wXZeJtKxfmNCL46aeXz1lNI+y/olVf7jblkgp+UMoTLkZQi5ttlr
+	SpVbUKU3dr4sC0sv21Htpu5TMnhepss7bEM2n5OLMUYMHyoHZoxOsfWBYv6PedfTspE/blzOvsv12
+	Nv48LNJlcNwRAdDQP24a5dXUb43hWhAg536aiRR/Tb/4v5JZ94zJYzGlouznucYy5lc08RysaNH4V
+	4KdX70+uZnpVF50uK3Qub1beZy8qe2ZfcJ5/aGEPptPWVo5yM8WhIAZOQ9V5aYbHELL68gX0wMIUH
+	t/Y1imlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x75pF-0000000Agfq-1jDm;
-	Thu, 17 Sep 2026 06:42:29 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1x75uP-0000000Ah4i-0ASJ;
+	Thu, 17 Sep 2026 06:47:49 +0000
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x75pC-0000000Agf3-2SaR
+	id 1x75uL-0000000Ah45-3kdo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 06:42:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789627346; x=1821163346;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=GLl+PNDb3G6wQ93kIOoz2vznPBNPJZqJdDb2FXYmeHI=;
-  b=S+wRUKIENXNUfkq+BwJUcPt1ma47QNpnYV+3gjOurae553FbKt5Yh9h4
-   czC1bjDkVn4eXUsUtB9yArYzsFcJcmzM3SeTwK5Dm47VzQaDc9Pq4cveD
-   UG4HoOUGweXV/cLxyVCVtmYW10v6rqLLTm8zxxfXKuD4tiCZTbi30C9d/
-   GJNZJDE8+e8FytDThd62zPaD18hppbXSzNP/Mea1CYUe2tz8aFPbYKUjT
-   gSEjQB0w4uW0z9hcNM6NRbGfT0QKKd1bPHLLQ7986h4V9ASM3LezLXGbW
-   K226ezkrJAx448trXex448J8uY/DbxwWzD3a6Qwu7v0pj+0D1bZ3QECjZ
-   g==;
-X-CSE-ConnectionGUID: yuZx4wxATIaVHDmESFOm5A==
-X-CSE-MsgGUID: a0aU334sS6afEdvSW6mlqQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="92528028"
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="92528028"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Sep 2026 23:42:25 -0700
-X-CSE-ConnectionGUID: PG/D0x/ySmKmZq1ey6kmtQ==
-X-CSE-MsgGUID: JHg0psEGTpaArnv+HRX1zw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="297099751"
-Received: from abityuts-desk1.ger.corp.intel.com (HELO localhost) ([10.245.245.11])
-  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Sep 2026 23:42:23 -0700
-Date: Thu, 17 Sep 2026 09:42:21 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Malathi A <malathi.a2000@gmail.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2] serial: 8250_uniphier: Use devm_clk_get_enabled()
-Message-ID: <aquLzbM25C8dDb0p@ashevche-desk.local>
-References: <20260917040511.103232-1-malathi.a2000@gmail.com>
+	Thu, 17 Sep 2026 06:47:47 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49b965f447cso3711285e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 23:47:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789627664; x=1790232464; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=y3wbvAbBWnutdIwHnF3F6m/7uEF6jqU2B+avYv0omNg=;
+        b=FvFoKBk8bdNHJmukOze6mzGHghZwzzpOajFX8zAI1ePnUHrbA+YaxF9mIwUYER1AGW
+         hjYmaDFMl15Kz/Gyd2G/T9++FIv2mHViFOlsd4fJzeST6PFEP1ETBD1d5CIScQVgzsm6
+         O3T7bVKu27z5Cpp+cZvFsybtm0P19fKKwSABjNcN1QcGrg05l+R37OMELoLPaJyuwBFS
+         ls3wv0mWvt6IjiPVMJvkhcWyka9TuIJwh/sWDcQoM0Q/mQs7VqX4gPgF63JnGiDQq9iu
+         AVkZMMcKTND/2AI0u3R/aSRSiE2nhzK2puZW7+6+uFaaC7aseGZ1UglKDjl5Y/Q2zjV+
+         nIRA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789627664; x=1790232464;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=y3wbvAbBWnutdIwHnF3F6m/7uEF6jqU2B+avYv0omNg=;
+        b=tlD5ZaxZkUObikEfNv+8zaaI7RCIIB+tzEmAVsmF+TimVcaI1DOHtdE2OyOmtT8wcx
+         GKfYmHeWLxGpQIABq+fhwHeR1C0lzdvhB9JlCi4f4gVrIf6P6F5rJ5Ukxx0tfCdOtHJf
+         PoFm50qPqdEVOBSzfbd9hbTS2lpj6zPbIcdSKyr6cNp4vQCRlwRJVr7MO+5pS/ZQ4z30
+         ik2c2M6tRsnJv1IZgINAHlf0D7nWTORnooewn7ekcpMTgBLc0TcaPqVJlZ4qGic8n90C
+         VuPf1uXQyq+CDfS0+8TRsJj6r8/YLvRAI8o2X13U6lzoOut0c1ktgtIeOWrxUqvRRRy9
+         XFBQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzGCiTETXDcCRz0V7Y4RwCk8lM2ImxaHtHPMib3wblQdtpSBJtA5pCg8KTerDQB2BgFNGSSFNd3sY/hrRY6c1yc@lists.infradead.org
+X-Gm-Message-State: AFuF++kEj21DKg+47bmvMLu7+2vrThijzzH//Ab/CZHfY9YUf105Mrnw
+	tMhRg91WHmMKpz2KBMsYhtWos3u1V4u4bJgohUeXKLNlkcx9UsjPiphI
+X-Gm-Gg: AYBFou3I94NcpWscMfzmkuFUXo5gQls+hBsfPCr0l4IWdJcVHlEqXU2DrVAiVTOVNkz
+	+UTEcqUi4M3askpao9r/fLOC9nZj9Su8EJpFQ6qH8QAoeLqMyq4g4Cpl62QnOwd6auhZxf/Kbp9
+	PcMbnny1F2RrfiQ6ygVuP1V8Eai++hJkYNtU6RXtA1xh37+PjDSGCxqc/SrITMOTKl9mAIZUPVV
+	bio/0xsebkjmLTwu0ij59BltHuzQZB2rBo+eeP+wDNl9j8WYUfd6GZegtBkbDJ8goWNe7D1e3uK
+	kIVGT1nLglWDf6Y26gwbFM9yy2cjhtYx1kSln7GNFQCv36ChEVW0rSKTQA66aeNddg5byMcUj/s
+	1rmiSVyJYV5aBzFxhFoN0OiU5/qDxoO273khRuDR923XxsxicqnHXEQWNRo8jMyrWUN7vshZH4t
+	i+9GRBAaEm+T9+adFMz8pBLmUrYlmjeaEhjqi9h55ulZXj6YmZMhJAFp25HCS95j3tW75xDrfOX
+	SN38V8gwADMoTKmHVdhaNFDXCFY7OPr2lYBjIrmgaPvY6MZsJOIS4Q7szvDUrS1v/U1fihPuCxp
+	ZMnZz+DInDfFuVAooCIZHMSaEVId4gA9QCjoP+674odhtqky2mV/SQFkUjUj3+FpIg0K91KFgw3
+	h
+X-Received: by 2002:a05:600c:8b17:b0:49c:fa20:cc0a with SMTP id 5b1f17b1804b1-49eb7339522mr57916485e9.33.1789627663778;
+        Wed, 16 Sep 2026 23:47:43 -0700 (PDT)
+Received: from localhost.localdomain (dynamic-2a02-3100-9dc6-c001-54ee-4741-4927-0a28.310.pool.telefonica.de. [2a02:3100:9dc6:c001:54ee:4741:4927:a28])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4870bf438fbsm13129266f8f.36.2026.09.16.23.47.42
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 16 Sep 2026 23:47:43 -0700 (PDT)
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Steen Hegelund <Steen.Hegelund@microchip.com>,
+	Daniel Machon <daniel.machon@microchip.com>,
+	UNGLinuxDriver@microchip.com
+Cc: Karl Mehltretter <kmehltretter@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Brendan Higgins <brendan.higgins@linux.dev>,
+	David Gow <david@davidgow.net>,
+	Rae Moar <raemoar63@gmail.com>,
+	linux-kselftest@vger.kernel.org,
+	kunit-dev@googlegroups.com,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net] net: microchip: vcap: Stop selecting DEBUG_FS for KUnit tests
+Date: Thu, 17 Sep 2026 08:47:36 +0200
+Message-Id: <20260917064736.77354-1-kmehltretter@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260917040511.103232-1-malathi.a2000@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_234226_646391_5770CE0C 
-X-CRM114-Status: GOOD (  16.94  )
+X-CRM114-CacheID: sfid-20260916_234745_997534_B990E504 
+X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,50 +113,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 04:05:09AM +0000, Malathi A wrote:
-> uniphier_uart_probe() enables priv->clk by hand and is then responsible
-> for disabling it again on every error path. It misses one: when
-> uart_read_port_properties() fails the function returns directly, leaving
-> the clock prepared and enabled. The neighbouring path, taken when
-> serial8250_register_8250_port() fails, does call clk_disable_unprepare(),
-> which shows the leak is an oversight rather than intent.
-> 
-> Rather than adding another manual unwind, switch to
-> devm_clk_get_enabled() so the clock is released by devres. That removes
-> the error path entirely, along with the explicit disables in the
-> register failure path and in uniphier_uart_remove().
-> 
-> The clock is still disabled and re-enabled by hand across system sleep,
-> which stays balanced: only SET_SYSTEM_SLEEP_PM_OPS is used, so the
-> device cannot be unbound while suspended and devres always sees an
-> enabled clock at detach.
-> 
-> Found by smatch:
-> 
->   drivers/tty/serial/8250/8250_uniphier.c:232 uniphier_uart_probe() warn: 'priv->clk' from clk_prepare_enable() not released on lines: 205.
+VCAP_KUNIT_TEST enables DEBUG_FS even when the kernel configuration
+leaves it disabled. Remove the selection, following the dependency rule
+in Documentation/dev-tools/kunit/style.rst.
 
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+The debugfs implementation and its tests are already built only with
+DEBUG_FS. The other VCAP tests can run without it.
 
-...
+Fixes: 552b7d131aa0 ("net: microchip: sparx5: Add VCAP debugfs KUNIT test")
+Assisted-by: LLM
+Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+---
+Validation on net c9151088f167: x86_64 LLVM builds and QEMU runs
+with DEBUG_FS disabled and enabled. The other VCAP suites pass in both
+configurations. The debugfs suite is present only with DEBUG_FS=y and
+all four cases pass.
 
-> -	priv->clk = devm_clk_get(dev, NULL);
-> +	priv->clk = devm_clk_get_enabled(dev, NULL);
->  	if (IS_ERR(priv->clk)) {
-> -		dev_err(dev, "failed to get clock\n");
-> +		dev_err(dev, "failed to get and enable clock\n");
->  		return PTR_ERR(priv->clk);
+ drivers/net/ethernet/microchip/vcap/Kconfig | 1 -
+ 1 file changed, 1 deletion(-)
 
-Consider fixing another latent bug here, id est with intermittent probe defer
-this will spam the kernel dmesg a lot, so converting to use dev_err_probe()
-will fix the issue (but at the same time you may convert all of the error
-messages in probe to use return dev_err_probe() pattern). This needs to be
-a separate change.
+diff --git a/drivers/net/ethernet/microchip/vcap/Kconfig b/drivers/net/ethernet/microchip/vcap/Kconfig
+index 97f43fd4473f..1af30a358a15 100644
+--- a/drivers/net/ethernet/microchip/vcap/Kconfig
++++ b/drivers/net/ethernet/microchip/vcap/Kconfig
+@@ -40,7 +40,6 @@ config VCAP_KUNIT_TEST
+ 	bool "KUnit test for VCAP library" if !KUNIT_ALL_TESTS
+ 	depends on KUNIT
+ 	depends on KUNIT=y && VCAP=y && y
+-	select DEBUG_FS
+ 	default KUNIT_ALL_TESTS
+ 	help
+ 	  This builds unit tests for the VCAP library.
 
->  	}
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+base-commit: c9151088f1674fd29ff26a20f5fc687acf53a2f0
 
