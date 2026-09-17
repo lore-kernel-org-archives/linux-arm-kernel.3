@@ -4,63 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0339C982D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 13:14:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06E54C982CF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 13:16:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PNgpEuFxkLpwQVUTRb/HejZ0tN6jXsHgSl5ZBTQhmMs=; b=Wii6z21aiv3T8O++IN1ouCJ6dt
-	obIQcGo/joNwrGzH83nzjCGNYKYOWptyngVnyLW53sF+rsuH1FJSfyXxoAELcdm+zaJ7hx8TbFivh
-	kax+puHm3sAJdI+rJ2PG2GRRei9uEHLx7mf1dU+/O5ghQcJxxcF+KweNRWQ+QBartVv/l1UeuwvnE
-	5NgVFzhe2RkaakydKW15wdUQWlJdpT9tR+EMjNxLTh7p9lKME41jBnClLYU4jZ+s0GrVMqwViFdpm
-	uWh3mk8M69H72QG6y4I8wVTfFrwVSLOJCy4N2hDHvvHkSyn+hRWzBpI4kLwW5qjjfFbqHrP0W/3mY
-	ErxCg+Iw==;
+	bh=kpOhOHCfc9bKTFxzUY7VXIYrr8mcBV9v4Ztu5hq+GKM=; b=pA1hMlcEJt/l4p+MnwAgiauWXC
+	RzoSHx5xvm9kZjTsfHgU5Le/YZJ+syl7AFhL+wsn2NfijYZ2/SH7mbQBM12EJVrYOXlUWRWVnuvTe
+	zdwUMcaNZNk76xiFuySV1Mv7+Q1SyGVCichCmMIDNs+UBDkrL/Gui7rkLT2Ond4/bWj03HLsavOXd
+	w4VizCp9/BFvJMNe+yqOzD2qy7UrVhSzt6bUasRsHE7S9g4kC+CD9Y+GT3sezcpTGlgjZy4HlqJ24
+	aPBYtx0XdKrM+wGB2ATZZUAfAYDJFep8MFfHtSQGy+jWOVYF6YP63uU5GnSpdSp6yoJ6X+GNUrxKk
+	I+ZkAyqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Bw9-0000000BNWt-1DkC;
-	Thu, 17 Sep 2026 13:14:01 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x7ByX-0000000BNlI-2fO8;
+	Thu, 17 Sep 2026 13:16:30 +0000
+Received: from mail-southcentralusazon11011057.outbound.protection.outlook.com ([40.93.194.57] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Bw6-0000000BNWV-3gjz
+	id 1x7ByU-0000000BNkg-0asJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 13:13:59 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id F4188600D4;
-	Thu, 17 Sep 2026 13:13:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EAF31F000FF;
-	Thu, 17 Sep 2026 13:13:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789650837;
-	bh=PNgpEuFxkLpwQVUTRb/HejZ0tN6jXsHgSl5ZBTQhmMs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=n+iXY1iBZUiYhHQNX3M/KedAqPFUcruQCCfT+Jk8iObh88EdMCvSpWvKnffaB02Xo
-	 agJz757+ipCx0fEOOG9hs/rCIzNI1q9suqvwygogxGEIGLE1C9Zr9c002GK9RFs+o5
-	 ttBilpJFfy0p2Cg64LZ6qB2WnKg8T5fCVz/QvO4c4TShM+7kpLtOG1g1A6GItLtxMa
-	 CiNmBKk3znnL5XXHqG/vKtJxD1fIiuioPRKURvHKoc+5NT5U2irwDk2suHKuDlcKuE
-	 lmp/qV5ugvCwtOCqOt7vu9JahWqrm0GzUV7ZWQ+aIVe7VTilrQkBsQ1pfxsrRxW/nE
-	 GuFCCseLX91iA==
-Date: Thu, 17 Sep 2026 16:13:51 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Vladimir Murzin <vladimir.murzin@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, liulhong617 <liulhong617@gmail.com>
-Subject: Re: [PATCH] arm64: mm: Fix pfn_is_map_memory() misreporting mapped
- memory
-Message-ID: <aqvnj4jzxG-pXvYh@kernel.org>
-References: <20260908162033.74509-1-vladimir.murzin@arm.com>
- <947a1506-dfe4-4906-9673-6a7227946433@app.fastmail.com>
- <a2b4186d-b3b0-4543-9f77-505e8ae67ae8@arm.com>
- <01f1f6d9-e10f-43f9-b731-f6393010a11c@app.fastmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	Thu, 17 Sep 2026 13:16:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZwsYVRpU0B01FnyX2QLqz6qhv9FXupxVw7BPxvL7oJXpuKmtK4+e1N1EIxUC1gVSKqsaYTPMC9fv34XoCH8sAku+7o42GWuU4/Wc/DZWUZUjaUIpIeEzCW3TMPlkmt4u/6nlI3n08+aE3/iiZIDS/C2zWhi1HgEo573zvsrhHEJlIH0C3UEWFKemECzlNfLsJouDyZCTmriMyVl7w5kG4gwaZCPw0Tr+VFWaDv58GQAA6oiI++TzNRcaXiIo/zbjjiVgx7ZMjmO7VD4KsviDF0WeNPjii4gyW9DpdyBur3r4v7go4uhPYiDhWrPWon9vXMldMota7QLdfAxAHfnohw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kpOhOHCfc9bKTFxzUY7VXIYrr8mcBV9v4Ztu5hq+GKM=;
+ b=Gvs2AtFdnGZpSD+p1TV1CX520NbLixlSxl1526xT0QRSplU5+NchuJIAjlzo1E1z1u8tObrVbPS6S66KnUECB9rd039oPR2KWuWGxARe7fou5Kil5vZlVvKoD9AMV4QAyTH8laRobxWAuQBHNf9OMvvFXqscL016ZzjlnHUHKpByVTZ5j3Fp86WHzRxodjFuFqbLyqiBnyFB01BfjBKPmv58BiWMf+eM2XGuJ65ESwTdQkffU9o3KzUDAxqsrIvsV+qoqk2Y+SM6qHT46wc+4ep6oKyngBITqpUM+ib4iUZHx+yvScTPPkwOEWEz+7W0d60vwhL1WkyGGkTiwhSatg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=kpOhOHCfc9bKTFxzUY7VXIYrr8mcBV9v4Ztu5hq+GKM=;
+ b=Acn6p1jTL5uv8VK4wQWdDN3CIUmyEk2gpqw5JaaZX5pJBwiLojtdWGhCZlQPfuxYrWewLruD0IiHn7/ZFt7rb3HwPdbvhyW5hqXYq4OuzcefDhekyGvSxw3l6LSVtJlCe/gP9mQJ3xs75xhzweV8wC36myg3hHHWNZRXtb7d3SIAsWanXRCUUwTyn5mgZmdMxtbngxfEd8MmsdjgyXFpA//gPuSLhtQ1SU1Q9j+BIP3AaEnShYDOk3mq6g5Ej8WfaXLA6d5xA0BpyznEOYXZ8BjKX5eWXEMaUHaVl0DNqQnahzmkIIXcmVSkgO5jyKXlix/4jS6Mk62avfJjxV2EBQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12) by DS5PPF266051432.namprd12.prod.outlook.com
+ (2603:10b6:f:fc00::648) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.11; Thu, 17 Sep
+ 2026 13:16:02 +0000
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0428.011; Thu, 17 Sep 2026
+ 13:16:02 +0000
+Date: Thu, 17 Sep 2026 10:16:01 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, iommu@lists.linux.dev,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Will Deacon <will@kernel.org>, David Matlack <dmatlack@google.com>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	Pranjal Shrivastava <praan@google.com>,
+	Samiullah Khawaja <skhawaja@google.com>,
+	Mostafa Saleh <smostafa@google.com>, stable@vger.kernel.org,
+	Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
+Subject: Re: [PATCH v6 1/9] iommu/arm-smmu-v3: Handle ARM erratum for CONT
+ under invalidation with SVA
+Message-ID: <20260917131601.GY3968357@nvidia.com>
+References: <0-v6-9cd17417d355+281836-smmu_tlbi_jgg@nvidia.com>
+ <1-v6-9cd17417d355+281836-smmu_tlbi_jgg@nvidia.com>
+ <aquxuBnh6pdxu4-8@J2N7QTR9R3>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <01f1f6d9-e10f-43f9-b731-f6393010a11c@app.fastmail.com>
+In-Reply-To: <aquxuBnh6pdxu4-8@J2N7QTR9R3>
+X-ClientProxiedBy: YT3PR01CA0078.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:84::9) To CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|DS5PPF266051432:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1c082f8a-575b-4eb0-9ca1-08df14bdd248
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|366016|7416014|376014|10067099003|4143699003|22082099003|18002099003|56012099006|11063799006|5023799004;
+X-Microsoft-Antispam-Message-Info: VzKh8WCCqXUzEwf60vYOz/alCT3tJ0vGJAm0xUs7NueK6pifwWHOgwC22HdV5JMCdFAUmJgNNMngFNSlza2kIZ2M2NpK28UBl3ZYmLYbKBDKglKpHGD8z9+LmM/CdOkwQlZYTLoY6v5K9H715R5z41EVZV0RD8WfJ6EhQDJCkYFKLVbifwHcgQ4lYVaqpusFpljuRdyNosnjYyXKUeAzRiKcyYvJWeoM7vnkqCkdXkH+JHtRCDiEa7r1Bsw1ZjVqFvMQO+eGAGLusiJKjtpI303jc2CDqEqfrBx2BHKpoRHAeRvWkLicrHK9hARU6ooHl4OOFsM6VresUMv9kSmSAkREJZC6VYpLv9Dl3LdIrBky+o7vL0gxCKGULOm3c6WEwTC9Nv/hHHPbR9/2V2+scm23mw2vypbx21eyhaucaHM504kxBrmStdwC9vAsdaQxvJUPecguxNJ9pLVwCyQ9Xfd/vNYV2ujVDmYY37iOzmsuvS4dQnA6fezzq4/XpcsJGqCKSKzvcwRrZLDwOE6YYmmdWJAly0r2XYbF6EBFE+zKJ8iJIdIxud6RaKAQzWx/SDGsCzho2FNebLbYb/2TCNAjHEfG3CKi9+HH0Q4dUn4duyYzmRh7rN/rxb5JIY+Dy29sqqjR+GxuKvibWozpUaspcAxhOKbLQBYV3hctV0w=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(366016)(7416014)(376014)(10067099003)(4143699003)(22082099003)(18002099003)(56012099006)(11063799006)(5023799004);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?VQAq+XXXbFBy1VWY4njZQCLbTw5nZht0InFyc1TNRRFGWf5lBGxegmZifKY4?=
+ =?us-ascii?Q?11NGBjkYapIrxBmQDfDQG/ZkWlWDme8CB8Lkn4c9WJUxEM4OLaqZ9InhXDdX?=
+ =?us-ascii?Q?hJz8ARyIkdGR8zx+9VH+/+847exwU8R7CcIqIfiLeJYMTP3u+F1Iu0uk1Ftx?=
+ =?us-ascii?Q?rcaT78k1DFvyM32MhQArTAm+mcfaVbpXve6Ho1gklZ4r0ny6sWEr7oOeOoWq?=
+ =?us-ascii?Q?2iE4TVh13QLU7vj4ZUo1Kxk538YPmGwtyulNUZ7pHHV03hRSC6J/iAnCJ4W5?=
+ =?us-ascii?Q?IOYfhjloGe3JIt3F5Jxx4m6K3olbg9uEojiiQrXKzYMTNRIUXiV9Ns27PF23?=
+ =?us-ascii?Q?M+m/MG6Jz/YD/LkKv0Raya6fyomXXXsfaMYcL4PBV/3N0u67164wLULrk3te?=
+ =?us-ascii?Q?lh7Kc8NuaJnsRu5N4chyQYUA1cPJ3qcabqWh28/NUd+1H0ATEZ7n9eiBtcWf?=
+ =?us-ascii?Q?0T0dyJJzeuzuifH41gU5TXpZuJ6hBBC0hq89SU3gTO+25mFbQkZ7z+ePTC6Z?=
+ =?us-ascii?Q?HhRvxS9BL6r59bTaK9YIbAKgUj/fa9XUi2gZPAWlppI6UKusVF8OLADUxBXL?=
+ =?us-ascii?Q?0yzhDJU87bSxqSw7FnNW9HdxLwFuzGlFRS6OJcMtmofcwX+HmqUlEs0uAgsE?=
+ =?us-ascii?Q?gbGK7A54wwbZiN0Rs/+u2pqhemILY/Ruhcq7KwUcIrYSLi+bRPZ54RoPICze?=
+ =?us-ascii?Q?uAXytAkHKxeilkNt57BXLzYOE7jN8Y7zANXGJRLyNWizkEZl/KtJztxE6LaZ?=
+ =?us-ascii?Q?VGbWU+876mX9dWvUC/3O7kkiVPZYJipiw1NBWzvYaQMKH6/hlY9yOJkwvDO8?=
+ =?us-ascii?Q?l+8J9wtMsiQjUWuLOFHH5C3Sh1PnPNBWWzFbPqeToboux4j9oeJ3Lu3PJUMR?=
+ =?us-ascii?Q?seY+9kld1UmmYJbwwrNBhcS2C9188bXD6zYij+gJOFsYgTMbjJLxtMMjND1X?=
+ =?us-ascii?Q?x71VdA8lWgdK/HBiXx8J+VIgYUxAaB2GDMB9kmU49l56JsUBpOqWZEPkrfXn?=
+ =?us-ascii?Q?a8hHaR8PWkTS9iJ5ThbD1eSudiDCvGnPznMCKhpzd88VBFUl7n6g7sUVnA0t?=
+ =?us-ascii?Q?MRY4vry8owORSKHzjP5XylRW3n1wYWR0f6GRvO3+JPVLt0K356d99DISQu/M?=
+ =?us-ascii?Q?96kKBsv9HdSH871beuLoDuEJPbOUORR2fX0vxffsgb6IBFnSkjwSNDaUecjX?=
+ =?us-ascii?Q?I4T/4qIJHJDLDZ0fe89+GNAz5Q5k2pNQShMIhVAP2bkNUvlQI+7cu5VVyaJZ?=
+ =?us-ascii?Q?hX6KfnnTWCJ/RaN6OJuQsQPwqwVNdXbQsxEoO++rhP/jx1re1F/O29IJAxoK?=
+ =?us-ascii?Q?xAIAae+TDKBJOX4aO1bna+l3jg9DTqj3sy8xLrczSX976kb4JI+7+6L4YtLy?=
+ =?us-ascii?Q?cAVCdNJzyX1BNFTGFQ4zt2/FHGh0UxrDAHvViDmgzsnR588OuMCVWIE7IUi5?=
+ =?us-ascii?Q?6hh5bBzZBHYaZ2FnUu391IwnD3CoceZPHBspSAMrXAp36i1s/XUNIqJzyqxj?=
+ =?us-ascii?Q?NByBvdS5USEvCbaa3MqX/LqAXk7kUsZBPTJzsoFIkIKpsCR6N9b5o5iK+H0Z?=
+ =?us-ascii?Q?WILsj1U31oeiAR+wJ2oEDJvyQ4Z/12N4YJZYs9XanzsE1v6A2DSHKCf12nh0?=
+ =?us-ascii?Q?QomLleb9VCEzEUhWq+MLQrUkZ2N4pCy1Ojc9B3EFCAsYDv8+/jJqf7n5YLLb?=
+ =?us-ascii?Q?fj9iVYYUTnV5KAIvk23UP0rzbJmpxTDOuZIDoJ4lvRIyv1tZ?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1c082f8a-575b-4eb0-9ca1-08df14bdd248
+X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2026 13:16:02.2672
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: dqF8AheJJIn6/WpjXjSZffgr9ugO5RrEu7qrvhMbT8+U4FHDJkWOEcCVkcABUF2M
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS5PPF266051432
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260917_061626_188752_630FF97C 
+X-CRM114-Status: GOOD (  23.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,104 +152,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 02:34:57PM +0200, Ard Biesheuvel wrote:
-> On Thu, 17 Sep 2026, at 14:26, Vladimir Murzin wrote:
-> > On 9/16/26 11:13, Ard Biesheuvel wrote:
-> >> (cc Mike)
-> >> 
-> >> On Tue, 8 Sep 2026, at 18:20, Vladimir Murzin wrote:
-> >>> Commit 7ace06a01efa ("arm64: mm: fix accidental linear mapping of
-> >>> no-map reserved memory") removed sub-page no-map regions from the
-> >>> linear mapping. However, pfn_is_map_memory() can still report that
-> >>> such a region is mapped.
-> >>>
-> >>> For instance, with 64K pages, say we have
-> >>>
-> >>> normal:        ...–0xa2007fff
-> >>> no-map: 0xa2008000–0xa200ffff
-> >>> normal: 0xa2010000–...
-> >>>
-> >>> The range 0xa2000000–0xa200ffff is not linearly mapped, but
-> >>> pfn_is_map_memory(__phys_to_pfn(0xa2008000)) aligns the address to
-> >>> page granularity and passes 0xa2000000 to memblock_is_map_memory().
-> >>> That address belongs to the preceding normal memblock region, so the
-> >>> no-map region is ignored and the function returns true.
-> >>>
-> >>> Fix that by checking if entire page is subset of memory block.
-> >>>
-> >>> Fixes: 7ace06a01efa ("arm64: mm: fix accidental linear mapping of 
-> >>> no-map reserved memory")
-> >>> Assisted-by: LLM
-> >>> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-> >>> ---
-> >>>  arch/arm64/mm/init.c | 3 ++-
-> >>>  1 file changed, 2 insertions(+), 1 deletion(-)
-> >>>
-> >>> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-> >>> index fbf215ecc7d0..5da80e1e1727 100644
-> >>> --- a/arch/arm64/mm/init.c
-> >>> +++ b/arch/arm64/mm/init.c
-> >>> @@ -172,7 +172,8 @@ int pfn_is_map_memory(unsigned long pfn)
-> >>>  	if (PHYS_PFN(addr) != pfn)
-> >>>  		return 0;
-> >>>
-> >>> -	return memblock_is_map_memory(addr);
-> >>> +	return memblock_is_region_memory(addr, PAGE_SIZE) &&
-> >>> +		memblock_is_map_memory(addr);
-> >>>  }
-> >>>  EXPORT_SYMBOL(pfn_is_map_memory);
-> >>>
-> >> memblock_is_region_memory() only tells you whether the range in
-> >> question is covered by a single entry in memblock.memory.regions[].
-> >> 
-> >> memblock has other flags, which may or may not be set on sub-page
-> >> regions too. So I don't think this is the right solution in the
-> >> general case, even if it fixes your example.
-> >> 
-> >
-> > Ack.
-> >
-> >> Given that the no-map attribute fundamentally only applies to page
-> >> granular regions, it would make sense to round those outwards
-> >> whenever they are created.
-> >> 
-> >> --- a/mm/memblock.c
-> >> +++ b/mm/memblock.c
-> >> @@ -1119,6 +1119,10 @@
-> >>  int __init_memblock memblock_mark_nomap(phys_addr_t base, phys_addr_t size)
-> >>  {
-> >> +       phys_addr_t end = PAGE_ALIGN(base + size);
-> >> +
-> >> +       base &= PAGE_MASK;
-> >> +       size = end - base;
-> >>         return memblock_setclr_flag(&memblock.memory, base, size, 1, MEMBLOCK_NOMAP);
-> >>  }
-> >>  
-> >> 
-> >
-> > Should the same be applied to memblock_clear_nomap()?
-> >
+On Thu, Sep 17, 2026 at 10:24:08AM +0100, Mark Rutland wrote:
+> Hi Jason,
 > 
-> Yes.
+> Nit on terminology below.
 > 
-> > This is indeed much nicer way to fix the problem! Now, when no-map is
-> > rounded outwards, do we still need 7ace06a01efa?
-> >
+> On Wed, Sep 16, 2026 at 09:27:42PM -0300, Jason Gunthorpe wrote:
+> > The erratum (MMU-700: #3777127, S3: #3673557) deals with under
+> > invalidation of a CONT PTE grouping in the SMMU. The recommended work
+> > around is to use a Range Invalidate (RIL) that spans the entire CONT. The
+> > only user of CONT in the kernel right now is through SVA sharing a CPU
+> > page table that contains a CONT created by the mm.
 > 
-> Probably not, but there are some corner cases to consider before we
-> go down this route:
-> - what happens when marking a range no-map where the outward rounding
->   would exceed the limits of the existing memblock memory range?
+> As someone familiar with VMSA, I've never seen "RIL" used to describe a
+> range invalidate and I think using that in the code below is confusing.
+> I *think* "RIL" has come from "SMMUv3.2-RIL", which is the SMMU feature
+> for Range Invalidate *and* Level hint, where "RI" is Range Invalidate,
+> and "L" is Level.
 
-AFAIR it's fine, memblock_isolate will clamp the update.
-Didn't check the code though.
+Yes,
 
-> - what happens when removing a non-page aligned region from memblock
->   that intersects with a (page aligned) no-map region?
+drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h:#define IDR3_RIL                    (1 << 10)
 
-It will make the nomap region non-page aligned.
+Unfortunately I've noticed a couple of places like this where the SMMU
+terminology and VMSA differ a little bit. In these cases we've
+historically choosen the SMMU naming in the SMMU driver to be
+consistent with its spec.. I've definately seen this gets confusing
+when talking to people familiar with the CPU spec and IP.
 
--- 
-Sincerely yours,
-Mike.
+I had guessed it ment "Rang InvaLidate", but you are right:
+
+  RIL, bit [10]
+       Range-based Invalidations and Level hint support for TLBI.
+       The value of this field is an IMPLEMENTATION DEFINED choice of:
+
+The driver also calls it ARM_SMMU_FEAT_RANGE_INV, but I thought
+range_inv everwhere made some very long names.
+
+> Can we please spell that out as "range invalidate" or "range op"
+> (matching the arm64 architecture code) rather than "RIL"?
+ 
+> That'll be easier to follow, especially as nothing in the code mentions
+> what "RIL" means -- that's only mentioned in this commit message.
+
+The whole series uses ril as a shorthand for IDR3_RIL, and the spec
+often does the same:
+
+[25:20] SCALE Range invalidation scale.
+		  * See below for use of this field in range invalidation.
+		  * When TG == 0b00 this field is RES0.
+		  * If SMMU_IDR3.RIL == 0, this field is RES0.
+                         ^^^^^^^^^^^
+
+So I'm certainly sympathetic, but I don't know we should diverge the
+driver from the language in it's own spec.
+
+Do you have a recommendation for a suitable short name? It is
+meaningful work to rename everything in this series.. Will?
+
+Thanks,
+Jason
 
