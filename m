@@ -4,72 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A0D0C982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 23:22:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 588C6C982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 23:46:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tMZh1YMYCYrRC2uuwUki1Jazz5iXTgol+eU8SrrfkyY=; b=tb9kHFgAW4ZjtGP3eq4uad9kp+
-	Kl3RTQet3B7orflhJSoixs+E3aTpazKZ1GNWmhXjLQeYmnDExx96k5nraPFYGqHeEjsyrn5EUc6Ww
-	Lky6C0EV2Tadwkk0I9HLmqPK191KH/LQQ1qs88QtMyJMEmkyEt+fivdX9IRvHMbmpdAPP2zUBeSJs
-	Nz/hdiNDH0UlPpv/Zaor6Xf6PDkatWq/lLXoSsF2ClZ0sRW1fpDRmDgSsl4ILnOBnG0s0citT8eN8
-	5rDf7yPtiSSb+39YnYSFmyeyrs97fOUS646mBcBSyzNgA9QDd18Emkwml6WllfD7HJYiJKpeBwVbO
-	KgcfG8XA==;
+	bh=1Mqf8IivruERMP6fZwT8V4CKtJjvaF7LKzl37WPzoRE=; b=jg9UjY8/9F1NYDvxHmtM7co8tp
+	jupfhvz8ZjVAdEgJ6w5oA2hfUJ0OAfj3rIkYq+brY4zM0rASu5fNHMwizwHoObjtpBe9qyXhJb5KJ
+	AoW/DpYyXZF0kvm4tYIkFbBK9gCXxAhTrDraOuIZYFfJog5AC6H5vUvlAIgz5zw3qQ4+aVBJfDrs9
+	IEzq9D9lehaGeek40v8JHPWYLXpho7Hxngehh9VljdSGCB3miNrRCBU7XuDgY7mnaxZoAhbZNaN/A
+	eBunvHiGMfpOFKws6KeDTpufkWp5SyszX7X6YNOTQQAIuUDZHFAX9sbYWfICBCTerVIv1LRFHA8px
+	eTju2kkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7LQu-0000000CmO0-0f1B;
-	Thu, 17 Sep 2026 23:22:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x7LoK-0000000CxHD-0gYf;
+	Thu, 17 Sep 2026 23:46:36 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7LQs-0000000CmNc-1Jcu
+	id 1x7LoG-0000000CxFc-2fPt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 23:22:22 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id ABA8643FA7
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 23:22:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93BBC1F00893
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 23:22:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789687341;
-	bh=tMZh1YMYCYrRC2uuwUki1Jazz5iXTgol+eU8SrrfkyY=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=UMyDXfFPJ6TD7VAJu/Wo9nOwx21vOAIJyHqkxfySfMaGoz3L5SRzIRuYI6+hBq5Fn
-	 VDxtPogqxAZqT8pWf20ID37n7+Tnf1ShUmnTeR6Ws4U8ye+c5hV8nmnvdP/9SIaRz1
-	 oVrxtZYf9D25VxY16SDLIkJw+KxWNVDWByqc7Bv821rdlnEV0ad0v/0J10dcDSxlBx
-	 DUjrmnzdOgwZ5WBE8l1Rg98I3/mY5h/CmE2mnXbu9SnLwfE2Q9/STmdY1xkpDSRuvq
-	 QubDsA6jFihfX+X0r3Vgzg14qdy25FbeEj7HpBIQnOY9UhbIVFC0VzepoarsGjndoF
-	 thgumBxMGF03g==
-Received: by mail-qk2-f12.google.com with SMTP id af79cd13be357-93910cc46c4so13179485a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 16:22:21 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBw6h8RI43Utm1VezZFH8iCGqn7wd4lPcKlCG+B0qD0tIOINAAZ2n8fujKamp361WMObiJvMhq/5aVLhysPtg9kt@lists.infradead.org
-X-Gm-Message-State: AFuF++latPsDhPnCLO5cadxn5gNbz730rjiTutGj+R22A0r6O7JHTpg2
-	mgoBP/bV7oFbRHiKPEem2CHpCsquoHVMH2WDRjdK8lVAQq/2LCPcGWmcoxAUgFoq65K8KKec4wK
-	QlPmSoQzqVPdJ9Gu0/pgvPFFKcPdSNUg=
-X-Received: by 2002:a05:620a:294a:b0:93b:da60:a557 with SMTP id
- af79cd13be357-93bdc6d5b3amr95981185a.19.1789687340744; Thu, 17 Sep 2026
- 16:22:20 -0700 (PDT)
+	Thu, 17 Sep 2026 23:46:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Subject:Date:From:From:Reply-To;
+	bh=1Mqf8IivruERMP6fZwT8V4CKtJjvaF7LKzl37WPzoRE=; b=mOExCMnLTSkGvTyRiMXOatBBID
+	K20rA0fJ+RktEBh2RY/p4i3ZZFxSCk4K6B2GAu/uxcPp1mupcsvpC8nIfsUW8a6gs0xivk8kv4xHB
+	XrH5FKh/9pgaj4pHdoWK6RmH3APuNRH3kqWVp/Ze7jko/NwXwQxfV1RxHsyCoJPMC+WUKYmzXmkLW
+	qaMmJGSNvcyppesurdnMZCPyEwsogWTNL5RpPOzpMKt3MEQzEzAvEh1ko+ULz8j43VYdsgpSdpioe
+	vu4a3O18+Jfq6l19eN5uCo8DlIQqF88sEc0f1LsDMksulIDUhdZWOvhVsGjnZCCQawZfXn+dzr8vd
+	SCaQHUIQ==;
+Received: from [177.172.123.214] (helo=[192.168.15.100])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
+	id 1x7Lo4-003hU7-TS; Fri, 18 Sep 2026 01:46:20 +0200
+From: =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
+Date: Thu, 17 Sep 2026 20:46:04 -0300
+Subject: [PATCH v7 01/13] syscalls: Make --abis parsing more robust
 MIME-Version: 1.0
-References: <20260917052933.188679-1-jiangwenxiaomi@gmail.com> <20260917052933.188679-2-jiangwenxiaomi@gmail.com>
-In-Reply-To: <20260917052933.188679-2-jiangwenxiaomi@gmail.com>
-From: Barry Song <baohua@kernel.org>
-Date: Fri, 18 Sep 2026 07:22:09 +0800
-X-Gmail-Original-Message-ID: <CAGsJ_4xujxpH6OuuUao2=TAjTMKhr77ufW6OoZuk-VB=YPd6fw@mail.gmail.com>
-X-Gm-Features: AcwNN1WjNP8GdpSkB1mGsUq58TKlHY6lfOfrir1kzagtl_zxNQgmPbeTkRXOdwM
-Message-ID: <CAGsJ_4xujxpH6OuuUao2=TAjTMKhr77ufW6OoZuk-VB=YPd6fw@mail.gmail.com>
-Subject: Re: [PATCH v8 01/10] arm64/mm: add pte_set_huge() and pte_clear_huge()
-To: Wen Jiang <jiangwenxiaomi@gmail.com>
-Cc: akpm@linux-foundation.org, catalin.marinas@arm.com, linux-mm@kvack.org, 
-	urezki@gmail.com, will@kernel.org, Xueyuan.chen21@gmail.com, 
-	ajd@linux.ibm.com, anshuman.khandual@arm.com, chleroy@kernel.org, 
-	david@kernel.org, dev.jain@arm.com, jiangwen6@xiaomi.com, leo.yan@arm.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, maddy@linux.ibm.com, mpe@ellerman.id.au, 
-	npiggin@gmail.com, rppt@kernel.org, ryan.roberts@arm.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260917-tonyk-syscall_table-v7-1-f4cd8f8e3265@igalia.com>
+References: <20260917-tonyk-syscall_table-v7-0-f4cd8f8e3265@igalia.com>
+In-Reply-To: <20260917-tonyk-syscall_table-v7-0-f4cd8f8e3265@igalia.com>
+To: Masami Hiramatsu <mhiramat@kernel.org>, Arnd Bergmanon <arnd@arndb.de>
+Cc: Christian Brauner <brauner@kernel.org>, linux-kernel@vger.kernel.org, 
+ linux-kbuild@vger.kernel.org, kernel-dev@igalia.com, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ linux-alpha@vger.kernel.org, linux-s390@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev, 
+ linux-mips@vger.kernel.org, sparclinux@vger.kernel.org, 
+ =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
+X-Mailer: b4 0.15.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260917_164632_680677_3158D7B3 
+X-CRM114-Status: UNSURE (   9.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,63 +76,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 1:29=E2=80=AFPM Wen Jiang <jiangwenxiaomi@gmail.com=
-> wrote:
->
-> From: Wen Jiang <jiangwen6@xiaomi.com>
->
-> vmap installs PTE-level block mappings (PTE_CONT on arm64) by reusing
-> set_huge_pte_at() and huge_ptep_get_and_clear(), which are HugeTLB
-> helpers gated by CONFIG_HUGETLB_PAGE. This makes the feature silently
-> unavailable on CONFIG_HUGETLB_PAGE=3Dn kernels and couples mm/vmalloc.c t=
-o
-> HugeTLB internals it does not otherwise need.
->
-> Add pte_set_huge()/pte_clear_huge() to arm64, joining the existing
-> pmd_set_huge()/pud_set_huge() family in mm/mmu.c. They build on
-> __set_ptes() and __get_and_clear_full_ptes() directly, so they do not
-> depend on CONFIG_HUGETLB_PAGE.
->
-> There is no caller yet: mm/vmalloc.c is converted later in this series,
-> once the generic fallbacks are in place.
->
-> Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
+Some archs Makefile have something like this as the rule for making the
+syscall files:
 
-I tried to apply the patch to mm-new, but it doesn't apply.
+  cmd_systbl = $(CONFIG_SHELL) $(systbl) --abis common,$* $< $@
 
-% git am raw
-Applying: arm64/mm: add pte_set_huge() and pte_clear_huge()
-error: patch failed: arch/arm64/mm/mmu.c:1872
-error: arch/arm64/mm/mmu.c: patch does not apply
-Patch failed at 0001 arm64/mm: add pte_set_huge() and pte_clear_huge()
-hint: Use 'git am --show-current-patch=3Ddiff' to see the failed patch
-When you have resolved this problem, run "git am --continue".
-If you prefer to skip this patch, run "git am --skip" instead.
-To restore the original branch and stop patching, run "git am --abort".
+The $* symbol is evaluated to the variable found at $(uapi)/unistd-%.h,
+where % is 32 or 64, resulting in e.g. `--abis common,32`. Sometimes the
+rule for the file won't have a %, resulting in a trailing comma e.g.
+`--abis common,`.
 
-% patch -p1 < raw
-patching file 'arch/arm64/include/asm/pgtable.h'
-patching file 'arch/arm64/mm/mmu.c'
-1 out of 1 hunks failed--saving rejects to 'arch/arm64/mm/mmu.c.rej'
+Currently this input is transformed into (common|). This is problematic
+because grep will then match any ABI because of the trailing `|`. Make the
+syscalls scripts more robust by removing any trailing comma.
 
+Signed-off-by: André Almeida <andrealmeid@igalia.com>
+---
+ scripts/syscallhdr.sh | 2 +-
+ scripts/syscalltbl.sh | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-[...]
+diff --git a/scripts/syscallhdr.sh b/scripts/syscallhdr.sh
+index 22e34cd46b9b..bad1ab606a0f 100755
+--- a/scripts/syscallhdr.sh
++++ b/scripts/syscallhdr.sh
+@@ -39,7 +39,7 @@ while [ $# -gt 0 ]
+ do
+ 	case $1 in
+ 	--abis)
+-		abis=$(echo "($2)" | tr ',' '|')
++		abis="($(echo "${2%,}" | tr ',' '|'))"
+ 		shift 2;;
+ 	--emit-nr)
+ 		emit_nr=1
+diff --git a/scripts/syscalltbl.sh b/scripts/syscalltbl.sh
+index 6a903b87a7c2..c4b1f85c2dd6 100755
+--- a/scripts/syscalltbl.sh
++++ b/scripts/syscalltbl.sh
+@@ -33,7 +33,7 @@ while [ $# -gt 0 ]
+ do
+ 	case $1 in
+ 	--abis)
+-		abis=$(echo "($2)" | tr ',' '|')
++		abis="($(echo "${2%,}" | tr ',' '|'))"
+ 		shift 2;;
+ 	-*)
+ 		echo "$1: unknown option" >&2
 
-> +void pte_set_huge(pte_t *ptep, unsigned long addr, phys_addr_t phys,
-> +                 pgprot_t prot, unsigned long size)
-> +{
-> +       unsigned long pfn =3D __phys_to_pfn(phys);
-> +       pte_t new_pte =3D pte_mkcont(pfn_pte(pfn, prot));
+-- 
+2.55.0
 
-Maybe we can drop the `new_` prefix.
-
-> +       unsigned int nr =3D size >> PAGE_SHIFT;
-> +
-> +       VM_WARN_ON(!IS_ALIGNED(pfn, CONT_PTES));
-> +       VM_WARN_ON(!IS_ALIGNED(size, CONT_PTE_SIZE));
-
-Do we also need to check that `addr` is aligned?
-
-Best Regards
-Barry
 
