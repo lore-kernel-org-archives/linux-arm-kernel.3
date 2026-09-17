@@ -4,68 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B310DC982CF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 13:13:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0339C982D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 13:14:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0KczUTT4pZjvn6++/hJJmxB3shK0qpHFg6zLRVauhpc=; b=JYH5yih0INsLkCvfsHAxtiv19Y
-	pzuWJhurywwbdhjhUtT/1nRBx3GIr30VpkYDRUBGfGtJiHGlj6H3IDV+2FZN24Uer7L9JaQ9pbQy6
-	IMLXsPKmpcP9AWpSdJAiuheX9PglUc499cs9fN0rOiGst3ABLCi8h9EcBJ45zgap6YDigAK9N5TTi
-	HgRerraR/LOhih/eAQm1reUGL7FjSlTjQf4q9xvGtlTBSXxyzJ3OcjKOduKTl8pxsLZYxwfwoZo06
-	aWuxjHMy5d9f0xR2DrPZQ6nibBV1MNg83yDOuvZjgwUKdwP0OADx0zYTNjImw4Hz5ItaTXgToi3Nu
-	PThUk35Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PNgpEuFxkLpwQVUTRb/HejZ0tN6jXsHgSl5ZBTQhmMs=; b=Wii6z21aiv3T8O++IN1ouCJ6dt
+	obIQcGo/joNwrGzH83nzjCGNYKYOWptyngVnyLW53sF+rsuH1FJSfyXxoAELcdm+zaJ7hx8TbFivh
+	kax+puHm3sAJdI+rJ2PG2GRRei9uEHLx7mf1dU+/O5ghQcJxxcF+KweNRWQ+QBartVv/l1UeuwvnE
+	5NgVFzhe2RkaakydKW15wdUQWlJdpT9tR+EMjNxLTh7p9lKME41jBnClLYU4jZ+s0GrVMqwViFdpm
+	uWh3mk8M69H72QG6y4I8wVTfFrwVSLOJCy4N2hDHvvHkSyn+hRWzBpI4kLwW5qjjfFbqHrP0W/3mY
+	ErxCg+Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7BvX-0000000BNQG-0e6U;
-	Thu, 17 Sep 2026 13:13:23 +0000
-Received: from m16.mail.126.com ([220.197.31.7])
+	id 1x7Bw9-0000000BNWt-1DkC;
+	Thu, 17 Sep 2026 13:14:01 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7BvT-0000000BNPQ-3wZL
+	id 1x7Bw6-0000000BNWV-3gjz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 13:13:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=0K
-	czUTT4pZjvn6++/hJJmxB3shK0qpHFg6zLRVauhpc=; b=QpfbabbTZkCwDzEnji
-	P/YGDYIXN2PHrAgiAiifICcVq8iZQ9BQhbU62wexvvBsuAp19SfTzgsddgzyjcnU
-	Plv5P7acDWSt/qMyUOXfn3FGFo7PU4qy1G+d/X+PHwbtLKIlZlNupp5WvWZR2x4p
-	GbVMHykVRFKu6bV8TNr2m8SOo=
-Received: from localhost.localdomain (unknown [])
-	by gzsmtp4 (Coremail) with SMTP id PykvCgD3N1VF56tq0unFHw--.22915S2;
-	Thu, 17 Sep 2026 21:12:39 +0800 (CST)
-From: Linkui Xiao <xiaolinkui@126.com>
-To: maxime.chevallier@bootlin.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com
-Cc: netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	Thu, 17 Sep 2026 13:13:59 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id F4188600D4;
+	Thu, 17 Sep 2026 13:13:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EAF31F000FF;
+	Thu, 17 Sep 2026 13:13:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789650837;
+	bh=PNgpEuFxkLpwQVUTRb/HejZ0tN6jXsHgSl5ZBTQhmMs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=n+iXY1iBZUiYhHQNX3M/KedAqPFUcruQCCfT+Jk8iObh88EdMCvSpWvKnffaB02Xo
+	 agJz757+ipCx0fEOOG9hs/rCIzNI1q9suqvwygogxGEIGLE1C9Zr9c002GK9RFs+o5
+	 ttBilpJFfy0p2Cg64LZ6qB2WnKg8T5fCVz/QvO4c4TShM+7kpLtOG1g1A6GItLtxMa
+	 CiNmBKk3znnL5XXHqG/vKtJxD1fIiuioPRKURvHKoc+5NT5U2irwDk2suHKuDlcKuE
+	 lmp/qV5ugvCwtOCqOt7vu9JahWqrm0GzUV7ZWQ+aIVe7VTilrQkBsQ1pfxsrRxW/nE
+	 GuFCCseLX91iA==
+Date: Thu, 17 Sep 2026 16:13:51 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Vladimir Murzin <vladimir.murzin@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Linkui Xiao <xiaolinkui@kylinos.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH net] net: stmmac: ethtool: validate TX coalesce before reprogramming RX
-Date: Thu, 17 Sep 2026 21:12:35 +0800
-Message-Id: <20260917131235.1360959-1-xiaolinkui@126.com>
-X-Mailer: git-send-email 2.25.1
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, liulhong617 <liulhong617@gmail.com>
+Subject: Re: [PATCH] arm64: mm: Fix pfn_is_map_memory() misreporting mapped
+ memory
+Message-ID: <aqvnj4jzxG-pXvYh@kernel.org>
+References: <20260908162033.74509-1-vladimir.murzin@arm.com>
+ <947a1506-dfe4-4906-9673-6a7227946433@app.fastmail.com>
+ <a2b4186d-b3b0-4543-9f77-505e8ae67ae8@arm.com>
+ <01f1f6d9-e10f-43f9-b731-f6393010a11c@app.fastmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: PykvCgD3N1VF56tq0unFHw--.22915S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxGF4xXrW7XFW8uF1rtrWrZrb_yoW5XryDpr
-	WkGFZavryDJr43Jw1DJw48uFy5t397tFZxX348J34fuF45GFyFqr1aqryrWFnFkrWxZrWa
-	gr4qva4Dua98A3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UYzuZUUUUU=
-X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBlQeQZ2qr50eIyQAA3F
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_061320_365860_DFEF4D16 
-X-CRM114-Status: GOOD (  14.68  )
+In-Reply-To: <01f1f6d9-e10f-43f9-b731-f6393010a11c@app.fastmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,72 +75,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Linkui Xiao <xiaolinkui@kylinos.cn>
+On Thu, Sep 17, 2026 at 02:34:57PM +0200, Ard Biesheuvel wrote:
+> On Thu, 17 Sep 2026, at 14:26, Vladimir Murzin wrote:
+> > On 9/16/26 11:13, Ard Biesheuvel wrote:
+> >> (cc Mike)
+> >> 
+> >> On Tue, 8 Sep 2026, at 18:20, Vladimir Murzin wrote:
+> >>> Commit 7ace06a01efa ("arm64: mm: fix accidental linear mapping of
+> >>> no-map reserved memory") removed sub-page no-map regions from the
+> >>> linear mapping. However, pfn_is_map_memory() can still report that
+> >>> such a region is mapped.
+> >>>
+> >>> For instance, with 64K pages, say we have
+> >>>
+> >>> normal:        ...–0xa2007fff
+> >>> no-map: 0xa2008000–0xa200ffff
+> >>> normal: 0xa2010000–...
+> >>>
+> >>> The range 0xa2000000–0xa200ffff is not linearly mapped, but
+> >>> pfn_is_map_memory(__phys_to_pfn(0xa2008000)) aligns the address to
+> >>> page granularity and passes 0xa2000000 to memblock_is_map_memory().
+> >>> That address belongs to the preceding normal memblock region, so the
+> >>> no-map region is ignored and the function returns true.
+> >>>
+> >>> Fix that by checking if entire page is subset of memory block.
+> >>>
+> >>> Fixes: 7ace06a01efa ("arm64: mm: fix accidental linear mapping of 
+> >>> no-map reserved memory")
+> >>> Assisted-by: LLM
+> >>> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> >>> ---
+> >>>  arch/arm64/mm/init.c | 3 ++-
+> >>>  1 file changed, 2 insertions(+), 1 deletion(-)
+> >>>
+> >>> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+> >>> index fbf215ecc7d0..5da80e1e1727 100644
+> >>> --- a/arch/arm64/mm/init.c
+> >>> +++ b/arch/arm64/mm/init.c
+> >>> @@ -172,7 +172,8 @@ int pfn_is_map_memory(unsigned long pfn)
+> >>>  	if (PHYS_PFN(addr) != pfn)
+> >>>  		return 0;
+> >>>
+> >>> -	return memblock_is_map_memory(addr);
+> >>> +	return memblock_is_region_memory(addr, PAGE_SIZE) &&
+> >>> +		memblock_is_map_memory(addr);
+> >>>  }
+> >>>  EXPORT_SYMBOL(pfn_is_map_memory);
+> >>>
+> >> memblock_is_region_memory() only tells you whether the range in
+> >> question is covered by a single entry in memblock.memory.regions[].
+> >> 
+> >> memblock has other flags, which may or may not be set on sub-page
+> >> regions too. So I don't think this is the right solution in the
+> >> general case, even if it fixes your example.
+> >> 
+> >
+> > Ack.
+> >
+> >> Given that the no-map attribute fundamentally only applies to page
+> >> granular regions, it would make sense to round those outwards
+> >> whenever they are created.
+> >> 
+> >> --- a/mm/memblock.c
+> >> +++ b/mm/memblock.c
+> >> @@ -1119,6 +1119,10 @@
+> >>  int __init_memblock memblock_mark_nomap(phys_addr_t base, phys_addr_t size)
+> >>  {
+> >> +       phys_addr_t end = PAGE_ALIGN(base + size);
+> >> +
+> >> +       base &= PAGE_MASK;
+> >> +       size = end - base;
+> >>         return memblock_setclr_flag(&memblock.memory, base, size, 1, MEMBLOCK_NOMAP);
+> >>  }
+> >>  
+> >> 
+> >
+> > Should the same be applied to memblock_clear_nomap()?
+> >
+> 
+> Yes.
+> 
+> > This is indeed much nicer way to fix the problem! Now, when no-map is
+> > rounded outwards, do we still need 7ace06a01efa?
+> >
+> 
+> Probably not, but there are some corner cases to consider before we
+> go down this route:
+> - what happens when marking a range no-map where the outward rounding
+>   would exceed the limits of the existing memblock memory range?
 
-__stmmac_set_coalesce() applies the RX part of the request first and
-only afterwards checks the TX parameters. The RX path already calls
-stmmac_rx_watchdog() and stores rx_riwt[] and rx_coal_frames[], so when
-the TX check rejects the request the driver returns -EINVAL after having
-silently changed the hardware. A following ethtool -c then reports the
-new RX values even though the command failed.
+AFAIR it's fine, memblock_isolate will clamp the update.
+Didn't check the code though.
 
-This became easy to hit once the per-queue interface was added.
-__stmmac_get_coalesce() reports tx-usecs and tx-frames as 0 for a queue
-index that is RX-only, and ethtool applies per-queue coalesce by reading
-the current values first and sending them straight back. The next set is
-therefore guaranteed to trip the test for both TX fields being zero,
-right after the RX watchdog has been reprogrammed.
+> - what happens when removing a non-page aligned region from memblock
+>   that intersects with a (page aligned) no-map region?
 
-Move both TX checks in front of the RX block so a request is either
-applied completely or rejected without touching the device.
+It will make the nomap region non-page aligned.
 
-Fixes: db2f2842e6f5 ("net: stmmac: add per-queue TX & RX coalesce ethtool support")
-Cc: stable@vger.kernel.org
-Signed-off-by: Linkui Xiao <xiaolinkui@kylinos.cn>
----
- .../ethernet/stmicro/stmmac/stmmac_ethtool.c  | 21 ++++++++++++-------
- 1 file changed, 13 insertions(+), 8 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-index 154cc0c7623d..325db062f72a 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-@@ -850,6 +850,19 @@ static int __stmmac_set_coalesce(struct net_device *dev,
- 	else if (queue >= max_cnt)
- 		return -EINVAL;
- 
-+	/* Check the TX parameters before anything is applied: the RX part
-+	 * below already writes to the hardware, so rejecting the request
-+	 * afterwards would leave the device with only half of the settings
-+	 * the caller asked for while reporting a failure.
-+	 */
-+	if (ec->tx_coalesce_usecs == 0 &&
-+	    ec->tx_max_coalesced_frames == 0)
-+		return -EINVAL;
-+
-+	if (ec->tx_coalesce_usecs > STMMAC_MAX_COAL_TX_TICK ||
-+	    ec->tx_max_coalesced_frames > STMMAC_TX_MAX_FRAMES)
-+		return -EINVAL;
-+
- 	if (priv->use_riwt) {
- 		rx_riwt = stmmac_usec2riwt(ec->rx_coalesce_usecs, priv);
- 
-@@ -875,14 +888,6 @@ static int __stmmac_set_coalesce(struct net_device *dev,
- 		}
- 	}
- 
--	if ((ec->tx_coalesce_usecs == 0) &&
--	    (ec->tx_max_coalesced_frames == 0))
--		return -EINVAL;
--
--	if ((ec->tx_coalesce_usecs > STMMAC_MAX_COAL_TX_TICK) ||
--	    (ec->tx_max_coalesced_frames > STMMAC_TX_MAX_FRAMES))
--		return -EINVAL;
--
- 	if (all_queues) {
- 		int i;
- 
 -- 
-2.25.1
-
+Sincerely yours,
+Mike.
 
