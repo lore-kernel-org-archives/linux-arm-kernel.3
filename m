@@ -4,83 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 578B8C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 20:20:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7618C982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 20:24:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RXB70s8tC0N4djKhk6YxK6M2sEK0IClm9i5YiNUGtD8=; b=HzM6ayOHGW1PW//FDStbW6rVMj
-	Q89Hw6RbZ7LIgpj9hhLBjd4MsJmLH9OSQZLBk1ZO04khT0R65jV6ZIp/US8PInDFDaGtK1mLiZ9y6
-	09f4xHM3f2PuSgW+VnrbSj0/9KMjco0c7ti6MtA3ary0qBB8nW5bACgILxMRbqe7M77mGpT8PB9y6
-	WVW42GMhXALgd9po/0WISCIok11q2XeJdylIpVLwbpuSCs9Y0aGJUaa5cnQEDSGeqCiYm+GCNt81b
-	v3Ba2xCOCCrV0MWBVX8IutQL+UUv8oKyddK3A7hZ9cCUtMi+9QKdbE5b5I4NLfueCA8ZlI5NU421b
-	hdZXEiWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7itKtlTYX9R4u2oxxBvlnWOsxUd+L61slFivLar7yO0=; b=g35Z5V94k4RO7sCa8O6vVeNBAD
+	ESt9SX4AcD8xMBNeqSCr5ewBBc4U56Ba55zm0okljOOWTD6R+JOjsCT5k9vPRjFske2ke4xHCkrjs
+	teOaCCi74AbMmgdTpN7qL85Um8uet+nQjEdpGOMajYhFMufXYqxN2Mk5fFWXT8eJxVa0zWKWYYWqj
+	wDr8VMi1KG4m+Mopiq7fWfmsHZw0q0YXOiwnrtGJtnqDt8s9U7GLugvKqLE4bCl7KUCrAdIge9fU5
+	nfcGQfM+FuqIyK5TYI9D8B5k4I4O+kqzBwf3cOjRYbMsaGX4v5vuQ8QFbfqo+WI6trDtP5EyANCTk
+	VPYuTsoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Iak-0000000CPz1-491Z;
-	Thu, 17 Sep 2026 20:20:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x7IeT-0000000CQD6-2T9X;
+	Thu, 17 Sep 2026 20:24:13 +0000
+Received: from mail-oi2-x05.google.com ([2607:f8b0:4864:32::5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Iaj-0000000CPyu-2KbN
+	id 1x7IeQ-0000000CQCF-0eqc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 20:20:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E5B52601FF;
-	Thu, 17 Sep 2026 20:20:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B03F1F000FF;
-	Thu, 17 Sep 2026 20:20:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789676420;
-	bh=RXB70s8tC0N4djKhk6YxK6M2sEK0IClm9i5YiNUGtD8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=FgWzVoH4Tdgc3xbhEiQn7a6FJ/07+ERma5xsfx6CkqdFWA+dhVut+XxWCw+O3cdHo
-	 353RpR9YS4TSztc8wrKkHDyD3hOLYGP+SFrzV6RR38x+cCsWQrL4Tkx0apZ1LOlbjD
-	 Pw+ePTdyDbLqc4xmPt8BS1hyD5vEys0JA49NovRKLhSpDUz7u0bVIDfae91KAFjAWu
-	 Lc2oIXJ0sLEUOn/7zsKrlGx2h278H2Ocj/FRGNmzwEbvq6nCQj5a4GNBMRZ3Brx1y7
-	 Mq5DVlrP4IJn0NFAcN7hGMfB3aMSFA7idC83SWUP1zSgwwVqHLkW2tXu3aIDr+xk1O
-	 XIViCSjFySfOA==
-Date: Thu, 17 Sep 2026 22:20:17 +0200
-From: Frederic Weisbecker <frederic@kernel.org>
-To: Josef Bacik <josef@toxicpanda.com>
-Cc: "Paul E. McKenney" <paulmck@kernel.org>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Boqun Feng <boqun@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>, x86@kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Puranjay Mohan <puranjay@kernel.org>,
-	Xu Kuohai <xukuohai@huaweicloud.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Zqiang <qiang.zhang@linux.dev>, Juergen Gross <jgross@suse.com>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	linux-kernel@vger.kernel.org, rcu@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org, bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	xen-devel@lists.xenproject.org
-Subject: Re: [PATCH RFC v3 03/13] rcu-tasks: Add a Tasks RCU implementation
- for reader-marked trampolines
-Message-ID: <aqxLgT41UyA-bV5J@pavilion.home>
-References: <20260915-b4-rcu-tasks-preempt-qs-v3-0-0ad30c4c5ee7@toxicpanda.com>
- <20260915-b4-rcu-tasks-preempt-qs-v3-3-0ad30c4c5ee7@toxicpanda.com>
+	Thu, 17 Sep 2026 20:24:11 +0000
+Received: by mail-oi2-x05.google.com with SMTP id 46e09a7af769-7f9cc0e524aso429421a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 13:24:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789676648; x=1790281448; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=7itKtlTYX9R4u2oxxBvlnWOsxUd+L61slFivLar7yO0=;
+        b=dq6UQ5l0BqHXf/crOsV6478qNj3ASRWVEBGRIqp+okaUXkWPh2/H+0+lUDfvxjklU9
+         Nswd8TPIMw9nP8s06eK+mZJmX+r6Gd40ewCrUveRWu8iyZZrsdI526o8wSqJAD/ZO04/
+         vrQ0PH49vZuvOVc2SxKbtvIAg/9uXV30MBjS7pxIbmVbAevH8dKCyAO9YpNARFngleeP
+         2Ocula32oWitvqJt9vnxXJwvogbGiE3/33IBMshtU/Vtrcj3bsqZkrrIFz7or9TNQC7q
+         IC06aUsW0+fFgPooLNPc0w1Pn16qCe0uP3EN3Nt3gWaDBUQ09h7wcDt7BuUOAlNpCJ3g
+         cFWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789676648; x=1790281448;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=7itKtlTYX9R4u2oxxBvlnWOsxUd+L61slFivLar7yO0=;
+        b=eMfPBJJwtdndVylTygB5Pe67spuLU/SRfoi75fsXyGICUz0QLjJFwq0V6UWjIG8DEp
+         lwwC9nZ+BSHbhRLDkq1UQvr/INTK8g4wYSm63Uomiwd9mVCOiuieQsa3NOceh3Rp+ob7
+         euFxFaAtPo2x7H/SB2C+pR3iyeyciTqNVaB0Gtqgm7sfcY1TD2SnZX7lZ++k7BM100EY
+         0L4p+bmtn/36k7+UrqatbH/rARsj8JpuH4hPooplbUgdnahvVuXr8IfvQVyWcTdtWc/7
+         9cHtdn99B1EhwunmLjBlohXfb2ouwf1KfhjRTODKDqDuHB+pWOAV7xz/OM0XpyWHle+T
+         8Q1w==
+X-Forwarded-Encrypted: i=1; AKwUvBwbyoYTewtmzxsdnQc1T5SguAL530zKC2lU5cQnJpbHQ0bPFO4i77yVvK6eif9wSWQSIGlRVWkQwUcR27DeBz/Z@lists.infradead.org
+X-Gm-Message-State: AFuF++m1IO9rtEObwVN2tWVsLZztskOznYs5lDKfs6ueolhLvHc5vFmX
+	EnWixURBWanpx4ecKUtNY+Y4Tk5Pv7gR4BD6eNMf9Zs3Y8afw6ScTZkL
+X-Gm-Gg: AYBFou0AXTaynA6BSt0Stlz30GvHB8hmC7HZPVJNApzbLOQGvUsf7mIZBDppb8tLyjI
+	qhiT1d2TOAzco8jszd1nR/0vVplFmAJmWHvCmRCMJ+47SsR2Qgd9e1JvAnBYIEpl0SgCpjLOqb2
+	GXqe3AzVTrUN6Ad20e4SenJRkHnZp+XjoputL4xYxmps87eiDBO8YazSXWOAfVXHqJDennPO5F7
+	nx+wStHdnByKquhogoy90f+u0r0VY56jZFPPFKpudDyMVp5a2D1kIjFzJUhFVdeTZekV3fCxmSX
+	xcAiEhwtBB/Tu9IzE3+ar+N3vg3SIJwMXJqG5usLcyxgazDJVxinWqlEe8/PgpTnNGEPdLDBBCC
+	ZGiDMM0gmf5KyfQ9YFDoxQLnihjO6JldqLOruHXAvn7vNfq/GjxiqiyLqzBgZ+0zAiD8YAlB7Ua
+	KEUXJbVsfbckY4K+PjXLOYPhHj/P6eNkRFG+4UOzSdQjZRXQsdXWfU4rgHOFqLpezT6CVnHe5Rg
+	VQWUXotJJDHc6o=
+X-Received: by 2002:a05:6820:2219:b0:6b3:5475:4861 with SMTP id 006d021491bc7-6ca9aa3fb5dmr186014eaf.18.1789676648385;
+        Thu, 17 Sep 2026 13:24:08 -0700 (PDT)
+Received: from ?IPV6:2600:8804:5716:d800::b712? ([2600:8804:5716:d800::b712])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6c8f5cf48besm3802412eaf.4.2026.09.17.13.24.06
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 17 Sep 2026 13:24:07 -0700 (PDT)
+Message-ID: <2d1b80f2-53f6-4ed6-81bf-e35c0a9efb26@gmail.com>
+Date: Thu, 17 Sep 2026 15:24:05 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260915-b4-rcu-tasks-preempt-qs-v3-3-0ad30c4c5ee7@toxicpanda.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/3] iio: adc: add mt6397 PMIC AUXADC support
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner
+ <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
+ Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Lee Jones <lee@kernel.org>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ mfd@lists.linux.dev, Roman Vivchar <rva333@protonmail.com>,
+ Luca Leonardo Scorcia <l.scorcia@gmail.com>
+References: <20260915-rbrue-suez-upstreaming-mt6397-auxadc-v1-0-d35d2ac3d6f0@gmail.com>
+ <aqpmgliQW7FW53o5@ashevche-desk.local>
+Content-Language: en-US
+From: Ryan Brue <ryanbrue.dev@gmail.com>
+In-Reply-To: <aqpmgliQW7FW53o5@ashevche-desk.local>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260917_132410_209251_A8428978 
+X-CRM114-Status: GOOD (  21.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,72 +113,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Tue, Sep 15, 2026 at 01:17:30PM +0000, Josef Bacik a écrit :
-> +static void rcu_tasks_tramp_hold(struct task_struct *t)
-> +{
-> +	unsigned long flags;
-> +
-> +	if (t->rcu_tasks_holdout)
-> +		return;
-> +	raw_spin_lock_irqsave(&rcu_tasks_tramp_lock, flags);
-> +	list_add_tail(&t->rcu_tasks_holdout_list, &rcu_tasks_tramp_holdouts);
-> +	WRITE_ONCE(t->rcu_tasks_holdout, true);
-> +	raw_spin_unlock_irqrestore(&rcu_tasks_tramp_lock, flags);
-> +}
-> +
-> +static void rcu_tasks_tramp_release(struct task_struct *t)
-> +{
-> +	unsigned long flags;
-> +
-> +	if (likely(!t->rcu_tasks_holdout))
-> +		return;
-> +	raw_spin_lock_irqsave(&rcu_tasks_tramp_lock, flags);
-> +	list_del_init(&t->rcu_tasks_holdout_list);
-> +	WRITE_ONCE(t->rcu_tasks_holdout, false);
-> +	raw_spin_unlock_irqrestore(&rcu_tasks_tramp_lock, flags);
-> +}
-> +
-> +/**
-> + * rcu_tasks_irq_resched_enter - Tasks RCU hook for the irq-exit reschedule check
-> + * @ip: instruction pointer of the interrupted (task-level) context
-> + *
-> + * Called with interrupts disabled when an interrupt returning to kernel
-> + * mode is about to preempt_schedule_irq(), the one context switch that can
-> + * catch a task inside unmarked trampoline text.  Record where the task is
-> + * parked for as long as it is (rcu_tasks_wait_irq_preempted() looks at
-> + * that), and if it is inside such text make it a holdout before
-> + * __schedule() reports the quiescent event; if it is not, this is as good
-> + * as a voluntary switch for ending an earlier hold.
-> + */
-> +void rcu_tasks_irq_resched_enter(unsigned long ip)
-> +{
-> +	struct task_struct *t = current;
-> +	struct rcu_tasks_percpu *rtpcp = this_cpu_ptr(rcu_tasks.rtpcpu);
-> +
-> +	lockdep_assert_irqs_disabled();
-> +	WRITE_ONCE(t->rcu_tasks_irq_ip, ip);
-> +	t->rcu_tasks_exit_cpu = smp_processor_id();
-> +	raw_spin_lock_rcu_node(rtpcp);
-> +	list_add(&t->rcu_tasks_exit_list, &rtpcp->rtp_exit_list);
-> +	raw_spin_unlock_rcu_node(rtpcp);
+On 9/16/26 4:50 AM, Andy Shevchenko wrote:
+> On Tue, Sep 15, 2026 at 11:15:25PM -0500, Ryan Brue wrote:
+>> The MediaTek mt6397 PMIC has a 10-bit AUXADC that nothing in-tree can
+>> reach. On boards built around it that ADC is the only path to the battery:
+>> the SoC's AUXADC is wired to board thermistors, and the charger ICs these
+>> boards use have no ADC at all, so without it there is no pack voltage and
+>> no state of charge.
+> This doesn't explain why a brand new driver? Perhaps we have existing code that
+> may be updated to support this device?
+I considered adding mt6397 support to either mt6323-auxadc or 
+mt6359-auxadc, and both had problems.
 
-I don't think we can do that. This is too much unconditional overhead
-on the hot preemption path. rcu_tasks_trampoline_text() should be
-a condition here.
+Both mt6323-auxadc and mt6359-auxadc select channels through a request 
+register (1 bit per channel), while mt6397 uses a 4-bit numeric field 
+CHSEL in CON1 (10:7), and then pulses a START bit (CON1 bit 0). That was 
+the biggest reason I made the new driver.
 
-And do we really need to maintain both lists? I understand that they
-have different purposes.
+For mt6323-auxadc, which is the closest I could find to the mt6397 
+(CON0..CON27), it has 13 more registers than the mt6397 (CON0..CON14). 
+It uses CON22 for its request register, and reads the result value from 
+the same register as the ready bit. We don't do that - the mt6397 has a 
+factory calibrated value for each channel at 0x16 higher than the raw 
+value. mt6323 also has a 1800 mV / 15 bit scale / resolution while we 
+have 1200 mV / 10 bits. We also have some per-channel preparation that 
+we have to do before the burst, that the mt6323 doesn't have to do.
 
-->rcu_tasks_exit_list is to track preempted tasks on trampoline
-->rcu_tasks_holdout_list is to track preempted tasks on trampoline until
-                         they ever voluntary schedule()
+For mt6359-auxadc, it has a more generic framework for describing the 
+AUXADC, but it assumes requests are channel-per-bit, and so we would 
+have to basically ignore req_idx, req_mask, rdy_idx, and rdy_mask.
 
-Can the latter replace the former? I see it's used on kprobes and others
-but I haven't checked the details yet.
+We also have our own software sampling, which the vendor does too 
+(Amazon Fire OS based on Linux 3.18). We'd have to have our own sampling 
+callback to do it.
 
-Thanks.
+I drafted two other versions of these patches adding mt6397 support to 
+both of those drivers, but the differences meant I had to add a lot of 
+extra boilerplate to each driver and to me it didn't make sense.
 
--- 
-Frederic Weisbecker
-SUSE Labs
+In v2 I will add the justification to the cover letter and commits for 
+why I chose a new driver.
+
+If you'd like me to instead send the exploratory patches I made adapting 
+mt6323-auxadc or mt6359-auxadc, let me know. I'm fine if it ends up 
+seeming like we should adapt one of the existing drivers, but I think 
+the mechanism for controlling this AUXADC is unique and merits its own 
+driver.
+
+Thanks again for the review, I am going through each one, and sorry for 
+the delay. I'm rather new to kernel development.
+
+Best regards,
+Ryan
 
