@@ -4,68 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7740EC88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 09:11:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FFE6C88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 09:13:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=932yub1e6bnEXPMAi/o9VWjpCGHLUgf7Ili7g1J2xFI=; b=prGL2VW/OJ3UUkjX7aeCdSovZq
-	qIIaKhXgV+aWYzRf47QKYS4SaNwf6HvmW3xEfxH/zRU5ZaJckYZyen5mx+n6Jq7ppHDprnGCIahHh
-	AIjr22aOyxmZaI2U3y1AmnUP1KP8BCdaXctXCyROXvlcLtuavqLJ22AAv852aOQq4yroSMAYWp3Es
-	KLulLt7W2xISigBWPgWucyzhBwnkQ+Tm+d4NIsKW1agYIqjPEiYB95USiqhhp2+XCtpuKzAYEpaxl
-	1Ky4E+S6Vh4ZvFAMC3Qp+Is/7PVUhPSacE6BPCAAgv4C8m971CoTbMZnkV+xujwraxwJk56J87Z5k
-	hrUc/CDg==;
+	bh=UEkb0gFEltBX2Uk9A1CIk5tOYIox/3vPW4obLKIjOOg=; b=uHNRzgFuTPt0AD9bW2aS+bSFNO
+	qyJ9vaaDe7T49jQmXTfZZhrnnosWgrELtScN8MQDf5DbduKfYaF2uaDaYQOXc/CeWQahoSm3gjvaN
+	TxqKlYMBBQ9DpQ8dCsT3W4KActAvV6CfWZOL+9OV/3DSNcO0egeuhIgd0x8I2Jpu0AHG9LZA9wFR9
+	nJ5di2a3IpvSbIIVz1rbthvZFdtqkJItz/Rv0YEGcF5epzgPQvOgpcPklESeD0S17XjHpS4VHzcfz
+	4+Pr00j0tWuQawPbJTw2U24f0BJJV0Va15JVR3P1cjsVHAELBimz0wdEVvxhPDZYPMhO8r1uxCvHb
+	C3oa3iPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x788w-0000000AxeY-2Ccu;
-	Thu, 17 Sep 2026 09:10:58 +0000
-Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
+	id 1x78BN-0000000Axy8-0lTA;
+	Thu, 17 Sep 2026 09:13:29 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x788s-0000000Axdz-1moz
+	id 1x78BK-0000000Axxd-0LDr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 09:10:56 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=932yub1e6bnEXPMAi/o9VWjpCGHLUgf7Ili7g1J2xFI=;
-	b=NZsLzJBmicaWyJxo1d6RbImPgC5+5VGU7Ue++Ox8iZvbXMs2zrWOXNEIP8sfxjt5J0EdZggpa
-	f419O3JiB9GLPfiX2AfYkpWTTPGm4gSJIMYt2kUhOy7DJ4HatQrFIxwu8vCrs279ug/SxUH7Xn/
-	R01EmoRTwoovtr1Rh5Hcdd8=
-Received: from mail.maildlp.com (unknown [172.19.163.200])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4hlqSz4c63z1cypG;
-	Thu, 17 Sep 2026 16:59:47 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id 46BEC4055B;
-	Thu, 17 Sep 2026 17:10:46 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- kwepemk200008.china.huawei.com (7.202.194.74) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Thu, 17 Sep 2026 17:10:45 +0800
-Message-ID: <03e261b4-10da-4530-b28a-5512e399d2e3@huawei.com>
-Date: Thu, 17 Sep 2026 17:10:44 +0800
+	Thu, 17 Sep 2026 09:13:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xJewXL7C4MxFyInEJNPxLSgOm2Uwl1T3tme3VvotBrqAJEZ3Xod+kgchcA+6tXZUogE4fcY0dCJyO2N0uhbHSfEBItSIc+9fzxS7POixSwAiI6aQBPZqiSyEHkbTH4fFaUQov5M9xL+g/fC57z5QN4HGKEJMd2h8Q6ZfMTh4jcIP8P4lRmiq+nj8sVro/rhbq6aRqIbHGaYM7Nu+RXWvG33GQwbqpzrDVxN+vlRf+TVE/KrFj31w77lky7QqyneEgE+whg0NOxGF8j7raExyMUJHxx77uHiHLIx+4W6iBzlozmSutowv49JmjwEqOXk/QcHrvRwzmAeALMKqi2vCZg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=UEkb0gFEltBX2Uk9A1CIk5tOYIox/3vPW4obLKIjOOg=;
+ b=YKb+CNGDaI5+qO2YFXJGAeIU9vPbyznFQKnfZ4Xi7fayvY1o1ZSNQ/YggvB7hcF4X6rHzlJ7rm0UHGZeiN47rFZTqYwcJGJGM8H9pKB24wmawk+bkCiIQN3NSQ4YeueodXV7hhPGl4/VhgxdvEbK8chdb2hsFP8O1ll5dH8rvlZtS9t9NkG+jSQ8+Jdtk5mgGIb0U8P83ENVI3hRevIyHJFWWj/SkG8D6wkYSpKfLrZy3NuHg0DF8HocMHzWRFU5+X7opYUGL/6y3PUF5a9+POhVoroW7G/sPD8saLAf1tHa28ORDMNSKhty75RDLNy6dAkbkEi0cOCxKLDaRGe7YQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=iscas.ac.cn smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=UEkb0gFEltBX2Uk9A1CIk5tOYIox/3vPW4obLKIjOOg=;
+ b=oyHEq2wxa59GPyEDqIAxr8PSjV2r2KVks1jIS481AAuKF+RA2FNa1nxoUcQPFXFgwn4k55RtZTmdVC4sh372xQOX68BuqthScceVbkw2yUEnH/tGT/laX1+JTLFns2ujtDXLVzc/xz0vYwu1OBoqy7sfQcPBwIOAz0Y4sFdprmcsFvUk6egCchtivvmb4JNsJveHOcJr9lQCyFfoVT0dUB0dwnhnBxYszOxvtVaa1Qh2nG5T0J3PSAIJDL9xavLUcZ/BQiw9DIKik+VmEbq9l4BabF+prm7w5t9yxEK8uE0mSaMaoCudQ+l4AD+SKiiOlp4+S0vmlv91hLkfgE5fPQ==
+Received: from AS4P192CA0025.EURP192.PROD.OUTLOOK.COM (2603:10a6:20b:5e1::19)
+ by DU0PR10MB6297.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:3ec::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Thu, 17 Sep
+ 2026 09:13:18 +0000
+Received: from AMS1EPF0000008F.eurprd05.prod.outlook.com
+ (2603:10a6:20b:5e1:cafe::aa) by AS4P192CA0025.outlook.office365.com
+ (2603:10a6:20b:5e1::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.428.12 via Frontend Transport; Thu,
+ 17 Sep 2026 09:13:18 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ AMS1EPF0000008F.mail.protection.outlook.com (10.167.242.86) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.428.7 via Frontend Transport; Thu, 17 Sep 2026 09:13:17 +0000
+Received: from STKDAG1NODE1.st.com (10.75.128.132) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Thu, 17 Sep
+ 2026 11:19:21 +0200
+Received: from [10.48.87.93] (10.48.87.93) by STKDAG1NODE1.st.com
+ (10.75.128.132) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Thu, 17 Sep
+ 2026 11:13:15 +0200
+Message-ID: <c5cf542c-46eb-47c5-9424-a7bc3ce630ab@foss.st.com>
+Date: Thu, 17 Sep 2026 11:13:14 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 03/38] arm64: interrupts: Add common exception state
- helpers
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
-	<maz@kernel.org>, <lpieralisi@kernel.org>, <liaochang1@huawei.com>
-References: <20260914102102.68597-1-vladimir.murzin@arm.com>
- <20260914102102.68597-4-vladimir.murzin@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260914102102.68597-4-vladimir.murzin@arm.com>
+Subject: Re: [PATCH] i2c: st: Fix clock reference leak in st_i2c_probe()
+To: Wentao Liang <vulab@iscas.ac.cn>, <andi.shyti@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-i2c@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <maxime.coquelin@st.com>, <wsa@kernel.org>,
+	<stable@vger.kernel.org>
+References: <20260916160235.2080462-1-vulab@iscas.ac.cn>
+Content-Language: en-US
+From: Patrice CHOTARD <patrice.chotard@foss.st.com>
+In-Reply-To: <20260916160235.2080462-1-vulab@iscas.ac.cn>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemk200008.china.huawei.com (7.202.194.74)
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.93]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE1.st.com
+ (10.75.128.132)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AMS1EPF0000008F:EE_|DU0PR10MB6297:EE_
+X-MS-Office365-Filtering-Correlation-Id: a6d1b721-c90a-46a5-68f4-08df149be900
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|376014|1800799024|82310400026|10067099003|11063799006|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: QgSH8mSelrECj7AZf9WgOYSUZK8Hz8eqY4eoB8FHynPdHcMRqgjzUE9ExhBfZr+ZcTw1cnBLuj0aqVneXQ8W49F+zu1hTIjr7k74CgPeqYFVsZMfhGGtMeYLLLKuQ06DPcCXPncghPHKfpL+BGAafjKm32OFxEk5118LBhxuXPkSQWqMaDYnG+Z6GLCvCzO2IeN+8EcFwuyPV2XRUZSxThK1AF3yZpUWQz1+L971RZEVVvNCe8Blv7wAzlhUUW8Okg6/93tveqPZb8ZlWBb6txxyASAvsigdeSKsI4Fj7MFFE1SKt5WEfENFS7dTtY423umL1WD/qiBZpzBZKjB4tw535Z8moXWrw/v5+2chalEK46713aDXlMd+C/WrnlS5RxfIELP4QqoM06Or3vGSFRjoKaZWhM9ObC/4CKyKsfxaukm9obr5JkvnY/yObrVWMmoO/qMPAOU1MuRXsYHkiirvBotHsnCd9oiWkt1iyQGV/AFiGz5HLZFTRcs4lrfHZ4O/WAujkOnAUlIXh1mCvHwJVuvosOtMF3SE00qb7OKrGEsDzX4H6hcJCwAx4SFKn2lxt+8pMTjkppEEzjIQ9p/9Hg0w++w7mDQEpb03D10V/1IwoAdSaMjRf5coXPvaDdVlPtZDP/YWqIdQvNB2l1TLSBs5SXTmvn8Jcu2SB+2OtyNRmcMOrrgz5LYJXl18dv8p5W5Gc4J4PXr6q3aoHA==
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(376014)(1800799024)(82310400026)(10067099003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: GdUEP4MD0BmtndjGshK4P+shW0rJ63O46t23KWmspFIwdZeRkkY8swSBQsUnkLwHmEoJp7vGqHFQ2B9fYhd+hzkvyAuy6vBt1NwIjToZh7iFFGYGV77Fg3Idr8RQVMZYJ2Aq8qssEbGBU2OOwqZQG0qHfaTzSlS1n/R9bOfWlH6w5Yf9YK1jut4zbhtvjzgfh/toev9BjWbrN+7aAsuoLiAY7yzNcjdWttzB/v2s8GFkceenUX6TjuHMlKdZxD0PIWAI4Mwo6OEsrSmsEOBZUWGSJoBt0QXgHpMVLLqICbWs1Z23yu+METC3XKKGaNsU+aEHGx21rP2yUzTsbyBYavBJISaraQ8pP0XoJ2qk/vz0ZKmrwTu+mRQuFaoVKEG2kcdcqHrIQ6FCOSs6MZ6rt2pC7NgOu9N7xCPy5H2iv/dTbj8zeigHjuoJQEQMDeJX
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2026 09:13:17.0705
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a6d1b721-c90a-46a5-68f4-08df149be900
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF0000008F.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR10MB6297
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_021055_131414_F682EEFB 
-X-CRM114-Status: GOOD (  26.92  )
+X-CRM114-CacheID: sfid-20260917_021326_558575_993FE4A4 
+X-CRM114-Status: GOOD (  17.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,219 +129,76 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-在 2026/9/14 18:20, Vladimir Murzin 写道:
-> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+On 9/16/26 18:02, Wentao Liang wrote:
+> The clock obtained with of_clk_get_by_name() is never released: the
+> probe error paths after it, irq request failure, deglitch setup
+> failure and adapter registration failure, return without clk_put(),
+> and st_i2c_remove() does not drop the reference either.
 > 
-> The entry code and the rest of the kernel require different interrupt
-> masking APIs, but all need a common representation of the hardware
-> exception state.
+> Add a cleanup label that drops the clock reference on the probe error
+> paths and release the reference in the remove path.
 > 
-> Introduce exception contexts that map DAIF and PMR state to the
-> corresponding masking context. Provide helpers to translate between
-> exception contexts and hardware state and update the hardware state.
-> 
-> Updating PMR is unnecessary when a caller knows that its value has not
-> changed. Allow such callers to avoid the update, while providing a
-> force option for callers that cannot rely on the previous PMR state.
-> 
-> Entry specific and general purpose masking APIs will be built on these
-> helpers in subsequent patches.
-> 
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> Fixes: 85b4fab26960 ("i2c: i2c-st: Add ST I2C controller")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
 > ---
->  .../include/asm/interrupts/common_flags.h     | 174 ++++++++++++++++++
->  1 file changed, 174 insertions(+)
->  create mode 100644 arch/arm64/include/asm/interrupts/common_flags.h
+>  drivers/i2c/busses/i2c-st.c | 11 ++++++++---
+>  1 file changed, 8 insertions(+), 3 deletions(-)
 > 
-> diff --git a/arch/arm64/include/asm/interrupts/common_flags.h b/arch/arm64/include/asm/interrupts/common_flags.h
-> new file mode 100644
-> index 000000000000..0de5ba1ae155
-> --- /dev/null
-> +++ b/arch/arm64/include/asm/interrupts/common_flags.h
-> @@ -0,0 +1,174 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (C) 2025 Arm Ltd.
-> + */
-> +#ifndef __ASM_INTERRUPTS_COMMON_FLAGS_H
-> +#define __ASM_INTERRUPTS_COMMON_FLAGS_H
+> diff --git a/drivers/i2c/busses/i2c-st.c b/drivers/i2c/busses/i2c-st.c
+> index 751ea421caaf..2049bbce3656 100644
+> --- a/drivers/i2c/busses/i2c-st.c
+> +++ b/drivers/i2c/busses/i2c-st.c
+> @@ -831,7 +831,7 @@ static int st_i2c_probe(struct platform_device *pdev)
+>  			IRQF_ONESHOT, pdev->name, i2c_dev);
+>  	if (ret) {
+>  		dev_err(&pdev->dev, "Failed to request irq %i\n", i2c_dev->irq);
+> -		return ret;
+> +		goto err_clk;
+>  	}
+>  
+>  	pinctrl_pm_select_default_state(i2c_dev->dev);
+> @@ -840,7 +840,7 @@ static int st_i2c_probe(struct platform_device *pdev)
+>  
+>  	ret = st_i2c_of_get_deglitch(np, i2c_dev);
+>  	if (ret)
+> -		return ret;
+> +		goto err_clk;
+>  
+>  	adap = &i2c_dev->adap;
+>  	i2c_set_adapdata(adap, i2c_dev);
+> @@ -857,13 +857,17 @@ static int st_i2c_probe(struct platform_device *pdev)
+>  
+>  	ret = i2c_add_adapter(adap);
+>  	if (ret)
+> -		return ret;
+> +		goto err_clk;
+>  
+>  	platform_set_drvdata(pdev, i2c_dev);
+>  
+>  	dev_info(i2c_dev->dev, "%s initialized\n", adap->name);
+>  
+>  	return 0;
 > +
-> +#include <asm/arch_gicv3.h>
-> +#include <asm/bug.h>
-> +#include <asm/cpufeature.h>
-> +#include <asm/ptrace.h>
-> +#include <asm/sysreg.h>
-> +#include <asm/irqflags.h>
-> +
-> +#define DAIF_PROCCTX		0
-> +#define DAIF_PROCCTX_NOIRQ	(PSR_I_BIT | PSR_F_BIT)
-> +#define DAIF_ERRCTX		(PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
-> +#define DAIF_MASK		(PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
-> +
-> +/*
-> + * Exception context mapping
-> + *
-> + * pseudo-NMI
-> + *
-> + * CRITICAL -> DAIF + IRQON  (corresponds to the state on exception entry)
-> + * ERROR    ->  AIF + IRQON
-> + * NONMI    ->   IF + IRQON
-> + * NOIRQ    ->    0 + IRQOFF
-> + * PROCESS  ->    0 + IRQON
-> + *
-> + * Otherwise
-> + *
-> + * CRITICAL -> DAIF           (corresponds to the state on exception entry)
-> + * ERROR    ->  AIF
-> + * NONMI    ->   IF
-> + * NOIRQ    ->   IF
-> + * PROCESS  ->    0
-> + */
-> +typedef enum arm64_exc_context {
-> +	PROCESS_CONTEXT,
-> +	NOIRQ_CONTEXT,
-> +	NONMI_CONTEXT,
-> +	ERROR_CONTEXT,
-> +	CRITICAL_CONTEXT,
-> +} arm64_exc_context_t;
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_process_context(void)
-> +{
-> +	if (system_uses_irq_prio_masking())
-> +		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX, .pmr=GIC_PRIO_IRQON};
-> +
-> +	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX};
-> +}
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_noirq_context(void)
-> +{
-> +	if (system_uses_irq_prio_masking())
-> +		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX, .pmr=GIC_PRIO_IRQOFF};
-> +
-> +	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ};
-> +}
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_nonmi_context(void)
-> +{
-> +	if (system_uses_irq_prio_masking())
-> +		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ, .pmr=GIC_PRIO_IRQON};
-> +
-> +	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ};
-> +}
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_error_context(void)
-> +{
-> +	if (system_uses_irq_prio_masking())
-> +		return (arm64_exc_hwstate_t){.daif=DAIF_ERRCTX, .pmr=GIC_PRIO_IRQON};
-> +
-> +	return (arm64_exc_hwstate_t){.daif=DAIF_ERRCTX};
-> +}
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_critical_context(void)
-> +{
-> +	if (system_uses_irq_prio_masking())
-> +		return (arm64_exc_hwstate_t){.daif=DAIF_MASK, .pmr=GIC_PRIO_IRQON};
-> +
-> +	return (arm64_exc_hwstate_t){.daif=DAIF_MASK};
-> +}
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t arm64_exc_hwstate_of_context(arm64_exc_context_t context) {
-> +	switch (context) {
-> +	case PROCESS_CONTEXT:
-> +		return __arm64_exc_hwstate_of_process_context();
-> +	case NOIRQ_CONTEXT:
-> +		return __arm64_exc_hwstate_of_noirq_context();
-> +	case NONMI_CONTEXT:
-> +		return __arm64_exc_hwstate_of_nonmi_context();
-> +	case ERROR_CONTEXT:
-> +		return __arm64_exc_hwstate_of_error_context();
-> +	case CRITICAL_CONTEXT:
-> +		return __arm64_exc_hwstate_of_critical_context();
-> +	default:
-> +		BUG();
-> +	}
-> +}
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t arm64_inherit_exc_hwstate(struct pt_regs *regs)
-> +{
-> +	arm64_exc_hwstate_t state = {.daif=regs->pstate & DAIF_MASK};
-> +
-> +	if (system_uses_irq_prio_masking())
-> +		state.pmr = regs->pmr;
-> +
-> +	return state;
-> +}
-Hi Vladimir,
+> +err_clk:
+> +	clk_put(i2c_dev->clk);
+> +	return ret;
+>  }
+>  
+>  static void st_i2c_remove(struct platform_device *pdev)
+> @@ -871,6 +875,7 @@ static void st_i2c_remove(struct platform_device *pdev)
+>  	struct st_i2c_dev *i2c_dev = platform_get_drvdata(pdev);
+>  
+>  	i2c_del_adapter(&i2c_dev->adap);
+> +	clk_put(i2c_dev->clk);
+>  }
+>  
+>  static const struct of_device_id st_i2c_match[] = {
 
-This helper looks more related to the 5th patch "arm64: entry: Introduce
-entry specific exception masking helpers", as it is entry-related.
-Moving it to 5th patch may make it easier to review.
+Hi Wentao
 
-Best regards,
-Jinjie
+This patch need to be rebased on last kernel.
 
-> +
-> +static __always_inline
-> +void __arm64_update_exc_hwstate(arm64_exc_hwstate_t hwstate, bool force)
-> +{
-> +	bool pseudo_nmi = system_uses_irq_prio_masking();
-> +
-> +	barrier();
-> +
-> +	if (pseudo_nmi && hwstate.pmr == GIC_PRIO_IRQOFF && force) {
-> +		/*
-> +		 * There has been concern that the write to daif
-> +		 * might be reordered before this write to PMR.
-> +		 * From the ARM ARM DDI 0487D.a, section D1.7.1
-> +		 * "Accessing PSTATE fields":
-> +		 *   Writes to the PSTATE fields have side-effects on
-> +		 *   various aspects of the PE operation. All of these
-> +		 *   side-effects are guaranteed:
-> +		 *     - Not to be visible to earlier instructions in
-> +		 *       the execution stream.
-> +		 *     - To be visible to later instructions in the
-> +		 *       execution stream
-> +		 *
-> +		 * Also, writes to PMR are self-synchronizing, so no
-> +		 * interrupts with a lower priority than PMR is signaled
-> +		 * to the PE after the write.
-> +		 *
-> +		 * So we don't need additional synchronization here.
-> +		 */
-> +		write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
-> +	}
-> +
-> +	write_sysreg(hwstate.daif, daif);
-> +
-> +	if (pseudo_nmi && hwstate.pmr == GIC_PRIO_IRQON && force) {
-> +		write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
-> +		pmr_sync();
-> +	}
-> +
-> +	barrier();
-> +}
-> +
-> +static __always_inline
-> +void arm64_update_exc_hwstate(arm64_exc_hwstate_t hwstate)
-> +{
-> +	__arm64_update_exc_hwstate(hwstate, true);
-> +}
-> +
-> +static __always_inline
-> +void arm64_update_exc_context(arm64_exc_context_t context)
-> +{
-> +	arm64_exc_hwstate_t hwstate = arm64_exc_hwstate_of_context(context);
-> +
-> +	arm64_update_exc_hwstate(hwstate);
-> +}
-> +#endif /* __ASM_INTERRUPTS_COMMON_FLAGS_H */
-
+Thanks
+Patrice
 
