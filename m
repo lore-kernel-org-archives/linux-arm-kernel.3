@@ -4,104 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10044C982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 08:16:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 803DCC982C1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 08:17:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7g0u82hNfhE7W89rBTDa+bTBBY19jMUj/oJVoQr/dI0=; b=Cr05y2e0uw8m6C9gGpI2gzFZIz
-	hmqKIqH4+rnB5XRF11INxuu2QOmjCZbtg/lm1X4BQAL+D/hPzqPl/H9DOAmJECg+z5s0uQ8Q7eAAh
-	oH/pnt0sP/6xwP+u7GbuTlWsAt5/bDaj5FgwbKF4BzeG+E5MhcieAcmQiFFvvv+PmqtWHZOCaS0At
-	rfcFWF87qzJK/7T7eqJIk4OFirxSqCIyX9rXSwCcEmfzJddMmTovAKA5KsrcbNgcFHjJ6quoEllVi
-	V4jJBOszFJwhOFUcCHsPkOS2UOmr0cQ8vUlAnpvHFL5UyOma4Pn+8RwE+QrQvTfMzAD+NDtXsi8v3
-	W0y1qmEQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QDyuTO0ZRwbxBwmEf+aUlRK6Ejj4v7oLYhRv9ipxsZ4=; b=m6+mg0KnZW7vjU+B2W4R1UDyZa
+	hLGyT6Ep5WbH2WANOmW6ki+1xiGKNg5Bn87K+3rtZpQ9E32gez9rlnXmLscpJI7QsbkrHimONI2rn
+	ojc2SgopumBq6BncudtwX8feKzMD9FZKZlMO/AwZNQWstFWmjyJ/JBTEr+qpz/rm6SjP8IWaPWhkG
+	YLaokWCw9vC9Kk30NAw0A3BQVwq8Lh5t5BIm1JaJRnVGY2Z62Q1LVOxFZikOQYiyhX13LMC/OGoQH
+	4U4KJPc6ukmFWrUhdf1oWMrKewTHJ47R6kMt8v5BDGIYw3ZHvucrWJaW9XqSi94IKQBPCjKHLqGQw
+	SIwoPEuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x77Hd-0000000As3G-3p4N;
-	Thu, 17 Sep 2026 08:15:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x77Io-0000000AsK8-0LxX;
+	Thu, 17 Sep 2026 08:17:06 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x77Hd-0000000As37-2Nz4
+	id 1x77Ij-0000000AsJQ-3U35
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 08:15:53 +0000
+	Thu, 17 Sep 2026 08:17:01 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5515943483;
-	Thu, 17 Sep 2026 08:15:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFB011F00893;
-	Thu, 17 Sep 2026 08:15:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 829F5416A6;
+	Thu, 17 Sep 2026 08:17:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F3B11F000FF;
+	Thu, 17 Sep 2026 08:16:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789632953;
-	bh=7g0u82hNfhE7W89rBTDa+bTBBY19jMUj/oJVoQr/dI0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=lLgdJ+rAZj/nEcathEXT1DpHXFhZcRC3a+5a2EaNYhnaSSM75Wz7H0N9BxDDExDbQ
-	 pQrdJ5qpo873WITSanZ8r+ZBUSRshNWwbFjB+5jVFlx87gvObgR8iWlNqdrnW/UJzZ
-	 Pn4V5mO5OjlfLSqtrGmTCfv9lCZ32xmYg/sZwIP2PPvZ45C6EBTXM557+Wr48mBGrv
-	 D0VICjkzTwMGnKKQB0vNWvDY+0TAG2myrIhS4VFrmA3T0yAAQONQuhXwo/gPDWj8NM
-	 SV1NR9Q+EzJBaTiR/RXtnBMIYE3GyYO0Xz0BzH1pvfk3uX6rzr2MdtzU3ZtLK6Wtce
-	 jXFw1uUHMc6EA==
-Message-ID: <e108d128-a48e-4da7-a959-63775f5548fa@kernel.org>
-Date: Thu, 17 Sep 2026 10:15:47 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH fixes] soc: samsung: exynos-pmu: fix use-after-free of
- interrupt generator node
-To: Peter Griffin <peter.griffin@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: Alexey Klimov <alexey.klimov@linaro.org>, Sashiko
- <sashiko-bot@kernel.org>, stable@vger.kernel.org
-References: <20260917081510.59599-2-krzk@kernel.org>
+	s=k20260515; t=1789633021;
+	bh=QDyuTO0ZRwbxBwmEf+aUlRK6Ejj4v7oLYhRv9ipxsZ4=;
+	h=From:To:Cc:Subject:Date;
+	b=YLzow3ByjYz4Nltp3wIx4GflEpu2GJ50QEuJyLZ+gPTs/SdzrCugpRVN1Dkhlhx0g
+	 MHBmfOPM+dGYEHnuK9nTVtBZEig1aFSDmo0ko+z/c9gisRV3QX4VG2ve/nspMEsBCT
+	 r4p96tDWrVPbiAk5/s3pmsFZ30B0lX1b9HSianoHrLK2KW9e9guWxAyK+V6CrKkT1+
+	 QxSa/qPVNxrS4PtAIw5Zujl9aa6HbvJx5SfJdRpkw0sdOYf74Vt77TwaW06+AQAgkE
+	 dEfUx8dlqwUILzVai5eGdvwaNo7N+Qgx+ih1atHXfQdi64Xy9Qbm2IlxbnfKApbS0S
+	 rIR65RY34WJTA==
 From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260917081510.59599-2-krzk@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+To: soc@lists.linux.dev
+Cc: linux-samsung-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Alexey Klimov <alexey.klimov@linaro.org>,
+	Sashiko <sashiko-bot@kernel.org>,
+	stable@vger.kernel.org,
+	Krzysztof Kozlowski <krzk@kernel.org>
+Subject: [PATCH fixes] soc: samsung: exynos-pmu: fix use-after-free of interrupt generator node
+Date: Thu, 17 Sep 2026 10:16:42 +0200
+Message-ID: <20260917081641.72291-2-krzk@kernel.org>
+X-Mailer: git-send-email 2.53.0
+MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2082; i=krzk@kernel.org; h=from:subject; bh=dE3+/DwJCR9TouOaCXZbn37MEpseKqnU4nyKAMX3J+Y=; b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqq6Hpfmg1EExaA4JgYrGTpt82/nt+ZKPakZCU4 VEng7yjWgSJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaquh6QAKCRDBN2bmhouD 17hVD/9i2Gymlk29bdGxFhA84Gwu4oAuOHXMoJetd0ixu4Xxz6V16ibx7qFZBlj2DjKrWtFDm2Q jDLjvwG2/bwcDfvaa0AcYyOTHQmEbW+ZqR8OygkRn5EyeGoBE5ejicacTIHe24ROdw5+M88gnQv L0A5iyYto3RmEaiZIEerD/UIfwnCVv2iIyPX4ITPDQMUpbGmKJuiB9awk5L+IiHpkjnCwIO/zXa 29tgFwhUuYiBtK3XtNrLtM7uZtngsdlSFM9xHEyJomMmfKqKxiIeIUUeCBzw5dZLiZnsblnzZo4 L7m0n24Rh6spssSpLQVNPDnM3R6ynU8ADbMXpcE2pVlxyMVw6K1Mo/6PX9H0NTcuS7g7v6JcbMl hktAXyU+YSIck/laKAbJq3UrZkQxAO39thXD7ozNACTUliwylK/8cXtxdjV/OS8yY//2H8mR7ft Uj/QbIJ24uONWVWZTDPDD+BmYCaYNO6cuPERZS9fCdxyuPeB27IbBwEp6XgiIXo6/UYmKwZ5+Fn Yy4r7Q/vdwfyWaR3hJCz6TEagGvLjJAHNfGjLA216fU9JdqcSjkU4lGJKcdOv5G3jqkFw5Fxp0F 2KtaSfQfdDGktcawIQGhxmZVbV4F7cl751T1GroPynyHqDJ+6qEPbtEgEABN8v1kX2IQFR6QxN5 RUuvsYxFJi8vS/g==
+X-Developer-Key: i=krzk@kernel.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,30 +73,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/09/2026 10:15, Krzysztof Kozlowski wrote:
-> From: Alexey Klimov <alexey.klimov@linaro.org>
-> 
-> The setup_cpuhp_and_cpuidle() parses the device tree node for the
-> interrupt generation block via of_parse_phandle() and decrements its
-> reference count using of_node_put() immediately after fetching the resource
-> address. However, later the intr_gen_node pointer is passed into
-> of_syscon_register_regmap().
-> 
-> Fix this by declaring intr_gen_node with __free() and removing
-> of_node_put().
-> 
-> Reported-by: Sashiko <sashiko-bot@kernel.org>
-> Closes: https://sashiko.dev/#/patchset/20260513-exynos850-cpuhotplug-v4-0-54fec5f65362@linaro.org?part=3
-> Fixes: 78b72897a5c8 ("soc: samsung: exynos-pmu: Enable CPU Idle for gs101")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
-> Link: https://patch.msgid.link/20260828-exynos-pmu-cpuhp-idle-fixes-v2-1-06bce6107bd6@linaro.org
-> Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
-> ---
->  drivers/soc/samsung/exynos-pmu.c | 7 ++-----
+From: Alexey Klimov <alexey.klimov@linaro.org>
 
-Please ignore, brain fart.
+The setup_cpuhp_and_cpuidle() parses the device tree node for the
+interrupt generation block via of_parse_phandle() and decrements its
+reference count using of_node_put() immediately after fetching the resource
+address. However, later the intr_gen_node pointer is passed into
+of_syscon_register_regmap().
 
-Best regards,
-Krzysztof
+Fix this by declaring intr_gen_node with __free() and removing
+of_node_put().
+
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://sashiko.dev/#/patchset/20260513-exynos850-cpuhotplug-v4-0-54fec5f65362@linaro.org?part=3
+Fixes: 78b72897a5c8 ("soc: samsung: exynos-pmu: Enable CPU Idle for gs101")
+Cc: stable@vger.kernel.org
+Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
+Link: https://patch.msgid.link/20260828-exynos-pmu-cpuhp-idle-fixes-v2-1-06bce6107bd6@linaro.org
+Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
+---
+ drivers/soc/samsung/exynos-pmu.c | 7 ++-----
+ 1 file changed, 2 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/soc/samsung/exynos-pmu.c b/drivers/soc/samsung/exynos-pmu.c
+index f5fcdde9750e..efccdd63e40e 100644
+--- a/drivers/soc/samsung/exynos-pmu.c
++++ b/drivers/soc/samsung/exynos-pmu.c
+@@ -409,13 +409,12 @@ static struct notifier_block exynos_cpupm_reboot_nb = {
+ 
+ static int setup_cpuhp_and_cpuidle(struct device *dev)
+ {
+-	struct device_node *intr_gen_node;
++	struct device_node *intr_gen_node __free(device_node) =
++		of_parse_phandle(dev->of_node, "google,pmu-intr-gen-syscon", 0);
+ 	struct resource intrgen_res;
+ 	void __iomem *virt_addr;
+ 	int ret, cpu;
+ 
+-	intr_gen_node = of_parse_phandle(dev->of_node,
+-					 "google,pmu-intr-gen-syscon", 0);
+ 	if (!intr_gen_node) {
+ 		/*
+ 		 * To maintain support for older DTs that didn't specify syscon
+@@ -431,8 +430,6 @@ static int setup_cpuhp_and_cpuidle(struct device *dev)
+ 	 * syscon provided regmap.
+ 	 */
+ 	ret = of_address_to_resource(intr_gen_node, 0, &intrgen_res);
+-	of_node_put(intr_gen_node);
+-
+ 	virt_addr = devm_ioremap(dev, intrgen_res.start,
+ 				 resource_size(&intrgen_res));
+ 	if (!virt_addr)
+-- 
+2.53.0
+
 
