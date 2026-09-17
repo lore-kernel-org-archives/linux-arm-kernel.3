@@ -4,89 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 972CDC982D6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 16:09:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE785C982D6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 16:10:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZelrVAC8hza6e4DyNfSmnXov3Kf0KltqsG+OQSTaRyo=; b=cxdHHUHc1bPdDQhNc+OJRJ8NuR
-	AUUW82UPKNPvMnAJ6nd/aU0eUixuPFCTn8BoUU/uh2SWdBjM+SLeBClWariAMHc/pTrL8Zz5D2uZ2
-	amRgm4mmOdLVatijEiR1zJd8MYswC4nLYQ35HTAWCowXwHbbsfnbFD5SW7blETd05CAY3pDzg4WQT
-	To8vJWPPHUBhZ56mg8I9gcdALbBpe46VfmPWx0OGdXY77LDihfRWoRZBhxh1Cbee9hTa0vLkXkZPE
-	XVo/KniM4cYTJCLKAgyTeaSx3AE+RX5RVGC87fnczW0b1JwSsk3Rs99Q04dtGDMT9WVS9NHNaJxJ3
-	RQq++uvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QtQVsORJf5YjdUYVgRbJhrYEv0e/AxW5R9a9UzcxBDM=; b=GM4HFk76n5Km9YCiGsgbcAg9VC
+	/Eaf3K5UDHc5iUpttLxgUXR8foly317DSvqaWCR6DA4ysuPdA78TSmHCgWpjVS+1v1Rw1dgtFaJIJ
+	96HhcZKOS4TrOG3+/9z5jjCgTTHUa+jjEKx4dZfzMfTJyUgfXnKM+X7wjA/xvhwX+yu/1HMCEawHj
+	27aqaAjFTPzC+T5mTtRZp+QT1Q6zfUwLSlT4Y8BVVhhvJifZAa2bx9eBKC53CyeelBMNkeyoVp8ov
+	4lR/xSM18CWEUFkBmWB2ki6i3UjvGo9PtgbuMtkW6MAZQaV4exAhcoRzzBiTuzBcFFzRdBKT+G3fa
+	wS8LdpzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7EfP-0000000BppJ-1Yrj;
-	Thu, 17 Sep 2026 16:08:55 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7EfN-0000000Bpnl-20y3;
-	Thu, 17 Sep 2026 16:08:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D71DA1476;
-	Thu, 17 Sep 2026 09:08:48 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7C2B23F86F;
-	Thu, 17 Sep 2026 09:08:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789661332; bh=LTrp4k+I8MTH1TFb/n0jAUNy6sMkQLKvNVm0Ssk0Ik4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fg2BVR2hsmdfzOw802jgLmkU4C8dYgDiVodN/BCQcJnNlXQvUZTot4764bZzdYHoP
-	 KpxaXu68DSJ+nTWkJw0nr52jlY0S/pY38k0WZGKhlRoxtkP4hWgPjgsWanps+qYf6p
-	 OWz0B8EVzI71pY/BTigybbpetQ2VZbhxL7LsQAdw=
-Date: Thu, 17 Sep 2026 17:08:43 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	x86@kernel.org
-Subject: Re: [PATCH v4 5/5] dma: swiotlb: Remove SWIOTLB_ANY
-Message-ID: <aqwQi0AGG6NvHKHG@arm.com>
-References: <20260914070135.313337-1-aneesh.kumar@kernel.org>
- <20260914070135.313337-6-aneesh.kumar@kernel.org>
+	id 1x7Egq-0000000Bqi0-3k4L;
+	Thu, 17 Sep 2026 16:10:24 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x7Egn-0000000BqeT-0H37
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Sep 2026 16:10:22 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 0E8F1C5CD7B;
+	Thu, 17 Sep 2026 16:11:00 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 40EF860580;
+	Thu, 17 Sep 2026 16:10:15 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DC80311C7B08A;
+	Thu, 17 Sep 2026 18:10:03 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1789661414; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=QtQVsORJf5YjdUYVgRbJhrYEv0e/AxW5R9a9UzcxBDM=;
+	b=T26Iq4WvCruybNm+wSX/tzwZbma+E3x4Jg56jQ4iraisLYBILjMUtiWjArN9vHkHzo1DIA
+	j7j6zFrGJHWyKS42h5T0QcLE9RwJy0jAR8gxDJQzE9HGHTuCAUnUwOJjrzw0+JtTGV5nBm
+	9fwbni0C6s8S1GX5cvZvM1czN7+EMxtBjXIgIQhKmlOACkkTINRUwUmps+yYEnuAmuWYXf
+	gr+A+6KX95Q7eTAcnfzTOkmrtYAizPiNI/Sfh5fARcptQ6zVwM69vV5765bXi60Du8oUzV
+	N3twDeAmWvvDu4aqAW1rlt0iUzRKBK1qvdwt8fQuib4IDUZtLc9PCkAiHAESIQ==
+Message-ID: <ff811e9f-4d4b-4b26-a0b5-84cb2eb52618@bootlin.com>
+Date: Thu, 17 Sep 2026 18:10:03 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260914070135.313337-6-aneesh.kumar@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] net: stmmac: request the MDIO reset GPIO only once
+To: Linkui Xiao <xiaolinkui@126.com>, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Linkui Xiao <xiaolinkui@kylinos.cn>, stable@vger.kernel.org
+References: <20260917125457.1353718-1-xiaolinkui@126.com>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <20260917125457.1353718-1-xiaolinkui@126.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_090853_565991_1488CEE5 
-X-CRM114-Status: GOOD (  11.57  )
+X-CRM114-CacheID: sfid-20260917_091021_287968_7E7623A4 
+X-CRM114-Status: GOOD (  12.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,23 +79,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 14, 2026 at 12:31:34PM +0530, Aneesh Kumar K.V (Arm) wrote:
-> swiotlb pools are currently allocated below the architecture's low
-> address limit by default. SWIOTLB_ANY overrides this and permits
-> allocation anywhere in directly mapped memory.
-> 
-> SWIOTLB_INIT_ADDRESSING_LIMIT now explicitly identifies callers which
-> need a pool that is reachable by devices with limited DMA addressing.
-> Use it as the placement constraint and remove SWIOTLB_ANY.
-> 
-> This changes the default behavior for callers which do not set either
-> flag. Previously, omitting SWIOTLB_ANY placed the default pool below the
-> architecture's low address limit and also constrained dynamically
-> allocated pools to the same range. After this change, omitting
-> SWIOTLB_INIT_ADDRESSING_LIMIT permits both static and dynamic pools to
-> use any directly mapped memory.
-> 
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+Hello,
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+> @@ -389,11 +389,21 @@ int stmmac_mdio_reset(struct mii_bus *bus)
+>  		struct gpio_desc *reset_gpio;
+>  		u32 delays[3] = { 0, 0, 0 };
+>  
+> -		reset_gpio = devm_gpiod_get_optional(priv->device,
+> -						     "snps,reset",
+> -						     GPIOD_OUT_LOW);
+> -		if (IS_ERR(reset_gpio))
+> -			return PTR_ERR(reset_gpio);
+> +		/* Request the reset line only once and reuse the descriptor
+> +		 * afterwards. A second request of the very same line makes
+> +		 * gpiolib fail with -EBUSY, which devm_gpiod_get_optional()
+> +		 * passes through because it only filters out -ENOENT. The
+> +		 * reset would then abort early and leave the PHY un-reset.
+> +		 */
+> +		if (!priv->mdio_reset_gpio) {
+> +			priv->mdio_reset_gpio =
+> +				devm_gpiod_get_optional(priv->device,
+> +							"snps,reset",
+> +							GPIOD_OUT_LOW);
+> +			if (IS_ERR(priv->mdio_reset_gpio))
+> +				return PTR_ERR(priv->mdio_reset_gpio);
+> +		}
+> +		reset_gpio = priv->mdio_reset_gpio;
+
+The problem is real, but this isn't the correct approach to solve that.
+
+Instead of requesting the reset gpio on-the-fly at reset time (good example
+of when not to use devm_xxx) , let's request the gpio at probe time.
+
+I suggest you move the devm_gpiod_get_optional() in stmmac_mdio_register(),
+which is called at probe time. Here, it makes sense to use devm_xxx.
+
+Thanks :)
+
+Maxime
+
+
 
