@@ -4,82 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F462C982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 08:01:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9150C982C1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 08:06:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mx0nEFIXpNYIGmqxOGntVSkofaMtXcIVBSvPTVVXgss=; b=xgw9vkF6Nvah3K2A3TTzIxD47G
-	zll4ChuuHRBfW8SOAKlP2syynE0YbO3HuXCyoFzG6EG75vAz72UExdl4BOUe30sqjRrPHI2Y6pSYh
-	FBs/ySzNyMpsM4mkPje1dBdsUZZmV+My04fVSNUGO4nLblUGxVEWNQGGQNg97JpmFE9GFPz8dShJ7
-	9u5RySRKlv1rp2arTfayUaCS4jJZZDFytrtvXKnCwaVgWulWMr+neIIqRB3+4mwcDBS3p0KnYT0Sj
-	NWU3pNyg/er5hCWhhe7y4Y1pfEtKZoiXYS0scKObwLOeRTkbGiXvAWytyQY4hrA01mjDqjoU+F761
-	7lYMk0DA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EL9YHt+j6bfoBIX/4XS2nc2u2ndOQPJF/fEXKcashqg=; b=qyvFyJnBMGjpEbz8MVqboDfMKI
+	iCsaUaH1wlBPlrN4FXVjCBfk4wByLN4vYD3DRuPiulWBMoaSWMr+xmqiopaoGG8ek0zqS/fyndQI6
+	E3vIKA//F6iclo7PIIaPgCHjXfqrlOv0w2ET5/ej5/R1WQQ/m50Y+CChb/cs2EsDbWMWOidd/Jvr1
+	gffGjOEtFj9ucSq76QpHs6t5py1bjtliTn0OzCFqEeK4Kzp1MBapyda74jbJENr8tITfWhLTVRYeO
+	euhjOBDF8/DTrZc/uLJP9HNHatq0pJfurgi38of5KUFtWN5bfE4ySjUbz5b5s60kQ/TBkRUfJsUpI
+	uNYhGLig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x773K-0000000ApU1-03TJ;
-	Thu, 17 Sep 2026 08:01:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x778Y-0000000AqgI-0o23;
+	Thu, 17 Sep 2026 08:06:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7730-0000000ApDq-1Xri;
-	Thu, 17 Sep 2026 08:00:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 637E9602D4;
-	Thu, 17 Sep 2026 08:00:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 1A929C2BD04;
-	Thu, 17 Sep 2026 08:00:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1789632045;
-	bh=+d8XlJStIrPlLf0i0LWNLFLSYKcxR9dxtCajhUKMsN8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=PhQnjch/qI8r3sdt9UYX/COVJ4ZZur4CQ+Ty75HFRo4zNZVnVYH9CDOhbVKbGD/Yp
-	 71/gllq0s5V/2bgQLOK5UiecaKfa1ji6aMiH7HLDOLkrn6XN/ntZ00qVlmqnR6f77y
-	 ZJoeOMSBubXuTRlkVyy3mBwuiUO08jOmCz4mw+t/DvUwkww62Ag1ilxwrAi03g+geD
-	 in5NEMpI+BIv6IZHRWa+E0X5Kobuk1QEk1MmKfOHRdaRaER0MvgfmyrbzQyxgu3i0/
-	 mfoqnuwc+zU5dBwulA2DXih67T8/ZBR/9O4UD/SsMBEJI+8TR7pigYvCuXt71QUhsq
-	 mj1NCevnfnc9Q==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EB31AC982D3;
-	Thu, 17 Sep 2026 08:00:44 +0000 (UTC)
-From: Ronald Claveau via B4 Relay <devnull+linux-kernel-dev.aliel.fr@kernel.org>
-Date: Thu, 17 Sep 2026 09:59:02 +0200
-Subject: [PATCH v12 3/6] mfd: khadas-mcu: Add support for VIM4 MCU variant
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260917-add-mcu-fan-khadas-vim4-v12-3-497cd543a148@aliel.fr>
-References: <20260917-add-mcu-fan-khadas-vim4-v12-0-497cd543a148@aliel.fr>
-In-Reply-To: <20260917-add-mcu-fan-khadas-vim4-v12-0-497cd543a148@aliel.fr>
-To: Neil Armstrong <neil.armstrong@linaro.org>, Lee Jones <lee@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Beniamino Galvani <b.galvani@gmail.com>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
- Lukasz Luba <lukasz.luba@arm.com>, Liam Girdwood <lgirdwood@gmail.com>, 
- Mark Brown <broonie@kernel.org>
-Cc: linux-amlogic@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
- mfd@lists.linux.dev, Ronald Claveau <linux-kernel-dev@aliel.fr>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4415;
- i=linux-kernel-dev@aliel.fr; h=from:subject:message-id;
- bh=Q/kGNzPkcptM03i3MwBjKTn4st9t+jVHg+6yzSnT5b0=;
- b=owGbwMvMwCWm1SvKXP3cUInxtFoSQ9bqebJmM4P13onsTFyc1NMWKpm6sL+JzbW2MJRhmXtAa
- NfyGyYdpSwMYlwMsmKKLP1zLU+8u3z0zNc96ikwc1iZQIYwcHEKwETatzH8FdlQvy7L/nHjkcfh
- 5kqG5Tu3+Mz01LjryxJ1eF684muLGEaG7jK9yGKJqiVbDtQkspmzMhY0+3erbTG7xH/z1MOne41
- ZAA==
-X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openpgp;
- fpr=DFD863F61375BF917F0012173953305EF1D0EC3E
-X-Endpoint-Received: by B4 Relay for linux-kernel-dev@aliel.fr/default with
- auth_id=744
-X-Original-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+	id 1x778W-0000000AqfR-3kjr
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Sep 2026 08:06:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 562CD43B98;
+	Thu, 17 Sep 2026 08:06:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 371F91F000FF;
+	Thu, 17 Sep 2026 08:06:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789632388;
+	bh=EL9YHt+j6bfoBIX/4XS2nc2u2ndOQPJF/fEXKcashqg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=HqwdTew+DukHgkmSJw55733JWnBazNPruvtiHneZv8a2uLcAGrp0oNLuwWWF+H6jW
+	 0yetHujE6u7CjBYLS73qk3uUwNK3PK9WIiUL76fGkxSgszDPTkhoNFDAGHIJ85eDsy
+	 DJTHKJ7WTMdD92FVw/K9hFSmOqpoETVDAWrozQg6grzaIenZ7Lmf6pz5XOsK5qpKjj
+	 NeQp2p1MNOExBFN5IPUjZmd8UvTNp0TQUlhxgYlX4PU13kP7lbHtyYtPUd4bjCZ0ne
+	 eMJHZOi3R2m0drfv7Gp6XuxykvD95aYpUh33v3QHsMwOPkCxpN+pb9yuyWdNQcWSw+
+	 yZROMS3hn/f6w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1x778T-00000009yhL-3xfv;
+	Thu, 17 Sep 2026 08:06:26 +0000
+Date: Thu, 17 Sep 2026 09:06:25 +0100
+Message-ID: <865x045mke.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: oupton@kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	mark.rutland@arm.com,
+	steven.price@arm.com,
+	vdonnefort@google.com,
+	qperret@google.com
+Subject: Re: [PATCH v3 15/18] KVM: arm64: Reject host access to protected VM private state
+In-Reply-To: <CA+EHjTzCQkeXQQcCDwABLR2w+NTmKTG3V6RSmhzYNayaoYXw3g@mail.gmail.com>
+References: <20260914113338.159227-1-fuad.tabba@linux.dev>
+	<20260914113338.159227-16-fuad.tabba@linux.dev>
+	<86a4ph5fb9.wl-maz@kernel.org>
+	<CA+EHjTzCQkeXQQcCDwABLR2w+NTmKTG3V6RSmhzYNayaoYXw3g@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com, steven.price@arm.com, vdonnefort@google.com, qperret@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,163 +92,72 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: linux-kernel-dev@aliel.fr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+On Wed, 16 Sep 2026 20:07:28 +0100,
+Fuad Tabba <fuad.tabba@linux.dev> wrote:
+> 
+> Hi Marc,
+> 
+> On Wed, 16 Sept 2026 at 17:30, Marc Zyngier <maz@kernel.org> wrote:
+> [...]
+> > > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> [...]
+> > > +/*
+> > > + * Once a protected vCPU has run, the host copy is not the guest's state,
+> > > + * and EL2 has read mp_state, which it does only at hyp vCPU creation.
+> > > + */
+> > > +static long pkvm_filter_vcpu_ioctl(struct kvm_vcpu *vcpu, unsigned int ioctl)
+> > > +{
+> > > +        switch (ioctl) {
+> > > +        case KVM_ARM_VCPU_INIT:
+> > > +        case KVM_SET_ONE_REG:
+> > > +        case KVM_GET_ONE_REG:
+> > > +                if (vcpu_is_protected(vcpu) && vcpu_has_run_once(vcpu))
+> > > +                        return -EPERM;
+> > > +        }
+> > > +
+> > > +        return 0;
+> > > +}
+> > > +
+> >
+> > I'm not keen on returning -EPERM for the ONE_REG stuff. For a start,
+> > X0 *is* valid on MMIO, and when you want to support LD64B and co,
+> > you'll need to show the actual data there.
+> >
+> > I'd rather return what is in the host vcpu structure, as normal.
+> 
+> I think we should keep the error, for the reason s390 returns -EINVAL
+> from ONE_REG on a protected vCPU and x86 does from the register ioctls
+> for protected VM types:
 
-Refactor probe() to use per-variant values
-instead of hardcoded globals.
+News flash, this is not x86, nor s390. I don't feel constrained by
+other architecture, and we deviate *everywhere* already.
 
-Add dedicated regmap configuration for the VIM4 MCU,
-with its own volatile/writeable registers.
+> once the vCPU has run, the copy is the VMM's
+> boot state plus what the exit handlers copy out, and the VMM can't
+> distinguish them. x0 on MMIO is one of those fields, but the VMM reads
+> it from kvm_run->mmio. For LD64B, EL2 would copy the operands out the
+> same way and the error could be relaxed to those registers. Loosening
+> later breaks nobody. The comment and the message do overstate it by
+> calling the copy "not the guest's state", and I'll reword both in v4.
+> More on the kvmtool thread [1].
 
-Add a new compatible string "khadas,vim4-mcu".
+A protected-aware VMM already knows it cannot obtain the registers.
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
-Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
----
- drivers/mfd/khadas-mcu.c | 96 +++++++++++++++++++++++++++++++++++++++++-------
- 1 file changed, 83 insertions(+), 13 deletions(-)
+I don't want to have to revisit the userspace interface once you have
+to relax it, because I know for sure that you will have to.
 
-diff --git a/drivers/mfd/khadas-mcu.c b/drivers/mfd/khadas-mcu.c
-index 0e74efe14f367..4b37e74e2b04a 100644
---- a/drivers/mfd/khadas-mcu.c
-+++ b/drivers/mfd/khadas-mcu.c
-@@ -84,38 +84,107 @@ static const struct mfd_cell khadas_mcu_cells[] = {
- 	MFD_CELL_NAME("khadas-mcu-user-mem"),
- };
- 
-+static bool khadas_mcu_vim4_reg_volatile(struct device *dev, unsigned int reg)
-+{
-+	switch (reg) {
-+	case KHADAS_MCU_PWR_OFF_CMD_REG:
-+	case KHADAS_MCU_VIM4_REST_CONF_REG:
-+	case KHADAS_MCU_WOL_INIT_START_REG:
-+	case KHADAS_MCU_VIM4_LED_ON_RAM_REG:
-+	case KHADAS_MCU_VIM4_FAN_CTRL_REG:
-+	case KHADAS_MCU_VIM4_WDT_EN_REG:
-+	case KHADAS_MCU_VIM4_SYS_RST_REG:
-+		return true;
-+	default:
-+		return false;
-+	}
-+}
-+
-+static bool khadas_mcu_vim4_reg_writeable(struct device *dev, unsigned int reg)
-+{
-+	switch (reg) {
-+	case KHADAS_MCU_VERSION_0_REG:
-+	case KHADAS_MCU_VERSION_1_REG:
-+	case KHADAS_MCU_SHUTDOWN_NORMAL_STATUS_REG:
-+		return false;
-+	default:
-+		return true;
-+	}
-+}
-+
-+static const struct regmap_config khadas_mcu_vim4_regmap_config = {
-+	.reg_bits	= 8,
-+	.reg_stride	= 1,
-+	.val_bits	= 8,
-+	.max_register	= KHADAS_MCU_VIM4_SYS_RST_REG,
-+	.volatile_reg	= khadas_mcu_vim4_reg_volatile,
-+	.writeable_reg	= khadas_mcu_vim4_reg_writeable,
-+	.cache_type	= REGCACHE_MAPLE,
-+};
-+
-+static const struct mfd_cell khadas_mcu_vim4_fan_cells[] = {
-+	MFD_CELL_NAME("khadas-mcu-vim4-fan"),
-+};
-+
- static int khadas_mcu_probe(struct i2c_client *client)
- {
-+	const struct mfd_cell *cells, *fan_cells;
-+	const struct regmap_config *regmap_cfg;
- 	struct device *dev = &client->dev;
-+	int ncells, nfan_cells, ret;
- 	struct khadas_mcu *ddata;
--	int ret;
-+	const void *mcu_variant;
- 
- 	ddata = devm_kzalloc(dev, sizeof(*ddata), GFP_KERNEL);
- 	if (!ddata)
- 		return -ENOMEM;
- 
-+	mcu_variant = i2c_get_match_data(client);
-+	if (!mcu_variant)
-+		return -ENODEV;
-+
-+	switch ((uintptr_t)mcu_variant) {
-+	case KHADAS_MCU_GENERIC:
-+		regmap_cfg	= &khadas_mcu_regmap_config;
-+		cells		= khadas_mcu_cells;
-+		ncells		= ARRAY_SIZE(khadas_mcu_cells);
-+		fan_cells	= khadas_mcu_fan_cells;
-+		nfan_cells	= ARRAY_SIZE(khadas_mcu_fan_cells);
-+		break;
-+	case KHADAS_MCU_VIM4:
-+		regmap_cfg	= &khadas_mcu_vim4_regmap_config;
-+		cells		= NULL;
-+		ncells		= 0;
-+		fan_cells	= khadas_mcu_vim4_fan_cells;
-+		nfan_cells	= ARRAY_SIZE(khadas_mcu_vim4_fan_cells);
-+		break;
-+	default:
-+		return -ENODEV;
-+	}
-+
- 	i2c_set_clientdata(client, ddata);
- 
- 	ddata->dev = dev;
- 
--	ddata->regmap = devm_regmap_init_i2c(client, &khadas_mcu_regmap_config);
-+	ddata->regmap = devm_regmap_init_i2c(client, regmap_cfg);
- 	if (IS_ERR(ddata->regmap)) {
- 		ret = PTR_ERR(ddata->regmap);
--		dev_err(dev, "Failed to allocate register map: %d\n", ret);
--		return ret;
-+		return dev_err_probe(dev, ret, "Failed to allocate register map\n");
- 	}
- 
--	ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
--				   khadas_mcu_cells,
--				   ARRAY_SIZE(khadas_mcu_cells),
--				   NULL, 0, NULL);
--	if (ret)
--		return ret;
-+	if (cells && ncells) {
-+		ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
-+					   cells,
-+					   ncells,
-+					   NULL, 0, NULL);
-+		if (ret)
-+			return ret;
-+	}
- 
- 	if (of_property_present(dev->of_node, "#cooling-cells"))
- 		return devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
--					    khadas_mcu_fan_cells,
--					    ARRAY_SIZE(khadas_mcu_fan_cells),
-+					    fan_cells,
-+					    nfan_cells,
- 					    NULL, 0, NULL);
- 
- 	return 0;
-@@ -123,7 +192,8 @@ static int khadas_mcu_probe(struct i2c_client *client)
- 
- #ifdef CONFIG_OF
- static const struct of_device_id khadas_mcu_of_match[] = {
--	{ .compatible = "khadas,mcu", },
-+	{ .compatible = "khadas,mcu", .data = (void *)KHADAS_MCU_GENERIC },
-+	{ .compatible = "khadas,vim4-mcu", .data = (void *)KHADAS_MCU_VIM4 },
- 	{},
- };
- MODULE_DEVICE_TABLE(of, khadas_mcu_of_match);
+As far as LD64B is concerned, there is no place to copy anything in
+the run structure, and the relaxation would require to cover all the
+GPRs, ESR, and FAR. At this stage, returning whatever is there is the
+correct thing to do IMO.
+
+Thanks,
+
+	M.
 
 -- 
-2.49.0
-
-
+Without deviation from the norm, progress is not possible.
 
