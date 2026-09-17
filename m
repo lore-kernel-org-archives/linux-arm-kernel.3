@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D0EBC982D2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 20:50:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB28EC982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 20:50:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FQYui3tcZfq2ROydeSxtp6DoWZ2zeLb2aIsISm8zZFo=; b=BgQ0bUsTnPbeLSrN+lPNEipVb3
-	8srMlY0Mc08B9mMpQpJXUdBuc6KpmXnst6drUiHWhuReG94f22HR4MCoE4ah56QOttRxLeufDICcU
-	rkGk7ctZ/Pp4PeU7Ej23FSCGZbYdqc86MvZSRQ0HGCVeTJhmgcXLByC6X9F7+h6f7OFD1Mc1pZ+Ov
-	7Lvf7nb72oxbT9Om3snkw5CjRllEdhoRG9g7OM27KrZeG6vsrniFjutO00rYSU6uaUaZyf5TCkcGw
-	8Dfq2aOFhB7Gojoc9McAVVZx5zB1H1IUVIxNy7GgCPL24kjZArvNBkIicCziY/6ukkpTcYhRD2MRt
-	izFL3cXw==;
+	bh=iuoGPrrZdOKTVtHeSmHr2Z1LALwPrg6c5CLObaN4P0g=; b=MpjT2BVRKoUwIdUYhYOZaSPzDL
+	B3DgfVRx06hyycft6OfQkPhDPElU40LtJNisdcjPwAoPyCo3aUwO+e2H3uYyYYk1BTqe+FcessPdK
+	uOicvdGxcexrY05AKRXlxZS7kD45aGa8CMgwwNiCgzUr2G1eqLkSsrzcTvmprsxxHAZkRONPfjgE9
+	Fq9h87IP9lThzWMsuKb8EZDsvh5r8GE6IAJXLQgjS7G1deMxknSTvDwoyOZKXVXRABpKHd3hen0Sm
+	GWep3Ow+vq0xHuk2/jVChnQJ9gTgdxVcak9F6CH6mTTv44c+Pcz3Q7x/j5GI5QVqFoKS0CBXUJhMp
+	Tci1Uulw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7J3S-0000000CUMu-0Ebb;
-	Thu, 17 Sep 2026 20:50:02 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x7J3a-0000000CUXc-3efN;
+	Thu, 17 Sep 2026 20:50:10 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7J3P-0000000CUKJ-0Lca;
-	Thu, 17 Sep 2026 20:49:59 +0000
+	id 1x7J3R-0000000CULG-1pxa;
+	Thu, 17 Sep 2026 20:50:01 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 93C8343969;
-	Thu, 17 Sep 2026 20:49:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 384F71F000FF;
-	Thu, 17 Sep 2026 20:49:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9903F60209;
+	Thu, 17 Sep 2026 20:50:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11A071F00893;
+	Thu, 17 Sep 2026 20:49:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789678198;
-	bh=FQYui3tcZfq2ROydeSxtp6DoWZ2zeLb2aIsISm8zZFo=;
+	s=k20260515; t=1789678200;
+	bh=iuoGPrrZdOKTVtHeSmHr2Z1LALwPrg6c5CLObaN4P0g=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=HGyTtU15OsNrSwU5EKZoLydiVN40Ndey/x/8y+JVP2oW+Rvyat5m0yP9puFspzlKi
-	 kUaFWt6IOceemvTReDZhOuKb1x8Vqf7944OW7EWyZ5J+0hB39gAfXLPbmkcllreAiB
-	 BMY+/2PBh6i9zBJ8Auo/0P+FW6HvDXo+Ys0eWcSqTkHF1I9t6Qgd8drvfIEi4eoRqX
-	 XrAREWaWSqc2LRB3A4lMWPP91BocRn3v0q6lGyijhbRGLaEokvVhr7F4OMI4wN91hG
-	 ubbJJNibvAyBA7448FAPL3S9AwpjpZ94YuJviPk4QJ4TP+HBN73KhLUa334KFSuGeD
-	 qEMCGcrIvxObQ==
-Subject: Re: [PATCH v2 net-next 4/7] net: dsa: mediatek: support PLL setup on
- MMIO MT7530
+	b=ixvWSlaMzecyaxyEAHkILlW8Xdtai6VLclFxY0CbrlWMfFGLFHlz1upcytsMAwEDF
+	 1kFwiIWZ/NgxnbZt1L75ByYl9KkifTUr+PnbMGXJLlEQEgzPgciQhqreqMsb8hBpIN
+	 M2J7AVRV0GHXrizzObt2BBH6yYwUXU9PrJMLfy34G/B+dxqCq6OFlvhSInUpSHGCfK
+	 0/5Gh472d18pKwPSf19lWQLKcDv/EenXnEwrx3CNc6f2jrvOEcYcJk9w+AL7i0dLOz
+	 cAski/L4f+2WEPs7uBlpdR7aSu+GkA3GDt5V4raytFMQWgNbulTqbFhxC5eDb6V88y
+	 q5fZYRdR2RNog==
+Subject: Re: [PATCH v2 net-next 5/7] net: dsa: mediatek: support MDIO switch
+ downstream of MMIO switch
 From: netdev-bot+sashiko@kernel.org
 To: cjd@cjdns.fr
 Cc: netdev@vger.kernel.org, andrew@lunn.ch, olteanv@gmail.com,
@@ -54,11 +54,11 @@ Cc: netdev@vger.kernel.org, andrew@lunn.ch, olteanv@gmail.com,
  sean.wang@mediatek.com, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-mediatek@lists.infradead.org, naseefkm@gmail.com, b.larsson@gmx.com
-Date: Thu, 17 Sep 2026 20:49:56 +0000
-Message-ID: <178967819681.22033.1534914600402935907@kernel.org>
-In-Reply-To: <20260915174643.253660-5-cjd@cjdns.fr>
-References: <20260915174643.253660-5-cjd@cjdns.fr>
-X-sashiko-severity: Medium
+Date: Thu, 17 Sep 2026 20:49:58 +0000
+Message-ID: <178967819865.22033.9450437798313929397@kernel.org>
+In-Reply-To: <20260915174643.253660-6-cjd@cjdns.fr>
+References: <20260915174643.253660-6-cjd@cjdns.fr>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
@@ -76,272 +76,306 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 5 potential
+Thank you for your contribution! Sashiko AI review found 7 potential
 issue(s) to consider:
 
-Critical: 0 · High: 0 (1) · Medium: 1 · Low: 4
+Critical: 0 · High: 3 · Medium: 3 · Low: 1
 
-- [Medium] On the path this patch newly enables (priv->bus == NULL, so
-  bus = priv->child_bus), core_write() and core_rmw() execute a 4-5…
-- [Low] Ordering of the new priv->child_bus producer vs. its consumers:
-  priv->child_bus is assigned only in mt7530_setup_mdio()…
-- [Low] The commit subject/message ('net: dsa: mediatek: support PLL
-  setup on MMIO MT7530', 'begin using it for core switch PLL setup')…
-- [Low] core_write() and core_rmw() compute `int ctl_phy =
-  mt753x_ctrl_phy_addr(priv);` in the declaration initializer, before…
-- [Low] The new kernel-doc for the @child_bus member of struct
-  mt7530_priv is ungrammatical and does not describe the field's actual…
-
-Pre-existing issues:
-- [High] Pre-existing race on the MDIO path that this patch extends
-  without addressing: core_write()/core_rmw() drive the control PHY's…
+- [High] Moving mt7530_setup_mdio_irq() from mt7530_setup_mdio() (where
+  it ran *before* devm_of_mdiobus_register()) to mt753x_setup()…
+- [High] mt7988_probe() (drivers/net/dsa/mt7530-mmio.c:69-71) calls
+  mt7530_setup_mdio(priv) and discards its int return value, then…
+- [High] The early MDIO enumeration added to mt7988_probe() still cannot
+  reach a downstream switch when any preceding PHY child of the switch's…
+- [Medium] mt7530_setup_mdio() is now invoked from mt7988_probe() right
+  after dsa_register_switch().
+- [Medium] mt7530_setup_mdio() is now reachable from mt7988_probe() with
+  no lock held, whereas every previous invocation ran from…
+- [Medium] mt7988_probe() now registers the switch's MDIO bus - and
+  therefore probes the PHYs/devices on it - before mt753x_setup() ->…
+- [Low] The submission has no Fixes: tag although it removes a user-
+  visible limitation of the MMIO switch driver introduced by commit…
 
 --
 
-net: dsa: mediatek: support PLL setup on MMIO MT7530
+net: dsa: mediatek: support MDIO switch downstream of MMIO switch
 
-This patch adds a new priv->child_bus pointer that records the MDIO bus
-the switch driver itself creates in mt7530_setup_mdio(), and makes
-core_write() and core_rmw() fall back to it when priv->bus is NULL, so
-core (PLL) register access can work on MMIO-probed switches.
+This makes mt7530_setup_mdio() idempotent, exports it, and calls it from
+mt7988_probe() right after dsa_register_switch() so that a switch sitting
+on the MMIO switch's own MDIO bus can register and complete the DSA tree.
+The PHY interrupt setup previously done inside mt7530_setup_mdio() is moved
+to mt753x_setup().
 
-No Link: tags are present in the commit header.
-
-The commit message says:
-
-  In an MMIO implementation, the MDIO bus is part of the switch itself.
-  This bus is already setup for PHY calibration so begin using it for
-  core switch PLL setup.
+No Link: tags in the commit header.
 
 [Severity: Low]
-Is there any device in the tree at this commit that can reach the new
-fallback?  mt7530-mmio.c matches airoha,an7583-switch,
-airoha,en7581-switch, econet,en7528-switch and mediatek,mt7988-switch,
-and all of those IDs use .sw_setup = mt7988_setup, which contains no
-core_write()/core_rmw() call, and none of them has a .mac_port_config
-that reaches mt7530_setup_port5()/mt7530_setup_port6().
+This isn't a bug, but there is no Fixes: tag on the submission even though
+it lifts a user-visible limitation of the MMIO path added by commit
+110c18bfed41 ("net: dsa: mt7530: introduce driver for MT7988 built-in
+switch").  Is a Fixes: tag intended here, or is this considered new
+functionality rather than a fix (the MMIO driver never claimed to support a
+switch behind the switch's own MDIO bus)?
 
-The first MMIO consumer appears only with the later patch
-"net: dsa: mediatek: support EN751221 switch", which adds ID_EN751221
-with .mac_port_config = mt7530_mac_config and the control PHY address
-for MMIO (if (priv->id == ID_EN751221) return 12;).
-
-Would it be clearer to state in the message that this is a prerequisite
-for the EN751221 MMIO variant, and that the MMIO control PHY address is
-still missing here?
-
-> diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
-> index b2344808457cb..b152b73315d50 100644
-> --- a/drivers/net/dsa/mt7530.c
-> +++ b/drivers/net/dsa/mt7530.c
-> @@ -77,6 +77,12 @@ core_write(struct mt7530_priv *priv, u32 reg, u32 val)
->  	struct mii_bus *bus = priv->bus;
->  	int ret;
+> diff --git a/drivers/net/dsa/mt7530-mmio.c b/drivers/net/dsa/mt7530-mmio.c
+> index cf3bdb23a2d54..f387190a95391 100644
+> --- a/drivers/net/dsa/mt7530-mmio.c
+> +++ b/drivers/net/dsa/mt7530-mmio.c
+> @@ -61,7 +61,14 @@ mt7988_probe(struct platform_device *pdev)
+>  	if (IS_ERR(priv->regmap))
+>  		return PTR_ERR(priv->regmap);
 >  
-> +	if (!bus)
-> +		bus = priv->child_bus;
+> -	return dsa_register_switch(priv->ds);
+> +	ret = dsa_register_switch(priv->ds);
 > +
-> +	if (WARN_ON_ONCE(!bus))
-> +		return;
+> +	if (ret)
+> +		return ret;
 > +
-
-[Severity: Low]
-On the instances this fallback newly enables, what PHY address does the
-MMD sequence end up using?  core_write() computes ctl_phy in the
-declaration initializer, before the fallback runs:
-
-	int ctl_phy = mt753x_ctrl_phy_addr(priv);
-	struct mii_bus *bus = priv->bus;
-
-and at this commit mt753x_ctrl_phy_addr() has no MMIO case:
-
-	if (WARN_ON_ONCE(!priv->mdiodev))
-		return 0;
-
-	/* Default is 1st PHY */
-	return (priv->mdiodev->addr + 1) & (PHY_MAX_ADDR - 1);
-
-mt7988_probe() in mt7530-mmio.c sets priv->bus = NULL and never sets
-priv->mdiodev, so an MMIO caller would hit that WARN and then issue the
-whole vendor MMD sequence to child bus address 0, which is an ordinary
-port PHY rather than the control PHY.
-
-This is not reachable at this commit (no MMIO ID calls core_write() or
-core_rmw()), and the later patch "net: dsa: mediatek: support EN751221
-switch" adds the missing case for the only MMIO consumer.  Would it be
-worth adding the MMIO control PHY handling in the same patch that adds
-the bus fallback, so the two never appear apart?
+> +	mt7530_setup_mdio(priv);
+> +
+> +	return 0;
+>  }
 
 [Severity: High]
-This isn't a bug introduced by this patch, but since the same helper is
-now extended to a second bus, would it make sense to fix the locking
-once for both paths?
+Should the return value of mt7530_setup_mdio() be checked here?
 
-On the existing MDIO path, core_write() drives the control PHY MMD
-window while holding only the parent bus lock:
+mt7530_setup_mdio() returns -ENOMEM from devm_mdiobus_alloc() and
+propagates devm_of_mdiobus_register() failures, including -EPROBE_DEFER,
+after clearing priv->child_bus:
 
-	mt7530_mutex_lock(priv);   /* priv->bus->mdio_lock */
-	ret = bus->write(bus, ctl_phy, MII_MMD_CTRL, MDIO_MMD_VEND2);
-	ret = bus->write(bus, ctl_phy, MII_MMD_DATA, reg);
-	ret = bus->write(bus, ctl_phy, MII_MMD_CTRL,
-			 MDIO_MMD_VEND2 | MII_MMD_CTRL_NOINCR);
-	ret = bus->write(bus, ctl_phy, MII_MMD_DATA, val);
-
-That address, (priv->mdiodev->addr + 1) & (PHY_MAX_ADDR - 1), is the
-same physical PHY that phylib manages as user port 0.  phylib's own
-indirect MMD access in mmd_phy_indirect() holds the child bus lock, and
-picks up the parent lock only per transfer, because the child bus ops go
-through mt7530_phy_read_c22()/mt7530_phy_write_c22() ->
-mdiobus_read_nested()/mdiobus_write_nested(priv->bus, ...).
-
-Can the whole core_write() sequence then land between two steps of
-phylib's sequence?  It leaves MII_MMD_CTRL set to
-MDIO_MMD_VEND2 | MII_MMD_CTRL_NOINCR with a CORE_* register latched in
-MII_MMD_DATA, so phylib's next MII_MMD_DATA access would write its own
-value into that CORE_* register (CORE_PLL_GROUP7 or
-CORE_TRGMII_GSW_CLK_CG, for example), or read switch PLL state instead
-of EEE ability.
-
-Both contexts run concurrently: mt7530_setup_port6() is reached from
-mt753x_phylink_mac_config() in the phylink resolve worker, which holds
-only pl->phydev_mutex and pl->state_mutex, while phy_check_link_status()
-issues genphy_c45_eee_is_active() -> phy_read_mmd() on link up.
-
-Would taking the PHY's own bus lock (the child bus mdio_lock) around the
-MMD sequence, before the nested parent lock, be the right fix here?
-
->  	mt7530_mutex_lock(priv);
->  
->  	/* Write the desired MMD Devad */
-> @@ -112,6 +118,12 @@ core_rmw(struct mt7530_priv *priv, u32 reg, u32 mask, u32 set)
->  	u32 val;
->  	int ret;
->  
-> +	if (!bus)
-> +		bus = priv->child_bus;
-> +
-> +	if (WARN_ON_ONCE(!bus))
-> +		return;
-> +
->  	mt7530_mutex_lock(priv);
-
-[Severity: Medium]
-When the child bus is used, is anything serializing the multi-step MMD
-window?  mt7530_mutex_lock()/mt7530_mutex_unlock() are no-ops in exactly
-that case:
-
-static void
-mt7530_mutex_lock(struct mt7530_priv *priv)
-{
-	if (priv->bus)
-		mutex_lock_nested(&priv->bus->mdio_lock, MDIO_MUTEX_NESTED);
+drivers/net/dsa/mt7530.c:mt7530_setup_mdio() {
+	ret = devm_of_mdiobus_register(dev, bus, mnp);
+	if (ret) {
+		priv->child_bus = NULL;
+		dev_err(dev, "failed to register MDIO bus: %d\n", ret);
+		...
+	}
 }
 
-So with priv->bus == NULL the four writes in core_write(), and the five
-transactions of the core_rmw() read-modify-write:
+The other caller, mt753x_setup(), propagates that value:
 
-	ret = bus->read(bus, ctl_phy, MII_MMD_DATA);
-	...
-	val &= ~mask;
-	val |= set;
-	ret = bus->write(bus, ctl_phy, MII_MMD_DATA, val);
-
-run with no lock covering the sequence, and the direct bus->write() /
-bus->read() calls also bypass child_bus->mdio_lock, so the
-lockdep_assert_held_once(&bus->mdio_lock) in __mdiobus_write() cannot
-flag it.  The atomicity the MDIO path got from holding the parent bus
-lock across the whole sequence is dropped for the MMIO path.
-
-Individual transfers do stay atomic on MMIO (mt7531_ind_c22_phy_read()
-and mt7531_ind_c22_phy_write() take priv->reg_mutex), so what is exposed
-is the multi-step window on the control PHY: a second accessor of that
-PHY address would see a read return, or a write land in, the wrong
-CORE_* register.  I could not find such a second accessor for the
-in-series EN751221 consumer, so the corruption itself is speculative,
-but the dropped lock is not.
-
-Would locking the bus that was actually selected work here, that is
-mutex_lock_nested(&bus->mdio_lock, MDIO_MUTEX_NESTED) plus
-__mdiobus_read()/__mdiobus_write(), the way other DSA drivers do it?
-
->  
->  	/* Write the desired MMD Devad */
-> @@ -2429,8 +2441,11 @@ mt7530_setup_mdio(struct mt7530_priv *priv)
->  	if (priv->irq_domain && !mnp)
->  		mt7530_setup_mdio_irq(priv);
->  
-> +	priv->child_bus = bus;
-> +
->  	ret = devm_of_mdiobus_register(dev, bus, mnp);
->  	if (ret) {
-> +		priv->child_bus = NULL;
->  		dev_err(dev, "failed to register MDIO bus: %d\n", ret);
->  		if (priv->irq_domain && !mnp)
->  			mt7530_free_mdio_irq(priv);
-
-[Severity: Low]
-Is the producer of priv->child_bus ordered ahead of its consumers?
-mt753x_setup() runs the switch specific setup first and only afterwards
-creates the bus:
-
-	int ret = priv->info->sw_setup(ds);
-	...
 	ret = mt7530_setup_mdio(priv);
+	if (ret)
+		return ret;
 
-So any core_write()/core_rmw() issued from an sw_setup callback on an
-instance where priv->bus is NULL (mt7988_probe() sets priv->bus = NULL)
-finds both pointers NULL, trips the new WARN_ON_ONCE(!bus) and returns
-without performing the MMD sequence.  Should the bus be created before
-sw_setup(), or should core_* return an error the caller can act on?
+With the error dropped, mt7988_probe() returns 0 while no child MDIO bus
+exists.  Since the DSA tree can only be completed once that bus registers
+the downstream switch, mt753x_setup() never runs and nothing retries the
+bus, so the board stays without networking.  Note also that the failure
+path clears priv->child_bus but leaves ds->user_mii_bus pointing at the
+never-registered devm bus, so a later mt753x_setup() would allocate a
+second mii_bus.
 
-There is also a case where the pointer stays NULL for the whole device
-lifetime.  mt7530_setup_mdio() returns 0 without allocating a bus when a
-disabled mdio child node is present:
+[Severity: High]
+Can this call actually reach the downstream switch node on a DT shaped like
+arch/arm64/boot/dts/mediatek/mt7988a.dtsi, where the PHY children of the
+switch's mdio node use the switch itself as their interrupt provider?
 
-	if (mnp && !of_device_is_available(mnp))
-		goto out;
+	switch@15020000 {
+		interrupt-controller;
+		#interrupt-cells = <1>;
+		mdio {
+			gsw_phy0: ethernet-phy@0 {
+				reg = <0>;
+				interrupts = <0>;
 
-After that, every runtime core_* access (the CORE_PLL_GROUP* and
-CORE_TRGMII_GSW_CLK_CG programming in mt7530_setup_port6(), for example)
-becomes a warning plus a no-op rather than a probe failure.  Is silently
-skipping the clock programming the intended behaviour there?
+At probe time priv->irq_domain does not exist yet, because
+mt7530_setup_irq() only runs from mt753x_setup():
 
-For completeness, the path named in the commit message,
-mt7530_setup() -> mt7530_pll_setup() -> core_clear()/core_write(), is
-not reachable on a bus-less instance in this tree: mt7530_setup() is
-.sw_setup only for the MDIO probed IDs, where priv->bus is a real parent
-bus.  So this reads as a latent ordering trap plus the disabled mdio node
-corner case rather than a failure any current board hits.
+mt753x_setup()
+    mt7530_setup_irq()		<- creates priv->irq_domain
+    mt7530_setup_mdio()
 
-> diff --git a/drivers/net/dsa/mt7530.h b/drivers/net/dsa/mt7530.h
-> index 108c831dd0120..5b7394f6383c7 100644
-> --- a/drivers/net/dsa/mt7530.h
-> +++ b/drivers/net/dsa/mt7530.h
-> @@ -886,6 +886,9 @@ struct mt753x_info {
->   * @dev:		The device pointer
->   * @ds:			The pointer to the dsa core structure
->   * @bus:		The bus used for the device and built-in PHY
-> + * @child_bus:		The bus created by the device, on MDIO implementations
-> + *			this is bus indirectly accesses `bus`, on MMIO
-> + *			implementations this bus is part of the switch.
+so of_irq_get() on gsw_phy0 finds no host for the switch node and returns
+-EPROBE_DEFER, which is forwarded during boot:
 
-[Severity: Low]
-The middle clause, "this is bus indirectly accesses `bus`", looks like it
-is missing a word or two.
+drivers/net/mdio/fwnode_mdio.c:fwnode_mdiobus_phy_device_register() {
+	rc = fwnode_irq_get(child, 0);
+	if (rc == -EPROBE_DEFER)
+		rc = driver_deferred_probe_check_state(&phy->mdio.dev);
+	if (rc == -EPROBE_DEFER)
+		return rc;
+}
 
-Also, "The bus created by the device" does not match the code:
-mt7530_setup_mdio() returns 0 without allocating a bus when a disabled
-mdio child node exists, and it resets the pointer back to NULL on
-registration failure, so the field can legitimately be NULL for the
-whole device lifetime.
+and __of_mdiobus_parse_phys() then aborts child enumeration on that error,
+after which __of_mdiobus_register() unregisters the bus.  Wouldn't that
+mean the downstream switch node is never registered, the tree never
+completes, and the IRQ domain that the PHY children need is never created,
+i.e. the prerequisite loop the patch aims to break is still there?
 
-Could the doc state when the field may be NULL, and which of priv->bus,
-priv->child_bus and ds->user_mii_bus the core_* helpers are expected to
-use?  The selection rule (if (!bus) bus = priv->child_bus;) is currently
-copy-pasted into core_write() and core_rmw(), so every future core_*
-helper has to remember to repeat it.
+[Severity: Medium]
+Is it safe to probe the MDIO bus here, before the switch bring-up in
+mt7988_setup() has run?
+
+In the incomplete-tree case this patch targets, dsa_register_switch()
+returns without invoking ds->ops->setup, so the reset and PHY power-up
+sequence has not executed when devm_of_mdiobus_register() synchronously
+probes the MDIO children:
+
+drivers/net/dsa/mt7530.c:mt7988_setup() {
+	/* Reset the switch */
+	reset_control_assert(priv->rstc);
+	usleep_range(20, 50);
+	reset_control_deassert(priv->rstc);
+	usleep_range(20, 50);
+	...
+	/* Reset the switch PHYs */
+	regmap_write(priv->regmap, MT7530_SYS_CTRL, SYS_CTRL_PHY_RST);
+}
+
+Can the PHY ID reads issued from probe through mt7531_ind_c22_phy_read()
+return 0xffff or time out in the MT7531_PHY_IAC poll loop on an un-reset
+and (on AN7583, before the AN7583_CSR_PHY_CORE_REG_CLK_SEL /
+AN7583_CSR_ETHER_AFE_PWD handling) unclocked block?  And when the reads do
+succeed, does the later reset_control_assert()/deassert() plus
+SYS_CTRL_PHY_RST reset the MDIO master and integrated PHYs underneath the
+mdio/phy devices that were already bound during probe, including any
+transaction in flight from the freshly probed downstream switch?
+
+> diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
+> index b152b73315d50..fe93be1ece7d7 100644
+> --- a/drivers/net/dsa/mt7530.c
+> +++ b/drivers/net/dsa/mt7530.c
 
 [ ... ]
+
+> @@ -2414,6 +2414,10 @@ mt7530_setup_mdio(struct mt7530_priv *priv)
+>  	static int idx;
+>  	int ret = 0;
+>  
+> +	/* Already done */
+> +	if (priv->child_bus)
+> +		return 0;
+> +
+>  	mnp = of_get_child_by_name(np, "mdio");
+
+[Severity: Medium]
+What serializes this check now that mt7530_setup_mdio() is also reachable
+from mt7988_probe()?
+
+Every previous invocation came from mt753x_setup() under dsa2_mutex, but
+the new call runs after the lock has been dropped:
+
+net/dsa/dsa.c:dsa_register_switch() {
+	mutex_lock(&dsa2_mutex);
+	err = dsa_switch_probe(ds);
+	dsa_tree_put(ds->dst);
+	mutex_unlock(&dsa2_mutex);
+}
+
+So the probe thread can run mt7530_setup_mdio(priv) unlocked while another
+switch of the same tree drives, under dsa2_mutex:
+
+dsa_register_switch()
+    dsa_tree_setup()
+        dsa_tree_setup_switches()
+            dsa_switch_setup(this ds)
+                mt753x_setup()
+                    mt7530_setup_mdio(same priv)
+
+Can both observe priv->child_bus == NULL and both allocate and register an
+mii_bus for the same switch?  priv->child_bus is only published just before
+devm_of_mdiobus_register() and unconditionally cleared on failure, so a
+losing racer can clear a pointer that mt753x_phy_read_c22() and
+mt753x_phy_write_c22() dereference.  The non-atomic "static int idx"
+increment used for bus->id is also no longer under any lock, so can two
+buses end up with the same KBUILD_MODNAME-%d id?
+
+Related, in the single-threaded case: the downstream switch probed from
+inside devm_of_mdiobus_register() completes the tree and re-enters
+mt753x_setup() for this same priv, where this guard returns 0 while the
+outer registration is still in flight further down the stack.  Is that
+intended?
+
+> @@ -2438,9 +2442,6 @@ mt7530_setup_mdio(struct mt7530_priv *priv)
+>  	bus->parent = dev;
+>  	bus->phy_mask = ~ds->phys_mii_mask;
+        ^^^^^^^^^^^^^^
+
+[Severity: Medium]
+When called from mt7988_probe(), is ds->phys_mii_mask initialized yet?
+
+The mask is set by the DSA core, and it is skipped entirely for an
+incomplete tree:
+
+net/dsa/dsa.c:dsa_tree_setup() {
+	complete = dsa_tree_setup_routing_table(dst);
+	if (!complete)
+		return 0;
+	...
+}
+
+net/dsa/dsa.c:dsa_switch_setup() {
+	/* Initialize ds->phys_mii_mask before registering the user MDIO bus
+	 * driver and before ops->setup() has run, ...
+	 */
+	ds->phys_mii_mask |= dsa_user_ports(ds);
+}
+
+With phys_mii_mask still 0, bus->phy_mask becomes ~0.  If the switch node
+has no "mdio" child, devm_of_mdiobus_register() does not override the mask:
+
+drivers/net/mdio/of_mdio.c:__of_mdiobus_register() {
+	if (!np)
+		return __mdiobus_register(mdio, owner);
+	...
+}
+
+so does __mdiobus_register() end up skipping every address, leaving
+ds->user_mii_bus pointing at a bus with no PHYs?  The new
+"if (priv->child_bus) return 0;" guard then makes the later call from
+mt753x_setup(), where phys_mii_mask is correct, a no-op, so the ~0 mask
+looks permanent, and dsa_switch_setup() will not build its own user mii bus
+either because ds->user_mii_bus is already set.
+
+> -	if (priv->irq_domain && !mnp)
+> -		mt7530_setup_mdio_irq(priv);
+> -
+>  	priv->child_bus = bus;
+>  
+>  	ret = devm_of_mdiobus_register(dev, bus, mnp);
+
+[Severity: High]
+Does moving this to mt753x_setup() make the per-PHY IRQ assignment take
+effect too late?
+
+Before the change the order was:
+
+mt7530_setup_mdio()
+    mt7530_setup_mdio_irq()		<- fills ds->user_mii_bus->irq[p]
+    devm_of_mdiobus_register()
+        __mdiobus_register()
+            phy_device_create()
+                dev->irq = bus->irq[addr];
+
+After the change, mt753x_setup() calls mt7530_setup_mdio() first and only
+then mt7530_setup_mdio_irq(), so the writes in
+
+	irq = irq_create_mapping(priv->irq_domain, p);
+	ds->user_mii_bus->irq[p] = irq;
+
+happen after phy_device_create() has already latched phydev->irq from
+bus->irq[addr], which mdiobus_alloc_size() initialized to PHY_POLL.
+Nothing re-reads bus->irq[] afterwards, so do the internal PHYs silently
+fall back to polling while the virqs from irq_create_mapping() end up
+referenced by nothing?
+
+This is the case the old "priv->irq_domain && !mnp" condition selected, and
+it matches in-tree DTs that have "interrupt-controller" on the switch node
+and no "mdio" child, for example switch@1f in
+arch/arm64/boot/dts/mediatek/mt7622-bananapi-bpi-r64.dts and switch@31 in
+arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts.  The commit
+message does not mention this behaviour change; is it intended?
+
+> @@ -3285,6 +3287,9 @@ mt753x_setup(struct dsa_switch *ds)
+>  	if (ret)
+>  		return ret;
+>  
+> +	if (priv->irq_domain && ds->user_mii_bus)
+> +		mt7530_setup_mdio_irq(priv);
+> +
+>  	/* Initialise the PCS devices */
+>  	for (i = 0; i < priv->ds->num_ports; i++) {
+>  		priv->pcs[i].pcs.ops = priv->info->pcs_ops;
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260915174643.253660-1-cjd%40cjdns.fr
