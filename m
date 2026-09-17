@@ -4,91 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B27C4C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 07:46:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A06E6C88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 07:57:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=akKizh4ZGxdpLf1b/hrYXdPrQ7KO6CR6fVuYsqSOts0=; b=EMlh+ciPUdIem1z44y3IjupfwZ
-	Co9iSNIcEZrL0UhDa7gVS7Q7fuMMoCoSATVnjuzyt6tou8iCYaXw9DySuLEwygoVI1mo9AEH4sc4Y
-	pAT008lbsanzUqsVeAM06dOKgNsJ4eZJ//6Zniw3ZIhrgEcTtuYnHlOSJnjL2XctKgsmPOrZXka5b
-	Dc4BnkrPH8J+zKYwJWgyTKxpdZF630h+tjkET1Y6HF776N1xEBgaBx2cF6ycQK3FKeSPp4rpbtuHm
-	hpf3oTWQq8Vy9h51Mlbhm6eEVl3kG9cDJ590yBg0r9dk/pMalCZq8wAuQa1iIgQ8ykOUBeRlaDFGr
-	nw1OgJRw==;
+	bh=c5nHfb0sN8awpqWQUUf2qpdir+xWpEhP8GLUQyh2snk=; b=Wxy47w/jZoX/7JS/dK4+Km5fYu
+	9B3eLwdh2gHyWTv2y2gQWYUIzLGJ//KJRxTPXmyqoUmI+t4IgNjY9nkVPgb2bEnCDEFXQ7RwUWBLE
+	QhJXc2FIjKioOBBrEiAhWgTQBkT0XeYcs1CJ79cIOsqyextqnDhlNXREwOf4rb8E6WXkCcmTmPXL8
+	lWZmp13rtrkPw7dDotjF4gMMTWGswKweR0uyI3e0EDoe+f4gz8qVGwRdCGnDXHv72Y7BqLY8wB6dM
+	DetRuVv5WgA2jgbhYebRBFrvgc0P6SlIPzvXqZYqBTzpniiY+L2oHi7eGiNDN495kTfV1cvTplSIU
+	1oMg3RYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x76pQ-0000000Ao7x-3PgV;
-	Thu, 17 Sep 2026 07:46:44 +0000
-Received: from esa2.hc1455-7.c3s2.iphmx.com ([207.54.90.48])
+	id 1x76zO-0000000AovE-0cAk;
+	Thu, 17 Sep 2026 07:57:02 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x76pN-0000000Ao7G-3fsN
+	id 1x76zN-0000000Aov6-06DO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 07:46:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1789631202; x=1821167202;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ffn4Z8w2vbV/yjMAVjCF39Xnvzt5sDQWpk/k1VIoL50=;
-  b=itDFOEUpgmM3u5NgIifYWSHVt84v0dWpkkM3bFHA+HwOfjpAIb5jb+6l
-   Ie9g6/u6dv0EeuUZsrf4EYJLJ9XX7GqelBNs9jNHr1lvsgvZOagoinr7t
-   RfDtpqx+SVYwRrXTK56g+pVXQaQ4c3FFbfasEXj9+Ea4Y2ZLy5TIvpn+N
-   xq60bz0kS35pQQL3HYjoVq2X7yGvKj42gt81hOBULyHuFjHJh34aU3R5h
-   2Los3lrLeKJarYrvGDVC65i9tNGnTcQwyn2BEy9eabtqJmyQY+IJXvycK
-   BqWTQcR2nJnL6Ql9+Zdc3CeNZmx/iw6tRwlzPOl92PPrS0yN/Ul0dVepN
-   w==;
-X-CSE-ConnectionGUID: BGFETOvOT5+fSZz91O8K6w==
-X-CSE-MsgGUID: Vw8sM6E6TLin7DumlYzqhA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="255378995"
-X-IronPort-AV: E=Sophos;i="6.27,103,1786978800"; 
-   d="scan'208";a="255378995"
-Received: from gmgwnl01.global.fujitsu.com (HELO mgmgwnl01.global.fujitsu.com) ([52.143.17.124])
-  by esa2.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Sep 2026 16:46:39 +0900
-Received: from az2nlsmgm2.o.css.fujitsu.com (unknown [10.150.26.202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mgmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 5C091474
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 07:46:39 +0000 (UTC)
-Received: from az2nlsmom2.o.css.fujitsu.com (unknown [10.150.26.200])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2nlsmgm2.o.css.fujitsu.com (Postfix) with ESMTPS id 019651C0010C
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 07:46:39 +0000 (UTC)
-Received: from sm-arm-grace07 (unknown [10.124.178.20])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2nlsmom2.o.css.fujitsu.com (Postfix) with ESMTPS id 400491800B10;
-	Thu, 17 Sep 2026 07:46:32 +0000 (UTC)
-Date: Thu, 17 Sep 2026 16:46:30 +0900
-From: Itaru Kitayama <itaru.kitayama@fujitsu.com>
-To: Wei-Lin Chang <weilin.chang@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>,
+	Thu, 17 Sep 2026 07:57:01 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 24E5260204;
+	Thu, 17 Sep 2026 07:57:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CED881F000FF;
+	Thu, 17 Sep 2026 07:56:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789631819;
+	bh=c5nHfb0sN8awpqWQUUf2qpdir+xWpEhP8GLUQyh2snk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Fyv8H5ZdWDAqKNy6lCNwJD0GdWelLq+Vv2VWJUXPR6sk2T8RpIum4o7exvCiYCrXa
+	 K2bv4rHCB1g95P02+cxUnWktKD2D1RXLBoN5uBDgzStA/jYBMb61thlz9XfCFcBmjf
+	 JVWL2KsLc11C3KUc7hdz6pBoGJXxSjIKmccgxEwAE1+c7P3Ltvnwuqs/YQvfrdk31s
+	 +BmuVlwfoA1IuTTOsPprMrg/m1s1tAxP/Pgi5jn6EOolMiHLGAFls9ppYoEQm842QI
+	 VJNzx47uYGIXfwegd9vqV2QnK0geFPdfYDKOFBxz0cCAxg+DNZkvH4UjCbPhuPB4zC
+	 /5hZvKqt5DfCg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1x76zJ-00000009yQd-1QJv;
+	Thu, 17 Sep 2026 07:56:57 +0000
+Date: Thu, 17 Sep 2026 08:56:56 +0100
+Message-ID: <867bkk5n07.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+Cc: Wei-Lin Chang <weilin.chang@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
 	Joey Gouly <joey.gouly@arm.com>,
 	Steffen Eiden <seiden@linux.ibm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Sebastian Ene <sebastianene@google.com>
-Subject: Re: [PATCH v3 0/2] KVM: arm64: ptdump: Shadow ptdump fixes
-Message-ID: <aqua1jotej32hxLP@sm-arm-grace07>
-References: <20260916230337.4162485-1-weilin.chang@arm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260916230337.4162485-1-weilin.chang@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_004642_199238_09C43CAB 
-X-CRM114-Status: GOOD (  22.40  )
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Wang Han <wanghan@linux.alibaba.com>,
+	Shuai Xue <xueshuai@linux.alibaba.com>,
+	"Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Subject: Re: [PATCH v6 0/7] KVM: arm64: nv: Implement nested stage-2 reverse map
+In-Reply-To: <aquN5ytDxt44uORD@sm-arm-grace07>
+References: <20260915154305.3852871-1-weilin.chang@arm.com>
+	<aqm9hXB6X9IQ8wHz@sm-arm-grace07>
+	<m6ldbr7hdafmoycx7xjcbsg62mblcakcu52ndowwzqgxdjb3q3@huv4i5bfxtza>
+	<aqnUWp_VJXUCcJnQ@sm-arm-grace07>
+	<86ld9165cr.wl-maz@kernel.org>
+	<aquN5ytDxt44uORD@sm-arm-grace07>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: itaru.kitayama@fujitsu.com, weilin.chang@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, wanghan@linux.alibaba.com, xueshuai@linux.alibaba.com, ljs@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,65 +99,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Wei-Lin,
+On Thu, 17 Sep 2026 07:51:19 +0100,
+Itaru Kitayama <itaru.kitayama@fujitsu.com> wrote:
+> 
+> On Wed, Sep 16, 2026 at 08:08:20AM +0100, Marc Zyngier wrote:
+> > On Wed, 16 Sep 2026 00:27:22 +0100,
+> > Itaru Kitayama <itaru.kitayama@fujitsu.com> wrote:
+> > > 
+> > > On Wed, Sep 16, 2026 at 12:22:30AM +0100, Wei-Lin Chang wrote:
+> > > > On Wed, Sep 16, 2026 at 06:49:57AM +0900, Itaru Kitayama wrote:
+> > > > > On Tue, Sep 15, 2026 at 04:42:58PM +0100, Wei-Lin Chang wrote:
+> > > > > > Hi,
+> > > > > > 
+> > > > > > This is v6 of optimizing the shadow s2 mmu unmapping during MMU
+> > > > > > notifiers.
+> > > > > > 
+> > > > > > This version fixes a few issues, and adds Marc's space optimization
+> > > > > > for kvm_guest_s2_mapping [1]. Please see the changelog for the details.
+> > > > > > 
+> > > > > > Tested by booting L3, and running in-kernel targetted tests described
+> > > > > > in [2]. v5 got some tested-by's from Itaru and Wang (thanks), I didn't
+> > > > > > carry them over since some bugs fixed in v6 are non-obvious. Some
+> > > > > > retest would be much appreciated!
+> > > > > 
+> > > > > How did you boot into L3, with KVM selftest or recrusively boot on HW?
+> > > > 
+> > > > I just recrusively booted VMs on hardware. :)
+> > > 
+> > > Good. Then I actually tried that on Grace CPUs, but letting L1 boot 
+> > > with nested mode did not print "VHE+NV2" KVM init log in dmesg, thus not
+> > > able to boot L3. Do I need to add other than kvm.arm-mode=nested to command line?
+> > 
+> > kvm-arm.mode=nested, as documented. That also puts in perspective your
+> > TB tag on the whole series...
+> 
+> Yes. Using kvmtool's --nested option did not bring vCPU with the VHE+NV2 boot
+> log. The Host kernel is Wei-Lin's version 6 booted on Grace CPUs, and
+> the guest kernel is today's kvmarm/fixes plus Wei-Lin's shadow stage 2 ptdump fix.
 
-On Thu, Sep 17, 2026 at 12:03:35AM +0100, Wei-Lin Chang wrote:
-> Hi,
-> 
-> This is v3 of fixing the sleep-in-atomic problem of the shadow ptdump.
-> The approach taken this time is simply creating a file for each nested
-> mmu.
-> 
-> The ptdump files are created alongside the nested mmus in
-> kvm_vcpu_init_nested(), in a sleepable context, and removed when the VM
-> is destroyed (kvm_destroy_vm_debugfs(), before the nested mmus are freed
-> in kvm_destroy_nested()). This allows us to store the kvm_s2_mmu pointers
-> in the ptdump code, after Marc's nested mmu lifecycle fixes [1].
-> 
-> For the shadow ptdump, for valid nested mmus the first line will show
-> the nested context's VTTBR and VTCR values, and whether s2 is enabled or
-> not. The ptdump then follows.
-> 
-> The first patch fixes mmu->pgt accesses after the VM MMU teardown in
-> ptdump.c, the second patch switches from per nested context ptdumps to
-> per nested mmu ptdumps.
-> 
-> Tested with CONFIG_PROVE_LOCKING, CONFIG_DEBUG_ATOMIC_SLEEP, and
-> CONFIG_KASAN.
-> 
-> Series based on kvmarm/fixes.
-> 
-> * Changes from v2 [2]:
-> 
->   - Changed from creating a file that contains all nested mmus to
->     creating one file for each nested mmu.
+What have you tested exactly? If you're not able to boot a working L1
+guest as a NV2 hypervisor, you're probably doing something wrong.
 
-I've booted your kernel built only CONFIG_DEBUG_ATOMIC_SLEEP enabled
-mentioned above kernel configs; on Grace CPUs shadow_stage2 test did 
-not trigger the sleep in atomic message.
+	M.
 
-Tested-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
-
-Thanks,
-Itaru.
-
-> 
-> Thanks!
-> 
-> [1]: https://lore.kernel.org/kvmarm/20260911162203.1919330-1-maz@kernel.org/
-> [2]: https://lore.kernel.org/kvmarm/20260630121005.1130996-1-weilin.chang@arm.com/
-> 
-> Wei-Lin Chang (2):
->   KVM: arm64: ptdump: Check the page tables aren't freed when accessing
->   KVM: arm64: ptdump: Fix shadow ptdump sleep-in-atomic-context problem
-> 
->  arch/arm64/include/asm/kvm_host.h |  4 --
->  arch/arm64/include/asm/kvm_mmu.h  |  6 +--
->  arch/arm64/kvm/nested.c           |  9 ++--
->  arch/arm64/kvm/ptdump.c           | 75 ++++++++++++++++++++-----------
->  4 files changed, 54 insertions(+), 40 deletions(-)
-> 
-> -- 
-> 2.43.0
-> 
+-- 
+Without deviation from the norm, progress is not possible.
 
