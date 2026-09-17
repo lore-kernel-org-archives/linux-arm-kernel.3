@@ -4,81 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 421A5C982CF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 13:58:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA802C982CF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 13:58:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=huJYHmuvcXjAJQVgSmT/V8BPOrn1lpBlwYssdEv3PjQ=; b=RkHYCzBOeEtxyF4z5t6O1tYzGy
-	c8sw/ldU6K6i8V6mwH1SSoTVov6Xe4G/oxw+hgxskZXW3M3fF46hwqHFukilbAT17+pdfv12bdnwB
-	ql1aGETcUTrndL7g1SYrbIOcFKU0p5SM+VEU3gfNdjfY38qub86KHB14rCfquHvpKQBtNhWbPlxVq
-	5YljB2MVEk4OiG99OaLpu8GlTPrh4/8gUudkc7EUZsu58YEcFbnV4SeWsmAXLbHdpao2LkLkit3f6
-	vCQD5L5UFZ5BGlDpH5OvqZuHFzjIkDry+nHCg1Y7xTMHpo2GgSJtqp2yaqVHOJ6gBLH7K5pYedrIR
-	Qd2TA7SA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DM/W5OiE7zuL0Fj+5+8EggB4ExQGwHREFTFpjNObiQ8=; b=2gkyzMEwVlwaWduI2GrbHVmzLO
+	NKkIcTQjnekFcygmwPb4lPdgk1o4OOGSggjNWl8K2XlDK/cUl3ZZFN10SxZLTeUzjyQHFb5nNwGeh
+	URMLhUzhGyx3ZMc7VLeOvTKvkw7KIPTXp6E78DYysKTBmbWv6rptEWoOUm+LZ8b9muLK2XNmSbZ4l
+	si5VkPKyQbRqPW11+IkK5BsTo7S/ymVQc7WxHiarFAC8kp496CKiDEu5qX/H5kUC4VGfBFe52V33d
+	btYmWQxKZFpg4vGl1P/BT/2+i36qiwBVBJJo4RX7032d6FmIye5FQLthA8bNVYxbVGE9Ah3K1qYkQ
+	jSZI9L3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Cch-0000000BTXw-3wX4;
-	Thu, 17 Sep 2026 13:57:59 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1x7CdX-0000000BTjh-17a2;
+	Thu, 17 Sep 2026 13:58:51 +0000
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Ccd-0000000BTXE-2cXL
+	id 1x7CdU-0000000BThV-1zhm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 13:57:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789653475; x=1821189475;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=mx3gficTDYddR9ZowafVEAXBGtTvRLt8DqNH3hi4f/M=;
-  b=AefP0ZTXmECvDRWCbNeImTZ5cBpqDhe/QUy0xGyE+FwtlDbMpGTfJVK4
-   tOYJFQtoWuaH6E/ovBTuwnX/E8+Kt6uftaa23CiwpHmKzF7v1/N3U1/ww
-   ectzYspwQO/SQQjO3i/bl5BkQtd8XuEEWYiTMGV1ADI8+slFi/7ppdDoS
-   oOLVX75U2xYS9fUTwq1eFd+RHJRk/PfMzsKIl6vgz5g6iPCH8YCmPbQRK
-   b/GWOuz64/BPdcljRN+Hp+RfzaA5Dc6ro7ghWGVENrZUz6hXhqeE9oLyJ
-   F/EbfOgOg4fEuDNC4mom0VR7j9d4w8qMu/q6v37zU2A1cHS//L72PMEAB
-   w==;
-X-CSE-ConnectionGUID: P6gGlD0xQcifCUgUTLlc1Q==
-X-CSE-MsgGUID: tc7cGJgAQ9GjHYM9DX3BLA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="89210060"
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="89210060"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Sep 2026 06:57:54 -0700
-X-CSE-ConnectionGUID: wEmSy5MOTBOitG1Ulztj4A==
-X-CSE-MsgGUID: cpUIdU5pSoivgcC8Aqz+hw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="297299998"
-Received: from lkp-server01.sh.intel.com (HELO 462990a40a85) ([10.239.97.150])
-  by fmviesa002.fm.intel.com with ESMTP; 17 Sep 2026 06:57:51 -0700
-Received: from kbuild by 462990a40a85 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1x7CcW-000000007vt-2BMc;
-	Thu, 17 Sep 2026 13:57:48 +0000
-Date: Thu, 17 Sep 2026 21:57:42 +0800
-From: kernel test robot <lkp@intel.com>
-To: Wentao Liang <vulab@iscas.ac.cn>, airlied@gmail.com
-Cc: oe-kbuild-all@lists.linux.dev, dri-devel@lists.freedesktop.org,
-	jernej.skrabec@gmail.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
-	samuel@sholland.org, simona@ffwll.ch, tzimmermann@suse.de,
-	wens@kernel.org, Wentao Liang <vulab@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] drm/sun4i: Fix pdev reference leak in
- sun8i_r40_tcon_tv_set_mux()
-Message-ID: <202609172103.AfhCF3XZ-lkp@intel.com>
-References: <20260916182412.2091681-1-vulab@iscas.ac.cn>
+	Thu, 17 Sep 2026 13:58:50 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-482f6356f6bso738601f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 06:58:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789653527; x=1790258327; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=DM/W5OiE7zuL0Fj+5+8EggB4ExQGwHREFTFpjNObiQ8=;
+        b=i+JB3NWm4IX/tgqcFeXelf/CXkwM2K2DySs+DVv/XKyHTz9emTozzjwTuiwik9C+gv
+         9B2Id5ck1jkQFMCt+DxZO/C3GGRPS0u07DO41Yh7jumEbguae1F20oOMLhpfNx2815Hy
+         nYyD1WbRb/gu75E5WGZpWto+8/3FAjCMuiAxn5lVFoux+40Y+XozbK2qKUyvgWBwBOHx
+         MYLndEDbniLOvVsu1pyRPx/EHxyY7gTMQ+17wwHJQTEeUCwTwUEdgPEVPK5D5a3XAXxc
+         5Q7CqApOBY1WfR5ZsF+NzLk3YnBBXbVDq96c+KfzSo1mxjK23j4gDTN64vXoZQPDMJna
+         mYkQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789653527; x=1790258327;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=DM/W5OiE7zuL0Fj+5+8EggB4ExQGwHREFTFpjNObiQ8=;
+        b=S84pb5HmvunNXgI/XNG7lJ3b6ck3+sszm2IsHVUjOgZHzBbwFiYEsk/mdusLpNOedQ
+         9XoEn/9Ddh7fDJ8QJslHxSRjAV0EXYJicGwLTGpQ2N1HMJ7qoxbLTld9h6gcoC+J+wgX
+         VUckSN9iBrI8V+h6qFk0Uh+R6ngwDjqu+TQVdJ2JgEYxG6B3wSfypeyJ+tuBrZKuF70c
+         SwPXtvov949rfu8ZFMqUc/Z5PMvtFU9y1T8xPM9MvrTY5SkZk4lLCI6TODUq+4EVo8BB
+         BjrmlwztQju24BDraOwERt4UXQkwQ57386rzTPZaRiWdTnZJCHr38WExY9+7Hc5RfxNg
+         pt+Q==
+X-Forwarded-Encrypted: i=1; AKwUvBwgfEW7e8ybh1oBO53ajCPEGvmktwFktP9MjVMhqFCrnPDWn62/RzSEzfVoeA9s0QrG7zyPUxUlng8eoqdthBxW@lists.infradead.org
+X-Gm-Message-State: AFuF++mV5NY+r/Zp070NagDk9rA5hBCONiiDWauDB65pD6xMEa5suUwc
+	pH3Ro1+7DfT9qwzirjFerBM0bgsQOZyMKCUvL5p/1TFegD1biRedN2HN
+X-Gm-Gg: AYBFou3o7dWo1s5w0DOMjekuHhgmtPwkWVqa4p3HM+dr4I30fGbdqpKMdbNBnwnwHw7
+	tXHc3M3/IC6g4vNSqmpuW71YOr2PBVjAiaOjLNK4HfffaZAm23bqQqFrkl5skMVuImCZBSNvSE4
+	uSI+lblTsL7VvZbDlC81u3ledYkiy2e0yNS9VVclfisaa2ALNhFfztq7M5K0UMPO6Y6X552zJQM
+	NcA+8PDIodOvs+dQWsA/UoxhuuM8CApJNRE+XJv8QK5NZi7G4u7ndpM3pkGcNi+wUwb0b3sqn/J
+	DlD09I5qNkTys+Fc27GGnnT0fy/7ZsH97a7m+N2qdmKhEyiegk/NGJadWDD0EpQcbeh6Qvr9CnI
+	WjB7HkbmzkKI6z+rcOG1EwUBfDpsTVeuy5MMKO7InTErN/UPwjqnb+bnPzZo1KI29eDL/OGL2bu
+	RxNZodcBZTFa6jWAMNPohKFNNx+7MGc5yTikisTk3y3LEeaBg3BfiFFoFhGdvj+W5hrfM/9bTVe
+	4NwsyceVQeVrJjoh4o8DboccKBQuRbYrOjr14u1vqsvejyFdcA0vg2NSg==
+X-Received: by 2002:a05:6000:4543:b0:487:62d:37d6 with SMTP id ffacd0b85a97d-4870d062278mr12784911f8f.23.1789653526791;
+        Thu, 17 Sep 2026 06:58:46 -0700 (PDT)
+Received: from zeus.localdomain (212.71.14.70.adsl.dyn.edpnet.net. [212.71.14.70])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4870bf414c3sm12851706f8f.30.2026.09.17.06.58.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 17 Sep 2026 06:58:46 -0700 (PDT)
+From: Sander Speetjens <sander.speetjens@gmail.com>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Jonathan Bell <jonathan@raspberrypi.com>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	linux-rtc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	sander.speetjens@gmail.com
+Subject: [PATCH v3 1/2] dt-bindings: rtc: Add property for Raspberry Pi 5 RTC
+Date: Thu, 17 Sep 2026 15:58:40 +0200
+Message-ID: <20260917135841.841680-2-sander.speetjens@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260917135841.841680-1-sander.speetjens@gmail.com>
+References: <20260917135841.841680-1-sander.speetjens@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260916182412.2091681-1-vulab@iscas.ac.cn>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_065755_674048_80878F5C 
-X-CRM114-Status: GOOD (  14.92  )
+X-CRM114-CacheID: sfid-20260917_065848_528233_80738EA6 
+X-CRM114-Status: GOOD (  10.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,75 +108,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Wentao,
+Add trickle-voltage-millivolt property for the Raspberry Pi 5 RTC.
 
-kernel test robot noticed the following build errors:
+V2 -> V3: Fixed the firmware property naming
 
-[auto build test ERROR on sunxi/sunxi/for-next]
-[also build test ERROR on daeinki-drm-exynos/exynos-drm-next drm/drm-next drm-i915/for-linux-next drm-i915/for-linux-next-fixes drm-misc/drm-misc-next drm-tip/drm-tip linus/master v7.3-rc3 next-20260916]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+V1 -> V2: As discussed with Krzysztof Kozlowski, this property is folded into
+the existing raspberrypi,bcm2835-firmware properties.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Wentao-Liang/drm-sun4i-Fix-pdev-reference-leak-in-sun8i_r40_tcon_tv_set_mux/20260916-182412
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux.git sunxi/for-next
-patch link:    https://lore.kernel.org/r/20260916182412.2091681-1-vulab%40iscas.ac.cn
-patch subject: [PATCH] drm/sun4i: Fix pdev reference leak in sun8i_r40_tcon_tv_set_mux()
-config: alpha-randconfig-r1306-20260917 (https://download.01.org/0day-ci/archive/20260917/202609172103.AfhCF3XZ-lkp@intel.com/config)
-compiler: alpha-linux-gcc (GCC) 15.2.0
-sparse: v0.6.5-rc1
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260917/202609172103.AfhCF3XZ-lkp@intel.com/reproduce)
+Signed-off-by: Sander Speetjens <sander.speetjens@gmail.com>
+---
+ .../bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml      | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202609172103.AfhCF3XZ-lkp@intel.com/
+diff --git a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
+index 983ea80eaec9..dc71fd57834e 100644
+--- a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
++++ b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
+@@ -133,6 +133,11 @@ properties:
+     required:
+       - compatible
+ 
++  trickle-voltage-millivolt:
++    $ref: /schemas/rtc/rtc.yaml#/properties/trickle-voltage-millivolt
++    minimum: 1300
++    maximum: 5000
++
+ required:
+   - compatible
+   - mboxes
+@@ -144,6 +149,7 @@ examples:
+     firmware {
+         compatible = "raspberrypi,bcm2835-firmware", "simple-mfd";
+         mboxes = <&mailbox>;
++        trickle-voltage-millivolt = <3300>;
+ 
+         firmware_clocks: clocks {
+             compatible = "raspberrypi,firmware-clocks";
+-- 
+2.55.0
 
-All errors (new ones prefixed by >>):
-
-   drivers/gpu/drm/sun4i/sun4i_tcon.c: In function 'sun4i_tcon_init_clocks':
->> drivers/gpu/drm/sun4i/sun4i_tcon.c:811:21: error: 'pdev' undeclared (first use in this function); did you mean 'dev'?
-     811 |         put_device(&pdev->dev);
-         |                     ^~~~
-         |                     dev
-   drivers/gpu/drm/sun4i/sun4i_tcon.c:811:21: note: each undeclared identifier is reported only once for each function it appears in
-
-
-vim +811 drivers/gpu/drm/sun4i/sun4i_tcon.c
-
-   785	
-   786	static int sun4i_tcon_init_clocks(struct device *dev,
-   787					  struct sun4i_tcon *tcon)
-   788	{
-   789		tcon->clk = devm_clk_get_enabled(dev, "ahb");
-   790		if (IS_ERR(tcon->clk)) {
-   791			dev_err(dev, "Couldn't get the TCON bus clock\n");
-   792			return PTR_ERR(tcon->clk);
-   793		}
-   794	
-   795		if (tcon->quirks->has_channel_0) {
-   796			tcon->sclk0 = devm_clk_get_enabled(dev, "tcon-ch0");
-   797			if (IS_ERR(tcon->sclk0)) {
-   798				dev_err(dev, "Couldn't get the TCON channel 0 clock\n");
-   799				return PTR_ERR(tcon->sclk0);
-   800			}
-   801		}
-   802	
-   803		if (tcon->quirks->has_channel_1) {
-   804			tcon->sclk1 = devm_clk_get(dev, "tcon-ch1");
-   805			if (IS_ERR(tcon->sclk1)) {
-   806				dev_err(dev, "Couldn't get the TCON channel 1 clock\n");
-   807				return PTR_ERR(tcon->sclk1);
-   808			}
-   809		}
-   810	
- > 811		put_device(&pdev->dev);
-   812	
-   813		return 0;
-   814	}
-   815	
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
