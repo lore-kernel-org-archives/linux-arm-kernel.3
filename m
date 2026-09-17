@@ -4,144 +4,205 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4907CC982C1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 07:08:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A37E9C982CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 07:11:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hRpOXH60BHyzsWr977I5r448Wmo4G3kZBAbQ0HK4E+M=; b=N+rpEffsA1N6dK9DnaFJIp0Bq9
-	4G8oHucZ7uZNHSbw3vs6AOiaGLzWNTvv/QsqASooWTBpV803sy17No7yqKzC83tFmMS0XyD30yp66
-	IBxz6A0SkPwMx/dAe1YXjUTmeYQBM2FqIzF/QJzS3UmKQ++XD3zYGy70oIlw2TvMx8ZLNsMDjRjJD
-	K8z0v6sLvw8V/cgSz379IPjQdZ0OI2j/OgmDwkACbfw2BjpdX1iBAIf6C8ekP/ObtoKyz+b/z6ROc
-	+9tpAda6505Rf2dvz73Xu5XXI4kPGAeYHGJ3NNel5XZhn+OdeTl68i31+UNO+J9YJThHKjGU1G3Ig
-	uslLHxPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1138K3mbIV0drhW5O78QUbyWnAzVEbciXkIEgMvarNc=; b=apRfc2l1cMTGA4VEV+W8qASrIv
+	GBKOJY6yhMBHxfWxyfkizlJE+TaqNNj+MDBzstB4+8EV6hefpdegMZ0jRGwlhPUmop/0o1AARlmg5
+	JItthk7y9res06Znos5x1eJwYtfqCTXso3zwqOMiul1mUAcd8YxK3uOoRTig2SSNWrs+L0DlFPGot
+	ar7EmnfHdRr2cXzVwiQ/fgSWxHYPI6uiPdcqI/LhuTiTDG6D0FsH5WEyihkXLdz1ePwDgOvY5QVdR
+	Uo+hqhivjEVf7QvulbfPr7vE9GAsy6zI5KXMk4L3HSeeRnBy/jJiWXVT7Oc2Zw+T4WG+dCtBSRtA6
+	GeKe+fRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x76EG-0000000Ak7x-1zS1;
-	Thu, 17 Sep 2026 07:08:20 +0000
-Received: from mail-westeuropeazon11011039.outbound.protection.outlook.com ([52.101.70.39] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1x76HI-0000000AkJI-3PIq;
+	Thu, 17 Sep 2026 07:11:28 +0000
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x76EC-0000000Ak7U-2M4b
+	id 1x76HD-0000000AkId-3yff
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 07:08:18 +0000
+	Thu, 17 Sep 2026 07:11:26 +0000
+Received: from pps.filterd (m0246629.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68GM3ITl3190779;
+	Thu, 17 Sep 2026 07:10:50 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	corp-2025-04-25; bh=1138K3mbIV0drhW5O78QUbyWnAzVEbciXkIEgMvarNc=; b=
+	fb1q6MBSCbFv2xDT0PsvpN2hK9v56A+O+/0SGnBuManJ8P3bFX2tLGQWvVBVcHrF
+	IVK+kGQRizc6pXpkYOvQ40DaKrPXQt5QrHupXuFgkeWa3IfZY0cAJ4OX1PFfhjPD
+	ibfOj/8YE2ZX/8MY51NsY8wxpSPgV7fqD8/uE6cDMCFNb9WWnPE4YHHYe/7lpBgL
+	fXTrvlsxFCeHHS/dmpWEyJANG/KB8ZsVg5KMM5dCHNOd9bN9C1y316YBj8ed7kT5
+	gB9T69cuWYvIQOXlwGkAq0VHuGqYHWMq0iAcCSOn1cYjAat9LNG8sxR35klUgxbI
+	bKLrpt7LXZZ7KrGnn70Eqw==
+Received: from phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta03.appoci.oracle.com [138.1.37.129])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4gmxm7f05h-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 17 Sep 2026 07:10:50 +0000 (GMT)
+Received: from pps.filterd (phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
+	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.7/8.18.1.7) with ESMTP id 68H79tXK010937;
+	Thu, 17 Sep 2026 07:10:49 GMT
+Received: from ch4pr04cu002.outbound.protection.outlook.com (mail-northcentralusazon11013041.outbound.protection.outlook.com [40.107.201.41])
+	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 4gmw6cadkq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Thu, 17 Sep 2026 07:10:49 +0000 (GMT)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oIehevAkIYvlLuJmWSTJ6zbkHtLiE99arcmYwpBc7WsaBM8cOjAyEB7Degy5NJKW1xywHA13wJFImlhsrz2Ng/D2vg+nMNXulvvepY6ijchLhQ4vYAJCHm4cUzOhpc7E1E8pjkPE/mnIdN/oiuhGnZPky9Izz885R18L8igRu4EciXH7kNgUvZTeGZsJWcP9eRN3oIbZ3ksQ+NO88uKaG5LgTY90FuLYcsmBV4I9DAeh/PJqocKE+o+Nom0mtZVR+OaBGAWAaUTfHNuPoHIm491xMcim71hjbPMv2uX0eyqitxDk33XSOyJLFVFBuxiiYMXiFz915bDKRIOahCSFJg==
+ b=MPl6TycrlhOxUWjBZ4+LyB9mm5MsUy1q3/a1hvuNODMsZFspfUjx0UcB5XyeFdHG0f5F2GElYz78sw+2EXE6vheHyfODiZlHkINkuFK71NUP0fCq+RT2gg9NWlakhZxiMMhNZ9O9UR094BPMJeybYHhryk67BXjgQm5p1dIuWQcl/GHLS6gUghLdIqhAHgCBBcHGjDbv6UPAp5ED7mfbubUsW5EBd7S2o/+tHe5tq2/hqymwOm20WgXhgLhTN7iL+nMX32wKpSPkd3NiMO/ikFpjDkZvgc4LDT+QeulYoLVlcZWrT8SVs8osvH4OmbGeGLxTmvXiXoMmKzckNdxUnA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hRpOXH60BHyzsWr977I5r448Wmo4G3kZBAbQ0HK4E+M=;
- b=kZ5dtPZU3trjrR6YZndJAB0igiITgAz1n0Emnki2FwYBJUrtdo1C3JNF/VsF81lTjO6IO1oGseDsgdQk4mXorEoPQbnvmSnRG2XvvwX1T4iuDxa9HlBVm/TsC+Lr6AExktn91bnHQ5aM+o3ADR1m9P8+/e4X5CIOQJfDid3vFpDl7ayxIWnI9VKi4577gqOkt1jSWiUlU3lEBhES1S8VB4iEUmiv+dPcB+D7n29txa6KlP3MMzF0DAfgcDSX058AzYfJmqHs+Ffvmz5zot9FOEdQXkZbFyIkSuYHhAx6kuYEyD5X3ivKsNo2ROHf6Tbc6g5zV7ItnB/POwgyteMAcw==
+ bh=1138K3mbIV0drhW5O78QUbyWnAzVEbciXkIEgMvarNc=;
+ b=Cj2aAUlD9/otHw1D+b/peCkf4wPkOVDZ1PRb0Qtmh5ujgzDq0Qcvbe+Rvr06UOibjQ6mxH4cCmrwuvbWTJLhrkmmAZkrQTFdVrITWDYSVj2yCLdjftN39DPtxco5CfzlbachRbMJtmOLCFhUEinBobuA//EC1J9pWkrSbzDgmV9qpP5ufdSQdfw+AStGVdz4B8KQ+m7F7t1MPfLBzkkvLUsO9yHpdOYX8pOUFc4y1vv7h/E4Ufd7alDmE6KndrDhGcfZto0M0naUR7WVk1bFjBH6bWmd8GttrPg0+F89KrBddr6r4o/lMIQOkbqViE2VJOPVmwhOc2zhEb/Vhyjr8A==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hRpOXH60BHyzsWr977I5r448Wmo4G3kZBAbQ0HK4E+M=;
- b=Wx6m6EL61xGdAcKOCOO8v3shm3yiIHxhjl4EPJA6SEKWKz1yULYUBRG5KmwLpsPrvmHKE1CYO2hqDx+P/fxYd1sM82YoKrvZHift1OcETuL6gq2QEmkSRDXH7g+DqPjVZkzWrd3KMl2EdWkqfWVgX12neDF5MKssgkYTSN6q9EnnvVixMMtjw0zU3lYajTaR7irnaLp26j69LlUUvFPiY+cFNQjYSJqXCGp7eNTG/VsBnTxaI7PopR9/xkJYTGNXt+v4+kcc9PkUcw51hzGl0PgdB+NN90wrCry2sPObppM9Ii97PUejmNHYACmWiQ66064wDaaNgwhO+b4Vey5Fvg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DB7PR04MB4698.eurprd04.prod.outlook.com (2603:10a6:10:1c::21)
- by BR2PR04MB562213.eurprd04.prod.outlook.com (2603:10a6:2c8:5::11) with
+ bh=1138K3mbIV0drhW5O78QUbyWnAzVEbciXkIEgMvarNc=;
+ b=xnuLNLpFA/xL/KTOHeHSPoztmWYVHynnW9V4i5tN60KdX2wZh9SvoeGvQ8wZYj5+unSIwt12inSkvZknw0bYkR5a4M0k+GEyokOriKDy8KZksTQUmruEhkz6/LIx/KSTFroaQGBYtccID1KtNaOmTanD1LhVuFkJBBQyHUiD2lY=
+Received: from DS7PR10MB4909.namprd10.prod.outlook.com (2603:10b6:5:3b0::11)
+ by MN6PR10MB8118.namprd10.prod.outlook.com (2603:10b6:208:4fa::19) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.11; Thu, 17 Sep
- 2026 07:08:11 +0000
-Received: from DB7PR04MB4698.eurprd04.prod.outlook.com
- ([fe80::c571:bdf2:afe7:c03c]) by DB7PR04MB4698.eurprd04.prod.outlook.com
- ([fe80::c571:bdf2:afe7:c03c%4]) with mapi id 15.21.0428.009; Thu, 17 Sep 2026
- 07:08:11 +0000
-From: Ming Qian <ming.qian@oss.nxp.com>
-Date: Thu, 17 Sep 2026 16:07:54 +0900
-Subject: [PATCH v2] pmdomain: imx8m-blk-ctrl: Serialize power on/off across
- sibling domains
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260917-imx8mp-blk-ctrl-v2-1-81d29e907a5d@oss.nxp.com>
-X-B4-Tracking: v=1; b=H4sIAMmRq2oC/2WNQQ6CMBBFr0Jm7RBasEVW3sOwsHWQUaCkRYIh3
- F3AuHL5kvffnyGQZwpQRDN4Gjmw61aQhwhsfe3uhHxbGWQiVXISArmd8rZH0zzRDr5Bm6lKKp2
- niU5hXfWeKp724qX8cniZB9lhy2xGzWFw/r1fjmLzfvXjX30UKNCkJiNFmpRWZxdC3E19bF0L5
- bIsHwbkLtPCAAAA
-X-Change-ID: 20260911-imx8mp-blk-ctrl-c46f26783073
-To: Ulf Hansson <ulfh@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>, 
- Peng Fan <peng.fan@nxp.com>, Lucas Stach <l.stach@pengutronix.de>
-Cc: linux-pm@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Zhou Peng <eagle.zhou@nxp.com>, Xiahong Bao <xiahong.bao@nxp.com>, 
- Ming Zhou <ming.zhou@nxp.com>, Ming Qian <ming.qian@oss.nxp.com>
-X-Mailer: b4 0.15.2
-X-ClientProxiedBy: MA0PR01CA0032.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:b8::19) To DB7PR04MB4698.eurprd04.prod.outlook.com
- (2603:10a6:10:1c::21)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.5; Thu, 17 Sep
+ 2026 07:10:45 +0000
+Received: from DS7PR10MB4909.namprd10.prod.outlook.com
+ ([fe80::3f78:c489:86a0:3622]) by DS7PR10MB4909.namprd10.prod.outlook.com
+ ([fe80::3f78:c489:86a0:3622%6]) with mapi id 15.21.0451.004; Thu, 17 Sep 2026
+ 07:10:45 +0000
+Message-ID: <33592fca-88a8-44aa-8d94-40e1e604554e@oracle.com>
+Date: Thu, 17 Sep 2026 08:10:38 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf-next 1/1] bpf: btf: add btf=off boot parameter to
+ disable and free vmlinux BTF
+To: "Wang, Jay" <wanjay@amazon.com>,
+        Alexei Starovoitov <alexei.starovoitov@gmail.com>,
+        "bpf@vger.kernel.org" <bpf@vger.kernel.org>,
+        "daniel@iogearbox.net" <daniel@iogearbox.net>,
+        "andrii@kernel.org" <andrii@kernel.org>
+Cc: "yonghong.song@linux.dev" <yonghong.song@linux.dev>,
+        "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+        "will@kernel.org" <will@kernel.org>, "x86@kernel.org" <x86@kernel.org>,
+        "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+        "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+        "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+        "Mohamed Abuelfotoh, Hazem" <abuehaze@amazon.com>,
+        "Doebel, Bjoern" <doebel@amazon.de>,
+        "jay.wang.upstream@gmail.com" <jay.wang.upstream@gmail.com>
+References: <20260917000201.25581-1-wanjay@amazon.com>
+ <20260917000201.25581-2-wanjay@amazon.com>
+ <DLH7UY9PDSQP.2AXEGNH838JS0@gmail.com>
+ <C1DF89F9-B9F4-4FBC-9B94-E250AAAFEDA2@amazon.com>
+Content-Language: en-GB
+From: Alan Maguire <alan.maguire@oracle.com>
+In-Reply-To: <C1DF89F9-B9F4-4FBC-9B94-E250AAAFEDA2@amazon.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: FR4P281CA0246.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:f5::15) To DS7PR10MB4909.namprd10.prod.outlook.com
+ (2603:10b6:5:3b0::11)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB7PR04MB4698:EE_|BR2PR04MB562213:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6e277066-93e7-45b0-f44d-08df148a6ef4
+X-MS-TrafficTypeDiagnostic: DS7PR10MB4909:EE_|MN6PR10MB8118:EE_
+X-MS-Office365-Filtering-Correlation-Id: bb7fbfec-ef9f-4b8e-eff4-08df148aca85
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|1800799024|7416014|376014|366016|6133799003|10067099003|11063799006|56012099006|18002099003;
-X-Microsoft-Antispam-Message-Info: smYSV1O4RN8IRKA3rMYHDRVaZlODiw+MJuWCaKDt0hL7AO8F+lTUj34tAY5nS2EoNrS7VGMfI0J5AU5OnrRkCRtcjvTP7ShjWjECfKk0CGuIq1oQ1jU+J8SC9UHLU+fZcARuJt4vF3NzM8Y4lamnO9uOpIW2jYYH4CZbYKYO2tw8ZbtfWQec1TlN2JyTsuUzGVLFql2SfYc8bdwlTF1ENtMK/0Bqvn9jW/Z4wDm6hph7yPGVpKQdmGxI4JbMzn+uuhuIFsURbI/qjNVLOQJXytEA/0BG64RSeNPCZo7Pt+hFCHzcq8QUcZJPvGCCNBB+srOgxtwwQqdX3z/rQgLaNaxm01pn8edqNESN+hOuC20JP//8i08wdEcqrwqdYEnBK++mAvJj5nnb0epZ1WI+dCIXf8QDIlAgeWEfVr0EODgJPV1hB+kdMbttwm10j1PTRAAfWiBihI5CTSsFjdTKV2WzrgyoHoCLuEOFwx8yQer7KgTzcHsreuFs1d7dUf/7eL/suxmiutJ0aPqOIMKUnIjV/vI+YFicp7aOEay59h8P/UeIxwICLvWMMnNokisNe4v/go/rlomAb/wyvToN6YB35FvAxGI57oFakl9IpTbD8tcQaNstPtJp6u8iEr23
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB7PR04MB4698.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(1800799024)(7416014)(376014)(366016)(6133799003)(10067099003)(11063799006)(56012099006)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|23010399003|366016|3023799007|10067099003|56012099006|4143699003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: G3X9BYvDr+sUjXYRsIA7Rp0kHVJr90RrPbR9yXNWiWYs0/fSffe2DhqBrW0AtGMIXv9Uzatf3eeybL9jZD4XSJQ0bFNKIfnuAp/3ryQ0kvOcF+MqOeKAjcTslH638aoSP1AD23yfjNeRPydjc8aElY7BnfJ7suEnlTwZQp7+VQeoWOtcBFZMCsk1L7899oN2EZ8jgDlz8nNyxjh4k3wrcLPRfO4Y+KZEbgsCoIWdVun8CjReH1Szw2FdSXuBSknZ5rrcjlOGdG+1EjZWvK+45NtpiAPdA81fJmO9lNfFQhRfSPHLkxn5y15ccJTvqIMnDC/h1wpzAn3zhM+a2hFTxolNeI7aySXkF/Q6FajQUACA1orYg8Oo8lpqdKBiyEv/QqRduTig0Tjl/LwYKDx3FOgd/tDFjb62NuLm8WRglHgbMQdLW59EPkMR/uFZMH2R774c6GP9IuXrBmpzc4lsfLkNFsg+bL8pg536FakEL7tCBYaK+POkMudu499jBVT0iZMjE3udUkMW34cJA/MwQb3h7zlSXCmye76aJHBxFHc008Jn7ERKeuiwSsEfFjYoJP8znHsX6xIhO5fZXgZcCSZ1zrKO5vWM4tM3s/XydvilIPSoNUvg7MdVhEZSN3CXMyN6HsAWFnqh3nCI7NmWw+d+oWlsVFBb1YOqfixz+Ss=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR10MB4909.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(23010399003)(366016)(3023799007)(10067099003)(56012099006)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TG1UdG1Bc1N5eHBkb1ZWTEpPd25WTm9OQWYwMDNEbTBTcVdiSWYwUDdWSW1G?=
- =?utf-8?B?dTJMMVpvVWxPR3YvU3Q1ZTBNRFVWOGZMOWdMbEZ6b2Rza2ZzZjR4R1h2MWs5?=
- =?utf-8?B?bUhQWVVnekc0U2tDdFF1UEJtK3JzbXBtT3AwVE1qemVNMm5NVlljbmltdjRJ?=
- =?utf-8?B?VDVRK2NSbEVndmE1ZVo0MmdKQWI3bTJjNitaOG14bnhua0tnQXBqSGh0RC95?=
- =?utf-8?B?eWV5NjhKWWVxR0ZNdWMvSGY2eDNQSWFMem1HVlFzejBzOVU3djl6NUhhZVRn?=
- =?utf-8?B?S05FSkhub3F4cHlCZGdTU0RoU1RwSkVTRFBCK1krQWRpS0tpTkFOaWFJZVpL?=
- =?utf-8?B?SElLQzRNaVozQ1dtTXRpTmFESVk1V0h3SjFXQ0FFY1pGZ3JGSWNSNm84VTMw?=
- =?utf-8?B?WXVmRjU1RjlIaE9hN0ZzUGJtZldJNndNdEVFQ2crY1V1Z3h3VGNWWHhFYmhL?=
- =?utf-8?B?a1JibURLSFZkMnU4eThYNUMySU9keWtTSzBwb2VTbVdnamlBMmp6LzRaRVpR?=
- =?utf-8?B?Z0wyQXRrRTRocFdieEhnT3BBdG95dFFpbk9sOHdaKzZTODIwUzFJMDR0L1lC?=
- =?utf-8?B?ZmZBQmJISEVneE9TYVhyL29ZblNKM0hWOGg2Sko0M2g3aTJnWVZyRTR5UlR1?=
- =?utf-8?B?ZGlPWXFMTjFLY3JXVkRtQ0lkVm5ySVlOZlNKNW1sRCt5VHRabHMwUi9sc3J3?=
- =?utf-8?B?cVNxd1BGZGdKM2xNYkJaUGQxUjB6Z0p3TDMrYzdGT25kRVNLTzBpNzlJV2pW?=
- =?utf-8?B?aGVhc1ROWW5sa3E4c2dOdG9WNDZYS2tyOHJGU3pCTE9NakIwR1dmSi8rOVZT?=
- =?utf-8?B?WjNBbDM2YTZRMXRkemJXY2NKYm0xU2YxbEtQUkk0aEdrUEkrQm41ZnNtY29w?=
- =?utf-8?B?eEFsa25XUjV5ZzBLaEE0ZklsT3FVVFlvVGtCRmxFY0ZqVlp6TGlvWlVqbk1v?=
- =?utf-8?B?dzJUZWxRMkU4b2FVVG44YlY0UHBWcE1hR05CZGx6bjdackwycnZDTWxIQzMw?=
- =?utf-8?B?N1J1Q0Y3aS8yUXBYengrdzBqM2RIbVMxUUpVakNTSVI1Z0pmdmxJQlpjTDl6?=
- =?utf-8?B?RnJONlg5d1Y5Yno4YVVSNmNTazhCSSsxWkZZOEpxb3Rac1RvUi9SQmZiV0Zz?=
- =?utf-8?B?L0pZeTNwanRPV2I4OVlkb1B0VE9Yd3pMcDlwOXQzSmZSdmYzTlhwS1hqa2NQ?=
- =?utf-8?B?RTZqMHdmNzhhdTJhcGRzR2llTlhSQzBxZVFXQmg1bWZObHBzdHk2Q1QxMnVC?=
- =?utf-8?B?Y05meVp6VENSb2d6eVcwYWRuem9FdTF5THpCZXhmN1Y0emFjVWNTeitTN2cv?=
- =?utf-8?B?QU9BQndtYVBnNkJ2RWNOS2ZyMU56MUhTLzQrSFZORS9vbFpuUG1WZHNWYmxS?=
- =?utf-8?B?MmxqTU0vTDhDeG1oZ0w0UDFPYXhoNm15cURMWFFpZ1NTY1FTdElGdG0zMitY?=
- =?utf-8?B?MmttOUNpdE9FOWlQSVJJVU5XYXNQSUFJUHlQa1hsU2QrTG1LdnFnbFdkOXpk?=
- =?utf-8?B?NXBNUWVpL2tqQlVXKy9PQ01hQ2tZTjZyQ2x6M2t3K2pBMGN3TTl4SVNDSzRX?=
- =?utf-8?B?ckk1MUY4T0UzNWJ2VllOS0VyeDEvMDFPRHNOaG9CUzRQRWluN3k2Ry9HekJl?=
- =?utf-8?B?YTBoOEp1RjB4ZDRZVzBybE5UK1UzZXZ4Z0M5dis1VE1FcG80R0IvY3VtZVF4?=
- =?utf-8?B?cTRnUWt6WlJQZXIrYVZMc1RZcFc3Znc2bm1sL0UxREszSXRaakZVMHpoTjRs?=
- =?utf-8?B?QXE1VEFWSzIxa29hZ2laSGJENFR6TzBWYnVBMENJcnV2U3FvdlB5MXNyMEln?=
- =?utf-8?B?em8wMlJSNHZGSkE1SEVNck9vTHhhbG10YkwyS1laemhxdGN6MUI5clI3bXFI?=
- =?utf-8?B?WGRTdmlneFp5RHpIa3ZTeXlWZmo3ajhNLzlnVDlNak9zZjZURzVldUxvOGtG?=
- =?utf-8?B?UC9WYVg3ajB2VDFnRmRpSUdldndFdXBTSG9xQzI5eU5WUzRMR3p3R1lSbzly?=
- =?utf-8?B?enJVempVTFlrVkVKNk9CUGR3RCtFdTNKalN5SytSSEwzS0ozQkZBa1JZM2lK?=
- =?utf-8?B?WmUwZE1xS2xQNTl1bzRGcUg2QWlyTDdaaHdmRXp2eXV1QTYrTjNJVXRRVEZx?=
- =?utf-8?B?ZWFlZGVqVHFlRXZYNUhkMFFoeFlQR3p1VTIxc3FkSytoS09TelNmeVJKRFFT?=
- =?utf-8?B?b2pIci9rQ1J1aGNIZUk1U3VFbjZySUt5V3hxYkxROG4rczFXV2lTbnNXbGtP?=
- =?utf-8?B?TGVBL0NtRWJXeHlVdVFnQU1oRS9aam9lT2RmSXJ3aTNBckpFdDFpVG9kOVRB?=
- =?utf-8?B?bFdHaHpVRlZZTmM4U1FQM3R0OVlGOUtzRllQRmFSTDF1NHo5SHJsMUswVm5a?=
- =?utf-8?Q?dXSMnxWzRuanfINwMCb8C9/M60lSUiymwyhah?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6e277066-93e7-45b0-f44d-08df148a6ef4
-X-MS-Exchange-CrossTenant-AuthSource: DB7PR04MB4698.eurprd04.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MGdyemJxajE3RDhzQ3lBandYMFBkUllTL2NYeklnNXNzOE1BelV6Z29PVWZy?=
+ =?utf-8?B?a0l3TjhvdUdlVVhuK0tkZENYbjR4WkJKY2lsaEJSUGhCc2tiRkNGZXBpZno2?=
+ =?utf-8?B?QkgvQ0E3cHBYWmt5NVlSSGF1V3FmRFUzR3R5KzZwaTJXSUlLSVVCdXAraEJW?=
+ =?utf-8?B?ckNLTnFjT01sOWZXcE1ETVlKekU0d1hkenY1TGpVU1FxZEZXOS9IQXc4dUxN?=
+ =?utf-8?B?Y1phY1BNQlVacnI0Si9HZHB3TmJFazFKYmZhNkgvc3pKVWo0bGphZnVDVUND?=
+ =?utf-8?B?OUFBZVYzc3NmdGVDdkFia2p4UGhsMzZDRjVObGFWOHUrWS9rOXNuKzJkN3dh?=
+ =?utf-8?B?QWF4YUxYQXlOVHdBTkNpVmdiY25PQjUzZUtOVnloK3g1KzNKS2g2LzBveHNO?=
+ =?utf-8?B?NmUxZTEzU3VZaTJSVXRoQkpTd2xZSGUwd3dOS3VIaEt3Z083aDF2UWh6dXRi?=
+ =?utf-8?B?WnFkUnVWSjJIVHRJeW82SHZwMlczYlp4VWJoeGJPUGlIc2dESzZCc0VtaWFG?=
+ =?utf-8?B?QlE5b3BmSk1XRm9IZ3NtWFJaK3ZaTFJpU1gyNXRvRERNWktmUU5DQmFSV241?=
+ =?utf-8?B?OUFEZ0ZDR2wzK1lNQ2YwZTd2MklZUHk1K3JFbWNzeFNFcWtKdXMyOU5qZGxM?=
+ =?utf-8?B?N2pHcHlkWDNNQ3gwRmg3WGt3RGdKYlIrbzhQcHhBMk5NZTFUeE85Q0dMZDFx?=
+ =?utf-8?B?NEdVVlluY1pZUTZJeDRJWGtpeEtMeWo5bGZpRkhKckFiVldYM21vOFZQNnBQ?=
+ =?utf-8?B?WEFMVTV0N0x2eHZwa3hZU3dUNzJXRzFoT0ZuY3RqbEZ6WE96MFk4MndGeUZZ?=
+ =?utf-8?B?TVk0UEd5Vlowb1ZCU01IR2VOdUgxeER0U1FIcE9OT3cwOTBDa0NCd1hYK0Jz?=
+ =?utf-8?B?RFFCZWhBSHlxZ0hvb1k4NUhYN0J6M0JDTDJLeFdQWFc1dGNrUGw2NHdpaitG?=
+ =?utf-8?B?NU1uSTZTMEhtZXZCbVZkR2lobnA3WGVuSk9DMElhYjZhZjFvdDFXUk55Mkla?=
+ =?utf-8?B?L0ZjdlptV1V5cEYrK1A2MEUzT0k0YWgyR25La2tWWnVCOW0ySjNCZUpNQzZn?=
+ =?utf-8?B?VUZ3YlRjdk8waGVTT0pMaExLVUk2eCtNWHdYWVpYSGZ3b0ZabUpSZGlURTAz?=
+ =?utf-8?B?MGdhSUxMUnZDdnY2Vlh6RisvNERVV0FZaEduVnlaek9IWUsyNFdlNXJhNWor?=
+ =?utf-8?B?a0c1UDkrK2tybmI1WUt1ZGxOOG9TelhyVnFKcXFFaUVJSmRtdU9mb2dvL01R?=
+ =?utf-8?B?bmM1WStoTlRjZzlKRUdUYjFSVWtKYmY4VzZrV09xa0MyM0dDdGFUckdWWXlj?=
+ =?utf-8?B?bFN6M3hVSHJybE9Zd08vdzgwbFA1T0hYOGEvY3Y4eG10MDEwMENTUTNIdUdM?=
+ =?utf-8?B?VHZCZWlhNmE5ZkZFQmhhN3BIdVAvQUNpSHlHQTA3T25MTXowNFZpNmJjYTMr?=
+ =?utf-8?B?U3dCeWZ5MmVmb3k5Vm03cGxhWGlBeUhjRW9QcjNaY01ZT3VZNnlVdHZJWGhx?=
+ =?utf-8?B?L2UrWitwY2hmTFZ3dlFPTWRHTzczYXkyeTVqc2prdUFwTXZrZGxmbDhFR1pj?=
+ =?utf-8?B?VGhrUlNPenlZTmpJSnV5aDJ3Y3hvQTQvS2gzMFZNV3pVTGNXUUJlU1NodDlr?=
+ =?utf-8?B?Q0dvbGxFdHcyMFlPTTVKaEU3VGNqTUhBcWdkUzlJeFUxN01ISzFwS1lMRHJl?=
+ =?utf-8?B?RjN4NVBBbklHVTMrNU9jV0ovcE9FQUFndFg0NmdacExiVi8wU3REYXcrVWF6?=
+ =?utf-8?B?cnJoWHZoQ2txRWpObUhVVkZXM2ZCZTNJc2JrSlN3ZS83aDM0ZnlKcmY4QmxV?=
+ =?utf-8?B?SzhYVStrbE1LY2FWaG01bHdPSFhkZ1hRVnl4ajVsV29FVEJnTlpFbk53Nyt6?=
+ =?utf-8?B?d2c5a0dScEVxRlc0ZjV3bVQ0dEV1dFE4b3VETFZmWkFHVktJcTd6SEVDZERJ?=
+ =?utf-8?B?eHlCRHpFU0xiQThNWkcyZFNYSE5GWXA3SmZmRC9QVEUwK0tORW9PZm9HZGta?=
+ =?utf-8?B?TGQrK0d6ZmVlZzAzejV6emg2dDIveFF0WWNyMWVnTHYwQWYzcVNGVTUyU1c0?=
+ =?utf-8?B?VjhWcFpKY3RWSjY4YmwzZ1NxaTB2cUtKWXlOdTlxMnp1R2tIOVJCZHdMTy8z?=
+ =?utf-8?B?OVRMYzRpdlc1ejd0eEVXS1I1a2V6eWQvOWNHSEpFNVY4WCt4MVlwNnc3SllJ?=
+ =?utf-8?B?cGV4UW55eUpmK3ozRDkvMlJoOHJCTDd2TkVFT1Y5bjR1RitkMlEwYzdiNVVW?=
+ =?utf-8?B?SFJjMkNxa3g3cGpxZHVydVdrRjhFNmpYRWZpU2R1SkkrMDJFUE9aN29KZWV3?=
+ =?utf-8?B?WVpqNERpV00xQnprdC9ta2RXeG0wVkUwRDFDakRTMVlwNWtLQXBCdz09?=
+X-Exchange-RoutingPolicyChecked: cnpUecHftMi8/XAniMv857ZMPQU0Ug6FpP41uKzJMWFFLVb1YRgz7Rom9/Oym9Z066WVEmdA534P5ABW5QGe0W9b05C6jmIk9OawK2l2ehls96Ja5374fBYu0x5Lqz4F1m42gGycO8DiUDP3Dm9aC+UGhHZNRpva/4iZXvmfyyDoYu1xWjFuPqb6ghUEaSgZLjfGkg1C09qCZMKd8QYVTYg+TpnhMRUxRW71qPQTXO8FYWbFCB/ZbyeISk2+TaAVUyAEnS/HKqZ1x7R7Xyqm1JUoGcns+HEzeIQMGs4jjc0LUZwyGg8ypRBfIM9+ZbQ8hUKrQUXy6tDyW+0Aiy//sw==
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: frTu4kK6N+fqktY/AXk3+2u6RUZiqMwudKgimrBKDvAadVDx1X9O8vsADtQf+eKeY7M3Vjvlqa8c+aGey9ybURvU0RJPfg+CN13UJgoUaDj4worKmzVcbtPXqs0HtDnx+gRf45vL+b+FEY7T1m44sfXpkOUYr+J7MpxtT6A92mcSTfuGG1R7m46r7Kw1otm8nA3OUErBy9QWd+aSeXlvp7EOjmaEwblssFQxBkvQgDoRSZ0PGOL+ra17djB0X23Bw3H//BcZpsddbVfOjU/vKUddWNRY6g04XEUQyqpkPq/q3LuLvIubgRLqPtK871T9MQ9+NrNxuv9GkMBcsWTvgAyOSeQXB3CMowJGuPTjL7M7qQxU6NcJ6bolD//12e9sYkxM/e/zfY5WbsMRB3GGPDCws8mjLn3gxVVXdZQKNPblFK+UUSR/aEGQLO7A/BD0ZmDmlijqH+DiGV5uT9Dc9mHhlTcsSBdv3mUx2SXJt4s6PisDinIdAAilNULKHJ02e229g2KtLMrVdP9yoWiVI12O8hqC6igHkDUadoqp9qhOC/yv4qnl+y0dzxyp/u0XXeegQ6d7rWyOdaWp4E1h5r1YUU14VKsuY5S0+ydUipk=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bb7fbfec-ef9f-4b8e-eff4-08df148aca85
+X-MS-Exchange-CrossTenant-AuthSource: DS7PR10MB4909.namprd10.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2026 07:08:11.2179
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2026 07:10:45.0382
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: e/Qiwhvs0DdxUq/YyYkFB+L1qYtztmWXPwxa5vuxxASNqCr02bxnxWkf4k4gi4NajvW8CFaJX/mC49xvkNdaBPRDPMjKazUVqp5QuKH0SyB1yIDkZ3mwngw8eTSVUHJb
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BR2PR04MB562213
+X-MS-Exchange-CrossTenant-UserPrincipalName: vGh5t0eu0xcqYsyrLx8HtwcMV/uGVmpC31YG37Uwh6YlxsAe8bed+ydCtjZyXL6vwXohO/1Dr2ZFTZxZFisUoA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN6PR10MB8118
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-17_01,2026-09-16_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0
+ lowpriorityscore=0 mlxlogscore=999 adultscore=0 phishscore=0 malwarescore=0
+ mlxscore=0 spamscore=0 suspectscore=0 bulkscore=0 classifier=spam adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2609040000 definitions=main-2609170095
+X-Proofpoint-GUID: bBg3Il8P5bWUi2QK1VUcb6RUpbzYaBCK
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE3MDA5NSBTYWx0ZWRfX1alPl3n9QTaj
+ /bC3wN8HlJSSXPRZFvzwrQLEycN7PCsTUb8l12HDC02qWpwPQxJqU/bxaiaV1duh/iMODK2EW9E
+ tlmw1rAjqQoMolcfSM/1Bqya6VzKYfxYMINGKyMtXpJI/pLD2AWsaGFTZLEZ48kHsva4CySpfZz
+ 3tGkQN9Uzubisuq7OPVKo0fjZlcfWkyQzb1/7bIFg/Qgk/2/0qUxIM7r3+bja+Wk5w44EThjBMq
+ ukRnZvCPgRynwaFptNLPKb9q9GSMyCuYcp7K7ON0uNZ3KTGeH41mLZ58/eym0XARPbqB0qsN68Y
+ TIDCg6iug3GfocgvZXtv4+kSgrQSse3NEwEsmTTLQb3r3FqaLht+bxPZIZZbyAQXN/t2PWE2qYI
+ DK5V68cKG+EU5VfBrYQPjxkFjeWiuZPiJtbJEdkfH/MmAPjzgPCCjgGsaoW3QXk1b4+Sqn0WX9W
+ MAvgVUlsnmsPCqJuecQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE3MDA5NSBTYWx0ZWRfXxx1AawYjf3b7
+ bFK32tokRTeDc8bsNo33C5sqjRe/HO9sOm4K0nr4f0bttNwtVw9siOZfHywHtESo4KHtY1dHh/6
+ KN7E/1blJsv5dm7LCE33aFC5VhqF6isp8ODSJv1wDItYQhA1ZcvO
+X-Proofpoint-ORIG-GUID: bBg3Il8P5bWUi2QK1VUcb6RUpbzYaBCK
+X-Authority-Analysis: v=2.4 cv=A/n5rKWG c=1 sm=1 tr=0 ts=6aab927a b=1 cx=c_pps
+ a=WeWmnZmh0fydH62SvGsd2A==:117 a=WeWmnZmh0fydH62SvGsd2A==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=VdqzKS8jKosA:10 a=GoEa3M9JfhUA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=jiCTI4zE5U7BLdzWsZGv:22 a=EIcjfB9IiI4px24ztqRk:22 a=VwQbUJbxAAAA:8
+ a=yPCof4ZbAAAA:8 a=pGLkceISAAAA:8 a=vggBfdFIAAAA:8 a=SsSHnGsaPNJL6Sn65hIA:9
+ a=lqcHg5cX4UMA:10 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=WmVTiCyuxqgg3mnwYu6p:22
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_000816_793693_7BD8FCFE 
-X-CRM114-Status: GOOD (  23.51  )
+X-CRM114-CacheID: sfid-20260917_001124_359272_C8D58A4E 
+X-CRM114-Status: GOOD (  20.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,167 +217,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On i.MX8MP the VPU blk-ctrl exposes G1, G2 and VC8000E as three separate
-genpds, each serialized only by its own genpd lock, so their power_on and
-power_off callbacks can run concurrently on SMP.
+On 17/09/2026 05:07, Wang, Jay wrote:
+>> Consider using Alan's approach and support CONFIG_DEBUG_INFO_BTF=m
+> 
+> Thanks for the suggestion. We’ll explore how we can make CONFIG_DEBUG_INFO_BTF=m supportable and may post a v2 patch later.
+> 
+> Best,
+> Jay
+> 
 
-The sequences are not independent: they share the VPUMIX bus domain, the
-VPU_NOC and the ADB400 handshake. On power up the GPC cannot ack-verify
-the ADB400 handshake - the ack only completes once blk-ctrl sets the bus
-clk-en bit - so it just waits a fixed delay instead of polling hskack. A
-sibling transition landing inside another domain's reset window disturbs
-that shared clock and handshake timing, the victim's reset does not take
-effect, and its block registers read back all zeros: the decoder times
-out or the encoder fails its format check.
+See some of the machinery in [1] for hints on how to do this. Ideally
+we would want the first user of vmlinux to force the module to load,
+/sys/kernel/btf/vmlinux to behave similarly as before etc. The approach
+there does this for vmlinux.inline so adapting something like that is
+likely the way to go.
 
-Serialize the blk-ctrl reset sequence with a per-blk-ctrl mutex; the
-driver deliberately avoids a genpd hierarchy, so the genpd core gives no
-cross-sibling serialization.
+The challenging part I suspect will be how to preserve your goal - 
+avoiding memory allocation - while supporting module BTF. Specifically
+for cases where vmlinux BTF has not been used yet and modules load.
+Since you'd need to preserve the module BTF for later use on load (due to
+the nature of the ELF section it is in), I'm not sure that part would be feasible,
+unless you wanted to just support BTF for modules loaded after vmlinux BTF 
+was.
 
-Fixes: a1a5f15f7f6c ("soc: imx: imx8m-blk-ctrl: add i.MX8MP VPU blk ctrl")
-Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
----
-Problem:
-On i.MX8MP, running the VC8000E encoder and the G1/G2 decoders
-concurrently rarely and non-deterministically leaves a VPU stuck in
-reset: its block registers read back all zeros. A decoder then times out
-or the encoder fails its format check.
+On-demand vmlinux BTF availability would still be a win.
 
-Root cause:
-The VPU blk-ctrl exposes G1, G2 and VC8000E as three separate genpds,
-serialized only by the per-genpd lock, so on SMP their power_on/power_off
-callbacks can run concurrently. The sequences share the VPUMIX bus
-domain, the VPU_NOC and the ADB400 handshake. On power up the GPC does
-not ack-verify the ADB400 handshake - the ack only completes once
-blk-ctrl sets the bus clk-en bit - so it just waits a fixed delay. A
-sibling transition landing inside another domain's reset window disturbs
-that shared clock and handshake timing, the victim's reset fails to take
-effect, and its block is left in reset with registers reading zero.
+[1] https://lore.kernel.org/bpf/20260901165757.801449-16-alan.maguire@oracle.com/
 
-Fix:
-Serialize the blk-ctrl reset sequence with a per-blk-ctrl mutex, so a
-sibling domain cannot run its sequence while another is inside its reset
-window. The driver deliberately avoids a genpd hierarchy, so the genpd
-core provides no cross-sibling serialization.
-
-Test:
-i.MX8MP, Android 6.18 kernel, concurrent H.264 decode and encode. Without
-this patch the failure reproduces within one to two hours. With it the
-same test ran overnight, over 14 hours, without a single occurrence.
----
-Changes in v2:
-- Replace guard(mutex) with explicit mutex_lock()/mutex_unlock():
-  power_on() already unwinds errors with goto, and cleanup.h asks not to
-  mix goto and scope-based cleanup in one function (sashiko-bot).
-- Shorten the commit message to the essentials and move the detailed
-  hardware analysis into this cover letter (Frank Li).
-- Link to v1: https://patch.msgid.link/20260915-imx8mp-blk-ctrl-v1-1-b3b4e6e7e676@oss.nxp.com
-
-To: Ulf Hansson <ulfh@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-To: Sascha Hauer <s.hauer@pengutronix.de>
-To: Pengutronix Kernel Team <kernel@pengutronix.de>
-To: Fabio Estevam <festevam@gmail.com>
-To: Shawn Guo <shawnguo@kernel.org>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: linux-pm@vger.kernel.org
-Cc: imx@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
----
- drivers/pmdomain/imx/imx8m-blk-ctrl.c | 23 ++++++++++++++++++++++-
- 1 file changed, 22 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/pmdomain/imx/imx8m-blk-ctrl.c b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
-index 479789009c7f..270f43229fe7 100644
---- a/drivers/pmdomain/imx/imx8m-blk-ctrl.c
-+++ b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
-@@ -15,6 +15,7 @@
- #include <linux/pm_runtime.h>
- #include <linux/regmap.h>
- #include <linux/clk.h>
-+#include <linux/mutex.h>
- 
- #include <dt-bindings/power/imx8mm-power.h>
- #include <dt-bindings/power/imx8mn-power.h>
-@@ -34,6 +35,12 @@ struct imx8m_blk_ctrl {
- 	struct regmap *regmap;
- 	struct imx8m_blk_ctrl_domain *domains;
- 	struct genpd_onecell_data onecell_data;
-+	/*
-+	 * Serializes the blk-ctrl reset/clock sequence across sibling domains;
-+	 * their transitions interact through the shared VPUMIX bus domain,
-+	 * VPU_NOC and the not-ack-verified ADB400 handshake (ERR050531).
-+	 */
-+	struct mutex power_lock;
- };
- 
- struct imx8m_blk_ctrl_domain_data {
-@@ -98,12 +105,14 @@ static int imx8m_blk_ctrl_power_on(struct generic_pm_domain *genpd)
- 	struct imx8m_blk_ctrl *bc = domain->bc;
- 	int ret;
- 
-+	mutex_lock(&bc->power_lock);
-+
- 	/* make sure bus domain is awake */
- 	ret = pm_runtime_get_sync(bc->bus_power_dev);
- 	if (ret < 0) {
- 		pm_runtime_put_noidle(bc->bus_power_dev);
- 		dev_err(bc->dev, "failed to power up bus domain\n");
--		return ret;
-+		goto unlock;
- 	}
- 
- 	/* put devices into reset */
-@@ -148,12 +157,16 @@ static int imx8m_blk_ctrl_power_on(struct generic_pm_domain *genpd)
- 	/* disable upstream clocks */
- 	clk_bulk_disable_unprepare(data->num_clks, domain->clks);
- 
-+	mutex_unlock(&bc->power_lock);
-+
- 	return 0;
- 
- clk_disable:
- 	clk_bulk_disable_unprepare(data->num_clks, domain->clks);
- bus_put:
- 	pm_runtime_put(bc->bus_power_dev);
-+unlock:
-+	mutex_unlock(&bc->power_lock);
- 
- 	return ret;
- }
-@@ -164,6 +177,8 @@ static int imx8m_blk_ctrl_power_off(struct generic_pm_domain *genpd)
- 	const struct imx8m_blk_ctrl_domain_data *data = domain->data;
- 	struct imx8m_blk_ctrl *bc = domain->bc;
- 
-+	mutex_lock(&bc->power_lock);
-+
- 	/* put devices into reset and disable clocks */
- 	if (data->mipi_phy_rst_mask)
- 		regmap_clear_bits(bc->regmap, BLK_MIPI_RESET_DIV, data->mipi_phy_rst_mask);
-@@ -177,6 +192,8 @@ static int imx8m_blk_ctrl_power_off(struct generic_pm_domain *genpd)
- 	/* allow bus domain to suspend */
- 	pm_runtime_put(bc->bus_power_dev);
- 
-+	mutex_unlock(&bc->power_lock);
-+
- 	return 0;
- }
- 
-@@ -202,6 +219,10 @@ static int imx8m_blk_ctrl_probe(struct platform_device *pdev)
- 
- 	bc->dev = dev;
- 
-+	ret = devm_mutex_init(dev, &bc->power_lock);
-+	if (ret)
-+		return ret;
-+
- 	bc_data = of_device_get_match_data(dev);
- 
- 	base = devm_platform_ioremap_resource(pdev, 0);
-
----
-base-commit: 27953c044974baf7e24dee3e9342fe0103dea80c
-change-id: 20260911-imx8mp-blk-ctrl-c46f26783073
+> ﻿On 9/16/26, 6:56 PM, "Alexei Starovoitov" <alexei.starovoitov@gmail.com <mailto:alexei.starovoitov@gmail.com>> wrote:
+> 
+> 
+> CAUTION: This email originated from outside of the organization. Do not click links or open attachments unless you can confirm the sender and know the content is safe.
+> 
+> 
+> 
+> 
+> 
+> 
+> On Thu, Sep 17, 2026 at 12:02 AM Jay Wang <wanjay@amazon.com <mailto:wanjay@amazon.com>> wrote:
+>>
+>> Add a "btf=off" early boot parameter, similar to the existing "selinux=0"
+>> parameter, so users who do not want BTF can turn it off at boot; the
+>> section is then freed to save memory.
+> 
+> 
+> tbh I'm not excited about btf=off. BTF is not debug info anymore.
+> sched_ext, bpf-lsm (systemd uses it), hid-bpf, most of bcc/bpftrace
+> quietly stop working, and we'll be the ones triaging "libbpf: failed
+> to find valid kernel BTF" reports from people who copy-pasted a
+> "save 5MB" tuning guide.
+> This needs more thought.
+> 
+> 
+>> .../admin-guide/kernel-parameters.txt | 14 +++
+>> arch/arm64/mm/mmu.c | 108 +++++++++++++++++-
+>> arch/x86/mm/init_64.c | 30 +++++
+>> arch/x86/mm/pat/set_memory.c | 28 ++++-
+>> include/linux/btf.h | 9 ++
+>> kernel/bpf/btf.c | 51 ++++++++-
+>> kernel/bpf/sysfs_btf.c
+> | 7 ++
+>> kernel/bpf/verifier.c | 2 +-
+> 
+> 
+> This doesn't apply to bpf-next.
+> Consider using Alan's approach and support CONFIG_DEBUG_INFO_BTF=m
+> 
+> 
+> pw-bot: cr
+> 
+> 
+> 
 
 
