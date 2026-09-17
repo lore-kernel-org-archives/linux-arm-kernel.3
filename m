@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52421C982D6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 14:01:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D2A8C982D7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 14:01:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JJ+u9N0IVMNFM/Z0N49U31h73iEiUichEwKQu4MgjTo=; b=YfbQD74SWO7VP2einoVCuYH2+k
-	wELMqnVUDbHkRGsQ/p0jZ58RJx0EU5UZeIihT4BCjqHajIyACcynkQFHdb1686kRMyJmFh4/aqXaN
-	Q/IZGSgG4MYON9J9V3lVx0o8jBWUV0V41mieKq3QTtt2MBPrbTaXBmKKqdfzeYMw5RwCwPv48Cf6Z
-	twT1E5jsf/rroyA+1muYNH55cJJ3jc3Ycr37BbNum7yEpBLtc/sB686b7nLHhonkkCjCX93qTbt1M
-	zBGj1tvLSK/pL3H6Co1y2hBOS9HceW2swyLw1wsgpSIVbhAgDl154j0XBHAsWbtxDPKOwnGnItykh
-	8VH1so0g==;
+	bh=PFbHrnCbgfpqZStiZJ8Sb/nHDFg7+/3mGwQ68I1HP3A=; b=ZrAy4K+Ik2V/Vtjxe3D35cOGuR
+	9dYZW6DSlJe0mzyguZStNtJ86ItVNNizUroYpWYLpI/whk/SDZ8vSrH+3iYHPi4K5KhCbnpE7MP/j
+	QCG0bgzRDCf4/31JJb5U1zzLdDhsyS6ssKsMhOSI+XCd5coHvI5+EYeoLtEYSzloWnHVawMBwMh1n
+	+MvPUj1rS4URv59VS5ydaQUHUW+ZjS6TRqLW4hAGQiggxalJj07dBxRJBFpZJP+t4QTqd290jTMJO
+	+VlDvwHBCGZILR+7LtmYTHFeLXNIu+tvvdLtGvnbrtRWZmEa3ayo4r/xsmrhPF3hHMSsBxmn6Lucy
+	amL+lm0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7CfZ-0000000BUB9-13Xj;
-	Thu, 17 Sep 2026 14:00:57 +0000
+	id 1x7Cfe-0000000BUDx-2UJm;
+	Thu, 17 Sep 2026 14:01:02 +0000
 Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7CfW-0000000BU9G-0Xhn
+	id 1x7CfX-0000000BU9X-3Md6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 14:00:56 +0000
+	Thu, 17 Sep 2026 14:00:58 +0000
 Received: from francesco-nb.. (xcpe-178-82-167-143.dyn.res.sunrise.net [178.82.167.143])
-	by mail11.truemail.it (Postfix) with ESMTPA id C631E227EA;
-	Thu, 17 Sep 2026 16:00:50 +0200 (CEST)
+	by mail11.truemail.it (Postfix) with ESMTPA id 282F622817;
+	Thu, 17 Sep 2026 16:00:53 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1789653651;
-	bh=JJ+u9N0IVMNFM/Z0N49U31h73iEiUichEwKQu4MgjTo=; h=From:To:Subject;
-	b=LQtryhQODYGsTRK0Z+111hA5x+GCNYdaduOJ4eAB52xvmx1LrZ41Ly2YdHtzGTsGm
-	 wZ2/cNGC+xE7ydPKkAUVJ1mupDnhZSU1Vj1EphFtRmwrnyqdR7fEwfRvTHTpvCP9Ls
-	 kYb15/UsB7HN1Kv7NAsyPyhiwQn8K08loGYluaU0cA9ABUAAoo89IvNAqevgzjwBtz
-	 Cwpw78UPPqvzC8ysCBYJaq6X6rSJ7rg3N92AvffjRUPKE4pSXLNTpZvdKY9KXAa5DP
-	 vYN6AX6FoUkfuMos6XDOm+7lBesXlZCOdrFn4xVctfrlGCytSA779G2e5gTplKvO+X
-	 LPa6hVg4orAuw==
+	s=default; t=1789653654;
+	bh=PFbHrnCbgfpqZStiZJ8Sb/nHDFg7+/3mGwQ68I1HP3A=; h=From:To:Subject;
+	b=TtipBJkoMi6cb3iVLiD7pa++jODJA5EF5UJJPbuB9G6kDhgrasJYojd+g6IDXKSFf
+	 u7BGs/ZojQDywBeGS0BBpSeSaMlGYE3MXoYcuYNvRL+yMMYRjF8ED2I3jNt8J9rYiy
+	 uJHbWWqGoEcb88/dq1g8IzYQG+wWNizk5rBGXEEm8/4yILdEneOa584tOTyz7Y1SDm
+	 HXxHTw7d23EXswFiPYpgDJjH6UJro2SqFlktKmRtDlpc+NWA639jJFdfECov5xzc11
+	 cGJJUFBwQXHI63P3x0zuSBVHpicWZrhQTL9qso4uu66THawaE32dNtIiS0i8dBzzyT
+	 p2aZV/IBs/LeA==
 From: Francesco Dolcini <francesco@dolcini.it>
 To: Marek Vasut <marex@denx.de>,
 	Stefan Agner <stefan@agner.ch>,
@@ -66,20 +66,18 @@ Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
 	Luca Ceresoli <luca.ceresoli@bootlin.com>,
 	Andrzej Hajda <andrzej.hajda@intel.com>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH v5 1/4] dt-bindings: lcdif: Add endpoint bus-width property
-Date: Thu, 17 Sep 2026 16:00:36 +0200
-Message-ID: <20260917140042.118181-2-francesco@dolcini.it>
+	Robert Foss <rfoss@kernel.org>
+Subject: [PATCH v5 3/4] ARM: dts: imx6ull-colibri: Set LCDIF bus width
+Date: Thu, 17 Sep 2026 16:00:38 +0200
+Message-ID: <20260917140042.118181-4-francesco@dolcini.it>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260917140042.118181-1-francesco@dolcini.it>
 References: <20260917140042.118181-1-francesco@dolcini.it>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_070054_955127_17C487DE 
-X-CRM114-Status: UNSURE (   8.55  )
+X-CRM114-CacheID: sfid-20260917_070056_005076_B88C008E 
+X-CRM114-Status: UNSURE (   9.57  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,49 +95,41 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-The DPI output of the LCD interface can be configured with a bus width
-of 16, 18, or 24 bits. Introduce a bus-width property to the output
-endpoint, specifying the number of parallel RGB bits connected.
+The Colibri family standard defines an 18-bit parallel RGB interface on
+the edge connector. The additional six LCDIF data signals required for a
+24-bit interface are mapped to module-specific pins whose location is not
+fixed across the Colibri family and which may not be available at all.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Acked-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Generic Colibri carrier boards can therefore only rely on an 18-bit
+interface. Set the LCDIF bus-width property accordingly.
+
+A 24-bit interface can still be used by a specific carrier and module
+combination by overriding the property in the carrier board device tree.
+
+Link: https://docs.toradex.com/104446-colibri-arm-som-imx6ull-datasheet.pdf
 Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
 ---
-v5: add ack/rev by tags
-v4: use /schemas/graph.yaml#/$defs/port-base
-v3: use video-interfaces.yaml
+v5: improved commit message, added rev-by
+v4: no changes
+v3: no changes
 v2: use the common bus-width property instead of the legacy interface-pix-fmt
 ---
- .../devicetree/bindings/display/fsl,lcdif.yaml       | 12 +++++++++++-
- 1 file changed, 11 insertions(+), 1 deletion(-)
+ arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/display/fsl,lcdif.yaml b/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
-index 2dd0411ec651..89cea0c14cf1 100644
---- a/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
-+++ b/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
-@@ -68,9 +68,19 @@ properties:
-     maxItems: 1
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi
+index ec3c1e7301f4..1eb1cf2d7395 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi
+@@ -229,6 +229,7 @@ &lcdif {
  
-   port:
--    $ref: /schemas/graph.yaml#/properties/port
-+    $ref: /schemas/graph.yaml#/$defs/port-base
-+    unevaluatedProperties: false
-     description: The LCDIF output port
- 
-+    properties:
-+      endpoint:
-+        $ref: /schemas/media/video-interfaces.yaml
-+        unevaluatedProperties: false
-+
-+        properties:
-+          bus-width:
-+            enum: [ 16, 18, 24 ]
-+
-   display:
-     $ref: /schemas/types.yaml#/definitions/phandle
-     description: phandle to display panel
+ 	port {
+ 		lcdif_out: endpoint {
++			bus-width = <18>;
+ 			remote-endpoint = <&lcd_panel_in>;
+ 		};
+ 	};
 -- 
 2.47.3
 
