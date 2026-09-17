@@ -4,120 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB290C982C1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 05:40:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 025B9C982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 05:48:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=soj2/KQFh95UZkkX/jQubq2Rrr6HUyQgnIR2kqQ3XHM=; b=2Za2seuk7sRVsm9vz1JS1RuZXS
-	5WxNhgeYKhvBWBThLadWdP7aIBq0wTiCNHisY+sB4wO221w5tlyTDUsg0nvQtwExKwqTFOqwQ4REX
-	XkN2c1kTtd3TLAsD+gHVr8e+AMirXzi/RsM+88vaJHLH0AA2W3rUJZOIauX+rE30hp0zGisVuAzCj
-	btPNOmjtFeeQ29bjDOScN7vHED85MPa2/uWIbbXAC79Ye7uXyQ2svxFTxM03yrWa4eX3j758/sqLR
-	KdDWmS4mLvONGsunPlvIG9hymW45rwqiZJvNnH7SVi59AkB+iGDAAH7u+9VKrl4LV2xQ9FB0dh46+
-	rs5xljWg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8cza9Th0sPiRMc13Ig3jOFIk7DARH9TKpcluZTG4rxs=; b=HPI4EX3/jlJB2Tjkzp2GmmxpPk
+	xAqozGdOVaymy8Ln4FzRQBu+JJiRKpw9mPcfGnDksKphbjoNuoc/mV+wg8CiImkzL0r4okiZ8lH9o
+	68QWdY/WCnbWu0mGsyhr6lSp35HcK+VB3/zJE8KbBO6aMTLYEwzIxNLfBVWK7QStfMRTvOXWa6/6K
+	imAUiim5TDEqoz48KOCf2lPeNt04dBsm7Bb8qdJ1DRVEZ++bmipTml27OECMiZB8TQrmemFoUfip4
+	mqMppvYYAmhevadHq6EHtkDh0Khafc6tEg3qXzt+9T9raG6Uv2fqwNLCwnY8dWuM8jSObxHnOL4mK
+	mOxQir5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x74rE-0000000AceE-2Vm3;
-	Thu, 17 Sep 2026 05:40:28 +0000
-Received: from mail-pz2-x10.google.com ([2607:f8b0:4864:3b::10])
+	id 1x74yY-0000000Aczq-1eZr;
+	Thu, 17 Sep 2026 05:48:02 +0000
+Received: from mail-pz2-x0d.google.com ([2607:f8b0:4864:3b::d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x74r1-0000000Acbt-2tfj
+	id 1x74yV-0000000AczU-01jE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 05:40:17 +0000
-Received: by mail-pz2-x10.google.com with SMTP id 41be03b00d2f7-cc4cdc0d663so255783a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 22:40:15 -0700 (PDT)
+	Thu, 17 Sep 2026 05:48:00 +0000
+Received: by mail-pz2-x0d.google.com with SMTP id d2e1a72fcca58-85469b2e1d5so424803b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 22:47:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789623615; x=1790228415; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=soj2/KQFh95UZkkX/jQubq2Rrr6HUyQgnIR2kqQ3XHM=;
-        b=OCQvF3P3vZJUqxCZoeHvqhtxqS6DteLRSILWIgAFUQ1opNqjqaTf9VKKYNF6PWWzfz
-         6wbDzVSnb1mY2nXf64ch3rLQNBl9qPXK2XPN2Op2mduOZl6rSinq2ILVNYp3vOwp5+a+
-         wJztO/mWwfkixsjff+Djvh64bU5UHHqBJR1p4iyqnKNQVLaLlwl0NCH0B8fr3zQL/DWn
-         SOE96OHmMsOWSggZOzVTJd9ZdgdZFnsODTfd0IESsG9FMjsVzdRfJmF6Bce8GV7TgYws
-         tVOMFhwt3O+ZpV7qP5SSrC+fpis15OIMMuDPGjb+V9Lfiv6vernBiZsKTts+Vuj7ZxpR
-         GhmA==
+        d=gmail.com; s=20251104; t=1789624077; x=1790228877; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=8cza9Th0sPiRMc13Ig3jOFIk7DARH9TKpcluZTG4rxs=;
+        b=kxcCYVAypHisVp4mOlHMXMx9pFqno11DRyrRi7JhYONCaq3ZBtkJUAxgeq0gWxP6LZ
+         UZSFupcadqtG+VGR4PTyU/qUs4EjayGcHrM2pG0NDKe1+7+vlzEVwseRgFg2Ey7/bp3t
+         omKxJJODRbRBrz4qTskshxnaLomUEUKSkvXhM7RFL7h7hcU/O1qGnKxagu177Ukhl57D
+         YfnK/mh3So357xxfn7ocjFNHFIeAz44jyb07TH2b9MeEYeCxnqjbauXhYV6SZyMJiWQh
+         1wsLuOgodMHFA1BMab7yzvMDPvkVIeWVHWRx3GZ3ucNXrpCPaJA/NwrAjNT0p3XEf8tR
+         VIxg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789623615; x=1790228415;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1789624077; x=1790228877;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=soj2/KQFh95UZkkX/jQubq2Rrr6HUyQgnIR2kqQ3XHM=;
-        b=cNyWqIYBb1P8SrVT4gMFFqFaZGmTlybGs9Q5lVoZxGJdx0eZeVWf/VXp84RkGo9bH5
-         1uDj1oimeUyGP2kEKxi1ZjR8V7vPRda9TCjUunRXcDaQwWdRBiXvLzBZ/l06fBsc5vdq
-         5GOj0Uv1dxv/H3hAR3j8cgk3qdPZosVRhn7LKUDzJK/XbKQgHNVeyU7TUfFTOyV4L3nJ
-         SAiRsjTUtVm1rDRyUUYKb3L2BziRX96JTGgDY2iyvQiafuhzJC0KfMHpBwgb5IBeU0SG
-         +KSHRA2J0IaruW28/LMFCVARbdNZSXFFyTR/OSupU/BqtrkMYsddAeKUj+2cJ9Tr8vp9
-         AB4g==
-X-Forwarded-Encrypted: i=1; AKwUvBwHbqPGl59mK1jiKq8xqXC7V+fE3VV4b6CFdKft2AjBddDB8kZGCMMgfiNYO2JfCXVXcGn+yiq+mfBR8anIp31K@lists.infradead.org
-X-Gm-Message-State: AFuF++kJOVKeVBAvR28VP/gzfeBGVwD6Iu4fYI1maaZragoHMKKIXw5I
-	eauMCl79va8VLTBpmTw2PZ3qbK3sdlZ1GTVO90WU3LkMqjGIlNPRl+uO
-X-Gm-Gg: AYBFou2/6kuIsg9rFwoDKGw+yONlqOVV4foLASRQ9zBETaII0phxlsZiUQoCcAGHjic
-	fVIHH8KpNngpEvZ/bUUJAH1A/ECBsyNiISk3Bdsn7aDERWCeT6/gmcca+fXTkKYFh07LlXqXFkH
-	ENWVBzioN0PX3saSYwHCf19w9mZ7Wr8WNa5E+ym1738nfpnJFkQfa2rhDSqqRzRt0sJ2qI5CGmM
-	nukycceRl+P8ujN0RgqA+4HHpb8UZ801Y4lIDcnhDc6gW/tOeffbQDYGvcD8lneaVQZWyhMsIs8
-	TtkEeY8aIWXM6mgeGSm7NK3xAF0s9tgq4xd0PFlojQgbrzPH5cjNxYqjUB4VyRvVqDganoAHP+w
-	Su+0U5Ru/4V1ESxdkBZzMPm+l24RQSnd7LBLxcKTyulhHmnrcmKvmZ+mMyj04sVd7myD/Je4HJ+
-	zAPfuOv+v8MKHZe8HDfd62aNNk7gU6/KF85Gza2sQnKE8zSp9GNU07Tb0KFu+KVqcKkvLfGP+dT
-	09/NcCa1CGyjCuqAQZIab9Kng==
-X-Received: by 2002:a05:6a20:e212:b0:3cd:7ba2:e669 with SMTP id adf61e73a8af0-3dd5f45d85bmr13378366637.10.1789623614628;
-        Wed, 16 Sep 2026 22:40:14 -0700 (PDT)
-Received: from volcano9f6e-hostos.amd.com ([165.204.217.251])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33bf5b2753csm24187630eec.31.2026.09.16.22.40.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Sep 2026 22:40:14 -0700 (PDT)
-From: Hemanth Selam <hemanth.selam@gmail.com>
-To: Mark Brown <broonie@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>
-Cc: Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Andrei Simion <andrei.simion@microchip.com>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	David Rhodes <david.rhodes@cirrus.com>,
-	Richard Fitzgerald <rf@opensource.cirrus.com>,
-	Support Opensource <support.opensource@diasemi.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Oder Chiou <oder_chiou@realtek.com>,
-	Shenghao Ding <shenghao-ding@ti.com>,
-	Kevin Lu <kevin-lu@ti.com>,
-	Baojun Xu <baojun.xu@ti.com>,
-	Sen Wang <sen@ti.com>,
-	Cezary Rojewski <cezary.rojewski@intel.com>,
-	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
-	Bard Liao <yung-chuan.liao@linux.intel.com>,
-	Kai Vehmanen <kai.vehmanen@linux.intel.com>,
-	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Jarkko Nikula <jarkko.nikula@bitmer.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	linux-sound@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	patches@opensource.cirrus.com,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-omap@vger.kernel.org
-Subject: [PATCH v4] ASoC: fix typos in comments
-Date: Thu, 17 Sep 2026 11:10:01 +0530
-Message-ID: <20260917054001.15728-1-hemanth.selam@gmail.com>
-X-Mailer: git-send-email 2.48.1
+        bh=8cza9Th0sPiRMc13Ig3jOFIk7DARH9TKpcluZTG4rxs=;
+        b=N2hqWB10ft5MHorZk3Ked3gz0Y9RXfYz4oB0/f9oS5Wqa6c7zHrRqQw4eAVXmpIVkI
+         aMwcziYu0MeHlUWL/Wsrj7KUJbBLgHequz0jaV+QTcUBC3XbBYjyIqu9eUV+znYaHC/5
+         PZ0jvL3CzpVB8yjrv/qvae+kCByfUUH349uJAzwr1ZjtMbvDuI+aKwa6rxuDENnLej2t
+         zsKWw/GTbF/DrahOLSqSGFqMcrYFIlOuRklHV0h+Qx+wc2Fc825oTzX4bAcCJyA70fkh
+         QoXa/jSmMTz6PJq4P2h5P4nxWEwt4jjNVdgwnALU2CKWsLMssO8ZFFMDrZ1CYkCtEteA
+         uWnw==
+X-Forwarded-Encrypted: i=1; AKwUvBwM5+W6f3ogG4njU4Zwh12F0g+YOf04CVvu68TPG50RnWxp6H6yUgVpggvFP77DmkMuBSDJS5ZrTkkUSRAmi0H9@lists.infradead.org
+X-Gm-Message-State: AFuF++m9aBpmXB3nEG9Ph9KPxmKh10w+lRtZDQb7ypDjBsUeJ+tC/q1g
+	v3FKPEnN4YFowrb1/ZMFC70eyJNbBG57cJ32JhTGBDQ2i7GPSVVdFvZT
+X-Gm-Gg: AYBFou2mr9vmPL3YMmS3uOHgupsMforM6K3vhcJhqwdxvjQHQjjmvaNJqtNDN7DTXr6
+	02eVsMnMsatTOIYN+6NVhFpfcIp28qdiEMRVYczA7dGFO5Vkej3qpPvbdZwmB1TOILsMiGTAAkZ
+	zQudmgjtKDMbgi31GiqNL2CgvnY50y2KN/xHMi7CF9NXRibGDQ4Nk/2YR556ygNHB+sqY/r0WhW
+	wbr+GxOI2mekt7HlQhiUWMyeIiWvJWcszEQkUk+c9xhgCComvxijWXpKCIiI9sumAYdcbgGig+u
+	f1XRXr74GEJlKESMKbhChiS4FNdrODlhR9tuv8rXlyWqjYOzLaFt8grqZyHuxTw9n1RmAo5LtN3
+	aU85JDzRUQBXEd/+uo/UAaFrwzWeG5/nQIw6snBCZrQGHo1CS7OHADS3TYHFEnVLaGYQzK2DIiN
+	QI60Ka+wxAwTbyNtRQ7xy7OB6MnnXAFM8S6Z8jAXDzbHTCOt9Haj/hU3CstoyfJz5zBelT/RBXq
+	DoaNAT7/2swc3Ho9/SCuyZheEJvHZUz65gXRYPraNksT5RtR/IdOty9AKBQRKya1A==
+X-Received: by 2002:a05:6a00:2d02:b0:855:74f7:40c2 with SMTP id d2e1a72fcca58-87238d83d98mr10732501b3a.14.1789624077207;
+        Wed, 16 Sep 2026 22:47:57 -0700 (PDT)
+Received: from [192.168.0.100] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-87200c58282sm2253352b3a.15.2026.09.16.22.47.53
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 16 Sep 2026 22:47:56 -0700 (PDT)
+Message-ID: <8c86d372-20a6-4327-a5a1-27d806ec06cb@gmail.com>
+Date: Thu, 17 Sep 2026 13:47:51 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 3/6] drm/verisilicon: introduce per-variant hardware
+ ops table
+To: Icenowy Zheng <zhengxingda@iscas.ac.cn>,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org
+Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260908092840.225220-1-a0987203069@gmail.com>
+ <20260908092840.225220-4-a0987203069@gmail.com>
+ <eacd63daeef147657329edbad4cff7b85f2dba8c.camel@iscas.ac.cn>
+ <0e3ac531-aae3-402d-9d24-87d75295f382@gmail.com>
+ <3db5c4507f68bae2d6b1679bb29ad9f7fd2e4ad8.camel@iscas.ac.cn>
+Content-Language: en-US
+From: Joey Lu <a0987203069@gmail.com>
+In-Reply-To: <3db5c4507f68bae2d6b1679bb29ad9f7fd2e4ad8.camel@iscas.ac.cn>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_224015_799819_0007171C 
-X-CRM114-Status: GOOD (  26.77  )
+X-CRM114-CacheID: sfid-20260916_224759_097435_EDDF75E1 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,551 +112,739 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix typos in comments, reported by scripts/checkpatch.pl using the
-misspelling list in scripts/spelling.txt.  Only touches comments, no code
-changes.
 
-Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
----
-v4: rebased onto asoc/for-7.4, with a base-commit trailer for that
-    branch.  v3 used for-next, whose base-commit no longer resolves since
-    that branch is re-merged rather than extended.  The diff is unchanged.
+Icenowy Zheng 於 2026/9/16 下午 05:39 寫道:
+> 在 2026-09-15二的 10:06 +0800，Joey Lu写道：
+>> Icenowy Zheng 於 2026/9/14 下午 11:00 寫道:
+>>> 在 2026-09-08二的 17:28 +0800，Joey Lu写道：
+>>>> The DC8200 and DCUltraLite share a broadly similar register
+>>>> layout
+>>>> but
+>>>> differ in how the bridge, CRTC, primary plane and IRQ paths are
+>>>> driven.
+>>>> Introduce a vs_dc_funcs vtable so each variant can supply its own
+>>>> implementation without scattering conditionals across multiple
+>>>> files.
+>>>>
+>>>> Add a generation field to struct vs_chip_identity to distinguish
+>>>> variants.
+>>>> Extract the DC8200-specific hardware ops into vs_dc8200.c and add
+>>>> unified
+>>>> IRQ bit definitions so implementations can translate hardware-
+>>>> specific
+>>>> bits to a common set.  Update the shared code to dispatch through
+>>>> dc->funcs.
+>>>>
+>>>> No behaviour change for existing DC8200 platforms.
+>>>>
+>>>> Signed-off-by: Joey Lu <a0987203069@gmail.com>
+>>>> Reviewed-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+>>>> ---
+>>>>    drivers/gpu/drm/verisilicon/Makefile          |   2 +-
+>>>>    drivers/gpu/drm/verisilicon/vs_bridge.c       |  20 +--
+>>>>    drivers/gpu/drm/verisilicon/vs_crtc.c         |  38 +++++-
+>>>>    drivers/gpu/drm/verisilicon/vs_dc.c           |   6 +-
+>>>>    drivers/gpu/drm/verisilicon/vs_dc.h           |  32 +++++
+>>>>    drivers/gpu/drm/verisilicon/vs_dc8200.c       | 121
+>>>> ++++++++++++++++++
+>>>>    drivers/gpu/drm/verisilicon/vs_drm.c          |   5 +-
+>>>>    drivers/gpu/drm/verisilicon/vs_drm.h          |   8 ++
+>>>>    drivers/gpu/drm/verisilicon/vs_hwdb.c         |   4 +
+>>>>    drivers/gpu/drm/verisilicon/vs_hwdb.h         |   6 +
+>>>>    .../gpu/drm/verisilicon/vs_primary_plane.c    |  32 +----
+>>>>    11 files changed, 220 insertions(+), 54 deletions(-)
+>>>>    create mode 100644 drivers/gpu/drm/verisilicon/vs_dc8200.c
+>>>>
+>>>> diff --git a/drivers/gpu/drm/verisilicon/Makefile
+>>>> b/drivers/gpu/drm/verisilicon/Makefile
+>>>> index 426f4bcaa834d..9d4cd16452fa1 100644
+>>>> --- a/drivers/gpu/drm/verisilicon/Makefile
+>>>> +++ b/drivers/gpu/drm/verisilicon/Makefile
+>>>> @@ -1,6 +1,6 @@
+>>>>    # SPDX-License-Identifier: GPL-2.0-only
+>>>>    
+>>>> -verisilicon-dc-objs := vs_bridge.o vs_crtc.o vs_dc.o vs_drm.o
+>>>> vs_hwdb.o \
+>>>> +verisilicon-dc-objs := vs_bridge.o vs_crtc.o vs_dc.o vs_dc8200.o
+>>>> vs_drm.o vs_hwdb.o \
+>>>>    	vs_plane.o vs_primary_plane.o vs_cursor_plane.o
+>>>>    
+>>>>    obj-$(CONFIG_DRM_VERISILICON_DC) += verisilicon-dc.o
+>>>> diff --git a/drivers/gpu/drm/verisilicon/vs_bridge.c
+>>>> b/drivers/gpu/drm/verisilicon/vs_bridge.c
+>>>> index dc7c85b07fe32..3fbc8d57f8a1e 100644
+>>>> --- a/drivers/gpu/drm/verisilicon/vs_bridge.c
+>>>> +++ b/drivers/gpu/drm/verisilicon/vs_bridge.c
+>>>> @@ -162,15 +162,8 @@ static void vs_bridge_enable_common(struct
+>>>> vs_crtc *crtc,
+>>>>    			VSDC_DISP_PANEL_CONFIG_DE_EN |
+>>>>    			VSDC_DISP_PANEL_CONFIG_DAT_EN |
+>>>>    			VSDC_DISP_PANEL_CONFIG_CLK_EN);
+>>>> -	regmap_set_bits(dc->regs,
+>>>> VSDC_DISP_PANEL_CONFIG(output),
+>>>> -			VSDC_DISP_PANEL_CONFIG_RUNNING);
+>>>> -	regmap_clear_bits(dc->regs, VSDC_DISP_PANEL_START,
+>>>> -			
+>>>> VSDC_DISP_PANEL_START_MULTI_DISP_SYNC);
+>>>> -	regmap_set_bits(dc->regs, VSDC_DISP_PANEL_START,
+>>>> -			VSDC_DISP_PANEL_START_RUNNING(output));
+>>>> -
+>>>> -	regmap_set_bits(dc->regs,
+>>>> VSDC_DISP_PANEL_CONFIG_EX(crtc-
+>>>>> id),
+>>>> -			VSDC_DISP_PANEL_CONFIG_EX_COMMIT);
+>>>> +
+>>>> +	dc->funcs->panel_enable_ex(dc, output);
+>>>>    }
+>>>>    
+>>>>    static void vs_bridge_atomic_enable_dpi(struct drm_bridge
+>>>> *bridge,
+>>>> @@ -228,14 +221,7 @@ static void vs_bridge_atomic_disable(struct
+>>>> drm_bridge *bridge,
+>>>>    	struct vs_dc *dc = crtc->dc;
+>>>>    	unsigned int output = crtc->id;
+>>>>    
+>>>> -	regmap_clear_bits(dc->regs, VSDC_DISP_PANEL_START,
+>>>> -			  VSDC_DISP_PANEL_START_MULTI_DISP_SYNC
+>>>> |
+>>>> -			
+>>>> VSDC_DISP_PANEL_START_RUNNING(output));
+>>>> -	regmap_clear_bits(dc->regs,
+>>>> VSDC_DISP_PANEL_CONFIG(output),
+>>>> -			  VSDC_DISP_PANEL_CONFIG_RUNNING);
+>>>> -
+>>>> -	regmap_set_bits(dc->regs,
+>>>> VSDC_DISP_PANEL_CONFIG_EX(crtc-
+>>>>> id),
+>>>> -			VSDC_DISP_PANEL_CONFIG_EX_COMMIT);
+>>>> +	dc->funcs->panel_disable_ex(dc, output);
+>>>>    }
+>>>>    
+>>>>    static const struct drm_bridge_funcs vs_dpi_bridge_funcs = {
+>>>> diff --git a/drivers/gpu/drm/verisilicon/vs_crtc.c
+>>>> b/drivers/gpu/drm/verisilicon/vs_crtc.c
+>>>> index c24c1588cbe69..2d4bf6af1f56e 100644
+>>>> --- a/drivers/gpu/drm/verisilicon/vs_crtc.c
+>>>> +++ b/drivers/gpu/drm/verisilicon/vs_crtc.c
+>>>> @@ -16,10 +16,33 @@
+>>>>    #include "vs_crtc_regs.h"
+>>>>    #include "vs_crtc.h"
+>>>>    #include "vs_dc.h"
+>>>> -#include "vs_dc_top_regs.h"
+>>>>    #include "vs_drm.h"
+>>>>    #include "vs_plane.h"
+>>>>    
+>>>> +static void vs_crtc_atomic_begin(struct drm_crtc *crtc,
+>>>> +				  struct drm_atomic_commit
+>>>> *state)
+>>>> +{
+>>>> +	struct vs_crtc *vcrtc = drm_crtc_to_vs_crtc(crtc);
+>>>> +	struct vs_dc *dc = vcrtc->dc;
+>>>> +	unsigned int output = vcrtc->id;
+>>>> +
+>>>> +	if (dc->funcs->crtc_begin)
+>>>> +		dc->funcs->crtc_begin(dc, output);
+>>>> +}
+>>>> +
+>>>> +static void vs_crtc_atomic_flush(struct drm_crtc *crtc,
+>>>> +				  struct drm_atomic_commit
+>>>> *state)
+>>>> +{
+>>>> +	struct vs_crtc *vcrtc = drm_crtc_to_vs_crtc(crtc);
+>>>> +	struct vs_dc *dc = vcrtc->dc;
+>>>> +	unsigned int output = vcrtc->id;
+>>>> +
+>>>> +	if (dc->funcs->crtc_flush)
+>>>> +		dc->funcs->crtc_flush(dc, output);
+>>>> +
+>>>> +	drm_crtc_vblank_atomic_flush(crtc, state);
+>>>> +}
+>>>> +
+>>>>    static void vs_crtc_atomic_disable(struct drm_crtc *crtc,
+>>>>    				   struct drm_atomic_commit
+>>>> *state)
+>>>>    {
+>>>> @@ -30,6 +53,9 @@ static void vs_crtc_atomic_disable(struct
+>>>> drm_crtc
+>>>> *crtc,
+>>>>    	drm_crtc_vblank_off(crtc);
+>>>>    
+>>>>    	clk_disable_unprepare(dc->pix_clk[output]);
+>>>> +
+>>>> +	if (dc->funcs->crtc_disable_ex)
+>>>> +		dc->funcs->crtc_disable_ex(dc, output);
+>>>>    }
+>>>>    
+>>>>    static void vs_crtc_atomic_enable(struct drm_crtc *crtc,
+>>>> @@ -42,6 +68,9 @@ static void vs_crtc_atomic_enable(struct
+>>>> drm_crtc
+>>>> *crtc,
+>>>>    	drm_WARN_ON(&dc->drm_dev->base,
+>>>>    		    clk_prepare_enable(dc->pix_clk[output]));
+>>>>    
+>>>> +	if (dc->funcs->crtc_enable_ex)
+>>>> +		dc->funcs->crtc_enable_ex(dc, output);
+>>>> +
+>>>>    	drm_crtc_vblank_on(crtc);
+>>>>    }
+>>>>    
+>>>> @@ -119,7 +148,8 @@ static bool vs_crtc_mode_fixup(struct
+>>>> drm_crtc
+>>>> *crtc,
+>>>>    }
+>>>>    
+>>>>    static const struct drm_crtc_helper_funcs vs_crtc_helper_funcs
+>>>> = {
+>>>> -	.atomic_flush	= drm_crtc_vblank_atomic_flush,
+>>>> +	.atomic_begin	= vs_crtc_atomic_begin,
+>>>> +	.atomic_flush	= vs_crtc_atomic_flush,
+>>>>    	.atomic_enable	= vs_crtc_atomic_enable,
+>>>>    	.atomic_disable	= vs_crtc_atomic_disable,
+>>>>    	.mode_set_nofb	= vs_crtc_mode_set_nofb,
+>>>> @@ -132,7 +162,7 @@ static int vs_crtc_enable_vblank(struct
+>>>> drm_crtc
+>>>> *crtc)
+>>>>    	struct vs_crtc *vcrtc = drm_crtc_to_vs_crtc(crtc);
+>>>>    	struct vs_dc *dc = vcrtc->dc;
+>>>>    
+>>>> -	regmap_set_bits(dc->regs, VSDC_TOP_IRQ_EN,
+>>>> VSDC_TOP_IRQ_VSYNC(vcrtc->id));
+>>>> +	dc->funcs->enable_vblank(dc, vcrtc->id);
+>>>>    
+>>>>    	return 0;
+>>>>    }
+>>>> @@ -142,7 +172,7 @@ static void vs_crtc_disable_vblank(struct
+>>>> drm_crtc *crtc)
+>>>>    	struct vs_crtc *vcrtc = drm_crtc_to_vs_crtc(crtc);
+>>>>    	struct vs_dc *dc = vcrtc->dc;
+>>>>    
+>>>> -	regmap_clear_bits(dc->regs, VSDC_TOP_IRQ_EN,
+>>>> VSDC_TOP_IRQ_VSYNC(vcrtc->id));
+>>>> +	dc->funcs->disable_vblank(dc, vcrtc->id);
+>>>>    }
+>>>>    
+>>>>    static const struct drm_crtc_funcs vs_crtc_funcs = {
+>>>> diff --git a/drivers/gpu/drm/verisilicon/vs_dc.c
+>>>> b/drivers/gpu/drm/verisilicon/vs_dc.c
+>>>> index dad9967bc10b8..9729b693d360e 100644
+>>>> --- a/drivers/gpu/drm/verisilicon/vs_dc.c
+>>>> +++ b/drivers/gpu/drm/verisilicon/vs_dc.c
+>>>> @@ -8,9 +8,7 @@
+>>>>    #include <linux/of.h>
+>>>>    #include <linux/of_graph.h>
+>>>>    
+>>>> -#include "vs_crtc.h"
+>>>>    #include "vs_dc.h"
+>>>> -#include "vs_dc_top_regs.h"
+>>>>    #include "vs_drm.h"
+>>>>    #include "vs_hwdb.h"
+>>>>    
+>>>> @@ -33,7 +31,7 @@ static irqreturn_t vs_dc_irq_handler(int irq,
+>>>> void
+>>>> *private)
+>>>>    	struct vs_dc *dc = private;
+>>>>    	u32 irqs;
+>>>>    
+>>>> -	regmap_read(dc->regs, VSDC_TOP_IRQ_ACK, &irqs);
+>>>> +	irqs = dc->funcs->irq_ack(dc);
+>>>>    
+>>>>    	vs_drm_handle_irq(dc, irqs);
+>>>>    
+>>>> @@ -136,6 +134,8 @@ static int vs_dc_probe(struct platform_device
+>>>> *pdev)
+>>>>    	dev_info(dev, "Found DC%x rev %x customer %x\n", dc-
+>>>>> identity.model,
+>>>>    		 dc->identity.revision, dc-
+>>>>> identity.customer_id);
+>>>>    
+>>>> +	dc->funcs = &vs_dc8200_funcs;
+>>>> +
+>>>>    	if (port_count > dc->identity.display_count) {
+>>>>    		dev_err(dev, "too many downstream ports than HW
+>>>> capability\n");
+>>>>    		ret = -EINVAL;
+>>>> diff --git a/drivers/gpu/drm/verisilicon/vs_dc.h
+>>>> b/drivers/gpu/drm/verisilicon/vs_dc.h
+>>>> index ed1016f18758e..825f5dd6bf174 100644
+>>>> --- a/drivers/gpu/drm/verisilicon/vs_dc.h
+>>>> +++ b/drivers/gpu/drm/verisilicon/vs_dc.h
+>>>> @@ -14,6 +14,7 @@
+>>>>    #include <linux/reset.h>
+>>>>    
+>>>>    #include <drm/drm_device.h>
+>>>> +#include <drm/drm_plane.h>
+>>>>    
+>>>>    #include "vs_hwdb.h"
+>>>>    
+>>>> @@ -22,6 +23,34 @@
+>>>>    
+>>>>    struct vs_drm_dev;
+>>>>    struct vs_crtc;
+>>>> +struct vs_dc;
+>>>> +
+>>>> +struct vs_dc_funcs {
+>>>> +	/* Bridge: atomic_enable, atomic_disable */
+>>>> +	void (*panel_enable_ex)(struct vs_dc *dc, unsigned int
+>>>> output);
+>>>> +	void (*panel_disable_ex)(struct vs_dc *dc, unsigned int
+>>>> output);
+>>>> +
+>>>> +	/* CRTC: atomic_begin, atomic_flush */
+>>>> +	void (*crtc_begin)(struct vs_dc *dc, unsigned int
+>>>> output);
+>>>> +	void (*crtc_flush)(struct vs_dc *dc, unsigned int
+>>>> output);
+>>>> +
+>>>> +	/* CRTC: atomic_enable, atomic_disable */
+>>>> +	void (*crtc_enable_ex)(struct vs_dc *dc, unsigned int
+>>>> output);
+>>>> +	void (*crtc_disable_ex)(struct vs_dc *dc, unsigned int
+>>>> output);
+>>>> +
+>>>> +	/* CRTC: enable_vblank, disable_vblank */
+>>>> +	void (*enable_vblank)(struct vs_dc *dc, unsigned int
+>>>> output);
+>>>> +	void (*disable_vblank)(struct vs_dc *dc, unsigned int
+>>>> output);
+>>>> +
+>>>> +	/* Primary plane: atomic_enable, atomic_disable,
+>>>> atomic_update */
+>>>> +	void (*primary_plane_enable_ex)(struct vs_dc *dc,
+>>>> unsigned
+>>>> int output);
+>>>> +	void (*primary_plane_disable_ex)(struct vs_dc *dc,
+>>>> unsigned
+>>>> int output);
+>>>> +	void (*primary_plane_update_ex)(struct vs_dc *dc,
+>>>> unsigned
+>>>> int output,
+>>>> +					struct drm_plane_state
+>>>> *state);
+>>>> +
+>>>> +	/* IRQ acknowledge */
+>>>> +	u32 (*irq_ack)(struct vs_dc *dc);
+>>>> +};
+>>>>    
+>>>>    struct vs_dc {
+>>>>    	struct regmap *regs;
+>>>> @@ -33,6 +62,9 @@ struct vs_dc {
+>>>>    
+>>>>    	struct vs_drm_dev *drm_dev;
+>>>>    	struct vs_chip_identity identity;
+>>>> +	const struct vs_dc_funcs *funcs;
+>>>>    };
+>>>>    
+>>>> +extern const struct vs_dc_funcs vs_dc8200_funcs;
+>>>> +
+>>>>    #endif /* _VS_DC_H_ */
+>>>> diff --git a/drivers/gpu/drm/verisilicon/vs_dc8200.c
+>>>> b/drivers/gpu/drm/verisilicon/vs_dc8200.c
+>>>> new file mode 100644
+>>>> index 0000000000000..77752d0cb28b0
+>>>> --- /dev/null
+>>>> +++ b/drivers/gpu/drm/verisilicon/vs_dc8200.c
+>>>> @@ -0,0 +1,121 @@
+>>>> +// SPDX-License-Identifier: GPL-2.0-only
+>>>> +/*
+>>>> + * Copyright (C) 2025 Icenowy Zheng <uwu@icenowy.me>
+>>>> + */
+>>>> +
+>>>> +#include <linux/regmap.h>
+>>>> +
+>>>> +#include <drm/drm_print.h>
+>>>> +
+>>>> +#include "vs_bridge_regs.h"
+>>>> +#include "vs_dc.h"
+>>>> +#include "vs_dc_top_regs.h"
+>>>> +#include "vs_drm.h"
+>>>> +#include "vs_plane.h"
+>>>> +#include "vs_primary_plane_regs.h"
+>>>> +
+>>>> +static void vs_dc8200_panel_enable_ex(struct vs_dc *dc, unsigned
+>>>> int
+>>>> output)
+>>>> +{
+>>>> +	regmap_set_bits(dc->regs,
+>>>> VSDC_DISP_PANEL_CONFIG(output),
+>>>> +			VSDC_DISP_PANEL_CONFIG_RUNNING);
+>>>> +	regmap_clear_bits(dc->regs, VSDC_DISP_PANEL_START,
+>>>> +			
+>>>> VSDC_DISP_PANEL_START_MULTI_DISP_SYNC);
+>>>> +	regmap_set_bits(dc->regs, VSDC_DISP_PANEL_START,
+>>>> +			VSDC_DISP_PANEL_START_RUNNING(output));
+>>>> +
+>>>> +	regmap_set_bits(dc->regs,
+>>>> VSDC_DISP_PANEL_CONFIG_EX(output),
+>>>> +			VSDC_DISP_PANEL_CONFIG_EX_COMMIT);
+>>>> +}
+>>>> +
+>>>> +static void vs_dc8200_panel_disable_ex(struct vs_dc *dc,
+>>>> unsigned
+>>>> int output)
+>>>> +{
+>>>> +	regmap_clear_bits(dc->regs,
+>>>> VSDC_DISP_PANEL_CONFIG(output),
+>>>> +			  VSDC_DISP_PANEL_CONFIG_RUNNING);
+>>>> +	regmap_clear_bits(dc->regs, VSDC_DISP_PANEL_START,
+>>>> +			  VSDC_DISP_PANEL_START_MULTI_DISP_SYNC
+>>>> |
+>>>> +			
+>>>> VSDC_DISP_PANEL_START_RUNNING(output));
+>>>> +
+>>>> +	regmap_set_bits(dc->regs,
+>>>> VSDC_DISP_PANEL_CONFIG_EX(output),
+>>>> +			VSDC_DISP_PANEL_CONFIG_EX_COMMIT);
+>>>> +}
+>>>> +
+>>>> +static void vs_dc8200_enable_vblank(struct vs_dc *dc, unsigned
+>>>> int
+>>>> output)
+>>>> +{
+>>>> +	regmap_set_bits(dc->regs, VSDC_TOP_IRQ_EN,
+>>>> +			VSDC_TOP_IRQ_VSYNC(output));
+>>>> +}
+>>>> +
+>>>> +static void vs_dc8200_disable_vblank(struct vs_dc *dc, unsigned
+>>>> int
+>>>> output)
+>>>> +{
+>>>> +	regmap_clear_bits(dc->regs, VSDC_TOP_IRQ_EN,
+>>>> +			  VSDC_TOP_IRQ_VSYNC(output));
+>>>> +}
+>>>> +
+>>>> +static void vs_dc8200_plane_commit(struct vs_dc *dc, unsigned
+>>>> int
+>>>> output)
+>>>> +{
+>>>> +	regmap_set_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
+>>>> +			VSDC_FB_CONFIG_EX_COMMIT);
+>>>> +}
+>>>> +
+>>>> +static void vs_dc8200_primary_plane_enable_ex(struct vs_dc *dc,
+>>>> unsigned int output)
+>>>> +{
+>>>> +	regmap_set_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
+>>>> +			VSDC_FB_CONFIG_EX_FB_EN);
+>>>> +	regmap_update_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
+>>>> +			   VSDC_FB_CONFIG_EX_DISPLAY_ID_MASK,
+>>>> +			
+>>>> VSDC_FB_CONFIG_EX_DISPLAY_ID(output));
+>>>> +
+>>>> +	vs_dc8200_plane_commit(dc, output);
+>>>> +}
+>>>> +
+>>>> +static void vs_dc8200_primary_plane_disable_ex(struct vs_dc *dc,
+>>>> unsigned int output)
+>>>> +{
+>>>> +	regmap_set_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
+>>>> +			VSDC_FB_CONFIG_EX_FB_EN);
+>>> I think I messed up the DC8200 codepath here -- the FB_EN bit
+>>> should be
+>>> cleared instead of set.
+>>>
+>>> Would you mind I fix this when applying, or would you send a new
+>>> revision fixing this?
+>>>
+>>> In the latter case, should I send a fix to the current code before?
+>>>
+>>> Thanks,
+>>> Icenowy
+>> Please go ahead and fix it when applying -- I'm happy with that.
+>> Thanks!
+> I'm going to apply [1] to the fixes branch, which seems to be
+> introducing merge conflict with this patch.
+>
+> In addition, checkpatch.pl reports some parenthesis alignment issues on
+> this patch.
+>
+> Maybe it's worth sending a v7 resolving all these problems on this
+> patch (DC8200 FB_EN clear_bits, parenthesis alignment, rebase on [1]).
+>
+> Thanks,
+> Icenowy
+>
+> [1]
+> https://lore.kernel.org/all/20260910095000.3505878-1-zhengxingda@iscas.ac.cn/
+Understood. The conflict is from a commit that landed after v6 went out, 
+a rebase resolves it cleanly.
+I'll fix the parenthesis-alignment issues too, and send v7 rebased on 
+top, including the port@1
+restriction from patch 1 and the DC8200 FB_EN set/clear fix as its own 
+dedicated commit.
 
-v3: rebased onto asoc/for-next after v2 was reported as not applying.
-
- sound/soc/atmel/atmel-pcm-dma.c            |  2 +-
- sound/soc/bcm/cygnus-ssp.h                 |  2 +-
- sound/soc/codecs/adau1701.c                |  4 ++--
- sound/soc/codecs/cs35l33.c                 |  2 +-
- sound/soc/codecs/cs35l34.c                 |  2 +-
- sound/soc/codecs/cs42l42.c                 |  2 +-
- sound/soc/codecs/cs42l73.c                 |  4 ++--
- sound/soc/codecs/cx20442.c                 |  2 +-
- sound/soc/codecs/da7210.c                  |  2 +-
- sound/soc/codecs/hdac_hda.c                |  2 +-
- sound/soc/codecs/hdac_hdmi.c               |  2 +-
- sound/soc/codecs/max98927.c                |  4 ++--
- sound/soc/codecs/mt6359.c                  |  8 ++++----
- sound/soc/codecs/nau8825.c                 | 10 +++++-----
- sound/soc/codecs/rt1320-sdw.c              |  2 +-
- sound/soc/codecs/rt5631.h                  |  8 ++++----
- sound/soc/codecs/rt5640.c                  |  2 +-
- sound/soc/codecs/rt5645.c                  |  2 +-
- sound/soc/codecs/rt5651.c                  |  2 +-
- sound/soc/codecs/rt5670.c                  |  2 +-
- sound/soc/codecs/tlv320dac33.c             |  2 +-
- sound/soc/intel/atom/sst-mfld-dsp.h        |  2 +-
- sound/soc/intel/atom/sst/sst.h             |  2 +-
- sound/soc/intel/boards/sof_cirrus_common.c |  2 +-
- sound/soc/qcom/qdsp6/q6asm-dai.c           |  2 +-
- sound/soc/ti/davinci-i2s.c                 |  2 +-
- sound/soc/ti/davinci-mcasp.c               |  2 +-
- sound/soc/ti/omap-mcbsp.c                  |  2 +-
- sound/soc/uniphier/aio.h                   |  2 +-
- sound/soc/ux500/ux500_msp_i2s.c            |  2 +-
- 30 files changed, 43 insertions(+), 43 deletions(-)
-
-diff --git a/sound/soc/atmel/atmel-pcm-dma.c b/sound/soc/atmel/atmel-pcm-dma.c
-index 7306e04da513..e4b73ae3df4f 100644
---- a/sound/soc/atmel/atmel-pcm-dma.c
-+++ b/sound/soc/atmel/atmel-pcm-dma.c
-@@ -47,7 +47,7 @@ static const struct snd_pcm_hardware atmel_pcm_dma_hardware = {
-  * atmel_pcm_dma_irq: SSC interrupt handler for DMAENGINE enabled SSC
-  *
-  * We use DMAENGINE to send/receive data to/from SSC so this ISR is only to
-- * check if any overrun occured.
-+ * check if any overrun occurred.
-  */
- static void atmel_pcm_dma_irq(u32 ssc_sr,
- 	struct snd_pcm_substream *substream)
-diff --git a/sound/soc/bcm/cygnus-ssp.h b/sound/soc/bcm/cygnus-ssp.h
-index 4925e03c3c30..7848e15efbe1 100644
---- a/sound/soc/bcm/cygnus-ssp.h
-+++ b/sound/soc/bcm/cygnus-ssp.h
-@@ -27,7 +27,7 @@ struct ringbuf_regs {
- 	unsigned wraddr;
- 	unsigned baseaddr;
- 	unsigned endaddr;
--	unsigned fmark;   /* freemark for play, fullmark for caputure */
-+	unsigned fmark;   /* freemark for play, fullmark for capture */
- 	unsigned period_bytes;
- 	unsigned buf_size;
- };
-diff --git a/sound/soc/codecs/adau1701.c b/sound/soc/codecs/adau1701.c
-index a1311c7b56b1..d55cdc5d4413 100644
---- a/sound/soc/codecs/adau1701.c
-+++ b/sound/soc/codecs/adau1701.c
-@@ -4,7 +4,7 @@
-  *
-  * Copyright 2011 Analog Devices Inc.
-  * Author: Lars-Peter Clausen <lars@metafoo.de>
-- *	based on an inital version by Cliff Cai <cliff.cai@analog.com>
-+ *	based on an initial version by Cliff Cai <cliff.cai@analog.com>
-  */
- 
- #include <linux/module.h>
-@@ -701,7 +701,7 @@ static int adau1701_probe(struct snd_soc_component *component)
- 	 */
- 	adau1701->pll_clkdiv = ADAU1707_CLKDIV_UNSET;
- 
--	/* initalize with pre-configured pll mode settings */
-+	/* initialize with pre-configured pll mode settings */
- 	ret = adau1701_reset(component, adau1701->pll_clkdiv, 0);
- 	if (ret < 0)
- 		goto exit_regulators_disable;
-diff --git a/sound/soc/codecs/cs35l33.c b/sound/soc/codecs/cs35l33.c
-index d0f9231f5e44..b8c19f175701 100644
---- a/sound/soc/codecs/cs35l33.c
-+++ b/sound/soc/codecs/cs35l33.c
-@@ -578,7 +578,7 @@ static int cs35l33_set_tdm_slot(struct snd_soc_dai *dai, unsigned int tx_mask,
- 			| CS35L33_X_LOC);
- 	}
- 
--	/* disconnect {vp,vbst}_mon routes: eanble later if set in tx_mask*/
-+	/* disconnect {vp,vbst}_mon routes: enable later if set in tx_mask*/
- 	snd_soc_dapm_del_routes(dapm, cs35l33_vp_vbst_mon_route,
- 		ARRAY_SIZE(cs35l33_vp_vbst_mon_route));
- 
-diff --git a/sound/soc/codecs/cs35l34.c b/sound/soc/codecs/cs35l34.c
-index 3f265bd760f7..a72be629a31e 100644
---- a/sound/soc/codecs/cs35l34.c
-+++ b/sound/soc/codecs/cs35l34.c
-@@ -297,7 +297,7 @@ static int cs35l34_set_tdm_slot(struct snd_soc_dai *dai, unsigned int tx_mask,
- 				CS35L34_X_STATE | CS35L34_X_LOC,
- 				CS35L34_X_STATE | CS35L34_X_LOC);
- 
--	/* disconnect {vp,vbst}_mon routes: eanble later if set in tx_mask*/
-+	/* disconnect {vp,vbst}_mon routes: enable later if set in tx_mask*/
- 	while (slot >= 0) {
- 		/* configure VMON_TX_LOC */
- 		if (slot_num == 0)
-diff --git a/sound/soc/codecs/cs42l42.c b/sound/soc/codecs/cs42l42.c
-index 866c21944729..84065d153ebf 100644
---- a/sound/soc/codecs/cs42l42.c
-+++ b/sound/soc/codecs/cs42l42.c
-@@ -1682,7 +1682,7 @@ irqreturn_t cs42l42_irq_thread(int irq, void *data)
- 	if (cs42l42->suspended || !cs42l42->init_done)
- 		return IRQ_NONE;
- 
--	/* Read sticky registers to clear interurpt */
-+	/* Read sticky registers to clear interrupt */
- 	for (i = 0; i < ARRAY_SIZE(stickies); i++) {
- 		regmap_read(cs42l42->regmap, irq_params_table[i].status_addr,
- 				&(stickies[i]));
-diff --git a/sound/soc/codecs/cs42l73.c b/sound/soc/codecs/cs42l73.c
-index 72076ccf4570..72c4213ed74b 100644
---- a/sound/soc/codecs/cs42l73.c
-+++ b/sound/soc/codecs/cs42l73.c
-@@ -761,7 +761,7 @@ static const struct snd_soc_dapm_route cs42l73_audio_map[] = {
- 	{"ASPOUTL", "ASP-IP Volume", "ASPL Output Mixer"},
- 	{"ASPOUTR", "ASP-IP Volume", "ASPR Output Mixer"},
- 
--	/* Auxillary Capture */
-+	/* Auxiliary Capture */
- 	{"XSPL Output Mixer", NULL, "Input Left Capture"},
- 	{"XSPR Output Mixer", NULL, "Input Right Capture"},
- 
-@@ -1126,7 +1126,7 @@ static int cs42l73_set_bias_level(struct snd_soc_component *component,
- 			mdelay(cs42l73->shutdwn_delay);
- 			cs42l73->shutdwn_delay = 0;
- 		} else {
--			mdelay(15); /* Min amount of time requred to power
-+			mdelay(15); /* Min amount of time required to power
- 				     * down.
- 				     */
- 		}
-diff --git a/sound/soc/codecs/cx20442.c b/sound/soc/codecs/cx20442.c
-index 0dea84cd8ef2..d3c7a9370220 100644
---- a/sound/soc/codecs/cx20442.c
-+++ b/sound/soc/codecs/cx20442.c
-@@ -200,7 +200,7 @@ static int cx20442_write(struct snd_soc_component *component, unsigned int reg,
-  * Line discpline related code
-  *
-  * Any of the callback functions below can be used in two ways:
-- * 1) registerd by a machine driver as one of line discipline operations,
-+ * 1) registered by a machine driver as one of line discipline operations,
-  * 2) called from a machine's provided line discipline callback function
-  *    in case when extra machine specific code must be run as well.
-  */
-diff --git a/sound/soc/codecs/da7210.c b/sound/soc/codecs/da7210.c
-index 597510de561a..40d759938edc 100644
---- a/sound/soc/codecs/da7210.c
-+++ b/sound/soc/codecs/da7210.c
-@@ -1158,7 +1158,7 @@ static int da7210_probe(struct snd_soc_component *component)
- 	snd_soc_component_write(component, DA7210_PLL_DIV3, DA7210_MCLK_RANGE_10_20_MHZ |
- 					      DA7210_PLL_BYP);
- 
--	/* Diable PLL and bypass it */
-+	/* Disable PLL and bypass it */
- 	snd_soc_component_write(component, DA7210_PLL, DA7210_PLL_FS_48000);
- 
- 	/* Activate all enabled subsystem */
-diff --git a/sound/soc/codecs/hdac_hda.c b/sound/soc/codecs/hdac_hda.c
-index 1c06fdbf0e71..7414be08d3d5 100644
---- a/sound/soc/codecs/hdac_hda.c
-+++ b/sound/soc/codecs/hdac_hda.c
-@@ -520,7 +520,7 @@ static int hdac_hda_codec_probe(struct snd_soc_component *component)
- 	/*
- 	 * hdac_device core already sets the state to active and calls
- 	 * get_noresume. So enable runtime and set the device to suspend.
--	 * pm_runtime_enable is also called during codec registeration
-+	 * pm_runtime_enable is also called during codec registration
- 	 */
- 	pm_runtime_put(&hdev->dev);
- 	pm_runtime_suspend(&hdev->dev);
-diff --git a/sound/soc/codecs/hdac_hdmi.c b/sound/soc/codecs/hdac_hdmi.c
-index d9e6fa6d3e99..b3f677e7ddc9 100644
---- a/sound/soc/codecs/hdac_hdmi.c
-+++ b/sound/soc/codecs/hdac_hdmi.c
-@@ -1753,7 +1753,7 @@ static int hdmi_codec_resume(struct device *dev)
- 	/*
- 	 * As the ELD notify callback request is not entertained while the
- 	 * device is in suspend state. Need to manually check detection of
--	 * all pins here. pin capablity change is not support, so use the
-+	 * all pins here. pin capability change is not support, so use the
- 	 * already set pin caps.
- 	 *
- 	 * NOTE: this is safe to call even if the codec doesn't actually resume.
-diff --git a/sound/soc/codecs/max98927.c b/sound/soc/codecs/max98927.c
-index d8dfaefdca7e..285c9d1ea721 100644
---- a/sound/soc/codecs/max98927.c
-+++ b/sound/soc/codecs/max98927.c
-@@ -672,7 +672,7 @@ static int max98927_probe(struct snd_soc_component *component)
- 		     0x80);
- 	regmap_write(max98927->regmap, MAX98927_R0026_PCM_TO_SPK_MONOMIX_B,
- 		     0x1);
--	/* Set inital volume (+13dB) */
-+	/* Set initial volume (+13dB) */
- 	regmap_write(max98927->regmap, MAX98927_R0036_AMP_VOL_CTRL, 0x38);
- 	regmap_write(max98927->regmap, MAX98927_R003C_SPK_GAIN, 0x05);
- 	/* Enable DC blocker */
-@@ -870,7 +870,7 @@ static int max98927_i2c_probe(struct i2c_client *i2c)
- 	/* voltage/current slot configuration */
- 	max98927_slot_config(i2c, max98927);
- 
--	/* codec registeration */
-+	/* codec registration */
- 	ret = devm_snd_soc_register_component(&i2c->dev,
- 		&soc_component_dev_max98927,
- 		max98927_dai, ARRAY_SIZE(max98927_dai));
-diff --git a/sound/soc/codecs/mt6359.c b/sound/soc/codecs/mt6359.c
-index b15bdb15dbb0..c51eae602ca0 100644
---- a/sound/soc/codecs/mt6359.c
-+++ b/sound/soc/codecs/mt6359.c
-@@ -82,7 +82,7 @@ static void mt6359_reset_capture_gpio(struct mt6359_priv *priv)
- 			   0x3 << 0, 0x0);
- }
- 
--/* use only when doing mtkaif calibraiton at the boot time */
-+/* use only when doing mtkaif calibration at the boot time */
- static void mt6359_set_dcxo(struct mt6359_priv *priv, bool enable)
- {
- 	regmap_update_bits(priv->regmap, MT6359_DCXO_CW12,
-@@ -90,7 +90,7 @@ static void mt6359_set_dcxo(struct mt6359_priv *priv, bool enable)
- 			   (enable ? 1 : 0) << RG_XO_AUDIO_EN_M_SFT);
- }
- 
--/* use only when doing mtkaif calibraiton at the boot time */
-+/* use only when doing mtkaif calibration at the boot time */
- static void mt6359_set_clksq(struct mt6359_priv *priv, bool enable)
- {
- 	/* Enable/disable CLKSQ 26MHz */
-@@ -99,7 +99,7 @@ static void mt6359_set_clksq(struct mt6359_priv *priv, bool enable)
- 			   (enable ? 1 : 0) << RG_CLKSQ_EN_SFT);
- }
- 
--/* use only when doing mtkaif calibraiton at the boot time */
-+/* use only when doing mtkaif calibration at the boot time */
- static void mt6359_set_aud_global_bias(struct mt6359_priv *priv, bool enable)
- {
- 	regmap_update_bits(priv->regmap, MT6359_AUDDEC_ANA_CON13,
-@@ -107,7 +107,7 @@ static void mt6359_set_aud_global_bias(struct mt6359_priv *priv, bool enable)
- 			   (enable ? 0 : 1) << RG_AUDGLB_PWRDN_VA32_SFT);
- }
- 
--/* use only when doing mtkaif calibraiton at the boot time */
-+/* use only when doing mtkaif calibration at the boot time */
- static void mt6359_set_topck(struct mt6359_priv *priv, bool enable)
- {
- 	regmap_update_bits(priv->regmap, MT6359_AUD_TOP_CKPDN_CON0,
-diff --git a/sound/soc/codecs/nau8825.c b/sound/soc/codecs/nau8825.c
-index 5165aeba4b67..2eb0efc983a0 100644
---- a/sound/soc/codecs/nau8825.c
-+++ b/sound/soc/codecs/nau8825.c
-@@ -345,10 +345,10 @@ static u32 nau8825_intlog10_dec3(u32 value)
- /**
-  * nau8825_xtalk_sidetone - computes cross talk suppression sidetone gain.
-  *
-- * @sig_org: orignal signal level
-+ * @sig_org: original signal level
-  * @sig_cros: cross talk signal level
-  *
-- * The orignal and cross talk signal vlues need to be characterized.
-+ * The original and cross talk signal vlues need to be characterized.
-  * Once these values have been characterized, this sidetone value
-  * can be converted to decibel with the equation below.
-  * sidetone = 20 * log (original signal level / crosstalk signal level)
-@@ -671,11 +671,11 @@ static void nau8825_xtalk_imm_stop(struct nau8825 *nau8825)
-  * Thus, the measurement function has four states to complete whole sequence.
-  * 1. Prepare state : Prepare the resource for detection and transfer to HPR
-  *     IMM stat to make JKR1(HPR) impedance measure.
-- * 2. HPR IMM state : Read out orignal signal level of JKR1(HPR) and transfer
-+ * 2. HPR IMM state : Read out original signal level of JKR1(HPR) and transfer
-  *     to HPL IMM state to make JKTIP(HPL) impedance measure.
-  * 3. HPL IMM state : Read out cross talk signal level of JKTIP(HPL) and
-  *     transfer to IMM state to determine suppression sidetone gain.
-- * 4. IMM state : Computes cross talk suppression sidetone gain with orignal
-+ * 4. IMM state : Computes cross talk suppression sidetone gain with original
-  *     and cross talk signal level. Apply this gain and then restore codec
-  *     configuration. Then transfer to Done state for ending.
-  */
-@@ -724,7 +724,7 @@ static void nau8825_xtalk_measure(struct nau8825 *nau8825)
- 		nau8825->xtalk_state = NAU8825_XTALK_IMM;
- 		break;
- 	case NAU8825_XTALK_IMM:
--		/* In impedance measure state, the orignal and cross talk
-+		/* In impedance measure state, the original and cross talk
- 		 * signal level vlues are ready. The side tone gain is deter-
- 		 * mined with these signal level. After all, restore codec
- 		 * configuration.
-diff --git a/sound/soc/codecs/rt1320-sdw.c b/sound/soc/codecs/rt1320-sdw.c
-index 444a91755be9..b13622e54ae0 100644
---- a/sound/soc/codecs/rt1320-sdw.c
-+++ b/sound/soc/codecs/rt1320-sdw.c
-@@ -2084,7 +2084,7 @@ static int rt1320_rae_load(struct rt1320_sdw_priv *rt1320)
- 		regmap_update_bits(rt1320->regmap, 0x20005818, 0x80, 0x80);
- 		/* RAE run */
- 		regmap_update_bits(rt1320->regmap, 0x2000301c, 0x01, 0x01);
--		/* Phase sync eanble */
-+		/* Phase sync enable */
- 		regmap_update_bits(rt1320->regmap, 0xc047, 0x80, 0x80);
- 		break;
- 	}
-diff --git a/sound/soc/codecs/rt5631.h b/sound/soc/codecs/rt5631.h
-index 8a6b99a48c7c..00734207ac9f 100644
---- a/sound/soc/codecs/rt5631.h
-+++ b/sound/soc/codecs/rt5631.h
-@@ -415,7 +415,7 @@
- #define RT5631_ADDA_FILTER_CLK_SEL_256FS		(0 << 7) /* 256FS */
- #define RT5631_ADDA_FILTER_CLK_SEL_384FS		(1 << 7) /* 384FS */
- 
--/* Power managment addition 1 (0x3A) */
-+/* Power management addition 1 (0x3A) */
- #define RT5631_PWR_MAIN_I2S_EN			(0x1 << 15)
- #define RT5631_PWR_MAIN_I2S_BIT			15
- #define RT5631_PWR_CLASS_D				(0x1 << 12)
-@@ -435,7 +435,7 @@
- #define RT5631_PWR_DAC_R_TO_MIXER			(0x1 << 5)
- #define RT5631_PWR_DAC_R_TO_MIXER_BIT		5
- 
--/* Power managment addition 2 (0x3B) */
-+/* Power management addition 2 (0x3B) */
- #define RT5631_PWR_OUTMIXER_L				(0x1 << 15)
- #define RT5631_PWR_OUTMIXER_L_BIT			15
- #define RT5631_PWR_OUTMIXER_R				(0x1 << 14)
-@@ -461,7 +461,7 @@
- #define RT5631_PWR_PLL2				(0x1 << 0)
- #define RT5631_PWR_PLL2_BIT				0
- 
--/* Power managment addition 3(0x3C) */
-+/* Power management addition 3(0x3C) */
- #define RT5631_PWR_VREF				(0x1 << 15)
- #define RT5631_PWR_VREF_BIT				15
- #define RT5631_PWR_FAST_VREF_CTRL			(0x1 << 14)
-@@ -489,7 +489,7 @@
- #define RT5631_PWR_HP_AMP_DRIVING			(0x1 << 0)
- #define RT5631_PWR_HP_AMP_DRIVING_BIT		0
- 
--/* Power managment addition 4(0x3E) */
-+/* Power management addition 4(0x3E) */
- #define RT5631_PWR_SPK_L_VOL				(0x1 << 15)
- #define RT5631_PWR_SPK_L_VOL_BIT			15
- #define RT5631_PWR_SPK_R_VOL				(0x1 << 14)
-diff --git a/sound/soc/codecs/rt5640.c b/sound/soc/codecs/rt5640.c
-index 4fa1eee8e87f..03d0ac3359f5 100644
---- a/sound/soc/codecs/rt5640.c
-+++ b/sound/soc/codecs/rt5640.c
-@@ -1216,7 +1216,7 @@ static const struct snd_soc_dapm_widget rt5640_dapm_widgets[] = {
- 		0, rt5640_spk_l_mix, ARRAY_SIZE(rt5640_spk_l_mix)),
- 	SND_SOC_DAPM_MIXER("SPK MIXR", RT5640_PWR_MIXER, RT5640_PWR_SM_R_BIT,
- 		0, rt5640_spk_r_mix, ARRAY_SIZE(rt5640_spk_r_mix)),
--	/* Ouput Volume */
-+	/* Output Volume */
- 	SND_SOC_DAPM_PGA("SPKVOL L", RT5640_PWR_VOL,
- 		RT5640_PWR_SV_L_BIT, 0, NULL, 0),
- 	SND_SOC_DAPM_PGA("SPKVOL R", RT5640_PWR_VOL,
-diff --git a/sound/soc/codecs/rt5645.c b/sound/soc/codecs/rt5645.c
-index bf9f278c3de9..bb448254275f 100644
---- a/sound/soc/codecs/rt5645.c
-+++ b/sound/soc/codecs/rt5645.c
-@@ -2209,7 +2209,7 @@ static const struct snd_soc_dapm_widget rt5645_dapm_widgets[] = {
- 		0, rt5645_out_l_mix, ARRAY_SIZE(rt5645_out_l_mix)),
- 	SND_SOC_DAPM_MIXER("OUT MIXR", RT5645_PWR_MIXER, RT5645_PWR_OM_R_BIT,
- 		0, rt5645_out_r_mix, ARRAY_SIZE(rt5645_out_r_mix)),
--	/* Ouput Volume */
-+	/* Output Volume */
- 	SND_SOC_DAPM_SWITCH("SPKVOL L", RT5645_PWR_VOL, RT5645_PWR_SV_L_BIT, 0,
- 		&spk_l_vol_control),
- 	SND_SOC_DAPM_SWITCH("SPKVOL R", RT5645_PWR_VOL, RT5645_PWR_SV_R_BIT, 0,
-diff --git a/sound/soc/codecs/rt5651.c b/sound/soc/codecs/rt5651.c
-index 9723b4c7540c..b911757376f5 100644
---- a/sound/soc/codecs/rt5651.c
-+++ b/sound/soc/codecs/rt5651.c
-@@ -1024,7 +1024,7 @@ static const struct snd_soc_dapm_widget rt5651_dapm_widgets[] = {
- 			   0, rt5651_out_l_mix, ARRAY_SIZE(rt5651_out_l_mix)),
- 	SND_SOC_DAPM_MIXER("OUT MIXR", RT5651_PWR_MIXER, RT5651_PWR_OM_R_BIT,
- 			   0, rt5651_out_r_mix, ARRAY_SIZE(rt5651_out_r_mix)),
--	/* Ouput Volume */
-+	/* Output Volume */
- 	SND_SOC_DAPM_SWITCH("OUTVOL L", RT5651_PWR_VOL,
- 			    RT5651_PWR_OV_L_BIT, 0, &outvol_l_control),
- 	SND_SOC_DAPM_SWITCH("OUTVOL R", RT5651_PWR_VOL,
-diff --git a/sound/soc/codecs/rt5670.c b/sound/soc/codecs/rt5670.c
-index f772f093479a..62d4e7cea5af 100644
---- a/sound/soc/codecs/rt5670.c
-+++ b/sound/soc/codecs/rt5670.c
-@@ -1901,7 +1901,7 @@ static const struct snd_soc_dapm_widget rt5670_dapm_widgets[] = {
- 			   0, rt5670_out_l_mix, ARRAY_SIZE(rt5670_out_l_mix)),
- 	SND_SOC_DAPM_MIXER("OUT MIXR", RT5670_PWR_MIXER, RT5670_PWR_OM_R_BIT,
- 			   0, rt5670_out_r_mix, ARRAY_SIZE(rt5670_out_r_mix)),
--	/* Ouput Volume */
-+	/* Output Volume */
- 	SND_SOC_DAPM_MIXER("HPOVOL MIXL", RT5670_PWR_VOL,
- 			   RT5670_PWR_HV_L_BIT, 0,
- 			   rt5670_hpvoll_mix, ARRAY_SIZE(rt5670_hpvoll_mix)),
-diff --git a/sound/soc/codecs/tlv320dac33.c b/sound/soc/codecs/tlv320dac33.c
-index 55a95b62a650..b91ab42882d1 100644
---- a/sound/soc/codecs/tlv320dac33.c
-+++ b/sound/soc/codecs/tlv320dac33.c
-@@ -914,7 +914,7 @@ static int dac33_prepare_chip(struct snd_pcm_substream *substream,
- 	/* OSC calibration time */
- 	dac33_write(component, DAC33_CALIB_TIME, 96);
- 
--	/* adjustment treshold & step */
-+	/* adjustment threshold & step */
- 	dac33_write(component, DAC33_INT_OSC_CTRL_B, DAC33_ADJTHRSHLD(2) |
- 						 DAC33_ADJSTEP(1));
- 
-diff --git a/sound/soc/intel/atom/sst-mfld-dsp.h b/sound/soc/intel/atom/sst-mfld-dsp.h
-index c8f0816edb53..59606259a06e 100644
---- a/sound/soc/intel/atom/sst-mfld-dsp.h
-+++ b/sound/soc/intel/atom/sst-mfld-dsp.h
-@@ -189,7 +189,7 @@ struct ipc_dsp_hdr {
- union ipc_header_high {
- 	struct {
- 		u32  msg_id:8;	    /* Message ID - Max 256 Message Types */
--		u32  task_id:4;	    /* Task ID associated with this comand */
-+		u32  task_id:4;	    /* Task ID associated with this command */
- 		u32  drv_id:4;    /* Identifier for the driver to track*/
- 		u32  rsvd1:8;	    /* Reserved */
- 		u32  result:4;	    /* Reserved */
-diff --git a/sound/soc/intel/atom/sst/sst.h b/sound/soc/intel/atom/sst/sst.h
-index c43946c5ecee..e24d9dad7ef6 100644
---- a/sound/soc/intel/atom/sst/sst.h
-+++ b/sound/soc/intel/atom/sst/sst.h
-@@ -182,7 +182,7 @@ struct sst_block {
-  * @pcm_substream : PCM substream
-  * @period_elapsed : PCM period elapsed callback
-  * @sfreq : stream sampling freq
-- * @cumm_bytes : cummulative bytes decoded
-+ * @cumm_bytes : cumulative bytes decoded
-  */
- struct stream_info {
- 	unsigned int		status;
-diff --git a/sound/soc/intel/boards/sof_cirrus_common.c b/sound/soc/intel/boards/sof_cirrus_common.c
-index 88fc6cb2bfd4..ec4bda40ae00 100644
---- a/sound/soc/intel/boards/sof_cirrus_common.c
-+++ b/sound/soc/intel/boards/sof_cirrus_common.c
-@@ -151,7 +151,7 @@ static const char * const cs35l41_name_prefixes[] = { "WL", "WR", "TL", "TR" };
-  * UID 0x2 -> TL
-  * UID 0x3 -> TR
-  * Note: If there are less than 4 Amps, UIDs still map to WL/WR/TL/TR. Dynamic code will only create
-- * dai links for UIDs which exist, and ignore non-existant ones. Only 2 or 4 amps are expected.
-+ * dai links for UIDs which exist, and ignore non-existent ones. Only 2 or 4 amps are expected.
-  * Return number of codecs found.
-  */
- static int cs35l41_compute_codec_conf(void)
-diff --git a/sound/soc/qcom/qdsp6/q6asm-dai.c b/sound/soc/qcom/qdsp6/q6asm-dai.c
-index 4f09fdd40905..cd4f82bb8cc7 100644
---- a/sound/soc/qcom/qdsp6/q6asm-dai.c
-+++ b/sound/soc/qcom/qdsp6/q6asm-dai.c
-@@ -551,7 +551,7 @@ static void compress_event_handler(uint32_t opcode, uint32_t token,
- 						 prtd->stream_id,
- 						 CMD_CLOSE);
- 				/*
--				 * vaild stream ids start from 1, So we are
-+				 * valid stream ids start from 1, So we are
- 				 * toggling this between 1 and 2.
- 				 */
- 				prtd->stream_id = (prtd->stream_id == 1 ? 2 : 1);
-diff --git a/sound/soc/ti/davinci-i2s.c b/sound/soc/ti/davinci-i2s.c
-index ec7eb2f19b6f..3614f614117d 100644
---- a/sound/soc/ti/davinci-i2s.c
-+++ b/sound/soc/ti/davinci-i2s.c
-@@ -49,7 +49,7 @@
-  *    incompatible with ASP and with either McBSP.
-  *
-  * In short:  this uses ASP to implement I2S, not McBSP.
-- * And it won't be the only DaVinci implemention of I2S.
-+ * And it won't be the only DaVinci implementation of I2S.
-  */
- #define DAVINCI_MCBSP_DRR_REG	0x00
- #define DAVINCI_MCBSP_DXR_REG	0x04
-diff --git a/sound/soc/ti/davinci-mcasp.c b/sound/soc/ti/davinci-mcasp.c
-index ad9e194a3d0d..d461ab419655 100644
---- a/sound/soc/ti/davinci-mcasp.c
-+++ b/sound/soc/ti/davinci-mcasp.c
-@@ -1818,7 +1818,7 @@ static int davinci_mcasp_startup(struct snd_pcm_substream *substream,
- 	    !mcasp->async_mode)
- 		max_channels = mcasp->channels;
- 	/*
--	 * But we can always allow channels upto the amount of
-+	 * But we can always allow channels up to the amount of
- 	 * the available tdm_slots.
- 	 */
- 	if (max_channels < tdm_slots)
-diff --git a/sound/soc/ti/omap-mcbsp.c b/sound/soc/ti/omap-mcbsp.c
-index 5734388a4e4b..889e357b64d0 100644
---- a/sound/soc/ti/omap-mcbsp.c
-+++ b/sound/soc/ti/omap-mcbsp.c
-@@ -1237,7 +1237,7 @@ static int omap_mcbsp_dai_set_dai_sysclk(struct snd_soc_dai *cpu_dai,
- 		break;
- 	case OMAP_MCBSP_SYSCLK_CLKR_EXT:
- 		regs->pcr0	|= SCLKME;
--		/* Disable ouput on CLKR pin in master mode */
-+		/* Disable output on CLKR pin in master mode */
- 		regs->pcr0	&= ~CLKRM;
- 		break;
- 	default:
-diff --git a/sound/soc/uniphier/aio.h b/sound/soc/uniphier/aio.h
-index 1900ea01ce3d..87b27256cf80 100644
---- a/sound/soc/uniphier/aio.h
-+++ b/sound/soc/uniphier/aio.h
-@@ -183,7 +183,7 @@ struct uniphier_aio_selector {
-  *
-  * These are examples for sound data paths:
-  *
-- * For caputure device:
-+ * For capture device:
-  *   (outer of AIO) -> iport -> iif -> ch -> rb -> (CPU)
-  * For playback device:
-  *   (CPU) -> rb -> ch -> oif -> oport -> (outer of AIO)
-diff --git a/sound/soc/ux500/ux500_msp_i2s.c b/sound/soc/ux500/ux500_msp_i2s.c
-index 683b485fb570..bd2cfc618290 100644
---- a/sound/soc/ux500/ux500_msp_i2s.c
-+++ b/sound/soc/ux500/ux500_msp_i2s.c
-@@ -19,7 +19,7 @@
- 
- #include "ux500_msp_i2s.h"
- 
-- /* Protocol desciptors */
-+ /* Protocol descriptors */
- static const struct msp_protdesc prot_descs[] = {
- 	{ /* I2S */
- 		MSP_SINGLE_PHASE,
-
-base-commit: 323637a0aa19e59490a4449f2ab149d97fc5272d
--- 
-2.48.1
-
+Thanks.
+>>>> +
+>>>> +	vs_dc8200_plane_commit(dc, output);
+>>>> +}
+>>>> +
+>>>> +static void vs_dc8200_primary_plane_update_ex(struct vs_dc *dc,
+>>>> unsigned int output,
+>>>> +				       struct drm_plane_state
+>>>> *state)
+>>>> +{
+>>>> +	regmap_write(dc->regs, VSDC_FB_TOP_LEFT(output),
+>>>> +		     VSDC_MAKE_PLANE_POS(state->crtc_x, state-
+>>>>> crtc_y));
+>>>> +	regmap_write(dc->regs, VSDC_FB_BOTTOM_RIGHT(output),
+>>>> +		     VSDC_MAKE_PLANE_POS(state->crtc_x + state-
+>>>>> crtc_w,
+>>>> +					 state->crtc_y + state-
+>>>>> crtc_h));
+>>>> +	regmap_write(dc->regs, VSDC_FB_BLEND_CONFIG(output),
+>>>> +		     VSDC_FB_BLEND_CONFIG_BLEND_DISABLE);
+>>>> +
+>>>> +	vs_dc8200_plane_commit(dc, output);
+>>>> +}
+>>>> +
+>>>> +static u32 vs_dc8200_irq_ack(struct vs_dc *dc)
+>>>> +{
+>>>> +	u32 hw_irqs, unified = 0, known = 0;
+>>>> +	unsigned int i;
+>>>> +
+>>>> +	regmap_read(dc->regs, VSDC_TOP_IRQ_ACK, &hw_irqs);
+>>>> +
+>>>> +	for (i = 0; i < VSDC_MAX_OUTPUTS; i++) {
+>>>> +		known |= VSDC_TOP_IRQ_VSYNC(i);
+>>>> +		if (hw_irqs & VSDC_TOP_IRQ_VSYNC(i))
+>>>> +			unified |= VSDC_IRQ_VSYNC(i);
+>>>> +	}
+>>>> +
+>>>> +	drm_WARN_ONCE(&dc->drm_dev->base, hw_irqs & ~known,
+>>>> +		      "Unknown hardware IRQ bits: %#x\n",
+>>>> hw_irqs &
+>>>> ~known);
+>>>> +
+>>>> +	return unified;
+>>>> +}
+>>>> +
+>>>> +const struct vs_dc_funcs vs_dc8200_funcs = {
+>>>> +	.panel_enable_ex		=
+>>>> vs_dc8200_panel_enable_ex,
+>>>> +	.panel_disable_ex		=
+>>>> vs_dc8200_panel_disable_ex,
+>>>> +	.enable_vblank			=
+>>>> vs_dc8200_enable_vblank,
+>>>> +	.disable_vblank			=
+>>>> vs_dc8200_disable_vblank,
+>>>> +	.primary_plane_enable_ex	=
+>>>> vs_dc8200_primary_plane_enable_ex,
+>>>> +	.primary_plane_disable_ex	=
+>>>> vs_dc8200_primary_plane_disable_ex,
+>>>> +	.primary_plane_update_ex	=
+>>>> vs_dc8200_primary_plane_update_ex,
+>>>> +	.irq_ack			= vs_dc8200_irq_ack,
+>>>> +};
+>>>> diff --git a/drivers/gpu/drm/verisilicon/vs_drm.c
+>>>> b/drivers/gpu/drm/verisilicon/vs_drm.c
+>>>> index fd259d53f49f1..24e9d0b008f31 100644
+>>>> --- a/drivers/gpu/drm/verisilicon/vs_drm.c
+>>>> +++ b/drivers/gpu/drm/verisilicon/vs_drm.c
+>>>> @@ -25,7 +25,6 @@
+>>>>    #include "vs_bridge.h"
+>>>>    #include "vs_crtc.h"
+>>>>    #include "vs_dc.h"
+>>>> -#include "vs_dc_top_regs.h"
+>>>>    #include "vs_drm.h"
+>>>>    
+>>>>    #define DRIVER_NAME	"verisilicon"
+>>>> @@ -168,8 +167,8 @@ void vs_drm_handle_irq(struct vs_dc *dc, u32
+>>>> irqs)
+>>>>    	unsigned int i;
+>>>>    
+>>>>    	for (i = 0; i < dc->identity.display_count; i++) {
+>>>> -		if (irqs & VSDC_TOP_IRQ_VSYNC(i)) {
+>>>> -			irqs &= ~VSDC_TOP_IRQ_VSYNC(i);
+>>>> +		if (irqs & VSDC_IRQ_VSYNC(i)) {
+>>>> +			irqs &= ~VSDC_IRQ_VSYNC(i);
+>>>>    			if (dc->drm_dev->crtcs[i])
+>>>>    				drm_crtc_handle_vblank(&dc-
+>>>>> drm_dev-
+>>>>> crtcs[i]->base);
+>>>>    		}
+>>>> diff --git a/drivers/gpu/drm/verisilicon/vs_drm.h
+>>>> b/drivers/gpu/drm/verisilicon/vs_drm.h
+>>>> index 606338206a427..6a89c20879df7 100644
+>>>> --- a/drivers/gpu/drm/verisilicon/vs_drm.h
+>>>> +++ b/drivers/gpu/drm/verisilicon/vs_drm.h
+>>>> @@ -6,6 +6,7 @@
+>>>>    #ifndef _VS_DRM_H_
+>>>>    #define _VS_DRM_H_
+>>>>    
+>>>> +#include <linux/bits.h>
+>>>>    #include <linux/platform_device.h>
+>>>>    #include <linux/types.h>
+>>>>    
+>>>> @@ -13,6 +14,13 @@
+>>>>    
+>>>>    struct vs_dc;
+>>>>    
+>>>> +/*
+>>>> + * DC variants use different interrupt registers with diverging
+>>>> bit
+>>>> + * assignments; each irq_ack() implementation must translate its
+>>>> + * hardware-specific bits into these definitions.
+>>>> + */
+>>>> +#define VSDC_IRQ_VSYNC(n)	BIT(n)
+>>>> +
+>>>>    struct vs_drm_dev {
+>>>>    	struct drm_device base;
+>>>>    
+>>>> diff --git a/drivers/gpu/drm/verisilicon/vs_hwdb.c
+>>>> b/drivers/gpu/drm/verisilicon/vs_hwdb.c
+>>>> index 2a0f7c59afa3a..91524d16f7785 100644
+>>>> --- a/drivers/gpu/drm/verisilicon/vs_hwdb.c
+>>>> +++ b/drivers/gpu/drm/verisilicon/vs_hwdb.c
+>>>> @@ -94,6 +94,7 @@ static struct vs_chip_identity
+>>>> vs_chip_identities[]
+>>>> = {
+>>>>    		.revision = 0x5720,
+>>>>    		.customer_id = ~0U,
+>>>>    
+>>>> +		.generation = VSDC_GEN_DC8200,
+>>>>    		.display_count = 2,
+>>>>    		.max_cursor_size = 64,
+>>>>    		.formats = &vs_formats_no_yuv444,
+>>>> @@ -103,6 +104,7 @@ static struct vs_chip_identity
+>>>> vs_chip_identities[] = {
+>>>>    		.revision = 0x5721,
+>>>>    		.customer_id = 0x30B,
+>>>>    
+>>>> +		.generation = VSDC_GEN_DC8200,
+>>>>    		.display_count = 2,
+>>>>    		.max_cursor_size = 64,
+>>>>    		.formats = &vs_formats_no_yuv444,
+>>>> @@ -112,6 +114,7 @@ static struct vs_chip_identity
+>>>> vs_chip_identities[] = {
+>>>>    		.revision = 0x5720,
+>>>>    		.customer_id = 0x310,
+>>>>    
+>>>> +		.generation = VSDC_GEN_DC8200,
+>>>>    		.display_count = 2,
+>>>>    		.max_cursor_size = 64,
+>>>>    		.formats = &vs_formats_with_yuv444,
+>>>> @@ -121,6 +124,7 @@ static struct vs_chip_identity
+>>>> vs_chip_identities[] = {
+>>>>    		.revision = 0x5720,
+>>>>    		.customer_id = 0x311,
+>>>>    
+>>>> +		.generation = VSDC_GEN_DC8200,
+>>>>    		.display_count = 2,
+>>>>    		.max_cursor_size = 64,
+>>>>    		.formats = &vs_formats_no_yuv444,
+>>>> diff --git a/drivers/gpu/drm/verisilicon/vs_hwdb.h
+>>>> b/drivers/gpu/drm/verisilicon/vs_hwdb.h
+>>>> index 2065ecb730437..a15c8b5656044 100644
+>>>> --- a/drivers/gpu/drm/verisilicon/vs_hwdb.h
+>>>> +++ b/drivers/gpu/drm/verisilicon/vs_hwdb.h
+>>>> @@ -9,6 +9,11 @@
+>>>>    #include <linux/regmap.h>
+>>>>    #include <linux/types.h>
+>>>>    
+>>>> +enum vs_dc_generation {
+>>>> +	VSDC_GEN_DC8000,
+>>>> +	VSDC_GEN_DC8200,
+>>>> +};
+>>>> +
+>>>>    struct vs_formats {
+>>>>    	const u32 *array;
+>>>>    	unsigned int num;
+>>>> @@ -19,6 +24,7 @@ struct vs_chip_identity {
+>>>>    	u32 revision;
+>>>>    	u32 customer_id;
+>>>>    
+>>>> +	enum vs_dc_generation generation;
+>>>>    	u32 display_count;
+>>>>    	/*
+>>>>    	 * The hardware only supports square cursor planes, so
+>>>> this
+>>>> field
+>>>> diff --git a/drivers/gpu/drm/verisilicon/vs_primary_plane.c
+>>>> b/drivers/gpu/drm/verisilicon/vs_primary_plane.c
+>>>> index 2750016a7f2c3..85ba2068172db 100644
+>>>> --- a/drivers/gpu/drm/verisilicon/vs_primary_plane.c
+>>>> +++ b/drivers/gpu/drm/verisilicon/vs_primary_plane.c
+>>>> @@ -54,12 +54,6 @@ static int
+>>>> vs_primary_plane_atomic_check(struct
+>>>> drm_plane *plane,
+>>>>    	return 0;
+>>>>    }
+>>>>    
+>>>> -static void vs_primary_plane_commit(struct vs_dc *dc, unsigned
+>>>> int
+>>>> output)
+>>>> -{
+>>>> -	regmap_set_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
+>>>> -			VSDC_FB_CONFIG_EX_COMMIT);
+>>>> -}
+>>>> -
+>>>>    static void vs_primary_plane_atomic_enable(struct drm_plane
+>>>> *plane,
+>>>>    					   struct
+>>>> drm_atomic_commit
+>>>> *atomic_state)
+>>>>    {
+>>>> @@ -70,13 +64,8 @@ static void
+>>>> vs_primary_plane_atomic_enable(struct
+>>>> drm_plane *plane,
+>>>>    	unsigned int output = vcrtc->id;
+>>>>    	struct vs_dc *dc = vcrtc->dc;
+>>>>    
+>>>> -	regmap_set_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
+>>>> -			VSDC_FB_CONFIG_EX_FB_EN);
+>>>> -	regmap_update_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
+>>>> -			   VSDC_FB_CONFIG_EX_DISPLAY_ID_MASK,
+>>>> -			
+>>>> VSDC_FB_CONFIG_EX_DISPLAY_ID(output));
+>>>> -
+>>>> -	vs_primary_plane_commit(dc, output);
+>>>> +	if (dc->funcs->primary_plane_enable_ex)
+>>>> +		dc->funcs->primary_plane_enable_ex(dc, output);
+>>>>    }
+>>>>    
+>>>>    static void vs_primary_plane_atomic_disable(struct drm_plane
+>>>> *plane,
+>>>> @@ -89,10 +78,8 @@ static void
+>>>> vs_primary_plane_atomic_disable(struct
+>>>> drm_plane *plane,
+>>>>    	unsigned int output = vcrtc->id;
+>>>>    	struct vs_dc *dc = vcrtc->dc;
+>>>>    
+>>>> -	regmap_set_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
+>>>> -			VSDC_FB_CONFIG_EX_FB_EN);
+>>>> -
+>>>> -	vs_primary_plane_commit(dc, output);
+>>>> +	if (dc->funcs->primary_plane_disable_ex)
+>>>> +		dc->funcs->primary_plane_disable_ex(dc, output);
+>>>>    }
+>>>>    
+>>>>    static void vs_primary_plane_atomic_update(struct drm_plane
+>>>> *plane,
+>>>> @@ -138,18 +125,11 @@ static void
+>>>> vs_primary_plane_atomic_update(struct drm_plane *plane,
+>>>>    	regmap_write(dc->regs, VSDC_FB_STRIDE(output),
+>>>>    		     fb->pitches[0]);
+>>>>    
+>>>> -	regmap_write(dc->regs, VSDC_FB_TOP_LEFT(output),
+>>>> -		     VSDC_MAKE_PLANE_POS(state->crtc_x, state-
+>>>>> crtc_y));
+>>>> -	regmap_write(dc->regs, VSDC_FB_BOTTOM_RIGHT(output),
+>>>> -		     VSDC_MAKE_PLANE_POS(state->crtc_x + state-
+>>>>> crtc_w,
+>>>> -					 state->crtc_y + state-
+>>>>> crtc_h));
+>>>>    	regmap_write(dc->regs, VSDC_FB_SIZE(output),
+>>>>    		     VSDC_MAKE_PLANE_SIZE(state->crtc_w, state-
+>>>>> crtc_h));
+>>>>    
+>>>> -	regmap_write(dc->regs, VSDC_FB_BLEND_CONFIG(output),
+>>>> -		     VSDC_FB_BLEND_CONFIG_BLEND_DISABLE);
+>>>> -
+>>>> -	vs_primary_plane_commit(dc, output);
+>>>> +	if (dc->funcs->primary_plane_update_ex)
+>>>> +		dc->funcs->primary_plane_update_ex(dc, output,
+>>>> state);
+>>>>    }
+>>>>    
+>>>>    static const struct drm_plane_helper_funcs
+>>>> vs_primary_plane_helper_funcs = {
 
