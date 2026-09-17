@@ -4,146 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C27EC982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 22:56:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09EDAC982D7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 23:00:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C8fhB4ShupgmdingQtdsx4ZV7fuE84BA4Ymz0F7Pxoc=; b=WiGtO9NDs1OoTX1zGX8uvcRpFw
-	3J2fPhmSApAidpPHkQ41eisuwQIZFI82OiVUbb/PQ57Lw5l7LUbbMX2hYwA4BYa8AEd2hlz1kMOrv
-	UEj5YzjmGBJMQkx46gtauUq8a74c/qmctRMMfF/69Ts/U7Mwswglhd3O4u+92p3KwXdJjjkH7pTUd
-	r1dSTxBEu079bG6wS4wJt12aBbtCbTta2lRORJsJzrfIrEkQiqHhF1xaiEu2p3WsyBYgJcEWIJHCD
-	nJTPBUkgG16jY8p9GMx7uZEsMCLN6teujl3JrANupzx7jiRqqvuYXtr9rrdFfzbnPVsMAnG9fVhKL
-	G3ropqVw==;
+	bh=u9YGfpGG2ynRncYGiDzoG8oC5Zk7r9CYJBEST6kv/j8=; b=a8niEk5k22R/XtHbI9g4WtPxrx
+	yOg8fU6/RQ0KMRJa8sXPWLj+aI2kW6rA3tgjgurdolId+RZprQMSFuwY7t1kjnxWjEJuY20iY1p61
+	tpEZOp0D013lzzjTKbsqFDNdGA2pbOXQxdVe5A3/Cc4MxaVpQNVj5fpH+yVeQac9jwn6zSyP8M+Xo
+	DdyVTG6/2f05ayCNlPunteX7V8cFZihasRJ68z+fwudTC5e1mR3tt3AfH7bcPllwJkgGe2soozLsu
+	7Kqi7f4WDmrvEqK0Nwknd4EuKZQKHtSjO5vaW1/kTmU+/v+c1Utw+7fF30WmNb6nFbNrhr6ksGSxA
+	UdSWzxUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7L25-0000000CidD-3aDb;
-	Thu, 17 Sep 2026 22:56:45 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1x7L5l-0000000Cjx1-28IO;
+	Thu, 17 Sep 2026 23:00:33 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7L1t-0000000CiZ5-2QIz
+	id 1x7L5k-0000000Cjuh-1N8b
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 17 Sep 2026 23:00:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=u9YGfpGG2ynRncYGiDzoG8oC5Zk7r9CYJBEST6kv/j8=; b=eMIeX9uXoMvC/8J9r6xkb4KvA7
+	BTCw+nJfN2G4p1hFzks8GU/sXPnF4RWY53IfHxG/yIKAduqYOxK3xF50sIvCgtRPN8hKl6Y5zY9Js
+	4nouZOHYBCdu4AMLXRSEyVVGWg31ci7IJFw745AZMyegvnJOsbQi3Lc08iAEK/V/XdcnFx7IQHJle
+	EPOzKBLPFYyYPxZS4VgnOfuIaUBi1P6Q3nH/f0RanratXs7mKRApsq/7uUQnHaoCy135PM7Bn6zN9
+	/mxaujy4CvY2hr9p/wv5f5ia1/yMGm3irm1NJy0cLyKSQnVYBpR80mG9h2bsupNXck6rsEaO1riGJ
+	TmI1RW3w==;
+Received: from mail-oi2-x07.google.com ([2607:f8b0:4864:32::7])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x7L5f-00000009LXW-30Qh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 22:56:34 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68HLFntJ2179457
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 22:56:32 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	C8fhB4ShupgmdingQtdsx4ZV7fuE84BA4Ymz0F7Pxoc=; b=Svk1/ZM7ul6UUri1
-	ilADI/q42HWeWOXDTlhXtMd+epfVhQKv1y5K06BgXfL0VDFWvcs6dohdInxV3hlX
-	p93MhU6T5EOjVT2Ipkp7pkFSz263eCTuX5MJv87sQ1yG3odWx6cxQQR0bkvp2ix5
-	M2FZxSOBarq6yRe9jzg6hYzWW0YUNKFBCwwBx5cMLS6TJ/TLjdOU5Nf5rQ+yQBxU
-	dQXkWvAwximUBqf4PW92VSogCXVnsfKFUIU5/fzVMvH1ilaXr7g24EhkSmjYvy1O
-	0L4mAx7RoueN9q8JrJIFJ45NP0uY5M/N+k5ASAm3QaYZuKftPHIfwHgEZk9D/6t8
-	efVSBg==
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4grq2krkhv-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 22:56:32 +0000 (GMT)
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2db8e9fe9c7so2193965ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 15:56:32 -0700 (PDT)
+	Thu, 17 Sep 2026 23:00:31 +0000
+Received: by mail-oi2-x07.google.com with SMTP id 46e09a7af769-7f4e2118db8so31686a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 16:00:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1789685791; x=1790290591; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=C8fhB4ShupgmdingQtdsx4ZV7fuE84BA4Ymz0F7Pxoc=;
-        b=d2jKy4YVteZBroxh0oWkhaHO5qpSuk3+3Wf54oC8pLGqhcV72JX3b4bdyfAx+xdebH
-         p1GnGZL15NWYg/Cxqlruj2jyFyJnS8LgaAF3xUVjzo3GNALsh32UQb55GBHLXywqe6/O
-         8U4oWSYYST+yLo8nbmyC2JqtFI44WVQ0wCIR3lalzQfHYgxyNB0FNnpFEuu5Ob0raaUm
-         z/Gczoeu1vyyRVzTeOuufYcCYmbCiSuOOfNvzb5OKgkXvtQ4OlQX1OehANmeRVIxqoFM
-         XGzl131/YAcErwlMTBAnCSu8LlHgV/tb+VcbvlqZBwozcPfdzv8xZuoTLXOU25Mvajsd
-         CVAA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789685791; x=1790290591;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20251104; t=1789686023; x=1790290823; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=C8fhB4ShupgmdingQtdsx4ZV7fuE84BA4Ymz0F7Pxoc=;
-        b=qowXLjzsBJDjRJ6ooPfvGG9wOLzE4EghwWiVhUzUJbzq2sctk0GvnxRsaJcLjnTCe/
-         /hmoT+x3lf/u+1YTl8MKkM+jtUfki8gkwlQsvWuO29H69d6j4lnsInB3n2jlgBYLX6X7
-         z/bpSb8s1SDVeDQNZOk09TgTnTK7RQs/kd1KAdHZ/2fFviTdL/oVMLv6Tx5X/5mCVNbL
-         H2/3hlSpAUUzMLiEQJhQktTOlhyNpxmyJZgSI+bV4+/kcB3s/RE3Nv1NYRKTxeO/cdaF
-         dGIGYK/lqmxZ73s/bxKN09PaGDCxmm0htRX+3YxZG/xtqX7e1QAIj9BP3ryK/W4vAT4V
-         d1Vw==
-X-Forwarded-Encrypted: i=1; AKwUvBzLe23/j5bIDsGgPxFGJJWSTU+Y6C7TVP3ARG6ZLBSSGHVz2ICJIz9YjvyxQ7OFrzfyCcQNdQ1VLo7USK/5rKDb@lists.infradead.org
-X-Gm-Message-State: AFuF++k4HyDq4vSYvs6IsmmFQm5FfBSvPDBIG4yqOa65z0ZURD4dsEXS
-	sMQDUvZIqGt/IzttfMXUoxE8qLLvkv8oQkkgGXJ+YNhd2dCXIGHl3qyEpmsM6qlej7UYUHFn0hq
-	lbbr7AlNaOGnUXpQHSrDejbNLxPaDkdhmMH9Otdo4x5i83fuveQbPKeH1fSGe5HF52KHS1Go5xd
-	8J/w==
-X-Gm-Gg: AYBFou036W4De6pRa8U/ttoQCW95M+z7xGT+PKzroEIbWF83suGMt4ZDQ6JhfGZyyiQ
-	hzmkCmACmkjjqJY495+FF/bcgElHXAREsCpJhL0EqQ1oBrgNwvz6OLZc+Kxs+u/L4J/4RNuJxMH
-	8igsHE28E+AtdsG19Ue6O12vghJmRDbJXOWQGoB6fRt6VC+odCL7lV8OeCcFK3/2JkgEakpZUnj
-	2BumAdWCQ387YZvQedLyiOtNFGYxhZ9t1HwjDxMdDmr0CJ7U8ctJpg4uQostMiOwO2Iy5uj0Dj8
-	kiYJ3u+bOHO0cLCa1LQ6Derb+NHpaQtJ4hwUGaMVV3/2Z5P1XMHX9qqzHcfXwTyoBGonyUXi81Y
-	0UYx4FvEKpEr5UVvMzys6JDs/OALK9ovZS46FEvDTiKm5qouVOg==
-X-Received: by 2002:a17:903:2443:b0:2d9:484:861d with SMTP id d9443c01a7336-2ddb1af6da8mr12657685ad.10.1789685791129;
-        Thu, 17 Sep 2026 15:56:31 -0700 (PDT)
-X-Received: by 2002:a17:903:2443:b0:2d9:484:861d with SMTP id d9443c01a7336-2ddb1af6da8mr12657315ad.10.1789685790662;
-        Thu, 17 Sep 2026 15:56:30 -0700 (PDT)
-Received: from hu-aletran-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33bf5ad25bbsm15812508eec.19.2026.09.17.15.56.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 17 Sep 2026 15:56:30 -0700 (PDT)
-From: Alex Tran <alex.tran@oss.qualcomm.com>
-Date: Thu, 17 Sep 2026 15:55:56 -0700
-Subject: [PATCH v2 2/3] pinctrl: scmi: Replace pinctrl ops get group info
- with generics
+        bh=u9YGfpGG2ynRncYGiDzoG8oC5Zk7r9CYJBEST6kv/j8=;
+        b=Y9iliJVGlwqUEGwJhACsx3+QNLl2jf1xe4m83LV8i5ZKf1AUeq3KI2mjfD0Z+83EhY
+         pNIj1fuww293CHcsOdFS/UeAqowd4yPbVJYowEy5R5CGMtEvlr2gaC7KNufiGyotdMDW
+         KC9XvY0A5JcKhuGOi4qLdAYrJA/y3/DjgByng5YBYPEum/9lkEu6ioD1RZ/Kms54TxMU
+         thUEdyl0Ga1ILYmq/Gf0MNCuPr/2mmdovaZQzY8zsBv69rv+b6kr6obfB06mMPjWqlM2
+         Vh+dDSJ1ZUwkoxxqqN10vyr3qO8l65SKJ2MIxfDxGxN/k2hTi5+yGe4Z3dpVBTXNWp52
+         cl3g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789686023; x=1790290823;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=u9YGfpGG2ynRncYGiDzoG8oC5Zk7r9CYJBEST6kv/j8=;
+        b=Y44PvML2w+SO60IzQLa3b4FTO0n7oWRltyEeE9XC01aBtuBpO7VfMU8bpV2ioC5xeY
+         uCdfBPWsFqBX2TTmX9u8xlWvS12Un2XG35OCra7E6xQfVNCc8DidiPw4KNN3dIjaDtSK
+         hcTkZagQLqbqW3srjyh3s/QWcwHdv8CEJrna3P0p6pCmp33czlI28w//gcVVZPpahk7V
+         RfPS34pRqCIXRQcAWLLQJ01LIsojgWuIb9UZKvfdQF9B/5OuJ291ohvfy/uYhq+buNvW
+         xrsBlGJIG8ej9em8tFmBCeWDXGVEpG+TpdA6cQoSQG2tTaVKlELznyDhLKx6okwJIgL5
+         M7EA==
+X-Forwarded-Encrypted: i=1; AKwUvByaiW9x+ayVwe3RnvHOWsxxJDY+dYMgYFuR+eAxrz1LIWbXBT2qzgsuM+OnPLWTBXOj2A7B91lKMdxHS1ohS4gn@lists.infradead.org
+X-Gm-Message-State: AFuF++kdllZTi3rL+Fh8TVk5MA84bRpxBs8Iipird1HeyTUDyZGYqQK6
+	xAHAkJQpN+SdBJXJgyuvja6my0PWe6HIR7anPn3Pq8805aJ/J/gbbHbo
+X-Gm-Gg: AYBFou1uXBVneKXWo0Pnk3AadzUPDSw+yh6quCplY4rrpQCG4L7bL4LFkOTLoQfJkZV
+	O0LYXE+F81KSqfS0QWv5m+iBzV7FPLi/Ab7EWswLYNt8Wqty8DA4L5/HtZQoD+5ss8ScPQGOtFG
+	CguJe84MWdXsk9YeOTSj+LiRtdcQUrCNeqsE0OzHBg/JsIIghfPIZrCdqYoiA6ip4CjECJjx4vh
+	WXE07GYLF/9060+KUdoScVe7uKZb2u/p3x98O2WeN5aTCnjqZiow2wKF6WE0kYSHQGvatz4Hynd
+	n/u8HUDHRDGuWlECc3siaO9O/7YQlh4ICvR2yfZ0EH+kKjJOsokIz+NHEDDiDl8NuPTMTZSl9RB
+	oiFShKuB8VYcFDkeNx1VA7bKbu8IaX4BHtcWq3pOiP6w0kkK2grOPoo8RBoS7CrurlS8zPbMpb8
+	JVXaIDE/QZxznXSDmpGGnHlVFgLWh1FqAvXtOiumMzhKRSZK7UaoEsUSbJfInE0w59X5DNwVhMJ
+	JvHk99fgUgMnQY=
+X-Received: by 2002:a05:6830:7009:b0:805:b3e5:18d9 with SMTP id 46e09a7af769-80ddff697ddmr866597a34.10.1789686022798;
+        Thu, 17 Sep 2026 16:00:22 -0700 (PDT)
+Received: from ?IPV6:2600:8804:5716:d800::b712? ([2600:8804:5716:d800::b712])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-80c4669b120sm4449271a34.10.2026.09.17.16.00.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 17 Sep 2026 16:00:21 -0700 (PDT)
+Message-ID: <9a4a8288-47e0-4388-8991-8674b85e2306@gmail.com>
+Date: Thu, 17 Sep 2026 18:00:19 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] iio: adc: mt6397-auxadc: add mt6397 PMIC AUXADC
+ driver
+To: Jonathan Cameron <jic23@kernel.org>
+Cc: David Lechner <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Lee Jones <lee@kernel.org>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ mfd@lists.linux.dev, Roman Vivchar <rva333@protonmail.com>,
+ Luca Leonardo Scorcia <l.scorcia@gmail.com>
+References: <20260915-rbrue-suez-upstreaming-mt6397-auxadc-v1-0-d35d2ac3d6f0@gmail.com>
+ <20260915-rbrue-suez-upstreaming-mt6397-auxadc-v1-2-d35d2ac3d6f0@gmail.com>
+ <20260917044852.3da6f7e5@jic23-hlaptop>
+Content-Language: en-US
+From: Ryan Brue <ryanbrue.dev@gmail.com>
+In-Reply-To: <20260917044852.3da6f7e5@jic23-hlaptop>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260917-scmi-pinctrl-generics-v2-2-3eeee364257f@oss.qualcomm.com>
-References: <20260917-scmi-pinctrl-generics-v2-0-3eeee364257f@oss.qualcomm.com>
-In-Reply-To: <20260917-scmi-pinctrl-generics-v2-0-3eeee364257f@oss.qualcomm.com>
-To: Sudeep Holla <sudeep.holla@kernel.org>,
-        Cristian Marussi <cristian.marussi@arm.com>,
-        Linus Walleij <linusw@kernel.org>
-Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
-        Alex Tran <alex.tran@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789685788; l=3568;
- i=alex.tran@oss.qualcomm.com; h=from:subject:message-id;
- bh=P8dryjMpnqvpodgWk2ySD7v0wpX4IgHdJJ8YJF0hzFM=;
- b=pMk4JLcfOy5cUTaVghI5ArSIfRa+ErdzPL7JMcBU8CJH4cwE8P9sIpq/IsgA7Z4eRZl8fYtRn
- VM02NxlcSLEAvVhb+ASBBsDGBwxKOIcjs/YVUJ0uyPgFjQkuuKHcfXc
-X-Developer-Key: i=alex.tran@oss.qualcomm.com; a=ed25519;
- pk=vKab/gw1fXij5UviWoglv+ho+H/oOiTHyETCLfayPE0=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE3MDMzMCBTYWx0ZWRfX13aZRaVOwovH
- BH/q7NURfUL/NnXXEgkOPRicm85/+s3ImPUNr95UZ1fu75kKSUR2r28v1iG3S6M3w56DQ6gsOAr
- mxuhdNc5bFW2xIH9hOwFxIEqZxHtIJwSpHi9L8cYlKiUmJ+pCUUHn7jIcpRcjIi8Kf39/MSGlCh
- wVHB9iOOq3PlkLi5qxofYFAuFkF+9yE5qHzijIZiuuudwMZznNpKH5/AzfGyvGxs9NQuoBYwNTc
- 9q7J97K5ckYXo6WQ2wVL+qBvwehDizSGXnY9WlqPwscXaErsg5NBCXQCSIXPmOONpY1DPs9Rfiq
- cLHgHhBfJ61oGaYxXIz9Npzqp3J92CYcEsOCfiEhWgTD35A18e5q3NBdVI/LlhTpiREW+ENz3z3
- h4YsRF+Y5+Q7q1Qd3a5YJhy8D0+9wgjctyGCE0fnIfCm6HJ+7P6YRXrcXHPiV4/z3ex0465dUtE
- n5SYUv8/ID+2jlP8Wiw==
-X-Proofpoint-GUID: 8sWt5fqqSgUZMJxmWWTzpEmA33eJW9sx
-X-Authority-Analysis: v=2.4 cv=bcD+w+PB c=1 sm=1 tr=0 ts=6aac7020 cx=c_pps
- a=IZJwPbhc+fLeJZngyXXI0A==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
- a=EUspDBNiAAAA:8 a=p54jq0OH07X71X_IsjoA:9 a=QEXdDO2ut3YA:10
- a=uG9DUKGECoFWVXl0Dc02:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE3MDMzMCBTYWx0ZWRfX/uB9PKCU+WTc
- sBEtgwOBxCiseGyHCx4pyl8DmaXyaKstrp3MuLUnnbr3Fl1ax3QODdfogTNVg5zeCy0a95eqSJa
- a8mh8bRMhnH2PSjCZH6tr0N2huVrGMM=
-X-Proofpoint-ORIG-GUID: 8sWt5fqqSgUZMJxmWWTzpEmA33eJW9sx
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-17_05,2026-09-16_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 clxscore=1015 adultscore=0 suspectscore=0 priorityscore=1501
- bulkscore=0 phishscore=0 impostorscore=0 lowpriorityscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609170330
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_155633_739684_B97BA758 
-X-CRM114-Status: GOOD (  18.64  )
+X-CRM114-CacheID: sfid-20260918_000028_346764_B507E2B6 
+X-CRM114-Status: GOOD (  54.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,124 +130,308 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During probe, populate the pinctrl device with group info
-so that the generic callbacks can be used to fetch group
-count, name, and pins.
+On 9/16/26 10:48 PM, Jonathan Cameron wrote:
+> On Tue, 15 Sep 2026 23:15:27 -0500
+> Ryan Brue <ryanbrue.dev@gmail.com> wrote:
+>
+>> The mt6397 AUXADC is a 10-bit ADC behind the SoC's PMIC wrapper. On boards
+>> built around this PMIC it is the only way to read the battery: the SoC's
+>> AUXADC is wired to board thermistors and the charger ICs these boards use
+>> have no ADC of their own.
+>>
+>> Add a driver exposing the battery voltage and battery temperature
+>> channels. Only those two are described, so a channel ID in the device tree
+>> is an index into the driver's channel array rather than the PMIC's channel
+>> number, as mt6323-auxadc does. The ready bit lives in a channel's raw
+>> result register, but the value comes from the chip's trimmed copy of it,
+>> which is what the vendor driver reads for a measurement.
+>>
+>> Both channels need more than that, as the vendor programs them. The
+>> battery voltage is measured through ISENSE, because a board with a
+>> switching charger in the power path leaves BATSNS on the charger's system
+>> rail instead of on the pack. The thermistor only reads correctly with the
+>> PMIC's battery-detect bias and input buffer enabled, which take 20 ms to
+>> settle. Both are switched back off afterwards.
+>>
+>> Reads average sixteen conversions in software; the chip's sample
+>> accumulator makes no measurable difference at any setting, so it is left
+>> at one sample per conversion.
+>>
+>> Assisted-by: LLM
+>> Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
+> I took a quick look but Andy called out the biggest question,
+> why doesn't it make sense to extend an existing driver to
+> cover this part?  Might not make sense but you need to talk
+> through why not in the cover letter.
+I replied to Andy with an explanation [1], and I will justify in my 
+cover letter for v2. In short, I think the new driver is justified, but 
+if it's desired to roll in the mt6397 with another driver, let me know.
+>> diff --git a/drivers/iio/adc/mt6397-auxadc.c b/drivers/iio/adc/mt6397-auxadc.c
+>> new file mode 100644
+>> index 000000000000..dbfa82341d6c
+>> --- /dev/null
+>> +++ b/drivers/iio/adc/mt6397-auxadc.c
+> ...
+>
+>> +/*
+>> + * CHR_CON16 and the two SOURCE_CH0 selects route either BATSNS or ISENSE onto
+>> + * the battery channel. Only ISENSE is used: with a switching charger in the
+>> + * power path BATSNS sits on the system rail rather than on the pack.
+>> + */
+>> +#define MT6397_CHR_CON16		0x0020
+>> +#define MT6397_CHR_CON16_ADCIN_VSEN_EN	BIT(11)
+>> +#define MT6397_CHR_CON16_ADCIN_VBAT_EN	BIT(10)
+> These are used as values for the ADCIN_SEL.
+> I think they should have names to make that clear and be
+> 1 and 2 rather than bits.
+The OR between VSEN_EN and VBAT_EN was a mistake. These two bits are 
+part of a larger set of 5 mutually exclusive enable bits (CON16 bits 
+12:8). I fixed this in v2, and also added the #define s for the others. 
+Let me know if I shouldn't add those because we don't use them, I'm on 
+the fence for that.
+>> +#define MT6397_CHR_CON16_ADCIN_SEL	(MT6397_CHR_CON16_ADCIN_VSEN_EN | \
+>> +					 MT6397_CHR_CON16_ADCIN_VBAT_EN)
+> This would then be a register field mask from GENMASK()
+Mentioned above, but these are mutually exclusive bits, not a field, but 
+it's my fault that it looked like one. Fixed in v2.
+>
+>> +#define MT6397_AUXADC_CON14		0x055e
+>> +#define MT6397_AUXADC_CON14_CH0_NORM_SEL BIT(2)
+>> +#define MT6397_AUXADC_CON14_CH0_LBAT_SEL BIT(0)
+> A common visual trick in IIO drivers separates register addresses from fields
+> and from values.
+> #define MT6397_AUXADC_CON14		0x055e
+> #define   MT6397_AUXADC_CON14_CH0_NORM_SEL BIT(2)
+> #define   MT6397_AUXADC_CON14_CH0_LBAT_SEL BIT(0)
+>
+> Also blank line here as the settle time is not directly related to the
+> register.
+>> +#define MT6397_AUXADC_ISENSE_SETTLE_US	USEC_PER_MSEC
+>> +
+>> +struct mt6397_auxadc {
+>> +	struct regmap *regmap;
+>> +	/* AUXADC doesn't support reading multiple channels simultaneously. */
+> I'd rather you said why than simply not supported. Seems
+> that it's a multi register sequence so needs to be atomic wrt
+> to other channel reads.
+Ack, I'll justify it in v2. You're right about the reason. In 
+particular, all the channel reads need CON1.
+>> +	struct mutex lock;
+>> +};
+>> +
+>> +#define MTK_PMIC_IIO_CHAN(_name, _chan, _hwchan)                \
+>> +{                                                               \
+>> +	.type = IIO_VOLTAGE,                                    \
+>> +	.indexed = 1,                                           \
+>> +	.channel = _chan,                                       \
+>> +	.address = _hwchan,                                     \
+>> +	.datasheet_name = __stringify(_name),                   \
+>> +	.info_mask_separate = BIT(IIO_CHAN_INFO_RAW) |          \
+>> +			      BIT(IIO_CHAN_INFO_SCALE),         \
+>> +}
+> For two the macro is of marginal benefit. I'd just put the structure
+> values in directly.  Then we know which parameter is which etc.
+Done in v2. If I had to guess why the LLM might have chosen the macro, 
+it might be because there are other channels that exist, just not 
+channels that my device uses (referencing the vendor's Amazon Fire OS 
+which is based on Linux 3.18). Making it a macro would make it maybe 
+cleaner for anybody who comes in and needs to add more channels? Who knows.
+>> +
+>> +/*
+>> + * A device tree channel ID indexes this array; .address holds the PMIC channel
+>> + * number. The thermistor reports as a voltage because that is all the PMIC
+>> + * measures: the divider across an NTC whose curve belongs to the board.
+>> + */
+>> +static const struct iio_chan_spec mt6397_auxadc_channels[] = {
+>> +	MTK_PMIC_IIO_CHAN(isense,   MT6397_AUXADC_ISENSE,
+> If you do keep this, one space is enough. Aligning when there
+> are lines in between brings little value that I can see.
+>
+>> +			  MT6397_AUXADC_HWCHAN_BATSNS),
+>> +	MTK_PMIC_IIO_CHAN(bat_temp, MT6397_AUXADC_BAT_TEMP,
+>> +			  MT6397_AUXADC_HWCHAN_BAT_TEMP),
+>> +};
+>> +
+>> +static int mt6397_auxadc_read_once(struct mt6397_auxadc *adc,
+>> +				   const struct iio_chan_spec *chan, int *val)
+>> +{
+>> +	struct regmap *map = adc->regmap;
+>> +	unsigned int reg;
+>> +	int ret;
+>> +
+>> +	ret = regmap_update_bits(map, MT6397_AUXADC_CON1,
+>> +				 MT6397_AUXADC_CON1_CHSEL,
+>> +				 FIELD_PREP(MT6397_AUXADC_CON1_CHSEL,
+>> +					    chan->address));
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	/* START is edge triggered: it has to be lowered before being raised. */
+>> +	ret = regmap_clear_bits(map, MT6397_AUXADC_CON1,
+>> +				MT6397_AUXADC_CON1_START);
+> For lines that go not much over 80 chars and where it helps readability it
+> is fine to break that limit.  I think that applies here.
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	ret = regmap_set_bits(map, MT6397_AUXADC_CON1,
+>> +			      MT6397_AUXADC_CON1_START);
+> and here.
+Both done in v2.
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	fsleep(MT6397_AUXADC_START_US);
+>> +
+>> +	ret = regmap_read_poll_timeout(map, MT6397_AUXADC_ADC(chan->address),
+>> +				       reg, reg & MT6397_AUXADC_ADC_RDY,
+>> +				       100, 100 * USEC_PER_MSEC);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	ret = regmap_read(map, MT6397_AUXADC_ADC_TRIM(chan->address), &reg);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	*val = FIELD_GET(MT6397_AUXADC_ADC_VAL, reg);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int mt6397_auxadc_battemp_bias(struct mt6397_auxadc *adc, bool on)
+>> +{
+>> +	struct regmap *map = adc->regmap;
+>> +	int ret;
+>> +
+>> +	if (on) {
+>> +		ret = regmap_set_bits(map, MT6397_AUXADC_CON0,
+>> +				      MT6397_AUXADC_CON0_BUF_PWD_ON);
+>> +		if (ret)
+>> +			return ret;
+> Add a blank line here
+>> +		ret = regmap_set_bits(map, MT6397_AUXADC_CON0,
+>> +				      MT6397_AUXADC_CON0_BUF_PWD_B);
+>> +		if (ret)
+>> +			return ret;
+> and here.  Small readability improvement but worth having!
+Done in v2
+>> +		return regmap_set_bits(map, MT6397_CHR_CON7,
+>> +				       MT6397_CHR_CON7_BATON_TDET_EN);
+>> +	}
+> For cases like this I'd use and else.
+> Not strictly necessary but makes it visually obvious it is an either or
+> question.
+Done in v2
+>> +
+>> +	ret = regmap_clear_bits(map, MT6397_CHR_CON7,
+>> +				MT6397_CHR_CON7_BATON_TDET_EN);
+>> +	ret = ret ?: regmap_clear_bits(map, MT6397_AUXADC_CON0,
+>> +				       MT6397_AUXADC_CON0_BUF_PWD_B);
+>> +	return ret ?: regmap_clear_bits(map, MT6397_AUXADC_CON0,
+>> +					MT6397_AUXADC_CON0_BUF_PWD_ON);
+>> +}
+>> +
+>> +static int mt6397_auxadc_isense_disable(struct mt6397_auxadc *adc)
+>> +{
+>> +	struct regmap *map = adc->regmap;
+>> +	int ret;
+>> +
+>> +	ret = regmap_clear_bits(map, MT6397_AUXADC_CON14,
+>> +				MT6397_AUXADC_CON14_CH0_NORM_SEL |
+>> +				MT6397_AUXADC_CON14_CH0_LBAT_SEL);
+>> +
+>> +	return ret ?: regmap_clear_bits(map, MT6397_CHR_CON16,
+>> +					MT6397_CHR_CON16_ADCIN_SEL);
+> Andy called this out already.  LLM being too clever maybe?
+> Anyhow, just burn a few lines of code for readability!
+Oh yeah, almost certainly. These are the kinds of lessons I learn when 
+I'm new to kernel development and have no clue how simple or complex 
+certain blocks should be, haha.
+Done in v2, Sashiko also pointed out that the early return could leave 
+some register bits set that should be cleared, so that will be fixed in 
+v2 as well.
+>> +}
+>> +
+>> +static int mt6397_auxadc_read_channel(struct mt6397_auxadc *adc,
+>> +				      const struct iio_chan_spec *chan,
+>> +				      int *val)
+>> +{
+>> +	unsigned int i, sum = 0;
+> Please split variables that are initialized from ones that aren't.
+> Can be hard to spot when just one is.
+Done in v2.
+>> +	int ret, sample;
+>> +
+>> +	/* Held across the whole burst: the channel select is shared state. */
+>> +	guard(mutex)(&adc->lock);
+>> +
+>> +	if (chan->channel == MT6397_AUXADC_ISENSE) {
+>> +		ret = mt6397_auxadc_isense_enable(adc);
+>> +		if (ret)
+>> +			return ret;
+>> +		fsleep(MT6397_AUXADC_ISENSE_SETTLE_US);
+>> +	} else {
+>> +		ret = mt6397_auxadc_battemp_bias(adc, true);
+>> +		if (ret)
+>> +			return ret;
+>> +		fsleep(MT6397_AUXADC_BATTEMP_SETTLE_US);
+>> +	}
+>> +
+>> +	for (i = 0; i < MT6397_AUXADC_SAMPLES; i++) {
+> 	for (unsigned int i = 0; ...
+>
+>> +		ret = mt6397_auxadc_read_once(adc, chan, &sample);
+>> +		if (ret)
+>> +			break;
+>> +
+>> +		sum += sample;
+>> +	}
+>> +
+>> +	/* Lower START so the converter is not left armed between reads. */
+>> +	regmap_clear_bits(adc->regmap, MT6397_AUXADC_CON1,
+>> +			  MT6397_AUXADC_CON1_START);
+>> +
+>> +	if (chan->channel == MT6397_AUXADC_ISENSE)
+>> +		mt6397_auxadc_isense_disable(adc);
+>> +	else
+>> +		mt6397_auxadc_battemp_bias(adc, false);
+>> +
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	*val = DIV_ROUND_CLOSEST(sum, MT6397_AUXADC_SAMPLES);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int mt6397_auxadc_init(struct mt6397_auxadc *adc)
+>> +{
+>> +	return regmap_update_bits(adc->regmap, MT6397_AUXADC_CON0,
+>> +				  MT6397_AUXADC_CON0_SPL_NUM,
+>> +				  FIELD_PREP(MT6397_AUXADC_CON0_SPL_NUM, 1));
+> Not worth having a helper to call just one thing. Put this regmap
+> call inline.
+Done in v2.
+>> +}
+>> +
+>> +static const struct of_device_id mt6397_auxadc_of_match[] = {
+>> +	{ .compatible = "mediatek,mt6397-auxadc" },
+>> +	{ /* sentinel */ }
+> 	{ }
+>
+> Is enough.  The sentinel nature of that is kind of obvious so
+> a while back we removed all those comments from IIO.
+>
+Done in v2.
+>> +};
+>> +MODULE_DEVICE_TABLE(of, mt6397_auxadc_of_match);
+>>
 
-Signed-off-by: Alex Tran <alex.tran@oss.qualcomm.com>
----
- drivers/pinctrl/pinctrl-scmi.c | 81 +++++++++++++++++++++++-------------------
- 1 file changed, 45 insertions(+), 36 deletions(-)
+Thanks for the review!
 
-diff --git a/drivers/pinctrl/pinctrl-scmi.c b/drivers/pinctrl/pinctrl-scmi.c
-index 1d85a16f300d..c93d61dfa282 100644
---- a/drivers/pinctrl/pinctrl-scmi.c
-+++ b/drivers/pinctrl/pinctrl-scmi.c
-@@ -40,43 +40,10 @@ struct scmi_pinctrl {
- 	struct pinctrl_desc pctl_desc;
- };
- 
--static int pinctrl_scmi_get_groups_count(struct pinctrl_dev *pctldev)
--{
--	struct scmi_pinctrl *pmx = pinctrl_dev_get_drvdata(pctldev);
--
--	return pinctrl_ops->count_get(pmx->ph, GROUP_TYPE);
--}
--
--static const char *pinctrl_scmi_get_group_name(struct pinctrl_dev *pctldev,
--					       unsigned int selector)
--{
--	int ret;
--	const char *name;
--	struct scmi_pinctrl *pmx = pinctrl_dev_get_drvdata(pctldev);
--
--	ret = pinctrl_ops->name_get(pmx->ph, selector, GROUP_TYPE, &name);
--	if (ret) {
--		dev_err(pmx->dev, "get name failed with err %d", ret);
--		return NULL;
--	}
--
--	return name;
--}
--
--static int pinctrl_scmi_get_group_pins(struct pinctrl_dev *pctldev,
--				       unsigned int selector,
--				       const unsigned int **pins,
--				       unsigned int *num_pins)
--{
--	struct scmi_pinctrl *pmx = pinctrl_dev_get_drvdata(pctldev);
--
--	return pinctrl_ops->group_pins_get(pmx->ph, selector, pins, num_pins);
--}
--
- static const struct pinctrl_ops pinctrl_scmi_pinctrl_ops = {
--	.get_groups_count = pinctrl_scmi_get_groups_count,
--	.get_group_name = pinctrl_scmi_get_group_name,
--	.get_group_pins = pinctrl_scmi_get_group_pins,
-+	.get_groups_count = pinctrl_generic_get_group_count,
-+	.get_group_name = pinctrl_generic_get_group_name,
-+	.get_group_pins = pinctrl_generic_get_group_pins,
- #ifdef CONFIG_OF
- 	.dt_node_to_map = pinconf_generic_dt_node_to_map_all,
- 	.dt_free_map = pinconf_generic_dt_free_map,
-@@ -460,6 +427,44 @@ static int pinctrl_scmi_get_functions(struct scmi_pinctrl *pmx)
- 	return 0;
- }
- 
-+static int pinctrl_scmi_get_groups(struct scmi_pinctrl *pmx)
-+{
-+	unsigned int nr_groups, nr_pins, i;
-+	const unsigned int *pins;
-+	const char *gname;
-+	int ret;
-+
-+	nr_groups = pinctrl_ops->count_get(pmx->ph, GROUP_TYPE);
-+
-+	for (i = 0; i < nr_groups; i++) {
-+		ret = pinctrl_ops->name_get(pmx->ph, i, GROUP_TYPE, &gname);
-+		if (ret)
-+			return ret;
-+
-+		ret = pinctrl_ops->group_pins_get(pmx->ph, i, &pins,
-+						  &nr_pins);
-+		if (ret)
-+			return ret;
-+
-+		if (!nr_pins)
-+			dev_warn(pmx->dev,
-+				 "Group %s contains no pins\n", gname);
-+
-+		ret = pinctrl_generic_add_group(pmx->pctldev, gname, pins,
-+						nr_pins, NULL);
-+		if (ret < 0)
-+			return ret;
-+		if (ret != i) {
-+			dev_err(pmx->dev,
-+				"Duplicate group name: %s index: %u selector: %d\n",
-+				gname, i, ret);
-+			return -EINVAL;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
- static int pinctrl_scmi_get_pins(struct scmi_pinctrl *pmx,
- 				 struct pinctrl_desc *desc)
- {
-@@ -544,6 +549,10 @@ static int scmi_pinctrl_probe(struct scmi_device *sdev)
- 	if (ret)
- 		return dev_err_probe(dev, ret, "Failed to register pinctrl\n");
- 
-+	ret = pinctrl_scmi_get_groups(pmx);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to register groups\n");
-+
- 	ret = pinctrl_scmi_get_functions(pmx);
- 	if (ret)
- 		return dev_err_probe(dev, ret, "Failed to register functions\n");
+[1] 
+https://lore.kernel.org/all/2d1b80f2-53f6-4ed6-81bf-e35c0a9efb26@gmail.com/
 
--- 
-2.43.0
-
+Best regards,
+Ryan
 
