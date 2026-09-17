@@ -4,85 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 810B7C982D2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 16:46:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 851DAC982D2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 16:47:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wJkyJ4XReVojvgclcE9i/BeATq3QWWN8a1a2t1DdhcM=; b=OyBD5IB7pgQkqwIuPLeaUDn3gp
-	ReSd/uepOqd1+fzVwzKJknzNw/9PWZ1jwxmTHj04DLuYW2bDMDb9PS7Ij6dCILxPAbDUuHdXwacSh
-	dD9K4zqGcRUEbDIqq/uSElJGgZiMAi3GcFjy3ULCV33g9GF9t3dHDh6qZip/tQSTBOC4WEDVd++HN
-	X6EGcuaNX9JsrFekWGdkCfW8lDnKgqb7Gb0dUV2IlEDzMnRxJx6ioNZFtBlF3QMLQjbYU5yPEPu++
-	rELngleJwHN49MBXs6UGYci6sQvFHcxEEcyR1oIlJJrgCdCAc4hrW1o4Yli0bgewfHvEsJwpsStm9
-	n42Rsp5A==;
+	bh=ghsNMjszr/YVVrzwI9L3VChkEhVa9VAV3CWSeRoOujg=; b=lVOLizXLeUjzRBBdtBoE0X7SOF
+	Q5sx6HcM/YlNptXhTAhDGFZtho0/U3C1VsIb13sFn4iralFg95d7Ji0Q9vCXZQe4qHgV2vyAvBKvJ
+	nBZQt82x0v9e7Z5XkhdvuQF3PlXwZU3/nzdcbUWrUCWuzsazlzYMfu/a6Qvmrh887fgmtmwo0EWvG
+	e4PlfGHA+cKq1nKxakDQGFKzEQNJ83mLMCWYakr5yrrbHnRuwHMNPlG6BTN4qhQng4IkXbqGTpj1c
+	EgByhlvB/okDJ1j+nG2sbBx3dh8QxbAGTvXcJMEm2mTl/C6reeb7PsYmTBBaY3kWtjTZbGdg/zKZV
+	YwwsC8ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7FFm-0000000Byrz-3fTB;
-	Thu, 17 Sep 2026 16:46:30 +0000
+	id 1x7FGz-0000000BzE8-20X7;
+	Thu, 17 Sep 2026 16:47:45 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7FFk-0000000ByrG-3fF3
+	id 1x7FGx-0000000BzCj-0z6Z
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 16:46:30 +0000
+	Thu, 17 Sep 2026 16:47:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1789663588;
+	s=mimecast20190719; t=1789663662;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=wJkyJ4XReVojvgclcE9i/BeATq3QWWN8a1a2t1DdhcM=;
-	b=ZTTX6g4mYj0vlRM1lqShOllZvQyzIx2owUz//QT3uX3LDPwvQ13gLfFul3EjOEEnhQRL8+
-	IgQ/7XdL20/z2P4kFnyzkp7ERWfZuLKKKkUCSaqJIXTrE/hkbCg/FbDPz+nqS3uMZjRKFl
-	rRIN2A0cBVjwRsvMvG/YvP3IE3QaPqs=
-Received: from mail-ej1-f72.google.com (mail-ej1-f72.google.com
- [209.85.218.72]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=ghsNMjszr/YVVrzwI9L3VChkEhVa9VAV3CWSeRoOujg=;
+	b=FEdPs4GsnvTUP0HSzSuH/e4Wc1c1rf6CAPY2L77kWs/O0OKN/weVrkEBRPR/VB6U8WArzB
+	8wl/Zn42wDqfyZBKPdzvcf9BpqPcTzSlKcRZVjnIGM02KlZUHo2kSy2f03zHCrbwCGsjKK
+	6rGiI234qXhbzW0ljnFhcyWETqKshBs=
+Received: from mail-ed1-f71.google.com (mail-ed1-f71.google.com
+ [209.85.208.71]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-689-qiEXLvFUPhW80IFHGUA65A-1; Thu, 17 Sep 2026 12:46:26 -0400
-X-MC-Unique: qiEXLvFUPhW80IFHGUA65A-1
-X-Mimecast-MFC-AGG-ID: qiEXLvFUPhW80IFHGUA65A_1789663586
-Received: by mail-ej1-f72.google.com with SMTP id a640c23a62f3a-c2945f5e851so95783366b.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 09:46:26 -0700 (PDT)
+ us-mta-455-efdBya-2OoSQGawd3Rz3Aw-1; Thu, 17 Sep 2026 12:47:38 -0400
+X-MC-Unique: efdBya-2OoSQGawd3Rz3Aw-1
+X-Mimecast-MFC-AGG-ID: efdBya-2OoSQGawd3Rz3Aw_1789663658
+Received: by mail-ed1-f71.google.com with SMTP id 4fb4d7f45d1cf-6a9b5240fb3so1397877a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 09:47:38 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789663585; x=1790268385;
+        d=1e100.net; s=20260707; t=1789663657; x=1790268457;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=wJkyJ4XReVojvgclcE9i/BeATq3QWWN8a1a2t1DdhcM=;
-        b=0lAg2tL0LyYC+zs+JIS7y4zCBHoDr6HIPbYK4kHhZz/HTXP1ghNjfwXxvtFfSPQzmd
-         HW3fCNGge2sA6dbMyQCP5CvIKHgJMzVmiTSbjcSapvF3RDoqPnmnh8bwwtRFK5/YkmDz
-         OrOtatx7EZ0971X7b3Ys/3v3etfCfXVIMYCUqIOhXhQy5iE6Ohi2ejTmJ450ZRINYRlI
-         ZEDwEvHe3gVPl4V+GUZCVQM22kFMPhO61hidwjYUp5IZes2rAuvbqHGqBkyLmAiEy/5B
-         6+q+P+EeLexDxbGGT9UlYYG1cbpDU7FKsNHPS3vFf8TRAruI9UJgKs0bqg4tTbYRkBl0
-         BjXw==
-X-Forwarded-Encrypted: i=1; AKwUvBwykKyyjyO7JvT8Eb+uJiCL0+CLE9Zu2hZVdEW0eM4Nu0ylQasukHWoPX7MzX9PzzbH6X8HHdsrSayJ72eS7FpT@lists.infradead.org
-X-Gm-Message-State: AFuF++lmOIYPMOVkfAP1ol9sC0lISiJsi3xLwoX2skBUpQly9n+Vr2Bp
-	2ljxUCrzIqj1R0vRL/mIJxtelWf7Zu8+CnKOm6M9YU+pwRIYlIOvFBHyLoL69w2iqRPuHCyWKLa
-	ow9vjSoQKnv6BDnK2I7ChnoR0n6C+JkcrcPkEJwEmd9SGjf7YkgH8ZqPUQcCJl5/yWNcI0pfGgQ
-	H46I5uigbgr6CVQdH/h6WzxsLbIwZc9Qx9wzeN95f/NQ4c/VAoe9I=
-X-Gm-Gg: AYBFou31BOYl4h+ecVNqlMXrByAfo+/iLkfjQHGa0uLfUBW6dJknqk8VC/bi2xhGPmO
-	FawQDsmtD5G43rCl9onzG4U9O6oWv2Y/cbKgcLn1VPmj+LDsAfUrlmDnTV2aNHgMOw6HsfEuGyh
-	nI0L9bCQDSFw9/fPQxApfa3CQiLJVZ+lGF8XqSAbD1qXeaB/wvbKZfJPruwKInb7gnl0hOtgayi
-	RZMJCiC7HA3OF2gb+mCUdLjIw1PAEH7WZhINBWAbtToGCxQ9T/2DKLSi/WO4exJcfL1eBUSyuKD
-	Pbw=
-X-Received: by 2002:a17:906:4fc5:b0:c26:19de:9ad2 with SMTP id a640c23a62f3a-c29e53184f0mr504529266b.42.1789663585536;
-        Thu, 17 Sep 2026 09:46:25 -0700 (PDT)
-X-Received: by 2002:a17:906:4fc5:b0:c26:19de:9ad2 with SMTP id
- a640c23a62f3a-c29e53184f0mr504523266b.42.1789663585091; Thu, 17 Sep 2026
- 09:46:25 -0700 (PDT)
+        bh=ghsNMjszr/YVVrzwI9L3VChkEhVa9VAV3CWSeRoOujg=;
+        b=FcTisaGotCAyZ/AztdI97BR8LFmQPoN1oBwIOd/usrdowff+Tf3LSD2Pc0geQ4AZPP
+         NkFL3a9CuKXFpsByHLEa1PGkx14PbTbvRhPzYf2kM4ghA3OM9Qrm0zEw2kAMp7b3CW1j
+         7vJChWYiod9ysCjZB1RfhRqGqtj8ksoruP2S3zNtQ3h6EENeXEPoxP6//3oxzhfPlxm6
+         tMHXNhc+KfMLAQBwkt8cIRxe+Y7Gm4s2vnKeh0R0wIFTXbBlSo9oig/8n30fRuL5p8Qr
+         FFzcMsplK0koqOEg/7FyQPMmsqBc8qCICw+KcsvhC/KBr7kMrSQpw7wDVjDwdPscDldr
+         nhjA==
+X-Forwarded-Encrypted: i=1; AKwUvBzY0bWCDmDaq+LuVisxrg5uuQcCIGv+BO1SQ+umo6+4f1kHSdzFE6TF619MZ9REnnbNj9mYI/10XnW7s9kFf8QB@lists.infradead.org
+X-Gm-Message-State: AFuF++nqb248SSair5++LrStZu3MSIiyXfpWVHQsT0vbUQXOi7CL2CLG
+	QDXDM9tzK5usDfsC3QKiOJ5BfMo0a52kg9C/OLFkxAOvpreTcAu7I3ENDwErJEXNtbWaZuRadcy
+	+wBdA6gYEdVdHXtmK5JGH0juRe+EcZOv9TVcE92Q5quVPmA1INyML6i/RsiGfzKeXZaqpFvWUWw
+	zDIgi6XbfxqReyOrPOurhch2IWFot4QHMOp59aOnDZIJo/h6AODyE=
+X-Gm-Gg: AYBFou0+3WIcwbeEfLbfA2fptUX8/TQbg6F/txF4aBnMp3Dr44ytiAtsTW5cDwIQv8H
+	o24AReFHxDS9ejwD5j0OsBEIJscv2dkVWo5wCSJ88YS2tz3fDfsn7omRYFPVZtT29wC6M7mJ3AM
+	ikSPOyHiJ3WKDlxT1oiSqn3e3Mf8xXRFwuujUjkWY792D9sb9A9pULg0wR+nFjK1MW+0FZuAdXy
+	M6P8gq979ceO3n56ExCWrtuGtI8XTIzyHqS/6fMf+TVEo7ffbZ0u79MTpRQWNbgkZJ5po5kgbe2
+	UDE=
+X-Received: by 2002:a17:907:1c29:b0:c25:fdbc:52df with SMTP id a640c23a62f3a-c29e5244c19mr627700566b.10.1789663657704;
+        Thu, 17 Sep 2026 09:47:37 -0700 (PDT)
+X-Received: by 2002:a17:907:1c29:b0:c25:fdbc:52df with SMTP id
+ a640c23a62f3a-c29e5244c19mr627698766b.10.1789663657315; Thu, 17 Sep 2026
+ 09:47:37 -0700 (PDT)
 MIME-Version: 1.0
-References: <cover.1788351089.git.rrobaina@redhat.com> <b4ab47d2551d090520b4fa81a884b5988b9655c7.1788351089.git.rrobaina@redhat.com>
- <apkuNj1paR_GO3x9@willie-the-truck>
-In-Reply-To: <apkuNj1paR_GO3x9@willie-the-truck>
+References: <cover.1788351089.git.rrobaina@redhat.com> <4ada9fcbb93af8d5c1c9bfe2c83d94fc10bfe327.1788351089.git.rrobaina@redhat.com>
+ <CA+=Fv5T4826T2sd0Gbh-nfZsqcWK_phdBKy4BLWOvDTt92t5Eg@mail.gmail.com>
+In-Reply-To: <CA+=Fv5T4826T2sd0Gbh-nfZsqcWK_phdBKy4BLWOvDTt92t5Eg@mail.gmail.com>
 From: Ricardo Robaina <rrobaina@redhat.com>
-Date: Thu, 17 Sep 2026 13:46:11 -0300
-X-Gm-Features: AcwNN1UTQywdGW9xqj12KwNHAYLGfDNNso402GZvP3WcYYwXGdDJ7Oiz7qML_cg
-Message-ID: <CAABTaaCoNztwDUA-HPp4LaikxL4dxk-1bvCCpoZEGD4rnds1oA@mail.gmail.com>
-Subject: Re: [PATCH v2 04/13] arm64: pass pt_regs to audit_syscall_entry()
-To: Will Deacon <will@kernel.org>
+Date: Thu, 17 Sep 2026 13:47:26 -0300
+X-Gm-Features: AcwNN1UQ-9H3EW5aAPKYI2mYiHxV9kMvBFdM8jP3WAhZbefwH7qcxYHE69PGYDs
+Message-ID: <CAABTaaAUBzp1uaLve2piMhEB1R5po5n5+Sy+U0mbbe70Ak-SUw@mail.gmail.com>
+Subject: Re: [PATCH v2 02/13] alpha: pass pt_regs to audit_syscall_entry()
+To: Magnus Lindholm <linmag7@gmail.com>
 Cc: audit@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-csky@vger.kernel.org, linux-mips@vger.kernel.org, 
@@ -90,9 +90,9 @@ Cc: audit@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
 	linux-um@lists.infradead.org, bpf@vger.kernel.org, paul@paul-moore.com, 
 	eparis@redhat.com, sgrubb@redhat.com, oleg@redhat.com, 
-	richard.henderson@linaro.org, mattst88@gmail.com, linmag7@gmail.com, 
-	linux@armlinux.org.uk, catalin.marinas@arm.com, guoren@kernel.org, 
-	monstr@monstr.eu, tsbogend@alpha.franken.de, jonas@southpole.se, 
+	richard.henderson@linaro.org, mattst88@gmail.com, linux@armlinux.org.uk, 
+	catalin.marinas@arm.com, will@kernel.org, guoren@kernel.org, monstr@monstr.eu, 
+	tsbogend@alpha.franken.de, jonas@southpole.se, 
 	stefan.kristiansson@saunalahti.fi, shorne@gmail.com, 
 	James.Bottomley@hansenpartnership.com, deller@gmx.de, 
 	ysato@users.sourceforge.jp, dalias@libc.org, glaubitz@physik.fu-berlin.de, 
@@ -100,13 +100,13 @@ Cc: audit@vger.kernel.org, linux-kernel@vger.kernel.org,
 	anton.ivanov@cambridgegreys.com, johannes@sipsolutions.net, chris@zankel.net, 
 	jcmvbkbc@gmail.com, tglx@kernel.org, peterz@infradead.org, luto@kernel.org
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 9DfZ6DZrQWVSdi0fRLlvrMnBQbTwtCyYHJlwL2_Z_mk_1789663586
+X-Mimecast-MFC-PROC-ID: lJeAAc2HP_1OEbV5wniZ6VeL9Ekz4u6t73x20Zt2mRY_1789663658
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_094628_983687_A1C8C405 
-X-CRM114-Status: GOOD (  17.25  )
+X-CRM114-CacheID: sfid-20260917_094743_362964_850B1B52 
+X-CRM114-Status: GOOD (  23.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,40 +121,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 3, 2026 at 5:22=E2=80=AFAM Will Deacon <will@kernel.org> wrote:
+On Fri, Sep 4, 2026 at 2:21=E2=80=AFPM Magnus Lindholm <linmag7@gmail.com> =
+wrote:
 >
-> On Wed, Sep 02, 2026 at 11:43:37AM -0300, Ricardo Robaina wrote:
+> Hi Ricardo,
+>
+> On Wed, Sep 2, 2026 at 4:44=E2=80=AFPM Ricardo Robaina <rrobaina@redhat.c=
+om> wrote:
+> >
 > > audit_syscall_entry() now takes a pointer to pt_regs and extracts
 > > the syscall arguments itself via syscall_get_arguments(). Drop the
 > > individual argument registers from the call and pass regs instead.
 > >
 > > Signed-off-by: Ricardo Robaina <rrobaina@redhat.com>
 > > ---
-> >  arch/arm64/kernel/ptrace.c | 3 +--
+> >  arch/alpha/kernel/ptrace.c | 3 +--
 > >  1 file changed, 1 insertion(+), 2 deletions(-)
 > >
-> > diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
-> > index f743cbec1c3a..65532b2a8cd4 100644
-> > --- a/arch/arm64/kernel/ptrace.c
-> > +++ b/arch/arm64/kernel/ptrace.c
-> > @@ -2476,8 +2476,7 @@ int syscall_trace_enter(struct pt_regs *regs)
-> >       if (test_thread_flag(TIF_SYSCALL_TRACEPOINT))
-> >               trace_sys_enter(regs, regs->syscallno);
+> > diff --git a/arch/alpha/kernel/ptrace.c b/arch/alpha/kernel/ptrace.c
+> > index fc8f6cedbb28..8a39c0473297 100644
+> > --- a/arch/alpha/kernel/ptrace.c
+> > +++ b/arch/alpha/kernel/ptrace.c
+> > @@ -496,8 +496,7 @@ asmlinkage unsigned long syscall_trace_enter(void)
+> >         }
 > >
-> > -     audit_syscall_entry(regs->syscallno, regs->orig_x0, regs->regs[1]=
-,
-> > -                         regs->regs[2], regs->regs[3]);
-> > +     audit_syscall_entry(regs->syscallno, regs);
+> >  #ifdef CONFIG_AUDITSYSCALL
+> > -       audit_syscall_entry(syscall_get_nr(current, regs),
+> > -               regs->r16, regs->r17, regs->r18, regs->r19);
+> > +       audit_syscall_entry(syscall_get_nr(current, regs), regs);
+> >  #endif
+> >         return syscall_get_nr(current, regs);
+> >  }
+> > --
+> > 2.55.0
+> >
+> This doesn't apply on top of my "alpha: enable GENERIC_ENTRY" series
 >
-> Acked-by: Will Deacon <will@kernel.org>
+> https://lore.kernel.org/linux-alpha/20260902184058.198679-1-linmag7@gmail=
+.com/T/#t
 >
-> Thanks for doing this.
+> That series moves alpha's syscall entry onto the generic entry
+> framework and removes syscall_trace_enter() and its direct
+> audit_syscall_entry() call entirely - verified with git am against
+> GENERIC_ENTRY applied, it fails at exactly this hunk.
+> You don't need a replacement alpha patch, though. Once GENERIC_ENTRY
+> lands, alpha's syscall entry goes through
+> syscall_enter_from_user_mode_randomize_stack(), which already calls
+> syscall_enter_audit() as part of the shared entry helpers
+> (include/linux/entry-common.h). I applied patch 1/13 alone on top of
+> GENERIC_ENTRY and confirmed alpha's entry path already routes through
+> the updated __audit_syscall_entry() - no alpha-specific code needed.
+> So for alpha, you can drop this patch in the next revision rather
+> than rebase it.
 >
-> Will
+> Regards
+> Magnus
 >
 
-Thanks, Will!
+Hi Magnus,
 
+Thanks for reviewing this patch! Ok, I'll drop this patch from the series.
+
+Thanks!
 -Ricardo
 
 
