@@ -4,93 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88FF4C982D6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 15:40:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 921DCC982D7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 15:41:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OnYr6zMfa+cOfnhiHI6/0JGoc6S5Gsj1WeIOONeYOVs=; b=n4LFWLsLfmjI6eJvnnDkJWLdtX
-	TPfV2YGjQpMxzZJ14N/VCEGnYERIeEdmameQDUemNtU6UFVLBL0moQIrKQRMUcW3zixqYCO0Lpdso
-	lDwpfbhSwl6+FkFcnpxQN/8Yed3yqunuU6Ev5ceG7XjsvAWsVb8KDdnFVmEKyuz7jGbUYQtc7xnmS
-	a0tKdKt+jaGCSFVs0u1M8mxMwmPeiWYsZIQd03oHIRRuiJlr7WATGkBTy90cof+M14/jgk8QOrit8
-	jTDiUPPc7T4672Jdl89xrjMn/qzjgZDJsxkJE3gkmfD6OL0q0LfuSyQRAl4SA2O36OT3z3acgIo4w
-	y7hLjczQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3hYwC+8YXd3ZBbv37u4GOv6TST5pjo7r9wcpsmJejTU=; b=iDbde6gtRtt8unzPO9XMJmKo1U
+	Vkgiy2fauWoBgxAk3aTMFbD4puNdnYEepNszuff1Qp8Nna3xaqE63J65rZMhnEyQTrW5R5mlo3WnH
+	IwSc1BVPp5sbSWRNZxwz+RucePMalh4OOfKPRzKTbNc3CsAMObMboUAnii4gzOQ+SnGMMmsu8xL0X
+	RiWwe2jNI2y5E3Ue8bIyAyrvUqu8ce80eyaznw2wiioqkYVwxGAUFBzzQQAhwS9B9fI39dZTJM3P/
+	65ZCsF68hv7JUe9mFHlafKUP4eUu/WRsrNkzzP1Dkk/3THWjoV6vd3VQ/dH9BPlSOO7pdTEY11xrE
+	Gg/KgctQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7EDd-0000000BioB-00Ez;
-	Thu, 17 Sep 2026 15:40:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x7EF6-0000000Bj8j-1zem;
+	Thu, 17 Sep 2026 15:41:44 +0000
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7EDb-0000000Binw-40Tf
+	id 1x7EF4-0000000Bj7m-2ANf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 15:40:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3666E60204;
-	Thu, 17 Sep 2026 15:40:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D81BB1F000FF;
-	Thu, 17 Sep 2026 15:40:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789659610;
-	bh=OnYr6zMfa+cOfnhiHI6/0JGoc6S5Gsj1WeIOONeYOVs=;
-	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To;
-	b=hcvQWlllk84UctC7FJV5+Iain7lAuduBRO6z+yL3t53gBs3K5x933ujpp6K9IYYo7
-	 eCUvlyIqRf/1fHAeUjXgmhAl8T5UIu8zVkdDz7M+8odIRYwbhn2mMScpw6NJ6vKuvo
-	 S+HQwwO+z7y/+TIgLsPfDLmkVZcLsd7gORLkKcupTeH6WyCLgszAqZrcH25OiH6w5p
-	 hh8beW5jD1BC0KZ5dRJA/WDQ21iYAyRHR0fDNE1CI3UfmJmcxqHhe85nw44QJyfg7E
-	 p9qBPzqxanQ07NR44YW6yh/VAu/KEDUuMkUys+s8jvEqk3idTYzwPbBE0vGR+TPz/Q
-	 fZmzmQykfpn4g==
-Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
-	id 98EA8CE1716; Thu, 17 Sep 2026 08:40:10 -0700 (PDT)
-Date: Thu, 17 Sep 2026 08:40:10 -0700
-From: "Paul E. McKenney" <paulmck@kernel.org>
-To: Frederic Weisbecker <frederic@kernel.org>
-Cc: Josef Bacik <josef@toxicpanda.com>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Boqun Feng <boqun@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>, x86@kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Puranjay Mohan <puranjay@kernel.org>,
-	Xu Kuohai <xukuohai@huaweicloud.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Zqiang <qiang.zhang@linux.dev>, Juergen Gross <jgross@suse.com>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	linux-kernel@vger.kernel.org, rcu@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org, bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	xen-devel@lists.xenproject.org
-Subject: Re: [PATCH RFC v3 03/13] rcu-tasks: Add a Tasks RCU implementation
- for reader-marked trampolines
-Message-ID: <8fea176a-0ca0-4a70-8cf9-8240a22359e4@paulmck-laptop>
-References: <aqlgxKGk_AEKls_1@localhost.localdomain>
- <edc7cca2-a5c5-455c-8969-ea05dbdb08f7@paulmck-laptop>
- <aqqONH8flTIpOUqT@localhost.localdomain>
- <91687748-0781-4133-baed-43cf82f35ff5@paulmck-laptop>
- <aqqpRoTfywUuTgoC@localhost.localdomain>
- <aqqsAUVV8a1yrQzX@localhost.localdomain>
- <6afb0afe-e7b8-46b4-9fea-2c7cf4791044@paulmck-laptop>
- <aqq0cwvRDsorGwgc@localhost.localdomain>
- <8b73e1b3-0580-4ba9-b2e0-6363e429808d@paulmck-laptop>
- <aqvZwfUVsiEI7q7y@localhost.localdomain>
+	Thu, 17 Sep 2026 15:41:43 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e7bcb94d3so7242845e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 08:41:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789659700; x=1790264500; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=3hYwC+8YXd3ZBbv37u4GOv6TST5pjo7r9wcpsmJejTU=;
+        b=Ah8mDkqA2XXHOyTeRr9FZXQJ4OGjyqNWo1F/WRvrBUMkpolB5x4f5Y0I45q17W0H/q
+         p297cGt2KhE4NCYW1oOQf4Z5HQl03Hm0zAKzJDRgkyIwoTeJ0xvXONcuPW5/XYI293dv
+         W8q8f/oHMoiAvUtm1wHPtv7yDBwf4O4+IXsGUt+ZzLb/9xhSSkA/1LAuOwzstH4eRIGE
+         HoqD4duVYnwLl9vZqY+Xokr60Xh3WDPHjDxg7juBOFe/3HXnnhQn2TketudUNigv5A5T
+         d0sqZNns2zdXtCHNyQLJtDeqSnQC9wbTV2JgC4zGNuACLv33ZPe+a1rDboXR/4ghHBla
+         xtDg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789659700; x=1790264500;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=3hYwC+8YXd3ZBbv37u4GOv6TST5pjo7r9wcpsmJejTU=;
+        b=sceCIQ7dJ8WrRXmWvis8jyBcHm3eNuIeKCWOBL+GOhTMOtQsD4VGZ3EOp2lqxqulz3
+         EHIatTaCWLn66T7eAghPF2P1V7sz/AyKFBOy5o0bZvGK2NhaIln4KoeQg6aG8NoSOlOP
+         6Q6/bxEdFFj8Dm75MMo1bVr4y2jmihTVg4zOq6lk3nL2UGRMFssi+7z2n+ovrkh+Qu0L
+         RPYeQJm9Ucp8iCkHNI+QiI/sCWZmfyPPvVrrymR5vU5lfEmtWHvYaZ+6vtwjV6eTOyaH
+         pkE+SvHtfwlXr1OVHEP+Y/xEQAQIVz5xab22OCg3aiLltkbMNW9Ik4VFKNMHRmabfVcF
+         OpXQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzZzl3Y+zhDzYVadTHb5cKuANcoxWhzjI42t+sJ6tFhOmH4x9AvMrDgucHyY1IPub7q4kuFMxl51KASvzlLdCQw@lists.infradead.org
+X-Gm-Message-State: AFuF++mPUDBbbC4OYPUQs5vh99LPYyH/oKr8vMSNnDuzG0m+qtzrh8yw
+	3VDyxP6GxEJ+fV1Begooh7igYFPAziayZvQJYU0vBRT+VRawDhD9lg6epI07m6FU
+X-Gm-Gg: AYBFou3NdgT1RrgFMYYnyJW1dSXkRr+jIWUCYYZODpt9JnHmY3xVoL9uUCbVqbfRsvg
+	zflrqRpEBSGyVIPsiar3dGz/LRv6uyUeKTu36seArartv4U7HNQZx83s5QnA/7UmIk+x8mzIj/6
+	5hscHhKmdi1fWTfO4GDEY3TFlS94xiWMxcg4ZeLWHwYaexXVSd1x0CEK5rjOstIqQbJ5siB7lms
+	VwBAfE89DcS8WUQJsLivJZa2NjEGAolmew8v7r9Am0nJteEvoF/cdw7y/U1w8v6qYWh7tYL81zt
+	hu/hrTF6QWxFa7ZvSU3dbRRfOnjhL8xe6ZsAq5SlcS0vu1+umX8VXAMGbk9Sj3RAl92g5YGgmK7
+	lj9cTAfXMi3SflHc/F7EZVwZ5I80CiyVY1RL5PsHPYEGh6zDnZZcw26rQMNdJrx8/UO4siHf08n
+	EYIJikHy0c6UcksEX7D2mDV9pv8XZAWLzcBVu5zj/SGW51+LexqKtdnteFx0708fLO7I2xcuwIh
+	SY8+2kWr875+sVSOlTdq9ymKPbWrKr+L6zYKjZCFQbFQt098F6DFEc861m04QIeb+AaL7q7ANPf
+	ExTGtIno1kEwfMNqIsToIg==
+X-Received: by 2002:a05:600c:6298:b0:49d:16df:8521 with SMTP id 5b1f17b1804b1-49eb73143bcmr86991055e9.4.1789659700261;
+        Thu, 17 Sep 2026 08:41:40 -0700 (PDT)
+Received: from Lord-Beerus.station ([31.27.155.43])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fbd227141sm100124235e9.2.2026.09.17.08.41.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 17 Sep 2026 08:41:39 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: Frank Li <Frank.Li@nxp.com>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Subject: [PATCH v2 0/3] arm64: dts: imx8mm-var-dart: update SoM support
+Date: Thu, 17 Sep 2026 17:41:27 +0200
+Message-ID: <cover.1789659585.git.stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <aqvZwfUVsiEI7q7y@localhost.localdomain>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260917_084142_558907_66BC3AA8 
+X-CRM114-Status: UNSURE (   8.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,69 +106,31 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: paulmck@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 02:14:57PM +0200, Frederic Weisbecker wrote:
-> Le Wed, Sep 16, 2026 at 08:41:36AM -0700, Paul E. McKenney a écrit :
-> > On Wed, Sep 16, 2026 at 05:23:31PM +0200, Frederic Weisbecker wrote:
-> > > Le Wed, Sep 16, 2026 at 07:55:02AM -0700, Paul E. McKenney a écrit :
-> > > > Perhaps in rcu_core() in kernels booted with use_softirq?  I am thinking
-> > > > specifically of the checks for deferred quiescent states.  I don't (yet)
-> > > > see a need to modify rcu_check_quiescent_state().
-> > > > 
-> > > > Maybe other places as well.  ;-)
-> > > 
-> > > Hmm this tracking would have to happen on preempt_schedule() just like we
-> > > do for PREEMPT_RCU. Or am I missing something? And then we would need a
-> > > list scan of those tasks.
-> > 
-> > I am thinking of the case where a trampoline is interrupted before entering
-> > (or after leaving) its RCU Tasks Trace read-side critical section.  Then
-> > there is a softirq handler on the back of that interrupt handler, and
-> > RCU_SOFTIRQ is invoked, calling rcu_core().  Specifically:
-> > 
-> > 	/* Report any deferred quiescent states if preemption enabled. */
-> > 	if (IS_ENABLED(CONFIG_PREEMPT_COUNT) && (!(preempt_count() & PREEMPT_MASK))) {
-> > 		rcu_preempt_deferred_qs(current);
-> > 	} else if (rcu_preempt_need_deferred_qs(current)) {
-> > 		guard(irqsave)();
-> > 		set_need_resched_current();
-> > 	}
-> > 
-> > Preemption is enabled, but we should not report a quiescent state because
-> > we have interrupted a trampoline.  Correct?
-> 
-> Right!
->  
-> > > Or we can build the blocked task list handling, that we already have for PREEMPT_RCU,
-> > > when CONFIG_RCU_TASKS && !CONFIG_PREEMPT_RCU. We would just only add tasks when
-> > > preempted in .text.rcu_no_qs since rcu_read_lock() would still disable
-> > > preemption on normal explicit readers. So I wouldn't expect more overhead due to
-> > > that blocked list tracking built since it would rarely track tasks.
-> > 
-> > Yes, we could avoid the list of tasks by treating the preemption within
-> > the trampoline the same as preemption within an RCU read-side critical
-> > section, but there might not be an rcu_read_unlock() to clean up.
-> > Which could be a problem.
-> 
-> Ah yes, good point.
-> 
-> > 
-> > Trampolines that transfer control to tracing code could supply the needed
-> > cleanup call.  But last I checked, there were trampolines that transferred
-> > directly back to the original code, with no opportunity for cleaning up.
-> > 
-> > Or am I still missing a trick here?
-> 
-> You're right. So we'll indeed need to reuse the deferred qs points here.
+This series updates the Variscite DART-MX8M-MINI SoM device tree to
+better reflect the currently supported hardware configuration.
 
-Except this is getting a bit involved.
+The changes configure SAI3 in synchronous RX mode, add TPM support,
+and increase the Ethernet PHY reset deassert delay to improve PHY
+detection reliability.
 
-Don't get me wrong, if Josef is happy to take this on, far be it from me
-to stand in his way.  But if not, we should be willing to treat this
-optimization as a follow-on effort, whether by Josef or someone else.
+v1->v2:
+ - Add tpm pinctrl
+ - Add comment on tpm reset line
 
-							Thanx, Paul
+Stefano Radaelli (3):
+  arm64: dts: imx8mm-var-dart: configure SAI3 synchronous RX mode
+  arm64: dts: imx8mm-var-dart: add TPM support
+  arm64: dts: imx8mm-var-dart: increase PHY reset deassert delay
+
+ .../boot/dts/freescale/imx8mm-var-dart.dtsi   | 21 ++++++++++++++++---
+ 1 file changed, 18 insertions(+), 3 deletions(-)
+
+
+base-commit: 46d8fa682d263271f3ef7bf95166b124c19d6c62
+-- 
+2.47.3
+
 
