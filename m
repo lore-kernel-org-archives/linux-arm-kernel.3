@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 390EDC88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 14:56:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EA22C88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 14:56:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m9c5jWDb9lpLOrxclM42NYklfEOIYuzd0qNvSdRFn9Q=; b=U5m1drtsnWxPM/lA3/WAPPg9Hh
-	sJDmXPSiE6wSwYPV+Rcch6rCogWQkLZOX5PDM6XMnwAe6AwQ9cfdvaf8sEY1aLhbWYLglwGk24WZJ
-	c8rXSagIP7oi3qKJjeBh/PHZUurqfLrmr1oOzS4xtkP1u+hZTWavaQ5ylWIwTsj/KvqKV61R1RoU2
-	ehpA51D2dyu9OdStAT5aEjTYBxzIFHFzXtKUDZUITMyepSmo8Hvi2Pp0f+IZZqqD9aDblLK55w04r
-	aj5dFdz22nuT6Q0Wr1Y47OVEstYStXhL5M7QxIv1Vk3rmXAohS3VHTU3qZphD8ne9GkxgFRxOjGYH
-	ixyLLmFA==;
+	bh=7H0sONgMstB32PT+6wzA0a4y05FNhZp1Hw/SakxRfpo=; b=D2JFbnsgLiPziwaxqK4DeCNQ5w
+	8yW9fPY6D1rnf5NpIJRMdgC1uFvX3AjijaP6JIP7ByZN+adFuypl+Mxyd6Ex1RiouQ6BXkJGBuTFI
+	XKkyceSudiUEhB1guJ2txHCHSWMHMQ+REUCD34wwbrOkcy6OSR749U43IKqujT2/51EaQMZDiwEjC
+	oCNQUXwH/jDg+ihRmvQfyPoRcXZX6KpiAMOxhrorVztGESnu++V905z85WoUyK7dQ8NhLYgd1gMEy
+	pNDd1RO+EiuviWwBlG8WmDw+pF2i0Kw7w7dp3yUduv2sPNXG/XFxv/gDp1EwbvxP7eASLmEFVUqTS
+	Lh9B3h7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7DXX-0000000BbAY-3ydF;
-	Thu, 17 Sep 2026 14:56:43 +0000
+	id 1x7DXd-0000000BbDk-0fug;
+	Thu, 17 Sep 2026 14:56:49 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7DXL-0000000Bb4Z-3FWD
+	id 1x7DXN-0000000Bb61-2HyF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 14:56:33 +0000
+	Thu, 17 Sep 2026 14:56:34 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 20CDC1596;
-	Thu, 17 Sep 2026 07:56:25 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6EE551F37;
+	Thu, 17 Sep 2026 07:56:28 -0700 (PDT)
 Received: from e134344.cambridge.arm.com (unknown [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 4A2A73F86F;
-	Thu, 17 Sep 2026 07:56:27 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B77843F86F;
+	Thu, 17 Sep 2026 07:56:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789656988; bh=THmIJ0mblTEQm05OX560oWA4k2851WiXGCm+VIxUKlk=;
+	t=1789656992; bh=BOF7ChOk2hTz/uF1IrvSVSlzJ1TxdzunfQ+vnFOetvw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=PSr5zSjzi/w1B/nV+rS3TWGaNq0+wreF4ePi5JzUbMnKFesvnOnOEnfc462c8CMa0
-	 RfgpGj/V2P0iaAoij3XMDIMZv2IL9XFG5+jUY2MmvKnmXTzXQsYgdBp+y7y9G3XvzX
-	 lptBvwc2R/tUyKplAO80RB1LOdMEu0rDdxq/MaEg=
+	b=nPxbo8ahRo+UuzWnMO0orlrjGfjMXwWcLZ3pTnpejWNdcNf5M1Jz0ghziKLAqnU8t
+	 V7/Zu0sOQMHVZsKz82FGKQc31O1kwmn8kCTTvvbUj7pCLSYYrB9FXonBiqJ30kUSKd
+	 PZ0TVROBoNlrQbfNKC+UVTm3UE7tC/YhyjktynEs=
 From: Ben Horgan <ben.horgan@arm.com>
 To: ben.horgan@arm.com
 Cc: james.morse@arm.com,
@@ -49,17 +49,17 @@ Cc: james.morse@arm.com,
 	dave.martin@arm.com,
 	andre.przywara@arm.com,
 	Gavin Shan <gshan@redhat.com>
-Subject: [PATCH v2 01/12] arm_mpam: Move MPAMF_ECR write helpers to allow reuse
-Date: Thu, 17 Sep 2026 15:56:06 +0100
-Message-ID: <20260917145617.2202986-2-ben.horgan@arm.com>
+Subject: [PATCH v2 03/12] arm_mpam: Set mpam_feat_msmon_mbwu_31counter when there are bandwidth counters
+Date: Thu, 17 Sep 2026 15:56:08 +0100
+Message-ID: <20260917145617.2202986-4-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260917145617.2202986-1-ben.horgan@arm.com>
 References: <20260917145617.2202986-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_075631_858515_C8A0DF26 
-X-CRM114-Status: GOOD (  11.18  )
+X-CRM114-CacheID: sfid-20260917_075633_628633_6F56A18F 
+X-CRM114-Status: GOOD (  10.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,72 +74,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for calling mpam_enable_msc_ecr() from the CPU hotplug
-handlers move it higher in the file. Move mpam_disable_msc_ecr() too to
-keep them together.
+When MPAMF_MSMON_IDR.MSMON_MBWU is 1, MSMON_MBWU is present and has a VALUE
+field of 31 bits. If additionally, MPAMF_MBWUMON_IDR.HAS_LONG is 1, then
+MSMON_MBWU_L is also present and has a VALUE field of 44 or 63 bits as
+indicated by MPAMF_MBWUMON_IDR.LWD. Hence, if there are memory bandwidth
+counters then there are always 31 bit counters irrespective of whether
+there also long counters.
 
+Set the 31 bit bandwidth counter feature bit whenever there are bandwidth
+counters.
+
+Fixes: fdc29a141d63 ("arm_mpam: Probe for long/lwd mbwu counters")
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 Tested-by: Gavin Shan <gshan@redhat.com>
 ---
- drivers/resctrl/mpam_devices.c | 38 +++++++++++++++++-----------------
- 1 file changed, 19 insertions(+), 19 deletions(-)
+ drivers/resctrl/mpam_devices.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index dd422c56fbb1..580d7ed38569 100644
+index 32bde94dfbc3..e349db525882 100644
 --- a/drivers/resctrl/mpam_devices.c
 +++ b/drivers/resctrl/mpam_devices.c
-@@ -1817,6 +1817,25 @@ static void mpam_reprogram_msc(struct mpam_msc *msc)
- 	mutex_unlock(&msc->cfg_lock);
- }
- 
-+static int mpam_enable_msc_ecr(void *_msc)
-+{
-+	struct mpam_msc *msc = _msc;
+@@ -930,9 +930,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+ 						mpam_set_feature(mpam_feat_msmon_mbwu_63counter, props);
+ 					else
+ 						mpam_set_feature(mpam_feat_msmon_mbwu_44counter, props);
+-				} else {
+-					mpam_set_feature(mpam_feat_msmon_mbwu_31counter, props);
+ 				}
 +
-+	__mpam_write_reg(msc, MPAMF_ECR, MPAMF_ECR_INTEN);
-+
-+	return 0;
-+}
-+
-+/* This can run in mpam_disable(), and the interrupt handler on the same CPU */
-+static int mpam_disable_msc_ecr(void *_msc)
-+{
-+	struct mpam_msc *msc = _msc;
-+
-+	__mpam_write_reg(msc, MPAMF_ECR, 0);
-+
-+	return 0;
-+}
-+
- static void _enable_percpu_irq(void *_irq)
- {
- 	int *irq = _irq;
-@@ -2443,25 +2462,6 @@ static char *mpam_errcode_names[16] = {
- 	[12 ... 15] = "Reserved"
- };
- 
--static int mpam_enable_msc_ecr(void *_msc)
--{
--	struct mpam_msc *msc = _msc;
--
--	__mpam_write_reg(msc, MPAMF_ECR, MPAMF_ECR_INTEN);
--
--	return 0;
--}
--
--/* This can run in mpam_disable(), and the interrupt handler on the same CPU */
--static int mpam_disable_msc_ecr(void *_msc)
--{
--	struct mpam_msc *msc = _msc;
--
--	__mpam_write_reg(msc, MPAMF_ECR, 0);
--
--	return 0;
--}
--
- static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
- {
- 	u64 reg;
++				mpam_set_feature(mpam_feat_msmon_mbwu_31counter, props);
+ 			}
+ 		}
+ 	}
 -- 
 2.43.0
 
