@@ -4,81 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06A42C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 22:39:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C718C982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 22:39:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FYqD+8EuHNbP6ZIkLeQ20YUnJezRRXMcecWfjRiQZw0=; b=urDnZKy9EbdsGDXrbpm9mygAYQ
-	Pfgc4IcKb/E6lvvWSQTXPFy2VPrhRiDDNB+bMGntYL/7yMq9utXvsfrXrWMXErk9JNhEMQhjRZ10Y
-	CFB+1KqZL2Zs5ZTVtIIAHnjuUAWXuANlCzY5DcbEjrFXbm1G7AdLS6bMqvZ1uNvSg46ZaqMpwICWo
-	izU5epiYxMcYrJmnhhysqVlh08GoYUZcPSMzHVLqAb8HUDqZhDOv7VOhahPa4ayUhWfaw96CQwwcU
-	H5fOkrYtoU139FLXkfwO6a3uhT0J2F6URqPJyxsiboQ6EbT94TencpAHEkNTZlxB8IYWW+vvFzyFk
-	iOwHkurQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=COpCSWlm6ji+i323dHDZz9IhrmpOk7pzx9gnW2VPBiY=; b=1x+RG7sLAD283qO/k/B6GGl1a2
+	EyBFEIbKk8IgRG7Rf9yHMWIbOs+7KTEqnKpCTi3iRlvBOVWGstMeOJO/Jg/B9HZ+3PWlCYx3+yzbR
+	/z5k2EhI0g4dbzZRWk+oxsJSoJUuZvWhkjfdDn3lD19IsA0geX/ZD8Vu2xGfUxKIqB4NpmTM0Kze0
+	noBCQZWxA0Caocls497YiGtWccDQykh4Io3TRT2q39XMGCvaujZEZOjM2ythVo5s1vmxGSswDKKUa
+	fTemENU0V67xx5h2hPQ5TEyiRTFFxbx0ppYa8QetrN36CWDO2rglan4yNLOK93OvbvCj4TK9GAHNW
+	mDPsUWjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Kku-0000000CgH8-2iu2;
-	Thu, 17 Sep 2026 22:39:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Kks-0000000CgGw-3t12
+	id 1x7KlO-0000000CgO5-3KSj;
+	Thu, 17 Sep 2026 22:39:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x7KlL-0000000CgMO-3GPt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 22:38:58 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5C44D4015C;
-	Thu, 17 Sep 2026 22:38:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 986F41F00893;
-	Thu, 17 Sep 2026 22:38:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789684738;
-	bh=FYqD+8EuHNbP6ZIkLeQ20YUnJezRRXMcecWfjRiQZw0=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=DzwVsXoXHLMEaSwh8pkPEtTZNMxKgNsQlbsMxoVgE6nuxkw3wcNDQaK6f+HiIiWIR
-	 VuedDSXpyvp/BYW+rDGHCPD7sripNpVxMuH6d63EF1h90INd98Ajq2S3kIt64SZp4C
-	 QcjWZpTzIX1/K+PiEnIjwv0K3aZyl7SJy8m+xYkqj1//ac48wqkrz8Y+fOYdwk9G2H
-	 mzADuqrUn/xju4AAj9rY1p/FSZ5xZcdq3upVmldTPYTgsehphCm0wthg9NZi1vjNxd
-	 ZsqAiD5E+9vIz2H8d5MNFMZ/aejOTey6vbLh48rAn2we7H2OneoLeAcZ0mf5B0kkyD
-	 46uX+D4jfGQkQ==
-From: Srinivas Kandagatla <srini@kernel.org>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
- Madhavan Srinivasan <maddy@linux.ibm.com>, 
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
- Andi Shyti <andi.shyti@kernel.org>, "Joerg Roedel (AMD)" <joro@8bytes.org>, 
- Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
- Doug Berger <opendmb@gmail.com>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Ulf Hansson <ulfh@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Lee Jones <lee@kernel.org>, 
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
- Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: brgl@kernel.org, driver-core@lists.linux.dev, 
- linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- linux-i2c@vger.kernel.org, iommu@lists.linux.dev, netdev@vger.kernel.org, 
- linux-pm@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, mfd@lists.linux.dev, 
- linux-arm-msm@vger.kernel.org, linux-sound@vger.kernel.org
-In-Reply-To: <20260720-pdev-set-fwnode-instead-of-of-node-v1-0-2dee93f42c54@oss.qualcomm.com>
-References: <20260720-pdev-set-fwnode-instead-of-of-node-v1-0-2dee93f42c54@oss.qualcomm.com>
-Subject: Re: (subset) [PATCH 0/8] driver core: prefer
- platform_device_set_fwnode()
-Message-Id: <178968473139.466806.13272492778306156816.b4-ty@kernel.org>
-Date: Thu, 17 Sep 2026 23:38:51 +0100
+	Thu, 17 Sep 2026 22:39:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ECF8E1476;
+	Thu, 17 Sep 2026 15:39:21 -0700 (PDT)
+Received: from e142021.. (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 123933F86F;
+	Thu, 17 Sep 2026 15:39:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789684765; bh=zSr8ucmt3atALw0jtcqHgXRhkY4eSjq6WuvhwB16jkI=;
+	h=From:To:Cc:Subject:Date:From;
+	b=q+OIDnTe72k1qtLdZwBjc+pT9GJ0hOyYW/n74h9zlWlFJg80CSBewedTn42BRsOgX
+	 IEchLZjZHllmaMdaLn7bVQdyvfbPXnrB+QavRKytYAydIch75lCMy/69LSMRadAyYF
+	 20VE9ZABdqWJeAuDySAaVxoEdXYq+FHER8M2XkDc=
+From: Andre Przywara <andre.przywara@arm.com>
+To: Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev
+Subject: [PATCH v2 0/5] arm64: allwinner: a523: Enable CPU clocks
+Date: Fri, 18 Sep 2026 00:39:08 +0200
+Message-ID: <20260917223913.1855301-1-andre.przywara@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260917_153927_885916_1B27E6DD 
+X-CRM114-Status: GOOD (  18.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,27 +76,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-On Mon, 20 Jul 2026 11:24:47 +0200, Bartosz Golaszewski wrote:
-> With the final platform device and software node rework changes having
-> been queued in the driver core tree, Danilo pointed out that
-> platform_device_set_fwnode() is no longer used and should be removed. I
-> argued that instead we should prefer it over the OF-specific
-> platform_device_set_of_node().
-> 
-> This series converts drivers using platform_device_set_of_node() to
-> platform_device_set_fwnode() and does not intend any functional change
-> as the semantics of:
-> 
-> [...]
+after a year (again?) an update to the A523 CPU clock series. I heeded
+Chen-Yu's advice and generalised the update bit to cover both the "key"
+use case and the now no longer fixed update bit (patch 1). I also
+followed one of Krzysztof's suggestions around the binding headers.
+For a changelog see below. Based on v7.3-rc1.
+This clashes slightly with the already queued clock fixes from Junhui,
+please let me know how I should play this.
 
-Applied, thanks!
+==============================
+This series adds support for the CPU clock controller in the Allwinner
+A523/A527/T527 family of SoCs.
 
-[8/8] slimbus: qcom-ngd-ctrl: use platform_device_set_fwnode()
-      commit: bb74fae19700fd1fa92def9daf49e6fbdea26006
+In contrast to all earlier Allwinner SoCs, this chip features a separate
+CCU for the CPU clocks (one for each of the two clusters) and the DSU
+clock.
 
-Best regards,
+Patches 1 and 2 add some slight enhancements to the sunxi-ng clock driver
+framework, to generalise the update bit and allow clocks with just a
+power-of-2 divider.
+Patch 3 adds the binding document for the new CCU.
+Patch 4 adds the actual clock driver, and patch 5 makes use of that by
+adding the clock description to the SoC .dtsi.
+
+Please have a look and test!
+
+Cheers,
+Andre
+
+Changes in v2:
+- rebase on v7.3-rc1
+- cover CCU_FEATURE_KEY_FIELD in update bits generalisation
+- explicitly include binding header in clock driver
+- order clocks property before enable-method in DT nodes
+
+
+Andre Przywara (5):
+  clk: sunxi-ng: generalise update bit
+  clk: sunxi-ng: mp: support clocks with just a shift register
+  dt-bindings: clock: sun55i-a523-ccu: Add A523 CPU CCU clock controller
+  clk: sunxi-ng: add support for the A523/T527 CPU CCU
+  arm64: dts: allwinner: a523: add CPU clocks
+
+ .../clock/allwinner,sun55i-a523-ccu.yaml      |  25 ++
+ .../arm64/boot/dts/allwinner/sun55i-a523.dtsi |  22 ++
+ drivers/clk/sunxi-ng/Kconfig                  |   5 +
+ drivers/clk/sunxi-ng/Makefile                 |   2 +
+ drivers/clk/sunxi-ng/ccu-sun55i-a523-cpu.c    | 340 ++++++++++++++++++
+ drivers/clk/sunxi-ng/ccu-sun55i-a523-cpu.h    |  24 ++
+ drivers/clk/sunxi-ng/ccu-sun55i-a523.c        |  12 +-
+ drivers/clk/sunxi-ng/ccu-sun6i-rtc.c          |   4 +-
+ drivers/clk/sunxi-ng/ccu_common.h             |   8 +-
+ drivers/clk/sunxi-ng/ccu_div.c                |   3 +-
+ drivers/clk/sunxi-ng/ccu_gate.c               |   6 +-
+ drivers/clk/sunxi-ng/ccu_mp.c                 |   6 +-
+ drivers/clk/sunxi-ng/ccu_mp.h                 |   8 +-
+ drivers/clk/sunxi-ng/ccu_mux.c                |   8 +-
+ drivers/clk/sunxi-ng/ccu_nm.c                 |   1 +
+ .../dt-bindings/clock/sun55i-a523-cpu-ccu.h   |  13 +
+ 16 files changed, 456 insertions(+), 31 deletions(-)
+ create mode 100644 drivers/clk/sunxi-ng/ccu-sun55i-a523-cpu.c
+ create mode 100644 drivers/clk/sunxi-ng/ccu-sun55i-a523-cpu.h
+ create mode 100644 include/dt-bindings/clock/sun55i-a523-cpu-ccu.h
+
+
+base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
 -- 
-Srinivas Kandagatla <srini@kernel.org>
+2.43.0
 
 
