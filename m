@@ -4,120 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9370EC982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 05:24:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D976CC982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 05:29:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MgfC2YDA5MlWY7aPX9LW2hTwGflIkNfx7ki9cO3eyQ4=; b=H8jVErbBHV5PiYPv9UNdyWxF0U
-	xts3YvGgzY0dCL22ZuzCvbqX9a92oUA0Q+lHHOT6FEFM/CYViSwEPg9sYji71x48hzym3aJmS0Yrn
-	ZLjjqTKP6r196gmhUNhQ/+jp2TCWB3of2Tvby6mhMQqGmvcNXZMVDnmxz2WgKdT9v+bfWRG+wysOJ
-	8oq4G/TcuAEupRE9M6lnsZif8WyFI9IE/M/noNO+X86Cq8MXnQlU9vnjrRlrlizISBbLYi2qdlKjZ
-	YcA3TbTcVakKI0dFufXJPSe2x//72JmVK0MqXPZwXtRENcvbP5etwYxQd9BFppcVwZMLxEiv+oDaU
-	h9rTY49g==;
+	bh=r+W2BgF0JXvbhEnB5mATNx7NuZIAwz407+caeqGwqIQ=; b=MU9ZVLH4njgT8J3CdTPp7xPyFR
+	nUVmNG97MQfk1s5wbAAqlrQg9RuTQDSPoA21Bt9w+K+xJJfb00BKMGgdEMMA0hRNoADNswLZ33RxJ
+	haIG3fkP5vwpVk2EhZn9VFAF57ZGIuzlfzawM/XWtf9rVcmnP0ePLxRExKv2X7L7Df5vmi4I8pldf
+	BktiZ8ZWQQdRvcABNnTjyR2+C9UovDV6HCoyKH4BD69nlYiYvOk7mbmUEUOTmIi3lmrfp8TRg/Bbc
+	DiQv+IGcHvvRASljwwQc2i0QkJCNDiwGiYCg9oZLDNYRYVRvYmjogsGFuYqRZNEs0P4+4voPCyfIu
+	otP3P88Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x74bV-0000000Aakf-2On1;
-	Thu, 17 Sep 2026 05:24:13 +0000
+	id 1x74gw-0000000Aazc-26zd;
+	Thu, 17 Sep 2026 05:29:50 +0000
 Received: from mail-pj2-x0f.google.com ([2607:f8b0:4864:39::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x74bS-0000000Aak0-2FCQ
+	id 1x74gt-0000000AazH-4ATX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 05:24:12 +0000
-Received: by mail-pj2-x0f.google.com with SMTP id 98e67ed59e1d1-396ccd4f99cso431459a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 22:24:09 -0700 (PDT)
+	Thu, 17 Sep 2026 05:29:49 +0000
+Received: by mail-pj2-x0f.google.com with SMTP id 98e67ed59e1d1-396cccbba92so359097a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 22:29:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789622649; x=1790227449; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=MgfC2YDA5MlWY7aPX9LW2hTwGflIkNfx7ki9cO3eyQ4=;
-        b=F1t5ZMGHHsV3GGjGofPeI8YrJ9bIh37Drvgdz0WpYolqz7k6vMh+S0luz/zZF2eTMu
-         v6YvmiGrdpO4EL2IgNPBLNYdJ68egefxD8u+ScpqNeIMtrsnON58D1MSwcEKBreGuVaF
-         mrlPer322fVVTTLzpczxiOCRnfnIWNDrTpDFxw1SeC0YYdfrQwl7P2kpl9xgeSZDHIlI
-         blViC0ddfIX0ZHXIdDDMIqKpQfeflBH3ncxsBF02iFTytuK2HTili0v5dg/YxZXdECsv
-         w/mWndpX3uLTkwR3u/BcqSt8gpIWcbMYAaUrcG89l94zxYamJ+twF2Fl2mKRkRQqRPTA
-         iClw==
+        d=gmail.com; s=20251104; t=1789622986; x=1790227786; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=r+W2BgF0JXvbhEnB5mATNx7NuZIAwz407+caeqGwqIQ=;
+        b=FKzsXsXUJDapZdYJ1x/JLxAlGHFAKY48kaJcqDrhuVtrlpf/jzFycSeMavP4w95AK9
+         wFRwFOoQ+DWeUTbrb604DA1BLCN20e3kCQ/CEpp0o2ggKSpQkc7CZ3hmOkKnOJ4y7SG3
+         zELAU2uaLC9At9D8DA+tisGG/r+X2rqiymL8yYun1+IXboXMKMX758+lSsBiunz7zsQW
+         79Egpk9m3LHu8orK7XkuSXAJe8X9+2tWpeY2IQDvfDTsbNAPV34u/vOcnYGf9x1VeX5D
+         rXWl307HhCCxYBPflLoivtVRuzznRvnay7C7lrTgeR21/Kv0tD4RrKyxJ8e2vAzNL5RO
+         Sgyw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789622649; x=1790227449;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=MgfC2YDA5MlWY7aPX9LW2hTwGflIkNfx7ki9cO3eyQ4=;
-        b=huoJT0HvyfTHw1XfwMxhjAL07pJrmWR/dwDGoa6TYQaGA9g0pRVjyP1YTk7b50qhxD
-         2Qe8FJJ1m7Zw7gOjxhRmm7SxE0V5z2LOMCLdlH6r5UV8RCbVVPyfgmv9MrKkfYqchpd9
-         RL5rPoPvcta4MFe1IXR1bFaOppH5tYGoa95R2+/u06CGq5OW6aCzs7G3VZYTpMsWlO8T
-         gBHYWQIpSW8ucLU0WNq8tBq0JqY9J5tFog+gSjgPK/wCNx25vptBPI3lpUKB2i0+ZJcJ
-         HEZ0+718UPmExbHur6C/7tZRyVH6bKl36u4FYKayrEO7jAOSzZ4Nhc2RTLcGxcvJu8sI
-         9CEg==
-X-Forwarded-Encrypted: i=1; AKwUvBzrHRNjufW8RC6zqywMR6jGdFXMeuTurpt2+Jht85L20X/W/o97OmYNTf5tvWjBUEo0mi/NbBJRlwUM7D8vRtns@lists.infradead.org
-X-Gm-Message-State: AFuF++mLFmdu4l3E1yjt4G3JVb7atNmKbvKz/C+NwEmitC41QllKY6Mw
-	Qnuxav0ghwm4zf7dQwd5pmXJUSoef2M32O19cET9MPKvLBnRczwoGKLSyire6rVb8io=
-X-Gm-Gg: AYBFou2QiQeRoc5CGPvNzY5rwfAiebu0d4vg6xeIl26dgI9ZHkVjsCwKGaqDaE9lakc
-	s05tmQFg5PNKQ4t0MYJpA7DdN90BiOeQZYyi6gyvncUNHWNkQUkSacmbKgTfGnpUjBYfpS/H6sT
-	x7FIUyOWwrmF+uhSn5b0u8J8uxCbhgUXz7JZ0R3gjnoExAsqOP2SwQDp6bN2IYL1qsW8Qbu6rKJ
-	cA3x2GHvxheL6uvuUXhBWZ43EtyRGOg/wQZgJrpEwmx+BcDAyaqTsKlE6XyS/zR+4oIwIUrDszG
-	uZFdVoJH+XVJTz38vkStXyFJzzzM0lkIK+PAMHKFKsESKS8UPg6rE6gsIYD3rpfevKC2EsGdy21
-	rVgTo1WEBWUZuCUp183a2SXi4MJllNhLLaMreay5hPkXLjFkqmxwlqko3vw9fvEOcsPKiZsKxoW
-	x0/4XiJA6q9El/RLRKj7F1pfV83ZyDrO1K3EkAvGGrygpWI8N9TF4yNGhW+wDW7KzxsPHGFKboI
-	n4Mftd8tMuT0BlUGtI2v3NyGQ==
-X-Received: by 2002:a17:90b:1fce:b0:39e:2faa:2e83 with SMTP id 98e67ed59e1d1-39e2faa31f1mr7696392a91.10.1789622648492;
-        Wed, 16 Sep 2026 22:24:08 -0700 (PDT)
-Received: from volcano9f6e-hostos.amd.com ([165.204.217.251])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33bf5a93f1fsm12482915eec.11.2026.09.16.22.23.57
+        d=1e100.net; s=20260707; t=1789622986; x=1790227786;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=r+W2BgF0JXvbhEnB5mATNx7NuZIAwz407+caeqGwqIQ=;
+        b=tweAADNrxdBiPxfw4MgPMLwLvQSuSkQ1YswKJc/VtLtZ4QFAsYfrBnx8UsSFZX0trg
+         EjzetNMOLRMdecfJb60dLOwori1pSI24q/8co8CKOl4Fhf23WuCLsiGU7E1H9VAHlmjK
+         s7U2LpMSW/XXTrPXDSbfs7nyeFXpk33ZsLN4J8eM+RMmP2FYFFqaYxFO8RTfkGGS2Y+4
+         U7k1Seefl+3ZdaHICSuFwT/MwN0s7j3IKr2hhngUoeVjRJ8YySZ4FUxZMEBQOwMXRcrc
+         Mn4GZVqObe50nlmbjroATxTDne6vJUCX+OccnskFP2IhYvNyTO4UKj/i2vxTFSDPtxhF
+         qwPA==
+X-Forwarded-Encrypted: i=1; AKwUvBwIkL+muRRnLbRNR+Y8fV2+lPfySb17Vlx97yWg5RrijD8s+I6aeXevhHLHYUo7R9VCkKralOf/91c0FfhxdY4s@lists.infradead.org
+X-Gm-Message-State: AFuF++n/3peNWCrtozeEpUMBcxS9qsQho888YZgSEw/a/8HFAcs9sCpB
+	9ob62QP4YPhR8apj2pJdQvJI92upG/6uQre1JL3nX4rmbRLRiHC9jIi9jASUWA==
+X-Gm-Gg: AYBFou28ovXGep9anRBa1ngttmXLKFvGNaPHB0r+gK52dIqWij+8aB5DjWWH/q1qhjJ
+	R0bkt460md9ffkmXlhYuJxIu3tFnHpMGIgVMwMl9dC1VZe6aQ2XyLqVz5AfU/NRyyWsQVYXWXxj
+	l1yq9XQKxftYTmIynYP2FFPH9wzNSV3NaKmNoFe9QbQS0NLpUtbAW9vjxTIbK3aEKfcG2N2DcFc
+	5y8CJvt5zb0nYVlkfWd+nER1ICOuaiAPAGQ47Yr0brgf8e02jan5eLm0GN4K4mbPAvEgJsDxvzd
+	1qzTed0MKT8Ne1b1ePyLcEAltDuuLZO2BPdwpMVwm3zTaK0xsJpXuDgOsm5A7RDldmeWCIOhOoW
+	ZqqFkvDUrFiSQbeDbNN6/2qePIkmtQK1jG2n/bRI+eoTjlinXZMxx4LqV1wvzayiav97NTaKPDb
+	Da/VhKdm4m+29YcD75Uq+GIw6w1oJCtur5rz6EEQvHbZOTsg9GeBgzMoj/5KSXQLK5PUoOCzw9f
+	alhIjI6MeoGYD99NnHyC1lrBV4=
+X-Received: by 2002:a17:90b:280a:b0:39d:fcbe:fdcf with SMTP id 98e67ed59e1d1-39e1e2659a8mr13162798a91.1.1789622986129;
+        Wed, 16 Sep 2026 22:29:46 -0700 (PDT)
+Received: from mi-OptiPlex-7060.mioffice.cn ([43.224.245.234])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39e3abada87sm1955836a91.14.2026.09.16.22.29.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Sep 2026 22:24:08 -0700 (PDT)
-From: Hemanth Selam <hemanth.selam@gmail.com>
-To: Mark Brown <broonie@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>
-Cc: Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Andrei Simion <andrei.simion@microchip.com>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	David Rhodes <david.rhodes@cirrus.com>,
-	Richard Fitzgerald <rf@opensource.cirrus.com>,
-	Support Opensource <support.opensource@diasemi.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Oder Chiou <oder_chiou@realtek.com>,
-	Shenghao Ding <shenghao-ding@ti.com>,
-	Kevin Lu <kevin-lu@ti.com>,
-	Baojun Xu <baojun.xu@ti.com>,
-	Sen Wang <sen@ti.com>,
-	Cezary Rojewski <cezary.rojewski@intel.com>,
-	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
-	Bard Liao <yung-chuan.liao@linux.intel.com>,
-	Kai Vehmanen <kai.vehmanen@linux.intel.com>,
-	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Jarkko Nikula <jarkko.nikula@bitmer.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	linux-sound@vger.kernel.org,
+        Wed, 16 Sep 2026 22:29:44 -0700 (PDT)
+From: Wen Jiang <jiangwenxiaomi@gmail.com>
+To: akpm@linux-foundation.org,
+	catalin.marinas@arm.com,
+	linux-mm@kvack.org,
+	urezki@gmail.com,
+	will@kernel.org
+Cc: Xueyuan.chen21@gmail.com,
+	ajd@linux.ibm.com,
+	anshuman.khandual@arm.com,
+	baohua@kernel.org,
+	chleroy@kernel.org,
+	david@kernel.org,
+	dev.jain@arm.com,
+	jiangwen6@xiaomi.com,
+	leo.yan@arm.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	patches@opensource.cirrus.com,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-omap@vger.kernel.org
-Subject: [PATCH v3] ASoC: fix typos in comments
-Date: Thu, 17 Sep 2026 10:53:55 +0530
-Message-ID: <20260917052355.13344-1-hemanth.selam@gmail.com>
-X-Mailer: git-send-email 2.48.1
+	linuxppc-dev@lists.ozlabs.org,
+	maddy@linux.ibm.com,
+	mpe@ellerman.id.au,
+	npiggin@gmail.com,
+	rppt@kernel.org,
+	ryan.roberts@arm.com
+Subject: [PATCH v8 00/10] mm/vmalloc: Speed up ioremap, vmalloc and vmap with contiguous memory
+Date: Thu, 17 Sep 2026 13:29:23 +0800
+Message-Id: <20260917052933.188679-1-jiangwenxiaomi@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_222410_606833_0E53E47C 
-X-CRM114-Status: GOOD (  27.76  )
+X-CRM114-CacheID: sfid-20260916_222948_053768_9FFC652B 
+X-CRM114-Status: GOOD (  22.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,551 +117,215 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix typos in comments, reported by scripts/checkpatch.pl using the
-misspelling list in scripts/spelling.txt.  Only touches comments, no code
-changes.
+From: Wen Jiang <jiangwen6@xiaomi.com>
 
-v3 is v2 regenerated on top of broonie/sound.git for-next, with a
-base-commit trailer so the base is unambiguous.  v2 was reported as not
-applying; I could not reproduce that against for-next, for-7.4 or
-for-linus, so please let me know which branch you are applying to if this
-one still fails.
+This patchset accelerates ioremap, vmalloc, and vmap when the memory is
+physically fully or partially contiguous. Two techniques are used:
 
-Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
----
- sound/soc/atmel/atmel-pcm-dma.c            |  2 +-
- sound/soc/bcm/cygnus-ssp.h                 |  2 +-
- sound/soc/codecs/adau1701.c                |  4 ++--
- sound/soc/codecs/cs35l33.c                 |  2 +-
- sound/soc/codecs/cs35l34.c                 |  2 +-
- sound/soc/codecs/cs42l42.c                 |  2 +-
- sound/soc/codecs/cs42l73.c                 |  4 ++--
- sound/soc/codecs/cx20442.c                 |  2 +-
- sound/soc/codecs/da7210.c                  |  2 +-
- sound/soc/codecs/hdac_hda.c                |  2 +-
- sound/soc/codecs/hdac_hdmi.c               |  2 +-
- sound/soc/codecs/max98927.c                |  4 ++--
- sound/soc/codecs/mt6359.c                  |  8 ++++----
- sound/soc/codecs/nau8825.c                 | 10 +++++-----
- sound/soc/codecs/rt1320-sdw.c              |  2 +-
- sound/soc/codecs/rt5631.h                  |  8 ++++----
- sound/soc/codecs/rt5640.c                  |  2 +-
- sound/soc/codecs/rt5645.c                  |  2 +-
- sound/soc/codecs/rt5651.c                  |  2 +-
- sound/soc/codecs/rt5670.c                  |  2 +-
- sound/soc/codecs/tlv320dac33.c             |  2 +-
- sound/soc/intel/atom/sst-mfld-dsp.h        |  2 +-
- sound/soc/intel/atom/sst/sst.h             |  2 +-
- sound/soc/intel/boards/sof_cirrus_common.c |  2 +-
- sound/soc/qcom/qdsp6/q6asm-dai.c           |  2 +-
- sound/soc/ti/davinci-i2s.c                 |  2 +-
- sound/soc/ti/davinci-mcasp.c               |  2 +-
- sound/soc/ti/omap-mcbsp.c                  |  2 +-
- sound/soc/uniphier/aio.h                   |  2 +-
- sound/soc/ux500/ux500_msp_i2s.c            |  2 +-
- 30 files changed, 43 insertions(+), 43 deletions(-)
+1. Avoid page table rewalk when setting PTEs/PMDs for multiple memory
+   segments
+2. Use batched mappings wherever possible in both vmalloc and ARM64
+   layers
 
-diff --git a/sound/soc/atmel/atmel-pcm-dma.c b/sound/soc/atmel/atmel-pcm-dma.c
-index 7306e04da513..e4b73ae3df4f 100644
---- a/sound/soc/atmel/atmel-pcm-dma.c
-+++ b/sound/soc/atmel/atmel-pcm-dma.c
-@@ -47,7 +47,7 @@ static const struct snd_pcm_hardware atmel_pcm_dma_hardware = {
-  * atmel_pcm_dma_irq: SSC interrupt handler for DMAENGINE enabled SSC
-  *
-  * We use DMAENGINE to send/receive data to/from SSC so this ISR is only to
-- * check if any overrun occured.
-+ * check if any overrun occurred.
-  */
- static void atmel_pcm_dma_irq(u32 ssc_sr,
- 	struct snd_pcm_substream *substream)
-diff --git a/sound/soc/bcm/cygnus-ssp.h b/sound/soc/bcm/cygnus-ssp.h
-index 4925e03c3c30..7848e15efbe1 100644
---- a/sound/soc/bcm/cygnus-ssp.h
-+++ b/sound/soc/bcm/cygnus-ssp.h
-@@ -27,7 +27,7 @@ struct ringbuf_regs {
- 	unsigned wraddr;
- 	unsigned baseaddr;
- 	unsigned endaddr;
--	unsigned fmark;   /* freemark for play, fullmark for caputure */
-+	unsigned fmark;   /* freemark for play, fullmark for capture */
- 	unsigned period_bytes;
- 	unsigned buf_size;
- };
-diff --git a/sound/soc/codecs/adau1701.c b/sound/soc/codecs/adau1701.c
-index a1311c7b56b1..d55cdc5d4413 100644
---- a/sound/soc/codecs/adau1701.c
-+++ b/sound/soc/codecs/adau1701.c
-@@ -4,7 +4,7 @@
-  *
-  * Copyright 2011 Analog Devices Inc.
-  * Author: Lars-Peter Clausen <lars@metafoo.de>
-- *	based on an inital version by Cliff Cai <cliff.cai@analog.com>
-+ *	based on an initial version by Cliff Cai <cliff.cai@analog.com>
-  */
- 
- #include <linux/module.h>
-@@ -701,7 +701,7 @@ static int adau1701_probe(struct snd_soc_component *component)
- 	 */
- 	adau1701->pll_clkdiv = ADAU1707_CLKDIV_UNSET;
- 
--	/* initalize with pre-configured pll mode settings */
-+	/* initialize with pre-configured pll mode settings */
- 	ret = adau1701_reset(component, adau1701->pll_clkdiv, 0);
- 	if (ret < 0)
- 		goto exit_regulators_disable;
-diff --git a/sound/soc/codecs/cs35l33.c b/sound/soc/codecs/cs35l33.c
-index d0f9231f5e44..b8c19f175701 100644
---- a/sound/soc/codecs/cs35l33.c
-+++ b/sound/soc/codecs/cs35l33.c
-@@ -578,7 +578,7 @@ static int cs35l33_set_tdm_slot(struct snd_soc_dai *dai, unsigned int tx_mask,
- 			| CS35L33_X_LOC);
- 	}
- 
--	/* disconnect {vp,vbst}_mon routes: eanble later if set in tx_mask*/
-+	/* disconnect {vp,vbst}_mon routes: enable later if set in tx_mask*/
- 	snd_soc_dapm_del_routes(dapm, cs35l33_vp_vbst_mon_route,
- 		ARRAY_SIZE(cs35l33_vp_vbst_mon_route));
- 
-diff --git a/sound/soc/codecs/cs35l34.c b/sound/soc/codecs/cs35l34.c
-index 3f265bd760f7..a72be629a31e 100644
---- a/sound/soc/codecs/cs35l34.c
-+++ b/sound/soc/codecs/cs35l34.c
-@@ -297,7 +297,7 @@ static int cs35l34_set_tdm_slot(struct snd_soc_dai *dai, unsigned int tx_mask,
- 				CS35L34_X_STATE | CS35L34_X_LOC,
- 				CS35L34_X_STATE | CS35L34_X_LOC);
- 
--	/* disconnect {vp,vbst}_mon routes: eanble later if set in tx_mask*/
-+	/* disconnect {vp,vbst}_mon routes: enable later if set in tx_mask*/
- 	while (slot >= 0) {
- 		/* configure VMON_TX_LOC */
- 		if (slot_num == 0)
-diff --git a/sound/soc/codecs/cs42l42.c b/sound/soc/codecs/cs42l42.c
-index 866c21944729..84065d153ebf 100644
---- a/sound/soc/codecs/cs42l42.c
-+++ b/sound/soc/codecs/cs42l42.c
-@@ -1682,7 +1682,7 @@ irqreturn_t cs42l42_irq_thread(int irq, void *data)
- 	if (cs42l42->suspended || !cs42l42->init_done)
- 		return IRQ_NONE;
- 
--	/* Read sticky registers to clear interurpt */
-+	/* Read sticky registers to clear interrupt */
- 	for (i = 0; i < ARRAY_SIZE(stickies); i++) {
- 		regmap_read(cs42l42->regmap, irq_params_table[i].status_addr,
- 				&(stickies[i]));
-diff --git a/sound/soc/codecs/cs42l73.c b/sound/soc/codecs/cs42l73.c
-index 72076ccf4570..72c4213ed74b 100644
---- a/sound/soc/codecs/cs42l73.c
-+++ b/sound/soc/codecs/cs42l73.c
-@@ -761,7 +761,7 @@ static const struct snd_soc_dapm_route cs42l73_audio_map[] = {
- 	{"ASPOUTL", "ASP-IP Volume", "ASPL Output Mixer"},
- 	{"ASPOUTR", "ASP-IP Volume", "ASPR Output Mixer"},
- 
--	/* Auxillary Capture */
-+	/* Auxiliary Capture */
- 	{"XSPL Output Mixer", NULL, "Input Left Capture"},
- 	{"XSPR Output Mixer", NULL, "Input Right Capture"},
- 
-@@ -1126,7 +1126,7 @@ static int cs42l73_set_bias_level(struct snd_soc_component *component,
- 			mdelay(cs42l73->shutdwn_delay);
- 			cs42l73->shutdwn_delay = 0;
- 		} else {
--			mdelay(15); /* Min amount of time requred to power
-+			mdelay(15); /* Min amount of time required to power
- 				     * down.
- 				     */
- 		}
-diff --git a/sound/soc/codecs/cx20442.c b/sound/soc/codecs/cx20442.c
-index 0dea84cd8ef2..d3c7a9370220 100644
---- a/sound/soc/codecs/cx20442.c
-+++ b/sound/soc/codecs/cx20442.c
-@@ -200,7 +200,7 @@ static int cx20442_write(struct snd_soc_component *component, unsigned int reg,
-  * Line discpline related code
-  *
-  * Any of the callback functions below can be used in two ways:
-- * 1) registerd by a machine driver as one of line discipline operations,
-+ * 1) registered by a machine driver as one of line discipline operations,
-  * 2) called from a machine's provided line discipline callback function
-  *    in case when extra machine specific code must be run as well.
-  */
-diff --git a/sound/soc/codecs/da7210.c b/sound/soc/codecs/da7210.c
-index 597510de561a..40d759938edc 100644
---- a/sound/soc/codecs/da7210.c
-+++ b/sound/soc/codecs/da7210.c
-@@ -1158,7 +1158,7 @@ static int da7210_probe(struct snd_soc_component *component)
- 	snd_soc_component_write(component, DA7210_PLL_DIV3, DA7210_MCLK_RANGE_10_20_MHZ |
- 					      DA7210_PLL_BYP);
- 
--	/* Diable PLL and bypass it */
-+	/* Disable PLL and bypass it */
- 	snd_soc_component_write(component, DA7210_PLL, DA7210_PLL_FS_48000);
- 
- 	/* Activate all enabled subsystem */
-diff --git a/sound/soc/codecs/hdac_hda.c b/sound/soc/codecs/hdac_hda.c
-index 1c06fdbf0e71..7414be08d3d5 100644
---- a/sound/soc/codecs/hdac_hda.c
-+++ b/sound/soc/codecs/hdac_hda.c
-@@ -520,7 +520,7 @@ static int hdac_hda_codec_probe(struct snd_soc_component *component)
- 	/*
- 	 * hdac_device core already sets the state to active and calls
- 	 * get_noresume. So enable runtime and set the device to suspend.
--	 * pm_runtime_enable is also called during codec registeration
-+	 * pm_runtime_enable is also called during codec registration
- 	 */
- 	pm_runtime_put(&hdev->dev);
- 	pm_runtime_suspend(&hdev->dev);
-diff --git a/sound/soc/codecs/hdac_hdmi.c b/sound/soc/codecs/hdac_hdmi.c
-index d9e6fa6d3e99..b3f677e7ddc9 100644
---- a/sound/soc/codecs/hdac_hdmi.c
-+++ b/sound/soc/codecs/hdac_hdmi.c
-@@ -1753,7 +1753,7 @@ static int hdmi_codec_resume(struct device *dev)
- 	/*
- 	 * As the ELD notify callback request is not entertained while the
- 	 * device is in suspend state. Need to manually check detection of
--	 * all pins here. pin capablity change is not support, so use the
-+	 * all pins here. pin capability change is not support, so use the
- 	 * already set pin caps.
- 	 *
- 	 * NOTE: this is safe to call even if the codec doesn't actually resume.
-diff --git a/sound/soc/codecs/max98927.c b/sound/soc/codecs/max98927.c
-index d8dfaefdca7e..285c9d1ea721 100644
---- a/sound/soc/codecs/max98927.c
-+++ b/sound/soc/codecs/max98927.c
-@@ -672,7 +672,7 @@ static int max98927_probe(struct snd_soc_component *component)
- 		     0x80);
- 	regmap_write(max98927->regmap, MAX98927_R0026_PCM_TO_SPK_MONOMIX_B,
- 		     0x1);
--	/* Set inital volume (+13dB) */
-+	/* Set initial volume (+13dB) */
- 	regmap_write(max98927->regmap, MAX98927_R0036_AMP_VOL_CTRL, 0x38);
- 	regmap_write(max98927->regmap, MAX98927_R003C_SPK_GAIN, 0x05);
- 	/* Enable DC blocker */
-@@ -870,7 +870,7 @@ static int max98927_i2c_probe(struct i2c_client *i2c)
- 	/* voltage/current slot configuration */
- 	max98927_slot_config(i2c, max98927);
- 
--	/* codec registeration */
-+	/* codec registration */
- 	ret = devm_snd_soc_register_component(&i2c->dev,
- 		&soc_component_dev_max98927,
- 		max98927_dai, ARRAY_SIZE(max98927_dai));
-diff --git a/sound/soc/codecs/mt6359.c b/sound/soc/codecs/mt6359.c
-index b15bdb15dbb0..c51eae602ca0 100644
---- a/sound/soc/codecs/mt6359.c
-+++ b/sound/soc/codecs/mt6359.c
-@@ -82,7 +82,7 @@ static void mt6359_reset_capture_gpio(struct mt6359_priv *priv)
- 			   0x3 << 0, 0x0);
- }
- 
--/* use only when doing mtkaif calibraiton at the boot time */
-+/* use only when doing mtkaif calibration at the boot time */
- static void mt6359_set_dcxo(struct mt6359_priv *priv, bool enable)
- {
- 	regmap_update_bits(priv->regmap, MT6359_DCXO_CW12,
-@@ -90,7 +90,7 @@ static void mt6359_set_dcxo(struct mt6359_priv *priv, bool enable)
- 			   (enable ? 1 : 0) << RG_XO_AUDIO_EN_M_SFT);
- }
- 
--/* use only when doing mtkaif calibraiton at the boot time */
-+/* use only when doing mtkaif calibration at the boot time */
- static void mt6359_set_clksq(struct mt6359_priv *priv, bool enable)
- {
- 	/* Enable/disable CLKSQ 26MHz */
-@@ -99,7 +99,7 @@ static void mt6359_set_clksq(struct mt6359_priv *priv, bool enable)
- 			   (enable ? 1 : 0) << RG_CLKSQ_EN_SFT);
- }
- 
--/* use only when doing mtkaif calibraiton at the boot time */
-+/* use only when doing mtkaif calibration at the boot time */
- static void mt6359_set_aud_global_bias(struct mt6359_priv *priv, bool enable)
- {
- 	regmap_update_bits(priv->regmap, MT6359_AUDDEC_ANA_CON13,
-@@ -107,7 +107,7 @@ static void mt6359_set_aud_global_bias(struct mt6359_priv *priv, bool enable)
- 			   (enable ? 0 : 1) << RG_AUDGLB_PWRDN_VA32_SFT);
- }
- 
--/* use only when doing mtkaif calibraiton at the boot time */
-+/* use only when doing mtkaif calibration at the boot time */
- static void mt6359_set_topck(struct mt6359_priv *priv, bool enable)
- {
- 	regmap_update_bits(priv->regmap, MT6359_AUD_TOP_CKPDN_CON0,
-diff --git a/sound/soc/codecs/nau8825.c b/sound/soc/codecs/nau8825.c
-index 5165aeba4b67..2eb0efc983a0 100644
---- a/sound/soc/codecs/nau8825.c
-+++ b/sound/soc/codecs/nau8825.c
-@@ -345,10 +345,10 @@ static u32 nau8825_intlog10_dec3(u32 value)
- /**
-  * nau8825_xtalk_sidetone - computes cross talk suppression sidetone gain.
-  *
-- * @sig_org: orignal signal level
-+ * @sig_org: original signal level
-  * @sig_cros: cross talk signal level
-  *
-- * The orignal and cross talk signal vlues need to be characterized.
-+ * The original and cross talk signal vlues need to be characterized.
-  * Once these values have been characterized, this sidetone value
-  * can be converted to decibel with the equation below.
-  * sidetone = 20 * log (original signal level / crosstalk signal level)
-@@ -671,11 +671,11 @@ static void nau8825_xtalk_imm_stop(struct nau8825 *nau8825)
-  * Thus, the measurement function has four states to complete whole sequence.
-  * 1. Prepare state : Prepare the resource for detection and transfer to HPR
-  *     IMM stat to make JKR1(HPR) impedance measure.
-- * 2. HPR IMM state : Read out orignal signal level of JKR1(HPR) and transfer
-+ * 2. HPR IMM state : Read out original signal level of JKR1(HPR) and transfer
-  *     to HPL IMM state to make JKTIP(HPL) impedance measure.
-  * 3. HPL IMM state : Read out cross talk signal level of JKTIP(HPL) and
-  *     transfer to IMM state to determine suppression sidetone gain.
-- * 4. IMM state : Computes cross talk suppression sidetone gain with orignal
-+ * 4. IMM state : Computes cross talk suppression sidetone gain with original
-  *     and cross talk signal level. Apply this gain and then restore codec
-  *     configuration. Then transfer to Done state for ending.
-  */
-@@ -724,7 +724,7 @@ static void nau8825_xtalk_measure(struct nau8825 *nau8825)
- 		nau8825->xtalk_state = NAU8825_XTALK_IMM;
- 		break;
- 	case NAU8825_XTALK_IMM:
--		/* In impedance measure state, the orignal and cross talk
-+		/* In impedance measure state, the original and cross talk
- 		 * signal level vlues are ready. The side tone gain is deter-
- 		 * mined with these signal level. After all, restore codec
- 		 * configuration.
-diff --git a/sound/soc/codecs/rt1320-sdw.c b/sound/soc/codecs/rt1320-sdw.c
-index 444a91755be9..b13622e54ae0 100644
---- a/sound/soc/codecs/rt1320-sdw.c
-+++ b/sound/soc/codecs/rt1320-sdw.c
-@@ -2084,7 +2084,7 @@ static int rt1320_rae_load(struct rt1320_sdw_priv *rt1320)
- 		regmap_update_bits(rt1320->regmap, 0x20005818, 0x80, 0x80);
- 		/* RAE run */
- 		regmap_update_bits(rt1320->regmap, 0x2000301c, 0x01, 0x01);
--		/* Phase sync eanble */
-+		/* Phase sync enable */
- 		regmap_update_bits(rt1320->regmap, 0xc047, 0x80, 0x80);
- 		break;
- 	}
-diff --git a/sound/soc/codecs/rt5631.h b/sound/soc/codecs/rt5631.h
-index 8a6b99a48c7c..00734207ac9f 100644
---- a/sound/soc/codecs/rt5631.h
-+++ b/sound/soc/codecs/rt5631.h
-@@ -415,7 +415,7 @@
- #define RT5631_ADDA_FILTER_CLK_SEL_256FS		(0 << 7) /* 256FS */
- #define RT5631_ADDA_FILTER_CLK_SEL_384FS		(1 << 7) /* 384FS */
- 
--/* Power managment addition 1 (0x3A) */
-+/* Power management addition 1 (0x3A) */
- #define RT5631_PWR_MAIN_I2S_EN			(0x1 << 15)
- #define RT5631_PWR_MAIN_I2S_BIT			15
- #define RT5631_PWR_CLASS_D				(0x1 << 12)
-@@ -435,7 +435,7 @@
- #define RT5631_PWR_DAC_R_TO_MIXER			(0x1 << 5)
- #define RT5631_PWR_DAC_R_TO_MIXER_BIT		5
- 
--/* Power managment addition 2 (0x3B) */
-+/* Power management addition 2 (0x3B) */
- #define RT5631_PWR_OUTMIXER_L				(0x1 << 15)
- #define RT5631_PWR_OUTMIXER_L_BIT			15
- #define RT5631_PWR_OUTMIXER_R				(0x1 << 14)
-@@ -461,7 +461,7 @@
- #define RT5631_PWR_PLL2				(0x1 << 0)
- #define RT5631_PWR_PLL2_BIT				0
- 
--/* Power managment addition 3(0x3C) */
-+/* Power management addition 3(0x3C) */
- #define RT5631_PWR_VREF				(0x1 << 15)
- #define RT5631_PWR_VREF_BIT				15
- #define RT5631_PWR_FAST_VREF_CTRL			(0x1 << 14)
-@@ -489,7 +489,7 @@
- #define RT5631_PWR_HP_AMP_DRIVING			(0x1 << 0)
- #define RT5631_PWR_HP_AMP_DRIVING_BIT		0
- 
--/* Power managment addition 4(0x3E) */
-+/* Power management addition 4(0x3E) */
- #define RT5631_PWR_SPK_L_VOL				(0x1 << 15)
- #define RT5631_PWR_SPK_L_VOL_BIT			15
- #define RT5631_PWR_SPK_R_VOL				(0x1 << 14)
-diff --git a/sound/soc/codecs/rt5640.c b/sound/soc/codecs/rt5640.c
-index 4fa1eee8e87f..03d0ac3359f5 100644
---- a/sound/soc/codecs/rt5640.c
-+++ b/sound/soc/codecs/rt5640.c
-@@ -1216,7 +1216,7 @@ static const struct snd_soc_dapm_widget rt5640_dapm_widgets[] = {
- 		0, rt5640_spk_l_mix, ARRAY_SIZE(rt5640_spk_l_mix)),
- 	SND_SOC_DAPM_MIXER("SPK MIXR", RT5640_PWR_MIXER, RT5640_PWR_SM_R_BIT,
- 		0, rt5640_spk_r_mix, ARRAY_SIZE(rt5640_spk_r_mix)),
--	/* Ouput Volume */
-+	/* Output Volume */
- 	SND_SOC_DAPM_PGA("SPKVOL L", RT5640_PWR_VOL,
- 		RT5640_PWR_SV_L_BIT, 0, NULL, 0),
- 	SND_SOC_DAPM_PGA("SPKVOL R", RT5640_PWR_VOL,
-diff --git a/sound/soc/codecs/rt5645.c b/sound/soc/codecs/rt5645.c
-index bf9f278c3de9..bb448254275f 100644
---- a/sound/soc/codecs/rt5645.c
-+++ b/sound/soc/codecs/rt5645.c
-@@ -2209,7 +2209,7 @@ static const struct snd_soc_dapm_widget rt5645_dapm_widgets[] = {
- 		0, rt5645_out_l_mix, ARRAY_SIZE(rt5645_out_l_mix)),
- 	SND_SOC_DAPM_MIXER("OUT MIXR", RT5645_PWR_MIXER, RT5645_PWR_OM_R_BIT,
- 		0, rt5645_out_r_mix, ARRAY_SIZE(rt5645_out_r_mix)),
--	/* Ouput Volume */
-+	/* Output Volume */
- 	SND_SOC_DAPM_SWITCH("SPKVOL L", RT5645_PWR_VOL, RT5645_PWR_SV_L_BIT, 0,
- 		&spk_l_vol_control),
- 	SND_SOC_DAPM_SWITCH("SPKVOL R", RT5645_PWR_VOL, RT5645_PWR_SV_R_BIT, 0,
-diff --git a/sound/soc/codecs/rt5651.c b/sound/soc/codecs/rt5651.c
-index 9723b4c7540c..b911757376f5 100644
---- a/sound/soc/codecs/rt5651.c
-+++ b/sound/soc/codecs/rt5651.c
-@@ -1024,7 +1024,7 @@ static const struct snd_soc_dapm_widget rt5651_dapm_widgets[] = {
- 			   0, rt5651_out_l_mix, ARRAY_SIZE(rt5651_out_l_mix)),
- 	SND_SOC_DAPM_MIXER("OUT MIXR", RT5651_PWR_MIXER, RT5651_PWR_OM_R_BIT,
- 			   0, rt5651_out_r_mix, ARRAY_SIZE(rt5651_out_r_mix)),
--	/* Ouput Volume */
-+	/* Output Volume */
- 	SND_SOC_DAPM_SWITCH("OUTVOL L", RT5651_PWR_VOL,
- 			    RT5651_PWR_OV_L_BIT, 0, &outvol_l_control),
- 	SND_SOC_DAPM_SWITCH("OUTVOL R", RT5651_PWR_VOL,
-diff --git a/sound/soc/codecs/rt5670.c b/sound/soc/codecs/rt5670.c
-index f772f093479a..62d4e7cea5af 100644
---- a/sound/soc/codecs/rt5670.c
-+++ b/sound/soc/codecs/rt5670.c
-@@ -1901,7 +1901,7 @@ static const struct snd_soc_dapm_widget rt5670_dapm_widgets[] = {
- 			   0, rt5670_out_l_mix, ARRAY_SIZE(rt5670_out_l_mix)),
- 	SND_SOC_DAPM_MIXER("OUT MIXR", RT5670_PWR_MIXER, RT5670_PWR_OM_R_BIT,
- 			   0, rt5670_out_r_mix, ARRAY_SIZE(rt5670_out_r_mix)),
--	/* Ouput Volume */
-+	/* Output Volume */
- 	SND_SOC_DAPM_MIXER("HPOVOL MIXL", RT5670_PWR_VOL,
- 			   RT5670_PWR_HV_L_BIT, 0,
- 			   rt5670_hpvoll_mix, ARRAY_SIZE(rt5670_hpvoll_mix)),
-diff --git a/sound/soc/codecs/tlv320dac33.c b/sound/soc/codecs/tlv320dac33.c
-index 55a95b62a650..b91ab42882d1 100644
---- a/sound/soc/codecs/tlv320dac33.c
-+++ b/sound/soc/codecs/tlv320dac33.c
-@@ -914,7 +914,7 @@ static int dac33_prepare_chip(struct snd_pcm_substream *substream,
- 	/* OSC calibration time */
- 	dac33_write(component, DAC33_CALIB_TIME, 96);
- 
--	/* adjustment treshold & step */
-+	/* adjustment threshold & step */
- 	dac33_write(component, DAC33_INT_OSC_CTRL_B, DAC33_ADJTHRSHLD(2) |
- 						 DAC33_ADJSTEP(1));
- 
-diff --git a/sound/soc/intel/atom/sst-mfld-dsp.h b/sound/soc/intel/atom/sst-mfld-dsp.h
-index c8f0816edb53..59606259a06e 100644
---- a/sound/soc/intel/atom/sst-mfld-dsp.h
-+++ b/sound/soc/intel/atom/sst-mfld-dsp.h
-@@ -189,7 +189,7 @@ struct ipc_dsp_hdr {
- union ipc_header_high {
- 	struct {
- 		u32  msg_id:8;	    /* Message ID - Max 256 Message Types */
--		u32  task_id:4;	    /* Task ID associated with this comand */
-+		u32  task_id:4;	    /* Task ID associated with this command */
- 		u32  drv_id:4;    /* Identifier for the driver to track*/
- 		u32  rsvd1:8;	    /* Reserved */
- 		u32  result:4;	    /* Reserved */
-diff --git a/sound/soc/intel/atom/sst/sst.h b/sound/soc/intel/atom/sst/sst.h
-index c43946c5ecee..e24d9dad7ef6 100644
---- a/sound/soc/intel/atom/sst/sst.h
-+++ b/sound/soc/intel/atom/sst/sst.h
-@@ -182,7 +182,7 @@ struct sst_block {
-  * @pcm_substream : PCM substream
-  * @period_elapsed : PCM period elapsed callback
-  * @sfreq : stream sampling freq
-- * @cumm_bytes : cummulative bytes decoded
-+ * @cumm_bytes : cumulative bytes decoded
-  */
- struct stream_info {
- 	unsigned int		status;
-diff --git a/sound/soc/intel/boards/sof_cirrus_common.c b/sound/soc/intel/boards/sof_cirrus_common.c
-index 88fc6cb2bfd4..ec4bda40ae00 100644
---- a/sound/soc/intel/boards/sof_cirrus_common.c
-+++ b/sound/soc/intel/boards/sof_cirrus_common.c
-@@ -151,7 +151,7 @@ static const char * const cs35l41_name_prefixes[] = { "WL", "WR", "TL", "TR" };
-  * UID 0x2 -> TL
-  * UID 0x3 -> TR
-  * Note: If there are less than 4 Amps, UIDs still map to WL/WR/TL/TR. Dynamic code will only create
-- * dai links for UIDs which exist, and ignore non-existant ones. Only 2 or 4 amps are expected.
-+ * dai links for UIDs which exist, and ignore non-existent ones. Only 2 or 4 amps are expected.
-  * Return number of codecs found.
-  */
- static int cs35l41_compute_codec_conf(void)
-diff --git a/sound/soc/qcom/qdsp6/q6asm-dai.c b/sound/soc/qcom/qdsp6/q6asm-dai.c
-index 4f09fdd40905..cd4f82bb8cc7 100644
---- a/sound/soc/qcom/qdsp6/q6asm-dai.c
-+++ b/sound/soc/qcom/qdsp6/q6asm-dai.c
-@@ -551,7 +551,7 @@ static void compress_event_handler(uint32_t opcode, uint32_t token,
- 						 prtd->stream_id,
- 						 CMD_CLOSE);
- 				/*
--				 * vaild stream ids start from 1, So we are
-+				 * valid stream ids start from 1, So we are
- 				 * toggling this between 1 and 2.
- 				 */
- 				prtd->stream_id = (prtd->stream_id == 1 ? 2 : 1);
-diff --git a/sound/soc/ti/davinci-i2s.c b/sound/soc/ti/davinci-i2s.c
-index ec7eb2f19b6f..3614f614117d 100644
---- a/sound/soc/ti/davinci-i2s.c
-+++ b/sound/soc/ti/davinci-i2s.c
-@@ -49,7 +49,7 @@
-  *    incompatible with ASP and with either McBSP.
-  *
-  * In short:  this uses ASP to implement I2S, not McBSP.
-- * And it won't be the only DaVinci implemention of I2S.
-+ * And it won't be the only DaVinci implementation of I2S.
-  */
- #define DAVINCI_MCBSP_DRR_REG	0x00
- #define DAVINCI_MCBSP_DXR_REG	0x04
-diff --git a/sound/soc/ti/davinci-mcasp.c b/sound/soc/ti/davinci-mcasp.c
-index ad9e194a3d0d..d461ab419655 100644
---- a/sound/soc/ti/davinci-mcasp.c
-+++ b/sound/soc/ti/davinci-mcasp.c
-@@ -1818,7 +1818,7 @@ static int davinci_mcasp_startup(struct snd_pcm_substream *substream,
- 	    !mcasp->async_mode)
- 		max_channels = mcasp->channels;
- 	/*
--	 * But we can always allow channels upto the amount of
-+	 * But we can always allow channels up to the amount of
- 	 * the available tdm_slots.
- 	 */
- 	if (max_channels < tdm_slots)
-diff --git a/sound/soc/ti/omap-mcbsp.c b/sound/soc/ti/omap-mcbsp.c
-index 5734388a4e4b..889e357b64d0 100644
---- a/sound/soc/ti/omap-mcbsp.c
-+++ b/sound/soc/ti/omap-mcbsp.c
-@@ -1237,7 +1237,7 @@ static int omap_mcbsp_dai_set_dai_sysclk(struct snd_soc_dai *cpu_dai,
- 		break;
- 	case OMAP_MCBSP_SYSCLK_CLKR_EXT:
- 		regs->pcr0	|= SCLKME;
--		/* Disable ouput on CLKR pin in master mode */
-+		/* Disable output on CLKR pin in master mode */
- 		regs->pcr0	&= ~CLKRM;
- 		break;
- 	default:
-diff --git a/sound/soc/uniphier/aio.h b/sound/soc/uniphier/aio.h
-index 1900ea01ce3d..87b27256cf80 100644
---- a/sound/soc/uniphier/aio.h
-+++ b/sound/soc/uniphier/aio.h
-@@ -183,7 +183,7 @@ struct uniphier_aio_selector {
-  *
-  * These are examples for sound data paths:
-  *
-- * For caputure device:
-+ * For capture device:
-  *   (outer of AIO) -> iport -> iif -> ch -> rb -> (CPU)
-  * For playback device:
-  *   (CPU) -> rb -> ch -> oif -> oport -> (outer of AIO)
-diff --git a/sound/soc/ux500/ux500_msp_i2s.c b/sound/soc/ux500/ux500_msp_i2s.c
-index 683b485fb570..bd2cfc618290 100644
---- a/sound/soc/ux500/ux500_msp_i2s.c
-+++ b/sound/soc/ux500/ux500_msp_i2s.c
-@@ -19,7 +19,7 @@
- 
- #include "ux500_msp_i2s.h"
- 
-- /* Protocol desciptors */
-+ /* Protocol descriptors */
- static const struct msp_protdesc prot_descs[] = {
- 	{ /* I2S */
- 		MSP_SINGLE_PHASE,
+Besides accelerating the mapping path, this also enables large
+mappings (PMD and cont-PTE) for vmap, which are currently not
+supported.
 
-base-commit: 260a144af70c8babbf2f15d1a56bacfa83f8aef6
+Patches 1-4 decouple the PTE-level block mapping path from HugeTLB.
+Previously vmap_pte_range() installed cont-PTE mappings by reusing
+set_huge_pte_at() and huge_ptep_get_and_clear(), which are HugeTLB
+helpers gated by CONFIG_HUGETLB_PAGE. This made the feature silently
+unavailable on CONFIG_HUGETLB_PAGE=n kernels, and coupled mm/vmalloc.c
+to HugeTLB internals. Patches 1 and 2 add the arm64 and powerpc/8xx
+implementations of pte_set_huge()/pte_clear_huge(), which join the
+existing pmd/pud_set_huge() family. Patch 3 adds the generic fallbacks
+and converts mm/vmalloc.c over. Patch 4 then removes the now-dead
+init_mm special case from arm64's clear_flush().
+
+Patch 5 extends ARM64 arch_vmap_pte_range_map_size() to batch multiple
+CONT_PTE blocks in one call instead of one at a time.
+
+Patch 6 extracts a common helper vmap_set_ptes() that consolidates PTE
+mapping logic for the ioremap and vmalloc/vmap paths, handling both
+CONT_PTE and regular PTE mappings. This prepares for the next patch.
+
+Patch 7 extends the page table walk path to support page shifts other
+than PAGE_SHIFT and eliminates the page table rewalk for huge vmalloc
+mappings. The function is renamed from vmap_small_pages_range_noflush()
+to vmap_pages_range_noflush_walk().
+
+Patch 8 extracts vm_shift() to consolidate vmalloc mapping shift
+selection for reuse in the batching path.
+
+Patches 9-10 add huge vmap support for contiguous pages, including
+support for non-compound pages with pfn alignment verification.
+
+On the RK3588 8-core ARM64 SoC, with tasks pinned to a little core and
+the performance CPUfreq policy enabled, benchmark results:
+
+* ioremap(1 MB): 1.35x faster (3407 ns -> 2526 ns)
+* vmalloc(1 MB) mapping time (excluding allocation) with
+  VM_ALLOW_HUGE_VMAP: 1.42x faster (5.00 us -> 3.53 us)
+* vmap(100MB) with order-8 pages: 8.3x faster (1235 us -> 149 us)
+
+Many thanks to Xueyuan Chen for his testing efforts on RK3588 boards.
+
+Large vmap() mappings were also tested by Leo Yan with ARM trace buffer
+units, including TRBE and SPE. These units use the CPU page tables for
+address translation when writing trace data to DRAM, so using larger
+vmap() mapping granules can reduce TLB pressure on the trace writer.
+
+The TRBE test used a 1G CoreSight ETM AUX buffer. Across five runs on an
+isolated CPU, the average results were:
+
+* dtlb_walk:       68.4 -> 59.4 (-13.16%)
+* l1d_tlb_refill: 155.8 -> 119.6 (-23.23%)
+* l2d_tlb_refill: 161435.8 -> 495.0 (-99.69%)
+
+The SPE test used a 512M ARM SPE AUX buffer. Across five runs on an
+isolated CPU, the average results were:
+
+* dtlb_walk:       1710.4 -> 1315.6 (-23.08%)
+* l1d_tlb_refill: 16000.0 -> 15950.2 (-0.31%)
+* l2d_tlb_refill: 4796.0 -> 2931.2 (-38.88%)
+
+These results show that enabling larger vmap() mappings can materially
+reduce page table walks and TLB refills for large trace buffers.
+
+Many thanks to Leo Yan for his testing efforts on ARM trace buffers.
+
+Changes since v7:
+- v7's patch 1 (which extended the hugetlb helpers in
+  arch/arm64/mm/hugetlbpage.c) is replaced by pte_set_huge()/
+  pte_clear_huge(), split across patches 1-3 so that the arm64,
+  powerpc/8xx and generic changes can be reviewed and acked
+  independently: patch 1 is arm64 only, patch 2 is powerpc/8xx only,
+  patch 3 is the generic fallbacks plus the mm/vmalloc.c conversion.
+  hugetlbpage.c no longer gains the CONT_PTE batching hooks, and patch 4
+  additionally removes its now-dead init_mm special case. mm/vmalloc.c
+  no longer includes <linux/hugetlb.h>.
+- The generic pte_set_huge()/pte_clear_huge() fallbacks WARN_ON_ONCE()
+  instead of silently doing nothing. They only exist to keep the build
+  working on architectures without PTE-level block mappings, where they
+  are unreachable (patch 3).
+- Patch 5 (v7 patch 2): use round_down(size, CONT_PTE_SIZE) instead of
+  rounddown_pow_of_two(size), since pte_set_huge() takes the size directly
+  without an ilog2() roundtrip. This lets a single call span several
+  CONT_PTE blocks: a 768K (512K + 256K) ioremap is now 1.25x faster than
+  v7.
+- Patch 6 (v7 patch 3): vmap_set_ptes() now calls pte_set_huge() instead
+  of the hugetlb path.
+- Patch 9 (v7 patch 6): get_vmap_batch_order() takes pages+i instead of a
+  separate idx argument, and applies pfn alignment limit to scan length
+  rather than to the resulting order. Renamed idx/map_addr to
+  batch_idx/batch_start. Dropped Dev's Reviewed-by.
+
+Changes since v6:
+- Add a clarifying comment about the reuse of hugetlb helpers
+  by non-hugetlbfs(vmalloc) mm code (patch 1)
+- Expand the arm64/vmalloc commit message and comment to clarify that
+  multi-CONT_PTE_SIZE values are vmalloc mapping spans, not HugeTLB
+  hstate sizes (patch 2)
+- Move the local steps variable change in vmap_pte_range() into the
+  vmap_set_ptes() extraction patch (patch 3)
+- Propagate vmap_pages_pte_range() errors through the upper
+  vmap_pages_*() levels instead of returning -ENOMEM for all failures
+  (patch 4)
+- Add a preparatory vm_shift() helper patch before the batching patch
+  (patch 5)
+- Guard the PFN alignment clamp in get_vmap_batch_order() against PFN 0
+  before calling __ffs() (patch 6)
+- Fix kmsan_vmap_pages_range_noflush() indentation in the batching path
+  (patch 6)
+
+Changes since v5:
+- No code changes.
+- Pick up Reviewed-by and Tested-by tags from Dev, Leo and Uladzislau.
+  Many thanks!
+- Add TRBE/SPE large vmap() test results from Leo Yan to the cover
+  letter.
+
+Changes since v4:
+- Move pgsize update before contig_ptes check (patch 1)
+- Use rounddown_pow_of_two instead of __fls in
+  arch_vmap_pte_range_map_size (patch 2)
+- Reword comment to avoid mentioning cont_pte and remove if in
+  vmap_set_ptes (patch 3)
+- Rename vmap_batched() to vmap_pages_range_batched() (patch 5)
+- Use batch_end as the batching cursor to avoid an unused start variable
+  (patch 5)
+- Check arch_vmap_pmd_supported before PMD mapping (patch 6)
+
+Changes since v3:
+- Squash vmap_pte_range() loop variable fix into patch 4 (patch 3, 4)
+- Use shift >= PMD_SHIFT and fix *nr increment in
+  vmap_pages_pmd_range() (patch 4)
+- Pass page_shift directly without capping at PMD_SHIFT (patch 4, 5)
+- Add vm_shift() helper and pass pgprot_t to get_vmap_batch_order()
+  (patch 5)
+- Use min(order, __ffs(pfn)) for graceful pfn alignment degradation,
+  replacing IS_ALIGNED check (patch 5)
+- Remove irrelevant ioremap_max_page_shift early-exit (patch 5)
+- Add __get_vm_area_node_aligned_caller() wrapper, rename to
+  vmap_get_aligned_vm_area() (patch 6)
+
+Changes since v2:
+- Use __fls instead of fls in arch_vmap_pte_range_map_size (patch 2)
+- Add WARN_ON checks in vmap_pages_pmd_range (patch 4)
+- Fix flush_cache_vmap to use saved start address instead of the
+  already-advanced addr (patch 5)
+- Rename __vmap_huge() to vmap_batched() (patch 5)
+- Add caller parameter and unroll while(1) loop (patch 5)
+- Squash patch 7 into patch 5 (stop scanning for compound pages after
+  encountering small pages)
+
+Changes since v1:
+- Fix condition order and use PMD_SIZE instead of CONT_PMD_SIZE in
+  patch 1 (Dev Jain)
+- Squash patch 3+4 and patch 5+7 (Dev Jain)
+- Replace "zigzag" with "page table rewalk" in commit messages
+  (Dev Jain)
+- Rename vmap_small_pages_range_noflush() to
+  vmap_pages_range_noflush_walk() (Dev Jain)
+- Extract vmap_set_ptes() as a new patch to consolidate PTE mapping
+  logic between vmap_pte_range() and vmap_pages_pte_range(), handling
+  both CONT_PTE and regular mappings (Mike Rapoport)
+- Support non-compound pages in get_vmap_batch_order() by falling
+  back to physical contiguity scanning with pfn alignment check
+  (Dev Jain, Uladzislau Rezki)
+- In get_vmap_batch_order(), filter out orders that the architecture
+  cannot batch by checking arch_vmap_pte_supported_shift() directly.
+  This avoids overhead for orders 1-3 on ARM64 CONT_PTE with 4K
+  pages. (patch 5)
+
+Barry Song (Xiaomi) (4):
+  arm64/vmalloc: allow arch_vmap_pte_range_map_size() to batch multiple
+    CONT_PTE
+  mm/vmalloc: extend page table walk to support larger page_shift sizes
+    and eliminate page table rewalk
+  mm/vmalloc: map contiguous pages in batches for vmap() if possible
+  mm/vmalloc: align vm_area so vmap() can batch mappings
+
+Wen Jiang (6):
+  arm64/mm: add pte_set_huge() and pte_clear_huge()
+  powerpc/8xx: add pte_set_huge()
+  mm/vmalloc: use pte_set_huge()/pte_clear_huge() for PTE-level block
+    mappings
+  arm64/hugetlb: drop the init_mm special case in clear_flush()
+  mm/vmalloc: extract vmap_set_ptes() to consolidate PTE mapping logic
+  mm/vmalloc: extract vm_shift() to consolidate mapping shift selection
+
+ arch/arm64/include/asm/pgtable.h             |   6 +
+ arch/arm64/include/asm/vmalloc.h             |   8 +-
+ arch/arm64/mm/hugetlbpage.c                  |   5 +-
+ arch/arm64/mm/mmu.c                          |  19 ++
+ arch/powerpc/include/asm/nohash/32/pte-8xx.h |   4 +
+ arch/powerpc/mm/nohash/8xx.c                 |  29 ++
+ include/linux/pgtable.h                      |  29 ++
+ mm/vmalloc.c                                 | 268 ++++++++++++++-----
+ 8 files changed, 300 insertions(+), 68 deletions(-)
+
 -- 
-2.48.1
+2.34.1
 
 
