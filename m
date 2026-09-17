@@ -4,65 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AE13C982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 09:03:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21FEAC982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 09:06:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eKri3L78C9WUGE/oZ+xY2BtOYPJ9RfIjm7j/38q/7io=; b=dWGY9awm4/L4QsDHTikkkQQEDX
-	M+ewS71qAStyWVWFU1RzLI/bgzSAlqu6jcRIQMemUY8Z2AE2Aa/CxojDEsG8W4fOjL1ELX7swmwi1
-	vtlRnUzgzJtf+FjibYKupESSFGDgP4p3rcIF+biBgyojb3Em5GoOlUwrZsYyc5ljO8MOOeOi6X9tb
-	cyqyO7KPJHUAjmJMQMgIxPzOsJssZJxEKdkS1ssS0aRkmsoeVCEO6sZaOnblIMmTTd+VGg3xsDqIx
-	iP/Z5Ve8PMXlU1mZj4s3lkFo3GjMpuHR82otAyeHhmMuWq/vPuJJhJzaA7ssa1gsEkmxR9erGz+RH
-	v1SV2v6w==;
+	bh=OS3MTLOP2Kaa1hSL1upbFxMfyqLs7pOgbmJt1SIIxWQ=; b=H3Qt3mo77BQSkY6rLF3yYfo1q6
+	Cywi/wZh/UgT1LFj7R6GVRcNDqPZgd/z+N3PmsPqGkwhvtISmqDYYKum87QVOGqihjEkWhqaOkldW
+	YY2Q0n/tYITvjynVTbH/WR5GLEsc6DbHwGljlYE1YJVfWiPFXclI48WanNr5C3m9TzGLqSV1KpOsh
+	4VMRVcoWAGLMeRIiPi4pqULsgkZkqlpnUrqzP0IK5uIHBqXnXgyv0KrVdFM3hhNlOdu+cikkaMq/C
+	bxi/jHQ2hin5DMoo0TOT/HN8yIH4txh5ERP6ag9PSbj/VamVVF3/KvmoqYUG5y2d3Qfef77z2M5Hg
+	7/8FaRyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x781d-0000000AwqI-0toc;
-	Thu, 17 Sep 2026 09:03:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x781a-0000000AwpG-2GZz
+	id 1x784N-0000000Ax7X-2my6;
+	Thu, 17 Sep 2026 09:06:15 +0000
+Received: from m16.mail.163.com ([220.197.31.2])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x784K-0000000Ax72-2Jpa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 09:03:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B80E81476;
-	Thu, 17 Sep 2026 02:03:16 -0700 (PDT)
-Received: from [10.0.128.139] (unknown [10.0.128.139])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2C9BE3FAA1;
-	Thu, 17 Sep 2026 02:03:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789635800; bh=H7DYV+GTC/oHo8YbGXHgYOr8KdParA1BZBiqphABHmU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=dkj0kbfuI7IiL7YpSyZcZi7LZlvJ0O/YQmyiiNMdPRMKFCWI6B508cxJQglO1aVel
-	 kKb5m0Voqhe1auzEBi4BCZzLSTlHuEXNxHm7678XJVsvUPYou8SnT1shjudXR0xIGX
-	 Vj4vKBm+vvGH1MBwES6/fam0h85SJsUTzuxUPgNc=
-Message-ID: <985520fa-99b0-4620-bfee-8e6321b36104@arm.com>
-Date: Thu, 17 Sep 2026 10:03:14 +0100
+	Thu, 17 Sep 2026 09:06:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=OS3MTLOP2Kaa1hSL1upbFxMfyqLs7pOgbmJt1SIIxWQ=; b=k
+	KnV/91GLjuQafbJTlR7gAQGk1qqIjAc0ua2otxqKs4YgV4cm2G6l3woaBlEIOySv
+	XmvR3ffOBrOFNVEdI7m4yWYqr4yEUeiwJgr9pmrR2fm4vAdQWTQ1ZE+B3yxx6Pa2
+	Ppp4pNwWzWPtJhVRoOUOsion6xqYqA/CXlURjIPyRo=
+Date: Thu, 17 Sep 2026 17:05:10 +0800 (CST)
+From: zl020895  <zl020895@163.com>
+To: "Andy Shevchenko" <andriy.shevchenko@linux.intel.com>
+Cc: "Linus Walleij" <linusw@kernel.org>,
+	"Bartosz Golaszewski" <brgl@kernel.org>, soc@lists.linux.dev,
+	longzhao@ambarella.com,
+	"Long Zhao via B4 Relay" <devnull+longzhao.ambarella.com@kernel.org>,
+	"Rob Herring" <robh@kernel.org>,
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+	"Conor Dooley" <conor+dt@kernel.org>,
+	"Michael Turquette" <mturquette@baylibre.com>,
+	"Stephen Boyd" <sboyd@kernel.org>,
+	"Jerome Brunet" <jbrunet@baylibre.com>,
+	"Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+	"Jiri Slaby" <jirislaby@kernel.org>,
+	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	"Catalin Marinas" <catalin.marinas@arm.com>,
+	"Will Deacon" <will@kernel.org>, "Lee Jones" <lee@kernel.org>,
+	mfd@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
+	linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org,
+	"Krzysztof Kozlowski" <krzysztof.kozlowski@oss.qualcomm.com>,
+	"Arnd Bergmann" <arnd@arndb.de>,
+	"Krzysztof Kozlowski" <krzk@kernel.org>,
+	"Alexandre Belloni" <alexandre.belloni@bootlin.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re:Re: Re: [PATCH v7 00/15] Ambarella CV75 SoC minimal bring-up
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
+ 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 163com
+In-Reply-To: <aqqzyPR-2JKr-2Me@ashevche-desk.local>
+References: <20260915-cv75-v5-v7-0-3297d3fbc9c0@ambarella.com>
+ <CAMRc=McEOcWq8i3B01AR1PnfBzSQaLEaOzE6Qa+QdVXrvS_YrA@mail.gmail.com>
+ <CAD++jLnRL_s9zPNkSj2UnHWPx+QHAXV19DA7dEmGZu0AkxxyaA@mail.gmail.com>
+ <aqpuMcqbra9i6UDq@ashevche-desk.local>
+ <23d61058.962b.1a0a9e0b355.Coremail.zl020895@163.com>
+ <aqqzyPR-2JKr-2Me@ashevche-desk.local>
+X-NTES-SC: AL_Qu2TC/qYukEq5iWaZ+kcn0wRhug/UMa4u/sm3YNXc+MGvSDC6hIGUVVpN1rz8fCtAgCluxq4bCJv1MtYQqxFWkQcswCqSOP748Z5tcjgaA==
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v18] arm64: mm: Handle Granule Protection Faults (GPFs)
-Content-Language: en-GB
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
- will@kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
- aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
-References: <20260913070459.2547407-1-suzuki.poulose@arm.com>
- <aqrGPK0lFBFXL2qY@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <aqrGPK0lFBFXL2qY@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Message-ID: <2a7c61b.7ee9.1a0ae9cdb83.Coremail.zl020895@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: lSgvCgD3P_xGratq2iZJAA--.41495W
+X-CM-SenderInfo: d2oqjiqyzvqiywtou0bp/xtbCxgYCc2qrrUZoXwAA3s
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_020322_676943_3764408E 
-X-CRM114-Status: GOOD (  31.20  )
+X-CRM114-CacheID: sfid-20260917_020612_998511_C9F93AE1 
+X-CRM114-Status: GOOD (  22.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,117 +96,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Catalin
-
-On 16/09/2026 17:39, Catalin Marinas wrote:
-> On Sun, Sep 13, 2026 at 08:04:58AM +0100, Suzuki K Poulose wrote:
->> From: Steven Price <steven.price@arm.com>
->>
->> If the host attempts to access granules that have been delegated for use
->> in a realm these accesses will be caught and will trigger a Granule
->> Protection Fault (GPF).
->>
->> A fault during a page walk signals a bug in the kernel and is handled by
->> oopsing the kernel. A non-page walk fault could be caused by user space
->> having access to a page which has been delegated to the kernel and will
->> trigger a SIGBUS to allow debugging why user space is trying to access a
->> delegated page.
->>
->> There is work in progress to unmap the guest_memfd backed private pages from the
->> linear map. Until we get that support, we could get spurious GPFs from within
->> the kernel, e.g., load_unaligned_zeropad(). So, try to fix them up for now.
->>
->> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->> Reviewed-by: Gavin Shan <gshan@redhat.com>
->> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->> ---
->> Changes since v17:
->>   * Pass untagged address to die_kernel_fault() - Sashiko
->>   * Explicitly check !user_mode() for fixups - Catalin
->>   * Switch to BUS_OBJERR for si_code from SI_KERNEL - Catalin
->>   * Clarify the commit description about the upcoming work on
->>     unmapping guest_memfd backed pages from linear map
->> Changes since v16:
->>   * Update the commit description to indicate why we try to fixup GPFs
->> Changes since v10:
->>   * Don't call arm64_notify_die() in do_gpf() but simply return 1.
->> Changes since v2:
->>   * Include missing "Granule Protection Fault at level -1"
->> ---
->>   arch/arm64/mm/fault.c | 30 ++++++++++++++++++++++++------
->>   1 file changed, 24 insertions(+), 6 deletions(-)
->>
->> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
->> index 75c3e463df2ef..dc3a87902a60c 100644
->> --- a/arch/arm64/mm/fault.c
->> +++ b/arch/arm64/mm/fault.c
->> @@ -914,6 +914,24 @@ static int do_tag_check_fault(unsigned long far, unsigned long esr,
->>   	return 0;
->>   }
->>   
->> +static int do_gpf_ptw(unsigned long far, unsigned long esr, struct pt_regs *regs)
->> +{
->> +	const struct fault_info *inf = esr_to_fault_info(esr);
->> +	unsigned long addr = untagged_addr(far);
->> +
->> +	die_kernel_fault(inf->name, addr, esr, regs);
->> +	return 0;
->> +}
->> +
->> +static int do_gpf(unsigned long far, unsigned long esr, struct pt_regs *regs)
->> +{
->> +	if (!user_mode(regs) && !is_el1_instruction_abort(esr) &&
->> +	    fixup_exception(regs, esr))
->> +		return 0;
->> +
->> +	return 1;
->> +}
-> 
-> We discussed briefly offline. With the latest patches around, would we
-> ever end up with private memory mapped in the VMM and hence the GPF? If
-> not, I would still keep this handling but add a
-> WARN_ON_ONCE(user_mode(regs)).
-> 
-> However, can we end up delegating a non-guest_memfd memslot page as
-> protected?
-> 
-> I played a bit with codex and it reckons it's possible if a guest_memfd
-> memslot is deleted after its IPA range has been initialised with
-> RIPAS=RAM. Removing the memslot unmaps and undelegates any data pages
-> but leaves the RMM state as RAM. The VMM can then install an ordinary
-> memslot over the same GPA range.
-
-This should be prevented by the following predicates:
-
-1) Realms only support guest_memfd backed memslots for mappable memory.
-2) Memslots cannot be created after the Realm is created, as is with the
-protected VMs. (This check seems to have been lost over the iterations,
-  but should be reinstated).
-
-> 
-> A subsequent private-IPA S2 fault sees the non-guest_memfd slot, takes
-> user_mem_abort(), GUPs the user page and passes it to
-> realm_map_protected(). The userspace mapping remains present, so a later
-> EL0 access can generate a GPF.
-
-The Realm mem abort code should prevent this by ensuring that the
-memslot is backed by gmem for private_faults. With the mandate of
-in-place conversion, even the shared pages must come from the
-gmem backed memslots.
-
-> 
-> What's worse, I think it can even trick the kernel into doing a memcpy()
-> access (via GUP). Hmm, does such ordinary slot page even remain pinned?
-> There are other kernel parts that could access it.
-> 
-> I don't think it changes this patch but if the above is possible, we
-> should definitely get it tightened on the other series (and here we can
-> add the warning).
-
-Agreed. I will address these concerns in the kvm part2 of the CCA changes.
-
-Cheers
-Suzuki
+SGkgQW5keSwKClRoYW5rcy4gSSdsbCBnbyB3aXRoIG9wdGlvbiAyLgoKdjggd2lsbCBzcGxpdDog
+TU1JTyB0byByZWdtYXAgd2l0aCB0aGUgZXhpc3RpbmcgaXJxY2hpcCBmaXJzdCwKdGhlbiBJUlFf
+VFlQRV8qIG1hc2tzLCB0aGVuIGdwaW8tcmVnbWFwIGZvciBnZXQvc2V0L2RpciBhbmQgdGhlCmN1
+c3RvbSBpcnFjaGlwLgoKcmVnbWFwLWlycSBzdGlsbCBjYW5ub3QgZG8gSVMvSUJFL0lFViBwbHVz
+IHRoZSBBTUJBIGNoYWluZWQKZGVtdXguCgpncGlvX3JlZ21hcF9nZXRfY2hpcCgpIHN0YXlzIGZv
+ciBub3c6IHRoZSBsaW5lYXIgZG9tYWluIGFuZApncGlvY2hpcF9lbmFibGVfaXJxKCkgbmVlZCBn
+cGlvX2NoaXAsIHdoaWNoIG9ubHkgZXhpc3RzIGFmdGVyCmdwaW9fcmVnbWFwX3JlZ2lzdGVyKCku
+IEkgY2FuIGRyb3AgaXQgaWYgd2UgZ2V0IGEgYmV0dGVyIGhvb2suCgpCZXN0IHJlZ2FyZHMsCkxv
+bmcgWmhhbwoKQXQgMjAyNi0wOS0xNiAyMzoyMDo0MCwgIkFuZHkgU2hldmNoZW5rbyIgPGFuZHJp
+eS5zaGV2Y2hlbmtvQGxpbnV4LmludGVsLmNvbT4gd3JvdGU6Cj5PbiBXZWQsIFNlcCAxNiwgMjAy
+NiBhdCAwNzowMToxMFBNICswODAwLCB6bDAyMDg5NSB3cm90ZToKPgo+PiBBQ0s6IEdQSU8gYml0
+cyB0aHJvdWdoIHRoZSBHUElPIHRyZWUsIHRoZW4gYW4gSUIgZm9yIHRoZSBTb0MgdHJlZS4KPj4g
+SSB3aWxsIGtlZXAgYSB1bmlmaWVkIHNlcmllcyBmb3Igbm93Lgo+PiAKPj4gcmVnbWFwLWlycSBj
+YW5ub3QgZG8gUEwwNjEgdHlwZSAoSVMvSUJFL0lFViwgYm90aC1lZGdlKSBwbHVzIHRoZQo+PiBB
+TUJBIGNoYWluZWQgZGVtdXguCj4+IAo+PiBUd28gb3B0aW9ucyBmb3Igdjgg4oCUIEFuZHksIHdo
+aWNoIGRvIHlvdSBwcmVmZXI/Cj4+ICAgMSkgQ29udmVydCBQTDA2MSBNTUlPIHRvIHJlZ21hcCBv
+bmx5LiBLZWVwIHRoZSBleGlzdGluZyBncGlvX2NoaXAKPj4gICAgICBhbmQgaXJxY2hpcC9naXJx
+IChkb3VibGUtd3JpdGUgc3RheXMgaW4gdGhlIGRyaXZlcikuIEFtYmFyZWxsYQo+PiAgICAgIGxh
+eW91dCBjYW4gYmUgYSBmb2xsb3ctdXAgb24gdGhhdC4gTm8gZ3Bpby1yZWdtYXAgeWV0Lgo+PiAK
+Pj4gICAyKSBBZnRlciAoMSksIGFsc28gbW92ZSBnZXQvc2V0L2RpcmVjdGlvbiB0byBncGlvLXJl
+Z21hcC4gSVJRCj4+ICAgICAgd291bGQgc3RheSBhIGN1c3RvbSBQTDA2MSBpcnFjaGlwIChub3Qg
+cmVnbWFwLWlycSkuIEkgYW0gbm90Cj4+ICAgICAgc3VyZSB3ZSBjYW4gYXZvaWQgYSB3YXkgdG8g
+Z2V0IHRoZSBncGlvX2NoaXAgZm9yCj4+ICAgICAgZ3Bpb2NoaXBfKl9pcnEoKSAvIHRoZSBjaGFp
+bmVkIGhhbmRsZXIuCj4+IAo+PiBJIGFtIGxlYW5pbmcgdG8gKDEpIGZvciB2OC4KPgo+SSB3b3Vs
+ZCBwcmVmZXIgdG8gc2VlICgyKSBhbmQgdGhlbiB3ZSBjYW4gZGlzY3VzcyB0byByb2xsLWJhY2sg
+aWYgaXQgbG9va3Mgbm90Cj5nb29kIGVub3VnaC4KPgo+RWl0aGVyIHdheSB5b3VyIFBNIHJ1bnRp
+bWUgc3VwcG9ydCBmb3IgZ3Bpby1yZWdtYXAgaXMgYSBnb29kIGNoYW5nZS4KPgo+PiDlnKggMjAy
+Ni0wOS0xNiAxODoyMzo0Ne+8jCJBbmR5IFNoZXZjaGVua28iIDxhbmRyaXkuc2hldmNoZW5rb0Bs
+aW51eC5pbnRlbC5jb20+IOWGmemBk++8mgo+PiA+T24gV2VkLCBTZXAgMTYsIDIwMjYgYXQgMTE6
+NDI6NTZBTSArMDIwMCwgTGludXMgV2FsbGVpaiB3cm90ZToKPj4gPj4gT24gV2VkLCBTZXAgMTYs
+IDIwMjYgYXQgMTE6MTTigK9BTSBCYXJ0b3N6IEdvbGFzemV3c2tpIDxicmdsQGtlcm5lbC5vcmc+
+IHdyb3RlOgo+PiA+PiA+IE9uIFR1ZSwgMTUgU2VwIDIwMjYgMTM6MTU6MzAgKzAyMDAsIExvbmcg
+WmhhbyB2aWEgQjQgUmVsYXkKPj4gPj4gPiA8ZGV2bnVsbCtsb25nemhhby5hbWJhcmVsbGEuY29t
+QGtlcm5lbC5vcmc+IHNhaWQ6Cj4+ID4+ID4gPiBUaGlzIHNlcmllcyBhZGRzIG1pbmltYWwgQW1i
+YXJlbGxhIENWNzUgc3VwcG9ydCBmb3IgZWFybHkgYnJpbmctdXAgd2l0aAo+PiA+PiA+ID4gYSBz
+ZXJpYWwgY29uc29sZTogRFQgYmluZGluZ3MsIFJDVCBjbG9ja3MsIHBpbmN0cmwsIFBMMDYxIEdQ
+SU8gdmlhCj4+ID4+ID4gPiBncGlvLXJlZ21hcCwgODI1MF9kdyBVQVJUIHF1aXJrcywgQVJDSF9B
+TUJBUkVMTEEsIENWNzUgRVZLIERULCBhbmQKPj4gPj4gPiA+IE1BSU5UQUlORVJTLgo+PiA+PiA+
+ID4KPj4gPj4gPiA+IFRoaXMgaXMgYSBzaW5nbGUgdW5pZmllZCBzZXJpZXMuIFBsZWFzZSBhcHBs
+eSB2aWEgdGhlIFNvQwo+PiA+PiA+ID4gdHJlZTsgc3Vic3lzdGVtIG1haW50YWluZXJzIGFyZSBD
+YydkIGZvciB0aGVpciBwaWVjZXMuCj4+ID4+ID4KPj4gPj4gPiBJIHdvdWxkIHByZWZlciB0byB0
+YWtlIHRoZSBHUElPIHJlZ21hcCBiaXRzIHRocm91Z2ggdGhlIEdQSU8gdHJlZSBhbmQgcHJvdmlk
+ZQo+PiA+PiA+IGFuIGltbXV0YWJsZSBicmFuY2ggdG8gdGhlIFNvQyB0cmVlIGFzIGl0IGhhcyBw
+b3RlbnRpYWwgZm9yIGNvbmZsaWN0cyB0aGF0Cj4+ID4+ID4gZWFybHkgaW50byB0aGUgY3ljbGUu
+Cj4+ID4+IAo+PiA+PiBRdWV1ZSB0aGVtIHVwIGFuZCBzZW5kIHVzIHRoZSBJQiBpZiB5b3UgdGhp
+bmsgdGhleSBhcmUgcmVhZHkhCj4+ID4+IAo+PiA+PiBMb25nIGNhbiBwcm9iYWJseSBzZW5kIGEg
+UFIgYmFzZWQgb24gdGhhdCBJQiBmb3IgdGhlIHJlc3QgdG8gdGhlCj4+ID4+IFNvQyB0cmVlLCBh
+IGJpdCB0cmlja3N5IGJ1dCBpdCB3b3Jrcy4KPj4gPgo+PiA+SSdtIHN0aWxsIHVuc3VyZSB3aHkg
+d2UgY2FuJ3QgdXNlIElSUSBmYWNpbGl0eSBmcm9tIGdwaW8tcmVnbWFwLgo+PiA+Q2FuIHlvdSBo
+YXZlIGEgbG9vayB0aGVyZT8KPj4gPgo+PiA+V2l0aCB0aGF0IGJlaW5nIHNhaWQsIEknbSBub3Qg
+c3VyZSB0aGF0IHRoZSBwYXRjaCB0aGF0IGV4cG9zaW5nIGdwaW9fY2hpcAo+PiA+ZnJvbSBncGlv
+LXJlZ21hcCBpcyBqdXN0aWZpZWQuCj4+ID4KPj4gPlRoZSB3aG9sZSBHUElPIHJld29yayBuZWVk
+cyBhIGJpdCBtb3JlIHJvdXRpbmUgd29yayAocmVzcGxpdHRpbmcsIHJlZmFjdG9yaW5nLAo+PiA+
+ZXQgY2V0ZXJhKSwgc28gbGF0ZXIgd2UgbWF5IHNlZSBjbGVhcmVyIHdoYXQncyBnb2luZyBvbi4K
+Pgo+LS0gCj5XaXRoIEJlc3QgUmVnYXJkcywKPkFuZHkgU2hldmNoZW5rbwo+Cg==
 
