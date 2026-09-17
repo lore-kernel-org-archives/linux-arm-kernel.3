@@ -4,85 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B443FC982D2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 21:42:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FAE0C982D2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 21:42:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Vd37vlqPgoR34jGq+5SarCAahPWAWe4kwjRPQidlrk=; b=wb0iYlPRLJG7CIPfgU0nmpCRw0
-	r0KgG2fpYctYE/x7L23oox87EOmN/GwVj7QomGU9qlWXueLXz0GAiAx7NcHTl6uUs7iSEAPSABh8o
-	FL4ZT6fczSjOtLTro8yFS0pRtS9i1uw2UwLqShRSghmKkIeWKp6EV5jL3mOWahHfbSPxFlPUe3RFZ
-	CKvCWuQZIEUyoFrcqtRowzixCDIdzqW5h5z32c2ygFcRVVIICdUYiNkUoVaSbxAho0jkyuxR9AEpT
-	O1RBXCsrPztJsYbzpMxsDvMrFNnLC/EIrIF4+upJ3WmPqkP+a0MtLQf1Isq/4MJstYoitN9wlOwNM
-	0gS7aGxQ==;
+	bh=9dNODCOLTXGeCR+UA8EPlwoFw0tTDAdgh0k3iQ0Fc8c=; b=iCCj15e7MYsv5UaDwzOM+eNvLq
+	0dse3DnNVzuJ12APv3wgPAggn4uheFiw1PG8UR4E+lKuROvHWsRm9toTuCRoudvBgHWHf4W06tAyP
+	Hrq6VGpChRxfnBehZOm0DkFySCPUthwMIKWyv4PPJgOjln4/QxZBmcSteChIKKVeRx5y75Vrk75YL
+	ZlWY0XCAG4+Oktq8xyVyqu4eiZgMgttk2i8nUz/TaWPMIEFheTmcxlbW4PvJ97wSCXZIHnEm+Bp2Q
+	EX6CCyAkpBDsKfkScq1oSHpP6dWqRbr8NB7OWbDEOFMYDs9URSMSVxZ8XQpmdIJUTN2wsiLxXiNNn
+	wADLkI3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Js3-0000000CZig-2Lsv;
-	Thu, 17 Sep 2026 21:42:19 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Js2-0000000CZia-2UO3
+	id 1x7JsW-0000000CZpz-3pVL;
+	Thu, 17 Sep 2026 21:42:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x7JsS-0000000CZoA-2LWU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 21:42:18 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C8F9A44507
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 21:42:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E8B31F00902
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 21:42:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789681337;
-	bh=+Vd37vlqPgoR34jGq+5SarCAahPWAWe4kwjRPQidlrk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=BtJsgdiv4lMiFIQVgmdR8uPTGBE3SksCFUE0VRGf/7plR5BsKss0wk44kg/IGESuy
-	 5o+jLQ+1nk25fhFU9JgEkagFuLHUQ8UYBIQQX/A5gtdGuybvyN6BKeNY1tB+Qos5n/
-	 nGQbSEqmvaOlUery2nP3gouw25q/6al1JCWu3lbTAgXC+ezfwSYIy0IPnOSUBIcIsC
-	 7HGmzNbbxOTFkYectDy6svosEuc4md1omiI9N8nRk0Ji7lc/KSfNfeuBrdx/80t0Gr
-	 7NEdQOOCzJWxZ08qaZHCoePZWUF1GKnLJHqiDEdXlhu+8H2B8syRuqxpDHTKVGx5gz
-	 vtOhO9zii+3zA==
-Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b5e4f1651bso74046e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 14:42:17 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBzUQksfEIJNPyVUwrFjMShVvrfe9EGATHIm29Vh1Uksbp6xhdRhFD8ynKNlkxoaIyreOhuUZHlcycK2BHZPOz8k@lists.infradead.org
-X-Gm-Message-State: AFuF++kmOah/ftd9k/6olW1zb9EqY8taPLFv9DWKscJvO+Vk88vAWiFk
-	zHlED7MOsQhPG3Avz02s2yFAJNwnW35YAbnSFxdETvhM5BsyUU2DQBugngxr/BZOcqalvgFqqnl
-	TgP/5CZkC5BuyXVk/5CyViYdp0FRWLIM=
-X-Received: by 2002:a05:6512:3baa:b0:5b6:4ae:3ff7 with SMTP id
- 2adb3069b0e04-5b8c18449abmr61087e87.31.1789681336165; Thu, 17 Sep 2026
- 14:42:16 -0700 (PDT)
+	Thu, 17 Sep 2026 21:42:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 01A6C1596;
+	Thu, 17 Sep 2026 14:42:40 -0700 (PDT)
+Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 429C43F7B4;
+	Thu, 17 Sep 2026 14:42:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789681363; bh=kUZhUVbts+ndC39LiYRFJ2AH2v71NBpBnvqeaYZgEFs=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=IkH+u8seP17fq+zdfbRfFgZAD2GQ4dWL+zSuTnoa+he3GN5+gyMfZ9VB1WpbShiC4
+	 VoxLtkoAUg7GXqndsVgmbVOip0wMw3B2cy0EyLUeIs+4p1bOulE8IWZ4jO7zhJVvfZ
+	 wRBIzpHB33TB9mYB9XKOThpWiXQPUIopn20KLDhA=
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Cc: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Thomas Huth <thuth@redhat.com>,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Wei-Lin Chang <weilin.chang@arm.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v2 1/4] KVM: arm64: nv: Don't advertise FEAT_LPA2 for guest stage-1
+Date: Thu, 17 Sep 2026 22:42:11 +0100
+Message-ID: <20260917214215.74135-2-weilin.chang@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260917214215.74135-1-weilin.chang@arm.com>
+References: <20260917214215.74135-1-weilin.chang@arm.com>
 MIME-Version: 1.0
-References: <20260917204240.1284796-1-Frank.Li@oss.nxp.com>
-In-Reply-To: <20260917204240.1284796-1-Frank.Li@oss.nxp.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 17 Sep 2026 23:42:04 +0200
-X-Gmail-Original-Message-ID: <CAD++jL=uWFLWB_8T_q9UwbY1KzB+tcjJwOo4GheRF-72eU59Sg@mail.gmail.com>
-X-Gm-Features: AcwNN1UfNjWV7KrU9iWOWhdNsDlRn7O6RazPK4CNMASiCssILCbrQZDav7Nv7A0
-Message-ID: <CAD++jL=uWFLWB_8T_q9UwbY1KzB+tcjJwOo4GheRF-72eU59Sg@mail.gmail.com>
-Subject: Re: [PATCH 1/1] mmc: use dmaengine_get_dma_device() instead of chan->device->dev
-To: Frank.Li@oss.nxp.com
-Cc: Aubin Constans <aubin.constans@microchip.com>, Ulf Hansson <ulfh@kernel.org>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Paul Cercueil <paul@crapouillou.net>, Russell King <linux@armlinux.org.uk>, 
-	Wolfram Sang <wsa+renesas@sang-engineering.com>, Jesper Nilsson <jesper.nilsson@axis.com>, 
-	Lars Persson <lars.persson@axis.com>, Fan Wu <fanwu01@zju.edu.cn>, Frank Li <Frank.Li@nxp.com>, 
-	Rosen Penev <rosenp@gmail.com>, Pengpeng Hou <pengpeng@iscas.ac.cn>, 
-	Zhan Xusheng <zhanxusheng1024@gmail.com>, Pan Chuang <panchuang@vivo.com>, 
-	Pedro Demarchi Gomes <pedrodemargomes@gmail.com>, Ethan Nelson-Moore <enelsonmoore@gmail.com>, 
-	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
-	Rakuram Eswaran <rakuram.e96@gmail.com>, Khalid Aziz <khalid@kernel.org>, 
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Danilo Krummrich <dakr@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Runyu Xiao <runyu.xiao@seu.edu.cn>, 
-	"open list:MULTIMEDIA CARD (MMC), SECURE DIGITAL (SD) AND..." <linux-mmc@vger.kernel.org>, 
-	"moderated list:ARM/Microchip (AT91) SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>, 
-	"open list:INGENIC JZ47xx SoCs" <linux-mips@vger.kernel.org>, 
-	"open list:OMAP HS MMC SUPPORT" <linux-omap@vger.kernel.org>, 
-	"open list:TMIO/SDHI MMC DRIVER" <linux-renesas-soc@vger.kernel.org>, 
-	"open list:ARM/ARTPEC MACHINE SUPPORT" <linux-arm-kernel@axis.com>, imx@lists.linux.dev, vkoul@kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260917_144244_632739_B48C4043 
+X-CRM114-Status: GOOD (  10.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,25 +88,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 10:42=E2=80=AFPM <Frank.Li@oss.nxp.com> wrote:
+There is no FEAT_LPA2 support for NV guests as of now, but we missed
+limiting it for the non-stage-2 granule size fields (TGRAN4, TGRAN16) in
+ID_AA64MMFR0_EL1. Add the sanitisation.
 
-> Replace direct dma_chan::device::dev access with the proper
-> dmaengine_get_dma_device() for consumer API
->
-> chan->device->dev is not always the device used for DMA mapping.
-> Some DMA engines support per-channel IOMMU mappings, so different
-> channels may use different DMA devices.  dmaengine_get_dma_device()
-> returns the correct device for each channel.
->
-> This also prepares for making the DMA engine provider data structures
-> private. DMA consumers should not access DMA engine internals directly.
->
-> Assisted-by: LLM
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+Fixes: 9f75b6d447d7 ("KVM: arm64: nv: Filter out unsupported features from ID regs")
+Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: stable@vger.kernel.org
+---
+ arch/arm64/kvm/nested.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-This looks good to me. Thanks for fixing all the sites!
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index 3c4fc566eafc..4a860904c1ce 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -1731,6 +1731,17 @@ u64 limit_nv_id_reg(struct kvm *kvm, u32 reg, u64 val)
+ 		/* Hide CNTPOFF if present */
+ 		val = ID_REG_LIMIT_FIELD_ENUM(val, ID_AA64MMFR0_EL1, ECV, IMP);
+ 
++		/* NV does not support FEAT_LPA2. */
++		if (SYS_FIELD_GET(ID_AA64MMFR0_EL1, TGRAN4, val) == ID_AA64MMFR0_EL1_TGRAN4_52_BIT) {
++			val &= ~ID_AA64MMFR0_EL1_TGRAN4;
++			val |= SYS_FIELD_PREP_ENUM(ID_AA64MMFR0_EL1, TGRAN4, IMP);
++		}
++
++		if (SYS_FIELD_GET(ID_AA64MMFR0_EL1, TGRAN16, val) == ID_AA64MMFR0_EL1_TGRAN16_52_BIT) {
++			val &= ~ID_AA64MMFR0_EL1_TGRAN16;
++			val |= SYS_FIELD_PREP_ENUM(ID_AA64MMFR0_EL1, TGRAN16, IMP);
++		}
++
+ 		/* Disallow unsupported S2 page sizes */
+ 		switch (PAGE_SIZE) {
+ 		case SZ_64K:
+-- 
+2.43.0
 
-Yours,
-Linus Walleij
 
