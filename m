@@ -4,64 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5FA9C982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 21:58:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7641CC88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 22:17:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=OP3JYLBXOqOHgXrUVwmby9CoOJ787szehasQI38rGyQ=; b=OZQWxqGDlLLwIx
-	QjNkLnmhvNFkRnk79Zbgs0F9HeaQaayK6IvmXaemqT7busVN/b3MS0JE9vNGZuk0DUYdLwiuhSPO0
-	H+xUb3YecUp8ZjwH0QJutwXCCB1wlW/aS0l4qH+wM0cWp9gF2sBQQ0fpafuVxr09poWG5FY5kqdgs
-	+zKtedBrKBYe4Mb48InhHp85jS77B9x1kWnbkd5hGBsABmZGrxhRQrYosG6vbLQZvbIojLRGYTdj0
-	ztQoIjsEVxEGE2zPazHpsfLKQdw8IHs8dy/DxGtfpeYzolxLUPSlqJSo2+maZaMESlXFUDAf7B5C/
-	2AatnqDoVFA8Byjd/cNw==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OWnzt8rLfj/dFjZYPIQKJfAFzcwj+93B+nzb3sOJ8wQ=; b=lf8EJ2fbU6NgxXhmXSnSDlXVbN
+	p9xHzmW0+IqNO11hZKpVv1QG0tma2alMaYqeEatGq26hMpyALpYGmEE4gmt/7/OtX4PK7DS6J/Wxa
+	hQWyL8xpIZUY3OL3gno1rJkJwF890wvT5fOpjHduHwFkcyk+jH3NIbhkkMsuZEpvrR/uJJ0yCVMrT
+	4jU+17ydsDhIY+NtP/I1w72ChoYPioe0CaR0SeJ+t8vF32vot0Z4uNhWcfNlgShXo7/Y7vL2Pt1t/
+	kIx5/oxtj5NY4BBUCqLwUU9KizFAr9zU484O8ohBdrTd8HTkUsze3SvzsZayiEJupBT64PUfZ8T/5
+	mVd2BhfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7K7J-0000000CcQY-1iT9;
-	Thu, 17 Sep 2026 21:58:05 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x7KPT-0000000CdBr-3ZQH;
+	Thu, 17 Sep 2026 22:16:51 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7K7I-0000000CcQS-1gN3
+	id 1x7KPS-0000000CdBb-1wdy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 21:58:04 +0000
+	Thu, 17 Sep 2026 22:16:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C169C41E5F;
-	Thu, 17 Sep 2026 21:58:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7769B1F000FF;
-	Thu, 17 Sep 2026 21:58:03 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C775541814;
+	Thu, 17 Sep 2026 22:16:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B05F1F000FF;
+	Thu, 17 Sep 2026 22:16:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789682283;
-	bh=OP3JYLBXOqOHgXrUVwmby9CoOJ787szehasQI38rGyQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To;
-	b=CMs0O2Bc4ICSa1T8bJvuWgzlf1kyPiBEEAF8YyNkZlKYj7AxxFwuNZMf3kUkq6Spa
-	 2qeDwdnLti+1xiaJ9UVSm+RmoHRrX3uzf2/IH2yZFTVvppENKWnC0ZpTieYrfRdFxR
-	 CSNdnYwPeuvBZBm3nKeHhvWK+Q4iUClTWxeQ0Oawmp32DyR1beYSUW/qKkJZ7GvprH
-	 GqeZzJlKBlIJ1lXFBksRX5HROuSwupFZSnbecaWuaYZeecNNWl9Nc+lEaSKRZjTJ3k
-	 JUckV5Lra7ixgKiCSl9YKGOc8KE0Jk+DOq5/1uERCzIaTyfo5f752rKdDTL+lqMFs1
-	 k4YU98t7DQ4FA==
-Date: Thu, 17 Sep 2026 16:58:02 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Thorsten Leemhuis <regressions@leemhuis.info>
-Cc: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>,
-	leoreis.costa@gmail.com, fra.schnyder@gmail.com,
-	francesco@dolcini.it, frank.li@nxp.com, l.stach@pengutronix.de,
-	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
-	robh@kernel.org, bhelgaas@google.com, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com, hongxing.zhu@oss.nxp.com,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Richard Zhu <hongxing.zhu@nxp.com>, stable@vger.kernel.org,
-	Linux kernel regressions list <regressions@lists.linux.dev>
-Subject: Re: [PATCH v2] PCI: imx6: Move clock enable after core reset
- assertion
-Message-ID: <20260917215802.GA1056201@bhelgaas>
+	s=k20260515; t=1789683409;
+	bh=OWnzt8rLfj/dFjZYPIQKJfAFzcwj+93B+nzb3sOJ8wQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ey44S3pngv/F4n0zm/K0EnPj+M0YWM2qeC9WO/7SNUXfrYfRZW0cYz56yYX/r5eo5
+	 eT11WD9gfwZ/9VXfkBIiGRSVTPqndVrYl3KbvE2VELum47TNKDShTAOkWYMdL10e3e
+	 Vn6d2cNzmCGlPU0GQGrRChnHH9Qn+LU2glwiCfXbv5b8wEgA85n0mR5XorlFKrRqLP
+	 hKpo9ivNL3i+Q1Lv5nbgZh7Zxi9Uo0R5SiC37YcvmF+UceI8t1lz/oI/CkLJwVJEGe
+	 oQ6rLRZmZIRAYDb2Ygj8IXDHoAz8FGmXROmce8UDMIQa3JMN5LnWFjij8+82Jts+8O
+	 Y8YhhzyIwqXbQ==
+Date: Thu, 17 Sep 2026 17:16:47 -0500
+From: Rob Herring <robh@kernel.org>
+To: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Saravana Kannan <saravanak@kernel.org>,
+	Ulf Hansson <ulfh@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Kevin Hilman <khilman@baylibre.com>, Vinod Koul <vkoul@kernel.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	=?iso-8859-1?Q?Cl=E9ment?= Le Goffic <clegoffic@baylibre.com>,
+	devicetree@vger.kernel.org, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+	linux-pm@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 04/12] of: property: fw_devlink: Add support for
+ renesas,scmi-firmware
+Message-ID: <20260917221647.GA4038349-robh@kernel.org>
+References: <cover.1788338320.git.geert+renesas@glider.be>
+ <1d5c56c80291e447208ac8777aaf90ad6f0a4f4d.1788338320.git.geert+renesas@glider.be>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <7ed9e4de-2e57-4c15-875c-16512f00163f@leemhuis.info>
+In-Reply-To: <1d5c56c80291e447208ac8777aaf90ad6f0a4f4d.1788338320.git.geert+renesas@glider.be>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,36 +89,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 01:08:03PM +0200, Thorsten Leemhuis wrote:
-> On 9/2/26 16:15, Manivannan Sadhasivam wrote:
-> > On Thu, 13 Aug 2026 17:50:03 +0800, hongxing.zhu@oss.nxp.com wrote:
-> >> Commit 610fa91d9863 ("PCI: imx6: Assert PERST# before enabling regulators")
-> >> inadvertently moved clock enablement before core reset assertion, breaking
-> >> PCI device initialization on i.MX6Q Apalis platforms with
-> >> ASM1061/ASM1062 SATA controllers connected.
-> >>
-> >> NOTE: It is not 100% clear if the issue is specific to the ASM1061/ASM1062
-> >> device or on the specific power-up sequence (reset vs cold-power-on).
-> >>
-> >> [...]
-> > 
-> > Applied, thanks!
-> > 
-> > [1/1] PCI: imx6: Move clock enable after core reset assertion
-> >       commit: 16929741a622eb345057e41c7b335d9b297890e1
-> Thx Mani.
+On Wed, Sep 02, 2026 at 01:29:20PM +0200, Geert Uytterhoeven wrote:
+> Let fw_devlink create device links between consumers and suppliers of
+> SCMI firmware on Renesas platforms, and enforce these dependencies.
 > 
-> Mani, Bjorn, what's the status of this patch? Is it heading to mainline
-> any time soon? This (unless I got confused, which is possible!) afaics
-> fixes a 7.2 regression that annoyed quite a few people -- which is why
-> it was even briefly considered to revert about a Dozent changes shortly
-> before the 7.2 final:
-> https://lore.kernel.org/all/20260811214900.GA763236@bhelgaas/
+> This prevents probing of drivers before the firmware they depend on
+> becomes available, thus avoiding unneeded probe deferrals.
 > 
-> Didn't come to this, but it afaics would be good to finally resolve
-> this. Or am I missing/confused something?
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> ---
+> v3:
+>   - s/firmware/renesas,scmi-firmware/,
+> 
+> v2:
+>   - No changes.
+> ---
+>  drivers/of/property.c | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/drivers/of/property.c b/drivers/of/property.c
+> index 72cf12907de034e9..e79cd3cce4e2e41a 100644
+> --- a/drivers/of/property.c
+> +++ b/drivers/of/property.c
+> @@ -1417,6 +1417,7 @@ DEFINE_SIMPLE_PROP(power_supplies, "power-supplies", NULL)
+>  DEFINE_SIMPLE_PROP(mmc_pwrseq, "mmc-pwrseq", NULL)
+>  DEFINE_SUFFIX_PROP(regulators, "-supply", NULL)
+>  DEFINE_SUFFIX_PROP(gpio, "-gpio", "#gpio-cells")
+> +DEFINE_SIMPLE_PROP(renesas_scmi_firmware, "renesas,scmi-firmware", NULL)
+>  
+>  static struct device_node *parse_pinctrl_n(struct device_node *np,
+>  					   const char *prop_name, int index)
+> @@ -1574,6 +1575,7 @@ static const struct supplier_bindings of_supplier_bindings[] = {
+>  	{ .parse_prop = parse_regulators, },
+>  	{ .parse_prop = parse_gpio, },
+>  	{ .parse_prop = parse_gpios, },
+> +	{ .parse_prop = parse_renesas_scmi_firmware, },
 
-It's in pci/next, but probably should be in for-linus.
+This is going to be a catch-22, we can't have vendor specific properties 
+here. If we need this, we need to come up with a distributed way to 
+declare them. Linker section tricks is one way. Maybe something in the 
+driver struct would work? 
 
-I moved it to pci/for-linus for v7.3, thanks for the heads-up.
+Can you just avoid a property altogether? Why can't you check for the 
+presence of SCMI at runtime?
+
+Rob
 
