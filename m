@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBC5BC982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 09:58:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A360C982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 10:01:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y/eBnhEyAChHmfoKpstGgctSA6buastclrXBl6YTP04=; b=EkejuFwP9C8h9y6voB1N1sbe19
-	gFnN3j1pD2jDValbL5tE311WDEi6VQ9GsJw3wvuqaR54d/k+yxAD0bB32oPySPGDOV15+ONUexlfO
-	UO5CJLwFUzxDlo+nGmtK7Y0UiKP/IJxuFHER2i43WVyXfJz4nzVa9wUqs5IneTGp0TL/TuzijqcLe
-	g6g0UaUfavkon+cbQtf9ZUBGn6+WOSyCUfamcCmyWie3YsOm9MwEU0fnwSS3geozFTGGG+2xBWY5B
-	7dyI+lEsKHJmhsw98H0NUzqJto9XVZJ1ZrVs+vc3FARml8rC9G2ue/l0RYyh8rLoDGhx7mHjaCHGP
-	ofritlaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YFfU27c/MB1+OwrZCJemAaFCM2FvVVYUhgrF6DVP7qo=; b=aydySfVpP7HT1DHSyAFtW6hQef
+	hPXZSd0sE3gaALX6FvPckmoqpDCP6OebsznoFviJke3EbO/Z1iVTuC1XtgeJ7q3cUPwPiq2Q+I2fm
+	eJCzI7YJyopi1KMED7o4h7539HmtHQLzKysceFKT0v+K6bwH2IhwNTq44Fpib5II9wBMRtOVLM//5
+	oQkVWwrGxamzQY5YQD7cEfkjsiZaWKDA5OUksUpasUXKXsECFsgkEYumXYiU65PiNasOXUtyOzyQV
+	gX9EV2jfRvUMFyVkSIQ2AZ/srsGCj0GkPxVqvQZ8WofcY/XMwl4qr4BtYilKe1t6+VSagIByP6I3e
+	yk8vNw6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x78sZ-0000000B3LU-2ZZF;
-	Thu, 17 Sep 2026 09:58:07 +0000
+	id 1x78vi-0000000B3kK-1ggG;
+	Thu, 17 Sep 2026 10:01:22 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x78sW-0000000B3KZ-1bXo;
-	Thu, 17 Sep 2026 09:58:05 +0000
+	id 1x78vf-0000000B3jy-0PEg
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Sep 2026 10:01:20 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E7CA91476;
-	Thu, 17 Sep 2026 02:57:58 -0700 (PDT)
-Received: from [10.57.74.102] (unknown [10.57.74.102])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DD88E3F7B4;
-	Thu, 17 Sep 2026 02:57:58 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E27B01476;
+	Thu, 17 Sep 2026 03:01:13 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EE3AE3F7B4;
+	Thu, 17 Sep 2026 03:01:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789639082; bh=VXqLon1IWeQzTI8dDj4hKxc7saHoW6A0Hg3046jh/QI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=vja3M8VABVOrmZ2ChYzc/upsrhetTGKhEnf/pEqYK+HiSbSu/clHPeW+o3eKoIK4Z
-	 0+Wx3stikCeAmbXeqVmEvNHb/v78HBmo4ovtzTcV7kdJ1PuFCDwMqvcvyMeHDTyFTu
-	 Uj8E/utZDL2YEdMx2GCJKyelvgXqlKah9PS1wewY=
-Message-ID: <f8b0745c-d265-4112-90fe-79a08ad01553@arm.com>
-Date: Thu, 17 Sep 2026 11:57:57 +0200
+	t=1789639277; bh=7f+DyO0aVahV3yaG3OLFFC7DhrsBd/PbfzSn6AGTRdY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SxuwVEPbRV5U3eLO+R05qilnaeyPOUDhkohdjK8kwFZQ1ZIjBxktQXqSgkqeSE5bi
+	 3TdfbpaF58mTm/Xn8gtbzBpUQpQ7VXFT0ZRhad6GgRHd1cni/47NHIP0g0L8MCniPj
+	 AWiENNa0WnZzGglRA/JUz39uETLtCRrpUy8NWJqc=
+Date: Thu, 17 Sep 2026 11:01:11 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: =?utf-8?B?QW5kcsOp?= Almeida <andrealmeid@igalia.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Florian Weimer <fweimer@redhat.com>,
+	Darren Hart <dvhart@infradead.org>, Ingo Molnar <mingo@kernel.org>,
+	Davidlohr Bueso <dave@stgolabs.net>, Arnd Bergmann <arnd@arndb.de>,
+	Uros Bizjak <ubizjak@gmail.com>,
+	Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org, kernel-dev@igalia.com
+Subject: Re: [PATCH v8 1/4] arm64: vdso: Prepare for robust futex unlock
+ support
+Message-ID: <aqu6ZzMpunlKDIwm@J2N7QTR9R3>
+References: <20260821-tonyk-robust_arm-v8-0-077707b6f1c7@igalia.com>
+ <20260821-tonyk-robust_arm-v8-1-077707b6f1c7@igalia.com>
+ <aqqmmNTDnzT5d-ZT@J2N7QTR9R3>
+ <4cc1a199-8917-4a93-91f8-138ca1511cff@igalia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/2] cpufreq: update capacity_freq_ref when the boost
- state changes
-To: Oleg Keri <okerixx@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Sumit Gupta <sumitg@nvidia.com>,
- Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
- Beata Michalska <beata.michalska@arm.com>,
- Russell King <linux@armlinux.org.uk>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Sudeep Holla <sudeep.holla@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
- Viresh Kumar <viresh.kumar@linaro.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, driver-core@lists.linux.dev,
- linux-pm@vger.kernel.org, jonathan.cameron@oss.qualcomm.com,
- sibi.sankar@oss.qualcomm.com
-References: <20260910063440.4677-1-okerixx@gmail.com>
- <20260910063440.4677-3-okerixx@gmail.com>
-Content-Language: en-GB
-From: Dietmar Eggemann <dietmar.eggemann@arm.com>
-In-Reply-To: <20260910063440.4677-3-okerixx@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <4cc1a199-8917-4a93-91f8-138ca1511cff@igalia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_025804_598836_EF6877CE 
-X-CRM114-Status: GOOD (  10.29  )
+X-CRM114-CacheID: sfid-20260917_030119_469303_AADF9704 
+X-CRM114-Status: GOOD (  25.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,79 +83,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10.09.26 08:34, Oleg Keri wrote:
-> capacity_freq_ref is latched from policy->cpuinfo.max_freq by
-> init_cpu_capacity_callback() on CPUFREQ_CREATE_POLICY, and never
-> updated afterwards.
+On Wed, Sep 16, 2026 at 10:05:38PM -0300, André Almeida wrote:
+> Em 16/09/2026 11:24, Mark Rutland escreveu:
+> > I reckon this might also be clearer as:
+> > 
+> > | 	if (regs->regs[3])
+> > | 		return NULL;
+> > | 	
+> > | 	return (void __user *)regs->regs[2];
+> > 
+> > Do we need a __force cast here, or is sparse happy without that?
 > 
-> cpufreq_frequency_table_cpuinfo() excludes CPUFREQ_BOOST_FREQ entries
-> while boost is disabled, so on a system that boots with boost off the
-> latched value is the non-boost maximum.  Enabling boost later raises
-> policy->cpuinfo.max_freq but leaves capacity_freq_ref behind.
-> 
-> Two things then go wrong on arm64, where the AMU drives frequency
-> invariance.  amu_scale_freq_tick() caps the computed scale at
-> SCHED_CAPACITY_SCALE, so a CPU running above capacity_freq_ref
-> saturates at 1024: the scheduler cannot tell a boosted CPU from one at
-> the sustained maximum, and utilisation is underestimated.  And
+> I've just re-compiled those patches with C=1, and didn't find any warning
+> for this.
 
-IMHO, this is where the concept of 'cpufreq pressure' on CPU capacity
-comes in.
-
-The cpu_capacity value is calculated based on highest_perf.	(1)
-
-In case you start with 'boost == 0' nominal_perf might might be lower
-than highest_perf.
-
-cpufreq_update_pressure() calculates this value:
-
-cpufreq_pressure = Cmax * (1 - fcapped - fmax)			(2)
-
-[ fcapped = policy->max, fmax = capacity_freq_ref ]
-
-Example on RADXA Orion 06 CPU10:
-
-$ grep . /sys/devices/system/cpu/cpu10/acpi_cppc/*
-...
-/sys/devices/system/cpu/cpu10/acpi_cppc/highest_perf:7876
-/sys/devices/system/cpu/cpu10/acpi_cppc/lowest_freq:800
-/sys/devices/system/cpu/cpu10/acpi_cppc/lowest_nonlinear_perf:2520
-/sys/devices/system/cpu/cpu10/acpi_cppc/lowest_perf:2520
-/sys/devices/system/cpu/cpu10/acpi_cppc/nominal_freq:2500
-/sys/devices/system/cpu/cpu10/acpi_cppc/nominal_perf:6600   <-- hacked
-/sys/devices/system/cpu/cpu10/acpi_cppc/reference_perf:1000
-...
-
-# cat /sys/devices/system/cpu/cpu10/cpu_capacity	<-- (1)
-984
-
-# cat /sys/devices/system/cpu/cpu10/cpufreq/boost
-0
-
-dmesg (added log)
-
-[    8.065337] cpufreq_update_pressure(): policy->related_cpus=[10-11]
-policy->max=2500000 pressure=173			<-- (2)
-
-# echo 1 > /sys/devices/system/cpu/cpufreq/boost
-
-# cat /sys/devices/system/cpu/cpu10/cpufreq/boost
-1
-
-dmesg (added log)
-
-[38137.194134] cpufreq_update_pressure(): policy->related_cpus=[10-11]
-policy->max=3031666 pressure=0				<-- (2)
-
-The task scheduler gets informed via:
-
-get_actual_cpu_capacity(int cpu)
-
-  capacity = arch_scale_cpu_capacity(cpu);
-
-  capacity -= max(hw_load_avg(cpu_rq(cpu)), cpufreq_get_pressure(cpu));
-                                            ^^^^^^^^^^^^^^^^^^^^
-  return capacity;
+Perfect, thanks for confirming!
 
 [...]
+
+> > > +	futex_set_vdso_cs_range(fd, is_32bit ? 1 : 0, start, end, is_32bit);
+> > 
+> > On arm64 (and every architecture other than x86, AFAICT), the
+> > native/compat VDSOs are mutually exclusive, and a single mm can only
+> > have one of them.
+> > 
+> > Given that, I think we can make this:
+> > 
+> > 	futex_set_vdso_cs_range(fd, 0, start, end, is_32bit);
+> > 
+> > That way we'll avoid confusing/bikesheeding over 'is_32bit ? 1 : 0',
+> > without having to add mnemnonics for the native/compat CS indices.
+> 
+> Perfect, I will simplify that then.
+> 
+> > That said, what's the plan for 32-bit robust lists on a 64-bit host?
+> > IIUC you wanted that for emulation, and AFAICT you have no way to call
+> > __vdso_futex_robust_list32_try_unlock() from a native task.
+> 
+> Yes, the plan is to be able to use the 32-bit robust lists on a 64-bit
+> hosts, with a new interface (set/get_robust_list2[1]). That means that a
+> 64-bit kernel will be able to process an user robust list made of 32-bit
+> pointers. So the emulator will call set_robust_list2() one time for it's own
+> list, and another time for the emulated app list.
+> 
+> However, what we have agreed for the moment is that, while there's no
+> support for that, we will not expose the 32-bit functions yet [2]:
+
+Ah, thanks for the pointer! I had mistakenly assumed that some of
+that had already happened.
+
+I guess the common logic for futex_set_vdso_cs_range() will need to
+change at that point I guess if/when that happens, you'd expect to add
+__vdso_futex_robust_list32_try_unlock() into the 64-bit VDSO, regardless
+of compat?
+
+Mark.
+
+> "...that requires also the ability to register a 32-bit robust list for a
+> 64-bit process, which is not supported right now. So no, we are not exposing
+> something half functional..."
+> 
+> So yes, in the near future I will need to expose
+> __vdso_futex_robust_list32_try_unlock() to 64-bit apps as well, to be able
+> to do this handling with 32-bit pointers, but we are not doing it right now.
+> 
+> [1] https://lore.kernel.org/lkml/20251122-tonyk-robust_futex-v6-0-05fea005a0fd@igalia.com/
+> 
+> [2] https://lore.kernel.org/lkml/878q9vwote.ffs@tglx/
+> 
 
