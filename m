@@ -4,120 +4,181 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C9F9C982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 21:03:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47C3DC982D2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 21:06:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BVSFbjnkl8UpNcArJJM1cv5lAji7DzunjkCRs+hQbqc=; b=MTCLBy3EEwJreMHSou4xbwhYpv
-	XEctpksfg2MJ1iJrtlBLl5hwl2cvAzbxYe10VSaCzst5lBJoWIXJnuc8zfVYeWXIavwdHaUNWwHgF
-	/TqP3LC7mT8KFURbO1noD0CXY3rn4Z1Fg/r430AmC4gQnnL9HjUy4NabPU5G/68H3DKL+2DQKAnnE
-	ef0K0h8ucSLpJEVqTylHeD1dbV4Gr7iET7IvhpqapcVEbuUSCKF3Dj2O3gXPsU8LrbGSLtlj29H7u
-	tuSoF/CeWc1/o8YvR2ZM2mfdOB7psoPqYR7vND7Ls9aHAiJFX+YgnCiOE3TVrBWcf1bg99558OdT5
-	yDF/15BA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MKFpi7jZFH5WZXXK9pIZRFLwVGkbpKQWTEgzLylniMk=; b=nAxVgapYhWeCj0SzpVybf7ftpj
+	TxXS5U+tbYBx0Ni628AEpgSXqvU7J8xKErzk/vsb/bvPd4JC0YpVTio/iOfye/AGTA00ZjHwv85M1
+	cCmjuFW7K+K55oY36t0FR4oWzBTPmcoAM5AY8sM78L0fuKH1N1oWXOYG2fmFY33EBGIOt0ORSksLx
+	3VVnR1r0cJ5RTdF8J/c56ophdy+9MpGVT/dLBnV7R4KGumBbvwS+2Wx4hcp+WOPTW8DjuxTM+RLf1
+	j1SpvD4/sJUbfHh+vIo073v8prPTtVYawlRxGXS4joXQR8aXWze28G31/95qNcj7i/1s9YxR4WGr4
+	NsgvHdsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7JGn-0000000CWbO-43so;
-	Thu, 17 Sep 2026 21:03:50 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x7JJf-0000000CX0q-2UsI;
+	Thu, 17 Sep 2026 21:06:47 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7JGj-0000000CWYl-2sRW
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 17 Sep 2026 21:03:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=BVSFbjnkl8UpNcArJJM1cv5lAji7DzunjkCRs+hQbqc=; b=b2uD3NkHwuXeohHf9BYkPRXQBs
-	7YcCe53Joh5qjP5yBFMjvJc5ueMTS38z1WnyAwIMsa/x0/w077RA2H5jXG1n+WI2W+bQo34lPDR6u
-	0qm+ymoxqoGxAWc+xdJTvQy5YwgfRfqsPvhZE6ALmifEwCisOIn2ml69mm+ss3SzCV26NdnMRsk5E
-	l8AICeiNV5CBRKV6YW4XMekKnrdVY3Y+bRHaIs814xnjDdiCdRvg9YgwVb9yKcRJY+QfS1qF/IcpS
-	bHB1eJSgNCnVixiEPeTQ1huQv8QfwYy0YLR1gMsi0OpmeVBI9Dky5TSTi7GSJ5e+wTMYDRAHolmzT
-	g2DDudeg==;
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x7JFs-00000009Gd8-3K04
+	id 1x7JJc-0000000CX0R-0h6X
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 21:03:41 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e79a408deso326855e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 14:02:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1789678963; x=1790283763; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=BVSFbjnkl8UpNcArJJM1cv5lAji7DzunjkCRs+hQbqc=;
-        b=DRsmKJq07YM4/nW4TqqPOMIS0KUCTePZ8qWPV8N86N9LCzM9T3LU/Lkp8uxkdPenxM
-         FpOP0mIo3JClI66bYdeGVzjWbXd2WN7ZaHueR28lRjUho08xPq7YQAeksv1eFncDQp9S
-         BuFGAA+gHcMcdwgcIMfXWXFiIUhT1tXLkfL2nW8Zbg/zXel9ODnGIh756PUZCrCbICz+
-         5qG47ANxT1uxw+VXwNcsSzG8cxbdLzmS5ZRqLMHWezwcCpiMD8KsGmYI7PNI0IShg612
-         tnj0D9N4NhfWiv1GfgYZN23shaUtJv6Ona8LHwGfNsu3jMhvAM81oSmy0DtAiqdRS+P0
-         kVig==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789678963; x=1790283763;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=BVSFbjnkl8UpNcArJJM1cv5lAji7DzunjkCRs+hQbqc=;
-        b=kzKtwj4b9H+/abKCCKkMTwoZv3eofWdELTumDlArZrjQzQ5c6aXs/eHCb18Qqv6EeP
-         /yeO6orZYybwab3xtkXpBcj4wo4R8oVcrNM+PTgGIE1zrnNMnSTxU8TU/fQfyVCNn8fE
-         cUHjSqbJ3sAKFg5CoizOPtavpa03ii26kKr8D8IE4jLJqydAY9TrkQLKT6KZngGcioIz
-         IgBYTJ4mlronvXZyZV2eyhsY5FNv2/fKT4YXRzBAbySTY/n78SHRRZYz4EjUyuGwRMuI
-         qrC8L8sa4Of3KVTj/+73lC/4AZGUMBOF+MTjKLzPBB7M8p9cwkgMvKxByail77kLWiaA
-         235A==
-X-Forwarded-Encrypted: i=1; AKwUvBxjuWaFbAIDjfOSMypTtYV7un8S5qT4FZ84xLHQrpqtpi8+qW68GwP8YmutpOUq/7JVC/I2Pm3z4A7WZmaVoK1b@lists.infradead.org
-X-Gm-Message-State: AFuF++kYZaozdznH7WBRjDaBJTR+pIKOmwd7wlNg/6NLjcMLBu00Wtq7
-	ZlkiOI2LZn/7cbjAlma9RxkjyPZuBFJYxeU4woVmk+YO6sT+smFj8HvN/fqIXUOj7Q8=
-X-Gm-Gg: AYBFou0hfo3825GJwSgZVelChbxhzfy8H6jOkMv14qcbxG7NMRo1G02zQndt2WyxJ2c
-	AIfVuyqVr//88km+Zv7mExHXnSLz0KdVwCXpb/0sz+uL/4lCgnjaKI8VXNnGwynlFWBaZ3e4U8P
-	rpKbWgHzLjUhyRnK7JOaByZbDkJouaWrqqAs+XZqEZuzqBCXRCWR61O6oAc8x2pds+1HnlNoMrI
-	s9SBzy//E01sQsuDMMGnPVrHyK44rw+mbzhDtjQ2C2rTsOOfjOmmVmWdkPCJ0gd8m+GK5p2M5CG
-	WDtaOSWWXWooVzq3oNKtZADGMTzUCZlbB1lD9rbXPYPZdvgSuCaqr/qT+UZkhJefX8E3Nl4/Dnf
-	qfnh6LQkYJkiQWUsyaKQFT2hElddbKOgO1/Tho44dKNuySjZMUBukw4eLe6tBuB0qii9l4d3AnM
-	lPZ8rMUGm5nX2sJBDuHILK19iMmMNZe4C75gKkER83WMH8vUObd6q/ygX3EuH5kSTGfUaugtcYO
-	6hxMQ==
-X-Received: by 2002:a05:600c:34d0:b0:495:6e68:5df2 with SMTP id 5b1f17b1804b1-49fc56ef520mr1779275e9.12.1789678962730;
-        Thu, 17 Sep 2026 14:02:42 -0700 (PDT)
-Received: from [127.0.1.1] ([151.42.87.32])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fc5755c40sm3106095e9.3.2026.09.17.14.02.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 17 Sep 2026 14:02:42 -0700 (PDT)
-From: Valerio Setti <vsetti@baylibre.com>
-Date: Thu, 17 Sep 2026 23:02:33 +0200
-Subject: [PATCH v2 3/6] ASoC: meson: add AUDIN driver
-MIME-Version: 1.0
+	Thu, 17 Sep 2026 21:06:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1789679204; x=1821215204;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-id:content-transfer-encoding:
+   mime-version;
+  bh=MKFpi7jZFH5WZXXK9pIZRFLwVGkbpKQWTEgzLylniMk=;
+  b=Ee0cMB3dlLs9TlcxQ7v5KfxKAhl6G7VuwvRrAJxY5p25Jl1GfJH4KRVY
+   QlursukW8MQ/LnEgGeRYyQ9oPVn5XU/knvVBfHtfzurhzJWVetVDhR0Fk
+   MTB10xW4J5RV2sagVxwvXMh2ablQ8wckLR0yBiPyhqCVoOGGuZYJJR21w
+   Ge+Bfy7bfAL+DAT1fMwerfQNA8J3Eyx/KpcSOGXvhoX/WGBl9PJjx6laV
+   Je/NuRisewGQxk0UvqWvrl0v432XRMY46lWJJGu3orkr6UXABbe8NFnEX
+   86A4BVeQo7G5V4rI2g1jFQk17XBJoYKtSFT5oiItWpybSW8vfT4elHIBm
+   g==;
+X-CSE-ConnectionGUID: NEsAmkjnS2WsvaaxbZf/GA==
+X-CSE-MsgGUID: iL91vgl0TZuq2N+jrw27NA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="100808273"
+X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
+   d="scan'208";a="100808273"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Sep 2026 14:06:43 -0700
+X-CSE-ConnectionGUID: tNKOtXrZRQi3v8lqndJhRw==
+X-CSE-MsgGUID: t97k9FLlSUGCZ7Neqqa7Pw==
+X-ExtLoop1: 1
+Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
+  by fmviesa003.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Sep 2026 14:06:43 -0700
+Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46; Thu, 17 Sep 2026 14:06:42 -0700
+Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46 via Frontend Transport; Thu, 17 Sep 2026 14:06:42 -0700
+Received: from BYAPR05CU005.outbound.protection.outlook.com (52.101.85.33) by
+ edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46; Thu, 17 Sep 2026 14:06:41 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Wa07HNJTtZpThYekcFse1rQ1OsZlLir/FklLyjR/O8dpAM1xUHuWPPIqqY2q8iK0DKQ3LKPbOwTzIuTYmGcS13LVPe8lNhYiFZdKJXy4tFsgCxlnAVsoZxkY32kpUfAUgAoOw5jHjLVvTG2AadQUfqLH4Mxp7+kmOfmdS7aeAi1BUuirx+DeMhSIcqL4HSsM7yS9+hY6E0ay56s2UZwBETsD4iJLzRg7MAEKuif950a9NW0jq12zS6SThv4lybAqefIAIByyw3FDV/eEghFNfTB7B8c9+40EpSKKjvUT3x/p/sCMwBplAz4WDtNM3gxLwBEwKj9PG27RBqbAzP8h3Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MKFpi7jZFH5WZXXK9pIZRFLwVGkbpKQWTEgzLylniMk=;
+ b=F8pf0fVSEGrHP5+Avt0lKEf29Hzjg2ZzCTAggpUDzKbuM7JC3xX6JCgLXXFiDXg+b7W8QKY+0OMbRA6x0nBYxBzL5FFTUiHAlYSb/E8M9ElCUK+8q6GnfqewAnPeOn4Ic2cJAlvTglpq0mTjEetbxtd37AcZa8d2kdnJxlkblwvTZ7IEIHKq25o90Vz0yJ7BExjDNUO9nequnUoEDHLjhHRjhT1M/m0dlArJC2ubNYzsFvuUVbayJ8JjWjDCTVAwnePJ9PANmCPrEka+O9PBYVNyIAkahy/q/cQ/UVgAsUW145f6KLaz0pJ5lLtyPdk65R4lxeFA6lMMblZ3YBzMKA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from CH0PR11MB5330.namprd11.prod.outlook.com (2603:10b6:610:bd::7)
+ by SA1PR11MB5876.namprd11.prod.outlook.com (2603:10b6:806:22a::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Thu, 17 Sep
+ 2026 21:06:37 +0000
+Received: from CH0PR11MB5330.namprd11.prod.outlook.com
+ ([fe80::9d32:3dfb:c2f1:40e2]) by CH0PR11MB5330.namprd11.prod.outlook.com
+ ([fe80::9d32:3dfb:c2f1:40e2%3]) with mapi id 15.21.0406.007; Thu, 17 Sep 2026
+ 21:06:37 +0000
+From: "Winiarska, Iwona" <iwona.winiarska@intel.com>
+To: "billy_tsai@aspeedtech.com" <billy_tsai@aspeedtech.com>, "Chen, Ryan"
+	<ryan_chen@aspeedtech.com>, "geert+renesas@glider.be"
+	<geert+renesas@glider.be>, "joel@jms.id.au" <joel@jms.id.au>,
+	"andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>
+CC: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-clk@vger.kernel.org"
+	<linux-clk@vger.kernel.org>, "openbmc@lists.ozlabs.org"
+	<openbmc@lists.ozlabs.org>, "linux-aspeed@lists.ozlabs.org"
+	<linux-aspeed@lists.ozlabs.org>
+Subject: Re: [PATCH] peci: controller: aspeed: Make sure clk_init_data is
+ fully initialized
+Thread-Topic: [PATCH] peci: controller: aspeed: Make sure clk_init_data is
+ fully initialized
+Thread-Index: AQHdMVUDcYMwDXGNpESL4BPJAwCIALbTbiuA
+Date: Thu, 17 Sep 2026 21:06:36 +0000
+Message-ID: <6e8f040fd0c44abe8c4b91e0710b66c68e252d7d.camel@intel.com>
+References: <48aa77c45e109f78ccd806bc3b7bf380c5bc5e71.1787240145.git.geert+renesas@glider.be>
+In-Reply-To: <48aa77c45e109f78ccd806bc3b7bf380c5bc5e71.1787240145.git.geert+renesas@glider.be>
+Accept-Language: en-US, pl-PL
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Evolution 3.60.2 (3.60.2-1.fc44) 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: CH0PR11MB5330:EE_|SA1PR11MB5876:EE_
+x-ms-office365-filtering-correlation-id: c7aacf23-6af7-4235-e447-08df14ff8faf
+x-ld-processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|23010399003|366016|1800799024|10067099003|18002099003|22082099003|6133799003|11063799006|56012099006|38070700021;
+x-microsoft-antispam-message-info: TIB0BGdWa3PkVpYUBMyQHg9zskeCuAeb5/V75703Fi0VTutztGSivmmsaQiKsSxqiY5DbnJVvpPy9eBP72jhdhuHmnR/YV61ihb26KDSLiiNQvAEli7kaaCAxv6BJCnpjfDOnT5LZKQV2TV/e/+JkFLCYtI4NMs68ORQ/c4EX9gPyFchqIVHyilVkPmWj84KHqMQ0pMydmkhGASHAeejCVCB80/10LOOCHyV3lrusfebsQLa/SrotoAxfHumY8sfiQdgfymweEaj3lcy4mbNKj/m5mPqHr2oihoKMDZZS1zL8IdaLGn1c5Xl1KCndZQLXAX54BYBdhXJ/u1ujk7Nu/5DG3VRJxSPgATJZD/o6L5RdGRUW4wtPrkGQqZRi3DRHH0F4SO1XTyqAaNm3pkd+k2vD8QAJP+Y30WVdB2+V9K9l+5va3o3+//hhFm76iBWXfAVxfZxhYVVSlHxV7Y4sPsIEqcvVKVWNeR/JFP1FAOC6qGXU5Nre5A8sc4jx5iMtsGCrkyElnM5qJ9nF80SeShTG7UHZSZh2Q64rZH0fFCrQz2UQYLhOgmezMQJ7kZNXuZCQzN+L/dsKK5Z6Xrg3j+K/UObiDjVPQ2KTy/VYU3ggVLEtVo2HcdvFM574yt3ifu1GiPIH4ZfdUejd80Eqkls7/+N3wFL0XvMe+O+iA4=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR11MB5330.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(366016)(1800799024)(10067099003)(18002099003)(22082099003)(6133799003)(11063799006)(56012099006)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?VXE2RkhVM2g2SkFuQU0wUnBmV3VveXkvVVhsYS84LzdIM1lDQXZpWlJWblZJ?=
+ =?utf-8?B?Ui9PUzVWWUxFWHVOYk5QWFc5TzcwenBkZUlyT2dXSXBDTUc5WXVrZTRRVGNF?=
+ =?utf-8?B?Nkg3TjdLZFpET0c5amdIWVZVQUl4RE9Uc3YwSmtsSHlNRTNVeXJkUDB3Q3Zx?=
+ =?utf-8?B?OE5RUmh0cWcyR0FKRG1GelRRYTROTjFCUzMwZ1BkTHk1dkU2cENyUnRJTVVu?=
+ =?utf-8?B?UFBBRXRqby81elRHeWpzeC8vK3h4a0NUWm90dk5VZFQrRTVxNStNUmtrdGd5?=
+ =?utf-8?B?WGpKTHpkeXVKWWhURThiV0Z3SkZGY21rZGJSVEhISDU2NWNQenc4QnF1SWd2?=
+ =?utf-8?B?Ujh3SXR1a045Z0FKbVdLNHdpYTlWTy95eWRSczB4dEQwZWVVNExCcHVJZVBC?=
+ =?utf-8?B?NGNTOGNGTXloNS92Wi9IcnBYMTBLM045NnVSQVRPelp4cnljemJWRUt4V2tL?=
+ =?utf-8?B?QlFVcTZBZ2NGa1BObldObkoxOTNybmtndEpCTk5DcTMxOWJTVStTckFBM2FK?=
+ =?utf-8?B?SWNSN0NuaUUyVGo5ZlJTcGpmUUtaaHdMMVVNRDZybE9Wem1oeFR5ZmlBalRo?=
+ =?utf-8?B?UGJvR0VFemxIT2JGMHlhdHhFR3l1OHM1ckxWcEVzMFU0Qkxob21TY2JwT1Zm?=
+ =?utf-8?B?UkFHRXpHTVVnR0RCQlMxVDVBbENMVlN6d3NEdHRuR081NDFVK3BZcmVlWEg1?=
+ =?utf-8?B?eWxNdTczK1ZsbHFLSEQ1SkkrL2FYc1ZxQUFhQWZWeThUam52akJZenV3M0Y0?=
+ =?utf-8?B?SmVXd0tiRjFSNFFNNXJFUkJ1RldQM1B3R0ZIZjU5dHBxZnJCMHJWVjlySzV2?=
+ =?utf-8?B?VlQ4NG0vR013dW9SUmhRQlRTdlprOWFJYVFXN0xBM1ZIMU5YNDI3YmI1M0xY?=
+ =?utf-8?B?UGppSEVNallBWC9kT09LR1ZER0VkMmlDcVNVa1NLK0FCYUZOb0tSY09VL2to?=
+ =?utf-8?B?cll4SXBJN1h6UmNNbTJtVW9zaWR4by9IRUE2dFU5M1FYbVUwZVRMOFloY0ky?=
+ =?utf-8?B?VGtPbGp4WnJyUk9WTCtaNWQ4eXVEQng1SVNsK1Z4YzhHekJFdWpCSVFUWXlm?=
+ =?utf-8?B?MUR2ZWcxNzltbVhreEdHdjVWTGpYSlJlUnFFZlJJVTZtZjYyVWlMZ2dUbDBT?=
+ =?utf-8?B?WHNIdi9kVnJCMVIyYy9ZcjFKcjN1VHo2aW4zUUxTZ2VIWWJSS1RjcFVmWFEv?=
+ =?utf-8?B?R3MvV2JZR1pMTDYwaVBqTS9vM2p3cUVsZWtxSXRuTGU0ZVh6ejhnZHZxZ1Bv?=
+ =?utf-8?B?SVcwOXhuVGM5TGI2WHZqbTJqQ0RHcG1FVFlkQjloNDlpUGRhMWZ0Ym1qZmZB?=
+ =?utf-8?B?RTZOZCtGREZYdGtLWk5lMlJYUURrUVlEWHB1aGZrRjVoRVkzQ0swTlRlbWdr?=
+ =?utf-8?B?VU5SVXQxSTVtSmpmMTI3MEVGZnV0dVZWbWFOY3NqdGtlSkU0OTN2NUpqdVRz?=
+ =?utf-8?B?ZUh0RmRHVnZwQWxPSjdybDRZektUZktrMjFrWWRnc3NGSG15SUxKU2pFdDdq?=
+ =?utf-8?B?R3J0bkVLazNiVHRLRDlMSldscWNiSnU4RUp6d0RNc29KcnZHV2ZsYjRIOHhn?=
+ =?utf-8?B?Qk9MR1E5cHFwVTRsOUFMcG12VlBYWnV6N0h5MjhSelVjNktJRTFOSHB6NU56?=
+ =?utf-8?B?U2VsNXhRaXp3UHZsYjRxa0xWVDVvdXd2c3gyWlpQNGhybmM4VzZVbU8xRnls?=
+ =?utf-8?B?eEJ2QnBQb1dyc01mSTFZc3RsbnhIZ2t1MjlhMU5iR2RDMjNpcUJ2cXFOWlhL?=
+ =?utf-8?B?M1BlNUdmY2dQUThjQTlUcmFmNk9sZDA2TGhzQ3QxaVl1eU14K0VETTVuSlVn?=
+ =?utf-8?B?STgrdDg3blpEY2NYRDRFUXpzd2c2QklMMmdWR0NoSHBVdWUrdytaN21takJR?=
+ =?utf-8?B?aUEwV3RkUmFEWG94bWNkYmM0dUJuM1RUNHEvaUNTRll4ZzdpelFKd0RsQkVU?=
+ =?utf-8?B?NGhkWUlPWjk4MW5JT2Y2TEZCTUFCNVFPZjUza2pzZkhIdjlER1hzK1pBM09E?=
+ =?utf-8?B?V2pjVyt4K05LYXgzcW1jSjg4N1d4L0poQkRHNkxPYUczWjI4N3I5UWRiT1lo?=
+ =?utf-8?B?YTVORzRsQ1Y2cXhFYy9kako1S2dYaHp6SjgxMmxrckZWYUVHREZldHZkc0Nh?=
+ =?utf-8?B?cXRmWjhHUXRRMUQ0M0FOaWN2TkR4Yy9HT1c3OERqM2VBSm1WRzk0SzFBaFhQ?=
+ =?utf-8?B?ZWZRcjVBR3FvYkUzN2kzdjZ5SWZqQ3p3d0tSRTB6WDcvamhSOFZrelFUQ0J4?=
+ =?utf-8?B?dDRaVkZIUldwTHBBYnVYdCtMbzNzSlM3OFpscnhESDVXNUQ5ZVlWNVQ2TERm?=
+ =?utf-8?B?bEU5cGtxdHZpNDNISmFzd3g4U1Y2cWFLeWtqbERCd3c4L2hISE5vYkZ1Z0JF?=
+ =?utf-8?Q?6gTw/ue/Q1dsjUQQ=3D?=
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260917-audin-v2-3-38de4bc1de34@baylibre.com>
-References: <20260917-audin-v2-0-38de4bc1de34@baylibre.com>
-In-Reply-To: <20260917-audin-v2-0-38de4bc1de34@baylibre.com>
-To: Jerome Brunet <jbrunet@baylibre.com>, 
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
-Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Valerio Setti <vsetti@baylibre.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=28710; i=vsetti@baylibre.com;
- h=from:subject:message-id; bh=AOYdmWNtnAPFdoV4iO0i0WTAgTqFKle4O5cMxyzJiHY=;
- b=owGbwMvMwCV2z3ty7kUrRgbG02pJDFlrQnP129+eXbGoZhOPl/omz6CUdeccfzf5MNx8/H7Op
- l1SYjEbO0pZGMS4GGTFFFlYpt/7XVCq9tA44WQBzBxWJpAhDFycAjCRZdcYGf4y/Z7A8m9fh45B
- 1d6/ojcf/1EsmngsjUPtpQXLuSe7T9ow/OEv0PnQ+8juoPpktoZDwozMYmW9ptztZQJzL+/vdmA
- R5wEA
-X-Developer-Key: i=vsetti@baylibre.com; a=openpgp;
- fpr=0497DEFB707526E13360C970DE4B936DD13A0100
+Content-ID: <6E01EAFC3865E744BE20E6B3431F220F@namprd11.prod.outlook.com>
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+X-Exchange-RoutingPolicyChecked: 0VN0t1RkAajj9+Ke7v31cDt/2xRNqVeS0Ta9ZeyE/GPE1+1KEbvLZR3Gs/spER9bspaw+hbez1uVZTG09cc4JVu2XLmvUg04h9HhQwPMQNVLiGqPrYhvYPtdVvsjvb6b7dOrSwIKA6IdDjc7Ako2l12b3uKCOVDwH+F6DQmOOoUgGRzCiFyRjupV54K/3Mx9RLuaYTTUzFBNHcz2z4iemkL+HcTEj8FIW+MHthQiK9Iw5ylB/hF3oAkShTFkTirZ3H+YmI3IDkOeeuz4YdYPSTy89QQigKDY7dmbxSfVJctbOV/IMSWikikRK5vca32ksjchLwaq2J0S6ajubI2gnA==
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR11MB5330.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c7aacf23-6af7-4235-e447-08df14ff8faf
+X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Sep 2026 21:06:36.9749
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: DvDB+4SgZolFw/geqL5wNm7OfHUM6HFDOnkHp9t/VxBA+WPL1rAszunkeOv9eLA/zCHOCGX4jWU2azfvtRGnYzKzgHylbPeyOzzt1Hk6Iss=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR11MB5876
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_220320_807870_AFD485D6 
-X-CRM114-Status: GOOD (  33.29  )
+X-CRM114-CacheID: sfid-20260917_140644_528672_1F9FC841 
+X-CRM114-Status: GOOD (  21.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,871 +193,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-AUDIN provides audio input support to the Amlogic GX based platforms
-(GXBB/GXL). It is the counterpart of AIU for capture and it strictly
-follows the same structure:
-- It takes the ownership of the entire register range;
-- It sets up peripheral clock and handles the reset;
-- It adds support for I2S data formatter through a widget;
-- It instantiates each of the FIFOs as component's DAI.
-
-Both I2S data formatter and FIFO code live separate files
-('audin-formatter-i2s' and 'audin-fifo', respectively) for a better
-code organization. Unfortunately it wasn't possible to add them as
-independent devices due to the messy register layout organization that
-has been implemented by the manufacturer on this platform.
-
-This component could ideally handle multiple input sources (SPDIF, I2S,
-PCM, HDMI), but for the time being only I2S is added and has been tested.
-
-Note: due to default register configuration, at boot all FIFO input sources
-are set to "SPDIF". In order to be able to test I2S they must be switched
-to "I2S". This can easily be achieved with:
-
-  $ amixer sset 'AUDIN FIFO0 SRC SEL' 'I2S'
-
-Signed-off-by: Valerio Setti <vsetti@baylibre.com>
----
- sound/soc/meson/Kconfig               |   9 +
- sound/soc/meson/Makefile              |   4 +
- sound/soc/meson/audin-fifo.c          | 367 ++++++++++++++++++++++++++++++++++
- sound/soc/meson/audin-formatter-i2s.c | 174 ++++++++++++++++
- sound/soc/meson/audin.c               | 186 +++++++++++++++++
- sound/soc/meson/audin.h               |  30 +++
- 6 files changed, 770 insertions(+)
-
-diff --git a/sound/soc/meson/Kconfig b/sound/soc/meson/Kconfig
-index 4c40bf60dc4e..9d8589b5a88f 100644
---- a/sound/soc/meson/Kconfig
-+++ b/sound/soc/meson/Kconfig
-@@ -17,6 +17,14 @@ config SND_MESON_AIU
- 	  Select Y or M to add support for the Audio output subsystem found
- 	  in the Amlogic Meson8, Meson8b and GX SoC families
- 
-+config SND_MESON_AUDIN
-+	tristate "Amlogic AUDIN"
-+	select REGMAP_MMIO
-+	select SND_MESON_GX_FORMATTER
-+	help
-+	  Select Y or M to add support for the audio input subsystem found
-+	  in the Amlogic GX SoC family. Currently only I2S input is supported.
-+
- config SND_MESON_AXG_FIFO
- 	tristate
- 	select REGMAP_MMIO
-@@ -113,6 +121,7 @@ config SND_MESON_GX_SOUND_CARD
- 	tristate "Amlogic GX Sound Card Support"
- 	select SND_MESON_CARD_UTILS
- 	imply SND_MESON_AIU
-+	imply SND_MESON_AUDIN
- 	help
- 	  Select Y or M to add support for the GXBB/GXL SoC sound card
- 
-diff --git a/sound/soc/meson/Makefile b/sound/soc/meson/Makefile
-index 1b1fbe8a0458..4af75df0d19b 100644
---- a/sound/soc/meson/Makefile
-+++ b/sound/soc/meson/Makefile
-@@ -10,6 +10,9 @@ snd-soc-meson-aiu-y += aiu-fifo.o
- snd-soc-meson-aiu-y += aiu-fifo-i2s.o
- snd-soc-meson-aiu-y += aiu-fifo-spdif.o
- snd-soc-meson-gx-formatter-y := gx-formatter.o
-+snd-soc-meson-audin-y := audin.o
-+snd-soc-meson-audin-y += audin-formatter-i2s.o
-+snd-soc-meson-audin-y += audin-fifo.o
- snd-soc-meson-axg-fifo-y := axg-fifo.o
- snd-soc-meson-axg-frddr-y := axg-frddr.o
- snd-soc-meson-axg-toddr-y := axg-toddr.o
-@@ -30,6 +33,7 @@ snd-soc-meson-t9015-y := t9015.o
- 
- obj-$(CONFIG_SND_MESON_AIU) += snd-soc-meson-aiu.o
- obj-$(CONFIG_SND_MESON_GX_FORMATTER) += snd-soc-meson-gx-formatter.o
-+obj-$(CONFIG_SND_MESON_AUDIN) += snd-soc-meson-audin.o
- obj-$(CONFIG_SND_MESON_AXG_FIFO) += snd-soc-meson-axg-fifo.o
- obj-$(CONFIG_SND_MESON_AXG_FRDDR) += snd-soc-meson-axg-frddr.o
- obj-$(CONFIG_SND_MESON_AXG_TODDR) += snd-soc-meson-axg-toddr.o
-diff --git a/sound/soc/meson/audin-fifo.c b/sound/soc/meson/audin-fifo.c
-new file mode 100644
-index 000000000000..39ca65e3cee9
---- /dev/null
-+++ b/sound/soc/meson/audin-fifo.c
-@@ -0,0 +1,367 @@
-+// SPDX-License-Identifier: GPL-2.0
-+//
-+// Copyright (c) 2026 BayLibre, SAS.
-+// Author: Valerio Setti <vsetti@baylibre.com>
-+
-+#include <linux/bitfield.h>
-+#include <linux/dma-mapping.h>
-+#include <linux/hrtimer.h>
-+#include <linux/math64.h>
-+#include <linux/regmap.h>
-+#include <linux/slab.h>
-+#include <linux/wordpart.h>
-+#include <sound/pcm_params.h>
-+#include <sound/soc.h>
-+#include <sound/soc-dai.h>
-+
-+#include "audin.h"
-+
-+/* FIFO registers */
-+#define AUDIN_FIFO_START	0x00
-+#define AUDIN_FIFO_END		0x04
-+#define AUDIN_FIFO_PTR		0x08
-+
-+/* FIFOx_CTRL1 registers and bits */
-+#define AUDIN_FIFO_CTRL1			0x18
-+#define  AUDIN_FIFO_CTRL1_DIN_BYTE_NUM_MASK	GENMASK(3, 2)
-+#define  AUDIN_FIFO_CTRL1_DIN_POS_01_MASK	GENMASK(1, 0)
-+
-+/* When the FIFO is full the data is bulk transferred to memory. */
-+#define AUDIN_FIFO_LANE_SIZE		8 /* bytes */
-+#define AUDIN_FIFO_I2S_BLOCK		(AUDIN_FIFO_LANE_SIZE * 32) /* 256 bytes */
-+
-+static const struct snd_pcm_hardware audin_fifo_pcm_hw = {
-+	.info = (SNDRV_PCM_INFO_INTERLEAVED |
-+		 SNDRV_PCM_INFO_MMAP |
-+		 SNDRV_PCM_INFO_MMAP_VALID |
-+		 SNDRV_PCM_INFO_BLOCK_TRANSFER |
-+		 SNDRV_PCM_INFO_PAUSE),
-+	.formats = SNDRV_PCM_FMTBIT_S16_LE,
-+	.rate_min = 5512,
-+	.rate_max = 192000,
-+	.channels_min = 2,
-+	.channels_max = 2,
-+	/*
-+	 * The FIFO only moves data to the memory once it is full, so its pointer
-+	 * progresses one block at a time.
-+	 */
-+	.period_bytes_min = 2 * AUDIN_FIFO_I2S_BLOCK,
-+	.period_bytes_max = UINT_MAX, /* Bounded by buffer_bytes_max */
-+	.periods_min = 2,
-+	.periods_max = UINT_MAX,
-+	/*
-+	 * It's 1 MB. There is no physical constraint for this; it's only meant to
-+	 * provide some decently large buffer size where to store incoming data
-+	 * and fit various period_bytes requests.
-+	 */
-+	.buffer_bytes_max = 4096 * AUDIN_FIFO_I2S_BLOCK,
-+};
-+
-+struct audin_fifo_dai_data {
-+	/*
-+	 * The AUDIN peripheral has an IRQ to signal when data is received, but
-+	 * it cannot grant a periodic behavior. The reason is that the register
-+	 * which holds the address which triggers the IRQ must be updated
-+	 * continuously. This creates a risk of overflow if for any reason the
-+	 * ISR execution is delayed. Using a periodic timer is therefore simpler
-+	 * and more reliable.
-+	 */
-+	struct hrtimer polling_timer;
-+	struct snd_soc_dai *dai;
-+	struct snd_pcm_substream *substream;
-+	unsigned int period_bytes;
-+	unsigned int byte_rate;
-+	unsigned int last_pos; /* Position inside the allocated read buffer. */
-+	bool running;
-+};
-+
-+static unsigned int audin_fifo_pos(struct snd_soc_dai *dai,
-+				   struct snd_pcm_runtime *runtime)
-+{
-+	unsigned int ptr = lower_32_bits(runtime->dma_addr);
-+
-+	regmap_read(dai->component->regmap, dai->driver->base + AUDIN_FIFO_PTR, &ptr);
-+
-+	return ptr - lower_32_bits(runtime->dma_addr);
-+}
-+
-+static ktime_t audin_fifo_bytes_to_ns(struct audin_fifo_dai_data *data,
-+				      unsigned int bytes)
-+{
-+	return div_u64((u64)bytes * NSEC_PER_SEC, data->byte_rate);
-+}
-+
-+static int audin_fifo_dai_trigger(struct snd_pcm_substream *substream, int cmd,
-+				  struct snd_soc_dai *dai)
-+{
-+	struct audin_fifo_dai_data *data = snd_soc_dai_dma_data_get_capture(dai);
-+	struct snd_soc_component *component = dai->component;
-+
-+	switch (cmd) {
-+	case SNDRV_PCM_TRIGGER_START:
-+	case SNDRV_PCM_TRIGGER_RESUME:
-+	case SNDRV_PCM_TRIGGER_PAUSE_RELEASE:
-+		snd_soc_component_update_bits(component, dai->driver->base + AUDIN_FIFO_CTRL,
-+					      AUDIN_FIFO_CTRL_EN,
-+					      AUDIN_FIFO_CTRL_EN);
-+		WRITE_ONCE(data->running, true);
-+		hrtimer_start(&data->polling_timer,
-+			      audin_fifo_bytes_to_ns(data, data->period_bytes),
-+			      HRTIMER_MODE_REL_SOFT);
-+		break;
-+	case SNDRV_PCM_TRIGGER_SUSPEND:
-+	case SNDRV_PCM_TRIGGER_PAUSE_PUSH:
-+	case SNDRV_PCM_TRIGGER_STOP:
-+		WRITE_ONCE(data->running, false);
-+		/*
-+		 * PCM stream lock is held here. If the timer callback is running
-+		 * (i.e. it cannot be stopped) there is also hrtimer_cancel()
-+		 * in hw_free().
-+		 */
-+		hrtimer_try_to_cancel(&data->polling_timer);
-+		snd_soc_component_update_bits(component, dai->driver->base + AUDIN_FIFO_CTRL,
-+					      AUDIN_FIFO_CTRL_EN, 0);
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
-+static int audin_fifo_dai_prepare(struct snd_pcm_substream *substream,
-+				  struct snd_soc_dai *dai)
-+{
-+	struct audin_fifo_dai_data *data = snd_soc_dai_dma_data_get_capture(dai);
-+	struct snd_soc_component *component = dai->component;
-+	struct snd_pcm_runtime *runtime = substream->runtime;
-+	dma_addr_t dma_end = runtime->dma_addr + runtime->dma_bytes - AUDIN_FIFO_LANE_SIZE;
-+	unsigned int val;
-+
-+	data->last_pos = 0;
-+
-+	/*
-+	 * Setup memory boundaries.
-+	 * Note: DMA has a 32-bit mask, so it's OK to take lower 32 bits.
-+	 */
-+	snd_soc_component_write(component, dai->driver->base + AUDIN_FIFO_START,
-+				lower_32_bits(runtime->dma_addr));
-+	snd_soc_component_write(component, dai->driver->base + AUDIN_FIFO_PTR,
-+				lower_32_bits(runtime->dma_addr));
-+	snd_soc_component_write(component, dai->driver->base + AUDIN_FIFO_END,
-+				lower_32_bits(dma_end));
-+
-+	/* Load new addresses (both LOAD and UG are self-clearing). */
-+	val = AUDIN_FIFO_CTRL_LOAD | AUDIN_FIFO_CTRL_UG;
-+	snd_soc_component_update_bits(component, dai->driver->base + AUDIN_FIFO_CTRL, val, val);
-+
-+	/* Reset (RST is self-clearing). */
-+	snd_soc_component_update_bits(component, dai->driver->base + AUDIN_FIFO_CTRL,
-+				      AUDIN_FIFO_CTRL_RST,
-+				      AUDIN_FIFO_CTRL_RST);
-+
-+	return 0;
-+}
-+
-+static int audin_fifo_dai_hw_params(struct snd_pcm_substream *substream,
-+				    struct snd_pcm_hw_params *params,
-+				    struct snd_soc_dai *dai)
-+{
-+	struct snd_soc_component *component = dai->component;
-+	struct audin_fifo_dai_data *data = snd_soc_dai_dma_data_get_capture(dai);
-+	unsigned int val;
-+
-+	/*
-+	 * The I2S input decoder passes 24 bits of left-justified data
-+	 * but for the time being we only support 16 bit formatted samples
-+	 * which means that we drop the LSB.
-+	 */
-+	val = FIELD_PREP(AUDIN_FIFO_CTRL1_DIN_POS_01_MASK, 1);
-+	snd_soc_component_update_bits(component, dai->driver->base + AUDIN_FIFO_CTRL1,
-+				      AUDIN_FIFO_CTRL1_DIN_POS_01_MASK,
-+				      val);
-+
-+	/* Set sample size to 2 bytes (16 bit) */
-+	val = FIELD_PREP(AUDIN_FIFO_CTRL1_DIN_BYTE_NUM_MASK, 1);
-+	snd_soc_component_update_bits(component, dai->driver->base + AUDIN_FIFO_CTRL1,
-+				      AUDIN_FIFO_CTRL1_DIN_BYTE_NUM_MASK,
-+				      val);
-+
-+	/*
-+	 * This is a bit counterintuitive. Even though the platform has a single
-+	 * pin for I2S input which would mean that we can only support 2
-+	 * channels, doing so would cause samples to be stored in a weird way
-+	 * into the FIFO: all the samples from the 1st channel on the 1st half
-+	 * of the FIFO, then samples from the 2nd channel in the other half. Of
-+	 * course extra work would be required to properly interleave them
-+	 * before returning to the userspace.
-+	 * Setting a single channel mode instead solves the problem: samples
-+	 * from 1st and 2nd channel are stored interleaved and sequentially in
-+	 * the FIFO.
-+	 */
-+	val = FIELD_PREP(AUDIN_FIFO_CTRL_CHAN_MASK, 1);
-+	snd_soc_component_update_bits(component, dai->driver->base + AUDIN_FIFO_CTRL,
-+				      AUDIN_FIFO_CTRL_CHAN_MASK, val);
-+
-+	/*
-+	 * FIFO is filled line by line and each of them is 8 bytes. The
-+	 * problem is that each line is filled starting from the end,
-+	 * so we need to properly reorder them before moving to the
-+	 * RAM. This is the value required to properly re-order samples stored
-+	 * in 16 bit format.
-+	 */
-+	val = FIELD_PREP(AUDIN_FIFO_CTRL_ENDIAN_MASK, 6);
-+	snd_soc_component_update_bits(component, dai->driver->base + AUDIN_FIFO_CTRL,
-+				      AUDIN_FIFO_CTRL_ENDIAN_MASK, val);
-+
-+	/* Used by the polling timer to convert a byte count into a delay. */
-+	data->period_bytes = params_period_bytes(params);
-+	data->byte_rate = params_rate(params) * params_channels(params) *
-+			  params_physical_width(params) / BITS_PER_BYTE;
-+
-+	data->substream = substream;
-+
-+	return 0;
-+}
-+
-+static int audin_fifo_dai_startup(struct snd_pcm_substream *substream,
-+				  struct snd_soc_dai *dai)
-+{
-+	int ret;
-+
-+	snd_soc_set_runtime_hwparams(substream, &audin_fifo_pcm_hw);
-+
-+	ret = snd_pcm_hw_constraint_step(substream->runtime, 0,
-+					 SNDRV_PCM_HW_PARAM_BUFFER_BYTES,
-+					 AUDIN_FIFO_I2S_BLOCK);
-+	if (ret < 0) {
-+		dev_err(dai->dev, "Failed to set constraint on buffer_bytes %d\n", ret);
-+		return ret;
-+	}
-+
-+	ret = snd_pcm_hw_constraint_step(substream->runtime, 0,
-+					 SNDRV_PCM_HW_PARAM_PERIOD_BYTES,
-+					 AUDIN_FIFO_I2S_BLOCK);
-+	if (ret < 0) {
-+		dev_err(dai->dev, "Failed to set constraint on period_bytes %d\n", ret);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static int audin_fifo_dai_pcm_new(struct snd_soc_pcm_runtime *rtd,
-+				  struct snd_soc_dai *dai)
-+{
-+	int ret;
-+
-+	ret = dma_coerce_mask_and_coherent(dai->dev, DMA_BIT_MASK(32));
-+	if (ret) {
-+		dev_err(dai->dev, "Failed to set DMA mask %d\n", ret);
-+		return ret;
-+	}
-+
-+	ret = snd_pcm_set_managed_buffer_all(rtd->pcm, SNDRV_DMA_TYPE_DEV,
-+					     dai->dev,
-+					     audin_fifo_pcm_hw.buffer_bytes_max,
-+					     audin_fifo_pcm_hw.buffer_bytes_max);
-+	if (ret) {
-+		dev_err(dai->dev, "Failed to set PCM managed buffer %d\n", ret);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static enum hrtimer_restart audin_fifo_timer_cb(struct hrtimer *timer)
-+{
-+	struct audin_fifo_dai_data *data =
-+		container_of(timer, struct audin_fifo_dai_data, polling_timer);
-+	struct snd_pcm_runtime *runtime = data->substream->runtime;
-+	unsigned int curr_pos, delta, sleep_time;
-+
-+	if (!READ_ONCE(data->running))
-+		return HRTIMER_NORESTART;
-+
-+	curr_pos = audin_fifo_pos(data->dai, runtime);
-+	delta = (curr_pos >= data->last_pos) ?
-+		curr_pos - data->last_pos :
-+		(runtime->dma_bytes - data->last_pos) + curr_pos;
-+
-+	/* Report only when the period is completed. */
-+	if (delta >= data->period_bytes) {
-+		data->last_pos = curr_pos;
-+		delta = delta % data->period_bytes;
-+		snd_pcm_period_elapsed(data->substream);
-+	}
-+
-+	/* Sleep until the period is completed. */
-+	sleep_time = round_up(data->period_bytes - delta, AUDIN_FIFO_I2S_BLOCK);
-+	hrtimer_forward_now(timer, audin_fifo_bytes_to_ns(data, sleep_time));
-+
-+	if (!READ_ONCE(data->running))
-+		return HRTIMER_NORESTART;
-+	return HRTIMER_RESTART;
-+}
-+
-+static int audin_fifo_dai_probe(struct snd_soc_dai *dai)
-+{
-+	struct audin_fifo_dai_data *data;
-+
-+	data = kzalloc_obj(*data);
-+	if (!data)
-+		return -ENOMEM;
-+
-+	data->dai = dai;
-+
-+	hrtimer_setup(&data->polling_timer, audin_fifo_timer_cb, CLOCK_MONOTONIC,
-+		      HRTIMER_MODE_REL_SOFT);
-+
-+	snd_soc_dai_dma_data_set_capture(dai, data);
-+
-+	return 0;
-+}
-+
-+static int audin_fifo_dai_remove(struct snd_soc_dai *dai)
-+{
-+	kfree(snd_soc_dai_dma_data_get_capture(dai));
-+
-+	return 0;
-+}
-+
-+const struct snd_soc_dai_ops audin_fifo_dai_ops = {
-+	.trigger	= audin_fifo_dai_trigger,
-+	.prepare	= audin_fifo_dai_prepare,
-+	.hw_params	= audin_fifo_dai_hw_params,
-+	.startup	= audin_fifo_dai_startup,
-+	.pcm_new	= audin_fifo_dai_pcm_new,
-+	.probe		= audin_fifo_dai_probe,
-+	.remove		= audin_fifo_dai_remove,
-+};
-+
-+snd_pcm_uframes_t audin_fifo_component_pointer(struct snd_soc_component *component,
-+					       struct snd_pcm_substream *substream)
-+{
-+	struct snd_pcm_runtime *runtime = substream->runtime;
-+	struct snd_soc_pcm_runtime *rtd = snd_soc_substream_to_rtd(substream);
-+	struct snd_soc_dai *dai = snd_soc_rtd_to_cpu(rtd, 0);
-+
-+	return bytes_to_frames(runtime, audin_fifo_pos(dai, runtime));
-+}
-+
-+/*
-+ * sync_stop() is called before hw_params(), hw_free(), suspend(), prepare().
-+ * Cancelling the hrtimer here ensures the timer is really stopped even in
-+ * case the stream is run->stop->prepare->start.
-+ */
-+int audin_fifo_sync_stop(struct snd_soc_component *component, struct snd_pcm_substream *substream)
-+{
-+	struct snd_soc_pcm_runtime *rtd = snd_soc_substream_to_rtd(substream);
-+	struct snd_soc_dai *dai = snd_soc_rtd_to_cpu(rtd, 0);
-+	struct audin_fifo_dai_data *data = snd_soc_dai_dma_data_get_capture(dai);
-+
-+	hrtimer_cancel(&data->polling_timer);
-+	WRITE_ONCE(data->running, false);
-+
-+	return 0;
-+}
-diff --git a/sound/soc/meson/audin-formatter-i2s.c b/sound/soc/meson/audin-formatter-i2s.c
-new file mode 100644
-index 000000000000..8bbb5cdb52dc
---- /dev/null
-+++ b/sound/soc/meson/audin-formatter-i2s.c
-@@ -0,0 +1,174 @@
-+// SPDX-License-Identifier: GPL-2.0
-+//
-+// Copyright (c) 2026 BayLibre, SAS.
-+// Author: Valerio Setti <vsetti@baylibre.com>
-+
-+#include <linux/bitfield.h>
-+#include <linux/regmap.h>
-+#include <sound/soc.h>
-+#include <sound/soc-dai.h>
-+
-+#include "audin.h"
-+#include "gx-formatter.h"
-+
-+/* I2SIN_CTRL register and bits */
-+#define AUDIN_I2SIN_CTRL			0x40
-+#define  AUDIN_I2SIN_CTRL_I2SIN_DIR		BIT(0)
-+#define  AUDIN_I2SIN_CTRL_I2SIN_CLK_SEL		BIT(1)
-+#define  AUDIN_I2SIN_CTRL_I2SIN_LRCLK_SEL	BIT(2)
-+#define  AUDIN_I2SIN_CTRL_I2SIN_BCLK_INV	BIT(3)
-+#define  AUDIN_I2SIN_CTRL_I2SIN_LRCLK_SKEW_MASK	GENMASK(6, 4)
-+#define  AUDIN_I2SIN_CTRL_I2SIN_LRCLK_INV	BIT(7)
-+#define  AUDIN_I2SIN_CTRL_I2SIN_SIZE_MASK	GENMASK(9, 8)
-+#define  AUDIN_I2SIN_CTRL_I2SIN_CHAN_EN_MASK	GENMASK(13, 10)
-+#define  AUDIN_I2SIN_CTRL_I2SIN_EN		BIT(15)
-+
-+static struct snd_soc_dai *
-+audin_formatter_i2s_get_be(struct snd_soc_dapm_widget *w)
-+{
-+	struct snd_soc_dapm_path *p;
-+	struct snd_soc_dai *be;
-+
-+	snd_soc_dapm_widget_for_each_source_path(w, p) {
-+		if (!p->connect)
-+			continue;
-+
-+		if (p->source->id == snd_soc_dapm_dai_out)
-+			return (struct snd_soc_dai *)p->source->priv;
-+
-+		be = audin_formatter_i2s_get_be(p->source);
-+		if (be)
-+			return be;
-+	}
-+
-+	return NULL;
-+}
-+
-+static struct gx_stream *
-+audin_formatter_i2s_get_stream(struct snd_soc_dapm_widget *w)
-+{
-+	struct snd_soc_dai *be = audin_formatter_i2s_get_be(w);
-+
-+	if (!be)
-+		return NULL;
-+
-+	return snd_soc_dai_dma_data_get_capture(be);
-+}
-+
-+static void audin_formatter_i2s_enable(struct regmap *map)
-+{
-+	regmap_update_bits(map, AUDIN_I2SIN_CTRL,
-+			   AUDIN_I2SIN_CTRL_I2SIN_EN,
-+			   AUDIN_I2SIN_CTRL_I2SIN_EN);
-+}
-+
-+static void audin_formatter_i2s_disable(struct regmap *map)
-+{
-+	regmap_update_bits(map, AUDIN_I2SIN_CTRL,
-+			   AUDIN_I2SIN_CTRL_I2SIN_EN, 0);
-+}
-+
-+static int audin_formatter_i2s_prepare(struct regmap *map,
-+				       const struct gx_formatter_hw *quirks,
-+				       struct gx_stream *ts)
-+{
-+	unsigned int val;
-+	int ret;
-+
-+	/*
-+	 * I2S decoder always outputs 24 bits to the FIFO according to the
-+	 * manual. The only thing we can change through
-+	 * AUDIN_I2SIN_CTRL_I2SIN_SIZE_MASK is the following:
-+	 * - 0 -> output[23:0] = {original[23:8],8’d0}
-+	 * - 1 -> output[23:0] = {original[23:6],6’d0}
-+	 * - 2 -> output[23:0] = {original[23:4],4’d0}
-+	 * - 3 -> output[23:0] = {original[23:0]}
-+	 *
-+	 * We use 3 here and, in case of 16 bit format, we filter unnecessary
-+	 * bytes at FIFO stage.
-+	 * Note: data is left-justified, so in case of 16 bits samples, this
-+	 *       means that the LSB is to be discarded at FIFO level and the
-+	 *       relevant part is in bits [23:8].
-+	 */
-+	val = FIELD_PREP(AUDIN_I2SIN_CTRL_I2SIN_SIZE_MASK, 3);
-+	ret = regmap_update_bits(map, AUDIN_I2SIN_CTRL,
-+				 AUDIN_I2SIN_CTRL_I2SIN_SIZE_MASK, val);
-+	if (ret)
-+		return ret;
-+
-+	/*
-+	 * The manual claims that this platform supports up to 4 streams
-+	 * (8 channels), but currently only 1 stream (2 channels) has been
-+	 * tested and it's supported.
-+	 */
-+	val = FIELD_PREP(AUDIN_I2SIN_CTRL_I2SIN_CHAN_EN_MASK, 1);
-+	ret = regmap_update_bits(map, AUDIN_I2SIN_CTRL,
-+				 AUDIN_I2SIN_CTRL_I2SIN_CHAN_EN_MASK, val);
-+	if (ret)
-+		return ret;
-+
-+	/*
-+	 * Use clocks from AIU and not from the pads since we only want to
-+	 * support master mode.
-+	 */
-+	val = AUDIN_I2SIN_CTRL_I2SIN_CLK_SEL |
-+	      AUDIN_I2SIN_CTRL_I2SIN_LRCLK_SEL |
-+	      AUDIN_I2SIN_CTRL_I2SIN_DIR;
-+	ret = regmap_update_bits(map, AUDIN_I2SIN_CTRL, val, val);
-+	if (ret)
-+		return ret;
-+
-+	switch (ts->iface->fmt & SND_SOC_DAIFMT_INV_MASK) {
-+	case SND_SOC_DAIFMT_IB_NF:
-+		val = AUDIN_I2SIN_CTRL_I2SIN_BCLK_INV;
-+		break;
-+	case SND_SOC_DAIFMT_NB_IF:
-+		val = AUDIN_I2SIN_CTRL_I2SIN_LRCLK_INV;
-+		break;
-+	case SND_SOC_DAIFMT_IB_IF:
-+		val = AUDIN_I2SIN_CTRL_I2SIN_BCLK_INV | AUDIN_I2SIN_CTRL_I2SIN_LRCLK_INV;
-+		break;
-+	case SND_SOC_DAIFMT_NB_NF:
-+		val = 0;
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	ret = regmap_update_bits(map, AUDIN_I2SIN_CTRL,
-+				 AUDIN_I2SIN_CTRL_I2SIN_LRCLK_INV |
-+				 AUDIN_I2SIN_CTRL_I2SIN_BCLK_INV, val);
-+	if (ret)
-+		return ret;
-+
-+	switch (ts->iface->fmt & SND_SOC_DAIFMT_FORMAT_MASK) {
-+	case SND_SOC_DAIFMT_I2S:
-+		val = 1;
-+		break;
-+	case SND_SOC_DAIFMT_LEFT_J:
-+		val = 0;
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	val = FIELD_PREP(AUDIN_I2SIN_CTRL_I2SIN_LRCLK_SKEW_MASK, val);
-+	ret = regmap_update_bits(map, AUDIN_I2SIN_CTRL,
-+				 AUDIN_I2SIN_CTRL_I2SIN_LRCLK_SKEW_MASK,
-+				 val);
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+
-+static const struct gx_formatter_ops audin_formatter_i2s_ops = {
-+	.get_stream	= audin_formatter_i2s_get_stream,
-+	.prepare	= audin_formatter_i2s_prepare,
-+	.enable		= audin_formatter_i2s_enable,
-+	.disable	= audin_formatter_i2s_disable,
-+};
-+
-+const struct gx_formatter_driver audin_formatter_i2s_drv = {
-+	.ops		= &audin_formatter_i2s_ops,
-+};
-diff --git a/sound/soc/meson/audin.c b/sound/soc/meson/audin.c
-new file mode 100644
-index 000000000000..ec024267ac29
---- /dev/null
-+++ b/sound/soc/meson/audin.c
-@@ -0,0 +1,186 @@
-+// SPDX-License-Identifier: GPL-2.0
-+//
-+// Copyright (c) 2026 BayLibre, SAS.
-+// Author: Valerio Setti <vsetti@baylibre.com>
-+
-+#include <linux/clk.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+#include <linux/reset.h>
-+#include <sound/soc.h>
-+
-+#include "audin.h"
-+#include "gx-formatter.h"
-+
-+#define AUDIN_FIFO0_BASE	0x80
-+#define AUDIN_FIFO1_BASE	0xCC
-+#define AUDIN_FIFO2_BASE	0x114
-+
-+static const char * const audin_fifo_input_sel_texts[] = {
-+	"SPDIF", "I2S", "PCM", "HDMI", "Demodulator"
-+};
-+
-+static SOC_ENUM_SINGLE_DECL(audin_fifo0_input_sel_enum, AUDIN_FIFO0_BASE + AUDIN_FIFO_CTRL,
-+			    AUDIN_FIFO_CTRL_DIN_SEL_OFF,
-+			    audin_fifo_input_sel_texts);
-+static SOC_ENUM_SINGLE_DECL(audin_fifo1_input_sel_enum, AUDIN_FIFO1_BASE + AUDIN_FIFO_CTRL,
-+			    AUDIN_FIFO_CTRL_DIN_SEL_OFF,
-+			    audin_fifo_input_sel_texts);
-+static SOC_ENUM_SINGLE_DECL(audin_fifo2_input_sel_enum, AUDIN_FIFO2_BASE + AUDIN_FIFO_CTRL,
-+			    AUDIN_FIFO_CTRL_DIN_SEL_OFF,
-+			    audin_fifo_input_sel_texts);
-+
-+static const struct snd_kcontrol_new audin_fifo0_input_sel_mux =
-+	SOC_DAPM_ENUM("FIFO0 Input Source", audin_fifo0_input_sel_enum);
-+static const struct snd_kcontrol_new audin_fifo1_input_sel_mux =
-+	SOC_DAPM_ENUM("FIFO1 Input Source", audin_fifo1_input_sel_enum);
-+static const struct snd_kcontrol_new audin_fifo2_input_sel_mux =
-+	SOC_DAPM_ENUM("FIFO2 Input Source", audin_fifo2_input_sel_enum);
-+
-+#define AUDIN_WIDGET_I2S_FORMATTER	0
-+
-+static struct snd_soc_dapm_widget audin_dapm_widgets[] = {
-+	[AUDIN_WIDGET_I2S_FORMATTER] =
-+		SND_SOC_DAPM_PGA_E("I2S Formatter", SND_SOC_NOPM, 0, 0, NULL, 0,
-+				   gx_formatter_event,
-+				   (SND_SOC_DAPM_PRE_PMU | SND_SOC_DAPM_PRE_PMD)),
-+	SND_SOC_DAPM_MUX("FIFO0 SRC SEL", SND_SOC_NOPM, 0, 0,
-+			 &audin_fifo0_input_sel_mux),
-+	SND_SOC_DAPM_MUX("FIFO1 SRC SEL", SND_SOC_NOPM, 0, 0,
-+			 &audin_fifo1_input_sel_mux),
-+	SND_SOC_DAPM_MUX("FIFO2 SRC SEL", SND_SOC_NOPM, 0, 0,
-+			 &audin_fifo2_input_sel_mux),
-+};
-+
-+static const struct snd_soc_dapm_route audin_dapm_routes[] = {
-+	{ "FIFO0 SRC SEL", "I2S", "I2S Formatter" },
-+	{ "FIFO0 Capture", NULL, "FIFO0 SRC SEL" },
-+	{ "FIFO1 SRC SEL", "I2S", "I2S Formatter" },
-+	{ "FIFO1 Capture", NULL, "FIFO1 SRC SEL" },
-+	{ "FIFO2 SRC SEL", "I2S", "I2S Formatter" },
-+	{ "FIFO2 Capture", NULL, "FIFO2 SRC SEL" },
-+};
-+
-+static struct snd_soc_dai_driver audin_dai_drv[] = {
-+	{
-+		.name = "FIFO0",
-+		.base = AUDIN_FIFO0_BASE,
-+		.capture = {
-+			.stream_name	= "FIFO0 Capture",
-+			.channels_min	= 2,
-+			.channels_max	= 2,
-+			.rates		= SNDRV_PCM_RATE_CONTINUOUS,
-+			.rate_min	= 5512,
-+			.rate_max	= 192000,
-+			.formats	= SNDRV_PCM_FMTBIT_S16_LE,
-+		},
-+		.ops = &audin_fifo_dai_ops,
-+	},
-+	{
-+		.name = "FIFO1",
-+		.base = AUDIN_FIFO1_BASE,
-+		.capture = {
-+			.stream_name	= "FIFO1 Capture",
-+			.channels_min	= 2,
-+			.channels_max	= 2,
-+			.rates		= SNDRV_PCM_RATE_CONTINUOUS,
-+			.rate_min	= 5512,
-+			.rate_max	= 192000,
-+			.formats	= SNDRV_PCM_FMTBIT_S16_LE,
-+		},
-+		.ops = &audin_fifo_dai_ops,
-+	},
-+	{
-+		.name = "FIFO2",
-+		.base = AUDIN_FIFO2_BASE,
-+		.capture = {
-+			.stream_name	= "FIFO2 Capture",
-+			.channels_min	= 2,
-+			.channels_max	= 2,
-+			.rates		= SNDRV_PCM_RATE_CONTINUOUS,
-+			.rate_min	= 5512,
-+			.rate_max	= 192000,
-+			.formats	= SNDRV_PCM_FMTBIT_S16_LE,
-+		},
-+		.ops = &audin_fifo_dai_ops,
-+	},
-+};
-+
-+static const struct snd_soc_component_driver audin_component = {
-+	.dapm_widgets = audin_dapm_widgets,
-+	.num_dapm_widgets = ARRAY_SIZE(audin_dapm_widgets),
-+	.dapm_routes = audin_dapm_routes,
-+	.num_dapm_routes = ARRAY_SIZE(audin_dapm_routes),
-+	.pointer = audin_fifo_component_pointer,
-+	.sync_stop = audin_fifo_sync_stop,
-+};
-+
-+static const struct regmap_config audin_regmap_cfg = {
-+	.reg_bits	= 32,
-+	.val_bits	= 32,
-+	.reg_stride	= 4,
-+	.max_register	= 0x148,
-+};
-+
-+static int audin_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	void __iomem *mmio;
-+	struct regmap *regmap;
-+	struct clk *clk;
-+	int ret;
-+
-+	ret = device_reset(dev);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to reset device\n");
-+
-+	mmio = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(mmio))
-+		return dev_err_probe(dev, PTR_ERR(mmio), "Failed to ioremap memory\n");
-+
-+	regmap = devm_regmap_init_mmio(dev, mmio, &audin_regmap_cfg);
-+	if (IS_ERR(regmap))
-+		return dev_err_probe(dev, PTR_ERR(regmap), "Failed to init regmap\n");
-+
-+	clk = devm_clk_get_enabled(dev, NULL);
-+	if (IS_ERR(clk))
-+		return dev_err_probe(dev, PTR_ERR(clk), "Failed to get clock\n");
-+
-+	ret = gx_formatter_create(dev, &audin_dapm_widgets[AUDIN_WIDGET_I2S_FORMATTER],
-+				  &audin_formatter_i2s_drv, regmap);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to allocate formatter\n");
-+
-+	ret = devm_snd_soc_register_component(dev, &audin_component,
-+					      audin_dai_drv, ARRAY_SIZE(audin_dai_drv));
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to register component\n");
-+
-+	return 0;
-+}
-+
-+static void audin_remove(struct platform_device *pdev)
-+{
-+	gx_formatter_free(&audin_dapm_widgets[AUDIN_WIDGET_I2S_FORMATTER]);
-+}
-+
-+static const struct of_device_id audin_of_match[] = {
-+	{ .compatible = "amlogic,gx-audin" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, audin_of_match);
-+
-+static struct platform_driver audin_driver = {
-+	.driver = {
-+		.name = "gx-audin",
-+		.of_match_table = audin_of_match,
-+	},
-+	.probe = audin_probe,
-+	.remove = audin_remove,
-+};
-+module_platform_driver(audin_driver);
-+
-+MODULE_DESCRIPTION("Meson GX AUDIN driver");
-+MODULE_AUTHOR("Valerio Setti <vsetti@baylibre.com>");
-+MODULE_LICENSE("GPL");
-diff --git a/sound/soc/meson/audin.h b/sound/soc/meson/audin.h
-new file mode 100644
-index 000000000000..7f3b58a780c0
---- /dev/null
-+++ b/sound/soc/meson/audin.h
-@@ -0,0 +1,30 @@
-+/* SPDX-License-Identifier: (GPL-2.0 OR MIT) */
-+/*
-+ * Copyright (c) 2026 BayLibre, SAS.
-+ * Author: Valerio Setti <vsetti@baylibre.com>
-+ */
-+
-+#ifndef _MESON_AUDIN_H
-+#define _MESON_AUDIN_H
-+
-+#include "gx-formatter.h"
-+
-+/* FIFOx CTRL registers and bits */
-+#define AUDIN_FIFO_CTRL			0x14
-+#define  AUDIN_FIFO_CTRL_EN		BIT(0)
-+#define  AUDIN_FIFO_CTRL_RST		BIT(1)
-+#define  AUDIN_FIFO_CTRL_LOAD		BIT(2)
-+#define  AUDIN_FIFO_CTRL_DIN_SEL_OFF	3
-+#define  AUDIN_FIFO_CTRL_ENDIAN_MASK	GENMASK(10, 8)
-+#define  AUDIN_FIFO_CTRL_CHAN_MASK	GENMASK(14, 11)
-+#define  AUDIN_FIFO_CTRL_UG		BIT(15)
-+
-+extern const struct gx_formatter_driver audin_formatter_i2s_drv;
-+
-+extern const struct snd_soc_dai_ops audin_fifo_dai_ops;
-+extern snd_pcm_uframes_t audin_fifo_component_pointer(struct snd_soc_component *component,
-+						      struct snd_pcm_substream *substream);
-+extern int audin_fifo_sync_stop(struct snd_soc_component *component,
-+				struct snd_pcm_substream *substream);
-+
-+#endif
-
--- 
-2.47.3
-
+T24gRnJpLCAyMDI2LTA4LTIxIGF0IDEyOjA4ICswMjAwLCBHZWVydCBVeXR0ZXJob2V2ZW4gd3Jv
+dGU6DQo+IFRoZSBjbGtfaW5pdF9kYXRhIHN0cnVjdHVyZSBjb250YWlucyBzZXZlcmFsIG11dHVh
+bGx5LWV4Y2x1c2l2ZSBtZW1iZXJzDQo+IGZvciBkaWZmZXJlbnQgbWV0aG9kcyB0byBzcGVjaWZ5
+IHRoZSBwb3NzaWJsZSBwYXJlbnRzIG9mIGEgY2xvY2ssDQo+IHByb21wdGluZyBkcml2ZXJzIHRv
+IGluaXRpYWxpemUgb25seSB0aGUgbWVtYmVycyB0aGV5IG5lZWQuwqAgSG93ZXZlciwNCj4gbm90
+IGluaXRpYWxpemluZyBhbGwgbWVtYmVycyBtYXkgY2F1c2Ugc3VidGxlIGlzc3Vlcywgd2hpY2gg
+YXJlIG9ubHkNCj4gZXhwb3NlZCB3aGVuIENPTkZJR19JTklUX1NUQUNLX0FMTF9QQVRURVJOIG9y
+IENPTkZJR19JTklUX1NUQUNLX05PTkUgaXMNCj4gZW5hYmxlZC4NCj4gDQo+IE1ha2Ugc3VyZSBh
+bGwgbWVtYmVycyBhcmUgZnVsbHkgaW5pdGlhbGl6ZWQsIHRvIGF2b2lkIHN1Y2ggYnVncywgYW5k
+IHRvDQo+IHByZXZlbnQgZnV0dXJlIGJyZWFrYWdlIHdoZW4gY29udmVydGluZyBkcml2ZXJzIHRv
+IGEgZGlmZmVyZW50IG1ldGhvZA0KPiBmb3Igc3BlY2lmeWluZyB0aGUgcGFyZW50cy4NCj4gDQo+
+IFNpZ25lZC1vZmYtYnk6IEdlZXJ0IFV5dHRlcmhvZXZlbiA8Z2VlcnQrcmVuZXNhc0BnbGlkZXIu
+YmU+DQoNClJldmlld2VkLWJ5OiBJd29uYSBXaW5pYXJza2EgPGl3b25hLndpbmlhcnNrYUBpbnRl
+bC5jb20+DQoNClRoYW5rcw0KLUl3b25hDQoNCj4gLS0tDQo+IENvbXBpbGUtdGVzdGVkIG9ubHku
+DQo+IA0KPiBQYXJ0IE9uZVsxXSBmaXhlZCBhbGwgY2FzZXMgdGhhdCBJIGlkZW50aWZpZWQgdG8g
+YmUgcmVhbCBidWdzLCBpbg0KPiByZXNwb25zZSB0byBhIGNyYXNoIEkgc2F3IG9uIEJlYWdsZUJv
+bmUgQmxhY2suDQo+IA0KPiBUaGlzIHBhdGNoIGlzIHRoZSBQRUNJIHN1YnBhcnQgb2YgUGFydCBU
+d28sIHdoaWNoIGZpeGVzIHJlbWFpbmluZyBjYXNlcw0KPiB0aGF0IGFyZSBjdXJyZW50bHkgaGFy
+bWxlc3MuwqAgVGhlc2UgYXJlIHN0aWxsIGZyYWdpbGUsIGFuZCBtYXkgY2F1c2UNCj4gZnV0dXJl
+IGJyZWFrYWdlIHdoZW4gY29udmVydGluZyBkcml2ZXJzIHRvIGEgZGlmZmVyZW50IG1ldGhvZCBm
+b3INCj4gc3BlY2lmeWluZyB0aGUgcGFyZW50cy4NCj4gDQo+IFsxXSAiW1BBVENIIHRyZWV3aWRl
+IDAvNV0gY2xrOiBNYWtlIHN1cmUgY2xrX2luaXRfZGF0YSBpcyBmdWxseQ0KPiDCoMKgwqDCoCBp
+bml0aWFsaXplZCAocGFydCAxKSINCj4gwqDCoMKgIGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2Nv
+dmVyLjE3ODcxNjUzMjkuZ2l0LmdlZXJ0K3JlbmVzYXNAZ2xpZGVyLmJlDQo+IC0tLQ0KPiDCoGRy
+aXZlcnMvcGVjaS9jb250cm9sbGVyL3BlY2ktYXNwZWVkLmMgfCAyICstDQo+IMKgMSBmaWxlIGNo
+YW5nZWQsIDEgaW5zZXJ0aW9uKCspLCAxIGRlbGV0aW9uKC0pDQo+IA0KPiBkaWZmIC0tZ2l0IGEv
+ZHJpdmVycy9wZWNpL2NvbnRyb2xsZXIvcGVjaS1hc3BlZWQuYw0KPiBiL2RyaXZlcnMvcGVjaS9j
+b250cm9sbGVyL3BlY2ktYXNwZWVkLmMNCj4gaW5kZXggYTBjOTllY2Y3ZjM4MDVhMS4uMmY0ZWEw
+ZTdkN2E3N2RiZCAxMDA2NDQNCj4gLS0tIGEvZHJpdmVycy9wZWNpL2NvbnRyb2xsZXIvcGVjaS1h
+c3BlZWQuYw0KPiArKysgYi9kcml2ZXJzL3BlY2kvY29udHJvbGxlci9wZWNpLWFzcGVlZC5jDQo+
+IEBAIC00MTMsNyArNDEzLDcgQEAgc3RhdGljIHN0cnVjdCBjbGsNCj4gKmRldm1fYXNwZWVkX3Bl
+Y2lfcmVnaXN0ZXJfY2xrX2RpdihzdHJ1Y3QgZGV2aWNlICpkZXYsIHN0cnVjdA0KPiDCoAkJCQkJ
+CcKgwqDCoMKgIHN0cnVjdCBhc3BlZWRfcGVjaQ0KPiAqcHJpdikNCj4gwqB7DQo+IMKgCXN0cnVj
+dCBjbGtfYXNwZWVkX3BlY2kgKnBlY2lfY2xrOw0KPiAtCXN0cnVjdCBjbGtfaW5pdF9kYXRhIGlu
+aXQ7DQo+ICsJc3RydWN0IGNsa19pbml0X2RhdGEgaW5pdCA9IHt9Ow0KPiDCoAljb25zdCBjaGFy
+ICpwYXJlbnRfbmFtZTsNCj4gwqAJY2hhciBuYW1lWzMyXTsNCj4gwqAJaW50IHJldDsNCg==
 
