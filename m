@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0356CC982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 09:57:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBC5BC982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 09:58:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ioXa07PtjjJ6qPIoYQpQfcGqnQ3QAWn8tU96YiSJYWU=; b=Ry8ayDyVOg6Qo/vaWr3D7jfY00
-	/PWLP3QsZsLa0UTkCl/6bN2DThFi6WnFl0zyQVkBI7Dtfsm5hobKvHjnpNe0RLBv76U2sbbb/5C/j
-	nNDvGPfwkZcwypoSUs6ZXJG5SJ14xnoVr9i6z8XJzOEktZzrSC0VRhvem8RHHdAeOwHw+juW43tao
-	Vc6S7pQwRTdh14skij1skhyW4nXZjlxirRpRVZx01kT/6hxhRm5wWw9NUdHs0eUhuS9NQ+0DEr+UB
-	WeJSJYlGaOXFDOtyXM5mdZ4Fw7AHvQEe0G8vphcFTxUDY0KwHIJ8IrMwGtrGIksuHGBqzsaZCiYCc
-	MNV9fQMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y/eBnhEyAChHmfoKpstGgctSA6buastclrXBl6YTP04=; b=EkejuFwP9C8h9y6voB1N1sbe19
+	gFnN3j1pD2jDValbL5tE311WDEi6VQ9GsJw3wvuqaR54d/k+yxAD0bB32oPySPGDOV15+ONUexlfO
+	UO5CJLwFUzxDlo+nGmtK7Y0UiKP/IJxuFHER2i43WVyXfJz4nzVa9wUqs5IneTGp0TL/TuzijqcLe
+	g6g0UaUfavkon+cbQtf9ZUBGn6+WOSyCUfamcCmyWie3YsOm9MwEU0fnwSS3geozFTGGG+2xBWY5B
+	7dyI+lEsKHJmhsw98H0NUzqJto9XVZJ1ZrVs+vc3FARml8rC9G2ue/l0RYyh8rLoDGhx7mHjaCHGP
+	ofritlaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x78rU-0000000B3CC-1wvf;
-	Thu, 17 Sep 2026 09:57:00 +0000
+	id 1x78sZ-0000000B3LU-2ZZF;
+	Thu, 17 Sep 2026 09:58:07 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x78rS-0000000B3Bf-0Dsa
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 09:56:59 +0000
+	id 1x78sW-0000000B3KZ-1bXo;
+	Thu, 17 Sep 2026 09:58:05 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 64CA61476;
-	Thu, 17 Sep 2026 02:56:53 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2D5AB3F7B4;
-	Thu, 17 Sep 2026 02:56:55 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E7CA91476;
+	Thu, 17 Sep 2026 02:57:58 -0700 (PDT)
+Received: from [10.57.74.102] (unknown [10.57.74.102])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DD88E3F7B4;
+	Thu, 17 Sep 2026 02:57:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789639017; bh=MystT138xR+WElV4qva3izvJ/ENfjI4PQpKKdQVx3Oc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UrIEyXDbpHvb5imXK3xXbqGf5/C6i3JpVnVkFA+MtaiCw5mMgwu8X4D2s4knT/I/m
-	 8Vwg8qziKHCebU+u33vXQ8N08svoxwaD7gtz9TagLvJ9oqoHpIMUS7+D8VzxO5+twu
-	 Xdhx6ch6nqtHlax2kAvi9DKw0cVUiVRWuJL84ByM=
-Date: Thu, 17 Sep 2026 10:56:52 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
-Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>,
-	Greg KH <gregkh@linuxfoundation.org>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH v11 7/7] coco: guest: arm64: Replace dummy CCA device
- with sysfs ABI
-Message-ID: <aqu5ZI6433cV2PDy@arm.com>
-References: <20260914060511.277948-1-aneesh.kumar@kernel.org>
- <20260914060511.277948-8-aneesh.kumar@kernel.org>
- <aqp2DRInEhzpEqAc@arm.com>
- <yq5ald911e4o.fsf@kernel.org>
+	t=1789639082; bh=VXqLon1IWeQzTI8dDj4hKxc7saHoW6A0Hg3046jh/QI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=vja3M8VABVOrmZ2ChYzc/upsrhetTGKhEnf/pEqYK+HiSbSu/clHPeW+o3eKoIK4Z
+	 0+Wx3stikCeAmbXeqVmEvNHb/v78HBmo4ovtzTcV7kdJ1PuFCDwMqvcvyMeHDTyFTu
+	 Uj8E/utZDL2YEdMx2GCJKyelvgXqlKah9PS1wewY=
+Message-ID: <f8b0745c-d265-4112-90fe-79a08ad01553@arm.com>
+Date: Thu, 17 Sep 2026 11:57:57 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <yq5ald911e4o.fsf@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/2] cpufreq: update capacity_freq_ref when the boost
+ state changes
+To: Oleg Keri <okerixx@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Sumit Gupta <sumitg@nvidia.com>,
+ Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
+ Beata Michalska <beata.michalska@arm.com>,
+ Russell King <linux@armlinux.org.uk>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
+ Viresh Kumar <viresh.kumar@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, driver-core@lists.linux.dev,
+ linux-pm@vger.kernel.org, jonathan.cameron@oss.qualcomm.com,
+ sibi.sankar@oss.qualcomm.com
+References: <20260910063440.4677-1-okerixx@gmail.com>
+ <20260910063440.4677-3-okerixx@gmail.com>
+Content-Language: en-GB
+From: Dietmar Eggemann <dietmar.eggemann@arm.com>
+In-Reply-To: <20260910063440.4677-3-okerixx@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_025658_294702_ED0326D2 
-X-CRM114-Status: GOOD (  25.27  )
+X-CRM114-CacheID: sfid-20260917_025804_598836_EF6877CE 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,59 +83,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 16, 2026 at 07:39:59PM +0530, Aneesh Kumar K.V wrote:
-> Catalin Marinas <catalin.marinas@arm.com> writes:
-> > On Mon, Sep 14, 2026 at 11:35:11AM +0530, Aneesh Kumar K.V (Arm) wrote:
-> >> diff --git a/Documentation/ABI/testing/sysfs-firmware-cca b/Documentation/ABI/testing/sysfs-firmware-cca
-> >> new file mode 100644
-> >> index 000000000000..bf177d636b92
-> >> --- /dev/null
-> >> +++ b/Documentation/ABI/testing/sysfs-firmware-cca
-> >> @@ -0,0 +1,10 @@
-> >> +What:		/sys/firmware/cca/realm_guest
-> >> +Date:		May 2026
-> >> +Contact:	Linux ARM Kernel Mailing list <linux-arm-kernel@lists.infradead.org>
-> >> +Description:	Read-only. Indicates whether the kernel is running as an
-> >> +		Arm Confidential Compute Architecture (CCA) Realm guest.
-> >> +
-> >> +		The value is one of:
-> >> +
-> >> +		0: the kernel is not running as a Realm guest
-> >> +		1: the kernel is running as a Realm guest
-> >
-> > Does this file ever read as 0? It is created only if rsi_present and
-> > always reads as 1. That's fine by me but we shouldn't document 0 as a
-> > value. More like if present, it always reads 1 and RSI is present.
-> >
+On 10.09.26 08:34, Oleg Keri wrote:
+> capacity_freq_ref is latched from policy->cpuinfo.max_freq by
+> init_cpu_capacity_callback() on CPUFREQ_CREATE_POLICY, and never
+> updated afterwards.
 > 
-> For now, that is correct. However, the two checks could diverge if Realm
-> guest support is enabled only after additional checks, such as version
-> compatibility.
+> cpufreq_frequency_table_cpuinfo() excludes CPUFREQ_BOOST_FREQ entries
+> while boost is disabled, so on a system that boots with boost off the
+> latched value is the non-boost maximum.  Enabling boost later raises
+> policy->cpuinfo.max_freq but leaves capacity_freq_ref behind.
 > 
-> In that case, is_realm_world() and static_branch_unlikely(&rsi_present)
-> could return different results.
+> Two things then go wrong on arm64, where the AMU drives frequency
+> invariance.  amu_scale_freq_tick() caps the computed scale at
+> SCHED_CAPACITY_SCALE, so a CPU running above capacity_freq_ref
+> saturates at 1024: the scheduler cannot tell a boosted CPU from one at
+> the sustained maximum, and utilisation is underestimated.  And
 
-They can indeed diverge in either direction but would we ever end up
-reporting 0? I also think we should gate realm_sysfs_init() on
-is_realm_world() rather than rsi_present. I know it's the same at the
-moment but it would read better if we just did:
+IMHO, this is where the concept of 'cpufreq pressure' on CPU capacity
+comes in.
 
-	if (!is_realm_world())
-		return 0;
+The cpu_capacity value is calculated based on highest_perf.	(1)
 
-and realm_guest_show() just return 1.
+In case you start with 'boost == 0' nominal_perf might might be lower
+than highest_perf.
 
-The file description could be (without any values 0 or 1):
+cpufreq_update_pressure() calculates this value:
 
-Description:  Read-only. Present only when the kernel is running as an
-              Arm Confidential Compute Architecture (CCA) Realm guest, in
-              which case it reads 1. If the file does not exist, the kernel
-              is not running as a Realm guest.
+cpufreq_pressure = Cmax * (1 - fcapped - fmax)			(2)
 
-or something along these lines, no description of value 0 (well, you
-could say if "if the file does not exist or reads 0..." but only if we
-envisage a use-case for this.
+[ fcapped = policy->max, fmax = capacity_freq_ref ]
 
--- 
-Catalin
+Example on RADXA Orion 06 CPU10:
+
+$ grep . /sys/devices/system/cpu/cpu10/acpi_cppc/*
+...
+/sys/devices/system/cpu/cpu10/acpi_cppc/highest_perf:7876
+/sys/devices/system/cpu/cpu10/acpi_cppc/lowest_freq:800
+/sys/devices/system/cpu/cpu10/acpi_cppc/lowest_nonlinear_perf:2520
+/sys/devices/system/cpu/cpu10/acpi_cppc/lowest_perf:2520
+/sys/devices/system/cpu/cpu10/acpi_cppc/nominal_freq:2500
+/sys/devices/system/cpu/cpu10/acpi_cppc/nominal_perf:6600   <-- hacked
+/sys/devices/system/cpu/cpu10/acpi_cppc/reference_perf:1000
+...
+
+# cat /sys/devices/system/cpu/cpu10/cpu_capacity	<-- (1)
+984
+
+# cat /sys/devices/system/cpu/cpu10/cpufreq/boost
+0
+
+dmesg (added log)
+
+[    8.065337] cpufreq_update_pressure(): policy->related_cpus=[10-11]
+policy->max=2500000 pressure=173			<-- (2)
+
+# echo 1 > /sys/devices/system/cpu/cpufreq/boost
+
+# cat /sys/devices/system/cpu/cpu10/cpufreq/boost
+1
+
+dmesg (added log)
+
+[38137.194134] cpufreq_update_pressure(): policy->related_cpus=[10-11]
+policy->max=3031666 pressure=0				<-- (2)
+
+The task scheduler gets informed via:
+
+get_actual_cpu_capacity(int cpu)
+
+  capacity = arch_scale_cpu_capacity(cpu);
+
+  capacity -= max(hw_load_avg(cpu_rq(cpu)), cpufreq_get_pressure(cpu));
+                                            ^^^^^^^^^^^^^^^^^^^^
+  return capacity;
+
+[...]
 
