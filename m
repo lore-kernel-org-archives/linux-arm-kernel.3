@@ -4,72 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F2D5C982D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 13:32:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 707DDC982CF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 13:35:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NvYtCDsJ/2GtmmgYCC1kgs0GY/EQ4feVsPP1dN17Sbs=; b=C2RdqzZI8SUv+tMI74CAJrJ5ea
-	OJfaIdp/e7yEKQv8ePBRpXq8AFIAkkFlWJUsN4mGOwu/D/m/aVb9GedElvywlydvOkYPk7UzQN8wY
-	IWItHh5CXzaHmKnEfmLd/6EbeSBPQlmzSbGoNfNVeAU9d1sfmYcJVVj66+AFaYVxWSXbJV2mhH3lL
-	HSGc9d5O/sToU+MsHxZ2C3J3BxA368T9OdKs3LM7PmpzwcaBJ2hZlyQjMgYiR9yZ0I+Qm3NTsa9mL
-	ldTtFQNE9j81Th1i+X75jYqxyB8x7Qwwag0qG0mY6riUOyZprPqFkAuVFYVQ/HBSrYo0uisRYHBuB
-	nAjmoamw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nzz6pHEWqTrgKl6v53ZyDsGDR7tVVufDjDAvTQ9eyKw=; b=Jw8IW22gfTsSc2yuTb9T5mOBs+
+	vUNvpY5QaG2c1Ebv03+pHhR7Zofzsa/+5hoJlHqnx+NI2dbMsm/XiEN0MGPqUZ9R3TwTsVHALEcfw
+	qFaxUhw/IQyCNBNoEDyfpyn9BJ7Q3CpZ6bU4+vH2DtUI4ZGmmG0+s5xrC3ADU0eBEAk/lXUoI3kE4
+	GpekTao4VSPJpf0jZaBvnfdSol14ehvCAGWVmCGB/NKYxei1lXMe6JidYxlYLDOGnAYAdU8Fv3ua7
+	3rO1XrrawiE8OIugfGJb2XggdWgYaBt9Pwwn3+xrGaQx0KFuCgsQxVAZ3QlVX8XkPc1srUCkg1+5s
+	KLvANnHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7CEN-0000000BP8o-1ctY;
-	Thu, 17 Sep 2026 13:32:51 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1x7CGm-0000000BPPt-3AoD;
+	Thu, 17 Sep 2026 13:35:20 +0000
+Received: from mail-westcentralusazon11010007.outbound.protection.outlook.com ([40.93.198.7] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7CEK-0000000BP83-0XLz
+	id 1x7CGi-0000000BPOI-3qIU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 13:32:49 +0000
-Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
-	by APP-05 (Coremail) with SMTP id zQCowACXADv566tqtIeBCA--.3671S2;
-	Thu, 17 Sep 2026 21:32:41 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: cuiyunhui@bytedance.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	mark.rutland@arm.com,
-	renyu.zj@linux.alibaba.com,
-	will@kernel.org,
-	xueshuai@linux.alibaba.com,
-	Wentao Liang <vulab@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH] perf/dwc_pcie: Fix PCI device reference leak in dwc_pcie_pmu_probe()
-Date: Thu, 17 Sep 2026 13:32:41 +0000
-Message-Id: <20260917133241.2153478-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	Thu, 17 Sep 2026 13:35:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cDZyBaf1pOmKi03dYnbybiLWjH6C+WzAmImAF7Ip7UF+T35pSCG9iwS7uikl7UCvloHcy+t9vU0KNIA5wKzWga0kTJ/4FbDPnKal12DGU6HuSp/f8AyDzuhgAUtBS99DTMCVuN9vBAml7TNXHGRln6VUkkEaUC0rCqL3q9f4HASAo/e2UfMx56kRIkU81rSF7HpNWU9LmPDI+Lb3tcZGBIQRtRYeUvHaH9Xb2kMy8lr3Tca1byHQGV9zDcejyrezSPZVFWnmWu+nXihWJ/is0LPN0yQSdHL3AvLrnCMD6Dwzn1uMIeZ2noUAScUm9HwXJ6W9DISyyRG5P48Q5vVjCA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nzz6pHEWqTrgKl6v53ZyDsGDR7tVVufDjDAvTQ9eyKw=;
+ b=Cu0kXNXfyM4wvP5PBzKw5NYwpwrIYJMKxWqPM8go3tf48SEGIVi6Rrd4jQppMO4q81O8nJ4ZN2T6bJQZMZgL+ycsvdVv50f8Sji0LMzGXuGS0XDvpCaf0PL90+B0f19qpfCeLC4EmX2OaGYAQPooGPnZBJ3WSCldGGsef6aVi/N3wPDqH8gokN4HA2kn3ca0s0ZZz4bUkiL9mGnms4D6tHPq9UO0DlbBXyYPyop82/ocSPopesHuk4pAWFtQGTequwO/r/IxlFhpX0e4ID32mZ13gGmFzJUSb2ooZOqQABn0aDevX4LInZkxBh3tE+BaR3kOgnhIk/RIKPQH/qF9JQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nzz6pHEWqTrgKl6v53ZyDsGDR7tVVufDjDAvTQ9eyKw=;
+ b=QBuhjiOGRtOxa0Y9D54n4+gwSu41EnSY55NB8tut/q9sVfSdj/9nqRe3HLeJhg6Mj7p8rUyMuBNUErXU6FZlOE9UGjbSSzxRAHKt77zy7iSIFJ3fp0ZOKBlvXUwuaVxJw62+dC4FUWVnGBT1y7qs6XhI3402JAEeUKrP9oFRwZQQ0ufdWJ/TL2CKoirk7R81XEFxWEUegPzhFNLDPxJ+g33APiL5fgfisQfdFmocfJQ2kbGybG2Q0/s8a3dysKBelfIIdZ9wcWcohF9oaJqOlp7WS5eFaTRdicYKdPjqa3byFMzQI5ALeXa77Q4S+j3vVuid1Obbz/d57t6pnd+Eig==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12) by SN7PR12MB8769.namprd12.prod.outlook.com
+ (2603:10b6:806:34b::12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.11; Thu, 17 Sep
+ 2026 13:34:59 +0000
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0428.011; Thu, 17 Sep 2026
+ 13:34:59 +0000
+Date: Thu, 17 Sep 2026 10:34:58 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: sonang patel <sonangp@nvidia.com>
+Cc: Nicolin Chen <nicolinc@nvidia.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, joro@8bytes.org,
+	Robin Murphy <robin.murphy@arm.com>, rafael@kernel.org,
+	Danilo Krummrich <dakr@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	aneesh.kumar@kernel.org, Mark Rutland <mark.rutland@arm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Gavin Shan <gshan@redhat.com>, Vikram Sethi <vsethi@nvidia.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Mostafa Saleh <smostafa@google.com>, rppt@kernel.org,
+	Thomas Huth <thuth@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>, kas@kernel.org,
+	Kohei Enju <enju.kohei@fujitsu.com>,
+	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
+	Ard Biesheuvel <ardb@kernel.org>, James Morse <james.morse@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Sang-Heon Jeon <ekffu200098@gmail.com>,
+	Omar Sandoval <osandov@fb.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Jinjie Ruan <ruanjinjie@huawei.com>,
+	Sam Edwards <cfsworks@gmail.com>,
+	Douglas Anderson <dianders@chromium.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Pranjal Shrivastava <praan@google.com>,
+	Ashish Mhetre <amhetre@nvidia.com>,
+	Shameer Kolothum <skolothumtho@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev, driver-core@lists.linux.dev,
+	Ankit Agrawal <ankita@nvidia.com>
+Subject: Re: [PATCH v1 6/8] iommu: Introduce TDISP T=0 state for confidential
+ IOMMUs
+Message-ID: <20260917133458.GB3968357@nvidia.com>
+References: <cover.1789010941.git.nicolinc@nvidia.com>
+ <0421799346a09bf7f32727330ca1044de05f46ba.1789010941.git.nicolinc@nvidia.com>
+ <aqvFcIkll6e2T6M7@sonangrm.nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aqvFcIkll6e2T6M7@sonangrm.nvidia.com>
+X-ClientProxiedBy: MN0PR03CA0013.namprd03.prod.outlook.com
+ (2603:10b6:208:52f::24) To CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowACXADv566tqtIeBCA--.3671S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrtF17JrW5tFyxAFW7KryrCrg_yoWDKrg_Ga
-	4xua9rX34DCFnFyF1jyFy3ZryfA3srZa4xWFn7ta1aqrZFvF1rAr9F9r95AF47Wws5Gry8
-	tw1DWr43ZrW3ujkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbg8YjsxI4VWkKwAYFVCjjxCrM7CY07I20VC2zVCF04k26cxKx2IY
-	s7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4
-	kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_
-	Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26r
-	xl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj
-	6xIIjxv20xvE14v26r1q6rW5McIj6I8E87Iv67AKxVWxJr0_GcWlOx8S6xCaFVCjc4AY6r
-	1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq62Iq12xI8VA0II8E6IAqYI8I648v4I1lFIxG
-	xcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l42
-	xK82IY6x8ErcxFaVAv8VW8GFyrJr1UJwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02
-	F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GF
-	ylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUCVW8JwCI42IY6xIIjxv20xvEc7Cj
-	xVAFwI0_Cr0_Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxV
-	W8Jr0_Cr1UMIIF0xvEx4A2jsIEc7CjxVAFwI0_GcCE3sUvcSsGvfC2KfnxnUUI43ZEXa7I
-	U5o5l5UUUUU==
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAANA2qrrJrB-wAAsL
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|SN7PR12MB8769:EE_
+X-MS-Office365-Filtering-Correlation-Id: f653df9a-ff90-460d-f838-08df14c077ff
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|23010399003|6133799003|4143699003|10067099003|56012099006|11063799006|5023799004|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: oC/1DEgipwYSGvFweMFmV2Fu5ll/u245wGWpkzRKNlSwJq2TUras53YBgNrNtDoTWZmL2rlwsb0U55Opo7c12rmwaKSYCD+ZzrVndWPGlziTA3zmar2JXjGhjft4zuDK57ldPUmcZ6ZI1q7fVx2sgcL5ffCqkYbM2y5LBNtZo1933WKycm7VFzx6/pt+qn9EPvOHitZn4EQdQArrpffF8cPw2Zfy4a5vJcENxuyVZdJMbMwM6ztdl9IUszQF8ksu94fYBDq0cufBxrEk9v/s14xLkkmo4UnCRBL0VPr+wn0+RLILDxLVRIAD/8DNYOPVuVAXEsaEgZdapUWiWK2Qzyq4wUEbZ4qfYPpicpCL9nETBDRaSeWdcqKnyBAJ2Sjzo6p+0ddzyBp+OI7znI72grXdAtpNQj7AHOHBJLL9tvoBjY1iEYiR8ssXtf1vwfwm7WTfM7LaONUA7FoSkM2JbRSiLgTudeCy4lnJ2YiT4ze0Uq9ExRgEKz7T/B51Bq1Vx+wO7a0Vo6UNJlYOz30mPyIwFPF1aiov30pQMHQ/z1GsKYrw1nx1GfiE+jGREzYIRsx1OWs0WBqGgFkXUKNIKpVsanMa1zsjVB53FDd2ljVNeDQB/gdq7Gld3WD1u2h16XlvNCUEN9rwhXiCEo7QYZBRcrvTKeZBE4eW84EigdY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(23010399003)(6133799003)(4143699003)(10067099003)(56012099006)(11063799006)(5023799004)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?iB+vBr+RP9FVCrqa7ICAME8NCb1w38JWnrLkyV4TYPUGbSOES1cN4ztX3hS+?=
+ =?us-ascii?Q?pHG54ghGl/ic3nuJBU0mkSHFlxcXqusSo6ZjDnuruwGnY5XYcWee0bmP3Mea?=
+ =?us-ascii?Q?4Omb3QVr5rJ3P2Jn84hrcgX5M0JCq098s0db8+OcWFsrUPBs49Gw1JnXD3AM?=
+ =?us-ascii?Q?wq29CcyKA1k+D9SPTMP9Euc1j8eITQjzVurH3KYI51ObpxnpdYSYHj0QL9lj?=
+ =?us-ascii?Q?uw73bwl16NQAAVqDtu9AGCt+STPOcJ9Zt1XDnAeK2D6w/8B0h5kRG8nMcFEK?=
+ =?us-ascii?Q?bg4tGCTOfSYsVsc0QWkIGpAXjR2sxribxg5JS/WwHIwJt5+gTzwujJzxwE71?=
+ =?us-ascii?Q?c1gk3eQaSGoWaiTgNhEi1UHivZtR0SCMk8+r6jbcaoEcgx4wcOdUPhuXgaQW?=
+ =?us-ascii?Q?NhxdKwOZBN7PASZHbavqkipjov6rQ5e6ThL4NH5xmskq+uwKVrkuOot7VkP9?=
+ =?us-ascii?Q?RYELBcKKwUg0BMYBlXEdDvrjIGD0HW4y4LFUIYPnj32Kf5X2DLAMzFDQxwlG?=
+ =?us-ascii?Q?+T5SHnuqOBK8092Pnt42/OO7Q8/HarWbRd/gGGM9nmq4trVBYUFPGkv/KfiH?=
+ =?us-ascii?Q?puaOKFauKrVgzridFxkXd4hBF0jktUJbdQiYd54iZHKFr6zXVOxRA9G1FQ3U?=
+ =?us-ascii?Q?NEC/gJwqHoXLdZ7SVcjFYcFHGoO5boJy852BxYNzWYgu+ODGXEj6O0wv5OTy?=
+ =?us-ascii?Q?bibnf9OB7LxtuUfd55TVtpZDrQ1UZ9NWfnBdpvBS9ROorLAzb4nFAdv5giJW?=
+ =?us-ascii?Q?EHOXHhcirbRQjzmqvEPH/wVv6e/jLysMXyo4HahC+L3fgqnA2V/jg1BTe4nN?=
+ =?us-ascii?Q?SfMuMj5OUIAEtiOZTBPxZeyppjS5Uo1Z5iF89ZMyGH1oFOhmBEeZJkkXJIRr?=
+ =?us-ascii?Q?CbmF7xle/LZ6tdLOrZPfKPgfFyKHDC8T6SzPXLww2H3IR4CKb3d9rQcC9189?=
+ =?us-ascii?Q?zqwePIRJHmmcTRxhv9/d9zcZm25c6FmoxHJw8ste37rwLjfSaWGOKakXyldC?=
+ =?us-ascii?Q?gfMJyT+714Kyks5wbGCuQ1yqGUXgidboKLFin/e43ui+tVCZ3a9mTwBJ8H9r?=
+ =?us-ascii?Q?MKE+wpi1fOKzQZ/pmXmQQhhRKAhLdOBMlCIDtNejQZGlOM5kfId4c+QCmLGm?=
+ =?us-ascii?Q?Whhep/grvVWRsYL9Y7rLfmsCEny63Lf+Rem5wLNY5bfntk3ZLcDVwaRcisOb?=
+ =?us-ascii?Q?8ecmMq5X5oIuEBOW5p7QwHVjM8TWwLh9PbCd5lf/+E3KNrN6jzq7KOv0soU2?=
+ =?us-ascii?Q?PZKDVPyEwTjj/z4f/4GgC3WlcweYb9uqCzkupiWzFY0I/E2DMU5P5gspnHdg?=
+ =?us-ascii?Q?SlfY4MWZ9mo+a9DhWYb5ulmNcoy2FYGlm9iLAW4t3ooDgg/bEZeKbjOVU5zz?=
+ =?us-ascii?Q?1AwtE+5IVrFdMRGmfMw8AX4jGTAhTc79BPd2/zt8fkF/Rk9+2kxP6dKq2HJ0?=
+ =?us-ascii?Q?rtcBckAs6AJ+2Rlflocko44Xp3mQDTG0Tf2xQQ+MpVGG6xXrjddgwu+RbfTP?=
+ =?us-ascii?Q?3CeG2fTd0Dq3bFnBgQ8MbSPkvByV4inr1VgUKDDpjzWF42AxcIzcZoLgzM01?=
+ =?us-ascii?Q?omMNSgbMnpKncmnYwZnDjSRR9EJi6ARkPXpeKwGEpR7V0Prvl4GuaqcogTX0?=
+ =?us-ascii?Q?iGl0Y1O/6kW8N8XbhNMFiX2moEXFAp9CthN9iLeKwW+GMvWaXnkQKURva7az?=
+ =?us-ascii?Q?2bfwqwSB10WyG8FVdxaouG8sCAeWAurOrGhcwkQycwn0y4bs?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f653df9a-ff90-460d-f838-08df14c077ff
+X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2026 13:34:59.0345
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 24yjeOr//gTQuKVNlogv/eLm0nsM40iZB2d8+m8vFzkt30iJOmV7lwjIilcGHxo1
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB8769
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_063248_531090_789C369D 
-X-CRM114-Status: GOOD (  10.27  )
+X-CRM114-CacheID: sfid-20260917_063516_963563_382259A9 
+X-CRM114-Status: GOOD (  17.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,37 +170,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-dwc_pcie_pmu_probe() gets a reference to the PCI device with
-pci_get_domain_bus_and_slot(), but returns -ENODEV directly when
-dwc_pcie_des_cap() does not find the RAS DES capability, leaking the
-reference.  The other early returns and the success path drop it.
+On Thu, Sep 17, 2026 at 04:18:16PM +0530, sonang patel wrote:
+> On Wed, 9 Sep 2026 20:32:49 -0700, Nicolin Chen wrote:
+> > + * @tdisp_t1: device uses its confidential IOMMU's T=1 stream. A zero value
+> > + *            means T=0, where the T=1 stream remains blocked while the core
+> > + *            owns required DMA operations such as ATS.
+> 
+> What happens when the TDI transitions to ERROR, and how does this bit
+> signify it?
+> A TDI can drop to ERROR asynchronously, and at that point the device is
+> outside the trust boundary again.
 
-Release the reference on that path as well.
+The bit reflects how the kernel expects the device to do DMA. It does
+not change when the TDISP state changes.
 
-Fixes: 7f35b429802a ("perf/dwc_pcie: fix duplicate pci_dev devices")
-Cc: stable@vger.kernel.org
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
----
- drivers/perf/dwc_pcie_pmu.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+A device that falls to error can no longer do T=1 DMA, the device is
+expected to halt that internally. It must not start doing T=0 DMA in
+error either or it will corrupt random shared memory since T=0/T=1 are
+different IOVA spaces on ARM and Intel.
 
-diff --git a/drivers/perf/dwc_pcie_pmu.c b/drivers/perf/dwc_pcie_pmu.c
-index 5385401fa9cf..edaf5d2e0daa 100644
---- a/drivers/perf/dwc_pcie_pmu.c
-+++ b/drivers/perf/dwc_pcie_pmu.c
-@@ -710,8 +710,10 @@ static int dwc_pcie_pmu_probe(struct platform_device *plat_dev)
- 	}
- 
- 	vsec = dwc_pcie_des_cap(pdev);
--	if (!vsec)
-+	if (!vsec) {
-+		pci_dev_put(pdev);
- 		return -ENODEV;
-+	}
- 
- 	pci_dev_put(pdev);
- 	name = devm_kasprintf(&plat_dev->dev, GFP_KERNEL, "dwc_rootport_%x", sbdf);
--- 
-2.34.1
+To recover out of error the userpace would have to cycle it through
+err/unlocked/locked/run and tell the kernel driver to start it up
+again. During that time the device must not do any T=0 DMA because
+nothing has been mapped to it in the T=0 regime.
 
+From the driver perspecitve the device simply stops doing DMA for a
+while and when it comes back in RUN it is able to do DMA again. It is
+sort of like existing RAS flows where a device crashes.
+
+Jason
 
