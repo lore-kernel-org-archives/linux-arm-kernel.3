@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 534D5C982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 19:29:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03EF4C982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 19:30:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wz7ynco97WHqvgbZ/Bh5SA7Wz6otJSPrEA15/FgWv6w=; b=N28R0/d8ko5JKgin7hmsESmH+h
-	KlllPI24DiZMhvUqW3qgUFeKhmhVmqsKvocucuO4y+vPj1LB/bI4DV7ZeAaZnC9uMbHfX2K9CuXez
-	c0UyITOCjsQKgaX1y/Q2v+zMDcQu0uHtWVZ1tpWw584CzBF4jzbSXtrqCt7JCVYDqWCOmwv4CWerw
-	siHdRjU1tNRerkwAj2WUsKAEZAyq9iALZjnSKd0ih08jfw0M/KBrah7frm3FCBK/ls9SlrRJQR+sE
-	9xj1FWsYeqBuGlSBkHbUBGfQlT00i18L9ttBRSd9ZpXBPvh56l30TwfTGYFYJvb6mwmz92iJZSq6w
-	sDjl52IQ==;
+	bh=bmXke02eLyEimoYDRxYaM6VBAAJN5fHFcFdIdY6gQrE=; b=FsMJMZtxm7mIX91kEDR+dzPWWw
+	iBv3Xl9r4+KgFC55k4dIstp5lM2jo56EUDw8wwvVMwfE8iIWLSjYxdaixXE49G7NAEXw4dOV2lydt
+	8rQcvHcZlTgLBuxJViaOS5JloG3u8QVgZ8GTYN8d6YhGahGRmDlzB19hRQETWujet4faym25Noz0N
+	Zr+gxN4kBZ1FcCywt/O+26nSBLepbFW0J1C0gzld1Qncf4IQfNWADH9c0vWwEtTquuvaEVe4dlgun
+	+DRyujRK8hUSpW8FrN2BRgaluovLJUNnEB2CXZD82SL5o7WacyZSU+x5LDb+4Yikgw4I/y/MaWpYW
+	OfSDsqcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7H07-0000000CFLs-0e7p;
+	id 1x7H07-0000000CFO6-3quY;
 	Thu, 17 Sep 2026 18:38:27 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Gzr-0000000CFFQ-47Pi;
-	Thu, 17 Sep 2026 18:38:12 +0000
+	id 1x7Gzy-0000000CFHd-0wGR;
+	Thu, 17 Sep 2026 18:38:18 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 96EB844002;
-	Thu, 17 Sep 2026 18:38:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 164D31F000FF;
-	Thu, 17 Sep 2026 18:38:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F315044786;
+	Thu, 17 Sep 2026 18:38:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DA1B1F00898;
+	Thu, 17 Sep 2026 18:38:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789670291;
-	bh=wz7ynco97WHqvgbZ/Bh5SA7Wz6otJSPrEA15/FgWv6w=;
+	s=k20260515; t=1789670297;
+	bh=bmXke02eLyEimoYDRxYaM6VBAAJN5fHFcFdIdY6gQrE=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=TDnBLQheIeWQmYvRhrxYPJhx8S25S8ThmPsf7SKU1+1N5fDmjsC1dqinkmY9AAvau
-	 3tc8ofayc8hBOk11I0oC04ZSt35cNK9hRBz59poz1KajiUcUh1IUo59f+1rqGejDPz
-	 wWFBukaqFKu5By7CI423UEG3rHcUg+BSgnV34Aru0xo9Z7+HPXTV79e2J6KikESd0G
-	 A9RYx43ZM+oRQtcLJ0fnUogKaPAXmP2bOwjBanQ0hR3vtgs/QEwbkL3prjJRlzFced
-	 XaUacDVhdebipIMtb+m6LgGs45/DH4dwXuqif2kw9yg4o6s+3E+Es44ZZuI479psTr
-	 +jyOjiCELLXrA==
-Subject: Re: [PATCH net-next v6 03/11] phy: rockchip: naneng-combphy: add
- SGMII MAC selection for RK3568
+	b=LGYuVqZC5ogJZ83YyAvhfE5/mqHlHm0rxYMLNccSRrcFH+M0Qa6TmluiEyC8QIJXo
+	 mxxZxpt5ZmTAIReuVKatcFZLVojg2KDKAjUWTJCh7wUjbCW5kNQdg2VM9Vvx7ITf3o
+	 whlktWKC/EYNU7Maahh1/YqqYyaiRCLrq3ri/EeshROKfibZczFe2E5NrHuut6jQRV
+	 us9hs0KZw0+jrsgQw9c36WI8TUL4soTukwXONv/a8xmjx+bucmI6AePVxs/pl5Mm7f
+	 UGJJR6PPuTSUKU6hmWMnkbErtGyJR7SwvhgigkeYvCKI3fzSBigIUMJu0M/1uXLCjD
+	 bzuHQQK1oiYlQ==
+Subject: Re: [PATCH net-next v6 06/11] net: pcs: xpcs: add ANRESTART support
+ for SGMII link recovery
 From: netdev-bot+sashiko@kernel.org
 To: coiaprant@gmail.com
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
@@ -56,11 +56,11 @@ Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
  linux-stm32@st-md-mailman.stormreply.com, linux-renesas-soc@vger.kernel.org
-Date: Thu, 17 Sep 2026 18:38:09 +0000
-Message-ID: <178967028966.22033.2377561177851606071@kernel.org>
-In-Reply-To: <20260915123802.1561724-4-coiaprant@gmail.com>
-References: <20260915123802.1561724-4-coiaprant@gmail.com>
-X-sashiko-severity: Low
+Date: Thu, 17 Sep 2026 18:38:15 +0000
+Message-ID: <178967029584.22033.13072734956170022047@kernel.org>
+In-Reply-To: <20260915123802.1561724-7-coiaprant@gmail.com>
+References: <20260915123802.1561724-7-coiaprant@gmail.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
@@ -78,86 +78,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 1 potential
+Thank you for your contribution! Sashiko AI review found 2 potential
 issue(s) to consider:
 
-Critical: 0 · High: 0 · Medium: 0 · Low: 1
+Critical: 0 · High: 0 · Medium: 2 · Low: 0
 
-- [Low] drivers/phy/rockchip/phy-rockchip-naneng-combphy.c:380-381 reads
-  'rockchip,sgmii-mac-sel' with device_property_read_u32() for every…
+- [Medium] In xpcs_get_state_c37_sgmii() (drivers/net/pcs/pcs-
+  xpcs.c:1110-1121) the AN-complete latch is destroyed before the…
+- [Medium] The patch turns the pcs_get_state callback into a writer of
+  MII_BMCR without any serialization.
 
 --
 
-phy: rockchip: naneng-combphy: add SGMII MAC selection for RK3568
+net: pcs: xpcs: add ANRESTART support for SGMII link recovery
 
-This adds a "rockchip,sgmii-mac-sel" DT property so the RK3568 SGMII
-interface can be routed to GMAC0 or GMAC1 via the PIPE_GRF_XPCS_CON0
-pipe_sgmii_mac_sel bit, defaulting to GMAC1 to match the hardware reset
-value.
+This adds an explicit BMCR_ANRESTART when starting C37 SGMII
+auto-negotiation, and also clears DW_VR_MII_AN_INTR_STS plus triggers an
+AN restart from the link status path when the link is down but AN
+completion is latched.  The stated motivation is RK3568 MAC side SGMII,
+which does not re-arm AN by itself after a link drop.
 
-Link: https://dl.radxa.com/rock3/docs/hw/datasheet/Rockchip%20RK3568%20TRM%20Part1%20V1.1-20210301.pdf (Page 229)
-
-> diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-> index 7843356a4dd47..7b867e7520064 100644
-> --- a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-> +++ b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+> diff --git a/drivers/net/pcs/pcs-xpcs.c b/drivers/net/pcs/pcs-xpcs.c
+> index 0337e2bcc0125..8c3875b6985b9 100644
+> --- a/drivers/net/pcs/pcs-xpcs.c
+> +++ b/drivers/net/pcs/pcs-xpcs.c
 
 [ ... ]
 
-> @@ -375,6 +377,9 @@ static int rockchip_combphy_parse_dt(struct device *dev, struct rockchip_combphy
+> @@ -816,9 +825,14 @@ static int xpcs_config_aneg_c37_sgmii(struct dw_xpcs *xpcs,
+>  	if (ret < 0)
+>  		return ret;
 >  
->  	priv->ext_refclk = device_property_present(dev, "rockchip,ext-refclk");
+> +	/* Clear CL37 AN complete status */
+> +	ret = xpcs_write(xpcs, MDIO_MMD_VEND2, DW_VR_MII_AN_INTR_STS, 0);
+> +	if (ret < 0)
+> +		return ret;
+> +
+>  	if (neg_mode == PHYLINK_PCS_NEG_INBAND_ENABLED)
+>  		ret = xpcs_write(xpcs, MDIO_MMD_VEND2, MII_BMCR,
+> -				 mdio_ctrl | BMCR_ANENABLE);
+> +				 mdio_ctrl | BMCR_ANENABLE | BMCR_ANRESTART);
 >  
-> +	priv->sgmii_mac_sel = 1;
-> +	device_property_read_u32(dev, "rockchip,sgmii-mac-sel", &priv->sgmii_mac_sel);
+>  	return ret;
+>  }
+
+> @@ -1093,9 +1107,18 @@ static int xpcs_get_state_c37_sgmii(struct dw_xpcs *xpcs,
+>  		return 0;
+>  	}
+>  
+> -	/* Clear AN complete status or interrupt */
+> -	if (state->an_complete)
+> -		xpcs_write(xpcs, MDIO_MMD_VEND2, DW_VR_MII_AN_INTR_STS, 0);
+> +	if (state->an_complete) {
+> +		/* Clear AN complete status or interrupt */
+> +		ret = xpcs_write(xpcs, MDIO_MMD_VEND2, DW_VR_MII_AN_INTR_STS, 0);
+> +		if (ret < 0)
+> +			return ret;
 > +
 
-[Severity: Low]
-This isn't a bug for any schema-checked device tree, but would it be worth
-reacting to the return value here?
+[Severity: Medium]
+Can the link stay down permanently here if the restart below fails?
 
-The binding restricts the property to two values and to one compatible:
+The only condition that lets xpcs_get_state_c37_sgmii() enter this branch is
+the latched AN complete bit:
 
-  rockchip,sgmii-mac-sel:
-    $ref: /schemas/types.yaml#/definitions/uint32
-    enum: [0, 1]
-    default: 1
+	ret = xpcs_read(xpcs, MDIO_MMD_VEND2, DW_VR_MII_AN_INTR_STS);
+	...
+	state->an_complete = ret & DW_VR_MII_AN_STS_C37_ANCMPLT_INTR;
 
-  ...
-        rockchip,sgmii-mac-sel: true
-    else:
-      properties:
-        rockchip,sgmii-mac-sel: false
+The latch is destroyed by the write above before the restart is attempted.
 
-In rockchip_combphy_parse_dt() the result of device_property_read_u32() is
-dropped, so a malformed property (for example a zero-length or wrong-sized
-cell, which returns -ENODATA/-EOVERFLOW and leaves the output untouched)
-ends up indistinguishable from an explicit request for GMAC1.
+The restart itself can fail before touching the hardware, because
+xpcs_modify() -> mdiodev_c45_modify() -> __mdiobus_c45_modify_changed() does
+a read first and bails out on a read error:
 
-The read also happens for every compatible, including rk3528/rk3562/rk3576/
-rk3588 where the binding declares the property invalid; there the value is
-parsed and then never used, since only rk3568_combphy_cfg() consumes it.
+	ret = __mdiobus_c45_read(bus, addr, devad, regnum);
+	if (ret < 0)
+		return ret;
 
-[ ... ]
+So on a transient bus or CSR access error the sequence is: latch cleared,
+restart never issued.  On the next poll DW_VR_MII_AN_STS_C37_ANCMPLT_INTR
+reads as 0, state->an_complete is false, and this branch is not re-entered.
 
-> @@ -873,6 +878,8 @@ static int rk3568_combphy_cfg(struct rockchip_combphy_priv *priv)
->  		break;
+xpcs_get_state() can only log the error, since the phylink pcs_get_state op
+returns void:
+
+	if (ret)
+		dev_err(&xpcs->mdiodev->dev, "%s returned %pe\n",
+			"xpcs_get_state_c37_sgmii", ERR_PTR(ret));
+
+No pending-restart state is recorded, and phylink_resolve() will not re-run
+pcs_config() while the interface is unchanged.  Given the premise of this
+patch, that this hardware does not restart AN on its own, would it be better
+to issue the ANRESTART before clearing the latch, or to leave the latch
+intact (or set a pending-restart flag) when the restart fails so later polls
+retry?
+
+> +		/* Initiate the next round of AN */
+> +		ret = xpcs_modify(xpcs, MDIO_MMD_VEND2, MII_BMCR, BMCR_ANRESTART,
+> +				  BMCR_ANRESTART);
+> +		if (ret < 0)
+> +			return ret;
+> +	}
+
+[Severity: Medium]
+Is the pcs_get_state callback allowed to write MII_BMCR without any
+serialization against pcs_config?
+
+phylink reaches pcs_get_state from paths with disjoint locks.
+phylink_resolve() calls phylink_mac_pcs_get_state() while holding
+pl->state_mutex and not RTNL, and in the same section can call
+phylink_major_config() -> phylink_pcs_config() -> xpcs_config_aneg_c37_sgmii():
+
+drivers/net/phy/phylink.c:phylink_resolve() {
+	mutex_lock(&pl->state_mutex);
+	...
+		phylink_mac_pcs_get_state(pl, &link_state);
+	...
+			phylink_major_config(pl, false, &link_state);
+}
+
+While phylink_ethtool_ksettings_get() and phylink_mii_read() reach it with
+RTNL only and no state_mutex:
+
+drivers/net/phy/phylink.c:phylink_ethtool_ksettings_get() {
+	case MLO_AN_INBAND:
+		if (pl->phydev)
+			break;
+
+		phylink_mac_pcs_get_state(pl, &link_state);
+}
+
+struct dw_xpcs has no mutex or spinlock, and mdiodev_c45_modify() only makes
+a single register read-modify-write atomic on the bus, so can one CPU be
+part-way through the multi-register sequence in xpcs_config_aneg_c37_sgmii():
+
+	mdio_ctrl = xpcs_read(xpcs, MDIO_MMD_VEND2, MII_BMCR);
+	...
+		ret = xpcs_write(xpcs, MDIO_MMD_VEND2, MII_BMCR,
+				 mdio_ctrl & ~BMCR_ANENABLE);
+	/* reprogram DW_VR_MII_AN_CTRL, DW_VR_MII_DIG_CTRL1, clear AN_INTR_STS */
+	...
+		ret = xpcs_write(xpcs, MDIO_MMD_VEND2, MII_BMCR,
+				 mdio_ctrl | BMCR_ANENABLE | BMCR_ANRESTART);
+
+while the other CPU, in the ethtool or ioctl query path, clears
+DW_VR_MII_AN_INTR_STS and sets BMCR_ANRESTART?  That would kick the AN state
+machine while PCS_MODE/TX_CONFIG are half reprogrammed and AN is
+deliberately disabled.
+
+A second variant: both paths read link-down plus AN-complete, and the one
+that was descheduled then issues ANRESTART from a stale snapshot, restarting
+negotiation on a link that has meanwhile come back up.
+
+The driver already exposes .pcs_an_restart = xpcs_an_restart(), which phylink
+calls under state_mutex:
+
+	xpcs_modify(xpcs, MDIO_MMD_VEND2, MII_BMCR, BMCR_ANRESTART,
+		    BMCR_ANRESTART);
+
+Could the restart be driven through that callback instead of open-coding the
+same register write in the status path?
+
 >  
->  	case PHY_TYPE_SGMII:
-> +		rockchip_combphy_param_write(priv->pipe_grf, &cfg->pipe_sgmii_mac_sel,
-> +					     priv->sgmii_mac_sel > 0);
-
-[Severity: Low]
-Should out-of-range values be rejected rather than folded into GMAC1?
-
-The "priv->sgmii_mac_sel > 0" test collapses the u32 to a boolean, so a
-device tree with rockchip,sgmii-mac-sel = <2> (or 0xffffffff) that was never
-run through dtbs_check gets the GMAC1 routing and rk3568_combphy_cfg() still
-returns success, with nothing logged.
-
-A range check in rockchip_combphy_parse_dt() returning -EINVAL, or at least
-a dev_warn(), would make such a device tree visible instead of silently
-selecting the default route.
+>  	return 0;
+>  }
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260915123802.1561724-1-coiaprant%40gmail.com
