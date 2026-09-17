@@ -4,100 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F902C982D9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 15:09:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59EA2C88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 15:12:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9b/fhEwmBPxpFcptPOeQ0kZ30PMWIDMPcXHfa9JyTQU=; b=AaC5JUbY5E1iCzvtBC3Kn4JOgr
-	s0qkjLROSva6biNDolXW8iQG+pPippB3UHuNDHaoijDvOfKuNQ2nTvN+IpV1yGTltxp8iH45PqiX9
-	8Ezz7FZhTa3KaXySWJVy35BjE9BTnPGVFM8yMxwua/AHr1EuNnKGKy0RMC2wuPXAXeLvq25Xf1aw3
-	x6IBfk0Nfw+DIvOSnw/Ng+FHKJmefKGGhPyWv5vyyYRKM2gRYZcMaGskkldvQiw0KfLq8l/K7ZhiB
-	vi16EpRm2iO2avLe/qhPoNxWLwiRFAbwqPA/OOUOV3I6s/WRNzTSqYe/5u7zhxsqveyRYJRmJ9M15
-	am9ayQlw==;
+	bh=DqWR7hYROWy/62+C7c2MOHPyBP86rK/9sHBnklMxuv4=; b=Fm6dIEZdPHm62sdVWp5Yc0jCoA
+	Ke1vpsW9tHPNHlbiWUy49XgdxnjkXykJTDxjqx+BatBHQBVIqh1NtdFas6h4ARU0yjsH8f2AlkGXD
+	CQ3N/qGQQLyJpuXIz2gIzL8RV4sRmtzhUcQgq+KMOBzR65gS6CS/Jl4pu0DJF2o/fJjhYMyfXopgX
+	/M9G5FZrbdbdyM0g8LiYPdkQ4Aa8234TnR4VZ3MtX6TSYbCERDoH5+MfJO+NwKS9s9oA11QCn+Nde
+	1yISBfJAVkdzzjN4pKOcxXs02MGhZsycm4RWp+VgYCaySoH1I716f2OOa6NHkteXNKOu7VsisT1mT
+	vPQ32Qrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7DjY-0000000BdaZ-47uh;
-	Thu, 17 Sep 2026 15:09:09 +0000
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	id 1x7DmZ-0000000Be8S-1twr;
+	Thu, 17 Sep 2026 15:12:15 +0000
+Received: from mail.cjdns.fr ([5.135.140.105])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7DjU-0000000BdXG-0V1S
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 15:09:05 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49e66390995so5428795e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 08:09:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789657742; x=1790262542; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=9b/fhEwmBPxpFcptPOeQ0kZ30PMWIDMPcXHfa9JyTQU=;
-        b=UzIpCOd7G5Fg3TrWhc7KtO6F+fuQbvaIwoNwH52ogFryVU6zt/Z/XHHCpTtE0C/n6+
-         hxgFo0Eb6fyxEJBFMux/WNUpI5Vw1uJxUEgwcCMxY4sRvG7c1o0uqbxXmEe/AUC6pZqP
-         cobXH9DtVHyZSFq5aqdUCWC3f91u3xTMmKjR1AlOwjRNnVMJoIwuKbKNjDzUdc37SqnA
-         03+wEKvg5/rBfIG5MRDM2wzP10e1kIhjjwjmapRTNurw2GM1SGckq6O8xrJgX4EYvPDn
-         SNLgUgMoyLpXkPCYRGCIkuTId6DIIYnYnMJvs4teFKfFJxVQkx12AJ5/6H2mnXPibi1C
-         rQ8g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789657742; x=1790262542;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=9b/fhEwmBPxpFcptPOeQ0kZ30PMWIDMPcXHfa9JyTQU=;
-        b=y8Iymp2kis1iJwsUtJjJSlxgoWR4xgVip2dXn/PgNCMDJhelwh9xNA6INmtHeu72tG
-         VZiRgUvwhdhSYx3VVY7zho7czRjuLqoStI9VgUrQeS19yDWh+NPmCAKhmQWodPHiwALN
-         ZFPl/qnoBMwLTusSfAD69Wp/7HzZ8L2xUHyA92GS86daX8RtVcPcCz1foUJInCnmgtqJ
-         mpUGwHi75BYYWJ09vqU1PUsuAixvUtZUKXq+87q3hwQLlRg8fF3565jBrycWqMtmO5p7
-         DKjAwOHpDHs6tZ4IaZ0+OIPaSHef91Q1dolCeFr4pSaBtJHQFUu1plfySeuAZhmF9nTb
-         ppeA==
-X-Forwarded-Encrypted: i=1; AKwUvBxnyC9Mjo4fvdXwgp/TFe4ny8bmg4pflVwlgf9+rt/eWaAQh1V3o8sS5IrQSUXr0WxeqHnrOQfcZ5UZG4Rg7Rz9@lists.infradead.org
-X-Gm-Message-State: AFuF++kUtCRrPFhZsnOsUNJVL+n1/5auxf7NXO6zXPnAY+gt7VyOtoVN
-	gvPul8quZsOPimeXLryq2Tn4HUsONcAJ7CSnLe9BinqpOoitXwNYfBNI
-X-Gm-Gg: AYBFou3eqhk4wdTp1wQ1U3D5ZztCL1CwLSFdi1B6VqGeu9BOYM/opsBAjOSg+48gXdK
-	ZVKOeLU2lAVphV5DIY0JooOCJH2mq8Nx+V/edLEPzpxsFS+UB3mzoqZC03+PrS7pC4H7ivTnTK3
-	wIbdU0a2x7kkD4yl2rLJ8GnNDdoAxyZR0PuLgHVfGvpJFwjVfZQyXoGnTqC4FhTP8m7iGv5PqQq
-	OmTrduf/g42WiYbt17Dhxs3beKAoqoRs2RFRhnrX6DyccW+qbkOWNwDbwU1NMls1spoZ5CLW1VJ
-	GuLC2ge+dLDe9u3yXQ5S9xWsegnFvsrngf4+TXGbN395qERPKkpWy3IK+vYoHttUBN4U9zMRxm5
-	iehz7FOBqQewlEm8nbxQIMQvqcGQnD/VCyT1fk9xpnVQgdiPSEElmUZEwIEGJB1xqOat4zGE4J1
-	MdgaFY8yPBLY9vwV3ALxm0kZVj4kLnWeSxGaEtpPW9Cf8cMWzjF4PA4lPY6MpYmUUoIofhhDj3a
-	6xdCDgki6gmu7aJKr4aUOnSMDMS7IVhtD1OgbEPLsj4b9AdqwK3aOMUPtpxJYOb28Iv2yC17bFE
-	/HZUf91fF+6sYuFA5mj+LQ==
-X-Received: by 2002:a05:600c:314a:b0:49d:16f1:94a5 with SMTP id 5b1f17b1804b1-49eb732b59emr86524435e9.25.1789657742060;
-        Thu, 17 Sep 2026 08:09:02 -0700 (PDT)
-Received: from Lord-Beerus.station ([31.27.155.43])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fbd226ef3sm82531345e9.1.2026.09.17.08.09.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 17 Sep 2026 08:09:01 -0700 (PDT)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
-To: Frank Li <Frank.Li@nxp.com>,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Nate Drude <nate.d@variscite.com>
-Subject: [PATCH v1 3/3] arm64: dts: imx8mm-var-dart: increase PHY reset deassert delay
-Date: Thu, 17 Sep 2026 17:08:45 +0200
-Message-ID: <197308a77fb4310a3615bbef084b25fb1874c753.1789657399.git.stefano.r@variscite.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1789657399.git.stefano.r@variscite.com>
-References: <cover.1789657399.git.stefano.r@variscite.com>
+	id 1x7DmX-0000000Be7t-2yVY;
+	Thu, 17 Sep 2026 15:12:14 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 802EF4C301B;
+	Thu, 17 Sep 2026 17:11:52 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
+	t=1789657928; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=DqWR7hYROWy/62+C7c2MOHPyBP86rK/9sHBnklMxuv4=;
+	b=Av195hmAG2se1bBc2mVvC49xtmKl9Yp5Oas2Ym7ZMeqIeDJJuFVeOSOCrZHVqDsaPpd1Pq
+	NmlAu0x+lthIV2wgWo5QoIh82AnoABImmODhDYqZURjLUaK9+EVnxzZmOIMBCujizfLdIB
+	T9m8U+jHAq7FNAWnwq109d2A2LJw8ix6SLBZ1McjkUbZUurQLlmRVmgaNVPCUDpWVFIUJI
+	Z9D6p6MuuchHb7bYL17q5HzeEIEwaf7y69GXZrnH+336B6l32ERRNoBhSRZ2ki1/Atm84x
+	ub/ATHK8HrNGbtju02el2Y9T0e65+6qBlqv/Dd7QydfFkqlo/k5Jl6n9NDKjIA==
+Message-ID: <95202df5-fdbb-4325-b77b-5f45ac8b1732@cjdns.fr>
+Date: Thu, 17 Sep 2026 17:11:50 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH v5 net-next] net: phy: mediatek: support MT7530 PHYs on
+ EN71221 MCM
+To: Daniel Golle <daniel@makrotopia.org>
+Cc: netdev@vger.kernel.org, dqfext@gmail.com, SkyLake.Huang@mediatek.com,
+ andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Matheus Sampaio Queiroga <srherobrine20@gmail.com>
+References: <20260915113427.113296-1-cjd@cjdns.fr>
+ <aqkwYd5dTmHDCIW9@makrotopia.org>
+ <2a7edfd0-b784-4b60-b9f9-769fe00286b7@cjdns.fr>
+ <aqv92pZsobVEdipZ@makrotopia.org>
+Content-Language: en-US
+From: Caleb James DeLisle <cjd@cjdns.fr>
+In-Reply-To: <aqv92pZsobVEdipZ@makrotopia.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_080904_186497_E64CA939 
-X-CRM114-Status: GOOD (  12.22  )
+X-CRM114-CacheID: sfid-20260917_081213_935617_E7AC7410 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,40 +78,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stefano Radaelli <stefano.r@variscite.com>
 
-The Ethernet PHY reset signal also controls the regulators supplying
-VDDA2P5 and VDD1P0, so releasing reset restores the PHY's 2.5 V and
-1.0 V analog supplies.
+On 17/09/2026 16:48, Daniel Golle wrote:
+> On Tue, Sep 15, 2026 at 02:01:29PM +0200, Caleb James DeLisle wrote:
+>> On 15/09/2026 13:47, Daniel Golle wrote:
+>>> On Tue, Sep 15, 2026 at 11:34:27AM +0000, Caleb James DeLisle wrote:
+>>>> @@ -135,6 +199,23 @@ static struct phy_driver mtk_gephy_driver[] = {
+>>>>    		 */
+>>>>    		.config_intr	= genphy_no_config_intr,
+>>>>    		.handle_interrupt = genphy_handle_interrupt_no_ack,
+>>>> +		.match_phy_device = mt7530_phy_match,
+>>>> +		.suspend	= genphy_suspend,
+>>>> +		.resume		= genphy_resume,
+>>>> +		.read_page	= mtk_phy_read_page,
+>>>> +		.write_page	= mtk_phy_write_page,
+>>>> +	},
+>>>> +	{
+>>>> +		PHY_ID_MATCH_EXACT(MTK_GPHY_ID_MT7530),
+>>> I'd suggest to actually use phy_id and phy_id_mask assigned by the
+>>> PHY_ID_MATCH_EXACT macro by calling genphy_match_phy_device() in your
+>>> match functions above instead of open-coding the ID match.
+>>> Or drop PHY_ID_MATCH_EXACT from *both* drivers.
+>> I suppose the latter is easier because then I don't have to re-think
+>> mt7530_is_gphy() which would be lying if it wasn't actually checking ID is
+>> MTK_GPHY_ID_MT7530.
+>>
+> I would have preferred to call genphy_match_phy_device() in your match
+> functions instead of open-coding phy_id_compare() which is best
+> reached via genphy_match_phy_device() in this situation -- that would
+> express the code intent in the most obvious way imho.
 
-The existing 100 ms reset deassertion delay is not sufficient for
-reliable PHY detection. The TI DP83867 requires 200 ms of stabilization
-after power-up before MDIO register access.
 
-Increase the reset deassertion delay to 200 ms to ensure reliable PHY
-detection across repeated boots.
+I did it this way because the name mt7530_is_gphy() implies "Is this an 
+MT7530 gigabit PHY?" which if it doesn't match on MTK_GPHY_ID_MT7530 
+then that's not what it does so there's a little bit more thought involved.
 
-Co-developed-by: Nate Drude <nate.d@variscite.com>
-Signed-off-by: Nate Drude <nate.d@variscite.com>
-Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
----
- arch/arm64/boot/dts/freescale/imx8mm-var-dart.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-var-dart.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-var-dart.dtsi
-index 9fc0f7e551ca..fcd937d8d29a 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-var-dart.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-var-dart.dtsi
-@@ -123,7 +123,7 @@ ethphy0: ethernet-phy@0 {
- 			reg = <0>;
- 			reset-gpios = <&gpio1 9 GPIO_ACTIVE_LOW>;
- 			reset-assert-us = <10000>;
--			reset-deassert-us = <100000>;
-+			reset-deassert-us = <200000>;
- 			vddio-supply = <&reg_phy_vddio>;
- 		};
- 	};
--- 
-2.47.3
+If I'd have known this was really your preference I'd have done that, 
+but I already just sent v6 so I guess I can send v7 tomorrow.
+
+
+Thanks,
+
+Caleb
+
 
 
