@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BDDDC982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 21:14:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AED61C982D2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 21:14:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vVLWU6hu9o3St41DNREmW0G/Wl2S2sbPor3jCAzvQLc=; b=ywIOhx5SgV0/onGJJk2uJ745BZ
-	OXHWJ16RpkiHtoPTwBnG+Kqv+DgmMH7SqKT/3uFKh8uxEywj9M9oPkuYDoIlxKNP1WoeQjP/oe9+d
-	JsxN1316YnmmqfT/djgmYs0QfknlmhzCtbxkv46CTDsQvP4tKaCchMaDKuGdLJeQ/KR3QTshuhDnT
-	tD1Alt6Dngg240kfjTyp/HlMHkbXn7qmvrYXPUC3Y8zJl36t/KCjBjBr6QHQT0wh5Hbwe2I5bJ0p6
-	X+tCrFnW7EVRSeiJ6ni0MhH0jbkjch2HM/6Eb4cllC4WvdznDDp8camVUXC1dIVyCkMStCQ1CcDJr
-	96xmpmVg==;
+	bh=qoTLL+Y9jDbvbklS4smBLhLmCpbDdyoDpotOBwhiSEE=; b=Z0L3YVbVBXZWOQ7e+jpPvr0ivI
+	JZCMfpudeCZKtlSBISge6GyzuvKNnHVZ0GJLLeUmwJh9uNhAUsRmnd3oalradqGMAXVXjpQ47IfsQ
+	/bVrW981XN4/ln2LTRiLnAZN0hfcVtbwgTzN+rlR1+MjeMhXSdr2KkUo9fcZlIL7b2CsVuswQ5TrM
+	+VXZQAJ/3Zsw50eA5mx/pSi9H/Fwb2pJj/5v4ua8jELrmGp7wuW3+INFO+iO/BXqJCHbn1e6DqbBO
+	+kiTZFoUDD/D4ErcE9Autnrli7FCbMX7rty2thTn2/d0Mp/+lO5dwl+9UQ50OQRc2/GszPc325VQb
+	TTKvhffg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7JQk-0000000CXh1-1U72;
-	Thu, 17 Sep 2026 21:14:06 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x7JRB-0000000CXpH-2IBA;
+	Thu, 17 Sep 2026 21:14:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7JQj-0000000CXgq-37wo;
-	Thu, 17 Sep 2026 21:14:05 +0000
+	id 1x7JRA-0000000CXoz-3G9C
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Sep 2026 21:14:32 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 34B24601FF;
-	Thu, 17 Sep 2026 21:14:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E08C41F000FF;
-	Thu, 17 Sep 2026 21:14:04 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0104E6020A;
+	Thu, 17 Sep 2026 21:14:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD83B1F000FF;
+	Thu, 17 Sep 2026 21:14:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789679644;
-	bh=vVLWU6hu9o3St41DNREmW0G/Wl2S2sbPor3jCAzvQLc=;
+	s=k20260515; t=1789679670;
+	bh=qoTLL+Y9jDbvbklS4smBLhLmCpbDdyoDpotOBwhiSEE=;
 	h=From:To:Cc:Subject:Date;
-	b=aYz3VNieHISjVjRl171VfOM1LIF536Ca1nZL2yVVTPZQapY9GAzBiarIG/YGuQ1cV
-	 51cytjyxRlRu4oSHK1VdA4XDKycd6a7kwhdW/ZH1JiJM0d6iS1vhxCziA7/1/CcC1G
-	 8e7IJNhGKl33ER18KO8QCnsY/KyUTjB1QJ9/Yz1OsPIB+2FV5/XGfl+jwKssnA4gpn
-	 7N3utaSb4nyeP6GMhli17QIRfy36U/w+MSMjgZbNaW18KLWLLHavHfQkHwfso28UjP
-	 I6vh8RRsbotRB3LWHAPIf99EuKa007Q5BbXfci/3sX8uwi/NQBr/Js6JS1TWhiaiNB
-	 e4tZMnYzAmpng==
+	b=Uz4njpgXvyWV3DujjdkHYWfIyFct1dS8d0PQLGeiBdWccXTCJhGY2bYOrWWAITwsJ
+	 shPPCbN6cCD/Ge8UM8iQNzvQPgDd2uWcZHZ+uBA/X3JdX1XxWJ1NQ+9SFCzkXl72Xk
+	 n33CLWxghtgZbXnf1s2oM5e0EHWQq/ywNUxHniXs4ZyvG2vmhUTOwzMyoh6BR9sQgb
+	 XcVAbW7W5o77FmyxcB4u2o7PgCHR23hLHlMEk2M5w4HRWzdNQL3R6RLULuEMLcqJGb
+	 pXPUS7hymK4IJh0jx9T1Y9IpsIlBHqq9tlb2aLG9xmymVss4OtaeThr4mSbxF5oktl
+	 9EFbmSjHm4CQQ==
 From: Kees Cook <kees@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
 Cc: Kees Cook <kees@kernel.org>,
 	Kees Cook <kees+treewide@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	linux-sound@vger.kernel.org,
+	Mike Leach <mike.leach@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Leo Yan <leo.yan@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	coresight@lists.linaro.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-hardening@vger.kernel.org
-Subject: [PATCH] ASoC: rockchip: rk3399_gru_sound: Allocate dai_link with ARRAY_SIZE()
-Date: Thu, 17 Sep 2026 14:14:04 -0700
-Message-Id: <20260917211403.i.984-kees@kernel.org>
+Subject: [PATCH] coresight: cti: Add const to con_groups allocation type
+Date: Thu, 17 Sep 2026 14:14:29 -0700
+Message-Id: <20260917211428.i.947-kees@kernel.org>
 X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1851; i=kees@kernel.org; h=from:subject:message-id; bh=YPscJPXSG26pxamepuqPmb0syryk1A1xxqn90YUkCNs=; b=owGbwMvMwCVmps19z/KJym7G02pJDFlrIqRtar7o9xS/7437YbSZ/UfXxtXHMnPN8w7lbWDJM 7HMKw/rKGVhEONikBVTZAmyc49z8XjbHu4+VxFmDisTyBAGLk4BmMgmZ0aGDWKO6+fPbv0U+k57 qbuyROimQsv+2RYXV92Z/nvxyziJ+YwMK4RrfjYddeHi9Y2a/SfqfZ2gp08by0655vUzLv3f9im JHwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1975; i=kees@kernel.org; h=from:subject:message-id; bh=ZslHx5VqRft6I3xit3Pnoajg45iE4Y2S12l25+/PhA4=; b=owGbwMvMwCVmps19z/KJym7G02pJDFlrIkw/hRYIix5MaOzW1Y3SEfwRcn7Z09/sCmo7jr98v 26rTdbejlIWBjEuBlkxRZYgO/c4F4+37eHucxVh5rAygQxh4OIUgIlYJDIyHHO89X7OVpEZh09+ f98kc2m1/Ye9CQuS17dWz9oSfatqey7DP2PpvJk/VpQ88c7QKfj22W/K7hXb3WVeFP1YomZaWON 1lw8A
 X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -84,45 +84,42 @@ matches the type of the variable being assigned. (Before, the allocator
 would always return "void *", which can be implicitly cast to any
 pointer type.)
 
-This is allocating a copy of rockchip_dais, which is an array of struct
-snd_soc_dai_link, but the size was taken from the whole array, which
-would make the allocation type a pointer to the array rather than the
-"struct snd_soc_dai_link *" being assigned. Allocate ARRAY_SIZE-many
-entries instead. The resulting allocation size is the same.
+The assigned type is "const struct attribute_group **", but the
+converted allocation type would be "struct attribute_group **", which is
+the same type without the const qualifier. As there is no general way to
+safely add const qualifiers, take the size from the assignment target
+instead. No change in allocation size results.
 
-Build tested ARCH=x86_64 allmodconfig with GCC 16.2.0:
-sound/soc/rockchip/rk3399_gru_sound.o
+Build tested ARCH=arm64 allmodconfig with GCC aarch64-linux-gnu 16.1.0:
+drivers/hwtracing/coresight/coresight-cti-sysfs.o
 
 Assisted-by: LLM coccinelle
 Signed-off-by: Kees Cook <kees+treewide@kernel.org>
 ---
-Cc: Liam Girdwood <lgirdwood@gmail.com>
-Cc: Mark Brown <broonie@kernel.org>
-Cc: Jaroslav Kysela <perex@perex.cz>
-Cc: Takashi Iwai <tiwai@suse.com>
-Cc: Heiko Stuebner <heiko@sntech.de>
-Cc: <linux-sound@vger.kernel.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Mike Leach <mike.leach@arm.com>
+Cc: James Clark <james.clark@linaro.org>
+Cc: Leo Yan <leo.yan@arm.com>
+Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: <coresight@lists.linaro.org>
 Cc: <linux-arm-kernel@lists.infradead.org>
-Cc: <linux-rockchip@lists.infradead.org>
 ---
- sound/soc/rockchip/rk3399_gru_sound.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/hwtracing/coresight/coresight-cti-sysfs.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/sound/soc/rockchip/rk3399_gru_sound.c b/sound/soc/rockchip/rk3399_gru_sound.c
-index b80acb221d24..04e7bed8275d 100644
---- a/sound/soc/rockchip/rk3399_gru_sound.c
-+++ b/sound/soc/rockchip/rk3399_gru_sound.c
-@@ -505,8 +505,8 @@ static int rockchip_sound_of_parse_dais(struct device *dev,
- 	int i, index;
- 	int num_routes;
- 
--	card->dai_link = devm_kzalloc(dev, sizeof(rockchip_dais),
--				      GFP_KERNEL);
-+	card->dai_link = devm_kcalloc(dev, ARRAY_SIZE(rockchip_dais),
-+				      sizeof(*card->dai_link), GFP_KERNEL);
- 	if (!card->dai_link)
+diff --git a/drivers/hwtracing/coresight/coresight-cti-sysfs.c b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
+index 3fe2c916d228..2ed5d8eb1dda 100644
+--- a/drivers/hwtracing/coresight/coresight-cti-sysfs.c
++++ b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
+@@ -1132,7 +1132,7 @@ static int cti_create_cons_groups(struct device *dev, struct cti_device *ctidev)
+ 	/* nr groups = dynamic + static + NULL terminator */
+ 	nr_groups = ctidev->nr_trig_con + CORESIGHT_CTI_STATIC_GROUPS_MAX;
+ 	ctidev->con_groups = devm_kcalloc(dev, nr_groups,
+-					  sizeof(struct attribute_group *),
++					  sizeof(*ctidev->con_groups),
+ 					  GFP_KERNEL);
+ 	if (!ctidev->con_groups)
  		return -ENOMEM;
- 
 -- 
 2.34.1
 
