@@ -4,67 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92551C982D2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 21:24:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B443FC982D2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 21:42:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RpWZdNHGYoV/6JCrVSKz8y6ytrZaFDnDxpAF1ip5BB0=; b=c0HXIzLnAXfMeeCAXwexrGrTn5
-	EFPDXLa8CkG/39AapiG3Ce1URHWFQZfZp6ohPzLMnMcDhRTFArT/EqjPTug8+m1rDf3Trg5GmosXi
-	5NbJfI+4K95Y3unxxOYjSdFwWvDv2Nf9ZGToOvVpn1+M96jChcQ3uGtvi09lqrf92BCV62IbaTxMq
-	Zo5sPFXs7zS2QKpYuMDGDzVhK677M0NokNu5qj3AKYJppwz1cm9Di7s4nDaVTJ6/AANCNpKxU7jKT
-	Obhk6P3EA5elqMqmTmJnSLILL8OSc3tvUDvYggiJjErKESgkHheLxcHKxOsqkI77gc/GCpR/wCyl2
-	MEznSciA==;
+	bh=+Vd37vlqPgoR34jGq+5SarCAahPWAWe4kwjRPQidlrk=; b=wb0iYlPRLJG7CIPfgU0nmpCRw0
+	r0KgG2fpYctYE/x7L23oox87EOmN/GwVj7QomGU9qlWXueLXz0GAiAx7NcHTl6uUs7iSEAPSABh8o
+	FL4ZT6fczSjOtLTro8yFS0pRtS9i1uw2UwLqShRSghmKkIeWKp6EV5jL3mOWahHfbSPxFlPUe3RFZ
+	CKvCWuQZIEUyoFrcqtRowzixCDIdzqW5h5z32c2ygFcRVVIICdUYiNkUoVaSbxAho0jkyuxR9AEpT
+	O1RBXCsrPztJsYbzpMxsDvMrFNnLC/EIrIF4+upJ3WmPqkP+a0MtLQf1Isq/4MJstYoitN9wlOwNM
+	0gS7aGxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Jai-0000000CYaW-2Nu2;
-	Thu, 17 Sep 2026 21:24:24 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1x7Js3-0000000CZig-2Lsv;
+	Thu, 17 Sep 2026 21:42:19 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Jae-0000000CYZg-3FJh
+	id 1x7Js2-0000000CZia-2UO3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 21:24:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Content-Transfer-Encoding:Content-Type:From:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:From:Reply-To;
-	bh=RpWZdNHGYoV/6JCrVSKz8y6ytrZaFDnDxpAF1ip5BB0=; b=QuaBpeD6kNNs0NDL9br7Pv641+
-	S1LZkytpjjX4zFGy6uQJmiFf53WqKEvJggJM9Fz0Vq+36RY9zXW2NWJYzHj9ZsLpqrZzVsDpXSdH1
-	M+Towaj8mtbiLL0+vdO+FPmik3ZcIlfAnZgL7q5EH6726fbDQzmwrXoqMVI74blt8dUCv+Q57ZrPu
-	4rcOwFBifSgHEfGQBKnGUDoZkjRL+BzXacQkSVMcZt0c+NBXHDgc8ssJdA/fkQk8/Il9NawvtfShs
-	skfT8YFqmyOHLPBUHWRjguGnj7o8mYbFPSgnxL/4n0D9BFLG0mqU22x9Wb05mUh/0j21YtbvNsIRH
-	J3LnpKUg==;
-Received: from [177.172.123.214] (helo=[192.168.15.100])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
-	id 1x7JaO-003erL-DT; Thu, 17 Sep 2026 23:24:04 +0200
-Message-ID: <e553953e-d784-4eb5-b3fc-6e847b2dfcd1@igalia.com>
-Date: Thu, 17 Sep 2026 18:24:02 -0300
+	Thu, 17 Sep 2026 21:42:18 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C8F9A44507
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 21:42:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E8B31F00902
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 21:42:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789681337;
+	bh=+Vd37vlqPgoR34jGq+5SarCAahPWAWe4kwjRPQidlrk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=BtJsgdiv4lMiFIQVgmdR8uPTGBE3SksCFUE0VRGf/7plR5BsKss0wk44kg/IGESuy
+	 5o+jLQ+1nk25fhFU9JgEkagFuLHUQ8UYBIQQX/A5gtdGuybvyN6BKeNY1tB+Qos5n/
+	 nGQbSEqmvaOlUery2nP3gouw25q/6al1JCWu3lbTAgXC+ezfwSYIy0IPnOSUBIcIsC
+	 7HGmzNbbxOTFkYectDy6svosEuc4md1omiI9N8nRk0Ji7lc/KSfNfeuBrdx/80t0Gr
+	 7NEdQOOCzJWxZ08qaZHCoePZWUF1GKnLJHqiDEdXlhu+8H2B8syRuqxpDHTKVGx5gz
+	 vtOhO9zii+3zA==
+Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b5e4f1651bso74046e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 14:42:17 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBzUQksfEIJNPyVUwrFjMShVvrfe9EGATHIm29Vh1Uksbp6xhdRhFD8ynKNlkxoaIyreOhuUZHlcycK2BHZPOz8k@lists.infradead.org
+X-Gm-Message-State: AFuF++kmOah/ftd9k/6olW1zb9EqY8taPLFv9DWKscJvO+Vk88vAWiFk
+	zHlED7MOsQhPG3Avz02s2yFAJNwnW35YAbnSFxdETvhM5BsyUU2DQBugngxr/BZOcqalvgFqqnl
+	TgP/5CZkC5BuyXVk/5CyViYdp0FRWLIM=
+X-Received: by 2002:a05:6512:3baa:b0:5b6:4ae:3ff7 with SMTP id
+ 2adb3069b0e04-5b8c18449abmr61087e87.31.1789681336165; Thu, 17 Sep 2026
+ 14:42:16 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 00/13] syscalls: Add a shared table for all archs
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Christian Brauner <brauner@kernel.org>, linux-kernel@vger.kernel.org,
- linux-kbuild@vger.kernel.org, kernel-dev@igalia.com,
- Masami Hiramatsu <mhiramat@kernel.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- linux-alpha@vger.kernel.org, linux-s390@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev,
- linux-mips@vger.kernel.org, sparclinux@vger.kernel.org
-References: <20260828-tonyk-syscall_table-v6-0-fdd358456cf1@igalia.com>
- <95b693c0-ca51-4355-99ba-2b37a1ab2169@app.fastmail.com>
- <6fa4e1e3-c023-465c-9490-ce2f18ffaa91@igalia.com>
- <5aedf90f-d30d-4f55-b066-dd8fdf3ff8f9@app.fastmail.com>
-Content-Language: en-US
-From: =?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-In-Reply-To: <5aedf90f-d30d-4f55-b066-dd8fdf3ff8f9@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_142420_812400_5E9C2A61 
-X-CRM114-Status: GOOD (  14.17  )
+References: <20260917204240.1284796-1-Frank.Li@oss.nxp.com>
+In-Reply-To: <20260917204240.1284796-1-Frank.Li@oss.nxp.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Thu, 17 Sep 2026 23:42:04 +0200
+X-Gmail-Original-Message-ID: <CAD++jL=uWFLWB_8T_q9UwbY1KzB+tcjJwOo4GheRF-72eU59Sg@mail.gmail.com>
+X-Gm-Features: AcwNN1UfNjWV7KrU9iWOWhdNsDlRn7O6RazPK4CNMASiCssILCbrQZDav7Nv7A0
+Message-ID: <CAD++jL=uWFLWB_8T_q9UwbY1KzB+tcjJwOo4GheRF-72eU59Sg@mail.gmail.com>
+Subject: Re: [PATCH 1/1] mmc: use dmaengine_get_dma_device() instead of chan->device->dev
+To: Frank.Li@oss.nxp.com
+Cc: Aubin Constans <aubin.constans@microchip.com>, Ulf Hansson <ulfh@kernel.org>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Paul Cercueil <paul@crapouillou.net>, Russell King <linux@armlinux.org.uk>, 
+	Wolfram Sang <wsa+renesas@sang-engineering.com>, Jesper Nilsson <jesper.nilsson@axis.com>, 
+	Lars Persson <lars.persson@axis.com>, Fan Wu <fanwu01@zju.edu.cn>, Frank Li <Frank.Li@nxp.com>, 
+	Rosen Penev <rosenp@gmail.com>, Pengpeng Hou <pengpeng@iscas.ac.cn>, 
+	Zhan Xusheng <zhanxusheng1024@gmail.com>, Pan Chuang <panchuang@vivo.com>, 
+	Pedro Demarchi Gomes <pedrodemargomes@gmail.com>, Ethan Nelson-Moore <enelsonmoore@gmail.com>, 
+	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
+	Rakuram Eswaran <rakuram.e96@gmail.com>, Khalid Aziz <khalid@kernel.org>, 
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Danilo Krummrich <dakr@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Runyu Xiao <runyu.xiao@seu.edu.cn>, 
+	"open list:MULTIMEDIA CARD (MMC), SECURE DIGITAL (SD) AND..." <linux-mmc@vger.kernel.org>, 
+	"moderated list:ARM/Microchip (AT91) SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>, 
+	"open list:INGENIC JZ47xx SoCs" <linux-mips@vger.kernel.org>, 
+	"open list:OMAP HS MMC SUPPORT" <linux-omap@vger.kernel.org>, 
+	"open list:TMIO/SDHI MMC DRIVER" <linux-renesas-soc@vger.kernel.org>, 
+	"open list:ARM/ARTPEC MACHINE SUPPORT" <linux-arm-kernel@axis.com>, imx@lists.linux.dev, vkoul@kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,101 +97,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Em 17/09/2026 02:55, Arnd Bergmann escreveu:
-> On Thu, Sep 17, 2026, at 00:19, André Almeida wrote:
->> Em 15/09/2026 04:45, Arnd Bergmann escreveu:
->>> On Sat, Aug 29, 2026, at 01:19, André Almeida wrote:
->>
->> Thanks for testing! I believe I found a simple solution for this. I
->> modified syscall_o32.tbl and can confirm it triggers a rebuild now:
->>
->> diff --git a/arch/mips/kernel/syscalls/Makefile
->> b/arch/mips/kernel/syscalls/Makefile
->> index aaa5443ea906..9e31d1ce5015 100644
->> --- a/arch/mips/kernel/syscalls/Makefile
->> +++ b/arch/mips/kernel/syscalls/Makefile
->> @@ -40,10 +40,10 @@ src_n32 := $(src)/syscall_n.tbl
->>    src_n64 := $(src)/syscall_n.tbl
->>    src_o32 := $(src)/syscall_o32.tbl
->>
->> -$(kapi)/unistd_nr_%.h: $(systbl_common) $(sysnr) FORCE
->> +$(kapi)/unistd_nr_%.h: $(systbl_common) $(src_%) $(sysnr) FORCE
->>           $(call if_changed,sysnr)
->>
->> -$(kapi)/syscall_table_%.h: $(systbl) $(systbl_common) FORCE
->> +$(kapi)/syscall_table_%.h: $(systbl) $(systbl_common) $(src_%) FORCE
->>           $(call if_changed,systbl)
-> 
-> I had tried the same thing already, but in my testing, it did
-> not rebuild after changing the syscall_n.tbl file, only the
-> syscall_o32.tbl file. Can you verify that your change rebuilds
-> all nine files in the correct cases?
+On Thu, Sep 17, 2026 at 10:42=E2=80=AFPM <Frank.Li@oss.nxp.com> wrote:
+
+> Replace direct dma_chan::device::dev access with the proper
+> dmaengine_get_dma_device() for consumer API
 >
-After a more careful look, I have found out a couple of issues:
+> chan->device->dev is not always the device used for DMA mapping.
+> Some DMA engines support per-channel IOMMU mappings, so different
+> channels may use different DMA devices.  dmaengine_get_dma_device()
+> returns the correct device for each channel.
+>
+> This also prepares for making the DMA engine provider data structures
+> private. DMA consumers should not access DMA engine internals directly.
+>
+> Assisted-by: LLM
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
-- The first one, the one that the build bot originally warned as about 
-this outdated rule:
+This looks good to me. Thanks for fixing all the sites!
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
-  $(uapi)/unistd_%.h: $(src)/syscall_%.tbl $(syshdr) FORCE
-  	$(call if_changed,syshdr)
-
-$(src)/syscall_%.tbl doesn't make anymore for n32 and n64, and needed to 
-be updated.
-
-- Secondly, $(src_%) doesn't work as I expected. % only works like this 
-for files (like syscall_%.tbl). For variables, the correct form is 
-$(src_$*). Now the pattern matching started working and generating 
-$(src_n32), $(src_n64), ...
-
-- Finally, this wasn't enough either. Due to how make works[1], the 
-variable was being generated but it wasn't being evaluated. So I had to 
-add the .SECONDEXPANSION target to finally make it work, resulting on 
-those rules:
-
-.SECONDEXPANSION:
-
-$(uapi)/unistd_%.h: $(systbl_common) $$(src_$$*) $(syshdr) FORCE
-	$(call if_changed,syshdr)
-
-$(kapi)/unistd_nr_%.h: $(systbl_common) $$(src_$$*) $(sysnr) FORCE
-	$(call if_changed,sysnr)
-
-$(kapi)/syscall_table_%.h: $(systbl) $(systbl_common) $$(src_$$*) FORCE
-	$(call if_changed,systbl)
-
-And now, testing updating the tables:
-
-$ touch arch/mips/kernel/syscalls/syscall_o32.tbl
-$ make -j31 W=1 O=mips ARCH=mips LLVM=1 prepare | grep SYS
-   SYSHDR  arch/mips/include/generated/uapi/asm/unistd_o32.h
-   SYSTBL  arch/mips/include/generated/asm/syscall_table_o32.h
-   SYSNR   arch/mips/include/generated/asm/unistd_nr_o32.h
-
-$ touch arch/mips/kernel/syscalls/syscall_n.tb
-$ make -j31 W=1 O=mips ARCH=mips LLVM=1 prepare | grep SYS
-   SYSHDR  arch/mips/include/generated/uapi/asm/unistd_n32.h
-   SYSHDR  arch/mips/include/generated/uapi/asm/unistd_n64.h
-   SYSTBL  arch/mips/include/generated/asm/syscall_table_n32.h
-   SYSTBL  arch/mips/include/generated/asm/syscall_table_n64.h
-   SYSNR   arch/mips/include/generated/asm/unistd_nr_n32.h
-   SYSNR   arch/mips/include/generated/asm/unistd_nr_n64.h
-
-$ touch scripts/syscall_common.tbl
-$ make -j31 W=1 O=mips ARCH=mips LLVM=1 prepare | grep SYS
-   SYSHDR  arch/mips/include/generated/uapi/asm/unistd_n32.h
-   SYSHDR  arch/mips/include/generated/uapi/asm/unistd_n64.h
-   SYSHDR  arch/mips/include/generated/uapi/asm/unistd_o32.h
-   SYSTBL  arch/mips/include/generated/asm/syscall_table_n32.h
-   SYSTBL  arch/mips/include/generated/asm/syscall_table_n64.h
-   SYSTBL  arch/mips/include/generated/asm/syscall_table_o32.h
-   SYSNR   arch/mips/include/generated/asm/unistd_nr_n32.h
-   SYSNR   arch/mips/include/generated/asm/unistd_nr_n64.h
-   SYSNR   arch/mips/include/generated/asm/unistd_nr_o32.h
-
-I will send a v7 with this changes for mips.
-
-Thanks!
-
-[1] 
-https://www.gnu.org/software/make/manual/html_node/Secondary-Expansion.html
+Yours,
+Linus Walleij
 
