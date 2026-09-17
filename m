@@ -4,66 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4CA9C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 17:50:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4D99C88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 17:55:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=koYHEmHF992hOO59AVBGv9/ygNafcPNBRRwBEev9dCQ=; b=gs5UeYB0ow6eoXuBN2x4pZ746u
-	sDT2GijGlLfhGHdqmh67aQmaTXH7ckyXIv8b3XJVLoFF1HAZtCPbJN8Ma/2oGy74xm29U93Ax5vg/
-	Je4RSRTL1GNCW13lAa00cEjXHHwyG42BXPIE51B2qLNBCpv7/5fsoEJL9F34HULZzsJ326f5Rud08
-	AuxmKxABQfFCtspCgSE/RgWGDv91zxRApeWmACi/ijmvLBc0rB+uFqySEjVxCF97qoQJ2+HXWgpCN
-	jqQ+8OJhtMjbQzXRM8W74/BMJEi5QEngGmLW4B6V+VzRDp/kkgLtYmbKrWg8Uj87HwmbItqCQSldP
-	/5Cdr80Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=rtt5XejF/bWF3GOuFvls4LbhkcGw1Hah+9I1v10tav4=; b=ckZoBKtlK09JSF
+	9sq/a3/acxrX0HXC0+34h3gpGHahdSpmmC4gAaaM9uc6wrtSCSnBzmK06G71w8fnefRQQohxGU1x6
+	xtZLd2YiZs2wCDLse6ZsTiOjZjKef+qUZ+zNyiG7RuDIZUUpJVdP187Y7gosJy6wMDmUcE4ErMpyv
+	74LYikFhfImX2t4D1+RYdYiZopMfz9GN2YwxQSvPvLm5Z3vsCmQH2RubDnN1mSuWo/Txuv/lfxpkz
+	6Tt3MiYbUR3kgjrakwn4wPeXaW+2wuMsrifK2tsdh/F53ehUo5BmTHwQz4RBqV4N+vAn3SVlgjxww
+	EYlZe1co+IT0rVHW0/dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7GFP-0000000C8Cx-2xwC;
-	Thu, 17 Sep 2026 17:50:11 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1x7GKT-0000000C8xb-1Lf9;
+	Thu, 17 Sep 2026 17:55:25 +0000
+Received: from mail-oa2-x0f.google.com ([2607:f8b0:4864:30::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7GFK-0000000C8BS-1nyw
+	id 1x7GKQ-0000000C8wM-0Nsk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 17:50:10 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id AB9E34E407BD;
-	Thu, 17 Sep 2026 17:50:00 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 69E0F60580;
-	Thu, 17 Sep 2026 17:50:00 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 43EE011C787D7;
-	Thu, 17 Sep 2026 19:49:54 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1789667399; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=koYHEmHF992hOO59AVBGv9/ygNafcPNBRRwBEev9dCQ=;
-	b=G4/CgNPzK5E12/9/EmIjENcc7TwannYkXgttdS+iILgEN7rNK/7/lxeRP4Rs239QsVgmen
-	Rp3kNHvYHrs3mGRmJrvApN9xaKwcGKQuTpPWV6yz2JLBGdat02GKuHEFpEGQrQ747dGkU+
-	MrXIpL/cxj/qtmOthtuu5m8HTGt7YKHhmsyZXx3xMQh/Z+CDaceLZMKhx9wW6l55R7Ma1m
-	9QBma3nANPpD6Zct7/pj8wZZXCkxDgSTTzq2drihxjgANR+lqsFWiErbW2qWKmiX5ShCFX
-	J1M84qWKPQFODr/Hpe24iPlkSckPc6Tzx+smdmz9A8gYEIG7KlS1SsWJnRGs5g==
-Date: Thu, 17 Sep 2026 19:49:53 +0200
-From: Herve Codina <herve.codina@bootlin.com>
-To: Wentao Liang <vulab@iscas.ac.cn>
-Cc: broonie@kernel.org, chleroy@kernel.org, leoyang.li@nxp.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, qiang.zhao@nxp.com, stable@vger.kernel.org
-Subject: Re: [PATCH] soc: fsl: cpm1: tsa: Fix clock leak in
- tsa_of_parse_tdms()
-Message-ID: <20260917194953.69dfd873@bootlin.com>
-In-Reply-To: <20260917152719.2160395-1-vulab@iscas.ac.cn>
-References: <20260917152719.2160395-1-vulab@iscas.ac.cn>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
+	Thu, 17 Sep 2026 17:55:23 +0000
+Received: by mail-oa2-x0f.google.com with SMTP id 586e51a60fabf-4693691fc81so739092fac.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 10:55:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789667721; x=1790272521; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=rtt5XejF/bWF3GOuFvls4LbhkcGw1Hah+9I1v10tav4=;
+        b=Z+P4XM593ZLkiiW9bww33z3y820VotC9hczQIzNoki4v/HWI24EKgaA/hlp0mEZT1e
+         rWQAVxQL2EGMRLXxgWsVTccSl3uRrCtWtK03Ax/oa+EFDh0hycpx4GYQT0uBEy83Ynfh
+         UQwQrE1koJYjCYI3A+d9c7bwPesjB89cjbg1MlYGYACDMy32uB47ZkzbbCzAxrdLE6rR
+         K5/SuVaiX47knkuWhx1IjGnaPJH4byLRkyVCpVyb+w5SKFgIgk+BWXq8KpUuL3d4aozK
+         k3NnL0OT1ZzroBBRRJ/SFjE8WqUITaZ0fWQx35743AjQS2RAKuNDnv0MeJOe6FM9qxnw
+         CAmg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789667721; x=1790272521;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=rtt5XejF/bWF3GOuFvls4LbhkcGw1Hah+9I1v10tav4=;
+        b=WXbjGcyyjFg5zfOFF/S0aVBpkMciWAXLddBoOaVDgdWMCAOcLGXoComl3i5Cj6h2x8
+         WXzB3yL7/5LYeuN7Nh4WRa7N0qRbTlMt1ocVRecU/MV1NluzStedjSzaVTsV7R2IvYSp
+         5Z0dV+gXaovyVYfLT9z7+tTorUIueKSsUOa84lSz+7pUEueYgfW9VLm74iMHAOqZt7/F
+         ZxcRTesTDr70X8CWq0gFZUu+mem8EL4I2Ld3nIqfkR0lWoHzsF+yAP6ILoOK1/+uF44F
+         EDqQNBeNAcEYZjluNjOh0hYsW8JAF2LZRUoCXhmilpB4X0nDfEqoEUFqgsMFyFVQcEAC
+         oCKQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzJ9MtjNN0qyYGF9o4Q5TIA1jx6civFDBUXVOsokJKuUeAfheYBOykg+12XhalzE/Aeq2lAq/THLuJvn3fIbpPK@lists.infradead.org
+X-Gm-Message-State: AFuF++lu6LZiPm5BR6n8VVtR+xLjwpVkTG4KMeP6MOpjDvVKO5ukPCJK
+	TXbWhc4dBrZxDMEXuGK5lsb4R8UBf8Jqt0mCyNhfJ1SP2zfEW/sUVg18
+X-Gm-Gg: AYBFou2JOUHt1ohpq73Vv52yzBoV2H36M1osNHSg7MxcFVXIZhK3rbRFwMUTN5RbkqL
+	swHDj3OLo2boP8A3jbJt7B9FtTFbVVDoc2oI1UoPtN1D/zVdofvoI/xNO0VW4htZQvBnFiNXLbw
+	S+4xXl8VWgwVh746En6euU1ZDpQqY7XP9iZWjoqZMl3FUTEX3itPUjcPkA14TfeHWLQf8yE8RwJ
+	hdvXOPCIJkbHavOXpPk60TBdwnihbPJNRx28Pn3We+uJcSoYUhsuTdDU6lvtf5D2tLzN6XS8oP4
+	3k2MnHdjAS3/TdYth1mz8WJzfGUHep+j8Q6K1EiJWTubOu/dIKvrghZ2ceaL3ql7mWMdQPlabpc
+	LRY/VCZv2GJ21lbuNK9dBg1mXQRUqVDiCwwWa9w32LrpKLROvEqiG9ZW8fXO5UwQ+mInjAOccyK
+	c/rJ3rJAkEnWgebpZiKT/Nji7ZMCLtGiftdpIeRxG5iVHvPBh/w/+wMFakudszoV9qgHVPCb5rQ
+	92zK9AhMkX4nTaDrQMF2XxFizfj8l8FUO4ss1IigV8dTY8+X/Ui+feZkHsjrM6iTS6BzJ7zUCdQ
+	ig/6D1jw7BPlwkC2+w7Uluvz3kiaHNB9DzzwAYokOaq7FzJQgu04/YcqjFf8WiYT+JFkQmEih9y
+	L4I26oHrzhROh2ZMYKb9L
+X-Received: by 2002:a05:6870:41d2:b0:475:a1ec:9613 with SMTP id 586e51a60fabf-48476c61b11mr7860909fac.21.1789667720572;
+        Thu, 17 Sep 2026 10:55:20 -0700 (PDT)
+Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-486ab6c1f31sm578446fac.10.2026.09.17.10.55.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 17 Sep 2026 10:55:20 -0700 (PDT)
+From: James Hilliard <james.hilliard1@gmail.com>
+Subject: [PATCH net-next v3 0/3] net: stmmac: add Allwinner H616 EMAC1
+ support
+Date: Thu, 17 Sep 2026 11:55:11 -0600
+Message-Id: <20260917-submit-h616-emac1-v1-v3-0-62cb8316e19b@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/42Oyw6CMBBFf4V0bU1fILjyP4yLtgxQI8W0tcEQ/
+ t1SXbhwYTKbm5l7zizIgzPg0bFYkINovJlsCnxXID1I2wM2bcqIEVaRhgrsH2o0AQ8VrTCMUlM
+ cKaaCHwivBZNKoVS9O+jMnLFnZCFgC3NAl/cmEa6gw0bdbgfjw+Se+YNIc+MjK3/L0hBMm7IFo
+ hTtannqR2luez2NWRHZPxCWIJwxxRkIAqr5hqzr+gK92Q3iGQEAAA==
+X-Change-ID: 20260914-submit-h616-emac1-v1-143703842abb
+To: Richard Genoud <richard.genoud@bootlin.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
+ Jose Abreu <joabreu@synopsys.com>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>
+Cc: Maxime Ripard <mripard@kernel.org>, 
+ Alastair D'Silva <alastair@d-silva.org>, netdev@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ James Hilliard <james.hilliard1@gmail.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_105006_607852_DDFACD81 
-X-CRM114-Status: GOOD (  14.10  )
+X-CRM114-CacheID: sfid-20260917_105522_141464_7E8E38A6 
+X-CRM114-Status: GOOD (  13.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,51 +122,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Wentao,
+The H616 secondary EMAC supports RMII at 10/100 Mbps and uses a separate
+system-control clock register at offset 0x34. Add its binding and a
+sun8i stmmac variant using that register. A distinct compatible without
+an older fallback prevents the driver from using EMAC0's clock register.
 
-On Thu, 17 Sep 2026 15:27:19 +0000
-Wentao Liang <vulab@iscas.ac.cn> wrote:
+EMAC1 connects internally to the co-packaged AC200 or AC300 EPHY and has
+no external PHY pins. Leave PHY initialization to the PHY driver instead
+of using the H3 internal-PHY controls. The RMII-only variant does not
+expose the RGMII clock-delay properties.
 
-> The error cleanup loop puts l1rsync_clk and l1rclk_clk a second time
-> and never puts l1tsync_clk or l1tclk_clk, because the branches that
-> guard the transmit clocks use the receive clock field names.
-> 
-> Use the matching field in each branch so every clock acquired by
-> tsa_of_parse_tdms() is released exactly once.
-> 
-> Fixes: 1d4ba0b81c1c ("soc: fsl: cpm1: Add support for TSA")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
-> ---
->  drivers/soc/fsl/qe/tsa.c | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/soc/fsl/qe/tsa.c b/drivers/soc/fsl/qe/tsa.c
-> index 4a88e54d25b9..94691369353e 100644
-> --- a/drivers/soc/fsl/qe/tsa.c
-> +++ b/drivers/soc/fsl/qe/tsa.c
-> @@ -865,12 +865,12 @@ static int tsa_of_parse_tdms(struct tsa *tsa, struct device_node *np)
->  			clk_put(tsa->tdm[i].l1rclk_clk);
->  		}
->  		if (tsa->tdm[i].l1tsync_clk) {
-> -			clk_disable_unprepare(tsa->tdm[i].l1rsync_clk);
-> -			clk_put(tsa->tdm[i].l1rsync_clk);
-> +			clk_disable_unprepare(tsa->tdm[i].l1tsync_clk);
-> +			clk_put(tsa->tdm[i].l1tsync_clk);
->  		}
->  		if (tsa->tdm[i].l1tclk_clk) {
-> -			clk_disable_unprepare(tsa->tdm[i].l1rclk_clk);
-> -			clk_put(tsa->tdm[i].l1rclk_clk);
-> +			clk_disable_unprepare(tsa->tdm[i].l1tclk_clk);
-> +			clk_put(tsa->tdm[i].l1tclk_clk);
->  		}
->  	}
->  	return ret;
+First move the MAC software reset from probe to the DMA reset callback,
+after PHY initialization. This lets the MAC and its MDIO bus remain
+registered when the PHY driver or one of its suppliers is not ready yet.
+Keep the separate H3 MDIO-mux reset sequence unchanged.
 
-Indeed, good catch!
+The AC200/AC300 EPHY driver and package bindings are already in
+net-next. This series separates the H616 EMAC1 MAC driver and binding
+support from the earlier combined series. PWM, MFD and device-tree
+enablement are being handled separately.
 
-Reviewed-by: Herve Codina <herve.codina@bootlin.com>
+Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+---
+Changes in v3:
+- Add a prerequisite fix moving the MAC software reset to the DMA reset
+  callback, after PHY initialization, so delayed module loading and
+  deferred PHY probes do not tear down the MAC and its MDIO bus.
+- Preserve the H3 MDIO-mux reset and propagate hardware-reset failures
+  through the normal stmmac hardware-setup error path.
+- Add Alastair D'Silva to Cc and rebase onto current net-next.
+- Link to v2: https://patch.msgid.link/20260915-submit-h616-emac1-v1-v2-0-322b32e40eb9@gmail.com
+
+Changes in v2:
+- Drop EMAC1 TX/RX clock-delay property support and keep the existing
+  RGMII-only delay descriptions unchanged, as requested by Maxime Ripard.
+- Clarify that EMAC1 connects internally to a co-packaged PHY, not an
+  external PHY or the H3-style internal-PHY controls.
+- Rebase onto current net-next.
+- Link to v1: https://patch.msgid.link/20260915-submit-h616-emac1-v1-v1-0-195de0bb1f8a@gmail.com
+
+---
+James Hilliard (3):
+      net: stmmac: sun8i: reset the MAC after PHY initialization
+      dt-bindings: net: allwinner: add H616 EMAC1
+      net: stmmac: sun8i: add support for Allwinner H616 EMAC1
+
+ .../bindings/net/allwinner,sun8i-a83t-emac.yaml    | 13 +++++
+ .../devicetree/bindings/net/snps,dwmac.yaml        |  2 +
+ drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c  | 66 +++++++++++++---------
+ 3 files changed, 55 insertions(+), 26 deletions(-)
+---
+base-commit: 26ee8cd69d46a14b37ba5e512084fe80d730127a
+change-id: 20260914-submit-h616-emac1-v1-143703842abb
 
 Best regards,
-Hervé
+--  
+James Hilliard <james.hilliard1@gmail.com>
+
 
