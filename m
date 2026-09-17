@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0F5BC982DB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B65FAC982D9
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 18:38:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,37 +12,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oKmKsOz0rmPsjSmLJwkcoCz4Udwn6GVMn7bxI6KVIZ8=; b=tvzYBbMnf1k9DMXl9HSWMPj342
-	B2D3B+bO9iwy0a4hC78+3tIo5o/zMDtrKSuEaFOLen/Mt2XAgVVDiI7eW4MeuxZ07wYjelJ49v9N+
-	HVSgWmbM1UyG0C4LpfGhG6Z/uWEh+yCAbEixRHp6FKegl5XwJktA0hPtxlIx7Sali4Zp8QjuCEivz
-	PowItC8t6uvH0D5/DR0u52zSMRTqaYtV5F5tj+VEu91WGUbCajE3xyt9MufgZcCFCok9FI65stjiI
-	XbmcuyqO04eJHkJRYtiMhfJMFC7r2AgCCh9ISki0QG/BDEOtXcGRKu3nlZ9l3o1Ek9xVBvkwzC9fW
-	pGXTUnxA==;
+	bh=7/HZTASVkqKaji0QyjTNpQOcpYSX+5MHinbb2iPHtgk=; b=nobbFY5bDSRju1CR27fR0kOZSz
+	+4U9eS2LUxysB2q6lf9GdK1SQfrTHm0wDtzx3c1FD6Lml91LdivPfpQCmfjrtmn5XRde7izPbj1MY
+	wtj0PklwvIqGdBtNH4hw3qkR2uQ1QSeCO9fwql9LcB2NZiZcet45uWnmi0srv92IPwN44Wp2vlQk9
+	R0gu8Z35IL7oC8fc7TDBY6UNyzjMSx3/Zt67CRny+nAIRbv2A8YzBeH1WLZFCd2qk0cwzE5ETZgpO
+	QO7S/5bzjlPN7TducZO/2tUAxtltwtrqIQqdhKHvKQ82UBIXhzD0WmSWfkPe1U0jZztvsceFGFxsN
+	s1JGSBJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7H0F-0000000CFcC-2GHJ;
-	Thu, 17 Sep 2026 18:38:35 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x7H08-0000000CFPn-2Jax;
+	Thu, 17 Sep 2026 18:38:28 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7H06-0000000CFLg-3ulP;
-	Thu, 17 Sep 2026 18:38:27 +0000
+	id 1x7H02-0000000CFJZ-19oo;
+	Thu, 17 Sep 2026 18:38:22 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 60C6E60209;
-	Thu, 17 Sep 2026 18:38:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8754B1F00893;
-	Thu, 17 Sep 2026 18:38:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0B44643E24;
+	Thu, 17 Sep 2026 18:38:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D2E31F000FF;
+	Thu, 17 Sep 2026 18:38:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789670306;
-	bh=oKmKsOz0rmPsjSmLJwkcoCz4Udwn6GVMn7bxI6KVIZ8=;
+	s=k20260515; t=1789670301;
+	bh=7/HZTASVkqKaji0QyjTNpQOcpYSX+5MHinbb2iPHtgk=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=FPWK5qc8ZUfZACfSRpN3e+20j29nrCMV1H2aePYIWBQfBiu/GnECo1fWXjEfE39II
-	 dG+JcgvRShPb51sTZDQy3KYaiaMRsO/fQEfMVqr9kA6il98ubGEFopVeIaISBJ7n+7
-	 cn3iDXBafqYnoBBizRwr7/zjE0jydr49PqbQDFypuqkeKzJ6r0LINKBnQp708lFr8D
-	 u/l12cMd04ujVlhWN9vFLcNwVmGNCeL/frrLY/XrtdXx2SzcWHOU7rjANGCbOdFML4
-	 ozXhWTMAXAV7jZK4Ywkyez+kmCZFVpJW5GV6ElzDIrqciwKzUyaeU5GAHjx2uJOUd3
-	 nnVCiQwhSW4yA==
-Subject: Re: [PATCH net-next v6 10/11] arm64: dts: rockchip:
- rk3568-photonicat: enable SGMII LAN port
+	b=DzUy4DNsPs6KVxt3KwqIt7hsBJPGJfY5+jH/P+/NawPmKCuwHebVhj5iWmcMGZab0
+	 ivWn04rnlTtaofhzwCPdSwq0X6GdxAydr7CYNce8WNGUsE5uYRw712OW7NVlP+nyqt
+	 y+VISEl3gdx6iVV3h3pAG3y/kUgYM6UZex7J3xOwH7CS45MpkR238mqmq7cbCGQhAC
+	 hHvYz0hVDC0FiObk0dp3wjKiJkIMqZAvKHmY2T2uz+AyucMQGh++gjX3Axmhzm0v0M
+	 IbJu6pq1XWBIVbMX9pzHBNlM84TCf2lOZhIFGYwB1I6vB/2rGzD3h0E2OdqJ0RvXDy
+	 N6T9w5dr/lBpw==
+Subject: Re: [PATCH net-next v6 08/11] dt-bindings: net: rockchip-dwmac:
+ document pcs-handle
 From: netdev-bot+sashiko@kernel.org
 To: coiaprant@gmail.com
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
@@ -56,11 +56,11 @@ Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
  linux-stm32@st-md-mailman.stormreply.com, linux-renesas-soc@vger.kernel.org
-Date: Thu, 17 Sep 2026 18:38:24 +0000
-Message-ID: <178967030410.22033.9337863064862932142@kernel.org>
-In-Reply-To: <20260915123802.1561724-11-coiaprant@gmail.com>
-References: <20260915123802.1561724-11-coiaprant@gmail.com>
-X-sashiko-severity: Medium
+Date: Thu, 17 Sep 2026 18:38:20 +0000
+Message-ID: <178967030009.22033.606150817628079939@kernel.org>
+In-Reply-To: <20260915123802.1561724-9-coiaprant@gmail.com>
+References: <20260915123802.1561724-9-coiaprant@gmail.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
@@ -78,94 +78,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 1 potential
+Thank you for your contribution! Sashiko AI review found 2 potential
 issue(s) to consider:
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+Critical: 0 · High: 0 · Medium: 0 · Low: 2
 
-- [Medium] DT binding and SoC dtsi disagree:
-  Documentation/devicetree/bindings/net/pcs/rockchip,rk3568-xpcs.yaml…
+- [Low] Commit message describes code that does not exist at this commit:
+  the message states the Rockchip dwmac glue "now supports SGMII on…
+- [Low] The new `allOf` conditional in
+  Documentation/devicetree/bindings/net/rockchip-dwmac.yaml keys only on…
 
 --
 
-arm64: dts: rockchip: rk3568-photonicat: enable SGMII LAN port
+dt-bindings: net: rockchip-dwmac: document pcs-handle
 
-This enables the SGMII LAN port on the Ariaboard Photonicat by turning on
-gmac0, the xpcs node and its port 0 sub-node, adding the YT8521SC PHY on
-mdio0, and adding PHY LED nodes for both the new and existing PHYs.
+This adds a pcs-handle property to the Rockchip GMAC binding and a new
+allOf conditional making it required whenever phy-mode is "sgmii".  Two
+observations below, one about the commit message wording and one about
+the scope of the new conditional.
 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts b/arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts
-> index 58c1052ba8ef3..fdaa4a2a4328b 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts
+>     The Rockchip dwmac glue driver now supports SGMII on RK3568 and
+>     requires a PCS, referenced through the "pcs-handle" property.  The
+>     property is parsed by rk_pcs_init() and a missing phandle fails the
+>     probe, so describe it in the binding and require it when phy-mode
+>     is "sgmii".
 
-[ ... ]
+[Severity: Low]
+This isn't a bug, but the wording is in the past tense for code that is not
+present yet at this commit.  At fc2e19066d08,
+drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c has no rk_pcs_init(), no
+"pcs-handle" parsing, and no pcs_init/pcs_exit/select_pcs callbacks or
+SGMII support.
 
-> @@ -586,3 +646,13 @@ &xin32k {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&clk32k_out1>;
->  };
+Checking the end of the series, those all arrive in the following patch
+("net: stmmac: dwmac-rk: add SGMII support for RK3568"), which adds
+rk_pcs_init() with:
+
+	pcs_node = of_parse_phandle(np, "pcs-handle", 0);
+	if (!pcs_node)
+		return -ENODEV;
+
+and installs the callbacks in rk_gmac_probe() for
+PHY_INTERFACE_MODE_SGMII.
+
+Putting the binding before the driver is the usual convention, so would it
+be worth rewording to say the property will be parsed by rk_pcs_init() in
+the following patch, rather than that it already is?
+
+> diff --git a/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml b/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
+> index 80c252845349c..67b21ea77ec96 100644
+> --- a/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
+> +++ b/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
+> @@ -120,6 +120,12 @@ properties:
+>      maximum: 0x7F
+>      default: 0x10
+>  
+> +  pcs-handle:
+> +    description:
+> +      Specifies a reference to a node representing the PCS device
+> +      connected to this GMAC. Required when phy-mode is "sgmii".
+> +    maxItems: 1
 > +
-> +&xpcs {
-> +	phys = <&combphy2 PHY_TYPE_SGMII>;
-> +	phy-names = "serdes";
-> +	status = "okay";
-> +};
+>  phy-supply:
+>      description: PHY regulator
+>  
+> @@ -159,6 +165,15 @@ allOf:
+>          clocks:
+>            minItems: 5
+>  
+> +  - if:
+> +      properties:
+> +        phy-mode:
+> +          contains:
+> +            const: sgmii
+> +    then:
+> +      required:
+> +        - pcs-handle
+> +
 
-[Severity: Medium]
+[Severity: Low]
+Should this conditional also key on compatible?  As written it keys only on
+phy-mode, so required: [pcs-handle] applies to all sixteen compatibles this
+schema selects (px30, rk3128, rk3228, rk3288, rk3308, rk3328, rk3366,
+rk3368, rk3399, rk3506, rk3528, rk3568, rk3576, rk3588, rv1108, rv1126).
 
-Should phys/phy-names live in the board file rather than in rk3568.dtsi?
+At the end of the series only rk3568_ops provides .set_to_sgmii, and
+dwmac-rk.c derives the capability from it:
 
-Documentation/devicetree/bindings/net/pcs/rockchip,rk3568-xpcs.yaml lists
-both of them as mandatory:
+	bsp_priv->supports_sgmii = ops->supports_sgmii || !!ops->set_to_sgmii;
 
-    required:
-      - compatible
-      - reg
-      - "#address-cells"
-      - "#size-cells"
-      - clocks
-      - clock-names
-      - phys
-      - phy-names
-      - power-domains
+so the PCS requirement looks specific to rockchip,rk3568-gmac.
 
-    additionalProperties: false
+The reverse direction is open too: pcs-handle is added unconditionally, so a
+GMAC node on a Rockchip SoC with no XPCS can carry a pcs-handle and still
+pass dt_binding_check.  The rest of this file already gates SoC-specific
+constraints on compatible with a negative else branch, for example:
 
-But the SoC node in arch/arm64/boot/dts/rockchip/rk3568.dtsi supplies
-neither:
+  - if:
+      properties:
+        compatible:
+          contains:
+            enum:
+              - rockchip,rk3576-gmac
+              - rockchip,rk3588-gmac
+    then:
+      required:
+        - rockchip,php-grf
+    else:
+      properties:
+        rockchip,php-grf: false
 
-    xpcs: ethernet-pcs@fda00000 {
-            compatible = "rockchip,rk3568-xpcs";
-            #address-cells = <1>;
-            #size-cells = <0>;
-            reg = <0x0 0xfda00000 0x0 0x200000>;
-            clocks = <&cru PCLK_XPCS>, <&cru CLK_XPCS_EEE>;
-            clock-names = "csr", "eee";
-            power-domains = <&power RK3568_PD_PIPE>;
-            status = "disabled";
-            ...
-    };
+Documentation/devicetree/bindings/net/renesas,rzv2h-gbeth.yaml uses
+"pcs-handle: false" in the else branch for the same purpose.  Would nesting
+the new block under a check for rockchip,rk3568-gmac, plus
+"pcs-handle: false" for the variants without a PCS, describe the hardware
+more accurately?
 
-Since dtschema selects on compatible regardless of status = "disabled",
-doesn't every other rk3568 board DTB now fail make CHECK_DTBS=1 with
-"'phys' is a required property" and "'phy-names' is a required property",
-with rk3568-photonicat being the only board that happens to satisfy the
-binding?
+No in-tree DT is affected today: the only Rockchip GMAC node with
+phy-mode = "sgmii" is in rk3568-photonicat.dts, and it already provides
+pcs-handle = <&xpcs_mii0>.
 
-The SerDes here also looks SoC-internal rather than board-specific: it is
-combphy2 in SGMII mode, the glue driver asks for devm_phy_get(dev,
-"serdes"), and the binding's own example already uses
-phys = <&combphy2 PHY_TYPE_SGMII>.
-
-Would it be better to put phys/phy-names in rk3568.dtsi, so board files
-only flip status and set rockchip,sgmii-mac-sel, or alternatively to drop
-the two properties from the binding's required: list?
-
-I checked the following commits in the series and did not find a patch that
-adds these properties to rk3568.dtsi or relaxes the binding, and the
-baseline has no xpcs node at all, so the disagreement appears to come from
-this series.
+>  unevaluatedProperties: false
+>  
+>  examples:
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260915123802.1561724-1-coiaprant%40gmail.com
