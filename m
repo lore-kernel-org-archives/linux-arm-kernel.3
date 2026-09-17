@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8752AC982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 21:13:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BDDDC982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 21:14:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=v4ALv4PlUkkEzw8n/20WsOuPBd75uA1YbabHxHjcL1k=; b=qChycS2TjF+pKQmE5aOzbtpVNm
-	4lRq8kY0WveMDhkAqetndYzkRfPA1XfSeg5d0Js0xenjMOUOUoIwNwlhvUO9L7PIEb8vvHmaF7ZTx
-	C2C+t8lvMH/DhNHM6fwzh23FJxJbIlWTEnZ0lpyf8drwP1B7Uio9t/N1Gig+7KSoK8P65rrkgZO2X
-	IsFNmfKo/HuXHTt160XrV5k7ew3nqCQMO5Rto37POI2VkWAjx2XMB3RhTHLCw9yBbVboCjvp6Fe7z
-	RaWAT1LzmPwnUIVJO3d9Tqxhz4ogf8HuTIA2lTc/26LL3wBp8Ri0/MLIcVD1tagl7/nhEPfnPRGJr
-	3PgGGMGg==;
+	bh=vVLWU6hu9o3St41DNREmW0G/Wl2S2sbPor3jCAzvQLc=; b=ywIOhx5SgV0/onGJJk2uJ745BZ
+	OXHWJ16RpkiHtoPTwBnG+Kqv+DgmMH7SqKT/3uFKh8uxEywj9M9oPkuYDoIlxKNP1WoeQjP/oe9+d
+	JsxN1316YnmmqfT/djgmYs0QfknlmhzCtbxkv46CTDsQvP4tKaCchMaDKuGdLJeQ/KR3QTshuhDnT
+	tD1Alt6Dngg240kfjTyp/HlMHkbXn7qmvrYXPUC3Y8zJl36t/KCjBjBr6QHQT0wh5Hbwe2I5bJ0p6
+	X+tCrFnW7EVRSeiJ6ni0MhH0jbkjch2HM/6Eb4cllC4WvdznDDp8camVUXC1dIVyCkMStCQ1CcDJr
+	96xmpmVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7JQS-0000000CXcI-12Ff;
-	Thu, 17 Sep 2026 21:13:48 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x7JQk-0000000CXh1-1U72;
+	Thu, 17 Sep 2026 21:14:06 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7JQQ-0000000CXc2-3N44
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 21:13:46 +0000
+	id 1x7JQj-0000000CXgq-37wo;
+	Thu, 17 Sep 2026 21:14:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 61B814031B;
-	Thu, 17 Sep 2026 21:13:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43DA51F000FF;
-	Thu, 17 Sep 2026 21:13:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 34B24601FF;
+	Thu, 17 Sep 2026 21:14:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E08C41F000FF;
+	Thu, 17 Sep 2026 21:14:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789679626;
-	bh=v4ALv4PlUkkEzw8n/20WsOuPBd75uA1YbabHxHjcL1k=;
+	s=k20260515; t=1789679644;
+	bh=vVLWU6hu9o3St41DNREmW0G/Wl2S2sbPor3jCAzvQLc=;
 	h=From:To:Cc:Subject:Date;
-	b=nKtBz2XwUR4kkvAOpRK51OeI2Vqak5cDuxLjb4y1t/5LokQAyFcXRRhirId6zMdeR
-	 Fpc6hX7la/BPYfFxd4SaRUD50d8rxEUza3grU5WXb+A1Bbxpelm2pyIPiuMonfZDtM
-	 Z5AyBMpTkmFSrLC9dy+VP5TsZxzxV3Wqhn4VDttL15N7u+3KKugCLICUKd8pKd+Tu5
-	 27qs4dud3pTo/QMsTiHEKrKYkL3qgKawQxuUPzgmeHgGDyBb9XQJIb3zvbZO6lFte9
-	 c4sYe1TCnzWsl/0oFWtFSDhFg+CLaCJ6di1KIvIb4VopVnvqzix59MnC9m8dkVSY63
-	 bqNqGqkb66KGg==
+	b=aYz3VNieHISjVjRl171VfOM1LIF536Ca1nZL2yVVTPZQapY9GAzBiarIG/YGuQ1cV
+	 51cytjyxRlRu4oSHK1VdA4XDKycd6a7kwhdW/ZH1JiJM0d6iS1vhxCziA7/1/CcC1G
+	 8e7IJNhGKl33ER18KO8QCnsY/KyUTjB1QJ9/Yz1OsPIB+2FV5/XGfl+jwKssnA4gpn
+	 7N3utaSb4nyeP6GMhli17QIRfy36U/w+MSMjgZbNaW18KLWLLHavHfQkHwfso28UjP
+	 I6vh8RRsbotRB3LWHAPIf99EuKa007Q5BbXfci/3sX8uwi/NQBr/Js6JS1TWhiaiNB
+	 e4tZMnYzAmpng==
 From: Kees Cook <kees@kernel.org>
-To: Sudeep Holla <sudeep.holla@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>
 Cc: Kees Cook <kees@kernel.org>,
 	Kees Cook <kees+treewide@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Guenter Roeck <linux@roeck-us.net>,
-	arm-scmi@vger.kernel.org,
+	Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	linux-sound@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-hwmon@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-hardening@vger.kernel.org
-Subject: [PATCH] hwmon: scmi: Fix info[] allocation type
-Date: Thu, 17 Sep 2026 14:13:45 -0700
-Message-Id: <20260917211344.i.911-kees@kernel.org>
+Subject: [PATCH] ASoC: rockchip: rk3399_gru_sound: Allocate dai_link with ARRAY_SIZE()
+Date: Thu, 17 Sep 2026 14:14:04 -0700
+Message-Id: <20260917211403.i.984-kees@kernel.org>
 X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1723; i=kees@kernel.org; h=from:subject:message-id; bh=rFYSh2hqNBw2ENmrdsxu+Uyvi5RqE7u5dNsIMBJsNcQ=; b=owGbwMvMwCVmps19z/KJym7G02pJDFlrIjh2i7cvmKH4o+iA+daEQx5+e68J5PHs/i9z5ynnd 76jJ53FOkpZGMS4GGTFFFmC7NzjXDzetoe7z1WEmcPKBDKEgYtTACaS6sbIsEVq0ZzC3NWN0WFH HJtePwt3X7XiCFPCKpPgZzNYZzKxFDD8FYiZfadF9kWJ1NWlKVKxxXvvy913qNvT5GEslXN97Y0 mVgA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1851; i=kees@kernel.org; h=from:subject:message-id; bh=YPscJPXSG26pxamepuqPmb0syryk1A1xxqn90YUkCNs=; b=owGbwMvMwCVmps19z/KJym7G02pJDFlrIqRtar7o9xS/7437YbSZ/UfXxtXHMnPN8w7lbWDJM 7HMKw/rKGVhEONikBVTZAmyc49z8XjbHu4+VxFmDisTyBAGLk4BmMgmZ0aGDWKO6+fPbv0U+k57 qbuyROimQsv+2RYXV92Z/nvxyziJ+YwMK4RrfjYddeHi9Y2a/SfqfZ2gp08by0655vUzLv3f9im JHwA=
 X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -83,43 +84,45 @@ matches the type of the variable being assigned. (Before, the allocator
 would always return "void *", which can be implicitly cast to any
 pointer type.)
 
-The assigned type of "scmi_sensors->info[type]" is
-"const struct scmi_sensor_info **", but the converted allocation type
-would be "const struct scmi_sensor_info ***", as the size was taken from
-"*scmi_sensors->info", which is one level of indirection too many.
-Luckily both element types are pointers of the same size. Take the size
-from the element type of the assignment target.
+This is allocating a copy of rockchip_dais, which is an array of struct
+snd_soc_dai_link, but the size was taken from the whole array, which
+would make the allocation type a pointer to the array rather than the
+"struct snd_soc_dai_link *" being assigned. Allocate ARRAY_SIZE-many
+entries instead. The resulting allocation size is the same.
 
 Build tested ARCH=x86_64 allmodconfig with GCC 16.2.0:
-drivers/hwmon/scmi-hwmon.o
+sound/soc/rockchip/rk3399_gru_sound.o
 
 Assisted-by: LLM coccinelle
 Signed-off-by: Kees Cook <kees+treewide@kernel.org>
 ---
-Cc: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: Cristian Marussi <cristian.marussi@arm.com>
-Cc: Guenter Roeck <linux@roeck-us.net>
-Cc: <arm-scmi@vger.kernel.org>
+Cc: Liam Girdwood <lgirdwood@gmail.com>
+Cc: Mark Brown <broonie@kernel.org>
+Cc: Jaroslav Kysela <perex@perex.cz>
+Cc: Takashi Iwai <tiwai@suse.com>
+Cc: Heiko Stuebner <heiko@sntech.de>
+Cc: <linux-sound@vger.kernel.org>
 Cc: <linux-arm-kernel@lists.infradead.org>
-Cc: <linux-hwmon@vger.kernel.org>
+Cc: <linux-rockchip@lists.infradead.org>
 ---
- drivers/hwmon/scmi-hwmon.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ sound/soc/rockchip/rk3399_gru_sound.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/hwmon/scmi-hwmon.c b/drivers/hwmon/scmi-hwmon.c
-index eec223d174c0..9ae8f774297e 100644
---- a/drivers/hwmon/scmi-hwmon.c
-+++ b/drivers/hwmon/scmi-hwmon.c
-@@ -305,7 +305,8 @@ static int scmi_hwmon_probe(struct scmi_device *sdev)
+diff --git a/sound/soc/rockchip/rk3399_gru_sound.c b/sound/soc/rockchip/rk3399_gru_sound.c
+index b80acb221d24..04e7bed8275d 100644
+--- a/sound/soc/rockchip/rk3399_gru_sound.c
++++ b/sound/soc/rockchip/rk3399_gru_sound.c
+@@ -505,8 +505,8 @@ static int rockchip_sound_of_parse_dais(struct device *dev,
+ 	int i, index;
+ 	int num_routes;
  
- 		scmi_sensors->info[type] =
- 			devm_kcalloc(dev, nr_count[type],
--				     sizeof(*scmi_sensors->info), GFP_KERNEL);
-+				     sizeof(*scmi_sensors->info[type]),
-+				     GFP_KERNEL);
- 		if (!scmi_sensors->info[type])
- 			return -ENOMEM;
- 	}
+-	card->dai_link = devm_kzalloc(dev, sizeof(rockchip_dais),
+-				      GFP_KERNEL);
++	card->dai_link = devm_kcalloc(dev, ARRAY_SIZE(rockchip_dais),
++				      sizeof(*card->dai_link), GFP_KERNEL);
+ 	if (!card->dai_link)
+ 		return -ENOMEM;
+ 
 -- 
 2.34.1
 
