@@ -4,62 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8F9EC982D2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 21:51:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27CF2C982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 21:54:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ADx1gBJd+i0kQFNsWeKzJizPoigYcAbyJ2J0mmsvfAo=; b=RMPFQUHQU+moOWUcCgWGt5uo+g
-	uIw5umGhZK0ppy6gqcqO6Ctv31JdYbS7iwVmWEdRC3ZHuL3ulVfojIqJzkZZ9KNsvsxGXcAn+ksQ3
-	gsby9/idvWrOuc3ip/6hEp8Reuqp5EMvRmXwyW4+lefZ4cvrqXT7mId87xaNAmpeTZsBWY6Czp377
-	JpAAW+OjA0Lxxr0olkc65JzWSyGscV5016volb0HGgQ3CxvKjCEkiLKk+O5r3+hSNprbCOK8yF1vs
-	yVqb8+NYC7jgNNPsvjK3ihCBwz24Q3r8D7WcY2MikYxXtPdFpUA7KUFtzOoVbrRcYwVIk2JXiXwlg
-	3YFleNXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RVssTxQ5vgUrZLRLdaleGA3EAw+f1WjUsfJeu7ykFSQ=; b=GQG7ql2lVjGwyOQaGlyR5UIsvD
+	qyzZqvE03ljC2x7XYG0935tJQVApQw1dakH20NnWJk+nRcdeTKpnUEyuTvXf1EaSIFYnPrZ5dkUQG
+	stlS+0mFJ9TRtZUHHFpC1qAop3G7vUFzVx3OItmKovrt7+HxZDua7K1Cumtd6bO7+KKYKjPueVztn
+	CWSlslSA0pp/05c85ZBaSlD9E/YjA6vPLja/3rYCiUdY/6TMVeMoldSObhSjcv1rbYdWJ7K/sKRA0
+	DxlMvIVJv9X5JHXzlbyVTu8bDiGlhGvjVxpUHrkihr7dPMuGkfJo3yZwcFD7OOyxkYgpb/gKM/Y04
+	RvQAJqQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7K0c-0000000CavQ-04Ee;
-	Thu, 17 Sep 2026 21:51:10 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x7K3Q-0000000CbFe-2zqm;
+	Thu, 17 Sep 2026 21:54:04 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7K0b-0000000CavH-1ptu;
-	Thu, 17 Sep 2026 21:51:09 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1419743AB4;
-	Thu, 17 Sep 2026 21:51:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC7CB1F000FF;
-	Thu, 17 Sep 2026 21:51:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789681869;
-	bh=ADx1gBJd+i0kQFNsWeKzJizPoigYcAbyJ2J0mmsvfAo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=l8ONJhXHxC+X/t24/AiGf5UNJe1DNBUoULGuS5RcwKM9CaNihbEHnweehLB5fAM3a
-	 4pBl12Jdjyg6Cb/ghE1h2ZmpiRB8SvoUiBSYp9RlN+d1CJ1Du7YkkbSVgHDQ9doUwH
-	 wB5BkDlkfq5IeCABocbIr7L4mpnGbaB9c/KatqkYsvLZ4RzVzq3BihUwVnvvWbTyze
-	 D23EfsHIdmp8SaxCz2HsP/9Fxkq4Nq9a/sBoMDMSN8U/GT3nIqvPS4THu454PvmuZG
-	 9XxOdec0CjDIeG8+CzZIO/N/yUseauC0t04877qKYjb8fCxvs8Jc5I/EcBR3xscijt
-	 U5sgNLPBAaUmA==
-Date: Thu, 17 Sep 2026 16:51:07 -0500
-From: Rob Herring <robh@kernel.org>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Vinod Koul <vkoul@kernel.org>,
+	id 1x7K3N-0000000CbF0-0QjE
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Sep 2026 21:54:03 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 0C8F9C58468;
+	Thu, 17 Sep 2026 21:54:42 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 518DC5FF03;
+	Thu, 17 Sep 2026 21:53:57 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A0EBE11C7B078;
+	Thu, 17 Sep 2026 23:53:41 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1789682035; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=RVssTxQ5vgUrZLRLdaleGA3EAw+f1WjUsfJeu7ykFSQ=;
+	b=B/cHhhavaDQz18JaBzY8BKWcyyfggNcvB1vpabYphY86oewjFYhyrWdV1fWuzz6yYqrvkJ
+	LiJoYKR73JqD6ThakxMp98/1eUPJ3RgEAvFdo6q8hqm73enC7LFYmI9CZ+zrBDgNqQu+KJ
+	LB/etemXNhdzNtMZS09ujspMPwlYQYjibwlwompwISFghhij5a9hOgBQQOyt+DinDhfay9
+	Nh7Dbsnr/1sPJBX5Df+YMD1pbLipQbT7JiDgQZ/AMi+4i3OGhQOZzHbuKFRBNE6df4jrS1
+	dDx/xytRzB1mvjUmZ1VoYHypGIiJPRLH53SLbZPRYish9BrA5Xlk/ung5S9PlQ==
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	davem@davemloft.net,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Minda Chen <minda.chen@starfivetech.com>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/2] dt-bindings: phy: airoha: Document support for
- AN7583 Gen3 PCIe PHY
-Message-ID: <20260917215107.GA3884839-robh@kernel.org>
-References: <20260901125819.20378-1-ansuelsmth@gmail.com>
- <20260901125819.20378-2-ansuelsmth@gmail.com>
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Jan Petrous <jan.petrous@oss.nxp.com>,
+	Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
+	Jose.Abreu@synopsys.com,
+	Nicolai Buchwitz <nb@tipi-net.de>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	thomas.petazzoni@bootlin.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	PKneuper@dspace.de,
+	David Laight <david.laight.linux@gmail.com>
+Subject: [PATCH net v4 0/7] net: stmmac: More selftest-related fixes
+Date: Thu, 17 Sep 2026 23:53:31 +0200
+Message-ID: <20260917215339.2022523-1-maxime.chevallier@bootlin.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260901125819.20378-2-ansuelsmth@gmail.com>
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260917_145401_472280_76627721 
+X-CRM114-Status: GOOD (  12.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,63 +96,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 01, 2026 at 02:58:17PM +0200, Christian Marangi wrote:
-> Document support for AN7583 PCIe PHY used to make the Gen3 PCIe port
-> work. Add the required register to configure the PCIe PHY and provide an
-> example for it.
-> 
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> ---
->  .../phy/airoha,an7583-pcie-gen3-phy.yaml      | 65 +++++++++++++++++++
->  1 file changed, 65 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/phy/airoha,an7583-pcie-gen3-phy.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/phy/airoha,an7583-pcie-gen3-phy.yaml b/Documentation/devicetree/bindings/phy/airoha,an7583-pcie-gen3-phy.yaml
-> new file mode 100644
-> index 000000000000..a8ec5ac781cc
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/phy/airoha,an7583-pcie-gen3-phy.yaml
-> @@ -0,0 +1,65 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/phy/airoha,an7583-pcie-gen3-phy.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Airoha AN7583 PCI-Express PHY
-> +
-> +maintainers:
-> +  - Christian Marangi <ansuelsmth@gmail.com>
-> +
-> +description:
-> +  The PCIe PHY supports physical layer functionality for PCIe Gen2/Gen3 port.
-> +
-> +properties:
-> +  compatible:
-> +    const: airoha,an7583-pcie-gen3-phy
-> +
-> +  reg:
-> +    items:
-> +      - description: PCIE G3 analog base address
-> +      - description: PCIE G3 PMA base address
-> +      - description: PCIE detection time base address
-> +      - description: PCIE Rx AEQ base address
-> +
-> +  reg-names:
-> +    items:
-> +      - const: g3-ana
-> +      - const: g3-pma
-> +      - const: xr-dtime
-> +      - const: rx-aeq
-> +
-> +  phys:
-> +    items:
-> +      - description: phandle to QPHY phy for Gen2 support
+Hi everyone,
 
-A phy for the phy... That's kind of odd. It there some reason the gen3 
-and gen2 phys aren't both linked to the PCIe host and controlled from 
-there? Doesn't look like there is any interleaved or cross 
-initialization needed to handle these in one place.
+This is V4 of stmmac selftest fixes, addressing Sashiko's issues over
+the MTU patch. This lead to the introduction of a new one. The
+dev_add_pack races have been addressed, however the double-vlan issue
+stayed there. Ovidiu is actively working on it, let's wait for his work
+to land before fixing that.
 
-Rob
+Nicolai, I took the liberty of keeping your review tags on affected
+patches, let me know if this isn't ok.
+
+This is another round of stmmac selftest fixes, mostly about the selftests
+themselves but a few things were discovered w.r.t MTU and buffer size
+handling, see patch 5 anf 6.
+
+After this is merged, I consider the selftests to be now reliable enough
+to run them nightly on every stmmac series that's sent, and I'll be requiring
+clean selftests for new glue drivers.
+
+Since V3, the testing farm grew ! I've been running this on :
+
+ - Altera CycloneV (dwmac-socfpga, dwmac1000 IP, v3.70a)
+ - NXP imx8mp (dwmac-imx, dwmac4, v5.10a)
+ - Allwinner H2S (dwmac-sun8i, dwmac1000)
+ - Amlogic S905X3 (dwmac-meson8b, dwmac1000, v3.70a)
+ - STM32mp157a (dwmac-stm32, dwmac4, v4.20a)
+ - SiFive JH7110 (dwmac-starfive, dwmac4, v5.20)
+ - Motorcomm YT8061 (PCIe, dwmac-motorcomm, dwmac4)
+ - Qualcomm IPQ8064 (dwmac-ipq806x, dwmac1000)
+ - Altera AgileX5 (dwmac-socfpga, dwxgmac2 !) (NEW)
+ - Generic dwmac1000 (Loongson 2K0300, dwmac 3.70a) (NEW)
+ - Rockchip RK3566 (dwmac-rk, dwmac4) (NEW)
+
+It's becoming cumbersome to list the test results here, they can be
+found, updated daily, here :
+
+https://minimaxwell.github.io/stmmac-ci/
+
+Thanks,
+
+Maxime
+
+V4:
+ - Move the dev_add_pack later, to avoid potential races (sashiko)
+ - Add one more MTU fix for 8K buffer selection
+ - Ditch an extra SKB padding in patch 5.
+
+V3:
+https://lore.kernel.org/netdev/20260911212028.1497613-1-maxime.chevallier@bootlin.com/
+ - Bail out of the EEE test if LPI is over 5 seconds
+
+V2:
+https://lore.kernel.org/r/20260910151404.976753-1-maxime.chevallier@bootlin.com
+ - Snapshot before sending the frame for EEE, in case we immediately
+   enter LPI
+ - Also return -ETIMEDOUT instead of EINVAL
+
+V1: https://lore.kernel.org/lkml/20260909074740.1247762-1-maxime.chevallier@bootlin.com/
+
+Maxime Chevallier (7):
+  net: stmmac: selftests: Support running selftests on DSA conduits
+  net: stmmac: selftests: Validate EEE based on the actual LPI timer
+    value
+  net: stmmac: selftests: Check the dev->features for S-TAG offload
+    testing
+  net: stmmac: selftests: Capture all packets for vlan checks
+  net: stmmac: dwmac4: Use the correct bufzise when the len is exactly
+    8K
+  net: stmmac: size the RX buffers from the frame length, not the MTU
+  net: stmmac: selftests: Account for alignment shift on dwmac1000 for
+    Jumbo test
+
+ .../ethernet/stmicro/stmmac/dwmac4_descs.c    |   4 +-
+ drivers/net/ethernet/stmicro/stmmac/hwif.h    |   2 +-
+ .../net/ethernet/stmicro/stmmac/ring_mode.c   |   4 +-
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c |  20 +--
+ .../stmicro/stmmac/stmmac_selftests.c         | 153 ++++++++++++++----
+ 5 files changed, 139 insertions(+), 44 deletions(-)
+
+-- 
+2.55.0
+
 
