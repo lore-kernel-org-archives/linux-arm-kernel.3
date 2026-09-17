@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 077A1C982D9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 23:46:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2009DC982DB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 23:46:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GHqjaxd54GWu9W/8p3KKPNSDycNa549CMUboaCB2NGo=; b=WdSxuWxUf0zJfLtUpNUtzZ0lsF
-	BvhKpL4PmOvGsxKzj+uzGJm7yBIdXhlIdSDTS8sG/aijeAGBNVD3jweGM/xlE4Y6A0dgxHinPiO64
-	LoBuYfR8XxyUJ/mFcW/I7E1QlJ0cNZPniS6HZvW/PKsH4cEeSAAtaxfNVkfZi2qDA4jqQIhdWMckG
-	/JVVbF8qUUBk8ADzdi7RW6bi9nxKUiIPsIU5Ik2Lj5F6TLFnte8IQyh1SDaprGDcrS0eciyqf1trq
-	/xlnOmvzswrvtJZAiABETmMTjzsRXnQVngq0LXgUCDze718ey6frSbm1XJSU7KTs+S8BOB4/NiavK
-	yNiKO1ow==;
+	bh=yZ3DKzOukGqoG/GxXFh53hvF+kqeXZoFNQjmOm5tAX4=; b=ItooptOvW2KrcZf8qVbLoZY2sf
+	BdIjFHsyItC35ulwxrFgphUs9rJjLCM3RU1Gn4LHZZTMcHNOQaxLuslBAnadNJxsDLR5I0BTpB2ts
+	8F+Yvgn6HvSFabr32wNeHKHnyWip9eRCyJF1FhmsLoFouovD7BUAwWegJntwgaXsDfWbttFssg0D7
+	wmVBS+kNbh5zPa2/HlxMtv2v/b3Q00lfw5JemzGqwve7/3CLhEx0egy5Nn5d3iYh1avs3kEpgIsh0
+	t2sKZe60kFNgscVDYp4fQH8P30IPR7OXhJdDeWWWohRFSvLmX++Ec/hy2vRA9N8w6+o7FR9YxDfmV
+	SjTFgdDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7LoU-0000000CxM4-3WIX;
-	Thu, 17 Sep 2026 23:46:47 +0000
+	id 1x7LoW-0000000CxN4-3G6I;
+	Thu, 17 Sep 2026 23:46:48 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7LoN-0000000CxIr-3WYr
+	id 1x7LoP-0000000CxJQ-2Shj
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 17 Sep 2026 23:46:40 +0000
+	Thu, 17 Sep 2026 23:46:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=GHqjaxd54GWu9W/8p3KKPNSDycNa549CMUboaCB2NGo=; b=WHfSdFhw/1NLXSU2+3LXAz9qfs
-	6Q09anG/34rgWvHGlSMDIpw8JnQZFt2hzrs/ItVo4eVeWw5i0bSreGMh63BU0xSk3bAVBCt+8s9Pn
-	Q9MZanOFdGdXXQJW3+J03zrGM8wCRtFES5lPKzfGfNK0bzUEMpQ5Ie5LocP1ldDLge4aynIwQFrFs
-	+NRiR4NeYqJ73mTHaAVOJzEcHqic/GfQk73BqWckODDtwVK5TFpXtXGhTIniDxtVWkPEXY/e8aWk4
-	Q3YJTCd6MFHo8pSXmByo/Ue6dJGVefS/2PQkRQJIyJn0UJfUlWeBc7wzHvEtbAAOGfOHjrqQVi8Aq
-	7SZFx4Dg==;
+	bh=yZ3DKzOukGqoG/GxXFh53hvF+kqeXZoFNQjmOm5tAX4=; b=Yh1MOGcUj7uXmHZzgB8AS4jfWr
+	K7FzdlZqcypFsVRMqI8EOhBfqxAWeKSJlFc/rrBXZrRzh/RBEDEJ4MYdfb0qrNNDMvwa4Au+oDcKi
+	UyqyftJd3vcSgFdtkX2iFf47ef9/m7vNsMXGX6lOLJWCFAKMvGQwmina8Ao3qlCP70Y6U+uVpR5jV
+	gZ98i5gT6jJ5uZfIlONyWyGD/UWCRNY1TE1WklJAsUHBHa8yRopwNvpgz5Jbt001BIQx7X4a1UieO
+	JyskJ0+XaOTYd9FG014UEgmCtb93bZTBJC3Qo6UlkYp72T3/z0cMI+AhqfWlK7c40sOX6FHoR5GHV
+	QbA47PGQ==;
 Received: from fanzine2.igalia.com ([213.97.179.56])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x7LoJ-00000009OYs-43GS
+	id 1x7LoM-00000009Oa3-3u3l
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 23:46:38 +0000
+	Thu, 17 Sep 2026 23:46:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
 	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
 	MIME-Version:Subject:Date:From:From:Reply-To;
-	bh=GHqjaxd54GWu9W/8p3KKPNSDycNa549CMUboaCB2NGo=; b=IDGqoscKagaXGi4N9/+xJkTG+G
-	EVK4FMQc1FFFDBEZhg1GEyMSMm4SaJSzca8B86Ak9Qtjl/MYuPfKEDTcDUydx8AQdJN7KQSgm+erm
-	AsnFbcZFYPCnBEhE4oZOscsJTGOoHYFg44+WRimhZNpDEDtqypbeLIMxd0QNFX/Mq0upaVuCbhfaD
-	OM4cIWSFljpT4f/vJ0mblPADCuIYriEudeA3EaU0071dKQbEghy6WZRb5mYKbrcDNhcgP6STFy6Tt
-	sGBUfaZBb/3Q6+3ucQ+uSsStyrDayolu/Zg/nSuPyOuvkqn4BkNmLVol1a5K2RNIhjG7mG53qx0Pc
-	cyyhFBNA==;
+	bh=yZ3DKzOukGqoG/GxXFh53hvF+kqeXZoFNQjmOm5tAX4=; b=KGO43MUqqvZ7ShZgbTFIZg4sAl
+	EQoHpHo4EiriyhHd3dULAHSuZiDbXh3ABL/YESs2VS4Hw9UsHnnOS/2e0xvOtPjdqSKixDy1EKSJL
+	aPgtADcO9OMPLHsxm7MzLOkPHWCkWqq14+UpmHAcHWhpkUhzVfN2YLpYSLBXdPrXtZgJzJNkUYAfK
+	CSilI8SlucAKLmHpfe97O2E1FOWol35snfAFX31pb9uu8QcVSCMrncqEuhE1KcZiS19FrrZCRexNI
+	E3KOcYriTUj9PvHkhWR8QKv/tThBy9It2boAXPH5VK+tytem7cYbssnmT48L9HrFyLkZDpizVa4Ut
+	zmW9Sw2A==;
 Received: from [177.172.123.214] (helo=[192.168.15.100])
 	by fanzine2.igalia.com with esmtpsa 
 	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1x7LoE-003hU7-H1; Fri, 18 Sep 2026 01:46:30 +0200
+	id 1x7LoH-003hU7-Nz; Fri, 18 Sep 2026 01:46:33 +0200
 From: =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-Date: Thu, 17 Sep 2026 20:46:07 -0300
-Subject: [PATCH v7 04/13] arm: Use the common syscall table
+Date: Thu, 17 Sep 2026 20:46:08 -0300
+Subject: [PATCH v7 05/13] s390: Use the common syscall table
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260917-tonyk-syscall_table-v7-4-f4cd8f8e3265@igalia.com>
+Message-Id: <20260917-tonyk-syscall_table-v7-5-f4cd8f8e3265@igalia.com>
 References: <20260917-tonyk-syscall_table-v7-0-f4cd8f8e3265@igalia.com>
 In-Reply-To: <20260917-tonyk-syscall_table-v7-0-f4cd8f8e3265@igalia.com>
 To: Masami Hiramatsu <mhiramat@kernel.org>, Arnd Bergmanon <arnd@arndb.de>
@@ -74,8 +74,8 @@ Cc: Christian Brauner <brauner@kernel.org>, linux-kernel@vger.kernel.org,
  =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_004636_117485_6449B980 
-X-CRM114-Status: UNSURE (   7.88  )
+X-CRM114-CacheID: sfid-20260918_004639_045698_BAF5AEF3 
+X-CRM114-Status: UNSURE (   7.03  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,65 +96,64 @@ table.
 
 Signed-off-by: André Almeida <andrealmeid@igalia.com>
 ---
-Changes from v6:
-- Added back syscalls from 403 to 423 to local table. arm32 can't use the
-common table for those syscalls, because arm doesn't implements compat_
-entry points for syscalls like pselect6, ppoll, etc., and OABI uses compat_
-entry points when it's available, so this would cause a build error.
----
- arch/arm/tools/Makefile    | 14 ++++++++-----
- arch/arm/tools/syscall.tbl | 49 ----------------------------------------------
- 2 files changed, 9 insertions(+), 54 deletions(-)
+ arch/s390/kernel/syscall.c            |  2 ++
+ arch/s390/kernel/syscalls/Makefile    | 12 ++++++---
+ arch/s390/kernel/syscalls/syscall.tbl | 49 -----------------------------------
+ 3 files changed, 10 insertions(+), 53 deletions(-)
 
-diff --git a/arch/arm/tools/Makefile b/arch/arm/tools/Makefile
-index 28b6da8ac5f6..b7d8d96ab015 100644
---- a/arch/arm/tools/Makefile
-+++ b/arch/arm/tools/Makefile
-@@ -12,6 +12,8 @@ syshdr := $(srctree)/scripts/syscallhdr.sh
- sysnr := $(src)/syscallnr.sh
- systbl := $(srctree)/scripts/syscalltbl.sh
+diff --git a/arch/s390/kernel/syscall.c b/arch/s390/kernel/syscall.c
+index bcc0b76bd868..d4b5c30e1cbe 100644
+--- a/arch/s390/kernel/syscall.c
++++ b/arch/s390/kernel/syscall.c
+@@ -40,6 +40,8 @@
+ 
+ #include "entry.h"
+ 
++#define __SYSCALL_WITH_COMPAT(nr, native, compat)	__SYSCALL(nr, native)
++
+ #define __SYSCALL(nr, sym) long __s390x_##sym(struct pt_regs *);
+ #include <asm/syscall_table.h>
+ #undef __SYSCALL
+diff --git a/arch/s390/kernel/syscalls/Makefile b/arch/s390/kernel/syscalls/Makefile
+index d5fca0ca0890..4b4490f80467 100644
+--- a/arch/s390/kernel/syscalls/Makefile
++++ b/arch/s390/kernel/syscalls/Makefile
+@@ -5,19 +5,23 @@ uapi := arch/$(SRCARCH)/include/generated/uapi/asm
+ $(shell mkdir -p $(uapi) $(kapi))
+ 
  syscall := $(src)/syscall.tbl
 +syscalltbl_common := $(srctree)/scripts/syscall_common.tbl
-+abis := common,clone3
- 
- gen-y := $(gen)/calls-oabi.S
- gen-y += $(gen)/calls-eabi.S
-@@ -38,20 +40,22 @@ $(kapi)/mach-types.h: $(src)/gen-mach-types $(src)/mach-types FORCE
- 	$(call if_changed,gen_mach)
+ syshdr := $(srctree)/scripts/syscallhdr.sh
+ systbl := $(srctree)/scripts/syscalltbl.sh
++abis := common,clone3,memfd_secret
  
  quiet_cmd_syshdr = SYSHDR  $@
--      cmd_syshdr = $(CONFIG_SHELL) $(syshdr) --abis common,$* \
-+      cmd_syshdr = $(CONFIG_SHELL) $(syshdr) --abis $(abis),$* \
-+		   --common-tbl $(syscalltbl_common) \
- 		   --offset __NR_SYSCALL_BASE $< $@
+-      cmd_syshdr = $(CONFIG_SHELL) $(syshdr) --emit-nr --abis common,$* $< $@
++      cmd_syshdr = $(CONFIG_SHELL) $(syshdr) --emit-nr --abis $(abis),$* \
++		   --common-tbl $(syscalltbl_common) $< $@
  
  quiet_cmd_systbl = SYSTBL  $@
 -      cmd_systbl = $(CONFIG_SHELL) $(systbl) --abis common,$* $< $@
 +      cmd_systbl = $(CONFIG_SHELL) $(systbl) --abis $(abis),$* \
 +		   --common-tbl $(syscalltbl_common) $< $@
  
- quiet_cmd_sysnr  = SYSNR   $@
-       cmd_sysnr  = $(CONFIG_SHELL) $(sysnr) $< $@
- 
--$(uapi)/unistd-%.h: $(syscall) $(syshdr) FORCE
-+$(uapi)/unistd-%.h: $(syscall) $(syscalltbl_common) $(syshdr) FORCE
+-$(uapi)/unistd_%.h: $(syscall) $(syshdr) FORCE
++$(uapi)/unistd_%.h: $(syscall) $(syscalltbl_common) $(syshdr) FORCE
  	$(call if_changed,syshdr)
  
--$(kapi)/unistd-nr.h: $(syscall) $(sysnr) FORCE
-+$(kapi)/unistd-nr.h: $(syscalltbl_common) $(sysnr) FORCE
- 	$(call if_changed,sysnr)
- 
--$(gen)/calls-%.S: $(syscall) $(systbl) FORCE
-+$(gen)/calls-%.S: $(syscall) $(syscalltbl_common) $(systbl) FORCE
+-$(kapi)/syscall_table.h: $(syscall) $(systbl) FORCE
++$(kapi)/syscall_table.h: $(syscall) $(syscalltbl_common) $(systbl) FORCE
  	$(call if_changed,systbl)
-diff --git a/arch/arm/tools/syscall.tbl b/arch/arm/tools/syscall.tbl
-index 55717ed32c27..bccded328911 100644
---- a/arch/arm/tools/syscall.tbl
-+++ b/arch/arm/tools/syscall.tbl
-@@ -438,52 +438,3 @@
- 421	common	rt_sigtimedwait_time64		sys_rt_sigtimedwait
- 422	common	futex_time64			sys_futex
- 423	common	sched_rr_get_interval_time64	sys_sched_rr_get_interval
+ 
+ uapisyshdr-y		+= unistd_64.h
+diff --git a/arch/s390/kernel/syscalls/syscall.tbl b/arch/s390/kernel/syscalls/syscall.tbl
+index 1b45e68a217b..ce6d15260dd1 100644
+--- a/arch/s390/kernel/syscalls/syscall.tbl
++++ b/arch/s390/kernel/syscalls/syscall.tbl
+@@ -350,52 +350,3 @@
+ 400	common	msgsnd				sys_msgsnd
+ 401	common	msgrcv				sys_msgrcv
+ 402	common	msgctl				sys_msgctl
 -424	common	pidfd_send_signal		sys_pidfd_send_signal
 -425	common	io_uring_setup			sys_io_uring_setup
 -426	common	io_uring_enter			sys_io_uring_enter
@@ -178,7 +177,7 @@ index 55717ed32c27..bccded328911 100644
 -444	common	landlock_create_ruleset		sys_landlock_create_ruleset
 -445	common	landlock_add_rule		sys_landlock_add_rule
 -446	common	landlock_restrict_self		sys_landlock_restrict_self
--# 447 reserved for memfd_secret
+-447	common	memfd_secret			sys_memfd_secret
 -448	common	process_mrelease		sys_process_mrelease
 -449	common	futex_waitv			sys_futex_waitv
 -450	common	set_mempolicy_home_node		sys_set_mempolicy_home_node
