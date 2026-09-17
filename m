@@ -4,57 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6552C982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 07:33:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 282ACC982D2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 07:33:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BH1rP085m+HMgKYX8Be0A6hzmpFZNlUIST+lxVoeusc=; b=kTkdBu7bqSZyKJoaNC13ymxYYh
-	WnulR/uvGzpru0b7+DWmu/GkU+j+946bZzlzZyn3Ag6OWYtREFERp4Zw6i/VEwxjGhwkWbl/IpZ/1
-	iYiZ3ye6JidpD8uGXt4PXWMUNG2nreA2RxaSfFfAt+cOWm80+D7IC2dX2qI++YnSwFz0eqizkQGB9
-	vw6007lhT3EQtyyl5b66m6/gSB6bSf1rweNNZ5TS23gpOquzOn2GcPU9wUB09fvkCVq6zranEaQNF
-	2uyWHCRoLc+vvOfqovMRJSH8V+Vl+jqQhOCg6Wztv12xZmnJ9bt4opr3L6ZqvvhT0s7Y1EzPnKuz5
-	BOiiP/MA==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kjdu0bh3sHSMsCVVWKg2rIqiffBppsu+UcHUmDVc0PA=; b=doZzp35L1KyvPKwpanLR3Ct2FP
+	Leu8BeXpzakaor1QX6WDtFMrzmmlN6M9SnIuItA/+9OnuApU4M3G0MOUp/IBJJV3JFQvNwcqX1DFQ
+	54OTfmlxllDzrJF1gVTdSjuoR78+NgpcBxLX9zaeTLHsgpfgetxkgY1AVKt1uf4YAjJL+D5DwfLL8
+	gcLU22ngg33Q29blGcxAReM3EUKtH5T2Rmq4exPh7fe5P5yTHUwIyHbzZEUF/uYWjHTlHRDsRijSb
+	G0CoAsxKMYOV3TlGtrGxnJ71/pCY8dCEX7JhzohMcp8NVVq4INRnGNnQlWX57AT09HPM1Jb4cfiKT
+	nfS6Kqdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x76cM-0000000Am32-3S8x;
+	id 1x76cM-0000000Am3G-3rsS;
 	Thu, 17 Sep 2026 07:33:14 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x76cF-0000000Am1g-3Ece;
+	id 1x76cF-0000000Am1f-3Ea3;
 	Thu, 17 Sep 2026 07:33:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B059B411BC;
+	by sea.source.kernel.org (Postfix) with ESMTP id C630B43CA8;
 	Thu, 17 Sep 2026 07:33:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 869E8C2BCB3;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 9BB7AC2BCB9;
 	Thu, 17 Sep 2026 07:33:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1789630386;
-	bh=kCGe432I3vUAjPVT/CDhk2BJ7I2g/1ANQbFVz8sSuQE=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=e9RG6W39F/ChoDywq3OlS4M/+tGfgwJ5ykgfkA/r+2hJRVF1K3RJCrXBWfqSTdGkm
-	 +WGFNg5NZD6kHi1WcKtDBLcH6RHv0CWWXqVoMs4Tbudebw8iGvFSqTc4EdQCwekPzd
-	 TMxnNQFkdlnqYj0H+Sz67aJwLJM+fjuljS9DtgWcZ4DbOJJ40O+qrEYWrJENseTTY2
-	 TBWEEXSLfNnX7BaSD3rwckX9YeGciOq0hIZAtzSP/6BvuVOnYgraXNlRXOlcZHJyN4
-	 5J6F6IYZGtAg1boDIhZl9iYriuIALtCwgTlnC6zWAzYfdX4JB/zO1UB5y8RcsPgkHu
-	 n/+vE+PTJ4X5g==
+	bh=gxiqBAElq9Xre5OAg7uTOQmxUlQteJwsBnd3ZBdbFzA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=Hze9NxO6AqLpkNqahw3TdRpM+U4u9HEqCSCboe/Fwlc6aiq2TPj7YIIETtJCL2VmP
+	 uKfK2Na8oD3CC2nvdcm+iJqkQ8lTpE+2bklBdKxvO2ZSgeXLkmOxmP5VdZqT/PgVWb
+	 Toi+xmDzzfP70xiLkI6PJGOxQ7Vs0KiXQ8Mdn01cDc4gja8+JbNagFy3/3qIxHi32l
+	 uojBm9rNiHlByjvFM9QBmORRh0pTHDyWOboby3gPnOWiqdLMFRcQjDfW6sSC3WMQpq
+	 DHROUZ/lGcw7eEMBLwv0rGDDQl8tS4rBPK4RXy7BeClndb3WNdv3m8OQMv8tgIqRkh
+	 5Ki1qQS6Cuczw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5CC1FC88E72;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7749BC982C1;
 	Thu, 17 Sep 2026 07:33:06 +0000 (UTC)
 From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
-Subject: [PATCH 0/3] usb: mtu3: add mt6595 support
-Date: Thu, 17 Sep 2026 10:32:05 +0300
-Message-Id: <20260917-6595-mtu3-v1-0-a2ba7c230d68@protonmail.com>
+Date: Thu, 17 Sep 2026 10:32:06 +0300
+Subject: [PATCH 1/3] dt-bindings: usb: mtu3: add mt6595
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMTQqAIBBA4avErBPULLSrRIusqSboB60IpLtnt
- fzg8QJ4dIQeyiSAw5M8rUuESBNox2YZkFEXDZLLghuhWJGbnM37kTEtbcaVRiWwgdhvDnu6vld
- V//aHnbDd3wHc9wMhjh8EbQAAAA==
-X-Change-ID: 20260914-6595-mtu3-82b3048e41ea
+Message-Id: <20260917-6595-mtu3-v1-1-a2ba7c230d68@protonmail.com>
+References: <20260917-6595-mtu3-v1-0-a2ba7c230d68@protonmail.com>
+In-Reply-To: <20260917-6595-mtu3-v1-0-a2ba7c230d68@protonmail.com>
 To: Chunfeng Yun <chunfeng.yun@mediatek.com>, 
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -65,11 +63,11 @@ Cc: linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Roman Vivchar <rva333@protonmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789630384; l=1576;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789630384; l=785;
  i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
- bh=kCGe432I3vUAjPVT/CDhk2BJ7I2g/1ANQbFVz8sSuQE=;
- b=SK94WZQmS3o4qVCAnmSDclmJHkwsENMKm+EEpEt8QvpZSjti1zoCWDWIKMJF+GPynY+AcVlH/
- cPyiI0kR0qtDzf2zOIYRjweNjn6v0N8q4QyKjzYCLiFgBSTiY8Tp6P0
+ bh=obVpW7WHQG6DMltdTdYTZQf36G3lb4xafRlhZgLa8RM=;
+ b=eUwn67bk9XeiQJFx/p1Vss7TE4r0pmPT7jJNEVOa8SoYeZa6vqsStS/7HnYK9QY6+mcEIMjP4
+ BRQeAGy4QZ7DZdhzXBUjV2CSoZ6XS0rrU+rbC9QfMTGyE51AfUZ0Xqq
 X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
  pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
 X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
@@ -90,42 +88,30 @@ Reply-To: rva333@protonmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series adds mt6595 SoC support to the mtu3 driver.
+From: Roman Vivchar <rva333@protonmail.com>
 
-Unlike the mt8173 and newer controllers, the 6595 uses older IP revision
-that can handle only one FIFO slot. Without this series, the current
-driver implementation results in 2 to 4 lost bytes on USB transfers.
-
-In mediatek sources, mt6595 is sometimes called 6795. Most of their
-clocks/pins are also compatible. It's not clear if 6795 has the same
-issue or simply lacks T-PHY patch. Other (rare) mobile SoCs with mtu3,
-like mt6757 or 6771, don't need this series.
-
-Another thing worth mentioning, this series is not enough for the USB on
-6595. The other T-PHY patch is required to get the link up. This issue
-has been observed on some 65xx and most 67xx SoCs. Though this is a
-subject for the separate discussion.
+Add a compatible string for the MTU3 IP found on the MediaTek mt6595 SoC.
 
 Signed-off-by: Roman Vivchar <rva333@protonmail.com>
 ---
-Roman Vivchar (3):
-      dt-bindings: usb: mtu3: add mt6595
-      usb: mtu3: introduce platform data
-      usb: mtu3: add mt6595 support
+ Documentation/devicetree/bindings/usb/mediatek,mtu3.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
- Documentation/devicetree/bindings/usb/mediatek,mtu3.yaml |  1 +
- drivers/usb/mtu3/mtu3.h                                  |  9 +++++++++
- drivers/usb/mtu3/mtu3_core.c                             |  5 +++++
- drivers/usb/mtu3/mtu3_gadget.c                           |  8 ++++++--
- drivers/usb/mtu3/mtu3_plat.c                             | 13 +++++++++++--
- 5 files changed, 32 insertions(+), 4 deletions(-)
----
-base-commit: 8d3ae59288f1e7d58d76558a6ee96d533bc5019f
-change-id: 20260914-6595-mtu3-82b3048e41ea
+diff --git a/Documentation/devicetree/bindings/usb/mediatek,mtu3.yaml b/Documentation/devicetree/bindings/usb/mediatek,mtu3.yaml
+index 21fc6bbe954f..4538df164a16 100644
+--- a/Documentation/devicetree/bindings/usb/mediatek,mtu3.yaml
++++ b/Documentation/devicetree/bindings/usb/mediatek,mtu3.yaml
+@@ -22,6 +22,7 @@ properties:
+     items:
+       - enum:
+           - mediatek,mt2712-mtu3
++          - mediatek,mt6595-mtu3
+           - mediatek,mt8173-mtu3
+           - mediatek,mt8183-mtu3
+           - mediatek,mt8186-mtu3
 
-Best regards,
---  
-Roman Vivchar <rva333@protonmail.com>
+-- 
+2.55.0
 
 
 
