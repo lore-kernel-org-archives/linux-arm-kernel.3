@@ -4,101 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AC22C982C1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 06:47:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C629C982C1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 06:51:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=y3wbvAbBWnutdIwHnF3F6m/7uEF6jqU2B+avYv0omNg=; b=bCXtI6fASZjhI1ZLwb5hByqCjq
-	zAYCOXE1SPF2kq+BrGzKfYSE1wXZeJtKxfmNCL46aeXz1lNI+y/olVf7jblkgp+UMoTLkZQi5ttlr
-	SpVbUKU3dr4sC0sv21Htpu5TMnhepss7bEM2n5OLMUYMHyoHZoxOsfWBYv6PedfTspE/blzOvsv12
-	Nv48LNJlcNwRAdDQP24a5dXUb43hWhAg536aiRR/Tb/4v5JZ94zJYzGlouznucYy5lc08RysaNH4V
-	4KdX70+uZnpVF50uK3Qub1beZy8qe2ZfcJ5/aGEPptPWVo5yM8WhIAZOQ9V5aYbHELL68gX0wMIUH
-	t/Y1imlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Zk7akdSG+Lt4kXVv0DNDCRRXidxhfe8oAyzsOC/t6g4=; b=0swZ7E4BvnfrVttmrnpEe6MPoX
+	OTaV/9Jk2lkKC2X+mVS5lqz+srkZbRWdUqWfeYxo2zpuipJ98qKzTb1JNMj+ntnK0LC7GGvrAl8/U
+	WL+uuBar39DEsiB1VbaSspTb7D29HQ2mQy4wvJc6hl60I2XYoULjWIgrIxGNl+zoyiJzq8IJuaR5c
+	fhygmrXoiTyEaViSaU3tDP7LgBB8Kwcp4o5//mT+djjOqlaaGKu55LX3OmkuPL0zCxvLy/Ns8p0TY
+	wlSXP5UD0O8YLbypzqk6ic/NlFH23OSZa3xIkH79lj835hrntPfD1geXpbZZ2M/NNAJPM9XPAI2b2
+	zrj8PhhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x75uP-0000000Ah4i-0ASJ;
-	Thu, 17 Sep 2026 06:47:49 +0000
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	id 1x75xy-0000000AiIZ-1Kjm;
+	Thu, 17 Sep 2026 06:51:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x75uL-0000000Ah45-3kdo
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 06:47:47 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49b965f447cso3711285e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Sep 2026 23:47:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789627664; x=1790232464; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=y3wbvAbBWnutdIwHnF3F6m/7uEF6jqU2B+avYv0omNg=;
-        b=FvFoKBk8bdNHJmukOze6mzGHghZwzzpOajFX8zAI1ePnUHrbA+YaxF9mIwUYER1AGW
-         hjYmaDFMl15Kz/Gyd2G/T9++FIv2mHViFOlsd4fJzeST6PFEP1ETBD1d5CIScQVgzsm6
-         O3T7bVKu27z5Cpp+cZvFsybtm0P19fKKwSABjNcN1QcGrg05l+R37OMELoLPaJyuwBFS
-         ls3wv0mWvt6IjiPVMJvkhcWyka9TuIJwh/sWDcQoM0Q/mQs7VqX4gPgF63JnGiDQq9iu
-         AVkZMMcKTND/2AI0u3R/aSRSiE2nhzK2puZW7+6+uFaaC7aseGZ1UglKDjl5Y/Q2zjV+
-         nIRA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789627664; x=1790232464;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=y3wbvAbBWnutdIwHnF3F6m/7uEF6jqU2B+avYv0omNg=;
-        b=tlD5ZaxZkUObikEfNv+8zaaI7RCIIB+tzEmAVsmF+TimVcaI1DOHtdE2OyOmtT8wcx
-         GKfYmHeWLxGpQIABq+fhwHeR1C0lzdvhB9JlCi4f4gVrIf6P6F5rJ5Ukxx0tfCdOtHJf
-         PoFm50qPqdEVOBSzfbd9hbTS2lpj6zPbIcdSKyr6cNp4vQCRlwRJVr7MO+5pS/ZQ4z30
-         ik2c2M6tRsnJv1IZgINAHlf0D7nWTORnooewn7ekcpMTgBLc0TcaPqVJlZ4qGic8n90C
-         VuPf1uXQyq+CDfS0+8TRsJj6r8/YLvRAI8o2X13U6lzoOut0c1ktgtIeOWrxUqvRRRy9
-         XFBQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzGCiTETXDcCRz0V7Y4RwCk8lM2ImxaHtHPMib3wblQdtpSBJtA5pCg8KTerDQB2BgFNGSSFNd3sY/hrRY6c1yc@lists.infradead.org
-X-Gm-Message-State: AFuF++kEj21DKg+47bmvMLu7+2vrThijzzH//Ab/CZHfY9YUf105Mrnw
-	tMhRg91WHmMKpz2KBMsYhtWos3u1V4u4bJgohUeXKLNlkcx9UsjPiphI
-X-Gm-Gg: AYBFou3I94NcpWscMfzmkuFUXo5gQls+hBsfPCr0l4IWdJcVHlEqXU2DrVAiVTOVNkz
-	+UTEcqUi4M3askpao9r/fLOC9nZj9Su8EJpFQ6qH8QAoeLqMyq4g4Cpl62QnOwd6auhZxf/Kbp9
-	PcMbnny1F2RrfiQ6ygVuP1V8Eai++hJkYNtU6RXtA1xh37+PjDSGCxqc/SrITMOTKl9mAIZUPVV
-	bio/0xsebkjmLTwu0ij59BltHuzQZB2rBo+eeP+wDNl9j8WYUfd6GZegtBkbDJ8goWNe7D1e3uK
-	kIVGT1nLglWDf6Y26gwbFM9yy2cjhtYx1kSln7GNFQCv36ChEVW0rSKTQA66aeNddg5byMcUj/s
-	1rmiSVyJYV5aBzFxhFoN0OiU5/qDxoO273khRuDR923XxsxicqnHXEQWNRo8jMyrWUN7vshZH4t
-	i+9GRBAaEm+T9+adFMz8pBLmUrYlmjeaEhjqi9h55ulZXj6YmZMhJAFp25HCS95j3tW75xDrfOX
-	SN38V8gwADMoTKmHVdhaNFDXCFY7OPr2lYBjIrmgaPvY6MZsJOIS4Q7szvDUrS1v/U1fihPuCxp
-	ZMnZz+DInDfFuVAooCIZHMSaEVId4gA9QCjoP+674odhtqky2mV/SQFkUjUj3+FpIg0K91KFgw3
-	h
-X-Received: by 2002:a05:600c:8b17:b0:49c:fa20:cc0a with SMTP id 5b1f17b1804b1-49eb7339522mr57916485e9.33.1789627663778;
-        Wed, 16 Sep 2026 23:47:43 -0700 (PDT)
-Received: from localhost.localdomain (dynamic-2a02-3100-9dc6-c001-54ee-4741-4927-0a28.310.pool.telefonica.de. [2a02:3100:9dc6:c001:54ee:4741:4927:a28])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4870bf438fbsm13129266f8f.36.2026.09.16.23.47.42
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 16 Sep 2026 23:47:43 -0700 (PDT)
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Steen Hegelund <Steen.Hegelund@microchip.com>,
-	Daniel Machon <daniel.machon@microchip.com>,
-	UNGLinuxDriver@microchip.com
-Cc: Karl Mehltretter <kmehltretter@gmail.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Brendan Higgins <brendan.higgins@linux.dev>,
-	David Gow <david@davidgow.net>,
-	Rae Moar <raemoar63@gmail.com>,
-	linux-kselftest@vger.kernel.org,
-	kunit-dev@googlegroups.com,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net] net: microchip: vcap: Stop selecting DEBUG_FS for KUnit tests
-Date: Thu, 17 Sep 2026 08:47:36 +0200
-Message-Id: <20260917064736.77354-1-kmehltretter@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	id 1x75xw-0000000AiIG-1TPM;
+	Thu, 17 Sep 2026 06:51:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id CF12E447D6;
+	Thu, 17 Sep 2026 06:51:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70E201F000FF;
+	Thu, 17 Sep 2026 06:51:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789627884;
+	bh=Zk7akdSG+Lt4kXVv0DNDCRRXidxhfe8oAyzsOC/t6g4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=VfgmtCRpAvVbXe7/1HGMr3VdOTboOboBfMHkAF5G99vlKXKhKGOJv1D2xb9XMDDKt
+	 k6ofxrkFjri2YH0fDIYKR+P1yRX/L01W4GKj1t/4H0lVXyl6yXMr5BJEWJGcO041sF
+	 M8Nl8IP8EvwKP8KFhRWtoZo417856nhCE3W7oQhjbnm+DSL0Xuov4RAaCSVFSidMgv
+	 w1BRu/Fa8TugQ9cEbu5m7+Me43bXt+NTi+9flladeallexFNnaWATulAPVSbVkWLLd
+	 MG8zyEPH3oetj1DOM6Mt1Q6L1SXVuoaGmAe5ymv8WmwxM5GHj1RgLZohwj5POqrWgR
+	 kD8q1BsrqOA1Q==
+Date: Thu, 17 Sep 2026 08:51:21 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Lee Jones <lee@kernel.org>, Andy Yan <andy.yan@rock-chips.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Emil Renner Berthing <kernel@esmil.dk>, 
+	Hal Feng <hal.feng@starfivetech.com>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Dominique Belhachemi <db@domibel.de>, 
+	Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, 
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, mfd@lists.linux.dev, linux-clk@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Maud Spierings <maud_spierings@murena.io>, Graham Markall <hello@big-grey.co.uk>, 
+	Icenowy Zheng <zhengxingda@iscas.ac.cn>, Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
+	Joshua Peisach <jpeisach@ubuntu.com>, Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+Subject: Re: [PATCH v4 01/20] dt-bindings: phy: Add
+ starfive,jh7110-inno-hdmi-phy
+Message-ID: <20260917-mutant-chamois-of-competence-46ca77@quoll>
+References: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
+ <CGME20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125@eucas1p2.samsung.com>
+ <20260915-jh7110-clean-send-v4-1-f0e4fd6f2cc8@samsung.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_234745_997534_B990E504 
-X-CRM114-Status: GOOD (  11.93  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260915-jh7110-clean-send-v4-1-f0e4fd6f2cc8@samsung.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,37 +89,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-VCAP_KUNIT_TEST enables DEBUG_FS even when the kernel configuration
-leaves it disabled. Remove the selection, following the dependency rule
-in Documentation/dev-tools/kunit/style.rst.
+On Tue, Sep 15, 2026 at 05:32:09PM +0200, Michal Wilczynski wrote:
+> Add the dt-binding for the StarFive JH7110 Innosilicon HDMI PHY.
+> 
+> This device is a child of the starfive,jh7110-hdmi-subsystem node. It
+> functions as both a PHY provider for the controller and as a clock
+> provider for the variable pixel clock (hdmi_pclk), which it generates
+> from its refoclk.
+> 
+> Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
 
-The debugfs implementation and its tests are already built only with
-DEBUG_FS. The other VCAP tests can run without it.
+While I appreciate other people looking at this, I don't think review
+here applies. It was a blanket tag, given to the entire series, with
+exception that it is from newbie, thus I want to ask: was this binding
+REALLY reviewed by Joshua?
 
-Fixes: 552b7d131aa0 ("net: microchip: sparx5: Add VCAP debugfs KUNIT test")
-Assisted-by: LLM
-Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
----
-Validation on net c9151088f167: x86_64 LLVM builds and QEMU runs
-with DEBUG_FS disabled and enabled. The other VCAP suites pass in both
-configurations. The debugfs suite is present only with DEBUG_FS=y and
-all four cases pass.
+Are the rest of the patches actually reviewed or just "looks good to
+me"? I see no comments from Joshua on v3, v2 and v1, which is usual sign
+of doing review.
 
- drivers/net/ethernet/microchip/vcap/Kconfig | 1 -
- 1 file changed, 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/microchip/vcap/Kconfig b/drivers/net/ethernet/microchip/vcap/Kconfig
-index 97f43fd4473f..1af30a358a15 100644
---- a/drivers/net/ethernet/microchip/vcap/Kconfig
-+++ b/drivers/net/ethernet/microchip/vcap/Kconfig
-@@ -40,7 +40,6 @@ config VCAP_KUNIT_TEST
- 	bool "KUnit test for VCAP library" if !KUNIT_ALL_TESTS
- 	depends on KUNIT
- 	depends on KUNIT=y && VCAP=y && y
--	select DEBUG_FS
- 	default KUNIT_ALL_TESTS
- 	help
- 	  This builds unit tests for the VCAP library.
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
+>  .../phy/starfive,jh7110-inno-hdmi-phy.yaml         | 49 ++++++++++++++++++++++
+>  1 file changed, 49 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/phy/starfive,jh7110-inno-hdmi-phy.yaml b/Documentation/devicetree/bindings/phy/starfive,jh7110-inno-hdmi-phy.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..f838fcc238ec7db0a8e794234bdceec36cb6d9e7
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/phy/starfive,jh7110-inno-hdmi-phy.yaml
+> @@ -0,0 +1,49 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/phy/starfive,jh7110-inno-hdmi-phy.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: StarFive JH7110 Innosilicon INNO HDMI PHY
+> +
+> +maintainers:
+> +  - Michal Wilczynski <m.wilczynski@samsung.com>
+> +
+> +description:
+> +  The PHY portion of the StarFive JH7110 INNO HDMI IP.
+> +
+> +properties:
+> +  compatible:
+> +    const: starfive,jh7110-inno-hdmi-phy
+> +
+> +  clocks:
+> +    maxItems: 1
+> +    description: Reference oscillator.
 
-base-commit: c9151088f1674fd29ff26a20f5fc687acf53a2f0
+This barely counts as a resource, so usual question: no resources here?
+no MMIO? Even the user of this phy is the block itself.
+
+This makes me wonder if this should be a device node in the first place
+(instead folded into the parent).
+
+
+Best regards,
+Krzysztof
+
 
