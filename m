@@ -4,69 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FA0FC982D9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 22:27:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09E41C982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 22:27:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hyCHHGbbmA+viHCUOeD0u0cyeXuCDyyU6WJlzk8TPBU=; b=QSnlHhaeJiKkbKX7mCcypgdy18
-	eLp+4pt+YgmgmTDzaDE6HXDeziX8AzMq5e/1neFFlqd3PvtX+319bXi9QEfBVG4GAC8Uz0lJ7IktE
-	ABw+1d9rfnt4y2Xp+1n+9+dpPf7FFbGjiJADj/aH0J+m7y4HHFX/30EyCSICsG2aEcvbcOELvQA/i
-	SSqaeqJH53reDjourYDhGZR+FI2QvY0CL1j4mfcnGAp8Ku2ao5/aGVYkwiIcDlp8gXMR6lF1HWaD4
-	qeXnd033STJbacgzVveMUNt63GlZNAT2a8b17b4HDUUzKpwJMwNciYMIv+CtvmgcYtMAOQKYkMzvo
-	11gu5+Mg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yqZXwnT4sTbfdvOMcGPrEviywWtc9S3DZ3O1HarHNx0=; b=1vf2Z1Q1DyIcw0IK8CZAGIFN3B
+	AOGiGI+ZWFZJ69O3kRm0soXOHPEbq5vYqC2RwojQoPh9vhzya+GJhiiUEHdlTKsa0T0IBwG/Tjzkk
+	knbkU1Cw3rH0IDtqVCSlTziE2e5SnpoVyW4zdVLyHD7c+NKZhuvhwUljZV6Yqq5vekRG0Exk+ZN97
+	YLBeub09b5HfWQ7k3euu7Xh2OZgTOjWGyj7kALeRHX1Z00evVWkt/k0O1O8lNGn0u9js9mD7GOfdh
+	znTpGLr1XSo+t0MRkvPyXkCWpDpTV3tXRTSGZzBIhtEebpjPAL7JqZuDoOsCAffhZcucr7nVb8ruT
+	xJmvt8dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7KZD-0000000CeS0-3boW;
-	Thu, 17 Sep 2026 22:26:55 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x7KZa-0000000Cecf-0Q8f;
+	Thu, 17 Sep 2026 22:27:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7KZ9-0000000CePK-0nw0
+	id 1x7KZY-0000000Cebw-3cyR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 22:26:51 +0000
+	Thu, 17 Sep 2026 22:27:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 99DA140B39;
-	Thu, 17 Sep 2026 22:26:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 583B21F00893;
-	Thu, 17 Sep 2026 22:26:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5D54141B0A;
+	Thu, 17 Sep 2026 22:27:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F36F21F000FF;
+	Thu, 17 Sep 2026 22:27:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789684010;
-	bh=hyCHHGbbmA+viHCUOeD0u0cyeXuCDyyU6WJlzk8TPBU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=T8y/JjhlpqcsuT0XzMT/WOXuyt1iyrXHlbEXEY6eHFV+O/pvbriCLKz15E4FmqOSP
-	 kJ8NDggqEsyvENCIKddvGWHnZRD3zDdioc9sG2EiNXu7IL/ndQKEyi54Hieyw3rzdb
-	 xnbvULQqaJl65efOYuOJwpmeiq8btsE9F9r5jrLQ2uVgJkQIMQCAEhKZHn4UfE8B2P
-	 LHzQrYwxy9uzCRYJ98oaaX/dhMxvsRSGjX2zRwPma9nrPr6e1bBSAQ2FhqdzGyL1MP
-	 bQzVfTVZ6Gr5SPObra8rbLthIeRAe+z03tKYfgKAfg6dr4oaaCyyZuMUkniNOmiRsC
-	 EmAUuYM04dXPw==
-From: Mark Brown <broonie@kernel.org>
-Date: Thu, 17 Sep 2026 23:14:16 +0100
-Subject: [PATCH 1/2] arm64/gcs: Move gcs_check_locked() out of the header
+	s=k20260515; t=1789684036;
+	bh=yqZXwnT4sTbfdvOMcGPrEviywWtc9S3DZ3O1HarHNx0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=T1Ch8FmEiDOu1G4fnoJuLj1rEhyz4E/ziyDrsJZ9x4LQWGIVRxnAKXftZ6pOkq0cV
+	 k/B8IdIfBNledOY1f9g38IVV8BrpBoSMSIu+lh+YHvym5y1Z1NQRJNtF6S3Q7bMBRF
+	 dMsU5FV1q4t4A4hIwC7E5PLIF2cNGkC3wolLzWWODHyQxwtkpaLmKs7/zJJlIncvx8
+	 NZBsWZICRa0Iq9VByDkAUgeriSBjwz6lhGxW4iCWDZik9l+a1vkX5lWbfhMvYRL82i
+	 nbN0PhtXBdsgAigUJoqR4xGqxnL7FxhSzWTFywmuGVz5Pll1HxEfm1SYpAtypTB4wm
+	 Nes7zqLQvzOLg==
+Date: Thu, 17 Sep 2026 17:27:14 -0500
+From: Rob Herring <robh@kernel.org>
+To: Changhuang Liang <changhuang.liang@starfivetech.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Chia-Wei Wang <chiawei_wang@aspeedtech.com>,
+	Oskar Senft <osk@google.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Jani Nikula <jani.nikula@intel.com>,
+	Vitaly Lubart <lubvital@gmail.com>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Alexander Usyskin <alexander.usyskin@intel.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>, Breno Leitao <leitao@debian.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	James Morse <james.morse@arm.com>, Paolo Abeni <pabeni@redhat.com>,
+	Stephen Hemminger <stephen@networkplumber.org>,
+	Dave Penkler <dpenkler@gmail.com>, Jakub Kicinski <kuba@kernel.org>,
+	Jonathan Cameron <jic23@kernel.org>, Dan Williams <djbw@kernel.org>,
+	Mukesh Rathor <mrathor@linux.microsoft.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Alexandra Winter <wintera@linux.ibm.com>,
+	Julian Braha <julianbraha@gmail.com>,
+	Karthikeyan KS <karthiproffesional@gmail.com>,
+	Pengpeng Hou <pengpeng@iscas.ac.cn>, openbmc@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org
+Subject: Re: [PATCH v2 3/4] dt-bindings: uart-routing: Add binding for
+ StarFive JHB100 UART routing
+Message-ID: <20260917222714.GB4081995-robh@kernel.org>
+References: <20260905102901.126035-1-changhuang.liang@starfivetech.com>
+ <20260905102901.126035-4-changhuang.liang@starfivetech.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260917-arm64-gcs-store-gcscre0-v1-1-3c9fa9213bac@kernel.org>
-References: <20260917-arm64-gcs-store-gcscre0-v1-0-3c9fa9213bac@kernel.org>
-In-Reply-To: <20260917-arm64-gcs-store-gcscre0-v1-0-3c9fa9213bac@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2217; i=broonie@kernel.org;
- h=from:subject:message-id; bh=dH1M/vyc1MFAQw48E90smOwrG3W8MQm/arC7/achGFE=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqrGkkiiUHwca01XjWnKu+bIfxYdQhZZpvwz8D7
- At9a1pyRE2JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaqxpJAAKCRAk1otyXVSH
- 0L6YB/9N+el8v6W58DQ9YZJ0l75X3dnnVNiTuBVkwf0/TsCo2TJAzbCcFUHvzRuXg4Jp5Gu0wP3
- iUqwtYZawXUS2Uxe+YnfQ8fOxMN+IxfCZo+PBOU2l0/Z+hsACmrWnzsoAUdHS/CBBeDjjwNojKV
- FOWDLtcNEhx2FpHnljkl6QewJO8cOfPompldLAqUynGab/K6k+n0W2tOzVAeBiz1qc8NzOvkh6C
- CiCehOTJExIn2rFLuirMhZkSo+JfAA2VLWPLdSx8rDB/xRLF/dVY53tTtIYe2KQkR8q6BQ1GTAw
- mEBNIsO2DvqdjHuiSgT1MCdQLAO5K/Up40sEhmJ90vLZWBvU
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260905102901.126035-4-changhuang.liang@starfivetech.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,74 +96,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-gcs_check_locked() is currently a static inline in the header but there
-is no real reason for this, it is not especially performance critical.
-Move the implementation into gcs.c to reduce the size of the header and
-make future refactoring a little easier, no functional changes.
+On Sat, Sep 05, 2026 at 03:29:00AM -0700, Changhuang Liang wrote:
+> Add device tree binding for the StarFive JHB100 UART routing controller.
+> This controller allows dynamic routing of inputs between built-in UARTs
+> and physical serial I/O ports, enabling use cases such as Host <-> BMC
+> communication via UARTs.
 
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- arch/arm64/include/asm/gcs.h | 15 +--------------
- arch/arm64/mm/gcs.c          | 13 +++++++++++++
- 2 files changed, 14 insertions(+), 14 deletions(-)
+Also, drop 'binding for ' in the subject. The subject already said 
+binding once.
 
-diff --git a/arch/arm64/include/asm/gcs.h b/arch/arm64/include/asm/gcs.h
-index bbc22e382cfe..3e6eeeebd282 100644
---- a/arch/arm64/include/asm/gcs.h
-+++ b/arch/arm64/include/asm/gcs.h
-@@ -62,25 +62,12 @@ static inline bool task_gcs_el0_enabled(struct task_struct *task)
- }
- 
- void gcs_set_el0_mode(struct task_struct *task);
-+int gcs_check_locked(struct task_struct *task, unsigned long new_val);
- void gcs_free(struct task_struct *task);
- void gcs_preserve_current_state(void);
- unsigned long gcs_alloc_thread_stack(struct task_struct *tsk,
- 				     const struct kernel_clone_args *args);
- 
--static inline int gcs_check_locked(struct task_struct *task,
--				   unsigned long new_val)
--{
--	unsigned long cur_val = task->thread.gcs_el0_mode;
--
--	cur_val &= task->thread.gcs_el0_locked;
--	new_val &= task->thread.gcs_el0_locked;
--
--	if (cur_val != new_val)
--		return -EPERM;
--
--	return 0;
--}
--
- static inline int gcssttr(unsigned long __user *addr, unsigned long val)
- {
- 	register unsigned long __user *_addr __asm__ ("x0") = addr;
-diff --git a/arch/arm64/mm/gcs.c b/arch/arm64/mm/gcs.c
-index 680749611a9a..84add924dc60 100644
---- a/arch/arm64/mm/gcs.c
-+++ b/arch/arm64/mm/gcs.c
-@@ -140,6 +140,19 @@ void gcs_set_el0_mode(struct task_struct *task)
- 	write_sysreg_s(gcscre0_el1, SYS_GCSCRE0_EL1);
- }
- 
-+int gcs_check_locked(struct task_struct *task, unsigned long new_val)
-+{
-+	unsigned long cur_val = task->thread.gcs_el0_mode;
-+
-+	cur_val &= task->thread.gcs_el0_locked;
-+	new_val &= task->thread.gcs_el0_locked;
-+
-+	if (cur_val != new_val)
-+		return -EPERM;
-+
-+	return 0;
-+}
-+
- void gcs_free(struct task_struct *task)
- {
- 	if (!system_supports_gcs())
-
--- 
-2.47.3
-
+Rob
 
