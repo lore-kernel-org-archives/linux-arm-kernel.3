@@ -4,84 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09E41C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 22:27:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF706C88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 22:31:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yqZXwnT4sTbfdvOMcGPrEviywWtc9S3DZ3O1HarHNx0=; b=1vf2Z1Q1DyIcw0IK8CZAGIFN3B
-	AOGiGI+ZWFZJ69O3kRm0soXOHPEbq5vYqC2RwojQoPh9vhzya+GJhiiUEHdlTKsa0T0IBwG/Tjzkk
-	knbkU1Cw3rH0IDtqVCSlTziE2e5SnpoVyW4zdVLyHD7c+NKZhuvhwUljZV6Yqq5vekRG0Exk+ZN97
-	YLBeub09b5HfWQ7k3euu7Xh2OZgTOjWGyj7kALeRHX1Z00evVWkt/k0O1O8lNGn0u9js9mD7GOfdh
-	znTpGLr1XSo+t0MRkvPyXkCWpDpTV3tXRTSGZzBIhtEebpjPAL7JqZuDoOsCAffhZcucr7nVb8ruT
-	xJmvt8dw==;
+	bh=4/qx3gACLobp/kVaCWxWU6urjoLYTDk1lm6knmcF17E=; b=qEX9JakJdWbYGo2/MOqXBKNzfD
+	fC7aC3WcMc4R9SAI/oXs2ZWiN6RaOtGyqUDzv6Wo8IiugZ7KamlmJHaJFQz8uEa6Ti51FfPj0cBmM
+	KqJxIWTSpqzHJ4C2TkY9VKaCGoKgz4NlmnEr0mbCGcNecnFeoekAA10nZDv2H3DQl0cyqDdZGhE07
+	rQr/kUQipab13Ya1kpqbudixciTNtxfoY5Bnm2DQ4InTnftd6gfpqd+bBK8OmSWSV7CDOo95LfLVu
+	Phoi8H7YTutu67ZBIAcVn/y51FyVmjuiicYVyvrkBOhpRkxKBEFdPt1c9DZGXc17895z3/4G8pKne
+	BK2ZRgTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7KZa-0000000Cecf-0Q8f;
-	Thu, 17 Sep 2026 22:27:18 +0000
+	id 1x7Kd5-0000000CfDA-2JpA;
+	Thu, 17 Sep 2026 22:30:55 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7KZY-0000000Cebw-3cyR
+	id 1x7Kd4-0000000CfCG-15eQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 22:27:16 +0000
+	Thu, 17 Sep 2026 22:30:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5D54141B0A;
-	Thu, 17 Sep 2026 22:27:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F36F21F000FF;
-	Thu, 17 Sep 2026 22:27:15 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A9FEA402B6;
+	Thu, 17 Sep 2026 22:30:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FC811F000FF;
+	Thu, 17 Sep 2026 22:30:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789684036;
-	bh=yqZXwnT4sTbfdvOMcGPrEviywWtc9S3DZ3O1HarHNx0=;
+	s=k20260515; t=1789684253;
+	bh=4/qx3gACLobp/kVaCWxWU6urjoLYTDk1lm6knmcF17E=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=T1Ch8FmEiDOu1G4fnoJuLj1rEhyz4E/ziyDrsJZ9x4LQWGIVRxnAKXftZ6pOkq0cV
-	 k/B8IdIfBNledOY1f9g38IVV8BrpBoSMSIu+lh+YHvym5y1Z1NQRJNtF6S3Q7bMBRF
-	 dMsU5FV1q4t4A4hIwC7E5PLIF2cNGkC3wolLzWWODHyQxwtkpaLmKs7/zJJlIncvx8
-	 NZBsWZICRa0Iq9VByDkAUgeriSBjwz6lhGxW4iCWDZik9l+a1vkX5lWbfhMvYRL82i
-	 nbN0PhtXBdsgAigUJoqR4xGqxnL7FxhSzWTFywmuGVz5Pll1HxEfm1SYpAtypTB4wm
-	 Nes7zqLQvzOLg==
-Date: Thu, 17 Sep 2026 17:27:14 -0500
-From: Rob Herring <robh@kernel.org>
-To: Changhuang Liang <changhuang.liang@starfivetech.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Chia-Wei Wang <chiawei_wang@aspeedtech.com>,
-	Oskar Senft <osk@google.com>,
+	b=OLPLzJkL2pS51ZSdjvIK3zdS7esWlyTgsGn50j02Y2ZED9OxLGUZj7V58u32BmEVK
+	 mX85kSqvR/CetXKufKiQsPtO5BR1RnM3JufEsmwuZFSQ2JISfXRFnHaqZhMILoYcBT
+	 Bvd5PDr8DhkgvFvdihoRBfnNnxj3vscpeS3yKXdIXLuxYh1VEMXTEJM5MD30ZrehVZ
+	 zNULAC0juzOT3fAL3u3cbRGdHpCTaOdwUye3he5MwrRa1ZyY14KJZtNhvcXcwHjjq/
+	 ek+uXsramaiYLMPIhp70TYdNX/cb5Vfj9+a5zJU2Se9X5x4PhfMRaRd/IKAA6FCgyQ
+	 rtAnBRZI1P99w==
+Date: Thu, 17 Sep 2026 17:30:51 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Sven Peter <sven@kernel.org>
+Cc: Janne Grunau <j@jannau.net>, Philipp Zabel <p.zabel@pengutronix.de>,
+	Neal Gompa <neal@gompa.dev>, Konrad Dybcio <konradybcio@kernel.org>,
+	devicetree@vger.kernel.org, Joshua Peisach <jpeisach@ubuntu.com>,
+	asahi@lists.linux.dev, Conor Dooley <conor+dt@kernel.org>,
+	Mika Westerberg <westeri@kernel.org>,
+	Andreas Noever <andreas.noever@gmail.com>,
+	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Yehezkel Bernat <YehezkelShB@gmail.com>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Jani Nikula <jani.nikula@intel.com>,
-	Vitaly Lubart <lubvital@gmail.com>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Alexander Usyskin <alexander.usyskin@intel.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>, Breno Leitao <leitao@debian.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	James Morse <james.morse@arm.com>, Paolo Abeni <pabeni@redhat.com>,
-	Stephen Hemminger <stephen@networkplumber.org>,
-	Dave Penkler <dpenkler@gmail.com>, Jakub Kicinski <kuba@kernel.org>,
-	Jonathan Cameron <jic23@kernel.org>, Dan Williams <djbw@kernel.org>,
-	Mukesh Rathor <mrathor@linux.microsoft.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Alexandra Winter <wintera@linux.ibm.com>,
-	Julian Braha <julianbraha@gmail.com>,
-	Karthikeyan KS <karthiproffesional@gmail.com>,
-	Pengpeng Hou <pengpeng@iscas.ac.cn>, openbmc@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org
-Subject: Re: [PATCH v2 3/4] dt-bindings: uart-routing: Add binding for
- StarFive JHB100 UART routing
-Message-ID: <20260917222714.GB4081995-robh@kernel.org>
-References: <20260905102901.126035-1-changhuang.liang@starfivetech.com>
- <20260905102901.126035-4-changhuang.liang@starfivetech.com>
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>
+Subject: Re: [PATCH v2 05/22] dt-bindings: thunderbolt: Add Apple
+ USB4/Thunderbolt NHI
+Message-ID: <178968425120.4102150.11013505530489451162.robh@kernel.org>
+References: <20260906-b4-apple-soc-tbt-v2-0-1f80085f93fb@kernel.org>
+ <20260906-b4-apple-soc-tbt-v2-5-1f80085f93fb@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260905102901.126035-4-changhuang.liang@starfivetech.com>
+In-Reply-To: <20260906-b4-apple-soc-tbt-v2-5-1f80085f93fb@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,14 +80,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 05, 2026 at 03:29:00AM -0700, Changhuang Liang wrote:
-> Add device tree binding for the StarFive JHB100 UART routing controller.
-> This controller allows dynamic routing of inputs between built-in UARTs
-> and physical serial I/O ports, enabling use cases such as Host <-> BMC
-> communication via UARTs.
 
-Also, drop 'binding for ' in the subject. The subject already said 
-binding once.
+On Sun, 06 Sep 2026 20:36:28 +0200, Sven Peter wrote:
+> The Native Host Interface (NHI) provides the TX and RX rings used by the
+> software connection manager on Apple Silicon SoCs.
+> 
+> The NHI is part of the ACIO host router and is exposed to the main SoC
+> bus while the ACIO co-processor is running.
+> 
+> T6000 and T6020 use one DART stream for the TX and RX control rings and
+> one shared by all other rings, which are used for XDomain connections.
+> This likely improves the isolation of those host-to-host connections.
+> 
+> The M3 generation uses a slightly insane set of 24 IOMMU entries. These
+> are probably one DART stream for each TX and RX ring.
+> 
+> Signed-off-by: Sven Peter <sven@kernel.org>
+> Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
+> ---
+>  .../bindings/thunderbolt/apple,t8103-usb4-nhi.yaml | 151 +++++++++++++++++++++
+>  MAINTAINERS                                        |   2 +
+>  2 files changed, 153 insertions(+)
+> 
 
-Rob
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+
 
