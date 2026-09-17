@@ -4,71 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 732D6C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 13:44:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79004C88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 13:44:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=FpdQDwDHyekm81outtd03w5thF7wwbBk32DXE8MrHZM=; b=fVBzKIZ+o5sAr25HTYeqU6Cr+/
-	tahaga6F2hAnLYr9+1GSRGgkTJPhZkMEIkDdOqDljwix4k9rKYYm53zkiqThVdrfFLFz0d6j5ZFOe
-	iNUB8oYn3d+fPuk4C861tOQZQLEJvxA8+rDx9Ep6/MHDxboN1+FwCsIhp5x5pRDBCsv/+lRfFSG7l
-	R2wFTTPb3qpTdHHzjbAScHi5XQCA/nEksqZZrNDqyJ+Dlr3FCHmy4w63mw7+cysauvvuVWQkfrc6y
-	temfA0RoMr2E320yzGPXRpXF/7pfdThzCGtlwwnmZQEUgkFQawcbmHOe1+ejOEvzWY/2SMxCDneFL
-	ogLy0frA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OJ1YBU1o9gYgwxqrw/AyHHgH2Affehx//QdayYEDSAU=; b=DICkFZlmZ7guoyp9Cf+6MfwUeU
+	+IQkErfi6LUbNjS42y9UMESFQNhS8Dt4l6zhb9sSX/KAqt/JI8nb5UkXFa/DC5bkeZ1yfIKV5l/v6
+	/DXN8n3e+JfWVbdgysds0NFj+2PJfYuMeWxqg7cK3KO+/KkeEyxPAmVIt6lNxzoxk5J4uJXVXeySA
+	LDWzNSVgIiP4QsQhTvnru4sqgWbxgcyxuK3FiHRb6bV8l1g1BRdL3yseoP54vHr9ZU8o1AcSQ8k76
+	7gNOjjduyCa9Oks8qct3aERcJoJf4pXpUMwmzjYgJ4sR4UuYk5M61UntEg21Ij/jHHIDMQNDxzxpx
+	RtjKh/aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7CPA-0000000BQRK-22bB;
-	Thu, 17 Sep 2026 13:44:00 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1x7CQ0-0000000BQXQ-2nM0;
+	Thu, 17 Sep 2026 13:44:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7CP6-0000000BQQb-12G0;
-	Thu, 17 Sep 2026 13:43:58 +0000
-Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
-	by APP-05 (Coremail) with SMTP id zQCowABHtD6Y7qtq+raBCA--.3864S2;
-	Thu, 17 Sep 2026 21:43:53 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: hpchen0nvt@gmail.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	neil.armstrong@linaro.org,
-	schung@nuvoton.com,
-	vkoul@kernel.org,
-	ychuang3@nuvoton.com,
-	Wentao Liang <vulab@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH] phy: nuvoton: Fix clock reference leak in ma35_usb_phy_probe()
-Date: Thu, 17 Sep 2026 13:43:53 +0000
-Message-Id: <20260917134353.2153788-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	id 1x7CPz-0000000BQX7-1GB8
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Sep 2026 13:44:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id BA7D660211;
+	Thu, 17 Sep 2026 13:44:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4ADDD1F000FF;
+	Thu, 17 Sep 2026 13:44:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789652690;
+	bh=OJ1YBU1o9gYgwxqrw/AyHHgH2Affehx//QdayYEDSAU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=c5wqlYrt78pFIu7OzZO4uJUZxsJJ+Gg0omy58hfcWQdqzHj3S7oVy9IBzbenqV+7R
+	 p0dcDHEUewbBrt9Mc6zZL5Y0NSDYM3kNYN0CRbGhwcz+dbeMjCm6KHQpaghsNhIiJ3
+	 XGJIqyMuWH8m0DH44QdqWsKwSiIJRrCVHmEfA/wxE9RaZ3HGxYIcJjpJDMWUBQb+OT
+	 pl+p0++veWsSpbdBZvoO4wzBw5RLsE688yBuczmvc6x5MxIANNLUipN3OyzkeTIaB/
+	 PdX+9SNHF4NPrusyykWBmPvqwKFeg1MWFWupE+KrPdvBy14VExIqmX1mmjGn64D4SM
+	 eaAPV+WUvYgJA==
+Date: Thu, 17 Sep 2026 14:44:42 +0100
+From: Will Deacon <will@kernel.org>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, iommu@lists.linux.dev,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	David Matlack <dmatlack@google.com>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	Pranjal Shrivastava <praan@google.com>,
+	Samiullah Khawaja <skhawaja@google.com>,
+	Mostafa Saleh <smostafa@google.com>, stable@vger.kernel.org,
+	Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
+Subject: Re: [PATCH v6 1/9] iommu/arm-smmu-v3: Handle ARM erratum for CONT
+ under invalidation with SVA
+Message-ID: <aqvuyse0hmNCGJqt@willie-the-truck>
+References: <0-v6-9cd17417d355+281836-smmu_tlbi_jgg@nvidia.com>
+ <1-v6-9cd17417d355+281836-smmu_tlbi_jgg@nvidia.com>
+ <aquxuBnh6pdxu4-8@J2N7QTR9R3>
+ <20260917131601.GY3968357@nvidia.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowABHtD6Y7qtq+raBCA--.3864S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7tryxuFy5uw13tr4fur4xXrb_yoW8WFy3pF
-	WDGF1ayryvyF1Iq3yDJw4kX3W5Ca47trs5KFZ7ua4kZa98Jr4UuayfXryFvF40vrykCa4a
-	qw1kAFyrAFy5ur7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPqb7Iv0xC_KF4lb4IE77IF4wAFc2x0x2IEx4CE42xK8VAvwI8I
-	cIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2
-	AK021l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v2
-	6F4j6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxV
-	W0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv
-	7VC0I7IYx2IY67AKxVWUtVWrXwAv7VC2z280aVAFwI0_Cr1j6rxdMcvjeVCFs4IE7xkEbV
-	WUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VAI37AI020EjII2zVCS5cI20VAGYxC7M4II
-	rI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMx
-	AIw28IcVCjz48v1sIEY20_Gr43Wr1UJr1l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAq
-	x4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r
-	43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF
-	7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI
-	0_Gr1j6F4UJwCI42IY6I8E87Iv6xkF7I0E14v26rxl6s0DYxBIdaVFxhVjvjDU0xZFpf9x
-	07UZSdgUUUUU=
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAENA2qrrJrIjgAAsy
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_064356_923250_AD67BA1A 
-X-CRM114-Status: GOOD (  10.70  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260917131601.GY3968357@nvidia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,50 +88,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ma35_usb_phy_probe() obtains the USB PHY clock with of_clk_get(), but
-returns without calling clk_put() when devm_phy_create() or
-devm_of_phy_provider_register() fails, leaking the reference.  The
-clock is only meant to be kept on the success path, where it is stored
-in p_phy->clk and used by the PHY operations.
+On Thu, Sep 17, 2026 at 10:16:01AM -0300, Jason Gunthorpe wrote:
+> On Thu, Sep 17, 2026 at 10:24:08AM +0100, Mark Rutland wrote:
+> > On Wed, Sep 16, 2026 at 09:27:42PM -0300, Jason Gunthorpe wrote:
+> > > The erratum (MMU-700: #3777127, S3: #3673557) deals with under
+> > > invalidation of a CONT PTE grouping in the SMMU. The recommended work
+> > > around is to use a Range Invalidate (RIL) that spans the entire CONT. The
+> > > only user of CONT in the kernel right now is through SVA sharing a CPU
+> > > page table that contains a CONT created by the mm.
+> > 
+> > As someone familiar with VMSA, I've never seen "RIL" used to describe a
+> > range invalidate and I think using that in the code below is confusing.
+> > I *think* "RIL" has come from "SMMUv3.2-RIL", which is the SMMU feature
+> > for Range Invalidate *and* Level hint, where "RI" is Range Invalidate,
+> > and "L" is Level.
+> 
+> Yes,
+> 
+> drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h:#define IDR3_RIL                    (1 << 10)
+> 
+> Unfortunately I've noticed a couple of places like this where the SMMU
+> terminology and VMSA differ a little bit. In these cases we've
+> historically choosen the SMMU naming in the SMMU driver to be
+> consistent with its spec.. I've definately seen this gets confusing
+> when talking to people familiar with the CPU spec and IP.
+> 
+> I had guessed it ment "Rang InvaLidate", but you are right:
+> 
+>   RIL, bit [10]
+>        Range-based Invalidations and Level hint support for TLBI.
+>        The value of this field is an IMPLEMENTATION DEFINED choice of:
+> 
+> The driver also calls it ARM_SMMU_FEAT_RANGE_INV, but I thought
+> range_inv everwhere made some very long names.
+> 
+> > Can we please spell that out as "range invalidate" or "range op"
+> > (matching the arm64 architecture code) rather than "RIL"?
+>  
+> > That'll be easier to follow, especially as nothing in the code mentions
+> > what "RIL" means -- that's only mentioned in this commit message.
+> 
+> The whole series uses ril as a shorthand for IDR3_RIL, and the spec
+> often does the same:
+> 
+> [25:20] SCALE Range invalidation scale.
+> 		  * See below for use of this field in range invalidation.
+> 		  * When TG == 0b00 this field is RES0.
+> 		  * If SMMU_IDR3.RIL == 0, this field is RES0.
+>                          ^^^^^^^^^^^
+> 
+> So I'm certainly sympathetic, but I don't know we should diverge the
+> driver from the language in it's own spec.
+> 
+> Do you have a recommendation for a suitable short name? It is
+> meaningful work to rename everything in this series.. Will?
 
-Drop the reference on those two error paths.
+I think that using RANGE_INV / range_inv would be more consistent with
+the existing code, but IDR3_RIL should remain as-is because it maps
+directly to the spec.
 
-Fixes: b48baf69db97 ("phy: nuvoton: add new driver for the Nuvoton MA35 SoC USB 2.0 PHY")
-Cc: stable@vger.kernel.org
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
----
- drivers/phy/nuvoton/phy-ma35d1-usb2.c | 11 ++++++++---
- 1 file changed, 8 insertions(+), 3 deletions(-)
+If we can do that without churning the driver (looks like we can), then
+it's probably worth it, but I wouldn't be keen on churning existing code
+for things like this.
 
-diff --git a/drivers/phy/nuvoton/phy-ma35d1-usb2.c b/drivers/phy/nuvoton/phy-ma35d1-usb2.c
-index 9a459b700ed4..3752e244134b 100644
---- a/drivers/phy/nuvoton/phy-ma35d1-usb2.c
-+++ b/drivers/phy/nuvoton/phy-ma35d1-usb2.c
-@@ -111,15 +111,20 @@ static int ma35_usb_phy_probe(struct platform_device *pdev)
- 				     "failed to find usb_phy clock\n");
- 
- 	phy = devm_phy_create(&pdev->dev, NULL, &ma35_usb_phy_ops);
--	if (IS_ERR(phy))
--		return dev_err_probe(&pdev->dev, PTR_ERR(phy), "Failed to create PHY\n");
-+	if (IS_ERR(phy)) {
-+		clk_put(p_phy->clk);
-+		return dev_err_probe(&pdev->dev, PTR_ERR(phy),
-+				     "Failed to create PHY\n");
-+	}
- 
- 	phy_set_drvdata(phy, p_phy);
- 
- 	provider = devm_of_phy_provider_register(&pdev->dev, of_phy_simple_xlate);
--	if (IS_ERR(provider))
-+	if (IS_ERR(provider)) {
-+		clk_put(p_phy->clk);
- 		return dev_err_probe(&pdev->dev, PTR_ERR(provider),
- 				     "Failed to register PHY provider\n");
-+	}
- 	return 0;
- }
- 
--- 
-2.34.1
-
+Will
 
