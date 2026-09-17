@@ -4,150 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A029AC982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 10:22:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3C49C88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 10:28:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ye9QABhpOuRMJ6ILUICfTY/MNQNFcj0bFaE5NkJlfUw=; b=KIB+NHp06WbU+OvTjU2sJ5rTTH
-	WJSdIrAuMSl2D0OLnwVaPoWbmX3PJVrnDNojoQOc38zb/98opo2oYB8SIYS+N5ZixVYrnpyt49b0l
-	sQSZO5wdW7yG88XrPgxAVbEOsEY1MQkKWHFNGybC19FaDnajk4uUClJpJUdbF23Y7ZPKqUgNs1P/o
-	/c/Uqt+/8YoihkQ0+UB2Akp6fvpAyvEMOajQfRevg84szq3ROKN42Y3r+YbyCuI7p+iERUzjK90uE
-	sEhHiOgJYK2yp2s9K6O0j6bYUWJGhJ3XUmsFST/BV3ZTyhxaOycj3LK0QZq1BsoS0f8KGpTDWhmzS
-	Rl9njLDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=u9Ab6lJUKxBxskb5Sy4ul/BuNkkrhOKMa0dNjk07dWo=; b=lTP0quJf2XN/pBjykdWccJ+tm9
+	XQDe/2vWBbdcAxCfUkXAEZiZoWz06SHlW3yDwt/iJctu1AJdStrXg9pfNE++evGAVAQJKtSX6GDRw
+	ovT+J/wbKLhQ4c/e4u3L1FfTHt8xq7i/3Hol822R7aSU41mJ0+a0r/2sFLdDUir195XAxbs+SN50O
+	G9+q8vanVNKMiYeFhCuANLBoa1yoQATpF8mhqjzjvdOASYoms8bOV5BTB6jJIVwI3A2P8fKZxxfmC
+	USmVAZuO5WOfkn3zjpeKVtqaKwdzrP6Zr+MRLfNKmvEuCGvnvv5jpJmw1OFcXaKxjHfCfPF+sE0fG
+	wjnb5eWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x79G1-0000000B5uq-1GAs;
-	Thu, 17 Sep 2026 10:22:21 +0000
-Received: from mail-westeuropeazon11013009.outbound.protection.outlook.com ([52.101.72.9] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1x79Lf-0000000B6Om-0YOK;
+	Thu, 17 Sep 2026 10:28:11 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x79Fx-0000000B5tt-4BhN
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 10:22:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=i3DBi+JhfaT727O/M33zUaML8TFqKPT2Bek0O+RPXfkt+EF54I0zdgyPy1RQ///9aBRUmr9QP291WvJddFUJ4+Cx+haiEnovWRzzGi4NCw2PDfIYKiRIroiubs18ODvFGy0a/zthP/8AA57pt4Z/5/y1DTLuO1h7d5hgT9d6kHcIJsHJ5sxDCwMOlc4DSio7DYqvUfx4x7yVWf9u4dneImt40mUBupRECJg463JHn0NHQHuX5xG+KJix6V6PzA9FZge2DLFceVrm2stuMLn0Eia3QYNqn4E6aIRr4lRktzXfqaOV0uf71WXPOiKC0bbXTEbkviUgnCU3WaIVXkkOwg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ye9QABhpOuRMJ6ILUICfTY/MNQNFcj0bFaE5NkJlfUw=;
- b=peQaglsMGe7eHWavfBIFlKumr1BCC6HXjZSiHjuIbGQ4GSq8pKlor5XdY75hwy7ylKJr10n9XMf/z0bk0OleN3KpFvWFbtO2ZL8nOIroc6acODzA2ykRlzZC6CV10NSB0VqZX2HV8b8whawIMfeH2f371IXJjV+p6SXLVrnUE8t2UZ1XhrRXsXLHftvQg07InT3PULkZ/J3fl4LnKqaPynARln6BefTkxkact70N8u0InsGUZtC/LP2Wh34d0z5KLy4UrM/JiZfV1uAdTTQ39j8DSfppr6QMdlpp7sFknQijzi6Tu74sZXsekY1N5/po9id+Uuo6dj+yVj4E9iF0/w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ye9QABhpOuRMJ6ILUICfTY/MNQNFcj0bFaE5NkJlfUw=;
- b=Qd327Vo02HZ6z9bZbYyTbrjjFxvj3VbFClY5+baH7c8Nw2EgEd6s2jlkWl1ycq+Cu0RPhd7fIPDq7mBQ6gS0oje2ClXEG4XLvnS00546LPw6MdyVL0LSqJkAatMxY5AtY66+cxCGYknPdt9tYZzJsvgVOCTLy205uo7whS5oR/i+vVy6HL7X1QoRQmS6ZfCqIECZgIJUXdcaEpozg5waP+pxkXyH0maKTlxMw7TQxJsk9Db+XkYhfRlafps+cSW8dHUGcu5gxHCLnfvOIY9vI/Z/a3Gr4pClTEqtY0nmBi1ZdOIn+0WZKXYIKKhOT1FisbrAOgb9kxhv7q3nxu1xJw==
-Received: from GV2PR04MB12271.eurprd04.prod.outlook.com (2603:10a6:150:32a::5)
- by VI0PR04MB10853.eurprd04.prod.outlook.com (2603:10a6:800:26c::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Thu, 17 Sep
- 2026 10:22:09 +0000
-Received: from GV2PR04MB12271.eurprd04.prod.outlook.com
- ([fe80::3b38:4ed4:2164:c035]) by GV2PR04MB12271.eurprd04.prod.outlook.com
- ([fe80::3b38:4ed4:2164:c035%5]) with mapi id 15.21.0428.008; Thu, 17 Sep 2026
- 10:22:09 +0000
-From: Pankaj Gupta <pankaj.gupta@nxp.com>
-To: Frieder Schrempf <frieder.schrempf@kontron.de>, "Pankaj Gupta (OSS)"
-	<pankaj.gupta@oss.nxp.com>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
-	<skhan@linuxfoundation.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li
-	<frank.li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel
- Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Randy
- Dunlap <rdunlap@infradead.org>
-CC: "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: RE: [EXT] Re: [PATCH v50 3/7] firmware: imx: add driver for NXP
- EdgeLock Enclave
-Thread-Topic: [EXT] Re: [PATCH v50 3/7] firmware: imx: add driver for NXP
- EdgeLock Enclave
-Thread-Index: AQHdQqq2wHlNwya8KUuV3Wi6bHqRz7bN5wyAgAAAiQCABK7E8A==
-Date: Thu, 17 Sep 2026 10:22:09 +0000
-Message-ID: <GV2PR04MB12271B5BA2DF548C5B046120295B82@GV2PR04MB12271.eurprd04.prod.outlook.com>
-References: <20260912-imx-se-if-v50-0-80834ef510d3@nxp.com>
- <20260912-imx-se-if-v50-3-80834ef510d3@nxp.com>
- <2062655f-886d-4194-b7bf-3048b7139c7f@kontron.de>
- <9d1fb5e5-e0ad-4fbb-83ee-5f267db4f030@kontron.de>
-In-Reply-To: <9d1fb5e5-e0ad-4fbb-83ee-5f267db4f030@kontron.de>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_Enabled=True;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_SiteId=686ea1d3-bc2b-4c6f-a92c-d99c5c301635;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_SetDate=2026-09-17T10:18:11.0000000Z;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_Name=NXP
- Confidential;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_ContentBits=3;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_Method=Standard
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: GV2PR04MB12271:EE_|VI0PR04MB10853:EE_
-x-ms-office365-filtering-correlation-id: 7d95356b-08d1-416b-2e21-08df14a5882a
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|19092799006|366016|376014|7416014|1800799024|38070700021|921020|56012099006|11063799006|4143699003|10067099003|22082099003|18002099003;
-x-microsoft-antispam-message-info: C7m3dWEAcZnz3CmgOMv9sAFqBXxnDxHfE1XGsT7RVpiTL/viMadEr6dw+K3NPIp0bTMgvPrFFie5xZS0cuENhqy0bbcnBhgihsskoU3GRHR+mBOroTwISHBALJcdX2pGuJzYeImZ++V157JBat1q7snsKo7JAEGMOFffb5RwmxXDufcFD8eYKuNqi0cQ8kexnF+CMLSomtlAe/4S0FqB32i2KCoEnvmO6lVVIVHkdAmme5zuoHaKGp9smF8nLFwGKPB6fWJi+SAD2RJz6EL8tyCC1coHdJYKQIq18pisTLJhqBzaBckCr58q450yGyBdslC0BMPqZN73NiurmSGKeKsLnSC4zrTu9XDktCjkcFRKAsuUbWdWj1l6XMZCwT0R0chi/5RWhe9gvxE8/6UahrPHG8taFpFHU4TeUudVwcZbfLkwfV0+DfqYDa468Wt3XQ5EcynGQO78rHRSoWz3+KSRWrg9rxV3j5Ud2rwCL4cg279mu34D8gguvAJol6pWszWRfz98greiCbK2Ykqa2ROzC5tE/lSAjDFSDZwApYanHeT+U+VC+ryHWRhdv3sc/nzf8DjhgSH9ecIYdF4UWsasgaQ4pRfy9f9r5AhejsP2NfWgZ8MpPu8kZHO0izH+4NL0y4xuoTCyorB2LtX8X5a2A3pIdgST3u/9ZV8BPH7i7P5YlCIXXYSQHwlsUIl7ZjZnUFOW4S/YJT45RLGTl8kt2Nvz08M45p4M9X3h+YdvfGzvMHh3vyG0Q0HPznCZ
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12271.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(366016)(376014)(7416014)(1800799024)(38070700021)(921020)(56012099006)(11063799006)(4143699003)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?MnYwV0NsWjkzbXhOWWQyNjNBOXJzdHBjZlBESTUwNnhmalN1em50eXROVGRG?=
- =?utf-8?B?TjVJRHJrODY0SVlMV09QS1VEL1FOY1ZBa2IyOXpXMGJSNFlyN2NmeHRBSGxi?=
- =?utf-8?B?L0ZJekdSbE91cXZITlpjTXo5UVoyUENLczVPTVZFUjI1RWtleVhFcmViaEpa?=
- =?utf-8?B?NzVoalNNRHlFUndGV0VIWFZLVWJINmhaYTlpWHBha3I1YWlpaEJzTjFTQlAw?=
- =?utf-8?B?NUhvYVNjL215WnhHQWVUdnAzRlZIMkt0V2d6ZnU5K2hGTmhCeFRvdUFlVzFH?=
- =?utf-8?B?R2xVRTE2eVBPUWhFaXpzY1lyclZNVC9CWnlUTW9keG8rRzkyd1p0VGZBSGEz?=
- =?utf-8?B?U3NPdnZ5eGZDaG9Xelo1YnNzY0hQZmp1U2pMd1JGNCtBUEpVT3VId2VjbVE4?=
- =?utf-8?B?bmd2TDRVUjF4OUdoUXE5Uml6bWRZa3ZRSHh1OWc0U1R5eDlHbEt0d081b0Vr?=
- =?utf-8?B?aFNHamdiOXhWUGEyZENOTUZNNjhaMXVCbC91MlJTTFpYZmpkNTJvb0IwRm9G?=
- =?utf-8?B?UkdpYzN4YUxDbVJsYUc4SVNQb1V0K2xWV0JscGI5MlMvTU0xOWZldmppeUda?=
- =?utf-8?B?Z3Vhb2M5bTVmNDIvTnpDdzUybDlZU0ZYaWRrQzlLTkkwN3d6TklPMUk2L3Fh?=
- =?utf-8?B?bWtJVngrMC9KWUNoQVRqWDBLZFNTWlVQc21hYUhMY3hFOG1xY2xJTTFqak5j?=
- =?utf-8?B?WWQveGRwWnFwNWR2K0t6UWYvUGNpQTlINldLeTJqY1JieHpTcHB3Q0x6RCtV?=
- =?utf-8?B?YkhCTmtFN0tJbktrOXdiQ3VLcHYyL3NoSGEwdGRvS2xDUEdweFAxSUFEc2kr?=
- =?utf-8?B?ZHEwKzVmTnJtSEVGd0FHRWpVZWFJQTdRekphSUdFWEI0b3hLUXo2MlQ5OHFL?=
- =?utf-8?B?UDFZaHQ3NE5kdm9KRjRoemh6Z24xcHB2cFFtMlgvc25mVDRXQjlTK0pXNUFR?=
- =?utf-8?B?dEZjb25jcFZ2ZFpmSGtMbmxFa0ZYa05CdlZjMDQvQktqRmJEenY4N1EyNGhq?=
- =?utf-8?B?YWlHbWFQRzhJaE55dGN1VTR4bUZIcVdHNE05QVhwRHpoOUdPUTVDVXdoSGNU?=
- =?utf-8?B?cy9GY0JBVnRsWGMzbHVxY3ZPeXZRdjEwZHA3Ykt6RTB1T3BpcEN0Wk5nYkk5?=
- =?utf-8?B?YmxqTDAydmREQnFFc2hLTjBadDdSclAyMElINFFndVZFZk50bTZsS0NQRHpw?=
- =?utf-8?B?ZFhwVncrV0dhMTBES3V0UklSL3hqUEtPaHZYeHZLbityQk9QRnRoSlNMc2Nv?=
- =?utf-8?B?RHBKejZLd0M1cjgzZ3ZMZGY4Rzd1VHQyZlh6UFJ3MGFKWU1nYmIxa1NiZlY4?=
- =?utf-8?B?M0gyZjNwMUs0Zk1saUZkZVJQWUdjbTFyUzNRdnptZ3Uxek5nM3RUVk5vd2ph?=
- =?utf-8?B?QmlhbUEzUDFueTJXakd6SDV1cmYrQjZXcVFnNHhvaVdxNUtqMnNScHVqWi9Y?=
- =?utf-8?B?U0lMeUh6SWRqUlVTMzFqM1BpRXc5cGRmQUpNaHdYNzk1UFVodlBwTSs5MnVX?=
- =?utf-8?B?V0Yzb2VaR3p0VkwxMEl1ZUk3eDNCbEFxajQwR25HQzJValZ1OTJPSndaUTJl?=
- =?utf-8?B?TTdwMHZHQmwwaGNxZ3Vsc1VaTTIxRHdDTHY2eGZtR09odnN2QTBSR2prZDYx?=
- =?utf-8?B?dzV4bkFtUVMvMDRNeEUzT3BCVnVqSEVJNGFoVkd2S3ZtS2FnZk1DeUt0K3pu?=
- =?utf-8?B?blNpb0FEVlpkRFF5bjNHb2RXSlNLQ0dzRzIwaExMSUREMldBNmJTVDFhSlZC?=
- =?utf-8?B?VWZ6Rlh1N2d2d3djbVVOOU4vaGtGb2xBeWRwNFZzKzQ2TVNoYksxa1NiK2pF?=
- =?utf-8?B?MXhyZHVmY2hSS1pnN2ZhYy8wc1VTQUpKYk9WU2RnSlNaOVRMK1JSRmxFcWZP?=
- =?utf-8?B?SGc2Yll0R1pTaU4rMlhLcTYxQmRoR1VFQmFsUXlzNktMdjM1ckt1aDloR1Uy?=
- =?utf-8?B?d1VDZHBDWkM5cFdxOHNlRlJUQTF2SWIwYkdCQ0k0T3hhRDVzVXMrVytHdDhE?=
- =?utf-8?B?VlRmVGMyV29QcGhSWnFJakNzMEN2d283ejUzVUt0UUlTZ0ErTEZaWk9DbHMr?=
- =?utf-8?B?RkNxclJ2OXpZMm0zZkx6Rjk2dVM4UHFBRHN6Ti9FS25TSXk3VDQ5bW5ORzIz?=
- =?utf-8?B?K1VUK3c1V0NpODFlQnRBaWZjY1FkdkVoWnNoeCtBMExXbHBCSTNmZTFvVzhx?=
- =?utf-8?B?b3ZweXZkTkZoTFlUS2szakdtQnFUVW1IRnZyelQzOTBncEp3ZmxMWjYyOElo?=
- =?utf-8?B?QnRlQk1TdFA3RSsrWk11NUVacjAzaklOQXowRWhLNlRQTWxLZFJENGd2c2s5?=
- =?utf-8?Q?gdDtIGznky2kbJoI03?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	id 1x79La-0000000B6Nk-3mw7;
+	Thu, 17 Sep 2026 10:28:10 +0000
+Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
+	by APP-05 (Coremail) with SMTP id zQCowAAXgDq0wKtqR5x+CA--.63922S2;
+	Thu, 17 Sep 2026 18:28:04 +0800 (CST)
+From: Wentao Liang <vulab@iscas.ac.cn>
+To: alexandre.belloni@bootlin.com
+Cc: bbrezillon@kernel.org,
+	claudiu.beznea@tuxon.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mtd@lists.infradead.org,
+	miquel.raynal@bootlin.com,
+	nicolas.ferre@microchip.com,
+	richard@nod.at,
+	vigneshr@ti.com,
+	Wentao Liang <vulab@iscas.ac.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH] mtd: rawnand: atmel: Fix HSMC clock leak in legacy controller init
+Date: Thu, 17 Sep 2026 10:28:04 +0000
+Message-Id: <20260917102804.2146887-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12271.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7d95356b-08d1-416b-2e21-08df14a5882a
-X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Sep 2026 10:22:09.6497
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 9JJltbIaCjP9cfHgdx3arfAUtWmiXu97W3QtZTsEbXVrmK77WAv3K8cqJSxO0Q/brvsvDPM3aUhmtIPErM3Rjg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10853
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: zQCowAAXgDq0wKtqR5x+CA--.63922S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxJF47Aw1UXryxKFyfJFyrJFb_yoW5uFyxpF
+	W7XFWxGw18XayfZFZrKa1UWF1FqFs7KFyDCwsxW34fZw4aqryqyF1rZFyFqFW5GFWfXw43
+	Za17t3W8CFn5A3JanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPvb7Iv0xC_Kw4lb4IE77IF4wAFc2x0x2IEx4CE42xK8VAvwI8I
+	cIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2
+	AK021l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v2
+	6F4j6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxV
+	W0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv
+	7VC0I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Gr1j6F4UJwAm72CE4IkC6x0Yz7
+	v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0E0s8F02x267IIx4CEVc8vx2IErcIFxwAC
+	I402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrw
+	CF04k20xvE74AGY7Cv6cx26r48ZrWUJr1UMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E
+	5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtV
+	W8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1I6r4UMIIF0xvE2Ix0cI8IcVCY
+	1x0267AKxVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14
+	v26r4UJVWxJr1lIxAIcVC2z280aVCY1x0267AKxVW0oVCq3bIYCTnIWIevJa73UjIFyTuY
+	vjxUqdHjUUUUU
+X-Originating-IP: [36.110.52.2]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBggNA2qrq3ZOXQABsO
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_032218_047463_F4B97022 
-X-CRM114-Status: GOOD (  23.50  )
+X-CRM114-CacheID: sfid-20260917_032809_558165_6DF8121B 
+X-CRM114-Status: UNSURE (   8.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,53 +86,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-VGhhbmtzIEZyaWVkZXIgZm9yIGV4dGVuZGluZyBoZWxwIGhlcmUuDQoNCk9uIHY1MSwgcmVxdWVz
-dCB5b3Ugc2hhcmUgeW91ciByZXZpZXcgY29tbWVudHMgdG9vIGlmIHlvdSBoYXZlLCBhcGFydCBm
-cm9tIGV4dGVuZGluZyBzdXBwb3J0IGZvciB0ZXN0aW5nLg0KDQpSZWdhcmRzDQpQYW5rYWoNCg0K
-DQoNCk5YUCBDb25maWRlbnRpYWwNCj4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0tLS0NCj4gRnJv
-bTogRnJpZWRlciBTY2hyZW1wZiA8ZnJpZWRlci5zY2hyZW1wZkBrb250cm9uLmRlPg0KPiBTZW50
-OiAxNCBTZXB0ZW1iZXIgMjAyNiAxNjoxOA0KPiBUbzogUGFua2FqIEd1cHRhIChPU1MpIDxwYW5r
-YWouZ3VwdGFAb3NzLm54cC5jb20+OyBKb25hdGhhbiBDb3JiZXQNCj4gPGNvcmJldEBsd24ubmV0
-PjsgU2h1YWggS2hhbiA8c2toYW5AbGludXhmb3VuZGF0aW9uLm9yZz47IFJvYiBIZXJyaW5nDQo+
-IDxyb2JoQGtlcm5lbC5vcmc+OyBLcnp5c3p0b2YgS296bG93c2tpIDxrcnprK2R0QGtlcm5lbC5v
-cmc+OyBDb25vciBEb29sZXkNCj4gPGNvbm9yK2R0QGtlcm5lbC5vcmc+OyBGcmFuayBMaSA8ZnJh
-bmsubGlAbnhwLmNvbT47IFNhc2NoYSBIYXVlcg0KPiA8cy5oYXVlckBwZW5ndXRyb25peC5kZT47
-IFBlbmd1dHJvbml4IEtlcm5lbCBUZWFtIDxrZXJuZWxAcGVuZ3V0cm9uaXguZGU+Ow0KPiBGYWJp
-byBFc3RldmFtIDxmZXN0ZXZhbUBnbWFpbC5jb20+OyBQYW5rYWogR3VwdGEgPHBhbmthai5ndXB0
-YUBueHAuY29tPjsNCj4gUmFuZHkgRHVubGFwIDxyZHVubGFwQGluZnJhZGVhZC5vcmc+DQo+IENj
-OiBsaW51eC1kb2NAdmdlci5rZXJuZWwub3JnOyBsaW51eC1rZXJuZWxAdmdlci5rZXJuZWwub3Jn
-Ow0KPiBkZXZpY2V0cmVlQHZnZXIua2VybmVsLm9yZzsgaW14QGxpc3RzLmxpbnV4LmRldjsgbGlu
-dXgtYXJtLQ0KPiBrZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZw0KPiBTdWJqZWN0OiBbRVhUXSBS
-ZTogW1BBVENIIHY1MCAzLzddIGZpcm13YXJlOiBpbXg6IGFkZCBkcml2ZXIgZm9yIE5YUCBFZGdl
-TG9jaw0KPiBFbmNsYXZlDQo+DQo+IENhdXRpb246IFRoaXMgaXMgYW4gZXh0ZXJuYWwgZW1haWwu
-IFBsZWFzZSB0YWtlIGNhcmUgd2hlbiBjbGlja2luZyBsaW5rcyBvciBvcGVuaW5nDQo+IGF0dGFj
-aG1lbnRzLiBXaGVuIGluIGRvdWJ0LCByZXBvcnQgdGhlIG1lc3NhZ2UgdXNpbmcgdGhlICdSZXBv
-cnQgdGhpcyBlbWFpbCcNCj4gYnV0dG9uDQo+DQo+DQo+IE9uIDE0LjA5LjI2IDEyOjQ1LCBGcmll
-ZGVyIFNjaHJlbXBmIHdyb3RlOg0KPiA+IE9uIDEyLjA5LjI2IDE5OjAzLCBwYW5rYWouZ3VwdGFA
-b3NzLm54cC5jb20gd3JvdGU6DQo+ID4+IEZyb206IFBhbmthaiBHdXB0YSA8cGFua2FqLmd1cHRh
-QG54cC5jb20+DQo+ID4+DQo+ID4+IEFkZCBNVS1iYXNlZCBjb21tdW5pY2F0aW9uIGludGVyZmFj
-ZSBmb3Igc2VjdXJlIGVuY2xhdmUuDQo+ID4+DQo+ID4+IE5YUCBoYXJkd2FyZSBJUChzKSBmb3Ig
-c2VjdXJlLWVuY2xhdmVzIGxpa2UgRWRnZWxvY2sgRW5jbGF2ZShFTEUpLA0KPiA+PiBhcmUgZW1i
-ZWRkZWQgaW4gdGhlIFNvQyB0byBzdXBwb3J0IHRoZSBmZWF0dXJlcyBsaWtlIEhTTSwgU0hFICYg
-VjJYLA0KPiA+PiB1c2luZyBtZXNzYWdlIGJhc2VkIGNvbW11bmljYXRpb24gaW50ZXJmYWNlLg0K
-PiA+Pg0KPiA+PiBUaGUgc2VjdXJlIGVuY2xhdmUgRlcgY29tbXVuaWNhdGVzIHdpdGggTGludXgg
-b3ZlciBzaW5nbGUgb3IgbXVsdGlwbGUNCj4gPj4gZGVkaWNhdGVkIG1lc3NhZ2luZyB1bml0KE1V
-KSBiYXNlZCBpbnRlcmZhY2UocykuDQo+ID4+IEV4aXN0cyBvbiBpLk1YIFNvQyhzKSBsaWtlIGku
-TVg4VUxQLCBpLk1YOTMsIGkuTVg5NSBldGMuDQo+ID4+DQo+ID4+IEZvciBpLk1YOXggU29DKHMp
-IHRoZXJlIGlzIGF0IGxlYXN0IG9uZSBkZWRpY2F0ZWQgRUxFIE1VKHMpIGZvciBlYWNoDQo+ID4+
-IHdvcmxkIC0gTGludXgob25lIG9yIG1vcmUpIGFuZCBPUFRFRS1PUyAob25lIG9yIG1vcmUpLg0K
-PiA+Pg0KPiA+PiBPdGhlciBkZXBlbmRlbnQga2VybmVsIGRyaXZlcnMgd2lsbCBiZToNCj4gPj4g
-LSBOVk1FTTogdGhhdCBzdXBwb3J0cyBub24tdm9sYXRpbGUgZGV2aWNlcyBsaWtlIEVGVVNFUywN
-Cj4gPj4gICBtYW5hZ2VkIGJ5IE5YUCdzIHNlY3VyZS1lbmNsYXZlLg0KPiA+Pg0KPiA+PiBTaWdu
-ZWQtb2ZmLWJ5OiBQYW5rYWogR3VwdGEgPHBhbmthai5ndXB0YUBueHAuY29tPg0KPiA+PiBSZXZp
-ZXdlZC1ieTogRnJhbmsgTGkgPEZyYW5rLkxpQG54cC5jb20+DQo+ID4+IFRlc3RlZC1ieTogRnJp
-ZWRlciBTY2hyZW1wZiA8ZnJpZWRlci5zY2hyZW1wZkBrb250cm9uLmRlPg0KPiA+DQo+ID4gTXkg
-cmV2aWV3IHdhcyBmb3IgdjI1LCBteSB0ZXN0IHdhcyB2YWxpZCBmb3IgdjI5LiBXZSBhcmUgbm93
-IGF0IHY1MCwNCj4gPiBzbyBwbGVhc2UsIGFzIHJlcXVlc3RlZCBiZWZvcmUsIGRyb3AgdGhlIHRh
-Z3MgYXMgSSBkb24ndCB0aGluayB0aGV5DQo+ID4gY2FuIGJlIGNvbnNpZGVyZWQgdG8gYmUgc3Rp
-bGwgdmFsaWQgd2l0aCBhbGwgdGhlc2UgY2hhbmdlcy4NCj4gU29ycnksIEkgbWlzc2VkIHRoYXQg
-eW91IGFscmVhZHkgcmVtb3ZlZCB0aGUgUi1iIGluIHRoZSBtZWFudGltZS4gQnV0IEkgZ3Vlc3MN
-Cj4gdGhlIFQtYiBzaG91bGQgYWxzbyBnby4gUGxlYXNlIHBpbmcgbWUgd2hlbiBhbGwgdGhlIHBy
-b2JsZW1zIGluIHRoZSBjb2RlIGFyZQ0KPiBzb2x2ZWQgYW5kIEkgd2lsbCB0ZXN0IG9uY2UgbW9y
-ZS4NCg==
+atmel_hsmc_nand_controller_legacy_init() takes a reference to the
+HSMC clock with of_clk_get() and enables it, but the error paths
+that follow only release the device node, so both the reference and
+the enable are leaked whenever the controller cannot be fully
+initialized.  The probe fails in that case and never reaches
+atmel_hsmc_nand_controller_remove(), which is where the clock is
+normally disabled and put.
+
+Add an err_disable_clk path that disables and releases the clock
+before jumping to the existing out path.
+
+Fixes: f88fc122cc34 ("mtd: nand: Cleanup/rework the atmel_nand driver")
+Cc: stable@vger.kernel.org
+Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+---
+ drivers/mtd/nand/raw/atmel/nand-controller.c | 25 +++++++++++++-------
+ 1 file changed, 16 insertions(+), 9 deletions(-)
+
+diff --git a/drivers/mtd/nand/raw/atmel/nand-controller.c b/drivers/mtd/nand/raw/atmel/nand-controller.c
+index e7fdf532c5fe..87d9227f6ecc 100644
+--- a/drivers/mtd/nand/raw/atmel/nand-controller.c
++++ b/drivers/mtd/nand/raw/atmel/nand-controller.c
+@@ -2184,6 +2184,7 @@ atmel_hsmc_nand_controller_legacy_init(struct atmel_hsmc_nand_controller *nc)
+ 	if (ret) {
+ 		dev_err(dev, "Failed to enable the HSMC clock (err = %d)\n",
+ 			ret);
++		clk_put(nc->clk);
+ 		goto out;
+ 	}
+ 
+@@ -2193,20 +2194,20 @@ atmel_hsmc_nand_controller_legacy_init(struct atmel_hsmc_nand_controller *nc)
+ 		if (ret != -EPROBE_DEFER)
+ 			dev_err(dev, "Failed to get IRQ number (err = %d)\n",
+ 				ret);
+-		goto out;
++		goto err_disable_clk;
+ 	}
+ 
+ 	ret = of_address_to_resource(nfc_np, 0, &res);
+ 	if (ret) {
+ 		dev_err(dev, "Invalid or missing NFC IO resource (err = %d)\n",
+ 			ret);
+-		goto out;
++		goto err_disable_clk;
+ 	}
+ 
+ 	iomem = devm_ioremap_resource(dev, &res);
+ 	if (IS_ERR(iomem)) {
+ 		ret = PTR_ERR(iomem);
+-		goto out;
++		goto err_disable_clk;
+ 	}
+ 
+ 	regmap_conf.name = "nfc-io";
+@@ -2216,20 +2217,20 @@ atmel_hsmc_nand_controller_legacy_init(struct atmel_hsmc_nand_controller *nc)
+ 		ret = PTR_ERR(nc->io);
+ 		dev_err(dev, "Could not create NFC IO regmap (err = %d)\n",
+ 			ret);
+-		goto out;
++		goto err_disable_clk;
+ 	}
+ 
+ 	ret = of_address_to_resource(nfc_np, 1, &res);
+ 	if (ret) {
+ 		dev_err(dev, "Invalid or missing HSMC resource (err = %d)\n",
+ 			ret);
+-		goto out;
++		goto err_disable_clk;
+ 	}
+ 
+ 	iomem = devm_ioremap_resource(dev, &res);
+ 	if (IS_ERR(iomem)) {
+ 		ret = PTR_ERR(iomem);
+-		goto out;
++		goto err_disable_clk;
+ 	}
+ 
+ 	regmap_conf.name = "smc";
+@@ -2239,20 +2240,20 @@ atmel_hsmc_nand_controller_legacy_init(struct atmel_hsmc_nand_controller *nc)
+ 		ret = PTR_ERR(nc->base.smc);
+ 		dev_err(dev, "Could not create NFC IO regmap (err = %d)\n",
+ 			ret);
+-		goto out;
++		goto err_disable_clk;
+ 	}
+ 
+ 	ret = of_address_to_resource(nfc_np, 2, &res);
+ 	if (ret) {
+ 		dev_err(dev, "Invalid or missing SRAM resource (err = %d)\n",
+ 			ret);
+-		goto out;
++		goto err_disable_clk;
+ 	}
+ 
+ 	nc->sram.virt = devm_ioremap_resource(dev, &res);
+ 	if (IS_ERR(nc->sram.virt)) {
+ 		ret = PTR_ERR(nc->sram.virt);
+-		goto out;
++		goto err_disable_clk;
+ 	}
+ 
+ 	nc->sram.dma = res.start;
+@@ -2261,6 +2262,12 @@ atmel_hsmc_nand_controller_legacy_init(struct atmel_hsmc_nand_controller *nc)
+ 	of_node_put(nfc_np);
+ 
+ 	return ret;
++
++err_disable_clk:
++	clk_disable_unprepare(nc->clk);
++	clk_put(nc->clk);
++
++	goto out;
+ }
+ 
+ static int
+-- 
+2.34.1
+
 
