@@ -4,93 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1624FC982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 20:31:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0771C982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 20:37:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1DNCW5bB+cAYVy5PyJp5VUEN9k9DZzvAe3lm+iP5ciY=; b=oKIu2GQ/400keRDA3KcOnlvZDt
-	HNWbW4HFgwfaflKwzOverL3fZIEcF5jSOknLake4NFuTi6+d8MkL7X67jJQsAp5fIZYybiOwW3HeF
-	ZoCyzTTaDLkclOhe1QzhlcO33AsiHuLpaU29YkGAaOGgSAzp4Qja8WiHZUdFAyY3vpEe/jnQxSJG2
-	08/uq9JDC6705E8b/jzt2rpaNlhiFObAY1Tlw6HEJLtP8nZ9uKEHgU/EquQloV19jZeKZ7BxOFdyK
-	K9f0lcKONz1anMpQPz9cYFLu8aLFGKipgGgovjhkLoJNEQbbSZm0GOGoA81wLZ2oqJ50iszgJQ7yQ
-	geZGhIRQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Oq3SjdBk2Nepu96joOftu2EI7Z7HYjdpdMiG9+LVz60=; b=vrAbOlNCPFWEfO7Q3t49+P1JLS
+	9yXcHDsxE3HieZ139yF9TQPpjVf/+IQ3Gim7TTStIXNISpZ+DOzKXapt3FJ4TWivCsAuqf6u2kAQm
+	2gGktRPs5gnI3IIStxwOSjIcBimAcctEFYiNPVNQ4bvADxyoaYWlaEVnUhO/odOsF71SYrQGAERRk
+	tdfJbUqA7fsz2KALv6o5HJHOfWtFd8hEeIZqLt+GSEEw7Ny2dk5/mnxz9DpQrGglb5KQ/dbLhgR66
+	QE0Z1N5Qd99yyyDdYgs/XCO53DTSvsg+ty4feo4UWsaGLXcwxPJJwGS6Ghs2Xg0d5BQMFF0qT/QVK
+	yQbpMSeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Ilm-0000000CQuq-2hbl;
-	Thu, 17 Sep 2026 20:31:46 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x7IrA-0000000CRQ4-0ihJ;
+	Thu, 17 Sep 2026 20:37:20 +0000
+Received: from mail-northeuropeazon11012036.outbound.protection.outlook.com ([52.101.66.36] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Ill-0000000CQub-31fG
+	id 1x7Ir7-0000000CRPY-1rFA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 20:31:45 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 25A9440F2D;
-	Thu, 17 Sep 2026 20:31:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F115D1F000FF;
-	Thu, 17 Sep 2026 20:31:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789677105;
-	bh=1DNCW5bB+cAYVy5PyJp5VUEN9k9DZzvAe3lm+iP5ciY=;
-	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To;
-	b=Ts3RaYNrEkFulPAP4OS7uNGnQMm/6SzgIVeMh8NGZAkrMhOzleLAdfRvTZ6hDjBpn
-	 sK3Xe4dOcnOhN9iirOMs0CB2GL2Z6qOI3aMMVN9pozJjUFCtPX2GsXChdiXAMvHv/H
-	 A9ja+yO6aO4CuwpA4BPDb/njnc8+lhp17d7MAKl8dciFXjoqTpMKiBiwhuhirN0XzO
-	 D1azThDi/j3Cf7bGLueAkZ9BywzCDXdnK4GG5oCv2G8CqZplWKkn8lYBpNwE7UR8ay
-	 wI53qK8FbjQmzeKpADME9erclbbWiZVtKHS3EtpdnGGngJcrveU/fvURFyEGsddimA
-	 W8zBwB4+X35YA==
-Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
-	id AF6E2CE1771; Thu, 17 Sep 2026 13:31:44 -0700 (PDT)
-Date: Thu, 17 Sep 2026 13:31:44 -0700
-From: "Paul E. McKenney" <paulmck@kernel.org>
-To: Frederic Weisbecker <frederic@kernel.org>
-Cc: Josef Bacik <josef@toxicpanda.com>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Boqun Feng <boqun@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>, x86@kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Puranjay Mohan <puranjay@kernel.org>,
-	Xu Kuohai <xukuohai@huaweicloud.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Zqiang <qiang.zhang@linux.dev>, Juergen Gross <jgross@suse.com>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	linux-kernel@vger.kernel.org, rcu@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org, bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	xen-devel@lists.xenproject.org
-Subject: Re: [PATCH RFC v3 03/13] rcu-tasks: Add a Tasks RCU implementation
- for reader-marked trampolines
-Message-ID: <ef2cf89b-4cc6-4778-af91-6bb67fb10188@paulmck-laptop>
-References: <91687748-0781-4133-baed-43cf82f35ff5@paulmck-laptop>
- <aqqpRoTfywUuTgoC@localhost.localdomain>
- <aqqsAUVV8a1yrQzX@localhost.localdomain>
- <6afb0afe-e7b8-46b4-9fea-2c7cf4791044@paulmck-laptop>
- <aqq0cwvRDsorGwgc@localhost.localdomain>
- <8b73e1b3-0580-4ba9-b2e0-6363e429808d@paulmck-laptop>
- <aqvZwfUVsiEI7q7y@localhost.localdomain>
- <8fea176a-0ca0-4a70-8cf9-8240a22359e4@paulmck-laptop>
- <aqw1UNGO3cQxvCco@pavilion.home>
- <33b8e33a-3fad-4b33-9ae7-3948f0e6d3aa@paulmck-laptop>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
+	Thu, 17 Sep 2026 20:37:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WW935KeyteNnjacHVtOeTSpT9tFknk3b0/kCEdcl8ds1RuRRgcMgdm6tk1Y1prNPaXKiafkPpKSxwu86GnFyHh8RdM9RH4UgNoAa6sl9ALJDaxwIiqTXlqbGhoiWATTpcGP7PIdg+13xKWFtS8QLjiqrSQuajLpvx1/0FxJf1WQa13+x3mh+BK209sGHb15DOG9Ytpbmw6PB96ibTV540EpitUY3pNtu7JU0SLWdrcr8wmHFi7a+PeTyYPbZCRVXlwhDy8kuIXIDODBlLe8Wku2D/OxxOcSc17UIfzx9Nuv2Ok+mvr+og873r4mxPYo1vXC7VV6tDiV5Pt2UL2edgw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Oq3SjdBk2Nepu96joOftu2EI7Z7HYjdpdMiG9+LVz60=;
+ b=tyOskFdu6MC27vw7W4o75R9nicLMzitnJXecBps2f2mclROI11awa63W3dEtlquLGTjvSnCilM0Qu2ZvkdMnGVyZ2ryQAnKY14Hp+xpwHyteAYaJh8rGMKMmnCi4f7JL0aAz36EVPe1gdSRsp5Bx/iWPe7kRklcaLZtSsqCFC6irpONpTkx2fqEHMJr6JIJ8BurPFoQ7k4pEijG+kEpKylpuyJYvFN1fZXGkeEb6xNEhp6heFOigKcZPSqfU5SzBKhfJkK3lPyCpZqihqUgKrr2xU1cT88Fp9jOwOqf659wsNh8cpF1Nzv0UjuZy8Hvuio3Evm3LsZAfq9mMBO5vpw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Oq3SjdBk2Nepu96joOftu2EI7Z7HYjdpdMiG9+LVz60=;
+ b=W+RC0DAoObD79b4yMmlAmHu8XEVhdEiE81ToNOggPl5dto+2JX3LrtIO0O7MGrJzN/fVT7oJyP9w2xIyTf4bcDp/kKsfcjwXtQEZA4tZBa/YbGllWvErwE1abjzK8wii1TpGVl1bTZfkPgkUVAZZ0c8PudcIHcDLapzcSjmZFuoUicGCH7QuLVWmP1zPMcxMxA72OCy+dubGdhLJnbTRKwPdk1Pq5YncFHdKe8Xz5iD+EA0nXTXn1Y1EAc2HneY0Vg6D9NyxpqLBe+xaLesPbykq/v0u5jO3fbPn5KBjj/dEpCCF7zapYgGmq2TMeBAuzLOfMft5mx+2ZonKARhc2Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU4PR04MB11791.eurprd04.prod.outlook.com (2603:10a6:10:623::11)
+ by AM9PR04MB8413.eurprd04.prod.outlook.com (2603:10a6:20b:3ec::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.16; Thu, 17 Sep
+ 2026 20:37:12 +0000
+Received: from DU4PR04MB11791.eurprd04.prod.outlook.com
+ ([fe80::11ca:6b74:3234:d7de]) by DU4PR04MB11791.eurprd04.prod.outlook.com
+ ([fe80::11ca:6b74:3234:d7de%5]) with mapi id 15.21.0428.011; Thu, 17 Sep 2026
+ 20:37:12 +0000
+From: Frank.Li@oss.nxp.com
+To: Eugen Hristev <ehristev@kernel.org>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Felix Gu <ustc.gu@gmail.com>,
+	Stepan Ionichev <sozdayvek@gmail.com>,
+	Shuvam Pandey <shuvampandey1@gmail.com>,
+	Antoniu Miclaus <antoniu.miclaus@analog.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Piyush Patle <piyushpatle228@gmail.com>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>,
+	Takashi Sakamoto <o-takashi@sakamocchi.jp>,
+	Giorgi Tchankvetadze <giorgitchankvetadze1997@gmail.com>,
+	Olivier Moysan <olivier.moysan@foss.st.com>,
+	"Rob Herring (Arm)" <robh@kernel.org>,
+	Pei Xiao <xiaopei01@kylinos.cn>,
+	Shi Hao <i.shihao.999@gmail.com>,
+	Kees Cook <kees+treewide@kernel.org>,
+	Michael Hennerich <michael.hennerich@analog.com>,
+	linux-iio@vger.kernel.org (open list:MICROCHIP SAMA5D2-COMPATIBLE ADC DRIVER),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Microchip (AT91) SoC support),
+	linux-kernel@vger.kernel.org (open list),
+	linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE)
+Cc: imx@lists.linux.dev,
+	vkoul@kernel.org
+Subject: [PATCH 1/1] iio: use dmaengine_get_dma_device() instead of chan->device->dev
+Date: Thu, 17 Sep 2026 16:36:26 -0400
+Message-ID: <20260917203652.1279059-1-Frank.Li@oss.nxp.com>
+X-Mailer: git-send-email 2.43.0
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <33b8e33a-3fad-4b33-9ae7-3948f0e6d3aa@paulmck-laptop>
+Content-Type: text/plain
+X-ClientProxiedBy: CY8P222CA0003.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:930:6b::27) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU4PR04MB11791:EE_|AM9PR04MB8413:EE_
+X-MS-Office365-Filtering-Correlation-Id: 749f4562-671a-4c24-502b-08df14fb6cbb
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|23010399003|1800799024|7416014|376014|921020|18002099003|6133799003|11063799006|56012099006|10067099003;
+X-Microsoft-Antispam-Message-Info: 5LEFv+xklyRQZhDJaHooVMeePN0cw/LkpiL+t1CpA9+dMEMhP0z+8+LOoqW7j9TcbF6n32YLSA65j4hol9EDtB23W6ljeCYqx00JzhjieCm8kHVUBrq7vxZtRJpouXHvY1UQdqTcU4M8K1KxIiCM1kjh7HOK81Jrl7UByBkmMzlVMLm8QToMvSgLvgPoXVAsbLia4N3htsdmxkLVuCGN63LSg9Pb5ugLsVGEE+LQXlMwpYB/N3PmgTiLXxylhiW+TY81oU67MhqATxk6AhUBLHSxgU5tBQcRNCZ3w50mLRhD9GkhjmpYCjHR5V+zKmb/WZCReYiqTEBv3a9IlTZrbHlLolbah8OTrrF5jRCk/Hy70Q0oyB4IDCvc7qc+BE5EKqIOimvLV3YYZW7Wf1Wpcxeak7EA4sSr4grY79LxCqrcofr2PIS+W7IeHuTqDOvdi1kJiUIDAZCKk65fm9JdyS1g+2TegQxuyV4TB09Q9tHlYZtMOmhUS2QEwhad+UVt3qC/YB38xrKHvtqeUmEqmfB25Z+aZ77086Lbn1TOXluFKOEBaLBNCyJAg8vEH/9aAsAlFPW+5n8nYyh1kvJwY4k8xvOVHgkf17VcuBe2fH0+TmWzdLlscLKyAPfcFjfgTP7ESxoORgZ2W46rhEzj64YbYJ2cNalUFkTdy85Fp6JnPvTeeUk0ykn469zyIpSUpfmG0qqpeYdAAk815J7ekg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR04MB11791.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(23010399003)(1800799024)(7416014)(376014)(921020)(18002099003)(6133799003)(11063799006)(56012099006)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Rr7lPpo4ZDV1JGuRIcKNKPhjrzs3h9HQ8lMEgebwTlluRQ0qjrRgWBrGTMkz?=
+ =?us-ascii?Q?Mq6S/q+cBbJmC2cK9Kg2Qaq3NCdJaHf0IRD5+9XqDQpRLAQ85zeP8VUDPDsT?=
+ =?us-ascii?Q?IUbi8HU8eJpwCOjOKRt8UseD3Iy1eAd2u1jtfTnO973fDV1DIq6MJa094yfD?=
+ =?us-ascii?Q?ze/ZvrFrHdSNTW+mGZZDE6Pe+9xj+gzGUT18Bg19vtKFgniSoNlFJPIojCKL?=
+ =?us-ascii?Q?D8EUtOjtzkzyjqxhIaQZaJeuuJg/T4UJ4c6D4Jzx6dacMpKNEAuM6lieyIns?=
+ =?us-ascii?Q?ddvFUUww8SCeM00kp0mVQcAnJYvgtSJJ1COHa8ZLN3U4iEUyLMUf9VuUILRl?=
+ =?us-ascii?Q?7dtOnbRJeZl18vjIGEt6/5+GIp20gmFOCtS2rhN/tHshs0ijruubCH+hMeg2?=
+ =?us-ascii?Q?w+iV1Y8ZLN0GGfRhAaVU4FAC9N3VOhCLTWEuLdvbPPJ1qmvUz6qGS2Vu60m+?=
+ =?us-ascii?Q?fJ9iy/XJdxzBb/OSkbOnrRDqpbr/fjpRBOMkXY52sk/pi0kbci28gcbVBsKw?=
+ =?us-ascii?Q?yTy+xwGpF1Vn4uDM8IOhOZRhMLkh0kJ/pFsmEO4lap2NbklRgmnm2i9s2Otl?=
+ =?us-ascii?Q?8Iii6qbCKn6GiJabhrbJ8BaPc2Fj6uTkyzuMBpqOSa7QX0mhw9BhIyEJazDA?=
+ =?us-ascii?Q?a7dIlt94oODGgHAWndlw9bFTLd3CUbK769fUO4PdQS1LyuVDquNKDe5KNs1z?=
+ =?us-ascii?Q?eJHJQ9uqzlX9XbUeBkgjKoqK6jb9PBlOTEMn2E6Ouc2nLVRf/aRTNGRdmMOz?=
+ =?us-ascii?Q?r8ZcD4NmAZuBX3efnMiDCyjYZdTGTHpZpzRnVHPqD+F0K2C2IK8r7+6PtR8I?=
+ =?us-ascii?Q?8GRSDeKD2cIq3UgwYNQmOEETDZDbFw1uYKTXLe4gWDbtR/nh/PTLtt+Cv+Tb?=
+ =?us-ascii?Q?zyX/kLwMQ7CM4qUfT7PHKINUewJAOa8Fjmrm+psSutz8QkWPizIax0RyfJ1J?=
+ =?us-ascii?Q?N0RU+RO9RQEXJ8aJ+3bwMpmESD1/X9oiUnnTTexecSAkHe/X1y3vTaYszbnW?=
+ =?us-ascii?Q?S2yjnquQEyZgbh6iDiTyByWshAbKm1/j2COzsre/TtWbn2lM1S/IgSvlKzci?=
+ =?us-ascii?Q?u1IRVHA8g/Bl2av2RXCQhCILnBshaWeNtGeqPHvytNdQZ3WOYD0aC/fMVnqP?=
+ =?us-ascii?Q?wtZZoxHc9IGLJlFSZZjVnXlStmt5UidjlG5ve2qwP95R+NpMB9VU+cmXvxMG?=
+ =?us-ascii?Q?7HwZGWKC7HXmpMIuVEHHYZu8Tab9L+AczRRySLYbZTZymG9sp3CMXvAdoJaq?=
+ =?us-ascii?Q?Ys64ZFp3MEsTJQi5urQJ4VvCeWDoPClmJn9szbZJPXf/Loc8+znTa9foNabJ?=
+ =?us-ascii?Q?UGGcI+s5aml82QrzzV/7AJHqz/hjBcMauTWTQBskAu/JCYtIEo9gMbJsl9+o?=
+ =?us-ascii?Q?we2kzpPtP/NKuC+04cXUia9T+ObNcO0G5QkuBeXcrUyg0Lq2v0wHfz6VFHBD?=
+ =?us-ascii?Q?MHjgSLrEoDQbGEKijFq+txwntlN+RRwGrre/zlOqweGY34O/GYjXm3ROd+Im?=
+ =?us-ascii?Q?NS3wzetyHtU/36PMOLI3PRtLarLF4/U36k+AwmFtChO2vnGn++GhHAI2wy7A?=
+ =?us-ascii?Q?4hhUKLtGFK1BA8xecd1MdCoesu/emi6SCjen0FFt3A3/1qOQL/ivk1OMjZEo?=
+ =?us-ascii?Q?qfgDVOFa3PTN/CIN+BIpbrWnl6lR/z1Jq/Iut60R7MPBXjbQLvs9kzbwQvHU?=
+ =?us-ascii?Q?tP8U7gTh/i2UZvXC6lr8GXqSfx4E+pqhv6E5zAZW5H4D96MFPe1Wc/yCoa2C?=
+ =?us-ascii?Q?JvIdonwAz3HZmgRJAsnIWT5BRyZ+XnOh/PH0XJiJvdNrRARd45y1?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 749f4562-671a-4c24-502b-08df14fb6cbb
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2026 20:37:12.4779
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: qIw5PyU0s6JWeYG+v+kAmyUmsYefedpAUXTYEdU24FhK1l2WZfSV5EAhCf5jlLzi3UGiRgmWm0PFh1mjnA2wJjt1I0WwNcOYpL0TIilqBl7hOqIYZVDb274FVUN7ehnz
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8413
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260917_133717_634252_376D2D33 
+X-CRM114-Status: GOOD (  16.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,35 +160,208 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: paulmck@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 12:25:40PM -0700, Paul E. McKenney wrote:
-> On Thu, Sep 17, 2026 at 08:45:36PM +0200, Frederic Weisbecker wrote:
-> > Le Thu, Sep 17, 2026 at 08:40:10AM -0700, Paul E. McKenney a écrit :
-> > > > > Trampolines that transfer control to tracing code could supply the needed
-> > > > > cleanup call.  But last I checked, there were trampolines that transferred
-> > > > > directly back to the original code, with no opportunity for cleaning up.
-> > > > > 
-> > > > > Or am I still missing a trick here?
-> > > > 
-> > > > You're right. So we'll indeed need to reuse the deferred qs points here.
-> > > 
-> > > Except this is getting a bit involved.
-> > > 
-> > > Don't get me wrong, if Josef is happy to take this on, far be it from me
-> > > to stand in his way.  But if not, we should be willing to treat this
-> > > optimization as a follow-on effort, whether by Josef or someone else.
-> > 
-> > Sure, I guess I can try the follow-on, especially if it leads to removing
-> > all this RCU tasks black magic.
-> 
-> That sounds most excellent, thank you!
+From: Frank Li <Frank.Li@nxp.com>
 
-Ah, and in case anyone (especially Josef) is wondering, one big advantage
-of the more elaborate approach is that it allowed the real-time guys to
-avoid yet another source of IPIs messing with their latencies.
+Replace direct dma_chan::device::dev access with the proper
+dmaengine_get_dma_device() accessor in IIO DMA consumers.
 
-							Thanx, Paul
+chan->device->dev is not always the device used for DMA mapping.
+Some DMA engines support per-channel IOMMU mappings, so different
+channels may use different DMA devices.  dmaengine_get_dma_device()
+returns the correct device for each channel.
+
+This also prepares for making the DMA engine provider data structures
+private. DMA consumers should not access DMA engine internals directly.
+
+Assisted-by: LLM
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+Cc: imx@lists.linux.dev
+Cc: vkoul@kernel.org
+---
+ drivers/iio/adc/at91-sama5d2_adc.c                 |  9 ++++++---
+ drivers/iio/adc/nxp-sar-adc.c                      |  2 +-
+ drivers/iio/adc/stm32-adc.c                        | 10 ++++++----
+ drivers/iio/adc/stm32-dfsdm-adc.c                  |  4 ++--
+ drivers/iio/adc/ti_am335x_adc.c                    |  4 ++--
+ drivers/iio/buffer/industrialio-buffer-dmaengine.c |  5 +++--
+ 6 files changed, 20 insertions(+), 14 deletions(-)
+
+diff --git a/drivers/iio/adc/at91-sama5d2_adc.c b/drivers/iio/adc/at91-sama5d2_adc.c
+index e8a5285bb6d4f..0e7d07fb27ca7 100644
+--- a/drivers/iio/adc/at91-sama5d2_adc.c
++++ b/drivers/iio/adc/at91-sama5d2_adc.c
+@@ -2016,6 +2016,8 @@ static void at91_adc_dma_init(struct at91_adc_state *st)
+ 	unsigned int pages = DIV_ROUND_UP(AT91_HWFIFO_MAX_SIZE *
+ 					  sample_size * 2, PAGE_SIZE);
+ 
++	struct device *dma_dev;
++
+ 	if (st->dma_st.dma_chan)
+ 		return;
+ 
+@@ -2026,7 +2028,8 @@ static void at91_adc_dma_init(struct at91_adc_state *st)
+ 		goto dma_exit;
+ 	}
+ 
+-	st->dma_st.rx_buf = dma_alloc_coherent(st->dma_st.dma_chan->device->dev,
++	dma_dev = dmaengine_get_dma_device(st->dma_st.dma_chan);
++	st->dma_st.rx_buf = dma_alloc_coherent(dma_dev,
+ 					       pages * PAGE_SIZE,
+ 					       &st->dma_st.rx_dma_buf,
+ 					       GFP_KERNEL);
+@@ -2054,7 +2057,7 @@ static void at91_adc_dma_init(struct at91_adc_state *st)
+ 	return;
+ 
+ dma_free_area:
+-	dma_free_coherent(st->dma_st.dma_chan->device->dev, pages * PAGE_SIZE,
++	dma_free_coherent(dma_dev, pages * PAGE_SIZE,
+ 			  st->dma_st.rx_buf, st->dma_st.rx_dma_buf);
+ dma_chan_disable:
+ 	dma_release_channel(st->dma_st.dma_chan);
+@@ -2078,7 +2081,7 @@ static void at91_adc_dma_disable(struct at91_adc_state *st)
+ 	/* wait for all transactions to be terminated first*/
+ 	dmaengine_terminate_sync(st->dma_st.dma_chan);
+ 
+-	dma_free_coherent(st->dma_st.dma_chan->device->dev, pages * PAGE_SIZE,
++	dma_free_coherent(dmaengine_get_dma_device(st->dma_st.dma_chan), pages * PAGE_SIZE,
+ 			  st->dma_st.rx_buf, st->dma_st.rx_dma_buf);
+ 	dma_release_channel(st->dma_st.dma_chan);
+ 	st->dma_st.dma_chan = NULL;
+diff --git a/drivers/iio/adc/nxp-sar-adc.c b/drivers/iio/adc/nxp-sar-adc.c
+index 894d3211b2838..2f716a2f97b80 100644
+--- a/drivers/iio/adc/nxp-sar-adc.c
++++ b/drivers/iio/adc/nxp-sar-adc.c
+@@ -604,7 +604,7 @@ static void nxp_sar_adc_dma_cb(void *data)
+ 
+ 	dma_buf = &info->dma_buf;
+ 	dma_samples = (u32 *)dma_buf->buf;
+-	dev_dma = info->dma_chan->device->dev;
++	dev_dma = dmaengine_get_dma_device(info->dma_chan);
+ 
+ 	/*
+ 	 * DMA in some corner cases might have already be charged for
+diff --git a/drivers/iio/adc/stm32-adc.c b/drivers/iio/adc/stm32-adc.c
+index 5c6c06b269be6..6aa672177970a 100644
+--- a/drivers/iio/adc/stm32-adc.c
++++ b/drivers/iio/adc/stm32-adc.c
+@@ -2456,6 +2456,7 @@ static int stm32_adc_dma_request(struct device *dev, struct iio_dev *indio_dev)
+ {
+ 	struct stm32_adc *adc = iio_priv(indio_dev);
+ 	struct dma_slave_config config = { };
++	struct device *dma_dev;
+ 	int ret;
+ 
+ 	adc->dma_chan = dma_request_chan(dev, "rx");
+@@ -2470,7 +2471,8 @@ static int stm32_adc_dma_request(struct device *dev, struct iio_dev *indio_dev)
+ 		return 0;
+ 	}
+ 
+-	adc->rx_buf = dma_alloc_coherent(adc->dma_chan->device->dev,
++	dma_dev = dmaengine_get_dma_device(adc->dma_chan);
++	adc->rx_buf = dma_alloc_coherent(dma_dev,
+ 					 STM32_DMA_BUFFER_SIZE,
+ 					 &adc->rx_dma_buf, GFP_KERNEL);
+ 	if (!adc->rx_buf) {
+@@ -2490,7 +2492,7 @@ static int stm32_adc_dma_request(struct device *dev, struct iio_dev *indio_dev)
+ 	return 0;
+ 
+ err_free:
+-	dma_free_coherent(adc->dma_chan->device->dev, STM32_DMA_BUFFER_SIZE,
++	dma_free_coherent(dma_dev, STM32_DMA_BUFFER_SIZE,
+ 			  adc->rx_buf, adc->rx_dma_buf);
+ err_release:
+ 	dma_release_channel(adc->dma_chan);
+@@ -2617,7 +2619,7 @@ static int stm32_adc_probe(struct platform_device *pdev)
+ 
+ err_dma_disable:
+ 	if (adc->dma_chan) {
+-		dma_free_coherent(adc->dma_chan->device->dev,
++		dma_free_coherent(dmaengine_get_dma_device(adc->dma_chan),
+ 				  STM32_DMA_BUFFER_SIZE,
+ 				  adc->rx_buf, adc->rx_dma_buf);
+ 		dma_release_channel(adc->dma_chan);
+@@ -2640,7 +2642,7 @@ static void stm32_adc_remove(struct platform_device *pdev)
+ 	pm_runtime_put_noidle(&pdev->dev);
+ 	iio_triggered_buffer_cleanup(indio_dev);
+ 	if (adc->dma_chan) {
+-		dma_free_coherent(adc->dma_chan->device->dev,
++		dma_free_coherent(dmaengine_get_dma_device(adc->dma_chan),
+ 				  STM32_DMA_BUFFER_SIZE,
+ 				  adc->rx_buf, adc->rx_dma_buf);
+ 		dma_release_channel(adc->dma_chan);
+diff --git a/drivers/iio/adc/stm32-dfsdm-adc.c b/drivers/iio/adc/stm32-dfsdm-adc.c
+index 00f05e167afc9..674767da3ac37 100644
+--- a/drivers/iio/adc/stm32-dfsdm-adc.c
++++ b/drivers/iio/adc/stm32-dfsdm-adc.c
+@@ -1484,7 +1484,7 @@ static void stm32_dfsdm_dma_release(struct iio_dev *indio_dev)
+ 	struct stm32_dfsdm_adc *adc = iio_priv(indio_dev);
+ 
+ 	if (adc->dma_chan) {
+-		dma_free_coherent(adc->dma_chan->device->dev,
++		dma_free_coherent(dmaengine_get_dma_device(adc->dma_chan),
+ 				  DFSDM_DMA_BUFFER_SIZE,
+ 				  adc->rx_buf, adc->dma_buf);
+ 		dma_release_channel(adc->dma_chan);
+@@ -1504,7 +1504,7 @@ static int stm32_dfsdm_dma_request(struct device *dev,
+ 		return ret;
+ 	}
+ 
+-	adc->rx_buf = dma_alloc_coherent(adc->dma_chan->device->dev,
++	adc->rx_buf = dma_alloc_coherent(dmaengine_get_dma_device(adc->dma_chan),
+ 					 DFSDM_DMA_BUFFER_SIZE,
+ 					 &adc->dma_buf, GFP_KERNEL);
+ 	if (!adc->rx_buf) {
+diff --git a/drivers/iio/adc/ti_am335x_adc.c b/drivers/iio/adc/ti_am335x_adc.c
+index 1516dd332f905..e53c839e87ef3 100644
+--- a/drivers/iio/adc/ti_am335x_adc.c
++++ b/drivers/iio/adc/ti_am335x_adc.c
+@@ -548,7 +548,7 @@ static int tiadc_request_dma(struct platform_device *pdev,
+ 	}
+ 
+ 	/* RX buffer */
+-	dma->buf = dma_alloc_coherent(dma->chan->device->dev, DMA_BUFFER_SIZE,
++	dma->buf = dma_alloc_coherent(dmaengine_get_dma_device(dma->chan), DMA_BUFFER_SIZE,
+ 				      &dma->addr, GFP_KERNEL);
+ 	if (!dma->buf)
+ 		goto err;
+@@ -688,7 +688,7 @@ static void tiadc_remove(struct platform_device *pdev)
+ 	u32 step_en;
+ 
+ 	if (dma->chan) {
+-		dma_free_coherent(dma->chan->device->dev, DMA_BUFFER_SIZE,
++		dma_free_coherent(dmaengine_get_dma_device(dma->chan), DMA_BUFFER_SIZE,
+ 				  dma->buf, dma->addr);
+ 		dma_release_channel(dma->chan);
+ 	}
+diff --git a/drivers/iio/buffer/industrialio-buffer-dmaengine.c b/drivers/iio/buffer/industrialio-buffer-dmaengine.c
+index 559880e0cad72..b9f8b5b3aa6b6 100644
+--- a/drivers/iio/buffer/industrialio-buffer-dmaengine.c
++++ b/drivers/iio/buffer/industrialio-buffer-dmaengine.c
+@@ -254,6 +254,7 @@ static const struct iio_dev_attr *iio_dmaengine_buffer_attrs[] = {
+  */
+ static struct iio_buffer *iio_dmaengine_buffer_alloc(struct dma_chan *chan)
+ {
++	struct device *dma_dev = dmaengine_get_dma_device(chan);
+ 	struct dmaengine_buffer *dmaengine_buffer;
+ 	unsigned int width, src_width, dest_width;
+ 	struct dma_slave_caps caps;
+@@ -281,9 +282,9 @@ static struct iio_buffer *iio_dmaengine_buffer_alloc(struct dma_chan *chan)
+ 	INIT_LIST_HEAD(&dmaengine_buffer->active);
+ 	dmaengine_buffer->chan = chan;
+ 	dmaengine_buffer->align = width;
+-	dmaengine_buffer->max_size = dma_get_max_seg_size(chan->device->dev);
++	dmaengine_buffer->max_size = dma_get_max_seg_size(dma_dev);
+ 
+-	iio_dma_buffer_init(&dmaengine_buffer->queue, chan->device->dev,
++	iio_dma_buffer_init(&dmaengine_buffer->queue, dma_dev,
+ 			    &iio_dmaengine_default_ops);
+ 
+ 	dmaengine_buffer->queue.buffer.attrs = iio_dmaengine_buffer_attrs;
+-- 
+2.43.0
+
 
