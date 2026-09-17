@@ -4,145 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24506C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 14:38:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68B57C88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 14:41:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yDwj60lU3knLQpRSMALX+6PHSSJz16k7eB7/nnRV0g4=; b=rPZFIw8FSYB4XxuRwxN87uqCt8
-	bfj+lTaRyKXqUGstk0Enooo2QTHmtX8xowSr49O18J/zsNQr3XNzRaBFjoMDaVnCeBLUV5MlJ5yho
-	t+B4phj/Ymfiq9scnc/UHTsg7i+aa7Vsq6d5094xuPK8Kplt3hdLcldAefqArqVJBYWjcUrE/oYqr
-	6emmvXnd0w9CDuRPuWbcY6g+gQ6905sqr5beOEB2dF7kQf2r5eDjkPNiw3LD3gHm5hhFPoAmG6rPz
-	LU7kOmLiQzPLwplI4Yay9mNx1jrtft0kC33/Lo6grIQE3yQzUh43fDJS8b8BtJ+zGmD7GwBvbtzrn
-	M6rGQbCw==;
+	bh=tKlGaZ7QcAexG2kTHUATEVY4bTePWKI9i02YcMMarMU=; b=UuJW2f9B5VnDx296/V083hL6b2
+	R3kWiiUtlNu16DymzuGZlsMOvaVQL1pqSTaPqlt5Wlj7EUolDOGtjXkMIeVg/I5tNrnh5I4qzkh3N
+	ns2b5ohZ3JSB5ok7UjYhZzpqXVqCzmTlMIGcFhdJ3OGAWurROU018tfCOup3U/iRRbbYwdBvrpFrz
+	RyMtIGPIUsBBvXZH6ijC8uVKxSmfSZv18cvETMvXDRa3lx6536YMUDUgDrH1dHnGda9Tvz+wGKLBS
+	dqp905RtmZFsc5Bic4m+SFKovRGuXXK+u//5An8WzPr2HwiaXD//+x6GEO85ngZjpj4WgVg/Gn/kC
+	ASNw16Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7DG0-0000000BYfu-0Eo7;
-	Thu, 17 Sep 2026 14:38:36 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1x7DIL-0000000BYyA-34Eo;
+	Thu, 17 Sep 2026 14:41:01 +0000
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7DFx-0000000BYfN-1TGj
+	id 1x7DII-0000000BYwl-2ptk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 14:38:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tDxocd1Gil6GTQsi3jfAif3NpVCqGlZVvPpR4LciYBLL2LGYiIeF+qGzltp3HlfrqnKXYiJVOYBmlozRtNVne8aKHDJx32ql5nBmd4HC2znCZwxLSr0Z2enKiPttRU4NRLx/9B5XDElfrKEGRhcEXaZrYB6zVFpS6/shyufuynbY5UwY7MVbZ7p9J2E+aGSZjCIdeV/qjy/4ozLJsvEqgTAqnHO8fOmiGA6GvR7hM11GqaCc8K5xEcInfeXcmReSYT5uJriG9R7VIF4DYQVdEkuqi4BWnHxjU9/MKLecfjM4z2xzUvw0lCP6fbN5XcU3qLPFJzBzPaqlylDMaXM/Ug==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rsy/gm8Pyeq95oeZmgUTPC0eC1lcM6Hj/7wbHYEelvw=;
- b=czhpA4MExWMzcFcn/l6Esi8+2sBaRi/+xEbZzwa0NkiOlj6sshs2QchRBJx/Yo0oEcsYEKTU7HvvLglCo3fMV2Hy3AbcXnSFWLV+tkJc9cYFERAblfC7Tl1x1uOMYMIOH8EXsZOwd0R3IRAGP7RsCeZntAuiNK48+6SogHyqWgE1gBT12E0HZsoRGdWVpsACmqyP5HRIif/KjDV65c/XWvzslGRiSrVGI1rPBrhqqWnqWznI098XTmIu2Gnr/oi1aaZSSzr0h9MtiEdM6np723umtV8MdEC6x79/Gfp+3v0aIzrIu0ng5/Rb2XJXG7z2T3Dbx9r6ktD7oW01fDO8JQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rsy/gm8Pyeq95oeZmgUTPC0eC1lcM6Hj/7wbHYEelvw=;
- b=p87bhFwnak7Taj6esGM+RlYnZ3jGSVnuPfgJBg6LGcGmykZUjM/VfRPoPOiuYjgqkqRjCQ3M9sklF8mUrHhZ9lfOLI9h/maco71fJoXyxr2IrC+FZShuBLhLSrbq5whuU0++JYBQPRnvfoNt9nw5wjXOTqs3KXrS9MAXLREaE111FqbbM6AvlipUFWXTx2RtSogrXf7aIIH/hty9/eN/pOXyhmTXFvFpLKu8ScizJHC9KxYlm3VQ8h7Y+XhGzSTqeeT/WfJnJy/LwqvSttxMgs41dAR3JwXvgvkenGN2uHwpY/ASC0k/HKWwZz2i1YNDCkKYGZXVCRThNnIvWng8Wg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AM7PR04MB6968.eurprd04.prod.outlook.com (2603:10a6:20b:dc::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.13; Thu, 17 Sep
- 2026 14:38:26 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.012; Thu, 17 Sep 2026
- 14:38:26 +0000
-Date: Thu, 17 Sep 2026 09:38:15 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>
-Cc: Andy Shevchenko <andriy.shevchenko@intel.com>,
-	linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
-	linux-sound@vger.kernel.org, linux-spi@vger.kernel.org,
-	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
-	=?iso-8859-1?Q?Am=E9lie?= Delaunay <amelie.delaunay@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Andy Shevchenko <andy@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>, Mark Brown <broonie@kernel.org>
-Subject: Re: [PATCH v4 01/10] dmaengine: Move enum dma_slave_buswidth to a
- new header
-Message-ID: <aqv7V0E5GObzw9l0@SMW015318>
-References: <20260911-dmaengine-support-wider-dma-masks-v4-0-72b8fd4cc78e@analog.com>
- <20260911-dmaengine-support-wider-dma-masks-v4-1-72b8fd4cc78e@analog.com>
- <aqgCQvRw9fns__0d@SMW015318>
- <aqjzvxI4ecoFvRLT@ashevche-desk.local>
- <aqlYOHIFU_dB72I3@SMW015318>
- <aqvFFg5Uh1cXln0y@nsa>
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aqvFFg5Uh1cXln0y@nsa>
-X-ClientProxiedBy: CYZPR17CA0006.namprd17.prod.outlook.com
- (2603:10b6:930:8c::7) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Thu, 17 Sep 2026 14:40:59 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49ce364488dso2563705e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 07:40:58 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789656057; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ph81OWrHYIE4vyYlEjXWTDI+Captl7y1iJQapQ7uyWBDGxwdn6nA3PpI+5No8KhbNy
+         UtLpBl34xC8y8Q7PwPUmjt9uShAs+7NeoFTjTREZxHLkgP1SPkKKFJ++VmJwFKesT4d6
+         9FEoZQhzRYkzMfoHy9pYB1JNbBn1/WJFdjZBQE8G4iCx90fwfGlr6FOk/o50OzjEErb8
+         9cStznMmjYgzcKyYrsguP2Gm5gmqmmTSN7//MMvuWfw/TzWBa34rA6qIkhnzvoSimckY
+         qzy7G8POZ8wezP/hzIIAu3FXtbLjC6G4yOofmGdwiBHwAWezXA76PUQ3/jVOaXf2qb8R
+         r3tA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=tKlGaZ7QcAexG2kTHUATEVY4bTePWKI9i02YcMMarMU=;
+        fh=osC0X4BiJeCkONrUa4u3gGpoFMatb6hNP6hw3ule2SQ=;
+        b=kdm+gvXKHW2WERjcpRJs1jJwM5bJiSz4NX9getEjw+sd3ixKWX4e179bHDfoLflqaL
+         9PZXlXgHaEox0f2hmBXDQ285qYrOEyu3QjBwV4dKeNAP8ODB+m4CST2nn++kxsgRMzZa
+         xSUKkMVO1lqqZLXKis+3ugCNtO6ajf2lujj9PygDjV1A9vCKiZgqwWYznRl/4Pt5aDch
+         Uf55pUFdE4t55I4TyX86xXYbmMQNGRDeB5MOg0It1RhLIWdWhHdqvmnsuswL4QGlFON7
+         B3A5/BYEVlnvAdP77rx/SvQXIDc3vQed7/eV2tlVIQr0fJTHDQPXEvldbUTU6xG1TLoD
+         uK5A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789656057; x=1790260857; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=tKlGaZ7QcAexG2kTHUATEVY4bTePWKI9i02YcMMarMU=;
+        b=rXd+MMoSsEBEV5mkmqUHZ6R9BpTgUawWec4rxhVKmYFCQPGtpPKbY8Egx7JQqMpGOC
+         k2DTUUrSJ3jhgdkgjnB2cmYOvRRB6x0FEllPLdiEznUDHDmOACTjvEh1edsYiifK1sPe
+         10MCrfykvK2hBJUFy5g22e39PHO3/wANF5/PuerniQfdKVvJSIeKxr5BKD5bEORUJSvE
+         oa47VYs7hGxOrXsgIB41E1QZWSC1s4IwkeQ2O3nTWstyBBInqWX8zuRl/S1Ovnq0izzx
+         a7yMwh7A7BcJsOqQZs0mM+r8ApiUMVAu8TpYymbtzjxMKx9Ye6bGExXlwfCIyFP1oPfF
+         1lGQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789656057; x=1790260857;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=tKlGaZ7QcAexG2kTHUATEVY4bTePWKI9i02YcMMarMU=;
+        b=e6Ko+vsrJQSla8qLFrNqprfbviFbaxcenJZQuNBJXycE9opeNjgxbe+Gjh6gPJ4n4d
+         xZ+EFxcKtfRKyx6WdsOETXCOlyvIBGLM4ThyOb1Shi1jMdYrkMEYGV0VruDwzQ6gLgu1
+         +6A5QVXgTKcR48IdBJkytHOFPr7zo3Ncip5VJ3I1NyQw2TqmGth2id2dq5OpdQU41+U+
+         nZ+9Ym7UKjHkQCtygmWfZOrohDLcMqM5Et+zKHJiW234TfJ87Kwsim2WcUCQ/VOQ7AQt
+         t4xhakeMspfsHyOrk37dHfRzoym/oqzmjRUVzM92/ZHI0zifVBew7aWR3CNAhVNF2TG6
+         hCpg==
+X-Forwarded-Encrypted: i=1; AKwUvBxmMpUJxLE4MOadSDCFkkJ9H+Lhu3tFh1jq/xVDiP4RuNQgJo/MUvbzneCSBq1SGJ+vHutuqAX+PbmgBa1WndP7@lists.infradead.org
+X-Gm-Message-State: AFuF++niC4IsyPRqQF3/CZnaw3dF0wwWOknVoy9Nmv79dDSlKNb1uc1G
+	h9TTz+JHS9udJL/xkYz7rConA+Vl4GLLN/4flBzm2KZoJ9euikuUoTYKdo1Mi4kJZ0TFghN77MN
+	Wyc9Y73RFiWHlNajaZpj4w85+5QqOmZU=
+X-Gm-Gg: AYBFou1RYnMMU2Rrtogzi7ihpkwKhOStfEl8lQroZFLiGkfZYDGQG+M+AwXs1z9+L8F
+	tImXXZRaOK+NHcwzHq/SmK9cnyZUBlAAb40nyut/F8LXRL8gx/6hHo0OQ52TCt7LAGD9L+DMMjq
+	DDVVjwFpM03JjbdZLIE4Ys2OG3BOWm1RAlqVX5S7aPYOAS7U0ghw6dizxy0o6F6x2FSVPQ/95Ut
+	vkPhK0SDOkddoTIDI93G5jZ1XzWKx2fF2d0dyzkcfszRTnyy9vJgC80+Ut4H6y6LrC5b15RALmk
+	EaCro8cLmpVLoq8CRuTcmOPbmrkPuoFF5THYx8QSdNaHXO3LmlTE0ZFl
+X-Received: by 2002:a05:600c:c490:b0:49c:e37e:4389 with SMTP id
+ 5b1f17b1804b1-49fbd1b7e82mr50298125e9.4.1789656056433; Thu, 17 Sep 2026
+ 07:40:56 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM7PR04MB6968:EE_
-X-MS-Office365-Filtering-Correlation-Id: c68591ff-0806-4829-f87e-08df14c95520
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|7416014|19092799006|366016|376014|18002099003|22082099003|5023799004|11063799006|56012099006|4143699003|10067099003|6133799003;
-X-Microsoft-Antispam-Message-Info: D0qZEjIxGVrI42sj6hC7muSgGqF7F7o7YzKGfXvX5rRcVLohq3vulj9QDYn2+ZhLLoL6TGWhVgFhyZWPjruqqQHrSZGK1qbRd1XxYZNPrTpf6WICU9tL5Pwep9lnStcKQxiV7QDtCNFJMgg0PCizSqOqKW2Xc7w/ZHpOJi4eDO71BPn2fNycrcc/XJv1BkaUxHQj3CvQt5mq4RI7xTm0wLIcyOY1vge3P+axbN4Zhbbv4WwFfkMLeAwx5g981Ik2BmKk0bIciqBJl0QXFns1cf6A7rNqgUQrZYKdhiUFwhxGqbhdInFeb4tC1Bvd9J8nXvUgLExtsujwO3LoQPxzuzFNQ5VfJydOUCiE9Px8z4u4uFMuatPFOFBK4WH7si9mok/cFig0Ap7WkMewrafkMvyRvTiQd9E6bfACfnrQT34kCXxL7it6VtfxB+fApY4y5otfY8a3h/J2bOvavJKagP3tkyPv29Iux4fuLrKGy2VE62pY324eptETe0OF4u2b0okOl3lTJnMIxI3gXMHT+IwI5/EcqmLoBeNfTtWOs9aJxem8uN57J0zFbyojQlNXp+lpEL2snY5+kUxFNk952e5t2ICYB8XwFKb32UMDYCRv8VK65zNcwfva9EPcuMcSq2tdBWQ32LQTi0PUSwRCUzxaGXewztCFj3wLoRsW+pk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(7416014)(19092799006)(366016)(376014)(18002099003)(22082099003)(5023799004)(11063799006)(56012099006)(4143699003)(10067099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?lLg3kbAwP27c4DNU2M6V2potYRQajpV0Us3mDHnFxHu24nTR++IdYfEXbq?=
- =?iso-8859-1?Q?exUtWVC9d0LKR2p2dRtLRWCm+BFOC/e0noFWGmDFptE72kS3pseJc/jkMj?=
- =?iso-8859-1?Q?T3gJL796ins7vc7oGWS12v7w5+tMNaqohlVtdKqDef1al4kQgJL1HUO2j5?=
- =?iso-8859-1?Q?22QqzHRKhYRj/Fw3v3uYgXApnwpDHCaeMN1UrhVNyv/E75sfKTT1/XTb2o?=
- =?iso-8859-1?Q?Iae7T99dMGT88fiomdwlWzskB4DXe2ldLTXQYGYLeorIMj/vPDOe7h0LJY?=
- =?iso-8859-1?Q?hDhqPyV0+hPJKvz01j5CT5fc/OvLB24ETogpa/STZHxdKn3bsU8Wld9ubq?=
- =?iso-8859-1?Q?OoJ9AOhdI+N9UfCOWMktnw/NqujUifX8ax65zg4+sDI2XY928ovQXw2piP?=
- =?iso-8859-1?Q?NJPMBdKfTQlnRA8VZ0SlSlLiCzCerBLGrcX/kDgzK2WhmVc4JfSzjxRI21?=
- =?iso-8859-1?Q?6zVEjFtI86ZJxe3TJu1P8wkURVb+mi6KHlKMeHy0PzNOT3JdEy8tWPr+vE?=
- =?iso-8859-1?Q?SdD5KTto7tzIELBtZ+xIWylMqhsKXCAiZNogCniO5BDwvqRPEV1Z8UKRU8?=
- =?iso-8859-1?Q?S6PmhbpOhJUMj/99+FTCBR5NejndArd3O1N8HauQsvKpbCfwNSPF9tJpDw?=
- =?iso-8859-1?Q?f+k7zVsfbDFIfYuK7S09a1sHy1/FfyvAs9PjRqKThSs5Z2Kb2O6JkdHH0A?=
- =?iso-8859-1?Q?Qt7gu5DuS7ZtzM3cCVZzUbZcVjj/sbuEEUcv5KxZRpvxAqBlEDf7ANJuPx?=
- =?iso-8859-1?Q?oxcKN8qCKN93QEqrO+HJGYA6/Y7vGE/RmAOze25dg0BO6HE61CmYT7TiLL?=
- =?iso-8859-1?Q?4ibympKSK8tlwu4Nj4pkV0dCeXYdHN0/Amf486FY1bEBRaN0UDN729Uics?=
- =?iso-8859-1?Q?ogVBvK21KAapikKt0aEk80DYSRZ6hZcw4rF61h/K5vOiDHh1e2mXY8S4/J?=
- =?iso-8859-1?Q?FOEI7Bi5/HsXwOGENIHFzTdA5OWyBNKnDCQn9EK8u31/MPwAekKQ4G/iza?=
- =?iso-8859-1?Q?/v2gSna+9kdaVjiwBzrv+cmx8G1SEbvU2E1JoteFRvpvvD/YoJ2xMNJcVT?=
- =?iso-8859-1?Q?R6ocKm43ARSPRhMjrhGmv9dU4JQrQZX8AWdiGAmJjQ+sX0cjQmlMggMDrb?=
- =?iso-8859-1?Q?zKWZMjJ2aIWI5xHZbed7OyJxH9mtxwq/gVDLTGDec5LCNSdXLRTAvfPR1g?=
- =?iso-8859-1?Q?MZ0BgRwbdrDBTW2X2yK7qhs68ll1X8F5JH1W3V7FgFfVnL/t+mIn8d/REa?=
- =?iso-8859-1?Q?nw6B7Kt+z86mQZs3PAwUjPE2dNFjpXa9MZpbSo47sXnG7S+Zlfk4EQejjI?=
- =?iso-8859-1?Q?PcnwrdXUsuaBPlB0rCBhlouGtAu/WacmVmmDqAKEWp+DO7J0/s2fuiYoMf?=
- =?iso-8859-1?Q?6kXx6ZEuevOMriMnZCSBTGdtYOuzehj1rKU7yX07Nlj9CDavd0jDsIS5f/?=
- =?iso-8859-1?Q?4keCmoI2c4TMoRBLkC1LtbnmHiCHSqKMKJJa3w4uZQlM29prnq1gSUEREG?=
- =?iso-8859-1?Q?Pfg8AZlUiI5tYKZ7SIETEqkPTiUfy5BhKdtlbQqBHzoMRHVrKpo7z0c6X2?=
- =?iso-8859-1?Q?loHhkVFEJypQ8uKOGckLbUPTYgWh1G6rcm6Ay5NBDBFD1eIAMWiZdFKR0/?=
- =?iso-8859-1?Q?8oPUXFAHSQhLpMUIRAva9BYUdzVrxd2koOQ0Fb9stdcnXGFyZNRdV60yJI?=
- =?iso-8859-1?Q?s0GRxPYF6PYDCziRJc+HwYr14V6DhV7P76S/8MNKkFT13Zbzijt58NDD7r?=
- =?iso-8859-1?Q?vrIiZGrqDwXfY2NnK2fT4GfZGFudJwm8cGJIsBajxCeM11VuM2jEGFGaJo?=
- =?iso-8859-1?Q?vCKzW2B0JXT1ABgijqpGLW1Mas+uR824iiZ7I7dhA5W7bUKpptFj?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c68591ff-0806-4829-f87e-08df14c95520
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2026 14:38:26.2569
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: FNMkonIogOoZ4phRPw3zavo6YCCmj01g2OTPxUgES8wbR7vs4OmYHwjbAduSuuJk46/I7ATDravDahlhEkk2xq9fbPle8ChjXMkiyt9QwVn7gxsZl5L3M1Qi1DvzNfsZ
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6968
+References: <20260917052933.188679-1-jiangwenxiaomi@gmail.com>
+ <20260917052933.188679-4-jiangwenxiaomi@gmail.com> <27072d94-13bf-4bea-948a-d8a67976601e@kernel.org>
+In-Reply-To: <27072d94-13bf-4bea-948a-d8a67976601e@kernel.org>
+From: Wen Jiang <jiangwenxiaomi@gmail.com>
+Date: Thu, 17 Sep 2026 22:40:46 +0800
+X-Gm-Features: AcwNN1Xe57v3xkT9n8VgdwgVRkLfN2sWNkgkjHSUvI4F8KcWXjC4skCrmqkDzZ4
+Message-ID: <CAHKocdE_zyUQT459AiTBDzQHk0jh+VpXuSMDdgHjkg-dAkgBNg@mail.gmail.com>
+Subject: Re: [PATCH v8 03/10] mm/vmalloc: use pte_set_huge()/pte_clear_huge()
+ for PTE-level block mappings
+To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+Cc: akpm@linux-foundation.org, catalin.marinas@arm.com, linux-mm@kvack.org, 
+	urezki@gmail.com, will@kernel.org, Xueyuan.chen21@gmail.com, 
+	ajd@linux.ibm.com, anshuman.khandual@arm.com, baohua@kernel.org, 
+	david@kernel.org, dev.jain@arm.com, jiangwen6@xiaomi.com, leo.yan@arm.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, maddy@linux.ibm.com, mpe@ellerman.id.au, 
+	npiggin@gmail.com, rppt@kernel.org, ryan.roberts@arm.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_073833_392403_F61A257A 
-X-CRM114-Status: GOOD (  35.47  )
+X-CRM114-CacheID: sfid-20260917_074058_742655_29052161 
+X-CRM114-Status: GOOD (  26.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,93 +124,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 11:49:46AM +0100, Nuno Sá wrote:
-> On Tue, Sep 15, 2026 at 09:37:44AM -0500, Frank Li wrote:
-> > On Tue, Sep 15, 2026 at 10:29:03AM +0300, Andy Shevchenko wrote:
-> > > On Mon, Sep 14, 2026 at 09:18:42AM -0500, Frank Li wrote:
-> > > > On Fri, Sep 11, 2026 at 06:25:36PM +0100, Nuno Sá wrote:
-> > > > > In preparation for the bitmap based bus width capabilities, move
-> > > > > enum dma_slave_buswidth out of linux/dmaengine.h into a new
-> > > > > include/linux/dma/engine/types.h.
-> > > > >
-> > > > > linux/dmaengine.h is included nearly everywhere, so growing it with the
-> > > > > new interface would make every one of its users pay for it. Keeping the
-> > > > > basic types in a separate header lets the new interface live next to it
-> > > > > without that cost. linux/dmaengine.h includes the new header, so its
-> > > > > users are unaffected.
-> > > > >
-> > > > > While at it, add the missing kernel-doc for the enum members. The block
-> > > > > already opened with /**, so kernel-doc expected every member to be
-> > > > > described and warned about each one of them. Describe the UNDEFINED case
-> > > > > in particular, as its meaning depends on where the value is used.
-> > >
-> > > ...
-> > >
-> > > > >  include/linux/dmaengine.h        | 20 +++-----------------
-> > > >
-> > > > I think it is good to split dmengine consumer and provider header files to
-> > > > hidden dmaengine's detail.
-> > >
-> > > It's indeed desirable change. but isn't it a bit out of scope of the series?
-> > > I suggest to do one step at a time. Would it work for you?
+On Thu, 17 Sept 2026 at 22:00, Christophe Leroy (CS GROUP)
+<chleroy@kernel.org> wrote:
+>
+>
+>
+> Le 17/09/2026 =C3=A0 07:29, Wen Jiang a =C3=A9crit :
+> > From: Wen Jiang <jiangwen6@xiaomi.com>
 > >
-> > Yes, but I hope the file name is finial expected file name. it is okay
-> > just move enum dma_slave_buswidth to there now.
->
-> Hi Frank, if I understood you, you mean to have an engine.h as kind of a
-> consumer and have enum dma_slave_buswidth on it?
-
-yes,
-
->
-> If so, note that enum is used both by consumers and providers so having
-> them in types kind of header makes sense to me. Kind of the same as with
-> the new widthmask header. It's used by both.
-
-Yes, generally, provider include consumer's header files.
-
-suppose detail dmaengine implement should be hidden in provider header
-files.
-
-consumer is just subset by use provide APIs. It takes time to implement it
-but can start work from enum dma_slave_buswidth.
-
-Just choose good filenames now, avoid rename letter.
-
-ideally, As vnod said include/linux/dmaengine.h is consumer header file.
-drivers/dma/dmaegine.h as providers.
-
-but some dmaengine driver outside drivers/dma/ directory.
-
-Maybe we use
-
-include/linux/dmaengine_consumer.h as start.  wait for vnod to comments.
-
-Frank
-
->
-> - Nuno Sá
->
+> > vmap installs PTE-level block mappings by reusing set_huge_pte_at() and
+> > huge_ptep_get_and_clear() under #ifdef CONFIG_HUGETLB_PAGE. This makes
+> > the feature silently unavailable on CONFIG_HUGETLB_PAGE=3Dn kernels and
+> > couples mm/vmalloc.c to HugeTLB internals it does not otherwise need.
 > >
-> > Frank
+> > Now that arm64 and powerpc/8xx provide pte_set_huge() and
+> > pte_clear_huge(), add the generic fallbacks next to the existing
+> > pmd/pud_set_huge() family and convert vmap_pte_range() and
+> > vunmap_pte_range() to the new helpers. The CONFIG_HUGETLB_PAGE guards
+> > around the block-mapping paths are dropped, so PTE-level block mappings
+> > now also work on CONFIG_HUGETLB_PAGE=3Dn kernels, and mm/vmalloc.c no
+> > longer includes <linux/hugetlb.h>.
 > >
-> > >
-> > > > suggest name
-> > > > 	dma/engine.h
-> > > >
-> > > > so we can start move more API to this files.
-> > > >
-> > > > after all user include this consumer header file,  old
-> > > > include/linux/dmaengine.h rename to include/linux/dmaengine-provider.h,
-> > > > which only include by dmaengine drivers.
-> > >
-> > > Traditional naming would be
-> > > dma/engine/provider.h
-> > > dma/engine/consumer.h
-> > >
-> > > --
-> > > With Best Regards,
-> > > Andy Shevchenko
-> > >
-> > >
+> > The fallbacks exist only to keep the build working on architectures
+> > without PTE-level block mapping support. They are unreachable there:
+> > the callers only run when arch_vmap_pte_range_map_size() or
+> > arch_vmap_pte_range_unmap_size() return a size other than PAGE_SIZE,
+> > which requires an arch implementation. WARN_ON_ONCE() makes that
+> > explicit rather than silently doing nothing.
+> >
+> > Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
+> > ---
+> >   include/linux/pgtable.h | 29 +++++++++++++++++++++++++++++
+> >   mm/vmalloc.c            | 19 ++++++-------------
+> >   2 files changed, 35 insertions(+), 13 deletions(-)
+> >
+> > diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> > index cdd68ed3ae1a9..349ced999f959 100644
+> > --- a/include/linux/pgtable.h
+> > +++ b/include/linux/pgtable.h
+> > @@ -2134,6 +2134,35 @@ static inline int pmd_free_pte_page(pmd_t *pmd, =
+unsigned long addr)
+> >   }
+> >   #endif      /* CONFIG_HAVE_ARCH_HUGE_VMAP */
+> >
+> > +/*
+> > + * PTE-level block mappings for vmap.
+> > + *
+> > + * pte_set_huge() only has to be implemented by architectures whose
+> > + * arch_vmap_pte_range_map_size() can return a size other than PAGE_SI=
+ZE.
+> > + */
+> > +#ifndef __HAVE_ARCH_PTE_SET_HUGE
+> > +static inline void pte_set_huge(pte_t *ptep, unsigned long addr,
+> > +                             phys_addr_t phys, pgprot_t prot,
+> > +                             unsigned long size)
+> > +{
+> > +     WARN_ON_ONCE(1);
+>
+> BUILD_BUG_ON() would be better here.
+>
+> It should be possible because fallback arch_vmap_pte_range_map_size()
+> will constant-fold PAGE_SIZE so pte_set_huge() will never be called.
+>
+
+Agreed. These fallbacks exist only to keep the build working on
+architectures with PTE-level block mappings and should never actually
+be reached, so BUILD_BUG_ON() is right. I'll make that change in v9.
+
+Thanks,
+Wen
+> > +}
+> > +#endif
+> > +
+> > +/*
+> > + * Likewise, pte_clear_huge() only has to be implemented by architectu=
+res
+> > + * whose arch_vmap_pte_range_unmap_size() can return a size other than
+> > + * PAGE_SIZE.
+> > + */
+> > +#ifndef __HAVE_ARCH_PTE_CLEAR_HUGE
+> > +static inline pte_t pte_clear_huge(pte_t *ptep, unsigned long addr,
+> > +                                unsigned long size)
+> > +{
+> > +     WARN_ON_ONCE(1);
+> > +     return __pte(0);
+>
+> Same I guess.
+>
+> > +}
+> > +#endif
+> > +
+> >   #ifndef __HAVE_ARCH_FLUSH_PMD_TLB_RANGE
+> >   #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+> >   /*
 
