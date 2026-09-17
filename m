@@ -4,154 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3144C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 09:01:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AE13C982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 09:03:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ie+IaUUjAt2szDXMi5v29oMhfImflhnnR1oHxKba5Ao=; b=aVT/SZSzCAGH4jJ6nhtFcV7y7l
-	icf8/8PUB/uSGR9DLQtWFcofokByMiJJ4ndSQKGaWu+mP7qJSc2ryF3vBTnonLRpilE2tyz/QnswB
-	/gD3WqY0Sd2gfiEXfWrM5VX00w2E89Rv2egKg1BkDkf0nBHjM3Iju0KEmUI/z9X0JfX5HH8+mY/lu
-	m7nY+t9IqgY/9KFEtGwQ+nJiPHBsL8799krq9y7caL2H6K66+l/8sr8qdrRwaEc9PC3sOD4pD6I+J
-	6wdrRG70WZxCFBNFYgLpbBTiJ9fBuR8tuzTxbo7jvHunkTzs59fPk95VnkTj8OeIQI3KIpaeKHaw8
-	RF5u+X8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eKri3L78C9WUGE/oZ+xY2BtOYPJ9RfIjm7j/38q/7io=; b=dWGY9awm4/L4QsDHTikkkQQEDX
+	M+ewS71qAStyWVWFU1RzLI/bgzSAlqu6jcRIQMemUY8Z2AE2Aa/CxojDEsG8W4fOjL1ELX7swmwi1
+	vtlRnUzgzJtf+FjibYKupESSFGDgP4p3rcIF+biBgyojb3Em5GoOlUwrZsYyc5ljO8MOOeOi6X9tb
+	cyqyO7KPJHUAjmJMQMgIxPzOsJssZJxEKdkS1ssS0aRkmsoeVCEO6sZaOnblIMmTTd+VGg3xsDqIx
+	iP/Z5Ve8PMXlU1mZj4s3lkFo3GjMpuHR82otAyeHhmMuWq/vPuJJhJzaA7ssa1gsEkmxR9erGz+RH
+	v1SV2v6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x77zL-0000000AwWK-3YeB;
-	Thu, 17 Sep 2026 09:01:03 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x77zI-0000000AwUa-1sps
+	id 1x781d-0000000AwqI-0toc;
+	Thu, 17 Sep 2026 09:03:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x781a-0000000AwpG-2GZz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 09:01:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ildgwkpXoZn2Y9LFFdbdyvBhvCm1kbRJq3Ojo4k97hXgxPf9f1Kl/aTyq5//0mxtWffci3N7gdGMxhGBsKLMvhcmcVxyP64ttrvurHRLqH3GRrjL3AUygY6t4FEtKGQ3FuLvUyXjghyQid9Wgrsa0Q99FN6Wv/1arn71CnRnWEgESFgS8DuuohtOWyIY2OU9342/o1Ul3ny+i8C90ognFQv+qCC/pjk7ambyhqf5NgM7KB13vDejwhqdyDD4Md7xnRnHugFV2KTqYXZgS5fTgoZpG44HMlLO2204b5+tATZO6K1VLWAcF7VHvJa2pu/6QBe7qIcwH6szipxDTfFIMQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Ie+IaUUjAt2szDXMi5v29oMhfImflhnnR1oHxKba5Ao=;
- b=BapcoWQQar58r+cJex6tB9zCXIyVGgbcaq8LSzu9BGDqQVRBjZLQ98TFu/hkcc8aDmQkZ8r3I7/c8wFEUgusEDytMI/F+rLxED8FStlAJ/Ac7RxFpkFvZUPkl3vVszrjdR9Xm6ez832wBim1uTSYVAaP3J+kZA1//S2Cylvtc0xhm+UrKf5C9QhmQzYVo0UmCso5v6MPCR/bGDVIUFOHck2p92/sOtV542R4rzR25msrXHVVKhsddn6m4Ln4e7tNo/1Gr/zkhiouVWv3EnSGHwfVzQoeadegWRvH2iT9AWYUpvbRF1HdkLaHKbrRepppiJqUxFlFJVVG4ShZf2WNTg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Ie+IaUUjAt2szDXMi5v29oMhfImflhnnR1oHxKba5Ao=;
- b=HbLBaJZMtjz3b+l+3o3Mti7AQyh1FzOTcelbz92bUCDwsqd/XIBfQojv6KzKzH4SZ1vXSeptZ0nANTVCeimZj4Z67FTaueSnXnOJLX7STLYpgHhDQeFz9NZ4Wf/9sZM+oijfvmHdPRW+0//0/KcEwGgaO/Tm6t5mO01yff7Sww7Wp8t7TWS2zYClAceOOsMZ9pi2SkY1McrX3iiOyj5rKcX4GamAj28/W4V6okkk1OlFunhLAK25ODGdFmgc38+gmj0hbqiAoDHSz7akakvzIK6zlyljXE2IssD0QpYCluC4Nr+eesqV0w0VyPmeeV8usyURaRc4EIqctXUQwbWUxA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB12558.eurprd04.prod.outlook.com
- (2603:10a6:150:368::10) by DB9PR04MB11628.eurprd04.prod.outlook.com
- (2603:10a6:10:608::7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.12; Thu, 17 Sep
- 2026 09:00:56 +0000
-Received: from GV2PR04MB12558.eurprd04.prod.outlook.com
- ([fe80::cd9f:102:ea58:4c49]) by GV2PR04MB12558.eurprd04.prod.outlook.com
- ([fe80::cd9f:102:ea58:4c49%6]) with mapi id 15.21.0428.011; Thu, 17 Sep 2026
- 09:00:56 +0000
-Message-ID: <af6d03c3-a0fe-49a5-8adc-866ef74f1ebe@oss.nxp.com>
-Date: Thu, 17 Sep 2026 12:00:52 +0300
+	Thu, 17 Sep 2026 09:03:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B80E81476;
+	Thu, 17 Sep 2026 02:03:16 -0700 (PDT)
+Received: from [10.0.128.139] (unknown [10.0.128.139])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2C9BE3FAA1;
+	Thu, 17 Sep 2026 02:03:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789635800; bh=H7DYV+GTC/oHo8YbGXHgYOr8KdParA1BZBiqphABHmU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=dkj0kbfuI7IiL7YpSyZcZi7LZlvJ0O/YQmyiiNMdPRMKFCWI6B508cxJQglO1aVel
+	 kKb5m0Voqhe1auzEBi4BCZzLSTlHuEXNxHm7678XJVsvUPYou8SnT1shjudXR0xIGX
+	 Vj4vKBm+vvGH1MBwES6/fam0h85SJsUTzuxUPgNc=
+Message-ID: <985520fa-99b0-4620-bfee-8e6321b36104@arm.com>
+Date: Thu, 17 Sep 2026 10:03:14 +0100
+MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 03/10] ufs: host: Add common Hibern8 TX FSM polling
- helper
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: NXP S32 Linux Team <s32@nxp.com>, Alim Akhtar <alim.akhtar@samsung.com>,
- Avri Altman <avri.altman@sandisk.com>, Bart Van Assche <bvanassche@acm.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- "Martin K. Petersen" <mkp@kernel.org>,
- Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
- Ajay Neeli <ajay.neeli@amd.com>, Manivannan Sadhasivam <mani@kernel.org>,
- Pedro Sousa <pedrom.sousa@synopsys.com>, linux-scsi@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-arm-msm@vger.kernel.org, clizzi@redhat.com, aruizrui@redhat.com,
- eballetb@redhat.com, echanude@redhat.com
-References: <20260916084411.941297-1-larisa.grigore@oss.nxp.com>
- <20260916084411.941297-4-larisa.grigore@oss.nxp.com>
- <aqrCUDrYaIsL39zn@SMW015318>
-Content-Language: en-US
-From: Larisa Ileana Grigore <larisa.grigore@oss.nxp.com>
-In-Reply-To: <aqrCUDrYaIsL39zn@SMW015318>
+Subject: Re: [PATCH v18] arm64: mm: Handle Granule Protection Faults (GPFs)
+Content-Language: en-GB
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
+ will@kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
+ aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
+References: <20260913070459.2547407-1-suzuki.poulose@arm.com>
+ <aqrGPK0lFBFXL2qY@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <aqrGPK0lFBFXL2qY@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR3P281CA0184.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:a4::19) To GV2PR04MB12558.eurprd04.prod.outlook.com
- (2603:10a6:150:368::10)
-MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB12558:EE_|DB9PR04MB11628:EE_
-X-MS-Office365-Filtering-Correlation-Id: 835f6ca9-8145-4679-1fe6-08df149a2f30
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|376014|7416014|19092799006|11063799006|56012099006|4143699003|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: EEgTDARt27pxsM3sbAcCVrJ0FiiZSao3Z3naQNGZgHkhbi3u6D1Fz++IU9VUY0Ck2q+AkPqiMoRMqs0+5XUOi7IXPz0c8sN1b0iyEI0mJoWoanMqc9CyksLQjsIyDrV5CY5a+MNuHuMgG6hk8md2+057UMZ1Tj7/MDu1XC11JNiZ75iThOsqc2JL6xsC4mbBT9/8olwAPu5xh46afGP3fIAp1JScnJVPs7F6tfSZ8r8/c6HAJAApMPHLSGNN/dRDJX91XNDleMawQA7n6l2GxyFZa9M67ldxZq7lbQxYkNjrFqqRNXGyWmae/yXzsFHyJkDLMv/wjRS+bygJ/roavC4Qv2p2yomYgwtbljy3YH/+/ppE33/Eqgi8lfPzpFZxts0cLnYeeNKQPW52DW7HAohqmy/nVl6BLM1qngR9BpuQmtGMVYdvzSSiGFhs36dYGDBZ6P+pSf2WJB9uLGxWtnTXfEDWSmUvDO31nL1rXUM8uR0DS5lyB5v0GZyQLCXu/bBng9dnAsryMjKwbLXBOsxJtegtSeKwtb6Iw08ctmRyEVxw+vLDWcObPNoc5ryUO08lkQXX3FiKeInh0aC+23OYDKTddpmCqdUAGLHcgjx7EU8GgJtNqxYMgw5q2BnR5IPm5lqzaZEHcw4WxLP1/8yAM2mrflG/cva439M21hE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12558.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(376014)(7416014)(19092799006)(11063799006)(56012099006)(4143699003)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cThoZU5YakVJbTlTTHBuNyswcDhXdHRxU0puc0V3dEVZc2NueWpEbHVzUXkw?=
- =?utf-8?B?UXdaNURBb29CU1VmOXBidTJoeVN2eTB6WjVkdDJ2OVp6bWF6eHdEWU82QytP?=
- =?utf-8?B?Qk0zOVd5RiswZnBXTXZPbWtBeXZiVnNRSWREdzFXNGFDajNHRmVLUEdEdGVz?=
- =?utf-8?B?SUowbUkwZ1BjUEFSL0RTVFkxZEViQ3hpVzBUNmN3eFBTaUV0T1QxQzNGclpv?=
- =?utf-8?B?SUU3am1jYUNnWjdETWlHU2NWdWFBaFQwRmY1cSt6bW9HK2lvK05VMFFmL0h6?=
- =?utf-8?B?djVFRDB2Si9ZdHdOTlJKSFJGcVZmcDhCb3RsQ29ZRjFwNDgxbjdGcnlDb0hD?=
- =?utf-8?B?M2t6dnphc1JlRFkzc3llNlZpTHIwNWNIblBRRExwN05VRkpnOXA0NGlZeVdD?=
- =?utf-8?B?NGcxcDZmNG1vdENYZFZzVU44ZEJESkpMaGFYNy9veEZHVTVONmM0dUZKSERT?=
- =?utf-8?B?akJXSHZqdVMzeVpiTHlLWkNseDhlODdONGl4NjJMcmlveXJZOTRmQklFYnlU?=
- =?utf-8?B?TEF4Unl1dUxtaWVRTjg5NE93cGppYTVoUndUcnArV3B6MWtWTjg5TndpcFFT?=
- =?utf-8?B?RHJMWlRZc1JpLzU3azMxYU40SlRORmtnN1I3MmxSajJ6YXM0aHFDT0p5T0NP?=
- =?utf-8?B?blIydkVheHBLcm4zMG5XSFBkMzR2YzNMb08vTWl1RXM1STREWW1wSjVMcm52?=
- =?utf-8?B?VFQ1MFEvK1VFdytWV0V3R3dFM0NmakhtbjZRNGpWYmNyNUY2cjhoSU1EUmtp?=
- =?utf-8?B?YlN1MFptcTBRbUw4cXJ6bGRjVitab3VtMTd1cGZmQnE3Q25PZnN2NmhMRUx0?=
- =?utf-8?B?RUg3ZVFqNjFBUUtOWXFpYUtwSzZJeE9HSFNESldnd2dJVGVSY0hDVENDS0RL?=
- =?utf-8?B?QkxLODRFZndlTkZ6TkZZOERlKzRjaEhyWERSbEJudlhiVmdmamVaY0prRkMx?=
- =?utf-8?B?QWNFd2ZYSko5dThQNDZSQThBU3BDNHdaWXMweXpTeGk1bE9HRG5Zdm5vZVVY?=
- =?utf-8?B?OHBqS282eitzU3FFRk1ZRkRPVnk2bjFpR3JvYW1aNG8yUVl4aTd1Y29FRE1Q?=
- =?utf-8?B?OUVnSlozYzF6ZFZZZDV5RUtmRmd4YStZRlNGZi9sdzRiN0FRN0NpNlF6VE1o?=
- =?utf-8?B?NUxhSExHM2ZHOUtvTVMvR2U2ZW9wWEplLzZIWkdkSHdzQmRhZkIwSmlkeVlF?=
- =?utf-8?B?Y2VQMmN3L3N2eHh2VUVnKys2ZmxBZXBtK2JOUnkxY0Qya2hlNHB6VzNyRlU5?=
- =?utf-8?B?UU5LcTlndDBFTERPcStxN1pxSDZ6bHpGK3hKWExMZmVlRzAwNWhvbUNJUkRk?=
- =?utf-8?B?VE1wN094SU5Lam1pZFNxZVRjMlQ0YVlwNlB4K05YaW1veE9GZ1A0dVNzR2pL?=
- =?utf-8?B?Q0VMT3JDejBTK2pyVThick1mZ2xiWFQxdkRBZHdyWkRIUlg1YnpGMHBEckNX?=
- =?utf-8?B?Wm1uK2pjWlp4UDZXWWRnOFFQTW80S203eGZWK3VDVCtMS1lRTXQvekhud3NO?=
- =?utf-8?B?Vk84aEJLVnR5L2U1QXZqbk41ZjlsQ3FsNTErVEhXQWYyU0pFVlN1UWxnTmtZ?=
- =?utf-8?B?UDM4cmVyUUw1ZEZHNGFpbTBHaXZuQW5RaC91WWhpcEZqS3RzbFRuL3B4ZTh5?=
- =?utf-8?B?Y2I4dENZbjlKaWFiMTdjVnRoR21xTjVoRkQvVndDYktObGNpWWE2QnI0T1ZB?=
- =?utf-8?B?endxREdqQ2JXajlHZDVDeHY5Sk9RSXdsb0RtekY0UXhVSXR4WGhrbU1lc1N5?=
- =?utf-8?B?Z29BaXJCZUpRdU43OWZ5UmJyNWV6YXlGc3dMd0YzeW5xSVZybzJHZ3hQKzV4?=
- =?utf-8?B?TjFseFBKMlgzUlVHT1k5RnI3eFczZVAxMzJnVHdVQVdMWWxXb1dmS2VXUEZt?=
- =?utf-8?B?T2ozYksxVHNiNXBDbllWZktjdFdiTXpONWVvcHR6SE16ajh3YnRDWXlZRkQ3?=
- =?utf-8?B?a0FFODY4VTF5ZmRzcVg2K09JMmc5YlpBYlhvV04xV240OE8zTG52b1o1M1dI?=
- =?utf-8?B?bjVXQVdYekxpVVVjUFkxT3c5dFBRc0sySmFqV29waHFzMkxBUWhWNjVOZ1RP?=
- =?utf-8?B?Vk9OV09pVElWaC9YQndRRHBPM3FDTG9ac0NlNUNvdHVMZmRPTDFWMXU0dVJm?=
- =?utf-8?B?ZCtxdFZ3TTJwUXBTZEM5eXByRVlWR0tEcDFpcnRoUmRIK1k1Wk9kNWNybjlo?=
- =?utf-8?B?QjFZQ2pjTTA2QmhWR2pHa2lPRmNCYlViajkwdDF5U0hONkQwZ3BZaDAyYlV0?=
- =?utf-8?B?Y3F2MVlHMVk5ZmFid05ldEV5QUkyVzBwMy96VWtkOHhSMEU5RWtYQVpta0tC?=
- =?utf-8?B?V0V6SHlVOCtlNkdGTXlaN0FhUEhLUzdKWkJXWDNnQVdRd2ExdGtkQT09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 835f6ca9-8145-4679-1fe6-08df149a2f30
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12558.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2026 09:00:56.1460
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: OMw5ksIsfMqteV6JScSWbaQ4UKK1mASLd50CHRe4w7HTt7uvUBFCQc1eG+U1xaybOm/O8r4T+SiPq3XE/D5osQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB11628
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_020100_648534_4A63D258 
-X-CRM114-Status: GOOD (  28.87  )
+X-CRM114-CacheID: sfid-20260917_020322_676943_3764408E 
+X-CRM114-Status: GOOD (  31.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,293 +77,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/16/2026 7:22 PM, Frank Li wrote:
-> On Wed, Sep 16, 2026 at 10:44:04AM +0200, Larisa Grigore wrote:
->> Factor out the common logic used to poll TX_FSM_STATE until the TX lanes
->> enter Hibern8 into ufshcd_check_hibern8().
+Hi Catalin
+
+On 16/09/2026 17:39, Catalin Marinas wrote:
+> On Sun, Sep 13, 2026 at 08:04:58AM +0100, Suzuki K Poulose wrote:
+>> From: Steven Price <steven.price@arm.com>
 >>
->> The HiSilicon and Qualcomm drivers currently implement similar checks
->> using the UniPro TX_FSM_STATE attribute after link/PHY bring-up. Move
->> this logic to a common helper in ufshcd so it can be shared across host
->> controller drivers.
+>> If the host attempts to access granules that have been delegated for use
+>> in a realm these accesses will be caught and will trigger a Granule
+>> Protection Fault (GPF).
 >>
->> Switch the HiSilicon and Qualcomm drivers to use the new helper and drop
->> their local implementations. While at it, normalize the "TX lane failed to
->> reach Hibern8" error path to return -ETIMEDOUT instead of the raw
->> TX_FSM_STATE value (qcom) or -1 (hisi), so all callers get a proper errno.
->> This is an intentional, harmless change of the returned error value; the
->> pass/fail behaviour at the call sites is unchanged.
+>> A fault during a page walk signals a bug in the kernel and is handled by
+>> oopsing the kernel. A non-page walk fault could be caused by user space
+>> having access to a page which has been delegated to the kernel and will
+>> trigger a SIGBUS to allow debugging why user space is trying to access a
+>> delegated page.
 >>
->> Unlike the initial implementation, the timeout error is now reported only
->> once by ufshcd_dme_check_tx_hibern8() after its final check, instead of
->> per lane.
+>> There is work in progress to unmap the guest_memfd backed private pages from the
+>> linear map. Until we get that support, we could get spurious GPFs from within
+>> the kernel, e.g., load_unaligned_zeropad(). So, try to fix them up for now.
 >>
->> This also prepares for reusing the same UniPro-specific Hibern8 check in
->> a subsequent commit.
->>
->> Signed-off-by: Larisa Grigore <larisa.grigore@oss.nxp.com>
+>> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>> Reviewed-by: Gavin Shan <gshan@redhat.com>
+>> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 >> ---
->>   drivers/ufs/core/ufshcd.c   | 86 +++++++++++++++++++++++++++++++++++++
->>   drivers/ufs/host/ufs-hisi.c | 48 +--------------------
->>   drivers/ufs/host/ufs-qcom.c | 42 +-----------------
->>   include/ufs/ufshcd.h        |  3 ++
->>   4 files changed, 91 insertions(+), 88 deletions(-)
+>> Changes since v17:
+>>   * Pass untagged address to die_kernel_fault() - Sashiko
+>>   * Explicitly check !user_mode() for fixups - Catalin
+>>   * Switch to BUS_OBJERR for si_code from SI_KERNEL - Catalin
+>>   * Clarify the commit description about the upcoming work on
+>>     unmapping guest_memfd backed pages from linear map
+>> Changes since v16:
+>>   * Update the commit description to indicate why we try to fixup GPFs
+>> Changes since v10:
+>>   * Don't call arm64_notify_die() in do_gpf() but simply return 1.
+>> Changes since v2:
+>>   * Include missing "Granule Protection Fault at level -1"
+>> ---
+>>   arch/arm64/mm/fault.c | 30 ++++++++++++++++++++++++------
+>>   1 file changed, 24 insertions(+), 6 deletions(-)
 >>
->> diff --git a/drivers/ufs/core/ufshcd.c b/drivers/ufs/core/ufshcd.c
->> index 2ba244cf40ac..f34b7fe54a16 100644
->> --- a/drivers/ufs/core/ufshcd.c
->> +++ b/drivers/ufs/core/ufshcd.c
->> @@ -4448,6 +4448,92 @@ int ufshcd_dme_get_attr(struct ufs_hba *hba, u32 attr_sel,
+>> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+>> index 75c3e463df2ef..dc3a87902a60c 100644
+>> --- a/arch/arm64/mm/fault.c
+>> +++ b/arch/arm64/mm/fault.c
+>> @@ -914,6 +914,24 @@ static int do_tag_check_fault(unsigned long far, unsigned long esr,
+>>   	return 0;
 >>   }
->>   EXPORT_SYMBOL_GPL(ufshcd_dme_get_attr);
->>
->> +/**
->> + * ufshcd_poll_tx_hibern8_lanes - Check TX_FSM_STATE of all TX lanes once
->> + * @hba: host controller instance
->> + * @num_lanes: number of TX lanes to check
->> + *
->> + * Read TX_FSM_STATE for every lane and verify it reached Hibern8.
->> + *
->> + * Return: 0 if all lanes are in Hibern8, -EAGAIN if any lane is not (yet)
->> + * in Hibern8, or a negative errno (e.g. -ETIMEDOUT from a hard UIC command
->> + * timeout) if the attribute read fails.
->> + */
->> +static int ufshcd_poll_tx_hibern8_lanes(struct ufs_hba *hba,
->> +					unsigned int num_lanes)
+>>   
+>> +static int do_gpf_ptw(unsigned long far, unsigned long esr, struct pt_regs *regs)
 >> +{
->> +	u32 tx_fsm_val = 0;
->> +	unsigned int i;
->> +	int err;
+>> +	const struct fault_info *inf = esr_to_fault_info(esr);
+>> +	unsigned long addr = untagged_addr(far);
 >> +
->> +	for (i = 0; i < num_lanes; i++) {
->> +		err = ufshcd_dme_get(hba,
->> +				UIC_ARG_MIB_SEL(TX_FSM_STATE,
->> +					UIC_ARG_MPHY_TX_GEN_SEL_INDEX(i)),
->> +				&tx_fsm_val);
->> +		if (err) {
->> +			dev_err(hba->dev,
->> +				"%s: unable to get TX_FSM_STATE for lane %u, err %d\n",
->> +				__func__, i, err);
->> +			return err;
->> +		}
->> +
->> +		if (tx_fsm_val != TX_STATE_HIBERN8)
->> +			return -EAGAIN;
->> +	}
->> +
+>> +	die_kernel_fault(inf->name, addr, esr, regs);
 >> +	return 0;
 >> +}
 >> +
->> +/**
->> + * ufshcd_dme_check_tx_hibern8 - Check if all TX lanes entered Hibern8 state
->> + * @hba: host controller instance
->> + * @num_lanes: number of TX lanes to check
->> + * @timeout_ms: timeout in milliseconds for all lanes
->> + *
->> + * Return: 0 on success, negative errno on failure.
->> + */
->> +int ufshcd_dme_check_tx_hibern8(struct ufs_hba *hba, unsigned int num_lanes,
->> +				unsigned int timeout_ms)
+>> +static int do_gpf(unsigned long far, unsigned long esr, struct pt_regs *regs)
 >> +{
->> +	unsigned long timeout;
->> +	int err;
+>> +	if (!user_mode(regs) && !is_el1_instruction_abort(esr) &&
+>> +	    fixup_exception(regs, esr))
+>> +		return 0;
 >> +
->> +	if (!num_lanes)
->> +		return -EINVAL;
->> +
->> +	timeout = jiffies + msecs_to_jiffies(timeout_ms);
->> +
->> +	do {
->> +		err = ufshcd_poll_tx_hibern8_lanes(hba, num_lanes);
->> +		/*
->> +		 * -EAGAIN means the lanes are simply not in HIBERN8 yet, so
->> +		 * keep polling. Any other error is a real failure and must
->> +		 * be returned immediately instead of being retried.
->> +		 */
->> +		if (err != -EAGAIN)
->> +			return err;
->> +
->> +		/* sleep for max. 200us */
->> +		usleep_range(100, 200);
->> +	} while (time_before(jiffies, timeout));
->> +
->> +	/*
->> +	 * We might have been scheduled out for long during polling, so do
->> +	 * one final check before reporting timeout.
->> +	 */
->> +	err = ufshcd_poll_tx_hibern8_lanes(hba, num_lanes);
->> +	if (err == -EAGAIN) {
->> +		dev_err(hba->dev,
->> +			"%s: timeout waiting for TX lanes to enter HIBERN8\n",
->> +			__func__);
->> +		err = -ETIMEDOUT;
->> +	}
-> 
-> 
-> why not use read read_poll_timeout()
-> 
-> read_poll_timeout(ufshcd_poll_tx_hibern8_lanes, err, err != -EAGAIN, timeout_ms,
-> 		  0, hba, numlanes);
-> 
-> 
-> Frank
-> 
-Thank you for the suggestion!
-
-Best regards,
-Larisa
-
->> +
->> +	return err;
+>> +	return 1;
 >> +}
->> +EXPORT_SYMBOL_GPL(ufshcd_dme_check_tx_hibern8);
->> +
->>   /**
->>    * ufshcd_dme_rmw - get modify set a DME attribute
->>    * @hba: per adapter instance
->> diff --git a/drivers/ufs/host/ufs-hisi.c b/drivers/ufs/host/ufs-hisi.c
->> index bd223bda1ce2..b84075dfe00d 100644
->> --- a/drivers/ufs/host/ufs-hisi.c
->> +++ b/drivers/ufs/host/ufs-hisi.c
->> @@ -22,50 +22,6 @@
->>   #include <ufs/ufshci.h>
->>   #include <ufs/ufs_quirks.h>
->>
->> -static int ufs_hisi_check_hibern8(struct ufs_hba *hba)
->> -{
->> -	int err = 0;
->> -	u32 tx_fsm_val_0 = 0;
->> -	u32 tx_fsm_val_1 = 0;
->> -	unsigned long timeout = jiffies + msecs_to_jiffies(HBRN8_POLL_TOUT_MS);
->> -
->> -	do {
->> -		err = ufshcd_dme_get(hba, UIC_ARG_MIB_SEL(TX_FSM_STATE, 0),
->> -				      &tx_fsm_val_0);
->> -		err |= ufshcd_dme_get(hba,
->> -		    UIC_ARG_MIB_SEL(TX_FSM_STATE, 1), &tx_fsm_val_1);
->> -		if (err || (tx_fsm_val_0 == TX_STATE_HIBERN8 &&
->> -			tx_fsm_val_1 == TX_STATE_HIBERN8))
->> -			break;
->> -
->> -		/* sleep for max. 200us */
->> -		usleep_range(100, 200);
->> -	} while (time_before(jiffies, timeout));
->> -
->> -	/*
->> -	 * we might have scheduled out for long during polling so
->> -	 * check the state again.
->> -	 */
->> -	if (time_after(jiffies, timeout)) {
->> -		err = ufshcd_dme_get(hba, UIC_ARG_MIB_SEL(TX_FSM_STATE, 0),
->> -				     &tx_fsm_val_0);
->> -		err |= ufshcd_dme_get(hba,
->> -		 UIC_ARG_MIB_SEL(TX_FSM_STATE, 1), &tx_fsm_val_1);
->> -	}
->> -
->> -	if (err) {
->> -		dev_err(hba->dev, "%s: unable to get TX_FSM_STATE, err %d\n",
->> -			__func__, err);
->> -	} else if (tx_fsm_val_0 != TX_STATE_HIBERN8 ||
->> -			 tx_fsm_val_1 != TX_STATE_HIBERN8) {
->> -		err = -1;
->> -		dev_err(hba->dev, "%s: invalid TX_FSM_STATE, lane0 = %d, lane1 = %d\n",
->> -			__func__, tx_fsm_val_0, tx_fsm_val_1);
->> -	}
->> -
->> -	return err;
->> -}
->> -
->>   static void ufs_hisi_clk_init(struct ufs_hba *hba)
->>   {
->>   	struct ufs_hisi_host *host = ufshcd_get_variant(hba);
->> @@ -224,9 +180,7 @@ static int ufs_hisi_link_startup_pre_change(struct ufs_hba *hba)
->>
->>   	/* Unipro VS_mphy_disable */
->>   	ufshcd_dme_set(hba, UIC_ARG_MIB_SEL(0xD0C1, 0x0), 0x0);
->> -	err = ufs_hisi_check_hibern8(hba);
->> -	if (err)
->> -		dev_err(hba->dev, "ufs_hisi_check_hibern8 error\n");
->> +	err = ufshcd_dme_check_tx_hibern8(hba, 2, HBRN8_POLL_TOUT_MS);
->>
->>   	if (!(host->caps & UFS_HISI_CAP_PHY10nm))
->>   		ufshcd_writel(hba, UFS_HCLKDIV_NORMAL_VALUE, UFS_REG_HCLKDIV);
->> diff --git a/drivers/ufs/host/ufs-qcom.c b/drivers/ufs/host/ufs-qcom.c
->> index 1e492dac8d93..815ca82a0878 100644
->> --- a/drivers/ufs/host/ufs-qcom.c
->> +++ b/drivers/ufs/host/ufs-qcom.c
->> @@ -382,46 +382,6 @@ static int ufs_qcom_init_lane_clks(struct ufs_qcom_host *host)
->>   	return 0;
->>   }
->>
->> -static int ufs_qcom_check_hibern8(struct ufs_hba *hba)
->> -{
->> -	int err;
->> -	u32 tx_fsm_val;
->> -	unsigned long timeout = jiffies + msecs_to_jiffies(HBRN8_POLL_TOUT_MS);
->> -
->> -	do {
->> -		err = ufshcd_dme_get(hba,
->> -				UIC_ARG_MIB_SEL(TX_FSM_STATE,
->> -					UIC_ARG_MPHY_TX_GEN_SEL_INDEX(0)),
->> -				&tx_fsm_val);
->> -		if (err || tx_fsm_val == TX_STATE_HIBERN8)
->> -			break;
->> -
->> -		/* sleep for max. 200us */
->> -		usleep_range(100, 200);
->> -	} while (time_before(jiffies, timeout));
->> -
->> -	/*
->> -	 * we might have scheduled out for long during polling so
->> -	 * check the state again.
->> -	 */
->> -	if (time_after(jiffies, timeout))
->> -		err = ufshcd_dme_get(hba,
->> -				UIC_ARG_MIB_SEL(TX_FSM_STATE,
->> -					UIC_ARG_MPHY_TX_GEN_SEL_INDEX(0)),
->> -				&tx_fsm_val);
->> -
->> -	if (err) {
->> -		dev_err(hba->dev, "%s: unable to get TX_FSM_STATE, err %d\n",
->> -				__func__, err);
->> -	} else if (tx_fsm_val != TX_STATE_HIBERN8) {
->> -		err = tx_fsm_val;
->> -		dev_err(hba->dev, "%s: invalid TX_FSM_STATE = %d\n",
->> -				__func__, err);
->> -	}
->> -
->> -	return err;
->> -}
->> -
->>   static void ufs_qcom_select_unipro_mode(struct ufs_qcom_host *host)
->>   {
->>   	ufshcd_rmwl(host->hba, QUNIPRO_SEL, QUNIPRO_SEL, REG_UFS_CFG1);
->> @@ -607,7 +567,7 @@ static int ufs_qcom_hce_enable_notify(struct ufs_hba *hba,
->>   		break;
->>   	case POST_CHANGE:
->>   		/* check if UFS PHY moved from DISABLED to HIBERN8 */
->> -		err = ufs_qcom_check_hibern8(hba);
->> +		err = ufshcd_dme_check_tx_hibern8(hba, 1, HBRN8_POLL_TOUT_MS);
->>   		ufs_qcom_enable_hw_clk_gating(hba);
->>   		ufs_qcom_ice_enable(host);
->>   		ufs_qcom_config_ice_allocator(host);
->> diff --git a/include/ufs/ufshcd.h b/include/ufs/ufshcd.h
->> index dfd302f2dc7c..0d9d0a26eb20 100644
->> --- a/include/ufs/ufshcd.h
->> +++ b/include/ufs/ufshcd.h
->> @@ -1556,6 +1556,9 @@ extern int ufshcd_dme_set_attr(struct ufs_hba *hba, u32 attr_sel,
->>   			       u8 attr_set, u32 mib_val, u8 peer);
->>   extern int ufshcd_dme_get_attr(struct ufs_hba *hba, u32 attr_sel,
->>   			       u32 *mib_val, u8 peer);
->> +extern int ufshcd_dme_check_tx_hibern8(struct ufs_hba *hba,
->> +				       unsigned int num_lanes,
->> +				       unsigned int timeout_ms);
->>   extern int ufshcd_change_power_mode(struct ufs_hba *hba,
->>   				    struct ufs_pa_layer_attr *pwr_mode,
->>   				    enum ufshcd_pmc_policy pmc_policy);
->> --
->> 2.43.0
->>
->>
+> 
+> We discussed briefly offline. With the latest patches around, would we
+> ever end up with private memory mapped in the VMM and hence the GPF? If
+> not, I would still keep this handling but add a
+> WARN_ON_ONCE(user_mode(regs)).
+> 
+> However, can we end up delegating a non-guest_memfd memslot page as
+> protected?
+> 
+> I played a bit with codex and it reckons it's possible if a guest_memfd
+> memslot is deleted after its IPA range has been initialised with
+> RIPAS=RAM. Removing the memslot unmaps and undelegates any data pages
+> but leaves the RMM state as RAM. The VMM can then install an ordinary
+> memslot over the same GPA range.
 
+This should be prevented by the following predicates:
+
+1) Realms only support guest_memfd backed memslots for mappable memory.
+2) Memslots cannot be created after the Realm is created, as is with the
+protected VMs. (This check seems to have been lost over the iterations,
+  but should be reinstated).
+
+> 
+> A subsequent private-IPA S2 fault sees the non-guest_memfd slot, takes
+> user_mem_abort(), GUPs the user page and passes it to
+> realm_map_protected(). The userspace mapping remains present, so a later
+> EL0 access can generate a GPF.
+
+The Realm mem abort code should prevent this by ensuring that the
+memslot is backed by gmem for private_faults. With the mandate of
+in-place conversion, even the shared pages must come from the
+gmem backed memslots.
+
+> 
+> What's worse, I think it can even trick the kernel into doing a memcpy()
+> access (via GUP). Hmm, does such ordinary slot page even remain pinned?
+> There are other kernel parts that could access it.
+> 
+> I don't think it changes this patch but if the above is possible, we
+> should definitely get it tightened on the other series (and here we can
+> add the warning).
+
+Agreed. I will address these concerns in the kvm part2 of the CCA changes.
+
+Cheers
+Suzuki
 
