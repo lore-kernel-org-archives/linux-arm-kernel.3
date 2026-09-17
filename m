@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C066C982D6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7CAAC88E72
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 15:41:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,65 +12,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BZTHVF5d2BHEGYh8wWAhHMVlO8LgEUkq4aZ2zQxWQOk=; b=0yznxcbIFy38w54kxmkNuuRHdP
-	Zf7iqAN/P/aXGOy7FcqDtPPBa7obzYYc65STi27Z78NFU6huJXyepN50KZTSCs0+c6BhMpXrYYDJt
-	KTaIUS54pFJfTtrUyExu3SR6XAN0zzj1ZdGknqmEYTRc3P4GFvnFZE70iGV0RDqIHycbZ6YyIWoMG
-	NLbouajS92fg4Bp74h37HC8Nb1swMCq+BQGfuUa+4iC3H8ju0aKiKn92epBNhO0glig1hLNlp1Aly
-	06ScJpDxtw0GPl+fgzd06uvdgn83J1XBcjE5s2cgAZAF+c6ooYWPnZnGcWtgUMrPbipnEfDn72yoI
-	ltYCaCVA==;
+	bh=ogUWVPuPz4Wv0AWXXjemfDDswNqsh12xy3+UrN+ebnA=; b=jn6I+lJxsfkxPPEoMOqxHwzGtH
+	EuASPg1i+oaWmVz7OwUUuKzlmlra4X2CtHF2oO9JwsYGIg1CwGDveNY3WDMCFHYbr834OldWS1uAV
+	mfAi1dAqI9UELRlBwTjv3lF4rIR8F1kClYz1uLnesyQs01gnE/Xrl4o2rz2WYe3PaBePt17Dk55oi
+	VeZpMnBxxZPUbJ848IpNanGPzKbHNYckDRDQcHMbvQj95T4vr4m8QszmzcCWQEMfCL8k6Wc8V1fwF
+	z28hQDA8O1gcR1/8EI9D9jVkuHUPNVMgOAkfN3pbykiZ4x2XlMNfKe4Chmb2RlwpdNSfE8EB3+lSs
+	Rzsy96kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7EFC-0000000BjB5-2Pkd;
+	id 1x7EFC-0000000BjBm-3FFo;
 	Thu, 17 Sep 2026 15:41:50 +0000
 Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7EF6-0000000Bj8H-0HIO
+	id 1x7EF7-0000000Bj8m-282n
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 15:41:45 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e69b9e16aso10014195e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 08:41:43 -0700 (PDT)
+	Thu, 17 Sep 2026 15:41:47 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e8185e037so5693595e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 08:41:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789659702; x=1790264502; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1789659704; x=1790264504; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=BZTHVF5d2BHEGYh8wWAhHMVlO8LgEUkq4aZ2zQxWQOk=;
-        b=ApObsCNdNTcuIqhFCr/dRsSBDjyS/TVPLLQBD9Cr2lATJ0hTaMTSB+U2jcesPfY2/W
-         OmHKqUwXjxt6VozPGgjCElxXbHNdPcqb+GAhD2QHVT6lFf1XqQTEpfmMzj7ZrruJmk82
-         InTdf68RYxi0L+0bMzplUOfIjjeMGNpxr6ZZF6x03TCap7eAxTR318EdXF8U5rE1HXQj
-         3WlWr9/BB1WmKV28CMm9IY2udmep7eqOj7yn7AOMzENkUYqemX/A+LdPyI8NNwaPt1uN
-         ManoEM94VW3CYzKfITs89+uWbK25NLbx0WZryW5/W086FbuQY4lUGJ6IHL05qiDxslSQ
-         jNcQ==
+        bh=ogUWVPuPz4Wv0AWXXjemfDDswNqsh12xy3+UrN+ebnA=;
+        b=iNyk7bZXwx6ggAt78uRmARigwM060+hkJEklJSdvcsG6XKspRaesDd9jQYFo0K4tpZ
+         6YorK9y/bnoR2+arnCJNutAaolsNPXu/NvsQRuYoimqSsKqanvhnLoBuRToI7RCeSiXL
+         7+8vJqn5OcxhYKtf/SwmcloItCy4zSK14hhAC1J9QuZX8cPvsVn7Ta3SCZL0f6aFOHkx
+         4yxKCVyyduDJiAIbTgmKlXpzEYXfdq8J/Pt8UysbSVV9Z10vgkzbLXCGcTjcuLVMfmwj
+         6EzhLUAnVSdCaVrvR5/YyHUXFrgUVn2ZzEwfqqN3dGhh8JYlPe03PsHfzcaDit+z5/yB
+         P2rA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789659702; x=1790264502;
+        d=1e100.net; s=20260707; t=1789659704; x=1790264504;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=BZTHVF5d2BHEGYh8wWAhHMVlO8LgEUkq4aZ2zQxWQOk=;
-        b=PYm6wXTwFy2hKGQHza5Wqd9I8ZsNtF98vOvOx24n+AwS1T4cYrqft0ER7flj9C+t2m
-         IFy975tnaKtECU6fnHQ147PGihE0qQBbypSYkNwRkJk5JlG6ggwt8d5Kxh+tD+81DMbj
-         xGEZW5//p29HzXQFTXUcvLLbenj4unJ+42lRC+ak8EoZblE5u3FfxVT8blc5Ijpz1UeX
-         7AT3oUDAlZIveFKqNQTeJaPT+/8LgZ4udBfpB1WNJpHb9R29ppnbjh19zINg/NxZ3qo1
-         RzM78OP2wvsnWLoLjoPjMUeT70MgvlmBBGAGQIY+xDtUZf/IPt5Oj6+bnBb9xftT5vUR
-         TRSQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxUfCcr8sjLfblD7+cE50BXpwmb+2+cZKh5T4m2ffSlpq4CmPWIUuZ1GQLy+3gDM2seLlnrKdu3Ecf79VH0MVD+@lists.infradead.org
-X-Gm-Message-State: AFuF++mT8aPUzdY2z7UfMiBwkN7U85WLy9J64G2XwPBqdTi3Lxohhi4z
-	me/yC7mi30XiyMkrNl6nbVuY+BK8e70I57Sig+3B06cfqeCg8k6Hp3iV
-X-Gm-Gg: AYBFou38RBvIGOJHOijLXqLbx/B4rmnj2XQbVFEf13VWCirsSOE+vvMiYsbFQGZ4xLi
-	BCCG0+KxtAyyrew297mY3posRCwNGEG+wo0QfNwouWX3knlEaTefnbcMxHYj7wo8Jh+vTLyZ1A2
-	qJt7Mplf8LzcqomQ4uC750c22Naf/aT7UbV5Z+anqSwhT6YU3hgXIOhjQcwiTxUAerbaCH7H7VB
-	wcGMjv2+fLIfrVU6g/aVcmJVzQl/C/lnCpM3QJb/ieLHqwjXJLQJNzOGrvYrC2Ocn7sdkjq3Tnk
-	1UAJZs8X2KRqzMP6TgbdINcOkSPx+N1YTasmVlC95a8d5G9bhKq5eASvYJ7E0ffU7FBsLmKKvnK
-	07yni6qx8RVv3/0TYzNP7T38GBH/+AFhv9+yeR8vfCxHVFnARbNBetzumiBJw1LLEEVhCNy7+gE
-	chteGxSt+V6ZFWN1IddIb2xEDoGwhbbF28vXA+bPrLNkSSC2NoVArLeoBir9pXypQuv4/ydMOS5
-	aHpR/udLZV71MJo1892Q/dxGRe1fNWxeMtJui1aultyqY/AmZ6UJ+S1vt30NcVGVoPPe279FZ61
-	wHgH8Go3PmZqLZlLeYNyNidmt1J0m1Ek
-X-Received: by 2002:a05:600c:3b20:b0:49e:8377:c880 with SMTP id 5b1f17b1804b1-49eb733ba12mr88495725e9.33.1789659701524;
-        Thu, 17 Sep 2026 08:41:41 -0700 (PDT)
+        bh=ogUWVPuPz4Wv0AWXXjemfDDswNqsh12xy3+UrN+ebnA=;
+        b=KTYmfnURhZSxOFvwbapHMO/rn/rbIy0HOaSFMrIRkMhBys6pvYyq/v9KItwJDoPD+D
+         zTZvtxrq7NfDurUo/msE2hE840dXXBpOXeES56JZqXu0CYBHudkMpXH4EepMUYPLelCZ
+         6XKhd6KeOPLnoHbBbiX95MEHuVr6CnSUvUEgEyVCeboZB9g1/hFPddhUlW9sNmW0Lu7r
+         4kGr2h8mW99+MkMj9fqLOE7oUYakBTzCfqJi99jGisc1q5L7Bwtnz1UfL3/n77fAd10L
+         uRDoN2x69N+WEkIvF3ttcuGWyaBOqhzDrzzHNxFJ3MO9Rg8Yi3TACqdtYq+pJ1gx+q1e
+         K/9A==
+X-Forwarded-Encrypted: i=1; AKwUvBwbLzq2ZOoIKDz8gCUQ+/p/yiwQedoCdGQ7wh3jT+WeoSHUORg+PMY8Ow6oGDZTWg9w+ccx801MHL7YJNgGG37o@lists.infradead.org
+X-Gm-Message-State: AFuF++l7iKm/nnFbysKNBK+aJe2Ry6q0r2M8nvojxGtztPXcRjUz0WnW
+	GG31i36E7Ff4K4ywbMLs3ILwdY96Gcpsuvu0aivckjTiKOM8rkMRjJFR
+X-Gm-Gg: AYBFou3OMijayi0SIdZ9QmQM0rBjX3x4RIdDI43pnIgCWvQ0ZvYmGwfirT4k6xTN/eO
+	3YN34qZTc70DSV78SdSvFL1pGqLy7ilkMDMUhKPYjzTCvmde9/4PLb2dnNUdndHIsFpPHSMwYJ4
+	Rjsf2mphl+Md7QOEMMEK1w6ISNbZcbGG1p6MuhoCLmZD4gfLclIcAOc/i5EnLXZZP54qstDBjiJ
+	VnjdIH3c9XCmXX3zICenHiz1iqN+hVnkObv3L6WJtWMOyrPq1v/g4dLZLhrexMJ+o3EZ6CbrZGI
+	FnhZhJnmNaDMcXHXAWPOcQYycFyD1mTzcqtJUXDlVZBHpJLiwTEYP0qLg1yoCUillH0YNdgPZQJ
+	sZtuicw0daN0ylnEESIzPkYE5aahpxIxwH3/rvIVHdzhmaCU494DKWJWObpqFXoy6SisM6pV+zp
+	QystWHdZ1EPyXjVlqMp0rm6xZTANknwtyX3UoBlQhfok41NdA/mMIrlMGmxczoviYUPhQnipfJg
+	g4mC3Kqk3QhfsH7UOvJscJz7zYVAJz8fRTWWKqPDb6tk6/cg2go/6xMnU9gnqALaO6e3K7Gjrum
+	xKcwocq/A0LftI4mMQ4kTA==
+X-Received: by 2002:a05:600c:8b81:b0:49e:69e3:884d with SMTP id 5b1f17b1804b1-49eac45ba21mr81456555e9.4.1789659702746;
+        Thu, 17 Sep 2026 08:41:42 -0700 (PDT)
 Received: from Lord-Beerus.station ([31.27.155.43])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fbd227141sm100124235e9.2.2026.09.17.08.41.40
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fbd227141sm100124235e9.2.2026.09.17.08.41.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 17 Sep 2026 08:41:41 -0700 (PDT)
+        Thu, 17 Sep 2026 08:41:42 -0700 (PDT)
 From: Stefano Radaelli <stefano.radaelli21@gmail.com>
 X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
 To: Frank Li <Frank.Li@nxp.com>,
@@ -86,18 +86,18 @@ Cc: pierluigi.p@variscite.com,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>,
-	Francesco Ferraro <francesco.f@variscite.com>
-Subject: [PATCH v2 1/3] arm64: dts: imx8mm-var-dart: configure SAI3 synchronous RX mode
-Date: Thu, 17 Sep 2026 17:41:28 +0200
-Message-ID: <f155648a50185df5d273f697f10fcd7efb154364.1789659585.git.stefano.r@variscite.com>
+	Nate Drude <nate.d@variscite.com>
+Subject: [PATCH v2 2/3] arm64: dts: imx8mm-var-dart: add TPM support
+Date: Thu, 17 Sep 2026 17:41:29 +0200
+Message-ID: <57aacae2f4f57e877ba32d8082915d6d6bcd3803.1789659585.git.stefano.r@variscite.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <cover.1789659585.git.stefano.r@variscite.com>
 References: <cover.1789659585.git.stefano.r@variscite.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_084144_138068_ABA255F3 
-X-CRM114-Status: GOOD (  11.71  )
+X-CRM114-CacheID: sfid-20260917_084145_576425_04996E28 
+X-CRM114-Status: GOOD (  11.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,43 +114,53 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Stefano Radaelli <stefano.r@variscite.com>
 
-Configure SAI3 to operate in synchronous RX mode, so that the trasmit
-path uses the receive bit clock and frame sync signals.
+Add support for the TPM available on the Variscite DART-MX8M-MINI SOM.
 
-Remove the TX_SYNC and TX_BCLK pinmux entries, as these signals are not
-used in this configuration.
-
-Co-developed-by: Francesco Ferraro <francesco.f@variscite.com>
-Signed-off-by: Francesco Ferraro <francesco.f@variscite.com>
+Co-developed-by: Nate Drude <nate.d@variscite.com>
+Signed-off-by: Nate Drude <nate.d@variscite.com>
 Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
 ---
 v1->v2:
- - 
+ - Add tpm pinctrl
+ - Add comment on tpm reset line
 
- arch/arm64/boot/dts/freescale/imx8mm-var-dart.dtsi | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ .../boot/dts/freescale/imx8mm-var-dart.dtsi      | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/freescale/imx8mm-var-dart.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-var-dart.dtsi
-index 2324063f8fd9..c7a9eb23e5e8 100644
+index c7a9eb23e5e8..953950e55bf9 100644
 --- a/arch/arm64/boot/dts/freescale/imx8mm-var-dart.dtsi
 +++ b/arch/arm64/boot/dts/freescale/imx8mm-var-dart.dtsi
-@@ -305,6 +305,7 @@ &sai3 {
- 	assigned-clock-parents = <&clk IMX8MM_AUDIO_PLL1_OUT>;
- 	assigned-clock-rates = <1536000>;
- 	fsl,sai-mclk-direction-output;
-+	fsl,sai-synchronous-rx;
+@@ -138,6 +138,16 @@ &i2c1 {
+ 	sda-gpios = <&gpio5 15 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
  	status = "okay";
- };
  
-@@ -446,8 +447,6 @@ pinctrl_sai3: sai3grp {
- 			MX8MM_IOMUXC_SAI3_RXFS_SAI3_RX_SYNC		0xd6
- 			MX8MM_IOMUXC_SAI3_RXC_SAI3_RX_BCLK		0xd6
- 			MX8MM_IOMUXC_SAI3_RXD_SAI3_RX_DATA0		0xd6
--			MX8MM_IOMUXC_SAI3_TXFS_SAI3_TX_SYNC		0xd6
--			MX8MM_IOMUXC_SAI3_TXC_SAI3_TX_BCLK		0xd6
- 			MX8MM_IOMUXC_SAI3_TXD_SAI3_TX_DATA0		0xd6
- 			MX8MM_IOMUXC_SAI3_MCLK_SAI3_MCLK		0xd6
++	st33ktpm2xi2c_som: tpm@2e {
++		compatible = "st,st33ktpm2xi2c", "tcg,tpm-tis-i2c";
++		reg = <0x2e>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_tpm_reset>;
++		label = "tpm";
++		/* active-low TPM reset line. */
++		reset-gpios = <&gpio4 31 GPIO_ACTIVE_HIGH>;
++	};
++
+ 	pmic@4b {
+ 		compatible = "rohm,bd71847";
+ 		reg = <0x4b>;
+@@ -452,6 +462,12 @@ MX8MM_IOMUXC_SAI3_MCLK_SAI3_MCLK		0xd6
  		>;
+ 	};
+ 
++	pinctrl_tpm_reset: tpm-resetgrp {
++		fsl,pins = <
++			MX8MM_IOMUXC_SAI3_TXFS_GPIO4_IO31		0x19
++		>;
++	};
++
+ 	pinctrl_uart4: uart4grp {
+ 		fsl,pins = <
+ 			MX8MM_IOMUXC_ECSPI2_SCLK_UART4_DCE_RX		0x140
 -- 
 2.47.3
 
