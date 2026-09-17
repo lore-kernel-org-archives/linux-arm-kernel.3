@@ -4,62 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 956D0C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 15:59:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 319EBC982D6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 16:03:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sMoCcH9XiE1LhJF2aQGX5bUN/rkYCmBdzeN2NEvUkW0=; b=Eql2EWD8cwx1WaHCM3YuN1NsBd
-	OF50PNV8+qd1tHWlduf7brXkt9UF3B3Lc1IU48pQ+eEmObAAceKJPYNWIcWEivbPwiw6rGqKIhnuY
-	ZuEVjrg6ZzWbp+htJqQ0ER99VTLWIrqv7TVkxyHYBKFF82is88iZ9h/wTWVtoRL1oCFA5TIJk2Lv2
-	/I3s91OPwB28wD0JF09u35a+hqj/XRSZMZB68Px308HMANFlG4ckIYxhxzqz2U3SishIePSoh5ZFd
-	oqZw+Y4ALGuo1+A3AyQsvEJUudCGDu6YvIPCBb6vKcPZrDK/vPuM0GgW12Z++wOguAItDOYuRuSCs
-	rFpo/SvA==;
+	bh=n9baZrzeQeG41zDPvfWu4ExVgKd47frrFZAecif66Aw=; b=ImbPgI4dsgculM7BF4wx5agUZQ
+	45ozIh5avuxGN3zqR4PrJV4pqJQ9V1yZw9Z848Vm/srU2JFXCV09UAw6PzeudB7sO4tD5HGTq6M3G
+	dYH4YWkz7eO2dKSm3klqoivhkGxf9WXC0HNu4lLeaFz/tSfQSJcZi+DnjHeR02+NKY0+V16fdWfP/
+	vbiq5gSu0lRNsHPvT1WOVRStkhbWr4APMKSVBaSydUnTfLFr5CJ/7TBOPa2bj8IgwRN9hUjvbJnKx
+	Wm738xfLyZEXC/Ol4ujXDPC9CkQNY6tCe4xiPuHjpSxJeb0Z5fdIwBKLiDxq2kj8cixPbwQgSx4wp
+	R9IWxDbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7EWY-0000000BnIr-1m83;
-	Thu, 17 Sep 2026 15:59:46 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7EWV-0000000BnHB-0bjI
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 15:59:45 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id AE492C5CD7B;
-	Thu, 17 Sep 2026 16:00:25 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 1ACD360580;
-	Thu, 17 Sep 2026 15:59:41 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 413BC11C7B083;
-	Thu, 17 Sep 2026 17:59:38 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1789660780; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=sMoCcH9XiE1LhJF2aQGX5bUN/rkYCmBdzeN2NEvUkW0=;
-	b=JuWSSj4bsBQhnt1XEQqd9FsYL8y4AVSCDWiJfIPQUnkh1euaXiAmZxeVQTWI3CNk07ZEnk
-	5A8r8JzsPqYRPfzZhGK3Cln1woutjNsVrh0KElb4Tqsle61ViwhdCHeqE6koBfzqxHpfVO
-	e/2VdECtZil5/2jh1jkOwMu98TKWGYJzwBJ4D4L8IwDWOOt+HIEpCh4ytaN12mxD8iejM8
-	0gKaJXQc6wfBATr/i/gMfQj4/alZZP6kYc0oHXqf7hv80NpoH5r5+c9x0uuYl4RN4Mi1f4
-	+ae7HtzJkiZwj9X+odJ/AK9b0OX7/DCiB6Khara/sOwNUa+T65T+Cnby9Kgbow==
-Date: Thu, 17 Sep 2026 17:59:38 +0200
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: Thomas Huth <thuth@redhat.com>
-Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ARM: at91: Replace __ASSEMBLY__ with __ASSEMBLER__
-Message-ID: <20260917155938d9150ac2@mail.local>
-References: <20260821083645.200344-1-thuth@redhat.com>
+	id 1x7EZf-0000000BnxO-3ezF;
+	Thu, 17 Sep 2026 16:02:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x7EZd-0000000Bnwb-3QW7;
+	Thu, 17 Sep 2026 16:02:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 676491476;
+	Thu, 17 Sep 2026 09:02:52 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0676E3F7B4;
+	Thu, 17 Sep 2026 09:02:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789660976; bh=oTSpkmkdrCN17NbG/BBwkxPXVynnbNeoywXS03zePeY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=S2fxmt5n7wqW8D4QzBKWm8vc57hZzAXsLdw9Jtmn7fDwYuUkUjAjjz0iYC6XiR0tu
+	 9uTMew8t9VAK7rJOxWX62e/iXJau/fZJ5mkD/AXyBAM4cL0DOiEE+aa31dFygWVPu6
+	 NIHL5WfGiIh7klKkEub7eNcTGfyNDO5DXPYwmJRI=
+Date: Thu, 17 Sep 2026 17:02:48 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>,
+	Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	x86@kernel.org
+Subject: Re: [PATCH v4 3/5] dma: swiotlb: Centralize memory-encryption pool
+ sizing
+Message-ID: <aqwPKO80ZEn0cqa7@arm.com>
+References: <20260914070135.313337-1-aneesh.kumar@kernel.org>
+ <20260914070135.313337-4-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260821083645.200344-1-thuth@redhat.com>
-X-Last-TLS-Session-Version: TLSv1.3
+In-Reply-To: <20260914070135.313337-4-aneesh.kumar@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_085943_350131_729940C2 
-X-CRM114-Status: GOOD (  18.56  )
+X-CRM114-CacheID: sfid-20260917_090257_931819_14EB26CB 
+X-CRM114-Status: GOOD (  19.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,44 +102,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/08/2026 10:36:45+0200, Thomas Huth wrote:
-> While the GCC and Clang compilers already define __ASSEMBLER__ auto-
-> matically when compiling assembly code, __ASSEMBLY__ is a macro that
-> only gets defined by the Makefiles in the kernel. This can be very
-> confusing when switching between userspace and kernelspace coding, or
-> when dealing with uapi headers that rather should use __ASSEMBLER__
-> instead. Let's standardize now on the __ASSEMBLER__ macro to avoid
-> this confusion.
-> 
-> Signed-off-by: Thomas Huth <thuth@redhat.com>
-Acked-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
+On Mon, Sep 14, 2026 at 12:31:32PM +0530, Aneesh Kumar K.V (Arm) wrote:
+> +/**
+> + * swiotlb_adjusted_size() - get the prospective adjusted SWIOTLB size
+> + *
+> + * Return the size that confidential-computing guest sizing would select for
+> + * the default pool, without changing the configured SWIOTLB size. An
+> + * explicit swiotlb= size is always preserved. An explicit area count is
+> + * included in the size calculation. Automatic area sizing is initialized
+> + * later from the running kernel's possible CPU map and any resulting size
+> + * adjustment is therefore not reflected in the returned size.
+> + */
+> +unsigned long __init swiotlb_adjusted_size(void)
+> +{
+> +	unsigned long nslabs, size = swiotlb_size_or_default();
+> +
+> +	if (swiotlb_default_size_changed() ||
+> +	    !cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT))
+> +		return size;
+> +	/*
+> +	 * For SEV and TDX and CCA, all DMA has to occur via
+> +	 * shared/unencrypted pages. Kernel uses SWIOTLB to make this
+> +	 * happen without changing device drivers. However, depending on
+> +	 * the workload being run, the default 64MB of SWIOTLB may not be
+> +	 * enough and SWIOTLB may run out of buffers for DMA, resulting in
+> +	 * I/O errors and/or performance degradation especially with high
+> +	 * I/O workloads.
+> +	 *
+> +	 * Adjust the default size of SWIOTLB using a percentage of guest
+> +	 * memory for SWIOTLB buffers. Also, as the SWIOTLB bounce buffer
+> +	 * memory is allocated from low memory, ensure that the adjusted
+> +	 * size is within the limits of low available memory.
 
-> ---
->  Note: This has been split from an earlier bigger patch of mine into
->        a separate patch to ease reviewing
-> 
->  arch/arm/mach-at91/pm.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm/mach-at91/pm.h b/arch/arm/mach-at91/pm.h
-> index 50c3a425d1400..2193e1ab98476 100644
-> --- a/arch/arm/mach-at91/pm.h
-> +++ b/arch/arm/mach-at91/pm.h
-> @@ -25,7 +25,7 @@
->  #define AT91_PM_ULP1		0x03
->  #define	AT91_PM_BACKUP		0x04
->  
-> -#ifndef __ASSEMBLY__
-> +#ifndef __ASSEMBLER__
->  struct at91_pm_data {
->  	void __iomem *pmc;
->  	void __iomem *ramc[2];
-> -- 
-> 2.55.0
-> 
+Nit: if SWIOTLB_ANY is passed, do we still allocate only from low
+memory? I think this comment made sense on x86 but it's not valid for
+s390, pseries with the changes so far.
 
--- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Otherwise:
+
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
