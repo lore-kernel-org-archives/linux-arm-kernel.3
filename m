@@ -4,153 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7904AC88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 15:27:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8EACC982D6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 15:27:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lOcf1R7o5InmAsKwg2E0EjTSIYI7yDGuX6N2Ud8ufV8=; b=4xNkoEsgXm/834e4k6F6VUq8ut
-	8Y6ZYeGiStxSniuy/tLbVPfXDMOSG6DWJoM9ltSo3MGIg8hJh9eG9/H+uVDdvA9cXqVMqQty8adzY
-	W/dzOpZh7v58Lo82ItJU6v4nq56KVX+2lcPUizEDpY+3ZyeWyShjVtYG9FuW251WVxIr/ZX3aFb/Y
-	A3cWJGyby1Ns+9hi1ofQUCYHXdFf9IU6VzkcvAk1tcdfuBzVdhonr6D6nnIBWrO8t/fe7bBuuZHFM
-	T/4d50aZv1UnRJlxzPGojK52W4idVsYlklZ7mtP1tMHoh03xLLti5UYv5nFmju3/wr1Adr0Pk0Z1y
-	cnPc/IRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=M4PNijSmMS/9kj5rI0Oh5irwWZU2tKZWHxAdBKgy4Ys=; b=oGeKSx/7nGm8huewX8Y94T3VI2
+	rVRTiDP1lpthz8vDh1zGSODplwD1ZXCFNC4pXHCC3EayK9M4jDDBkht1EeLNfZTJjPDauPm5C2DVu
+	5xiIS8I5mF/avCXoAQfSfYkyoNaWkPISyaf4hK7/qmkccSn1pBnNtRkuPZEQcqhHct6u3unDsTTBJ
+	j5eOHdybgvV4K7s8Oyunl6r2G9mc5s7WpjuwB7XslXGqmEo/XpBRIycYDSaTgZtSxFzaHCPUS/e5A
+	NRnh5dxwtGJN91zL8lGtTXyqYD8HZQD7sTIp5XrgZjacVgYHmKjdpX1ATPrLEE7axUqgdD7cv8qHr
+	mjU3Pswg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7E1B-0000000BfrD-27A5;
-	Thu, 17 Sep 2026 15:27:21 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1x7E1H-0000000Bft8-2UA1;
+	Thu, 17 Sep 2026 15:27:27 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7E16-0000000BfqF-1Tdc
+	id 1x7E1C-0000000Bfr2-21q2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 15:27:19 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68HFOVWu782560
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 15:27:15 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=lOcf1R7o5InmAsKwg2E0EjTS
-	IYI7yDGuX6N2Ud8ufV8=; b=MQ0AS78YiydvB/L9ivANs0HuhU7RutkgB/3kwdsG
-	kMln+VSjUbSBBkbM5olq7ZRZzRo++BRaqiiaJEvyz0Akj/Hp1UHnUUiNPhcVNDSq
-	pBDSU2oW7E2Qzwfg6V/uLmt5m7FsWiMArz36lg4/pTUOcg04wcln4stYkJvzbgiF
-	baJAbhBtKQd1MqqD0O2f2nwVFWzvlvbm3z5RoUurE/IWD78pLrjtaHdulPd1NWwg
-	m/+K+R9RONfZyvdSC6pJKvZZ+M2QdJsKFhO/3iyPqUVyd7Cyh3DcuKaYkSkTj//Z
-	X6KTcpwF+lDdjZ3eULZUuIS/dgjHB6Dq53/u/7u1UaTO1g==
-Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4grjttr0e8-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 15:27:15 +0000 (GMT)
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-9124b265371so16378546d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 08:27:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1789658834; x=1790263634; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=lOcf1R7o5InmAsKwg2E0EjTSIYI7yDGuX6N2Ud8ufV8=;
-        b=MLzgnn580MLi+56rNMiNjjEz+Ss2G+cM9mlZ0/Ino/63UZG5zdSOLGJG5ePB7csh1J
-         OFS5Dzt5ygk+KokAaOcYP881Dlj8ckXxB99NyZRHWs4/SX4aozQNHcS9xSNkbWfFwn/O
-         rxe2cLS6uK3Z5N+iGHtMJbtwYvpBg44rr5BhbQe/O2hvB+L/iCfLnJuGVgijPRu+mS0H
-         3BtiNv+2NQJIejtW1bT8vUOUP3HI2TXgzC+bDcv7JzxYMYv4T0yAiyoOpToNZIpWIZlP
-         Q1RQS0oAMl3OH3V6paZYt9EhlTeuNd4sspdG/wms5B3+ifXAY86xr3KJegkSbJ8IcW9q
-         eUxQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789658834; x=1790263634;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=lOcf1R7o5InmAsKwg2E0EjTSIYI7yDGuX6N2Ud8ufV8=;
-        b=HdfM0H61NzqzkRkoWglmqCPSJcYpTwPewR1qBQW/L2YJM0T0XdxgTJx9Taz9bqi7XL
-         0nE8cWqLASCfumHuABOUtk35ffqTUlJvbh8yA6JPZkjL2iBWwzwhHZY23XxwjHt6PNLP
-         0KIttVQJqVNYu+ra1LEPt+YPycLgtNjfmtuMwTCw2uvzC0NXcZNGKS+d2Qz8XY6SAIZS
-         oYrfBomzZIsCwoWOmOUz6qV5gipP8ZcTw92fiKmGBA8MzDU82pnTBGoU1jNrpE3X/N/g
-         WPR3wLZpPUyZtkciUO1z9PmcMvFGikD+OeWMA6/4/GssqYU9WVgUz/tEyX9Wvd0ym30p
-         WYeA==
-X-Forwarded-Encrypted: i=1; AKwUvBzCO4Po+r7cGjV88Fb0SK2kC8+5YM8ZJKS+LhdfoKtB7nL/OGWRSMya1WRVQ+wk8x0jEc9iXuisMuKhsoZqo8s9@lists.infradead.org
-X-Gm-Message-State: AFuF++lJnAvjNIoSxJMRKXmYMfThYqNyXG8fTVoxNd3c6jcPF/reo2kR
-	Bg1SH1A5ZlNQqvLGOztFAp/A9DYVK4YWsP26n/1kthaqnnXM1IxMPaC1qqpZo7cb6d/CuNkfJ1t
-	xq/BgLrN3YPxTuT0CQcZRaWYmwoKTD5MZPH2Tu/Ncy3VXEMdcnpNwbdP1mgwbmUBeH9NoFEE4Dw
-	AUdg==
-X-Gm-Gg: AYBFou2PMOkf4x50+e+lEXScaHZx0vsk3RQYKiU3TMw/BKVQ2Sf1+4EkqgVPB1QWUW0
-	V57LNV/ovrZaeLMfruKnCo94JL40FrAvxYUMNxekczvBT5P6lfwAsiICcbzGErojzMLFr7GLEuE
-	Kqq5G5TAicMSpoPXV/PDMKp9ZtXxzk0bCAmz/jufMJq8RIRqh3vSTkE5DFh0j3ky7aUSjqY5Odf
-	PtDrC2QE7A5gBW3dcOY+xFzKb/E4QBJud1rekF8a3eYK4tCm3xfZUpZYB9QpZIfCeJWdS5wNU9x
-	QYAMG3phVZgzKA9xyCXGYn0HFCz2kRcAJmQlOjOjoo6VXqUXDggHSUIhKV+3ypaxZP2Bz7jBxEP
-	Q/FoAge54NQ3/NUo=
-X-Received: by 2002:a05:6214:62c8:b0:912:4527:7ba with SMTP id 6a1803df08f44-91252411994mr6212016d6.23.1789658833846;
-        Thu, 17 Sep 2026 08:27:13 -0700 (PDT)
-X-Received: by 2002:a05:6214:62c8:b0:912:4527:7ba with SMTP id 6a1803df08f44-91252411994mr6211096d6.23.1789658833203;
-        Thu, 17 Sep 2026 08:27:13 -0700 (PDT)
-Received: from oss.qualcomm.com ([86.121.170.232])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4870bf26c8dsm16288601f8f.14.2026.09.17.08.27.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 17 Sep 2026 08:27:12 -0700 (PDT)
-Date: Thu, 17 Sep 2026 18:27:09 +0300
-From: Abel Vesa <abel.vesa@oss.qualcomm.com>
-To: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
-Cc: Bryan O'Donoghue <bod@kernel.org>,
-        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-        Loic Poulain <loic.poulain@oss.qualcomm.com>,
-        Mauro Carvalho Chehab <mchehab@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Robert Foss <rfoss@kernel.org>,
-        Andi Shyti <andi.shyti@kernel.org>,
-        Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-        Sascha Hauer <s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>, Abel Vesa <abelvesa@kernel.org>,
-        linux-arm-msm@vger.kernel.org, linux-media@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-i2c@vger.kernel.org, imx@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org,
-        Suresh Vankadara <quic_svankada@quicinc.com>,
-        Vikram Sharma <vikram.sharma@oss.qualcomm.com>
-Subject: Re: [PATCH v8 2/5] arm64: dts: qcom: shikra: Add CCI definitions for
- Shikra
-Message-ID: <ns6fwcvy53zd3yx237nrnbyzs2dvnp2imucgdxmj2wqi7pupsf@dkif3wniurye>
-References: <20260917-shikra-camss-review-v8-0-9b9596221cfa@oss.qualcomm.com>
- <20260917-shikra-camss-review-v8-2-9b9596221cfa@oss.qualcomm.com>
+	Thu, 17 Sep 2026 15:27:24 +0000
+Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
+	by APP-05 (Coremail) with SMTP id zQCowADnF0LXBqxq54WDCA--.5805S2;
+	Thu, 17 Sep 2026 23:27:19 +0800 (CST)
+From: Wentao Liang <vulab@iscas.ac.cn>
+To: broonie@kernel.org
+Cc: chleroy@kernel.org,
+	herve.codina@bootlin.com,
+	leoyang.li@nxp.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	qiang.zhao@nxp.com,
+	Wentao Liang <vulab@iscas.ac.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH] soc: fsl: cpm1: tsa: Fix clock leak in tsa_of_parse_tdms()
+Date: Thu, 17 Sep 2026 15:27:19 +0000
+Message-Id: <20260917152719.2160395-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260917-shikra-camss-review-v8-2-9b9596221cfa@oss.qualcomm.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE3MDIxOCBTYWx0ZWRfX1QpmsVlwqju0
- s+l+jX2g7a6wjshO9A4ma3VNYTjD0rlTfSwx3Q5Hbf7st3gDtT/KtsNYFHnRx8oAmt4Hb4um9Yp
- SKpJKlPZBEHHi4XIDOz8XdXIM/WtDcoOURF/OwzrQPrdO4W3KQufsKcshCj+AVP+uSaw24uX0kS
- 04X7Z3cP9DctNw15dvN496Z7UMwoljSzhYDr7lnTTWKVRg8ADsQaF2MAJRr/NrY9jLHWezZ5eWr
- SRpxJaehJdHlm3nfhJUyzwxpIgb7huRVbHJ/OeVqgk5j1rm0pxrs0VNf3DLvScVG5ke2q+Ob6aX
- JGc1HiugJCv4CH4KyXU3ghran62tLqdMeldmqpynWm4etwdLXT/NvrljqTa5T6g8XKQ6E45r2XT
- ipIMGCGb9s0H0A8o9rhEGEhU0hr9OEcgsFvtlTM5I1waoNROG2DrcGjc29bYRsoOvlsXTMvj5ws
- I2pvnZsmKr2qYIc2RnA==
-X-Proofpoint-ORIG-GUID: j5V1ZnQIhPpLL4eFBWQooImN9ioZVMP0
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE3MDIxOCBTYWx0ZWRfXxhdWwl7dvhfX
- VbQZ15wdFIpOqzvAKdwsgk4LWTt29rKbWiL0450X9SBb6GQxkdQgy8UThjkdLiVj7aSW3JYbjTm
- j941YCU4poeF/22Qmqfap+lEjQwMays=
-X-Authority-Analysis: v=2.4 cv=IP2XmQvG c=1 sm=1 tr=0 ts=6aac06d3 cx=c_pps
- a=7E5Bxpl4vBhpaufnMqZlrw==:117 a=po8fGBi+ks8MzcVQGuqtFQ==:17
- a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8 a=kTwRDD6jQfcqJCPQX_EA:9 a=CjuIK1q_8ugA:10
- a=pJ04lnu7RYOZP9TFuWaZ:22 a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-GUID: j5V1ZnQIhPpLL4eFBWQooImN9ioZVMP0
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-17_03,2026-09-16_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 phishscore=0 priorityscore=1501 suspectscore=0 malwarescore=0
- adultscore=0 lowpriorityscore=0 impostorscore=0 spamscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609170218
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: zQCowADnF0LXBqxq54WDCA--.5805S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7ZFy7Xr4rJw13WryfCr1rWFg_yoW8GryDp3
+	93GrWYvrZaqrsYgFnrGw4IgFyrtay7tas7GrsxKa1I9rZxJ3WUKr1DCa4xuF1kCryUCFsF
+	qFyUKr95G3WUArJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPqb7Iv0xC_tr1lb4IE77IF4wAFc2x0x2IEx4CE42xK8VAvwI8I
+	cIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2
+	AK021l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v2
+	6F4j6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxV
+	W0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv
+	7VC0I7IYx2IY67AKxVWUtVWrXwAv7VC2z280aVAFwI0_Cr1j6rxdMcvjeVCFs4IE7xkEbV
+	WUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VAI37AI020EjII2zVCS5cI20VAGYxC7M4II
+	rI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMx
+	AIw28IcVCjz48v1sIEY20_Gr43Wr1UJr1l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAq
+	x4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r
+	43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF
+	7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI
+	0_Gr1j6F4UJwCI42IY6I8E87Iv6xkF7I0E14v26rxl6s0DYxBIdaVFxhVjvjDU0xZFpf9x
+	07UC38nUUUUU=
+X-Originating-IP: [36.110.52.2]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAENA2qr9nAnhgAAsl
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_082716_391754_0DF55EB6 
-X-CRM114-Status: GOOD (  10.03  )
+X-CRM114-CacheID: sfid-20260917_082722_891642_97EEAD83 
+X-CRM114-Status: UNSURE (   8.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,14 +85,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26-09-17 17:11:01, Nihal Kumar Gupta wrote:
-> Qualcomm Shikra SoC has one Camera Control Interface (CCI)
-> containing two I2C hosts.
-> 
-> Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-> Reviewed-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-> Reviewed-by: Loic Poulain <loic.poulain@oss.qualcomm.com>
-> Signed-off-by: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
+The error cleanup loop puts l1rsync_clk and l1rclk_clk a second time
+and never puts l1tsync_clk or l1tclk_clk, because the branches that
+guard the transmit clocks use the receive clock field names.
 
-Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
+Use the matching field in each branch so every clock acquired by
+tsa_of_parse_tdms() is released exactly once.
+
+Fixes: 1d4ba0b81c1c ("soc: fsl: cpm1: Add support for TSA")
+Cc: stable@vger.kernel.org
+Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+---
+ drivers/soc/fsl/qe/tsa.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/soc/fsl/qe/tsa.c b/drivers/soc/fsl/qe/tsa.c
+index 4a88e54d25b9..94691369353e 100644
+--- a/drivers/soc/fsl/qe/tsa.c
++++ b/drivers/soc/fsl/qe/tsa.c
+@@ -865,12 +865,12 @@ static int tsa_of_parse_tdms(struct tsa *tsa, struct device_node *np)
+ 			clk_put(tsa->tdm[i].l1rclk_clk);
+ 		}
+ 		if (tsa->tdm[i].l1tsync_clk) {
+-			clk_disable_unprepare(tsa->tdm[i].l1rsync_clk);
+-			clk_put(tsa->tdm[i].l1rsync_clk);
++			clk_disable_unprepare(tsa->tdm[i].l1tsync_clk);
++			clk_put(tsa->tdm[i].l1tsync_clk);
+ 		}
+ 		if (tsa->tdm[i].l1tclk_clk) {
+-			clk_disable_unprepare(tsa->tdm[i].l1rclk_clk);
+-			clk_put(tsa->tdm[i].l1rclk_clk);
++			clk_disable_unprepare(tsa->tdm[i].l1tclk_clk);
++			clk_put(tsa->tdm[i].l1tclk_clk);
+ 		}
+ 	}
+ 	return ret;
+-- 
+2.34.1
+
 
