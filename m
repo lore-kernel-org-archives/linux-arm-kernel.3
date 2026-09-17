@@ -4,61 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA271C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 09:42:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93C41C982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 09:54:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xc9hZbGL4Z8kE1LiNA9thro19FzeNutdm/vI7po0tz8=; b=n3p9m3/ZSMa7wWjyvU+orf9yuh
-	IEgyTeSAfqFohVzdsVRbR/0sJLPaTKUOuJ+CBFqxoYxKsTuYWDjLDLaS3MCbnWCVPOJHIODHBaNKa
-	al8u8Rg0utWlJ+x8/Kp3eN2ouOQkFEN9Uij64zZGxJyPMj5JX5/u1zJMvCtEtoZltBR0dvbJHrefH
-	jYbVrMBnJo+Gb+5FSZUejO2OFSRcKqg/Y3qogy6thQkDimuYS9+oOMVqqPnoC6BDUHLWhoEyv6oiE
-	fi+w5PftxISbFuxEXAKjojTG5fRGwKIHb0EIlCIkUSE41KCmsj4sb/r9RMpuzVyuzLY0JdSbmsHRS
-	DuvD5uyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e9EzhdCBaSpIAomlo0e+YuFfR08y/A2RZyednf9SAwQ=; b=hHGvI06MX4m32r0DroR1ijVseW
+	dHbEclanLbpYrtaM9YtdtfmrS38toAGecBdjmWo6YxhQM+zDFD2Q0CqAVbBrI1WwfaeFYO200FMAU
+	l814kXu1JIKtVXygtEhbG5Q3B6ZHtGsjCzlSDSlsH4+HTyFM8vXYVbPc6zi94kqix7F0hl21JgNNi
+	uPZt35DeRcEDJxQesYb1Dv2DYD7qhXqlSTUM8N2J8AXjla9EQgi/tL+7AbzWxvyCc7/WMozMJ38Lj
+	CBBhJ+P+aAhNJKD7s/XD+OKd4DezPwWn/O7YhBLD2mmgcwHxLmm7nyLpT8mbx5wzSlTDg0szHxTMz
+	ipsbUgug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x78dl-0000000B1xf-48LF;
-	Thu, 17 Sep 2026 09:42:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x78om-0000000B2v7-0bFj;
+	Thu, 17 Sep 2026 09:54:12 +0000
+Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x78dk-0000000B1x2-1j8M
+	id 1x78oi-0000000B2u9-2wjR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 09:42:48 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8746E60204;
-	Thu, 17 Sep 2026 09:42:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DFBE1F00893;
-	Thu, 17 Sep 2026 09:42:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789638167;
-	bh=Xc9hZbGL4Z8kE1LiNA9thro19FzeNutdm/vI7po0tz8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=nGEH+r1z8QrmojwMkChmFMouRM0ggrGJWXli5RKeT/rRvesjfsgUMp7adXGBSpDZj
-	 LTERzZcaJfNWFWbiPJC8UtwyrwNCNIO+iRymkMsk6x+7XA0PaC9uOKR6YrhwCMfX9Z
-	 bNERDzFIGuMzUMBjD+vteFgajJTrNt2vXkMJwsYkY88qaFHFoMMWDIs+2E1qotLzJc
-	 NS9LFeVJ5Tmbsm22FX5WGyKZ9s2810poAdB3TyA8jlHrLWMm7x3UhAVpx+q0sI72/d
-	 XRxESX88veYGDczQqIppu/pHublR3GGmVd84+WWA/t+wUDb0Ky/21PTXlhsz7KtuM2
-	 UWSLcTi4j/TIA==
-Date: Thu, 17 Sep 2026 12:42:41 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Vladimir Murzin <vladimir.murzin@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, liulhong617 <liulhong617@gmail.com>
-Subject: Re: [PATCH] arm64: mm: Fix pfn_is_map_memory() misreporting mapped
- memory
-Message-ID: <aqu2EReSAxYG_8sb@kernel.org>
-References: <20260908162033.74509-1-vladimir.murzin@arm.com>
- <947a1506-dfe4-4906-9673-6a7227946433@app.fastmail.com>
+	Thu, 17 Sep 2026 09:54:10 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=e9EzhdCBaSpIAomlo0e+YuFfR08y/A2RZyednf9SAwQ=;
+	b=ETN6YdIrrOmc3yOXfJKBlC9LlqDC3xpAlqLnD8cljlk3JrEb3t8CUpK2oeKjrph6zbvf5TAxm
+	fNbzxy6ITNtC1PvsxG+ac7mRoIkIlB/HIfaX0PQer5yejT8BsZPc5EisBRpc/L/Cqhnmuq7aPzU
+	Do9tll9t6x+6nQHx0pFkZ3o=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4hlrQr3jj3z1cyS4;
+	Thu, 17 Sep 2026 17:43:00 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id 2CEF540586;
+	Thu, 17 Sep 2026 17:53:59 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ kwepemk200008.china.huawei.com (7.202.194.74) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Thu, 17 Sep 2026 17:53:58 +0800
+Message-ID: <77548d26-25b4-4e88-b902-bae52e520289@huawei.com>
+Date: Thu, 17 Sep 2026 17:53:57 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 05/38] arm64: entry: Introduce entry specific exception
+ masking helpers
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
+	<maz@kernel.org>, <lpieralisi@kernel.org>, <liaochang1@huawei.com>
+References: <20260914102102.68597-1-vladimir.murzin@arm.com>
+ <20260914102102.68597-6-vladimir.murzin@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260914102102.68597-6-vladimir.murzin@arm.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <947a1506-dfe4-4906-9673-6a7227946433@app.fastmail.com>
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260917_025409_427963_90434ED4 
+X-CRM114-Status: GOOD (  23.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,84 +80,187 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 16, 2026 at 12:13:21PM +0200, Ard Biesheuvel wrote:
-> (cc Mike)
+
+
+在 2026/9/14 18:20, Vladimir Murzin 写道:
+> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 > 
-> On Tue, 8 Sep 2026, at 18:20, Vladimir Murzin wrote:
-> > Commit 7ace06a01efa ("arm64: mm: fix accidental linear mapping of
-> > no-map reserved memory") removed sub-page no-map regions from the
-> > linear mapping. However, pfn_is_map_memory() can still report that
-> > such a region is mapped.
-> >
-> > For instance, with 64K pages, say we have
-> >
-> > normal:        ...–0xa2007fff
-> > no-map: 0xa2008000–0xa200ffff
-> > normal: 0xa2010000–...
-> >
-> > The range 0xa2000000–0xa200ffff is not linearly mapped, but
-> > pfn_is_map_memory(__phys_to_pfn(0xa2008000)) aligns the address to
-> > page granularity and passes 0xa2000000 to memblock_is_map_memory().
-> > That address belongs to the preceding normal memblock region, so the
-> > no-map region is ignored and the function returns true.
-> >
-> > Fix that by checking if entire page is subset of memory block.
-> >
-> > Fixes: 7ace06a01efa ("arm64: mm: fix accidental linear mapping of 
-> > no-map reserved memory")
-> > Assisted-by: LLM
-> > Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-> > ---
-> >  arch/arm64/mm/init.c | 3 ++-
-> >  1 file changed, 2 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-> > index fbf215ecc7d0..5da80e1e1727 100644
-> > --- a/arch/arm64/mm/init.c
-> > +++ b/arch/arm64/mm/init.c
-> > @@ -172,7 +172,8 @@ int pfn_is_map_memory(unsigned long pfn)
-> >  	if (PHYS_PFN(addr) != pfn)
-> >  		return 0;
-> > 
-> > -	return memblock_is_map_memory(addr);
-> > +	return memblock_is_region_memory(addr, PAGE_SIZE) &&
-> > +		memblock_is_map_memory(addr);
-> >  }
-> >  EXPORT_SYMBOL(pfn_is_map_memory);
-> > 
+> The entry code handles interrupt masking differently from the rest of
+> the kernel. Exception handlers enter and exit with all exceptions
+> masked, but they must temporarily unmask the appropriate set of
+> exceptions so that the rest of the handler executes with the expected
+> exception state.
 > 
-> memblock_is_region_memory() only tells you whether the range in
-> question is covered by a single entry in memblock.memory.regions[].
+> For EL0 handlers, this means dropping to masking context appropriate
+> for the work to be performed. For EL1 handlers, this means restoring
+> the masking context of the interrupted task. In both cases, all
+> exceptions must be masked again before returning from the exception
+> handler.
 > 
-> memblock has other flags, which may or may not be set on sub-page
-> regions too. So I don't think this is the right solution in the
-> general case, even if it fixes your example.
+> The rest of the kernel typically follows the opposite pattern: it
+> raises the masking context to protect a critical section and later
+> restores the previous context.
 > 
-> Given that the no-map attribute fundamentally only applies to page
-> granular regions, it would make sense to round those outwards
-> whenever they are created.
+> Given these different usage patterns, introduce a dedicated set of
+> exception masking helpers for the entry code. Keeping these helpers
+> separate from the generic interrupt masking APIs makes the intended
+> usage explicit and helps avoid mixing the two masking models.
 > 
-> --- a/mm/memblock.c
-> +++ b/mm/memblock.c
-> @@ -1119,6 +1119,10 @@
->  int __init_memblock memblock_mark_nomap(phys_addr_t base, phys_addr_t size)
->  {
-> +       phys_addr_t end = PAGE_ALIGN(base + size);
+> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> ---
+>  arch/arm64/include/asm/interrupts/entry.h | 100 ++++++++++++++++++++++
+>  1 file changed, 100 insertions(+)
+>  create mode 100644 arch/arm64/include/asm/interrupts/entry.h
+> 
+> diff --git a/arch/arm64/include/asm/interrupts/entry.h b/arch/arm64/include/asm/interrupts/entry.h
+> new file mode 100644
+> index 000000000000..0cfca62aa25b
+> --- /dev/null
+> +++ b/arch/arm64/include/asm/interrupts/entry.h
+> @@ -0,0 +1,100 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2025 Arm Ltd.
+> + */
+> +#ifndef __ASM_INTERRUPTS_ENTRY_H
+> +#define __ASM_INTERRUPTS_ENTRY_H
 > +
-> +       base &= PAGE_MASK;
-> +       size = end - base;
->         return memblock_setclr_flag(&memblock.memory, base, size, 1, MEMBLOCK_NOMAP);
->  }
+> +#include <asm/arch_gicv3.h>
+> +#include <asm/bug.h>
+> +#include <asm/cpufeature.h>
+> +#include <asm/interrupts/common_flags.h>
+> +
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t __arm64_switch_exc_hwstate_to(arm64_exc_hwstate_t prev,
+> +						  arm64_exc_hwstate_t next)
+> +{
+> +	bool irqs_disabled = arch_irqs_disabled_flags(next.flags);
+> +	bool force;
+> +
+> +	arm64_debug_exc_hwstate(prev);
+> +
+> +	if (prev.flags == next.flags)
+> +		return next;
+> +
+> +	if (!irqs_disabled)
+> +		trace_hardirqs_on();
+> +
+> +	force = system_uses_irq_prio_masking() && prev.pmr != next.pmr;
+> +
+> +	__arm64_update_exc_hwstate(next, force);
+> +
+> +	if (irqs_disabled)
+> +		trace_hardirqs_off();
+> +
+> +	return next;
+> +}
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t arm64_inherit_exc_context(struct pt_regs *regs)
+> +{
+> +	arm64_exc_hwstate_t prev = arm64_exc_hwstate_of_context(CRITICAL_CONTEXT);
+> +	arm64_exc_hwstate_t next = arm64_inherit_exc_hwstate(regs);
 
-Makes sense to me, just lacks kernel-doc update ;-)
+Could it be renamed to a more intuitive name, such as
+arm64_exc_hwstate_of_regs()?
 
-> Note that I recently removed the frivolous use of MEMBLOCK_NOMAP in
-> __map_mem() so the remaining calls should mostly be true reservations
-> originating from the boot environment.
+> +
+> +	return __arm64_switch_exc_hwstate_to(prev, next);
+> +}
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t arm64_drop_exc_context(arm64_exc_hwstate_t prev, arm64_exc_context_t context)
+> +{
+> +	arm64_exc_hwstate_t next = arm64_exc_hwstate_of_context(context);
+> +
+> +	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
+> +		WARN_ON_ONCE(prev.daif < next.daif);
+> +
+> +		if (prev.daif == next.daif) {
+> +			/*
+> +			 * GIC_PRIO_IRQON is larger that GIC_PRIO_IRQOFF so larger PMR value is weaker
+> +			 */
+> +			WARN_ON_ONCE(system_uses_irq_prio_masking() && prev.pmr > next.pmr);
+> +		}
 
-There is still riscv :)
+The if branch is a dead code now, we can remove it.
+
+arm64_drop_exc_context is only used directly in the context of
+el0t_64_error_handler below. It switches from ERROR_CONTEXT to
+PROCESS_CONTEXT.
+
+And now arm64_unmask_exc_context always switch from CRITICAL_CONTEXT
+to ERROR_CONTEXT/NONMI_CONTEXT/NOIRQ_CONTEXT/PROCESS_CONTEXT.
+
+So there is no case where prev and next DAIF are the same.
+
+1009 static void noinstr __el0_error_handler_common(struct pt_regs *regs)
+1010 {
+1011 >-------unsigned long esr = read_sysreg(esr_el1);
+1012 >-------arm64_exc_hwstate_t hwstate;
+1013 >-------irqentry_state_t state;
+1014
+1015 >-------arm64_enter_from_user_mode(regs);
+1016 >-------hwstate = arm64_unmask_exc_context(ERROR_CONTEXT);
+1017 >-------state = irqentry_nmi_enter(regs);
+1018 >-------do_serror(regs, esr);
+1019 >-------irqentry_nmi_exit(regs, state);
+1020 >-------hwstate = arm64_drop_exc_context(hwstate, PROCESS_CONTEXT);
+1021 >-------arm64_exit_to_user_mode(regs, hwstate);
+1022 >-------arm64_debug_exc_context(CRITICAL_CONTEXT);
+1023 }
+1024
+1025 asmlinkage void noinstr el0t_64_error_handler(struct pt_regs *regs)
+1026 {
+1027 >-------__el0_error_handler_common(regs);
+1028 }
+
+
+> +	}
+> +
+> +	return __arm64_switch_exc_hwstate_to(prev, next);
+> +}
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t arm64_lift_exc_context(arm64_exc_hwstate_t prev, arm64_exc_context_t context)
+> +{
+> +	arm64_exc_hwstate_t next = arm64_exc_hwstate_of_context(context);
+> +
+> +	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
+> +		WARN_ON_ONCE(prev.daif > next.daif);
+> +
+> +		if (prev.daif == next.daif) {
+> +			/*
+> +			 * GIC_PRIO_IRQON is larger that GIC_PRIO_IRQOFF so smaller PMR value is stronger
+> +			 */
+> +			WARN_ON_ONCE(system_uses_irq_prio_masking() && prev.pmr < next.pmr);
+> +		}
+> +	}
+> +
+> +	return __arm64_switch_exc_hwstate_to(prev, next);
+> +}
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t arm64_unmask_exc_context(arm64_exc_context_t context)
+> +{
+> +	arm64_exc_hwstate_t prev = arm64_exc_hwstate_of_context(CRITICAL_CONTEXT);
+> +
+> +	return arm64_drop_exc_context(prev, context);
+> +}
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t arm64_mask_exc_context(arm64_exc_hwstate_t prev)
+> +{
+> +	return arm64_lift_exc_context(prev, CRITICAL_CONTEXT);
+> +}
+> +
+> +#endif /* __ASM_INTERRUPTS_ENTRY_H */
 
 -- 
-Sincerely yours,
-Mike.
+Best regards,
+Jinjie
+
 
