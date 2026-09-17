@@ -4,60 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF3E0C982C1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 08:26:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9536BC982C1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 08:27:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mQHMw6r6nqwobnl9nv1snvYpl3KQBT9u5YNt9xRmdv4=; b=R42OeSmAXtIpKnqrRGRTPR5rEs
-	AyibkMwfAYukH3LOh8EllJ/uwXx3v1ZAt1ckSvw5Wo570mIXIz3jVuBkrCuUa59GUWTufxgFE6HWT
-	HhmLSxRJs7nDIA3ow20+OTIH16f/qp7x1WTpqZadi+X9f/Q5lzoHonVKi8PsmLKN/zl47JQl1UHVl
-	kAFJDjpS+YlNwUTlJcd0drj88MxlpaIv1W5Lqqmf5uKqbRH2fX/X7XF5jf5CJYwcsjDEyVB8sA6X3
-	KwrxQvvH9wgMh4wFEkrewDp+Su/RHNK9NPBxdgvD4/uZ6W6IzsL9nxPPwKQ9ZlvgtVSK6ltgaE346
-	iT2V1o1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TosaW+EYUtBmpByGJ+HlREE+xeLu7KYT+QjrxLFrU0s=; b=U2zP3/sgYNrO1PQyDDqneSNvqG
+	U+W4o8PCancQkZvN+4pX8k7pcIVLj3t3j/1oWm/1+EpfKvRVkxyIzL9Bj4S/TrT9QNXVAjw1NNZHg
+	ypgbmY3/Lq+yM4+a3HGjeUBQo++KJCY0fD6yMb5DR16EJpqGR4dsV35tdUEZeVb+vHT3xwa8WmaMD
+	1orp01TstNWnKlMVxZ4dIaF5z42htouryQ8SudfSFd5fv1+FUe253NoeKX+qvuBOvJgVHWD/cGM35
+	2KdWYhN3ffvwesdGE6LMZ0orzVhpaMO0SODik4y2ONIC4t4htNlf2ck5yGdVYWx4axuzuZf9Dsxgb
+	E4MILw1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x77RQ-0000000AtRN-3D7a;
-	Thu, 17 Sep 2026 08:26:00 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x77SI-0000000AtbS-0s5y;
+	Thu, 17 Sep 2026 08:26:54 +0000
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x77RP-0000000AtR0-22uc;
-	Thu, 17 Sep 2026 08:25:59 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 18352447B3;
-	Thu, 17 Sep 2026 08:25:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D30A1F00898;
-	Thu, 17 Sep 2026 08:25:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789633559;
-	bh=mQHMw6r6nqwobnl9nv1snvYpl3KQBT9u5YNt9xRmdv4=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=cdNRKdw15K5pQanHCrNPdxNthlj1Wz1E7eRdhwDsu+dg5M4IqH7Ut6mgSe0GKuW5i
-	 YhJJjlq15CyKVda7Vh3xhD8QY/S0oKPif8dn4HSfc1TdH5s235WOGP525F+m8Etvia
-	 kQpY17cfhtSebIklwbVJV/t/35NjQuaohRy5fSs12+0xirreM5aORYHWofIDW37S46
-	 xEkC8NeDd5JQrBMMpPbMTJ6N0IoXUe++s0kowXwIQdUnxbHwK0zpCm0ko5q5TeDwUw
-	 oeq+SB1KjqyZq8enUKaobM1YDqbGmkzGi/aI0djQl1Y4oneNqxopdJYKKrBrDAsUah
-	 VOi/JAzMex0TA==
-Subject: Re: [PATCH net 2/2] net: dsa: mt7530: unregister the switch before
- freeing its MDIO IRQs
-From: netdev-bot+sashiko@kernel.org
-To: f@lex.la
-Cc: netdev@vger.kernel.org, chester.a.unal@arinc9.com, daniel@makrotopia.org,
- andrew@lunn.ch, olteanv@gmail.com, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Date: Thu, 17 Sep 2026 08:25:57 +0000
-Message-ID: <178963355760.22033.11986863924471016494@kernel.org>
-In-Reply-To: <20260914202421.2737079-3-f@lex.la>
-References: <20260914202421.2737079-3-f@lex.la>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1x77SE-0000000AtZa-48vV
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Sep 2026 08:26:53 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-48449f62b93so179756f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 01:26:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ffroot-co-za.20251104.gappssmtp.com; s=20251104; t=1789633608; x=1790238408; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=TosaW+EYUtBmpByGJ+HlREE+xeLu7KYT+QjrxLFrU0s=;
+        b=HcwezpPFPeAbhl2oshI7WQyELTMBsvupVV6cgMAniHb5r+IMd5CpwyMsdUMyFVXtFn
+         BAlPIxZEI+sgjrb+JVeQ0D2sV1rvyp8d/6XNbDfHsdNV3j2gOzKm3R0jDkdbZznYeQ4P
+         76IWsGv8Q3JWNlIrKDe3pUZB53beHePULz2qtPhOexm5mBmn1KXw0lxRCYolNLfGWuHs
+         8sHshVbqfTk9MrgseY0YcGNx7T6uOVOt1QJJ6de/IEPFAVgVGdw6EnX98MUrgvcIXS+4
+         93IIZFLDtsHcS7dLNB0ffaBDiuyoFiRA/6zWLbDMKr+mzf2gB08togGdUpP4AAqITdnK
+         SVpA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789633608; x=1790238408;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=TosaW+EYUtBmpByGJ+HlREE+xeLu7KYT+QjrxLFrU0s=;
+        b=X+hvyfHspj0xhegyF0RS69yGGhdpqm3Bu91pC8VhjxTZiNZt0QmXAqGrRD3DYQp6HB
+         VzL5oMLJHeHPmCzZzG5y0561OOxQ8vLL4PtoAA+EkWamzhoPXwNSf2bvZWNjXS3U9/US
+         W0CtYKcueuXe/8U0MeTd/kVAYoZrrom+d2644HNxRUJdpo6unegbuC1bLIb+1uTVbY52
+         TMe39ho/Pz6vAJYAoINWahE6xYGQrs/bv7mgIkP72NJeihZuVxuAGsR9OaKbFxE83lqK
+         xRUaX/yW4GG2ww8HzGVHB4rv4Z+q/kVz3DWEWhGc9Eyd5zs9Y0z8PQPPd2jV6rv6m7B6
+         XimQ==
+X-Gm-Message-State: AFuF++l+pGG93Ks9sQ5+r60LZzQmDPw19rWtiPWgpTZ1H2GcJ67R7Zin
+	FvdynbqRcO7Lz238ziguh0+Cky9qAs28wsBZViu8I4lb87ZwYX/xRrxDbr4wtJNksKmvUT3fXo6
+	erCAYQCg=
+X-Gm-Gg: AYBFou3S42DRL0+sAYJa8gKhXPOdmMInezjicPN3aQimIMo9mFD0s0uFSmANpLeuGdf
+	0xw4OseWxwsPGVUt8nkziHTqW2XMXg1Myxv6Gr8ZRD2px2xdEI9TN7WZ1HBjoc1ay39Xmu0l8bq
+	aPdG/Q3jZqUczGkFZiHsdG0nOy5kL1seAqNY612Sdl5qUKLfEeS/B/+sqtCHOBBoTiOpwiVmvCm
+	HQf0ZIVdB3HZOpv6sHAxf8a3EjlnVujnl58Ojw0nmrNF7lso8n0Y+IlYTiFBeepvJFeZftJX7zQ
+	Q6EpG60U932D4joo9Z7LCXtUmp4xV/6IqEo4ggAMwP1SepFqyJVySW6BEbZnqN2iXy3SGdf8J1z
+	+GOc1KLFXimVQxxIE8tedCregxlVZBAEtXhjPAgheOkv6xsbtRwyAD2xpjFV4b2j/HQAeUd0nu2
+	COs6r6S9fZGQMiucuW+NxDDXrQAJ/86YNHxvvB6GhaW7B5kVslWgM8YI/jwsIdxmw45E6jfCwZc
+	dsh/DFPTowTMSHgfusQf1RhSTYvo1mW4FRRpg==
+X-Received: by 2002:a5d:6f06:0:b0:486:fdd6:2677 with SMTP id ffacd0b85a97d-48713c07bd1mr3459940f8f.21.1789633608002;
+        Thu, 17 Sep 2026 01:26:48 -0700 (PDT)
+Received: from dev-ag.figment.co.za ([192.145.132.58])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4870bf342a0sm13420395f8f.24.2026.09.17.01.26.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 17 Sep 2026 01:26:47 -0700 (PDT)
+From: Andrew Gaylard <ag@ffroot.co.za>
+To: linux-arm-kernel@lists.infradead.org
+Cc: devicetree@vger.kernel.org,
+	qinjian@cqplus1.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	linux@armlinux.org.uk,
+	Andrew Gaylard <ag@ffroot.co.za>
+Subject: [PATCH v2 0/4] arm: sunplus: add SP7021 LTPP3G2 board support
+Date: Thu, 17 Sep 2026 10:26:28 +0200
+Message-ID: <20260917082632.626614-1-ag@ffroot.co.za>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260917_012651_280021_67DBFD98 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,160 +101,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider:
+The Tibbo LTPP3G2 is a board based on the Sunplus SP7021 SoC:
+https://tibbo.com/store/tps/ltpp3g2.html
+It is the platform that underpins Tibbo's IoT products.
 
-Critical: 0 · High: 1 · Medium: 0 (1) · Low: 0
+This series adds board support to linux-next:
 
-- [High] Incomplete fix: mt7530_remove_common()
-  (drivers/net/dsa/mt7530.c:3593-3602) still calls…
+ - Patch 1: vendor prefix for Tibbo Technology Inc.
+ - Patch 2: device tree nodes for SP7021 peripherals that have upstream
+             drivers (PWM, watchdog, eMMC), plus a label on the
+             gpio-leds node so board DTS files can override it.
+ - Patch 3: board DTS for the LTPP3G2, covering eMMC, SPI, RTC,
+             a bit-banged I2C EEPROM, PWM, watchdog, and two GPIO LEDs.
+ - Patch 4: sp7021_defconfig updates to enable the drivers used by the
+             LTPP3G2 and correct a few defaults.
 
-Pre-existing issues:
-- [Medium] Power-sequencing ordering on the MDIO front end:
-  mt7530_remove() in drivers/net/dsa/mt7530-mdio.c disables…
+Tested on a LTPP3G2, booting via eMMC, on linux-next-20260915.
 
---
+Changes in v2:
+ - fix issues spotted by sashiko-bot.
 
-net: dsa: mt7530: unregister the switch before freeing its MDIO IRQs
+Andrew Gaylard (4):
+  dt-bindings: vendor-prefixes: Add Tibbo
+  arm: dts: sunplus: add PWM, watchdog and MMC nodes to SP7021 DTSI
+  arm: dts: sunplus: add Tibbo LTPP3G2 board
+  configs: sp7021: fix defaults and enable existing device drivers
 
-This moves dsa_unregister_switch() ahead of the per-PHY interrupt
-disposal in mt7530_remove_common(), so that phylib frees the nested PHY
-interrupts before their mappings are destroyed. The reported symptom is a
-remove_proc_entry() warning from irq_free_descs() followed by a NULL
-dereference in handle_nested_irq().
-
-> diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
-> index 3e61eb3c2b1e2..90fd04665ebf1 100644
-> --- a/drivers/net/dsa/mt7530.c
-> +++ b/drivers/net/dsa/mt7530.c
-> @@ -3593,11 +3593,11 @@ EXPORT_SYMBOL_GPL(mt7530_probe_common);
->  void
->  mt7530_remove_common(struct mt7530_priv *priv)
->  {
-> +	dsa_unregister_switch(priv->ds);
-> +
->  	if (priv->irq_domain)
->  		mt7530_free_mdio_irq(priv);
-
-[Severity: High]
-Does this reorder actually close the handle_nested_irq() fault described
-in the changelog, or does it only close the phylib half of it?
-
-The parent threaded interrupt is owned by devres.  mt7530_setup_irq()
-registers the chip with devm_regmap_add_irq_chip_fwnode() and keeps only
-the domain pointer:
-
-drivers/net/dsa/mt7530.c:mt7530_setup_irq() {
-	ret = devm_regmap_add_irq_chip_fwnode(dev, dev_fwnode(dev),
-					      priv->regmap, irq,
-					      IRQF_ONESHOT,
-					      0, chip,
-					      &irq_data);
-	...
-	priv->irq_domain = regmap_irq_get_domain(irq_data);
-}
-
-so free_irq() on the parent and irq_domain_remove() happen only from the
-devres release, devm_regmap_irq_chip_release() -> regmap_del_irq_chip(),
-which runs after mt7530_remove() has returned.  Nothing in
-mt7530_remove_common() disables, frees or synchronizes against that
-parent IRQ, so the regmap-irq thread is still live while
-mt7530_free_mdio_irq() destroys the mappings.
-
-On the thread side there is no zero check on the lookup:
-
-drivers/base/regmap/regmap-irq.c:regmap_irq_thread() {
-	...
-		data->status_buf[i] &= ~data->mask_buf[i];
-	...
-			handle_nested_irq(irq_find_mapping(data->domain, i));
-}
-
-mask_buf is read there without data->lock, so the thread can carry a
-pre-mask snapshot past the filter.  Can the following still happen with
-this patch applied, on a part with a PHY_LC bit latched?
-
-  regmap_irq_thread()			mt7530_remove_common()
-    read_irq_data(), PHY0_LC set
-    passes the mask_buf filter
-					dsa_unregister_switch()
-					  phy_disconnect()
-					    phy_free_interrupt()
-					      free_irq(nested virq)
-					mt7530_free_mdio_irq()
-					  irq_dispose_mapping()
-    irq_find_mapping() -> 0
-    handle_nested_irq(0)
-
-kernel/irq/chip.c:handle_nested_irq() has no NULL check:
-
-	struct irq_desc *desc = irq_to_desc(irq);
-	...
-	scoped_guard(raw_spinlock_irq, &desc->lock) {
-
-which is the read at handle_nested_irq+0xac quoted in the changelog.
-
-Is the driver-side disposal loop needed at all?  regmap_del_irq_chip()
-already walks the domain and disposes every mapping, and it does so in
-the safe order:
-
-drivers/base/regmap/regmap-irq.c:regmap_del_irq_chip() {
-	free_irq(irq, d);
-
-	/* Dispose all virtual irq from irq domain before removing it */
-	...
-}
-
-Would dropping mt7530_free_mdio_irq() from the remove path (leaving the
-disposal to regmap_del_irq_chip(), which runs after the parent IRQ is
-freed) be a better fix than moving it after dsa_unregister_switch()?
-
-> -	dsa_unregister_switch(priv->ds);
-> -
->  	mutex_destroy(&priv->reg_mutex);
->  }
->  EXPORT_SYMBOL_GPL(mt7530_remove_common);
-
-[Severity: Medium]
-This is a pre-existing ordering problem and not something this patch
-introduces, but it interacts with the new placement of
-dsa_unregister_switch(), so it may be worth mentioning.
-
-On the MDIO front end the supplies are dropped before any of this runs:
-
-drivers/net/dsa/mt7530-mdio.c:mt7530_remove() {
-	if (priv->id == ID_MT7530) {
-		ret = regulator_disable(priv->core_pwr);
-		...
-		ret = regulator_disable(priv->io_pwr);
-		...
-	}
-
-	mt7530_remove_common(priv);
-}
-
-After this patch the whole register-level teardown reached from
-dsa_unregister_switch() - internal PHY power-down, port disable writes,
-and the regmap-irq mask sync that clears the PHY_LC bits through
-mt7530_irq_mask_sync() - is the first thing mt7530_remove_common() does,
-i.e. entirely after core_pwr and io_pwr were released on ID_MT7530.
-
-Can those writes still reach the chip?  MDIO writes are unacknowledged,
-and regmap-irq updates its mask_buf shadow regardless of what
-handle_mask_sync() returns:
-
-drivers/net/dsa/mt7530.c:mt7530_irq_mask_sync() {
-	ret = regmap_update_bits(priv->regmap, MT7530_SYS_INT_EN,
-				 mask_buf_def, ~mask_buf);
-	...
-}
-
-so MT7530_SYS_INT_EN can be left armed and MT7530_SYS_INT_STS latched
-while software believes they are masked.  MT7530_TOP_SIG_CTRL's
-TOP_SIG_CTRL_NORMAL bit, set in mt7530_setup_irq(), likewise has no
-teardown counterpart.  Should the regulator_disable() calls move after
-mt7530_remove_common() instead?
+ .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+ MAINTAINERS                                   |   6 +
+ arch/arm/boot/dts/sunplus/Makefile            |   5 +-
+ .../dts/sunplus/sunplus-sp7021-ltpp3g2.dts    | 182 ++++++++++++++++++
+ arch/arm/boot/dts/sunplus/sunplus-sp7021.dtsi |  37 +++-
+ arch/arm/configs/sp7021_defconfig             |  33 +++-
+ 6 files changed, 260 insertions(+), 5 deletions(-)
+ create mode 100644 arch/arm/boot/dts/sunplus/sunplus-sp7021-ltpp3g2.dts
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260914202421.2737079-1-f%40lex.la
+2.53.0
+
 
