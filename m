@@ -4,100 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BEAAC88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 12:21:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EEA5C982CF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 12:22:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hBTjOuIbpjCrSgc+53G/q1SlCRXTaO4XMWMEj7JJEBM=; b=u5CqrRXmWU04CA8B7grlSgUyOE
-	zJmT7rhH3exKHylDyElybieij39b+iV30S4vDDJlffz5RcAvkpFS0qsA4u2CX+RcpTKXR2AVU7qID
-	kpPUpFXZe1zvZErYYmIktFY1+6pnqputstNqf2meG/LqtRTThpYhT0X+HA9XBzf3injqk4CZFV1fd
-	7rpF3OjAL0R85fn8OOe5VveI0dbSPO+Yfp6PWNKuIUXDvEmogORUwEhkGQg0lXbmgxj/hF1M/jMyC
-	AfUGHHraJEfkd7f5v1+xl8e/+ACcamb9EkmHINfQuD33SEphZWH2ivn8GhUR3KgIPVxUfXkOcXirj
-	59KLuL4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b8s9FB4mkLguoX/MZuaDXebOlC81MYOzJYBSY6urM8Y=; b=O44f2ZRf2jkUJvMvSg/qOwDtwo
+	3JFAbP8bzu7icscFEsENKzDVWI5kKRd3nVPP6IQsvOQSSTtTgLv6998QBwfYAn88LR9LzNcP50VRu
+	snKe2MKjLVFV4Ik/r4ZeEGplJVNglmRqNjZrEmK6CIlKww8pGrmJH6P11CJjwQyz16lMluFPnH2JZ
+	t3eAN2Pb5T7DmrvNT96PHa+NdPDNNhMQWMl6fx4bSUksgY8t2yNQnyNDmUmEUJqZUo3zoSh6skOoS
+	jM75c+EqYi9DiHggqQUOX/Uv8H4LVqhRZeQM/QEnyZK316lioqxE3vdyIAPirjhRD/q+wF9O12QN/
+	+7IHDm7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7B7Z-0000000BHDo-1Nf0;
-	Thu, 17 Sep 2026 12:21:45 +0000
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	id 1x7B8J-0000000BHOH-2RDy;
+	Thu, 17 Sep 2026 12:22:31 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7B7V-0000000BHCN-0gUm
+	id 1x7B8H-0000000BHNh-1jam
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 12:21:43 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49d1ca5b0d6so5699375e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 05:21:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=flipper.net; s=google; t=1789647699; x=1790252499; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=hBTjOuIbpjCrSgc+53G/q1SlCRXTaO4XMWMEj7JJEBM=;
-        b=1y1Jn8tE+UlAyo6W7731Pc7GX0fB3kXK6KdDg+uFGSDt21r7KXQ1kGZBmCRMhvS9BZ
-         QLTLj3wkG8Q9uahicHD0J+MYSDlCvgEZz36m0JMBjN2HHh4EcYv+JH0/bvHRSCj1a5ZF
-         vNv3VT2AfxlZQfBTXMViJ9XPma+3C8wKVLmCLklRgp9n2HaZxDCnihod0/hwuTDUEQQF
-         jdaJWe+7tUMobHNrtxNETFjLoVqFUOy+Q/RGy7EyW7UV8CNWsh6ajuejImoWQCOSkes4
-         mV4ITtAhxDYFvLI7H7I6seWvGZQ28dYDoZSjdliC/MfDo849iDKgiPaFaVwO++rCNDuF
-         6ANw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789647699; x=1790252499;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=hBTjOuIbpjCrSgc+53G/q1SlCRXTaO4XMWMEj7JJEBM=;
-        b=BjnXpKiGNe4PWZESFYC2oJWe1+BiQzxyoy/6EW0XPvMdEwnIqeEdUAv1OZZ9Q99+/r
-         UWy+veolMLAMaWklTD/Z+c8KeEiWnLxGiWPMqwtAcS2X82jTQBTGkNMmzfSxJtMOoyjE
-         e6FT/bM+nd/VowvWSxnSWWPX6LExPAfXW+B7GTOwhA0QM0/O9mOpMsNZy3yEuPX7xg7z
-         Yr6ZKEmNA0HfPqwEOqmqvjyyvzsOX+mEN77WylxF2qLqlRRNouHUyBhuOA22U+p4L/1Y
-         LgJOA+/1N2uEPBC0EwAHvJSueXzquBRGnFMtlWGTloHt9kBMu6KrOEY0bMkMXI/jJCnb
-         CDUQ==
-X-Gm-Message-State: AFuF++l4HUFf3crwK/F/4UJLqtDwma3yQ9K25V1grQqv6viqfh7EBw/b
-	Vvei3CVBYX1ZyVTINcwoL6Wsx+jcrYitHrH7qQyWHHXNWLKbFFeayIVhN9dgAv+KggY=
-X-Gm-Gg: AYBFou1iqTmPmLMGnFHKeaOp7qPxGxrvQEVn2A/wXFPg5hPewQihahNNi3ole74dtEk
-	nL9QzYbdPoIXGpTOA4CfuHI3Vp1bSBJln+mRYHkCMGOHEWlRcKlVzih7WdDudm6cL9kCbVaq+Of
-	PKxPlcpWfgkhYwfIzd5oN25ieYmr/DGSuu2pSavLIGwHWRgW8vCSKE8sxRhlb9gR0WtGIYxMZhb
-	np2vtI4uIOBV65mmaYTK+47LlO/YNKTtUmKLCq62jhZw1SbStUak/QRdRfST0rwb8GQ+Hzi79Ky
-	KWCLZvnElagazqhy3xgRBSugWfpSKkSz5SGSssl0nI8x1GRgeILPa43QIaimLAoD7Wmn5jp16/u
-	ONXx5x/0jU+iUQnHR+3N+d+RjjbirQPB4R8TAmuvbSeOUFrDgIITVLhy2nvpViJr1OvLDM5fgBM
-	zol1Iay8PNsuKXLZrdq3OeUdnWha9mbqNgMx7ZXs4v5vQ3R3i5kYVOnrKG537PKHG3raXJXvo3r
-	lS4G/1j7lnn/6w53wX+t9ZsErzI+++yXQiJjo4xVZNvjgNYFlE=
-X-Received: by 2002:a05:600c:190e:b0:49c:f4ff:e872 with SMTP id 5b1f17b1804b1-49eb7314d54mr75624565e9.5.1789647698761;
-        Thu, 17 Sep 2026 05:21:38 -0700 (PDT)
-Received: from alchark-surface.localdomain (bba-2-51-220-108.alshamil.net.ae. [2.51.220.108])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fbd1ce79csm81949715e9.0.2026.09.17.05.21.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 17 Sep 2026 05:21:38 -0700 (PDT)
-From: Alexey Charkov <alchark@flipper.net>
-Date: Thu, 17 Sep 2026 16:21:30 +0400
-Subject: [PATCH] i2c: rk3x: Do not dispatch stale pending bits after a NAK
+	Thu, 17 Sep 2026 12:22:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1789647749; x=1821183749;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Zo57ptsMztytzJ66q7w7TElsqXFNRm3Xo9NSI9URBfc=;
+  b=PMV9O2Dr9S6Hrs6WWnAEzIFUSpoXK/xsojFc1KVe/K84nTuw4tzt2WtK
+   OOgjMCKnkaOR6uI8Fb8xa/nZYbXD2gXbuNAsqGM7BjFqg1eskxprsWeca
+   SunqKfqioJF0U8insTpxycR7yGTteUJIEVBJ0xw/tepTbMj5EDH+Z0XN4
+   Hp28NmtFStCB4GKvBp/aYXNwOi+PZiyqCB/ZgSr8PoE8fdO7kPTwQp6NV
+   xV8A8c0qTGjW7CP459CkBCM2zU6mR7NSXnqpPQ8wJNR7g+RrJ4ehipYqG
+   EgkiXnbqqSiQI8ShltGWaMCRzs7g2pFs384DJ0E8RBdI6/XJWKcLBJXsJ
+   g==;
+X-CSE-ConnectionGUID: MVDAIw9eSB+SwBHgpRthWg==
+X-CSE-MsgGUID: UhAodhugTiGfY3nZT+zAqg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="107569075"
+X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
+   d="scan'208";a="107569075"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Sep 2026 05:22:28 -0700
+X-CSE-ConnectionGUID: BfjX0q2oSlax1Hx0fa4JPQ==
+X-CSE-MsgGUID: C6UIlR4DSgmHmuVzv984bA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
+   d="scan'208";a="270450345"
+Received: from abityuts-desk1.ger.corp.intel.com (HELO localhost) ([10.245.245.11])
+  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Sep 2026 05:22:22 -0700
+Date: Thu, 17 Sep 2026 15:22:20 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: zl020895 <zl020895@163.com>
+Cc: longzhao@ambarella.com, Arnd Bergmann <arnd@arndb.de>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Lee Jones <lee@kernel.org>,
+	mfd@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
+	linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: Re: [PATCH v7 12/15] pinctrl: ambarella: add CV75 pin controller
+Message-ID: <aqvbfCQ6cxfGYJeC@ashevche-desk.local>
+References: <20260915-cv75-v5-v7-0-3297d3fbc9c0@ambarella.com>
+ <20260915-cv75-v5-v7-12-3297d3fbc9c0@ambarella.com>
+ <aqp0VlwWotnuK9t7@ashevche-desk.local>
+ <40f1f819.7f85.1a0ae9e4dae.Coremail.zl020895@163.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260917-rk-i2c-stop-v1-1-e6ad83d8c888@flipper.net>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQ5AMBBA0avIrE3SdqHhKmJBTRkSpINIGndXL
- N/i/whCgUmgyiIEOll4XRJ0noEb22Ug5D4ZjDKFKrXFMCMbh7KvG3qvSNuOlLY9pGIL5Pn6bnX
- zW45uIre/C7jvB3WgLmlvAAAA
-X-Change-ID: 20260917-rk-i2c-stop-ff0e17be017d
-To: Heiko Stuebner <heiko@sntech.de>, Andi Shyti <andi.shyti@kernel.org>, 
- Max Schwarz <max.schwarz@online.de>, Wolfram Sang <wsa@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-i2c@vger.kernel.org, 
- linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
- Alexey Charkov <alchark@flipper.net>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2125; i=alchark@flipper.net;
- h=from:subject:message-id; bh=p+IXiJ+EE2Fjypax+gxoHE3ZHGysplGrD9n927sEoQk=;
- b=owGbwMvMwCW2adGNfoHIK0sZT6slMWStvu3LHF2g33ulsnL7R2OZ6QF3zs/u2rRTOGtz+CQ5D
- +u+vQ0yHRNZGMS4GCzFFFnmfltiO9WIb9YuD4+vMHNYmUCGSIs0MAABCwNfbmJeqZGOkZ6ptqGe
- oZGOsY4RAxenAEx19WGGf8aTBR7cs2K0+fjW/3j61vLEVw2u+pzG1kl7Wldc/L2TR5uR4ZyJlmP
- y/9DXb1hK9Ex+x3sE7VGaU2tq+W3m/nmP3aU4mAA=
-X-Developer-Key: i=alchark@flipper.net; a=openpgp;
- fpr=9DF6A43D95320E9ABA4848F5B2A2D88F1059D4A5
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <40f1f819.7f85.1a0ae9e4dae.Coremail.zl020895@163.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_052142_522718_7615B445 
-X-CRM114-Status: GOOD (  15.23  )
+X-CRM114-CacheID: sfid-20260917_052229_465643_B0DE4FBC 
+X-CRM114-Status: GOOD (  15.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,59 +106,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A read that gets NAKed raises NAKRCV alongside the spurious START flag
-which the controller sets on every read. The NAK branch acks NAKRCV and
-calls rk3x_i2c_stop(), moving the state to STATE_STOP, but the leftover
-START bit survives the REG_INT_ALL mask, so the state machine below runs
-once more and dispatches it into rk3x_i2c_handle_stop().
+On Thu, Sep 17, 2026 at 05:06:45PM +0800, zl020895 wrote:
+> Thanks for the review. The small comments will be in v8,
+> including pinconf set via regmap_assign_bits.
+> 
+> PINCTRL_PINGROUP does not fit here: groups carry
+> AMBA_PINMUX(pin, alt), not a pin-number list, so I will keep
+> CV75_GROUP.
 
-That path finds no STOP bit, reports a bogus "unexpected irq in STOP",
-replaces -ENXIO with -EIO and calls rk3x_i2c_clean_ipd(), which clears
-the pending bit of the STOP that rk3x_i2c_stop() has just started. The
-completion interrupt is lost, so the transfer only ends when the 1s
-timeout expires, holding the adapter lock and stalling every other client
-on the bus.
+I didn't get. It takes a pin as a parameter and adds the function on top
+of it. It is a combo, but I think it still fits the purpose. Please, use
+existing data structure and a macro.
 
-Return from the handler once the NAK has been acted upon.
+> At 2026-09-16 18:49:58, "Andy Shevchenko" <andriy.shevchenko@linux.intel.com> wrote:
+> >On Tue, Sep 15, 2026 at 07:15:42PM +0800, Long Zhao via B4 Relay wrote:
 
-Fixes: c41aa3ce938b ("i2c: rk3x: add driver for Rockchip RK3xxx SoC I2C adapter")
-Cc: stable@vger.kernel.org
-Signed-off-by: Alexey Charkov <alchark@flipper.net>
----
- drivers/i2c/busses/i2c-rk3x.c | 12 +++++++++++-
- 1 file changed, 11 insertions(+), 1 deletion(-)
+...
 
-diff --git a/drivers/i2c/busses/i2c-rk3x.c b/drivers/i2c/busses/i2c-rk3x.c
-index fcede9f6ed54..7629ea7b6ac2 100644
---- a/drivers/i2c/busses/i2c-rk3x.c
-+++ b/drivers/i2c/busses/i2c-rk3x.c
-@@ -507,8 +507,18 @@ static irqreturn_t rk3x_i2c_irq(int irqno, void *dev_id)
- 
- 		ipd &= ~REG_INT_NAKRCV;
- 
--		if (!(i2c->msg->flags & I2C_M_IGNORE_NAK))
-+		/*
-+		 * rk3x_i2c_stop() moves us to STATE_STOP and arms the STOP
-+		 * interrupt. The remaining pending bits belong to the state we
-+		 * just left, so stop processing them here: dispatching them
-+		 * into rk3x_i2c_handle_stop() would report a bogus "unexpected
-+		 * irq in STOP", replace -ENXIO with -EIO and clear the pending
-+		 * bits of the STOP we are waiting for.
-+		 */
-+		if (!(i2c->msg->flags & I2C_M_IGNORE_NAK)) {
- 			rk3x_i2c_stop(i2c, -ENXIO);
-+			goto out;
-+		}
- 	}
- 
- 	/* is there anything left to handle? */
+> >> +#define AMBA_PINMUX(pin, alt)		(((alt) << 12) | (pin))
+> >> +#define AMBA_PINMUX_TO_PIN(mux)		((mux) & 0xfff)
+> >> +#define AMBA_PINMUX_TO_ALT(mux)		(((mux) >> 12) & 0x7)
+> >> +
+> >> +struct amb_pinmux_group {
+> >> +	const char *name;
+> >> +	const u32 *mux;
+> >> +	unsigned int nmux;
+> >> +};
 
----
-base-commit: 0d9d0dbf2fddcff5859d623e90ca73c4054276e1
-change-id: 20260917-rk-i2c-stop-ff0e17be017d
+^^^ left for the context.
 
-Best regards,
---  
-Alexey Charkov <alchark@flipper.net>
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
 
 
