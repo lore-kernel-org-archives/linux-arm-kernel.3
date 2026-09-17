@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32D09C982D2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58AF2C982D3
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 09:18:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,33 +12,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+YZ1JJ2lc+rqbj4t+lEsnkv4DYz6wMBYG946EJ5Reyc=; b=D1eBUoEVqbGQGa8XKfyHFxoUXj
-	+UkF99ga3ZAZSHo2Y18CqdIwOwoF5Wj974rvhXEDkhfA79wqAxlw1s2GNZq2Nzs6SyS+IIJMPuTFx
-	iwqNGlqGbKP+UXbVjHQ4xW0JnQrAe3/ZyvMAh5Hn1U2ek+WEl1WU5T+a9T99z/inFR3Wok+UoKDDD
-	mdev10kOLXL1FJk9UQjEuo7Bwj6kZNXYrl3V+A/BzvkLXUNMGfjPyTzSFoVR5wncmTtjHq2Ty5Vif
-	vWMPL2nFRM8RX0AAutmSw8fnjxQ7JYJxKuLxfFqAyt/Nh1HjjLfLTArE/1bfeiajYd/+wQsYdsx20
-	ch6y5TBg==;
+	bh=c+jqX8odSHJRj8I1xt9QcduAKDUkxYsGWOso0e/XrsY=; b=PXViLVGZWAIhWiIMWELZ7XcBKl
+	+0ND3MvU3mOicWj99LsijPXTPX5DtfU7oKTdPlOkjlO7DRYDzHbJY6WEUVVSCTc8suRMbiMAm/nIE
+	alU1VVlD1i8y3WPjfv7T7gBR+R2DAZGQQf0fgBnlOSKpxZScEb7UvO0NRpxXpoxe3+ucdDf60jM6F
+	HoaMM+k9bl9sL9yanN/GkqRT2V4wE6UVCgbM7lmvSfU6I/yN8ueFTMFc55u/bgTQnGiwSAYxmpRP3
+	d5UZqTJr7pd7Gx+6rWKpNurQo4R7Zx+X6JRpH9FtudzaIPIQlH1TGM74R+Wd0+Egd7I9S2Qyy7bmj
+	6736GJeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x78GT-0000000AzKl-1AUb;
+	id 1x78GT-0000000AzKT-0pBZ;
 	Thu, 17 Sep 2026 09:18:45 +0000
-Received: from out-137.mta0.migadu.com ([2001:41d0:1004:224b::89] helo=mta0.migadu.com)
+Received: from out-128.mta0.migadu.com ([2001:41d0:1004:224b::80] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x78GN-0000000AzHt-1EJc
+	id 1x78GM-0000000AzHs-177t
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 09:18:40 +0000
+	Thu, 17 Sep 2026 09:18:39 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=qWxN+EE1n/NUST3E3o6AfroyhPJ5HLiC0YPhK6f/EL4=;
+DKIM-Signature: a=rsa-sha256; bh=BDabPLEAy+F0bC1m2aFAySlST0o2PCUlunhb/0Rg9F0=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1789636717; v=1; x=1790241517;
- b=lryTLbVG0IdxUM+FXjxuRvrAM6K+TupsS9K+15+MMaDRrKvxpUze5nEWAd9nQn7R2WfgbMP2
- Juz23r1veoh4d5i0YPE3/YilRQDReNHe8K4QPweN0Zo7gD4R6UFcrXYLEnKBZUok8oTtZ45YVS+
- Sv4wIcLIkmf72azCG/H9z2j4=
+ t=1789636716; v=1; x=1790241516;
+ b=oleqo3rdDIL06DQxUICjC1cc39hspR0N98Kge6Qy1idNp8VNeZRcqy2S/W98xWSl1v5Y1G1x
+ aoDjevkaKfBfQLV2utglGKxxD33wEnJiN/sbUgWLik7iG7o7AIm5S9FTdMjm/gED1McMZi531gy
+ Lmpa0C8WhBbG2dQHb16oohb8=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 2a294692267e0b73;
-	Thu, 17 Sep 2026 09:18:37 +0000
-X-Mizu-Trace-ID: 2a294692267e0b73
+Received: by smtp.migadu.com with ESMTPS id 6582ff640713eed0;
+	Thu, 17 Sep 2026 09:18:36 +0000
+X-Mizu-Trace-ID: 6582ff640713eed0
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: maz@kernel.org,
@@ -58,17 +58,17 @@ Cc: joey.gouly@arm.com,
 	linux-arm-kernel@lists.infradead.org,
 	kvm@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 2/4] KVM: arm64: Check PGD alignment when creating a pVM
-Date: Thu, 17 Sep 2026 10:18:24 +0100
-Message-Id: <20260917091826.2639205-3-fuad.tabba@linux.dev>
+Subject: [PATCH v1 1/4] KVM: arm64: Move the IPA limit rule into kvm_get_ipa_max()
+Date: Thu, 17 Sep 2026 10:18:23 +0100
+Message-Id: <20260917091826.2639205-2-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260917091826.2639205-1-fuad.tabba@linux.dev>
 References: <20260917091826.2639205-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_021839_481049_21B61D65 
-X-CRM114-Status: GOOD (  12.24  )
+X-CRM114-CacheID: sfid-20260917_021838_463092_9E9254C7 
+X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,59 +83,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Quentin Perret <qperret@google.com>
+Move the rule kvm_set_ipa_limit() applies to PARange into a helper
+beside kvm_get_parange(), which bounds the same field by a different
+rule, so the hypervisor can size a guest's IPA space by it.
 
-Martijn reported a hypervisor crash when providing pKVM with an
-undersized PGD allocation. Indeed, although the size of the PGD
-allocation at EL2 is not under host control, a smaller host-side
-allocation can lead to providing pKVM with a misaligned PGD, which will
-cause the guest stage-2 init to fail in a bad way. Specifically,
-guest_s2_zalloc_pages_exact() expects a successful allocation from
-hyp_alloc_pages(), which can only happen if the pool has been pre-filled
-with a physically aligned high-order page.
+No functional change intended.
 
-In order to guarantee allocation success in this path, check the
-host-provided PGD alignment early on.
-
-Fixes: a1ec5c70d3f6 ("KVM: arm64: Add infrastructure to create and track pKVM instances at EL2")
-Reported-by: Martijn Bogaard <martijnbogaard@google.com>
-Signed-off-by: Quentin Perret <qperret@google.com>
-[Fuad: rejected with -EINVAL before any donation is mapped, as the
- other input checks in __pkvm_init_vm() do]
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/kvm/hyp/nvhe/mem_protect.c | 2 +-
- arch/arm64/kvm/hyp/nvhe/pkvm.c        | 4 ++++
- 2 files changed, 5 insertions(+), 1 deletion(-)
+ arch/arm64/include/asm/kvm_pgtable.h | 15 +++++++++++++++
+ arch/arm64/kvm/reset.c               | 12 +-----------
+ 2 files changed, 16 insertions(+), 11 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index 39aa8911f62c1..805dade1d4510 100644
---- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -186,7 +186,7 @@ static void *guest_s2_zalloc_pages_exact(size_t size)
+diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+index 41a8687938eb6..8096b0bf381c2 100644
+--- a/arch/arm64/include/asm/kvm_pgtable.h
++++ b/arch/arm64/include/asm/kvm_pgtable.h
+@@ -48,6 +48,21 @@ static inline u64 kvm_get_parange(u64 mmfr0)
+ 	return parange;
+ }
+ 
++/*
++ * The largest IPA size a VM can be given. Unlike VTCR_EL2.PS
++ * (kvm_get_parange()), it isn't clamped to the kernel's PA configuration.
++ */
++static inline u32 kvm_get_ipa_max(u64 mmfr0)
++{
++	unsigned int parange = cpuid_feature_extract_unsigned_field(mmfr0,
++				ID_AA64MMFR0_EL1_PARANGE_SHIFT);
++
++	if (!kvm_lpa2_is_enabled() && PAGE_SIZE != SZ_64K)
++		parange = min(parange, (unsigned int)ID_AA64MMFR0_EL1_PARANGE_48);
++
++	return id_aa64mmfr0_parange_to_phys_shift(parange);
++}
++
+ typedef u64 kvm_pte_t;
+ 
+ #define KVM_PTE_VALID			BIT(0)
+diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
+index 10eb7249aa9e8..757adbce2faac 100644
+--- a/arch/arm64/kvm/reset.c
++++ b/arch/arm64/kvm/reset.c
+@@ -231,19 +231,9 @@ u32 get_kvm_ipa_limit(void)
+ 
+ int __init kvm_set_ipa_limit(void)
  {
- 	void *addr = hyp_alloc_pages(&current_vm->pool, get_order(size));
+-	unsigned int parange;
+ 	u64 mmfr0;
  
--	WARN_ON(size != (PAGE_SIZE << get_order(size)));
-+	WARN_ON(!addr || size != (PAGE_SIZE << get_order(size)));
- 	hyp_split_page(hyp_virt_to_page(addr));
+ 	mmfr0 = read_sanitised_ftr_reg(SYS_ID_AA64MMFR0_EL1);
+-	parange = cpuid_feature_extract_unsigned_field(mmfr0,
+-				ID_AA64MMFR0_EL1_PARANGE_SHIFT);
+-	/*
+-	 * IPA size beyond 48 bits for 4K and 16K page size is only supported
+-	 * when LPA2 is available. So if we have LPA2, enable it, else cap to 48
+-	 * bits, in case it's reported as larger on the system.
+-	 */
+-	if (!kvm_lpa2_is_enabled() && PAGE_SIZE != SZ_64K)
+-		parange = min(parange, (unsigned int)ID_AA64MMFR0_EL1_PARANGE_48);
  
- 	return addr;
-diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index 459bd9eb7e4bc..3770315b50361 100644
---- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -846,6 +846,10 @@ int __pkvm_init_vm(struct kvm *host_kvm, unsigned long vm_hva,
+ 	/*
+ 	 * Check with ARMv8.5-GTG that our PAGE_SIZE is supported at
+@@ -264,7 +254,7 @@ int __init kvm_set_ipa_limit(void)
+ 		return -EINVAL;
+ 	}
  
- 	vm_size = pkvm_get_hyp_vm_size(nr_vcpus);
- 	pgd_size = kvm_pgtable_stage2_pgd_size(host_mmu.arch.mmu.vtcr);
-+	if (!IS_ALIGNED(pgd_hva, pgd_size)) {
-+		ret = -EINVAL;
-+		goto err_unpin_kvm;
-+	}
- 
- 	ret = -ENOMEM;
- 
+-	kvm_ipa_limit = id_aa64mmfr0_parange_to_phys_shift(parange);
++	kvm_ipa_limit = kvm_get_ipa_max(mmfr0);
+ 	kvm_info("IPA Size Limit: %d bits%s\n", kvm_ipa_limit,
+ 		 ((kvm_ipa_limit < KVM_PHYS_SHIFT) ?
+ 		  " (Reduced IPA size, limited VM/VMM compatibility)" : ""));
 -- 
 2.39.5
 
