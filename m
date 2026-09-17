@@ -4,140 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06E54C982CF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 13:16:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEC30C982D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 13:17:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kpOhOHCfc9bKTFxzUY7VXIYrr8mcBV9v4Ztu5hq+GKM=; b=pA1hMlcEJt/l4p+MnwAgiauWXC
-	RzoSHx5xvm9kZjTsfHgU5Le/YZJ+syl7AFhL+wsn2NfijYZ2/SH7mbQBM12EJVrYOXlUWRWVnuvTe
-	zdwUMcaNZNk76xiFuySV1Mv7+Q1SyGVCichCmMIDNs+UBDkrL/Gui7rkLT2Ond4/bWj03HLsavOXd
-	w4VizCp9/BFvJMNe+yqOzD2qy7UrVhSzt6bUasRsHE7S9g4kC+CD9Y+GT3sezcpTGlgjZy4HlqJ24
-	aPBYtx0XdKrM+wGB2ATZZUAfAYDJFep8MFfHtSQGy+jWOVYF6YP63uU5GnSpdSp6yoJ6X+GNUrxKk
-	I+ZkAyqQ==;
+	bh=yvMJselGvAoMrhysUaGitx662yndDSgH+0mQM9lz22E=; b=oenWtxCCcph8yati7U5VuvAv81
+	y1JMwpx5H4Utce0NnxtXRPlXyimeaz3joQcknZ5ZJWKjan1sk1c9g+w1H3eCJkCxbhv9IRF3CL/xS
+	PbekwhWmykKSaw9AO/bpRBcuimWeqhDkYjt8LU3y60bCSiBhQ4gBuB8zxrYRmikUfOxa331Tk6Dqk
+	I5vsAKsErZZwm5AV+b5uwABW8ZuML3nLuIMjeNJIzMIUFc9WskODp2ntwtFv6XtfGAfpM9v1H0dJk
+	ty5W9k4MlsVwHkG+G2J843MS8X8kINsN/83KqrGPb7VWFntBALBIAR1FVoa+lQCaaXgUC/2YBUwbs
+	sdBJnR4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7ByX-0000000BNlI-2fO8;
-	Thu, 17 Sep 2026 13:16:30 +0000
-Received: from mail-southcentralusazon11011057.outbound.protection.outlook.com ([40.93.194.57] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1x7BzS-0000000BNrN-2Ikq;
+	Thu, 17 Sep 2026 13:17:26 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7ByU-0000000BNkg-0asJ
+	id 1x7BzP-0000000BNqg-3YPA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 13:16:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZwsYVRpU0B01FnyX2QLqz6qhv9FXupxVw7BPxvL7oJXpuKmtK4+e1N1EIxUC1gVSKqsaYTPMC9fv34XoCH8sAku+7o42GWuU4/Wc/DZWUZUjaUIpIeEzCW3TMPlkmt4u/6nlI3n08+aE3/iiZIDS/C2zWhi1HgEo573zvsrhHEJlIH0C3UEWFKemECzlNfLsJouDyZCTmriMyVl7w5kG4gwaZCPw0Tr+VFWaDv58GQAA6oiI++TzNRcaXiIo/zbjjiVgx7ZMjmO7VD4KsviDF0WeNPjii4gyW9DpdyBur3r4v7go4uhPYiDhWrPWon9vXMldMota7QLdfAxAHfnohw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kpOhOHCfc9bKTFxzUY7VXIYrr8mcBV9v4Ztu5hq+GKM=;
- b=Gvs2AtFdnGZpSD+p1TV1CX520NbLixlSxl1526xT0QRSplU5+NchuJIAjlzo1E1z1u8tObrVbPS6S66KnUECB9rd039oPR2KWuWGxARe7fou5Kil5vZlVvKoD9AMV4QAyTH8laRobxWAuQBHNf9OMvvFXqscL016ZzjlnHUHKpByVTZ5j3Fp86WHzRxodjFuFqbLyqiBnyFB01BfjBKPmv58BiWMf+eM2XGuJ65ESwTdQkffU9o3KzUDAxqsrIvsV+qoqk2Y+SM6qHT46wc+4ep6oKyngBITqpUM+ib4iUZHx+yvScTPPkwOEWEz+7W0d60vwhL1WkyGGkTiwhSatg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kpOhOHCfc9bKTFxzUY7VXIYrr8mcBV9v4Ztu5hq+GKM=;
- b=Acn6p1jTL5uv8VK4wQWdDN3CIUmyEk2gpqw5JaaZX5pJBwiLojtdWGhCZlQPfuxYrWewLruD0IiHn7/ZFt7rb3HwPdbvhyW5hqXYq4OuzcefDhekyGvSxw3l6LSVtJlCe/gP9mQJ3xs75xhzweV8wC36myg3hHHWNZRXtb7d3SIAsWanXRCUUwTyn5mgZmdMxtbngxfEd8MmsdjgyXFpA//gPuSLhtQ1SU1Q9j+BIP3AaEnShYDOk3mq6g5Ej8WfaXLA6d5xA0BpyznEOYXZ8BjKX5eWXEMaUHaVl0DNqQnahzmkIIXcmVSkgO5jyKXlix/4jS6Mk62avfJjxV2EBQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12) by DS5PPF266051432.namprd12.prod.outlook.com
- (2603:10b6:f:fc00::648) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.11; Thu, 17 Sep
- 2026 13:16:02 +0000
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0428.011; Thu, 17 Sep 2026
- 13:16:02 +0000
-Date: Thu, 17 Sep 2026 10:16:01 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, iommu@lists.linux.dev,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Will Deacon <will@kernel.org>, David Matlack <dmatlack@google.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	Pranjal Shrivastava <praan@google.com>,
-	Samiullah Khawaja <skhawaja@google.com>,
-	Mostafa Saleh <smostafa@google.com>, stable@vger.kernel.org,
-	Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
-Subject: Re: [PATCH v6 1/9] iommu/arm-smmu-v3: Handle ARM erratum for CONT
- under invalidation with SVA
-Message-ID: <20260917131601.GY3968357@nvidia.com>
-References: <0-v6-9cd17417d355+281836-smmu_tlbi_jgg@nvidia.com>
- <1-v6-9cd17417d355+281836-smmu_tlbi_jgg@nvidia.com>
- <aquxuBnh6pdxu4-8@J2N7QTR9R3>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aquxuBnh6pdxu4-8@J2N7QTR9R3>
-X-ClientProxiedBy: YT3PR01CA0078.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:84::9) To CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12)
+	Thu, 17 Sep 2026 13:17:25 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-5b7658501ccso1869e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 06:17:23 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789651042; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Ez3HIlHgNNqSEcLZjTBZWYgQvVrfsWDRmZwDvCMLIlcUYjNVvLMShA/niW6qxB9Ung
+         2KigULoBoQ46I2Z36+3PAyYeknzxay/6S8DFaevQwFdAARiX1EpdgJ60iZCyLrHvY/CT
+         qjJlaeX31ZyHtCCFpO/cWV5qePuDfRLKvClajfExM/JDRXpTVigY5/atGjj8Y1XhnE0r
+         m+82rI5qK2dwSIfgbgev7wt3yBn9IIhEmFOQAfZTBbbL5hxsGydyQS6dLH9fxAx59jq1
+         W7ApQUw1I0fsJyLdsW93waujQppkGWALqfYAOKoYlgangDq+eDmiSyjXNdwRcJLvvRH7
+         YL/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=yvMJselGvAoMrhysUaGitx662yndDSgH+0mQM9lz22E=;
+        fh=WhOwmDiyTSSc6zs1SmB/8k3ipHV9bc6GYG1tz/cYVb0=;
+        b=QDaXqEsPE17HCPzKk2YHeUMGZ4QO68/e2x0PT4V/P6RKziWX/e2lPy8zVAa0h937/o
+         naU0UC7lLCCwS6P3i60gy6Ee40sqqYSjAsMlIsAnCI6ZTYsxHIBYgHn60D2UyaUNsMWx
+         4VrT0s9+A/t6gvoj8shfRAUkXnY37q4NBD1scUGxGo4PGnii5spX9IQhd21q9CNc2M8n
+         DjbF7P/9n6u/Jlk6dDKR6X5rlrK1Rz5gmEou+peVyeDnCUwjlyl4PerMKCZTA4zKebIN
+         Hio6zS2Om5YN/M8OcIjVYf+IwYFGBBqLJ1rXep7T9u14kzb+pxZF7tgq1XQBIaf8qPMd
+         ZBXw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1789651042; x=1790255842; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=yvMJselGvAoMrhysUaGitx662yndDSgH+0mQM9lz22E=;
+        b=KnaiPw/5tOn7+F0KPeFa+vuATKglKtZUUjSLWj7nK+cNJZXl/PZIDRjOMa9jil7PVe
+         eHDLNhU/lQ05WO0+sLopi/NLJA7ukDO7x4g9pNO3/JiD9BXb/1e3u5VD6WlneFwFWQLY
+         BRVc7m2hE/1ic7NhVc6nfAOOVMVnnlAumOJoX3NVWhq1uu4UVi96gfzlNnw2bUiRmcQb
+         1jDgLfFp9LJvoe8trtVS9cYaW5m+teh5fR8wkFAec8TqUENoZEPCRNXo7jFZwrEvSOTu
+         ZwFFIwxivndOD8yXvVBtEVrtxQ1ItC0b497DQUFjQieAVxFogDyL8gxYptNDoGgB/yfA
+         /H/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789651042; x=1790255842;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=yvMJselGvAoMrhysUaGitx662yndDSgH+0mQM9lz22E=;
+        b=pfX5JKjDVFhrIr0V3Lpq4WuM5+qCSJ8SbAXrt+i6mXwpxZFtY5RdRAlLGlyoV1jYW+
+         u5V1N+27kPVsNV0EAX3L1gQTlS/wd3ifNjh9ZL0UkFUgRuxyjBh+AxJU9kDVaXYWTUAE
+         3gLYsx2b/FS9VOwfcVjtCh0BTc0oK1G1mS1TEc4/eSm3EGmOazKh8RLd3Vwlz4W9FNKy
+         fVj4+Ff4ATNfCvUWZIRoe3Dh3jrqMvMxtm+qpr3NDVcX3JQdIm9QtiUAz3mjuorVdKfb
+         p6LbXXOvEtUdkuNv7O1pqlGvDT1zBK01XNO9dIVgSahjDmDMy3ATc3NQyLceyRVpIAQq
+         qkiA==
+X-Forwarded-Encrypted: i=1; AKwUvBxB5aMf98CaV04bL6+w6sJGGQJGgM9jnPoEcy7uoMjzzcKhZfEuvI+bSYiGIowQlMahNMjmG4J9x2KmRZV74pKV@lists.infradead.org
+X-Gm-Message-State: AFuF++lPwEy1dKzyLHfP2RAGKTJI143YSLyjymIMLDeBvcOrMV7wfsZL
+	VfTvG5LFKWX7gJilAJE6ieKVnQSthnB9yNEBe56s5mAUIS+5/5O1ZdReQoCsSLzOqpWAk/AVAL+
+	UsxGlZ8eYmVYDymNNoNS6jNz13IZ6I+SUeh/3UYP3
+X-Gm-Gg: AYBFou2b0vcWDCx6ycFLAZmO5JAOPeXES1KQqZQMdJjxNYEBbUBvWQidI8XaFZ+wIik
+	VVrhsDCYYte0G/oP7IKzwZKJ18hSRJ58davWFw+W7uoJ/bgroU/Y3T07J07xob/SpIc96ygmQI7
+	m8cdQgs+B06qeSBw4Goheb3WD/5xqATHwW84sG4E+0dt3hnfKVcRGAwPRjIgREbLqe9s1FuRSiY
+	mga0nDAe/nZuHUBr2RhLGAY8y53/VVoQhYuYjG58L3uH9gAl8sAon3oPfrOaLoNVaBGL5783t56
+	dRUQ0mrXmw9ArN2Y8cL6K9TXoRneflp8v0r+lPnAdD2ckTqfSro9wjAigEpcRVgrusYJ2a+jJDA
+	2nEk+6Qr3lsJozQ==
+X-Received: by 2002:ac2:4c50:0:b0:5b2:8963:e5d4 with SMTP id
+ 2adb3069b0e04-5b8bff1d051mr39681e87.5.1789651041084; Thu, 17 Sep 2026
+ 06:17:21 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|DS5PPF266051432:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1c082f8a-575b-4eb0-9ca1-08df14bdd248
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|366016|7416014|376014|10067099003|4143699003|22082099003|18002099003|56012099006|11063799006|5023799004;
-X-Microsoft-Antispam-Message-Info: VzKh8WCCqXUzEwf60vYOz/alCT3tJ0vGJAm0xUs7NueK6pifwWHOgwC22HdV5JMCdFAUmJgNNMngFNSlza2kIZ2M2NpK28UBl3ZYmLYbKBDKglKpHGD8z9+LmM/CdOkwQlZYTLoY6v5K9H715R5z41EVZV0RD8WfJ6EhQDJCkYFKLVbifwHcgQ4lYVaqpusFpljuRdyNosnjYyXKUeAzRiKcyYvJWeoM7vnkqCkdXkH+JHtRCDiEa7r1Bsw1ZjVqFvMQO+eGAGLusiJKjtpI303jc2CDqEqfrBx2BHKpoRHAeRvWkLicrHK9hARU6ooHl4OOFsM6VresUMv9kSmSAkREJZC6VYpLv9Dl3LdIrBky+o7vL0gxCKGULOm3c6WEwTC9Nv/hHHPbR9/2V2+scm23mw2vypbx21eyhaucaHM504kxBrmStdwC9vAsdaQxvJUPecguxNJ9pLVwCyQ9Xfd/vNYV2ujVDmYY37iOzmsuvS4dQnA6fezzq4/XpcsJGqCKSKzvcwRrZLDwOE6YYmmdWJAly0r2XYbF6EBFE+zKJ8iJIdIxud6RaKAQzWx/SDGsCzho2FNebLbYb/2TCNAjHEfG3CKi9+HH0Q4dUn4duyYzmRh7rN/rxb5JIY+Dy29sqqjR+GxuKvibWozpUaspcAxhOKbLQBYV3hctV0w=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(366016)(7416014)(376014)(10067099003)(4143699003)(22082099003)(18002099003)(56012099006)(11063799006)(5023799004);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?VQAq+XXXbFBy1VWY4njZQCLbTw5nZht0InFyc1TNRRFGWf5lBGxegmZifKY4?=
- =?us-ascii?Q?11NGBjkYapIrxBmQDfDQG/ZkWlWDme8CB8Lkn4c9WJUxEM4OLaqZ9InhXDdX?=
- =?us-ascii?Q?hJz8ARyIkdGR8zx+9VH+/+847exwU8R7CcIqIfiLeJYMTP3u+F1Iu0uk1Ftx?=
- =?us-ascii?Q?rcaT78k1DFvyM32MhQArTAm+mcfaVbpXve6Ho1gklZ4r0ny6sWEr7oOeOoWq?=
- =?us-ascii?Q?2iE4TVh13QLU7vj4ZUo1Kxk538YPmGwtyulNUZ7pHHV03hRSC6J/iAnCJ4W5?=
- =?us-ascii?Q?IOYfhjloGe3JIt3F5Jxx4m6K3olbg9uEojiiQrXKzYMTNRIUXiV9Ns27PF23?=
- =?us-ascii?Q?M+m/MG6Jz/YD/LkKv0Raya6fyomXXXsfaMYcL4PBV/3N0u67164wLULrk3te?=
- =?us-ascii?Q?lh7Kc8NuaJnsRu5N4chyQYUA1cPJ3qcabqWh28/NUd+1H0ATEZ7n9eiBtcWf?=
- =?us-ascii?Q?0T0dyJJzeuzuifH41gU5TXpZuJ6hBBC0hq89SU3gTO+25mFbQkZ7z+ePTC6Z?=
- =?us-ascii?Q?HhRvxS9BL6r59bTaK9YIbAKgUj/fa9XUi2gZPAWlppI6UKusVF8OLADUxBXL?=
- =?us-ascii?Q?0yzhDJU87bSxqSw7FnNW9HdxLwFuzGlFRS6OJcMtmofcwX+HmqUlEs0uAgsE?=
- =?us-ascii?Q?gbGK7A54wwbZiN0Rs/+u2pqhemILY/Ruhcq7KwUcIrYSLi+bRPZ54RoPICze?=
- =?us-ascii?Q?uAXytAkHKxeilkNt57BXLzYOE7jN8Y7zANXGJRLyNWizkEZl/KtJztxE6LaZ?=
- =?us-ascii?Q?VGbWU+876mX9dWvUC/3O7kkiVPZYJipiw1NBWzvYaQMKH6/hlY9yOJkwvDO8?=
- =?us-ascii?Q?l+8J9wtMsiQjUWuLOFHH5C3Sh1PnPNBWWzFbPqeToboux4j9oeJ3Lu3PJUMR?=
- =?us-ascii?Q?seY+9kld1UmmYJbwwrNBhcS2C9188bXD6zYij+gJOFsYgTMbjJLxtMMjND1X?=
- =?us-ascii?Q?x71VdA8lWgdK/HBiXx8J+VIgYUxAaB2GDMB9kmU49l56JsUBpOqWZEPkrfXn?=
- =?us-ascii?Q?a8hHaR8PWkTS9iJ5ThbD1eSudiDCvGnPznMCKhpzd88VBFUl7n6g7sUVnA0t?=
- =?us-ascii?Q?MRY4vry8owORSKHzjP5XylRW3n1wYWR0f6GRvO3+JPVLt0K356d99DISQu/M?=
- =?us-ascii?Q?96kKBsv9HdSH871beuLoDuEJPbOUORR2fX0vxffsgb6IBFnSkjwSNDaUecjX?=
- =?us-ascii?Q?I4T/4qIJHJDLDZ0fe89+GNAz5Q5k2pNQShMIhVAP2bkNUvlQI+7cu5VVyaJZ?=
- =?us-ascii?Q?hX6KfnnTWCJ/RaN6OJuQsQPwqwVNdXbQsxEoO++rhP/jx1re1F/O29IJAxoK?=
- =?us-ascii?Q?xAIAae+TDKBJOX4aO1bna+l3jg9DTqj3sy8xLrczSX976kb4JI+7+6L4YtLy?=
- =?us-ascii?Q?cAVCdNJzyX1BNFTGFQ4zt2/FHGh0UxrDAHvViDmgzsnR588OuMCVWIE7IUi5?=
- =?us-ascii?Q?6hh5bBzZBHYaZ2FnUu391IwnD3CoceZPHBspSAMrXAp36i1s/XUNIqJzyqxj?=
- =?us-ascii?Q?NByBvdS5USEvCbaa3MqX/LqAXk7kUsZBPTJzsoFIkIKpsCR6N9b5o5iK+H0Z?=
- =?us-ascii?Q?WILsj1U31oeiAR+wJ2oEDJvyQ4Z/12N4YJZYs9XanzsE1v6A2DSHKCf12nh0?=
- =?us-ascii?Q?QomLleb9VCEzEUhWq+MLQrUkZ2N4pCy1Ojc9B3EFCAsYDv8+/jJqf7n5YLLb?=
- =?us-ascii?Q?fj9iVYYUTnV5KAIvk23UP0rzbJmpxTDOuZIDoJ4lvRIyv1tZ?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1c082f8a-575b-4eb0-9ca1-08df14bdd248
-X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2026 13:16:02.2672
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: dqF8AheJJIn6/WpjXjSZffgr9ugO5RrEu7qrvhMbT8+U4FHDJkWOEcCVkcABUF2M
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS5PPF266051432
+References: <20260915160141.3543048-1-suzuki.poulose@arm.com> <20260915160141.3543048-21-suzuki.poulose@arm.com>
+In-Reply-To: <20260915160141.3543048-21-suzuki.poulose@arm.com>
+From: Fuad Tabba <tabba@google.com>
+Date: Thu, 17 Sep 2026 14:16:44 +0100
+X-Gm-Features: AcwNN1VtWWKyrr6h6sFHMUccgZH0Chs5OMidTNSOoiZ_fDx_6ZmQhtU1SR2DO2Y
+Message-ID: <CA+EHjTwYqTFzGdNPproWW5L6j5pNqmuWeFuu9HbHa8LBLPvY2A@mail.gmail.com>
+Subject: Re: [PATCH v18 20/23] KVM: arm64: CCA: Don't expose unsupported
+ capabilities for realm guests
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org, 
+	will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, steven.price@arm.com, 
+	aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com, 
+	joey.gouly@arm.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev, 
+	gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com, 
+	alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com, 
+	lpieralisi@kernel.org, enju.kohei@fujitsu.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_061626_188752_630FF97C 
-X-CRM114-Status: GOOD (  23.07  )
+X-CRM114-CacheID: sfid-20260917_061723_914307_4D32EECD 
+X-CRM114-Status: GOOD (  13.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,64 +123,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 10:24:08AM +0100, Mark Rutland wrote:
-> Hi Jason,
-> 
-> Nit on terminology below.
-> 
-> On Wed, Sep 16, 2026 at 09:27:42PM -0300, Jason Gunthorpe wrote:
-> > The erratum (MMU-700: #3777127, S3: #3673557) deals with under
-> > invalidation of a CONT PTE grouping in the SMMU. The recommended work
-> > around is to use a Range Invalidate (RIL) that spans the entire CONT. The
-> > only user of CONT in the kernel right now is through SVA sharing a CPU
-> > page table that contains a CONT created by the mm.
-> 
-> As someone familiar with VMSA, I've never seen "RIL" used to describe a
-> range invalidate and I think using that in the code below is confusing.
-> I *think* "RIL" has come from "SMMUv3.2-RIL", which is the SMMU feature
-> for Range Invalidate *and* Level hint, where "RI" is Range Invalidate,
-> and "L" is Level.
+Hi Suzuki,
 
-Yes,
+On Tue, 15 Sep 2026 17:01:38 +0100, Suzuki K Poulose
+<suzuki.poulose@arm.com> wrote:
+[...]
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+[...]
+> +static inline bool kvm_realm_ext_allowed(long ext)
+> +{
+> +        switch (ext) {
+> +        case KVM_CAP_ARM_PSCI:
+> +        case KVM_CAP_ARM_PSCI_0_2:
+> +        case KVM_CAP_NR_VCPUS:
+> +        case KVM_CAP_MAX_VCPUS:
+> +        case KVM_CAP_MAX_VCPU_ID:
+> +        case KVM_CAP_MSI_DEVID:
+> +        case KVM_CAP_ARM_VM_IPA_SIZE:
+> +        case KVM_CAP_ARM_SVE:
+> +        case KVM_CAP_ONE_REG:
+> +        case KVM_CAP_ARM_PTRAUTH_ADDRESS:
+> +        case KVM_CAP_ARM_PTRAUTH_GENERIC:
+> +        case KVM_CAP_SYNC_MMU:
+> +                return true;
+> +        }
+> +        return false;
+> +}
 
-drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h:#define IDR3_RIL                    (1 << 10)
+I'd keep KVM_CAP_IRQCHIP in this list. api.rst has it advertising
+KVM_IRQ_LINE as well as KVM_CREATE_IRQCHIP, so the cap means in-kernel
+irqchip rather than GICv2, and the GICv2 case is already rejected by
+patch 18 in kvm_vgic_create(). It also keeps the two protected lists
+the same where the support is the same. And could this live in
+kvm_rmi.h, next to where kvm_pkvm_ext_allowed() lives in kvm_pkvm.h,
+rather than in arm.c?
 
-Unfortunately I've noticed a couple of places like this where the SMMU
-terminology and VMSA differ a little bit. In these cases we've
-historically choosen the SMMU naming in the SMMU driver to be
-consistent with its spec.. I've definately seen this gets confusing
-when talking to people familiar with the CPU spec and IP.
+[...]
+> +static inline bool kvm_arch_vm_ioctl_allowed(struct kvm *kvm, unsigned int ioctl)
+> +{
+> +        long ext;
+> +        int r;
+> +
+> +        r = kvm_get_cap_for_kvm_ioctl(ioctl, &ext);
+> +        if (WARN_ON_ONCE(r < 0))
+> +                return false;
 
-I had guessed it ment "Rang InvaLidate", but you are right:
+You told Sashiko my fix covers this one [1], but that fix changes
+kvm_pkvm_ioctl_allowed(), which this patch deletes, so the `if (r <
+0)` has to go into this copy too. The guard you posted for the second
+finding still leaves the WARN reachable on pKVM and Realm hosts, which
+is the case the fix removed.
 
-  RIL, bit [10]
-       Range-based Invalidations and Level hint support for TLBI.
-       The value of this field is an IMPLEMENTATION DEFINED choice of:
+nit: kvm_arch_ is the prefix generic KVM uses for the hooks it calls
+into the arch. For two static helpers in arm.c, kvm_vm_ext_allowed()
+and kvm_vm_ioctl_allowed() would avoid the collision, and the same for
+kvm_arch_vm_ext_allowed() above.
 
-The driver also calls it ARM_SMMU_FEAT_RANGE_INV, but I thought
-range_inv everwhere made some very long names.
+Cheers,
+/fuad
 
-> Can we please spell that out as "range invalidate" or "range op"
-> (matching the arm64 architecture code) rather than "RIL"?
- 
-> That'll be easier to follow, especially as nothing in the code mentions
-> what "RIL" means -- that's only mentioned in this commit message.
-
-The whole series uses ril as a shorthand for IDR3_RIL, and the spec
-often does the same:
-
-[25:20] SCALE Range invalidation scale.
-		  * See below for use of this field in range invalidation.
-		  * When TG == 0b00 this field is RES0.
-		  * If SMMU_IDR3.RIL == 0, this field is RES0.
-                         ^^^^^^^^^^^
-
-So I'm certainly sympathetic, but I don't know we should diverge the
-driver from the language in it's own spec.
-
-Do you have a recommendation for a suitable short name? It is
-meaningful work to rename everything in this series.. Will?
-
-Thanks,
-Jason
+[1] https://lore.kernel.org/all/20260914093838.1082637-1-fuad.tabba@linux.dev/
 
