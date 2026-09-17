@@ -4,100 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63322C982D7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 15:41:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EA6CC982D6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 15:42:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9SHCRdKjHlCadmC8q5y5P3i56DmTdXwCHjJybAu+EXQ=; b=wWgi2oOtd15nULjIo9tqNtsR17
-	TtyP0gjZQX3C1Q4CzdgLvsnaWeIQ1CfRJCpgGe0HyVgEJxpM/BqyiSJvERKAqXqogBYF8Pp9MX3of
-	tXR+CeNfEZ+udFddxEUo4UJ4NmFWpERu7T6OyaveOkECVFkJnnVQCzfUqVNUqn7uvulFS1kxWW72x
-	q0NgP7uRXlpg4rY6iZwVwGnnZLNU/L1PrQGdnHFwWWWGXQnzYcjfyARtooQr28H1796AckdzEsKK7
-	Fxi+bnC/skexGkbgTfq1xuO1tMMqd2LY5v7M7JAEWG6vuLScjmNySqOMvQiD7o7ZrBCrEs9cNofto
-	b9El5H8A==;
+	bh=+G+IlMUQeaVUIvgPiPnf+R5hSWuSFY3wPT2JU/ScS5o=; b=2fYv0VkHDNfgxSRZ/w5gKtmNp6
+	mJ9CTg0iNaPYUaqWw3dPz79FKlZ+EYR946cnAPCK50bVIfeFXgL1EXg8hOl3x0E5i1ftUyf9he2YC
+	1s8/xBqqN6WsW9n3cuhQqSIHdv0CSkV3X+NvU3SGYbhRXPCk8Sy1qXq1JU7M5jVtKF+xqwR4qH5QJ
+	fQjS+FrC86rJ2IcAcMJiNQxTPvDR/OMFEmCWKh306+xiDZeUoIqgDVGf8CVnqWQ8jd1fL90uT7EaG
+	MyPhC/7wF24gB80SdRKhKq9E0xiDbxQDMXET+k8uU/sFSksM5XGJOSgU7uvr38fW6gzvWPW360bnh
+	GmTU7OPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7EFC-0000000BjBJ-2j8a;
-	Thu, 17 Sep 2026 15:41:50 +0000
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	id 1x7CUZ-0000000BRPJ-44ce;
+	Thu, 17 Sep 2026 13:49:35 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7EF7-0000000Bj96-2yJb
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 15:41:46 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e8185e037so5693655e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 08:41:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789659704; x=1790264504; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=9SHCRdKjHlCadmC8q5y5P3i56DmTdXwCHjJybAu+EXQ=;
-        b=em6YcbkzTfrEm4mFdO3QF5P2sMKU3kJGh924/r3q1cqhwkSENbY/zLcS7IVrJAcasX
-         jZOCbRIWXpoJAxyco1ZpVBJwjuVFa4rJ6BhEtDPEwPIuWFsY60WeKhQ41TmGP1W4+Pqo
-         GVghi7VfNRIJBKLCO54S7FKHBmJg7HMGbeCLWxBWVNaP2a3nxSKNrY2GuMkKwMRND7Lr
-         6ekYIa+d9QyuZXyJyeYFOuEQlCP7js7AsHSiFg4LGRkj38OLAdFukng9KkDHWdU93TZg
-         oZc9ZutsMXdQmJ26grWT+LRZojKArCog/Y3Fv8vijHKhAULF0HtE6748ZUiJoEQ5hm9I
-         aanA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789659704; x=1790264504;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=9SHCRdKjHlCadmC8q5y5P3i56DmTdXwCHjJybAu+EXQ=;
-        b=npMqu28UtAjCzCe4U8HiczWVcNTb6a+/me2O/w51csXiJgnDerZIFVHKxYjfCPGqSS
-         C17H9wPFWygg7C+NdYZAp6BrLIEak2AS8CLdo3WzuTBe+ROtLmoVloYMfQwLKF59UVdc
-         bDvv2YL1LLg9+VNBlmvehgJ6CptWPVZ2x4k8qruyhPZmrKxuvrJYpRex6K19TGHiy0xE
-         QsMDgchPjfM/66SiQlIt6YUDjuq4lYT4uuHZV5ymbPhQ58d/UaYq3nThg5TB4NMUqGNb
-         MjsOT29pA+7GWo7m/RHnEQLxvWhJl1H0WwSI9P4u/CKZaYrHaKWj+ZE4a1FOfOKk81In
-         T1GQ==
-X-Forwarded-Encrypted: i=1; AKwUvByg5QarwoLM3ptr6hhQpgFlSmw+yp/eGb2fQjxbDckOwjhXjg8j7wbvdgtgSC2/BEep8/f1drh62zEl8QiXWilk@lists.infradead.org
-X-Gm-Message-State: AFuF++m64Ym0k1gRRQ9ZSBa/Sdm38h4MxCN7PYJyl2NeyFCac3cmvO5h
-	t5PsKnFHvzmap5KCRq7BksBqp+Iq/x7+UDDnULqg4CpqHcf/TxC3vYnw
-X-Gm-Gg: AYBFou0tVUXmr12lUj2jyfW9qqFQY4IEYbUAUTSXpTevb2gko+txkxfESjuJJLyjGa3
-	Lg5mLiEE2tbOo0XoQGaerWiGxwEU6AlqKoylaxrfGz8j0UqZ3oDYv1EXuV25l024ULxWu5dAZqE
-	wDP5/81zgGz1Afinus0O71XsjTBnSHIPuFufpCM4hXuWKZQ7oUrQVTP5SU5JsOCecxUn783TRyc
-	ywdW+Yvi6R58eExvwZO7d3pze7NwCujVIRyVI0h+/EfBlwIy/fRLoRxQF1+45apbBOLrVHCTVMR
-	UP8IA40DZVTHz+CFBDmnBoZ62MQKBziajZn4dNb2k4Hh9nUq30je2IQOpuzapt6AeI2XqAHKYEb
-	3OqbhvuJeR0q6oaAmU6mbP1fiDZWr2LH6FC/VOvykBmKqcYiDSlCtTsAx4S3fHzmYOkHFxMdiS0
-	8syUzAKgF3jwdUZeaacjuFiWz2T8+dbN1j2XQsh/U/cv+Wj5gWzJ7H+teYF1eH7ThG5GqtESsxo
-	+OP9iOjesr3o4xWMAE5qEAZIGhQeY6XW9FvTtDLbe0iifHK6Z/+0H6aMte120IPL2p8L5bIFQNN
-	dZ6dIxTgv+4tXsuQUXDr3w==
-X-Received: by 2002:a05:600c:1f87:b0:49d:1df6:2592 with SMTP id 5b1f17b1804b1-49eb732350cmr85671685e9.21.1789659703973;
-        Thu, 17 Sep 2026 08:41:43 -0700 (PDT)
-Received: from Lord-Beerus.station ([31.27.155.43])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fbd227141sm100124235e9.2.2026.09.17.08.41.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 17 Sep 2026 08:41:43 -0700 (PDT)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
-To: Frank Li <Frank.Li@nxp.com>,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Nate Drude <nate.d@variscite.com>
-Subject: [PATCH v2 3/3] arm64: dts: imx8mm-var-dart: increase PHY reset deassert delay
-Date: Thu, 17 Sep 2026 17:41:30 +0200
-Message-ID: <c13d304b5eb9a82717d192aed0d81ffef5573aa9.1789659585.git.stefano.r@variscite.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1789659585.git.stefano.r@variscite.com>
-References: <cover.1789659585.git.stefano.r@variscite.com>
+	id 1x7CUO-0000000BRIu-2zjS;
+	Thu, 17 Sep 2026 13:49:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1789652962;
+	bh=aT58dFKDyhiJqaN2cKniCqERGQtyp3W/fZdagjPbqYo=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=nENDayZu5h86a+lobdB+0pkGYEghVc+bobhgshkO8kmUW5CkYKrK6Qh2fIrFQUvoO
+	 7QM9sq/80J8HXBPyFqxMAdbCSF7pnrrR+p4aSpWIb+qOqOQWU5Tn7ENhL/urEntFAJ
+	 8JaOyZccLpSnjkr+ZgKNUBZaTGAQu+cW4RlggrDhVUnDj1NrLZ6xkvTyuekP/iUcrR
+	 KSTPucE7BoA2qC7brIzJEivrxJnYH2l4FJzqGc6xvIXyMi8CZov++63WgvkFvxCVR2
+	 0pGYwpIsxuRnPaLCvxLGHP1ttI+05y2ps4ZhSdgmvtmbVRnhVkraoLZhfS7BzNtg6/
+	 26rSqNMUJ+oJg==
+Received: from jupiter.universe (unknown [100.64.1.62])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C762017E09B5;
+	Thu, 17 Sep 2026 15:49:21 +0200 (CEST)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id 7DA5C480030; Thu, 17 Sep 2026 15:49:21 +0200 (CEST)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Thu, 17 Sep 2026 15:49:15 +0200
+Subject: [PATCH 3/8] PM / devfreq: rockchip-dfi: move to per-variant const
+ structs
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260917-rockchip-dfi-cleanup-v1-3-4f00a97a69a6@collabora.com>
+References: <20260917-rockchip-dfi-cleanup-v1-0-4f00a97a69a6@collabora.com>
+In-Reply-To: <20260917-rockchip-dfi-cleanup-v1-0-4f00a97a69a6@collabora.com>
+To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Chanwoo Choi <cw00.choi@samsung.com>, 
+ MyungJoo Ham <myungjoo.ham@samsung.com>, 
+ Kyungmin Park <kyungmin.park@samsung.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+ kernel@collabora.com, Sebastian Reichel <sebastian.reichel@collabora.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9544;
+ i=sebastian.reichel@collabora.com; h=from:subject:message-id;
+ bh=y65RBL8I0JRF1EhPVMN7EiGUEBnlIwsg0XksNw4AoAc=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGqr7+Fnij/OsEOFye8+laUQi9WXJoNmxfBL4
+ 6+Iao1KkhJfnYkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqq+/hAAoJENju1/PI
+ O/qaaGsP/RUiYEaltcRqOAl2464GnmWS6SSYVs2ChA4uuDGPYN0+ZvkO6nKOZv14WAc4ZpHkzl9
+ EJ6la7DDZpKApyjosKs0w8yAFWvDdM8r7BPMO8Jx1fr60tAmTyfVBgxPMeiM7goUueupY4vrYr3
+ hKKb377dIXlyztX4F5TRqYxkfzcm0lBSWXOtoAw5cGlSZIHo0jsFdtMpEMGQpBDdnv9vWVOPwJl
+ HftuyqgSfvNKp/aW8Y4RoWHakuxM7JkLQLoU41AM+kBWK5El8l36l74mERzgjDctAh3fUpouuM4
+ AgXhVo7x46ez8F5D4TBTOnnVz3FasC5ZaGi90aZPpbOXQK92j9PfVaSGwAbPM0AATfKoCQKO2Ke
+ dbAfxMNyK4dliL08RywCuqd5D25a98S8ozo/6qqN448+OBFEXULU4VxGkCKK11f+/rLSZTyDM0z
+ ahhvQBWiyuvsWbMUv0zRgxccVwBybAoiM7H56VvMMJhfWQ9J3GEYO2+WaezXmOWU7c7P/YBsnFl
+ Jqbj6xWKLq8hQxkLkzOi6QrZkdm8a0PKWsQmXEWlh5uFH5HEiUsxV0Buy8b/1viBGGacfIDNU0f
+ pEnD3YXgVGBcYLu/LPAwu1wM2GFA6Mxfe5iLmagNhtd2qH4NW+/jYdtRAqAd+jxSayw2Lkhl6Yg
+ KhmK04eR8EI32k6EEqp4t3w==
+X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_084145_778889_B5A11BA0 
-X-CRM114-Status: GOOD (  11.93  )
+X-CRM114-CacheID: sfid-20260917_064924_956187_C7932B8E 
+X-CRM114-Status: GOOD (  23.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,43 +103,275 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stefano Radaelli <stefano.r@variscite.com>
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-The Ethernet PHY reset signal also controls the regulators supplying
-VDDA2P5 and VDD1P0, so releasing reset restores the PHY's 2.5 V and
-1.0 V analog supplies.
+The rockchip-dfi driver supports several variants of the DDR monitoring
+hardware. The differences in these variants are handled with one init
+function for each variant.
 
-The existing 100 ms reset deassertion delay is not sufficient for
-reliable PHY detection. The TI DP83867 requires 200 ms of stabilization
-after power-up before MDIO register access.
+However, some of the members that these init functions set are actually
+constants, specific to that variant, with no runtime involvement from
+reading registers or anything.
 
-Increase the reset deassertion delay to 200 ms to ensure reliable PHY
-detection across repeated boots.
+Refactor the code to move those values (and the soc_init function
+pointer) into a new struct. Declare some const instances of this variant
+struct, and use it wherever needed.
 
-Co-developed-by: Nate Drude <nate.d@variscite.com>
-Signed-off-by: Nate Drude <nate.d@variscite.com>
-Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
-v1->v2:
- - 
+ drivers/devfreq/event/rockchip-dfi.c | 94 +++++++++++++++++++++---------------
+ 1 file changed, 54 insertions(+), 40 deletions(-)
 
- arch/arm64/boot/dts/freescale/imx8mm-var-dart.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/drivers/devfreq/event/rockchip-dfi.c b/drivers/devfreq/event/rockchip-dfi.c
+index 255aee1bdd91..5339616f7ca6 100644
+--- a/drivers/devfreq/event/rockchip-dfi.c
++++ b/drivers/devfreq/event/rockchip-dfi.c
+@@ -103,7 +103,6 @@ struct rockchip_dfi {
+ 	struct mutex mutex;
+ 	u32 ddr_type;
+ 	unsigned int channel_mask;
+-	unsigned int max_channels;
+ 	enum cpuhp_state cpuhp_state;
+ 	struct hlist_node node;
+ 	struct pmu pmu;
+@@ -112,11 +111,17 @@ struct rockchip_dfi {
+ 	int active_events;
+ 	int burst_len;
+ 	int buswidth[DMC_MAX_CHANNELS];
+-	int ddrmon_stride;
+-	bool ddrmon_ctrl_single;
+ 	u32 lp5_bank_mode;
+ 	bool lp5_ckr;	/* true if in 4:1 command-to-data clock ratio mode */
+ 	unsigned int count_multiplier;	/* number of data clocks per count */
++	const struct rockchip_dfi_variant *variant;
++};
++
++struct rockchip_dfi_variant {
++	int (*init)(struct rockchip_dfi *dfi);
++	int stride;
++	bool ctrl_single;
++	unsigned int max_channels;
+ };
+ 
+ static int rockchip_dfi_ddrtype_to_ctrl(struct rockchip_dfi *dfi, u32 *ctrl)
+@@ -188,7 +193,7 @@ static int rockchip_dfi_enable(struct rockchip_dfi *dfi)
+ 	if (ret)
+ 		goto out;
+ 
+-	for (i = 0; i < dfi->max_channels; i++) {
++	for (i = 0; i < dfi->variant->max_channels; i++) {
+ 
+ 		if (!(dfi->channel_mask & BIT(i)))
+ 			continue;
+@@ -197,16 +202,16 @@ static int rockchip_dfi_enable(struct rockchip_dfi *dfi)
+ 		writel_relaxed(FIELD_PREP_WM16(DDRMON_CTRL_TIMER_CNT_EN, 0) |
+ 			       FIELD_PREP_WM16(DDRMON_CTRL_SOFTWARE_EN, 0) |
+ 			       FIELD_PREP_WM16(DDRMON_CTRL_HARDWARE_EN, 0),
+-			       dfi_regs + i * dfi->ddrmon_stride + DDRMON_CTRL);
++			       dfi_regs + i * dfi->variant->stride + DDRMON_CTRL);
+ 
+-		writel_relaxed(ctrl, dfi_regs + i * dfi->ddrmon_stride +
++		writel_relaxed(ctrl, dfi_regs + i * dfi->variant->stride +
+ 			       DDRMON_CTRL);
+ 
+ 		/* enable count, use software mode */
+ 		writel_relaxed(FIELD_PREP_WM16(DDRMON_CTRL_SOFTWARE_EN, 1),
+-			       dfi_regs + i * dfi->ddrmon_stride + DDRMON_CTRL);
++			       dfi_regs + i * dfi->variant->stride + DDRMON_CTRL);
+ 
+-		if (dfi->ddrmon_ctrl_single)
++		if (dfi->variant->ctrl_single)
+ 			break;
+ 	}
+ out:
+@@ -229,14 +234,14 @@ static void rockchip_dfi_disable(struct rockchip_dfi *dfi)
+ 	if (dfi->usecount > 0)
+ 		goto out;
+ 
+-	for (i = 0; i < dfi->max_channels; i++) {
++	for (i = 0; i < dfi->variant->max_channels; i++) {
+ 		if (!(dfi->channel_mask & BIT(i)))
+ 			continue;
+ 
+ 		writel_relaxed(FIELD_PREP_WM16(DDRMON_CTRL_SOFTWARE_EN, 0),
+-			       dfi_regs + i * dfi->ddrmon_stride + DDRMON_CTRL);
++			       dfi_regs + i * dfi->variant->stride + DDRMON_CTRL);
+ 
+-		if (dfi->ddrmon_ctrl_single)
++		if (dfi->variant->ctrl_single)
+ 			break;
+ 	}
+ 
+@@ -250,17 +255,17 @@ static void rockchip_dfi_read_counters(struct rockchip_dfi *dfi, struct dmc_coun
+ 	u32 i;
+ 	void __iomem *dfi_regs = dfi->regs;
+ 
+-	for (i = 0; i < dfi->max_channels; i++) {
++	for (i = 0; i < dfi->variant->max_channels; i++) {
+ 		if (!(dfi->channel_mask & BIT(i)))
+ 			continue;
+ 		res->c[i].read_access = readl_relaxed(dfi_regs +
+-				DDRMON_CH0_RD_NUM + i * dfi->ddrmon_stride);
++				DDRMON_CH0_RD_NUM + i * dfi->variant->stride);
+ 		res->c[i].write_access = readl_relaxed(dfi_regs +
+-				DDRMON_CH0_WR_NUM + i * dfi->ddrmon_stride);
++				DDRMON_CH0_WR_NUM + i * dfi->variant->stride);
+ 		res->c[i].access = readl_relaxed(dfi_regs +
+-				DDRMON_CH0_DFI_ACCESS_NUM + i * dfi->ddrmon_stride);
++				DDRMON_CH0_DFI_ACCESS_NUM + i * dfi->variant->stride);
+ 		res->c[i].clock_cycles = readl_relaxed(dfi_regs +
+-				DDRMON_CH0_COUNT_NUM + i * dfi->ddrmon_stride);
++				DDRMON_CH0_COUNT_NUM + i * dfi->variant->stride);
+ 	}
+ }
+ 
+@@ -297,7 +302,7 @@ static int rockchip_dfi_get_event(struct devfreq_event_dev *edev,
+ 	rockchip_dfi_read_counters(dfi, &count);
+ 
+ 	/* We can only report one channel, so find the busiest one */
+-	for (i = 0; i < dfi->max_channels; i++) {
++	for (i = 0; i < dfi->variant->max_channels; i++) {
+ 		u32 a, c;
+ 
+ 		if (!(dfi->channel_mask & BIT(i)))
+@@ -336,7 +341,7 @@ static void rockchip_ddr_perf_counters_add(struct rockchip_dfi *dfi,
+ 	const struct dmc_count *last = &dfi->last_perf_count;
+ 	int i;
+ 
+-	for (i = 0; i < dfi->max_channels; i++) {
++	for (i = 0; i < dfi->variant->max_channels; i++) {
+ 		res->c[i].read_access = dfi->total_count.c[i].read_access +
+ 			(u32)(now->c[i].read_access - last->c[i].read_access);
+ 		res->c[i].write_access = dfi->total_count.c[i].write_access +
+@@ -477,11 +482,11 @@ static u64 rockchip_ddr_perf_event_get_count(struct perf_event *event)
+ 		count = total.c[0].clock_cycles * dfi->count_multiplier;
+ 		break;
+ 	case PERF_EVENT_READ_BYTES:
+-		for (i = 0; i < dfi->max_channels; i++)
++		for (i = 0; i < dfi->variant->max_channels; i++)
+ 			count += total.c[i].read_access * blen * dfi->buswidth[i];
+ 		break;
+ 	case PERF_EVENT_WRITE_BYTES:
+-		for (i = 0; i < dfi->max_channels; i++)
++		for (i = 0; i < dfi->variant->max_channels; i++)
+ 			count += total.c[i].write_access * blen * dfi->buswidth[i];
+ 		break;
+ 	case PERF_EVENT_READ_BYTES0:
+@@ -509,7 +514,7 @@ static u64 rockchip_ddr_perf_event_get_count(struct perf_event *event)
+ 		count = total.c[3].write_access * blen * dfi->buswidth[3];
+ 		break;
+ 	case PERF_EVENT_BYTES:
+-		for (i = 0; i < dfi->max_channels; i++)
++		for (i = 0; i < dfi->variant->max_channels; i++)
+ 			count += total.c[i].access * blen * dfi->buswidth[i];
+ 		break;
+ 	}
+@@ -726,14 +731,10 @@ static int rk3399_dfi_init(struct rockchip_dfi *dfi)
+ 	dfi->ddr_type = FIELD_GET(RK3399_PMUGRF_OS_REG2_DDRTYPE, val);
+ 
+ 	dfi->channel_mask = GENMASK(1, 0);
+-	dfi->max_channels = 2;
+ 
+ 	dfi->buswidth[0] = FIELD_GET(RK3399_PMUGRF_OS_REG2_BW_CH0, val) == 0 ? 4 : 2;
+ 	dfi->buswidth[1] = FIELD_GET(RK3399_PMUGRF_OS_REG2_BW_CH1, val) == 0 ? 4 : 2;
+ 
+-	dfi->ddrmon_stride = 0x14;
+-	dfi->ddrmon_ctrl_single = true;
+-
+ 	return 0;
+ };
+ 
+@@ -756,13 +757,9 @@ static int rk3568_dfi_init(struct rockchip_dfi *dfi)
+ 		dfi->ddr_type |= FIELD_GET(RK3568_PMUGRF_OS_REG3_DRAMTYPE_INFO_V3, reg3) << 3;
+ 
+ 	dfi->channel_mask = BIT(0);
+-	dfi->max_channels = 1;
+ 
+ 	dfi->buswidth[0] = FIELD_GET(RK3568_PMUGRF_OS_REG2_BW_CH0, reg2) == 0 ? 4 : 2;
+ 
+-	dfi->ddrmon_stride = 0x0; /* not relevant, we only have a single channel on this SoC */
+-	dfi->ddrmon_ctrl_single = true;
+-
+ 	return 0;
+ };
+ 
+@@ -791,9 +788,7 @@ static int rk3588_dfi_init(struct rockchip_dfi *dfi)
+ 	dfi->buswidth[3] = FIELD_GET(RK3588_PMUGRF_OS_REG2_BW_CH1, reg4) == 0 ? 4 : 2;
+ 	dfi->channel_mask = FIELD_GET(RK3588_PMUGRF_OS_REG2_CH_INFO, reg2) |
+ 			    FIELD_GET(RK3588_PMUGRF_OS_REG2_CH_INFO, reg4) << 2;
+-	dfi->max_channels = 4;
+ 
+-	dfi->ddrmon_stride = 0x4000;
+ 	dfi->count_multiplier = 2;
+ 
+ 	if (dfi->ddr_type == ROCKCHIP_DDRTYPE_LPDDR5) {
+@@ -807,10 +802,30 @@ static int rk3588_dfi_init(struct rockchip_dfi *dfi)
+ 	return 0;
+ };
+ 
++static const struct rockchip_dfi_variant rk3399_variant = {
++	.init = rk3399_dfi_init,
++	.stride = 0x14,
++	.ctrl_single = true,
++	.max_channels = 2,
++};
++
++static const struct rockchip_dfi_variant rk3568_variant = {
++	.init = rk3568_dfi_init,
++	.stride = 0x0,
++	.ctrl_single = true,
++	.max_channels = 1,
++};
++
++static const struct rockchip_dfi_variant rk3588_variant = {
++	.init = rk3588_dfi_init,
++	.stride = 0x4000,
++	.max_channels = 4,
++};
++
+ static const struct of_device_id rockchip_dfi_id_match[] = {
+-	{ .compatible = "rockchip,rk3399-dfi", .data = rk3399_dfi_init },
+-	{ .compatible = "rockchip,rk3568-dfi", .data = rk3568_dfi_init },
+-	{ .compatible = "rockchip,rk3588-dfi", .data = rk3588_dfi_init },
++	{ .compatible = "rockchip,rk3399-dfi", .data = &rk3399_variant },
++	{ .compatible = "rockchip,rk3568-dfi", .data = &rk3568_variant },
++	{ .compatible = "rockchip,rk3588-dfi", .data = &rk3588_variant },
+ 	{ },
+ };
+ 
+@@ -822,17 +837,16 @@ static int rockchip_dfi_probe(struct platform_device *pdev)
+ 	struct rockchip_dfi *dfi;
+ 	struct devfreq_event_desc *desc;
+ 	struct device_node *np = pdev->dev.of_node, *node;
+-	int (*soc_init)(struct rockchip_dfi *dfi);
+ 	int ret;
+ 
+-	soc_init = of_device_get_match_data(&pdev->dev);
+-	if (!soc_init)
+-		return -EINVAL;
+-
+ 	dfi = devm_kzalloc(dev, sizeof(*dfi), GFP_KERNEL);
+ 	if (!dfi)
+ 		return -ENOMEM;
+ 
++	dfi->variant = of_device_get_match_data(dev);
++	if (!dfi->variant)
++		return -EINVAL;
++
+ 	dfi->regs = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(dfi->regs))
+ 		return PTR_ERR(dfi->regs);
+@@ -854,7 +868,7 @@ static int rockchip_dfi_probe(struct platform_device *pdev)
+ 	desc->driver_data = dfi;
+ 	desc->name = np->name;
+ 
+-	ret = soc_init(dfi);
++	ret = dfi->variant->init(dfi);
+ 	if (ret)
+ 		return ret;
+ 
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-var-dart.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-var-dart.dtsi
-index 953950e55bf9..4d6a79bbb132 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-var-dart.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-var-dart.dtsi
-@@ -123,7 +123,7 @@ ethphy0: ethernet-phy@0 {
- 			reg = <0>;
- 			reset-gpios = <&gpio1 9 GPIO_ACTIVE_LOW>;
- 			reset-assert-us = <10000>;
--			reset-deassert-us = <100000>;
-+			reset-deassert-us = <200000>;
- 			vddio-supply = <&reg_phy_vddio>;
- 		};
- 	};
 -- 
-2.47.3
+2.53.0
 
 
