@@ -4,68 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 895F4C982CF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 12:44:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 738DBC88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 12:51:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=UdjmkgviHBM10spBzNASNtKUvaVRGwvulqW5jHHFEYk=; b=33M532lREVtyoeq2ZulY+d623P
-	Lx07qh0wPSPl9VxAge0pAJp96k9F1/Exx4xGduEbpLQbB/0TpWJeNGjT7LYTQ19a+HkhVTPNJHobf
-	kTxzgnUy4WHkqryOeIAFTh77JZRWfdpxDLjWBigUo1rMt3A9fb9wViEXCkZGj9nGrrsGoVCJ9hyqV
-	bGq+DXQv1ngh39rXfzrnIfS/Fl7YT7d2bwnsBIgbL0aFuVCZ9l9R2NVbvMjGJqCMGre/fPZ2JD29Y
-	6VBLM1nlmXh3myXlgmADVPsHKf+yTphqjzXgKdQC6Ess53MGyVOkIEe2uBFr4HZCkxfgwHEZ1kXwS
-	YGpM21Rg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4CLuglWww/cpnE9iMVkbWNWwDdhMcYkMOkDQE39kjT8=; b=y9h4d4YtpBbMWmfy7iqJeiXHCh
+	TC3baPHAouTK87M/4mXfICclScOfm6ZL/L4nCxTtsd/in/98Da9rFX1BsQ7xnfz79iCNmmpz62A8f
+	aGYjS/FIIbliMEUVN8HWyksWPkv/5rfRP64yvH/tL+PB/airLwCiKbqEqnDULpRzBs+gGNg4195N/
+	t1Pu8GTrT8N2aQj7WRzdQoxHk4NHo/Al97E4UsXS2O/C6Y/BXba/x1lhL2QRVqefuquGTf523A7Nt
+	g9qYFC9K0cOKnXhUspYBeRUtbi7+73BxkSNLYCuva/I/+EvNYMXXC0IsiR0ORSLT8SnPo3Qvu30MM
+	FA8QSzkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7BTV-0000000BK5B-0grn;
-	Thu, 17 Sep 2026 12:44:25 +0000
-Received: from m16.mail.126.com ([117.135.210.9])
+	id 1x7Baa-0000000BKfK-41GP;
+	Thu, 17 Sep 2026 12:51:44 +0000
+Received: from mail.mainlining.org ([5.75.144.95])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7BTS-0000000BK4j-0R6t
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 12:44:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Ud
-	jmkgviHBM10spBzNASNtKUvaVRGwvulqW5jHHFEYk=; b=AzYpqDKDPT6uQ0QNSp
-	AFQsykS5eszIdzvKC3sbJDAip2ApyxCFKrWC6tJaLF1+7RPasXvilXi6Pv7wri5E
-	g+VqD3iMmMBdgFqxdzkS0/RWwgXjKtARdm3OM5BGFA6IYOHMo8IQdGadJVm20AKt
-	euVjcPEPKQy509PH5tBse5m7Q=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g1-4 (Coremail) with SMTP id _____wD31zM84KtqpddEBg--.12077S2;
-	Thu, 17 Sep 2026 20:42:38 +0800 (CST)
-From: Linkui Xiao <xiaolinkui@126.com>
-To: maxime.chevallier@bootlin.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com
-Cc: netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Linkui Xiao <xiaolinkui@kylinos.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH net] net: stmmac: do not cache the new TSO MSS before it reaches the DMA
-Date: Thu, 17 Sep 2026 20:42:34 +0800
-Message-Id: <20260917124234.1348673-1-xiaolinkui@126.com>
-X-Mailer: git-send-email 2.25.1
+	id 1x7BaX-0000000BKed-2oSC;
+	Thu, 17 Sep 2026 12:51:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; s=202507r; d=mainlining.org; c=relaxed/relaxed;
+	h=To:Message-Id:Subject:Date:From; t=1789649487; bh=4CLuglWww/cpnE9iMVkbWNW
+	wDdhMcYkMOkDQE39kjT8=; b=JwUcMar2nbwhjP9o2iVvJsFUae4FRG2nh4H1umpSKuGuWa3jAA
+	NnZsUncmc/1bvPA4opiDWiQSGHJzuToQF7bZopYfRqCVAkJCVaw78XdlSI/6F5FB2Cf1JXOtrE0
+	KnAj93lW34/s2Gkfs9o5UjZ7wtzs+swbpNg+ifpz482klkQCM9GW98d15l2YLaW0jgxlOiJgEhh
+	N+IByxvcqGScHgvv/dMI1Ap1NwBv/Q9++edllTcPRic2sX3heyU3d7DhPzhtytR7pbh0agLxX/a
+	EeXcR3Zh1gxQ/yyfLlYz1gc7tdRx0OqYo5yJxhPF5XbdoxvkW4Q+FOC99wO9/rgEIxA==;
+DKIM-Signature: v=1; a=ed25519-sha256; s=202507e; d=mainlining.org; c=relaxed/relaxed;
+	h=To:Message-Id:Subject:Date:From; t=1789649487; bh=4CLuglWww/cpnE9iMVkbWNW
+	wDdhMcYkMOkDQE39kjT8=; b=1zWkS9L1PSKJlaS/vFXPP2pIVDzFNP3Cr/DxtQJIzNoUT+64aG
+	MZU994hzyLSP5ydS9NLXIr2HMCb21Sw6OJCQ==;
+From: Nickolay Goppen <setotau@mainlining.org>
+Date: Thu, 17 Sep 2026 15:51:20 +0300
+Subject: [PATCH v4 1/3] dt-bindings: display: panel: Add Novatek NT51021
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD31zM84KtqpddEBg--.12077S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxJr4rJFW7WF17XFW8KryrXrb_yoW8urW7pF
-	4UAayvy3s8Jr1fZw48Cw40va45JayxtFWYkw1UGr9xCr43Jr9FgrySgrW8W34UJ3y5ZF1S
-	ka1Du347AF45JrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UlhFsUUUUU=
-X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBqR7Mo2qr4D5VtQAA3n
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260917-qcom-novatek-nt51021-panels-v4-1-30afbc35d70c@mainlining.org>
+References: <20260917-qcom-novatek-nt51021-panels-v4-0-30afbc35d70c@mainlining.org>
+In-Reply-To: <20260917-qcom-novatek-nt51021-panels-v4-0-30afbc35d70c@mainlining.org>
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Jessica Zhang <jesszhan0024@gmail.com>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Nickolay Goppen <setotau@mainlining.org>, 
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Ryan Brue <ryanbrue.dev@gmail.com>, 
+ Alexey Minnekhanov <alexeymin@minlexx.ru>, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789649485; l=3534;
+ i=setotau@mainlining.org; s=20250815; h=from:subject:message-id;
+ bh=x8NEKtFdLRC+MuRJnahM8czimw+tZNpnYl/kkgWz68w=;
+ b=6NTWr4+56WUkrYFqCqZYlmkrrLwJsXMmGybON1kmhDeKnQ6zhR2RyhFrxjn/GS1vueiZ3JTpE
+ +2jH1csFubYDWx3MTblGjlAxgvGU0fxL39FhDjDvegzQcREBmNlCnNT
+X-Developer-Key: i=setotau@mainlining.org; a=ed25519;
+ pk=Og7YO6LfW+M2QfcJfjaUaXc8oOr5zoK8+4AtX5ICr4o=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_054422_564866_EC3BA72B 
-X-CRM114-Status: GOOD (  12.70  )
+X-CRM114-CacheID: sfid-20260917_055141_880596_9A06ECF7 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,53 +86,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Linkui Xiao <xiaolinkui@kylinos.cn>
+Novatek NT51021 is a display driver IC that can drive DSI panel. It
+is also present in the BOE TV101WUM-NX0 video mode panel, which is a WUXGA
+panel with a resolution of 1200x1920 and 10.1 inches size. It is found in
+Xiaomi Mi Pad 4 Plus. Also it's present in the BOE-TV080WUM-NX2 video mode
+panel, which also has a resolution of 1200x1920, but 8 inches size. It is
+found in Xiaomi Mi Pad 4. And also it's present in the BOE-TV101WUM-NM0.
+It's found in Amazon Fire HD 10 (2017).
 
-stmmac_tso_xmit() fills the MSS context descriptor and stores the new
-MSS in tx_q->mss right away, but the descriptor only gets its OWN bit
-much later, right before the frame is handed to the DMA. Every error
-path in between - the dma_map_single() of the linear part and the
-skb_frag_dma_map() of each fragment - returns with tx_q->mss already
-updated while the MAC is still programmed with the previous MSS; the
-abandoned context descriptor is later reclaimed by stmmac_tx_clean().
+Add the bindings for display driver for the IC, with support added
+for this BOE TV101WUM-NX0 and TV080WUM-NX2 WUXGA video mode panels.
 
-The next skb carrying the same MSS then compares equal to the cached
-value, so no context descriptor is emitted and the hardware segments
-the TCP stream with a stale MSS, generating frames whose payload size
-does not match what the stack accounted for.
-
-Only update tx_q->mss once the context descriptor has been given to the
-DMA so that the cached value always describes what the hardware is
-actually programmed with.
-
-Fixes: f748be531d70 ("stmmac: support new GMAC4")
-Cc: stable@vger.kernel.org
-Signed-off-by: Linkui Xiao <xiaolinkui@kylinos.cn>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Co-developed-by: Ryan Brue <ryanbrue.dev@gmail.com>
+Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
+Signed-off-by: Nickolay Goppen <setotau@mainlining.org>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ .../bindings/display/panel/novatek,nt51021.yaml    | 87 ++++++++++++++++++++++
+ 1 file changed, 87 insertions(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index af2d38a2bb3d..a8f94cd6abb4 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -4563,7 +4563,6 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
- 			mss_desc = &tx_q->dma_tx[tx_q->cur_tx];
- 
- 		stmmac_set_mss(priv, mss_desc, mss);
--		tx_q->mss = mss;
- 		tx_q->cur_tx = STMMAC_NEXT_ENTRY(tx_q->cur_tx,
- 						priv->dma_conf.dma_tx_size);
- 		WARN_ON(tx_q->tx_skbuff[tx_q->cur_tx]);
-@@ -4714,6 +4713,7 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
- 		 */
- 		dma_wmb();
- 		stmmac_set_tx_owner(priv, mss_desc);
-+		tx_q->mss = mss;
- 	}
- 
- 	if (netif_msg_pktdata(priv)) {
+diff --git a/Documentation/devicetree/bindings/display/panel/novatek,nt51021.yaml b/Documentation/devicetree/bindings/display/panel/novatek,nt51021.yaml
+new file mode 100644
+index 000000000000..7754a8cb1e5c
+--- /dev/null
++++ b/Documentation/devicetree/bindings/display/panel/novatek,nt51021.yaml
+@@ -0,0 +1,87 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/display/panel/novatek,nt51021.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Novatek NT51021 based DSI display Panels
++
++maintainers:
++  - Nickolay Goppen <setotau@mainlining.org>
++
++description:
++  The NT51021 IC from Novatek is a generic DSI Panel IC used to drive dsi
++  panels.
++  Right now, support is added only for a BOE WUXGA LCD display panels with a
++  resolution of 1200x1920. They are video mode DSI panels.
++
++allOf:
++  - $ref: panel-common.yaml#
++
++properties:
++  compatible:
++    items:
++      - enum:
++          - boe,tv101wum-nm0
++          - boe,tv101wum-nx0
++          - boe,tv080wum-nx2
++      - const: novatek,nt51021
++
++  reg:
++    maxItems: 1
++
++  reset-gpios:
++    maxItems: 1
++    description: phandle of gpio for reset line - This should be 8mA, gpio
++      can be configured using mux, pinctrl, pinctrl-names (active low)
++
++  vdd-supply:
++    description: phandle of the regulator that provides the supply voltage
++      for digital circuits
++
++  avdd-supply:
++    description: phandle of the regulator that provides the supply voltage
++      for analog circuits
++
++  havdd-supply:
++    description: phandle of the regulator that provides the supply voltage
++      for analog circuits
++
++required:
++  - compatible
++  - reg
++  - vdd-supply
++  - avdd-supply
++  - havdd-supply
++  - reset-gpios
++  - port
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/gpio/gpio.h>
++
++    dsi {
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        panel@0 {
++            compatible = "boe,tv101wum-nx0", "novatek,nt51021";
++            reg = <0>;
++            vdd-supply = <&lcd_pwr>;
++            avdd-supply = <&lcd_pwr>;
++            havdd-supply = <&lcd_pwr>;
++
++            backlight = <&i2c_backlight>;
++            reset-gpios = <&tlmm 62 GPIO_ACTIVE_LOW>;
++
++            port {
++                panel_in: endpoint {
++                    remote-endpoint = <&dsi0_out>;
++                };
++            };
++        };
++    };
++
++...
+
 -- 
-2.25.1
-
+2.55.0
 
