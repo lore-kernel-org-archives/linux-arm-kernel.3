@@ -4,83 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9150C982C1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 08:06:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B64EFC982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 08:09:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EL9YHt+j6bfoBIX/4XS2nc2u2ndOQPJF/fEXKcashqg=; b=qyvFyJnBMGjpEbz8MVqboDfMKI
-	iCsaUaH1wlBPlrN4FXVjCBfk4wByLN4vYD3DRuPiulWBMoaSWMr+xmqiopaoGG8ek0zqS/fyndQI6
-	E3vIKA//F6iclo7PIIaPgCHjXfqrlOv0w2ET5/ej5/R1WQQ/m50Y+CChb/cs2EsDbWMWOidd/Jvr1
-	gffGjOEtFj9ucSq76QpHs6t5py1bjtliTn0OzCFqEeK4Kzp1MBapyda74jbJENr8tITfWhLTVRYeO
-	euhjOBDF8/DTrZc/uLJP9HNHatq0pJfurgi38of5KUFtWN5bfE4ySjUbz5b5s60kQ/TBkRUfJsUpI
-	uNYhGLig==;
+	bh=sbes0882iMbhpDutz94uKHFUZV6ExaVjEgbOPnw20JM=; b=ETIVIYP+Fo1DLDU4h7keDDyNlU
+	5wWEYUdkgIgZt0t92hTTmRYA60TrhatAevzJXmIp2RUOBk7bU4ApiI5GFd+tHtTNHUioWzwpXRKLN
+	Hl9vIBbAt/9DwXrxxRlv7VIhrQPXtrAEehIOmOwviRnGnC4TLLokjbunAWNWmTskSrWCVgMz+sxW+
+	KGKqc5SDQPCUHyml8I3PHmUdQvaUqteQnrqFYOGWJPgfBOF57YLQ/q1mItCNTKw3laMEpdCLU9Uq2
+	0uL33wAUvMTC1y9iWl7Vn6k43FBqRbsg39qbKC8CPKIXNfLE5Os9MDOGRW2rSthPolUQsT2wKnUYX
+	1bF48IgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x778Y-0000000AqgI-0o23;
-	Thu, 17 Sep 2026 08:06:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x77BU-0000000Aqzl-3Qor;
+	Thu, 17 Sep 2026 08:09:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x778W-0000000AqfR-3kjr
+	id 1x77BT-0000000Aqze-48bR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 08:06:28 +0000
+	Thu, 17 Sep 2026 08:09:32 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 562CD43B98;
-	Thu, 17 Sep 2026 08:06:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 371F91F000FF;
-	Thu, 17 Sep 2026 08:06:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A9E2843F84;
+	Thu, 17 Sep 2026 08:09:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F383A1F000FF;
+	Thu, 17 Sep 2026 08:09:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789632388;
-	bh=EL9YHt+j6bfoBIX/4XS2nc2u2ndOQPJF/fEXKcashqg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=HqwdTew+DukHgkmSJw55733JWnBazNPruvtiHneZv8a2uLcAGrp0oNLuwWWF+H6jW
-	 0yetHujE6u7CjBYLS73qk3uUwNK3PK9WIiUL76fGkxSgszDPTkhoNFDAGHIJ85eDsy
-	 DJTHKJ7WTMdD92FVw/K9hFSmOqpoETVDAWrozQg6grzaIenZ7Lmf6pz5XOsK5qpKjj
-	 NeQp2p1MNOExBFN5IPUjZmd8UvTNp0TQUlhxgYlX4PU13kP7lbHtyYtPUd4bjCZ0ne
-	 eMJHZOi3R2m0drfv7Gp6XuxykvD95aYpUh33v3QHsMwOPkCxpN+pb9yuyWdNQcWSw+
-	 yZROMS3hn/f6w==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1x778T-00000009yhL-3xfv;
-	Thu, 17 Sep 2026 08:06:26 +0000
-Date: Thu, 17 Sep 2026 09:06:25 +0100
-Message-ID: <865x045mke.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: oupton@kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	joey.gouly@arm.com,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	mark.rutland@arm.com,
-	steven.price@arm.com,
-	vdonnefort@google.com,
-	qperret@google.com
-Subject: Re: [PATCH v3 15/18] KVM: arm64: Reject host access to protected VM private state
-In-Reply-To: <CA+EHjTzCQkeXQQcCDwABLR2w+NTmKTG3V6RSmhzYNayaoYXw3g@mail.gmail.com>
-References: <20260914113338.159227-1-fuad.tabba@linux.dev>
-	<20260914113338.159227-16-fuad.tabba@linux.dev>
-	<86a4ph5fb9.wl-maz@kernel.org>
-	<CA+EHjTzCQkeXQQcCDwABLR2w+NTmKTG3V6RSmhzYNayaoYXw3g@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com, steven.price@arm.com, vdonnefort@google.com, qperret@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20260515; t=1789632571;
+	bh=sbes0882iMbhpDutz94uKHFUZV6ExaVjEgbOPnw20JM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=lTSdDuI9KbA/YNynTcioXRA66l6F0PDbH0/e9a+5mYdfdy85aJM0vAdPrZwQI1B+N
+	 No+jizLoau/ThooMkRqmLDZm/Jk4/5GY4z6sDi6PcuI1jOTk0jocBvaUE/A9+8V5j8
+	 RzLKzTnjN3z9g4rZ+VrcaEpbehMCgIb2c0o709WGjCRfzjy/TtIz+FAGCLG17WhKvf
+	 OMg0oUfnK+qFnK/3sHCRgIdoTI6Xkxw0jNrv42dp7y6Kwuofym0kkKRm3IivPd6UxI
+	 HWwIiFBxEp1fu2Z8Dlm7hvL0UTkGQtYpmnob0jJC6JmozrNWWGuLWPl3i5+0MDMPxQ
+	 +Y6PYW3fD2vTw==
+Date: Thu, 17 Sep 2026 10:09:28 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Ulf Hansson <ulfh@kernel.org>, Mark Brown <broonie@kernel.org>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
+	Lee Jones <lee@kernel.org>, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-pm@vger.kernel.org, dri-devel@lists.freedesktop.org, dmaengine@vger.kernel.org
+Subject: Re: [PATCH v2 02/20] dt-bindings: arm: ux500: Drop NR_DOMAINS
+Message-ID: <20260917-arrogant-onyx-weasel-e59f06@quoll>
+References: <20260914-ux500-power-domains-v7-1-v2-0-9d0c17e1f816@kernel.org>
+ <20260914-ux500-power-domains-v7-1-v2-2-9d0c17e1f816@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260914-ux500-power-domains-v7-1-v2-2-9d0c17e1f816@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,69 +75,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 16 Sep 2026 20:07:28 +0100,
-Fuad Tabba <fuad.tabba@linux.dev> wrote:
+On Mon, Sep 14, 2026 at 01:54:30PM +0200, Linus Walleij wrote:
+> Keep the internal Ux500 PM domain count local to the only driver
+> that uses it.
 > 
-> Hi Marc,
+> Do not expose this implementation detail through the DT binding header.
 > 
-> On Wed, 16 Sept 2026 at 17:30, Marc Zyngier <maz@kernel.org> wrote:
-> [...]
-> > > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> [...]
-> > > +/*
-> > > + * Once a protected vCPU has run, the host copy is not the guest's state,
-> > > + * and EL2 has read mp_state, which it does only at hyp vCPU creation.
-> > > + */
-> > > +static long pkvm_filter_vcpu_ioctl(struct kvm_vcpu *vcpu, unsigned int ioctl)
-> > > +{
-> > > +        switch (ioctl) {
-> > > +        case KVM_ARM_VCPU_INIT:
-> > > +        case KVM_SET_ONE_REG:
-> > > +        case KVM_GET_ONE_REG:
-> > > +                if (vcpu_is_protected(vcpu) && vcpu_has_run_once(vcpu))
-> > > +                        return -EPERM;
-> > > +        }
-> > > +
-> > > +        return 0;
-> > > +}
-> > > +
-> >
-> > I'm not keen on returning -EPERM for the ONE_REG stuff. For a start,
-> > X0 *is* valid on MMIO, and when you want to support LD64B and co,
-> > you'll need to show the actual data there.
-> >
-> > I'd rather return what is in the host vcpu structure, as normal.
-> 
-> I think we should keep the error, for the reason s390 returns -EINVAL
-> from ONE_REG on a protected vCPU and x86 does from the register ioctls
-> for protected VM types:
+> Assisted-by: LLM
+> Reported-by: Krzysztof Kozlowski <krzk@kernel.org>
 
-News flash, this is not x86, nor s390. I don't feel constrained by
-other architecture, and we deviate *everywhere* already.
+I would say Suggested-by, because it is not a bug, just preference.
 
-> once the vCPU has run, the copy is the VMM's
-> boot state plus what the exit handlers copy out, and the VMM can't
-> distinguish them. x0 on MMIO is one of those fields, but the VMM reads
-> it from kvm_run->mmio. For LD64B, EL2 would copy the operands out the
-> same way and the error could be relaxed to those registers. Loosening
-> later breaks nobody. The comment and the message do overstate it by
-> calling the copy "not the guest's state", and I'll reword both in v4.
-> More on the kvmtool thread [1].
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-A protected-aware VMM already knows it cannot obtain the registers.
+Best regards,
+Krzysztof
 
-I don't want to have to revisit the userspace interface once you have
-to relax it, because I know for sure that you will have to.
-
-As far as LD64B is concerned, there is no place to copy anything in
-the run structure, and the relaxation would require to cover all the
-GPRs, ESR, and FAR. At this stage, returning whatever is there is the
-correct thing to do IMO.
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
 
