@@ -4,60 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABE9BC982CF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 12:26:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D50AC982CF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 12:29:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EMNZ7OdPuYM35n8rPVeWHdovI4cbgMA9DInSj4SiCmM=; b=Ezh6smmfkiR1ASq6czYNNjqOMP
-	SEkwk8i+9UULT5/L6jfrl9i3Umzg+GLZYhkK8V7L9NX+Ts7zA/3/f6ep1E8qZ99ZMgx/Y3u8qCtyE
-	lNpOZdeh1qro0ZGU8zIVTLfl9B7rOFu7R6ZPmE236uot+vATdduFij15qBH0szGZYMm5idMkjAjIL
-	kU8T9TvGQcm1khib5B/4XCIiOsHgaeEc2ssA8gzlru0OtZzVqA5U3poHbE5hdzD8VcJkF/EUPgRQb
-	hpMLRWZ5UfjaG1RP2TSAWmfol4LW4SNFfjEDaM6AM9OYAG4pW9zB6kMqpnu3LNt9dMwYlE71OtYtw
-	hcjnlbzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9ZdzYuoRw6DbXN5E4S4nDMgmkP2f/zl7+uZt8lI0X1c=; b=l8w/KTLpFFy19tlmF1tgFPOc5b
+	gFAnqGUGurJUQP+N6CSAaHy8irazwXK6MXymfqgUpZgyp1WuQB0r6v3mpuwjyoPAQW2auhJHYvsLk
+	3SEbXfWnqE+J0E8qyH2SQv8pXqJ1hgk2ycM1Bt4puelpV1AjXJornieRkw0DPqcauTK+8nGefR40K
+	sc82P+FqFq4gPDqAQVTPwAuMy/WKpWSOUAi3uT0rPZX3iCqe2eeXgQ1bvNLlKHe3GYDTB0HFKUUtT
+	5GUB97enSfnv19tPeVw9o551KSnR96M377p9XisRkVgQHzGkyVx9hGBnSaC4O665QuYaL9GaWalkI
+	ni4/YJQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7BC2-0000000BHw0-38OS;
-	Thu, 17 Sep 2026 12:26:22 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7BC0-0000000BHv3-0kf4
+	id 1x7BFM-0000000BIFW-1ZBc;
+	Thu, 17 Sep 2026 12:29:48 +0000
+Received: from mgamail.intel.com ([192.198.163.13])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x7BFJ-0000000BIF1-2hYY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 12:26:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F31271476;
-	Thu, 17 Sep 2026 05:26:12 -0700 (PDT)
-Received: from [10.0.152.207] (unknown [10.0.152.207])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E77DD3F882;
-	Thu, 17 Sep 2026 05:26:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789647976; bh=KTvzpDajoQanAPMVGFBiFv6UFdpjASaQeZFJX+AOJCU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=IzmV5R9LQ7MHsnRS+1Ri7UMd1jvHuPjhaLYoglkxbVPGJevCKQA0iuQOhOAghp3iy
-	 cKu28vzzikY4CwPJe6er0m+W06gJDxk3VZJ9D+xn0WCzsRrQKzBDpyjytHYvveumCU
-	 imDfkghPDRZ/Cwe9wF7fNlUucys8ivij5rBRnIeQ=
-Message-ID: <a2b4186d-b3b0-4543-9f77-505e8ae67ae8@arm.com>
-Date: Thu, 17 Sep 2026 13:26:12 +0100
+	Thu, 17 Sep 2026 12:29:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1789648185; x=1821184185;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=Oqvk+Keh5+Ql737zReVMLDiTiT8AwvzkKVkDAtra2Vo=;
+  b=n4DN//Di4HTMPFWZIlIHMcH4Bp8WIfKE+EudWrRLkgIALOmB1IgS1pmX
+   VFJyKjnPY3kgkOY1pjEOIPGP+nB+YinMlCwyXXpFiF13blhopLbEaKUxr
+   byT5qg9TqNVrHe/+uKfZPcaxymIQIfT+Ud46g2S+nQ/tSDV+aMAZv7GoN
+   DHJ6ewTLW8UKup6x8jnF3h4jqMasHSTE7ri1S7ekfyPeJ7gVpON04kyQG
+   GbfQ45iyBg8CincMtzp2e3LLS+SoBRjjLCVhrbAtg56eBntteSDsO9eLQ
+   iBdMWMepBYT14VhZBODHTAaBqCINaf4bthHxVH1Y4X2SsgtAWoX97S62B
+   w==;
+X-CSE-ConnectionGUID: zEBBaCSGR32Rp/j6npnb8g==
+X-CSE-MsgGUID: rK7GJhQ8Q+65CHk4DOqG1w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="92573766"
+X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
+   d="scan'208";a="92573766"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Sep 2026 05:29:41 -0700
+X-CSE-ConnectionGUID: q7wUCXPPQLuH38dTRGvSJw==
+X-CSE-MsgGUID: 7wRmEb1xSZiTIN0GvTGGMw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
+   d="scan'208";a="270071211"
+Received: from abityuts-desk1.ger.corp.intel.com (HELO localhost) ([10.245.245.11])
+  by fmviesa010-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Sep 2026 05:29:36 -0700
+Date: Thu, 17 Sep 2026 15:29:34 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>
+Cc: Frank Li <Frank.li@oss.nxp.com>, linux-kernel@vger.kernel.org,
+	dmaengine@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
+	linux-sound@vger.kernel.org, linux-spi@vger.kernel.org,
+	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+	=?iso-8859-1?Q?Am=E9lie?= Delaunay <amelie.delaunay@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Andy Shevchenko <andy@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>, Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH v4 01/10] dmaengine: Move enum dma_slave_buswidth to a
+ new header
+Message-ID: <aqvdLr-VEUMAHese@ashevche-desk.local>
+References: <20260911-dmaengine-support-wider-dma-masks-v4-0-72b8fd4cc78e@analog.com>
+ <20260911-dmaengine-support-wider-dma-masks-v4-1-72b8fd4cc78e@analog.com>
+ <aqgCQvRw9fns__0d@SMW015318>
+ <aqjzvxI4ecoFvRLT@ashevche-desk.local>
+ <aqlYOHIFU_dB72I3@SMW015318>
+ <aqlb5iZQ07Xicq0m@ashevche-desk.local>
+ <aqvF1aOtAiDrC_MW@nsa>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: mm: Fix pfn_is_map_memory() misreporting mapped
- memory
-To: Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- liulhong617 <liulhong617@gmail.com>, Mike Rapoport <rppt@kernel.org>
-References: <20260908162033.74509-1-vladimir.murzin@arm.com>
- <947a1506-dfe4-4906-9673-6a7227946433@app.fastmail.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <947a1506-dfe4-4906-9673-6a7227946433@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <aqvF1aOtAiDrC_MW@nsa>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_052620_379648_8C159E3A 
-X-CRM114-Status: GOOD (  24.50  )
+X-CRM114-CacheID: sfid-20260917_052945_699313_64E14C3E 
+X-CRM114-Status: GOOD (  29.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,94 +106,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/16/26 11:13, Ard Biesheuvel wrote:
-> (cc Mike)
-> 
-> On Tue, 8 Sep 2026, at 18:20, Vladimir Murzin wrote:
->> Commit 7ace06a01efa ("arm64: mm: fix accidental linear mapping of
->> no-map reserved memory") removed sub-page no-map regions from the
->> linear mapping. However, pfn_is_map_memory() can still report that
->> such a region is mapped.
->>
->> For instance, with 64K pages, say we have
->>
->> normal:        ...–0xa2007fff
->> no-map: 0xa2008000–0xa200ffff
->> normal: 0xa2010000–...
->>
->> The range 0xa2000000–0xa200ffff is not linearly mapped, but
->> pfn_is_map_memory(__phys_to_pfn(0xa2008000)) aligns the address to
->> page granularity and passes 0xa2000000 to memblock_is_map_memory().
->> That address belongs to the preceding normal memblock region, so the
->> no-map region is ignored and the function returns true.
->>
->> Fix that by checking if entire page is subset of memory block.
->>
->> Fixes: 7ace06a01efa ("arm64: mm: fix accidental linear mapping of 
->> no-map reserved memory")
->> Assisted-by: LLM
->> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
->> ---
->>  arch/arm64/mm/init.c | 3 ++-
->>  1 file changed, 2 insertions(+), 1 deletion(-)
->>
->> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
->> index fbf215ecc7d0..5da80e1e1727 100644
->> --- a/arch/arm64/mm/init.c
->> +++ b/arch/arm64/mm/init.c
->> @@ -172,7 +172,8 @@ int pfn_is_map_memory(unsigned long pfn)
->>  	if (PHYS_PFN(addr) != pfn)
->>  		return 0;
->>
->> -	return memblock_is_map_memory(addr);
->> +	return memblock_is_region_memory(addr, PAGE_SIZE) &&
->> +		memblock_is_map_memory(addr);
->>  }
->>  EXPORT_SYMBOL(pfn_is_map_memory);
->>
-> memblock_is_region_memory() only tells you whether the range in
-> question is covered by a single entry in memblock.memory.regions[].
-> 
-> memblock has other flags, which may or may not be set on sub-page
-> regions too. So I don't think this is the right solution in the
-> general case, even if it fixes your example.
-> 
+On Thu, Sep 17, 2026 at 11:54:00AM +0100, Nuno S� wrote:
+> On Tue, Sep 15, 2026 at 05:53:26PM +0300, Andy Shevchenko wrote:
+> > On Tue, Sep 15, 2026 at 09:37:44AM -0500, Frank Li wrote:
+> > > On Tue, Sep 15, 2026 at 10:29:03AM +0300, Andy Shevchenko wrote:
+> > > > On Mon, Sep 14, 2026 at 09:18:42AM -0500, Frank Li wrote:
+> > > > > On Fri, Sep 11, 2026 at 06:25:36PM +0100, Nuno S� wrote:
 
-Ack.
+...
 
-> Given that the no-map attribute fundamentally only applies to page
-> granular regions, it would make sense to round those outwards
-> whenever they are created.
+> > > > > >  include/linux/dmaengine.h        | 20 +++-----------------
+> > > > >
+> > > > > I think it is good to split dmengine consumer and provider header files to
+> > > > > hidden dmaengine's detail.
+> > > >
+> > > > It's indeed desirable change. but isn't it a bit out of scope of the series?
+> > > > I suggest to do one step at a time. Would it work for you?
+> > > 
+> > > Yes, but I hope the file name is finial expected file name. it is okay
+> > > just move enum dma_slave_buswidth to there now.
+> > 
+> > Hmm... The whole split as is in this series is due to bitmap.h and the whole
+> > train wreck with headers we have. I haven't checked that particular enum, but
+> > if it's possible to gather it in one of provider.h/consumer.h at the end, then
+> > yes, we may name file accordingly from day 1.
 > 
-> --- a/mm/memblock.c
-> +++ b/mm/memblock.c
-> @@ -1119,6 +1119,10 @@
->  int __init_memblock memblock_mark_nomap(phys_addr_t base, phys_addr_t size)
->  {
-> +       phys_addr_t end = PAGE_ALIGN(base + size);
-> +
-> +       base &= PAGE_MASK;
-> +       size = end - base;
->         return memblock_setclr_flag(&memblock.memory, base, size, 1, MEMBLOCK_NOMAP);
->  }
->  
-> 
+> Yeah, as I said to Frank that enum is used by both providers and
+> consumers so leaving it in types.h makes sense to me. I also realized
+> that the current series is relying on widthmask.h (or dmaengine.h to include
+> types.h - for the enum). Might be acceptable (and needed for legacy code
+> just including dmaengine.h) but I wonder if we should not explicitly include
+> types.h for new (or converted) code.
 
-Should the same be applied to memblock_clear_nomap()?
+I would take IIO example, id est guarantee engine/types.h to be included by
+the headers that need it (by the end users). but it's still fine to include
+explicitly in the DMA engine core.
 
-This is indeed much nicer way to fix the problem! Now, when no-map is
-rounded outwards, do we still need 7ace06a01efa?
+> > > > > suggest name
+> > > > > 	dma/engine.h
+> > > > >
+> > > > > so we can start move more API to this files.
+> > > > >
+> > > > > after all user include this consumer header file,  old
+> > > > > include/linux/dmaengine.h rename to include/linux/dmaengine-provider.h,
+> > > > > which only include by dmaengine drivers.
+> > > >
+> > > > Traditional naming would be
+> > > > dma/engine/provider.h
+> > > > dma/engine/consumer.h
 
-Thanks
-Vladimir
+-- 
+With Best Regards,
+Andy Shevchenko
 
-> Note that I recently removed the frivolous use of MEMBLOCK_NOMAP in
-> __map_mem() so the remaining calls should mostly be true reservations
-> originating from the boot environment.
-> 
-> 
-> 
-> 
-> 
 
 
