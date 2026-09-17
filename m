@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30D5FC88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 21:14:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB42AC982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 21:15:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MxhYj/TCLftR3RtPNjj7inhN0NiI4tVG0507jQCqhRg=; b=m/Io8esAy9pNMPBqiRmaFM06/J
-	7kCWgaA1mhM+4X7vd9vzctXXCNVglmAO80QxB+rRZ5URN/UPY6AMV3qo0/Ed3XdWn3dPwlXH6tEw7
-	1lsU9hs3Q6HqzzYtWUD2NI6xCu0PXo3anEtV7Y5PQNr3RvSqZSBQ9p9bgNM20/5KJH7NksoCI0g32
-	o7llN+BrjqtgDeClwwie6tWrTUndGQQMx98bQntbRQtnZvqqRhq8Kc+BeZwfyoODUpC+jfbMpub3+
-	rwYXC6lkz6IUzeuRIWedlPUjgtY20LF/1RxuxvoBsdREavStF4sIT0BwQzMkgfVpUNgXikf/chix0
-	KY1NoQEg==;
+	bh=z6Uv0MBPHRxJn3q9ecu1jaMLqeT/tzm70P/Da9cR4fo=; b=JTy5fyHohTz3kcTvUNb0I1jC7H
+	VDZBQVBHlO0qOAjak1yaUfZuJtSe0ZJvtueoT0IOtmZrfTKB0/WKrkoyG/fmLRfM5/qCk6W6JGRNH
+	AcbUFXQWpKMLRiDm5HOdhV2USDy2OaAaxeUbMKuaw6xWLEkEaK4dcBnzW7ZjRewHfklzjqILcUTC0
+	z6V6L11g0QAcVFqMlOY1uEL1s02RQYZJwY4Zt9VIQ73J7KXB2eVcPlLNYP4eaYiG0xeMZe5eos/D5
+	3pAzc8nzaZb87jZyF7YmlYLor8ZoU3kyWCd0stqcR+AIdoZfCdVniVFuX/PoCQ+Zha/oNv+Syuz5Z
+	iiVf4VxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7JRR-0000000CXuV-2lU6;
-	Thu, 17 Sep 2026 21:14:49 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x7JRY-0000000CXwp-3GnP;
+	Thu, 17 Sep 2026 21:14:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7JRR-0000000CXuB-00ZF
+	id 1x7JRW-0000000CXwK-2zQT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 21:14:49 +0000
+	Thu, 17 Sep 2026 21:14:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 737D0600AA;
-	Thu, 17 Sep 2026 21:14:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A4501F000FF;
-	Thu, 17 Sep 2026 21:14:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5827040B02;
+	Thu, 17 Sep 2026 21:14:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 397351F000FF;
+	Thu, 17 Sep 2026 21:14:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789679688;
-	bh=MxhYj/TCLftR3RtPNjj7inhN0NiI4tVG0507jQCqhRg=;
+	s=k20260515; t=1789679694;
+	bh=z6Uv0MBPHRxJn3q9ecu1jaMLqeT/tzm70P/Da9cR4fo=;
 	h=From:To:Cc:Subject:Date;
-	b=O+Eku6Em6poaJSB+sJt9uhb0C/4prcjcv161Wyqsr62B3JIG6XlEpC69XlQzXYInQ
-	 pjWOXBEPX3YChNbCnQeJI15HwHSpK8PfCu6kLiYwQk5d2XtxAGJHtaX0I2cv8GQlSs
-	 zcAmXl2I8kqD6GWbcskNi52ZUXBuWHo96GuK8GO+QqlGJ89jGDnb7UBKV8RmHMlB9L
-	 pAa3Xdwjd33KS0O25/0AouaLQPVjqj9QtLLW+eFGmcDFzzfKB6qZtkXGKcnjUw/kLM
-	 jzjr5xf7hFw7KXAIJpjZ9n/KuJOw+SMY11h6RH7YZ4yzcwLuVcEMbVgOV6mC9Uw5Ed
-	 k6usDEUHuTp8w==
+	b=ZTSAyFSBNE93q+2kIPs80MBLp5GGHB1IAFjyRc16Xr6F4KMBEQLwBlHxxE0SfaGdV
+	 +afw5tP9DpaDQKkJyZZ5fYNAfIUufQqP52tgV2nmvRxxd+Dj3XEjtHjRSxXwPzKqlQ
+	 8d+T+T2W3dtof7em/wr+K1aRBWrYtPGaJWATy6eU/O7+Inin1iFKgf07+a2ZpVrT6p
+	 JnzX9D/6prapuYtRc4rwmT3OpbzwCCFQLEL/TITxu6Jpupj+GbHquYn2B9U/a4qkVt
+	 S2As3vOHwrGXqspw5BpTdk69/VVt3kkI0Q5ZfqKospRhzZM8QmZJkMH4oK6NkuvrgN
+	 87JTiCfJ3FXTQ==
 From: Kees Cook <kees@kernel.org>
-To: Dong Aisheng <aisheng.dong@nxp.com>
+To: Chester Lin <chester62515@gmail.com>
 Cc: Kees Cook <kees@kernel.org>,
 	Kees Cook <kees+treewide@kernel.org>,
+	Matthias Brugger <mbrugger@suse.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	NXP S32 Linux Team <s32@nxp.com>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
 	Fabio Estevam <festevam@gmail.com>,
 	Frank Li <Frank.Li@nxp.com>,
 	Jacky Bai <ping.bai@nxp.com>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	NXP S32 Linux Team <s32@nxp.com>,
 	Linus Walleij <linusw@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	linux-gpio@vger.kernel.org,
-	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-hardening@vger.kernel.org
-Subject: [PATCH] pinctrl: imx: Remove const from group_names allocation type
-Date: Thu, 17 Sep 2026 14:14:47 -0700
-Message-Id: <20260917211446.i.153-kees@kernel.org>
+Subject: [PATCH] pinctrl: s32cc: Remove const from groups allocation type
+Date: Thu, 17 Sep 2026 14:14:53 -0700
+Message-Id: <20260917211452.i.365-kees@kernel.org>
 X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1900; i=kees@kernel.org; h=from:subject:message-id; bh=SI/CPd6XS8ei4Q7rFs30/ZmKJ1M1jnctDK7KU6kGplE=; b=owGbwMvMwCVmps19z/KJym7G02pJDFlrItwsPm22mrBI0vl9duYClhDJq0/zi9zaT+pJfeX0n ZpiJdvTUcrCIMbFICumyBJk5x7n4vG2Pdx9riLMHFYmkCEMXJwCMJEntYwMDxe/5a8U8g0zrjf8 +jyEbWqRs0wg+9c9SdXcH187qKk7MDI0NpnenPJNNSvtmgNDddMbV88qxn8hfFPvTvy/7ce5ZaF cAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1987; i=kees@kernel.org; h=from:subject:message-id; bh=nNUPdVbUz/MbD5kNmfUpDCXi15TcB5OTYzbdnwH119o=; b=owGbwMvMwCVmps19z/KJym7G02pJDFlrInx4dkaXu7ZN+eW9pmP7w8n3nwlGveXz1Z3LKG4ua Bnyste3o5SFQYyLQVZMkSXIzj3OxeNte7j7XEWYOaxMIEMYuDgFYCIbOBkZjmj1RvDHv97xUuXt 55WBN/vXhdw9cf316nbRzU6H3714vp6RYZZXmfuyNTfmBQn4XFnAdCSq0ecso7CVaR9j6oSDsz4 8YwUA
 X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -94,40 +95,41 @@ would be "const char * const *", as the size was taken from
 there is no general way to remove const qualifiers, take the size from
 the assignment target instead. No change in allocation size results.
 
-Build tested ARCH=x86_64 allmodconfig with GCC 16.2.0:
-drivers/pinctrl/freescale/pinctrl-imx.o
+Build tested ARCH=arm64 allmodconfig with GCC aarch64-linux-gnu 16.1.0:
+drivers/pinctrl/nxp/pinctrl-s32cc.o
 
 Assisted-by: LLM coccinelle
 Signed-off-by: Kees Cook <kees+treewide@kernel.org>
 ---
+Cc: Chester Lin <chester62515@gmail.com>
+Cc: Matthias Brugger <mbrugger@suse.com>
+Cc: Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
+Cc: NXP S32 Linux Team <s32@nxp.com>
 Cc: Dong Aisheng <aisheng.dong@nxp.com>
 Cc: Fabio Estevam <festevam@gmail.com>
 Cc: Frank Li <Frank.Li@nxp.com>
 Cc: Jacky Bai <ping.bai@nxp.com>
 Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-Cc: NXP S32 Linux Team <s32@nxp.com>
 Cc: Linus Walleij <linusw@kernel.org>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>
-Cc: <linux-gpio@vger.kernel.org>
-Cc: <imx@lists.linux.dev>
 Cc: <linux-arm-kernel@lists.infradead.org>
+Cc: <linux-gpio@vger.kernel.org>
 ---
- drivers/pinctrl/freescale/pinctrl-imx.c | 2 +-
+ drivers/pinctrl/nxp/pinctrl-s32cc.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/pinctrl/freescale/pinctrl-imx.c b/drivers/pinctrl/freescale/pinctrl-imx.c
-index 9a45b376d36f..c11d220d982a 100644
---- a/drivers/pinctrl/freescale/pinctrl-imx.c
-+++ b/drivers/pinctrl/freescale/pinctrl-imx.c
-@@ -600,7 +600,7 @@ static int imx_pinctrl_parse_functions(struct device_node *np,
- 	}
+diff --git a/drivers/pinctrl/nxp/pinctrl-s32cc.c b/drivers/pinctrl/nxp/pinctrl-s32cc.c
+index 4b40770a38b7..9c4ebae22674 100644
+--- a/drivers/pinctrl/nxp/pinctrl-s32cc.c
++++ b/drivers/pinctrl/nxp/pinctrl-s32cc.c
+@@ -825,7 +825,7 @@ static int s32_pinctrl_parse_functions(struct device_node *np,
+ 				     "No groups defined in %pOF\n", np);
  
- 	group_names = devm_kcalloc(ipctl->dev, func->ngroups,
--				   sizeof(*func->groups), GFP_KERNEL);
-+				   sizeof(*group_names), GFP_KERNEL);
- 	if (!group_names)
+ 	groups = devm_kcalloc(info->dev, func->ngroups,
+-				    sizeof(*func->groups), GFP_KERNEL);
++				    sizeof(*groups), GFP_KERNEL);
+ 	if (!groups)
  		return -ENOMEM;
- 	i = 0;
+ 
 -- 
 2.34.1
 
