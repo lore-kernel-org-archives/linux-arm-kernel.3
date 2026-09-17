@@ -4,62 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2EE6C982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 08:50:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD928C982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 08:58:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FIjHHeV1OM9FUem9CxDteq6R8pWCh6wl09+1tiTWW68=; b=wQdnhLwh20SuEwDL1HUJ0ivaLe
-	gfFtG2tkhdFDX2ZkmeXBG7fLKznkzuqZf1995YnMQvArBxcVujhgEp6GnLN60+W842v1r7h+NoE49
-	Vd4ynS0B8U/mzkoD90/v+HewfVYfB1uOx3TEJwX/KIYbZ+2UV/YNjmp55/kWX406Ge9EzLqVUBeiS
-	76n+9BZe55PJOqFUIrxNYwdWCNUXO9cig4K/CJKiaP4RDdmrpXR2f3G4T0SgFAYk337LCnVTGW6rA
-	IHpcwVD7g35ObUoXHAbvh8Bfdi0LhseNxDRFmORM5VYO9Mpo5d6syZ5v0AFYGWJN6y0vIXigE1xdV
-	X//w+BKQ==;
+	bh=1+92ybaPbU4jz/fTRaQC6BixSctKUAGFZyUkjoaQXqg=; b=rj5Hw1gcjx94z6tcJH8uoTo4MH
+	Bl7wHEdk9vJIpnebbqD5+EW8WD9YdVR8WA+lhmZ0kf8dEttbvGzyMZbBVDEs0jyCFlc78wWPVzcBD
+	i8/Kg8HMifV53HjZZyQnSomVGdcXbxgVMruGqIJHUt+I3R67R/AEbxLZpL7vLK975xNhjhUdEQ03x
+	DzgRxd2JYD7Q1WJBNO963BQEYoAwpexW3wrN5xu+svjcGqKStym3UyCH0+GcQFZrNuslMV3/mjam7
+	1msz6c+7PLOcrO2RfgigKCFGYDPmzji72DDkmk8bWvdsvluJfAyEalOzmougv/vE40EcxzNs7VpkE
+	9ymVuHmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x77oW-0000000AvdI-1JPj;
-	Thu, 17 Sep 2026 08:49:52 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x77oU-0000000Avcy-0srh
+	id 1x77wp-0000000AwCz-0sfK;
+	Thu, 17 Sep 2026 08:58:27 +0000
+Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x77wm-0000000AwCV-06RW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 08:49:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1D0F61476;
-	Thu, 17 Sep 2026 01:49:45 -0700 (PDT)
-Received: from [10.0.128.139] (unknown [10.0.128.139])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AE8A63F882;
-	Thu, 17 Sep 2026 01:49:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789634988; bh=BfoXGzTqvhboUtFeLjpBY72uKhV5dEYQ5tXJK2+7/0A=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Wm9v5GizLFNig1dL0iJWSNmzO3outhEJ5yUD1FlqNaE3NL26CaMRTunFNYE0uksEs
-	 15G2QEg10Rl5Ao8UebgnOj1S3j9PbPmfXI3Zz5THFhSJtU81bL8gxjiY4NMrJGJWgm
-	 PGR8zk4rt5dlAEB28KCijAf0DWOMbtJ0Q4zY4yzM=
-Message-ID: <f4ab0c30-2cca-40d4-8aac-6fc28d33fc05@arm.com>
-Date: Thu, 17 Sep 2026 09:49:41 +0100
+	Thu, 17 Sep 2026 08:58:26 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=1+92ybaPbU4jz/fTRaQC6BixSctKUAGFZyUkjoaQXqg=;
+	b=dsnHGs7ugqf97AaABM8vp4gGMGEZz2hecH17q/pHznsd372wOYSLOGrWX/0R3jOpacsmlbig+
+	yRAdUmpwcKJno2S3+K3bgUwFdqla/go7HWD3f9BvgTsfg0X4XRN9Hg+gy6WXoWQmkZS33JA3tTv
+	/CdRjGdFbTtwYFzADhj9eGQ=
+Received: from mail.maildlp.com (unknown [172.19.163.127])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4hlqBW1R06z1K9BV;
+	Thu, 17 Sep 2026 16:47:15 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id 9DC5D402AB;
+	Thu, 17 Sep 2026 16:58:14 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ kwepemk200008.china.huawei.com (7.202.194.74) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Thu, 17 Sep 2026 16:58:13 +0800
+Message-ID: <d96336e9-e407-4f17-ba16-7c4e6b043a15@huawei.com>
+Date: Thu, 17 Sep 2026 16:58:12 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] KVM: arm64: Fix protected VM fault on system with
- pages larger than 4K
-Content-Language: en-GB
-To: Vincent Donnefort <vdonnefort@google.com>, maz@kernel.org,
- oupton@kernel.org, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-Cc: joey.gouly@arm.com, seiden@linux.ibm.com, yuzenghui@huawei.com,
- catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com,
- fuad.tabba@linux.dev, qperret@google.com
-References: <20260915091606.2111217-1-vdonnefort@google.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260915091606.2111217-1-vdonnefort@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH 03/38] arm64: interrupts: Add common exception state
+ helpers
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
+	<maz@kernel.org>, <lpieralisi@kernel.org>, <liaochang1@huawei.com>
+References: <20260914102102.68597-1-vladimir.murzin@arm.com>
+ <20260914102102.68597-4-vladimir.murzin@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260914102102.68597-4-vladimir.murzin@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_014950_428983_E0239689 
-X-CRM114-Status: GOOD (  22.64  )
+X-CRM114-CacheID: sfid-20260917_015824_731122_7752B7E4 
+X-CRM114-Status: GOOD (  25.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,111 +80,216 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/09/2026 10:16, Vincent Donnefort wrote:
-> Just like commit 08f97454b7fa ("KVM: arm64: Fix protected mode handling
-> of pages larger than 4kB") fixed the boot of non-protected VMs on system
-> larger than 4K pages, align the fault IPA down to the page-size for
-> protected VMs.
+
+
+在 2026/9/14 18:20, Vladimir Murzin 写道:
+> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 > 
-> To paraphrase Marc, pkvm_pgtable_stage2_map() assumes the address passed
-> as a parameter is aligned to the size of the intended mapping, while
-> HPFAR_EL2 gives the IPA minus the bottom 12 bits, regardless of the
-> system page size configuration.
+> The entry code and the rest of the kernel require different interrupt
+> masking APIs, but all need a common representation of the hardware
+> exception state.
 > 
-> Add a check at the start of pkvm_pgtable_stage2_map() as we do not
-> support !PAGE_ALIGNED arguments and ensure callers pass a page-aligned
-> IPA.
+> Introduce exception contexts that map DAIF and PMR state to the
+> corresponding masking context. Provide helpers to translate between
+> exception contexts and hardware state and update the hardware state.
 > 
-> Fixes: ea03466e806f ("KVM: arm64: Handle aborts from protected VMs")
-> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+> Updating PMR is unnecessary when a caller knows that its value has not
+> changed. Allow such callers to avoid the update, while providing a
+> force option for callers that cannot rely on the previous PMR state.
+> 
+> Entry specific and general purpose masking APIs will be built on these
+> helpers in subsequent patches.
+> 
+> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
 > ---
->   arch/arm64/kvm/mmu.c  | 12 +++++++-----
->   arch/arm64/kvm/pkvm.c |  3 +++
->   2 files changed, 10 insertions(+), 5 deletions(-)
+>  .../include/asm/interrupts/common_flags.h     | 174 ++++++++++++++++++
+>  1 file changed, 174 insertions(+)
+>  create mode 100644 arch/arm64/include/asm/interrupts/common_flags.h
 > 
-> Changelog:
-> 
-> v3:
->    - Fix nested case in gmem_abort() (Sashiko)
-> 
-> v2: https://lore.kernel.org/all/20260914075839.4019904-1-vdonnefort@google.com/
-> 
->    - Use gfn_to_gpa(gfn)
->    - Drop "phys" from the PAGE_ALIGNED check, it isn't a requirement.
->    - Fix gmem_abort() as well (Sashiko)
-> 
-> v1: https://lore.kernel.org/all/20260913173516.3122436-1-vdonnefort@google.com/
-> 
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index 9ba86450fe4a..e199dd339583 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -1610,6 +1610,7 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
->   	bool write_fault, exec_fault;
->   	bool perm_fault = kvm_vcpu_trap_is_permission_fault(s2fd->vcpu);
->   	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_SHARED;
-> +	phys_addr_t ipa = ALIGN_DOWN(s2fd->fault_ipa, PAGE_SIZE);
->   	enum kvm_pgtable_prot prot = KVM_PGTABLE_PROT_R;
->   	struct kvm_pgtable *pgt = s2fd->vcpu->arch.hw_mmu->pgt;
->   	unsigned long mmu_seq;
-> @@ -1672,12 +1673,12 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
->   		 * PTE, which will be preserved.
->   		 */
->   		prot &= ~KVM_NV_GUEST_MAP_SZ;
-> -		ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, s2fd->fault_ipa,
-> +		ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, ipa,
->   								 prot, flags);
->   	} else {
-> -		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, s2fd->fault_ipa, PAGE_SIZE,
-> -							 __pfn_to_phys(pfn), prot,
-> -							 memcache, flags);
-> +		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, ipa, PAGE_SIZE,
-> +							 __pfn_to_phys(pfn),
-> +							 prot, memcache, flags);
->   	}
->   
->   out_unlock:
-> @@ -1710,6 +1711,7 @@ static int pkvm_mem_abort(const struct kvm_s2_fault_desc *s2fd)
->   	unsigned int flags = FOLL_HWPOISON | FOLL_LONGTERM | FOLL_WRITE;
->   	struct kvm_vcpu *vcpu = s2fd->vcpu;
->   	struct kvm_pgtable *pgt = vcpu->arch.hw_mmu->pgt;
-> +	gfn_t gfn = gpa_to_gfn(s2fd->fault_ipa);
-
-minor nit: Is there any reason why this is not consistent with the 
-gmem_abort() ? i.e., using gfn instead of "ipa" ?
-
-The patch as such looks correct to me. So, either way :
-
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-
-
->   	struct mm_struct *mm = current->mm;
->   	struct kvm *kvm = vcpu->kvm;
->   	void *hyp_memcache;
-> @@ -1756,7 +1758,7 @@ static int pkvm_mem_abort(const struct kvm_s2_fault_desc *s2fd)
->   	}
->   
->   	write_lock(&kvm->mmu_lock);
-> -	ret = pkvm_pgtable_stage2_map(pgt, s2fd->fault_ipa, PAGE_SIZE,
-> +	ret = pkvm_pgtable_stage2_map(pgt, gfn_to_gpa(gfn), PAGE_SIZE,
->   				      page_to_phys(page), KVM_PGTABLE_PROT_RWX,
->   				      hyp_memcache, 0);
->   	write_unlock(&kvm->mmu_lock);
-> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-> index 8e4c6e4bec12..b7340c430ed6 100644
-> --- a/arch/arm64/kvm/pkvm.c
-> +++ b/arch/arm64/kvm/pkvm.c
-> @@ -414,6 +414,9 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
->   	u64 end = addr + size;
->   	int ret;
->   
-> +	if (!PAGE_ALIGNED(addr | size))
-> +		return -EINVAL;
+> diff --git a/arch/arm64/include/asm/interrupts/common_flags.h b/arch/arm64/include/asm/interrupts/common_flags.h
+> new file mode 100644
+> index 000000000000..0de5ba1ae155
+> --- /dev/null
+> +++ b/arch/arm64/include/asm/interrupts/common_flags.h
+> @@ -0,0 +1,174 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2025 Arm Ltd.
+> + */
+> +#ifndef __ASM_INTERRUPTS_COMMON_FLAGS_H
+> +#define __ASM_INTERRUPTS_COMMON_FLAGS_H
 > +
->   	lockdep_assert_held_write(&kvm->mmu_lock);
->   	mapping = pkvm_mapping_iter_first(&pgt->pkvm_mappings, addr, end - 1);
->   
-> 
-> base-commit: df2908090cda368b01ff43709f51890076c56157
+> +#include <asm/arch_gicv3.h>
+> +#include <asm/bug.h>
+> +#include <asm/cpufeature.h>
+> +#include <asm/ptrace.h>
+> +#include <asm/sysreg.h>
+> +#include <asm/irqflags.h>
+> +
+> +#define DAIF_PROCCTX		0
+> +#define DAIF_PROCCTX_NOIRQ	(PSR_I_BIT | PSR_F_BIT)
+> +#define DAIF_ERRCTX		(PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
+> +#define DAIF_MASK		(PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
+> +
+> +/*
+> + * Exception context mapping
+> + *
+> + * pseudo-NMI
+> + *
+> + * CRITICAL -> DAIF + IRQON  (corresponds to the state on exception entry)
+> + * ERROR    ->  AIF + IRQON
+> + * NONMI    ->   IF + IRQON
+> + * NOIRQ    ->    0 + IRQOFF
+> + * PROCESS  ->    0 + IRQON
+> + *
+> + * Otherwise
+> + *
+> + * CRITICAL -> DAIF           (corresponds to the state on exception entry)
+> + * ERROR    ->  AIF
+> + * NONMI    ->   IF
+> + * NOIRQ    ->   IF
+> + * PROCESS  ->    0
+> + */
+> +typedef enum arm64_exc_context {
+> +	PROCESS_CONTEXT,
+> +	NOIRQ_CONTEXT,
+> +	NONMI_CONTEXT,
+> +	ERROR_CONTEXT,
+> +	CRITICAL_CONTEXT,
+> +} arm64_exc_context_t;
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_process_context(void)
+> +{
+> +	if (system_uses_irq_prio_masking())
+> +		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX, .pmr=GIC_PRIO_IRQON};
+> +
+> +	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX};
+> +}
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_noirq_context(void)
+> +{
+> +	if (system_uses_irq_prio_masking())
+> +		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX, .pmr=GIC_PRIO_IRQOFF};
+> +
+> +	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ};
+> +}
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_nonmi_context(void)
+> +{
+> +	if (system_uses_irq_prio_masking())
+> +		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ, .pmr=GIC_PRIO_IRQON};
+> +
+> +	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ};
+> +}
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_error_context(void)
+> +{
+> +	if (system_uses_irq_prio_masking())
+> +		return (arm64_exc_hwstate_t){.daif=DAIF_ERRCTX, .pmr=GIC_PRIO_IRQON};
+> +
+> +	return (arm64_exc_hwstate_t){.daif=DAIF_ERRCTX};
+> +}
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_critical_context(void)
+> +{
+> +	if (system_uses_irq_prio_masking())
+> +		return (arm64_exc_hwstate_t){.daif=DAIF_MASK, .pmr=GIC_PRIO_IRQON};
+> +
+> +	return (arm64_exc_hwstate_t){.daif=DAIF_MASK};
+> +}
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t arm64_exc_hwstate_of_context(arm64_exc_context_t context) {
+> +	switch (context) {
+> +	case PROCESS_CONTEXT:
+> +		return __arm64_exc_hwstate_of_process_context();
+> +	case NOIRQ_CONTEXT:
+> +		return __arm64_exc_hwstate_of_noirq_context();
+> +	case NONMI_CONTEXT:
+> +		return __arm64_exc_hwstate_of_nonmi_context();
+> +	case ERROR_CONTEXT:
+> +		return __arm64_exc_hwstate_of_error_context();
+> +	case CRITICAL_CONTEXT:
+> +		return __arm64_exc_hwstate_of_critical_context();
+> +	default:
+> +		BUG();
+> +	}
+> +}
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t arm64_inherit_exc_hwstate(struct pt_regs *regs)
+> +{
+> +	arm64_exc_hwstate_t state = {.daif=regs->pstate & DAIF_MASK};
+> +
+> +	if (system_uses_irq_prio_masking())
+> +		state.pmr = regs->pmr;
+> +
+> +	return state;
+> +}
+> +
+> +static __always_inline
+> +void __arm64_update_exc_hwstate(arm64_exc_hwstate_t hwstate, bool force)
+> +{
+> +	bool pseudo_nmi = system_uses_irq_prio_masking();
+> +
+> +	barrier();
+> +
+> +	if (pseudo_nmi && hwstate.pmr == GIC_PRIO_IRQOFF && force) {
+> +		/*
+> +		 * There has been concern that the write to daif
+> +		 * might be reordered before this write to PMR.
+> +		 * From the ARM ARM DDI 0487D.a, section D1.7.1
+> +		 * "Accessing PSTATE fields":
+> +		 *   Writes to the PSTATE fields have side-effects on
+> +		 *   various aspects of the PE operation. All of these
+> +		 *   side-effects are guaranteed:
+> +		 *     - Not to be visible to earlier instructions in
+> +		 *       the execution stream.
+> +		 *     - To be visible to later instructions in the
+> +		 *       execution stream
+> +		 *
+> +		 * Also, writes to PMR are self-synchronizing, so no
+> +		 * interrupts with a lower priority than PMR is signaled
+> +		 * to the PE after the write.
+> +		 *
+> +		 * So we don't need additional synchronization here.
+> +		 */
+> +		write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
+> +	}
+> +
+> +	write_sysreg(hwstate.daif, daif);
+> +
+> +	if (pseudo_nmi && hwstate.pmr == GIC_PRIO_IRQON && force) {
+> +		write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
+> +		pmr_sync();
+> +	}
+> +
+> +	barrier();
+
+LGTM
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+
+> +}
+> +
+> +static __always_inline
+> +void arm64_update_exc_hwstate(arm64_exc_hwstate_t hwstate)
+> +{
+> +	__arm64_update_exc_hwstate(hwstate, true);
+> +}
+> +
+> +static __always_inline
+> +void arm64_update_exc_context(arm64_exc_context_t context)
+> +{
+> +	arm64_exc_hwstate_t hwstate = arm64_exc_hwstate_of_context(context);
+> +
+> +	arm64_update_exc_hwstate(hwstate);
+> +}
+> +#endif /* __ASM_INTERRUPTS_COMMON_FLAGS_H */
 
 
