@@ -4,73 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6E72C982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 10:29:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E154C88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 10:32:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7AbITL+5+/JL25kmRdFyVy23v2apvHcMNhgPZmbm4Ao=; b=rOXcddZBmC4RtysqC41rvr0ACW
-	+Y+UvsJPFx2wQ8RAWFwbM0WS4PViLpeSVZ7gIqxSFomt0It9l8bymSvQIR/j4tr3OJT1LtUZBJcZP
-	b+noX4WCiDZcx+uNtPnkkv6A4mkAR2XV+IoP4ijw3mDD6fEGsUMF/P7yOk6MEnhwIK+nW8WAh7Q9G
-	ceVwiU4xdNJlV4whzkm/42GtMaDgxEJ9DKv+/Djt1URyb+McBLFAXFDRzxVGwEbXCJ228siF7lXqe
-	Ji00LUpxL4MLifWG3xpBNO92R3LGMVhfa5tb93JxjVunhLArSwPiw1hMQm2vEt+9qoVoLQVqYSj8l
-	7HDYOs2Q==;
+	bh=92DqYzsY5tQw8zrK7ygfUYU1Rl0yvZP1MFAZ/+j1d2Y=; b=OkbHwtrsVVBYcEbmMR4SEwD5x2
+	Ph5fGk12rl+KDFD1qCN2octRnmcG+okz4TLcf+goRtqmQIDvJGcnYxjd6jiZWzjTvat5t4xx4PXqQ
+	v2+tg+Zw0LcUyBQAgDKeY041iikPMAXJ5YEmqxnAZKEJAfJkoUXPQSQnhJ5+cDQoNdNz1WOqjwOHt
+	CG2A9/SiyGlC6mIAAsJIeunKoYtm1eFKzNBw45Up34J+e9YuMRubKBrZe0Cl2YSaqJLCJbvT6KQbm
+	U+pApbAEmDZAo5dDQA2rvcA+phpNTS4p0ldGG6jMKoezdk4AKfLGXWaA9WGsWHJMawSULrvNQkW7H
+	zFCOwjtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x79Mv-0000000B6bN-2Ffw;
-	Thu, 17 Sep 2026 10:29:29 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1x79Pe-0000000B6s5-2Kdb;
+	Thu, 17 Sep 2026 10:32:18 +0000
+Received: from out28-123.mail.aliyun.com ([115.124.28.123])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x79Ms-0000000B6aj-3IM5;
-	Thu, 17 Sep 2026 10:29:28 +0000
-Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
-	by APP-05 (Coremail) with SMTP id zQCowACXAj0EwatqHKJ+CA--.635S2;
-	Thu, 17 Sep 2026 18:29:24 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: alexandre.belloni@bootlin.com
-Cc: bbrezillon@kernel.org,
-	claudiu.beznea@tuxon.dev,
+	id 1x79Pb-0000000B6ri-3Y4k
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Sep 2026 10:32:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=xiaopeng.com; s=default;
+	t=1789641128; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=92DqYzsY5tQw8zrK7ygfUYU1Rl0yvZP1MFAZ/+j1d2Y=;
+	b=FYcO+E3I4dCg0XWVrTf5qHdgm1PgOnrnOcSj0YC2Lxm379gpfFHlzAtbCOc98A5kwnRAzuPcpu6+rAtofY03FMmZbliL1fhwM+ayPRF3YUb7AVdCIQSMzNzn3NE02qQxYz8H4n7jgrMKJ6q++DbsbEN43amxGJKvQ9vi9sfHXyY=
+X-Alimail-AntiSpam: AC=CONTINUE;BC=0.0743678|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.0333185-0.00133189-0.96535;FP=10121135997339731664|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033037025160;MF=liuc63@xiaopeng.com;NM=1;PH=DS;RN=13;RT=13;SR=0;TI=SMTPD_---.jFzyINx_1789641126;
+Received: from localhost(mailfrom:liuc63@xiaopeng.com fp:SMTPD_---.jFzyINx_1789641126 cluster:ay29)
+          by smtp.aliyun-inc.com;
+          Thu, 17 Sep 2026 18:32:07 +0800
+From: Liu Chao <liuc63@xiaopeng.com>
+To: neal_liu@aspeedtech.com,
+	gregkh@linuxfoundation.org
+Cc: joel@jms.id.au,
+	andrew@codeconstruct.com.au,
+	ryan_chen@aspeedtech.com,
+	billy_tsai@aspeedtech.com,
+	linux-aspeed@lists.ozlabs.org,
+	linux-usb@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-mtd@lists.infradead.org,
-	miquel.raynal@bootlin.com,
-	nicolas.ferre@microchip.com,
-	richard@nod.at,
-	vigneshr@ti.com,
-	Wentao Liang <vulab@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH] mtd: rawnand: atmel: Fix MCK clock leak in atmel_nand_controller_init()
-Date: Thu, 17 Sep 2026 10:29:24 +0000
-Message-Id: <20260917102924.2146959-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	stable@vger.kernel.org,
+	liuwb@xiaopeng.com,
+	Liu Chao <liuc63@xiaopeng.com>
+Subject: [PATCH] usb: gadget: aspeed: clamp transfer length in RX completion handlers
+Date: Thu, 17 Sep 2026 18:32:04 +0800
+Message-ID: <20260917103205.3049861-1-liuc63@xiaopeng.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowACXAj0EwatqHKJ+CA--.635S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Kr4ruFW7urWxtF4DAry7Wrg_yoW8CF45pF
-	Wjqay7Xa1jyF43ZFsFkayxuFyfZa4kJF98C3ykXa4kZ3ZxWa4UXry5tr1IqFWkCFyxua15
-	Z3WUJ3WkZF1UGFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPvb7Iv0xC_Kw4lb4IE77IF4wAFc2x0x2IEx4CE42xK8VAvwI8I
-	cIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2
-	AK021l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v2
-	6F4j6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxV
-	W0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv
-	7VC0I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Gr1j6F4UJwAm72CE4IkC6x0Yz7
-	v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0E0s8F02x267IIx4CEVc8vx2IErcIFxwAC
-	I402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrw
-	CF04k20xvE74AGY7Cv6cx26r48ZrWUJr1UMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E
-	5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtV
-	W8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1I6r4UMIIF0xvE2Ix0cI8IcVCY
-	1x0267AKxVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14
-	v26r4UJVWxJr1lIxAIcVC2z280aVCY1x0267AKxVW0oVCq3bIYCTnIWIevJa73UjIFyTuY
-	vjxUqdHjUUUUU
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiCRINA2qrq01RhQAAsm
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_032927_182889_56C795F7 
-X-CRM114-Status: GOOD (  10.09  )
+X-CRM114-CacheID: sfid-20260917_033216_321709_D38E66CF 
+X-CRM114-Status: UNSURE (   7.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,54 +74,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-atmel_nand_controller_init() takes a reference to the MCK clock with
-of_clk_get() and keeps it in nc->mck for the lifetime of the
-controller.  If the "atmel,smc" phandle is missing or the SMC regmap
-cannot be obtained afterwards, the error path jumps to out_release_dma
-which only releases the DMA channel, so the clock reference is leaked.
-The callers return the error directly and never run
-atmel_nand_controller_cleanup(), where the clock is normally put.
+ast_udc_ep0_out(), ast_udc_epn_handle() and ast_udc_epn_handle_desc()
+read the received byte count from hardware registers and add it to
+req->req.actual without clamping against the remaining buffer space
+(req->req.length - req->req.actual).
 
-Release the reference on those error paths.  The path on which
-of_clk_get() itself fails keeps jumping to out_release_dma, as nc->mck
-only holds an error pointer there.
+When actual reaches or exceeds length, the subsequent DMA has already
+written past the end of the request buffer.  Across multiple short
+packets the overrun grows with each completion.
 
-Fixes: f9ce2eddf176 ("mtd: nand: atmel: Add ->setup_data_interface() hooks")
+A malicious or malfunctioning USB host can exploit this to trigger a
+heap buffer overflow in any gadget function (e.g. f_mass_storage,
+f_fs) layered on top of this UDC.
+
+Clamp the received length to the remaining space before accumulating
+it in all three RX completion paths.
+
+Fixes: 055276c13205 ("usb: gadget: add Aspeed ast2600 udc driver")
 Cc: stable@vger.kernel.org
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+Reviewed-by: Weibin Liu <liuwb@xiaopeng.com>
+Signed-off-by: Liu Chao <liuc63@xiaopeng.com>
 ---
- drivers/mtd/nand/raw/atmel/nand-controller.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+ drivers/usb/gadget/udc/aspeed_udc.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/drivers/mtd/nand/raw/atmel/nand-controller.c b/drivers/mtd/nand/raw/atmel/nand-controller.c
-index 87d9227f6ecc..d61e84b8bc60 100644
---- a/drivers/mtd/nand/raw/atmel/nand-controller.c
-+++ b/drivers/mtd/nand/raw/atmel/nand-controller.c
-@@ -2086,7 +2086,7 @@ static int atmel_nand_controller_init(struct atmel_nand_controller *nc,
- 	if (!np) {
- 		dev_err(dev, "Missing or invalid atmel,smc property\n");
- 		ret = -EINVAL;
--		goto out_release_dma;
-+		goto out_put_mck;
- 	}
+diff --git a/drivers/usb/gadget/udc/aspeed_udc.c b/drivers/usb/gadget/udc/aspeed_udc.c
+index 54f81e668..53f6218b4 100644
+--- a/drivers/usb/gadget/udc/aspeed_udc.c
++++ b/drivers/usb/gadget/udc/aspeed_udc.c
+@@ -793,6 +793,8 @@ static void ast_udc_ep0_out(struct ast_udc_dev *udc)
+ 	req = list_entry(ep->queue.next, struct ast_udc_request, queue);
  
- 	nc->smc = syscon_node_to_regmap(np);
-@@ -2094,11 +2094,13 @@ static int atmel_nand_controller_init(struct atmel_nand_controller *nc,
- 	if (IS_ERR(nc->smc)) {
- 		ret = PTR_ERR(nc->smc);
- 		dev_err(dev, "Could not get SMC regmap (err = %d)\n", ret);
--		goto out_release_dma;
-+		goto out_put_mck;
- 	}
+ 	rx_len = EP0_GET_RX_LEN(ast_udc_read(udc, AST_UDC_EP0_CTRL));
++	if (rx_len > req->req.length - req->req.actual)
++		rx_len = req->req.length - req->req.actual;
+ 	req->req.actual += rx_len;
  
- 	return 0;
+ 	SETUP_DBG(udc, "req %p (%d/%d)\n", req,
+@@ -865,6 +867,8 @@ static void ast_udc_epn_handle(struct ast_udc_dev *udc, u16 ep_num)
+ 	req = list_first_entry(&ep->queue, struct ast_udc_request, queue);
  
-+out_put_mck:
-+	clk_put(nc->mck);
- out_release_dma:
- 	if (nc->dmac)
- 		dma_release_channel(nc->dmac);
+ 	len = EP_DMA_GET_TX_SIZE(ast_ep_read(ep, AST_UDC_EP_DMA_STS));
++	if (len > req->req.length - req->req.actual)
++		len = req->req.length - req->req.actual;
+ 	req->req.actual += len;
+ 
+ 	EP_DBG(ep, "req @%p, length:(%d/%d), %s:0x%x\n", req,
+@@ -944,6 +948,8 @@ static void ast_udc_epn_handle_desc(struct ast_udc_dev *udc, u16 ep_num)
+ 
+ 	} while (i != wr_ptr);
+ 
++	if (total_len > req->req.length - req->req.actual)
++		total_len = req->req.length - req->req.actual;
+ 	req->req.actual += total_len;
+ 
+ 	EP_DBG(ep, "req @%p, length:(%d/%d), %s:0x%x\n", req,
 -- 
-2.34.1
+2.50.1
 
 
