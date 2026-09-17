@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71053C982C1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 06:18:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53365C982CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 06:26:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SiRMaoY3cRTa9MhpKbPocPbsr/YaGM7PATKxMZxjze4=; b=w7OvW1pn8VNQRgCS24W6fx4i3y
-	JIrGODCiA+Hg80rxsdzxlzdmRL/vqvV/eOIMCekCxMLuB04Olb7MNTG0KADX+G18sBtuQUEvSTR6m
-	LGf39kp7gzEyuQJS25S8ql2+baykC2O8cJf7IP1hNnE4pphFQjtB5yS9HillExQlJWErrN6+M6/L5
-	JCqsE4MMtrFVszUq80p9e2tbPdKth+9+gFfg4s4YbFoGsODRF+GNeDCRLlAoRDbjvsMFHJMNq3yhl
-	Dq4Nso+TDhF+DdihI/S12zHPCj5i3l5bfZI6E8PbAX0Nh5/T2FJEDOQCiyJq7Qd4YpEELWDpX1P8v
-	kyGBJVJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=E3BZdP/GaR042lYbabPdNtS4/fWWWzAYluU/a6rKpqQ=; b=GJoHRQcuNUKW2kpDmiqpLPgxlw
+	Ic1OIksUWiT8xgGkYz8C0dKuiIWyX2WlxWnZRrB/GEtrW8kdteCYvlL0BLAzso1ql7VRbig8pj+Yt
+	uMMrZ1EUq2wFFIFDizNu9K6bYtJhSixLL2jE3DRpEv7S9FqrCRT7Rgg+joequ2NlttQIobq+MBl/P
+	Jr9mTwpBrldBdB6TEouWCfyycZKCadV/mWyNgge2RdSmi2PeBbhh14dbHdzX8uLCMQC4NO2ALR5wH
+	i/j74/9HLXLlsoVkA25tgcxl7Xj5SgoqTgPnTVQjBqVs6IqcDe96QBCJ7fYcV20dOE0OK1IWMSlE+
+	oRWVfSTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x75SH-0000000AeVf-2NBw;
-	Thu, 17 Sep 2026 06:18:45 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x75SE-0000000AeVH-2VVd
+	id 1x75ZI-0000000Aepq-2iVg;
+	Thu, 17 Sep 2026 06:26:00 +0000
+Received: from mx.nabladev.com ([178.251.229.89])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x75ZF-0000000AepL-26Hs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 06:18:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EA7F41476;
-	Wed, 16 Sep 2026 23:18:35 -0700 (PDT)
-Received: from localhost (a085714.arm.com [10.164.19.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C32C13F882;
-	Wed, 16 Sep 2026 23:18:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789625919; bh=5r38bdBPwTF0dKcq39wGt84GgYIEr0WGkYnRDt6n+mU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kJtvYv00iOOtQNWrUiPJgkunbZExZ9AoaM+TawX53wEJeFEfHYJnbH9aeFZT81Y91
-	 MEMhDAFakHNbfdim7oqxayZbv5pf5JaGb0mBpGx/dtTNOhjzCgL1ulUdTWkr/Caupb
-	 +d4+lEau/tWsjjqSA5GLJiGG/qd1lBQYl0PSilro=
-Date: Thu, 17 Sep 2026 11:48:36 +0530
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Lorenzo Stoakes <ljs@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	Mike Rapoport <rppt@kernel.org>, Linu Cherian <linu.cherian@arm.com>, 
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org
-Subject: Re: [PATCH V2 06/14] arm64/mm: Enable fixmap with 5 level page table
-Message-ID: <pi6o4hjdaz2tndzlx64qvzbgxhuyh3kyewpfetiqnnetbtpzpa@prrxusgc3lpm>
-References: <20260907035030.2839978-1-anshuman.khandual@arm.com>
- <20260907035030.2839978-7-anshuman.khandual@arm.com>
- <be1c0a62-4589-4fe4-a500-d3fe16a6e610@kernel.org>
+	Thu, 17 Sep 2026 06:25:59 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 89172104926;
+	Thu, 17 Sep 2026 08:25:47 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1789626351; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=E3BZdP/GaR042lYbabPdNtS4/fWWWzAYluU/a6rKpqQ=;
+	b=RLhd2OnmPspNI2JmCXEgGDgHWVTgl3XLGJ+SfT0S51MAng4K7jwlhzUMVkWRuwb8Bh9yFX
+	A/7GADKBYqOqwNZewLO/se0EirkSF3u0vFAURwXgRDXlZtsF2z3TJ9TEUhV8sn//BY2Xyr
+	rrw82A4PhRWmSG4WH3+MrRgSA5KlUv7x7lajaPYqJ0cdmfPK1T79MtUzxSpdC/7xRh1VUw
+	JO7A80s3Bmf5GGlegSDU71Xbb0APpdut/US7uMbbHxFAaDeM8i/0kvShEpy+14A83+r0YE
+	t+PmVsmBMchvbMi0mqVurNx+BZs3qYfafe9LW09X16U6JO5xknyVvCJAqN2X+Q==
+From: Marek Vasut <marex@nabladev.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marex@nabladev.com>,
+	Aswath Govindraju <a-govindraju@ti.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Marc Kleine-Budde <mkl@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-can@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v4 1/3] dt-bindings: phy: ti,tcan104x-can: Document Microchip ATA6563
+Date: Thu, 17 Sep 2026 08:25:26 +0200
+Message-ID: <20260917062543.534416-1-marex@nabladev.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <be1c0a62-4589-4fe4-a500-d3fe16a6e610@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_231843_095666_A007F1B1 
-X-CRM114-Status: GOOD (  20.55  )
+X-CRM114-CacheID: sfid-20260916_232557_773624_8D9E484F 
+X-CRM114-Status: UNSURE (   7.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,51 +76,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 16, 2026 at 04:30:05PM +0200, David Hildenbrand (Arm) wrote:
-> On 9/7/26 05:50, Anshuman Khandual wrote:
-> > FEAT_D128 halves PTRS_PER_PXX thus shrinking the VA range coverage
-> > for each page table level. Hence in order to preserve all existing
-> > VA range configurations, some geometry now need to become 5-level.
-> > 
-> 
-> Hmm, wasn't this 5-levels before, but other code allocated+initialized the p4d
-> table for us?
+Microchip ATA6563 is High-Speed CAN Transceiver with Standby Mode.
+It is pin-compatible with TI TCAN1042 and has a compatible programming
+model, therefore use ti,tcan1042 as fallback compatible.
 
-But fixmap was never 5 level earlier.
+Signed-off-by: Marek Vasut <marex@nabladev.com>
+---
+Cc: Aswath Govindraju <a-govindraju@ti.com>
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Fabio Estevam <festevam@gmail.com>
+Cc: Frank Li <Frank.Li@nxp.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Marc Kleine-Budde <mkl@pengutronix.de>
+Cc: Rob Herring <robh@kernel.org>
+Cc: devicetree@vger.kernel.org
+Cc: imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-can@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+---
+V2: No change
+V3: No change
+V4: No change
+---
+ Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-> 
-> I mean, I see how we are filling in another level, but I don't see how we would
-> reconfigure something to use 5 page table levels?
+diff --git a/Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml b/Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml
+index 9f5c37ca6496a..75c276548e122 100644
+--- a/Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml
++++ b/Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml
+@@ -18,6 +18,7 @@ properties:
+       - items:
+           - enum:
+               - microchip,ata6561
++              - microchip,ata6563
+               - ti,tcan1051
+           - const: ti,tcan1042
+       - items:
+-- 
+2.53.0
 
-IIUC existing configurations which never required 5 levels would not need
-this reconfiguration even now.
-
-> 
-> > Since fixmap is used to build and manipulate page tables early on
-> > during boot the mapping must also gain that additional level which
-> > was not required earlier.
-> 
-> I am no expert ... but I am confused :)
-> 
-> We do have a loop only in early_fixmap_init_pmd(). So we cannot possibly span
-> more than a single ... PTE table?
-> 
-> > 
-> > Enable fixmap with 5 level page table when required. This creates table
-> > entries at the PGD level. Add a fallback stub for pgd_page_paddr() when
-> > (PGTBALE_LEVELS <= 4) which helps in intercepting any unintended usage.
-> 
-> 
-> Again, I am very confused. Is it really just "As the page table layout changes,
-> we might no longer have a p4d table pre-populated for the range our fixmap falls
-> into. So if there is no p4d table yet, populate a static one just like we do for
-> the other levels."
-
-Right.
-
-> 
-> -- 
-> Cheers,
-> 
-> David
 
