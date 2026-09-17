@@ -4,46 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4149C982D2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 18:12:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF030C982D2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 18:13:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vqyQgMFAJVi2Td/IFUmuzFBF1bi1YpyEHAojG3GW2qw=; b=3f+m7Yi/Aw+G7MeGpg4S6csc9c
-	GOVEMLfiG2TwYpurHTZSb4vd1V1i9BCcvhMxD/tF/cigcmxdoFh8R1upNasVbWWdrw/T1lFzyfBDU
-	YFuvXExCMKHzzt0+Sa7D03OKFXDjYfHs0f+bQWOpjK97b5Jg5IzE4uk2MIN/IYLIjjGDSg7F8JAa2
-	mueK77kCBe0nYh2oLG5TwWTocy/g+2dZisFNPThgca5M89A3HuGZhGoNMe53A/6oMHxCgU7+yM52l
-	bR2xKyvSRBp64+Ju/9/ZZWaDrbGeJf1I7EHeeJGMufK2xST5rdmJ7l6PTuz2Ndu0egybECTQomN/p
-	qC6pWaKg==;
+	bh=QAr23lhx8wGsXT6yVi+oXiSZp/vetZhFYtO/kqi1324=; b=3l7MZ2vbB+tFe68Fz+sSxfQhn4
+	5HVwoGswVmHHIzQOy+5RVOR90UU1mT66doXqNQQZ7zWEc2PYembpgh+wRYfiRO6YS9rR9fkfpDJRl
+	sOEF//6v+PkoK0PyIii0gUF0Boj3WRPUvDeak4tbPPraoccq/ic6blaVA+QZoMCAAEOqnVrIwb5P4
+	lm6GtMjvNy2Him0Wf4dsKr0OC5kqUtjZQ8o3o/rTrGqvKCg5qGHEWKI+teSEwjrJGE4O6zLDiC8tQ
+	iLCUca26/+XrYq25h6yGgpdEdRA97gEpzmrV+M0l3Z9TNmLs1QPrPc5bxC/pxixKYtIjwZyyThOuy
+	fPI/zWuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Gar-0000000CBgj-3prY;
-	Thu, 17 Sep 2026 18:12:21 +0000
+	id 1x7Gc4-0000000CC4K-1Dc7;
+	Thu, 17 Sep 2026 18:13:36 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x7Gc2-0000000CC3w-2mvV;
+	Thu, 17 Sep 2026 18:13:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=QAr23lhx8wGsXT6yVi+oXiSZp/vetZhFYtO/kqi1324=; b=pWn0euMqbr6+SOQwdN2z09hjYk
+	eVeiJEsWykWVYO4yrkjOng1RjNzFV+T+A/kVqOQGYfxhtpFO2ZOV/2SfDj3sPlsTLtgaAjfNTPs5E
+	sqJgRtdo97rqiX1AqhajpGR9a9/VyVZG54Xe9UyKsslL4wklUQd+BlSLqutS4SS5hYeegWVyIhwqh
+	qT8mQ6TOZPbE49QzFJus5g8F8k+Sv+Y690d/Ue7z52sZb4Mz9ig+4agaFePZGjgboE5i0XPzWWL4/
+	Q11HlpKEA7MBVCNDQjpFStNHPBhlcIyiDzXPjJIcFBrnkoN/1seOjFINScY13QOKn5aC83HMmWpcZ
+	pmc6nXrg==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Gao-0000000CBei-3Vp7;
-	Thu, 17 Sep 2026 18:12:20 +0000
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x7Gbz-000000099NJ-0Rsu;
+	Thu, 17 Sep 2026 18:13:33 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A6D8D1596;
-	Thu, 17 Sep 2026 11:12:13 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AB24D1F91;
+	Thu, 17 Sep 2026 11:13:25 -0700 (PDT)
 Received: from [10.57.7.135] (unknown [10.57.7.135])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EB6E23F86F;
-	Thu, 17 Sep 2026 11:12:09 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D69F63F86F;
+	Thu, 17 Sep 2026 11:13:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789668737; bh=JRotaeYUDA8OKw6fWgN1iioU01GNC1YxBAHOCuSkCcg=;
+	t=1789668809; bh=QAr23lhx8wGsXT6yVi+oXiSZp/vetZhFYtO/kqi1324=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=mCMXQQCuXWXGh8CqhS0W7cwhE2pXGdXIab/vrQATUL3/XaFJNt8Xf3XcEukOlMYCK
-	 ugh3zQSksUsKim10k1OD4vF/PrNn0SbUDLvpZ5GQyazWmyouKJGKG5+oDmjP89b8Rg
-	 7/ZY9aaQUsSH+CtdxVNQuZgcibuXfkywZeR0hrNM=
-Message-ID: <19b00695-9f99-4d21-9592-13fad31f85e7@arm.com>
-Date: Thu, 17 Sep 2026 20:12:07 +0200
+	b=aYA7qe3TJmI5eXy7zuCDNvjC424BNkx9TqHpOMlyNEkNvwpgRn5lsECsH9o7hC0RG
+	 5jIxS0q8ZHaQOP2dIWzY39HZw+w/QDzFAaZ5etprv7QyoTOG2UkZgMUVBbr0E0ztmK
+	 wHMiHRGdA5HaFJ3DgcETN41w6QqxGhhxvHgViRbE=
+Message-ID: <685fa7b1-af6d-4dc0-8764-5bcb169b39ae@arm.com>
+Date: Thu, 17 Sep 2026 20:13:19 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/6] mm/vmalloc: make set_area_direct_map HUGE_VMAP
- friendly
+Subject: Re: [PATCH v3 5/6] mm/execmem: use VM_FLUSH_RESET_PERMS for ROX cache
+ allocations
 To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>,
  Andrew Morton <akpm@linux-foundation.org>
 Cc: =?UTF-8?Q?Adrian_Barna=C5=9B?= <abarnas@google.com>,
@@ -70,15 +84,15 @@ Cc: =?UTF-8?Q?Adrian_Barna=C5=9B?= <abarnas@google.com>,
  linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
  loongarch@lists.linux.dev
 References: <20260903-execmem-set-vm-perms-v0-2-v3-0-949b64a9f755@kernel.org>
- <20260903-execmem-set-vm-perms-v0-2-v3-4-949b64a9f755@kernel.org>
+ <20260903-execmem-set-vm-perms-v0-2-v3-5-949b64a9f755@kernel.org>
 From: Kevin Brodsky <kevin.brodsky@arm.com>
 Content-Language: en-GB
-In-Reply-To: <20260903-execmem-set-vm-perms-v0-2-v3-4-949b64a9f755@kernel.org>
+In-Reply-To: <20260903-execmem-set-vm-perms-v0-2-v3-5-949b64a9f755@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_111218_973967_372401DC 
-X-CRM114-Status: GOOD (  21.35  )
+X-CRM114-CacheID: sfid-20260917_191331_544109_70E97BE4 
+X-CRM114-Status: GOOD (  14.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,55 +108,31 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 03/09/2026 11:28, Mike Rapoport (Microsoft) wrote:
-> set_area_direct_map() always updates direct map alias permissions in
-> single page increments.
+> Initially execmem completely removed direct map alias for the memory
+> allocated for the ROX cache in PMD_SIZE chunks. When that memory was
+> freed, its direct map was restored also in PMD_SIZE chunks to avoid
+> fragmentation of the direct map caused by vmalloc::vm_reset_perms().
 >
-> For HUGE_VMAP areas it's suboptimal. Not only the loop in
-> set_area_direct_map() needlessly has more iterations (e.g times 512 on
-> x86), but it also causes fragmentation of the direct map that could be
-> avoided for the HUGE_VMAP areas populated with large pages.
+> This required execmem to implement the wrappers for set_direct_map APIs for
+> proper sequencing of removal and restoration of the direct map aliases.
 >
-> All pages in an area are always of the same order: either same-order
-> large pages when VM_ALLOW_HUGE_VMAP is set and all huge pages were
-> successfully allocated, or order-0 page when VM_ALLOW_HUGE_VMAP is
-> cleared or when huge pages allocation fails and fallback path is taken.
+> Since then x86's CPA gained support for collapsing the direct map page
+> tables for ROX pages and execmem switched from removing ROX caches from the
+> direct map to making them ROX there, so execmem only needs to update direct
+> map alias permissions when freeing the ROX cache memory.
 >
-> Instead of updating the direct map permissions for every order-0 page in
-> an area, use the area's page_order as the loop increment and update the
-> large pages in one call to set_direct_map_{invalid,default}_noflush().
+> vmalloc already handles those updates for areas with VM_FLUSH_RESET_PERMS
+> set and vmalloc::vm_reset_perms() does not force split of the direct map
+> for PMD_SIZE chunks.
+>
+> Set the area permissions with set_vm_flush_reset_perms() when populating
+> the execmem cache just before flipping the area to ROX.
+>
+> This way freeing an allocated area on an error path won't incur two
+> updates of the direct map alias of that area and TLB flushing in
+> vm_reset_perms().
 >
 > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 
 Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
-
-> ---
->  mm/vmalloc.c | 13 ++++++++-----
->  1 file changed, 8 insertions(+), 5 deletions(-)
->
-> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-> index 5506b180f5c27..6ed6c160abed7 100644
-> --- a/mm/vmalloc.c
-> +++ b/mm/vmalloc.c
-> @@ -3367,12 +3367,15 @@ static inline void set_area_direct_map(const struct vm_struct *area,
->  				       int (*set_direct_map)(struct page *page,
->  							     unsigned int nr))
->  {
-> -	unsigned long i;
-> +	unsigned int nr = (1U << vm_area_page_order(area));
-> +
-> +	for (unsigned long i = 0; i < area->nr_pages; i += nr) {
-> +		if (page_address(area->pages[i])) {
-> +			int err = set_direct_map(area->pages[i], nr);
->  
-> -	/* HUGE_VMALLOC passes small pages to set_direct_map */
-> -	for (i = 0; i < area->nr_pages; i++)
-> -		if (page_address(area->pages[i]))
-> -			set_direct_map(area->pages[i], 1);
-> +			WARN_ON_ONCE(err);
-> +		}
-> +	}
->  }
->  
->  /*
->
 
