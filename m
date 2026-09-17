@@ -4,71 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B351FC982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 09:19:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FFC7C88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 09:24:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NWl3Jwu4rKchLcaWiVXcQP18p1/uA9ROHPuRgijoaGI=; b=hRv/ydPn/zkeT61sWWrENE0VkJ
-	0gzCM17vn6wNFrgwSal1ZgkDJ4DdNzZDUji/89K81+qAL5DLUH9VwM/tRdffHGUUWBGUQAP/Ascm8
-	RvHlx/dR/fOsKZLzJeI40YH85sCgW7OljryR77beUafrIUUU5I1W6EqXoMwfMd7vUhpZpYE4yME7e
-	7AIxzQRSsj1YXC5o8htf4oFiGvUgpzr7ajrFqrlD0bcDHLB6is33eCEAfPmVxZzn5lOyawqjopMsN
-	AS9CRNZqvIXKK8KH9RgyrwpxzvLPGLp4r86AOLkgyB5+Gn3TN25sP+ahtobyVboyPAG2GuUI0U4q7
-	q1uPWMRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sIT7gK6myMlC0MkhhrFdGW+pdZ57n54Ge/impHw3fJI=; b=AN+DDYwSbOq5AXEWbPrvICSrRP
+	bb4gmuKRM2dXpU/Uc2WQf+NQYP8tY2lHuH/W7OK1W9HBb98VGse5U8cGZpQ5zaK8iII6o6aGhRIR0
+	k3gkc0M54i3/rnsMm7e9tHC0U+30bm2ai5+OJCI49uvRNAvz/94vqdW1KGKXhhLTDfL6CH1qgX4C5
+	fRyDEte7aUeG6WpydnVCwn+D19vCVJGLrFsLELFGnB5GlCBPCYnJh+JoO93PpewmZimxv7LpUpv2+
+	uXq8k1EqiwATg0lpm3kpH02RXOjccKNm+xoKmsdwC4+wvjtwlmxN+zYh9Ad25D3ExvR44kXhsXpix
+	clPqS73w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x78Gi-0000000AzSX-2Ai6;
-	Thu, 17 Sep 2026 09:19:00 +0000
-Received: from out-157.mta0.migadu.com ([2001:41d0:1004:224b::9d] helo=mta0.migadu.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x78GT-0000000AzK3-2GwF
+	id 1x78Lt-0000000B03y-12mm;
+	Thu, 17 Sep 2026 09:24:21 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x78Lq-0000000B03E-1jO5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 09:18:47 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=uv/QqzkCASpL/8RQbBzCZik975p5clqE6ezIH1NXyV0=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1789636723; v=1; x=1790241523;
- b=c5nNcqoP5YWAKr+ihICugNGB3xouSZ4XFkDHJKmSX0/Rw5Y9yel3x9pufcYL/PsN/XWtYJwk
- iO5W6+iKPH6x3THUJNfQSSwixhYq3nJOwHun7Uu2P6iYzu2zmp94zkoRBXP5fC8gdnCyWLTIOQP
- 15T45bJ5/6iRrzazSaZyAYcw=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id c94fbe1e4d9196cd;
-	Thu, 17 Sep 2026 09:18:43 +0000
-X-Mizu-Trace-ID: c94fbe1e4d9196cd
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: maz@kernel.org,
-	oupton@kernel.org
-Cc: joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	qperret@google.com,
-	vdonnefort@google.com,
-	martijnbogaard@google.com,
-	seiden@linux.ibm.com,
-	tabba@google.com,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 4/4] KVM: arm64: selftests: Free the VM when the GIC device probe fails
-Date: Thu, 17 Sep 2026 10:18:26 +0100
-Message-Id: <20260917091826.2639205-5-fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260917091826.2639205-1-fuad.tabba@linux.dev>
-References: <20260917091826.2639205-1-fuad.tabba@linux.dev>
+	Thu, 17 Sep 2026 09:24:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 916F41476;
+	Thu, 17 Sep 2026 02:24:13 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C5C313F7B4;
+	Thu, 17 Sep 2026 02:24:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789637057; bh=sIT7gK6myMlC0MkhhrFdGW+pdZ57n54Ge/impHw3fJI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=L7GdL8vsGKEmaHpBo+qCZDuZPOa023qP2/nhUH2BJ4KcPpmnDmpj3kiwXlwm2J6gl
+	 U2T14K+mz6GUdh3g1YVTF+ze9PPzmY86a8koarA7M/h2I/iyGS9Y/gWaekuiodFmM8
+	 MIaWPPL8o5Wibq6sTWKEvcDyq8MV5L3te6jCQL7U=
+Date: Thu, 17 Sep 2026 10:24:08 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, iommu@lists.linux.dev,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Will Deacon <will@kernel.org>, David Matlack <dmatlack@google.com>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	Pranjal Shrivastava <praan@google.com>,
+	Samiullah Khawaja <skhawaja@google.com>,
+	Mostafa Saleh <smostafa@google.com>, stable@vger.kernel.org,
+	Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
+Subject: Re: [PATCH v6 1/9] iommu/arm-smmu-v3: Handle ARM erratum for CONT
+ under invalidation with SVA
+Message-ID: <aquxuBnh6pdxu4-8@J2N7QTR9R3>
+References: <0-v6-9cd17417d355+281836-smmu_tlbi_jgg@nvidia.com>
+ <1-v6-9cd17417d355+281836-smmu_tlbi_jgg@nvidia.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <1-v6-9cd17417d355+281836-smmu_tlbi_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_021845_720064_80A6161E 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20260917_022418_496261_8396D6D4 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,49 +85,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-test_kvm_device() creates a VM to probe the GIC version under test and
-returns without freeing it when the probe fails, in vgic_init and in
-its vgic_v5 copy. Free it on that path.
+Hi Jason,
 
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
- tools/testing/selftests/kvm/arm64/vgic_init.c | 4 +++-
- tools/testing/selftests/kvm/arm64/vgic_v5.c   | 4 +++-
- 2 files changed, 6 insertions(+), 2 deletions(-)
+Nit on terminology below.
 
-diff --git a/tools/testing/selftests/kvm/arm64/vgic_init.c b/tools/testing/selftests/kvm/arm64/vgic_init.c
-index 47e34b43afb29..53894d32b0fc8 100644
---- a/tools/testing/selftests/kvm/arm64/vgic_init.c
-+++ b/tools/testing/selftests/kvm/arm64/vgic_init.c
-@@ -732,8 +732,10 @@ int test_kvm_device(u32 gic_dev_type)
- 
- 	/* trial mode */
- 	ret = __kvm_test_create_device(v.vm, gic_dev_type);
--	if (ret)
-+	if (ret) {
-+		kvm_vm_free(v.vm);
- 		return ret;
-+	}
- 	v.gic_fd = kvm_create_device(v.vm, gic_dev_type);
- 
- 	ret = __kvm_create_device(v.vm, gic_dev_type);
-diff --git a/tools/testing/selftests/kvm/arm64/vgic_v5.c b/tools/testing/selftests/kvm/arm64/vgic_v5.c
-index 96cfd6bb32f6f..10fdfe362428b 100644
---- a/tools/testing/selftests/kvm/arm64/vgic_v5.c
-+++ b/tools/testing/selftests/kvm/arm64/vgic_v5.c
-@@ -187,8 +187,10 @@ int test_kvm_device(u32 gic_dev_type)
- 
- 	/* trial mode */
- 	ret = __kvm_test_create_device(v.vm, gic_dev_type);
--	if (ret)
-+	if (ret) {
-+		kvm_vm_free(v.vm);
- 		return ret;
-+	}
- 	v.gic_fd = kvm_create_device(v.vm, gic_dev_type);
- 
- 	ret = __kvm_create_device(v.vm, gic_dev_type);
--- 
-2.39.5
+On Wed, Sep 16, 2026 at 09:27:42PM -0300, Jason Gunthorpe wrote:
+> The erratum (MMU-700: #3777127, S3: #3673557) deals with under
+> invalidation of a CONT PTE grouping in the SMMU. The recommended work
+> around is to use a Range Invalidate (RIL) that spans the entire CONT. The
+> only user of CONT in the kernel right now is through SVA sharing a CPU
+> page table that contains a CONT created by the mm.
 
+As someone familiar with VMSA, I've never seen "RIL" used to describe a
+range invalidate and I think using that in the code below is confusing.
+I *think* "RIL" has come from "SMMUv3.2-RIL", which is the SMMU feature
+for Range Invalidate *and* Level hint, where "RI" is Range Invalidate,
+and "L" is Level.
+
+Can we please spell that out as "range invalidate" or "range op"
+(matching the arm64 architecture code) rather than "RIL"?
+
+That'll be easier to follow, especially as nothing in the code mentions
+what "RIL" means -- that's only mentioned in this commit message.
+
+Mark.
 
