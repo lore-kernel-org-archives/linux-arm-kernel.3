@@ -4,81 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 710B1C982D6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 14:37:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24506C88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 14:38:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cb96GaT2UcuRzLPsQMdrt7Itu40lc0yhplAWhST9MqE=; b=vzcwVjAUoP7jDkOEmdZ6bEGCnE
-	rHaYCgXJ6Mm0qgJt3hn196JMKAh7CXkVwykMCVAYyjpOd7D8WgbU+BBEhD7vFjRK/I6Brr06yA9XI
-	V48I0c9MCIWCxB0wy9DiPBGnwWUIxTOs8T21L/kK+vbeh5gJKeN3qMHE9vP4TDNuEpYkmrImyNfbi
-	w4dbLtwZQSFXCngt+UKIhAbiNBfkuAeJT7QOwETY7SkqLpFKn2pKcdDz0RQ59+ST94L/7tE4gfDb8
-	6Rbn0RnrNjo+QGhKEvtJmgmjUzNTp0BA2bynlH7eoRnvB7F5eTS8zim994pA7MzmEXmVAjzDmvf8e
-	SR9UDWlg==;
+	bh=yDwj60lU3knLQpRSMALX+6PHSSJz16k7eB7/nnRV0g4=; b=rPZFIw8FSYB4XxuRwxN87uqCt8
+	bfj+lTaRyKXqUGstk0Enooo2QTHmtX8xowSr49O18J/zsNQr3XNzRaBFjoMDaVnCeBLUV5MlJ5yho
+	t+B4phj/Ymfiq9scnc/UHTsg7i+aa7Vsq6d5094xuPK8Kplt3hdLcldAefqArqVJBYWjcUrE/oYqr
+	6emmvXnd0w9CDuRPuWbcY6g+gQ6905sqr5beOEB2dF7kQf2r5eDjkPNiw3LD3gHm5hhFPoAmG6rPz
+	LU7kOmLiQzPLwplI4Yay9mNx1jrtft0kC33/Lo6grIQE3yQzUh43fDJS8b8BtJ+zGmD7GwBvbtzrn
+	M6rGQbCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Cfe-0000000BUDJ-1Sds;
-	Thu, 17 Sep 2026 14:01:02 +0000
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	id 1x7DG0-0000000BYfu-0Eo7;
+	Thu, 17 Sep 2026 14:38:36 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7CfW-0000000BU9S-3DYE
+	id 1x7DFx-0000000BYfN-1TGj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 14:00:57 +0000
-Received: from francesco-nb.. (xcpe-178-82-167-143.dyn.res.sunrise.net [178.82.167.143])
-	by mail11.truemail.it (Postfix) with ESMTPA id 0A6ED2282D;
-	Thu, 17 Sep 2026 16:00:52 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1789653653;
-	bh=cb96GaT2UcuRzLPsQMdrt7Itu40lc0yhplAWhST9MqE=; h=From:To:Subject;
-	b=z2m1W13s7Y6oMflIZChFD/KvG8EczvC2rz9nJfoih/euCjY18Ddw2TBJ9KGoEXE33
-	 zSK8VQc68LcHCwoPHt8Vl4TnCBXYKvmQnbsRw9zR6J5aM0XY5OnSYuO773kDq9w0dq
-	 LUEbIhVT31x5xDCoZKVXG8TXjPpDfRWFV7V+ziwyRrltANiopvfxxitY8DYn6jysdl
-	 xRT00OymGIf/C2F1m9hsIGhR72y9E+Mp7tREsb6RU4/Fn41uXRKu0RPoaurA441yFO
-	 b8/B1TekyGjulIq/FLfYVogjusPeyJkejQAECSdSupQYAaTXhShCWGrjaupDOCRHPR
-	 yesFXZWaTRX2g==
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Marek Vasut <marex@denx.de>,
-	Stefan Agner <stefan@agner.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>
-Subject: [PATCH v5 2/4] drm: mxsfb: Add optional DPI output bus-width configuration
-Date: Thu, 17 Sep 2026 16:00:37 +0200
-Message-ID: <20260917140042.118181-3-francesco@dolcini.it>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260917140042.118181-1-francesco@dolcini.it>
-References: <20260917140042.118181-1-francesco@dolcini.it>
-MIME-Version: 1.0
+	Thu, 17 Sep 2026 14:38:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tDxocd1Gil6GTQsi3jfAif3NpVCqGlZVvPpR4LciYBLL2LGYiIeF+qGzltp3HlfrqnKXYiJVOYBmlozRtNVne8aKHDJx32ql5nBmd4HC2znCZwxLSr0Z2enKiPttRU4NRLx/9B5XDElfrKEGRhcEXaZrYB6zVFpS6/shyufuynbY5UwY7MVbZ7p9J2E+aGSZjCIdeV/qjy/4ozLJsvEqgTAqnHO8fOmiGA6GvR7hM11GqaCc8K5xEcInfeXcmReSYT5uJriG9R7VIF4DYQVdEkuqi4BWnHxjU9/MKLecfjM4z2xzUvw0lCP6fbN5XcU3qLPFJzBzPaqlylDMaXM/Ug==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rsy/gm8Pyeq95oeZmgUTPC0eC1lcM6Hj/7wbHYEelvw=;
+ b=czhpA4MExWMzcFcn/l6Esi8+2sBaRi/+xEbZzwa0NkiOlj6sshs2QchRBJx/Yo0oEcsYEKTU7HvvLglCo3fMV2Hy3AbcXnSFWLV+tkJc9cYFERAblfC7Tl1x1uOMYMIOH8EXsZOwd0R3IRAGP7RsCeZntAuiNK48+6SogHyqWgE1gBT12E0HZsoRGdWVpsACmqyP5HRIif/KjDV65c/XWvzslGRiSrVGI1rPBrhqqWnqWznI098XTmIu2Gnr/oi1aaZSSzr0h9MtiEdM6np723umtV8MdEC6x79/Gfp+3v0aIzrIu0ng5/Rb2XJXG7z2T3Dbx9r6ktD7oW01fDO8JQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rsy/gm8Pyeq95oeZmgUTPC0eC1lcM6Hj/7wbHYEelvw=;
+ b=p87bhFwnak7Taj6esGM+RlYnZ3jGSVnuPfgJBg6LGcGmykZUjM/VfRPoPOiuYjgqkqRjCQ3M9sklF8mUrHhZ9lfOLI9h/maco71fJoXyxr2IrC+FZShuBLhLSrbq5whuU0++JYBQPRnvfoNt9nw5wjXOTqs3KXrS9MAXLREaE111FqbbM6AvlipUFWXTx2RtSogrXf7aIIH/hty9/eN/pOXyhmTXFvFpLKu8ScizJHC9KxYlm3VQ8h7Y+XhGzSTqeeT/WfJnJy/LwqvSttxMgs41dAR3JwXvgvkenGN2uHwpY/ASC0k/HKWwZz2i1YNDCkKYGZXVCRThNnIvWng8Wg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AM7PR04MB6968.eurprd04.prod.outlook.com (2603:10a6:20b:dc::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.13; Thu, 17 Sep
+ 2026 14:38:26 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.012; Thu, 17 Sep 2026
+ 14:38:26 +0000
+Date: Thu, 17 Sep 2026 09:38:15 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>
+Cc: Andy Shevchenko <andriy.shevchenko@intel.com>,
+	linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
+	linux-sound@vger.kernel.org, linux-spi@vger.kernel.org,
+	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+	=?iso-8859-1?Q?Am=E9lie?= Delaunay <amelie.delaunay@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Andy Shevchenko <andy@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>, Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH v4 01/10] dmaengine: Move enum dma_slave_buswidth to a
+ new header
+Message-ID: <aqv7V0E5GObzw9l0@SMW015318>
+References: <20260911-dmaengine-support-wider-dma-masks-v4-0-72b8fd4cc78e@analog.com>
+ <20260911-dmaengine-support-wider-dma-masks-v4-1-72b8fd4cc78e@analog.com>
+ <aqgCQvRw9fns__0d@SMW015318>
+ <aqjzvxI4ecoFvRLT@ashevche-desk.local>
+ <aqlYOHIFU_dB72I3@SMW015318>
+ <aqvFFg5Uh1cXln0y@nsa>
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <aqvFFg5Uh1cXln0y@nsa>
+X-ClientProxiedBy: CYZPR17CA0006.namprd17.prod.outlook.com
+ (2603:10b6:930:8c::7) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM7PR04MB6968:EE_
+X-MS-Office365-Filtering-Correlation-Id: c68591ff-0806-4829-f87e-08df14c95520
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|7416014|19092799006|366016|376014|18002099003|22082099003|5023799004|11063799006|56012099006|4143699003|10067099003|6133799003;
+X-Microsoft-Antispam-Message-Info: D0qZEjIxGVrI42sj6hC7muSgGqF7F7o7YzKGfXvX5rRcVLohq3vulj9QDYn2+ZhLLoL6TGWhVgFhyZWPjruqqQHrSZGK1qbRd1XxYZNPrTpf6WICU9tL5Pwep9lnStcKQxiV7QDtCNFJMgg0PCizSqOqKW2Xc7w/ZHpOJi4eDO71BPn2fNycrcc/XJv1BkaUxHQj3CvQt5mq4RI7xTm0wLIcyOY1vge3P+axbN4Zhbbv4WwFfkMLeAwx5g981Ik2BmKk0bIciqBJl0QXFns1cf6A7rNqgUQrZYKdhiUFwhxGqbhdInFeb4tC1Bvd9J8nXvUgLExtsujwO3LoQPxzuzFNQ5VfJydOUCiE9Px8z4u4uFMuatPFOFBK4WH7si9mok/cFig0Ap7WkMewrafkMvyRvTiQd9E6bfACfnrQT34kCXxL7it6VtfxB+fApY4y5otfY8a3h/J2bOvavJKagP3tkyPv29Iux4fuLrKGy2VE62pY324eptETe0OF4u2b0okOl3lTJnMIxI3gXMHT+IwI5/EcqmLoBeNfTtWOs9aJxem8uN57J0zFbyojQlNXp+lpEL2snY5+kUxFNk952e5t2ICYB8XwFKb32UMDYCRv8VK65zNcwfva9EPcuMcSq2tdBWQ32LQTi0PUSwRCUzxaGXewztCFj3wLoRsW+pk=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(7416014)(19092799006)(366016)(376014)(18002099003)(22082099003)(5023799004)(11063799006)(56012099006)(4143699003)(10067099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?lLg3kbAwP27c4DNU2M6V2potYRQajpV0Us3mDHnFxHu24nTR++IdYfEXbq?=
+ =?iso-8859-1?Q?exUtWVC9d0LKR2p2dRtLRWCm+BFOC/e0noFWGmDFptE72kS3pseJc/jkMj?=
+ =?iso-8859-1?Q?T3gJL796ins7vc7oGWS12v7w5+tMNaqohlVtdKqDef1al4kQgJL1HUO2j5?=
+ =?iso-8859-1?Q?22QqzHRKhYRj/Fw3v3uYgXApnwpDHCaeMN1UrhVNyv/E75sfKTT1/XTb2o?=
+ =?iso-8859-1?Q?Iae7T99dMGT88fiomdwlWzskB4DXe2ldLTXQYGYLeorIMj/vPDOe7h0LJY?=
+ =?iso-8859-1?Q?hDhqPyV0+hPJKvz01j5CT5fc/OvLB24ETogpa/STZHxdKn3bsU8Wld9ubq?=
+ =?iso-8859-1?Q?OoJ9AOhdI+N9UfCOWMktnw/NqujUifX8ax65zg4+sDI2XY928ovQXw2piP?=
+ =?iso-8859-1?Q?NJPMBdKfTQlnRA8VZ0SlSlLiCzCerBLGrcX/kDgzK2WhmVc4JfSzjxRI21?=
+ =?iso-8859-1?Q?6zVEjFtI86ZJxe3TJu1P8wkURVb+mi6KHlKMeHy0PzNOT3JdEy8tWPr+vE?=
+ =?iso-8859-1?Q?SdD5KTto7tzIELBtZ+xIWylMqhsKXCAiZNogCniO5BDwvqRPEV1Z8UKRU8?=
+ =?iso-8859-1?Q?S6PmhbpOhJUMj/99+FTCBR5NejndArd3O1N8HauQsvKpbCfwNSPF9tJpDw?=
+ =?iso-8859-1?Q?f+k7zVsfbDFIfYuK7S09a1sHy1/FfyvAs9PjRqKThSs5Z2Kb2O6JkdHH0A?=
+ =?iso-8859-1?Q?Qt7gu5DuS7ZtzM3cCVZzUbZcVjj/sbuEEUcv5KxZRpvxAqBlEDf7ANJuPx?=
+ =?iso-8859-1?Q?oxcKN8qCKN93QEqrO+HJGYA6/Y7vGE/RmAOze25dg0BO6HE61CmYT7TiLL?=
+ =?iso-8859-1?Q?4ibympKSK8tlwu4Nj4pkV0dCeXYdHN0/Amf486FY1bEBRaN0UDN729Uics?=
+ =?iso-8859-1?Q?ogVBvK21KAapikKt0aEk80DYSRZ6hZcw4rF61h/K5vOiDHh1e2mXY8S4/J?=
+ =?iso-8859-1?Q?FOEI7Bi5/HsXwOGENIHFzTdA5OWyBNKnDCQn9EK8u31/MPwAekKQ4G/iza?=
+ =?iso-8859-1?Q?/v2gSna+9kdaVjiwBzrv+cmx8G1SEbvU2E1JoteFRvpvvD/YoJ2xMNJcVT?=
+ =?iso-8859-1?Q?R6ocKm43ARSPRhMjrhGmv9dU4JQrQZX8AWdiGAmJjQ+sX0cjQmlMggMDrb?=
+ =?iso-8859-1?Q?zKWZMjJ2aIWI5xHZbed7OyJxH9mtxwq/gVDLTGDec5LCNSdXLRTAvfPR1g?=
+ =?iso-8859-1?Q?MZ0BgRwbdrDBTW2X2yK7qhs68ll1X8F5JH1W3V7FgFfVnL/t+mIn8d/REa?=
+ =?iso-8859-1?Q?nw6B7Kt+z86mQZs3PAwUjPE2dNFjpXa9MZpbSo47sXnG7S+Zlfk4EQejjI?=
+ =?iso-8859-1?Q?PcnwrdXUsuaBPlB0rCBhlouGtAu/WacmVmmDqAKEWp+DO7J0/s2fuiYoMf?=
+ =?iso-8859-1?Q?6kXx6ZEuevOMriMnZCSBTGdtYOuzehj1rKU7yX07Nlj9CDavd0jDsIS5f/?=
+ =?iso-8859-1?Q?4keCmoI2c4TMoRBLkC1LtbnmHiCHSqKMKJJa3w4uZQlM29prnq1gSUEREG?=
+ =?iso-8859-1?Q?Pfg8AZlUiI5tYKZ7SIETEqkPTiUfy5BhKdtlbQqBHzoMRHVrKpo7z0c6X2?=
+ =?iso-8859-1?Q?loHhkVFEJypQ8uKOGckLbUPTYgWh1G6rcm6Ay5NBDBFD1eIAMWiZdFKR0/?=
+ =?iso-8859-1?Q?8oPUXFAHSQhLpMUIRAva9BYUdzVrxd2koOQ0Fb9stdcnXGFyZNRdV60yJI?=
+ =?iso-8859-1?Q?s0GRxPYF6PYDCziRJc+HwYr14V6DhV7P76S/8MNKkFT13Zbzijt58NDD7r?=
+ =?iso-8859-1?Q?vrIiZGrqDwXfY2NnK2fT4GfZGFudJwm8cGJIsBajxCeM11VuM2jEGFGaJo?=
+ =?iso-8859-1?Q?vCKzW2B0JXT1ABgijqpGLW1Mas+uR824iiZ7I7dhA5W7bUKpptFj?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c68591ff-0806-4829-f87e-08df14c95520
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2026 14:38:26.2569
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: FNMkonIogOoZ4phRPw3zavo6YCCmj01g2OTPxUgES8wbR7vs4OmYHwjbAduSuuJk46/I7ATDravDahlhEkk2xq9fbPle8ChjXMkiyt9QwVn7gxsZl5L3M1Qi1DvzNfsZ
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6968
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_070055_114842_74AE08EF 
-X-CRM114-Status: GOOD (  21.59  )
+X-CRM114-CacheID: sfid-20260917_073833_392403_F61A257A 
+X-CRM114-Status: GOOD (  35.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,164 +157,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Francesco Dolcini <francesco.dolcini@toradex.com>
+On Thu, Sep 17, 2026 at 11:49:46AM +0100, Nuno Sá wrote:
+> On Tue, Sep 15, 2026 at 09:37:44AM -0500, Frank Li wrote:
+> > On Tue, Sep 15, 2026 at 10:29:03AM +0300, Andy Shevchenko wrote:
+> > > On Mon, Sep 14, 2026 at 09:18:42AM -0500, Frank Li wrote:
+> > > > On Fri, Sep 11, 2026 at 06:25:36PM +0100, Nuno Sá wrote:
+> > > > > In preparation for the bitmap based bus width capabilities, move
+> > > > > enum dma_slave_buswidth out of linux/dmaengine.h into a new
+> > > > > include/linux/dma/engine/types.h.
+> > > > >
+> > > > > linux/dmaengine.h is included nearly everywhere, so growing it with the
+> > > > > new interface would make every one of its users pay for it. Keeping the
+> > > > > basic types in a separate header lets the new interface live next to it
+> > > > > without that cost. linux/dmaengine.h includes the new header, so its
+> > > > > users are unaffected.
+> > > > >
+> > > > > While at it, add the missing kernel-doc for the enum members. The block
+> > > > > already opened with /**, so kernel-doc expected every member to be
+> > > > > described and warned about each one of them. Describe the UNDEFINED case
+> > > > > in particular, as its meaning depends on where the value is used.
+> > >
+> > > ...
+> > >
+> > > > >  include/linux/dmaengine.h        | 20 +++-----------------
+> > > >
+> > > > I think it is good to split dmengine consumer and provider header files to
+> > > > hidden dmaengine's detail.
+> > >
+> > > It's indeed desirable change. but isn't it a bit out of scope of the series?
+> > > I suggest to do one step at a time. Would it work for you?
+> >
+> > Yes, but I hope the file name is finial expected file name. it is okay
+> > just move enum dma_slave_buswidth to there now.
+>
+> Hi Frank, if I understood you, you mean to have an engine.h as kind of a
+> consumer and have enum dma_slave_buswidth on it?
 
-LCDIF programs LCD_DATABUS_WIDTH from the selected media bus format. The
-format reported by the downstream panel or bridge describes the display
-input, but it does not describe how the LCDIF data pins are physically
-wired on the board.
+yes,
 
-These can differ. For example, a 16-bit LCDIF bus can be connected to a
-24-bit display by wiring the available color bits to the corresponding
-display inputs. In that case, using the display's 24-bit format to
-configure LCDIF selects the wrong data-bus mode and changes the assignment
-of color bits on the LCD_DATA pins.
+>
+> If so, note that enum is used both by consumers and providers so having
+> them in types kind of header makes sense to me. Kind of the same as with
+> the new widthmask header. It's used by both.
 
-Read the optional bus-width endpoint property from the LCDIF output port
-and use it to select the media bus format used to configure LCDIF. This
-allows the LCDIF bus mode to describe the physical interface
-independently of the downstream display format.
+Yes, generally, provider include consumer's header files.
 
-When the property is absent, continue using the format reported by the
-downstream display device, preserving the previous behavior. The
-devicetree binding restricts bus-width to 16, 18 or 24; any other value
-means the devicetree is broken, so fail the probe instead of silently
-falling back to the previous behavior.
+suppose detail dmaengine implement should be hidden in provider header
+files.
 
-Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
----
-v5: fail probe on invalid bus-width instead of falling back to the
-    previous behavior; factor the property parsing into its own
-    mxsfb_of_bus_fmt() helper. Drop the r-b/t-b tags below since they
-    were given for the previous silent-fallback behavior and for a
-    different code shape; needs re-review.
-v4: add r-b and t-b tags
-v3: improve commit message and make it clear that the code assumes that
-    the DT is correct, when the DT contains an invalid property value,
-    the code safely fall-back to the previous behavior
-v2: use the common bus-width property instead of the legacy interface-pix-fmt
+consumer is just subset by use provide APIs. It takes time to implement it
+but can start work from enum dma_slave_buswidth.
 
-Dropped for v5:
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-Tested-by: Alexander Stein <alexander.stein@ew.tq-group.com> # TQMa6UL[L]x
----
- drivers/gpu/drm/mxsfb/mxsfb_drv.c | 43 +++++++++++++++++++++++++++++++
- drivers/gpu/drm/mxsfb/mxsfb_drv.h |  2 ++
- drivers/gpu/drm/mxsfb/mxsfb_kms.c | 12 +++++++++
- 3 files changed, 57 insertions(+)
+Just choose good filenames now, avoid rename letter.
 
-diff --git a/drivers/gpu/drm/mxsfb/mxsfb_drv.c b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-index 8b4a500347fb..641691fc92c8 100644
---- a/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-+++ b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-@@ -12,7 +12,10 @@
- #include <linux/clk.h>
- #include <linux/dma-mapping.h>
- #include <linux/io.h>
-+#include <linux/media-bus-format.h>
- #include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_graph.h>
- #include <linux/platform_device.h>
- #include <linux/property.h>
- #include <linux/pm_runtime.h>
-@@ -207,11 +210,41 @@ static void mxsfb_irq_uninstall(struct drm_device *dev)
- 	free_irq(mxsfb->irq, dev);
- }
- 
-+static int mxsfb_of_bus_fmt(const struct device_node *ep, u32 *bus_format)
-+{
-+	u32 bus_width;
-+	int ret;
-+
-+	ret = of_property_read_u32(ep, "bus-width", &bus_width);
-+	if (ret == -EINVAL)
-+		return 0;
-+	if (ret)
-+		return ret;
-+
-+	switch (bus_width) {
-+	case 16:
-+		*bus_format = MEDIA_BUS_FMT_RGB565_1X16;
-+		break;
-+	case 18:
-+		*bus_format = MEDIA_BUS_FMT_RGB666_1X18;
-+		break;
-+	case 24:
-+		*bus_format = MEDIA_BUS_FMT_RGB888_1X24;
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
- static int mxsfb_load(struct drm_device *drm,
- 		      const struct mxsfb_devdata *devdata)
- {
- 	struct platform_device *pdev = to_platform_device(drm->dev);
-+	struct device_node *np = pdev->dev.of_node;
- 	struct mxsfb_drm_private *mxsfb;
-+	struct device_node *ep;
- 	int ret;
- 
- 	mxsfb = devm_kzalloc(&pdev->dev, sizeof(*mxsfb), GFP_KERNEL);
-@@ -238,6 +271,16 @@ static int mxsfb_load(struct drm_device *drm,
- 	if (IS_ERR(mxsfb->clk_disp_axi))
- 		mxsfb->clk_disp_axi = NULL;
- 
-+	ep = of_graph_get_next_endpoint(np, NULL);
-+	if (ep) {
-+		ret = mxsfb_of_bus_fmt(ep, &mxsfb->bus_format);
-+		of_node_put(ep);
-+		if (ret) {
-+			dev_err(drm->dev, "Invalid bus-width endpoint property\n");
-+			return ret;
-+		}
-+	}
-+
- 	ret = dma_set_mask_and_coherent(drm->dev, DMA_BIT_MASK(32));
- 	if (ret)
- 		return ret;
-diff --git a/drivers/gpu/drm/mxsfb/mxsfb_drv.h b/drivers/gpu/drm/mxsfb/mxsfb_drv.h
-index d160d921b25f..bdc47ce5be79 100644
---- a/drivers/gpu/drm/mxsfb/mxsfb_drv.h
-+++ b/drivers/gpu/drm/mxsfb/mxsfb_drv.h
-@@ -46,6 +46,8 @@ struct mxsfb_drm_private {
- 	struct drm_connector		*connector;
- 	struct drm_bridge		*bridge;
- 
-+	u32				bus_format;
-+
- 	bool				crc_active;
- };
- 
-diff --git a/drivers/gpu/drm/mxsfb/mxsfb_kms.c b/drivers/gpu/drm/mxsfb/mxsfb_kms.c
-index d8ebebc5314b..1d78c486d147 100644
---- a/drivers/gpu/drm/mxsfb/mxsfb_kms.c
-+++ b/drivers/gpu/drm/mxsfb/mxsfb_kms.c
-@@ -386,6 +386,18 @@ static void mxsfb_crtc_atomic_enable(struct drm_crtc *crtc,
- 	if (!bus_format)
- 		bus_format = MEDIA_BUS_FMT_RGB888_1X24;
- 
-+	/*
-+	 * Prefer the bus format derived from the OF graph endpoint "bus-width"
-+	 * property when available. Otherwise, use the bus format reported by
-+	 * the downstream bridge or panel.
-+	 *
-+	 * This supports mismatched display and interface bus widths, such as
-+	 * a 24-bit panel connected through an 18-bit interface or an 18-bit
-+	 * panel connected through a 24-bit interface.
-+	 */
-+	if (mxsfb->bus_format)
-+		bus_format = mxsfb->bus_format;
-+
- 	mxsfb_crtc_mode_set_nofb(mxsfb, bridge_state, bus_format);
- 
- 	/* Write cur_buf as well to avoid an initial corrupt frame */
--- 
-2.47.3
+ideally, As vnod said include/linux/dmaengine.h is consumer header file.
+drivers/dma/dmaegine.h as providers.
 
+but some dmaengine driver outside drivers/dma/ directory.
+
+Maybe we use
+
+include/linux/dmaengine_consumer.h as start.  wait for vnod to comments.
+
+Frank
+
+>
+> - Nuno Sá
+>
+> >
+> > Frank
+> >
+> > >
+> > > > suggest name
+> > > > 	dma/engine.h
+> > > >
+> > > > so we can start move more API to this files.
+> > > >
+> > > > after all user include this consumer header file,  old
+> > > > include/linux/dmaengine.h rename to include/linux/dmaengine-provider.h,
+> > > > which only include by dmaengine drivers.
+> > >
+> > > Traditional naming would be
+> > > dma/engine/provider.h
+> > > dma/engine/consumer.h
+> > >
+> > > --
+> > > With Best Regards,
+> > > Andy Shevchenko
+> > >
+> > >
 
