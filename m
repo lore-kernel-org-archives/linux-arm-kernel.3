@@ -4,91 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D4A4C982D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 13:49:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0117CC982D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 13:51:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Za9naEHOWE90qDwxxDpS0xl91VPuA8VV517xO2LcsZI=; b=3lwF8M6rZ/dTAIy0D8G/CLDUw7
-	RRaAZBC6V5oTb2+qL2NYcTsEAR5JCtZEGCum6GS77CEEUWAG2RDPFTLQ7DouWdPpL7lGSXov9V68/
-	TUdDmtWSCaYADF4L/s1T1tICHxUQkobHvqkTGx5udd8v2DL2y/hvojELhT5f2qeslsJ3WnG99U3Ii
-	drLXvQAhXGRYGR3JsRJ0c7k81Fyj++bHPQW/nUSoZ4DcnYbBKsdE2P0P2/JbcltL+g00wxQVtnU/I
-	vleoYvlI0qA56B+2346SRnnlrqAwBuRZ2oi/8oZ9VxjtxJopItg19hTWkOnuAt+baBIn6cgeACkMZ
-	VcwCVO/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Kc0fhWtkY8CPd3eoFrWyeHrVYs1r5+kXX3v2RsY10zU=; b=UHHZEWbLN3xWbANLYzHVIZdQmP
+	TJbRSUrMXosDaY40jBOTuQ5kJV4ZP/bDpSNxU0njZBI/ztMEeQkQGnQgnawep1jfBcWP2xYXgNB1K
+	ha3kX7llimM3dUGjEagJoPoj7oMs3a9JaUsnu53n/cEV+3FkRbKrTFrNRkyW+nD+I4i43xO9pj7g1
+	5+Ku3+M+Dgokxp4FfOdM23tIlQ9AkF6Nah6HcYgpQLZ1R//jlwfLrDIXPdLX5T91/XmodnVsSdroG
+	z2fDTYNJgkBR1dsSwzvd0HeMDzMl87wyfHrZ5w8IKSFLcsqmu0LReYbbG3NHqocOwibsB/thVxbxS
+	gdroJmCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7CUa-0000000BRQM-1q1G;
-	Thu, 17 Sep 2026 13:49:36 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1x7CVx-0000000BSTG-2MqA;
+	Thu, 17 Sep 2026 13:51:01 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7CUP-0000000BRJ0-1twO;
-	Thu, 17 Sep 2026 13:49:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1789652962;
-	bh=R+0ORjkMahdOCQPNUtjC94W9dr82Rbx5na9hVn3u/Ng=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=G/4NqSBOfGgULBF4gDeB4Y73jKgWBtHyCvlOVnyWEaPREAGjUYQ1UtWk8zCXpKMI9
-	 roQ02NIDWO8cT5Q33R17Vvz1D1oBCMOif7o5pNJhimbeaY35xqYbPnk1Fh48zQzJ5s
-	 R72eU0IclAgiSobRoQZ0lAoV9hyidMqzk3ICxDm0X2kjhASpbqSNGRrj7aTmCDXx0R
-	 6cVRd3aaxPBVk6FepSjY8oBeJhHfUGyF9k3JxA51eJH/k47U2rYyLt0FoeIx8ZECDz
-	 eYcdrAnfzNfUsa+FoN9Vs0SSnfPBQZtUyILlut9NycPVDFDjIpG4KHdz4d/XAlOpAX
-	 4PQKJl6s3Wl6Q==
-Received: from jupiter.universe (unknown [100.64.1.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C898A17E0C7E;
-	Thu, 17 Sep 2026 15:49:21 +0200 (CEST)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id 7F89E480031; Thu, 17 Sep 2026 15:49:21 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Thu, 17 Sep 2026 15:49:16 +0200
-Subject: [PATCH 4/8] PM / devfreq: rockchip-dfi: add NO_INTERRUPT perf
- capability
+	id 1x7CVu-0000000BSSG-49lS
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Sep 2026 13:51:00 +0000
+Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
+	by APP-05 (Coremail) with SMTP id zQCowAB3pkBA8Ktq19GBCA--.3971S2;
+	Thu, 17 Sep 2026 21:50:56 +0800 (CST)
+From: Wentao Liang <vulab@iscas.ac.cn>
+To: alexandre.torgue@foss.st.com
+Cc: antonio.borneo@foss.st.com,
+	jiashengjiangcool@gmail.com,
+	linusw@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	mcoquelin.stm32@gmail.com,
+	zmw12306@gmail.com,
+	Wentao Liang <vulab@iscas.ac.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH] pinctrl: stm32: Fix clock reference leak in stm32_pctl_probe()
+Date: Thu, 17 Sep 2026 13:50:56 +0000
+Message-Id: <20260917135056.2153959-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260917-rockchip-dfi-cleanup-v1-4-4f00a97a69a6@collabora.com>
-References: <20260917-rockchip-dfi-cleanup-v1-0-4f00a97a69a6@collabora.com>
-In-Reply-To: <20260917-rockchip-dfi-cleanup-v1-0-4f00a97a69a6@collabora.com>
-To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Chanwoo Choi <cw00.choi@samsung.com>, 
- MyungJoo Ham <myungjoo.ham@samsung.com>, 
- Kyungmin Park <kyungmin.park@samsung.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
- kernel@collabora.com, Sebastian Reichel <sebastian.reichel@collabora.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1817;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=tS8n9fy0LBJivuuQhw0+orcBEclVJquJmZ0El2PFwMU=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGqr7+FtYWVZhqL58bgqY/9AAoAVrODLk/2bk
- /G12vDhTY+kGIkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqq+/hAAoJENju1/PI
- O/qaQvcP/2ts/3qzSSPMQStKfeSOQqsfgNzziQqNcGI0S5KntolvAXoYDfkvsfwy8Jy5ClGTjMA
- 5SKjGmVdDk1mPtm+I+K1+VsmsQ6CzAyW9+HW24itXgkBcjkc2W+eM7MjXxz8fyQr2jhWaJTHZSq
- CT3EIyYisTO1wvrUCtzRokHvsUlehB23uDk4ireeq7XaI3Q1QVKdsWTWhiaGmfdGJXpHC7oZn6f
- ek4J8J+INfYt+icxfNDiPpUS+mPjTYwoGeSpZ46Rv/5mcySSZJh5lBcrmm/UjheYd5tYSqdVi7E
- k1GarZzQbsHrpPQ8Ekmt9Phlg2JmpJT7ju3bB5JQQktVta942gk59V1n0wdnWM16jXkjFrPDwrI
- mripyUDRu6nIVo/oM0RrsYp4nRp6uOFHIJGytaNh5J9aZeaUAFvf+Y8DYaRfQ3zy2ZQvJxk386k
- DEl+ID5BF8klKmWOseyWAePwokQ/RkXEw8SdKOtYx8KjbW6M8QMj0lcAEJYVygoBrbdEnLHXoPP
- h4Nio2FwwGvFP9slvuyVQtQdXifS/JjmYq4+I2y+tg+s23s6i52/aiAnh6OBqC/nhlTca+aSih2
- mch6cCkUhpaTs+7kIFMWl8AWgoXfBZRzPn1nAPKgUg4YxI+t6uzQI/MmtbRt3NGmewKj6FrktqA
- eMLBQk1MYrFh2g8LsPgI0Ug==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: zQCowAB3pkBA8Ktq19GBCA--.3971S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7ZFyxuF1UJF4rXF48tr47Arb_yoW8Cr18pF
+	ZxtFWYkw4DG3yFk34DJw1UXF9aga1IyFyDGa95Ka4xWF1YyF9rtw4rJ34avFs0kFZ5X3s8
+	tF47tFy5Aa18ZFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPqb7Iv0xC_KF4lb4IE77IF4wAFc2x0x2IEx4CE42xK8VAvwI8I
+	cIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2
+	AK021l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v2
+	6F4j6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxV
+	W0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv
+	7VC0I7IYx2IY67AKxVWUtVWrXwAv7VC2z280aVAFwI0_Cr1j6rxdMcvjeVCFs4IE7xkEbV
+	WUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VAI37AI020EjII2zVCS5cI20VAGYxC7M4II
+	rI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMx
+	AIw28IcVCjz48v1sIEY20_Gr43Wr1UJr1l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAq
+	x4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r
+	43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF
+	7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI
+	0_Gr1j6F4UJwCI42IY6I8E87Iv6xkF7I0E14v26rxl6s0DYxBIdaVFxhVjvjDU0xZFpf9x
+	07UZSdgUUUUU=
+X-Originating-IP: [36.110.52.2]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBgYNA2qrq3bUxAAAsC
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_064925_649401_F687900D 
-X-CRM114-Status: GOOD (  18.53  )
+X-CRM114-CacheID: sfid-20260917_065059_405981_32FF732A 
+X-CRM114-Status: UNSURE (   8.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,45 +87,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+stm32_pctl_probe() obtains one clock per bank with
+of_clk_get_by_name(), but none of the error paths drop those
+references: the loop returns directly when a later clock lookup fails,
+and both the clk_bulk_prepare_enable() failure and the err_register
+path return without calling clk_bulk_put().  clk_bulk_disable_unprepare()
+only disables the clocks, it does not release them.
 
-The perf subsystem's PERF_PMU_CAP_NO_INTERRUPT is a bit of a
-misnomer.[1] Instead of meaning that the PMU has no interrupt, it
-actually means that the PMU does support sampling. On CPU PMUs, this is
-equivalent to not having an interrupt, but for uncore PMUs like the
-rockchip-dfi PMU is, no meaningful sample data could ever be generated
-regardless of whether or not there is an interrupt, as it is not a CPU.
+Release the references on these paths; the success path keeps them as
+the driver needs them for suspend/resume.
 
-Since rockchip-dfi doesn't seem to make use of the interrupt the DT
-provides it with anyway, this was probably never a confusion that
-existed in this case; the capability flag was likely just forgotten.
-
-Add PERF_PMU_CAP_NO_INTERRUPT to the set flags for the pmu struct's
-capabilities member, so that the perf core knows about this limitation.
-
-Fixes: 4d586b5724d3 ("PM / devfreq: rockchip-dfi: Add perf support")
-Link: https://lore.kernel.org/all/20250619140442.GH1613376@noisy.programming.kicks-ass.net/ [1]
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+Fixes: 451bc9aea9a1 ("pinctrl: stm32: Add check for clk_enable()")
+Cc: stable@vger.kernel.org
+Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
 ---
- drivers/devfreq/event/rockchip-dfi.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/pinctrl/stm32/pinctrl-stm32.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/drivers/devfreq/event/rockchip-dfi.c b/drivers/devfreq/event/rockchip-dfi.c
-index 5339616f7ca6..dd9edfd6a674 100644
---- a/drivers/devfreq/event/rockchip-dfi.c
-+++ b/drivers/devfreq/event/rockchip-dfi.c
-@@ -646,7 +646,7 @@ static int rockchip_ddr_perf_init(struct rockchip_dfi *dfi)
- 	seqlock_init(&dfi->count_seqlock);
+diff --git a/drivers/pinctrl/stm32/pinctrl-stm32.c b/drivers/pinctrl/stm32/pinctrl-stm32.c
+index 6a99708a5a23..587dbf1512dc 100644
+--- a/drivers/pinctrl/stm32/pinctrl-stm32.c
++++ b/drivers/pinctrl/stm32/pinctrl-stm32.c
+@@ -1976,6 +1976,7 @@ int stm32_pctl_probe(struct platform_device *pdev)
+ 		pctl->clks[i].clk = of_clk_get_by_name(np, NULL);
+ 		if (IS_ERR(pctl->clks[i].clk)) {
+ 			fwnode_handle_put(child);
++			clk_bulk_put(i, pctl->clks);
+ 			return dev_err_probe(dev, PTR_ERR(pctl->clks[i].clk),
+ 					     "failed to get clk\n");
+ 		}
+@@ -1986,6 +1987,7 @@ int stm32_pctl_probe(struct platform_device *pdev)
+ 	ret = clk_bulk_prepare_enable(banks, pctl->clks);
+ 	if (ret) {
+ 		dev_err(dev, "failed to prepare_enable clk (%d)\n", ret);
++		clk_bulk_put(banks, pctl->clks);
+ 		return ret;
+ 	}
  
- 	pmu->module = THIS_MODULE;
--	pmu->capabilities = PERF_PMU_CAP_NO_EXCLUDE;
-+	pmu->capabilities = PERF_PMU_CAP_NO_EXCLUDE | PERF_PMU_CAP_NO_INTERRUPT;
- 	pmu->task_ctx_nr = perf_invalid_context;
- 	pmu->attr_groups = attr_groups;
- 	pmu->event_init  = rockchip_ddr_perf_event_init;
-
+@@ -2010,6 +2012,7 @@ int stm32_pctl_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	clk_bulk_disable_unprepare(banks, pctl->clks);
++	clk_bulk_put(banks, pctl->clks);
+ 	return ret;
+ }
+ EXPORT_SYMBOL(stm32_pctl_probe);
 -- 
-2.53.0
+2.34.1
 
 
