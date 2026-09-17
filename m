@@ -4,131 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06A19C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 16:42:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E807C88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 16:45:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sHkvfFdQLUhY5sYOx0pKHB0qM1iC6EqLd5EAxFQ9uDI=; b=Dzuzg154c/KL1xFQOIVtZ348cZ
-	TzTztRGg2ocbPEgbhe32c2yqXvmVGKA6bDVbPPA4hVYCLpFc1IgYWXcF9/ALITuX5XLQUCeAWZnu7
-	pDE+OiLEJ/XgjSoj9Zkr4cqPUUD87AjhLtVRFfrCwP4cp7kvwo6HyGxi6I7TwM5tgCDIjhc04FxhQ
-	hrRPFpjT+xgag3KWPr0zewyf+ecPb0zeJRhh0Dujtp2/lkLlqTQiWf0h3OB/RjR0cGpMhIi3Dhve3
-	uj4wmbdjtHqpK5ztdTEJtznBf6z+FKWKZ923Wkjmh4HdKXmr/tRaxKH7o3ldDCUr5ykEVa+51zRxV
-	N9kY5KQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wFVtn7TG6f4mxtK33dq+a4hRgCkKck590tubt0IqX6w=; b=E3wJEcgExsW67i/Wfe3m2kbH0I
+	U54HQV4m2Bvlo58iqXUJpoOblKHAWIF02bXGjTR6aYF4oQ+M0RJToPMRYLI/8cxyfKbM5oI4lkHGF
+	mpj7yzPLYM2wR1xihaxKIT6NmKBQG0jJRxeE7lEydb/n1Tv3vmtXkci7YbPxvphFMFrKq9kU6hHU1
+	BDTOhuLSSoAN8Z2sEshbXtnS5WTzJMzJdej/vymCpFzDz3PDS+B8hSNsaP8HpbWLatx1xXR33XZku
+	oEJuLBXy3+/1nLk7HUf+Be74dVVjA3rm9oBY9bjzkJ2CIAcr3UYOduT6FhC/hIJSnnAtPO+EYGfWN
+	CR1f3Efg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7FC4-0000000By7Y-1hEk;
-	Thu, 17 Sep 2026 16:42:40 +0000
-Received: from mail-westeuropeazon11010014.outbound.protection.outlook.com ([52.101.69.14] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1x7FF6-0000000Bygr-1Hgd;
+	Thu, 17 Sep 2026 16:45:48 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7FC1-0000000By6I-2VZz
+	id 1x7FF3-0000000Byg7-25Qw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 16:42:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=J+sCtqbeRlmWaCQKa4e/gwRzBUwi64IJLPukUy9jNxPjlLPvyI/tl/NmuCzqMMvKqvcUr4mHLX/BqVmd8Dlq69/6aRTfdTR6G6a0zoBemOP26n/Fr+5mPmpHj10O7LD0yMBBtO6LGqPaLKhDceZBRiQquOVtbspsaPcfafC/RQHxK6X5DlouUj12x8ezXpdJB6kmTCirnP/Z78+c9lR1LPLxThtwJmZElqdPxzTNfnCbkMGHn2fa3rxU1m03d5BmzxtZ9QuS8woljwgZwrpsbatQm2xmY+TY8Ank13dm706mByusasdkYwgMNWTj/QBSmugJZ4isz9KvQIPjHdQmfA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sHkvfFdQLUhY5sYOx0pKHB0qM1iC6EqLd5EAxFQ9uDI=;
- b=oJAjFBVKGtqBCSMsB0b1BPmyqATY02RBhYvzHgATnkBcQC1fdQCSKsnembyRfwv1Cr3DDoTsc11jwd01doKrsw+clOGhZ3gUxC9Wcu+gRjMn+WZulkQVoqi6pcuWnfHsUPxIG7H3Ng/ZGfKbCXmFMVxgtmWzZzPrYt1LblyUf/eoyBZ+Exee8hnGBh+TNaTEE97Vs4Vo2Ta0MwjMVsiGxXVEHQB95N4TZXK12cuyvVynfWIJoEbLtt6jY1VL+D32lFLkqfFlaC4iQcF6xh7fTm0Rzs+l/xrMcvVncL8bhr6nzpxQc9wPnQZ013O3leg5h5Qq62VN9ogrwJhy48nzcw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sHkvfFdQLUhY5sYOx0pKHB0qM1iC6EqLd5EAxFQ9uDI=;
- b=mVF0p0K5BRLAOJLcFdYm7rjDNpL6hV5NU5HQRiFOi2HykqWHVbLLLwVtSNKn+2mMvf+Nxt0UbLPmVZrwR+7CL+ea+4LhnW7QnJvEPWEmu1QLkkgZWUyUlFy3WTU7v1yf+e6i08GkLTsiXETqDTaHNJQt1DqpPq2C23eml2s/GHIe4ZI0qoWD/R0QBjKrKso2bZuCCr6Mcwe8C2iaqAMq8B/Yk/BKRto/kYRAyXjLqfa9Sn30awsn/HjiyQc06Tppy71OikI7Ak6NHgdAWQ7UX46ppvZDUSLNSDboYIOFB11X25hInYoazMzHf5cuB9i6F5hHo3Bf14JQm/pd+E7hGA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DBBPR04MB7929.eurprd04.prod.outlook.com (2603:10a6:10:1ec::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Thu, 17 Sep
- 2026 16:42:33 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.012; Thu, 17 Sep 2026
- 16:42:32 +0000
-Date: Thu, 17 Sep 2026 11:42:22 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Ming Qian <ming.qian@oss.nxp.com>
-Cc: Ulf Hansson <ulfh@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>, Lucas Stach <l.stach@pengutronix.de>,
-	linux-pm@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Zhou Peng <eagle.zhou@nxp.com>, Xiahong Bao <xiahong.bao@nxp.com>,
-	Ming Zhou <ming.zhou@nxp.com>
-Subject: Re: [PATCH v2] pmdomain: imx8m-blk-ctrl: Serialize power on/off
- across sibling domains
-Message-ID: <aqwYbhghBVb1fwdy@SMW015318>
-References: <20260917-imx8mp-blk-ctrl-v2-1-81d29e907a5d@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260917-imx8mp-blk-ctrl-v2-1-81d29e907a5d@oss.nxp.com>
-X-ClientProxiedBy: PH8P222CA0024.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:510:2d7::14) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Thu, 17 Sep 2026 16:45:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1789663544;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=wFVtn7TG6f4mxtK33dq+a4hRgCkKck590tubt0IqX6w=;
+	b=NLml1TD132GDuil1kaelCQm8/b76CU7gdO0OpV/VUhPwzsyhQb568HFOSGZpBL4yUZy4o7
+	2xn/s06reCBJUAVEtpIwA4/vn7w2iZmjVYN3V6nYoxZ2HsVY2ctyWUGqtyB2bVjZawuRcB
+	82TIbCKVvqge+vH9icfg2TVHG89RbFA=
+Received: from mail-ej1-f71.google.com (mail-ej1-f71.google.com
+ [209.85.218.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-676-ZoS6U4QHO9KSzwiElqmdVg-1; Thu, 17 Sep 2026 12:45:41 -0400
+X-MC-Unique: ZoS6U4QHO9KSzwiElqmdVg-1
+X-Mimecast-MFC-AGG-ID: ZoS6U4QHO9KSzwiElqmdVg_1789663540
+Received: by mail-ej1-f71.google.com with SMTP id a640c23a62f3a-c252634bc4dso121168666b.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 09:45:40 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789663540; x=1790268340;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=wFVtn7TG6f4mxtK33dq+a4hRgCkKck590tubt0IqX6w=;
+        b=zRLzWP6JTmaF1hm9rKs7B5ZHysQu2c3qaRiGcSBKzEAALX9S6EB5H8NdRF+L8jX0FC
+         T5cgcfWX9AT/7RkKj1Q3UO/B/DeUpqmpaOLgSsI+Ypqn73JtRUI/r2hsCz+paf9hl2kk
+         N3UY0aXb9YObNFzynok4hm8O8lJvdLbC2Ww9eYKfjQUQyKValVtTi7xirf1gfXdztmzI
+         KcFb8BiiQnveAQQJAOpVVTq7007S6LYmv0AZIntcNwJgY2ZnUP0GnnTc+lBSudtj6pi4
+         TgAUtJk+6my758AoaAFCNdAFGQOZf4ocTs7NWhqHyIYdxPaSKzZhhnaEDzVtOwnvo/45
+         KSvA==
+X-Forwarded-Encrypted: i=1; AKwUvByis543ydRVVlv2zvpEJFYeVrdKPcI1pwoDeuY4S54QeNkaRCM2oZJJCqKTMy/r/5EBYhRCKllF5D8JP/dbPnOV@lists.infradead.org
+X-Gm-Message-State: AFuF++nHdayp8J3vbwWwu9PapyJgYxnmhCKdS+ATUluLa4DhcILdKN1F
+	pKFWTaiEltWFd10RYj7LRIhQs5ONsTxbQQlUS33AVCjcvVQnBjGVkyZHuIK6J5zok5FY9Jxv8PA
+	HUT3navqa08XsfRGjqokj2t4xhwOLqGV07K00NXGQ/xh0M6myWXcUqratz+RBS3dMkPfldnCAoc
+	9HqKd/hFOS7prdFV20sVc5HFefw2ZaAUZUBhpSG+/ANoxYuPnrhU4=
+X-Gm-Gg: AYBFou3OdSWOqAmvyNEQCe7AvBvdztKlhadRQkGk5r5A7rLYg+0cazOloOV6QjUm3Cs
+	JIzp25v+h5mFbZ/zGDmGpCCEW8iwNzZpb4v8j6FJx/MMI7oE6CsaQKayFU2yGG4UCVTYnU4pxER
+	w9LOpUKTZ6tllIQeuksBMfzCo5llAzFyZo1TNbWKqq1AGhneKdzB0qUjPUQ80hIVlOogg5iS/8O
+	GOrAXq9Q0Z3DOK3WQ8UqetJ6ro5d6vOhMgb81fWEgFXodBI2aTD2w3G7SSzAIC7ZlfAj0InYidu
+	7xM=
+X-Received: by 2002:a17:907:9603:b0:c29:f5d5:5a9b with SMTP id a640c23a62f3a-c29f5d56177mr278869466b.37.1789663539792;
+        Thu, 17 Sep 2026 09:45:39 -0700 (PDT)
+X-Received: by 2002:a17:907:9603:b0:c29:f5d5:5a9b with SMTP id
+ a640c23a62f3a-c29f5d56177mr278866966b.37.1789663539386; Thu, 17 Sep 2026
+ 09:45:39 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DBBPR04MB7929:EE_
-X-MS-Office365-Filtering-Correlation-Id: 46ed1aa4-d5e1-4f69-91ac-08df14daab7c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|23010399003|366016|1800799024|19092799006|376014|10067099003|6133799003|22082099003|56012099006|11063799006|18002099003;
-X-Microsoft-Antispam-Message-Info: h+Y7lGQ+GMxpkJBaGYRV5ub32Qkrx10D+OXhJYnPghD0WiNnaRr3LbTaCdb6dZjI0QDQl+j2+6fJ6gtcs4ipxOSnkXI1LbW2tFQdZ1CY9cC4PxuE3zymps5M2Y/zS0ZZ23AG4m0i4Ac6lq3nSEBe1fBjE0lAUeWShmP90H1WqdhQZBUpOh0SI0XQRS8o7UsIjRhLDgoepQKeQKbG0VaQmLgB5cmVovExosNoAOMkHg/TV2rU0556HHA05e8tOk7rZ6/qH1btlLcTRnMPP9G2U8Nk1PEXQwK+pFcq2xDRZqUM82lhbCruOER25tgcS0LhNr4wuhZEKvsn3A+VXi4+vfsiBEE/105wirIQyXqoUAwhDJGPJ9/OD6DVTlqT9rV/w6Z97s+PpG/mrGzHh3hUwNJmAghYqqsob2GO4qd4kT/JXMYTDcOt10zmU1mk1vQpCN3yPpOq7VaJepJPrC7cpR9cZC2fyiGkqmnr0/GoXvtlYX3s0BsTtS1IST1pEQRU3UNiId/n+1TuMElzUfNdGoiiexndAI4vufHq6SjU6RfkR6hGaoz1xxfyHMx5VsnVvSHgq5ozkCZWojqtVS5+aIbpQtmLjvzvUFboPk/bk3DiYfpCg1ZtsCoATegRPDNR
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(23010399003)(366016)(1800799024)(19092799006)(376014)(10067099003)(6133799003)(22082099003)(56012099006)(11063799006)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?wEPjE/J9MxsggIqs9Jh91Js30qg9+ONff7N2eSLkBV+GrkJNfJS1kHi5NSnM?=
- =?us-ascii?Q?mCLIdOhhrBjTFdboWCs6qDMpsfQPNLHBb4YWTbp6rN7cF0PhA20ltsHi36st?=
- =?us-ascii?Q?YmevP7AQxqbrrnUVLzrgzdPkbOc5oV/JK0+/2EU0ognu9fzCwzL2avGkfFvd?=
- =?us-ascii?Q?hQBo7b9RjrU5gWltlDU91wVwwWN4l5j4BZX5pkXoybeXdSYB8BCSbYxIF65t?=
- =?us-ascii?Q?on0RBC3arCjryfRp8UHYOqLn4hAoO1AYCBYUkkfRTQZbzof1hVf2v12POECz?=
- =?us-ascii?Q?BZJFlWM74tfoTNaL4RvOQhmJS2RplDKfXJKTTBGpbhvm7441AeHPsxD6I7WB?=
- =?us-ascii?Q?KK1CMwzCGLu2PWlcc10ENqx8iup4B2kPXOiFcl/atL1ZY1ekzXx0wmXgNHfq?=
- =?us-ascii?Q?QvxgFlPe5ndRUMi4UxHSHIi/MnjI6XZIPIboXA4s8M6zsbeKL5OffVNGeZzf?=
- =?us-ascii?Q?CFKQApZJVLuTkTj51gs+u35b7eX9yosQ+tDfmlxmAdffr0cIFoSusuQVGffY?=
- =?us-ascii?Q?/t1ko4+og6Yem+8EEesWwn9pEhcsKj/ZKoZg5KFAjnrgNqRscxH/eChqoUq0?=
- =?us-ascii?Q?PHNX0T9kDY+irqo3FPaT7+odl1jCDNP3ROpLv6R3e0+WMEtGu8bGcsqcxOGU?=
- =?us-ascii?Q?/fheogM63knFEYepinhtkVre+0wI6nBNwuB5znNkLXMcIZVUhc/lLcsbD5KD?=
- =?us-ascii?Q?DR5DI15nGWLnnvxsQ02Pe0wS184FBBhhRRYmSNu5dadl/G5JFiypgraQ+vve?=
- =?us-ascii?Q?1mDKKYpTuInHWCR1pkrH1mkMwrbfVzvK4Cr2sPkv0XWLlQTSsE/JKql7S01G?=
- =?us-ascii?Q?84EAyQwzIm8XjxiXbas5tZ9fEIzZsuLmlksxuemrfQDfLRu9r09DUfd2PXFo?=
- =?us-ascii?Q?FAkm+687WmPiZ6+i71DsbPCfhQqvSN3kk2T6tAHJBTtRDHOHuZxZM8iL/0Xj?=
- =?us-ascii?Q?9wfbTE0+e7LTnVCRRT8bJIdozp45J8/uLUy9+e4cqRIXoPMIo9WHQC7npQio?=
- =?us-ascii?Q?IHVetE0VZH87vaCdf/O1HZgmw88bSK72p2euENkcGTbZocjbs/lSPgpx+QtH?=
- =?us-ascii?Q?dPpbuA5pLEdzygk9Kq5sHdF+vt3W4yWAQnORE00y79aYKQOwxZHCehzo8j4u?=
- =?us-ascii?Q?dzqTRimJoMilgi7QmPcOUg+qwNzgq1EW26J/7CjDlSKERUdHKbcHKhIpE6r3?=
- =?us-ascii?Q?YUh7meqCirSROopafWD8eV8nqxzNoxwsuq9dMIRlHC6lSHvrYsIky9vRceun?=
- =?us-ascii?Q?dr/3VMvjf4oL5zD0HuC6w5TfsOKyKi8ctulleNSjFx8pkcj2LDl1RcuNRvxo?=
- =?us-ascii?Q?kOrXk2KFHYN8AU/0jkqfabEDv0Y07wfaQwgapwFLalJMHS29KTEeAQQzfRTb?=
- =?us-ascii?Q?n19GGXX+v1uW7laeBsaupjFnevqBiAR/z3oifWNBmbsr5zUf9AbEgLWvW8ll?=
- =?us-ascii?Q?kEH7IeC+1lon6r79mNW9GH+NI03onbYzqmi8TInrE3To2msSMA33fq3ZIxIE?=
- =?us-ascii?Q?PSPCwuAMVVxV2fZWk1EkQm1lXlWsMS3+m/MtUr2wZVPDrrC4eikxlBbWMosH?=
- =?us-ascii?Q?1fZMu8NOFjtgVC4wNfcPdzbwqH3eQWHLVeid+encXqhAuzvEvWDmKhJFZYbH?=
- =?us-ascii?Q?G/zSqh8VgKV1Hy0ron0vUbAzd5gAhwRiibVfEd/vV4WYj3l5/MSaZK+btahq?=
- =?us-ascii?Q?2XnZEJi3xb3W4hHUMfo2lWUVPbxJtLRkKiFWhnhNw9QtKdyWMiv41Grguq+l?=
- =?us-ascii?Q?Y2RKvEJzNUHCvARYnu6eqRhFS/JZ+WYl9taM38bEkbG0E3C8J141?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 46ed1aa4-d5e1-4f69-91ac-08df14daab7c
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2026 16:42:32.5446
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 57HG/8T2z7IOg85YWY6+NYJB/Zrr69tMvWuHUpVI2cqBB9iLxnAcKA52xvDUcmMsSC8mZyayaY3kUFo5JDxq4eRNwtQ19YjZjhVjlJT1q87ANUggnNe0JMP4HAclsxSz
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7929
+References: <cover.1788351089.git.rrobaina@redhat.com> <b30076994d49fa393251c836b5a57a725f218572.1788351089.git.rrobaina@redhat.com>
+ <apkuGoWQwLJ7AcUC@willie-the-truck>
+In-Reply-To: <apkuGoWQwLJ7AcUC@willie-the-truck>
+From: Ricardo Robaina <rrobaina@redhat.com>
+Date: Thu, 17 Sep 2026 13:45:27 -0300
+X-Gm-Features: AcwNN1VE92GuCfaSbB45oDCoyv2ZqeewbUd4A5IjqOoYsq0pANwtPdd_-Sv6Jfw
+Message-ID: <CAABTaaA7ZbfLxaQvTegaE9prKUPAu5fbfVt5wiaSZK=ohhjL1Q@mail.gmail.com>
+Subject: Re: [PATCH v2 01/13] audit: log all six syscall arguments in the
+ SYSCALL record
+To: Will Deacon <will@kernel.org>
+Cc: audit@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-csky@vger.kernel.org, linux-mips@vger.kernel.org, 
+	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, 
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
+	linux-um@lists.infradead.org, bpf@vger.kernel.org, paul@paul-moore.com, 
+	eparis@redhat.com, sgrubb@redhat.com, oleg@redhat.com, 
+	richard.henderson@linaro.org, mattst88@gmail.com, linmag7@gmail.com, 
+	linux@armlinux.org.uk, catalin.marinas@arm.com, guoren@kernel.org, 
+	monstr@monstr.eu, tsbogend@alpha.franken.de, jonas@southpole.se, 
+	stefan.kristiansson@saunalahti.fi, shorne@gmail.com, 
+	James.Bottomley@hansenpartnership.com, deller@gmx.de, 
+	ysato@users.sourceforge.jp, dalias@libc.org, glaubitz@physik.fu-berlin.de, 
+	davem@davemloft.net, andreas@gaisler.com, richard@nod.at, 
+	anton.ivanov@cambridgegreys.com, johannes@sipsolutions.net, chris@zankel.net, 
+	jcmvbkbc@gmail.com, tglx@kernel.org, peterz@infradead.org, luto@kernel.org
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: oDsocju44_SPE-lZ2OQGtaA-6r3zL0jXICEtVzDjnl4_1789663540
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_094237_790587_F8E6BA31 
-X-CRM114-Status: GOOD (  35.76  )
+X-CRM114-CacheID: sfid-20260917_094545_608241_DA2FB33E 
+X-CRM114-Status: GOOD (  25.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,174 +122,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 04:07:54PM +0900, Ming Qian wrote:
-> On i.MX8MP the VPU blk-ctrl exposes G1, G2 and VC8000E as three separate
-> genpds, each serialized only by its own genpd lock, so their power_on and
-> power_off callbacks can run concurrently on SMP.
+On Thu, Sep 3, 2026 at 5:22=E2=80=AFAM Will Deacon <will@kernel.org> wrote:
 >
-> The sequences are not independent: they share the VPUMIX bus domain, the
-> VPU_NOC and the ADB400 handshake. On power up the GPC cannot ack-verify
-> the ADB400 handshake - the ack only completes once blk-ctrl sets the bus
-> clk-en bit - so it just waits a fixed delay instead of polling hskack. A
-> sibling transition landing inside another domain's reset window disturbs
-> that shared clock and handshake timing, the victim's reset does not take
-> effect, and its block registers read back all zeros: the decoder times
-> out or the encoder fails its format check.
+> On Wed, Sep 02, 2026 at 11:43:34AM -0300, Ricardo Robaina wrote:
+> > The SYSCALL record currently logs only four of the six syscall
+> > arguments (a0-a3). The remaining two are captured but silently
+> > discarded before reaching the audit context. This leads to the
+> > need for auxiliary records when audit-relevant data lands in the
+> > 5th or 6th argument of a syscall.
+> >
+> > Extend the SYSCALL record to log all six arguments, by adding
+> > arguments a4 and a5 (5th and 6th syscall arguments respectively)
+> > inline within the existing record. Also add the two new args to
+> > the audit rules switch case, so audit rules can filter on them.
+> >
+> > Rather than plumbing two more register arguments through every
+> > architecture's syscall entry path, change __audit_syscall_entry()
+> > to take a pointer to pt_regs and use syscall_get_arguments() to
+> > retrieve all six arguments.
+> >
+> >  audit-testsuite# make test
+> >  audit-testsuite# ausearch -i -m SYSCALL
+> >  ...
+> >  type=3DSYSCALL ... syscall=3Dsendto success=3Dyes exit=3D1088 a0=3D0x4
+> >   a1=3D0x7ffe43518b60 a2=3D0x440 a3=3D0x0 a4=3D7ffe43518b4c a5=3Dc
+> >  type=3DSYSCALL ... syscall=3Dopenat2 success=3Dyes exit=3D4 a0=3D0x3
+> >   a1=3D0x7fffc74692c8 a2=3D0x7fffc7467390 a3=3D0x18 a4=3D0 a5=3D7fffc74=
+674f8
+> >  type=3DSYSCALL ... syscall=3Dopenat success=3Dyes exit=3D3 a0=3DAT_FDC=
+WD
+> >   a1=3D0x557ced4141a2 a2=3DO_RDWR|O_NONBLOCK a3=3D0x0 a4=3D0 a5=3D0
+> >  ...
+> >
+> > Suggested-by: Will Deacon <will@kernel.org>
+> > Link: https://lore.kernel.org/audit/CAHC9VhSjEt_-Bsra4AEqWv+Daw5Ff=3Dgq=
+y7dX4Ah11RVhdyCBUQ@mail.gmail.com/T/#t
+> > Signed-off-by: Ricardo Robaina <rrobaina@redhat.com>
+> > ---
+> >  include/linux/audit.h         | 13 ++++---------
+> >  include/uapi/linux/audit.h    |  2 ++
+> >  kernel/audit.h                |  2 +-
+> >  kernel/auditfilter.c          |  2 ++
+> >  kernel/auditsc.c              | 19 ++++++++-----------
+> >  kernel/entry/syscall-common.c |  4 +---
+> >  6 files changed, 18 insertions(+), 24 deletions(-)
+> >
+> > diff --git a/include/linux/audit.h b/include/linux/audit.h
+> > index 45abb3722d30..9ce5962bc537 100644
+> > --- a/include/linux/audit.h
+> > +++ b/include/linux/audit.h
+> > @@ -323,8 +323,7 @@ extern int  audit_alloc(struct task_struct *task);
+> >  extern void __audit_free(struct task_struct *task);
+> >  extern void __audit_uring_entry(u8 op);
+> >  extern void __audit_uring_exit(int success, long code);
+> > -extern void __audit_syscall_entry(int major, unsigned long a0, unsigne=
+d long a1,
+> > -                               unsigned long a2, unsigned long a3);
+> > +extern void __audit_syscall_entry(int major, struct pt_regs *regs);
+> >  extern void __audit_syscall_exit(int ret_success, long ret_value);
+> >  extern void __audit_getname(struct filename *name);
+> >  extern void __audit_inode(struct filename *name, const struct dentry *=
+dentry,
+> > @@ -373,12 +372,10 @@ static inline void audit_uring_exit(int success, =
+long code)
+> >       if (unlikely(audit_context()))
+> >               __audit_uring_exit(success, code);
+> >  }
+> > -static inline void audit_syscall_entry(int major, unsigned long a0,
+> > -                                    unsigned long a1, unsigned long a2=
+,
+> > -                                    unsigned long a3)
+> > +static inline void audit_syscall_entry(int major, struct pt_regs *regs=
+)
+> >  {
+> >       if (unlikely(audit_context()))
+> > -             __audit_syscall_entry(major, a0, a1, a2, a3);
+> > +             __audit_syscall_entry(major, regs);
+> >  }
 >
-> Serialize the blk-ctrl reset sequence with a per-blk-ctrl mutex; the
-> driver deliberately avoids a genpd hierarchy, so the genpd core gives no
-> cross-sibling serialization.
+> Won't this (temporarily) break the build? Maybe you need to introduce a
+> new helper e.g. audit_syscall_entry_regs(), then convert everybody over
+> to that, then rename it to audit_syscall_entry() at the end to keep the
+> series bisectable.
 >
-> Fixes: a1a5f15f7f6c ("soc: imx: imx8m-blk-ctrl: add i.MX8MP VPU blk ctrl")
-> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
-> ---
-> Problem:
-> On i.MX8MP, running the VC8000E encoder and the G1/G2 decoders
-> concurrently rarely and non-deterministically leaves a VPU stuck in
-> reset: its block registers read back all zeros. A decoder then times out
-> or the encoder fails its format check.
+> Will
 >
-> Root cause:
-> The VPU blk-ctrl exposes G1, G2 and VC8000E as three separate genpds,
-> serialized only by the per-genpd lock, so on SMP their power_on/power_off
-> callbacks can run concurrently. The sequences share the VPUMIX bus
-> domain, the VPU_NOC and the ADB400 handshake. On power up the GPC does
-> not ack-verify the ADB400 handshake - the ack only completes once
-> blk-ctrl sets the bus clk-en bit - so it just waits a fixed delay. A
-> sibling transition landing inside another domain's reset window disturbs
-> that shared clock and handshake timing, the victim's reset fails to take
-> effect, and its block is left in reset with registers reading zero.
->
-> Fix:
-> Serialize the blk-ctrl reset sequence with a per-blk-ctrl mutex, so a
-> sibling domain cannot run its sequence while another is inside its reset
-> window. The driver deliberately avoids a genpd hierarchy, so the genpd
-> core provides no cross-sibling serialization.
->
-> Test:
-> i.MX8MP, Android 6.18 kernel, concurrent H.264 decode and encode. Without
-> this patch the failure reproduces within one to two hours. With it the
-> same test ran overnight, over 14 hours, without a single occurrence.
-> ---
-> Changes in v2:
-> - Replace guard(mutex) with explicit mutex_lock()/mutex_unlock():
->   power_on() already unwinds errors with goto, and cleanup.h asks not to
->   mix goto and scope-based cleanup in one function (sashiko-bot).
-> - Shorten the commit message to the essentials and move the detailed
->   hardware analysis into this cover letter (Frank Li).
-> - Link to v1: https://patch.msgid.link/20260915-imx8mp-blk-ctrl-v1-1-b3b4e6e7e676@oss.nxp.com
->
-> To: Ulf Hansson <ulfh@kernel.org>
-> To: Frank Li <Frank.Li@nxp.com>
-> To: Sascha Hauer <s.hauer@pengutronix.de>
-> To: Pengutronix Kernel Team <kernel@pengutronix.de>
-> To: Fabio Estevam <festevam@gmail.com>
-> To: Shawn Guo <shawnguo@kernel.org>
-> To: Peng Fan <peng.fan@nxp.com>
-> Cc: linux-pm@vger.kernel.org
-> Cc: imx@lists.linux.dev
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> ---
->  drivers/pmdomain/imx/imx8m-blk-ctrl.c | 23 ++++++++++++++++++++++-
->  1 file changed, 22 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/pmdomain/imx/imx8m-blk-ctrl.c b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
-> index 479789009c7f..270f43229fe7 100644
-> --- a/drivers/pmdomain/imx/imx8m-blk-ctrl.c
-> +++ b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
-> @@ -15,6 +15,7 @@
->  #include <linux/pm_runtime.h>
->  #include <linux/regmap.h>
->  #include <linux/clk.h>
-> +#include <linux/mutex.h>
->
->  #include <dt-bindings/power/imx8mm-power.h>
->  #include <dt-bindings/power/imx8mn-power.h>
-> @@ -34,6 +35,12 @@ struct imx8m_blk_ctrl {
->  	struct regmap *regmap;
->  	struct imx8m_blk_ctrl_domain *domains;
->  	struct genpd_onecell_data onecell_data;
-> +	/*
-> +	 * Serializes the blk-ctrl reset/clock sequence across sibling domains;
-> +	 * their transitions interact through the shared VPUMIX bus domain,
-> +	 * VPU_NOC and the not-ack-verified ADB400 handshake (ERR050531).
-> +	 */
-> +	struct mutex power_lock;
->  };
->
->  struct imx8m_blk_ctrl_domain_data {
-> @@ -98,12 +105,14 @@ static int imx8m_blk_ctrl_power_on(struct generic_pm_domain *genpd)
->  	struct imx8m_blk_ctrl *bc = domain->bc;
->  	int ret;
->
-> +	mutex_lock(&bc->power_lock);
-> +
->  	/* make sure bus domain is awake */
->  	ret = pm_runtime_get_sync(bc->bus_power_dev);
->  	if (ret < 0) {
->  		pm_runtime_put_noidle(bc->bus_power_dev);
->  		dev_err(bc->dev, "failed to power up bus domain\n");
-> -		return ret;
-> +		goto unlock;
 
-can you use auto cleanup guard()
+Yes, you're right Will. Thanks for your suggestion I'll do that in the
+next version.
 
-Frank
+Thanks!
+-Ricardo
 
->  	}
->
->  	/* put devices into reset */
-> @@ -148,12 +157,16 @@ static int imx8m_blk_ctrl_power_on(struct generic_pm_domain *genpd)
->  	/* disable upstream clocks */
->  	clk_bulk_disable_unprepare(data->num_clks, domain->clks);
->
-> +	mutex_unlock(&bc->power_lock);
-> +
->  	return 0;
->
->  clk_disable:
->  	clk_bulk_disable_unprepare(data->num_clks, domain->clks);
->  bus_put:
->  	pm_runtime_put(bc->bus_power_dev);
-> +unlock:
-> +	mutex_unlock(&bc->power_lock);
->
->  	return ret;
->  }
-> @@ -164,6 +177,8 @@ static int imx8m_blk_ctrl_power_off(struct generic_pm_domain *genpd)
->  	const struct imx8m_blk_ctrl_domain_data *data = domain->data;
->  	struct imx8m_blk_ctrl *bc = domain->bc;
->
-> +	mutex_lock(&bc->power_lock);
-> +
->  	/* put devices into reset and disable clocks */
->  	if (data->mipi_phy_rst_mask)
->  		regmap_clear_bits(bc->regmap, BLK_MIPI_RESET_DIV, data->mipi_phy_rst_mask);
-> @@ -177,6 +192,8 @@ static int imx8m_blk_ctrl_power_off(struct generic_pm_domain *genpd)
->  	/* allow bus domain to suspend */
->  	pm_runtime_put(bc->bus_power_dev);
->
-> +	mutex_unlock(&bc->power_lock);
-> +
->  	return 0;
->  }
->
-> @@ -202,6 +219,10 @@ static int imx8m_blk_ctrl_probe(struct platform_device *pdev)
->
->  	bc->dev = dev;
->
-> +	ret = devm_mutex_init(dev, &bc->power_lock);
-> +	if (ret)
-> +		return ret;
-> +
->  	bc_data = of_device_get_match_data(dev);
->
->  	base = devm_platform_ioremap_resource(pdev, 0);
->
-> ---
-> base-commit: 27953c044974baf7e24dee3e9342fe0103dea80c
-> change-id: 20260911-imx8mp-blk-ctrl-c46f26783073
->
->
 
