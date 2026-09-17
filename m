@@ -4,65 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA2C4C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 12:17:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A1A3C982CF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 12:18:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AOOzTPdyID81NX0koAIo9zSwLIv7kFZJDzGrlHzgqSw=; b=B1GtgzKq3TpkzJ5X6Ysa1zz02i
-	MeEDpLxxuZBJHQlZpA1byu5LFKA6QQqt/L9LRSheSG1tkf/+o9M7AecGbDYq1B7lNpcROT/H1LcTh
-	3m6pWUkKC3WLO075lpQmrDqkt9ZOZGLm7NomIGQI6oAMZCmMj8PCWYZ6ptAs5RLAfHzzZ5cfvEEUR
-	1G0YTk39zTgUGBiEgIykzdzhNruX22uRoMnqtvk8Wrv+i3yXCOl+khBKZtkNYz/aUNxhA6ENFJ4wb
-	qJFw1oTUav08ShjFoLUDryYCyt4FrNLG4dnkUfuKq7/M6MX8zjq3gRP0jKux6cihyziOJi/Luswow
-	ALWwnxEQ==;
+	bh=pLidpK666Qo4PK2scTKJdMHZcsfWyON6rHKOqwd2TFY=; b=StP7a/yTMsCPleHghq7fUV0sRj
+	7IQcQqEHy3HduENVLFWS9LHZzpdPUY0CuN6EqbgMJBtENBEGJz/sDavj4pFVd7dEmogrHYLv0SioD
+	r5/n4hQGDHUwJ75bGKzcr+VTSJeQA9WJMqZwMRmMvdfHQInSWNdjJDsd/7LpuqgPiNiuYtqOTCRP0
+	ofBda2963S289uyf51N03rBn0l0axGwWp8V1Jz/yRv3ITkIG9Y2iIXmTKV7Jtt9hrS7zaX5CGaQdx
+	BjjIQp8l+H3r9o5A1T6w3H/YyF2D4G5qiwgY6tEgCzW+PHgr1m6RXxxzIJNmzV0uzSOiptMwYcSC9
+	4Gr+lVmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7B3n-0000000BGWt-1m9E;
-	Thu, 17 Sep 2026 12:17:51 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x7B4k-0000000BGcL-2ham;
+	Thu, 17 Sep 2026 12:18:50 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7B3l-0000000BGWl-3lKi
+	id 1x7B4h-0000000BGbe-46iQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 12:17:50 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 392BD601EF;
-	Thu, 17 Sep 2026 12:17:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3ABF81F000FF;
-	Thu, 17 Sep 2026 12:17:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789647468;
-	bh=AOOzTPdyID81NX0koAIo9zSwLIv7kFZJDzGrlHzgqSw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Njx07hck84rGiz/f7uEQpowoJ1UK2pk/RdC7+xZNWVVVIPIgZXU6wen3Q3TH0hiFy
-	 fPcgf4mFQ0eYKlUEC9+P5piru04E4s/KxgUAqs8YOhWGrzizJjAN3zPZd837aWodPw
-	 CwM6BuSKlEMi0OGNds9P/r+aEGjMkT3lKdZsDSkdqU6bTTj8FFPyQtQTeH69tVbmJ7
-	 8K7noJolv/8QY4r+GOTgRaETMMkCShiFi32aHVnRQv5cITzTyQosmQ4UVO8qk5etdW
-	 UprNPUuzv9da1PeSdNv49zEFsWW+bvdmOHAq/tRZ5heYgP1o3qG305lLkFtzLvNmX3
-	 TDhizqOwqcvRg==
-Message-ID: <493ef264-eab3-4be3-a80e-357f01ae1b37@kernel.org>
-Date: Thu, 17 Sep 2026 14:17:40 +0200
+	Thu, 17 Sep 2026 12:18:49 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68H9Zt0S1390178
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 12:18:46 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	pLidpK666Qo4PK2scTKJdMHZcsfWyON6rHKOqwd2TFY=; b=ol6zTXKFnD4JTeBU
+	LZXVlSGRIKpqvNI1JClyH012G5SMoW8Ppahz1raOklot6VsMWHMYfVhtpyAaWCPj
+	WTgTCywUIvGYku13D8HmsBIWW/pVIDGQJIdsMnS+tcIVHq2vjIvxPnsjrNYdbfc2
+	eJdfsaO7QUfPiJo0wGQwacAQnmbDxkhHKCuxMrRzI2R22cFj9V2UNjrDp93n5+pe
+	5mgoEIrhrg+Q+uTwPhqe6QR9gn627UkrHHGaXuEJLqd5iXgtBzxQiiCSNBYO8lNj
+	2UoeA8Oo6OkdXu07QvdSnKXptZhDFtDz/eoxuPlHLBdZqBIxlzIS//t1nIoX6nkv
+	xyuEHw==
+Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gqy2d4ajb-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 12:18:46 +0000 (GMT)
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-cc4c1fc9ceaso663123a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 05:18:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1789647526; x=1790252326; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=pLidpK666Qo4PK2scTKJdMHZcsfWyON6rHKOqwd2TFY=;
+        b=IUqrq498qrA2oWTLWffTyZGQYXBDHF/hde74EAyLx1XUt4PRxlpBEwrbhvuM2z8SCc
+         9/3cLxEpcoMAYct2YAzEHmxkce1I47JnRi5v0G+Zd3zKNEVjiETmXplQfayCFEetFeAY
+         Cy8o/QICyGLGcHKAOZ7EAuH8TWDqdLh9THoJagsBdCFKs7+w6nGLsrSbI2d936FXsWRI
+         LA0Re3qwFh9F0tGzeMIlCFP6cSMdNqmsu46bsvS6R1MqmDzFyYsGupf00BhBNbPO6ACx
+         MDEl3pC01bS+NrHW78+boumHFiqXoS51S3veiwAQmR1TIrojB+iFtbj6e55U0apio9IY
+         eCHA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789647526; x=1790252326;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=pLidpK666Qo4PK2scTKJdMHZcsfWyON6rHKOqwd2TFY=;
+        b=rcUYMqyo++K1irviHa41PsKkGu7vaMe/V5+g8r0575bTUbA559A2vHKLJYm5L1LpbT
+         Loxv6LmTqxxhkJsmyrj34Yx2ddfoQHSKKXJXAo3BzyrCgbBuk3ay+LrJJpRdwafA495j
+         bHS0sZVkyQKLlzPNcIbToEDIBZl/7Q4uKivKwpKs3aL395FMTQnQDDqX9LykSFT95MKI
+         heb1p4k+whO/We/RoGt/D3BuZLnpWJupurhyU7hZ7lWZfgm3p+ueuAM6JKj1YKsL7OmS
+         +ol4WJBNLioFkqGCvis0ofcxQ1ZgAXGmPUnaN0HZnqQ3LSOJjl3iATu0P25tJ3gS8eTi
+         vvfw==
+X-Forwarded-Encrypted: i=1; AKwUvBy7BRJwb+goByTQ0JesUpc7ViU45ktxijXCZUWgJDiCrKcZJLKxTI95uHIoFiIS9H5EsYkoH/Z1kO8SBROesZhi@lists.infradead.org
+X-Gm-Message-State: AFuF++mjRADdNjA9Dshr3CFuKfjmo1DIHPChXczGWmHbR60JDZj2mHIf
+	LUSaszAUVYkUX7VI4Xl4fSRWK5b5HUGjqyqSnXGhBwU8hRkEuJHkLgKSFCVowDJ9Rf++ZM+D37T
+	7GaxnJZ1ptbFpQ8GFfAitvI8P4FCICT8v9Kvu3QCqE72jFcKlJPjfUNg3oxUWxfpXU66y3IU9Lf
+	Smpw==
+X-Gm-Gg: AYBFou2eSygGmZgRqNq1IVuzp/p7Oc32qbQXUsWmjPrmRI1c1UPjxRUpVG79Ghwz4OQ
+	BH3f43AZR6Y586WLMSyVGIUv8xyPDAeEYlKo86et8e3ADKYHePtnD/cz2VgPm65vTXhmP+7rmJU
+	/Qsu2D9OvzTouDlcRDN3G7FFINZgLaB9ViTZhPsItJweqnVGmSaboVpmASEQonY/MsEphhFbpNJ
+	hZhRU7DI6Pg9HmenyKgBWLR7uM4o7LzP6T+lirTCQYNgEgAdIMXpx5eJIMKXAU+uzQgoUOhG+RE
+	H72KJxVqBvbCpC1geWA4hdpbNJOA+CWymaYpSJSnrRQc808zsPNGgitFlwlA8jCmgIdBmmFSCjh
+	KRJWIrqdNOSRRIpSuQ28qlcZsK3kZRPo=
+X-Received: by 2002:a17:902:f686:b0:2da:ef81:37e7 with SMTP id d9443c01a7336-2dd8e76a15dmr143388055ad.21.1789647525395;
+        Thu, 17 Sep 2026 05:18:45 -0700 (PDT)
+X-Received: by 2002:a17:902:f686:b0:2da:ef81:37e7 with SMTP id d9443c01a7336-2dd8e76a15dmr143387145ad.21.1789647524708;
+        Thu, 17 Sep 2026 05:18:44 -0700 (PDT)
+Received: from [10.218.9.75] ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2dd89c3316dsm25970945ad.0.2026.09.17.05.18.32
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 17 Sep 2026 05:18:44 -0700 (PDT)
+Message-ID: <f14f40ef-47dd-453a-875f-6cdc6804a9fd@oss.qualcomm.com>
+Date: Thu, 17 Sep 2026 17:48:31 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 00/10] mm/vmalloc: Speed up ioremap, vmalloc and vmap
- with contiguous memory
-To: Wen Jiang <jiangwenxiaomi@gmail.com>, akpm@linux-foundation.org,
- catalin.marinas@arm.com, linux-mm@kvack.org, urezki@gmail.com,
- will@kernel.org
-Cc: Xueyuan.chen21@gmail.com, ajd@linux.ibm.com, anshuman.khandual@arm.com,
- baohua@kernel.org, david@kernel.org, dev.jain@arm.com, jiangwen6@xiaomi.com,
- leo.yan@arm.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com, rppt@kernel.org,
- ryan.roberts@arm.com
-References: <20260917052933.188679-1-jiangwenxiaomi@gmail.com>
-Content-Language: fr-FR
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-In-Reply-To: <20260917052933.188679-1-jiangwenxiaomi@gmail.com>
+Subject: Re: [PATCH v25 04/10] firmware: psci: Add support for PSCI auxiliary
+ devices
+To: Bartosz Golaszewski <brgl@kernel.org>
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+        Andre Draszik <andre.draszik@linaro.org>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
+        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        devicetree@vger.kernel.org, mfd@lists.linux.dev,
+        Srinivas Kandagatla <srini@kernel.org>,
+        Ulf Hansson <ulf.hansson@oss.qualcomm.com>,
+        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        Arnd Bergmann <arnd@arndb.de>, Bjorn Andersson <andersson@kernel.org>,
+        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Andy Yan
+ <andy.yan@rock-chips.com>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        John Stultz
+ <john.stultz@linaro.org>,
+        Moritz Fischer <moritz.fischer@ettus.com>,
+        "Rafael J. Wysocki" <rafael@kernel.org>,
+        Daniel Lezcano <daniel.lezcano@kernel.org>,
+        Christian Loehle <christian.loehle@arm.com>,
+        Lee Jones <lee@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
+        Pavan Kondeti
+ <pavan.kondeti@oss.qualcomm.com>,
+        Abel Vesa <abelvesa@kernel.org>,
+        Sudeep Holla <sudeep.holla@kernel.org>
+References: <20260914-arm-psci-system_reset2-vendor-reboots-v25-0-4aaf5c09b5c2@oss.qualcomm.com>
+ <20260914-arm-psci-system_reset2-vendor-reboots-v25-4-4aaf5c09b5c2@oss.qualcomm.com>
+ <CAMRc=MdCWHQZ+CgW05jYA1GGJdMUwKJEBAiAvRCvx=UqvjLiUg@mail.gmail.com>
+Content-Language: en-US
+From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+In-Reply-To: <CAMRc=MdCWHQZ+CgW05jYA1GGJdMUwKJEBAiAvRCvx=UqvjLiUg@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: qs3G6JlBDP67PpLgKnaRwfqLDZb54dqo
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE3MDE3MSBTYWx0ZWRfX2eUT3Uxwpc4L
+ qzuQ35mGCfoYho8bWs1RM+odcItJVO0XxRp0JQOlnZoubev08pe447W2tOPWF1rbT9xH2Fy/9sn
+ dYNRa6q0V4iC7pKnuiZDrvC7wZqforY=
+X-Authority-Analysis: v=2.4 cv=HbeB3SE8 c=1 sm=1 tr=0 ts=6aabdaa6 cx=c_pps
+ a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=EUspDBNiAAAA:8 a=VwQbUJbxAAAA:8 a=JfrnYn6hAAAA:8 a=mLyWk11G7CGH-Ip0H1gA:9
+ a=QEXdDO2ut3YA:10 a=3WC7DwWrALyhR5TkjVHa:22 a=1CNFftbPRP8L7MoqJWF3:22
+X-Proofpoint-GUID: qs3G6JlBDP67PpLgKnaRwfqLDZb54dqo
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE3MDE3MSBTYWx0ZWRfX1HobGpSv8T9o
+ G6okZVAimTZZwhOCdSlSa0HhH+ic7TswODt0r/j1nLJin/4WgujO7mpUFjSAUTiukC56bkKNRI8
+ 0gviIzRcBqSSJrns5OYk2ADG1r3cZ90j+CSX8t2uGDpkF+7xjVAeuPK7W69aANA0dceyVS9tNnU
+ bI9FiEUbJ5e7pLpZVU4NuJnKhda8WmekdjpTm6wLN4xDO+gwptKdQ/fkWcfWls3kdM9Xckmn0Tr
+ 4CJCXOsl/P7ESv6F0bVkPBUU65OIGM3nEx8Yh3Z6BYLFLftgG6VUni9HfwfNdhfqQPyANnEZD7n
+ vZ9Mc8u8FKFg/dMRbxTykkZDJXZ92lvqGsQaXydbUGY9Mtn/dSdD/ohMcF0ovqMUTlX3HE0z67S
+ f8Y+bqnrueAx07eA4OSHH1c6lIKo1RxmdqtooDrpBARuzP+pZ8ABi0drIvH7Mx9DGVovkwdHWD2
+ jzIdscfOGAQMshUwG7g==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-17_02,2026-09-16_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 priorityscore=1501 bulkscore=0 spamscore=0 adultscore=0
+ suspectscore=0 malwarescore=0 phishscore=0 clxscore=1015 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609170171
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260917_051848_028773_60FAF021 
+X-CRM114-Status: GOOD (  30.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,294 +185,210 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-Le 17/09/2026 à 07:29, Wen Jiang a écrit :
-> From: Wen Jiang <jiangwen6@xiaomi.com>
-> 
-> This patchset accelerates ioremap, vmalloc, and vmap when the memory is
-> physically fully or partially contiguous. Two techniques are used:
-> 
-> 1. Avoid page table rewalk when setting PTEs/PMDs for multiple memory
->     segments
-> 2. Use batched mappings wherever possible in both vmalloc and ARM64
->     layers
-> 
-> Besides accelerating the mapping path, this also enables large
-> mappings (PMD and cont-PTE) for vmap, which are currently not
-> supported.
-
-This series doesn't apply. I tried to apply it on top of v7.2, v7.3-rc3 
-and next-20260916
-
-Can you tell how to apply it ?
-
-$ LANG= b4 shazam -l 20260917052933.188679-3-jiangwenxiaomi@gmail.com
-Grabbing thread from 
-lore.kernel.org/all/20260917052933.188679-3-jiangwenxiaomi@gmail.com/t.mbox.gz
-Checking for newer revisions
-Grabbing search results from lore.kernel.org
-Analyzing 11 messages in the thread
-Analyzing 41 code-review messages
-Checking attestation on all messages, may take a moment...
----
-   ✓ [PATCH v8 1/10] arm64/mm: add pte_set_huge() and pte_clear_huge()
-     + Link: 
-https://lore.kernel.org/r/20260917052933.188679-2-jiangwenxiaomi@gmail.com
-   ✓ [PATCH v8 2/10] powerpc/8xx: add pte_set_huge()
-     + Link: 
-https://lore.kernel.org/r/20260917052933.188679-3-jiangwenxiaomi@gmail.com
-   ✓ [PATCH v8 3/10] mm/vmalloc: use pte_set_huge()/pte_clear_huge() for 
-PTE-level block mappings
-     + Link: 
-https://lore.kernel.org/r/20260917052933.188679-4-jiangwenxiaomi@gmail.com
-   ✓ [PATCH v8 4/10] arm64/hugetlb: drop the init_mm special case in 
-clear_flush()
-     + Link: 
-https://lore.kernel.org/r/20260917052933.188679-5-jiangwenxiaomi@gmail.com
-   ✓ [PATCH v8 5/10] arm64/vmalloc: allow arch_vmap_pte_range_map_size() 
-to batch multiple CONT_PTE
-     + Link: 
-https://lore.kernel.org/r/20260917052933.188679-6-jiangwenxiaomi@gmail.com
-   ✓ [PATCH v8 6/10] mm/vmalloc: extract vmap_set_ptes() to consolidate 
-PTE mapping logic
-     + Link: 
-https://lore.kernel.org/r/20260917052933.188679-7-jiangwenxiaomi@gmail.com
-   ✓ [PATCH v8 7/10] mm/vmalloc: extend page table walk to support 
-larger page_shift sizes and eliminate page table rewalk
-     + Link: 
-https://lore.kernel.org/r/20260917052933.188679-8-jiangwenxiaomi@gmail.com
-   ✓ [PATCH v8 8/10] mm/vmalloc: extract vm_shift() to consolidate 
-mapping shift selection
-     + Link: 
-https://lore.kernel.org/r/20260917052933.188679-9-jiangwenxiaomi@gmail.com
-   ✓ [PATCH v8 9/10] mm/vmalloc: map contiguous pages in batches for 
-vmap() if possible
-     + Link: 
-https://lore.kernel.org/r/20260917052933.188679-10-jiangwenxiaomi@gmail.com
-   ✓ [PATCH v8 10/10] mm/vmalloc: align vm_area so vmap() can batch mappings
-     + Link: 
-https://lore.kernel.org/r/20260917052933.188679-11-jiangwenxiaomi@gmail.com
-   ---
-   ✓ Signed: DKIM/gmail.com
----
-Total patches: 10
----
-NOTE: some trailers ignored due to from/email mismatches:
-     ! Trailer: Reviewed-by: Uladzislau Rezki (Sony) <urezki@gmail.com>
-      Msg From: Barry Song <baohua@kernel.org>
-NOTE: Rerun with -S to apply them anyway
----
-Applying: arm64/mm: add pte_set_huge() and pte_clear_huge()
-Patch failed at 0001 arm64/mm: add pte_set_huge() and pte_clear_huge()
-error: patch failed: arch/arm64/mm/mmu.c:1872
-error: arch/arm64/mm/mmu.c: patch does not apply
-hint: Use 'git am --show-current-patch=diff' to see the failed patch
-hint: When you have resolved this problem, run "git am --continue".
-hint: If you prefer to skip this patch, run "git am --skip" instead.
-hint: To restore the original branch and stop patching, run "git am 
---abort".
-hint: Disable this message with "git config set advice.mergeConflict false"
 
 
-Thanks
-Christophe
+On 9/16/2026 2:59 PM, Bartosz Golaszewski wrote:
+> On Mon, 14 Sep 2026 16:59:08 +0200, Shivendra Pratap
+> <shivendra.pratap@oss.qualcomm.com> said:
+>> PSCI has multiple kernel consumers, such as cpuidle-psci-domain.
+>> Currently, both the PSCI core driver and cpuidle-psci-domain bind
+>> directly to the same PSCI node "arm,psci-1.0". Additional consumers, if
+>> introduced, would also need to bind in the same way, leading to multiple
+>> drivers attached to a single device node.
+>>
+>> Introduce a PSCI auxiliary-device provider that binds to "arm,psci-1.0"
+>> and registers PSCI child devices on the auxiliary bus. As the first
+>> user, register cpuidle-psci-domain as an auxiliary device.
+>>
+>> Update cpuidle-psci-domain to probe as an auxiliary driver and use
+>> the PSCI device node for power-domain traversal.
+>>
+>> Suggested-by: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+>> Suggested-by: Lee Jones <lee@kernel.org>
+>> Suggested-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+>> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+>> ---
+>>   MAINTAINERS                           |  1 +
+>>   drivers/cpuidle/Kconfig.arm           |  1 +
+>>   drivers/cpuidle/cpuidle-psci-domain.c | 31 +++++++++++++++-----------
+>>   drivers/firmware/psci/Kconfig         | 14 ++++++++++++
+>>   drivers/firmware/psci/Makefile        |  1 +
+>>   drivers/firmware/psci/psci-devices.c  | 41 +++++++++++++++++++++++++++++++++++
+>>   6 files changed, 76 insertions(+), 13 deletions(-)
+>>
+>> diff --git a/MAINTAINERS b/MAINTAINERS
+>> index 207a6e2db70c..9c0334ee2ed2 100644
+>> --- a/MAINTAINERS
+>> +++ b/MAINTAINERS
+>> @@ -21932,6 +21932,7 @@ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+>>   S:	Maintained
+>>   F:	Documentation/devicetree/bindings/arm/psci.yaml
+>>   F:	drivers/firmware/psci/
+>> +F:	drivers/firmware/psci/psci-devices.c
+>>   F:	include/linux/psci.h
+>>   F:	include/uapi/linux/psci.h
+>>
+>> diff --git a/drivers/cpuidle/Kconfig.arm b/drivers/cpuidle/Kconfig.arm
+>> index b88b01aa5829..f22e18b05053 100644
+>> --- a/drivers/cpuidle/Kconfig.arm
+>> +++ b/drivers/cpuidle/Kconfig.arm
+>> @@ -36,6 +36,7 @@ config ARM_PSCI_CPUIDLE_DOMAIN
+>>   	bool "PSCI CPU idle Domain"
+>>   	depends on ARM_PSCI_CPUIDLE
+>>   	depends on PM_GENERIC_DOMAINS_OF
+>> +	depends on ARM_PSCI_DEVICES
+>>   	select DT_IDLE_GENPD
+>>   	default y
+>>   	help
+>> diff --git a/drivers/cpuidle/cpuidle-psci-domain.c b/drivers/cpuidle/cpuidle-psci-domain.c
+>> index b9e4ad7d43a3..0ce6a83f6588 100644
+>> --- a/drivers/cpuidle/cpuidle-psci-domain.c
+>> +++ b/drivers/cpuidle/cpuidle-psci-domain.c
+>> @@ -9,10 +9,11 @@
+>>
+>>   #define pr_fmt(fmt) "CPUidle PSCI: " fmt
+>>
+>> +#include <linux/auxiliary_bus.h>
+>>   #include <linux/cpu.h>
+>>   #include <linux/device.h>
+>>   #include <linux/kernel.h>
+>> -#include <linux/platform_device.h>
+>> +#include <linux/module.h>
+>>   #include <linux/pm_domain.h>
+>>   #include <linux/pm_runtime.h>
+>>   #include <linux/psci.h>
+>> @@ -122,14 +123,10 @@ static void psci_pd_remove(void)
+>>   	}
+>>   }
+>>
+>> -static const struct of_device_id psci_of_match[] = {
+>> -	{ .compatible = "arm,psci-1.0" },
+>> -	{}
+>> -};
+>> -
+>> -static int psci_cpuidle_domain_probe(struct platform_device *pdev)
+>> +static int psci_cpuidle_domain_probe(struct auxiliary_device *auxdev,
+>> +				     const struct auxiliary_device_id *id)
+>>   {
+>> -	struct device_node *np = pdev->dev.of_node;
+>> +	struct device_node *np = auxdev->dev.of_node;
+>>   	bool use_osi = psci_has_osi_support();
+>>   	int ret = 0, pd_count = 0;
+>>
+>> @@ -177,16 +174,24 @@ static int psci_cpuidle_domain_probe(struct platform_device *pdev)
+>>   	return ret;
+>>   }
+>>
+>> -static struct platform_driver psci_cpuidle_domain_driver = {
+>> -	.probe  = psci_cpuidle_domain_probe,
+>> +static const struct auxiliary_device_id psci_cpuidle_domain_id_table[] = {
+>> +	{ .name = "arm-psci.psci-cpuidle-domain" },
+>> +	{ }
+>> +};
+>> +MODULE_DEVICE_TABLE(auxiliary, psci_cpuidle_domain_id_table);
+>> +
+>> +static struct auxiliary_driver psci_cpuidle_domain_driver = {
+>> +	.probe = psci_cpuidle_domain_probe,
+>>   	.driver = {
+>> -		.name = "psci-cpuidle-domain",
+>> -		.of_match_table = psci_of_match,
+>> +		.suppress_bind_attrs = true,
+>>   	},
+>> +	.id_table = psci_cpuidle_domain_id_table,
+>>   };
+>>
+>>   static int __init psci_idle_init_domains(void)
+>>   {
+>> -	return platform_driver_register(&psci_cpuidle_domain_driver);
+>> +	return __auxiliary_driver_register(&psci_cpuidle_domain_driver,
+>> +					   THIS_MODULE,
+>> +					   "psci-cpuidle-domain");
+>>   }
+>>   core_initcall(psci_idle_init_domains);
+>> diff --git a/drivers/firmware/psci/Kconfig b/drivers/firmware/psci/Kconfig
+>> index 97944168b5e6..68e381f1a618 100644
+>> --- a/drivers/firmware/psci/Kconfig
+>> +++ b/drivers/firmware/psci/Kconfig
+>> @@ -2,6 +2,20 @@
+>>   config ARM_PSCI_FW
+>>   	bool
+>>
+>> +config ARM_PSCI_DEVICES
+>> +	bool "PSCI auxiliary device support"
+>> +	depends on ARM_PSCI_FW
+>> +	depends on OF
+>> +	select AUXILIARY_BUS
+>> +	default y
+>> +	help
+>> +	  Say Y here to enable auxiliary device support for PSCI.
+>> +
+>> +	  This creates auxiliary devices for PSCI functionality implemented
+>> +	  outside the core PSCI firmware driver. These devices allow PSCI
+>> +	  child drivers to bind through the auxiliary bus while sharing the
+>> +	  PSCI firmware device as their parent.
+>> +
+>>   config ARM_PSCI_CHECKER
+>>   	bool "ARM PSCI checker"
+>>   	depends on ARM_PSCI_FW && HOTPLUG_CPU && CPU_IDLE && !TORTURE_TEST
+>> diff --git a/drivers/firmware/psci/Makefile b/drivers/firmware/psci/Makefile
+>> index 1956b882470f..8e75a0ed6f74 100644
+>> --- a/drivers/firmware/psci/Makefile
+>> +++ b/drivers/firmware/psci/Makefile
+>> @@ -1,4 +1,5 @@
+>>   # SPDX-License-Identifier: GPL-2.0
+>>   #
+>>   obj-$(CONFIG_ARM_PSCI_FW)	+= psci.o
+>> +obj-$(CONFIG_ARM_PSCI_DEVICES)	+= psci-devices.o
+>>   obj-$(CONFIG_ARM_PSCI_CHECKER)	+= psci_checker.o
+>> diff --git a/drivers/firmware/psci/psci-devices.c b/drivers/firmware/psci/psci-devices.c
+>> new file mode 100644
+>> index 000000000000..f1eca61e3269
+>> --- /dev/null
+>> +++ b/drivers/firmware/psci/psci-devices.c
+>> @@ -0,0 +1,41 @@
+>> +// SPDX-License-Identifier: GPL-2.0-only
+>> +/*
+>> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+>> + */
+>> +
+>> +#include <linux/auxiliary_bus.h>
+>> +#include <linux/init.h>
+> 
+> I think you need module.h not init.h.
+
+Ack.
 
 
 > 
-> Patches 1-4 decouple the PTE-level block mapping path from HugeTLB.
-> Previously vmap_pte_range() installed cont-PTE mappings by reusing
-> set_huge_pte_at() and huge_ptep_get_and_clear(), which are HugeTLB
-> helpers gated by CONFIG_HUGETLB_PAGE. This made the feature silently
-> unavailable on CONFIG_HUGETLB_PAGE=n kernels, and coupled mm/vmalloc.c
-> to HugeTLB internals. Patches 1 and 2 add the arm64 and powerpc/8xx
-> implementations of pte_set_huge()/pte_clear_huge(), which join the
-> existing pmd/pud_set_huge() family. Patch 3 adds the generic fallbacks
-> and converts mm/vmalloc.c over. Patch 4 then removes the now-dead
-> init_mm special case from arm64's clear_flush().
+>> +#include <linux/of.h>
+>> +#include <linux/platform_device.h>
+>> +
+>> +static int arm_psci_probe(struct platform_device *pdev)
+>> +{
+>> +	struct auxiliary_device *auxdev;
+>> +
+>> +	auxdev = __devm_auxiliary_device_create(&pdev->dev, "arm-psci",
+>> +						"psci-cpuidle-domain", NULL, 0);
+>> +	if (!auxdev)
+>> +		return -ENOMEM;
+>> +
+>> +	return 0;
+>> +}
 > 
-> Patch 5 extends ARM64 arch_vmap_pte_range_map_size() to batch multiple
-> CONT_PTE blocks in one call instead of one at a time.
-> 
-> Patch 6 extracts a common helper vmap_set_ptes() that consolidates PTE
-> mapping logic for the ioremap and vmalloc/vmap paths, handling both
-> CONT_PTE and regular PTE mappings. This prepares for the next patch.
-> 
-> Patch 7 extends the page table walk path to support page shifts other
-> than PAGE_SHIFT and eliminates the page table rewalk for huge vmalloc
-> mappings. The function is renamed from vmap_small_pages_range_noflush()
-> to vmap_pages_range_noflush_walk().
-> 
-> Patch 8 extracts vm_shift() to consolidate vmalloc mapping shift
-> selection for reuse in the batching path.
-> 
-> Patches 9-10 add huge vmap support for contiguous pages, including
-> support for non-compound pages with pfn alignment verification.
-> 
-> On the RK3588 8-core ARM64 SoC, with tasks pinned to a little core and
-> the performance CPUfreq policy enabled, benchmark results:
-> 
-> * ioremap(1 MB): 1.35x faster (3407 ns -> 2526 ns)
-> * vmalloc(1 MB) mapping time (excluding allocation) with
->    VM_ALLOW_HUGE_VMAP: 1.42x faster (5.00 us -> 3.53 us)
-> * vmap(100MB) with order-8 pages: 8.3x faster (1235 us -> 149 us)
-> 
-> Many thanks to Xueyuan Chen for his testing efforts on RK3588 boards.
-> 
-> Large vmap() mappings were also tested by Leo Yan with ARM trace buffer
-> units, including TRBE and SPE. These units use the CPU page tables for
-> address translation when writing trace data to DRAM, so using larger
-> vmap() mapping granules can reduce TLB pressure on the trace writer.
-> 
-> The TRBE test used a 1G CoreSight ETM AUX buffer. Across five runs on an
-> isolated CPU, the average results were:
-> 
-> * dtlb_walk:       68.4 -> 59.4 (-13.16%)
-> * l1d_tlb_refill: 155.8 -> 119.6 (-23.23%)
-> * l2d_tlb_refill: 161435.8 -> 495.0 (-99.69%)
-> 
-> The SPE test used a 512M ARM SPE AUX buffer. Across five runs on an
-> isolated CPU, the average results were:
-> 
-> * dtlb_walk:       1710.4 -> 1315.6 (-23.08%)
-> * l1d_tlb_refill: 16000.0 -> 15950.2 (-0.31%)
-> * l2d_tlb_refill: 4796.0 -> 2931.2 (-38.88%)
-> 
-> These results show that enabling larger vmap() mappings can materially
-> reduce page table walks and TLB refills for large trace buffers.
-> 
-> Many thanks to Leo Yan for his testing efforts on ARM trace buffers.
-> 
-> Changes since v7:
-> - v7's patch 1 (which extended the hugetlb helpers in
->    arch/arm64/mm/hugetlbpage.c) is replaced by pte_set_huge()/
->    pte_clear_huge(), split across patches 1-3 so that the arm64,
->    powerpc/8xx and generic changes can be reviewed and acked
->    independently: patch 1 is arm64 only, patch 2 is powerpc/8xx only,
->    patch 3 is the generic fallbacks plus the mm/vmalloc.c conversion.
->    hugetlbpage.c no longer gains the CONT_PTE batching hooks, and patch 4
->    additionally removes its now-dead init_mm special case. mm/vmalloc.c
->    no longer includes <linux/hugetlb.h>.
-> - The generic pte_set_huge()/pte_clear_huge() fallbacks WARN_ON_ONCE()
->    instead of silently doing nothing. They only exist to keep the build
->    working on architectures without PTE-level block mappings, where they
->    are unreachable (patch 3).
-> - Patch 5 (v7 patch 2): use round_down(size, CONT_PTE_SIZE) instead of
->    rounddown_pow_of_two(size), since pte_set_huge() takes the size directly
->    without an ilog2() roundtrip. This lets a single call span several
->    CONT_PTE blocks: a 768K (512K + 256K) ioremap is now 1.25x faster than
->    v7.
-> - Patch 6 (v7 patch 3): vmap_set_ptes() now calls pte_set_huge() instead
->    of the hugetlb path.
-> - Patch 9 (v7 patch 6): get_vmap_batch_order() takes pages+i instead of a
->    separate idx argument, and applies pfn alignment limit to scan length
->    rather than to the resulting order. Renamed idx/map_addr to
->    batch_idx/batch_start. Dropped Dev's Reviewed-by.
-> 
-> Changes since v6:
-> - Add a clarifying comment about the reuse of hugetlb helpers
->    by non-hugetlbfs(vmalloc) mm code (patch 1)
-> - Expand the arm64/vmalloc commit message and comment to clarify that
->    multi-CONT_PTE_SIZE values are vmalloc mapping spans, not HugeTLB
->    hstate sizes (patch 2)
-> - Move the local steps variable change in vmap_pte_range() into the
->    vmap_set_ptes() extraction patch (patch 3)
-> - Propagate vmap_pages_pte_range() errors through the upper
->    vmap_pages_*() levels instead of returning -ENOMEM for all failures
->    (patch 4)
-> - Add a preparatory vm_shift() helper patch before the batching patch
->    (patch 5)
-> - Guard the PFN alignment clamp in get_vmap_batch_order() against PFN 0
->    before calling __ffs() (patch 6)
-> - Fix kmsan_vmap_pages_range_noflush() indentation in the batching path
->    (patch 6)
-> 
-> Changes since v5:
-> - No code changes.
-> - Pick up Reviewed-by and Tested-by tags from Dev, Leo and Uladzislau.
->    Many thanks!
-> - Add TRBE/SPE large vmap() test results from Leo Yan to the cover
->    letter.
-> 
-> Changes since v4:
-> - Move pgsize update before contig_ptes check (patch 1)
-> - Use rounddown_pow_of_two instead of __fls in
->    arch_vmap_pte_range_map_size (patch 2)
-> - Reword comment to avoid mentioning cont_pte and remove if in
->    vmap_set_ptes (patch 3)
-> - Rename vmap_batched() to vmap_pages_range_batched() (patch 5)
-> - Use batch_end as the batching cursor to avoid an unused start variable
->    (patch 5)
-> - Check arch_vmap_pmd_supported before PMD mapping (patch 6)
-> 
-> Changes since v3:
-> - Squash vmap_pte_range() loop variable fix into patch 4 (patch 3, 4)
-> - Use shift >= PMD_SHIFT and fix *nr increment in
->    vmap_pages_pmd_range() (patch 4)
-> - Pass page_shift directly without capping at PMD_SHIFT (patch 4, 5)
-> - Add vm_shift() helper and pass pgprot_t to get_vmap_batch_order()
->    (patch 5)
-> - Use min(order, __ffs(pfn)) for graceful pfn alignment degradation,
->    replacing IS_ALIGNED check (patch 5)
-> - Remove irrelevant ioremap_max_page_shift early-exit (patch 5)
-> - Add __get_vm_area_node_aligned_caller() wrapper, rename to
->    vmap_get_aligned_vm_area() (patch 6)
-> 
-> Changes since v2:
-> - Use __fls instead of fls in arch_vmap_pte_range_map_size (patch 2)
-> - Add WARN_ON checks in vmap_pages_pmd_range (patch 4)
-> - Fix flush_cache_vmap to use saved start address instead of the
->    already-advanced addr (patch 5)
-> - Rename __vmap_huge() to vmap_batched() (patch 5)
-> - Add caller parameter and unroll while(1) loop (patch 5)
-> - Squash patch 7 into patch 5 (stop scanning for compound pages after
->    encountering small pages)
-> 
-> Changes since v1:
-> - Fix condition order and use PMD_SIZE instead of CONT_PMD_SIZE in
->    patch 1 (Dev Jain)
-> - Squash patch 3+4 and patch 5+7 (Dev Jain)
-> - Replace "zigzag" with "page table rewalk" in commit messages
->    (Dev Jain)
-> - Rename vmap_small_pages_range_noflush() to
->    vmap_pages_range_noflush_walk() (Dev Jain)
-> - Extract vmap_set_ptes() as a new patch to consolidate PTE mapping
->    logic between vmap_pte_range() and vmap_pages_pte_range(), handling
->    both CONT_PTE and regular mappings (Mike Rapoport)
-> - Support non-compound pages in get_vmap_batch_order() by falling
->    back to physical contiguity scanning with pfn alignment check
->    (Dev Jain, Uladzislau Rezki)
-> - In get_vmap_batch_order(), filter out orders that the architecture
->    cannot batch by checking arch_vmap_pte_supported_shift() directly.
->    This avoids overhead for orders 1-3 on ARM64 CONT_PTE with 4K
->    pages. (patch 5)
-> 
-> Barry Song (Xiaomi) (4):
->    arm64/vmalloc: allow arch_vmap_pte_range_map_size() to batch multiple
->      CONT_PTE
->    mm/vmalloc: extend page table walk to support larger page_shift sizes
->      and eliminate page table rewalk
->    mm/vmalloc: map contiguous pages in batches for vmap() if possible
->    mm/vmalloc: align vm_area so vmap() can batch mappings
-> 
-> Wen Jiang (6):
->    arm64/mm: add pte_set_huge() and pte_clear_huge()
->    powerpc/8xx: add pte_set_huge()
->    mm/vmalloc: use pte_set_huge()/pte_clear_huge() for PTE-level block
->      mappings
->    arm64/hugetlb: drop the init_mm special case in clear_flush()
->    mm/vmalloc: extract vmap_set_ptes() to consolidate PTE mapping logic
->    mm/vmalloc: extract vm_shift() to consolidate mapping shift selection
-> 
->   arch/arm64/include/asm/pgtable.h             |   6 +
->   arch/arm64/include/asm/vmalloc.h             |   8 +-
->   arch/arm64/mm/hugetlbpage.c                  |   5 +-
->   arch/arm64/mm/mmu.c                          |  19 ++
->   arch/powerpc/include/asm/nohash/32/pte-8xx.h |   4 +
->   arch/powerpc/mm/nohash/8xx.c                 |  29 ++
->   include/linux/pgtable.h                      |  29 ++
->   mm/vmalloc.c                                 | 268 ++++++++++++++-----
->   8 files changed, 300 insertions(+), 68 deletions(-)
-> 
+> I would prefer you to move the code between the patches a bit. This patch
+> should already be introducing the full, future-proof infrastructure for
+> registering multiple auxiliary devices, so maybe add a static table with device
+> info? Then in patch 10/10 you'd just extend it for reboot modes.
 
+Ack. will update it.
+
+> 
+> I'd also not add any ifdef guards here and lesses the build-time dependencies.
+> You can register the device alright, it just won't get probed if the reboot-mode
+> support is not there.
+
+Ack.
+
+thanks,
+Shivendra
 
