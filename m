@@ -4,80 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1CB0C982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 20:19:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 578B8C88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 20:20:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NlQs6cwRma2zslsYMUF4XSyTQNtsNaJ2JmQpkbRtfKo=; b=sgidTNs3HtGg4BPsMJ1feAplAg
-	2r4olRP4vQel63FHhKPp1+jm3K/I2GlZHBC7ZeJKNe3pQkNF9QJtP558PkrdGb3gD4SM0AUrZ0jdC
-	CvxT/uooOb7I2DzNuvrePRQALnssBxhHsP3MSoSejwIbFFmInbTxFD0kudkIYiZIIwWFWBDOPYbCq
-	zSi3Edg+sUAzlhOdZAUtqf9x9S5mdg8L5Oqr2jsqxq0w5qwixhaWBd83dgtxm58tb2mOrOS3EHlQJ
-	j+VpWH+R+HERn+rzHE7vfgPs8Ww0xx8Blp3VYn1YlFGLbXW+gJcgNw1h0WacfnSDRHxYaNL+nogcM
-	CIqCSqpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RXB70s8tC0N4djKhk6YxK6M2sEK0IClm9i5YiNUGtD8=; b=HzM6ayOHGW1PW//FDStbW6rVMj
+	Q89Hw6RbZ7LIgpj9hhLBjd4MsJmLH9OSQZLBk1ZO04khT0R65jV6ZIp/US8PInDFDaGtK1mLiZ9y6
+	09f4xHM3f2PuSgW+VnrbSj0/9KMjco0c7ti6MtA3ary0qBB8nW5bACgILxMRbqe7M77mGpT8PB9y6
+	WVW42GMhXALgd9po/0WISCIok11q2XeJdylIpVLwbpuSCs9Y0aGJUaa5cnQEDSGeqCiYm+GCNt81b
+	v3Ba2xCOCCrV0MWBVX8IutQL+UUv8oKyddK3A7hZ9cCUtMi+9QKdbE5b5I4NLfueCA8ZlI5NU421b
+	hdZXEiWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7IZL-0000000CPlz-46lL;
-	Thu, 17 Sep 2026 20:18:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x7Iak-0000000CPz1-491Z;
+	Thu, 17 Sep 2026 20:20:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7IZH-0000000CPlg-2I0v
+	id 1x7Iaj-0000000CPyu-2KbN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 20:18:52 +0000
+	Thu, 17 Sep 2026 20:20:21 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EA6C741FD3;
-	Thu, 17 Sep 2026 20:18:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 847861F000FF;
-	Thu, 17 Sep 2026 20:18:47 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E5B52601FF;
+	Thu, 17 Sep 2026 20:20:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B03F1F000FF;
+	Thu, 17 Sep 2026 20:20:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789676330;
-	bh=NlQs6cwRma2zslsYMUF4XSyTQNtsNaJ2JmQpkbRtfKo=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=YOvS/iAgLPvD6tvRZQ93q+JITHTRlWVUX9n+OUs6BhQFThl1Fj7XYlJ9BSgoNjzmd
-	 98LYXI2uhYO8BUGhvpknd5WndzCgJ4Rix62wk15tggpF3VXObh2CvN/tO9QQOyR4Kd
-	 Lo4gWxWMsTVTfMUC/wGFUXsZ2oFD+EL/313wr8RKxhihD+cAfLVTiRoo2ZTyUOrSrp
-	 /gNwbKhN+eqh6G6/3DGkHL08u2REvRAhqqYBjNFIvuREKLVn0rFqojIakqtjkulGq+
-	 r2byG7gYwbcvg4JeVUeqGvX32Qtu804xwnJX+Tbz7jIy9ORRPZ4os3QQ/JcMOhakOP
-	 xcG+TsGM5g/hA==
-From: Mark Brown <broonie@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, 
- Peter Ujfalusi <peter.ujfalusi@linux.intel.com>, 
- Bard Liao <yung-chuan.liao@linux.intel.com>, 
- Daniel Baluta <daniel.baluta@nxp.com>, 
- =?utf-8?q?=C8=98tefan_Ghe=C8=9Bu?= <stefanghetu9@gmail.com>
-Cc: Kai Vehmanen <kai.vehmanen@linux.intel.com>, 
- Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>, 
- Vijendar Mukunda <Vijendar.Mukunda@amd.com>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, sound-open-firmware@alsa-project.org, 
- linux-sound@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260908170740.276800-1-stefanghetu9@gmail.com>
-References: <20260908170740.276800-1-stefanghetu9@gmail.com>
-Subject: Re: [PATCH] ASoC: SOF: imx: Prevent stack OOB read in DSP panic
- dump
-Message-Id: <178959294173.414407.18136337790003534717.b4-ty@b4>
-Date: Wed, 16 Sep 2026 22:09:01 +0100
+	s=k20260515; t=1789676420;
+	bh=RXB70s8tC0N4djKhk6YxK6M2sEK0IClm9i5YiNUGtD8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=FgWzVoH4Tdgc3xbhEiQn7a6FJ/07+ERma5xsfx6CkqdFWA+dhVut+XxWCw+O3cdHo
+	 353RpR9YS4TSztc8wrKkHDyD3hOLYGP+SFrzV6RR38x+cCsWQrL4Tkx0apZ1LOlbjD
+	 Pw+ePTdyDbLqc4xmPt8BS1hyD5vEys0JA49NovRKLhSpDUz7u0bVIDfae91KAFjAWu
+	 Lc2oIXJ0sLEUOn/7zsKrlGx2h278H2Ocj/FRGNmzwEbvq6nCQj5a4GNBMRZ3Brx1y7
+	 Mq5DVlrP4IJn0NFAcN7hGMfB3aMSFA7idC83SWUP1zSgwwVqHLkW2tXu3aIDr+xk1O
+	 XIViCSjFySfOA==
+Date: Thu, 17 Sep 2026 22:20:17 +0200
+From: Frederic Weisbecker <frederic@kernel.org>
+To: Josef Bacik <josef@toxicpanda.com>
+Cc: "Paul E. McKenney" <paulmck@kernel.org>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Boqun Feng <boqun@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>, x86@kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Puranjay Mohan <puranjay@kernel.org>,
+	Xu Kuohai <xukuohai@huaweicloud.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Zqiang <qiang.zhang@linux.dev>, Juergen Gross <jgross@suse.com>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	linux-kernel@vger.kernel.org, rcu@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, bpf@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	xen-devel@lists.xenproject.org
+Subject: Re: [PATCH RFC v3 03/13] rcu-tasks: Add a Tasks RCU implementation
+ for reader-marked trampolines
+Message-ID: <aqxLgT41UyA-bV5J@pavilion.home>
+References: <20260915-b4-rcu-tasks-preempt-qs-v3-0-0ad30c4c5ee7@toxicpanda.com>
+ <20260915-b4-rcu-tasks-preempt-qs-v3-3-0ad30c4c5ee7@toxicpanda.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1132; i=broonie@kernel.org;
- h=from:subject:message-id; bh=uJNK0I97h9gVrkosOpxiaYhBCy0As5A5kdpQzUMMyjY=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqrEslPB5dOiQY2fwqADJk4NjZiMoef7USZpJEf
- 4wzGs9QpyiJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaqxLJQAKCRAk1otyXVSH
- 0B3dB/9eBN31cG12Ll2AnoSUa10wV0kqpNtFR8cNav0jUnJUriUUTRv2dGKr410X8ycaGP0K2I5
- vtyjF6bfkmaeOkAfgnL8ksoztYBnKVT+t07G6L8JJmdvaLXLPUBdSOKB+YglB6b3p4/V8bDnDuB
- 89RcGXEvBu1vMCSwxvIvlhqcEEpnggPLSKw+eDsRhlbK+Wztfya4oCf0aKLKNedtrFguUSeQWUP
- Hr3FPOX6UxCghVWt5mYeOVkL/3rQZKdAHdXqholouhkoaYVuuOTXYahWe8cAD40kZtDw/c+q2+S
- w2GsAc1gD1wue6A6szPwy4/pkVjMqSpqKNEvER5OaKreuLO1
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+In-Reply-To: <20260915-b4-rcu-tasks-preempt-qs-v3-3-0ad30c4c5ee7@toxicpanda.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,35 +95,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 08 Sep 2026 20:07:40 +0300, Ștefan Ghețu wrote:
-> ASoC: SOF: imx: Prevent stack OOB read in DSP panic dump
+Le Tue, Sep 15, 2026 at 01:17:30PM +0000, Josef Bacik a �crit :
+> +static void rcu_tasks_tramp_hold(struct task_struct *t)
+> +{
+> +	unsigned long flags;
+> +
+> +	if (t->rcu_tasks_holdout)
+> +		return;
+> +	raw_spin_lock_irqsave(&rcu_tasks_tramp_lock, flags);
+> +	list_add_tail(&t->rcu_tasks_holdout_list, &rcu_tasks_tramp_holdouts);
+> +	WRITE_ONCE(t->rcu_tasks_holdout, true);
+> +	raw_spin_unlock_irqrestore(&rcu_tasks_tramp_lock, flags);
+> +}
+> +
+> +static void rcu_tasks_tramp_release(struct task_struct *t)
+> +{
+> +	unsigned long flags;
+> +
+> +	if (likely(!t->rcu_tasks_holdout))
+> +		return;
+> +	raw_spin_lock_irqsave(&rcu_tasks_tramp_lock, flags);
+> +	list_del_init(&t->rcu_tasks_holdout_list);
+> +	WRITE_ONCE(t->rcu_tasks_holdout, false);
+> +	raw_spin_unlock_irqrestore(&rcu_tasks_tramp_lock, flags);
+> +}
+> +
+> +/**
+> + * rcu_tasks_irq_resched_enter - Tasks RCU hook for the irq-exit reschedule check
+> + * @ip: instruction pointer of the interrupted (task-level) context
+> + *
+> + * Called with interrupts disabled when an interrupt returning to kernel
+> + * mode is about to preempt_schedule_irq(), the one context switch that can
+> + * catch a task inside unmarked trampoline text.  Record where the task is
+> + * parked for as long as it is (rcu_tasks_wait_irq_preempted() looks at
+> + * that), and if it is inside such text make it a holdout before
+> + * __schedule() reports the quiescent event; if it is not, this is as good
+> + * as a voluntary switch for ending an earlier hold.
+> + */
+> +void rcu_tasks_irq_resched_enter(unsigned long ip)
+> +{
+> +	struct task_struct *t = current;
+> +	struct rcu_tasks_percpu *rtpcp = this_cpu_ptr(rcu_tasks.rtpcpu);
+> +
+> +	lockdep_assert_irqs_disabled();
+> +	WRITE_ONCE(t->rcu_tasks_irq_ip, ip);
+> +	t->rcu_tasks_exit_cpu = smp_processor_id();
+> +	raw_spin_lock_rcu_node(rtpcp);
+> +	list_add(&t->rcu_tasks_exit_list, &rtpcp->rtp_exit_list);
+> +	raw_spin_unlock_rcu_node(rtpcp);
 
-Applied to
+I don't think we can do that. This is too much unconditional overhead
+on the hot preemption path. rcu_tasks_trampoline_text() should be
+a condition here.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.4
+And do we really need to maintain both lists? I understand that they
+have different purposes.
 
-Thanks!
+->rcu_tasks_exit_list is to track preempted tasks on trampoline
+->rcu_tasks_holdout_list is to track preempted tasks on trampoline until
+                         they ever voluntary schedule()
 
-[1/1] ASoC: SOF: imx: Prevent stack OOB read in DSP panic dump
-      https://git.kernel.org/broonie/sound/c/48ed992bfbe5
+Can the latter replace the former? I see it's used on kprobes and others
+but I haven't checked the details yet.
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+Thanks.
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+-- 
+Frederic Weisbecker
+SUSE Labs
 
