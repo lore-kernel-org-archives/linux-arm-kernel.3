@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 897DDC982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 09:42:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3504C88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 09:42:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GrKwQSnBM5TlJwrXeIy0ESWxGzkPY7jGMX9Hplkjm+I=; b=W4phaMekgu+yN50JTrH89VI4Ne
-	5eZ9Zy7V2FcnKHQegVwpiRDb8dR7Ark36LBJmNvszASgQxD7DXHJB4dIBuH/GfYenZAJWfGScjWFL
-	Tlhwf5V+s+SiwhFgDodFe6rkFdUrF2nF4LC/bfeVCoJANp1HwN/fiDXyEZrt/e9u5sidr1iQMsJIa
-	6WuN4mq3Hr3xWlK424KxaP1BOnQtRuJfQv+n7z05qPQoKu4S2op37KsBamKTW8hW5US+zlAiq3Ymj
-	q7mRAIcmXlF6o5zMo4j4ZnaeKGu7C+oDGElrrQKqwzrBUkkiSKBFgku6dpxoxSRg0uJTYawT633QY
-	LimhENJA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oqLenxL/19HM/21oW+/2Rvt5NkH8DxDP5vg8uKDbrNU=; b=V1cQ8gw8pPAkSlVR0KTI7acUwn
+	NP9S+8cq8BIX+z6lIf9UV0L/JZRY4MwncAYY+Nz/Rrw0H7iRmqrhbooxnwzo+RFWKVdD+MHFPrryy
+	2QHoGD3fs9khz4wDPNGBG33bfHGWr+zb7W5ezl/EW/UzkFEzpdJ2PUMDKfxdT246SsJBC+LCCba7M
+	0qGJPfdBCy6gHZe/D26o2cW0DPTaYAnRiqxvpyE2gO9c+SUxEAEwnmUiFAJb6vg4AHOjHT4xteop9
+	qBktkoMN0EWW4gGvOS+PRzkLha/6Ij9EtWpUw9oBwXYxb21TDSy/BR6WWwrcMDgfA4kyVtLiDhWFv
+	fh4tXQ0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x78dW-0000000B1tF-3yOo;
-	Thu, 17 Sep 2026 09:42:34 +0000
+	id 1x78dc-0000000B1uR-0DsA;
+	Thu, 17 Sep 2026 09:42:40 +0000
 Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x78dT-0000000B1rZ-0qLG
+	id 1x78dV-0000000B1ra-2QF0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 09:42:33 +0000
+	Thu, 17 Sep 2026 09:42:35 +0000
 Received: from francesco-nb.. (xcpe-178-82-167-143.dyn.res.sunrise.net [178.82.167.143])
-	by mail11.truemail.it (Postfix) with ESMTPA id AD9B11F8D0;
-	Thu, 17 Sep 2026 11:42:23 +0200 (CEST)
+	by mail11.truemail.it (Postfix) with ESMTPA id 5F59A1FCA4;
+	Thu, 17 Sep 2026 11:42:24 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
 	s=default; t=1789638144;
-	bh=GrKwQSnBM5TlJwrXeIy0ESWxGzkPY7jGMX9Hplkjm+I=; h=From:To:Subject;
-	b=EEE1jeZrGpYBbkm7jBaZiYUVn3vsNzRXoUuZhAf67BVk3zc5f9yRT5a8E/Y2PUF/c
-	 he/WR0tgGu6vRr6nutCipM6oltnj0DBJGkCJrWiyKJUdCPNDLZJmBc0nUaT5PKhJwi
-	 gVDukL/i1IFT7q1lcdTTs++m54HtxP9w9geGUHGYbYzhpJaEGnPaisMIoSID4DU1Dm
-	 KiKLuDXtbTJkPWU4duiRl/tO+bgAQrr7aYqW8nAp1SrmH4V/1duZ5+GVwfTkpuBfqX
-	 Vm5Kw+9dztp+nvB6kk0H3WiOybZcPIX12ZTfUIzKANJ7wlOBKb2OtWQ63m6RmdfseZ
-	 JJvaEhK/jFNZg==
+	bh=oqLenxL/19HM/21oW+/2Rvt5NkH8DxDP5vg8uKDbrNU=; h=From:To:Subject;
+	b=Nu9KQPMyGvEnRxMmeqBlI2wIctwrE5oIuzPKfWniQ2FyhzhEFWZ+xoFy2uhCjxQzr
+	 CLfdSnZJlQ5pKcY64xTrirR8JOaonblRZ459PQVDxWj68RXdgKi3ty94dcS/GhTBB/
+	 QNMVD9ktzYf/r/GDtRxtJvK+Kz8I9GZOm+ZaIp6kSsDa2Kmcmatxvf5I1ArKWtVbeZ
+	 AmrrlBs7EmF33AZXHYiDkuIUd35ygYBGj8rAE4xCPrvZ//j06i1k0LJUIs9iburs1n
+	 RIXPYaKvJkeBpY8KKzmL43+jH2caQG3XjjJNbaYMvno36XQLRD/lLn5GGHVCjY68Dw
+	 mQrqnDw1crT3A==
 From: Francesco Dolcini <francesco@dolcini.it>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -48,20 +48,23 @@ To: Rob Herring <robh@kernel.org>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>,
 	Shawn Guo <shawnguo@kernel.org>
-Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
+Cc: Antoine Gouby <antoine.gouby@toradex.com>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v1 0/2] arm64: dts: freescale: Add Toradex OSM iMX95
-Date: Thu, 17 Sep 2026 11:42:13 +0200
-Message-ID: <20260917094217.59508-1-francesco@dolcini.it>
+	linux-arm-kernel@lists.infradead.org,
+	Francesco Dolcini <francesco.dolcini@toradex.com>
+Subject: [PATCH v1 1/2] dt-bindings: arm: fsl: Add Toradex OSM iMX95
+Date: Thu, 17 Sep 2026 11:42:14 +0200
+Message-ID: <20260917094217.59508-2-francesco@dolcini.it>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260917094217.59508-1-francesco@dolcini.it>
+References: <20260917094217.59508-1-francesco@dolcini.it>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_024232_132471_9368A5DD 
-X-CRM114-Status: UNSURE (   7.90  )
+X-CRM114-CacheID: sfid-20260917_024233_771410_DB3F1F97 
+X-CRM114-Status: UNSURE (   6.25  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,30 +80,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Francesco Dolcini <francesco.dolcini@toradex.com>
+From: Antoine Gouby <antoine.gouby@toradex.com>
 
-This patch series adds support for the Toradex OSM iMX95 SoM and its OSM
-Development Board.
+Add Toradex OSM iMX95 SoM and the Toradex OSM development carrier board
+it can be combined with.
 
 The Toradex OSM iMX95 is a SoM compliant with the OSM V1.2 specification
-from SGET, based on the NXP i.MX95 SoC and available in Size L
-(45x45 mm).
+from SGET using the NXP i.MX95 SoC and is available in Size L (45x45 mm).
 
 Link: https://www.toradex.com/computer-on-modules/osm-arm-family/nxp-imx95
-Link: https://www.toradex.com/products/carrier-board/osm-development-board
+Signed-off-by: Antoine Gouby <antoine.gouby@toradex.com>
+Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+---
+ Documentation/devicetree/bindings/arm/fsl.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-Antoine Gouby (2):
-  dt-bindings: arm: fsl: Add Toradex OSM iMX95
-  arm64: dts: freescale: Add Toradex OSM iMX95
-
- .../devicetree/bindings/arm/fsl.yaml          |    6 +
- arch/arm64/boot/dts/freescale/Makefile        |    1 +
- .../dts/freescale/imx95-toradex-osm-dev.dts   |  404 +++++++
- .../boot/dts/freescale/imx95-toradex-osm.dtsi | 1036 +++++++++++++++++
- 4 files changed, 1447 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx95-toradex-osm-dev.dts
- create mode 100644 arch/arm64/boot/dts/freescale/imx95-toradex-osm.dtsi
-
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index 36e28e0e4ad9..9413c3e225ea 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1578,6 +1578,12 @@ properties:
+           - const: toradex,aquila-imx95     # Aquila iMX95 Module
+           - const: fsl,imx95
+ 
++      - description: Toradex Boards with OSM iMX95 Modules
++        items:
++          - const: toradex,osm-imx95-dev # Toradex OSM iMX95 Module on Toradex OSM Development Board
++          - const: toradex,osm-imx95     # Toradex OSM iMX95 Module
++          - const: fsl,imx95
++
+       - description: Toradex Boards with SMARC iMX95 Modules
+         items:
+           - const: toradex,smarc-imx95-dev # Toradex SMARC iMX95 on Toradex SMARC Development Board
 -- 
 2.47.3
 
