@@ -4,99 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD16EC982D6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 15:39:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAC9DC88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 15:39:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tL1lU3S6y66CYudldJj/uj6mbDDp8Lup5C09IlTTtlc=; b=z/8LVlXBPQ4VhMpiCUh3MSKJCW
-	uEJ/495A1hM3I171popusPzspcHXZM2VZVjonZeozz0C6zczWFD2oXiNX60z+kYkuFS7digbDKJUG
-	Tc5+Yv8Jh4OQqUMd1kpK5odkgZbLlUIrs+TCuw3raulq9rvVYHVRSO/Esi5/QnT1e0a6q1ZCoaK8Z
-	HR/96tKsnp06Ton3xWg/QzlFXf5YY7YQgH9zgC+J7lG6meQVjxGp9BbwfL2HxwEg7Q271QuW/dynd
-	WRlngtbW28UYlMme0OTQ7VebU1sL4y+iqV28gnxVJ9ElRMn9Z64OYDJk49rmTDZeW72dTdBRsLrey
-	dzAYqo2A==;
+	bh=r97vUqT1ja7wf7CQfDpydnbQb4qTll+mzO8+xNFHdt8=; b=TMjWdY72ubWaoMd41N9XKosY4Q
+	QhpbqqENX/ehZKaktoJNG/Ty4ngjIDAjdL+TC21uL3nSgIhXl//dYqx1pibWulJy3VX7Y72Ssj1wE
+	ie8/b7sgWzpEkgcP31kbt+/BKuXTIk3dYIu7sMh0vZewhl1NvZ0WoKWZCCINkeXGy4QFZziVhO6AZ
+	pmvdP05ZTdb0++7wORrTqR3kOkHnKCKOVCYouazHyoafXHEjDeWmWhUco8m5bIzvhg5KFYx2EMrWG
+	ICzWfAHwUbvNQlHFdMr15zJaC91NBoEuOQYaVqV+ejHQNAMAs7O6G/XfY7dUeiMmbQuJ4LxzdVwNi
+	wPkO30VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7ECU-0000000BiLK-2aqn;
-	Thu, 17 Sep 2026 15:39:02 +0000
-Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
+	id 1x7CUa-0000000BRR5-2iam;
+	Thu, 17 Sep 2026 13:49:36 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7ECR-0000000BiHL-22ig
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 15:39:01 +0000
-Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-485933b24c3so612355f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 08:38:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789659537; x=1790264337; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=tL1lU3S6y66CYudldJj/uj6mbDDp8Lup5C09IlTTtlc=;
-        b=mBSjk0sNjB1J/zQmOmV/GnsyMk7OK2fIm5S1Fm5/4+EnG89SkjnLiCp8DBG6Daf2dF
-         MomrfUPjfcEUwZhl/h32/5lX8frYBwd21E8umQakK9C+KNM7JTFc9SgZBqbRpLcHdWpR
-         6GGfwDFm8PFuD6NUuela55qZmsH1MwZAyl7MOOleI7hpCPjm4dHMfweHkLpqRHFygMaK
-         +wKBxUhDmNMPDrZQtBs4dEAFVBuzJAseI005YUXnsZJpf/RXgPt7UF/AUD8HYIUHGS23
-         QeM+xLQ/964MrhWg9u0oCz56tFc5wxMPoSNzZTKFTUaYJlOUfnyG+pzDecWfou1RpF4/
-         qRnA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789659537; x=1790264337;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=tL1lU3S6y66CYudldJj/uj6mbDDp8Lup5C09IlTTtlc=;
-        b=TwnEMg3JUUCjckj7nB+xvyfFgqsMvxRrNhD9iTFoLPPO9+RFUfJBQAuWqoGJP2k8QB
-         aKzHGeJsfEBZ2PsSJ1aank41U23GAbdjQf4LzZ6vo0mjrNJueMM6L7Oe3MEe1nCy7nJX
-         W34HJ1Os733KKENKLCnuPWUM/tVXYH/tQXqj76gF2XyflDYMlFCQPf1ZWOaKK7r1bZNk
-         7n+gO5JoN8oNRfBK2ThurYqAUaYZ7DZ3QNpRFYBxlZUnWubJ3/Vp+e4bOc2pOy+Bij7Q
-         cITgeKYhmX4vOjd5/vgseYCbLESGFXUerw41LhNegxLyZzeRfrzQp9LMIqW9bu2K/lLH
-         bJNw==
-X-Forwarded-Encrypted: i=1; AKwUvBznMSvjrMW9pnokWAorF3nfJzL1SDOIbFcuLOPaOPLjouaK7weNCW6FBvMNl+HCbCyXOChsNT1FQArOx9otiR95@lists.infradead.org
-X-Gm-Message-State: AFuF++lKcTr8tdSVvXAXYwJOi2YuNAroIvYe33bv6CSF5lUrbTKfmE6G
-	frAg82LCGloOAOhH/84gMnwsOFBe855bwFM5EfYmDGO8gG0lkX8PG36R
-X-Gm-Gg: AYBFou2UWjrUwmmtlaH9SD92zku8T7M3EIS/m/IunzLqF0I16r6YZA/ii6m3MDvp7uE
-	1M44moC5Fjf4R1nBsR3UZzpgEOTjWtRRWrCHQGjNmZq3MrKuseRZRMrZgKiiv4LvX/hWdTOPY7u
-	sIOt/AsGOKLcUodBq0UsrgWEGbm+debEgo5X1AdkgYWDNe/kekvOLw66DixePQHrrshhNx10F9Y
-	cDFGinar8uZlqBICZ9Y+GLM1rSzmKnrB9aZsjkU15lPp11Khhbt6KxzNIjIPwVWV2Np12kYxLEL
-	HTCSGK9lyfu7IYiDtuOj+UAmYZ0YIWy6Bcsv1kuvCv+dBE7PaPLoVm1EDGNiVsWXbk15S6k3WEP
-	un6+PEzBSw8KyM2H7Lyx/SEnSOBTP7EwLXu4gOOYh9GpiaaTgbbm8FTdKief+UxgW/9w0faC8mD
-	VBo1L/w5JKB7YcUOTv1FCeh04P4AbTtbURghXZkPTT95rqpzJ4bvOHTIzHn3qZvP1tvo+JNBCTE
-	Dt+WLNyXqei2sBugj4=
-X-Received: by 2002:a05:6000:644:b0:487:4ba:97f2 with SMTP id ffacd0b85a97d-4870cf27ad0mr9119569f8f.3.1789659537241;
-        Thu, 17 Sep 2026 08:38:57 -0700 (PDT)
-Received: from localhost.localdomain ([94.252.75.113])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-4870bf462cesm15872185f8f.37.2026.09.17.08.38.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 17 Sep 2026 08:38:56 -0700 (PDT)
-From: Oleg Keri <okerixx@gmail.com>
-To: Dietmar Eggemann <dietmar.eggemann@arm.com>
-Cc: Ananthu C V <ananthu.cv@oss.qualcomm.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Beata Michalska <beata.michalska@arm.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 2/2] arch_topology: use the boost frequencies for capacity_freq_ref
-Date: Thu, 17 Sep 2026 17:38:47 +0200
-Message-ID: <178965952769.2757.5034972953349001664@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <bddc9273-fe02-4984-bfe9-5078e9e6e111@arm.com>
-References: <bddc9273-fe02-4984-bfe9-5078e9e6e111@arm.com>
+	id 1x7CUO-0000000BRIv-3PEp;
+	Thu, 17 Sep 2026 13:49:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1789652961;
+	bh=I5wKmiysBTuYLPKycTb4r8SCqRgtc3YcQ663wjfvpFY=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=fmY0pZ0ijzex4HtptD/UaC0jxHsIKAnVKRmVtmxi+ObVR6pvnHypESo33jMrxO6xO
+	 MYvtlyJTET0DxpBrQXjH66LFnmunjq/9HGnMvVB70Gg+7h5Gb9QHttNPNRIy7rQb6E
+	 SR7/+6GvJUJaDrkjwFRcFenjuM5g0oFARGh6P63/l/ow9HQUjYcKmSVLVjfV1Uo8bf
+	 W3tdUlvxr8gvH1uJ3sg/pOHZTBYw8ubsbnevItrQP6/c1sjeJBeTt6LOWIbT9GUHQ1
+	 iROOd32glafkfuwh2hHJsQRuAxzRPte/qfVHnPFV2i6rhX6daaHnUKiFCGgWUYk8HY
+	 s0OhYFuEns5Dg==
+Received: from jupiter.universe (unknown [100.64.1.62])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C623017E07DB;
+	Thu, 17 Sep 2026 15:49:21 +0200 (CEST)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id 7BE6348002F; Thu, 17 Sep 2026 15:49:21 +0200 (CEST)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Thu, 17 Sep 2026 15:49:14 +0200
+Subject: [PATCH 2/8] dt-bindings: devfreq: event: rockchip,dfi: add clocks
+ to rk3588
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260917-rockchip-dfi-cleanup-v1-2-4f00a97a69a6@collabora.com>
+References: <20260917-rockchip-dfi-cleanup-v1-0-4f00a97a69a6@collabora.com>
+In-Reply-To: <20260917-rockchip-dfi-cleanup-v1-0-4f00a97a69a6@collabora.com>
+To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Chanwoo Choi <cw00.choi@samsung.com>, 
+ MyungJoo Ham <myungjoo.ham@samsung.com>, 
+ Kyungmin Park <kyungmin.park@samsung.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+ kernel@collabora.com, Sebastian Reichel <sebastian.reichel@collabora.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3824;
+ i=sebastian.reichel@collabora.com; h=from:subject:message-id;
+ bh=CMJKlCe6bEkR7uYuohkbQVDQ2FF/s+dLQ5XKL7udDIg=;
+ b=kA0DAAoB2O7X88g7+poByyZiAGqr7+GjOYD9XgQwPQo4FjhjYoSNVwOC73J35EGjf1ULcUn+T
+ IkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqq+/hAAoJENju1/PIO/qaDRIP/iF+
+ L3Z3wPL14QCK2IB9xToLK1Mqu5oCNh+8aeBgN0cywq5NCujKDyT6nFPngIeAKrHTee0vKdYNquf
+ W5wOrwwwDtuMZIS9G5hkJLaqSOuClUNVlDvWay0uyIWh13cS3eMSdEEIs1R9xYziyHrS8kJC80w
+ abkCpCRd+cDfBBGBdV+1Y6JRavDl8DzPbql91RUlinkTc8wr8eKGjBYTE6oHC2DqEzxddsGsPTx
+ FNciqNMzXtrZxEu39JupEN2zgyuiEFp+2qde7JyBePmyuGsQ5RachDXkZi0TzrWfK88+S3/2rbV
+ M7VD1Jyg3vYVRwcCAc1FeJXE3kBzgYUauA9eOGnQiWeg7Sj2a5b68SzuB6me1DgUqUG27aER3dB
+ IK5o6U9kiGdnQ6FtFoS+aWnJJKMlUXdkjNTqxo1KNZD2KV9LdwnXs5vEcdtABI/CVc5BN9XGJUO
+ RSWxIdjUh1bxSvGLk4lMD5Zt8phLTux5SmXDXZr1Metsdvul9HPTpPRHvz0QKkl2aJ6QTo4H+Hw
+ EUysmUCFKzctrKPWPd55V0WZ8lIlXZROvTZueMEa7IVNiwl5yzvzCw2VmSw4sPnx3TvCCtEZKa8
+ eyEfekjgjwYqxNTVFVC5i5eucnpugBF92jBzcMF8B1xj8+c1K4+FttqO6sa1KIhouZaCY3IDvkf
+ TGz7p
+X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_083859_550291_089E713D 
-X-CRM114-Status: GOOD (  11.23  )
+X-CRM114-CacheID: sfid-20260917_064925_012226_5E0122A8 
+X-CRM114-Status: GOOD (  13.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,24 +103,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dietmar,
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-On Thu, Sep 17, 2026, Dietmar Eggemann wrote:
-> Ah, you want to fix this for 'frequency table' drivers.
->
-> IMHO,
-> https://lore.kernel.org/r/20260908-schedutil-boost-frequency-handling-v2-0-25312a713699@oss.qualcomm.com
-> is trying the same at the moment.
+RK3588's DFI has pclks for each channel. They just weren't noticed as
+missing until now because nothing ever gates them, and they're ungated
+by default on power-on.
 
-Thanks, I had missed that series. Please drop my 2/2 in favour of it.
+The RK3399 clock situation needs no changes, as there the hardware
+really just has one monitoring unit for both channels.
 
-Patch 1/2 here is still needed, and becomes a prerequisite for his series
-on this SoC: with the reference at 4723200 kHz from boot,
-arch_freq_get_on_cpu() wraps and cpuinfo_avg_freq reads about 524283 kHz
-unless the multiply stays in 64 bits.
+Add these clocks to the binding, so that drivers for this device can
+properly know about their existence.
 
-I will test his series on the Yoga Slim 7x Gen 11 and reply there.
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ .../bindings/devfreq/event/rockchip,dfi.yaml       | 84 ++++++++++++++++++----
+ 1 file changed, 72 insertions(+), 12 deletions(-)
 
-Thanks,
-Oleg
+diff --git a/Documentation/devicetree/bindings/devfreq/event/rockchip,dfi.yaml b/Documentation/devicetree/bindings/devfreq/event/rockchip,dfi.yaml
+index 50d3fabe958d..d6e06a9bea19 100644
+--- a/Documentation/devicetree/bindings/devfreq/event/rockchip,dfi.yaml
++++ b/Documentation/devicetree/bindings/devfreq/event/rockchip,dfi.yaml
+@@ -17,11 +17,19 @@ properties:
+       - rockchip,rk3588-dfi
+ 
+   clocks:
+-    maxItems: 1
++    minItems: 1
++    maxItems: 4
+ 
+   clock-names:
++    minItems: 1
++    maxItems: 4
+     items:
+-      - const: pclk_ddr_mon
++      - enum:
++          - pclk_ddr_mon
++          - pclk_ddr_mon_ch0
++      - const: pclk_ddr_mon_ch1
++      - const: pclk_ddr_mon_ch2
++      - const: pclk_ddr_mon_ch3
+ 
+   interrupts:
+     minItems: 1
+@@ -40,17 +48,50 @@ required:
+   - interrupts
+   - reg
+ 
+-if:
+-  properties:
+-    compatible:
+-      contains:
+-        enum:
+-          - rockchip,rk3399-dfi
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - rockchip,rk3399-dfi
++    then:
++      properties:
++        clocks:
++          items:
++            - description:
++                clock driving the DDR monitoring logic for all channels
++        clock-names:
++          items:
++            - const: pclk_ddr_mon
++      required:
++        - clocks
++        - clock-names
+ 
+-then:
+-  required:
+-    - clocks
+-    - clock-names
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - rockchip,rk3588-dfi
++    then:
++      properties:
++        clocks:
++          items:
++            - description:
++                clock driving the DDR monitoring logic for memory channel 0
++            - description:
++                clock driving the DDR monitoring logic for memory channel 1
++            - description:
++                clock driving the DDR monitoring logic for memory channel 2
++            - description:
++                clock driving the DDR monitoring logic for memory channel 3
++        clock-names:
++          items:
++            - const: pclk_ddr_mon_ch0
++            - const: pclk_ddr_mon_ch1
++            - const: pclk_ddr_mon_ch2
++            - const: pclk_ddr_mon_ch3
+ 
+ additionalProperties: false
+ 
+@@ -72,3 +113,22 @@ examples:
+         clock-names = "pclk_ddr_mon";
+       };
+     };
++
++  - |
++    bus {
++      #address-cells = <2>;
++      #size-cells = <2>;
++
++      dfi_rk3588: dfi@fe060000 {
++        compatible = "rockchip,rk3588-dfi";
++        reg = <0x00 0xfe060000 0x00 0x10000>;
++        clocks = <&cru 0x53>, <&cru 0x48>, <&cru 0x49>, <&cru 0x54>;
++        clock-names = "pclk_ddr_mon_ch0", "pclk_ddr_mon_ch1",
++                      "pclk_ddr_mon_ch2", "pclk_ddr_mon_ch3";
++        interrupts =  <GIC_SPI 28 IRQ_TYPE_LEVEL_HIGH 0>,
++                      <GIC_SPI 38 IRQ_TYPE_LEVEL_HIGH 0>,
++                      <GIC_SPI 48 IRQ_TYPE_LEVEL_HIGH 0>,
++                      <GIC_SPI 58 IRQ_TYPE_LEVEL_HIGH 0>;
++        rockchip,pmu = <&pmugrf>;
++      };
++    };
+
+-- 
+2.53.0
+
 
