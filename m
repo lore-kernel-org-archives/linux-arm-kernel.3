@@ -4,75 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 282ACC982D2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 07:33:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B27C4C88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 07:46:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kjdu0bh3sHSMsCVVWKg2rIqiffBppsu+UcHUmDVc0PA=; b=doZzp35L1KyvPKwpanLR3Ct2FP
-	Leu8BeXpzakaor1QX6WDtFMrzmmlN6M9SnIuItA/+9OnuApU4M3G0MOUp/IBJJV3JFQvNwcqX1DFQ
-	54OTfmlxllDzrJF1gVTdSjuoR78+NgpcBxLX9zaeTLHsgpfgetxkgY1AVKt1uf4YAjJL+D5DwfLL8
-	gcLU22ngg33Q29blGcxAReM3EUKtH5T2Rmq4exPh7fe5P5yTHUwIyHbzZEUF/uYWjHTlHRDsRijSb
-	G0CoAsxKMYOV3TlGtrGxnJ71/pCY8dCEX7JhzohMcp8NVVq4INRnGNnQlWX57AT09HPM1Jb4cfiKT
-	nfS6Kqdg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=akKizh4ZGxdpLf1b/hrYXdPrQ7KO6CR6fVuYsqSOts0=; b=EMlh+ciPUdIem1z44y3IjupfwZ
+	Co9iSNIcEZrL0UhDa7gVS7Q7fuMMoCoSATVnjuzyt6tou8iCYaXw9DySuLEwygoVI1mo9AEH4sc4Y
+	pAT008lbsanzUqsVeAM06dOKgNsJ4eZJ//6Zniw3ZIhrgEcTtuYnHlOSJnjL2XctKgsmPOrZXka5b
+	Dc4BnkrPH8J+zKYwJWgyTKxpdZF630h+tjkET1Y6HF776N1xEBgaBx2cF6ycQK3FKeSPp4rpbtuHm
+	hpf3oTWQq8Vy9h51Mlbhm6eEVl3kG9cDJ590yBg0r9dk/pMalCZq8wAuQa1iIgQ8ykOUBeRlaDFGr
+	nw1OgJRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x76cM-0000000Am3G-3rsS;
-	Thu, 17 Sep 2026 07:33:14 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x76pQ-0000000Ao7x-3PgV;
+	Thu, 17 Sep 2026 07:46:44 +0000
+Received: from esa2.hc1455-7.c3s2.iphmx.com ([207.54.90.48])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x76cF-0000000Am1f-3Ea3;
-	Thu, 17 Sep 2026 07:33:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C630B43CA8;
-	Thu, 17 Sep 2026 07:33:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 9BB7AC2BCB9;
-	Thu, 17 Sep 2026 07:33:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1789630386;
-	bh=gxiqBAElq9Xre5OAg7uTOQmxUlQteJwsBnd3ZBdbFzA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=Hze9NxO6AqLpkNqahw3TdRpM+U4u9HEqCSCboe/Fwlc6aiq2TPj7YIIETtJCL2VmP
-	 uKfK2Na8oD3CC2nvdcm+iJqkQ8lTpE+2bklBdKxvO2ZSgeXLkmOxmP5VdZqT/PgVWb
-	 Toi+xmDzzfP70xiLkI6PJGOxQ7Vs0KiXQ8Mdn01cDc4gja8+JbNagFy3/3qIxHi32l
-	 uojBm9rNiHlByjvFM9QBmORRh0pTHDyWOboby3gPnOWiqdLMFRcQjDfW6sSC3WMQpq
-	 DHROUZ/lGcw7eEMBLwv0rGDDQl8tS4rBPK4RXy7BeClndb3WNdv3m8OQMv8tgIqRkh
-	 5Ki1qQS6Cuczw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7749BC982C1;
-	Thu, 17 Sep 2026 07:33:06 +0000 (UTC)
-From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
-Date: Thu, 17 Sep 2026 10:32:06 +0300
-Subject: [PATCH 1/3] dt-bindings: usb: mtu3: add mt6595
+	id 1x76pN-0000000Ao7G-3fsN
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Sep 2026 07:46:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1789631202; x=1821167202;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ffn4Z8w2vbV/yjMAVjCF39Xnvzt5sDQWpk/k1VIoL50=;
+  b=itDFOEUpgmM3u5NgIifYWSHVt84v0dWpkkM3bFHA+HwOfjpAIb5jb+6l
+   Ie9g6/u6dv0EeuUZsrf4EYJLJ9XX7GqelBNs9jNHr1lvsgvZOagoinr7t
+   RfDtpqx+SVYwRrXTK56g+pVXQaQ4c3FFbfasEXj9+Ea4Y2ZLy5TIvpn+N
+   xq60bz0kS35pQQL3HYjoVq2X7yGvKj42gt81hOBULyHuFjHJh34aU3R5h
+   2Los3lrLeKJarYrvGDVC65i9tNGnTcQwyn2BEy9eabtqJmyQY+IJXvycK
+   BqWTQcR2nJnL6Ql9+Zdc3CeNZmx/iw6tRwlzPOl92PPrS0yN/Ul0dVepN
+   w==;
+X-CSE-ConnectionGUID: BGFETOvOT5+fSZz91O8K6w==
+X-CSE-MsgGUID: Vw8sM6E6TLin7DumlYzqhA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="255378995"
+X-IronPort-AV: E=Sophos;i="6.27,103,1786978800"; 
+   d="scan'208";a="255378995"
+Received: from gmgwnl01.global.fujitsu.com (HELO mgmgwnl01.global.fujitsu.com) ([52.143.17.124])
+  by esa2.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Sep 2026 16:46:39 +0900
+Received: from az2nlsmgm2.o.css.fujitsu.com (unknown [10.150.26.202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mgmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 5C091474
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 07:46:39 +0000 (UTC)
+Received: from az2nlsmom2.o.css.fujitsu.com (unknown [10.150.26.200])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmgm2.o.css.fujitsu.com (Postfix) with ESMTPS id 019651C0010C
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 07:46:39 +0000 (UTC)
+Received: from sm-arm-grace07 (unknown [10.124.178.20])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmom2.o.css.fujitsu.com (Postfix) with ESMTPS id 400491800B10;
+	Thu, 17 Sep 2026 07:46:32 +0000 (UTC)
+Date: Thu, 17 Sep 2026 16:46:30 +0900
+From: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Sebastian Ene <sebastianene@google.com>
+Subject: Re: [PATCH v3 0/2] KVM: arm64: ptdump: Shadow ptdump fixes
+Message-ID: <aqua1jotej32hxLP@sm-arm-grace07>
+References: <20260916230337.4162485-1-weilin.chang@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260917-6595-mtu3-v1-1-a2ba7c230d68@protonmail.com>
-References: <20260917-6595-mtu3-v1-0-a2ba7c230d68@protonmail.com>
-In-Reply-To: <20260917-6595-mtu3-v1-0-a2ba7c230d68@protonmail.com>
-To: Chunfeng Yun <chunfeng.yun@mediatek.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Roman Vivchar <rva333@protonmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789630384; l=785;
- i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
- bh=obVpW7WHQG6DMltdTdYTZQf36G3lb4xafRlhZgLa8RM=;
- b=eUwn67bk9XeiQJFx/p1Vss7TE4r0pmPT7jJNEVOa8SoYeZa6vqsStS/7HnYK9QY6+mcEIMjP4
- BRQeAGy4QZ7DZdhzXBUjV2CSoZ6XS0rrU+rbC9QfMTGyE51AfUZ0Xqq
-X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
- pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
-X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
- auth_id=777
-X-Original-From: Roman Vivchar <rva333@protonmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260916230337.4162485-1-weilin.chang@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260917_004642_199238_09C43CAB 
+X-CRM114-Status: GOOD (  22.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,34 +100,68 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: rva333@protonmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Roman Vivchar <rva333@protonmail.com>
+Hi Wei-Lin,
 
-Add a compatible string for the MTU3 IP found on the MediaTek mt6595 SoC.
+On Thu, Sep 17, 2026 at 12:03:35AM +0100, Wei-Lin Chang wrote:
+> Hi,
+> 
+> This is v3 of fixing the sleep-in-atomic problem of the shadow ptdump.
+> The approach taken this time is simply creating a file for each nested
+> mmu.
+> 
+> The ptdump files are created alongside the nested mmus in
+> kvm_vcpu_init_nested(), in a sleepable context, and removed when the VM
+> is destroyed (kvm_destroy_vm_debugfs(), before the nested mmus are freed
+> in kvm_destroy_nested()). This allows us to store the kvm_s2_mmu pointers
+> in the ptdump code, after Marc's nested mmu lifecycle fixes [1].
+> 
+> For the shadow ptdump, for valid nested mmus the first line will show
+> the nested context's VTTBR and VTCR values, and whether s2 is enabled or
+> not. The ptdump then follows.
+> 
+> The first patch fixes mmu->pgt accesses after the VM MMU teardown in
+> ptdump.c, the second patch switches from per nested context ptdumps to
+> per nested mmu ptdumps.
+> 
+> Tested with CONFIG_PROVE_LOCKING, CONFIG_DEBUG_ATOMIC_SLEEP, and
+> CONFIG_KASAN.
+> 
+> Series based on kvmarm/fixes.
+> 
+> * Changes from v2 [2]:
+> 
+>   - Changed from creating a file that contains all nested mmus to
+>     creating one file for each nested mmu.
 
-Signed-off-by: Roman Vivchar <rva333@protonmail.com>
----
- Documentation/devicetree/bindings/usb/mediatek,mtu3.yaml | 1 +
- 1 file changed, 1 insertion(+)
+I've booted your kernel built only CONFIG_DEBUG_ATOMIC_SLEEP enabled
+mentioned above kernel configs; on Grace CPUs shadow_stage2 test did 
+not trigger the sleep in atomic message.
 
-diff --git a/Documentation/devicetree/bindings/usb/mediatek,mtu3.yaml b/Documentation/devicetree/bindings/usb/mediatek,mtu3.yaml
-index 21fc6bbe954f..4538df164a16 100644
---- a/Documentation/devicetree/bindings/usb/mediatek,mtu3.yaml
-+++ b/Documentation/devicetree/bindings/usb/mediatek,mtu3.yaml
-@@ -22,6 +22,7 @@ properties:
-     items:
-       - enum:
-           - mediatek,mt2712-mtu3
-+          - mediatek,mt6595-mtu3
-           - mediatek,mt8173-mtu3
-           - mediatek,mt8183-mtu3
-           - mediatek,mt8186-mtu3
+Tested-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
 
--- 
-2.55.0
+Thanks,
+Itaru.
 
-
+> 
+> Thanks!
+> 
+> [1]: https://lore.kernel.org/kvmarm/20260911162203.1919330-1-maz@kernel.org/
+> [2]: https://lore.kernel.org/kvmarm/20260630121005.1130996-1-weilin.chang@arm.com/
+> 
+> Wei-Lin Chang (2):
+>   KVM: arm64: ptdump: Check the page tables aren't freed when accessing
+>   KVM: arm64: ptdump: Fix shadow ptdump sleep-in-atomic-context problem
+> 
+>  arch/arm64/include/asm/kvm_host.h |  4 --
+>  arch/arm64/include/asm/kvm_mmu.h  |  6 +--
+>  arch/arm64/kvm/nested.c           |  9 ++--
+>  arch/arm64/kvm/ptdump.c           | 75 ++++++++++++++++++++-----------
+>  4 files changed, 54 insertions(+), 40 deletions(-)
+> 
+> -- 
+> 2.43.0
+> 
 
