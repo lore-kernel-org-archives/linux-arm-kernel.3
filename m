@@ -4,69 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2DC6C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 11:58:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9A83C982CF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 12:06:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DY5hg0oG2n14IkGfO3z7zsyaI7BrSzLCYgqaOw77aLA=; b=c0lfcTN9KsncUbcqhb8koqXQXn
-	DZzpI/JrduSuqldjxAju8Tww+OCnM9S4C94LUA/TDTQEN3k5KA+JKtS1jHmCeGXN2h2uu9ZHMuz3Y
-	bMTbUNorpjaWt6wjCBL9TNFzWUDH/asIC8ARPtlNT8wi6NfAUAtmfy9E6kgsKe0TrBJ0pPGNEngGl
-	oZbdqKhSZPad3+XJStG7H26twwLU/5rJFJiCnuDwD7GaAFkCItYK9iisPPGB1fyWpvNonf+Km1TV2
-	IbrKucp/LTt2jBd2Uobmprx/XGDXhr4c+776xaCRvBQdiqUGKbhWXyDmp9ygpBPwNGKfW6JXPvGVy
-	KaTT4wRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LlnRbt5c8SP+aAJF87ouKUvRBbld9YxcfP/ftrnkZgw=; b=hfLdjWgSiw6JcAFjZ29Cq9BoDW
+	i4yiU6DY+mhHQxu8Wk6PysfuuA04dZCpTMe6WyppVeZ/6aAXfrM8uImBB16TrCIQ4y3Vjehz36LcB
+	3ClKYYzJ/+TSWz0inXL83x9RLp/bjjcxq2Iy46lCUa44hLlbkDfTpzhIksEEaVVkCNBCIOTjy9dkD
+	pA8tnDfi/ZvS1tptkxovdnq7XKbP4lV5mI1znsyZXdOmBrlyFzpP66hkHWIDBFzWkqQDezuK6E7sN
+	OEuDEsqWKfo+mTifNia/qZGbg18eCvvg0gZCcZkemd3Cmpgcm2tY8PtBOnXbWIOwTCHtKkpUeIhZk
+	DtpZSV9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7AlL-0000000BF1Y-0Phy;
-	Thu, 17 Sep 2026 11:58:47 +0000
-Received: from m16.mail.163.com ([220.197.31.2])
+	id 1x7Asg-0000000BFfp-2Ted;
+	Thu, 17 Sep 2026 12:06:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7AlH-0000000BF0x-3ycF
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 11:58:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=DY
-	5hg0oG2n14IkGfO3z7zsyaI7BrSzLCYgqaOw77aLA=; b=GV0ViWIlR1KZyhjXDX
-	eiajrRA7mZJ5YbImyhZfBV+Z+HkmapaALqOa1bRQk3JPmdBIrhCcuG2jvIRmYEv4
-	fT80QRY930isyhI7wxfuUZmVV+GESy62egDlAAFEzSTHrW/hkH09rs9oW+yTszHR
-	LW6mIn8ChgDJtuBX1DgXvbP24=
-Received: from chaosheng-ASUS-TUF-Gaming-F16-FX607JV-FX607JV.lan (unknown [])
-	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wAH7aTa1atqD7D0BA--.50575S2;
-	Thu, 17 Sep 2026 19:58:19 +0800 (CST)
-From: Quchaosheng <quchaosheng000406@163.com>
-To: Guenter Roeck <linux@roeck-us.net>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Jonathan Corbet <corbet@lwn.net>,
-	linux-hwmon@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Quchaosheng <quchaosheng000406@163.com>
-Subject: [PATCH 1/2] hwmon: vexpress: point the DT binding reference at the schema
-Date: Thu, 17 Sep 2026 19:58:17 +0800
-Message-ID: <20260917115818.540344-1-quchaosheng000406@163.com>
-X-Mailer: git-send-email 2.43.0
+	id 1x7Asf-0000000BFfX-04vU;
+	Thu, 17 Sep 2026 12:06:21 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1D71A602D3;
+	Thu, 17 Sep 2026 12:06:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B62D1F00898;
+	Thu, 17 Sep 2026 12:06:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1789646779;
+	bh=LlnRbt5c8SP+aAJF87ouKUvRBbld9YxcfP/ftrnkZgw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=0ljomUrwTL2UcjQ7HHAcYdrtIKTqFYzw3wyXinI7YNmmp9wq2uvlibGxRe3/YSkmK
+	 ryRmZwW7JLzSvGxQ06hWYVVDby0dfdp29e7FXIUOZVmR0sEpEhuqhRPALUXGZax/u9
+	 kyEaroyGZOc8yeqFj6lfvzQPnCrsFqApRO66wVvc=
+Date: Thu, 17 Sep 2026 12:57:01 +0100
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Wentao Liang <vulab@iscas.ac.cn>
+Cc: angelogioacchino.delregno@collabora.com, jason-jh.lin@mediatek.com,
+	jassisinghbrar@gmail.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	matthias.bgg@gmail.com, stable@vger.kernel.org
+Subject: Re: [PATCH] mailbox: mtk-cmdq: Fix GCE clock reference leak in
+ cmdq_get_clocks()
+Message-ID: <2026091720-erased-urchin-8903@gregkh>
+References: <20260917093745.2144930-1-vulab@iscas.ac.cn>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wAH7aTa1atqD7D0BA--.50575S2
-X-Coremail-Antispam: 1Uf129KBjvdXoW7Gr4fGrW3Wr13Zry7Cry5XFb_yoWkCrgEkF
-	W0qF4vk3yUAFWSgFyUAFWrCrn7Xr4Skr4xCrn7Wrs0y34jqa9xGFykX343Aw1xurW7uw15
-	WrWfJrWDJ3ZFgjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7sRMsjjDUUUUU==
-X-CM-SenderInfo: xtxfxtprvkv0bjqqikiqw6il2tof0z/xtbC5Bsxpmqr1du6BwAA3a
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_045844_373099_B7649D5F 
-X-CRM114-Status: UNSURE (   9.82  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260917093745.2144930-1-vulab@iscas.ac.cn>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,30 +67,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Documentation/hwmon/vexpress.rst points at
-Documentation/devicetree/bindings/hwmon/vexpress.txt for the device tree
-binding of the arm,vexpress-volt, -amp, -temp, -power and -energy sensors.
+On Thu, Sep 17, 2026 at 09:37:45AM +0000, Wentao Liang wrote:
+> of_clk_get() returns the clock with an elevated reference count, but
+> the references taken for the other GCE clocks are never dropped: those
+> clocks outlive probe and the driver calls neither clk_put() nor
+> clk_bulk_put(), so probing a GCE with multiple instances leaks one
+> reference per other GCE clock.
+> 
+> Let devres drop the references when the device goes away, which also
+> covers the probe failure paths after cmdq_get_clocks() has returned.
+> 
+> Fixes: 85dfdbfc13ea ("mailbox: cmdq: add multi-gce clocks support for mt8195")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
 
-That file only restates the compatibles and the label property, which the
-arm/vexpress-config.yaml schema describes now. Point the reference there.
+Please stop sending these patches.  You are not responding to any
+feedback, so we are assuming you are just a bot :(
 
-Assisted-by: LLM
-Signed-off-by: Quchaosheng <quchaosheng000406@163.com>
----
- Documentation/hwmon/vexpress.rst | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+All should be dropped until proven otherwise.
 
-diff --git a/Documentation/hwmon/vexpress.rst b/Documentation/hwmon/vexpress.rst
-index 7fc99f75b3b1..84b2a33e2d40 100644
---- a/Documentation/hwmon/vexpress.rst
-+++ b/Documentation/hwmon/vexpress.rst
-@@ -38,4 +38,4 @@ via a custom interface, abstracted by the "vexpress_config" API.
- 
- As these devices are non-discoverable, they must be described in a Device
- Tree passed to the kernel. Details of the DT binding for them can be found
--in Documentation/devicetree/bindings/hwmon/vexpress.txt.
-+in Documentation/devicetree/bindings/arm/vexpress-config.yaml.
--- 
-2.43.0
-
+greg k-h
 
