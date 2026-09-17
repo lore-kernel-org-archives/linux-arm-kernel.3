@@ -4,51 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 588C6C982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 23:46:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27892C88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 23:46:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Mqf8IivruERMP6fZwT8V4CKtJjvaF7LKzl37WPzoRE=; b=jg9UjY8/9F1NYDvxHmtM7co8tp
-	jupfhvz8ZjVAdEgJ6w5oA2hfUJ0OAfj3rIkYq+brY4zM0rASu5fNHMwizwHoObjtpBe9qyXhJb5KJ
-	AoW/DpYyXZF0kvm4tYIkFbBK9gCXxAhTrDraOuIZYFfJog5AC6H5vUvlAIgz5zw3qQ4+aVBJfDrs9
-	IEzq9D9lehaGeek40v8JHPWYLXpho7Hxngehh9VljdSGCB3miNrRCBU7XuDgY7mnaxZoAhbZNaN/A
-	eBunvHiGMfpOFKws6KeDTpufkWp5SyszX7X6YNOTQQAIuUDZHFAX9sbYWfICBCTerVIv1LRFHA8px
-	eTju2kkA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=5hETPJVC8a/fIzBrvnlwFruo7YVOIY2oNEFBg9dFIVs=; b=x/TkjgGXAjgi5Y
+	FY9AHzV+1ydOIlFhQDJpFV3HTcsuIi9aaPNxTWBW47xloL7SjtrxSfIHhuOa9p9uwNsDMKbXYArYj
+	HAx9YRsnVan8EOBUrh+Y2TYnjjocgnVyiMJNBjGqGFC6mP9xbvBGyksx8YrkeTK8TSpEwPT7LLqj8
+	hE7dt4BPjXLSdMFQ34yj7emiHnZg2U7huwRhH4Z94+6WQNri8prDblmJVB9LHgcUeiKrICzSAKli0
+	VOEraiOzdSpdkcO5a1j3L5ivIEQRPUdxyLlM7V9FVC4mCRDjSsw0ZyRctsA8vFJulAVk+TP0QVdq9
+	ntZseiqoUtFIJkF4xhsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7LoK-0000000CxHD-0gYf;
+	id 1x7LoK-0000000CxHI-10IY;
 	Thu, 17 Sep 2026 23:46:36 +0000
 Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7LoG-0000000CxFc-2fPt
+	id 1x7LoG-0000000CxFb-2fbF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 23:46:34 +0000
+	Thu, 17 Sep 2026 23:46:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Subject:Date:From:From:Reply-To;
-	bh=1Mqf8IivruERMP6fZwT8V4CKtJjvaF7LKzl37WPzoRE=; b=mOExCMnLTSkGvTyRiMXOatBBID
-	K20rA0fJ+RktEBh2RY/p4i3ZZFxSCk4K6B2GAu/uxcPp1mupcsvpC8nIfsUW8a6gs0xivk8kv4xHB
-	XrH5FKh/9pgaj4pHdoWK6RmH3APuNRH3kqWVp/Ze7jko/NwXwQxfV1RxHsyCoJPMC+WUKYmzXmkLW
-	qaMmJGSNvcyppesurdnMZCPyEwsogWTNL5RpPOzpMKt3MEQzEzAvEh1ko+ULz8j43VYdsgpSdpioe
-	vu4a3O18+Jfq6l19eN5uCo8DlIQqF88sEc0f1LsDMksulIDUhdZWOvhVsGjnZCCQawZfXn+dzr8vd
-	SCaQHUIQ==;
+	s=20170329; h=Cc:To:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Message-Id:Date:Subject:From:From:Reply-To;
+	bh=5hETPJVC8a/fIzBrvnlwFruo7YVOIY2oNEFBg9dFIVs=; b=fi+SmG/8LruQujn0/ZBuo8T2F2
+	dJwYRbQ9kVK42n7zhIPO5fuQfhPwpan6qw2m8BCISBXExlepwO++SWEplLt0oVSXTxTMyctE4+HhW
+	HqjFIuq20AUsyaWFnr8Oyvn/bi2mAYScMRRFcYBkT+QasaEWzFHTBVS5fQIn7wZVl5PoBI7GqZHI1
+	pzodGPvq93zP/uD3U/7483cjbBz2h+5C5z+BxAsTO/0Mwjnfaydy9Zk8OPQPxLkund8G2YVL7pFBB
+	xJg1Dw3P22IimXbRg5lwf6xr4CW3dZqZl9p/RIYccvfM1HsGq5tbZbJnRXB99XMlqLdn2IubeWGBF
+	iTUPU2gA==;
 Received: from [177.172.123.214] (helo=[192.168.15.100])
 	by fanzine2.igalia.com with esmtpsa 
 	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1x7Lo4-003hU7-TS; Fri, 18 Sep 2026 01:46:20 +0200
+	id 1x7Lo1-003hU7-N6; Fri, 18 Sep 2026 01:46:17 +0200
 From: =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-Date: Thu, 17 Sep 2026 20:46:04 -0300
-Subject: [PATCH v7 01/13] syscalls: Make --abis parsing more robust
+Subject: [PATCH v7 00/13] syscalls: Add a shared table for all archs
+Date: Thu, 17 Sep 2026 20:46:03 -0300
+Message-Id: <20260917-tonyk-syscall_table-v7-0-f4cd8f8e3265@igalia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260917-tonyk-syscall_table-v7-1-f4cd8f8e3265@igalia.com>
-References: <20260917-tonyk-syscall_table-v7-0-f4cd8f8e3265@igalia.com>
-In-Reply-To: <20260917-tonyk-syscall_table-v7-0-f4cd8f8e3265@igalia.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/43NS07DMBgE4KtUXmNk/36GFfeoKuRnawgJikNEV
+ OXu2GVBUAJiOdLMN1eUw5BCRg+HKxrClHLquxLU3QG5i+nOASdfMgICkijgeOy7+QXnOTvTtk+
+ jsW3ADWhrLbUgrUVl+TaEmD5u6vH0lfO7fQ5urFRtXFIe+2G+3U609v5+mCgmuHGCUa05MG8e0
+ 9m0ydy7/hXViwnWiNpHoCLC80hD4IrGDcK+EU1+QVhBlOPCAHOCWLFB+AqhsI/winDtCUBjPCc
+ bRPwDEQVhnmnWgHKSNBtErhDQ+4gsSPSeCc2FdJH+QJZl+QQukRL1IgIAAA==
+X-Change-ID: 20260724-tonyk-syscall_table-928bbb1b26bb
 To: Masami Hiramatsu <mhiramat@kernel.org>, Arnd Bergmanon <arnd@arndb.de>
 Cc: Christian Brauner <brauner@kernel.org>, linux-kernel@vger.kernel.org, 
  linux-kbuild@vger.kernel.org, kernel-dev@igalia.com, 
@@ -59,9 +63,8 @@ Cc: Christian Brauner <brauner@kernel.org>, linux-kernel@vger.kernel.org,
  =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_164632_680677_3158D7B3 
-X-CRM114-Status: UNSURE (   9.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260917_164632_680491_C2FAC8FF 
+X-CRM114-Status: GOOD (  16.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,54 +79,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some archs Makefile have something like this as the rule for making the
-syscall files:
+While implementing a new syscall, we need to wire up it's number to the arch
+table. Since syscall number 403, all architectures are on sync regarding the
+number (except alpha), which make things a lot easier but more repetitive as
+well. Have a look at commit b36d4b6aa88 ("arch: hookup listns() system call"),
+with 15 lines of mostly:
 
-  cmd_systbl = $(CONFIG_SHELL) $(systbl) --abis common,$* $< $@
+  +470    common  listns                          sys_listns
 
-The $* symbol is evaluated to the variable found at $(uapi)/unistd-%.h,
-where % is 32 or 64, resulting in e.g. `--abis common,32`. Sometimes the
-rule for the file won't have a %, resulting in a trailing comma e.g.
-`--abis common,`.
+There's already a "common" table shared with a bunch of archs at
+`scripts/syscall.tbl`, but due to historical reasons some archs will never be
+able to move to this table and share all the numbers.
 
-Currently this input is transformed into (common|). This is problematic
-because grep will then match any ABI because of the trailing `|`. Make the
-syscalls scripts more robust by removing any trailing comma.
+The generic table starts from 403 (clock_gettime64), the first common syscall.
 
-Signed-off-by: André Almeida <andrealmeid@igalia.com>
+I've compile tested for arm32, arm64, s390, mips, sparc and alpha by comparing
+the syscalls_*.h and unistd_*.h files generated before and after this patchset.
+For most of cases the files are identical, for the few cases that they are not,
+there's a note in the commit explaining why they are equivalent.
+
+Thanks!
+	André
+
+Changes in v7:
+- mips: Fix rules to make it rebuild when tables file change
+- mips: Update unistd_%.h rule to new table files
+- arm: Add back syscalls from 403 to 423. arm can't use the common table
+definition for those syscalls, because the common table defines compat entry
+point for some of them, and arm32 does not. On arm32 with OABI, this will cause
+linking issues.
+- Replace mktemp -p with mktemp, to make it more portable
+- Link to v6: https://patch.msgid.link/20260828-tonyk-syscall_table-v6-0-fdd358456cf1@igalia.com
+
+Changes in v6:
+- Rebased on top of 7.3-rc0: new syscall fchroot()
+- Fix compliance with POSIX shells
+- Add $(syscalltbl_common) to the prereq build files, so the build is triggered
+if the common table changes
+- v5: https://patch.msgid.link/20260812-tonyk-syscall_table-v5-0-3d383927c609@igalia.com
+
+Changes in v5:
+- Add archs lists to Cc
+- alpha: Change custom alpha_syscall to __syscall
+- mips: Use "common" for all ABI tables
+- mips: Kept it as a single table for n32/n64
+- Fix bug introduced by mixing --offset and --compat-offset
+- v4: https://patch.msgid.link/20260812-tonyk-syscall_table-v4-0-748d0229ad40@igalia.com
+
+Changes in v4:
+- Replace cln3 with clone3 in the ABIs
+- mips: Get rid of custom mips ABIs (o32, n32, n64) and use 32 and 64
+- mips: Unify n32 and n64 tables
+- Add alpha to the syscall party, along with it's adaptations
+- Remove --no-compat option and define SYSCALL_WITH_COMPAT() macro for archs
+that need it
+- v3: https://patch.msgid.link/20260807-tonyk-syscall_table-v3-0-7c45a23c50b5@igalia.com
+
+Changes in v3:
+- Removed x86 for now, let's wait till x32 is dropped
+- Added much more archs
+- v2: https://patch.msgid.link/20260727-tonyk-syscall_table-v2-0-95d4f1ee471f@igalia.com
+
+Changes in v2:
+- Managed to move to the real first common syscall: 403 (clock_gettime64)
+- Added -no-compat option to be used with x86_64
+- v1: https://patch.msgid.link/20260724-tonyk-syscall_table-v1-0-9c53188423da@igalia.com
+
 ---
- scripts/syscallhdr.sh | 2 +-
- scripts/syscalltbl.sh | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+André Almeida (13):
+      syscalls: Make --abis parsing more robust
+      syscalls: Create unified partial table for all archs
+      scripts/syscall.tbl: Use the common table
+      arm: Use the common syscall table
+      s390: Use the common syscall table
+      sparc: Use the common syscall table
+      mips: Remove duplicated syscallnr.sh
+      mips: Get rid of custom mips ABIs for syscall tables
+      mips: Use the common syscall table
+      syscalls: Add an option for offsetting the common table
+      alpha: Define entry point for set_mempolicy_home_node syscall
+      alpha: Remove alpha_ prefix from custom syscall entries
+      alpha: Use the common syscall table
 
-diff --git a/scripts/syscallhdr.sh b/scripts/syscallhdr.sh
-index 22e34cd46b9b..bad1ab606a0f 100755
---- a/scripts/syscallhdr.sh
-+++ b/scripts/syscallhdr.sh
-@@ -39,7 +39,7 @@ while [ $# -gt 0 ]
- do
- 	case $1 in
- 	--abis)
--		abis=$(echo "($2)" | tr ',' '|')
-+		abis="($(echo "${2%,}" | tr ',' '|'))"
- 		shift 2;;
- 	--emit-nr)
- 		emit_nr=1
-diff --git a/scripts/syscalltbl.sh b/scripts/syscalltbl.sh
-index 6a903b87a7c2..c4b1f85c2dd6 100755
---- a/scripts/syscalltbl.sh
-+++ b/scripts/syscalltbl.sh
-@@ -33,7 +33,7 @@ while [ $# -gt 0 ]
- do
- 	case $1 in
- 	--abis)
--		abis=$(echo "($2)" | tr ',' '|')
-+		abis="($(echo "${2%,}" | tr ',' '|'))"
- 		shift 2;;
- 	-*)
- 		echo "$1: unknown option" >&2
+ arch/alpha/kernel/entry.S                 |   8 +-
+ arch/alpha/kernel/syscalls/Makefile       |  14 +-
+ arch/alpha/kernel/syscalls/syscall.tbl    |  55 +-
+ arch/alpha/kernel/systbls.S               |   1 +
+ arch/arm/tools/Makefile                   |  14 +-
+ arch/arm/tools/syscall.tbl                |  49 --
+ arch/arm64/tools/syscall_32.tbl           |  69 ---
+ arch/mips/kernel/scall64-n32.S            |   1 +
+ arch/mips/kernel/scall64-n64.S            |   2 +
+ arch/mips/kernel/syscalls/Makefile        |  38 +-
+ arch/mips/kernel/syscalls/syscall_n.tbl   | 464 +++++++++++++++++
+ arch/mips/kernel/syscalls/syscall_n32.tbl | 413 ---------------
+ arch/mips/kernel/syscalls/syscall_n64.tbl | 389 --------------
+ arch/mips/kernel/syscalls/syscall_o32.tbl | 827 ++++++++++++++----------------
+ arch/mips/kernel/syscalls/syscallnr.sh    |  26 -
+ arch/s390/kernel/syscall.c                |   2 +
+ arch/s390/kernel/syscalls/Makefile        |  12 +-
+ arch/s390/kernel/syscalls/syscall.tbl     |  49 --
+ arch/sparc/kernel/syscalls/Makefile       |  12 +-
+ arch/sparc/kernel/syscalls/syscall.tbl    |  69 ---
+ scripts/Makefile.asm-headers              |  15 +-
+ scripts/syscall.tbl                       |  69 ---
+ scripts/syscall_common.tbl                |  84 +++
+ scripts/syscallhdr.sh                     |  83 ++-
+ scripts/syscalltbl.sh                     |  46 +-
+ 25 files changed, 1112 insertions(+), 1699 deletions(-)
+---
+base-commit: 238650ef6c7c7cca08e032527329424c9fbd70e5
+change-id: 20260724-tonyk-syscall_table-928bbb1b26bb
 
--- 
-2.55.0
+Best regards,
+--  
+André Almeida <andrealmeid@igalia.com>
 
 
