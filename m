@@ -4,103 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 151A9C982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 21:02:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8033AC88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 21:02:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+79viYgxDsziJXy6Z3ZyZxA3uUZqLw1sHaBsWajt9II=; b=RwUJhfBgXhai1rNuG8sDBc/hoq
-	TAhdRCeCPw7+i5Zh0eSha084O29MBQHEX8jOfo+QXbvy+qBfoVTOpvyhfVE2yCYsE0IfXiTunpCUd
-	z3wx/Ijp8fUi7uAznB07GtQF0PRu6bfHAZyQPrPNH+TByjySb36rHK3GXGpV3XcrcO+OW41hKKEY6
-	VdFmkFvS5drTU6k10IdRQYsWZrJTxyzyveRk6M6UIBdT2QeXcEgQM9/+iaLxLu3Ay9Hy/VpplqVPd
-	Q64jj/r4uI8HnZ8341jfefUIgDS5Gor41r2GDqwzprBLwqypoBV6HE3ayrwgblQQz7LeL7KDWfnp8
-	t6UkHeBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=097ql+3Z1IlDXg0ya0fn2DItRG2p3HsUzNgnRrCaa70=; b=vIdIrpZSK77qRq
+	m0bNBbRDYuYHWpQQ2D12F8iQTc/RQNaLj+VRSmzyxSPrDllP/W+ZtdY4K8eUSIC7gGOn3NGQ21QVJ
+	qKiglL3w0Ciwm3yIcFYfZK6p6sxePLn+Djzu0Q3p3mt4nEQXK8WR1ad6ewPMLPpjhhO+fGeQYAjBw
+	V5eEwVjvfGHyZQyFV+lwXXvtULMfy8GFFlp9/IzOcFuWbQ8/L0JUodYL8ok0Ehg1ekeig1Mc4PJs1
+	eh9yVWJ6SQ6gf/Pq2zuDE3WuBJi98v6jXVsMcL16HPIP+VLJmOBXS9zb12P1uyIvc5abPCmzPklkZ
+	pUHABCys52YMgKHL7O5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7JEw-0000000CVym-0JMu;
-	Thu, 17 Sep 2026 21:01:54 +0000
-Received: from mail-oo2-x07.google.com ([2607:f8b0:4864:31::7])
+	id 1x7JFl-0000000CW52-1jaT;
+	Thu, 17 Sep 2026 21:02:45 +0000
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7JEt-0000000CVy2-3iA4
+	id 1x7JFh-0000000CW3i-3jW4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 21:01:52 +0000
-Received: by mail-oo2-x07.google.com with SMTP id 006d021491bc7-6b1adb62a63so556eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 14:01:51 -0700 (PDT)
+	Thu, 17 Sep 2026 21:02:44 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e66390995so379585e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 14:02:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789678910; x=1790283710; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+79viYgxDsziJXy6Z3ZyZxA3uUZqLw1sHaBsWajt9II=;
-        b=cZ6q3O9cOojrj/Pj9yM/N8BW7LM/3pKprbUH0V7KDW2Yl+ei1DFbxmq+OJYQaz/vnF
-         m5VvKnL/t/ZDmLJkftgy3i6e3XjonMNd+fR9MiOXRR4BVixLfTxKECMDqeObgzrsm86b
-         A4Y/8GIUIQq65d+nTKquLehVnWSNisRU+vZXmnJfm1c5GAemnvY2fuk6U/HNiNFz6Mzy
-         X7/sBTZC35xgUp8x/Vc40dMiNWhMYtmLcQOcGwvMTgdSEgPKIahpH56Cvmpfs1DrK4bA
-         uvFt/SF3fWoEpljS5mdoBBdiPEWRYoG1BTtdet/8uvEEQInItjdTFg9jQNKlZMmac0vN
-         8Yrg==
+        d=baylibre.com; s=google; t=1789678959; x=1790283759; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=097ql+3Z1IlDXg0ya0fn2DItRG2p3HsUzNgnRrCaa70=;
+        b=bZ6t1aD0ZO4Oea2pdXAQlC44fRtmi9zvJv2avxm7bccDIYJeJ8R7ydmivvZO795wKE
+         NWx/3zhLoVaYfEZiIEn60ZRSXfHc3R5ORPo81vZkbn531PmS72saQVWODE9j/La7No1e
+         BSwOZ8Gctsr39NlptaeWp62+87uLm5Xg8ttRZ3PdT1NeJ0bG1Rfu4JOOYuzqobPTW94Q
+         Dm1OBYclAI13FYtfwdbowp2xeATqll9UUarCAr0mI2R/ZYSr5kvjLssnnPdklH/61RHx
+         HZXYv0KjSIgm0ZCMMHQx9LPBIAJ3n3ZBhbMYI2X0OI5BgdLmVwkoy2iEvLAFNIEwnzXh
+         HEgw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789678910; x=1790283710;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=+79viYgxDsziJXy6Z3ZyZxA3uUZqLw1sHaBsWajt9II=;
-        b=0IGEPMOQWzgRfCcqPnPLh0vZVXHcNlK2BSiX44FRD1R3gSReH7CsB4We8VU5vaVFkH
-         patiPutFCe3TdZ61JNs6YRiSQz/UV5k7C/czv0y+1HynZ5e3bbXEPfUaql0XlONMpwYL
-         k7sPK4cUPBsr5lp0m5fTlCbJxV4CdddOnldEyOSn9bL/PadZB4HVgCN3S3zj/9tphtYe
-         AgRoq1nrjvbpeuTx+G+6atDjMJYlSgCY+UuS6HtWiap/4p8fa7qlJfDiQv457WcNf+2v
-         w/58NvkUqRbQ7avIZSPFNMtTpwd7vR32u5IEdsSto5GG9PFSwTUjf9eTm6wBuv0UaVJB
-         9lVA==
-X-Forwarded-Encrypted: i=1; AKwUvByi04kGI+6faPwUdg/vP2rYSltlkzEZEt0Mg14d8LHPKVJW+K8d0dT7oI0DUvviDq9zPcn0FNhNkcmoBioR3Eot@lists.infradead.org
-X-Gm-Message-State: AFuF++kr6qW7Sa9nXVCFo2+GnGsT/QPRmtm+O6zfW5PWcsKvULkiLYom
-	76xy0X1588Dk+opXKHZK6X+IAtAeM7zrX8c/i6bCy8ka/G+txU0CelUK
-X-Gm-Gg: AYBFou0ZZnVEZJdvMkt469qrMeMAfVxGrqRsXo69IJunvrDOFD1et+Mj3MY3gywe4CX
-	5+JalVWc5DOKr3mn8LZWVqH437eEETr2DTDQYN48/ZAV+oJSzlnbGJzISpO1Mmgm4aAwSKARbc1
-	3onBu5TrYWqCFN6o/o7EhqAO8r9ef7fyZwDNlal+uKBbKAFEf97bv2gXz2LHs1eG/18jyfLP+7Z
-	tWK4UYDk4THnRTNBcD5uPiG/BCp/3qnUl2mxLwlQjDyQisDqEs8AKc+tPqk/sLI4qNw1d9+slDd
-	eU6jPSTzU9BEtPZrymb3kkdB2WxG8zrGtmednosVLksdo3xGBD+2UyT8jzO+NL8+rgDLlpQx7ao
-	XNamXQ+vMHY7TAK5FH8DoWO4dr9RXyo3hepGoctH1hmcVD9hgiQO7GA+KIhQM+4jkFhXn9V4ien
-	LTuetAQdrZ7vsKi/UWIKL4N8f3WAXezLK5GRDlSIUQ4qDtyCqdivbs8F8YqBZzsEXgAklg8SGBM
-	OraGEbwDmEpe/HfjFC6CtDUSWk=
-X-Received: by 2002:a4a:ee12:0:b0:6ca:36f9:1799 with SMTP id 006d021491bc7-6ca90ca09fcmr332728eaf.8.1789678910429;
-        Thu, 17 Sep 2026 14:01:50 -0700 (PDT)
-Received: from ?IPV6:2600:8804:5716:d800::b712? ([2600:8804:5716:d800::b712])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6c8f6a5ac0esm4069086eaf.9.2026.09.17.14.01.48
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 17 Sep 2026 14:01:49 -0700 (PDT)
-Message-ID: <71a6ed12-f089-404a-85ec-546e03b4db3e@gmail.com>
-Date: Thu, 17 Sep 2026 16:01:48 -0500
+        d=1e100.net; s=20260707; t=1789678959; x=1790283759;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=097ql+3Z1IlDXg0ya0fn2DItRG2p3HsUzNgnRrCaa70=;
+        b=FnHic+QWYrCN57D6tvUZRh/+Vw8u6Ugm9olrsTBkjGYTknF/lHMNghsgN21XRwmDUC
+         CDR2nxgh8xvBEqyvsAxpxKIQ9awNOSHtNbeWplppN2jlnN5w/jwqnJtKgdCTud9lcCTz
+         HD2xULYfoRoizp/AVYM8uXHxyTSpaJuLHwgSKNIXN2G/OQV3tqj2D7d73UlP16jJ4sFe
+         9J8QvesP6wo3dWUc4M2Pea3WKH9Le4jI0gPh34PvGLIJiPGw7xz1TRhEpulTCXn+vzOB
+         IFWnMRRxalzN3ZGhl54oUmM1xRE98aELOVQCN7ewpx6bhs9qpbGaDT5p/kkGAUiZC7AT
+         CZ4w==
+X-Forwarded-Encrypted: i=1; AKwUvBya8EXrJ8haAMxTMeffMpz4qH70xtFuqF1mFQfquGEGa1Bpv26gV/6Vg89weWWTrz9W320HDuSYFAr8GD6pPmAp@lists.infradead.org
+X-Gm-Message-State: AFuF++ktGWmw/Oo4IYMk/xbkTrKSQjRrX7zoBXZmDURVSmhpbcIwnFas
+	4Q6GGc1vefKOq/Z9rxl6Od+vj2wwFgQmJbKI/ipUo0wyTLvRh33HclRXeV6JkthreME=
+X-Gm-Gg: AYBFou1kwymW+Fo10M0hm4ZlwOkX+aFVDRbcwWTMRcsq6GBe9pPT76oY2yYNfyoaEwS
+	bVpe7JtGUzOKIenrpruq8fyacTIEx/BCzRNNtGwWxoz6VdPuIyeRdFWBQzV0fuX6+7FnvF+pNR8
+	HEIkpUbFugtA18sFK1ZwwW6SETFnBoztg5QmHEA2C6gZBeSYsOhAv1QmGUuJhyMv3Rg7RlvL3RA
+	cGS+v/fvHYpVz3QesxPPwu0x72V0QmOQDWxQcRxIMI4KY2N6VEBew/KfZTzHJ6JGsHHJxHqyoBk
+	ssMOlw8t/AZPn5jwin3yCKHjGroue/J7wBJojd+Hl3NXwvm+m02VM7XysgR4n3ijcwqzLZ2rmqw
+	7IQDWnhgvvZaIcmc/omxUpZLQ2H/BPXuEtHodyOn2Y1hB7+/wN1AhzIeqeT0ldF36z2h9IZ7I8J
+	y98x0dWl/I5tw9WucvRDDtPSpu7S4mRgGRUv/58/UwiW7ZjQF499UCVAttzh3X0VWUdaKtZ60zy
+	EhR
+X-Received: by 2002:a05:600c:1993:b0:49c:ffe3:2b3f with SMTP id 5b1f17b1804b1-49fc56dbc54mr1780725e9.3.1789678959379;
+        Thu, 17 Sep 2026 14:02:39 -0700 (PDT)
+Received: from [127.0.1.1] ([151.42.87.32])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fc5755c40sm3106095e9.3.2026.09.17.14.02.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 17 Sep 2026 14:02:39 -0700 (PDT)
+From: Valerio Setti <vsetti@baylibre.com>
+Subject: [PATCH v2 0/6] ASoC: meson: gx: add base support for I2S audio
+ input
+Date: Thu, 17 Sep 2026 23:02:30 +0200
+Message-Id: <20260917-audin-v2-0-38de4bc1de34@baylibre.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] iio: adc: mt6397-auxadc: add mt6397 PMIC AUXADC
- driver
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner
- <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
- Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Lee Jones <lee@kernel.org>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- mfd@lists.linux.dev, Roman Vivchar <rva333@protonmail.com>,
- Luca Leonardo Scorcia <l.scorcia@gmail.com>
-References: <20260915-rbrue-suez-upstreaming-mt6397-auxadc-v1-0-d35d2ac3d6f0@gmail.com>
- <20260915-rbrue-suez-upstreaming-mt6397-auxadc-v1-2-d35d2ac3d6f0@gmail.com>
- <aqpnpT6hU5Z0s1TZ@ashevche-desk.local>
-Content-Language: en-US
-From: Ryan Brue <ryanbrue.dev@gmail.com>
-In-Reply-To: <aqpnpT6hU5Z0s1TZ@ashevche-desk.local>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGZVrGoC/y2NwQ6CMBAFf4Xs2Zq2olBP/ofh0JZF1mgxLRAJ6
+ b/bgsdJ5s1bIaAnDHAtVvA4U6DBJZCHAmyv3QMZtYlBcnnh9UkwPbXkmLLamPLMrVUlJPfjsaP
+ v1rk3O4fJPNGOeZyNnsI4+GU7mkX29qYS8t+cBeOs6gx2qGRdCXEzenmR8Xi0wxuaGOMP4jULB
+ K8AAAA=
+X-Change-ID: 20260831-audin-9cabb450cc94
+To: Jerome Brunet <jbrunet@baylibre.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
+Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Valerio Setti <vsetti@baylibre.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4682; i=vsetti@baylibre.com;
+ h=from:subject:message-id; bh=yo+5pijNTMwmqWFlMlY2nS+EN4AqIMiUf/48r8SNlyU=;
+ b=owGbwMvMwCV2z3ty7kUrRgbG02pJDFlrQnO93i26K/tHIHTLnPNu+qUWR+Py14V5n1Jn7zgvX
+ HCY/eSLjlIWBjEuBlkxRRaW6fd+F5SqPTROOFkAM4eVCWQIAxenAEzk1gGG/95XDHp/tlSdjlm6
+ sIgl3la1lON2543739bvSNN8WGqm94Lhf6icUaf6z3uvcphl5todU+qw6XPJCrtx6wpf0F2/Dbv
+ k2QE=
+X-Developer-Key: i=vsetti@baylibre.com; a=openpgp;
+ fpr=0497DEFB707526E13360C970DE4B936DD13A0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_140151_933957_7CF6CF0E 
-X-CRM114-Status: GOOD (  29.74  )
+X-CRM114-CacheID: sfid-20260917_140241_983821_BF9A5DAF 
+X-CRM114-Status: GOOD (  19.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,141 +120,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/16/26 4:55 AM, Andy Shevchenko wrote:
-> On Tue, Sep 15, 2026 at 11:15:27PM -0500, Ryan Brue wrote:
->> The mt6397 AUXADC is a 10-bit ADC behind the SoC's PMIC wrapper. On boards
->> built around this PMIC it is the only way to read the battery: the SoC's
->> AUXADC is wired to board thermistors and the charger ICs these boards use
->> have no ADC of their own.
->>
->> Add a driver exposing the battery voltage and battery temperature
->> channels. Only those two are described, so a channel ID in the device tree
->> is an index into the driver's channel array rather than the PMIC's channel
->> number, as mt6323-auxadc does. The ready bit lives in a channel's raw
->> result register, but the value comes from the chip's trimmed copy of it,
->> which is what the vendor driver reads for a measurement.
->>
->> Both channels need more than that, as the vendor programs them. The
->> battery voltage is measured through ISENSE, because a board with a
->> switching charger in the power path leaves BATSNS on the charger's system
->> rail instead of on the pack. The thermistor only reads correctly with the
->> PMIC's battery-detect bias and input buffer enabled, which take 20 ms to
->> settle. Both are switched back off afterwards.
->>
->> Reads average sixteen conversions in software; the chip's sample
->> accumulator makes no measurable difference at any setting, so it is left
->> at one sample per conversion.
-> ...
->
->> +/*
->> + * MediaTek MT6397 PMIC AUXADC IIO driver
->> + *
->> + * Copyright (c) 2026 Ryan Brue <ryanbrue.dev@gmail.com>
->> + *
->> + * Based on drivers/iio/adc/mt6323-auxadc.c
-> Why not add this device support into that driver?
-Please see [1].
->> + */
-> ...
->
->> +#define MT6397_AUXADC_ISENSE_SETTLE_US	USEC_PER_MSEC
-> (1 * USEC_PER_MSEC)
-Ack, fixed in v2
-> ...
->
->> +static const struct iio_chan_spec mt6397_auxadc_channels[] = {
->> +	MTK_PMIC_IIO_CHAN(isense,   MT6397_AUXADC_ISENSE,
-> One space too many.
-Ack, fixed in v2
->> +			  MT6397_AUXADC_HWCHAN_BATSNS),
->> +	MTK_PMIC_IIO_CHAN(bat_temp, MT6397_AUXADC_BAT_TEMP,
->> +			  MT6397_AUXADC_HWCHAN_BAT_TEMP),
->> +};
-> ...
->
->> +static int mt6397_auxadc_battemp_bias(struct mt6397_auxadc *adc, bool on)
->> +{
->> +	struct regmap *map = adc->regmap;
->> +	int ret;
->> +
->> +	if (on) {
->> +		ret = regmap_set_bits(map, MT6397_AUXADC_CON0,
->> +				      MT6397_AUXADC_CON0_BUF_PWD_ON);
->> +		if (ret)
->> +			return ret;
->> +		ret = regmap_set_bits(map, MT6397_AUXADC_CON0,
->> +				      MT6397_AUXADC_CON0_BUF_PWD_B);
->> +		if (ret)
->> +			return ret;
->> +		return regmap_set_bits(map, MT6397_CHR_CON7,
->> +				       MT6397_CHR_CON7_BATON_TDET_EN);
->> +	}
->> +
->> +	ret = regmap_clear_bits(map, MT6397_CHR_CON7,
->> +				MT6397_CHR_CON7_BATON_TDET_EN);
->> +	ret = ret ?: regmap_clear_bits(map, MT6397_AUXADC_CON0,
->> +				       MT6397_AUXADC_CON0_BUF_PWD_B);
->> +	return ret ?: regmap_clear_bits(map, MT6397_AUXADC_CON0,
->> +					MT6397_AUXADC_CON0_BUF_PWD_ON);
-> Huh?! Please, use standard pattern with 'if (ret) return ret;'.
-> Ditto for other weird cases like this.
-Fixed in v2, and also modified to allow the regmap clears and sets to 
-fall through, so one failure doesn't leave some of those bits in the 
-wrong state.
->> +}
-> ...
->
->> +{
->> +	unsigned int i, sum = 0;
->> +	int ret, sample;
-> It's preferred not to mix ret with other semantically different variables.
-Ack, thanks! Fixed in v2
->> +	/* Held across the whole burst: the channel select is shared state. */
->> +	guard(mutex)(&adc->lock);
->> +
->> +	if (chan->channel == MT6397_AUXADC_ISENSE) {
->> +		ret = mt6397_auxadc_isense_enable(adc);
->> +		if (ret)
->> +			return ret;
->> +		fsleep(MT6397_AUXADC_ISENSE_SETTLE_US);
->> +	} else {
->> +		ret = mt6397_auxadc_battemp_bias(adc, true);
->> +		if (ret)
->> +			return ret;
->> +		fsleep(MT6397_AUXADC_BATTEMP_SETTLE_US);
->> +	}
->> +	for (i = 0; i < MT6397_AUXADC_SAMPLES; i++) {
-> 	for (unsigned int i = 0; i < MT6397_AUXADC_SAMPLES; i++) {
->
->
->> +		ret = mt6397_auxadc_read_once(adc, chan, &sample);
->> +		if (ret)
->> +			break;
->> +
->> +		sum += sample;
->> +	}
->> +
->> +	/* Lower START so the converter is not left armed between reads. */
->> +	regmap_clear_bits(adc->regmap, MT6397_AUXADC_CON1,
->> +			  MT6397_AUXADC_CON1_START);
->> +
->> +	if (chan->channel == MT6397_AUXADC_ISENSE)
->> +		mt6397_auxadc_isense_disable(adc);
->> +	else
->> +		mt6397_auxadc_battemp_bias(adc, false);
->> +
->> +	if (ret)
->> +		return ret;
->> +
->> +	*val = DIV_ROUND_CLOSEST(sum, MT6397_AUXADC_SAMPLES);
->> +
->> +	return 0;
->> +}
-> ...
->
-> Otherwise nice and small driver.
-Thanks for the review, Andy!
+This series is the 2nd part of the initial RFC [1] proposed to add audio
+input support to the Meson GX SoCs. After the AIU reshaping series [2] that
+has recently been merged, this one adds the audio input path itself.
+
+Apart from some glue commits for gx-formatter Kconfig split, DT, bindings
+and integration with gx-card, the core commit is the 3rd one, which adds
+the AUDIN driver.
+This is the counterpart of AIU for capture: it gets the entire register
+range, it handles peripheral clock and reset, it instantiates the I2S data
+formatter as widget and FIFOs as DAIs.
+
+Resulting capture topology is:
+  pads --> AIU I2S Encoder -> AUDIN I2S Formatter -> AUDIN FIFO -> RAM
+
+This series includes all the changes related to this work (dt-bindings,
+drivers and device-tree) in order to give the full picture in one single
+place.
+
+Unfortunately, since no Meson GXBB/GXL board available in the tree features
+an I2S capture capable codec, this work cannot be directly tested out of
+the box. To test it an external codec must be connected to the SoC.
+When working on this series, a custom hat board with an NXP SGTL5000 codec
+has been plugged on top of an Odroid-C2 (GXBB). The last commit of this
+series fully details all the device-tree changes which are required to
+finalize the support for this scenario.
+With this hardware configuration it has been possible to successfully
+validate the implementation with:
+- alsa tools (arecord)
+- pcm-tests
+
+[1]: https://lore.kernel.org/linux-sound/20260411-audin-rfc-v2-0-4c8a6ec5fcab@baylibre.com/
+[2]: https://lore.kernel.org/linux-sound/20260610-reshape-aiu-as-axg-v2-0-cac3663a8b51@baylibre.com/
+
+Signed-off-by: Valerio Setti <vsetti@baylibre.com>
+---
+Changes in v2:
+- Dropped FIFO child nodes from AUDIN in device-tree. Now AUDIN is the
+  only sound component and FIFOs are its DAIs. This is the same design
+  used in AIU. [Krzysztof]
+- Renamed driver compatible, using 'amlogic,gx-audin' as fallback and
+  'amlogic,gx[bb|l]-audin' as SoC specific. Fixed also other reported
+  comments on the binding. [Krzysztof]
+- Adjusted headers inclusion in 'audin.c' and spacing in the empty entry
+  of 'meson_gx_audin_of_match'. [Uwe]
+- Replaced 'snd_soc_component_read' with 'regmap_read' in 'audin_fifo_pos'
+  in order to prevent sleeping in atomic context. Also changed the hrtimer
+  from hard-irq to a soft-irq one. [Sashiko]
+- Added 'sync_stop' callback in 'audin_component' to ensure the hrtimer is
+  fully stopped before attempting to restart the stream in a
+  "start->stop->prepare->start" scenario.
+- Link to v1: https://patch.msgid.link/20260912-audin-v1-0-7fbefe928711@baylibre.com
+
+To: Jerome Brunet <jbrunet@baylibre.com>
+To: Liam Girdwood <lgirdwood@gmail.com>
+To: Mark Brown <broonie@kernel.org>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Valerio Setti <vsetti@baylibre.com>
+To: Jaroslav Kysela <perex@perex.cz>
+To: Takashi Iwai <tiwai@suse.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>
+To: Kevin Hilman <khilman@baylibre.com>
+To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-sound@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-amlogic@lists.infradead.org
+
+---
+Valerio Setti (6):
+      ASoC: dt-bindings: amlogic,gx-audin: add schema
+      ASoC: meson: build gx-formatter as a separate module
+      ASoC: meson: add AUDIN driver
+      ASoC: meson: aiu: add I2S Capture DAI
+      ASoC: meson: gx-card: add support for audin FIFO
+      arm64: dts: amlogic: gx: add AUDIN node
+
+ .../bindings/sound/amlogic,gx-audin.yaml           |  66 ++++
+ arch/arm64/boot/dts/amlogic/meson-gx.dtsi          |   9 +
+ arch/arm64/boot/dts/amlogic/meson-gxbb.dtsi        |   6 +
+ arch/arm64/boot/dts/amlogic/meson-gxl.dtsi         |   6 +
+ sound/soc/meson/Kconfig                            |  14 +
+ sound/soc/meson/Makefile                           |   7 +-
+ sound/soc/meson/aiu.c                              |   7 +
+ sound/soc/meson/audin-fifo.c                       | 367 +++++++++++++++++++++
+ sound/soc/meson/audin-formatter-i2s.c              | 174 ++++++++++
+ sound/soc/meson/audin.c                            | 186 +++++++++++
+ sound/soc/meson/audin.h                            |  30 ++
+ sound/soc/meson/gx-card.c                          |  16 +-
+ 12 files changed, 880 insertions(+), 8 deletions(-)
+---
+base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+change-id: 20260831-audin-9cabb450cc94
 
 Best regards,
-Ryan
+--  
+Valerio Setti <vsetti@baylibre.com>
+
 
