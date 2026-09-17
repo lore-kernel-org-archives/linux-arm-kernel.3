@@ -4,66 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EDA7C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 20:30:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1624FC982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 20:31:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Subject:Cc:To:From:Date:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=toCee6UgEMHOs7etiM3N5M9e+48b59raMg6RtKIcXRU=; b=eQR2apgL7flm8XxLGIHXPZmn5q
-	5FGhg3NzsG2U8YkyfkFWvBLzUehz7rsw0+XNs4hcyQqAoaAtTittnkRUVWyGnkGub31OTZsKPLkJU
-	phCV9G5lOqaQLi5PS2c3PCwPA+Wsr8IHPtQHDlHXz2zeMesonevjKWEJ91lVBth1l6ttA4twabd19
-	o5MQRjfFpdAKTDuC1Va2vRrTVpJktDDM5+xs3Jp+WPkEd2x1OZyzj7X73CTaq8bT5A2tELMLeok8h
-	hsT/hxVC+Kh+AdjALpEBu69XEYhtqQNBdtqPcKM2wNWixixWYRAD8bvQ3d2B51yQ2/RxxRtoB/R6y
-	A1cX0tbg==;
+	bh=1DNCW5bB+cAYVy5PyJp5VUEN9k9DZzvAe3lm+iP5ciY=; b=oKIu2GQ/400keRDA3KcOnlvZDt
+	HNWbW4HFgwfaflKwzOverL3fZIEcF5jSOknLake4NFuTi6+d8MkL7X67jJQsAp5fIZYybiOwW3HeF
+	ZoCyzTTaDLkclOhe1QzhlcO33AsiHuLpaU29YkGAaOGgSAzp4Qja8WiHZUdFAyY3vpEe/jnQxSJG2
+	08/uq9JDC6705E8b/jzt2rpaNlhiFObAY1Tlw6HEJLtP8nZ9uKEHgU/EquQloV19jZeKZ7BxOFdyK
+	K9f0lcKONz1anMpQPz9cYFLu8aLFGKipgGgovjhkLoJNEQbbSZm0GOGoA81wLZ2oqJ50iszgJQ7yQ
+	geZGhIRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Hp3-0000000CLJh-3E44;
-	Thu, 17 Sep 2026 19:31:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Hp1-0000000CLJF-1t0D
+	id 1x7Ilm-0000000CQuq-2hbl;
+	Thu, 17 Sep 2026 20:31:46 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x7Ill-0000000CQub-31fG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 19:31:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9480D1476;
-	Thu, 17 Sep 2026 12:30:57 -0700 (PDT)
-Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3DE343F7B4;
-	Thu, 17 Sep 2026 12:30:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789673461; bh=Gb0RN/m9mh8iOtufEqLHMLjTufZb8KtDn+YQ8GIuUTw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DOpOdo2rdUM5LYOSxm6J7IaJIKhEZ39OXU03jJgsqEUxPwKUDmAcEuY43y3Pa9F1D
-	 Nj62v8/4YZzJsxHMU3UFrahkHCYzXsy1Glpryt++e5loKPZZfEcC2TrjqqOarBhmfg
-	 zgMT9N4uoMYppi4jtARUjBxC//1zanKKuJzBTCXo=
-Date: Thu, 17 Sep 2026 20:30:49 +0100
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Sebastian Ene <sebastianene@google.com>, Itaru Kitayama <itaru.kitayama@fujitsu.com>, 
-	Sashiko AI <sashiko-bot@kernel.org>, stable@vger.kernel.org
-Subject: Re: [PATCH v3 1/2] KVM: arm64: ptdump: Check the page tables aren't
- freed when accessing
-Message-ID: <ezplrvcw7buhd75v5rezvkhbgdfldxklqavdpnxl2fad5thswe@kctrvkjzr6cs>
-References: <20260916230337.4162485-1-weilin.chang@arm.com>
- <20260916230337.4162485-2-weilin.chang@arm.com>
- <aqugxlnqegPzMpB-@google.com>
+	Thu, 17 Sep 2026 20:31:45 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 25A9440F2D;
+	Thu, 17 Sep 2026 20:31:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F115D1F000FF;
+	Thu, 17 Sep 2026 20:31:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789677105;
+	bh=1DNCW5bB+cAYVy5PyJp5VUEN9k9DZzvAe3lm+iP5ciY=;
+	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To;
+	b=Ts3RaYNrEkFulPAP4OS7uNGnQMm/6SzgIVeMh8NGZAkrMhOzleLAdfRvTZ6hDjBpn
+	 sK3Xe4dOcnOhN9iirOMs0CB2GL2Z6qOI3aMMVN9pozJjUFCtPX2GsXChdiXAMvHv/H
+	 A9ja+yO6aO4CuwpA4BPDb/njnc8+lhp17d7MAKl8dciFXjoqTpMKiBiwhuhirN0XzO
+	 D1azThDi/j3Cf7bGLueAkZ9BywzCDXdnK4GG5oCv2G8CqZplWKkn8lYBpNwE7UR8ay
+	 wI53qK8FbjQmzeKpADME9erclbbWiZVtKHS3EtpdnGGngJcrveU/fvURFyEGsddimA
+	 W8zBwB4+X35YA==
+Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
+	id AF6E2CE1771; Thu, 17 Sep 2026 13:31:44 -0700 (PDT)
+Date: Thu, 17 Sep 2026 13:31:44 -0700
+From: "Paul E. McKenney" <paulmck@kernel.org>
+To: Frederic Weisbecker <frederic@kernel.org>
+Cc: Josef Bacik <josef@toxicpanda.com>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Boqun Feng <boqun@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>, x86@kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Puranjay Mohan <puranjay@kernel.org>,
+	Xu Kuohai <xukuohai@huaweicloud.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Zqiang <qiang.zhang@linux.dev>, Juergen Gross <jgross@suse.com>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	linux-kernel@vger.kernel.org, rcu@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, bpf@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	xen-devel@lists.xenproject.org
+Subject: Re: [PATCH RFC v3 03/13] rcu-tasks: Add a Tasks RCU implementation
+ for reader-marked trampolines
+Message-ID: <ef2cf89b-4cc6-4778-af91-6bb67fb10188@paulmck-laptop>
+References: <91687748-0781-4133-baed-43cf82f35ff5@paulmck-laptop>
+ <aqqpRoTfywUuTgoC@localhost.localdomain>
+ <aqqsAUVV8a1yrQzX@localhost.localdomain>
+ <6afb0afe-e7b8-46b4-9fea-2c7cf4791044@paulmck-laptop>
+ <aqq0cwvRDsorGwgc@localhost.localdomain>
+ <8b73e1b3-0580-4ba9-b2e0-6363e429808d@paulmck-laptop>
+ <aqvZwfUVsiEI7q7y@localhost.localdomain>
+ <8fea176a-0ca0-4a70-8cf9-8240a22359e4@paulmck-laptop>
+ <aqw1UNGO3cQxvCco@pavilion.home>
+ <33b8e33a-3fad-4b33-9ae7-3948f0e6d3aa@paulmck-laptop>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <aqugxlnqegPzMpB-@google.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_123103_529701_81D92222 
-X-CRM114-Status: GOOD (  18.75  )
+In-Reply-To: <33b8e33a-3fad-4b33-9ae7-3948f0e6d3aa@paulmck-laptop>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,46 +102,35 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: paulmck@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 09:11:50AM +0100, Vincent Donnefort wrote:
-> On Thu, Sep 17, 2026 at 12:03:36AM +0100, Wei-Lin Chang wrote:
-> > An open debugfs file keeps the KVM structure alive, but does not prevent
-> > mmu notifier release from freeing the stage-2 page tables when the VMMâ€™s
-> > address space is torn down. Therefore page tables belonging to the mmus
-> > could have been freed when a thread opens or reads the ptdump files.
-> > Take the mmu_lock and check mmu->pgt is still alive before accessing the
-> > page tables.
+On Thu, Sep 17, 2026 at 12:25:40PM -0700, Paul E. McKenney wrote:
+> On Thu, Sep 17, 2026 at 08:45:36PM +0200, Frederic Weisbecker wrote:
+> > Le Thu, Sep 17, 2026 at 08:40:10AM -0700, Paul E. McKenney a écrit :
+> > > > > Trampolines that transfer control to tracing code could supply the needed
+> > > > > cleanup call.  But last I checked, there were trampolines that transferred
+> > > > > directly back to the original code, with no opportunity for cleaning up.
+> > > > > 
+> > > > > Or am I still missing a trick here?
+> > > > 
+> > > > You're right. So we'll indeed need to reuse the deferred qs points here.
+> > > 
+> > > Except this is getting a bit involved.
+> > > 
+> > > Don't get me wrong, if Josef is happy to take this on, far be it from me
+> > > to stand in his way.  But if not, we should be willing to treat this
+> > > optimization as a follow-on effort, whether by Josef or someone else.
+> > 
+> > Sure, I guess I can try the follow-on, especially if it leads to removing
+> > all this RCU tasks black magic.
 > 
-> As Sashiko said, the read_lock is probably enough, including the existing one in
-> kvm_ptdump_guest_show()
-> 
-> With that change:
-> 
-> Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
-> Tested-by: Vincent Donnefort <vdonnefort@google.com>
+> That sounds most excellent, thank you!
 
-Thanks for the review and testing!
+Ah, and in case anyone (especially Josef) is wondering, one big advantage
+of the more elaborate approach is that it allowed the real-time guys to
+avoid yet another source of IPIs messing with their latencies.
 
-I agree taking read_lock is enough for most of these, but changing
-kvm_ptdump_guest_show() to read_lock could result in a dump showing
-weird output e.g. 0-sized ranges. This happens when the dump reads a
-block, and a parallel fault turns that block into a table, and the dump
-descends into the table later.
-
-This is debugfs afterall so I think it isn't a dealbreaker, but it adds
-another purpose to this patch. Maybe we can change
-kvm_ptdump_guest_show() into taking a read_lock when someone reports a
-scalability problem when dumping the page tables.
-
-I'll stick to changing the other ones into taking the read_lock now.
-
-For future reference: KVM_PGTABLE_WALK_SHARED is required if we want to
-change kvm_ptdump_guest_show() into taking a read_lock.
-
-Thanks,
-Wei-Lin Chang
-
-> 
+							Thanx, Paul
 
