@@ -4,91 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92AF9C982CF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 12:15:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA2C4C88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 12:17:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gkbPrcWx7naDFzx6es9+fglMGRB1RD3y/GInwlzOxG0=; b=is1qsc5LzhCgcm7BmfevUqmTdZ
-	VW/Man6NaUyfIg6Tl4htJ/4Z8hRnPLcXgUjYBEfke/7+Zm57ZGcXa9NOXrrqGG5T0j+WGFMVuOcYN
-	6v1VAxbPBVVyG/qJcRky+vmnzsSmifFeGD0a1xyFJ8LBRdBiqQvcUAuF8Rs70qfN15wbZzLH5S0vY
-	Jsp4pfU9GPWRbO19/4mmFVgE8V5h4FwOA+3EjkS//1yYPajy5DYzU5H62FS59KL7pGwF2EpgZB8PK
-	yXX0OsON+UOykb3By3/1bEb2j1cFqOy7oX++woerPYu/X8x3SWSnqzeYBGN5T3YpoQi+ZALNTHUdY
-	OmQJ61QQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AOOzTPdyID81NX0koAIo9zSwLIv7kFZJDzGrlHzgqSw=; b=B1GtgzKq3TpkzJ5X6Ysa1zz02i
+	MeEDpLxxuZBJHQlZpA1byu5LFKA6QQqt/L9LRSheSG1tkf/+o9M7AecGbDYq1B7lNpcROT/H1LcTh
+	3m6pWUkKC3WLO075lpQmrDqkt9ZOZGLm7NomIGQI6oAMZCmMj8PCWYZ6ptAs5RLAfHzzZ5cfvEEUR
+	1G0YTk39zTgUGBiEgIykzdzhNruX22uRoMnqtvk8Wrv+i3yXCOl+khBKZtkNYz/aUNxhA6ENFJ4wb
+	qJFw1oTUav08ShjFoLUDryYCyt4FrNLG4dnkUfuKq7/M6MX8zjq3gRP0jKux6cihyziOJi/Luswow
+	ALWwnxEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7B14-0000000BGKC-49gv;
-	Thu, 17 Sep 2026 12:15:02 +0000
+	id 1x7B3n-0000000BGWt-1m9E;
+	Thu, 17 Sep 2026 12:17:51 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7B14-0000000BGJw-0N99
+	id 1x7B3l-0000000BGWl-3lKi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 12:15:02 +0000
+	Thu, 17 Sep 2026 12:17:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 70873602CA;
-	Thu, 17 Sep 2026 12:15:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 894761F00893;
-	Thu, 17 Sep 2026 12:15:00 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 392BD601EF;
+	Thu, 17 Sep 2026 12:17:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3ABF81F000FF;
+	Thu, 17 Sep 2026 12:17:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789647301;
-	bh=gkbPrcWx7naDFzx6es9+fglMGRB1RD3y/GInwlzOxG0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=l9x6i3WuvpeAcNcSCVNaCtMy5SaRo1F+MZuI+PgVBSML9X+5R+oQzomOBe+PerxoF
-	 MGnUJJPBiBDo05wMQ6X2KJcxdTZENp23PzB7WcnSwSqj62YzmxsyGgJ7HZBIPXjfEF
-	 E8dIJpEOvURwajkhYJ8tZHYQ6DR7NoU4HbmBYBXiWsOXfSshDWbFnC/MWHjo/l6SjU
-	 kyARmxn8MXXrjxfSzwNY5oyHwnrB7W7LX+V0sI6oGEFdrpZUh+ZlK2RgUPaDlHkss4
-	 ui9Wsp50EnRuS0GxbBmgweTiv/MsHviRvjcYoGFHOH38WcDLv/iZ2YR+oN+hK1zE4l
-	 XEyjqlwBekiag==
-Date: Thu, 17 Sep 2026 14:14:57 +0200
-From: Frederic Weisbecker <frederic@kernel.org>
-To: "Paul E. McKenney" <paulmck@kernel.org>
-Cc: Josef Bacik <josef@toxicpanda.com>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Boqun Feng <boqun@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>, x86@kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Puranjay Mohan <puranjay@kernel.org>,
-	Xu Kuohai <xukuohai@huaweicloud.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Zqiang <qiang.zhang@linux.dev>, Juergen Gross <jgross@suse.com>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	linux-kernel@vger.kernel.org, rcu@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org, bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	xen-devel@lists.xenproject.org
-Subject: Re: [PATCH RFC v3 03/13] rcu-tasks: Add a Tasks RCU implementation
- for reader-marked trampolines
-Message-ID: <aqvZwfUVsiEI7q7y@localhost.localdomain>
-References: <20260915-b4-rcu-tasks-preempt-qs-v3-3-0ad30c4c5ee7@toxicpanda.com>
- <aqlgxKGk_AEKls_1@localhost.localdomain>
- <edc7cca2-a5c5-455c-8969-ea05dbdb08f7@paulmck-laptop>
- <aqqONH8flTIpOUqT@localhost.localdomain>
- <91687748-0781-4133-baed-43cf82f35ff5@paulmck-laptop>
- <aqqpRoTfywUuTgoC@localhost.localdomain>
- <aqqsAUVV8a1yrQzX@localhost.localdomain>
- <6afb0afe-e7b8-46b4-9fea-2c7cf4791044@paulmck-laptop>
- <aqq0cwvRDsorGwgc@localhost.localdomain>
- <8b73e1b3-0580-4ba9-b2e0-6363e429808d@paulmck-laptop>
+	s=k20260515; t=1789647468;
+	bh=AOOzTPdyID81NX0koAIo9zSwLIv7kFZJDzGrlHzgqSw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=Njx07hck84rGiz/f7uEQpowoJ1UK2pk/RdC7+xZNWVVVIPIgZXU6wen3Q3TH0hiFy
+	 fPcgf4mFQ0eYKlUEC9+P5piru04E4s/KxgUAqs8YOhWGrzizJjAN3zPZd837aWodPw
+	 CwM6BuSKlEMi0OGNds9P/r+aEGjMkT3lKdZsDSkdqU6bTTj8FFPyQtQTeH69tVbmJ7
+	 8K7noJolv/8QY4r+GOTgRaETMMkCShiFi32aHVnRQv5cITzTyQosmQ4UVO8qk5etdW
+	 UprNPUuzv9da1PeSdNv49zEFsWW+bvdmOHAq/tRZ5heYgP1o3qG305lLkFtzLvNmX3
+	 TDhizqOwqcvRg==
+Message-ID: <493ef264-eab3-4be3-a80e-357f01ae1b37@kernel.org>
+Date: Thu, 17 Sep 2026 14:17:40 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 00/10] mm/vmalloc: Speed up ioremap, vmalloc and vmap
+ with contiguous memory
+To: Wen Jiang <jiangwenxiaomi@gmail.com>, akpm@linux-foundation.org,
+ catalin.marinas@arm.com, linux-mm@kvack.org, urezki@gmail.com,
+ will@kernel.org
+Cc: Xueyuan.chen21@gmail.com, ajd@linux.ibm.com, anshuman.khandual@arm.com,
+ baohua@kernel.org, david@kernel.org, dev.jain@arm.com, jiangwen6@xiaomi.com,
+ leo.yan@arm.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com, rppt@kernel.org,
+ ryan.roberts@arm.com
+References: <20260917052933.188679-1-jiangwenxiaomi@gmail.com>
+Content-Language: fr-FR
+From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+In-Reply-To: <20260917052933.188679-1-jiangwenxiaomi@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <8b73e1b3-0580-4ba9-b2e0-6363e429808d@paulmck-laptop>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,62 +77,294 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Wed, Sep 16, 2026 at 08:41:36AM -0700, Paul E. McKenney a �crit :
-> On Wed, Sep 16, 2026 at 05:23:31PM +0200, Frederic Weisbecker wrote:
-> > Le Wed, Sep 16, 2026 at 07:55:02AM -0700, Paul E. McKenney a �crit :
-> > > Perhaps in rcu_core() in kernels booted with use_softirq?  I am thinking
-> > > specifically of the checks for deferred quiescent states.  I don't (yet)
-> > > see a need to modify rcu_check_quiescent_state().
-> > > 
-> > > Maybe other places as well.  ;-)
-> > 
-> > Hmm this tracking would have to happen on preempt_schedule() just like we
-> > do for PREEMPT_RCU. Or am I missing something? And then we would need a
-> > list scan of those tasks.
-> 
-> I am thinking of the case where a trampoline is interrupted before entering
-> (or after leaving) its RCU Tasks Trace read-side critical section.  Then
-> there is a softirq handler on the back of that interrupt handler, and
-> RCU_SOFTIRQ is invoked, calling rcu_core().  Specifically:
-> 
-> 	/* Report any deferred quiescent states if preemption enabled. */
-> 	if (IS_ENABLED(CONFIG_PREEMPT_COUNT) && (!(preempt_count() & PREEMPT_MASK))) {
-> 		rcu_preempt_deferred_qs(current);
-> 	} else if (rcu_preempt_need_deferred_qs(current)) {
-> 		guard(irqsave)();
-> 		set_need_resched_current();
-> 	}
-> 
-> Preemption is enabled, but we should not report a quiescent state because
-> we have interrupted a trampoline.  Correct?
+Hi,
 
-Right!
- 
-> > Or we can build the blocked task list handling, that we already have for PREEMPT_RCU,
-> > when CONFIG_RCU_TASKS && !CONFIG_PREEMPT_RCU. We would just only add tasks when
-> > preempted in .text.rcu_no_qs since rcu_read_lock() would still disable
-> > preemption on normal explicit readers. So I wouldn't expect more overhead due to
-> > that blocked list tracking built since it would rarely track tasks.
+Le 17/09/2026 à 07:29, Wen Jiang a écrit :
+> From: Wen Jiang <jiangwen6@xiaomi.com>
 > 
-> Yes, we could avoid the list of tasks by treating the preemption within
-> the trampoline the same as preemption within an RCU read-side critical
-> section, but there might not be an rcu_read_unlock() to clean up.
-> Which could be a problem.
+> This patchset accelerates ioremap, vmalloc, and vmap when the memory is
+> physically fully or partially contiguous. Two techniques are used:
+> 
+> 1. Avoid page table rewalk when setting PTEs/PMDs for multiple memory
+>     segments
+> 2. Use batched mappings wherever possible in both vmalloc and ARM64
+>     layers
+> 
+> Besides accelerating the mapping path, this also enables large
+> mappings (PMD and cont-PTE) for vmap, which are currently not
+> supported.
 
-Ah yes, good point.
+This series doesn't apply. I tried to apply it on top of v7.2, v7.3-rc3 
+and next-20260916
+
+Can you tell how to apply it ?
+
+$ LANG= b4 shazam -l 20260917052933.188679-3-jiangwenxiaomi@gmail.com
+Grabbing thread from 
+lore.kernel.org/all/20260917052933.188679-3-jiangwenxiaomi@gmail.com/t.mbox.gz
+Checking for newer revisions
+Grabbing search results from lore.kernel.org
+Analyzing 11 messages in the thread
+Analyzing 41 code-review messages
+Checking attestation on all messages, may take a moment...
+---
+   ✓ [PATCH v8 1/10] arm64/mm: add pte_set_huge() and pte_clear_huge()
+     + Link: 
+https://lore.kernel.org/r/20260917052933.188679-2-jiangwenxiaomi@gmail.com
+   ✓ [PATCH v8 2/10] powerpc/8xx: add pte_set_huge()
+     + Link: 
+https://lore.kernel.org/r/20260917052933.188679-3-jiangwenxiaomi@gmail.com
+   ✓ [PATCH v8 3/10] mm/vmalloc: use pte_set_huge()/pte_clear_huge() for 
+PTE-level block mappings
+     + Link: 
+https://lore.kernel.org/r/20260917052933.188679-4-jiangwenxiaomi@gmail.com
+   ✓ [PATCH v8 4/10] arm64/hugetlb: drop the init_mm special case in 
+clear_flush()
+     + Link: 
+https://lore.kernel.org/r/20260917052933.188679-5-jiangwenxiaomi@gmail.com
+   ✓ [PATCH v8 5/10] arm64/vmalloc: allow arch_vmap_pte_range_map_size() 
+to batch multiple CONT_PTE
+     + Link: 
+https://lore.kernel.org/r/20260917052933.188679-6-jiangwenxiaomi@gmail.com
+   ✓ [PATCH v8 6/10] mm/vmalloc: extract vmap_set_ptes() to consolidate 
+PTE mapping logic
+     + Link: 
+https://lore.kernel.org/r/20260917052933.188679-7-jiangwenxiaomi@gmail.com
+   ✓ [PATCH v8 7/10] mm/vmalloc: extend page table walk to support 
+larger page_shift sizes and eliminate page table rewalk
+     + Link: 
+https://lore.kernel.org/r/20260917052933.188679-8-jiangwenxiaomi@gmail.com
+   ✓ [PATCH v8 8/10] mm/vmalloc: extract vm_shift() to consolidate 
+mapping shift selection
+     + Link: 
+https://lore.kernel.org/r/20260917052933.188679-9-jiangwenxiaomi@gmail.com
+   ✓ [PATCH v8 9/10] mm/vmalloc: map contiguous pages in batches for 
+vmap() if possible
+     + Link: 
+https://lore.kernel.org/r/20260917052933.188679-10-jiangwenxiaomi@gmail.com
+   ✓ [PATCH v8 10/10] mm/vmalloc: align vm_area so vmap() can batch mappings
+     + Link: 
+https://lore.kernel.org/r/20260917052933.188679-11-jiangwenxiaomi@gmail.com
+   ---
+   ✓ Signed: DKIM/gmail.com
+---
+Total patches: 10
+---
+NOTE: some trailers ignored due to from/email mismatches:
+     ! Trailer: Reviewed-by: Uladzislau Rezki (Sony) <urezki@gmail.com>
+      Msg From: Barry Song <baohua@kernel.org>
+NOTE: Rerun with -S to apply them anyway
+---
+Applying: arm64/mm: add pte_set_huge() and pte_clear_huge()
+Patch failed at 0001 arm64/mm: add pte_set_huge() and pte_clear_huge()
+error: patch failed: arch/arm64/mm/mmu.c:1872
+error: arch/arm64/mm/mmu.c: patch does not apply
+hint: Use 'git am --show-current-patch=diff' to see the failed patch
+hint: When you have resolved this problem, run "git am --continue".
+hint: If you prefer to skip this patch, run "git am --skip" instead.
+hint: To restore the original branch and stop patching, run "git am 
+--abort".
+hint: Disable this message with "git config set advice.mergeConflict false"
+
+
+Thanks
+Christophe
+
 
 > 
-> Trampolines that transfer control to tracing code could supply the needed
-> cleanup call.  But last I checked, there were trampolines that transferred
-> directly back to the original code, with no opportunity for cleaning up.
+> Patches 1-4 decouple the PTE-level block mapping path from HugeTLB.
+> Previously vmap_pte_range() installed cont-PTE mappings by reusing
+> set_huge_pte_at() and huge_ptep_get_and_clear(), which are HugeTLB
+> helpers gated by CONFIG_HUGETLB_PAGE. This made the feature silently
+> unavailable on CONFIG_HUGETLB_PAGE=n kernels, and coupled mm/vmalloc.c
+> to HugeTLB internals. Patches 1 and 2 add the arm64 and powerpc/8xx
+> implementations of pte_set_huge()/pte_clear_huge(), which join the
+> existing pmd/pud_set_huge() family. Patch 3 adds the generic fallbacks
+> and converts mm/vmalloc.c over. Patch 4 then removes the now-dead
+> init_mm special case from arm64's clear_flush().
 > 
-> Or am I still missing a trick here?
+> Patch 5 extends ARM64 arch_vmap_pte_range_map_size() to batch multiple
+> CONT_PTE blocks in one call instead of one at a time.
+> 
+> Patch 6 extracts a common helper vmap_set_ptes() that consolidates PTE
+> mapping logic for the ioremap and vmalloc/vmap paths, handling both
+> CONT_PTE and regular PTE mappings. This prepares for the next patch.
+> 
+> Patch 7 extends the page table walk path to support page shifts other
+> than PAGE_SHIFT and eliminates the page table rewalk for huge vmalloc
+> mappings. The function is renamed from vmap_small_pages_range_noflush()
+> to vmap_pages_range_noflush_walk().
+> 
+> Patch 8 extracts vm_shift() to consolidate vmalloc mapping shift
+> selection for reuse in the batching path.
+> 
+> Patches 9-10 add huge vmap support for contiguous pages, including
+> support for non-compound pages with pfn alignment verification.
+> 
+> On the RK3588 8-core ARM64 SoC, with tasks pinned to a little core and
+> the performance CPUfreq policy enabled, benchmark results:
+> 
+> * ioremap(1 MB): 1.35x faster (3407 ns -> 2526 ns)
+> * vmalloc(1 MB) mapping time (excluding allocation) with
+>    VM_ALLOW_HUGE_VMAP: 1.42x faster (5.00 us -> 3.53 us)
+> * vmap(100MB) with order-8 pages: 8.3x faster (1235 us -> 149 us)
+> 
+> Many thanks to Xueyuan Chen for his testing efforts on RK3588 boards.
+> 
+> Large vmap() mappings were also tested by Leo Yan with ARM trace buffer
+> units, including TRBE and SPE. These units use the CPU page tables for
+> address translation when writing trace data to DRAM, so using larger
+> vmap() mapping granules can reduce TLB pressure on the trace writer.
+> 
+> The TRBE test used a 1G CoreSight ETM AUX buffer. Across five runs on an
+> isolated CPU, the average results were:
+> 
+> * dtlb_walk:       68.4 -> 59.4 (-13.16%)
+> * l1d_tlb_refill: 155.8 -> 119.6 (-23.23%)
+> * l2d_tlb_refill: 161435.8 -> 495.0 (-99.69%)
+> 
+> The SPE test used a 512M ARM SPE AUX buffer. Across five runs on an
+> isolated CPU, the average results were:
+> 
+> * dtlb_walk:       1710.4 -> 1315.6 (-23.08%)
+> * l1d_tlb_refill: 16000.0 -> 15950.2 (-0.31%)
+> * l2d_tlb_refill: 4796.0 -> 2931.2 (-38.88%)
+> 
+> These results show that enabling larger vmap() mappings can materially
+> reduce page table walks and TLB refills for large trace buffers.
+> 
+> Many thanks to Leo Yan for his testing efforts on ARM trace buffers.
+> 
+> Changes since v7:
+> - v7's patch 1 (which extended the hugetlb helpers in
+>    arch/arm64/mm/hugetlbpage.c) is replaced by pte_set_huge()/
+>    pte_clear_huge(), split across patches 1-3 so that the arm64,
+>    powerpc/8xx and generic changes can be reviewed and acked
+>    independently: patch 1 is arm64 only, patch 2 is powerpc/8xx only,
+>    patch 3 is the generic fallbacks plus the mm/vmalloc.c conversion.
+>    hugetlbpage.c no longer gains the CONT_PTE batching hooks, and patch 4
+>    additionally removes its now-dead init_mm special case. mm/vmalloc.c
+>    no longer includes <linux/hugetlb.h>.
+> - The generic pte_set_huge()/pte_clear_huge() fallbacks WARN_ON_ONCE()
+>    instead of silently doing nothing. They only exist to keep the build
+>    working on architectures without PTE-level block mappings, where they
+>    are unreachable (patch 3).
+> - Patch 5 (v7 patch 2): use round_down(size, CONT_PTE_SIZE) instead of
+>    rounddown_pow_of_two(size), since pte_set_huge() takes the size directly
+>    without an ilog2() roundtrip. This lets a single call span several
+>    CONT_PTE blocks: a 768K (512K + 256K) ioremap is now 1.25x faster than
+>    v7.
+> - Patch 6 (v7 patch 3): vmap_set_ptes() now calls pte_set_huge() instead
+>    of the hugetlb path.
+> - Patch 9 (v7 patch 6): get_vmap_batch_order() takes pages+i instead of a
+>    separate idx argument, and applies pfn alignment limit to scan length
+>    rather than to the resulting order. Renamed idx/map_addr to
+>    batch_idx/batch_start. Dropped Dev's Reviewed-by.
+> 
+> Changes since v6:
+> - Add a clarifying comment about the reuse of hugetlb helpers
+>    by non-hugetlbfs(vmalloc) mm code (patch 1)
+> - Expand the arm64/vmalloc commit message and comment to clarify that
+>    multi-CONT_PTE_SIZE values are vmalloc mapping spans, not HugeTLB
+>    hstate sizes (patch 2)
+> - Move the local steps variable change in vmap_pte_range() into the
+>    vmap_set_ptes() extraction patch (patch 3)
+> - Propagate vmap_pages_pte_range() errors through the upper
+>    vmap_pages_*() levels instead of returning -ENOMEM for all failures
+>    (patch 4)
+> - Add a preparatory vm_shift() helper patch before the batching patch
+>    (patch 5)
+> - Guard the PFN alignment clamp in get_vmap_batch_order() against PFN 0
+>    before calling __ffs() (patch 6)
+> - Fix kmsan_vmap_pages_range_noflush() indentation in the batching path
+>    (patch 6)
+> 
+> Changes since v5:
+> - No code changes.
+> - Pick up Reviewed-by and Tested-by tags from Dev, Leo and Uladzislau.
+>    Many thanks!
+> - Add TRBE/SPE large vmap() test results from Leo Yan to the cover
+>    letter.
+> 
+> Changes since v4:
+> - Move pgsize update before contig_ptes check (patch 1)
+> - Use rounddown_pow_of_two instead of __fls in
+>    arch_vmap_pte_range_map_size (patch 2)
+> - Reword comment to avoid mentioning cont_pte and remove if in
+>    vmap_set_ptes (patch 3)
+> - Rename vmap_batched() to vmap_pages_range_batched() (patch 5)
+> - Use batch_end as the batching cursor to avoid an unused start variable
+>    (patch 5)
+> - Check arch_vmap_pmd_supported before PMD mapping (patch 6)
+> 
+> Changes since v3:
+> - Squash vmap_pte_range() loop variable fix into patch 4 (patch 3, 4)
+> - Use shift >= PMD_SHIFT and fix *nr increment in
+>    vmap_pages_pmd_range() (patch 4)
+> - Pass page_shift directly without capping at PMD_SHIFT (patch 4, 5)
+> - Add vm_shift() helper and pass pgprot_t to get_vmap_batch_order()
+>    (patch 5)
+> - Use min(order, __ffs(pfn)) for graceful pfn alignment degradation,
+>    replacing IS_ALIGNED check (patch 5)
+> - Remove irrelevant ioremap_max_page_shift early-exit (patch 5)
+> - Add __get_vm_area_node_aligned_caller() wrapper, rename to
+>    vmap_get_aligned_vm_area() (patch 6)
+> 
+> Changes since v2:
+> - Use __fls instead of fls in arch_vmap_pte_range_map_size (patch 2)
+> - Add WARN_ON checks in vmap_pages_pmd_range (patch 4)
+> - Fix flush_cache_vmap to use saved start address instead of the
+>    already-advanced addr (patch 5)
+> - Rename __vmap_huge() to vmap_batched() (patch 5)
+> - Add caller parameter and unroll while(1) loop (patch 5)
+> - Squash patch 7 into patch 5 (stop scanning for compound pages after
+>    encountering small pages)
+> 
+> Changes since v1:
+> - Fix condition order and use PMD_SIZE instead of CONT_PMD_SIZE in
+>    patch 1 (Dev Jain)
+> - Squash patch 3+4 and patch 5+7 (Dev Jain)
+> - Replace "zigzag" with "page table rewalk" in commit messages
+>    (Dev Jain)
+> - Rename vmap_small_pages_range_noflush() to
+>    vmap_pages_range_noflush_walk() (Dev Jain)
+> - Extract vmap_set_ptes() as a new patch to consolidate PTE mapping
+>    logic between vmap_pte_range() and vmap_pages_pte_range(), handling
+>    both CONT_PTE and regular mappings (Mike Rapoport)
+> - Support non-compound pages in get_vmap_batch_order() by falling
+>    back to physical contiguity scanning with pfn alignment check
+>    (Dev Jain, Uladzislau Rezki)
+> - In get_vmap_batch_order(), filter out orders that the architecture
+>    cannot batch by checking arch_vmap_pte_supported_shift() directly.
+>    This avoids overhead for orders 1-3 on ARM64 CONT_PTE with 4K
+>    pages. (patch 5)
+> 
+> Barry Song (Xiaomi) (4):
+>    arm64/vmalloc: allow arch_vmap_pte_range_map_size() to batch multiple
+>      CONT_PTE
+>    mm/vmalloc: extend page table walk to support larger page_shift sizes
+>      and eliminate page table rewalk
+>    mm/vmalloc: map contiguous pages in batches for vmap() if possible
+>    mm/vmalloc: align vm_area so vmap() can batch mappings
+> 
+> Wen Jiang (6):
+>    arm64/mm: add pte_set_huge() and pte_clear_huge()
+>    powerpc/8xx: add pte_set_huge()
+>    mm/vmalloc: use pte_set_huge()/pte_clear_huge() for PTE-level block
+>      mappings
+>    arm64/hugetlb: drop the init_mm special case in clear_flush()
+>    mm/vmalloc: extract vmap_set_ptes() to consolidate PTE mapping logic
+>    mm/vmalloc: extract vm_shift() to consolidate mapping shift selection
+> 
+>   arch/arm64/include/asm/pgtable.h             |   6 +
+>   arch/arm64/include/asm/vmalloc.h             |   8 +-
+>   arch/arm64/mm/hugetlbpage.c                  |   5 +-
+>   arch/arm64/mm/mmu.c                          |  19 ++
+>   arch/powerpc/include/asm/nohash/32/pte-8xx.h |   4 +
+>   arch/powerpc/mm/nohash/8xx.c                 |  29 ++
+>   include/linux/pgtable.h                      |  29 ++
+>   mm/vmalloc.c                                 | 268 ++++++++++++++-----
+>   8 files changed, 300 insertions(+), 68 deletions(-)
+> 
 
-You're right. So we'll indeed need to reuse the deferred qs points here.
-
-Thanks.
-
--- 
-Frederic Weisbecker
-SUSE Labs
 
