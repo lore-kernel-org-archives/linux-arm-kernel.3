@@ -4,60 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D406DC88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 14:56:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87F88C982D6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 14:56:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=j4DJ1UzVv1sNqHHZlC35FP464xisuRTXucnXyNjmNuw=; b=YgAQPpK3/ARqZIu0GoncapPdI3
-	AcHsZVRyPfIRpbyJyXmmyiIPHTy9ETLauNC5Sf3gbSpupiImNKPbRftWDAX6RWi1YCLTd/9FvvzcH
-	9n3b4p0lTxOh27SBacinw/7RLNbzGjFuHLzRPvVfQdtAT7tVFt0X7yEWsJ1IM9IclIkPal2Ep5arG
-	YPGPmIF18DO4fk1h3/NitamCh71L8er6YYzOC3pytIMF9ukXGYyptvkrHG42uPgrsdRshJuBxmfFb
-	/wim8jRadsz4XVb0tV9W97GLYGpds3aMKBxH8ctrhp4EMyK/hW5LkEal64tzLVw2Eg4ArXPCxilt8
-	8CkfBTJw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bxwV3JaH9+ilTUziYgJCtnhNQtL4X2sTvKrmZ1eO4I4=; b=AS8YulWSI0kkUGEOboIwGhUgQl
+	FWCZymIWNMweqnqKHq3XeeQy4rGE/jRdsjq/MM8UySthJn9Yb5pztcpmYyhpk0eRKG04psNlT8t2V
+	5BWPNkUlB6FV0iEd5eaYwLNqSld6RO+mTWcvzz8ZusLf7MbdGDBqalnmORpH+KDgpkNb4aUBVwCNF
+	e7142oY4lauNME28paYYdQqSLQ39a2lPUcAW2/qSAnVOkko5ruT9Rs4JslOZo+Q46yzL+Et83KZ6f
+	6gHYE56gChr4hKVfrCLLyJKWtFUG2iROcfooAYu131xK/BLECU9v2L7skbUglp+iwd1rp8EFE0IUH
+	pHt/5AwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7DXM-0000000Bb5h-2Q4M;
+	id 1x7DXM-0000000Bb5n-2o8L;
 	Thu, 17 Sep 2026 14:56:32 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7DXK-0000000Bb4X-3kkt
+	id 1x7DXK-0000000Bb4a-3K3A
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 17 Sep 2026 14:56:32 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 638A01476;
-	Thu, 17 Sep 2026 07:56:23 -0700 (PDT)
-Received: from e134344.cambridge.arm.com (unknown [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id ABD443F86F;
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 793A11AED;
 	Thu, 17 Sep 2026 07:56:25 -0700 (PDT)
+Received: from [192.168.4.158] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 717683FAF5;
+	Thu, 17 Sep 2026 07:56:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789656986; bh=UlfYCYycte1SlkVFGS+bwo/YWoItPAwqibIilpenqSs=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Yi1m0CYfX33TJp4EM+7/ZfAxcHRmYpzuZFLIlzis7vm0jKuSKFzIBGH4l+GsxArob
-	 kyQmHVFgcLnXWyIYCK9L1vtlLs9lFDx89IGDU7f3dl86ByxiTJ4Rr6WKowCPgK4Kqx
-	 CiZFUpyWF6QgBSIGq1XoMtHOR+yf+pWSrNBHLrtw=
-From: Ben Horgan <ben.horgan@arm.com>
-To: ben.horgan@arm.com
-Cc: james.morse@arm.com,
-	reinette.chatre@intel.com,
-	fenghuay@nvidia.com,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	dave.martin@arm.com,
-	andre.przywara@arm.com
-Subject: [PATCH v2 00/12] arm_mpam: minor fixes at v7.2
-Date: Thu, 17 Sep 2026 15:56:05 +0100
-Message-ID: <20260917145617.2202986-1-ben.horgan@arm.com>
-X-Mailer: git-send-email 2.43.0
+	t=1789656989; bh=eUxG9747wszXc+62EGP/WBFIfzWwzDqmVrDkyyASluY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=TsyKfiEiMhJBNLVveiQpLq85U6MQ93vNKCu3TgmqxqLIMIdSx9GBKJi8IP9JDllJU
+	 7pB41kUm+a3xgdocm3fTfC/tvwzwS08OzoGuh1QpB/RhCCf+SCq70C29VDVUcQK7/O
+	 UUmSYCXbKSoxUdqmV8OqGAfBjt9YCJrAmcFb3qlU=
+Message-ID: <1ed53b83-a598-49c7-aa42-7736df87e2b1@arm.com>
+Date: Thu, 17 Sep 2026 15:56:25 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v18 20/23] KVM: arm64: CCA: Don't expose unsupported
+ capabilities for realm guests
+Content-Language: en-GB
+To: Fuad Tabba <tabba@google.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
+ will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
+ aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
+ joey.gouly@arm.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev,
+ gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com,
+ alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com,
+ lpieralisi@kernel.org, enju.kohei@fujitsu.com
+References: <20260915160141.3543048-1-suzuki.poulose@arm.com>
+ <20260915160141.3543048-21-suzuki.poulose@arm.com>
+ <CA+EHjTwYqTFzGdNPproWW5L6j5pNqmuWeFuu9HbHa8LBLPvY2A@mail.gmail.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <CA+EHjTwYqTFzGdNPproWW5L6j5pNqmuWeFuu9HbHa8LBLPvY2A@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_075630_971557_578D3CED 
-X-CRM114-Status: UNSURE (   8.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260917_075630_929966_63890D5E 
+X-CRM114-Status: GOOD (  18.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,37 +79,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Despite the subject this is still relevant at v7.3.  This series
-addresses a few minor issues in the driver.  Since v1 I've added an
-extra patch at the end to fix a leak and reworked the mbwu save/restore
-fixes to avoid races by dropping the mon_sel lock in the middle.
+On 17/09/2026 14:16, Fuad Tabba wrote:
+> Hi Suzuki,
+> 
+> On Tue, 15 Sep 2026 17:01:38 +0100, Suzuki K Poulose
+> <suzuki.poulose@arm.com> wrote:
+> [...]
+>> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> [...]
+>> +static inline bool kvm_realm_ext_allowed(long ext)
+>> +{
+>> +        switch (ext) {
+>> +        case KVM_CAP_ARM_PSCI:
+>> +        case KVM_CAP_ARM_PSCI_0_2:
+>> +        case KVM_CAP_NR_VCPUS:
+>> +        case KVM_CAP_MAX_VCPUS:
+>> +        case KVM_CAP_MAX_VCPU_ID:
+>> +        case KVM_CAP_MSI_DEVID:
+>> +        case KVM_CAP_ARM_VM_IPA_SIZE:
+>> +        case KVM_CAP_ARM_SVE:
+>> +        case KVM_CAP_ONE_REG:
+>> +        case KVM_CAP_ARM_PTRAUTH_ADDRESS:
+>> +        case KVM_CAP_ARM_PTRAUTH_GENERIC:
+>> +        case KVM_CAP_SYNC_MMU:
+>> +                return true;
+>> +        }
+>> +        return false;
+>> +}
+> 
+> I'd keep KVM_CAP_IRQCHIP in this list. api.rst has it advertising
+> KVM_IRQ_LINE as well as KVM_CREATE_IRQCHIP, so the cap means in-kernel
+> irqchip rather than GICv2, and the GICv2 case is already rejected by
+> patch 18 in kvm_vgic_create(). It also keeps the two protected lists
 
-Changelogs in patches
+Ack
 
-Based on v7.3-rc2
+> the same where the support is the same. And could this live in
+> kvm_rmi.h, next to where kvm_pkvm_ext_allowed() lives in kvm_pkvm.h,
+> rather than in arm.c?
 
-Ben Horgan (12):
-  arm_mpam: Move MPAMF_ECR write helpers to allow reuse
-  arm_mpam: Restore the error interrupt enable from mpam_cpu_online()
-  arm_mpam: Set mpam_feat_msmon_mbwu_31counter when there are bandwidth
-    counters
-  arm_mpam: Add missing mon_sel locking in MBWU save and restore
-  arm_mpam: Ensure MBWU counters are reset on restore
-  arm_mpam: Use __ris_msmon_read() for saving MBWU state
-  arm_mpam: Initialize all of struct mon_read in
-    mpam_restore_mbwu_state()
-  arm_mpam: resctrl: Correct check that existing class is L3
-  arm_mpam: resctrl: Make read_mon_cdp_safe() self consistent
-  arm_mpam: Don't loop forever if there is the maximum possible amount
-    of PARTIDs
-  arm_mpam: Switch to kvzmalloc_objs() for allocation of component cfg
-  arm_mpam: resctrl: Don't stop early when tearing down a class
+ From what I remember, it creates weird header file dependencies. I
+will see if I can resolve them.
 
- drivers/resctrl/mpam_devices.c | 161 ++++++++++++++++++++-------------
- drivers/resctrl/mpam_resctrl.c |  13 +--
- 2 files changed, 103 insertions(+), 71 deletions(-)
+> 
+> [...]
+>> +static inline bool kvm_arch_vm_ioctl_allowed(struct kvm *kvm, unsigned int ioctl)
+>> +{
+>> +        long ext;
+>> +        int r;
+>> +
+>> +        r = kvm_get_cap_for_kvm_ioctl(ioctl, &ext);
+>> +        if (WARN_ON_ONCE(r < 0))
+>> +                return false;
+> 
+> You told Sashiko my fix covers this one [1], but that fix changes
+> kvm_pkvm_ioctl_allowed(), which this patch deletes, so the `if (r <
+> 0)` has to go into this copy too. The guard you posted for the second
+> finding still leaves the WARN reachable on pKVM and Realm hosts, which
+> is the case the fix removed.
 
--- 
-2.43.0
+I had the chat with Marc about this and his recommendation was to
+post my changes as they are and he would resolve the changes
+while managing the conflict.
+
+> 
+> nit: kvm_arch_ is the prefix generic KVM uses for the hooks it calls
+> into the arch. For two static helpers in arm.c, kvm_vm_ext_allowed()
+> and kvm_vm_ioctl_allowed() would avoid the collision, and the same for
+> kvm_arch_vm_ext_allowed() above.
+
+Ack
+
+Suzuki
+
+> 
+> Cheers,
+> /fuad
+> 
+> [1] https://lore.kernel.org/all/20260914093838.1082637-1-fuad.tabba@linux.dev/
 
 
