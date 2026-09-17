@@ -4,87 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC009C982D2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 21:54:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD031C982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 21:56:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cZzyzrfpRknId9EVwZC5AhWVhuoRzTCf4ta8yZE40JI=; b=zCBHuiuMqQj5LmgtPd2rPFi+tv
-	mfUwo1br4QJoEyPUvJDFbChr53Qp1Q9QRn8Wx4rGVBQ0yhHCNDHweOEe9lsEUQ+8hiKVrTXHUh6zf
-	vY/5RJnshJub0EC/33jCWSCNGzBnQlzF3l5mmfUSMFBOgvDTXspONitSS5ww7zlmIHyTB/xA6ifLJ
-	s+6kvzs6GQ+FAh5nYSaw/Ulfxau/fguW9n2wA3sdavZhEmrmZY3S89JTX+DPyyPgy31vRIGSOYjyH
-	N6SpXOh7VaI1D3RuLssCzJ7TY7dCfaJYWNxUsnG/ggkpwRTbdRuTkjgQ1WpD3tiaYRcRPO1IH9bks
-	YXb0oigA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5NhZ/y4a+dkUa7WaLlbHkeAQBTwZUNqbVt6sm8GoTkU=; b=ctaYfn796aQNNJubke5Ik379FM
+	G/n9LZSThEA43DmNbPGGg/9BjLRWxQJnWJn7mh2F/+IGYvnzBDMYY+pIxOJCIG2a/MqOUh88/LJ5W
+	SIKzCe8knARL1UygkX1JtX18d+I3VlFhMyDqBO+tY4jsw/T3b5Gvap3rrHR4sGxMtJ4Smz4lofSK3
+	OMG4Y3lyksEsFo1aRZ/bF8GR6vps3fZvWIbBexgS8HFMYL9Ykam2esDWk7apxdKNlwbqr7ff5MenT
+	sQedu48lxzsOoVyR7gRBJ9+J02ukTlkF+vplDJQcOa9P3qSm3uyuQNiXqBghX8eteNKEF3Jw9s+nU
+	NXYpLDAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7K43-0000000CbZ2-46VW;
-	Thu, 17 Sep 2026 21:54:43 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1x7K5e-0000000Cbwa-2XbV;
+	Thu, 17 Sep 2026 21:56:22 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7K3w-0000000CbTQ-22HO
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 21:54:38 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 3D8C2C58469;
-	Thu, 17 Sep 2026 21:55:19 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id AB4345FF03;
-	Thu, 17 Sep 2026 21:54:34 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B136311C7B08A;
-	Thu, 17 Sep 2026 23:54:29 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1789682073; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=cZzyzrfpRknId9EVwZC5AhWVhuoRzTCf4ta8yZE40JI=;
-	b=XjFmlySWpOe0fLB5f4Pv9/SrlLbnqTp6Wr9Y1ciUVS9G01rwLJX2XPpExO4QWah++PV4CN
-	ijCn4QvURzx3wIFgxpLL9YCImvo5zBvPWPjJJ92dsYUzuKp9guQQ75cBzGTeLKq1GSZ8RD
-	s/VleuA+lUSc8fwSYyMz9qSwaPQvmPsTJdQuNx2aiRswo5EXJuDKyy9zIqFurswT2uYEu/
-	bIAGSkNmbP2sRghDkNDrn5Qhi80BvM7iffLl4KYJ8bMUf6CH3dHNUn5inqCNDOycSnk+y0
-	aT10lCw11il5nbsSLd/6nREF+8b+aUCiL3t1KrxOjLBmOFi/A11B/NIsPFv4NQ==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Minda Chen <minda.chen@starfivetech.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Jan Petrous <jan.petrous@oss.nxp.com>,
-	Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
-	Jose.Abreu@synopsys.com,
-	Nicolai Buchwitz <nb@tipi-net.de>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	thomas.petazzoni@bootlin.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	PKneuper@dspace.de,
-	David Laight <david.laight.linux@gmail.com>
-Subject: [PATCH net v4 7/7] net: stmmac: selftests: Account for alignment shift on dwmac1000 for Jumbo test
-Date: Thu, 17 Sep 2026 23:53:38 +0200
-Message-ID: <20260917215339.2022523-8-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260917215339.2022523-1-maxime.chevallier@bootlin.com>
-References: <20260917215339.2022523-1-maxime.chevallier@bootlin.com>
+	id 1x7K5c-0000000CbwG-2FQX;
+	Thu, 17 Sep 2026 21:56:20 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id E768B43AB3;
+	Thu, 17 Sep 2026 21:56:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93FA41F000FF;
+	Thu, 17 Sep 2026 21:56:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789682179;
+	bh=5NhZ/y4a+dkUa7WaLlbHkeAQBTwZUNqbVt6sm8GoTkU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=L1Mdag9kmnPe+L2tPYHLcz67jASLAJHRTXbLRL6FwDWypq3Me5VmVOJNpahpirJUr
+	 gEsrTsb4nt+eg05Kke9kTilWmPAyVnbXAZ2QqEIckXNOxU8Nc03uHomC6TOH25W/2K
+	 z5l+kA7XR1hsKOVXM9nOrECRGVVSTOZ0fYqJJ4d/qsSPlA92WfCU5Jhz5VgBRKk640
+	 b+F2H3fiHFKhDUNxqU1GLBt2Ks6ayctuMUVHHspuUBp72wI7bAIxxIjtCNIMAhHGB1
+	 kVbr6OldOAOOfF9euNAChU/YRakT3Vou1QLZTXALxAI02xOX2wLGmDaBhTwt/LCZFD
+	 fiZ6QpTX8Oq4A==
+Date: Thu, 17 Sep 2026 16:56:18 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Wandun Chen <chenwandun1@gmail.com>
+Cc: chenhuacai@kernel.org, linux-kernel@vger.kernel.org, rppt@kernel.org,
+	m.szyprowski@samsung.com, x86@kernel.org, bp@alien8.de,
+	iommu@lists.linux.dev, saravanak@kernel.org, pratyush@kernel.org,
+	robin.murphy@arm.com, loongarch@lists.linux.dev,
+	aou@eecs.berkeley.edu, palmer@dabbelt.com, will@kernel.org,
+	akpm@linux-foundation.org, pasha.tatashin@soleen.com,
+	mingo@redhat.com, pjw@kernel.org, kexec@lists.infradead.org,
+	hpa@zytor.com, catalin.marinas@arm.com, devicetree@vger.kernel.org,
+	baoquan.he@linux.dev, ruirui.yang@linux.dev, mark.rutland@arm.com,
+	kernel@xen0n.name, linux-arm-kernel@lists.infradead.org,
+	alex@ghiti.fr, linux-mm@kvack.org, linux-riscv@lists.infradead.org,
+	tglx@kernel.org, dave.hansen@linux.intel.com
+Subject: Re: [PATCH v6 07/10] of: reserved_mem: add dumpable flag to opt-in
+ vmcore
+Message-ID: <178968217748.3989713.7328577485527762154.robh@kernel.org>
+References: <20260902073116.802752-1-chenwandun1@gmail.com>
+ <20260902073116.802752-8-chenwandun1@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_145436_688513_BCB30EF2 
-X-CRM114-Status: GOOD (  12.03  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260902073116.802752-8-chenwandun1@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,43 +79,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On dwmac1000, we currently only support single-descriptor frames. The
-Jumbo test started failing when NET_IP_ALIGN was added to align the IP
-header, as this tests tries to send the biggest possible frame.
 
-On dwmac1000 the DMA transfer is aligned on 4-bytes, so adding a 2-byte
-shift at the start-of-buffer address means it takes a whole extra 4-byte
-DMA burst to receive the Jumbo packet, causing it to spill over the next
-descriptor.
+On Wed, 02 Sep 2026 15:31:13 +0800, Wandun Chen wrote:
+> From: Wandun Chen <chenwandun@lixiang.com>
+> 
+> Add a 'dumpable' flag to struct reserved_mem to decide whether a
+> reserved area should be included in the kdump vmcore. Non-dumpable
+> regions are later marked MEMBLOCK_NODUMP;the filtering itself happens
+> in memblock, keeping the arch kdump code independent of the DT API.
+> 
+> Most reserved regions are owned by devices and do not contain data
+> useful for kernel crash analysis, so dumpable default to false.
+> Reusable CMA regions are different: their pages are handed back to the
+> buddy allocator and may contain key data for crash analysis, so set
+> dumpable to true in rmem_cma_setup().
+> 
+> The dumpable flag is also used to check /memreserve/ entries for overlap
+> with other dumpable regions.
+> 
+> Suggested-by: Rob Herring <robh@kernel.org>
+> Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
+> Tested-by: Meijing Zhao <zhaomeijing@lixiang.com>
+> Acked-by: Marek Szyprowski <m.szyprowski@samsung.com>
+> ---
+>  include/linux/of_reserved_mem.h | 1 +
+>  kernel/dma/contiguous.c         | 1 +
+>  2 files changed, 2 insertions(+)
+> 
 
-This doesn't seem to happen on dwmac4 and xgmac that appear to correctly
-handle unaligned xfers (only tested on dwmac4)
-
-Let's account for that in the Jumbo test, reduce the size of our big
-packet by the align size.
-
-Fixes: 23680bf5f8c6 ("net: stmmac: restore NET_IP_ALIGN in the RX DMA offset")
-Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-index 43b8411c5112..c25dc9f89270 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-@@ -1789,6 +1789,9 @@ static int __stmmac_test_jumbo(struct stmmac_priv *priv, u16 queue)
- 	struct stmmac_packet_attrs attr = { };
- 	int size = priv->dma_conf.dma_buf_sz;
- 
-+	if (!dwmac_is_xmac(priv->plat->core_type))
-+		size -= NET_IP_ALIGN;
-+
- 	attr.dst = priv->dev->dev_addr;
- 	attr.max_size = size - ETH_FCS_LEN;
- 	attr.queue_mapping = queue;
--- 
-2.55.0
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 
