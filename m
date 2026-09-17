@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7796EC982D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 13:06:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 467DBC982D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 13:10:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=sI54x/ez5T6fsA2elcHz3RaGZcESZ5CGlXIm7sI1To0=; b=naz83wEttPZZLoz7IR5BkRunZm
-	sFa5eCCm5jCaqRGFb1LPfV71pqb3VWWFQPJJ0dyHkOYHaTI5PWpbeiuRK2raK6YiJwCUpdHLJy3PU
-	+gB2vfG8kQEF3uc/Kc3tIjXfZW7rM+ZAYUDleKW4/+Dvt1+tWaU3yDnvwiTlBFJItAQzA52o8t1QU
-	Ol37Ygudm+OeepBiGEEgU/mbNGPuEjmJoz4HzB9kHz0kgNczFmuRqxFlyGJm0xfgwnpLeNlGbgHWY
-	H6ZI17QCEfm7pgpd/2qVBbHK3ScoGgW1HjIUWzpoircPkJ5KglfGeF3inNWEFSMMNMLUi8trKLsqx
-	vEkK2Hcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=49KKopQY6+HtPgSWhhO2mvQBSzsdRuTDP1Z1snMU7Nk=; b=AhcAW9KNPFs1Zle2uAJ40CcYKP
+	tTPKxDJQxvXjuslI48gYMbjPFdI9AquX1qn3GKGXdtK272X7nASjpCVXjyTdg1c1eaRm9LwEu3tRG
+	IGz2H7EBW0CNZU6WGhBB3cZNytcJITvtBthkVfri0ocFGFtESiBQGfrTUCckBofzVRfLgBlL5xRSz
+	jtQQKCq+PuEUlsV65CL0tJBAvHUeG6mwh3Rwpegr7tueY4vlsGkxXCrPMW5p/hTRByn6g56AdUkuy
+	ljeLRNm5FBVbhkdke9Bs/YiBGssKlc9uTmnyXBtZRjtuUcPTBY8FzLy22edFOac8kTRbKlo2FvBjT
+	c7ktR6ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7BoP-0000000BMlP-0JUU;
-	Thu, 17 Sep 2026 13:06:01 +0000
-Received: from mail.cjdns.fr ([5.135.140.105])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7BoM-0000000BMjn-1RcY;
-	Thu, 17 Sep 2026 13:05:59 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 211744BA1CE;
-	Thu, 17 Sep 2026 15:05:41 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
-	t=1789650350; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=sI54x/ez5T6fsA2elcHz3RaGZcESZ5CGlXIm7sI1To0=;
-	b=dvdAoZxR7+zpdIT9didapD0CnUxXZbgsxzFNbc8GaOUiMocOHERVj+2HE+WHqLEaiBlq96
-	4k2dImmfjZV4lOGTQzFOeDC1F3A5eBPZCveyRIeEOS5CdrlcXFub3etJTRd0BxO9YyXgrM
-	tEY3g62eK+rDHUk5XgQZT+gc/dhzVWHNhZS5jNUPgm7HhY2L0XogJ5u1ygLlTENnq/Cq2y
-	A2yQDHvUp0gjTdiYbvCHvMQI2PtRovIkkrbYUMNmimHwYnbz5iMxEGEVUZ9i8NfjgnZIlE
-	R26Wzw5LaWNZodaXthaZq3gpGHKbpUFm2A43e3TK7yTp+3drllO6+izKcEgTkA==
-From: Caleb James DeLisle <cjd@cjdns.fr>
-To: netdev@vger.kernel.org
-Cc: daniel@makrotopia.org,
-	dqfext@gmail.com,
-	SkyLake.Huang@mediatek.com,
-	andrew@lunn.ch,
-	hkallweit1@gmail.com,
-	linux@armlinux.org.uk,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Caleb James DeLisle <cjd@cjdns.fr>,
-	Matheus Sampaio Queiroga <srherobrine20@gmail.com>
-Subject: [PATCH v6 net-next] net: phy: mediatek: support MT7530 PHYs on EN71221 MCM
-Date: Thu, 17 Sep 2026 13:05:34 +0000
-Message-Id: <20260917130534.297930-1-cjd@cjdns.fr>
+	id 1x7Bsd-0000000BN7h-2RRs;
+	Thu, 17 Sep 2026 13:10:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x7BsZ-0000000BN7I-2ZgD
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Sep 2026 13:10:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 18C83143D;
+	Thu, 17 Sep 2026 06:10:14 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B59773F7B4;
+	Thu, 17 Sep 2026 06:10:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789650617; bh=8g2Hl15QHCdOC9CCW8r88cxWOvni9RLKJzm2oJjk8hU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NJe9mzHoryiEfw6XtB5v8p8/e2oE3zGCJA7l8BfNRixqxKExCGwFMO8sOWitejOKH
+	 hebfkN6+0WygqeddyugzEWlz/aVq/BjEqdTwWeZaLj2pGear6JwdunwS2Ajk9ZNeoi
+	 aew8XnHW2Qt/tdO/vbtT+8TuoDxGmvql4AeyXDDA=
+Date: Thu, 17 Sep 2026 14:10:00 +0100
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Itaru Kitayama <itaru.kitayama@fujitsu.com>, 
+	Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Oliver Upton <oupton@kernel.org>, 
+	Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Wang Han <wanghan@linux.alibaba.com>, Shuai Xue <xueshuai@linux.alibaba.com>, 
+	"Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Subject: Re: [PATCH v6 0/7] KVM: arm64: nv: Implement nested stage-2 reverse
+ map
+Message-ID: <rxvpsusccy6xanwik5ierefwi5jgue5ifgqd27pxaxzhbqlovl@odobtcfgizzx>
+References: <20260915154305.3852871-1-weilin.chang@arm.com>
+ <aqm9hXB6X9IQ8wHz@sm-arm-grace07>
+ <m6ldbr7hdafmoycx7xjcbsg62mblcakcu52ndowwzqgxdjb3q3@huv4i5bfxtza>
+ <aqnUWp_VJXUCcJnQ@sm-arm-grace07>
+ <86ld9165cr.wl-maz@kernel.org>
+ <aquN5ytDxt44uORD@sm-arm-grace07>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aquN5ytDxt44uORD@sm-arm-grace07>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_060558_749838_3AA29A97 
-X-CRM114-Status: GOOD (  16.47  )
+X-CRM114-CacheID: sfid-20260917_061019_754992_F408AD2A 
+X-CRM114-Status: GOOD (  26.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,137 +81,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The EcoNet EN751221 multi-chip module implementation of the MT7530
-requires some additional configuration of the PHYs on startup.
-The reason for this is not known, but it is possible that it has
-to do with the fact that the EN751221 MCM implementation of the
-MT7530 runs at an abnormal PLL frequency (362.5Mhz).
+On Thu, Sep 17, 2026 at 03:51:19PM +0900, Itaru Kitayama wrote:
+> On Wed, Sep 16, 2026 at 08:08:20AM +0100, Marc Zyngier wrote:
+> > On Wed, 16 Sep 2026 00:27:22 +0100,
+> > Itaru Kitayama <itaru.kitayama@fujitsu.com> wrote:
+> > > 
+> > > On Wed, Sep 16, 2026 at 12:22:30AM +0100, Wei-Lin Chang wrote:
+> > > > On Wed, Sep 16, 2026 at 06:49:57AM +0900, Itaru Kitayama wrote:
+> > > > > On Tue, Sep 15, 2026 at 04:42:58PM +0100, Wei-Lin Chang wrote:
+> > > > > > Hi,
+> > > > > > 
+> > > > > > This is v6 of optimizing the shadow s2 mmu unmapping during MMU
+> > > > > > notifiers.
+> > > > > > 
+> > > > > > This version fixes a few issues, and adds Marc's space optimization
+> > > > > > for kvm_guest_s2_mapping [1]. Please see the changelog for the details.
+> > > > > > 
+> > > > > > Tested by booting L3, and running in-kernel targetted tests described
+> > > > > > in [2]. v5 got some tested-by's from Itaru and Wang (thanks), I didn't
+> > > > > > carry them over since some bugs fixed in v6 are non-obvious. Some
+> > > > > > retest would be much appreciated!
+> > > > > 
+> > > > > How did you boot into L3, with KVM selftest or recrusively boot on HW?
+> > > > 
+> > > > I just recrusively booted VMs on hardware. :)
+> > > 
+> > > Good. Then I actually tried that on Grace CPUs, but letting L1 boot 
+> > > with nested mode did not print "VHE+NV2" KVM init log in dmesg, thus not
+> > > able to boot L3. Do I need to add other than kvm.arm-mode=nested to command line?
+> > 
+> > kvm-arm.mode=nested, as documented. That also puts in perspective your
+> > TB tag on the whole series...
+> 
+> Yes. Using kvmtool's --nested option did not bring vCPU with the VHE+NV2 boot
+> log. The Host kernel is Wei-Lin's version 6 booted on Grace CPUs, and
+> the guest kernel is today's kvmarm/fixes plus Wei-Lin's shadow stage 2 ptdump fix.
 
-Detect whether the MT7530 PHY is attached to the MDIO bus of an
-EcoNet EN751221 switch and if so, apply the necessary register
-updates. Additionally, never attempt to configure an MT7530
-identified PHY which does not have gigabit support because the same
-ID is used for another (FE) PHY.
+I'm not sure what you did exactly, but just to be clear, you need to
+pass kvm-arm.mode=nested to L1's command line as well, in addition to
+kvmtool's --nested option.
 
-Co-developed-by: Matheus Sampaio Queiroga <srherobrine20@gmail.com>
-Signed-off-by: Matheus Sampaio Queiroga <srherobrine20@gmail.com>
-Signed-off-by: Caleb James DeLisle <cjd@cjdns.fr>
----
- drivers/net/phy/mediatek/mtk-ge.c | 81 ++++++++++++++++++++++++++++++-
- 1 file changed, 80 insertions(+), 1 deletion(-)
+./lkvm run --nested -p kvm-arm.mode=nested <...>
 
-diff --git a/drivers/net/phy/mediatek/mtk-ge.c b/drivers/net/phy/mediatek/mtk-ge.c
-index 96d8ac5154e5..62e3eff37b80 100644
---- a/drivers/net/phy/mediatek/mtk-ge.c
-+++ b/drivers/net/phy/mediatek/mtk-ge.c
-@@ -1,4 +1,5 @@
- // SPDX-License-Identifier: GPL-2.0+
-+#include <linux/of.h>
- #include <linux/bitfield.h>
- #include <linux/module.h>
- #include <linux/phy.h>
-@@ -101,6 +102,69 @@ static int mt7530_phy_config_init(struct phy_device *phydev)
- 	return 0;
- }
- 
-+/*
-+ * The EcoNet EN751221 "G" multi-chip module MT7530 requires additional PHY
-+ * configuration.
-+ */
-+static int en751221_mcm_phy_config_init(struct phy_device *phydev)
-+{
-+	int ret;
-+
-+	ret = genphy_soft_reset(phydev);
-+	if (ret)
-+		return ret;
-+
-+	ret = phy_write_paged(phydev, MTK_PHY_PAGE_EXTENDED_1,
-+			      MTK_PHY_AUX_CTRL_AND_STATUS, 0x3a04);
-+	if (ret < 0)
-+		return ret;
-+
-+	/* Clause 45 global/local data from mt7530GePhyCfgLoad(E3.0). */
-+	ret = phy_write_mmd(phydev, MDIO_MMD_VEND2, 0x0417, 0x7775);
-+	if (ret < 0)
-+		return ret;
-+
-+	ret = phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x00a6, 0x0350);
-+	if (ret < 0)
-+		return ret;
-+
-+	ret = phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x0012, 0xd210);
-+	if (ret < 0)
-+		return ret;
-+
-+	return mt7530_phy_config_init(phydev);
-+}
-+
-+static bool en751221_is_mcm_phy(struct phy_device *phydev)
-+{
-+	struct device *parent = phydev->mdio.bus->parent;
-+
-+	return parent && parent->of_node &&
-+	       of_device_is_compatible(parent->of_node, "econet,en751221");
-+}
-+
-+/*
-+ * MTK_GPHY_ID_MT7530 ID is also used for an EcoNet SoC FE phy, but that PHY
-+ * does not advertise ESTATUS_1000_TFULL.
-+ */
-+static bool mt7530_is_gphy(struct phy_device *phydev)
-+{
-+	return phydev->phy_id == MTK_GPHY_ID_MT7530 &&
-+	       (phy_read(phydev, MII_ESTATUS) & ESTATUS_1000_TFULL) != 0;
-+}
-+
-+static int mt7530_phy_match(struct phy_device *phydev,
-+			    const struct phy_driver *phydrv)
-+{
-+	return mt7530_is_gphy(phydev) && !en751221_is_mcm_phy(phydev);
-+}
-+
-+static int en751221_phy_match(struct phy_device *phydev,
-+			      const struct phy_driver *phydrv)
-+{
-+	return mt7530_is_gphy(phydev) && en751221_is_mcm_phy(phydev);
-+}
-+
- static int mt7531_phy_config_init(struct phy_device *phydev)
- {
- 	mtk_gephy_config_init(phydev);
-@@ -126,7 +190,6 @@ static int mt7531_phy_config_init(struct phy_device *phydev)
- 
- static struct phy_driver mtk_gephy_driver[] = {
- 	{
--		PHY_ID_MATCH_EXACT(MTK_GPHY_ID_MT7530),
- 		.name		= "MediaTek MT7530 PHY",
- 		.probe		= mt7530_phy_probe,
- 		.config_init	= mt7530_phy_config_init,
-@@ -135,6 +198,22 @@ static struct phy_driver mtk_gephy_driver[] = {
- 		 */
- 		.config_intr	= genphy_no_config_intr,
- 		.handle_interrupt = genphy_handle_interrupt_no_ack,
-+		.match_phy_device = mt7530_phy_match,
-+		.suspend	= genphy_suspend,
-+		.resume		= genphy_resume,
-+		.read_page	= mtk_phy_read_page,
-+		.write_page	= mtk_phy_write_page,
-+	},
-+	{
-+		.name		= "EcoNet EN751221 MCM PHY",
-+		.probe		= mt7530_phy_probe,
-+		.config_init	= en751221_mcm_phy_config_init,
-+		/* Interrupts are handled by the switch, not the PHY
-+		 * itself.
-+		 */
-+		.config_intr	= genphy_no_config_intr,
-+		.handle_interrupt = genphy_handle_interrupt_no_ack,
-+		.match_phy_device = en751221_phy_match,
- 		.suspend	= genphy_suspend,
- 		.resume		= genphy_resume,
- 		.read_page	= mtk_phy_read_page,
--- 
-2.39.5
+Thanks,
+Wei-Lin Chang
 
+> 
+> Thanks,
+> Itaru.
+> 
+> > 
+> > 	M.
+> > 
+> > 
+> > -- 
+> > Without deviation from the norm, progress is not possible.
 
