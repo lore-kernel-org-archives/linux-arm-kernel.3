@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45202C982D9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 20:01:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AADE5C88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 20:01:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mhGEf8mpyg4UxEKpmS5TYtXOZtm+XpKxy7o28279ww0=; b=Dqjf7GmqA3IV0AJcVbgvlnO7zi
-	Xpa42JzUtqJN16AtROfxvpvzjs/aqkyPW7kHuUrF/qPvuSfwJE9IK8pjafEFl/S9wjt403J5xoKoR
-	CkVfV9mwr2x8Ncic6U3xdEmAS49L9pfUZFUew7TLa+GKvCRVNHLkbySY6NHi7/Tq+oERHy9ZzgY85
-	E67HSWmGPpI/2lmPb1XDvmQ0XaqebB/0I6bMqKmevWIbs45xxPwPonVhfOSIZGHCY4qgBRNUS+B8b
-	Kag2THwaHBlDuoC8lBfsqjcJerdlJH7UmQkpGTwYnTxj57VqlhJ5uAyg7erk6oTX21pu0ibpu3iZT
-	PsA2ey+A==;
+	bh=SMbyouNW/EVz0LVN7bS1sUKezudmEDE0W2YcHDpgEIY=; b=QHIOisSi0zOYnHh4ZWhMbgr14F
+	MER2X9xBrs7tpX3jZFf7tydGhkQJNQW7Cw3xzqYGJo/kRI4RhudTBQQwlaR2YQwCdFsSFjobWRPIj
+	Mm28nFxjr9/fTNcUxf8rNtJEdsH2GSU6hUearhgiMGOSL9uSp9Rntxk0GnS2tTbWzlNzDGXYceEh6
+	mgjRgJFNfUA+iQh3KzQEBRZ6S7YTbOJckTVxNogRPoVuVIJx88pfU/sfENvRsq7MYCUHuDC3LyluR
+	Y81ovGeQMqQC3awaH35yXoKLYy+jTuw2WiBc3rovHKOZwk8pNOzjdbTIS6fKXLal+EUFBz/OBxbsw
+	ijOkrXvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7IIg-0000000COBD-1YgM;
-	Thu, 17 Sep 2026 20:01:42 +0000
-Received: from mail-ua2-x21.google.com ([2a00:1450:4864:39::21])
+	id 1x7IIm-0000000CODZ-1E7l;
+	Thu, 17 Sep 2026 20:01:48 +0000
+Received: from mail-qv2-x10.google.com ([2607:f8b0:4864:33::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7IId-0000000COAU-47dH
+	id 1x7IIg-0000000COAv-05im
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 20:01:41 +0000
-Received: by mail-ua2-x21.google.com with SMTP id a1e0cc1a2514c-97e80579b7dso359434241.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 13:01:39 -0700 (PDT)
+	Thu, 17 Sep 2026 20:01:43 +0000
+Received: by mail-qv2-x10.google.com with SMTP id 6a1803df08f44-90cdfc9b6e4so590846d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 13:01:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789675299; x=1790280099; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1789675301; x=1790280101; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=mhGEf8mpyg4UxEKpmS5TYtXOZtm+XpKxy7o28279ww0=;
-        b=PI4UfDa/lPKmiQB4rKY2lzxo6YyvQBmiYtYa61lgwXJzLmLDCqtOfpFmwejWxT66Fi
-         K73NuAR0jXuV+YPYbXsngvI2FVhdk5J9imPafCz3TnBCGYWo7wbhwSrrwPHR6RmUzPso
-         8v+EXbJqyVLa1n12ltpv2CHIbYV0iJl+wDOzIu+zA8ESZRI8vzHOGv78nvwxqU7lVi2L
-         G/kSg4S/wavk+UK/JA4MHM2150GgKQI0cmmOXuLDYfTUIiUnTe6d+u9etR7gv4gTID0p
-         UqJjbdpUXBtuTiIhstHoi5szyO1DZJbV5hRanXVzBPOq/LhMSrrfTgCwmu9CPelkIdBW
-         jYXw==
+        bh=SMbyouNW/EVz0LVN7bS1sUKezudmEDE0W2YcHDpgEIY=;
+        b=h+9T3tPQdaywpPP5iVhr0K5Z334IepMr/J1u8VboC91gEGa+9aEfZAqz087OScxhGO
+         aI2vAS5lZ5XEjCP5JcfcEg5MH4+twOIZ/x96olWr8X3keoI3NxVLNe80QdS/2LJdsMxH
+         lLBtn/st4jGkXYqfOktW5XWFmle+rjFnqEKo1552d8D8VEX0LuBRHd5J5tcpfp7Ru35E
+         JjKGzE0YHPo3rE7XUKGO13/f9bgQ45zNA+Y6IcVlA6PPFgyuKHkfI1MFbkf7G1PO2Rmm
+         XLRpJzPK83HBvVwhvmJlGJ3y7umYK5GEYwxwHrMIFV7pMkjkgD+kZ/blzudf8DKHFarm
+         YRUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789675299; x=1790280099;
+        d=1e100.net; s=20260707; t=1789675301; x=1790280101;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=mhGEf8mpyg4UxEKpmS5TYtXOZtm+XpKxy7o28279ww0=;
-        b=IBfvQPxHTh7Pvvl09ftb1X/07f/z0h+8d0jkMb6qcL4B39/FbOY/qszOX6aEGchBq2
-         AunnjtTwI2ZzC753Shv/cVhmIxyxYeDIOVbEewa8Hmvi+jTrTQb5yRJYs6r7ptC0gO+2
-         jGnqu0BXyigofcYIAgZQAjuVhXJNzULKtnZ3f8Qbnpw+9NhmWWrS9foJXwWGAeuGdKWc
-         hFWpxGWZXDE4H2HTdDX5tCyfT+KFoqkjl3fN2m7vtTb//rwtmQALarafJH5YAyeLvrWp
-         hOjsYIADYPe5rHFWcjfhmP5Si7IX0yJ/wJbR6x2XygxtluNpFovr46cdNn9ezEcEGWai
-         XPVw==
-X-Forwarded-Encrypted: i=1; AKwUvByAu8F8/D6o9DuSJO8++kWtTNOQMGz7tB4p2ytE66SI1cuC1+JcyikbJw1WVGN+BQA4REggHaYpeaEWWdqXyizG@lists.infradead.org
-X-Gm-Message-State: AFuF++noGnx3xtKzyeY6ltk0IaPODBLEu7nIJLgHczGHsBmDkFxkznmB
-	yKKB/0J8MBCnMtvaJqqtH1lFb7SoZbeZv7UT50f6xgL7ZQ1kzj+VJZQ=
-X-Gm-Gg: AYBFou0HpgGpc8ulORfdgd141kslJ2h6UCjC1L02tHiQhBbcjrRLSQtCMB3y8BtiWXT
-	sgaI7N8aBb8QVfJyXhePpsaIjNgRupM6DisEh+a+Wgn049Hc16uOUwa+azIRay287glWuat2QWN
-	k2e1rB3dR3RpWf2ov5bqNt2XMHC0HttLCwlciWQ7aQj1BgTfdthrlTZJ6qdH4nGpDu5ijpVQTp3
-	yviUihJwPfsOfSGZDEyt6q7x/x9nP8rwBSP764DbootDVwOOW68wt9CbV3hNHkcG7WrCECSKakx
-	IbKb3sE5IkaTsIKSxPYX7D1MqknkgzngrNwJ3WvrE9wwT3aqzUY0d5f3FG6G+VQQVDIAluwzrqW
-	RfhpVcRU41yGo1MsrxKMMYTF9oRYUmITog4H1i3ayGTXv6y1Jaq/6WCyFyeAdpyJSAEySn4Ozef
-	GvBbWeJxyocpuM9TihYIu/RP8Z+C3AOAngDV1rYFIXjVe9PYT0D6o5jUmsoHwtrZrmvi8hxbbUo
-	4oGCkN+tWiHbUFQz9FA5ZxUrFHXT/no7PWebSHg123Fk+r7pgVwsQ3qGZjNFMSP8ZKTyfWNXFaR
-	rnALL6hDQkrC46rCIiIY1NiKbUMtXimjCsO1
-X-Received: by 2002:a05:6102:e0e:b0:79f:eeb7:d630 with SMTP id ada2fe7eead31-7a55a226309mr83581137.6.1789675298545;
-        Thu, 17 Sep 2026 13:01:38 -0700 (PDT)
+        bh=SMbyouNW/EVz0LVN7bS1sUKezudmEDE0W2YcHDpgEIY=;
+        b=UphjrffEh6juOeoRkW7vAavB66EWtgQukYK5klaFojG+6YQ9AVwJ+LGzTrlxd/bsiI
+         DBa4RhKgGXti9npv2gvkPpCN1U2TwIznU4CQYsR2mzhc/yS8JNx5RaIJDZ9DnciLkTWi
+         GzlLOpNh09RxywWPSaxYAf3c6o3ivkhRG9R3nX/S1Sqeut4MGwbe7Xq4ZriR+5XJEV5S
+         bCOZALAAMd9bMyrA0v+/hXaU6lBVPCCIdFLQ6EdHBqeJlVaLcTpudJ2Ki8B82yQ6KLWB
+         MStsH0HrH0CZpti4LkPCnbXm21a7CxW6aRNuEJ9XZPNlspVi28DfBwIhVSomw+BrhPVK
+         y4mQ==
+X-Forwarded-Encrypted: i=1; AKwUvBysVNEXsaQxFzzN7l0pROaWYKGBCrgONtEjUnhWedS/KqSCA5wZbbLVKC3C/c01AbKSCUIxCd80MMnnR2611oQL@lists.infradead.org
+X-Gm-Message-State: AFuF++k2cWTxzck1EN2FjX0y+zjicntQe1I40gGdQhPKF+HDcnT4cNFG
+	Ov3j08zkdI+5LhKVsIXe2Zp0YOeVkR1is815W4Qc+zenkgd4v9ySjY8/MNFFF0gc8Q==
+X-Gm-Gg: AYBFou32VQgBTkyLWMHEOla8pLVnzQaW2vVZQT6gC/i50EIo92zQWXVMJE7xWktXqxl
+	gQLq0xfj+sygBL0meZ8rEe2h+/incGPHt3K+vUXprRh2A5cf0BvROAO+/KYgO3Dv26Cex9N+gAB
+	cYGti1o9G5zW+mqvKtl1pf8rrm96UkB35el7uFX1+nxpNtzt+Ar04gr+/uTMOJhgAfh7tLsUfXR
+	IHI3d3PudaKmd62KSvhH2yn9zUU9+9Zys5W82IEa3crpEo52nyUlEegsy/GurkXiHd44nRThDj/
+	8Nz1feq6u3ncCd4zc9umpoICVBdTG2e+ms0cObQnVOBDUicHBn/y+wKiejKdd2Y1L6Hqj365qMt
+	dPjBxtUF4IZOJnsKxQRy+Fc78nrGYRtp/StNvAUhRKpSLYDfPDzfWvNL/C/u3Z2lxkVR+sPLqfO
+	6MLQZYPaEKBK2gPgwmXx6sBR/O0gkz3dkC0FpJ3z1/HWMiOqVVCYYOi6mhGY41pIndaLIpuVQeD
+	hlt7rCeDgZRVmIPbpdf1FYUkbqhUHuxxGtx12krdc9DtJCNAjfh70+9qwxLkmFHqE6QZtFo0npm
+	M9b1PdNO4DpPR/ohbroBCT5BTA18Bfm7cos+
+X-Received: by 2002:ad4:5eca:0:b0:910:39e7:dbb9 with SMTP id 6a1803df08f44-91254bd01aamr5451946d6.33.1789675300564;
+        Thu, 17 Sep 2026 13:01:40 -0700 (PDT)
 Received: from localhost.localdomain ([104.39.169.225])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-91252c7cb8bsm5425606d6.20.2026.09.17.13.01.37
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-91252c7a362sm5504776d6.18.2026.09.17.13.01.39
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 17 Sep 2026 13:01:37 -0700 (PDT)
+        Thu, 17 Sep 2026 13:01:39 -0700 (PDT)
 From: Myeonghun Pak <mhun512@gmail.com>
 To: Ioana Ciornei <ioana.ciornei@nxp.com>,
 	Christophe Leroy <chleroy@kernel.org>
@@ -78,15 +78,16 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	Ijae Kim <ae878000@gmail.com>,
 	Myeonghun Pak <mhun512@gmail.com>
-Subject: [PATCH] soc: fsl: dpio: Free the IRQ before releasing the I/O object
-Date: Thu, 17 Sep 2026 16:01:36 -0400
-Message-ID: <20260917200136.75721-1-mhun512@gmail.com>
+Subject: [PATCH] soc: fsl: dpio: Release the I/O object on IRQ registration failure
+Date: Thu, 17 Sep 2026 16:01:38 -0400
+Message-ID: <20260917200138.75755-1-mhun512@gmail.com>
 X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_130140_031426_0799E3A3 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20260917_130142_081131_050F0736 
+X-CRM114-Status: UNSURE (   9.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,55 +102,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The DPIO interrupt handler accesses priv->io, but dpaa2_dpio_remove()
-releases that object before tearing down the interrupts. The IRQ was
-requested with devm_request_irq(), and unregister_dpio_irq_handlers()
-only clears its affinity hint. fsl_mc_free_irqs() returns IRQ resources
-to the MC resource pool without freeing the handler. An interrupt can
-therefore access the freed I/O object before devres releases the IRQ.
+IRQ registration happens after dpaa2_io_create(), but its failure path
+only releases the IRQ resources and the MC portal. The I/O object stays
+allocated and published in the service list and per-CPU lookup table,
+while devres unmaps its portal registers after probe fails.
 
-Explicitly free the managed IRQ before returning its resource to the
-pool, and perform IRQ teardown before releasing the I/O object. This
-also waits for an in-flight handler while the object is still valid.
+Call dpaa2_io_down() on IRQ registration failure to remove the object
+from those lookup structures and free it. Reorder the error labels so
+that a failed dpaa2_io_create() still skips this cleanup.
 
 This issue was identified during our ongoing static-analysis research
 while reviewing kernel code.
 
-Fixes: 993fec7e11ca ("bus: fsl-mc: dpio: add the DPAA2 DPIO object driver")
+Fixes: fe8fe7723a3a ("soc: fsl: dpio: register dpio irq handlers after dpio create")
 Assisted-by: LLM
 Co-developed-by: Ijae Kim <ae878000@gmail.com>
 Signed-off-by: Ijae Kim <ae878000@gmail.com>
 Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
 ---
- drivers/soc/fsl/dpio/dpio-driver.c |    6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+ drivers/soc/fsl/dpio/dpio-driver.c |    3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/soc/fsl/dpio/dpio-driver.c b/drivers/soc/fsl/dpio/dpio-driver.c
-index d5198ffc4455..fa82cdcc4922 100644
 --- a/drivers/soc/fsl/dpio/dpio-driver.c
 +++ b/drivers/soc/fsl/dpio/dpio-driver.c
-@@ -263,6 +263,8 @@ static int dpaa2_dpio_probe(struct fsl_mc_device *dpio_dev)
- static void dpio_teardown_irqs(struct fsl_mc_device *dpio_dev)
- {
- 	unregister_dpio_irq_handlers(dpio_dev);
-+	devm_free_irq(&dpio_dev->dev, dpio_dev->irqs[0]->virq,
-+		      &dpio_dev->dev);
- 	fsl_mc_free_irqs(dpio_dev);
- }
+@@ -244,9 +244,10 @@
  
-@@ -276,10 +278,10 @@ static void dpaa2_dpio_remove(struct fsl_mc_device *dpio_dev)
- 	priv = dev_get_drvdata(dev);
- 	cpu = dpaa2_io_get_cpu(priv->io);
+ 	return 0;
  
--	dpaa2_io_down(priv->io);
--
- 	dpio_teardown_irqs(dpio_dev);
- 
++err_register_dpio_irq:
 +	dpaa2_io_down(priv->io);
-+
- 	cpumask_set_cpu(cpu, cpus_unused_mask);
- 
- 	err = dpio_open(dpio_dev->mc_io, 0, dpio_dev->obj_desc.id,
+ err_dpaa2_io_create:
+ 	unregister_dpio_irq_handlers(dpio_dev);
+-err_register_dpio_irq:
+ 	fsl_mc_free_irqs(dpio_dev);
+ err_allocate_irqs:
+ 	dpio_disable(dpio_dev->mc_io, 0, dpio_dev->mc_handle);
 -- 
 2.47.1
 
