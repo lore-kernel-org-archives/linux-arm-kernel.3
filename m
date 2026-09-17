@@ -4,90 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AADE5C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 20:01:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5D2BC982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 20:02:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SMbyouNW/EVz0LVN7bS1sUKezudmEDE0W2YcHDpgEIY=; b=QHIOisSi0zOYnHh4ZWhMbgr14F
-	MER2X9xBrs7tpX3jZFf7tydGhkQJNQW7Cw3xzqYGJo/kRI4RhudTBQQwlaR2YQwCdFsSFjobWRPIj
-	Mm28nFxjr9/fTNcUxf8rNtJEdsH2GSU6hUearhgiMGOSL9uSp9Rntxk0GnS2tTbWzlNzDGXYceEh6
-	mgjRgJFNfUA+iQh3KzQEBRZ6S7YTbOJckTVxNogRPoVuVIJx88pfU/sfENvRsq7MYCUHuDC3LyluR
-	Y81ovGeQMqQC3awaH35yXoKLYy+jTuw2WiBc3rovHKOZwk8pNOzjdbTIS6fKXLal+EUFBz/OBxbsw
-	ijOkrXvA==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F7mBcc/zD+gqhLUWIiGJPhvEmDVUp2BOJbW6rUgXDAE=; b=F1DDchZZWp9g0R0D2JjI4F2HPP
+	6BVnnRKOA5COPpfdiL8kC4sdy8LppxBmB24hqN/E8XLbJi0V6iezFo3N32VJDPCf0zhxd1z0GDtd7
+	ugwzjxncH35da5+5QlN4y9wvc9M4OmXm0K6jzjaQIjIsFl/RaqjW0lpRMPtdFgq0g2S0cjBrKpZgB
+	5rcKWWzgzMgSxeUe40qcDWacXYPdTekkwwOfL3K8T7PKdqbluq4N8kXKrPOXOT4wIvZztx/YcRDLw
+	eSyLDZV4l0dXZJbPOfNBRccvK0HvDQ/up5iijLVv5rAZnh7IRxAs8zWo+qIBaOVimAKQGoZKi/kDM
+	V1RIw9KA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7IIm-0000000CODZ-1E7l;
-	Thu, 17 Sep 2026 20:01:48 +0000
-Received: from mail-qv2-x10.google.com ([2607:f8b0:4864:33::10])
+	id 1x7IJj-0000000COQJ-21xB;
+	Thu, 17 Sep 2026 20:02:47 +0000
+Received: from mail-ej2-x0b.google.com ([2a00:1450:4864:34::b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7IIg-0000000COAv-05im
+	id 1x7IJg-0000000COPO-3XA0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 20:01:43 +0000
-Received: by mail-qv2-x10.google.com with SMTP id 6a1803df08f44-90cdfc9b6e4so590846d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 13:01:41 -0700 (PDT)
+	Thu, 17 Sep 2026 20:02:46 +0000
+Received: by mail-ej2-x0b.google.com with SMTP id a640c23a62f3a-c25541acec6so649466b.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 13:02:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789675363; cv=none;
+        d=google.com; s=arc-20260327;
+        b=m+ZhRrYeP62akT23ThJvI19p2frlNvG+LfHAFHD+ZaZ6KHxWGwbVWRsFyK/A9aYjrx
+         7Zqsmfq5BysRKnHCyiWxnLZBZzjDC+9lrw6d3yPrispUKaj2jwwkmkEOQHoHgd/P5eo8
+         57O5BHs8AxAdQvLuuwuCC65h9HgeWffuDE9/30KtXByG8XP7whxzzpifzFUQwZ38Heng
+         1I40ZfMYJvS0GtOz0zvkl2WbAiYxyOJxK5mVwx1kQOslQXhIeOTJ2q49p9K7Mw8ARNzW
+         fM5BwbOOm2hsW+iQREWlGTpMM6alwr8xVNdK5VGu6lIInBmQwTTBsxesZ4FOL+CFrEWc
+         ygqw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=F7mBcc/zD+gqhLUWIiGJPhvEmDVUp2BOJbW6rUgXDAE=;
+        fh=gmPu0Nm+T2qUguaVE2xQhn/sXCUXaHiPTtTFe7Kassk=;
+        b=RzwTfRDEeU/4m9iMm5PWv+5HL3YWMZH0ItDtpUNJCVJFuFju9cgbK0TEQMOpYVAXNV
+         U6WWU81KiN0nQ8j6bF2w+LviM41RTf1pNTzdeXRPb4dTq/ca3zjdloXtkkXAlpcyqzIk
+         NXVhCzlvyt5PRhqEeqTTe5Gqn/TP+Cr5gu/EoPzXhUIMW2YNx8KW/3Tek1wLKQrTFHTm
+         bTw+7XCqKqKSt1R0uJwyiXTzCOOm4G5z2W1rkLp/K6/x8veQTog53bdWMnkJZ4X7bMCK
+         pBU7ZAqTW/bfmrQU7U7XTTZ6s610SQ24yWvQ3MLSEsUc/9cQDZBZSUSPRU0UFl3uxvfb
+         U0zQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789675301; x=1790280101; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=SMbyouNW/EVz0LVN7bS1sUKezudmEDE0W2YcHDpgEIY=;
-        b=h+9T3tPQdaywpPP5iVhr0K5Z334IepMr/J1u8VboC91gEGa+9aEfZAqz087OScxhGO
-         aI2vAS5lZ5XEjCP5JcfcEg5MH4+twOIZ/x96olWr8X3keoI3NxVLNe80QdS/2LJdsMxH
-         lLBtn/st4jGkXYqfOktW5XWFmle+rjFnqEKo1552d8D8VEX0LuBRHd5J5tcpfp7Ru35E
-         JjKGzE0YHPo3rE7XUKGO13/f9bgQ45zNA+Y6IcVlA6PPFgyuKHkfI1MFbkf7G1PO2Rmm
-         XLRpJzPK83HBvVwhvmJlGJ3y7umYK5GEYwxwHrMIFV7pMkjkgD+kZ/blzudf8DKHFarm
-         YRUQ==
+        d=gmail.com; s=20251104; t=1789675363; x=1790280163; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=F7mBcc/zD+gqhLUWIiGJPhvEmDVUp2BOJbW6rUgXDAE=;
+        b=gzDjG3Vo047VZMqW9aNBjedhF9qqqhVZ4wg8TWutMXiVaSrZZF3nEnncP9VgWpmpFE
+         sYszfmG+MyTjb/lBTAWV2XtMYJ5TvYXOulh10hz0L9rcLyBmHkYhXnAaD49xFuiPfTcO
+         j0nY30YVEnRO/PyhC9M1uQoyLzci2Yux2aMoVKlM6pDI1Cj2/dl37mmmLBj1k3EEdKA5
+         +lCAHXyVNNfWHzcyQigX1aBCZ7uCa02vVFTAKA2mo8CSqzRukvf1sermKkAd60XkyE/F
+         PTw8TpLF0kLfBSyCrMHROcyZCwmCaSIHBZ3cJgBeDymo7bpAsXAyQ0gK8uxRkDCnBh9j
+         1Qrg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789675301; x=1790280101;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=SMbyouNW/EVz0LVN7bS1sUKezudmEDE0W2YcHDpgEIY=;
-        b=UphjrffEh6juOeoRkW7vAavB66EWtgQukYK5klaFojG+6YQ9AVwJ+LGzTrlxd/bsiI
-         DBa4RhKgGXti9npv2gvkPpCN1U2TwIznU4CQYsR2mzhc/yS8JNx5RaIJDZ9DnciLkTWi
-         GzlLOpNh09RxywWPSaxYAf3c6o3ivkhRG9R3nX/S1Sqeut4MGwbe7Xq4ZriR+5XJEV5S
-         bCOZALAAMd9bMyrA0v+/hXaU6lBVPCCIdFLQ6EdHBqeJlVaLcTpudJ2Ki8B82yQ6KLWB
-         MStsH0HrH0CZpti4LkPCnbXm21a7CxW6aRNuEJ9XZPNlspVi28DfBwIhVSomw+BrhPVK
-         y4mQ==
-X-Forwarded-Encrypted: i=1; AKwUvBysVNEXsaQxFzzN7l0pROaWYKGBCrgONtEjUnhWedS/KqSCA5wZbbLVKC3C/c01AbKSCUIxCd80MMnnR2611oQL@lists.infradead.org
-X-Gm-Message-State: AFuF++k2cWTxzck1EN2FjX0y+zjicntQe1I40gGdQhPKF+HDcnT4cNFG
-	Ov3j08zkdI+5LhKVsIXe2Zp0YOeVkR1is815W4Qc+zenkgd4v9ySjY8/MNFFF0gc8Q==
-X-Gm-Gg: AYBFou32VQgBTkyLWMHEOla8pLVnzQaW2vVZQT6gC/i50EIo92zQWXVMJE7xWktXqxl
-	gQLq0xfj+sygBL0meZ8rEe2h+/incGPHt3K+vUXprRh2A5cf0BvROAO+/KYgO3Dv26Cex9N+gAB
-	cYGti1o9G5zW+mqvKtl1pf8rrm96UkB35el7uFX1+nxpNtzt+Ar04gr+/uTMOJhgAfh7tLsUfXR
-	IHI3d3PudaKmd62KSvhH2yn9zUU9+9Zys5W82IEa3crpEo52nyUlEegsy/GurkXiHd44nRThDj/
-	8Nz1feq6u3ncCd4zc9umpoICVBdTG2e+ms0cObQnVOBDUicHBn/y+wKiejKdd2Y1L6Hqj365qMt
-	dPjBxtUF4IZOJnsKxQRy+Fc78nrGYRtp/StNvAUhRKpSLYDfPDzfWvNL/C/u3Z2lxkVR+sPLqfO
-	6MLQZYPaEKBK2gPgwmXx6sBR/O0gkz3dkC0FpJ3z1/HWMiOqVVCYYOi6mhGY41pIndaLIpuVQeD
-	hlt7rCeDgZRVmIPbpdf1FYUkbqhUHuxxGtx12krdc9DtJCNAjfh70+9qwxLkmFHqE6QZtFo0npm
-	M9b1PdNO4DpPR/ohbroBCT5BTA18Bfm7cos+
-X-Received: by 2002:ad4:5eca:0:b0:910:39e7:dbb9 with SMTP id 6a1803df08f44-91254bd01aamr5451946d6.33.1789675300564;
-        Thu, 17 Sep 2026 13:01:40 -0700 (PDT)
-Received: from localhost.localdomain ([104.39.169.225])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-91252c7a362sm5504776d6.18.2026.09.17.13.01.39
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 17 Sep 2026 13:01:39 -0700 (PDT)
-From: Myeonghun Pak <mhun512@gmail.com>
-To: Ioana Ciornei <ioana.ciornei@nxp.com>,
-	Christophe Leroy <chleroy@kernel.org>
-Cc: linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	Ijae Kim <ae878000@gmail.com>,
-	Myeonghun Pak <mhun512@gmail.com>
-Subject: [PATCH] soc: fsl: dpio: Release the I/O object on IRQ registration failure
-Date: Thu, 17 Sep 2026 16:01:38 -0400
-Message-ID: <20260917200138.75755-1-mhun512@gmail.com>
-X-Mailer: git-send-email 2.47.1
+        d=1e100.net; s=20260707; t=1789675363; x=1790280163;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=F7mBcc/zD+gqhLUWIiGJPhvEmDVUp2BOJbW6rUgXDAE=;
+        b=yetJ92R2frQ6J81gfAE/mBY+ES+k4xB9O5ogmI1vU9R8x3gnOMIbVPbgztbl+zy6IJ
+         Q7tBt2Gct7BsvcLtx6bOrkqoHUBGaRdRqBzSy5SRKNDjY3k9mD3x9wjrFKtRIrrB2emv
+         VcoFnx18i5RQJKbXBcH9Y6Xl7Z7Hp4uZK/C/TCxywgxqEeIVG0pZXOTLyi5NDARwFZny
+         4jIHf4G1nEkhKm/sKatVPQGb39PREwuqyufsgRw8RtB0CRsXkBe6ljUtnoQyc0BtWC0W
+         zZEtDbksIwt6K9KCxjpXw4lGwi2N6qYLEBWUiu51TrcWFV/D40k8KebpUTy3krg6bbSA
+         fpbg==
+X-Forwarded-Encrypted: i=1; AKwUvByNkX6yFSxmlGlmJhwx16F3SF+2ybcBpRGUuttqGpRVIzquAxTDTmPkXWT/gczj8qS57Wm1ldn3tnwa8ksz69Ir@lists.infradead.org
+X-Gm-Message-State: AFuF++kRWZ5cx9izOp62812hpAtFtnTA3KlUrw+wBpSH/D5pLNcHR0nZ
+	bt0TkVQ5CR9T1RHNe3/kcbg6T27J8lUAf6ttLYCsILrgqpo+7yzCGd8m6pVVjGkWEFRqJWBVRTk
+	jWFkKX4C/NeB7y+M4UaPvdrHR4kOo5io=
+X-Gm-Gg: AYBFou0/ipcWw6Z6xOMJeIY8OUDUg0HuyKKr295uN5asPWpmx2e5SpEh3IlbnD0mQkk
+	XOAehhU+yFbHW949igBP92Y91hFIYporBFFTHMWjwWdGLH64AckgoadPHHdshwTmM40mSD8u41V
+	d/Vt7A1NhEp9LSK6IjU5uEidn0NbDAtSndHHdyLFEmcVm4RgjLsGqqLnhD2YhfQ10QsysNvBZfj
+	iariL7Kc9Wta5jb9DOjGjfiJBGbvxMS3P0dP1Jg8IfluPHUpuJXS1m1fyZ/cQ7uex79IcxeiC4T
+	uyTqxIWU6QIS9XnKnuHzD6cF5+QlVvJkt5WH1JOJqMt9RNvztGBIodHoxw==
+X-Received: by 2002:a17:907:3ea5:b0:c29:4204:8dbf with SMTP id
+ a640c23a62f3a-c2a157be91fmr24595366b.7.1789675362739; Thu, 17 Sep 2026
+ 13:02:42 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260915123802.1561724-4-coiaprant@gmail.com> <178967028966.22033.2377561177851606071@kernel.org>
+In-Reply-To: <178967028966.22033.2377561177851606071@kernel.org>
+From: Coia Prant <coiaprant@gmail.com>
+Date: Fri, 18 Sep 2026 04:02:31 +0800
+X-Gm-Features: AcwNN1V0XFtsL3x8UawoWV106fmNQdao8d4jMazcuCe1sSda_ba5TrpA_lpwoh4
+Message-ID: <CALj3r0jGVO_bDDkf1ts8ajtsRf8Tq--TG=Hfb4m8B5bbNLryqQ@mail.gmail.com>
+Subject: Re: [PATCH net-next v6 03/11] phy: rockchip: naneng-combphy: add
+ SGMII MAC selection for RK3568
+To: netdev-bot+sashiko@kernel.org
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com, 
+	kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, heiko@sntech.de, vkoul@kernel.org, 
+	maxime.chevallier@bootlin.com, mcoquelin.stm32@gmail.com, 
+	alexandre.torgue@foss.st.com, prabhakar.mahadev-lad.rj@bp.renesas.com, 
+	romain.gantois@bootlin.com, hkallweit1@gmail.com, neil.armstrong@linaro.org, 
+	linux@armlinux.org.uk, shawn.lin@rock-chips.com, david@ixit.cz, 
+	netdev@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_130142_081131_050F0736 
-X-CRM114-Status: UNSURE (   9.02  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260917_130244_908359_DB02C4EE 
+X-CRM114-Status: GOOD (  25.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,41 +127,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-IRQ registration happens after dpaa2_io_create(), but its failure path
-only releases the IRQ resources and the MC portal. The I/O object stays
-allocated and published in the service list and per-CPU lookup table,
-while devres unmaps its portal registers after probe fails.
+<netdev-bot+sashiko@kernel.org> =E4=BA=8E2026=E5=B9=B49=E6=9C=8818=E6=97=A5=
+=E5=91=A8=E4=BA=94 02:38=E5=86=99=E9=81=93=EF=BC=9A
+>
+> Thank you for your contribution! Sashiko AI review found 1 potential
+> issue(s) to consider:
+>
+> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 0 =C2=B7 Low: 1
+>
+> - [Low] drivers/phy/rockchip/phy-rockchip-naneng-combphy.c:380-381 reads
+>   'rockchip,sgmii-mac-sel' with device_property_read_u32() for every=E2=
+=80=A6
+>
+> --
+>
+> phy: rockchip: naneng-combphy: add SGMII MAC selection for RK3568
+>
+> This adds a "rockchip,sgmii-mac-sel" DT property so the RK3568 SGMII
+> interface can be routed to GMAC0 or GMAC1 via the PIPE_GRF_XPCS_CON0
+> pipe_sgmii_mac_sel bit, defaulting to GMAC1 to match the hardware reset
+> value.
+>
+> Link: https://dl.radxa.com/rock3/docs/hw/datasheet/Rockchip%20RK3568%20TR=
+M%20Part1%20V1.1-20210301.pdf (Page 229)
+>
+> > diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c b/drive=
+rs/phy/rockchip/phy-rockchip-naneng-combphy.c
+> > index 7843356a4dd47..7b867e7520064 100644
+> > --- a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+> > +++ b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+>
+> [ ... ]
+>
+> > @@ -375,6 +377,9 @@ static int rockchip_combphy_parse_dt(struct device =
+*dev, struct rockchip_combphy
+> >
+> >       priv->ext_refclk =3D device_property_present(dev, "rockchip,ext-r=
+efclk");
+> >
+> > +     priv->sgmii_mac_sel =3D 1;
+> > +     device_property_read_u32(dev, "rockchip,sgmii-mac-sel", &priv->sg=
+mii_mac_sel);
+> > +
+>
+> [Severity: Low]
+> This isn't a bug for any schema-checked device tree, but would it be wort=
+h
+> reacting to the return value here?
+>
+> The binding restricts the property to two values and to one compatible:
+>
+>   rockchip,sgmii-mac-sel:
+>     $ref: /schemas/types.yaml#/definitions/uint32
+>     enum: [0, 1]
+>     default: 1
+>
+>   ...
+>         rockchip,sgmii-mac-sel: true
+>     else:
+>       properties:
+>         rockchip,sgmii-mac-sel: false
+>
+> In rockchip_combphy_parse_dt() the result of device_property_read_u32() i=
+s
+> dropped, so a malformed property (for example a zero-length or wrong-size=
+d
+> cell, which returns -ENODATA/-EOVERFLOW and leaves the output untouched)
+> ends up indistinguishable from an explicit request for GMAC1.
+>
+> The read also happens for every compatible, including rk3528/rk3562/rk357=
+6/
+> rk3588 where the binding declares the property invalid; there the value i=
+s
+> parsed and then never used, since only rk3568_combphy_cfg() consumes it.
+>
+> [ ... ]
+>
+> > @@ -873,6 +878,8 @@ static int rk3568_combphy_cfg(struct rockchip_combp=
+hy_priv *priv)
+> >               break;
+> >
+> >       case PHY_TYPE_SGMII:
+> > +             rockchip_combphy_param_write(priv->pipe_grf, &cfg->pipe_s=
+gmii_mac_sel,
+> > +                                          priv->sgmii_mac_sel > 0);
+>
+> [Severity: Low]
+> Should out-of-range values be rejected rather than folded into GMAC1?
+>
+> The "priv->sgmii_mac_sel > 0" test collapses the u32 to a boolean, so a
+> device tree with rockchip,sgmii-mac-sel =3D <2> (or 0xffffffff) that was =
+never
+> run through dtbs_check gets the GMAC1 routing and rk3568_combphy_cfg() st=
+ill
+> returns success, with nothing logged.
+>
+> A range check in rockchip_combphy_parse_dt() returning -EINVAL, or at lea=
+st
+> a dev_warn(), would make such a device tree visible instead of silently
+> selecting the default route.
 
-Call dpaa2_io_down() on IRQ registration failure to remove the object
-from those lookup structures and free it. Reorder the error labels so
-that a failed dpaa2_io_create() still skips this cleanup.
+Thanks for the review.
 
-This issue was identified during our ongoing static-analysis research
-while reviewing kernel code.
+The property is validated by dtbschema for all in-tree device trees,
+which is where the enum and the compatible gating are enforced. A
+malformed or out-of-range value can only come from a bootloader-supplied
+DT or an overlay that bypassed dtbs_check, which is a user error rather
+than something the driver needs to defend against.
 
-Fixes: fe8fe7723a3a ("soc: fsl: dpio: register dpio irq handlers after dpio create")
-Assisted-by: LLM
-Co-developed-by: Ijae Kim <ae878000@gmail.com>
-Signed-off-by: Ijae Kim <ae878000@gmail.com>
-Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
----
- drivers/soc/fsl/dpio/dpio-driver.c |    3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+The read result is intentionally ignored: the default of 1 matches the
+hardware reset value, so a missing property and an explicit "1" are
+semantically identical for this hardware.
 
---- a/drivers/soc/fsl/dpio/dpio-driver.c
-+++ b/drivers/soc/fsl/dpio/dpio-driver.c
-@@ -244,9 +244,10 @@
- 
- 	return 0;
- 
-+err_register_dpio_irq:
-+	dpaa2_io_down(priv->io);
- err_dpaa2_io_create:
- 	unregister_dpio_irq_handlers(dpio_dev);
--err_register_dpio_irq:
- 	fsl_mc_free_irqs(dpio_dev);
- err_allocate_irqs:
- 	dpio_disable(dpio_dev->mc_io, 0, dpio_dev->mc_handle);
--- 
-2.47.1
+Thanks,
+Coia
 
