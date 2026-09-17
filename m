@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF706C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 22:31:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCDEEC982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 22:31:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4/qx3gACLobp/kVaCWxWU6urjoLYTDk1lm6knmcF17E=; b=qEX9JakJdWbYGo2/MOqXBKNzfD
-	fC7aC3WcMc4R9SAI/oXs2ZWiN6RaOtGyqUDzv6Wo8IiugZ7KamlmJHaJFQz8uEa6Ti51FfPj0cBmM
-	KqJxIWTSpqzHJ4C2TkY9VKaCGoKgz4NlmnEr0mbCGcNecnFeoekAA10nZDv2H3DQl0cyqDdZGhE07
-	rQr/kUQipab13Ya1kpqbudixciTNtxfoY5Bnm2DQ4InTnftd6gfpqd+bBK8OmSWSV7CDOo95LfLVu
-	Phoi8H7YTutu67ZBIAcVn/y51FyVmjuiicYVyvrkBOhpRkxKBEFdPt1c9DZGXc17895z3/4G8pKne
-	BK2ZRgTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sgzFISdebgyulnEYwPr3r7Dfr+yDo59RA9yogZZthtA=; b=UF9xX+3X6fT5gHHWMvEPQJ8rFX
+	7+9xpxpnUMFEwA/bQJ7j1Nd65UJhCb02GEydL8tB+lBjggSOXV3eu7q6558raUY7dwiLNTlby/wjp
+	5TytO8AbPhon2ATON45qklMzVS44tOxvcL8VLh0YYPDh8q4XBDI5phY/mkkQYj7wuGdu4GL9+bx/K
+	l/aveFlPucmAEOdf8rPobAtVY2L3JSEz27TLLD+WLtoNUMdV8ClvG1RgIXQpU7Chs+QAic0aFoxkt
+	hAekKOxLWQzTX6JK0DwIm9AQENaVeOsv3GTWvm5l3fbi5ASQnxDCW8MaGLC+jhCgFtNDhoyQHMOJT
+	XcTTwQGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Kd5-0000000CfDA-2JpA;
-	Thu, 17 Sep 2026 22:30:55 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x7Kdh-0000000CfLh-3Nff;
+	Thu, 17 Sep 2026 22:31:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Kd4-0000000CfCG-15eQ
+	id 1x7Kdg-0000000CfLX-1l7K
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 22:30:54 +0000
+	Thu, 17 Sep 2026 22:31:32 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A9FEA402B6;
-	Thu, 17 Sep 2026 22:30:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FC811F000FF;
-	Thu, 17 Sep 2026 22:30:53 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 20A4D40F36
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 22:31:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05E821F00898
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 22:31:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789684253;
-	bh=4/qx3gACLobp/kVaCWxWU6urjoLYTDk1lm6knmcF17E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=OLPLzJkL2pS51ZSdjvIK3zdS7esWlyTgsGn50j02Y2ZED9OxLGUZj7V58u32BmEVK
-	 mX85kSqvR/CetXKufKiQsPtO5BR1RnM3JufEsmwuZFSQ2JISfXRFnHaqZhMILoYcBT
-	 Bvd5PDr8DhkgvFvdihoRBfnNnxj3vscpeS3yKXdIXLuxYh1VEMXTEJM5MD30ZrehVZ
-	 zNULAC0juzOT3fAL3u3cbRGdHpCTaOdwUye3he5MwrRa1ZyY14KJZtNhvcXcwHjjq/
-	 ek+uXsramaiYLMPIhp70TYdNX/cb5Vfj9+a5zJU2Se9X5x4PhfMRaRd/IKAA6FCgyQ
-	 rtAnBRZI1P99w==
-Date: Thu, 17 Sep 2026 17:30:51 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Sven Peter <sven@kernel.org>
-Cc: Janne Grunau <j@jannau.net>, Philipp Zabel <p.zabel@pengutronix.de>,
-	Neal Gompa <neal@gompa.dev>, Konrad Dybcio <konradybcio@kernel.org>,
-	devicetree@vger.kernel.org, Joshua Peisach <jpeisach@ubuntu.com>,
-	asahi@lists.linux.dev, Conor Dooley <conor+dt@kernel.org>,
-	Mika Westerberg <westeri@kernel.org>,
-	Andreas Noever <andreas.noever@gmail.com>,
-	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Yehezkel Bernat <YehezkelShB@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>
-Subject: Re: [PATCH v2 05/22] dt-bindings: thunderbolt: Add Apple
- USB4/Thunderbolt NHI
-Message-ID: <178968425120.4102150.11013505530489451162.robh@kernel.org>
-References: <20260906-b4-apple-soc-tbt-v2-0-1f80085f93fb@kernel.org>
- <20260906-b4-apple-soc-tbt-v2-5-1f80085f93fb@kernel.org>
+	s=k20260515; t=1789684292;
+	bh=sgzFISdebgyulnEYwPr3r7Dfr+yDo59RA9yogZZthtA=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=FGJMKFVUkB9f4ceLcBhdlZWUbGYsNG7voSf7Xkw/ZKagmB9IotpZXjviNtCmLv4ry
+	 WnjvZcTSIywFqGSEwuLV7fIzM67MNdptwXRQ7QUiUzxmWPEPXcMCCDRVtwIcamEu6G
+	 K51ksKGYNXil7lvHuguELVihmri5DXTymzfGLZuYuBeVRTS2GXuuygsI77EevDsBoo
+	 Gf/MrkHIWQkwlphH8S0Zu0+iVWJGD3oi8P3QSuXtkq7O6GnftIudf3hObiULlb7DJA
+	 LsBPQyP21iXw5NdmpUvsvFLzt7dROMkb4agGDpnHT0IKn6QM07eT8dVNaeRHjyRmKp
+	 riuEA5ebNgh3A==
+Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b5e4f1744fso174336e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 15:31:31 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBxC9FkhHzRiyPiy9lgWNjJs8Of6GfExL/6BlTCN2gewbkLROu8zxU6yDVqXha491NqSeqAL2Dj3ESHYUg+6XFSl@lists.infradead.org
+X-Gm-Message-State: AFuF++l8WrHknVlZHKItH0gUB0YESUSHuI2dAjaxTO9Lh82iy/HQ3qrq
+	TyiovYzpr7zYXASdpvYISfwTqa/k1ZS1a8QWA4HDTw0g6G4f3d/9iTm0usucE5DZal9kMwAmfnz
+	k5PhSAxOLtsXhzJXkSKlqZG0P2kQM7QY=
+X-Received: by 2002:a05:6512:33c6:b0:5b6:183c:5c9d with SMTP id
+ 2adb3069b0e04-5b8c1958e1fmr84452e87.59.1789684290738; Thu, 17 Sep 2026
+ 15:31:30 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260906-b4-apple-soc-tbt-v2-5-1f80085f93fb@kernel.org>
+References: <20260917155657.2200191-1-arnd@kernel.org>
+In-Reply-To: <20260917155657.2200191-1-arnd@kernel.org>
+From: Linus Walleij <linusw@kernel.org>
+Date: Fri, 18 Sep 2026 00:31:18 +0200
+X-Gmail-Original-Message-ID: <CAD++jL=D+xCtWx_MX1jbBvByqypabFkFW_xp=2XpUfBb7wyGnQ@mail.gmail.com>
+X-Gm-Features: AcwNN1Vq4xrB9hQc50m54nmaYX1xnKUe4T5kma-lOihlY4UA7NShBSz8Spmt7nk
+Message-ID: <CAD++jL=D+xCtWx_MX1jbBvByqypabFkFW_xp=2XpUfBb7wyGnQ@mail.gmail.com>
+Subject: Re: [PATCH] usb: gadget: pxa25x: prevent ixp4xx + pxa25x combination
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Daniel Mack <daniel@zonque.org>, 
+	Haojian Zhuang <haojian.zhuang@gmail.com>, Robert Jarzmik <robert.jarzmik@free.fr>, 
+	Arnd Bergmann <arnd@arndb.de>, Johan Hovold <johan@kernel.org>, linux-usb@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,29 +81,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Sep 17, 2026 at 5:57=E2=80=AFPM Arnd Bergmann <arnd@kernel.org> wro=
+te:
 
-On Sun, 06 Sep 2026 20:36:28 +0200, Sven Peter wrote:
-> The Native Host Interface (NHI) provides the TX and RX rings used by the
-> software connection manager on Apple Silicon SoCs.
-> 
-> The NHI is part of the ACIO host router and is exposed to the main SoC
-> bus while the ACIO co-processor is running.
-> 
-> T6000 and T6020 use one DART stream for the TX and RX control rings and
-> one shared by all other rings, which are used for XDomain connections.
-> This likely improves the isolation of those host-to-host connections.
-> 
-> The M3 generation uses a slightly insane set of 24 IOMMU entries. These
-> are probably one DART stream for each TX and RX ring.
-> 
-> Signed-off-by: Sven Peter <sven@kernel.org>
-> Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
-> ---
->  .../bindings/thunderbolt/apple,t8103-usb4-nhi.yaml | 151 +++++++++++++++++++++
->  MAINTAINERS                                        |   2 +
->  2 files changed, 153 insertions(+)
-> 
+> From: Arnd Bergmann <arnd@arndb.de>
+>
+> The USB gadget driver is one of the holdouts of Arm single-platform
+> support that conflicts with a multiplatform kernel. Trying to
+> build this for both Intel PXA and IXP fails with:
+>
+> drivers/usb/gadget/udc/pxa25x_udc.c:144:9: error: 'UDCCS_IO_ROF' redefine=
+d [-Werror]
+>   144 | #define UDCCS_IO_ROF    (1 << 2)        /* Receive overflow */
+>       |         ^~~~~~~~~~~~
+> drivers/usb/gadget/udc/pxa25x_udc.c:141:9: note: this is the location of =
+the previous definition
+>   141 | #define UDCCS_IO_ROF    (1 << 3)        /* Receive overflow */
+>       |         ^~~~~~~~~~~~
+> drivers/usb/gadget/udc/pxa25x_udc.c:232:2: error: #error "Can't configure=
+ both IXP and PXA"
+>   232 | #error "Can't configure both IXP and PXA"
+>
+> Until recently this was not a problem, as ixp4xx was only big-endian
+> and pxa is only little-endian, so these could never be in the same
+> kernel image.
+>
+> As this has changed recently, an allmodconfig kernel for ARMv5 runs
+> into the above failure. I don't think this is an important scenario
+> in practice, especially as pxa25x support is already rather broken,
+> so prevent this configuration using a Kconfig dependency, and
+> rework the driver to allow a combined ixp4xx/pxa3xx kernel that
+> only uses this driver on ixp.
+>
+> Cc: Linus Walleij <linusw@kernel.org>
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+That's a reasonable fix. It's not like we would want an actual multi_*
+kernel on these devices anyway.
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
+Yours,
+Linus Walleij
 
