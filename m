@@ -4,106 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E5B1C982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 20:28:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7003CC982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 20:30:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dQSnXPOErAUYlxrzO2RZ74MubmylXYaCQrdeyKrYUi0=; b=OD+yARAT+mMHTzmZuWNyxy392c
-	U3rPesFbXy5tidu88xFK8aWcBO2RAjjkxHGMI73/pQZroWEbsllxZIQiFGd7F1IPDnpL3A27Hyb7t
-	GUVCwr5VOmxbgCoAHbgigv1OA0SApgoJik+eqVCL/5Yz8Jc2cKME8E4FPJU4pnI7b00CQSp9Kgcrk
-	jRxiylMPcfftsh+z2Ce9WxQh/pwIF58sfIcl7Z+x0+ue6Dxa/XWkwnNySOcTyX5jGCkPORt3PtJWn
-	AJ2h5Sga7nKh97ToIoytQoXUFU6IT4JNgBrPQ0L4/QGXqwscIW/lw051YWHCa2TMOAW1Y1oS239eS
-	cQRZtXvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eDONWVVIZU8H42EHkjWcB4aqmSBzE1naxZ+EUsVGdKM=; b=DPCs5X6rtIESjoYJQDfBh3nUpg
+	LsX16Pa5uSzADPFzcoFlsbUFrApm/kSmucip44+iMevOjpsUAijru9Hg5TaStlHr2gnEFSI3ViqCH
+	YZBGg/hT8HnGbdToawAA2/kkxY7mbxlODMZeEvcKrW/jUgvtufEaxqYmRNF1s+bsRXR1pD6PgDjV2
+	whds6m6nQw0xrcwlbt+UKUCIS2yvGv5KOHd8j1rWOPLI77GhTI0YyUOWLO36xi+VGTMJGPUTL85VA
+	dewJDX3U78n0d3oA64u0vEfpeTmKwaMOUXMvvnsyOCBT/VPw0h35x5lWpGVzVoXP37hM/WxvGwE1i
+	A14NrDqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Iim-0000000CQXG-07xK;
-	Thu, 17 Sep 2026 20:28:40 +0000
-Received: from fout-b2-smtp.messagingengine.com ([202.12.124.145])
+	id 1x7IkJ-0000000CQhg-1GQa;
+	Thu, 17 Sep 2026 20:30:15 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Iii-0000000CQWi-1zYq
+	id 1x7IkH-0000000CQh9-0KKR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 20:28:38 +0000
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfout.stl.internal (Postfix) with ESMTP id 8117C1D001AF;
-	Thu, 17 Sep 2026 16:28:30 -0400 (EDT)
-Received: from ams-imap-03 ([10.64.2.23])
-  by ams-compute-02.internal (MEProxy); Thu, 17 Sep 2026 16:28:32 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1789676909;
-	 x=1789763309; bh=dQSnXPOErAUYlxrzO2RZ74MubmylXYaCQrdeyKrYUi0=; b=
-	Ea3MteqdaDCBlN04NxRlJlkODSOOYD+CK6GsrzkpMI7mi3M1QxTSIm6BnogsqSF2
-	W902iaE/+wZQyGuL/RsXQ3faHAtBGHqtauHRvYQ1PZmGG7JfrkUN1Y8yTJiqBfRa
-	1En0OpIP5V54+iWVJvrQz8ryzXoQKT/nHh6xg1gVIflUJvIp/b2NrlV8wTwK+Q7T
-	FDtQCCU6VppN2rN1emglOAVq+/YAat3BS2c02LArBdqFTxr+mZo3kRNxQGQ6KheL
-	lw8YUkvmd8KrpwdDMiPbF1oRNt5mk8KOpI8E6Y7aZESj73fY1pyeVSSTMKa6wfnc
-	Ouvf5p7TlOPoyNdRM796Yg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1789676909; x=
-	1789763309; bh=dQSnXPOErAUYlxrzO2RZ74MubmylXYaCQrdeyKrYUi0=; b=K
-	N8LLazJ+p+3TRA33qKr2KsVcSuuEVcKUCN8mNmLteGWh+lZwYrDpPJci8WDxuhZW
-	KiZ92bBws7yGrAgOdFkjSd50jkmIT328cJ/OtB/LVN1awCZcdfOQzam8G7lMQAUs
-	VlKW99pvcVfDSBi6MrBSjDmijQAM9DFLzfHmiHeiu3ui1IVVb1ievhTGjNCI9v2Z
-	lEi0ipNmDibND25LutHGkgebXAP6n4oOZRULN5Y4aojP6LQXVgsJswXVEU3PoatL
-	UtqNL8tHcBx/lW0z7s74FpGrrolqMVkkGtK2PP+QgXE/T8qiZDAJ2LQ6Gu6BXhXv
-	fLML3vOOikyXiUJB/k3hg==
-X-ME-Sender: <xms:aE2saqiok-c-6knFYOsnRvrAwspE8qJr9bTnmHP0BNI62degeV7j9A>
-    <xme:aE2sal2T1EkiYE9bhVEPVye6vcVXadwtAkPrD3x1vJYB4OLXWKcs36y8G7PIIKo4o
-    k9cM9zOWWvxntrxdnbFn_20O8xJL5Nxexw5K-9LdiAuxOj-vPsoCL2q>
-X-ME-Proxy-Cause: dmFkZTFRv9h6v7nu+lxcC4g6+Rx4j3wacmqFRZ5xl2uHzVCxCgxkdidoTnjLkraylrTKIw
-    Kfewlt0nvNtJDjt78HcdE5Zs+n5mFUcVSdVdEMfUXLYCOX9FgGhzm+Z1Zni31uw1M/bKS8
-    hk3T07yUDXfnaq+7Ta6YNC0mMZCIsCOjeCm3tCosnxdHFfF1mVaV8Z6UziSPjmvozwVNec
-    DWh7FpRs0Lc0Z0nXPcE1lbHC63Amak8WUHmoToeq2uMPI/PlpCxc/H/KB53Z7GMPX3oPRk
-    nySy385vR5QBgq+rRS6mNKz6Rg/RBWTdy8maYn1ZlymNF17r3NiMeLueOspzW9rJBuywPD
-    wI8CSI2dgyzBVm3n08bUxoO8WrTw4enFSbGoym75e7Pj/FY7qVht7A13t37gQwS28DxqaG
-    fHe9TD+oqqEH6rgEIigCTEgRZQS4iv/Mvn5MshvajnjWrXgVt45lIqlFOIP582Gm0dfs2P
-    eiir43Ama9RWuHitH89+m8ock1fFKAtED+TDBjlCauTcX7Aj5+/PDuBfr2p0ahYTaRuPVY
-    EFPWkUXhOMSeYaYqb7qH6emycJ3ofk9UfSCOtzByKyWxYfqTAAWyC8ez6tCAvKhlKps02l
-    C/Yf2Qi/URm9NWBjJQI+zAIZ44ng9kgZ2e6tDWvfVxjGb3ZDD6ICVDHqs/BQ
-X-ME-Proxy: <xmx:a02satGR0RiEYbKl96zVlf1bGYjgLShLInFM6NqGsmdmOna_sHzTeA>
-    <xmx:a02sarF3ESJiNm4lNs9jV0EiVD_UTu1F3wKxC2LSyc7593mVf97B9g>
-    <xmx:a02sat0bxFIbk2Oe4wY87W8r9uDPEz-0jeY2lDyBtNxS8WPUhgikaA>
-    <xmx:a02salcCXyapaYN6HU50Y7j_PbPvY0WeMvX5X0FF7SgVQeAOMfdMPQ>
-    <xmx:bU2sairtEQOZJQ4z8Zczr6S7t5FpC4qgf3wrzeKcIDEkU5MNXrg-vbJ1>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 8E27B32A0084; Thu, 17 Sep 2026 16:28:24 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Thu, 17 Sep 2026 20:30:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1789677013; x=1821213013;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=O4E/r/TO4Ia/0BjZxJmv84fyinvl9/+1ynT1NWdhvas=;
+  b=Y/O9H4/JvHtY233JWEPekKTQrT47IzeBjH2m2xL0I4gZeAarqOYsKruj
+   tW2acy7rx8ifiOxI+LWOxmoAhsaTsJZTI/bGoUaZMcMtaqd6omlCUGdRS
+   8GVKrupUQ0JcC5hzhrTG8IebXj7LS33kOPzxKft7/Z9GHiCDnlw8xvWzs
+   6IpIHgnWvvo2ZMgWjbhcrkdyXeORb5QdOx02gBmp9dZZRW8P05r4kJu1B
+   cEAfnN/AsbYafHz5OKofO91wUxW7MGBVZfJg9YqsgGIxci8SMwIvvc07f
+   gmAokr81FsUUug0dyCkw9JJTU/NbjdqF8KXC3qKfPFFhmUWSUlPFTuybD
+   g==;
+X-CSE-ConnectionGUID: 8cCsNA1xT2Wwkb55ADtzdQ==
+X-CSE-MsgGUID: Ey738OC+T2mMH915lD/TvQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="90007926"
+X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
+   d="scan'208";a="90007926"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Sep 2026 13:30:12 -0700
+X-CSE-ConnectionGUID: dSxZsrCVRm6JjrCxhaBwiw==
+X-CSE-MsgGUID: LwfJGjC0QIGxUw/0hFem2w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
+   d="scan'208";a="267777446"
+Received: from lkp-server01.sh.intel.com (HELO 462990a40a85) ([10.239.97.150])
+  by fmviesa009.fm.intel.com with ESMTP; 17 Sep 2026 13:30:08 -0700
+Received: from kbuild by 462990a40a85 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1x7Ik9-000000008TJ-42b7;
+	Thu, 17 Sep 2026 20:30:05 +0000
+Date: Fri, 18 Sep 2026 04:29:06 +0800
+From: kernel test robot <lkp@intel.com>
+To: Wentao Liang <vulab@iscas.ac.cn>, airlied@gmail.com
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	dri-devel@lists.freedesktop.org, jernej.skrabec@gmail.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-sunxi@lists.linux.dev, maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org, samuel@sholland.org, simona@ffwll.ch,
+	tzimmermann@suse.de, wens@kernel.org,
+	Wentao Liang <vulab@iscas.ac.cn>, stable@vger.kernel.org
+Subject: Re: [PATCH] drm/sun4i: Fix pdev reference leak in
+ sun8i_r40_tcon_tv_set_mux()
+Message-ID: <202609180443.vTkwAZL6-lkp@intel.com>
+References: <20260916182412.2091681-1-vulab@iscas.ac.cn>
 MIME-Version: 1.0
-X-ThreadId: A1v-knPnKEnN
-Date: Thu, 17 Sep 2026 22:27:54 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Bjorn Helgaas" <helgaas@kernel.org>, "Semih Baskan" <strst.gs@gmail.com>
-Cc: "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- "Manivannan Sadhasivam" <mani@kernel.org>, "Rob Herring" <robh@kernel.org>,
- bhelgaas@google.com, "Ray Jui" <rjui@broadcom.com>,
- "Scott Branden" <sbranden@broadcom.com>,
- bcm-kernel-feedback-list@broadcom.com,
- =?UTF-8?Q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>,
- =?UTF-8?Q?Rafa=C5=82_Mi=C5=82ecki?= <zajec5@gmail.com>,
- "Florian Fainelli" <florian.fainelli@broadcom.com>,
- linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, "Rosen Penev" <rosenp@gmail.com>,
- rani.hod@gmail.com
-Message-Id: <7c2a8582-280e-471a-b4b0-037b2cda6ad8@app.fastmail.com>
-In-Reply-To: <20260917183602.GA1036092@bhelgaas>
-References: <20260917183602.GA1036092@bhelgaas>
-Subject: Re: [PATCH] PCI: iproc: Use pci_alloc_host_bridge() on BCMA
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260916182412.2091681-1-vulab@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_132836_953003_EA27431C 
-X-CRM114-Status: GOOD (  14.92  )
+X-CRM114-CacheID: sfid-20260917_133013_137407_191F65DC 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,34 +93,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026, at 20:36, Bjorn Helgaas wrote:
-> On Thu, Sep 17, 2026 at 09:02:23PM +0300, Semih Baskan wrote:
->> On Thu, Sep 17, 2026 at 10:59:29AM -0500, Bjorn Helgaas wrote:
->
-> Then it seems like we should remove the "brcm,iproc-pcie" compatible
-> from DTs for platforms where bcma can enumerate it via EROM.  Those
-> platforms can enable CONFIG_PCIE_IPROC_BCMA.  They still need the PCIe
-> controller node in DT so they can use the wifi nodes below it, but if
-> there's no "brcm,iproc-pcie" compatible, pcie-iproc-platform shouldn't
-> do anything.
->
-> Arnd, Rafa=C5=82, jump in if I'm in the weeds here.
+Hi Wentao,
 
-It feels wrong to me to change the devicetee file when that arguably
-describes the device correctly, and we still need the node for the
-bcma bus probe in the end.
+kernel test robot noticed the following build errors:
 
-Normally, there should be a list of compatible strings so the driver
-can make a more informed decision, e.g. the platform driver could
-skip a device if it identifies the compatible string as one that
-can be probed using the bcma bus when that driver is also enabled.
+[auto build test ERROR on sunxi/sunxi/for-next]
+[also build test ERROR on daeinki-drm-exynos/exynos-drm-next drm/drm-next drm-i915/for-linux-next drm-i915/for-linux-next-fixes drm-misc/drm-misc-next drm-tip/drm-tip linus/master v7.3-rc3 next-20260916]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Unfortunately, it appears that all of these only have the generic
-"brcm,iproc-pcie" string (or only the paxc variant), so that doesn't
-work here.
+url:    https://github.com/intel-lab-lkp/linux/commits/Wentao-Liang/drm-sun4i-Fix-pdev-reference-leak-in-sun8i_r40_tcon_tv_set_mux/20260916-182412
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux.git sunxi/for-next
+patch link:    https://lore.kernel.org/r/20260916182412.2091681-1-vulab%40iscas.ac.cn
+patch subject: [PATCH] drm/sun4i: Fix pdev reference leak in sun8i_r40_tcon_tv_set_mux()
+config: arm-defconfig (https://download.01.org/0day-ci/archive/20260918/202609180443.vTkwAZL6-lkp@intel.com/config)
+compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project 7252edd9aa82ef1c570ff6694ef7f4763a8a5d2f)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260918/202609180443.vTkwAZL6-lkp@intel.com/reproduce)
 
-Would it be help to change the probe order so the bcma driver
-always comes before the platform driver?
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202609180443.vTkwAZL6-lkp@intel.com/
 
-      Arnd
+All errors (new ones prefixed by >>):
+
+>> drivers/gpu/drm/sun4i/sun4i_tcon.c:811:14: error: use of undeclared identifier 'pdev'; did you mean 'dev'?
+     811 |         put_device(&pdev->dev);
+         |                     ^~~~
+         |                     dev
+   drivers/gpu/drm/sun4i/sun4i_tcon.c:786:50: note: 'dev' declared here
+     786 | static int sun4i_tcon_init_clocks(struct device *dev,
+         |                                                  ^
+>> drivers/gpu/drm/sun4i/sun4i_tcon.c:811:20: error: no member named 'dev' in 'struct device'
+     811 |         put_device(&pdev->dev);
+         |                     ~~~~  ^
+   2 errors generated.
+
+
+vim +811 drivers/gpu/drm/sun4i/sun4i_tcon.c
+
+   785	
+   786	static int sun4i_tcon_init_clocks(struct device *dev,
+   787					  struct sun4i_tcon *tcon)
+   788	{
+   789		tcon->clk = devm_clk_get_enabled(dev, "ahb");
+   790		if (IS_ERR(tcon->clk)) {
+   791			dev_err(dev, "Couldn't get the TCON bus clock\n");
+   792			return PTR_ERR(tcon->clk);
+   793		}
+   794	
+   795		if (tcon->quirks->has_channel_0) {
+   796			tcon->sclk0 = devm_clk_get_enabled(dev, "tcon-ch0");
+   797			if (IS_ERR(tcon->sclk0)) {
+   798				dev_err(dev, "Couldn't get the TCON channel 0 clock\n");
+   799				return PTR_ERR(tcon->sclk0);
+   800			}
+   801		}
+   802	
+   803		if (tcon->quirks->has_channel_1) {
+   804			tcon->sclk1 = devm_clk_get(dev, "tcon-ch1");
+   805			if (IS_ERR(tcon->sclk1)) {
+   806				dev_err(dev, "Couldn't get the TCON channel 1 clock\n");
+   807				return PTR_ERR(tcon->sclk1);
+   808			}
+   809		}
+   810	
+ > 811		put_device(&pdev->dev);
+   812	
+   813		return 0;
+   814	}
+   815	
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
