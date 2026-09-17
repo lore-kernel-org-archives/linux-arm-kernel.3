@@ -4,70 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3D1CC982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 10:01:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E6E7C88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 10:03:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xYnLi3KwvYUOTG+qFfRt4ovqKtaUombElJPtjd+u6gY=; b=mMXMiz7h26xYLSDMwtgYupYsLM
-	q+xTw9J/VGgJzzn68yud4B09Vv/mMxo+CFFrXdD5Mrx6+vosUfJbV+MPwE6pNUQZVVOAZtwoOrCgk
-	u36xqggIvsHQw8fjz1AoYdRZWorNljACNKsnJqYR5C7zWO2F4bim4QJWD0VragMLZCLmaz56+TLDk
-	nXVGnoAAmNaXLnDhyQ+FjroPjZL4tqWQOIZOTEfIAKVYn2PQ1klBzaZZEGrgYdHVYLb6LcmKiO2Ox
-	wcWpVwKRiZJJJrtY/FCuy10lqI2MwMtEkbnkTmHIGB217Bf0Rmd31Ldu36fl1XMDfwK0YVbWn0dOW
-	hSJHSGqQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rPBu7XEMUYzmXNf+VFl9KBFAn689Ojplx8schjty8+U=; b=NS3IW9VIFB8eJwDPLpX5ZopuaK
+	xW4ScPlKEarPlOXielfbTA+MRdTlm1ygp+rGJzoYfXajo2z6Mx5t/oqaF3m1yzr1cv/70nQAu5mOs
+	T6+49G+hGD+aFizwOsdves8+B+I44byztCYwHN/YGH9yaBf7zFHf21DIxTXCLCSqUgFkX3mlRvFQP
+	TpcMQZKnOjwp8YmwIRS7mmmDkITGxgki2/oPg/ZyxNMvFG+EKOAV+KlZyQM7Y5VVFHPrXT8i8I1dh
+	RoWfgN9JZwetpabBk8iagjo4bDvzbE84WQ+6XY+/Hr8bxuHmkwW8QUyefpFob2EzqUQgGGLkW6D5H
+	DwKrBTiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x78vz-0000000B3nC-43eV;
-	Thu, 17 Sep 2026 10:01:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x78vx-0000000B3mV-49E4
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 10:01:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5102E1476;
-	Thu, 17 Sep 2026 03:01:32 -0700 (PDT)
-Received: from [10.57.74.102] (unknown [10.57.74.102])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0CE963F7B4;
-	Thu, 17 Sep 2026 03:01:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789639295; bh=1pwwAA8ZeOmKPOIlnHk+XRlZJTnA6zBlBTY2TxR85cU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SvAAG4W6pCrBYl8UpXFPHTB71j6RSyCdPuWmd6UkpE0cOM3aNKMGhTZAlgIGEB7fV
-	 Cd4IX/FcwNi0bAPpT+dbXe03++P3TJBX21zD+nSnKRWo8w05d+mhGf6NjzzytfXlME
-	 YQWqbo5gb1j49X8rnLzxfNNa3piSKywqbAZlc1EM=
-Message-ID: <6f2907ec-848e-4e60-98b2-a3b7a905b880@arm.com>
-Date: Thu, 17 Sep 2026 12:01:31 +0200
+	id 1x78xB-0000000B3yV-0XPK;
+	Thu, 17 Sep 2026 10:02:53 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x78x8-0000000B3xq-1Brt;
+	Thu, 17 Sep 2026 10:02:52 +0000
+Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
+	by APP-05 (Coremail) with SMTP id zQCowADnVD_HuqtqiDl+CA--.150S2;
+	Thu, 17 Sep 2026 18:02:47 +0800 (CST)
+From: Wentao Liang <vulab@iscas.ac.cn>
+To: angelogioacchino.delregno@collabora.com
+Cc: bin.liu@mediatek.com,
+	hverkuil@kernel.org,
+	irui.wang@mediatek.com,
+	kyrie.wu@mediatek.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	matthias.bgg@gmail.com,
+	mchehab@kernel.org,
+	Wentao Liang <vulab@iscas.ac.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH] media: mtk-jpeg: Fix runtime PM leak in mtk_jpegdec_worker()
+Date: Thu, 17 Sep 2026 10:02:47 +0000
+Message-Id: <20260917100247.2145872-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] arm64: topology: fix arch_freq_get_on_cpu()
- overflow above 4.19 GHz
-To: Oleg Keri <okerixx@gmail.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Sumit Gupta <sumitg@nvidia.com>,
- Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
- Beata Michalska <beata.michalska@arm.com>,
- Russell King <linux@armlinux.org.uk>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Sudeep Holla <sudeep.holla@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Viresh Kumar <viresh.kumar@linaro.org>,
- linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <55538466-2203-42ec-a0bd-b743c04a3b38@arm.com>
- <178955779940.30466.10860982419496123467@gmail.com>
-Content-Language: en-GB
-From: Dietmar Eggemann <dietmar.eggemann@arm.com>
-In-Reply-To: <178955779940.30466.10860982419496123467@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: zQCowADnVD_HuqtqiDl+CA--.150S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Zr47Ar4UtFWUXFW5CrWfZrb_yoW8GFy3pr
+	W5tFy7ArWDGw45tw48Aw17XFyYk34rGr48uF1xX3WkZ39xXF47t3y5ZFyftFWIkr9Fka45
+	Jr10q3yxGr4qvFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPqb7Iv0xC_KF4lb4IE77IF4wAFc2x0x2IEx4CE42xK8VAvwI8I
+	cIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2
+	AK021l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v2
+	6F4j6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxV
+	W0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv
+	7VC0I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Gr1j6F4UJwAm72CE4IkC6x0Yz7
+	v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0E0s8F02x267IIx4CEVc8vx2IErcIFxwAC
+	I402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrw
+	CF04k20xvE74AGY7Cv6cx26r48ZrWUJr1UMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E
+	5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtV
+	W8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY
+	1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI
+	0_Gr1j6F4UJwCI42IY6I8E87Iv6xkF7I0E14v26rxl6s0DYxBIdaVFxhVjvjDU0xZFpf9x
+	07j1zuXUUUUU=
+X-Originating-IP: [36.110.52.2]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiCRQNA2qrq00+8QAAs7
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_030138_075559_55C2DA57 
-X-CRM114-Status: GOOD (  10.03  )
+X-CRM114-CacheID: sfid-20260917_030250_683409_F98C7D72 
+X-CRM114-Status: GOOD (  10.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,21 +86,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Oleg,
+pm_runtime_get_sync() leaves the device's runtime PM usage count
+incremented even when it fails.  mtk_jpegdec_worker() jumps to
+dec_end on that failure, which does not call pm_runtime_put(), so
+the reference taken by the failed resume is leaked.
 
-On 16.09.26 13:23, Oleg Keri wrote:
-> Hi Dietmar,
-> 
-> On Wed, Sep 16, 2026, Dietmar Eggemann wrote:
+Use pm_runtime_resume_and_get() instead, which drops the reference
+again when resuming the device fails.
 
-[...]
+Fixes: dedc21500334 ("media: mtk-jpegdec: add jpeg decode worker interface")
+Cc: stable@vger.kernel.org
+Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+---
+ drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> Fine by me, that reads better than open-coding the shift. Your diff
-> builds here on arm64 (topology.o and kernel/sched/), so I will fold it
-> into v4 and add the scheduler maintainers to Cc for the header move.
-> 
-> Since the diff is yours: is a Suggested-by enough, or would you rather
-> have Co-developed-by and your Signed-off-by on the patch?
+diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+index 8c684756d5fc..ed1d5858c942 100644
+--- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
++++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+@@ -1732,7 +1732,7 @@ static void mtk_jpegdec_worker(struct work_struct *work)
+ 	jpeg_dst_buf->frame_num = ctx->total_frame_num;
+ 
+ 	mtk_jpegdec_set_hw_param(ctx, hw_id, src_buf, dst_buf);
+-	ret = pm_runtime_get_sync(comp_jpeg[hw_id]->dev);
++	ret = pm_runtime_resume_and_get(comp_jpeg[hw_id]->dev);
+ 	if (ret < 0) {
+ 		dev_err(jpeg->dev, "%s : %d, pm_runtime_get_sync fail !!!\n",
+ 			__func__, __LINE__);
+-- 
+2.34.1
 
-Don't worry, I will give my 'Reviewed-By' for the final version.
 
