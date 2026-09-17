@@ -4,64 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83C34C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 22:23:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02A1BC88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 22:26:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OAHJa1o17312CYNFiD4zfuhqKr9lbf9t3naSNm1O3t0=; b=BwAKPQHIH4rGAUgakCOawL/3/I
-	atmUBdMuRcfh/ER4A0lfVJI1eT0tOqYSuS/cy6GWYorIgFUPgZtmN0LSfniefUUEkHIHgVvDCEuyD
-	r+EFbNf0yS92Xgx/zNZnHpE/BXtYh7XqT89hwwv3uUj/3rLuqin8AEF540htQauuTKXdVVVHXlKm/
-	G1UEfoI7BnZdWwjK5ZYKWLBc/V+Zym2FzzZCQf4LQf9q/5ddZpecaifXPCdVINaWRQDjkNXW+zvMn
-	hanxAtCRsy4VSuuf5IQdqmJWWOAm6EP4mKk+onPyem28guewor1M457bhIHqrYGcAqQ8UvzndJyQZ
-	TJJS3H2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CrlZYOE4Tb+zUOHoD48b//tG3mcCRvsKdsWOXCdCJnk=; b=KgbVdx6fom4v+3Wo2f3Q56eygH
+	XOiQHiyFpe4XjBIUvgvlEJ4ha8/aUE6V3yI0LNKmVzjz/4FThqI9OZWD+QOC9EndLlaVbq+nnYH6d
+	pVLxS8vif9bA/TdRzS4ZQq42+ertd4l/FbOMc2BItKx41wOGMUlE4DRh7ro65Uov1hzt4SBkjsKE/
+	eGRD8krJYz2Nqz9wNY2WafYhx9iUh9ckFzOzENTP4+fzUCRRot/iUt0iwO9fMPmMQjDKp19p0g1BU
+	CxvEWu0QPY4xNR+T2lxsIXB+qu75GpslJ3U5Qq+7uD3+3VJJaMhjw7HwPWnoaBA17sDtP0JbuvCqk
+	6xbBKMsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7KVj-0000000CdjZ-2XaV;
-	Thu, 17 Sep 2026 22:23:19 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x7KYN-0000000Ce1T-0Byl;
+	Thu, 17 Sep 2026 22:26:03 +0000
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7KVi-0000000CdjQ-3KCP;
-	Thu, 17 Sep 2026 22:23:18 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 38E0240435;
-	Thu, 17 Sep 2026 22:23:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF6AC1F000FF;
-	Thu, 17 Sep 2026 22:23:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789683798;
-	bh=OAHJa1o17312CYNFiD4zfuhqKr9lbf9t3naSNm1O3t0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=XlyyiYMlXm1DOvsqF2YQKjQL1SAZCKR8onNHWACRb49iwLZ9ZY8bJwbE0TdtC3VLA
-	 uX0bBeIjSzR2VgQviYNFbAg62zND8jCpps5Deu00rOM0g5RezqBDnR3ONR/XbPXZiy
-	 nweATYb/lQdJ3eMmAg36C2bND5G/vLEsea4CvXuLIAz8q8ruRjgtIuFyi4wR4/emVm
-	 AGCkd8hO6LKj1Ov4M/NNa+IV0JfWN/xS4sH3Ah/dDR6CPybHnEOubENOE95T1QhEx3
-	 nhgQCSZvvVLWO2G/jhk/CyX/XWY/eOuvO2FK5nKK4BPe5l1t0PiuuFwQ1wFBvfEW7b
-	 fK4OSpt/+C2Lw==
-Date: Thu, 17 Sep 2026 23:23:13 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Frieder Schrempf <frieder@fris.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	id 1x7KYL-0000000Ce0t-0HaK
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Sep 2026 22:26:02 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49cd4ba9f68so1607365e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 15:26:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789683959; x=1790288759; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=CrlZYOE4Tb+zUOHoD48b//tG3mcCRvsKdsWOXCdCJnk=;
+        b=j/6GhCnvwru1QbXv+1opFASNPWeaXXOvx08MOHNTwthJ0A4WeoO/9/YQrq/OnO6hDW
+         Ya/XP7A96Y1o4N1m8IK907VOkL4MHO6JQH2EgW2Zk/gOpaoR4guxozepxj0nTyYlMGPH
+         A+o9PnOvdpz4Q6+/M4QE0iHytKys0u6wenGMHwKCoIAmxrzXNr7d3+zdUdAyxIHeY0su
+         BXAfsHwdj8DWhdRb0nW0hp1n6Nf+siM3P/KomeHVKB2PT/RLnaCj0b8BCuu48hX2yuSX
+         VXMc4JF5s1aNJaaOLblnqgOjdjdAeGptRvfoLdz0MkFdLO3slu63OKOn/lwHvnXqAFZx
+         JjOQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789683959; x=1790288759;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=CrlZYOE4Tb+zUOHoD48b//tG3mcCRvsKdsWOXCdCJnk=;
+        b=Oqe1VaudFQNXKNau/2njlmUDZLuyv9TZTUJAY3LQrlSN+28Xb/KBs+EGFDNPIB9+8q
+         tVnBMDAhj70CS0ZOUibIurMI9bVaODIobtr7FvDCh8LdPz+Uio33omDg7ifhpb8KTpds
+         0d6LTQlBreTo3TilrDzHTpRNm7stX7phnE16PSf81YOe6LfmvBAFMYe05U6QY7gVdSnR
+         czVIkG/6nW+saqdNFzix2nW4e6shP3bTeN5v4ZtWRMkiFmkJxQppvzjeGv9GblVcF4tF
+         kQ3bU05Jp2yg/+FRWMOh/vUdVOd16EX5Ny6Oe9+JIlLH6giAyTyADPcE7AI2vvfIn5U3
+         92uQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzoJ5sHAFp8jEslU5LtF0Dst+vm3fqFCIta6gvECZLz9ZUKGtktzQDuxs5iFxIcZ83W2u0x5CQO8o3iTOISzSkz@lists.infradead.org
+X-Gm-Message-State: AFuF++kkxXnAEsFw/n7A3MpnNzVWr7/dfH2pZQHhoHjXIPV3/d70Lkak
+	TR3cwfIzgayu7KPKntGuTlTD0LxAvC5vwfPa4n3N6Hn7pL7zfk9NijIr
+X-Gm-Gg: AYBFou03YWGTGQ+x1rHds2+yInOMS8T1IJrY4cfqNF/kaN3PRPr96CIBC0hWMcL3lEo
+	Ljpag4MVa2Xd5llC6IPylMMigznYVyofrVYFXPiSHSmmpyKKK3saDMg06k8UxfnRt0/nnAQpqIt
+	GH9TcqSQAj9zverqfVSyrMZsXEHkcGCQcNQJ12LmStmeJ0O5VtBOWMEZR69vT1uW59HwV1IlFaB
+	SjgT2EUzFfv2Sx5ufLchRdS8mR/7z5FThWTjfvCuF1QOxYJxdYmbuf4rfEJ0y5FFqlaWmaq8W2y
+	4nmBc3tdIoXj/PohyrjLQmeM13X9lnVVyphuEsqYYghD68VRaLlREzNFn9bcgRkB+5l2Z2goXll
+	vEMvrULXALgX6iq8YupTQLlMAIQyEcFk/UlcBrs5PymVwbAsuySu+QUHtnWefJLgIgcqy1+QRtU
+	7Ec5dyO3R36Vp2IX9Y4u5QSTm6EyGq8NCmfo4YwavCbBvIEClsz1CdYD4eqysJyKzYujxy4970G
+	bCloRDZINohpC55H81Q0wlIh5AKbWBOzn9qt8F8qBTVTE0ZsKOgtLdktPHQk6Y1skKDtC/0DUUP
+	KWVkxWydMjNZoZpgLQQodQ==
+X-Received: by 2002:a05:600c:3b17:b0:49c:fc6e:8cae with SMTP id 5b1f17b1804b1-49fc5737b80mr3154795e9.18.1789683958822;
+        Thu, 17 Sep 2026 15:25:58 -0700 (PDT)
+Received: from Lord-Beerus.station ([31.27.155.43])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fc56aab7csm5583835e9.1.2026.09.17.15.25.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 17 Sep 2026 15:25:57 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: Frank Li <Frank.Li@nxp.com>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, linux-spi@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Frieder Schrempf <frieder.schrempf@kontron.de>
-Subject: Re: [PATCH 1/3] dt-bindings: spi: Clarify what rx-sample-delay-ns
- describes
-Message-ID: <c0c4645b-a51c-409f-82a3-a6e6bbd7962b@sirena.org.uk>
-References: <20260917-spi-sample-delay-cleanup-v1-0-0e4eddbfb1ce@kontron.de>
- <20260917-spi-sample-delay-cleanup-v1-1-0e4eddbfb1ce@kontron.de>
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Subject: [PATCH v3 0/3] arm64: dts: imx8mm-var-dart: update SoM support
+Date: Fri, 18 Sep 2026 00:25:42 +0200
+Message-ID: <cover.1789683864.git.stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="L0y9QomAYqKB4qGL"
-Content-Disposition: inline
-In-Reply-To: <20260917-spi-sample-delay-cleanup-v1-1-0e4eddbfb1ce@kontron.de>
-X-Cookie: Whip it, whip it good!
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260917_152601_108917_E97367B1 
+X-CRM114-Status: UNSURE (   8.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,38 +109,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series updates the Variscite DART-MX8M-MINI SoM device tree to
+better reflect the currently supported hardware configuration.
 
---L0y9QomAYqKB4qGL
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The changes configure SAI3 in synchronous RX mode, add TPM support,
+and increase the Ethernet PHY reset deassert delay to improve PHY
+detection reliability.
 
-On Thu, Sep 17, 2026 at 05:37:35PM +0200, Frieder Schrempf wrote:
-> From: Frieder Schrempf <frieder.schrempf@kontron.de>
->=20
-> The property is documented as an offset from the controller's default
-> sampling time. That says what the value does, but not what it is meant to
+v2->v3:
+ - Fixed reset-gpio polarity
 
-Please submit patches using subject lines reflecting the style for the
-subsystem, this makes it easier for people to identify relevant patches.
-Look at what existing commits in the area you're changing are doing and
-make sure your subject lines visually resemble what they're doing.
-There's no need to resubmit to fix this alone.
+v1->v2:
+ - Add tpm pinctrl
+ - Add comment on tpm reset line
 
---L0y9QomAYqKB4qGL
-Content-Type: application/pgp-signature; name="signature.asc"
+Stefano Radaelli (3):
+  arm64: dts: imx8mm-var-dart: configure SAI3 synchronous RX mode
+  arm64: dts: imx8mm-var-dart: add TPM support
+  arm64: dts: imx8mm-var-dart: increase PHY reset deassert delay
 
------BEGIN PGP SIGNATURE-----
+ .../boot/dts/freescale/imx8mm-var-dart.dtsi   | 21 ++++++++++++++++---
+ 1 file changed, 18 insertions(+), 3 deletions(-)
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqsaFAACgkQJNaLcl1U
-h9DFQAf/YiZIXR/nWBD844AeGm4hNeuzDP06VgDHz/DZQv5Mt9rgoj/KVDgdXr5Q
-XED0luFopb2JIiZ3kGlptpsJE/0b97GXeo6pSEXR9Q+wK5G2PpxIFxdrEq6GK7UM
-bDTbtFaUA3TZ2esXyIeVl8rkr99aGsTy18baJr7U9PoX9YiPLm28BHnMSs09m+B0
-oto/aP502j9+RT9V1CGLRAZ2akHfbWYmybSPSUS3tIJ/v7KlSO0QPLKQuc2KYBmZ
-WM5nfYy5VLqGvJ9fYmIWUAwzb75oYs+bttATEU2qdtzU0huqntr9MBC752AqOBWH
-jF1ANLwoRK3TuxJqPQ/He64Z0oOgNg==
-=iAiR
------END PGP SIGNATURE-----
 
---L0y9QomAYqKB4qGL--
+base-commit: 46d8fa682d263271f3ef7bf95166b124c19d6c62
+-- 
+2.47.3
+
 
