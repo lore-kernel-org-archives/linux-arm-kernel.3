@@ -4,66 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BE8FC982D7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 14:00:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52421C982D6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 14:01:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rF0BtYMFWD7pbUoewLZT8mBNaLMLep6fnG7M6eFSgew=; b=KXdPuV3Ek258TJJiI/Vd30Rmpn
-	HcCTKPbaQHMRqB7tF8NVdylAVjR6Y7wdNfBFoXZb3LSMkm0exYT6BbXiLlOsTDWjTzOW3MgvddISm
-	o8xfPz6qzwxqhA1HfnVlEvSNQenjslyVO4XCz+wcaRrju36/IqUerrLu2WRiKpR4LJyDIGXWhnA4e
-	1d6Rm/HOLyAhMSLO9Y4lFK/GTZWfWJJ9XjOuvmyMW9BPoe8NNn4BRShfhawMNEG2nghvhv/lItkpQ
-	reURIDOI2IFwyFnYiYs7slFtkZ97/RuzbqlDJip+D9fdicJhEGA0C0Jq4FJTZSNrDmyqy9jRBu/3+
-	fGz6khzQ==;
+	bh=JJ+u9N0IVMNFM/Z0N49U31h73iEiUichEwKQu4MgjTo=; b=YfbQD74SWO7VP2einoVCuYH2+k
+	wELMqnVUDbHkRGsQ/p0jZ58RJx0EU5UZeIihT4BCjqHajIyACcynkQFHdb1686kRMyJmFh4/aqXaN
+	Q/IZGSgG4MYON9J9V3lVx0o8jBWUV0V41mieKq3QTtt2MBPrbTaXBmKKqdfzeYMw5RwCwPv48Cf6Z
+	twT1E5jsf/rroyA+1muYNH55cJJ3jc3Ycr37BbNum7yEpBLtc/sB686b7nLHhonkkCjCX93qTbt1M
+	zBGj1tvLSK/pL3H6Co1y2hBOS9HceW2swyLw1wsgpSIVbhAgDl154j0XBHAsWbtxDPKOwnGnItykh
+	8VH1so0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Cer-0000000BU35-0SLa;
-	Thu, 17 Sep 2026 14:00:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x7CfZ-0000000BUB9-13Xj;
+	Thu, 17 Sep 2026 14:00:57 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Ceq-0000000BU2y-04AA
+	id 1x7CfW-0000000BU9G-0Xhn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 14:00:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 04964436B7;
-	Thu, 17 Sep 2026 14:00:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F2351F000FF;
-	Thu, 17 Sep 2026 14:00:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789653609;
-	bh=rF0BtYMFWD7pbUoewLZT8mBNaLMLep6fnG7M6eFSgew=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=V5zw2bKn13/jSs5oYoBaVSxDvVGNH5RAFypAh0bqZw5RVdBazKjorZGSozYJi0rKR
-	 qrdBhf5YWC9rDRmzz0bTjcnXOH0CZrAYY8VRSqierzDIf04pI6MBlHJKlLpkPJj+UC
-	 nDwhjPVTlRNWwld+zl03AF+e0uBDLKdcrOm3+KRSRq6omTdsOlcsPBngKo8TtXxeTd
-	 JlrwIqe3ielkYtrwB8L8P53XLDPu4aCUv22o/hwzZvUmLcq1kJr5MUUjcTupngwM+Q
-	 Y5ZLpMsUJn2tIFiQoKXR/3PjxO8yUmnFLk046Qu4tSIGQrLGr6mZN59Tn5kliAmrQm
-	 d+k0M8EebydDw==
-Message-ID: <27072d94-13bf-4bea-948a-d8a67976601e@kernel.org>
-Date: Thu, 17 Sep 2026 16:00:03 +0200
+	Thu, 17 Sep 2026 14:00:56 +0000
+Received: from francesco-nb.. (xcpe-178-82-167-143.dyn.res.sunrise.net [178.82.167.143])
+	by mail11.truemail.it (Postfix) with ESMTPA id C631E227EA;
+	Thu, 17 Sep 2026 16:00:50 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1789653651;
+	bh=JJ+u9N0IVMNFM/Z0N49U31h73iEiUichEwKQu4MgjTo=; h=From:To:Subject;
+	b=LQtryhQODYGsTRK0Z+111hA5x+GCNYdaduOJ4eAB52xvmx1LrZ41Ly2YdHtzGTsGm
+	 wZ2/cNGC+xE7ydPKkAUVJ1mupDnhZSU1Vj1EphFtRmwrnyqdR7fEwfRvTHTpvCP9Ls
+	 kYb15/UsB7HN1Kv7NAsyPyhiwQn8K08loGYluaU0cA9ABUAAoo89IvNAqevgzjwBtz
+	 Cwpw78UPPqvzC8ysCBYJaq6X6rSJ7rg3N92AvffjRUPKE4pSXLNTpZvdKY9KXAa5DP
+	 vYN6AX6FoUkfuMos6XDOm+7lBesXlZCOdrFn4xVctfrlGCytSA779G2e5gTplKvO+X
+	 LPa6hVg4orAuw==
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Marek Vasut <marex@denx.de>,
+	Stefan Agner <stefan@agner.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH v5 1/4] dt-bindings: lcdif: Add endpoint bus-width property
+Date: Thu, 17 Sep 2026 16:00:36 +0200
+Message-ID: <20260917140042.118181-2-francesco@dolcini.it>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260917140042.118181-1-francesco@dolcini.it>
+References: <20260917140042.118181-1-francesco@dolcini.it>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 03/10] mm/vmalloc: use pte_set_huge()/pte_clear_huge()
- for PTE-level block mappings
-To: Wen Jiang <jiangwenxiaomi@gmail.com>, akpm@linux-foundation.org,
- catalin.marinas@arm.com, linux-mm@kvack.org, urezki@gmail.com,
- will@kernel.org
-Cc: Xueyuan.chen21@gmail.com, ajd@linux.ibm.com, anshuman.khandual@arm.com,
- baohua@kernel.org, david@kernel.org, dev.jain@arm.com, jiangwen6@xiaomi.com,
- leo.yan@arm.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com, rppt@kernel.org,
- ryan.roberts@arm.com
-References: <20260917052933.188679-1-jiangwenxiaomi@gmail.com>
- <20260917052933.188679-4-jiangwenxiaomi@gmail.com>
-Content-Language: fr-FR
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-In-Reply-To: <20260917052933.188679-4-jiangwenxiaomi@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260917_070054_955127_17C487DE 
+X-CRM114-Status: UNSURE (   8.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,84 +95,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
+The DPI output of the LCD interface can be configured with a bus width
+of 16, 18, or 24 bits. Introduce a bus-width property to the output
+endpoint, specifying the number of parallel RGB bits connected.
 
-Le 17/09/2026 à 07:29, Wen Jiang a écrit :
-> From: Wen Jiang <jiangwen6@xiaomi.com>
-> 
-> vmap installs PTE-level block mappings by reusing set_huge_pte_at() and
-> huge_ptep_get_and_clear() under #ifdef CONFIG_HUGETLB_PAGE. This makes
-> the feature silently unavailable on CONFIG_HUGETLB_PAGE=n kernels and
-> couples mm/vmalloc.c to HugeTLB internals it does not otherwise need.
-> 
-> Now that arm64 and powerpc/8xx provide pte_set_huge() and
-> pte_clear_huge(), add the generic fallbacks next to the existing
-> pmd/pud_set_huge() family and convert vmap_pte_range() and
-> vunmap_pte_range() to the new helpers. The CONFIG_HUGETLB_PAGE guards
-> around the block-mapping paths are dropped, so PTE-level block mappings
-> now also work on CONFIG_HUGETLB_PAGE=n kernels, and mm/vmalloc.c no
-> longer includes <linux/hugetlb.h>.
-> 
-> The fallbacks exist only to keep the build working on architectures
-> without PTE-level block mapping support. They are unreachable there:
-> the callers only run when arch_vmap_pte_range_map_size() or
-> arch_vmap_pte_range_unmap_size() return a size other than PAGE_SIZE,
-> which requires an arch implementation. WARN_ON_ONCE() makes that
-> explicit rather than silently doing nothing.
-> 
-> Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
-> ---
->   include/linux/pgtable.h | 29 +++++++++++++++++++++++++++++
->   mm/vmalloc.c            | 19 ++++++-------------
->   2 files changed, 35 insertions(+), 13 deletions(-)
-> 
-> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-> index cdd68ed3ae1a9..349ced999f959 100644
-> --- a/include/linux/pgtable.h
-> +++ b/include/linux/pgtable.h
-> @@ -2134,6 +2134,35 @@ static inline int pmd_free_pte_page(pmd_t *pmd, unsigned long addr)
->   }
->   #endif	/* CONFIG_HAVE_ARCH_HUGE_VMAP */
->   
-> +/*
-> + * PTE-level block mappings for vmap.
-> + *
-> + * pte_set_huge() only has to be implemented by architectures whose
-> + * arch_vmap_pte_range_map_size() can return a size other than PAGE_SIZE.
-> + */
-> +#ifndef __HAVE_ARCH_PTE_SET_HUGE
-> +static inline void pte_set_huge(pte_t *ptep, unsigned long addr,
-> +				phys_addr_t phys, pgprot_t prot,
-> +				unsigned long size)
-> +{
-> +	WARN_ON_ONCE(1);
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Acked-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+---
+v5: add ack/rev by tags
+v4: use /schemas/graph.yaml#/$defs/port-base
+v3: use video-interfaces.yaml
+v2: use the common bus-width property instead of the legacy interface-pix-fmt
+---
+ .../devicetree/bindings/display/fsl,lcdif.yaml       | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
 
-BUILD_BUG_ON() would be better here.
+diff --git a/Documentation/devicetree/bindings/display/fsl,lcdif.yaml b/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
+index 2dd0411ec651..89cea0c14cf1 100644
+--- a/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
++++ b/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
+@@ -68,9 +68,19 @@ properties:
+     maxItems: 1
+ 
+   port:
+-    $ref: /schemas/graph.yaml#/properties/port
++    $ref: /schemas/graph.yaml#/$defs/port-base
++    unevaluatedProperties: false
+     description: The LCDIF output port
+ 
++    properties:
++      endpoint:
++        $ref: /schemas/media/video-interfaces.yaml
++        unevaluatedProperties: false
++
++        properties:
++          bus-width:
++            enum: [ 16, 18, 24 ]
++
+   display:
+     $ref: /schemas/types.yaml#/definitions/phandle
+     description: phandle to display panel
+-- 
+2.47.3
 
-It should be possible because fallback arch_vmap_pte_range_map_size() 
-will constant-fold PAGE_SIZE so pte_set_huge() will never be called.
-
-> +}
-> +#endif
-> +
-> +/*
-> + * Likewise, pte_clear_huge() only has to be implemented by architectures
-> + * whose arch_vmap_pte_range_unmap_size() can return a size other than
-> + * PAGE_SIZE.
-> + */
-> +#ifndef __HAVE_ARCH_PTE_CLEAR_HUGE
-> +static inline pte_t pte_clear_huge(pte_t *ptep, unsigned long addr,
-> +				   unsigned long size)
-> +{
-> +	WARN_ON_ONCE(1);
-> +	return __pte(0);
-
-Same I guess.
-
-> +}
-> +#endif
-> +
->   #ifndef __HAVE_ARCH_FLUSH_PMD_TLB_RANGE
->   #ifdef CONFIG_TRANSPARENT_HUGEPAGE
->   /*
 
