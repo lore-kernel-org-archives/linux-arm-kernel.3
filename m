@@ -4,71 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ABADC982CC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 01:06:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADAF1C982CC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 01:09:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kK8U6zcu30eUa/1IbzABeDAbejpvCtmmWV8KgWoo5Rk=; b=JeqK/GHoDmuSKmr/HQwTSbJRgv
-	DY20jld50+9jqIqzTGWQUZRb0nSbbEwNWdCexEF/4re9RrQwXZhOMWAeIYmALxp/ay211F2fLtsWa
-	O7drP18qI+sPAuD1UTSnkQqEkTvwN3KOqjswpsie5WfKvRoBS2E2HbmkOi2lj3cNPEZ+xjye2TD9i
-	ftJW5dlJy/uaN591eWH8+/uxO9EGEEq2CsWKgtjPI709uQTiQdw+YCwYLZWJxcOFBK/tmkWjkUF80
-	DrovecGEaGAusV87yLDFwtfnnjuMiRO19fEjlQU8uQcu9ONTd0AvslC5kQJESeP5rfs0faHqjzA0K
-	79Aoo1ew==;
+	bh=gNkre/XsEQ/EixXkR7zbvFzj9KfeP4IRk7mqlohngNg=; b=JO69IpFLpYUZwJziqHVwS0lWX1
+	ZflxnGLKyuW59UX6sfJCou4dts1d95hlj3Rz+D6fvE/OMF4nX5rGts85B3yGljGnA0NjkOO6M3qbS
+	xZhunz/JyLEqJ72FDqY8TCpP6KP9v4F7lkgThmUw7zzIyQVTvLG4wCAdmRrL5HWLFIiENaBEK+sd1
+	DAR4XaH4dj7X27Duo7F2e/09lcTzFqkbPFJydth7vdX02h7rKPDU20I0bV8Dw0bXR5FydLChkVZ1o
+	fHqJrX0CWqsJFaYUoBlF/T+9YpeBrS1aHD1Pc7AeiPWcKOx5LU1YlZntDQ+1d+jfsFRG2VFD9btGV
+	LnEXtM0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x70aM-0000000AO0u-1ClS;
-	Thu, 17 Sep 2026 01:06:46 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1x70cr-0000000AOEs-33y7;
+	Thu, 17 Sep 2026 01:09:21 +0000
+Received: from mx.nabladev.com ([178.251.229.89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x70aJ-0000000AO0M-2iEh
+	id 1x70co-0000000AODy-3RPp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 01:06:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Content-Transfer-Encoding:Content-Type:From:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:From:Reply-To;
-	bh=kK8U6zcu30eUa/1IbzABeDAbejpvCtmmWV8KgWoo5Rk=; b=cwNGCf8MIXZ2L60DbxLuFPmX7W
-	JiVby/b8Yhn2u12nHkMVRivHAqQoSblV+6t3Rf1Tbiz+lpm3A5JwL6m3tE/GoblOR2pWa8SVAgViZ
-	GBIwyfXZUBTj13/6roIKj6qIeidn0mieCAO0ayuwdbAROtmT365vBWyffznNMnOvvVhRbekBLwvim
-	nrEy1RYAuoaLf9wB3uNg6BNvI+WWBhXtElbEpXaohqhVcbCDf9zxrSOE0gv0YB2YPAItpWx4rakhA
-	v9dnjJRyUubB0DJvfnXrD5c1xcXbbQvKPYDvzOfNOJHm6uIMFLLvbsQIH6ARYBL/RJEd4jMPapItY
-	P/SdQEng==;
-Received: from [177.172.123.214] (helo=[192.168.15.100])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
-	id 1x70a2-003Bpv-Nq; Thu, 17 Sep 2026 03:06:26 +0200
-Message-ID: <9d9a804f-c1f3-4c0c-b12a-975206f6c34c@igalia.com>
-Date: Wed, 16 Sep 2026 22:06:25 -0300
+	Thu, 17 Sep 2026 01:09:20 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 82DE41048E6;
+	Thu, 17 Sep 2026 03:09:16 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1789607357; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=gNkre/XsEQ/EixXkR7zbvFzj9KfeP4IRk7mqlohngNg=;
+	b=gvwRGuWbh1mDOkBtM9glMTu7nMJ44NXnSZOl8py9EBgpGIahkp5Li0lzD3D6vv4ybX2uji
+	4H2GzROlEgbwVrX17vXoGmqL5fdwq2yPBh9aDqCwHurwvYfumwN5+nWu0tPrCE8Q1MvrAP
+	yBmzIG+R88nbiihMfWIxHKkIuQK3UKYOfo4GVyuQCV/YtTaNtFJ0AQceX57djOKR5BP8fu
+	CPO0T7sntP59qtrM2OTQYkIY1GdHtt2fgwaW3SFXioAxT/NfBBE0d+4/sCgRnd5c31l8HN
+	0Lx2vfjiJoVKLLbovKTfpxrx4yMV9gcCUrjlJeP+8irX2aXCPyajE1OCHFuXgg==
+From: Marek Vasut <marex@nabladev.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marex@nabladev.com>,
+	Aswath Govindraju <a-govindraju@ti.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Marc Kleine-Budde <mkl@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-can@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 2/3] dt-bindings: arm: fsl: Document Data Modul i.MX95 eDM SBC
+Date: Thu, 17 Sep 2026 03:08:23 +0200
+Message-ID: <20260917010906.424049-2-marex@nabladev.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260917010906.424049-1-marex@nabladev.com>
+References: <20260917010906.424049-1-marex@nabladev.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 2/4] arm64: vdso: Implement
- __vdso_futex_robust_try_unlock()
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- Peter Zijlstra <peterz@infradead.org>, Florian Weimer <fweimer@redhat.com>,
- Darren Hart <dvhart@infradead.org>, Ingo Molnar <mingo@kernel.org>,
- Davidlohr Bueso <dave@stgolabs.net>, Arnd Bergmann <arnd@arndb.de>,
- Uros Bizjak <ubizjak@gmail.com>, =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?=
- <linux@weissschuh.net>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
- kernel-dev@igalia.com
-References: <20260821-tonyk-robust_arm-v8-0-077707b6f1c7@igalia.com>
- <20260821-tonyk-robust_arm-v8-2-077707b6f1c7@igalia.com>
- <aqqkX8GyxgdtoOmc@J2N7QTR9R3>
-Content-Language: en-US
-From: =?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-In-Reply-To: <aqqkX8GyxgdtoOmc@J2N7QTR9R3>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_180643_690544_0495A5AD 
-X-CRM114-Status: GOOD (  28.86  )
+X-CRM114-CacheID: sfid-20260916_180919_004669_DDDE5CC5 
+X-CRM114-Status: UNSURE (   8.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,200 +79,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Em 16/09/2026 11:27, Mark Rutland escreveu:
-> Hi André,
-> 
-> I have a few comments below. I'm not sure what the plan is for 32-bit
-> robust lists, and I think there are a few problems with the assembly.
-> 
-> On Fri, Aug 21, 2026 at 06:50:43PM -0300, André Almeida wrote:
+Document Data Modul i.MX95 eDM SBC board. This is an evaluation
+board for various custom display units. Currently supported are
+serial console, ethernet, eMMC, SD, SPI NOR, USB host and PCIe.
 
-[...]
+Signed-off-by: Marek Vasut <marex@nabladev.com>
+---
+Cc: Aswath Govindraju <a-govindraju@ti.com>
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Fabio Estevam <festevam@gmail.com>
+Cc: Frank Li <Frank.Li@nxp.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Marc Kleine-Budde <mkl@pengutronix.de>
+Cc: Rob Herring <robh@kernel.org>
+Cc: devicetree@vger.kernel.org
+Cc: imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-can@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+---
+ Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-> 
->> +	register __u64 *pop_reg asm("x2") = pop;
->> +	register __u32 result_reg asm("w3") = 0;
->> +	__u32 val;
->> +
->> +	asm volatile (
->> +		".globl						  "
->> +		"__futex_list64_try_unlock_cs_start,		  "
->> +		"__futex_list64_try_unlock_cs_success,		  "
->> +		"__futex_list64_try_unlock_cs_end		\n"
-> 
-> Sorry, when I mentioned putting these within the assembly, I meant doing
-> something like:
-> 
-> | #define LABEL(l)						\
-> | 	"	.globl " #l "\n"				\
-> | 	#l ":\n"
-> 
-> ... and within the asssembly, having:
-> 
-> | 	"	insn1					\n"
-> | 	"	insn2					\n"
-> | 	LABEL(__futex_list64_try_unlock_cs_start)
-> | 	"	insn2					\n"
-> | 	LABEL(__futex_list64_try_unlock_cs_start)
-> | 	"	insn4					\n"
-> | 	LABEL(__futex_list64_try_unlock_cs_success)
-> | 	"	insn5					\n"
-> 
-> That way we use the full strings, which are easy to grep for, and we
-> only have to define each label string once.
-
-Oh, I see, thanks! I will change that for the next version.
-
-> 
->> +
->> +		"	prfm pstl1strm, %[lock]			\n"
->> +		"retry:						\n"
->> +		"	ldxr %w[val], %[lock]			\n"
->> +		"	cmp %w[tid], %w[val]			\n"
->> +		"	bne __futex_list64_try_unlock_cs_end	\n"
-> 
-> The 'bne' here should be 'b.ne'. IIUC assemblers accept the former by
-> historical accident, and 'b.<cond>' is the architecturally defined
-> mnemonic.
-> 
-> As general thing, we format assembly with a tab between the instruction
-> and first operand, so the above should be:
-> 
-> | 	"	prfm	pstl1strm, %[lock]			\n"
-> | 	"retry:							\n"
-> | 	"	ldxr	%w[val], %[lock]			\n"
-> | 	"	cmp	%w[tid], %w[val]			\n"
-> | 	"	b.ne	__futex_list64_try_unlock_cs_end	\n"
-> 
->> +		"	stlxr %w[result], wzr, %[lock]		\n"
->> +		"__futex_list64_try_unlock_cs_start:		\n"
->> +		"	cbnz %w[result], retry			\n"
->> +		"__futex_list64_try_unlock_cs_success:		\n"
->> +		"	str xzr, %[pop_reg]			\n"
->> +		"__futex_list64_try_unlock_cs_end:		\n"
->> +
->> +		: [val] "=&r" (val), [result] "=&r" (result_reg), [pop_reg] "+Q" (*pop_reg)
->> +		: [tid] "r" (tid), [lock] "Q" (*lock)
->> +		: "cc", "memory"
->> +	);
-> 
-> As a general note, for assembly constaints, please put each constraint
-> on its own line, e.g.
-> 
-> 	: [val] "=&r" (val),
-> 	  [result] "=&r" (result_reg),
-> 	  [pop_reg] "+Q" (*pop_reg)
-> 	: [tid] "r" (tid),
-> 	  [lock] "Q" (*lock)
-> 	: "cc", "memory"
-> 
-> That formatting makes it much easier to read each constraint
-> individually, and it makes it easier to review changes to individual
-> constaints.
-> 
-> Generally, for asm we have a preferred style:
-> 
-> 	asm volatile(
-> 	"	// string starts aligned with 'asm'	\n"
-> 	"	// with 1 tab indend within that.	\n"
-> 	"						\n"
-> 	"	insn	operand1, operand2		\n"
-> 	"label:						\n"
-> 	"	insn	operand1, operand2		\n"
-> 	: [output1] "=r" (...),
-> 	  [output2] "=r" (...)
-> 	: [input1] "r" (...).
-> 	  [input2] "r" (...)
-> 	: "clobbers"
-> 	);
-> 
-> I see a couple of problems with the constraints as-is.
-> 
-> Firstly, the constraints for [pop_reg] doesn't guarantee that x2 is
-> used. The "+Q" constraint takes a memory operand (in this case the
-> location pointed to by 'pop_reg', and limits the addressing mode to a
-> single base register with no offset. The operand is the memroy location,
-> not the register holding the memory location, so this constraint won't
-> necessarily use x2. Unless 'pop_reg' itself is passed into a register
-> constraint, the compiler might not ensure that 'x2' is populated.
-> 
-> For example:
-> 
-> | [mark@gravadlaks:~/tests/asm-operands-q-reg]% cat test.c
-> | unsigned long foo(unsigned long *ptr)
-> | {
-> |         register unsigned long *ptr_reg asm("x2") = ptr;
-> |         unsigned long val;
-> |
-> |         asm volatile(
-> |         "       ldr     %[val], %[qptr]\n"
-> |         : [val] "=&r" (val)
-> |         : [qptr] "Q" (*ptr_reg)
-> |         );
-> |
-> |         return val;
-> | }
-> | [mark@gravadlaks:~/tests/asm-operands-q-reg]% usekorg 16.2.0 aarch64-linux-gcc -c test.c -O2
-> | [mark@gravadlaks:~/tests/asm-operands-q-reg]% usekorg 16.2.0 aarch64-linux-objdump -d test.o
-> |
-> | test.o:     file format elf64-littleaarch64
-> |
-> |
-> | Disassembly of section .text:
-> |
-> | 0000000000000000 <foo>:
-> |    0:   f9400001        ldr     x1, [x0]
-> |    4:   aa0103e0        mov     x0, x1
-> |    8:   d65f03c0        ret
-> 
-> We will need an "r" input constraint for 'pop_reg' to ensure that x2 is
-> allocated. Either in addition to an "=Q" output constraint for the
-> actual memory write, or we rely on the memory clobber to hazaard against
-> other memory accesses.
-> 
-> Secondly, the "Q" input constaint for 'lock' looks inaccurate, given
-> that we both read and write to 'lock'. Either that should be a "+Q"
-> output constraint, or we rely on the memory clobber to hazard against
-> other memory accesses.
-> 
-
-Thank you very much Mark, that is a lot of good information about 
-writing arm64 asm!
-
-If I understood correctly, the correct approach here would be to use 
-pop_reg as an input operand, making sure that we store the address hold 
-by *pop on x2 register right? So something along the lines:
-
-__u32 __vdso_futex_robust_list64_try_unlock(__u32 *lock, __u32 tid, 
-__u64 *pop)
-{
-	register __u64 pop_reg asm("x2") = (__u64) pop;
-
-...
-
-		"	str 	xzr, [%x[pop_reg]]		\n"
-...
-
-		: [val] "=&r" (val),
-		  [result] "=&r" (result_reg),
-		  [lock] "+Q" (*lock)
-		: [tid] "r" (tid),
-		  [pop_reg] "r" (pop_reg)
-		: "cc", "memory"
-
-Does that looks right?
-
-Thanks again for the help
-
-
-> Mark.
-> 
->> +
->> +	return val;
->> +}
->>
->> -- 
->> 2.55.0
->>
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index 36e28e0e4ad99..04abae2018043 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1548,6 +1548,7 @@ properties:
+       - description: i.MX95 based Boards
+         items:
+           - enum:
++              - dmo,imx95-data-modul-edm-sbc # i.MX95 eDM SBC
+               - fsl,imx95-15x15-ab2       # i.MX95 15x15 Audio Board V2
+               - fsl,imx95-15x15-evk       # i.MX95 15x15 EVK Board
+               - fsl,imx95-15x15-frdm      # i.MX95 15x15 FRDM Board
+-- 
+2.53.0
 
 
