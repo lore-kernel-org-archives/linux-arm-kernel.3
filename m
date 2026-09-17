@@ -4,60 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2E5CC982C1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 06:58:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4907CC982C1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 07:08:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CLWg4sL7FNW2rDlFnqytZS83Y8S4Uj0MO5EXiiPHF8s=; b=5AloXC51HrVh4eUfesyK0T75ly
-	ae7dmFP0YF759uG0npKfDw3bpXZFeIH0sQ/x3VuMkpwpGrKT9BSfRfnJwxGfOn6AuDb23bFrLDQDy
-	v1HsnH7wAYLY9ZEmmWpST0ggXxnWEhlNKbEe6fe8S/TzaFxq5qnNkv4z8EC6o4qgRUicOIqk0s2JL
-	olVUik/R9tuK4hhbnSF/i+hO7Ky8SqBRlF3hitaEdyBkSPP/Ogsmzv67lojgdI6sD5lCvf57XUHcZ
-	CMrEPctsUSnBrGxa4AyPiHt/gQGfmeFLs4aAdOMqjvjFwr/FolfSPNrEXlFNWB57F0Ko9hDyFG+rA
-	MrxNTEZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hRpOXH60BHyzsWr977I5r448Wmo4G3kZBAbQ0HK4E+M=; b=N+rpEffsA1N6dK9DnaFJIp0Bq9
+	4G8oHucZ7uZNHSbw3vs6AOiaGLzWNTvv/QsqASooWTBpV803sy17No7yqKzC83tFmMS0XyD30yp66
+	IBxz6A0SkPwMx/dAe1YXjUTmeYQBM2FqIzF/QJzS3UmKQ++XD3zYGy70oIlw2TvMx8ZLNsMDjRjJD
+	K8z0v6sLvw8V/cgSz379IPjQdZ0OI2j/OgmDwkACbfw2BjpdX1iBAIf6C8ekP/ObtoKyz+b/z6ROc
+	+9tpAda6505Rf2dvz73Xu5XXI4kPGAeYHGJ3NNel5XZhn+OdeTl68i31+UNO+J9YJThHKjGU1G3Ig
+	uslLHxPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x764n-0000000AjaJ-1ZzB;
-	Thu, 17 Sep 2026 06:58:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x76EG-0000000Ak7x-1zS1;
+	Thu, 17 Sep 2026 07:08:20 +0000
+Received: from mail-westeuropeazon11011039.outbound.protection.outlook.com ([52.101.70.39] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x764m-0000000AjaC-17Ye
+	id 1x76EC-0000000Ak7U-2M4b
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 06:58:32 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id AD0E960200;
-	Thu, 17 Sep 2026 06:58:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CACD81F000FF;
-	Thu, 17 Sep 2026 06:58:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789628311;
-	bh=CLWg4sL7FNW2rDlFnqytZS83Y8S4Uj0MO5EXiiPHF8s=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=LGBa6DIqAizDZ1bFoLiWZEl0unBIpybIlbDaE/bu+zdL8cIpgW2S+bvd0nKKaZoFE
-	 Bi1NZQkLUSrIB5sapuD77goPfgXesOmwONY2dhQNVfSwRXmLZK4Cm4OiEjWaGzBjxR
-	 ce9lLXF0hiCgIW6MPw+t2D6Xm6lg+RJs1S+ezw51smLTjXcyYWXnVWqQ75lZpkLfqK
-	 Up+eZNAGRbU/qP+V28EwpvIJl6QC3SVoJ0YEnAUk9dxMxR65sZ1QPjfELG+D2uyjd2
-	 xaPQoYfbq33dMrKQWVwWBxSaaExyVrdR1W+Ke+Cijn/ce6rijO2NxCxjYVI7LmHtaS
-	 s5RZOAVZkHvpQ==
-Subject: Re: [PATCH net-next] net: axienet: add a TX timeout handler to
- recover a lost DMA interrupt
-From: netdev-bot+sashiko@kernel.org
-To: maimon.sagi@gmail.com
-Cc: radhey.shyam.pandey@amd.com, netdev@vger.kernel.org, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- michal.simek@amd.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Date: Thu, 17 Sep 2026 06:58:30 +0000
-Message-ID: <178962831034.22033.349240265456808212@kernel.org>
-In-Reply-To: <20260915065534.102249-1-maimon.sagi@gmail.com>
-References: <20260915065534.102249-1-maimon.sagi@gmail.com>
-X-sashiko-severity: High
+	Thu, 17 Sep 2026 07:08:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=oIehevAkIYvlLuJmWSTJ6zbkHtLiE99arcmYwpBc7WsaBM8cOjAyEB7Degy5NJKW1xywHA13wJFImlhsrz2Ng/D2vg+nMNXulvvepY6ijchLhQ4vYAJCHm4cUzOhpc7E1E8pjkPE/mnIdN/oiuhGnZPky9Izz885R18L8igRu4EciXH7kNgUvZTeGZsJWcP9eRN3oIbZ3ksQ+NO88uKaG5LgTY90FuLYcsmBV4I9DAeh/PJqocKE+o+Nom0mtZVR+OaBGAWAaUTfHNuPoHIm491xMcim71hjbPMv2uX0eyqitxDk33XSOyJLFVFBuxiiYMXiFz915bDKRIOahCSFJg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hRpOXH60BHyzsWr977I5r448Wmo4G3kZBAbQ0HK4E+M=;
+ b=kZ5dtPZU3trjrR6YZndJAB0igiITgAz1n0Emnki2FwYBJUrtdo1C3JNF/VsF81lTjO6IO1oGseDsgdQk4mXorEoPQbnvmSnRG2XvvwX1T4iuDxa9HlBVm/TsC+Lr6AExktn91bnHQ5aM+o3ADR1m9P8+/e4X5CIOQJfDid3vFpDl7ayxIWnI9VKi4577gqOkt1jSWiUlU3lEBhES1S8VB4iEUmiv+dPcB+D7n29txa6KlP3MMzF0DAfgcDSX058AzYfJmqHs+Ffvmz5zot9FOEdQXkZbFyIkSuYHhAx6kuYEyD5X3ivKsNo2ROHf6Tbc6g5zV7ItnB/POwgyteMAcw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hRpOXH60BHyzsWr977I5r448Wmo4G3kZBAbQ0HK4E+M=;
+ b=Wx6m6EL61xGdAcKOCOO8v3shm3yiIHxhjl4EPJA6SEKWKz1yULYUBRG5KmwLpsPrvmHKE1CYO2hqDx+P/fxYd1sM82YoKrvZHift1OcETuL6gq2QEmkSRDXH7g+DqPjVZkzWrd3KMl2EdWkqfWVgX12neDF5MKssgkYTSN6q9EnnvVixMMtjw0zU3lYajTaR7irnaLp26j69LlUUvFPiY+cFNQjYSJqXCGp7eNTG/VsBnTxaI7PopR9/xkJYTGNXt+v4+kcc9PkUcw51hzGl0PgdB+NN90wrCry2sPObppM9Ii97PUejmNHYACmWiQ66064wDaaNgwhO+b4Vey5Fvg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DB7PR04MB4698.eurprd04.prod.outlook.com (2603:10a6:10:1c::21)
+ by BR2PR04MB562213.eurprd04.prod.outlook.com (2603:10a6:2c8:5::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.11; Thu, 17 Sep
+ 2026 07:08:11 +0000
+Received: from DB7PR04MB4698.eurprd04.prod.outlook.com
+ ([fe80::c571:bdf2:afe7:c03c]) by DB7PR04MB4698.eurprd04.prod.outlook.com
+ ([fe80::c571:bdf2:afe7:c03c%4]) with mapi id 15.21.0428.009; Thu, 17 Sep 2026
+ 07:08:11 +0000
+From: Ming Qian <ming.qian@oss.nxp.com>
+Date: Thu, 17 Sep 2026 16:07:54 +0900
+Subject: [PATCH v2] pmdomain: imx8m-blk-ctrl: Serialize power on/off across
+ sibling domains
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260917-imx8mp-blk-ctrl-v2-1-81d29e907a5d@oss.nxp.com>
+X-B4-Tracking: v=1; b=H4sIAMmRq2oC/2WNQQ6CMBBFr0Jm7RBasEVW3sOwsHWQUaCkRYIh3
+ F3AuHL5kvffnyGQZwpQRDN4Gjmw61aQhwhsfe3uhHxbGWQiVXISArmd8rZH0zzRDr5Bm6lKKp2
+ niU5hXfWeKp724qX8cniZB9lhy2xGzWFw/r1fjmLzfvXjX30UKNCkJiNFmpRWZxdC3E19bF0L5
+ bIsHwbkLtPCAAAA
+X-Change-ID: 20260911-imx8mp-blk-ctrl-c46f26783073
+To: Ulf Hansson <ulfh@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>, 
+ Peng Fan <peng.fan@nxp.com>, Lucas Stach <l.stach@pengutronix.de>
+Cc: linux-pm@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Zhou Peng <eagle.zhou@nxp.com>, Xiahong Bao <xiahong.bao@nxp.com>, 
+ Ming Zhou <ming.zhou@nxp.com>, Ming Qian <ming.qian@oss.nxp.com>
+X-Mailer: b4 0.15.2
+X-ClientProxiedBy: MA0PR01CA0032.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:b8::19) To DB7PR04MB4698.eurprd04.prod.outlook.com
+ (2603:10a6:10:1c::21)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB7PR04MB4698:EE_|BR2PR04MB562213:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6e277066-93e7-45b0-f44d-08df148a6ef4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|1800799024|7416014|376014|366016|6133799003|10067099003|11063799006|56012099006|18002099003;
+X-Microsoft-Antispam-Message-Info: smYSV1O4RN8IRKA3rMYHDRVaZlODiw+MJuWCaKDt0hL7AO8F+lTUj34tAY5nS2EoNrS7VGMfI0J5AU5OnrRkCRtcjvTP7ShjWjECfKk0CGuIq1oQ1jU+J8SC9UHLU+fZcARuJt4vF3NzM8Y4lamnO9uOpIW2jYYH4CZbYKYO2tw8ZbtfWQec1TlN2JyTsuUzGVLFql2SfYc8bdwlTF1ENtMK/0Bqvn9jW/Z4wDm6hph7yPGVpKQdmGxI4JbMzn+uuhuIFsURbI/qjNVLOQJXytEA/0BG64RSeNPCZo7Pt+hFCHzcq8QUcZJPvGCCNBB+srOgxtwwQqdX3z/rQgLaNaxm01pn8edqNESN+hOuC20JP//8i08wdEcqrwqdYEnBK++mAvJj5nnb0epZ1WI+dCIXf8QDIlAgeWEfVr0EODgJPV1hB+kdMbttwm10j1PTRAAfWiBihI5CTSsFjdTKV2WzrgyoHoCLuEOFwx8yQer7KgTzcHsreuFs1d7dUf/7eL/suxmiutJ0aPqOIMKUnIjV/vI+YFicp7aOEay59h8P/UeIxwICLvWMMnNokisNe4v/go/rlomAb/wyvToN6YB35FvAxGI57oFakl9IpTbD8tcQaNstPtJp6u8iEr23
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB7PR04MB4698.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(1800799024)(7416014)(376014)(366016)(6133799003)(10067099003)(11063799006)(56012099006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TG1UdG1Bc1N5eHBkb1ZWTEpPd25WTm9OQWYwMDNEbTBTcVdiSWYwUDdWSW1G?=
+ =?utf-8?B?dTJMMVpvVWxPR3YvU3Q1ZTBNRFVWOGZMOWdMbEZ6b2Rza2ZzZjR4R1h2MWs5?=
+ =?utf-8?B?bUhQWVVnekc0U2tDdFF1UEJtK3JzbXBtT3AwVE1qemVNMm5NVlljbmltdjRJ?=
+ =?utf-8?B?VDVRK2NSbEVndmE1ZVo0MmdKQWI3bTJjNitaOG14bnhua0tnQXBqSGh0RC95?=
+ =?utf-8?B?eWV5NjhKWWVxR0ZNdWMvSGY2eDNQSWFMem1HVlFzejBzOVU3djl6NUhhZVRn?=
+ =?utf-8?B?S05FSkhub3F4cHlCZGdTU0RoU1RwSkVTRFBCK1krQWRpS0tpTkFOaWFJZVpL?=
+ =?utf-8?B?SElLQzRNaVozQ1dtTXRpTmFESVk1V0h3SjFXQ0FFY1pGZ3JGSWNSNm84VTMw?=
+ =?utf-8?B?WXVmRjU1RjlIaE9hN0ZzUGJtZldJNndNdEVFQ2crY1V1Z3h3VGNWWHhFYmhL?=
+ =?utf-8?B?a1JibURLSFZkMnU4eThYNUMySU9keWtTSzBwb2VTbVdnamlBMmp6LzRaRVpR?=
+ =?utf-8?B?Z0wyQXRrRTRocFdieEhnT3BBdG95dFFpbk9sOHdaKzZTODIwUzFJMDR0L1lC?=
+ =?utf-8?B?ZmZBQmJISEVneE9TYVhyL29ZblNKM0hWOGg2Sko0M2g3aTJnWVZyRTR5UlR1?=
+ =?utf-8?B?ZGlPWXFMTjFLY3JXVkRtQ0lkVm5ySVlOZlNKNW1sRCt5VHRabHMwUi9sc3J3?=
+ =?utf-8?B?cVNxd1BGZGdKM2xNYkJaUGQxUjB6Z0p3TDMrYzdGT25kRVNLTzBpNzlJV2pW?=
+ =?utf-8?B?aGVhc1ROWW5sa3E4c2dOdG9WNDZYS2tyOHJGU3pCTE9NakIwR1dmSi8rOVZT?=
+ =?utf-8?B?WjNBbDM2YTZRMXRkemJXY2NKYm0xU2YxbEtQUkk0aEdrUEkrQm41ZnNtY29w?=
+ =?utf-8?B?eEFsa25XUjV5ZzBLaEE0ZklsT3FVVFlvVGtCRmxFY0ZqVlp6TGlvWlVqbk1v?=
+ =?utf-8?B?dzJUZWxRMkU4b2FVVG44YlY0UHBWcE1hR05CZGx6bjdackwycnZDTWxIQzMw?=
+ =?utf-8?B?N1J1Q0Y3aS8yUXBYengrdzBqM2RIbVMxUUpVakNTSVI1Z0pmdmxJQlpjTDl6?=
+ =?utf-8?B?RnJONlg5d1Y5Yno4YVVSNmNTazhCSSsxWkZZOEpxb3Rac1RvUi9SQmZiV0Zz?=
+ =?utf-8?B?L0pZeTNwanRPV2I4OVlkb1B0VE9Yd3pMcDlwOXQzSmZSdmYzTlhwS1hqa2NQ?=
+ =?utf-8?B?RTZqMHdmNzhhdTJhcGRzR2llTlhSQzBxZVFXQmg1bWZObHBzdHk2Q1QxMnVC?=
+ =?utf-8?B?Y05meVp6VENSb2d6eVcwYWRuem9FdTF5THpCZXhmN1Y0emFjVWNTeitTN2cv?=
+ =?utf-8?B?QU9BQndtYVBnNkJ2RWNOS2ZyMU56MUhTLzQrSFZORS9vbFpuUG1WZHNWYmxS?=
+ =?utf-8?B?MmxqTU0vTDhDeG1oZ0w0UDFPYXhoNm15cURMWFFpZ1NTY1FTdElGdG0zMitY?=
+ =?utf-8?B?MmttOUNpdE9FOWlQSVJJVU5XYXNQSUFJUHlQa1hsU2QrTG1LdnFnbFdkOXpk?=
+ =?utf-8?B?NXBNUWVpL2tqQlVXKy9PQ01hQ2tZTjZyQ2x6M2t3K2pBMGN3TTl4SVNDSzRX?=
+ =?utf-8?B?ckk1MUY4T0UzNWJ2VllOS0VyeDEvMDFPRHNOaG9CUzRQRWluN3k2Ry9HekJl?=
+ =?utf-8?B?YTBoOEp1RjB4ZDRZVzBybE5UK1UzZXZ4Z0M5dis1VE1FcG80R0IvY3VtZVF4?=
+ =?utf-8?B?cTRnUWt6WlJQZXIrYVZMc1RZcFc3Znc2bm1sL0UxREszSXRaakZVMHpoTjRs?=
+ =?utf-8?B?QXE1VEFWSzIxa29hZ2laSGJENFR6TzBWYnVBMENJcnV2U3FvdlB5MXNyMEln?=
+ =?utf-8?B?em8wMlJSNHZGSkE1SEVNck9vTHhhbG10YkwyS1laemhxdGN6MUI5clI3bXFI?=
+ =?utf-8?B?WGRTdmlneFp5RHpIa3ZTeXlWZmo3ajhNLzlnVDlNak9zZjZURzVldUxvOGtG?=
+ =?utf-8?B?UC9WYVg3ajB2VDFnRmRpSUdldndFdXBTSG9xQzI5eU5WUzRMR3p3R1lSbzly?=
+ =?utf-8?B?enJVempVTFlrVkVKNk9CUGR3RCtFdTNKalN5SytSSEwzS0ozQkZBa1JZM2lK?=
+ =?utf-8?B?WmUwZE1xS2xQNTl1bzRGcUg2QWlyTDdaaHdmRXp2eXV1QTYrTjNJVXRRVEZx?=
+ =?utf-8?B?ZWFlZGVqVHFlRXZYNUhkMFFoeFlQR3p1VTIxc3FkSytoS09TelNmeVJKRFFT?=
+ =?utf-8?B?b2pIci9rQ1J1aGNIZUk1U3VFbjZySUt5V3hxYkxROG4rczFXV2lTbnNXbGtP?=
+ =?utf-8?B?TGVBL0NtRWJXeHlVdVFnQU1oRS9aam9lT2RmSXJ3aTNBckpFdDFpVG9kOVRB?=
+ =?utf-8?B?bFdHaHpVRlZZTmM4U1FQM3R0OVlGOUtzRllQRmFSTDF1NHo5SHJsMUswVm5a?=
+ =?utf-8?Q?dXSMnxWzRuanfINwMCb8C9/M60lSUiymwyhah?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6e277066-93e7-45b0-f44d-08df148a6ef4
+X-MS-Exchange-CrossTenant-AuthSource: DB7PR04MB4698.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2026 07:08:11.2179
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: e/Qiwhvs0DdxUq/YyYkFB+L1qYtztmWXPwxa5vuxxASNqCr02bxnxWkf4k4gi4NajvW8CFaJX/mC49xvkNdaBPRDPMjKazUVqp5QuKH0SyB1yIDkZ3mwngw8eTSVUHJb
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BR2PR04MB562213
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260917_000816_793693_7BD8FCFE 
+X-CRM114-Status: GOOD (  23.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,199 +156,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider:
+On i.MX8MP the VPU blk-ctrl exposes G1, G2 and VC8000E as three separate
+genpds, each serialized only by its own genpd lock, so their power_on and
+power_off callbacks can run concurrently on SMP.
 
-Critical: 0 · High: 1 (1) · Medium: 0 · Low: 0
+The sequences are not independent: they share the VPUMIX bus domain, the
+VPU_NOC and the ADB400 handshake. On power up the GPC cannot ack-verify
+the ADB400 handshake - the ack only completes once blk-ctrl sets the bus
+clk-en bit - so it just waits a fixed delay instead of polling hskack. A
+sibling transition landing inside another domain's reset window disturbs
+that shared clock and handshake timing, the victim's reset does not take
+effect, and its block registers read back all zeros: the decoder times
+out or the encoder fails its format check.
 
-- [High] The new .ndo_tx_timeout handler (axienet_tx_timeout(),
-  drivers/net/ethernet/xilinx/xilinx_axienet_main.c:1907-1913) only…
+Serialize the blk-ctrl reset sequence with a per-blk-ctrl mutex; the
+driver deliberately avoids a genpd hierarchy, so the genpd core gives no
+cross-sibling serialization.
 
-Pre-existing issues:
-- [High] axienet_dma_err_handler()
-  (drivers/net/ethernet/xilinx/xilinx_axienet_main.c:2727-2810) tears…
+Fixes: a1a5f15f7f6c ("soc: imx: imx8m-blk-ctrl: add i.MX8MP VPU blk ctrl")
+Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+---
+Problem:
+On i.MX8MP, running the VC8000E encoder and the G1/G2 decoders
+concurrently rarely and non-deterministically leaves a VPU stuck in
+reset: its block registers read back all zeros. A decoder then times out
+or the encoder fails its format check.
 
---
+Root cause:
+The VPU blk-ctrl exposes G1, G2 and VC8000E as three separate genpds,
+serialized only by the per-genpd lock, so on SMP their power_on/power_off
+callbacks can run concurrently. The sequences share the VPUMIX bus
+domain, the VPU_NOC and the ADB400 handshake. On power up the GPC does
+not ack-verify the ADB400 handshake - the ack only completes once
+blk-ctrl sets the bus clk-en bit - so it just waits a fixed delay. A
+sibling transition landing inside another domain's reset window disturbs
+that shared clock and handshake timing, the victim's reset fails to take
+effect, and its block is left in reset with registers reading zero.
 
-net: axienet: add a TX timeout handler to recover a lost DMA interrupt
+Fix:
+Serialize the blk-ctrl reset sequence with a per-blk-ctrl mutex, so a
+sibling domain cannot run its sequence while another is inside its reset
+window. The driver deliberately avoids a genpd hierarchy, so the genpd
+core provides no cross-sibling serialization.
 
-This adds an .ndo_tx_timeout handler to axienet_netdev_ops that queues
-lp->dma_err_task, so the netdev watchdog can reach the existing DMA reset
-path without depending on a DMA interrupt.  watchdog_timeo is set to 5 * HZ
-in the legacy DMA branch of axienet_probe().
+Test:
+i.MX8MP, Android 6.18 kernel, concurrent H.264 decode and encode. Without
+this patch the failure reproduces within one to two hours. With it the
+same test ran overnight, over 14 hours, without a single occurrence.
+---
+Changes in v2:
+- Replace guard(mutex) with explicit mutex_lock()/mutex_unlock():
+  power_on() already unwinds errors with goto, and cleanup.h asks not to
+  mix goto and scope-based cleanup in one function (sashiko-bot).
+- Shorten the commit message to the essentials and move the detailed
+  hardware analysis into this cover letter (Frank Li).
+- Link to v1: https://patch.msgid.link/20260915-imx8mp-blk-ctrl-v1-1-b3b4e6e7e676@oss.nxp.com
 
-> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> index 782f903d318f3..b5927e979c341 100644
-> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+To: Ulf Hansson <ulfh@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+To: Sascha Hauer <s.hauer@pengutronix.de>
+To: Pengutronix Kernel Team <kernel@pengutronix.de>
+To: Fabio Estevam <festevam@gmail.com>
+To: Shawn Guo <shawnguo@kernel.org>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: linux-pm@vger.kernel.org
+Cc: imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+---
+ drivers/pmdomain/imx/imx8m-blk-ctrl.c | 23 ++++++++++++++++++++++-
+ 1 file changed, 22 insertions(+), 1 deletion(-)
 
-[ ... ]
+diff --git a/drivers/pmdomain/imx/imx8m-blk-ctrl.c b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
+index 479789009c7f..270f43229fe7 100644
+--- a/drivers/pmdomain/imx/imx8m-blk-ctrl.c
++++ b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
+@@ -15,6 +15,7 @@
+ #include <linux/pm_runtime.h>
+ #include <linux/regmap.h>
+ #include <linux/clk.h>
++#include <linux/mutex.h>
+ 
+ #include <dt-bindings/power/imx8mm-power.h>
+ #include <dt-bindings/power/imx8mn-power.h>
+@@ -34,6 +35,12 @@ struct imx8m_blk_ctrl {
+ 	struct regmap *regmap;
+ 	struct imx8m_blk_ctrl_domain *domains;
+ 	struct genpd_onecell_data onecell_data;
++	/*
++	 * Serializes the blk-ctrl reset/clock sequence across sibling domains;
++	 * their transitions interact through the shared VPUMIX bus domain,
++	 * VPU_NOC and the not-ack-verified ADB400 handshake (ERR050531).
++	 */
++	struct mutex power_lock;
+ };
+ 
+ struct imx8m_blk_ctrl_domain_data {
+@@ -98,12 +105,14 @@ static int imx8m_blk_ctrl_power_on(struct generic_pm_domain *genpd)
+ 	struct imx8m_blk_ctrl *bc = domain->bc;
+ 	int ret;
+ 
++	mutex_lock(&bc->power_lock);
++
+ 	/* make sure bus domain is awake */
+ 	ret = pm_runtime_get_sync(bc->bus_power_dev);
+ 	if (ret < 0) {
+ 		pm_runtime_put_noidle(bc->bus_power_dev);
+ 		dev_err(bc->dev, "failed to power up bus domain\n");
+-		return ret;
++		goto unlock;
+ 	}
+ 
+ 	/* put devices into reset */
+@@ -148,12 +157,16 @@ static int imx8m_blk_ctrl_power_on(struct generic_pm_domain *genpd)
+ 	/* disable upstream clocks */
+ 	clk_bulk_disable_unprepare(data->num_clks, domain->clks);
+ 
++	mutex_unlock(&bc->power_lock);
++
+ 	return 0;
+ 
+ clk_disable:
+ 	clk_bulk_disable_unprepare(data->num_clks, domain->clks);
+ bus_put:
+ 	pm_runtime_put(bc->bus_power_dev);
++unlock:
++	mutex_unlock(&bc->power_lock);
+ 
+ 	return ret;
+ }
+@@ -164,6 +177,8 @@ static int imx8m_blk_ctrl_power_off(struct generic_pm_domain *genpd)
+ 	const struct imx8m_blk_ctrl_domain_data *data = domain->data;
+ 	struct imx8m_blk_ctrl *bc = domain->bc;
+ 
++	mutex_lock(&bc->power_lock);
++
+ 	/* put devices into reset and disable clocks */
+ 	if (data->mipi_phy_rst_mask)
+ 		regmap_clear_bits(bc->regmap, BLK_MIPI_RESET_DIV, data->mipi_phy_rst_mask);
+@@ -177,6 +192,8 @@ static int imx8m_blk_ctrl_power_off(struct generic_pm_domain *genpd)
+ 	/* allow bus domain to suspend */
+ 	pm_runtime_put(bc->bus_power_dev);
+ 
++	mutex_unlock(&bc->power_lock);
++
+ 	return 0;
+ }
+ 
+@@ -202,6 +219,10 @@ static int imx8m_blk_ctrl_probe(struct platform_device *pdev)
+ 
+ 	bc->dev = dev;
+ 
++	ret = devm_mutex_init(dev, &bc->power_lock);
++	if (ret)
++		return ret;
++
+ 	bc_data = of_device_get_match_data(dev);
+ 
+ 	base = devm_platform_ioremap_resource(pdev, 0);
 
-> @@ -1884,6 +1888,30 @@ axienet_get_stats64(struct net_device *dev, struct rtnl_link_stats64 *stats)
->  	} while (read_seqcount_retry(&lp->hw_stats_seqcount, start));
->  }
->  
-> +/**
-> + * axienet_tx_timeout - Driver TX timeout callback
-> + * @ndev:	Pointer to net_device structure
-> + * @txqueue:	Index of the transmit queue that stalled
-> + *
-> + * Called by the netdev watchdog when a transmit queue has made no progress for
-> + * @ndev->watchdog_timeo.  axienet_dma_err_handler() is the driver's only reset
-> + * path, and it is otherwise scheduled solely from axienet_tx_irq() and
-> + * axienet_rx_irq() - so a completion interrupt that is never delivered leaves
-> + * the queue stopped with descriptors unreclaimed and no way back short of
-> + * unloading the driver.  Schedule the reset from here as well, so a lost
-> + * interrupt is recoverable.
-> + *
-> + * This runs from a timer, so it only queues the work; the reset itself happens
-> + * in process context in axienet_dma_err_handler().
-> + */
-> +static void axienet_tx_timeout(struct net_device *ndev, unsigned int txqueue)
-> +{
-> +	struct axienet_local *lp = netdev_priv(ndev);
-> +
-> +	netdev_err(ndev, "TX queue %u stalled, resetting DMA\n", txqueue);
-> +	schedule_work(&lp->dma_err_task);
-> +}
+---
+base-commit: 27953c044974baf7e24dee3e9342fe0103dea80c
+change-id: 20260911-imx8mp-blk-ctrl-c46f26783073
 
-[Severity: High]
-Does the queue actually get restarted after this reset?
-
-dev_watchdog() only calls ndo_tx_timeout for a queue that is already
-stopped:
-
-net/sched/sch_generic.c:dev_watchdog() {
-	...
-			if (!netif_xmit_stopped(txq))
-				continue;
-	...
-			dev->netdev_ops->ndo_tx_timeout(dev, i);
-}
-
-In the scenario the changelog describes (lost TX completion, descriptors
-unreclaimed) the stop bit is __QUEUE_STATE_DRV_XOFF, set here:
-
-drivers/net/ethernet/xilinx/xilinx_axienet_main.c:axienet_start_xmit() {
-	...
-	if (axienet_check_tx_bd_space(lp, MAX_SKB_FRAGS + 1)) {
-		netif_stop_queue(ndev);
-	...
-}
-
-axienet_dma_err_handler() then resets DMA, zeroes every TX BD, sets
-lp->tx_bd_ci = lp->tx_bd_tail = 0, re-enables NAPI and returns.  The only
-queue-state clearing it does is netdev_reset_queue(), which touches
-STACK_XOFF only, and nothing at all without CONFIG_BQL:
-
-include/linux/netdevice.h:netdev_tx_reset_queue() {
-#ifdef CONFIG_BQL
-	clear_bit(__QUEUE_STATE_STACK_XOFF, &q->state);
-	dql_reset(&q->dql);
-#endif
-}
-
-There is no netif_wake_queue()/netif_tx_wake_all_queues() and no
-netif_trans_update() anywhere in axienet_dma_err_handler().  The remaining
-wake site in axienet_tx_poll() is gated on packets:
-
-drivers/net/ethernet/xilinx/xilinx_axienet_main.c:axienet_tx_poll() {
-	packets = axienet_free_tx_chain(lp, lp->tx_bd_ci, lp->tx_bd_num, false,
-					&size, budget);
-
-	if (packets) {
-	...
-		if (!axienet_check_tx_bd_space(lp, MAX_SKB_FRAGS + 1))
-			netif_wake_queue(ndev);
-	}
-}
-
-Can axienet_free_tx_chain() ever return non-zero after the handler cleared
-cur_p->status for every descriptor?  And the wake in axienet_start_xmit()
-cannot run while the queue is stopped.
-
-If DRV_XOFF survives the reset, and txq->trans_start is never refreshed,
-doesn't dev_watchdog()'s time_after(jiffies, trans_start + watchdog_timeo)
-stay true, so the timeout path re-fires every 5 seconds, re-running
-napi_disable() / axienet_dma_stop() / __axienet_device_reset() /
-axienet_dma_start() and printing netdev_crit + netdev_err indefinitely
-while the interface still cannot transmit?
-
-The driver's other reset path does refresh the timestamp:
-
-drivers/net/ethernet/xilinx/xilinx_axienet_main.c:axienet_device_reset() {
-	...
-	netif_trans_update(ndev);
-}
-
-Would adding netif_trans_update() plus a wake of the TX queue at the tail
-of axienet_dma_err_handler() be needed for the recovery claimed in the
-changelog ("the watchdog fires and the interface resumes passing traffic")
-to hold for the DRV_XOFF case rather than only for a BQL-only stop?
-
-[Severity: High]
-This is a pre-existing issue and not introduced by this patch, but the new
-trigger makes it much easier to reach: axienet_dma_err_handler() tears down
-the TX ring with no exclusion against axienet_start_xmit().
-
-The worker calls napi_disable() (which only excludes axienet_tx_poll()),
-axienet_dma_stop(), then re-enables transmission for a BQL-only stop before
-it starts freeing descriptors:
-
-drivers/net/ethernet/xilinx/xilinx_axienet_main.c:axienet_dma_err_handler() {
-	axienet_dma_stop(lp);
-	netdev_reset_queue(ndev);	/* clears __QUEUE_STATE_STACK_XOFF */
-
-	for (i = 0; i < lp->tx_bd_num; i++) {
-		cur_p = &lp->tx_bd_v[i];
-		if (cur_p->cntrl) {
-			dma_addr_t addr = desc_get_phys_addr(lp, cur_p);
-
-			dma_unmap_single(lp->dev, addr, ..., DMA_TO_DEVICE);
-		}
-		if (cur_p->skb)
-			dev_kfree_skb_irq(cur_p->skb);
-	...
-	lp->tx_bd_ci = 0;
-	lp->tx_bd_tail = 0;
-
-	axienet_dma_start(lp);
-}
-
-It never takes the per-queue _xmit_lock and never calls
-netif_tx_disable()/netif_device_detach(), and the core unfreezes the queues
-as soon as ndo_tx_timeout() returns, long before the work runs:
-
-net/sched/sch_generic.c:dev_watchdog() {
-			netif_freeze_queues(dev);
-			dev->netdev_ops->ndo_tx_timeout(dev, i);
-			netif_unfreeze_queues(dev);
-}
-
-So while the teardown loop is running, can a transmit on another CPU enter
-
-drivers/net/ethernet/xilinx/xilinx_axienet_main.c:axienet_start_xmit() {
-	...
-	WRITE_ONCE(lp->tx_bd_tail, new_tail_ptr);
-	netdev_sent_queue(ndev, skb->len);
-
-	/* Start the transfer */
-	axienet_dma_out_addr(lp, XAXIDMA_TX_TDESC_OFFSET, tail_p);
-}
-
-and write cur_p->cntrl/phys/skb into a descriptor the worker is about to
-unmap and clear?  The outcomes look like an skb freed by the worker and
-then re-referenced, a DMA mapping released while a fresh buffer is being
-programmed into the same descriptor, and lp->tx_bd_tail/tx_bd_ci rewound to
-0 out of step with the hardware tail pointer written by axienet_start_xmit().
-
-Since this new .ndo_tx_timeout makes the reset a routine event (and, per the
-comment above, potentially every 5 seconds), should the reset path be made
-to exclude the xmit path, for example with netif_tx_disable() around the
-descriptor teardown?
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260915065534.102249-1-maimon.sagi%40gmail.com
 
