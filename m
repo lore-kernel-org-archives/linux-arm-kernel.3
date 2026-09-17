@@ -4,59 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AE5CC982CF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 12:10:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED5ABC88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 12:13:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mKjsFpB6jwr7wMWoJ78ZFWtD8MGuhFV57vssMVJYZzY=; b=3VyELqGkdadwx/5Ik8QktuvOoI
-	tFNo9GWNLxuMH2xPQ+vn2fYbYzYdE+9ZHkwlC6VgSyT4a9eec7wE/brYEjPDR+2oSZadvXMW9kMGL
-	ohLeQ30xNVZTATcnABRmFwHATYxnOh3Kgoc/LXix+ob/rtdpw7maMWaZyzvwd+3KWTtsIhiQPHfZs
-	UCLJV+nZd1hl4QunOQ8+m3D/0EN+VDmANj5PRpOsSk2wDQO5YF+CWJgVYvkgrSiSJkVaRjAXQytJN
-	1hAaS5bbHopJvfDUmxZLKMF5WDkIq8cW/2rccnTZDVB6Pl6mMWfxmXvqBkAPw7KTpoR6xxPcHOcEK
-	rRbt8ehw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GuXqc4H5dE+MDL7nEDkrFd3PYvzEZhNj1KGCmYesUCs=; b=IDhCZJu80Z6zR7iflBUuDIrAXD
+	L3/8SoLWduUqXGFtUsDaMD5BYTZlzf10KD6ql4obNViVfPh2WNqfigZsqzOxM2jzljNSY0eFXqIDl
+	XYIIkWqSIIpB1IVf+uOli/FaxDYSg+3LvLRuj2DeKXdQrWBd94/7HmokEfojwDAS8DDuDz+xjT0uh
+	7vfviyixsG3IJlINWz0aAev70RuPSzeioUIC0pHDMiK6Mg1JqS2Q8uoqdgpY8CHOeQ5ATcjJ4d1lF
+	/Nx5z1YdigPopANMtmAZT2FqOs7AMPXtkW1rI4h63Jh47RW8v0cQTTHTDNxHB7nCZtB7YiLz7xV+h
+	zInJ8YZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7AwC-0000000BFxt-0ssN;
-	Thu, 17 Sep 2026 12:10:00 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1x7AzK-0000000BG86-2Ypv;
+	Thu, 17 Sep 2026 12:13:14 +0000
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Aw8-0000000BFxQ-2Opn
+	id 1x7AzH-0000000BG7j-0uBL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 12:09:58 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 2505726CF;
-	Thu, 17 Sep 2026 14:08:10 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1789646890;
-	bh=YSUw6AYQlpCx82S4qpDEzxcG4DE/YEviLxFC0Ymvx3E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=o7G8FZ/hOwdQOujtMAOm5FePU3dG5oP+IXOFBBhNqaC7ABrSMy/umq4pNzJB+c/K6
-	 Zod4K0czm1r3cdez1i0c8X0OZhOvAslAfXFzIQ3MvHtPgjuKaDBWgEHjVQ7qgHGa1r
-	 NByD4KeT5VtZ6RKIMXbYjDqg+sBSEu5BnT80uebk=
-Date: Thu, 17 Sep 2026 15:09:50 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: arash golgol <arash.golgol@gmail.com>
-Cc: Hans Verkuil <hverkuil+cisco@kernel.org>, linux-media@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	yong.deng@magewell.com, paulk@sys-base.io, mchehab@kernel.org,
-	wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org
-Subject: Re: [PATCH v1 0/3] media: sunxi: Resend active-state conversions
-Message-ID: <20260917120950.GA44274@killaraus.ideasonboard.com>
-References: <20260804072630.28745-1-arash.golgol@gmail.com>
- <CAMxPZkgk4+idrZowJ1z-ddAzaD-hx-NJP+KSj8pUrSfL0HH4aQ@mail.gmail.com>
- <CAMxPZkhjurfpPvvymamJqTuia8CtFw1gRyYA4KBwFcQoH5jz3A@mail.gmail.com>
+	Thu, 17 Sep 2026 12:13:12 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49ccf3ca626so3920975e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 05:13:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789647189; x=1790251989; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=GuXqc4H5dE+MDL7nEDkrFd3PYvzEZhNj1KGCmYesUCs=;
+        b=YzoCE7IiptyoW9NzT5HJOS+e5TfzHC0D8Cz5PCW/JTzqtHWpcm8V+yuGhmHFMuC6vm
+         QGz6uOdPzEdeWBXH4VFm9Xia1N54kz/FD7ui4XwduC0TzSsqT09zuYB3+uBdGDizouJD
+         qN6xfkcXmit/jmADcKVK+2Pwz8DZ9aDBL2nRwP114Q5oiYYHIEBpWDiICI6nZGOb2Y5f
+         D1K0rFnKaMkRfujCB/WdUxDUOXw+6yszGyrjV6y4eh0asZZFIYb9CYluKe5kzU1uhZpv
+         Pao7wSeeHQUotpSDnH5MuP/uD7XLUyMSvKAArnh1j+aMJ2M6s5CrPiRTliwPPpU94n1O
+         B5xw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789647189; x=1790251989;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=GuXqc4H5dE+MDL7nEDkrFd3PYvzEZhNj1KGCmYesUCs=;
+        b=nHH/i8EqjdhLZNBjd/JfUed2WxEeZ8Eqhl4caZGMLA632ackHsFzj3tMHLmQRMwc6M
+         87mBLjAb+2+XiY6kSdslTtNh1XIUlqAdQvKdvgTnPyuxB33DeHs6gaqe2wx3DnHOwJ+K
+         qsFshiI7vp8W9haP0ryTZDR7KXA0Q/kjP24Sb2wACl1O9mZcf28HirIsNddNIh2BxyJv
+         K+WD9G/ZfxFzBJaZba/DqSb07IcColVj5Tp1p538yZMqFlZmYg5/FhEc5deZL44McDjj
+         5QlDS31D51xZs0RRKNOvIwP0TkEcaZ2ft344p7tjuNmcj1PeEsd08j8rJH3HrSKNercU
+         Ft1g==
+X-Forwarded-Encrypted: i=1; AKwUvBwPuIq1wjvCBx0CsMigRBKJ6FTBeLH9V5oddqh++iq5NtSid0y5QVR1Rvm7I3nICibhiF77Y5Hx+XwZ01D3mU0X@lists.infradead.org
+X-Gm-Message-State: AFuF++km/YqH8jE9bNLkpgF42WxkxCGfZb5yv54NhemPFlP8J1F5spV5
+	EisOlb2cNwqY8IL6X0B7kbIYi+JHiWpBB0Ogdmdnp+ZkFr7tTdM/7hVE
+X-Gm-Gg: AYBFou3nuFgscUk9k85ehbksTU8IDt3V7TbVFApr+8/SlE5z4fjK4ToaTiXNUhM6m0n
+	YrI5Lq+cv3CI6WIynjKCvcTzsIyfqyXaS8BPYb93pYjO7RvEdxWLLJzwcWP2VlBpX+xZuOX2Vp5
+	h//ACIJaDbQ+RllysLMkDZTj4DAr+R78qF2ikvh62LIFW1ScDQfuauLmwOY0l+5g/uWAaMe1mL+
+	eXkWDpZLinpeJmJYF+c1chkyCcvUWOkAbsB6+MgebzjPbjfINVvc82gE7/uRxEmfTLbBnXttX2v
+	8nl7t7FjoTl8/MSRHV4C86tkggzhRxDKlWig1Bmwtearz1FDyqvqdtNP4GW6TKQXcEHCvVE8R51
+	sp1Ahfvmods6nQDtLBfe3w4HjUGj8XDPB3Vd3/4n3uOZ9VmElf0R4vuumlLIp2lSGYMQTjBeTAw
+	/APih2/Bs2NKiSc8xI0Qjcl/fCckLkQxTuLvshgOgy2TaqEGZy66nJxuy6Cei/ll0cWQgWy8xRM
+	pGy0riU5YMdGUGWs97n3cEiK2GjDgjWZxcJCPr0
+X-Received: by 2002:a05:600c:1986:b0:49c:fa20:cc04 with SMTP id 5b1f17b1804b1-49eb732e404mr79422515e9.27.1789647188967;
+        Thu, 17 Sep 2026 05:13:08 -0700 (PDT)
+Received: from fedora-tap.advaoptical.com ([82.166.23.19])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fbd204c1asm70146675e9.4.2026.09.17.05.13.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 17 Sep 2026 05:13:08 -0700 (PDT)
+From: Sagi Maimon <maimon.sagi@gmail.com>
+To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	netdev@vger.kernel.org
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Sagi Maimon <maimon.sagi@gmail.com>
+Subject: [PATCH net] net: axienet: restart the TX queue after a DMA error reset
+Date: Thu, 17 Sep 2026 15:13:06 +0300
+Message-ID: <20260917121306.23499-1-maimon.sagi@gmail.com>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAMxPZkhjurfpPvvymamJqTuia8CtFw1gRyYA4KBwFcQoH5jz3A@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_050956_779062_8F18187F 
-X-CRM114-Status: GOOD (  24.83  )
+X-CRM114-CacheID: sfid-20260917_051311_497642_CCF22E38 
+X-CRM114-Status: GOOD (  17.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,64 +105,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arash,
+axienet_dma_err_handler() resets the DMA engine, frees every TX
+descriptor and sets lp->tx_bd_ci and lp->tx_bd_tail back to 0, but it
+never restarts the transmit queue.
 
-Your patches have been merged in
-https://gitlab.freedesktop.org/linux-media/media-committers. I'm sorry
-it took so long. I really appreciate the work you've done here.
+If the queue was stopped by axienet_start_xmit() because the ring was
+full - __QUEUE_STATE_DRV_XOFF - it stays stopped.  The only
+queue-state clearing the handler does is netdev_reset_queue(), which
+touches __QUEUE_STATE_STACK_XOFF and does nothing at all when
+CONFIG_BQL is disabled.  The remaining wake in axienet_tx_poll() is
+reached only when axienet_free_tx_chain() returns a non-zero packet
+count, which cannot happen after the handler has cleared the status
+word of every descriptor, and the wake in axienet_start_xmit() cannot
+run while the queue is stopped.
 
-On Mon, Sep 07, 2026 at 08:15:02AM +0330, arash golgol wrote:
-> On Wed, Aug 12, 2026 at 9:50 AM arash golgol wrote:
-> > On Tue, Aug 4, 2026 at 10:57 AM Arash Golgol wrote:
-> > >
-> > > These three patches convert the sun6i-mipi-csi2, sun8i-a83t-mipi-csi2,
-> > > and sun6i-csi bridge drivers to use the V4L2 subdev active state API.
-> > >
-> > > Each patch has already received review and testing individually in
-> > > previous postings (see the changelog and links within each patch for
-> > > that history), but none have been picked up and none currently have
-> > > a delegate on patchwork. Resending together to make it easier to
-> > > review and apply as a group.
-> > >
-> > > No code changes since the last posted version of each patch.
-> > >
-> > > Arash Golgol (3):
-> > >   media: sun6i-mipi-csi2: Use V4L2 subdev active state
-> > >   media: sun8i-a83t-mipi-csi2: Use V4L2 subdev active state
-> > >   media: sun6i-csi: bridge: Use V4L2 subdev active state
-> > >
-> > >  .../sunxi/sun6i-csi/sun6i_csi_bridge.c        | 155 ++++++++----------
-> > >  .../sunxi/sun6i-csi/sun6i_csi_bridge.h        |   9 -
-> > >  .../sunxi/sun6i-csi/sun6i_csi_capture.c       |  27 ++-
-> > >  .../sunxi/sun6i-mipi-csi2/sun6i_mipi_csi2.c   | 107 ++++++------
-> > >  .../sunxi/sun6i-mipi-csi2/sun6i_mipi_csi2.h   |   2 -
-> > >  .../sun8i_a83t_mipi_csi2.c                    | 112 +++++++------
-> > >  .../sun8i_a83t_mipi_csi2.h                    |   2 -
-> > >  7 files changed, 194 insertions(+), 220 deletions(-)
-> > >
-> > > --
-> > > 2.34.1
-> >
-> > I've been trying to get these patches merged for a while.
-> > Multiple pings and followups have been sent, but they haven't
-> > been applied yet. This series is just a collection of my
-> > individual patches.
-> >
-> > All patches have full Reviewed-by/Tested-by coverage from
-> > Laurent Pinchart and Paul Kocialkowski. Current status of all
-> > patches are still New in patchwork, without a delegate.
-> >
-> > Link: https://patchwork.linuxtv.org/project/linux-media/list/?series=28738
-> >
-> > Given the review is complete, would you be able to pick these
-> > up, or let me know if something else is blocking them?
-> 
-> Just following up on this series.
-> Link to series:
-> https://patchwork.linuxtv.org/project/linux-media/list/?series=28738
+The transmit timestamp is not refreshed either, so on a kernel with a
+TX timeout handler the watchdog condition stays true and the reset can
+be retried indefinitely.  axienet_device_reset(), the driver's other
+reset path, already calls netif_trans_update() for this reason.
 
+Wake the queue and refresh the timestamp at the end of the handler.
+The descriptor ring has just been reinitialised at that point, so it is
+ready to accept transmits.
+
+Fixes: 8a3b7a252dca ("drivers/net/ethernet/xilinx: added Xilinx AXI Ethernet driver")
+Signed-off-by: Sagi Maimon <maimon.sagi@gmail.com>
+---
+Compile-tested only; the board I found this on is not available to me
+for about a month.  The BQL/STACK_XOFF case was exercised on hardware on
+2026-08-26 and did recover, which is why the gap went unnoticed - see the
+discussion on the TX timeout patch.  The DRV_XOFF case is reasoned from
+the code, not measured.
+
+axienet_dma_err_handler() also tears down the TX ring without excluding
+axienet_start_xmit().  That is a separate pre-existing problem and needs
+a separate patch; I would rather send it once I can test it.
+ drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+index 782f903d318f..b6440c06f260 100644
+--- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
++++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+@@ -2778,6 +2778,15 @@ static void axienet_dma_err_handler(struct work_struct *work)
+ 	napi_enable(&lp->napi_rx);
+ 	napi_enable(&lp->napi_tx);
+ 	axienet_setoptions(ndev, lp->options);
++
++	/* The ring is empty again, so let the stack transmit.  The queue may
++	 * have been stopped by axienet_start_xmit(); netdev_reset_queue()
++	 * above clears only __QUEUE_STATE_STACK_XOFF, and nothing at all
++	 * without CONFIG_BQL.  Refresh the transmit timestamp first, or the
++	 * watchdog fires again on the next tick.
++	 */
++	netif_trans_update(ndev);
++	netif_wake_queue(ndev);
+ }
+ 
+ /**
 -- 
-Regards,
+2.47.0
 
-Laurent Pinchart
 
