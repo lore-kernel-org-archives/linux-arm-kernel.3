@@ -4,55 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9A83C982CF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 12:06:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E01C0C88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 12:06:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LlnRbt5c8SP+aAJF87ouKUvRBbld9YxcfP/ftrnkZgw=; b=hfLdjWgSiw6JcAFjZ29Cq9BoDW
-	i4yiU6DY+mhHQxu8Wk6PysfuuA04dZCpTMe6WyppVeZ/6aAXfrM8uImBB16TrCIQ4y3Vjehz36LcB
-	3ClKYYzJ/+TSWz0inXL83x9RLp/bjjcxq2Iy46lCUa44hLlbkDfTpzhIksEEaVVkCNBCIOTjy9dkD
-	pA8tnDfi/ZvS1tptkxovdnq7XKbP4lV5mI1znsyZXdOmBrlyFzpP66hkHWIDBFzWkqQDezuK6E7sN
-	OEuDEsqWKfo+mTifNia/qZGbg18eCvvg0gZCcZkemd3Cmpgcm2tY8PtBOnXbWIOwTCHtKkpUeIhZk
-	DtpZSV9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+zlJ5jz2kN0YvLvgk4BOhxj/9a64emmfZfUdw4MOTMM=; b=M/VW1NeEkoL2777E0//JoFf3h7
+	TI6iL+Uwe87fYwTVnIALN6ba110ev6zzvccNnLG43bkCMoXFoKMC4fuYqqS7/6tQ1fdVrObwJyzYv
+	3Mq7kKhsN15nYfVE1JkaR8w+SFTS6CFCZRjxWDkXdwAiNISxrbPT5vGPUoFaVGUGGO6sJJ/zjxyCU
+	1BQKXtVcoDfxGqdx1UQS4SNPaXt2SxdRDIqjvXLSOr1imhDBpa5STZdfZ1wU8MdXVWXURRb6yU7Xv
+	79WHa1ZgEZAT6AqLjIsyGP5rzsTqxdW6rQCGOy9fMe4GfjX1ZqE1sEQ61qWu21ifWe2uWjTfLDAd7
+	1gGpoM6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Asg-0000000BFfp-2Ted;
-	Thu, 17 Sep 2026 12:06:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x7At1-0000000BFjL-38NG;
+	Thu, 17 Sep 2026 12:06:43 +0000
+Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Asf-0000000BFfX-04vU;
-	Thu, 17 Sep 2026 12:06:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1D71A602D3;
-	Thu, 17 Sep 2026 12:06:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B62D1F00898;
-	Thu, 17 Sep 2026 12:06:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1789646779;
-	bh=LlnRbt5c8SP+aAJF87ouKUvRBbld9YxcfP/ftrnkZgw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=0ljomUrwTL2UcjQ7HHAcYdrtIKTqFYzw3wyXinI7YNmmp9wq2uvlibGxRe3/YSkmK
-	 ryRmZwW7JLzSvGxQ06hWYVVDby0dfdp29e7FXIUOZVmR0sEpEhuqhRPALUXGZax/u9
-	 kyEaroyGZOc8yeqFj6lfvzQPnCrsFqApRO66wVvc=
-Date: Thu, 17 Sep 2026 12:57:01 +0100
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Wentao Liang <vulab@iscas.ac.cn>
-Cc: angelogioacchino.delregno@collabora.com, jason-jh.lin@mediatek.com,
-	jassisinghbrar@gmail.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	matthias.bgg@gmail.com, stable@vger.kernel.org
-Subject: Re: [PATCH] mailbox: mtk-cmdq: Fix GCE clock reference leak in
- cmdq_get_clocks()
-Message-ID: <2026091720-erased-urchin-8903@gregkh>
-References: <20260917093745.2144930-1-vulab@iscas.ac.cn>
+	id 1x7Asy-0000000BFiH-0xbe
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Sep 2026 12:06:42 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=+zlJ5jz2kN0YvLvgk4BOhxj/9a64emmfZfUdw4MOTMM=;
+	b=4q4vjrkTUCXKLTMtujghu1eQ1Zme+sc/BL+0HesWEnOvuXN3nORa4ZfmvJcbBSiHZzMD3ZcT8
+	B134asOLVgQR3UxXPAmxxJSfQEk+JK4jfyGfP68k/pFQV9ffTuytjtDyTfcpSOduw39knhM91AJ
+	aO31HcnZ3qR6lyf8tGZVl4A=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4hlvMl57yhz1K9B1;
+	Thu, 17 Sep 2026 19:55:31 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id 3DB2640586;
+	Thu, 17 Sep 2026 20:06:31 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ kwepemk200008.china.huawei.com (7.202.194.74) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Thu, 17 Sep 2026 20:06:30 +0800
+Message-ID: <77313765-ba3d-40ba-b693-0b78a518d504@huawei.com>
+Date: Thu, 17 Sep 2026 20:06:29 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260917093745.2144930-1-vulab@iscas.ac.cn>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 36/38] genirq: Trust local irqchip when considering IRQ
+ for NMI
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
+	<maz@kernel.org>, <lpieralisi@kernel.org>, <liaochang1@huawei.com>
+References: <20260914102102.68597-1-vladimir.murzin@arm.com>
+ <20260914102102.68597-37-vladimir.murzin@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260914102102.68597-37-vladimir.murzin@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260917_050640_970732_9B8B41DA 
+X-CRM114-Status: GOOD (  17.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,24 +80,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 09:37:45AM +0000, Wentao Liang wrote:
-> of_clk_get() returns the clock with an elevated reference count, but
-> the references taken for the other GCE clocks are never dropped: those
-> clocks outlive probe and the driver calls neither clk_put() nor
-> clk_bulk_put(), so probing a GCE with multiple instances leaks one
-> reference per other GCE clock.
+
+
+在 2026/9/14 18:21, Vladimir Murzin 写道:
+> Generic IRQ code sanitises whether an IRQ can be considered for NMI
+> use. Currently, it only considers IRQs managed by the root irqchip.
 > 
-> Let devres drop the references when the device goes away, which also
-> covers the probe failure paths after cmdq_get_clocks() has returned.
+> GICv5 IPIs belong to a logical domain built on top of the LPI domain.
+> Consequently, generic IRQ code rejects these IPIs for NMI use, even
+> though their hardware state is managed by the root LPI domain.
 > 
-> Fixes: 85dfdbfc13ea ("mailbox: cmdq: add multi-gce clocks support for mt8195")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+> One way to allow GICv5 IPIs to be used as NMIs would be to adjust the
+> sanitisation logic to account for this domain hierarchy. However, the
+> generic IRQ code can instead trust the local irqchip.
+> 
+> Remove the root irqchip check and use the local irqchip when
+> considering an IRQ for NMI use.
+> 
+> Suggested-by: Marc Zyngier <maz@kernel.org>
+> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> ---
+>  include/linux/irq.h | 2 +-
+>  kernel/irq/manage.c | 5 -----
+>  2 files changed, 1 insertion(+), 6 deletions(-)
+> 
+> diff --git a/include/linux/irq.h b/include/linux/irq.h
+> index f485369b1b4f..92d3ad639ae8 100644
+> --- a/include/linux/irq.h
+> +++ b/include/linux/irq.h
+> @@ -563,7 +563,7 @@ struct irq_chip {
+>   * IRQCHIP_ONESHOT_SAFE:              One shot does not require mask/unmask
+>   * IRQCHIP_EOI_THREADED:              Chip requires eoi() on unmask in threaded mode
+>   * IRQCHIP_SUPPORTS_LEVEL_MSI:        Chip can provide two doorbells for Level MSIs
+> - * IRQCHIP_SUPPORTS_NMI:              Chip can deliver NMIs, only for root irqchips
+> + * IRQCHIP_SUPPORTS_NMI:              Chip can deliver NMIs
+>   * IRQCHIP_ENABLE_WAKEUP_ON_SUSPEND:  Invokes __enable_irq()/__disable_irq() for wake irqs
+>   *                                    in the suspend path if they are in disabled state
+>   * IRQCHIP_AFFINITY_PRE_STARTUP:      Default affinity update before startup
+> diff --git a/kernel/irq/manage.c b/kernel/irq/manage.c
+> index 57eff26fa646..c9ad79743ef6 100644
+> --- a/kernel/irq/manage.c
+> +++ b/kernel/irq/manage.c
+> @@ -1370,11 +1370,6 @@ static bool irq_supports_nmi(struct irq_desc *desc)
+>  {
+>  	struct irq_data *d = irq_desc_get_irq_data(desc);
+>  
+> -#ifdef CONFIG_IRQ_DOMAIN_HIERARCHY
+> -	/* Only IRQs directly managed by the root irqchip can be set as NMI */
+> -	if (d->parent_data)
+> -		return false;
+> -#endif
 
-Please stop sending these patches.  You are not responding to any
-feedback, so we are assuming you are just a bot :(
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 
-All should be dropped until proven otherwise.
+>  	/* Don't support NMIs for chips behind a slow bus */
+>  	if (d->chip->irq_bus_lock || d->chip->irq_bus_sync_unlock)
+>  		return false;
 
-greg k-h
+-- 
+Best regards,
+Jinjie
+
 
