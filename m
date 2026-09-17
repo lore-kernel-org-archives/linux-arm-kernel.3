@@ -4,94 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EEA5C982CF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 12:22:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57B3CC982D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 12:25:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b8s9FB4mkLguoX/MZuaDXebOlC81MYOzJYBSY6urM8Y=; b=O44f2ZRf2jkUJvMvSg/qOwDtwo
-	3JFAbP8bzu7icscFEsENKzDVWI5kKRd3nVPP6IQsvOQSSTtTgLv6998QBwfYAn88LR9LzNcP50VRu
-	snKe2MKjLVFV4Ik/r4ZeEGplJVNglmRqNjZrEmK6CIlKww8pGrmJH6P11CJjwQyz16lMluFPnH2JZ
-	t3eAN2Pb5T7DmrvNT96PHa+NdPDNNhMQWMl6fx4bSUksgY8t2yNQnyNDmUmEUJqZUo3zoSh6skOoS
-	jM75c+EqYi9DiHggqQUOX/Uv8H4LVqhRZeQM/QEnyZK316lioqxE3vdyIAPirjhRD/q+wF9O12QN/
-	+7IHDm7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zh8dnCzgurcfuVXhK01muyhzuo7mZiFtdSNhXSbz6gU=; b=MDxL7S4m7HGuhIwX/OUYX4949l
+	vowrnq5LbYmHgEyjaaSkntF8IpB+VZpXI/aCArV85pwU3sN1DloHDe4CEBtDUWEgWeS5Q8vOzyKpY
+	wZEBmOaRu70tINhNtyodwj1xKbRQQEKuBdBG+UKNi8rUNv37C/dUq7Gaw25hKnPMIoTVitEjJnDpO
+	eLxonkn7uqIhBHu3acGch1gwZARItA+je23lecNlP2s+e1g4eFRmT6DTS7XbksSQ2ky558gCLQMss
+	kgVV0v3f0iFcz7NCOkimpnD+z/KNrGwXU1Q2uUcTmVJlE/JLzboM6sxESDSEMRVy+2GDwXE61UPe3
+	p9MygLwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7B8J-0000000BHOH-2RDy;
-	Thu, 17 Sep 2026 12:22:31 +0000
-Received: from mgamail.intel.com ([192.198.163.8])
+	id 1x7BB3-0000000BHfT-0MJz;
+	Thu, 17 Sep 2026 12:25:21 +0000
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7B8H-0000000BHNh-1jam
+	id 1x7BAz-0000000BHdT-0Va9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 12:22:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789647749; x=1821183749;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Zo57ptsMztytzJ66q7w7TElsqXFNRm3Xo9NSI9URBfc=;
-  b=PMV9O2Dr9S6Hrs6WWnAEzIFUSpoXK/xsojFc1KVe/K84nTuw4tzt2WtK
-   OOgjMCKnkaOR6uI8Fb8xa/nZYbXD2gXbuNAsqGM7BjFqg1eskxprsWeca
-   SunqKfqioJF0U8insTpxycR7yGTteUJIEVBJ0xw/tepTbMj5EDH+Z0XN4
-   Hp28NmtFStCB4GKvBp/aYXNwOi+PZiyqCB/ZgSr8PoE8fdO7kPTwQp6NV
-   xV8A8c0qTGjW7CP459CkBCM2zU6mR7NSXnqpPQ8wJNR7g+RrJ4ehipYqG
-   EgkiXnbqqSiQI8ShltGWaMCRzs7g2pFs384DJ0E8RBdI6/XJWKcLBJXsJ
-   g==;
-X-CSE-ConnectionGUID: MVDAIw9eSB+SwBHgpRthWg==
-X-CSE-MsgGUID: UhAodhugTiGfY3nZT+zAqg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="107569075"
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="107569075"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Sep 2026 05:22:28 -0700
-X-CSE-ConnectionGUID: BfjX0q2oSlax1Hx0fa4JPQ==
-X-CSE-MsgGUID: C6UIlR4DSgmHmuVzv984bA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="270450345"
-Received: from abityuts-desk1.ger.corp.intel.com (HELO localhost) ([10.245.245.11])
-  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Sep 2026 05:22:22 -0700
-Date: Thu, 17 Sep 2026 15:22:20 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: zl020895 <zl020895@163.com>
-Cc: longzhao@ambarella.com, Arnd Bergmann <arnd@arndb.de>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Rob Herring <robh@kernel.org>,
+	Thu, 17 Sep 2026 12:25:18 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-4843c3ea1f6so394952f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 05:25:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789647915; x=1790252715; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=zh8dnCzgurcfuVXhK01muyhzuo7mZiFtdSNhXSbz6gU=;
+        b=ZfAhARGWxf+ArAfjKVYPxZjf2BjpJo4dUJlEqKV3gfgypUws8mef6mXa+5ZqUQ50hT
+         5uDusIZCAyfiH9YaamFJitb6jJNX3TOvpxJJuuMKAX8ZxhKToIpT5LUaAntd/MwWcWOh
+         Wx9f2mzmS/b5wYmZa37+JSC64SRlnFVGcO3uCCmHi+0atn9d5dcHvy1y6DSwQOXm8ydM
+         DOPmkxVjoPh7U0H+UNsuJontqlqu1gCKTbDGDbXVISQtO3z61yzMM7wNypMk5FM3cvG4
+         7leAV5z7JujhecgNdJHZMqj3rxJpUEcfqMqKcbbMW8AptmjGsOVrWnShVETIfULb8c5Q
+         vx3Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789647915; x=1790252715;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=zh8dnCzgurcfuVXhK01muyhzuo7mZiFtdSNhXSbz6gU=;
+        b=FN6y8tAhZM6EfQAMe+JzAFxVdLo4GihBgrYGAS6jrdlA/4n3zls7IXsRmmynZToKD5
+         v60VOOVeeu6bD7mk+jBouqajXq5GmIrumgVMlXyJyKni4UCw19/5CfrIh4xq0dG7m/Ep
+         snnZf5TIjabF78FR4X2gcNhG7+JrvUe8TzhrBoRavvZi3Np0WdnCv9x7d2cHOr2JjhRF
+         VkIB6eQvYCnvPknHHk8i3VhUw2qFZDCQHVWM1DLCsk7jkr2VBTPVF8Re2ElJmnzkLNaP
+         CI0+GxNjGL72P2rgomLf35w82DnmXlHGmDOfXNPng0P+MVWbnK9aIfEDr8XD4a0E89g+
+         zHJw==
+X-Forwarded-Encrypted: i=1; AKwUvBwugnETRBnP5B7nQdfxdsxZ0xO8gdx/TZPidOSZPvU31xuDv6uethggZtVkdEG4Pf/9xuCS5nDWn1JSb9KZ4syA@lists.infradead.org
+X-Gm-Message-State: AFuF++kPNM50tMi0L4wzvnOBU1SMULa+UKgV4RgNU/NeUlERLfebeaK2
+	TI9/qSOx/X1G35yObfdvUEzksY6RlWWJ9v2tBSDPc1hKSxDfkzBZQWrO
+X-Gm-Gg: AYBFou0kM6TnNc1OohVFvP4/rKCwW0k6A7mRsT8emG8VXdevip4W48dMJMbOuTY9VLn
+	qiNmhfU8pBseJDGk61WPTVz+3/HdNZG6eH8nnIM2wfmdL13B+CZaRAKQiXe1LIVEbZluoV9iFlj
+	A91/ijOPGBUtXEkXyon62EczvEu+OqKZ5L+YHUm5vD/CXr6HRw5u/8KqX9j3A5UWnHW7whFHjtF
+	Tqb6/1ZtVadKHmhCbbgAt4Al0TXMfRxzHhPvayYsKtihA4wGdyqbBWFZnqAme0AGT/KM8X4RQJC
+	Fu3TyowiD+gOd7xYhf8IOPdaoLWG+eJuBs7BUg72ilRXzsDtYEb+b6FujS8CqrXMjHaRtW0QvF0
+	NKZtEGSBAEQ0Wb5t6+9IZpJe8XhcnAF8XCBeX7e7Rd1/lSiGcFX2lsEJiuKCoENeKq2MG38su7f
+	E1Af8SnRMxXowdaZTxZQrP+/mmLSIHMFUEtQjxKKMUU4u3pLof/Y2ak6QwddDEdxH/ZiiCdq9IZ
+	mN2FMoP7X2Uq38l3cQb72IWv4AT7+4e+x7eN5j13dCgSA==
+X-Received: by 2002:a05:6000:40e1:b0:45e:e1a4:c4c3 with SMTP id ffacd0b85a97d-4870cef0c80mr7996798f8f.15.1789647914967;
+        Thu, 17 Sep 2026 05:25:14 -0700 (PDT)
+Received: from zeus.localdomain (212.71.14.70.adsl.dyn.edpnet.net. [212.71.14.70])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4870bf27ce2sm15276567f8f.20.2026.09.17.05.25.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 17 Sep 2026 05:25:14 -0700 (PDT)
+From: Sander Speetjens <sander.speetjens@gmail.com>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Lee Jones <lee@kernel.org>,
-	mfd@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: Re: [PATCH v7 12/15] pinctrl: ambarella: add CV75 pin controller
-Message-ID: <aqvbfCQ6cxfGYJeC@ashevche-desk.local>
-References: <20260915-cv75-v5-v7-0-3297d3fbc9c0@ambarella.com>
- <20260915-cv75-v5-v7-12-3297d3fbc9c0@ambarella.com>
- <aqp0VlwWotnuK9t7@ashevche-desk.local>
- <40f1f819.7f85.1a0ae9e4dae.Coremail.zl020895@163.com>
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Jonathan Bell <jonathan@raspberrypi.com>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	linux-rtc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	sander.speetjens@gmail.com
+Subject: [PATCH v2 1/2] dt-bindings: rtc: Add property for Raspberry Pi 5 RTC
+Date: Thu, 17 Sep 2026 14:21:43 +0200
+Message-ID: <20260917122144.703221-2-sander.speetjens@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260917122144.703221-1-sander.speetjens@gmail.com>
+References: <20260917122144.703221-1-sander.speetjens@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <40f1f819.7f85.1a0ae9e4dae.Coremail.zl020895@163.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_052229_465643_B0DE4FBC 
-X-CRM114-Status: GOOD (  15.78  )
+X-CRM114-CacheID: sfid-20260917_052517_172569_945DB4CB 
+X-CRM114-Status: UNSURE (   9.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,39 +109,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 05:06:45PM +0800, zl020895 wrote:
-> Thanks for the review. The small comments will be in v8,
-> including pinconf set via regmap_assign_bits.
-> 
-> PINCTRL_PINGROUP does not fit here: groups carry
-> AMBA_PINMUX(pin, alt), not a pin-number list, so I will keep
-> CV75_GROUP.
+Add charging-voltage-millivolt property for the Raspberry Pi 5 RTC.
 
-I didn't get. It takes a pin as a parameter and adds the function on top
-of it. It is a combo, but I think it still fits the purpose. Please, use
-existing data structure and a macro.
+V1 -> V2: As discussed with Krzysztof Kozlowski, this property is folded into
+the existing raspberrypi,bcm2835-firmware properties.
 
-> At 2026-09-16 18:49:58, "Andy Shevchenko" <andriy.shevchenko@linux.intel.com> wrote:
-> >On Tue, Sep 15, 2026 at 07:15:42PM +0800, Long Zhao via B4 Relay wrote:
+Signed-off-by: Sander Speetjens <sander.speetjens@gmail.com>
+---
+ .../bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml     | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-...
-
-> >> +#define AMBA_PINMUX(pin, alt)		(((alt) << 12) | (pin))
-> >> +#define AMBA_PINMUX_TO_PIN(mux)		((mux) & 0xfff)
-> >> +#define AMBA_PINMUX_TO_ALT(mux)		(((mux) >> 12) & 0x7)
-> >> +
-> >> +struct amb_pinmux_group {
-> >> +	const char *name;
-> >> +	const u32 *mux;
-> >> +	unsigned int nmux;
-> >> +};
-
-^^^ left for the context.
-
-
+diff --git a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
+index 983ea80eaec9..1a0432510bee 100644
+--- a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
++++ b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
+@@ -133,6 +133,11 @@ properties:
+     required:
+       - compatible
+ 
++  charging-voltage-millivolt:
++    $ref: /schemas/rtc/rtc.yaml#/properties/charging-voltage-millivolt
++    minimum: 1300
++    maximum: 5000
++
+ required:
+   - compatible
+   - mboxes
+@@ -171,5 +176,7 @@ examples:
+             touchscreen-size-x = <800>;
+             touchscreen-size-y = <480>;
+         };
++
++        trickle-charge-millivolt = <3300>;
+     };
+ ...
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.55.0
 
 
