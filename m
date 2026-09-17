@@ -4,66 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B65FAC982D9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 18:38:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B53B0C88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Sep 2026 18:43:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7/HZTASVkqKaji0QyjTNpQOcpYSX+5MHinbb2iPHtgk=; b=nobbFY5bDSRju1CR27fR0kOZSz
-	+4U9eS2LUxysB2q6lf9GdK1SQfrTHm0wDtzx3c1FD6Lml91LdivPfpQCmfjrtmn5XRde7izPbj1MY
-	wtj0PklwvIqGdBtNH4hw3qkR2uQ1QSeCO9fwql9LcB2NZiZcet45uWnmi0srv92IPwN44Wp2vlQk9
-	R0gu8Z35IL7oC8fc7TDBY6UNyzjMSx3/Zt67CRny+nAIRbv2A8YzBeH1WLZFCd2qk0cwzE5ETZgpO
-	QO7S/5bzjlPN7TducZO/2tUAxtltwtrqIQqdhKHvKQ82UBIXhzD0WmSWfkPe1U0jZztvsceFGFxsN
-	s1JGSBJg==;
+	bh=dddSXRxdIdu49NHzZiLViRMhRwi+PNMj8+As+AEkJag=; b=bFP4Y6cc/y+ptZv/fN/i15dt06
+	uF4QQ7kveG6ZEmV8joxd+9KaVoJ+6W8JPh3bTot68Boml7vL2phFYNtfujkr8yvn9e0jVQChUVlLb
+	O+KY6qNrtd0tL147n74COBn7Zdj2z8Lee8WsyBKwHLwhsczjuj2A+yoGIM9TD5NCAtv/yyCAVwLMW
+	X3K3+BlAaqt4uN+jUAU78sqo+LluMtKDS9ziHBYhPLkkzp/9ks+5aU49xWZFAKyb4epD3hZNs+9sV
+	7fKPEm+ioH0mqn0M2vYcL9Nd5aqmzDf5bo4g1akT9i1V3yuh1W4SPvD6tH5uKgqK9J/axgyq9zzM6
+	QmOU34XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7H08-0000000CFPn-2Jax;
-	Thu, 17 Sep 2026 18:38:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x7H4z-0000000CGhb-0eDA;
+	Thu, 17 Sep 2026 18:43:29 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7H02-0000000CFJZ-19oo;
-	Thu, 17 Sep 2026 18:38:22 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0B44643E24;
-	Thu, 17 Sep 2026 18:38:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D2E31F000FF;
-	Thu, 17 Sep 2026 18:38:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789670301;
-	bh=7/HZTASVkqKaji0QyjTNpQOcpYSX+5MHinbb2iPHtgk=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=DzUy4DNsPs6KVxt3KwqIt7hsBJPGJfY5+jH/P+/NawPmKCuwHebVhj5iWmcMGZab0
-	 ivWn04rnlTtaofhzwCPdSwq0X6GdxAydr7CYNce8WNGUsE5uYRw712OW7NVlP+nyqt
-	 y+VISEl3gdx6iVV3h3pAG3y/kUgYM6UZex7J3xOwH7CS45MpkR238mqmq7cbCGQhAC
-	 hHvYz0hVDC0FiObk0dp3wjKiJkIMqZAvKHmY2T2uz+AyucMQGh++gjX3Axmhzm0v0M
-	 IbJu6pq1XWBIVbMX9pzHBNlM84TCf2lOZhIFGYwB1I6vB/2rGzD3h0E2OdqJ0RvXDy
-	 N6T9w5dr/lBpw==
-Subject: Re: [PATCH net-next v6 08/11] dt-bindings: net: rockchip-dwmac:
- document pcs-handle
-From: netdev-bot+sashiko@kernel.org
-To: coiaprant@gmail.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, heiko@sntech.de, vkoul@kernel.org,
- maxime.chevallier@bootlin.com, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, prabhakar.mahadev-lad.rj@bp.renesas.com,
- romain.gantois@bootlin.com, hkallweit1@gmail.com, neil.armstrong@linaro.org,
- linux@armlinux.org.uk, shawn.lin@rock-chips.com, david@ixit.cz,
- netdev@vger.kernel.org, linux-rockchip@lists.infradead.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, linux-renesas-soc@vger.kernel.org
-Date: Thu, 17 Sep 2026 18:38:20 +0000
-Message-ID: <178967030009.22033.606150817628079939@kernel.org>
-In-Reply-To: <20260915123802.1561724-9-coiaprant@gmail.com>
-References: <20260915123802.1561724-9-coiaprant@gmail.com>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1x7H4x-0000000CGhO-1e4T
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 17 Sep 2026 18:43:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
+	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=dddSXRxdIdu49NHzZiLViRMhRwi+PNMj8+As+AEkJag=; b=e8jCdtCffmsg6WRBTNSJakrPMd
+	rICXtEB0U+xm+sfwM/4Dv5ocICOzKsqeXRw6D9h8jKr0iuQCUhcYI/1gQx2M7AfBwSCpWilTsP74R
+	30Fvg1pORhfvlsiY7xr4QQxgx4BPN1W+J3Tr0rsxmyO9rnn2Knr2rPkQT4WWEfVSZYN0H+C2nsvju
+	0+1wkbszqi7nW0KkjtaxfKrkCCyrnBu0o6pIzu2JXfkmRQbWBrchOoZucOK0agX0313UzPlwbf3z9
+	zwKGt2YyDgPTg5jzBW/eeE4AMIJ7niu8vHk3RE8mmd23/tMTw2TFWxH/miofYanktJ1vwehAn2rq1
+	3go+a3Kg==;
+Received: from out-234.mta0.migadu.com ([2001:41d0:1004:224b::ea] helo=mta0.migadu.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x7H4u-00000009Alz-2T28
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Sep 2026 18:43:26 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=dddSXRxdIdu49NHzZiLViRMhRwi+PNMj8+As+AEkJag=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1789670600; v=1; x=1790275400;
+ b=TbclyN/ZVuG+rU+4xjm75+piq9TJqCokLY/I9maxgGVgt1b0d02dbe3aecqderwMQxnMCF4e
+ BIP9aDx4SxXpWXx+fALzWVvwEI0rAHZLp0T8W7rxGIrX3ePOBGCwzzr1IJsJ+ITRnI0E+6TywSm
+ Z+40JyM+wKYISNLCILuPmlHY=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id f7d7a0ab301b37dd;
+	Thu, 17 Sep 2026 18:43:20 +0000
+X-Mizu-Trace-ID: f7d7a0ab301b37dd
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-5b5e5aaf7deso1667e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 11:43:19 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwjB5MpcAS6+sbSpY5B9CB1TVYkYMdEjmhxLf+SBhv+a5iOsOLmFdLD9Z4zDH3TxILmABvNCszhCU33NfjM4iDr@lists.infradead.org
+X-Gm-Message-State: AFuF++kNKw/V5a/DaBeVXcw/dLcghmS1Q7WNQ9QvkejeXBZ4nmHjuGDm
+	LjsO3EEmvQ/FfVkpMsY2r2jFdJI4814E2DNxA/12ohnVlpEIOYddbllp1UVBxqbhFFSZkQ+4msr
+	tANi4DNqtxJJEPvWn4a2SCWeYebHtpaf3PUcq6Mr2
+X-Received: by 2002:a05:6512:2241:b0:5ae:b918:79d5 with SMTP id
+ 2adb3069b0e04-5b8c1021042mr20644e87.2.1789670599138; Thu, 17 Sep 2026
+ 11:43:19 -0700 (PDT)
 MIME-Version: 1.0
+References: <20260914113338.159227-1-fuad.tabba@linux.dev> <20260914113338.159227-16-fuad.tabba@linux.dev>
+ <86a4ph5fb9.wl-maz@kernel.org> <CA+EHjTzCQkeXQQcCDwABLR2w+NTmKTG3V6RSmhzYNayaoYXw3g@mail.gmail.com>
+ <865x045mke.wl-maz@kernel.org>
+In-Reply-To: <865x045mke.wl-maz@kernel.org>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Thu, 17 Sep 2026 19:42:42 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTx1rGTZ-8Knj_JJJJtcUhU1o3Qmw8gr=iNkWEgX7Lv6vA@mail.gmail.com>
+X-Gm-Features: AcwNN1W2zdyru-EwkMeGvOAl12MsTWv2Fg6M62Lipeq-f3z_dccz0p-vzgpTsTw
+Message-ID: <CA+EHjTx1rGTZ-8Knj_JJJJtcUhU1o3Qmw8gr=iNkWEgX7Lv6vA@mail.gmail.com>
+Subject: Re: [PATCH v3 15/18] KVM: arm64: Reject host access to protected VM
+ private state
+To: Marc Zyngier <maz@kernel.org>
+Cc: oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	catalin.marinas@arm.com, will@kernel.org, joey.gouly@arm.com, 
+	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	mark.rutland@arm.com, steven.price@arm.com, vdonnefort@google.com, 
+	qperret@google.com
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260917_194324_745900_17A4879C 
+X-CRM114-Status: GOOD (  14.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,130 +101,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider:
+Hi Marc,
 
-Critical: 0 · High: 0 · Medium: 0 · Low: 2
+On Thu, 17 Sept 2026 at 09:06, Marc Zyngier <maz@kernel.org> wrote:
+[...]
+> News flash, this is not x86, nor s390. I don't feel constrained by
+> other architecture, and we deviate *everywhere* already.
 
-- [Low] Commit message describes code that does not exist at this commit:
-  the message states the Rockchip dwmac glue "now supports SGMII on…
-- [Low] The new `allOf` conditional in
-  Documentation/devicetree/bindings/net/rockchip-dwmac.yaml keys only on…
+Not x86 nor s390: and I'm grateful for that every day :P
 
---
+[...]
+> A protected-aware VMM already knows it cannot obtain the registers.
+>
+> I don't want to have to revisit the userspace interface once you have
+> to relax it, because I know for sure that you will have to.
 
-dt-bindings: net: rockchip-dwmac: document pcs-handle
+What the error buys is that a read outside what EL2 copies out fails
+rather than returning the copy, which is what a register dump would
+otherwise print. But then how would the VMM know, once EL2 starts
+copying more out on an exit it already gets, that those registers are
+now the guest's? A cap is all I can think of, but I may well be
+missing something. With the error, the relaxation is a window on that
+exit for the registers EL2 copies out, and a read that succeeds there
+returns something EL2 copied out.
 
-This adds a pcs-handle property to the Rockchip GMAC binding and a new
-allOf conditional making it required whenever phy-mode is "sgmii".  Two
-observations below, one about the commit message wording and one about
-the scope of the new conditional.
+> As far as LD64B is concerned, there is no place to copy anything in
+> the run structure, and the relaxation would require to cover all the
+> GPRs, ESR, and FAR. At this stage, returning whatever is there is the
+> correct thing to do IMO.
 
->     The Rockchip dwmac glue driver now supports SGMII on RK3568 and
->     requires a PCS, referenced through the "pcs-handle" property.  The
->     property is parsed by rk_pcs_init() and a missing phandle fails the
->     probe, so describe it in the binding and require it when phy-mode
->     is "sgmii".
+For a protected VM the operands would go through fixed registers, the
+way x0 carries the MMIO data today, so the window on that exit is
+those registers rather than all the GPRs.
 
-[Severity: Low]
-This isn't a bug, but the wording is in the past tense for code that is not
-present yet at this commit.  At fc2e19066d08,
-drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c has no rk_pcs_init(), no
-"pcs-handle" parsing, and no pcs_init/pcs_exit/select_pcs callbacks or
-SGMII support.
+Hoping this one doesn't return -EPERM :)
 
-Checking the end of the series, those all arrive in the following patch
-("net: stmmac: dwmac-rk: add SGMII support for RK3568"), which adds
-rk_pcs_init() with:
-
-	pcs_node = of_parse_phandle(np, "pcs-handle", 0);
-	if (!pcs_node)
-		return -ENODEV;
-
-and installs the callbacks in rk_gmac_probe() for
-PHY_INTERFACE_MODE_SGMII.
-
-Putting the binding before the driver is the usual convention, so would it
-be worth rewording to say the property will be parsed by rk_pcs_init() in
-the following patch, rather than that it already is?
-
-> diff --git a/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml b/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
-> index 80c252845349c..67b21ea77ec96 100644
-> --- a/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
-> +++ b/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
-> @@ -120,6 +120,12 @@ properties:
->      maximum: 0x7F
->      default: 0x10
->  
-> +  pcs-handle:
-> +    description:
-> +      Specifies a reference to a node representing the PCS device
-> +      connected to this GMAC. Required when phy-mode is "sgmii".
-> +    maxItems: 1
-> +
->  phy-supply:
->      description: PHY regulator
->  
-> @@ -159,6 +165,15 @@ allOf:
->          clocks:
->            minItems: 5
->  
-> +  - if:
-> +      properties:
-> +        phy-mode:
-> +          contains:
-> +            const: sgmii
-> +    then:
-> +      required:
-> +        - pcs-handle
-> +
-
-[Severity: Low]
-Should this conditional also key on compatible?  As written it keys only on
-phy-mode, so required: [pcs-handle] applies to all sixteen compatibles this
-schema selects (px30, rk3128, rk3228, rk3288, rk3308, rk3328, rk3366,
-rk3368, rk3399, rk3506, rk3528, rk3568, rk3576, rk3588, rv1108, rv1126).
-
-At the end of the series only rk3568_ops provides .set_to_sgmii, and
-dwmac-rk.c derives the capability from it:
-
-	bsp_priv->supports_sgmii = ops->supports_sgmii || !!ops->set_to_sgmii;
-
-so the PCS requirement looks specific to rockchip,rk3568-gmac.
-
-The reverse direction is open too: pcs-handle is added unconditionally, so a
-GMAC node on a Rockchip SoC with no XPCS can carry a pcs-handle and still
-pass dt_binding_check.  The rest of this file already gates SoC-specific
-constraints on compatible with a negative else branch, for example:
-
-  - if:
-      properties:
-        compatible:
-          contains:
-            enum:
-              - rockchip,rk3576-gmac
-              - rockchip,rk3588-gmac
-    then:
-      required:
-        - rockchip,php-grf
-    else:
-      properties:
-        rockchip,php-grf: false
-
-Documentation/devicetree/bindings/net/renesas,rzv2h-gbeth.yaml uses
-"pcs-handle: false" in the else branch for the same purpose.  Would nesting
-the new block under a check for rockchip,rk3568-gmac, plus
-"pcs-handle: false" for the variants without a PCS, describe the hardware
-more accurately?
-
-No in-tree DT is affected today: the only Rockchip GMAC node with
-phy-mode = "sgmii" is in rk3568-photonicat.dts, and it already provides
-pcs-handle = <&xpcs_mii0>.
-
->  unevaluatedProperties: false
->  
->  examples:
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260915123802.1561724-1-coiaprant%40gmail.com
+Cheers,
+/fuad
 
