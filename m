@@ -4,144 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58F8CC982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 14:21:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33469C982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 14:21:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ywId08J7Tbx4MqC2rzjHWK754WaVxW5lbY11LpqyFpM=; b=CTm95JsewhIMl1mm2OuyVGAU3I
-	lnN5ovAr8QixZNcItVzmHOKocA5NkkclbWdTBMfrZ1cALzl+d+gAJ0qbjtgdBhSZ3skoB3IHvTZSL
-	oglTvd712Hgi4bG63gr82DTlJySCrg4eoL19uO7o28RTOGpygbES1dDPJgYueMmDPiEkQhB1Ra0Bl
-	6h13a8f53+G3u7Zkkm8jtZkhd/ylpECYebNoxwRDGidUoQ09bXtZjUutg+INIpwfTAtfIgcsy9/tw
-	JpG4iiPVkVlDlNe4zHRlUKC6Vxm51y9tG1cdp0bs4T6iImksQ3EvJEnkibfXqStiNbjYMNiazqQ3M
-	P9PEXEYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PvpRAgjpPu8BvnLU6MpxRN7ZJdfDqg5AYLix3SjE9mk=; b=BPbv3WWjuXi0++NL5/umlFSJYu
+	gHg+Fojlat+xTr7pjp+oEUvL7JKY+q4tYDGGsIf5t1RJRULBGG8Mxna8O1bQuGnlCmxBslSc05zSp
+	efbBnCxNSaHZ4GxQ8KoFsJrh8lkwUFiSKOz7lDNufYul1sTOccLyB1MWjPOmiCYvfl4APoVwCPwbP
+	xCVVp24J4di1UG6LwsqPPZkPqbsVao5SVPD9+EDRT3b7Ccvk43zi2+2CrLVMy+Q2oNg8SnwZR8cRA
+	3D5/ydTwgTpCd7Ufx5AsZVHf9jlse/UxVC8e63LqPtATk4KJVJp61lMX34r2OWznzP/u7FfdhceVN
+	Uj9ehdcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Ygv-0000000EX5l-481c;
-	Fri, 18 Sep 2026 13:31:49 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x7ZTD-0000000Ehoy-070R;
+	Fri, 18 Sep 2026 14:21:43 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Ygo-0000000EWvz-3BMV
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 18 Sep 2026 13:31:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=ywId08J7Tbx4MqC2rzjHWK754WaVxW5lbY11LpqyFpM=; b=T73LytOSBETuHTQ+RHyRFvMrW8
-	p/DqlSKmqQhRLVskTaBxOBcX+6zXWAGACEFD/zmGJuDMOg8qX3Ehln2mJ3RI66SQi4uvj2Slr9qPb
-	38/kn5fn2qXQCWPuMztiX0DHG/DxS5z0fsJfY7CoM+rAxXJGnT0WZyTh6h4rDfMfIhWm+47scMIic
-	ZsPcQJCzFVn0F0ZEUwLsut4g7uDiea9XmxisI+vLFpfULqo+p45SQ8HqiaZ4f/6RkAO9ycOBvNdJv
-	1vlXDHpdZkSUaD4h6ZBqtPYLz+kwqorUOlb8v7qcXs7vhR71CpbyF6A3nggUs+gVmYY62sIyZAZHH
-	ZCUD0htg==;
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x7Ygl-0000000A8Zd-07nN
+	id 1x7ZT9-0000000EhoE-4Ahy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 13:31:40 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68IA1fVM961319;
-	Fri, 18 Sep 2026 13:31:25 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=ywId08J7Tbx4MqC2r
-	zjHWK754WaVxW5lbY11LpqyFpM=; b=AQdOW0JRXYwCVLE7TH4s6HDr8DiMiipWO
-	Swxn0YVoIMogm8OFstEoLD8FqC9JZoE6KYv9HlIxGiV8J7x023zrTqn6bxlg2Za2
-	VWH+8plqhHhiEJnmdSw50COLXBrFj9dHLtktdjiPy2sEByy31Rn1eneUyIUH4ZTj
-	G8+jRS2raUrgU2DnZYfFkuo7/WeUl07ltK3BVI5Tgr1PTvdgbEJQgEewdlAdr4SZ
-	blvi0837EwfTSj/dBpTpLN0coF4icE94z5N4u5rMhGfUD0f1brUshQM+342M0vD4
-	wxKX4cRfZ1zBgnZgMVtA5N5bwOpZ2U3N3N+/tiuPHaqsiDWfFt/Ng==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gmxf5gb7c-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 18 Sep 2026 13:31:24 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68IDNrbu777353;
-	Fri, 18 Sep 2026 13:31:23 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4gra3yxkc4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 18 Sep 2026 13:31:23 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68IDVGQL40305056
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 18 Sep 2026 13:31:16 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 292E420040;
-	Fri, 18 Sep 2026 13:31:16 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id CFF1D20049;
-	Fri, 18 Sep 2026 13:31:15 +0000 (GMT)
-Received: from tuxmaker.lnxne.boe (unknown [9.87.85.9])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 18 Sep 2026 13:31:15 +0000 (GMT)
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org
-Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v8 22/29] s390/hwcaps: Report SAE support as hwcap
-Date: Fri, 18 Sep 2026 15:30:59 +0200
-Message-ID: <20260918133107.1042730-23-seiden@linux.ibm.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260918133107.1042730-1-seiden@linux.ibm.com>
-References: <20260918133107.1042730-1-seiden@linux.ibm.com>
-MIME-Version: 1.0
+	Fri, 18 Sep 2026 14:21:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IWrsM1Dct+hlOgnFqooM1uhmHWIVDm/h+5QIf3Q0CspkYRwR21ZvCs9gP6huBRuI/HMq5bKA15I19VNxl/PnFgzirLtIClnf3Atszo67//j8+04gIlug7SuI4F9FM6BOSsY18ukTHgbcZwcxrTUrE+H/e3KAuXUi2xLCqIuS/0ZFAyeuiicmZjy3ZaJjevY7dbe3rbETwUu1WVRU5iSaEysjvK7RzF5WSaib7LWNqmxNPXFLBWxHXbfEev8saEI7okzejJZnBu7DX8tASd0jjQzO30rgrim4W81erR0YhorYfPdpdSkiDKn59VST7cghDa86srroGWoiMxf8vrWnWQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PvpRAgjpPu8BvnLU6MpxRN7ZJdfDqg5AYLix3SjE9mk=;
+ b=WGIUVdoGkCKqe/gigmPfpcIPG1zljkgvEfgi5PGbSUvmRdduu17G1ddJBaiCs+Yy9RmaYGuFgg1w9SXMbXJnJWY3QPq5rv9+XyXBMaS4OkYLOtqAuwqTIhekmCBhdK692sXvEfT1CT8yhQtALMeogBV009Wt6W6kkmHROXB4l/VDEkzx7lEkp2lkIEUvmUZRfsvgZYO+C6446+V5JVy8hkTdvnO1WX2VkjG+yyg+Ob1IMWoMTH/nBOT7TcCec1lHs65pxGd2fNv0O1DWZBSuBBrb6BAjeJbHYDaE1J7SAksulqUM+y+EEdimzCcQU1Ccfui4f2GsjZSU1pRBN6t+fA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PvpRAgjpPu8BvnLU6MpxRN7ZJdfDqg5AYLix3SjE9mk=;
+ b=UHkuwW7Vfndjd3j8Q8fS066rSCjUmS9vpCD9KRcujiLbHyqztfJQf8W/gA/NU9Tln1T73e+IBzmU+t9mvp3qZzFYIGIklEBxmaEsPhyMuVI8nqsuERF71bvrCekdNZWUdRiMwv79DB4TfilhOu19bPRwzk9ZTK05ZUmzuJWj5CB+9/X490gBwhvqNr+c7a47SPO46pZHFHBib31jk1uV891ahxssApyrXYw6naqMFgN6R8FHqusRlfFeBO3KmPFsdZZ1ZlLf6nevblpvA5c8VfQqhruDwfZZJ8M5vQulNA8pnvWDLf+vzxZGcqcXhdCSl4LfxkZhvpuqvylTC7mvgw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
+ by DU4PR04MB11846.eurprd04.prod.outlook.com (2603:10a6:10:627::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.9; Fri, 18 Sep
+ 2026 14:21:34 +0000
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0428.011; Fri, 18 Sep 2026
+ 14:21:34 +0000
+From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Alan Stern <stern@rowland.harvard.edu>,
+	Bin Liu <b-liu@ti.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Griffin Kroah-Hartman <griffin@kroah.com>,
+	Kuen-Han Tsai <khtsai@google.com>,
+	Martin Rys <martin@archlinux.org>,
+	Oliver Neukum <oneukum@suse.com>,
+	Peng Fan <peng.fan@nxp.com>,
+	Nikhil Solanke <nikhilsolanke5@gmail.com>,
+	Kees Cook <kees@kernel.org>,
+	Thorsten Blum <blum@kernel.org>,
+	Takashi Iwai <tiwai@suse.de>,
+	Victor Krawiec <victor.krawiec@arturia.com>,
+	Jeffin Philip <jeffinphilip14@gmail.com>,
+	Fan Wu <fanwu01@zju.edu.cn>
+Cc: linux-kernel@vger.kernel.org,
+	Lovekesh Solanki <lovekeshsolanki00@gmail.com>,
+	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
+	linux-usb@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev
+Subject: [PATCH] usb: use assign_bit() where applicable
+Date: Fri, 18 Sep 2026 22:18:50 +0800
+Message-ID: <20260918141905.3023171-1-peng.fan@oss.nxp.com>
+X-Mailer: git-send-email 2.51.0
 Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: RBbHeuJ4BlONtx86I7st4wH3IyU26ljd
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE4MDE4NCBTYWx0ZWRfX/7QU28G0Whtj
- H/ipDTuXf9PobnVR2NDWEY6Oq7Ehfjuc9smjQlXwTJ0N1OK4HjHqR3KjfQS3hAYWtoxu7IjwWov
- Z4PW/2SCkL7iqb7xC2uD/OQiPljtx8Y=
-X-Authority-Analysis: v=2.4 cv=cvgOAF4i c=1 sm=1 tr=0 ts=6aad3d2d cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=U7nrCbtTmkRpXpFmAIza:22 a=VnNF1IyMAAAA:8 a=MMtvGDNtdIwsdepEW5QA:9
-X-Proofpoint-ORIG-GUID: 1_C3DVvU2r7GPSRcTm91NIMiA8jsmHX8
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE4MDE4NCBTYWx0ZWRfX0C6vWRMc35Hq
- B1H2aaaZNNT8nGNtqHHyKTlLqn02OXd3nG9CPGmwqvbAA+H9Oi5Due5/vXvWZi8WnGUwxO3BwR+
- 6Wh4GeET02H7qCqc/L2P3II+bVcjq/z5takVbAZysZMhj7y4bPKzpAQkmtqBZ12HloFqPvdeptt
- 0Z/AvYNDq5wVqGV7bGon0RFqTlplakD+lYBZqDe4d3YjeLSrwOGq5Lup6XYxHlidbH2d1kXGgQW
- tn53MnDFcJyjo5+jy/9WiZQFTMcN3ZKoWLr3b0HLxGCS0zwubbuzemavtwC+qrrnQzbxDxjmnV6
- oMG4TuoGihNF7HTMQe40EqOAuKxTgWw2FfC6FMizS9ntUTPX1oG5HHJw1A4vwVY47CmilbXYyhD
- FYquULmdjAdwNm2EMEesVRihWOAlquIk5JwV8loCjRituVQyxFRyWqfIbl5iuUk0xiGv1xqLQtS
- WY/gEAhb9lVriwrB8OA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-18_03,2026-09-16_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 lowpriorityscore=0 clxscore=1015 priorityscore=1501
- suspectscore=0 bulkscore=0 impostorscore=0 phishscore=0 spamscore=0
- adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
- definitions=main-2609180184
+Content-Type: text/plain
+X-ClientProxiedBy: SI2PR06CA0003.apcprd06.prod.outlook.com
+ (2603:1096:4:186::14) To AM8PR04MB7874.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24d::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|DU4PR04MB11846:EE_
+X-MS-Office365-Filtering-Correlation-Id: 793c1d1c-b092-4925-d2b3-08df159024c2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|23010399003|376014|19092799006|56012099006|921020|10067099003|18002099003|6133799003|11063799006;
+X-Microsoft-Antispam-Message-Info: NA0glPZIJ3kGcY4b/DsFVNRwUgb03YcjAiih4G91ubpWaXFHJp0752lX5J8CywzgEJ727j6tXiiPm2TtN0rosFxX8dTOMPAm3FJjH/9pwedemLh32gWMfjd7gf0iK5+ufIruYupyjxh8a8BDAxo91K8BmXD604qE2S4VnCwZ4KkNsfu6CFnbQC0QlM4LuX5+5eISEut7jOulHiJtddJcd0ehgCQ9lOpCJv5mOWXMD6ZOK5Zdov44LK2XgwdoqI+IDSbKLgU5wkoePaqZVEhAqLm/uNyoLLARi8kd8nf8909SaNanVCh/Gddf/RO3ZDQ9/KFS5sV2xEP6VNr3wWD6HQwuRKKUbjw4yaX+QrnFhtb6bbA8vVDx6EtC2yAbDqp2V2ug/skG2ub7TQGSQWzM5QAK48cz96i6pQlkKz077dHSf40TMx5sr2MP8UK9uUWxFmrUS+nddEyeqJSweijl3/6U7Vl8ZsSsU84oDyoYcFvhMMJLvowH2sj2HiH6TTO0gbfVj0mTnSNj7bKJ3uqJafG6iv3HwGCGMR/Ak7hrhtiy1u8Zyx2XjVQAZOedV6DRXcWXae5doAu08utC71TAETICbWzeZWf32xFLGut/oIlkXyucPMesQXzX9jVzLtENnIf7kHU19V09IB3FBArdbREA5Jz8HklzR2LgjFeLkyceOQpibOzrS4MqTApJ1pPabU+berZ9nSipJ+kmztSGBQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(23010399003)(376014)(19092799006)(56012099006)(921020)(10067099003)(18002099003)(6133799003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hYxN8rg+vOwf/qSnnwyoDUaBiOL2ZgVDK4cJA0cPiR+x6uDfLkENrRzly3Sy?=
+ =?us-ascii?Q?0iwEfhBzr/g+ym+xs/yW/tKEkBCKxZ6vNCZ+HI1QlLX2gPJUnlGsagkuOlv1?=
+ =?us-ascii?Q?f5KxawDcKtaKNlvhb6tYZxfyYeoNGW1pttYVofPpWgwd/KaUT18qNPnIPn3J?=
+ =?us-ascii?Q?x51+82s1+izsRBR4VF4Fymz1MjVy4W/rstclliFj6HulXwJeGWaPtZcoIe7w?=
+ =?us-ascii?Q?PbhfJfxvfrpixq5cu2ggiU26X7oUEAndJgExEFIGG3psDWvGmhU2ym2ugPRd?=
+ =?us-ascii?Q?SkQ1MZByvRDsYyptwE0xQ+UI1o0SzJyMbZTBo6iuKuMtO8I7MPwyqZ4GO9kP?=
+ =?us-ascii?Q?LYF4J9kZh329LzgBBOCzije4zNhmx0ZGHTpVmffhnRvle3jgJN+fNrAHU96y?=
+ =?us-ascii?Q?HQQXFr8gOyC8zGxPS2zXR6t+FHq9lWhQHUJH03SW+6DdoDs0Ry0gOT7E5EOg?=
+ =?us-ascii?Q?zl54+xu9O1ShjG/N9txg7+hcIEBFqbd2Shv/Z1L0CuoTc7JHbZXpy4lyIFzG?=
+ =?us-ascii?Q?2By1sVRNAetkpEboq5hF8Bwm10T4tC439+wI3D9eRSPHHvyFNSIk4UGM8Jqm?=
+ =?us-ascii?Q?sDIqqdT/fbRiQyRm3/oQvxE4pV/sah5yaC4VVwck8/lCMdQKyTw1a1CX9YDk?=
+ =?us-ascii?Q?3oN8csvgNLeJNuPcygkOmMNwU7Hk1fjxcK4iv/QgmsJ0Fw+lvB6/TqwtHqT+?=
+ =?us-ascii?Q?DEpP1Oull7kH1EfeX75f2k3vA93hv0XVUyIcVM/c0f1YEMU4vB6j+hKkxpdw?=
+ =?us-ascii?Q?dEp4XRYlITj4NQn7fx/KPYg3Kpx53FY+y2GsumnSXIh6BH4QkdlaVkAeelOp?=
+ =?us-ascii?Q?8k91kgrwCNlB+ph9TvYCYw29eUMKrNU1Z+K9lo7D2YCee6WHrIF1TTB/Rmbs?=
+ =?us-ascii?Q?ggWBeZmoY5V9pRWAvK2LVE+S/9Dj7VTg4HqyxI/Ec8mcvnfs2PtYPfTO/3Ji?=
+ =?us-ascii?Q?/dJG0/vKzJoorHr79A5/XrOo6VDLucle313DJl329ey/slhk9qMz8ChfxPEK?=
+ =?us-ascii?Q?CL+GqYZaULDX5E5LwkvYH4gEPDgMEfvdxivSdmmjxGacKsYPHS2pHTetjAeQ?=
+ =?us-ascii?Q?t66upO5Te1hTmAnfC59vl9jWVAOOAEYiZUAkzhV9azEHQbHAtsBmvhf13Uky?=
+ =?us-ascii?Q?3oBsxKsHXGmXiv+oaUYIbPt2/4mrT23DFchAN1kmjW3eA8M4ry0aMTxdVllX?=
+ =?us-ascii?Q?MkMj9qxLrCI2+zqaAn8B4EVY7lbyaW2bVrTOetB56UvHRezDb9My0ZXUnCIW?=
+ =?us-ascii?Q?Jx0MoCaal81Mksofq3u75PBl0T27OTSFeihRP4HkodcuPhHKOuKbyUHKboCe?=
+ =?us-ascii?Q?WaLe2o1esAeYUGqCv2D3sJsMCXwnqAzAivlMf5PI4j4L83QhwAveXupek5TN?=
+ =?us-ascii?Q?0A8tWcRD/aKOWgJCGzJTh3nOBGq6krMZDW5c+Lsh3Z9fdyW/LkzM29cUjyYh?=
+ =?us-ascii?Q?BQf/qvq+DO2d35hqrV8yFXwR0JduO3l8+6Ur8+msDkBrBwdK6QRT0gjQyQ/u?=
+ =?us-ascii?Q?cNE7uG1pUFRZX3ef68XpneZV/swFxiiZA6XCA10AghazzMN7XL07jAnNp7nA?=
+ =?us-ascii?Q?dQhPwDhrzajAvz5uOI40ofDcNbIN4r0ct/ooVYC2VluZmEE9GgIwrcxDYgdJ?=
+ =?us-ascii?Q?VVlORAZ/i7W5tlYwjaWtiO2N76kieIzhQlA/zfPBFJiF32z8aBVmgI/5rUQG?=
+ =?us-ascii?Q?i629ve85djDEiV7APZWVJB6muFw2RF9Bq86qnY0vTULIxNWyNap90qXVK3gz?=
+ =?us-ascii?Q?+2wz2RXN3sh2mbSdT1E7R6HTGumYdI6N1vYZcTTjAZ/no7+j6HsI?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 793c1d1c-b092-4925-d2b3-08df159024c2
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Sep 2026 14:21:34.7137
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: VznhkuaqeWLv9EvKIA7jXOdiMyVyfd3mMW8lxt1z5c9L/gCloawLfdG9qXyCRk4cIJtOb4ibfF+VD8ZcwGnVHh8/FPYvdl58gQcCygZB40neEORhdC1aI8/LDeAtMo46
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB11846
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_143139_494412_31F5919F 
-X-CRM114-Status: GOOD (  18.26  )
+X-CRM114-CacheID: sfid-20260918_072140_708750_9A625DDF 
+X-CRM114-Status: GOOD (  13.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,98 +155,188 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Hendrik Brueckner <brueckner@linux.ibm.com>
+From: Peng Fan <peng.fan@nxp.com>
 
-Report SAE support as hwcap (and /proc/cpuinfo)
+Convert open-coded if/else with set_bit/clear_bit and their
+non-atomic __set_bit/__clear_bit variants to the assign_bit/__assign_bit
+API.
 
-Signed-off-by: Hendrik Brueckner <brueckner@linux.ibm.com>
-Reviewed-by: Steffen Eiden <seiden@linux.ibm.com>
-Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
-Reviewed-by: Janosch Frank <frankja@linux.ibm.com>
+Done with Coccinelle semantic patch:
+    // set_bit -> clear_bit => assign_bit
+
+    @@
+    expression cond, bit, addr;
+    @@
+
+    -if (cond)
+    -        set_bit(bit, addr);
+    -else
+    -        clear_bit(bit, addr);
+    +assign_bit(bit, addr, cond);
+
+    // clear_bit -> set_bit => assign_bit
+
+    @@
+    expression cond, bit, addr;
+    @@
+
+    -if (cond)
+    -        clear_bit(bit, addr);
+    -else
+    -        set_bit(bit, addr);
+    +assign_bit(bit, addr, !cond);
+
+    // __set_bit -> __clear_bit => __assign_bit
+
+    @@
+    expression cond, bit, addr;
+    @@
+
+    -if (cond)
+    -        __set_bit(bit, addr);
+    -else
+    -        __clear_bit(bit, addr);
+    +__assign_bit(bit, addr, cond);
+
+    // __clear_bit -> __set_bit => __assign_bit
+
+    @@
+    expression cond, bit, addr;
+    @@
+
+    -if (cond)
+    -        __clear_bit(bit, addr);
+    -else
+    -        __set_bit(bit, addr);
+    +__assign_bit(bit, addr, !cond);
+
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
 ---
- arch/s390/include/asm/elf.h    | 2 ++
- arch/s390/include/asm/sclp.h   | 5 ++++-
- arch/s390/kernel/processor.c   | 3 +++
- drivers/s390/char/sclp_early.c | 1 +
- 4 files changed, 10 insertions(+), 1 deletion(-)
+ drivers/usb/core/hub.c               | 5 +----
+ drivers/usb/core/sysfs.c             | 5 +----
+ drivers/usb/gadget/function/f_midi.c | 5 +----
+ drivers/usb/host/ehci-sysfs.c        | 5 +----
+ drivers/usb/host/ohci-hub.c          | 7 ++-----
+ drivers/usb/host/uhci-hcd.c          | 6 ++----
+ drivers/usb/musb/sunxi.c             | 5 +----
+ 7 files changed, 9 insertions(+), 29 deletions(-)
 
-diff --git a/arch/s390/include/asm/elf.h b/arch/s390/include/asm/elf.h
-index bb63fa4d20bb..ad3108ecfb07 100644
---- a/arch/s390/include/asm/elf.h
-+++ b/arch/s390/include/asm/elf.h
-@@ -123,6 +123,7 @@ enum {
- 	HWCAP_NR_NNPA		= 20,
- 	HWCAP_NR_PCI_MIO	= 21,
- 	HWCAP_NR_SIE		= 22,
-+	HWCAP_NR_SAE		= 23,
- 	HWCAP_NR_MAX
- };
+diff --git a/drivers/usb/core/hub.c b/drivers/usb/core/hub.c
+index 199d3f535a89..25a1cba39063 100644
+--- a/drivers/usb/core/hub.c
++++ b/drivers/usb/core/hub.c
+@@ -902,10 +902,7 @@ int usb_hub_set_port_power(struct usb_device *hdev, struct usb_hub *hub,
+ 	if (ret)
+ 		return ret;
  
-@@ -150,6 +151,7 @@ enum {
- #define HWCAP_NNPA		BIT(HWCAP_NR_NNPA)
- #define HWCAP_PCI_MIO		BIT(HWCAP_NR_PCI_MIO)
- #define HWCAP_SIE		BIT(HWCAP_NR_SIE)
-+#define HWCAP_SAE		BIT(HWCAP_NR_SAE)
- 
- /*
-  * These are used to set parameters in the core dumps.
-diff --git a/arch/s390/include/asm/sclp.h b/arch/s390/include/asm/sclp.h
-index 44066550b9b1..68f61b71a2d5 100644
---- a/arch/s390/include/asm/sclp.h
-+++ b/arch/s390/include/asm/sclp.h
-@@ -56,7 +56,9 @@ struct sclp_core_entry {
- 	u8 siif : 1;
- 	u8 sigpif : 1;
- 	u8 : 3;
--	u8 reserved2[3];
-+	u8 aef: 1;
-+	u8 : 7;
-+	u8 reserved2[2];
- 	u8 : 2;
- 	u8 ib : 1;
- 	u8 cei : 1;
-@@ -109,6 +111,7 @@ struct sclp_info {
- 	unsigned char has_aeni : 1;
- 	unsigned char has_aisi : 1;
- 	unsigned char has_astfleie2 : 1;
-+	unsigned char has_aef : 1;
- 	unsigned int ibc;
- 	unsigned int mtid;
- 	unsigned int mtid_cp;
-diff --git a/arch/s390/kernel/processor.c b/arch/s390/kernel/processor.c
-index e33a3eccda56..6da55a158027 100644
---- a/arch/s390/kernel/processor.c
-+++ b/arch/s390/kernel/processor.c
-@@ -150,6 +150,7 @@ static void show_cpu_summary(struct seq_file *m, void *v)
- 		[HWCAP_NR_NNPA]		= "nnpa",
- 		[HWCAP_NR_PCI_MIO]	= "pcimio",
- 		[HWCAP_NR_SIE]		= "sie",
-+		[HWCAP_NR_SAE]		= "sae",
- 	};
- 	int i, cpu;
- 
-@@ -254,6 +255,8 @@ static int __init setup_hwcaps(void)
- 	/* virtualization support */
- 	if (sclp.has_sief2)
- 		elf_hwcap |= HWCAP_SIE;
-+	if (sclp.has_aef)
-+		elf_hwcap |= HWCAP_SAE;
- 
+-	if (set)
+-		set_bit(port1, hub->power_bits);
+-	else
+-		clear_bit(port1, hub->power_bits);
++	assign_bit(port1, hub->power_bits, set);
  	return 0;
  }
-diff --git a/drivers/s390/char/sclp_early.c b/drivers/s390/char/sclp_early.c
-index 22dd797e6229..e58d24b95bd1 100644
---- a/drivers/s390/char/sclp_early.c
-+++ b/drivers/s390/char/sclp_early.c
-@@ -96,6 +96,7 @@ static void __init sclp_early_facilities_detect(void)
- 		sclp.has_ib = cpue->ib;
- 		sclp.has_cei = cpue->cei;
- 		sclp.has_skey = cpue->skey;
-+		sclp.has_aef = cpue->aef;
- 		break;
+ 
+diff --git a/drivers/usb/core/sysfs.c b/drivers/usb/core/sysfs.c
+index d22dc78457d7..25e8af8c1bd7 100644
+--- a/drivers/usb/core/sysfs.c
++++ b/drivers/usb/core/sysfs.c
+@@ -1032,10 +1032,7 @@ static ssize_t interface_authorized_default_store(struct device *dev,
+ 	if (kstrtobool(buf, &val) != 0)
+ 		return -EINVAL;
+ 
+-	if (val)
+-		set_bit(HCD_FLAG_INTF_AUTHORIZED, &hcd->flags);
+-	else
+-		clear_bit(HCD_FLAG_INTF_AUTHORIZED, &hcd->flags);
++	assign_bit(HCD_FLAG_INTF_AUTHORIZED, &hcd->flags, val);
+ 
+ 	return rc;
+ }
+diff --git a/drivers/usb/gadget/function/f_midi.c b/drivers/usb/gadget/function/f_midi.c
+index 63fb6ee70a3d..eaec5a517faf 100644
+--- a/drivers/usb/gadget/function/f_midi.c
++++ b/drivers/usb/gadget/function/f_midi.c
+@@ -769,10 +769,7 @@ static void f_midi_out_trigger(struct snd_rawmidi_substream *substream, int up)
+ 
+ 	VDBG(midi, "%s()\n", __func__);
+ 
+-	if (up)
+-		set_bit(substream->number, &midi->out_triggered);
+-	else
+-		clear_bit(substream->number, &midi->out_triggered);
++	assign_bit(substream->number, &midi->out_triggered, up);
+ }
+ 
+ static const struct snd_rawmidi_ops gmidi_in_ops = {
+diff --git a/drivers/usb/host/ehci-sysfs.c b/drivers/usb/host/ehci-sysfs.c
+index 5e6b545c30e6..83bbcf759435 100644
+--- a/drivers/usb/host/ehci-sysfs.c
++++ b/drivers/usb/host/ehci-sysfs.c
+@@ -48,10 +48,7 @@ static ssize_t companion_store(struct device *dev,
+ 	if (portnum <= 0 || portnum > HCS_N_PORTS(ehci->hcs_params))
+ 		return -ENOENT;
+ 	portnum--;
+-	if (new_owner)
+-		set_bit(portnum, &ehci->companion_ports);
+-	else
+-		clear_bit(portnum, &ehci->companion_ports);
++	assign_bit(portnum, &ehci->companion_ports, new_owner);
+ 	set_owner(ehci, portnum, new_owner);
+ 	return count;
+ }
+diff --git a/drivers/usb/host/ohci-hub.c b/drivers/usb/host/ohci-hub.c
+index 84d10a932942..1ebf6aa4b2a3 100644
+--- a/drivers/usb/host/ohci-hub.c
++++ b/drivers/usb/host/ohci-hub.c
+@@ -518,11 +518,8 @@ int ohci_hub_status_data(struct usb_hcd *hcd, char *buf)
+ 		}
  	}
  
+-	if (ohci_root_hub_state_changes(ohci, changed,
+-			any_connected, rhsc_status))
+-		set_bit(HCD_FLAG_POLL_RH, &hcd->flags);
+-	else
+-		clear_bit(HCD_FLAG_POLL_RH, &hcd->flags);
++	assign_bit(HCD_FLAG_POLL_RH, &hcd->flags,
++		   ohci_root_hub_state_changes(ohci, changed, any_connected, rhsc_status));
+ 
+ 
+ done:
+diff --git a/drivers/usb/host/uhci-hcd.c b/drivers/usb/host/uhci-hcd.c
+index 433d64a5fab5..efc1e01005fd 100644
+--- a/drivers/usb/host/uhci-hcd.c
++++ b/drivers/usb/host/uhci-hcd.c
+@@ -376,10 +376,8 @@ __acquires(uhci->lock)
+ 	 * doesn't work, then we won't get an interrupt when a wakeup event
+ 	 * occurs.  Thus the suspended root hub needs to be polled.
+ 	 */
+-	if (wakeup_enable && (!int_enable || !egsm_enable))
+-		set_bit(HCD_FLAG_POLL_RH, &uhci_to_hcd(uhci)->flags);
+-	else
+-		clear_bit(HCD_FLAG_POLL_RH, &uhci_to_hcd(uhci)->flags);
++	assign_bit(HCD_FLAG_POLL_RH, &uhci_to_hcd(uhci)->flags,
++		   wakeup_enable && (!int_enable || !egsm_enable));
+ 
+ 	uhci_scan_schedule(uhci);
+ 	uhci_fsbr_off(uhci);
+diff --git a/drivers/usb/musb/sunxi.c b/drivers/usb/musb/sunxi.c
+index a6bd3e968cc7..347f547696b3 100644
+--- a/drivers/usb/musb/sunxi.c
++++ b/drivers/usb/musb/sunxi.c
+@@ -208,10 +208,7 @@ static int sunxi_musb_host_notifier(struct notifier_block *nb,
+ {
+ 	struct sunxi_glue *glue = container_of(nb, struct sunxi_glue, host_nb);
+ 
+-	if (event)
+-		set_bit(SUNXI_MUSB_FL_HOSTMODE, &glue->flags);
+-	else
+-		clear_bit(SUNXI_MUSB_FL_HOSTMODE, &glue->flags);
++	assign_bit(SUNXI_MUSB_FL_HOSTMODE, &glue->flags, event);
+ 
+ 	set_bit(SUNXI_MUSB_FL_HOSTMODE_PEND, &glue->flags);
+ 	schedule_work(&glue->work);
 -- 
-2.53.0
+2.51.0
 
 
