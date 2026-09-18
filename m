@@ -4,91 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78503C982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 02:53:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1DC2C982D2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 02:56:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Rk+KoXta3dbAs20TzM2qXCVHC2ImAPUr9Ofh7+moDVo=; b=Iqd3ezdybFuCjdbxly9nQtPCmu
-	TdUGZHPabqfbVvneiB4fqEfCxQPvsxPzqDoDzMH+bwAPOHnOKB8lXtQD4t4nXgoDw4cB29LVG4z4G
-	TC6wWKc29u3KJQAA7OjkPNrDiXh5yHMy+AAsh2wdvY3DOZl4xYQuO72dctEwCMqKf8iDV4/w3XxYE
-	sDXF0j/tnIlA4VLqQJmDIkEnVdkU/Y95YG62evoTyY86a8WcTaamIk1jeFqC/zcyXR85sjk+QI5Rh
-	7Z2QpDrxUm9MrXCV5WXkA7S9XVUV5ipbtKj8J+sKRMbDrACl7vbzBVm00Fe4XPgI5464y8Mw3EbZ+
-	MaOlYKaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TZUL3Eplppm51Vvf3wRkb6Rb9P1+9cpJIHUMnzRdvMo=; b=apbMD1d4O7CRRErlHgvtyDhhSV
+	fvYbfSETinEda4x/Xb0u9p/LzVAZGXDynwXmwdFx6ksZQzZf1QJHsSZ76Q97xumDS2Pe1XZPxzyh0
+	BfT7dQYo/OHsvYm90f2PqLVnrk5KMKBiOFZRGU6CPO7TSyRVLNqARaxPsDL88dcSuJ94BxID7Yi0k
+	icmSK+8tzGrm4nFSLpFcaelErbQsNk2xKNFXvn/0gyyPjHc/rBF3DtpXkaz2FVJWZwqrBEAlBZDOI
+	D5lMzPu5eklO9toaxaFcaasmnZJkXecYVpSYVjBv+MXObJCAVUQHx7KxTbNVTCOH9H3U0WxGtblm7
+	jxB1VZVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Oj5-0000000DLd8-1XWu;
-	Fri, 18 Sep 2026 02:53:23 +0000
-Received: from mail-pj2-x02.google.com ([2607:f8b0:4864:39::2])
+	id 1x7Oln-0000000DLlI-3Mlr;
+	Fri, 18 Sep 2026 02:56:11 +0000
+Received: from mail-westcentralusazon11010063.outbound.protection.outlook.com ([40.93.198.63] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Oj2-0000000DLcn-36ae
+	id 1x7Olj-0000000DLkq-2rl7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 02:53:21 +0000
-Received: by mail-pj2-x02.google.com with SMTP id 98e67ed59e1d1-3896ccc93b5so72182a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 19:53:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789699999; x=1790304799; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Rk+KoXta3dbAs20TzM2qXCVHC2ImAPUr9Ofh7+moDVo=;
-        b=OIWkko0COY9Ktx37sS8IYRmBNad6XgiFIoyRxMhVW/M9pYoQO7SMbgpiQV4SFa2kZx
-         fPuPlMCO0/u2bPwLPMwVsYgMyemrgj3w7TJR8Dv99K8EoMGG/QQnD8rd/vXO573Ab1KQ
-         NM8TeH9JPAq+PaSLuOtYqJW0QEgpMLt1AWClC7vg7BCrW42Qykc6TlnGqgoW+il0fYUT
-         EV4rpmRpp0cqu25dOUy9LUpKnud5CSk4V/pYITiG39VvEJFHyVzfXzubfKPoqNuAnXVY
-         YocyDmfaNh+tAhSgthyWaBNjAku6tPg0PwR6dME9pa0Umzfc9McqSrFtYXNbzLqtEO4p
-         Cy8w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789699999; x=1790304799;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Rk+KoXta3dbAs20TzM2qXCVHC2ImAPUr9Ofh7+moDVo=;
-        b=cfR2FmmnwydyyyL5vPZxWCo0KdVVFyWOCGt8JmPJjTP4dI1y+u2UB0I0MigbgFAJe3
-         L88AYZa0zPKDwma8ifm+jd7GyviktgXpR6nHzx8zxLPE+8UZdbnmqZvdKC+YOT7RugBu
-         5jMLii2iSeeczeUwFgITFiHGtsq1+ySUi1qgrjxmVbH5nSnmlob6uvnNQEs4HFHtKtTe
-         YyvGU8IDks0b3zERK46dq0ZaP22EeOMwh9nXDOi41joI3FQBtJwslz+UfSLthQFdoU0/
-         1oPtZLvW7VJgY93OK9UrQUR72EUfQzbB4AkjhQD5SafxM4oRlptf4Iw0ZdJC6WZ2nnNd
-         4Drw==
-X-Forwarded-Encrypted: i=1; AKwUvBxAGaQapvxGs/P7DsSUgBWYc+SnNfoOFORzAZInMcie8OnlVtbbBpOpgBDniZYzuZ8TZCgcaMCXjQsSsoAHLP8/@lists.infradead.org
-X-Gm-Message-State: AFuF++lx4eMv/Nj/itDixeCqr3GxVJ+BitA112RZAS61DxIRbmOB4yuD
-	Op/q8ULcA+4MfB+A91HdDzu5ywM2cUw/vL+nxDUVfEx82VrLeWEeVvUh
-X-Gm-Gg: AYBFou1PdYq5uzHEglJc/kr17BSQKrofEdds54X+3TunJQHpuV5Gz5Heecr3g3C86kA
-	9uEFCxPFWtrT6POF8HcztvCNwyB4Z0WMMo6rf7xXHB7I4UN0lRC48C0EP/ydofkypMdRWdER3uu
-	57LGRkGIbA9H5Kj2tkx/yV6RNj7esVDhFkzpVkU1iWmDbodNHbGn4E+ltpWPnlx93aMbgfEO5Vq
-	KGpKg2PUAHF2WMQhqtWuDNyzcSVHrTzTpaKEUvl77vKjelosc4KI37N/DdB+BocO1HDFDOV/Qf8
-	HAV+8mms5Sm7RCrlikLIO/4VJz/52w/Oo952BfsNIqBmPQ+wHZPBLJZDkEMhLfxW4YXc583AjvX
-	evPPn7Ii7+XlrI8Z4NLqGv5gdvbmod9O1YLPVg5cgWunNzFJfz2HH8VXjmI5OIIZTEUu+Of8kPd
-	2Ll0TqUt/DexNy1cZldbv3dSMdcMtqDl529SLq6L2YxTRDKjmb4DroAjQbCVAgafdRbMcPVLVR1
-	LgRgdQwIEsitYvcFAWNDDd5EE/6/Zb2YdLqcGK1RKj7EOf0QAKLZZmsEwB7/TVNQKbWmghiTVFn
-	7WwEX7ARDxztJp9GMRu5hAV0IyEDb82/LKZPPydvgb1ckXzLTXrD/GzD+3Ib2j6xmg==
-X-Received: by 2002:a17:90b:270d:b0:39d:b1bd:b384 with SMTP id 98e67ed59e1d1-39e54d0edbcmr2520801a91.17.1789699999069;
-        Thu, 17 Sep 2026 19:53:19 -0700 (PDT)
-Received: from ethan-latitude5420.. (host-127-24.cafrjco.fresno.ca.us.clients.pavlovmedia.net. [68.180.127.24])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-144ce02b063sm726939c88.9.2026.09.17.19.53.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 17 Sep 2026 19:53:18 -0700 (PDT)
-From: Ethan Nelson-Moore <enelsonmoore@gmail.com>
-To: linux-omap@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Ethan Nelson-Moore <enelsonmoore@gmail.com>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Andreas Kemnade <andreas@kemnade.info>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Roger Quadros <rogerq@kernel.org>,
-	Tony Lindgren <tony@atomide.com>,
-	Russell King <linux@armlinux.org.uk>
-Subject: [PATCH] ARM: OMAP2+: remove unused ctrl_module_wkup_44xx.h header
-Date: Thu, 17 Sep 2026 19:53:13 -0700
-Message-ID: <20260918025316.375757-1-enelsonmoore@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Fri, 18 Sep 2026 02:56:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nLHKq9zxPhocxTW06dgEGWKifSB1H/LpKvs7hgxsQZWoqG1y8pL5Q/2qtSVPzIwqAt7ognbh6cxJJnAWHhDQZ5dlSCJxfPJgFILZD+JZZfpCVL012bnhvOHUfzhCEGXy1NIWUqtoVpYXgrKyNz9py4O7zGe01aGnXW1pJyUGdreZTVOpuFhCLDQ4m1QMEeAoQKXdPne0qjHfMSTrCOBQh+yi8w7KHe4C0FmHfj5OhptC+lEcdMjEr/XwjpUTD/uJC2K0bIp59tJSTZfpNuAVUBjMcUDlko6yBVQMkaMHxKI7hfdQyh5c8Z5AIEVHrsB9+MvZtmowwWYlpCLC62ToCw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TZUL3Eplppm51Vvf3wRkb6Rb9P1+9cpJIHUMnzRdvMo=;
+ b=JUG57x5HdiXtsGIEOEnW2wPNOUwv51Ahe1YrzikJT9iM6l1tQlcDM9PFvOdZ8pyXnV7B4I9gFcmtQvff/xsPKzRmt1Ud5tSGbaHqSTvYORb3pNSkkv7ahLg29ev5E2QDOfuBU3L3hv+3tk+QLq9E8V64tHMl7/uNaHYRIgHM4+C7rXRjiHsqmJcfdH1NK8xd7knI+BO6kebROWjG4B4+OQY0pHwkiY+vpVn1xav42+jvW/DxlG4pa1b+WLMqhpG8KKUhCWKYdGbnTgm+EPE1xEB7eMrFb75fDT562sBlI20kWEgSYLJE86HeikPUEKIwBREaMYuB3yl6MPY4/xKHpg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TZUL3Eplppm51Vvf3wRkb6Rb9P1+9cpJIHUMnzRdvMo=;
+ b=VtOZlXfQ7Dp5D9dQbb5WYhCeSNtwDHGDSFE6PReR/BYNhdktwuoc7HYmESkgRCpQG+hM6NcSomG1jTrzCu8iFSSM+BIu2d3gdOlYXezxTw7r/uFPQDjn02qWGBwfTTnZ6mkomx7J6Jb8OsTAkRFvSy+WzeM5HUpB42P+TllxD19zU96VkjbICWIbYo4w9aXb2ITKiVkEmbdORJHLnh5XSdvwCtycrQ4dSoRybGfyuuaRXVOkByfAIeFuLQgAtyXQzLCUQkrEK9o16JfOBNGwMeQVymHVxGI6/rGOdK+idUjtvlWH9YGL7W7wznlsYgInwB3YYCOw7hg2VSJFLU4RCQ==
+Received: from SAWPR12MB999267.namprd12.prod.outlook.com
+ (2603:10b6:806:55f::17) by CY5PR12MB6132.namprd12.prod.outlook.com
+ (2603:10b6:930:24::8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Fri, 18 Sep
+ 2026 02:55:55 +0000
+Received: from SAWPR12MB999267.namprd12.prod.outlook.com
+ ([fe80::fe35:8a00:d9eb:40f9]) by SAWPR12MB999267.namprd12.prod.outlook.com
+ ([fe80::fe35:8a00:d9eb:40f9%4]) with mapi id 15.21.0428.011; Fri, 18 Sep 2026
+ 02:55:55 +0000
+From: Ankit Agrawal <ankita@nvidia.com>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+	"linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+CC: Alexey Kardashevskiy <aik@amd.com>, Catalin Marinas
+	<catalin.marinas@arm.com>, Dan Williams <dan.j.williams@intel.com>, Jason
+ Gunthorpe <jgg@ziepe.ca>, Jonathan Cameron <jic23@kernel.org>, Marc Zyngier
+	<maz@kernel.org>, Samuel Ortiz <sameo@rivosinc.com>, Steven Price
+	<steven.price@arm.com>, Suzuki K Poulose <Suzuki.Poulose@arm.com>, Will
+ Deacon <will@kernel.org>, Xu Yilun <yilun.xu@linux.intel.com>
+Subject: Re: [PATCH v5 11/15] coco: host: arm64: Connect RMM pdev streams for
+ IDE devices
+Thread-Topic: [PATCH v5 11/15] coco: host: arm64: Connect RMM pdev streams for
+ IDE devices
+Thread-Index: AQHdQTBNZsWT6J6bdkaQWvWFEK2da7bTrZ40
+Date: Fri, 18 Sep 2026 02:55:55 +0000
+Message-ID: <SAWPR12MB9992670293875EF547CA440A18B0872@SAWPR12MB999267.namprd12.prod.outlook.com>
+References: <20260910140509.868402-1-aneesh.kumar@kernel.org>
+ <20260910140509.868402-12-aneesh.kumar@kernel.org>
+In-Reply-To: <20260910140509.868402-12-aneesh.kumar@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SAWPR12MB999267:EE_|CY5PR12MB6132:EE_
+x-ms-office365-filtering-correlation-id: aeddfb62-d449-4c05-d3d5-08df15305bfc
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|23010399003|10067099003|4143699003|18002099003|22082099003|56012099006|11063799006|38070700021;
+x-microsoft-antispam-message-info: 6n59Z9ql29wnkppqkGHsx35tq0NUMcyMhGavkCUDyZbRsPM2QJW7fX233y6iq5wpW7M671gDSODRLQEVi9v+ytgpbFyo+vcmhHLWUtAAKAIbl12X9+i46O4gzBW2izdLHKzYGy/CI5nbNDfvtvG6K2A3ehGTHwrILyychtdUAVLZ7tFG5jpWnepkBVfndygxe7Cqdd/pIjWvYZ9CfxsLEyoAIi4sLGy8iVqFLnTtRmNPUxNt9dEROVwMQmPX4ZuFRpM5qG1ok7GSiwrw4K+AP1zuKnoY+AdW6mQ/gqk+mu8ZlaTDGqhxHiV7aEJTUOJM0M7Ih66BKDymvP6T4ZTkT+QBUD/XOYjofcRUdoG52EZ/RiXgvDnGlKQ0nGfgY37WqNhAEX2Yv0ZezNGJUO1BKj98mYi4aTyP0ZXr128s8jzP57chkpPzyk2CX40EbvyAG8LwlZsa4jnM0JdQkReW8ywq13lQHhLuYkcpUXahqNLP2EqCJZwMeQOvGnz0wRe4AKIFdfP3iQ1yr1YUdKfV9Qa6FhiVeI8C1msIbIUHUafgb4tBsMA8Vi2htE+Q2MMm+JlZwqrj0fNkelo+YD9toeRjy/pZapkAqxTBCKWVZW0NcV1HfACxwZZ9lMcLG6Mv6VsvRDINajIVIDy9S/KlY5eQGXf+VeVTFxU3PCiKZmJvIQaKWS5khpQFN7Kjb5FaHJ/0+zTd/zR4TTejReRT72I/wdnJUzdn461zK+B1wrY=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SAWPR12MB999267.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(23010399003)(10067099003)(4143699003)(18002099003)(22082099003)(56012099006)(11063799006)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?/joV5VzVRLiA6BOR3vtVnPZXTB8SW/zDmsX+2GMweqXhucZnnAxrna6GQb?=
+ =?iso-8859-1?Q?yxQQ2wUrTOGM7WAQayCf/Z/dHlN1KlTxEQr1yX4s5OSnja8qo6KtzIQupv?=
+ =?iso-8859-1?Q?5v2gcKNu0HpUJ5oPGc6ls9Xd3B8OFifXce3+oY+zbh22TNsEpiRSxAvPIA?=
+ =?iso-8859-1?Q?4TMXzDhk3rg91UOYFHivwomHArMQ03PGXYKdMvAOPxEqK5C61FOyz9PSzc?=
+ =?iso-8859-1?Q?DMcGHjIBKgJ52g5/i7f3dd33OHk0PnNlktU4kLzSfsbVUoDVh3OJDCQMEp?=
+ =?iso-8859-1?Q?DzRRy486URRWomP7sUmcCWhZgGCHfzsS/mSCt3q7o2FwbH5t+reULZdhZh?=
+ =?iso-8859-1?Q?9Ll/AfnGpgN3XvB2rvKCaza7Xaw6HurACSbVr/PG7CWrsYUIBYJRws1/Pf?=
+ =?iso-8859-1?Q?+egVF0wH4mKVB5oRvNBeyBI5aKXV4GLLeBnjky6AEpZbus9UFwqSNcNvJn?=
+ =?iso-8859-1?Q?ujdj91T0GAM5UIWXrbqsEsB7EtSUeizk08PT0EO31/ZX50wHM0qA+/OaGX?=
+ =?iso-8859-1?Q?oFtOulheZOgHJ6AQmN2m20K5EEVyN6BLQqac6l42E8k2l9vmFtT64fTwNS?=
+ =?iso-8859-1?Q?8t/dzysdATLL3+Av2PrVzAXasPo4OvIZz74u+A3qaa5tnxFh9phFtdzoNe?=
+ =?iso-8859-1?Q?ZXrNN47ewQiUSJ8AkT/9zjURY9YG8VZ+65tGUDCE0lSvqjix62d3Lxu0YS?=
+ =?iso-8859-1?Q?C96yJfXNmmyk9SrJHv97mAPqXDqXYifL/SN3XVTGnMZ3Z8v9NLpnPj5/1v?=
+ =?iso-8859-1?Q?SBqz/8jndnezLEPmcPU7faz1KVNKF1kAu8QVk0otQewdLy9kWyCcmFu4ta?=
+ =?iso-8859-1?Q?W5pBEhHA1WZo0ib4MxWLGzGvVSJcJlP/5GBzK2kJSC/KBPlMWGIN3rnw5B?=
+ =?iso-8859-1?Q?e1cSkqdSG3IGU+liEKFe6V73dOXNNUN7uZtSFue69lkmHGmuzTYR4QhlPe?=
+ =?iso-8859-1?Q?9W5oV+Txu+E3u+t3+t4Rb3pTk2rPhxZuK8C5Hl0W2v6qZBMF78nv/mIVF5?=
+ =?iso-8859-1?Q?rPkmCt6OzMK1vl4txHb6ONcgF/NIZ3quOECAFO0UYk7Lya8IpxNzwE8hDU?=
+ =?iso-8859-1?Q?V9Hk0wxy8tu4h1LWYxrQDtXu0SPvMSncYkhfiiUkZ5XeqvIN2NpcAny+XW?=
+ =?iso-8859-1?Q?4tSQIrfrB/GAZM/xJ7OXsGzH6I68498FcQAcAE7BS2GjtAivKNOg/hUn5D?=
+ =?iso-8859-1?Q?QOT3Rx7hWzcXthmOWcfCfHX7UpVRBf/XPDQLVNj7NZnm8pf9v+We9IfU5S?=
+ =?iso-8859-1?Q?S4LPH2AC51SUTQs3UrKsbuKJ+TE/tLIr08TjJuxZMIv99UTWZUa17pRDgQ?=
+ =?iso-8859-1?Q?sIVftpjWKjKGKDp4KCHCzLI/8eX8ufxqxen7Po0jxyCMhWTulDxhqpaCQu?=
+ =?iso-8859-1?Q?8mhv1tzBJlf+YmzaGljPmRV7+F2+PVyYMS3NMizezFQbpicrXVnu2crxtO?=
+ =?iso-8859-1?Q?lR60zvIJnTcEK1QjW+15se/JihrfVklCxIRCdLIXm+jAJj59DqIypsQ9O6?=
+ =?iso-8859-1?Q?dqsVOp0xhE5WdyIuB16tjG8pqKc3mT1QhGA9b7OUb1QtxxPqfiZG/uTOOX?=
+ =?iso-8859-1?Q?6QZNhKrC/Wf+wQzpeQMBUyuJPA9dDoIQ/gKA+8V7MJBfDBYV5vU4ddTRIi?=
+ =?iso-8859-1?Q?F4o4lccEg2v6Oyqd5NLi/sTP68X01ZyLrFJgqDnAxhLeXXJ6/W3OXJc9Dc?=
+ =?iso-8859-1?Q?gJ0KcTlz1HUePhhKfevn6wKoiQTZtsSsLzaIm98zsnZ7F9v8PYVo7Qov/b?=
+ =?iso-8859-1?Q?8G1MU2buDjoEu6LAOSJgjWe4laVtXOckk+IvcwqgWg5oBK?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SAWPR12MB999267.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: aeddfb62-d449-4c05-d3d5-08df15305bfc
+X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Sep 2026 02:55:55.5443
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 2sEJzabHGbQMZrRylSCkfcUeqRmS0uPOvHVKGyxqTqj+FjLMAgaqHteXjvgjnr8O+s4r91zLqpm2JPai9LHjrg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6132
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_195320_784889_5637AC55 
-X-CRM114-Status: GOOD (  13.22  )
+X-CRM114-CacheID: sfid-20260917_195608_457278_F64CFBB9 
+X-CRM114-Status: UNSURE (   7.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,112 +152,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The last use of ctrl_module_wkup_44xx.h was removed in
-commit 6bf588595913 ("ARM: OMAP4: Ctrl module register define diet"),
-but it was left behind. Remove it.
-
-Signed-off-by: Ethan Nelson-Moore <enelsonmoore@gmail.com>
----
- arch/arm/mach-omap2/ctrl_module_wkup_44xx.h | 89 ---------------------
- 1 file changed, 89 deletions(-)
- delete mode 100644 arch/arm/mach-omap2/ctrl_module_wkup_44xx.h
-
-diff --git a/arch/arm/mach-omap2/ctrl_module_wkup_44xx.h b/arch/arm/mach-omap2/ctrl_module_wkup_44xx.h
-deleted file mode 100644
-index 414f14d1e0a0..000000000000
---- a/arch/arm/mach-omap2/ctrl_module_wkup_44xx.h
-+++ /dev/null
-@@ -1,89 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0-only */
--/*
-- * OMAP44xx CTRL_MODULE_WKUP registers and bitfields
-- *
-- * Copyright (C) 2009-2010 Texas Instruments, Inc.
-- *
-- * Benoit Cousson (b-cousson@ti.com)
-- * Santosh Shilimkar (santosh.shilimkar@ti.com)
-- *
-- * This file is automatically generated from the OMAP hardware databases.
-- * We respectfully ask that any modifications to this file be coordinated
-- * with the public linux-omap@vger.kernel.org mailing list and the
-- * authors above to ensure that the autogeneration scripts are kept
-- * up-to-date with the file contents.
-- */
--
--#ifndef __ARCH_ARM_MACH_OMAP2_CTRL_MODULE_WKUP_44XX_H
--#define __ARCH_ARM_MACH_OMAP2_CTRL_MODULE_WKUP_44XX_H
--
--
--/* Base address */
--#define OMAP4_CTRL_MODULE_WKUP				0x4a30c000
--
--/* Registers offset */
--#define OMAP4_CTRL_MODULE_WKUP_IP_REVISION		0x0000
--#define OMAP4_CTRL_MODULE_WKUP_IP_HWINFO		0x0004
--#define OMAP4_CTRL_MODULE_WKUP_IP_SYSCONFIG		0x0010
--#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_0	0x0460
--#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_1	0x0464
--#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_2	0x0468
--#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_3	0x046c
--#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_4	0x0470
--#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_5	0x0474
--#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_6	0x0478
--#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_7	0x047c
--#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_8	0x0480
--#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_9	0x0484
--#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_10	0x0488
--#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_11	0x048c
--#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_12	0x0490
--#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_13	0x0494
--#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_14	0x0498
--#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_15	0x049c
--#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_16	0x04a0
--#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_17	0x04a4
--#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_18	0x04a8
--#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_19	0x04ac
--#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_20	0x04b0
--#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_21	0x04b4
--#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_22	0x04b8
--#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_23	0x04bc
--#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_24	0x04c0
--#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_25	0x04c4
--#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_26	0x04c8
--#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_27	0x04cc
--#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_28	0x04d0
--#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_29	0x04d4
--#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_30	0x04d8
--#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_31	0x04dc
--
--/* Registers shifts and masks */
--
--/* IP_REVISION */
--#define OMAP4_IP_REV_SCHEME_SHIFT		30
--#define OMAP4_IP_REV_SCHEME_MASK		(0x3 << 30)
--#define OMAP4_IP_REV_FUNC_SHIFT			16
--#define OMAP4_IP_REV_FUNC_MASK			(0xfff << 16)
--#define OMAP4_IP_REV_RTL_SHIFT			11
--#define OMAP4_IP_REV_RTL_MASK			(0x1f << 11)
--#define OMAP4_IP_REV_MAJOR_SHIFT		8
--#define OMAP4_IP_REV_MAJOR_MASK			(0x7 << 8)
--#define OMAP4_IP_REV_CUSTOM_SHIFT		6
--#define OMAP4_IP_REV_CUSTOM_MASK		(0x3 << 6)
--#define OMAP4_IP_REV_MINOR_SHIFT		0
--#define OMAP4_IP_REV_MINOR_MASK			(0x3f << 0)
--
--/* IP_HWINFO */
--#define OMAP4_IP_HWINFO_SHIFT			0
--#define OMAP4_IP_HWINFO_MASK			(0xffffffff << 0)
--
--/* IP_SYSCONFIG */
--#define OMAP4_IP_SYSCONFIG_IDLEMODE_SHIFT	2
--#define OMAP4_IP_SYSCONFIG_IDLEMODE_MASK	(0x3 << 2)
--
--/* CONF_DEBUG_SEL_TST_0 */
--#define OMAP4_WKUP_MODE_SHIFT			0
--#define OMAP4_WKUP_MODE_MASK				(1 << 0)
--
--#endif
--- 
-2.43.0
-
+Hi Aneesh=0A=
+=0A=
+As I read it, the address ranges handed to RMM in this patch are captured=
+=0A=
+once and at the point cca_tsm_connect() runs. That becomes the address=0A=
+range RMM has on record for the pdev/stream going forward.=0A=
+=0A=
+So a couple of questions on that..=0A=
+1.  Is connect -> {driver probe / vfio-pci bind } the intended=0A=
+     sequence or is that ordering left entirely to userspace/VMM policy?=0A=
+2. Are the resources/BARs captured at connect time assumed to be=0A=
+    fixed for the lifetime of the PDEV? If a PCI rescan (or resource=0A=
+    reassignment such as pci=3Drealloc, a hotplug re-enumeration=0A=
+    happens after connect, is that expected to be rejected/blocked?=0A=
+=0A=
+Thanks=0A=
 
