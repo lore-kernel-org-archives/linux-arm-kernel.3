@@ -4,80 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB393C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 13:19:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7C2CC982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 13:20:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=otp0k2i4YCw4bQ4ES7pDpC2btKFgr9S5MNUmkPBiGJY=; b=w/8lusJibh6RFC/4tASzS0f2W0
-	owK3wWee5JKNLJZcQSUIkHLV973zNxx+Wa0gCGLiStIMYxE9K0kP2FXL0zwcOfXas3qVwKLv9C1/N
-	k8YLJpqeuuCdVftYpiKkYXEcCoOA+e9Mgy01s9q4axqNaPlMUG0A1DY3OS8HH+iA0Dr+/oVBWOh90
-	W83vRP8ZBczB1Gkoo4Y9rR2ldWYywerqhJbkY7WbY7HM6kKi5pJe8gmVwR6jdkVJ5kmbf0IiCic1I
-	rmNn5Sg1SLjqFm++9dVHcgDhwrbgdtZhBi8PJCBVQXpvb4+3RhyIFmMeBPjlJzX8tMI5tna5qnfQI
-	4ft33Plg==;
+	bh=llyAgK4rLGd3YL367jNvPIU26fpmrEy121V33jASlwI=; b=4MLgzwVNvEjpcTS5i6PixGXRJ8
+	RbvQaAX2oIYxsDhwslstC0TrPfimAv+nNglTzAQOlSSmSEhxIwfkAvTV91oCqwX3BYspp+fr3DwuO
+	M1VlDQ8VHDQu1OyMy45Lj3PqSAnRUbsZSStxdJzAdBSsbd4NoJu3kX5F1wPxbpJO78JmwOWjHznES
+	SsqHfvCtelj3fbFiSuF5mJO7eyNupvxEQg//wL9zsBt/p43w3wkhrOrYPl/mCXABSJ9FOAzEOAbvE
+	rFM84RJ5CVPOSWaep+bCdzpG0J2CVhkmaa/bAd+sJerZVc9dd4kjwU0DQtJFv2+NLRxoOCaADqgKb
+	a8ilU+IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7YUi-0000000EUFF-18ou;
-	Fri, 18 Sep 2026 13:19:12 +0000
-Received: from mail-wm1-x346.google.com ([2a00:1450:4864:20::346])
+	id 1x7YVq-0000000EUgY-2wFz;
+	Fri, 18 Sep 2026 13:20:22 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7YUe-0000000EUCH-0lgL
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 13:19:09 +0000
-Received: by mail-wm1-x346.google.com with SMTP id 5b1f17b1804b1-49e6422198fso5557395e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 06:19:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1789737545; x=1790342345; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=otp0k2i4YCw4bQ4ES7pDpC2btKFgr9S5MNUmkPBiGJY=;
-        b=Sz0ILgOTWACDpY1EKgOxTDd/lf+oyyaJESCcCpShgAJ7/ifrVPFn6kkshwCiZDW+A2
-         Lge0zXcaCI8RdShrIinnpH09Agmu8arQ5pBn4X8OBt/57y2oZq3HEfv8Px0+IV1TFIjF
-         it6znl4vJmWEPJB8sPwjW8Q2wxOh4k3wJAajbsTg3mu+3zJaCabPaojc4ibl60ZdMxEd
-         AT4m/Z6286ZJcihO9bz61vYXb1heP9NiNlfwTNMnOxA0kAtDljKDmcn6UNqXSB1hrcAK
-         jKRFXGNpkBLEaQNEYHJvF5jEQtGVKp1mQHDONpj9oWTLSF9oR1ILhufOf5hcrwlkz/tm
-         wTtg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789737545; x=1790342345;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=otp0k2i4YCw4bQ4ES7pDpC2btKFgr9S5MNUmkPBiGJY=;
-        b=opYquGfuQyLHjI8BfvXYyD+k9W04HxD8eNzUDEs4linM7N6HAL6DH2opatDXPj6xd0
-         C23DNamU6K3VwWz1TFEWsbngYxMVuCLVpPAu5rIVDqrjXJDtXuTKI/y+Yu3Fvj/7q/dl
-         uXWKYrEFb77psq9SUH8sp7vRv6Kui//1voJMfZ1dkw9ke0V+RxGN+W+K9YbVNTxWo5tw
-         ivnd34Ti5baG4Kd3zuagKLNi30UC1FZSrDlBaN47sCs2K7Y9GU968AAXZrTzaWFNCWM4
-         jpWBXTPayVl6ea6rQPPtu0VBmkRZLhLA5WUIyKCzWmBtsKMGGlNp5s1VNf59ZcFqQ/yh
-         VGww==
-X-Forwarded-Encrypted: i=1; AKwUvBzRsWZlvWhTXvffbKg0rH3bofhbpp5Ht+sOvHCwF7v9XlJGAd5TY3hnR6U2gy4qWbyGYVm4FaLhtaGDljGs/eRK@lists.infradead.org
-X-Gm-Message-State: AFuF++ny9NbKl0gcn/nrhwYwudtBy47jYwnLVH0U8q6FazcNLYKhv9TX
-	U6gHnq4CCApS9DneM/EpP9JD0jH4YaMYUCdqonu71L/Ddn2D5C5j++X2KXUpzkKnytepK8HB44i
-	CQ7kCpzyFFEuM5tZoxBgCEA==
-X-Received: from wmps28.prod.google.com ([2002:a05:600c:319c:b0:49c:caed:426c])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:64c5:b0:49e:6c11:c4fc with SMTP id 5b1f17b1804b1-49fc56aa4e7mr86535595e9.7.1789737545460;
- Fri, 18 Sep 2026 06:19:05 -0700 (PDT)
-Date: Fri, 18 Sep 2026 14:16:56 +0100
-In-Reply-To: <20260918131656.3710047-1-vdonnefort@google.com>
-Mime-Version: 1.0
-References: <20260918131656.3710047-1-vdonnefort@google.com>
-X-Mailer: git-send-email 2.55.0.1082.g2b9226bbc0-goog
-Message-ID: <20260918131656.3710047-5-vdonnefort@google.com>
-Subject: [PATCH v1 4/4] arm64: mm: Allow can_set_direct_map() on BBML3 systems
-From: Vincent Donnefort <vdonnefort@google.com>
-To: catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org
-Cc: mark.rutland@arm.com, lenb@kernel.org, pavel@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, thierry.reding@kernel.org, rppt@kernel.org, 
-	Vincent Donnefort <vdonnefort@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	id 1x7YVo-0000000EUfP-1QUI;
+	Fri, 18 Sep 2026 13:20:21 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id AC89E4D7A;
+	Fri, 18 Sep 2026 15:18:31 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1789737511;
+	bh=mOT+ZZhGP5ccEcxa5D9560p30Tzgnpb1fQq5rAFNPHQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pVJEF3zeBamo6zonI09xcQri3fYoyTjGlvpxKQvq8DA1lZUyrBmF3fmlNg0QWBZm6
+	 afftWWvrHEmYx4GaVVvK1jDBAQ+k0yoD15sXk0zXSC/smn8d4sQ8kyFbgMtLr1wyOT
+	 +X88e9xf8szv0kV8lYRCDNVlWSRE0OMtfHSWlm0Y=
+Date: Fri, 18 Sep 2026 16:20:13 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Kieran Bingham <kieran.bingham@ideasonboard.com>
+Cc: Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Daniel Scally <dan.scally@ideasonboard.com>,
+	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+	Jacopo Mondi <jacopo@jmondi.org>, Jimmy Su <jimmy.su@intel.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Martin Kepplinger <martin.kepplinger@puri.sm>,
+	Matthias Fend <matthias.fend@emfend.at>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Michael Riesch <michael.riesch@collabora.com>,
+	Mikhail Rudenko <mike.rudenko@gmail.com>,
+	Paul Elder <paul.elder@ideasonboard.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Quentin Schulz <quentin.schulz@theobroma-systems.com>,
+	Richard Acayan <mailingradian@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Svyatoslav Ryhel <clamor95@gmail.com>,
+	Sylvain Petinot <sylvain.petinot@foss.st.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Tommaso Merciai <tomm.merciai@gmail.com>,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux@ew.tq-group.com,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+	linux-rockchip@lists.infradead.org, linux-tegra@vger.kernel.org,
+	Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	David Heidelberg <david@ixit.cz>
+Subject: Re: [PATCH v6 2/6] arm64: dts: qcom: Convert to new media
+ orientation definitions
+Message-ID: <20260918132013.GG59058@killaraus.ideasonboard.com>
+References: <20260918-kbingham-orientation-v6-0-5e8b1f01be29@ideasonboard.com>
+ <20260918-kbingham-orientation-v6-2-5e8b1f01be29@ideasonboard.com>
+ <178972979131.1723501.9444120486527129452@ping.linuxembedded.co.uk>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <178972979131.1723501.9444120486527129452@ping.linuxembedded.co.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_061908_269775_510D360F 
-X-CRM114-Status: GOOD (  18.30  )
+X-CRM114-CacheID: sfid-20260918_062020_525796_E70791D3 
+X-CRM114-Status: GOOD (  25.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,80 +103,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On BBML3 systems, block mappings in the linear map can be split
-dynamically at runtime without break-before-make faults. In such
-systems, allow can_set_direct_map() to enable set_direct_map_* users.
+On Fri, Sep 18, 2026 at 12:09:51PM +0100, Kieran Bingham wrote:
+> Quoting Kieran Bingham (2026-09-18 11:44:14)
+> > From: Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
+> > 
+> > The orientation property for video interface devices now has definitions
+> > to prevent hardcoded integer values for the enum options.
+> > 
+> > Update the users throughout the qualcomm device trees to use the new
+> > definitions.
+> > 
+> > Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> > Reviewed-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
+> > Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+> > Reviewed-by: David Heidelberg <david@ixit.cz>
+> 
+> Sashiko has noted that there is another new dts added in dts/qcom since
+> I wrote this patch.
+> 
+> I don't want to invalidate the above reviews by adding another change,
+> so I will send the single update to the new file separately as the core
+> definitions are already accepted now.
+> 
+> If someone /really/ wants me to add the change to
+> arch/arm64/boot/dts/qcom/sm8250-xiaomi-elish-common.dtsi in this patch,
+> please let me know.
+> 
+> it looks like this:
+> 
+> ----------- arch/arm64/boot/dts/qcom/sm8250-xiaomi-elish-common.dtsi -----------
+> index 945127dacc82..f86d3e0d51a6 100644
+> @@ -3,10 +3,11 @@
+>   * Copyright (c) 2022-2024 Jianhua Lu <lujianhua000@gmail.com>
+>   */
+> 
+>  #include <dt-bindings/arm/qcom,ids.h>
+>  #include <dt-bindings/media/video-interfaces.h>
+> +#include <dt-bindings/media/video-interface-devices.h>
+>  #include <dt-bindings/phy/phy.h>
+>  #include <dt-bindings/regulator/qcom,rpmh-regulator.h>
+>  #include <dt-bindings/usb/pd.h>
+>  #include "sm8250.dtsi"
+>  #include "pm8150.dtsi"
+> @@ -571,11 +572,11 @@ camera_front: camera@10 {
+>  		reset-gpios = <&tlmm 109 GPIO_ACTIVE_LOW>;
+> 
+>  		pinctrl-0 = <&cam_mclk3_default &camera_front_active>;
+>  		pinctrl-names = "default";
+> 
+> -		orientation = <0>; /* Front facing */
+> +		orientation = <MEDIA_ORIENTATION_FRONT>;
+>  		rotation = <270>;
+> 
+>  		port {
+>  			ov8856_front_ep: endpoint {
+>  				data-lanes = <1 2>;
 
-split_kernel_leaf_mapping() must now allow splitting for BBML3 systems
-where no feature requires a split (i.e. !linear_map_needs_set()). As a
-consequence, it can't solely rely on linear_map_requires_bbml3 anymore.
-Instead, deduce force_pte_mapping() value and filter out non-lm
-addresses.
+I don't mind either way, and I think you can keep the existing R-b tags
+if you add that hunk.
 
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
----
- arch/arm64/mm/mmu.c      | 24 +++++++++++++++---------
- arch/arm64/mm/pageattr.c |  2 +-
- 2 files changed, 16 insertions(+), 10 deletions(-)
+> > Signed-off-by: Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
+> > ---
+> >  arch/arm64/boot/dts/qcom/qcm6490-fairphone-fp5.dts         | 3 ++-
+> >  arch/arm64/boot/dts/qcom/sc8280xp-lenovo-thinkpad-x13s.dts | 3 ++-
+> >  arch/arm64/boot/dts/qcom/sdm670-google-common.dtsi         | 3 ++-
+> >  3 files changed, 6 insertions(+), 3 deletions(-)
+> > 
+> > diff --git a/arch/arm64/boot/dts/qcom/qcm6490-fairphone-fp5.dts b/arch/arm64/boot/dts/qcom/qcm6490-fairphone-fp5.dts
+> > index f41ad446a39e..e2b7f1bd05ab 100644
+> > --- a/arch/arm64/boot/dts/qcom/qcm6490-fairphone-fp5.dts
+> > +++ b/arch/arm64/boot/dts/qcom/qcm6490-fairphone-fp5.dts
+> > @@ -13,6 +13,7 @@
+> >  #include <dt-bindings/iio/qcom,spmi-adc7-pmk8350.h>
+> >  #include <dt-bindings/leds/common.h>
+> >  #include <dt-bindings/media/video-interfaces.h>
+> > +#include <dt-bindings/media/video-interface-devices.h>
+> >  #include <dt-bindings/pinctrl/qcom,pmic-gpio.h>
+> >  #include <dt-bindings/regulator/qcom,rpmh-regulator.h>
+> >  #include <dt-bindings/sound/qcom,q6asm.h>
+> > @@ -701,7 +702,7 @@ camera@10 {
+> >                 pinctrl-0 = <&cam_mclk3_default>;
+> >                 pinctrl-names = "default";
+> >  
+> > -               orientation = <0>; /* Front facing */
+> > +               orientation = <MEDIA_ORIENTATION_FRONT>;
+> >                 rotation = <270>;
+> >  
+> >                 port {
+> > diff --git a/arch/arm64/boot/dts/qcom/sc8280xp-lenovo-thinkpad-x13s.dts b/arch/arm64/boot/dts/qcom/sc8280xp-lenovo-thinkpad-x13s.dts
+> > index 218573a97785..3b5f6a29e969 100644
+> > --- a/arch/arm64/boot/dts/qcom/sc8280xp-lenovo-thinkpad-x13s.dts
+> > +++ b/arch/arm64/boot/dts/qcom/sc8280xp-lenovo-thinkpad-x13s.dts
+> > @@ -11,6 +11,7 @@
+> >  #include <dt-bindings/input/gpio-keys.h>
+> >  #include <dt-bindings/input/input.h>
+> >  #include <dt-bindings/leds/common.h>
+> > +#include <dt-bindings/media/video-interface-devices.h>
+> >  #include <dt-bindings/regulator/qcom,rpmh-regulator.h>
+> >  
+> >  #include "sc8280xp.dtsi"
+> > @@ -683,7 +684,7 @@ camera@10 {
+> >  
+> >                 clocks = <&camcc CAMCC_MCLK3_CLK>;
+> >  
+> > -               orientation = <0>;      /* Front facing */
+> > +               orientation = <MEDIA_ORIENTATION_FRONT>;
+> >  
+> >                 avdd-supply = <&vreg_l6q>;
+> >                 dvdd-supply = <&vreg_l2q>;
+> > diff --git a/arch/arm64/boot/dts/qcom/sdm670-google-common.dtsi b/arch/arm64/boot/dts/qcom/sdm670-google-common.dtsi
+> > index b4854801a5f5..7880d85b52fe 100644
+> > --- a/arch/arm64/boot/dts/qcom/sdm670-google-common.dtsi
+> > +++ b/arch/arm64/boot/dts/qcom/sdm670-google-common.dtsi
+> > @@ -9,6 +9,7 @@
+> >  #include <dt-bindings/gpio/gpio.h>
+> >  #include <dt-bindings/input/input.h>
+> >  #include <dt-bindings/leds/common.h>
+> > +#include <dt-bindings/media/video-interface-devices.h>
+> >  #include <dt-bindings/pinctrl/qcom,pmic-gpio.h>
+> >  #include <dt-bindings/power/qcom-rpmpd.h>
+> >  #include "sdm670.dtsi"
+> > @@ -460,7 +461,7 @@ camera@1a {
+> >                 pinctrl-names = "default";
+> >  
+> >                 rotation = <270>;
+> > -               orientation = <0>;
+> > +               orientation = <MEDIA_ORIENTATION_FRONT>;
+> >  
+> >                 port {
+> >                         cam_front_endpoint: endpoint {
+> > 
 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index c18ed601f0a8..4c345065d33f 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -811,24 +811,30 @@ static bool linear_map_requires_bbml3;
- 
- int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
- {
-+	bool force_pte;
- 	int ret;
- 
- 	/*
- 	 * If the region is within a pte-mapped area, there is no need to try to
--	 * split. Additionally, CONFIG_DEBUG_PAGEALLOC and CONFIG_KFENCE may
--	 * change permissions from atomic context so for those cases (which are
--	 * always pte-mapped), we must not go any further because taking the
--	 * mutex below may sleep. Do not call force_pte_mapping() here because
--	 * it could return a confusing result if called from a secondary cpu
--	 * prior to finalizing caps. Instead, linear_map_requires_bbml3 gives us
--	 * what we need.
-+	 * split:
-+	 *
-+	 * Do not call force_pte_mapping() here because it could return a
-+	 * confusing result if called from a secondary cpu prior to finalizing
-+	 * caps. Instead, retrieve that value with linear_map_requires_bbml3.
-+	 *
-+	 * Additionally, CONFIG_KFENCE may change permissions from atomic
-+	 * context so for this case (which is always pte-mapped), we must not go
-+	 * any further because taking the mutex below may sleep.
-+	 *
-+	 * Finally, set_memory_* can be called on PTE-mapped vmalloc mappings.
- 	 */
--	if (!linear_map_requires_bbml3 || is_kfence_address((void *)start))
-+	force_pte = !linear_map_requires_bbml3 && linear_map_needs_set();
-+	if (force_pte || is_kfence_address((void *)start) || !__is_lm_address(__tag_reset(start)))
- 		return 0;
- 
- 	if (!system_supports_bbml3()) {
- 		/*
--		 * BBML3 systems should not be trying to change
-+		 * Non-BBML3 systems should not be trying to change
- 		 * permissions on anything that is not pte-mapped in the first
- 		 * place. Just return early and let the permission change code
- 		 * raise a warning if not already pte-mapped.
-diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-index c1ba74eb602f..f952cc125705 100644
---- a/arch/arm64/mm/pageattr.c
-+++ b/arch/arm64/mm/pageattr.c
-@@ -89,7 +89,7 @@ bool rodata_full __ro_after_init = true;
- 
- bool can_set_direct_map(void)
- {
--	return linear_map_needs_set();
-+	return linear_map_needs_set() || system_supports_bbml3();
- }
- 
- static int update_range_prot(unsigned long start, unsigned long size,
 -- 
-2.55.0.1082.g2b9226bbc0-goog
+Regards,
 
+Laurent Pinchart
 
