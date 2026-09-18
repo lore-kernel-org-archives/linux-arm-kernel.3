@@ -4,56 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71307C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 14:12:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1151DC982E0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 14:12:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QczvT2LifjsE/O62L6D1yL7Md/W7SFCqArkkkjFYFBA=; b=jufz7CnyeNXUIl
-	MQK+kdcmEY7setVLhTw0JN6QAco2oTy2fmY/qs8mY5hlYcQZ39q7ALuBYnk9xBnFoybCdlpVjnFvO
-	ifilVehusQuQIjvIevWwKSFGluSyLBiR/COm4OKLs9X0xJQtRDOTh9roW9cLsX3HPCVmEk0y6AP+F
-	9T86rswxz56cyYarnx9i7t66F6D/G33UzeDdgbv3JGSJcQLbGIEorPut/ZJoy2qC3sav3WRCOqgVg
-	PdoSJGXokkYUQ+6FK2CGNt6u7l3Vkvcp6bgasQ4IVwGZY3sVNeIEpUVw7BxkKRYMW5qcMQbfOxTLM
-	WaA+4K7aiKSeqLeUHEeA==;
+	List-Owner; bh=Jjr7HC+ntlWrnO3TI37akXeZWG1zGWLKM7VCjYK9WdI=; b=NbzF/U57sdkFhV
+	9DG1N+lcVHtXp5FzW788xpnN7pFfH8RXwruomgxDNfwOvP09TBZQrQwlMZJevBMS1G17tSwCfVkh9
+	03HCzoIpZlOQzx453CHfiUki+Le5KLJ+zaqSobqPnN9T14McdTdBRWq84MYOAdNVC2qq6WKpk/96b
+	ZeFuKp2ZGTf09TIdSh8I2zbpYQIaEv91GxVTa3wMFnBcEpUA6sZzMPjN6u7J+dS7XyJ56ULGHYdAU
+	ekCd51itGv5iBKESp2NZFSheFAC4Po2e7QmQMaZjm5ukLrn2ROHqEX4tGGG91STUwNy/lep4J3ENh
+	/0LRpi3I86vj914Uyjaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7ZJl-0000000Efvw-2xyL;
+	id 1x7ZJl-0000000Efwb-3pDH;
 	Fri, 18 Sep 2026 14:11:57 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x7ZJd-0000000Efsg-3Nb8
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 18 Sep 2026 14:11:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=Jjr7HC+ntlWrnO3TI37akXeZWG1zGWLKM7VCjYK9WdI=; b=Rb1g37njbzxHcfNzZmizlqaV5Q
+	Rv+fxV47C4ggA9032HlzgM5aP2TioQJlcsG6YiPtHcqRtj4c1foupl8iCBt/hNmmOaPariMguMLQm
+	2y/weRue4ehfl7/MNjLEdZDxZIHmiUcJOVIFHJQqoQfvy+cHmpQY5SDEjGDQDzXq45U6NGZWx59Pg
+	FX6x+zIgzTn6358nJP9DQ7zQ9No/1A/O1Vi/NZQJ3eqRAkJFRrHkwcSmsxDjyiH9Ize2HFwMa3KsF
+	b7QPoggQ4sppRFm4LydEW7yhQACdPgiJB54cB6oFbdPx46Qb/UoGv9fWHAWwMzMfiou9soVDN9LDD
+	Zg5Pzraw==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7ZJU-0000000EfmC-1Cup
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x7ZJa-0000000ABem-3Rdr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 14:11:41 +0000
+	Fri, 18 Sep 2026 14:11:48 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B8132168F;
-	Fri, 18 Sep 2026 07:11:35 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C84291C00;
+	Fri, 18 Sep 2026 07:11:41 -0700 (PDT)
 Received: from e142021.Arm.com (e142021.arm.com [10.41.4.144])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A2F433F86C;
-	Fri, 18 Sep 2026 07:11:36 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AF9293F86C;
+	Fri, 18 Sep 2026 07:11:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789740699; bh=6+DNaJ0KhfXvVkfpY/J73/5RJw4ENnx4YQhzelT1LV4=;
+	t=1789740705; bh=l6z/d8J+mDpH7w64Ngl6JhjLmuSLkYpaYqcIi48vBz4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Zty74dQbT+PosZ6ET2SfcR33YteCFQ/iKYSCG4AGzza7UyEqBp0YvhTH8XbYYxSqD
-	 w+2WQEsMiTlkphsaIZS7xK7y6lCdjT/UtOa2RHV9/t+Ega1MUUNmFqTUc3bkCzt/P5
-	 b5c4NAQV0uS9E2kY9UL558fZTIxSUbvceq70wcgI=
+	b=EktjJMX104nV8fGBNIxtoKmxhb7pql0uIgXDsyF7l6CyphhBcS3i/BX+zPhuTRn9j
+	 ZdkzOpUGOAGyDbqf8ng+eLX43LFeF61MKQlZbyP63mJeSk67Kf6aeZZGjqtBq59GST
+	 8rdehKl70TdFnI4uttHmVXIzMTtghVUCsTxXrzWg=
 From: Andre Przywara <andre.przywara@arm.com>
 To: Mark Rutland <mark.rutland@arm.com>,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Sudeep Holla <sudeep.holla@kernel.org>
-Subject: [PATCH v4 5/8] firmware: smccc: lfa: Add auto_activate sysfs file
-Date: Fri, 18 Sep 2026 16:11:08 +0200
-Message-ID: <20260918141112.2115555-6-andre.przywara@arm.com>
+Subject: [PATCH v4 7/8] firmware: smccc: lfa: introduce SMC access lock
+Date: Fri, 18 Sep 2026 16:11:10 +0200
+Message-ID: <20260918141112.2115555-8-andre.przywara@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260918141112.2115555-1-andre.przywara@arm.com>
 References: <20260918141112.2115555-1-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_071140_397124_568C4463 
-X-CRM114-Status: GOOD (  17.41  )
+X-CRM114-CacheID: sfid-20260918_151147_322291_47DDF383 
+X-CRM114-Status: GOOD (  24.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,109 +84,177 @@ Cc: Conor Dooley <conor+dt@kernel.org>, vsethi@nvidia.com, Salman Nabi <salman.n
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Arm LFA spec places control over the actual activation process in
-the hands of the non-secure host OS. An platform initiated interrupt or
-notification signals the availability of an updateable firmware image,
-but does not necessarily need to trigger it automatically.
+After a successful live activation, the list of firmware images might
+change, which also affects the sequence IDs. We store the sequence
+ID in a data structure and connect it to its GUID, which is the
+identifier used to access certain image properties from userland.
+When an activation is happening, the sequence ID associations might
+change at any point, so we must be sure to not use any previously
+learned sequence ID during this time.
 
-Add a sysfs control file that guards such automatic activation. If an
-administrator wants to allow automatic platform initiated updates, they
-can activate that by echoing a "1" into the auto_activate file in the
-respective sysfs directory. Any incoming notification would then result
-in the activation triggered.
+Protect the association between a sequence ID and a firmware image
+(its GUID, really) by a reader/writer lock. In this case it's a R/W
+semaphore, so it can sleep and we can hold it for longer, also
+concurrent SMC calls are not blocked on each other, it's just an
+activation that blocks calls.
 
 Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 ---
- drivers/firmware/smccc/lfa_fw.c | 34 ++++++++++++++++++++++++++++++---
- 1 file changed, 31 insertions(+), 3 deletions(-)
+ drivers/firmware/smccc/lfa_fw.c | 38 +++++++++++++++++++++++++++++++--
+ 1 file changed, 36 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/firmware/smccc/lfa_fw.c b/drivers/firmware/smccc/lfa_fw.c
-index bb89fffde6856..7a55b4a6785d8 100644
+index a23df331ffde9..bf97e7d34e6c7 100644
 --- a/drivers/firmware/smccc/lfa_fw.c
 +++ b/drivers/firmware/smccc/lfa_fw.c
-@@ -120,6 +120,7 @@ enum image_attr_names {
- 	LFA_ATTR_FORCE_CPU_RENDEZVOUS,
- 	LFA_ATTR_ACTIVATE,
- 	LFA_ATTR_CANCEL,
-+	LFA_ATTR_AUTO_ACTIVATE,
- 	LFA_ATTR_NR_IMAGES
- };
+@@ -19,6 +19,7 @@
+ #include <linux/of.h>
+ #include <linux/of_irq.h>
+ #include <linux/psci.h>
++#include <linux/rwsem.h>
+ #include <linux/stop_machine.h>
+ #include <linux/string.h>
+ #include <linux/sysfs.h>
+@@ -177,6 +178,16 @@ static struct workqueue_struct *fw_images_update_wq;
+ static struct work_struct fw_images_update_work;
+ static struct attribute *image_default_attrs[LFA_ATTR_NR_IMAGES + 1];
  
-@@ -135,6 +136,7 @@ struct fw_image {
- 	bool cpu_rendezvous;
- 	bool cpu_rendezvous_forced;
- 	bool use_cpu_rendezvous;
-+	bool auto_activate;
- 	struct kobj_attribute image_attrs[LFA_ATTR_NR_IMAGES];
++/*
++ * A successful image activation might change the number of available images,
++ * leading to a re-order and thus re-assignment of the sequence IDs.
++ * The lock protects the connection between a firmware image (through its
++ * user visible UUID) and the sequence IDs. Anyone doing an SMC call with
++ * a sequence ID needs to take the readers lock. Doing an activation requires
++ * the writer lock, as that process might change the assocications.
++ */
++struct rw_semaphore smc_lock;
++
+ static const struct attribute_group image_attr_group = {
+ 	.attrs = image_default_attrs,
  };
+@@ -259,6 +270,7 @@ static unsigned long get_nr_lfa_components(void)
+ 	reg.a0 = ARM_SMCCC_LFA_GET_INFO;
+ 	reg.a1 = 0; /* lfa_info_selector = 0 */
  
-@@ -589,6 +591,28 @@ static ssize_t cancel_store(struct kobject *kobj, struct kobj_attribute *attr,
- 	return count;
++	/* No need for the smc_lock, since no sequence IDs are involved. */
+ 	arm_smccc_1_2_invoke(&reg, &reg);
+ 	if (reg.a0 != LFA_SUCCESS)
+ 		return reg.a0;
+@@ -279,9 +291,11 @@ static int lfa_cancel(void *data)
+ 	struct fw_image *image = data;
+ 	struct arm_smccc_1_2_regs reg = { 0 };
+ 
++	down_read(&smc_lock);
+ 	reg.a0 = ARM_SMCCC_LFA_CANCEL;
+ 	reg.a1 = image->fw_seq_id;
+ 	arm_smccc_1_2_invoke(&reg, &reg);
++	up_read(&smc_lock);
+ 
+ 	/*
+ 	 * When firmware activation is called with "skip_cpu_rendezvous=1",
+@@ -339,6 +353,7 @@ static int activate_fw_image(struct fw_image *image)
+ 	int ret;
+ 
+ retry:
++	down_write(&smc_lock);
+ 	/*
+ 	 * cpu_rendezvous_forced is set by the administrator, via sysfs,
+ 	 * cpu_rendezvous is dictated by each firmware component.
+@@ -352,10 +367,13 @@ static int activate_fw_image(struct fw_image *image)
+ 
+ 	if (!ret) {
+ 		update_fw_images_tree();
++		up_write(&smc_lock);
+ 
+ 		return 0;
+ 	}
+ 
++	up_write(&smc_lock);
++
+ 	/* SMC returned with call_again flag set, or with LFA_BUSY */
+ 	if (ret == -EAGAIN || ret == -EBUSY) {
+ 		if (ktime_before(ktime_get(), end)) {
+@@ -396,8 +414,11 @@ static int prime_fw_image(struct fw_image *image)
+ 	 * be called again.
+ 	 * reg.a1 will become 0 once the prime process completes.
+ 	 */
++	down_read(&smc_lock);
+ 	reg.a1 = image->fw_seq_id;
+ 	arm_smccc_1_2_invoke(&reg, &res);
++	up_read(&smc_lock);
++
+ 	if ((long)res.a0 < 0) {
+ 		pr_err("LFA_PRIME for image %s failed: %s\n",
+ 		       get_image_name(image),
+@@ -441,7 +462,7 @@ static ssize_t activation_capable_show(struct kobject *kobj,
+ 	return sysfs_emit(buf, "%d\n", image->activation_capable);
  }
  
-+static ssize_t auto_activate_store(struct kobject *kobj,
-+				   struct kobj_attribute *attr,
-+				   const char *buf, size_t count)
+-static void update_fw_image_pending(struct fw_image *image)
++static void _update_fw_image_pending(struct fw_image *image)
+ {
+ 	struct arm_smccc_1_2_regs reg = { 0 };
+ 
+@@ -453,6 +474,13 @@ static void update_fw_image_pending(struct fw_image *image)
+ 		image->activation_pending = !!(reg.a3 & BIT(1));
+ }
+ 
++static void update_fw_image_pending(struct fw_image *image)
 +{
-+	struct fw_image *image = kobj_to_fw_image(kobj);
-+	int ret;
-+
-+	ret = kstrtobool(buf, &image->auto_activate);
-+	if (ret)
-+		return ret;
-+
-+	return count;
++	down_read(&smc_lock);
++	_update_fw_image_pending(image);
++	up_read(&smc_lock);
 +}
 +
-+static ssize_t auto_activate_show(struct kobject *kobj,
-+				  struct kobj_attribute *attr, char *buf)
-+{
-+	struct fw_image *image = kobj_to_fw_image(kobj);
-+
-+	return sysfs_emit(buf, "%d\n", image->auto_activate);
-+}
-+
- static struct kobj_attribute image_attrs_group[LFA_ATTR_NR_IMAGES] = {
- 	[LFA_ATTR_NAME]			= __ATTR_RO(name),
- 	[LFA_ATTR_CURRENT_VERSION]	= __ATTR_RO(current_version),
-@@ -599,7 +623,8 @@ static struct kobj_attribute image_attrs_group[LFA_ATTR_NR_IMAGES] = {
- 	[LFA_ATTR_CPU_RENDEZVOUS]	= __ATTR_RO(cpu_rendezvous),
- 	[LFA_ATTR_FORCE_CPU_RENDEZVOUS]	= __ATTR_RW(force_cpu_rendezvous),
- 	[LFA_ATTR_ACTIVATE]		= __ATTR_WO(activate),
--	[LFA_ATTR_CANCEL]		= __ATTR_WO(cancel)
-+	[LFA_ATTR_CANCEL]		= __ATTR_WO(cancel),
-+	[LFA_ATTR_AUTO_ACTIVATE]	= __ATTR_RW(auto_activate),
- };
+ static ssize_t activation_pending_show(struct kobject *kobj,
+ 				       struct kobj_attribute *attr, char *buf)
+ {
+@@ -527,9 +555,11 @@ static ssize_t pending_version_show(struct kobject *kobj,
+ 	 * Similar to activation pending, this value can change following an
+ 	 * update, we need to retrieve fresh info instead of stale information.
+ 	 */
++	down_read(&smc_lock);
+ 	reg.a0 = ARM_SMCCC_LFA_GET_INVENTORY;
+ 	reg.a1 = image->fw_seq_id;
+ 	arm_smccc_1_2_invoke(&reg, &reg);
++	up_read(&smc_lock);
+ 	if (reg.a0 == LFA_SUCCESS) {
+ 		if (reg.a5 != 0 && image->activation_pending) {
+ 			u32 maj, min;
+@@ -779,6 +809,7 @@ static int activate_pending_image(void)
+ 	struct fw_image *image;
+ 	int ret;
  
- static void init_image_default_attrs(void)
-@@ -670,6 +695,7 @@ static int update_fw_image_node(char *fw_uuid, int seq_id,
- 	image->kobj.kset = lfa_kset;
- 	image->image_name = image_name;
- 	image->cpu_rendezvous_forced = true;
-+	image->auto_activate = false;
- 	set_image_flags(image, seq_id, image_flags, reg_current_ver,
- 			reg_pending_ver);
- 	if (kobject_init_and_add(&image->kobj, &image_ktype, NULL,
-@@ -739,7 +765,8 @@ static int update_fw_images_tree(void)
- 
- /*
-  * Go through all FW images in a loop and trigger activation
-- * of all activatible and pending images.
-+ * of all activatible and pending images, but only if automatic
-+ * activation for that image is allowed.
-  * We have to restart enumeration after every triggered activation,
-  * since the firmware images might have changed during the activation.
-  */
-@@ -758,7 +785,8 @@ static int activate_pending_image(void)
++	down_read(&smc_lock);
+ 	spin_lock(&lfa_kset->list_lock);
+ 	list_for_each_entry(kobj, &lfa_kset->list, entry) {
+ 		image = kobj_to_fw_image(kobj);
+@@ -786,7 +817,7 @@ static int activate_pending_image(void)
+ 		if (image->fw_seq_id == -1)
  			continue; /* Invalid FW component */
  
- 		update_fw_image_pending(image);
--		if (image->activation_capable && image->activation_pending) {
-+		if (image->activation_capable && image->activation_pending &&
-+		    image->auto_activate) {
+-		update_fw_image_pending(image);
++		_update_fw_image_pending(image);
+ 		if (image->activation_capable && image->activation_pending &&
+ 		    image->auto_activate) {
  			found_pending = true;
- 			break;
+@@ -794,6 +825,7 @@ static int activate_pending_image(void)
  		}
+ 	}
+ 	spin_unlock(&lfa_kset->list_lock);
++	up_read(&smc_lock);
+ 
+ 	if (!found_pending)
+ 		return -ENOENT;
+@@ -934,6 +966,8 @@ static int lfa_smccc_probe(struct arm_smccc_device *sdev)
+ 		return -ENOMEM;
+ 	}
+ 
++	init_rwsem(&smc_lock);
++
+ 	err = update_fw_images_tree();
+ 	if (err != 0) {
+ 		kset_unregister(lfa_kset);
 -- 
 2.43.0
 
