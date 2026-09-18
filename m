@@ -4,86 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E234C982D2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 01:50:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30EB5C982D2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 01:50:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m/pJjVbQRyxDdtGD6rF0s7b+fzIsts7a1HewX1aTncg=; b=Eg22N3d0GQfTDJuTRaxqMppp/2
-	CILH0gLSgGQITGNQNW7jBF0jv6Jc8+E71KAz6h+KY8PzwJYvXVvdmQCw1bx9qnKxPBU1zVuNBk/gb
-	naWwzJlry0h67j07ruivlP7TSAQsSfLnFdz3nGO0MfQ5eC/DZVccVmAVuEfMQCQgWcClPvIXs1i+L
-	At2Fx16GDYyNKURhtn7gGp7GjrrW+d+nTVGItOCGKN2DKRAZUhpKz7pYOzVU+ZivvTpwQRKa1jsuF
-	dkkPjvGmEKlxqpgpWfz6rFjhTJZZWl5zmmV3EBJmeZIwHdZ5oSuiK8nlesB7xYlUt/7nbRcxKjBie
-	ArjXyjMA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=R1Dphf3wJq4BrmquaAl7H8zsB9cDxJ+RW6Mq3uDSYmM=; b=Jg66f5DeEdtiK8nQ2LYo/7/QEK
+	HIJN5LnOzRorS+CylHnJg9RJTeWcaAAX9K/tSrUVB91SDkzm8xBkb0dclia8Ijxo1k5OLTeJlle+n
+	mCKY9cBZ6HBIuF6ivFoqMFZWT7kMvEp7UQMV876aBixyZJyavY1/bd9UzP9iCOjPj2rl8he+ezhWe
+	bpaeGwWp/NfgxeUOZU19Ov9PvKuaDjTxGAuzoKQ+Tf4+Ix8IVOp6WLIWFnG3xYOt8XHKeY2zXvulH
+	RBtkz1rxotvr60I9P6l8jQEid5OzvMa/o3IuAjeNJwIpvf/zgFY9y38qhAgJZIHQP2TjpzNe+Ksne
+	Sclgbf/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7NkI-0000000DD8i-0pk5;
-	Fri, 18 Sep 2026 01:50:34 +0000
+	id 1x7NkO-0000000DDCs-2OrV;
+	Fri, 18 Sep 2026 01:50:40 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7NkH-0000000DD7Y-2aUU
+	id 1x7NkH-0000000DD7e-36UC
 	for linux-arm-kernel@bombadil.infradead.org;
 	Fri, 18 Sep 2026 01:50:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=m/pJjVbQRyxDdtGD6rF0s7b+fzIsts7a1HewX1aTncg=; b=EW/dUjY6Ooc1o/V5BegI6ax7pC
-	21ZZFolVPWkv/SuQNF3OeASkBn7jlAQ2QWD8V83uozs112dRI38e1FFYHruAbL0cqcMvKPspLB9EZ
-	eC3LLuWgJwRYU8OmkG7TBqRMl2SnmQkyuJu2UnUAAWDKgTYJu5Wzj6KPtBSI5DT8Iy7mGIglFinD2
-	HBq824ChIVkeDjr0Mh+J6+oYuLhAtIl/6enyPBooMB7m2GOmuZ5SwT86uJHK8e04W3ZHKjA/0JEfY
-	h+IJPG9RbG+S2f7aPatkDPyXd0Of9B82YFh6bXevNl3OW/Ej4FQ2hz6g0CuuTjbFNsRlGOVgzIgo4
-	cpqwa20A==;
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=R1Dphf3wJq4BrmquaAl7H8zsB9cDxJ+RW6Mq3uDSYmM=; b=bDLAxDKUhmCks1lfInpJiJwgyy
+	7s1nnXykfKLTp7169QHmz8piDcPuxLxhHFjRUh+l2O4VpFHK8gv6xXogn+0j0PjFJZmBnC32wt51b
+	HRu9Y8lbPpAvHF3vMoKL7UPCgu6qOWv4P8Z+5YX5x5zB2SN+FCv9MsRocAz7jRUQK4yz5Nt3oJog0
+	KmzsuUzMh4ybGqhKMhhcLlu1ObQvo3rLzQtaLnoGxD1jTKlXkj02UOTSaB4U8at4+Db+xoTKotLaM
+	o5DneOPNHIEifY7UZRerG8gutqnxJJMV9sII1A/JLJXI+B6nfZs0ThVqolLsfcM6cHcy4RnxghWAq
+	EWcr9TTg==;
 Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x7NkD-00000009UqV-0MGc
+	id 1x7NkD-00000009UqE-08sL
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 18 Sep 2026 01:50:32 +0000
-Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-4834977ae75so69868f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 18:50:29 -0700 (PDT)
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-4834977ae75so69864f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 18:50:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=lex.la; s=google; t=1789696228; x=1790301028; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=m/pJjVbQRyxDdtGD6rF0s7b+fzIsts7a1HewX1aTncg=;
-        b=VP6RW1db+8fFj7hE84jKybqmgKtXmqN52L8UKYBdv7c0X0ZevevQyCVio8uDBOihpD
-         kdTxuj/YMAHVc+18b5/XJphb0zvYaEETGR6xSDUCfwauXmgvGpiM5TNZqFEQLlTBkxIV
-         6Y2lGtMUG7wrHuM0wji6FdbeouzUO/lXhekqdnJ3rwJ5sNdubI1VOKy/LQ6wcOOcLkXs
-         kQ0+cEkRL6/i5S7uwb2oCawadLdtixze6v70apdq3nulOUjRtqwsy24G9lzXkpnHarq7
-         48BY+0Db40h3YzLWkpELyGvwGNBNgGYnZYENbsyCq01yyVDYLI7f/NKp4Cd3CWdwE1aH
-         I7KQ==
+        d=lex.la; s=google; t=1789696227; x=1790301027; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=R1Dphf3wJq4BrmquaAl7H8zsB9cDxJ+RW6Mq3uDSYmM=;
+        b=C/BUudhXbMElJtq8LJ1Hybqk8k+au9M0LRUIwsqftDKwk9a2nntmdPBW2ThMS/D1Vl
+         DFQRAaVPKh3bXOesWN2O2I6GjCjR7+0Rgl9DlDoL6dMRpG2C+2/h/8nD5VskQuRsEDTY
+         clfwy7XxhSMVdyz412LMy6f99ps04GWWQnRL4BJN/wG0Y2FZSCmUEUX/c0tkoqtldTiz
+         1idVDRfte58GrA2hHm8d0rvLUalznncim3I5b+5uH6Gy4k0XTj6BIKOKylTqgzLTagQI
+         5MzV2V39YWKuuzow791l0YKSN7ZuElWPAl2WxMwKPYmjB06U98JJIM89//R92V8yWjow
+         RXUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789696228; x=1790301028;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=m/pJjVbQRyxDdtGD6rF0s7b+fzIsts7a1HewX1aTncg=;
-        b=RNTQDzw2nK4ZOERsgDKvXcK1S6zgwOFd4Pv2HMYkgz8GgXfgroHTJl7QwiiM1HoETK
-         iucJviSnimBX0e3P9RViw7JMKedIjO6rzTjgS7xSqO7GBpxS8fXDxi3Hem2ZmVj6JbKF
-         KzltlF5U6TEco9s3CNECKLTazbIU8jAz5ljTuKC3Hfdbkk6znO/HvHC7ChJ9LklqLagW
-         vVuBBuZNrv2Dksu2y8H0/Onl+psvs68KOOx6S5LF9a4z919pgu7CBd8NrqCn1s/kBzPt
-         JWsgGp3HLRRhRodpEM8uxuuqe9QN0Wc/L3Db6jQ8/ZW0lOzwdsVI1lkk+CtEmyj+m+nf
-         d0pA==
-X-Forwarded-Encrypted: i=1; AKwUvBxKH/Frms1Moj4a+jluSAA8RKoHnSmUIaaf7NsVCVKa5Usj7FceZkh9Cfiw/ej0EwsLh87Ww6uu+P/rmQpCqJzw@lists.infradead.org
-X-Gm-Message-State: AFuF++lh1RH9RCkREe0kdYwFBuqryy2dg9AUdVJUFUmAI36fZtaf+cCZ
-	UZpUSvwbP93/LvZk62dTj0ww3Hm7wkw9kChsAQztPGFi5WwE51nGkfSIfE9JKhEStag=
-X-Gm-Gg: AYBFou1a0pkghRtW/IFYdAF1au9AInIu6SGoLk9dzsXFOYCzwBUmyCzAnDd0y5NvwiA
-	dxlUNDxxYoGFxr+6iChejUr6BWoHEPI/4zqDoK4uinVBrQfgLsAFCBmjy3mgS94L+6382RQGNr7
-	W6CjANShrMZFJacgpknSHt078XaZBB9REKYefo6H/FAKkiggDIeKU7hxXQRKyvLpGR9fNSc4RX4
-	TeaoHXr14I3niqzNZLRGpWiQMRgy7q6Wk7lvriakpsds6hGOxckRz9swFIA7VCzL4VI5GQ8veoJ
-	a2zKIwCBcVeeIINJ5iE/vYASqNPYz34ZuxWeqYJYlX4JsKbkV2naGXIW6gzFmfnvk6RbMnfN6Fw
-	QaJCCIMk+03BCWypd8NifFUhWdGjRpmmBbNfzOcr5iGJR5VEVPeRqdXSmV0h3F0Q4bN7M8b0nkw
-	6eWmMo5We5nyxKL72vGQAxPK3e4R/RgkHOl267mqicYO0ICAbmWQ==
-X-Received: by 2002:a05:6000:2689:b0:487:c45:3957 with SMTP id ffacd0b85a97d-4871e370c61mr2016513f8f.25.1789696227840;
-        Thu, 17 Sep 2026 18:50:27 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1789696227; x=1790301027;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=R1Dphf3wJq4BrmquaAl7H8zsB9cDxJ+RW6Mq3uDSYmM=;
+        b=vpS7uZf0rrPqRbe/4aBcsVr2W4qZeIOg8sMhFD0tLetVS77YOycKd2qBZsfbTUgv05
+         QxaACLWTJzMFHvAVwwVvMmcaJUIXV0DBQixroebuUMjZJEMo+UpGyvytkDAD6TqKSjld
+         q1SvQ+zbLTrfcKecyFPyNCMIElSin7oEV7u1QbvnG20srEHsEIh+tG05dAMY8W+eo2rp
+         t8/j0tdxsCtK7tGN9XMM6OIyDhc+nCn9l3BgofNQgu2CU8psPlkJrE/aQnfcOF5SPQ/D
+         kxhpXYx7XpOnRPZRwQbZ9+2cMn8XqprzAjNSI91k3DVKoV547T1Dcj82HscyZ7rVBobb
+         8EKw==
+X-Forwarded-Encrypted: i=1; AKwUvBwhU65BOR/d7WGo/oG8+lKMjOZD9sfnVwBHFWWCWb9+xnyC20IcjSDU7KqNOjTguGs2m4wx9u+naNBxFbdg1YuK@lists.infradead.org
+X-Gm-Message-State: AFuF++ksKMp8Qv/RnraE3ELKyn2E8dl4URK1m/Hxhk8Ukmguyl1ayrXu
+	Zv7FrDM3RgiLLdxBl3q00A45g4ksrFhUDEenPkJRtMnocXjCxyVB8T54usgZsHuLw2w=
+X-Gm-Gg: AYBFou2yu8vaTEel+FJW19f8UGsWV1u0eC5qvja6GcabZo22oA7IiEB7Ws6+wyL/GRJ
+	hcoOtLRmGbiZxWZWs9Vskdll95uwkJEQMUXWoCHyiUh/GDq5WV/eJKoPQvBI3V7O/loKAbvNt/W
+	vCtEk7EubIr3GYG+s9y6YpatnE+kYlMtSI2yAK2DDEn7ZPNonj0/QX0bBS3TFbSEHo1dDNXnUoz
+	jQ/ZMPJeIzdpQByWorBRynhfTLn9K6ovBfkjQIH1cFYHQMMz5zSn3qnodIi3nHBKvGkIN9HsUTT
+	dV7gsPm7ZSYC4nN91/U0XILSQ3JeuoYx2lFRBATjtWkHPErK5QdbdC2mlmuRIIVDej56LNfQpMz
+	ZX01X8VV2dXioJhDKm0E3I3ONAjxyZQroqxxfWCMgLI19PWccFU3KaMGiaaLV9XC10qHDiNXef2
+	ltraZSnCHktDs6yRDVCLPyLigpIlE5Dgm0LTPgE07UDXEyw08haFypCvzwU219
+X-Received: by 2002:a05:6000:4903:b0:486:f301:11df with SMTP id ffacd0b85a97d-4871e20cffbmr1925132f8f.6.1789696226372;
+        Thu, 17 Sep 2026 18:50:26 -0700 (PDT)
 Received: from remote-01 ([84.17.55.229])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4871ff57926sm70569f8f.14.2026.09.17.18.50.26
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4871ff57926sm70569f8f.14.2026.09.17.18.50.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 17 Sep 2026 18:50:27 -0700 (PDT)
+        Thu, 17 Sep 2026 18:50:25 -0700 (PDT)
 From: Aleksei Sviridkin <f@lex.la>
 To: netdev@vger.kernel.org
 Cc: chester.a.unal@arinc9.com,
@@ -101,17 +100,15 @@ Cc: chester.a.unal@arinc9.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	Aleksei Sviridkin <f@lex.la>
-Subject: [PATCH net v2 1/2] net: dsa: mt7530: fix NULL dereference on unbind of MT7531 and MT7621
-Date: Fri, 18 Sep 2026 04:50:19 +0300
-Message-ID: <20260918015020.2518315-2-f@lex.la>
+Subject: [PATCH net v2 0/2] net: dsa: mt7530: fix two crashes on driver unbind
+Date: Fri, 18 Sep 2026 04:50:18 +0300
+Message-ID: <20260918015020.2518315-1-f@lex.la>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260918015020.2518315-1-f@lex.la>
-References: <20260918015020.2518315-1-f@lex.la>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_025029_345935_0882788E 
-X-CRM114-Status: GOOD (  26.43  )
+X-CRM114-CacheID: sfid-20260918_025029_392516_0B09AB6D 
+X-CRM114-Status: GOOD (  24.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,137 +123,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The core and io supplies are only requested for ID_MT7530: both the
-devm_regulator_get() in probe and the regulator_enable() in
-mt7530_setup() are guarded by the switch id, but mt7530_remove()
-disables them unconditionally. On an MT7621 or an MT7531 both pointers
-are still NULL from devm_kzalloc(), so rmmod or a sysfs unbind calls
-regulator_disable() on NULL.
-
-Fixes: ddda1ac116c8 ("net: dsa: mt7530: support the 7530 switch on the Mediatek MT7621 SoC")
-Assisted-by: LLM
-Signed-off-by: Aleksei Sviridkin <f@lex.la>
----
-Found by accident on a Netcraze NC-1012 (MT7981B + MT7531, 6.18.44) while
-looking for a way to tear a DSA port down at runtime:
+Unbinding the MT7530 driver from an MT7531 dereferences NULL in
+regulator_disable(). On a Netcraze NC-1012 (MT7981B + MT7531, 6.18.44):
 
   # echo mdio-bus:1f > /sys/bus/mdio_bus/drivers/mt7530-mdio/unbind
-  Unable to handle kernel access to user memory outside uaccess routines
-    at virtual address 0000000000000078
-  pc : regulator_disable+0x14/0x48
-  lr : mt7530_remove+0x1c/0x80
-  ...
-  x0 : 0000000000000000
-  Call trace:
-   regulator_disable+0x14/0x48 (P)
-   mt7530_remove+0x1c/0x80
-   mdio_remove+0x20/0x40
-   device_remove+0x68/0x80
-   device_release_driver_internal+0x1cc/0x220
-   device_driver_detach+0x14/0x20
-   unbind_store+0xac/0xb0
-   ...
-  Kernel panic - not syncing: Oops: Fatal exception
 
-The oops itself is a process-context oops that kills the writing task. It
-became a panic and a reboot because OpenWrt's generic kernel config sets
-CONFIG_PANIC_ON_OOPS=y and this target does not override it, not because of
-anything local to this bench. With CONFIG_REGULATOR=n the stub
-regulator_disable() returns 0 and nothing is dereferenced at all -
-NET_DSA_MT7530 neither selects nor depends on REGULATOR - so the severity
-is config-dependent, and the commit message states the mechanism rather
-than an outcome.
+oopses there, and the build it was found on sets CONFIG_PANIC_ON_OOPS, so
+the board goes down with it. Fix that and the same command gets as far as
+mt7530_remove_common(), which disposes interrupt mappings the switch's own
+regmap-irq chip still owns; the regmap-irq thread then faults in
+handle_nested_irq() later in the same teardown. rmmod reaches both, since
+mdio_module_driver() calls .remove on module exit.
 
-x0 is the regulator pointer and regulator_disable() reads regulator->rdev
-straight away, so the NULL comes from the field never being assigned rather
-than from an error pointer: with CONFIG_REGULATOR=y devm_regulator_get()
-hands back a valid pointer or an ERR_PTR, and on anything but ID_MT7530 it
-is never called at all.
+Patch 1 is the regulator one. mt7530_probe() requests the core and io
+supplies only for ID_MT7530 and mt7530_setup() enables them under the same
+test, but mt7530_remove() disables them unconditionally, so on an MT7621 or
+an MT7531 both pointers are still NULL from devm_kzalloc(). It reaches the
+MDIO front end only.
 
-The same shape applies to MT7621, which mt7530_of_match also binds. The
-MMIO driver is unaffected: it makes no regulator calls at all, though it
-does still carry the include.
+Patch 2 is the interrupt one, and it reaches further.
+mt7530_remove_common() disposes the per-PHY interrupt mappings by hand from
+.remove, while the regmap-irq chip that owns the domain is devm-registered
+and its parent interrupt is only freed once .remove has returned.
+regmap_del_irq_chip() disposes the same mappings itself, in an order that
+cannot race, so the driver's call adds nothing but a window. That helper is
+called from both front ends, so the defect also covers the MMIO parts -
+MT7988, EN7581, AN7583 and EN7528 - which have no regulators and never meet
+the first defect at all.
 
-The id test is used rather than a NULL check because the driver already
-says "these supplies belong to ID_MT7530" that way in the other two places
-it matters: the devm_regulator_get() pair in mt7530_probe() and the
-regulator_set_voltage()/regulator_enable() pair in mt7530_setup(). A NULL
-check would be a third spelling of the same condition.
+The order is not arbitrary. On an MT7531 the regulator fault happens in the
+first thing mt7530_remove() does with the switch, so execution never
+reaches the interrupt defect. The second only became visible once the first
+was fixed, which is also how both came to be found on one board.
 
-Tested on the board above. Without the patch the unbind panics as shown;
-both pointers come out of devm_kzalloc() and are never assigned on an
-MT7531, so the fault is structural rather than timing-dependent. With this
-patch plus patch 2, the same unbind runs to completion: mdio-bus:1f leaves
-/sys/bus/mdio_bus/drivers/mt7530-mdio/, lan1-lan4 disappear, the kernel
-prints "DSA: tree 0 torn down", and uptime does not reset. The kernel under
-test was identified by the sha256 of its ELF notes section, read from
-/sys/kernel/notes on the running board and computed in advance from the
-image that was flashed.
+Found and verified there. Without patch 1 the unbind panics in
+regulator_disable(); with patch 1 alone the panic moves on to
+handle_nested_irq(); with both, three unbind/bind cycles run, two back to
+back and a third after a pause. In the two whose dmesg was captured, each
+unbind removes the switch from the driver directory and takes lan1 to lan4
+with it, each bind brings them back, and lan1 relinks at 1Gbps/full after
+both binds, lan4 after the second. uptime rose from 58 to 202 seconds
+across the three without resetting and pstore gained no new record. The
+third cycle stayed unbound long enough to read the descriptors: no mt7530
+line in /proc/interrupts and no irq/79, irq/80 or irq/81 directory, and the
+next bind reuses those three numbers - regmap-irq freeing and disposing
+what the driver no longer touches. The kernel under test was identified by
+the sha256 of its ELF notes section, read from /sys/kernel/notes on the
+running board and computed in advance from the flashed image.
 
-dmesg is not silent across that unbind. It gains one WARN - a single cut
-here/WARNING/end trace block - from sysfs_remove_link() under
-dsa_user_destroy() reaching an already-removed netdev directory: "kernfs:
-can not remove 'phydev', no directory". That is a DSA teardown-ordering
-defect rather than a regulator one, and in this run it fired on the first
-unbind after boot. dmesg is where it shows: pstore gained no new record
-across the run, but pstore records only oopses and panics and could not
-have caught a WARN.
+What hardware could not answer here. There is no MT7530 or MT7621 part on
+this bench, so the ID_MT7530 branch that patch 1 adds was checked by
+reading the generated code rather than by running it, and no MMIO part was
+available to exercise patch 2 on that front end either. One unrelated WARN
+remains across the unbind, from sysfs_remove_link() under
+dsa_user_destroy(); it is a separate DSA teardown-ordering defect and is
+not addressed here.
 
-That run needs patch 2 on top, a different defect in the same teardown:
-mt7530_remove_common() disposes the per-PHY interrupt mappings from .remove
-while the regmap-irq chip that owns the domain is still live, and the board
-dies in handle_nested_irq() later in the same teardown. With this patch
-alone, the panic moves from regulator_disable+0x14 to that second defect,
-and mt7530_remove is reached at +0x24/0x90 rather than +0x1c/0x80 - which
-is the point: the NULL dereference is gone and execution now gets past it.
+v2:
+- patch 2 changes shape. Moving dsa_unregister_switch() in front of the
+  dispose, as v1 did, only covers the phylib side: the regmap-irq chip is
+  devm-registered, so its parent interrupt outlives .remove and the thread
+  can still dispatch on a mapping the driver has just disposed. Dropping
+  the call is what closes that: regmap_del_irq_chip() walks every hwirq
+  below chip->num_irqs and disposes each one that maps, which covers
+  whatever the driver created - the driver's own set is the user ports
+  below MT7530_NUM_PHYS, hwirq 0 to 2 on the board below - and it does so
+  after freeing the parent interrupt and before removing the domain.
+- patch 2 points Fixes: at commit 254f6b272e3b ("dsa: mt7530: Utilize
+  REGMAP_IRQ for interrupt handling") instead of commit ba751e28d442 ("net:
+  dsa: mt7530: add interrupt support"). Before the regmap-irq conversion
+  the driver owned the domain and removed it by hand, where
+  irq_domain_remove() disposes nothing, so the call was required there; it
+  became redundant when regmap-irq took the domain over.
+- patch 1: same diff; the trailers are reordered and the message now names
+  devm_kzalloc() as where the NULL comes from.
+- v1: https://lore.kernel.org/netdev/20260914202421.2737079-1-f@lex.la/
 
-The disable stays where it is, ahead of mt7530_remove_common() and so ahead
-of the register writes dsa_unregister_switch() makes on the way down. On a
-real MT7530 that is teardown talking to a switch whose rails are already
-off, which is a separate and pre-existing ordering question, not addressed
-here; moving it would change when the supplies drop, which is more than a
-NULL-pointer fix should do.
-
-Not tested: the ID_MT7530 branch, which must still disable both rails.
-There is no MT7530 or MT7621 hardware here, so the disassembly stands in
-for it - before the change mt7530_remove() falls from the priv NULL check
-straight into ldr x0, [x19, #40] / bl regulator_disable; after it, ldr w0,
-[x19, #72] (priv->id) / cbz w0 gates both calls, and ID_MT7530 is 0. Built
-with W=1, no warnings; checkpatch --strict clean.
+Aleksei Sviridkin (2):
+  net: dsa: mt7530: fix NULL dereference on unbind of MT7531 and MT7621
+  net: dsa: mt7530: leave the MDIO IRQ mappings to regmap-irq
 
  drivers/net/dsa/mt7530-mdio.c | 18 ++++++++++--------
- 1 file changed, 10 insertions(+), 8 deletions(-)
+ drivers/net/dsa/mt7530.c      |  3 ---
+ 2 files changed, 10 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/net/dsa/mt7530-mdio.c b/drivers/net/dsa/mt7530-mdio.c
-index 784dd58a7158..de42f70afcfa 100644
---- a/drivers/net/dsa/mt7530-mdio.c
-+++ b/drivers/net/dsa/mt7530-mdio.c
-@@ -227,15 +227,17 @@ mt7530_remove(struct mdio_device *mdiodev)
- 	if (!priv)
- 		return;
- 
--	ret = regulator_disable(priv->core_pwr);
--	if (ret < 0)
--		dev_err(priv->dev,
--			"Failed to disable core power: %d\n", ret);
-+	if (priv->id == ID_MT7530) {
-+		ret = regulator_disable(priv->core_pwr);
-+		if (ret < 0)
-+			dev_err(priv->dev,
-+				"Failed to disable core power: %d\n", ret);
- 
--	ret = regulator_disable(priv->io_pwr);
--	if (ret < 0)
--		dev_err(priv->dev, "Failed to disable io pwr: %d\n",
--			ret);
-+		ret = regulator_disable(priv->io_pwr);
-+		if (ret < 0)
-+			dev_err(priv->dev, "Failed to disable io pwr: %d\n",
-+				ret);
-+	}
- 
- 	mt7530_remove_common(priv);
- 
 -- 
 2.53.0
 
