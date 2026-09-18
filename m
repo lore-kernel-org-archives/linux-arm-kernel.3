@@ -4,55 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D052C982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 15:01:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B4A3C982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 15:03:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YKI5+bKz/u5TUQe53gU8/jmtq5Ye1wah0IVTuXctBOo=; b=B6AFkVCDQJi/x6r1bVsP2OGjNj
-	FCMP0dnGhPsxQ0A1U7Ah4ztcr4gH/sd2EQgtAvU8/S4rGbf8F02mWdLctqSvDYm2J6XfrlXhLQnyU
-	Mz8M8Gkpvml5We4q7SX0vwvnvRY3u1vh1v7hR5KM/hxhAOJt6jXaUUDtGnQPXuEPm3uS+hTszfCs1
-	FEOrema64Es/fISfTrOgE5BEWgtxJYNFfG0HPpc10PIcAEzHXm+pk1oo5TqHMR9nbe0nMj+U4DzYr
-	9BvjkhbWHiDMQQX1uZ4ux/hMX+jbPv7qxygISTZrpml3GDWMe8ndCwiF5ok3j6YBkUJPMB5ARj8bW
-	SwidHGNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7Kq4FY8QEDk1BLA1wcKf1js43+qFWt5S2y+8get5iaY=; b=sHIXk6lCIZUwiWLCzjj96Zj76z
+	KPaI8F+yeX64LbLXuWpLBkeqVcU3s6nfpn0n7mUxiNINySKn0WXzsCrahKG8b7bKcwY2Hq6DEjAL3
+	ERUwMz43xpnYiRmbOtSpJiSuzYhfF5Bamm3qltKJuPVPCGSjJpXXVs+RGCC815J+8cbgDmRu57bAQ
+	n9e3kb6SqL7V2tVPDJ9DAJuf9HRA4gbTteX/vlOaWKS74GvvJrf4zTnf/yH/O65NTY+EVPsNouaCy
+	YhIqKyw4N7+Xi5Xp4ZBrgR2O4N7yxrGA71n5cv/6iFtTxLK2/A1yMspfD3dcpLM16KtJrORDFDT/O
+	+Z/14U0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7a5n-0000000Eoif-3fui;
-	Fri, 18 Sep 2026 15:01:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x7Ygt-0000000EWzE-2L7f;
+	Fri, 18 Sep 2026 13:31:47 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7a5m-0000000EoiM-2Jy7
+	id 1x7Ygj-0000000EWtc-4Af6
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 18 Sep 2026 13:31:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=7Kq4FY8QEDk1BLA1wcKf1js43+qFWt5S2y+8get5iaY=; b=nqrJCRphtru5K2RjRxaBK4fJSo
+	dOhjqBReOVod/XbumKM7lde8e+B81BUSJdsslbjUgomKX1kFjsqzRUvfqSfVnCZxjUz9Le9vO8WZe
+	2P2CWgeHFY2VDDb+G359rP0vsUriI2FaFPcTYGWCDtuz6fqq6fkal8YHEd+HQiTXUU/L95P/cwFl4
+	faXshLgwxFUwHzBtz/u+PgtOvVqXTA8EvPlzrtU2ippazuvULrys9wBDtyN5cn+e3hjq527dM7uFo
+	G8oItG3IRSEg3asV7V4laORaZI+YY8Xc8YbDYshjbVQKN2OuEpYUHUBpFYhBNbfuVgBoI0FWejs6R
+	lOM/5jYQ==;
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x7Ygg-0000000A8XG-3Pco
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 15:01:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D57CE419F6;
-	Fri, 18 Sep 2026 15:01:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44DDD1F000FF;
-	Fri, 18 Sep 2026 15:01:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789743693;
-	bh=YKI5+bKz/u5TUQe53gU8/jmtq5Ye1wah0IVTuXctBOo=;
-	h=Date:From:To:Cc:Subject;
-	b=lYtunU0LIXI0kdFnVndvU0qN5CMm9UtrVB4RjtpINBU8KSTI6MWxWwTq6crpIwzFF
-	 j9Yzc2R6XzWwjUfql5f+i9I0CVWEFX1RHbXxobmywLOVSAYSvddLAFzJd/fDb0zLvD
-	 Zd6C5WAYcUbq9UbX6eezQi+54xiJ2v/R1SbO6JvSi4aCw4m8a249I9MBkUfrGsUrfl
-	 ApspYgxbZNaYnNnGAoMuC+TI4FwHppzGTWAjbv4Y/VcnznkyDhNuR1C2ydrs0mOJUT
-	 Mtl3OQWM+kj5C0Y74x2YPywl7cIjKr5Jiz46QIthFguRn/p4JCBTMQ87Ma1TT73lUr
-	 2uO1ry9/OucKg==
-Date: Fri, 18 Sep 2026 16:01:28 +0100
-From: Will Deacon <will@kernel.org>
-To: torvalds@linux-foundation.org
-Cc: catalin.marinas@arm.com, mark.rutland@arm.com, maz@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel-team@android.com
-Subject: [GIT PULL] arm64 fixes for -rc4
-Message-ID: <aq1SSMDovHJhKmwF@willie-the-truck>
+	Fri, 18 Sep 2026 13:31:36 +0000
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68IA1eGB3979474;
+	Fri, 18 Sep 2026 13:31:22 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=7Kq4FY8QEDk1BLA1w
+	cKf1js43+qFWt5S2y+8get5iaY=; b=pdQXN12dx8LQJWGWwVofN+K+fRKSW7a/R
+	Jjox1sUdvFoug4dhe9k1Ow8p2RYjr368VfDxRyEbBI1mMqpdPtXGHM+/W6s+uUj3
+	91hWkukaQPLIxzTNS9LIqQH+pBN6nU0HW0PRk3Wx1JWyDrXxIHkDxpoVvaUxSWyI
+	8c5h7YEXe852aa/HiCAjSHZ+DTVSdWMhJVnbgahO5hX3Ao+bbRfvto2nJOxK4YsV
+	OOEiyC1gpV5ftA4LM7d3rCDHFjlZkdAE7dLdQ/ONpQSWLKTtiD0+hUB44HbkjV/Q
+	BiStOr/11ZaG5CVfepb+TfKJcMnc/5F32fY1Rp+7sOrjsU+x6vJEA==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gmw5eftsr-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 18 Sep 2026 13:31:21 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68IDNxAe695613;
+	Fri, 18 Sep 2026 13:31:21 GMT
+Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gra3fek7d-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 18 Sep 2026 13:31:21 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68IDVDO543123018
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 18 Sep 2026 13:31:13 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 39C7E20040;
+	Fri, 18 Sep 2026 13:31:13 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id E0BFE2004B;
+	Fri, 18 Sep 2026 13:31:12 +0000 (GMT)
+Received: from tuxmaker.lnxne.boe (unknown [9.87.85.9])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 18 Sep 2026 13:31:12 +0000 (GMT)
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH v8 14/29] KVM: arm64: Use accessor functions for core regs
+Date: Fri, 18 Sep 2026 15:30:51 +0200
+Message-ID: <20260918133107.1042730-15-seiden@linux.ibm.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260918133107.1042730-1-seiden@linux.ibm.com>
+References: <20260918133107.1042730-1-seiden@linux.ibm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE4MDE4NCBTYWx0ZWRfXxnSVzOquEoRT
+ Ge43JShlD0pjtnWWebUghNqP9gI3ITcEhuekJvArIv5S1ZwuRgbTnctrJLA2olnTVViNt6aGVaW
+ 32tSWtdnChEvMi4sXJh+cbHrs2XfhWEYyx/J+2gs2jYE71dtbvrE5QFCpa/+gS+kgkzjXcQ10a0
+ Mi64ROvd+RR/XnpMkmu15Iu+bl8aZRoJBZxARvyEjhznjZMC8RLmfNFwgx2hqjFTLsNFS26I0kF
+ kcRwreLQ3pdUKmfFeBf6Kt2pxm9/MG0e08iYn988Unqp0AgCNGCtmLAJn+6VCHrpC5VtGLu5kNu
+ E6i470YV3qAPueFAfHbpIwb7aFETtqdkWA/WH37LLAgVfrGsoBKaay8rvGjCQTXqvLSq6rCe5wT
+ FzoVhXl3kPxl4PmMnqC+GHdrDx7nahAdqORBcKj3OP+JEADf6jPZrZcXJ8N9KdF0sEZLM1C2c/i
+ pmdT6lt0S0dyEIZ4Dgw==
+X-Authority-Analysis: v=2.4 cv=E/NYNqdl c=1 sm=1 tr=0 ts=6aad3d2a cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
+ a=V8glGbnc2Ofi9Qvn3v5h:22 a=VnNF1IyMAAAA:8 a=5d8JqmD_1xC0DvqtPZgA:9
+X-Proofpoint-ORIG-GUID: qcCBgPh0KK7EETcpVsndmPWRjc1yAd5c
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE4MDE4NCBTYWx0ZWRfX5Vtcu3rwuL/T
+ 56miinYwUq6J9X1g/b7W7JPeFyVgJmrBwdRvjeK9uPvC6B7FBsj2zPqNyvcijZepL9SlUuVBx9U
+ /Jee2B1JI1rV8yhGbOtaNSNApC8DFfs=
+X-Proofpoint-GUID: 1seeCj-Vufx83P-PhTYJVU21v1hkxc78
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-18_03,2026-09-16_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 lowpriorityscore=0 priorityscore=1501 spamscore=0
+ adultscore=0 clxscore=1015 bulkscore=0 malwarescore=0 suspectscore=0
+ phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2609180184
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260918_143135_372463_1A1C7017 
+X-CRM114-Status: GOOD (  16.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,79 +156,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
+Instead of accessing the value directly use assessor function that
+abstract the actual location of the register values. Add a helper
+function to reset fpsimd registers. Enables other KVM implementations to
+reuse this code.
 
-We've got a steady trickle of arm64 fixes coming in, but I figured it
-was better to send you what we've collected so far rather than keep
-waiting for it to settle down. I've already queued some more for next
-week.
+No functional changes.
 
-Anyway, in this batch we've got a couple of hibernation fixes, a couple
-of minor MTE fixes, some per-cpu codegen fixes (which were found as part
-of Mark's series adding preemptible this_cpu_*() operations) and a fix
-for the Arm CMN PMU driver. The summary is in the tag,
+Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+---
+ arch/arm64/include/asm/kvm_emulate.h | 34 ++++++++++++++++++++++++++--
+ arch/arm64/kvm/guest.c               | 14 ++++++------
+ 2 files changed, 39 insertions(+), 9 deletions(-)
 
-Cheers,
+diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+index 8603766c1b4d..b31d50bdf59e 100644
+--- a/arch/arm64/include/asm/kvm_emulate.h
++++ b/arch/arm64/include/asm/kvm_emulate.h
+@@ -141,6 +141,31 @@ static __always_inline unsigned long *vcpu_cpsr(const struct kvm_vcpu *vcpu)
+ 	return (unsigned long *)&vcpu->arch.ctxt.regs.pstate;
+ }
+ 
++static __always_inline unsigned long *vcpu_sp_el0(struct kvm_vcpu *vcpu)
++{
++	return (unsigned long *)&vcpu->arch.ctxt.regs.sp;
++}
++
++static __always_inline u64 *vcpu_sp_el1(struct kvm_vcpu *vcpu)
++{
++	return __ctxt_sys_reg(&vcpu->arch.ctxt, SP_EL1);
++}
++
++static __always_inline __u128 *vcpu_vreg(struct kvm_vcpu *vcpu, int n)
++{
++	return &vcpu->arch.ctxt.fp_regs.vregs[n];
++}
++
++static __always_inline __u32 *vcpu_fpsr(struct kvm_vcpu *vcpu)
++{
++	return &vcpu->arch.ctxt.fp_regs.fpsr;
++}
++
++static __always_inline __u32 *vcpu_fpcr(struct kvm_vcpu *vcpu)
++{
++	return &vcpu->arch.ctxt.fp_regs.fpcr;
++}
++
+ static __always_inline bool vcpu_mode_is_32bit(const struct kvm_vcpu *vcpu)
+ {
+ 	return !!(*vcpu_cpsr(vcpu) & PSR_MODE32_BIT);
+@@ -737,6 +762,11 @@ static inline void vcpu_set_hcrx(struct kvm_vcpu *vcpu)
+ 	}
+ }
+ 
++static inline void kvm_reset_fpsimd(struct kvm_vcpu *vcpu)
++{
++	memset(&vcpu->arch.ctxt.fp_regs, 0, sizeof(vcpu->arch.ctxt.fp_regs));
++}
++
+ /* Reset a vcpu's core registers. */
+ static inline void kvm_reset_vcpu_core(struct kvm_vcpu *vcpu)
+ {
+@@ -752,8 +782,8 @@ static inline void kvm_reset_vcpu_core(struct kvm_vcpu *vcpu)
+ 	/* Reset core registers */
+ 	memset(vcpu_gp_regs(vcpu), 0, sizeof(vcpu_gp_regs(vcpu)));
+ 	*vcpu_pc(vcpu) = 0;
+-	vcpu->arch.ctxt.regs.sp = 0;
+-	memset(&vcpu->arch.ctxt.fp_regs, 0, sizeof(vcpu->arch.ctxt.fp_regs));
++	*vcpu_sp_el0(vcpu) = 0;
++	kvm_reset_fpsimd(vcpu);
+ 	vcpu->arch.ctxt.spsr_abt = 0;
+ 	vcpu->arch.ctxt.spsr_und = 0;
+ 	vcpu->arch.ctxt.spsr_irq = 0;
+diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
+index 81d850d5a328..773f6c8e5026 100644
+--- a/arch/arm64/kvm/guest.c
++++ b/arch/arm64/kvm/guest.c
+@@ -137,16 +137,16 @@ static void *core_reg_addr(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
+ 		return &vcpu_gp_regs(vcpu)[off];
+ 
+ 	case KVM_REG_ARM_CORE_REG(regs.sp):
+-		return &vcpu->arch.ctxt.regs.sp;
++		return vcpu_sp_el0(vcpu);
+ 
+ 	case KVM_REG_ARM_CORE_REG(regs.pc):
+-		return &vcpu->arch.ctxt.regs.pc;
++		return vcpu_pc(vcpu);
+ 
+ 	case KVM_REG_ARM_CORE_REG(regs.pstate):
+-		return &vcpu->arch.ctxt.regs.pstate;
++		return vcpu_cpsr(vcpu);
+ 
+ 	case KVM_REG_ARM_CORE_REG(sp_el1):
+-		return __ctxt_sys_reg(&vcpu->arch.ctxt, SP_EL1);
++		return vcpu_sp_el1(vcpu);
+ 
+ 	case KVM_REG_ARM_CORE_REG(elr_el1):
+ 		return __ctxt_sys_reg(&vcpu->arch.ctxt, ELR_EL1);
+@@ -170,13 +170,13 @@ static void *core_reg_addr(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
+ 	     KVM_REG_ARM_CORE_REG(fp_regs.vregs[31]):
+ 		off -= KVM_REG_ARM_CORE_REG(fp_regs.vregs[0]);
+ 		off /= 4;
+-		return &vcpu->arch.ctxt.fp_regs.vregs[off];
++		return vcpu_vreg(vcpu, off);
+ 
+ 	case KVM_REG_ARM_CORE_REG(fp_regs.fpsr):
+-		return &vcpu->arch.ctxt.fp_regs.fpsr;
++		return vcpu_fpsr(vcpu);
+ 
+ 	case KVM_REG_ARM_CORE_REG(fp_regs.fpcr):
+-		return &vcpu->arch.ctxt.fp_regs.fpcr;
++		return vcpu_fpcr(vcpu);
+ 
+ 	default:
+ 		return NULL;
+-- 
+2.53.0
 
-Will
-
---->8
-
-The following changes since commit 5445d64199626974269fcdf347769ad44b0bb53b:
-
-  arm64: Don't read GMID_EL1 when MTE is disabled (2026-09-03 13:03:23 +0000)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
-
-for you to fetch changes up to fdb9ebc7fb7788b8371fbef6c17dc5c8291e1429:
-
-  arm64: mte: Fix PTRACE_{PEEK,POKE}MTETAGS error documentation (2026-09-11 12:50:02 +0000)
-
-----------------------------------------------------------------
-arm64 fixes for -rc4
-
-- Fix hypercall arguments when resetting EL2 vectors during hibernation
-
-- Fix hibernation with 52-bit capable kernels on machines without
-  52-bit addressing, similarly to the recent kexec fix
-
-- Fix a bunch of clumsy codegen issues with our per-cpu accessors
-
-- Fix MTE ptrace documentation to reflect the de-facto ABI behaviour
-
-- Fix pthread_join() usage in MTE selftest
-
-- Fix port selection in the Arm CMN PMU driver
-
-----------------------------------------------------------------
-Bradley Morgan (1):
-      arm64: hibernate: pass HVC_SET_VECTORS args to the resume hvc
-
-Breno Leitao (1):
-      arm64: hibernate: clone only the linear map that exists at runtime
-
-Catalin Marinas (1):
-      arm64: mte: Fix PTRACE_{PEEK,POKE}MTETAGS error documentation
-
-Mark Rutland (3):
-      arm64: percpu: Fix this_cpu_write() casting
-      arm64: percpu: Fix this_cpu_and() mask generation
-      arm64: percpu: Fix LSE operations on {8,16}-bit types
-
-Shouping Wang (1):
-      perf/arm-cmn: Fix wp_dev_sel2 setting for multi-DTM configurations
-
-Thomas Huth (1):
-      kselftest/arm64: Fix size of thread_data values for pthread_join()
-
- .../arch/arm64/memory-tagging-extension.rst          |  5 ++---
- arch/arm64/include/asm/percpu.h                      | 20 ++++++++++----------
- arch/arm64/kernel/hibernate-asm.S                    |  2 ++
- arch/arm64/kernel/hibernate.c                        |  4 ++--
- arch/arm64/kernel/mte.c                              |  2 +-
- drivers/perf/arm-cmn.c                               | 10 +++++++---
- .../selftests/arm64/mte/check_gcr_el1_cswitch.c      |  2 +-
- 7 files changed, 25 insertions(+), 20 deletions(-)
 
