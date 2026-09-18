@@ -4,57 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D568C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 16:11:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C8E0C982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 16:12:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jYugkT6Di0jbYv1UAzEIZo8saQPIqR8KhdoKc68MYJM=; b=jlH4j7CmNX0znGDw+E8sNtbxPQ
-	GCOk7QQqhlYTWUEmS5rp+13Y+VS6snyniHZwQnPUrAaIruLX/sH7SF6OWJJMDd99s7CFe70HNmpLH
-	OMQsvnvwZwCgwthyOZY8f9HV8KuiPFfjl4IAUURQg1y8TpJMstwQPmpeUzx15OzeyXAqps+1n/wBT
-	el5gWuAqfRIGmkrKGhYSAU7Kip8GhEslwdQvGikrvUu6dwyjC7Ml82bw/BBEq4v7XwcpbC04GStPf
-	3gb4chGrwfSDVaB6givtv/H7HzN4752V4BNendXzCfRQ2v8XhOGafSJznnoUEn7kawTxdPsqXtm9i
-	MVyY8AJg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KJDSnN54e6nHoVHI3hmkPcATaJ7eX7EbuynT3I/CgVs=; b=QyUEboP7KftbWcaeU0z7gOo1q+
+	IhqWT2sIzO4cdwUcdj9mMfTE+fiAVg/TdC7KcydbT7xSXt2Fq5eTAewP2znh4JVTBAzwTDUc4XtiI
+	26zzVIv2cbIikKY6NlVP62O4vFvaCbntFoXugnSt5l+cpUI870h2fPjoktH0RSu8T54ipl3WsiqOQ
+	oTkDiQiBpEz0aRrewh1qi56uM15oypPIckpc0fQN1T74SZbj6/cjgkGeGWvucPpiAk+g8o/8yf5QP
+	yv61pprUbnyMOLchhCRM8Nh9TpR80qZcgnAP9/1E8Vf6zlKMvjNxMJLaQ0NnLnR8kzqN5dCR3Z85g
+	rBRe/gRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7bB9-0000000EyQf-3cPt;
-	Fri, 18 Sep 2026 16:11:11 +0000
-Received: from mail-244119.protonmail.ch ([109.224.244.119])
+	id 1x7bCJ-0000000Eyax-0R6R;
+	Fri, 18 Sep 2026 16:12:23 +0000
+Received: from mail.cjdns.fr ([5.135.140.105])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7bB6-0000000EyPV-43F7
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 16:11:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gdead.co.uk;
-	s=protonmail; t=1789747865; x=1790007065;
-	bh=jYugkT6Di0jbYv1UAzEIZo8saQPIqR8KhdoKc68MYJM=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=QUlukx9NLHkxAiw1rLyylAh+/rSyoAQ3M452KnM9UIhFciLsemCxSNp1dm8HQVPr5
-	 Tib4wfR/WFgLJmxND443x7M0/zzE82ViuRj88zAbe5Zx/i7eDF96phaYQ9zT6Ogu2e
-	 9zQ8MeF0g9EFydWi6sZwVr7vGCNNZ0DE1HrZIfd5MhcF+AtPGGUiCai9wc+GYlbCKl
-	 X2Deev+GIaq25qz4u5n56spX6Z7fMaNl6ZaCLd6C1rFAX911LUK9MxRi+ZVQM5jve/
-	 a1XT/SGuc4Dsjdi7jjwI6XJXNz9AZZyfsBzsvQ3a2P1hMMy3Z9KB3KRRU96fR5BS5X
-	 b8xPase5C39nQ==
-Date: Fri, 18 Sep 2026 16:11:00 +0000
-To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-From: No SPAM here <nospam@gdead.co.uk>
-Cc: Peter Zijlstra <peterz@infradead.org>, linux-arm-kernel@lists.infradead.org
-Subject: Re: [BUG?] Possible scheduler bug on Rock 5B RK3588 on 7.2.5
-Message-ID: <xGiWqaX7b8GhLlCq5j9_HQ4_L9QWBKmOCsGtfwlLj_hvU8X14OFNW0JWnELcIitXbkxa0JbsyNPLfY8YA8CnRJ6mI2IzJ3kNNPoShy3xcs8=@gdead.co.uk>
-In-Reply-To: <11cdc24a-962a-4f44-b91c-445c2ac80c02@rock-chips.com>
-References: <f15f8166-c1e4-45dc-9ddd-4ec887e415eb@gdead.co.uk> <d6232ccc-9876-435f-bea8-43cd169dd185@rock-chips.com> <BxAg81spRPHPsVOcNI5jR9tsii3Wi5a_k_BYW6owu3n6D3jn4N6dbkksomSb82KFdp8nT-mY4cyiZzDFHCqtuskOIYxZwBOzAvyYVRy18KQ=@gdead.co.uk> <e045dc5b-5b03-4840-ade9-2c8f98c8c885@rock-chips.com> <iENNazJ40aK7PPjVcvf8KUzlTm4HMyT85UPc2ez-MfyeJjE2HWX1ujGXIA3BGRwegyOJEZQ86kV7UElMjyBc6V5uCkGyK4NRCdw74ZfJwI8=@gdead.co.uk> <11cdc24a-962a-4f44-b91c-445c2ac80c02@rock-chips.com>
-Feedback-ID: 206881191:user:proton
-X-Pm-Message-ID: 3e86da51f591c6a521b15e8ec85b91a9b4d2988a
+	id 1x7bCG-0000000Eya0-3v7E;
+	Fri, 18 Sep 2026 16:12:22 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BC9FD4E2396;
+	Fri, 18 Sep 2026 18:12:03 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
+	t=1789747932; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=KJDSnN54e6nHoVHI3hmkPcATaJ7eX7EbuynT3I/CgVs=;
+	b=IU+Sa0SC7beHmdw2MSK4P/O7aAu25uLSTXaSTrVN+eAouJYEIgoffuEjLOBxEzfFzK81rW
+	7mZU+yb8cGTbqN0Zz1aeJP161GroHj4nEUvB8Pu26vWvx6dKpi/lNH8u25r/31rbp5/WS3
+	Z2FlBKJhvmGQjt4M9hF7OiM/agJ3GnG7CKx0cknRfz7RTXB0GPXWhJnkJDmeSpfB/ZaAU9
+	fukxQSqr5y1FTtsWZcz4MAiYX3RJpLV2ZdaguX+C5wD0GeBkn5bwc/WhnaktDpNslUxV1t
+	ZmX0dfXfqP8A7t6y37nCA1L87ocdywUK6GV4STg2InvTf7jZ4iHzqUidNcq42Q==
+From: Caleb James DeLisle <cjd@cjdns.fr>
+To: netdev@vger.kernel.org
+Cc: daniel@makrotopia.org,
+	dqfext@gmail.com,
+	SkyLake.Huang@mediatek.com,
+	andrew@lunn.ch,
+	hkallweit1@gmail.com,
+	linux@armlinux.org.uk,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Caleb James DeLisle <cjd@cjdns.fr>
+Subject: [PATCH net-next] net: phy: mediatek: do not match MT7530 PHY if 10/100 only
+Date: Fri, 18 Sep 2026 16:11:56 +0000
+Message-Id: <20260918161156.377822-1-cjd@cjdns.fr>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_091109_802198_5A13B83E 
-X-CRM114-Status: GOOD (  17.54  )
+X-CRM114-CacheID: sfid-20260918_091221_158754_2490E4AA 
+X-CRM114-Status: GOOD (  11.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,72 +77,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I have now retested with kernel 7.3.0-rc3 and this bug appears to have been=
- fixed. The same command now runs all 8 cores at 100% for the duration of t=
-he test and the resulting numbers differ (in favour of the 6.18.52 CLUSTER=
-=3Dn kernel) by a maximum of 0.25% which is measurement error.
+An EcoNet SoC 10/100 PHY uses the same ID as the MT7530 PHY, but a true
+MT7530 PHY always has gigabit support so they can be distinguished by
+the presence of the ESTATUS_1000_TFULL flag. Add a match_phy_device
+which refuses to match if the PHY is not gigabit.
 
-Thanks for your attention. This can be marked as solved.
+Signed-off-by: Caleb James DeLisle <cjd@cjdns.fr>
+---
+This supercedes [PATCH v6 net-next] net: phy: mediatek: support MT7530 PHYs on EN71221 MCM
+Link: https://lore.kernel.org/netdev/20260917130534.297930-1-cjd@cjdns.fr
+Because after the recent EEE disablement in the driver, it is found
+that the default MT7530 PHY driver does apparently work with the EcoNet
+MCM MT7530.
+---
+ drivers/net/phy/mediatek/mtk-ge.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-Trevor
+diff --git a/drivers/net/phy/mediatek/mtk-ge.c b/drivers/net/phy/mediatek/mtk-ge.c
+index 96d8ac5154e5..f801966bb4ee 100644
+--- a/drivers/net/phy/mediatek/mtk-ge.c
++++ b/drivers/net/phy/mediatek/mtk-ge.c
+@@ -101,6 +101,18 @@ static int mt7530_phy_config_init(struct phy_device *phydev)
+ 	return 0;
+ }
+ 
++/*
++ * MTK_GPHY_ID_MT7530 ID is also used for an EcoNet SoC FE phy, but that PHY
++ * does not advertise ESTATUS_1000_TFULL. Match this driver only if the PHY
++ * advertizes gigabit capability.
++ */
++static int mt753x_gphy_match(struct phy_device *phydev,
++			     const struct phy_driver *phydrv)
++{
++	return genphy_match_phy_device(phydev, phydrv) &&
++	       (phy_read(phydev, MII_ESTATUS) & ESTATUS_1000_TFULL) != 0;
++}
++
+ static int mt7531_phy_config_init(struct phy_device *phydev)
+ {
+ 	mtk_gephy_config_init(phydev);
+@@ -135,6 +147,7 @@ static struct phy_driver mtk_gephy_driver[] = {
+ 		 */
+ 		.config_intr	= genphy_no_config_intr,
+ 		.handle_interrupt = genphy_handle_interrupt_no_ack,
++		.match_phy_device = mt753x_gphy_match,
+ 		.suspend	= genphy_suspend,
+ 		.resume		= genphy_resume,
+ 		.read_page	= mtk_phy_read_page,
+-- 
+2.39.5
 
-
-Sent with Proton Mail secure email.
-
-On Friday, 18 September 2026 at 02:22, Chaoyi Chen <chaoyi.chen@rock-chips.=
-com> wrote:
-
-> On 9/18/2026 3:15 AM, No SPAM here wrote:
-> > Hi
-> >
-> > On Thursday, 17 September 2026 at 03:37, Chaoyi Chen <chaoyi.chen@rock-=
-chips.com> wrote:
-> >
-> >> Hello Trevor,
-> >>
-> >> On 9/17/2026 9:21 AM, No SPAM here wrote:
-> >>>> Would you mind trying to disable `CONFIG_SCHED_CLUSTER` and checking=
- whether
-> >>>> the problem still reproduces?
-> >
-> > trevor@rock-5b:~$ uname -a
-> > Linux rock-5b 6.18.52-current-rockchip64 #1 SMP PREEMPT Mon Sep 14 11:3=
-6:19 UTC 2026 aarch64 GNU/Linux
-> > trevor@rock-5b:~$ grep CONFIG_SCHED_CLU /boot/config-6.18.52-current-ro=
-ckchip64
-> > # CONFIG_SCHED_CLUSTER is not set
-> > trevor@rock-5b:~$ sar | tail -5
-> >
-> > 18:50:15        CPU     %user     %nice   %system   %iowait    %steal  =
-   %idle
-> > 19:00:15        all     99.89      0.00      0.11      0.00      0.00  =
-    0.00
-> > 19:10:15        all     99.89      0.00      0.11      0.00      0.00  =
-    0.00
-> > Average:        all     99.89      0.00      0.11      0.00      0.00  =
-    0.00
-> >
-> > Been running stress --cpu 8 since 18:47 and so far it is using all 8 co=
-res at 100%. It would normally have shown the 7/8ths problem after 20s or s=
-o, maybe 2 or 3 minutes at max. So I'd say this setting is definitely invol=
-ved.
-> >
->=20
-> Thank you very much for testing. I'm not a scheduler expert, but I see
-> that CONFIG_SCHED_CLUSTER is enabled by default on arm64 [0].
->=20
-> Peter is the maintainer and author of this series.
-> @Peter, do you have any further insights? Thank you!
->=20
-> This thread background is here[1].
->=20
-> [0]: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/c=
-ommit/?id=3D7bd291abe2da09f59dca81f35a4ec220e5e138a2
-> [1]: https://lore.kernel.org/all/f15f8166-c1e4-45dc-9ddd-4ec887e415eb@gde=
-ad.co.uk/
->=20
-> --
-> Best,
-> Chaoyi
-> 
 
