@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D20A1C982D7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 22:42:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5B1DC982DD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 22:42:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CTb/bQrCRYnLoC7JXti+nF/OM9r1CuOvnuv+yzx0Eyg=; b=SzcgUQCuezH37Q4iVFdv5wM+XQ
-	icv74NCt/THB97AyLBdwzICJLRh9WqJ9PzRoeM5f76+HaDGAfUOHpraNaLrRj2PmVaVspUIp91r6Q
-	gvbb/lGQVJnVWD5I562wZfeNG6XYNH5QBdieHM3YHWgDStfQrzHQ0JDIS6lsn045sZ7QZC4QcBIld
-	qPqM3aBJnB/OToTinpzxXaU7lG8D/WQaRqmB5nAcWgJnrQMBflgJgj689Gl4u2jQ8VcQRLgOUelGB
-	T2R5SXe1pP5Bn95s8H7nGU0L1N+v7lPbb5hr1E0JKJZ93usznAhSZAi6Kq+iVvDVY/PmzNskqlm/M
-	+cgUi58w==;
+	bh=AIMZ/ZUARPPqvZz1xOu4RWFet2sLYJbZYKu9ojsMCnw=; b=XPI8Z+SFvGI+uPbRD421ws4KIW
+	y9fBPhREuhiSDlk1/c7GkvMLsAVzeh0zImma+q24TeFpDQZXIt4r9aNX5z4asQIBQ2RbX8XNw64lw
+	oUfCArxz91NWXHeywMqEB/wcKNe/yi0Xm6UJbZtc4CeGscnOLW85a7/nPcHx5l9M33TfqmUWSr79H
+	wlgW4ae+3ri+8Y68nnmvMOPO5wlvvmC/BtTxzjVZJvCSxoUj4kEArxgX/gEWaJAgQ8j19ejm81/zT
+	xbfouiK4xhgGPejiH+iJxtSncW6a16pV32Ik/+8M78clMRDQQc+Dlj72uOZnZ9vTgy0W5PR/DIKsh
+	8d+cqC8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7hHt-0000000FeEE-36zl;
+	id 1x7hHt-0000000FeEr-3zHh;
 	Fri, 18 Sep 2026 22:42:33 +0000
-Received: from mail-pl1-x646.google.com ([2607:f8b0:4864:20::646])
+Received: from mail-pf1-x448.google.com ([2607:f8b0:4864:20::448])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7hHZ-0000000FdyQ-3A59
+	id 1x7hHe-0000000Fe2G-3GHI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 22:42:15 +0000
-Received: by mail-pl1-x646.google.com with SMTP id d9443c01a7336-2cfa4e4684bso28200045ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 15:42:13 -0700 (PDT)
+	Fri, 18 Sep 2026 22:42:19 +0000
+Received: by mail-pf1-x448.google.com with SMTP id d2e1a72fcca58-8688139460bso1352722b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 15:42:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1789771333; x=1790376133; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1789771336; x=1790376136; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=CTb/bQrCRYnLoC7JXti+nF/OM9r1CuOvnuv+yzx0Eyg=;
-        b=eDmpwrlX1vxHVSRv4N1vE43jsXXJQ74+sytaQLkBknh5Wzi3HQ7FkqLchaICYkxcQN
-         WFASM0jCbmdWcAhOCky8iTKwSK94nSMGk9OZfKvh8zU/xbzA20d9PNxv1TLIos8Cnp65
-         /F9TpketTE+NMaqMva+DUaOKKxX5/2EC8WIfbMNkkxq7ziMZCS94V1jIP1/sqIWdpb8f
-         Mo55yv2qzHbqwTVpRvaILLQ8MkD0Rb91gTO8+iqkOtiGUC4iIoAxjUm+FbaIHaBYpR7X
-         Sz95IiE/FnIcCNM/qmm1cULKB/9W4BKc6d2OntRvfVqX+n7ncTOjBK/GNEMu2SyOcyTU
-         JEEA==
+        bh=AIMZ/ZUARPPqvZz1xOu4RWFet2sLYJbZYKu9ojsMCnw=;
+        b=i51BopaD+QtV0+pO+9pTtAFzUd4iB4DqnMlW0w1Z/FbrV3GbR6WaH9C9g5HE+A/QwV
+         o0NwppEWBaiPvhzLAIZmcP9kVanSqeCX8tu0UHROX36gyRRUK3swhFAgaKiwz03/JcFh
+         YpCX6Taclvh71Nf7cyZfIFPcoWjYSlmvNAsfc71maIiMHWXR+6QOP169AlG9ZZu3/PwE
+         oC+O86umZ2L9MuKapcZBpNPav869jYlFHvk10STmjjtvgrRuHz5lfWuILEIIlGVoWHDn
+         PyX6EdT5391trXKIVVnwJKvOmL8hc6CkgB9ZGehAlk3+QE5IIbEpQADzG3pmVFx7CAVU
+         QqBA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789771333; x=1790376133;
+        d=1e100.net; s=20260707; t=1789771336; x=1790376136;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=CTb/bQrCRYnLoC7JXti+nF/OM9r1CuOvnuv+yzx0Eyg=;
-        b=q58kjzZJ5A4Qqb8ku2b3Y+ZIAO6RCK5P96d9j5hikizNZQkWeTJyJ9M/aoWLHMtx5b
-         0mtuxjIbqYlNsKNyR0Vf20WDdsQYbVILo38B+ZVkMsALyInaNdc/exz1Cu6jbZVNj0s+
-         F4ZmrRFbwlwGHgsbMgtlNuoUflUUi/RnQF4+vq0ghnkyQ3kgUg5DtVZmNKRhXo5z+Khf
-         wdcouqzzoPXeGdSUBvmoWMeVoR5RQ4S9RubyErt+RujPRt7AQCu4664lm7RfsOBih1Ql
-         ysegQsGcGlsWE/RAa04fmYu/cZaCy8UnjDv9nfC5iB+i7SJb4327MXjmtYiiLxCJgvQ9
-         osPQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxNBdUCAj3XipFUQHsZel43letjkClZ2b13OiXRlsivekgyW8pm+jQmk+ane+5PxK5b81OGehHMcOj+ohoi3ldk@lists.infradead.org
-X-Gm-Message-State: AFuF++kyoModlTfRPRaQ1fQrUpbxBY/GPsUPH/Az1A/H2UjIuuxZw7xY
-	c/+thO/IXxpwYJvH7JbpLGMkUch9AmAp3C85H0lKkjbH27wLnskOTlQVoGitwEAgOCVpzsaepaT
-	IJ7hfgoSC+unlXBkq7tbCgljNRg==
-X-Received: from pldy4.prod.google.com ([2002:a17:902:cac4:b0:2dc:ff56:3f4c])
+        bh=AIMZ/ZUARPPqvZz1xOu4RWFet2sLYJbZYKu9ojsMCnw=;
+        b=AkcAYr04K++XvH5tsis9AvoTfBGizJFK6/M31K+vSun591VD+wJSwMu7s/8/UVs/st
+         nNU+AebT3GlEvjcNm3/HqkTAHBxs/hr/H0xvBEk3oj2HdRz6KKbikklpQCqf0O1srfEG
+         LQDNWS6Sg7qyqFDVj+579o4B+x80A2d+xymP/Lf9jiiJ3IUxQcif4ZLX0bc1zd5QAbfi
+         HCEbtJVaRsObJwGc8FGgxCko/JDafMmRTDn2Mdb1JpmWbKkU4WpdSyTZEYN6UH5hrGbH
+         gyETzPqWjpx5YUUfvbijc/GJX9TMP0K6z16ajJToC+vNl2ivgp5QIagpfKUboKDwc0hM
+         HXpA==
+X-Forwarded-Encrypted: i=1; AKwUvBz0dph7nYp9f/6XIwCeqg/sItkIOZ0f1GfUWqZyQUn/gHMOna1yZBHbjriHoqYIwIrSTrQHpAzBVtYCKi4j/KeP@lists.infradead.org
+X-Gm-Message-State: AFuF++nIwqX1Xd2e+ifM/ninPRnpxjHzxjRaEkoiLplos6x1/6oqNCRS
+	qi2mYCB/JB9uh0iP6fXbPHJ16xN1MEgl9EYlg6Y4QQFGUxbpQLMnMt0gA8PhUGXHdquOxe+N2BA
+	aHJu5HU0g1GTx5TaBOY1CAk3e4Q==
+X-Received: from pfbfv3.prod.google.com ([2002:a05:6a00:6183:b0:86a:d8db:2be])
  (user=dylanbhatch job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:902:c944:b0:2d6:ffa1:429b with SMTP id d9443c01a7336-2ddb1adf381mr78672525ad.7.1789771332693;
- Fri, 18 Sep 2026 15:42:12 -0700 (PDT)
-Date: Fri, 18 Sep 2026 22:41:51 +0000
+ 2002:a05:6a00:4185:b0:86d:3958:6b13 with SMTP id d2e1a72fcca58-874dd5f0ecfmr7385047b3a.19.1789771335997;
+ Fri, 18 Sep 2026 15:42:15 -0700 (PDT)
+Date: Fri, 18 Sep 2026 22:41:53 +0000
 In-Reply-To: <20260918224157.1471085-1-dylanbhatch@google.com>
 Mime-Version: 1.0
 References: <20260918224157.1471085-1-dylanbhatch@google.com>
 X-Mailer: git-send-email 2.55.0.1082.g2b9226bbc0-goog
-Message-ID: <20260918224157.1471085-6-dylanbhatch@google.com>
-Subject: [PATCH v7 05/11] arm64/module, sframe: Add sframe support for modules
+Message-ID: <20260918224157.1471085-8-dylanbhatch@google.com>
+Subject: [PATCH v7 07/11] sframe: Add debug helpers with object name
 From: Dylan Hatch <dylanbhatch@google.com>
 To: Roman Gushchin <roman.gushchin@linux.dev>, Weinan Liu <wnliu@google.com>, 
 	Will Deacon <will@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
@@ -83,8 +83,8 @@ Cc: Dylan Hatch <dylanbhatch@google.com>, Prasanna Kumar T S M <ptsm@linux.micro
 	Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_154213_799407_8625BE53 
-X-CRM114-Status: GOOD (  23.56  )
+X-CRM114-CacheID: sfid-20260918_154218_937124_361F3BC1 
+X-CRM114-Status: GOOD (  17.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,13 +99,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add sframe table to mod_arch_specific and support sframe PC lookups when
-an .sframe section can be found on incoming modules. SFRAME_F_FDE_SORTED
-is not set for module .sframe, so FDEs are sorted right after the sframe
-header is read.
+Include the object name for kernel .sframe sections, indicated by the
+format "(<module-name>)".
 
-Co-developed-by: Weinan Liu <wnliu@google.com>
-Signed-off-by: Weinan Liu <wnliu@google.com>
 Suggested-by: Jens Remus <jremus@linux.ibm.com>
 Reviewed-by: Jens Remus <jremus@linux.ibm.com>
 Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
@@ -113,260 +109,117 @@ Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
 ---
 
 Changes since v6:
- - (sashiko) Check section flag SHF_ALLOC before reading in module
-   .sframe.
- - (sashiko) Use READ_ONCE/WRITE_ONCE to enforce memory barrier when
-   checking mod->arch.sframe_init.
- - Change IP range checks to strictly check text sections of
-   vmlinux/module (instead of is_ksym_addr(ip) / __module_address(ip)).
- - (sashiko) Check kernel_sfsec.fdes_sorted during init, since
-   SFRAME_F_FDE_SORTED is no longer required (in order to support
-   modules).
- - (sashiko) Drop WARN_ON to pr_warn() when module sframe header read
-   fails.
- - Drop sec->sec_type check in sframe_sort_fdes(), return void.
+ - Compute objname of sec on the fly to avoid allocating/storing an
+   extra string in struct sframe_section for the name.
+ - Squash dbg_print_header() definition, and add calls from
+   init_sframe_table() and sframe_module_init().
 ---
- arch/arm64/include/asm/module.h |   6 ++
- arch/arm64/kernel/module.c      |   5 ++
- include/linux/sframe.h          |   7 +++
- kernel/unwind/sframe.c          | 105 ++++++++++++++++++++++++++++++--
- 4 files changed, 119 insertions(+), 4 deletions(-)
+ kernel/unwind/sframe.c       | 11 +++++++----
+ kernel/unwind/sframe_debug.h | 34 ++++++++++++++++++++++++++++++++++
+ 2 files changed, 41 insertions(+), 4 deletions(-)
+ create mode 100644 kernel/unwind/sframe_debug.h
 
-diff --git a/arch/arm64/include/asm/module.h b/arch/arm64/include/asm/module.h
-index fb9b88eebeb15..07f309c51eee6 100644
---- a/arch/arm64/include/asm/module.h
-+++ b/arch/arm64/include/asm/module.h
-@@ -6,6 +6,7 @@
- #define __ASM_MODULE_H
- 
- #include <asm-generic/module.h>
-+#include <linux/sframe.h>
- 
- struct mod_plt_sec {
- 	int			plt_shndx;
-@@ -17,6 +18,11 @@ struct mod_arch_specific {
- 	struct mod_plt_sec	core;
- 	struct mod_plt_sec	init;
- 
-+#ifdef CONFIG_HAVE_UNWIND_KERNEL_SFRAME
-+	struct sframe_section sframe_sec;
-+	bool sframe_init;
-+#endif
-+
- 	/* for CONFIG_DYNAMIC_FTRACE */
- 	struct plt_entry	*ftrace_trampolines;
- 	struct plt_entry	*init_ftrace_trampolines;
-diff --git a/arch/arm64/kernel/module.c b/arch/arm64/kernel/module.c
-index 24adb581af0eb..69334e22be34e 100644
---- a/arch/arm64/kernel/module.c
-+++ b/arch/arm64/kernel/module.c
-@@ -18,6 +18,7 @@
- #include <linux/moduleloader.h>
- #include <linux/random.h>
- #include <linux/scs.h>
-+#include <linux/sframe.h>
- 
- #include <asm/alternative.h>
- #include <asm/insn.h>
-@@ -515,5 +516,9 @@ int module_finalize(const Elf_Ehdr *hdr,
- 		}
- 	}
- 
-+	s = find_section(hdr, sechdrs, ".sframe");
-+	if (s && (s->sh_flags & SHF_ALLOC))
-+		sframe_module_init(me, (void *)s->sh_addr, s->sh_size);
-+
- 	return module_init_ftrace_plt(hdr, sechdrs, me);
- }
-diff --git a/include/linux/sframe.h b/include/linux/sframe.h
-index c1fe8ac7df7b3..58a68de1396af 100644
---- a/include/linux/sframe.h
-+++ b/include/linux/sframe.h
-@@ -15,6 +15,7 @@ struct sframe_section {
- 	unsigned long	fres_start;
- 	unsigned long	fres_end;
- 	unsigned int	num_fdes;
-+	bool		fdes_sorted;
- 
- 	signed char	ra_off;
- 	signed char	fp_off;
-@@ -23,12 +24,18 @@ struct sframe_section {
- extern struct sframe_section kernel_sfsec __ro_after_init;
- 
- void __init init_sframe_table(void);
-+void sframe_module_init(struct module *mod, void *sframe, size_t sframe_size);
-+
- extern int sframe_find(unsigned long ip, struct unwind_frame *frame);
- 
- #else /* !CONFIG_UNWIND_SFRAME_LOOKUP */
- 
- static inline void __init init_sframe_table(void) {}
-+static inline void sframe_module_init(struct module *mod, void *sframe,
-+				      size_t sframe_size) {}
-+
- static inline int sframe_find(unsigned long ip, struct unwind_frame *frame) { return -EINVAL; }
-+
- #endif /* CONFIG_UNWIND_SFRAME_LOOKUP */
- 
- #endif /* _LINUX_SFRAME_H */
 diff --git a/kernel/unwind/sframe.c b/kernel/unwind/sframe.c
-index 9aac703f7ce6e..503d4a2beb50e 100644
+index e6542bb678585..c4715befb59b5 100644
 --- a/kernel/unwind/sframe.c
 +++ b/kernel/unwind/sframe.c
-@@ -8,6 +8,7 @@
- #include <linux/mm.h>
- #include <linux/string_helpers.h>
- #include <linux/sframe.h>
-+#include <linux/sort.h>
- #include <linux/unaligned.h>
- #include <linux/unwind_types.h>
- #include <linux/kallsyms.h>
-@@ -94,6 +95,9 @@ static __always_inline int __find_fde(struct sframe_section *sec,
- 	struct sframe_fde_v3 *first, *low, *high, *found = NULL;
- 	int ret;
+@@ -15,6 +15,7 @@
+ #include <asm/sections.h>
  
-+	if (!sec->fdes_sorted)
-+		return -EINVAL;
-+
- 	first = (void *)sec->fdes_start;
- 	low = first;
- 	high = first + sec->num_fdes - 1;
-@@ -405,12 +409,43 @@ static __always_inline int __sframe_find(struct sframe_section *sec,
- 	return __find_fre(sec, &fde, ip, frame);
- }
+ #include "sframe.h"
++#include "sframe_debug.h"
  
-+#ifdef CONFIG_MODULES
-+
-+static __always_inline int __sframe_find_module(unsigned long ip,
-+						struct unwind_frame *frame)
-+{
-+	struct module *mod;
-+
-+	mod = __module_text_address(ip);
-+	if (!mod || !READ_ONCE(mod->arch.sframe_init))
-+		return -EINVAL;
-+
-+	return  __sframe_find(&mod->arch.sframe_sec, ip, frame);
-+}
-+
-+#else
-+
-+static __always_inline int __sframe_find_module(unsigned long ip,
-+						struct unwind_frame *frame)
-+{
-+	return -EINVAL;
-+}
-+
-+#endif
-+
- int sframe_find(unsigned long ip, struct unwind_frame *frame)
- {
--	if (!frame || !sframe_init)
-+	if (!frame)
- 		return -EINVAL;
+ static bool sframe_init __ro_after_init;
+ struct sframe_section kernel_sfsec __ro_after_init;
+@@ -497,7 +498,7 @@ static int sframe_read_header(struct sframe_section *sec)
  
--	return  __sframe_find(&kernel_sfsec, ip, frame);
-+	if (is_kernel_text(ip) || is_kernel_inittext(ip)) {
-+		if (!sframe_init)
-+			return -EINVAL;
-+
-+		return __sframe_find(&kernel_sfsec, ip, frame);
-+	}
-+
-+	return  __sframe_find_module(ip, frame);
- }
- 
- static int sframe_read_header(struct sframe_section *sec)
-@@ -429,7 +464,6 @@ static int sframe_read_header(struct sframe_section *sec)
- 
- 	if (shdr->preamble.magic != SFRAME_MAGIC ||
- 	    shdr->preamble.version != SFRAME_VERSION_3 ||
--	    !(shdr->preamble.flags & SFRAME_F_FDE_SORTED) ||
- 	    !(shdr->preamble.flags & SFRAME_F_FDE_FUNC_START_PCREL) ||
- 	    shdr->auxhdr_len) {
- 		pr_debug("bad/unsupported sframe header\n");
-@@ -453,6 +487,7 @@ static int sframe_read_header(struct sframe_section *sec)
+ 	header_end = sec->sframe_start + sizeof(struct sframe_header);
+ 	if (header_end >= sec->sframe_end) {
+-		pr_debug("header struct doesn't fit in section\n");
++		dbg_sec(sec, "header struct doesn't fit in section\n");
  		return -EINVAL;
  	}
  
-+	sec->fdes_sorted	= shdr->preamble.flags & SFRAME_F_FDE_SORTED;
- 	sec->num_fdes		= num_fdes;
- 	sec->fdes_start		= fdes_start;
- 	sec->fres_start		= fres_start;
-@@ -469,10 +504,72 @@ void __init init_sframe_table(void)
- 	kernel_sfsec.sframe_start	= (unsigned long)__start_sframe;
- 	kernel_sfsec.sframe_end		= (unsigned long)__end_sframe;
+@@ -507,12 +508,12 @@ static int sframe_read_header(struct sframe_section *sec)
+ 	    shdr->preamble.version != SFRAME_VERSION_3 ||
+ 	    !(shdr->preamble.flags & SFRAME_F_FDE_FUNC_START_PCREL) ||
+ 	    shdr->auxhdr_len) {
+-		pr_debug("bad/unsupported sframe header\n");
++		dbg_sec(sec, "bad/unsupported sframe header\n");
+ 		return -EINVAL;
+ 	}
  
--	if (sframe_read_header(&kernel_sfsec)) {
-+	if (sframe_read_header(&kernel_sfsec) || !kernel_sfsec.fdes_sorted) {
- 		pr_warn("invalid vmlinux SFrame header\n");
- 		return;
+ 	if (!shdr->num_fdes || !shdr->num_fres) {
+-		pr_debug("no fde/fre entries\n");
++		dbg_sec(sec, "no fde/fre entries\n");
+ 		return -EINVAL;
+ 	}
+ 
+@@ -524,7 +525,7 @@ static int sframe_read_header(struct sframe_section *sec)
+ 	fres_end   = fres_start + shdr->fre_len;
+ 
+ 	if (fres_start < fdes_end || fres_end > sec->sframe_end) {
+-		pr_debug("inconsistent fde/fre offsets\n");
++		dbg_sec(sec, "inconsistent fde/fre offsets\n");
+ 		return -EINVAL;
+ 	}
+ 
+@@ -551,6 +552,7 @@ void __init init_sframe_table(void)
  	}
  
  	sframe_init = true;
++	dbg_print_header(&kernel_sfsec);
  }
+ 
+ #ifdef CONFIG_MODULES
+@@ -611,6 +613,7 @@ void sframe_module_init(struct module *mod, void *sframe, size_t sframe_size)
+ 
+ 	/* Ensure SFrame is initialized when sframe_find() happens */
+ 	WRITE_ONCE(mod->arch.sframe_init, true);
++	dbg_print_header(sec);
+ }
+ 
+ #endif
+diff --git a/kernel/unwind/sframe_debug.h b/kernel/unwind/sframe_debug.h
+new file mode 100644
+index 0000000000000..114a4ff4899ef
+--- /dev/null
++++ b/kernel/unwind/sframe_debug.h
+@@ -0,0 +1,34 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _SFRAME_DEBUG_H
++#define _SFRAME_DEBUG_H
++
++#include <linux/sframe.h>
++#include "sframe.h"
 +
 +#ifdef CONFIG_MODULES
 +
-+static int sframe_sort_cmp_fde(const void *a, const void *b)
-+{
-+	const struct sframe_fde_v3 *fde_a = a, *fde_b = b;
-+	unsigned long func_start_a, func_start_b;
++#define objname(sec) ((sec) == &kernel_sfsec					\
++		     ? "vmlinux"						\
++		     : container_of((sec), struct module, arch.sframe_sec)->name)
 +
-+	func_start_a = (unsigned long)fde_a + fde_a->func_start_off;
-+	func_start_b = (unsigned long)fde_b + fde_b->func_start_off;
++#else
 +
-+	return cmp_int(func_start_a, func_start_b);
-+}
-+
-+static void sframe_sort_swap_fde(void *a, void *b, int size)
-+{
-+	struct sframe_fde_v3 *fde_a = a, *fde_b = b;
-+	struct sframe_fde_v3 temp;
-+	long delta;
-+
-+	/* Swap potentially unaligned FDE */
-+	memcpy(&temp, fde_a, sizeof(struct sframe_fde_v3));
-+	memcpy(fde_a, fde_b, sizeof(struct sframe_fde_v3));
-+	memcpy(fde_b, &temp, sizeof(struct sframe_fde_v3));
-+
-+	/* Adjust FDE function start offset from FDE */
-+	delta = (long)((unsigned long)fde_b - (unsigned long)fde_a);
-+	fde_a->func_start_off += delta;
-+	fde_b->func_start_off -= delta;
-+}
-+
-+static void sframe_sort_fdes(struct sframe_section *sec)
-+{
-+	void *fdes = (void *)sec->fdes_start;
-+	size_t num_fdes = sec->num_fdes;
-+
-+	if (sec->fdes_sorted)
-+		return;
-+
-+	sort(fdes, num_fdes, sizeof(struct sframe_fde_v3),
-+	     sframe_sort_cmp_fde, sframe_sort_swap_fde);
-+	sec->fdes_sorted = true;
-+}
-+
-+void sframe_module_init(struct module *mod, void *sframe, size_t sframe_size)
-+{
-+	struct sframe_section *sec = &mod->arch.sframe_sec;
-+
-+	sec->sframe_start = (unsigned long)sframe;
-+	sec->sframe_end   = (unsigned long)sframe + sframe_size;
-+
-+	if (sframe_read_header(sec)) {
-+		pr_warn("invalid SFrame header in module %s\n", mod->name);
-+		return;
-+	}
-+	sframe_sort_fdes(sec);
-+
-+	/* Ensure SFrame is initialized when sframe_find() happens */
-+	WRITE_ONCE(mod->arch.sframe_init, true);
-+}
++#define objname(...) "vmlinux"
 +
 +#endif
++
++#define dbg_sec(sec, fmt, ...)						\
++	pr_debug("(%s): " fmt, objname(sec), ##__VA_ARGS__)
++
++static __always_inline void dbg_print_header(struct sframe_section *sec)
++{
++	unsigned long fdes_end;
++
++	fdes_end = sec->fdes_start + (sec->num_fdes * sizeof(struct sframe_fde_v3));
++
++	dbg_sec(sec, "SEC:0x%lx-0x%lx fdes:0x%lx-0x%lx fres:0x%lx-0x%lx ra_off:%d fp_off:%d\n",
++		sec->sframe_start, sec->sframe_end, sec->fdes_start, fdes_end, sec->fres_start,
++		sec->fres_end, sec->ra_off, sec->fp_off);
++}
++
++#endif /* _SFRAME_DEBUG_H */
 -- 
 2.55.0.1082.g2b9226bbc0-goog
 
