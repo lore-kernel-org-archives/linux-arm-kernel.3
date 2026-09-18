@@ -4,73 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5057EC982DC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 12:26:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0BF0C982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 12:28:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QNYlyICHDiAtyzbtSm0WmmoGzJl3BdJ+V4spo9bThFU=; b=LtrYINBqwKzJ4iCy7mQWfv6fcg
-	zc5HtNmnQwKhtlN5qFHdBvkVfq/KoSqA4AoTZi/otBVQNBwlSKn2mIHeDkm/F4X3Q3mLwxEZdnIz6
-	KXjxqk4AcMeyFshAOv66sSCCc1B7De6kkG/0zgf/2gHwsoa7OM1miGunhEruzb1TImK9PQvKozxoP
-	lk/buJC5SMbfwNixasne9+eqaNah89AmjKDOc+cs8Fr95sq1lf/GM29mzZM4AWOcWhL/AWJLBz+8t
-	mMGN98TxywrazcwDjkg/lu+2jgc07ueBV7TEICgWrUvEf+ALMpTZ4gMlxvRrjprf8s/io4UJDVGQ3
-	ihDW+9bQ==;
+	bh=7t4xYZPS5/zZ1VngL4kG1hvUave8IACXX7PMjAjWykg=; b=XdFWksJvT3YfxHy2bfMwWHo6uC
+	WK2C82RgY0ef3WDwuZX3LQapvmXI/3Qwjo1e7xWf0GuFar4eQkW1eM9bZE93EtKNqDEvzL+zFo/Sr
+	MP/9LrWJfMkOaOTpu+nAI9lZtjYKlPaspSR27JfAQW0cQvrP6LG9RsS4G8Z7b6s/TpprdFJ/3E0pl
+	fNTodXTUrExa18j1bzMhazEbE1E7sf4JoJAgENGjnLQCWWDCGngbUj06y534T9fv1Z5m3+olOhUfe
+	dlzm9pOS9Fwi1UFJzkGSzNhjae4N7+MX7pcohH2HIKbxt4XlP4njX1xAg23eQEcapRAv+VFovnGGf
+	tgICCcJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Xf6-0000000EMJf-3enO;
-	Fri, 18 Sep 2026 12:25:52 +0000
-Received: from mail.tipi-net.de ([194.13.80.246])
+	id 1x7XhR-0000000EMb0-0tlP;
+	Fri, 18 Sep 2026 12:28:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Xf0-0000000EMHt-44WD
+	id 1x7XhQ-0000000EMac-17hx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 12:25:50 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 06695A0350;
-	Fri, 18 Sep 2026 14:25:16 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1789734335; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=QNYlyICHDiAtyzbtSm0WmmoGzJl3BdJ+V4spo9bThFU=;
-	b=e9Fyd26yQqmSW8ysRa3AoKtnYuq3pFrXjn7p/7K2qYMpUHkXi5USPm4YZVNPkSf8VLfe+w
-	YOd+n9cN3EKDLom5BLPVHdMt5AwlWd0eYhYe1lePleDHFisV0A1BVrwAdmrH/3JarZhdb3
-	hyyeia5Ds8EItRyit+65PTkgFDsKtKC+EchfhZIwPiAk+/DwX+L9/93/Gc+dkPnOvPjG5B
-	vpe8QW/udvQ0D2yk4ImyFMVxrdooiCSkI5BAFTNEeIoRuv3Tnuftf4OaaEUXVVnUouyOXD
-	A6V2YXpwAYdHoq8nQKPEEyyFqcPNO8x0MI2mJ3UpoLEm6r/92aP1d+MMvfXSGQ==
+	Fri, 18 Sep 2026 12:28:16 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D63D741388;
+	Fri, 18 Sep 2026 12:28:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 864791F00898;
+	Fri, 18 Sep 2026 12:28:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789734495;
+	bh=7t4xYZPS5/zZ1VngL4kG1hvUave8IACXX7PMjAjWykg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=WCqy2KsyM+zvVJpaZisBGtEEzqYvC9v7ViEJhlwJLp4DUW+lZkn7+Y5fFG+Fl3hzf
+	 joPmMHB3+CmpBBEup2zZxaGtud/kQ8Zi6YOlJwSUJ6zCLMK97GGfNKMLgixZXRJbIg
+	 64zdfeP6tvvgQN/A2JXcXKcL2XV0hUpfsZFRLNmcSv+/B7QrNJKZtmfyD96aWlBBZI
+	 KqcOqkP4Pm6bZI50foFQLtoipVmXK/dr3zT1tDpW/CqcQYZ6jGeLQREmQQUhE4I6fA
+	 phLLTFrOcl/GGY5yzkMcVc2FFgYz/uIiMR2410X5xcnQ6CYz4/H+QhE7YNpWyvpB3C
+	 xQ6GggrRq6zkw==
+From: Will Deacon <will@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	David Carlier <devnexen@gmail.com>
+Cc: mark.rutland@arm.com,
+	kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
+	Shameer Kolothum <skolothumtho@nvidia.com>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Khushit Shah <khushit.shah@nutanix.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] arm64: errata: match the target implementation CPU's own MIDR
+Date: Fri, 18 Sep 2026 13:28:05 +0100
+Message-ID: <178973065688.2324564.11650949029036534707.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260906121421.60575-1-devnexen@gmail.com>
+References: <20260906121421.60575-1-devnexen@gmail.com>
 MIME-Version: 1.0
-Date: Fri, 18 Sep 2026 14:25:16 +0200
-From: Nicolai Buchwitz <nb@tipi-net.de>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
- <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>, Heiner Kallweit
- <hkallweit1@gmail.com>, =?UTF-8?Q?Alexis_Lothor=C3=A9?=
- <alexis.lothore@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Emil Renner Berthing
- <kernel@esmil.dk>, Minda Chen <minda.chen@starfivetech.com>, Neil Armstrong
- <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, Jerome
- Brunet <jbrunet@baylibre.com>, Martin Blumenstingl
- <martin.blumenstingl@googlemail.com>, Jan Petrous <jan.petrous@oss.nxp.com>,
- Ovidiu Panait <ovidiu.panait.rb@renesas.com>, Jose.Abreu@synopsys.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, PKneuper@dspace.de, David Laight
- <david.laight.linux@gmail.com>
-Subject: Re: [PATCH net v4 5/7] net: stmmac: dwmac4: Use the correct bufzise
- when the len is exactly 8K
-In-Reply-To: <20260917215339.2022523-6-maxime.chevallier@bootlin.com>
-References: <20260917215339.2022523-1-maxime.chevallier@bootlin.com>
- <20260917215339.2022523-6-maxime.chevallier@bootlin.com>
-Message-ID: <4b3c26c482ac1d26f39b53fea072e4d1@tipi-net.de>
-X-Sender: nb@tipi-net.de
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_052549_362871_D1D6A3AE 
-X-CRM114-Status: GOOD (  18.80  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,93 +77,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Maxime
-
-On 17.9.2026 23:53, Maxime Chevallier wrote:
-> DMA bufsize selection isn't made on the MTU but the actual frame 
-> length,
-> so including the L2 header. On DWMAC4, if the len is exactly 
-> BUF_SIZE_8KiB,
-> the next larger size is incorrectly selected.
+On Sun, 06 Sep 2026 13:14:16 +0100, David Carlier wrote:
+> __is_affected_midr_range() is handed the MIDR and REVIDR of one target
+> implementation CPU, but tests the erratum's range with is_midr_in_range(),
+> which re-scans all of target_impl_cpus[] and ignores the @midr argument.
+> The range test is thus constant across the per-CPU loop in
+> is_affected_midr_range() and only answers "is any target CPU in range".
 > 
-> Lets fix the comparison and while at it, rename the parameter from len
-> to mtu.
-
-Isn't it "[...] from mtu to len"?
-
+> Since just the fixed_revs REVIDR check uses the iteration's own registers,
+> an out-of-range target CPU can decide whether a MIDR_FIXED() exemption
+> applies. A VM then enables a workaround whose only in-range CPU is fixed
+> silicon, e.g. erratum 2658417 on a Cortex-A510 r1p1 with REVIDR_EL1[25]
+> set.
 > 
-> Fixes: c3efed5ad1b0 ("net: stmmac: Enable dwmac4 jumbo frame more than 
-> 8KiB").
-> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> ---
->  drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c | 4 ++--
->  drivers/net/ethernet/stmicro/stmmac/hwif.h         | 2 +-
->  drivers/net/ethernet/stmicro/stmmac/ring_mode.c    | 4 ++--
->  3 files changed, 5 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c 
-> b/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c
-> index 2994df41ec2c..c6a8f8d73501 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c
-> @@ -474,11 +474,11 @@ static void dwmac4_set_sarc(struct dma_desc *p, 
-> u32 sarc_type)
->  					  sarc_type));
->  }
-> 
-> -static int set_16kib_bfsize(int mtu)
-> +static int set_16kib_bfsize(int len)
->  {
->  	int ret = 0;
-> 
-> -	if (unlikely(mtu >= BUF_SIZE_8KiB))
-> +	if (unlikely(len > BUF_SIZE_8KiB))
+> [...]
 
-Should we drop set_16kib_bfsize() instead?
+Applied to arm64 (for-next/fixes), thanks!
 
-After 6/7 it looks to me like the same test as the first branch of
-stmmac_set_bfsize(). The caller ends up there anyway when it returns 0
-and chain_mode_ops doesn't have it at all.
+[1/1] arm64: errata: match the target implementation CPU's own MIDR
+      https://git.kernel.org/arm64/c/b7403afb7a5f
 
->  		ret = BUF_SIZE_16KiB;
->  	return ret;
->  }
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h 
-> b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-> index 04dafec021b4..de7aa6d28148 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
-> +++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-> @@ -540,7 +540,7 @@ struct stmmac_mode_ops {
->  	bool (*is_jumbo_frm)(unsigned int len, bool enh_desc);
->  	int (*jumbo_frm)(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
->  			 int csum);
-> -	int (*set_16kib_bfsize)(int mtu);
-> +	int (*set_16kib_bfsize)(int len);
->  	void (*init_desc3)(struct dma_desc *p);
->  	void (*refill_desc3)(struct stmmac_rx_queue *rx_q, struct dma_desc 
-> *p);
->  	void (*clean_desc3)(struct stmmac_tx_queue *tx_q, struct dma_desc 
-> *p);
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/ring_mode.c 
-> b/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
-> index f7949419eb9f..d2f0c321661d 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
-> @@ -124,10 +124,10 @@ static void clean_desc3(struct stmmac_tx_queue 
-> *tx_q, struct dma_desc *p)
->  		p->des3 = 0;
->  }
-> 
-> -static int set_16kib_bfsize(int mtu)
-> +static int set_16kib_bfsize(int len)
->  {
->  	int ret = 0;
-> -	if (unlikely(mtu > BUF_SIZE_8KiB))
-> +	if (unlikely(len > BUF_SIZE_8KiB))
->  		ret = BUF_SIZE_16KiB;
->  	return ret;
->  }
+Cheers,
+-- 
+Will
 
-regards
-Nicolai
+https://fixes.arm64.dev
+https://next.arm64.dev
+https://will.arm64.dev
 
