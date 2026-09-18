@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F2BC982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 13:16:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C98CC982DF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 13:16:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=47Y+abC84b0nPqFaobxwpwVZjGtGLmkZNObB8Q4+Sp8=; b=TjQ8xlc2Tfx0YWg9jDti7WgDpw
-	2xdXy1v1JXePpfJgNSpJ2ZAXE01823Gx8VoFzzQNJX5KJfYUqbS8cvhNhpSTN0DyN1oRMzF44d5PS
-	Ncd2xR6oDLg8ymHbpvy2s1kyDFLGqZaMVdYIyFWwVBCXpjaYWLZ/+luG2ACymV/f56O3LYu8bAXma
-	OAAI1/Etpkb+kHcm+dgZeolyzV/LfgCt5YWm0nTsS+4xaqwd8+KHu7r1snjOT9Fo6iGHaDQNpKhZO
-	6i4cmnDsoHe3dETDM/H/V8Lr+EJso4G/88vezFcYM8R9S0Oje4vVbL1WlPgAmsfD0IPC4fM1HGVWu
-	kBiACVug==;
+	bh=M6VefbtsHJ7I4h07saTtcrarG1Wa53XZiIB66Lz9ZuM=; b=odrxE70m6yhFhKeKl6H4rWtC53
+	vM++LCpaCJqnlCKBjty2PyFVDZW/acyfVfi2Xl8ObgjdnYPJxLZf0/b28VUQMMgpBWlIsSVbhQKb/
+	1t/0sGL9+zQbxVqnEf5BXojPsZMk5xg9ANnu4Lds6XxVoZAn8xzHntcqKkquCHpovgPshKQC//qC4
+	2Xg2H3yBRJ3mL9O2y14UpbOQonr8cXYcr2iKAu2fcUfs3nCAvUHKatpN4G+ntPdw8cpDb6F4b7NBT
+	buWKwCTeI/e8G+2cgOgTfxDIWedrUXv8gVsQwsdd4phiryxpYbPzDzpupCEWqVDbsOkFG7ndbmkD3
+	YxOYn8Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7YRt-0000000EScO-2Kuw;
-	Fri, 18 Sep 2026 13:16:17 +0000
-Received: from mr-2004f-snip6-8.eps.apple.com ([2a01:b747:3000:203::3b] helo=outbound.mr.icloud.com)
+	id 1x7YRr-0000000ESYW-3YJN;
+	Fri, 18 Sep 2026 13:16:15 +0000
+Received: from mr-2004h-snip6-2.eps.apple.com ([2a01:b747:3000:203::52] helo=outbound.mr.icloud.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7YRp-0000000ESV3-2XMe
+	id 1x7YRm-0000000ESRc-13yR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 13:16:14 +0000
+	Fri, 18 Sep 2026 13:16:11 +0000
 Received: from outbound.mr.icloud.com (unknown [127.0.0.2])
-	by p00-icloudmta-asmtp-us-west-2a-10-percent-1 (Postfix) with ESMTPS id 610AD18001A0;
-	Fri, 18 Sep 2026 13:16:08 +0000 (UTC)
-X-ICL-RepId: 01a0b4a8-fac5-72f2-ae97-f656921d7603
-X-ICL-Out-Info: HUtFAUMEWwJACUgBTUQeDx5WFlZNRAJCTQFMHV8EUxxCDFYAXRcOVk1KF1UYREVRMFAbXwJCDxwTVhUTC1NWWxNVF0YJGQhdHRkKUFAGXRIYXBRcUFgeRhJWDV0JGQZAXlAbXwJCDxwTVhUTHUMZDysISgRDB0UCXgslEwlTVlsTVRdGCRkIXR0ZFVoJClcAQAtOA1QGUx8RTxweGwZGCl0NQQpaAFIBQV9MBlh3AlEcVg1XQ1QEX04ZDEodUlZbE1UXRgk=
-Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=icloud.com; s=1a1hai; t=1789737373; x=1792329373; bh=47Y+abC84b0nPqFaobxwpwVZjGtGLmkZNObB8Q4+Sp8=; h=From:Date:Subject:MIME-Version:Content-Type:Message-Id:To:x-icloud-hme; b=HPKQ+Cv/mNjzH0NrxCcmd9V3GvSTAQV9bcJ38HuaTbK/a72Z2QP9RHRcteUWu+x2bbw2nUE3oizYmwqUrDHycjNu7z+/1nu2hMcZbixfzIudRxYCOAqOtaNOD0cnzFLDD8qMvsvIikf/XXN99dk73fvyOydF3EimsOrYDLurGDOeKT7EW00UvXqpMkS6rHV4KdkgwPQMnvfhiA+nqlMpcGqR46wNjGlUupzmNM2uW2vwsHI4QjobBXrAjJlFR8XMNQxHifnrk+i7nRRuFn6ISd/WW4hjZr5ZE/aG/aB2qzpUHcaGksFDr8AzB7KtBDSvhffygMKztdNkz+BdHFdmGQ==
-Received: from [127.0.0.1] (unknown [17.156.200.36])
-	by p00-icloudmta-asmtp-us-west-2a-10-percent-1 (Postfix) with ESMTPSA id 4015B1803F02;
+	by p00-icloudmta-asmtp-us-west-2a-10-percent-1 (Postfix) with ESMTPS id DBD1E180187D;
 	Fri, 18 Sep 2026 13:16:04 +0000 (UTC)
+X-ICL-RepId: 01a0b4a8-ed1b-7b2e-a36d-1946784ff1ec
+X-ICL-Out-Info: HUtFAUMEWwJACUgBTUQeDx5WFlZNRAJCTQFMHV8EUxxCDFYAXRcOVk1KF1UYREVRMFAbXwJCDxwTVhUTC1NWWxNVF0YJGQhdHRkKUFAGXRIYXBRcUFgeRhJWDV0JGQZAXlAbXwJCDxwTVhUTHUMZDysISgRDB0UCXgslEwlTVlsTVRdGCRkIXR0ZFVoJClcAQAtOA1QGUx8RTxweGwZGBV0NQQpaAFIBQV9MBlh3AlEcVg1XQ1QEX04ZDEodUlZbE1UXRgk=
+Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=icloud.com; s=1a1hai; t=1789737369; x=1792329369; bh=M6VefbtsHJ7I4h07saTtcrarG1Wa53XZiIB66Lz9ZuM=; h=From:Date:Subject:MIME-Version:Content-Type:Message-Id:To:x-icloud-hme; b=049qh9FNIufGO4G7gKITPeJTHKuvL0j6Xx5fUWMS/2tzTgH2Hpk3vego3oPBZ9lB2UJ94bgnfQLWFoKtpUAWBgvQM0rrmufduLaLjnL37CBbrxYUL84aQ0mnpVyldU+Y8AktgCDyLd+xBaHzfjQa1ppz7PTVOOFYsXfu3v/oIdk6NkWqkFWN2/KKY8yZZkQfLnDEc0L4P/qhNGudUqebC/GezIT2ICgSCPc+GrimlQ8XvMigoaBRxrETc0T7f07ikFrMJ5WwJInk01hkqB2+k/cUnRyQwYuhDS3agYuW10Hk2LRcOcn2ZDMlNpCH6HmlAEus7X/jtcnH7xD90h7nUQ==
+Received: from [127.0.0.1] (unknown [17.156.200.36])
+	by p00-icloudmta-asmtp-us-west-2a-10-percent-1 (Postfix) with ESMTPSA id F41F318003FF;
+	Fri, 18 Sep 2026 13:16:00 +0000 (UTC)
 From: Sofus Forstreuter <sofus.c@icloud.com>
-Date: Fri, 18 Sep 2026 15:15:13 +0200
-Subject: [PATCH 08/14] arm64: dts: apple: t6030: add avd nodes
+Date: Fri, 18 Sep 2026 15:15:12 +0200
+Subject: [PATCH 07/14] arm64: dts: apple: t602x: add avd nodes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260918-avd-v1-8-49977931f455@icloud.com>
+Message-Id: <20260918-avd-v1-7-49977931f455@icloud.com>
 References: <20260918-avd-v1-0-49977931f455@icloud.com>
 In-Reply-To: <20260918-avd-v1-0-49977931f455@icloud.com>
 To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
@@ -56,23 +56,23 @@ Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org, 
  Sofus Forstreuter <sofus.c@icloud.com>
 X-Mailer: b4 0.15.2
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE4MDE4OCBTYWx0ZWRfXx8KcFuXOxts9
- 6fLlhOqY0LqHg6fPxEqJo9bW6PfuH4vp3Bo9q/jNas0OUFRnDO/tu3owcrXGCbObtXBNTCPWgKv
- LaY0uOJBJDSv+9xNDwxYKSMWVbJaIOoPpZqCV5wy/Cr9XuECIFSlUH0bH02LBuAMWHjkb9VzzHD
- jslrhbyrS3jZ6GGvNqnAv5yBO/v2RGYp1vIYGbURJkWIgRmqj54FpkXqcPzhK1Djg2mZz8aDpHw
- OCU2/9l3IXGY4VZj89zCiK6aj+5OOgqsTtb8PjADYZfv+PhPEBCDgz+W5CXblPKAzO6NRoBnQvd
- GCDuR65cRvYVAwk6u8+JEUrefK/lPMby1rklbTrzdEnOwtIFsPwXQle/G+51dE=
-X-Proofpoint-GUID: 8o3dDnOjxHtPpVbur2C2OjCvqz7clVvX
-X-Proofpoint-ORIG-GUID: 8o3dDnOjxHtPpVbur2C2OjCvqz7clVvX
-X-Authority-Info-Out: v=2.4 cv=J7anLQnS c=1 sm=1 tr=0 ts=6aad399b
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE4MDE4OCBTYWx0ZWRfX588aZ3KYV6wg
+ X8haV0Pcti2l5eSp8AD/8MJhXircof/+GasuOuCHzQIT+T+bOigU8ZD+6K3CFfMxRN824P5lBAR
+ XhLv98VgP9upJS873i0ux1rkHdFjEX8m44Y9rrxpm8mnPjoVk5V8Q9282ylOgMl/JRTz2PBg9PR
+ f+a9dwNKruVmMvfP1QVjqziXxsFxmq+UftF6bWQcYJG/85BEnACfFDpfU2S23Z7rm83nShT832m
+ ysR+KsKTM0qd2hAFJ/6f8pbiiBfiDLmFgXTEu9ajj7Z46EtXpy1WhKyfoknIFd8qtooB3QBEX0m
+ oEm6UxDP2j9Ew6NQHXw/aIFu1B27r1Q/TFsgfNSQXnFb6FBNWHcw0Zxsp2IR20=
+X-Authority-Info-Out: v=2.4 cv=DIeCIiNb c=1 sm=1 tr=0 ts=6aad3997
  cx=c_apl:c_pps:t_out a=9mRn2PO/+PIrVdEbaIuMPg==:117
  a=9mRn2PO/+PIrVdEbaIuMPg==:17 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
  a=x7bEGLp0ZPQA:10 a=kLM9Tyy99jAA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=v3ZZPjhaAAAA:8 a=cgTWQxKMTSei56T5cz0A:9 a=QEXdDO2ut3YA:10
-X-JNJ: AAAAAAABYXN0v0JF1mxAMCDNkV7klo/JQZnw7K8sW1zzdqbOpKKIY51y/x0di1ueJrVib6bDJIV5cVymcYon/WcW19N0p55/ynmAdO81zYyjlQztIFmfymP4fGNxcc5cqLnB16tmQ3KTQgj36EeOBiKi4ZuijEMk2tJBLVrngRWgzevDSIEZKM7aZTOOR7yzzdd0acBiWAN59uS8gMTn8G9l47XhqPTU+j18QQzgFuMRPui6JEjhFT1y9k4LxIN44aUnUwwMvzN+2P1S96bv05rMIHnapAtt6tqkibSazABXf5AH+GsBoRKTmiMURsRAGId+m16XJyO07MGAjUPLgSHqo3CgNmgnhOGkpPg/sZprLcXfAchoRgo3q8GCc7lzbZ6jXtxqTCxe+zU59gr2h/vKYBtFVBxotx+fLnXSOsHFwjJer9c+PG0Huu36iErYo5y6D7NXhloj9CcmXc9muRgtLcOtbkxpeYODbxqomNIHUbq46OPFFRol9G96tZomz7xNOt2Pr30PLk39imxqQ7xLsq6HQyeJKve3oJhqBB0nKJ7AbYm0j/fyJjuXiO+EgEQ1nBu2vQdhsnBJfAL3GwWW8ifmQ8p/c/tyMcAJd+dkHySEgyIOwNxPUtUv89zlceLkSgqGoUowgvAaKq/9LLY1uENycLc//LhDw2T41xCeJb/oJgph0ermG8JVtg7V14Mbo0osQzyChxmVA5CwyfXdsnrGQBiu6HOQZdIsGLP85KvZKWet5X77p8E1KMYMEtz9l08kzcIW7vu3xhXRlpfQUQekYPUyZ5gpfBg/x/7UTod9LIbSR8QaLCQLxxzfkvx4N4pe9InVF9Y1+phuSdLSUi5PuwURfl2WJw2rJGwclzHPHJ7yaqydNPM+WpPssxpiZko=
+ a=v3ZZPjhaAAAA:8 a=UcMGxPN7aOZqZ3wHYxQA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: Yl4RZ3YIdaJBHUuIETWnsy915N6kVXIw
+X-Proofpoint-ORIG-GUID: Yl4RZ3YIdaJBHUuIETWnsy915N6kVXIw
+X-JNJ: AAAAAAABI/t4w5EZW1dmIGamvZ/3T9+UqM+bgZ2ODOl4KhrjM8JnwkfzrGG/3M+ek5JRgMnSCmpSTPdmH/Pwl/gibkr9QslF71IyVwFcBdVBrPEoi37OLRFq7GPlcpxaaNaOCCiOAKc291b22F/1zvt9qIZA+rFNhHEWD+Bt0riEziOI0RrDockHaQrgHtXjlP+a8/IW8dyR/Tg2h4Y7i6rmx7Z/A3Zl9hgXex0ukAEo+dcp2YTP0/sPKMHYljlZInOAj8ojdLLmYxJH+oXMbXRE+Vo7jdJhxcCnQa9zoTDMIpNScEMcmEM9QkmlzXvY1evHsL6/bRQDVygaCZ/cSNQa/Iz7peZ8F2jmWM2buRN9m9fZUuQJ+8XkEw+6eqRTbGCQEohltpRsAFsY8cCz4xQ4nc0S0xAz4lpvfqSI+znsWTB2z6L/LkBWPYEYklsoCPaeb0fue0KuklEWSPJIPrUeQVmRDNCd4JXdAN3xLBBHTz1etzGRAaL0ZEkDgZ+wzJtjKAlUTYRrnUidGxR3OSMs3RRThIRidd4aGPcF3BqXvlnTgCe+jFMyvFLvg9OxZp7uxYu9+8sGPspLYCzeAY608ES+celvE2U6TzDtwyFydRid33cRl8UPdEVd/KxvOmxaZKiy1RhGI6EphA/Y6nQQUQzhvW6cXXcbaYJ6PcjEMY8Hls5XF0dKQeTqo00CZaUPPcNMqp8eUoNkRtRM0kGyJcnztmok7hYWyY8fYxfc1oKWATevvuoyRLkrqa8pGeDcmkDsDfr8gYvfU6ESBSnAiMaWCsoM1GDD0emEs2l1TpjI9qVYEUVWSkilrraq6iJFB5MP281SgvCuUyC3jrOaHzfwDAvFa8qxEayrAHF+fChx6q0TbthQMc96CpXzljg=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_061613_661431_06FFCB81 
-X-CRM114-Status: UNSURE (   8.90  )
+X-CRM114-CacheID: sfid-20260918_061610_328632_8AA2D1D2 
+X-CRM114-Status: UNSURE (   8.68  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,44 +90,44 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Signed-off-by: Sofus Forstreuter <sofus.c@icloud.com>
 ---
- arch/arm64/boot/dts/apple/t6030.dtsi | 24 ++++++++++++++++++++++++
+ arch/arm64/boot/dts/apple/t602x-dieX.dtsi | 24 ++++++++++++++++++++++++
  1 file changed, 24 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/apple/t6030.dtsi b/arch/arm64/boot/dts/apple/t6030.dtsi
-index dda9568af11f..802759a2352f 100644
---- a/arch/arm64/boot/dts/apple/t6030.dtsi
-+++ b/arch/arm64/boot/dts/apple/t6030.dtsi
-@@ -361,6 +361,30 @@ pmgr_gfx: power-management@290e80000 {
- 			/* child nodes are added in t6030-pmgr.dtsi */
- 		};
+diff --git a/arch/arm64/boot/dts/apple/t602x-dieX.dtsi b/arch/arm64/boot/dts/apple/t602x-dieX.dtsi
+index ae3d535c5acb..4b169a2cb9c8 100644
+--- a/arch/arm64/boot/dts/apple/t602x-dieX.dtsi
++++ b/arch/arm64/boot/dts/apple/t602x-dieX.dtsi
+@@ -23,6 +23,30 @@ DIE_NODE(cpufreq_p1): cpufreq@212e20000 {
+ 		#performance-domain-cells = <0>;
+ 	};
  
-+		avd: avd@30b080000 {
-+			compatible = "apple,t6030-avd", "apple,t8122-avd";
-+			reg = <0x3 0x0b080000 0x0 0x12000>,
-+			      <0x3 0x0b092000 0x0 0x12000>,
-+			      <0x3 0x0b0a4000 0x0 0x4000>,
-+			      <0x3 0x0b100000 0x0 0x10000>;
-+			reg-names = "code", "sram", "mbox", "ctrl";
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 788 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 789 IRQ_TYPE_LEVEL_HIGH>;
-+			power-domains = <&ps_avd_sys>;
-+			resets = <&ps_avd_sys>;
-+			iommus = <&avd_dart 0>;
-+		};
++	DIE_NODE(avd): avd@287080000 {
++		compatible = "apple,t6020-avd";
++		reg = <0x2 0x87080000 0x0 0x10000>,
++		      <0x2 0x87090000 0x0 0x10000>,
++		      <0x2 0x870a0000 0x0 0x4000>,
++		      <0x2 0x87100000 0x0 0x10000>;
++		reg-names = "code", "sram", "mbox", "ctrl";
++		interrupt-parent = <&aic>;
++		interrupts = <AIC_IRQ DIE_NO 1088 IRQ_TYPE_LEVEL_HIGH>,
++			     <AIC_IRQ DIE_NO 1089 IRQ_TYPE_LEVEL_HIGH>;
++		power-domains = <&DIE_NODE(ps_avd_sys)>;
++		resets = <&DIE_NODE(ps_avd_sys)>;
++		iommus = <&DIE_NODE(avd_dart) 0>;
++	};
 +
-+		avd_dart: iommu@30b010000 {
-+			compatible = "apple,t6030-dart", "apple,t8110-dart";
-+			reg = <0x3 0x0b010000 0x0 0x4000>;
-+			#iommu-cells = <1>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 795 IRQ_TYPE_LEVEL_HIGH>;
-+			power-domains = <&ps_avd_sys>;
-+		};
++	DIE_NODE(avd_dart): iommu@287010000 {
++		compatible = "apple,t6020-dart", "apple,t8110-dart";
++		reg = <0x2 0x87010000 0x0 0x4000>;
++		#iommu-cells = <1>;
++		interrupt-parent = <&aic>;
++		interrupts = <AIC_IRQ DIE_NO 1095 IRQ_TYPE_LEVEL_HIGH>;
++		power-domains = <&DIE_NODE(ps_avd_sys)>;
++	};
 +
- 		pinctrl_ap: pinctrl@347100000 {
- 			compatible = "apple,t6030-pinctrl", "apple,t8103-pinctrl";
- 			reg = <0x3 0x47100000 0x0 0x4000>;
+ 	DIE_NODE(pmgr): power-management@28e080000 {
+ 		compatible = "apple,t6020-pmgr", "apple,t8103-pmgr", "syscon", "simple-mfd";
+ 		#address-cells = <1>;
 
 -- 
 2.55.0
