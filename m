@@ -4,153 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EB5FC982DC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 11:32:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04205C982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 11:34:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QQlhkdfz1gzFxtyTszpHIEYekI6iOreTEo0QTFnvBXg=; b=jXwEDLuW0gAd3AIduAK9iQp+5J
-	wiGhedeF7ndLk6pTLnGs75pGsS5WvufF5lw0ZFNXTbGyfOSxrBjF7cplWc67Eg46SuoBfi5mHNiew
-	IVtQ+G8qSYWdASWubjWorC0IodKHAZMwKxdjOTVf3vfVjiEj+FO4R9mDLmhvMwrsUT4ttojC+3NPG
-	+5lQJX/ImEal9S1vCwWf4iENSJps/ItNwMiBZ07cDDSKTY13SfZ94ZJksziHIjVPg5yWjtizmsVLf
-	vcaqgXtB6oMVBbR/qs0xJzGDqL6xS16MjSXGapYErd2M5gqC6gp+Rv3voaeJV2SbPDnRJowXfnawj
-	p9QYHn+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=scXMYZcaK0fKgjFbXGNPyT/ab3ByuX0CihmtncRl/HY=; b=Cq/fRbZQpyk/Aa
+	BBH/6Ia/ZVma2w87xQKl6aLsTtcy2PU4blSgsYEKJ6wV2bk3RPba0uvffVfROUe3vOrLBgZSx0l36
+	eGhb26P8s4SmMYdKYjlBvPt1ea8KufR8Ke1Jt2SrkuN6xBEZDA1aC/m1chXDX5Kvq7jK1OTsVz0Br
+	8t5LSiYCbY/1quBuT7FCa7fC0GNE/gatexF0Ir6WJOWD6Twn2aHBDVc3L89kGely+sNsHIuXoxy0M
+	q0t8Ue6Hr0clcfuAKpAYaIMsXzCYTRpTd9wgHTeFlVyyJT5NIO0XxzbPMe4VBgb2gFlpVxh3zTvhH
+	lbQAISI80HeK+5t7+5ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7WpA-0000000EELD-28vU;
-	Fri, 18 Sep 2026 11:32:12 +0000
-Received: from mail-norwayeastazon11023126.outbound.protection.outlook.com ([40.107.159.126] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1x7WrB-0000000EEbQ-35lo;
+	Fri, 18 Sep 2026 11:34:17 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Wp1-0000000EEIU-3NDh
+	id 1x7Wr7-0000000EEb2-2stZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 11:32:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jo4g6WHOo0zr/dfNzhhKPcb6M8L+zUSWxJHLuwWdHhMpCkn0Tl1vSZDQD0x/M/YA9v04euDEghkjoHpHvWCmPv6IKL7YwPQeT1VS98Suw6hihE5kU6iaAxxqD4z9RQU4DD/IsfOz9GS9orY/9eoIvj6dlb9YNozRPctw5jjK6IdBS4UIGpIkPsnRuaEV4gdd7wEbf63YEp4hndyH27NMx5cUmdrWLoovNaYyY/QONAxJyHosImQOiT7TYA76V6J3GPQ9Pu56JAlqaikXAVF802UcMMAHYE76DWBcLyT8fGMlkANfUyC0f71LWRoajlkWM97vUBbbR9Vz6yDRaFAkew==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QQlhkdfz1gzFxtyTszpHIEYekI6iOreTEo0QTFnvBXg=;
- b=PHcTPxl2BaPAjOLw1tyxp78n6QY9O+7GJet6KuD375H6tGOL2UJ2UonLVSjMM+RrXvU7Uo/mm2LxDznKcvFAWTmZ55ASE4xM46JDVSzJc74+Kamkbm2jRELMrh5HBYJcXXauGdv7/wcwd8QuxWNbsQk5ieSadcmqgaT+DQC3Oo548KeG99N6Vu4TgAtIdpOEQwxd/+TMCY3ugi0AtwZCIlc3iiH6jZJN6z7n356zdjzdo61h6Ak3l4a5fcRk93NmKJWEjKiXZET77e5aUaI1tn97/mqWyiZNwWZJcbYmi7CCSpM3Eov4Tg1je8ThwEpI/EcA78X0OVvVEiqHvbqbkg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=phytec.de; dmarc=pass action=none header.from=phytec.de;
- dkim=pass header.d=phytec.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QQlhkdfz1gzFxtyTszpHIEYekI6iOreTEo0QTFnvBXg=;
- b=I8/cu4VP/+vI4XG9y7wu4+EKIF9noNMIOEqB0X3tg0R4NWUW6mvkfo4m4xhXwWU6aZioDCCQBdztekQuPzVMq9USV6YJOVu9gjHvSSRBtrzO75dqu/TmO6d6LY5Uhv6HufY3jdOsxvT/7BnIOpfFzDc65XzRlqyGbff/DNR8i1BWleMDVtWCVVahTLXPg12H2Ek99cSHv8iq0uB3M7cX4CYgx+fuIKxO9MOrWNgHN6uiwAfMe3bVZ0pMwbkeSznKdwTCQDMIVLNootZY8Vl9b/Q2gfUTfGXQcppm+sEJyFrpqwranRaOQu0qWZrGQmf9Gg5hiPUHC1rXrNWJSUSkSA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=phytec.de;
-Received: from AS4P195MB1456.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:4b3::21)
- by AS8P195MB1978.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:548::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Fri, 18 Sep
- 2026 11:31:55 +0000
-Received: from AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
- ([fe80::295f:9a59:b66a:621a]) by AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
- ([fe80::295f:9a59:b66a:621a%5]) with mapi id 15.21.0428.008; Fri, 18 Sep 2026
- 11:31:53 +0000
-Message-ID: <bbf069ba-2942-4c89-86ed-444fb6f9ff08@phytec.de>
-Date: Fri, 18 Sep 2026 14:31:48 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 1/9] arm64: dts: ti: k3-am62a-phycore-som: Fix wkup R5F
- memory region size
-To: "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>,
- Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
- Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
- Judith Mendez <jm@ti.com>, Daniel Schultz <d.schultz@phytec.de>,
- Andrew Davis <afd@ti.com>, Siddharth Vadapalli <s-vadapalli@ti.com>,
- Paresh Bhagat <p-bhagat@ti.com>, Bryan Brattlof <bb@ti.com>,
- Jai Luthra <jai.luthra@ideasonboard.com>, Devarsh Thakkar <devarsht@ti.com>,
- Beleswar Padhi <b-padhi@ti.com>,
- Francesco Dolcini <francesco.dolcini@toradex.com>,
- Stefano Radaelli <stefano.radaelli21@gmail.com>,
- Nick Desaulniers <ndesaulniers@google.com>
-Cc: Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>,
- Sebin Francis <sebin.francis@ti.com>, Kendall Willis <k-willis@ti.com>,
- Akashdeep Kaur <a-kaur@ti.com>, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- llvm@lists.linux.dev, Hari Nagalla <hnagalla@ti.com>
-References: <20260918-topic-am62a-ioddr-dt-v6-19-v9-0-40972ef1f663@baylibre.com>
- <20260918-topic-am62a-ioddr-dt-v6-19-v9-1-40972ef1f663@baylibre.com>
-From: Wadim Egorov <w.egorov@phytec.de>
-Content-Language: en-US
-In-Reply-To: <20260918-topic-am62a-ioddr-dt-v6-19-v9-1-40972ef1f663@baylibre.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: DB8PR04CA0028.eurprd04.prod.outlook.com
- (2603:10a6:10:110::38) To AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:20b:4b3::21)
+	Fri, 18 Sep 2026 11:34:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1789731258; x=1821267258;
+  h=from:subject:date:message-id:mime-version:
+   content-transfer-encoding:to:cc;
+  bh=ktQKWUEUONn8QzHquRUOFW1UVKwjYKNi63gedw9IF+Y=;
+  b=MigrTJ6ryNZmX0hHtTXaxcRJX48oxvOww468d+WQh+9dKV/gpy7xnGc9
+   N4Urv821YUu06iCsWnUskJ1DaVbZuJaRFalbwtyxuTStkmtn81Qo4NExP
+   dZrp0Kv99zunYL8nkehRBRGm9jF7e5wbpo6C2erIKiAE/tZ+fSICxXhH0
+   hzWEBisY0tlaX9UfbSeS11GhqQ5IK7BG6pv95RQ+arVxFLu46PFhwgDxY
+   IZEROmthrCbsksxokbVtNf/lvFAmvJOR/jV+yX4XgadeXF/S5Pv9xrxdW
+   F39sYPH4z55QissLfikDsUCxdoKleCiZ2p4ZJ9nXw/640t2yDhh4zOV+h
+   A==;
+X-CSE-ConnectionGUID: SnC8l8lCSPCDWxCWPKG+4w==
+X-CSE-MsgGUID: OaWrJB8lQQWuFsaEiL28zQ==
+X-IronPort-AV: E=Sophos;i="6.27,108,1787036400"; 
+   d="scan'208";a="63804814"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 18 Sep 2026 04:34:17 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Fri, 18 Sep 2026 04:34:11 -0700
+Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Fri, 18 Sep 2026 04:34:07 -0700
+From: Daniel Machon <daniel.machon@microchip.com>
+Subject: [PATCH net-next v7 00/14] net: lan966x: add support for PCIe FDMA
+Date: Fri, 18 Sep 2026 13:33:52 +0200
+Message-ID: <20260918-lan966x-pci-fdma-v7-0-0ecc179c8a2c@microchip.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS4P195MB1456:EE_|AS8P195MB1978:EE_
-X-MS-Office365-Filtering-Correlation-Id: b97059ab-ba51-4664-b8cd-08df15787071
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|7416014|376014|366016|921020|4143699003|3023799007|11063799006|56012099006|18002099003|22082099003|10067099003;
-X-Microsoft-Antispam-Message-Info: xX0CFGCju9e4Ac/RH6UgOp/Vf1W1KP4oTMYlgD8pAwgnZAvfnD5ptDU8EKZsxAro991CaGA11e9HGSpgwILneQG08NDHiaSSCMxiLwT9dpxua4STkNxJYEK+ppLrA5kbUqaGZHptOacrA5OTTjxcA7E90ph0V3fEp42puMxIkan2dAwBjzMi1BKcebUphOiQcClkl9Hy7csDHaxC/QVh5J/55wgo8HHnG67qc2picd7AQhuMlYhozr4Ll0CqTFY1nElzgy9uWRHG/QCgiou2CGSCKgJ8bpj9+tzA60TmMNxsFfpQGgqwzQfbMyP/ZC+6juawTJ3YVUX+NoVCx36K4MYggzNkh1UoepDRjkNX/l8HhaIB1iBlJsrdtPXWltLuv4l/q23QmUwXii7f543wmFt0fpSyQ/QbRMYwdyMbVGkfbLrOYqBLpkrI+7xBCm1TXvhgm5gJa5jX4fvHkr9XN6xBNcSn2t1mBXGA77dQcYu5JQhaZPWaRcZimiWfKFDPqKxB/NjgaHri95prgeuWyk9WpqKffZGG+Mv74H/H3vq8VYVb0/brw+ND8n5uYEbBtdMp7CVmR7fDLpc74ArPCq2NwxZFQcU1s7BbNPIw130vyuMimLtfGSbOZKxzn2FTlRBN9n1SeHWKPrbzcNS1SzNZSLtmHwN2NPPQ4uuyDwc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4P195MB1456.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(7416014)(376014)(366016)(921020)(4143699003)(3023799007)(11063799006)(56012099006)(18002099003)(22082099003)(10067099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZFhnbjQ5VDFQQlg5eFJuYnY2MVhSLy9KdUJtekMraWdIQ011SElNWWNlWUNw?=
- =?utf-8?B?T0JydjF1em9IbFo5L3IybmlBSHY3anVLYldFUkhpTitaOWd2UUVETjgwTnVO?=
- =?utf-8?B?V255ZXBKVG8xVStZNEd5MDFXbVI3QUs3Vi9tbzJVZEJPUlVNMDRxQ0FEd3RQ?=
- =?utf-8?B?VE5GVFdPRHFBaCtHVFdGSUd1azNEaXoxYjZBQXk4NlFTVStqcm5xbWE4Nk4w?=
- =?utf-8?B?aDBJL0pGd3RHRXM3ZXhyT0c0V2dCTXZyN2MvM1RlZVhRNUpxTmJ3V1JCMDdi?=
- =?utf-8?B?RzhzNjhqWi84SndtWDBmcVhJek1wK3p0MW9FczExQnBXSVBBOTlmQ3FhMGhE?=
- =?utf-8?B?ZVlueEZZb2lXc1MvK1JmdG12Qlh6cmh4NlN5VEhyTFpLZ0NkMlB0RVd3R3J0?=
- =?utf-8?B?RmdrR1NxK0svZitDYjFMK3MwOFFwMjMxY01CUEVHQmZHN3lDSm1ydlViVUlG?=
- =?utf-8?B?dnhDYmxkeU1rZnRxL243NVVKRTNUV2ZCYWhKaGlHV3lNUEk3S0lYOTF1OFZj?=
- =?utf-8?B?cTU0dDBzREtaaHJINmhxbXZ2aGtNenN3eC9QNi9TNDZQanpILzc3V1dmVjIr?=
- =?utf-8?B?UC84MEJCcERPRC9CdGVBK1pwMnBkcHVqR1VMbERwc1RKbUd5bTlvQkZLWklz?=
- =?utf-8?B?Qld1TEV4VFBhY3RheTRtV0ozcnFGcUE2TSt1ZWVPQVNjZnJtWWNocXVKZk5m?=
- =?utf-8?B?ZUZyVkllOUR4QjQzTTRFaWxPUnBNbExFZ2w4elRONUVwQnZTdk0yQmpRZTkx?=
- =?utf-8?B?b1NNMWpmdEgxdmNYQVFnZU5UcWpZYmNqdUoxT3lsODg5cG0ybERpT1N3SEh4?=
- =?utf-8?B?cCtqdktCKzhzSXVtdzdTeDNBQVpNWVlXZXpvWU5JSUQ1V1VtM2hqMldvSlpt?=
- =?utf-8?B?bEh0YUFqa2RVMDBTYzE2Y29rNWEzR3laV2JmVGFIUmY4ckdHVG9XaDNvdFNz?=
- =?utf-8?B?YVdtaVAyR1pUTU9RalJjU2pvN0oxRTdoZThxczJic0l0ZnFBVi9FU3ZwcGRY?=
- =?utf-8?B?QmV0NEpSSzNFMERxTFFxVTc0endmZFZqYUN6SC96V2h3UHUwbXFxT2gyMTJl?=
- =?utf-8?B?SFRZZmJiSzJ2R1h3OFdBSE5hQ0VWRWQxcXdYcnloVXFiUThwRWlIWFhwRlZR?=
- =?utf-8?B?Sm1MNk5saXQ5N1NZZGpNWkIzcXYxVnhSUUVDV0tLblVwcWUzYTNEd2d1SHZr?=
- =?utf-8?B?WHZKUjA0b01Ed0hrbzZWSWUvUHZ0bHJzVVNkNXlvK3Y0WHFIaXVHYkR3ZjB4?=
- =?utf-8?B?VkdyT0pwMGZRellmcXBYdml1NVFENGhaN2ZCcU9iOEhHSGdwOUhHS2NJYzI5?=
- =?utf-8?B?MXBSQmRabkQxbENhUkFLWmlPOXV0YXdqUVM0SU1nRk9rSDc5ODFyTDdWTEFu?=
- =?utf-8?B?Um1ZQjVJUU5hQ283eHdiRXpjRFhjTS9TWUJrbGZiTTZkVFdKZUxMTzVtNW42?=
- =?utf-8?B?MEZJMFRRWDF0SWNYSFFGUTQ0Tlp5VG43K0ZNalpOaXFpSU5RQmlTWTdqL2NJ?=
- =?utf-8?B?M1NQUmI1Z0ZvaFcydW5WNGZVK0VwZTJQTkJ2TXV4YTE0M2dnQTkrWW9KbjZE?=
- =?utf-8?B?KzU3QUhpZ21WQ01PMmwwUUMzdmpLRnN1ZXY2b3c2RlFMbWhoT2k2YUVnNHM4?=
- =?utf-8?B?WHYwSEZTb2c3YzZjR3p5Y2ZxODhzazZUZXoyQ0w2dkM5bFFyRE43d2pKTUM0?=
- =?utf-8?B?SGdFVFR5ZWtNN2MrRXRmMW5rejVJUnRsV0V2ZXB1RHdrbTk1cmFRL0huZUM4?=
- =?utf-8?B?bHU4UHY0bVRob0h4dW4xa08vUmR1dTNKNUhJdUxGK2JnNnNlQUVNaHpXeEU2?=
- =?utf-8?B?SjF3MitteHBkVVBSUEV3cmFZTHVkZ0x2SWJmQWEzVW1PRlcxUWFRenlSQVFT?=
- =?utf-8?B?b1RyMFJhN0t5bVg4cjFZeDZMaHN2MHlBUnZvclQ2b1NLaklRZGFSY0RBNzdq?=
- =?utf-8?B?aTBOWVRXNGF0cW1Wa2pab0s2WVNiYTh1Y0ZkYVdFTFBsWElHWk5FOHVMT3h1?=
- =?utf-8?B?T29hWTEyRDkrNExaVHNPSENMR1kwalJCSlRGd0Joc3hJTml5SlZvSzlWK01V?=
- =?utf-8?B?YS8wbjB6cnA2dmhmeE1TLzN0dXg4SHBkUkREcVFxUzMzSzlhMEc1TkhPZmhn?=
- =?utf-8?B?V1duWUdMUGh4M1BtWnBXNlhWejkyVG1CRVljOWpGRjdsa0YyelN4WTRrSTgv?=
- =?utf-8?B?bmF3V0s2TnRGc2daSzFEaVd3aVo2Tm9oK2diOHJkSUxqbzVwQVhTMlBlSzV4?=
- =?utf-8?B?bzNCWUFneW5ZYmNubE1TVytoRkMwK2wrUDdrTXQ5ZzVYTVpyT05XbjBQNUtl?=
- =?utf-8?B?Q28vK1BDUTYxdkRDdjBSNVNYenZ1eWp6Y3RLMVpmdWNqUUhPV3FTUT09?=
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: b97059ab-ba51-4664-b8cd-08df15787071
-X-MS-Exchange-CrossTenant-AuthSource: AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Sep 2026 11:31:53.8404
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: DbR2w9HuI8QQx6RsULx0HLHrEBYbvPLx8O8/++uX5GMBtkEWUtmkN2M63lExeb9hN1GJb2nogYkkrnwrWmSLcA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8P195MB1978
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAKAhrWoC/23QS2rEMAwG4KsMXtdFfin2rHqP0oVjy42heZCEk
+ DLk7jXpIkPrpfilT0IPttCcaWH324PNtOUlj0MpmpcbC50fPonnWGomQSIoofiXHxzizqeQeYq
+ 9505T1NZEqZJnZWyaKeX9JN/ZQCsfaF/ZR0m6vKzj/H3u2sSZ/7IS/rOb4MApGR1a10LQ7Vufw
+ zyGLk+vYexPcJMXoqWtILIgUVFAJMDSV0PUhRjQFUQVxBtMptEQbQM1RD8jtUt0QYQmCNZFG1H
+ VEPOEVH9iChLKKcI1nsBUf4IX4sBVECwIJm2jb13ERvxFjuP4Ae0r7u8XAgAA
+X-Change-ID: 20260313-lan966x-pci-fdma-94ed485d23fa
+To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Horatiu Vultur
+	<horatiu.vultur@microchip.com>, Steen Hegelund
+	<steen.hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>, "Alexei
+ Starovoitov" <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+	"Jesper Dangaard Brouer" <hawk@kernel.org>, John Fastabend
+	<john.fastabend@gmail.com>, Stanislav Fomichev <sdf@fomichev.me>, Herve
+ Codina <herve.codina@bootlin.com>, Arnd Bergmann <arnd@arndb.de>, Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>, Mohsin Bashir
+	<mohsin.bashr@gmail.com>
+CC: Richard Cochran <richardcochran@gmail.com>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <bpf@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_043203_865427_8F74406D 
-X-CRM114-Status: GOOD (  14.88  )
+X-CRM114-CacheID: sfid-20260918_043413_959565_354E585E 
+X-CRM114-Status: GOOD (  39.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,52 +99,330 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+When lan966x operates as a PCIe endpoint, the driver currently uses
+register-based I/O for frame injection and extraction. This approach is
+functional but slow, topping out at around 33 Mbps on an Intel x86 host
+with a lan966x PCIe card.
 
+This series adds FDMA (Frame DMA) support for the PCIe path. When
+operating as a PCIe endpoint, the internal FDMA engine on lan966x cannot
+directly access host memory, so DMA buffers are allocated as contiguous
+coherent memory and mapped through the PCIe Address Translation Unit
+(ATU). The ATU provides outbound windows that translate internal FDMA
+addresses to PCIe bus addresses, allowing the FDMA engine to read and
+write host memory. Because the ATU requires contiguous address regions,
+page_pool and normal per-page DMA mappings cannot be used. Instead,
+frames are transferred using memcpy between the ATU-mapped buffers and
+the network stack. With this, throughput increases from ~33 Mbps to
+~620 Mbps for default MTU.
 
-On 9/18/26 12:17 PM, Markus Schneider-Pargmann (TI) wrote:
-> The wkup_r5fss0_core0_memory_region was reserved with only
-> 0x0f00000 but the MCU SDK linker for the wkup R5F firmware on
-> AM62A defines the DM code/data DDR footprint differently:
-> 
->     /* DDR for DM R5F code/data [ size 27 MiB + 364 KB ] */
->     DDR                         : ORIGIN = 0x9CAA5000 LENGTH = 0x1B5B000
-> 
-> which results in an end at 0x9e600000. For this memory region which
-> starts at 0x9c900000 this means a length of:
-> 
->     0x9e600000 - 0x9c900000 = 0x1d00000
-> 
-> AM62A additionally has a second DM firmware for edgeai whose highest
-> section end address reaches 0x9e700000, so the region should end there:
-> 
->     0x9e700000 - 0x9c900000 = 0x1e00000
-> 
-> Link: https://github.com/TexasInstruments/mcupsdk-core-k3/blob/k3_main/examples/drivers/ipc/ipc_rpmsg_echo_linux/am62ax-sk/r5fss0-0_freertos/ti-arm-clang/linker.cmd
-> Fixes: 8dd0ac27fcd1 ("arm64: dts: ti: k3-am62a-phycore-som: Enable Co-processors")
-> Acked-by: Andrew Davis <afd@ti.com>
-> Reviewed-by: Bryan Brattlof <bb@ti.com>
-> Reviewed-by: Kendall Willis <k-willis@ti.com>
-> Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
+Patch 1 adds the shared drivers/net/ethernet/microchip/fdma/ directory
+to the Sparx5 SoC MAINTAINERS entry.
 
-Reviewed-by: Wadim Egorov <w.egorov@phytec.de>
+Patches 2-3 prepare the shared FDMA library: patch 2 renames the
+contiguous dataptr helpers for clarity, and patch 3 adds PCIe ATU
+region management and coherent DMA allocation with ATU mapping.
 
-> ---
->  arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
-> index de4048a3564b..53c096da68b5 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
-> @@ -67,7 +67,7 @@ wkup_r5fss0_core0_dma_memory_region: memory@9c800000 {
->  
->  		wkup_r5fss0_core0_memory_region: memory@9c900000 {
->  			compatible = "shared-dma-pool";
-> -			reg = <0x00 0x9c900000 0x00 0xf00000>;
-> +			reg = <0x00 0x9c900000 0x00 0x1e00000>;
->  			no-map;
->  		};
->  
-> 
+Patches 4-7 refactor the lan966x FDMA code to support both platform
+and PCIe paths: extracting the LLP register write into a helper,
+exporting shared functions, introducing a dedicated device for DMA
+operations, and adding an ops dispatch table selected at probe time.
+
+Patches 8-9 harden the existing FDMA path for the PCIe endpoint
+lifecycle: patch 8 clears latched FDMA error/interrupt stickies after
+the switch reset so they don't assert as soon as interrupts are
+enabled, and patch 9 adds a shutdown() callback that quiesces the
+FDMA engine on host warm reboot (on the PCIe card the FDMA survives
+host reset and would otherwise keep the shared INTx asserted into
+the next probe).
+
+Patch 10 adds the core PCIe FDMA implementation with RX/TX using
+contiguous ATU-mapped buffers. Patches 11 and 12 extend it with MTU
+change and XDP support respectively. XDP_PASS, XDP_TX, XDP_DROP and
+XDP_ABORTED are supported; XDP_REDIRECT is deliberately not, because
+the PCIe data path does not use page_pool.
+
+Patches 13-14 update the lan966x PCI device tree overlay to extend the
+cpu register mapping to cover the ATU register space and add the FDMA
+interrupt.
+
+Patches 1-12 touch MAINTAINERS and drivers/net/ethernet/microchip/, and
+are for the netdev tree.
+
+Patches 13-14 touch drivers/misc/lan966x_pci.dtso, and are for the
+char-misc tree.
+
+To: Andrew Lunn <andrew+netdev@lunn.ch>
+To: David S. Miller <davem@davemloft.net>
+To: Eric Dumazet <edumazet@google.com>
+To: Jakub Kicinski <kuba@kernel.org>
+To: Paolo Abeni <pabeni@redhat.com>
+To: Horatiu Vultur <horatiu.vultur@microchip.com>
+To: Steen Hegelund <steen.hegelund@microchip.com>
+To: UNGLinuxDriver@microchip.com
+To: Alexei Starovoitov <ast@kernel.org>
+To: Daniel Borkmann <daniel@iogearbox.net>
+To: Jesper Dangaard Brouer <hawk@kernel.org>
+To: John Fastabend <john.fastabend@gmail.com>
+To: Stanislav Fomichev <sdf@fomichev.me>
+To: Herve Codina <herve.codina@bootlin.com>
+To: Arnd Bergmann <arnd@arndb.de>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Mohsin Bashir <mohsin.bashr@gmail.com>
+Cc: Richard Cochran <richardcochran@gmail.com>
+Cc: netdev@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: bpf@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+
+Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
+---
+Changes in v7:
+
+Mostly a response to the automated review of v6. The notable change is
+that the resize-time MTU guards added in v6 are replaced by an advertised
+limit. v6 rejected an oversized MTU inside lan966x_fdma_pci_resize() with
+-ERANGE, which is late, and leaves dev->max_mtu advertising a range the
+PCIe path cannot honour. v7 derives the maximum from the same constants
+and publishes it in dev->max_mtu instead, so the core rejects the request
+up front and both -ERANGE returns become unreachable and are removed.
+Also, the shutdown() was refactored to not race with ndo's.
+
+- PCIe: cap dev->max_mtu on the PCIe path (FDMA_PCI_MAX_MTU), derived
+  from the contiguous ring having to fit one MAX_PAGE_ORDER block after
+  padding to the ATU region granularity, and from db_size having to fit
+  the 16-bit DCB DATAL field. On a 4KB-page, MAX_PAGE_ORDER=10 build that
+  is MTU 15498. Both resize-time -ERANGE checks are removed with it.
+- PCIe: factor the frame overhead into LAN966X_FDMA_OVERHEAD and use it
+  for both the cap and lan966x_fdma_get_max_frame(), so it is not
+  open-coded twice.
+- PCIe: skip the resize while the FDMA is not initialised. The rings are
+  built by lan966x_fdma_pci_init(), which runs after the netdevs are
+  registered, so an MTU change in that window would dereference NULL.
+- PCIe: comment why NAPI has to be enabled before the queues are woken in
+  the MTU reload path.
+- shutdown(): rework the quiesce ordering. Free the xtr, ana and FDMA
+  irqs first so no source can assert INTx, mask ANA_ANAINTR whether or not
+  the FDMA is in use, then disable NAPI, stop and detach the netdevs,
+  disable the FDMA channels, clear the FDMA interrupt enables and unmap
+  the ATU windows.
+- ATU: document the alignment requirement and -EINVAL at
+  fdma_pci_atu_region_map(), document at fdma_pci_atu_translate_addr()
+  that the caller must quiesce DMA and the descriptor paths before
+  unmapping a region, initialise the region bookkeeping explicitly in
+  fdma_pci_atu_init(), and fix the comment on the upper limit register.
+- Patch 3 commit message: drop the claim that the patch adds PCIe FDMA
+  support; it adds the helpers the lan966x path later uses.
+
+Reported by the v6 review and deliberately not fixed here, because the
+code is pre-existing and the fixes want a Fixes: tag:
+
+- register_netdev() and the FDMA irq request both happen before
+  ops->fdma_init(), so an MTU change or a stale interrupt can reach an
+  uninitialised FDMA. Pre-existing on the platform path; the fix is a
+  reorder of the shared probe, which I will send against net. The skip
+  above closes the MTU-change half on PCIe in the meantime.
+- lan966x_hw_offload() frees the caller's skb and reports only a bool.
+  Pre-existing, all three callers affected. Goes to net with
+  Fixes: 6476f90aefaf.
+- The platform XDP hook leaves the FCS in the window handed to the BPF
+  program, while the PCIe hook strips it. Pre-existing. Goes to net with
+  Fixes: 6a2159be7604.
+- Link to v6: https://lore.kernel.org/r/20260909-lan966x-pci-fdma-v6-0-6f48dab9d671@microchip.com
+
+Changes in v6:
+
+The main change is a DMA bug on the PCIe path, found after enabling the
+IOMMU on the test host. The rest is hardening and cleanup.
+
+- New patch 6: use a dedicated device for DMA operations. On the PCIe
+  path lan966x->dev is the platform device created by
+  of_platform_default_populate(), which carries no iommus/dma-ranges of
+  its own, so it is not the device the IOMMU has a domain for. DMA
+  mapped against it lands outside the domain the endpoint's requester ID
+  is associated with. With the IOMMU enabled, AMD-Vi reported
+  IO_PAGE_FAULT for the endpoint and no traffic passed. All FDMA DMA now
+  targets the real PCIe endpoint device. Retested with the IOMMU in
+  translated (DMA-FQ) mode.
+- ATU: serialise region allocation/free and ATU register access with a
+  mutex.
+- ATU: program the region limit per mapping (base_addr + size - 1)
+  instead of the full region bound, and disable every region in
+  fdma_pci_atu_init().
+- ATU: return -ERANGE instead of -E2BIG when the requested size exceeds
+  the region size, and clear fdma->atu_region on unmap.
+- PCIe FDMA: check fdma_dcbs_init() and unwind the coherent allocation
+  and the ATU mapping on failure.
+- PCIe FDMA: drop the WARN_ON() on an out-of-range src_port; a malformed
+  IFH should not be able to splat the host.
+- Quiesce consistently in shutdown, deinit and the MTU reload: stop the
+  netdev queues and NAPI before disabling the FDMA channels, and share
+  one lan966x_fdma_tx_disable_netdev() helper instead of open-coding it
+  per path.
+- shutdown: also mask ANA_ANAINTR, which shares the PCIe INTx with the
+  FDMA sources.
+- MTU change: reject an MTU whose ring would not fit in a single
+  MAX_PAGE_ORDER coherent block, and reject one whose db_size would be
+  truncated by the 16-bit DCB DATAL field, rather than programming a
+  wrong buffer length.
+- Assign lan966x->ops directly in the ops dispatch patch, so that patch
+  no longer adds a helper returning a single constant; PCI detection now
+  derives from dma_dev and arrives with the PCIe implementation.
+- ATU: reject a target address that is not aligned to the 64KB ATU region
+  granularity, instead of programming a translation offset by the
+  misalignment.
+- Drop the CONFIG_MCHP_LAN966X_PCI guard around the fdma_pci.h include in
+  fdma_api.h (Jakub).
+- Use ifneq ($(CONFIG_MCHP_LAN966X_PCI),) instead of ifdef in both the fdma
+  and lan966x Makefiles; the symbol is tristate, so the condition has to
+  cover both y and m (Jakub).
+- Reprogram the FDMA LLP registers on the platform reload restore path,
+  which stopped happening when the LLP write moved into the allocation
+  functions.
+- XDP: drop the napi_synchronize() before freeing the old program on the
+  PCIe path; READ_ONCE() on port->xdp_prog plus the RCU-deferred
+  bpf_prog_put() already cover the in-flight poll.
+- XDP: note that the ETH_ZLEN floor is deliberately not enforced on XDP_TX.
+- PCIe FDMA: count tx_dropped when the DCB ring is full.
+- PCIe FDMA: guard the deinit napi_disable() on fdma_ndev, as shutdown()
+  already does; NAPI is only initialised on the first ndo_open.
+- ATU: program the region translation before enabling the region.
+- ATU: pad the mapped allocation to the 64KB outbound region granularity,
+  so the window does not extend past the coherent allocation.
+- ATU: reject mapping an fdma that already holds a region, instead of
+  overwriting the handle and leaking the old mapping. The MTU reload clears
+  the handle on the live rings first, since it keeps the old mapping alive
+  until the new rings are in place.
+- PCIe FDMA: declare the RX DCB DATAL as the space actually available to the
+  extraction engine (db_size - XDP_PACKET_HEADROOM), since the data block
+  pointer starts that far into the slot.
+- Move the XDP-unsupported guards from the XDP patch into the PCIe FDMA
+  patch, so that no intermediate commit advertises NETDEV_XDP_ACT_NDO_XMIT
+  for a PCIe instance while tx->dcbs_buf is NULL, and none lets an XDP
+  attach reach the platform page_pool reload. The final tree is unchanged.
+- shutdown: take rtnl, so it cannot interleave with the rtnl-only reload
+  paths and double-disable the NAPI, which would spin forever in
+  napi_disable().
+- Link to v5: https://lore.kernel.org/r/20260520-lan966x-pci-fdma-v5-0-ca56197ae05b@microchip.com
+
+Changes in v5:
+
+This version fixes a single AI review issue, flagged by Paolo. Other AI
+issues  for v4 has been classified as pre-existing or changes for
+follow-ups.
+
+- Fix premature napi_complete_done() in lan966x_fdma_pci_napi_poll() on
+  FDMA_ERROR and napi_alloc_skb() failure. Bailing out left DONE=1 DCBs
+  in the ring with no IRQ to drain them. Drop the frame and continue
+  the poll loop instead. Bump rx_dropped on memory-pressure drop.
+  (Paolo)
+- Link to v4: https://lore.kernel.org/r/20260508-lan966x-pci-fdma-v4-0-14e0c89d8d63@microchip.com
+
+Changes in v4:
+- Consolidate rx size checks into lan966x_fdma_pci_rx_size_fits().
+  Subtract XDP_PACKET_HEADROOM on the max size check, and add ETH_HLEN
+  on the min size check. This fixes potential OOB reads/writes.
+- On xdp_prepare_buff(), update comment to clarify that data is already
+  offset by XDP_PACKET_HEADROOM.
+- Link to v3:
+  https://lore.kernel.org/r/20260504-lan966x-pci-fdma-v3-0-a56f5740d870@microchip.com
+
+Changes in v3:
+
+Version 3 fixes a number of issues reported by sashiko - mostly
+hardening.
+
+- Fix double use of XDP_PACKET_HEADROOM.
+- Fix ERR_PTR persistence in fdma->atu_region and add missing
+  NULL/ERR_PTR guard in fdma_pci_atu_region_unmap().
+- Reject size <= 0 in fdma_pci_atu_region_map() and return
+  -ENOSPC (was -ENOMEM) when no region is free.
+- Introduce lan966x_fdma_pci_tx_size_fits() that accounts for
+  XDP_PACKET_HEADROOM; use it from both xmit paths to keep
+  bpf_xdp_adjust_tail from writing past the TX slot.
+- Validate BLOCKL in rx_check_frame() (reject < IFH+FCS or
+  > db_size) before it feeds memcpy/XDP sizes.
+- READ_ONCE(port->xdp_prog) inside lan966x_xdp_pci_run() to close
+  a TOCTOU on XDP detach that could deref NULL in
+  bpf_prog_run_xdp().
+- Strip IFH and FCS pre-XDP in rx_check_frame(). After BPF runs
+  the driver cannot tell whether the tail was modified; drop the
+  unconditional skb_pull/skb_trim in rx_get_frame().
+- Account tx_bytes/tx_packets on XDP_TX success and tx_dropped on
+  XDP_TX size reject.
+- Add dma_wmb()/dma_rmb() around DCB status writes and reads in
+  xmit, xmit_xdpf, and napi_poll.
+- Collected Tested-by: Hervé Codina.
+- Link to v2: https://lore.kernel.org/r/20260428-lan966x-pci-fdma-v2-0-d3ec66e06202@microchip.com
+
+Changes in v2:
+
+Version 2 primarily addresses issues with module unload/load, where
+traffic would stop working (Hervé), and XDP head/tail adjust that would be
+discarded (Mohsin).
+
+Apart from that, I ran through issues reported by Sashiko, and fixed a
+number of other issues.
+
+- New patch 1: add drivers/net/ethernet/microchip/fdma/ to the Sparx5
+  SoC MAINTAINERS entry.
+- New patch 7: clear latched FDMA error/interrupt stickies after the
+  switch reset so they don't fire as soon as interrupts are enabled.
+- New patch 8: shutdown() callback, quiescing FDMA on host warm reboot.
+- Replaced the depth-2 dev_is_pci(parent->parent) backend selector
+  with a parent-chain walk.
+- XDP: use xdp.data/xdp.data_end for the post-XDP frame length so that
+  bpf_xdp_adjust_head/tail are respected (Mohsin Bashir)
+- MTU change: drain in-flight xmits with netif_tx_disable() on every
+  port before reallocating rings, waking them again on completion.
+- MTU change: cap the PCIe DCB ring at 256 entries so a full-ring
+  coherent DMA allocation fits in a single MAX_PAGE_ORDER block at
+  jumbo MTU.
+- PCIe ATU: disable the region before clearing its translation on
+  unmap.
+- PCIe FDMA: hold tx_lock in napi_poll around the free-DCB check used
+  to wake stopped netdev queues.
+- PCIe FDMA: return -ENOSPC (not -1) when the DCB ring is exhausted.
+- Link to v1: https://lore.kernel.org/r/20260320-lan966x-pci-fdma-v1-0-ef54cb9b0c4b@microchip.com
+
+---
+Daniel Machon (14):
+      MAINTAINERS: add FDMA library to Sparx5 SoC entry
+      net: microchip: fdma: rename contiguous dataptr helpers
+      net: microchip: fdma: add PCIe ATU support
+      net: lan966x: add FDMA LLP register write helper
+      net: lan966x: export FDMA helpers for reuse
+      net: lan966x: use a dedicated device for DMA operations
+      net: lan966x: add FDMA ops dispatch for PCIe support
+      net: lan966x: clear FDMA interrupt stickies after switch reset
+      net: lan966x: add shutdown callback to stop the FDMA on reboot
+      net: lan966x: add PCIe FDMA support
+      net: lan966x: add PCIe FDMA MTU change support
+      net: lan966x: add PCIe FDMA XDP support
+      misc: lan966x-pci: dts: extend cpu reg to cover PCIE DBI space
+      misc: lan966x-pci: dts: add fdma interrupt to overlay
+
+ MAINTAINERS                                        |   1 +
+ drivers/misc/lan966x_pci.dtso                      |   5 +-
+ drivers/net/ethernet/microchip/fdma/Makefile       |   4 +
+ drivers/net/ethernet/microchip/fdma/fdma_api.c     |  44 ++
+ drivers/net/ethernet/microchip/fdma/fdma_api.h     |  22 +-
+ drivers/net/ethernet/microchip/fdma/fdma_pci.c     | 208 ++++++
+ drivers/net/ethernet/microchip/fdma/fdma_pci.h     |  57 ++
+ drivers/net/ethernet/microchip/lan966x/Makefile    |   4 +
+ .../net/ethernet/microchip/lan966x/lan966x_fdma.c  |  88 ++-
+ .../ethernet/microchip/lan966x/lan966x_fdma_pci.c  | 695 +++++++++++++++++++++
+ .../net/ethernet/microchip/lan966x/lan966x_main.c  | 121 +++-
+ .../net/ethernet/microchip/lan966x/lan966x_main.h  |  69 ++
+ .../net/ethernet/microchip/lan966x/lan966x_regs.h  |  25 +
+ .../net/ethernet/microchip/lan966x/lan966x_xdp.c   |   6 +
+ 14 files changed, 1287 insertions(+), 62 deletions(-)
+---
+base-commit: 548b86839f7fb819a4d6c83b71c73ec378d24275
+change-id: 20260313-lan966x-pci-fdma-94ed485d23fa
+
+Best regards,
+-- 
+Daniel Machon <daniel.machon@microchip.com>
 
 
