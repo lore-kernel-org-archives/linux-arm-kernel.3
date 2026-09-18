@@ -4,71 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEABDC982D7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 07:04:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FAE6C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 07:04:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C99qchwVmIf8eGzA2KZRAlNCqTMDn2E/1eNOjto5V1g=; b=Jlm+gd1O8jovDcaB1hMrYB4alb
-	Tsr4hWoh+zVlBAaKfYczxuV2b8baDjvg+Ac2BCsD6MEgKM78vysaOFLkFE5npCMvXNYRQIfxM/eOd
-	28ZMxN/4GI6lxHvhwG8ZIhV+ENSps57SUh+HmUtJoy6xdskNGSbdWBfReRsirWaTpRFHSz6VC9jkY
-	NzW0W9a/CYKbPFFPWaSfloS1faRA1n1IledhaJP92jaTOHXqHoX/RSuKrhWvUxV9uxh+Cu+a+a/YN
-	GQJ+2mJi0o/Hfu+FEr1ikqjChme/kAV9P1A3Wfn//A9KaznbQy+IArbYUmgaWNp+AtTWTW0ObhkNs
-	APpzuB9g==;
+	bh=TFXPRkcvIArOupySeAX0TcSgTELR2YOuovnW88kaN4E=; b=BU1XM/gmKBQimsgZkPI0q0FywX
+	gR9i2XO9oJo+hT+pHqRibwXdBBJNrvjmg7o6ox1b5J1whfQoNKxwETzNSBd5XtrKGAoU9nE5kkCcz
+	onIhECVR6uIZpkKEg469KHManxopOCkMQhChQMNyZbNWVoVH4/qbC/y1WlB4FX7xVCViHzLninzOT
+	rVYGYDjRtK6yGPu/yI/NW8kdNgsWe7B3jjznThil3rAsyxF0vB6TIx+G1drcoOdKmq2oR6/Ctd6MA
+	FgVVFyXFIdyh+TsiOvifV1pqGfXB7mbW4+uPr3PWhXmnxgHYG5JrvKMQLbsEbokis5uzLuad7SGZf
+	vXmfp/DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Sdi-0000000Ddi7-0jeZ;
-	Fri, 18 Sep 2026 07:04:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x7Sdy-0000000Ddny-19wA;
+	Fri, 18 Sep 2026 07:04:22 +0000
+Received: from m16.mail.126.com ([220.197.31.8])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Sdg-0000000Ddhe-1H1y
+	id 1x7Sds-0000000Ddll-3DkV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 07:04:04 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D0D1941842;
-	Fri, 18 Sep 2026 07:04:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 136851F000FF;
-	Fri, 18 Sep 2026 07:03:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789715043;
-	bh=C99qchwVmIf8eGzA2KZRAlNCqTMDn2E/1eNOjto5V1g=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=jWKDEaWgQ8tOV8amlp5t9MgYwzBijBFVifWz9yuQo8X4L5EFh32Flzu4XXAbDfnGm
-	 UDL93p7kB9G3Rd42nYwUtj6uT0m3roRBv2y8vs/mC/hhbavAalLWNzIamZ9CawgJa5
-	 pHnOvDOLIlc6CP9lOwT216XgLvfodA7hkiX+FB/0Ct+bfDmyj/AqncmimtUagrt8Eb
-	 oF0sbTAHHKTDObi0AO6aHDc2FHQ2Fy45mE5vliTDkO5ZU6YC6Yt14abrG5j+Mj0rNr
-	 Yjv8AMXd9/oiS5ceTffHmQV+p3xP+CkZLZuUIpC2CQ619hXKr9pxjr41fijo1ig8F1
-	 DgCMlNLI1L+8Q==
-Message-ID: <24aedc8c-a5c6-418b-a37e-051f0d6d9fa7@kernel.org>
-Date: Fri, 18 Sep 2026 09:03:55 +0200
+	Fri, 18 Sep 2026 07:04:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
+	Content-Type; bh=TFXPRkcvIArOupySeAX0TcSgTELR2YOuovnW88kaN4E=;
+	b=OaNWEyykQ2H3a9b9taiUfs0Ct8uJtuvU2o8mfGSjo5l5wGLXXEokbkyHrUexzg
+	4lSzZe4p7bL2fG3DTUZrDQ5Xt6Pj5aku8XuiL9kWrqmw8PtojtrLJ2JrR13ez3SL
+	QCJ8LmUP/PlQnQebRWrUlQaM+wDtEQW0wBexYGNi6vVKg=
+Message-ID: <cf1a87f3-acd5-4959-bd42-b88b25f48311@126.com>
+Date: Fri, 18 Sep 2026 15:03:18 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 03/10] mm/vmalloc: use pte_set_huge()/pte_clear_huge()
- for PTE-level block mappings
-To: Barry Song <baohua@kernel.org>
-Cc: Wen Jiang <jiangwenxiaomi@gmail.com>, akpm@linux-foundation.org,
- catalin.marinas@arm.com, linux-mm@kvack.org, urezki@gmail.com,
- will@kernel.org, Xueyuan.chen21@gmail.com, ajd@linux.ibm.com,
- anshuman.khandual@arm.com, david@kernel.org, dev.jain@arm.com,
- jiangwen6@xiaomi.com, leo.yan@arm.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com, rppt@kernel.org,
- ryan.roberts@arm.com
-References: <20260917052933.188679-1-jiangwenxiaomi@gmail.com>
- <20260917052933.188679-4-jiangwenxiaomi@gmail.com>
- <27072d94-13bf-4bea-948a-d8a67976601e@kernel.org>
- <CAHKocdE_zyUQT459AiTBDzQHk0jh+VpXuSMDdgHjkg-dAkgBNg@mail.gmail.com>
- <CAGsJ_4yJ-KCHbJ9S2GKXfO51KB8g-y2Q_MikqE9-6VesR-RC9Q@mail.gmail.com>
- <2462f67c-f7d3-4eb3-a093-6a338ef49f14@kernel.org>
- <CAGsJ_4zMG6v-ioi8-NhveqowPVAnsHkFCNy_c7+KHDMRW3JH-Q@mail.gmail.com>
-Content-Language: fr-FR
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-In-Reply-To: <CAGsJ_4zMG6v-ioi8-NhveqowPVAnsHkFCNy_c7+KHDMRW3JH-Q@mail.gmail.com>
+Subject: Re: [PATCH net] net: stmmac: ethtool: validate TX coalesce before
+ reprogramming RX
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Linkui Xiao <xiaolinkui@kylinos.cn>, stable@vger.kernel.org
+References: <20260917131235.1360959-1-xiaolinkui@126.com>
+ <15b8cbc2-f3ca-4845-9a93-7fff6c5aede6@lunn.ch>
+Content-Language: en-US
+From: Linkui Xiao <xiaolinkui@126.com>
+In-Reply-To: <15b8cbc2-f3ca-4845-9a93-7fff6c5aede6@lunn.ch>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: _____wD33wE24qxqKV86Bg--.60104S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxJw45Wr43Zw4UtFWkKFWkCrg_yoW5GrWUpr
+	Z5Ga4YkryDtr4Iqwn3Xa10qFyYq34xtFZ8Gr18tryfWrs8GF9Yqryaqr4rW3W7CrW0qrya
+	qF4Duas7uan8A3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UcBMNUUUUU=
+X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBlBiMY2qs4jhZZwAA3B
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260918_000417_885458_055B1CC8 
+X-CRM114-Status: GOOD (  18.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,106 +76,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Andrew,
 
-
-Le 18/09/2026 à 08:14, Barry Song a écrit :
-> On Fri, Sep 18, 2026 at 2:05 PM Christophe Leroy (CS GROUP)
-> <chleroy@kernel.org> wrote:
+On 2026/9/17 23:05, Andrew Lunn wrote:
+> On Thu, Sep 17, 2026 at 09:12:35PM +0800, Linkui Xiao wrote:
+>> From: Linkui Xiao <xiaolinkui@kylinos.cn>
 >>
+>> __stmmac_set_coalesce() applies the RX part of the request first and
+>> only afterwards checks the TX parameters. The RX path already calls
+>> stmmac_rx_watchdog() and stores rx_riwt[] and rx_coal_frames[], so when
+>> the TX check rejects the request the driver returns -EINVAL after having
+>> silently changed the hardware. A following ethtool -c then reports the
+>> new RX values even though the command failed.
 >>
+>> This became easy to hit once the per-queue interface was added.
+>> __stmmac_get_coalesce() reports tx-usecs and tx-frames as 0 for a queue
+>> index that is RX-only, and ethtool applies per-queue coalesce by reading
+>> the current values first and sending them straight back. The next set is
+>> therefore guaranteed to trip the test for both TX fields being zero,
+>> right after the RX watchdog has been reprogrammed.
 >>
->> Le 17/09/2026 à 23:44, Barry Song a écrit :
->>> On Thu, Sep 17, 2026 at 10:41 PM Wen Jiang <jiangwenxiaomi@gmail.com> wrote:
-> [...]
+>> Move both TX checks in front of the RX block so a request is either
+>> applied completely or rejected without touching the device.
+>>
+>> Fixes: db2f2842e6f5 ("net: stmmac: add per-queue TX & RX coalesce ethtool support")
+>> Cc: stable@vger.kernel.org
+>> Signed-off-by: Linkui Xiao <xiaolinkui@kylinos.cn>
+>> ---
+>>   .../ethernet/stmicro/stmmac/stmmac_ethtool.c  | 21 ++++++++++++-------
+>>   1 file changed, 13 insertions(+), 8 deletions(-)
+>>
+>> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+>> index 154cc0c7623d..325db062f72a 100644
+>> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+>> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+>> @@ -850,6 +850,19 @@ static int __stmmac_set_coalesce(struct net_device *dev,
+>>   	else if (queue >= max_cnt)
+>>   		return -EINVAL;
+>>   
+>> +	/* Check the TX parameters before anything is applied: the RX part
+>> +	 * below already writes to the hardware, so rejecting the request
+>> +	 * afterwards would leave the device with only half of the settings
+>> +	 * the caller asked for while reporting a failure.
+>> +	 */
 > 
->>>>>>
->>>>>> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
->>>>>> index cdd68ed3ae1a9..349ced999f959 100644
->>>>>> --- a/include/linux/pgtable.h
->>>>>> +++ b/include/linux/pgtable.h
->>>>>> @@ -2134,6 +2134,35 @@ static inline int pmd_free_pte_page(pmd_t *pmd, unsigned long addr)
->>>>>>     }
->>>>>>     #endif      /* CONFIG_HAVE_ARCH_HUGE_VMAP */
->>>>>>
->>>>>> +/*
->>>>>> + * PTE-level block mappings for vmap.
->>>>>> + *
->>>>>> + * pte_set_huge() only has to be implemented by architectures whose
->>>>>> + * arch_vmap_pte_range_map_size() can return a size other than PAGE_SIZE.
->>>>>> + */
->>>>>> +#ifndef __HAVE_ARCH_PTE_SET_HUGE
->>>>>> +static inline void pte_set_huge(pte_t *ptep, unsigned long addr,
->>>>>> +                             phys_addr_t phys, pgprot_t prot,
->>>>>> +                             unsigned long size)
->>>>>> +{
->>>>>> +     WARN_ON_ONCE(1);
->>>>>
->>>>> BUILD_BUG_ON() would be better here.
->>>>>
->>>>> It should be possible because fallback arch_vmap_pte_range_map_size()
->>>>> will constant-fold PAGE_SIZE so pte_set_huge() will never be called.
->>>>>
->>>>
->>>> Agreed. These fallbacks exist only to keep the build working on
->>>> architectures with PTE-level block mappings and should never actually
->>>> be reached, so BUILD_BUG_ON() is right. I'll make that change in v9.
->>>>
->>>
->>> I am not quite sure. It won't be called at runtime because
->>> `vmap size`/`unmap size` return `PAGE_SIZE`, so the code won't
->>> reach this branch. But it will still be built.
->>
->> The fallbacks are defined as:
->>
->> #ifndef arch_vmap_pte_range_map_size
->> static inline unsigned long arch_vmap_pte_range_map_size(unsigned long
->> addr, unsigned long end,
->>                                                           u64 pfn, unsigned int max_page_shift)
->> {
->>          return PAGE_SIZE;
->> }
->> #endif
->>
->> #ifndef arch_vmap_pte_range_unmap_size
->> static inline unsigned long arch_vmap_pte_range_unmap_size(unsigned long
->> addr,
->>                                                             pte_t *ptep)
->> {
->>          return PAGE_SIZE;
->> }
->> #endif
->>
->> Therefore in:
->>
->>                   size = arch_vmap_pte_range_unmap_size(addr, pte);
->>                   if (size != PAGE_SIZE) {
->>
->> GCC knows 'size' is const and its value is PAGE_SIZE, so it won't emit
->> the branch at all.
->>
->> It is call constant folding, some explanation here:
->> https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FConstant_folding&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C869dac21f28d45988a3d08df154c225a%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639253088878897551%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=Dvtz1%2FAHvAbVYO%2BRaHTOizcD%2FclJ9FqTcWXKMhIFVyw%3D&reserved=0
->>
->>>
->>> So, would a `BUILD_BUG_ON()` trigger a build failure here?
->>
->> It shouldn't, if it does it is a compiled bug or this is because someone
->> has redefined arch_vmap_pte_range_map_size() and not pte_set_huge()
->> which we'd better know at build time rather than at runtime.
+> Why such a verbose comment? Look at the rest of the code and make your
+> comments similar in verbosity.
+Thanks for the review. You're right, the comment is far more verbose
+than the surrounding code, and the rationale is already covered by the
+commit message.
+
+I'll shorten it to a single line in v2 and send it shortly.
+
+Thanks,
+Linkui
 > 
-> Thanks, Christophe. I was also thinking about compiler optimization. I
-> was just a bit worried that we're touching the common MM code, which
-> affects almost all architectures, so I'm not quite sure whether this is
-> supported by all GCC versions used by those architectures.
+>      Andrew
 > 
-> If it is supported by all of them, I agree that `BUILD_BUG_ON()` is a
-> perfect approach.
+> ---
+> pw-bot: cr
+> 
 
-AFAIU this is the assumption made by the kernel, see 
-https://docs.kernel.org/process/coding-style.html#conditional-compilation
-
-This is the same compiler, I see no reason why ability to constant-fold 
-would be dependant on architecture.
-
-Christophe
 
