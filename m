@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40C4CC982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 00:19:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F6B2C982D2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 00:27:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KX1mrTXXm/YmQ3NBa1KYqQPnHEYJ4Px7YbYyq2YMDkE=; b=fSy4suFrELBV/3n0Gx4IlVvtLw
-	Zb1RQxWUdFJRrXO5+WFVc8uxmW3hV8Ke8cpa6XraKnKm0zCSXJ6UpYsj1i2NcnKWKhLfsYXxaRm8N
-	huXukXCb1z9KrT1Y4rLdwgEfr2/7KOKp7BiQAzJOJ8APPwgGpx1lYfwCfXirZ20kEVWgI+SpwifCJ
-	I9Opqsax5Z1pQ0kNL/LJGuBmE06//5Cx2uFJElMYfb32/JgJYkko033awUv5WeT9mj9t/PsnCrYuP
-	BWF0JoDhZmQ2LZstRqcVJW2BoFqqGPKCDPChMuWYKg6GZF0dDj4fpEpGV5zXTZLaQrfULxbxh8MWW
-	u8Oyogfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AAJVlL7V3Svw6ebZPQuFtG6AvhLc+t5u5Nl4UBUE390=; b=27leSo+4bBqDKCMVXRO1MBDOv7
+	BoyPKYvwhgPCl8peMH6JdamO7DTci94y0v5kygD3nrQPUrCMhgObeQXKmDcCFK1DcayCgfDNMrmFt
+	yOJa3brHBb2PVQqSha6u41TdH+vgFEO/2OWlGSUgc3pepB2Cs4mG7BMJ1JtJieuHFLEgz0oj6Jqar
+	GXVCUzIZ2E/c8l3jszqjis5p+IZCTOIjswiacx4KpmIW5t6S3eqSqRWjL8X5iYTm+Bv7MIJV2UuO3
+	fuTNm7boL/5FQ5f6W54KThhwxqGvr8ITMuB30F/rx6BqKKX7UJ7rdAgLDjQrdX7Hwiq2nVcs/UW0k
+	o57spHRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7MJx-0000000D0og-2DAx;
-	Fri, 18 Sep 2026 00:19:17 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x7MS9-0000000D1Wp-2COC;
+	Fri, 18 Sep 2026 00:27:45 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7MJv-0000000D0o3-3FIb
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 18 Sep 2026 00:19:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=KX1mrTXXm/YmQ3NBa1KYqQPnHEYJ4Px7YbYyq2YMDkE=; b=cu4Ma67ZDu+ckKnLk5QuKxr4qi
-	tKKlQKxeMbUeQsSXNvb/9zaStiF9KMjpFTFcd+Yr7zJH9GIdO4m4w3h9poZaqzNNBPAboUUzI8rXO
-	rNv3Ck4esj2/WfT1COExw0xZrY5N3AoO1KMavbhG0VnAQX4OLymya6VSBrb14+1tfYq4WeVb6gDlC
-	Rhwz+oNUPwoaL/vNAUOfDkHN097XEOuxLhtQYxgmMBFalMdm/Cs6FX0vSgKT3u1WhFOFN4fCxDeq3
-	SGEJHIQ3aLJSkyCpWHovAngSX0No4gkNP9m6dpI5YdCnLSvDNivsKBwFdZ9/leGngdprvxOsO1yLm
-	ZRrcHCXQ==;
-Received: from gate.crashing.org ([63.228.1.57])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x7MJs-00000009Qos-1H8N
+	id 1x7MS5-0000000D1VO-423l
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 00:19:14 +0000
-Received: from [IPv6:::1] (localhost [127.0.0.1])
-	by gate.crashing.org (8.18.1/8.18.1/Debian-2) with ESMTP id 68I0IPF23974234;
-	Thu, 17 Sep 2026 19:18:33 -0500
-Message-ID: <d607e8d94d17ac7b7832725b0672560fb1346ada.camel@kernel.crashing.org>
-Subject: Re: [PATCH] usb: gadget: aspeed-vhub: cancel wake work on device
- removal
-From: Benjamin Herrenschmidt <benh@kernel.crashing.org>
-To: Fan Wu <fanwu01@zju.edu.cn>, gregkh@linuxfoundation.org,
-        linux-usb@vger.kernel.org
-Cc: joel@jms.id.au, andrew@codeconstruct.com.au, linux-aspeed@lists.ozlabs.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        stable@vger.kernel.org, Song Li
- <songl@zju.edu.cn>
-Date: Fri, 18 Sep 2026 10:18:24 +1000
-In-Reply-To: <20260908041740.613713-1-fanwu01@zju.edu.cn>
-References: <20260908041740.613713-1-fanwu01@zju.edu.cn>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.62.0-0ubuntu1~ppa1~24.04 
+	Fri, 18 Sep 2026 00:27:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Subject:Date:From:From:Reply-To;
+	bh=AAJVlL7V3Svw6ebZPQuFtG6AvhLc+t5u5Nl4UBUE390=; b=DGgTvue0enzvlX3BmKWcCiF8LK
+	RRQ+UBBCuqUVMaFZsWn9M8ob8JJbON6YWl9/kR7+lmO6Rtu/2VHdHVODbQih6o0TRj2PmalaldDuh
+	bkxnPqdwr393dG7G3z0dxw4b5KA5sOLkMKBDCuq3l7BQsGkHbgR1zyPUjipyThRx42yuQFS2WvLPl
+	saSP3K5cBabKp2xztD0RKw1kwTcknJKqwE2CseeOO4rV58LsPpekCP9u00kSbgckEo8zoV8tINNGr
+	H+tyBzofp+10Ww0uXhey4KwixnZi5WmhziYlKuSiA2B1N335dyY5NqAgW73+f6WsQo6ba/IDm+A4J
+	tv4XIa6g==;
+Received: from [177.172.123.214] (helo=[192.168.15.100])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
+	id 1x7MRl-003iDv-9y; Fri, 18 Sep 2026 02:27:21 +0200
+From: =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
+Date: Thu, 17 Sep 2026 21:26:59 -0300
+Subject: [PATCH v9 1/3] arm64: vdso: Split native/compat mremap callbacks
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260917-tonyk-robust_arm-v9-1-ab082b1b4c4b@igalia.com>
+References: <20260917-tonyk-robust_arm-v9-0-ab082b1b4c4b@igalia.com>
+In-Reply-To: <20260917-tonyk-robust_arm-v9-0-ab082b1b4c4b@igalia.com>
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, 
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+ Peter Zijlstra <peterz@infradead.org>, Florian Weimer <fweimer@redhat.com>, 
+ Darren Hart <dvhart@infradead.org>, Ingo Molnar <mingo@kernel.org>, 
+ Davidlohr Bueso <dave@stgolabs.net>, Arnd Bergmann <arnd@arndb.de>, 
+ Uros Bizjak <ubizjak@gmail.com>, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-arch@vger.kernel.org, kernel-dev@igalia.com, 
+ LKML <linux-kernel@vger.kernel.org>, 
+ =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_011912_748822_413DEE43 
-X-CRM114-Status: GOOD (  23.14  )
+X-CRM114-CacheID: sfid-20260917_172742_613663_4895F88C 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,129 +81,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2026-09-08 at 04:17 +0000, Fan Wu wrote:
-> wake_work is armed from the gadget .wakeup callback to resume suspended
-> downstream ports, and it is never cancelled in ast_vhub_remove(), so a
-> work item queued before or during removal can run after devm has freed
-> vhub and its ports, a use-after-free.
->=20
-> Cancelling the work alone is not sufficient: usb_gadget_wakeup() takes
-> no lock and the unbind path never clears wakeup_en, so a remote-wakeup
-> request in flight on another CPU can re-arm the work after the cancel
-> and before vhub is freed.
->=20
-> ast_vhub_del_dev() already clears d->registered under vhub->lock before
-> unregistering the gadget. Refuse the wakeup in ast_vhub_udc_wakeup()
-> once d->registered is clear: the check and the schedule_work() are then
-> atomic against the unbind, so a wakeup that passed before the flag was
-> cleared is drained by the cancel_work_sync() after the del_dev loop,
-> and one that arrives later returns without arming. Also move INIT_WORK()
-> to the top of ast_vhub_probe(), since the probe error path reuses
-> ast_vhub_remove() and would otherwise cancel a never-initialized work
-> item.
->=20
-> This issue was found by an in-house static analysis tool.
+From: Mark Rutland <mark.rutland@arm.com>
 
-Reviewed-by: Benjamin Herrenschmidt <benh@kernel.crashing.org>
+Currently the native and compat VDSOs share a common vdso_mremap()
+function which is used as their vm_special_mapping::mremap callback.
 
-> Fixes: 7ecca2a4080c ("usb/gadget: Add driver for Aspeed SoC virtual hub")
-> Cc: stable@vger.kernel.org
-> Assisted-by: Codex:gpt-5.6
-> Co-developed-by: Song Li <songl@zju.edu.cn>
-> Signed-off-by: Song Li <songl@zju.edu.cn>
-> Signed-off-by: Fan Wu <fanwu01@zju.edu.cn>
-> ---
-> =C2=A0drivers/usb/gadget/udc/aspeed-vhub/core.c | 4 ++++
-> =C2=A0drivers/usb/gadget/udc/aspeed-vhub/dev.c=C2=A0 | 2 +-
-> =C2=A0drivers/usb/gadget/udc/aspeed-vhub/hub.c=C2=A0 | 5 +++--
-> =C2=A0drivers/usb/gadget/udc/aspeed-vhub/vhub.h | 1 +
-> =C2=A04 files changed, 9 insertions(+), 3 deletions(-)
->=20
-> diff --git a/drivers/usb/gadget/udc/aspeed-vhub/core.c b/drivers/usb/gadg=
-et/udc/aspeed-vhub/core.c
-> index 4a8b9ff83..069673f0d 100644
-> --- a/drivers/usb/gadget/udc/aspeed-vhub/core.c
-> +++ b/drivers/usb/gadget/udc/aspeed-vhub/core.c
-> @@ -267,6 +267,9 @@ static void ast_vhub_remove(struct platform_device *p=
-dev)
-> =C2=A0	for (i =3D 0; i < vhub->max_ports; i++)
-> =C2=A0		ast_vhub_del_dev(&vhub->ports[i].dev);
-> =C2=A0
-> +	/* Final drain; the worker takes vhub->lock, so stay outside of it */
-> +	cancel_work_sync(&vhub->wake_work);
-> +
-> =C2=A0	spin_lock_irqsave(&vhub->lock, flags);
-> =C2=A0
-> =C2=A0	/* Mask & ack all interrupts=C2=A0 */
-> @@ -328,6 +331,7 @@ static int ast_vhub_probe(struct platform_device *pde=
-v)
-> =C2=A0		return -ENOMEM;
-> =C2=A0
-> =C2=A0	spin_lock_init(&vhub->lock);
-> +	INIT_WORK(&vhub->wake_work, ast_vhub_wake_work);
-> =C2=A0	vhub->pdev =3D pdev;
-> =C2=A0	vhub->port_irq_mask =3D GENMASK(VHUB_IRQ_DEV1_BIT + vhub->max_port=
-s - 1,
-> =C2=A0				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 VHUB_IRQ_DEV1_BIT);
-> diff --git a/drivers/usb/gadget/udc/aspeed-vhub/dev.c b/drivers/usb/gadge=
-t/udc/aspeed-vhub/dev.c
-> index 8b9449d16..4b389de0d 100644
-> --- a/drivers/usb/gadget/udc/aspeed-vhub/dev.c
-> +++ b/drivers/usb/gadget/udc/aspeed-vhub/dev.c
-> @@ -280,7 +280,7 @@ static int ast_vhub_udc_wakeup(struct usb_gadget* gad=
-get)
-> =C2=A0	int rc =3D -EINVAL;
-> =C2=A0
-> =C2=A0	spin_lock_irqsave(&d->vhub->lock, flags);
-> -	if (!d->wakeup_en)
-> +	if (!d->wakeup_en || !d->registered)
-> =C2=A0		goto err;
-> =C2=A0
-> =C2=A0	DDBG(d, "Device initiated wakeup\n");
-> diff --git a/drivers/usb/gadget/udc/aspeed-vhub/hub.c b/drivers/usb/gadge=
-t/udc/aspeed-vhub/hub.c
-> index 02fe1a08d..d0345f310 100644
-> --- a/drivers/usb/gadget/udc/aspeed-vhub/hub.c
-> +++ b/drivers/usb/gadget/udc/aspeed-vhub/hub.c
-> @@ -558,7 +558,7 @@ void ast_vhub_device_connect(struct ast_vhub *vhub,
-> =C2=A0		ast_vhub_send_host_wakeup(vhub);
-> =C2=A0}
-> =C2=A0
-> -static void ast_vhub_wake_work(struct work_struct *work)
-> +void ast_vhub_wake_work(struct work_struct *work)
-> =C2=A0{
-> =C2=A0	struct ast_vhub *vhub =3D container_of(work,
-> =C2=A0					=C2=A0=C2=A0=C2=A0=C2=A0 struct ast_vhub,
-> @@ -588,6 +588,8 @@ static void ast_vhub_wake_work(struct work_struct *wo=
-rk)
-> =C2=A0
-> =C2=A0void ast_vhub_hub_wake_all(struct ast_vhub *vhub)
-> =C2=A0{
-> +	lockdep_assert_held(&vhub->lock);
-> +
-> =C2=A0	/*
-> =C2=A0	 * A device is trying to wake the world, because this
-> =C2=A0	 * can recurse into the device, we break the call chain
-> @@ -1076,7 +1078,6 @@ static int ast_vhub_init_desc(struct ast_vhub *vhub=
-)
-> =C2=A0int ast_vhub_init_hub(struct ast_vhub *vhub)
-> =C2=A0{
-> =C2=A0	vhub->speed =3D USB_SPEED_UNKNOWN;
-> -	INIT_WORK(&vhub->wake_work, ast_vhub_wake_work);
-> =C2=A0
-> =C2=A0	return ast_vhub_init_desc(vhub);
-> =C2=A0}
-> diff --git a/drivers/usb/gadget/udc/aspeed-vhub/vhub.h b/drivers/usb/gadg=
-et/udc/aspeed-vhub/vhub.h
-> index aca2050e2..96f1c3709 100644
-> --- a/drivers/usb/gadget/udc/aspeed-vhub/vhub.h
-> +++ b/drivers/usb/gadget/udc/aspeed-vhub/vhub.h
-> @@ -547,6 +547,7 @@ void ast_vhub_hub_suspend(struct ast_vhub *vhub);
-> =C2=A0void ast_vhub_hub_resume(struct ast_vhub *vhub);
-> =C2=A0void ast_vhub_hub_reset(struct ast_vhub *vhub);
-> =C2=A0void ast_vhub_hub_wake_all(struct ast_vhub *vhub);
-> +void ast_vhub_wake_work(struct work_struct *work);
-> =C2=A0
-> =C2=A0/* dev.c */
-> =C2=A0int ast_vhub_init_dev(struct ast_vhub *vhub, unsigned int idx);
+In subsequent patches the native and compat VDSOs will need distinct
+mremap logic, which will be easier to manage with separate functions.
+
+Give the compat VDSO its own aarch32_vdso_mremap() function. For now
+this is identical to vdso_mremap().
+
+At the same time, fix the odd whitespace in the vdso_mremap() prototype.
+
+There should be no functional change as a result of this patch.
+
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Signed-off-by: André Almeida <andrealmeid@igalia.com>
+---
+ arch/arm64/kernel/vdso.c | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/kernel/vdso.c b/arch/arm64/kernel/vdso.c
+index 592dd8668de4..089a70d96220 100644
+--- a/arch/arm64/kernel/vdso.c
++++ b/arch/arm64/kernel/vdso.c
+@@ -58,7 +58,7 @@ static struct vdso_abi_info vdso_info[] __ro_after_init = {
+ };
+ 
+ static int vdso_mremap(const struct vm_special_mapping *sm,
+-		struct vm_area_struct *new_vma)
++		       struct vm_area_struct *new_vma)
+ {
+ 	current->mm->context.vdso = (void *)new_vma->vm_start;
+ 
+@@ -162,6 +162,14 @@ static int aarch32_sigpage_mremap(const struct vm_special_mapping *sm,
+ 	return 0;
+ }
+ 
++static int aarch32_vdso_mremap(const struct vm_special_mapping *sm,
++			       struct vm_area_struct *new_vma)
++{
++	current->mm->context.vdso = (void *)new_vma->vm_start;
++
++	return 0;
++}
++
+ static struct vm_special_mapping aarch32_vdso_maps[] = {
+ 	[AA32_MAP_VECTORS] = {
+ 		.name	= "[vectors]", /* ABI */
+@@ -174,7 +182,7 @@ static struct vm_special_mapping aarch32_vdso_maps[] = {
+ 	},
+ 	[AA32_MAP_VDSO] = {
+ 		.name = "[vdso]",
+-		.mremap = vdso_mremap,
++		.mremap = aarch32_vdso_mremap,
+ 	},
+ };
+ 
+
+-- 
+2.55.0
+
 
