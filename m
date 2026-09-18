@@ -4,111 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40E9AC982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 11:36:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 103CFC982DD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 11:37:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HGJXKehN7uzhcfBB0KBhZiEIw68JYp4Edf9oro8cdRI=; b=v2c8rg3RFKgStcE6YVO48fxdBX
-	cOdeMT2FUKH6CcHfsSFc5/ReMTQx53VCowicSoG2NWaa7HPDxFFWoP91hNUlD5zaNc6uqjqycTWpk
-	eF8d0mHlFBhMf3ZsQm/3Q14OI2ryRuRyn4w4XwYeWjGyEppJNnpsuqzGoHFwXTEm2jTsBfs3HBxTE
-	0c4cT7Deh20VojNACUZh8bx0rmOO+XgwxizLdenKG3j/8X6Jsp4uTE2MmsCmwR4FitnXfRwtxDuNv
-	UE4UrBwXhsHYpECHjEMIFNl/uUmMOEEJevBwd4q7BHOQAATUvl89tPHWQjgxD2szLdfthHDKTipBg
-	dE1Gb5cg==;
+	bh=q44P+TGcV0oD+z/AvCG4yiydzItwnrsyloeqwtRctNU=; b=se6MyM8gBcH98woloFSo8PGeAn
+	RoZKttDBn9RZ5tWBBJwGeW0B7gw+B8KyBLhPmJgl3mPiDLnh+IsT3rjWGMh0PXytp2verQBCUgPLu
+	CoeAOkubtU5esTSBpA6oSunIoS7IKUipr6kwZDxO6SpcocbcOsMALfpfkXxvXU98gbRNZ0hA2YMG/
+	e0i4IL+qSbapbCqEkg2IHsjjvZJK8+wfX0mBtgY2ndLJlrpL6J1B2MFmpaBeHYIyKNeux0qqb3DgX
+	V2+SHRsGMFO2cvTdE/PtxURmLujarTIrtHFNy4FOHKQ55EzEjKoYpY59eaYbEvyhvYgmeewi+QQRN
+	ZQqt8nAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7WtN-0000000EFrg-3YoB;
-	Fri, 18 Sep 2026 11:36:33 +0000
-Received: from mail-ed2-x10.google.com ([2a00:1450:4864:33::10])
+	id 1x7WuS-0000000EG5N-0ftZ;
+	Fri, 18 Sep 2026 11:37:40 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7WtL-0000000EFqT-2AU3
+	id 1x7WuP-0000000EG4T-0cfA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 11:36:33 +0000
-Received: by mail-ed2-x10.google.com with SMTP id 4fb4d7f45d1cf-6a6056c2064so707105a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 04:36:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1789731389; cv=none;
-        d=google.com; s=arc-20260327;
-        b=MzrL7oiLj2cyfDAENhK7gaO7NEHT+6j7NmqGPA/fswedOuk7qGJbNNRcEJj9UlsFdi
-         NFGVAWE4MaHJOfDJqrlCJ+K/61GPkoOIOPylm1WdvynymcJG077Lui27qOhCYj2kNUTp
-         a53VwHaA9rME7bAB27ledn6txSuA4YZ9a2ONdv7+kDbEuSKGx2c4eEozgmJCeQioGKpM
-         sTj+WkBwWoWdjikWykX2kDGJ+m6SzTS3UfiwLBvTdNQBUJax8hV16PHwyPqR0STTnfmt
-         I0cl1vUsaUHbr0y7T9KbvB1cKyZU7mrXtyGjktkKEoLId3bpOSl+MF4dD2yP9M5AtO52
-         Ey8g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=HGJXKehN7uzhcfBB0KBhZiEIw68JYp4Edf9oro8cdRI=;
-        fh=ugQSCzHqvx9qzoOKo014RLFGOPRWd6jDTd5S+XLyg+E=;
-        b=KQiEfzaNMsYIxfkicSxfLNmZ4T+sJv3XPnosdaCyNMBJpfKzLKrRP2O1TPvP9Y3s07
-         9pa4yISVwHRiyoyydETEqAut+Y1JRmNv+bYv/UgpU4bWzLIxt/mUzQqVLCzBxIOX+6Yj
-         XeWfdabZcZ9uxssqv11a7yI48AV1xRztzE04NPFacXgyR92xptoCQHWeTNmaoZqFOv9c
-         59co4iKlhahByY0kDfZ3yJfrIrGUGZCyi0KZ9gVdqDNVYYQwHZUKJB8hhFzyHewKWRAK
-         MiqCgVRqx5p2BQZyq+7W03gf5U30csw61KuLwYpF2ZlwHm9//IcSE5pVqW08cP0f/22+
-         dQFw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789731389; x=1790336189; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=HGJXKehN7uzhcfBB0KBhZiEIw68JYp4Edf9oro8cdRI=;
-        b=e3FXbZIMCN4B/sf+DEIXj0bDMTp4k+cHSRqXszEmwhbvTNGZaDs5g5zbxA+3/51crA
-         Oz/78heVQpt++zpUE1kAie7KEDXVdjw8kDjHzD7inABfnP70opaWl/o5uu5HAK7Xcu+5
-         6EE5pver7uCUthOjoRHJoDrU8adxRyDbLQfNuDIh+9VCUKxSzB9IxVSc0AKnrtrBHI5W
-         rG45WzFL4oZJxCorVWfLaKHt9m+8jd8Q5QDCFez9PHSHD9yLmKSY+DF4/DsW8pY4ZUuk
-         ifstFcRJWUJyWOjzQRO2S/JRaqevqQxIpOIX1JpOuh+q9CPIrpppVa1qreXxiYUAWXpF
-         wvzQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789731389; x=1790336189;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=HGJXKehN7uzhcfBB0KBhZiEIw68JYp4Edf9oro8cdRI=;
-        b=rOqqqGg56DasTCBse3AuHrtdc/T0qWmrzI0XALl+o1z+aO+IyXxn1VcYl1K6qvBI6h
-         PjFUGJ9rrKGFigHy/c0sMDuyHRS7ni8Urgb8skzY/hW+xxhmefjWMO0vdphShZE0HQD/
-         CqbVWk7aSU2MOz3E+CWN8YMBJTtqBtaadG2z0GMKRoBwoVx5ztaaqK7zQy1ZF8VMjkye
-         bQGCgbUGMWlxeeSxPkzSCuCz1cN9PDD+qewkO4Wl+aKh4zqQxaUOUawUSyxF7tcZNLFv
-         Inz3kzgVb4vgm9jsYhokDDOCvrKJ2+L7d5cOHoCBwVn0kayAmQV50BPISn/M1NGmNw3y
-         L70g==
-X-Forwarded-Encrypted: i=1; AKwUvBwYvs51OsckBKrLPX/O7On9Yk8iIpU6jbjodcLyXA1TrDqQj0zGzKN/GQhVbZRGFp0TapdSKNEDjznT4M6ibFjg@lists.infradead.org
-X-Gm-Message-State: AFuF++nF3j+O00Ziv2kOA45E8tYkIfwAddoz8PGh8l2dUD5EGK2GKvEA
-	8+9hahIevPYyDCU3x4aEwnvcXOLk27zskP/C/iqP8bUNyRLSuziWKPdWcGmC7PE5B2uXRAR9AAA
-	Dee5mnYw0/0wr57tlqrhk/KwSJLvv4htX1cHqHLw=
-X-Gm-Gg: AYBFou37OqXTPdVjtsExHqgG1n9CK/9RDUqSpVOFrKDYA7H73PT1iLmnCfsWu3Bcpx/
-	/Dva5q0MRbCwazs0LLJlCbcV+QIQuA+Qf+6Vm9MQO/Bh7UJhDidTt3EmIteTG+BEnK/g1VN+M6Q
-	/1enF/gc6hzF77LY3xk5841/d5r5tNT9Gcn7q84IvqPVa5QYIV3JiJ1JFPkyxqfTdKw5T0l3xL4
-	JIcziJLTSs92mIQCjoL+CZsN2rn1KOVYrL1R+kU/t2qTXpQ37p+ljkBbqvyrl99v9aoeC+IJeLB
-	HyQRA1URpOBIhs0mXH+hhNX7UuKtQ+kNBESWLQlnyDaaNZAGKi8FoqMEG60lVx8QaGpkhPWcUhe
-	o8B6DeE3VWNZ+MZOm8st0WNMUG3Qg47pAJsiuvrbnkQ==
-X-Received: by 2002:a17:907:948f:b0:c29:5d41:dfe8 with SMTP id
- a640c23a62f3a-c2a1582698fmr217595066b.43.1789731389390; Fri, 18 Sep 2026
- 04:36:29 -0700 (PDT)
+	Fri, 18 Sep 2026 11:37:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1789731457; x=1821267457;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=3kWwrnL64mx1dLXwcHsMMT0BAa2zKW4PRgmp1oM+8L4=;
+  b=TpbMFl7athYqFbOgZq1vAX5zTqwGJM0d4z+gB7lI32rN1bFYuGRSw8BZ
+   zZ5N4obdV8U/M2VecjGSq+NXNScPZblyAH9Du3NJ9XVmpgse4/vKVqrA8
+   48gGT2xLDkENRr/7EIPGaWau5H1LlwUIHz1eKoXT1IigT2wa79guaooUq
+   ZrbrVUy0FIWwJhyuPe/PdNAvGnrcZLIp3Fh/BQPDOKClKUNyYrkOVjUTW
+   CKC0mBPz/oEVDeFjVDM0lGJOCyI0m/h4ctSliwkJFPED98UMh5pb5AX+3
+   d0q0oTGiG5HLIEvotEnvHQxcGiMZ4ttCYntDrf1yxkdZEKL5vskb0BiLb
+   A==;
+X-CSE-ConnectionGUID: iHZClC/DSfecOx/gzLYfOw==
+X-CSE-MsgGUID: AX4Y6P6hS7StqvVBYHlFJQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11908"; a="89367424"
+X-IronPort-AV: E=Sophos;i="6.27,108,1787036400"; 
+   d="scan'208";a="89367424"
+Received: from fmviesa013.fm.intel.com ([10.60.135.153])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Sep 2026 04:37:36 -0700
+X-CSE-ConnectionGUID: 1R6KiivqQbSH2qbKz/O6QA==
+X-CSE-MsgGUID: CLf4k4XbTtOWa//DNCduFA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,108,1787036400"; 
+   d="scan'208";a="2783655"
+Received: from black.igk.intel.com ([10.91.253.5])
+  by fmviesa013.fm.intel.com with ESMTP; 18 Sep 2026 04:37:30 -0700
+Received: by black.igk.intel.com (Postfix, from userid 1003)
+	id 6253F9D; Fri, 18 Sep 2026 13:37:29 +0200 (CEST)
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Frank Li <Frank.Li@nxp.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>,
+	bui duc phuc <phucduc.bui@gmail.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	linux-kernel@vger.kernel.org,
+	dmaengine@vger.kernel.org,
+	linux-sound@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Cc: Dave Penkler <dpenkler@gmail.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Frank Li <Frank.Li@kernel.org>,
+	Shengjiu Wang <shengjiu.wang@gmail.com>,
+	Xiubo Li <Xiubo.Lee@gmail.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Nicolin Chen <nicoleotsuka@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Olivier Moysan <olivier.moysan@foss.st.com>,
+	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>
+Subject: [PATCH v2 2/7] ASoC: sprd: Replace dma_request_slave_channel() by dma_request_chan()
+Date: Fri, 18 Sep 2026 13:34:06 +0200
+Message-ID: <20260918113727.1898998-3-andriy.shevchenko@linux.intel.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260918113727.1898998-1-andriy.shevchenko@linux.intel.com>
+References: <20260918113727.1898998-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
-References: <20260917-tonyk-syscall_table-v7-0-f4cd8f8e3265@igalia.com> <20260917-tonyk-syscall_table-v7-11-f4cd8f8e3265@igalia.com>
-In-Reply-To: <20260917-tonyk-syscall_table-v7-11-f4cd8f8e3265@igalia.com>
-From: Magnus Lindholm <linmag7@gmail.com>
-Date: Fri, 18 Sep 2026 13:36:17 +0200
-X-Gm-Features: AcwNN1W0uIsrBudlRZeSpl5_CSJhjtWRK4S-OK-90sOk1QFHdqx3jezfZnvgjR0
-Message-ID: <CA+=Fv5To=fUfD+9OtAcNJcaquBy+xv6oNUFES6sVwpOKzH8qgw@mail.gmail.com>
-Subject: Re: [PATCH v7 11/13] alpha: Define entry point for
- set_mempolicy_home_node syscall
-To: =?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>, Arnd Bergmanon <arnd@arndb.de>, 
-	Christian Brauner <brauner@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-kbuild@vger.kernel.org, kernel-dev@igalia.com, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, linux-alpha@vger.kernel.org, 
-	linux-s390@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	soc@lists.linux.dev, linux-mips@vger.kernel.org, sparclinux@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_043631_967144_BF9EA310 
-X-CRM114-Status: GOOD (  17.62  )
+X-CRM114-CacheID: sfid-20260918_043737_198070_DA550392 
+X-CRM114-Status: GOOD (  13.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,49 +115,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andr=C3=A9,
+Replace dma_request_slave_channel() by dma_request_chan() as suggested
+since the former is deprecated. With this, propagate all possible errors
+to the caller.
 
-On Fri, Sep 18, 2026 at 1:47=E2=80=AFAM Andr=C3=A9 Almeida <andrealmeid@iga=
-lia.com> wrote:
->
-> Instead of explicitly defining set_mempolicy_home_node as sys_ni_sycall i=
-n
-> the syscall table, define it as the real syscall entry point,
-> sys_set_mempolicy_home_node. As per commit fdb7d9b7acd0 ("alpha: remove
-> DISCONTIGMEM and NUMA"), alpha doesn't have NUMA support, so none of the
-> mempolicy sycalls will ever be compiled for alpha, resulting in the
-> COND_SYSCALL() fallback being used to result in the sys_ni_syscall.
->
-> There's no function change here, but this step helps to unify the syscall
-> tables and create a common table to rule them all.
->
-> Signed-off-by: Andr=C3=A9 Almeida <andrealmeid@igalia.com>
-> ---
->  arch/alpha/kernel/syscalls/syscall.tbl | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/alpha/kernel/syscalls/syscall.tbl b/arch/alpha/kernel/s=
-yscalls/syscall.tbl
-> index 52e3538cc7df..8fc4701a6328 100644
-> --- a/arch/alpha/kernel/syscalls/syscall.tbl
-> +++ b/arch/alpha/kernel/syscalls/syscall.tbl
-> @@ -489,7 +489,7 @@
->  # 557 reserved for memfd_secret
->  558    common  process_mrelease                sys_process_mrelease
->  559    common  futex_waitv                     sys_futex_waitv
-> -560    common  set_mempolicy_home_node         sys_ni_syscall
-> +560    common  set_mempolicy_home_node         sys_set_mempolicy_home_no=
-de
->  561    common  cachestat                       sys_cachestat
->  562    common  fchmodat2                       sys_fchmodat2
->  563    common  map_shadow_stack                sys_map_shadow_stack
->
-> --
-> 2.55.0
->
->
+Reviewed-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+---
+ sound/soc/sprd/sprd-pcm-compress.c | 9 +++++----
+ sound/soc/sprd/sprd-pcm-dma.c      | 9 +++++----
+ 2 files changed, 10 insertions(+), 8 deletions(-)
 
-Looks good to me.
+diff --git a/sound/soc/sprd/sprd-pcm-compress.c b/sound/soc/sprd/sprd-pcm-compress.c
+index e5249924b54d..f394121d417a 100644
+--- a/sound/soc/sprd/sprd-pcm-compress.c
++++ b/sound/soc/sprd/sprd-pcm-compress.c
+@@ -145,6 +145,7 @@ static int sprd_platform_compr_dma_config(struct snd_soc_component *component,
+ 	enum dma_slave_buswidth bus_width;
+ 	int period, period_cnt, sg_num = 2;
+ 	dma_addr_t src_addr, dst_addr;
++	struct dma_chan *chan;
+ 	unsigned long flags;
+ 	int ret, j;
+ 
+@@ -153,12 +154,12 @@ static int sprd_platform_compr_dma_config(struct snd_soc_component *component,
+ 		return -EINVAL;
+ 	}
+ 
+-	dma->chan = dma_request_slave_channel(dev,
+-					      dma_params->chan_name[channel]);
+-	if (!dma->chan) {
++	chan = dma_request_chan(dev, dma_params->chan_name[channel]);
++	if (IS_ERR(chan)) {
+ 		dev_err(dev, "failed to request dma channel\n");
+-		return -ENODEV;
++		return PTR_ERR(chan);
+ 	}
++	dma->chan = chan;
+ 
+ 	sgt = sg = kzalloc_objs(*sg, sg_num);
+ 	if (!sg) {
+diff --git a/sound/soc/sprd/sprd-pcm-dma.c b/sound/soc/sprd/sprd-pcm-dma.c
+index 2d5ffbe17e81..2a89dc7616bf 100644
+--- a/sound/soc/sprd/sprd-pcm-dma.c
++++ b/sound/soc/sprd/sprd-pcm-dma.c
+@@ -170,15 +170,16 @@ static int sprd_pcm_request_dma_channel(struct snd_soc_component *component,
+ 
+ 	for (i = 0; i < channels; i++) {
+ 		struct sprd_pcm_dma_data *data = &dma_private->data[i];
++		struct dma_chan *chan;
+ 
+-		data->chan = dma_request_slave_channel(dev,
+-						       dma_params->chan_name[i]);
+-		if (!data->chan) {
++		chan = dma_request_chan(dev, dma_params->chan_name[i]);
++		if (IS_ERR(chan)) {
+ 			dev_err(dev, "failed to request dma channel:%s\n",
+ 				dma_params->chan_name[i]);
+ 			sprd_pcm_release_dma_channel(substream);
+-			return -ENODEV;
++			return PTR_ERR(chan);
+ 		}
++		data->chan = chan;
+ 	}
+ 
+ 	return 0;
+-- 
+2.50.1
 
-Acked-by: Magnus Lindholm <linmag7@gmail.com>
 
