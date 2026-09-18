@@ -4,72 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8850EC88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 05:53:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F4CDC982D2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 05:54:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yn4jlCR1+KXfhj6w1DwkafrPG83kV4BowcaOZJVhhkA=; b=4uagQcFrHoC29YenJpDuBNgVSV
-	Oo8k12c4pfipDeJtL0oS/501ZmonZTyaTGgf0gdI/n49PR1Q8VzThrnlEIv3J5MT1AmbxjXGH9QFb
-	5k5Eg7ioqmDtFUVZiOE8dvJDIKSuGp//MI6kkMOBIPxJsJIIBEvCYE4O8lvmHUlC13k2fK9ZCmwRY
-	f4vubsxfDl6ZXJyJoKQ0DfcP5Y5txOwdeAoHVUSm/6I1p8O7ufqzFxre0usaEu3A5YuuMqnVwFC2C
-	+52njaL1wcgJU4t7jSQToIKXSHbdTahy+Hp+Ki896iRtqdUqxn1ZzSgzLiHRiTYCH2qg+7TeKe9mR
-	C8IqfJGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lmlV7xFHRVTdsb3n+oqHHiehmNTVMleq48/Xf23jFaU=; b=Bqwl8dIzh3AlLs7vHXnxPw9lM6
+	DyW2kL7qBK+U8/wu1pt/K7phVXa6zKk+ulwMbo7spAm5ItT9pkrjjzs+7zF0xsO7W/jbg5lhG3AdQ
+	bgUeaPiYumWPNTeRtTfdz4Kq/qZ0ZlSCE+ixhIy6QMVJm9w51C2NkTPrt9Yy0Om+J36dTixUH/NDC
+	eqXu4HJM0oFb4SGM5+1QsLcaoX9t8J9cJpkjomiMFI1FD1D95Agn1BL6LsqxWm6YDMr1Run5iuHvK
+	H3L8CvkI5qcmmU1K9t+RDWAMkaV4Pa/xAsuecnoH99lrNyUyS5D0R8xY9mATpQBu70zlRN1+hLU8A
+	5E/8DxuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7RWh-0000000DWD7-2eCW;
-	Fri, 18 Sep 2026 05:52:47 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1x7RY6-0000000DWIr-3Lts;
+	Fri, 18 Sep 2026 05:54:14 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7RWe-0000000DWCi-28Ab
+	id 1x7RY4-0000000DWIU-09kY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 05:52:46 +0000
-Received: from edelgard.fodlan.icenowy.me (unknown [112.94.103.44])
-	by APP-01 (Coremail) with SMTP id qwCowABnOe2i0axqXE9ICA--.14577S2;
-	Fri, 18 Sep 2026 13:52:35 +0800 (CST)
-Message-ID: <4a7b271d2a90eff94c27dec3bf24114ce44df1fd.camel@iscas.ac.cn>
-Subject: Re: [PATCH v7 7/7] drm/verisilicon: fix DC8200 primary plane
- disable clearing FB_EN
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Joey Lu <a0987203069@gmail.com>, maarten.lankhorst@linux.intel.com, 
-	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
- simona@ffwll.ch, 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Fri, 18 Sep 2026 13:52:34 +0800
-In-Reply-To: <20260918030125.315978-8-a0987203069@gmail.com>
-References: <20260918030125.315978-1-a0987203069@gmail.com>
-	 <20260918030125.315978-8-a0987203069@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 
+	Fri, 18 Sep 2026 05:54:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1789710852; x=1821246852;
+  h=message-id:date:mime-version:cc:subject:to:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=lmlV7xFHRVTdsb3n+oqHHiehmNTVMleq48/Xf23jFaU=;
+  b=dT2qWyi/C2/dfpPyqRAvrLoTFhsEfilnIzU2WhU3F/QSL52ILY+sReFt
+   5S/1zk4YOEQeHTvvE5OrgGVhqSsC97SjcylqJhumYEerrHTLX0La2Vl6x
+   nzI3HXXTX7B8iyAJZ63Px7xjaKY72BK97PE9Tlzu50xLNBKikUwFfq/rP
+   GJ/YdoS6rMF3OqAHT6Xn5g4rFJe2iynxL5ZEUHc/NFuIXIW86H4/S5oF3
+   MI37r5zWA2zkZ0yHzlZ1YW/GPPUXuGd6BUFXo7yi1Sf8mTuyFBdMmPl62
+   9NqknRpLE4lgrp+r8MW8mjIHWwTnMlpzE5vjCEpLKVsLWYvY04d+ubWHw
+   Q==;
+X-CSE-ConnectionGUID: hEI68ttTRS+pebVvuxq/tw==
+X-CSE-MsgGUID: uQ2Xr839R+OnjnlNF/R6/A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="90326550"
+X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
+   d="scan'208";a="90326550"
+Received: from fmviesa013.fm.intel.com ([10.60.135.153])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Sep 2026 22:54:10 -0700
+X-CSE-ConnectionGUID: KgABx0ZsR3iY4fYq/tVq2Q==
+X-CSE-MsgGUID: GZcbDF/7SxSIjyTZ91er0w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
+   d="scan'208";a="2628589"
+Received: from unknown (HELO [10.238.1.188]) ([10.238.1.188])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Sep 2026 22:54:05 -0700
+Message-ID: <2ba47d98-21b5-40de-9df0-be6676ade064@linux.intel.com>
+Date: Fri, 18 Sep 2026 13:54:02 +0800
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowABnOe2i0axqXE9ICA--.14577S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7WrWrXF1kJw48ZF43CF1ftFb_yoW8Ar1DpF
-	4ay3y8KF4rXayj9FyxtFWvgFyYv3W7J34fG3y8G3sIvrn8ta9xWFy8tFyxta4DWrZrAF4S
-	vFs29w47Cr1jkF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvqb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
-	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r4UMc
-	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY
-	1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8Jw
-	C20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAF
-	wI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjx
-	v20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2
-	jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0x
-	ZFpf9x07jUb18UUUUU=
-X-Originating-IP: [112.94.103.44]
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
+User-Agent: Mozilla Thunderbird
+Cc: baolu.lu@linux.intel.com, "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+ Nicolin Chen <nicolinc@nvidia.com>,
+ "linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>,
+ "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Alexey Kardashevskiy <aik@amd.com>, Catalin Marinas
+ <catalin.marinas@arm.com>, Dan Williams <dan.j.williams@intel.com>,
+ Joerg Roedel <joro@8bytes.org>, Jonathan Cameron <jic23@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, Pranjal Shrivastava <praan@google.com>,
+ Robin Murphy <robin.murphy@arm.com>, Samuel Ortiz <sameo@rivosinc.com>,
+ Steven Price <steven.price@arm.com>,
+ Suzuki K Poulose <Suzuki.Poulose@arm.com>, Will Deacon <will@kernel.org>,
+ Xu Yilun <yilun.xu@linux.intel.com>,
+ Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>
+Subject: Re: [RFC PATCH v4 03/16] iommu/arm-smmu-v3: Add initial pSMMU realm
+ viommu plumbing
+To: Jason Gunthorpe <jgg@ziepe.ca>, "Tian, Kevin" <kevin.tian@intel.com>
+References: <20260903171704.GK2890729@ziepe.ca> <yq5acxupjsy2.fsf@kernel.org>
+ <20260907125228.GB667892@ziepe.ca> <yq5atsnyag84.fsf@kernel.org>
+ <20260909124628.GH2543240@ziepe.ca>
+ <CO1PR11MB4835512E374074A5F4AD0A6C8CBF2@CO1PR11MB4835.namprd11.prod.outlook.com>
+ <20260910124632.GB4083318@ziepe.ca>
+ <CO1PR11MB4835FF972283C09D7D683DAE8CBA2@CO1PR11MB4835.namprd11.prod.outlook.com>
+ <20260915134318.GB3196566@ziepe.ca>
+ <CO1PR11MB4835562E7714F368E669D3B48CB92@CO1PR11MB4835.namprd11.prod.outlook.com>
+ <20260916123954.GC3196566@ziepe.ca>
+Content-Language: en-US
+From: Baolu Lu <baolu.lu@linux.intel.com>
+In-Reply-To: <20260916123954.GC3196566@ziepe.ca>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_225244_948506_353AA126 
-X-CRM114-Status: GOOD (  12.78  )
+X-CRM114-CacheID: sfid-20260917_225412_114631_C424DC39 
+X-CRM114-Status: GOOD (  16.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,49 +108,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E5=9C=A8 2026-09-18=E4=BA=94=E7=9A=84 11:01 +0800=EF=BC=8CJoey Lu=E5=86=99=
-=E9=81=93=EF=BC=9A
-> vs_dc8200_primary_plane_disable_ex() calls regmap_set_bits() on
-> VSDC_FB_CONFIG_EX_FB_EN instead of regmap_clear_bits(), so disabling
-> the primary plane on DC8200-family hardware actually leaves the
-> framebuffer enable bit instead of clearing it.
->=20
-> This bug predates this series: it was carried over unchanged from
-> vs_primary_plane_atomic_disable() when patch "drm/verisilicon:
-> introduce per-variant hardware ops table" split the DC8200-specific
-> implementation out into vs_dc8200.c.
->=20
-> Fixes: dbf21777caa8 ("drm: verisilicon: add a driver for Verisilicon
-> display controllers")
+On 9/16/2026 8:39 PM, Jason Gunthorpe wrote:
+> On Wed, Sep 16, 2026 at 05:54:57AM +0000, Tian, Kevin wrote:
+>>> At least for ARM there is effectively no entanglement with the actual
+>>> host iommu driver. The viommu is entirely provided by software in the
+>>> RMM world, so it can have its own dedicated driver. In ARM T=1
+>>> transactions are alwayus routed to the RMM's iommu and there is no
+>>> relation to the host.
+>>>
+>>> I am interested how Intel works here, but I thought it was similar.
+>> Largely yes. Main difference at Intel side is that TDX still relies on the
+>> host to initiate iotlb invalidation (upon notification from KVM on S-EPT
+>> change). Currently we put this logic in intel-iommu driver but it's more
+>> about wrapping invalidation info and passing it to the firmware. Moving
+>> it into the tsm driver should be straightforward.
+>>
+>> Maybe there'll be other subtle connections to host iommu driver but
+>> it doesn't sound a hard problem to solve.
+> Okay, so I saw the driver posting for basic iommu support, can we try
+> to rework that to be split out like Aneesh is doing so everything
+> about TDX calls lives in tsm and intel iommu only provides a small API
+> surface to exchange whatever details are needed to bootstrap TDX
+> module?
 
-Maybe it'd be better to fix this before adding DC variant abstraction,
-for easier backporting.
+Are you referring to this series?
+
+https://lore.kernel.org/linux-iommu/20260915074235.1219183-1-baolu.lu@linux.intel.com/
+
+It initializes the iommu managed by the secure world (the TDX module).
+
+I’m happy to rework it as you suggested by moving most of the TDX-
+related code into the tsm driver and leaving the host iommu driver to
+provide only the necessary assistance.
 
 Thanks,
-Icenowy
-
-> Signed-off-by: Joey Lu <a0987203069@gmail.com>
-> ---
-> =C2=A0drivers/gpu/drm/verisilicon/vs_dc8200.c | 4 ++--
-> =C2=A01 file changed, 2 insertions(+), 2 deletions(-)
->=20
-> diff --git a/drivers/gpu/drm/verisilicon/vs_dc8200.c
-> b/drivers/gpu/drm/verisilicon/vs_dc8200.c
-> index f72da10295e1b..25b5906a1c5fc 100644
-> --- a/drivers/gpu/drm/verisilicon/vs_dc8200.c
-> +++ b/drivers/gpu/drm/verisilicon/vs_dc8200.c
-> @@ -70,8 +70,8 @@ static void
-> vs_dc8200_primary_plane_enable_ex(struct vs_dc *dc, unsigned int out
-> =C2=A0
-> =C2=A0static void vs_dc8200_primary_plane_disable_ex(struct vs_dc *dc,
-> unsigned int output)
-> =C2=A0{
-> -	regmap_set_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
-> -			VSDC_FB_CONFIG_EX_FB_EN);
-> +	regmap_clear_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
-> +			=C2=A0 VSDC_FB_CONFIG_EX_FB_EN);
-> =C2=A0
-> =C2=A0	vs_dc8200_plane_commit(dc, output);
-> =C2=A0}
-
+baolu
 
