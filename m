@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BBC7C982D7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 17:10:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DDAFC982D7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 17:13:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a83TkCy927lFnFzqzJwMkoKLt0LEVtxyFRxTZWy7eag=; b=UjO19nxsOMc8p2Yk8Dy1WQ59ov
-	ZKNPYWLsdr0+zwgkSS9FwufpRfGtfUA1IUXPAQPCLua3Mt8Ys/KV5ergNeKb7BvUGfChuD8z06Ro0
-	wd9Z9TRFJm5z1CWZ/7ypC9ivjHS5JGBg2iYL0YCsSknfDrjyA8+KJ0E8NJSELV/72psLxX/6aBtSM
-	F/oVxqnsT19rzyxea2bYO9jTmu76qI8+yHG7+e6YsOqwWOiNM1CY52q8NEas7IjPXBz+PPxA/Ip7Q
-	cBwtB0kfASQFX4ecQiV5bY9ZiWj3quNr7C06ScKf8gNdgJhaZMMZ+bRYdCqtS2GNlDzKwS4AS9NPK
-	mXmmS1YA==;
+	bh=iFvazXu+2LWgQMrCwfLS5XSqWmtliIfy+p6u+EgaPvk=; b=kh1rvqFvS5VF2ZbYv1TL7sqmF7
+	96fv4Z9FY1Th6d24h6v6Lu5OukCLKCg460IDi5edCfavNqsIGXAD8ywig3mbtwwN68KAaqckfua2y
+	tAG3PUk9Vhv1NCr0PZjyZrPmrm8ILY1lR6YtpNQk9r31JHUl8M9EQ2H+UpB38140SevK3EaF3S9yt
+	VkSGhV9yEDkg7JdUgogFz3w+K8FftSWoD2ETHf7D9r4CgmbaSlyq/vpPEm2At2MNJdqRmQoVDuxDz
+	DKMCgAUzW0dk9BHTwYFsSEpaMp0ZJap04XUmSnLCSZNfZBp3WF2BPoxOw93wSbEPGLSrtK5ALLzFe
+	WC5m5HzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7c6G-0000000F9MC-18Eq;
-	Fri, 18 Sep 2026 17:10:12 +0000
+	id 1x7c9h-0000000F9hs-31IY;
+	Fri, 18 Sep 2026 17:13:45 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7c6C-0000000F9Kb-2yHA
+	id 1x7c9f-0000000F9hX-2R5d
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 17:10:10 +0000
+	Fri, 18 Sep 2026 17:13:44 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4209B1476;
-	Fri, 18 Sep 2026 10:10:02 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1DACF3F7B4;
-	Fri, 18 Sep 2026 10:10:04 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9F98E1476;
+	Fri, 18 Sep 2026 10:13:38 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ECA343F7B4;
+	Fri, 18 Sep 2026 10:13:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789751405; bh=BgKcsXT68JH7sgpTC8Gm4cYQ/2FLLJZL15J9ATZKhdY=;
+	t=1789751622; bh=Ms/jqumPWYrvRGJTG/Z56F1Qz1M33gn7nBCRUOb6mZc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=c+3nHSYFUtf7SaswiArlABvI3b2BtMzdxnuXNvLB87iAQX6Q6HaMpLdSwSayvDuVR
-	 gJxPsA6IT7ZWN1hQIzcfuUzSvmwyEfbapuvFZPGEGXQzo6qO0pR9L257MQcNmha+M/
-	 EGHJ6ZVdBmJB4loa8mqNP1EmXfTgf3xUNsoRUZOA=
-Date: Fri, 18 Sep 2026 18:10:01 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	linux-coco@lists.linux.dev, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev, Marc Zyngier <maz@kernel.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Steven Price <steven.price@arm.com>,
+	b=ZI2WIGVeKsjpXSuLN4NekACETWzSdvEbW6bU+lbT80oqWk2eN6JPChnAzU38env2t
+	 o9HA/7oz8XVMVYKjSAXw3TRFyyOzh16i3hHJuZXWv14V7M8dbuGISU2IRkA6zGRy4u
+	 M56Elq59nJfO5GfvUsdDQeEGCxoBbXq3vfkz8lX4=
+Date: Fri, 18 Sep 2026 18:13:37 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Mike Leach <mike.leach@arm.com>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>, James Clark <james.clark@linaro.org>,
+	Leo Yan <leo.yan@arm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Thomas Gleixner <tglx@kernel.org>, Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v6 0/9] coco: guest: Enforce host page-size alignment for
- shared buffers
-Message-ID: <aq1wabiHOhLRjHEd@arm.com>
-References: <20260904103452.1197239-1-aneesh.kumar@kernel.org>
- <aq1sT2EDsGaomqST@arm.com>
- <20260918165754.GG11599@ziepe.ca>
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>
+Subject: Re: [PATCH v11 7/9] coresight: etm4x: exclude ss_status from
+ drvdata->config
+Message-ID: <aq1xQdJpylvhZmff@e129823.arm.com>
+References: <20260915-separate_etm_cfg_v2-v11-0-d2b258d51747@arm.com>
+ <20260915-separate_etm_cfg_v2-v11-7-d2b258d51747@arm.com>
+ <32d15bef-4ecd-45eb-8d4e-1a4276eb6e15@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260918165754.GG11599@ziepe.ca>
+In-Reply-To: <32d15bef-4ecd-45eb-8d4e-1a4276eb6e15@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_101008_790759_83B27365 
-X-CRM114-Status: GOOD (  16.18  )
+X-CRM114-CacheID: sfid-20260918_101343_690758_81ACF67D 
+X-CRM114-Status: GOOD (  36.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,32 +80,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 18, 2026 at 01:57:54PM -0300, Jason Gunthorpe wrote:
-> On Fri, Sep 18, 2026 at 05:52:31PM +0100, Catalin Marinas wrote:
+> Hi,
 > 
-> > TBH, I'm tempted not to support this configuration at all, just fail
-> > gracefully if the realm page size doesn't match the host's. However, if
-> > that's a real world configuration, 
-> 
-> realm != host is going to be fairly common.
-> 
-> host > realm is probably not that common, I would guess.
+> Actually replied to v10 of this patch before I spotted v11. I'll repeat the
+> comments here to keep them together.
 
-It's the latter that's problematic. If we don't think it's common, maybe
-not worth solving.
+Yeap. I confirmed but thanks again ;)
 
-> > I wonder whether could we leverage the swiotlb mechanism but with a
-> > separate io_tlb_mem as a shared coco allocator with the right
-> > alignment and use this pool when force_dma_unencrypted() instead of
-> > specific alloc_pages() with adjusted order.
 > 
-> I propose we fix the far too low level set memory decrypted apis into
-> proper allocators, with APIs that can handle a round up. Then see
-> where we end up after that.
+> 
+> 
+> On 9/15/26 12:34, Yeoreum Yun wrote:
+> > The purpose of TRCSSCSRn register is to show status of
+> > the corresponding Single-shot Comparator Control and input supports.
+> > That means writable field's purpose for reset or restore from idle status
+> > not for configuration.
+> > 
+> > Therefore, exclude ss_status from drvdata->config and move it to drvdata.
+> > 
+> > Before this patch, clearing the PENDING and STATUS bits when enabling
+> > a perf session could trigger multiple single-shot events within
+> > the same session. This issue will be addressed in a future patch;
+> 
+> The hardware is designed to have multiple single shot events - the reset bit
+> in TRCSSCCRn specifically programs this behaviour.
+> 
+> But the basic point is correct there is no need to have the status register
+> as part of the configurable set of registers.
 
-I fully agree. As you said, it also solves the double zeroing problem
-and we can wire up the granule difference handling.
+Agree and Thanks for clarification!
+
+> 
+> 
+> 
+> > this patch intentionally preserves the existing behavior.
+> > 
+> > Reviewed-by: Leo Yan <leo.yan@arm.com>
+> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> > ---
+> >   drivers/hwtracing/coresight/coresight-etm4x-cfg.c   |  1 -
+> >   drivers/hwtracing/coresight/coresight-etm4x-core.c  | 20 +++++++++-----------
+> >   drivers/hwtracing/coresight/coresight-etm4x-sysfs.c | 10 +++++-----
+> >   drivers/hwtracing/coresight/coresight-etm4x.h       |  7 ++++++-
+> >   4 files changed, 20 insertions(+), 18 deletions(-)
+> > 
+> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> > index d24f533c623d0..098aabd2b922c 100644
+> > --- a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> > @@ -86,7 +86,6 @@ static int etm4_cfg_map_reg_offset(struct etmv4_drvdata *drvdata,
+> >   		off_mask =  (offset & GENMASK(11, 5));
+> >   		do {
+> >   			CHECKREGIDX(TRCSSCCRn(0), ss_ctrl, idx, off_mask);
+> > -			CHECKREGIDX(TRCSSCSRn(0), ss_status, idx, off_mask);
+> >   			CHECKREGIDX(TRCSSPCICRn(0), ss_pe_cmp, idx, off_mask);
+> >   		} while (0);
+> >   	} else if ((offset >= TRCCIDCVRn(0)) && (offset <= TRCVMIDCVRn(7))) {
+> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> > index 70a5c0b4fad1c..9de0c268ff954 100644
+> > --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> > @@ -95,7 +95,7 @@ static bool etm4x_sspcicrn_present(struct etmv4_drvdata *drvdata, int n)
+> >   	const struct etmv4_caps *caps = &drvdata->caps;
+> >   	return (n < caps->nr_ss_cmp) && caps->nr_pe_cmp &&
+> > -	       (drvdata->config.ss_status[n] & TRCSSCSRn_PC);
+> > +	       (drvdata->ss_status[n] & TRCSSCSRn_PC);
+> >   }
+> >   u64 etm4x_sysreg_read(u32 offset, bool _relaxed, bool _64bit)
+> > @@ -573,11 +573,11 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
+> >   		etm4x_relaxed_write32(csa, config->res_ctrl[i], TRCRSCTLRn(i));
+> >   	for (i = 0; i < caps->nr_ss_cmp; i++) {
+> > -		/* always clear status bit on restart if using single-shot */
+> > +		/* always clear status and pending bits on restart if using single-shot */
+> >   		if (config->ss_ctrl[i] || config->ss_pe_cmp[i])
+> > -			config->ss_status[i] &= ~TRCSSCSRn_STATUS;
+> > +			drvdata->ss_status[i] &= ~(TRCSSCSRn_STATUS | TRCSSCSRn_PENDING);
+> >   		etm4x_relaxed_write32(csa, config->ss_ctrl[i], TRCSSCCRn(i));
+> > -		etm4x_relaxed_write32(csa, config->ss_status[i], TRCSSCSRn(i));
+> > +		etm4x_relaxed_write32(csa, drvdata->ss_status[i], TRCSSCSRn(i));
+> >   		if (etm4x_sspcicrn_present(drvdata, i))
+> >   			etm4x_relaxed_write32(csa, config->ss_pe_cmp[i], TRCSSPCICRn(i));
+> >   	}
+> > @@ -1081,7 +1081,7 @@ static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
+> >   	/* read the status of the single shot comparators */
+> >   	for (i = 0; i < caps->nr_ss_cmp; i++) {
+> > -		config->ss_status[i] =
+> > +		drvdata->ss_status[i] =
+> >   			etm4x_relaxed_read32(csa, TRCSSCSRn(i));
+> >   	}
+> > @@ -1162,12 +1162,9 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
+> >   				 drvdata, 1);
+> >   	/*
+> > -	 * Userspace may read ss_status and cntr_val through sysfs after
+> > +	 * Userspace may read cntr_val through sysfs after
+> >   	 * the sysfs-session has been disabled.
+> >   	 */
+> > -	for (i = 0; i < caps->nr_ss_cmp; i++)
+> > -		config->ss_status[i] = active_config->ss_status[i];
+> > -
+> >   	for (i = 0; i < caps->nr_cntr; i++)
+> >   		config->cntr_val[i] = active_config->cntr_val[i];
+> > @@ -1525,8 +1522,9 @@ static void etm4_init_arch_data(void *info)
+> >   	 */
+> >   	caps->nr_ss_cmp = FIELD_GET(TRCIDR4_NUMSSCC_MASK, etmidr4);
+> >   	for (i = 0; i < caps->nr_ss_cmp; i++) {
+> > -		drvdata->config.ss_status[i] =
+> > -			etm4x_relaxed_read32(csa, TRCSSCSRn(i));
+> > +		drvdata->ss_status[i] = etm4x_relaxed_read32(csa, TRCSSCSRn(i));
+> > +		drvdata->ss_status[i] &= (TRCSSCSRn_PC | TRCSSCSRn_DV |
+> > +					  TRCSSCSRn_DA | TRCSSCSRn_INST);
+> 
+> The unused bits in this register are RES0 - rendering this masking
+> redundant.
+
+There was some review for this whether RES0 versus clarifies the bit
+we see. TBH, I tend to agree it's redundant. So I'll restore it.
+
+Thanks!
+
+> 
+> >   	}
+> >   	/* NUMCIDC, bits[27:24] number of Context ID comparators for tracing */
+> >   	caps->numcidc = FIELD_GET(TRCIDR4_NUMCIDC_MASK, etmidr4);
+> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+> > index f6d053f73264c..50ef2e957300f 100644
+> > --- a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+> > @@ -1833,8 +1833,8 @@ static ssize_t sshot_ctrl_store(struct device *dev,
+> >   	raw_spin_lock(&drvdata->spinlock);
+> >   	idx = config->ss_idx;
+> >   	config->ss_ctrl[idx] = FIELD_PREP(TRCSSCCRn_SAC_ARC_RST_MASK, val);
+> > -	/* must clear bit 31 in related status register on programming */
+> > -	config->ss_status[idx] &= ~TRCSSCSRn_STATUS;
+> > +	/* must clear bit 31 and 30 in related status register on programming */
+> > +	drvdata->ss_status[idx] &= ~(TRCSSCSRn_STATUS | TRCSSCSRn_PENDING);
+> >   	raw_spin_unlock(&drvdata->spinlock);
+> >   	return size;
+> >   }
+> > @@ -1848,7 +1848,7 @@ static ssize_t sshot_status_show(struct device *dev,
+> >   	struct etmv4_config *config = &drvdata->config;
+> >   	raw_spin_lock(&drvdata->spinlock);
+> > -	val = config->ss_status[config->ss_idx];
+> > +	val = drvdata->ss_status[config->ss_idx];
+> >   	raw_spin_unlock(&drvdata->spinlock);
+> >   	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
+> >   }
+> > @@ -1885,8 +1885,8 @@ static ssize_t sshot_pe_ctrl_store(struct device *dev,
+> >   	raw_spin_lock(&drvdata->spinlock);
+> >   	idx = config->ss_idx;
+> >   	config->ss_pe_cmp[idx] = FIELD_PREP(TRCSSPCICRn_PC_MASK, val);
+> > -	/* must clear bit 31 in related status register on programming */
+> > -	config->ss_status[idx] &= ~TRCSSCSRn_STATUS;
+> > +	/* must clear bit 31 and 30 in related status register on programming */
+> > +	drvdata->ss_status[idx] &= ~(TRCSSCSRn_STATUS | TRCSSCSRn_PENDING);
+> >   	raw_spin_unlock(&drvdata->spinlock);
+> >   	return size;
+> >   }
+> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
+> > index ffde48b6b41b2..8c1c1364b1c44 100644
+> > --- a/drivers/hwtracing/coresight/coresight-etm4x.h
+> > +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
+> > @@ -213,6 +213,7 @@
+> >   #define TRCACATRn_EXLEVEL_MASK			GENMASK(14, 8)
+> >   #define TRCSSCSRn_STATUS			BIT(31)
+> > +#define TRCSSCSRn_PENDING			BIT(30)
+> 
+> Minor nit - PENDING is ETE only - worth commenting in case a reader is
+> looking at the ETMv4 spec.
+
+Thanks. I'll add a little bit of comment!
+
+> 
+> >   #define TRCSSCCRn_SAC_ARC_RST_MASK		GENMASK(24, 0)
+> >   #define TRCSSPCICRn_PC_MASK			GENMASK(7, 0)
+> > @@ -730,6 +731,9 @@ static inline u32 etm4_res_sel_pair(u8 res_sel_idx)
+> >   #define ETM_DEFAULT_ADDR_COMP		0
+> >   #define TRCSSCSRn_PC			BIT(3)
+> > +#define TRCSSCSRn_DV			BIT(2)
+> > +#define TRCSSCSRn_DA			BIT(1)
+> > +#define TRCSSCSRn_INST			BIT(0)
+> 
+> These new defs are redundant if the masking above is redundant
+
++1
+
+Thanks!
+
+[...]
 
 -- 
-Catalin
+Sincerely,
+Yeoreum Yun
 
