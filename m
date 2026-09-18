@@ -4,70 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD701C982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 01:41:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E234C982D2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 01:50:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L0EVnDrLrlZsk6u+X20+pzKDeqqgQ00+8S0/mdXWL1c=; b=3/3f+zLRkeNrxWWm2Xk/1BF8Ru
-	1pBuKfZP25DGBHR9wv6NCms3qU1/JhDrfzBgHHcleMu25TTHUxYNZJ5GBCFCkMAo/2GI20ddgBHls
-	bJegC5e9/eyuQ8s5TIEoMw8aFjkU9VmEFSkRTonhTmIjo20aWiqAW7P5PsyXF/dYja4eHPc87lCsC
-	HeiF6gADOTQYcNPhlSv8B5J/NASW5iwMiYrC3zvV2tJJ7SeK1dwrsnxuYQsZuYFGWDNt6QDzIRG2T
-	TVat2VkdZHuGe76FZawOTgqQfXLCSVdAp0mFyMAjje07TUwBFHrhI+Vheou/M1Xe10SsmB15VhkGb
-	BeuaOtzw==;
+	bh=m/pJjVbQRyxDdtGD6rF0s7b+fzIsts7a1HewX1aTncg=; b=Eg22N3d0GQfTDJuTRaxqMppp/2
+	CILH0gLSgGQITGNQNW7jBF0jv6Jc8+E71KAz6h+KY8PzwJYvXVvdmQCw1bx9qnKxPBU1zVuNBk/gb
+	naWwzJlry0h67j07ruivlP7TSAQsSfLnFdz3nGO0MfQ5eC/DZVccVmAVuEfMQCQgWcClPvIXs1i+L
+	At2Fx16GDYyNKURhtn7gGp7GjrrW+d+nTVGItOCGKN2DKRAZUhpKz7pYOzVU+ZivvTpwQRKa1jsuF
+	dkkPjvGmEKlxqpgpWfz6rFjhTJZZWl5zmmV3EBJmeZIwHdZ5oSuiK8nlesB7xYlUt/7nbRcxKjBie
+	ArjXyjMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7MS9-0000000D1X4-2Z6N;
-	Fri, 18 Sep 2026 00:27:45 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1x7NkI-0000000DD8i-0pk5;
+	Fri, 18 Sep 2026 01:50:34 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7MS6-0000000D1VQ-0k2M
+	id 1x7NkH-0000000DD7Y-2aUU
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 18 Sep 2026 01:50:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=m/pJjVbQRyxDdtGD6rF0s7b+fzIsts7a1HewX1aTncg=; b=EW/dUjY6Ooc1o/V5BegI6ax7pC
+	21ZZFolVPWkv/SuQNF3OeASkBn7jlAQ2QWD8V83uozs112dRI38e1FFYHruAbL0cqcMvKPspLB9EZ
+	eC3LLuWgJwRYU8OmkG7TBqRMl2SnmQkyuJu2UnUAAWDKgTYJu5Wzj6KPtBSI5DT8Iy7mGIglFinD2
+	HBq824ChIVkeDjr0Mh+J6+oYuLhAtIl/6enyPBooMB7m2GOmuZ5SwT86uJHK8e04W3ZHKjA/0JEfY
+	h+IJPG9RbG+S2f7aPatkDPyXd0Of9B82YFh6bXevNl3OW/Ej4FQ2hz6g0CuuTjbFNsRlGOVgzIgo4
+	cpqwa20A==;
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x7NkD-00000009UqV-0MGc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 00:27:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Subject:Date:From:From:Reply-To;
-	bh=L0EVnDrLrlZsk6u+X20+pzKDeqqgQ00+8S0/mdXWL1c=; b=dX+xbrzHq4IOyXYKAgVtgh4Vef
-	yD9lpi9TGtBhOP3mYXSJBL+W6zq8YFvkxfwCuJOT2dy5mYY2MffvF42LVamvquCobXvTxWgqiiYfG
-	BjsjGam9lZFysp/blaw8BKB9Afy9ngQ9Tot/h5nqUfBQrs7sT4Bg4ltKaXg8ttXXvNUGERa8WiOVP
-	wr/JwT6l5DL6hEtKJ8sfyFDN16dD8FNpoTI0CE8rxPMKgFtQGWjAFi9dtgGuMI9q9VK6WaFZYYNNv
-	wlTxCESxHmu1FeqrC3kTXZBOx5g0lz84FuGar5iO9XiMlboegl/VXCDMIVsvEN8/iOQPO8z1etFOb
-	c4QlA9XQ==;
-Received: from [177.172.123.214] (helo=[192.168.15.100])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1x7MRp-003iDv-EY; Fri, 18 Sep 2026 02:27:25 +0200
-From: =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-Date: Thu, 17 Sep 2026 21:27:00 -0300
-Subject: [PATCH v9 2/3] arm64: vdso: Prepare for robust futex unlock
- support
+	Fri, 18 Sep 2026 01:50:32 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-4834977ae75so69868f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 18:50:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=lex.la; s=google; t=1789696228; x=1790301028; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=m/pJjVbQRyxDdtGD6rF0s7b+fzIsts7a1HewX1aTncg=;
+        b=VP6RW1db+8fFj7hE84jKybqmgKtXmqN52L8UKYBdv7c0X0ZevevQyCVio8uDBOihpD
+         kdTxuj/YMAHVc+18b5/XJphb0zvYaEETGR6xSDUCfwauXmgvGpiM5TNZqFEQLlTBkxIV
+         6Y2lGtMUG7wrHuM0wji6FdbeouzUO/lXhekqdnJ3rwJ5sNdubI1VOKy/LQ6wcOOcLkXs
+         kQ0+cEkRL6/i5S7uwb2oCawadLdtixze6v70apdq3nulOUjRtqwsy24G9lzXkpnHarq7
+         48BY+0Db40h3YzLWkpELyGvwGNBNgGYnZYENbsyCq01yyVDYLI7f/NKp4Cd3CWdwE1aH
+         I7KQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789696228; x=1790301028;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=m/pJjVbQRyxDdtGD6rF0s7b+fzIsts7a1HewX1aTncg=;
+        b=RNTQDzw2nK4ZOERsgDKvXcK1S6zgwOFd4Pv2HMYkgz8GgXfgroHTJl7QwiiM1HoETK
+         iucJviSnimBX0e3P9RViw7JMKedIjO6rzTjgS7xSqO7GBpxS8fXDxi3Hem2ZmVj6JbKF
+         KzltlF5U6TEco9s3CNECKLTazbIU8jAz5ljTuKC3Hfdbkk6znO/HvHC7ChJ9LklqLagW
+         vVuBBuZNrv2Dksu2y8H0/Onl+psvs68KOOx6S5LF9a4z919pgu7CBd8NrqCn1s/kBzPt
+         JWsgGp3HLRRhRodpEM8uxuuqe9QN0Wc/L3Db6jQ8/ZW0lOzwdsVI1lkk+CtEmyj+m+nf
+         d0pA==
+X-Forwarded-Encrypted: i=1; AKwUvBxKH/Frms1Moj4a+jluSAA8RKoHnSmUIaaf7NsVCVKa5Usj7FceZkh9Cfiw/ej0EwsLh87Ww6uu+P/rmQpCqJzw@lists.infradead.org
+X-Gm-Message-State: AFuF++lh1RH9RCkREe0kdYwFBuqryy2dg9AUdVJUFUmAI36fZtaf+cCZ
+	UZpUSvwbP93/LvZk62dTj0ww3Hm7wkw9kChsAQztPGFi5WwE51nGkfSIfE9JKhEStag=
+X-Gm-Gg: AYBFou1a0pkghRtW/IFYdAF1au9AInIu6SGoLk9dzsXFOYCzwBUmyCzAnDd0y5NvwiA
+	dxlUNDxxYoGFxr+6iChejUr6BWoHEPI/4zqDoK4uinVBrQfgLsAFCBmjy3mgS94L+6382RQGNr7
+	W6CjANShrMZFJacgpknSHt078XaZBB9REKYefo6H/FAKkiggDIeKU7hxXQRKyvLpGR9fNSc4RX4
+	TeaoHXr14I3niqzNZLRGpWiQMRgy7q6Wk7lvriakpsds6hGOxckRz9swFIA7VCzL4VI5GQ8veoJ
+	a2zKIwCBcVeeIINJ5iE/vYASqNPYz34ZuxWeqYJYlX4JsKbkV2naGXIW6gzFmfnvk6RbMnfN6Fw
+	QaJCCIMk+03BCWypd8NifFUhWdGjRpmmBbNfzOcr5iGJR5VEVPeRqdXSmV0h3F0Q4bN7M8b0nkw
+	6eWmMo5We5nyxKL72vGQAxPK3e4R/RgkHOl267mqicYO0ICAbmWQ==
+X-Received: by 2002:a05:6000:2689:b0:487:c45:3957 with SMTP id ffacd0b85a97d-4871e370c61mr2016513f8f.25.1789696227840;
+        Thu, 17 Sep 2026 18:50:27 -0700 (PDT)
+Received: from remote-01 ([84.17.55.229])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4871ff57926sm70569f8f.14.2026.09.17.18.50.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 17 Sep 2026 18:50:27 -0700 (PDT)
+From: Aleksei Sviridkin <f@lex.la>
+To: netdev@vger.kernel.org
+Cc: chester.a.unal@arinc9.com,
+	daniel@makrotopia.org,
+	andrew@lunn.ch,
+	olteanv@gmail.com,
+	gerg@kernel.org,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Aleksei Sviridkin <f@lex.la>
+Subject: [PATCH net v2 1/2] net: dsa: mt7530: fix NULL dereference on unbind of MT7531 and MT7621
+Date: Fri, 18 Sep 2026 04:50:19 +0300
+Message-ID: <20260918015020.2518315-2-f@lex.la>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260918015020.2518315-1-f@lex.la>
+References: <20260918015020.2518315-1-f@lex.la>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260917-tonyk-robust_arm-v9-2-ab082b1b4c4b@igalia.com>
-References: <20260917-tonyk-robust_arm-v9-0-ab082b1b4c4b@igalia.com>
-In-Reply-To: <20260917-tonyk-robust_arm-v9-0-ab082b1b4c4b@igalia.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, 
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
- Peter Zijlstra <peterz@infradead.org>, Florian Weimer <fweimer@redhat.com>, 
- Darren Hart <dvhart@infradead.org>, Ingo Molnar <mingo@kernel.org>, 
- Davidlohr Bueso <dave@stgolabs.net>, Arnd Bergmann <arnd@arndb.de>, 
- Uros Bizjak <ubizjak@gmail.com>, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-arch@vger.kernel.org, kernel-dev@igalia.com, 
- LKML <linux-kernel@vger.kernel.org>, 
- =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_172742_614616_E6B8E0B8 
-X-CRM114-Status: GOOD (  19.73  )
+X-CRM114-CacheID: sfid-20260918_025029_345935_0882788E 
+X-CRM114-Status: GOOD (  26.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,115 +126,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To solve the robust futex's list_pending_op clearing race condition,
-prepare for implement __vdso_futex_robust_try_unlock() for arm64 with the
-following steps:
+The core and io supplies are only requested for ID_MT7530: both the
+devm_regulator_get() in probe and the regulator_enable() in
+mt7530_setup() are guarded by the switch id, but mt7530_remove()
+disables them unconditionally. On an MT7621 or an MT7531 both pointers
+are still NULL from devm_kzalloc(), so rmmod or a sysfs unbind calls
+regulator_disable() on NULL.
 
-- Create a helper function that sets the struct futex_mm_data with the
-VDSO's labels addresses. The robust futex fixup mechanism needs to
-compare the current instruction pointer to the VDSO instructions range.
-
-- Split vdso_mremap() in vdso_mremap() and aarch32_mremap(), this allows
-the VDSO to be setup correctly regarding the instructions addresses for
-both ABIs when a mremap happens.
-
-- Implement arch_futex_robust_unlock_get_pop() for arm64, checking for r2
-and r3 registers values for the fixup function. The role of this registers
-is explained in the commit that implement the assembly portion of the VDSO.
-
-Signed-off-by: André Almeida <andrealmeid@igalia.com>
+Fixes: ddda1ac116c8 ("net: dsa: mt7530: support the 7530 switch on the Mediatek MT7621 SoC")
+Assisted-by: LLM
+Signed-off-by: Aleksei Sviridkin <f@lex.la>
 ---
-v9:
- - Simplify arm64_futex_robust_unlock_get_pop by using regs->regs[] and if
- instead of ternary operation
- - Split mremap changes into other patch
+Found by accident on a Netcraze NC-1012 (MT7981B + MT7531, 6.18.44) while
+looking for a way to tear a DSA port down at runtime:
 
-v6:
- - Restructured this commit. Move the arch bits away, kept just the
- generic/helper functions.
+  # echo mdio-bus:1f > /sys/bus/mdio_bus/drivers/mt7530-mdio/unbind
+  Unable to handle kernel access to user memory outside uaccess routines
+    at virtual address 0000000000000078
+  pc : regulator_disable+0x14/0x48
+  lr : mt7530_remove+0x1c/0x80
+  ...
+  x0 : 0000000000000000
+  Call trace:
+   regulator_disable+0x14/0x48 (P)
+   mt7530_remove+0x1c/0x80
+   mdio_remove+0x20/0x40
+   device_remove+0x68/0x80
+   device_release_driver_internal+0x1cc/0x220
+   device_driver_detach+0x14/0x20
+   unbind_store+0xac/0xb0
+   ...
+  Kernel panic - not syncing: Oops: Fatal exception
 
-v4:
-- Guard symbols from vdso.lds.S with ifdef
-- drop update_ips() from sigpage remap function
+The oops itself is a process-context oops that kills the writing task. It
+became a panic and a reboot because OpenWrt's generic kernel config sets
+CONFIG_PANIC_ON_OOPS=y and this target does not override it, not because of
+anything local to this bench. With CONFIG_REGULATOR=n the stub
+regulator_disable() returns 0 and nothing is dereferenced at all -
+NET_DSA_MT7530 neither selects nor depends on REGULATOR - so the severity
+is config-dependent, and the commit message states the mechanism rather
+than an outcome.
 
-v3:
- - Fix adding vdso base addr twice
- - Call vdso_futex_robust_unlock_update_ips() on remap as well
-v2:
- - Fixed linker not finding VDSO symbols
----
----
- arch/arm64/include/asm/futex_robust.h | 24 ++++++++++++++++++++++++
- arch/arm64/kernel/vdso.c              | 17 +++++++++++++++++
- 2 files changed, 41 insertions(+)
+x0 is the regulator pointer and regulator_disable() reads regulator->rdev
+straight away, so the NULL comes from the field never being assigned rather
+than from an error pointer: with CONFIG_REGULATOR=y devm_regulator_get()
+hands back a valid pointer or an ERR_PTR, and on anything but ID_MT7530 it
+is never called at all.
 
-diff --git a/arch/arm64/include/asm/futex_robust.h b/arch/arm64/include/asm/futex_robust.h
-new file mode 100644
-index 000000000000..389ce2a9484d
---- /dev/null
-+++ b/arch/arm64/include/asm/futex_robust.h
-@@ -0,0 +1,24 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _ASM_ARM64_FUTEX_ROBUST_H
-+#define _ASM_ARM64_FUTEX_ROBUST_H
-+
-+#include <asm/ptrace.h>
-+
-+static __always_inline void __user *arm64_futex_robust_unlock_get_pop(struct pt_regs *regs)
-+{
-+	/*
-+	 * In the asm for __vdso_futex_robust_list{64,32}_try_unlock(), w3
-+	 * stores the result of the stlxr instruction. If it's zero, the then
-+	 * the ll/sc cmpxchg succeeded and the pending op pointer needs to be
-+	 * cleared.
-+	 */
-+	if (regs->regs[3])
-+		return NULL;
-+
-+	return (void __user *)regs->regs[2];
-+}
-+
-+#define arch_futex_robust_unlock_get_pop(regs) \
-+	arm64_futex_robust_unlock_get_pop(regs)
-+
-+#endif /* _ASM_ARM64_FUTEX_ROBUST_H */
-diff --git a/arch/arm64/kernel/vdso.c b/arch/arm64/kernel/vdso.c
-index 089a70d96220..95162061cd82 100644
---- a/arch/arm64/kernel/vdso.c
-+++ b/arch/arm64/kernel/vdso.c
-@@ -11,6 +11,7 @@
- #include <linux/clocksource.h>
- #include <linux/elf.h>
- #include <linux/err.h>
-+#include <linux/futex.h>
- #include <linux/errno.h>
- #include <linux/gfp.h>
- #include <linux/kernel.h>
-@@ -57,6 +58,22 @@ static struct vdso_abi_info vdso_info[] __ro_after_init = {
- #endif /* CONFIG_COMPAT_VDSO */
- };
+The same shape applies to MT7621, which mt7530_of_match also binds. The
+MMIO driver is unaffected: it makes no regulator calls at all, though it
+does still carry the include.
+
+The id test is used rather than a NULL check because the driver already
+says "these supplies belong to ID_MT7530" that way in the other two places
+it matters: the devm_regulator_get() pair in mt7530_probe() and the
+regulator_set_voltage()/regulator_enable() pair in mt7530_setup(). A NULL
+check would be a third spelling of the same condition.
+
+Tested on the board above. Without the patch the unbind panics as shown;
+both pointers come out of devm_kzalloc() and are never assigned on an
+MT7531, so the fault is structural rather than timing-dependent. With this
+patch plus patch 2, the same unbind runs to completion: mdio-bus:1f leaves
+/sys/bus/mdio_bus/drivers/mt7530-mdio/, lan1-lan4 disappear, the kernel
+prints "DSA: tree 0 torn down", and uptime does not reset. The kernel under
+test was identified by the sha256 of its ELF notes section, read from
+/sys/kernel/notes on the running board and computed in advance from the
+image that was flashed.
+
+dmesg is not silent across that unbind. It gains one WARN - a single cut
+here/WARNING/end trace block - from sysfs_remove_link() under
+dsa_user_destroy() reaching an already-removed netdev directory: "kernfs:
+can not remove 'phydev', no directory". That is a DSA teardown-ordering
+defect rather than a regulator one, and in this run it fired on the first
+unbind after boot. dmesg is where it shows: pstore gained no new record
+across the run, but pstore records only oopses and panics and could not
+have caught a WARN.
+
+That run needs patch 2 on top, a different defect in the same teardown:
+mt7530_remove_common() disposes the per-PHY interrupt mappings from .remove
+while the regmap-irq chip that owns the domain is still live, and the board
+dies in handle_nested_irq() later in the same teardown. With this patch
+alone, the panic moves from regulator_disable+0x14 to that second defect,
+and mt7530_remove is reached at +0x24/0x90 rather than +0x1c/0x80 - which
+is the point: the NULL dereference is gone and execution now gets past it.
+
+The disable stays where it is, ahead of mt7530_remove_common() and so ahead
+of the register writes dsa_unregister_switch() makes on the way down. On a
+real MT7530 that is teardown talking to a switch whose rails are already
+off, which is a separate and pre-existing ordering question, not addressed
+here; moving it would change when the supplies drop, which is more than a
+NULL-pointer fix should do.
+
+Not tested: the ID_MT7530 branch, which must still disable both rails.
+There is no MT7530 or MT7621 hardware here, so the disassembly stands in
+for it - before the change mt7530_remove() falls from the priv NULL check
+straight into ldr x0, [x19, #40] / bl regulator_disable; after it, ldr w0,
+[x19, #72] (priv->id) / cbz w0 gates both calls, and ID_MT7530 is 0. Built
+with W=1, no warnings; checkpatch --strict clean.
+
+ drivers/net/dsa/mt7530-mdio.c | 18 ++++++++++--------
+ 1 file changed, 10 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/net/dsa/mt7530-mdio.c b/drivers/net/dsa/mt7530-mdio.c
+index 784dd58a7158..de42f70afcfa 100644
+--- a/drivers/net/dsa/mt7530-mdio.c
++++ b/drivers/net/dsa/mt7530-mdio.c
+@@ -227,15 +227,17 @@ mt7530_remove(struct mdio_device *mdiodev)
+ 	if (!priv)
+ 		return;
  
-+#ifdef CONFIG_FUTEX_ROBUST_UNLOCK
-+static inline void __vdso_futex_update_ips(struct mm_struct *mm, bool is_32bit, void *startp,
-+					   void *endp)
-+{
-+	unsigned long start = (unsigned long)startp;
-+	unsigned long end = (unsigned long)endp;
-+	struct futex_mm_data *fd = &mm->futex;
-+
-+	futex_set_vdso_cs_range(fd, 0, start, end, is_32bit);
-+}
-+
-+#else
-+static inline void __vdso_futex_update_ips(struct mm_struct *mm, bool is_32bit, void *startp,
-+					   void *endp)
-+#endif /* CONFIG_FUTEX_ROBUST_UNLOCK */
-+
- static int vdso_mremap(const struct vm_special_mapping *sm,
- 		       struct vm_area_struct *new_vma)
- {
-
+-	ret = regulator_disable(priv->core_pwr);
+-	if (ret < 0)
+-		dev_err(priv->dev,
+-			"Failed to disable core power: %d\n", ret);
++	if (priv->id == ID_MT7530) {
++		ret = regulator_disable(priv->core_pwr);
++		if (ret < 0)
++			dev_err(priv->dev,
++				"Failed to disable core power: %d\n", ret);
+ 
+-	ret = regulator_disable(priv->io_pwr);
+-	if (ret < 0)
+-		dev_err(priv->dev, "Failed to disable io pwr: %d\n",
+-			ret);
++		ret = regulator_disable(priv->io_pwr);
++		if (ret < 0)
++			dev_err(priv->dev, "Failed to disable io pwr: %d\n",
++				ret);
++	}
+ 
+ 	mt7530_remove_common(priv);
+ 
 -- 
-2.55.0
+2.53.0
 
 
