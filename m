@@ -4,112 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA243C982D2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 07:07:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32A66C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 07:08:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZVTLUeibsWBPZCdD+qqGVF/fmQVK7DA4WjMhu8zs7u0=; b=L/6+e15KfwRMXObS6MIaYZaue+
-	pnOGNzzcePB/wTLuQ6gKOs+/tgeG4v6fEbMpkHC5xO1q4X4NxATwevEAEFQ/Oqgo1z+Kjn6uSw3Cs
-	lEWBS3nxcmqvrKHsBjZ9Wx3a61c7MlHnvKml3vq6JQebyJbSqi0ugECCzHqhR8wr9vKLl5FDk1Shn
-	0jp/viJwLglampzUj5IOkfQAZQeEL7lXChLy8IFxG9YkhVzXJlX3GTsJlhgVgIt7wnKVtTIgd8Ta/
-	BrPiNM0rKuB9nsOaJUHO0YZX6zDpDmSe541TYbdxN0js3Fn6bjxPaNR0ZMc00CXA/z6bP1gwgkEs4
-	kbT3gL4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AkytsX2493oZhSqMdRdXpM7ssRvUOFLQTqg/Kr4r0k4=; b=S6dm/vmMzq81mHYbKFSn78iCuI
+	Eadw+kT23s5FaQM+qa7yLn1+Eh46C6BgB31Rq5NTE0oS7n8bNIK/r9LTLVhFwZ++d9eRTivP3kclD
+	53azUcqrXBaev46yIxkg/BUiqDCIF8oO6sp62qsmCt4O4zMlyfsV2ssjFZO3bB00P4ipKSpguK8HZ
+	wBjp7hxA+sUhQ4t8wpRyVBC+yLB8L5BWmPfE3hHcEPBv0uNApIutfzDqV8dNPLrdAg456Z3KisCcG
+	UILxrdbC7RPSpibdf9AzLomfwXu+q5z7IOMSvXAhAoPUx4HsnUKWa0dhb3ChWMmr3QXLxo5GUBBCm
+	fMqn0KBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Sgp-0000000DeZf-2GAA;
-	Fri, 18 Sep 2026 07:07:19 +0000
-Received: from mail-yx2-x11.google.com ([2607:f8b0:4864:41::11])
+	id 1x7ShS-0000000Dekm-3Msv;
+	Fri, 18 Sep 2026 07:07:58 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Sga-0000000DeVC-1uHw
+	id 1x7ShQ-0000000Dek3-2SWU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 07:07:05 +0000
-Received: by mail-yx2-x11.google.com with SMTP id 956f58d0204a3-66f7f72a284so367642d50.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 00:07:04 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1789715223; cv=none;
-        d=google.com; s=arc-20260327;
-        b=symH3l4lBQX9Ufx0zEb3VrjcSGKywPvzGT/7PcauvbicRbCORC86NNLqSK6ZeRicsf
-         WRR5inYA/jUxm1TAq2HyaQiEHNLm+pJtipuJGpemUfQpLkwWH0CL0AOF0WB+oifuc5Hz
-         I1IbhHEUSirkPlQ4gXZAVq2Ni6Fca9t7aKIpkpghrk2Hj/pUjirosc0aiPuOQjF6Ataq
-         lJhdZMT5HZaihEpZ/9fYCwdHwOA107ZVew/pcK6qFywdcxfRyVJfIq3rFsH+lFI8srTJ
-         YaYoOfvPoxyMAZbjPhSRPsrbS/XJDhThR094O+DD/0benWc6GMllwkwygdsWtdnv/m12
-         0QDg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=ZVTLUeibsWBPZCdD+qqGVF/fmQVK7DA4WjMhu8zs7u0=;
-        fh=mKu6XU5TL0aItgrw7kHQ4WU/ET7pILUpqCZYxTihyic=;
-        b=FKZn8QSOo9tXXnJOIOLDC8USi7IRDiC34kMNSI2nf8LkPtlbK40rVIHEKXFv1YbjWK
-         xgn5cJze+9iglaKR2vnj3mx0IlngThGWOqNRnQX2gm15/04aSwt05TtByo9ssq70m6Yd
-         fk3A/8Z+Onrm89L2eNf86MciaYImAjq56t4MRZBMUbDrtvKiJ0HpBtiD4KDGThoXH680
-         RVae1W/NP0Y1gBBvZAbnEvzYnp/bJ96bBGoNmPmq1sDWX5UCeoY9mW023ET4zIX7jMXb
-         TKtDOQOsJnOVWZHM7xwn+L4AEZmXWeYXOPKm+R87MypOFX0UvseoXaSdm+64fTu3ohEn
-         g/VA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Fri, 18 Sep 2026 07:07:57 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68I60hTC362815
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 07:07:55 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=AkytsX2493oZhSqMdRdXpM7s
+	sRvUOFLQTqg/Kr4r0k4=; b=lM8iLofEdhDCimhKaod0wVawIEDPcSuiJsLG7h+j
+	/PvYZxiS0UHvyRoxfBnCuzB0BTgGAHTkzTUbACWDuPzcdC8LpDXU/lJzLiugB2fe
+	TuOGJ3KF5HHKSMpeDUQfVtftXat96Zdb7maX1YktqctjvZS9h3skeYOaItvz4EDY
+	5jIb879lAn26EsIzxt2Rwyn49YOA4ikuuEX8dWjeUq6uvCannUkdJBqhxsSm+gsb
+	owv6b8OEZ4V04IaXUWuHhfTp+O8x5k5CTi0I/1psDZqH2/UePehYTwmwXGV5Rha3
+	OMNp0Tfg+CVnGPxYdqNjz5GQcfmBSpki7sNG7jfN6jtCTQ==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4grhs6kyyu-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 07:07:55 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-939f3426a7cso85421285a.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 00:07:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1789715223; x=1790320023; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+        d=oss.qualcomm.com; s=google; t=1789715274; x=1790320074; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=ZVTLUeibsWBPZCdD+qqGVF/fmQVK7DA4WjMhu8zs7u0=;
-        b=UCm5F2uaEYTl1EQOEazHiNRvXRFKuRp5twMjN6tmruD5wjrrfYvfSB3eRXLra0/ppB
-         mCvXZIcJL4v812jEbwVsFa8CRsNhwiwOuGeWxQGLmSVIdBBOaGo0wF12vLpABLsLTCMM
-         PIUnoZC+xNmG7WCeM5J0osPqE7svH6X3bMUZA=
+        bh=AkytsX2493oZhSqMdRdXpM7ssRvUOFLQTqg/Kr4r0k4=;
+        b=JCWReYpDd6oy38fr6+I98u+LWR7330sB4woAmvGU46t5af+QHFUPsq7Bfb+O3j0Y35
+         szR2V0XmczVMo8RLc9HsGxtty8AmjWkngZ3ZfxtJulrCvcyUrtxMrlSooFftfju/80mH
+         8ZCuoPSdEGe8BdL+3YjSTgAliIgzBA9wrp98svCsZ11prNbMq1RbT94VdCb+i/h/Qmwu
+         5Ap3hH0ALTduqhbkCrqtORLBt4IphX26TkyZw+k5gdAu0zirUO7wn/IitKAIsN/dFqjl
+         vnTGo8dtmf3T6azPiEwADPyex+HMWGHav/JDBeHFFgyAcDfkNNQXdimVi78wjvvII5Je
+         fnlw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789715223; x=1790320023;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1789715274; x=1790320074;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=ZVTLUeibsWBPZCdD+qqGVF/fmQVK7DA4WjMhu8zs7u0=;
-        b=vRCtdRlMaIQeke2lPkv3UKpgSYF2Il/L45UCivyzrG5onxuRbe/CsjkImkryzLq7DE
-         dZ9or9qp1q/m/Fx3T9B9+Glrssvvdkfl/IFh6pKIg59OX5xrqTiGKrsTWUeG9bSLJUxC
-         PRaQ3tvoz1r7zCqzC31E3+3ZFtPNCLp/qHXCvsns1hB28C8AIhaXfKNQWhBJceTde8YC
-         dPFV7KphK6X+w+009Fjx+UcmvbKimZT9he3JmL1CjmavbiTFgrk9mxwKl2/c/lFrmS6h
-         uGqS3Ly8eVD7C+BxAsZxJ6pmOgjN5BaOOCynjKMfAlLNbMIQ9HDX9JzlQujtlDFUYIMu
-         Kqvg==
-X-Forwarded-Encrypted: i=1; AKwUvBzFlCShotTNI6UB9wTrqtrsZ17lxwuc/jYxOlNj3BdsS4ip7jKozqnWctv4eI0LOZmslknALJsoN5zDX6p0F1Qw@lists.infradead.org
-X-Gm-Message-State: AFuF++kSDvDWFEwc5ds/uYRMXRiOL2VccmTKneE9wyh5qYvqVp3XcpIK
-	CWyeYDPywtM6307ulb/vV9F/jwq/7jGdzSrl0gCbdvdc5+ilucwm5Qwfefgq2E5eT2y1VK4tHfO
-	oTXttum/+VpmioHyog0ZGYQpe0ACFdWfF8Y9YtKsO
-X-Gm-Gg: AYBFou15rKOIcxxBTqOJIif3CjAAfO3FhhoIBfj/xPAex6bb+rO2rtAABObGfP1FOWy
-	RJt+Hx/+mx1vvMqcmN4mhnU6ez7urpwfcDmNiFzp0NXfbYRT8IohKaI8pYeDk1tNwSYNKYyE0IW
-	2o8wVMP6CGr/znSQqveTUnbR2wPsgw8ZVXVVGTEyMVwEQ7nShrs5LBL+l8bqFYpcrGsrhtVfq+t
-	bxB7jubg5YiO37OytXfbrxXl1XJUtuvq17ed+Jg1N7tkdSTKGX0y99Hy7tXgRh1GCxylF2N46bE
-	SQILkSTOIEFMX0WioMZvYw1Dqiv7IdPIEsL4Go+EpkKrjEnLC0zoRmbl8a90lspJl8CJd1nugnI
-	4gW6F3JnrmA==
-X-Received: by 2002:a05:690e:c4d:b0:671:7b0:e5ce with SMTP id
- 956f58d0204a3-6717fdf1073mr497902d50.75.1789715223118; Fri, 18 Sep 2026
- 00:07:03 -0700 (PDT)
+        bh=AkytsX2493oZhSqMdRdXpM7ssRvUOFLQTqg/Kr4r0k4=;
+        b=IU3akcGITz5R5iDrTbfOcLJ6OLyBj0k4TcE/Vw86aaax7zxrNoUn5sKYTMZRWYStUk
+         7+s05V89P7Kj/W5kduiCQ48Pnz0MrQM5EL6TirauwnwIbEZoMl500oY0zqUZL56NLnM+
+         cdOQuW4Cd9TpSMgL7pvE3cn9bBotRfh9WJzq8m5b4aCamwinKUU0gANkgP45Dm9CmT3Q
+         f70bNNIxbBpi39cyhd7dMdUpaJRvQGpj4fGjtXNdWTWXu/oJqSM5C03TNCLAIl8FgLT5
+         iXvBZLrXmIPtaGYd1KHeUGU/fn48eTs4QmHqTwY/fjwpOTyYIGXIpkKUW/FPKy3scj5x
+         08NQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzSNjX4+cgkVnI1QiiqU4vAt1Avn3tkxzpKK7b8EIwtlc8YI9srgH3dyaWkciwgQxeTyomjTluBCQb2skSqkN+C@lists.infradead.org
+X-Gm-Message-State: AFuF++mzFjTup/Nog5aK9nRyQ0dxkKH6uYr6SSFOv5SB/8281msRBu7y
+	psG/LG2wRPswJ3I33gTdrpBy90EWVj+xsWCBHC5/QDAhhkw+TPpb0MoOa2lSl1MBXAwSn7s7HT9
+	y/0+ZWYyoqwQ+ArPD/sLdo07Uv58rYKYbYY+/phGUxVRmIsEycVsTz+HsFGDLOoMEUfdKKCOgvj
+	MkNA==
+X-Gm-Gg: AYBFou3UV5sotTJ02IDJQXwA+Mj4MD36m8X1zgBYy/95JFz1Qgvdby1BNfZkhg+Jb3v
+	WXk9GS7PSE3fMgd4AclDQNSGUoLyV8M+ry+SA5bCy4T6aZmCij5d/fJPaJLDS2tzovHT8Ff5TYc
+	0ohntqxA1sgEEHeIZ+j09CujmJJVHFoUAJAdT9Hdrnp2awfE6pdahGpsqBOb/WKEU8z5dseLIwN
+	okB85MVVNwwcN0oe/Ce6hN1N15u2GO2ECqXCaSZX60qDwLMxJim03XV7V1sUOMWYXb2oDXbaEYs
+	tQvbNPu1enxcdTmRk+AxXwiDqwMDosn7LLaJySdGhY+uTqEW5Z9nxzdSV4jCDYLF1IjMf1NvTRs
+	nED9V4aWK05GbOoaOv96u4k6WJ/tYZ5H51bLM6A==
+X-Received: by 2002:a05:620a:6012:b0:915:a953:4b9c with SMTP id af79cd13be357-93bdc698a93mr190969185a.3.1789715274383;
+        Fri, 18 Sep 2026 00:07:54 -0700 (PDT)
+X-Received: by 2002:a05:620a:6012:b0:915:a953:4b9c with SMTP id af79cd13be357-93bdc698a93mr190965285a.3.1789715273806;
+        Fri, 18 Sep 2026 00:07:53 -0700 (PDT)
+Received: from localhost (77-32-99-124.dyn.eolo.it. [77.32.99.124])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fbd24034esm161065645e9.15.2026.09.18.00.07.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 18 Sep 2026 00:07:52 -0700 (PDT)
+Date: Fri, 18 Sep 2026 09:07:50 +0200
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+To: Thomas Karpiniec <tom.karpiniec@outlook.com>
+Cc: netdev@vger.kernel.org, Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+        Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Russell King <linux@armlinux.org.uk>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S . Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+        Bartosz Golaszewski <brgl@kernel.org>,
+        Coia Prant <coiaprant@gmail.com>, linux-arm-msm@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v2 1/3] net: stmmac: propagate platform mac_finish
+ errors
+Message-ID: <aqzjRcKWGBVb2dyg@lore-qca>
+References: <SJ2PR11MB8401F5C3A075DE2A0013E063E4872@SJ2PR11MB8401.namprd11.prod.outlook.com>
+ <SJ2PR11MB8401FFBBECB8FBBA9C002134E4872@SJ2PR11MB8401.namprd11.prod.outlook.com>
 MIME-Version: 1.0
-References: <20260916033327.3054126-1-wenst@chromium.org> <20260916033327.3054126-2-wenst@chromium.org>
- <f6ace486-70d8-4e81-89cb-e9d55ad9ac8b@suse.de> <CAGXv+5ErgWVNtnRiW+QA7+Mzh=W_Y+HGL_iRa1fOaXCYSoAwMA@mail.gmail.com>
- <f7fa4c4c-bc59-4822-94bb-6e9d68f8f0ca@suse.de>
-In-Reply-To: <f7fa4c4c-bc59-4822-94bb-6e9d68f8f0ca@suse.de>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Fri, 18 Sep 2026 15:06:51 +0800
-X-Gm-Features: AcwNN1VLg__gblp0p9qUFHinFpHutsjL-_8trTnXduaSEQp1OhTN0-X1tjhNQaU
-Message-ID: <CAGXv+5GNjKxzHuBn28PbRtbFA1yuJ7h02xDpght4add3emuKJg@mail.gmail.com>
-Subject: Re: [PATCH RFT v2 1/5] drm: Split framebuffer pixel offset
- calculation from drm_fb_dma_get_gem_addr()
-To: Thomas Zimmermann <tzimmermann@suse.de>
-Cc: Liu Ying <victor.liu@nxp.com>, Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>, 
-	Lucas Stach <l.stach@pengutronix.de>, Chen-Yu Tsai <wens@kernel.org>, 
-	Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, linux-sunxi@lists.linux.dev, 
-	imx@lists.linux.dev, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="y1ppLvKxKDdIbxN5"
+Content-Disposition: inline
+In-Reply-To: <SJ2PR11MB8401FFBBECB8FBBA9C002134E4872@SJ2PR11MB8401.namprd11.prod.outlook.com>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE4MDA5NSBTYWx0ZWRfXwLXPD9+dWtB4
+ hRXbVV8lV3nR6Ys1csahstSqtvltHv8WHKLnpNj1shpG3WT5jiETq1FZIVEhsygCNqSyq9p3FHw
+ KodVVYzeU0QYOJz10i+hxxHZvj/UtimTRByT7Kk1I/94FoSJvwbH7uSb/F9B4KPiik0WmJSwH7s
+ h08O0YHUNIBYYR5U9bCctthC+V1QIFZzylmev/orY6LKy91iF0BGoEFD4ueGcC3Bf5a+fD+no0Q
+ hMRVrQ8In5rVP1nND8l+dduoEyAZyuJDebBIDRonxAHmdy10FDIdWw/0ou9as77zKlJlIWT5SxN
+ lZHfziVoyaTTCVx4+LTQtui6tKwZfSM1289ZttFmpUO9PPSHl/9SnI/Yneo2MuLhGIWImJhrhPa
+ bz1LJf0XjHiEIXLoHs8RAY2Izu5foQIdfAINQeA8VKMb/vNFdXc2/q2HOGxrhtr6TLZmYv28f/Y
+ 0SQLLaSV9AefSGtD/Ew==
+X-Proofpoint-GUID: jeUmJPcZa9zZKiNiKJRcry0mz--sJjtL
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE4MDA5NSBTYWx0ZWRfX43AnUl3QN+lP
+ 3eaAsR5tY6fWkZeLvvt5dspYMFw74BpN/12lhGeNwjjc5mSMlIjHpjBoGpkJzOuXcvPiJcsRmqY
+ Rg1JDM842ATsl2FxF7V6O617iVm5Ux4=
+X-Proofpoint-ORIG-GUID: jeUmJPcZa9zZKiNiKJRcry0mz--sJjtL
+X-Authority-Analysis: v=2.4 cv=cvwOAF4i c=1 sm=1 tr=0 ts=6aace34b cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=oN7owVyBLNHHe3W6XE6vpg==:17
+ a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=P-IC7800AAAA:8 a=9dhsta6yqxhMeNE18noA:9 a=CjuIK1q_8ugA:10
+ a=l3wzEGKSjxwMGPmveUEA:9 a=NFOGd7dJGGMPyQGDc5-O:22 a=d3PnA9EDa4IxuAV0gXij:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-18_02,2026-09-16_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 malwarescore=0 adultscore=0 spamscore=0 suspectscore=0
+ lowpriorityscore=0 clxscore=1015 impostorscore=0 phishscore=0
+ priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2609180095
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_000704_575627_BBAB2097 
-X-CRM114-Status: GOOD (  41.15  )
+X-CRM114-CacheID: sfid-20260918_000756_741652_F609B0A6 
+X-CRM114-Status: GOOD (  24.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,262 +161,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 18, 2026 at 2:41=E2=80=AFPM Thomas Zimmermann <tzimmermann@suse=
-.de> wrote:
->
-> Hi
->
-> Am 18.09.26 um 06:16 schrieb Chen-Yu Tsai:
-> > On Thu, Sep 17, 2026 at 11:20=E2=80=AFPM Thomas Zimmermann <tzimmermann=
-@suse.de> wrote:
-> >> Hi
-> >>
-> >> Am 16.09.26 um 05:33 schrieb Chen-Yu Tsai:
-> >>> Currently drm_fb_dma_get_gem_addr() calculates the offset into the
-> >>> framebuffer memory for the framebuffer's unclipped source coordinates=
-,
-> >>> adds that to the framebuffer's backing storage, and returns the resul=
-t.
-> >>>
-> >>> We are about to add a variant that uses the clipped source coordinate=
-s,
-> >>> so there is already some reuse of code. However, calculating the data
-> >>> offset for a given pixel is not specific to the DMA FB helpers. The
-> >>> offset is only related to the framebuffer.
-> >>>
-> >>> Split out the offset calculation into a new framebuffer helper so tha=
-t
-> >>> non-DMA users can also reuse the same code.
-> >>>
-> >>> Suggested-by: Thomas Zimmermann <tzimmermann@suse.de>
-> >>> Cc: <stable@vger.kernel.org> # dependency for next patch
-> >>> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-> >>> ---
-> >>> Changes since v1:
-> >>> - New patch
-> >>> ---
-> >>>    drivers/gpu/drm/drm_fb_dma_helper.c | 28 ++----------------
-> >>>    drivers/gpu/drm/drm_framebuffer.c   | 45 +++++++++++++++++++++++++=
-++++
-> >>>    include/drm/drm_framebuffer.h       |  3 ++
-> >>>    3 files changed, 51 insertions(+), 25 deletions(-)
-> >>>
-> >>> diff --git a/drivers/gpu/drm/drm_fb_dma_helper.c b/drivers/gpu/drm/dr=
-m_fb_dma_helper.c
-> >>> index fd71969d2fb1..ab0f37d8a5ff 100644
-> >>> --- a/drivers/gpu/drm/drm_fb_dma_helper.c
-> >>> +++ b/drivers/gpu/drm/drm_fb_dma_helper.c
-> >>> @@ -75,36 +75,14 @@ dma_addr_t drm_fb_dma_get_gem_addr(struct drm_fra=
-mebuffer *fb,
-> >>>                                   unsigned int plane)
-> >>>    {
-> >>>        struct drm_gem_dma_object *obj;
-> >>> -     dma_addr_t dma_addr;
-> >>> -     u8 h_div =3D 1, v_div =3D 1;
-> >>> -     u32 block_w =3D drm_format_info_block_width(fb->format, plane);
-> >>> -     u32 block_h =3D drm_format_info_block_height(fb->format, plane)=
-;
-> >>> -     u32 block_size =3D fb->format->char_per_block[plane];
-> >>> -     u32 sample_x;
-> >>> -     u32 sample_y;
-> >>> -     u32 block_start_y;
-> >>> -     u32 num_hblocks;
-> >>>
-> >>>        obj =3D drm_fb_dma_get_gem_obj(fb, plane);
-> >>>        if (!obj)
-> >>>                return 0;
-> >>>
-> >>> -     dma_addr =3D obj->dma_addr + fb->offsets[plane];
-> >>> -
-> >>> -     if (plane > 0) {
-> >>> -             h_div =3D fb->format->hsub;
-> >>> -             v_div =3D fb->format->vsub;
-> >>> -     }
-> >>> -
-> >>> -     sample_x =3D (state->src_x >> 16) / h_div;
-> >>> -     sample_y =3D (state->src_y >> 16) / v_div;
-> >>> -     block_start_y =3D (sample_y / block_h) * block_h;
-> >>> -     num_hblocks =3D sample_x / block_w;
-> >>> -
-> >>> -     dma_addr +=3D fb->pitches[plane] * block_start_y;
-> >>> -     dma_addr +=3D block_size * num_hblocks;
-> >>> -
-> >>> -     return dma_addr;
-> >>> +     return obj->dma_addr + drm_framebuffer_get_block_offset(fb, pla=
-ne,
-> >>> +                                                             state->=
-src_x >> 16,
-> >>> +                                                             state->=
-src_y >> 16);
-> >>>    }
-> >>>    EXPORT_SYMBOL_GPL(drm_fb_dma_get_gem_addr);
-> >>>
-> >>> diff --git a/drivers/gpu/drm/drm_framebuffer.c b/drivers/gpu/drm/drm_=
-framebuffer.c
-> >>> index d32aceb6ca9b..9e1231162047 100644
-> >>> --- a/drivers/gpu/drm/drm_framebuffer.c
-> >>> +++ b/drivers/gpu/drm/drm_framebuffer.c
-> >>> @@ -1208,6 +1208,51 @@ void drm_framebuffer_print_info(struct drm_pri=
-nter *p, unsigned int indent,
-> >>>        }
-> >>>    }
-> >>>
-> >>> +/**
-> >>> + * drm_framebuffer_get_block_offset() - Get offset to start of pixel=
- block for
-> >>> + * the given framebuffer and coordinates.
-> >>> + * @fb: The framebuffer
-> >>> + * @plane: Which plane
-> >>> + * @x: x coordinate for pixel
-> >>> + * @y: y coordinate for pixel
-> >>> + *
-> >>> + * This function will usually be called from the PLANE callback func=
-tions,
-> >>> + * or from one of the helpers that calculates the framebuffer's DMA =
-address.
-> >>> + *
-> >>> + * Return: offset from start of framebuffer to start of pixel block
-> >>> + */
-> >>> +u32 drm_framebuffer_get_block_offset(struct drm_framebuffer *fb, uns=
-igned int plane,
-> >>> +                                  unsigned int x, unsigned int y)
-> >> Better use u64 as return type.
-> > To avoid overflow? Not sure who would use crazy large framebuffers, but
-> > doesn't hurt to play it safe.
->
-> I'd be worried about a malicious user space that tries to access OOB.
->
-> Apart from that, we use u64 for other framebuffer-related sizes like
-> pitch calculations or dma addresses. Using u64 here would keep that
-> consistent.
+--y1ppLvKxKDdIbxN5
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Indeed. It seemed weird that the helper originally used u32. Maybe it
-was carried over from CMA on ARMv7, which predominantly only had
-32-bit address space data busses?
+> From: Thomas Karpiniec <tom@wendy.sh>
+>=20
+> stmmac_mac_finish() discards the platform callback's return value and
+> always reports success to phylink. For example, the Qualcomm ETHQOS
+> callback can return an error from phy_set_mode_ext() if SerDes
+> configuration fails. Phylink then treats the interface as successfully
+> configured and can report carrier even though the SerDes is not ready.
+>=20
+> Return the platform callback's result so that phylink can report the
+> failure and keep the link down until a subsequent configuration succeeds.
+> Keep returning zero when no platform callback is installed.
+>=20
+> Fixes: e654cfc718d4 ("net: stmmac: configure SerDes on mac_finish")
+> Cc: stable@vger.kernel.org
+> Assisted-by: LLM sparse
+> Signed-off-by: Thomas Karpiniec <tom@wendy.sh>
+> Acked-by: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+> Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
->
-> >
-> >>> +{
-> >>> +     u8 h_div =3D 1, v_div =3D 1;
-> >>> +     u32 block_w =3D drm_format_info_block_width(fb->format, plane);
-> >>> +     u32 block_h =3D drm_format_info_block_height(fb->format, plane)=
-;
-> >>> +     u32 block_size =3D fb->format->char_per_block[plane];
-> >>> +     u32 sample_x;
-> >>> +     u32 sample_y;
-> >>> +     u32 block_start_y;
-> >>> +     u32 num_hblocks;
-> >>> +     u32 offset;
-> >>> +
-> >>> +     offset =3D fb->offsets[plane];
-> >>> +
-> >>> +     if (plane > 0) {
-> >>> +             h_div =3D fb->format->hsub;
-> >>> +             v_div =3D fb->format->vsub;
-> >>> +     }
-> >>> +
-> >>> +     sample_x =3D x / h_div;
-> >>> +     sample_y =3D y / v_div;
-> >>> +     block_start_y =3D (sample_y / block_h) * block_h;
-> >>> +     num_hblocks =3D sample_x / block_w;
-> >>> +
-> >>> +     offset +=3D fb->pitches[plane] * block_start_y;
-> >>> +     offset +=3D block_size * num_hblocks;
-> >> User space controls the values in fb->offsets and fb->pitches.  I'm no=
-t
-> >> sure how well they have been validated already at this point. Did you
-> >> investigate this?
-> > It wouldn't be worse than before, since this changes is purely code mov=
-ement.
-> >
-> > There are minimal sanity checks done by drm_internal_framebuffer_create=
-()
-> > in framebuffer_check(), such as offset overflow or pitch size too small=
-,
-> > but that's about it. It would be up to individual drivers to perform mo=
-re
-> > checks that match their hardware limitations.
->
-> Right, makes sense. Looking through the framebuffer validation, a
-> buffer-size check could be done in framebuffer_check().  But that's
-> another patch series.
+Acked-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 
-That's further covered by drm_gem_fb_init_with_funcs(), which
-drm_gem_fb_create*() goes into. I didn't check all the drivers that
-implemented their own .fb_create callback though.
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/=
+net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 1fb5f804ea23..1350e92943ac 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -1048,8 +1048,8 @@ static int stmmac_mac_finish(struct phylink_config =
+*config, unsigned int mode,
+>  	struct stmmac_priv *priv =3D netdev_priv(ndev);
+> =20
+>  	if (priv->plat->mac_finish)
+> -		priv->plat->mac_finish(ndev, priv->plat->bsp_priv, mode,
+> -				       interface);
+> +		return priv->plat->mac_finish(ndev, priv->plat->bsp_priv, mode,
+> +					     interface);
+> =20
+>  	return 0;
+>  }
+> --=20
+> 2.54.0 (Apple Git-157)
+>=20
+>=20
 
-- rockchip uses the GEM FB helpers
-- MSM reimplements the GEM FB helpers, but does have proper size checks
-- nouveau has size checks
-- omap has size checks
+--y1ppLvKxKDdIbxN5
+Content-Type: application/pgp-signature; name=signature.asc
 
-> >
-> > What sort of issues are you thinking about?
->
-> Again, I'm thinking of malicious user space that crafts these values to
-> force an OOB access.
+-----BEGIN PGP SIGNATURE-----
 
-I think we're covered.
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaqzjRQAKCRA6cBh0uS2t
+rAQQAP9pZYjJEEjVyy6ZeDwCbVXtT7BVVF5T0zNpP2F2lURjvAD/RWQFaNQLdsGC
+gsAp0m8owRMLJRx+SUPf+1FAkHDhMAo=
+=GAAQ
+-----END PGP SIGNATURE-----
 
-
-Thanks
-ChenYu
-
-> Best regards
-> Thomas
->
->
-> >
-> >
-> > ChenYu
-> >
-> >> Best regards
-> >> Thomas
-> >>
-> >>
-> >>> +
-> >>> +     return offset;
-> >>> +}
-> >>> +EXPORT_SYMBOL(drm_framebuffer_get_block_offset);
-> >>> +
-> >>>    #ifdef CONFIG_DEBUG_FS
-> >>>    static int drm_framebuffer_info(struct seq_file *m, void *data)
-> >>>    {
-> >>> diff --git a/include/drm/drm_framebuffer.h b/include/drm/drm_framebuf=
-fer.h
-> >>> index 38b24fc8978d..c07aea1cc59f 100644
-> >>> --- a/include/drm/drm_framebuffer.h
-> >>> +++ b/include/drm/drm_framebuffer.h
-> >>> @@ -220,6 +220,9 @@ void drm_framebuffer_remove(struct drm_framebuffe=
-r *fb);
-> >>>    void drm_framebuffer_cleanup(struct drm_framebuffer *fb);
-> >>>    void drm_framebuffer_unregister_private(struct drm_framebuffer *fb=
-);
-> >>>
-> >>> +u32 drm_framebuffer_get_block_offset(struct drm_framebuffer *fb, uns=
-igned int plane,
-> >>> +                                  unsigned int x, unsigned int y);
-> >>> +
-> >>>    /**
-> >>>     * drm_framebuffer_get - acquire a framebuffer reference
-> >>>     * @fb: DRM framebuffer
-> >> --
-> >> --
-> >> Thomas Zimmermann
-> >> Graphics Driver Developer
-> >> SUSE Software Solutions Germany GmbH
-> >> Frankenstr. 146, 90461 N=C3=BCrnberg, Germany, www.suse.com
-> >> GF: Jochen Jaser, Andrew McDonald, (HRB 36809, AG N=C3=BCrnberg)
-> >>
-> >>
->
-> --
-> --
-> Thomas Zimmermann
-> Graphics Driver Developer
-> SUSE Software Solutions Germany GmbH
-> Frankenstr. 146, 90461 N=C3=BCrnberg, Germany, www.suse.com
-> GF: Jochen Jaser, Andrew McDonald, (HRB 36809, AG N=C3=BCrnberg)
->
->
+--y1ppLvKxKDdIbxN5--
 
