@@ -4,54 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E53EC982D7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 16:30:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EB5CC982D7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 16:30:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O4WlNdEIdKBpgRVlNn9eY6c+SeO9ekMqgtGrusaeyd8=; b=K2mG5m6t06qMgv
-	G6dR2jZG50fmqVzceZ2yn44vpQKgH3SflcYmQDhYnsmxDsYGVXSPBN73SWVAYDuPj4Nmu5DAVyC52
-	K04HvbOYGIOhRBNsfESADPho05ARRs6QLfAdutAQFnH/fq3ErVoga8tfzNEmfq4K4oPyI49ymMJql
-	D5ubQy03Tn/Myqy71BqnR1SooJEUoPzpSB8r6wvxr3IUod1ahROVBjDnefiU6r+oDLz5ux2xGGHbF
-	dqqWzyULf0epBh/iJBNDbTfIraPXgPWO5PlmAp5cdiU4ivOIPTEd3mW8u2OX5sks2hW0jJ4FSZOm6
-	6LjfMbsEN8FxFFiO+5Tw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Co3xVIDXNLBJrFTLjjbjwYnTnYTLOg/RMWAScp3+boQ=; b=oKTy20BJAg5amU+h7GJ7LNXL+w
+	IiLPaOoacH1dH/fD8cCpiRHHTexQK5ADQOCR9d3p0CYeoIttHIusgQE7qk8jrCt9kwE+kfbNs/tr7
+	W21RC6ZcBNpvv6B0SR3nLo4748I+mBmt9TGf9k5ijZKe5arxtVbYSvk+MUXQ3UpR9TsrKL1TB2IFW
+	xgarWlbjzZSFCD3sfhPRdyDoBcCX07gw6/bF0yfCEJwigT3yo/ENwGga/JPvQ+doBOK438vfF4FbY
+	uNzBNtKiUYKcTKy6ZS/pzc3cJuATJpor6vfAK+l27c+6o1nXhMZDFZPnB6cmkFZrXNGn7UuUjQeWp
+	e0Cdc7zQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7bFa-0000000Ezt9-0Vfw;
-	Fri, 18 Sep 2026 16:15:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x7bTo-0000000F2c5-1ezv;
+	Fri, 18 Sep 2026 16:30:28 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7bF6-0000000EzNr-18j8
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 16:15:16 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B39FA601EF;
-	Fri, 18 Sep 2026 16:15:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8179F1F000FF;
-	Fri, 18 Sep 2026 16:15:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789748115;
-	bh=O4WlNdEIdKBpgRVlNn9eY6c+SeO9ekMqgtGrusaeyd8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=jtCEb6pB1QhXR5GjRKnPXcGta5jkaxic0bs+1/lBhmhZpIXV+PNrFy8CjgacFxm++
-	 PUy4J4jF4ok0N/IX52sLgWM8qU3KTAqMOIvOUuxX4Cj1DNs7BC1rcC/k1zjCBv3l5p
-	 NEoCygbAed/r3GOd0v7pGSGDdLezqr8Qtv/hfMU3K0PfWvzyf/I+E1UdM4kS21ntPG
-	 vQPbPQSidbgM7N250L2i9MQ8UQ/Pm8NNGb2MAw2/Mg8Gpl6WYScphFzxIoErZHGlfE
-	 Zv16DarCVy3RLMvEZoTMtLNx5E2m08aUR9kLRmSmT2neYQjf7nNL3jo2/Xa4LYTXmz
-	 X31DJ/ldCeuVA==
-From: Will Deacon <will@kernel.org>
-To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 17/21] arm64: entry: Use SPSel to switch to overflow stack
-Date: Fri, 18 Sep 2026 17:14:01 +0100
-Message-ID: <20260918161407.2300-18-will@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260918161407.2300-1-will@kernel.org>
-References: <20260918161407.2300-1-will@kernel.org>
+	id 1x7bTm-0000000F2bN-0dEQ;
+	Fri, 18 Sep 2026 16:30:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=Co3xVIDXNLBJrFTLjjbjwYnTnYTLOg/RMWAScp3+boQ=; b=TP4ufNAbqFlNPjN2V0G7gQeang
+	VUuchqOV31oH2h7zhcLaiHIyfwMELf0aCS/Lsi1Dyti/hWKD+hIbp41j7b2BWPz9epJQBENDLmSgL
+	dvdYL9E91EC7LtIBER7lt/edWqjr/sWlFqyl9A1i44o4xaJVdpR6MEhly2WwnXMoqXno=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1x7bTK-005ts4-4w; Fri, 18 Sep 2026 18:29:58 +0200
+Date: Fri, 18 Sep 2026 18:29:58 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Caleb James DeLisle <cjd@cjdns.fr>
+Cc: netdev@vger.kernel.org, daniel@makrotopia.org, dqfext@gmail.com,
+	SkyLake.Huang@mediatek.com, hkallweit1@gmail.com,
+	linux@armlinux.org.uk, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net-next] net: phy: mediatek: do not match MT7530 PHY if
+ 10/100 only
+Message-ID: <4fe68c4b-b72e-4cbb-9a0e-2731ec68888c@lunn.ch>
+References: <20260918161156.377822-1-cjd@cjdns.fr>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260918161156.377822-1-cjd@cjdns.fr>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260918_093026_190102_2B929644 
+X-CRM114-Status: UNSURE (   9.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,131 +70,20 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Vladimir Murzin <vladimir.murzin@arm.com>, Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, Linus Walleij <linusw@kernel.org>, linux-kernel@vger.kernel.org, Mostafa Saleh <smostafa@google.com>, Marc Zyngier <maz@kernel.org>, David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, Oliver Upton <oupton@kernel.org>, Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When detecting a stack overflow on exception entry from EL1, use SPSel
-to switch to the overflow stack without corrupting any GPRs. Not only is
-this simpler than the previous logic, but it also opens the door to
-more complicated overflow checks (for example, based on per-task stack
-sizes or stacks which are not aligned to a specific page order) as well
-as the possibility of returning from a stack fault if we were able to
-resolve it.
+On Fri, Sep 18, 2026 at 04:11:56PM +0000, Caleb James DeLisle wrote:
+> An EcoNet SoC 10/100 PHY uses the same ID as the MT7530 PHY, but a true
+> MT7530 PHY always has gigabit support so they can be distinguished by
+> the presence of the ESTATUS_1000_TFULL flag. Add a match_phy_device
+> which refuses to match if the PHY is not gigabit.
 
-Cc: Mark Rutland <mark.rutland@arm.com>
-Signed-off-by: Will Deacon <will@kernel.org>
+Don't you also need the opposite in mtk-fe-soc.c? Otherwise don't you
+rely on the load order of the PHY drivers?
+
+    Andrew
+
 ---
- arch/arm64/kernel/entry.S | 69 ++++++++++++---------------------------
- 1 file changed, 21 insertions(+), 48 deletions(-)
-
-diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
-index 6958ee238649..b4df2f23ebe7 100644
---- a/arch/arm64/kernel/entry.S
-+++ b/arch/arm64/kernel/entry.S
-@@ -51,11 +51,11 @@
- 	mov	x30, xzr
- 	.endif
- .Lskip_tramp_vectors_cleanup\@:
--	.endif
--
-+	sub	sp, sp, #PT_REGS_SIZE
-+	.else	/* \el == 1 */
-+	.ifc	\ht, h
- 	sub	sp, sp, #PT_REGS_SIZE
- 
--	.if	\el == 1
- 	/*
- 	 * Test whether the SP has overflowed, without corrupting a GPR.
- 	 * Task and IRQ stacks are aligned so that SP & (1 << THREAD_SHIFT)
-@@ -63,45 +63,16 @@
- 	 */
- 	add	sp, sp, x0			// sp' = sp + x0
- 	sub	x0, sp, x0			// x0' = sp' - x0 = (sp + x0) - x0 = sp
--	tbnz	x0, #THREAD_SHIFT, 0f
-+	tbnz	x0, #THREAD_SHIFT, __bad_stack
- 	sub	x0, sp, x0			// x0'' = sp' - x0' = (sp + x0) - sp = x0
- 	sub	sp, sp, x0			// sp'' = sp' - x0 = (sp + x0) - x0 = sp
-+	.else	/* EL1t */
-+	msr	spsel, #0			// Stay on the overflow stack
-+	sub	sp, sp, #PT_REGS_SIZE
-+	.endif
- 	.endif
- 
- 	b	el\el\ht\()_\regsize\()_\label
--
--	.if	\el == 1
--0:
--	/*
--	 * Either we've just detected an overflow, or we've taken an exception
--	 * while on the overflow stack. Either way, we won't return to
--	 * userspace, and can clobber EL0 registers to free up GPRs.
--	 */
--
--	/* Stash the original SP (minus PT_REGS_SIZE) in tpidr_el0. */
--	msr	tpidr_el0, x0
--
--	/* Recover the original x0 value and stash it in sp_el0 */
--	sub	x0, sp, x0
--	msr	sp_el0, x0
--
--	/* Switch to the overflow stack */
--	adr_this_cpu sp, overflow_stack + OVERFLOW_STACK_SIZE, x0
--
--	/*
--	 * Check whether we were already on the overflow stack. This may happen
--	 * after panic() re-enables interrupts.
--	 */
--	mrs	x0, tpidr_el0			// sp of interrupted context
--	sub	x0, sp, x0			// delta with top of overflow stack
--	tst	x0, #~(OVERFLOW_STACK_SIZE - 1)	// within range?
--	b.ne	__bad_stack			// no? -> bad stack pointer
--
--	/* We were already on the overflow stack. Restore sp/x0 and carry on. */
--	sub	sp, sp, x0
--	mrs	x0, sp_el0
--	b	el\el\ht\()_\regsize\()_\label
--	.endif
- .org .Lventry_start\@ + 128	// Did we overflow the ventry slot?
- 	.endm
- 
-@@ -544,22 +515,24 @@ SYM_CODE_END(vectors)
- 
- SYM_CODE_START_LOCAL(__bad_stack)
- 	/*
--	 * We detected an overflow in kernel_ventry, which switched to the
--	 * overflow stack. Stash the exception regs, and head to our overflow
--	 * handler.
-+	 * We detected an overflow in kernel_ventry.
-+	 * Restore SP and X0.
- 	 */
-+	sub	x0, sp, x0
-+	sub	sp, sp, x0
-+	add	sp, sp, #PT_REGS_SIZE
- 
--	/* Restore the original x0 value */
--	mrs	x0, sp_el0
-+	/* Switch to the overflow stack */
-+	msr	spsel, #0
- 
--	/*
--	 * Store the original GPRs to the new stack. The orginal SP (minus
--	 * PT_REGS_SIZE) was stashed in tpidr_el0 by kernel_ventry.
--	 */
-+	/* Stash the exception regs */
- 	sub	sp, sp, #PT_REGS_SIZE
- 	kernel_entry 1
--	mrs	x0, tpidr_el0
--	add	x0, x0, #PT_REGS_SIZE
-+
-+	/* Fix-up the saved SP */
-+	msr	spsel, #1
-+	mov	x0, sp
-+	msr	spsel, #0
- 	str	x0, [sp, #S_SP]
- 
- 	/* Stash the regs for handle_bad_stack */
--- 
-2.55.0.1082.g2b9226bbc0-goog
-
+pw-bot: cr
 
