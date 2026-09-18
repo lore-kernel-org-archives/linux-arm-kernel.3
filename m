@@ -4,66 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 045F9C982D2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 08:40:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 958FBC88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 08:42:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4NyvQt/xrr7/J2Rj9IMwy3V+McdYcbrXcfwVdArfFoA=; b=nTl06hBqHHRGQsEmzkoS8r5d7L
-	kB/Oq8OiuxFGYPOY5RXrao3JRu7huX86XX719D+1D7xpre557MCazEaj8yqyoq1XWTplLLX6CeLaB
-	PBWGUpQqhWApJPqatfF0YqrcYb/uAnwLhiECOwi6YFjTJUE8/gS8M0TEjO4DYRu9lQIUEH0+M8Mwh
-	d7uiEbvST/PDVfDHTeeSylZl+xsSEz6zaCzOUgYhziw6x8nP3WM2J4eOONZfBLZsmzdkSo8OBr/rc
-	FUUap+iunbgJTFCrZjEL+rVy6pHZQeNTl+8u+ZCPXd9XShrI/d6HSY122NUQ6YAjFfx9oAomMXdnR
-	OlnhorYA==;
+	bh=7+g8+UxJXbBTwX2N40/dzce93+bWOJpHxoj4kNEwGWQ=; b=hGC4snQubWPpe+OLSCpnW+dKD3
+	Wlg4y5i3AsHdF9Viw6EBi+OR42y8sgBU2iXoDsv1bm5dS5C1x1vWdjF1Qmofssu43HjEwFcBIMvDl
+	BxqIkCC/WvlLkWxWRqAAKie2uGhzu0KIlRk7ikTKWD4HSw2Uf2HsiOL0hOc8JqlfiGx8dPfhCjoJW
+	sRjWhmj4JX0mj5w0uOD7GdQnlDfS6o3kHgeClhw/YqVw5zqqJQel7rhWlknX/Kj77aVaIHvKE9c6g
+	7Hlf7mtG/LhLVGYEinYRqpIytTe/ENOzio5ZFl+hYLaM39POC2EqTz5KoBF2GyRqdRzCCV1yfbhzc
+	oReSXEOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7U8O-0000000DqAP-1LrG;
-	Fri, 18 Sep 2026 08:39:52 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x7UAh-0000000DqRe-2gat;
+	Fri, 18 Sep 2026 08:42:15 +0000
+Received: from m16.mail.126.com ([220.197.31.9])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7U8N-0000000DqA3-18xV
+	id 1x7UAe-0000000DqQl-2RTW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 08:39:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B2EF7404FD;
-	Fri, 18 Sep 2026 08:39:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FF931F000FF;
-	Fri, 18 Sep 2026 08:39:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789720790;
-	bh=4NyvQt/xrr7/J2Rj9IMwy3V+McdYcbrXcfwVdArfFoA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=oj77CiL48FknHrG/C+PhbXizZUrccbyaIuo3sONdOz2U0EvXATU7wC8FbnrJo60pH
-	 QpAm2SeEbdoxJ/yoATNd0P0VxnhXE6fJu7qNIUQ2UTuBxXG3u/MFGuSliTvss13rZF
-	 v5pAsTYW3qNHQ56yCV6KcYHzt5z9hfjHNxw87z+4T6hpY6dfai1Zr3fgq32vL5eG7L
-	 HsGhskkQPvusqC2fGVVPyVjpqnLE3a0QHxAVnXHiXL6Qb7G30yPK7oUIe8l87lgHeN
-	 ltaNmSB+jSb8Z8G7ksFALjofzsIkOaju8gcqyyij9pL1VP+UFwqeUouFc2aB/0ZeMV
-	 6kb8zmJwnr0OA==
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-To: broonie@kernel.org,
-	Wentao Liang <vulab@iscas.ac.cn>
-Cc: Christophe Leroy <chleroy@kernel.org>,
-	herve.codina@bootlin.com,
-	leoyang.li@nxp.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	qiang.zhao@nxp.com,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] soc: fsl: cpm1: tsa: Fix clock leak in tsa_of_parse_tdms()
-Date: Fri, 18 Sep 2026 10:39:38 +0200
-Message-ID: <178972077003.546774.17878987805855996127.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260917152719.2160395-1-vulab@iscas.ac.cn>
-References: <20260917152719.2160395-1-vulab@iscas.ac.cn>
+	Fri, 18 Sep 2026 08:42:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
+	Content-Type; bh=7+g8+UxJXbBTwX2N40/dzce93+bWOJpHxoj4kNEwGWQ=;
+	b=WJXSZjZQzxzO2WgIdscOrxkCYknvi3aF6qRYuiZt4MsL+/VuWUnKEWD/O5Q7z5
+	mUuj6ATRg+1lk/hBMV5EuKHBa11aQQuBwpd2i+slidDkf/Wmzu5oL5Visd85IEaO
+	e4Rj5Q8NqWMzJvmdAb0EW2wBOzrH7eYQx2XoywR3yuG3M=
+Message-ID: <514b0d85-c6b6-4e31-af41-5df45319e770@126.com>
+Date: Fri, 18 Sep 2026 16:41:16 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-X-Developer-Signature: v=1; a=openpgp-sha256; l=614; i=chleroy@kernel.org; h=from:subject:message-id; bh=pC3q+eVOwKtbzxx0BZcSBlwLSzb+dYpbfXOvP0gz5ns=; b=owGbwMvMwCV2d0KB2p7V54MZT6slMWSt+XH6buLtv9na7FOKuo6fmv0y1mOv4ZXC3YLNRmFf5 xSlCDU86ChlYRDjYpAVU2Q5/p9714yuL6n5U3fpw8xhZQIZwsDFKQATOVrHyLBd81a/VUC7/Lvs V8wR18VXh8btmL879cL1SyfqXllejt3H8D/hjcFkRYddXBcy5nGpc3U/+rEidmt79dx94flrQvX 7r7AAAA==
-X-Developer-Key: i=chleroy@kernel.org; a=openpgp; fpr=10FFE6F8B390DE17ACC2632368A92FEB01B8DD78
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] net: stmmac: request the MDIO reset GPIO only once
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Linkui Xiao <xiaolinkui@kylinos.cn>, stable@vger.kernel.org
+References: <20260917125457.1353718-1-xiaolinkui@126.com>
+ <ff811e9f-4d4b-4b26-a0b5-84cb2eb52618@bootlin.com>
+Content-Language: en-US
+From: Linkui Xiao <xiaolinkui@126.com>
+In-Reply-To: <ff811e9f-4d4b-4b26-a0b5-84cb2eb52618@bootlin.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: _____wD3V80s+axqJuOTBg--.3829S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7ury5WF45tr48GFy7tr4fKrg_yoW8AryUpr
+	4rXF45JF98A3yxtrWDXw4kuF9YyrnIyF4DGr1I9w4Ikwn8Xr4ftrWxtr15Xay2kryqk3ya
+	gr4xua4DuFyvyaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UcBMNUUUUU=
+X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBlA5PJmqs+S6tCQAA3G
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260918_014212_985349_C064C4D9 
+X-CRM114-Status: GOOD (  17.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,23 +74,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Maxime,
 
-On Thu, 17 Sep 2026 15:27:19 +0000, Wentao Liang wrote:
-> The error cleanup loop puts l1rsync_clk and l1rclk_clk a second time
-> and never puts l1tsync_clk or l1tclk_clk, because the branches that
-> guard the transmit clocks use the receive clock field names.
+Thanks for the review.
+
+On 2026/9/18 00:10, Maxime Chevallier wrote:
+> Hello,
 > 
-> Use the matching field in each branch so every clock acquired by
-> tsa_of_parse_tdms() is released exactly once.
+>> @@ -389,11 +389,21 @@ int stmmac_mdio_reset(struct mii_bus *bus)
+>>   		struct gpio_desc *reset_gpio;
+>>   		u32 delays[3] = { 0, 0, 0 };
+>>   
+>> -		reset_gpio = devm_gpiod_get_optional(priv->device,
+>> -						     "snps,reset",
+>> -						     GPIOD_OUT_LOW);
+>> -		if (IS_ERR(reset_gpio))
+>> -			return PTR_ERR(reset_gpio);
+>> +		/* Request the reset line only once and reuse the descriptor
+>> +		 * afterwards. A second request of the very same line makes
+>> +		 * gpiolib fail with -EBUSY, which devm_gpiod_get_optional()
+>> +		 * passes through because it only filters out -ENOENT. The
+>> +		 * reset would then abort early and leave the PHY un-reset.
+>> +		 */
+>> +		if (!priv->mdio_reset_gpio) {
+>> +			priv->mdio_reset_gpio =
+>> +				devm_gpiod_get_optional(priv->device,
+>> +							"snps,reset",
+>> +							GPIOD_OUT_LOW);
+>> +			if (IS_ERR(priv->mdio_reset_gpio))
+>> +				return PTR_ERR(priv->mdio_reset_gpio);
+>> +		}
+>> +		reset_gpio = priv->mdio_reset_gpio;
 > 
-> [...]
+> The problem is real, but this isn't the correct approach to solve that.
+> 
+> Instead of requesting the reset gpio on-the-fly at reset time (good example
+> of when not to use devm_xxx) , let's request the gpio at probe time.
+> 
+> I suggest you move the devm_gpiod_get_optional() in stmmac_mdio_register(),
+> which is called at probe time. Here, it makes sense to use devm_xxx.
+> 
 
-Applied, thanks!
+You're right, requesting the GPIO in the reset callback is the wrong
+place for devm_xxx.
 
-[1/1] soc: fsl: cpm1: tsa: Fix clock leak in tsa_of_parse_tdms()
-      commit: 7b3b0598c00e67f2df85d0b4cd99eaa3be6c9bfd
+I'll send a v2 that moves the devm_gpiod_get_optional() call to
+stmmac_mdio_register(), which runs at probe time. stmmac_mdio_reset()
+will then just use the descriptor stored in stmmac_priv.
 
-Best regards,
--- 
-Christophe Leroy (CS GROUP) <chleroy@kernel.org>
+Thanks,
+Linkui
+
+> Thanks :)
+> 
+> Maxime
+> 
+
 
