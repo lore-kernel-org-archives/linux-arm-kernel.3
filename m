@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51941C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 16:15:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46BD9C982DF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 16:15:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kfG+kuuPyslNrsAkX7LF5I0fyep8WFQ1NzuAK6CzMzQ=; b=MfAXNcVleTNv5q
-	Ts5OOhJCqdDw/U58HEFEzV+Xrs6J+ZOToEixec5MKWKNHVBrdWiLbV/3me6pB5ixESWClcXqu+XT5
-	RLuDidHfeLIO/I6ZjEoJgb25SZykSMdV+1qbRFZefNSbF4VwulWkZSCzBauenQW1LHJjEIDQwh3HE
-	PkaZiAyJ6u1sRT5qogGYPzVHkX/K5CFL3ptHXOJfczKWjdk1069gXH7xWrDnKLhmStQjYojxN1Jwd
-	TmJRKf4XUPXd8vek1cn2MMC7eVm99RIUo68UzN/1WFqBnrTNUVcP1t47FFsMN+gnwNRNQ2wrVQtDh
-	Qc/6Ifde/WY/Hbc7TJ7w==;
+	List-Owner; bh=/mfIbyB+KiTZj/ummjBpFJweWa08M4vk6DdFzOZra/Y=; b=tY4bDfXFvhxA3t
+	4n3kVThEr2oK3om2/om/zAM4MtigTTGujt7GVsWALsicVufw3vsbWRQMceAUJ+15YNQsakxxssr5D
+	lGRT21ffY4j3zR4dDKvGDsPWtK6ZokbC3DYKUVbNpVydcViorMMs2DGaSa6YZ1YKYWPTpeYuWJiyI
+	xVi7MVV/uQcHmNvJgotHiQ93MhggctENpjz7uXacgIaEx934Wyx0z2TgAhf3dRJs5tnaoejD+MNGS
+	w7wpOO3S5osJxcuzT7LvNaazTm2ioW6zu6KxvWYooCqf+7rpcAY5fF85qIy5OQ392PEnokwaKa0hq
+	VrtVsFz5gODLPGZaMptw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7bFa-0000000EztQ-10Kb;
+	id 1x7bFa-0000000Ezu2-2RuV;
 	Fri, 18 Sep 2026 16:15:46 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7bF9-0000000EzTm-3Oym
+	id 1x7bFG-0000000Ezd1-3c0a
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 16:15:19 +0000
+	Fri, 18 Sep 2026 16:15:26 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3418E602CC;
-	Fri, 18 Sep 2026 16:15:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2ECA1F00898;
-	Fri, 18 Sep 2026 16:15:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4F86C602C5;
+	Fri, 18 Sep 2026 16:15:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B4161F00898;
+	Fri, 18 Sep 2026 16:15:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789748118;
-	bh=kfG+kuuPyslNrsAkX7LF5I0fyep8WFQ1NzuAK6CzMzQ=;
+	s=k20260515; t=1789748126;
+	bh=/mfIbyB+KiTZj/ummjBpFJweWa08M4vk6DdFzOZra/Y=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=g5rqkejVYdUdMoiDminapFdGn8UZKRPghhfEdAHDNIIJh8mQeEPS90eBpC77m7Vl5
-	 V5EgImJ3N50lroLBZoIL0lJdlmM6OUeMx6vMGUande27V3lnZd4H3iM+qlwcVwns92
-	 5gF6y38Fh2Cj/ALk7KmMjRaQBbHQCz9tMsLnsTt8wTpM0N8GyAwXD1aiRNKzNAJqYy
-	 4eVsD95h7xLGCQOzFjXSyyCWtBalX3hC5LKV4AcqW4LAYZVMGZdZICzWjKFKPtrDOm
-	 366L3FJ1BPQWP+5zkwN0JP+lMTvDAvbFRYTSamQP0TJ911vcoEZPuwvDiS5H3WRDyV
-	 wdoknujOpAGJA==
+	b=OET/BcYvAijGn3Z+EJenGnwlssJv3P030zZZexQ37E4gCoO2NAKf5wH6uvLZPo3V0
+	 7sX8CHwaxf/9tM8pxb83Bmjqqq1dZUJeh2zuw/S0YI/LXvTjzg62MFByp7SZc/NPCO
+	 DOjfIMzKVMiMvGZ1p1fFPIPs8ujtGd7Hh5DAJVPRG5Dvf8re2hONSRyr39h5iEzI1v
+	 QYRmOdU3ouaAC9sSpHV1y0U0Ojp0V9+P1+oBFSVBaQ7cl4CteT9srIcwHV+t1lZCK0
+	 aqWDlJZCo0OZTTJTCpXKQzV0NeYONwzvmW8tXmYCKAWN8XAVoFioWCCqfe8rtPd6Mv
+	 +MlSxVi4AOaRw==
 From: Will Deacon <will@kernel.org>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 18/21] arm64: entry: Split up kernel_ventry macro into separate helper macros
-Date: Fri, 18 Sep 2026 17:14:02 +0100
-Message-ID: <20260918161407.2300-19-will@kernel.org>
+Subject: [PATCH v2 20/21] arm64: tracing: Advertise a mode of EL1t in synthetic kernel regs
+Date: Fri, 18 Sep 2026 17:14:04 +0100
+Message-ID: <20260918161407.2300-21-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260918161407.2300-1-will@kernel.org>
 References: <20260918161407.2300-1-will@kernel.org>
@@ -67,75 +67,51 @@ Cc: Mark Rutland <mark.rutland@arm.com>, Vladimir Murzin <vladimir.murzin@arm.co
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Handling entry from EL0, EL1h and EL1t in the 'kernel_ventry' assembly
-macro is getting a bit unwieldy as the control flow becomes increasingly
-dependent on the macro arguments.
-
-Split 'kernel_ventry' into three leaf helper macros for EL0, EL1h and
-EL1t, which are then dispatched by simple wrappers.
+When synthesising a kernel regs structure for ftrace or perf, advertise
+a mode of EL1t to reflect the mode in which the kernel runs for the vast
+majority of the time.
 
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/kernel/entry.S | 29 +++++++++++++++++++----------
- 1 file changed, 19 insertions(+), 10 deletions(-)
+ arch/arm64/include/asm/ftrace.h     | 4 ++--
+ arch/arm64/include/asm/perf_event.h | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
-index b4df2f23ebe7..38f9327e6a0a 100644
---- a/arch/arm64/kernel/entry.S
-+++ b/arch/arm64/kernel/entry.S
-@@ -36,10 +36,7 @@
- 	.endr
- 	.endm
+diff --git a/arch/arm64/include/asm/ftrace.h b/arch/arm64/include/asm/ftrace.h
+index 1621c84f44b3..d55a019cdf0a 100644
+--- a/arch/arm64/include/asm/ftrace.h
++++ b/arch/arm64/include/asm/ftrace.h
+@@ -153,7 +153,7 @@ ftrace_partial_regs(const struct ftrace_regs *fregs, struct pt_regs *regs)
+ 	regs->pc = afregs->pc;
+ 	regs->regs[29] = afregs->fp;
+ 	regs->regs[30] = afregs->lr;
+-	regs->pstate = PSR_MODE_EL1h;
++	regs->pstate = PSR_MODE_EL1t;
+ 	return regs;
+ }
  
--	.macro kernel_ventry, el:req, ht:req, regsize:req, label:req
--	.align 7
--.Lventry_start\@:
--	.if	\el == 0
-+	.macro kernel_ventry_el0, ht:req, regsize:req, label:req
- 	/*
- 	 * This must be the first instruction of the EL0 vector entries. It is
- 	 * skipped by the trampoline vectors, to trigger the cleanup.
-@@ -52,8 +49,10 @@
- 	.endif
- .Lskip_tramp_vectors_cleanup\@:
- 	sub	sp, sp, #PT_REGS_SIZE
--	.else	/* \el == 1 */
--	.ifc	\ht, h
-+	b	el0\ht\()_\regsize\()_\label
-+	.endm
-+
-+	.macro kernel_ventry_el1h, regsize:req, label:req
- 	sub	sp, sp, #PT_REGS_SIZE
+@@ -161,7 +161,7 @@ ftrace_partial_regs(const struct ftrace_regs *fregs, struct pt_regs *regs)
+ 		(_regs)->pc = arch_ftrace_regs(fregs)->pc;			\
+ 		(_regs)->regs[29] = arch_ftrace_regs(fregs)->fp;		\
+ 		(_regs)->sp = arch_ftrace_regs(fregs)->sp;			\
+-		(_regs)->pstate = PSR_MODE_EL1h;		\
++		(_regs)->pstate = PSR_MODE_EL1t;		\
+ 	} while (0)
  
- 	/*
-@@ -66,13 +65,23 @@
- 	tbnz	x0, #THREAD_SHIFT, __bad_stack
- 	sub	x0, sp, x0			// x0'' = sp' - x0' = (sp + x0) - sp = x0
- 	sub	sp, sp, x0			// sp'' = sp' - x0 = (sp + x0) - x0 = sp
--	.else	/* EL1t */
-+	b	el1h_\regsize\()_\label
-+	.endm
-+
-+	.macro kernel_ventry_el1t, regsize:req, label:req
- 	msr	spsel, #0			// Stay on the overflow stack
- 	sub	sp, sp, #PT_REGS_SIZE
--	.endif
--	.endif
-+	b	el1t_\regsize\()_\label
-+	.endm
+ int ftrace_regs_query_register_offset(const char *name);
+diff --git a/arch/arm64/include/asm/perf_event.h b/arch/arm64/include/asm/perf_event.h
+index ee45b4e77347..b3e7c24a5aab 100644
+--- a/arch/arm64/include/asm/perf_event.h
++++ b/arch/arm64/include/asm/perf_event.h
+@@ -17,7 +17,7 @@
+ 	(regs)->pc = (__ip);    \
+ 	(regs)->regs[29] = (unsigned long) __builtin_frame_address(0); \
+ 	(regs)->sp = current_stack_pointer; \
+-	(regs)->pstate = PSR_MODE_EL1h;	\
++	(regs)->pstate = PSR_MODE_EL1t;	\
+ }
  
--	b	el\el\ht\()_\regsize\()_\label
-+	.macro kernel_ventry, el:req, ht:req, regsize:req, label:req
-+	.align 7
-+.Lventry_start\@:
-+	.if	\el == 0
-+	kernel_ventry_el0	\ht, \regsize, \label
-+	.else
-+	kernel_ventry_el1\ht	\regsize, \label
-+	.endif
- .org .Lventry_start\@ + 128	// Did we overflow the ventry slot?
- 	.endm
- 
+ #endif
 -- 
 2.55.0.1082.g2b9226bbc0-goog
 
