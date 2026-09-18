@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5870DC982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 16:15:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F2D3C982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 16:15:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aA8vLI7MAtOEMjRIQWw1T8YssBKmDitylE36RcPCelE=; b=qkJWqL6PLIL2T/
-	xKSBCupDt06Z6fq9UDYGzL1HpiQnKe5jObWmKyqrzUXjLqCl0dvnAbqmt9QAtAz36LIcY1tgNkVXY
-	oI8r+VeB+xM9pwFo2jr5KQOVjasVY/NNL9WoKNBd9/X2jIaaa1AAr/o0rDBWR+7jf14jT6JP+KQSd
-	olK/9dnfJjnylYRhkQjnuAZXHMGpjZb001Abm2Hp37AaynHHS5un+0G2kmeLbwTcVkysoMaACStZE
-	0aT9rBl7P1SvVAC4Gf3QmCTnMdxJEkKU9sneGzPpm0L2DUjH2ekSQCIHIlfBSyDUYumGtLTiXtAnP
-	FMrdv+B/9BFbSXTheGtA==;
+	List-Owner; bh=OPmtMvErDChPnAkncAvX9/4lDdnZXVCa66ctdGe0lWk=; b=UERiDz/j77ThbV
+	tnDd4vDouaStyraZUL+/rdApvP6aCrgq/BxCJ1H4wGda2ODMCcytbotJdatt8BL+rQj3HrpcGtD3E
+	pEK1PFPFCmuKhK79C+ZjyTr9Yf7IaaoS60C+HKd5bm7Fyvi/8cN/uBcOlenqSXe1WJwfkp0DGyRO2
+	1SmZE/XQDu+iqzD91CXAPmO7Phv4bk9nnq4lP3PRA/uRRT9D4Z+bpoR0to7LFGdG08Acgj89VnF1h
+	7rAr9nWIaRaCTaglsRtXAGLDKvAhBuPx/9NoQScrPJXSJDgxeUAH4o660lL2XnmgjzQqeqqk5yUp3
+	22ayj1+owo6z1mSj2ZFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7bF5-0000000EzNt-3vH0;
-	Fri, 18 Sep 2026 16:15:15 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x7bF6-0000000EzOA-09Kw;
+	Fri, 18 Sep 2026 16:15:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7bEl-0000000Ez5Y-0OM7
+	id 1x7bEo-0000000Ez9d-0Q9W
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 16:14:55 +0000
+	Fri, 18 Sep 2026 16:14:58 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8A01060A55;
+	by sea.source.kernel.org (Postfix) with ESMTP id CFBB543BC1;
+	Fri, 18 Sep 2026 16:14:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF6371F00899;
 	Fri, 18 Sep 2026 16:14:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57F871F00898;
-	Fri, 18 Sep 2026 16:14:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789748094;
-	bh=aA8vLI7MAtOEMjRIQWw1T8YssBKmDitylE36RcPCelE=;
+	s=k20260515; t=1789748097;
+	bh=OPmtMvErDChPnAkncAvX9/4lDdnZXVCa66ctdGe0lWk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=U9ViQKP605sp41Kl+OYIXFTMHNkjsPaN2gmL80+h0GHT4bi0XhukSKAuCSKudzw6/
-	 mNbemGeBBrsxCsLMXXsm6OTFprr7uZGpyNidrH8gkohXkQgyfCSw9azU3Owq1X01pZ
-	 alemikg424ug7GwLvdrtHnzWS8vmSx88qc3pvpjedEiXydpPjvY5UZOwvyN1iyIShg
-	 bCoYirL5Dx6eXBb8efux4ufgjE34cX11PprEfTcSMG4+kNSDIDCPJCL2H239Gaho+E
-	 AZbEBytGNJBIo0AnucpJq525EwCsHX07AFmmPOyz2QCzPGYwoB8aMKeRD/Z4cczfkq
-	 mPcYCVUXFieYA==
+	b=KjrujF6I8y3AN56jW7bSdjLKy8uypi9i70m0KIMGyZzzAZOpzq6tSGxK4t1tdRAml
+	 j4isO93RUuPAhEifUXnYxsswhXO4mAj1efZp0KL+1wnE47A1YQcZwkN43GqxvstJ5s
+	 wed0kDmZZwVnlLug6QXUj2vwe/lpG6HT5LU4TtMHOpn3q54KSDwvaCEmB7JzJOvSxY
+	 3D2EWtoM5pjXNy4ZFI91JATLqj+mSK+cKzU5H60uiRzkkhxalzeQ2UEk4w1iAhqPQ1
+	 WSFKUUfUSXJtSP/EtGUdrszLLl+2ce2vYjHztTN2vPLJdGhNQYwwwSMD3pYUwziXg6
+	 PHiiyoYRz7N5g==
 From: Will Deacon <will@kernel.org>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 11/21] arm64: percpu: Annotate __kern_my_cpu_offset() as '__always_inline'
-Date: Fri, 18 Sep 2026 17:13:55 +0100
-Message-ID: <20260918161407.2300-12-will@kernel.org>
+Subject: [PATCH v2 12/21] KVM: arm64: Preserve handler/thread bit of EL1 mode in __finalise_el2()
+Date: Fri, 18 Sep 2026 17:13:56 +0100
+Message-ID: <20260918161407.2300-13-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260918161407.2300-1-will@kernel.org>
 References: <20260918161407.2300-1-will@kernel.org>
@@ -67,27 +67,47 @@ Cc: Mark Rutland <mark.rutland@arm.com>, Vladimir Murzin <vladimir.murzin@arm.co
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow the use of per-cpu variables from noinstr functions by marking
-__kern_my_cpu_offset() as '__always_inline'. This will later be relied
-upon to detect stack overflow of the overflow stack from noinstr C code.
+__finalise_el2() unconditionally returns to EL2h when VHE is being used.
+In preparation for handling callers from both EL1h and EL1t, preserve
+the handler/thread bit of the calling mode when rewriting the exception
+level in the SPSR.
 
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/include/asm/percpu.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/include/uapi/asm/ptrace.h | 1 +
+ arch/arm64/kernel/hyp-stub.S         | 7 ++++---
+ 2 files changed, 5 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
-index 3dc7291b16e9..cb9ae8a1ae87 100644
---- a/arch/arm64/include/asm/percpu.h
-+++ b/arch/arm64/include/asm/percpu.h
-@@ -21,7 +21,7 @@ static inline unsigned long __hyp_my_cpu_offset(void)
- 	return read_sysreg(tpidr_el2);
- }
+diff --git a/arch/arm64/include/uapi/asm/ptrace.h b/arch/arm64/include/uapi/asm/ptrace.h
+index 15649a253a57..25d9d9a0a6f7 100644
+--- a/arch/arm64/include/uapi/asm/ptrace.h
++++ b/arch/arm64/include/uapi/asm/ptrace.h
+@@ -37,6 +37,7 @@
+ #define PSR_MODE_EL3t	0x0000000c
+ #define PSR_MODE_EL3h	0x0000000d
+ #define PSR_MODE_MASK	0x0000000f
++#define PSR_MODE_h_BIT	0x00000001
  
--static inline unsigned long __kern_my_cpu_offset(void)
-+static __always_inline unsigned long __kern_my_cpu_offset(void)
- {
- 	unsigned long off;
+ /* AArch32 CPSR bits */
+ #define PSR_MODE32_BIT		0x00000010
+diff --git a/arch/arm64/kernel/hyp-stub.S b/arch/arm64/kernel/hyp-stub.S
+index 37c6976e44a4..f61778cccd3c 100644
+--- a/arch/arm64/kernel/hyp-stub.S
++++ b/arch/arm64/kernel/hyp-stub.S
+@@ -149,10 +149,11 @@ SYM_CODE_START_LOCAL(__finalise_el2)
+ 
+ 	isb
+ 
+-	// Hack the exception return to stay at EL2
++	// Hack the exception return to stay at EL2 ...
+ 	mrs	x0, spsr_el1
+-	and	x0, x0, #~PSR_MODE_MASK
+-	mov	x1, #PSR_MODE_EL2h
++	// ... preserving the 'h' bit so we don't swizzle SP.
++	and	x0, x0, #(~PSR_MODE_MASK | PSR_MODE_h_BIT)
++	mov	x1, #PSR_MODE_EL2t
+ 	orr	x0, x0, x1
+ 	msr	spsr_el1, x0
  
 -- 
 2.55.0.1082.g2b9226bbc0-goog
