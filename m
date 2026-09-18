@@ -4,145 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 073D0C982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 15:03:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42979C982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 15:03:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PJerFyzkPWj2kC6tDp4sQaXJPJbZR893tvs3BZgfH2o=; b=fZ0ljU/T/ZFeB011Q7by92UVTw
-	R+kjdjXs1z6vvTLfl40owWHxfFrGPcD99+LW3iJL+jeeUCfz4681XJtRQm+na9y4ao+6FibYYwUyi
-	MkId+2MpMOySj5/VWU9aXShP5T/eaUvcUVPIBGLEhA9aCmp2q1suZ9+o7tH9Zq2Cz0Krbx8Xe+U5Z
-	Q8FQwtz3vwUntJ0AROYDrDmtLAsjp0Rs+b6aaK4N/f5tlzRVoRWf1XFomhd916fn1LbUvQd63LGt5
-	b8RM0sDWjP3JeT9oSg0du+PvAwHJTdBZ7/x/xFKQyith+TISAxZ3SrsPsx/mS+K8kHh4H7z4oP5Tu
-	DOKLt45A==;
+	bh=dmIt+nC5rd2B63RrYxnYEeZwslXtM3bAeP8pd+OZ6w4=; b=r6BBFLvYH8MpU7zOGK4kTlycdY
+	yu16pNr4WNhEYV9QHG1wvHTyM93f//H7oYP1Arc5FbEsxF9liEoXPryM7Px48CSNhvdEtAT3a3zkQ
+	l+jGXy3wArZZ12xYs54vsZVD4RFGNVS1D2N1cuyuUBps08ubEiuR8uaWWRqPj0DxF8CYc8Ddpz9VQ
+	BZ7AwAxl2olBmwHmJtSoYH2cUwBxa+aDfplSWMoRhTYcqHPMj3jdEOY0fBeWqHx35c0LdCPJmZ7E+
+	SdKb8rY2t1UtVc/lucolV79wQZ9cU5d1eixj5LMzmTPZesW9tdf7eZ9MAdyXIU121sVsnW7s9APcP
+	uRg5uqXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Ygt-0000000EWzz-3LF1;
-	Fri, 18 Sep 2026 13:31:47 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x7Zjy-0000000Ek7R-4AbT;
+	Fri, 18 Sep 2026 14:39:02 +0000
+Received: from mxout3.routing.net ([134.0.28.8])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Ygl-0000000EWuA-2SPI
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 18 Sep 2026 13:31:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=PJerFyzkPWj2kC6tDp4sQaXJPJbZR893tvs3BZgfH2o=; b=Hy8Z4s+pP8VEXXvVv5QbXTPWrU
-	d2+LrlqVVXC01D325LjRsliE8ZQ/MTURmYyIE4TATfqx2dCw8rrcvayp/uE25jGGxuUqU2vqe5gm5
-	ciNLLvGNzo3N7Z8JhQk1fSIsK4OS4bAM5F/yL9GfwJa4MaLetVJSde8x2U7Tem58BMp5hfhs9r4ox
-	00FLJqngdPoSCkCfFH+h+TVWG9crE940c8ZOFWNvIGTsvvSxzZ3DB+pl2s1t9PoAYcP3nCFm252JT
-	zojFte/bjeqN0wB77Y2CoY7VPSo5VNRN9WnSYZy+ITLBAGRIb8VO3J58pZguyTB8s1j/AXslbJuCV
-	Nzq3eLKQ==;
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x7Ygh-0000000A8X0-1QeK
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 13:31:38 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68IA1aJ2803415;
-	Fri, 18 Sep 2026 13:31:20 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=PJerFyzkPWj2kC6tD
-	p4sQaXJPJbZR893tvs3BZgfH2o=; b=capNOPzOD1E02x62atzFqiR3/2KEAwZ4z
-	4J0OEtBf2Sx0U/ybBG7MMUrtfxerwhQxaKgcpb5/3WyWyaBJzYwCkQjhY0FmOdXC
-	fuIcUybcKzaa0Hmr1vDNEXz4361a4yzVnCN8WvdZLG1njSwrVc/QUHi5vmuU0Sg9
-	0tzLaI4pmrqPQaP5igbLhy4Z1WFqAuEBOHoEtkFqUoNPORH7yuYNmbBd79dfu/HB
-	0x0Hg4Vz30jOEPm1450FWodqYI6EXQtVAmePY4VzTU19E1zhCfZbQvqBvw9tcRn8
-	E8JorFMhQS+CQXbG78kljqdSlQvYiNEdbUxzWT3OpeAeit95DIIVA==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gmv5j813s-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 18 Sep 2026 13:31:19 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68IDNtoF695598;
-	Fri, 18 Sep 2026 13:31:18 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gra3fek77-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 18 Sep 2026 13:31:18 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68IDVBB146072144
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 18 Sep 2026 13:31:11 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 72E8320040;
-	Fri, 18 Sep 2026 13:31:11 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 1C13C20049;
-	Fri, 18 Sep 2026 13:31:11 +0000 (GMT)
-Received: from tuxmaker.lnxne.boe (unknown [9.87.85.9])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 18 Sep 2026 13:31:11 +0000 (GMT)
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org
-Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v8 09/29] KVM: Replace CONFIG_KVM_MMIO with KVM_NO_MMIO
-Date: Fri, 18 Sep 2026 15:30:46 +0200
-Message-ID: <20260918133107.1042730-10-seiden@linux.ibm.com>
+	id 1x7Zjw-0000000Ek5f-202R;
+	Fri, 18 Sep 2026 14:39:01 +0000
+Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
+	by mxout3.routing.net (Postfix) with ESMTP id 4997A6106A;
+	Fri, 18 Sep 2026 14:38:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
+	s=routing; t=1789742334;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dmIt+nC5rd2B63RrYxnYEeZwslXtM3bAeP8pd+OZ6w4=;
+	b=DIczmh1QW3CrmlJdYweGLBd27MfDRxSr3sP8ngyBTsVk+rKApQ1IStr0zI8xU9hngM/Fss
+	o36+TSC1S2dIkNpw2LZsT6U1y4ZL9kpHIf79QwUGxNl5NkofsTeO7Q5tXUXEt6JPlJrp+p
+	rVxoq+zXyY2XROrjhVAW8VmS3C/qdA4=
+Received: from frank-G5-5590 (fttx-pool-80.245.73.6.bambit.de [80.245.73.6])
+	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id 11D4E120181;
+	Fri, 18 Sep 2026 14:38:54 +0000 (UTC)
+From: Frank Wunderlich <linux@fw-web.de>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Frank Wunderlich <frank-w@public-files.de>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	Mika Westerberg <mika.westerberg@linux.intel.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH 1/2] arm64: dts: mediatek: mt7988a-bpi-r4pro: add names for i2c-to-gpio chip
+Date: Fri, 18 Sep 2026 16:38:42 +0200
+Message-ID: <20260918143846.30458-2-linux@fw-web.de>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260918133107.1042730-1-seiden@linux.ibm.com>
-References: <20260918133107.1042730-1-seiden@linux.ibm.com>
+In-Reply-To: <20260918143846.30458-1-linux@fw-web.de>
+References: <20260918143846.30458-1-linux@fw-web.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE4MDE4NCBTYWx0ZWRfX5W8eSHV56JqQ
- zxat/vZ8FLwoy1goBNurPRN9EJ59PsyrOOkWUumHTYDzkfZR+XAoS8Y823MGgNA4S2jAmffWnHt
- iwnbgXhiJ3NdGxM55EyMZDmhsHd29HxUpqR0ApeGhKmNUCIloMWAAwUjCgqNFvgn6r2huURbYxF
- cJHDAri4Uy8Abu7+2v7i1qG2LDBo9si10764Cr/f4NpE+snRN/NB68RHDlkvV5kcGIzkU84yrg/
- H0OYKsLt564IJX107rvHNzwHHfEXiHS/v4PunYXwTASbgKUwkQ/Vep6nRaAUF5KaQen52fJwKRf
- B6wXBqBCqcmBZI7MOBiPSlLVxIJWlHuPxzmk+g9gMZgJvPVuGnCm4VLi/jE/BlOBlc3iblJ9k94
- WbXjOEmnW5bP5cMVPINitbihnuSHZOkP3UE0TJEJ6Bav/WBGSgWoilTTMEwaYHuDcvuRE+ZS+ML
- B34JwO6+OO2TcHYwbPQ==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE4MDE4NCBTYWx0ZWRfX+wTm/+QPjKgk
- rlnuE55E97Rq1z9h1NEp8QWVqC6kWaXT4F1VkbJAVSIvy1HC3NEQIaSdRRadmT1/8n/ybj7hrBb
- 7I+D1j+VtAZQk0P+XvBMCz0bFy2nN+k=
-X-Authority-Analysis: v=2.4 cv=Zsx4uN7G c=1 sm=1 tr=0 ts=6aad3d28 cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VwQbUJbxAAAA:8 a=VnNF1IyMAAAA:8
- a=b18d5-NrEheKXPzz568A:9 a=ysjONUepx5X5FVbz:21
-X-Proofpoint-ORIG-GUID: ivCGvatQpcaSTNAG3aLlm7accMHLCFra
-X-Proofpoint-GUID: NFuGtSrDvcWlTIxdbTmNh1uMz78N_e67
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-18_03,2026-09-16_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 impostorscore=0 clxscore=1015 priorityscore=1501
- lowpriorityscore=0 bulkscore=0 adultscore=0 phishscore=0 spamscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
- definitions=main-2609180184
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_143135_598650_E30286BB 
-X-CRM114-Status: GOOD (  22.39  )
+X-CRM114-CacheID: sfid-20260918_073900_690613_97F05979 
+X-CRM114-Status: UNSURE (   8.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,279 +83,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Defining KVM_MMIO is not flexible enough for multi-KVM systems where one
-KVM implements MMIO but others do not. Therefore, remove KVM_MMIO from
-the config space and use the macro KVM_NO_MMIO instead.
-Define KVM_NO_MMIO for KVM/s390 and for selected KVM/powerpc
-configurations.
+From: Frank Wunderlich <frank-w@public-files.de>
 
-coalesced_mmio.c is now always compiled&linked. However, for
-architectures/configurations defining KVM_NO_MMIO this effectively
-collapses to an empty object with no mmio code.
+Add line-names for the PCA9555 i2c to gpio expander to have more
+information in debugfs.
 
-No functional changes.
-
-Suggested-by: Marc Zyngier <maz@kernel.org>
-Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 ---
- arch/arm64/kvm/Kconfig                | 1 -
- arch/loongarch/kvm/Kconfig            | 1 -
- arch/mips/kvm/Kconfig                 | 1 -
- arch/powerpc/include/asm/kvm_host.h   | 7 +++++++
- arch/powerpc/kvm/Kconfig              | 4 ----
- arch/riscv/kvm/Kconfig                | 1 -
- arch/s390/include/asm/kvm_host_s390.h | 2 ++
- arch/x86/kvm/Kconfig                  | 1 -
- include/linux/kvm_host.h              | 2 +-
- virt/kvm/Kconfig                      | 3 ---
- virt/kvm/Makefile.kvm                 | 4 ++--
- virt/kvm/coalesced_mmio.c             | 4 ++++
- virt/kvm/coalesced_mmio.h             | 2 +-
- virt/kvm/kvm_main.c                   | 8 ++++----
- 14 files changed, 21 insertions(+), 20 deletions(-)
+ .../mediatek/mt7988a-bananapi-bpi-r4-pro.dtsi  | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
-index 7329124deb2f..8475f32ad9e6 100644
---- a/arch/arm64/kvm/Kconfig
-+++ b/arch/arm64/kvm/Kconfig
-@@ -22,7 +22,6 @@ menuconfig KVM
- 	select KVM_COMMON
- 	select KVM_GENERIC_HARDWARE_ENABLING
- 	select HAVE_KVM_CPU_RELAX_INTERCEPT
--	select KVM_MMIO
- 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
- 	select VIRT_XFER_TO_GUEST_WORK
- 	select KVM_VFIO
-diff --git a/arch/loongarch/kvm/Kconfig b/arch/loongarch/kvm/Kconfig
-index a427429a2b05..fd387326d2f2 100644
---- a/arch/loongarch/kvm/Kconfig
-+++ b/arch/loongarch/kvm/Kconfig
-@@ -26,7 +26,6 @@ config KVM
- 	select KVM_COMMON
- 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
- 	select KVM_GENERIC_HARDWARE_ENABLING
--	select KVM_MMIO
- 	select VIRT_XFER_TO_GUEST_WORK
- 	select SCHED_INFO
- 	select GUEST_PERF_EVENTS if PERF_EVENTS
-diff --git a/arch/mips/kvm/Kconfig b/arch/mips/kvm/Kconfig
-index c24b872afbcb..849ce7c7c4df 100644
---- a/arch/mips/kvm/Kconfig
-+++ b/arch/mips/kvm/Kconfig
-@@ -22,7 +22,6 @@ config KVM
- 	select EXPORT_UASM
- 	select KVM_COMMON
- 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
--	select KVM_MMIO
- 	select KVM_GENERIC_HARDWARE_ENABLING
- 	help
- 	  Support for hosting Guest kernels.
-diff --git a/arch/powerpc/include/asm/kvm_host.h b/arch/powerpc/include/asm/kvm_host.h
-index ad7c34e9b227..620f163d65a9 100644
---- a/arch/powerpc/include/asm/kvm_host.h
-+++ b/arch/powerpc/include/asm/kvm_host.h
-@@ -29,6 +29,13 @@
- 
- #define __KVM_HAVE_ARCH_VCPU_DEBUGFS
- 
-+#if !defined(CONFIG_KVM_BOOK3S_32_HANDLER) && \
-+	!defined(CONFIG_KVM_BOOK3S_PR_POSSIBLE) && \
-+	!defined(CONFIG_KVM_E500V2) && \
-+	!defined(CONFIG_KVM_E500MC)
-+#define KVM_NO_MMIO
-+#endif
+diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-pro.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-pro.dtsi
+index 1eeb72108b9b..f54787fbbc71 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-pro.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-pro.dtsi
+@@ -315,6 +315,24 @@ pca9555: i2c-gpio-expander@20 {
+ 				reg = <0x20>;
+ 				gpio-controller;
+ 				#gpio-cells = <2>;
 +
- #define KVM_MAX_VCPUS		NR_CPUS
- #define KVM_MAX_VCORES		NR_CPUS
++				gpio-line-names =
++					"BKEY-A-PDN",	/* GPIO0 */
++					"BKEY-A-Vset",	/* GPIO1 */
++					"BKEY-B-PDN",	/* GPIO2 */
++					"BKEY-B-Vset",	/* GPIO3 */
++					"BKEY-C-PDN",	/* GPIO4 */
++					"BKEY-C-Vset",	/* GPIO5 */
++					"SIM_SEL",	/* GPIO6 */
++					"mPCIe_AB_Vset",/* GPIO7 */
++					"mPCIe_A_PDN",	/* GPIO8 */
++					"mPCIe_B_PDN",	/* GPIO9 */
++					"BKEY-A-RST",	/* GPIO10 */
++					"VBUS_AB_PDN",	/* GPIO11 */
++					"BKEY-B-RST",	/* GPIO12 */
++					"BKEY-C-RST",	/* GPIO13 */
++					"SYS_LEDB",	/* GPIO14 */
++					"SYS_LEDR";	/* GPIO15 */
+ 			};
  
-diff --git a/arch/powerpc/kvm/Kconfig b/arch/powerpc/kvm/Kconfig
-index 1fae2de8fa68..cacc22e34afd 100644
---- a/arch/powerpc/kvm/Kconfig
-+++ b/arch/powerpc/kvm/Kconfig
-@@ -30,7 +30,6 @@ config KVM_BOOK3S_HANDLER
- config KVM_BOOK3S_32_HANDLER
- 	bool
- 	select KVM_BOOK3S_HANDLER
--	select KVM_MMIO
- 
- config KVM_BOOK3S_64_HANDLER
- 	bool
-@@ -38,7 +37,6 @@ config KVM_BOOK3S_64_HANDLER
- 
- config KVM_BOOK3S_PR_POSSIBLE
- 	bool
--	select KVM_MMIO
- 
- config KVM_BOOK3S_HV_POSSIBLE
- 	bool
-@@ -201,7 +199,6 @@ config KVM_E500V2
- 	depends on PPC_E500 && !PPC_E500MC
- 	depends on !CONTEXT_TRACKING_USER
- 	select KVM
--	select KVM_MMIO
- 	help
- 	  Support running unmodified E500 guest kernels in virtual machines on
- 	  E500v2 host processors.
-@@ -216,7 +213,6 @@ config KVM_E500MC
- 	depends on PPC_E500MC
- 	depends on !CONTEXT_TRACKING_USER
- 	select KVM
--	select KVM_MMIO
- 	select KVM_BOOKE_HV
- 	help
- 	  Support running unmodified E500MC/E5500/E6500 guest kernels in
-diff --git a/arch/riscv/kvm/Kconfig b/arch/riscv/kvm/Kconfig
-index 3cb4f8037300..2e3c4e6c1cd7 100644
---- a/arch/riscv/kvm/Kconfig
-+++ b/arch/riscv/kvm/Kconfig
-@@ -26,7 +26,6 @@ config KVM
- 	select KVM_COMMON
- 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
- 	select KVM_GENERIC_HARDWARE_ENABLING
--	select KVM_MMIO
- 	select VIRT_XFER_TO_GUEST_WORK
- 	select SCHED_INFO
- 	select GUEST_PERF_EVENTS if PERF_EVENTS
-diff --git a/arch/s390/include/asm/kvm_host_s390.h b/arch/s390/include/asm/kvm_host_s390.h
-index 5fd7f49d7c0d..451346f32008 100644
---- a/arch/s390/include/asm/kvm_host_s390.h
-+++ b/arch/s390/include/asm/kvm_host_s390.h
-@@ -40,6 +40,8 @@
- 
- #define KVM_S390_MANAGES_S390_GUEST 1
- 
-+#define KVM_NO_MMIO
-+
- /*
-  * These seem to be used for allocating ->chip in the routing table, which we
-  * don't use. 1 is as small as we can get to reduce the needed memory. If we
-diff --git a/arch/x86/kvm/Kconfig b/arch/x86/kvm/Kconfig
-index fa20f64d6a2f..82b6c91e763b 100644
---- a/arch/x86/kvm/Kconfig
-+++ b/arch/x86/kvm/Kconfig
-@@ -31,7 +31,6 @@ config KVM_X86
- 	select VHOST_TASK
- 	select KVM_ASYNC_PF
- 	select USER_RETURN_NOTIFIER
--	select KVM_MMIO
- 	select SCHED_INFO
- 	select PERF_EVENTS
- 	select GUEST_PERF_EVENTS
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index b7bd20fc9e34..7ebc9aaaec2d 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -846,7 +846,7 @@ struct kvm {
- 	struct kvm_vm_stat stat;
- 	struct kvm_arch arch;
- 	refcount_t users_count;
--#ifdef CONFIG_KVM_MMIO
-+#ifndef KVM_NO_MMIO
- 	struct kvm_coalesced_mmio_ring *coalesced_mmio_ring;
- 	spinlock_t ring_lock;
- 	struct list_head coalesced_zones;
-diff --git a/virt/kvm/Kconfig b/virt/kvm/Kconfig
-index 008b110ebdb7..69b47cb6526c 100644
---- a/virt/kvm/Kconfig
-+++ b/virt/kvm/Kconfig
-@@ -40,9 +40,6 @@ config NEED_KVM_DIRTY_RING_WITH_BITMAP
- 	bool
- 	depends on HAVE_KVM_DIRTY_RING
- 
--config KVM_MMIO
--       bool
--
- config KVM_ASYNC_PF
-        bool
- 
-diff --git a/virt/kvm/Makefile.kvm b/virt/kvm/Makefile.kvm
-index ee66d460c494..9a3b05a01c62 100644
---- a/virt/kvm/Makefile.kvm
-+++ b/virt/kvm/Makefile.kvm
-@@ -10,9 +10,9 @@ KVM_DEV_MINOR ?= KVM_MINOR
- 
- ccflags-y +=-DKVM_DEV_NAME=$(KVM_DEV_NAME) -DKVM_DEV_MINOR=$(KVM_DEV_MINOR)
- 
--kvm-y := $(KVM)/kvm_main.o $(KVM)/eventfd.o $(KVM)/binary_stats.o
-+kvm-y := $(KVM)/kvm_main.o $(KVM)/eventfd.o $(KVM)/binary_stats.o \
-+	 $(KVM)/coalesced_mmio.o
- kvm-$(CONFIG_KVM_VFIO) += $(KVM)/vfio.o
--kvm-$(CONFIG_KVM_MMIO) += $(KVM)/coalesced_mmio.o
- kvm-$(CONFIG_KVM_ASYNC_PF) += $(KVM)/async_pf.o
- kvm-$(CONFIG_HAVE_KVM_IRQ_ROUTING) += $(KVM)/irqchip.o
- kvm-$(CONFIG_HAVE_KVM_DIRTY_RING) += $(KVM)/dirty_ring.o
-diff --git a/virt/kvm/coalesced_mmio.c b/virt/kvm/coalesced_mmio.c
-index 6b1d90161099..d6cae6855237 100644
---- a/virt/kvm/coalesced_mmio.c
-+++ b/virt/kvm/coalesced_mmio.c
-@@ -15,6 +15,8 @@
- #include <linux/slab.h>
- #include <linux/kvm.h>
- 
-+#ifndef KVM_NO_MMIO
-+
- #include "coalesced_mmio.h"
- 
- static inline struct kvm_coalesced_mmio_dev *to_mmio(struct kvm_io_device *dev)
-@@ -188,3 +190,5 @@ int kvm_vm_ioctl_unregister_coalesced_mmio(struct kvm *kvm,
- 	 */
- 	return 0;
- }
-+
-+#endif /* !KVM_NO_MMIO */
-diff --git a/virt/kvm/coalesced_mmio.h b/virt/kvm/coalesced_mmio.h
-index 36f84264ed25..bcaa34fce1e8 100644
---- a/virt/kvm/coalesced_mmio.h
-+++ b/virt/kvm/coalesced_mmio.h
-@@ -11,7 +11,7 @@
-  *
-  */
- 
--#ifdef CONFIG_KVM_MMIO
-+#ifndef KVM_NO_MMIO
- 
- #include <linux/list.h>
- 
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index a7ce1f22b3de..32b8aad8fa2b 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -4061,7 +4061,7 @@ static vm_fault_t kvm_vcpu_fault(struct vm_fault *vmf)
- 	else if (vmf->pgoff == KVM_PIO_PAGE_OFFSET)
- 		page = virt_to_page(vcpu->arch.pio_data);
- #endif
--#ifdef CONFIG_KVM_MMIO
-+#ifndef KVM_NO_MMIO
- 	else if (vmf->pgoff == KVM_COALESCED_MMIO_PAGE_OFFSET)
- 		page = virt_to_page(vcpu->kvm->coalesced_mmio_ring);
- #endif
-@@ -4902,7 +4902,7 @@ static int kvm_vm_ioctl_check_extension_generic(struct kvm *kvm, long arg)
- 	case KVM_CAP_ENABLE_CAP_VM:
- 	case KVM_CAP_HALT_POLL:
- 		return 1;
--#ifdef CONFIG_KVM_MMIO
-+#ifndef KVM_NO_MMIO
- 	case KVM_CAP_COALESCED_MMIO:
- 		return KVM_COALESCED_MMIO_PAGE_OFFSET;
- 	case KVM_CAP_COALESCED_PIO:
-@@ -5243,7 +5243,7 @@ static long kvm_vm_ioctl(struct file *filp,
- 		break;
- 	}
- #endif
--#ifdef CONFIG_KVM_MMIO
-+#ifndef KVM_NO_MMIO
- 	case KVM_REGISTER_COALESCED_MMIO: {
- 		struct kvm_coalesced_mmio_zone zone;
- 
-@@ -5578,7 +5578,7 @@ static long kvm_dev_ioctl(struct file *filp,
- #ifdef CONFIG_X86
- 		r += PAGE_SIZE;    /* pio data page */
- #endif
--#ifdef CONFIG_KVM_MMIO
-+#ifndef KVM_NO_MMIO
- 		r += PAGE_SIZE;    /* coalesced mmio ring page */
- #endif
- 		break;
+ 			rtc@51 {
 -- 
 2.53.0
 
