@@ -4,63 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E25A1C982D7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 09:54:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CCB0C982D7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 09:55:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Iz2d2e8t0wkEWqjMMjv5AWLmaohR4cR1kKJ341FT4sA=; b=vfhwGKF8ip0k1j3/cG/0E8oLcV
-	yh4INJe3pmXvyS+yKr+7VeJ7R1+5NhNnRMTYLPPDXYb5eUSuwgXnTbnZyo7yCYFkB5YGaqMgQPPki
-	Yi0TcBGrynSEJZ7iX+Z3YMxFuiuIzR19x5pbWcuCQy+h9pAsJKzkEWrLo5P8SaYUhNkpatdSm7woN
-	QjJ6PSzJM3gP6dJeY2FWxCbvgsAG/fy68mg2D8afG8bS16cFhQYvj+ATVoAKh1BjpcnEyeiYmdVS8
-	fJvJhWJnz2YCsI9kiT5cmXPkBhjsOwt3mX399Wkjx+UCT3HziZWWv/hw1u1ZmdTnY7lFtI71rxaxG
-	OHfArE/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tAZT5ncdu+agHg65mBYy9X51LOw7DQ1MSxf8dHyd0VA=; b=xJr9w/HOJQpa5v1PpBJBu7iMG8
+	jG2X1uvm0/UhTmHxUmX8+3G8Z0sg9MwBgEOG0UpHP/cD/LudVVy8aneJdko7TncjIX+O61CUqKIra
+	MBFtVI9vkf9bKqVPE1BKpCZu+cC/TtUZSCR2uVNYIX9g9qBlQVATbGuIvL0CkcayeVWEarbI0C0+L
+	6U3W6fxuG2xbjIh9PibLOVviuxqwkF0d8EMtuQSx/JipY9yCC5TzCd53HY7HHyCED+y/Cw0eZLwTy
+	Qg98JV+x99KhenHqNs4fOyFkaf16xTOTS6GF1GGTKgdIvBOQR/3bJn0L1rWbTzT+X76qgp7CLmtP/
+	f4Rur1CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7VIr-0000000E0J6-2uV7;
-	Fri, 18 Sep 2026 09:54:45 +0000
-Received: from abb.hmeau.com ([180.181.231.80])
+	id 1x7VJc-0000000E0ab-3Z9x;
+	Fri, 18 Sep 2026 09:55:32 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7VIj-0000000E0F2-2B6T
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 09:54:38 +0000
+	id 1x7VJc-0000000E0ZM-0KCy
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 18 Sep 2026 09:55:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
-	from:content-type:reply-to; bh=Iz2d2e8t0wkEWqjMMjv5AWLmaohR4cR1kKJ341FT4sA=; 
-	b=UYfHUl43RguOC2naDWh4jO8Tc/f+RdMOGDIz0BbvKRLTaS9XfLcfyeZENnBq9zPCKBDlw+uNIGX
-	wVfComfvl7y0c8uOa+2phzUBvbwJvMiupQb41ZJeheJ0rLNSE7tbH0Zuu4zzCZH949hdHZGh/vQZY
-	OPY02F25RPOD5WSrdUTO3hynbBu3eYUZGkUntlbBBO8ph+No5fXliiTpHQiANdOvzp5GC1IW4rYYD
-	lzzAU6ZFhosYxekk/v1lRmoRLlydFOEBgKw3SK4jrQiFS05BunVRaoiiz0pj2ebxncjzwtskwzt8/
-	Y1ufqRHcbz7jH5iRvsvi40TQ0IVDzAn0mWxQ==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
-	id 1x7VIb-0000000FM1c-0Jx0;
-	Fri, 18 Sep 2026 17:54:30 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 18 Sep 2026 19:54:29 +1000
-Date: Fri, 18 Sep 2026 19:54:29 +1000
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Thorsten Blum <blum@kernel.org>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Michal Simek <michal.simek@amd.com>, Harsh Jain <h.jain@amd.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Takashi Sakamoto <o-takashi@sakamocchi.jp>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>,
-	Danilo Krummrich <dakr@kernel.org>, linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] crypto: xilinx - clear AES key buffer before freeing it
-Message-ID: <aq0KVeDLBP11Eaw_@gondor.apana.org.au>
-References: <20260908191607.405177-2-blum@kernel.org>
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:To:From:Sender:Reply-To:Cc:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=tAZT5ncdu+agHg65mBYy9X51LOw7DQ1MSxf8dHyd0VA=; b=DO2Nz4xr48rrYY61S8he/yvL74
+	DeqzZh5nn2Ei+L/Ar3tUXd3G2aUElOWdet6mCGmasjrf5pJGpcIL0OZO7ucFMp5uvKuXmyn5Bu6gR
+	rcGO28H+G9/XUmHFVZrWcta8S2tn4GpKtDJ6E7TgSApQzQR86aHxQrdnkMTCp+PJNYUJtj0aCs7Bp
+	Se3gWR4Dwu3ty/IUJmkzzQi61tZ5jeOFU83PaoA2rvsc4ew7nd59BTjXTlcJ7WkjrlpNYO2/HBKdj
+	INSeYk4O2UNQhJCiQG1Z1/PhhiemzaBjchzNDGmd1SOTzFI/yg/e4pHkmV2ko76ha0dFVAjZWzHNb
+	L6OliUCA==;
+Received: from mail-wr2-x0f.google.com ([2a00:1450:4864:30::f])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x7VJY-00000009spS-3s27
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 18 Sep 2026 09:55:30 +0000
+Received: by mail-wr2-x0f.google.com with SMTP id ffacd0b85a97d-482f63546c5so397757f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 02:55:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1789725326; x=1790330126; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=tAZT5ncdu+agHg65mBYy9X51LOw7DQ1MSxf8dHyd0VA=;
+        b=D34tH+3t73L7/JvD3x5qSOM6IeMZlDfzcyhE+W4rvH+3CdAgHFtZFF5AZm8Lr+5y1O
+         1ZK+8VxK9laFRcxpbm7j1tgkTkwNAaPEW/ohUfxE1yGBYxdvlB93yRQf1bUSm5Ti18AP
+         LKhVka1kZ3oduAcImbLRLlWeRTPpMJFcVKfFZ2L+My8pAKSfq8TKbkK+aGDEOBIMwKyC
+         Mj/Ua/IewHp2XAHRAhCf9OgfB2R1qX92iFxrBXPD39kefDQ41sOAxE4LswhGmNIsAEtA
+         5Xf9KG9eiLqw8k9z+dw2VeV+Pd5rL6rtfMkH8tP0lREc9XmpvI8UL8Z0qT+PR5HNw30X
+         pIBQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789725326; x=1790330126;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=tAZT5ncdu+agHg65mBYy9X51LOw7DQ1MSxf8dHyd0VA=;
+        b=NnSXklb1zKmlXxL3FVtRDFoeoYmE6sNMV2cf5QGDztKzlba/dZZ0/K2XFsGWwfgxwU
+         bIb89jK5beATVwCzaVxe9YnDv0rlQEv6fz7iYhpa/t1MDiVwnqPYs9yGwSCmyzp2/WRW
+         Y2d/XXZqDQnPNWkP2SsfpxQXqwPVoIZMy5n1fvmNaIazaYrsrHrdO8kRZPmhb9BsoKDC
+         uR9CqrgWsYm36QoqD9E60FpB10CD+Y9VBUToncXWSTfOsDjbw4hmd86h+hxVOogTgr4D
+         NEH66T/hZTHeQ9k6aPLFVzkDUq3juykxUGPa/25IRfhpJPhkcvVVAZ19F++e+lScsHg9
+         hsYg==
+X-Forwarded-Encrypted: i=1; AKwUvByLLDbXzx0Eid0OozniPGhrNq0N5ec9KKmXCJJPDPQxii9Yqn2R4U8Nq+XrWlBZr4BXjpjFnC+WveSDXJ9//yjS@lists.infradead.org
+X-Gm-Message-State: AFuF++kyT5fhEx7BFmQWHoXcxR6UmXDnAiCUfgDEj1+tCTpS2OuKVyij
+	X6JhCO5VAPQtUGC12RFKHpg61t2DXwWNAPcTv4Id7of3psM4UJHnIrmtaO/vNxpe8Vc=
+X-Gm-Gg: AYBFou3w/oaSZslsWja9QRGlGS7quDnBWwpF3ym/1L2auUuVESJrRlRXagqJtmVx3nt
+	sDU45bsWNDaPek29fMyCOYm0/V9DKeu5S6BZcZppCneu61hmQYhAOFBL64sVC0ZNhmA/P8LR/2V
+	9KmBbotKruvpDP9Jmd5fP1mU6ZL2RoFAMnbMpVfTB6QyHpvpoxxeb+ezC+2EN+kyFORoWzOWfNp
+	nGM/+RELvisSteQ90pu9wBFvrlwvgZNxxUYPBFv0ogOGHj18b+rhCS4J3Dc0shHDSvxOjzsSweN
+	MzdwNlDnjySdcRY9BosJuyd5f98JokzdCxWbjvqI7GTEIZ+eAAh87l4l6l9q89aoP3GidiT1x6+
+	r767KMTB6oKshquOZbRKe1jyFD6ljmEH1OWMsEuSCXbQevWG+oqWrFJiKFr2qTG1f5aJZRE2vDX
+	Lkxu9JXmRD1tfJaVmVZLy3MPTcpQufXpfK6y/mhrz0S+3K6E8bwk8AMfbSI0afFMqEb+I10b1Bp
+	LpRvRqM
+X-Received: by 2002:a05:6000:186f:b0:487:36a:c870 with SMTP id ffacd0b85a97d-4871e2123damr2944568f8f.11.1789725326057;
+        Fri, 18 Sep 2026 02:55:26 -0700 (PDT)
+Received: from localhost ([195.94.147.179])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4872008118dsm3345138f8f.30.2026.09.18.02.55.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 18 Sep 2026 02:55:25 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+	linux-pwm@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Andrea della Porta <andrea.porta@suse.com>,
+	devicetree@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Naushir Patuck <naush@raspberrypi.com>,
+	Stanimir Varbanov <svarbanov@suse.de>,
+	mbrugger@suse.com,
+	Sean Young <sean@mess.org>,
+	Julian Braha <julianbraha@gmail.com>,
+	"Gary Guo" <gary@garyguo.net>,
+	Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+Subject: [PATCH v9 0/3] Add RP1 PWM controller support
+Date: Fri, 18 Sep 2026 11:58:59 +0200
+Message-ID: <cover.1789724999.git.andrea.porta@suse.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260908191607.405177-2-blum@kernel.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_025437_556994_D4530191 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20260918_105529_104233_729AF1F1 
+X-CRM114-Status: GOOD (  18.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,21 +127,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 08, 2026 at 09:16:06PM +0200, Thorsten Blum wrote:
-> In xilinx_aes_aead_exit(), the AES key buffer is freed without being
-> cleared, which allows key material to remain in memory. Use
-> kfree_sensitive() to clear the buffer before freeing it.
-> 
-> Fixes: c315cb0005be ("crypto: xilinx - Change coherent DMA to streaming DMA API")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Thorsten Blum <blum@kernel.org>
-> ---
->  drivers/crypto/xilinx/zynqmp-aes-gcm.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+This patchset adds support for the PWM controller found on the
+Raspberry Pi RP1 southbridge. This is necessary to operate the
+cooling fan connected to one of the PWM channels.
 
-Patch applied.  Thanks.
+The tachometer pin for the fan speed is managed by the firmware 
+running on the RP1's M-core. It uses the PHASE2 register
+to report the RPM, which is then exported by this driver via
+a function. A subsequent patch will add a new device and driver
+to read the RPM and export this value via hwmon.
+ 
+Subsequent patches will also add the CPU thermal zone, which
+acts as a consumer of the PWM device.
+
+Best regards,
+Andrea
+
+
+CHANGES in V9:
+
+All changes are in response of Sashiko's review (where applicable),
+see:
+https://lore.kernel.org/all/20260908132302.358D91F00ADB@smtp.kernel.org/#t
+
+- linux/bitfield.h is now explicitly included to avoid compile
+  time issue related to header refactory
+- synchronized the exported function to read the tachometer with
+  respect to both the system PM ops and the driver unbind/unload
+- reworked the error path of all functions using regmap_read. As
+  a consequence, rp1_pwm_apply_config() now returns and int for
+  the error.
+- made u32 cast explicit for the divisor of DIV_ROUND_UP_ULL
+- moved teh struct initializer in rp1_pwm_read_waveform() to the
+  top of the function to avoid overwriting part of the resulting
+  data.
+- dropped suppress_bind_attrs flag and replaced builtin_platform_driver()
+  with module_platform_driver((), since the driver can now be
+  unbound/unloaded.
+
+Link to V8:
+https://lore.kernel.org/all/cover.1788872294.git.andrea.porta@suse.com/
+
+
+Naushir Patuck (2):
+  dt-bindings: pwm: Add Raspberry Pi RP1 PWM controller
+  pwm: rp1: Add RP1 PWM controller driver
+
+Stanimir Varbanov (1):
+  arm64: dts: broadcom: rpi-5: Add RP1 PWM node
+
+ .../bindings/pwm/raspberrypi,rp1-pwm.yaml     |  66 +++
+ .../boot/dts/broadcom/bcm2712-rpi-5-b.dts     |  12 +
+ arch/arm64/boot/dts/broadcom/rp1-common.dtsi  |   9 +
+ drivers/pwm/Kconfig                           |   8 +
+ drivers/pwm/Makefile                          |   1 +
+ drivers/pwm/pwm-rp1.c                         | 499 ++++++++++++++++++
+ include/soc/bcm2835/raspberrypi-pwm-rp1.h     |  10 +
+ 7 files changed, 605 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pwm/raspberrypi,rp1-pwm.yaml
+ create mode 100644 drivers/pwm/pwm-rp1.c
+ create mode 100644 include/soc/bcm2835/raspberrypi-pwm-rp1.h
+
 -- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+2.35.3
+
 
