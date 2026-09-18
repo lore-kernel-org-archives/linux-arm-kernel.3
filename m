@@ -4,101 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49E4CC982D6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 03:02:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9A48C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 03:13:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f70EL2u57AlsQGuy6taCWBcjNOQfxHMXhBaDu9pSD1s=; b=pKlzkChxP0LP/dZ4sBUIWVdLmz
-	Hpa1JuiIJOVORPsVsK/1WsPJ9W5rFj7wrNskYQ+8L84XeBeuzI7bA6Sf5TyShnaIwf5G5Ft3MyyhP
-	cFJqwF09WY8Q8SvSCHulzcOenr7+cQr04rOj+7GzsEag4XCoVFOeSKPjewKcwaANVIVsM0WnhgUyK
-	ZgeNgkAs1r+ThWbSDWMBerZmb9EVx2R3d9knifGRnq5lmg680CcVhiRgQD6CmlZ279+bDIPALjnrP
-	o0JyPq8M3oNiF08zUnlPYROJJtAJ/YbEbUvPEysNZKqRi/S4h0vNdh0FNRS+7f4p3XVDuxmspSAej
-	Df4+511A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CKFxldesfAj8FdEDKAwfFPd/txX/9A+5mA0y6fZJndM=; b=cXM1Xhmxead4vwp7pGpqP+I8sS
+	Bchpzvd5Zq9kXOiU4QNPfUTNFjGBz8Sw8ngEVe7ygNuLEgdGSzCCuuwTo2gARtrfbxMEbw/kf/Gcs
+	RGbN7t4Q8XFcaCXS1uiDlu/E5uL+ypBge+lQ2a0vJLaNovM78mFiXGqD+bXkT7YEbZL2mZ1fw+RSr
+	cUxltT+D2Tdcm17FEDA0CAUH1kSo1yF6NP1NejrGZ9mLf4Tv3Z0SY0ZpbwNk7nlAZ/0JoDULtQaiv
+	kMDIGTMKNeSTx51AxDtVnjos7xd/50K60/oiMaIqipB+ww4NLRckuLlLs6fw5pB7kcINElx3lTKIN
+	71ulaMuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7OrU-0000000DM9w-3L31;
-	Fri, 18 Sep 2026 03:02:05 +0000
-Received: from mail-pz2-x10.google.com ([2607:f8b0:4864:3b::10])
+	id 1x7P2j-0000000DNJg-0Y7D;
+	Fri, 18 Sep 2026 03:13:41 +0000
+Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7OrP-0000000DM6T-0Yvo
+	id 1x7P2g-0000000DNIw-3FGE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 03:02:01 +0000
-Received: by mail-pz2-x10.google.com with SMTP id 41be03b00d2f7-cc1cea50dc1so108580a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 20:01:58 -0700 (PDT)
+	Fri, 18 Sep 2026 03:13:39 +0000
+Received: by mail-pj2-x10.google.com with SMTP id 98e67ed59e1d1-396ccb652d7so265254a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 20:13:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789700518; x=1790305318; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=f70EL2u57AlsQGuy6taCWBcjNOQfxHMXhBaDu9pSD1s=;
-        b=R4xtu10GNZh0qsIS7+pBZL8pXsRhC5OS8blVx7nZ4DGFQgfKE7KKf+xi2M6i46vxLZ
-         pMXFUbjWzDS1S8DUjoxAnv5kDzlOH2ZvnpD1WWqp0w90FCg+wRP/pztKd3k+brYFNkET
-         S1C5mlui/Zl6VRbqb9raR+p+b+eE5q9SH8ejJufhIXVvCPVHInVIxS/wBE4xxgvtzUgL
-         4VGz+ecjNwiyWTTI4yT9Vr30DuY7mGJUFbceXKN2gTxA1oBrncYgXKkRJz6FEnPEvZGE
-         GRp/24euP2v0iSrCFpRC1JD2a9yNHhfoHctIyoWuV3DeGMSavhRbtdGxVphWvkmcnAAv
-         yslA==
+        d=gmail.com; s=20251104; t=1789701217; x=1790306017; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=CKFxldesfAj8FdEDKAwfFPd/txX/9A+5mA0y6fZJndM=;
+        b=MI3BISjXiXCDurTxpfF4GPfBZgCE+cr/ijN3nuZpbC8quMi0YxPQRam0JtrNFdtngw
+         mvB7HrZTiiE459KAl7+0Y9VO1N2l/B8epge2KapUPSeEkqFtka+KMbq1XJUGvYcmm2zJ
+         9DaEzkqh4IQT65cbTCpZUJvuH/n1EvwB/Cr1UciQoEkqak5o/5dgb2pQ1/4TWsulDJAG
+         tKqX/L54XWJust+QHHVGr9RNVxwxs/sovllD5UL+iJ+0Tq9gWlKIHdYWDKRrXpnRcjCf
+         NJ1/ZFGCAdPlzqWCLMRtZ9aLEPPH8tn0DJZeDxJ5bVY2kp+uRYIEvCdj73MQ3BLISTbo
+         MvEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789700518; x=1790305318;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=f70EL2u57AlsQGuy6taCWBcjNOQfxHMXhBaDu9pSD1s=;
-        b=cMmFdbY34eelHJB8xckJ92wXVey+M14hXbhlSSD70xEc7XRcsYllpbl+RUe6ZXjSPG
-         10XK9UMG4aT6pqVbs8yRkjU3pgPXRZZRDLJ2qR+dqlNMTjLtVFGwKwpnwalLNslRohCk
-         sPC2QeQoCNqiCJ+iu3dWWYv3Vlz9w2oqCjiOS82Zww0/Q7bf3HBqUrNPZBlsTuJaut77
-         GjZjcshmiyyC3NgE4rWUZeKKCsJ+cFTnDgeghBeAiyK0B4TCdaZ594s4C4/BdLqZxZhm
-         RNGktxm75KWRYkoibG+fpHc318oSSU18KjHbU4IMB4sLEPc43iImepfGVn0tDZuE2TUy
-         lNHA==
-X-Forwarded-Encrypted: i=1; AKwUvBwgyvnEq0rCOiow1y/aWKkfqwmT3VMFvYQsy3ciSywczzXQlKE5zzAAm3fGAtozEZJUF2aQHC/FBCIO+tN4C1EQ@lists.infradead.org
-X-Gm-Message-State: AFuF++nCkjWpZQ2FXHqos78p5rTumO6NlDHarZVB628OJCCS2g4qwPLM
-	FdwyK5Sy0zUZTZkR5Q9Tv6jz9Nhn1ifQYdB3FA3OOUVwOaybBcbEvthW
-X-Gm-Gg: AYBFou2yABdhcbVWzFQXwbjBMZFqUjhei6DmNk/7D7Zi5bzQZwv/PObgkYTzOodUfq2
-	k8HHx9Ul0wlIJRttKClagwBBV/r57rCsLA2aIjH2zJcF87UdvHt/QMc4oO00+JFnEW8+b1THrr0
-	Ml6XYDQUbc7VTu6PHS8er+68MwZXTAjvJ0OCIZwDSX+rHW7LX29oKYDhSAeNIvV670NXfgswxTE
-	O+Bd9B7iTUG6FOPHTxlD7qBYoGoxyfelIu2+Rk8+O3xEL0XoHahM7iFYgDRw3s6jwZOHD5k9GzF
-	KZMwU7YVSOV0Xc2qGBhwW/91yY8d527asNoBuOnN8Eg/Gp1M/jAvk6dY7pCgITv4vCcMcJdseEg
-	wkmBdL3jhgffTO3qD0SGcJcq584He4DJ3j162wL1P5RHgNIfeFQ97U9zvMoJssCIA9TJ4ES6UIY
-	2h0xWg1t2j/QdlBPYacuSdS/KCske6ssW7Zn2q9B6cYDhVuRD7YOjlR4wgy+2R2lhvZjY7jjQA1
-	k/EE7FRrL+QrEsiQyMoUO3rXvN4Ss+kO/3kJ76W8JvKdY0yO1OCQOHzRv90JfY=
-X-Received: by 2002:a17:90b:1644:b0:39e:2ea1:e2a9 with SMTP id 98e67ed59e1d1-39e54d8b0ecmr2306119a91.8.1789700518239;
-        Thu, 17 Sep 2026 20:01:58 -0700 (PDT)
-Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39e362e9402sm7969141a91.15.2026.09.17.20.01.55
+        d=1e100.net; s=20260707; t=1789701217; x=1790306017;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=CKFxldesfAj8FdEDKAwfFPd/txX/9A+5mA0y6fZJndM=;
+        b=eqDWPEsqFVj0M8Y6VbSe3MhuE3qcHlqbDZNAPxkFisv7+zQ7x9yyx8/p+EFr0Nqoim
+         AH+40k5Ai+5ri+/Zmqyo5Scm8Py/CPJVsXeQVbxXHZVZasJSWzHlRwT8aequZpbbS69L
+         FTLwvuU+rDYX1YQ6VyblAxLBnQ2PAvyLgI40K2k2+P6KPSElzDUdhb01Z5gb1vDt49Ux
+         e5HpTO2unB58TASNKzB8WWj8vg1nNCuxYLOtK7e+IkhZc/3IlOojgOQldymxjsq3mcHY
+         JWdC1wcMlctJ7y5ZmTdxyvQVCCMli7FBEJf3kCeMZn9bYriDPRnOf6ZSkwVXdJQ5ZzmN
+         s0VQ==
+X-Forwarded-Encrypted: i=1; AKwUvByiUH9PIqeOK5o+who+ehIs5h6VIdsp2X3CVaZwtiYxM0zqpZD3zBloWGSwJlbEE/yNLJ5waGIrNpns/36dGZc8@lists.infradead.org
+X-Gm-Message-State: AFuF++nE/6WL5zt/mdoz7rV5qh/OLgc2A4xZ68QuhwRQCOGC4hcsLWfe
+	5B+kpvf3HID/V4eRDxqbPAI9iUgq/m33uMDz4zVgnmomZhV9KeXLHmvc
+X-Gm-Gg: AYBFou2QFdLXDbzIWUrGX/PsXaDWab3wwyY/zYhyg4CIp2m+9OqNw3IT8oN/yXS7Gqd
+	bYG7aPaEe73hRBw0fbizcGetIznPmMjgO4UHyN3bZsfiOK+u4wvoEw46pmwPfVJ9px3sSTaur7T
+	+9OaGS2pj5M2Q/8GTcIDT16i2HZA1HQez4Vhklje4sdMK3sbVhzHIyrGVgvuNz1wNCPYrmQsz0q
+	sGJLWtqFMTvPjkmcDndHPOXKy605yrk/+rnGIOfl9xwEVFDqmiGR+vE1MqBzIO3jCNbIyThuwlp
+	k4HvCp2qPh23YKNeTYtrb+yfr3PqHPU86jg8mjAqbe52NIM8+h7WuRFCUT1XRiCKA5iZy2Mjzru
+	FAZISD6UG8n6CGhIO3XdJ/wDnKXFVN7LCzpehrpd44pR7tpuJ2cjVtSQMGk5HMOK0gJxvj0asHu
+	hSZYpRst5+42ERTRJQyhvz8IDiq3AdCWVWYZpqApcbmgeNtGWT29/BtQ==
+X-Received: by 2002:a17:90b:54c4:b0:39e:4c7f:7308 with SMTP id 98e67ed59e1d1-39e55071981mr2385940a91.31.1789701217262;
+        Thu, 17 Sep 2026 20:13:37 -0700 (PDT)
+Received: from lgs.. ([2001:250:5800:1002::de93])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39e5a0e860asm827971a91.1.2026.09.17.20.13.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 17 Sep 2026 20:01:57 -0700 (PDT)
-From: Joey Lu <a0987203069@gmail.com>
-To: zhengxingda@iscas.ac.cn,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org
-Cc: ychuang3@nuvoton.com,
-	schung@nuvoton.com,
-	yclu4@nuvoton.com,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
+        Thu, 17 Sep 2026 20:13:36 -0700 (PDT)
+From: Guangshuo Li <lgs201920130244@gmail.com>
+To: Ulf Hansson <ulfh@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Guangshuo Li <lgs201920130244@gmail.com>,
+	Wentao Liang <vulab@iscas.ac.cn>,
+	Miaoqian Lin <linmq006@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	linux-pm@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Lu <a0987203069@gmail.com>
-Subject: [PATCH v7 7/7] drm/verisilicon: fix DC8200 primary plane disable clearing FB_EN
-Date: Fri, 18 Sep 2026 11:01:25 +0800
-Message-ID: <20260918030125.315978-8-a0987203069@gmail.com>
+	linux-kernel@vger.kernel.org
+Cc: stable@vger.kernel.org
+Subject: [PATCH] pmdomain: imx: gpc: remove all initialized power domains
+Date: Fri, 18 Sep 2026 11:13:22 +0800
+Message-ID: <20260918031323.3376849-1-lgs201920130244@gmail.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260918030125.315978-1-a0987203069@gmail.com>
-References: <20260918030125.315978-1-a0987203069@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_200200_184401_82C14E5E 
-X-CRM114-Status: GOOD (  12.14  )
+X-CRM114-CacheID: sfid-20260917_201338_836482_7266B9B7 
+X-CRM114-Status: GOOD (  14.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,37 +111,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-vs_dc8200_primary_plane_disable_ex() calls regmap_set_bits() on
-VSDC_FB_CONFIG_EX_FB_EN instead of regmap_clear_bits(), so disabling
-the primary plane on DC8200-family hardware actually leaves the
-framebuffer enable bit instead of clearing it.
+imx_gpc_old_dt_init() initializes all power domains described by
+of_id_data->num_domains. Its probe failure path removes all of these
+domains, but imx_gpc_remove() only removes the PU and ARM domains.
 
-This bug predates this series: it was carried over unchanged from
-vs_primary_plane_atomic_disable() when patch "drm/verisilicon:
-introduce per-variant hardware ops table" split the DC8200-specific
-implementation out into vs_dc8200.c.
+On SoCs with more than two domains, such as i.MX6SL and i.MX6SX, the
+additional DISPLAY and PCI generic power domains can remain registered
+after the GPC driver is removed.
 
-Fixes: dbf21777caa8 ("drm: verisilicon: add a driver for Verisilicon display controllers")
-Signed-off-by: Joey Lu <a0987203069@gmail.com>
+Remove all initialized power domains in reverse order. Keep releasing
+the PU clocks immediately after the PU domain has been successfully
+removed.
+
+This issue was found by manual code inspection.
+
+Fixes: 5a42d1198901 ("soc: imx: gpc: fix imx6sl gpc power domain regression")
+Cc: stable@vger.kernel.org
+Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
 ---
- drivers/gpu/drm/verisilicon/vs_dc8200.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/pmdomain/imx/gpc.c | 27 ++++++++++++++-------------
+ 1 file changed, 14 insertions(+), 13 deletions(-)
 
-diff --git a/drivers/gpu/drm/verisilicon/vs_dc8200.c b/drivers/gpu/drm/verisilicon/vs_dc8200.c
-index f72da10295e1b..25b5906a1c5fc 100644
---- a/drivers/gpu/drm/verisilicon/vs_dc8200.c
-+++ b/drivers/gpu/drm/verisilicon/vs_dc8200.c
-@@ -70,8 +70,8 @@ static void vs_dc8200_primary_plane_enable_ex(struct vs_dc *dc, unsigned int out
+diff --git a/drivers/pmdomain/imx/gpc.c b/drivers/pmdomain/imx/gpc.c
+index abca5f449a22..5766e3b40470 100644
+--- a/drivers/pmdomain/imx/gpc.c
++++ b/drivers/pmdomain/imx/gpc.c
+@@ -502,8 +502,10 @@ static int imx_gpc_probe(struct platform_device *pdev)
  
- static void vs_dc8200_primary_plane_disable_ex(struct vs_dc *dc, unsigned int output)
+ static void imx_gpc_remove(struct platform_device *pdev)
  {
--	regmap_set_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
--			VSDC_FB_CONFIG_EX_FB_EN);
-+	regmap_clear_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
-+			  VSDC_FB_CONFIG_EX_FB_EN);
++	const struct imx_gpc_dt_data *of_id_data =
++		device_get_match_data(&pdev->dev);
+ 	struct device_node *pgc_node;
+-	int ret;
++	int i, ret;
  
- 	vs_dc8200_plane_commit(dc, output);
- }
+ 	pgc_node = of_get_child_by_name(pdev->dev.of_node, "pgc");
+ 
+@@ -519,19 +521,18 @@ static void imx_gpc_remove(struct platform_device *pdev)
+ 	if (!pgc_node) {
+ 		of_genpd_del_provider(pdev->dev.of_node);
+ 
+-		ret = pm_genpd_remove(&imx_gpc_domains[GPC_PGC_DOMAIN_PU].base);
+-		if (ret) {
+-			dev_err(&pdev->dev, "Failed to remove PU power domain (%pe)\n",
+-				ERR_PTR(ret));
+-			return;
+-		}
+-		imx_pgc_put_clocks(&imx_gpc_domains[GPC_PGC_DOMAIN_PU]);
++		for (i = of_id_data->num_domains - 1; i >= 0; i--) {
++			ret = pm_genpd_remove(&imx_gpc_domains[i].base);
++			if (ret) {
++				dev_err(&pdev->dev,
++					"Failed to remove %s power domain (%pe)\n",
++					imx_gpc_domains[i].base.name,
++					ERR_PTR(ret));
++				return;
++			}
+ 
+-		ret = pm_genpd_remove(&imx_gpc_domains[GPC_PGC_DOMAIN_ARM].base);
+-		if (ret) {
+-			dev_err(&pdev->dev, "Failed to remove ARM power domain (%pe)\n",
+-				ERR_PTR(ret));
+-			return;
++			if (i == GPC_PGC_DOMAIN_PU)
++				imx_pgc_put_clocks(&imx_gpc_domains[i]);
+ 		}
+ 	}
+ 
 -- 
 2.43.0
 
