@@ -4,58 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 346AEC982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 14:28:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 934A2C982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 14:31:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9fQjQyKampcGVbQAmuUr0Em07LtfcNck2J9uJo+WzMo=; b=KludrJ2ReDzOnzDrQC0kYCZX5Z
-	PzjRIaxrsSK66jz/TLJxIVa2iLmWwYeSERsQinkcNzSAvcGmVSRmQTltj2SOXrlL8ubDyoxf68eGs
-	K2gzWyeDWDloPA1MCIkrBAA2kIvi+aCZodLcQ8zGo8ABZBUP3Ljh1qttZfdJdpdZba6flBPzwBmPN
-	IT7mdMAC1/2TGo0pmwQ5dEAKyyu4Gon+ozDYIdndlSQcgsHVqbbcB9xditgTxP6TaGn4ZwKA72AIU
-	1klFDxPGS4f213NuCrIdcVPIzjIS3Gfdl9dPsj2smuzbA9DUBr+Owm6TrW1ktalbufmRkKOTbMT0Y
-	1fSZyDiQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=42rUBtlyT3sfKuf88X+9wuo6WWnR0H9NnfhuXblCuJM=; b=UsB/Tc9fighgx3qH1J2Jmnye/Y
+	qaNCyn+g6ZfOFAh5081PVHoCmmTdIDUBvl+yshrccZn42W/cgUGtGdD4XfuihxwHgRDZporSGhQBz
+	NzdytdFxkAdGrfTdmjmpnQ0eIT0+BpJnHw06eM14/TeNpErGvisHqxjvOAbFSnmDDAQXYFjQ47zV3
+	ZPBwfKAv8Wk3cUXACIgYnAMELmA6BftYhN1/PTHoZaIZ6lQ+tt9Aq4+I4P6nmmxwUkUbZWa5boBYb
+	r58nC8t7xu+a3q8YE/khm3IpY+KJAvDGKoqF8rGFgsilN3wRcKQCcG96/lnWdSBptgsx35fiuHI0w
+	M6VtkofA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Za2-0000000EihJ-180O;
-	Fri, 18 Sep 2026 14:28:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Za0-0000000EifX-0Yry
+	id 1x7ZS4-0000000EhQT-2FL7;
+	Fri, 18 Sep 2026 14:20:32 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x7ZS1-0000000EhOD-1M3y
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 14:28:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0954F1C00;
-	Fri, 18 Sep 2026 07:28:36 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 40A5E3F86C;
-	Fri, 18 Sep 2026 07:28:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789741719; bh=hv+0y+A4oUAo0uo5dyEK8zc0I6j3cla+Yg8qcL1PnSY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=I8a3wVZdwqL44ccM5tzVyzAt6HGTdGjCOHTcGWkUshTyRY821N3vwcMkh+DlOz6c9
-	 lG8BomnxIG+cwehaFLU6kvsosZLvlz086w3863jNSI+B4QAbBRUncc7xB2gm4LelS4
-	 FxFEnDCQ/hg51yrBq3fkgRcFl6GwV6IODLnftLGE=
-Date: Fri, 18 Sep 2026 15:28:31 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH v3 2/8] firmware: smccc: Add support for Live Firmware
- Activation (LFA)
-Message-ID: <aq1KjzpIGuSpsPWx@J2N7QTR9R3>
-References: <20260706134455.132091-1-andre.przywara@arm.com>
- <20260706134455.132091-3-andre.przywara@arm.com>
- <20260717-bipedal-courageous-alpaca-4fb54d@sudeepholla>
- <84f0862c-5333-4d53-b882-79b8e4c362ed@arm.com>
+	Fri, 18 Sep 2026 14:20:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SGg1Xc3EeRqZoLcaiyMmCHpKgev27On0HtZ7PCIEWDtdL6361faNhzkdHcEaok1EcGi6JDwJ3XNCxZqjfViVzy2Yn1mSXjXn2S9T0VqphnA4P8WkrA7iBWV+2KMJFmrxFq6SLQzjVALHlxZbJschjQdOz6vPthg2VBmOKf6io6mw0yVuWZjd9y1fSVVd4tEQVsNWbVn6t+FmfAntRTiUr6PFWCOAxcwSSeqcECHHrEy1+9N6zhPk7EvoT0CS1jHgt5hIxvjoMmPR/6SZ4Z9FORvlPHRzD/6ZPozhtnJPM10y3qxT2OEj6VhspxGVZ+4xpVzHd9k2MZ+pKn6xm24P3g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=42rUBtlyT3sfKuf88X+9wuo6WWnR0H9NnfhuXblCuJM=;
+ b=gdZj1xK1EGKGVZmk8ZJ7WgEmqaGqKvLQU4Yk/DQTw4DwD5Q5BqacMoMutzVOdI8KQhp7+d+e8BKXyOznqaaDprAD/3xdk8Wcmt9DGDWDVWJwY2xoTir8PXmNsVxbxQKJC6MgtGN6sYDBnXN6dYnl6bnLmF8GjNCCAsxVKIBxmSEjo70bWL/ATz9gF9/fg4VmVFPI5uu0jOXtXtAOU3eVaUqckKXRMs6+ar5SWTpHpdtg8QtkVdNA+X1baWRdzg8xXtEeLBEVLVhVGedGlDKqBvAdO/fA/czlPuoYhcxXOKRtWRaKRYQaJc4mxQ29o+aqdAUuhNy+uvWbxfQIYsZqig==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=42rUBtlyT3sfKuf88X+9wuo6WWnR0H9NnfhuXblCuJM=;
+ b=E2zHen4o/E8YLbFoUJ0Lli2zmpOp2WSJpDdBR04jD7cRKdrGYbOX9SwMAUkN3ghtiYwCTb+14tNoyaBevU9TRNYPPMXxJUDYQ035pepetjK+1Xrl6zh75Xui3GgaCjblle7ZCPpqUoaK3/ezGpQ+emPZ+0f+b53dsQgFC9v9P4R2DWY1zTJ5mek/kDyMMC9XZ8c1faHjrCUCPeYCxZFLcFBhZ5xb/CJ8Hx3at+f+csxVnel/U1ElXF4zKzBE9iBnCnjxhlTIx3vuFuXLB9Ddx8A8jL4E2y2292JvIA+BT3jqK+czQgqeGAg6FmC939TLkRhXKabFBgbhKfrv1NAuDA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
+ by ZR6PR04MB296659.eurprd04.prod.outlook.com (2603:10a6:910:e1::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.13; Fri, 18 Sep
+ 2026 14:20:24 +0000
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0428.011; Fri, 18 Sep 2026
+ 14:20:24 +0000
+From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Hans Verkuil <hverkuil+cisco@kernel.org>,
+	Kees Cook <kees@kernel.org>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>,
+	Peng Fan <peng.fan@nxp.com>,
+	Deepanshu Kartikey <kartikey406@gmail.com>,
+	Julia Lawall <Julia.Lawall@inria.fr>,
+	Fan Wu <fanwu01@zju.edu.cn>
+Cc: linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org
+Subject: [PATCH] media: use assign_bit() where applicable
+Date: Fri, 18 Sep 2026 22:17:43 +0800
+Message-ID: <20260918141757.3023034-1-peng.fan@oss.nxp.com>
+X-Mailer: git-send-email 2.51.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI1PR02CA0018.apcprd02.prod.outlook.com
+ (2603:1096:4:1f4::7) To AM8PR04MB7874.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24d::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <84f0862c-5333-4d53-b882-79b8e4c362ed@arm.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|ZR6PR04MB296659:EE_
+X-MS-Office365-Filtering-Correlation-Id: b7aa482d-0224-468b-66bb-08df158ffb16
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|7416014|376014|19092799006|1800799024|56012099006|10067099003|11063799006|921020|18002099003;
+X-Microsoft-Antispam-Message-Info: cZA/VEcZU01RiPkFSvOUx2hrej+LrEPcNYiWC7oW18eWe/43yBibvbZS7n06p1TccwVY4yimjg26JstdU4lado8OE7SwcyPZiI+J8kCsSR3nsX+yyDCWkjGgqTV5AAQfzgogCaZcIejM89BTjlfTZO585Ob5EUM9As+xnBlaAOdJkXCGAw3QUWxcVU5DtFVbKKNHBpT3ST/kE9ZzCp06D3pHONm9d2DnQG0W7QvQvAU5GVihoDpgwIU8qp8JBY10YrVqqJPYH1wCiUwdrSPsUt/OM5aRwSBoiUj3n/sDtusEPfTvHH94dNU7MLDYsQW74e8KW8nyqZRz8XwSSx0VoSdzXNwxg8rR8daWEhN6LXGePHUzb0pGs+QxUazETKvfuW5sbqr7Idp8uPir/XKRVEewYvCHcNHrjyXbjzXr9rjT1wZH4qcNvU1Odb6jzuL4GXl5C5KVCCGDsIXuxajeAuoEMyh1ru0J7fHPDriLcnjT+QBM+1LSp3n98sz5wBphqTC7g4uRvwSI9eP0DmTLs+8aKZOFiYGRpbRSt8rd1GhDOrd3cxo4DLSDKe+6yaRWdFb5NTHKsB5QeDv0YSW/+TzsIE1CiPwMjJtqJoT/i8U2V8jB30FYo49FGCDcR02RNMHYhlEu7hmSic5TPX6szzAOVeHWiKZCu0oFhQcpKxpzZIXfaFLftUu4OVDaPNXrmLRcPB/7NoVYw2pI5JkxKg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(7416014)(376014)(19092799006)(1800799024)(56012099006)(10067099003)(11063799006)(921020)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?470KHUl5fpcPan/Km0FPypbsSIx+5d3u5D3SDoxQ+U1dQT58b0i4KmuG3QFZ?=
+ =?us-ascii?Q?DDPhatyE2S4pK0TRbhJAn5OKI9iawy2UJDfrmjaHbX6yDOBJItopBBCeoxje?=
+ =?us-ascii?Q?ogtRwpAGTGPOmXG0iHLG8vtY9WIlFw8s6sEwr+DsoH57q3tYS4DzKYuexCxV?=
+ =?us-ascii?Q?LB357oWHUxt4uqXrI1YQlis4mfXeE/AmF6ZvAaoikW8w7AGXpQHmq4sKWUKm?=
+ =?us-ascii?Q?B2+bp87yatk6iW8zSdUm3e4LCN4hiu63dG8M9YiOE1qnDOREVhvOE7dFD98r?=
+ =?us-ascii?Q?CZMN7T3VnQXswM7AOVqMwAl0P6yBcGMHbycXHvWn1Bj73y8fDLmbqrApoTcy?=
+ =?us-ascii?Q?K0dwcXnacS6pjqexEbxosEW9pDgC3uo/AJMAmm2QBMMV9UGE05WVGM6qIAnS?=
+ =?us-ascii?Q?nzBAuHdE9ihto79D8otowK7twW41GtkAvEFlajouXJEHSg3X356nFT2fCfKm?=
+ =?us-ascii?Q?f6dlPI3NmuFcsO+gQ0FBmjp/m2vZVpRilNTg4Isd8odDPbxA6Pr0NGalD5q3?=
+ =?us-ascii?Q?rZoQI8MbSB15LDEJwJHVY8jt7epyXTX7h6tSyngvHFJEfx+SQND/3kd3hnR8?=
+ =?us-ascii?Q?uYvjFOtYYeiHNpXOvl3aFjLSRZ1Pv9DDRAPZd8zNsnzC1783PqGs2hUK0Bee?=
+ =?us-ascii?Q?OyiFADjuQ7SbRMF+b18aCUEgVPSZuD/fgllMtDFwKJUY2IVLZ8pTfiFbLyH9?=
+ =?us-ascii?Q?RkbQYU9lzEp/D5AcmugATocxpfEUrPdunJP3gTQ3+G4qGjiZbT6+NbX5n9S+?=
+ =?us-ascii?Q?kzmgWp59+IrpBwux7SOoZ6OYZzKQ1dQM+zvhL9dw9iQoU+4Q3LRoF8Ij0TIb?=
+ =?us-ascii?Q?nxm2KPKcRdGddaQBFyN+4Ohfwc4YNn08C1eiVtu+suolGeSPyuF7iLQ8xVDJ?=
+ =?us-ascii?Q?Q1Lsnr+29zx5PwFxWd28/2Ukx/VtdR5R2NBX6qJsS9Ec9KMV9sojhDR+DIYW?=
+ =?us-ascii?Q?Myq4UFjDZH0hs0KKGKmWhM0UsnI4w+y2lQKGdXHb2LGpiQVFbHDZEuHzftl/?=
+ =?us-ascii?Q?XKCmTnRkZILqriSA3INx6FVZtVOcojLOy5Ozja4r+rYN/yOTC9dFgzdHd19G?=
+ =?us-ascii?Q?ygDG5Hc0hYsa59fnLyoptyfKS/8IF5eSH35Fs+9ryTyuHsi07rAqYKbyR/QZ?=
+ =?us-ascii?Q?r5MWJLde6DKb+ial2Zs73+xH9JHn/YsJXvXAPCzjdCmSSuJiftLo8yp1ck2z?=
+ =?us-ascii?Q?WTnWUbNWih1du2iWG058RMa3t9MJColLxzxDC7iahKjb4c/kpOBrpAWmg+Bh?=
+ =?us-ascii?Q?ahVCwnepX07dHjOgddBCE3omMETiY66VQsGUvVPvcLnyyn92/tWz/ZDJWSWu?=
+ =?us-ascii?Q?QeoMNt6a3egmtJ9rqU1zUVMmP0RXM4CMcfnC4aW4svrCN2eBLANcvo/0vSjL?=
+ =?us-ascii?Q?CiKJbAVP2glyqSCBSJ+Cskvlc9km2Lg5Dr5nHhGcouhv1dJCcxyCzmpLMlRR?=
+ =?us-ascii?Q?kiD8MdXysOVbfGZ4p+NA3MjpYbt+PfF+OBpFbUp7JQ2zO6rBR98oBlQAMESa?=
+ =?us-ascii?Q?P02jht43Oy9MqD8CfO2f8jXrPANE3hr9CtClY5g2lpXj7Bl7Sgk8xlz96K/K?=
+ =?us-ascii?Q?qPGLBitvU9vwpaIQI0UvjAQ6R4Xv1oNwc/5Pky7Kin6W8oGRPGHvARaqgXi6?=
+ =?us-ascii?Q?mewnftx9toLVW2xJU5CH7JAQ2FOXnBlwqFyi7Y4fLIZRCFwq3XRsOBnRyf2o?=
+ =?us-ascii?Q?QIFVG+1pc1jerBnuGHf+R/pHNUm7vP52l2GjzeIq+0boac3429f/ULDXZwfS?=
+ =?us-ascii?Q?ay11alcTmoqCbDruGyPGgpWe777oVlioOhAS9H+SYYlsC/RuVKDz?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b7aa482d-0224-468b-66bb-08df158ffb16
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Sep 2026 14:20:24.8876
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: jCWe1mmO6441JHYUoiu+gJQNI4QKb5F1mS6ANFdx6gUfU0w1DnUfux2J7W1AMjcKKZGjv258jG0P1Kzm3Pt4R552Y8h72L2K1E+ybxxEstnoyYeqVhSwZIbPHSVwkWNA
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZR6PR04MB296659
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_072844_240920_6418EADA 
-X-CRM114-Status: GOOD (  24.05  )
+X-CRM114-CacheID: sfid-20260918_072029_377666_CA8438F2 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,56 +144,137 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Conor Dooley <conor+dt@kernel.org>, Trilok Soni <trilokkumar.soni@oss.qualcomm.com>, Salman Nabi <salman.nabi@arm.com>, Rob Herring <robh@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, linux-kernel@vger.kernel.org, Varun Wadekar <vwadekar@nvidia.com>, Sudeep Holla <sudeep.holla@kernel.org>, devicetree@vger.kernel.org, vsethi@nvidia.com, Nirmoy Das <nirmoyd@nvidia.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 18, 2026 at 11:13:19AM +0200, Andre Przywara wrote:
-> On 7/17/26 11:03, Sudeep Holla wrote:
-> > On Mon, Jul 06, 2026 at 03:44:42PM +0200, Andre Przywara wrote:
+From: Peng Fan <peng.fan@nxp.com>
 
-> > > +/* A list of known GUIDs, to be shown in the "name" sysfs file. */
-> > > +static const struct fw_image_uuid {
-> > > +	const char *name;
-> > > +	const char *uuid;
-> > > +} fw_images_uuids[] = {
-> > > +	{
-> > > +		.name = "TF-A BL31 runtime",
-> > 
-> > This doesn't make any sense to me. Why do you want kernel to assign
-> > some random name base on UUID. Userspace is well place to deal with
-> > UUID and give it any fancy name it wants.
-> 
-> Well, the whole interface is quite usable without any accompanying user
-> space tools, so just from the shell, but then identifying  firmware
-> components by their GUID becomes a major pain and leaves users completely
-> clueless.
-> And while we indeed will never be able to fully catch up with all the
-> firmwares out there, especially not with vendor specific ones, there are
-> some standard firmware components that I think warrant some name.
-> TF-A BL31 above (and TF-RMM) are good examples: these GUID is already in the
-> mainline repository, and since BL31 is also an LFA agent, it's quite likely
-> we encounter this component. Even when vendors typically use downstream TF-A
-> ports, those GUIDs would stay the same.
-> So yes, it's more opportunistic than complete, but I think it would help to
-> identify at least those well-known firmwares. Anything not named then would
-> use the GUID, and can indeed be resolved by (a yet-to-be-written) userspace
-> component.
+Convert open-coded if/else with set_bit/clear_bit and their
+non-atomic __set_bit/__clear_bit variants to the assign_bit/__assign_bit
+API.
 
-Sudeep is right; this is not a good idea.
+Done with Coccinelle semantic patch:
+    // set_bit -> clear_bit => assign_bit
 
-Remove the table and just expose the UUID of the image. Users can map
-that to a string in userspace if they need/want, and that'll work
-regardless of the vintage of kernel they're using.
+    @@
+    expression cond, bit, addr;
+    @@
 
-I appreciate it might seem helpful to expose a name where we know it,
-but overall it creates more problems, including (but not limited to)
-compatibility issues, needless busywork to add entries (and arguments
-about what is approriate to add), political issues when some project
-naming changes, etc.
+    -if (cond)
+    -        set_bit(bit, addr);
+    -else
+    -        clear_bit(bit, addr);
+    +assign_bit(bit, addr, cond);
 
-I am not going to Ack this with the name present, and I suspect neither
-will Sudeep.
+    // clear_bit -> set_bit => assign_bit
 
-Mark.
+    @@
+    expression cond, bit, addr;
+    @@
+
+    -if (cond)
+    -        clear_bit(bit, addr);
+    -else
+    -        set_bit(bit, addr);
+    +assign_bit(bit, addr, !cond);
+
+    // __set_bit -> __clear_bit => __assign_bit
+
+    @@
+    expression cond, bit, addr;
+    @@
+
+    -if (cond)
+    -        __set_bit(bit, addr);
+    -else
+    -        __clear_bit(bit, addr);
+    +__assign_bit(bit, addr, cond);
+
+    // __clear_bit -> __set_bit => __assign_bit
+
+    @@
+    expression cond, bit, addr;
+    @@
+
+    -if (cond)
+    -        __clear_bit(bit, addr);
+    -else
+    -        __set_bit(bit, addr);
+    +__assign_bit(bit, addr, !cond);
+
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+---
+ drivers/media/dvb-frontends/rtl2830.c                    | 5 +----
+ drivers/media/dvb-frontends/rtl2832.c                    | 5 +----
+ drivers/media/platform/marvell/mcam-core.c               | 5 +----
+ drivers/media/platform/samsung/exynos4-is/fimc-capture.c | 5 +----
+ 4 files changed, 4 insertions(+), 16 deletions(-)
+
+diff --git a/drivers/media/dvb-frontends/rtl2830.c b/drivers/media/dvb-frontends/rtl2830.c
+index 4c44e2d695f8..fadc12c6d6ae 100644
+--- a/drivers/media/dvb-frontends/rtl2830.c
++++ b/drivers/media/dvb-frontends/rtl2830.c
+@@ -612,10 +612,7 @@ static int rtl2830_pid_filter(struct dvb_frontend *fe, u8 index, u16 pid, int on
+ 	if (pid > 0x1fff || index >= 32)
+ 		return 0;
+ 
+-	if (onoff)
+-		set_bit(index, &dev->filters);
+-	else
+-		clear_bit(index, &dev->filters);
++	assign_bit(index, &dev->filters, onoff);
+ 
+ 	/* enable / disable PIDs */
+ 	buf[0] = (dev->filters >>  0) & 0xff;
+diff --git a/drivers/media/dvb-frontends/rtl2832.c b/drivers/media/dvb-frontends/rtl2832.c
+index b31cdb44b383..011c1366e0db 100644
+--- a/drivers/media/dvb-frontends/rtl2832.c
++++ b/drivers/media/dvb-frontends/rtl2832.c
+@@ -986,10 +986,7 @@ static int rtl2832_pid_filter(struct dvb_frontend *fe, u8 index, u16 pid,
+ 	if (pid > 0x1fff || index >= 32)
+ 		return 0;
+ 
+-	if (onoff)
+-		set_bit(index, &dev->filters);
+-	else
+-		clear_bit(index, &dev->filters);
++	assign_bit(index, &dev->filters, onoff);
+ 
+ 	/* enable / disable PIDs */
+ 	buf[0] = (dev->filters >>  0) & 0xff;
+diff --git a/drivers/media/platform/marvell/mcam-core.c b/drivers/media/platform/marvell/mcam-core.c
+index 2d0b8b60c509..074b86ae09c0 100644
+--- a/drivers/media/platform/marvell/mcam-core.c
++++ b/drivers/media/platform/marvell/mcam-core.c
+@@ -252,10 +252,7 @@ static inline int mcam_needs_config(struct mcam_camera *cam)
+ 
+ static void mcam_set_config_needed(struct mcam_camera *cam, int needed)
+ {
+-	if (needed)
+-		set_bit(CF_CONFIG_NEEDED, &cam->flags);
+-	else
+-		clear_bit(CF_CONFIG_NEEDED, &cam->flags);
++	assign_bit(CF_CONFIG_NEEDED, &cam->flags, needed);
+ }
+ 
+ /* ------------------------------------------------------------------- */
+diff --git a/drivers/media/platform/samsung/exynos4-is/fimc-capture.c b/drivers/media/platform/samsung/exynos4-is/fimc-capture.c
+index d85811f4b8c5..1e34119ee117 100644
+--- a/drivers/media/platform/samsung/exynos4-is/fimc-capture.c
++++ b/drivers/media/platform/samsung/exynos4-is/fimc-capture.c
+@@ -997,10 +997,7 @@ static void fimc_capture_mark_jpeg_xfer(struct fimc_ctx *ctx,
+ 	ctx->scaler.enabled = !jpeg;
+ 	fimc_ctrls_activate(ctx, !jpeg);
+ 
+-	if (jpeg)
+-		set_bit(ST_CAPT_JPEG, &ctx->fimc_dev->state);
+-	else
+-		clear_bit(ST_CAPT_JPEG, &ctx->fimc_dev->state);
++	assign_bit(ST_CAPT_JPEG, &ctx->fimc_dev->state, jpeg);
+ }
+ 
+ static int __fimc_capture_set_format(struct fimc_dev *fimc,
+-- 
+2.51.0
+
 
