@@ -4,103 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1628BC982D2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 04:18:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56D58C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 04:42:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x5/5jYTk97QiuhKteVx/RjbUQ68rvY/RzcvH0sprR9c=; b=y83OiwySsyVgAaupByREdzaOUE
-	eOBhZC4VLJ1TK8MItahxTuJT28ivXWjVOPSLYoIBT0mlz+bF58SW22+i9+PTgV0DNH24++iugvWzf
-	glZJpy+AeXYvS25yK7tyYedIautiwL3/uenebIzNpf4ff+iSfM9Z+0Sf6tO39KAxiv5WcQitJGP21
-	0ZEyuV0qTe3oaTHXWB/0Lxw8lZ7pEGH6rM0okYsuI/QumGijrUOy/84q/3cOSSxvid9xbPMYMohB4
-	+Eebcw4OyIQa1nS8uvzrk8oUTuCP5xmh3+6F5e6/VNdsELVXbLfU0diqO9k6IEgAiCwNT3V5MQkou
-	P1fni9Yg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jLhSQVS66izuo4+FI7QDBqq9bxYvfIHSP1AdZGaUGT4=; b=B1K9uolkrCqlBPgQaKfA6sDf7m
+	wxchRy4tD8Y5MOCNWpIsASujCCNROazj7C/9PzFK9SjtCsy+f+mjYbS2YOu0mjHopj8BE9ALRCp6i
+	vfIcrdACnzMUiE9A8yb+Eaec2AZAX+/8kmkzdr8we5wTHyCJnDSoTuVxPnmcQPtvXM40Cmp9QAdAe
+	H4iMGMNPv5QKwj5CBRBqhYMouNdy2vb4psmLLxSJ4Y6s01G4flQ8BMq4udMWkMDNLs+gEs3AORiG6
+	K81u96W3c3ZAg+y1QxyXyNeCTFywF6GlGfVihdBvVNTQmbWP2re+ps9V6RoKIukxvlPhAa+EX5yce
+	aWwao9Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Q2u-0000000DRTL-0LHx;
-	Fri, 18 Sep 2026 04:17:56 +0000
-Received: from watt.d-silva.org ([119.15.109.137] helo=www.nmnhosting.com)
+	id 1x7QQM-0000000DT7j-1sU8;
+	Fri, 18 Sep 2026 04:42:10 +0000
+Received: from mail-pj2-x0f.google.com ([2607:f8b0:4864:39::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Q2r-0000000DRSa-1Kdt
+	id 1x7QQH-0000000DT6c-2q0E
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 04:17:55 +0000
-Received: from hawking.lan (ntp.lan [10.0.1.1])
-	by www.nmnhosting.com (Postfix) with ESMTPSA id 0669540198;
-	Fri, 18 Sep 2026 14:17:35 +1000 (AEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=d-silva.org; s=2025a;
-	t=1789705055;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=x5/5jYTk97QiuhKteVx/RjbUQ68rvY/RzcvH0sprR9c=;
-	b=t6Nhw73tsb751+JJrDIUFANMISU+10SS6C8/C1CscNgtzDyyuCWuxLVaswC6gcbeV0qQjT
-	Rv3HtPDW9OY4MLkpBlMtFgeJcwXcvf6sMe1w2DNBs0V4e5MOPeHVLbingPYipMOF3FhjuV
-	LeP/Iicnqyg+SXFSOvXG185o+m9izR94q9dqR7uQTTHad4a4SgB6NoK7505D2IHmaLo02o
-	3dobayPCvzblQXD4Y6jYKEG1jd1aF4H2vIhwGi/1tu+nik8YM1HJCvKXezXM/E2vobV6la
-	4R/iC55Dm5GhkXX3jL739q4h53C5JHZjRnoOxx95TAxx3fKQ3OiM8fkabGUEqw==
-X-GPT-Reason: legitimate_transactional_technical_discussion; the
-	content is a highly technical Linux kernel patch discussion (net-next)
-	regarding stmmac driver support for Allwinner H616; the sender
-	(alastair@d-silva.org) matches a personal/professional mailbox
-	and the technical depth, including iperf3 results, kernel logs, and
-	specific register offsets (0x34, 0x05), confirms a genuine engineering
-	workflow; the URL domains kernel.org and msgid.link are standard
-	for kernel development and do not exhibit phishing indicators.
-Message-ID: <9cd900993fc385ccffcf743f629e87071be9820a.camel@d-silva.org>
-Subject: Re: [PATCH net-next v3 0/3] net: stmmac: add Allwinner H616 EMAC1
- support
-From: Alastair D'Silva <alastair@d-silva.org>
-To: James Hilliard <james.hilliard1@gmail.com>, Richard Genoud	
- <richard.genoud@bootlin.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David
- S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub
- Kicinski <kuba@kernel.org>,  Paolo Abeni <pabeni@redhat.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec
- <jernej.skrabec@gmail.com>,  Samuel Holland <samuel@sholland.org>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Giuseppe Cavallaro	
- <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>, Maxime
- Chevallier	 <maxime.chevallier@bootlin.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>
-Cc: Maxime Ripard <mripard@kernel.org>, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com
-Date: Fri, 18 Sep 2026 14:17:34 +1000
-In-Reply-To: <20260917-submit-h616-emac1-v1-v3-0-62cb8316e19b@gmail.com>
-References: <20260917-submit-h616-emac1-v1-v3-0-62cb8316e19b@gmail.com>
-Autocrypt: addr=alastair@d-silva.org; prefer-encrypt=mutual;
- keydata=mQINBGactvoBEADBFM2HqfQUUM4j40ZQPyYzmnM8S6zrycO0ipDDPMs7nZMzyzGzOdqfS
- VB/tuYvZOOKVWzJuWJ5aT/YyHx54r3L+D5hTkEG0sXPVJky3yTS9sbHEMSLBHb8TVVuhPVPuieV4g
- Nkqg5POMTidk8xAw50WpV++tUlewXVSciehnuCQPXhXMP7FcCh4uO8LdN7E8m7ir1LafKTFfoWPah
- KVT8NGG9r+ucrFcN5F+VnHxTDaI68yRPkNdtUWmp22wIX1KwDCtKFrndYO4p5Hv2hlDKomsuIIHHn
- muQGRwuh0xpf0nVJNF8ETZHMzxQLfo3e/HvxBFOTkwY9w7CuuQFZchbhS0I3PfmGT0+jiNcdfqjDC
- fPPB5uhy+DkR6wO72vuwFYUrpU2mdliDSdKEtWBHulnXMJjpBOXetfIwhI8G2dTVg59lN5i9DvJZc
- 7y1Sp+qfZQ4P9qpYZyQEKR4GNDOdnm6F2LW2cZkcyAU/Ii765zdDMTQMIzZNSxT/FcDd0K1voTNRl
- QHbQw+kmIMhzSv2JefcC9oNbE0XYzcBDNP5T3O/4itOQ90GCKQEPAbIPeBjlQif7kkyvo/H6yv4s9
- duuK7zbJD9AID/+KGLkpU3p68VDB/C2ZSb9rQz3p1CJNSfsX/CPk7sPqA7RKZ4a2B0hSJ2pJCncNZ
- KXtMlkkm/FmewARAQABtCdBbGFzdGFpciBEJ1NpbHZhIDxhbGFzdGFpckBkLXNpbHZhLm9yZz6JAl
- EEEwEKADsWIQTQGemDFwqYyU/dBWv75AdnjVo60gUCZpy2+gIbAwULCQgHAgIiAgYVCgkICwIEFgI
- DAQIeBwIXgAAKCRD75AdnjVo60qHZEACJnLfpS71Hk8bX0CLCNJ5wgqdZD3pBHEdbv9Ux9kRlZp4a
- ZFwlg9ltwBjl2dZP3PLtD9xQdsdYKVippKd5a7ZZC2y81oDaHjeC9LnPYn8+ce3mGE/+gRyoNfToY
- N06DeUNJKSlZ9t11UIqZCgfp12u16/Yrigy8C4ihEeHXlLhNX6JkeJR5gsHXJnC7vSuMZY+Qz2R72
- ZidWg+cd2WDMGop5sbTvc+55q94A7vTMlWzaix5HdbEUA3sd2U0dMBju5QodRGGhDQMcCu64TydRD
- MtMzzOk9ThJ036ze3HASWGOppyQmaw58k+XNzbHlr9Sc1LsFUNF7zpWXac2rzlywbyRAdFIT/TC76
- hy9zOkwIo2nwA/tdIwLx1j0UZPpAMQmcDUvJqZh6sE+fv6HN0yMPr+sSYJmriMt8Z6leCEHQXOHVI
- SI5z5FvV3coMmHYRq6aXpfs/8SLiYgkV3B0HE/E18Y3j1OkeLYoqIH1VfzQZeCSL/S77NYvk60/MV
- 1HFSyqLdUR3uWZI4uZzoEcMoB0GX33uCTp2Ntc00+wSntwekCUQLCMLUb7dZrbpVuobHoWWtkiD2I
- uE5kAiaVwwwzM0BUwiM6VzVoKbeECz93rdsNtwoDqM0NtzoISC46H/BKVQ9mRNXDO4ThEBpJ4H2Tn
- mPNRYYcR0u2mNy1EJII04w==
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-9 
+	Fri, 18 Sep 2026 04:42:07 +0000
+Received: by mail-pj2-x0f.google.com with SMTP id d9443c01a7336-2d747ee1f38so2860225ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 21:42:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789706524; x=1790311324; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=jLhSQVS66izuo4+FI7QDBqq9bxYvfIHSP1AdZGaUGT4=;
+        b=ofTXXu/T7q3/hZX/Px2XNcfAYht0uJhIbx0XPdys+/Iw+vOPGBSdasEiAvf2DEz+Ym
+         UJz5VAYDPXdr+r9USd/L4syzIQGLZmxcH1xTh95EVBoLdsHR6oW0TV2rN9QtfDDFJEFr
+         bhNiXX6ewTMb3Fz3zUERe4s306dYksEpHkjb+WgqNzUvA2sUcECKUtqVgsm0kOtHb3Rt
+         RPpsfTsyhVaFleu3b+hC//F0S7a5YP6scem6ifPTei5xUn77LrEOu/lWn+BXBEb6kHFE
+         kbLo1sIgtQSEWsaMbaOpeobTv55DSKu3RtfUmw4oNCIIYIVGFaSWsCTLOsyQ2Vs17zaG
+         MP2Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789706524; x=1790311324;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=jLhSQVS66izuo4+FI7QDBqq9bxYvfIHSP1AdZGaUGT4=;
+        b=dlnacCHLwTKtb/b5aCELWlYf+T7tEE6U8AUw4WH3SEZBKej4U/9imcmU504Us3a2ht
+         0YutU9ii9yxmLlmMxFnzI/xRMKNJ1Kss2Ub24g8RvETNduXaMMe3FpjsNSzg8Vi3whBo
+         iTFplu9sXrnEo75K6r5cKkMmB4SovHj7GpuYlpdgJOJIq/mNbfJdwaRSTkbsvwwfXVIL
+         xE3G2+FLT3XuB7Ex5//DZ8mpjwnVlImwQRnRkofr1ItQOs2NfZK2Uw7G3qPKZ7PM1qII
+         KTSmPpb7L1zyXBg/Tebm9hbtIkSPRmtMrBvRpgt1nGzYkt0EE/z6wsIYXFNMWVoWTYhJ
+         rZxA==
+X-Forwarded-Encrypted: i=1; AKwUvBybHkSh1/gpAyfc6AaYNGJbnr1uJ6XDSvC/sWEXVAbVszX2muQIrXrl4Ci8uVuXCBsR+Lvyj2muxXp6KGzqeaQQ@lists.infradead.org
+X-Gm-Message-State: AFuF++lU8sDcVgbpjo92W3/IOHKmb++zFmAlpgu0A8gecdYbb86UM2bK
+	3xdN+2go1FiENNN8jeP9peTW9xU+tpZBGwvQJOMWr9yfN9Zoed3C2/0=
+X-Gm-Gg: AYBFou004ZO1ADBZ4NyNlgXAzAX1XqE0ORoRCjTDZZXk6UF9xgIf75ThfZfgshnGbrm
+	ypX1i8CRJ95naVUpX2bmX1JyWdfzaWgQyN/wMFr+WL+g7PlVN14wFugNLLkq9UJJgUt1BNBwH2T
+	mHnbQfSz18B+zXXzwSxr3myYKHd6Al1BU9NXcmC2TwEtYfScEx1aacvU9/XTsf20OUnnOXfNa9a
+	q7+tyjW3N1n0yVBKFzD/fJkRbxJO6vBl2Lwmeyqgmy4GpU8JOV9YFrvcq5KbomFSPSs1JBAsSId
+	ziHVtPUiAap9KZZes2lwsOApwGbZDQ4SyRtnhVXwmoCUcnGJ5CGc4yD0cZzk8a3hQ+jvUD0tXxg
+	y1pyZkrDWzpSpUdKHgYAF5BS43WntgEuHeBsiSb4VODrkcm/Mg//1aswzHFbc8NTmP8aisaZn54
+	IDG8r5E6A0gmcBR6/4frS756vvrHcySVuPZ75twPbi+Uc/i0TTKWKxS2eHqM93ekmq174llREXi
+	5nwIbLpcqSAWhZDEYfk/1g=
+X-Received: by 2002:a17:902:d4c2:b0:2d8:de9f:9a44 with SMTP id d9443c01a7336-2ddb1c15766mr23812395ad.19.1789706523953;
+        Thu, 17 Sep 2026 21:42:03 -0700 (PDT)
+Received: from DL2XHKPB4.dl.net ([103.63.104.162])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ddb760d684sm1704675ad.81.2026.09.17.21.42.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 17 Sep 2026 21:42:03 -0700 (PDT)
+From: Triet Hoang <triet.hoang.dev@gmail.com>
+To: sboyd@kernel.org
+Cc: bmasney+clk@redhat.com,
+	jbrunet+clk@baylibre.com,
+	florian.fainelli@broadcom.com,
+	bcm-kernel-feedback-list@broadcom.com,
+	mcanal@igalia.com,
+	wahrenst@gmx.net,
+	triet.hoang.dev@gmail.com,
+	linux-clk@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] clk: raspberrypi: Handle cpufreq device registration failure
+Date: Fri, 18 Sep 2026 11:41:30 +0700
+Message-ID: <20260918044131.608482-1-triet.hoang.dev@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_211753_507935_0B0179B9 
-X-CRM114-Status: GOOD (  26.60  )
+X-CRM114-CacheID: sfid-20260917_214205_721941_BA029A27 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,248 +105,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Check the return value of platform_device_register_data() when
+registering the raspberrypi-cpufreq device and propagate the error
+if registration fails.
 
-On Thu, 2026-09-17 at 11:55 -0600, James Hilliard wrote:
-> The H616 secondary EMAC supports RMII at 10/100 Mbps and uses a
-> separate
-> system-control clock register at offset 0x34. Add its binding and a
-> sun8i stmmac variant using that register. A distinct compatible
-> without
-> an older fallback prevents the driver from using EMAC0's clock
-> register.
->=20
-> EMAC1 connects internally to the co-packaged AC200 or AC300 EPHY and
-> has
-> no external PHY pins. Leave PHY initialization to the PHY driver
-> instead
-> of using the H3 internal-PHY controls. The RMII-only variant does not
-> expose the RGMII clock-delay properties.
->=20
-> First move the MAC software reset from probe to the DMA reset
-> callback,
-> after PHY initialization. This lets the MAC and its MDIO bus remain
-> registered when the PHY driver or one of its suppliers is not ready
-> yet.
-> Keep the separate H3 MDIO-mux reset sequence unchanged.
->=20
-> The AC200/AC300 EPHY driver and package bindings are already in
-> net-next. This series separates the H616 EMAC1 MAC driver and binding
-> support from the earlier combined series. PWM, MFD and device-tree
-> enablement are being handled separately.
->=20
-> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
-> ---
-> Changes in v3:
-> - Add a prerequisite fix moving the MAC software reset to the DMA
-> reset
-> =C2=A0 callback, after PHY initialization, so delayed module loading and
-> =C2=A0 deferred PHY probes do not tear down the MAC and its MDIO bus.
-> - Preserve the H3 MDIO-mux reset and propagate hardware-reset
-> failures
-> =C2=A0 through the normal stmmac hardware-setup error path.
-> - Add Alastair D'Silva to Cc and rebase onto current net-next.
-> - Link to v2: https://patch.msgid.link/20260915-submit-h616-emac1-v1-
-> v2-0-322b32e40eb9@gmail.com
->=20
-> Changes in v2:
-> - Drop EMAC1 TX/RX clock-delay property support and keep the existing
-> =C2=A0 RGMII-only delay descriptions unchanged, as requested by Maxime
-> Ripard.
-> - Clarify that EMAC1 connects internally to a co-packaged PHY, not an
-> =C2=A0 external PHY or the H3-style internal-PHY controls.
-> - Rebase onto current net-next.
-> - Link to v1: https://patch.msgid.link/20260915-submit-h616-emac1-v1-
-> v1-0-195de0bb1f8a@gmail.com
->=20
-> ---
-> James Hilliard (3):
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 net: stmmac: sun8i: reset the MAC after PH=
-Y initialization
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 dt-bindings: net: allwinner: add H616 EMAC=
-1
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 net: stmmac: sun8i: add support for Allwin=
-ner H616 EMAC1
->=20
-> =C2=A0.../bindings/net/allwinner,sun8i-a83t-emac.yaml=C2=A0=C2=A0=C2=A0 |=
- 13 +++++
-> =C2=A0.../devicetree/bindings/net/snps,dwmac.yaml=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 |=C2=A0 2 +
-> =C2=A0drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c=C2=A0 | 66
-> +++++++++++++---------
-> =C2=A03 files changed, 55 insertions(+), 26 deletions(-)
-> ---
-> base-commit: 26ee8cd69d46a14b37ba5e512084fe80d730127a
-> change-id: 20260914-submit-h616-emac1-v1-143703842abb
->=20
-> Best regards,
-> --=C2=A0=20
-> James Hilliard <james.hilliard1@gmail.com>
->=20
+This prevents the clock driver from reporting a successful probe
+when the cpufreq device could not be registered.
 
-Confirmed working on the Mellow Fly C5 when brought in as a module and
-backported to 6.18, tested in the Armbian environment, along with the
-recommended PWM patch:
-https://lore.kernel.org/all/20260804-h616-pwm-v8-v8-0-db37ab8624ae@gmail.co=
-m/T/
+Signed-off-by: Triet Hoang <triet.hoang.dev@gmail.com>
+---
+ drivers/clk/bcm/clk-raspberrypi.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-
-root@mellowflyc5:~# lsmod
-Module                  Size  Used by
-rtw88_8821cs           12288  0
-rtw88_8821c            86016  1 rtw88_8821cs
-rtw88_sdio             20480  1 rtw88_8821cs
-rtw88_core            180224  2 rtw88_8821c,rtw88_sdio
-snd_soc_hdmi_codec     16384  0
-mac80211              929792  2 rtw88_sdio,rtw88_core
-zram                   36864  2
-842_decompress         12288  1 zram
-842_compress           16384  1 zram
-gs_usb                 20480  0
-can_dev                36864  1 gs_usb
-dw_hdmi_i2s_audio      12288  0
-dw_hdmi_cec            12288  0
-cdc_acm                32768  0
-sun50i_h6_prcm_ppu     12288  0
-panfrost               73728  0
-governor_simpleondemand    12288  0
-gpu_sched              45056  1 panfrost
-sun8i_ce               36864  0
-drm_shmem_helper       24576  1 panfrost
-crypto_engine          12288  1 sun8i_ce
-cfg80211              831488  2 rtw88_core,mac80211
-binfmt_misc            16384  1
-rfkill                 24576  2 cfg80211
-sch_fq_codel           16384  2
-fuse                  163840  1
-configfs               40960  1
-nfnetlink              16384  2
-ip_tables              24576  0
-x_tables               28672  1 ip_tables
-btrfs                1441792  0
-blake2b_generic        16384  0
-xor                    12288  1 btrfs
-raid6_pq               94208  1 btrfs
-ac300_phy              12288  1
-ac200_phy              12288  0
-dwmac_sun8i            20480  0
-
-root@mellowflyc5:~# uname -a
-Linux mellowflyc5 6.18.52-current-sunxi64 #27 SMP PREEMPT Mon Sep 14
-21:36:19 AEST 2026 aarch64 GNU/Linux
-
-root@mellowflyc5:~# ifconfig end0
-end0: flags=3D4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
-        inet 10.0.1.136  netmask 255.255.255.0  broadcast 10.0.1.255
-        inet6 fe80::9aff:fea2:59e8  prefixlen 64  scopeid 0x20<link>
-        ether 02:00:9a:a2:59:e8  txqueuelen 1000  (Ethernet)
-        RX packets 5202  bytes 941999 (919.9 KiB)
-        RX errors 0  dropped 0  overruns 0  frame 0
-        TX packets 4059  bytes 431730 (421.6 KiB)
-        TX errors 0  dropped 5 overruns 0  carrier 0  collisions 0
-        device interrupt 50 =20
-
-root@mellowflyc5:~# iperf3 -c 10.0.1.1
-Connecting to host 10.0.1.1, port 5201
-[  5] local 10.0.1.136 port 53578 connected to 10.0.1.1 port 5201
-[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
-[  5]   0.00-1.00   sec  12.0 MBytes   101 Mbits/sec    0    191 KBytes
-[  5]   1.00-2.00   sec  11.5 MBytes  96.5 Mbits/sec    0    191 KBytes
-[  5]   2.00-3.00   sec  11.1 MBytes  93.3 Mbits/sec    0    191 KBytes
-[  5]   3.00-4.00   sec  11.2 MBytes  94.4 Mbits/sec    0    191 KBytes
-[  5]   4.00-5.00   sec  11.2 MBytes  94.4 Mbits/sec    0    191 KBytes
-[  5]   5.00-6.00   sec  11.1 MBytes  93.3 Mbits/sec    0    191 KBytes
-[  5]   6.00-7.00   sec  11.4 MBytes  95.4 Mbits/sec    0    191 KBytes
-[  5]   7.00-8.00   sec  11.2 MBytes  94.3 Mbits/sec    0    191 KBytes
-[  5]   8.00-9.00   sec  11.2 MBytes  94.4 Mbits/sec    0    191 KBytes
-[  5]   9.00-10.00  sec  11.1 MBytes  93.2 Mbits/sec    0    191 KBytes
-- - - - - - - - - - - - - - - - - - - - - - - - -
-[ ID] Interval           Transfer     Bitrate         Retr
-[  5]   0.00-10.00  sec   113 MBytes  95.0 Mbits/sec    0          =20
-sender
-[  5]   0.00-10.01  sec   112 MBytes  94.1 Mbits/sec                =20
-receiver
-
-iperf Done.
-
-
-
-I did notice that the speed and activity LEDs on the magjack remained
-dark.
-
-LED Output Pad Enables (Register 0x05 - SYS_IO)
------------------------------------------------
-
-According to the AC300 datasheet (Section 4.2.5), bits [3:1] default to
-0 (disabled):
-   - Bit 1: E_LNK_LED_IO_EN
-   - Bit 2: E_SPD_LED_IO_EN
-   - Bit 3: E_DPX_LED_IO_EN
-
-In drivers/net/phy/xpowers/ac300.c, AC300_SYS_IO_VALUE does not set =C2=A0=
-=20
-any of these bits. Consequently, the LED outputs remain disabled/tri-
-stated, and neither the link nor speed LEDs illuminate on the board.
-
-LED Polarity (Register 0x06 - EPHY_CONFIG)
-------------------------------------------
-
-Once the I/O pads are enabled, Register 0x06 bit 1 (LED_POL) controls
-the drive logic:
-   - Bit 1 =3D 0: Active-High (Default)
-   - Bit 1 =3D 1: Active-Low
-
-Because common RJ45 magjacks (such as the HY911105AE on Fly-C5, Orange
-Pi Zero 2W/3, etc.) have LED anodes connected to 3.3V, the PHY must
-sink current (Active-Low) to drive them. Without setting LED_POL =3D 1,
-the LED logic is inverted.
-
-Could we update AC300_SYS_IO_VALUE to enable the LED IO pads, and
-configure LED_POL for active-low operation (or wire it up to the phylib
-LED framework)?
-
-
-Suggested patch for drivers/net/phy/xpowers/ac300.c:
-
---- a/drivers/net/phy/xpowers/ac300.c
-+++ b/drivers/net/phy/xpowers/ac300.c
-@@ -43,10 +43,14 @@
- #define AC300_IO_DRV_LEVEL_2			2
- #define AC300_CLKIN_PAD_ENABLE			BIT(4)
-+#define AC300_EPHY_DPX_LED_IO_ENABLE		BIT(3)
-+#define AC300_EPHY_SPD_LED_IO_ENABLE		BIT(2)
-+#define AC300_EPHY_LNK_LED_IO_ENABLE		BIT(1)
- #define AC300_EPHY_MII_IO_ENABLE		BIT(0)
-=20
- #define AC300_EPHY_CONFIG_REG			0x06
- #define AC300_EPHY_BGS_EFFUSE_MASK		GENMASK(15, 12)
- #define AC300_EPHY_RMII_SEL			BIT(11)
-+#define AC300_EPHY_LED_POL_ACTIVE_LOW		BIT(1)
- #define AC300_EPHY_SHUTDOWN			BIT(0)
-=20
-@@ -58,7 +62,10 @@
- #define AC300_SYS_IO_VALUE \
- 	(FIELD_PREP(AC300_MDIO_DRV_MASK, AC300_IO_DRV_LEVEL_2) | \
- 	 FIELD_PREP(AC300_MII_DRV_MASK, AC300_IO_DRV_LEVEL_2) | \
--	 AC300_CLKIN_PAD_ENABLE | AC300_EPHY_MII_IO_ENABLE)
-+	 AC300_CLKIN_PAD_ENABLE | AC300_EPHY_MII_IO_ENABLE | \
-+	 AC300_EPHY_LNK_LED_IO_ENABLE | \
-+	 AC300_EPHY_SPD_LED_IO_ENABLE | \
-+	 AC300_EPHY_DPX_LED_IO_ENABLE)
-=20
- static u16 ac300_ephy_ctl_config(const struct ac300_ephy_ctl *priv)
- {
-@@ -131,7 +138,8 @@ static u16 ac300_ephy_ctl_config(const struct
-ac300_ephy_ctl *priv)
- 	return priv->ephy_config |
-+		AC300_EPHY_LED_POL_ACTIVE_LOW |
- 		(priv->interface =3D=3D PHY_INTERFACE_MODE_RMII ?
- 		 AC300_EPHY_RMII_SEL : 0);
+diff --git a/drivers/clk/bcm/clk-raspberrypi.c b/drivers/clk/bcm/clk-raspberrypi.c
+index f1a99de6de4f..9882f243d681 100644
+--- a/drivers/clk/bcm/clk-raspberrypi.c
++++ b/drivers/clk/bcm/clk-raspberrypi.c
+@@ -553,6 +553,8 @@ static int raspberrypi_clk_probe(struct platform_device *pdev)
+ 
+ 	rpi->cpufreq = platform_device_register_data(dev, "raspberrypi-cpufreq",
+ 						     -1, NULL, 0);
++	if (IS_ERR(rpi->cpufreq))
++		return PTR_ERR(rpi->cpufreq);
+ 
+ 	return 0;
  }
-
-
---=20
-Alastair D'Silva
-
-
+-- 
+2.53.0
 
 
