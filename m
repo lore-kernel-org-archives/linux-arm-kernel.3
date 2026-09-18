@@ -4,49 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBE52C982D7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 21:29:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B72B0C982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 21:53:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=T0a/MSApwUv1iJbtUmZwcZoK9D2QtBbDFC7SeyowqBg=; b=VoBpXMScwRlAcRdsVumk5g0ZRl
-	1NDFv2q5pAsEaiN08lpKJJkdMZ3soBVAAc927s7RU1c/DKyFYwFbk5BB/rVl7ji+z6LUSq1OVz1Qr
-	pYXRBt8etV9jsTLuqx846Ra4wmApJO7KkQCMrX0wO7Eu9n3dglOo7GVfl8HAZ96DcgwHQPNMjxOcu
-	7IbEbNBJwWnWYL8nz719VL7GgRooytoQIlsjWEyutDhd3xwcXTiA3lQF1dYIVAPXVqmfotveDIpVE
-	iSJAsow23i5PLVqPrjeQlKs0CmuOIWtTzVPlBddupHF+Fwvv4am3lfTFVbFPDZr8pbyL3zLmmM5hl
-	FHFHc0oQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8W8XO/Ae5cM2yDYef7QCLLw8szG6m9g5X/FwN3K83rI=; b=S+akdi3Rftr16ER3cFVzOL2+OK
+	i4CImkK3Kj4oFKJV1fXUm92mb6oHzY+IfTBeIvatHLEwmm7qWr5CXZZSTxiym4xyEDShnigqNTOFI
+	/sa/4Xa+Tv+DcakKY/vcPVvhJeiHQjIs5xqo2RLkNdhnjfZ8/69K8zje+j5xC1oYx+GuVwFPLwcsU
+	s31LYt7VSfHuTB4v1JUZWHInFTUcj9HxrqxNbE2wh7R2QmZgiqS4plXVLHIW3UBupBSJ/FPtzHlB3
+	9W1SQb3ebZM7/Ou/uYHUlRGEGec3WPuErnoisUh6bpFmmH/s3ccpMFxfleKil6kQkivjrYRpArZ0o
+	tKeoKTwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7g9W-0000000FZNN-2Xm7;
-	Fri, 18 Sep 2026 21:29:50 +0000
-Received: from aposti.net ([185.119.170.32])
+	id 1x7gVx-0000000FaPx-2eAz;
+	Fri, 18 Sep 2026 21:53:01 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7g9T-0000000FZMT-0Qhb
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 21:29:48 +0000
-From: Paul Cercueil <paul@crapouillou.net>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Paul Cercueil <paul@crapouillou.net>
-Subject: [PATCH v3] ARM: dts: samsung: exynos4210-*: Fix Bluetooth nodes
-Date: Fri, 18 Sep 2026 23:29:23 +0200
-Message-ID: <20260918212923.148505-1-paul@crapouillou.net>
+	id 1x7gVv-0000000FaPn-3JIs;
+	Fri, 18 Sep 2026 21:52:59 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 429EC43660;
+	Fri, 18 Sep 2026 21:52:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBD681F000FF;
+	Fri, 18 Sep 2026 21:52:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789768379;
+	bh=8W8XO/Ae5cM2yDYef7QCLLw8szG6m9g5X/FwN3K83rI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=N4e2esu+nbbszP6tLi19HQcyp3UTfm/8Ra6HgTLuOQ+lNSqq8wN+HG+5h6voAyqvw
+	 JBkuq0O+9qHVnNQbBgRtykiL9pO3Vt6BwH2Sj8pF/dmFnLgHgRR7aDvmMyMcioECsa
+	 G+aklz+r4vk8Zf6tskvGHkWPFLLypq9CoO1qx+wVAOYydQqrmMy3HKK6igwX3IHg5M
+	 sLlhMMa99E+cjHdfktxpavspkszmjIeW8oThUebLcBwp6ttL7d/w/VRXtIXH6Xkzw9
+	 4QKPO2HHZrpt/1GgREjb06tQk9uZU3M+lxyfNiL7jZ1dCpQEMKqJ0qcVPg0k4lI7VI
+	 ypWSSAtI1vISw==
+Message-ID: <abbbc648-6284-49b0-b362-5d41e34b3e42@kernel.org>
+Date: Fri, 18 Sep 2026 22:52:55 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_142947_303800_45F36D70 
-X-CRM114-Status: GOOD (  15.26  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/3] nvmem: mtk-efuse: mt6572 support
+To: rva333@protonmail.com, Srinivas Kandagatla <srini@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
+ Lala Lin <lala.lin@mediatek.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20260909-6572-nvmem-v3-0-c0c441656431@protonmail.com>
+Content-Language: en-US
+From: Srinivas Kandagatla <srini@kernel.org>
+In-Reply-To: <20260909-6572-nvmem-v3-0-c0c441656431@protonmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,100 +75,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The BCM4330 Bluetooth chip is capable of doing 4 Mbps over UART. The
-Exynos 4210 however, can only do a maximum of 3 Mbps. Add this
-information to the Bluetooth nodes using the 'max-speed' property.
 
-This fixes extremely choppy audio when connected to external Bluetooth
-speakers.
 
-The BCM4330 is connected using CTS/RTS too, so add the 'uart-has-rtscts'
-property. The driver does not seem to check for it but that still should
-be there.
+On 9/9/26 11:48 AM, Roman Vivchar via B4 Relay wrote:
+> This patch series adds MediaTek mt6572 efuse support. Unlike newer SoCs,
+> its efuse controller doesn't work properly with 8-bit reads, leading to
+> invalid data with current mtk-efuse driver implementation.
+> 
+> This behavior can be observed with devmem (0x10009174 and 0x10009178 are
+> thermal calibration cells):
+> ~ # devmem 0x10009174 32
+> 0x00CDD4CD
+> ~ # devmem 0x10009178 32
+> 0x0F76865D
+> ~ # devmem 0x10009174 8
+> 0xCD
+> ~ # devmem 0x10009175 8
+> 0x00
+> ~ # devmem 0x10009176 8
+> 0x00
+> ~ # devmem 0x10009177 8
+> 0x00
+> ~ # devmem 0x10009178 8
+> 0x5D
+> ~ # devmem 0x10009179 8
+> 0x00
+> ~ # devmem 0x1000917a 8
+> 0x00
+> ~ # devmem 0x1000917b 8
+> 0x00
+> 
+> Patch 1 adds dt-bindings compatible for the mt6572,
+> Patch 2 adds platform data option to use aligned 32-bit reads instead
+> of plain readb().
+> Patch 3 adds platform data for mt6572 SoC.
+> 
+> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+> ---
+> Changes in v3:
+> - Pick up Rob's r-b tag for dt-bindings
+> - Patch 2 and 3 unchanged, for some reason cover letter and patch 1 were
+> missing on the web mirror...
+> - Link to v2: https://patch.msgid.link/20260724-6572-nvmem-v2-0-e58d16a29621@protonmail.com
+> 
+> Changes in v2:
+> - dt-bindings: make mediatek,mt6572-efuse standalone compatible
+> - Driver: add 'mtk_reg_read_aligned' helper instead of modifying 'mtk_reg_read'
+> - Link to v1: https://patch.msgid.link/20260715-6572-nvmem-v1-0-9c13be99d077@protonmail.com
+> 
+> ---
+> Roman Vivchar (3):
+>       dt-bindings: nvmem: mediatek: efuse: add mt6572
+>       nvmem: mtk-efuse: add support for 32-bit aligned reads
+>       nvmem: mtk-efuse: add mt6572 support
+> 
 
-Signed-off-by: Paul Cercueil <paul@crapouillou.net>
----
+Doesn't apply cleanly pl resend.
 
-    Apologies if you receive this email for the second time. I messed up
-    on the previous one and forgot to Cc the lists. Since nothing
-    changed, this is still v3.
-
-    Cheers,
-    -Paul
-
-    Changes:
-    
-    V1 was: "ARM: dts: samsung: exynos4210-i9100: Fix Bluetooth node"
-    
-    -v2: Drop max-speed property. It's only supposed to be used in some
-         cases, which don't apply here. As this was the "fix" for getting
-         Bluetooth to work on my device, which will be applied to the
-         driver instead, the Fixes: tag was removed.
-
-    -v3: Re-introduce max-speed property :)
-         Turns out the use case does indeed apply here.
-	 Also update the other Exynos4210 based boards.
-
- arch/arm/boot/dts/samsung/exynos4210-i9100.dts          | 4 ++++
- arch/arm/boot/dts/samsung/exynos4210-trats.dts          | 5 +++++
- arch/arm/boot/dts/samsung/exynos4210-universal_c210.dts | 5 +++++
- 3 files changed, 14 insertions(+)
-
-diff --git a/arch/arm/boot/dts/samsung/exynos4210-i9100.dts b/arch/arm/boot/dts/samsung/exynos4210-i9100.dts
-index 7da64500246c..ff369eac344f 100644
---- a/arch/arm/boot/dts/samsung/exynos4210-i9100.dts
-+++ b/arch/arm/boot/dts/samsung/exynos4210-i9100.dts
-@@ -868,9 +868,13 @@ &serial_0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&bt_en>, <&bt_res>, <&uart0_data>, <&uart0_fctl>;
- 
-+	uart-has-rtscts;
-+
- 	bluetooth {
- 		compatible = "brcm,bcm4330-bt";
- 
-+		max-speed = <3000000>;
-+
- 		shutdown-gpios = <&gpl0 4 GPIO_ACTIVE_HIGH>;
- 		reset-gpios = <&gpl1 0 GPIO_ACTIVE_LOW>;
- 		device-wakeup-gpios = <&gpx3 1 GPIO_ACTIVE_HIGH>;
-diff --git a/arch/arm/boot/dts/samsung/exynos4210-trats.dts b/arch/arm/boot/dts/samsung/exynos4210-trats.dts
-index eb286e25835e..c517f6d1d7c2 100644
---- a/arch/arm/boot/dts/samsung/exynos4210-trats.dts
-+++ b/arch/arm/boot/dts/samsung/exynos4210-trats.dts
-@@ -537,8 +537,13 @@ &serial_0 {
- 	pinctrl-0 = <&uart0_data &uart0_fctl>;
- 	pinctrl-names = "default";
- 
-+	uart-has-rtscts;
-+
- 	bluetooth {
- 		compatible = "brcm,bcm4330-bt";
-+
-+		max-speed = <3000000>;
-+
- 		pinctrl-0 = <&bt_shutdown &bt_device_wakeup &bt_host_wakeup>;
- 		pinctrl-names = "default";
- 		shutdown-gpios = <&gpl1 0 GPIO_ACTIVE_HIGH>;
-diff --git a/arch/arm/boot/dts/samsung/exynos4210-universal_c210.dts b/arch/arm/boot/dts/samsung/exynos4210-universal_c210.dts
-index 71df3843d8ba..9b345e16c44f 100644
---- a/arch/arm/boot/dts/samsung/exynos4210-universal_c210.dts
-+++ b/arch/arm/boot/dts/samsung/exynos4210-universal_c210.dts
-@@ -630,8 +630,13 @@ &serial_0 {
- 	pinctrl-0 = <&uart0_data &uart0_fctl>;
- 	pinctrl-names = "default";
- 
-+	uart-has-rtscts;
-+
- 	bluetooth {
- 		compatible = "brcm,bcm4330-bt";
-+
-+		max-speed = <3000000>;
-+
- 		pinctrl-0 = <&bt_shutdown &bt_device_wakeup &bt_host_wakeup>;
- 		pinctrl-names = "default";
- 		shutdown-gpios = <&gpe1 4 GPIO_ACTIVE_HIGH>;
--- 
-2.53.0
+--srini
+>  .../devicetree/bindings/nvmem/mediatek,efuse.yaml  |  5 ++-
+>  drivers/nvmem/mtk-efuse.c                          | 41 +++++++++++++++++++++-
+>  2 files changed, 44 insertions(+), 2 deletions(-)
+> ---
+> base-commit: 8cd9520d35a6c38db6567e97dd93b1f11f185dc6
+> change-id: 20260710-6572-nvmem-eb98c7a73351
+> 
+> Best regards,
+> --  
+> Roman Vivchar <rva333@protonmail.com>
+> 
+> 
 
 
