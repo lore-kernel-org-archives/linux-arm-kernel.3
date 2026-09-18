@@ -4,86 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E9D8C88E75
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED961C982D2
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 07:40:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8Sn10nmJm1GQwcBGq1LhK7EFwVivWxb9ejNgFwhmMHo=; b=g+UjRNbMB85yWefqrrFUQOoaks
-	Vs9jv7D2kT0hNMOT2f4lUKmMjG/RjfC5Vqh6949qU8/6VuxRjLmOuoHMO2Mq8Qit3oEI7sAxcX0xb
-	1I0OtfdDrvLkL873Quflpb2h3vSdOAnyH/OIwhEzb+c5zpHyzvjLLDOvyy0UEhbwOvzQ1iCus9Fnq
-	6rb1SMfwjlyfaGvbokoTW+iKUepr2lAEmkpjKmzViZl5lF6+YLGcR2sXhl21pRNiiX02y2fz/9Pfb
-	vmwxxqnt4I65KhYYMeKCZKUtl1B1BKTO4DjcF0RM8Bq3dkCUSOM8MOxcqSSgHlLTOjRxrEzcYJDaP
-	q0jCstbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aMOZG7gif+EF/8M3ypTK1YC5Ub5fNhpmWB1EicVP+4Y=; b=JSszqw+plynG6LsHnpJkO7ujG/
+	oL12zAiVIxuR18WFkolkr+VLO0cXUG7/hNOcCxpLwocpb9bPzVf0L7BjScBYEspWBoFybLQSVlqa/
+	A3MoQR68IJCS8ocFd+gSKjCCtqiyY+nzHLYTBDceMgJxWEndsQuSOwkpXgCJLXqyQ+i1VYixWBxYj
+	pK7+REh3lxsog+u0u1wCJ0Yo8pDEKiWkndvxyQZ11EDIdrOmMK6nxWsyXNhlEUrUNeVKECWcz1vEB
+	y4Setfx6B9vaGewrwQBTTfbM6z5gdKuGDHRHZbZSty/62fXD/yjpe8e5jdbr7PaTKY2bqmql2ScJr
+	t4+zw5OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7TCP-0000000Dimb-1Tyv;
+	id 1x7TCP-0000000DimX-139b;
 	Fri, 18 Sep 2026 07:39:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7TCN-0000000DimC-3CLL
+	id 1x7TCM-0000000Dilm-0xmi
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 18 Sep 2026 07:39:55 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 42D0D40E38;
-	Fri, 18 Sep 2026 07:39:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8595E1F00899;
-	Fri, 18 Sep 2026 07:39:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789717195;
-	bh=8Sn10nmJm1GQwcBGq1LhK7EFwVivWxb9ejNgFwhmMHo=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=dZp4VaxvWHQKfepzbajFNtuFNbXMZcB5fzq6bnX1iFe2xA1DStZf0qGdYT1qnrMJ1
-	 gGrMI6G+Wj/vD9JaHcJesuO1FQf+LOISM+25Jp2KnZKl0egmbSr4VzTz4fAawzRRma
-	 8SdGDQQ9M4KDz44QkGHOUYmVnJaoyc/8oK8uv/+ZDduFO62wX8y4BpTmflEUis69Xk
-	 I5FmZLUoPv8VGGgd3RAmiSyP12AD0/toz6TzzD9pc3/ZnNtW8Tsl4GvV9lhzTtv/fF
-	 +EBoETTvI5ovQGEXkBlTI8YTD/kpiFAm2wOMFYcyj/DjU98UUxOPOwN8+XtBq6ozs+
-	 3QICssqbhHUlQ==
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfauth.ams.internal (Postfix) with ESMTP id C22DD198005E;
-	Fri, 18 Sep 2026 03:39:52 -0400 (EDT)
-Received: from ams-imap-11 ([10.64.2.31])
-  by ams-compute-02.internal (MEProxy); Fri, 18 Sep 2026 03:39:52 -0400
-X-ME-Sender: <xms:xuqsan8o0egf97xE2FN4ZARyYXOBSHBzCgiIV-6RWCNDRNNj2IqTRQ>
-    <xme:xuqsaugrE16pQfJqS8xKVszlLP5n57Kk0HgSXhf1AV_YFd0xZ6co9BpG2erDq_wsv
-    nkRlq5MtrtEifayim4lj8PA-rMTt81NVA0cMrDRzIlQ2WKlpuDe35Sp8A>
-X-ME-Proxy-Cause: dmFkZTGDxPb1ZM2vdJ8lkztEK7VL3PksPWKk9fJrtsV3WLqwxL7HxUje6aE/n8i4S3z84j
-    wCvi9t0/YztFbkiI7Ao4NXTBmRiOQWbkTIEMyPYKBJOmkVaNQO+uyAuid+ZV8wUOjnYXKL
-    dN0BTrtDfZby7rRBccczLVY3Wuwak2UJiRvxaJs+mVlfEs2KPtOalCEkDp2Olt9hI8BgVH
-    aoaovAelnROLbU0jt4IWmojaAJ5+NOUrBULT/s/GlLgpZVakvZjtZV9MU0/ScCvLMfNOWZ
-    3tbe1n0+pHzgBBkc6v9R1ruB0cXpfNyiTglSXQmCq4stPcs6U2bQxbvZc/9PMu5WWaCAoi
-    DbI4GGpMDxvwCkZYaXWep4nrXzlThNHQ49Vw8Oi3Eut4LPoB8ujt6FOhFcCui6k5gkmJIU
-    /s3Log59PMwlSemj2k5jdskUh99lBNO1KGBMYjyzxZYyA46Ifqkf/UWs3EfuCxwkuxLPiQ
-    Ol1OyzvSYm+4C++uzzHSkJq6JgF+sKippTaUsyDZG1t/OPhE01YG9X10c/Pj0hqhOmUdp1
-    WzhFx6TFuogv1I1vIVNUFT+Yt6XZWMzjXOn3m+FVmxZjipfckLnpvCvdjV18mLimRpZM45
-    1mP358psHnBySA2rf0wZbVVgH/7f71M5WPw0GIXU0M71c8408DEQlZ2APdTA
-X-ME-Proxy: <xmx:yOqsanjy3rVwQh6Z7PvV7mRLcfwpwN0_YyqVM-n3U1bTBMf9jovMQw>
-    <xmx:yOqsajEIzuLKZV2XMeh67pCkmdFm6KuLm6OEKR8yPL0igBNY_MN0YA>
-    <xmx:yOqsatRAzktySsTmw0BMRWJM3sXKib-zjxpi2Cdc5_qLVs-ZLAxsVQ>
-    <xmx:yOqsagwwaaVwK14ci7QknyUWtHzf7PPlidF-C6Get3odiQJxivN5Qg>
-    <xmx:yOqsapfLQso4KLeIs3rLQz0kO4CLqs6kWZ0KLO_JeaFk62F2gzU9ovyC>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id AE2B2F80083; Fri, 18 Sep 2026 03:39:50 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1789717194; x=1821253194;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=9HjgM9JbkGt1A3yefJhN4x6xA3Vg7LoR3hGeySb0Qow=;
+  b=dNfn1UBufMKQlEjpF0j1t6LpXedNrYAqk/JJPjSpd2E2gqpPcP/atI2t
+   7fUiS+zTk9R6o4oVcroOgAoW0o2cPBvJuL5mEllIoUGnMWgwm+L6zI8jZ
+   9PgEhozcX1oGurxrv8J2VWIJgtDxYyF9pZ7Ph3LwsBxOqTJq9Q1Q3nm9X
+   3zW4mYAAB1Hcc7LzZsu5wlG8DqLGvhSM/bWAdfeqMOnyCKuLZ3X6VXFcQ
+   1bqW1HidS45YmKsgAwpEkNVNACfhNlk2l6akt3PEqPbe7wXRDblzlTeJH
+   GrKR6scgYe74zMJ5Rs7Kl5YWAsjnqawxRkxN57eWZAoMXgF14OylLLwpc
+   w==;
+X-CSE-ConnectionGUID: gWrJ/8KFRKeUhhnthFhGiw==
+X-CSE-MsgGUID: J6es9zoNQ+C2jvV/x1uIow==
+X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="89340116"
+X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
+   d="scan'208";a="89340116"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Sep 2026 00:39:52 -0700
+X-CSE-ConnectionGUID: EQSigIixQTGHBye9zTlPZA==
+X-CSE-MsgGUID: SCwZTKvvQfmatyBz20cYNw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
+   d="scan'208";a="297731196"
+Received: from carterle-desk.ger.corp.intel.com (HELO localhost) ([10.245.245.170])
+  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Sep 2026 00:39:47 -0700
+Date: Fri, 18 Sep 2026 10:39:41 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Guangshuo Li <lgs201920130244@gmail.com>
+Cc: Ulf Hansson <ulfh@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Wentao Liang <vulab@iscas.ac.cn>, Miaoqian Lin <linmq006@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Dong Aisheng <aisheng.dong@nxp.com>, linux-pm@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] pmdomain: imx: gpc: remove all initialized power domains
+Message-ID: <aqzqvfbeh653jUce@ashevche-desk.local>
+References: <20260918031323.3376849-1-lgs201920130244@gmail.com>
 MIME-Version: 1.0
-Date: Fri, 18 Sep 2026 09:39:30 +0200
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Eric Biggers" <ebiggers@kernel.org>,
- "Ard Biesheuvel" <ardb+git@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- "Christoph Hellwig" <hch@lst.de>, "Russell King" <linux@armlinux.org.uk>,
- "Arnd Bergmann" <arnd@arndb.de>
-Message-Id: <9e60a8ef-99aa-49f6-9332-53b70e307b5c@app.fastmail.com>
-In-Reply-To: <20260918023054.GB1703@sol>
-References: <20260909163319.2116279-4-ardb+git@google.com>
- <20260918023054.GB1703@sol>
-Subject: Re: [PATCH 0/2] ARM: Use type override hacks only in NEON code
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260918031323.3376849-1-lgs201920130244@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260918_003954_279989_1CFFEDF7 
+X-CRM114-Status: GOOD (  17.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,33 +95,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Sep 18, 2026 at 11:13:22AM +0800, Guangshuo Li wrote:
+> imx_gpc_old_dt_init() initializes all power domains described by
+> of_id_data->num_domains. Its probe failure path removes all of these
+> domains, but imx_gpc_remove() only removes the PU and ARM domains.
+> 
+> On SoCs with more than two domains, such as i.MX6SL and i.MX6SX, the
+> additional DISPLAY and PCI generic power domains can remain registered
+> after the GPC driver is removed.
+> 
+> Remove all initialized power domains in reverse order. Keep releasing
+> the PU clocks immediately after the PU domain has been successfully
+> removed.
+> 
+> This issue was found by manual code inspection.
 
-On Fri, 18 Sep 2026, at 04:30, Eric Biggers wrote:
-> On Wed, Sep 09, 2026 at 06:33:20PM +0200, Ard Biesheuvel wrote:
->> From: Ard Biesheuvel <ardb@kernel.org>
->> 
->> Now that the RAID-6 code can no longer be built for user space, we can
->> drop the direct dependency on the arm_neon.h system header, and include
->> asm/neon-intrinsics.h instead.
->> 
->> Since asm/neon-intrinsics.h has all the type overrides needed to include
->> arm_neon.h without conflicts in the uintXX_t types, those hacks can be
->> dropped from asm/types.h, and so the file can be dropped entirely.
->> 
->> Cc: Eric Biggers <ebiggers@kernel.org>
->> Cc: Christoph Hellwig <hch@lst.de>
->> Cc: Russell King <linux@armlinux.org.uk>
->> Cc: Arnd Bergmann <arnd@arndb.de>
->> 
->> Ard Biesheuvel (2):
->>   lib/raid6: Switch to Linux's NEON intrinsics header
->>   ARM: Remove hacked-up asm/types.h header
->
-> Reviewed-by: Eric Biggers <ebiggers@kernel.org>
->
+...
 
-Thanks.
+>  static void imx_gpc_remove(struct platform_device *pdev)
+>  {
+> +	const struct imx_gpc_dt_data *of_id_data =
+> +		device_get_match_data(&pdev->dev);
 
-I've dropped these into rmk's patch tracker.
+No...
+
+>  	struct device_node *pgc_node;
+> -	int ret;
+> +	int i, ret;
+
+...and no.
+
+The result of the device_get_match_data() better to be checked, in some cases
+it might lead to NULL dereference.
+
+It's better to split semantically different variables, also naming 'i' is not
+good, num_domains is better. Besides that, why is it signed?
+
+...
+
+> +		for (i = of_id_data->num_domains - 1; i >= 0; i--) {
+
+What you are doing here can be written in a shorter form
+
+		num_domains = of_id_data->num_domains;
+		while (num_domains--) {
+
+> +			ret = pm_genpd_remove(&imx_gpc_domains[i].base);
+> +			if (ret) {
+> +				dev_err(&pdev->dev,
+> +					"Failed to remove %s power domain (%pe)\n",
+> +					imx_gpc_domains[i].base.name,
+> +					ERR_PTR(ret));
+> +				return;
+> +			}
+>  
+> +			if (i == GPC_PGC_DOMAIN_PU)
+> +				imx_pgc_put_clocks(&imx_gpc_domains[i]);
+>  		}
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
 
 
