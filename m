@@ -4,94 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6DB4C982D2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 05:59:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E08E9C982D2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 06:05:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JS8Rhd7b/HFoVVdP0RMjIv015cFtAfHlBy4pvpu4gbk=; b=GmpiM7SbJnsBnWjD7zzRHkIXE/
-	A9zIVd5ZQ6be1P65eX4V0eNtXqX1zDfBnSAfLZ4BnWNgPwSevcTMG9SNNu1vCgKA2dKoK7viOAbdU
-	uW0TADBLeeuv4cIHZbdBrhMG5DBgOV11bTC3fjQ9UKAmcjFR4UoD3P2E9DxM8py4U6YExdc1JxVuy
-	HzSUfONgytq1dl6+Jb3u8aoYf2q3mk1DStCaYQvz7r7Yq4Wil3Pafm97WGE/yNTGz1tu87eLwz4e9
-	I2IFBp6syBpdqtxsXUASEf13AoAm0YBuE5upb/UrjyHPGZ89072E+q2jtqCvR9qIfNkwQN8XnZ9RS
-	3piW1xTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2iSN1j31Sw9qmqTYVp6Ry3mKQfg4lt3sT+FCrOQ8mF4=; b=xtsznH5RKATxpNWF/uQtF1/bO1
+	2fnQe+9YMEEhLUuaseGLcR5oPcrsCCZR5VdBaErj9u26BumHz1AnZq3DCNKWrX87XEf9u7Rs6K0/p
+	nRsobe3GM4Of7mJruXQAPaYkEj/Aojuvn+bzIY2R06dltjsvny6ndgY4gD2qam2e1flZ1wYd5oZXC
+	xYXPf8FqJIkXfr56I7zp6QLWyjffw0wj2GCtphAhbmGCym7rwaurctIUvwO6/5NygtPFXkDc4t1fY
+	lu9iv2UQRdWEjf/Dt1gDq6nNWSQfTC6m0Sktq1jVoj8D+WWE3ahiHoxISLaL7FzjR6JNVwxPc5UK6
+	HbnXQhTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Rcl-0000000DWaV-2itZ;
-	Fri, 18 Sep 2026 05:59:03 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1x7RjE-0000000DWuH-2GNL;
+	Fri, 18 Sep 2026 06:05:44 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Rcf-0000000DWYx-3lau;
-	Fri, 18 Sep 2026 05:58:59 +0000
-Received: from edelgard.fodlan.icenowy.me (unknown [112.94.103.44])
-	by APP-01 (Coremail) with SMTP id qwCowAAn_O8C06xqtWNICA--.15380S2;
-	Fri, 18 Sep 2026 13:58:28 +0800 (CST)
-Message-ID: <1aa49a9bcf5c5a16ce38b57f8f508a31ca70c1ce.camel@iscas.ac.cn>
-Subject: Re: [PATCH v4 05/20] dt-bindings: display: verisilicon: Add
- starfive,jh7110-dc8200
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Michal Wilczynski <m.wilczynski@samsung.com>, Vinod Koul
- <vkoul@kernel.org>,  Neil Armstrong <neil.armstrong@linaro.org>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Andrzej Hajda	 <andrzej.hajda@intel.com>,
- Robert Foss <rfoss@kernel.org>, Laurent Pinchart	
- <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>,
- Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
- <luca.ceresoli@bootlin.com>, Maarten Lankhorst	
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
- Thomas Zimmermann <tzimmermann@suse.de>, Lee Jones <lee@kernel.org>, Andy
- Yan <andy.yan@rock-chips.com>, Philipp Zabel	 <p.zabel@pengutronix.de>,
- Emil Renner Berthing <kernel@esmil.dk>, Hal Feng	
- <hal.feng@starfivetech.com>, Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Paul
- Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,  Dominique
- Belhachemi	 <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>, Jerome
- Brunet	 <jbrunet+clk@baylibre.com>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	mfd@lists.linux.dev, linux-clk@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, Marek Szyprowski
- <m.szyprowski@samsung.com>,  Maud Spierings <maud_spierings@murena.io>,
- Graham Markall <hello@big-grey.co.uk>, Chaoyi Chen	
- <chaoyi.chen@rock-chips.com>, Joshua Peisach <jpeisach@ubuntu.com>, Uwe
- =?ISO-8859-1?Q?Kleine-K=F6nig?=	 <u.kleine-koenig@baylibre.com>
-Date: Fri, 18 Sep 2026 13:58:26 +0800
-In-Reply-To: <20260915-jh7110-clean-send-v4-5-f0e4fd6f2cc8@samsung.com>
-References: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
-		<CGME20260915153222eucas1p213b95b05ea7eb9a18700af8888ef5a44@eucas1p2.samsung.com>
-	 <20260915-jh7110-clean-send-v4-5-f0e4fd6f2cc8@samsung.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 
+	id 1x7RjD-0000000DWuB-3lYk
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 18 Sep 2026 06:05:44 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B76F8601EF;
+	Fri, 18 Sep 2026 06:05:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DB971F000FF;
+	Fri, 18 Sep 2026 06:05:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789711542;
+	bh=2iSN1j31Sw9qmqTYVp6Ry3mKQfg4lt3sT+FCrOQ8mF4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=HRYJtWuL74SbBnfcEwdWnfbXL/tQ2LS0eZcRDZCBlNLQXBydIBtYqkiENXlDagnbT
+	 C2yEEFg2K7h5z+2opnb1JHsi/x+l+mdBVTLNqkvv/DpshLB82Svt8wnmGViSmp38iu
+	 RqWJqCe9NjqFd7sIoVai7vkuR1L3g/ELqekIScdjqxdSM+2tF1sE2M5vUb+ybXhH2T
+	 qeHd1/7ezHu35c25/Re5wk4kWvG7SMvYr71yv/QjO7HFaVvMkPqGp28tk2Tjav58QQ
+	 8Q3/O3ocmaqrfak5BYTC5KAwevQhgl+fUqMCEBp14MV+FG3sEjD8+8xfzUSXElZXjR
+	 UltrRtZcQGVSg==
+Message-ID: <2462f67c-f7d3-4eb3-a093-6a338ef49f14@kernel.org>
+Date: Fri, 18 Sep 2026 08:05:32 +0200
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowAAn_O8C06xqtWNICA--.15380S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7ur4fJrW7tF1UKFykGFy5XFb_yoW8GF4xpF
-	sakFZrJFyIgrn3W3y8J3WUK3y7Wr1xA3W0gF1jq3W2grs8GFWFqr4Y9r1qgF4UJFW8CFW8
-	ZFsY9rWYvr1vyF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvGb7Iv0xC_Cr1lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwV
-	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Jr0_Gr
-	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7
-	MxkF7I0En4kS14v26rWY6Fy7MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r
-	4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF
-	67AKxVWrXVW8Jr1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6x
-	IIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY
-	6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa
-	73UjIFyTuYvjxUaGYpUUUUU
-X-Originating-IP: [112.94.103.44]
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_225858_327995_B7EFED0F 
-X-CRM114-Status: UNSURE (   9.46  )
-X-CRM114-Notice: Please train this message.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 03/10] mm/vmalloc: use pte_set_huge()/pte_clear_huge()
+ for PTE-level block mappings
+To: Barry Song <baohua@kernel.org>, Wen Jiang <jiangwenxiaomi@gmail.com>
+Cc: akpm@linux-foundation.org, catalin.marinas@arm.com, linux-mm@kvack.org,
+ urezki@gmail.com, will@kernel.org, Xueyuan.chen21@gmail.com,
+ ajd@linux.ibm.com, anshuman.khandual@arm.com, david@kernel.org,
+ dev.jain@arm.com, jiangwen6@xiaomi.com, leo.yan@arm.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, maddy@linux.ibm.com, mpe@ellerman.id.au,
+ npiggin@gmail.com, rppt@kernel.org, ryan.roberts@arm.com
+References: <20260917052933.188679-1-jiangwenxiaomi@gmail.com>
+ <20260917052933.188679-4-jiangwenxiaomi@gmail.com>
+ <27072d94-13bf-4bea-948a-d8a67976601e@kernel.org>
+ <CAHKocdE_zyUQT459AiTBDzQHk0jh+VpXuSMDdgHjkg-dAkgBNg@mail.gmail.com>
+ <CAGsJ_4yJ-KCHbJ9S2GKXfO51KB8g-y2Q_MikqE9-6VesR-RC9Q@mail.gmail.com>
+Content-Language: fr-FR
+From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+In-Reply-To: <CAGsJ_4yJ-KCHbJ9S2GKXfO51KB8g-y2Q_MikqE9-6VesR-RC9Q@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,44 +80,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E5=9C=A8 2026-09-15=E4=BA=8C=E7=9A=84 17:32 +0200=EF=BC=8CMichal Wilczynsk=
-i=E5=86=99=E9=81=93=EF=BC=9A
-> The JH7110 embeds a DC8200. The binding requires an SoC specific
-> compatible ahead of the generic one, so add the JH7110 to the enum.
->=20
-> Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> ---
-> =C2=A0Documentation/devicetree/bindings/display/verisilicon,dc.yaml | 1 +
-> =C2=A01 file changed, 1 insertion(+)
->=20
-> diff --git
-> a/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
-> b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
-> index
-> 919a9001220120054cb62d1d01b7293367266f95..05a202633cd273fec358c095c64
-> 584d959d96d90 100644
-> --- a/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
-> +++ b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
-> @@ -16,6 +16,7 @@ properties:
-> =C2=A0=C2=A0 compatible:
-> =C2=A0=C2=A0=C2=A0=C2=A0 items:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - enum:
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - starfive,jh7110=
--dc8200
 
-Note: this binding is being refactored as part of MA35D1 support
-introduction (this SoC has a single-port DC like a DC8000), after the
-refactor the binding string might need to appear twice.
 
-Thanks,
-Icenowy
+Le 17/09/2026 à 23:44, Barry Song a écrit :
+> On Thu, Sep 17, 2026 at 10:41 PM Wen Jiang <jiangwenxiaomi@gmail.com> wrote:
+>>
+>> On Thu, 17 Sept 2026 at 22:00, Christophe Leroy (CS GROUP)
+>> <chleroy@kernel.org> wrote:
+>>>
+>>>
+>>>
+>>> Le 17/09/2026 à 07:29, Wen Jiang a écrit :
+>>>> From: Wen Jiang <jiangwen6@xiaomi.com>
+>>>>
+>>>> vmap installs PTE-level block mappings by reusing set_huge_pte_at() and
+>>>> huge_ptep_get_and_clear() under #ifdef CONFIG_HUGETLB_PAGE. This makes
+>>>> the feature silently unavailable on CONFIG_HUGETLB_PAGE=n kernels and
+>>>> couples mm/vmalloc.c to HugeTLB internals it does not otherwise need.
+>>>>
+>>>> Now that arm64 and powerpc/8xx provide pte_set_huge() and
+>>>> pte_clear_huge(), add the generic fallbacks next to the existing
+>>>> pmd/pud_set_huge() family and convert vmap_pte_range() and
+>>>> vunmap_pte_range() to the new helpers. The CONFIG_HUGETLB_PAGE guards
+>>>> around the block-mapping paths are dropped, so PTE-level block mappings
+>>>> now also work on CONFIG_HUGETLB_PAGE=n kernels, and mm/vmalloc.c no
+>>>> longer includes <linux/hugetlb.h>.
+>>>>
+>>>> The fallbacks exist only to keep the build working on architectures
+>>>> without PTE-level block mapping support. They are unreachable there:
+>>>> the callers only run when arch_vmap_pte_range_map_size() or
+>>>> arch_vmap_pte_range_unmap_size() return a size other than PAGE_SIZE,
+>>>> which requires an arch implementation. WARN_ON_ONCE() makes that
+>>>> explicit rather than silently doing nothing.
+>>>>
+>>>> Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
+>>>> ---
+>>>>    include/linux/pgtable.h | 29 +++++++++++++++++++++++++++++
+>>>>    mm/vmalloc.c            | 19 ++++++-------------
+>>>>    2 files changed, 35 insertions(+), 13 deletions(-)
+>>>>
+>>>> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+>>>> index cdd68ed3ae1a9..349ced999f959 100644
+>>>> --- a/include/linux/pgtable.h
+>>>> +++ b/include/linux/pgtable.h
+>>>> @@ -2134,6 +2134,35 @@ static inline int pmd_free_pte_page(pmd_t *pmd, unsigned long addr)
+>>>>    }
+>>>>    #endif      /* CONFIG_HAVE_ARCH_HUGE_VMAP */
+>>>>
+>>>> +/*
+>>>> + * PTE-level block mappings for vmap.
+>>>> + *
+>>>> + * pte_set_huge() only has to be implemented by architectures whose
+>>>> + * arch_vmap_pte_range_map_size() can return a size other than PAGE_SIZE.
+>>>> + */
+>>>> +#ifndef __HAVE_ARCH_PTE_SET_HUGE
+>>>> +static inline void pte_set_huge(pte_t *ptep, unsigned long addr,
+>>>> +                             phys_addr_t phys, pgprot_t prot,
+>>>> +                             unsigned long size)
+>>>> +{
+>>>> +     WARN_ON_ONCE(1);
+>>>
+>>> BUILD_BUG_ON() would be better here.
+>>>
+>>> It should be possible because fallback arch_vmap_pte_range_map_size()
+>>> will constant-fold PAGE_SIZE so pte_set_huge() will never be called.
+>>>
+>>
+>> Agreed. These fallbacks exist only to keep the build working on
+>> architectures with PTE-level block mappings and should never actually
+>> be reached, so BUILD_BUG_ON() is right. I'll make that change in v9.
+>>
+> 
+> I am not quite sure. It won't be called at runtime because
+> `vmap size`/`unmap size` return `PAGE_SIZE`, so the code won't
+> reach this branch. But it will still be built.
 
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - thead,th15=
-20-dc8200
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: verisilicon,dc # DC IPs hav=
-e discoverable ID/revision
-> registers
-> =C2=A0
+The fallbacks are defined as:
+
+#ifndef arch_vmap_pte_range_map_size
+static inline unsigned long arch_vmap_pte_range_map_size(unsigned long 
+addr, unsigned long end,
+							 u64 pfn, unsigned int max_page_shift)
+{
+	return PAGE_SIZE;
+}
+#endif
+
+#ifndef arch_vmap_pte_range_unmap_size
+static inline unsigned long arch_vmap_pte_range_unmap_size(unsigned long 
+addr,
+							   pte_t *ptep)
+{
+	return PAGE_SIZE;
+}
+#endif
+
+Therefore in:
+
+                 size = arch_vmap_pte_range_unmap_size(addr, pte);
+                 if (size != PAGE_SIZE) {
+
+GCC knows 'size' is const and its value is PAGE_SIZE, so it won't emit 
+the branch at all.
+
+It is call constant folding, some explanation here: 
+https://en.wikipedia.org/wiki/Constant_folding
+
+> 
+> So, would a `BUILD_BUG_ON()` trigger a build failure here?
+
+It shouldn't, if it does it is a compiled bug or this is because someone 
+has redefined arch_vmap_pte_range_map_size() and not pte_set_huge() 
+which we'd better know at build time rather than at runtime.
+
+
+> 
+> Best Regards
+> Barry
+> 
 
 
