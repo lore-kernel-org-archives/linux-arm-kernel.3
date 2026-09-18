@@ -4,92 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62BB9C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 15:06:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4E88C982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 15:08:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BQGG8yXln03K6MK1Xes3T7st55EA/EQ+1R+tmJIGLy4=; b=LIZImE0DJ0tc1Llp5oFbaWhycG
-	S2NZ3zSOulGpneBuOGKMyfSOvFRmA1VqVHs6fDvRfsE6Nd91Tj2BalxS0m3eA95dBp2WY4FyzfECG
-	ybhfN0X1Np+ppP32vula/lqlqxrpUeilvR9SgFj7ZKAvYJjxOsN2QCzpG6+UM3Fq9vcgJcp3r16RH
-	rmAd/w4fZeSF8HOv6avFWQIpEPQfZ6lmTTDhumetMCrrkGLieFiTAlG0OwkxonIQYBl5xc0dAP7FO
-	Uy11Lym8Fami8/dklIA9G3asCaYC3DBfJQ5IehoXAo+8ujAI71SIg13m1HS/jhFnNexlWlSvBqzAZ
-	/uYzP7LQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6DYLdUfKD8lQHyVdszF6+D1lk2bnnMb1mJc/zRkdlrQ=; b=iY4rIpQti7qdP3V4eZqj5E4jQw
+	+fH+1GVbCLC3agN7IZjb9+/7oPl/14jMc2VaeeEmhIj2dFRx3vjbMr0bNb02QPeTqbYdGjb1uLjxt
+	QQALBbQgKiF67esdG8q7V/jxK/z5oouP12tAihHm2+P9xEAHWOjSEmT9lxKfMUh6zWObe6VFu1EwN
+	GVWxr2yf701DCwAHEXBIBSwR+FKWg0ex6B/vunu0BA24TioxImrYITcvma3AP4W4761ZitQPQF287
+	phBCpn83ZuN4ce1pq8/mSGULzSrY7HSAa082WEiBKJZEMmOi1xl1Xhd6mxYT34e9ab3ZwYnQjPENK
+	CIwzn7ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7aAc-0000000EpK9-2axS;
-	Fri, 18 Sep 2026 15:06:34 +0000
-Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
+	id 1x7aBv-0000000EpYf-3KBO;
+	Fri, 18 Sep 2026 15:07:55 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7aAa-0000000EpJT-32LP
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 15:06:33 +0000
-Received: by mail-pj2-x10.google.com with SMTP id d9443c01a7336-2d8fb334ddcso7310115ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 08:06:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789743992; x=1790348792; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=BQGG8yXln03K6MK1Xes3T7st55EA/EQ+1R+tmJIGLy4=;
-        b=r0KIX8WSYBcMUu7tm2SFQn2uDP1lB4kqRcLJOyOiQ5JTq4lHKqVyynC5QrlOR9FYE+
-         izx/X8pr+Q/bSdTRo+UyICNRit1ct2SNqdJy0oGMOGjZFm3IJGlVdMvL4NnGuL6lGJdE
-         XMDlLQchhW4vBITHCgBYkiiJfUYupaokDGBELsEboZ/IFpOiQgHyZ6xFf2LBC9tf/q6q
-         G1fv+9huZb60D5kJyP4ETpF02PJ72B56KVqyqdf7pzhNT0M1aOrIHDItQEp1YHFQqNlR
-         4QI3gCfWNb1QtcAX86MLguOLt6fnmTrr9IR24+bf1gL/lY79Hr8J38ascvH/DUzJesyp
-         09Ag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789743992; x=1790348792;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=BQGG8yXln03K6MK1Xes3T7st55EA/EQ+1R+tmJIGLy4=;
-        b=yjyg5tsL55yUGn2U+PeDOI0kzhu3nfj7jfx4M5T4zf+lbfhag6QYLjUXvkBgWdG0pu
-         t5ITwfjBR3sAwKKBTWOg5PoO8aAtZd13Qe9S074/M51L1SmoNWR/RJ0pmpFsnYyez4fZ
-         fx9SLT5VF1XLhPZH+okMcdYiUytlaEWgCm2hXcCYeFldXkxGtrRw3k3h80UrvdGLIOlq
-         8xXgsKrqIRKIhtopPU8HaIGd9JschC8x/kBIhE5YrkKT3GrEREovo1pdYPM2pAXPZF+J
-         QOxOI2jk5ZwpEz9GWuJIiymS4uYs4vjoI0U9bjltQ3CDGNAiRLMgjLB2sy0wWCuI/Xzj
-         3LpQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwgyUR46bFVBojCUqxmJQZ9Jlv7rcb3BLm2hw83N8MWWiPi6mTg3F6hjfEZ+kbyRgfWhpELBpagLvOy2Rgh+edB@lists.infradead.org
-X-Gm-Message-State: AFuF++k4iCVecpiiu8HTrJSmlaD61z7S8BBwzKpTe8sTOxUJqtRW9oGQ
-	B5wEK9niYG4v/LTIkIqQjqgLSN1+RJY9bo9HMtBEQdwocqSx9ag4Tr/n
-X-Gm-Gg: AYBFou2FsQjYvERqC4oiIlmfwYmGDdNXWzkfBG5Aq+Adrc393wHRKr6aQvkPvoOq5kj
-	RMa8B58xSqAwBhAXmxNqkYS3xSd5uNNh97AlGizfpCdNjG6v0axGtR8gJk3MSDCLB8tNEZDrPLQ
-	K/STtzHHr5leRUOU7Cy0Cu1T2B4qesI0sTYOiQjt9sLe52wqjsoj4U9X3Yl0Ui0vY21Qhe7x9sn
-	7Oefy4DE+lAVxZy8jm9nzbpLHKAotUiExWMyDpFZMv0vDI4NalLa6jKIGnM9WaCo9PcPgBZDGWi
-	+UTKmVcESjBRaAlPqRzDF2fU3pVSNeu6uy8P7f6fi5DnnaCMArxMpVlPsI8kmdn8pe6RoV3Zglr
-	5Vjv3dQli1BePWb/Xmt7p7zBlKbTPuW6NfR6RADaqVS+urOAgaZASQWB+fsPuLYlJGeH94VZ7mK
-	m5TVzGZvmhCGxBS6BjNqIXsdVMZ2I+tQQ1GNy+jL/hoY+EAExzCUr6ZiyEFxy925dvXXmz7laLc
-	IcqVXPHH1QUc2J/YdRbQcY=
-X-Received: by 2002:a17:902:c947:b0:2dd:ad73:c93a with SMTP id d9443c01a7336-2ddb1bca6e2mr61754635ad.27.1789743991725;
-        Fri, 18 Sep 2026 08:06:31 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ddb75819d7sm10071215ad.54.2026.09.18.08.06.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Sep 2026 08:06:31 -0700 (PDT)
-Date: Fri, 18 Sep 2026 08:06:30 -0700
-From: Guenter Roeck <linux@roeck-us.net>
-To: Kees Cook <kees@kernel.org>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
-	Kees Cook <kees+treewide@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-hwmon@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH] hwmon: scmi: Fix info[] allocation type
-Message-ID: <2d9e2846-23a7-4580-a1e9-31b81eb74577@roeck-us.net>
-References: <20260917211344.i.911-kees@kernel.org>
+	id 1x7aBt-0000000EpXj-0mz3;
+	Fri, 18 Sep 2026 15:07:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1789744065; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=I6AW+OWNKfm4s1J1lr3yv1SWdLqkpIuUnes4bAC1oU/tIdhk8iXNdTdmVVRlsViDKJ23EjB160SMgGIV5svRWbnLU7LUqZJhQkaJG/ndOLztCQZtjNC/hVDOrgV0HDTq4srb/WtXy/ZDO9tQ3ez318TfrIqg4jD78kL2YtenAc0=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1789744065; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=6DYLdUfKD8lQHyVdszF6+D1lk2bnnMb1mJc/zRkdlrQ=; 
+	b=T700XLKdSf0EGDN75SihmMKYg3lAWCsUqclWVCyT6oN7KvzMiSmi8ugGG8ylbpfBEtqLjHddEh0JBfDj5lIQwQSSGDMZ/zg/U/ZsTBUJitrdGLvIP9saHZVnFQhEPexxtIsQqDm5Eg24LQGLJp8azKalhSJDgNZy3ufDuaZo0r8=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=michael.riesch@collabora.com;
+	dmarc=pass header.from=<michael.riesch@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1789744065;
+	s=zohomail; d=collabora.com; i=michael.riesch@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=6DYLdUfKD8lQHyVdszF6+D1lk2bnnMb1mJc/zRkdlrQ=;
+	b=Iveo383UsiLdY2oMy62uJysUNVHEvUOdK4YiiR0HmfG3LJ82de/K91VgKfFIqFzJ
+	2MuWVDpTt3ko9gQQz6FdUrfvDMCVIYFYOfSPZzXxgmydGBHb1Amt2X77NPqlkoWJgah
+	BfXG4l1kNpj/N4L5Kd3/Haz+kEBfSW3C+IrZ+XG4=
+Received: by smtp.zohomail.com with SMTPS id 1789744062457111.72786165405773;
+	Fri, 18 Sep 2026 08:07:42 -0700 (PDT)
+Message-ID: <eee3fd59-adfc-4f36-b467-e1e7c2ad38de@collabora.com>
+Date: Fri, 18 Sep 2026 17:07:38 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260917211344.i.911-kees@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/4] phy: rockchip: add support for the RK3576 MIPI
+ CSI-2 DPHYs
+To: Amin Gattout <amin.gattout@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>
+References: <20260915-rk3576-dphy-v2-0-b56e68b54b8c@gmail.com>
+Content-Language: en-US
+From: Michael Riesch <michael.riesch@collabora.com>
+In-Reply-To: <20260915-rk3576-dphy-v2-0-b56e68b54b8c@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_080632_759487_482FAE58 
-X-CRM114-Status: GOOD (  13.89  )
+X-CRM114-CacheID: sfid-20260918_080753_302985_9684BA37 
+X-CRM114-Status: GOOD (  19.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,30 +83,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 02:13:45PM -0700, Kees Cook wrote:
-> From: Kees Cook <kees+treewide@kernel.org>
-> 
-> In preparation for making the devm_kmalloc family of allocators type
-> aware, we need to make sure that the returned type from the allocation
-> matches the type of the variable being assigned. (Before, the allocator
-> would always return "void *", which can be implicitly cast to any
-> pointer type.)
-> 
-> The assigned type of "scmi_sensors->info[type]" is
-> "const struct scmi_sensor_info **", but the converted allocation type
-> would be "const struct scmi_sensor_info ***", as the size was taken from
-> "*scmi_sensors->info", which is one level of indirection too many.
-> Luckily both element types are pointers of the same size. Take the size
-> from the element type of the assignment target.
-> 
-> Build tested ARCH=x86_64 allmodconfig with GCC 16.2.0:
-> drivers/hwmon/scmi-hwmon.o
-> 
-> Assisted-by: LLM coccinelle
-> Signed-off-by: Kees Cook <kees+treewide@kernel.org>
+Hi Amin,
 
-Applied.
+Thanks for your work, very nice!
 
-Thanks,
-Guenter
+On 9/15/26 12:42, Amin Gattout wrote:
+> Hi all,
+> 
+> The Rockchip RK3576 features two MIPI CSI-2 DPHYs. The CSI-2 DPHYs can be
+> supported using the existing phy-rockchip-inno-csidphy driver.
+> 
+> This patch series adds support for this variant.
+> 
+> As you may have guessed, this is part of the efforts to bring the
+> support for the RK3576 camera pipeline (VICAP) mainline.
+> 
+> Looking forward to your comments!
+> 
+> ---
+> Changes in v2:
+> - Patch 3: drop the RK3576 GRF register table, which duplicated the
+>   RK3588 one, and reuse rk3588_grf_dphy_regs instead, so that the reset
+>   names are now the only difference between the two variants (Michael)
+> - Patch 3: reword the commit message accordingly
+> - Patch 2: spell out in the commit message why the RK3576 compatible
+>   cannot use a fallback (Conor)
+> - Collected Acked-by from Conor on patches 1 and 2
+> - Link to v1: https://patch.msgid.link/20260820-rk3576-dphy-v1-0-70e25e8d5e78@gmail.com
+> 
+> ---
+> Amin Gattout (4):
+>       dt-bindings: soc: rockchip: add rk3576 csidphy grf syscon
+>       dt-bindings: phy: rockchip-inno-csi-dphy: add rk3576 variant
+>       phy: rockchip: phy-rockchip-inno-csidphy: add support for rk3576 variant
+>       arm64: dts: rockchip: add csi dphy nodes to rk3576
+
+
+For the complete series:
+
+Reviewed-by: Michael Riesch <michael.riesch@collabora.com>
+
+Best regards,
+Michael
+
+> 
+>  .../bindings/phy/rockchip-inno-csi-dphy.yaml       |  2 ++
+>  .../devicetree/bindings/soc/rockchip/grf.yaml      |  1 +
+>  arch/arm64/boot/dts/rockchip/rk3576.dtsi           | 34 ++++++++++++++++++++++
+>  drivers/phy/rockchip/phy-rockchip-inno-csidphy.c   | 15 ++++++++++
+>  4 files changed, 52 insertions(+)
+> ---
+> base-commit: bd5f485f3f026225b86573e559af0b7254ef4184
+> change-id: 20260819-rk3576-dphy-2304f848215b
+> 
+> Best regards,
+> --  
+> Amin Gattout <amin.gattout@gmail.com>
+> 
+
 
