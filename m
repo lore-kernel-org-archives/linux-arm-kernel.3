@@ -4,56 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E31AAC982DF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 13:28:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACB20C982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 13:29:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7V6Locjof/vwaZfvC16hUUprV6Y7OU9kGqQa0t/rh0E=; b=wNszJLaXWdOoJNuewluqFUDdVl
-	m1zKPtgydxrg+eEds0kyDqzNM5EFvQn3Ny16n5hKCsQblp9pcAtzf4wLy3UaiTphrIjk1lcf+3W3L
-	HijRFsyf4aGch0yKxM8zg37a/5L4gh6Ksmp0DtBhtpKj9bjNJNd5g9AKrrK4xQC2gn7li/UrEF4GA
-	I4eLQBHxpGAutaHDoY6Yo0DsDke0ko2vlicdM6O/sH4kSPV+KlmNktYlQhQBHrApcXrk7mGH9llTU
-	aUViLUK4DPbX9yI1NRfWp8IY38rUr6qyKMftMrAEHC1mBryxfVK6RAS1mGqgorsOhx7zYBwT/Wvx4
-	/iTL6cVw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WVvSNfdQcv5FfgQ5Jdo3qh8kxv8MQx4JOLDsGPs4WF4=; b=HQaivupggobiS7bNmyOc45BcWv
+	F2vBnxhh70Y+u6v6raUbbe4ZjW40AFXJsBYr/EmynH7yPTvJ4JZpThTsocH/Vt9yD+k1O+5ipszJo
+	VVP0n85o7pgM9jIdt8bma9wsDLAw3rnA26Ir5VK6BrFPMNElB9sw6+7u2Npcf9cZfAMFId9aPNC6u
+	O0iDZvk1ysQGUXiEyRvszuguxcl+L0EHvJwUsNqVBWxiUHA2pjmb+K9tPVbI6ZxLKgLKf6eqqUu6X
+	yydajWjehQzzSnzZInJD7mE7nO5rKmnMHK5VH25wKk052E5LF+RojHX1/ZSllB8ZH0ZVexPO7Zxpk
+	37RFJS8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Ydu-0000000EVgO-3eEV;
-	Fri, 18 Sep 2026 13:28:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x7YeP-0000000EW0o-2F2q;
+	Fri, 18 Sep 2026 13:29:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Ydt-0000000EVeS-2LEQ
+	id 1x7Ydu-0000000EVf1-3UtN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 13:28:41 +0000
+	Fri, 18 Sep 2026 13:28:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DA30E447D3;
+	by tor.source.kernel.org (Postfix) with ESMTP id 5FD18601EF;
 	Fri, 18 Sep 2026 13:28:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 6FF6BC4DDEC;
-	Fri, 18 Sep 2026 13:28:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id F1BC9C2BCB8;
+	Fri, 18 Sep 2026 13:28:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1789738120;
-	bh=qHsL6nJsyo40SQoF4f2zG/1G7Q2hFBVFDBcl86L3XT0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=r3nuxftfhg4iCY+bzGUkpMDj/QcDc7MixdoKCJUubBXz7V9W2cLsV9sQ0Chbkl6j5
-	 RfZucaYShH74XMva8TNKVDF9f9PPddkhUw5QIvcMVw7bIAKKk11lxELI0hwcWds7YD
-	 TS+FPWiY6penytS/8KysyrnnY2zFDPP900QdxWKlF5p6wgoxew8/xhyZWP3AiHumgV
-	 4wHemCgBCbMKLM21e8QGsyvcOEV/9CMhFFmVWWQoYtndEPYb9xZoFQTKLTkEDRhQ+K
-	 U38qubyHmemXang2/YhWIRFtZDGVJjBvxYUcIjUX2tLYIZZsFNriqi7wcQAdi006nt
-	 BOxh3GqiAXFaQ==
+	bh=YleLy9dsJjhq7c2nL6zzJF1A+Z7obcoDrQWMYbeXFIk=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=gQoxSXaqWlBzKDqO7K+xVBccCfsTMxTahGsLBidURdOou3wdO5lS9gz2mFdNij31v
+	 qKMGUluuV+NblnXNJZv/CQN9EsFRIhurr/d3ke88cxKWicb5MHMOf9zQaudW/bE73o
+	 /WtIeTcyS7NTGb5LDjrQFnbXfraIl3aiVT2SfSm+9kZd/TcMz/9+cejrGBYRkFBlJc
+	 YDmMJwQQGnIJPJ+33ZtkTyGenVxYceW1SOElZlPtyZWRBjjvNJ+YiLfbNEg8x6RCOR
+	 RvHrLDlm85U18QBjw9/ydq/cJpNrKWROK6EnKU5hznPMSs7kmYP+4XCBS8GlMKgSmq
+	 HxMwPUmNkJhBw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5DC26C982DF;
-	Fri, 18 Sep 2026 13:28:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C564BC982D7;
+	Fri, 18 Sep 2026 13:28:39 +0000 (UTC)
 From: Michael Reeves via B4 Relay <devnull+michael.reeves077.gmail.com@kernel.org>
-Date: Fri, 18 Sep 2026 23:28:39 +1000
-Subject: [PATCH v3 09/10] arm64: dts: apple: Add MTP DockChannel HID nodes
+Subject: [PATCH v3 00/10] Add support for Apple Silicon DockChannel
+ internal keyboards
+Date: Fri, 18 Sep 2026 23:28:30 +1000
+Message-Id: <20260918-apple-mtp-keyboard-final-v3-0-e356464e454b@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260918-apple-mtp-keyboard-final-v3-9-e356464e454b@gmail.com>
-References: <20260918-apple-mtp-keyboard-final-v3-0-e356464e454b@gmail.com>
-In-Reply-To: <20260918-apple-mtp-keyboard-final-v3-0-e356464e454b@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6XPwW7DIAwG4FepOM8TkEGbnfYeUw+GmAYthMhE0
+ aoq717oZb1slx1/yf5++yYKcaQi3g83wbTFEvNcQ/dyEH7E+UIQh5qFltpKq3vAZZkI0rrAF11
+ dRh4gxBkn6JV3Bm0Ib8GLur4whfj9oD/PNTssBI5x9mMDE5aVuA0GzgnWkQmfmjr5e9OmQIKRd
+ ug7i+oojx+XhHF69Tk1b4xlzXx9vLSpVv9Ps12/6R+oV6c/IF0hNN6eDBnprHyG9n2/AzzaYlx
+ yAQAA
+X-Change-ID: 20260629-apple-mtp-keyboard-final-91cb5a6ff4fc
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
  Neal Gompa <neal@gompa.dev>, Jassi Brar <jassisinghbrar@gmail.com>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -67,14 +72,15 @@ Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
  iommu@lists.linux.dev, linux-input@vger.kernel.org, 
  Yureka Lilian <yureka@cyberchaos.dev>, Julian Braha <julianbraha@gmail.com>, 
- Sasha Finkelstein <k@chaosmail.tech>
+ Sasha Finkelstein <k@chaosmail.tech>, 
+ Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789738118; l=10900;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789738118; l=5610;
  i=michael.reeves077@gmail.com; s=fedora-20260918;
  h=from:subject:message-id;
- bh=zxJFH8v87kXfldcYDDUIbUkkqOIeTECoXrgC66NUKAo=;
- b=+6+MW8GDrjkVjh/SAwayTj8/7EKgZFImA3sw7qmR2S8xJjLscSivctuWHM4Vuu3U6QdjHiqiO
- Y5a1K5l+DwCBaUYK8kBvslUV0AXT55TMEconNvYXYG1vBM2RRCjZXO7
+ bh=YleLy9dsJjhq7c2nL6zzJF1A+Z7obcoDrQWMYbeXFIk=;
+ b=ms7eApJ7nsr0wjgHHtKYCWL3B3/z3GjP5w1ujKulzGNlcSmNoTDNfB1PTg64iK5ob9YyQe/zl
+ 5yYk+rKZGW6B4QPaMW6qZrwgYwWYTUHCZAQ/2llIhbwieBH6uY1QKqW
 X-Developer-Key: i=michael.reeves077@gmail.com; a=ed25519;
  pk=VJ0TvyQ9TvfzYZa908YSE9kpkjFLLD5luv0bERu+boc=
 X-Endpoint-Received: by B4 Relay for
@@ -95,311 +101,115 @@ Reply-To: michael.reeves077@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Michael Reeves <michael.reeves077@gmail.com>
+This series introduces support for the internal keyboards on Apple
+Silicon M2 and M3 MacBook models.
 
-Add disabled MTP nodes for the Apple SoCs used by M2 and M3 systems.
+On these platforms, built-in input devices are managed by a dedicated
+coprocessor running an RTKit-based operating system. Communication
+between this coprocessor and the main processor is carried out over a
+low-latency hardware byte FIFO interface called DockChannel.
 
-Each instance describes the RTKit ASC mailbox, MTP DART, DockChannel
-mailbox, and DockChannel HID client. Board files can enable them on
-machines that route internal input through MTP.
+To support this input path, the series introduces a few new components:
+- An apple-dockchannel mailbox driver to handle the low-level
+  byte-stream FIFO.
+- A DockChannel HID transport driver (apple-hid) that boots the
+  coprocessor using the RTKit framework and encapsulates the HID
+  protocol over the mailbox.
+- Minor additions to the apple-rtkit and hid-apple drivers to support
+  the TraceKit endpoint and integrate the keyboards into the existing
+  input-quirks framework.
+- Devicetree bindings and DTS updates to describe the nodes on M2 and
+  M3 laptops.
 
-Co-developed-by: Hector Martin <marcan@marcan.st>
-Signed-off-by: Hector Martin <marcan@marcan.st>
+The transport driver is based on an original out-of-tree implementation
+by Hector Martin, but it has been significantly rewritten for upstream
+inclusion to use the standard Linux mailbox framework and align better
+with upstream HID design patterns and reduce reliance on hacks.
+
+While the coprocessor manages both the keyboard and the trackpad, this
+series only enables keyboard support. The keyboard can be initialised
+without loading external firmware, whereas the trackpad requires
+firmware. Trackpad support will be submitted in a subsequent series
+once these base transport layers are established.
+
+Tested on: MacBook Air M3 (J613).
+
 Signed-off-by: Michael Reeves <michael.reeves077@gmail.com>
+
+Changes in v3:
+- Link to v2: https://lore.kernel.org/all/20260918-apple-mtp-keyboard-final-v2-0-a5c685e50b60@gmail.com/
+- Fix failed-probe cleanup and interface publication ordering.
+- Fix report lengths/types and reject replacement descriptors.
+- Terminate serial replies and encode checksums as little endian.
+- Honor HID_QUIRK_IGNORE_SPECIAL_DRIVER.
+- Clarify the DockChannel TX byte register layout.
+- All changes above address Sashiko feedback.
+
+Changes in v2:
+- Link to v1: https://lore.kernel.org/asahi/20260630-apple-mtp-keyboard-final-v1-0-506d936a1707@gmail.com/
+- Rebase onto latest upstream and add M3 Pro/Max device-tree support.
+- Use an optional STM node to decide whether to wait for device IDs
+  (suggested by Yureka Lilian).
+- Rename bindings to match the t8112 fallback (suggested by Conor Dooley).
+- Fix FIFO MMIO write width (suggested by Yureka Lilian) and run mailbox
+  interrupt handling in the IRQ thread.
+- Remove the duplicate report fixup (suggested by Sasha Finkelstein)
+  and redundant HID dependency (suggested by Julian Braha).
+- Fix teardown and the missing HID stop callback; simplify interface lookup.
+
 ---
- arch/arm64/boot/dts/apple/t602x-die0.dtsi | 46 ++++++++++++++++++++++++++++++
- arch/arm64/boot/dts/apple/t6030.dtsi      | 46 ++++++++++++++++++++++++++++++
- arch/arm64/boot/dts/apple/t6031-die0.dtsi | 46 ++++++++++++++++++++++++++++++
- arch/arm64/boot/dts/apple/t8112.dtsi      | 46 ++++++++++++++++++++++++++++++
- arch/arm64/boot/dts/apple/t8122.dtsi      | 47 +++++++++++++++++++++++++++++++
- 5 files changed, 231 insertions(+)
+Michael Reeves (9):
+      dt-bindings: mailbox: apple: Add M3 ASC mailbox compatibles
+      dt-bindings: mailbox: apple: Add DockChannel mailbox
+      dt-bindings: iommu: apple,dart: Add M3 compatibles
+      dt-bindings: input: apple: Add DockChannel HID transport
+      mailbox: apple: Add DockChannel FIFO controller
+      HID: apple: Add support for DockChannel HID keyboards
+      HID: apple: Add DockChannel HID transport driver
+      arm64: dts: apple: Add MTP DockChannel HID nodes
+      arm64: dts: apple: Enable DockChannel HID on M2 and M3 laptops
 
-diff --git a/arch/arm64/boot/dts/apple/t602x-die0.dtsi b/arch/arm64/boot/dts/apple/t602x-die0.dtsi
-index c33623f0e..5f62d0a9c 100644
---- a/arch/arm64/boot/dts/apple/t602x-die0.dtsi
-+++ b/arch/arm64/boot/dts/apple/t602x-die0.dtsi
-@@ -161,6 +161,52 @@ pinctrl_smc: pinctrl@2a2820000 {
- 				<AIC_IRQ 0 857 IRQ_TYPE_LEVEL_HIGH>;
- 	};
- 
-+	mtp_mbox: mbox@2a9408000 {
-+		compatible = "apple,t6020-asc-mailbox", "apple,asc-mailbox-v4";
-+		reg = <0x2 0xa9408000 0x0 0x4000>;
-+		interrupt-parent = <&aic>;
-+		interrupts = <AIC_IRQ 0 693 IRQ_TYPE_LEVEL_HIGH>,
-+			     <AIC_IRQ 0 694 IRQ_TYPE_LEVEL_HIGH>,
-+			     <AIC_IRQ 0 695 IRQ_TYPE_LEVEL_HIGH>,
-+			     <AIC_IRQ 0 696 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-names = "send-empty", "send-not-empty",
-+				  "recv-empty", "recv-not-empty";
-+		#mbox-cells = <0>;
-+		status = "disabled";
-+	};
-+
-+	mtp_dart: iommu@2a9808000 {
-+		compatible = "apple,t6020-dart", "apple,t8110-dart";
-+		reg = <0x2 0xa9808000 0x0 0x4000>;
-+		interrupt-parent = <&aic>;
-+		interrupts = <AIC_IRQ 0 676 IRQ_TYPE_LEVEL_HIGH>;
-+		#iommu-cells = <1>;
-+		status = "disabled";
-+	};
-+
-+	mtp_dockchannel: mailbox@2a9b14000 {
-+		compatible = "apple,t6020-dockchannel", "apple,t8112-dockchannel";
-+		reg = <0x2 0xa9b14000 0x0 0x4000>,
-+		      <0x2 0xa9b30000 0x0 0x4000>,
-+		      <0x2 0xa9b34000 0x0 0x4000>;
-+		reg-names = "irq", "config", "data";
-+		interrupt-parent = <&aic>;
-+		interrupts = <AIC_IRQ 0 677 IRQ_TYPE_LEVEL_HIGH>;
-+		#mbox-cells = <0>;
-+		status = "disabled";
-+	};
-+
-+	mtp_hid: hid@2a9400000 {
-+		compatible = "apple,t6020-dockchannel-hid", "apple,t8112-dockchannel-hid";
-+		reg = <0x2 0xa9400000 0x0 0x4000>,
-+		      <0x2 0xa9c00000 0x0 0x100000>;
-+		reg-names = "coproc-asc", "coproc-sram";
-+		mboxes = <&mtp_mbox>, <&mtp_dockchannel>;
-+		mbox-names = "asc", "dockchannel";
-+		iommus = <&mtp_dart 1>;
-+		status = "disabled";
-+	};
-+
- 	sio_dart: iommu@39b008000 {
- 		compatible = "apple,t6020-dart", "apple,t8110-dart";
- 		reg = <0x3 0x9b008000 0x0 0x8000>;
-diff --git a/arch/arm64/boot/dts/apple/t6030.dtsi b/arch/arm64/boot/dts/apple/t6030.dtsi
-index dda9568af..e460e547e 100644
---- a/arch/arm64/boot/dts/apple/t6030.dtsi
-+++ b/arch/arm64/boot/dts/apple/t6030.dtsi
-@@ -474,6 +474,52 @@ wdt: watchdog@3642b0000 {
- 			interrupts = <AIC_IRQ 480 IRQ_TYPE_LEVEL_HIGH>;
- 		};
- 
-+		mtp_mbox: mbox@37a408000 {
-+			compatible = "apple,t6030-asc-mailbox", "apple,asc-mailbox-v4";
-+			reg = <0x3 0x7a408000 0x0 0x4000>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 953 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 954 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 955 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 956 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "send-empty", "send-not-empty",
-+					  "recv-empty", "recv-not-empty";
-+			#mbox-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		mtp_dart: iommu@37a808000 {
-+			compatible = "apple,t6030-dart", "apple,t8110-dart";
-+			reg = <0x3 0x7a808000 0x0 0x4000>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 937 IRQ_TYPE_LEVEL_HIGH>;
-+			#iommu-cells = <1>;
-+			status = "disabled";
-+		};
-+
-+		mtp_dockchannel: mailbox@37ab14000 {
-+			compatible = "apple,t6030-dockchannel", "apple,t8112-dockchannel";
-+			reg = <0x3 0x7ab14000 0x0 0x4000>,
-+			      <0x3 0x7ab30000 0x0 0x4000>,
-+			      <0x3 0x7ab34000 0x0 0x4000>;
-+			reg-names = "irq", "config", "data";
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 939 IRQ_TYPE_LEVEL_HIGH>;
-+			#mbox-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		mtp_hid: hid@37a400000 {
-+			compatible = "apple,t6030-dockchannel-hid", "apple,t8112-dockchannel-hid";
-+			reg = <0x3 0x7a400000 0x0 0x4000>,
-+			      <0x3 0x7ac00000 0x0 0x100000>;
-+			reg-names = "coproc-asc", "coproc-sram";
-+			mboxes = <&mtp_mbox>, <&mtp_dockchannel>;
-+			mbox-names = "asc", "dockchannel";
-+			iommus = <&mtp_dart 1>;
-+			status = "disabled";
-+		};
-+
- 		pinctrl_smc: pinctrl@36c820000 {
- 			compatible = "apple,t6030-pinctrl", "apple,t8103-pinctrl";
- 			reg = <0x3 0x6c820000 0x0 0x4000>;
-diff --git a/arch/arm64/boot/dts/apple/t6031-die0.dtsi b/arch/arm64/boot/dts/apple/t6031-die0.dtsi
-index 47d08672a..d7a6d72b3 100644
---- a/arch/arm64/boot/dts/apple/t6031-die0.dtsi
-+++ b/arch/arm64/boot/dts/apple/t6031-die0.dtsi
-@@ -195,3 +195,49 @@ serial0: serial@391200000 {
- 		power-domains = <&ps_uart0>;
- 		status = "disabled";
- 	};
-+
-+	mtp_mbox: mbox@2ac408000 {
-+		compatible = "apple,t6031-asc-mailbox", "apple,asc-mailbox-v4";
-+		reg = <0x2 0xac408000 0x0 0x4000>;
-+		interrupt-parent = <&aic>;
-+		interrupts = <AIC_IRQ 0 692 IRQ_TYPE_LEVEL_HIGH>,
-+			     <AIC_IRQ 0 693 IRQ_TYPE_LEVEL_HIGH>,
-+			     <AIC_IRQ 0 694 IRQ_TYPE_LEVEL_HIGH>,
-+			     <AIC_IRQ 0 695 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-names = "send-empty", "send-not-empty",
-+				  "recv-empty", "recv-not-empty";
-+		#mbox-cells = <0>;
-+		status = "disabled";
-+	};
-+
-+	mtp_dart: iommu@2ac808000 {
-+		compatible = "apple,t6031-dart", "apple,t8110-dart";
-+		reg = <0x2 0xac808000 0x0 0x4000>;
-+		interrupt-parent = <&aic>;
-+		interrupts = <AIC_IRQ 0 675 IRQ_TYPE_LEVEL_HIGH>;
-+		#iommu-cells = <1>;
-+		status = "disabled";
-+	};
-+
-+	mtp_dockchannel: mailbox@2acb14000 {
-+		compatible = "apple,t6031-dockchannel", "apple,t8112-dockchannel";
-+		reg = <0x2 0xacb14000 0x0 0x4000>,
-+		      <0x2 0xacb30000 0x0 0x4000>,
-+		      <0x2 0xacb34000 0x0 0x4000>;
-+		reg-names = "irq", "config", "data";
-+		interrupt-parent = <&aic>;
-+		interrupts = <AIC_IRQ 0 676 IRQ_TYPE_LEVEL_HIGH>;
-+		#mbox-cells = <0>;
-+		status = "disabled";
-+	};
-+
-+	mtp_hid: hid@2ac400000 {
-+		compatible = "apple,t6031-dockchannel-hid", "apple,t8112-dockchannel-hid";
-+		reg = <0x2 0xac400000 0x0 0x4000>,
-+		      <0x2 0xacc00000 0x0 0x100000>;
-+		reg-names = "coproc-asc", "coproc-sram";
-+		mboxes = <&mtp_mbox>, <&mtp_dockchannel>;
-+		mbox-names = "asc", "dockchannel";
-+		iommus = <&mtp_dart 1>;
-+		status = "disabled";
-+	};
-diff --git a/arch/arm64/boot/dts/apple/t8112.dtsi b/arch/arm64/boot/dts/apple/t8112.dtsi
-index ec248ca05..d5c2f35ef 100644
---- a/arch/arm64/boot/dts/apple/t8112.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8112.dtsi
-@@ -987,6 +987,52 @@ pinctrl_aop: pinctrl@24a820000 {
- 				     <AIC_IRQ 307 IRQ_TYPE_LEVEL_HIGH>;
- 		};
- 
-+		mtp_mbox: mbox@24e408000 {
-+			compatible = "apple,t8112-asc-mailbox", "apple,asc-mailbox-v4";
-+			reg = <0x2 0x4e408000 0x0 0x4000>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 864 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 865 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 866 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 867 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "send-empty", "send-not-empty",
-+					  "recv-empty", "recv-not-empty";
-+			#mbox-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		mtp_dart: iommu@24e808000 {
-+			compatible = "apple,t8110-dart";
-+			reg = <0x2 0x4e808000 0x0 0x4000>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 848 IRQ_TYPE_LEVEL_HIGH>;
-+			#iommu-cells = <1>;
-+			status = "disabled";
-+		};
-+
-+		mtp_dockchannel: mailbox@24eb14000 {
-+			compatible = "apple,t8112-dockchannel";
-+			reg = <0x2 0x4eb14000 0x0 0x4000>,
-+			      <0x2 0x4eb30000 0x0 0x4000>,
-+			      <0x2 0x4eb34000 0x0 0x4000>;
-+			reg-names = "irq", "config", "data";
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 850 IRQ_TYPE_LEVEL_HIGH>;
-+			#mbox-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		mtp_hid: hid@24e400000 {
-+			compatible = "apple,t8112-dockchannel-hid";
-+			reg = <0x2 0x4e400000 0x0 0x4000>,
-+			      <0x2 0x4ec00000 0x0 0x100000>;
-+			reg-names = "coproc-asc", "coproc-sram";
-+			mboxes = <&mtp_mbox>, <&mtp_dockchannel>;
-+			mbox-names = "asc", "dockchannel";
-+			iommus = <&mtp_dart 1>;
-+			status = "disabled";
-+		};
-+
- 		ans_mbox: mbox@277408000 {
- 			compatible = "apple,t8112-asc-mailbox", "apple,asc-mailbox-v4";
- 			reg = <0x2 0x77408000 0x0 0x4000>;
-diff --git a/arch/arm64/boot/dts/apple/t8122.dtsi b/arch/arm64/boot/dts/apple/t8122.dtsi
-index 1ee61c5b3..47102f431 100644
---- a/arch/arm64/boot/dts/apple/t8122.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8122.dtsi
-@@ -438,6 +438,53 @@ pinctrl_aop: pinctrl@2f4824000 {
- 				     <AIC_IRQ 351 IRQ_TYPE_LEVEL_HIGH>,
- 				     <AIC_IRQ 352 IRQ_TYPE_LEVEL_HIGH>;
- 		};
-+
-+		mtp_mbox: mbox@2fa408000 {
-+			compatible = "apple,t8122-asc-mailbox", "apple,asc-mailbox-v4";
-+			reg = <0x2 0xfa408000 0x0 0x4000>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 838 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 839 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 840 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 841 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "send-empty", "send-not-empty",
-+					  "recv-empty", "recv-not-empty";
-+			#mbox-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		mtp_dart: iommu@2fa808000 {
-+			compatible = "apple,t8122-dart", "apple,t8110-dart";
-+			reg = <0x2 0xfa808000 0x0 0x4000>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 822 IRQ_TYPE_LEVEL_HIGH>;
-+			#iommu-cells = <1>;
-+			status = "disabled";
-+		};
-+
-+		mtp_dockchannel: mailbox@2fab14000 {
-+			compatible = "apple,t8122-dockchannel", "apple,t8112-dockchannel";
-+			reg = <0x2 0xfab14000 0x0 0x4000>,
-+			      <0x2 0xfab30000 0x0 0x4000>,
-+			      <0x2 0xfab34000 0x0 0x4000>;
-+			reg-names = "irq", "config", "data";
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 824 IRQ_TYPE_LEVEL_HIGH>;
-+			#mbox-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		mtp_hid: hid@2fa400000 {
-+			compatible = "apple,t8122-dockchannel-hid",
-+				     "apple,t8112-dockchannel-hid";
-+			reg = <0x2 0xfa400000 0x0 0x4000>,
-+			      <0x2 0xfac00000 0x0 0x100000>;
-+			reg-names = "coproc-asc", "coproc-sram";
-+			mboxes = <&mtp_mbox>, <&mtp_dockchannel>;
-+			mbox-names = "asc", "dockchannel";
-+			iommus = <&mtp_dart 1>;
-+			status = "disabled";
-+		};
- 	};
- };
- 
+Sasha Finkelstein (1):
+      soc: apple: rtkit: Add tracekit endpoint
 
+ .../input/apple,t8112-dockchannel-hid.yaml         |  104 ++
+ .../devicetree/bindings/iommu/apple,dart.yaml      |    6 +-
+ .../devicetree/bindings/mailbox/apple,mailbox.yaml |    3 +
+ .../bindings/mailbox/apple,t8112-dockchannel.yaml  |   77 ++
+ MAINTAINERS                                        |    5 +
+ arch/arm64/boot/dts/apple/t602x-die0.dtsi          |   46 +
+ arch/arm64/boot/dts/apple/t602x-j414-j416.dtsi     |   29 +
+ arch/arm64/boot/dts/apple/t6030.dtsi               |   46 +
+ arch/arm64/boot/dts/apple/t6031-die0.dtsi          |   46 +
+ arch/arm64/boot/dts/apple/t603x-j514-j516.dtsi     |   24 +
+ arch/arm64/boot/dts/apple/t8112-j413.dts           |   24 +
+ arch/arm64/boot/dts/apple/t8112-j415.dts           |   24 +
+ arch/arm64/boot/dts/apple/t8112-j493.dts           |   26 +-
+ arch/arm64/boot/dts/apple/t8112.dtsi               |   46 +
+ arch/arm64/boot/dts/apple/t8122-j504.dts           |   26 +
+ arch/arm64/boot/dts/apple/t8122-j613.dts           |   27 +
+ arch/arm64/boot/dts/apple/t8122-j615.dts           |   27 +
+ arch/arm64/boot/dts/apple/t8122.dtsi               |   47 +
+ drivers/hid/Kconfig                                |    2 +
+ drivers/hid/Makefile                               |    2 +
+ drivers/hid/dockchannel/Kconfig                    |   14 +
+ drivers/hid/dockchannel/Makefile                   |    3 +
+ drivers/hid/dockchannel/apple-hid.c                | 1177 ++++++++++++++++++++
+ drivers/hid/hid-apple.c                            |  118 +-
+ drivers/mailbox/Kconfig                            |   12 +
+ drivers/mailbox/Makefile                           |    2 +
+ drivers/mailbox/apple-dockchannel.c                |  372 +++++++
+ drivers/soc/apple/rtkit.c                          |    2 +
+ include/linux/hid.h                                |    1 +
+ include/linux/mailbox/apple-dockchannel.h          |   29 +
+ 30 files changed, 2319 insertions(+), 48 deletions(-)
+---
+base-commit: 5dd1818b15d98d4a20806cd00b1b40320b06004f
+change-id: 20260629-apple-mtp-keyboard-final-91cb5a6ff4fc
+
+Best regards,
 -- 
-2.55.0
+Michael Reeves <michael.reeves077@gmail.com>
 
 
 
