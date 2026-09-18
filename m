@@ -4,90 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 598DFC982D2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 07:46:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A11B0C982D2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 07:47:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SInoAck4kPSdZMq0ZJdvww+HIYJKSPW+Gpf9er2XW6E=; b=Khihk2D54+JNGoxK7VLxb1WTyi
-	kY1+gFcbnT8QtRPHOLSgFkoaJcqf/3wRwo/erGI1L1tztnOA3y2VT3wILYuz6/N2+3eOxgr6QRUll
-	+riBwZ7fc1S8KgljZm23z9nEEXRKhHu64zK/grbdB6gclqf1dg0mnDYBkL8UkoBmjWfLBW7CcaLnt
-	2mMb2l8FzW3vUbQGi8gdT8kfMprXwaiW+/+2mxfQemqNpDML6eS+Wmz62pjFMeFK5qvpTDuKnmORv
-	pFN4FZj8opgvSguhx5V0GoojQUmkOlM805YpJoc7CIrkDZyf0il1RcXlUOvxocmTPDXe/ALSCV0Ug
-	ikuYdVTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y+tYCkkvzZJmFoYOhTQyYw6fM+qA/usgZs/lU8fn+ao=; b=Pdc1dl/Mg3TU0r7KSM7Uwuqzsx
+	2OY0xvNdkG2pCdigKYahZw4pprQcxUob1WjTOIJJeHtr4SCiF4vkCI4r4wb/wVeeT0dFFRZ065kJs
+	3/Ar5N2wagd4YH+HXLeSsYaCJjntrb3Ci2I643k0mzCAF6+B6L3jpN9kCN5FiPp1tSSwnGWCzZg7W
+	sTsse552ta85aP1+heeupci7VcpPvagHt0YAD258OGBMJg2fbZ38j2uhPmfeEtVGRSDmuHlvttaoS
+	TAXbK2NZytWjOh5Siue1JxgFKmjTlh2+P7JD0e43zDCqs/wROUybLtc6mKxiDx+FPfXl6Hr+wEQ6H
+	eRd/7oZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7TIO-0000000DjDG-4Bru;
-	Fri, 18 Sep 2026 07:46:09 +0000
-Received: from mail-pz2-x0f.google.com ([2607:f8b0:4864:3b::f])
+	id 1x7TJ8-0000000DjJ6-0X6N;
+	Fri, 18 Sep 2026 07:46:54 +0000
+Received: from mail-vs2-f12.google.com ([74.125.227.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7TIM-0000000DjCp-2S3x
+	id 1x7TJ4-0000000DjIU-3EAr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 07:46:07 +0000
-Received: by mail-pz2-x0f.google.com with SMTP id 41be03b00d2f7-cc1cea4bfb6so166677a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 00:46:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789717565; x=1790322365; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=SInoAck4kPSdZMq0ZJdvww+HIYJKSPW+Gpf9er2XW6E=;
-        b=WmK1BTBwvaS7JYzNkYCDPm7PqLeLEw2q1/6x3c7zbVZixYT/P1q5uLj6DD5PLHYTET
-         RSHSrkxzC0Cwu67MV5+MUL5qdwZDeEKWa66aUo5LWLKw6eZclHCUU43p75ErvLwqYbJ/
-         j6WWtuxvzPaPPkDBKXKuXQdSpXvvUFejVWdGXxjcyjnUwNTp39YxmaTtcFC8JvFqoNme
-         emSAI2TvuItkxp7HatYIuACTiMd0FO0hliWf4LD6xDd1AsaR/iMquvV6rkRxc8CuTwGC
-         8Yi3wcLNE85NRQCJCgNl69t7BQKRtYHl0/4SEgrdRAf+JLKJ79u64e86V9EmQ2DNbP9V
-         xpCg==
+	Fri, 18 Sep 2026 07:46:52 +0000
+Received: by mail-vs2-f12.google.com with SMTP id 71dfb90a1353d-5c67e5059faso121797e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 00:46:48 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789717565; x=1790322365;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=SInoAck4kPSdZMq0ZJdvww+HIYJKSPW+Gpf9er2XW6E=;
-        b=xeVEBggCgLsyKfNKxP6hWsE1z0okHV27JAhzdA3Gp0DsFiQu6a8vF8Apbsuf0qxTEQ
-         aLYCyNknBZ/OJ3bUWQrUJW7/ZdlzjOSDN4F43zoKXqMz8yLsMTIKtdUB4ubiPHK9bfph
-         fEX0RgPJDuLQvKXQZmsq6a6UlIYBujVL+WaCP82wSoeVI1TERt93zbk6rB4chfyjh6zd
-         wd8wol99DVV4A/orwqjxwy6dmZHmuQW9Ui5foxu8l3G64eynb777c72L3c57IqHTUBSV
-         OSgBYU5/PKkTeedDh74iZ98xaoaMC+v0pjQDT20pLLlUI9U3rpiQ6buvbmga6DWOfhgG
-         KfvQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzaIWp+VrStIxNJVHSaDH1HL+hDdBw+OiObya9bGp3Q8BP4ZDXiAmk0qM7wC3Q8VotFeRi+uyHcRUn5wPmn8wsd@lists.infradead.org
-X-Gm-Message-State: AFuF++niC1YFylBvmQruOYzL8a8SK8JU9odXpDHGY+dt1kiTZExxN3Ha
-	G4E7kjsRZXeQkyP0N85XERSoVrHUwRUxipk/gsIZ0PcLqFGP22ivgEw9
-X-Gm-Gg: AYBFou2RrxYijIP1bvxJGF0Htcw9i0IsCJ8JrqCp66hMe4oyIFdtAYrf1ZusfCqiNgD
-	60n4MbommVq4OAkrYzxr5LZa7CXOf/p6/T9YK4eew2kyjenPlDepqdaVIZXB6iNjEzeiEv9yHQK
-	3fsaSMO8+5JmVg4VpAre7Ir79WlzL5y9PyseX5gpvwTzHEtO6mD54MhQR02DWVpzARX/EKFwyHf
-	VGqARMDhv2SxpPlE2tNiuG0OzBAZwGiHkNgqJ5zqcDuYCnciJ7XRLO39hUbSeSCTEitNkpkpGjd
-	clSVQRWTiUHUmPO4JTgJmLqylZMOJGtGAB9jtR7svCbNQdmSyCkJ7VWckIeQRMnovrFC61wemAA
-	k9RLCuZ3wOvoP2NNjdEOo58Vaqf278Ja1ocUTnGQOhU3uAB/VDogwK7rJC+G1iBdh4+uRooPWqk
-	U3+3ibEdjwAXA3uFqwBO/oYHdEEG2J2XUkSDComlAhRN+u9i8ZHnErT0JAnxplAe+CG0qYbIQFv
-	gq8KebqR7eE8wwQo75e2wzd42jxbmvqpS681k4=
-X-Received: by 2002:a05:6a20:6f9c:b0:3dd:85a8:cad2 with SMTP id adf61e73a8af0-3dd8c4b06b1mr3259004637.41.1789717564818;
-        Fri, 18 Sep 2026 00:46:04 -0700 (PDT)
-Received: from amd.ban-spse ([165.204.217.251])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33c2872052fsm2491833eec.11.2026.09.18.00.46.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Sep 2026 00:46:04 -0700 (PDT)
-From: Malathi A <malathi.a2000@gmail.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	linux-serial@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Malathi A <malathi.a2000@gmail.com>
-Subject: [PATCH] serial: 8250_uniphier: Use dev_err_probe() in probe error paths
-Date: Fri, 18 Sep 2026 07:45:46 +0000
-Message-ID: <20260918074546.245342-1-malathi.a2000@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        d=1e100.net; s=20260707; t=1789717608; x=1790322408;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=y+tYCkkvzZJmFoYOhTQyYw6fM+qA/usgZs/lU8fn+ao=;
+        b=oYgM9ZhmHwsFYXfMYdXVvvgsNDrZJJOoqtyZMQwjYL82i3CJvK8e8xoCTn5U5hYYna
+         Gmv+J8suxjluRhEIpckDIdJHV3iSPvVi3EWYLOJngR2SdkU1VBro9Qq3jrLVf/fWfB+7
+         v7KArAxgTFJOMZJN+5ogfGCcoOOqnXi1OUn/+a8LTphHaK5QCZMZE1Se7eA+//g73dVG
+         78oEEnPS/60adokT0qZgWYlVtEh+RErT+eRW50IcADS8dMvu4Ijf8a5LVBssHdk4Wivi
+         z+HhVjuav0sJiwBGLAMuH5yp3GOoeJv4PJPEQNGPB2RZ89cff5EWkVeRKnXgSDWUu9CY
+         75tQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxrMiYQNnIxHu5mmMbFk40B7NVwfZhR9VGyFM2BaegOFmLBIm7AAyuEjCvZOraVmkFhEcpyw9JAUya25YVdFUvV@lists.infradead.org
+X-Gm-Message-State: AFuF++lRD7R4lLQepXUoUf/3uhtYg5O3hsQ5Bzrn/0aEUtNkqtqL2R1K
+	tT1pNDmuEI9MFbMm2zbwICpyUsnsrGG4FQVrkdbf7PbcMn8cwtuh+5Ptb6w+5E66
+X-Gm-Gg: AYBFou1zNAI06QVDoSW0HIELiNpIe4v5lzhLIG4dhAa/gvgh7H8xwC0DtPCTUOg29P6
+	QCU/WvUi1l6zbgufuhp9vOvQcmMie1dBDWsV26MpJi1l1CEOnnmg+51eFIJMvIn3FlyfIYBI/N7
+	LEHBoCFjzjgqf9V9Kn9DbwuEXKalMVq8eRgliSDKnbBo/KSeb5kl0F4pQQg3cZvFw3mOj9wxGBR
+	CVFFnJcBMKzqnES6CT6KrHFSvar3UfcsJ1zcmlajUk5eplDCIbTTG51qJ+UZa7Frndxser1Tk3m
+	HbmJ7op7WSZvKCgFb5bKqDOdIFnkk0YMlWh6bn7dYfLjlJ1cqqZBnpDz5KvVsiYIJ+0JA1Uk+fW
+	+3GIqZTxIbKNPqanVwqtWa2yO904qmJqp5sy7MG/559QcwFH9wlrtCP+QPkOu0sWrteAK7CAJwZ
+	3Qqf76AEXP7W3UwRal3PTc5w7JJPOkx/fgOmIWB6l2vEcYC6U0nH/1nPa4lnEhfKG5qtmROWp8h
+	PTQLYX6BDL8WaC+BQMjbnXjwJP8tP5sQd+k
+X-Received: by 2002:a05:6102:358d:b0:79f:e8ce:27f2 with SMTP id ada2fe7eead31-7a55af2df71mr547996137.4.1789717607685;
+        Fri, 18 Sep 2026 00:46:47 -0700 (PDT)
+Received: from mail-vs2-f41.google.com (mail-vs2-f41.google.com. [74.125.227.41])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-98337e2f440sm895655241.10.2026.09.18.00.46.46
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 18 Sep 2026 00:46:46 -0700 (PDT)
+Received: by mail-vs2-f41.google.com with SMTP id ada2fe7eead31-78a53fe85easo152474137.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 00:46:46 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBxVpKhwXHRd24mOOpduTJs+GsvRojoZDTeDsOVfmTkrzjbt5zPwNJaec2e5x06GtuIHu1kYZK1LpAVgz9iwMhwF@lists.infradead.org
+X-Received: by 2002:a05:6102:358d:b0:79f:e8ce:27f2 with SMTP id
+ ada2fe7eead31-7a55af2df71mr547985137.4.1789717606396; Fri, 18 Sep 2026
+ 00:46:46 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <cover.1788338320.git.geert+renesas@glider.be> <1d5c56c80291e447208ac8777aaf90ad6f0a4f4d.1788338320.git.geert+renesas@glider.be>
+ <20260917221647.GA4038349-robh@kernel.org>
+In-Reply-To: <20260917221647.GA4038349-robh@kernel.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 18 Sep 2026 09:46:34 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdXCFY7-SEGLjhaO1uCDwsvogc0ocdqSz=1C_gsWX6T_tA@mail.gmail.com>
+X-Gm-Features: AcwNN1XFZho-l6FTtqXfFYSmbjO5DpuymjytNtvp4sOSdCdr5EidSrnlACqjwyk
+Message-ID: <CAMuHMdXCFY7-SEGLjhaO1uCDwsvogc0ocdqSz=1C_gsWX6T_tA@mail.gmail.com>
+Subject: Re: [PATCH v3 04/12] of: property: fw_devlink: Add support for renesas,scmi-firmware
+To: Rob Herring <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+	Jerome Brunet <jbrunet+clk@baylibre.com>, Sudeep Holla <sudeep.holla@kernel.org>, 
+	Cristian Marussi <cristian.marussi@arm.com>, Saravana Kannan <saravanak@kernel.org>, 
+	Ulf Hansson <ulfh@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	"Rafael J . Wysocki" <rafael@kernel.org>, Marek Vasut <marek.vasut+renesas@mailbox.org>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, Kevin Hilman <khilman@baylibre.com>, 
+	Vinod Koul <vkoul@kernel.org>, Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
+	=?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clegoffic@baylibre.com>, 
+	devicetree@vger.kernel.org, arm-scmi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
+	linux-pm@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_004606_652170_66EB534F 
-X-CRM114-Status: GOOD (  16.29  )
+X-CRM114-CacheID: sfid-20260918_004650_818954_98245252 
+X-CRM114-Status: GOOD (  29.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,82 +109,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-devm_clk_get_enabled() returns -EPROBE_DEFER while the clock provider is
-not registered yet, and uniphier_uart_probe() reports that with
-dev_err(). Every retry of an intermittently deferred probe therefore
-prints "failed to get and enable clock" at error level, which is only
-dmesg noise.
+Hi Rob,
 
-Use dev_err_probe() instead: it demotes -EPROBE_DEFER to dev_dbg() and
-records the reason for /sys/kernel/debug/devices_deferred. Convert the
-other two error messages in probe as well, so the whole function follows
-the "return dev_err_probe()" pattern already used by other 8250 drivers
-such as 8250_em.c. Those two codes are never -EPROBE_DEFER, so there the
-conversion is a readability change only.
+On Fri, 18 Sept 2026 at 00:16, Rob Herring <robh@kernel.org> wrote:
+> On Wed, Sep 02, 2026 at 01:29:20PM +0200, Geert Uytterhoeven wrote:
+> > Let fw_devlink create device links between consumers and suppliers of
+> > SCMI firmware on Renesas platforms, and enforce these dependencies.
+> >
+> > This prevents probing of drivers before the firmware they depend on
+> > becomes available, thus avoiding unneeded probe deferrals.
+> >
+> > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> > ---
+> > v3:
+> >   - s/firmware/renesas,scmi-firmware/,
 
-Errors other than a deferral are still logged at error level, now with
-the error code added by the helper. No functional change otherwise.
+> > +++ b/drivers/of/property.c
+> > @@ -1417,6 +1417,7 @@ DEFINE_SIMPLE_PROP(power_supplies, "power-supplies", NULL)
+> >  DEFINE_SIMPLE_PROP(mmc_pwrseq, "mmc-pwrseq", NULL)
+> >  DEFINE_SUFFIX_PROP(regulators, "-supply", NULL)
+> >  DEFINE_SUFFIX_PROP(gpio, "-gpio", "#gpio-cells")
+> > +DEFINE_SIMPLE_PROP(renesas_scmi_firmware, "renesas,scmi-firmware", NULL)
+> >
+> >  static struct device_node *parse_pinctrl_n(struct device_node *np,
+> >                                          const char *prop_name, int index)
+> > @@ -1574,6 +1575,7 @@ static const struct supplier_bindings of_supplier_bindings[] = {
+> >       { .parse_prop = parse_regulators, },
+> >       { .parse_prop = parse_gpio, },
+> >       { .parse_prop = parse_gpios, },
+> > +     { .parse_prop = parse_renesas_scmi_firmware, },
+>
+> This is going to be a catch-22, we can't have vendor specific properties
+> here. If we need this, we need to come up with a distributed way to
+> declare them. Linker section tricks is one way. Maybe something in the
+> driver struct would work?
 
-Suggested-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Signed-off-by: Malathi A <malathi.a2000@gmail.com>
----
-This is the follow-up cleanup suggested during review of
+Quoting myself:
+"I still think the vendor prefix should be dropped, or replaced by "arm".
 
-  [PATCH v2] serial: 8250_uniphier: Use devm_clk_get_enabled()
+> Can you just avoid a property altogether? Why can't you check for the
+> presence of SCMI at runtime?
 
-and it applies on top of that patch: the clock hunk relies on its
-context. That fix is not in tty-next as of today, so this one should be
-applied after it.
+A system can have multiple SCMI providers, so
+of_find_compatible_node(..., "arm,scmi") is not sufficient to find
+the right one.
 
- drivers/tty/serial/8250/8250_uniphier.c | 20 ++++++++------------
- 1 file changed, 8 insertions(+), 12 deletions(-)
+Gr{oetje,eeting}s,
 
-diff --git a/drivers/tty/serial/8250/8250_uniphier.c b/drivers/tty/serial/8250/8250_uniphier.c
-index 6fffac12277a..7d558b750f83 100644
---- a/drivers/tty/serial/8250/8250_uniphier.c
-+++ b/drivers/tty/serial/8250/8250_uniphier.c
-@@ -165,10 +165,8 @@ static int uniphier_uart_probe(struct platform_device *pdev)
- 	int ret;
- 
- 	regs = platform_get_resource(pdev, IORESOURCE_MEM, 0);
--	if (!regs) {
--		dev_err(dev, "failed to get memory resource\n");
--		return -EINVAL;
--	}
-+	if (!regs)
-+		return dev_err_probe(dev, -EINVAL, "failed to get memory resource\n");
- 
- 	membase = devm_ioremap(dev, regs->start, resource_size(regs));
- 	if (!membase)
-@@ -181,10 +179,9 @@ static int uniphier_uart_probe(struct platform_device *pdev)
- 	memset(&up, 0, sizeof(up));
- 
- 	priv->clk = devm_clk_get_enabled(dev, NULL);
--	if (IS_ERR(priv->clk)) {
--		dev_err(dev, "failed to get and enable clock\n");
--		return PTR_ERR(priv->clk);
--	}
-+	if (IS_ERR(priv->clk))
-+		return dev_err_probe(dev, PTR_ERR(priv->clk),
-+				     "failed to get and enable clock\n");
- 
- 	up.port.uartclk = clk_get_rate(priv->clk);
- 
-@@ -216,10 +213,9 @@ static int uniphier_uart_probe(struct platform_device *pdev)
- 	up.dl_write = uniphier_serial_dl_write;
- 
- 	ret = serial8250_register_8250_port(&up);
--	if (ret < 0) {
--		dev_err(dev, "failed to register 8250 port\n");
--		return ret;
--	}
-+	if (ret < 0)
-+		return dev_err_probe(dev, ret, "failed to register 8250 port\n");
-+
- 	priv->line = ret;
- 
- 	platform_set_drvdata(pdev, priv);
+                        Geert
+
 -- 
-2.43.0
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
