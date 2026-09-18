@@ -4,76 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72595C982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 15:36:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FDDAC982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 15:36:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=i4AOV2V5Pr+VVoS5llx0F+M/kezCmf883pBPOvuO/o8=; b=EtdmGP54TviK5mxYMr8XvnTplm
-	R4jX8Dcn6tidoy2bIcKP47HOcnBUCjObgtajJtM3HPh0jVCIn5+3Y6QWhMU4L9UxzZQpfx/UW7Ihy
-	G7lZZFsS/IF5hKCHjDh1JT87Pw7mdrQWWpNm/69RGFWFuVLW3eg93U6rGG/x7yrA2vTiLl+68E5sU
-	MHVAXlyrmJXzYVA6UwN3PlIRKG8QVVME3qHGwHg36E1fLfkhWWN4xeTZKRsJhJciL9hEPTaSyi7WT
-	Prz/8azOxq8+VkqIO7mcW6RQRuc5SFrpZm4kLcoTUrSUbjoy5yoJ8lYr+GVtRjnf5eGmvO46St6A3
-	TVEMp9Jw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cl6MnsVJ2tgqjlk+JWZs6DCC+wi7QAAwiMKBJVJY4Nw=; b=s7+S0Hm1Ily/l4hjWEcJCW27Gc
+	BIsJ+ip7DHzWor1WW3sM2jxytKKn5tIz/64gRhNcfVeWvwYZozS8llfvNMWthJUiyLJh4yY6dfR04
+	apiXeD/x5iKnIM11vFf12xFHZiWgOpYLCcWswhSAaiwEXHrCD2l1J1q3ryn1+EvCgsZzwvwUHIP52
+	UixDlBGWUYFQxXo1WEhPfuv77ew08xZHui1RxYt/QY0h9WjWbQJ0E8tgGBANgyhKypsQ+717bCSE5
+	Tg6dsqsksWilIgwBFdhullr4kYXam+G8ghWmSWqTBzCUcnbpMi4774XY3Ec2pjRGYHbCHADCZrfHb
+	gPnJFB5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7ad5-0000000EuK6-3yBZ;
-	Fri, 18 Sep 2026 15:35:59 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1x7adr-0000000EuVB-1rgr;
+	Fri, 18 Sep 2026 15:36:47 +0000
+Received: from mail-qk2-x11.google.com ([2607:f8b0:4864:34::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7ad2-0000000EuJT-1FhZ
+	id 1x7adp-0000000EuUP-2VXy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 15:35:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1789745761; x=1821281761;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=rTXEQS/4c/No4cusfrMb4rT1nMkSE1gMmPlhr/SAhWg=;
-  b=VHjheNUYnGkGrTh9mezpIQD3fO/IITyIBn+QFd1roUnPA5pa3CPMOgsQ
-   s9x+yC8++997NFiK4LJ4pdAg5NWVGyAffoh7ErKY2TE5A3qpjQiJScfkC
-   IXtcF+aKmiBjG6LOSIGVDqRoAl0lAfU1+YzFFtQ1QbS8SGwRihUx4go3F
-   JkjIGiN0ecrxat88iINQ8Q8Obtd7iXZ2JIJMVG+n68MH54QL4tM9OtR+V
-   MsMCuPyMcNYOLM5+mlydGMkXEeK216s6S9pxWRNYuiYjQDWCUfjgpf5Ba
-   E9TkSG/0aw6UQlLu30//1L723hm9MWptdu7zpQuDxuezkxcv5I7xUZhX8
-   w==;
-X-CSE-ConnectionGUID: w2bhoBCSSuq9+YKwtcsTHg==
-X-CSE-MsgGUID: QjUTgLfMS+qldTVbdzbPCQ==
-X-IronPort-AV: E=Sophos;i="6.27,109,1787036400"; 
-   d="scan'208";a="295232781"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Sep 2026 08:36:00 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.87.71) by
- chn-vm-ex4.mchp-main.com (10.10.87.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.49; Fri, 18 Sep 2026 08:35:54 -0700
-Received: from ROU-LL-M51280.microchip.com (10.10.85.11) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Fri, 18 Sep 2026 08:35:51 -0700
-From: Aubin Constans <aubin.constans@microchip.com>
-To: Ulf Hansson <ulfh@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
-	Eugen Hristev <ehristev@kernel.org>, Claudiu Beznea
-	<claudiu.beznea@tuxon.dev>, Romain Sioen <romain.sioen@microchip.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>, Ludovic Desroches
-	<ludovic.desroches@microchip.com>, Robert Marko <robert.marko@sartura.hr>
-CC: Alexandre Belloni <alexandre.belloni@bootlin.com>, Ryan Wanner
-	<ryan.wanner@microchip.com>, <linux-mmc@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	"Aubin Constans" <aubin.constans@microchip.com>
-Subject: [PATCH] mmc: sdhci-of-at91: disable selectively clocks on pm runtime
-Date: Fri, 18 Sep 2026 17:34:14 +0200
-Message-ID: <20260918153414.909333-1-aubin.constans@microchip.com>
-X-Mailer: git-send-email 2.43.0
+	Fri, 18 Sep 2026 15:36:46 +0000
+Received: by mail-qk2-x11.google.com with SMTP id af79cd13be357-939922847efso80187585a.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 08:36:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1789745804; x=1790350604; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=cl6MnsVJ2tgqjlk+JWZs6DCC+wi7QAAwiMKBJVJY4Nw=;
+        b=McnftnT0uehrLoN3LzOwvzKmLimXmd9e7MeYEh8NpD3VQ1c9//dR5jhSxRMFI0r8zD
+         TddyR7S/D4s5LtdTFKecd7PVN2EZKQOi/H+I4+DVlkbq0LmRtEakiZm1Ew18mJTKgc6U
+         glXpFU3BkULcIjJ0Dh9EojK6iuceUvvVgyU6HyplTuZNg/1txDkSRMCYWD7Y0AAHCmOr
+         np8awRqNlPS6d79VSCrt9sRvVSgmxyOCq8v7ilDhSFK7ug36ZYKCf+jBnWbw7z2p35Zz
+         ggpgJck+CYSRgfwCAF1+h22xSIZUMmiTa1TnA3+3RS+jUdkoWkO0ToXIMgafcBnQjA0J
+         U2mw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789745804; x=1790350604;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=cl6MnsVJ2tgqjlk+JWZs6DCC+wi7QAAwiMKBJVJY4Nw=;
+        b=2s47YH30TSHs3/7sMQXjS6omLrDCiXUQSgSnEQw1OHcz87250ehnoSl+gM4g2ILZpt
+         SDrDWbR2TRuBHFKX+UVC8VBxRTYWZmT8TFhlfWhU6vGntaejxAJdGR31QsxMTd6381EV
+         0qdGRdR8rILvc442M3/93MHbLWzm3khgU3RC3+EJN0VbDSDvZJ830NUxcEg4UOAPPaoE
+         zOxRvllQC3oM4mO3g+yIeXNReSLvSX8Q9AyPR2k7X8XnJw2zV5+eBLVsrzpimX7CAfEB
+         fK5OtoPNH4OYapwUyxHQvJntXZQ/wuiWUc7aIDaY8e1gBk1j7Mv+q16Yly/EMWtbqAbK
+         h/+g==
+X-Forwarded-Encrypted: i=1; AKwUvByJFgYXqjtwRtrZ+IhkGwzQzVB7YYwKzGzo6O6/mLjiZzViklRaf3T5M91Gjj7s2FKxbuLDkfXVKdhfAVxj/L/1@lists.infradead.org
+X-Gm-Message-State: AFuF++nnqXodQwTH+wOMuWeEF9b6E8o814oCY4IpAWu+wZUqj6kmWGKc
+	VBleZ24EvY4WAMvnWr/IjaZ6zlx/oNoLucW4E/FPiEKf4D2tFWDBJ7boH0jPyNn9SMQ=
+X-Gm-Gg: AYBFou0CQutBsDu5eHsyHz4++WtI5uPyuklUFv4e+IQ+1Cd2WR6bzjztRxD2F9Cpluk
+	tAdmw2XdloCDG/tlE3701tWJe6MAaypS/nPea/HmOVRtnq7Kufl3uETJ+AZVBil2Fm/uh6TfM5a
+	2Zcynvw3oeRV8peGCVYXArAW37OoXOhwV2fcJ0YxrFdtP3NPk7lDWpm9DRAHpF1+LzHOyNWVCt5
+	rXq12QISw7eU+72icpZVvVRXAxmSDmhp1J9TINSnANdcjFFdqqDa/dzplCRf+5nBi+aK2fMy9cz
+	wL2N5fiGEQnCVzf8rJYGZq4CyC1soN1WuBoE8yJelxblZHeMiEP3vtq/zM2tYCfucI/A3puuNU5
+	B15WkvVIn1VqlrK9POSeLSbkISnAXLZJstA0SkFbZEpB5uCFrZ63RDBm8SMuxURIuIS4n8usqep
+	KbN1Ugm0UoEiQk6G2E45ixGGeA1C3yiSpouDxNU6XPhg+0nKPxNP7KA9jTSg3gROaizK5gUebl+
+	qbBGYmo2pK2v7aU2I0dD3XxyVYX/IQaKnZoOOHrWb+4/A0qdLMfvggO
+X-Received: by 2002:a05:620a:470b:b0:93b:d7a3:45cc with SMTP id af79cd13be357-93bdc77f152mr382061885a.53.1789745804221;
+        Fri, 18 Sep 2026 08:36:44 -0700 (PDT)
+Received: from ziepe.ca (hlfxns010zw-159-2-239-150.pppoe-dynamic.high-speed.ns.bellaliant.net. [159.2.239.150])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-93be0ec44fdsm163568285a.28.2026.09.18.08.36.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 18 Sep 2026 08:36:43 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1x7adm-00000001snW-2UlV;
+	Fri, 18 Sep 2026 12:36:42 -0300
+Date: Fri, 18 Sep 2026 12:36:42 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+	linux-coco@lists.linux.dev, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev, Marc Zyngier <maz@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Thomas Gleixner <tglx@kernel.org>, Will Deacon <will@kernel.org>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	"T.J. Mercier" <tjmercier@google.com>
+Subject: Re: [PATCH v6 7/9] dma-buf: system_heap: Enforce shared-granule
+ alignment for cc-shared buffers
+Message-ID: <20260918153642.GD11599@ziepe.ca>
+References: <aq1V3oeDdvXobt8J@arm.com>
+ <97c30fce-9bda-4c61-b1b9-10297b89c8d9@amd.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+In-Reply-To: <97c30fce-9bda-4c61-b1b9-10297b89c8d9@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_083556_367146_65E4AAF4 
-X-CRM114-Status: GOOD (  18.66  )
+X-CRM114-CacheID: sfid-20260918_083645_644543_CE1EECE2 
+X-CRM114-Status: GOOD (  20.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,143 +117,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+On Fri, Sep 18, 2026 at 05:23:32PM +0200, Christian König wrote:
+> On 9/18/26 17:16, Catalin Marinas wrote:
+> > First, none of the DMA-BUF maintainers have been cc'ed. It might be fine
+> > for an RFC but this series got to version 6. We need their feedback.
+> 
+> Yeah, thanks for doing this.
+> > On Fri, Sep 04, 2026 at 04:04:50PM +0530, Aneesh Kumar K.V (Arm) wrote:
+> >> The system heap can allocate buffers that are decrypted and shared with the
+> >> host. For confidential-computing guests, those shared buffers must cover
+> >> whole shared-buffer granule; otherwise a userspace mmap of the dma-buf may
+> >> expose only part of a host-managed granule and allow unintended access to
+> >> adjacent private memory.
+> >>
+> >> Require cc-shared system-heap allocations to have a size aligned to
+> >> mem_cc_shared_granule_size(), and allocate pages at least as large as the
+> >> required granule. Keep the allocation bounded by the existing heap orders,
+> >> but fall back to an exact minimum-order allocation when the required
+> >> granule is not one of the preferred heap orders.
+> 
+> Uff, I don't think we can do that.
+> 
+> That is massively platform specific behavior in a non platform
+> specific code.
 
-SAMA7G5's SDMMC run-time clock disabling is not supported.
-Add support to avoid this scenario for SAMA7G5.
+What we really need is an allocator API that does all this for the caller.
 
-[Amended with a fix from Romain Sioen below this line]
+It has been pointed out a few times, Aneesh maybe you need to try to
+tackle that?
 
-Sama7 boards are impacted by an unbalanced prepare/unprepare
-and enable/disable clock management in sdhci driver due to
-the lack of support for SDMMC clock runtime disabling,
-managed instead by the PMC driver.
+dmabuf heap just wants
 
-Add conditions in the preset function to manage clock
-depending on if the board support runtime clock disabling
-and if we come from the probing or restoring procedure.
+'allocate me an array of shared folios totaling XX bytes'
 
-Add boolean start_clks variable to manage condition
-in preset function.
+Arch code can figure out how to do it. If some ARM configs only give
+order 4 folios or whatever then dmabuf heap doesn't care.
 
-Signed-off-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Co-developed-by: Romain Sioen <romain.sioen@microchip.com>
-Signed-off-by: Romain Sioen <romain.sioen@microchip.com>
-Signed-off-by: Aubin Constans <aubin.constans@microchip.com>
----
- drivers/mmc/host/sdhci-of-at91.c | 36 ++++++++++++++++++++++++--------
- 1 file changed, 27 insertions(+), 9 deletions(-)
+And solve the double/triple zeroing problem.
 
-diff --git a/drivers/mmc/host/sdhci-of-at91.c b/drivers/mmc/host/sdhci-of-at91.c
-index 7c4ac65f247d..399856643e57 100644
---- a/drivers/mmc/host/sdhci-of-at91.c
-+++ b/drivers/mmc/host/sdhci-of-at91.c
-@@ -39,6 +39,7 @@ struct sdhci_at91_soc_data {
- 	const struct sdhci_pltfm_data *pdata;
- 	bool baseclk_is_generated_internally;
- 	unsigned int divider_for_baseclk;
-+	bool pm_runtime_disable_clks;
- };
- 
- struct sdhci_at91_priv {
-@@ -149,12 +150,14 @@ static const struct sdhci_pltfm_data sdhci_sama5d2_pdata = {
- static const struct sdhci_at91_soc_data soc_data_sama5d2 = {
- 	.pdata = &sdhci_sama5d2_pdata,
- 	.baseclk_is_generated_internally = false,
-+	.pm_runtime_disable_clks = true,
- };
- 
- static const struct sdhci_at91_soc_data soc_data_sam9x60 = {
- 	.pdata = &sdhci_sama5d2_pdata,
- 	.baseclk_is_generated_internally = true,
- 	.divider_for_baseclk = 2,
-+	.pm_runtime_disable_clks = true,
- };
- 
- static const struct of_device_id sdhci_at91_dt_match[] = {
-@@ -164,7 +167,7 @@ static const struct of_device_id sdhci_at91_dt_match[] = {
- };
- MODULE_DEVICE_TABLE(of, sdhci_at91_dt_match);
- 
--static int sdhci_at91_set_clks_presets(struct device *dev)
-+static int sdhci_at91_set_clks_presets(struct device *dev, bool start_clks)
- {
- 	struct sdhci_host *host = dev_get_drvdata(dev);
- 	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-@@ -174,7 +177,14 @@ static int sdhci_at91_set_clks_presets(struct device *dev)
- 	unsigned int			gck_rate, clk_base_rate;
- 	unsigned int			preset_div;
- 
--	clk_prepare_enable(priv->hclock);
-+	/*
-+	 * Manage clock prepare/enable procedure depending on if the board
-+	 * support runtime clock disabling and if we come from the probing
-+	 * or restoring procedure (for backup+self refresh).
-+	 */
-+	if (start_clks)
-+		clk_prepare_enable(priv->hclock);
-+
- 	caps0 = readl(host->ioaddr + SDHCI_CAPABILITIES);
- 	caps1 = readl(host->ioaddr + SDHCI_CAPABILITIES_1);
- 
-@@ -223,8 +233,11 @@ static int sdhci_at91_set_clks_presets(struct device *dev)
- 	writew(SDHCI_AT91_PRESET_COMMON_CONF | preset_div,
- 	       host->ioaddr + SDHCI_PRESET_FOR_DDR50);
- 
--	clk_prepare_enable(priv->mainck);
--	clk_prepare_enable(priv->gck);
-+	/* Same clock management as for hclock */
-+	if (start_clks) {
-+		clk_prepare_enable(priv->mainck);
-+		clk_prepare_enable(priv->gck);
-+	}
- 
- 	return 0;
- }
-@@ -254,9 +267,11 @@ static int sdhci_at91_runtime_suspend(struct device *dev)
- 	if (host->tuning_mode != SDHCI_TUNING_MODE_3)
- 		mmc_retune_needed(host->mmc);
- 
--	clk_disable_unprepare(priv->gck);
--	clk_disable_unprepare(priv->hclock);
--	clk_disable_unprepare(priv->mainck);
-+	if (priv->soc_data->pm_runtime_disable_clks) {
-+		clk_disable_unprepare(priv->gck);
-+		clk_disable_unprepare(priv->hclock);
-+		clk_disable_unprepare(priv->mainck);
-+	}
- 
- 	return 0;
- }
-@@ -269,7 +284,7 @@ static int sdhci_at91_runtime_resume(struct device *dev)
- 	int ret;
- 
- 	if (priv->restore_needed) {
--		ret = sdhci_at91_set_clks_presets(dev);
-+		ret = sdhci_at91_set_clks_presets(dev, priv->soc_data->pm_runtime_disable_clks);
- 		if (ret)
- 			return ret;
- 
-@@ -277,6 +292,9 @@ static int sdhci_at91_runtime_resume(struct device *dev)
- 		goto out;
- 	}
- 
-+	if (!priv->soc_data->pm_runtime_disable_clks)
-+		goto out;
-+
- 	ret = clk_prepare_enable(priv->mainck);
- 	if (ret) {
- 		dev_err(dev, "can't enable mainck\n");
-@@ -344,7 +362,7 @@ static int sdhci_at91_probe(struct platform_device *pdev)
- 		return dev_err_probe(&pdev->dev, PTR_ERR(priv->gck),
- 				     "failed to get multclk\n");
- 
--	ret = sdhci_at91_set_clks_presets(&pdev->dev);
-+	ret = sdhci_at91_set_clks_presets(&pdev->dev, true);
- 	if (ret)
- 		return ret;
- 
--- 
-2.43.0
-
+Jason
 
