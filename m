@@ -4,107 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4DFBC982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 15:09:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 523D0C982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 15:14:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m9PpjDJTI5A4O9GHsrecsFdQCMZtDm/KhMOyyrkdNv4=; b=kv8HSXT2oxMrFFRh5QcuCoPfTD
-	X8PEF88Z78PgSJIFHnJ+YZV07IPHrb2UlP5Mfr0RYDf8seqUfsDg1m8YNHkcfB69zcl7cBRlTvrPL
-	K/Tp5iqY02aoe5KRbC085ehkLdoKV2P/uZHVKnSFBbgOqeojixWh4RPTX9rwRGMGEsG2e8l7A4jZQ
-	dNbJV0kkrwvSa7P2FFLBwzcE1Kue6SVQzLYNiXcnTg6XsAMi6Xz4N/kMJuAJ1btzl8i7LbRWIRwfV
-	rS32TTXN7UAhEJrzZT/6KEEkBymKpbDJ0yhpeLZZnu3V3EITK6ruNA1wey0yS2RrtZMSECro2pHNB
-	xXdCksgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JE4/GZMkKMUK8RFbS+RuHFWgO7/CyR4r6pUgWEewwFQ=; b=ZOAFTxyBdqRsoupGgiKfEqQrut
+	zMOEDCPoK2FgZQ0LRmxeuHDUlheVdqkLhhT6Jtz9kRT9T55eKu0VRzjIGVD4YhZzKU5dp+qC1plE0
+	/TEr3XzPYkaH0gd6uZJV9cQ9+fmUrpNfMk4FfFP8shk6B411nUgnNXXL4hOUesuhPBO2XCvuGUzli
+	ozLpvVIExB9RJuG/ke9jxZPds6fOolWuHsj3S8qkTcvXG+2jToU0JsPIRmeDUu05n2+GFrwMrQeQy
+	azknNuOjkU80qOWnM0hXc6vgLH0/ONMrn9T9m5VWI1B3bbvNy9XvEu2tmHPWW/eUtO1+2F05x9/MR
+	tneDv4LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7aDV-0000000Eptj-1q1Q;
-	Fri, 18 Sep 2026 15:09:33 +0000
-Received: from mail-vs2-x0e.google.com ([2a00:1450:4864:3a::e])
+	id 1x7Ylh-0000000EZVT-3q5u;
+	Fri, 18 Sep 2026 13:36:45 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7aDS-0000000Ept2-3T8U
+	id 1x7Yld-0000000EZSy-4ArQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 15:09:31 +0000
-Received: by mail-vs2-x0e.google.com with SMTP id 71dfb90a1353d-5c97b28165bso727631e0c.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 08:09:29 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1789744168; cv=none;
-        d=google.com; s=arc-20260327;
-        b=RYGNZJHZo+U1nSuyIvfYt90LtkW7BE3B8i68smILVO00plkq2CrQRRsaiAUC3LD+gP
-         YGC8T4Tqzbzf22FVAtqttOfYpSUkmhGwBLVIWKgitQSpeHYXo8Hq83sFhU1GsVk6hoo6
-         zzGLnaz+GcK6JmYorC90DDL8K+nNQHgFBpbDj4RI6EyHS1BL2fF5A5DdUh+bAp2RheoM
-         XLuXFLgfBkYUuMmQKFQh9nW08zC+JzfHpm4mJej5TouTBr9J8O34HMDtIPy/xTGqiqQV
-         JXnNhH7be+E1GYx47/w1MljXmtjsuXnWnPdNBufzL3fIUMKqeo509xUwAh+jexUPz/Rq
-         Vj9g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=m9PpjDJTI5A4O9GHsrecsFdQCMZtDm/KhMOyyrkdNv4=;
-        fh=ncOzUZUMEcg9897crEW8km3lqIyanfO9ylgxP5SSDwU=;
-        b=GJhGfPsghpIQT504vHxktr2hRC4lrBMQgiuad0UvGfRrYknhkftzN0h5aWW/T1zL89
-         jLSpVCW/jenI+ZlU9ENZ6DeDkCcDsB46BKq8oQKtERR28Mt0w6zEhqvWxmuncL0Fjmk/
-         umH5qKSlVXf5+pSELd6iFWwsNkKAY0VrJhas9BhZRzkQJeFccKgn9KDZr2lIDbbcpzd8
-         aZ5eKgkCb57ztWLWfB5eRy1eNaK6P5UomgjpvFY8+Oz2kpIb3gtMxfo2U/m5Ak49w0r7
-         0KHgb1yWhGqLIMyUt5iodJycUhVKGFCKfKZIQELqNzQ0YPF4Pj1jQSVUGxltyWky3qE7
-         XZMw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1789744168; x=1790348968; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=m9PpjDJTI5A4O9GHsrecsFdQCMZtDm/KhMOyyrkdNv4=;
-        b=Sz6oZP0Y/FVzPSf5oYf4bSrs0YDrH5Z6VRmDHjPbuLUdDI/lfMZFEa0HgDcsDby3Ek
-         icn9k9BZegEsLlktHjhlENxbFKyHisc8Bs7zyo45txtKPklcA5oiVWibFIbHwhCDxNNY
-         dN6fNeJ8fOK6ZpmPSJ9yiR/IGAaoe2NxSKS72PxzF48MSSUjdyVKNG4K0VenGY0BkH6S
-         wm1d9AjNc3x6jFbcwOPm6v9ndOTqzF74AXsYXL2vlkvf4OkD7djp3eQj7AyuXQtxEOQ9
-         SVGFjCFQjSCrMpDAeqmxYiN9PHHyQYcr0AyFeRipENQP5FjP3HXZVpFjX4sWXrGXW9m2
-         g7Kw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789744168; x=1790348968;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=m9PpjDJTI5A4O9GHsrecsFdQCMZtDm/KhMOyyrkdNv4=;
-        b=0Br5cwY+dn8+GLdGZlRmxzXaK1JeUJxAGgaW/QhvSR1gXzUJ1sUwuvHMMWzwvVMuxF
-         VlhpEWg6owSXt4GHgjGWhHXCNDBEl1VI5Tj5yG/Sj1vDAjJmK2jOx4c/744VSaxs325X
-         wT7B+/9FLsJJhTxqIWtPpHiznKu6vqrZF656hplysOHafkpU90WNQmIUyjvWxOlljJBo
-         w8RWWNf2jZtZBgF3hSlXm9VOaVSVaD4/WuRSm6zZvDcFzwh9uS3McgwLnQB/jR7Yldj0
-         a7uyBFoqhlU3+OgK31y6ydugN/Dugl1LL7sygavTS1By/V+BWT7B3JRTUW+B+cpBhYMH
-         UHog==
-X-Forwarded-Encrypted: i=1; AKwUvByQT6eeWcCL23a9/mYJh6wb2aWI1q2jh9EA0l93Y9enh8twAHkE+wh41O1Cj+a9BlGsmCA3iAdmgbjPr3NYdKAt@lists.infradead.org
-X-Gm-Message-State: AFuF++lVtmfpqaS9O3Ocv8U2Kyw1CNcv752kDM5vnihAZAfGsU/afGPN
-	yn3eIORz82GkUzzWtiUwyf5lyDAlunHSUSC4DYAhKINKThQF3ZGE0GAnJ/mSvRO+HIAQM32RP5O
-	ghMehQ8PZp0ZXqVqgAoSy6Iio/bJ+C9RAgdSQoSYdZQ==
-X-Gm-Gg: AYBFou03eAK25gnVPGMO+j/DExyvnRT0t683XQv/MFtVXrm39s0tKoem+Nx++eCR0aj
-	7f0OmHGH93LE/YaQhjq91aH/KuvAoX37DlFQnxYUCM00FK4oucK3UNcbiEMzs4Rx+oHHODGWSMr
-	ROH5K7WAKU2Itho9xXAnN7g+aBMgu0NBBdPYyKZowt7vNQRA02zli9a3FJ7OsT1vxmjdQrIqgpn
-	CMnPjGMqGf1Kw6dzFUrmhy1MZxYEyFoo3L33rIGsgT6WkNsQZTOuTuJXVJACrUicjkw/N52vqFV
-	VWois1Za5t3xN0uGJYCuexJjFTxlkntjf3F2YWKwFMtUhlNQXBAH6r6UGyoWRZubqUrTsy4sBP6
-	dzgnu8qbxGFcepZyEjCk7BgV4
-X-Received: by 2002:a05:6122:d89:b0:5c9:a60b:e5af with SMTP id
- 71dfb90a1353d-5c9b59d5fedmr1460675e0c.17.1789744168196; Fri, 18 Sep 2026
- 08:09:28 -0700 (PDT)
+	Fri, 18 Sep 2026 13:36:43 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68IA1jfO803606;
+	Fri, 18 Sep 2026 13:31:24 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=JE4/GZMkKMUK8RFbS
+	+RuHFWgO7/CyR4r6pUgWEewwFQ=; b=gYpzmgqQ7f/biLtZJTivXq8A/tEjngxAi
+	Em1fnVXuyHD/XfZUnFeb/NvguyrvYWakpkPXQ7FIkFPA0O3NCHByGVh6JU7FwNRr
+	0+pRpypDfjLFKt+4EEIQAo/bTr0eSQ+qF0LwU7uwbrP49jC9hD6zt0D5Cy2PtWFu
+	KLELwVCI/ltV8T6TJgWXufDNRGY4lLDz+qRike3p4MnI7DRGnBMaoRNuF9QPwukC
+	b8rSIf4MXxpEhAlBf3F3Spll2ZHU+w/wPp60i1lMmkwTCpOIsAkpXYW+Q/+HjHYw
+	oW0a2npFu0csU8jbhlmTD57r9zoMk2G1NZpdX+2wCP4EnRIf9Arxg==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gmv5j814k-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 18 Sep 2026 13:31:24 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68IDNxAf695613;
+	Fri, 18 Sep 2026 13:31:23 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gra3fek7h-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 18 Sep 2026 13:31:23 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68IDVCeh48103896
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 18 Sep 2026 13:31:13 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id DB1D120040;
+	Fri, 18 Sep 2026 13:31:12 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 827682004D;
+	Fri, 18 Sep 2026 13:31:12 +0000 (GMT)
+Received: from tuxmaker.lnxne.boe (unknown [9.87.85.9])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 18 Sep 2026 13:31:12 +0000 (GMT)
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH v8 13/29] KVM: arm64: Access elements of vcpu_gp_regs individually
+Date: Fri, 18 Sep 2026 15:30:50 +0200
+Message-ID: <20260918133107.1042730-14-seiden@linux.ibm.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260918133107.1042730-1-seiden@linux.ibm.com>
+References: <20260918133107.1042730-1-seiden@linux.ibm.com>
 MIME-Version: 1.0
-References: <6108b9d8ba5e750fc3f104c7c47c765cda12ab0b.1788430197.git.geert+renesas@glider.be>
-In-Reply-To: <6108b9d8ba5e750fc3f104c7c47c765cda12ab0b.1788430197.git.geert+renesas@glider.be>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Fri, 18 Sep 2026 16:09:15 +0100
-X-Gm-Features: AcwNN1WbCgmZ6KBoleiDGX2IyJqTG4BFE69tG3w6kSQzgb-TPyozGD3DKfdtb2Y
-Message-ID: <CADrjBPosa6tyVCrEh9vsUoba9tWBbqa-kG2emcu+L1t48QmjSw@mail.gmail.com>
-Subject: Re: [PATCH v3] arm64: dts: exynos: gs101: Drop CPU masks from GICv3
- PPI interrupts
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE4MDE4NCBTYWx0ZWRfXy6IdVay5VOV+
+ e3MmoMNok4Gw42Q3Mz7wgwbH4AUC/LCcV7E+W/wi/jlfVc5XCU/IchaapkVrT5t6QabUBRHUqnz
+ IsIl8qdS2HMuqyKF9FHnsvlhHeXxwbPhXdfU1s2BDii9nHac1CpDeg8f32BYb0i59w2WVn9xOIj
+ M6h4VTOfZ4z0bU26zJ+T2zTQ91qTy/emJi5SP4dikf+7wurppLES1NjneC7AEes7Sevy9VFrI/R
+ vdrSbWjbJOHP7s8R99VDLIyjLDME7hSGYZW9Nq04smVUidLs/G6FqODlRZejl+vrqHFd20+ft2D
+ 6dYxz637Mv097ZA6Y7CV1UVPu63YcoRaZaISTXJihiJzWlj5iG3wV3M7LBjD6BgvaritUlsqiKA
+ roYp0+5GmWykJRW4ba+bDwnqZBv6bbrWp9Vj+s4rlLSavA1m5Gvmtxk88drseEz7f/XQN1MEZ+o
+ yPxBoV/Dxf03rO1l1yQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE4MDE4NCBTYWx0ZWRfX8vdrwBBt9wLD
+ K8IQU+qUe5Dj8mpJwhzKVUV+P3hYF+pedTzrspKrGICvl1pyT0tLISonhbnOaEF/BsYw5QzW+Sd
+ GIyqYGhb3mmyEOE0SL0Pg+Pwgv2FLSo=
+X-Authority-Analysis: v=2.4 cv=Zsx4uN7G c=1 sm=1 tr=0 ts=6aad3d2c cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
+ a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8 a=2bnsYzwZQeDic6pRC-MA:9
+X-Proofpoint-ORIG-GUID: s9eu1dlonEWwz8qODihA8Tu4nnYtV55f
+X-Proofpoint-GUID: CyBk7QD1nSKWXwM7b1MZHoOFoswpNzm7
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-18_03,2026-09-16_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 impostorscore=0 clxscore=1015 priorityscore=1501
+ lowpriorityscore=0 bulkscore=0 adultscore=0 phishscore=0 spamscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2609180184
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_080930_873336_D7ECABB2 
-X-CRM114-Status: GOOD (  17.42  )
+X-CRM114-CacheID: sfid-20260918_063642_164861_D1C55187 
+X-CRM114-Status: GOOD (  21.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,49 +141,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 3 Sept 2026 at 11:11, Geert Uytterhoeven
-<geert+renesas@glider.be> wrote:
->
-> Unlike older GIC variants, the GICv3 DT bindings do not support
-> specifying a CPU mask in PPI interrupt specifiers.  Drop the masks.
->
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> ---
-> v3:
->   - All other patches in the series have been applied,
->
-> v2:
->   - Rebase on top of commit d0298724f901d45c ("arm64: dts: exynos: Add
->     EL2 virtual timer interrupt") in soc/for-next.
-> ---
+While for arm64 the members of vcpu_gp_regs are allocated continuous
+this is not necessarily true for other architectures implementing ARM.
 
-Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+Let vcpu_gp_regs() no longer return the address of the user_pt_regs in
+the vcpu context but the address of the gp-register array field in the
+user_pt_reg struct. Note, this change semantically excludes pc from the
+GPRs.
 
->  arch/arm64/boot/dts/exynos/google/gs101.dtsi | 10 +++++-----
->  1 file changed, 5 insertions(+), 5 deletions(-)
->
-> diff --git a/arch/arm64/boot/dts/exynos/google/gs101.dtsi b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-> index bfceea5486f46686..9e17f36e1fbb7ce2 100644
-> --- a/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-> +++ b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-> @@ -1928,11 +1928,11 @@ apm_sram: sram@2039000 {
->         timer {
->                 compatible = "arm,armv8-timer";
->                 interrupts =
-> -                  <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW) 0>,
-> -                  <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW) 0>,
-> -                  <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW) 0>,
-> -                  <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW) 0>,
-> -                  <GIC_PPI 12 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW) 0>;
-> +                  <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW 0>,
-> +                  <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW 0>,
-> +                  <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW 0>,
-> +                  <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW 0>,
-> +                  <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW 0>;
->         };
->  };
->
-> --
-> 2.43.0
->
+No functional change.
+
+Co-developed-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
+Signed-off-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
+Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+---
+ arch/arm64/include/asm/kvm_emulate.h       | 14 ++++++++------
+ arch/arm64/include/asm/kvm_host.h          |  2 +-
+ arch/arm64/kvm/guest.c                     |  2 +-
+ arch/arm64/kvm/hyp/exception.c             |  4 ++--
+ arch/arm64/kvm/hyp/include/hyp/adjust_pc.h |  4 ++--
+ arch/arm64/kvm/hyp/include/hyp/switch.h    |  4 ++--
+ 6 files changed, 16 insertions(+), 14 deletions(-)
+
+diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+index a3c1928bdf74..8603766c1b4d 100644
+--- a/arch/arm64/include/asm/kvm_emulate.h
++++ b/arch/arm64/include/asm/kvm_emulate.h
+@@ -133,12 +133,12 @@ static inline void vcpu_set_vsesr(struct kvm_vcpu *vcpu, u64 vsesr)
+ 
+ static __always_inline unsigned long *vcpu_pc(const struct kvm_vcpu *vcpu)
+ {
+-	return (unsigned long *)&vcpu_gp_regs(vcpu)->pc;
++	return (unsigned long *)&vcpu->arch.ctxt.regs.pc;
+ }
+ 
+ static __always_inline unsigned long *vcpu_cpsr(const struct kvm_vcpu *vcpu)
+ {
+-	return (unsigned long *)&vcpu_gp_regs(vcpu)->pstate;
++	return (unsigned long *)&vcpu->arch.ctxt.regs.pstate;
+ }
+ 
+ static __always_inline bool vcpu_mode_is_32bit(const struct kvm_vcpu *vcpu)
+@@ -167,14 +167,14 @@ static inline void vcpu_set_thumb(struct kvm_vcpu *vcpu)
+ static __always_inline unsigned long vcpu_get_reg(const struct kvm_vcpu *vcpu,
+ 					 u8 reg_num)
+ {
+-	return (reg_num == 31) ? 0 : vcpu_gp_regs(vcpu)->regs[reg_num];
++	return (reg_num == 31) ? 0 : vcpu_gp_regs(vcpu)[reg_num];
+ }
+ 
+ static __always_inline void vcpu_set_reg(struct kvm_vcpu *vcpu, u8 reg_num,
+ 				unsigned long val)
+ {
+ 	if (reg_num != 31)
+-		vcpu_gp_regs(vcpu)->regs[reg_num] = val;
++		vcpu_gp_regs(vcpu)[reg_num] = val;
+ }
+ 
+ static inline bool vcpu_is_el2_ctxt(const struct kvm_cpu_context *ctxt)
+@@ -750,13 +750,15 @@ static inline void kvm_reset_vcpu_core(struct kvm_vcpu *vcpu)
+ 		pstate = VCPU_RESET_PSTATE_EL1;
+ 
+ 	/* Reset core registers */
+-	memset(vcpu_gp_regs(vcpu), 0, sizeof(*vcpu_gp_regs(vcpu)));
++	memset(vcpu_gp_regs(vcpu), 0, sizeof(vcpu_gp_regs(vcpu)));
++	*vcpu_pc(vcpu) = 0;
++	vcpu->arch.ctxt.regs.sp = 0;
+ 	memset(&vcpu->arch.ctxt.fp_regs, 0, sizeof(vcpu->arch.ctxt.fp_regs));
+ 	vcpu->arch.ctxt.spsr_abt = 0;
+ 	vcpu->arch.ctxt.spsr_und = 0;
+ 	vcpu->arch.ctxt.spsr_irq = 0;
+ 	vcpu->arch.ctxt.spsr_fiq = 0;
+-	vcpu_gp_regs(vcpu)->pstate = pstate;
++	*vcpu_cpsr(vcpu) = pstate;
+ }
+ 
+ /* PSCI reset handling for a vcpu. */
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 9c314d0568b1..fc0037efa0b4 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -1161,7 +1161,7 @@ struct kvm_vcpu_arch {
+ #define vcpu_clear_on_unsupported_cpu(vcpu)				\
+ 	vcpu_clear_flag(vcpu, ON_UNSUPPORTED_CPU)
+ 
+-#define vcpu_gp_regs(v)		(&(v)->arch.ctxt.regs)
++#define vcpu_gp_regs(v)		((v)->arch.ctxt.regs.regs)
+ 
+ /*
+  * Only use __vcpu_sys_reg/ctxt_sys_reg if you know you want the
+diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
+index b01d6622b872..81d850d5a328 100644
+--- a/arch/arm64/kvm/guest.c
++++ b/arch/arm64/kvm/guest.c
+@@ -134,7 +134,7 @@ static void *core_reg_addr(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
+ 	     KVM_REG_ARM_CORE_REG(regs.regs[30]):
+ 		off -= KVM_REG_ARM_CORE_REG(regs.regs[0]);
+ 		off /= 2;
+-		return &vcpu->arch.ctxt.regs.regs[off];
++		return &vcpu_gp_regs(vcpu)[off];
+ 
+ 	case KVM_REG_ARM_CORE_REG(regs.sp):
+ 		return &vcpu->arch.ctxt.regs.sp;
+diff --git a/arch/arm64/kvm/hyp/exception.c b/arch/arm64/kvm/hyp/exception.c
+index 754e2dc1df54..0640c9ccaa3c 100644
+--- a/arch/arm64/kvm/hyp/exception.c
++++ b/arch/arm64/kvm/hyp/exception.c
+@@ -276,12 +276,12 @@ static void enter_exception32(struct kvm_vcpu *vcpu, u32 mode, u32 vect_offset)
+ 	switch(mode) {
+ 	case PSR_AA32_MODE_ABT:
+ 		__vcpu_write_spsr_abt(vcpu, host_spsr_to_spsr32(spsr));
+-		vcpu_gp_regs(vcpu)->compat_lr_abt = return_address;
++		vcpu_gp_regs(vcpu)[__compat_lr_abt] = return_address;
+ 		break;
+ 
+ 	case PSR_AA32_MODE_UND:
+ 		__vcpu_write_spsr_und(vcpu, host_spsr_to_spsr32(spsr));
+-		vcpu_gp_regs(vcpu)->compat_lr_und = return_address;
++		vcpu_gp_regs(vcpu)[__compat_lr_und] = return_address;
+ 		break;
+ 	}
+ 
+diff --git a/arch/arm64/kvm/hyp/include/hyp/adjust_pc.h b/arch/arm64/kvm/hyp/include/hyp/adjust_pc.h
+index 4fdfeabefeb4..a049983bd5c3 100644
+--- a/arch/arm64/kvm/hyp/include/hyp/adjust_pc.h
++++ b/arch/arm64/kvm/hyp/include/hyp/adjust_pc.h
+@@ -33,11 +33,11 @@ static inline void kvm_skip_instr(struct kvm_vcpu *vcpu)
+ static inline void __kvm_skip_instr(struct kvm_vcpu *vcpu)
+ {
+ 	*vcpu_pc(vcpu) = read_sysreg_el2(SYS_ELR);
+-	vcpu_gp_regs(vcpu)->pstate = read_sysreg_el2(SYS_SPSR);
++	*vcpu_cpsr(vcpu) = read_sysreg_el2(SYS_SPSR);
+ 
+ 	kvm_skip_instr(vcpu);
+ 
+-	write_sysreg_el2(vcpu_gp_regs(vcpu)->pstate, SYS_SPSR);
++	write_sysreg_el2(*vcpu_cpsr(vcpu), SYS_SPSR);
+ 	write_sysreg_el2(*vcpu_pc(vcpu), SYS_ELR);
+ }
+ 
+diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+index 1ce7130e2549..a2a054fec2e2 100644
+--- a/arch/arm64/kvm/hyp/include/hyp/switch.h
++++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+@@ -470,7 +470,7 @@ static inline bool kvm_hyp_handle_mops(struct kvm_vcpu *vcpu, u64 *exit_code)
+ 	u64 spsr;
+ 
+ 	*vcpu_pc(vcpu) = read_sysreg_el2(SYS_ELR);
+-	arm64_mops_reset_regs(vcpu_gp_regs(vcpu), vcpu->arch.fault.esr_el2);
++	arm64_mops_reset_regs(&vcpu->arch.ctxt.regs, vcpu->arch.fault.esr_el2);
+ 	write_sysreg_el2(*vcpu_pc(vcpu), SYS_ELR);
+ 
+ 	/*
+@@ -902,7 +902,7 @@ static inline void synchronize_vcpu_pstate(struct kvm_vcpu *vcpu)
+ 	/*
+ 	 * Check for the conditions of Cortex-A510's #2077057. When these occur
+ 	 * SPSR_EL2 can't be trusted, but isn't needed either as it is
+-	 * unchanged from the value in vcpu_gp_regs(vcpu)->pstate.
++	 * unchanged from the value in vcpu_cpsr(vcpu).
+ 	 * Are we single-stepping the guest, and took a PAC exception from the
+ 	 * active-not-pending state?
+ 	 */
+-- 
+2.53.0
+
 
