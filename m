@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FC67C982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 13:28:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98671C982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 13:28:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w071YTNnPVwP/KCG8R0PASLACbNjmA4TQQruBrCrnnA=; b=2EL/Pzn/v4bAubV737b1HGwNXa
-	2jvVMaQ1cYsMNaIY+kNw2CypzeluzeliGsM40SkCvk3TgtsZhAmaWjK17i7dzI8zL6zRrRkiSbpFR
-	cm+Jol5pYldxMzxis20ua5UVlO3csPKQ+jC5YM9NdEjM2XTsdFpKbl2fvn1vZ6hyS3tp25ISevAvq
-	dIFPPeB8uujrBcz62RrrlpqPEJrB8o3komM9v36qtAW9mn0yPjvjvTdzcB5HZMOHHi6WIXkENv8Eg
-	SSfGXFR8JqzwsuBPUBt6XA1N06dvUcMz84+J5pBXboHYWAMlXokDWA8O1WqQm97bShRLACi++C+mI
-	UUcq60Ug==;
+	bh=6lU+d309m1dgEkaRwkKo+p/mcuam3wG5jQJvRlotMoE=; b=sQ2NyKgxOtsoMf15WWAlUdbtsk
+	P6PKau9qos5WV9efoPdpq37CPij3uUMuah3ZhENa+fgqACDfp7HqxA8lLiI43j/YABGwzz8vDzxEr
+	E9R4lNHrLw8Yi3wTNDWWsUXN8A7HuB31y1vI6UaYQfsrJMB9qJoJJ3nOQz4K+9f3+pE0VZeIzbfya
+	Ifb8XNJENsyl625e9rWAHm7bDmZsb1b6tZYzvJSysKKfwpWBmoCJR2ngqpJdsOQ7CyZlqxNgywFnJ
+	UMU/85EeyoCavZPISRjZwnCQUAp2WOe/AIipIROKSaXY6aJ+rtndb9djb52toIAaAEvxIrsNjE1gi
+	DlzM44nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Ydt-0000000EVee-3luM;
-	Fri, 18 Sep 2026 13:28:41 +0000
+	id 1x7Ydu-0000000EVg7-331q;
+	Fri, 18 Sep 2026 13:28:42 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Yds-0000000EVdr-3v1Y
+	id 1x7Ydt-0000000EVe5-1Gs8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 13:28:40 +0000
+	Fri, 18 Sep 2026 13:28:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 946D444001;
+	by sea.source.kernel.org (Postfix) with ESMTP id C326C447B8;
 	Fri, 18 Sep 2026 13:28:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 3B871C2BD01;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 63DBCC4DDE3;
 	Fri, 18 Sep 2026 13:28:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1789738120;
-	bh=Cm58DSIrb/G+4Sg0ytpzkm65yOH/0amB8MFdhlzrJbk=;
+	bh=VA0ltfojBdjXumfyMImupo7JuNTSs8tr9hpz2tUAHuU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=nsABvMcPFj6U9cBh9wnUasQiXopb2YYD3exd+sBPmTuIOoaI03j5qK3qSSh/zrSkR
-	 yrtJ9jr9uuXBxdVK4DW3cjpeWAQf5ZlDAk7k3yX38mE+t5QaYgi+7i6wqOFKt0qbfE
-	 BXcrPO7G6QHgNlQpQ61bPDp1xE8adS7sneEVW7A5skOuhZA44shds+0G+BZptRJdfs
-	 HvR+za2giQVoFyykBkxiAmZA7Puyx5VHXbwvfA/AbnRjLgOCUeDsRbLZQLcAj3MUEI
-	 ah0TmglUZl+YkuHD3UDpd0xXJuPIuft4glHtHckZoAabP0lsDMJj0+ladfiuKsuRgn
-	 xmSnR6/8ASA0w==
+	b=NjRGxQSctnL20Zo1PVgjSM0sCrkFob2xc82ZPDlGMEOzMTI+oectcHhZuJxRepcMA
+	 iw6zW0Qaxb6JoE1etl39rpVFgPOyYghaj5wZHFsJ2cQmVYnmSkX8QGS1sJQfw2RZ/2
+	 5OxHN/zPc2mAJqSRWyj8nw4ldVQA0AHd1mrRGnRkY5A9HWQ5SoQiDRLk8OJCP8nZcG
+	 cWa+oHw3J+oIta9TK5oAUkjOdGpInsbn5pdxyLL/AQdGzlJavaT8/Jv6KXitebAusf
+	 yK7QroxFMO9ItBTVBnJ7jaYCrhF4qL/AjODnRiqIHn8bizDyimYf/9+hOYwPN5drxN
+	 4OpQtgUL8IebA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1EBA2C982E0;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4DD6BC982E3;
 	Fri, 18 Sep 2026 13:28:40 +0000 (UTC)
 From: Michael Reeves via B4 Relay <devnull+michael.reeves077.gmail.com@kernel.org>
-Date: Fri, 18 Sep 2026 23:28:35 +1000
-Subject: [PATCH v3 05/10] mailbox: apple: Add DockChannel FIFO controller
+Date: Fri, 18 Sep 2026 23:28:38 +1000
+Subject: [PATCH v3 08/10] HID: apple: Add DockChannel HID transport driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260918-apple-mtp-keyboard-final-v3-5-e356464e454b@gmail.com>
+Message-Id: <20260918-apple-mtp-keyboard-final-v3-8-e356464e454b@gmail.com>
 References: <20260918-apple-mtp-keyboard-final-v3-0-e356464e454b@gmail.com>
 In-Reply-To: <20260918-apple-mtp-keyboard-final-v3-0-e356464e454b@gmail.com>
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
@@ -69,12 +69,12 @@ Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  Yureka Lilian <yureka@cyberchaos.dev>, Julian Braha <julianbraha@gmail.com>, 
  Sasha Finkelstein <k@chaosmail.tech>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789738118; l=14201;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789738118; l=34354;
  i=michael.reeves077@gmail.com; s=fedora-20260918;
  h=from:subject:message-id;
- bh=JfOc3mv53wX6q509C07iXDBxLQ9JoLzRgZnNsuIBQZs=;
- b=BShfkNGSEfn1l6Db3eJPY3AakwUDT8qB4h7LCcuRNij4b/i8BskHOCjGw/JMh8Kn2NWDl+fni
- b0NQ3n6IBSrDKGTMDW6Fxb0+0rDw4hNKhIx/M0Ir1t6LbUEQZ2uf8C5
+ bh=dfUipdGyjaZRYd9gva4/Kltd9TKrR4yYkqOCkYENvdw=;
+ b=EUuSnPtSBP3jcJvKLcyoeif/2fSf4MNrFqWITzN3DJU9i6m8QRqjcHckhBcvfjg1BehGgBNHT
+ 5CKsVID2H28AZIeAXnkG7+4Uwd82siszhtLgEPlU06EQYtU53pZy3x3
 X-Developer-Key: i=michael.reeves077@gmail.com; a=ed25519;
  pk=VJ0TvyQ9TvfzYZa908YSE9kpkjFLLD5luv0bERu+boc=
 X-Endpoint-Received: by B4 Relay for
@@ -97,501 +97,1287 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Michael Reeves <michael.reeves077@gmail.com>
 
-DockChannel is a hardware FIFO used by Apple coprocessors for
-low-latency byte-stream communication with the AP.
+Apple MTP exposes internal keyboard and trackpad interfaces over a HID
+transport carried by DockChannel.
 
-Add a mailbox controller that preallocates RX storage, tracks IRQ
-enable state in software, and reports TX completion from the TX-empty
-interrupt.
+Add a transport driver that boots the MTP RTKit coprocessor, exchanges
+HID packets through the DockChannel mailbox, and registers child HID
+interfaces from devicetree.
 
-Reject messages larger than the FIFO and return -EBUSY while the
-previous message is still pending. This keeps the provider usable for
-future small-message clients such as serial transports without a TX
-worker.
+Use the presence of an STM child node to decide whether to wait for
+shared device identifiers. Machines without STM can register their
+keyboard without waiting for an interface that never appears. Only
+interfaces described by available child nodes are instantiated.
 
-Handle RX and TX interrupts in a thread so mailbox callbacks and locking
-run outside hard-IRQ context.
+On removal or failed probe, stop queueing reports, drain packet and
+device-creation work, and destroy HID devices. Keep command
+acknowledgements flowing until outstanding users have finished, then stop
+the coprocessor
+before releasing the mailbox.
+
+Publish initialized interfaces with release/acquire ordering and keep the
+first accepted descriptor stable. Bound report replies to the bytes copied
+and preserve the requested report type and transfer length.
 
 Co-developed-by: Hector Martin <marcan@marcan.st>
 Signed-off-by: Hector Martin <marcan@marcan.st>
 Signed-off-by: Michael Reeves <michael.reeves077@gmail.com>
 ---
- MAINTAINERS                               |   2 +
- drivers/mailbox/Kconfig                   |  12 +
- drivers/mailbox/Makefile                  |   2 +
- drivers/mailbox/apple-dockchannel.c       | 372 ++++++++++++++++++++++++++++++
- include/linux/mailbox/apple-dockchannel.h |  29 +++
- 5 files changed, 417 insertions(+)
+ MAINTAINERS                         |    1 +
+ drivers/hid/Kconfig                 |    2 +
+ drivers/hid/Makefile                |    2 +
+ drivers/hid/dockchannel/Kconfig     |   14 +
+ drivers/hid/dockchannel/Makefile    |    3 +
+ drivers/hid/dockchannel/apple-hid.c | 1177 +++++++++++++++++++++++++++++++++++
+ 6 files changed, 1199 insertions(+)
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 7fe2ebb5e..e5be5934c 100644
+index e5be5934c..fc20a2781 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -2677,6 +2677,7 @@ F:	drivers/input/touchscreen/apple_z2.c
- F:	drivers/iommu/apple-dart.c
- F:	drivers/iommu/io-pgtable-dart.c
- F:	drivers/irqchip/irq-apple-aic.c
-+F:	drivers/mailbox/apple-dockchannel.c
- F:	drivers/mfd/macsmc.c
- F:	drivers/nvme/host/apple.c
- F:	drivers/nvmem/apple-efuses.c
-@@ -2695,6 +2696,7 @@ F:	drivers/video/backlight/apple_dwi_bl.c
- F:	drivers/watchdog/apple_wdt.c
- F:	include/dt-bindings/interrupt-controller/apple-aic.h
- F:	include/dt-bindings/pinctrl/apple.h
-+F:	include/linux/mailbox/apple-dockchannel.h
- F:	include/linux/mfd/macsmc.h
- F:	include/linux/soc/apple/*
- F:	include/uapi/drm/asahi_drm.h
-diff --git a/drivers/mailbox/Kconfig b/drivers/mailbox/Kconfig
-index ab869769e..503d3286f 100644
---- a/drivers/mailbox/Kconfig
-+++ b/drivers/mailbox/Kconfig
-@@ -36,6 +36,18 @@ config ARM_MHU_V3
- 	  that provides different means of transports: supported extensions
- 	  will be discovered and possibly managed at probe-time.
+@@ -2669,6 +2669,7 @@ F:	drivers/clk/clk-apple-nco.c
+ F:	drivers/cpufreq/apple-soc-cpufreq.c
+ F:	drivers/dma/apple-admac.c
+ F:	drivers/gpio/gpio-macsmc.c
++F:	drivers/hid/dockchannel/
+ F:	drivers/hwmon/macsmc-hwmon.c
+ F:	drivers/pmdomain/apple/
+ F:	drivers/i2c/busses/i2c-pasemi-core.c
+diff --git a/drivers/hid/Kconfig b/drivers/hid/Kconfig
+index a81bf51cb..fb8def311 100644
+--- a/drivers/hid/Kconfig
++++ b/drivers/hid/Kconfig
+@@ -1534,6 +1534,8 @@ source "drivers/hid/surface-hid/Kconfig"
  
-+config APPLE_DOCKCHANNEL
-+	tristate "Apple DockChannel FIFO mailbox"
-+	depends on ARCH_APPLE || COMPILE_TEST
-+	depends on HAS_IOMEM
+ source "drivers/hid/intel-thc-hid/Kconfig"
+ 
++source "drivers/hid/dockchannel/Kconfig"
++
+ endif # HID
+ 
+ # USB support may be used with HID disabled
+diff --git a/drivers/hid/Makefile b/drivers/hid/Makefile
+index 48a863b24..e889bd37b 100644
+--- a/drivers/hid/Makefile
++++ b/drivers/hid/Makefile
+@@ -184,3 +184,5 @@ obj-$(CONFIG_AMD_SFH_HID)       += amd-sfh-hid/
+ obj-$(CONFIG_SURFACE_HID_CORE)  += surface-hid/
+ 
+ obj-$(CONFIG_INTEL_THC_HID)     += intel-thc-hid/
++
++obj-$(CONFIG_APPLE_DOCKCHANNEL_HID)	+= dockchannel/
+diff --git a/drivers/hid/dockchannel/Kconfig b/drivers/hid/dockchannel/Kconfig
+new file mode 100644
+index 000000000..aeb4e4edf
+--- /dev/null
++++ b/drivers/hid/dockchannel/Kconfig
+@@ -0,0 +1,14 @@
++# SPDX-License-Identifier: GPL-2.0-only OR MIT
++
++config APPLE_DOCKCHANNEL_HID
++	tristate "HID over Apple DockChannel"
++	depends on APPLE_DOCKCHANNEL
++	depends on APPLE_RTKIT
++	depends on INPUT
 +	depends on OF
 +	help
-+	  DockChannel is a hardware FIFO used on Apple Silicon SoCs for
-+	  communication between the application processor and co-processors.
-+	  This driver exposes DockChannel FIFOs through the mailbox framework.
++	  This provides a HID transport layer over the Apple DockChannel
++	  mailbox interface. It is required to support the internal keyboard
++	  and trackpad on M2 and later MacBook models.
 +
 +	  Say Y here if you have an M2 or later Apple MacBook.
-+
- config AST2700_MBOX
- 	tristate "ASPEED AST2700 IPC driver"
- 	depends on ARCH_ASPEED || COMPILE_TEST
-diff --git a/drivers/mailbox/Makefile b/drivers/mailbox/Makefile
-index 45dc59bb3..61b15fe45 100644
---- a/drivers/mailbox/Makefile
-+++ b/drivers/mailbox/Makefile
-@@ -11,6 +11,8 @@ obj-$(CONFIG_ARM_MHU_V2)	+= arm_mhuv2.o
- 
- obj-$(CONFIG_ARM_MHU_V3)	+= arm_mhuv3.o
- 
-+obj-$(CONFIG_APPLE_DOCKCHANNEL)	+= apple-dockchannel.o
-+
- obj-$(CONFIG_AST2700_MBOX)	+= ast2700-mailbox.o
- 
- obj-$(CONFIG_CV1800_MBOX)	+= cv1800-mailbox.o
-diff --git a/drivers/mailbox/apple-dockchannel.c b/drivers/mailbox/apple-dockchannel.c
+diff --git a/drivers/hid/dockchannel/Makefile b/drivers/hid/dockchannel/Makefile
 new file mode 100644
-index 000000000..a99b8dad0
+index 000000000..d1a82aa57
 --- /dev/null
-+++ b/drivers/mailbox/apple-dockchannel.c
-@@ -0,0 +1,372 @@
++++ b/drivers/hid/dockchannel/Makefile
+@@ -0,0 +1,3 @@
++# SPDX-License-Identifier: GPL-2.0-only OR MIT
++
++obj-$(CONFIG_APPLE_DOCKCHANNEL_HID)	+= apple-hid.o
+diff --git a/drivers/hid/dockchannel/apple-hid.c b/drivers/hid/dockchannel/apple-hid.c
+new file mode 100644
+index 000000000..1966dc6aa
+--- /dev/null
++++ b/drivers/hid/dockchannel/apple-hid.c
+@@ -0,0 +1,1177 @@
 +// SPDX-License-Identifier: GPL-2.0-only OR MIT
 +/*
-+ * Apple DockChannel mailbox controller
++ * Apple DockChannel HID transport driver
 + *
 + * Copyright The Asahi Linux Contributors
-+ *
-+ * DockChannel is a byte FIFO used by Apple co-processors. This driver exposes a
-+ * single FIFO pair as a Linux mailbox channel and moves payload bytes with PIO.
-+ * There is no DMA involved, so relaxed MMIO accessors are sufficient for the
-+ * FIFO accesses themselves.
 + */
 +
++#include <linux/bitfield.h>
++#include <linux/completion.h>
++#include <linux/ctype.h>
++#include <linux/delay.h>
 +#include <linux/device.h>
-+#include <linux/interrupt.h>
++#include <linux/dma-mapping.h>
++#include <linux/hid.h>
 +#include <linux/io.h>
 +#include <linux/mailbox/apple-dockchannel.h>
-+#include <linux/mailbox_controller.h>
++#include <linux/mailbox_client.h>
 +#include <linux/module.h>
++#include <linux/mutex.h>
 +#include <linux/of.h>
 +#include <linux/platform_device.h>
++#include <linux/property.h>
++#include <linux/slab.h>
++#include <linux/soc/apple/rtkit.h>
 +#include <linux/spinlock.h>
++#include <linux/string.h>
 +#include <linux/unaligned.h>
++#include <linux/workqueue.h>
 +
-+#define APPLE_DOCKCHANNEL_FIFO_SIZE	0x800
++#define APPLE_ASC_CPU_CONTROL		0x44
++#define APPLE_ASC_CPU_CONTROL_RUN	BIT(4)
 +
-+#define IRQ_MASK			0x0
-+#define IRQ_FLAG			0x4
++#define COMMAND_TIMEOUT_MS	1000
++#define START_TIMEOUT_MS	2000
 +
-+#define IRQ_TX				BIT(2)
-+#define IRQ_RX				BIT(3)
++#define MAX_INTERFACES		16
 +
-+#define CONFIG_TX_THRESH		0x0
-+#define CONFIG_RX_THRESH		0x4
++#define DCHID_MAX_PAYLOAD	0xffff
++#define DCHID_CHECKSUM_LEN	4
++#define DCHID_RX_BUF_SIZE	(sizeof(struct dchid_hdr) + DCHID_MAX_PAYLOAD + \
++				 DCHID_CHECKSUM_LEN)
 +
-+#define DATA_TX8			0x4
-+#define DATA_TX32			0x10
-+#define DATA_TX_FREE			0x14
-+#define DATA_RX8			0x1c
-+#define DATA_RX32			0x28
-+#define DATA_RX_COUNT			0x2c
++#define DCHID_CHANNEL_CMD	0x11
++#define DCHID_CHANNEL_REPORT	0x12
++#define DCHID_CHECKSUM_SEED	0xffffffff
 +
-+struct apple_dockchannel {
-+	struct device *dev;
-+	struct mbox_controller controller;
-+	struct mbox_chan chan;
++struct dchid_hdr {
++	u8 hdr_len;
++	u8 channel;
++	__le16 length;
++	u8 seq;
++	u8 iface;
++	__le16 pad;
++} __packed;
 +
-+	void __iomem *irq_base;
-+	void __iomem *config_base;
-+	void __iomem *data_base;
-+	int irq;
++#define IFACE_COMM	0
 +
-+	spinlock_t lock; /* protects IRQ mask and TX state */
-+	u32 irq_mask;
++#define FLAGS_GROUP	GENMASK(7, 6)
++#define FLAGS_REQ	GENMASK(5, 0)
 +
-+	const u8 *tx_buf;
-+	size_t tx_len;
-+	size_t tx_pos;
-+	bool tx_active;
++#define REQ_SET_REPORT	0
++#define REQ_GET_REPORT	1
 +
-+	u8 rx_buf[APPLE_DOCKCHANNEL_FIFO_SIZE];
++struct dchid_subhdr {
++	u8 flags;
++	u8 unk;
++	__le16 length;
++	__le32 retcode;
++} __packed;
++
++#define EVENT_INIT	0xf0
++#define EVENT_READY	0xf1
++
++struct dchid_init_hdr {
++	u8 type;
++	u8 unk1;
++	u8 unk2;
++	u8 iface;
++	char name[16];
++	u8 more_packets;
++	u8 unkpad;
++} __packed;
++
++#define INIT_HID_DESCRIPTOR	0
++#define INIT_TERMINATOR		2
++#define INIT_PRODUCT_NAME	7
++
++#define CMD_RESET_INTERFACE	0x40
++#define CMD_RESET_INTERFACE_SUB	1
++#define CMD_ENABLE_INTERFACE	0xb4
++
++struct dchid_init_block_hdr {
++	__le16 type;
++	__le16 length;
++} __packed;
++
++#define STM_REPORT_ID		0x10
++#define STM_REPORT_SERIAL	0x11
++
++struct dchid_stm_id {
++	u8 unk;
++	__le16 vendor_id;
++	__le16 product_id;
++	__le16 version_number;
++	u8 unk2;
++	u8 unk3;
++	u8 keyboard_type;
++	u8 serial_length;
++	/* Serial follows, but we grab it with a different report. */
++} __packed;
++
++struct dchid_work {
++	struct work_struct work;
++	struct dchid_iface *iface;
++
++	struct dchid_hdr hdr;
++	u8 data[];
 +};
 +
-+static void apple_dockchannel_irq_update(struct apple_dockchannel *dc,
-+					 u32 bits, bool enable)
++struct dchid_iface {
++	struct dchid_dev *dchid;
++	struct hid_device *hid;
++	struct workqueue_struct *wq;
++
++	bool creating;
++	struct work_struct create_work;
++
++	int index;
++	const char *name;
++	struct fwnode_handle *fwnode;
++
++	u8 tx_seq;
++	bool deferred;
++	bool starting;
++	bool open;
++	struct completion ready;
++
++	void *hid_desc;
++	size_t hid_desc_len;
++
++	/* Lock for command submission state below */
++	spinlock_t out_lock;
++	u32 out_flags;
++	int out_report;
++	u32 retcode;
++	void *resp_buf;
++	size_t resp_size;
++	struct completion out_complete;
++};
++
++struct dchid_dev {
++	struct device *dev;
++	struct mbox_client dc_mbox_client;
++	struct mbox_chan *dc_mbox;
++
++	struct apple_rtkit *rtk;
++	void __iomem *asc_base;
++	void __iomem *sram_base;
++	struct resource sram_res;
++
++	bool id_ready;
++	struct dchid_stm_id device_id;
++	char serial[64];
++
++	u8 *rx_buf;
++	size_t rx_len;
++	spinlock_t rx_lock; /* serializes report queueing with teardown */
++	bool stopping;
++
++	struct dchid_iface *comm;
++	struct mutex ifaces_lock; /* protects ifaces array */
++	struct dchid_iface *ifaces[MAX_INTERFACES];
++
++	/* Workqueue to asynchronously create HID devices */
++	struct workqueue_struct *new_iface_wq;
++};
++
++static void dchid_destroy_wq(void *data)
 +{
-+	if (enable)
-+		dc->irq_mask |= bits;
-+	else
-+		dc->irq_mask &= ~bits;
-+	writel_relaxed(dc->irq_mask, dc->irq_base + IRQ_MASK);
++	struct workqueue_struct *wq = data;
++
++	destroy_workqueue(wq);
 +}
 +
-+static void apple_dockchannel_irq_enable(struct apple_dockchannel *dc, u32 bits)
++static void dchid_fwnode_release(void *data)
 +{
-+	/*
-+	 * IRQ_FLAG is write-to-clear. Clear stale latched flags before
-+	 * unmasking so the next interrupt reflects current FIFO state.
-+	 */
-+	writel_relaxed(bits, dc->irq_base + IRQ_FLAG);
-+	apple_dockchannel_irq_update(dc, bits, true);
++	fwnode_handle_put(data);
 +}
 +
-+static void apple_dockchannel_irq_disable(struct apple_dockchannel *dc, u32 bits)
++static u32 dchid_checksum(const void *data, size_t len)
 +{
-+	apple_dockchannel_irq_update(dc, bits, false);
-+}
++	const u8 *p = data;
++	u32 sum = 0;
++	int i;
 +
-+static bool apple_dockchannel_tx_empty(struct apple_dockchannel *dc)
-+{
-+	return readl_relaxed(dc->data_base + DATA_TX_FREE) ==
-+	       APPLE_DOCKCHANNEL_FIFO_SIZE;
-+}
-+
-+static void apple_dockchannel_write_pending(struct apple_dockchannel *dc)
-+{
-+	size_t left = dc->tx_len - dc->tx_pos;
-+	const u8 *p = dc->tx_buf + dc->tx_pos;
-+
-+	while (left) {
-+		size_t avail;
-+		size_t block;
-+
-+		avail = readl_relaxed(dc->data_base + DATA_TX_FREE);
-+		if (!avail)
-+			break;
-+
-+		block = min(left, avail);
-+
-+		while (block >= sizeof(u32)) {
-+			writel_relaxed(get_unaligned_le32(p),
-+				       dc->data_base + DATA_TX32);
-+			p += sizeof(u32);
-+			left -= sizeof(u32);
-+			block -= sizeof(u32);
-+		}
-+
-+		/* TX data is in bits [7:0]; RX uses those bits for the count. */
-+		while (block) {
-+			writel_relaxed(*p++, dc->data_base + DATA_TX8);
-+			left--;
-+			block--;
-+		}
-+	}
-+
-+	dc->tx_pos = dc->tx_len - left;
-+}
-+
-+static void apple_dockchannel_read(struct apple_dockchannel *dc, void *buf,
-+				   size_t count)
-+{
-+	u8 *p = buf;
-+	size_t left = count;
-+
-+	while (left >= sizeof(u32)) {
-+		put_unaligned_le32(readl_relaxed(dc->data_base + DATA_RX32), p);
++	while (len >= sizeof(u32)) {
++		sum += get_unaligned_le32(p);
 +		p += sizeof(u32);
-+		left -= sizeof(u32);
++		len -= sizeof(u32);
 +	}
 +
-+	while (left) {
-+		/*
-+		 * The byte FIFO register returns the byte in bits [15:8] on
-+		 * these instances.
-+		 */
-+		*p++ = readl_relaxed(dc->data_base + DATA_RX8) >> 8;
-+		left--;
++	if (len) {
++		u32 tmp = 0;
++
++		for (i = 0; i < len; i++)
++			tmp |= p[i] << (i * 8);
++		sum += tmp;
 +	}
++
++	return sum;
 +}
 +
-+static int apple_dockchannel_send_data(struct mbox_chan *chan, void *data)
-+{
-+	struct apple_dockchannel *dc = chan->con_priv;
-+	struct apple_dockchannel_msg *msg = data;
-+	unsigned long flags;
++static void dchid_create_interface_work(struct work_struct *ws);
 +
-+	if (!msg || !msg->data || !msg->len)
++static struct dchid_iface *
++dchid_get_interface(struct dchid_dev *dchid, int index, const char *name)
++{
++	struct dchid_iface *iface;
++	struct fwnode_handle *fwnode = NULL;
++	int ret;
++
++	if (index >= MAX_INTERFACES) {
++		dev_err(dchid->dev, "interface index %d out of range\n", index);
++		return NULL;
++	}
++
++	mutex_lock(&dchid->ifaces_lock);
++	if (dchid->ifaces[index]) {
++		iface = dchid->ifaces[index];
++		mutex_unlock(&dchid->ifaces_lock);
++		return iface;
++	}
++
++	if (strcmp(name, "comm")) {
++		fwnode = device_get_named_child_node(dchid->dev, name);
++		if (!fwnode || !fwnode_device_is_available(fwnode))
++			goto err_put_fwnode;
++	}
++
++	iface = devm_kzalloc(dchid->dev, sizeof(*iface), GFP_KERNEL);
++	if (!iface)
++		goto err_put_fwnode;
++
++	iface->index = index;
++	iface->name = devm_kstrdup(dchid->dev, name, GFP_KERNEL);
++	if (!iface->name)
++		goto err_put_fwnode;
++
++	iface->dchid = dchid;
++	iface->out_report = -1;
++	init_completion(&iface->out_complete);
++	init_completion(&iface->ready);
++	INIT_WORK(&iface->create_work, dchid_create_interface_work);
++	spin_lock_init(&iface->out_lock);
++
++	iface->wq = alloc_ordered_workqueue("dchid-%s", 0, iface->name);
++	if (!iface->wq)
++		goto err_put_fwnode;
++
++	ret = devm_add_action_or_reset(dchid->dev, dchid_destroy_wq, iface->wq);
++	if (ret)
++		goto err_put_fwnode;
++
++	/* Comm is not a HID subdevice. */
++	if (!strcmp(name, "comm"))
++		goto publish;
++
++	iface->fwnode = fwnode;
++	ret = devm_add_action_or_reset(dchid->dev, dchid_fwnode_release,
++				       iface->fwnode);
++	if (ret)
++		goto err_unlock;
++
++publish:
++	/* Publish initialization to the lockless RX reader. */
++	smp_store_release(&dchid->ifaces[index], iface);
++	mutex_unlock(&dchid->ifaces_lock);
++	return iface;
++
++err_put_fwnode:
++	fwnode_handle_put(fwnode);
++err_unlock:
++	mutex_unlock(&dchid->ifaces_lock);
++	return NULL;
++}
++
++static int dchid_send(struct dchid_iface *iface, u32 flags, const void *msg,
++		      size_t size)
++{
++	struct dchid_dev *dchid = iface->dchid;
++	size_t payload_padded = round_up(size, sizeof(u32));
++	size_t total_len = sizeof(struct dchid_hdr) + sizeof(struct dchid_subhdr) +
++			   payload_padded + DCHID_CHECKSUM_LEN;
++	struct apple_dockchannel_msg dc_msg;
++	struct dchid_hdr *hdr;
++	struct dchid_subhdr *sub;
++	__le32 *checksum_ptr;
++	u8 *buf;
++	int ret;
++
++	if (total_len > DCHID_RX_BUF_SIZE)
 +		return -EINVAL;
 +
-+	if (msg->len > APPLE_DOCKCHANNEL_FIFO_SIZE)
-+		return -EMSGSIZE;
++	buf = kzalloc(total_len, GFP_KERNEL);
++	if (!buf)
++		return -ENOMEM;
 +
-+	spin_lock_irqsave(&dc->lock, flags);
++	hdr = (struct dchid_hdr *)buf;
++	sub = (struct dchid_subhdr *)(buf + sizeof(*hdr));
++	checksum_ptr = (__le32 *)(buf + total_len - DCHID_CHECKSUM_LEN);
 +
-+	if (dc->tx_active || !apple_dockchannel_tx_empty(dc)) {
-+		spin_unlock_irqrestore(&dc->lock, flags);
++	hdr->hdr_len = sizeof(*hdr);
++	hdr->channel = DCHID_CHANNEL_CMD;
++	hdr->length = cpu_to_le16(payload_padded + sizeof(*sub));
++	hdr->seq = iface->tx_seq;
++	hdr->iface = iface->index;
++
++	sub->flags = (u8)flags;
++	sub->length = cpu_to_le16(size);
++
++	memcpy(buf + sizeof(*hdr) + sizeof(*sub), msg, size);
++
++	*checksum_ptr = cpu_to_le32(DCHID_CHECKSUM_SEED -
++				   dchid_checksum(buf, total_len - DCHID_CHECKSUM_LEN));
++
++	dc_msg.data = buf;
++	dc_msg.len = total_len;
++	ret = mbox_send_message(dchid->dc_mbox, &dc_msg);
++	kfree(buf);
++
++	return ret < 0 ? ret : 0;
++}
++
++static int dchid_cmd(struct dchid_iface *iface, u32 type, u32 req,
++		     void *data, size_t size, void *resp_buf, size_t resp_size)
++{
++	unsigned long flags;
++	int ret;
++	int report_id;
++	bool timed_out = false;
++	u32 out_flags;
++
++	if (size < 1)
++		return -EINVAL;
++
++	report_id = *(u8 *)data;
++	out_flags = FIELD_PREP(FLAGS_GROUP, type) | FIELD_PREP(FLAGS_REQ, req);
++
++	spin_lock_irqsave(&iface->out_lock, flags);
++
++	/* Only one command can be in flight per interface */
++	if (WARN_ON(iface->out_report != -1)) {
++		spin_unlock_irqrestore(&iface->out_lock, flags);
 +		return -EBUSY;
 +	}
 +
-+	dc->tx_buf = msg->data;
-+	dc->tx_len = msg->len;
-+	dc->tx_pos = 0;
-+	dc->tx_active = true;
++	iface->out_report = report_id;
++	iface->out_flags = out_flags;
++	iface->retcode = 0;
++	iface->resp_buf = resp_buf;
++	iface->resp_size = resp_size;
++	reinit_completion(&iface->out_complete);
 +
-+	apple_dockchannel_write_pending(dc);
-+	writel_relaxed(APPLE_DOCKCHANNEL_FIFO_SIZE,
-+		       dc->config_base + CONFIG_TX_THRESH);
-+	apple_dockchannel_irq_enable(dc, IRQ_TX);
++	spin_unlock_irqrestore(&iface->out_lock, flags);
 +
-+	spin_unlock_irqrestore(&dc->lock, flags);
++	ret = dchid_send(iface, out_flags, data, size);
++	if (ret < 0) {
++		spin_lock_irqsave(&iface->out_lock, flags);
++		iface->out_report = -1;
++		iface->resp_buf = NULL;
++		iface->resp_size = 0;
++		spin_unlock_irqrestore(&iface->out_lock, flags);
++		return ret;
++	}
++
++	if (!wait_for_completion_timeout(&iface->out_complete,
++					 msecs_to_jiffies(COMMAND_TIMEOUT_MS))) {
++		dev_err(iface->dchid->dev, "command 0x%x to iface %d (%s) timed out\n",
++			report_id, iface->index, iface->name);
++		timed_out = true;
++	}
++
++	spin_lock_irqsave(&iface->out_lock, flags);
++
++	if (timed_out && iface->out_report == report_id) {
++		ret = -ETIMEDOUT;
++	} else if (iface->retcode) {
++		dev_err(iface->dchid->dev,
++			"command 0x%x to iface %d (%s) failed with err 0x%x\n",
++			report_id, iface->index, iface->name, iface->retcode);
++		ret = -EIO;
++	} else {
++		ret = iface->resp_size;
++	}
++
++	iface->tx_seq++;
++	iface->out_report = -1;
++	iface->resp_buf = NULL;
++	iface->resp_size = 0;
++	spin_unlock_irqrestore(&iface->out_lock, flags);
++
++	return ret;
++}
++
++static int dchid_comm_cmd(struct dchid_dev *dchid, void *cmd, size_t size)
++{
++	return dchid_cmd(dchid->comm, HID_FEATURE_REPORT, REQ_SET_REPORT,
++			 cmd, size, NULL, 0);
++}
++
++static int dchid_enable_interface(struct dchid_iface *iface)
++{
++	u8 cmd[] = { CMD_ENABLE_INTERFACE, iface->index };
++
++	return dchid_comm_cmd(iface->dchid, cmd, sizeof(cmd));
++}
++
++static int dchid_reset_interface(struct dchid_iface *iface, int state)
++{
++	u8 cmd[] = { CMD_RESET_INTERFACE, CMD_RESET_INTERFACE_SUB, iface->index,
++		     (u8)state };
++
++	return dchid_comm_cmd(iface->dchid, cmd, sizeof(cmd));
++}
++
++static int dchid_start_interface(struct dchid_iface *iface)
++{
++	if (iface->starting)
++		return -EINPROGRESS;
++
++	dev_dbg(iface->dchid->dev, "starting interface %s\n", iface->name);
++
++	iface->starting = true;
++	dchid_reset_interface(iface, 0);
++	dchid_reset_interface(iface, 2);
 +
 +	return 0;
 +}
 +
-+static int apple_dockchannel_startup(struct mbox_chan *chan)
++static int dchid_start(struct hid_device *hdev)
 +{
-+	struct apple_dockchannel *dc = chan->con_priv;
-+	unsigned long flags;
-+
-+	spin_lock_irqsave(&dc->lock, flags);
-+	/*
-+	 * The mailbox framework has no per-client RX threshold. Use byte
-+	 * granularity because UART-style DockChannel clients require it.
-+	 */
-+	writel_relaxed(1, dc->config_base + CONFIG_RX_THRESH);
-+	apple_dockchannel_irq_enable(dc, IRQ_RX);
-+	spin_unlock_irqrestore(&dc->lock, flags);
-+
-+	enable_irq(dc->irq);
-+
 +	return 0;
 +}
 +
-+static void apple_dockchannel_shutdown(struct mbox_chan *chan)
++static void dchid_stop(struct hid_device *hdev)
 +{
-+	struct apple_dockchannel *dc = chan->con_priv;
-+	unsigned long flags;
-+
-+	disable_irq(dc->irq);
-+
-+	spin_lock_irqsave(&dc->lock, flags);
-+	apple_dockchannel_irq_disable(dc, IRQ_TX | IRQ_RX);
-+	dc->tx_active = false;
-+	spin_unlock_irqrestore(&dc->lock, flags);
 +}
 +
-+static const struct mbox_chan_ops apple_dockchannel_mbox_ops = {
-+	.send_data = apple_dockchannel_send_data,
-+	.startup = apple_dockchannel_startup,
-+	.shutdown = apple_dockchannel_shutdown,
-+};
-+
-+static irqreturn_t apple_dockchannel_irq_thread(int irq, void *data)
++static int dchid_open(struct hid_device *hdev)
 +{
-+	struct apple_dockchannel *dc = data;
-+	unsigned long irqflags;
-+	u32 flags;
-+	u32 pending;
-+	bool tx_done = false;
++	struct dchid_iface *iface = hdev->driver_data;
++	int ret;
 +
-+	flags = readl_relaxed(dc->irq_base + IRQ_FLAG);
++	if (!completion_done(&iface->ready)) {
++		ret = dchid_start_interface(iface);
++		if (ret < 0)
++			return ret;
 +
-+	spin_lock_irqsave(&dc->lock, irqflags);
-+
-+	pending = flags & dc->irq_mask & (IRQ_TX | IRQ_RX);
-+	if (!pending)
-+		goto out_unlock_none;
-+
-+	if (pending & IRQ_TX) {
-+		if (apple_dockchannel_tx_empty(dc)) {
-+			apple_dockchannel_irq_disable(dc, IRQ_TX);
-+			tx_done = dc->tx_active;
-+			dc->tx_active = false;
-+		} else {
-+			pending &= ~IRQ_TX;
++		if (!wait_for_completion_timeout(&iface->ready,
++						 msecs_to_jiffies(START_TIMEOUT_MS))) {
++			dev_err(iface->dchid->dev, "iface %s start timed out\n",
++				iface->name);
++			return -ETIMEDOUT;
 +		}
 +	}
 +
-+	writel_relaxed(pending, dc->irq_base + IRQ_FLAG);
-+
-+	spin_unlock_irqrestore(&dc->lock, irqflags);
-+
-+	if (tx_done)
-+		mbox_chan_txdone(&dc->chan, 0);
-+
-+	if (!(pending & IRQ_RX))
-+		return pending ? IRQ_HANDLED : IRQ_NONE;
-+
-+	for (;;) {
-+		struct apple_dockchannel_msg msg;
-+		size_t avail;
-+
-+		avail = readl_relaxed(dc->data_base + DATA_RX_COUNT);
-+		if (!avail)
-+			break;
-+
-+		avail = min_t(size_t, avail, APPLE_DOCKCHANNEL_FIFO_SIZE);
-+
-+		apple_dockchannel_read(dc, dc->rx_buf, avail);
-+
-+		msg.data = dc->rx_buf;
-+		msg.len = avail;
-+		mbox_chan_received_data(&dc->chan, &msg);
-+	}
-+
-+	return IRQ_HANDLED;
-+
-+out_unlock_none:
-+	spin_unlock_irqrestore(&dc->lock, irqflags);
-+
-+	if (flags & (IRQ_TX | IRQ_RX))
-+		writel_relaxed(flags & (IRQ_TX | IRQ_RX),
-+			       dc->irq_base + IRQ_FLAG);
-+
-+	return IRQ_NONE;
++	iface->open = true;
++	return 0;
 +}
 +
-+static struct mbox_chan *
-+apple_dockchannel_of_xlate(struct mbox_controller *mbox,
-+			   const struct of_phandle_args *spec)
++static void dchid_close(struct hid_device *hdev)
 +{
-+	if (spec->args_count != 0)
-+		return ERR_PTR(-EINVAL);
++	struct dchid_iface *iface = hdev->driver_data;
 +
-+	return &mbox->chans[0];
++	iface->open = false;
 +}
 +
-+static int apple_dockchannel_probe(struct platform_device *pdev)
++static int dchid_parse(struct hid_device *hdev)
 +{
-+	struct device *dev = &pdev->dev;
-+	struct apple_dockchannel *dc;
++	struct dchid_iface *iface = hdev->driver_data;
++
++	return hid_parse_report(hdev, iface->hid_desc, iface->hid_desc_len);
++}
++
++/* Note: buf excludes report number. */
++static int dchid_get_report_cmd(struct dchid_iface *iface, u8 reportnum,
++				void *buf, size_t len)
++{
 +	int ret;
 +
-+	dc = devm_kzalloc(dev, sizeof(*dc), GFP_KERNEL);
-+	if (!dc)
-+		return -ENOMEM;
++	ret = dchid_cmd(iface, HID_FEATURE_REPORT, REQ_GET_REPORT, &reportnum, 1,
++			buf, len);
 +
-+	dc->dev = dev;
-+	spin_lock_init(&dc->lock);
-+	platform_set_drvdata(pdev, dc);
++	return ret <= 0 ? ret : ret - 1;
++}
 +
-+	dc->irq_base = devm_platform_ioremap_resource_byname(pdev, "irq");
-+	if (IS_ERR(dc->irq_base))
-+		return PTR_ERR(dc->irq_base);
++/* Note: buf includes report number. */
++static int dchid_set_report(struct dchid_iface *iface, void *buf, size_t len,
++			    unsigned char rtype)
++{
++	int ret;
 +
-+	dc->config_base = devm_platform_ioremap_resource_byname(pdev, "config");
-+	if (IS_ERR(dc->config_base))
-+		return PTR_ERR(dc->config_base);
++	ret = dchid_cmd(iface, rtype, REQ_SET_REPORT, buf, len, NULL, 0);
++	if (ret < 0)
++		return ret;
 +
-+	dc->data_base = devm_platform_ioremap_resource_byname(pdev, "data");
-+	if (IS_ERR(dc->data_base))
-+		return PTR_ERR(dc->data_base);
++	return len;
++}
 +
-+	writel_relaxed(0, dc->irq_base + IRQ_MASK);
-+	writel_relaxed(~0, dc->irq_base + IRQ_FLAG);
++static int dchid_raw_request(struct hid_device *hdev, unsigned char reportnum,
++			     __u8 *buf, size_t len, unsigned char rtype,
++			     int reqtype)
++{
++	struct dchid_iface *iface = hdev->driver_data;
 +
-+	dc->irq = platform_get_irq(pdev, 0);
-+	if (dc->irq < 0)
-+		return dc->irq;
++	switch (reqtype) {
++	case HID_REQ_GET_REPORT:
++		if (len < 1)
++			return -EINVAL;
 +
-+	ret = devm_request_threaded_irq(dev, dc->irq, NULL,
-+					apple_dockchannel_irq_thread, IRQF_ONESHOT,
-+					dev_name(dev), dc);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to request IRQ\n");
++		buf[0] = reportnum;
++		return dchid_cmd(iface, rtype, REQ_GET_REPORT, &reportnum, 1,
++				 buf + 1, len - 1);
++	case HID_REQ_SET_REPORT:
++		return dchid_set_report(iface, buf, len, rtype);
++	default:
++		return -EIO;
++	}
++}
 +
-+	disable_irq(dc->irq);
++static const struct hid_ll_driver dchid_ll = {
++	.start = dchid_start,
++	.stop = dchid_stop,
++	.open = dchid_open,
++	.close = dchid_close,
++	.parse = dchid_parse,
++	.raw_request = dchid_raw_request,
++};
 +
-+	dc->chan.con_priv = dc;
-+	dc->controller.dev = dev;
-+	dc->controller.ops = &apple_dockchannel_mbox_ops;
-+	dc->controller.chans = &dc->chan;
-+	dc->controller.num_chans = 1;
-+	dc->controller.txdone_irq = true;
-+	dc->controller.of_xlate = apple_dockchannel_of_xlate;
++static void dchid_create_interface_work(struct work_struct *ws)
++{
++	struct dchid_iface *iface = container_of(ws, struct dchid_iface, create_work);
++	struct dchid_dev *dchid = iface->dchid;
++	struct hid_device *hid;
++	char cap_name[16];
++	int ret;
 +
-+	ret = devm_mbox_controller_register(dev, &dc->controller);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to register mailbox\n");
++	if (READ_ONCE(dchid->stopping))
++		goto done;
++
++	if (iface->hid) {
++		dev_warn(dchid->dev, "interface %s already created\n", iface->name);
++		goto done;
++	}
++
++	ret = dchid_enable_interface(iface);
++	if (ret < 0) {
++		dev_warn(dchid->dev, "failed to enable %s: %d\n", iface->name, ret);
++		goto done;
++	}
++
++	iface->deferred = false;
++
++	hid = hid_allocate_device();
++	if (IS_ERR(hid))
++		goto done;
++
++	strscpy(cap_name, iface->name, sizeof(cap_name));
++	if (cap_name[0])
++		cap_name[0] = toupper(cap_name[0]);
++	snprintf(hid->name, sizeof(hid->name), "Apple DockChannel %s", cap_name);
++
++	snprintf(hid->phys, sizeof(hid->phys), "%s.%d", dev_name(dchid->dev),
++		 iface->index);
++	strscpy(hid->uniq, dchid->serial, sizeof(hid->uniq));
++
++	hid->ll_driver = &dchid_ll;
++	hid->bus = BUS_HOST;
++	hid->vendor = le16_to_cpu(dchid->device_id.vendor_id);
++	hid->product = le16_to_cpu(dchid->device_id.product_id);
++	hid->version = le16_to_cpu(dchid->device_id.version_number);
++	hid->type = HID_TYPE_OTHER;
++	if (!strcmp(iface->name, "keyboard")) {
++		u32 country_code;
++
++		hid->group = HID_GROUP_APPLE_DOCKCHANNEL;
++
++		/*
++		 * The device provides no reliable way to get the keyboard
++		 * country code, so board devicetrees provide it instead,
++		 * filled by the bootloader.
++		 */
++		if (!fwnode_property_read_u32(iface->fwnode, "hid-country-code",
++					      &country_code))
++			hid->country = country_code;
++	}
++
++	hid->dev.parent = iface->dchid->dev;
++	hid->driver_data = iface;
++	iface->hid = hid;
++
++	ret = hid_add_device(hid);
++	if (ret < 0) {
++		iface->hid = NULL;
++		hid_destroy_device(hid);
++		dev_warn(iface->dchid->dev, "failed to register HID device %s\n",
++			 iface->name);
++	}
++
++done:
++	iface->creating = false;
++}
++
++static int dchid_create_interface(struct dchid_iface *iface)
++{
++	if (iface->creating)
++		return -EBUSY;
++
++	iface->creating = true;
++	return queue_work(iface->dchid->new_iface_wq, &iface->create_work);
++}
++
++static void dchid_handle_descriptor(struct dchid_iface *iface, void *hid_desc,
++				    size_t desc_len)
++{
++	u8 *rdesc;
++	int i;
++
++	/* Keep the descriptor stable while creation and HID parsing run. */
++	if (iface->hid_desc)
++		return;
++
++	rdesc = devm_kmemdup(iface->dchid->dev, hid_desc, desc_len,
++			     GFP_KERNEL);
++	if (!rdesc)
++		return;
++
++	/* Fix up oversized report sizes in DockChannel report descriptors */
++	if (desc_len >= 5) {
++		for (i = 0; i <= (int)desc_len - 5; i++) {
++			if (rdesc[i] == 0x76 && rdesc[i + 1] == 0x00 &&
++			    rdesc[i + 2] == 0x40 && rdesc[i + 3] == 0x95) {
++				u8 count = rdesc[i + 4];
++
++				if (count > 0 && count < 32) {
++					dev_info(iface->dchid->dev,
++						 "fixing up interface %s (%d) report size\n",
++						 iface->name, iface->index);
++					rdesc[i] = 0x75;
++					rdesc[i + 1] = 0x08;
++					rdesc[i + 2] = 0x96;
++					rdesc[i + 3] = 0x00;
++					rdesc[i + 4] = count * 8;
++				}
++			}
++		}
++	}
++
++	iface->hid_desc = rdesc;
++	iface->hid_desc_len = desc_len;
++}
++
++static void dchid_handle_ready(struct dchid_dev *dchid, void *data, size_t length)
++{
++	struct dchid_iface *iface;
++	u8 *pkt = data;
++	u8 index;
++	int i;
++	int ret;
++
++	if (length < 2)
++		return;
++
++	index = pkt[1];
++	if (index >= MAX_INTERFACES)
++		return;
++
++	iface = dchid->ifaces[index];
++	if (!iface)
++		return;
++
++	dev_dbg(dchid->dev, "interface %s is now ready\n", iface->name);
++	complete_all(&iface->ready);
++
++	/* When STM is ready, grab global device info */
++	if (!strcmp(iface->name, "stm")) {
++		ret = dchid_get_report_cmd(iface, STM_REPORT_ID, &dchid->device_id,
++					   sizeof(dchid->device_id));
++		if (ret < (int)sizeof(dchid->device_id)) {
++			dev_warn(iface->dchid->dev, "failed to get device ID from STM\n");
++			/* Fake it and keep going. Things might still work. */
++			memset(&dchid->device_id, 0, sizeof(dchid->device_id));
++		}
++
++		ret = dchid_get_report_cmd(iface, STM_REPORT_SERIAL, dchid->serial,
++					   sizeof(dchid->serial) - 1);
++		if (ret < 0) {
++			dev_warn(iface->dchid->dev, "failed to get serial from STM\n");
++			dchid->serial[0] = 0;
++		} else {
++			dchid->serial[ret] = 0;
++		}
++
++		dchid->id_ready = true;
++		for (i = 0; i < MAX_INTERFACES; i++) {
++			if (!dchid->ifaces[i] || !dchid->ifaces[i]->deferred)
++				continue;
++			dchid_create_interface(dchid->ifaces[i]);
++		}
++	}
++}
++
++static void dchid_handle_init(struct dchid_dev *dchid, void *data, size_t length)
++{
++	struct dchid_init_hdr *hdr = data;
++	struct dchid_init_block_hdr *blk;
++	struct dchid_iface *iface;
++	u8 *p = data;
++
++	if (length < sizeof(*hdr))
++		return;
++
++	if (!memchr(hdr->name, 0, sizeof(hdr->name)))
++		return;
++
++	iface = dchid_get_interface(dchid, hdr->iface, hdr->name);
++	if (!iface)
++		return;
++
++	p += sizeof(*hdr);
++	length -= sizeof(*hdr);
++
++	while (length >= sizeof(*blk)) {
++		u16 blk_len;
++
++		blk = (struct dchid_init_block_hdr *)p;
++		p += sizeof(*blk);
++		length -= sizeof(*blk);
++
++		blk_len = le16_to_cpu(blk->length);
++		if (blk_len > length)
++			break;
++
++		switch (le16_to_cpu(blk->type)) {
++		case INIT_HID_DESCRIPTOR:
++			dchid_handle_descriptor(iface, p, blk_len);
++			break;
++		case INIT_PRODUCT_NAME:
++			if (blk_len > 0 && p[blk_len - 1] != 0)
++				dev_warn(dchid->dev, "unterminated product name for %s\n",
++					 iface->name);
++			break;
++		}
++
++		p += blk_len;
++		length -= blk_len;
++
++		if (le16_to_cpu(blk->type) == INIT_TERMINATOR)
++			break;
++	}
++
++	if (hdr->more_packets)
++		return;
++
++	/* Wait for the shared device IDs only on machines with an STM. */
++	if (dchid->id_ready || !strcmp(iface->name, "stm"))
++		dchid_create_interface(iface);
++	else
++		iface->deferred = true;
++}
++
++static void dchid_handle_event(struct dchid_dev *dchid, void *data, size_t length)
++{
++	u8 *p = data;
++
++	if (!length)
++		return;
++
++	switch (*p) {
++	case EVENT_INIT:
++		dchid_handle_init(dchid, data, length);
++		break;
++	case EVENT_READY:
++		dchid_handle_ready(dchid, data, length);
++		break;
++	}
++}
++
++static void dchid_handle_report(struct dchid_iface *iface, void *data, size_t length)
++{
++	if (!iface->hid || !iface->open)
++		return;
++
++	hid_input_report(iface->hid, HID_INPUT_REPORT, data, length, 1);
++}
++
++static void dchid_packet_work(struct work_struct *ws)
++{
++	struct dchid_work *work = container_of(ws, struct dchid_work, work);
++	struct dchid_subhdr *shdr = (void *)work->data;
++	struct dchid_dev *dchid = work->iface->dchid;
++	u16 hdr_len = le16_to_cpu(work->hdr.length);
++	u16 sub_len;
++	int type;
++	u8 *payload;
++
++	if (READ_ONCE(dchid->stopping))
++		goto done;
++
++	if (hdr_len < sizeof(*shdr)) {
++		dev_err(dchid->dev, "bad subheader length\n");
++		goto done;
++	}
++
++	sub_len = le16_to_cpu(shdr->length);
++	if (sub_len > hdr_len - sizeof(*shdr)) {
++		dev_err(dchid->dev, "bad subheader length\n");
++		goto done;
++	}
++
++	type = FIELD_GET(FLAGS_GROUP, shdr->flags);
++	payload = work->data + sizeof(*shdr);
++
++	switch (type) {
++	case HID_INPUT_REPORT:
++		if (work->hdr.iface == IFACE_COMM)
++			dchid_handle_event(dchid, payload, sub_len);
++		else
++			dchid_handle_report(work->iface, payload, sub_len);
++		break;
++	}
++
++done:
++	kfree(work);
++}
++
++static void dchid_handle_ack(struct dchid_iface *iface, struct dchid_hdr *hdr,
++			     void *data)
++{
++	struct dchid_subhdr *shdr = data;
++	u8 *payload = data + sizeof(*shdr);
++	u16 hdr_len = le16_to_cpu(hdr->length);
++	u16 sub_len = le16_to_cpu(shdr->length);
++	unsigned long flags;
++	bool complete_cmd = false;
++
++	if (hdr_len < sizeof(*shdr) || sub_len > hdr_len - sizeof(*shdr) ||
++	    sub_len < 1)
++		return;
++
++	spin_lock_irqsave(&iface->out_lock, flags);
++
++	if (shdr->flags == iface->out_flags && iface->tx_seq == hdr->seq &&
++	    iface->out_report == payload[0]) {
++		iface->resp_size = min_t(size_t, sub_len - 1, iface->resp_size);
++		if (iface->resp_buf && iface->resp_size)
++			memcpy(iface->resp_buf, payload + 1, iface->resp_size);
++
++		/* Command replies include the report ID, which the caller supplies. */
++		iface->resp_size++;
++		iface->out_report = -1;
++		iface->retcode = le32_to_cpu(shdr->retcode);
++		complete_cmd = true;
++	}
++
++	spin_unlock_irqrestore(&iface->out_lock, flags);
++
++	if (complete_cmd)
++		complete(&iface->out_complete);
++}
++
++static void dchid_process_packet(struct dchid_dev *dchid, struct dchid_hdr *hdr,
++				 u8 *payload, size_t payload_len, u8 *packet,
++				 size_t packet_len)
++{
++	struct dchid_work *work;
++	struct dchid_iface *iface;
++	unsigned long flags;
++
++	if (dchid_checksum(packet, packet_len) != DCHID_CHECKSUM_SEED) {
++		dev_err_ratelimited(dchid->dev, "checksum error\n");
++		return;
++	}
++
++	if (payload_len < sizeof(struct dchid_subhdr))
++		return;
++
++	if (hdr->iface >= MAX_INTERFACES)
++		return;
++
++	/* Pair with publication after interface initialization. */
++	iface = smp_load_acquire(&dchid->ifaces[hdr->iface]);
++	if (!iface)
++		return;
++
++	if (hdr->channel == DCHID_CHANNEL_CMD) {
++		dchid_handle_ack(iface, hdr, payload);
++		return;
++	}
++
++	if (hdr->channel != DCHID_CHANNEL_REPORT)
++		return;
++
++	work = kzalloc(sizeof(*work) + payload_len, GFP_ATOMIC);
++	if (!work)
++		return;
++
++	work->hdr = *hdr;
++	work->iface = iface;
++	memcpy(work->data, payload, payload_len);
++	INIT_WORK(&work->work, dchid_packet_work);
++
++	spin_lock_irqsave(&dchid->rx_lock, flags);
++	if (dchid->stopping)
++		kfree(work);
++	else
++		queue_work(work->iface->wq, &work->work);
++	spin_unlock_irqrestore(&dchid->rx_lock, flags);
++}
++
++static void dchid_consume_rx(struct dchid_dev *dchid)
++{
++	while (dchid->rx_len >= sizeof(struct dchid_hdr)) {
++		struct dchid_hdr *hdr = (struct dchid_hdr *)dchid->rx_buf;
++		size_t payload_len;
++		size_t packet_len;
++
++		if (hdr->hdr_len != sizeof(*hdr)) {
++			dev_err_ratelimited(dchid->dev, "bad header length %u\n",
++					    hdr->hdr_len);
++			dchid->rx_len = 0;
++			return;
++		}
++
++		payload_len = le16_to_cpu(hdr->length);
++		packet_len = sizeof(*hdr) + payload_len + DCHID_CHECKSUM_LEN;
++		if (packet_len > DCHID_RX_BUF_SIZE) {
++			dev_err_ratelimited(dchid->dev, "oversized packet %zu\n",
++					    packet_len);
++			dchid->rx_len = 0;
++			return;
++		}
++
++		if (dchid->rx_len < packet_len)
++			return;
++
++		dchid_process_packet(dchid, hdr, dchid->rx_buf + sizeof(*hdr),
++				     payload_len, dchid->rx_buf, packet_len);
++
++		dchid->rx_len -= packet_len;
++		memmove(dchid->rx_buf, dchid->rx_buf + packet_len, dchid->rx_len);
++	}
++}
++
++static void dchid_rx_callback(struct mbox_client *cl, void *mssg)
++{
++	struct dchid_dev *dchid = container_of(cl, struct dchid_dev, dc_mbox_client);
++	struct apple_dockchannel_msg *msg = mssg;
++
++	if (!msg || !msg->data || !msg->len)
++		return;
++
++	if (msg->len > DCHID_RX_BUF_SIZE - dchid->rx_len) {
++		dev_err_ratelimited(dchid->dev, "RX buffer overflow\n");
++		dchid->rx_len = 0;
++		return;
++	}
++
++	memcpy(dchid->rx_buf + dchid->rx_len, msg->data, msg->len);
++	dchid->rx_len += msg->len;
++
++	dchid_consume_rx(dchid);
++}
++
++static int dchid_rtkit_shmem_setup(void *cookie, struct apple_rtkit_shmem *bfr)
++{
++	struct dchid_dev *dchid = cookie;
++	struct resource res = {
++		.start = bfr->iova,
++		.end = bfr->iova + bfr->size - 1,
++		.name = "rtkit_map",
++	};
++
++	if (!bfr->iova) {
++		bfr->buffer = dma_alloc_coherent(dchid->dev, bfr->size,
++						 &bfr->iova, GFP_KERNEL);
++		if (!bfr->buffer)
++			return -ENOMEM;
++		return 0;
++	}
++
++	if (!dchid->sram_res.start)
++		return -EFAULT;
++
++	res.flags = dchid->sram_res.flags;
++	if (res.end < res.start || !resource_contains(&dchid->sram_res, &res))
++		return -EFAULT;
++
++	bfr->iomem = dchid->sram_base + (res.start - dchid->sram_res.start);
++	bfr->is_mapped = true;
 +
 +	return 0;
 +}
 +
-+static const struct of_device_id apple_dockchannel_of_match[] = {
-+	{ .compatible = "apple,t8122-dockchannel" },
-+	{ .compatible = "apple,t8112-dockchannel" },
++static void dchid_rtkit_shmem_destroy(void *cookie, struct apple_rtkit_shmem *bfr)
++{
++	struct dchid_dev *dchid = cookie;
++
++	if (bfr->buffer)
++		dma_free_coherent(dchid->dev, bfr->size, bfr->buffer, bfr->iova);
++}
++
++static const struct apple_rtkit_ops dchid_rtkit_ops = {
++	.shmem_setup = dchid_rtkit_shmem_setup,
++	.shmem_destroy = dchid_rtkit_shmem_destroy,
++};
++
++static int dchid_map_helper_cpu(struct platform_device *pdev, struct dchid_dev *dchid)
++{
++	struct resource *res;
++
++	dchid->asc_base = devm_platform_ioremap_resource_byname(pdev, "coproc-asc");
++	if (IS_ERR(dchid->asc_base))
++		return PTR_ERR(dchid->asc_base);
++
++	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "coproc-sram");
++	if (!res)
++		return -EINVAL;
++
++	dchid->sram_res = *res;
++
++	dchid->sram_base = devm_ioremap_resource(&pdev->dev, res);
++	if (IS_ERR(dchid->sram_base))
++		return PTR_ERR(dchid->sram_base);
++
++	return 0;
++}
++
++static void dchid_shutdown(struct dchid_dev *dchid)
++{
++	unsigned long flags;
++	int i;
++
++	/* Stop queueing reports, but keep receiving command acknowledgements. */
++	spin_lock_irqsave(&dchid->rx_lock, flags);
++	WRITE_ONCE(dchid->stopping, true);
++	spin_unlock_irqrestore(&dchid->rx_lock, flags);
++
++	/* Comm work can create interfaces, so drain it before walking ifaces. */
++	flush_workqueue(dchid->comm->wq);
++
++	/* Packet work can queue creation work; drain the queues in that order. */
++	for (i = 0; i < MAX_INTERFACES; i++) {
++		struct dchid_iface *iface = dchid->ifaces[i];
++
++		if (iface)
++			flush_workqueue(iface->wq);
++	}
++	flush_workqueue(dchid->new_iface_wq);
++
++	for (i = 0; i < MAX_INTERFACES; i++) {
++		struct dchid_iface *iface = dchid->ifaces[i];
++
++		if (iface && iface->hid)
++			hid_destroy_device(iface->hid);
++	}
++
++	if (!IS_ERR_OR_NULL(dchid->rtk) && apple_rtkit_is_running(dchid->rtk))
++		apple_rtkit_quiesce(dchid->rtk);
++
++	writel(0, dchid->asc_base + APPLE_ASC_CPU_CONTROL);
++	readl(dchid->asc_base + APPLE_ASC_CPU_CONTROL);
++	mbox_free_channel(dchid->dc_mbox);
++	dchid->dc_mbox = NULL;
++}
++
++static int dchid_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct dchid_dev *dchid;
++	struct fwnode_handle *stm;
++	int ret;
++
++	ret = dma_set_mask_and_coherent(dev, DMA_BIT_MASK(44));
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to set DMA mask\n");
++
++	dchid = devm_kzalloc(dev, sizeof(*dchid), GFP_KERNEL);
++	if (!dchid)
++		return -ENOMEM;
++
++	dchid->rx_buf = devm_kmalloc(dev, DCHID_RX_BUF_SIZE, GFP_KERNEL);
++	if (!dchid->rx_buf)
++		return -ENOMEM;
++
++	dchid->dev = dev;
++	stm = device_get_named_child_node(dev, "stm");
++	dchid->id_ready = !stm || !fwnode_device_is_available(stm);
++	fwnode_handle_put(stm);
++	mutex_init(&dchid->ifaces_lock);
++	spin_lock_init(&dchid->rx_lock);
++	platform_set_drvdata(pdev, dchid);
++
++	ret = dchid_map_helper_cpu(pdev, dchid);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to map helper CPU\n");
++
++	dchid->new_iface_wq = alloc_ordered_workqueue("dchid-new", 0);
++	if (!dchid->new_iface_wq)
++		return dev_err_probe(dev, -ENOMEM, "failed to allocate workqueue\n");
++
++	ret = devm_add_action_or_reset(dev, dchid_destroy_wq, dchid->new_iface_wq);
++	if (ret)
++		return ret;
++
++	dchid->comm = dchid_get_interface(dchid, IFACE_COMM, "comm");
++	if (!dchid->comm)
++		return dev_err_probe(dev, -EIO, "failed to init comm interface\n");
++
++	dchid->dc_mbox_client.dev = dev;
++	dchid->dc_mbox_client.tx_block = true;
++	dchid->dc_mbox_client.rx_callback = dchid_rx_callback;
++
++	dchid->dc_mbox = mbox_request_channel_byname(&dchid->dc_mbox_client,
++						     "dockchannel");
++	if (IS_ERR(dchid->dc_mbox))
++		return dev_err_probe(dev, PTR_ERR(dchid->dc_mbox),
++				     "failed to request DockChannel mailbox\n");
++
++	dchid->rtk = devm_apple_rtkit_init(dev, dchid, "asc", 0, &dchid_rtkit_ops);
++	if (IS_ERR(dchid->rtk)) {
++		ret = dev_err_probe(dev, PTR_ERR(dchid->rtk), "failed to init RTKit\n");
++		goto err_shutdown;
++	}
++
++	writel_relaxed(APPLE_ASC_CPU_CONTROL_RUN,
++		       dchid->asc_base + APPLE_ASC_CPU_CONTROL);
++
++	ret = apple_rtkit_wake(dchid->rtk);
++	if (ret) {
++		dev_err_probe(dev, ret, "failed to wake coprocessor\n");
++		goto err_shutdown;
++	}
++
++	return 0;
++
++err_shutdown:
++	dchid_shutdown(dchid);
++	return ret;
++}
++
++static void dchid_remove(struct platform_device *pdev)
++{
++	dchid_shutdown(platform_get_drvdata(pdev));
++}
++
++static const struct of_device_id dchid_of_match[] = {
++	{ .compatible = "apple,t8122-dockchannel-hid" },
++	{ .compatible = "apple,t8112-dockchannel-hid" },
 +	{},
 +};
-+MODULE_DEVICE_TABLE(of, apple_dockchannel_of_match);
++MODULE_DEVICE_TABLE(of, dchid_of_match);
 +
-+static struct platform_driver apple_dockchannel_driver = {
++static struct platform_driver dchid_platform_driver = {
 +	.driver = {
-+		.name = "apple-dockchannel",
-+		.of_match_table = apple_dockchannel_of_match,
++		.name = "dockchannel-hid",
++		.of_match_table = dchid_of_match,
 +	},
-+	.probe = apple_dockchannel_probe,
++	.probe = dchid_probe,
++	.remove = dchid_remove,
 +};
-+module_platform_driver(apple_dockchannel_driver);
++module_platform_driver(dchid_platform_driver);
 +
-+MODULE_DESCRIPTION("Apple DockChannel mailbox controller");
++MODULE_DESCRIPTION("Apple DockChannel HID transport driver");
 +MODULE_AUTHOR("Hector Martin <marcan@marcan.st>");
 +MODULE_AUTHOR("Michael Reeves <michael.reeves077@gmail.com>");
 +MODULE_LICENSE("Dual MIT/GPL");
-diff --git a/include/linux/mailbox/apple-dockchannel.h b/include/linux/mailbox/apple-dockchannel.h
-new file mode 100644
-index 000000000..04d2fc44f
---- /dev/null
-+++ b/include/linux/mailbox/apple-dockchannel.h
-@@ -0,0 +1,29 @@
-+/* SPDX-License-Identifier: GPL-2.0-only OR MIT */
-+/*
-+ * Apple DockChannel mailbox message format.
-+ *
-+ * Copyright The Asahi Linux Contributors
-+ */
-+
-+#ifndef _LINUX_MAILBOX_APPLE_DOCKCHANNEL_H_
-+#define _LINUX_MAILBOX_APPLE_DOCKCHANNEL_H_
-+
-+#include <linux/types.h>
-+
-+/**
-+ * struct apple_dockchannel_msg - DockChannel mailbox payload
-+ * @data: Pointer to the byte stream payload
-+ * @len: Number of payload bytes
-+ *
-+ * For TX, @data must remain valid until mbox_send_message() completes or the
-+ * client receives tx_done in non-blocking mode.
-+ *
-+ * For RX, @data is owned by the controller and is valid only for the duration
-+ * of the rx_callback.
-+ */
-+struct apple_dockchannel_msg {
-+	void *data;
-+	size_t len;
-+};
-+
-+#endif /* _LINUX_MAILBOX_APPLE_DOCKCHANNEL_H_ */
 
 -- 
 2.55.0
