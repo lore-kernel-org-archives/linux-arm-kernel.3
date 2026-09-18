@@ -4,97 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A11B0C982D2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 07:47:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECA2AC88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 07:48:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y+tYCkkvzZJmFoYOhTQyYw6fM+qA/usgZs/lU8fn+ao=; b=Pdc1dl/Mg3TU0r7KSM7Uwuqzsx
-	2OY0xvNdkG2pCdigKYahZw4pprQcxUob1WjTOIJJeHtr4SCiF4vkCI4r4wb/wVeeT0dFFRZ065kJs
-	3/Ar5N2wagd4YH+HXLeSsYaCJjntrb3Ci2I643k0mzCAF6+B6L3jpN9kCN5FiPp1tSSwnGWCzZg7W
-	sTsse552ta85aP1+heeupci7VcpPvagHt0YAD258OGBMJg2fbZ38j2uhPmfeEtVGRSDmuHlvttaoS
-	TAXbK2NZytWjOh5Siue1JxgFKmjTlh2+P7JD0e43zDCqs/wROUybLtc6mKxiDx+FPfXl6Hr+wEQ6H
-	eRd/7oZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MXqdDZMk2n2ZA2FZuhNJE90D+Z4Rs/KppQMaR2DzMcs=; b=opA42IJ/sdpDGeFdbHb9s9OtGh
+	7LRD09o64Wdnnjlec8ottyGYSadXPzzvykPUFyzBvJ57aDSjl7Ha8i5EyItOJf1s6/ZovqRLkqAft
+	hNssAehxh1E8e4p826OkuBHoo+UX/hUneGATEGk1d33cKUiyVVn8BBHGYg8SY5qtD13IivcxaiNPp
+	dKEFbr3Vpiq1LRmqERk0PiRRjXhhuQq5Mn4CCG7k2/ZvPMrZmEMCp++p866OITPqXSHYe3dOsX2Kp
+	dvJ+rApgHqGTfeTngXt7kbISZphSmQhsj8s+guJGZfb+my7sXs09cX3WhjzKWzN8Fa80ynvWkDMij
+	yaKC44DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7TJ8-0000000DjJ6-0X6N;
-	Fri, 18 Sep 2026 07:46:54 +0000
-Received: from mail-vs2-f12.google.com ([74.125.227.12])
+	id 1x7TKg-0000000DjVZ-1jS2;
+	Fri, 18 Sep 2026 07:48:30 +0000
+Received: from mail-wr2-x0f.google.com ([2a00:1450:4864:30::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7TJ4-0000000DjIU-3EAr
+	id 1x7TKe-0000000DjV1-0ypT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 07:46:52 +0000
-Received: by mail-vs2-f12.google.com with SMTP id 71dfb90a1353d-5c67e5059faso121797e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 00:46:48 -0700 (PDT)
+	Fri, 18 Sep 2026 07:48:29 +0000
+Received: by mail-wr2-x0f.google.com with SMTP id ffacd0b85a97d-486e1a044c5so239280f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 00:48:26 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789717705; cv=none;
+        d=google.com; s=arc-20260327;
+        b=BvKfRfJpePpJq3v4Pc5v2UxVBvjJwcrJ6ShCjv5b4Z+t5BNk6nt2RT+Az6A7EjWyBX
+         a6p8yK3cv3UG+xQzXFpIuTMikmafH8FPexZJzbTjyI/f1V6Em786mr2P9V49EkVnzMVf
+         gCtB4u8gYegx2pEdsymmB5F5ZVisjndpwDTmCcz6YyOFLxe3odmYBrQKVP5sMEBHEe1z
+         dAsMVbnl+D0pL08E9zGN0V7vTfuFMdYoWhe2CmY/SGYlF6D7hN6ACJ/rjJn8z5NfIp7d
+         KjCmiBOFgdGSO3kMBvobfnfQF1AukJfhmAUQTXwwdd9tvrMN8BC8ugFR9a2n12BF/YpJ
+         WhnA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=MXqdDZMk2n2ZA2FZuhNJE90D+Z4Rs/KppQMaR2DzMcs=;
+        fh=LNjqnn65tV56eot5djRi7yTmtyEi7Wr/mtVKECfvtFM=;
+        b=Ou/sglvM9KRBU2DNPxY/gqXyULIKUolQvgZxdAgK5Rji4V6cVWA8jFNPZkwHTvB8vW
+         nfiRADUD0vUJempyqRadZt/mPfBOS2tvVSmltn5NlliFnL+UlLQp5CgSkHVWc0En1PdP
+         7aozIT1NGss6+q9v7LL9/pVyG3NFZ0uVZhF2vxusYd5f6IAB1T/bmuPt7NDJnEz7gQxn
+         f0bXsERzUxkulZ8p/5GCjvDWkwGuBA9huUEH/licxvDaEK0hzRWi0dTI7URwqJlez+Pu
+         7nOqBBCRCDqBZhTClEDorqxTQBzdW8eCuhschQvc6h0DZtGCmZwCV/qqVYxFMcUDGFqk
+         w06Q==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789717705; x=1790322505; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=MXqdDZMk2n2ZA2FZuhNJE90D+Z4Rs/KppQMaR2DzMcs=;
+        b=SsMYonO9NA7MqDQ9ncnLT06KBC5R1BCLyeBBCRfOF2enKL79wBEBUJaeJSwhqNREaP
+         OFOgFbDqJ3E4CutDHQ+vbhrG+lHQbywmdSk+lCJW4xRUdZECtqcgprzN35ZyX6za6A33
+         6ejlLh+E/qIQdsKspiDKyww5YD5qCt/zvE/v4WIMeRSuhSHFxsR/6f/CBdprxSZl1faB
+         Xk8ukeJe8ee+e6+Y9frjDBNnuExwO+HORmIwm0tOzEMm3IxGWuCt1++PjQns1L0yCbPp
+         MJ11UCHBvOMJr5b4/BgH++njtraEEBb7vZdPkkQ6bi6uco7KklwqEzho4kN72mMn3/NH
+         QFRQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789717608; x=1790322408;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=y+tYCkkvzZJmFoYOhTQyYw6fM+qA/usgZs/lU8fn+ao=;
-        b=oYgM9ZhmHwsFYXfMYdXVvvgsNDrZJJOoqtyZMQwjYL82i3CJvK8e8xoCTn5U5hYYna
-         Gmv+J8suxjluRhEIpckDIdJHV3iSPvVi3EWYLOJngR2SdkU1VBro9Qq3jrLVf/fWfB+7
-         v7KArAxgTFJOMZJN+5ogfGCcoOOqnXi1OUn/+a8LTphHaK5QCZMZE1Se7eA+//g73dVG
-         78oEEnPS/60adokT0qZgWYlVtEh+RErT+eRW50IcADS8dMvu4Ijf8a5LVBssHdk4Wivi
-         z+HhVjuav0sJiwBGLAMuH5yp3GOoeJv4PJPEQNGPB2RZ89cff5EWkVeRKnXgSDWUu9CY
-         75tQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxrMiYQNnIxHu5mmMbFk40B7NVwfZhR9VGyFM2BaegOFmLBIm7AAyuEjCvZOraVmkFhEcpyw9JAUya25YVdFUvV@lists.infradead.org
-X-Gm-Message-State: AFuF++lRD7R4lLQepXUoUf/3uhtYg5O3hsQ5Bzrn/0aEUtNkqtqL2R1K
-	tT1pNDmuEI9MFbMm2zbwICpyUsnsrGG4FQVrkdbf7PbcMn8cwtuh+5Ptb6w+5E66
-X-Gm-Gg: AYBFou1zNAI06QVDoSW0HIELiNpIe4v5lzhLIG4dhAa/gvgh7H8xwC0DtPCTUOg29P6
-	QCU/WvUi1l6zbgufuhp9vOvQcmMie1dBDWsV26MpJi1l1CEOnnmg+51eFIJMvIn3FlyfIYBI/N7
-	LEHBoCFjzjgqf9V9Kn9DbwuEXKalMVq8eRgliSDKnbBo/KSeb5kl0F4pQQg3cZvFw3mOj9wxGBR
-	CVFFnJcBMKzqnES6CT6KrHFSvar3UfcsJ1zcmlajUk5eplDCIbTTG51qJ+UZa7Frndxser1Tk3m
-	HbmJ7op7WSZvKCgFb5bKqDOdIFnkk0YMlWh6bn7dYfLjlJ1cqqZBnpDz5KvVsiYIJ+0JA1Uk+fW
-	+3GIqZTxIbKNPqanVwqtWa2yO904qmJqp5sy7MG/559QcwFH9wlrtCP+QPkOu0sWrteAK7CAJwZ
-	3Qqf76AEXP7W3UwRal3PTc5w7JJPOkx/fgOmIWB6l2vEcYC6U0nH/1nPa4lnEhfKG5qtmROWp8h
-	PTQLYX6BDL8WaC+BQMjbnXjwJP8tP5sQd+k
-X-Received: by 2002:a05:6102:358d:b0:79f:e8ce:27f2 with SMTP id ada2fe7eead31-7a55af2df71mr547996137.4.1789717607685;
-        Fri, 18 Sep 2026 00:46:47 -0700 (PDT)
-Received: from mail-vs2-f41.google.com (mail-vs2-f41.google.com. [74.125.227.41])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-98337e2f440sm895655241.10.2026.09.18.00.46.46
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 18 Sep 2026 00:46:46 -0700 (PDT)
-Received: by mail-vs2-f41.google.com with SMTP id ada2fe7eead31-78a53fe85easo152474137.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 00:46:46 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBxVpKhwXHRd24mOOpduTJs+GsvRojoZDTeDsOVfmTkrzjbt5zPwNJaec2e5x06GtuIHu1kYZK1LpAVgz9iwMhwF@lists.infradead.org
-X-Received: by 2002:a05:6102:358d:b0:79f:e8ce:27f2 with SMTP id
- ada2fe7eead31-7a55af2df71mr547985137.4.1789717606396; Fri, 18 Sep 2026
- 00:46:46 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1789717705; x=1790322505;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=MXqdDZMk2n2ZA2FZuhNJE90D+Z4Rs/KppQMaR2DzMcs=;
+        b=UVoMqo2GEh9DabJg8OqOj6yTligbjazLFNmEimZL+mofrtj3N20h6OdXFVITH/qkCk
+         7s0kf16st1LhXci4ZrHz27PNe77qW8/0mY/lWb1s3qpDJgcw74J8Faw8ObiIg76ya1om
+         9lEbP+t8u4TejaWNdK11DKoLUQenyI53NS7aHacIxnl9zEDoVCh92dTg1nQqUIQ9Zn27
+         6BgAirPJCIPNIwRcrB/xWejSd+loUZKVDjf6KPYRexCvBJoh9O6VqqkAKowENvNFSApC
+         AIMJuvXKX/r/k0YeFsujXgEIQ7fbF1UYN0Q1Stu19iHIoRHeNOV30NrjhNZmUckdXGso
+         /0EQ==
+X-Forwarded-Encrypted: i=1; AKwUvByoyouUO3CS2yUmhMgW12CUHErK4SRQg4Xab9ybINJ5AR6FxJgiJNluZZbHDzlq2GKD8u5nrj5RUuSJ4IPnaAeN@lists.infradead.org
+X-Gm-Message-State: AFuF++mMRB05sGn/dPQ6RjUiyw/dP8qjNwixZzB8oEBGI/I5PEhxxLF8
+	GYu4ElBKth2dznXaS+8yuqQd83M7E3j8TKGPSNbFbhpvyubRo6Pr4UkCI1XLIuOj93b+VXXI565
+	nUR75QX/0BrRiHczGTdt+4Q4qR6PC0u4=
+X-Gm-Gg: AYBFou1x62SmPT+91g8ij6nBGBpUpGy5pOmEppP40KGetnTpLAfwy+WL40Kyoaqz3EW
+	whtGidWtemzQC+IF5v4b0CmEWb7XPSF7Vp6u8cZBGpkmnJfD+tTXKnGjt6/rUPfCHHBQ40oCnrY
+	PyM4toFjd5W3CXGRRQmWkdsxeEjNM/JXD27VWkUfPiLcED5+/BxvWuD5SQ0/YFdv/Rv3hgYTSYQ
+	ywXaQPyOAUHJhfPt9YfLyARxbdXJgMUoeeuSEY2i49fsMKuHVQ026LhGUybJDEwjA+jZGOgpu+c
+	0UXajjXKqL6uxOfYKQmpvVaqN6sLDUNSsd8lPD7XV67Sqm9aN4Svs29Bw0+lPok0MeM=
+X-Received: by 2002:a05:6000:4b13:b0:487:1687:197d with SMTP id
+ ffacd0b85a97d-4871e212458mr1713724f8f.6.1789717705281; Fri, 18 Sep 2026
+ 00:48:25 -0700 (PDT)
 MIME-Version: 1.0
-References: <cover.1788338320.git.geert+renesas@glider.be> <1d5c56c80291e447208ac8777aaf90ad6f0a4f4d.1788338320.git.geert+renesas@glider.be>
- <20260917221647.GA4038349-robh@kernel.org>
-In-Reply-To: <20260917221647.GA4038349-robh@kernel.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 18 Sep 2026 09:46:34 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdXCFY7-SEGLjhaO1uCDwsvogc0ocdqSz=1C_gsWX6T_tA@mail.gmail.com>
-X-Gm-Features: AcwNN1XFZho-l6FTtqXfFYSmbjO5DpuymjytNtvp4sOSdCdr5EidSrnlACqjwyk
-Message-ID: <CAMuHMdXCFY7-SEGLjhaO1uCDwsvogc0ocdqSz=1C_gsWX6T_tA@mail.gmail.com>
-Subject: Re: [PATCH v3 04/12] of: property: fw_devlink: Add support for renesas,scmi-firmware
-To: Rob Herring <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
-	Jerome Brunet <jbrunet+clk@baylibre.com>, Sudeep Holla <sudeep.holla@kernel.org>, 
-	Cristian Marussi <cristian.marussi@arm.com>, Saravana Kannan <saravanak@kernel.org>, 
-	Ulf Hansson <ulfh@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Marek Vasut <marek.vasut+renesas@mailbox.org>, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, Kevin Hilman <khilman@baylibre.com>, 
-	Vinod Koul <vkoul@kernel.org>, Wolfram Sang <wsa+renesas@sang-engineering.com>, 
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
-	=?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clegoffic@baylibre.com>, 
-	devicetree@vger.kernel.org, arm-scmi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
-	linux-pm@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
+References: <20260917052933.188679-1-jiangwenxiaomi@gmail.com>
+ <20260917052933.188679-2-jiangwenxiaomi@gmail.com> <CAGsJ_4xujxpH6OuuUao2=TAjTMKhr77ufW6OoZuk-VB=YPd6fw@mail.gmail.com>
+In-Reply-To: <CAGsJ_4xujxpH6OuuUao2=TAjTMKhr77ufW6OoZuk-VB=YPd6fw@mail.gmail.com>
+From: Wen Jiang <jiangwenxiaomi@gmail.com>
+Date: Fri, 18 Sep 2026 15:48:13 +0800
+X-Gm-Features: AcwNN1U7w_zpIxImLoNROHRiindh6mTvUu1jbd9liF3b4JQySYxKRKgU7ZyE2AY
+Message-ID: <CAHKocdHS-D7Gg_n3razCrp-QT5seT4KWz9r1TSWVVwLFsZmU7Q@mail.gmail.com>
+Subject: Re: [PATCH v8 01/10] arm64/mm: add pte_set_huge() and pte_clear_huge()
+To: Barry Song <baohua@kernel.org>
+Cc: akpm@linux-foundation.org, catalin.marinas@arm.com, linux-mm@kvack.org, 
+	urezki@gmail.com, will@kernel.org, Xueyuan.chen21@gmail.com, 
+	ajd@linux.ibm.com, anshuman.khandual@arm.com, chleroy@kernel.org, 
+	david@kernel.org, dev.jain@arm.com, jiangwen6@xiaomi.com, leo.yan@arm.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, maddy@linux.ibm.com, mpe@ellerman.id.au, 
+	npiggin@gmail.com, rppt@kernel.org, ryan.roberts@arm.com
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_004650_818954_98245252 
-X-CRM114-Status: GOOD (  29.85  )
+X-CRM114-CacheID: sfid-20260918_004828_299528_1164CFF5 
+X-CRM114-Status: GOOD (  24.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,59 +123,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
-
-On Fri, 18 Sept 2026 at 00:16, Rob Herring <robh@kernel.org> wrote:
-> On Wed, Sep 02, 2026 at 01:29:20PM +0200, Geert Uytterhoeven wrote:
-> > Let fw_devlink create device links between consumers and suppliers of
-> > SCMI firmware on Renesas platforms, and enforce these dependencies.
-> >
-> > This prevents probing of drivers before the firmware they depend on
-> > becomes available, thus avoiding unneeded probe deferrals.
-> >
-> > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> > ---
-> > v3:
-> >   - s/firmware/renesas,scmi-firmware/,
-
-> > +++ b/drivers/of/property.c
-> > @@ -1417,6 +1417,7 @@ DEFINE_SIMPLE_PROP(power_supplies, "power-supplies", NULL)
-> >  DEFINE_SIMPLE_PROP(mmc_pwrseq, "mmc-pwrseq", NULL)
-> >  DEFINE_SUFFIX_PROP(regulators, "-supply", NULL)
-> >  DEFINE_SUFFIX_PROP(gpio, "-gpio", "#gpio-cells")
-> > +DEFINE_SIMPLE_PROP(renesas_scmi_firmware, "renesas,scmi-firmware", NULL)
-> >
-> >  static struct device_node *parse_pinctrl_n(struct device_node *np,
-> >                                          const char *prop_name, int index)
-> > @@ -1574,6 +1575,7 @@ static const struct supplier_bindings of_supplier_bindings[] = {
-> >       { .parse_prop = parse_regulators, },
-> >       { .parse_prop = parse_gpio, },
-> >       { .parse_prop = parse_gpios, },
-> > +     { .parse_prop = parse_renesas_scmi_firmware, },
+On Fri, 18 Sept 2026 at 07:22, Barry Song <baohua@kernel.org> wrote:
 >
-> This is going to be a catch-22, we can't have vendor specific properties
-> here. If we need this, we need to come up with a distributed way to
-> declare them. Linker section tricks is one way. Maybe something in the
-> driver struct would work?
+> On Thu, Sep 17, 2026 at 1:29=E2=80=AFPM Wen Jiang <jiangwenxiaomi@gmail.c=
+om> wrote:
+> >
+> > From: Wen Jiang <jiangwen6@xiaomi.com>
+> >
+> > vmap installs PTE-level block mappings (PTE_CONT on arm64) by reusing
+> > set_huge_pte_at() and huge_ptep_get_and_clear(), which are HugeTLB
+> > helpers gated by CONFIG_HUGETLB_PAGE. This makes the feature silently
+> > unavailable on CONFIG_HUGETLB_PAGE=3Dn kernels and couples mm/vmalloc.c=
+ to
+> > HugeTLB internals it does not otherwise need.
+> >
+> > Add pte_set_huge()/pte_clear_huge() to arm64, joining the existing
+> > pmd_set_huge()/pud_set_huge() family in mm/mmu.c. They build on
+> > __set_ptes() and __get_and_clear_full_ptes() directly, so they do not
+> > depend on CONFIG_HUGETLB_PAGE.
+> >
+> > There is no caller yet: mm/vmalloc.c is converted later in this series,
+> > once the generic fallbacks are in place.
+> >
+> > Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
+>
+> I tried to apply the patch to mm-new, but it doesn't apply.
+>
+> % git am raw
+> Applying: arm64/mm: add pte_set_huge() and pte_clear_huge()
+> error: patch failed: arch/arm64/mm/mmu.c:1872
+> error: arch/arm64/mm/mmu.c: patch does not apply
+> Patch failed at 0001 arm64/mm: add pte_set_huge() and pte_clear_huge()
+> hint: Use 'git am --show-current-patch=3Ddiff' to see the failed patch
+> When you have resolved this problem, run "git am --continue".
+> If you prefer to skip this patch, run "git am --skip" instead.
+> To restore the original branch and stop patching, run "git am --abort".
+>
+> % patch -p1 < raw
+> patching file 'arch/arm64/include/asm/pgtable.h'
+> patching file 'arch/arm64/mm/mmu.c'
+> 1 out of 1 hunks failed--saving rejects to 'arch/arm64/mm/mmu.c.rej'
+>
+>
+> [...]
+>
+> > +void pte_set_huge(pte_t *ptep, unsigned long addr, phys_addr_t phys,
+> > +                 pgprot_t prot, unsigned long size)
+> > +{
+> > +       unsigned long pfn =3D __phys_to_pfn(phys);
+> > +       pte_t new_pte =3D pte_mkcont(pfn_pte(pfn, prot));
+>
+> Maybe we can drop the `new_` prefix.
+>
 
-Quoting myself:
-"I still think the vendor prefix should be dropped, or replaced by "arm".
+Will do.
 
-> Can you just avoid a property altogether? Why can't you check for the
-> presence of SCMI at runtime?
+> > +       unsigned int nr =3D size >> PAGE_SHIFT;
+> > +
+> > +       VM_WARN_ON(!IS_ALIGNED(pfn, CONT_PTES));
+> > +       VM_WARN_ON(!IS_ALIGNED(size, CONT_PTE_SIZE));
+>
+> Do we also need to check that `addr` is aligned?
+>
 
-A system can have multiple SCMI providers, so
-of_find_compatible_node(..., "arm,scmi") is not sufficient to find
-the right one.
+Yes. arch_vmap_pte_range_map_size() already guarantees all three,
+since we are already checking two of them here, we should complete the
+set. I'll add it in v9.
 
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Thanks,
+Wen
 
