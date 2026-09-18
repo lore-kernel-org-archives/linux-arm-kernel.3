@@ -4,71 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB351C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 18:27:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B6B3C982D7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 18:29:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WLZnhkcbCs2cGW8z2qAspQRyV6RDHbz3ypUhIp/hIoE=; b=bJvAHQYEuAwwlVOwietDUd1ARS
-	r3D398ZivrPvFOfsL5ixlSBf8w/5rQBHb/p5RIPNHKqbrJJAXQ52F5tlTqfKoLqi/MItefIJxsBGK
-	Zdv5piRtgxknO3FDlL01AZYe/MVWmq38oGARFRNsqKHQS2sFMqd9mrAWB5rWEDpkQPLR3XwO60pJi
-	fmUKpgMwecp0a1ZGvyopQrietNtbcV8g71P98Npy7Y/jBLqW1C9mACkoqmmc6k1NU6FsdxTlG4qqp
-	CHAzKfUm4Q7eJTY7B0WaRHDfcy5vFHZllHTnu0NYs5DoT375dvWYSwmmJQCUCWJQLv+rhGKuVrKKI
-	i0LDQd5g==;
+	bh=xkCUHEW8BaYz+mvJmpvhPzJPz+lQKTKEiJB6NksDW9o=; b=O9yc3LOHMPkkKqZl0d5eHeVefE
+	cvy7hBzjslkcEqirYH80OzPzEqHspIXbRtUmqbdpEj4yV4PJAJ25eqjB9frQ6mXv5O8mw16njoqIm
+	EvUGOM24XzVFhybrhvFhgOXcvkDinomggU9hUCg3O4NwJccec4Efr+v/Z6vRqfoXZFWyB8jChpIJ7
+	2xIkAnB41O6OwZmbTRe0GxRrV3OdDuD9xFL7QVBIF5rri9lPu09D4fTk3BQd5HNbsJaWBq1F7I4oH
+	z7Ox8MxMPuPWLDfN4p+Lh7f+XgBXnN4rmdqtEvVw+XI7HtosTpqfA6Tt9ui6NvO5akNXHgAoGJ3eC
+	IcxVk1dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7dJ4-0000000FJH3-3ndh;
-	Fri, 18 Sep 2026 18:27:30 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x7dLA-0000000FJVM-1A6X;
+	Fri, 18 Sep 2026 18:29:40 +0000
+Received: from mail-ed2-x10.google.com ([2a00:1450:4864:33::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7dJ4-0000000FJGo-03UV
+	id 1x7dL8-0000000FJUk-1jX1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 18:27:30 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 22CD8602CC;
-	Fri, 18 Sep 2026 18:27:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B8821F000FF;
-	Fri, 18 Sep 2026 18:27:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789756048;
-	bh=WLZnhkcbCs2cGW8z2qAspQRyV6RDHbz3ypUhIp/hIoE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=UOhzJEHvKuUqYkqOMv6WEMzOnah9ODgXw77d8su//Qz/QRBWSYMq30HRBZyJfcBPs
-	 GIZ0OpjHyVy60b4/F1ETe9qo8pNdupvvo+ok3kKVVu8M+JCnDwuXZxoDENMojh7o5Y
-	 Xhd/tG3jhRVJnTgRENawjOtynb06j161CAXuxBExwL/NjG26R2w+bV+wQy6N6xbOQu
-	 jcuby6T2fvjbrjeFFjNRj7bTdtmRGglf5GCzVWBwZ/6MdTA/zbi7RPQ9WqDGWCfqfW
-	 0A3eJ8sE6AJR7jDevEuz8/ry5S9XKC/yaGsa5LxjZHwGj5TUEL5ShBFxDLx3dbv/nU
-	 KYurNwwtu06Kg==
-Date: Fri, 18 Sep 2026 13:27:27 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: muhammad.nazim.amirul.nazle.asmade@altera.com
-Cc: Dinh Nguyen <dinguyen@kernel.org>, linux-kernel@vger.kernel.org,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Eric Dumazet <edumazet@google.com>, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Paolo Abeni <pabeni@redhat.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	devicetree@vger.kernel.org,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] dt-bindings: net: snps,dwmac: allow stmmaceth-ocp reset
- name
-Message-ID: <178975604551.1250907.16038130786685150489.robh@kernel.org>
-References: <20260909080559.2028-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
+	Fri, 18 Sep 2026 18:29:39 +0000
+Received: by mail-ed2-x10.google.com with SMTP id 4fb4d7f45d1cf-6a605c198fdso1603486a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 11:29:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789756176; cv=none;
+        d=google.com; s=arc-20260327;
+        b=YmRJsqPAuPtJBmf4Fooc2NvFox1TiSAUIaDpFaPF1v2GSH2yEf9VJtux184ReKCAQH
+         xh+6xBn65/ls7FfqkFOPd5HwCQXq1a0KVvXDrcjpOozaFin2A7HAyhZQhjKdcDru4FGT
+         O4Itm8M/Xd6a1c88DdeaohOfOaCCwQBQ5AMTZF/9yKX72Yds/HIwszSAr36Zc42wyI9g
+         oggHv3xd6IXe+yEvbfQ2OEkGYaWZw1PyHmfh8jNcEQYmL6JYnHAdMsSFMKbO0Hc9iV9X
+         NuTHGEfnteYvTZugFXaKS9XFF1xSObf4rRlqbs1uCNZKNTZWXpzm3TuzTYI6J4F6gm33
+         fFow==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=xkCUHEW8BaYz+mvJmpvhPzJPz+lQKTKEiJB6NksDW9o=;
+        fh=0BowbVYgowuUN+C4SOTaOdciJ3Y2p0j6v7GuDGxSMfg=;
+        b=Wfcp/nKBpOco/MXS/nyC4sUSVyVcVBc/6aBZnnRdpVW+cBwxK8AQk7Q1CAWDUBaWBF
+         80/9GrvCaNMgYDgUk3TW0p689v/IhfRR0KbplSfNJaViZ8Ac9yJaCkS0jzHp1lS6eZ0U
+         o8h/9loG+LUbptjMjGiuvuptLCiolbNBrCSMXkJvrxSpdc0PyX1CrNcjUi1MbFdZ+6RC
+         oP3JWlTMKDyhAdzp1IY8lwt6qjaktU9+Y/ENqyKKC1TFQSXeugwqVYpGSlN5oQ8EklDd
+         Ctve1MRdg0BnYy2rqfDU1vtcYCSCuusFOjpKJHjJ5cbg9tG4u07Uv6Jg4Sg+DFhkXQ3a
+         9u4Q==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789756176; x=1790360976; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=xkCUHEW8BaYz+mvJmpvhPzJPz+lQKTKEiJB6NksDW9o=;
+        b=hGjufEcws53yCxlSYLE5lffmiYEJVMuCofc3uqIAlKKcun3mV13OcdbdeMGmptBNUn
+         8ZrlPDYyCNy3mBT8AY/Uf+tiCOiwp2r9HxDpdoiTgfGKT9ox5FQgq0A0cUshliYqbQ3n
+         /Tkb/rZjOY71jJbOin/jZyGFn+g5QiY6p8KBuJ2w2oE+Kl5yVgb2gkckkqiiZaA6eVbe
+         lEAijhOPXZ8d1VoQlnyYSRQGeq/mzoMWQ29cB25GGqmZgIWBy0KkPYTUUi32ZOWgwHB3
+         nmrDgAcKJENsl94AlJgfJlsNhO3kKV64T+uNawY7f1sSN/z2JXsG/rmaccCf2uIQuvoP
+         2E2Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789756176; x=1790360976;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=xkCUHEW8BaYz+mvJmpvhPzJPz+lQKTKEiJB6NksDW9o=;
+        b=kLhWOWVOlDCFY/fUxR0NTENLvcI+Aa8ekZByEOqQLUIN+JfL/XAA7yrghlqScjQq5F
+         lhpeIJwoNwje6OUMXhisNcbiHKjlj0yPbfjOu00sYzjgMK8aDMfB1JLxvL2/T/pDg9ML
+         +LjsFbmWOiuRTK3y2yRRT9qbTcBoMVKWCDeruKnLzHvPL5/yZrT4ykpC1IxiVwIKwN1S
+         xIVJWDBzhEwuN/7Qoj0F35FFW38fzDegoYWbeiEN1cHXQOzI33W9JMa6iQyYs0m7+inV
+         Jn8g8HO4Wk94C9fgK3K2wTZaMd0Zr6hnWyz4bVOlO5QVLRwKmEgz+A8N3qszsSpTgtGq
+         aCjg==
+X-Forwarded-Encrypted: i=1; AKwUvByS0z5ECg26nd8RhZ3JBZasgMmKCef+h4ldSvhg224chsBGAyYv+SHaYl3/X8tUd6+EgGwPdENaR84IGLtsoA4b@lists.infradead.org
+X-Gm-Message-State: AFuF++lD7dAJo7QsUMfTFNiJNC+hVOVGon2gNnWnYhAVkm3q2xL4aQIj
+	AtFSzKhEIDuNbffP3WBP3h9tMNUXpaq49zq3NJ5CwHuSW+/i3XKlXJCYE63Qsd+OwDQ770zdEic
+	ZqbbtncSFLYIQ0caSlkaNc7hwWUk0Rgc=
+X-Gm-Gg: AYBFou1+mScJrriokQRd6khlJg5nGzYDTajHIuBvvQ0mlnRKeNGhqh7F76paTMHAbdT
+	IgvKi5wAK5mcOfYqtwKn04zIF4wp9DI3r9KDYNCjH5DXfMfDbypp8+emK2ojIwMlXso/5P7zCcP
+	tSLF9XLCxU1A5Ad7V7SvFZYGhszsw0irxl42EPPwaehOH0deT7iaaLP8+lLzqcbBfo81rIR3kxc
+	Mc3dSMqb9Mr/x8M+s1sZEdh32lbL4xzDHUbeYwKQW4Fb4Ht39uONNsv0i/I+xnFsCVUGtNWmnQz
+	8W59hTjzoYXH2aleniRqlAuKmBKlp7lkbyeh3jIylwYdIY0blz+lwAE6sHnrRDCI
+X-Received: by 2002:a17:907:1c0f:b0:c29:d62b:fcfa with SMTP id
+ a640c23a62f3a-c2a156590b7mr346464966b.2.1789756176118; Fri, 18 Sep 2026
+ 11:29:36 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260909080559.2028-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
+References: <20260918175736.355305-1-l.scorcia@gmail.com> <20260918175736.355305-4-l.scorcia@gmail.com>
+In-Reply-To: <20260918175736.355305-4-l.scorcia@gmail.com>
+From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Date: Fri, 18 Sep 2026 20:29:24 +0200
+X-Gm-Features: AcwNN1UQFOY_vCJJJdBRj6O6gZ3zFhbPbxWCZbiFNcjPHyL_aMs2Ld1pz8hUFJk
+Message-ID: <CAORyz2KEfzcJ_2AphkPU6o-YhLAqudCXVdY+LDoynUx_FsTMJg@mail.gmail.com>
+Subject: Re: [PATCH 3/4] soc: mediatek: mt8167-mmsys: add routes for all
+ display paths
+To: linux-mediatek@lists.infradead.org
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, CK Hu <ck.hu@mediatek.com>, 
+	Jitao shi <jitao.shi@mediatek.com>, dri-devel@lists.freedesktop.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260918_112938_466634_2C609AF8 
+X-CRM114-Status: UNSURE (   8.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,25 +124,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Sashiko found [1] some copy-and-paste errors in this patch that are
+worth correcting. I must have checked it a hundred times but they
+still slipped in.
+I will send a revised v2 after waiting a few days for additional reviews.
+Thank you
 
-On Wed, 09 Sep 2026 01:05:59 -0700, muhammad.nazim.amirul.nazle.asmade@altera.com wrote:
-> From: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
-> 
-> Arria10 SoCFPGA DWMAC nodes use reset-names = "stmmaceth",
-> "stmmaceth-ocp", which matches what dwmac-socfpga looks up for the
-> OCP reset. The generic snps,dwmac binding only allowed "ahb" as the
-> second reset name, so Arria10 DTS failed schema validation.
-> 
-> Allow "stmmaceth-ocp" as an alternative second reset name and drop
-> the related TODO from the Altera SoCFPGA DWMAC binding.
-> 
-> Signed-off-by: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
-> ---
->  .../devicetree/bindings/net/altr,socfpga-stmmac.yaml          | 2 --
->  Documentation/devicetree/bindings/net/snps,dwmac.yaml         | 4 ++--
->  2 files changed, 2 insertions(+), 4 deletions(-)
-> 
-
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-
+[1] https://sashiko.dev/#/message/20260918175736.355305-4-l.scorcia%40gmail.com
+-- 
+Luca Leonardo Scorcia
+l.scorcia@gmail.com
 
