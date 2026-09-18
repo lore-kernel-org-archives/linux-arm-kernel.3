@@ -4,119 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3B63C982D7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 10:06:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3976AC982DC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 10:12:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1cDRNp7sN30u47HZEONtfi3hMQ/gOuKGJhHadwqE0Vk=; b=ryAu3v7XNPLldCsJjZFA+hnpPX
-	lelDiQLH3AP+H8+GEP3SUzL7kzdDL7xCKInzJ1Pan+HjrDSRnL1t4IL1kPiVoP25/oGgvWgm2tQAO
-	+4rUnyIzXrxxukOIqOrhHB8A1DmEJeUPnd9f2e3kBicnCoKsiBiOQPbr2wL36UPKHr+oOv9syi7H2
-	R7cxwKdZtdvTA5tdm0GLwdlPLXO7T/lsJRGBPWTLE3dB7Cv43vNDYkl6Tj8Dj35vSexxu8dKlrQtk
-	1FQ1Gur2J8ZczDznm2r97akQOpVHvA+oh+pM++xMVYKX8ARFaNbnteymXl157wBDTo2YAet+fkyKz
-	1F6k3ARQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=c+PHpPK78a10gB0bJb2+oG7YcNlo1a7Hh7HzEKPa02A=; b=UIMW4f3tKyvFBtBozdysMkZy1H
+	mdR0kkWvIF2RA8N0UynzKFFkHOo+ZDME06PPyZgNPX7QvMxcY1yNmEf3wWFK8uymsRVcLfLmdqgKY
+	PSwhKTkHL9+XlRwN9GQh1Joau5pCVLTmiL7SFnq6a7mQquleX9Bt0Q/fbDWPofgM1MhAc67WYNwZE
+	zAOXzYyAxOHgwJHp6+95wtGbZhj2fbuRToFtiLUSnnumxPoz6e8edLtEq10p2pH5Q38QvVKXZpBGc
+	DU4U25xJlIMLAWe4kW8PMUoCkhkfLsl4Ku2p/ewg0DLs+syWyh4UGsMZFH6rCFDO+iumaXSL/MKJz
+	PnqwZteQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7VTz-0000000E3MS-2Umt;
-	Fri, 18 Sep 2026 10:06:15 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x7VZo-0000000E4GK-2xCH;
+	Fri, 18 Sep 2026 10:12:16 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7VTv-0000000E3IQ-366l
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 18 Sep 2026 10:06:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=1cDRNp7sN30u47HZEONtfi3hMQ/gOuKGJhHadwqE0Vk=; b=L4h6ET8T0tg+jBHS3KnXcgWnZw
-	ajDigLsHziAvX5Mezz/CsyhpyR5rt23w4rfHGA6hTOm9sB6XqIe8EajKo189XntIFf6vd9vYu3tB8
-	gsdNX++8LDPCKG3JwBAOilaIZF8nInBjGRCQZiJsHXPE105hV13l3YDb+IWbS05YA6GUtsXhDNkXe
-	TDAPKzHuv7QEBFFiXL3vmHnEGgUKMAIBK4qfs9m76mHNCpEMrUrJJIkxbRheS5EBFMeT+eLBggxxN
-	0Byv48tUShougiJ7GnmY6iCOgA69sqmdmEJr+YtxWl/EEcsl/01qRKVy5zoLShFSVt8TQEpYXTMUf
-	EMGN5WNQ==;
-Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x7VTs-00000009twu-41WW
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 10:06:10 +0000
-Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-485843116d2so63000f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 03:06:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789725967; x=1790330767; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=1cDRNp7sN30u47HZEONtfi3hMQ/gOuKGJhHadwqE0Vk=;
-        b=hb2kcvoZ29mLn0tHbcXAyAWl4k9XStvMq66XVBxmNiZ1ovykSTkf3l0RL+kjSZcNey
-         wNThaU/kNfSQ08MQRaYseirv9HuzqyNDNTZ1szPcEF0PVBGij8489On9IetUPSFtwC/S
-         /woKjG6vw+HAK0jbONg/jS85gISFYNBGMy6JAuTDgT4403ccdxALw/ZRHEeWj+J+cYL1
-         YfhzEGCK6R9aXNoDEBL1LHhT66h1rfjuO88sAWWVeg07k0NcVzpgjvtYnjwMBF3FFdwU
-         IYzZPr1665sV3Aiuq5rG8lUts7ZSTMPHsWgA54IkGvZKfQyR+YJUyV0gybLSBOt9+Rjr
-         i7yA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789725967; x=1790330767;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=1cDRNp7sN30u47HZEONtfi3hMQ/gOuKGJhHadwqE0Vk=;
-        b=IFIL1mL/YFrJfzKePnirN3+WkE5LyQnaHK9qmueQysj34B9iCX9vzfcsVChTE4BYCT
-         ANBhAmH+U+ggAQGWjeMEg7L2/AYWL8mxrqrBYGZgweD9LVIhvWwOkiE6WtsWriiWha4K
-         3A2TPYKvNtrCOUkja6PEEbiH2j0FXd1eOPlZtE+vZKWpGhogHCxUFpJbxcXzMjxAQLNT
-         J7i6dbJ5SYztON56H3b3npTWC2hxvs6RSSiQkKP9X4AXKtjn56vu0IK4qai11Tw5z+Kn
-         cBAjcRZM9Fyu8bP0Z9gcXRORV5aCHnqmsX2PxzX4p3XtTBfkymEOf8ZGQj+H8t2VR0nK
-         zMew==
-X-Forwarded-Encrypted: i=1; AKwUvBx5DY9eUPrFn4py46/fzlKOSe1KE6bCG0YHYPaDDGP5PaZDLr3EqtJvpGG8SZRX5BRssO/59BguhITS+NI7x+FP@lists.infradead.org
-X-Gm-Message-State: AFuF++mjamP5GcUEDgTfJXUJRbC1s51BWJxH02XWxbwwOYjj52X//v3E
-	AxrAUsk180C2/V4WaYyAT41JxxMY5/kz7FOcf7NUj1vzazuDwbUoxwoI
-X-Gm-Gg: AYBFou3w8AJuNirwS6TYdT6NmeL3s9I/+uf31x+siCyeF27vs1Xg6LZtNxNYPnEC2bF
-	qhDDb/9NVOx6We4bJbpU7NzQSANtEpT0XpefRCDPLUwLAd1/BR+iPMibvl5xuGi0N9ZDydEo/tf
-	51CuU6HcDxvvcdWuBwoVecWHu9J+WE2FliNKJVehawfDrTDVG9cYlhayg0p59R5rsYQBe3syQht
-	dJq8V3NJgfKDSb6gFg2E1dFclrXu3rK87IdpHyGU+52LygeqFaMm5RLScn0ENp4OcvZ3++m7tYF
-	a+N89VBWaf22N8XQIGOboP7Yyej+33PzQfO/DbHDgDJFrzKQSZNw/dQTSbHxHCWTxoRB2h7F0tX
-	OqLHBrhmd90gx4Z7TZ2f5cjzPmilEMwbCQNjG+/d4qIQemDqn/9+lI0+Q2oaPo38Dh2xuHBkV0n
-	kjaOeWIU+s5/m6qLJ/AYSbtfZM0beWsLWncaKXXdsvBj36WLDLotKvwIdf6TT7lc8jg2FOzRfM9
-	9Wizsp0oqaccleXKbJBB9Me+d83ZgsyNA1GMHUj9NTkcGKJ/dJlirnjGgvCp8ffjHu4JZk+r08n
-	uaSpLGC5Vcwyp4g=
-X-Received: by 2002:a05:600c:83cd:b0:49e:6806:5712 with SMTP id 5b1f17b1804b1-49fc7ddb90emr15837745e9.2.1789725967027;
-        Fri, 18 Sep 2026 03:06:07 -0700 (PDT)
-Received: from OrangePi5-Plus.BB-HOME (20014C4E1B829B006E521A2A508563A3.dsl.pool.telekom.hu. [2001:4c4e:1b82:9b00:6e52:1a2a:5085:63a3])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4871ff3a8easm2922671f8f.9.2026.09.18.03.06.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Sep 2026 03:06:06 -0700 (PDT)
-From: Igor Paunovic <royalnet026@gmail.com>
-To: Tomeu Vizoso <tomeu@tomeuvizoso.net>,
-	Oded Gabbay <ogabbay@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Igor Paunovic <royalnet026@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sidong Yang <sidong.yang@furiosa.ai>,
-	Diederik de Haas <diederik@cknow-tech.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Jiaxing Hu <gahing@gahingwoo.com>,
-	Nicolas Dufresne <nicolas@ndufresne.ca>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/7] accel/rocket: DVFS for the RK3588 NPU
-Date: Fri, 18 Sep 2026 12:05:43 +0200
-Message-ID: <20260918100543.23974-1-royalnet026@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260904130858.27803-1-royalnet026@gmail.com>
-References: <20260904130858.27803-1-royalnet026@gmail.com>
+	id 1x7VZm-0000000E4Ff-2dwu;
+	Fri, 18 Sep 2026 10:12:15 +0000
+X-UUID: 66af603ab34911f1afed4741b24580c9-20260918
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=c+PHpPK78a10gB0bJb2+oG7YcNlo1a7Hh7HzEKPa02A=;
+	b=hhxln0CNF+9oPy4ruFPd44PpKVjG7qBBhRD4c6Bs7pJfuus9AdyHHVCPm5lIevTIDjd+J0BFyBPnolt+Y1bRBHbtnd/jVA5aVLQMuiZSF5SSSH9CkX2QdTA/AS6XqbgJnVTWYAdxONXvnFIC3Eq06zlstEMmD8DzgTFh1GkzqAA=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:a81b2639-32d6-4e6c-b505-132492eab886,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-25
+X-CID-META: VersionHash:7db8b62,CLOUDID:f72b00e3-72a5-4ba1-af40-18bbd6ea8ffd,B
+	ulkID:nil,BulkQuantity:0,SF:102|836|865|888|898,TC:-5,Content:0|15|50|99,E
+	DM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,OSA:0,
+	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 66af603ab34911f1afed4741b24580c9-20260918
+Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw01.mediatek.com
+	(envelope-from <shf.chen@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 130609747; Fri, 18 Sep 2026 03:12:06 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Fri, 18 Sep 2026 18:12:03 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Fri, 18 Sep 2026 18:12:03 +0800
+From: Shao-Fu Chen <shf.chen@mediatek.com>
+To: Jens Wiklander <jenswi@kernel.org>, Sumit Garg <sumit.garg@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: <op-tee@lists.trustedfirmware.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>, <tadd.kao@mediatek.com>,
+	<jarried.lin@mediatek.com>, <vince-wl.liu@mediatek.com>,
+	<justin.yeh@mediatek.com>, Shao-Fu Chen <shf.chen@mediatek.com>
+Subject: [PATCH] optee: register TEE devices only once fully initialized
+Date: Fri, 18 Sep 2026 18:10:46 +0800
+Message-ID: <20260918101113.6699-1-shf.chen@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_110609_083154_36923FD1 
-X-CRM114-Status: UNSURE (   7.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260918_031214_681764_008C6506 
+X-CRM114-Status: GOOD (  15.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,23 +88,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Tomeu,
+optee_probe() called tee_device_register() on both the client and the
+supplicant device before the rest of struct optee had been initialized.
 
-A gentle ping on this series, two weeks on.
+tee_device_register() calls cdev_device_add(), which does two things at
+once: it creates /dev/tee0 and /dev/teepriv0, and it links the device
+into the tee class so that class_find_device() can find it. From that
+moment on the device is reachable both from user space via tee_open()
+and from kernel space via tee_client_open_context(). The only gate in
+teedev_open() is tee_device_get(), which merely checks that
+teedev->desc is non-NULL, which was already set by tee_device_alloc().
+Therefore, there is effectively no gate at all.
 
-Conor acked 2/7, and Nicolas's review of 3/7 means a v2 is due.
-Sashiko could not apply the series, for the reason you gave Jiaxing
-on 31 August: its prerequisite, the slot-search fix (link below),
-is not part of it. With that fix first, the series still applies to
-today's drm-misc-next without conflicts (git am only, no build).
+A context opened in that window can run against a struct optee where
 
-I can send v2 with the fix bundled in, so Sashiko can review it,
-or wait for your comments first, whichever you prefer.
+  - optee->call_queue.mutex is not initialized by optee_cq_init()
+  - optee->supp mutex and completions is not initialized by
+    optee_supp_init()
+  - optee->rpmb_dev_mutex is not initialized yet,
+  - the message argument cache is not initialized by
+    optee_shm_arg_cache_init()
+  - optee->ctx is still NULL
 
-An LLM helped me draft this mail.
+Any open session or invoke during this window takes uninitialized
+mutexes and dereferences a NULL pointer.
 
-Thanks,
-Igor
+Fix it by moving both tee_device_register() calls down to the point
+where all of struct optee is set up.
 
-https://lore.kernel.org/r/20260904125936.26234-1-royalnet026@gmail.com
+Signed-off-by: Shao-Fu Chen <shf.chen@mediatek.com>
+---
+ drivers/tee/optee/ffa_abi.c | 16 ++++++++--------
+ drivers/tee/optee/smc_abi.c | 17 ++++++++---------
+ 2 files changed, 16 insertions(+), 17 deletions(-)
+
+diff --git a/drivers/tee/optee/ffa_abi.c b/drivers/tee/optee/ffa_abi.c
+index 633715b98625..d3cc7c5fc1e9 100644
+--- a/drivers/tee/optee/ffa_abi.c
++++ b/drivers/tee/optee/ffa_abi.c
+@@ -1123,14 +1123,6 @@ static int optee_ffa_probe(struct ffa_device *ffa_dev)
+ 
+ 	optee_set_dev_group(optee);
+ 
+-	rc = tee_device_register(optee->teedev);
+-	if (rc)
+-		goto err_unreg_supp_teedev;
+-
+-	rc = tee_device_register(optee->supp_teedev);
+-	if (rc)
+-		goto err_unreg_supp_teedev;
+-
+ 	rc = rhashtable_init(&optee->ffa.global_ids, &shm_rhash_params);
+ 	if (rc)
+ 		goto err_unreg_supp_teedev;
+@@ -1159,6 +1151,14 @@ static int optee_ffa_probe(struct ffa_device *ffa_dev)
+ 	if (optee_ffa_protmem_pool_init(optee, sec_caps))
+ 		pr_info("Protected memory service not available\n");
+ 
++	rc = tee_device_register(optee->teedev);
++	if (rc)
++		goto err_unregister_devices;
++
++	rc = tee_device_register(optee->supp_teedev);
++	if (rc)
++		goto err_unregister_devices;
++
+ 	rc = optee_enumerate_devices(PTA_CMD_GET_DEVICES);
+ 	if (rc)
+ 		goto err_unregister_devices;
+diff --git a/drivers/tee/optee/smc_abi.c b/drivers/tee/optee/smc_abi.c
+index b8a2bdac3208..51624443359b 100644
+--- a/drivers/tee/optee/smc_abi.c
++++ b/drivers/tee/optee/smc_abi.c
+@@ -1849,14 +1849,6 @@ static int optee_probe(struct platform_device *pdev)
+ 
+ 	optee_set_dev_group(optee);
+ 
+-	rc = tee_device_register(optee->teedev);
+-	if (rc)
+-		goto err_unreg_supp_teedev;
+-
+-	rc = tee_device_register(optee->supp_teedev);
+-	if (rc)
+-		goto err_unreg_supp_teedev;
+-
+ 	optee_cq_init(&optee->call_queue, thread_count);
+ 	optee_supp_init(&optee->supp);
+ 	optee->smc.memremaped_shm = memremaped_shm;
+@@ -1916,6 +1908,14 @@ static int optee_probe(struct platform_device *pdev)
+ 	if (optee->smc.sec_caps & OPTEE_SMC_SEC_CAP_DYNAMIC_SHM)
+ 		pr_info("dynamic shared memory is enabled\n");
+ 
++	rc = tee_device_register(optee->teedev);
++	if (rc)
++		goto err_disable_shm_cache;
++
++	rc = tee_device_register(optee->supp_teedev);
++	if (rc)
++		goto err_disable_shm_cache;
++
+ 	rc = optee_enumerate_devices(PTA_CMD_GET_DEVICES);
+ 	if (rc)
+ 		goto err_disable_shm_cache;
+@@ -1942,7 +1942,6 @@ static int optee_probe(struct platform_device *pdev)
+ 	optee_shm_arg_cache_uninit(optee);
+ 	optee_supp_uninit(&optee->supp);
+ 	mutex_destroy(&optee->call_queue.mutex);
+-err_unreg_supp_teedev:
+ 	tee_device_unregister(optee->supp_teedev);
+ err_unreg_teedev:
+ 	tee_device_unregister(optee->teedev);
+-- 
+2.45.2
+
 
