@@ -4,70 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 261F1C982DD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 19:24:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB93BC982DD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 19:32:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gy1Wl0a02dtKqoPAdsnYPm6lkMH+/UnovXEG/AvYxwk=; b=p1HEZ/dJnz91cFZjebuNCkZjJJ
-	bAs/hdOyQXIlrr0LFElH6+p4m89nXpRBwi7+jrEnXKPZkE0y7gymovDoA7MzuTeTYyR6svCkZfDo4
-	oj7XYDYXmz/hZFj2478OV/nqOyjsHGZdanXm99utViWj3Qv7qI6LaJt+2XZ6ahgfbrDr5I6HOHax/
-	SJwRp/6UexDZrhFShCPvd0gg4VCSWUmFhj2xI1bshAduovE7m8KudIy2+yHCVVhjJZi9lVmFdNmU0
-	ILU79QBHsr+EImjdMcBYO4KGPyAEDWYPcXok7lFN2Bc9cSEf1kbMUKAhQTlXc1TVVM0duYVnO122R
-	5RePk0yQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=xA9TqT56uzHoio3Dn/bRlfu7pF+Mn+DEDcT+jkOCFzY=; b=MN8IC+b9S3DYu4
+	/Md0Mr8OEmZTwSKew5NMcE07EnQNnrJ4AlZ3vB60QgWNLtgoniQGFyXhWJv3x21Dxi44IDOlcA3yt
+	dWQqRJ1xgrJpcGVtcRDKquZbRZa3DZP9YJXBLAAfKhfAxQEW4X0hfStH7RLvjHzL7mgl/KOGslurX
+	Bg8UsX+chLG4HpyIW++ZXaWK1+eDS9K6l7bYTSUEM0Eb4R1YfhHQPI1fcHq21jw/Rj8jOMqlwpMK2
+	UPJuIwgbaS+e8+38KMsvMQ9rCeNn/p2bNaz+1CPZ4NGZIpYqi5e0h4gN/303jSPLNSqImjX/+c8NG
+	4J0uZ+naXCMXbsA1ikMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7eCY-0000000FPJv-3HIV;
-	Fri, 18 Sep 2026 19:24:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x7dti-0000000FNaV-0sxL;
+	Fri, 18 Sep 2026 19:05:22 +0000
+Received: from mail-ed2-x10.google.com ([2a00:1450:4864:33::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7eCY-0000000FPJo-1he6
+	id 1x7dte-0000000FNYT-3Jk9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 19:24:50 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C753D42A72;
-	Fri, 18 Sep 2026 19:24:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 714661F000FF;
-	Fri, 18 Sep 2026 19:24:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789759489;
-	bh=gy1Wl0a02dtKqoPAdsnYPm6lkMH+/UnovXEG/AvYxwk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=CHDAEFAYp99cG7ALHJHxabBHBvYu4ZolmiftDgQyss+yGWBLqV6LMkFJYjcXxQzJu
-	 MOZ8u7D0fBuJpAaAZB8myh0eXutu1FOIHkKj3typrQKAe1acMIwHU47CTNmHq67Q+1
-	 gW+ij/xXY4rICSZ9pYarlfCD0dugav+2Rq9O4EeDvWT0zbOXQt8wM4StWno1dcs8Rg
-	 yVsRcV7Ezj1zRAZe7Io36sir3IWZtMcOOcLoTOBIUltZbo/psJU9fdcowX90YiFmQk
-	 gQExKNijGvWdFM8oWzfHTPKlRfVjw3FHrIMT9VfLCAiKkiUBkC8BYd8nfCWau8g75j
-	 LjOCQffvcSW4Q==
-Date: Fri, 18 Sep 2026 14:24:47 -0500
-From: Rob Herring <robh@kernel.org>
-To: Francesco Dolcini <francesco.dolcini@toradex.com>
-Cc: Frank Li <Frank.li@oss.nxp.com>,
-	Ernest Van Hoecke <ernestvanhoecke@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
-Subject: Re: [PATCH 3/6] dt-bindings: connector: Add Toradex camera connector
-Message-ID: <20260918192447.GB1465432-robh@kernel.org>
-References: <20260910-verdin-imx8mp-hmp-camera-ready-v1-0-3c9349ecdb9f@toradex.com>
- <20260910-verdin-imx8mp-hmp-camera-ready-v1-3-3c9349ecdb9f@toradex.com>
- <aqLaLmz7n31P6igy@SMW015318>
- <prwghb3ftrz5xd3hapxtlv2o2gm5xmuapnpz2h7fqulf75phqz@lk4yiaepormb>
- <aqLif2zrrsbYd5sM@SMW015318>
- <aqLk5UAv-j39Jxd3@francesco-nb>
+	Fri, 18 Sep 2026 19:05:20 +0000
+Received: by mail-ed2-x10.google.com with SMTP id 4fb4d7f45d1cf-6a9ab2a135dso1494373a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 12:05:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1789758317; x=1790363117; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=xA9TqT56uzHoio3Dn/bRlfu7pF+Mn+DEDcT+jkOCFzY=;
+        b=gou7LVdtlkO+p3eB8TnWoutUEoJheHdBlA2qOGOr893vXrYnrui7sp2IGyj0nLhT86
+         NHPRzyIIZfXiU5pOp9ZmngTShMSxLRTZSwYrHEsFXDNE2Nyap/CNOEFTo6fHNGZ08g7z
+         br2fWzvvazG8eQ1a9aQoJ17l97fipnqGJeGOF1jjOtmUWXGCJG2xpWpkAZx0Wd3K7w+B
+         mYLXPQ5ges/VpJVSCgizoR2XKjUJ7yZ4PnmuvaHna3c3QBGqZUjBPKvlFefQMTATVcCX
+         SqeiKGNA951JUrLQ3NoNMvzQGZZv1HHI/0VI6pFugfAIkLwqOpH/2lx7H17WtCbf7GJW
+         Xy2A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789758317; x=1790363117;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=xA9TqT56uzHoio3Dn/bRlfu7pF+Mn+DEDcT+jkOCFzY=;
+        b=zBEJS2URYzvuZ2hbevuJiCJbKMuUJCCLDhxGK+LPiRwxUcjrooYNG9lxvT+V3tvTeZ
+         FMqIHEWCVE+CKK+pNHt6ACxzxPOHwp3x8T+2m/VBzqpzAuLRd2h9n9C2pahOYBMGrVwC
+         IaZ8+oYgpLiq2zi6iHmfqh6qUJ7Hx1akqIYeli3kUA5HB9Eg0gCnTQ+8vq5nvmEMIxxZ
+         BM0ROsr+FSsYZUl/CN63cmVWGzSFmgWE9OEDklHySe1DRvJmDGoHKmhFc3lZIC70W1tk
+         VhdsQHl8M+iw/2qB1naelL1wbriw8eNMbL87GrfOraOAOhaSTYI8zUpeFQ8+3ugzkhpI
+         jhhA==
+X-Forwarded-Encrypted: i=1; AKwUvBw22tlQTFwo31If8md168+6+4iQh/oceP75eqTilxCxD04yZ/dU4yc7RsfbsIjag17juw4YHEh1oMmQ7lkeK8r1@lists.infradead.org
+X-Gm-Message-State: AFuF++njER8mU47TeSVAjO3ec/lC+K/6Vs4F3a00K8xbb0+fn3+EwasE
+	2QR9NVMixfThvl1qDEU8UN4oOqSOsyTKF3DB++47ih2blE4Z9x/wrNLZS2c05kQSOE4FpNWc1AL
+	BFR3/0Pc=
+X-Gm-Gg: AYBFou0JST3UEVyf3NQNPadolVPqzxEjzjHun0CV8z2R9qEhACAek9Xi8JO5sa/bDrp
+	+C5DqkCGXlypW9yFITBzTqEafpdzcVf/sRW3RRpYq3ReLVQCZ99VKvwLKwhoyatHYf7hn7VOVoR
+	LBW33MRU0e7GMs1Hwlih4MBvXcEJUi5I3GrLymf2b4fQTr2k13VYwzVmH0ulsRtlDzihFXV9UKB
+	uSkd11l+qZNwCfKDRy5tuCIa2wDLhB8BxEPZHBg9ZIlSmOiIVEpQMYSF0H3h/lvKvOR6zheenWd
+	mtw10GNBvMRU5RUjBSKWz3c/OSaNZtR6ERHkpOrMFPAGrDd/sLH13LzVIGQKHCzJRINX4t08hBd
+	Ud1/txPZc8vANT9jzSJNalo1aVBmOnQ7ov/VnkGgyV9htpSqhHpMly6+cG2vjpz7iYfP2QNX29R
+	ocY7nXjsozXZs9d6dFpLD9aBj2Fg9QqHSV1etzO4AsY3jo+HMVJvVD2c1qN9khVY7yiIMNx+oWZ
+	0eyaC4qdZsi4ZNGiHeME+Gc/CkxUf4znXDe00jrZ2tYXuUZ2EvTY8n1JQ9/+nl7TA==
+X-Received: by 2002:a05:6402:4145:b0:6a9:9766:59ad with SMTP id 4fb4d7f45d1cf-6aa548d810emr2704620a12.43.1789758316858;
+        Fri, 18 Sep 2026 12:05:16 -0700 (PDT)
+Received: from petegriffin.c.googlers.com (116.118.90.34.bc.googleusercontent.com. [34.90.118.116])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6aa67d816b5sm276250a12.7.2026.09.18.12.05.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 18 Sep 2026 12:05:16 -0700 (PDT)
+From: Peter Griffin <peter.griffin@linaro.org>
+Subject: [PATCH v4 0/4] Add Laguna/Tensor G5 SoC and Frankel, Blazer &
+ Mustang boards
+Date: Fri, 18 Sep 2026 19:05:01 +0000
+Message-Id: <20260918-contrib-pg-pixel10-initial-dts-v4-0-745eaca28b1a@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aqLk5UAv-j39Jxd3@francesco-nb>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAF2LrWoC/4XNzQrCMBAE4FcpObuSpH/Gk+8hHtJ02y6UpCQhK
+ KXvbiqCeOpxhuGblQX0hIFdi5V5TBTI2RyqU8HMpO2IQH3OTHLZ8FZwMM5GTx0sIyz0xDlXZCm
+ SnqGPASo11Giauu2ahmVk8Tjk2X5wf+Q8UYjOvz5/Se7tl5byiE4SOJS606ha0Q7Y3Way2ruz8
+ yPb7VT+PCUuh16ZPaMqrIWoeM3Vn7dt2xvRUDUyHQEAAA==
+X-Change-ID: 20260710-contrib-pg-pixel10-initial-dts-49f5ec657b66
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Arnd Bergmann <arnd@arndb.de>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Linus Walleij <linusw@kernel.org>, Drew Fustini <fustini@kernel.org>, 
+ Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, 
+ "Guilherme G. Piccoli" <gpiccoli@igalia.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ soc@lists.linux.dev, Douglas Anderson <dianders@chromium.org>, 
+ Juan Yescas <jyescas@google.com>, RD Babiera <rdbabiera@google.com>, 
+ Brian Norris <briannorris@google.com>, 
+ William McVicker <willmcvicker@google.com>, kernel-team@android.com, 
+ linux-serial@vger.kernel.org, Peter Griffin <peter.griffin@linaro.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+ Brian Norris <briannorris@chromium.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6963;
+ i=peter.griffin@linaro.org; h=from:subject:message-id;
+ bh=idSz/4f1QVQHoHKJ9HY7cLr1ePY0I9DKUIMLr0x6hpE=;
+ b=owEBbQKS/ZANAwAKAc7ouNYCNHK6AcsmYgBqrYtqcAeTl4ZeFIg7dO9m7NUqCkkLgycw9oehj
+ jgCwjJLiYGJAjMEAAEKAB0WIQQO/I5vVXh1DVa1SfzO6LjWAjRyugUCaq2LagAKCRDO6LjWAjRy
+ usewD/9JNAfxX1k3uSFD2XVvKZUgoCdpQzRMB/OOun7KDcIGoM/oz0Qkzkhoh152OjHRCZIlvwo
+ pKBMsc1tsYxhgrz1QQ5sAr3GdIU9Dt9ZVvrwRGUw4fYpkmWVue7tbK7ajJw+OHmmzDR+FrkhUcA
+ tFk/zKD7kdeee0UPBoCjEiq15S97/HaP2zGXYCsDsKM3Q2w+jRgkpZLQuTJlsaCq5dFv2XIr0vc
+ jAowh+gjOp9mGjpNnjZTTzh+JzIPXmxsl1BwLZRwKmRloEQ6Q7KZyqDtOtyaTsrQmNqIObUjm/I
+ sSEVtmDk0B3p2EyE15N8XswTr4uoBJYzwlfdLWWrMmg6/bh6/sX+dnoi4elqDK3esLwoTTArhri
+ 4LtjtoNnW7TtuaEM9ua3ukbGRjVwDt5xfeOoyjt2Xq5cFVwqozROK9VKP/6ZD5pf46Zwvml6egS
+ Eo+9E6kbJwG9HiGh4oF5chFWrtu1DpArOIYuoQC+5Nvsf+xGJSTz4kUFeVwQGRfylTg3pCxt0Xk
+ QFVm84K+hVyXMzk5p7/eOR6rMeD9qRjIZbZsv6DhryZGHnP6yDFkToprioAXs5iMnFNiiuc31Gu
+ s/WeebW7DotX0PG0XjcETPbB1qOInjEMZbOm5DpHY17pdMtx6n7aFm8A+K/bEX2a495pj44wg30
+ blqClLuoEWjYRNw==
+X-Developer-Key: i=peter.griffin@linaro.org; a=openpgp;
+ fpr=0EFC8E6F5578750D56B549FCCEE8B8D6023472BA
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260918_120518_890635_187F160D 
+X-CRM114-Status: GOOD (  27.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,100 +141,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 10, 2026 at 07:12:05PM +0200, Francesco Dolcini wrote:
-> On Thu, Sep 10, 2026 at 12:01:51PM -0500, Frank Li wrote:
-> > On Thu, Sep 10, 2026 at 06:39:30PM +0200, Ernest Van Hoecke wrote:
-> > > Hi Frank,
-> > >
-> > > Thanks for reviewing this so quickly.
-> > >
-> > > On Thu, Sep 10, 2026 at 11:26:22AM -0500, Frank Li wrote:
-> > > > On Thu, Sep 10, 2026 at 05:37:59PM +0200, Ernest Van Hoecke wrote:
-> > > > > From: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
-> > > > >
-> > > > > Toradex boards route the sideband signals of their 24-pin camera
-> > > > > connectors to different GPIO controllers. Camera overlays which name
-> > > > > those controllers directly must therefore be duplicated for each host
-> > > > > board.
-> > > > >
-> > > > > Describe reset, power-down, detection and power-control as
-> > > > > connector-local GPIO functions. This lets an accessory overlay remain
-> > > > > independent of the host wiring. MIPI CSI-2, I2C, clocks and supplies
-> > > > > remain described separately because the GPIO nexus does not abstract
-> > > > > them.
-> > > > >
-> > > > > Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
-> > > > > ---
-> > > > >  .../connector/toradex,camera-connector.yaml        | 86 ++++++++++++++++++++++
-> > > > >  1 file changed, 86 insertions(+)
-> > > > >
-> > > > > diff --git a/Documentation/devicetree/bindings/connector/toradex,camera-connector.yaml b/Documentation/devicetree/bindings/connector/toradex,camera-connector.yaml
-> > > > > new file mode 100644
-> > > > > index 000000000000..06e6836e1aa6
-> > > > > --- /dev/null
-> > > > > +++ b/Documentation/devicetree/bindings/connector/toradex,camera-connector.yaml
-> > > > > @@ -0,0 +1,86 @@
-> > > > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > > > +%YAML 1.2
-> > > > > +---
-> > > > > +$id: http://devicetree.org/schemas/connector/toradex,camera-connector.yaml#
-> > > > > +$schema: http://devicetree.org/meta-schemas/base.yaml#
-> > > > > +
-> > > > > +title: Toradex camera connector GPIO nexus
-> > > > > +
-> > > > > +maintainers:
-> > > > > +  - Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
-> > > > > +  - Toradex Linux BSP Team <linux-bsp@toradex.com>
-> > > > > +
-> > > > > +description: |
-> > > > > +  Toradex boards provide 24-pin camera connectors carrying MIPI CSI-2, I2C,
-> > > > > +  clock, power, and sideband GPIO signals. This binding describes the sideband
-> > > > > +  signals as a GPIO nexus. The other connector resources remain described by
-> > > > > +  the surrounding board device tree.
-> > > > > +
-> > > > > +  The nexus exposes connector-local GPIO function numbers to camera overlays
-> > > > > +  and maps the functions wired by a carrier board to their GPIO controllers.
-> > > > > +  GPIO specifiers contain a function number followed by standard GPIO flags.
-> > > > > +  A board may omit functions which it does not wire.
-> > > > > +
-> > > > > +  The function numbers are:
-> > > > > +    - 0: Camera reset, connector pin 11
-> > > > > +    - 1: Camera power-down, connector pin 22
-> > > > > +    - 2: Camera identification, connector pin 23
-> > > > > +    - 3: Camera power control, connector pin 24
-> > > > > +
-> > > > > +properties:
-> > > > > +  compatible:
-> > > > > +    const: toradex,camera-connector
-> > > >
-> > > > Name is too generally, suggest use board name, we got similar comments at
-> > > >
-> > > > https://lore.kernel.org/imx/20260629074734.3643227-2-chancel.liu@oss.nxp.com/
-> > >
-> > > I saw that and it made me reconsider this name.
-> > >
-> > > However, I believe that in our case it is specific enough. It is really
-> > > the same on all our carrier boards, and Toradex specific. It's also only
-> > > for cameras, which is more defined than just "io". Curious to see if
-> > > others agree or if we should come up with a name for this.
-> > 
-> > If some days later, you update hardware connector to 30pin from 24pins.
-> 
-> That connector is there since years, not days.
-> 
-> We have multiple cameras, designed to mate with it.
-> 
-> If tomorrow we will define a new camera connector (that is absolutely
-> possible), the new connector will get its name, maybe
-> toradex,camera-connector-v2, or toradex,camera-connector-22pin or
-> whatever that connector would be named, not just in the DT, but also as
-> a product and on the actual HW.
+Hi folks,
 
-I for one hate 'v2' naming.
+This series adds initial basic support for Laguna (Tensor G5 SoC)
+found in Frankel (Pixel 10), Blazer (Pixel 10 Pro) and Mustang (Pixel
+10 Pro XL) phones.
 
-I agree the name seems a bit generic, but if you really can't come up 
-with something better, then fine. The next connector name just has to be 
-something different.
+Whilst Tensor G1 to G4 SoCs (found in Pixel 6 to Pixel 9 and Pixel
+10a) were offshoots from the Samsung Exynos family. Laguna is an
+entirely in-house Google designed SoC.
 
-Rob
+Currently this series adds very basic DT capable of booting to a
+initramfs busybox shell and is a v3 of Dougs original v1 submission
+with the contentious DT overlay parts removed.
+
+Whilst there is still interest in resolving the DT overlay topic (as
+I believe many vendors use this approach). I would like to decouple
+merging initial Laguna / Pixel 10  support from resolving that
+particular issue. I believe Doug intends to revisit the topic again at
+Linux Plumbers in Prague later this year.
+
+In v2 I've updated to use the usual upstream approach of having
+individual board files e.g. lga-frankel.dtb, lga-blazer.dtb,
+lga-mustang.dtb  the same as gs101-oriole.dtb and gs101-raven.dtb.
+
+It is worth noting, that with what is currently supported upstream there
+aren't any known differences versus pre mass production boards yet. So
+lga-blazer.dtb boots fine on my EVT 1.1 board with A0 silicon.
+
+At the point where differences do arise, we may need to either add A0
+silicon cut and other board variants upstream, or keep upstream as
+purely MP/B0 silicon and maintain a separate out of tree DT that uses
+overlays for Googlers needing to use pre MP devices. So far at least
+with Pixel 6 that wasn't necessary.
+
+Folks interested in trying this out and booting a pure upstream kernel
+on their own Pixel 10 device may wish to use the build system and docs
+found here:
+
+https://gitlab.com/LinaroLtd/googlelt/pixelscripts
+
+Example commands:
+
+make RUNTARGET=frankel flash
+make RUNTARGET=blazer flash
+
+Also in v2 I've added support for ramoops reserved-memory carveout and
+tested with `console=pstore` kernel argument. Additionally carveouts
+for the ABL bootloader are added (which is used when doing a debug
+boot (e.g. after a watchdog timeout). This allows for the extraction
+of various logs via fastboot oem commands (bootloader / kernel
+logs). The bootloader log can also be quite useful as it contains some
+amount of on device debug parsing which can provide some hints after a
+crash.
+
+Note: In v3 the ufs0 alias has been removed but the bootloader will
+consider a missing ufs0 alias a fatal error. Whilst we wait for a new
+bootloader release that changes that behaviour (kudos to Doug) the
+pixelscripts Makefile [1] will apply the node so that upstream DTBs
+are kept clean but things still boot on the device (see [1]).
+
+regards,
+
+Peter
+
+[1] https://gitlab.com/LinaroLtd/googlelt/pixelscripts/-/commit/156bd361b39c55303cb4de33cd66ace9b1f610f2
+
+Changes in v4:
+- Fix one remaining dt-check-style in lga-frankel (Peter)
+- Fix one remaining dt-check-style in lga-pixel-common (Peter)
+- Link to v3: https://lore.kernel.org/r/20260918-contrib-pg-pixel10-initial-dts-v3-0-c94e51140509@linaro.org
+
+Changes in v3:
+- Rebase on next-20260918
+- Collect up Reviewed-by / Tested-by tags
+- Use 0x0 instead of 0 consistently for new code (Krysztof)
+- Remove 'ranges' from gic-v3 as no msi child node with unit address (Krysztof)
+- Remove ufs0 alias and ufs placeholder node (Krysztof)
+- Remove memory node from lga.dtsi (Krysztof)
+  It turns out bootloader adds the memory node anyway
+- Use standard '/ {' not overlay style (Krysztof)
+- Update alias to point at label (Brian)
+- Remove GIC_CPU_MASK_SIMPLE for gicv3 interrupt controller (Shashiko)
+- Fix dt-check-style --mode=strict warnings (Peter)
+- Link to v2: https://lore.kernel.org/r/20260722-contrib-pg-pixel10-initial-dts-v2-0-3abae9717feb@linaro.org/
+
+Changes in v2:
+- Enable CONFIG_ARCH_GOOGLE in arm64 defconfig
+- Remove all the pre-production dt binding support (EVT, DVT, a0)
+- Remove dtbo overlays and add individual board dts
+- Update to lga-pixel-common naming like gs101-pixel-common
+- Reorder nodes alpha-numerically by the node name
+- Add ramoops reserved-memory (tested with console=pstore)
+- Add reserved-memory for bootloader & gsa logs
+- Add reserved-memory for Android BootLoader ABL (used on Watchdog
+  reset to extract boolotader logs / parse breadcrumbs / ramdump etc).
+- Add osc 38.4Mhz fixed-clock
+- Link to v1: https://lore.kernel.org/lkml/20251111192422.4180216-1-dianders@chromium.org/
+
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: André Draszik <andre.draszik@linaro.org>
+To: Tudor Ambarus <tudor.ambarus@linaro.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Jiri Slaby <jirislaby@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>
+To: Arnd Bergmann <arnd@arndb.de>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Linus Walleij <linusw@kernel.org>
+To: Drew Fustini <fustini@kernel.org>
+To: Kees Cook <kees@kernel.org>
+To: Tony Luck <tony.luck@intel.com>
+To: Guilherme G. Piccoli <gpiccoli@igalia.com>
+Cc: Douglas Anderson <dianders@chromium.org>
+Cc: Juan Yescas <jyescas@google.com>
+Cc: RD Babiera <rdbabiera@google.com>
+Cc: Brian Norris <briannorris@google.com>
+Cc: William McVicker <willmcvicker@google.com>
+Cc: devicetree@vger.kernel.org
+Cc: kernel-team@android.com
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-samsung-soc@vger.kernel.org
+Cc: linux-serial@vger.kernel.org
+Cc: soc@lists.linux.dev
+
+Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
+---
+Douglas Anderson (2):
+      arm64: dts: google: Add dts directory for Google-designed silicon
+      arm64: dts: google: Add initial dts for frankel/blazer/mustang
+
+Peter Griffin (2):
+      dt-bindings: arm: google: Add dt bindings for frankel/blazer/mustang
+      arm64: defconfig: enable Tensor G5 SoC family
+
+ Documentation/devicetree/bindings/arm/google.yaml |  48 ++-
+ MAINTAINERS                                       |   1 +
+ arch/arm64/Kconfig.platforms                      |   8 +
+ arch/arm64/boot/dts/Makefile                      |   1 +
+ arch/arm64/boot/dts/google/Makefile               |   6 +
+ arch/arm64/boot/dts/google/lga-blazer.dts         |  15 +
+ arch/arm64/boot/dts/google/lga-frankel.dts        |  15 +
+ arch/arm64/boot/dts/google/lga-mustang.dts        |  15 +
+ arch/arm64/boot/dts/google/lga-pixel-common.dtsi  |  22 ++
+ arch/arm64/boot/dts/google/lga.dtsi               | 413 ++++++++++++++++++++++
+ arch/arm64/configs/defconfig                      |   1 +
+ 11 files changed, 526 insertions(+), 19 deletions(-)
+---
+base-commit: 3f2425f5b5bbbdd991ca9cdfd5502e68d8895998
+change-id: 20260710-contrib-pg-pixel10-initial-dts-49f5ec657b66
+
+Best regards,
+-- 
+Peter Griffin <peter.griffin@linaro.org>
+
 
