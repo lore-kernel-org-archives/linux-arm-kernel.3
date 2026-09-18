@@ -4,61 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6CA2C982D2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 06:07:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35828C982D9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 06:07:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nB+ur1ymF8ItNM5ueD0fa34GQvhEWBgrTyYoHzKUDhU=; b=tHX1v6lttUfiGdLC06D9GvvY/F
-	S/NjzIGeAOMdahMPYrWKwDs61NKTDrgHo5ys+g2RqtKku2vv5dd/vpzRCYOPii86wrpksNLMMq3N7
-	V8Ky79jXG7zRHkUUPuNRAg8lk7DMOmpDcptKF71XN48Ar9QxGp0Wv/7wf5OWaMLW3EirtSRTrNONH
-	XW8Nuzd2jtbD4+/0SrgRzbsXtiYC2aBfn0ggGfPfwvArNzOUxF8e8XYc5R7+7OC0uBqS7FukN3fnV
-	ha3zJ8t/NZGCnSiFA2TO+Tlws+CB4PNEzp6EJhd/UdVyq2kHLGBW/2ZEqeSmt7dtAhw+v2Mm6J9yR
-	ILW4L+Sw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rwSgmxUrtbpCmxPEYK9er5gynnTViPyV6I3RqSz3ERI=; b=0Zjmt8NfRYlLM5enNJOq9A1Jug
+	utCiGIpbAIcfM+ZzSzcAjgC+ia4yNd5nVa3xNjkylQ0MgX91MS11oNojPsbr7PrLoO9B69i/WbIVH
+	qPLCCCP92cLKgCnvaOw9DMnjS5Fal/jkarFu4NeMIulDr7lNYZN27+I9AAUAzJ0V+13nQRdJS0G4c
+	Mt2OtzgP201+8RBop5W9TKM703v+e0Eeb6nIW6j4bTiFLy75gLs6ovRH9PWDZNSBwq1q5eFju9O4v
+	nExWD/065WAyEEgEK+aN9Ibre3jwwejUqZRFhTzt4ybBT5fJhroLIDPWbniPOGfFv2W+1ixXtniDf
+	h/qtkF0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Rky-0000000DXBj-2TPE;
-	Fri, 18 Sep 2026 06:07:32 +0000
-Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
+	id 1x7Rl4-0000000DXIA-0jEX;
+	Fri, 18 Sep 2026 06:07:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Rkd-0000000DX1A-3Zyb;
-	Fri, 18 Sep 2026 06:07:14 +0000
-Received: from [127.0.1.1] (unknown [IPv6:2a02:560:5dd5:4b00:9ebf:dff:fe00:fdb5])
-	(Authenticated sender: sha@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id B8E3E2002AF;
-	Fri, 18 Sep 2026 08:07:05 +0200 (CEST)
-From: Sascha Hauer <s.hauer@pengutronix.de>
-Date: Fri, 18 Sep 2026 08:07:01 +0200
-Subject: [PATCH v4 1/4] media: dt-bindings: Add Rockchip JPEG decoder
+	id 1x7Rkv-0000000DX9Y-04Cg
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 18 Sep 2026 06:07:29 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6EA8340160;
+	Fri, 18 Sep 2026 06:07:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A26481F00893;
+	Fri, 18 Sep 2026 06:07:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789711648;
+	bh=rwSgmxUrtbpCmxPEYK9er5gynnTViPyV6I3RqSz3ERI=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=h4WFQ/8Wc/jggR8sKMBzi2Zlht6du789DaDJ0xTGa3JZxxXMy3ltKR660bjxlErF1
+	 FT3+cxLFUPnHHaKuFhc++j4Z8W+41fqBWqnj+1PY3zM/0Oh13Q+kd44C9AHaB9B7Js
+	 COpd1XPqwmy3nelnzVqVVOVLWvRdF6WcrA/ZQHy4UdIUXA/7QZLnFcKZPzAVTgqYLy
+	 UEvNgLl/qu6IGBTHfLvqNRg7x1W8+0ImKiTUDfRJsRQe6fR2Uc8kv7O9tytP0pQRTu
+	 3BrOT1anVyp1KVv1s4Gam0IwYcCAh2bwKD5Xyr3XUGsM73cIzWpMqH+zhQ4F78TITo
+	 CTSF7QWrP/pgQ==
+X-Mailer: emacs 31.1 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Ankit Agrawal <ankita@nvidia.com>,
+	"linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Cc: Alexey Kardashevskiy <aik@amd.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Samuel Ortiz <sameo@rivosinc.com>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Xu Yilun <yilun.xu@linux.intel.com>
+Subject: Re: [PATCH v5 11/15] coco: host: arm64: Connect RMM pdev streams
+ for IDE devices
+In-Reply-To: <SAWPR12MB9992670293875EF547CA440A18B0872@SAWPR12MB999267.namprd12.prod.outlook.com>
+References: <20260910140509.868402-1-aneesh.kumar@kernel.org>
+ <20260910140509.868402-12-aneesh.kumar@kernel.org>
+ <SAWPR12MB9992670293875EF547CA440A18B0872@SAWPR12MB999267.namprd12.prod.outlook.com>
+Date: Fri, 18 Sep 2026 11:37:20 +0530
+Message-ID: <yq5aa4pf149z.fsf@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260918-rockchip-jpegdec-v4-1-0dd97df47abb@pengutronix.de>
-References: <20260918-rockchip-jpegdec-v4-0-0dd97df47abb@pengutronix.de>
-In-Reply-To: <20260918-rockchip-jpegdec-v4-0-0dd97df47abb@pengutronix.de>
-To: Lucas Sinn <lucas.sinn@wolfvision.net>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789711625; l=5061;
- i=s.hauer@pengutronix.de; s=20230412; h=from:subject:message-id;
- bh=D9rZfK2CrBO2eUgv7lORtSDWsvw5VAPfpt/7Hr96Kvg=;
- b=VQ4J/nSq9NC4A4BaxZkCiM3IVP3+UypjvqqoUSZ7E/WOX5+1R+EZP0p3Yx25N7qwIb4jbzEsB
- XY6hzWg7zVFAkZ/GoNfzEC2jp4CV6KM84jYVrpalgdnn0LuBUwE2a3X
-X-Developer-Key: i=s.hauer@pengutronix.de; a=ed25519;
- pk=4kuc9ocmECiBJKWxYgqyhtZOHj5AWi7+d0n/UjhkwTg=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_230712_205796_E606A726 
-X-CRM114-Status: GOOD (  19.38  )
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,155 +84,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a devicetree binding schema for the JPEG hardware decoder Rockchip
-integrates into a number of its SoCs.  Documents the single register
-window (task registers plus the LLP link-table block at offset 0x300),
-the decode interrupt, the AXI and AHB clocks and resets, the IOMMU and
-the power domain.
+Ankit Agrawal <ankita@nvidia.com> writes:
 
-The core is not tied to one SoC.  Downstream it is known as the VDPU720
-and the same block sits on the RK3528, RK3562, RK356x, RK3576, RK3588 and
-RV1126B, with only the clocks, the resets and the power domain differing,
-none of which this schema constrains.  A compatible per SoC is all it
-takes to cover them; the RK3568 and the RK3588 are the two that have been
-tested and are enabled here.
+> Hi Aneesh
+>
+> As I read it, the address ranges handed to RMM in this patch are captured
+> once and at the point cca_tsm_connect() runs. That becomes the address
+> range RMM has on record for the pdev/stream going forward.
+>
+> So a couple of questions on that..
+> 1.  Is connect -> {driver probe / vfio-pci bind } the intended
+>      sequence or is that ordering left entirely to userspace/VMM policy?
+>
 
-The resets and the power domain are required.  The block cannot be
-reached with its domain off, and the driver falls back to pulsing the
-reset lines when a frame times out and the in-block soft reset does not
-complete, which a node without them would leave with no way to recover.
+We can tsm connect the device even while its driver is bound.
 
-The IOMMU stays optional.  The driver never refers to it, it is a platform
-integration detail, and rockchip-vpu.yaml does not require it for the
-other codec blocks on these SoCs either.
+> 2. Are the resources/BARs captured at connect time assumed to be
+>     fixed for the lifetime of the PDEV? If a PCI rescan (or resource
+>     reassignment such as pci=realloc, a hotplug re-enumeration
+>     happens after connect, is that expected to be rejected/blocked?
 
-Assisted-by: Claude:claude-opus-5
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
----
- .../bindings/media/rockchip,rk3568-jpegd.yaml      | 92 ++++++++++++++++++++++
- MAINTAINERS                                        |  8 ++
- 2 files changed, 100 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/media/rockchip,rk3568-jpegd.yaml b/Documentation/devicetree/bindings/media/rockchip,rk3568-jpegd.yaml
-new file mode 100644
-index 0000000000000..27d85f17922ec
---- /dev/null
-+++ b/Documentation/devicetree/bindings/media/rockchip,rk3568-jpegd.yaml
-@@ -0,0 +1,92 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/media/rockchip,rk3568-jpegd.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Rockchip JPEG Decoder
-+
-+maintainers:
-+  - Lucas Sinn <lucas.sinn@wolfvision.net>
-+  - Sascha Hauer <s.hauer@pengutronix.de>
-+
-+description:
-+  Rockchip's in-house JPEG/MJPEG hardware decoder, known downstream as the
-+  VDPU720.  The same core is integrated into a number of Rockchip SoCs, which
-+  differ only in the clocks, resets and power domain they are wired to.  A
-+  dedicated Link List Processor (LLP) register block, located at offset 0x300
-+  within the same register window, allows the hardware to decode a chain of
-+  frames autonomously ("link mode").
-+
-+properties:
-+  compatible:
-+    enum:
-+      - rockchip,rk3568-jpegd
-+      - rockchip,rk3588-jpegd
-+
-+  reg:
-+    maxItems: 1
-+    description:
-+      The decoder register window.  It covers both the task (function)
-+      registers at offset 0x000 and the LLP (link table) registers at
-+      offset 0x300.
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: AXI clock
-+      - description: AHB clock
-+
-+  clock-names:
-+    items:
-+      - const: axi
-+      - const: ahb
-+
-+  resets:
-+    items:
-+      - description: AXI reset line
-+      - description: AHB reset line
-+
-+  reset-names:
-+    items:
-+      - const: axi
-+      - const: ahb
-+
-+  power-domains:
-+    maxItems: 1
-+
-+  iommus:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+  - clock-names
-+  - resets
-+  - reset-names
-+  - power-domains
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/power/rk3588-power.h>
-+    #include <dt-bindings/reset/rockchip,rk3588-cru.h>
-+
-+    video-codec@fdb90000 {
-+        compatible = "rockchip,rk3588-jpegd";
-+        reg = <0xfdb90000 0x400>;
-+        interrupts = <GIC_SPI 129 IRQ_TYPE_LEVEL_HIGH 0>;
-+        clocks = <&cru ACLK_JPEG_DECODER>, <&cru HCLK_JPEG_DECODER>;
-+        clock-names = "axi", "ahb";
-+        resets = <&cru SRST_A_JPEG_DECODER>, <&cru SRST_H_JPEG_DECODER>;
-+        reset-names = "axi", "ahb";
-+        iommus = <&jpegd_mmu>;
-+        power-domains = <&power RK3588_PD_VDPU>;
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 8014b9f8253ed..f8b4921843d27 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -23424,6 +23424,14 @@ F:	Documentation/userspace-api/media/v4l/metafmt-rkisp1.rst
- F:	drivers/media/platform/rockchip/rkisp1
- F:	include/uapi/linux/rkisp1-config.h
- 
-+ROCKCHIP JPEG DECODER DRIVER
-+M:	Lucas Sinn <lucas.sinn@wolfvision.net>
-+M:	Sascha Hauer <s.hauer@pengutronix.de>
-+L:	linux-media@vger.kernel.org
-+L:	linux-rockchip@lists.infradead.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/media/rockchip,rk3568-jpegd.yaml
-+
- ROCKCHIP RK3568 RANDOM NUMBER GENERATOR SUPPORT
- M:	Daniel Golle <daniel@makrotopia.org>
- M:	Aurelien Jarno <aurelien@aurel32.net>
+IIUC, a normal rescan neither rereads nor relocates an already known and
+assigned BAR? To discover an externally changed BAR, the device would
+normally need to be removed before rescanning. Device removal reaches
+pci_destroy_dev(), which calls pci_tsm_destroy() -> pci_tsm_disconnect()
 
--- 
-2.47.3
 
+-aneesh
 
