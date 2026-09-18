@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44D41C982DA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6CFAC982D8
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 13:19:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,62 +12,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lo1KsoI1XuIoEcDs+Ce0ZXJLIqJlsl+upMRklAIDXKY=; b=eAjT9/ClexLp4U3+tRdinVy8tf
-	yl217cVta2tGfYh6MGPUD+l033gLdJIBz7dKnk3/hMrzo5nf44h+ySvzKWHMMqD5qUUSTOufRciuF
-	Tb2GyFD0C0BQ9iLpeIc6r0d4XS5krAZJ6hCRRU/oANUMPJ+TGyDeRZm2PJHWvRMPQftvFYfKsUQoR
-	Ct9aCAaaGr/j1HO8OX8bK/ZWqnAVJ+Kcw3f2Cl2ZAuGPGX7zFkcJPDYam1aJo3x4J/d3ELo/S5HzA
-	7M30CSbQKEgcUCc3viiYU4mXnE+DFQDRfMhwlGLVwywYNQ4f0dc/Ty9G0NJwJFytZFKxPtSU5Rjva
-	alRZvwfQ==;
+	bh=R10EWAoqeqiwKYs38V4/eu87hmfK6YBmKaV1HjMgWDg=; b=rPHDJdLA3cD3F+vSnbtOBI3q1/
+	hJwLBig5OwYVxNjMjOO9Dqr0qf6NdD/mXPTHcWqAOSmKanRX5GeKdTU5MD6MISTqmiNscYVOv3pKA
+	DMlxLmRDbXmwMOUcDkOPlrGx3M2ycpqv1qr4eE1+VLMmI1E/tsn2cpBKBnoJjGq5SEvSQVPhLfiEY
+	SQ7bXLRfc7Yt6Z9Bu4Xlt0ZCxxztTJzmTludQfPgMm7eP4ZZx5T9AoXkDfgt9gtJGCT/4Bfni/hHV
+	Qe3Qp0wYugjibZPv+0LRzca0jCwbmtG6QsgItHPjbZ7vw9Dw4bq0r9F0ioYQRyRkJ/fzGaBu/jQb1
+	VQkOOTyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7YUh-0000000EUEL-3gGy;
+	id 1x7YUh-0000000EUEd-48KJ;
 	Fri, 18 Sep 2026 13:19:11 +0000
-Received: from mail-wm1-x347.google.com ([2a00:1450:4864:20::347])
+Received: from mail-wm1-x345.google.com ([2a00:1450:4864:20::345])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7YUa-0000000EUAi-2PfO
+	id 1x7YUb-0000000EUB5-1RyG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 13:19:05 +0000
-Received: by mail-wm1-x347.google.com with SMTP id 5b1f17b1804b1-49ccfad90f1so5968615e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 06:19:03 -0700 (PDT)
+	Fri, 18 Sep 2026 13:19:06 +0000
+Received: by mail-wm1-x345.google.com with SMTP id 5b1f17b1804b1-4955e865174so4565435e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 06:19:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1789737542; x=1790342342; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1789737543; x=1790342343; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Lo1KsoI1XuIoEcDs+Ce0ZXJLIqJlsl+upMRklAIDXKY=;
-        b=GEyqG7xAIOhVEz0eyVqoK0Y+RdCfYxz/jPB1+hbatBI+gOOBGUqqYUcrIU9L8A/U/i
-         z5VmwPcMrpImkkkhlSyMrUVndq1qDnTQ/UFIB5GWuw7GwHAy4wP3ZjXYiSlGNtQSV4KQ
-         sVztF+bcmi4iuHQlBFrS+9czEaAhODo6sSgX7ZrEHN3Wl2V8xiRineynArXq5xs1IGNu
-         AtDp5UOf6sNlqYf3tfeMnTpwN2IKbLm+KivIj3SD4gRThBCIIjSHbBKWJndW/P+OxpCM
-         PovX9EER39Gr2jyAWt3KtsObnZ1FrzR2L6yfzzuFy0eeYWg4x4M/WF7qnLZPLsZS4H/2
-         779A==
+        bh=R10EWAoqeqiwKYs38V4/eu87hmfK6YBmKaV1HjMgWDg=;
+        b=TAjtB2L6ts3EwTd6IaNqAaSTlmtFMANPR1TxUbVSOjq00/dZLvhUZHddqECJx+w4Qh
+         6o9OXf872/YQbbgjFPwizwYrQ2J2ao7m4E++9FWMI1gyQSFPsY2UpEp+bb3UPKN/pycd
+         zUkKg1FjrsuL6RQzbMiJp8OKqXVe8Oj0m9RqSirwj8vhPk2cn4Lk+xwhrAny/2uDfg6D
+         Bb7V9MNNMhfZFVMtUd2wOvTNbO0a/HWn2UW9oebptzLhL7xWpyTXGlabr7VbZztPpTbg
+         SCG0Spxg6GngIhwrCZRox8y6VXNLac+btY4NcHESVwPWax6/U2BVEZvvV25kItAoCez+
+         v4zA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789737542; x=1790342342;
+        d=1e100.net; s=20260707; t=1789737543; x=1790342343;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Lo1KsoI1XuIoEcDs+Ce0ZXJLIqJlsl+upMRklAIDXKY=;
-        b=k7fQiGg8g0MGqppzo0+AMNhgk8K7JBzG6tXdMwW4hUbfkj7tgxrJ5BmmYYRkq8wjta
-         qNySg2YkKdFPH+7dHCo3pz+hKgwHnUH1TwH524ujE+ADNS6XZMpOeJqCGBS5lRh5YY/b
-         o/1/p9n7Nk6coxglpKChqzE+6byHaf9bakeUI9QHE4J5fVGDWFEjWr8R97m7Bkiwq4hL
-         Z8U5SgjTS2om+0AbTGw3hmz+X7fnrlZb1ZnMwtiVKAT7F2OH4+kPOx9dDLJXp1k8cPKS
-         6TV4rEdQv2O2gggR0A9Fsjl5WolS0LJyKkojRaGFj/U5zWq/+ATXkaF+0aEkng3K3VkQ
-         K4Bg==
-X-Forwarded-Encrypted: i=1; AKwUvBxLgFpRqTTkUFWZk1fckHnd46fyWm4sm6zFnQfF3aLER0xQdx7YV0+063ykI6H4CdEuG/Pb2eWlq7MWDFYamUCV@lists.infradead.org
-X-Gm-Message-State: AFuF++nD+fnvBfwMm18GqdJ2FiMDxUG63wUECHf1Mdtb1YjPwQdsf6qC
-	f3V/8P3IuVp1ja8UDebCgzf3Mu2I50KmIlKIvGzi+f5skYnBmzhFfPgc7cUit6uAyWD9dJFXyLu
-	DneS+iWB7wGapMA2gCO0sFg==
-X-Received: from wmbje21.prod.google.com ([2002:a05:600c:1f95:b0:49e:6e7c:4200])
+        bh=R10EWAoqeqiwKYs38V4/eu87hmfK6YBmKaV1HjMgWDg=;
+        b=dfc7TmeFo7kXh0ep8vROxChPnGH2wCdDeYRWZiUa/55VxUiQXxWNBpXMr8bYqKgaeo
+         b1rQpIxPjO8h7QZyNqTMp33ZKI8nOI3JIq6KaM9VgJgsS0cXOIf38mVgdUCcc7IkSBmN
+         IWbsRNxmb31ocBxSIhaRFJ58LEZo7Xu8TtmRTUb3qOMkQPXPQbVpdNwQjiNHZ79bc3au
+         6hhZXJyssafN8RV3dRcbYNJTviPVgGji6wdmLPRI/f88KRhs5aI1CP5t3wFknBRXTgNw
+         PTWV16SSMkKR+TDhEf7NzRC77P1qotEtlwA5lMMZH01tpLn2uGJRTuH9uH2NH++XSC/i
+         eUlA==
+X-Forwarded-Encrypted: i=1; AKwUvBzy/lzEvwrQigRTzmcS5bK7R6wDEx2Qe3dR3zW3j4J4289raB0IEQIlqXh4Pckg2FiU95f6krs/8CKK8M1j4DNe@lists.infradead.org
+X-Gm-Message-State: AFuF++k2DEG4utrD+yXqVzJUg6kvv2Q4MUa6NYE+7cZbCtZMsf42+sy9
+	fRVOsT5Co4sSaQLxhGY3xh9R4Lk12qE+wMIMX0Ztyf4LNmJJeds4/MD0srr85TxvuaAi+UaXedx
+	U+Q03DopsyuKZIGfmd0f6rA==
+X-Received: from wmsl26.prod.google.com ([2002:a05:600c:1d1a:b0:49e:6680:860c])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:3550:b0:49e:7d74:7b7a with SMTP id 5b1f17b1804b1-49fc56db8f3mr33347175e9.6.1789737541522;
- Fri, 18 Sep 2026 06:19:01 -0700 (PDT)
-Date: Fri, 18 Sep 2026 14:16:53 +0100
+ 2002:a05:600c:1993:b0:49c:ffe3:2b3f with SMTP id 5b1f17b1804b1-49fc56dbc54mr34667275e9.3.1789737542981;
+ Fri, 18 Sep 2026 06:19:02 -0700 (PDT)
+Date: Fri, 18 Sep 2026 14:16:54 +0100
 In-Reply-To: <20260918131656.3710047-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20260918131656.3710047-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.55.0.1082.g2b9226bbc0-goog
-Message-ID: <20260918131656.3710047-2-vdonnefort@google.com>
-Subject: [PATCH v1 1/4] PM: hibernate: Add arch specific hooks for hibernate_map/unmap_page
+Message-ID: <20260918131656.3710047-3-vdonnefort@google.com>
+Subject: [PATCH v1 2/4] arm64: hibernate: Use fixmap for hibernate_map/unmap_page
 From: Vincent Donnefort <vdonnefort@google.com>
 To: catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org
 Cc: mark.rutland@arm.com, lenb@kernel.org, pavel@kernel.org, 
@@ -76,8 +76,8 @@ Cc: mark.rutland@arm.com, lenb@kernel.org, pavel@kernel.org,
 	Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_061904_628577_2CEC08D3 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20260918_061905_399488_AD33865D 
+X-CRM114-Status: GOOD (  13.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,69 +92,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-hibernate_map_page() is called from an atomic context. This is
-problematic for Arm BBML3 systems where the linear map may contain
-blocks and is allowed to split as splitting is a sleepable operation.
+The default implementation for hibernate_map_page uses the direct map.
+This creates an unnecessary limitation for BBML3 enabled systems which
+can split linear map blocks and can enable memfd_secret users regardless
+of the linear map mapping level.
 
-Add arch hook so arm64 can define its own implementation without relying
-on the direct map.
+Block splitting acquires a mutex (pgtable_split_lock) and as a
+consequence is incompatible with hibernation. We know hibernation would
+only call set_direct_map*() on a PTE-level region since it was
+previously split by memfd_secret. But let's avoid special casing
+hibernation in split_kernel_leaf_mapping().
+
+On hibernation, do not modify the direct map and instead use a fixmap,
+better suited for a transient mapping hibernation needs to copy the page
+content. It removes the need for handling atomic context in
+split_kernel_leaf_mapping() altogether.
 
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 ---
- include/linux/suspend.h |  2 ++
- kernel/power/snapshot.c | 10 ++++++----
- 2 files changed, 8 insertions(+), 4 deletions(-)
+ arch/arm64/include/asm/fixmap.h |  3 +++
+ arch/arm64/kernel/hibernate.c   | 12 ++++++++++++
+ 2 files changed, 15 insertions(+)
 
-diff --git a/include/linux/suspend.h b/include/linux/suspend.h
-index b02876f1ae38..10fe2298d94e 100644
---- a/include/linux/suspend.h
-+++ b/include/linux/suspend.h
-@@ -401,6 +401,8 @@ int hibernate_quiet_exec(int (*func)(void *data), void *data);
- int hibernate_resume_nonboot_cpu_disable(void);
- int arch_hibernation_header_save(void *addr, unsigned int max_size);
- int arch_hibernation_header_restore(void *addr);
-+void *hibernate_map_page(struct page *page);
-+void hibernate_unmap_page(struct page *page);
+diff --git a/arch/arm64/include/asm/fixmap.h b/arch/arm64/include/asm/fixmap.h
+index 170c3502d723..c8a65fd8584d 100644
+--- a/arch/arm64/include/asm/fixmap.h
++++ b/arch/arm64/include/asm/fixmap.h
+@@ -73,6 +73,9 @@ enum fixed_addresses {
+ 	FIX_ENTRY_TRAMP_TEXT1,
+ #define TRAMP_VALIAS		(__fix_to_virt(FIX_ENTRY_TRAMP_TEXT1))
+ #endif /* CONFIG_UNMAP_KERNEL_AT_EL0 */
++#ifdef CONFIG_HIBERNATION
++	FIX_HIBERNATE,
++#endif
+ 	__end_of_permanent_fixed_addresses,
  
- #else /* CONFIG_HIBERNATION */
- static inline void register_nosave_region(unsigned long b, unsigned long e) {}
-diff --git a/kernel/power/snapshot.c b/kernel/power/snapshot.c
-index b209712cb2c3..b41952f1de2a 100644
---- a/kernel/power/snapshot.c
-+++ b/kernel/power/snapshot.c
-@@ -85,7 +85,7 @@ static inline int hibernate_restore_unprotect_page(void *page_address) {return 0
-  * It is still worth to have a warning here if something changes and this
-  * will no longer be the case.
-  */
--static inline void hibernate_map_page(struct page *page)
-+void * __weak hibernate_map_page(struct page *page)
- {
- 	if (IS_ENABLED(CONFIG_ARCH_HAS_SET_DIRECT_MAP)) {
- 		int ret = set_direct_map_default_noflush(page);
-@@ -95,9 +95,10 @@ static inline void hibernate_map_page(struct page *page)
- 	} else {
- 		debug_pagealloc_map_pages(page, 1);
- 	}
-+	return page_address(page);
+ 	/*
+diff --git a/arch/arm64/kernel/hibernate.c b/arch/arm64/kernel/hibernate.c
+index 7bf117427777..bbd0779081fa 100644
+--- a/arch/arm64/kernel/hibernate.c
++++ b/arch/arm64/kernel/hibernate.c
+@@ -21,6 +21,7 @@
+ #include <asm/cacheflush.h>
+ #include <asm/cputype.h>
+ #include <asm/daifflags.h>
++#include <asm/fixmap.h>
+ #include <asm/irqflags.h>
+ #include <asm/kexec.h>
+ #include <asm/memory.h>
+@@ -213,6 +214,17 @@ static int create_safe_exec_page(void *src_start, size_t length,
+ 	return 0;
  }
  
--static inline void hibernate_unmap_page(struct page *page)
-+void __weak hibernate_unmap_page(struct page *page)
- {
- 	if (IS_ENABLED(CONFIG_ARCH_HAS_SET_DIRECT_MAP)) {
- 		unsigned long addr = (unsigned long)page_address(page);
-@@ -1456,8 +1457,9 @@ static bool safe_copy_page(void *dst, struct page *s_page)
- 	if (kernel_page_present(s_page)) {
- 		zeros_only = do_copy_page(dst, page_address(s_page));
- 	} else {
--		hibernate_map_page(s_page);
--		zeros_only = do_copy_page(dst, page_address(s_page));
-+		void *src = hibernate_map_page(s_page);
++void *hibernate_map_page(struct page *page)
++{
++	set_fixmap(FIX_HIBERNATE, page_to_phys(page));
++	return (void *)__fix_to_virt(FIX_HIBERNATE);
++}
 +
-+		zeros_only = do_copy_page(dst, src);
- 		hibernate_unmap_page(s_page);
- 	}
- 	return zeros_only;
++void hibernate_unmap_page(struct page *page)
++{
++	clear_fixmap(FIX_HIBERNATE);
++}
++
+ #ifdef CONFIG_ARM64_MTE
+ 
+ static DEFINE_XARRAY(mte_pages);
 -- 
 2.55.0.1082.g2b9226bbc0-goog
 
