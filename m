@@ -4,144 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33D20C982DA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E947FC982E7
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 13:33:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z8sLHo8BqRMdgseycgHYqYz+145DnazUIQfzCQ3O+EU=; b=dfWgr/OKlPdJhZV5HLyqPIq7Ce
-	HAgP0cdFna/tPNVf3SPD8DpS9JCRX2Df6K6uXNfm+tSX+LuMVVUyqJwOP90PR2h++QSKzj0mHC9Ic
-	A9Er8zok/MuAYrKVe//bDTOVWMqVNzsvVa1UGUSIwqXP/6A2SiU+zk2yEqdiZQKf0G8eb65HABoQJ
-	jOq9a7b3GKeilEfLJgWywHMchHxbTznQp+z2p17986R60BioFQdRqBr9bfeP5eptO8zTiPBhpXzBo
-	J/ha5uW+R+bcNTpPIyp0JGAVi4M17BlJLQIvXLHtuLMShV4KT68Vm6AqiMgl67fjJAxOOBBSn/7Cw
-	8k6PDXiw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SBA0E8AODEBadx1kh06AjWaY/QYpRulbt0rkULl2OkQ=; b=uoQxR0hJuxmk+4Mgcyv4ytA6u3
+	bT8NvdxDV7JSHZGL41gkSv7/adomNSsC76dIGBPFzdOEv+UPSkOUxZebjL+5lEwingok8ELW1+3cE
+	qE/e9fYLW6Bu5ZXCKLnem2Fh8RMYoQgZjKR245oCZuMf7Id1FGrQ8IEoROEb+8mKnCBV3cr+ET3u3
+	MBHEuMR5JFmL+qLL01NqJrt47ZtxUvGhUG0D4SbOxfvmj7HrsxbI67fMaKHkyFYR/fe1/VZWXojn0
+	zRrTuW6dVZ/fi/5dac9arzsBMkAoB90CjW9H0AZv4qNdwNZST/vMBYp24cbqvM8Bz7XrAdy5JIC1s
+	zn6BlDSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7YiH-0000000EY9d-3z4n;
-	Fri, 18 Sep 2026 13:33:13 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x7YiJ-0000000EYDA-2gty;
+	Fri, 18 Sep 2026 13:33:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Ygs-0000000EWwz-0QTd
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 18 Sep 2026 13:31:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=z8sLHo8BqRMdgseycgHYqYz+145DnazUIQfzCQ3O+EU=; b=lLvqo+xMhua+yQzUogfDuYfyOR
-	q0MUXr0f1v9AcVqzMvSERKQpoNytJZmZmwyaNbNWtbGK1i8Tm8F/b0b3lkOuXsefONQ5P59k7j5UT
-	4RQnDGezUXGJWoVm82BcFpOkkS786Hx5lv2sbP7CuJkW5G/xnh0M41rCOBDl0j4KFaDT2+itqiJka
-	hOD9jR/J1r2od9hofrGh5Oxm99nNxrNAtDL+zNU5EXl2bxEAUauHKs1m98T+Gr3sNZwex1zX7OKU8
-	uyQy4stcOvvXIYcjlxqGH/KTqjOig2PZLNk8fRtIfqWT2vdisu54Bh/UdfhHS70QqihsqW39GtOsG
-	n6D72QNQ==;
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x7Ygn-0000000A8al-2xWM
+	id 1x7YhH-0000000EXOg-01Xy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 13:31:44 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68IA1UxN960828;
-	Fri, 18 Sep 2026 13:31:28 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=z8sLHo8BqRMdgseyc
-	gHYqYz+145DnazUIQfzCQ3O+EU=; b=TXEUsyp7tpftExjG3PvhHzCrmmOX/hy7j
-	XZav0EJGnBznAiVp97CzFdXE/SricpHQ/ZUoBoVKH3FZ9Ete7nFUFMpmNzHU3vpx
-	v7eRjEOyNi1/iVnF7Elf0Gsn3P0zbORgE8d90qac7l4iy9V+z+ihh6s7J4LnC0Kx
-	89GEwotPJvfOdlmeiQRljNEmvWvdSJYcopzqKWsddGVJ1Puu0cQMvRbe2R1cJRAc
-	vAjSW3cghVIm0p99ivvq3CgjsYLDPjtAGeNJ0VifkC/xqz8EXz7k5qnLn8OU72ry
-	P+cxqPii13dpDQWl5oub7WW7bkoo9j6rFQN3nJtKHOSudUa2o38bg==
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gmxf5gb7x-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 18 Sep 2026 13:31:27 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68IDOFiA739719;
-	Fri, 18 Sep 2026 13:31:26 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gs56q88uk-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 18 Sep 2026 13:31:26 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68IDVEfx20841002
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 18 Sep 2026 13:31:14 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id AFEFE20049;
-	Fri, 18 Sep 2026 13:31:14 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 599DA2004D;
-	Fri, 18 Sep 2026 13:31:14 +0000 (GMT)
-Received: from tuxmaker.lnxne.boe (unknown [9.87.85.9])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 18 Sep 2026 13:31:14 +0000 (GMT)
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org
-Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v8 18/29] s390/tools: Use arm64 headers
-Date: Fri, 18 Sep 2026 15:30:55 +0200
-Message-ID: <20260918133107.1042730-19-seiden@linux.ibm.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260918133107.1042730-1-seiden@linux.ibm.com>
-References: <20260918133107.1042730-1-seiden@linux.ibm.com>
+	Fri, 18 Sep 2026 13:32:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7FB0F404BC;
+	Fri, 18 Sep 2026 13:32:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C2851F000FF;
+	Fri, 18 Sep 2026 13:32:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789738330;
+	bh=SBA0E8AODEBadx1kh06AjWaY/QYpRulbt0rkULl2OkQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=JgoKnDJTFyKqWWSymRW9iF2B8lN//StBJtI/lM5LftfwpC/oAuS2Fg0k/8O4JRcwf
+	 Tl7mBtu4h+LQRuWG0cPoWRV1dBwXHLGe9mclufmEq3resy0LAp8ku49P2lG5/qU+9e
+	 ydZZbffbURfmQDXNwMq0V4Po/IbbKyQUdkGQBwmX7YWlrVsKOoIh8QXofE1j20kVxQ
+	 PHx54Jc/GgLFS7u/pPAOhPkRtNTOFFSFIvRrcpilGtw/NeSRLgfZxxB5B91F+sdb54
+	 VOw5poxNzPjxBrYZUU/iqcRsR5EqZii55rwBeRJr2ZsWYHJILgt1L+1x/ZGFD2RFe8
+	 0wa6jemDP32qQ==
+Date: Fri, 18 Sep 2026 14:32:06 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Hans de Goede <johannes.goede@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>,
+	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
+	Frank.Li@kernel.org, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v7 1/2] module: add SCMI device table alias support
+Message-ID: <20260918-impetuous-daring-barnacle-1ea4d0@sudeepholla>
+References: <20260918092951.5656-1-johannes.goede@oss.qualcomm.com>
+ <20260918092951.5656-2-johannes.goede@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: PM5P4ONwvp8aq_-ervFBOC6wbtARJ8S4
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE4MDE4NCBTYWx0ZWRfX8duBsZH4K1lb
- zZQsIPsiVBfO4eNjU29XFEvwZCWT++xJ4FMFGD7W6ivzBzCMq+lB0pjdC7z1wkyrvrEMZCbq6YP
- zNRMMuuvICwcWUNVYJwLWJnBquPwNPM=
-X-Authority-Analysis: v=2.4 cv=cvgOAF4i c=1 sm=1 tr=0 ts=6aad3d30 cx=c_pps
- a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
- a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=U7nrCbtTmkRpXpFmAIza:22 a=VnNF1IyMAAAA:8 a=ZhoKsAT7EqIUtuKD8d0A:9
-X-Proofpoint-ORIG-GUID: zY9TUmbVGn5R_HPEJBGWQp6E46Zl6Q9I
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE4MDE4NCBTYWx0ZWRfX3b/I2acUpJIV
- 1IZfE4XuANgIUARNvopskPG/TDdYI7mecaUAAGnChUzNPcI01wYOi4QGeWqREGU0+Z1snLsa1n4
- F569J7ELjx2QhPYlwMQwgO3MaAl+aMnPMPTKzuj2AkIVHoHcT5j08QniIDv9rhfv5XIGuTwN6RL
- j43j9R1F/+YEBeXCxjfBGbVoVQMwQFY+4JJS+gkKqa8cVnXe+mkzMor9FEneA2UxhEvW6UYp3pO
- BYVPyaOo0gIHd7FrtH5JfBzsBdWDw/6jo+HEVYQDaY78XG7Q8vXBXp/wFOlq0IWCH/srUuAFVPP
- JmVOZQKPALw96y88OSA5zvZ/B+4YyUsHROzG8pDuDuaidLKEst6Trrw8k6LQDaXUwgAiRnOGDMr
- tMZCl41R4iEeytwVqxnjz8zaow/kKrl9AuS4WtgDboRchC0SUB4/C+wb/k5nss8GXuvGg/VaqkX
- YsuklSfm4jBi55FkUsQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-18_03,2026-09-16_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 lowpriorityscore=0 clxscore=1015 priorityscore=1501
- suspectscore=0 bulkscore=0 impostorscore=0 phishscore=0 spamscore=0
- adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
- definitions=main-2609180184
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_143142_095887_8DA301A9 
-X-CRM114-Status: GOOD (  22.46  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260918092951.5656-2-johannes.goede@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,251 +74,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce a flexible system for sharing ARM64 headers with s390 KVM.
-Selected arm64 headers or snippet of headers will be reachable by s390
-code through asm/header.h.
+On Fri, Sep 18, 2026 at 11:29:50AM +0200, Hans de Goede wrote:
+> From: Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
+> 
+> SCMI client drivers already describe their bus match data with
+> MODULE_DEVICE_TABLE(scmi, ...), but modpost does not know how to consume
+> SCMI device tables. As a result, SCMI modules do not get generated module
+> aliases from their id tables.
+> 
+> Move struct scmi_device_id to mod_devicetable.h so it has a fixed layout
+> visible to modpost, add the corresponding generated offsets and teach
+> file2alias to emit scmi:<protocol>:<name> aliases.
+> 
+> Use the same stable alias format for SCMI device uevents and sysfs
+> modaliases. The previous string included the instance-specific device
+> name, which is not useful for matching modules.
+> 
+> Assisted-by: Codex:GPT-5.5
+> Reviewed-by: Hans de Goede <johannes.goede@oss.qualcomm.com>
+> Tested-by: Hans de Goede <johannes.goede@oss.qualcomm.com>
+> Signed-off-by: Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
+> Signed-off-by: Hans de Goede <johannes.goede@oss.qualcomm.com>
+> ---
+> Changes in v7:
+> - Rebase on top of v7.3-rc3
+> 
+> Changes in v4:
+> - Drop unused driver_data member from struct scmi_device_id (Uwe)
+> - Drop device-id/scmi.h include from mod_devicetable.h (Uwe)
+> - Add device-id/scmi.h to devicetable-offsets.c and file2alias.c (Uwe)
+> 
+> Changes in v3:
+> - Adjust for ad428f5811bd ("mod_devicetable.h: Split into per subsystem
+>   headers")
+> - Add '\n' to modalias_show() output, matching other subsystems' modalias
+> 
+> Changes in v2:
+> - Drop #include <linux/mod_devicetable.h> from scmi_protocol.h
+> - Link to v1: https://patch.msgid.link/20260616-scmi-modalias-v1-0-662b8dd52ab2@oss.qualcomm.com
+> ---
+>  MAINTAINERS                       |  1 +
+>  drivers/firmware/arm_scmi/bus.c   | 21 ++++++++++-----------
+>  include/linux/device-id/scmi.h    | 17 +++++++++++++++++
+>  include/linux/scmi_protocol.h     |  6 +-----
+>  scripts/mod/devicetable-offsets.c |  5 +++++
+>  scripts/mod/file2alias.c          | 12 ++++++++++++
+>  6 files changed, 46 insertions(+), 16 deletions(-)
+>  create mode 100644 include/linux/device-id/scmi.h
+> 
 
-Add copy-arm64h.awk that detects ARM64_S390_COMMON markers and extracts
-marked section into a generated header consumable by s390. Falls back to
-full file copy when no markers are found.
+[...]
 
-Transform copied includes by replacing '#include <asm/...>' with
-'#include <arm64/...>' and similar for uapi headers to ensure
-correct path resolution on s390 and allow for a clear separation of s390
-asm headers and arm64 asm headers.
+> diff --git a/include/linux/device-id/scmi.h b/include/linux/device-id/scmi.h
+> new file mode 100644
+> index 000000000000..1b4ccfa9dcc5
+> --- /dev/null
+> +++ b/include/linux/device-id/scmi.h
+> @@ -0,0 +1,17 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +#ifndef LINUX_DEVICE_ID_SCMI_H
+> +#define LINUX_DEVICE_ID_SCMI_H
+> +
+> +#ifdef __KERNEL__
+> +#include <linux/types.h>
+> +#endif
+> +
+> +#define SCMI_NAME_SIZE		32
+> +#define SCMI_MODULE_PREFIX	"scmi:"
+> +
+> +struct scmi_device_id {
+> +	__u8 protocol_id;
+> +	char name[SCMI_NAME_SIZE];
+> +};
+> +
+> +#endif /* ifndef LINUX_DEVICE_ID_SCMI_H */
 
-Integrate this extraction into the s390/kapi target, conditional on
-CONFIG_KVM.
+You need to include this above file in include/linux/mod_devicetable.h
+to avoid duplication of its inclusion elsewhere. That's the pattern followed
+I see.
 
-Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
----
- arch/s390/tools/Makefile             |  9 +++-
- arch/s390/tools/Makefile.arm64h      | 56 ++++++++++++++++++++++
- arch/s390/tools/copy-arm64h-full.awk | 47 ++++++++++++++++++
- arch/s390/tools/copy-arm64h.awk      | 71 ++++++++++++++++++++++++++++
- 4 files changed, 182 insertions(+), 1 deletion(-)
- create mode 100644 arch/s390/tools/Makefile.arm64h
- create mode 100644 arch/s390/tools/copy-arm64h-full.awk
- create mode 100644 arch/s390/tools/copy-arm64h.awk
+> diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
+> index 5ab73b1ab9aa..ba53302d95f5 100644
+> --- a/include/linux/scmi_protocol.h
+> +++ b/include/linux/scmi_protocol.h
+> @@ -9,6 +9,7 @@
+>  #define _LINUX_SCMI_PROTOCOL_H
+>  
+>  #include <linux/bitfield.h>
+> +#include <linux/device-id/scmi.h>
+>  #include <linux/device.h>
+>  #include <linux/notifier.h>
+>  #include <linux/types.h>
+> @@ -951,11 +952,6 @@ struct scmi_device {
+>  
+>  #define to_scmi_dev(d) container_of_const(d, struct scmi_device, dev)
+>  
+> -struct scmi_device_id {
+> -	u8 protocol_id;
+> -	const char *name;
+> -};
+> -
+>  struct scmi_driver {
+>  	const char *name;
+>  	int (*probe)(struct scmi_device *sdev);
+> diff --git a/scripts/mod/devicetable-offsets.c b/scripts/mod/devicetable-offsets.c
+> index b4178c42d08f..91ec3704ee2b 100644
+> --- a/scripts/mod/devicetable-offsets.c
+> +++ b/scripts/mod/devicetable-offsets.c
+> @@ -1,5 +1,6 @@
+>  // SPDX-License-Identifier: GPL-2.0
+>  #define COMPILE_OFFSETS
+> +#include <linux/device-id/scmi.h>
 
-diff --git a/arch/s390/tools/Makefile b/arch/s390/tools/Makefile
-index f2862364fb42..6a97beff03a2 100644
---- a/arch/s390/tools/Makefile
-+++ b/arch/s390/tools/Makefile
-@@ -3,12 +3,19 @@
- # Makefile for s390 specific build tools
- #
- 
-+include $(srctree)/arch/s390/tools/Makefile.arm64h
-+
- kapi := arch/$(ARCH)/include/generated/asm
- kapi-hdrs-y := $(kapi)/facility-defs.h $(kapi)/dis-defs.h
- 
-+targets += $(addprefix ../../../,$(kapi-hdrs-y))
-+targets += $(patsubst $(objtree)/%,../../../%,$(ARM64_TARGETS))
-+
-+kapi-hdrs-$(CONFIG_KVM) += $(ARM64_TARGETS)
-+
- PHONY += kapi
- 
--kapi:	$(kapi-hdrs-y)
-+kapi:	$(kapi-hdrs-y) $(kapi-hdrs-m)
- 
- hostprogs		    += gen_facilities
- hostprogs		    += gen_opcode_table
-diff --git a/arch/s390/tools/Makefile.arm64h b/arch/s390/tools/Makefile.arm64h
-new file mode 100644
-index 000000000000..069473ea335d
---- /dev/null
-+++ b/arch/s390/tools/Makefile.arm64h
-@@ -0,0 +1,56 @@
-+# SPDX-License-Identifier: GPL-2.0
-+#
-+# Share ARM64 headers with s390 KVM
-+#
-+
-+arm64api := $(objtree)/arch/$(ARCH)/include/generated/arm64
-+arm64uapi := $(objtree)/arch/$(ARCH)/include/generated/uapi/arm64
-+
-+# List of ARM64 headers to share with s390 KVM
-+# Format: [uapi:]header.h or header-gen.h
-+#
-+# * header.h - from arch/arm64/include/asm/ to arm64/
-+# * uapi:header.h - from arch/arm64/include/uapi/asm/ to uapi/arm64/
-+# * header-gen.h - generated as header-gen.h from ARM64 header header.h
-+# If a header contains partial markers (#ifdef ARM64_S390_COMMON) only this part will be copied.
-+# If the file does not contain any markers the whole file will be copied.
-+ARM64_SHARED_HEADERS := \
-+	brk-imm.h \
-+	esr.h \
-+	kvm_arm.h \
-+	kvm_emulate-gen.h \
-+	kvm_host.h \
-+	ptrace-gen.h \
-+	sysreg-gen.h \
-+	uapi:hwcap.h \
-+	uapi:kvm.h \
-+	uapi:ptrace.h \
-+	uapi:sve_context.h \
-+
-+quiet_cmd_gen_arm_hdr = GEN     $@
-+      cmd_gen_arm_hdr = mkdir -p $(dir $@); \
-+                      $(AWK) -f $(src)/copy-arm64h.awk $< > $@ || \
-+                      $(AWK) -f $(src)/copy-arm64h-full.awk -v srcfile="$(subst $(srctree)/,,$(subst $(srctree)/../,,$<))" $< > $@ || \
-+		      { echo "Error: Unbalanced ARM64_S390_COMMON markers in $<" >&2; rm -f $@; exit 1; }
-+
-+arm64-type = $(firstword $(subst :, ,$(1)))
-+arm64-base = $(or $(word 2,$(subst :, ,$(1))),$(1))
-+arm64-src-base = $(patsubst %-gen.h,%.h,$(call arm64-base,$(1)))
-+
-+arm64-src = $(srctree)/arch/arm64/include/$(if $(filter uapi,$(call arm64-type,$(1))),uapi/)asm/$(call arm64-src-base,$(1))
-+arm64-dst = $(if $(filter uapi,$(call arm64-type,$(1))),$(arm64uapi),$(arm64api))/$(call arm64-base,$(1))
-+
-+$(foreach hdr,$(ARM64_SHARED_HEADERS),\
-+	$(eval $(call arm64-dst,$(hdr)): $(call arm64-src,$(hdr)) $(src)/copy-arm64h.awk $(src)/copy-arm64h-full.awk FORCE))
-+
-+ARM64_TARGETS := $(sort $(foreach hdr,$(ARM64_SHARED_HEADERS),$(call arm64-dst,$(hdr))))
-+$(ARM64_TARGETS):
-+	$(call if_changed,gen_arm_hdr)
-+
-+quiet_cmd_gen_sysreg_arm64 = GEN     $@
-+      cmd_gen_sysreg_arm64 = mkdir -p $(dir $@); $(AWK) -f $(srctree)/arch/arm64/tools/gen-sysreg.awk $(srctree)/arch/arm64/tools/sysreg > $@
-+
-+$(arm64api)/sysreg-defs.h: $(srctree)/arch/arm64/tools/gen-sysreg.awk $(srctree)/arch/arm64/tools/sysreg FORCE
-+	$(call if_changed,gen_sysreg_arm64)
-+
-+ARM64_TARGETS += $(arm64api)/sysreg-defs.h
-diff --git a/arch/s390/tools/copy-arm64h-full.awk b/arch/s390/tools/copy-arm64h-full.awk
-new file mode 100644
-index 000000000000..a6aaf9cc3332
---- /dev/null
-+++ b/arch/s390/tools/copy-arm64h-full.awk
-@@ -0,0 +1,47 @@
-+#!/usr/bin/awk -f
-+# SPDX-License-Identifier: GPL-2.0
-+#
-+# Process entire ARM64 headers for sharing with s390 KVM
-+#
-+# Usage: copy-arm64h-full.awk -v srcfile=<source_path> <input_file>
-+#
-+# This processes the entire file (unlike copy-arm64h.awk which only extracts marked sections)
-+
-+BEGIN {
-+	max_guard_line = 25
-+	guard_found = 0
-+	header_added = 0
-+}
-+
-+# Find and process the include guard in the first few lines
-+NR <= max_guard_line && !guard_found && /^#ifndef [A-Z_0-9]+$/ {
-+	guard_name = $2
-+	guard_found = 1
-+	print "/* This header was copied from " srcfile " */"
-+	print ""
-+	print
-+	header_added = 1
-+	next
-+}
-+
-+# Transform include directives
-+/^#include <uapi\/asm\// {
-+	sub(/<uapi\/asm\//, "<uapi/arm64/")
-+	print
-+	next
-+}
-+
-+/^#include <asm\// {
-+	sub(/<asm\//, "<arm64/")
-+	print
-+	next
-+}
-+
-+/ARM64_S390_COMMON/ {
-+	exit 1
-+}
-+
-+# Pass through all other lines
-+{
-+	print
-+}
-diff --git a/arch/s390/tools/copy-arm64h.awk b/arch/s390/tools/copy-arm64h.awk
-new file mode 100644
-index 000000000000..e7fb00ffb987
---- /dev/null
-+++ b/arch/s390/tools/copy-arm64h.awk
-@@ -0,0 +1,71 @@
-+#!/usr/bin/awk -f
-+# SPDX-License-Identifier: GPL-2.0
-+#
-+# Extract marked sections from ARM64 headers for sharing with s390 KVM
-+#
-+# Usage: copy-arm64h.awk <input_file>
-+#
-+# Extracts all sections between start/end markers. If no markers found, signals for fallback.
-+BEGIN {
-+	# Constants
-+	start_pattern = "^#ifdef ARM64_S390_COMMON$"
-+	end_pattern = "^#endif \\/\\* ARM64_S390_COMMON \\*\\/$"
-+	max_guard_line = 25
-+
-+	# State variables
-+	copying = found_marker = 0
-+	guard_name = ""
-+	file_header_done = 0
-+}
-+
-+NR <= max_guard_line && !guard_name && /^#ifndef [A-Za-z0-9_]+$/ {
-+	guard_name = $2
-+	filename = FILENAME
-+	sub(/^.*arch\/arm64\//, "arch/arm64/", filename)
-+	print "/*"
-+	print " * This header was automatically generated from " filename
-+	print " * Do not modify this file directly."
-+	print " */"
-+	print "#ifndef " guard_name
-+	print "#define " guard_name
-+	print ""
-+	next
-+}
-+
-+NR > max_guard_line && !guard_name && !file_header_done {
-+	print "error: no include guard found in first " max_guard_line " lines" > "/dev/stderr"
-+	file_header_done = 1
-+	exit 1
-+}
-+
-+!guard_name {
-+	print
-+	next
-+}
-+
-+$0 ~ start_pattern {
-+	if (copying) { exit 1 }
-+	copying = found_marker = 1
-+	next
-+}
-+
-+guard_name && !found_marker {
-+	next
-+}
-+
-+$0 ~ end_pattern { copying = 0; next }
-+
-+copying {
-+	gsub(/#include <asm\//, "#include <arm64/")
-+	gsub(/#include <uapi\/asm\//, "#include <uapi/arm64/")
-+	print
-+	next
-+}
-+
-+END {
-+	if (found_marker) {
-+		print ""
-+		print "#endif /* " guard_name " */"
-+	}
-+	exit !found_marker || copying
-+}
+Drop this for above mentioned reason.
+
+>  #include <linux/kbuild.h>
+>  #include <linux/mod_devicetable.h>
+>  
+> @@ -144,6 +145,10 @@ int main(void)
+>  	DEVID(rpmsg_device_id);
+>  	DEVID_FIELD(rpmsg_device_id, name);
+>  
+> +	DEVID(scmi_device_id);
+> +	DEVID_FIELD(scmi_device_id, protocol_id);
+> +	DEVID_FIELD(scmi_device_id, name);
+> +
+>  	DEVID(i2c_device_id);
+>  	DEVID_FIELD(i2c_device_id, name);
+>  
+> diff --git a/scripts/mod/file2alias.c b/scripts/mod/file2alias.c
+> index 8d36c74dec2d..5379b1def07b 100644
+> --- a/scripts/mod/file2alias.c
+> +++ b/scripts/mod/file2alias.c
+> @@ -121,6 +121,7 @@ typedef struct {
+>  /* Big exception to the "don't include kernel headers into userspace, which
+>   * even potentially has different endianness and word sizes, since
+>   * we handle those differences explicitly below */
+> +#include "../../include/linux/device-id/scmi.h"
+
+Drop this for above mentioned reason.
+
 -- 
-2.53.0
-
+Regards,
+Sudeep
 
