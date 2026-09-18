@@ -4,124 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1FFFC982D2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 06:40:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 143FAC982D2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 06:41:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b28VSkaiC+H5BMGCTosCuzPJZTw8xeVONBmQ25xxRQM=; b=ezIkOXiBI7fZHRYHzNhuLSJhG4
-	sb9Q91V+iYYZzzrkGrSq08cg/Zva7lDB0gVyHVjIXgMiiR67RvfoZAR2ZGe6k0hYUIDtRpBNUZPCV
-	RWTVCLx8YxEXg/R8xY+9im9NqQqy2Xr85dfS4vi8qpoYTe+W3nUJVC602r02ySJcTu4ljhWExUw8u
-	35vk1ikFlRhI6tOb2L8HQ3pDN13OOv28ekuXo2WSAFBxjL+NbziKNagudHYbo8klFRbP4YK65kcQI
-	5MjRumQkZ+kbb2dgHz9XOz6JtMLadL/g7BYdtnT9BB4o/UyY+YcntTNBbFZ0pbGNGa10RlTSDi2BR
-	j0tlerTQ==;
+	bh=E4aMe0GJ96p6HPIq399xjyNj4CpzMJPBPTO2ADDjNbo=; b=JRZr8ryP8u2Br3CPufldoy4vu7
+	JYKIIXcfn0gjg4Wnud1lZQ/LzgM/F065WDt0r8vE9c1WIQgoScVAuurqf1wE1HRTcPYf10NL32vkt
+	S/ZGSOFrZU5DPkGXb3vKYwh+7Cp5wckphPu4xwX8aXqq6W9gqN4YPgOXqovNUoVxgz5+f4hmFk5z4
+	eUcgMfDsmPtgx82MWytnpj17tuPYWknR7mqUPupapUM8g8DAjyZZYFrhBWJaQDdF2V7MgyCWXnPBX
+	r5hTIbXR45LDwDyTHwwPseLZ1dH3x3iVkbgytMnpNjMEK9QAHCOvbgKC3Aeh5e8tAkqyBg805bLj4
+	7zRWl2pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7SH4-0000000DaxW-23xI;
-	Fri, 18 Sep 2026 06:40:42 +0000
-Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	id 1x7SHt-0000000Db97-2fuP;
+	Fri, 18 Sep 2026 06:41:33 +0000
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7SGw-0000000Dauk-3HgB
+	id 1x7SHr-0000000Db8Z-37jP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 06:40:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nTUssENGKYnfPR4BRxtVIiSCOF5oV/3BO9HZ4b4O0LCWRh7MfVJhhxmub+yGPI2a/23vUb44rHwGwNWHLnoZQr+7MKUqKLdQLU8sJK1NL2rHcb/kC0m8uj+NiFMPslzbabtc5DH0Vrk4N1puwzoD8Jp3M63xpZsN1BYhiFBb6J+wtqTsEHXHIOi9xiSMHWcPu5lF5dOWGlsOB5IY9KZJTW1g0Yg29W2s21Pa5JsFLRaeYnZ5mOAntB9qOv9Yrh+pPzVmKwJvH350z6fa1w35X7sYUljFYhHkNY1wakXSs7N02gEzS5raFxXReMTVhDGrhOfV6HgFHM925Fe4Hn/Rfw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=b28VSkaiC+H5BMGCTosCuzPJZTw8xeVONBmQ25xxRQM=;
- b=dp5LsAOE4uWYPHwgTfSysgtxjwU6QnLtz2k6r7Xpam6uJFeugucZkZe6sCxeauynI1/1HECIUYjjllMf00SqmzZEBy12q3o4C9GpAkXNzmePna0LLBvwAeyUDJMDEMqoMMCRjflQEjSVfEPGxOj4wYADUdvuAaNjBnFnZVyKUFY2lLYx2ZlYL9/Oi42IXQiB5Nxa7PYHQQHwkVNLRgX7iRFR+3mr69M0xXQ2LKrKwZyyNXbIcww1uFcjCIvG0yBiYgRP9QeJAxgcfU1eVKMy5lUp8+aY2GNqdp+BEWfeTAut3J9ssilLBF5l36rjblUYwL7VGkpVf3WCQYGeTAWdGw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=b28VSkaiC+H5BMGCTosCuzPJZTw8xeVONBmQ25xxRQM=;
- b=BA/3GUwPkPE+DA5Mj7N3TdHlQu9S/4g8qK6oNfpHJy8pQrf2/fpy6XLVWn6TsMNOEOtX5xDWsjDnys+8GciTwBaeoATZFNd/hBzj386WssKIodBOJ0u8dT+YPqREghYeDqpFrpqpjRRP1SWr/Kllst/ebUfPKE+aN+IxC2Jabd4=
-Received: from BN9PR03CA0060.namprd03.prod.outlook.com (2603:10b6:408:fb::35)
- by SA1PR12MB8946.namprd12.prod.outlook.com (2603:10b6:806:375::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.13; Fri, 18 Sep
- 2026 06:40:19 +0000
-Received: from BN7PEPF0000009C.namprd04.prod.outlook.com
- (2603:10b6:408:fb:cafe::78) by BN9PR03CA0060.outlook.office365.com
- (2603:10b6:408:fb::35) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.12 via Frontend Transport; Fri,
- 18 Sep 2026 06:40:19 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- BN7PEPF0000009C.mail.protection.outlook.com (10.167.248.148) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.451.8 via Frontend Transport; Fri, 18 Sep 2026 06:40:18 +0000
-Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Fri, 18 Sep
- 2026 01:40:18 -0500
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb09.amd.com
- (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Fri, 18 Sep
- 2026 01:40:17 -0500
-Received: from xhdtunimkar40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.49 via Frontend
- Transport; Fri, 18 Sep 2026 01:40:14 -0500
-From: Tushar Nimkar <tushar.nimkar@amd.com>
-Date: Fri, 18 Sep 2026 12:09:33 +0530
-Subject: [PATCH v2 1/2] dt-bindings: interrupt-controller: Add Xilinx
- Versal NET SMMU CSR
+	Fri, 18 Sep 2026 06:41:33 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id BB91920076;
+	Fri, 18 Sep 2026 06:41:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1789713685; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=E4aMe0GJ96p6HPIq399xjyNj4CpzMJPBPTO2ADDjNbo=;
+	b=S9MeC+28J642e2hRaCqLspYlC91Tk1XfdjcPqYddWoD52hLGjI8GJbuZPHd5DdzU4jVEEs
+	t7PMOVrM+EI+SxUKy45yApTJ4K9oOInusDa8ZUat/hSG0Uwy6jO6aApLXyFEQDu6KiBOWL
+	8t+A2H8m0NI7pJQMH/JbFO6S+MV5gM4=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1789713685;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=E4aMe0GJ96p6HPIq399xjyNj4CpzMJPBPTO2ADDjNbo=;
+	b=DBgrYLubd32wZoAB6Bdm+SKli1u1bj8JBOr2hyzw71eVQcP15cfUPB/XYVJIeVOW6TuK3j
+	3qQaZvLSIbKjd4Dw==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1789713681; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=E4aMe0GJ96p6HPIq399xjyNj4CpzMJPBPTO2ADDjNbo=;
+	b=cxZDoLDwchEjBFUNYtKPAnU5SWzNt7WIbwebJcji4hLjbsHF9KED6esvARIrYBMh+BlvbL
+	asaK7K9Ih2cBX5aW2QxaDJqgSTBFnIu9hWxHq/L604imvO8Iyzd9m/+bewiA/zgwICukqa
+	Fzr/pOz9efN3H9CclpG9MTK5uA/oB74=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1789713681;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=E4aMe0GJ96p6HPIq399xjyNj4CpzMJPBPTO2ADDjNbo=;
+	b=+33nvk6yqW+ekNFMWmbW8VQrIspkGhLOMOphm17lfacABCQXbl6hE0of2kYsoM6HtsEYmO
+	sS2NJTL7I7CrIlAw==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 3590D1348F;
+	Fri, 18 Sep 2026 06:41:21 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id CuiXMxDdrGqsfwAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Fri, 18 Sep 2026 06:41:21 +0000
+Message-ID: <f7fa4c4c-bc59-4822-94bb-6e9d68f8f0ca@suse.de>
+Date: Fri, 18 Sep 2026 08:41:20 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260918-smmu-changes-v2-v2-1-adda681ab983@amd.com>
-References: <20260918-smmu-changes-v2-v2-0-adda681ab983@amd.com>
-In-Reply-To: <20260918-smmu-changes-v2-v2-0-adda681ab983@amd.com>
-To: Anirudha Sarangi <anirudha.sarangi@amd.com>, Thomas Gleixner
-	<tglx@kernel.org>, Radu Rendec <radu@rendec.net>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>
-CC: <git@amd.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>, Tushar Nimkar
-	<tushar.nimkar@amd.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789713611; l=3182;
- i=tushar.nimkar@amd.com; s=20260917; h=from:subject:message-id;
- bh=/X0Y481AIlfdO5p17knYhpEmuAu/GMNgPmVrgnQCZKU=;
- b=8hJP1lZ5qCkJGK34JwLGsfgBn+w0r0yV7nHCRtoCNB1iy9TpDlUeqZs9t2NGnDAKrcsgmTE2v
- VRAEkfoWzzYBdYlYEX7ImQyfFCZY9aVRx1oRw2WW3/Wdb2wy0BwKqq2
-X-Developer-Key: i=tushar.nimkar@amd.com; a=ed25519;
- pk=Uirerl/gKBwPgdWL9awJAJkw5FM33ZF2TlUTJ58DEYA=
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN7PEPF0000009C:EE_|SA1PR12MB8946:EE_
-X-MS-Office365-Filtering-Correlation-Id: 596a6c10-534b-4290-a48b-08df154fb4b4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|82310400026|23010399003|36860700016|13003099007|22082099003|18002099003|56012099006|3023799007|11063799006|10067099003;
-X-Microsoft-Antispam-Message-Info: 6lz4egsBSRcaDr47EW1y5ZOkb04k6Ch/ZBhNEPR8yLDgINTRKCdlnqWzItgmAks6MvjG1rcwleXWQ+t+LRKSH9f272EXAa8P47lDhDx/obsOaLtvfZmnHjuTYW19APU5NGczu9CthpbfugT0yh+QUKX14+fPF1vvZXaP1J8yooLZW2ERxqJAkt4pwHsyPthCMKFM74aekSgK+bf3zvTBTtF1ZRz5bHv31kje2ZEhQA8Pf3gP+eDxFnc/Vast6z5/0xiUutf9EdXadXItqxe7KR+JLrOy15KKnl1DSCkjPmmIqRBKaotO4THv9BmZEObUStfemte+nF17kilhRstr1QlRg+cIqIdFN06J8DuP5Ewaj6O+LUUVclxa4U3gH5t7HqkjtI/ql+oe+cAd00Mkgbawe4RtJcdi/r5nHOu4pH529lrXy1C6/29v6kSJXRab9yaO85rxaVR9b8b26MhRmXBMh0e3LcuMFLTv67mPRQsClFmTwZUrx4fzjynZbMvF81+HJm/KrePCGRLysJjZIdM6HnyQ7RozhPf0Wy2Qx72KRC3j7k88N3TCtHDwbAmyCYMKrvFPUagzVH8xTF5iB7yXXhlZrabZ9eCd3JNWbZbW0k3B67wOqNQQTEO1CtdSMstYCkYQATSduMFbaf265g==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(82310400026)(23010399003)(36860700016)(13003099007)(22082099003)(18002099003)(56012099006)(3023799007)(11063799006)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: AEmKbmed6YXhLONNN4LXGqjifdCQy3vws8Hsh3f2EkQ2h7X7ww4rB+bXbTDWkOrGBJArgOip+dXS82rli2mUq0iYrvaNiZ0dUCML3Kyhy6mfosfpZbePXo8ySjaPZvcVDCftxfAAV54PQ3wo9mWkhuJCzjeD8LaKkC/+kGb4KUCeA5B2zOuX4tm4L+8fS5FFVe2baKDkOobxdSfcczV5Jepkk31pbMMRZDwaYrIl4KuJ/iVcemQ4xaImWMsHDu2/b0OHS4eafjffSZIBcT6nFecjmwspQBkq9hpRnu3Qa7Yhbj/L1KYPmHQDemlIvlZyP7lTtC44vAgmGOVe9D/zw4EjWNvM4X/BO6ADdaFHCia7hvaKu6h1TMux69xybnm87enMFAOjl6EcsyBibyDrC9OKRvlioYF36B+RKBjKv27mwk++G4DtvnoOwhvKMudJ
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Sep 2026 06:40:18.7851
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 596a6c10-534b-4290-a48b-08df154fb4b4
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN7PEPF0000009C.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB8946
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFT v2 1/5] drm: Split framebuffer pixel offset
+ calculation from drm_fb_dma_get_gem_addr()
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Liu Ying <victor.liu@nxp.com>,
+ Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
+ Lucas Stach <l.stach@pengutronix.de>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, linux-sunxi@lists.linux.dev,
+ imx@lists.linux.dev, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20260916033327.3054126-1-wenst@chromium.org>
+ <20260916033327.3054126-2-wenst@chromium.org>
+ <f6ace486-70d8-4e81-89cb-e9d55ad9ac8b@suse.de>
+ <CAGXv+5ErgWVNtnRiW+QA7+Mzh=W_Y+HGL_iRa1fOaXCYSoAwMA@mail.gmail.com>
+Content-Language: en-US
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Autocrypt: addr=tzimmermann@suse.de; keydata=
+ xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
+ XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
+ BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
+ hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
+ 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
+ AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
+ AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
+ AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
+ lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
+ U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
+ vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
+ 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
+ j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
+ T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
+ 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
+ GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
+ hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
+ EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
+ C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
+ yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
+ SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
+ Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
+ 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
+In-Reply-To: <CAGXv+5ErgWVNtnRiW+QA7+Mzh=W_Y+HGL_iRa1fOaXCYSoAwMA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-4.30 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-0.999];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	ARC_NA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	RCVD_TLS_ALL(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[17];
+	MID_RHS_MATCH_FROM(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_CC(0.00)[nxp.com,oss.nxp.com,pengutronix.de,kernel.org,sholland.org,linux.intel.com,gmail.com,ffwll.ch,lists.linux.dev,lists.freedesktop.org,lists.infradead.org,vger.kernel.org];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:mid,suse.com:url,imap1.dmz-prg2.suse.org:helo]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_234034_843517_2BF6C430 
-X-CRM114-Status: GOOD (  14.31  )
+X-CRM114-CacheID: sfid-20260917_234132_076513_A3C1D76D 
+X-CRM114-Status: GOOD (  27.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,107 +168,213 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Anirudha Sarangi <anirudha.sarangi@amd.com>
+Hi
 
-Add a device tree binding schema for the Xilinx Versal NET SMMU CSR
-(Control and Status Register) interrupt controller.
+Am 18.09.26 um 06:16 schrieb Chen-Yu Tsai:
+> On Thu, Sep 17, 2026 at 11:20 PM Thomas Zimmermann <tzimmermann@suse.de> wrote:
+>> Hi
+>>
+>> Am 16.09.26 um 05:33 schrieb Chen-Yu Tsai:
+>>> Currently drm_fb_dma_get_gem_addr() calculates the offset into the
+>>> framebuffer memory for the framebuffer's unclipped source coordinates,
+>>> adds that to the framebuffer's backing storage, and returns the result.
+>>>
+>>> We are about to add a variant that uses the clipped source coordinates,
+>>> so there is already some reuse of code. However, calculating the data
+>>> offset for a given pixel is not specific to the DMA FB helpers. The
+>>> offset is only related to the framebuffer.
+>>>
+>>> Split out the offset calculation into a new framebuffer helper so that
+>>> non-DMA users can also reuse the same code.
+>>>
+>>> Suggested-by: Thomas Zimmermann <tzimmermann@suse.de>
+>>> Cc: <stable@vger.kernel.org> # dependency for next patch
+>>> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+>>> ---
+>>> Changes since v1:
+>>> - New patch
+>>> ---
+>>>    drivers/gpu/drm/drm_fb_dma_helper.c | 28 ++----------------
+>>>    drivers/gpu/drm/drm_framebuffer.c   | 45 +++++++++++++++++++++++++++++
+>>>    include/drm/drm_framebuffer.h       |  3 ++
+>>>    3 files changed, 51 insertions(+), 25 deletions(-)
+>>>
+>>> diff --git a/drivers/gpu/drm/drm_fb_dma_helper.c b/drivers/gpu/drm/drm_fb_dma_helper.c
+>>> index fd71969d2fb1..ab0f37d8a5ff 100644
+>>> --- a/drivers/gpu/drm/drm_fb_dma_helper.c
+>>> +++ b/drivers/gpu/drm/drm_fb_dma_helper.c
+>>> @@ -75,36 +75,14 @@ dma_addr_t drm_fb_dma_get_gem_addr(struct drm_framebuffer *fb,
+>>>                                   unsigned int plane)
+>>>    {
+>>>        struct drm_gem_dma_object *obj;
+>>> -     dma_addr_t dma_addr;
+>>> -     u8 h_div = 1, v_div = 1;
+>>> -     u32 block_w = drm_format_info_block_width(fb->format, plane);
+>>> -     u32 block_h = drm_format_info_block_height(fb->format, plane);
+>>> -     u32 block_size = fb->format->char_per_block[plane];
+>>> -     u32 sample_x;
+>>> -     u32 sample_y;
+>>> -     u32 block_start_y;
+>>> -     u32 num_hblocks;
+>>>
+>>>        obj = drm_fb_dma_get_gem_obj(fb, plane);
+>>>        if (!obj)
+>>>                return 0;
+>>>
+>>> -     dma_addr = obj->dma_addr + fb->offsets[plane];
+>>> -
+>>> -     if (plane > 0) {
+>>> -             h_div = fb->format->hsub;
+>>> -             v_div = fb->format->vsub;
+>>> -     }
+>>> -
+>>> -     sample_x = (state->src_x >> 16) / h_div;
+>>> -     sample_y = (state->src_y >> 16) / v_div;
+>>> -     block_start_y = (sample_y / block_h) * block_h;
+>>> -     num_hblocks = sample_x / block_w;
+>>> -
+>>> -     dma_addr += fb->pitches[plane] * block_start_y;
+>>> -     dma_addr += block_size * num_hblocks;
+>>> -
+>>> -     return dma_addr;
+>>> +     return obj->dma_addr + drm_framebuffer_get_block_offset(fb, plane,
+>>> +                                                             state->src_x >> 16,
+>>> +                                                             state->src_y >> 16);
+>>>    }
+>>>    EXPORT_SYMBOL_GPL(drm_fb_dma_get_gem_addr);
+>>>
+>>> diff --git a/drivers/gpu/drm/drm_framebuffer.c b/drivers/gpu/drm/drm_framebuffer.c
+>>> index d32aceb6ca9b..9e1231162047 100644
+>>> --- a/drivers/gpu/drm/drm_framebuffer.c
+>>> +++ b/drivers/gpu/drm/drm_framebuffer.c
+>>> @@ -1208,6 +1208,51 @@ void drm_framebuffer_print_info(struct drm_printer *p, unsigned int indent,
+>>>        }
+>>>    }
+>>>
+>>> +/**
+>>> + * drm_framebuffer_get_block_offset() - Get offset to start of pixel block for
+>>> + * the given framebuffer and coordinates.
+>>> + * @fb: The framebuffer
+>>> + * @plane: Which plane
+>>> + * @x: x coordinate for pixel
+>>> + * @y: y coordinate for pixel
+>>> + *
+>>> + * This function will usually be called from the PLANE callback functions,
+>>> + * or from one of the helpers that calculates the framebuffer's DMA address.
+>>> + *
+>>> + * Return: offset from start of framebuffer to start of pixel block
+>>> + */
+>>> +u32 drm_framebuffer_get_block_offset(struct drm_framebuffer *fb, unsigned int plane,
+>>> +                                  unsigned int x, unsigned int y)
+>> Better use u64 as return type.
+> To avoid overflow? Not sure who would use crazy large framebuffers, but
+> doesn't hurt to play it safe.
 
-The SMMU CSR block acts as a vendor-specific interrupt controller
-in front of the ARM SMMUv3, providing registers to enable and clear
-standard SMMU interrupts such as EVENTQ, CMDQ_SYNC, GERROR and PRIQ.
-Interrupts must be acknowledged in this block before being forwarded
-to the parent interrupt controller (e.g. GIC).
+I'd be worried about a malicious user space that tries to access OOB.
 
-Signed-off-by: Anirudha Sarangi <anirudha.sarangi@amd.com>
-Co-developed-by: Tushar Nimkar <tushar.nimkar@amd.com>
-Signed-off-by: Tushar Nimkar <tushar.nimkar@amd.com>
----
- .../xlnx,versal-net-smmu-csr.yaml                  | 75 ++++++++++++++++++++++
- 1 file changed, 75 insertions(+)
+Apart from that, we use u64 for other framebuffer-related sizes like 
+pitch calculations or dma addresses. Using u64 here would keep that 
+consistent.
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/xlnx,versal-net-smmu-csr.yaml b/Documentation/devicetree/bindings/interrupt-controller/xlnx,versal-net-smmu-csr.yaml
-new file mode 100644
-index 000000000000..38b63e51b732
---- /dev/null
-+++ b/Documentation/devicetree/bindings/interrupt-controller/xlnx,versal-net-smmu-csr.yaml
-@@ -0,0 +1,75 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/interrupt-controller/xlnx,versal-net-smmu-csr.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Xilinx Versal NET SMMU CSR Interrupt Controller
-+
-+maintainers:
-+  - Anirudha Sarangi <anirudha.sarangi@amd.com>
-+  - Tushar Nimkar <tushar.nimkar@amd.com>
-+
-+description: |
-+  The Versal NET platform includes a Xilinx-specific SMMU CSR (Control and
-+  Status Register) block that acts as an intermediate interrupt controller
-+  for ARM SMMUv3.
-+
-+  The block provides registers to enable, disable and clear the
-+  standard SMMUv3 interrupt sources (EVENTQ, CMDQ_SYNC, GERROR and PRIQ)
-+  before forwarding them to the parent interrupt controller,
-+  typically a GIC.
-+
-+  The controller receives one parent interrupt and demultiplexes CSR
-+  status bits into the following child interrupt identifiers
-+    0 - EVENTQ
-+    1 - CMDQ_SYNC
-+    2 - GERROR (GLOBAL)
-+    3 - PRIQ
-+
-+allOf:
-+  - $ref: /schemas/interrupt-controller.yaml#
-+
-+properties:
-+  compatible:
-+    const: xlnx,versal-net-smmu-csr
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupt-controller: true
-+
-+  "#interrupt-cells":
-+    const: 1
-+    description: |
-+     Single cell containing the child interrupt identifier
-+      0 - EVENTQ
-+      1 - CMDQ_SYNC
-+      2 - GERROR (GLOBAL)
-+      3 - PRIQ
-+
-+  interrupts:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupt-controller
-+  - "#interrupt-cells"
-+  - interrupts
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    interrupt-controller@eca10000 {
-+        compatible = "xlnx,versal-net-smmu-csr";
-+        reg = <0xeca10000 0x1000>;
-+        interrupt-controller;
-+        #interrupt-cells = <1>;
-+        interrupt-parent = <&gic>;
-+        interrupts = <GIC_SPI 169 IRQ_TYPE_LEVEL_HIGH>;
-+    };
+
+>
+>>> +{
+>>> +     u8 h_div = 1, v_div = 1;
+>>> +     u32 block_w = drm_format_info_block_width(fb->format, plane);
+>>> +     u32 block_h = drm_format_info_block_height(fb->format, plane);
+>>> +     u32 block_size = fb->format->char_per_block[plane];
+>>> +     u32 sample_x;
+>>> +     u32 sample_y;
+>>> +     u32 block_start_y;
+>>> +     u32 num_hblocks;
+>>> +     u32 offset;
+>>> +
+>>> +     offset = fb->offsets[plane];
+>>> +
+>>> +     if (plane > 0) {
+>>> +             h_div = fb->format->hsub;
+>>> +             v_div = fb->format->vsub;
+>>> +     }
+>>> +
+>>> +     sample_x = x / h_div;
+>>> +     sample_y = y / v_div;
+>>> +     block_start_y = (sample_y / block_h) * block_h;
+>>> +     num_hblocks = sample_x / block_w;
+>>> +
+>>> +     offset += fb->pitches[plane] * block_start_y;
+>>> +     offset += block_size * num_hblocks;
+>> User space controls the values in fb->offsets and fb->pitches.  I'm not
+>> sure how well they have been validated already at this point. Did you
+>> investigate this?
+> It wouldn't be worse than before, since this changes is purely code movement.
+>
+> There are minimal sanity checks done by drm_internal_framebuffer_create()
+> in framebuffer_check(), such as offset overflow or pitch size too small,
+> but that's about it. It would be up to individual drivers to perform more
+> checks that match their hardware limitations.
+
+Right, makes sense. Looking through the framebuffer validation, a 
+buffer-size check could be done in framebuffer_check().  But that's 
+another patch series.
+
+
+>
+> What sort of issues are you thinking about?
+
+Again, I'm thinking of malicious user space that crafts these values to 
+force an OOB access.
+
+Best regards
+Thomas
+
+
+>
+>
+> ChenYu
+>
+>> Best regards
+>> Thomas
+>>
+>>
+>>> +
+>>> +     return offset;
+>>> +}
+>>> +EXPORT_SYMBOL(drm_framebuffer_get_block_offset);
+>>> +
+>>>    #ifdef CONFIG_DEBUG_FS
+>>>    static int drm_framebuffer_info(struct seq_file *m, void *data)
+>>>    {
+>>> diff --git a/include/drm/drm_framebuffer.h b/include/drm/drm_framebuffer.h
+>>> index 38b24fc8978d..c07aea1cc59f 100644
+>>> --- a/include/drm/drm_framebuffer.h
+>>> +++ b/include/drm/drm_framebuffer.h
+>>> @@ -220,6 +220,9 @@ void drm_framebuffer_remove(struct drm_framebuffer *fb);
+>>>    void drm_framebuffer_cleanup(struct drm_framebuffer *fb);
+>>>    void drm_framebuffer_unregister_private(struct drm_framebuffer *fb);
+>>>
+>>> +u32 drm_framebuffer_get_block_offset(struct drm_framebuffer *fb, unsigned int plane,
+>>> +                                  unsigned int x, unsigned int y);
+>>> +
+>>>    /**
+>>>     * drm_framebuffer_get - acquire a framebuffer reference
+>>>     * @fb: DRM framebuffer
+>> --
+>> --
+>> Thomas Zimmermann
+>> Graphics Driver Developer
+>> SUSE Software Solutions Germany GmbH
+>> Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
+>> GF: Jochen Jaser, Andrew McDonald, (HRB 36809, AG Nürnberg)
+>>
+>>
 
 -- 
-2.34.1
+--
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
+GF: Jochen Jaser, Andrew McDonald, (HRB 36809, AG Nürnberg)
+
 
 
