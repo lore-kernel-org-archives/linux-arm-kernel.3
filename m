@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2385C982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 11:07:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C135C982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 11:07:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OLsX/gs1tKsMMnKu9uGMMtuUOhuCedG9mUGeM+Jn11k=; b=EoM6uiGt6q6jsAvypFyIh4c19F
-	usofusqMRGe+WCroP6R5yl6r51L9mBIg8MIo+F1+vdYeUYL248GqfLjmW1Ao+VdWMeQ4DFP2X8uvY
-	iPQ5rrYf3vVAK6O6CsHyAzWNsHZ+IQlMGpkbZKaYLSrFctZf+rV5SgPIoTN294i1qBO7z2UkvFiZp
-	8q94R8GExZL4dFoSIDccE/+G9S65r3j+VpmLYaxcYM+PO9Egjedp0UbLXGmpe7zx7rb32Ob8NuY2F
-	/LHqG0RFMdY1M4abYX30jjczNeccDvJZJgLn9MXoso1YdmTCHBIXfKLTtSjIn+r1Zx0bSsvd2F56P
-	/0XPFSQQ==;
+	bh=S5tl8O5UsEbEf/Aeio6Enh4ynj/aSebaPXlPSwQuOa8=; b=W3o1UZJg9GyeJni1BBNyXEvIeL
+	DInGjVdv1Si9fcldvmZOnYPrYpJAb+YEbQrv79HN3jXspwlzGL9NXQ171KO3/+VMj9UIlveQToHF/
+	Si/FtzWE2ZOcJousTLcxNIsve9R4YGR7Y+3dsMsKcTxemo5xG2BJksBo3NaOQXkNss39oc3jWdcDo
+	FJ1vDn3nA3UelxwxGxSXvKWbo74W/w0MA/8JnhLqTb2YqlTC8W0b7Z812xWTr+EN89cDWYmqyOwZD
+	GjW8DIMws9U2g7y0Zm79wgQ4Kpmez3L8rDBsndHfJsY9z/8YI6WrSrAmD7q38YrQZ5hepKWxvVpDn
+	m21g7AhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7WQe-0000000EBCs-1X7e;
-	Fri, 18 Sep 2026 11:06:52 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x7WQs-0000000EBIL-2HkZ;
+	Fri, 18 Sep 2026 11:07:06 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7WQd-0000000EBBd-0GN2
+	id 1x7WQd-0000000EBBt-1Nuf
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 18 Sep 2026 11:06:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 61299447C4;
+	by sea.source.kernel.org (Postfix) with ESMTP id 854AB4369C;
 	Fri, 18 Sep 2026 11:06:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 3727CC2BCB8;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 5AC80C4AF10;
 	Fri, 18 Sep 2026 11:06:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1789729610;
-	bh=SxIZzWCnD27F3bETzw8GzrIINZnH9G/TAzwOYgMlEyQ=;
+	bh=t5iAp3fMjkIZ0RzU4Fip5Mdwa1CzjHXcMHU8zfCTkBQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=qmJYjHpFv75j9+oIfrEunA8PLhMig/+P9mUDlBNFS7sIsGBI38j1wB+ya33KmVUGG
-	 YAhLDr2QF5NcFWJDM/KNbO6nEWbyux+TGiwNElO8zam71Uuz+BfKP0gZ+hU9Q1o2KM
-	 S+i8HZTSYcYcqBzHuVN+lm/AYmTiWMcznX0kznBG8alfXfLgS0565Z6305zF5P4gYM
-	 QqhwYI+FBCCeoSGIx49RK+ckBDEShlYIE/0r8dls6VTLN0kekxT1O2cXpSnVBc/B3A
-	 3ugH3YI6x83jZmWVGR09RLreOkDSTytuqc9n+xzCYskGhslHeAKUYj0PjRDlXzvd5i
-	 hpk6FKfRxADJw==
+	b=EMUZzFtWAonPSXfvQ5NcURGV4vkWJN01fZCuOKBFMimVfygzu/hP5DjKnBtzYofQI
+	 y2el/wyHwAp4rRYk8LPcEM8/Qapy/UbDRlUH8q6fAuMOc3/x0f2n6FIbAiKPFOpRuN
+	 8oXBSzKnITGS+NEeb3FA9NLCVrhKCmnc7ZONd+ee+fCes9hqAFG8PRCwTfBHQLX84S
+	 jdcyAl7KzuHd/EDPHMtm3e6YOl4iZHSmSguVFPi0gwLaiNHd/KleNK3JdQxGoWasLU
+	 mUKxw5GhWJKptCZC3X4iqVtovD80GgGbf5CNvRXb/bHtj9E4O3RKAt1hJEaeJrLa6o
+	 ra4pc7CKWjL+g==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 156CCC982D6;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 43571C982DC;
 	Fri, 18 Sep 2026 11:06:50 +0000 (UTC)
 From: Michael Reeves via B4 Relay <devnull+michael.reeves077.gmail.com@kernel.org>
-Date: Fri, 18 Sep 2026 21:06:44 +1000
-Subject: [PATCH v2 01/10] dt-bindings: mailbox: apple: Add M3 ASC mailbox
+Date: Fri, 18 Sep 2026 21:06:46 +1000
+Subject: [PATCH v2 03/10] dt-bindings: iommu: apple,dart: Add M3
  compatibles
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260918-apple-mtp-keyboard-final-v2-1-a5c685e50b60@gmail.com>
+Message-Id: <20260918-apple-mtp-keyboard-final-v2-3-a5c685e50b60@gmail.com>
 References: <20260918-apple-mtp-keyboard-final-v2-0-a5c685e50b60@gmail.com>
 In-Reply-To: <20260918-apple-mtp-keyboard-final-v2-0-a5c685e50b60@gmail.com>
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
@@ -71,12 +71,12 @@ Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  Sasha Finkelstein <k@chaosmail.tech>, 
  Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789729608; l=1133;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789729608; l=1038;
  i=michael.reeves077@gmail.com; s=fedora-20260918;
  h=from:subject:message-id;
- bh=jWZaHgDdQBahv3cP0BkPbF81okNWtgFAdgZ27z/Vurk=;
- b=NgcEIACFNZmoME8QwmiMnJLz74jcA0zAHgOuztZXA/3Iw5uxazVfZiqOhirJuEmNb9Gn9PjB4
- ODfjjfyrivwBzJmK3yAAI4FyYqCypCMEu8J12WYo38Lim4nG6EmaXx0
+ bh=eobqpYoOQsgGWNW9L5TA1i/2YQsYWCHpu2/7P/SVNyI=;
+ b=1IQ7yYuYjitCuZJEYkWFM3TVxzJza7gs9nOblyZS8+q6iSQRIi3XBrJqVKGWInCX0EfluCxog
+ 84CIIn8467SDD0eS1P43JTtvwvhhWOcN3lsVN0f1LHS4cFt3R2Be/aB
 X-Developer-Key: i=michael.reeves077@gmail.com; a=ed25519;
  pk=VJ0TvyQ9TvfzYZa908YSE9kpkjFLLD5luv0bERu+boc=
 X-Endpoint-Received: by B4 Relay for
@@ -99,32 +99,32 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Michael Reeves <michael.reeves077@gmail.com>
 
-Add the t8122, t6030 and t6031 ASC mailbox compatibles used by the
-MTP coprocessor on M3, M3 Pro and M3 Max SoCs. They share the existing
-ASC v4 mailbox interface.
+Add the t8122, t6030 and t6031 DART compatibles used by the MTP
+coprocessor on M3, M3 Pro and M3 Max SoCs, with the t8110 fallback.
 
 Signed-off-by: Michael Reeves <michael.reeves077@gmail.com>
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- Documentation/devicetree/bindings/mailbox/apple,mailbox.yaml | 3 +++
- 1 file changed, 3 insertions(+)
+ Documentation/devicetree/bindings/iommu/apple,dart.yaml | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/mailbox/apple,mailbox.yaml b/Documentation/devicetree/bindings/mailbox/apple,mailbox.yaml
-index 28985cc62..9a6dfb0b2 100644
---- a/Documentation/devicetree/bindings/mailbox/apple,mailbox.yaml
-+++ b/Documentation/devicetree/bindings/mailbox/apple,mailbox.yaml
-@@ -30,8 +30,11 @@ properties:
-           - enum:
-               - apple,t8103-asc-mailbox
-               - apple,t8112-asc-mailbox
-+              - apple,t8122-asc-mailbox
-               - apple,t6000-asc-mailbox
-               - apple,t6020-asc-mailbox
-+              - apple,t6030-asc-mailbox
-+              - apple,t6031-asc-mailbox
-           - const: apple,asc-mailbox-v4
+diff --git a/Documentation/devicetree/bindings/iommu/apple,dart.yaml b/Documentation/devicetree/bindings/iommu/apple,dart.yaml
+index 47ec7fa52..efadec786 100644
+--- a/Documentation/devicetree/bindings/iommu/apple,dart.yaml
++++ b/Documentation/devicetree/bindings/iommu/apple,dart.yaml
+@@ -29,7 +29,11 @@ properties:
+           - apple,t8110-dart
+           - apple,t6000-dart
+       - items:
+-          - const: apple,t6020-dart
++          - enum:
++              - apple,t6020-dart
++              - apple,t6030-dart
++              - apple,t6031-dart
++              - apple,t8122-dart
+           - const: apple,t8110-dart
  
-       - description:
+   reg:
 
 -- 
 2.55.0
