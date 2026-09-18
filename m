@@ -4,129 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61DB5C982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 15:15:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEE3DC982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 15:17:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I6grQv4vxC77T4JUn9FYPoPuVQ1P9c6HXUzkuUU42TQ=; b=28AdbGEtFijsbRupIP5oKZvxPd
-	hJrc6Fllo46Uf8XLTN3AbjlaBElW0dNAOc6NAEllV4rJ6bxNaLofgfrOWVYuaES176DUZog9qLzq0
-	L9lU0X2nQ7P33rogXrGN9qLbgsUrjU5Gxa/aVIgj2egfKTYcgPGFtE3MdpiSOrkhg8IiDYGON3Sg3
-	Sc1mmBzgRHNMBAGyy+nVO1trtsBj3LjmbYs+hkUYXB5JgQC35MJ5Y2tuzvpf2pu9EfR2jIhHxt6v8
-	HrUm7JGBpsCeMm1oGSA4ULxvmxwAzskw/7MSL1GyzpEIffEm7Kbh/2RiCYJ06xpJvWWu4Mr0YWZ0T
-	uXSXrraw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=YT138mzFYBzcp/KszwOIxLaJLDjOMSjvrIa4MLAD/i4=; b=dv+dYqN7QYk/FK
+	lJIOwwKX97H7n1FZsKkSyhQdLRBW35GSZhAGonSxOd65L7eApMjGTmAH9jI+30/JG0tL3ykYHiXJE
+	4MYmoJeBAzFaa5mFpIi9O6hIHnSkPVAnyQ34nFJi9n0ms+6D0tF8gA+/oGc68Ect6Pk3YU3xsnDWP
+	Dorx/TTsvTI7wv01nZb6xmQTnnDnWoUxmuR9DNL3sb8+SBZEOc4YpxUJVLupYVCpQzacuxbNB5ntr
+	KSPjqL+CnH/y6OURwDCsAhmiOCxy3JzfKgUjyORaIp8pl2DGYWJnXigdNJ9xJd+TSJ9gdZVi1wfpe
+	hdAC9Qyt1/oOsFuYpt8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Ylh-0000000EZUz-2mBh;
-	Fri, 18 Sep 2026 13:36:45 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Ylc-0000000EZSR-41ci
+	id 1x7aKh-0000000EqlT-2UHQ;
+	Fri, 18 Sep 2026 15:16:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x7aKe-0000000EqkT-1t0m
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 13:36:42 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68IDVRJP3708434;
-	Fri, 18 Sep 2026 13:31:27 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=I6grQv4vxC77T4JUn
-	9FYPoPuVQ1P9c6HXUzkuUU42TQ=; b=GYu5NOdFaA2UgOmgnj8TFxYflhTA6iJg8
-	vXIFnNINzuMOrmHRuXYGaH6M5Ein8HHQ0BcqS5po0Z+mg2sq8pWPj3Zpml6dMSTa
-	/6u42SGbjkGcJ8VPDH8cw0ITW0qLC4xZ0v4YRx2xYEvm/lgJvG+I8zI0nuI18Biy
-	XO8TGkFGeZ0RhHKTECVYpjIbQOetd6RSTKRaJWb7/R7VAMeLu0c+rouBrUPQaMT+
-	qYPLawrJ5V2YPpBNTFP6Lh9R4r5nmDfJ1TkK9U9ipQmLu78VBcIIfDhlg5PvFOqq
-	J8sKJyFzmmwa+tG4ZPkrYcugv6PqOlBOQA/Qg2YNcWdzP42Gf3HeQ==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gmxdqra38-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 18 Sep 2026 13:31:26 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68IDNqtH722674;
-	Fri, 18 Sep 2026 13:31:25 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gr5fjqgw7-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 18 Sep 2026 13:31:25 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68IDVHjj46137660
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 18 Sep 2026 13:31:17 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id E585C2004B;
-	Fri, 18 Sep 2026 13:31:16 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 8DA4E2004D;
-	Fri, 18 Sep 2026 13:31:16 +0000 (GMT)
-Received: from tuxmaker.lnxne.boe (unknown [9.87.85.9])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 18 Sep 2026 13:31:16 +0000 (GMT)
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org
-Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v8 24/29] KVM: s390: arm64: Implement required functions
-Date: Fri, 18 Sep 2026 15:31:01 +0200
-Message-ID: <20260918133107.1042730-25-seiden@linux.ibm.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260918133107.1042730-1-seiden@linux.ibm.com>
-References: <20260918133107.1042730-1-seiden@linux.ibm.com>
+	Fri, 18 Sep 2026 15:16:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E929E168F;
+	Fri, 18 Sep 2026 08:16:47 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 31C553F7B4;
+	Fri, 18 Sep 2026 08:16:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789744611; bh=a5utTgTrQwCtDxIq1a+n9f+R6vI9xlTx+AyFq50CaAg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=TB9/msUHN2vrWlQICZPC+83cf1IB/i9/2I3Z/TrF6MORPdTsqSiyRyZ2ANfolctQh
+	 2ByVOQm6mphvT4Q0jPKHlFkmiTDKzOHNc8fCuy7eInksOMWoRusFG/dgFliyApexUa
+	 W8RUrbqXZuAK7JBy+Xtm7ryZmh0cTjMK4M5MbI7E=
+Date: Fri, 18 Sep 2026 16:16:46 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: linux-coco@lists.linux.dev, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev, Jason Gunthorpe <jgg@ziepe.ca>,
+	Marc Zyngier <maz@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Thomas Gleixner <tglx@kernel.org>, Will Deacon <will@kernel.org>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>
+Subject: Re: [PATCH v6 7/9] dma-buf: system_heap: Enforce shared-granule
+ alignment for cc-shared buffers
+Message-ID: <aq1V3oeDdvXobt8J@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE4MDE5MiBTYWx0ZWRfX2HeyALd528Dm
- BoiaA8bGsA9Wo85YpEE1v0SSGyOIvESWcI/oC+jen9W37y0XVEVbVmM4qOcNHZnX6QepLxEfmqQ
- F3IGQFzO2szkmnA+eqFrfBpzuW8YgFOmN/KQP/XGGu13hXxyfJ8AFGj6AJjdnl4rC/A9htNfO0V
- VVy0qS3dL9UPpS6WjCrqCwnABRwnbE4ILrd6xcurqUHaeGGGiWHaB7n8RS4+bIZdfn23n+4won3
- 0Rx3QtM1RcTvTSEYQtH4qyEjyJcZURy/cGp+8bNCPetomzCC12IdMef8yLnTnzaPp7B439jWY2o
- 72LHjyvCPB3tg7Ukr4MjcvtgTEuy4VXYkY5lFAmOqb4ezgQgmDN4U6JeeL3JpfGyvHnkMqDAs6B
- a4JHiV+fx1zngKungIN6DvE9cZ3ENg7WnmdE5lOniNPgAkCHgWGjhwy6Sljpxf9rmwACTy5k8eV
- rALViJqUcx6DmiKl4ow==
-X-Proofpoint-GUID: vJQ5ReAuJTyPDMW78hzAmSjzjX_JVU0Q
-X-Authority-Analysis: v=2.4 cv=DobDa2/+ c=1 sm=1 tr=0 ts=6aad3d2e cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
- a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8 a=VwQbUJbxAAAA:8
- a=aBOitRegfcjIfz6fJ64A:9
-X-Proofpoint-ORIG-GUID: cUiHOfDsM8yV9oOpJAZfQPj3i_6UmZ4g
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE4MDE5MiBTYWx0ZWRfXx1IyFlR/oPnW
- 5i63zQs0/sefhprHpPt6OaqHEmbnhqtH/4xipc8Zhg6gmNoFL0QuMox4RB+1bEFJGeP2twyaFjv
- X3DYuknSAHBfQ0SNj5a3ooEg+1VJX60=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-18_04,2026-09-16_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 malwarescore=0 priorityscore=1501 suspectscore=0 impostorscore=0
- spamscore=0 clxscore=1015 adultscore=0 bulkscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609180192
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260904103452.1197239-8-aneesh.kumar@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_063641_017139_2A69CBE9 
-X-CRM114-Status: GOOD (  22.62  )
+X-CRM114-CacheID: sfid-20260918_081656_951717_7F8F3651 
+X-CRM114-Status: GOOD (  30.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,394 +77,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement the mostly trivial functions that the shared arm64 (kvm)
-code & headers oblige s390 to implement.
+First, none of the DMA-BUF maintainers have been cc'ed. It might be fine
+for an RFC but this series got to version 6. We need their feedback.
 
-MAINTAINERS: Add arch/s390/include/arm64/* to KVM/s390
+On Fri, Sep 04, 2026 at 04:04:50PM +0530, Aneesh Kumar K.V (Arm) wrote:
+> The system heap can allocate buffers that are decrypted and shared with the
+> host. For confidential-computing guests, those shared buffers must cover
+> whole shared-buffer granule; otherwise a userspace mmap of the dma-buf may
+> expose only part of a host-managed granule and allow unintended access to
+> adjacent private memory.
+> 
+> Require cc-shared system-heap allocations to have a size aligned to
+> mem_cc_shared_granule_size(), and allocate pages at least as large as the
+> required granule. Keep the allocation bounded by the existing heap orders,
+> but fall back to an exact minimum-order allocation when the required
+> granule is not one of the preferred heap orders.
+> 
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> ---
+>  drivers/dma-buf/heaps/system_heap.c | 50 +++++++++++++++++++++++------
+>  1 file changed, 41 insertions(+), 9 deletions(-)
+> 
+> diff --git a/drivers/dma-buf/heaps/system_heap.c b/drivers/dma-buf/heaps/system_heap.c
+> index c8959eadc71d..9cbfcebe2088 100644
+> --- a/drivers/dma-buf/heaps/system_heap.c
+> +++ b/drivers/dma-buf/heaps/system_heap.c
+> @@ -55,7 +55,6 @@ struct dma_heap_attachment {
+>  #define HIGH_ORDER_GFP  (((GFP_HIGHUSER | __GFP_ZERO | __GFP_NOWARN \
+>  				| __GFP_NORETRY) & ~__GFP_RECLAIM) \
+>  				| __GFP_COMP)
+> -static gfp_t order_flags[] = {HIGH_ORDER_GFP, HIGH_ORDER_GFP, LOW_ORDER_GFP};
+>  /*
+>   * The selection of the orders used for allocation (1MB, 64K, 4K) is designed
+>   * to match with the sizes often found in IOMMUs. Using order 4 pages instead
+> @@ -375,26 +374,44 @@ static const struct dma_buf_ops system_heap_buf_ops = {
+>  	.release = system_heap_dma_buf_release,
+>  };
+>  
+> +static struct page *system_heap_alloc_order(unsigned int order)
+> +{
+> +	gfp_t flags = order ? HIGH_ORDER_GFP : LOW_ORDER_GFP;
+> +
+> +	if (mem_accounting)
+> +		flags |= __GFP_ACCOUNT;
+> +
+> +	return alloc_pages(flags, order);
+> +}
+> +
+>  static struct page *alloc_largest_available(unsigned long size,
+> -					    unsigned int max_order)
+> +					    unsigned int max_order,
+> +					    unsigned int min_order)
+>  {
+>  	struct page *page;
+>  	int i;
+> -	gfp_t flags;
+>  
+>  	for (i = 0; i < NUM_ORDERS; i++) {
+>  		if (size <  (PAGE_SIZE << orders[i]))
+>  			continue;
+> -		if (max_order < orders[i])
+> +
+> +		if (max_order < orders[i] || orders[i] < min_order)
+>  			continue;
+> -		flags = order_flags[i];
+> -		if (mem_accounting)
+> -			flags |= __GFP_ACCOUNT;
+> -		page = alloc_pages(flags, orders[i]);
+> +
+> +		page = system_heap_alloc_order(orders[i]);
+>  		if (!page)
+>  			continue;
+>  		return page;
+>  	}
+> +	/*
+> +	 * The required minimum order might not be one of the preferred heap
+> +	 * orders. Allocate exactly min_order when it does not exceed the
+> +	 * remaining size.
+> +	 */
+> +	if (min_order && min_order <= max_order &&
+> +	    size >= (PAGE_SIZE << min_order))
+> +		return system_heap_alloc_order(min_order);
+> +
+>  	return NULL;
+>  }
+>  
+> @@ -409,6 +426,8 @@ static struct dma_buf *system_heap_allocate(struct dma_heap *heap,
+>  	unsigned int max_order = orders[0];
+>  	struct system_heap_priv *priv = dma_heap_get_drvdata(heap);
+>  	bool cc_shared = priv->cc_shared;
+> +	unsigned int min_order = 0;
+> +	size_t cc_granule_size;
+>  	struct dma_buf *dmabuf;
+>  	struct sg_table *table;
+>  	struct scatterlist *sg;
+> @@ -425,6 +444,18 @@ static struct dma_buf *system_heap_allocate(struct dma_heap *heap,
+>  	buffer->heap = heap;
+>  	buffer->len = len;
+>  	buffer->cc_shared = cc_shared;
+> +	if (cc_shared_buffer(buffer)) {
+> +		cc_granule_size = mem_cc_shared_granule_size();
+> +		if (!IS_ALIGNED(len, cc_granule_size)) {
+> +			ret = -EINVAL;
+> +			goto free_buffer;
+> +		}
+> +		min_order = get_order(cc_granule_size);
+> +		if (min_order > max_order) {
+> +			ret = -EINVAL;
+> +			goto free_buffer;
+> +		}
+> +	}
+>  
+>  	INIT_LIST_HEAD(&pages);
 
-Implement a very basic smccc handler that (non-compliantly) is just able
-to stop a vcpu.
+You need to get a proper base so that Sashiko can review this series. I
+ran it through Claude and the above is wrong to go to free_buffer which
+walks over the pages list that has not been initialised yet.
 
-Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
----
- MAINTAINERS                           |   1 +
- arch/s390/include/arm64/kvm_emulate.h | 130 ++++++++++++++++++++++++++
- arch/s390/include/arm64/kvm_nested.h  |  11 +++
- arch/s390/include/arm64/ptrace.h      |  11 +++
- arch/s390/include/arm64/sysreg.h      |  13 +++
- arch/s390/kvm/arm64/handle_exit.c     | 128 +++++++++++++++++++++++++
- arch/s390/kvm/arm64/inject_fault.c    |  21 +++++
- 7 files changed, 315 insertions(+)
- create mode 100644 arch/s390/include/arm64/kvm_emulate.h
- create mode 100644 arch/s390/include/arm64/kvm_nested.h
- create mode 100644 arch/s390/include/arm64/ptrace.h
- create mode 100644 arch/s390/include/arm64/sysreg.h
- create mode 100644 arch/s390/kvm/arm64/handle_exit.c
- create mode 100644 arch/s390/kvm/arm64/inject_fault.c
+Another issue, I'm just copying it verbatim:
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 3b2eb2a7a89a..8c23370b5a3c 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -14372,6 +14372,7 @@ L:	kvm@vger.kernel.org
- S:	Supported
- T:	git git://git.kernel.org/pub/scm/linux/kernel/git/kvms390/linux.git
- F:	Documentation/virt/kvm/s390*
-+F:	arch/s390/include/arm64/*
- F:	arch/s390/include/asm/gmap_helpers.h
- F:	arch/s390/include/asm/kvm*
- F:	arch/s390/include/uapi/asm/kvm*
-diff --git a/arch/s390/include/arm64/kvm_emulate.h b/arch/s390/include/arm64/kvm_emulate.h
-new file mode 100644
-index 000000000000..416c4f96db05
---- /dev/null
-+++ b/arch/s390/include/arm64/kvm_emulate.h
-@@ -0,0 +1,130 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+
-+#ifndef __S390_ARM64_KVM_EMULATE_H__
-+#define __S390_ARM64_KVM_EMULATE_H__
-+
-+#include <asm/fault.h>
-+#include <linux/kvm_host.h>
-+
-+#include <arm64/kvm_nested.h>
-+#include <arm64/ptrace.h>
-+#include <arm64/kvm_arm.h>
-+#include <arm64/sysreg.h>
-+
-+static __always_inline unsigned long *vcpu_pc(const struct kvm_vcpu *vcpu)
-+{
-+	return (unsigned long *)&vcpu->arch.sae_block.pc;
-+}
-+
-+static __always_inline unsigned long *vcpu_cpsr(const struct kvm_vcpu *vcpu)
-+{
-+	return (unsigned long *)&vcpu->arch.sae_block.pstate;
-+}
-+
-+static __always_inline unsigned long *vcpu_sp_el0(const struct kvm_vcpu *vcpu)
-+{
-+	return (unsigned long *)&vcpu->arch.sae_block.sp_el0;
-+}
-+
-+static __always_inline u64 *vcpu_sp_el1(struct kvm_vcpu *vcpu)
-+{
-+	return &vcpu->arch.sae_block.sp_el1;
-+}
-+
-+static __always_inline __vector128 *vcpu_vreg(struct kvm_vcpu *vcpu, int off)
-+{
-+	return &vcpu->arch.ctxt.vregs[off];
-+}
-+
-+static __always_inline u32 *vcpu_fpsr(struct kvm_vcpu *vcpu)
-+{
-+	return &vcpu->arch.sae_block.fpsr;
-+}
-+
-+static __always_inline u32 *vcpu_fpcr(struct kvm_vcpu *vcpu)
-+{
-+	return &vcpu->arch.sae_block.fpcr;
-+}
-+
-+static __always_inline bool vcpu_mode_is_32bit(const struct kvm_vcpu *vcpu)
-+{
-+	return false;
-+}
-+
-+static __always_inline u64 kvm_vcpu_get_esr(const struct kvm_vcpu *vcpu)
-+{
-+	return vcpu->arch.sae_block.hai.esr_el2;
-+}
-+
-+static inline unsigned long *vcpu_hcr(struct kvm_vcpu *vcpu)
-+{
-+	return (unsigned long *)&vcpu->arch.hcr_el2;
-+}
-+
-+static __always_inline unsigned long kvm_vcpu_get_hfar(const struct kvm_vcpu *vcpu)
-+{
-+	return vcpu->arch.sae_block.hai.far_el2;
-+}
-+
-+static __always_inline phys_addr_t kvm_vcpu_get_fault_ipa(const struct kvm_vcpu *vcpu)
-+{
-+	return gfn_to_gpa(vcpu->arch.sae_block.hai.teid.addr);
-+}
-+
-+static inline u16 kvm_vcpu_fault_pic(const struct kvm_vcpu *vcpu)
-+{
-+	return vcpu->arch.sae_block.hai.pic & PGM_INT_CODE_MASK;
-+}
-+
-+static __always_inline
-+bool kvm_vcpu_trap_is_permission_fault(const struct kvm_vcpu *vcpu)
-+{
-+	return kvm_vcpu_fault_pic(vcpu) == PGM_PROTECTION;
-+}
-+
-+static __always_inline bool kvm_condition_valid(const struct kvm_vcpu *vcpu)
-+{
-+	return true;
-+}
-+
-+static __always_inline bool vcpu_el1_is_32bit(struct kvm_vcpu *vcpu)
-+{
-+	return false;
-+}
-+
-+static inline bool kvm_vcpu_is_be(struct kvm_vcpu *vcpu)
-+{
-+	return false;
-+}
-+
-+static inline int kvm_vcpu_abt_gltl(struct kvm_vcpu *vcpu)
-+{
-+	return vcpu->arch.sae_block.hai.gltl;
-+}
-+
-+static inline bool vcpu_mode_priv(const struct kvm_vcpu *vcpu)
-+{
-+	u32 mode = *vcpu_cpsr(vcpu) & PSR_MODE_MASK;
-+
-+	return mode != PSR_MODE_EL0t;
-+}
-+
-+static inline void kvm_skip_instr(struct kvm_vcpu *vcpu)
-+{
-+	*vcpu_pc(vcpu) += 4;
-+	*vcpu_cpsr(vcpu) &= ~PSR_BTYPE_MASK;
-+
-+	/* advance the singlestep state machine */
-+	*vcpu_cpsr(vcpu) &= ~SPSR_ELx_SS;
-+}
-+
-+static inline void kvm_reset_fpsimd(struct kvm_vcpu *vcpu)
-+{
-+	memset(vcpu->arch.ctxt.vregs, 0, sizeof(vcpu->arch.ctxt.vregs));
-+	vcpu->arch.sae_block.fpsr = 0;
-+	vcpu->arch.sae_block.fpcr = 0;
-+}
-+
-+#include <arm64/kvm_emulate-gen.h>
-+
-+#endif /* __S390_ARM64_KVM_EMULATE_H__ */
-diff --git a/arch/s390/include/arm64/kvm_nested.h b/arch/s390/include/arm64/kvm_nested.h
-new file mode 100644
-index 000000000000..e950b1a10c41
---- /dev/null
-+++ b/arch/s390/include/arm64/kvm_nested.h
-@@ -0,0 +1,11 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+
-+#ifndef ASM_KVM_NESTED_H
-+#define ASM_KVM_NESTED_H
-+
-+static inline bool vcpu_has_nv(const struct kvm_vcpu *vcpu)
-+{
-+	return false;
-+}
-+
-+#endif /* ASM_KVM_NESTED_H */
-diff --git a/arch/s390/include/arm64/ptrace.h b/arch/s390/include/arm64/ptrace.h
-new file mode 100644
-index 000000000000..449b85582c97
---- /dev/null
-+++ b/arch/s390/include/arm64/ptrace.h
-@@ -0,0 +1,11 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+
-+#ifndef __S390_ARM64_PTRACE_H__
-+#define __S390_ARM64_PTRACE_H__
-+
-+#include <arm64/sysreg.h>
-+#include <uapi/arm64/ptrace.h>
-+
-+#include <arm64/ptrace-gen.h>
-+
-+#endif /* __S390_ARM64_PTRACE_H__ */
-diff --git a/arch/s390/include/arm64/sysreg.h b/arch/s390/include/arm64/sysreg.h
-new file mode 100644
-index 000000000000..ac6b638fef56
---- /dev/null
-+++ b/arch/s390/include/arm64/sysreg.h
-@@ -0,0 +1,13 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+
-+#ifndef __S390_ARM64_SYSREG_H__
-+#define __S390_ARM64_SYSREG_H__
-+
-+#include <linux/bits.h>
-+#include <linux/stringify.h>
-+#include <linux/kasan-tags.h>
-+#include <linux/kconfig.h>
-+
-+#include <arm64/sysreg-gen.h>
-+
-+#endif /* __S390_ARM64_SYSREG_H__ */
-diff --git a/arch/s390/kvm/arm64/handle_exit.c b/arch/s390/kvm/arm64/handle_exit.c
-new file mode 100644
-index 000000000000..046e905ffcb6
---- /dev/null
-+++ b/arch/s390/kvm/arm64/handle_exit.c
-@@ -0,0 +1,128 @@
-+// SPDX-License-Identifier: GPL-2.0
-+
-+#include <linux/kvm_host.h>
-+
-+#include <arm64/esr.h>
-+#include <arm64/kvm_emulate.h>
-+
-+typedef int (*exit_handle_fn)(struct kvm_vcpu *);
-+static exit_handle_fn arm_exit_handlers[ESR_ELx_EC_MAX + 1];
-+
-+#define PSCI_0_2_FN_SYSTEM_OFF		0x84000008
-+#define PSCI_RET_NOT_SUPPORTED		-1
-+#define PSCI_RET_INTERNAL_FAILURE	-6
-+/*
-+ * Temporary smc/hvc handler. Non-compliant implementation (features missing).
-+ * Implements only system off so that test programs are able to end their execution.
-+ * Multi-vCPU power state management and KVM_REQ_SLEEP handling are deferred
-+ * to future SMP series.
-+ */
-+static int kvm_smccc_call_handler(struct kvm_vcpu *vcpu)
-+{
-+	u32 func_id = vcpu_get_reg(vcpu, 0);
-+	u64 val = PSCI_RET_NOT_SUPPORTED;
-+	int ret = 1;
-+
-+	if (func_id == PSCI_0_2_FN_SYSTEM_OFF) {
-+		scoped_guard(spinlock, &vcpu->arch.mp_state_lock) {
-+			WRITE_ONCE(vcpu->arch.mp_state.mp_state, KVM_MP_STATE_STOPPED);
-+		}
-+		memset(&vcpu->run->system_event, 0,
-+		       sizeof(vcpu->run->system_event));
-+		vcpu->run->system_event.type = KVM_SYSTEM_EVENT_SHUTDOWN;
-+		vcpu->run->system_event.ndata = 1;
-+		vcpu->run->system_event.data[0] = 0;
-+		vcpu->run->exit_reason = KVM_EXIT_SYSTEM_EVENT;
-+		val = PSCI_RET_INTERNAL_FAILURE;
-+		ret = 0;
-+	}
-+	vcpu_set_reg(vcpu, 0, val);
-+
-+	return ret;
-+}
-+
-+static int handle_hvc(struct kvm_vcpu *vcpu)
-+{
-+	vcpu->stat.hvc_exit_stat++;
-+	return kvm_smccc_call_handler(vcpu);
-+}
-+
-+static int kvm_handle_unknown_ec(struct kvm_vcpu *vcpu)
-+{
-+	u64 esr = kvm_vcpu_get_esr(vcpu);
-+
-+	kvm_pr_unimpl("Unknown exception class: esr: %#016llx -- %s\n",
-+		      esr, esr_get_class_string(esr));
-+
-+	kvm_inject_undefined(vcpu);
-+	return 1;
-+}
-+
-+static exit_handle_fn arm_exit_handlers[] = {
-+	[0 ... ESR_ELx_EC_MAX]	= kvm_handle_unknown_ec,
-+	[ESR_ELx_EC_HVC64]	= handle_hvc,
-+};
-+
-+static exit_handle_fn kvm_get_exit_handler(struct kvm_vcpu *vcpu)
-+{
-+	u64 esr = kvm_vcpu_get_esr(vcpu);
-+	u8 esr_ec = ESR_ELx_EC(esr);
-+
-+	return arm_exit_handlers[esr_ec];
-+}
-+
-+/*
-+ * We may be single-stepping an emulated instruction. If the emulation
-+ * has been completed in the kernel, we can return to userspace with a
-+ * KVM_EXIT_DEBUG, otherwise userspace needs to complete its
-+ * emulation first.
-+ */
-+static int handle_trap_exceptions(struct kvm_vcpu *vcpu)
-+{
-+	exit_handle_fn exit_handler;
-+
-+	exit_handler = kvm_get_exit_handler(vcpu);
-+	return exit_handler(vcpu);
-+}
-+
-+/* manually copied from arch/arm64/kernel/traps.c */
-+static const char * const esr_class_str[] = {
-+	[0 ... ESR_ELx_EC_MAX]		= "UNRECOGNIZED EC",
-+	[ESR_ELx_EC_UNKNOWN]		= "Unknown/Uncategorized",
-+	[ESR_ELx_EC_WFx]		= "WFI/WFE",
-+	[ESR_ELx_EC_FP_ASIMD]		= "ASIMD",
-+	[ESR_ELx_EC_PAC]		= "PAC",
-+	[ESR_ELx_EC_BTI]		= "BTI",
-+	[ESR_ELx_EC_ILL]		= "PSTATE.IL",
-+	[ESR_ELx_EC_SVC64]		= "SVC (AArch64)",
-+	[ESR_ELx_EC_HVC64]		= "HVC (AArch64)",
-+	[ESR_ELx_EC_SMC64]		= "SMC (AArch64)",
-+	[ESR_ELx_EC_SYS64]		= "MSR/MRS (AArch64)",
-+	[ESR_ELx_EC_SVE]		= "SVE",
-+	[ESR_ELx_EC_ERET]		= "ERET/ERETAA/ERETAB",
-+	[ESR_ELx_EC_FPAC]		= "FPAC",
-+	[ESR_ELx_EC_SME]		= "SME",
-+	[ESR_ELx_EC_IMP_DEF]		= "EL3 IMP DEF",
-+	[ESR_ELx_EC_IABT_LOW]		= "IABT (lower EL)",
-+	[ESR_ELx_EC_IABT_CUR]		= "IABT (current EL)",
-+	[ESR_ELx_EC_PC_ALIGN]		= "PC Alignment",
-+	[ESR_ELx_EC_DABT_LOW]		= "DABT (lower EL)",
-+	[ESR_ELx_EC_DABT_CUR]		= "DABT (current EL)",
-+	[ESR_ELx_EC_SP_ALIGN]		= "SP Alignment",
-+	[ESR_ELx_EC_MOPS]		= "MOPS",
-+	[ESR_ELx_EC_FP_EXC64]		= "FP (AArch64)",
-+	[ESR_ELx_EC_GCS]		= "Guarded Control Stack",
-+	[ESR_ELx_EC_SERROR]		= "SError",
-+	[ESR_ELx_EC_BREAKPT_LOW]	= "Breakpoint (lower EL)",
-+	[ESR_ELx_EC_BREAKPT_CUR]	= "Breakpoint (current EL)",
-+	[ESR_ELx_EC_SOFTSTP_LOW]	= "Software Step (lower EL)",
-+	[ESR_ELx_EC_SOFTSTP_CUR]	= "Software Step (current EL)",
-+	[ESR_ELx_EC_WATCHPT_LOW]	= "Watchpoint (lower EL)",
-+	[ESR_ELx_EC_WATCHPT_CUR]	= "Watchpoint (current EL)",
-+	[ESR_ELx_EC_BRK64]		= "BRK (AArch64)",
-+};
-+
-+const char *esr_get_class_string(unsigned long esr)
-+{
-+	return esr_class_str[ESR_ELx_EC(esr)];
-+}
-diff --git a/arch/s390/kvm/arm64/inject_fault.c b/arch/s390/kvm/arm64/inject_fault.c
-new file mode 100644
-index 000000000000..425dbeaa421c
---- /dev/null
-+++ b/arch/s390/kvm/arm64/inject_fault.c
-@@ -0,0 +1,21 @@
-+// SPDX-License-Identifier: GPL-2.0
-+
-+#include <arm64/kvm_emulate.h>
-+
-+/**
-+ * kvm_inject_undefined - inject an undefined instruction into the guest
-+ * @vcpu: The vCPU in which to inject the exception
-+ *
-+ * It is assumed that this code is called from the VCPU thread and that the
-+ * VCPU therefore is not currently executing guest code.
-+ */
-+void kvm_inject_undefined(struct kvm_vcpu *vcpu)
-+{
-+	/* Stub until s390 supports arm64 sysregs TODO sysregs*/
-+}
-+
-+int kvm_inject_sea(struct kvm_vcpu *vcpu, bool iabt, u64 addr)
-+{
-+	/* Stub until s390 supports arm64 sysregs TODO sysregs*/
-+	return 1;
-+}
+drivers/dma-buf/heaps/system_heap.c:379 (patch 7/9)
+system_heap_alloc_order() picks "order ? HIGH_ORDER_GFP :
+LOW_ORDER_GFP".  HIGH_ORDER_GFP clears __GFP_RECLAIM and sets
+__GFP_NORETRY, which was fine while orders 8/4 always had order 0 as a
+fallback.  The new min_order fallback at line 411 has no smaller order
+to fall back to - it is the mandatory minimum.  On a 16K-page host with
+a 4K-page guest, min_order = get_order(SZ_16K) = 2, which is not in
+orders[] = {8, 4, 0}, and order 0 is filtered out by "orders[i] <
+min_order".  Every tail allocation below 64K therefore goes through the
+non-reclaiming fallback and returns -ENOMEM under pressure that ordinary
+reclaim would have cleared.  Note any fix must keep __GFP_COMP:
+compound_order()/page_size() are used on the result
+(system_heap_set_page_decrypted(), the free paths and sg_set_page()).
+
 -- 
-2.53.0
-
+Catalin
 
