@@ -4,79 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C10FC982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 14:37:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C9AEC982E0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 14:39:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I1bk2EU/D9te5qb656u67tT8QWc8LP721IAfJA7T8gw=; b=NFDPqtnWxGDvfNekEfdBQ2T1ev
-	qLmF3q4AT2bwfPG2Dzof8dMy5OUw0tE/jpEEdPi0TFXRJVtMnYMGppEY+ny3cysiDKkZfsDFGuqoc
-	wwWjHYRVQBLcxjhV5//zjRDRyq/AGHMeP0RwlKDOgPK+dlDcDxYyk5PSBrtZSvi6RigLQUyi27UlT
-	4/Osvv+TV6+6LrT3GW853UZbCCNjdFj5BAOyu5yUmniw2Us/eLQ/hen1sV3cIzBJsMuqwjA1F99U3
-	Nf8xq1uqDKKawRsPhUklHkuPgUNp1sV3qiXk10IAyLT2twOgxtqz3u3pyiYYUqJGXdnkhICf9iLbx
-	QnTcrG/A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KZ+diBnRwvvx/QAv5fV0vhwZgR/V1YndVVm09y5mFBQ=; b=F2HdIUDlBFcBzwLPsOeasafBDv
+	S3Dib5nEBjl9Nr6MDq0QaQgACqQ7wjgf/lSe4tNndxqVwryiN2bGdJPCsj6xQN+pcn9N8k2uC7EM5
+	/RPTKyGJNODXZWk7x6YMgdcztUQfCUBHKfmVWxhSRN7eJ7ikAjlEAbMPK12uDUi1TMy2VFX2bHGMw
+	rUYZf/Xan+26EUhMCVyHBn8S8unXkVopWmbp15s8CsOwajL1cjYymhu0BwdqZcDC/SsMRVkcPXnyc
+	79R0B8Xcv/RvnHPRT0hOdi0GEqv3uinwdVzHQJZVAbLVX2iHf1E/v0cwgwSRcJ2NHee+joQtr6+bn
+	scdd81wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Zil-0000000Ejs0-2cyW;
-	Fri, 18 Sep 2026 14:37:47 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+	id 1x7Zjy-0000000Ek74-3YDs;
+	Fri, 18 Sep 2026 14:39:02 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Zii-0000000EjrP-463V
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 14:37:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789742265; x=1821278265;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=cT9MZUefqqkKw7WHWzzp8+aaN83F67m383N8MtMYnbw=;
-  b=jKEVTa5H+5PcUCkKxdRiP4EPO++0WWzK1S9mcmHqxPp+0HnJ0I0ucxYt
-   E2dVjd5N3K04/Q1XlqtWOVYDnSm1c5HEj/q9oYRG0LA4HxIcDAfJ0UjBL
-   wwKwpCCUIoJFmKIsJ82qxiuVWmQaGau0FXPiNJ0Vq9fZ3kjmwSiF47li9
-   X4OqXK36sczn9kk8i4QWb90pBHVVGPkT6E8O8kbrTTQiCIhSKHbHpzrYz
-   aaK9QmiovVRWbHw6AoT0fHiQ+Vw2M0FNOOOENn1vZctdxWajWWXs1/1zd
-   UglRcnhSrbCzepZ797zpQ6C4VNPt85YxO27Abidx49reGcH0I5yJoHqdM
-   A==;
-X-CSE-ConnectionGUID: AGUZEmC4TCiqZfUsIa9rmA==
-X-CSE-MsgGUID: Kc0JV2aFRyKj/X/hv10xqw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11909"; a="100850522"
-X-IronPort-AV: E=Sophos;i="6.27,109,1787036400"; 
-   d="scan'208";a="100850522"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Sep 2026 07:37:43 -0700
-X-CSE-ConnectionGUID: 3Vkr41R3Tu+QsrJlbrlgVg==
-X-CSE-MsgGUID: a9tY0WWmS7ioSf8PSh08gg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,109,1787036400"; 
-   d="scan'208";a="270737077"
-Received: from sghuge-mobl2.amr.corp.intel.com (HELO [10.125.109.117]) ([10.125.109.117])
-  by fmviesa010-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Sep 2026 07:37:42 -0700
-Message-ID: <8616f55f-9703-42d3-8d3e-7fdfb6a8a5ff@intel.com>
-Date: Fri, 18 Sep 2026 07:37:41 -0700
+	id 1x7Zjx-0000000Ek6V-210J;
+	Fri, 18 Sep 2026 14:39:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=KZ+diBnRwvvx/QAv5fV0vhwZgR/V1YndVVm09y5mFBQ=; b=AoFM3CfoSKwVMZAhW5XDVK6Lwi
+	Z0aeRFXoD8RubOXf78ndRlY4S7jFOK911h1fSpupc7B6UR224mmtUwUxNuS37cS81ujhcfKuwNbye
+	hGMZgPwo2uSunuCGdeSbOIcf6NNJMszgtpZqEENKifiE+VY7Yx9ricFpAdWaQgBGGi1j4lG+uSS8D
+	l56aEzNFRb3oELWAmje83fGj2OR2TAwIe2sMkNnjNBoHbVgw/4KqouN1RPTgfRIN7faEpsnPQJIaf
+	zOH11VyuLwTopNS8uw7FEeDmWvO4EBJ8oO7+7hRob4J8iUXgQ+5OK2ihKg3E5zQzGsbM2K5jMmY4k
+	IHT6Vzdw==;
+Received: from mxout4.routing.net ([2a03:2900:1:a::9])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x7Zju-0000000ADSJ-1owV;
+	Fri, 18 Sep 2026 14:39:00 +0000
+Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
+	by mxout4.routing.net (Postfix) with ESMTP id 136151007AE;
+	Fri, 18 Sep 2026 14:38:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
+	s=routing; t=1789742334;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=KZ+diBnRwvvx/QAv5fV0vhwZgR/V1YndVVm09y5mFBQ=;
+	b=MWxHikQk7TWnftNJ4LNPpq9sCMIRdLC4KhoVBF3IUdNOlnrX+aJIaqS9OIqI5tkvylZH2R
+	PyDu+fBVYs6vN6ezjTnJlBD3JfkeHPbeIHZIKFakfGfQGF4zAf1BEhvqXFTBHAMDJj4tVc
+	7Cu1X8PezihDC1qFH3YQjWg+JpVaXf0=
+Received: from frank-G5-5590 (fttx-pool-80.245.73.6.bambit.de [80.245.73.6])
+	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id C2F021200CB;
+	Fri, 18 Sep 2026 14:38:53 +0000 (UTC)
+From: Frank Wunderlich <linux@fw-web.de>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Frank Wunderlich <frank-w@public-files.de>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	Mika Westerberg <mika.westerberg@linux.intel.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH 0/2] Add gpio labels for R4Pro
+Date: Fri, 18 Sep 2026 16:38:41 +0200
+Message-ID: <20260918143846.30458-1-linux@fw-web.de>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dmaengine: use assign_bit() where applicable
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
- Vinicius Costa Gomes <vinicius.gomes@intel.com>,
- Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
- Kees Cook <kees@kernel.org>
-Cc: linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20260918141622.3022876-1-peng.fan@oss.nxp.com>
-From: Dave Jiang <dave.jiang@intel.com>
-Content-Language: en-US
-In-Reply-To: <20260918141622.3022876-1-peng.fan@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_073745_032502_FFB0E78C 
-X-CRM114-Status: GOOD (  15.64  )
+X-CRM114-CacheID: sfid-20260918_153858_690818_0795C88A 
+X-CRM114-Status: UNSURE (   6.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,138 +94,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Frank Wunderlich <frank-w@public-files.de>
 
+This Series adds line-names for i2c-gpio adapter and pcie hogs
+for easier debugging via /sys/kernel/debug/gpio.
 
-On 9/18/26 7:16 AM, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
-> 
-> Convert open-coded if/else with set_bit/clear_bit and their
-> non-atomic __set_bit/__clear_bit variants to the assign_bit/__assign_bit
-> API.
-> 
-> Done with Coccinelle semantic patch.
-> 
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+Frank Wunderlich (2):
+  arm64: dts: mediatek: mt7988a-bpi-r4pro: add names for i2c-to-gpio
+    chip
+  arm64: dts: mediatek: mt7988a-bpi-r4pro: label gpio-hogs
 
-Reviewed-by: Dave Jiang <dave.jiang@intel.com>
+ .../mt7988a-bananapi-bpi-r4-pro-cn13.dtso      |  1 +
+ .../mt7988a-bananapi-bpi-r4-pro-cn14.dtso      |  1 +
+ .../mt7988a-bananapi-bpi-r4-pro-cn15.dtso      |  1 +
+ .../mt7988a-bananapi-bpi-r4-pro-cn18.dtso      |  1 +
+ .../mediatek/mt7988a-bananapi-bpi-r4-pro.dtsi  | 18 ++++++++++++++++++
+ 5 files changed, 22 insertions(+)
 
-> ---
->  drivers/dma/idxd/sysfs.c  |  5 +----
->  drivers/dma/imx-sdma.c    | 15 +++------------
->  drivers/dma/ppc4xx/adma.c | 29 +++++++++--------------------
->  3 files changed, 13 insertions(+), 36 deletions(-)
-> 
-> diff --git a/drivers/dma/idxd/sysfs.c b/drivers/dma/idxd/sysfs.c
-> index 6d251095c350..2b0524324089 100644
-> --- a/drivers/dma/idxd/sysfs.c
-> +++ b/drivers/dma/idxd/sysfs.c
-> @@ -1095,10 +1095,7 @@ static ssize_t wq_ats_disable_store(struct device *dev, struct device_attribute
->  	if (rc < 0)
->  		return rc;
->  
-> -	if (ats_dis)
-> -		set_bit(WQ_FLAG_ATS_DISABLE, &wq->flags);
-> -	else
-> -		clear_bit(WQ_FLAG_ATS_DISABLE, &wq->flags);
-> +	assign_bit(WQ_FLAG_ATS_DISABLE, &wq->flags, ats_dis);
->  
->  	return count;
->  }
-> diff --git a/drivers/dma/imx-sdma.c b/drivers/dma/imx-sdma.c
-> index 36368835a845..b8a91a0343b5 100644
-> --- a/drivers/dma/imx-sdma.c
-> +++ b/drivers/dma/imx-sdma.c
-> @@ -710,20 +710,11 @@ static int sdma_config_ownership(struct sdma_channel *sdmac,
->  	mcu = readl_relaxed(sdma->regs + SDMA_H_HOSTOVR);
->  	dsp = readl_relaxed(sdma->regs + SDMA_H_DSPOVR);
->  
-> -	if (dsp_override)
-> -		__clear_bit(channel, &dsp);
-> -	else
-> -		__set_bit(channel, &dsp);
-> +	__assign_bit(channel, &dsp, !dsp_override);
->  
-> -	if (event_override)
-> -		__clear_bit(channel, &evt);
-> -	else
-> -		__set_bit(channel, &evt);
-> +	__assign_bit(channel, &evt, !event_override);
->  
-> -	if (mcu_override)
-> -		__clear_bit(channel, &mcu);
-> -	else
-> -		__set_bit(channel, &mcu);
-> +	__assign_bit(channel, &mcu, !mcu_override);
->  
->  	writel_relaxed(evt, sdma->regs + SDMA_H_EVTOVR);
->  	writel_relaxed(mcu, sdma->regs + SDMA_H_HOSTOVR);
-> diff --git a/drivers/dma/ppc4xx/adma.c b/drivers/dma/ppc4xx/adma.c
-> index 279a431ccae3..39b1c4fd9ca5 100644
-> --- a/drivers/dma/ppc4xx/adma.c
-> +++ b/drivers/dma/ppc4xx/adma.c
-> @@ -350,10 +350,8 @@ static void ppc440spe_desc_init_dma01pq(struct ppc440spe_adma_desc_slot *desc,
->  			 * of the transaction (src, dst, ...)
->  			 */
->  			iter->hw_next = NULL;
-> -			if (flags & DMA_PREP_INTERRUPT)
-> -				set_bit(PPC440SPE_DESC_INT, &iter->flags);
-> -			else
-> -				clear_bit(PPC440SPE_DESC_INT, &iter->flags);
-> +			assign_bit(PPC440SPE_DESC_INT, &iter->flags,
-> +				   flags & DMA_PREP_INTERRUPT);
->  		}
->  	}
->  
-> @@ -508,10 +506,7 @@ static void ppc440spe_desc_init_memcpy(struct ppc440spe_adma_desc_slot *desc,
->  	desc->src_cnt = 1;
->  	desc->dst_cnt = 1;
->  
-> -	if (flags & DMA_PREP_INTERRUPT)
-> -		set_bit(PPC440SPE_DESC_INT, &desc->flags);
-> -	else
-> -		clear_bit(PPC440SPE_DESC_INT, &desc->flags);
-> +	assign_bit(PPC440SPE_DESC_INT, &desc->flags, flags & DMA_PREP_INTERRUPT);
->  
->  	hw_desc->opc = DMA_CDB_OPC_MV_SG1_SG2;
->  }
-> @@ -2136,10 +2131,8 @@ static struct ppc440spe_adma_desc_slot *ppc440spe_dma01_prep_mult(
->  					chain_node);
->  		memset(iter->hw_desc, 0, sizeof(struct dma_cdb));
->  		iter->hw_next = NULL;
-> -		if (flags & DMA_PREP_INTERRUPT)
-> -			set_bit(PPC440SPE_DESC_INT, &iter->flags);
-> -		else
-> -			clear_bit(PPC440SPE_DESC_INT, &iter->flags);
-> +		assign_bit(PPC440SPE_DESC_INT, &iter->flags,
-> +			   flags & DMA_PREP_INTERRUPT);
->  
->  		hw_desc = iter->hw_desc;
->  		hw_desc->opc = DMA_CDB_OPC_MV_SG1_SG2;
-> @@ -2221,10 +2214,8 @@ static struct ppc440spe_adma_desc_slot *ppc440spe_dma01_prep_sum_product(
->  		iter->hw_next = list_entry(iter->chain_node.next,
->  					   struct ppc440spe_adma_desc_slot,
->  					   chain_node);
-> -		if (flags & DMA_PREP_INTERRUPT)
-> -			set_bit(PPC440SPE_DESC_INT, &iter->flags);
-> -		else
-> -			clear_bit(PPC440SPE_DESC_INT, &iter->flags);
-> +		assign_bit(PPC440SPE_DESC_INT, &iter->flags,
-> +			   flags & DMA_PREP_INTERRUPT);
->  
->  		hw_desc = iter->hw_desc;
->  		hw_desc->opc = DMA_CDB_OPC_MV_SG1_SG2;
-> @@ -2246,10 +2237,8 @@ static struct ppc440spe_adma_desc_slot *ppc440spe_dma01_prep_sum_product(
->  					chain_node);
->  		memset(iter->hw_desc, 0, sizeof(struct dma_cdb));
->  		iter->hw_next = NULL;
-> -		if (flags & DMA_PREP_INTERRUPT)
-> -			set_bit(PPC440SPE_DESC_INT, &iter->flags);
-> -		else
-> -			clear_bit(PPC440SPE_DESC_INT, &iter->flags);
-> +		assign_bit(PPC440SPE_DESC_INT, &iter->flags,
-> +			   flags & DMA_PREP_INTERRUPT);
->  
->  		hw_desc = iter->hw_desc;
->  		hw_desc->opc = DMA_CDB_OPC_MV_SG1_SG2;
+-- 
+2.53.0
 
 
