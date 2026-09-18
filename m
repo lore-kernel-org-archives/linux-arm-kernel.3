@@ -4,88 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5A26C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 22:50:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6C62C982D7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 22:54:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cYreVBH/AVISc3OQPvTRsLxBAk30fKgkR5xyJoFiadU=; b=Sr/a9hqb2ltAhuque0Pg4nLEyD
-	z58WrD+HHJlGAI/hcsWG+f7x/jZ/kpMBIXl9lWd2FsBFEUvUw1tHOGy/H3nyWFl8tDGayb/16YQqH
-	y2dC/7iCYcjpyHRqG9lHGSQORgCKZ++IljNLMKu6MhWA04d8N8gwADW3u3xbpdjt0lSj83OZc7vGa
-	vVdWflFb5IX3/Ksu/OyfmfATAPf+HmYaj3ySb+TuTxLTPYPu2n0DTdaBzdkbtazNkxcwhtk6UMR4r
-	U6slNt1vVolH0DFepK1k2q1gf4xwA3PvyR1YatM69x3CsQnj3sr5xt3afUhkXFACDA0uSkD6wdHWM
-	tXyjlfUw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:Subject:
+	From:MIME-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=g5kG3DdFAuRrj+kffHzyPbVSqMeTdYOBvtJ0HQxgK7o=; b=4qR44/GwmEXI+LzXXnzRD1+ETB
+	AFsIMIJhvDEASwc9O/utSPzfJEBoQlDTcKsqw8WzpkKS93XqlXEfslJlLC3ZJAb8Yp9qojmzf/U/l
+	JU5p77oq6gP2+mKBL8zodxDwIE1+GHd+mTjexmeG7pKfGTfrdvSB1urhiZuP4pYT65rXX2QbdfCLO
+	6fGCyehsUsLaOGKZ9tl6h4sxYyolLC3aqxI8bA57sZ/cyOQsSV16WJDxysR57Xfwb63dg+DY4y6MB
+	/hFkFmFWoh8YdYFTQK3Ipxz/qbstAko+D6lyauHxkWLpRYtIbm6aNPIErPJaLTWbFdHVDd9epX8TP
+	22ERXZag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7hHt-0000000FeDv-2gzV;
-	Fri, 18 Sep 2026 22:42:33 +0000
-Received: from mail-pg1-x547.google.com ([2607:f8b0:4864:20::547])
+	id 1x7hTS-0000000Ffka-0fpt;
+	Fri, 18 Sep 2026 22:54:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7hHY-0000000FdxY-39rh
+	id 1x7hTQ-0000000FfkA-0kHb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 22:42:13 +0000
-Received: by mail-pg1-x547.google.com with SMTP id 41be03b00d2f7-cc1b80835d5so1516514a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 15:42:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1789771331; x=1790376131; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=cYreVBH/AVISc3OQPvTRsLxBAk30fKgkR5xyJoFiadU=;
-        b=IobPK87+appmVvPNPnKxlv8xyVcEj/b7dburzLMc+w+jbWjU8Y80//UrAOWO7U4qb7
-         5+g1e2i8gV+QbzX54YR2s8CIrxfKxOQBz6VD6FrhPamKXQaww9epHCP+DlPhxQATkrj6
-         gmmyyJOHO4Z7rDPwjRsRFKdQH9/evxMCB8m4ewaEbCkghU7y1SGlSP+132T7SH4lGkjt
-         GYIxf9yYEXLFccnFUArMzxlt2q54uqoqJSUYRKME8tC3FcSDMpAJGlCxDS1Evo1Wf9JH
-         khE2DsogoTp8+OcuW7/HQ1x5FfONudfOC3WgqF+3sl31q2fQ2iW9NPZdXm+AeSMXvI4D
-         MDug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789771331; x=1790376131;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=cYreVBH/AVISc3OQPvTRsLxBAk30fKgkR5xyJoFiadU=;
-        b=TcPGQa6jdKJEPISMNdAI84AKC/JBAS0/vEhXbjx4jI4pXkK3oJMG0KH5EnhIna53f5
-         VbGQSnr68Arld24DUZuEa3Onz5PvIRy01lZBJs8YxULQmWHXdbrfY8Yalo3g16J/BF+p
-         4GcE51dTvjXMs1WB6bn2gJQ1gTbRRPAJKzaI/DzAtOJskY1kvbqppJFLxR6rW5XFeDDW
-         Xf7+Ho6kkW5cGdMSXmTnnu/Z8WmdwE9sj2jlHuRir3QJKrZBwz4YWIc+Lm3aVVHolztS
-         JejUP3Ie/WTIwcJgrPjkfL0Sto7A+F2/FgDx+oPVlZV5NN2qXE7KSZJRqza1R+BcjNhn
-         XoMg==
-X-Forwarded-Encrypted: i=1; AKwUvBwJ2APsCNuZvgi4EBwSRtS1MI3zP1lgsvcN4esH3NVaQoZDrcF0ToI1LB4wvQEFkG9vmkCj4lodxJVQ4KsAbVdB@lists.infradead.org
-X-Gm-Message-State: AFuF++nbwlFXeWprrB5Nc661Jr1SydJCYs1+n64nusdnKIMSPCwkUH/l
-	9kwVkI6iD5LFNogGceAj/0I3lCv6WhVOCrCK7HxFZQ9kkrq++GzY5eTUjfUx/fnhsZHTTM1hjX8
-	2O/frqro06iyS4/owcnzjDR60+A==
-X-Received: from pgdi3.prod.google.com ([2002:a05:6a02:51e3:b0:cc5:253c:a532])
- (user=dylanbhatch job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a20:72aa:b0:3dd:a006:7b36 with SMTP id adf61e73a8af0-3dda0067bbfmr1750743637.53.1789771330766;
- Fri, 18 Sep 2026 15:42:10 -0700 (PDT)
-Date: Fri, 18 Sep 2026 22:41:50 +0000
-In-Reply-To: <20260918224157.1471085-1-dylanbhatch@google.com>
-Mime-Version: 1.0
+	Fri, 18 Sep 2026 22:54:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C9F3F43A68;
+	Fri, 18 Sep 2026 22:54:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8797A1F000FF;
+	Fri, 18 Sep 2026 22:54:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789772067;
+	bh=g5kG3DdFAuRrj+kffHzyPbVSqMeTdYOBvtJ0HQxgK7o=;
+	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
+	b=bgew5+Rgb+UWitV4Hpgqvv2f7CVv1I7jzUspzMSxcBarpkU9haLIDoGIkKqwRD75W
+	 ejatLmoDymX2kjeIT8yB6huJB6p4XPh722j8c+kOZ1ZaeLISwRqRPzBL1D1aAX5ed4
+	 MkNg3UM73TAEOd1Uan0r2dlf3eElhwpxbsqRkshxzhmGizGon3AIEK7zgg1D2ut2EV
+	 BBk3TPfBmQW+y2kHWK/5wCEiHRG1Lqw6so204L8k+rmC0ULIwKFgwfR4XJj5zLeCpr
+	 uQtOkbni4NCU77xE+foNyCT9RfyMaYhC1X4zvUJrDnx8a5A2SkVIA0jILbKvo2wqNr
+	 ddYgQ7824ceIQ==
+From: sashiko-bot@kernel.org
+Subject: Re: [PATCH v7 05/11] arm64/module, sframe: Add sframe support for
+ modules
+To: "Jens Remus" <jremus@linux.ibm.com>, "Peter Zijlstra" <peterz@infradead.org>, "Jiri
+ Kosina" <jikos@kernel.org>, "Roman Gushchin" <roman.gushchin@linux.dev>, "Indu
+ Bhagat" <ibhagatgnu@gmail.com>, "Dylan Hatch" <dylanbhatch@google.com>, "Steven
+ Rostedt" <rostedt@goodmis.org>, "Catalin Marinas" <catalin.marinas@arm.com>, "Weinan
+ Liu" <wnliu@google.com>, "Josh Poimboeuf" <jpoimboe@kernel.org>, "Mark
+ Rutland" <mark.rutland@arm.com>, "Will Deacon" <will@kernel.org>
+Cc: "Prasanna Kumar T S M" <ptsm@linux.microsoft.com>, "Puranjay Mohan" <puranjay@kernel.org>, joe.lawrence@redhat.com, linux-arm-kernel@lists.infradead.org, "Randy
+ Dunlap" <rdunlap@infradead.org>, "Mostafa Saleh" <smostafa@google.com>, "Song
+ Liu" <song@kernel.org>, linux-kernel@vger.kernel.org, live-patching@vger.kernel.org, linux-toolchains@vger.kernel.org, "Herbert
+ Xu" <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>
+In-Reply-To: <20260918224157.1471085-6-dylanbhatch@google.com>
 References: <20260918224157.1471085-1-dylanbhatch@google.com>
-X-Mailer: git-send-email 2.55.0.1082.g2b9226bbc0-goog
-Message-ID: <20260918224157.1471085-5-dylanbhatch@google.com>
-Subject: [PATCH v7 04/11] sframe: Separate reading of FRE from reading of FRE
- data words
-From: Dylan Hatch <dylanbhatch@google.com>
-To: Roman Gushchin <roman.gushchin@linux.dev>, Weinan Liu <wnliu@google.com>, 
-	Will Deacon <will@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
-	Indu Bhagat <ibhagatgnu@gmail.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Steven Rostedt <rostedt@goodmis.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Jiri Kosina <jikos@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Jens Remus <jremus@linux.ibm.com>
-Cc: Dylan Hatch <dylanbhatch@google.com>, Prasanna Kumar T S M <ptsm@linux.microsoft.com>, 
-	Puranjay Mohan <puranjay@kernel.org>, Song Liu <song@kernel.org>, joe.lawrence@redhat.com, 
-	linux-toolchains@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	live-patching@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Randy Dunlap <rdunlap@infradead.org>, Mostafa Saleh <smostafa@google.com>, 
-	Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_154212_816701_41A97005 
-X-CRM114-Status: GOOD (  19.04  )
+ <20260918224157.1471085-6-dylanbhatch@google.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Fri, 18 Sep 2026 22:54:26 +0000
+Message-Id: <20260918225426.8797A1F000FF@smtp.kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,208 +73,111 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: sashiko-reviews@lists.linux.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jens Remus <jremus@linux.ibm.com>
+Thank you for your contribution! Sashiko AI review found 2 potential issue(=
+s) to consider:
+- [High] sframe: UAF and lockdep warning due to missing RCU lock around mod=
+ule lookup
+- [Medium] sframe: architecture abstraction violation in generic module code
+--
 
-__find_fre() performs linear search for a matching SFrame FRE for a
-given IP.  For that purpose it uses __read_fre(), which reads the whole
-FRE.  That is the variable-size FRE structure as well as the trailing
-variable-length array of variable-size data words.  For the search logic
-to skip over the FRE it would be sufficient to read the variable-size
-FRE structure only, which includes the count and size of data words.
+commit d8442279cd580755fb98f0f72b910fcd83585a23
+Author: Dylan Hatch <dylanbhatch@google.com>
 
-Add fields to struct sframe_fre_internal to store the FRE data word's
-address, count, and size.  Change __read_fre() to read the variable-
-size FRE structure only and populate those new fields.  Change
-__read_fre_datawords() to use those new fields.  Change __find_fre()
-to use __read_fre_datawords() to read the FRE data words only after a
-matching FRE has been found.
+arm64/module, sframe: Add sframe support for modules
 
-[ Dylan Hatch: Adapt for in-kernel unwinding without flexible FDEs. ]
+This commit adds SFrame support for kernel modules on ARM64 by extending
+the architecture-specific module structure. It parses the .sframe section
+from incoming modules during load time and registers it for stack unwinding.
 
-Reviewed-by: Indu Bhagat <ibhagatgnu@gmail.com>
-Signed-off-by: Jens Remus <jremus@linux.ibm.com>
-Signed-off-by: Steven Rostedt <rostedt@goodmis.org>
-Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
+> diff --git a/arch/arm64/include/asm/module.h b/arch/arm64/include/asm/mod=
+ule.h
+> index fb9b88eebeb15..07f309c51eee6 100644
+> --- a/arch/arm64/include/asm/module.h
+> +++ b/arch/arm64/include/asm/module.h
+[ ... ]
+> @@ -17,6 +18,11 @@ struct mod_arch_specific {
+>  	struct mod_plt_sec	core;
+>  	struct mod_plt_sec	init;
+> =20
+> +#ifdef CONFIG_HAVE_UNWIND_KERNEL_SFRAME
+> +	struct sframe_section sframe_sec;
+> +	bool sframe_init;
+> +#endif
+> +
 
----
+[Severity: Medium]
+Will this break cross-architecture builds if other architectures attempt to
+adopt SFrame?
 
-This patch is adapted from commit 745489faa10c ("unwind_user/sframe:
-Separate reading of FRE from reading of FRE data words") and squashes
-changes from:
+By placing these generically named fields into the ARM64-specific
+mod_arch_specific struct, generic unwinder code in kernel/unwind/sframe.c
+is now tightly coupled to an architecture-private layout.
 
- - fdaf91d4fc0d ("unwind_user/sframe: Add support for SFrame V3
-   flexible FDEs")
- - 79313210e44e ("unwind_user/sframe: Add support for outermost frame
-   indication")
+Should these generic module extensions reside directly in struct module
+(in include/linux/module.h) under the appropriate config guards instead?
 
-all of which are from Steven's sframe/core branch.
+[ ... ]
+> diff --git a/kernel/unwind/sframe.c b/kernel/unwind/sframe.c
+> index 9aac703f7ce6e..503d4a2beb50e 100644
+> --- a/kernel/unwind/sframe.c
+> +++ b/kernel/unwind/sframe.c
+[ ... ]
+> @@ -405,12 +409,43 @@ static __always_inline int __sframe_find(struct sfr=
+ame_section *sec,
+>  	return __find_fre(sec, &fde, ip, frame);
+>  }
+> =20
+> +#ifdef CONFIG_MODULES
+> +
+> +static __always_inline int __sframe_find_module(unsigned long ip,
+> +						struct unwind_frame *frame)
+> +{
+> +	struct module *mod;
+> +
+> +	mod =3D __module_text_address(ip);
 
-Changes include:
- - Drop support for flexible FDEs (SFRAME_FDE_TYPE_FLEX).
- - Sqaush in creation of __read_default_fre_datawords() and
-   __read_fre_datawords().
- - Squash in outermost frame handling logic.
- - Deferred sframe_validate_section() changes to a later patch.
----
- kernel/unwind/sframe.c | 97 +++++++++++++++++++++++++++++++-----------
- 1 file changed, 73 insertions(+), 24 deletions(-)
+[Severity: High]
+Does this code introduce a use-after-free and a lockdep warning?
 
-diff --git a/kernel/unwind/sframe.c b/kernel/unwind/sframe.c
-index f3975c7e89493..9aac703f7ce6e 100644
---- a/kernel/unwind/sframe.c
-+++ b/kernel/unwind/sframe.c
-@@ -36,6 +36,9 @@ struct sframe_fre_internal {
- 	s32		ra_off;
- 	s32		fp_off;
- 	u8		info;
-+	unsigned long	dw_addr;
-+	unsigned char	dw_count;
-+	unsigned char	dw_size;
- };
- 
- static __always_inline unsigned char fre_type_to_size(unsigned char fre_type)
-@@ -179,6 +182,67 @@ static __always_inline int __find_fde(struct sframe_section *sec,
- 		 s32 :	GET_SIGNED_AND_INC(to, from, size),	\
- 		 s64 :	GET_SIGNED_AND_INC(to, from, size))
- 
-+static __always_inline int
-+__read_default_fre_datawords(struct sframe_section *sec,
-+			     struct sframe_fde_internal *fde,
-+			     struct sframe_fre_internal *fre)
-+{
-+	unsigned char dataword_count = fre->dw_count;
-+	unsigned char dataword_size = fre->dw_size;
-+	unsigned long cur = fre->dw_addr;
-+	s32 cfa_off, ra_off, fp_off;
-+
-+	GET_AND_INC(cfa_off, cur, dataword_size);
-+	dataword_count--;
-+
-+	ra_off = sec->ra_off;
-+	if (!ra_off && dataword_count) {
-+		dataword_count--;
-+		GET_AND_INC(ra_off, cur, dataword_size);
-+	}
-+
-+	fp_off = sec->fp_off;
-+	if (!fp_off && dataword_count) {
-+		dataword_count--;
-+		GET_AND_INC(fp_off, cur, dataword_size);
-+	}
-+
-+	if (dataword_count)
-+		return -EFAULT;
-+
-+	fre->cfa_off	= cfa_off;
-+	fre->ra_off	= ra_off;
-+	fre->fp_off	= fp_off;
-+
-+	return 0;
-+}
-+
-+static __always_inline int
-+__read_fre_datawords(struct sframe_section *sec,
-+		     struct sframe_fde_internal *fde,
-+		     struct sframe_fre_internal *fre)
-+{
-+	unsigned char fde_type = SFRAME_V3_FDE_TYPE(fde->info2);
-+	unsigned char dataword_count = fre->dw_count;
-+
-+	if (!dataword_count) {
-+		/* A FRE without data words indicates an outermost frame. */
-+		fre->cfa_off	= 0;
-+		fre->ra_off	= 0;
-+		fre->fp_off	= 0;
-+
-+		return 0;
-+	}
-+
-+	switch (fde_type) {
-+	case SFRAME_FDE_TYPE_DEFAULT:
-+		return __read_default_fre_datawords(sec, fde, fre);
-+	/* Flexible FDEs not supported */
-+	default:
-+		return -EFAULT;
-+	}
-+}
-+
- static __always_inline int __read_fre(struct sframe_section *sec,
- 				      struct sframe_fde_internal *fde,
- 				      unsigned long fre_addr,
-@@ -188,7 +252,6 @@ static __always_inline int __read_fre(struct sframe_section *sec,
- 	unsigned char fde_pctype = SFRAME_V3_FDE_PCTYPE(fde->info);
- 	unsigned char fre_type = SFRAME_V3_FDE_FRE_TYPE(fde->info);
- 	unsigned char dataword_count, dataword_size;
--	s32 cfa_off, ra_off, fp_off;
- 	unsigned long cur = fre_addr;
- 	unsigned char addr_size;
- 	u32 ip_off;
-@@ -208,7 +271,7 @@ static __always_inline int __read_fre(struct sframe_section *sec,
- 	GET_AND_INC(info, cur, 1);
- 	dataword_count = SFRAME_V3_FRE_DATAWORD_COUNT(info);
- 	dataword_size  = dataword_size_enum_to_size(SFRAME_V3_FRE_DATAWORD_SIZE(info));
--	if (!dataword_size || !dataword_count)
-+	if (!dataword_size)
- 		return -EFAULT;
- 
- 	if (cur + (dataword_count * dataword_size) > sec->fres_end)
-@@ -219,30 +282,11 @@ static __always_inline int __read_fre(struct sframe_section *sec,
- 		return -EFAULT;
- 
- 	fre->size	= addr_size + 1 + (dataword_count * dataword_size);
--
--	GET_AND_INC(cfa_off, cur, dataword_size);
--	dataword_count--;
--
--	ra_off = sec->ra_off;
--	if (!ra_off && dataword_count) {
--		dataword_count--;
--		GET_AND_INC(ra_off, cur, dataword_size);
--	}
--
--	fp_off = sec->fp_off;
--	if (!fp_off && dataword_count) {
--		dataword_count--;
--		GET_AND_INC(fp_off, cur, dataword_size);
--	}
--
--	if (dataword_count)
--		return -EFAULT;
--
- 	fre->ip_off	= ip_off;
--	fre->cfa_off	= cfa_off;
--	fre->ra_off	= ra_off;
--	fre->fp_off	= fp_off;
- 	fre->info	= info;
-+	fre->dw_addr	= cur;
-+	fre->dw_count	= dataword_count;
-+	fre->dw_size	= dataword_size;
- 
- 	return 0;
- }
-@@ -292,6 +336,7 @@ static __always_inline int __find_fre(struct sframe_section *sec,
- 	bool which = false;
- 	unsigned int i;
- 	u32 ip_off;
-+	int ret;
- 
- 	ip_off = ip - fde->func_addr;
- 
-@@ -332,6 +377,10 @@ static __always_inline int __find_fre(struct sframe_section *sec,
- 		return -EINVAL;
- 	fre = prev_fre;
- 
-+	ret = __read_fre_datawords(sec, fde, fre);
-+	if (ret)
-+		return ret;
-+
- 	if (sframe_init_cfa_rule_data(&frame->cfa, fre->info, fre->cfa_off))
- 		return -EINVAL;
- 
--- 
-2.55.0.1082.g2b9226bbc0-goog
+Stack unwinding can be initiated from preemptible contexts, but
+__module_text_address() requires preemption to be disabled or the RCU read
+lock to be held. If a module is concurrently unloaded via sys_delete_module=
+()
+immediately after __module_text_address() returns, the returned pointer
+becomes dangling.
 
+The subsequent call to __sframe_find() would then dereference pointers with=
+in
+the freed memory. Should this lookup and data access be wrapped in
+guard(rcu)(); or an rcu_read_lock() / rcu_read_unlock() block?
+
+> +	if (!mod || !READ_ONCE(mod->arch.sframe_init))
+> +		return -EINVAL;
+> +
+> +	return  __sframe_find(&mod->arch.sframe_sec, ip, frame);
+
+[Severity: Medium]
+Does this generic lookup code directly reach into the arch-specific
+abstraction? This creates a tight coupling between the generic module unwin=
+der
+and the ARM64-specific layout.
+
+[ ... ]
+> +void sframe_module_init(struct module *mod, void *sframe, size_t sframe_=
+size)
+> +{
+> +	struct sframe_section *sec =3D &mod->arch.sframe_sec;
+
+[Severity: Medium]
+Is it safe for this generic initialization code to assume the presence of
+the sframe_sec field in the architecture-private mod_arch_specific structur=
+e?
+
+--=20
+Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20260918224157.1471=
+085-1-dylanbhatch@google.com?part=3D5
 
