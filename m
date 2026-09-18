@@ -4,83 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED961C982D2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 07:40:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 598DFC982D2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 07:46:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aMOZG7gif+EF/8M3ypTK1YC5Ub5fNhpmWB1EicVP+4Y=; b=JSszqw+plynG6LsHnpJkO7ujG/
-	oL12zAiVIxuR18WFkolkr+VLO0cXUG7/hNOcCxpLwocpb9bPzVf0L7BjScBYEspWBoFybLQSVlqa/
-	A3MoQR68IJCS8ocFd+gSKjCCtqiyY+nzHLYTBDceMgJxWEndsQuSOwkpXgCJLXqyQ+i1VYixWBxYj
-	pK7+REh3lxsog+u0u1wCJ0Yo8pDEKiWkndvxyQZ11EDIdrOmMK6nxWsyXNhlEUrUNeVKECWcz1vEB
-	y4Setfx6B9vaGewrwQBTTfbM6z5gdKuGDHRHZbZSty/62fXD/yjpe8e5jdbr7PaTKY2bqmql2ScJr
-	t4+zw5OQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SInoAck4kPSdZMq0ZJdvww+HIYJKSPW+Gpf9er2XW6E=; b=Khihk2D54+JNGoxK7VLxb1WTyi
+	kY1+gFcbnT8QtRPHOLSgFkoaJcqf/3wRwo/erGI1L1tztnOA3y2VT3wILYuz6/N2+3eOxgr6QRUll
+	+riBwZ7fc1S8KgljZm23z9nEEXRKhHu64zK/grbdB6gclqf1dg0mnDYBkL8UkoBmjWfLBW7CcaLnt
+	2mMb2l8FzW3vUbQGi8gdT8kfMprXwaiW+/+2mxfQemqNpDML6eS+Wmz62pjFMeFK5qvpTDuKnmORv
+	pFN4FZj8opgvSguhx5V0GoojQUmkOlM805YpJoc7CIrkDZyf0il1RcXlUOvxocmTPDXe/ALSCV0Ug
+	ikuYdVTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7TCP-0000000DimX-139b;
-	Fri, 18 Sep 2026 07:39:57 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1x7TIO-0000000DjDG-4Bru;
+	Fri, 18 Sep 2026 07:46:09 +0000
+Received: from mail-pz2-x0f.google.com ([2607:f8b0:4864:3b::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7TCM-0000000Dilm-0xmi
+	id 1x7TIM-0000000DjCp-2S3x
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 07:39:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789717194; x=1821253194;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=9HjgM9JbkGt1A3yefJhN4x6xA3Vg7LoR3hGeySb0Qow=;
-  b=dNfn1UBufMKQlEjpF0j1t6LpXedNrYAqk/JJPjSpd2E2gqpPcP/atI2t
-   7fUiS+zTk9R6o4oVcroOgAoW0o2cPBvJuL5mEllIoUGnMWgwm+L6zI8jZ
-   9PgEhozcX1oGurxrv8J2VWIJgtDxYyF9pZ7Ph3LwsBxOqTJq9Q1Q3nm9X
-   3zW4mYAAB1Hcc7LzZsu5wlG8DqLGvhSM/bWAdfeqMOnyCKuLZ3X6VXFcQ
-   1bqW1HidS45YmKsgAwpEkNVNACfhNlk2l6akt3PEqPbe7wXRDblzlTeJH
-   GrKR6scgYe74zMJ5Rs7Kl5YWAsjnqawxRkxN57eWZAoMXgF14OylLLwpc
-   w==;
-X-CSE-ConnectionGUID: gWrJ/8KFRKeUhhnthFhGiw==
-X-CSE-MsgGUID: J6es9zoNQ+C2jvV/x1uIow==
-X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="89340116"
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="89340116"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Sep 2026 00:39:52 -0700
-X-CSE-ConnectionGUID: EQSigIixQTGHBye9zTlPZA==
-X-CSE-MsgGUID: SCwZTKvvQfmatyBz20cYNw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="297731196"
-Received: from carterle-desk.ger.corp.intel.com (HELO localhost) ([10.245.245.170])
-  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Sep 2026 00:39:47 -0700
-Date: Fri, 18 Sep 2026 10:39:41 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Guangshuo Li <lgs201920130244@gmail.com>
-Cc: Ulf Hansson <ulfh@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Wentao Liang <vulab@iscas.ac.cn>, Miaoqian Lin <linmq006@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Dong Aisheng <aisheng.dong@nxp.com>, linux-pm@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] pmdomain: imx: gpc: remove all initialized power domains
-Message-ID: <aqzqvfbeh653jUce@ashevche-desk.local>
-References: <20260918031323.3376849-1-lgs201920130244@gmail.com>
+	Fri, 18 Sep 2026 07:46:07 +0000
+Received: by mail-pz2-x0f.google.com with SMTP id 41be03b00d2f7-cc1cea4bfb6so166677a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 00:46:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789717565; x=1790322365; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=SInoAck4kPSdZMq0ZJdvww+HIYJKSPW+Gpf9er2XW6E=;
+        b=WmK1BTBwvaS7JYzNkYCDPm7PqLeLEw2q1/6x3c7zbVZixYT/P1q5uLj6DD5PLHYTET
+         RSHSrkxzC0Cwu67MV5+MUL5qdwZDeEKWa66aUo5LWLKw6eZclHCUU43p75ErvLwqYbJ/
+         j6WWtuxvzPaPPkDBKXKuXQdSpXvvUFejVWdGXxjcyjnUwNTp39YxmaTtcFC8JvFqoNme
+         emSAI2TvuItkxp7HatYIuACTiMd0FO0hliWf4LD6xDd1AsaR/iMquvV6rkRxc8CuTwGC
+         8Yi3wcLNE85NRQCJCgNl69t7BQKRtYHl0/4SEgrdRAf+JLKJ79u64e86V9EmQ2DNbP9V
+         xpCg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789717565; x=1790322365;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=SInoAck4kPSdZMq0ZJdvww+HIYJKSPW+Gpf9er2XW6E=;
+        b=xeVEBggCgLsyKfNKxP6hWsE1z0okHV27JAhzdA3Gp0DsFiQu6a8vF8Apbsuf0qxTEQ
+         aLYCyNknBZ/OJ3bUWQrUJW7/ZdlzjOSDN4F43zoKXqMz8yLsMTIKtdUB4ubiPHK9bfph
+         fEX0RgPJDuLQvKXQZmsq6a6UlIYBujVL+WaCP82wSoeVI1TERt93zbk6rB4chfyjh6zd
+         wd8wol99DVV4A/orwqjxwy6dmZHmuQW9Ui5foxu8l3G64eynb777c72L3c57IqHTUBSV
+         OSgBYU5/PKkTeedDh74iZ98xaoaMC+v0pjQDT20pLLlUI9U3rpiQ6buvbmga6DWOfhgG
+         KfvQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzaIWp+VrStIxNJVHSaDH1HL+hDdBw+OiObya9bGp3Q8BP4ZDXiAmk0qM7wC3Q8VotFeRi+uyHcRUn5wPmn8wsd@lists.infradead.org
+X-Gm-Message-State: AFuF++niC1YFylBvmQruOYzL8a8SK8JU9odXpDHGY+dt1kiTZExxN3Ha
+	G4E7kjsRZXeQkyP0N85XERSoVrHUwRUxipk/gsIZ0PcLqFGP22ivgEw9
+X-Gm-Gg: AYBFou2RrxYijIP1bvxJGF0Htcw9i0IsCJ8JrqCp66hMe4oyIFdtAYrf1ZusfCqiNgD
+	60n4MbommVq4OAkrYzxr5LZa7CXOf/p6/T9YK4eew2kyjenPlDepqdaVIZXB6iNjEzeiEv9yHQK
+	3fsaSMO8+5JmVg4VpAre7Ir79WlzL5y9PyseX5gpvwTzHEtO6mD54MhQR02DWVpzARX/EKFwyHf
+	VGqARMDhv2SxpPlE2tNiuG0OzBAZwGiHkNgqJ5zqcDuYCnciJ7XRLO39hUbSeSCTEitNkpkpGjd
+	clSVQRWTiUHUmPO4JTgJmLqylZMOJGtGAB9jtR7svCbNQdmSyCkJ7VWckIeQRMnovrFC61wemAA
+	k9RLCuZ3wOvoP2NNjdEOo58Vaqf278Ja1ocUTnGQOhU3uAB/VDogwK7rJC+G1iBdh4+uRooPWqk
+	U3+3ibEdjwAXA3uFqwBO/oYHdEEG2J2XUkSDComlAhRN+u9i8ZHnErT0JAnxplAe+CG0qYbIQFv
+	gq8KebqR7eE8wwQo75e2wzd42jxbmvqpS681k4=
+X-Received: by 2002:a05:6a20:6f9c:b0:3dd:85a8:cad2 with SMTP id adf61e73a8af0-3dd8c4b06b1mr3259004637.41.1789717564818;
+        Fri, 18 Sep 2026 00:46:04 -0700 (PDT)
+Received: from amd.ban-spse ([165.204.217.251])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33c2872052fsm2491833eec.11.2026.09.18.00.46.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 18 Sep 2026 00:46:04 -0700 (PDT)
+From: Malathi A <malathi.a2000@gmail.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	linux-serial@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Malathi A <malathi.a2000@gmail.com>
+Subject: [PATCH] serial: 8250_uniphier: Use dev_err_probe() in probe error paths
+Date: Fri, 18 Sep 2026 07:45:46 +0000
+Message-ID: <20260918074546.245342-1-malathi.a2000@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260918031323.3376849-1-lgs201920130244@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_003954_279989_1CFFEDF7 
-X-CRM114-Status: GOOD (  17.20  )
+X-CRM114-CacheID: sfid-20260918_004606_652170_66EB534F 
+X-CRM114-Status: GOOD (  16.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,67 +102,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 18, 2026 at 11:13:22AM +0800, Guangshuo Li wrote:
-> imx_gpc_old_dt_init() initializes all power domains described by
-> of_id_data->num_domains. Its probe failure path removes all of these
-> domains, but imx_gpc_remove() only removes the PU and ARM domains.
-> 
-> On SoCs with more than two domains, such as i.MX6SL and i.MX6SX, the
-> additional DISPLAY and PCI generic power domains can remain registered
-> after the GPC driver is removed.
-> 
-> Remove all initialized power domains in reverse order. Keep releasing
-> the PU clocks immediately after the PU domain has been successfully
-> removed.
-> 
-> This issue was found by manual code inspection.
+devm_clk_get_enabled() returns -EPROBE_DEFER while the clock provider is
+not registered yet, and uniphier_uart_probe() reports that with
+dev_err(). Every retry of an intermittently deferred probe therefore
+prints "failed to get and enable clock" at error level, which is only
+dmesg noise.
 
-...
+Use dev_err_probe() instead: it demotes -EPROBE_DEFER to dev_dbg() and
+records the reason for /sys/kernel/debug/devices_deferred. Convert the
+other two error messages in probe as well, so the whole function follows
+the "return dev_err_probe()" pattern already used by other 8250 drivers
+such as 8250_em.c. Those two codes are never -EPROBE_DEFER, so there the
+conversion is a readability change only.
 
->  static void imx_gpc_remove(struct platform_device *pdev)
->  {
-> +	const struct imx_gpc_dt_data *of_id_data =
-> +		device_get_match_data(&pdev->dev);
+Errors other than a deferral are still logged at error level, now with
+the error code added by the helper. No functional change otherwise.
 
-No...
+Suggested-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Signed-off-by: Malathi A <malathi.a2000@gmail.com>
+---
+This is the follow-up cleanup suggested during review of
 
->  	struct device_node *pgc_node;
-> -	int ret;
-> +	int i, ret;
+  [PATCH v2] serial: 8250_uniphier: Use devm_clk_get_enabled()
 
-...and no.
+and it applies on top of that patch: the clock hunk relies on its
+context. That fix is not in tty-next as of today, so this one should be
+applied after it.
 
-The result of the device_get_match_data() better to be checked, in some cases
-it might lead to NULL dereference.
+ drivers/tty/serial/8250/8250_uniphier.c | 20 ++++++++------------
+ 1 file changed, 8 insertions(+), 12 deletions(-)
 
-It's better to split semantically different variables, also naming 'i' is not
-good, num_domains is better. Besides that, why is it signed?
-
-...
-
-> +		for (i = of_id_data->num_domains - 1; i >= 0; i--) {
-
-What you are doing here can be written in a shorter form
-
-		num_domains = of_id_data->num_domains;
-		while (num_domains--) {
-
-> +			ret = pm_genpd_remove(&imx_gpc_domains[i].base);
-> +			if (ret) {
-> +				dev_err(&pdev->dev,
-> +					"Failed to remove %s power domain (%pe)\n",
-> +					imx_gpc_domains[i].base.name,
-> +					ERR_PTR(ret));
-> +				return;
-> +			}
->  
-> +			if (i == GPC_PGC_DOMAIN_PU)
-> +				imx_pgc_put_clocks(&imx_gpc_domains[i]);
->  		}
-
+diff --git a/drivers/tty/serial/8250/8250_uniphier.c b/drivers/tty/serial/8250/8250_uniphier.c
+index 6fffac12277a..7d558b750f83 100644
+--- a/drivers/tty/serial/8250/8250_uniphier.c
++++ b/drivers/tty/serial/8250/8250_uniphier.c
+@@ -165,10 +165,8 @@ static int uniphier_uart_probe(struct platform_device *pdev)
+ 	int ret;
+ 
+ 	regs = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+-	if (!regs) {
+-		dev_err(dev, "failed to get memory resource\n");
+-		return -EINVAL;
+-	}
++	if (!regs)
++		return dev_err_probe(dev, -EINVAL, "failed to get memory resource\n");
+ 
+ 	membase = devm_ioremap(dev, regs->start, resource_size(regs));
+ 	if (!membase)
+@@ -181,10 +179,9 @@ static int uniphier_uart_probe(struct platform_device *pdev)
+ 	memset(&up, 0, sizeof(up));
+ 
+ 	priv->clk = devm_clk_get_enabled(dev, NULL);
+-	if (IS_ERR(priv->clk)) {
+-		dev_err(dev, "failed to get and enable clock\n");
+-		return PTR_ERR(priv->clk);
+-	}
++	if (IS_ERR(priv->clk))
++		return dev_err_probe(dev, PTR_ERR(priv->clk),
++				     "failed to get and enable clock\n");
+ 
+ 	up.port.uartclk = clk_get_rate(priv->clk);
+ 
+@@ -216,10 +213,9 @@ static int uniphier_uart_probe(struct platform_device *pdev)
+ 	up.dl_write = uniphier_serial_dl_write;
+ 
+ 	ret = serial8250_register_8250_port(&up);
+-	if (ret < 0) {
+-		dev_err(dev, "failed to register 8250 port\n");
+-		return ret;
+-	}
++	if (ret < 0)
++		return dev_err_probe(dev, ret, "failed to register 8250 port\n");
++
+ 	priv->line = ret;
+ 
+ 	platform_set_drvdata(pdev, priv);
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.43.0
 
 
