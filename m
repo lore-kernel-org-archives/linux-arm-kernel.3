@@ -4,112 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C24AC982D7
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 08:31:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3DBBC982CC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 09:16:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WJXr3mXMac0JiWtkpJtm5+HHxvx39jh0W9RxZ5cTS5I=; b=sClUum0vNvRxwbABx1ek/rtsPg
-	5eB8y/RakyroBf309S8oLqN6OIdKjFa7jnVTEDO9OjrNmNyaA8RBlFlfnwk4WV+gD3oF8AGs7QnGx
-	u0adI+ecJ0GLOMwwD9l1chfd+4HG6Oszs5Dw2cav9PeN3HbbT4FCzBH3swABccFCOYyJ0tHy/tcC6
-	ZsmK620ModHjTPU15Y+RF983ArjJQyqX6HWnsvh9ph4hHBhis2rMiDuoRLNFoMUx/k60NGXLDIFNU
-	OLpFD/JylFxPtOdeLuLrfmu35CbpoTs1H3zk8zPuD7JHRH8U8W0qXf2c3XHe8BVwK3ii3J8yBnulw
-	NivPbFPQ==;
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Awg67cxHl18a2D/zvjxAJGydZiXsMD2cX9Cd0uol1eY=; b=HKvG7/YrEjx1WMNtjGIz04Z6fO
+	qH9GtVarJWIDgQdrRJKSrOAZHgwPoQjbqg8iYFJJSd9jFDfdgF9bfAJwY6aiH9g3HB0vp4KCZsQwE
+	CL7XPLtDDj63WzI0XC6GGBKrJiHLWf95nVUf0mUDlQgbGT2wWXqVuZ3XDrD1YXsCVT9mIKOMdl93Q
+	LSkUUaoJ7RFRHuk1W7tWBaulB8Cbh8BOJHyR5sGBT00J5L3pM+mCykJiSR0phzIe7NqJkLlU3T1Fc
+	vtw9ziwkunKF0GiFcvOigrPX93EjqFPiS0h/I7xV7Wu+eIeS1jlzvtb4XFVCgP9qE1kQ+ySCiAVCg
+	OcUz0x3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7qTU-0000000G6BS-39ji;
-	Sat, 19 Sep 2026 08:31:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x7rBc-0000000G7XW-2pY4;
+	Sat, 19 Sep 2026 09:16:44 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7qTS-0000000G6BC-2q6d
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Sep 2026 08:31:06 +0000
+	id 1x7rBb-0000000G7XN-2d7s;
+	Sat, 19 Sep 2026 09:16:43 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6BD926020C;
-	Sat, 19 Sep 2026 08:31:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BDAC1F000FF;
-	Sat, 19 Sep 2026 08:30:59 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 302396020C;
+	Sat, 19 Sep 2026 09:16:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D11DF1F00898;
+	Sat, 19 Sep 2026 09:16:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789806665;
-	bh=WJXr3mXMac0JiWtkpJtm5+HHxvx39jh0W9RxZ5cTS5I=;
-	h=Date:Subject:To:References:From:In-Reply-To;
-	b=AnoKd96WTeitUYdUpwftrsXRCLhoDG7v2blshgwQjepAAFb9gLjouIhcQ3qNexnt1
-	 tX1aBt4kYpu5cmWOX8dAG0LlD/S0stW7ySbQbhNH/s/buaNl7GycJx9quOaHYVwM0/
-	 sKhD8mdycLJyJGVP+WYESwxVdVNoHvmTg6NtOBI4u+FROuShMiGTmHhXKIlarFGPnr
-	 +TSbqTOnOdQ5XJBsYZ7PyUKgrQgZ43DFhHWi6jlfhYl4p+hTlOZYsC+pFcJuYg84r+
-	 GAFqWo5bcWFIGKKoLwWy3AVcI0BxLs939p+VAHgB341l59QnOYq7twrfEiaJXkkwPV
-	 +i1cyvbr4DowA==
-Message-ID: <2585bfec-a8f1-4bb6-b729-fac62af40926@kernel.org>
-Date: Sat, 19 Sep 2026 10:30:56 +0200
+	s=k20260515; t=1789809401;
+	bh=Awg67cxHl18a2D/zvjxAJGydZiXsMD2cX9Cd0uol1eY=;
+	h=From:To:In-Reply-To:References:Subject:Date;
+	b=D6bTLqfUcwgwHXNN2m8iiQmju3ywMCqfUeA8Pxi83jxqjKXay6zBuctYKlYwrKJhA
+	 Ooni5TFUpqMA9Sb5sSEvvwXHNLyzfJ+cZ5X72yu3cv7wwZESuuqCEFd+t4ibZ10NEO
+	 Bu+UJRtBBMGOFdgZKofYdY0rDHQZ/sO1WLtuE/S27fEqXuJ92zZQDexgbIbStF27kY
+	 cmolrPno6YL/0ofzxDFVaANbY87g1ti0ihrIJobilNiO8imtHCDFEBC3eR/CfOFC3h
+	 qJTCN8JcY1idmW2VjWjUN3TsfcRgkjOuRPPq3d7Ras1fjmcBqjpBEL1g0swX+iL2Eo
+	 xYouV74JzK4KA==
+From: Mark Brown <broonie@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Cyril Chao <Cyril.Chao@mediatek.com>, Darren Ye <darren.ye@mediatek.com>, 
+ Rosen Penev <rosenp@gmail.com>, Daniel Golle <daniel@makrotopia.org>, 
+ bui duc phuc <phucduc.bui@gmail.com>, linux-sound@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Christian Marangi <ansuelsmth@gmail.com>
+In-Reply-To: <20260908090448.3332-1-ansuelsmth@gmail.com>
+References: <20260908090448.3332-1-ansuelsmth@gmail.com>
+Subject: Re: [PATCH v6 0/5] ASoC: Add support for Airoha AN7581
+Message-Id: <178976668737.1863384.7459518219395606759.b4-ty@b4>
+Date: Fri, 18 Sep 2026 23:24:47 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5] dt-bindings: iio: adc: Add dt binding to xlnx,xadc
-To: Omer PALA <palaomer100@gmail.com>, Jonathan Cameron <jic23@kernel.org>,
- David Lechner <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>,
- "open list:IIO SUBSYSTEM AND DRIVERS" <linux-iio@vger.kernel.org>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>,
- "moderated list:ARM/ZYNQ ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>
-References: <20260918194434.9240-1-palaomer100@gmail.com>
- <20260918203257.6034-1-palaomer100@gmail.com>
- <b787a787-5011-4f14-9332-4cca098b374d@kernel.org>
- <DLJ50GBWD392.55LXSSAFNR9X@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <DLJ50GBWD392.55LXSSAFNR9X@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,25 +77,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/09/2026 10:07, Omer PALA wrote:
-> Hi Krzysztof,
+On Tue, 08 Sep 2026 11:04:42 +0200, Christian Marangi wrote:
+> ASoC: Add support for Airoha AN7581
 > 
-> I assure you this binding patch was written manually by me.
+> Add all the patch and documentation to support Airoha AN7581
+> sound driver.
 > 
-> That was my third DT Schema i have ever written.
+> The card follows similar implementation with Mediatek with
+> the codec present on i2c but with a simplified implementation
+> register wise and additional frequency supported.
 > 
-> I used ai to understand the structure of dt schemas and i wrote this
-> myself.
+> [...]
 
-I do not believe that. I quoted the exact part which is impossible to code.
+Applied to
 
-> 
-> My intention was to add the Devicetree binding for xlnx,xadc devices.
-> I apologize if the YAML schema structure or formatting violates current
-> dtschema conventions.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.4
 
-The AI slop violates.
+Thanks!
 
-Best regards,
-Krzysztof
+[1/5] ASoC: dt-bindings: Add Airoha AN7581 AFE Sound card
+      https://git.kernel.org/broonie/sound/c/78da571393da
+[2/5] ASoC: dt-bindings: Add Airoha AN7581 AFE with WM8960 Codec schema
+      https://git.kernel.org/broonie/sound/c/8fcf0497e6da
+[3/5] ASoC: mediatek: common: permit to provide dedicated regmap for irq
+      https://git.kernel.org/broonie/sound/c/b49799e40313
+[4/5] ASoC: airoha: Add AFE driver for Airoha AN7581
+      https://git.kernel.org/broonie/sound/c/4974ffa0d6c2
+[5/5] ASoC: airoha: Add machine driver for Airoha AN7581
+      https://git.kernel.org/broonie/sound/c/272d6e51bc1f
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
