@@ -4,71 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDFC5C982DF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 14:12:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2381AC982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 14:15:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CSE0JYRQj4NzmdA+7zDUjSEatmRf5Q356HFaN2jwssg=; b=rx/56HQNhqALeu
-	ywPLZbdAw3tdXMLDEfgkNR9qXOTvRKIMiSdBooGkaBkTs13MMTle44SWb2Tg/d4GVnHKUaPZW+iLs
-	1gltjY9/Zp83zVVCC1Hu5NsjFp/dBlTD0urZy8U/M1Sjsu6cEjZ6dgXqt/85IjOUkv79gJyPWOrHX
-	U4rOV5w0wiCvGRPnPVtBKe1ys5TFfxLz5nnzRnHeuL0eM7OMBKW/VLwRdDrpWBVzWYCrOwLha4DAE
-	QcCCZVruHReg36NFwLo6nuhpC85Nk/V0DdcK2EVPF5h5d4gWRmeeuZIbVUyJD5l5NEeE6VdNgP9xi
-	9dBWSOQDsWgTLSXuGfRA==;
+	List-Owner; bh=QzjGL8i2xD9owxa0oyNC87+Z1gVtPpJBZx4LO123qZA=; b=KbQp197/QHvLyZ
+	H6F8A45D60qAzoqAtmnYNJjsYGguvu4sDr0vViCYt9SHQj7MHT57mJZnaNh0kert2b2twqwUFtdP6
+	tG4K7E1t8BvZY9L1OlI977zTcGe2aK8Vi5oholUllcME1YA74JZx07ZFLEIcyMwAeSs2gXVxF/ORH
+	G4SgOTCDtpX9jTYtsxAZHE7yh14cM3Sw0mYlDt5O9QXuayztba2up1ej0/y6cgv1qdc/TsBoL6irv
+	MDmd0rZUscrsoI8dxxKvh3wh33Ez2+gPmvCuw5CPS0zuyEHX1TMgBBPxi4Pj80Z29puQwlsBl+Sgj
+	HtbcHb5ICT7LBVvc/9Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7ZJm-0000000EfxK-34Kx;
-	Fri, 18 Sep 2026 14:11:58 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7ZJg-0000000Eftj-2TE2
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 18 Sep 2026 14:11:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=CSE0JYRQj4NzmdA+7zDUjSEatmRf5Q356HFaN2jwssg=; b=gsv9RbYsiO+PzriUQ99YNx/TM/
-	a+pHUOYWFOBY8iF7uGRBEiDQM/mP0pG54Alv4/yzIQsHp9rL1Lg8+wotX7HLiym/GRn+sH4HxTBu6
-	AD9i8dxNj5iHbmb88MLkui8ZSXRWecUDqSbFMmWD8vLLpNGrjbPbmT7AoQoTE2x1Y3yMUsvqOAo2Q
-	exFWS2HCBBtdzxZlhdU4jePMcA6mB6aYXzwR6ml+S/7WIrQ/PyQnf5xwlocjokNDlkJpDnukO1AmG
-	u5QrMLeGU3IVivZO9n7ZWMqLdry2O/rOB/hN3nK1qNOehsrBvIOdjKUkoAxHI4R3W58aRkS9jKcj1
-	7O4KWwmA==;
+	id 1x7ZNF-0000000EggJ-22MV;
+	Fri, 18 Sep 2026 14:15:33 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x7ZJd-0000000ABfM-2mnb
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x7ZNB-0000000Egfp-04BJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 14:11:51 +0000
+	Fri, 18 Sep 2026 14:15:32 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CF94F1D14;
-	Fri, 18 Sep 2026 07:11:44 -0700 (PDT)
-Received: from e142021.Arm.com (e142021.arm.com [10.41.4.144])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B6D673F86C;
-	Fri, 18 Sep 2026 07:11:45 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AEFA3168F;
+	Fri, 18 Sep 2026 07:15:24 -0700 (PDT)
+Received: from [10.41.4.144] (e142021.arm.com [10.41.4.144])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 78BC83F86C;
+	Fri, 18 Sep 2026 07:15:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789740708; bh=h3MfiV0woiOCQI6Gw/byJn2fJjYmiAn1DfvOYZgNqro=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=U9bvvXF6jmRsyhz8nEU6QFc31N3ZiSYUbdjdttMs+pbLAuDkT1znSBQoHYBjbLq9Z
-	 gzMvjG1K522CWrnMwQAU+Z0ud/pY3cbRJzBvBKDBBoj1ThSuQ7XOj5IwCHddc/+Bi2
-	 M8nRY8fwe7qnwLpEXSaZu0WX01m4LsW1fzaZg3yQ=
-From: Andre Przywara <andre.przywara@arm.com>
-To: Mark Rutland <mark.rutland@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>
-Subject: [PATCH v4 8/8] firmware: smccc: lfa: add sysfs ABI documentation
-Date: Fri, 18 Sep 2026 16:11:11 +0200
-Message-ID: <20260918141112.2115555-9-andre.przywara@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260918141112.2115555-1-andre.przywara@arm.com>
-References: <20260918141112.2115555-1-andre.przywara@arm.com>
+	t=1789740928; bh=Sh6KgtQA7JqW8xAzFBw7sj89Paj3qp613tU3kW0Wuf4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=BDDBtKw7cvqWJ1ClbeP3Z6jjwxU2R/V7fN8OGQMyWaJrpUeZLwaWnuGf3O0SNB+E2
+	 TdTtcXhfYggvNWbgXzsLDY9Lc63+r3imQVLjZujAnTByCC8FsXbZMWkeinabcm4Nns
+	 6+TlN7QdkiSQl3LGOfKy5eQ26q4B224XaKle+6EI=
+Message-ID: <59d1947d-d3cd-4621-9377-b206afd18bd6@arm.com>
+Date: Fri, 18 Sep 2026 16:15:24 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 5/8] firmware: smccc: lfa: Add auto_activate sysfs file
+To: Nirmoy Das <nirmoyd@nvidia.com>
+References: <20260706134455.132091-1-andre.przywara@arm.com>
+ <20260706134455.132091-6-andre.przywara@arm.com>
+ <20260710140856.3323523-1-nirmoyd@nvidia.com>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <20260710140856.3323523-1-nirmoyd@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_151150_061300_4D179D1F 
-X-CRM114-Status: GOOD (  22.33  )
+X-CRM114-CacheID: sfid-20260918_071529_132479_4524CCE1 
+X-CRM114-Status: GOOD (  39.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,131 +67,208 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Conor Dooley <conor+dt@kernel.org>, vsethi@nvidia.com, Salman Nabi <salman.nabi@arm.com>, Rob Herring <robh@kernel.org>, linux-kernel@vger.kernel.org, Varun Wadekar <vwadekar@nvidia.com>, Trilok Soni <trilokkumar.soni@oss.qualcomm.com>, devicetree@vger.kernel.org, Nirmoy Das <nirmoyd@nvidia.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
+Cc: Mark Rutland <mark.rutland@arm.com>, Trilok Soni <trilokkumar.soni@oss.qualcomm.com>, Salman Nabi <salman.nabi@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, linux-kernel@vger.kernel.org, Varun Wadekar <vwadekar@nvidia.com>, Sudeep Holla <sudeep.holla@kernel.org>, vsethi@nvidia.com, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document the sysfs attribute files as exported by the LFA driver.
+Hi Nirmoy,
 
-Signed-off-by: Andre Przywara <andre.przywara@arm.com>
----
- Documentation/ABI/testing/sysfs-firmware-lfa | 106 +++++++++++++++++++
- 1 file changed, 106 insertions(+)
- create mode 100644 Documentation/ABI/testing/sysfs-firmware-lfa
+On 7/10/26 16:07, Nirmoy Das wrote:
+> On Mon, 6 Jul 2026 15:44:45 +0200, Andre Przywara wrote:
+> 
+> Hi Andre,
+> 
+>> The Arm LFA spec places control over the actual activation process in
+>> the hands of the non-secure host OS. An platform initiated interrupt or
+>> notification signals the availability of an updateable firmware image,
+>> but does not necessarily need to trigger it automatically.
+>>
+>> Add a sysfs control file that guards such automatic activation. If an
+>> administrator wants to allow automatic platform initiated updates, they
+>> can activate that by echoing a "1" into the auto_activate file in the
+>> respective sysfs directory. Any incoming notification would then result
+>> in the activation triggered.
+>>
+>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+>> ---
+>>   drivers/firmware/smccc/lfa_fw.c | 34 ++++++++++++++++++++++++++++++---
+>>   1 file changed, 31 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/drivers/firmware/smccc/lfa_fw.c b/drivers/firmware/smccc/lfa_fw.c
+>> index 5b7f9b07f6c8..ce4f966db475 100644
+>> --- a/drivers/firmware/smccc/lfa_fw.c
+>> +++ b/drivers/firmware/smccc/lfa_fw.c
+>> @@ -89,6 +89,7 @@ enum image_attr_names {
+>>   	LFA_ATTR_FORCE_CPU_RENDEZVOUS,
+>>   	LFA_ATTR_ACTIVATE,
+>>   	LFA_ATTR_CANCEL,
+>> +	LFA_ATTR_AUTO_ACTIVATE,
+>>   	LFA_ATTR_NR_IMAGES
+>>   };
+>>   
+>> @@ -103,6 +104,7 @@ struct fw_image {
+>>   	bool may_reset_cpu;
+>>   	bool cpu_rendezvous;
+>>   	bool cpu_rendezvous_forced;
+>> +	bool auto_activate;
+>>   	struct kobj_attribute image_attrs[LFA_ATTR_NR_IMAGES];
+>>   };
+>>   
+>> @@ -550,6 +552,28 @@ static ssize_t cancel_store(struct kobject *kobj, struct kobj_attribute *attr,
+>>   	return count;
+>>   }
+>>   
+>> +static ssize_t auto_activate_store(struct kobject *kobj,
+>> +				   struct kobj_attribute *attr,
+>> +				   const char *buf, size_t count)
+>> +{
+>> +	struct fw_image *image = kobj_to_fw_image(kobj);
+>> +	int ret;
+>> +
+>> +	ret = kstrtobool(buf, &image->auto_activate);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	return count;
+>> +}
+>> +
+>> +static ssize_t auto_activate_show(struct kobject *kobj,
+>> +				  struct kobj_attribute *attr, char *buf)
+>> +{
+>> +	struct fw_image *image = kobj_to_fw_image(kobj);
+>> +
+>> +	return sysfs_emit(buf, "%d\n", image->auto_activate);
+>> +}
+>> +
+>>   static struct kobj_attribute image_attrs_group[LFA_ATTR_NR_IMAGES] = {
+>>   	[LFA_ATTR_NAME]			= __ATTR_RO(name),
+>>   	[LFA_ATTR_CURRENT_VERSION]	= __ATTR_RO(current_version),
+>> @@ -560,7 +584,8 @@ static struct kobj_attribute image_attrs_group[LFA_ATTR_NR_IMAGES] = {
+>>   	[LFA_ATTR_CPU_RENDEZVOUS]	= __ATTR_RO(cpu_rendezvous),
+>>   	[LFA_ATTR_FORCE_CPU_RENDEZVOUS]	= __ATTR_RW(force_cpu_rendezvous),
+>>   	[LFA_ATTR_ACTIVATE]		= __ATTR_WO(activate),
+>> -	[LFA_ATTR_CANCEL]		= __ATTR_WO(cancel)
+>> +	[LFA_ATTR_CANCEL]		= __ATTR_WO(cancel),
+>> +	[LFA_ATTR_AUTO_ACTIVATE]	= __ATTR_RW(auto_activate),
+>>   };
+>>   
+>>   static void init_image_default_attrs(void)
+>> @@ -631,6 +656,7 @@ static int update_fw_image_node(char *fw_uuid, int seq_id,
+>>   	image->kobj.kset = lfa_kset;
+>>   	image->image_name = image_name;
+>>   	image->cpu_rendezvous_forced = true;
+>> +	image->auto_activate = false;
+> 
+> Following up on our v2 discussion about the udev anchor after the
+> SMCCC bus rework: I got a chance to try v3 on a real machine, and
+> like the faux device in v2, the SMCCC bus device also works as the
+> udev anchor:
+> 
+>    ACTION=="bind|change", SUBSYSTEM=="arm_smccc", KERNEL=="arm-smccc-lfa-*", \
+>            RUN+="/usr/local/sbin/lfa-auto-activate"
+> 
+> Matching on "bind" instead of "add" worked better when I tried it,
+> bind fires only after probe so /sys/firmware/lfa is already
+> populated.
 
-diff --git a/Documentation/ABI/testing/sysfs-firmware-lfa b/Documentation/ABI/testing/sysfs-firmware-lfa
-new file mode 100644
-index 0000000000000..afd349af9cf14
---- /dev/null
-+++ b/Documentation/ABI/testing/sysfs-firmware-lfa
-@@ -0,0 +1,106 @@
-+What:		/sys/firmware/lfa
-+Date:		May 2026
-+Contact:	Andre Przywara <andre.przywara@arm.com>
-+Description:
-+		The Arm Live Firmware Activation (LFA) spec describes an
-+		interface between platform firmware (an agent) and any user
-+		on the non-secure side (like the Linux kernel) to activate
-+		pending firmware updates at runtime. The actual firmware
-+		update would be provided independently (out-of-band, or
-+		via any existing explicit firmware update mechanisms), then,
-+		if supported, can be activated immediately, without rebooting
-+		the system.
-+		This directory contains one directory for each of the LFA
-+		capable firmware images supported by the agent, identified by
-+		its GUID. Within each directory, the same set of sysfs files
-+		provides access to the properties and actions for this
-+		particular firmware image.
-+
-+What:		/sys/firmware/lfa/<GUID>/activate
-+Date:		May 2026
-+Contact:	Andre Przywara <andre.przywara@arm.com>
-+Description:
-+		(WO) Write a boolean 'true' value to trigger the
-+		activation of that firmware component. An update must be
-+		pending for this to be successful.
-+
-+What:		/sys/firmware/lfa/<GUID>/activation_capable
-+Date:		May 2026
-+Contact:	Andre Przywara <andre.przywara@arm.com>
-+Description:
-+		(RO) A boolean value to show whether this firmware image is
-+		capable of being activated.
-+
-+What:		/sys/firmware/lfa/<GUID>/auto_activate
-+Date:		May 2026
-+Contact:	Andre Przywara <andre.przywara@arm.com>
-+Description:
-+		(RW) Write a boolean 'true' value to allow a firmware image
-+		to be automatically activated once a new firmware update
-+		becomes available ("pending"). This depends on a working
-+		notification scheme, for instance via an ACPI notification
-+		or an interrupt to notify the kernel.
-+
-+What:		/sys/firmware/lfa/<GUID>/cancel
-+Date:		May 2026
-+Contact:	Andre Przywara <andre.przywara@arm.com>
-+Description:
-+		(WO) Write a boolean 'true' value to cancel a recently
-+		triggered activation, if that has not finished yet.
-+
-+What:		/sys/firmware/lfa/<GUID>/cpu_rendezvous
-+Date:		May 2026
-+Contact:	Andre Przywara <andre.przywara@arm.com>
-+Description:
-+		(RO) A boolean value to show whether this image requires
-+		a CPU rendezvous in firmware to be activated. If true, this
-+		means all CPUs will enter the firmware during the activation
-+		process, so will not be able to execute kernel code or
-+		handle interrupts for a brief moment.
-+
-+What:		/sys/firmware/lfa/<GUID>/current_version
-+Date:		May 2026
-+Contact:	Andre Przywara <andre.przywara@arm.com>
-+Description:
-+		(RO) Shows the currently running version of that firmware
-+		image, as reported by the agent (if supported).
-+
-+What:		/sys/firmware/lfa/<GUID>/force_cpu_rendezvous
-+Date:		May 2026
-+Contact:	Andre Przywara <andre.przywara@arm.com>
-+Description:
-+		(RW) Write a boolean 'true' value to force whether the kernel
-+		will perform a CPU rendezvous during activation. This has no
-+		effect if the firmware already *requires* a CPU rendezvous.
-+		Firmware images might provide services to the kernel, at which
-+		point is might be unsafe to continue running the kernel while
-+		the activation is performed. Sending all CPUs into firmware
-+		provides the safest option for the kernel. If you know for
-+		certain that there are no services provides by that component
-+		or the firmware component can handle requests during the
-+		activation, you can write a 0 in here to avoid the brief
-+		kernel downtime.
-+
-+What:		/sys/firmware/lfa/<GUID>/may_reset_cpu
-+Date:		May 2026
-+Contact:	Andre Przywara <andre.przywara@arm.com>
-+Description:
-+		(RO) A boolean value to show whether this firmware image
-+		requires a CPU reset during the activation.
-+		Currently this type of firmware image is not supported by
-+		the kernel driver, as we cannot handle a CPU reset yet.
-+
-+What:		/sys/firmware/lfa/<GUID>/name
-+Date:		May 2026
-+Contact:	Andre Przywara <andre.przywara@arm.com>
-+Description:
-+		(RO) Shows a human readable name for that firmware image, if
-+		known. Depends on the kernel driver knowing this particular
-+		GUID, via a built-in list.
-+
-+What:		/sys/firmware/lfa/<GUID>/pending_version
-+Date:		May 2026
-+Contact:	Andre Przywara <andre.przywara@arm.com>
-+Description:
-+		(RO) Shows the version number of a pending firmware update
-+		image, as reported by the agent (if supported).
--- 
-2.43.0
+Ah, nice, thanks for staying on this!
+
+
+> What is still missing is a notification when the image inventory
+> changes at runtime. I tried the KOBJ_CHANGE approach from our v2
+> discussion on top of v3, emitting from the SMCCC bus device after
+> the image tree is refreshed, and it works: the same rule re-arms
+> auto_activate when the event fires. What do you think about adding
+> such a notification? I can send a patch on top once this series has
+> landed,
+
+I am not super excited about adding a global variable for the smccc bus 
+device just for this, but it's not a showstopper either. Maybe just 
+store the kobject we need?
+In any case, can you please send a patch on top of v4 I just sent, maybe 
+as a --in-reply-to to the cover letter? This would honour your 
+contribution, and keep this patch close to the source and separate.
+
+Cheers,
+Andre
+
+
+together with an example udev rule. This is what I tested:
+> 
+> --- a/drivers/firmware/smccc/lfa_fw.c
+> +++ b/drivers/firmware/smccc/lfa_fw.c
+> @@ -142,6 +142,7 @@
+>   };
+>   
+>   static struct kset *lfa_kset;
+> +static struct arm_smccc_device *lfa_sdev;
+>   static struct workqueue_struct *fw_images_update_wq;
+>   static struct work_struct fw_images_update_work;
+>   static struct attribute *image_default_attrs[LFA_ATTR_NR_IMAGES + 1];
+> @@ -229,6 +230,19 @@
+>   
+>   		delete_fw_image_node(image);
+>   	}
+> +
+> +	/*
+> +	 * Notify user space only after the firmware image tree has been
+> +	 * fully reconciled, so that consumers reading /sys/firmware/lfa/
+> +	 * see a settled inventory.
+> +	 */
+> +	if (lfa_sdev) {
+> +		int ret = kobject_uevent(&lfa_sdev->dev.kobj, KOBJ_CHANGE);
+> +
+> +		if (ret)
+> +			pr_warn("failed to send inventory change uevent: %d\n",
+> +				ret);
+> +	}
+>   }
+>   
+>   static void set_image_flags(struct fw_image *image, int seq_id,
+> @@ -925,6 +939,8 @@
+>   	}
+>   	INIT_WORK(&fw_images_update_work, remove_invalid_fw_images);
+>   
+> +	lfa_sdev = sdev;
+> +
+>   	init_image_default_attrs();
+>   	lfa_kset = kset_create_and_add("lfa", NULL, firmware_kobj);
+>   	if (!lfa_kset) {
+> @@ -966,6 +982,7 @@
+>   	flush_workqueue(fw_images_update_wq);
+>   	destroy_workqueue(fw_images_update_wq);
+>   	clean_fw_images_tree();
+> +	lfa_sdev = NULL;
+>   	kset_unregister(lfa_kset);
+>   }
+> 
+>>   	set_image_flags(image, seq_id, image_flags, reg_current_ver,
+>>   			reg_pending_ver);
+>>   	if (kobject_init_and_add(&image->kobj, &image_ktype, NULL,
+>> @@ -700,7 +726,8 @@ static int update_fw_images_tree(void)
+>>   
+>>   /*
+>>    * Go through all FW images in a loop and trigger activation
+>> - * of all activatible and pending images.
+>> + * of all activatible and pending images, but only if automatic
+>> + * activation for that image is allowed.
+>>    * We have to restart enumeration after every triggered activation,
+>>    * since the firmware images might have changed during the activation.
+>>    */
+>> @@ -719,7 +746,8 @@ static int activate_pending_image(void)
+>>   			continue; /* Invalid FW component */
+>>   
+>>   		update_fw_image_pending(image);
+>> -		if (image->activation_capable && image->activation_pending) {
+>> +		if (image->activation_capable && image->activation_pending &&
+>> +		    image->auto_activate) {
+>>   			found_pending = true;
+>>   			break;
+>>   		}
+>> -- 
+>> 2.43.0
+> 
+> Regards,
+> Nirmoy
 
 
