@@ -4,62 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D96BC982D7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 17:36:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1F20C982D7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 17:38:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y0zQusZ4sgAGUg7jmWtu1kJEPMiDaIZXs+FDWoLbZkc=; b=yJpYgQxM53dVrCjGAzgpbYUUZG
-	o7zBV+5fTTgvaPgHe2HLdkyKrGe/vYlDBP1MXGCCVSHlYmArcOMP/9WYA6+CkgckCGkkhK3dbK9SE
-	Dk8NjzkolfH77Q3QKUOEvq/8EjAuyTxjVmO3JH1u/LsjTkdqPXb/U7Gv/R0MrGU5a5WQ7RnNHdizX
-	NKTWAjrib5nuw536/Yu/q5AOE2mXWX8Z5bepj1BmaTponcrAc936bRfHSp+cn7lAYL2LcIomtTOUY
-	GWthyVhjRYZa30ytpWNr5xfTD7JAGUHDN1f6bZ2TPumk5Uww/Lw+n7AASS4K8ZTXyM2EQGvrPgmZq
-	1lMmCxew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j3cdAsJK+nbkTIVcp0h2SnQb7eN0LiHi4Y0YJjuzdqw=; b=ZyFVxxbD3YmDmIPh7mct0psXMg
+	YScCyfRrSndKMWXsoKx3PFYlTvjVBaIovHvy6ZxSfTPscMT74z4vd2CeWjzRmDZCZOdgd1RWWehtj
+	OV2Cni/2eCCNJK+3JSa0hATbib3Yshk4ipaWvjAIacRU6Tox25XuohvfKjjmVX6YhTJMD53liwVu9
+	Cczf66egLSukYthfiLeS24AR/Pq7yR6VgdQBxBEZeY8K59m70O2viJol60KpmyqgVd4NM1QCAU8wD
+	gyCCV0uvuciMmlE7gKKcCX9ifvdPLO61xpPH09zxpKY8ftdCf8IxkjHoBOFgNIfAhVyv2nfn0/xBd
+	paiAKv8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7cVf-0000000FCOs-3PKO;
-	Fri, 18 Sep 2026 17:36:27 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7cVc-0000000FCNm-000W
+	id 1x7cXX-0000000FChR-0BS4;
+	Fri, 18 Sep 2026 17:38:23 +0000
+Received: from mgamail.intel.com ([192.198.163.6])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x7cXT-0000000FCgp-496F
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 17:36:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F0C0D1596;
-	Fri, 18 Sep 2026 10:36:18 -0700 (PDT)
-Received: from [172.18.224.124] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3EFD13F7B4;
-	Fri, 18 Sep 2026 10:36:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789752982; bh=2srv1XLkscOatAp2l4+oooP8vZZpRy+cubNoI7IaP24=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=eBdR4zQ5mqr+kLhrkLlnUHMi5INt3IUoHVvjNTADZu6tTNm1EGNfBvRHUYVi0VNxG
-	 ZDXwTlZaAMYofuUgHh2IvIykf7ebHqEnZE73bYnTBlxl7L/nxtQNK1WIAN7S7uB+V8
-	 fyOjTikMpTBePwQm7nA9JLRE7o6HqtO9I9jHrT9s=
-Message-ID: <f31009e2-f7e0-426f-a546-1ed3ba63a1b4@arm.com>
-Date: Fri, 18 Sep 2026 19:36:17 +0200
+	Fri, 18 Sep 2026 17:38:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1789753100; x=1821289100;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=J3bYaEWyyYv31Nix/vTbMEEAr9eEVvvLHflmIWHKVJ8=;
+  b=DJSZJVeuVlKhFlTETETXy8EOtv/zLmHkUparYq3RcanqM/RMETA8Np8a
+   RC6XRbzzI5Gh5jIUvNcSQUX3LIQhuuGbvwQE1jLXBvK42DSvBEkNrtC6W
+   aADjVAPhoNY/cddGcfrfgEBvCXsGQMyWj895EahQ3M2DJPCZR+ikTiwSX
+   PNQFhznCWa7xq+kpRABS9xLII09SzEVQhYDcUEHfJtVh9zAb/xEzC6eHs
+   LiXViQ8xY1JljV2EkzcjLh+TfO6hAKZz2b4HFJEvrNqvYIBTFUjLqAgWA
+   +B1ysZC70mEIYx9NAEWeW6fuNlTLEJ2ahV6A2/1cW8l3vEhba0FYdLdbV
+   w==;
+X-CSE-ConnectionGUID: GIh8U7hcTWO9Rdeid2gnog==
+X-CSE-MsgGUID: zDnVaqzGR+iAL7WPfXiFqw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11909"; a="788110"
+X-IronPort-AV: E=Sophos;i="6.27,109,1787036400"; 
+   d="scan'208";a="788110"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa116.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Sep 2026 10:38:19 -0700
+X-CSE-ConnectionGUID: FHUY+oYITFKMtiG9ag3XJw==
+X-CSE-MsgGUID: dSSX9EITS2WMVXmCCZaTYg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,109,1787036400"; 
+   d="scan'208";a="270796387"
+Received: from yilunxu-optiplex-7050.sh.intel.com (HELO localhost) ([10.239.47.46])
+  by fmviesa010.fm.intel.com with ESMTP; 18 Sep 2026 10:38:16 -0700
+Date: Sat, 19 Sep 2026 01:37:51 +0800
+From: Xu Yilun <yilun.xu@linux.intel.com>
+To: Heiko Schocher <hs@nabladev.com>
+Cc: linux-kernel@vger.kernel.org, linux-fpga@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Moritz Fischer <mdf@kernel.org>, Tom Rix <trix@redhat.com>,
+	Xu Yilun <yilun.xu@intel.com>, linux-gpio@vger.kernel.org
+Subject: Re: [PATCH v5] fpga: xilinx-selectmap: control CSI_B and RDWR_B
+ during configuration
+Message-ID: <aq1270NA95AERKQp@yilunxu-OptiPlex-7050>
+References: <20260909112200.13256-1-hs@nabladev.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] arm64: dts: allwinner: sun55i-a523: add I2C0 and I2C1
- pin groups
-To: Mikhail Kalashnikov <iuncuim@gmail.com>, Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20260918165414.1129076-1-iuncuim@gmail.com>
- <20260918165414.1129076-4-iuncuim@gmail.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20260918165414.1129076-4-iuncuim@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260909112200.13256-1-hs@nabladev.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_103625_011729_DEEFA195 
-X-CRM114-Status: GOOD (  14.48  )
+X-CRM114-CacheID: sfid-20260918_103820_035653_EBAAEB85 
+X-CRM114-Status: GOOD (  14.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,58 +89,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 9/18/26 18:54, Mikhail Kalashnikov wrote:
-> Add the pin groups for the I2C0 (PH0/PH1) and I2C1 (PH2/PH3) controllers
-> that used on some A523 boards.
-
-I was about to say we should add port specifiers to the node names and 
-labels (i2c0-ph-pins), for functions which are also available on other 
-pins, but I see we don't do this for I2C on any other SoC, so that's 
-fine. It's internal, so we can fix this later.
-
-Compared against the manual:
-> Assisted-by: OpenCode:DeepSeek-V4.1-Flash
-> Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
-
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-
-Thanks,
-Andre
-
-> ---
->   arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi | 18 ++++++++++++++++++
->   1 file changed, 18 insertions(+)
+On Wed, Sep 09, 2026 at 01:21:54PM +0200, Heiko Schocher wrote:
+> The driver requests the optional CSI_B and RDWR_B GPIOs with
+> GPIOD_OUT_HIGH and never touches them again. That flag carries a
+> logical value, so both signals end up asserted from probe on, whatever
+> polarity the device tree states, and they stay asserted for the
+> lifetime of the device.
 > 
-> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> index 85ef492ff..0ec5d19f7 100644
-> --- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> +++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> @@ -147,6 +147,24 @@ pio: pinctrl@2000000 {
->   			interrupt-controller;
->   			#interrupt-cells = <3>;
->   
-> +			/omit-if-no-ref/
-> +			i2c0_pins: i2c0-pins {
-> +				pins = "PH0", "PH1";
-> +				function = "i2c0";
-> +				allwinner,pinmux = <2>;
-> +				drive-strength = <10>;
-> +				bias-pull-up;
-> +			};
-> +
-> +			/omit-if-no-ref/
-> +			i2c1_pins: i2c1-pins {
-> +				pins = "PH2", "PH3";
-> +				function = "i2c1";
-> +				allwinner,pinmux = <2>;
-> +				drive-strength = <10>;
-> +				bias-pull-up;
-> +			};
-> +
->   			/omit-if-no-ref/
->   			i2s2_pi_pins: i2s2-pi-pins {
->   				pins = "PI2", "PI3", "PI4", "PI5";
+> Neither signal belongs to the driver's lifetime. CSI_B (Chip Select)
+> selects the device on the SelectMAP port, RDWR_B (Read/Write) selects
+> the transfer direction, so both belong to the data transfer. A device
+> that is never deselected never lets go of the port, and a port pinned
+> to write mode cannot be read back.
+> 
+> Keep the two descriptors in the driver private data, request them
+> deasserted, and assert them only around the configuration data
+> transfer. RDWR_B is asserted first, UG470 describes in chapter
+> "SelectMAP ABORT" that changing it while the device is selected aborts
+> the configuration on the next CCLK.
+> 
+> Signed-off-by: Heiko Schocher <hs@nabladev.com>
 
+Reviewed-by: Xu Yilun <yilun.xu@intel.com>
+
+Applied to for-next.
 
