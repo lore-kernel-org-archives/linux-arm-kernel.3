@@ -4,64 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F2B6C982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 12:58:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1E89C982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 13:02:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+jZjMknHkx8BX5rBouTl+QaAXJkEXnMFJLCmzg+gkxM=; b=obUgd0uc8N8ZRxh6ma99P3YpEM
-	YmiCta3VSAOMwqO8wuVITVj0LxUVzMzcXhNEqNyFOaRw6TndwMkEWvN8ZL9z4ZK5GS5vi3xIsmfhS
-	m4Z9aBtfOfUglffQI8NAisSILHZNHHiuFuqXcTZuEqGKqgzGjcdq3QGAHERYHi4KTyXVf8iji/8kv
-	pLmo7ImzDSFMsrWiFwShFeETwkKX8QKnY8dVk++IDr14C1FGdnBLgNxQeyDNd1ysm79DwnYlEXSwP
-	5eDQbSFulMxDVG6s7QzM3dshWQm4VKaLMLEHXvTnC+p6wkt0q36sYdgL/i1c/7AqEG45k9ZE6tKHG
-	hkKzSMDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=MGji7N6SbnVIadV5bhhuwD8KcQaMiAzmz+Si29Ez/Z4=; b=vALXpeaNaVqH52
+	IPuhtdN4bYfOEuCSPzXvTxUL9mFONgrDOHdmav5pubYwQ5xjSvCSF1NN6iz+70rJLfsM5tEXRf9zI
+	+vZ7x1OAUQf5HfviIqLP3BxjcUkzZdSW9aUlExBkFT/OBjrYwxs2FGFBTBmlYM8OKX/h6cp5Kvl9t
+	MftkvrCrLD/6bkNywPjMuQ01gHfA4nUxl1lw6AZd35b1Z2zBltzdXgwBhMFB+8wd3rOXWl2CXAuN5
+	Z6Vrs2FNoCWTL8p/xSDt/ca9re+ZNxyXFfG5P/7F8FJi9JgkIoA88XCRYVbFlTpifX9Ibi4blQul0
+	hsZu3LyTr9gls2mJ8naw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7YAg-0000000EQbn-0kO7;
-	Fri, 18 Sep 2026 12:58:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x7YE8-0000000EQuf-433L;
+	Fri, 18 Sep 2026 13:02:04 +0000
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7YAe-0000000EQbQ-3riC;
-	Fri, 18 Sep 2026 12:58:28 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DE6A96053C;
-	Fri, 18 Sep 2026 12:58:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AD981F000FF;
-	Fri, 18 Sep 2026 12:58:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789736307;
-	bh=+jZjMknHkx8BX5rBouTl+QaAXJkEXnMFJLCmzg+gkxM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Q8O4Mfr0Su2K5lTU44Xq3rNWrYkvq42k3ONRlPM4rj9vUnnVa6GbPi/LCJQl/V3kz
-	 G5MjEpO6KYM6JrVteRD2Xs3uQ1Q6bU4bGyiaOWm+kY6l88yKFUNFn6kv5KHEBL/yvY
-	 Yke5LJKkOiBBnnXAjwLtotYXygQ4PPx2hOAe3b2Nu1+uidlTjZMlhCintKK5gd6jeJ
-	 o8gw+DUvOIJ2D5cKPtdawHT0LarR6NSuFknqFx5O2WAuo45pTxSXOo+TTKvLoiGFVU
-	 troKaVmcL036hWbESJIMB2+2pk0HYI/a1HF/XsnjpPRouSPCZ2hvDLJBTPcffrm7hZ
-	 Mudx0iBNw5A4Q==
-Date: Fri, 18 Sep 2026 13:58:22 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Mizuno Miotsuki <founder@crepuse.com>
-Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	"linux-sound@vger.kernel.org" <linux-sound@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>
-Subject: Re: [RFC PATCH 0/1] ASoC: codecs: rk3308: add support for codec
- revision B
-Message-ID: <cb148119-a746-4b9d-8a3d-fc209ca6adf4@sirena.org.uk>
-References: <20260918125711.94361-1-founder@crepuse.com>
+	id 1x7YE6-0000000EQtY-1jh1
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 18 Sep 2026 13:02:04 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49b912e4ad9so4449325e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 06:01:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=thegoodpenguin-co-uk.20251104.gappssmtp.com; s=20251104; t=1789736518; x=1790341318; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=MGji7N6SbnVIadV5bhhuwD8KcQaMiAzmz+Si29Ez/Z4=;
+        b=vlof4TFC7bgQ6SYPth7OZqzd44PhVUOOs2PSSGWaBSQY3OyuIrpz1lhQnP4M2BfUno
+         i6eXX9aKdx1SCoKrcUzESWNfwwKMKOG2YbCw35DyrTSo1Q2GR5n/mf51tTk/Y2WA7DcN
+         IZhwboqcTUFqBkMEPQphhfGSMTHPsreDcur7IITuP/RKm0wlEHLOs9fgsxDBJIr+pXa/
+         YU+f9nXABtBXEEmq5/LPAauJAGAOyHLTzEV5ysd/Ifyb5Sd2wwL4BsrMns1hyMSOje96
+         LkgWdp5UVadL2meC6MqEiCkZakkrNdWisg7Bf+5Bafl6xcFjyLii430I7XS68UFtiDZg
+         kMqg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789736518; x=1790341318;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=MGji7N6SbnVIadV5bhhuwD8KcQaMiAzmz+Si29Ez/Z4=;
+        b=deGuOo1bXJUAt99aWK3ag5Gepficqg2JnLFB3AchM8bkXHfEONuqs/Gbe7MbsNeVLf
+         4HBOwewvsExC+rCjwFVrM/JWKApvHDp4sXc+D289ZVcvAwtnT+QvnOMcV4A73dVal28i
+         fcZC4FGaMRHKAVSXi88NwBsAIdwB4PATB4LYXiIZO3JuLYjyzFbj2f6S8v3gHNfjwkxu
+         bbi9K6f67T8F+p5D++s/5t6+utYeNuQjzQdPp9/LbyS6DEREcRPgIecKMvpOxE963ia2
+         bsUtoCEV+QmDU5dsyMyzCdKD2lzvUhP4wG5BXWGyGxiwxpmAhLZEJwczmSZ9aydmsipT
+         hNVw==
+X-Forwarded-Encrypted: i=1; AKwUvBwCWiGAShLmbnVb13SxFfEBjwxmOwUKOx2zsbMdF5q98drkuD0Oa1lXq5pR/o4jxw+unYKFamNW9FQLPb7J/6f5@lists.infradead.org
+X-Gm-Message-State: AFuF++n79FztTIjfMorc0e/9AsXEASgDW7ucdT5NTtZacBRk3MPIsnsg
+	T5pD2bjX0QOCOe1BRwiX/+Qwz++7pD1+qDDUsDu/PEF+VVN2jzTy1yswWtOGMQtNB6g=
+X-Gm-Gg: AYBFou3Kx2L/6ZnqXgK4QjzNq8Fp5TxWPRaUZLq+Q1uvE26PyQJUF0sOuGzCfuOFYxV
+	ZERvUEE37qcn/YlB5j7e6fvfP/ntJUjY3oOuneUpBm7r6jdctW0ko2L/b0On2dq+hCnluMhxtUw
+	ebqyUbtzgVjfnkxWDzwvGQLvI6B/N0fc98897YeHQUyYcxKQ4rskhAPEisHfIdVdNSMEuXUzo1N
+	wB68Sd1PXcpu/3bzc8VgsvWMUMTU8DN5aO537DE/zkjGZda5WC2EMJJi5HlSPrK+l4GlHpp7sLn
+	j14YUleLsrddMYS7eMXkJSayPjN7Ji49h6AQDSvnVy2ELrx3NIsJGDqZtlBxLxlbEi3mwqoaWGP
+	zasDyuoy4Inu3DOOV3b+J4lgaGedzB9U6hk7EFSF4+uHHZMEUoKojlI+n/eB+6Ahu1z7dJUyYKz
+	4E7DjjcCcg8pzU6Z7AHRNTTJVOpnyDzuRag4HPxUByNyWlBpVhsxErw9iR6GrQQnIAhdmiwoYTe
+	WvO+BkTd5TuO6d3vm91+osj5A==
+X-Received: by 2002:a05:600c:8b21:b0:49d:1df8:156d with SMTP id 5b1f17b1804b1-49fc574f001mr30144785e9.18.1789736518421;
+        Fri, 18 Sep 2026 06:01:58 -0700 (PDT)
+Received: from [10.42.0.1] ([2a00:23c7:1d1a:9c01:767:e33f:e8e7:bc85])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fbd24034esm188663345e9.15.2026.09.18.06.01.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 18 Sep 2026 06:01:57 -0700 (PDT)
+From: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
+Subject: [PATCH 0/2] i2c: use designated initializers for acpi_device_id
+Date: Fri, 18 Sep 2026 14:01:49 +0100
+Message-Id: <20260918-acpi-i2c-v1-0-caf4bea4886c@thegoodpenguin.co.uk>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="qvbS5Oge9x2b8SxP"
-Content-Disposition: inline
-In-Reply-To: <20260918125711.94361-1-founder@crepuse.com>
-X-Cookie: Dental health is next to mental health.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAD02rWoC/yXMQQ5AMBCF4avIrDVpSxRXEYsaU8YCaRGJuLti+
+ SX/excE8kwB6uQCTwcHXuYIlSaAo50HEtxHg5a6kJUywuLKgjWKXFUlllnvjCGI+erJ8fldNe3
+ vsHcT4fbu4b4fJiVLhWwAAAA=
+X-Change-ID: 20260917-acpi-i2c-4198c83df77e
+To: Andi Shyti <andi.shyti@kernel.org>, 
+ Mika Westerberg <westeri@kernel.org>, 
+ Shyam Sundar S K <shyam-sundar.s-k@amd.com>, 
+ Elie Morisse <syniurge@gmail.com>, Benson Leung <bleung@chromium.org>, 
+ Guenter Roeck <groeck@chromium.org>, 
+ Mika Westerberg <mika.westerberg@linux.intel.com>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+ Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+ Devyn Liu <liudingyuan@h-partners.com>, 
+ Oleksij Rempel <o.rempel@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Binbin Zhou <zhoubinbin@loongson.cn>, 
+ Khalil Blaiech <kblaiech@nvidia.com>, Asmaa Mnebhi <asmaa@nvidia.com>, 
+ Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>, 
+ Viken Dadhaniya <viken.dadhaniya@oss.qualcomm.com>, 
+ Ard Biesheuvel <ardb@kernel.org>, Laxman Dewangan <ldewangan@nvidia.com>, 
+ Dmitry Osipenko <digetx@gmail.com>, 
+ Thierry Reding <thierry.reding@kernel.org>, 
+ Jonathan Hunter <jonathanh@nvidia.com>, 
+ Israel Cepeda <israel.a.cepeda.lopez@intel.com>, 
+ Hans de Goede <hansg@kernel.org>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>, Hans Hu <hanshu@zhaoxin.com>, 
+ George Cherian <gcherian@marvell.com>
+Cc: linux-i2c@vger.kernel.org, linux-acpi@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, chrome-platform@lists.linux.dev, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-arm-msm@vger.kernel.org, linux-tegra@vger.kernel.org, 
+ Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789736516; l=3020;
+ i=pzalewski@thegoodpenguin.co.uk; s=20260430; h=from:subject:message-id;
+ bh=JzY7qCjsMGCCDrnykYP+j+8saSrI+L+fwV77wWEiOrQ=;
+ b=IDSzYBmue84R08QroUyy3NH/AxpYxihKb9K2xhN1QPp93+Ogye+hBhK4mHIOdf1zDUyhK9Zvj
+ Ey74QzEBKIGB05J6xZ7TUIbv5ZKaL/sgYUsp72oIXBPUQ/meroTQnXV
+X-Developer-Key: i=pzalewski@thegoodpenguin.co.uk; a=ed25519;
+ pk=vHq4n9IonORH2GTzLv8r6CWAFHzgfBuNkQPXA8NSly0=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260918_060202_831404_77B8A6F4 
+X-CRM114-Status: GOOD (  14.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,39 +135,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series is converting lists that contain the acpi_device_id struct,
+which is defined in the include/linux/device-id/acpi.h to make use of named
+initializers (which they do not use currently). This work is part of the on
+going effort in the kernel associated with device-ids [1]
 
---qvbS5Oge9x2b8SxP
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The plan is to convert acpi_device_id::driver_data to have an anonymous
+union, similarly to what was introduced for PCI and I2C device ID tables.
+The goal is to increase type-safety (most of the existing casts are gone),
+to improve readability and to make use intent a bit more clear:
 
-On Fri, Sep 18, 2026 at 12:57:18PM +0000, Mizuno Miotsuki wrote:
-> Hi,
->=20
-> The current RK3308 internal codec driver detects codec revision B
-> (chip ID 0x3308) but explicitly rejects it. The initial 2022 driver
-> supported revision B with a monolithic power sequence; the later DAPM
+```
+union {
+	kernel_ulong_t driver_data;
+	const void *driver_data_ptr;
+}
+```
 
-Please don't send cover letters for single patches, if there is anything
-that needs saying put it in the changelog of the patch or after the ---
-if it's administrative stuff.  This reduces mail volume and ensures that=20
-any important information is recorded in the changelog rather than being
-lost.=20
+But for that to work all lists containing the structs need to use named
+initializers first to avoid triggering -Wmissing-braces. I already have
+patches that implement this and touching a lot of kernel subsystmes that
+use the acpi_device_id struct and that list keeps on growing. Therefore,
+I have decided to split the series per every subsystem into:
+- pre-clean-ups that convert the lists to use named initializers
+  (which is this series)
+- actual implementations that make some of the modules use the new
+  driver_data_ptr member
 
---qvbS5Oge9x2b8SxP
-Content-Type: application/pgp-signature; name="signature.asc"
+That way the task can be fragmented into manageable and independent chunks
+of work and makes this effort easier to review.
 
------BEGIN PGP SIGNATURE-----
+Tested builds on x86-64 and a64 in Yocto using 7.3-rc3.
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqtNW0ACgkQJNaLcl1U
-h9CTNwf9GJmFyuc4fcVhx8SuWBebDybhaOwU0LFcm5L8TKMj2CNRjpPGf1e2+AOE
-QF2Nm2Wv/SRiraKuRy1qAcp8dJZ1L9iq2oyXtmi6OrOgo3E3DFOhrSB4S3RH+vPb
-j103vXQXYPbRyL6WU4Or0+mYZI3Gk5XjMjrhTMF4YM0B231P8sQ6HCNbU+N/pHjl
-yzhUq00NSYmxJNCfuHicITvfTTzM3wK7K81HiiPLd/0O6nQEV4K800KAl6GaKuGE
-WVk94TD69U5VHjztI8bF1Eufv6+JRFBvcYTRJZs4GuffVMpjJcHbQXzBOHxyHszS
-sOZe0f0UAJDhNbkXtss9PJwYbJv1Ug==
-=6+fK
------END PGP SIGNATURE-----
+[1] https://lore.kernel.org/all/cover.1780048925.git.u.kleine-koenig@baylibre.com/
 
---qvbS5Oge9x2b8SxP--
+Signed-off-by: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
+---
+Pawel Zalewski (2):
+      i2c: i2c-core-acpi: use named initializers for acpi_device_id
+      i2c: busses: use named initializers for acpi_device_id
+
+ drivers/i2c/busses/i2c-amd-asf-plat.c       |  2 +-
+ drivers/i2c/busses/i2c-amd-mp2-plat.c       |  2 +-
+ drivers/i2c/busses/i2c-cros-ec-tunnel.c     |  2 +-
+ drivers/i2c/busses/i2c-designware-platdrv.c | 42 ++++++++++++++---------------
+ drivers/i2c/busses/i2c-gpio.c               |  2 +-
+ drivers/i2c/busses/i2c-hisi.c               |  2 +-
+ drivers/i2c/busses/i2c-imx.c                |  2 +-
+ drivers/i2c/busses/i2c-ls2x.c               |  2 +-
+ drivers/i2c/busses/i2c-mlxbf.c              |  8 +++---
+ drivers/i2c/busses/i2c-qcom-geni.c          |  4 +--
+ drivers/i2c/busses/i2c-qup.c                |  2 +-
+ drivers/i2c/busses/i2c-scmi.c               |  8 +++---
+ drivers/i2c/busses/i2c-synquacer.c          |  4 +--
+ drivers/i2c/busses/i2c-tegra.c              |  8 +++---
+ drivers/i2c/busses/i2c-usbio.c              | 12 ++++-----
+ drivers/i2c/busses/i2c-viai2c-zhaoxin.c     |  2 +-
+ drivers/i2c/busses/i2c-xgene-slimpro.c      |  6 ++---
+ drivers/i2c/busses/i2c-xlp9xx.c             |  6 ++---
+ drivers/i2c/i2c-core-acpi.c                 | 14 +++++-----
+ 19 files changed, 65 insertions(+), 65 deletions(-)
+---
+base-commit: 238650ef6c7c7cca08e032527329424c9fbd70e5
+change-id: 20260917-acpi-i2c-4198c83df77e
+
+Best regards,
+--  
+Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
+
 
