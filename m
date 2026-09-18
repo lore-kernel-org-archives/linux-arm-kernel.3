@@ -4,86 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAEA4C982DC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 12:09:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 550BBC982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 12:11:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Ha8wUO0vAad7WPPmqJPILgb1Ew3Bf7lbxU7bR2Z218I=; b=tAV917yTPFlJhu2GqS2qvA1ML+
-	EikjVe097eii+8r0ktfBbWUhylNlfwyc+m3G90xzaTO2D5OYJAqkZnqQyLRqECQvQ8YyATTlIIAXh
-	+9Sb64kTh6Yhq0MH07hiOYsFlH2l1QeugHGqmN1IK7aK+vo0QiH6xJF/QUdxL8uXT4j+IVZ8NrjRM
-	MrQZfApbbUN1H+3lmAqaJ60JtzTAYpYv+BPJQjKYcUDOEFYIYfZ6iCSVDvlLmZyBx+lsWuweOKSIx
-	TQwpkjAgSeHKx1jb9XRZrXeo2U/gT2H8o0U2jbOUfVM+2iz0hJch+tHJ9oBsgOCXNwLiyLoH7wPB2
-	QOOUW1Rw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i+QN5KkkjNb5WJjRU9SzJ0Y+OF8nxYNyQV24JJbuLlA=; b=pa9J7EH22zKybo8xplk4xWy3K0
+	qRgojVpYpbVYe1OzuBsw+i+m4FA2Bty1uiV+cJay69RIu7vCTpc82GiDjC6Z6KrGEbPEuLU2jeGRd
+	pVG4tMrF4ILWafKWne9MhzsydBpK1LzxBWFt9EveCen9dJa9q+GPFjdpWb3TTxIt0Rb8y4oYXz28a
+	cilQUIq7Xrimsgw1is6ElNPoPLb4bZALDrKUHPukHgi1zOA9Q5KOHmHzU8PaYCQHbTC3CoBNeVoa2
+	Iq/+pM1KeFxhqZUfwyDgtgy+7qe1qg90R79ipLB2NNlYdzeuE4fxUUR3Vh7hTwfFXhvPhla/bKLDc
+	/3kwvTWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7XOm-0000000EKbx-2jMC;
-	Fri, 18 Sep 2026 12:09:00 +0000
-Received: from mail-pz2-x10.google.com ([2607:f8b0:4864:3b::10])
+	id 1x7XRM-0000000EL4E-0yGE;
+	Fri, 18 Sep 2026 12:11:40 +0000
+Received: from mail-qk2-x0e.google.com ([2607:f8b0:4864:34::e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7XOl-0000000EKbI-0mQl
+	id 1x7XRJ-0000000EL3U-2vnK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 12:09:00 +0000
-Received: by mail-pz2-x10.google.com with SMTP id 41be03b00d2f7-cc4aa0f1766so439441a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 05:08:58 -0700 (PDT)
+	Fri, 18 Sep 2026 12:11:38 +0000
+Received: by mail-qk2-x0e.google.com with SMTP id d75a77b69052e-52fb767cc97so6160831cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 05:11:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789733338; x=1790338138; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Ha8wUO0vAad7WPPmqJPILgb1Ew3Bf7lbxU7bR2Z218I=;
-        b=iQ7Zp/buSxPoM1NOdgWucDjjrnUV/55+J6ToCd96Gsi5tvn2AfVC0GuPXWLup7PBWo
-         v5WdLxIa+WBxmMF1DEb2XmaQ5wYo4Lbcr7LncW9916sH7Q59KS+VUxFsudcKY7dPHZP9
-         dBe4UgDUeL3Ni9LVtMltyTcS5ZWKIVtWYEcabJerSAdYpJWts3aEAXY1nf7sul05nVJt
-         2qj5l7vrJwlq4ph87IY/ajv9GlvjLf2d/qTKH0JhmEGAd+j/dZGL7Jyg7PaXjco9kx/V
-         wW0c6jAs+psTeWb9wxZ5AWx0NcGIhCq6LGQqFI+M2h7hOSHlgSzsqdSkEjGTlANXzzAj
-         Shrg==
+        d=ziepe.ca; s=google; t=1789733495; x=1790338295; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=i+QN5KkkjNb5WJjRU9SzJ0Y+OF8nxYNyQV24JJbuLlA=;
+        b=OnJfhOSuB1sTVC0BN3Ep/yIt1GUmFbjQBUd4CcpY607RHmCgVey0rB1oqibjEIWUkF
+         PQ1vaSl/iXWzaz87zX6ALB0sktt80tHv0sNsouytdRwtcmJ6wwFvAOHCdLAkmvCvMyOl
+         IKf3Rf1FSjWsRmI9pFVp7FXd6JrhKYWx5l2c8+afwSrWkg3uYVmaul4pK85fGxIfIIJE
+         ihgCm3IX72bIqr8J5MTEpXISREb4GXB2C1XpTlokotLdo9XWSz8StETadW+uaVOOmSpC
+         YW6eaEk1P9qW2aRxx5GAxTj1256gRpPdlfGtU4K6IR2V/8ANSaUgRY0VKXlc6bM66q48
+         WNUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789733338; x=1790338138;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Ha8wUO0vAad7WPPmqJPILgb1Ew3Bf7lbxU7bR2Z218I=;
-        b=TDBy5hRn7zkxVVAnWwzfzStLtyOEEaXmiFDBzw/Q7eUFtHJt9IVaT5cVbYnR8Hf5yI
-         Yxc04RWZl1FdOBHVFtnypSOYN2hU/EmdCyhmLA7HTuRVwiA+BmvzTnfnMqwgcxpCrbiw
-         t7vIai7h5pBzmv23roZDs6dpqMJWAVd3dhmS+0R4sQ+rnTjJLhzIbvv0P9uQI6O37BoM
-         286ao4Y6uZmfOyhxYLxz4xu2FxNj2rvI7bmrvnxS1yKu1fsmk6Qxl7gJqaOPdAGRqAOK
-         PTHE/XUpncG/eSYMydZv/mKLCxXBo3Hi9O3w4JI6LclTkb/jvw4dPU+YFlH6tZdlYUAB
-         fYjA==
-X-Gm-Message-State: AFuF++myE71uDaSADEg332XrMHoAjv7UxNIfc4bAj6n1PEhRY8P7sDAV
-	XXlH+3kD3r38z0dQgblvzJDixh+Yo5KJsRJLAjFCOqJKHG06U0JUbXFWzvd3CGWX
-X-Gm-Gg: AYBFou3XClfePLBIh4fPkUBLecd3MUtqP0YyhoIxAwGmXwEIeqUXs1oOhLijffR5hF3
-	S6hlaKHe6YkD9ZHIF2f6yn7iw6aMiGMdgvqaYHoJqAJi4feqmyMOuSF3YMyIuMzewnEa7pQM4e1
-	i6UCINh8H0vLnuZDgVuIiHYHU5KsS8s9pJBv/2Vo6J132EqUeC7+q2vYjf8S8/wFrzO1OaDvIQG
-	mMmxAqP+2oYLGr5qJ1vGOn2nwm/izcN6rykzD3o2s0P9f8rxP6yHKSedIKXp7Gy6mi3h8juDdVm
-	s78GTdG2bixhnoLtfcOUjIMdi5IVsMSqFBsshKaH5IEwCKIvyyK8+OHZXsBq6e/XI5IbuwIVVvm
-	v2QdvqHoDrXVpNe6ZUhFk9cvnb3z0k04Oo63bXn+2ptB/zVZln3FsJj3oSPC+/JdDvH9Y4EeM6f
-	NzWs8mr4vZRhHATE4/5HoSx9TU44z+4BiudW5Dlf6+njzrOYS0wntjXxu3RSLG7rsT83Wrojayg
-	zwOfaxMa5+X
-X-Received: by 2002:a17:90b:398c:b0:39e:1c2c:1d4b with SMTP id 98e67ed59e1d1-39e54bcd0a9mr5392355a91.11.1789733338063;
-        Fri, 18 Sep 2026 05:08:58 -0700 (PDT)
-Received: from nevers1dd ([118.95.161.132])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33c28180a4dsm5257193eec.0.2026.09.18.05.08.54
+        d=1e100.net; s=20260707; t=1789733495; x=1790338295;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=i+QN5KkkjNb5WJjRU9SzJ0Y+OF8nxYNyQV24JJbuLlA=;
+        b=MTK0AomDtUOm3jLnIbdnnhLV7d9PQJByVfnwleRQo67nCfG5XCfpbqy+r+07jnZWIW
+         tOC4CGta9IoEuKZqf5/pzarzZGaYBkxLiHBxmqrhRVRsqfWalYAfCutXOb84sqpFVUV+
+         LXpklcRwh/jn8tdSN5SJ1XEef6F9MbVhM/EiFGcZsvpoXGjCvPAbRQlIAlet9J0ClHAA
+         7Jk16DLXEqVcVT29hidkD/34YHAD3NO4o5Oe+RSwNy1AguXI7ieH2M8o7FLfool5Hdni
+         9vNMDxmnjX7frGLz5zwjpgrv+gXC+HrxsFKl1PJG1bqRx9LBdyCVarbH7hdCq3nxC28n
+         la7w==
+X-Forwarded-Encrypted: i=1; AKwUvBymHMwoiiRZndgckTaNoz1Fa74ERlUfaqbhRcYIigwrOQSJNqcoGZna2lWltwJR9WjQQuxFSumCU7U/IZb9j/vk@lists.infradead.org
+X-Gm-Message-State: AFuF++kzvIU1gsr3HchbRp2fr5vxikJY5EixoZq8jKPUt8UyDhYDRrzk
+	5LmL8tDWepYPfJtvzxLOYGzDq3ikEhWSs9++thyQy3L3DbImIiorxAprIyN918U4X6Y=
+X-Gm-Gg: AYBFou3d+uxN+fHwvQKgrniubZr+VWqC4fZ4XXnwgkIwlLvzP5igNN9Ew6SHwSJEpir
+	cstdZmpWyIj9ONWAmJSgfp47WIlohIO34j5slr9dNlGSioqubKqz4EVsSq/XHnlq7WnR5L7YQPx
+	KhWZm2WWKLimfH9dK4PbvbznX3C2kxTzDhpPwBBH9rePcAJRKa8cg7UjS8DPwsQ/HhwX9ZIt0AS
+	6jb2gGamoHFfZOeFU1YZlUgQwFsUuVfkGlOT1j/2CB6HfwTvksf2tz5zVGeOOUChCS71I1SiMYu
+	CgvksH8lotHs2S5HOb/buaItqqkvhXaK0tsb+WB/KHmCjFPb6F5tT4bPnjelfjJukToBzDfALp9
+	PWTs0wIKb2E4ySK5mDrLFhfxXfUdrzAeBe+db71vGPwz8MDnETf1XzP3RJkM+oLlGG4mX+6SAHJ
+	K99FSIzT6kyPwGXg2qnQjQlEbZJ7I9M8lDT8iSleoTWn8WFFftnZInNuDB3OmAXrBj2VrbQtTw0
+	q40VKkLNvTftX2GteqQmjPtAs1f6gi9ft55o+K1z5vFJTiNYdLpMrcS
+X-Received: by 2002:ac8:5c95:0:b0:532:9ade:b6e5 with SMTP id d75a77b69052e-5329e58dffdmr33222601cf.78.1789733494642;
+        Fri, 18 Sep 2026 05:11:34 -0700 (PDT)
+Received: from ziepe.ca (hlfxns010zw-159-2-239-150.pppoe-dynamic.high-speed.ns.bellaliant.net. [159.2.239.150])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-532a1a27288sm12168121cf.28.2026.09.18.05.11.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Sep 2026 05:08:57 -0700 (PDT)
-From: Siddharth Karanam <sid9.karanam@gmail.com>
-To: nm@ti.com,
-	kristo@kernel.org,
-	ssantosh@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Siddharth Karanam <sid9.karanam@gmail.com>
-Subject: [PATCH] firmware: ti_sci: replace kcalloc with kzalloc for buffer pointer allocation
-Date: Fri, 18 Sep 2026 17:38:39 +0530
-Message-ID: <20260918120839.207459-1-sid9.karanam@gmail.com>
-X-Mailer: git-send-email 2.55.0
+        Fri, 18 Sep 2026 05:11:33 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1x7XRE-00000001A2N-2VCC;
+	Fri, 18 Sep 2026 09:11:32 -0300
+Date: Fri, 18 Sep 2026 09:11:32 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Peng Fan <peng.fan@oss.nxp.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>, Frank Li <frank.li@nxp.com>,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH RFC 0/4] iommu/arm-smmu-v3: Support shared Stream IDs
+Message-ID: <20260918121132.GA11599@ziepe.ca>
+References: <20260916-smmu-shared-sid-v1-0-517384504aee@nxp.com>
+ <20260916161018.GE3196566@ziepe.ca>
+ <aqtDg1EH95RYOdCJ@shlinux89>
+ <20260917144804.GI3196566@ziepe.ca>
+ <aq0lEk56qRi93geW@shlinux89>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aq0lEk56qRi93geW@shlinux89>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_050859_225414_8CCC41B7 
-X-CRM114-Status: GOOD (  13.12  )
+X-CRM114-CacheID: sfid-20260918_051137_808925_6D176CB3 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,30 +112,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Previously, the buffer pointer was being allocated via devm_kcalloc that
-would check for a mul overflow before allocating n * size bytes
-(size being desc->max_msg_size), but since n is 1 here, we can instead
-use devm_kzalloc that allocates the size directly.
+On Fri, Sep 18, 2026 at 07:48:34PM +0800, Peng Fan wrote:
 
-Signed-off-by: Siddharth Karanam <sid9.karanam@gmail.com>
----
- drivers/firmware/ti_sci.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+> However, the DMA channel case was just one example - the shared-SID
+> need exists independently of it. Our SoC (i.MX95) has only 64 SIDs
+> total, serving MMC, SD, NET, PCI, DMA, NPU, DSP, DISPLAY and more.
+> Some of these are genuinely separate platform devices (distinct DT
+> nodes, distinct drivers) that share a SID by hardware design because
+> the SID space is exhausted.
+> 
+> That cross-IP case cannot be solved by DT restructuring - the devices
+> really are separate. Would you be open to reviewing the shared-SID
+> SMMU support (patches 1-4) on that basis, independent of the DMA
+> channel question?
 
-diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
-index 33d7c4a4181e..8e346440e539 100644
---- a/drivers/firmware/ti_sci.c
-+++ b/drivers/firmware/ti_sci.c
-@@ -4132,7 +4132,7 @@ static int ti_sci_probe(struct platform_device *pdev)
- 
- 	/* Pre-initialize the buffer pointer to pre-allocated buffers */
- 	for (i = 0, xfer = minfo->xfer_block; i < desc->max_msgs; i++, xfer++) {
--		xfer->xfer_buf = devm_kcalloc(dev, 1, desc->max_msg_size,
-+		xfer->xfer_buf = devm_kzalloc(dev, desc->max_msg_size,
- 					      GFP_KERNEL);
- 		if (!xfer->xfer_buf)
- 			return -ENOMEM;
--- 
-2.55.0
+I think you should revise your commit message/cover letter to focus on
+something that is not a DT abuse and try again 
 
+IIRC Robin said the SID aliasing was a PITA on SMMUv2 so it
+really needs to have a strong reason.
+
+Jason
 
