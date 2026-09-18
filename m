@@ -4,165 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ADB5C982D2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 08:27:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23CC2C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 08:30:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7m1/sJCpCVQ5sLXyoqpvjBZa2s2/hzTbyFJhnPz9CkE=; b=P1FnYvn1WltqSjsbdclZD3rK/n
-	3g6SHEMdhSmRbgeivdSqMgO2RJuNpt4muXdedOKcDUUrPd+wfqM3T/peyHET4pLe/jsU6KRiTBBAA
-	HDwQgRluyerFhLeUKNTHfGpVkZYtXK1BPb/N7XRKXU2nO3XYyPy+d8PVzkVeANGjUiEtxcPlEmPbG
-	YwKGfOxsWkHa1xmkUXNkDwlg/GOvxe2VDik2ZTWWXC2lyN1xo20PhRdnKKM3TQ+AZl3dUG/JUVLo6
-	AH1uoM4PjuG9EGuWuxLkN0QafeqI6ElpC4WqpliWH5d1LLxkX0BuvOsMLLaVzQlfsSiYdIWBKdLBJ
-	wDdZc5Lg==;
+	bh=48Dk3iwNBX2jdzyXIh2OB09+BWpkuBMXHAxnmCdSn4s=; b=BS+MZP1v4garO5fnL7/EKfjF/4
+	LTL1lKN4Xya2kaGor8VV35y5h9QjDqWlAta3do6tazhXONQGeB4FdMpa7bd9ylBE0eTDGT/WeriYP
+	j9CJib5+3XmyYgecEFbJdS7og2vk3u4QKoT4jru5OiOKmPtsLG4cv8Uk8u8LzQHRe+ObV6fuki9ze
+	da2TQEdjDUnTzD4SZaVh4EzEaZ22A/rAVwHxF22aX1ZyArrxNdkNVipyySxJxPKvQXcJ+LgFfVtgt
+	gNO6JF0GjOkkGrssxkfKmbNNSYGBywdUU4a5/E+NXC3auX4yqL4tUvcISXeooZzLDLa032SXV5aT8
+	B3OXhvRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Twd-0000000DoKv-0ksY;
-	Fri, 18 Sep 2026 08:27:43 +0000
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
+	id 1x7Tyx-0000000DojD-2JrD;
+	Fri, 18 Sep 2026 08:30:07 +0000
+Received: from mail-pz2-x0d.google.com ([2607:f8b0:4864:3b::d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7TwZ-0000000DoJh-31ub
+	id 1x7Tyv-0000000Doij-1kOP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 08:27:41 +0000
-Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
-	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 68I6cuiR885058;
-	Fri, 18 Sep 2026 03:27:37 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=7m1/sJCpCVQ5sLXyoqpvjBZa2s2/hzTbyFJhnPz9C
-	kE=; b=Vu+prnHDVgLvbt1FYwfv1mfDSk5got0F/OqktjuLIcbavH0zO7cWBhUoL
-	fULMWVxkc/B5hN6Rc50UUEsdVP2apgmanrclmreOZlpXsNSIGV8cXGvlbBOmqxAo
-	9IXY0DVw2ukDlXzCg3s++zNOkfDnEMr7h6Qp/8gwZn3p5Kg6RETjBHD7cONKAD7a
-	kgbPRDcJd2gYGnPVp3fGWDJPGMuwiuVEDDijXa04xvz/vuegrNd3FPsAaQ0pYhmZ
-	3ICXBrStuhcPb+Hwbv71HSBMzRWsLFTNoALM9fz/IQV2YmBbOTm9VGBSsWW/sFp1
-	5ABF6LofJRSWvc1pRQ/TpGdVKm4WA==
-Received: from cy3pr05cu001.outbound.protection.outlook.com (mail-westcentralusazon11013058.outbound.protection.outlook.com [40.93.201.58])
-	by m0384305.ppops.net (PPS) with ESMTPS id 4grr9hbjh4-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 18 Sep 2026 03:27:36 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FP4rOYvV2Gc0D1je0P5TT8Np0yF9cz2VE7EZLPsQt7esx3VXFww7R4TxTdy5pNScIr+HU1/I+I+bICqG0W4neKv5+4YBMRtjlIcZKsHFCwu4aYRLs3KAWKDSI5Zjn488wtA7ZeCi6U41GwIscg1Ozuc/7Is/25EUZEemMdEi4qQrMRAiNJhnRCwOdQMCwheqLvhebnq16OFZUsoAuedchslLbLvleijM8EdFMZ/FBpFvbNoH068hrsSzxWdtjBKNa4tDrH9jVepXIYbAU0e3BTSDOeaD8+Jup8xXbl+jykW4UAPu+wyV4YD46p8H46iVcV/NveBRtBlKbx1Hs9BH9A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7m1/sJCpCVQ5sLXyoqpvjBZa2s2/hzTbyFJhnPz9CkE=;
- b=w6BFqa/yNHLTTIItTUelWQW4v5fsFelEJBCnYxZDu6bHG2PdozCBS5KiBDZPf4oyNDqabkBNgX2tKN6DbpzLhfO46yqKM3lOadSuRm7E3DOuZaIYFR4z5lJhusyDV0baCFBTGDYSbdC/iFUTFxWceoGldQV20JqFzxmWGUQtLZFyphT60FYL+78ZQAMFCSOMknCDkaLDVwyvNq1SkZemGAEuW5gdQUWi1GZTO1o2KbUaZ7gXmtETFXh64BWU+oZ6HcSfPznCkvDFp/a9VxPIKpNYKya1sY7Ibknz1ZwcvOUrtwmO1Ay4L3EfUoLtmCc2xEDHyhx9l/qbfTQjguB1rw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7m1/sJCpCVQ5sLXyoqpvjBZa2s2/hzTbyFJhnPz9CkE=;
- b=Yclzd3BLMK/u2OdO4NL5tlnFZSE1pXf+GoF8Sg81IieTOfR8OTjGIpr9r/ZLbuCe1s0naz38MkeveKLO964wKkYONql3FLur3bURsaKdDv2umebyBJPjuA35qX1+mVxn0Ae9GInZhf7CvZMGguVagUZXfzh2sXWyB9h4vTalCqM=
-Received: from CH0PR03CA0346.namprd03.prod.outlook.com (2603:10b6:610:11a::32)
- by LV3PR10MB8010.namprd10.prod.outlook.com (2603:10b6:408:282::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.9; Fri, 18 Sep
- 2026 08:27:30 +0000
-Received: from BL02EPF0002992B.namprd02.prod.outlook.com
- (2603:10b6:610:11a:cafe::14) by CH0PR03CA0346.outlook.office365.com
- (2603:10b6:610:11a::32) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.428.13 via Frontend Transport; Fri,
- 18 Sep 2026 08:27:30 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- BL02EPF0002992B.mail.protection.outlook.com (10.167.249.56) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.451.8 via Frontend Transport; Fri, 18 Sep 2026 08:27:30 +0000
-Received: from DLEE207.ent.ti.com (157.170.170.95) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Fri, 18 Sep
- 2026 03:27:22 -0500
-Received: from DLEE204.ent.ti.com (157.170.170.84) by DLEE207.ent.ti.com
- (157.170.170.95) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Fri, 18 Sep
- 2026 03:27:22 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE204.ent.ti.com
- (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Fri, 18 Sep 2026 03:27:22 -0500
-Received: from [10.24.50.130] (uda0132425.dhcp.ti.com [10.24.50.130])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68I8RJ781373368;
-	Fri, 18 Sep 2026 03:27:19 -0500
-Message-ID: <39d5525a-1276-47af-8659-70a86cda8a1b@ti.com>
-Date: Fri, 18 Sep 2026 13:57:18 +0530
+	Fri, 18 Sep 2026 08:30:06 +0000
+Received: by mail-pz2-x0d.google.com with SMTP id d2e1a72fcca58-85469b35611so311624b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 01:30:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789720204; cv=none;
+        d=google.com; s=arc-20260327;
+        b=h0UD5ayyw/FO1EOkV8R26Ds89D58po9+Vi9Uqi210NZoGMUOiN3hSIgClUg7A2JgUr
+         UhmiKsW/5JRiIKbqsfbZdGRoxgaGxILK2Sph9lrWdkx/b1ZyXMuLb+8ejQLXesZ3437y
+         TGdD23S1My9KDt0r7/bHqLNf4Jqxs9O0Mg0Q1zDu167gMhSs2M7rYPvqkcB7GMFcl254
+         Bepug/QJ4FB4L8snwgt+tHttBfD6A/l2EHseTZzlgrj0sfCrhb/ms6HvUqKFUU4/u0iv
+         mn5a5Bj27QXtrEV7+JWI2F7ePVQNNhpbq2L85JwQUpAfE5823RiX2qJE76/RxMAu7KA/
+         9TCQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=48Dk3iwNBX2jdzyXIh2OB09+BWpkuBMXHAxnmCdSn4s=;
+        fh=7VfapR26ZS9hGCsP4r7FepSwpCtUjmAKOllQbISZAj4=;
+        b=EJqTbx0Iga4ODOUya3QvvgfU1VmcfnnBFK+eTg0Bs/A6rlvW14NwtgDTR5haw/PwdI
+         ULuImlAl8j6Cy7qSypfYZQxZv6rj+PSMqGQZWQPWNj+pOzBbtI2XhBq/Wg0WNsIM9nkZ
+         K+P0n2Z3wl2b2WSGE8ConLpV/qaabsCJI/CwRnQgmgCjJX2Le5gYy37BM5/+3rfm09/4
+         Ioy0yJXO2i/LFXzeKmmeEaUQdUUcGnep3JbLgcEBN+vVaPZOS9PaKUraTnHZJX32Oqts
+         vuAxGlXQWeEXXulbPoPqsMdl/ycaQ8gW6Tf2iidbfCvzY6FW08b781V8Kpaf7kTgSKy4
+         lTVQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789720204; x=1790325004; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=48Dk3iwNBX2jdzyXIh2OB09+BWpkuBMXHAxnmCdSn4s=;
+        b=DkcBIBKR9pb3D0USjUpPSrXALpgjEHDZv4IIjjj9erHZUOCAUAAWptqTbrZgyNGyvx
+         zg/JMEp2Et2QBLTELtp8wfctq4gAxDAewlb7dLO9Bumj9pJTptNCRx48HavRs6TQNdCj
+         vrAO2aJdFgqwgU+QXIRNTMYqTYni2Fgms9tMs0jHhs8waRIhddUmvld0GwOMGUw6p0Qd
+         WD+J0FT0vF/2x/xpb+0c1yUDSOfKkeaEGixz4wQN//z2AGdxrQTYrOkqRoFGeeyCVfM+
+         hOJ5ZetTm0oXRonbCmxXfeyTCqx6N2QFC4+MmS9sQ/X0/b9BPFa4HnRobh90LYFp/8Y9
+         /Igw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789720204; x=1790325004;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=48Dk3iwNBX2jdzyXIh2OB09+BWpkuBMXHAxnmCdSn4s=;
+        b=UVQDcgznKjP1D7x+NSOzrEj/hfZQDnTESi5dlN1L7HAcIhmJFX20g7nZRG2HW8q47+
+         g6CmmGuzlHjAZiOKDYiVcdSTC8FBWbofyK7Sstzfw0bnLseoj5n6VSkH4dPy12mkjgLW
+         qJ3/I9iSMcjQOiRRadz0954JO5cDp1Vb6oByqHCLboLf+AimEZkCC6a2G7OkyQUcAd0x
+         p2NJCOjF3Sdf03vh8u2+Ryn6WbjElDFsE+WZH2yx6B2qRw4bsHdvwXr3bXoMPiToi+Hw
+         4XDbGigBg2K0n1xKj9dSwZTyThsM0ueIrzOwf33hWPJZg4u3KO/wXjaxvw+5eNpUFXkc
+         FEbQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwMX83QWZ9ZElMfDx9hwTEBW/SerU6vvhJdKC0QopQNydhOZYM48L+Gv9c1ZFU35uPIzCPNQvv/XWLFyZ88IYDT@lists.infradead.org
+X-Gm-Message-State: AFuF++lFTMXJwnqta40LN9r/3mu/50fC6VmDiSLoMwW9eGGA8EHo01vW
+	pIKSPL7co0ifMIPsH0GRf33GPQyDROwhU0FcdCI5pKfp+R0TyBuo2BBJpx3vDm2gR6hBup8w3BA
+	r0/ZxKe3qK0L7lbNPlYx4/Hn9oAIcBw8=
+X-Gm-Gg: AYBFou17d94xR6jSbLeGyLMrdsc78aCrV6y3d4ZysjdJ5iNzK0w9wFzgRPvGhmZsqF7
+	yuv1Km/drM83b52A8jOxNKkeAD504Rl4UOHxh3ojDvUcBTUMY8OKGLRyVrMk05kbsLkrYBlETjh
+	yMFRAlu8SJ+J7MjIkwr+yHXj4xcINWlpq93hu7i5QXuPJhs9ectTQ++cqhhkdJo30/z0DBxBuFa
+	mTjEXbGRTXQbiZlxZL7XRABzPZD7rOaeCVFug7JV5yxgf2g+javSSVLtdfarTwczvAzNN5NGf7V
+	2Bm0cWL0FSlO44oduFyaCHlnzFeNcTAllwuQ+uwzPUD70HiOuG5xKVNY1aYWaTmOXzWVDpEXnZv
+	pI4ShkR++HR/jtpWoUskUuUtmyIiQc3+dTUM=
+X-Received: by 2002:a05:6a00:1f06:b0:857:73e2:9108 with SMTP id
+ d2e1a72fcca58-874ddbffd9bmr3487891b3a.24.1789720204444; Fri, 18 Sep 2026
+ 01:30:04 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: ti: k3-pinctrl: Add virtual GPIO select mux
- macros
-To: Akashdeep Kaur <a-kaur@ti.com>, <nm@ti.com>, <kristo@kernel.org>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-CC: <sebin.francis@ti.com>
-References: <20260917111539.3844577-1-a-kaur@ti.com>
-Content-Language: en-US
-From: Vignesh Raghavendra <vigneshr@ti.com>
-In-Reply-To: <20260917111539.3844577-1-a-kaur@ti.com>
+References: <20260917183602.GA1036092@bhelgaas> <7c2a8582-280e-471a-b4b0-037b2cda6ad8@app.fastmail.com>
+In-Reply-To: <7c2a8582-280e-471a-b4b0-037b2cda6ad8@app.fastmail.com>
+From: Semih Baskan <strst.gs@gmail.com>
+Date: Fri, 18 Sep 2026 11:29:53 +0300
+X-Gm-Features: AcwNN1Vmx2igfjBEkpa8Vuj31sAw9NZLYiN87fYoRwyCYEORDw-WFA-KB1pOT20
+Message-ID: <CAAsRjRnV-RTddO6h2XCUz2N5pB0pS8i_-_2XRcD=WOTA7AAFZQ@mail.gmail.com>
+Subject: Re: [PATCH] PCI: iproc: Use pci_alloc_host_bridge() on BCMA
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Bjorn Helgaas <helgaas@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, bhelgaas@google.com, 
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+	bcm-kernel-feedback-list@broadcom.com, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
+	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, linux-pci@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Rosen Penev <rosenp@gmail.com>, rani.hod@gmail.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL02EPF0002992B:EE_|LV3PR10MB8010:EE_
-X-MS-Office365-Filtering-Correlation-Id: b6a066ca-e378-4cf2-4321-08df155eae2c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|36860700016|1800799024|376014|56012099006|6133799003|3023799007|10067099003|18002099003|22082099003|13003099007;
-X-Microsoft-Antispam-Message-Info: 2k/63NQt4BvQVbUaBs9RByQZG4d6xCX6VgsEtTefOUVP9J9MhgfCrDUtnt/zTF43udvcBnHXgWSiEyJjcQOpH7FuXjUg0pBDFOs3lSROSKS5N/ygcta4BsqpAjDc3wo/ydcaMIbgZuSwz5V6Cd3QFqS59jdE9iefAaOC9I9OvkzgAqXdtudN/EsNHulUGnmPaMs/pkPoaMWGEmoUjuM9ry2xbDFQgHgH7subwvIJAJx6Q7dBV0pQ52eZ8i3BQ7EiBGrPGh+mJmk36d7BgVeBEZVuR4KX4gC2pXw0Q4VvmZ7cMJj7Kdd5Ncef8A5uu/21BrUKSbxOYaqF3INotvJT1OhyftgW1YmroP3XnRyFOvKs9CXVS2auMCjQJ/emvmiwfpgbw/JXjgCOFDdcG0BM3/q+H1llN5PRmk0jO53TjRbtH5PhiUp9T821IItVS+UmmbAn5AbuveEumlZJLYaQRsNvKAn6VejEn0Y/mDweybdxt4orY3CfnbV4CtjkE/tk9vJsuFqAppIpLXOVrAlzvQ2YgQ40Lw8CfL1YP5Fmb7mFeDB4xM7C6VaZOWrCitKvjTegkv1cvhyUqvOQzjkJdgQWYxcFpvMhHkJaqN78tJodNoBeYCslM5DEdjMIm5aadHpF2dDq/TaKXyXOPzNY3g==
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(36860700016)(1800799024)(376014)(56012099006)(6133799003)(3023799007)(10067099003)(18002099003)(22082099003)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: goyUzm2hLnev2fPs9efKwnNB+aMqZy0o4pwx4IWh7T6gah8bYcdb7hoeTDlBGUOeN5WOgcynxcWbxZTzR9qab7OVsFdUKfUP30WpA8N2fjAfB3Z0fQrysb4fFL82xX7IOD40MiXuiRKzSZC4hQa2bI/TBlgee/dBHemJyE2rYr0zVU9sLkkzHG2eEje1xMu0s1XIIsEEe2Ex4Ea7fH3Q9fMu3MWlICk20iO0cauhdFcaITMl4K+ZZxuDyr9vXp+GARssu5jakAYERzPgxHUu+sCYTPvpD/I6SeP2Fvr3eo3a4oCWJ9lw8/9m7U6qgrZNq82OuDK0R8O73yWIYcB5kEeT/9AJJH0N0JryHS9YSlZN6XA4nY3MyFZ1gVovbiDnw2cvGfe9VeZO8vcGrsQ8UQ94HKpDgzMXpCtNzPwon+Sm8Dy/9mLYZgil6zO9Yj90
-X-Exchange-RoutingPolicyChecked: ZqGWfvFC0DVMUHzSt2xPtQbVnCScJhY1rnWhrs53WeaIDNgeZxzqbpF0hof7jQK6G7SU6ohJR2yIlLiu+3vJ5wJYm/RMk7wF2TQf+dE4GB/zkRV06R1AAbXJUTqZCwdAvyKrucgvjPTjsGJqO5S+vtOLrlSKqB7JqcUKL0Xp9kJ/RYnZzYZrRhLa568CPgA2DPIptRgCXT3F+CYwxz57GXmH4HpSFoJoRFgzasXcmXFlqgE8IDzlDfh8bCxlxd8IPiLU+LmVznRyqRvBr+p0d0/vPKWNjAtzbGb1Faw5C2SmGmgnZvNMR+DrPBIigAh1svxdQXMPYr1t4kyLwVpqIA==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Sep 2026 08:27:30.2010
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b6a066ca-e378-4cf2-4321-08df155eae2c
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL02EPF0002992B.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR10MB8010
-X-Proofpoint-ORIG-GUID: -rrd_X8kQDW5w4JGT757GT4280hTm7en
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE4MDExNSBTYWx0ZWRfX8mWxXoLYbDmI
- kT4hgdjq81qgLEWiNZ9hKDpaX5Pg4gLOcbD0iT0hCKgety/vSZ+WJaO0QwgqBY1PRWFtqhttdCh
- w6BaMkyt1OMLxh1wsvrMHIHR2li9EIgYlgVTt8HOtwoYKQDbxCGfFNLlEVCDW7LgMPaqUc6lf9r
- hgG13ksHk5h1LlnT36Xm2YCFpCxE1CDZKcTM1JRsFrbZrIlfdmLdpV6yTmqrDxfs6i1gUzmVWbw
- al5x+I3xMprGQHdwOAJLafMx0nYKWwfNgbCD3dJOkwh61IqBLp/K98EH+fHucMz6hL3w94eHzWb
- blmmZJqlGv5epLl66QGq9AG3/sKU2UMSM66qKzQpwECeYBukME+f6ABQ+kGXkKfWiB4rApKPxBE
- 0WD36zRUSPUKZbjMG35NPNsSDDF4gdIk/tq8VjFnVTbXroh0D5q0lRqo5KXelv68dXQqo74og26
- +Ovx+BhdoXnPatQ/V0w==
-X-Proofpoint-GUID: -rrd_X8kQDW5w4JGT757GT4280hTm7en
-X-Authority-Analysis: v=2.4 cv=eeCo7LEH c=1 sm=1 tr=0 ts=6aacf5f8 cx=c_pps
- a=+UayH2mdqs80qU9+PBkj6w==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
- a=s63m1ICgrNkA:10 a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=Z8NIEmU8O1QQgoT56wFK:22 a=taLDd7a_hP9WKsMzeGRc:22 a=sozttTNsAAAA:8
- a=ZOoyv1ib33HAKZQanHcA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE4MDExNSBTYWx0ZWRfXwt32xRE+UHkK
- kG12gVYR4FK1xLqavmDdSaTBKUPWpMiC2fUG1hHY2SCRxgcamzycrGD/wF6SCGMuU5XBXJvqQDl
- VekB+QDdB/zALBrZXmcV7E+wu/jgxCA=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-18_02,2026-09-16_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 impostorscore=0 suspectscore=0 malwarescore=0 spamscore=0
- clxscore=1015 lowpriorityscore=0 phishscore=0 bulkscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609180115
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_012739_772457_75E53867 
-X-CRM114-Status: GOOD (  17.99  )
+X-CRM114-CacheID: sfid-20260918_013005_463436_A2675271 
+X-CRM114-Status: GOOD (  19.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,74 +125,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Sep 17, 2026 at 10:27:54PM +0200, Arnd Bergmann wrote:
+> Would it be help to change the probe order so the bcma driver
+> always comes before the platform driver?
 
+Only where the DT window matches the EROM one, because that is where
+the platform driver backs out.
 
-On 17/09/26 16:45, Akashdeep Kaur wrote:
-> Add virtual GPIO select mux macros to allow users to select GPIO
-> controller bank for pins. The two GPIO controller instances in the
-> MAIN domain share physical pins, and the vgpio_sel field routes each
-> pin to either bank 0 or bank 2, enabling GPIO partitioning between
-> software domains as documented in Technical Reference Manual[1]. The
-> pad configuration register field description can be referenced at [2].
-> 
-> [1] AM62L TRM (section 10.6): https://www.ti.com/lit/ug/sprujb4a/sprujb4a.pdf
-> [2] AM62L TRM (section 14.2.1.2.1): https://www.ti.com/lit/ug/sprujb4a/sprujb4a.pdf
-> 
-> Signed-off-by: Akashdeep Kaur <a-kaur@ti.com>
-> ---
->  arch/arm64/boot/dts/ti/k3-pinctrl.h | 6 +++++-
->  1 file changed, 5 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-pinctrl.h b/arch/arm64/boot/dts/ti/k3-pinctrl.h
-> index 4491898d8294..d42c466fcc7b 100644
-> --- a/arch/arm64/boot/dts/ti/k3-pinctrl.h
-> +++ b/arch/arm64/boot/dts/ti/k3-pinctrl.h
-> @@ -3,11 +3,12 @@
->   * This header provides constants for pinctrl bindings for TI's K3 SoC
->   * family.
->   *
-> - * Copyright (C) 2018-2025 Texas Instruments Incorporated - https://www.ti.com/
-> + * Copyright (C) 2018-2026 Texas Instruments Incorporated - https://www.ti.com/
->   */
->  #ifndef DTS_ARM64_TI_K3_PINCTRL_H
->  #define DTS_ARM64_TI_K3_PINCTRL_H
->  
-> +#define VGPIO_SEL_SHIFT         (4)
->  #define WKUP_LVL_EN_SHIFT	(7)
->  #define WKUP_LVL_POL_SHIFT	(8)
->  #define DEBOUNCE_SHIFT		(11)
-> @@ -111,6 +112,9 @@
->  #define PIN_WKUP_EN_LEVEL_HIGH		(WKUP_ENABLE | WKUP_ON_LEVEL | WKUP_LEVEL_HIGH)
->  #define PIN_WKUP_EN			(WKUP_ENABLE | WKUP_ON_EDGE)
->  
-> +#define PIN_VGPIO_SEL0                  (0 << VGPIO_SEL_SHIFT)
-> +#define PIN_VGPIO_SEL2                  (1 << VGPIO_SEL_SHIFT)
-> +
+In the tree as it is, the platform driver binds first.
+bcma_bus_register() populates the axi node's children before it
+registers the cores (drivers/bcma/main.c), and with both drivers built
+in the two PCIe drivers are already registered by then (both are
+device_initcall and drivers/pci links before drivers/bcma), so the pcie
+platform devices are bound as soon as they are created. The order of the
+two objects in drivers/pci/controller/Makefile does not change that.
 
-Unfortunately, this field has different meaning in different SoCs. Here
-is the definition from J784s4:
+I tried both orders on an RT-N18U (BCM47081, revision 0x01) with both
+drivers built in, on an OpenWrt 6.18 kernel with pcie-iproc-bcma.c as
+in this patch and no wifi driver built.
 
-Note this field  is irrelevant when Muxmode is not 7.
-for MAIN GPIO
-00 = GPIO0 or 1 depending on the specific pin (meaning if mode 7 has
-GPIO0.x then it is GPIO0 and if GPIO1.x then GPIO1)
-01 - GPIO2 or 3 depending on the specific pin (meaning if mode 7 has
-GPIO0.x then it is GPIO2 and if GPIO1.x then GPIO3)
-10 - GPIO4 or 5 depending on the specific pin (meaning if mode 7 has
-GPIO0.x then it is GPIO4 and if GPIO1.x then GPIO5)
-11 - GPIO6 or 7 depending on the specific pin (meaning if mode 7 has
-GPIO0.x then it is GPIO6 and if GPIO1.x then GPIO7)
-Note this field  is irrelevant when Muxmode is not 7.
+With the platform driver first, the board did not come up, on two
+flashes. The same tree built with only the BCMA driver boots it.
 
-Thus, macros need to be generic or it should just open code the constant.
+With of_platform_default_populate() moved after
+bcma_register_devices() as a test, it boots. pcie-iproc-bcma takes the
+first controller and enumerates the BCM4360 as before. The platform
+driver then probes the same node and fails in
+devm_pci_alloc_host_bridge(), which it reports as -ENOMEM:
 
->  /* Default mux configuration for gpio-ranges to use with pinctrl */
->  #define PIN_GPIO_RANGE_IOPAD	(PIN_INPUT | 7)
->  
+  iproc-pcie 18012000.pcie: resource collision: [mem
+0x08000000-0x0fffffff] conflicts with PCIe MEM space [mem
+0x08000000-0x0fffffff]
 
--- 
-Regards
-Vignesh
-https://ti.com/opensource
+On the second and third controllers the DT window is
+0x20000000/0x28000000 and the EROM one 0x40000000/0x48000000, so the
+platform driver's request goes through and its probe carries on with
+the DT window until the link check, which fails because nothing is
+connected to those two on this board. That is as far as this board can
+show.
 
+On the first controller the DT window and the EROM one are the same,
+so the window plays no part in the no-boot. With PCIE_IPROC_BCMA not
+set at all the board did not come up either. Clearing
+has_apb_err_disable for IPROC_PCIE_PAXB, one line, makes that
+platform-only kernel boot and enumerate the BCM4360; nothing else
+differs between the two builds. The flag makes the driver read and
+write APB_ERR_EN (0xf40) around every config access to bus 1 and
+above (538928fd6ce8). In the bcma-first build the platform driver
+never reached bus 1. The PAXB_BCMA register table has no such
+register, and 404349c5c806 ("PCI: iproc: Add BCMA type") describes
+the BCMA-based NS as a legacy PAXB with some registers missing. On
+Rafa=C5=82's BCM47094 (revision 0x07) the platform driver as shipped
+enumerates both BCM4366s. I could not see what the access to 0xf40
+does on revision 0x01, only that the board comes up without it.
+
+Best regards,
+Semih
 
