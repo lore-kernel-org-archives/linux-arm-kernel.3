@@ -4,107 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33372C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 07:52:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79700C982D2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 07:55:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GENi4md1c446ap3YU+8WbAIKW0z2UxkHlaNTGXc/qAc=; b=AOv7HjCk6D+dftIOoz+i7O8CwV
-	y/azbx6IcKrjv45fJZBXVKNFmHvwuQo0Hm3nPhyR0x3xa3mW3JOo2tjju2SILTeFz1yKHwSfoPjsk
-	6x/N0g0ubxcrCfUmXwEka3DDzE9Z9j67Ua9+5XgJT0EzajLm1DZFPi6W1KX2dVEEohRFMNPeXyE/9
-	t1JD4FnaeDmG8cf0Jum6OPiysW02tZsvDbwfjNsHTtjSJ7Q/nIMCBevReW5C1m174x6tgtdt4oDA1
-	tnriWmxCwccW5shA1ZxEgzhe/0POLqK594yI+VBk0D/cF86XmsW7RqgmzyTD1pTpR0nMkuB1Ik0yb
-	9SlkIIzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hvrGzctpGGzu8oxKQw3tKpiz4XHwPltvrD9jJxe8Oa4=; b=BbwlUMh13wHYK2uxoo20Icm592
+	l3EFdYWXLiayB0VX0unW8o8Ep8N4Dy8e6fMEbWMrWW/wBsP+Xesdh2XYzsYVK9ILYevh+VmNuAUjX
+	OwTrp2p5CPfNrxf5EOGFFPT0bkao0pfZy5qDYprX2Ao5Oc66TjsUzyL0tvJt/sPALx3m09bkar7V1
+	8p65DVGn7ofs1YCwIJClalE0HyJM+Qcz5MVBKD35E8WzW/Sz141ZYovvXzd0FsKUb9cpGwfAxOip8
+	kpt90JSWSHYl+XknabWffewJD/seruOhPA35nt1UbJvSiUB4mk9MosT+Q8XlNae2Dxef2FkJWdaID
+	99wtXgRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7TOD-0000000DjmW-27rx;
-	Fri, 18 Sep 2026 07:52:09 +0000
-Received: from mail-qk2-x0f.google.com ([2607:f8b0:4864:34::f])
+	id 1x7TR2-0000000Dk4V-0bqs;
+	Fri, 18 Sep 2026 07:55:04 +0000
+Received: from out-182.mta0.migadu.com ([2001:41d0:1004:224b::b6] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7TOA-0000000Djls-2dll
+	id 1x7TQx-0000000Dk2N-2IP3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 07:52:07 +0000
-Received: by mail-qk2-x0f.google.com with SMTP id d75a77b69052e-52fb76ef1d0so3992321cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 00:52:05 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1789717925; cv=none;
-        d=google.com; s=arc-20260327;
-        b=hAZCTS0ehkToSjohyaWM/XaEGJQgC2YAJPFDYXw80oLlb+SorUQJScoWgjltNVROBa
-         ItzNbWwjvHndNKqJnIdUCHttwM1PL+0uIC4avnltGgGCCmenDUUeWsG2y2xpAyZqyHlI
-         FHW6/7qGqyBSpldplQcC3H0Mv9QDy43K2GjjhrNYgGS1D6uE+Fotlyb3J30ttgLaq24l
-         xVTo5xXx2TsJotgZj5OZWwSk+e/GBbObtbTq2f02aP7z7eY78B5+I4cPGDV10iLDnDpy
-         FXYsFenV7rOenzmF9MIuXPjCJff15WICZSUVKrHipNIhx5WzvRkzz96QlAcgJ48FYG9x
-         uT0g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=GENi4md1c446ap3YU+8WbAIKW0z2UxkHlaNTGXc/qAc=;
-        fh=cXapT4wULyqU5cD07xx11SJRRomg7X/zLcpxIsIrrxs=;
-        b=ZDqSXxl2SmqYRgBVTVfMiuP0kWKQBXX32qgl7cR3jj1RTRGEP92zx2eVTejhPz8l72
-         wh/jJroVUtxh6PzhElGUX3P6PSMNOzGZfbS2Rze7whFmE2z+PKecKgLQOzvM+/CpS6Q+
-         jpFATdJhq/CgP3L1kRu3DdHjPn1K0GjO9O8w/xFy/oZJKd7u9pqiIVQGO9Uv6fyYxaV9
-         tuaDW3JALr1eI4tt1S/q9ZoFuz+Fr8pS5MlG1MFaEdJmwlUnviw2uz/akR5yUxDEJju9
-         UUGSPe32fzL5lA8TXMRvPSGdv9euZb2u6AD1wxl3mhd1mLAUCPOSnOHCg8vn+WLxqasU
-         gIAw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789717925; x=1790322725; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=GENi4md1c446ap3YU+8WbAIKW0z2UxkHlaNTGXc/qAc=;
-        b=mOt+zT7M6rLiWQxpsxrP/E6toM8f1QESLulaAPpz3Q4hsQ3Gqexr8ErdIs8JUQbGAZ
-         NpMoVgpuIhcMZer1/xLDxbay6xciDR46sPI0fZtqKWh5NcNSn0DfCMUiYJKlYp2ytv69
-         pyc+LwjoDthDOTKdk4VcYSbuqU83gh2mz+SC79dQ+oJbBB8kBnvI2B5Pm71gys0J+Elo
-         P3Z2pPuMMfZmx5+EEopmZdntGwmo/CMyACU1NpuLs60164tRQPadG+IJtrMzab3+DzOt
-         drILUubyx2AmPOjTNd5snrZde8Cpf+o7LvWKH2DP4fC2HdXKEy6MQ/A93QjjkfPbpkOx
-         f5xw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789717925; x=1790322725;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=GENi4md1c446ap3YU+8WbAIKW0z2UxkHlaNTGXc/qAc=;
-        b=eIC2pXxgMApLeXz2f49CxWNQAKZuwQJL5jQt+L69JsECskZeBs4oOFJjQzpdDhi/e9
-         6TgEditfj03JTSzeVfCy2VyzI1QUdvRxpMgq14nFpdxNyB0itg1K6g+ORK/SljUhOLfQ
-         9T9kUEtZufzNqy5yiYszsWcR2J7En1ZPcznbRrsl4SzaqxY3IvGcd5c1as+rUMh6Azwj
-         q8+5vDQvFvJRTPAfwgLGOoo9SYYcPgDkH7UxHphmXH8mR3PmnlnHg8N5SrFe8SQ1SYIL
-         pnSyCHRU5K97pnWve63SveECCwWm8GODNnb0WxJMwDMsLgzmduSE5OrtylMA7LkDruRA
-         Khkw==
-X-Forwarded-Encrypted: i=1; AKwUvByQQI4XA/3ICdPx4AdvlSE2wkMLwjSy75CKz+bNixhsSCtlEHe4pvZEH1tmK4To8GCT0IWHqGe3d9zcBIkY6zNI@lists.infradead.org
-X-Gm-Message-State: AFuF++kAWMt2gmODxswOuxnyFCMtXUv8dH1Jvn+K3h3PvmO8q4QdRIJt
-	RkdBvmUghG4LfCkkHKLBzo1QHoCPNGfTvEac5p+ATJK4rF5jqJm+/BeBvjGu/o1sIQ+igBgShoz
-	0qcnxHh758PaLe39POpMOw3Dsnxxrg+k=
-X-Gm-Gg: AYBFou1kRE+AgRfBDZNEzECIeDYyPANB0mmz2bg7+r4eEaCINRiFEEwFoazEu4a+K2l
-	86xAj6lUbeC1QjAjRDVhusSlv9+KPQkTxiZ2gDkF9bbdTbAalb3+1adTdTUm9rDw6xmoBbMlNZo
-	3f+2AcGVUclqkB3gpGWpAuv+iLg52LAkIkLiBNjSZo0vHnffjqpAGDwgBGTtjmRnrRjr68qyJr0
-	ePw42zFuCB+FHjWwkfjhoVZ2WxODqdxUd6xUKJtbfgenVZi69ISb5UOleGt7i3lKY4d9rLqvjxn
-	S0U7tuWlA8SAW0xJRRTGsXtQblcULATpChuxMXngAd3auqU+WlqZWazHNz+nIIX1GBub55sftSP
-	7MRJlf1C0zA/15w==
-X-Received: by 2002:a05:622a:54b:b0:530:e6b9:f5d9 with SMTP id
- d75a77b69052e-5329e2887c3mr28806961cf.20.1789717924743; Fri, 18 Sep 2026
- 00:52:04 -0700 (PDT)
+	Fri, 18 Sep 2026 07:55:02 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=w1C6Uq5LGLS5v5+hUhhr7wym9SsyY1oKg1mT464GIeo=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1789718096; v=1; x=1790322896;
+ b=cQTyQpN72GWh0vFSP2OSSt6OoeLakd/ZFjqWUqc1nDBXGR9zWWRQY06J5rh0UbilUNacd91L
+ F3G0c+rlbShg36Rvo036m6CEVa69aFhh/lsy8ZZlyrfMz+5viDApJz7MxT8J9PiA6S061DCLYQJ
+ YoLnqz8tCr2yoVDATrSIr4e0=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by mta11.migadu.com with ESMTPS id ea360a8e458d95f5;
+	Fri, 18 Sep 2026 07:54:56 +0000
+X-Mizu-Trace-ID: ea360a8e458d95f5
+X-Migadu-Flow: FLOW_OUT
+Date: Fri, 18 Sep 2026 15:54:48 +0800
+From: Baoquan He <baoquan.he@linux.dev>
+To: Wandun Chen <chenwandun1@gmail.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
+	dave.hansen@linux.intel.com, x86@kernel.org, robh@kernel.org,
+	saravanak@kernel.org, akpm@linux-foundation.org, rppt@kernel.org,
+	pasha.tatashin@soleen.com, pratyush@kernel.org,
+	m.szyprowski@samsung.com, mark.rutland@arm.com, kernel@xen0n.name,
+	alex@ghiti.fr, hpa@zytor.com, ruirui.yang@linux.dev,
+	robin.murphy@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	kexec@lists.infradead.org, linux-mm@kvack.org,
+	iommu@lists.linux.dev
+Subject: Re: [PATCH v6 04/10] crash_core: serialize crash header preparation
+ against hotplug
+Message-ID: <aqzuSJKR03zEOCan@fedora>
+References: <20260902073116.802752-1-chenwandun1@gmail.com>
+ <20260902073116.802752-5-chenwandun1@gmail.com>
 MIME-Version: 1.0
-References: <20260917155834.2161361-1-vulab@iscas.ac.cn>
-In-Reply-To: <20260917155834.2161361-1-vulab@iscas.ac.cn>
-From: Alexey Charkov <alchark@gmail.com>
-Date: Fri, 18 Sep 2026 11:51:56 +0400
-X-Gm-Features: AcwNN1WPnMYUOHlV-frab_8tJfPEncIhhSiRLeqBqP4mXUOCMzFeKOSH0f4nq-I
-Message-ID: <CABjd4Yy-9A0xWCDfZemHOTZDrDdtdO05nUjmN=w=sLwYjzZn8Q@mail.gmail.com>
-Subject: Re: [PATCH] serial: vt8500: Fix clock reference leak in vt8500_serial_probe()
-To: Wentao Liang <vulab@iscas.ac.cn>
-Cc: gregkh@linuxfoundation.org, jirislaby@kernel.org, krzk@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-serial@vger.kernel.org, linux@prisktech.co.nz, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260902073116.802752-5-chenwandun1@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_005206_675617_E037EDFD 
-X-CRM114-Status: GOOD (  17.19  )
+X-CRM114-CacheID: sfid-20260918_005459_725048_2412459E 
+X-CRM114-Status: GOOD (  21.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,40 +82,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 7:58=E2=80=AFPM Wentao Liang <vulab@iscas.ac.cn> wr=
-ote:
->
-> of_clk_get() returns a clock with a reference that has to be released
-> with clk_put(). If clk_prepare_enable() fails the function returns
-> without doing so, leaking the reference.
->
-> Add the missing clk_put() on that error path.
->
-> Fixes: 12faa35ae5cb ("serial: vt8500: UART uses gated clock rather than 2=
-4Mhz reference")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+On 09/02/26 at 03:31pm, Wandun Chen wrote:
+> From: Wandun Chen <chenwandun@lixiang.com>
+> 
+> crash_prepare_headers() counts memory ranges before populating the
+> allocated crash_mem array. The weak implementation used by ARM64,
+> RISC-V and LoongArch walks memblock.memory, while x86 performs the same
+> two-pass operation over system RAM resources. Concurrent memory hotplug
+> can change range source between the two walks and make the populate
+> pass overflow cmem->ranges.
+> 
+> Take device_hotplug_lock when preparing crash headers during
+> kexec_file_load(). The x86 memory hotplug path already takes
+> device_hotplug_lock, so call __crash_prepare_headers() directly
+> to avoid recursive locking.
+> 
+> Sashiko reported this issue in [1].
+> 
+> Fixes: 3751e728cef2 ("arm64: kexec_file: add crash dump support")
+> Fixes: 1bcca8620a91 ("LoongArch: Add crash dump support for kexec_file")
+> Fixes: 8acea455fafa ("RISC-V: Support for kexec_file on panic")
+> Fixes: dd5f726076cc ("kexec: support for kexec on panic using new system call")
+> Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
+> Link: https://sashiko.dev/#/message/20260806101002.1F84E1F000E9@smtp.kernel.org [1]
 > ---
->  drivers/tty/serial/vt8500_serial.c | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/drivers/tty/serial/vt8500_serial.c b/drivers/tty/serial/vt85=
-00_serial.c
-> index 78a1c1eea11b..fc6fdc751b16 100644
-> --- a/drivers/tty/serial/vt8500_serial.c
-> +++ b/drivers/tty/serial/vt8500_serial.c
-> @@ -656,6 +656,7 @@ static int vt8500_serial_probe(struct platform_device=
- *pdev)
->         ret =3D clk_prepare_enable(vt8500_port->clk);
->         if (ret) {
->                 dev_err(&pdev->dev, "failed to enable clock\n");
-> +               clk_put(vt8500_port->clk);
+>  arch/x86/kernel/crash.c    |  2 +-
+>  include/linux/crash_core.h |  2 ++
+>  kernel/crash_core.c        | 17 +++++++++++++++--
+>  3 files changed, 18 insertions(+), 3 deletions(-)
 
-The probe function currently mixes devm-managed and manual resource
-allocations, with the clk standing out in particular. Instead of
-adding a manual clk_put, could you please switch the clk calls to
-devm_clk_get_enabled and drop redundant boilerplate?
+LGTM,
 
-Best regards,
-Alexey
+Acked-by: Baoquan He <baoquan.he@linux.dev>
+
+> 
+> diff --git a/arch/x86/kernel/crash.c b/arch/x86/kernel/crash.c
+> index e681ec9cf1dc..284d78bc3fd0 100644
+> --- a/arch/x86/kernel/crash.c
+> +++ b/arch/x86/kernel/crash.c
+> @@ -465,7 +465,7 @@ void arch_crash_handle_hotplug_event(struct kimage *image, void *arg)
+>  	 * Create the new elfcorehdr reflecting the changes to CPU and/or
+>  	 * memory resources.
+>  	 */
+> -	if (crash_prepare_headers(IS_ENABLED(CONFIG_X86_64), &elfbuf, &elfsz, NULL)) {
+> +	if (__crash_prepare_headers(IS_ENABLED(CONFIG_X86_64), &elfbuf, &elfsz, NULL)) {
+>  		pr_err("unable to create new elfcorehdr");
+>  		goto out;
+>  	}
+> diff --git a/include/linux/crash_core.h b/include/linux/crash_core.h
+> index bc087124cd78..28e7a81cf263 100644
+> --- a/include/linux/crash_core.h
+> +++ b/include/linux/crash_core.h
+> @@ -61,6 +61,8 @@ extern int crash_prepare_elf64_headers(struct crash_mem *mem, int need_kernel_ma
+>  				       void **addr, unsigned long *sz);
+>  extern int crash_prepare_headers(int need_kernel_map, void **addr,
+>  				 unsigned long *sz, unsigned long *nr_mem_ranges);
+> +int __crash_prepare_headers(int need_kernel_map, void **addr, unsigned long *sz,
+> +			    unsigned long *nr_mem_ranges);
+>  extern int crash_exclude_core_ranges(struct crash_mem **cmem);
+>  
+>  struct kimage;
+> diff --git a/kernel/crash_core.c b/kernel/crash_core.c
+> index 77285ae3ce60..3adee1ae120c 100644
+> --- a/kernel/crash_core.c
+> +++ b/kernel/crash_core.c
+> @@ -16,6 +16,7 @@
+>  #include <linux/mm.h>
+>  #include <linux/cpuhotplug.h>
+>  #include <linux/memblock.h>
+> +#include <linux/device.h>
+>  #include <linux/kmemleak.h>
+>  #include <linux/crash_core.h>
+>  #include <linux/reboot.h>
+> @@ -338,8 +339,8 @@ int crash_exclude_core_ranges(struct crash_mem **cmem)
+>  	return 0;
+>  }
+>  
+> -int crash_prepare_headers(int need_kernel_map, void **addr, unsigned long *sz,
+> -			  unsigned long *nr_mem_ranges)
+> +int __crash_prepare_headers(int need_kernel_map, void **addr, unsigned long *sz,
+> +			    unsigned long *nr_mem_ranges)
+>  {
+>  	unsigned int max_nr_ranges;
+>  	struct crash_mem *cmem;
+> @@ -376,6 +377,18 @@ int crash_prepare_headers(int need_kernel_map, void **addr, unsigned long *sz,
+>  	return ret;
+>  }
+>  
+> +int crash_prepare_headers(int need_kernel_map, void **addr, unsigned long *sz,
+> +			  unsigned long *nr_mem_ranges)
+> +{
+> +	int ret;
+> +
+> +	lock_device_hotplug();
+> +	ret = __crash_prepare_headers(need_kernel_map, addr, sz, nr_mem_ranges);
+> +	unlock_device_hotplug();
+> +
+> +	return ret;
+> +}
+> +
+>  /**
+>   * crash_exclude_mem_range - exclude a mem range for existing ranges
+>   * @mem: mem->range contains an array of ranges sorted in ascending order
+> -- 
+> 2.43.0
+> 
 
