@@ -4,131 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04FFCC982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 12:57:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F2B6C982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 12:58:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7yfs9HWIx8BRHnKOBh0Nq50Gbh9QbKPPzqllUr7EVQs=; b=CnXzsTKlVmETCUwOI4MH88mbjy
-	Qxo5H7LIESWNtxUqjc1Uij4vpX7dJKcw1PDRRPKitp/bAaCSVRk7tqqAM2ACayT4cLu2dBfDizKJi
-	6+ChCDFKu2rjD1IrM1+H5EDLiJOhlSqrwv/1qmvEmo0DSolY6Tk/0AIwJiOVqOkRT4Hjf2WbftvC2
-	4unhjLnm8X+zDKKYrdHwSaQslLKN+mbc8i7eif9CohgCYagGqtBJJiYGonoe32XVNbtoI2O66w4b2
-	H2Cxa92vi0w8ZNd2GVvWxpMB3M/jeUDIB7SCKJWdykbS4+ZO/TABGresgOSvRUGuyYbvnj1SJZ9hm
-	dMcAZdlw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+jZjMknHkx8BX5rBouTl+QaAXJkEXnMFJLCmzg+gkxM=; b=obUgd0uc8N8ZRxh6ma99P3YpEM
+	YmiCta3VSAOMwqO8wuVITVj0LxUVzMzcXhNEqNyFOaRw6TndwMkEWvN8ZL9z4ZK5GS5vi3xIsmfhS
+	m4Z9aBtfOfUglffQI8NAisSILHZNHHiuFuqXcTZuEqGKqgzGjcdq3QGAHERYHi4KTyXVf8iji/8kv
+	pLmo7ImzDSFMsrWiFwShFeETwkKX8QKnY8dVk++IDr14C1FGdnBLgNxQeyDNd1ysm79DwnYlEXSwP
+	5eDQbSFulMxDVG6s7QzM3dshWQm4VKaLMLEHXvTnC+p6wkt0q36sYdgL/i1c/7AqEG45k9ZE6tKHG
+	hkKzSMDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Y9p-0000000EQPJ-3Nax;
-	Fri, 18 Sep 2026 12:57:37 +0000
-Received: from mail-japaneastazon11023098.outbound.protection.outlook.com ([52.101.127.98] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1x7YAg-0000000EQbn-0kO7;
+	Fri, 18 Sep 2026 12:58:30 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Y9i-0000000EQLv-0pCq;
-	Fri, 18 Sep 2026 12:57:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=W8rU08io5bf6mnCKjVz6Ec0W4y6fR39zJmrKOWSuMtz3pQ8t4XuFBiGUEoGGpkCmCs2DVtiuCxZqFdT9rlnsLl31HJiVUeDCt57MmfMeawfXBgtjHdMwRKvPxAXPzsqsKjpDWJdUI3CmCgM3d/uR6UvtQA79+zKgGoxOogikKICePuoYvccmW9OhyIZSFH5NKR9TrhBs2P5K3RvIeAxTaHo5+CF+VJjwFR4NItNnnoHA+wK9NrlDp3NhJodHWYx2uMXLTmYJxg8YtW4JlkxpIgL30B27kvoHcVxhP4oir2AfQiNbj0uFpjB8RKeUsXr90RVtpuE4XZ5pczIDSabjlg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7yfs9HWIx8BRHnKOBh0Nq50Gbh9QbKPPzqllUr7EVQs=;
- b=hAaXx1refNMmj02i7XAgpasHw4BpOxgVk9xzjscRBXiDtQHC3DYyfjFi1DU7e0+3Ii2JNgWnX15nnVMMVkmHP29IGr3W2L57mvpT6fH5lLLNhYwVr5B08IWzCTbJzpPRzWEMWVWxFTaTa7j1zU543RBY7jbL4H8R5MKP+8sfqgBCtruZKUa+iGPymqN8NQ+7cH2zP9/XT37YtEgcvK0YAYpG7ogxAP1VY8BzF/AB0WwX21QeCRyd3MSpWl4X6g9FxJhlETcalj0wmwmfoHqiikoovLJ+scgo5Vmik/y5nn58gXAh1KMGAF7+hJaLDXH8gVsFjjsWMl3bRuHpmSwY2Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=crepuse.com; dmarc=pass action=none header.from=crepuse.com;
- dkim=pass header.d=crepuse.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=crepuse.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7yfs9HWIx8BRHnKOBh0Nq50Gbh9QbKPPzqllUr7EVQs=;
- b=peX6zdCVbsxIW7RBPyFnEbX9cyeCZ92fmAbUqwDwfIhuaVE588DDZwTGvlcC39ZuKMmZ961KbutgCaq/vLj10XQ19Y3johL6vNLAdqdorTqyPd7TSZbBB8DNo3HK6IYoV+uBP9SbU+SPh9HIB24quD6ydr36zt+0OTOQO4+HvCFzWpTF2ZS9uor5T58ESPoO6uo55tKBJgg3nrCqM+FAjmwrka+rNjOqKsC4xVdf7iTIYjaqpM71cyzErieQxihMXSDHTsRKt4OA6BtP3KpMaAhNHaE1kY0ARwistSfoiqPqSfIMeodvajL8e2RK8Musjy4gRmqWR7h2/d9v2sb+uA==
-Received: from PS1PPF6469DE8C6.apcprd06.prod.outlook.com (2603:1096:308::253)
- by TYUPR06MB5980.apcprd06.prod.outlook.com (2603:1096:400:357::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.11; Fri, 18 Sep
- 2026 12:57:19 +0000
-Received: from PS1PPF6469DE8C6.apcprd06.prod.outlook.com
- ([fe80::e60a:2617:6895:a0cf]) by PS1PPF6469DE8C6.apcprd06.prod.outlook.com
- ([fe80::e60a:2617:6895:a0cf%6]) with mapi id 15.21.0406.007; Fri, 18 Sep 2026
- 12:57:18 +0000
-From: Mizuno Miotsuki <founder@crepuse.com>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>, Mark Brown <broonie@kernel.org>
-CC: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>, Heiko Stuebner <heiko@sntech.de>,
+	id 1x7YAe-0000000EQbQ-3riC;
+	Fri, 18 Sep 2026 12:58:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id DE6A96053C;
+	Fri, 18 Sep 2026 12:58:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AD981F000FF;
+	Fri, 18 Sep 2026 12:58:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789736307;
+	bh=+jZjMknHkx8BX5rBouTl+QaAXJkEXnMFJLCmzg+gkxM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Q8O4Mfr0Su2K5lTU44Xq3rNWrYkvq42k3ONRlPM4rj9vUnnVa6GbPi/LCJQl/V3kz
+	 G5MjEpO6KYM6JrVteRD2Xs3uQ1Q6bU4bGyiaOWm+kY6l88yKFUNFn6kv5KHEBL/yvY
+	 Yke5LJKkOiBBnnXAjwLtotYXygQ4PPx2hOAe3b2Nu1+uidlTjZMlhCintKK5gd6jeJ
+	 o8gw+DUvOIJ2D5cKPtdawHT0LarR6NSuFknqFx5O2WAuo45pTxSXOo+TTKvLoiGFVU
+	 troKaVmcL036hWbESJIMB2+2pk0HYI/a1HF/XsnjpPRouSPCZ2hvDLJBTPcffrm7hZ
+	 Mudx0iBNw5A4Q==
+Date: Fri, 18 Sep 2026 13:58:22 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Mizuno Miotsuki <founder@crepuse.com>
+Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Heiko Stuebner <heiko@sntech.de>,
 	"linux-sound@vger.kernel.org" <linux-sound@vger.kernel.org>,
 	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-rockchip@lists.infradead.org"
-	<linux-rockchip@lists.infradead.org>
-Subject: [RFC PATCH 0/1] ASoC: codecs: rk3308: add support for codec revision
- B
-Thread-Topic: [RFC PATCH 0/1] ASoC: codecs: rk3308: add support for codec
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>
+Subject: Re: [RFC PATCH 0/1] ASoC: codecs: rk3308: add support for codec
  revision B
-Thread-Index: AQHdR2084WOWJLbj5kaUO71XLMNpEA==
-Date: Fri, 18 Sep 2026 12:57:18 +0000
-Message-ID: <20260918125711.94361-1-founder@crepuse.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=crepuse.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PS1PPF6469DE8C6:EE_|TYUPR06MB5980:EE_
-x-ms-office365-filtering-correlation-id: 53095bbc-3bcf-4d37-aa7f-08df15845f4a
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|23010399003|1800799024|7416014|6133799003|18002099003|56012099006|10067099003|3023799007|38070700021;
-x-microsoft-antispam-message-info: ePzJN2hY4X/ieL2Og29ixmcqoD2G7M6JDb7pCTRPeKkBNnwS8CTWr40dHHTjSV6gmQw5soPpyEwuBaNyVv1WNV6qMa+DRR546U756v/8PTDhe91ZRCYmtnutLjCAwZKSfFI0iRcoTLPBThgarb/V7Rs/hxIyJ3capRDnshEQk3dlxAUS4cHIvhSxDBKdiqRoQHaXIP0gZkU9BJq0hvgMgM2T+yi3FaxAEe4kwTGxLVy+iXC1xTFGQ0pO6gPrVnBc+nm78F2l/wQbvXY4bdaSqyRLDPAuD4aOHhZiNzLtntzH+VXs1dFEJxKqz3Rihv6MKPKsTx2NRQ4uNbVMzNcc33oBJmrygYUnjWU9pHxdg74dQ/kbYpWk/aijsJESM+E0mdWY2yLMw9Uf4UtzvIoiuvqg17cTO3nsoa2Oe1n4/GeMRJcvToXeM4YNew3Jp/rylutXgsivQsu5w+Z+7czhMkEIPjverQx1R9YW/7lLD8SjyzTiLiNuYtnJKIs9AUkMKkh48TNdM1ZE2s6LQS8ZW96J4fHFc2SWETF4P/GtxNQRb5eALOpOW2Y1AEL945boFUCE4C4KtLxFx03kiQnr9autGnu9lf5G6RBR0MJIpracWZiSw6DvZdimeh/O7MPXbDaEgqTWFPi7nIt/azIyls6Q8J0yYLL6EwLLBjQzG4TSq/2Sp3omrwRFoxGM2hVfkeNHfK3dcuL7d47jdoK5IA==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PS1PPF6469DE8C6.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(23010399003)(1800799024)(7416014)(6133799003)(18002099003)(56012099006)(10067099003)(3023799007)(38070700021);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?pSV6jWZW6vAxvtvr6caiH0JOtx2WJLm6C+Q84lFlhBzleN/UrBRR9DEbs0?=
- =?iso-8859-1?Q?7kgR0X6V46HZqKuLKO1xCB+vLXr1t1H+8dBauoGuoD9nR8YBWWfQtGZtmm?=
- =?iso-8859-1?Q?v2rMJz/gC4pj5n3CqeYLWksslzg3QfaL/cBJeaCkxE/Yf745gbIhXc47Ri?=
- =?iso-8859-1?Q?CN8w9SzywVt0/1NuF1dzTCtZ32vFRoXINF5qFywX3fUaICRIgtmAAHvgXM?=
- =?iso-8859-1?Q?ANE8w3FYqb6G2hd2qxATOtSFlELiFwQ7pfKKLcpzEN7ix+dbLS/pPzNZt/?=
- =?iso-8859-1?Q?2qhLpFg68Q9IVPtFIlmd/3HbqyYSTZHNMsEw6RuGnrLYT6HjyWuosi30QV?=
- =?iso-8859-1?Q?Fnewi8k0+AV+n93wFfkl7rWimy1z0LUmSLAXG+r4UxoCIdHrVve+jwpFAJ?=
- =?iso-8859-1?Q?qMhj/KrNdFIwGesaINkxrFB6eU0ZsVXdHWhv07pc1oKi265Q9Mw77P8PBO?=
- =?iso-8859-1?Q?+jTGJE8q4q/YjBQIHG5AlUc0YLLVTEubqHGgNdRF+mSEQv0ha0jhQHHGoR?=
- =?iso-8859-1?Q?8/W9aMszd0B+SLcm2u3Q/+ezv8mnyRp+GCQ+AmijWYiMJRU9VbvAAzvXTe?=
- =?iso-8859-1?Q?YyNAZQDfgVZEL6Uhcfb8xINJdDTpOfHzVLk6hpJAI4jjN9lrmPlJ/x2485?=
- =?iso-8859-1?Q?U0NNf1mAdNXyqPwLS9c0MtA3XHBcNObFgf4NanEscMccxWHXMopnFWhC+2?=
- =?iso-8859-1?Q?Z/zVhTGtMPn+LVtS33bHvNbpNPNh3P4LECD9elZ6DgpAD4vZdBs5ZixnGF?=
- =?iso-8859-1?Q?BnFhaORnAABY81sCA6VNykLwahEpHCm22jBZsGp6XzOhlvfjXk5GbbCvEf?=
- =?iso-8859-1?Q?G+U8TdP+IFOKNMUHrV/s0FsSfDKXI2qD8no/e+Wg3tfrYmAtJZegt2Og1K?=
- =?iso-8859-1?Q?gDyF33MpRB6dkwIfuoSrEsy8AtyXJSVuSTbk5YGMQM3J74ZwboEnv15Umq?=
- =?iso-8859-1?Q?/nouuX/9vuSBcA3HjaRhOejNdRQElU2SBtMmHAAehSF26hBSpqzEHxHipG?=
- =?iso-8859-1?Q?HkDVuj0RyLk0J2SouKRamSEuKbkJ9U96rCtulxN5kQ17FbhV28fGH5C+5A?=
- =?iso-8859-1?Q?PtttietqaIXUd2g1SwE4YRkeH9gQQ/bRJWaBk25QB7wHtn8Nvn/3o4Neud?=
- =?iso-8859-1?Q?Ef8nkIA69ubR8uFnycreQV8Rhjj1rKJPz/K2Xu8AhckgIUhLFKSUjjVAIu?=
- =?iso-8859-1?Q?wKPvDwMjjWIUQAQIV0nQJSjGkm/JMHei7SI7M4tbYzvpZkPMH7r2YgmsqX?=
- =?iso-8859-1?Q?TiaTXm5UBQRPBRN5PitqTlw1VpEo7G19pblS80sCRUNudXaUfZtj3nOFHy?=
- =?iso-8859-1?Q?lh3u7fGQMiVey/DshhsrP1nALH1YZEcI+mdvc/AI1pzlxFrII4lrUDBczB?=
- =?iso-8859-1?Q?fMRCZnt5jRj4+1XMhV6kzGzpTQCoOnSteakZiC1O5Sp5MPKK+HlU1pkQPT?=
- =?iso-8859-1?Q?0doQbRCf/ez2Nd7OWPi9GiBuGd2UHpxPRlfqNay7f22WqYTRTvwDZNDtCY?=
- =?iso-8859-1?Q?Puoh8OSG123sefzUbR1chg8Gsl2840N504wVxrJMO77ixm/ah7nhiBTgLr?=
- =?iso-8859-1?Q?XeDV2DzA9D9i9ad3ag1+SlAet8BeMC1AhRgXAcGv5nKs04TpmdzoR3JRga?=
- =?iso-8859-1?Q?t8as7ynHeCIaSxyubxDLQ6YroY9Ue8KCqLedgcyelMbv/QKQzRKsQJ/yyK?=
- =?iso-8859-1?Q?31fkAb2O6OSnWdEMjnw015gnuZUFlG03iiTQ5Yxp0rnpqxu1igIhuk8XbY?=
- =?iso-8859-1?Q?iZw9Un4rk/cLKKCdZ2xTOSm1TcEFg8uXpshmUJy+/nYu+t?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Message-ID: <cb148119-a746-4b9d-8a3d-fc209ca6adf4@sirena.org.uk>
+References: <20260918125711.94361-1-founder@crepuse.com>
 MIME-Version: 1.0
-X-OriginatorOrg: crepuse.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PS1PPF6469DE8C6.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 53095bbc-3bcf-4d37-aa7f-08df15845f4a
-X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Sep 2026 12:57:18.8412
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 1d352272-7d70-4a91-9c85-0db444db1bc9
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: pTNbWpQ38ukr0FvBxLCAnxqtu4oRueGsgEhGHvu0i085PEx0Mwlkwvx05kvnRxV0jiWtCNYoa7nlXTAD5lFkoA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYUPR06MB5980
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_055730_236856_AC68A419 
-X-CRM114-Status: UNSURE (   9.38  )
-X-CRM114-Notice: Please train this message.
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="qvbS5Oge9x2b8SxP"
+Content-Disposition: inline
+In-Reply-To: <20260918125711.94361-1-founder@crepuse.com>
+X-Cookie: Dental health is next to mental health.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,56 +76,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,=0A=
-=0A=
-The current RK3308 internal codec driver detects codec revision B=0A=
-(chip ID 0x3308) but explicitly rejects it. The initial 2022 driver=0A=
-supported revision B with a monolithic power sequence; the later DAPM=0A=
-rewrite left it unsupported.=0A=
-=0A=
-This RFC restores the revision-specific DAC output VCM/current sequence=0A=
-as a playback-only DAPM supply shared by HPOUT and LINEOUT. Per-channel=0A=
-LINEOUT events override the shared DC baseline only while LINEOUT is=0A=
-enabled. It does not restore the old codec-global power-on/off=0A=
-functions, and capture-only streams do not touch DAC_ANA_CON14/15.=0A=
-=0A=
-The original 2022 upstream v1 selected LINEOUT_FROM_INTERNAL for=0A=
-revision B even for HPOUT-only playback. A newer Rockchip 6.1=0A=
-downstream driver instead keeps CON15 at DC_FROM_INTERNAL for=0A=
-HPOUT-only and selects LINEOUT_FROM_INTERNAL only for LINEOUT or=0A=
-LINEOUT+HPOUT. This RFC follows the newer behaviour. Is that a hardware=0A=
-sequencing fix that should be preserved?=0A=
-=0A=
-On a DFRobot UNIHIKER M10 V1.2, revision-B probe, the board MICBIAS1=0A=
-route, capture/playback PCM operation, capture isolation from CON14/15,=0A=
-and the LINEOUT DAPM/register states were verified with the preceding=0A=
-clean candidate. Physical onboard microphone capture was also=0A=
-confirmed. A short transient at capture startup is also present with=0A=
-the Rockchip vendor driver unless a longer wait is added, so it is not=0A=
-treated as a regression and this RFC does not add a generic 250 ms mute=0A=
-delay.=0A=
-=0A=
-The shared-output revision is compile-tested but was not deployed.=0A=
-Physical LINEOUT and HPOUT audio remain untested because suitable=0A=
-hardware endpoints were unavailable. In particular, the HPOUT-only=0A=
-CON15=3D0x22 choice still needs maintainer guidance or real-hardware=0A=
-confirmation.=0A=
-=0A=
-The M10 microphone route, its overly broad output topology, microphone PGA=
-=0A=
-controls, and capture-startup transient are deliberately kept outside this=
-=0A=
-codec RFC.=0A=
-=0A=
-Regards,=0A=
-Mizuno Miotsuki=0A=
-=0A=
-Mizuno Miotsuki (1):=0A=
-  ASoC: codecs: rk3308: add support for codec revision B=0A=
-=0A=
- sound/soc/codecs/rk3308_codec.c | 102 +++++++++++++++++++++++++++++++-=0A=
- 1 file changed, 99 insertions(+), 3 deletions(-)=0A=
-=0A=
--- =0A=
-2.55.0=0A=
+
+--qvbS5Oge9x2b8SxP
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, Sep 18, 2026 at 12:57:18PM +0000, Mizuno Miotsuki wrote:
+> Hi,
+>=20
+> The current RK3308 internal codec driver detects codec revision B
+> (chip ID 0x3308) but explicitly rejects it. The initial 2022 driver
+> supported revision B with a monolithic power sequence; the later DAPM
+
+Please don't send cover letters for single patches, if there is anything
+that needs saying put it in the changelog of the patch or after the ---
+if it's administrative stuff.  This reduces mail volume and ensures that=20
+any important information is recorded in the changelog rather than being
+lost.=20
+
+--qvbS5Oge9x2b8SxP
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqtNW0ACgkQJNaLcl1U
+h9CTNwf9GJmFyuc4fcVhx8SuWBebDybhaOwU0LFcm5L8TKMj2CNRjpPGf1e2+AOE
+QF2Nm2Wv/SRiraKuRy1qAcp8dJZ1L9iq2oyXtmi6OrOgo3E3DFOhrSB4S3RH+vPb
+j103vXQXYPbRyL6WU4Or0+mYZI3Gk5XjMjrhTMF4YM0B231P8sQ6HCNbU+N/pHjl
+yzhUq00NSYmxJNCfuHicITvfTTzM3wK7K81HiiPLd/0O6nQEV4K800KAl6GaKuGE
+WVk94TD69U5VHjztI8bF1Eufv6+JRFBvcYTRJZs4GuffVMpjJcHbQXzBOHxyHszS
+sOZe0f0UAJDhNbkXtss9PJwYbJv1Ug==
+=6+fK
+-----END PGP SIGNATURE-----
+
+--qvbS5Oge9x2b8SxP--
 
