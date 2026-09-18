@@ -4,109 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3118C982D6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 02:20:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AECFC982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 02:25:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WltbUUO0H/gWQbPZN0V3nXHroyZIGsih8i5C3g2CxGs=; b=tx5k3v08ap/HwzkUIDABuNxjkM
-	5sJJ1NijpWnLYbrG3Bh3Iq2oiYSiQdtMrYhtYwBaAlZevVUMLDqAUb3z5hR3bedlQx9wNQEE8qWX8
-	QfXHOuXMQWqcgx6HfR2yMsHcLBGQ//G5S/6BYDcE4CYEMwHjaqMl1EkdjBPXzluHOhC8CFe/Y7+d/
-	4ervYcivzvVon/mBDJmqwbnVTwWGTcptMt2KLxYjxE5dDS+3mzTtK3Ihb6zyx9jNXs6Xo0f2lV479
-	0B7oUKv07nkxrtjtgq3aHb2LopTstJwxTBNpgFS967CrymJ/44Z3Lmz/QJ0yVAkp2KlyoZdtJb2fZ
-	D1wlnjpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x8K01hB9IqojhMRbfuKM/v1NjQHIp8XOxCYzKeUDVEY=; b=aDvwDuzVvMQPbIJEhkOOrpoPMw
+	XN9PSDoj9VBB29qSU75vf3V5WPRIUGdg0E5l/r8E+Jfu/KBOhEDECTkYuRMX2G9X/nfe6aa7MWEWe
+	uIf1SgSOPhlB71C6e3htZOywQIYlWbOW6n0TWGLfzURrQzmoHDV0qvQ/itfzL1gJMev06HkpuMWzW
+	Dld2qg3vRcNRye5dsZZabN9srrWW8rJX7IGYp75yWndgduvX1AtTeKXc6veIg7M57z6qQ4i6LEOXV
+	p89FmpY2LU3E8klJiJR7eMl9grnbMMEnnt1vdroJjEbBkmsRa7vM8gzYLacTf2n8WImMZNrACpiXX
+	Nv71GVGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7OD9-0000000DILZ-3eyE;
-	Fri, 18 Sep 2026 02:20:23 +0000
-Received: from mail-oi2-x09.google.com ([2607:f8b0:4864:32::9])
+	id 1x7OIM-0000000DJMT-0RiV;
+	Fri, 18 Sep 2026 02:25:46 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7OD0-0000000DIE4-2aPb
+	id 1x7OII-0000000DJLO-3cOe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 02:20:17 +0000
-Received: by mail-oi2-x09.google.com with SMTP id 46e09a7af769-7f4e6693089so87648a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 19:20:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789698014; x=1790302814; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=WltbUUO0H/gWQbPZN0V3nXHroyZIGsih8i5C3g2CxGs=;
-        b=Lf4qS9Hrqqx/McxCyWujJzDH4jW84xBKdE3cjmX2EyCsLErOM/Y3eLyBfI1uu8PC7x
-         PckG64xHC8/UqmH8wt+avVFyl6CdBk/7pc47mUTUJv6z+u+qzamA5p25iEhE+tnkJQC9
-         OwfWLBFpo7Cm7udne1y6NnprYEnqv4DX0uPNXOQqsOmFUENh6+c+SuaYzhAgyA0RfWZB
-         GRI97/CwLN1OcxS0AR5TGZnDRU4rlSoKe50Gm31daIcR2xLbAloICaX4ZlLiQzhHT0El
-         0QwCAmc2IVUKYqpWWc1Xai5xZf/MX2MOBfpfaqRjd56bqk/CJbnScWaBXYJe9k/yE1xL
-         5H9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789698014; x=1790302814;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=WltbUUO0H/gWQbPZN0V3nXHroyZIGsih8i5C3g2CxGs=;
-        b=1xsx9y6l3IVLQSG6A78eBuK29aTkm9MAJ7tqXDPqWx+VFvNNKpvTDMIDUQFJThkms5
-         gazLrMN6ET4m0NCBD5W1RZ7bZvIDB90EniqYQEM+1QGOQUC1s3fO9fQzrHtUJX82QpYb
-         x5FWs7la/EzUCfvQfz6u7ncf8t4UlwBzEI6tqHC2G1O3qiVW2WX4wY6XJ0CVf/KLJUJd
-         l6a7MKHCxWdIysrAo9ZttXN5EkFMpmBcevgM1mUSVpP4nHndi42T7vaDKpKrsCamnpiV
-         Mg6/IjfL5SlY60IEL3Q80azvSmdVLCWa041tUKAUXqGsMlKYu0pbulWDezf0aanGjyUF
-         05Fw==
-X-Forwarded-Encrypted: i=1; AKwUvBwHPyMUX7g2RT8sLzOrG3zS7hWTXmRAiJghmkf13boo9FrtOf8hd51etQ3PlTOr3E1cjdpU7oY1W+gZTBXvpzqi@lists.infradead.org
-X-Gm-Message-State: AFuF++nGO9cjn/wxv212km2guwo232UGYqS58U+TdnbLLzEdCIIUhf+N
-	tFNTPt1qJgX7v1/faMTcIiUMbeCFacbkGLPNzuJNwEBrfCavXIpMAbHi
-X-Gm-Gg: AYBFou3wgQIWaa20mrSo1HnWh035Lmmat/+2ogRXbBsMcVnaOSIwSMSAX64HceWW2CL
-	ZO4Tl33kMrbhLfz+wvCtTlpa4O5IvAXtzwgLXZ8IIovzD3zbFP8YvbogMAWe9u01GMlMYoQLsaV
-	dsVPIZU4tvq2fL1Lm8klYFC4n2xS9uL4HqtMcZgAgyUN+pLDNbWnrlJQSu7Nq/jSdMKlQRUIME0
-	XNSCQPl3Wj+xqNHRhE9CpfVUd7EwYKR4E3w6OtmUMaus7uifrArUnqVBgiIDgCHhouCWcbj8pSB
-	NbdDOyGsWx5eTzm3wYGlEO6DxsGIrpVNhH93NO93gb3jVTsusRJlMPyiFu0+iXR7wZGnd68ZIOL
-	2Ft7EKa2DGt3xsnpkAFkuyqoTy0yb+fWjDoi0fcfowGS4qMmBayEnn/+5PeHgjovlgVlfZupgim
-	DvXiwU5ofGaW6LrqcFuZ9jBnALbHiVdAXWaHS0r4SXDL0HQpfBpa36RWXagjsFnka5R/A=
-X-Received: by 2002:a05:6830:6d12:b0:80c:d30f:97e with SMTP id 46e09a7af769-80de34f4540mr1518364a34.31.1789698013755;
-        Thu, 17 Sep 2026 19:20:13 -0700 (PDT)
-Received: from [192.168.18.164] ([2600:8804:5716:d800::b712])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-80e5226786csm295476a34.22.2026.09.17.19.20.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 17 Sep 2026 19:20:13 -0700 (PDT)
-From: Ryan Brue <ryanbrue.dev@gmail.com>
-Date: Thu, 17 Sep 2026 21:19:51 -0500
-Subject: [PATCH v2 2/3] iio: adc: mt6397-auxadc: add mt6397 PMIC AUXADC
- driver
+	Fri, 18 Sep 2026 02:25:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=x8K01hB9IqojhMRbfuKM/v1NjQHIp8XOxCYzKeUDVEY=; b=0I4Od2P71Pb5TnrRdr40GJaEgQ
+	TAgGQRxwXvSWBVB5Xoch+LXg5QPggOi0cDcuaaYnS8npdLv8DitZIpqjkRzLrzqOOwR2FyePsqC7K
+	mLVxQUn6rGk4svREL2jJZkjdJB+o+2nXWum2iVsP9wl4FTIRyLXBkStFiOb8FwGaSMEA=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1x7OIA-005mqx-SV; Fri, 18 Sep 2026 04:25:34 +0200
+Date: Fri, 18 Sep 2026 04:25:34 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Myeonghun Pak <mhun512@gmail.com>
+Cc: Linus Walleij <linusw@kernel.org>,
+	Hans Ulli Kroll <ulli.kroll@googlemail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Ijae Kim <ae878000@gmail.com>
+Subject: Re: [PATCH] net: gemini: Free the shared queue after removing the
+ ports
+Message-ID: <e544a2bc-79ed-4067-9be8-59453d25acb3@lunn.ch>
+References: <20260917192835.58126-1-mhun512@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260917-rbrue-suez-upstreaming-mt6397-auxadc-v2-2-db35882a6080@gmail.com>
-References: <20260917-rbrue-suez-upstreaming-mt6397-auxadc-v2-0-db35882a6080@gmail.com>
-In-Reply-To: <20260917-rbrue-suez-upstreaming-mt6397-auxadc-v2-0-db35882a6080@gmail.com>
-To: Jonathan Cameron <jic23@kernel.org>, 
- David Lechner <dlechner@baylibre.com>, 
- =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
- Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Lee Jones <lee@kernel.org>
-Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, mfd@lists.linux.dev, 
- Roman Vivchar <rva333@protonmail.com>, 
- Luca Leonardo Scorcia <l.scorcia@gmail.com>, 
- Andy Shevchenko <andriy.shevchenko@intel.com>, 
- Ryan Brue <ryanbrue.dev@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789698008; l=16420;
- i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
- bh=py13jmZTlDFDv7LmHUQxaS9KYrwrWTixvlH+6RvrnTc=;
- b=uSi2PrKLhfKPY+pA/Is7atei9o5kagaQheXNvZvA0E+Cb9x5XKus3XwadGi0X2Ev5RCXT2FHc
- KJhhcCpz6+xDTpgnZhxJ9pMtXdnjukGD25AJEONaZ9Cu5SOwyo+slX1
-X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
- pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260917192835.58126-1-mhun512@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_192015_226406_7312A7FF 
-X-CRM114-Status: GOOD (  38.08  )
+X-CRM114-CacheID: sfid-20260917_192542_901112_025AC76B 
+X-CRM114-Status: GOOD (  15.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,495 +74,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The mt6397 AUXADC is a 10-bit ADC behind the SoC's PMIC wrapper. On boards
-built around this PMIC it is the only way to read the battery: the SoC's
-AUXADC is wired to board thermistors and the charger ICs these boards use
-have no ADC of their own.
+> Fixes: 4d5ae32f5e1e ("net: ethernet: Add a driver for Gemini gigabit ethernet")
+> Assisted-by: LLM
+> Co-developed-by: Ijae Kim <ae878000@gmail.com>
+> Signed-off-by: Ijae Kim <ae878000@gmail.com>
+> Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
+> ---
+>  drivers/net/ethernet/cortina/gemini.c |    6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/cortina/gemini.c b/drivers/net/ethernet/cortina/gemini.c
+> index 4c762229ce42..e493d495f2ef 100644
+> --- a/drivers/net/ethernet/cortina/gemini.c
+> +++ b/drivers/net/ethernet/cortina/gemini.c
+> @@ -2364,7 +2364,6 @@ static void gemini_port_remove(struct gemini_ethernet_port *port)
+>  		unregister_netdev(port->netdev);
+>  	}
+>  	clk_disable_unprepare(port->pclk);
+> -	geth_cleanup_freeq(port->geth);
+>  }
+>  
+>  static void gemini_ethernet_init(struct gemini_ethernet *geth)
+> @@ -2656,7 +2655,10 @@ static void gemini_ethernet_remove(struct platform_device *pdev)
+>  {
+>  	struct gemini_ethernet *geth = platform_get_drvdata(pdev);
+>  
+> -	geth_cleanup_freeq(geth);
+> +	devm_of_platform_depopulate(&pdev->dev);
 
-Add a driver exposing the battery voltage and battery temperature
-channels. Only those two are described, so a channel ID in the device tree
-is an index into the driver's channel array rather than the PMIC's channel
-number, as mt6323-auxadc does. The ready bit lives in a channel's raw
-result register, but the value comes from the chip's trimmed copy of it,
-which is what the vendor driver reads for a measurement.
+This seems wrong. If you have to call devm_of_platform_depopulate()
+why are you using devm?
 
-Both channels need more than that, as the vendor programs them. The
-battery voltage is measured through ISENSE, because a board with a
-switching charger in the power path leaves BATSNS on the charger's system
-rail instead of on the pack. The thermistor only reads correctly with the
-PMIC's battery-detect bias and input buffer enabled, which take 20 ms to
-settle. Both are switched back off afterwards.
+> +	writel(0, geth->base + GLOBAL_INTERRUPT_ENABLE_4_REG);
+> +	if (geth->freeq_ring)
+> +		geth_cleanup_freeq(geth);
 
-Reads average sixteen conversions in software; the chip's sample
-accumulator makes no measurable difference at any setting, so it is left
-at one sample per conversion.
+gemini_ethernet_remove() is supposed to do the opposite of
+gemini_ethernet_probe(). What is the opposite of geth_cleanup_freeq()?
+Where is it called in gemini_ethernet_probe()?
 
-A new driver was created here, instead of modifying an existing driver
-such as mt6323-auxadc or mt6359-auxadc, for the following reasons:
-
- - Both mt6323-auxadc and mt6359-auxadc select channels through a request
-   register (1 bit per channel), while mt6397 uses a 4-bit numeric field
-   CHSEL in CON1 (10:7), and then pulses a START bit (CON1 bit 0).
-
- - For mt6323-auxadc, which is the closest I could find to the mt6397
-   (CON0..CON27), it has 13 more registers than the mt6397 (CON0..CON14).
-   It uses CON22 for its request register, and reads the result value
-   from the same register as the ready bit. We don't do that - the mt6397
-   has a factory calibrated value for each channel at 0x16 higher than the
-   raw value. mt6323 also has a 1800 mV / 15 bit scale / resolution while
-   we have 1200 mV / 10 bits. We also have some per-channel preparation
-   that we have to do before the burst, that the mt6323 doesn't have to
-   do.
-
- - For mt6359-auxadc, it has a more generic framework for describing the
-   AUXADC, but it assumes requests are channel-per-bit, and so we would
-   have to basically ignore req_idx, req_mask, rdy_idx, and rdy_mask.
-
- - We also have our own software sampling, which the vendor does too
-   (Amazon Fire OS based on Linux 3.18). We'd have to have our own
-   sampling callback to do it.
-
-Assisted-by: LLM
-Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
----
- MAINTAINERS                     |   1 +
- drivers/iio/adc/Kconfig         |  11 ++
- drivers/iio/adc/Makefile        |   1 +
- drivers/iio/adc/mt6397-auxadc.c | 378 ++++++++++++++++++++++++++++++++++++++++
- 4 files changed, 391 insertions(+)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 41d7b3a67415..9b254f98b5d7 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -16717,6 +16717,7 @@ MEDIATEK MT6397 PMIC AUXADC DRIVER
- M:	Ryan Brue <ryanbrue.dev@gmail.com>
- L:	linux-iio@vger.kernel.org
- S:	Maintained
-+F:	drivers/iio/adc/mt6397-auxadc.c
- F:	include/dt-bindings/iio/adc/mediatek,mt6397-auxadc.h
- 
- MEDIATEK MT6735 CLOCK & RESET DRIVERS
-diff --git a/drivers/iio/adc/Kconfig b/drivers/iio/adc/Kconfig
-index 415e519ad4eb..9a1d36ed53cb 100644
---- a/drivers/iio/adc/Kconfig
-+++ b/drivers/iio/adc/Kconfig
-@@ -1233,6 +1233,17 @@ config MEDIATEK_MT6370_ADC
- 	  This driver can also be built as a module. If so, the module
- 	  will be called "mt6370-adc".
- 
-+config MEDIATEK_MT6397_AUXADC
-+	tristate "MediaTek MT6397 PMIC AUXADC driver"
-+	depends on MFD_MT6397
-+	help
-+	  Say yes here to enable support for MediaTek MT6397 PMIC Auxiliary ADC.
-+	  This driver provides the battery voltage and battery temperature
-+	  channels used by the fuel gauge on boards built around this PMIC.
-+
-+	  This driver can also be built as a module. If so, the module will be
-+	  called mt6397-auxadc.
-+
- config MEDIATEK_MT6577_AUXADC
- 	tristate "MediaTek AUXADC driver"
- 	depends on ARCH_MEDIATEK || COMPILE_TEST
-diff --git a/drivers/iio/adc/Makefile b/drivers/iio/adc/Makefile
-index dcec0abb03b7..13cb4206bdb7 100644
---- a/drivers/iio/adc/Makefile
-+++ b/drivers/iio/adc/Makefile
-@@ -105,6 +105,7 @@ obj-$(CONFIG_MEDIATEK_MT6323_AUXADC) += mt6323-auxadc.o
- obj-$(CONFIG_MEDIATEK_MT6359_AUXADC) += mt6359-auxadc.o
- obj-$(CONFIG_MEDIATEK_MT6360_ADC) += mt6360-adc.o
- obj-$(CONFIG_MEDIATEK_MT6370_ADC) += mt6370-adc.o
-+obj-$(CONFIG_MEDIATEK_MT6397_AUXADC) += mt6397-auxadc.o
- obj-$(CONFIG_MEDIATEK_MT6577_AUXADC) += mt6577_auxadc.o
- obj-$(CONFIG_MEN_Z188_ADC) += men_z188_adc.o
- obj-$(CONFIG_MESON_SARADC) += meson_saradc.o
-diff --git a/drivers/iio/adc/mt6397-auxadc.c b/drivers/iio/adc/mt6397-auxadc.c
-new file mode 100644
-index 000000000000..2f602e16e4f0
---- /dev/null
-+++ b/drivers/iio/adc/mt6397-auxadc.c
-@@ -0,0 +1,378 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * MediaTek MT6397 PMIC AUXADC IIO driver
-+ *
-+ * Copyright (c) 2026 Ryan Brue <ryanbrue.dev@gmail.com>
-+ *
-+ * Based on drivers/iio/adc/mt6323-auxadc.c
-+ */
-+
-+#include <linux/array_size.h>
-+#include <linux/bitfield.h>
-+#include <linux/bits.h>
-+#include <linux/cleanup.h>
-+#include <linux/delay.h>
-+#include <linux/iio/iio.h>
-+#include <linux/math.h>
-+#include <linux/module.h>
-+#include <linux/mutex.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+#include <linux/time.h>
-+#include <linux/types.h>
-+
-+#include <linux/mfd/mt6397/core.h>
-+
-+#include <dt-bindings/iio/adc/mediatek,mt6397-auxadc.h>
-+
-+/* The ready bit is in the raw result register, the value in the trimmed one. */
-+#define MT6397_AUXADC_ADC(n)			(0x0514 + 2 * (n))
-+#define   MT6397_AUXADC_ADC_RDY			BIT(15)
-+#define   MT6397_AUXADC_ADC_VAL			GENMASK(9, 0)
-+/* The trimmed copy of ADC(n), which is ADC11 + n. */
-+#define MT6397_AUXADC_ADC_TRIM(n)		(0x052a + 2 * (n))
-+
-+/* The thermistor needs the battery-detect bias and the input buffer on. */
-+#define MT6397_AUXADC_CON0			0x0542
-+#define   MT6397_AUXADC_CON0_BUF_PWD_B		BIT(1)
-+#define   MT6397_AUXADC_CON0_BUF_PWD_ON		BIT(3)
-+/* Samples accumulated per conversion; the chip's accumulator is left off. */
-+#define   MT6397_AUXADC_CON0_SPL_NUM		GENMASK(11, 7)
-+#define MT6397_CHR_CON7				0x000e
-+#define   MT6397_CHR_CON7_BATON_TDET_EN		BIT(2)
-+
-+#define MT6397_AUXADC_BATTEMP_SETTLE_US		(20 * USEC_PER_MSEC)
-+
-+#define MT6397_AUXADC_CON1			0x0544
-+#define   MT6397_AUXADC_CON1_CHSEL		GENMASK(10, 7)
-+#define   MT6397_AUXADC_CON1_START		BIT(0)
-+
-+/*
-+ * CHR_CON16 and the two SOURCE_CH0 selects route either BATSNS or ISENSE onto
-+ * the battery channel. Only ISENSE is used: with a switching charger in the
-+ * power path BATSNS sits on the system rail rather than on the pack. All five
-+ * ADCIN bits are written out because they are one enable per analog input
-+ * and not a select field; the driver touches only the two it needs.
-+ */
-+#define MT6397_CHR_CON16			0x0020
-+#define   MT6397_CHR_CON16_ADCIN_VCHR_EN	BIT(12)
-+#define   MT6397_CHR_CON16_ADCIN_VSEN_EN	BIT(11)
-+#define   MT6397_CHR_CON16_ADCIN_VBAT_EN	BIT(10)
-+#define   MT6397_CHR_CON16_ADCIN_VSEN_EXT_BATON_EN	BIT(9)
-+#define   MT6397_CHR_CON16_ADCIN_VSEN_MUX_EN	BIT(8)
-+#define MT6397_AUXADC_CON14			0x055e
-+#define   MT6397_AUXADC_CON14_CH0_NORM_SEL	BIT(2)
-+#define   MT6397_AUXADC_CON14_CH0_LBAT_SEL	BIT(0)
-+
-+#define MT6397_AUXADC_ISENSE_SETTLE_US		(1 * USEC_PER_MSEC)
-+
-+/* Conversions averaged in software per read. */
-+#define MT6397_AUXADC_SAMPLES			16
-+
-+/* Hardware limitation: the result is not ready for this long after START. */
-+#define MT6397_AUXADC_START_US			30
-+
-+/* The battery channel is divided down by 4; the thermistor is not divided. */
-+#define MT6397_AUXADC_ISENSE_DIVIDER		4
-+
-+/* The PMIC's channel numbers, as the CON1 select field takes them. */
-+#define MT6397_AUXADC_HWCHAN_BATSNS		0
-+#define MT6397_AUXADC_HWCHAN_BAT_TEMP		3
-+
-+struct mt6397_auxadc {
-+	struct regmap *regmap;
-+	/*
-+	 * A read is a multi-register sequence: analog setup, then a channel
-+	 * select and an edge-triggered start per conversion. Interleaving two
-+	 * of them steals the select and tears down the setup, so a read holds
-+	 * this for its whole burst.
-+	 */
-+	struct mutex lock;
-+};
-+
-+/*
-+ * A device tree channel ID indexes this array; .address holds the PMIC channel
-+ * number. The thermistor reports as a voltage because that is all the PMIC
-+ * measures: the divider across an NTC whose curve belongs to the board.
-+ */
-+static const struct iio_chan_spec mt6397_auxadc_channels[] = {
-+	{
-+		.type = IIO_VOLTAGE,
-+		.indexed = 1,
-+		.channel = MT6397_AUXADC_ISENSE,
-+		.address = MT6397_AUXADC_HWCHAN_BATSNS,
-+		.datasheet_name = "isense",
-+		.info_mask_separate = BIT(IIO_CHAN_INFO_RAW) |
-+				      BIT(IIO_CHAN_INFO_SCALE),
-+	}, {
-+		.type = IIO_VOLTAGE,
-+		.indexed = 1,
-+		.channel = MT6397_AUXADC_BAT_TEMP,
-+		.address = MT6397_AUXADC_HWCHAN_BAT_TEMP,
-+		.datasheet_name = "bat_temp",
-+		.info_mask_separate = BIT(IIO_CHAN_INFO_RAW) |
-+				      BIT(IIO_CHAN_INFO_SCALE),
-+	},
-+};
-+
-+static int mt6397_auxadc_read_once(struct mt6397_auxadc *adc,
-+				   const struct iio_chan_spec *chan, int *val)
-+{
-+	struct regmap *map = adc->regmap;
-+	unsigned int reg;
-+	int ret;
-+
-+	ret = regmap_update_bits(map, MT6397_AUXADC_CON1,
-+				 MT6397_AUXADC_CON1_CHSEL,
-+				 FIELD_PREP(MT6397_AUXADC_CON1_CHSEL,
-+					    chan->address));
-+	if (ret)
-+		return ret;
-+
-+	/* START is edge triggered: it has to be lowered before being raised. */
-+	ret = regmap_clear_bits(map, MT6397_AUXADC_CON1, MT6397_AUXADC_CON1_START);
-+	if (ret)
-+		return ret;
-+
-+	ret = regmap_set_bits(map, MT6397_AUXADC_CON1, MT6397_AUXADC_CON1_START);
-+	if (ret)
-+		return ret;
-+
-+	fsleep(MT6397_AUXADC_START_US);
-+
-+	ret = regmap_read_poll_timeout(map, MT6397_AUXADC_ADC(chan->address),
-+				       reg, reg & MT6397_AUXADC_ADC_RDY,
-+				       100, 100 * USEC_PER_MSEC);
-+	if (ret)
-+		return ret;
-+
-+	ret = regmap_read(map, MT6397_AUXADC_ADC_TRIM(chan->address), &reg);
-+	if (ret)
-+		return ret;
-+
-+	*val = FIELD_GET(MT6397_AUXADC_ADC_VAL, reg);
-+
-+	return 0;
-+}
-+
-+static int mt6397_auxadc_battemp_bias(struct mt6397_auxadc *adc, bool on)
-+{
-+	struct regmap *map = adc->regmap;
-+	int ret, err;
-+
-+	if (on) {
-+		ret = regmap_set_bits(map, MT6397_AUXADC_CON0,
-+				      MT6397_AUXADC_CON0_BUF_PWD_ON);
-+		if (ret)
-+			return ret;
-+
-+		ret = regmap_set_bits(map, MT6397_AUXADC_CON0,
-+				      MT6397_AUXADC_CON0_BUF_PWD_B);
-+		if (ret)
-+			return ret;
-+
-+		ret = regmap_set_bits(map, MT6397_CHR_CON7,
-+				      MT6397_CHR_CON7_BATON_TDET_EN);
-+	} else {
-+		/*
-+		 * Every step of the teardown is attempted even if an earlier
-+		 * one failed, so that one failing write cannot leave the bias
-+		 * or the input buffer powered. The first error is reported.
-+		 */
-+		ret = regmap_clear_bits(map, MT6397_CHR_CON7,
-+					MT6397_CHR_CON7_BATON_TDET_EN);
-+
-+		err = regmap_clear_bits(map, MT6397_AUXADC_CON0,
-+					MT6397_AUXADC_CON0_BUF_PWD_B);
-+		if (!ret)
-+			ret = err;
-+
-+		err = regmap_clear_bits(map, MT6397_AUXADC_CON0,
-+					MT6397_AUXADC_CON0_BUF_PWD_ON);
-+		if (!ret)
-+			ret = err;
-+	}
-+
-+	return ret;
-+}
-+
-+static int mt6397_auxadc_isense_enable(struct mt6397_auxadc *adc)
-+{
-+	struct regmap *map = adc->regmap;
-+	int ret;
-+
-+	/*
-+	 * Two of the five independent input enables, not a select field:
-+	 * BATSNS is cleared first so that the two inputs are never enabled
-+	 * onto the battery channel at the same time.
-+	 */
-+	ret = regmap_clear_bits(map, MT6397_CHR_CON16,
-+				MT6397_CHR_CON16_ADCIN_VBAT_EN);
-+	if (ret)
-+		return ret;
-+
-+	ret = regmap_set_bits(map, MT6397_CHR_CON16,
-+			      MT6397_CHR_CON16_ADCIN_VSEN_EN);
-+	if (ret)
-+		return ret;
-+
-+	return regmap_set_bits(map, MT6397_AUXADC_CON14,
-+			       MT6397_AUXADC_CON14_CH0_NORM_SEL |
-+			       MT6397_AUXADC_CON14_CH0_LBAT_SEL);
-+}
-+
-+static int mt6397_auxadc_isense_disable(struct mt6397_auxadc *adc)
-+{
-+	struct regmap *map = adc->regmap;
-+	int ret, err;
-+
-+	/* As above: the routing is undone even if the select write failed. */
-+	ret = regmap_clear_bits(map, MT6397_AUXADC_CON14,
-+				MT6397_AUXADC_CON14_CH0_NORM_SEL |
-+				MT6397_AUXADC_CON14_CH0_LBAT_SEL);
-+
-+	err = regmap_clear_bits(map, MT6397_CHR_CON16,
-+				MT6397_CHR_CON16_ADCIN_VSEN_EN |
-+				MT6397_CHR_CON16_ADCIN_VBAT_EN);
-+	if (!ret)
-+		ret = err;
-+
-+	return ret;
-+}
-+
-+static int mt6397_auxadc_read_channel(struct mt6397_auxadc *adc,
-+				      const struct iio_chan_spec *chan,
-+				      int *val)
-+{
-+	bool isense = chan->channel == MT6397_AUXADC_ISENSE;
-+	unsigned int sum = 0;
-+	int sample;
-+	int ret;
-+
-+	/* Held across the whole burst: the channel select is shared state. */
-+	guard(mutex)(&adc->lock);
-+
-+	/*
-+	 * Once any part of the per-channel setup has been written, the
-+	 * teardown has to run, so every exit below goes through it.
-+	 */
-+	if (isense) {
-+		ret = mt6397_auxadc_isense_enable(adc);
-+		if (ret)
-+			goto out_teardown;
-+		fsleep(MT6397_AUXADC_ISENSE_SETTLE_US);
-+	} else {
-+		ret = mt6397_auxadc_battemp_bias(adc, true);
-+		if (ret)
-+			goto out_teardown;
-+		fsleep(MT6397_AUXADC_BATTEMP_SETTLE_US);
-+	}
-+
-+	for (unsigned int i = 0; i < MT6397_AUXADC_SAMPLES; i++) {
-+		ret = mt6397_auxadc_read_once(adc, chan, &sample);
-+		if (ret)
-+			goto out_teardown;
-+
-+		sum += sample;
-+	}
-+
-+	*val = DIV_ROUND_CLOSEST(sum, MT6397_AUXADC_SAMPLES);
-+
-+out_teardown:
-+	/* Lower START so the converter is not left armed between reads. */
-+	regmap_clear_bits(adc->regmap, MT6397_AUXADC_CON1,
-+			  MT6397_AUXADC_CON1_START);
-+
-+	if (isense)
-+		mt6397_auxadc_isense_disable(adc);
-+	else
-+		mt6397_auxadc_battemp_bias(adc, false);
-+
-+	return ret;
-+}
-+
-+static int mt6397_auxadc_read_raw(struct iio_dev *indio_dev,
-+				  const struct iio_chan_spec *chan,
-+				  int *val, int *val2, long mask)
-+{
-+	struct mt6397_auxadc *adc = iio_priv(indio_dev);
-+	int ret;
-+
-+	switch (mask) {
-+	case IIO_CHAN_INFO_RAW:
-+		ret = mt6397_auxadc_read_channel(adc, chan, val);
-+		if (ret)
-+			return ret;
-+
-+		return IIO_VAL_INT;
-+
-+	case IIO_CHAN_INFO_SCALE:
-+		/* 1200 mV full range with 10-bit resolution. */
-+		*val = 1200;
-+		if (chan->channel == MT6397_AUXADC_ISENSE)
-+			*val *= MT6397_AUXADC_ISENSE_DIVIDER;
-+		*val2 = 10;
-+
-+		return IIO_VAL_FRACTIONAL_LOG2;
-+
-+	default:
-+		return -EINVAL;
-+	}
-+}
-+
-+static const struct iio_info mt6397_auxadc_info = {
-+	.read_raw = mt6397_auxadc_read_raw,
-+};
-+
-+static int mt6397_auxadc_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct mt6397_chip *chip = dev_get_drvdata(dev->parent);
-+	struct mt6397_auxadc *adc;
-+	struct iio_dev *indio_dev;
-+	int ret;
-+
-+	indio_dev = devm_iio_device_alloc(dev, sizeof(*adc));
-+	if (!indio_dev)
-+		return -ENOMEM;
-+
-+	adc = iio_priv(indio_dev);
-+	adc->regmap = chip->regmap;
-+
-+	ret = devm_mutex_init(dev, &adc->lock);
-+	if (ret)
-+		return ret;
-+
-+	ret = regmap_update_bits(adc->regmap, MT6397_AUXADC_CON0,
-+				 MT6397_AUXADC_CON0_SPL_NUM,
-+				 FIELD_PREP(MT6397_AUXADC_CON0_SPL_NUM, 1));
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to initialize auxadc\n");
-+
-+	indio_dev->name = "mt6397-auxadc";
-+	indio_dev->info = &mt6397_auxadc_info;
-+	indio_dev->modes = INDIO_DIRECT_MODE;
-+	indio_dev->channels = mt6397_auxadc_channels;
-+	indio_dev->num_channels = ARRAY_SIZE(mt6397_auxadc_channels);
-+
-+	return devm_iio_device_register(dev, indio_dev);
-+}
-+
-+static const struct of_device_id mt6397_auxadc_of_match[] = {
-+	{ .compatible = "mediatek,mt6397-auxadc" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, mt6397_auxadc_of_match);
-+
-+static struct platform_driver mt6397_auxadc_driver = {
-+	.driver = {
-+		.name = "mt6397-auxadc",
-+		.of_match_table = mt6397_auxadc_of_match,
-+	},
-+	.probe = mt6397_auxadc_probe,
-+};
-+module_platform_driver(mt6397_auxadc_driver);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_AUTHOR("Ryan Brue <ryanbrue.dev@gmail.com>");
-+MODULE_DESCRIPTION("MediaTek MT6397 PMIC AUXADC Driver");
-
--- 
-2.55.0
-
+	Andrew
 
