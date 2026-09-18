@@ -4,68 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E08E9C982D2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 06:05:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D0B1C982D2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 06:07:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2iSN1j31Sw9qmqTYVp6Ry3mKQfg4lt3sT+FCrOQ8mF4=; b=xtsznH5RKATxpNWF/uQtF1/bO1
-	2fnQe+9YMEEhLUuaseGLcR5oPcrsCCZR5VdBaErj9u26BumHz1AnZq3DCNKWrX87XEf9u7Rs6K0/p
-	nRsobe3GM4Of7mJruXQAPaYkEj/Aojuvn+bzIY2R06dltjsvny6ndgY4gD2qam2e1flZ1wYd5oZXC
-	xYXPf8FqJIkXfr56I7zp6QLWyjffw0wj2GCtphAhbmGCym7rwaurctIUvwO6/5NygtPFXkDc4t1fY
-	lu9iv2UQRdWEjf/Dt1gDq6nNWSQfTC6m0Sktq1jVoj8D+WWE3ahiHoxISLaL7FzjR6JNVwxPc5UK6
-	HbnXQhTA==;
+	bh=eC5OgyvVzEosLtDBUitn4Br2QSqN+NjnARvdOrZ7fxc=; b=KWc1RqlFBabiCGuqTBA5PjDCqk
+	oKFhtAtN3VlJE0vGZp6bvHMT0K6LNzddl82iO+5+hReY8jERON47+54FfsdlL1hmgAtA3Cxw2Mr9/
+	uxIBSFLLLyBERwg+ZUjPHU5uP7Sayfkov0qu3bz5hvHxSDeObgwgtDYkNIX4n1v+f2G3ZM9syXymD
+	YI5TAnQlYNvFEJ33GwVI+QmBVhL798uLTU66mXWZcm2c0pcP0IbNI+xJzx47Lz554i9SKd7nJxFiK
+	+cN12VfE3edFXeFwZsd2TySa4ii/Zyfu2W4UxOTPFY0BffAS97XqALqAmYtdJnvBDqWPJDrEMDtb/
+	lGEmTnQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7RjE-0000000DWuH-2GNL;
-	Fri, 18 Sep 2026 06:05:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x7Rkf-0000000DX2L-2zHs;
+	Fri, 18 Sep 2026 06:07:13 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7RjD-0000000DWuB-3lYk
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 06:05:44 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B76F8601EF;
-	Fri, 18 Sep 2026 06:05:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DB971F000FF;
-	Fri, 18 Sep 2026 06:05:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789711542;
-	bh=2iSN1j31Sw9qmqTYVp6Ry3mKQfg4lt3sT+FCrOQ8mF4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=HRYJtWuL74SbBnfcEwdWnfbXL/tQ2LS0eZcRDZCBlNLQXBydIBtYqkiENXlDagnbT
-	 C2yEEFg2K7h5z+2opnb1JHsi/x+l+mdBVTLNqkvv/DpshLB82Svt8wnmGViSmp38iu
-	 RqWJqCe9NjqFd7sIoVai7vkuR1L3g/ELqekIScdjqxdSM+2tF1sE2M5vUb+ybXhH2T
-	 qeHd1/7ezHu35c25/Re5wk4kWvG7SMvYr71yv/QjO7HFaVvMkPqGp28tk2Tjav58QQ
-	 8Q3/O3ocmaqrfak5BYTC5KAwevQhgl+fUqMCEBp14MV+FG3sEjD8+8xfzUSXElZXjR
-	 UltrRtZcQGVSg==
-Message-ID: <2462f67c-f7d3-4eb3-a093-6a338ef49f14@kernel.org>
-Date: Fri, 18 Sep 2026 08:05:32 +0200
+	id 1x7Rke-0000000DX1L-2Fwr;
+	Fri, 18 Sep 2026 06:07:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=eC5OgyvVzEosLtDBUitn4Br2QSqN+NjnARvdOrZ7fxc=; b=khFNe5RW+9Xd3187xHQoJ+sfJz
+	8ZxmX2OTGJiSjNBtNEiEEUaiTUi9ODJ2zbvxO06NPnnQekspN0UyiCB4xGMeSmqrwH7xZACMIznxF
+	27fmG4E3Z1wJVvnc7CzjsVTj+YwvOXDHIqNrG4a2oMHRO3GZzDuLtNZxre1GGeUj66J4U8BNUKYXF
+	OLjhEqweKuZxPhpNlpuB4E/wxkobSDEVDm88XlqKs0EybL3nmtw+SQni1gaRDyJkQtJ+HieqN8fcv
+	SzS1lX5sAUieMs8xLuGQ/ji5i+a8vlPlHBl+7Ddu+r4tBq0ElErj7nA+VTFMwhYFjp8iLlkSEsg4F
+	JX19Rerw==;
+Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x7Rkb-00000009d8Y-0hpn;
+	Fri, 18 Sep 2026 06:07:11 +0000
+Received: from [127.0.1.1] (unknown [IPv6:2a02:560:5dd5:4b00:9ebf:dff:fe00:fdb5])
+	(Authenticated sender: sha@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id EB9E3200927;
+	Fri, 18 Sep 2026 08:07:05 +0200 (CEST)
+From: Sascha Hauer <s.hauer@pengutronix.de>
+Date: Fri, 18 Sep 2026 08:07:03 +0200
+Subject: [PATCH v4 3/4] arm64: dts: rockchip: rk3588: Add JPEG decoder node
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 03/10] mm/vmalloc: use pte_set_huge()/pte_clear_huge()
- for PTE-level block mappings
-To: Barry Song <baohua@kernel.org>, Wen Jiang <jiangwenxiaomi@gmail.com>
-Cc: akpm@linux-foundation.org, catalin.marinas@arm.com, linux-mm@kvack.org,
- urezki@gmail.com, will@kernel.org, Xueyuan.chen21@gmail.com,
- ajd@linux.ibm.com, anshuman.khandual@arm.com, david@kernel.org,
- dev.jain@arm.com, jiangwen6@xiaomi.com, leo.yan@arm.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, maddy@linux.ibm.com, mpe@ellerman.id.au,
- npiggin@gmail.com, rppt@kernel.org, ryan.roberts@arm.com
-References: <20260917052933.188679-1-jiangwenxiaomi@gmail.com>
- <20260917052933.188679-4-jiangwenxiaomi@gmail.com>
- <27072d94-13bf-4bea-948a-d8a67976601e@kernel.org>
- <CAHKocdE_zyUQT459AiTBDzQHk0jh+VpXuSMDdgHjkg-dAkgBNg@mail.gmail.com>
- <CAGsJ_4yJ-KCHbJ9S2GKXfO51KB8g-y2Q_MikqE9-6VesR-RC9Q@mail.gmail.com>
-Content-Language: fr-FR
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-In-Reply-To: <CAGsJ_4yJ-KCHbJ9S2GKXfO51KB8g-y2Q_MikqE9-6VesR-RC9Q@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260918-rockchip-jpegdec-v4-3-0dd97df47abb@pengutronix.de>
+References: <20260918-rockchip-jpegdec-v4-0-0dd97df47abb@pengutronix.de>
+In-Reply-To: <20260918-rockchip-jpegdec-v4-0-0dd97df47abb@pengutronix.de>
+To: Lucas Sinn <lucas.sinn@wolfvision.net>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789711625; l=2122;
+ i=s.hauer@pengutronix.de; s=20230412; h=from:subject:message-id;
+ bh=1JJVz9r1I2YKlPh7YDn7HbtgjT6XpDzjfnEG3nPQua8=;
+ b=eUuHUUyU7vVmW4lwsxTq1Fxazll4yoErjnLr0cZeTpiDOtHnHLd0BWx303WsXcNzhn02+u/jq
+ JNo1kezXGGVD4mRh1zKQLZ8Hw9j8Xf+PqRV0gVpot+R3erWV8esHRbB
+X-Developer-Key: i=s.hauer@pengutronix.de; a=ed25519;
+ pk=4kuc9ocmECiBJKWxYgqyhtZOHj5AWi7+d0n/UjhkwTg=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260918_070709_704650_64ED3660 
+X-CRM114-Status: GOOD (  10.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,123 +86,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add device tree nodes for the Rockchip JPEG hardware decoder and its
+IOMMU on the RK3588.
 
+The decoder is at 0xfdb90000 with its MMU at 0xfdb90480.  It takes the
+AXI and AHB clocks and resets, and sits in the VDPU power domain.  The
+AXI clock is pinned to 600 MHz, which is the rate the downstream BSP
+runs it at; it is a dedicated clock, not shared with another block.
 
-Le 17/09/2026 à 23:44, Barry Song a écrit :
-> On Thu, Sep 17, 2026 at 10:41 PM Wen Jiang <jiangwenxiaomi@gmail.com> wrote:
->>
->> On Thu, 17 Sept 2026 at 22:00, Christophe Leroy (CS GROUP)
->> <chleroy@kernel.org> wrote:
->>>
->>>
->>>
->>> Le 17/09/2026 à 07:29, Wen Jiang a écrit :
->>>> From: Wen Jiang <jiangwen6@xiaomi.com>
->>>>
->>>> vmap installs PTE-level block mappings by reusing set_huge_pte_at() and
->>>> huge_ptep_get_and_clear() under #ifdef CONFIG_HUGETLB_PAGE. This makes
->>>> the feature silently unavailable on CONFIG_HUGETLB_PAGE=n kernels and
->>>> couples mm/vmalloc.c to HugeTLB internals it does not otherwise need.
->>>>
->>>> Now that arm64 and powerpc/8xx provide pte_set_huge() and
->>>> pte_clear_huge(), add the generic fallbacks next to the existing
->>>> pmd/pud_set_huge() family and convert vmap_pte_range() and
->>>> vunmap_pte_range() to the new helpers. The CONFIG_HUGETLB_PAGE guards
->>>> around the block-mapping paths are dropped, so PTE-level block mappings
->>>> now also work on CONFIG_HUGETLB_PAGE=n kernels, and mm/vmalloc.c no
->>>> longer includes <linux/hugetlb.h>.
->>>>
->>>> The fallbacks exist only to keep the build working on architectures
->>>> without PTE-level block mapping support. They are unreachable there:
->>>> the callers only run when arch_vmap_pte_range_map_size() or
->>>> arch_vmap_pte_range_unmap_size() return a size other than PAGE_SIZE,
->>>> which requires an arch implementation. WARN_ON_ONCE() makes that
->>>> explicit rather than silently doing nothing.
->>>>
->>>> Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
->>>> ---
->>>>    include/linux/pgtable.h | 29 +++++++++++++++++++++++++++++
->>>>    mm/vmalloc.c            | 19 ++++++-------------
->>>>    2 files changed, 35 insertions(+), 13 deletions(-)
->>>>
->>>> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
->>>> index cdd68ed3ae1a9..349ced999f959 100644
->>>> --- a/include/linux/pgtable.h
->>>> +++ b/include/linux/pgtable.h
->>>> @@ -2134,6 +2134,35 @@ static inline int pmd_free_pte_page(pmd_t *pmd, unsigned long addr)
->>>>    }
->>>>    #endif      /* CONFIG_HAVE_ARCH_HUGE_VMAP */
->>>>
->>>> +/*
->>>> + * PTE-level block mappings for vmap.
->>>> + *
->>>> + * pte_set_huge() only has to be implemented by architectures whose
->>>> + * arch_vmap_pte_range_map_size() can return a size other than PAGE_SIZE.
->>>> + */
->>>> +#ifndef __HAVE_ARCH_PTE_SET_HUGE
->>>> +static inline void pte_set_huge(pte_t *ptep, unsigned long addr,
->>>> +                             phys_addr_t phys, pgprot_t prot,
->>>> +                             unsigned long size)
->>>> +{
->>>> +     WARN_ON_ONCE(1);
->>>
->>> BUILD_BUG_ON() would be better here.
->>>
->>> It should be possible because fallback arch_vmap_pte_range_map_size()
->>> will constant-fold PAGE_SIZE so pte_set_huge() will never be called.
->>>
->>
->> Agreed. These fallbacks exist only to keep the build working on
->> architectures with PTE-level block mappings and should never actually
->> be reached, so BUILD_BUG_ON() is right. I'll make that change in v9.
->>
-> 
-> I am not quite sure. It won't be called at runtime because
-> `vmap size`/`unmap size` return `PAGE_SIZE`, so the code won't
-> reach this branch. But it will still be built.
+Both blocks are entirely on-SoC and have no board dependency, so they are
+enabled unconditionally like the other codec blocks in this file.
 
-The fallbacks are defined as:
+Assisted-by: Claude:claude-opus-5
+Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+---
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
 
-#ifndef arch_vmap_pte_range_map_size
-static inline unsigned long arch_vmap_pte_range_map_size(unsigned long 
-addr, unsigned long end,
-							 u64 pfn, unsigned int max_page_shift)
-{
-	return PAGE_SIZE;
-}
-#endif
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+index fc1fdbfd31622..ce02a0f753e33 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+@@ -1317,6 +1317,30 @@ rga: rga@fdb80000 {
+ 		power-domains = <&power RK3588_PD_VDPU>;
+ 	};
+ 
++	jpegd: video-codec@fdb90000 {
++		compatible = "rockchip,rk3588-jpegd";
++		reg = <0x0 0xfdb90000 0x0 0x400>;
++		interrupts = <GIC_SPI 129 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru ACLK_JPEG_DECODER>, <&cru HCLK_JPEG_DECODER>;
++		clock-names = "axi", "ahb";
++		assigned-clocks = <&cru ACLK_JPEG_DECODER>;
++		assigned-clock-rates = <600000000>;
++		resets = <&cru SRST_A_JPEG_DECODER>, <&cru SRST_H_JPEG_DECODER>;
++		reset-names = "axi", "ahb";
++		iommus = <&jpegd_mmu>;
++		power-domains = <&power RK3588_PD_VDPU>;
++	};
++
++	jpegd_mmu: iommu@fdb90480 {
++		compatible = "rockchip,rk3588-iommu", "rockchip,rk3568-iommu";
++		reg = <0x0 0xfdb90480 0x0 0x40>;
++		interrupts = <GIC_SPI 130 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru ACLK_JPEG_DECODER>, <&cru HCLK_JPEG_DECODER>;
++		clock-names = "aclk", "iface";
++		power-domains = <&power RK3588_PD_VDPU>;
++		#iommu-cells = <0>;
++	};
++
+ 	vepu121_0: video-codec@fdba0000 {
+ 		compatible = "rockchip,rk3588-vepu121";
+ 		reg = <0x0 0xfdba0000 0x0 0x800>;
 
-#ifndef arch_vmap_pte_range_unmap_size
-static inline unsigned long arch_vmap_pte_range_unmap_size(unsigned long 
-addr,
-							   pte_t *ptep)
-{
-	return PAGE_SIZE;
-}
-#endif
-
-Therefore in:
-
-                 size = arch_vmap_pte_range_unmap_size(addr, pte);
-                 if (size != PAGE_SIZE) {
-
-GCC knows 'size' is const and its value is PAGE_SIZE, so it won't emit 
-the branch at all.
-
-It is call constant folding, some explanation here: 
-https://en.wikipedia.org/wiki/Constant_folding
-
-> 
-> So, would a `BUILD_BUG_ON()` trigger a build failure here?
-
-It shouldn't, if it does it is a compiled bug or this is because someone 
-has redefined arch_vmap_pte_range_map_size() and not pte_set_huge() 
-which we'd better know at build time rather than at runtime.
-
-
-> 
-> Best Regards
-> Barry
-> 
+-- 
+2.47.3
 
 
