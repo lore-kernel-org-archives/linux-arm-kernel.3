@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35A83C982DA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2118DC982DC
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 09:19:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,72 +12,87 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PItxhm1d8xzkPavNU3zKUDfTi98fHCExarwonsyE1cQ=; b=GtKR5xMkd8oK2WGapzxCvrqGtV
-	9YTdiHL7PDPUNw70H5dgsdrckST9un8BIAJHvtzuuidzCM64cfrWhaR/88jFBcWx/eAd9ygCTXpo2
-	oQTMnO7Dk4vBMDjylwIl1FVKqmTiDU+hz7n70oAiupMkTqflNKSXJtMjx99JHRHRPWPxwZUsX+cxt
-	lnVT6vF5H2soN++QHBNraRuUEsmli68llrJt+iH1cC0XJH/d9BiXW9FSoEwyALIWhRDiR77dKQgd6
-	w96nq2Ph2EHclHW8UC7IlFzkLVkNIo1XnKUFBYiEx1hCy7WDC+inMNbYyElk2yeyStDvaabmB5hF9
-	G39Y8AHA==;
+	bh=kHpblPyGPvzLFJJQPED7TjfXg7mj3B+pu1lqZzx1RFk=; b=L05QekK0RBpQIRF1VS/snu5PO+
+	Wmm16OOAHvtySNGtWyi2mufCKr0nQO6fBswGTFs5tOhG1lvl+sbLHCYgxWNS0bVIGVbo5zO/zqlnG
+	nx1LZzbgBG0Qmp6qn+WIIlHlkrUcbj2BZ0VbhYPWib55+GkGJ08U+fSfDjAQUiu096bM7qr6CBVWK
+	M4FEi71TWE7ENNemvdqiPOTHZfj08UJrOp+iajG+f/DmUIl6QxJUHJ3gDIjPtDdukiIjNv2VCNOOu
+	zS40+ggAKJ6vDRWMifSw1dnoPRVWd+VhJaSXIyzeUcKiGRKXIlEQWG227zgWh4eC4WHAjZrUMRmev
+	tF0EdeJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7UkP-0000000DvCb-3M3J;
-	Fri, 18 Sep 2026 09:19:09 +0000
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	id 1x7UkQ-0000000DvDG-00oo;
+	Fri, 18 Sep 2026 09:19:10 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7UkN-0000000DvAE-0uMu
+	id 1x7UkP-0000000DvBk-144i
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 18 Sep 2026 09:19:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=kHpblPyGPvzLFJJQPED7TjfXg7mj3B+pu1lqZzx1RFk=; b=QfKcxxU1sYE1KXhaFD2eUC/iY2
+	gi2HQhPUHLIOjUn7y1GgDdVuEcnk95JdklKklGI21IBoTW5NW31T2+o4w/HsYUSGPwAKdF1LNgvfm
+	R8orj2brbtnYw7KxkFj7i99tRC9xYBhEX8Nx1puNOg6raIa5X4goY6Cl7E9CiQD4v07woYfUQMW7+
+	VGcBIJ+YY8Es4u+F03nBezra0gLNVGapFN94S18f4LM6zhoN7n1XpANYifpSxZuZ84fs5fhh7uzXO
+	2iJlKpN94LborWZ1EtlVqHEfW8KV8T+FtNXfjVUDnr3GVff0AWeZuXMc5acRUXpdv0tSsed6nCqdy
+	jARk4fHw==;
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x7UkL-00000009qZE-2muT
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 18 Sep 2026 09:19:08 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49b912e4ad9so3098295e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 02:19:06 -0700 (PDT)
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e721b5503so5150995e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 02:19:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1789723145; x=1790327945; darn=lists.infradead.org;
+        d=baylibre.com; s=google; t=1789723144; x=1790327944; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=PItxhm1d8xzkPavNU3zKUDfTi98fHCExarwonsyE1cQ=;
-        b=Bt+nFSADc4eLe1e10inCU0/UOl31FSMEGBKqpLdp0g4twdDTsc9RK8F4AvB+BoLUCG
-         RtCLygKk63cZ4R3I2dqVgTDVbnvBc553T6LuvkMBO7s3wE9Ho1U/iOv2fTBBg/tCxzUT
-         nfWhVKlg1h7fjOAIco5S8VwiFgbhYQpN6Wmw/KyJgJwJDTputXFWDz9sWVj0qXYAYqep
-         48bwNbNosfWTh+CTWth5kwejoHUZjq3XdRVWcIYq1ck0dxGG+Jb8EZt0/Sgq32dAfggc
-         l//TsgETShJ5Ka16uSJ1KdDtRyzGqgYew1LDeC6OZ1WYKNth8KgOGD3EwXDkJiFeNFbV
-         gXpA==
+        bh=kHpblPyGPvzLFJJQPED7TjfXg7mj3B+pu1lqZzx1RFk=;
+        b=oodE/Ruo+j456k70IqdVIq0s/HlqBc4jFZ9vXNlrKeKxJ1Oi9r2vtd++eW3bHbkrPi
+         ONbIbMvjej4aOqqIw5nwblgUFB5hNF81MaSItj+OdXPoAzzzhHIquKKrrNdoQWPR0yzU
+         Ee0KUgQ6nx0QANzKoHPf1TWRn2D++YcEDLTL6bVslIMzccJfEmN0kvUhwlHBFpDmphZY
+         a8/ALZLh8Kg7D5Rah/MjO7WGRt1x7n7ZMmEt2SKwc1HuBAZAKsd8KOvWUn2k8R9KuqZZ
+         y1vmQ31kCEpxhFtKLiW5m3VDIUiP3HeCdW7uN3WhUi8BeInfgCNOSgMfFjW2Us3YTqlr
+         Rxsw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789723145; x=1790327945;
+        d=1e100.net; s=20260707; t=1789723144; x=1790327944;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=PItxhm1d8xzkPavNU3zKUDfTi98fHCExarwonsyE1cQ=;
-        b=XjVOIwYFgsL53R5/SETV0P0J5gdioLJkhhYg1veUlsXD9GcyZod3Z2GYzmxOOfYkg3
-         dYgi6Ht2Mhb57zohY5QLtSFtcgFfoTbv3jLpVkUQaj+B4rjI9QgSWQmuZjaTtWJ6QH2w
-         YPdyuJRmm6hPlUDRf8+xXPmrYp4m4KA3HAZHjzsAwbowlP/Iom2xjzAg8f34W6QWBzwR
-         bIM3MJwcQpQdHJvdrvw46m5C39LenOJH/+2dF/3LFQWXLvNEHyMvLHYDemEXtzFSSU2w
-         7z82w5RUHD48munQ7+rN4aPlZdum1DvwwPsQuSt+3C2ZemCwXhNQ2GiOjvggR+6uuRuF
-         mTKQ==
-X-Forwarded-Encrypted: i=1; AKwUvByKFQ/cj7eG7MpWCuABb8kTpXDKEy/SuDqnx+/lXe9XiIpz75N70SIv3XIaUkx3UVJ6UyupzO0htdR/5uivJ5Sd@lists.infradead.org
-X-Gm-Message-State: AFuF++kEDIArGhG//av6UwxQFLUXfj0KDtBtW/psUHCWoM5ubUwGdmmo
-	9YZSIW2tlbffKc7jnsOsWCaUomBRx43qhxgejcHUSIWXv1HjLm8sRG+wPGy0QBxloJU=
-X-Gm-Gg: AYBFou0z95UlqsxF3vrdx0JXZbAnYNfiz3sCC/a6RxM2jzZa7YFMerBsnKRu+QtFFOn
-	8xvr71i37v/8Ps0DVsz2jpoSL0bsoMSB/Pd0MyzlTgQTazGtnP7fqaxJNUN3PoxALizgZaEHnz2
-	jsLKNV5puJW+Rb0JdyRNIAsXwgZtTNlEbV9JsLV7Mu6u61iTOBtCdl9QVX4XI6CSYu+mTYj67UG
-	ipAImkDZx/zY3fJ8G4NEVyVO8UMkTye6GR1z3S2o7uyeetz5l3BDqexZXr8B0EQ/jPHAJbI1YU/
-	DU1MEs+jxLy3rQgJmrewcVaiPsE9s+ERM9iJvAfDRoEEx7YfC6YavQZW4XnCSx/eogJQftn/Xyh
-	/OB8c6UF/HSyYEiOvuWXHUBryfMH7wFKWc31XVe7/hzxquSO+RFbn5j2rjyxEYSIpYlyTTb5wr7
-	QcotASoniPUxvaTFNmIDmf3mE02BfM/W/6Dq3XVuiwUfxyldxMtj+bM+C+5zCr+1yXBog=
-X-Received: by 2002:a05:600c:310d:b0:49d:15b9:2a2a with SMTP id 5b1f17b1804b1-49fc5721b9dmr23520765e9.10.1789723145444;
-        Fri, 18 Sep 2026 02:19:05 -0700 (PDT)
+        bh=kHpblPyGPvzLFJJQPED7TjfXg7mj3B+pu1lqZzx1RFk=;
+        b=osO7gTPOEHiavQna0JtTaFue6MJo0x9mJ+0qOQOmWg5ieej1RnmkpwVMo7RRqSD9+Z
+         o/qO0PsMy3xRCB8AKgCPQ20NBSTRV24y65RRUwmxSrFCN1+M37GDb8StXEpnNQ5Hrpff
+         nHE53OpfizgvDOxZMJEZ0BPBeY1XydbcBlyEZU3EObVwqcxFvuhudf8tOXCRajvyd/7c
+         5B+8b1Sd0AbFewSj+IK0ZIT6D/IwaHdLD17n8HrcliweBw/XjAIjg5ifGA9jygKj471S
+         Im/rIXuUBUIPYudOseev5IOh/hAxe/KjHpDLsp0F52Yf3Pr7z/qnGUDRFZY9lJIlzw8c
+         KCJQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzOLgK1fAaU6jRgCk/0U98AzeAGp8MiMSWafVaJVNVP9MEtkOzP1B+4dHPFBI1JyzrDcBo3oLvBeQNfPxjwWduk@lists.infradead.org
+X-Gm-Message-State: AFuF++mVQ4l69ngOhKsyK/cPluK4bxYp9B1cF2Sunc4HQQ2MRAbEkDUb
+	fM1bHkThx3v2FxyeHzk35sSeYpVZ/xixmGnnRrOe0humu/9N7YDNOkOLySZetxRsHhw=
+X-Gm-Gg: AYBFou2nGnI8BhtZkNO20F4ugziwUwFk6rARKvqQ5W68uaA9AIEtSwHRP6xOsV4cPi+
+	BGAiZbzCng1pIysPo6U0tt4LEk0T9VNoq8eM72XUrW50AkZOO2MdGOMdzFdH1126sW+perDZJ+I
+	Y7pTZne/WEoaUH3TvfCinsE23P1lBOjXAsyXIolrnSleXRDoX6TDowUYHdYzQXLuBfL9PVCiETW
+	hQ4F7COEc+odeYyYkk2xloRB6GrBldWk5hx69PRz4cgIZU983u8u6QppwrXzb3Ygy6phmBMtEQn
+	9wz5Tsq0PB+QcupAxjs652yNM1Wvat4hhyRydUAtHRFk0JNTd6lhkgOOK/ZIrWM1OaABq6rF8/7
+	5HzRaEa+WrUfk31VPUIjUyu7uxSXjUuwKjkV5g0jZkLezfQiJRNhhicdRwrgKJQW0LkpU34iZM2
+	FU1EncPSHExOv3plBMZsdtNsAcMbTnuY0rdRdZK7y6Ws+O+Ivh1WyLyYjMWJloGK+Q3xY=
+X-Received: by 2002:a05:600c:4505:b0:49e:84bf:6121 with SMTP id 5b1f17b1804b1-49fc56dac58mr22897685e9.13.1789723144132;
+        Fri, 18 Sep 2026 02:19:04 -0700 (PDT)
 Received: from localhost ([2001:4090:a244:8223:7a95:1dd3:2926:35eb])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fbd23a815sm156485815e9.14.2026.09.18.02.19.04
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fc7d4b9ecsm38524255e9.14.2026.09.18.02.19.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Sep 2026 02:19:05 -0700 (PDT)
+        Fri, 18 Sep 2026 02:19:03 -0700 (PDT)
 From: "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
-Date: Fri, 18 Sep 2026 11:17:49 +0200
-Subject: [PATCH v9 5/9] arm64: dts: ti: k3-am62p5-sk: Fix wkup R5F memory
- region size
+Date: Fri, 18 Sep 2026 11:17:48 +0200
+Subject: [PATCH v9 4/9] arm64: dts: ti: k3-am62p-verdin: Fix wkup R5F
+ memory region size
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260918-topic-am62a-ioddr-dt-v6-19-v9-5-40972ef1f663@baylibre.com>
+Message-Id: <20260918-topic-am62a-ioddr-dt-v6-19-v9-4-40972ef1f663@baylibre.com>
 References: <20260918-topic-am62a-ioddr-dt-v6-19-v9-0-40972ef1f663@baylibre.com>
 In-Reply-To: <20260918-topic-am62a-ioddr-dt-v6-19-v9-0-40972ef1f663@baylibre.com>
 To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
@@ -101,17 +116,17 @@ Cc: Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>,
  llvm@lists.linux.dev, Hari Nagalla <hnagalla@ti.com>, 
  "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1526; i=msp@baylibre.com;
- h=from:subject:message-id; bh=nlg2Vo5gJVuqTy6ZSc5mAEsVYdjtMTLDz7lCiJOX1tU=;
- b=owGbwMvMwCXWejAsc4KoVzDjabUkhqy1jNd4ntTwXnTU3m4lvFOgSprp1PNUmYmXfgX1nVK59
- mvHikNTOkpZGMS4GGTFFFk6E0PT/svvPJa8aNlmmDmsTCBDGLg4BWAihcaMDO92LIo81Cr9+Mnp
- c5FTQv55fjQ8dmTz9lsTN+x+Uq9y/sczhv+pKyvuPpicXLPodmlO0eTUAJdLPNtePzRtaDznpfU
- yOIUVAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1588; i=msp@baylibre.com;
+ h=from:subject:message-id; bh=Bw9T9kPoDvx3jWedb2GuXmBKbd8nnRyCUqGqNMfPoNQ=;
+ b=owGbwMvMwCXWejAsc4KoVzDjabUkhqy1jBe7CzRZcpRcuvewa1x5NO164+TseMH5R0Q7Ha2VV
+ zpuM+3qKGVhEONikBVTZOlMDE37L7/zWPKiZZth5rAygQxh4OIUgIn8FWJkeCgslX5SN1vQ9cPG
+ jve+i0P3M/e/3TFTI/f/HAPXL7vWsjH8jw7+OF2esbPB4q5za5es4Bpl+4SnRxZtllqSrc3topf
+ HBQA=
 X-Developer-Key: i=msp@baylibre.com; a=openpgp;
  fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_021907_275823_43D9062A 
-X-CRM114-Status: GOOD (  11.36  )
+X-CRM114-CacheID: sfid-20260918_101906_386231_1E28DEFD 
+X-CRM114-Status: GOOD (  11.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,8 +141,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The wkup_r5fss0_core0_memory_region was reserved with only
-0x0f00000 but the MCU SDK linker for the wkup R5F firmware on
+The wkup_r5fss0_core0_memory_region was reserved with
+0x01e00000 but the MCU SDK linker for the wkup R5F firmware on
 AM62P defines the DM code/data DDR footprint differently:
 
     /* DDR for DM R5F code/data [ size 27 MiB + 396 KB ] */
@@ -139,27 +154,28 @@ starts at 0x9c900000 this means a length of:
     0x9e608000 - 0x9c900000 = 0x1d08000
 
 Link: https://github.com/TexasInstruments/mcupsdk-core-k3/blob/k3_main/examples/drivers/ipc/ipc_rpmsg_echo_linux/am62px-sk/wkup-r5fss0-0_freertos/ti-arm-clang/linker.cmd
-Fixes: b05a6c145001 ("arm64: dts: ti: k3-am62p5-sk: Enable IPC with remote processors")
+Fixes: 87f95ea316ac ("arm64: dts: ti: Add Toradex Verdin AM62P")
+Acked-by: Francesco Dolcini <francesco.dolcini@toradex.com>
 Reviewed-by: Bryan Brattlof <bb@ti.com>
 Reviewed-by: Kendall Willis <k-willis@ti.com>
 Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
 ---
- arch/arm64/boot/dts/ti/k3-am62p5-sk.dts | 2 +-
+ arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-index b770ed82be9d..b8af9ec81b0c 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-@@ -57,7 +57,7 @@ wkup_r5fss0_core0_dma_memory_region: memory@9c800000 {
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+index 7ee894d59113..8a5ff5c45757 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+@@ -170,7 +170,7 @@ wkup_r5fss0_core0_dma_memory_region: memory@9c800000 {
  
  		wkup_r5fss0_core0_memory_region: memory@9c900000 {
  			compatible = "shared-dma-pool";
--			reg = <0x00 0x9c900000 0x00 0xf00000>;
-+			reg = <0x00 0x9c900000 0x00 0x1d08000>;
+-			reg = <0x00 0x9c900000 0x00 0x01e00000>;
++			reg = <0x00 0x9c900000 0x00 0x01d08000>;
  			no-map;
  		};
- 
+ 	};
 
 -- 
 2.55.0
