@@ -4,101 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F0DFC982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 16:58:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9502EC982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 16:58:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xg8bxcCx9Xplr0VksHoJCXIx7eh2ZBKcRPIgfCbqvCk=; b=I3g2/DXWjB1fFNDaAs5bHv+PQ/
-	OYRv728aFxfzssWHhM64+MCPpyJyWp2ZYQ1PCp9pyATXYjv7pSjcMK1BVC3wsGMNP0jyfo5yrahHt
-	sf4d3WJWVQ9gX9Z7A/cT4XE4XnhPt+ztulddro0w1xxGl04oBzgAEZbXwpx0gsUCPN1HgsBe1NhyN
-	7si6ppZM+abz6xyhq54G5GaPl4z3Ux0Ed5lLEBdwUDkp7WJvlpqGdQbzmNZs6+c9YyQ/y6r1l1JVO
-	SqiM/IR3qPnCh9YWLFQvMKRGt9njUUuMsNk3WzTXxAbv+WbMHS19Wp58SVebIaWyXY6uZqgPwRnKw
-	IdlSTtgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FmJ9l5QFBMMe48wI+FnvFQSDXsCaB79a0WihlyuJstA=; b=JX/wtNPUfTQReoEvYv0SKfw19q
+	ZxEa+8T8riNlCSbX5sIOdm4OrthO8G1uzvf5BTW0y37BtykMGLe1avQbHnx6ZCBonXVybWSSRETMR
+	92gBTxI2UokpmJhAjdjc4qk9YdgSlY2NY/zCqM7fGaA84Y904oJs2LP+J22a+z0p6kJNdvBHTE+NT
+	NcxdhwPtU9uzl1aMcqOmxyxQr6QQzbJBO0bHz5u+vIuO8FzSiVyyYYRGBzkl8dpSsZV/mOIPYFHvu
+	+Ybahif7D5S609WbNVkxc624re1cExYn76UaY07Z7S3gP3YAraA57BRlVfG92+xhnhNYkjrUVkhgW
+	BFsEJ1WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7buS-0000000F7LY-36sx;
-	Fri, 18 Sep 2026 16:58:00 +0000
-Received: from mail-qk2-x10.google.com ([2607:f8b0:4864:34::10])
+	id 1x7bvC-0000000F7a9-3fE4;
+	Fri, 18 Sep 2026 16:58:46 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7buQ-0000000F7KA-0JzQ
+	id 1x7bvA-0000000F7Z1-2Vga
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 16:57:59 +0000
-Received: by mail-qk2-x10.google.com with SMTP id d75a77b69052e-52fb76906adso12081571cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 09:57:57 -0700 (PDT)
+	Fri, 18 Sep 2026 16:58:45 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68IGoFCO4103558
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 16:58:44 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	FmJ9l5QFBMMe48wI+FnvFQSDXsCaB79a0WihlyuJstA=; b=F862iJklfTEspXfc
+	UjvRsNylWUiwop35P1muhLn10HTOL/M7stdoCV5Frgx1dJJyqJCtb9FvturdV8sv
+	z3alBIEzMWiVlVthfKBVozYtF7rTFVwi4etMJQaCL3Xb1OMzWcr3mo94SqS0NKef
+	R2spGU2cf3Z4YDgyNC0YvETba6iLNRQtX+MmCmDbez6Y2pZzcL6/1A49LPfbZR3+
+	EwSgfygJ0q8qQ9GphKHYvddiZI3X3ZqEQSOuyLKfi60D+5Gm3ZpMKc/Bkp7QtCxC
+	19jlA5mLGS4eEQmM2YLhernOpYqFKGMWVlTYHqEyqO4snc1SdLMMuu7ckn2KAGe8
+	b6XcSg==
+Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gs37dhnc8-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 16:58:44 +0000 (GMT)
+Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-855315ccb64so1018683b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 09:58:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1789750677; x=1790355477; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=xg8bxcCx9Xplr0VksHoJCXIx7eh2ZBKcRPIgfCbqvCk=;
-        b=E1g1ATky5anZiOaGQnc+aeRl0LwjwTEnSbC3t80LHqXTzxJTQmJVRWAigZIBM/sJ+J
-         KOQKpS/lFi9Mx8kWfLxDHKfSVsWglzlOOn5ZPsQw1uAwH2XRAYHQDdq8d+Gw30P4iMEp
-         iyFo0OV5HqkXEmt2wL4ONA3vf83Jg0PetZy4ExrHsYrQqs5EB5ExTVMOY4Zbj7IaJ6QA
-         dcFtbEuF16w23xNjbO5aUjBVPBr2Xkl6WDmSSpeznzyRCrlB/w3DgzfbfqkxduJZ1Wi7
-         EgKnzYvIFKP6nYf08L/aJNlBN/RL55TBCYjDGTNEMpnNMDvLLHGTHpBtPHsDaYodr0/A
-         QFLw==
+        d=oss.qualcomm.com; s=google; t=1789750723; x=1790355523; darn=lists.infradead.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=FmJ9l5QFBMMe48wI+FnvFQSDXsCaB79a0WihlyuJstA=;
+        b=eh2YgXjtJJHmp9G9s0n5hviL4/U3uStGrwU3d+NftvPuFnBB/2E+M16Ko18OtoFT8P
+         NL8L5wEt6pSWj+GXJE+pvo/L0/rjePYIKZAR4ANQ8csfQxfpwrNAFQ7FtsAhJSjB+ZlP
+         Xr0N5svyaMJ4luzGf3VYDoUoIKw+0k6jrSNL66BssFB96FXywjB7uQoWsvmA5BDKDvPR
+         hltz0zYzjKlWMMl86USTDWX83t+3AtEekMpHpK///5bBHLQf9O6WHiBvpmuIrcKFytiA
+         uB1yx+++IQh4HLnCdLs2vnn/Vky1UtSN0UOPmic04iOD+ZNtniirnVTefWHslHhovY3k
+         Q74w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789750677; x=1790355477;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1789750723; x=1790355523;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=xg8bxcCx9Xplr0VksHoJCXIx7eh2ZBKcRPIgfCbqvCk=;
-        b=Yms/6mD0oeUmZjMr6fuTieKnSkXQQNsPIDxsv4CJc6glszH1chEEcca/BB+DaeR6O8
-         2nFnq9pZfyu3DsCY+ShWhKxOvpeUM3gQOnKh4mf75Hy6mViU6vGVwSzPQxCEBEVSBsyF
-         zgVFIlzY6WFt4PMlo3NNopNucGzl7crte1yrsLrvFF7DDEmcM2k5FXahSzDFlT12EmU3
-         et8cHTctR/aD4RjQDFF9/SOinfMANq7Ai0Iiafb3tCdXRLS1O0jqkTMH7gWk9p70F3Wt
-         j1oyT0mW4RJR4wMLTr8SumOARLtfsSOj3cNkUp3QHgq0DG4eAt2mzKWJTbk6bPuBTKfs
-         gsaw==
-X-Forwarded-Encrypted: i=1; AKwUvByOMl6bU15fRHxI/lIl72wylThfMdIouohWGcVEtzLY7yQeYZ5ChXN9oFlbs38NXjqvRIcY648w6tJ0905FF+tP@lists.infradead.org
-X-Gm-Message-State: AFuF++mjjDErG74Y84iJTIcKkw8Th6Kew+299EniihlpLGuZiVbAg0AT
-	KLxor3/JtDxGO/QAcE0z5hLbOmF3Qhg69He+TF11CRs1HlqiARBTS5HePX1KToDHySc=
-X-Gm-Gg: AYBFou3GDv7S62QwyH6NIjIzzB8+6+rrai7PchzGCB/xnFuEYzLei6LLkrgViyrpLm2
-	o0umBzrmq5qsadRa8xFT6QG9xUWlYbkw6jeEqNEFFphZcofC/x1zuzbHKtG2IvKbNY9Jm7eMIit
-	eogdncxzEX35cV9/Bi+Jz9RfSxneAT4JlmvNXluypcdYO9PRpibZNvEUFH6/HKIdZL+GybgEing
-	rO9SeRc8eyWbg/BRATMkfd1OSrAGq4JxL/XR5EY5kDGRRhsoQGFt8TB1at9fcU1Yg+B3CZ3poDz
-	ekw5QHZcfJcugg5+bumbb9L4w2z/0UfJSx+cgN2vzh2GG/svLoNEroEIYL0v35QykGbnICdFX6Z
-	XRkuKQOoqM0hhJrAh9nxKizF0xemNI4CL1TshlobAy7ldS8CvsmnN3DS6a3be3P0sU31WachdpP
-	INj8gPtjMXnWUqNuqGKOLBKEPME36s4ul8BYLiDbipYPKzOOKUCw+S8ScwTuQK2rW8OrZAls4dk
-	cZfRjw9jkc/d3u6G1uVyeFxQKpBKFoyrT6/DCx7vd1I/IkLY41U1Tzt
-X-Received: by 2002:a05:622a:60d:b0:530:9bb:54ae with SMTP id d75a77b69052e-5329e259e51mr55816971cf.15.1789750676599;
-        Fri, 18 Sep 2026 09:57:56 -0700 (PDT)
-Received: from ziepe.ca (hlfxns010zw-159-2-239-150.pppoe-dynamic.high-speed.ns.bellaliant.net. [159.2.239.150])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-532ae2c6a33sm1773871cf.0.2026.09.18.09.57.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Sep 2026 09:57:55 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1x7buM-00000001zBN-2BHs;
-	Fri, 18 Sep 2026 13:57:54 -0300
-Date: Fri, 18 Sep 2026 13:57:54 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	linux-coco@lists.linux.dev, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev, Marc Zyngier <maz@kernel.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Thomas Gleixner <tglx@kernel.org>, Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v6 0/9] coco: guest: Enforce host page-size alignment for
- shared buffers
-Message-ID: <20260918165754.GG11599@ziepe.ca>
-References: <20260904103452.1197239-1-aneesh.kumar@kernel.org>
- <aq1sT2EDsGaomqST@arm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aq1sT2EDsGaomqST@arm.com>
+        bh=FmJ9l5QFBMMe48wI+FnvFQSDXsCaB79a0WihlyuJstA=;
+        b=xRe18UmDIvUDiiO4nPXFx37s37AQdBVM34TLjjmYH6lpJnZt23m98u0VOchHpGRVLp
+         Va6hMTLfSlLlbpcofOMq6Dl6gKp4XVlZLw87on2tMtwZpjeXkdfMSQiqA04KiRKu55zd
+         9tOQVGxqi8BMEF6s6qiNofqVhRBW7BgnaKbLf5/UsLjbkUuiO0uVolUKsnfWuVY9HCC8
+         Ga5VD4sFk9yx1roA8WJQqWf1ELIpeeOZWgPMYzv60jeSb2FgQ1sa58vnLpu1RY+xV9jx
+         ZpkHb1oypC7vGWzKId4sS0qUfi5tu8w8QDDzfsPvFeL9Y48rH0C9Sg8gnElm6roMCS2e
+         tsKg==
+X-Forwarded-Encrypted: i=1; AKwUvBxZ2LUnJgaTmCNkfPOwvXBJ6WLQUXxDLkGB/Gckw629DBSpwin4+evkqFkO3evvRyMI37GQoYNELgxsskgaDo/5@lists.infradead.org
+X-Gm-Message-State: AFuF++mpNNY/Rd9THNteOAD2T71v3zLli2qvWjN2bg1kyP1RMrAiHmYT
+	ow2Y6sHk7MpqVTnNY1U7+jEB78qtTK9AJp6E0+LwVJ8WKW62g6AwrJNytouY3TbohB1p2gPuZbs
+	/ArRUI6pLiqNPIYANvfUMxM45lkXdkG+Byss3d3kHUIjHV0dyWrIxZL9JdWWM/xZzxLo4UlecOR
+	dOvw==
+X-Gm-Gg: AYBFou3pqcJEC8HwO4WG7K0tboq4mis7VcCP2KCLZlHPKdfzIXAguT2g5+9Hs3gVjSn
+	SnmgRqQLHN/+Mewi0sOOuN/I17NRFI3K5K1SSiIk0BptBrh/02pwpseouicXhNqrrENEc2JWS3T
+	wuU5YY3KqnZc00r3wZeWfL9J63N4rcqLdedJdYIVOjM6bsuRrTkGALrIQVFXnVhU0maRzxmKcHD
+	jdi+K/W3eKEOVq7eRBTf9zevJHwahIB/KpJH36yMsJuP7Ud7hsRJkRqYYlZxBw0fTGT2bwCE5EZ
+	FHGmqATo5Nnh/eh2uMmXTUn0IqRZ8LvZ/i7eaSe9KphgoOGG+k9GDWixUJQilFbPvTedVVln0aZ
+	1gORWmw==
+X-Received: by 2002:a05:6a20:d707:b0:3dd:a195:fa0e with SMTP id adf61e73a8af0-3dda195fd95mr361298637.51.1789750723369;
+        Fri, 18 Sep 2026 09:58:43 -0700 (PDT)
+X-Received: by 2002:a05:6a20:d707:b0:3dd:a195:fa0e with SMTP id adf61e73a8af0-3dda195fd95mr361267637.51.1789750722830;
+        Fri, 18 Sep 2026 09:58:42 -0700 (PDT)
+Received: from localhost ([143.246.51.243])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc5c50e7433sm1426162a12.28.2026.09.18.09.58.36
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 18 Sep 2026 09:58:42 -0700 (PDT)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Sat, 19 Sep 2026 00:58:17 +0800
+Message-Id: <DLILO7Y6WWXC.ON1PAKLWJM1Y@oss.qualcomm.com>
+Cc: <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
+        <linux-aspeed@lists.ozlabs.org>,
+        <linux-arm-kernel@lists.infradead.org>, <imx@lists.linux.dev>,
+        <xen-devel@lists.xenproject.org>
+Subject: Re: [PATCH v3 1/2] drm/imx/lcdc: avoid duplicate clk_per enable
+From: "Ze Huang" <ze.huang@oss.qualcomm.com>
+To: "Thomas Zimmermann" <tzimmermann@suse.de>,
+        "Ze Huang"
+ <ze.huang@oss.qualcomm.com>,
+        "Alexey Brodkin" <abrodkin@synopsys.com>,
+        "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
+        "Maxime Ripard"
+ <mripard@kernel.org>,
+        "David Airlie" <airlied@gmail.com>, "Simona Vetter"
+ <simona@ffwll.ch>,
+        "Joel Stanley" <joel@jms.id.au>,
+        "Andrew Jeffery"
+ <andrew@codeconstruct.com.au>,
+        "Frank Li" <Frank.Li@nxp.com>,
+        "Sascha
+ Hauer" <s.hauer@pengutronix.de>,
+        "Pengutronix Kernel Team"
+ <kernel@pengutronix.de>,
+        "Fabio Estevam" <festevam@gmail.com>,
+        "Linus
+ Walleij" <linusw@kernel.org>,
+        "Hans de Goede" <hansg@kernel.org>,
+        "Alex
+ Lanzano" <lanzano.alex@gmail.com>,
+        "Oleksandr Andrushchenko"
+ <oleksandr_andrushchenko@epam.com>,
+        "Philipp Zabel"
+ <p.zabel@pengutronix.de>,
+        =?utf-8?q?Uwe_Kleine-K=C3=B6nig?=
+ <u.kleine-koenig@pengutronix.de>,
+        "Marian Cichy" <m.cichy@pengutronix.de>
+X-Mailer: aerc 0.22.0.r10.g73f20125
+References: <20260727-drm-simple-kms-removal-v3-0-de36e534f7a1@oss.qualcomm.com> <20260727-drm-simple-kms-removal-v3-1-de36e534f7a1@oss.qualcomm.com> <bbf8fd0e-8e1c-4899-98f4-b8231800de8c@suse.de>
+In-Reply-To: <bbf8fd0e-8e1c-4899-98f4-b8231800de8c@suse.de>
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE4MDI0MiBTYWx0ZWRfXwEBPRYBwRspK
+ rSoihOwQuhD+kqxOyu/6S6l+uo5xH5U6+McruMtJ6qPn7WV57wlzJHVsWdwr0u3mLXd1CroR2zG
+ mIxDFSN1tATtbrmvpO7+MSy5h9w7jss=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE4MDI0MiBTYWx0ZWRfXzV6sKjOwqX86
+ jqHMcunJAkMattVFvf1zZPooGY4IqyUv53THooSXo5pibel3a+v6Pe/+NTF4NV5Xl5OH2CohuL8
+ qOiRrdLdcpcRyE+F2gY1NcjLFi0Ifxt0jJB2nrdoeSoVYICFZWdOZNGK884mMyJd+C87D5yzoCQ
+ UbROBjrg59sZ3ggwhK0IfoWdKnecRgXFS8WuLnpW4bOGIeV0pAdrJvyX9L/ju7/hInFBslEIEal
+ mb85IKOQFtsZYa3CeF5myotz2tpK9zQHGF5yuc7JA5EfKqWNTu35aocbsQ6eqTXihZlcerNiPAz
+ Jg00TrL9v5XvFUraQJ+uGB4sf+sygKq+6zxHBzKvI32aHCkfY1VSS3R623ay4OZJexN0415dnj3
+ 8CiNbgzz7R7BLyDvqMFHI5Prn1hLBHosvZX84zy0NUjCH3uQqlASKnWMkeHERSnvcny55e/+SZJ
+ QtPMgPDyhNcZ0bfYNGw==
+X-Proofpoint-GUID: 6FEi-a10IlJENQt6Q3BJKa_7Yi7fuW07
+X-Proofpoint-ORIG-GUID: 6FEi-a10IlJENQt6Q3BJKa_7Yi7fuW07
+X-Authority-Analysis: v=2.4 cv=R+mWitRX c=1 sm=1 tr=0 ts=6aad6dc4 cx=c_pps
+ a=WW5sKcV1LcKqjgzy2JUPuA==:117 a=LNnhWNgewsfctp/cwirQdA==:17
+ a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
+ a=EUspDBNiAAAA:8 a=gNeoJdBQTLUQTwsD9V0A:9 a=QEXdDO2ut3YA:10
+ a=OpyuDcXvxspvyRM73sMx:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-18_05,2026-09-16_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 adultscore=0 bulkscore=0 impostorscore=0 clxscore=1015
+ spamscore=0 suspectscore=0 malwarescore=0 priorityscore=1501 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609180242
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_095758_296872_0315606F 
-X-CRM114-Status: GOOD (  13.14  )
+X-CRM114-CacheID: sfid-20260918_095844_645273_84AA8B0E 
+X-CRM114-Status: GOOD (  22.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,27 +178,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 18, 2026 at 05:52:31PM +0100, Catalin Marinas wrote:
+On Wed Sep 16, 2026 at 2:24 PM CST, Thomas Zimmermann wrote:
+> Hi
+>
+> Am 26.07.26 um 21:42 schrieb Ze Huang:
+>> The simple-KMS helper calls the pipe update after enabling the CRTC.
+>> On an enable commit, imx_lcdc_pipe_enable() already programs the
+>> mode and enables clk_per. The following pipe update sees the plane move
+>> from no CRTC to the active CRTC, treats it as a mode update, and calls
+>> imx_lcdc_update_hw_registers() again.
+>>
+>> That second call has no old CRTC state to disable clk_per first, but it
+>> enables clk_per again at the end. The disable path only drops one
+>> reference, leaving clk_per enabled after each on/off cycle.
+>>
+>> Skip the register update from the pipe update path when the CRTC already
+>> needs a modeset. The enable path has already programmed the hardware for
+>> that commit; keep the event handling in pipe update unchanged.
+>
 
-> TBH, I'm tempted not to support this configuration at all, just fail
-> gracefully if the realm page size doesn't match the host's. However, if
-> that's a real world configuration, 
+Thanks for your review.
 
-realm != host is going to be fairly common.
+> That seems reasonable. Once the driver uses regular DRM helpers instead=
+=20
+> of simple_kms,=20
 
-host > realm is probably not that common, I would guess.
+> it can all be untangled and this test won't be necessary any longer.
 
-> I wonder whether could we leverage the swiotlb mechanism but with a
-> separate io_tlb_mem as a shared coco allocator with the right
-> alignment and use this pool when force_dma_unencrypted() instead of
-> specific alloc_pages() with adjusted order.
+Yes, that's the goal.
 
-I propose we fix the far too low level set memory decrypted apis into
-proper allocators, with APIs that can handle a round up. Then see
-where we end up after that.
+IMO it's better to spilt the operations in imx_lcdc_update_hw_registers()
+or distinguish the caller.
 
-If we can hide 90% of it in an allocator then lets see if we can open
-code the rest.
+However, it might be risky to make big changes without hardware validation,
+I think it accpetable for now.
 
-Jason
+>
+>>
+>> Fixes: c87e859cdeb5 ("drm/imx/lcdc: Implement DRM driver for imx25")
+>> Signed-off-by: Ze Huang <ze.huang@oss.qualcomm.com>
+>
+> Acked-by: Thomas Zimmermann <tzimmermann@suse.de>
+>
+>> ---
+>>   drivers/gpu/drm/imx/lcdc/imx-lcdc.c | 3 ++-
+>>   1 file changed, 2 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/gpu/drm/imx/lcdc/imx-lcdc.c b/drivers/gpu/drm/imx/l=
+cdc/imx-lcdc.c
+>> index f52832b43aca..81024f7d9e96 100644
+>> --- a/drivers/gpu/drm/imx/lcdc/imx-lcdc.c
+>> +++ b/drivers/gpu/drm/imx/lcdc/imx-lcdc.c
+>> @@ -311,7 +311,8 @@ static void imx_lcdc_pipe_update(struct drm_simple_d=
+isplay_pipe *pipe,
+>>   	else if (old_crtc !=3D crtc)
+>>   		mode_changed =3D true;
+>>  =20
+>> -	imx_lcdc_update_hw_registers(pipe, old_state, mode_changed);
+>> +	if (!drm_atomic_crtc_needs_modeset(crtc->state))
+>> +		imx_lcdc_update_hw_registers(pipe, old_state, mode_changed);
+>>  =20
+>>   	if (event) {
+>>   		crtc->state->event =3D NULL;
+>>
+
+
 
