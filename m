@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B72B0C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 21:53:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA70DC982DD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 21:54:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8W8XO/Ae5cM2yDYef7QCLLw8szG6m9g5X/FwN3K83rI=; b=S+akdi3Rftr16ER3cFVzOL2+OK
-	i4CImkK3Kj4oFKJV1fXUm92mb6oHzY+IfTBeIvatHLEwmm7qWr5CXZZSTxiym4xyEDShnigqNTOFI
-	/sa/4Xa+Tv+DcakKY/vcPVvhJeiHQjIs5xqo2RLkNdhnjfZ8/69K8zje+j5xC1oYx+GuVwFPLwcsU
-	s31LYt7VSfHuTB4v1JUZWHInFTUcj9HxrqxNbE2wh7R2QmZgiqS4plXVLHIW3UBupBSJ/FPtzHlB3
-	9W1SQb3ebZM7/Ou/uYHUlRGEGec3WPuErnoisUh6bpFmmH/s3ccpMFxfleKil6kQkivjrYRpArZ0o
-	tKeoKTwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J0OVTGPgWTDcP7IeXfZpR+F08h8lgiCM2uhTjTHEnHM=; b=HOqr9v3Rf+ovujHJ2MdHaxAY09
+	oHvQjBy9giTfswXrSo/aQdiDzXmp6Wu8jDblaU25MOkesyMm7vR2S8Ev7Gd3i+iGEKdW7qX4ZapRI
+	j3EZb5VX6mjKIoJCBdBbj0BH5aiU3m4/bWbk8JNiCzKT44S/lMqFX4TvOz4rQtbZjdHaaHD2aiyuf
+	NSsuLeMQDj5KR9V5ICHGGpPkBqmms6CgIScEKtv6XNZzXR0mcP+pI83gl2RuI53MQ91KMCxEVckU1
+	UqKg4XYH2YrbEOhrZuwK2l+IBz9TXEL4+lHTWa/IIOuhQv0BdTFqBjQrLTcwdpTHEGSsMlYkbgCxz
+	PVWal6NA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7gVx-0000000FaPx-2eAz;
-	Fri, 18 Sep 2026 21:53:01 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x7gWs-0000000Fast-1qV8;
+	Fri, 18 Sep 2026 21:53:58 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7gVv-0000000FaPn-3JIs;
-	Fri, 18 Sep 2026 21:52:59 +0000
+	id 1x7gWr-0000000FarY-3UiB
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 18 Sep 2026 21:53:57 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 429EC43660;
-	Fri, 18 Sep 2026 21:52:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBD681F000FF;
-	Fri, 18 Sep 2026 21:52:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3C1D0433C9;
+	Fri, 18 Sep 2026 21:53:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E448C1F000FF;
+	Fri, 18 Sep 2026 21:53:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789768379;
-	bh=8W8XO/Ae5cM2yDYef7QCLLw8szG6m9g5X/FwN3K83rI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=N4e2esu+nbbszP6tLi19HQcyp3UTfm/8Ra6HgTLuOQ+lNSqq8wN+HG+5h6voAyqvw
-	 JBkuq0O+9qHVnNQbBgRtykiL9pO3Vt6BwH2Sj8pF/dmFnLgHgRR7aDvmMyMcioECsa
-	 G+aklz+r4vk8Zf6tskvGHkWPFLLypq9CoO1qx+wVAOYydQqrmMy3HKK6igwX3IHg5M
-	 sLlhMMa99E+cjHdfktxpavspkszmjIeW8oThUebLcBwp6ttL7d/w/VRXtIXH6Xkzw9
-	 4QKPO2HHZrpt/1GgREjb06tQk9uZU3M+lxyfNiL7jZ1dCpQEMKqJ0qcVPg0k4lI7VI
-	 ypWSSAtI1vISw==
-Message-ID: <abbbc648-6284-49b0-b362-5d41e34b3e42@kernel.org>
-Date: Fri, 18 Sep 2026 22:52:55 +0100
+	s=k20260515; t=1789768437;
+	bh=J0OVTGPgWTDcP7IeXfZpR+F08h8lgiCM2uhTjTHEnHM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=BOse+aHdWkqCl9jRalTVS9IY0rpnulBUFT1S4W7GGNoZgeAJnRznJGubEV2g+vSQj
+	 pDORAHH08ft6C5FEFTsOqszrtyOWvG4Ty6k7pB1PT1Zk6CLDkpMjFXAY3eYstITnYI
+	 MpXo+u/Ibwct5b+cBSZhLGyexOMih9EB5/jd61BkvnltjjpqXMXPQsVxquLnxzUkCz
+	 xqluq/f28D2BvCyrtVE/VPdSxjB0fDyiaqUVlzKKOU8bu+B9aiSBXlh+jMt9/XUOYc
+	 nwlzZonWWZJrp2qT826QptvlxOADJRlCv03kL8kfxeZk5zLScDUIQnIi0DCR5PVs0f
+	 U0JAvvfi7NdfA==
+Date: Fri, 18 Sep 2026 16:53:55 -0500
+From: Rob Herring <robh@kernel.org>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	Lee Jones <lee@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, dmaengine@vger.kernel.org
+Subject: Re: [PATCH v2 09/20] dt-bindings: arm: pmu: Allow power domains
+Message-ID: <20260918215355.GA2371991-robh@kernel.org>
+References: <20260914-ux500-power-domains-v7-1-v2-0-9d0c17e1f816@kernel.org>
+ <20260914-ux500-power-domains-v7-1-v2-9-9d0c17e1f816@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/3] nvmem: mtk-efuse: mt6572 support
-To: rva333@protonmail.com, Srinivas Kandagatla <srini@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
- Lala Lin <lala.lin@mediatek.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20260909-6572-nvmem-v3-0-c0c441656431@protonmail.com>
-Content-Language: en-US
-From: Srinivas Kandagatla <srini@kernel.org>
-In-Reply-To: <20260909-6572-nvmem-v3-0-c0c441656431@protonmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260914-ux500-power-domains-v7-1-v2-9-9d0c17e1f816@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,75 +78,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 9/9/26 11:48 AM, Roman Vivchar via B4 Relay wrote:
-> This patch series adds MediaTek mt6572 efuse support. Unlike newer SoCs,
-> its efuse controller doesn't work properly with 8-bit reads, leading to
-> invalid data with current mtk-efuse driver implementation.
+On Mon, Sep 14, 2026 at 01:54:37PM +0200, Linus Walleij wrote:
+> Allow ARM PMU nodes to reference their power domain.
 > 
-> This behavior can be observed with devmem (0x10009174 and 0x10009178 are
-> thermal calibration cells):
-> ~ # devmem 0x10009174 32
-> 0x00CDD4CD
-> ~ # devmem 0x10009178 32
-> 0x0F76865D
-> ~ # devmem 0x10009174 8
-> 0xCD
-> ~ # devmem 0x10009175 8
-> 0x00
-> ~ # devmem 0x10009176 8
-> 0x00
-> ~ # devmem 0x10009177 8
-> 0x00
-> ~ # devmem 0x10009178 8
-> 0x5D
-> ~ # devmem 0x10009179 8
-> 0x00
-> ~ # devmem 0x1000917a 8
-> 0x00
-> ~ # devmem 0x1000917b 8
-> 0x00
-> 
-> Patch 1 adds dt-bindings compatible for the mt6572,
-> Patch 2 adds platform data option to use aligned 32-bit reads instead
-> of plain readb().
-> Patch 3 adds platform data for mt6572 SoC.
-> 
-> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+> Signed-off-by: Linus Walleij <linusw@kernel.org>
 > ---
-> Changes in v3:
-> - Pick up Rob's r-b tag for dt-bindings
-> - Patch 2 and 3 unchanged, for some reason cover letter and patch 1 were
-> missing on the web mirror...
-> - Link to v2: https://patch.msgid.link/20260724-6572-nvmem-v2-0-e58d16a29621@protonmail.com
+>  Documentation/devicetree/bindings/arm/pmu.yaml | 3 +++
+>  1 file changed, 3 insertions(+)
 > 
-> Changes in v2:
-> - dt-bindings: make mediatek,mt6572-efuse standalone compatible
-> - Driver: add 'mtk_reg_read_aligned' helper instead of modifying 'mtk_reg_read'
-> - Link to v1: https://patch.msgid.link/20260715-6572-nvmem-v1-0-9c13be99d077@protonmail.com
-> 
-> ---
-> Roman Vivchar (3):
->       dt-bindings: nvmem: mediatek: efuse: add mt6572
->       nvmem: mtk-efuse: add support for 32-bit aligned reads
->       nvmem: mtk-efuse: add mt6572 support
-> 
+> diff --git a/Documentation/devicetree/bindings/arm/pmu.yaml b/Documentation/devicetree/bindings/arm/pmu.yaml
+> index f47baaefcdac..305c1a9668f4 100644
+> --- a/Documentation/devicetree/bindings/arm/pmu.yaml
+> +++ b/Documentation/devicetree/bindings/arm/pmu.yaml
+> @@ -88,6 +88,9 @@ properties:
+>      # Don't know how many CPUs, so no constraints to specify
+>      description: 1 per-cpu interrupt (PPI) or 1 interrupt per core.
+>  
+> +  power-domains:
+> +    maxItems: 1
 
-Doesn't apply cleanly pl resend.
+The PMUs are per core, so you really need to support more than 1. 
+However, I think the PMUs would always be part of the core domain and 
+the A9 docs[1] don't show any sort of PMU domain.
 
---srini
->  .../devicetree/bindings/nvmem/mediatek,efuse.yaml  |  5 ++-
->  drivers/nvmem/mtk-efuse.c                          | 41 +++++++++++++++++++++-
->  2 files changed, 44 insertions(+), 2 deletions(-)
-> ---
-> base-commit: 8cd9520d35a6c38db6567e97dd93b1f11f185dc6
-> change-id: 20260710-6572-nvmem-eb98c7a73351
-> 
-> Best regards,
-> --  
-> Roman Vivchar <rva333@protonmail.com>
-> 
-> 
+We already support power-domains in the CPU nodes, wouldn't that be more 
+accurate?
 
+Rob
+
+[1] https://support.arm.com/documentation/ddi0407/b/clocking--resets--and-power-management/iem-support/cortex-a9-mpcore-power-domains
 
