@@ -4,102 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ED79C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 13:06:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04178C982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 13:07:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xTtOVPmjJhEY4Y5vNG5Ynui/aIBMd7EqZyB7db6fqik=; b=QzOd5DAqCH9YU0vbYiH4bsoqYs
-	Vm6UduUPpysmhKuSIwBT6bdy6R4UGJNZgd6TY3Db1jYJUyDApavZVJuI4wD6Sxv+7rha8NTS/FRDx
-	t56vRB/XlqRG0FCGCjctTyZ+s6UOuiUM8O/GzmXFCoSk19P++LtEtZK61M/yQGpwhpPk4bpdMHtC7
-	J0o+rsJG/xMSR/2TdtlYoQnUV7SSEKFsXEoXkMef0Yp3I5akv4lI+pYAZdNI6U/gWgYM1RQML/M5f
-	kpaCGmrapYNGCqBkz4Dns7mlNHcpPNzjLC0WI3ml+XcsVCsDUpr3grwPZ63+m6ymdFduTI4FOSIsf
-	8ad7UXTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SUk0QaHaOHcefy3cF34cxRQ5NlHqBn6AdrcK4LTyzD0=; b=NuPB2IHcwWmLGJqt7Idv7ArZHh
+	4HC59Z+ch8DP+VTL3icT1C7jEDoPt4uLBPBF0wMKxWS9eeNnsIO8m1Tvb//dC8RilZXh0Hcqnz+y7
+	kJqSLBVzXkD4z0bnJMCIRAz9schSztx0CyKU/O430YOyUZV+qZs711gHCqSOnyvBji242b7mz41P7
+	tmUBQclywUZRQatSNReCj5nIlM92Tx0xiCd9Fjbgu6X/HijCJOjd7yA+HAXURt/RD+3710ML/hJEz
+	jj1WHt/gTxQ0+LKrxXfyXcNq0HPHK+KOMYIVtvvFetQS5AlTDUsxr8o1HYyzvjd6pJ8/xFqhJhnBG
+	OS8aGprw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7YHy-0000000ERK1-2nf2;
-	Fri, 18 Sep 2026 13:06:02 +0000
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	id 1x7YJX-0000000ERXV-3cCx;
+	Fri, 18 Sep 2026 13:07:39 +0000
+Received: from mail.cyberchaos.dev ([2a0f:4ac0::3a11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7YHv-0000000ERIg-3BPC
+	id 1x7YJV-0000000ERX1-2tYd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 13:06:01 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e6b885ef8so4265245e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 06:05:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789736757; x=1790341557; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=xTtOVPmjJhEY4Y5vNG5Ynui/aIBMd7EqZyB7db6fqik=;
-        b=cqmQHzbkymjXwvWdRWNv7fXu/4Iw686A2ssMjiRKAx1OjnbpXqDNt7VeUnJdJYFqtR
-         ixi0onXey87xLiPMHhj7YbTlXQh0+v/grMkJFzT0gw4zqo7b2uUBIj3JLHcuTA8xSYq5
-         j8Tkfmk0mLr79QAo6nZYawctR2TusF4C5Us55iGvWaHPBr9jKEzTVM2WnBiYKF3HW6Tt
-         a+25j/MlvH2Cu4ezR0CgcAuFSmn8BwpoBPPoDkkiMfNppwqGdbSYZR5rcZO4xplSLnpa
-         L1wBCkB1Wk50Vum4cVufEvahcg/2FlS0tSLel7KeWKvp9DJG9sq9S3RF4qT8Ue6OjHjF
-         apGw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789736757; x=1790341557;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=xTtOVPmjJhEY4Y5vNG5Ynui/aIBMd7EqZyB7db6fqik=;
-        b=JVXRJqoVml55+Hr9CTTU00lWsRwudYlIKNg4h5TwZ8yNa6r2DebDM19BkFoi1Zz94d
-         dmD2p7XRAwF1Hyjef5vrPMfYMb6N3KI97VpF3/Q2Ax9Jgt/miZGuuzTTLOI3re2fzsV2
-         jmpF/0YwvHsSKNZUofTpyQQ3kh9LwQ2R8/4rcQHh+DTlui/UkF6VWPUW7pIGHolBxBgx
-         QaR3iZGMvx+c45kvCCw3arBR8KCO7Df4MGBD29J4ebaXZTzDUoUARMzQZlKS+0iNcdBC
-         SEFWS0YfGUKEB3r9uOOnnCuUylnfTpA/wCN2L6fI3BT45V7XAY2hiee0IiWekKn4LmJj
-         sXeA==
-X-Forwarded-Encrypted: i=1; AKwUvBxeq59h40FmjeBdUi99nGR4xlGlazMqzdZY9cazKbMHCLiSbzHsjm9NIfUymubcRJuiWLg30SvKynBep6DJnlIK@lists.infradead.org
-X-Gm-Message-State: AFuF++lQuFvAYzjL8h6Z2QoGgXRsqkkTxwAzjs5TDgSRZAzqsUWBE0Pk
-	qHCQ0OceGLRLlYIyoZuxCgarZx7t0IcUuPRln2rNlnuU3tGItJay5zgc
-X-Gm-Gg: AYBFou1MX1YNESpDgmwfOEJRW85g3F1B+LNpGmC7yJ1GuPXeGPD9aaQfLfe0FzO5pXw
-	+Al914ijGujZEr5ZAzsMPYNjiJI5Ji4mz5zFDSQbRJNX6W5UMMk10iEPw5YtqkQiLf0UFj/DVtT
-	KXD0TzU4Fxy1KM7XONq292Jh1S3SiG1I2wMxpqbm4xC1CymzAezG8WRZsicNLYVM8pFrj5Iu42+
-	ExoSSsCFyg5+hxBQAKdEgybo8Dqcm0+Fl2RFmdFBa92cGEIJqKhg4zFVi6U767T42sUCTr5rnke
-	BHb9OyCEsV5s5u+x8HXsftoiGAWgcGMN8oQrG/LzNde3YkjeJ6eQ7C65NjLtBK6ZILe0sbGjCzT
-	p1qllq6tAai3227ixf4RU3YoAu5AtqYKou3H4ZN62GVuzzKIHXblGwP/fsDlYcN71YmXTgHYEDG
-	8CEjx2DUQ6eErCiDg0EAzC45bmBChq6UGD8zu6DzPSDM7g5XOnyTd9P3LQ46fZrahyrdBkN3GyD
-	Xbc0oPPzrI+AbC6ZxjDJCBI++J8TYPEdQW0gqrT1p8HjLw+UjQdw2p8cA==
-X-Received: by 2002:a05:600c:19c6:b0:49c:f4e1:4c2d with SMTP id 5b1f17b1804b1-49fc5741239mr34035075e9.16.1789736757294;
-        Fri, 18 Sep 2026 06:05:57 -0700 (PDT)
-Received: from [127.0.1.1] (lmontsouris-656-1-83-121.w82-127.abo.wanadoo.fr. [82.127.110.121])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fc7ce0050sm64995715e9.4.2026.09.18.06.05.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Sep 2026 06:05:56 -0700 (PDT)
-From: Amin Gattout <amin.gattout@gmail.com>
-Date: Fri, 18 Sep 2026 15:05:40 +0200
-Subject: [PATCH] media: rockchip: rkcif: convert timeout to
- secs_to_jiffies()
+	Fri, 18 Sep 2026 13:07:39 +0000
+Message-ID: <bca0facb-8840-4691-aebc-e3063c6c3d14@cyberchaos.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
+	s=mail; t=1789736850;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SUk0QaHaOHcefy3cF34cxRQ5NlHqBn6AdrcK4LTyzD0=;
+	b=YhQgO8y9BMFmml0KZlH0FT3AzNCrA9YHyuNWujznrpuMnz1ALgUCyFNCQ8kHqjn9e3LP1W
+	C5qUW5G85qOui0zY9hOqpaMHc7EvyGHSn3yeHxWUIbU8xYCU7D/G7VTfm7soeMTiaukDR6
+	qvQmbtZSe39IrGiLUQtLtTiEuaJwd+4=
+Date: Fri, 18 Sep 2026 15:07:22 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Subject: Re: [PATCH v2 05/10] mailbox: apple: Add DockChannel FIFO controller
+To: michael.reeves077@gmail.com, Sven Peter <sven@kernel.org>,
+ Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
+ Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Hector Martin <marcan@marcan.st>,
+ "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+ Robin Murphy <robin.murphy@arm.com>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, Jiri Kosina <jikos@kernel.org>,
+ Benjamin Tissoires <bentiss@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ iommu@lists.linux.dev, linux-input@vger.kernel.org,
+ Yureka Lilian <yureka@cyberchaos.dev>, Julian Braha <julianbraha@gmail.com>,
+ Sasha Finkelstein <k@chaosmail.tech>
+References: <20260918-apple-mtp-keyboard-final-v2-0-a5c685e50b60@gmail.com>
+ <20260918-apple-mtp-keyboard-final-v2-5-a5c685e50b60@gmail.com>
+Content-Language: en-US
+From: Yureka Lilian <yureka@cyberchaos.dev>
+In-Reply-To: <20260918-apple-mtp-keyboard-final-v2-5-a5c685e50b60@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260918-rkcif-secs-to-jiffies-v1-1-110f336750b0@gmail.com>
-X-B4-Tracking: v=1; b=H4sIACM3rWoC/yXMQQ5EQBBA0atIrVWihR7tKmJBT5UpkyBdiETcX
- c9YvsX/JygFIYU6OSHQLirzFGHSBPynmwZCeUdDnuU2c6bC8PXCqOQV1xlHYY45mt5VnbOFLfk
- FsV0CsRz/b9M+1q0fya+/GVzXDcQtwll5AAAA
-X-Change-ID: 20260918-rkcif-secs-to-jiffies-1b98a96465f7
-To: Mehdi Djait <mehdi.djait@linux.intel.com>, 
- Michael Riesch <michael.riesch@collabora.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Heiko Stuebner <heiko@sntech.de>
-Cc: linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Amin Gattout <amin.gattout@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789736756; l=1003;
- i=amin.gattout@gmail.com; s=20260818; h=from:subject:message-id;
- bh=kPgx4cLfFtyea67NwR3E633DUHHI/gx0j+1j/jnDfgM=;
- b=pggsFLR06h1pcvdC/nqDIW9ExWwe/rpDAtuNuj4ftZ2dnTT7yl+yPfCBCZSNWi7x/a3d2+q9F
- RJ1IywmT/tFAYuO0IGq4I2KX34bi0eW6c7CxgTnUEabgIXNiscn45mw
-X-Developer-Key: i=amin.gattout@gmail.com; a=ed25519;
- pk=MSIqDPkCOkwtyP8Fns1m+KFU9SgqoDl2mpLe18vL+hQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_060559_820430_D94EC9AA 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20260918_060737_971985_44F89A57 
+X-CRM114-Status: GOOD (  22.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,33 +79,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use secs_to_jiffies() to simplify the code.
+On 9/18/26 13:06, Michael Reeves via B4 Relay wrote:
+> From: Michael Reeves <michael.reeves077@gmail.com>
+>
+> DockChannel is a hardware FIFO used by Apple coprocessors for
+> low-latency byte-stream communication with the AP.
+>
+> Add a mailbox controller that preallocates RX storage, tracks IRQ
+> enable state in software, and reports TX completion from the TX-empty
+> interrupt.
+>
+> Reject messages larger than the FIFO and return -EBUSY while the
+> previous message is still pending. This keeps the provider usable for
+> future small-message clients such as serial transports without a TX
+> worker.
+>
+> Handle RX and TX interrupts in a thread so mailbox callbacks and locking
+> run outside hard-IRQ context.
+>
+> Co-developed-by: Hector Martin <marcan@marcan.st>
+> Signed-off-by: Hector Martin <marcan@marcan.st>
+> Signed-off-by: Michael Reeves <michael.reeves077@gmail.com>
+> ---
+>   MAINTAINERS                               |   2 +
+>   drivers/mailbox/Kconfig                   |  12 +
+>   drivers/mailbox/Makefile                  |   2 +
+>   drivers/mailbox/apple-dockchannel.c       | 371 ++++++++++++++++++++++++++++++
+>   include/linux/mailbox/apple-dockchannel.h |  29 +++
+>   5 files changed, 416 insertions(+)
+>
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 7fe2ebb5e..e5be5934c 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -2677,6 +2677,7 @@ F:	drivers/input/touchscreen/apple_z2.c
+>   F:	drivers/iommu/apple-dart.c
+>   F:	drivers/iommu/io-pgtable-dart.c
+>   F:	drivers/irqchip/irq-apple-aic.c
+> +F:	drivers/mailbox/apple-dockchannel.c
+>   F:	drivers/mfd/macsmc.c
+>   F:	drivers/nvme/host/apple.c
+>   F:	drivers/nvmem/apple-efuses.c
+> @@ -2695,6 +2696,7 @@ F:	drivers/video/backlight/apple_dwi_bl.c
+>   F:	drivers/watchdog/apple_wdt.c
+>   F:	include/dt-bindings/interrupt-controller/apple-aic.h
+>   F:	include/dt-bindings/pinctrl/apple.h
+> +F:	include/linux/mailbox/apple-dockchannel.h
+>   F:	include/linux/mfd/macsmc.h
+>   F:	include/linux/soc/apple/*
+>   F:	include/uapi/drm/asahi_drm.h
+> [...]
+> diff --git a/drivers/mailbox/apple-dockchannel.c b/drivers/mailbox/apple-dockchannel.c
+> new file mode 100644
+> index 000000000..d0a66e1b7
+> --- /dev/null
+> +++ b/drivers/mailbox/apple-dockchannel.c
+> @@ -0,0 +1,371 @@
+> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
+> +/*
+> + * Apple DockChannel mailbox controller
+> + *
+> + * Copyright The Asahi Linux Contributors
+> + *
+> + * DockChannel is a byte FIFO used by Apple co-processors. This driver exposes a
+> + * single FIFO pair as a Linux mailbox channel and moves payload bytes with PIO.
+> + * There is no DMA involved, so relaxed MMIO accessors are sufficient for the
+> + * FIFO accesses themselves.
+> + */
+> +
+> +#include <linux/device.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/io.h>
+> +#include <linux/mailbox/apple-dockchannel.h>
+> +#include <linux/mailbox_controller.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/spinlock.h>
+> +#include <linux/unaligned.h>
+> +
+> +#define APPLE_DOCKCHANNEL_FIFO_SIZE	0x800
+> +
+> +#define IRQ_MASK			0x0
+> +#define IRQ_FLAG			0x4
+> +
+> +#define IRQ_TX				BIT(2)
+> +#define IRQ_RX				BIT(3)
 
-Signed-off-by: Amin Gattout <amin.gattout@gmail.com>
----
- drivers/media/platform/rockchip/rkcif/rkcif-stream.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+The dockchannel interface used for dockchannel-uart / DebugUSB uses 
+different bits here, so these should probably be read from the device 
+tree if the mailbox driver is supposed to be somewhat generic.
 
-diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
-index 3130d420ad55..f82eaf9a37d1 100644
---- a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
-+++ b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
-@@ -314,7 +314,7 @@ static void rkcif_stream_stop_streaming(struct vb2_queue *queue)
- 
- 	stream->stopping = true;
- 	ret = wait_event_timeout(stream->wq_stopped, !stream->stopping,
--				 msecs_to_jiffies(1000));
-+				 secs_to_jiffies(1));
- 
- 	if (!ret && stream->stop_streaming)
- 		stream->stop_streaming(stream);
-
----
-base-commit: 238650ef6c7c7cca08e032527329424c9fbd70e5
-change-id: 20260918-rkcif-secs-to-jiffies-1b98a96465f7
-
-Best regards,
---  
-Amin Gattout <amin.gattout@gmail.com>
-
+> [...]
 
