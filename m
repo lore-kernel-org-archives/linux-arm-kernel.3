@@ -4,67 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9BB9C982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 13:38:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C69AC982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 13:39:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UAOy211GQO8ZsvZCQNqPn3L4mKEDMAq855MNr2jtBdw=; b=yC2wXsp0ltFuCL3YrjR664No45
-	Xy0l0OXXIjSvcP0LZUoEVPE+IjccBgU3fl6n8F2J+VcvVEWy20k5xTf2YwoGVsZNWkcYrYbO2ONPH
-	UjR+lTZOHqhz6mBkPGmpVtIdwBQOKGrpfKrWp4AxHLW0rhKIJNozLMzpGaUiYdcIy89vZdcizZ2pD
-	t82BE8jJVWUBB5s5U1wkJ9VtqBo1AgxpysK8sFHpXJFpfYchjtwEobehDCo4PrpPfTn/6MMQYg0JD
-	SNOnBNyf9OKEKEnyarhJcZ+72hQOEYgKpJGogohgmytMNTknLie+pz83LbwZRKzUcEXK8SB+nJDne
-	z+Q0r9vg==;
+	bh=Zg61270tTkGqKKJ4JDj4mB3Ld40GCP4fvHt1fZMrxp0=; b=3GLz/7jdGTINWIbCLqZnnSt/Cw
+	2bfrwaRTCfNoDv9hJXrTE1TIhDjy1bN2psu7GzUO1mB472ZQLCX4cb/uyDC9wl+Tb+gBhAwpSFBUW
+	XNN+KAMhZGEd8988X4mReZ0K4UcD1455N4kf4CSN00dPEs6wkCuxrTsnRR8GXy47Myof3geEy/exr
+	Czw8v0Jn7iHGTvtQnlDgyL3P0IWG46IVag1p1UTpSi5s7WUyxsLLY1Bj7C8qxk1W4BH/9Y3IWgJUV
+	r8Epw96VaTfHb6DeWbzVWX1xygFvklVRc/RwPR6oLVQn8gV6gRkcvY7qPEwXj2nNbw4DrrUG++c2A
+	mjh0MxJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Ynj-0000000Ea6L-2LCY;
-	Fri, 18 Sep 2026 13:38:51 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x7Yo4-0000000EaBi-3Gom;
+	Fri, 18 Sep 2026 13:39:12 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Yni-0000000Ea5z-0Skp
+	id 1x7Yo3-0000000EaB5-1nF8
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 18 Sep 2026 13:39:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Zg61270tTkGqKKJ4JDj4mB3Ld40GCP4fvHt1fZMrxp0=; b=leBuQpdNI8+EDfyKXoY0f7s59Q
+	56dHN19jhHOnKaGjvyS+uPhy7MieWMseN5W4wZw5B2eQQS1MrnwlsAcgxd+xplVYv8SbaGZHIQZCY
+	iacBBzyO5fbw+4of2yiaA+YQ6FS9zr+pkBlhJimopQi0aveXLalhhUyIxKXAI+VwsqK/rPW/QFen4
+	D+e+IX0IKbCK+5lh4TQx4VCNo2J5dIdLaUCP6ZovL4g0ewLb9B8axsFPOtwak2m2btO52ehgOz5zJ
+	hs9oaEhLfxbDj2Vhm+mUVomdc+mDsmECIXEvXZHnfLSIiTJAe6U+aDnNiLhzV4cngVB1gQQBd2x9n
+	8C7TkQtw==;
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x7Yo0-0000000A9J1-24qB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 13:38:50 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2EDE760A53;
-	Fri, 18 Sep 2026 13:38:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D00971F000FF;
-	Fri, 18 Sep 2026 13:38:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789738728;
-	bh=UAOy211GQO8ZsvZCQNqPn3L4mKEDMAq855MNr2jtBdw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=cUuOkv/amenXWBkIAUlZv6naAxqa57uqW1Nr/SIhH4UTEbrBfRdhsCWGVKcmXFaO9
-	 NDSaTvl61cFqHIwaNmtm+lnnz3eLP+GwmMIt5YkTHazLlHeRvr3F1DhFTaidMndNNi
-	 t6SwL5GdkNekf5UgqMsc2X+XhPzoinekoy1e8+hNssrHN3jzQ9txE5Zxigkl78aLCM
-	 Esxw+wLXPd6Ju5c87rfo6bHENHPnuGTUn8SpQGflEF47LkECRVKUVhdEZIQejh6trg
-	 b2zyHj6fCzZqadjaquey1fpzB9PhUiz10ytvscm40H8SBoVnsMpM38H/wIHNsE0yX+
-	 1UzdbW3bncyXg==
-Date: Fri, 18 Sep 2026 14:38:44 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
-Cc: Hans de Goede <johannes.goede@oss.qualcomm.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>, Frank.Li@kernel.org,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org, imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 1/2] module: add SCMI device table alias support
-Message-ID: <20260918-roaring-bee-of-acceptance-50a8a9@sudeepholla>
-References: <20260918092951.5656-1-johannes.goede@oss.qualcomm.com>
- <20260918092951.5656-2-johannes.goede@oss.qualcomm.com>
- <2104f437-e960-4e55-b0e1-2b37126e8c2f@oss.qualcomm.com>
- <82a72918-7bc7-4e2c-892c-0dcdd6dd5548@oss.qualcomm.com>
- <3f51bf6c-5318-4e32-a1ca-3ce8cf8c4ceb@oss.qualcomm.com>
+	Fri, 18 Sep 2026 13:39:10 +0000
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68IDVW4o217069;
+	Fri, 18 Sep 2026 13:38:53 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=Zg61270tTkGqKKJ4JDj4mB3Ld40GCP
+	4fvHt1fZMrxp0=; b=hjI6uadR0ijaodzmA4kzryzl8Z/+0tu3OY00hFk769Wpmi
+	Wk0GZqDwusrlINtZHrta3dP5bJr69KxBASMz5bUDBsj2bVhJjb5aH8iEAjQcVqFI
+	QVfFLsyifgEPvlGdN/JGZfs49zteZJZxCNeIcHQviEQr19eFTxjVkX8PjzZzuWZQ
+	YaaMsGudMwVJp6oYdu97NcGOuM+aX2PXpTcdpVtyBrNrIvWsSj2iHlpIv0Hz1xcY
+	5diEI6tnHu2MfETckfAY+8HzYyXjMMt9cMaPi+PV1xo6hgl8dIisBVBOPXKFIGG/
+	0Mc7bIoB2KrKrYGt+YbsCVLXinqEjb8ToZNQ0dtw==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gmw5efv2g-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 18 Sep 2026 13:38:52 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68IDNtqJ695598;
+	Fri, 18 Sep 2026 13:38:51 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gra3fem78-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 18 Sep 2026 13:38:51 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68IDceSe27722194
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 18 Sep 2026 13:38:40 GMT
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 1EFCC2004E;
+	Fri, 18 Sep 2026 13:38:40 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 2E9C320043;
+	Fri, 18 Sep 2026 13:38:39 +0000 (GMT)
+Received: from osiris (unknown [9.111.4.88])
+	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Fri, 18 Sep 2026 13:38:39 +0000 (GMT)
+Date: Fri, 18 Sep 2026 15:38:37 +0200
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: Steffen Eiden <seiden@linux.ibm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v8 00/29] KVM: s390: Introduce arm64 KVM
+Message-ID: <20260918133837.84754-A-seiden@linux.ibm.com>
+References: <20260918133107.1042730-1-seiden@linux.ibm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <3f51bf6c-5318-4e32-a1ca-3ce8cf8c4ceb@oss.qualcomm.com>
+In-Reply-To: <20260918133107.1042730-1-seiden@linux.ibm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE4MDE5MiBTYWx0ZWRfX8NOiLounXJV3
+ p4ksMi+kacIKw6TqakTSOWUZIjsH2DBZucRYVsqR+C0f+TOO43S45ZXwBcY6K1/Qd2q8DKEW1eu
+ QrBPzt74AVs+tqgzffd90bN/heuvGcsUXjF/l8Zmvbxe1kfWh+moMOGAAPs4eCK9pbGpfvJXzd+
+ RhQIfW3O3xyFLIXqVbX7EQJ5jCdA3OEiBr3+kfwzLXbxwgWzJKhX1qu2MH4j7+yeebTBnVl5oUX
+ ScjFiIWRQmltqq31pShmheu+2L17BGoyROyfMzLAYryD9/LigRfFa0xe0n4EGT9RUYDOokB+kvr
+ QX5xm34Nys6Ulv1noKx+U2zTJBFGfzZ1EiQq70azxz7PV22vupBQ1BZ9F5EhEPLM4+R7sDejhLq
+ 1Fd0lXRTi3dOV5+Lz/pYUS7i9pzuP7GfzqGar3+5nNWKo86sJ9mSnUDuPBUDtXyAeiHT4PTGRcX
+ 2sQPP30nzlUmVZHDRwQ==
+X-Authority-Analysis: v=2.4 cv=E/NYNqdl c=1 sm=1 tr=0 ts=6aad3eec cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=HQ_ZLx768mUr4WH56XwA:9
+ a=CjuIK1q_8ugA:10
+X-Proofpoint-ORIG-GUID: yj9WjxwmCZmDszY55CZnhGcPKW1x8ZIB
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE4MDE5MiBTYWx0ZWRfXwBa5tmX9Zui/
+ 5FEAMNIa/C7zCAuqUZ505lFt9Er8ruJIiz5lWDQq4U1WX8LIo3/FCvOn/E5QvQ2XhI5wD1EOoYN
+ wx38zl2LIwJnoR4aMry/I7e4pu8gzuk=
+X-Proofpoint-GUID: 0oxN8qpLp3I7KaiEFna4SOFT743i7NUu
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-18_04,2026-09-16_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 lowpriorityscore=0 priorityscore=1501 spamscore=0
+ adultscore=0 clxscore=1015 bulkscore=0 malwarescore=0 suspectscore=0
+ phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2609180192
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260918_143908_832471_D46A3851 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,74 +157,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 18, 2026 at 12:13:10PM +0200, Daniel Lezcano wrote:
-> On 9/18/26 12:02, Hans de Goede wrote:
-> > Hi Daniel,
-> > 
-> > On 18-Sep-26 11:53, Daniel Lezcano wrote:
-> > > 
-> > > Hi Hans,
-> > > 
-> > > thanks for taking care of that
-> > > 
-> > > 
-> > > On 9/18/26 11:29, Hans de Goede wrote:
-> > > > From: Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
-> > > > 
-> > > > SCMI client drivers already describe their bus match data with
-> > > > MODULE_DEVICE_TABLE(scmi, ...), but modpost does not know how to consume
-> > > > SCMI device tables. As a result, SCMI modules do not get generated module
-> > > > aliases from their id tables.
-> > > > 
-> > > > Move struct scmi_device_id to mod_devicetable.h so it has a fixed layout
-> > > > visible to modpost, add the corresponding generated offsets and teach
-> > > > file2alias to emit scmi:<protocol>:<name> aliases.
-> > > > 
-> > > > Use the same stable alias format for SCMI device uevents and sysfs
-> > > > modaliases. The previous string included the instance-specific device
-> > > > name, which is not useful for matching modules.
-> > > > 
-> > > > Assisted-by: Codex:GPT-5.5
-> > > > Reviewed-by: Hans de Goede <johannes.goede@oss.qualcomm.com>
-> > > > Tested-by: Hans de Goede <johannes.goede@oss.qualcomm.com>
-> > > > Signed-off-by: Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
-> > > > Signed-off-by: Hans de Goede <johannes.goede@oss.qualcomm.com>
-> > > > ---
-> > > 
+On Fri, Sep 18, 2026 at 03:30:37PM +0200, Steffen Eiden wrote:
+> Introduce arm-on-s390. Enable KVM-accelerated ARM CPU virtualisation on s390.
 > 
-> [ ... ]
+
+...
+
 > 
-> > > >    #include <linux/bitfield.h>
-> > > > +#include <linux/device-id/scmi.h>
-> > > >    #include <linux/device.h>
-> > > >    #include <linux/notifier.h>
-> > > >    #include <linux/types.h>
-> > > > @@ -951,11 +952,6 @@ struct scmi_device {
-> > > >      #define to_scmi_dev(d) container_of_const(d, struct scmi_device, dev)
-> > > >    -struct scmi_device_id {
-> > > > -    u8 protocol_id;
-> > > > -    const char *name;
-> > > > -};
-> > > > -
-> > > 
-> > > What is the reason of converting the char * to a fixed array? That limits the name and may result in truncation and potentially name collision, no ?
-> > 
-> > Because of how modpost works to generate modaliases inside the .ko
-> > any string buffers in device_id structs need to have a fixed length.
-> > 
-> > So the truncation / name collision issue pretty much applies to all
-> > foo_device_id structs in the kernel. People should now to make sure
-> > that any strings used will fit inside the fixed string. And I would
-> > expect the compiler to warn for overly long strings.
-> Ok, thanks for the clarification
+> Hendrik Brueckner (1):
+>   s390/hwcaps: Report SAE support as hwcap
+> 
+> Steffen Eiden (28):
+>   KVM: Introduce file_to_kvm_<arch>() infrastructure
+>   KVM: Add file back-pointer to struct kvm
+>   KVM: x86: Use file_to_kvm_x86() in SEV
+>   KVM/vfio: Use file-based reference counting for KVM
+>   KVM: Restrict kvm_get_kvm/kvm_put_kvm export to internal KVM modules
 
-Not related to above topic, but just wanted to check with Daniel if this
-solves module auto-loading for you. Was there someone else who was testing
-this series and was having issue with earlier versions or its you only
-Hans de Goede and it was with v1/v2 when Bjorn posted them. I remember
-something vaguely and couldn't trace back all the versions easily.
+@Sean: I think yo udeserve Co-authorshiop for those 4
+(if not already there)
 
--- 
-Regards,
-Sudeep
+If you think the same please give me your signoff
+
+	Steffen
+
+>   KVM: Move export symbol check macros to Makefile.kvm
+>   KVM: Make device name configurable
+>   KVM: Move architecture capability Kconfigs to header defines
+>   KVM: Replace CONFIG_KVM_MMIO with KVM_NO_MMIO
+>   arm64: Use proper include variant
+>   arm64: ptrace: Use constants for compat register numbers
+>   arm64: sysreg: Convert SPSR_ELx to automatic register generation
+>   KVM: arm64: Access elements of vcpu_gp_regs individually
+>   KVM: arm64: Use accessor functions for core regs
+>   arm64: Prepare sharing arm64 headers with s390
+>   arm64: Share arm64 headers with s390
+>   KVM: arm64: Share arm64 code with s390
+>   s390/tools: Use arm64 headers
+>   KVM: s390: Use arm64 code
+>   s390: Introduce Start Arm Execution instruction
+>   KVM: s390: arm64: Introduce host definitions
+>   KVM: s390: Add basic arm64 kvm module
+>   KVM: s390: arm64: Implement required functions
+>   KVM: s390: arm64: Implement vm/vcpu create destroy.
+>   KVM: s390: arm64: Implement vCPU IOCTLs
+>   KVM: s390: arm64: Implement basic page fault handler
+>   KVM: s390: arm64: Integrate arm on s390
+>   KVM: s390: Enforce no unexpected external symbol exports in s390 KVM
+
+...
 
