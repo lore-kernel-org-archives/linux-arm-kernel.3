@@ -4,72 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E2B7C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 21:21:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBE52C982D7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 21:29:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o3AIqpCx1xGDSyIic5bd3W6l+0N3zsLVo4Tor3degLA=; b=VLelVAmW1LcWWpMQ2Ma/2uQstQ
-	+IgHmW97CgMEjL5qQen9yuySlw+c2JY7pt9tPKbz/V2y67Cvu5N+o7g4NTL2cPPRpmqOY9LSqvGzC
-	wgtOFHly1Ulh2PFd11v1L7goU1kvR9elLzsHiAUfiq6QnlakPIznrnpdVhpS8aE12PMQD2b9ICntT
-	QQgdWehnSMcYW9j4LvIKpWmxwM0CoA/Hlbl4nmAIXgpjw0tXPlmU0A08jmt50fkzu2fFmTQ+7FWS+
-	QAXy/0InI1bb4ILJGCAYZwttKRXv6MnJCBVI3qtoVb4LN5oU7k9KY3j7NKdLwWGROdtsfiIoF4OR1
-	L35YT/zQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=T0a/MSApwUv1iJbtUmZwcZoK9D2QtBbDFC7SeyowqBg=; b=VoBpXMScwRlAcRdsVumk5g0ZRl
+	1NDFv2q5pAsEaiN08lpKJJkdMZ3soBVAAc927s7RU1c/DKyFYwFbk5BB/rVl7ji+z6LUSq1OVz1Qr
+	pYXRBt8etV9jsTLuqx846Ra4wmApJO7KkQCMrX0wO7Eu9n3dglOo7GVfl8HAZ96DcgwHQPNMjxOcu
+	7IbEbNBJwWnWYL8nz719VL7GgRooytoQIlsjWEyutDhd3xwcXTiA3lQF1dYIVAPXVqmfotveDIpVE
+	iSJAsow23i5PLVqPrjeQlKs0CmuOIWtTzVPlBddupHF+Fwvv4am3lfTFVbFPDZr8pbyL3zLmmM5hl
+	FHFHc0oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7g1L-0000000FYr1-2X3F;
-	Fri, 18 Sep 2026 21:21:23 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1x7g9W-0000000FZNN-2Xm7;
+	Fri, 18 Sep 2026 21:29:50 +0000
+Received: from aposti.net ([185.119.170.32])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7g1J-0000000FYqX-30hZ;
-	Fri, 18 Sep 2026 21:21:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1789766477; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=ZRTPs+/EQn6AzTGcOTrIbRhRrGLanIGQioKhMY1bIqzFOpYljLMSAWgLVX4dAw6keghmfU8OJpFdEroBzPej1tDz9Doh0X9S3K258mM/BCTKdBBXYz6ruR9nZWMw2cVaZbO5YmT7jDKytf6ZfySLtcFuiAPVp4/qgqc2yoTG7Oo=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1789766477; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=o3AIqpCx1xGDSyIic5bd3W6l+0N3zsLVo4Tor3degLA=; 
-	b=TJRg6etdGn4KnZZ5H8DyjVpjloCwlQlKaMtzwgvsGQPa3a3IdzJzDoRdTsekyjNxr8SVahj+9y0QJGp8D+oMG/+rguHShBqvbsOXMyAM84qtdd+cBYWXgKVhvBn4gbWQsC3cn58rJrQ+qyw3HHAUOs30RurVTR57QzUNjpKU7nQ=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=michael.riesch@collabora.com;
-	dmarc=pass header.from=<michael.riesch@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1789766477;
-	s=zohomail; d=collabora.com; i=michael.riesch@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=o3AIqpCx1xGDSyIic5bd3W6l+0N3zsLVo4Tor3degLA=;
-	b=B3pnhjhLpfd3841dq7Q6zohkaeJnGM8mGeORhvnmjlo+ROGq6yAEjqC+Dj6cQIDU
-	fekNUYdo84Yig+aeNdLrVIJGmHp38/wEaqBC1/0yQxH0a+iBP7QyUVPbbR6RYMEUR8o
-	fF3bMYeBGjKVktReAuCls7H0jSUlxHB34sZbTygk=
-Received: by smtp.zohomail.com with SMTPS id 1789766475322457.08237500283667;
-	Fri, 18 Sep 2026 14:21:15 -0700 (PDT)
-Message-ID: <c38e3ec8-74a3-4ab9-9d76-c5fe020284ea@collabora.com>
-Date: Fri, 18 Sep 2026 23:21:11 +0200
+	id 1x7g9T-0000000FZMT-0Qhb
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 18 Sep 2026 21:29:48 +0000
+From: Paul Cercueil <paul@crapouillou.net>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Paul Cercueil <paul@crapouillou.net>
+Subject: [PATCH v3] ARM: dts: samsung: exynos4210-*: Fix Bluetooth nodes
+Date: Fri, 18 Sep 2026 23:29:23 +0200
+Message-ID: <20260918212923.148505-1-paul@crapouillou.net>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] media: dt-bindings: add rockchip rk3576 vicap
-To: Amin Gattout <amin.gattout@gmail.com>,
- Mehdi Djait <mehdi.djait@linux.intel.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260915-vicap-rk3576-v1-0-d3f5eb58a0b5@gmail.com>
- <20260915-vicap-rk3576-v1-1-d3f5eb58a0b5@gmail.com>
-Content-Language: en-US
-From: Michael Riesch <michael.riesch@collabora.com>
-In-Reply-To: <20260915-vicap-rk3576-v1-1-d3f5eb58a0b5@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ZohoMailClient: External
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_142121_807551_E2A48E08 
-X-CRM114-Status: GOOD (  17.01  )
+X-CRM114-CacheID: sfid-20260918_142947_303800_45F36D70 
+X-CRM114-Status: GOOD (  15.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,124 +61,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Amin,
+The BCM4330 Bluetooth chip is capable of doing 4 Mbps over UART. The
+Exynos 4210 however, can only do a maximum of 3 Mbps. Add this
+information to the Bluetooth nodes using the 'max-speed' property.
 
-Thanks for the patch, LGTM!
+This fixes extremely choppy audio when connected to external Bluetooth
+speakers.
 
-On 9/15/26 14:27, Amin Gattout wrote:
-> Add the compatible for the Video Capture (VICAP) unit of the Rockchip
-> RK3576. This variant features five MIPI CSI-2 ports and a connection
-> to the image signal processor (ISP). The pixel clock of each MIPI port
-> enters the VICAP through a dedicated gate in the clock and reset unit,
-> so the variant takes five interface clocks and five interface resets
-> in addition to the aclk, hclk and dclk of the other variants.
-> 
-> Signed-off-by: Amin Gattout <amin.gattout@gmail.com>
+The BCM4330 is connected using CTS/RTS too, so add the 'uart-has-rtscts'
+property. The driver does not seem to check for it but that still should
+be there.
 
-Reviewed-by: Michael Riesch <michael.riesch@collabora.com>
+Signed-off-by: Paul Cercueil <paul@crapouillou.net>
+---
 
-Best regards,
-Michael
+    Apologies if you receive this email for the second time. I messed up
+    on the previous one and forgot to Cc the lists. Since nothing
+    changed, this is still v3.
 
-> ---
->  .../bindings/media/rockchip,rk3568-vicap.yaml      | 46 +++++++++++++++++++++-
->  1 file changed, 45 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/media/rockchip,rk3568-vicap.yaml b/Documentation/devicetree/bindings/media/rockchip,rk3568-vicap.yaml
-> index 080b64503b1b..b7dfaf3b378d 100644
-> --- a/Documentation/devicetree/bindings/media/rockchip,rk3568-vicap.yaml
-> +++ b/Documentation/devicetree/bindings/media/rockchip,rk3568-vicap.yaml
-> @@ -15,6 +15,10 @@ description:
->    the data from camera sensors, video decoders, or other companion ICs and
->    transfers it into system main memory by AXI bus.
->  
-> +  The Rockchip RK3576 Video Capture (VICAP) is similar to its RK3568
-> +  counterpart, but features five MIPI CSI-2 ports and an additional
-> +  connection to the image signal processor (ISP) block.
-> +
->    The Rockchip RK3588 Video Capture (VICAP) is similar to its RK3568
->    counterpart, but features six MIPI CSI-2 ports and additional connections
->    to the image signal processor (ISP) blocks.
-> @@ -23,6 +27,7 @@ properties:
->    compatible:
->      enum:
->        - rockchip,rk3568-vicap
-> +      - rockchip,rk3576-vicap
->        - rockchip,rk3588-vicap
->  
->    reg:
-> @@ -33,7 +38,7 @@ properties:
->  
->    clocks:
->      minItems: 4
-> -    maxItems: 5
-> +    maxItems: 8
->  
->    clock-names:
->      items:
-> @@ -42,6 +47,9 @@ properties:
->        - const: dclk
->        - const: iclk
->        - const: iclk1
-> +      - const: iclk2
-> +      - const: iclk3
-> +      - const: iclk4
->      minItems: 4
->  
->    iommus:
-> @@ -221,6 +229,40 @@ allOf:
->  
->              port@11: false
->  
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: rockchip,rk3576-vicap
-> +    then:
-> +      properties:
-> +        clocks:
-> +          minItems: 8
-> +
-> +        clock-names:
-> +          minItems: 8
-> +
-> +        resets:
-> +          minItems: 8
-> +          maxItems: 8
-> +
-> +        reset-names:
-> +          items:
-> +            - const: arst
-> +            - const: hrst
-> +            - const: drst
-> +            - const: irst0
-> +            - const: irst1
-> +            - const: irst2
-> +            - const: irst3
-> +            - const: irst4
-> +
-> +        ports:
-> +          properties:
-> +            port@6: false
-> +
-> +            port@11: false
-> +
->    - if:
->        properties:
->          compatible:
-> @@ -230,9 +272,11 @@ allOf:
->        properties:
->          clocks:
->            minItems: 5
-> +          maxItems: 5
->  
->          clock-names:
->            minItems: 5
-> +          maxItems: 5
->  
->          resets:
->            minItems: 9
-> 
+    Cheers,
+    -Paul
+
+    Changes:
+    
+    V1 was: "ARM: dts: samsung: exynos4210-i9100: Fix Bluetooth node"
+    
+    -v2: Drop max-speed property. It's only supposed to be used in some
+         cases, which don't apply here. As this was the "fix" for getting
+         Bluetooth to work on my device, which will be applied to the
+         driver instead, the Fixes: tag was removed.
+
+    -v3: Re-introduce max-speed property :)
+         Turns out the use case does indeed apply here.
+	 Also update the other Exynos4210 based boards.
+
+ arch/arm/boot/dts/samsung/exynos4210-i9100.dts          | 4 ++++
+ arch/arm/boot/dts/samsung/exynos4210-trats.dts          | 5 +++++
+ arch/arm/boot/dts/samsung/exynos4210-universal_c210.dts | 5 +++++
+ 3 files changed, 14 insertions(+)
+
+diff --git a/arch/arm/boot/dts/samsung/exynos4210-i9100.dts b/arch/arm/boot/dts/samsung/exynos4210-i9100.dts
+index 7da64500246c..ff369eac344f 100644
+--- a/arch/arm/boot/dts/samsung/exynos4210-i9100.dts
++++ b/arch/arm/boot/dts/samsung/exynos4210-i9100.dts
+@@ -868,9 +868,13 @@ &serial_0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&bt_en>, <&bt_res>, <&uart0_data>, <&uart0_fctl>;
+ 
++	uart-has-rtscts;
++
+ 	bluetooth {
+ 		compatible = "brcm,bcm4330-bt";
+ 
++		max-speed = <3000000>;
++
+ 		shutdown-gpios = <&gpl0 4 GPIO_ACTIVE_HIGH>;
+ 		reset-gpios = <&gpl1 0 GPIO_ACTIVE_LOW>;
+ 		device-wakeup-gpios = <&gpx3 1 GPIO_ACTIVE_HIGH>;
+diff --git a/arch/arm/boot/dts/samsung/exynos4210-trats.dts b/arch/arm/boot/dts/samsung/exynos4210-trats.dts
+index eb286e25835e..c517f6d1d7c2 100644
+--- a/arch/arm/boot/dts/samsung/exynos4210-trats.dts
++++ b/arch/arm/boot/dts/samsung/exynos4210-trats.dts
+@@ -537,8 +537,13 @@ &serial_0 {
+ 	pinctrl-0 = <&uart0_data &uart0_fctl>;
+ 	pinctrl-names = "default";
+ 
++	uart-has-rtscts;
++
+ 	bluetooth {
+ 		compatible = "brcm,bcm4330-bt";
++
++		max-speed = <3000000>;
++
+ 		pinctrl-0 = <&bt_shutdown &bt_device_wakeup &bt_host_wakeup>;
+ 		pinctrl-names = "default";
+ 		shutdown-gpios = <&gpl1 0 GPIO_ACTIVE_HIGH>;
+diff --git a/arch/arm/boot/dts/samsung/exynos4210-universal_c210.dts b/arch/arm/boot/dts/samsung/exynos4210-universal_c210.dts
+index 71df3843d8ba..9b345e16c44f 100644
+--- a/arch/arm/boot/dts/samsung/exynos4210-universal_c210.dts
++++ b/arch/arm/boot/dts/samsung/exynos4210-universal_c210.dts
+@@ -630,8 +630,13 @@ &serial_0 {
+ 	pinctrl-0 = <&uart0_data &uart0_fctl>;
+ 	pinctrl-names = "default";
+ 
++	uart-has-rtscts;
++
+ 	bluetooth {
+ 		compatible = "brcm,bcm4330-bt";
++
++		max-speed = <3000000>;
++
+ 		pinctrl-0 = <&bt_shutdown &bt_device_wakeup &bt_host_wakeup>;
+ 		pinctrl-names = "default";
+ 		shutdown-gpios = <&gpe1 4 GPIO_ACTIVE_HIGH>;
+-- 
+2.53.0
 
 
