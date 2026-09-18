@@ -4,129 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 523D0C982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 15:14:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7DEDC982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 15:15:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JE4/GZMkKMUK8RFbS+RuHFWgO7/CyR4r6pUgWEewwFQ=; b=ZOAFTxyBdqRsoupGgiKfEqQrut
-	zMOEDCPoK2FgZQ0LRmxeuHDUlheVdqkLhhT6Jtz9kRT9T55eKu0VRzjIGVD4YhZzKU5dp+qC1plE0
-	/TEr3XzPYkaH0gd6uZJV9cQ9+fmUrpNfMk4FfFP8shk6B411nUgnNXXL4hOUesuhPBO2XCvuGUzli
-	ozLpvVIExB9RJuG/ke9jxZPds6fOolWuHsj3S8qkTcvXG+2jToU0JsPIRmeDUu05n2+GFrwMrQeQy
-	azknNuOjkU80qOWnM0hXc6vgLH0/ONMrn9T9m5VWI1B3bbvNy9XvEu2tmHPWW/eUtO1+2F05x9/MR
-	tneDv4LA==;
+	bh=klACuV7fdAYuSy7gHXP/AwNMnEDjRFePgshatLjHrOQ=; b=yxLEGQ0Zyzu9lMhmQdLxMp9G+z
+	lVeGGneQtUnTBwhO1HPdLyOePzJ7BHZ8UoDmzwlEO6uv7PqeKd4bhEF+YZkOgBsJRjg+S1b0xnCEl
+	LJfnZOvZsvdxt4XPh09phpLqkvnLoAtgj01DsbLn4NNMWf6GZZGPmGU1P3nfyj6P1kk2RUj15OmVp
+	d48AfvwSDD0u32rcWcZdZDgOJ0CrabaTNPH3UlQ3GNXV2f8CXvnVc33IA3nG9RlTaDdaVzIpVML5a
+	sdn0JJYKLmlXh43t2k5/Dy0ijuh2lIEaIym9a+w1ZLa04JrjZF0npZZTiOHJ7sOieQNIOoU5nOUPD
+	700MHNpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Ylh-0000000EZVT-3q5u;
-	Fri, 18 Sep 2026 13:36:45 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1x7aIu-0000000EqW6-0iz9;
+	Fri, 18 Sep 2026 15:15:08 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Yld-0000000EZSy-4ArQ
+	id 1x7aIq-0000000EqVj-3FSC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 13:36:43 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68IA1jfO803606;
-	Fri, 18 Sep 2026 13:31:24 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=JE4/GZMkKMUK8RFbS
-	+RuHFWgO7/CyR4r6pUgWEewwFQ=; b=gYpzmgqQ7f/biLtZJTivXq8A/tEjngxAi
-	Em1fnVXuyHD/XfZUnFeb/NvguyrvYWakpkPXQ7FIkFPA0O3NCHByGVh6JU7FwNRr
-	0+pRpypDfjLFKt+4EEIQAo/bTr0eSQ+qF0LwU7uwbrP49jC9hD6zt0D5Cy2PtWFu
-	KLELwVCI/ltV8T6TJgWXufDNRGY4lLDz+qRike3p4MnI7DRGnBMaoRNuF9QPwukC
-	b8rSIf4MXxpEhAlBf3F3Spll2ZHU+w/wPp60i1lMmkwTCpOIsAkpXYW+Q/+HjHYw
-	oW0a2npFu0csU8jbhlmTD57r9zoMk2G1NZpdX+2wCP4EnRIf9Arxg==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gmv5j814k-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 18 Sep 2026 13:31:24 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68IDNxAf695613;
-	Fri, 18 Sep 2026 13:31:23 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gra3fek7h-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 18 Sep 2026 13:31:23 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68IDVCeh48103896
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 18 Sep 2026 13:31:13 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id DB1D120040;
-	Fri, 18 Sep 2026 13:31:12 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 827682004D;
-	Fri, 18 Sep 2026 13:31:12 +0000 (GMT)
-Received: from tuxmaker.lnxne.boe (unknown [9.87.85.9])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 18 Sep 2026 13:31:12 +0000 (GMT)
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org
-Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v8 13/29] KVM: arm64: Access elements of vcpu_gp_regs individually
-Date: Fri, 18 Sep 2026 15:30:50 +0200
-Message-ID: <20260918133107.1042730-14-seiden@linux.ibm.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260918133107.1042730-1-seiden@linux.ibm.com>
-References: <20260918133107.1042730-1-seiden@linux.ibm.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE4MDE4NCBTYWx0ZWRfXy6IdVay5VOV+
- e3MmoMNok4Gw42Q3Mz7wgwbH4AUC/LCcV7E+W/wi/jlfVc5XCU/IchaapkVrT5t6QabUBRHUqnz
- IsIl8qdS2HMuqyKF9FHnsvlhHeXxwbPhXdfU1s2BDii9nHac1CpDeg8f32BYb0i59w2WVn9xOIj
- M6h4VTOfZ4z0bU26zJ+T2zTQ91qTy/emJi5SP4dikf+7wurppLES1NjneC7AEes7Sevy9VFrI/R
- vdrSbWjbJOHP7s8R99VDLIyjLDME7hSGYZW9Nq04smVUidLs/G6FqODlRZejl+vrqHFd20+ft2D
- 6dYxz637Mv097ZA6Y7CV1UVPu63YcoRaZaISTXJihiJzWlj5iG3wV3M7LBjD6BgvaritUlsqiKA
- roYp0+5GmWykJRW4ba+bDwnqZBv6bbrWp9Vj+s4rlLSavA1m5Gvmtxk88drseEz7f/XQN1MEZ+o
- yPxBoV/Dxf03rO1l1yQ==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE4MDE4NCBTYWx0ZWRfX8vdrwBBt9wLD
- K8IQU+qUe5Dj8mpJwhzKVUV+P3hYF+pedTzrspKrGICvl1pyT0tLISonhbnOaEF/BsYw5QzW+Sd
- GIyqYGhb3mmyEOE0SL0Pg+Pwgv2FLSo=
-X-Authority-Analysis: v=2.4 cv=Zsx4uN7G c=1 sm=1 tr=0 ts=6aad3d2c cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8 a=2bnsYzwZQeDic6pRC-MA:9
-X-Proofpoint-ORIG-GUID: s9eu1dlonEWwz8qODihA8Tu4nnYtV55f
-X-Proofpoint-GUID: CyBk7QD1nSKWXwM7b1MZHoOFoswpNzm7
+	Fri, 18 Sep 2026 15:15:06 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68IDP5pI102302
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 15:15:03 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	klACuV7fdAYuSy7gHXP/AwNMnEDjRFePgshatLjHrOQ=; b=DTqEyIFwhXRJLNu9
+	IeYZsHOrKbXijwmdqq+ZxiPvyfet/fCUB0waQ1XFZArweh0RjYYUmoxq7nl/JEN1
+	Uy5NmhOd1qusEnfpTpqRg8agzbrAvS7pZSvHR/ylobOfF2XYjSV1/YXA1xxh8us/
+	0WSRuT7kO6kdLHoxx0I2EyTlfaVrjEBLOT5OPcRGUnOIkfZCR1Q/Gs7QFtUyIHF/
+	pYQtElGkrqyBwxzixxweaHTo1wj2rjXG06RAMMI+IEvfVga5JiRCPKr59GAZzH1x
+	JMF+HWQl287jMZVbazg42u8QTxVQ95BPg7psGMdFhgyAH+3PsFf8v+fRdN7V6mJV
+	VeUpRg==
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4grq2kv788-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 15:15:02 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2d6f80c76e6so17559515ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 08:15:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1789744502; x=1790349302; darn=lists.infradead.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=klACuV7fdAYuSy7gHXP/AwNMnEDjRFePgshatLjHrOQ=;
+        b=hZp0EwIrMxdqEI1ttTOHMYSwA2GzycAnXcvau2RNmEh90GKVh8svJoM7xadzgoDPeh
+         qVcVvbJelLu/5oZkg8s+1thaPR0R97ITgfD2ZBCUaTEEf00rxp0mK99WFRU8xJro0IQF
+         /OEER8dIpkcp1rfWPAjNFcWN4O/YlfUgi2Y/JeLUfOJcIhC5A+9VwNIsRuZo1wGqWKTM
+         1QCiaRMI2OdcB0LDc58Xk0k2NnMI9M4LCmrlD6WDqWz7/vPgzwzR39UBuYR25x/I9Dj3
+         E1Zr7QhatBNAq2kJPPIOOQCZV7zRBttyvhPEU6ErKII0kie32uLApHDjRKGCzrmnT4qm
+         5eDA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789744502; x=1790349302;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=klACuV7fdAYuSy7gHXP/AwNMnEDjRFePgshatLjHrOQ=;
+        b=oK6ZVInWoFGMgQ6eWOPCW6Ku5qOsNcvGFkX0YPmRkFJFpuURg6ZpEBZVJFFWZvUDRG
+         Zm3jMsy4mIOS8OG21sSYZvhOyARS464qChhr8BhdOhC9qikqwSZuTWxbo54tavPFriJ7
+         43C0XDStI46dFBv2FJnZxGrEWHxF4jj4C4w5wTa0Q8MwfdwdfR5WBXuPlTZtPAmZEK5R
+         AFFBJinkoyuaLmpjI8OOiyEEpk4uYLEc/bcVqOUkQp7etrzMmli7jAlQZFk6qaUve3TF
+         jVlKkk082Y6mm+yWV2I6jIMAK1KvNmotqptP/VdXLk21D/XQB+iOsY1EqWLg0jSLWyS3
+         2GQQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwFGsh6hbWYP/sBe3qpecHTfVk8gPthJjmACa/bUWKYfoJLPjhUvuaf4buBbtmC3/89MgiAflQ1n9wyh5FBPm18@lists.infradead.org
+X-Gm-Message-State: AFuF++kftPPZY8J9JRh4fYaAEUIr9mmHY7JkthcpC6h9coUyrKCD778V
+	aHaYIIACNU3lsqjmuv/tyZ0piijoBOsIMOwc744D4UGBfflQDoOa5+L5ayRUiwqmPv2AXJile7Y
+	QRupjP7VzvnoljBcDGgssMgsU0ejioLQms2/9ghQfseoeRqACzaPXm/zy683UlGGcqNnfPSwjLT
+	v4Dw==
+X-Gm-Gg: AYBFou10talGYB3DPE9HE/YVYfFNJ0plAg2/SM3PRHQAcNGg3Et8K8+xvpVd7IZwlFS
+	b6HSAgh31bA5Hdov1Z9yF2YocfptMQogAqBE/ZMwmMBe+IYYuY9ywKXjpJVywvJugSB+CrpoMH8
+	8mL8LfTXwN+ji5mcDCXQHa0qP0CmccGGYfSSmWQlRxxK6rU6noyjlA1nE1YwpLwRDVUppc/Nu0b
+	Lb29LRokazNuU44MziH1Z8SN1VdX3hYm0fQbncWNNJuky9883BVJm8lPK2xIj8SnNr69l5mbiq8
+	YEj9N/9QoY2DF1xjXYNl5b4dGR845NK+5VN3Q3Q6+KUImuyjKbA1hqN3YJYcrLKV95sqoq/ciG/
+	HO5obaQ==
+X-Received: by 2002:a17:903:906:b0:2dd:c053:e669 with SMTP id d9443c01a7336-2ddc053e6a2mr4634885ad.47.1789744501624;
+        Fri, 18 Sep 2026 08:15:01 -0700 (PDT)
+X-Received: by 2002:a17:903:906:b0:2dd:c053:e669 with SMTP id d9443c01a7336-2ddc053e6a2mr4634335ad.47.1789744501092;
+        Fri, 18 Sep 2026 08:15:01 -0700 (PDT)
+Received: from localhost ([143.246.51.243])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ddb73db302sm10267015ad.2.2026.09.18.08.14.54
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 18 Sep 2026 08:15:00 -0700 (PDT)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 18 Sep 2026 23:14:35 +0800
+Message-Id: <DLIJGTK5M3G0.2PNROS5SMQWNF@oss.qualcomm.com>
+Cc: <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
+        <linux-aspeed@lists.ozlabs.org>,
+        <linux-arm-kernel@lists.infradead.org>, <imx@lists.linux.dev>,
+        <xen-devel@lists.xenproject.org>
+Subject: Re: [PATCH v3 2/2] drm/imx: replace struct drm_simple_display_pipe
+ with regular atomic helpers
+From: "Ze Huang" <ze.huang@oss.qualcomm.com>
+To: "Thomas Zimmermann" <tzimmermann@suse.de>,
+        "Ze Huang"
+ <ze.huang@oss.qualcomm.com>,
+        "Alexey Brodkin" <abrodkin@synopsys.com>,
+        "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
+        "Maxime Ripard"
+ <mripard@kernel.org>,
+        "David Airlie" <airlied@gmail.com>, "Simona Vetter"
+ <simona@ffwll.ch>,
+        "Joel Stanley" <joel@jms.id.au>,
+        "Andrew Jeffery"
+ <andrew@codeconstruct.com.au>,
+        "Frank Li" <Frank.Li@nxp.com>,
+        "Sascha
+ Hauer" <s.hauer@pengutronix.de>,
+        "Pengutronix Kernel Team"
+ <kernel@pengutronix.de>,
+        "Fabio Estevam" <festevam@gmail.com>,
+        "Linus
+ Walleij" <linusw@kernel.org>,
+        "Hans de Goede" <hansg@kernel.org>,
+        "Alex
+ Lanzano" <lanzano.alex@gmail.com>,
+        "Oleksandr Andrushchenko"
+ <oleksandr_andrushchenko@epam.com>,
+        "Philipp Zabel"
+ <p.zabel@pengutronix.de>,
+        =?utf-8?q?Uwe_Kleine-K=C3=B6nig?=
+ <u.kleine-koenig@pengutronix.de>,
+        "Marian Cichy" <m.cichy@pengutronix.de>
+X-Mailer: aerc 0.22.0.r10.g73f20125
+References: <20260727-drm-simple-kms-removal-v3-0-de36e534f7a1@oss.qualcomm.com> <20260727-drm-simple-kms-removal-v3-2-de36e534f7a1@oss.qualcomm.com> <8e4c84be-5c89-4d84-adda-aad4c7de0c8a@suse.de>
+In-Reply-To: <8e4c84be-5c89-4d84-adda-aad4c7de0c8a@suse.de>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE4MDIxNyBTYWx0ZWRfX5WhwqpcQP4f+
+ OlNIkvRuzzuIalAnwguoXuAiRIjihfFWvUG2hZyjCk6fC8zVi5sB7dXVWx/um9/Y+pTGSsq/9Zo
+ Vufd1So+wSc3o5Iq11Y4dCbF+yBn4RFJaTnOENJLw/ZvyL820jjeOQG5Fuq8Pz2/atvnFwnDvgr
+ wKoLG1m+Ttybx67w9qCVsIA7viW6VSRqQxHxfbYOSvnOtspieC1+V7+exNWYXIKZ2rBHC/3abUt
+ bQQV/X/Uo9Gjso+q/qi1C/xlIpIgNKT+yxNfViiDP2FGYTobSxEiITghk5W3IUMXO1jmvR/93X/
+ J+rJdeReCUCwA3oiqjvi/Ew2hDplHpZu8kqGa59zUlJKgg/yMwXx8zdHp8uhTpo3nwUpDFR/N+1
+ ++fPHNRkf1V9uh4J33giRoQzVa/fZaI6et2BM6OD7wdnV3s4B913eVJ4M2dW/nkfnC17jx1UiN0
+ nUtpqjNoczki6ZNfmRw==
+X-Proofpoint-GUID: c5lU1D8UXEQ5X9iGP-s5vlZkMfR1o0kh
+X-Authority-Analysis: v=2.4 cv=bcD+w+PB c=1 sm=1 tr=0 ts=6aad5576 cx=c_pps
+ a=IZJwPbhc+fLeJZngyXXI0A==:117 a=LNnhWNgewsfctp/cwirQdA==:17
+ a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=P-IC7800AAAA:8 a=EUspDBNiAAAA:8 a=nI5uWgR6GCbiVoZM8DwA:9 a=QEXdDO2ut3YA:10
+ a=uG9DUKGECoFWVXl0Dc02:22 a=d3PnA9EDa4IxuAV0gXij:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE4MDIxNyBTYWx0ZWRfX9aceLIRcBtjE
+ dpFnunw/4CpFcXCnDveBQeYSHsT552dXNOYgibs9vglgkurIyG4l6c6RLVTraShGG5WudkqXb95
+ kIRS3LIbGplJA8z+XKQ0ZhlTRCXMgjU=
+X-Proofpoint-ORIG-GUID: c5lU1D8UXEQ5X9iGP-s5vlZkMfR1o0kh
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-18_03,2026-09-16_02,2025-10-01_01
+ definitions=2026-09-18_04,2026-09-16_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 impostorscore=0 clxscore=1015 priorityscore=1501
- lowpriorityscore=0 bulkscore=0 adultscore=0 phishscore=0 spamscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
- definitions=main-2609180184
+ spamscore=0 clxscore=1015 adultscore=0 suspectscore=0 priorityscore=1501
+ bulkscore=0 phishscore=0 impostorscore=0 lowpriorityscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609180217
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_063642_164861_D1C55187 
-X-CRM114-Status: GOOD (  21.44  )
+X-CRM114-CacheID: sfid-20260918_081504_954914_2503C8F0 
+X-CRM114-Status: GOOD (  14.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,168 +179,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-While for arm64 the members of vcpu_gp_regs are allocated continuous
-this is not necessarily true for other architectures implementing ARM.
+On Wed Sep 16, 2026 at 2:50 PM CST, Thomas Zimmermann wrote:
+> Hi
+>
+> Am 26.07.26 um 21:42 schrieb Ze Huang:
+>> Convert i.MX LCDC to explicit primary plane, CRTC and encoder objects.
+>> Keep no-scaling plane check and GEM framebuffer prepare callback from
+>> simple-KMS path.
+>>
+>> Wire the vblank lifecycle explicitly with CRTC vblank callbacks and
+>> drm_crtc_vblank_on()/drm_crtc_vblank_off(). Use the old CRTC state in th=
+e
+>> disable path for clock unwinding so the clock reference count remains
+>> paired with the previous active state.
+>>
+>> Signed-off-by: Ze Huang <ze.huang@oss.qualcomm.com>
+>> ---
+>> +
 
-Let vcpu_gp_regs() no longer return the address of the user_pt_regs in
-the vcpu context but the address of the gp-register array field in the
-user_pt_reg struct. Note, this change semantically excludes pc from the
-GPRs.
+[ ... ]
 
-No functional change.
+>> +static void imx_lcdc_crtc_helper_atomic_flush(struct drm_crtc *crtc,
+>> +					      struct drm_atomic_commit *commit)
+>> +{
+>> +	struct drm_crtc_state *new_crtc_state =3D drm_atomic_get_new_crtc_stat=
+e(commit, crtc);
+>> +	struct drm_pending_vblank_event *event =3D new_crtc_state->event;
+>> +
+>> +	if (!event)
+>> +		return;
+>> +
+>> +	new_crtc_state->event =3D NULL;
+>> +
+>> +	spin_lock_irq(&crtc->dev->event_lock);
+>> +	if (new_crtc_state->active && drm_crtc_vblank_get(crtc) =3D=3D 0)
+>> +		drm_crtc_arm_vblank_event(crtc, event);
+>> +	else
+>> +		drm_crtc_send_vblank_event(crtc, event);
+>> +	spin_unlock_irq(&crtc->dev->event_lock);
+>>   }
+>
+> Please use drm_crtc_vblank_atomic_flush(). [1]
+>
+> [1]=20
+> https://elixir.bootlin.com/linux/v7.2.5/source/drivers/gpu/drm/drm_vblank=
+_helper.c#L51
 
-Co-developed-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
-Signed-off-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
-Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
----
- arch/arm64/include/asm/kvm_emulate.h       | 14 ++++++++------
- arch/arm64/include/asm/kvm_host.h          |  2 +-
- arch/arm64/kvm/guest.c                     |  2 +-
- arch/arm64/kvm/hyp/exception.c             |  4 ++--
- arch/arm64/kvm/hyp/include/hyp/adjust_pc.h |  4 ++--
- arch/arm64/kvm/hyp/include/hyp/switch.h    |  4 ++--
- 6 files changed, 16 insertions(+), 14 deletions(-)
+Thanks! will follow
 
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index a3c1928bdf74..8603766c1b4d 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -133,12 +133,12 @@ static inline void vcpu_set_vsesr(struct kvm_vcpu *vcpu, u64 vsesr)
- 
- static __always_inline unsigned long *vcpu_pc(const struct kvm_vcpu *vcpu)
- {
--	return (unsigned long *)&vcpu_gp_regs(vcpu)->pc;
-+	return (unsigned long *)&vcpu->arch.ctxt.regs.pc;
- }
- 
- static __always_inline unsigned long *vcpu_cpsr(const struct kvm_vcpu *vcpu)
- {
--	return (unsigned long *)&vcpu_gp_regs(vcpu)->pstate;
-+	return (unsigned long *)&vcpu->arch.ctxt.regs.pstate;
- }
- 
- static __always_inline bool vcpu_mode_is_32bit(const struct kvm_vcpu *vcpu)
-@@ -167,14 +167,14 @@ static inline void vcpu_set_thumb(struct kvm_vcpu *vcpu)
- static __always_inline unsigned long vcpu_get_reg(const struct kvm_vcpu *vcpu,
- 					 u8 reg_num)
- {
--	return (reg_num == 31) ? 0 : vcpu_gp_regs(vcpu)->regs[reg_num];
-+	return (reg_num == 31) ? 0 : vcpu_gp_regs(vcpu)[reg_num];
- }
- 
- static __always_inline void vcpu_set_reg(struct kvm_vcpu *vcpu, u8 reg_num,
- 				unsigned long val)
- {
- 	if (reg_num != 31)
--		vcpu_gp_regs(vcpu)->regs[reg_num] = val;
-+		vcpu_gp_regs(vcpu)[reg_num] = val;
- }
- 
- static inline bool vcpu_is_el2_ctxt(const struct kvm_cpu_context *ctxt)
-@@ -750,13 +750,15 @@ static inline void kvm_reset_vcpu_core(struct kvm_vcpu *vcpu)
- 		pstate = VCPU_RESET_PSTATE_EL1;
- 
- 	/* Reset core registers */
--	memset(vcpu_gp_regs(vcpu), 0, sizeof(*vcpu_gp_regs(vcpu)));
-+	memset(vcpu_gp_regs(vcpu), 0, sizeof(vcpu_gp_regs(vcpu)));
-+	*vcpu_pc(vcpu) = 0;
-+	vcpu->arch.ctxt.regs.sp = 0;
- 	memset(&vcpu->arch.ctxt.fp_regs, 0, sizeof(vcpu->arch.ctxt.fp_regs));
- 	vcpu->arch.ctxt.spsr_abt = 0;
- 	vcpu->arch.ctxt.spsr_und = 0;
- 	vcpu->arch.ctxt.spsr_irq = 0;
- 	vcpu->arch.ctxt.spsr_fiq = 0;
--	vcpu_gp_regs(vcpu)->pstate = pstate;
-+	*vcpu_cpsr(vcpu) = pstate;
- }
- 
- /* PSCI reset handling for a vcpu. */
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 9c314d0568b1..fc0037efa0b4 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1161,7 +1161,7 @@ struct kvm_vcpu_arch {
- #define vcpu_clear_on_unsupported_cpu(vcpu)				\
- 	vcpu_clear_flag(vcpu, ON_UNSUPPORTED_CPU)
- 
--#define vcpu_gp_regs(v)		(&(v)->arch.ctxt.regs)
-+#define vcpu_gp_regs(v)		((v)->arch.ctxt.regs.regs)
- 
- /*
-  * Only use __vcpu_sys_reg/ctxt_sys_reg if you know you want the
-diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-index b01d6622b872..81d850d5a328 100644
---- a/arch/arm64/kvm/guest.c
-+++ b/arch/arm64/kvm/guest.c
-@@ -134,7 +134,7 @@ static void *core_reg_addr(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- 	     KVM_REG_ARM_CORE_REG(regs.regs[30]):
- 		off -= KVM_REG_ARM_CORE_REG(regs.regs[0]);
- 		off /= 2;
--		return &vcpu->arch.ctxt.regs.regs[off];
-+		return &vcpu_gp_regs(vcpu)[off];
- 
- 	case KVM_REG_ARM_CORE_REG(regs.sp):
- 		return &vcpu->arch.ctxt.regs.sp;
-diff --git a/arch/arm64/kvm/hyp/exception.c b/arch/arm64/kvm/hyp/exception.c
-index 754e2dc1df54..0640c9ccaa3c 100644
---- a/arch/arm64/kvm/hyp/exception.c
-+++ b/arch/arm64/kvm/hyp/exception.c
-@@ -276,12 +276,12 @@ static void enter_exception32(struct kvm_vcpu *vcpu, u32 mode, u32 vect_offset)
- 	switch(mode) {
- 	case PSR_AA32_MODE_ABT:
- 		__vcpu_write_spsr_abt(vcpu, host_spsr_to_spsr32(spsr));
--		vcpu_gp_regs(vcpu)->compat_lr_abt = return_address;
-+		vcpu_gp_regs(vcpu)[__compat_lr_abt] = return_address;
- 		break;
- 
- 	case PSR_AA32_MODE_UND:
- 		__vcpu_write_spsr_und(vcpu, host_spsr_to_spsr32(spsr));
--		vcpu_gp_regs(vcpu)->compat_lr_und = return_address;
-+		vcpu_gp_regs(vcpu)[__compat_lr_und] = return_address;
- 		break;
- 	}
- 
-diff --git a/arch/arm64/kvm/hyp/include/hyp/adjust_pc.h b/arch/arm64/kvm/hyp/include/hyp/adjust_pc.h
-index 4fdfeabefeb4..a049983bd5c3 100644
---- a/arch/arm64/kvm/hyp/include/hyp/adjust_pc.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/adjust_pc.h
-@@ -33,11 +33,11 @@ static inline void kvm_skip_instr(struct kvm_vcpu *vcpu)
- static inline void __kvm_skip_instr(struct kvm_vcpu *vcpu)
- {
- 	*vcpu_pc(vcpu) = read_sysreg_el2(SYS_ELR);
--	vcpu_gp_regs(vcpu)->pstate = read_sysreg_el2(SYS_SPSR);
-+	*vcpu_cpsr(vcpu) = read_sysreg_el2(SYS_SPSR);
- 
- 	kvm_skip_instr(vcpu);
- 
--	write_sysreg_el2(vcpu_gp_regs(vcpu)->pstate, SYS_SPSR);
-+	write_sysreg_el2(*vcpu_cpsr(vcpu), SYS_SPSR);
- 	write_sysreg_el2(*vcpu_pc(vcpu), SYS_ELR);
- }
- 
-diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-index 1ce7130e2549..a2a054fec2e2 100644
---- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-@@ -470,7 +470,7 @@ static inline bool kvm_hyp_handle_mops(struct kvm_vcpu *vcpu, u64 *exit_code)
- 	u64 spsr;
- 
- 	*vcpu_pc(vcpu) = read_sysreg_el2(SYS_ELR);
--	arm64_mops_reset_regs(vcpu_gp_regs(vcpu), vcpu->arch.fault.esr_el2);
-+	arm64_mops_reset_regs(&vcpu->arch.ctxt.regs, vcpu->arch.fault.esr_el2);
- 	write_sysreg_el2(*vcpu_pc(vcpu), SYS_ELR);
- 
- 	/*
-@@ -902,7 +902,7 @@ static inline void synchronize_vcpu_pstate(struct kvm_vcpu *vcpu)
- 	/*
- 	 * Check for the conditions of Cortex-A510's #2077057. When these occur
- 	 * SPSR_EL2 can't be trusted, but isn't needed either as it is
--	 * unchanged from the value in vcpu_gp_regs(vcpu)->pstate.
-+	 * unchanged from the value in vcpu_cpsr(vcpu).
- 	 * Are we single-stepping the guest, and took a PAC exception from the
- 	 * active-not-pending state?
- 	 */
--- 
-2.53.0
-
+>
+> Best regards
+> Thomas
+>
 
