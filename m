@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D87B6C982E1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADEAEC982E0
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 22:42:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,62 +12,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KqQQKqdIQDGXjttGyzs/B5OEMm+Ktujoafh1woeid8o=; b=uSXbEfcygwCyhf4WGfFwvOF426
-	7l+S2BqzSjc0U3YGfnWqm1b+0/fGGCHCRIOyi3QQSJbIs0+65Rb+5/AuepuJGLigNC5FdXlemRHoO
-	YPprNgCn2IESYF+FuRiAD+qA40By2NWIgd8I1kx0zXIwaK0x1Rt3BjMqgrnO91ujw+p0PkOjtqlTv
-	P61S2ysMVQ1yAZIdXg/usHXXmGBBxeLxLf/2cTFBbiTvq6Z+bwmwIEmmBwBSRS05V16dR5DlrMbRO
-	nQ6Z8O3T17cfZQm/yWsffd04EQkuuB7x17C37Mlv6rfxvRmlr9q3Mz32PgSDbdGLdYJFXZ1N3Sfj4
-	7AM+pkJQ==;
+	bh=8mHsMxlxF7jEZ6HGllTaKlvOMS05kuhmKfHakCePxqc=; b=OjOjDhP4Dvq8z66AGXIfgnT562
+	li0i2ZVODY7CcYcF7vtRNnugyPfeZlQMvenofG6Ee3FaZ7fQcaNaRO6C52jI/Mvy1T3fFek9KvE4e
+	h4DYOCHAL0PJnzznkQZHJ00ABy/pCDzLdQI2FxeWY+hVjNG+TKFniceTbyhbTFzUxoMoXF/3PdHTn
+	nT3LqMJwJIhI0TkakuoY8i62Fow7rPziOZ8zCgKgJOuFfOZxbHWr8F2hbKoYOrg9BoKkOZhKF8mQ8
+	1FkqQZhZdGVyMMIW7j4YUCSgosAn4NmW6Mx+/NbgDXw6vdxTMbhgorxySCKBE/cWvxLa19VUm1NMT
+	jOR/i++g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7hHu-0000000FeFE-0FU4;
+	id 1x7hHu-0000000FeGL-1m14;
 	Fri, 18 Sep 2026 22:42:34 +0000
-Received: from mail-pl1-x647.google.com ([2607:f8b0:4864:20::647])
+Received: from mail-pj1-x1045.google.com ([2607:f8b0:4864:20::1045])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7hHf-0000000Fe2y-3eOo
+	id 1x7hHn-0000000Fe7q-0PfV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 22:42:21 +0000
-Received: by mail-pl1-x647.google.com with SMTP id d9443c01a7336-2d02df2bf09so12631665ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 15:42:18 -0700 (PDT)
+	Fri, 18 Sep 2026 22:42:28 +0000
+Received: by mail-pj1-x1045.google.com with SMTP id 98e67ed59e1d1-39de1f85cb2so1570813a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 15:42:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1789771338; x=1790376138; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1789771344; x=1790376144; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=KqQQKqdIQDGXjttGyzs/B5OEMm+Ktujoafh1woeid8o=;
-        b=L1u2yeOb3hny0AdBliIbir7Lj2xqcS3qM4EfvubCwbj0OSYBBb2MPC3i5uq6o57kDu
-         orSrRnbGibqbbpY3NRKSuJnXdu9OCwcJpL8ztVodgrjOyzHJ5FpV0x0o2e8H5QTzBzHz
-         7SJHH6oKKwdnJGhVbW3PL4j69ijEm4ioUFf0fpkAgFMrmtySy6+VQK7md9JMY1E/Ztao
-         0iiIFM1SEUf4n+RmMXWbh2nyXIKidzXOlg4gM4hlgMMFTQsxWJOHR4e9FsUoiwRyADgg
-         xTiTisRyDVjYTcfyXq9a9mN1YFjG/Ta/vhKeaHl41KT/Xy44L/M8JK4uDZ20Sb1g1O1K
-         FMPA==
+        bh=8mHsMxlxF7jEZ6HGllTaKlvOMS05kuhmKfHakCePxqc=;
+        b=cDmM1vgdwJhg7BbveAM57K5KJqjCF/B2TgA8eNIu+T8eDLjgvvOYpAJerjYHyEHCEe
+         VGDOxu5q9hXa5hdVGepfvcX9lDsiq5BuEL12rx8kXAPI+4mrJ+8hEtAJDkgwGQOgRVG+
+         0yfPlrL6+W2s2M3hvF79cHKl05oi/eRXwxfVKdMm4OPVf8wyHB5bSZX3Q6dkqLvKDIjR
+         igWXqeQecPQB/K+XSkM5OK0DFrJ1fMDV1xLeDj8gCDCBG/5JKfyYqSKkcxUJPWEMJa0Q
+         jBhxHH31qrvq+Xsr+rBGD+NsaQdxhvVT8eDekgH7WfQRil5TgPtdB6vQQ6PYRK3FUnNX
+         qMmQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789771338; x=1790376138;
+        d=1e100.net; s=20260707; t=1789771344; x=1790376144;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=KqQQKqdIQDGXjttGyzs/B5OEMm+Ktujoafh1woeid8o=;
-        b=124GdGlsMOURyzjnEo3grufu0Br3m2pF8lLtfxRwT2JXVG0uH3PKyTupf8asyhKyOL
-         znZpZxTj5zk5wZD8HdMMpmxfo57HRx28j2Q1JYousCnXU7oGBETZAt9Ffiqz+EFhACdr
-         QdBRLAgCxArElh0uAk95RjiP7IeMHrM/v1n9P4RLGuq2XlmEGhnUyQJ+kUF7Iddnx/5Y
-         Hlc2FTWed6rL1drQU/nUyOG41lkROpizKwM4KauWES9IeyFCtFMVsuo40tAjzipvl9nm
-         zX7IUzo9H3FcZobjHzQLCx6u46MYBKiIKdIlk4B45jJfojq9MAMLhzw4FFr6QE/LqZjg
-         izmA==
-X-Forwarded-Encrypted: i=1; AKwUvBwFAOuMYv9pyPnteBD8EaAdE32I5njVrYeYYhtGL6O3yMV514qz7uUoUDwjbBfWB46dDd+czGEYGS2iYLgSHLmi@lists.infradead.org
-X-Gm-Message-State: AFuF++kimwqjzGB4rvBAj9jtiSk5XVa/0rW7HWz3HWGGJk6N2iDudBlP
-	zVCC4n9I2Bb/tfNEXgiPNXL+nvREN0BqzFDhZWJxugQ/LZgR0JrQJMJGSkYSC3N4MwhILMOhCn1
-	JECdUe/uVPq10ZnNSFwe9JZESGw==
-X-Received: from plyv3.prod.google.com ([2002:a17:902:d683:b0:2dd:4b79:ccc2])
+        bh=8mHsMxlxF7jEZ6HGllTaKlvOMS05kuhmKfHakCePxqc=;
+        b=ID+x5YnMRHrM//i6Xsbrb2hd+J9u2Lh6QCU9165pzNkik+cc3q2Y5hBAkJ5e9v5nqX
+         eO3jGT58Qs7Oiq1UZRQFbEojYogMO5k367kgNKMmF81IrsH2/OBi7qq7o2NQinNnF9xj
+         UkArtzRo756uS+UU2TITAyBI4STpffXz0aPO8oUkrY+/h3mnvk38yJXupsUsnrd4/xLr
+         Cdhr99kZXUvezrTtNXN4hiaS3KsxLIMlYf2zBSOaFq/4UN7a5jM6uiEbaeV7DIiFVGnc
+         HVvFxcDhaF2Py4fxXo25DpY1E8ORNsgmwPhVxanwEnrjr5RP/0pULqrOMTYdHkJdM3rP
+         Bejw==
+X-Forwarded-Encrypted: i=1; AKwUvBx5jQ7y9JXpY2CE1J3HMfQfOKoDKq9Pcz9ASVZDkRWzjBxlsaLMICxmCl5pD+qbN8jCVhRpKYOTlaTIaqOGI747@lists.infradead.org
+X-Gm-Message-State: AFuF++kN81zBqSjuXcK7riT3eMOAWr9Cx3hNh6iSOfwls3dAp6puhjjA
+	k2H6kxjitcHE+WG+qDNmgjzDM1bMlP2BozzJYLHDc9GR0YOsFvti4qPcQYWQWjZuIlozImT43bL
+	VoslUR6XW12wvB8yGa/RD9bVYLQ==
+X-Received: from pjre5.prod.google.com ([2002:a17:90a:b385:b0:39d:635a:fb3c])
  (user=dylanbhatch job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:902:e946:b0:2dd:c0ff:e72a with SMTP id d9443c01a7336-2ddc0ffe9a0mr12074035ad.60.1789771337748;
- Fri, 18 Sep 2026 15:42:17 -0700 (PDT)
-Date: Fri, 18 Sep 2026 22:41:54 +0000
+ 2002:a17:90b:3c05:b0:39e:6c6a:4b72 with SMTP id 98e67ed59e1d1-39e6c6a5457mr1484601a91.60.1789771343989;
+ Fri, 18 Sep 2026 15:42:23 -0700 (PDT)
+Date: Fri, 18 Sep 2026 22:41:57 +0000
 In-Reply-To: <20260918224157.1471085-1-dylanbhatch@google.com>
 Mime-Version: 1.0
 References: <20260918224157.1471085-1-dylanbhatch@google.com>
 X-Mailer: git-send-email 2.55.0.1082.g2b9226bbc0-goog
-Message-ID: <20260918224157.1471085-9-dylanbhatch@google.com>
-Subject: [PATCH v7 08/11] sframe: Add .sframe validation option
+Message-ID: <20260918224157.1471085-12-dylanbhatch@google.com>
+Subject: [PATCH v7 11/11] unwind: arm64: Use sframe to unwind interrupt frames
 From: Dylan Hatch <dylanbhatch@google.com>
 To: Roman Gushchin <roman.gushchin@linux.dev>, Weinan Liu <wnliu@google.com>, 
 	Will Deacon <will@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
@@ -83,8 +83,8 @@ Cc: Dylan Hatch <dylanbhatch@google.com>, Prasanna Kumar T S M <ptsm@linux.micro
 	Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_154219_921394_502ED6C7 
-X-CRM114-Status: GOOD (  21.47  )
+X-CRM114-CacheID: sfid-20260918_154227_242761_A8058925 
+X-CRM114-Status: GOOD (  26.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,199 +99,302 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Josh Poimboeuf <jpoimboe@kernel.org>
+Add kunwind_next_regs_sframe() function to unwind by sframe info if
+present. Use this method at exception boundaries, falling back to
+frame-pointer unwind only on failure. In such failure cases, the
+stacktrace is considered unreliable. During normal unwind, prefer frame
+pointer unwind (for better performance).
 
-Add a debug feature to validate all .sframe sections when first loading
-the file rather than on demand.
+This change restores the LR behavior originally introduced in commit
+c2c6b27b5aa14fa2 ("arm64: stacktrace: unwind exception boundaries"),
+But later removed in commit 32ed1205682e ("arm64: stacktrace: Skip
+reporting LR at exception boundaries")
 
-[ Jens Remus: Add support for SFrame V3.  Add support for PC-relative
-FDE function start offset.  Adjust to rename of struct sframe_fre to
-sframe_fre_internal.  Use %#x/%#lx format specifiers. ]
+This can be done because the sframe data can be used to determine
+whether the LR is current for the PC value recovered from pt_regs at the
+exception boundary.
 
-[ Dylan Hatch: Adapt this patch for in-kernel sframe sections. ]
-
-Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
-Reviewed-by: Indu Bhagat <ibhagatgnu@gmail.com>
-Co-developed-by: Jens Remus <jremus@linux.ibm.com>
-Signed-off-by: Jens Remus <jremus@linux.ibm.com>
-Signed-off-by: Steven Rostedt <rostedt@goodmis.org>
-Co-developed-by: Dylan Hatch <dylanbhatch@google.com>
+Co-developed-by: Weinan Liu <wnliu@google.com>
+Signed-off-by: Weinan Liu <wnliu@google.com>
+Reviewed-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
+Reviewed-by: Jens Remus <jremus@linux.ibm.com>
 Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
 
 ---
 
-Adapted from commit 4b30214c7896 ("unwind_user/sframe: Add .sframe
-validation option") from Steven's sframe/core branch, and squashed in v6
-patch "sframe: Introduce in-kernel SFRAME_VALIDATION".
-
-Changes include:
- - Squash in __read_fre_datawords() validation, given the patch
-   reordering.
- - Drop safe_read_* user-access wrappers.
- - Call sframe_validate_section() when vmlinux/kernel sections load.
+Changes since v6:
+ - (sashiko) Fix cfa alignment check.
+ - (sashiko) Fix kunwind_next_regs_sframe() stub name.
+ - Switch sframe_find_kernel() call to sframe_find() after API change.
+ - Simplify FP and RA recovery logic to reflect simpler API and lack of
+   flexible FDE support.
+ - (sashiko) Simlify arch_stack_walk_reliable(), dropping unnecessary
+   data struct and dead code.
 ---
- arch/Kconfig           | 18 +++++++++
- kernel/unwind/sframe.c | 83 +++++++++++++++++++++++++++++++++++++++---
- 2 files changed, 96 insertions(+), 5 deletions(-)
+ arch/arm64/kernel/stacktrace.c | 186 ++++++++++++++++++++++++++++++---
+ 1 file changed, 174 insertions(+), 12 deletions(-)
 
-diff --git a/arch/Kconfig b/arch/Kconfig
-index cc59a5da80915..20aa63c93a0e2 100644
---- a/arch/Kconfig
-+++ b/arch/Kconfig
-@@ -538,6 +538,24 @@ config HAVE_UNWIND_KERNEL_SFRAME
- 	  practice, this can provide more reliable stacktrace results than
- 	  unwinding with frame pointers alone.
- 
-+config SFRAME_VALIDATION
-+	bool "Enable .sframe section debugging"
-+	depends on UNWIND_SFRAME_LOOKUP
-+	depends on DYNAMIC_DEBUG
-+	help
-+	  When adding an .sframe section for an object, validate the entire
-+	  section immediately rather than on demand.
-+
-+	  This is a debug feature which is helpful for rooting out .sframe
-+	  section issues.  If the .sframe section is corrupt, it will fail to
-+	  load immediately, with more information provided in dynamic printks.
-+
-+	  This has a significant page cache footprint due to its reading of the
-+	  entire .sframe section for every loaded module.  Not recommended for
-+	  general use.
-+
-+	  If unsure, say N.
-+
- config HAVE_PERF_REGS
- 	bool
- 	help
-diff --git a/kernel/unwind/sframe.c b/kernel/unwind/sframe.c
-index c4715befb59b5..3386af16fc275 100644
---- a/kernel/unwind/sframe.c
-+++ b/kernel/unwind/sframe.c
+diff --git a/arch/arm64/kernel/stacktrace.c b/arch/arm64/kernel/stacktrace.c
+index 3ebcf8c53fb04..5aaeac9611015 100644
+--- a/arch/arm64/kernel/stacktrace.c
++++ b/arch/arm64/kernel/stacktrace.c
 @@ -13,6 +13,7 @@
- #include <linux/unwind_types.h>
- #include <linux/kallsyms.h>
- #include <asm/sections.h>
-+#include <asm/unwind_sframe.h>
+ #include <linux/sched.h>
+ #include <linux/sched/debug.h>
+ #include <linux/sched/task_stack.h>
++#include <linux/sframe.h>
+ #include <linux/stacktrace.h>
  
- #include "sframe.h"
- #include "sframe_debug.h"
-@@ -294,7 +295,6 @@ static __always_inline int __read_fre(struct sframe_section *sec,
- 				      unsigned long fre_addr,
- 				      struct sframe_fre_internal *fre)
- {
--	unsigned char fde_type = SFRAME_V3_FDE_TYPE(fde->info2);
- 	unsigned char fde_pctype = SFRAME_V3_FDE_PCTYPE(fde->info);
- 	unsigned char fre_type = SFRAME_V3_FDE_FRE_TYPE(fde->info);
- 	unsigned char dataword_count, dataword_size;
-@@ -323,10 +323,6 @@ static __always_inline int __read_fre(struct sframe_section *sec,
- 	if (cur + (dataword_count * dataword_size) > sec->fres_end)
- 		return -EFAULT;
+ #include <asm/efi.h>
+@@ -26,6 +27,7 @@ enum kunwind_source {
+ 	KUNWIND_SOURCE_CALLER,
+ 	KUNWIND_SOURCE_TASK,
+ 	KUNWIND_SOURCE_REGS_PC,
++	KUNWIND_SOURCE_REGS_LR,
+ };
  
--	/* Flexible FDEs not supported */
--	if (fde_type != SFRAME_FDE_TYPE_DEFAULT)
--		return -EFAULT;
--
- 	fre->size	= addr_size + 1 + (dataword_count * dataword_size);
- 	fre->ip_off	= ip_off;
- 	fre->info	= info;
-@@ -490,6 +486,73 @@ int sframe_find(unsigned long ip, struct unwind_frame *frame)
- 	return  __sframe_find_module(ip, frame);
+ union unwind_flags {
+@@ -45,6 +47,7 @@ union unwind_flags {
+  * @kr_cur:      When KRETPROBES is selected, holds the kretprobe instance
+  *               associated with the most recently encountered replacement lr
+  *               value.
++ * @unreliable:  Stacktrace is unreliable.
+  */
+ struct kunwind_state {
+ 	struct unwind_state common;
+@@ -56,6 +59,7 @@ struct kunwind_state {
+ 	enum kunwind_source source;
+ 	union unwind_flags flags;
+ 	struct pt_regs *regs;
++	bool unreliable;
+ };
+ 
+ static __always_inline void
+@@ -181,7 +185,6 @@ int kunwind_next_regs_pc(struct kunwind_state *state)
+ 	state->regs = regs;
+ 	state->common.pc = regs->pc;
+ 	state->common.fp = regs->regs[29];
+-	state->regs = NULL;
+ 	state->source = KUNWIND_SOURCE_REGS_PC;
+ 	return 0;
+ }
+@@ -244,6 +247,162 @@ kunwind_next_frame_record(struct kunwind_state *state)
+ 	return 0;
  }
  
-+#ifdef CONFIG_SFRAME_VALIDATION
++#ifdef CONFIG_HAVE_UNWIND_KERNEL_SFRAME
 +
-+static int sframe_validate_section(struct sframe_section *sec)
++static __always_inline struct stack_info *
++get_word(struct unwind_state *state, unsigned long *word)
 +{
-+	unsigned long prev_ip = 0;
-+	unsigned int i;
++	unsigned long addr = *word;
++	struct stack_info *info;
 +
-+	for (i = 0; i < sec->num_fdes; i++) {
-+		struct sframe_fre_internal *fre, *prev_fre = NULL;
-+		unsigned long ip, fre_addr;
-+		struct sframe_fde_internal fde;
-+		struct sframe_fre_internal fres[2];
-+		bool which = false;
-+		unsigned int j;
-+		int ret;
++	info = unwind_find_stack(state, addr, sizeof(addr));
++	if (!info)
++		return info;
 +
-+		ret = __read_fde(sec, i, &fde);
-+		if (ret) {
-+			dbg_sec(sec, "__read_fde(%u) failed\n", i);
-+			return ret;
-+		}
++	*word = READ_ONCE(*(unsigned long *)addr);
 +
-+		ip = fde.func_addr;
-+		if (ip <= prev_ip) {
-+			dbg_sec(sec, "FDE %u not sorted\n", i);
-+			return -EFAULT;
-+		}
-+		prev_ip = ip;
++	return info;
++}
 +
-+		fre_addr = sec->fres_start + fde.fres_off;
-+		for (j = 0; j < fde.fres_num; j++) {
-+			int ret;
++static __always_inline int
++get_consume_word(struct unwind_state *state, unsigned long *word)
++{
++	struct stack_info *info;
++	unsigned long addr = *word;
 +
-+			fre = which ? fres : fres + 1;
-+			which = !which;
++	info = get_word(state, word);
++	if (!info)
++		return -EINVAL;
 +
-+			ret = __read_fre(sec, &fde, fre_addr, fre);
-+			if (ret) {
-+				dbg_sec(sec, "FDE %u: __read_fre(%u) failed\n", i, j);
-+				return ret;
-+			}
-+			ret = __read_fre_datawords(sec, &fde, fre);
-+			if (ret) {
-+				dbg_sec(sec, "FDE %u: __read_fre_datawords(%u) failed\n", i, j);
-+				return ret;
-+			}
++	unwind_consume_stack(state, info, addr, sizeof(addr));
++	return 0;
++}
 +
-+			fre_addr += fre->size;
++/*
++ * Unwind from a pt_regs according to sframe.
++ */
++static __always_inline int
++kunwind_next_regs_sframe(struct kunwind_state *state)
++{
++	struct unwind_frame frame;
++	unsigned long cfa, fp, ra;
++	enum kunwind_source source = KUNWIND_SOURCE_FRAME;
++	struct pt_regs *regs = state->regs;
 +
-+			if (prev_fre && fre->ip_off <= prev_fre->ip_off) {
-+				dbg_sec(sec, "FDE %u: FRE %u not sorted\n", i, j);
-+				return -EFAULT;
-+			}
++	int err;
 +
-+			prev_fre = fre;
-+		}
++	if (WARN_ON_ONCE(state->source != KUNWIND_SOURCE_REGS_PC))
++		return -EINVAL;
++	if (WARN_ON_ONCE(!state->regs))
++		return -EINVAL;
++
++	/* FP/SP alignment 8 bytes */
++	if (state->common.fp & 0x7)
++		return -EINVAL;
++
++	err = sframe_find(state->common.pc, &frame);
++	if (err)
++		return -EINVAL;
++
++	/*
++	 * A kernel unwind should always end at a FRAME_META_TYPE_FINAL
++	 * frame. There should be no outermost frames within the kernel.
++	 */
++	if (frame.outermost)
++		return -EINVAL;
++
++	/* Get the Canonical Frame Address (CFA) */
++	switch (frame.cfa.rule) {
++	case UNWIND_CFA_RULE_SP_OFFSET:
++		cfa = state->regs->sp;
++		break;
++	case UNWIND_CFA_RULE_FP_OFFSET:
++		if (state->common.fp < state->regs->sp)
++			return -EINVAL;
++		cfa = state->common.fp;
++		break;
++	/*
++	 * UNWIND_CFA_RULE_REG_OFFSET and UNWIND_CFA_RULE_REG_OFFSET_DEREF not
++	 * implemented -- flexible FDEs are not currently generated by assembler
++	 * for arm64.
++	 */
++	default:
++		WARN_ON_ONCE(1);
++		return -EINVAL;
 +	}
++	cfa += frame.cfa.offset;
++
++	/* CFA alignment 16 bytes */
++	if (cfa & 0xf)
++		return -EINVAL;
++
++	/*
++	 * Consume RA and FP from the stack. The frame record puts FP at a lower
++	 * address than RA, so we read FP first.
++	 */
++	switch (frame.fp.rule) {
++	case UNWIND_RULE_RETAIN:
++		fp = state->common.fp;
++		break;
++	/*
++	 * UNWIND_RULE_CFA_OFFSET is currently not used for FP
++	 * (e.g. SFrame cannot represent this rule).
++	 */
++	case UNWIND_RULE_CFA_OFFSET_DEREF:
++		fp = cfa + frame.fp.offset;
++		if (!get_word(&state->common, &fp))
++			return -EINVAL;
++		break;
++	/*
++	 * UNWIND_RULE_REG_OFFSET and UNWIND_RULE_REG_OFFSET_DEREF not
++	 * implemented -- flexible FDEs are not currently generated by assembler
++	 * for arm64.
++	 */
++	default:
++		WARN_ON_ONCE(1);
++		return -EINVAL;
++	}
++
++	switch (frame.ra.rule) {
++	case UNWIND_RULE_RETAIN:
++		ra = regs->regs[30];
++		source = KUNWIND_SOURCE_REGS_LR;
++		break;
++
++	/*
++	 * UNWIND_RULE_CFA_OFFSET doesn't make sense for RA.
++	 * The return address cannot legitimately be a stack address.
++	 */
++	case UNWIND_RULE_CFA_OFFSET_DEREF:
++		ra = cfa + frame.ra.offset;
++		if (get_consume_word(&state->common, &ra))
++			return -EINVAL;
++		break;
++	/*
++	 * UNWIND_RULE_REG_OFFSET and UNWIND_RULE_REG_OFFSET_DEREF not
++	 * implemented -- flexible FDEs are not currently generated by assembler
++	 * for arm64.
++	 */
++	default:
++		WARN_ON_ONCE(1);
++		return -EINVAL;
++	}
++
++	state->common.pc = ra;
++	state->common.fp = fp;
++
++	state->source = source;
 +
 +	return 0;
 +}
 +
-+#else /*  !CONFIG_SFRAME_VALIDATION */
++#else /* !CONFIG_HAVE_UNWIND_KERNEL_SFRAME */
 +
-+static int sframe_validate_section(struct sframe_section *sec) { return 0; }
++static __always_inline int
++kunwind_next_regs_sframe(struct kunwind_state *state) { return -EINVAL; }
 +
-+#endif /* !CONFIG_SFRAME_VALIDATION */
++#endif /* !CONFIG_HAVE_UNWIND_KERNEL_SFRAME*/
 +
- static int sframe_read_header(struct sframe_section *sec)
+ /*
+  * Unwind from one frame record (A) to the next frame record (B).
+  *
+@@ -259,10 +418,20 @@ kunwind_next(struct kunwind_state *state)
+ 	state->flags.all = 0;
+ 
+ 	switch (state->source) {
++	case KUNWIND_SOURCE_REGS_PC:
++		err = kunwind_next_regs_sframe(state);
++
++		if (err) {
++			/* Fallback to FP based unwinder */
++			err = kunwind_next_frame_record(state);
++			state->unreliable = true;
++		}
++		state->regs = NULL;
++		break;
+ 	case KUNWIND_SOURCE_FRAME:
+ 	case KUNWIND_SOURCE_CALLER:
+ 	case KUNWIND_SOURCE_TASK:
+-	case KUNWIND_SOURCE_REGS_PC:
++	case KUNWIND_SOURCE_REGS_LR:
+ 		err = kunwind_next_frame_record(state);
+ 		break;
+ 	default:
+@@ -393,21 +562,13 @@ noinline noinstr void arch_stack_walk(stack_trace_consume_fn consume_entry,
+ static __always_inline bool
+ arch_reliable_kunwind_consume_entry(const struct kunwind_state *state, void *cookie)
  {
- 	unsigned long header_end, fdes_start, fdes_end, fres_start, fres_end;
-@@ -551,6 +614,11 @@ void __init init_sframe_table(void)
- 		return;
- 	}
+-	/*
+-	 * At an exception boundary we can reliably consume the saved PC. We do
+-	 * not know whether the LR was live when the exception was taken, and
+-	 * so we cannot perform the next unwind step reliably.
+-	 *
+-	 * All that matters is whether the *entire* unwind is reliable, so give
+-	 * up as soon as we hit an exception boundary.
+-	 */
+-	if (state->source == KUNWIND_SOURCE_REGS_PC)
++	if (state->unreliable)
+ 		return false;
  
-+	if (sframe_validate_section(&kernel_sfsec)) {
-+		pr_warn("invalid vmlinux SFrame section\n");
-+		return;
-+	}
-+
- 	sframe_init = true;
- 	dbg_print_header(&kernel_sfsec);
+ 	return arch_kunwind_consume_entry(state, cookie);
  }
-@@ -611,6 +679,11 @@ void sframe_module_init(struct module *mod, void *sframe, size_t sframe_size)
- 	}
- 	sframe_sort_fdes(sec);
  
-+	if (sframe_validate_section(sec)) {
-+		pr_warn("invalid SFrame section in module %s\n", mod->name);
-+		return;
-+	}
-+
- 	/* Ensure SFrame is initialized when sframe_find() happens */
- 	WRITE_ONCE(mod->arch.sframe_init, true);
- 	dbg_print_header(sec);
+-noinline noinstr int arch_stack_walk_reliable(stack_trace_consume_fn consume_entry,
++noinline notrace int arch_stack_walk_reliable(stack_trace_consume_fn consume_entry,
+ 					      void *cookie,
+ 					      struct task_struct *task)
+ {
+@@ -452,6 +613,7 @@ static const char *state_source_string(const struct kunwind_state *state)
+ 	case KUNWIND_SOURCE_CALLER:	return "C";
+ 	case KUNWIND_SOURCE_TASK:	return "T";
+ 	case KUNWIND_SOURCE_REGS_PC:	return "P";
++	case KUNWIND_SOURCE_REGS_LR:	return "L";
+ 	default:			return "U";
+ 	}
+ }
 -- 
 2.55.0.1082.g2b9226bbc0-goog
 
