@@ -4,67 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CB9AC982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 21:55:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D6C4C982D7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 22:06:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J8d54ZjF80j5PSeUUGJOwzN8j8yyoXk5bK5VrCr6trE=; b=rjvtuGkD2pqR1UkaDfL8BRKt54
-	XKs6WWU6IyM+HgkDWB9bPmEZAvuznkscuottJmOZusPT287ucsBaqYVYw1wV5eg660XP3WnkKsVNA
-	2NlBADRsfmZ45pIVzVa/gKWFn0pUWwbYm0RqpBZ7wAopl0TQvXNhfQ2yYSuxCab/Lu+il6636RQUs
-	nV8Sf1WujRP2dcBZ6Q+HggO/2EglHnT78j+heTqtLh0xPSp6wQPRWp4pc/FvXIXnTyU3/4X3/thhW
-	FrGyVgPiCBYE6CVNZrczebUonSWFX5mrgI+m7ZHfedUICWi7sTrc4dyWTycJaGdxvMsUS/MYdssYp
-	5KPKL+Ug==;
+	bh=sdkH+9Eyo8lwBnyWL3D0AXJdYxWgcTzyUyAN9ex0Fds=; b=XR7YxDtI5SqJpVlf9002Wj4RUM
+	OvSx6vJsdrvCpI9UiS7Na4Sk99l0gLxru4iY7HwoyFSUrnBYa0OYPTM7lFOrmwd/q1TDHaAowz9qv
+	SLBPDotz4RNSasHjG7PCN/pSmThVwOehwkbbouvy0x50YS9hetJFYimcQypc+OHYE6ii0RNaSLnO5
+	Kf0myTxViaFrA/9HM/zytKeIPMcPwGwb9KeNbri+4xJgUMQAJJP4I89NmReaJZ/b8V0UzqTaswg9q
+	eGuIuSBDKYnJ9TSocaODuiGqMzqiegUkJGENeVcpkyPsmmZwjqL3egNyGu/loknPHPs6zW669uat/
+	0ppmAwWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7gYX-0000000Fbh0-1pnJ;
-	Fri, 18 Sep 2026 21:55:41 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x7gj7-0000000Fc45-2X9u;
+	Fri, 18 Sep 2026 22:06:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7gYW-0000000Fbgt-0KNS
+	id 1x7gj6-0000000Fc3z-2U86
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 21:55:40 +0000
+	Fri, 18 Sep 2026 22:06:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 83DAA6053B;
-	Fri, 18 Sep 2026 21:55:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C1521F00898;
-	Fri, 18 Sep 2026 21:55:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1B3EC44205;
+	Fri, 18 Sep 2026 22:06:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5D6B1F000FF;
+	Fri, 18 Sep 2026 22:06:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789768539;
-	bh=J8d54ZjF80j5PSeUUGJOwzN8j8yyoXk5bK5VrCr6trE=;
+	s=k20260515; t=1789769196;
+	bh=sdkH+9Eyo8lwBnyWL3D0AXJdYxWgcTzyUyAN9ex0Fds=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=FR5oM+9/Q9Gt7NasIOp2sGg+Hd8SkJeOIApn+kgvLPBhyKowszo/f1INrNqWLrUZ8
-	 fJfKV7IKFBaWQImHLJGKCr+oPg/r8j0jM8Fg0GpOtIk8E09QF4s7nJnVTsVN0LiigU
-	 57rIx5IYFGLbweQoREwF4uiJOsVN95CDkR4i71gDGnrps4JYkTOTmrVSW0nSC+/xJg
-	 8B+l6FkQ38lFMGoaib9NVAUFluoMu3jjNSbGhh1rhq6t3KeidD8TU+58wC3QfupWis
-	 rijZ/Way9jBq3VyYXSqYvfPWzzc6ShiNElyYOzpzeBuJvKrEJGMZX/k6d7I4bSbe4c
-	 7/5vvyRYXP7nQ==
-Date: Fri, 18 Sep 2026 16:55:37 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Linus Walleij <linusw@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>,
+	b=dlVldnl793sIzCA+QOGOpldMSTPn+NoZMEZeCGm5bhJCO8q2JcX7ccwfRYmlVBKT/
+	 +8uQjid3nEOdVeZrg8T5nlETCUAVjTreiu0IP2BEz+aYFlKOS6J14Tu24PWqd2Gh2w
+	 KxEvQJwf1TV+FrjB16PbBRzFK/5rauXPTzc7e5dOMd+/XxY2AYQaz3N5EwkHd/mjix
+	 /UN4o5DDWRVqQ2yj06BKUXrTriaZx2AVekXsV1SsEuNrUW6EvP/ru3omAjVf3HS8fk
+	 7PFRofebNSd1Q4ovkxbWzaFZ5d4QgSEx1uKhRjh74tVxEZURcKNXlqI+DPPOduAmVz
+	 n9xCx7E6n4WrA==
+Date: Fri, 18 Sep 2026 17:06:34 -0500
+From: Rob Herring <robh@kernel.org>
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>,
+	Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	David Airlie <airlied@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	Maxime Ripard <mripard@kernel.org>, dmaengine@vger.kernel.org,
-	Simona Vetter <simona@ffwll.ch>, linux-pm@vger.kernel.org,
-	Vinod Koul <vkoul@kernel.org>, devicetree@vger.kernel.org,
-	Lee Jones <lee@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
-	dri-devel@lists.freedesktop.org, Ulf Hansson <ulfh@kernel.org>
-Subject: Re: [PATCH v2 19/20] dt-bindings: display: ste,mcde: Deprecate EPOD
- supply
-Message-ID: <178976853742.2415043.13414750295183513008.robh@kernel.org>
-References: <20260914-ux500-power-domains-v7-1-v2-0-9d0c17e1f816@kernel.org>
- <20260914-ux500-power-domains-v7-1-v2-19-9d0c17e1f816@kernel.org>
+	Andy Yan <andy.yan@rock-chips.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	John Stultz <john.stultz@linaro.org>,
+	Moritz Fischer <moritz.fischer@ettus.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Christian Loehle <christian.loehle@arm.com>,
+	Lee Jones <lee@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
+	Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>,
+	Abel Vesa <abelvesa@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+	Andre Draszik <andre.draszik@linaro.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	devicetree@vger.kernel.org, mfd@lists.linux.dev,
+	Srinivas Kandagatla <srini@kernel.org>
+Subject: Re: [PATCH v25 05/10] dt-bindings: arm: Document reboot mode magic
+Message-ID: <20260918220634.GA2441717-robh@kernel.org>
+References: <20260914-arm-psci-system_reset2-vendor-reboots-v25-0-4aaf5c09b5c2@oss.qualcomm.com>
+ <20260914-arm-psci-system_reset2-vendor-reboots-v25-5-4aaf5c09b5c2@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260914-ux500-power-domains-v7-1-v2-19-9d0c17e1f816@kernel.org>
+In-Reply-To: <20260914-arm-psci-system_reset2-vendor-reboots-v25-5-4aaf5c09b5c2@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,19 +99,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Mon, 14 Sep 2026 13:54:47 +0200, Linus Walleij wrote:
-> Make epod-supply optional and mark it deprecated.
+On Mon, Sep 14, 2026 at 08:29:09PM +0530, Shivendra Pratap wrote:
+> Add bindings to describe vendor-specific reboot modes. Values here
+> correspond to valid parameters to vendor-specific reset types in PSCI
+> SYSTEM_RESET2 call.
 > 
-> The MCDE should use its power domain instead.
-> 
-> Assisted-by: LLM
-> Signed-off-by: Linus Walleij <linusw@kernel.org>
+> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
 > ---
->  Documentation/devicetree/bindings/display/ste,mcde.yaml | 5 ++---
->  1 file changed, 2 insertions(+), 3 deletions(-)
+>  Documentation/devicetree/bindings/arm/psci.yaml | 60 +++++++++++++++++++++++++
+>  1 file changed, 60 insertions(+)
 > 
+> diff --git a/Documentation/devicetree/bindings/arm/psci.yaml b/Documentation/devicetree/bindings/arm/psci.yaml
+> index 0d04389c81fa..8b6a28b81ed7 100644
+> --- a/Documentation/devicetree/bindings/arm/psci.yaml
+> +++ b/Documentation/devicetree/bindings/arm/psci.yaml
+> @@ -98,6 +98,43 @@ properties:
+>        [1] Kernel documentation - ARM idle states bindings
+>          Documentation/devicetree/bindings/cpu/idle-states.yaml
+>  
+> +  reboot-mode:
+> +    type: object
+> +    $ref: /schemas/power/reset/reboot-mode.yaml#
+> +    unevaluatedProperties: false
+> +    properties:
+> +      # "mode-normal" is just SYSTEM_RESET
+> +      mode-normal: false
+> +    patternProperties:
+> +      "^mode-.*$":
+> +        $ref: /schemas/types.yaml#/definitions/uint32-array
+> +        minItems: 2
+> +        items:
+> +          - description: arg1 (vendor-specific SYSTEM_RESET2 reset_type)
+> +            $ref: /schemas/types.yaml#/definitions/uint32
+> +            minimum: 0x80000000
+> +          - description:
+> +              arg2 (cookie_lo in 2-cell form, cookie_hi in 3-cell form)
+> +            $ref: /schemas/types.yaml#/definitions/uint32
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Drop. Types are per property, not per item.
 
+> +          - description: arg3 (cookie_lo in 3-cell form)
+> +            $ref: /schemas/types.yaml#/definitions/uint32
+
+Drop.
+
+> +        description: |
+> +          Describes a PSCI SYSTEM_RESET2 vendor-specific reset type. The string
+> +          after "mode-" maps a reboot mode to a vendor-specific reset.
+> +
+> +          A vendor-specific reset takes two arguments, a 32-bit reset_type and a
+> +          64-bit cookie. The arguments are encoded as up to three 32-bit cells.
+> +          Each mode property is encoded as mode-xxx = <arg1 arg2[, arg3]>,
+> +          where:
+> +
+> +            - arg1 is reset_type and must be >= 0x80000000.
+> +            - In 2-cell form, arg2 is lower 32 bits of cookie.
+> +            - In 3-cell form, arg2 is high 32 bits of cookie
+> +              and arg3 is low 32 bits of cookie.
+> +
+> +          All values should be provided as per the PSCI SYSTEM_RESET2
+> +          specification.
+> +
+>  patternProperties:
+>    "^power-domain-":
+>      $ref: /schemas/power/power-domain.yaml#
+> @@ -137,6 +174,15 @@ allOf:
+>        required:
+>          - cpu_off
+>          - cpu_on
+> +  - if:
+> +      not:
+> +        properties:
+> +          compatible:
+> +            contains:
+> +              const: arm,psci-1.0
+> +    then:
+> +      properties:
+> +        reboot-mode: false
+>  
+>  additionalProperties: false
+>  
+> @@ -260,4 +306,18 @@ examples:
+>          domain-idle-states = <&cluster_ret>, <&cluster_pwrdn>;
+>        };
+>      };
+> +
+> +  - |+
+> +
+> +    // Case 5: SYSTEM_RESET2 vendor resets
+> +    psci {
+> +      compatible = "arm,psci-1.0";
+> +      method = "smc";
+> +
+> +      reboot-mode {
+> +        mode-edl = <0x80000000 0x00000001>;
+> +        mode-bootloader = <0x80010001 0x00000002>;
+> +        mode-vendor = <0x80000000 0x00000001 0x00000002>;
+> +      };
+> +    };
+>  ...
+> 
+> -- 
+> 2.34.1
+> 
 
