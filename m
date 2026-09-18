@@ -4,112 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E524C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 13:46:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A80DC982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 13:47:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ymbnMK+8HyGQmBb3o9ET5vduF9wcW5sQOF2iKVjhYNw=; b=lG+xDH+lKZhVAxMfz3o83Vf6ka
-	kBBdWZwgqSO3F4tVILy+qCgOAG+en/3bjXf0/VpMqrd34b/SlrrhavaW52Qi789TEmgkCEzKhrIm5
-	X7dqxeQI1CysHe46Qb4+Oo2z9T3nSeOF3UZ/mY6TMM2ayHpUlB5enof0QUYn4KmdQu7dn/LYGJoFB
-	E7+Bx7an36QbWnvvnOULIre6f60pYleLgbjj4aBEKjo0FJA/BARhkHgyvftbLTJ+6Xr4MVmIM9ZLm
-	o4CposMXRiwRvkMLpY3kr/ZNZ/rjw6brUUU7U9XUA10vNAs4jl7kd7yeAtsw/E2ZfUqqMbpE5fNn6
-	tvlKoSpw==;
+	bh=6JT85z7VBQuVxTsS2FhpPNP1G7Luj+25ReTRMe0j4Eo=; b=TOHlj2csCxESjnLogbn76Z15Dc
+	7BhDA5EtjtuHqWcaEe5ZZdzvHU/QzlR7w+0CyulhcX6d75NqtlDxjBqk7YvSxvPB4Ow/wk2ssVjU5
+	fWVnBgiNw4N9PCHokj1a8eaUPE8N1tD4YhbdFXQj+Q9RqWn2BWbUMu7IDXavvZlaD+x84fnBq8rJw
+	dUFSFcgOg3A/jY1imWYtNgXLAxPy6gdHeFFbSc4c41BhS2D31euMHj4E7CgwikLJbCZmTv+wFd98a
+	hnP7GkUaAMB6ipnP3EgzZ1IeUeL11fPSBdv2wHa3Dz/SdUL1U9s/FkYMLCcZXcN+V4tFvpI4R0Db3
+	ydLvhanQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7YvC-0000000EcjU-2oKs;
-	Fri, 18 Sep 2026 13:46:38 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x7YwQ-0000000Ecvy-1qK3;
+	Fri, 18 Sep 2026 13:47:50 +0000
+Received: from mail.tipi-net.de ([194.13.80.246])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7YvB-0000000EcjO-23En
+	id 1x7YwN-0000000Ecuv-2RzW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 13:46:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D600040AA2;
-	Fri, 18 Sep 2026 13:46:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 993591F000FF;
-	Fri, 18 Sep 2026 13:46:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789739192;
-	bh=ymbnMK+8HyGQmBb3o9ET5vduF9wcW5sQOF2iKVjhYNw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Xt0tzOwz5qtIe7DP2AdR4q3xgGeGGZI+NCLGpZ+qOVY+gebui36VXqY2h5GGWy/lH
-	 ae/bCLuSSujJuKmgYAx3fjHElH/G9kw91Kup7sOFZKR0K34c+fqsLB+ccy2T1nqTBA
-	 SjQZK3Adbc0sOSauI+KLfBx8xLMLS6kxwYmExNMhW8uXKGmrhKPEn74xZqRLZt5IIC
-	 Kk1dvPmXafS2+fGeaZARasgwGYMZB8c6oCsABNjjrF70glhukaUdWmg1EnEj8IglhH
-	 Q4YqROK1PkoUMrUWYtznNMGi8t1Y+Dx5e2oMslqar8T/QZKkWqh3v+HRO1YtBr9E5J
-	 EfymYCC/FJvog==
-Message-ID: <7fbcf497-a166-45d6-844d-faaece6f581c@kernel.org>
-Date: Fri, 18 Sep 2026 15:46:22 +0200
+	Fri, 18 Sep 2026 13:47:49 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1D990A50C5;
+	Fri, 18 Sep 2026 15:47:32 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
+	t=1789739263; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=6JT85z7VBQuVxTsS2FhpPNP1G7Luj+25ReTRMe0j4Eo=;
+	b=nEjX0kLYWLtbkvv3h8Ih+GECcXAr10XaBlncO0DDvSlF+B6im55NTRoUMtVAI0M0M5nZcq
+	D1uuysQ1Kxv0pNFVz0uD1FTFLLEVdmwn3a25a0s9I5v3MqxAbwrvqSEMQdDfhoxVmn2q87
+	dQJEsepuf4GSzehM7WdaW8bhjEsI5twEG27B+iK0khs1s2kjGfLao3sZICR+a98diDUEnp
+	r19TtwjbaOTFKxwFjac/5i9qiLaJv0ur+Uxlx2rKGeG1SL3PD0T6ZoqSQOJyOVba233vjo
+	edlujib3h22l5mofpgk5GFQLFhc8S3AWOSxNEdeot00bJsDMqy8kfkLBloqpKg==
+Date: Fri, 18 Sep 2026 15:47:32 +0200
+From: Nicolai Buchwitz <nb@tipi-net.de>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+CC: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
+ Heiner Kallweit <hkallweit1@gmail.com>,
+ =?ISO-8859-1?Q?Alexis_Lothor=E9?= <alexis.lothore@bootlin.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Emil Renner Berthing <kernel@esmil.dk>,
+ Minda Chen <minda.chen@starfivetech.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Jan Petrous <jan.petrous@oss.nxp.com>,
+ Ovidiu Panait <ovidiu.panait.rb@renesas.com>, Jose.Abreu@synopsys.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, PKneuper@dspace.de,
+ David Laight <david.laight.linux@gmail.com>
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_net_v4_5/7=5D_net=3A_stmmac=3A_dwmac4=3A_Use?=
+ =?US-ASCII?Q?_the_correct_bufzise_when_the_len_is_exactly_8K?=
+User-Agent: Thunderbird for Android
+In-Reply-To: <fd937877-306e-48c1-8b14-e8dc62986420@bootlin.com>
+References: <20260917215339.2022523-1-maxime.chevallier@bootlin.com> <20260917215339.2022523-6-maxime.chevallier@bootlin.com> <4b3c26c482ac1d26f39b53fea072e4d1@tipi-net.de> <fd937877-306e-48c1-8b14-e8dc62986420@bootlin.com>
+Message-ID: <DB73CA16-1F9F-4680-A7BD-B5E043F3A20A@tipi-net.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] dt-bindings: usb: Introduce samsung,snps-dwc3
-To: Selvarasu Ganesan <selvarasu.g@samsung.com>
-Cc: peter.griffin@linaro.org, alim.akhtar@samsung.com,
- gregkh@linuxfoundation.org, robh@kernel.org, conor+dt@kernel.org,
- Thinh.Nguyen@synopsys.com, mani@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, jh0801.jung@samsung.com, h10.kim@samsung.com,
- dh10.jung@samsung.com, akash.m5@samsung.com, hongpooh.kim@samsung.com,
- eomji.oh@samsung.com, shijie.cai@samsung.com, muhammed.ali@samsung.com,
- thiagu.r@samsung.com
-References: <20260916122229.2604003-1-selvarasu.g@samsung.com>
- <CGME20260916122354epcas5p401fd6470d6cef75951af732b03aa5970@epcas5p4.samsung.com>
- <20260916122229.2604003-3-selvarasu.g@samsung.com>
- <20260918-burgundy-marmoset-of-focus-c9b9a7@quoll>
- <fef2b2f5-3838-4eec-8118-d41f9ca0ed2f@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <fef2b2f5-3838-4eec-8118-d41f9ca0ed2f@samsung.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260918_064747_780949_D3A2A04E 
+X-CRM114-Status: GOOD (  15.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,99 +87,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/09/2026 15:36, Selvarasu Ganesan wrote:
-> 
-> On 9/18/2026 3:24 PM, Krzysztof Kozlowski wrote:
->> On Wed, Sep 16, 2026 at 05:52:28PM +0530, Selvarasu Ganesan wrote:
->>> +maintainers:
->>> +  - Krzysztof Kozlowski <krzk@kernel.org>
->>> +  - Selvarasu Ganesan <selvarasu.g@samsung.com>
->>> +
->>> +description:
->>> +  Describes the DWC3 USB controller block implemented on Samsung Exynos SoCs.
->>> +
->>> +select:
->>> +  properties:
->>> +    compatible:
->>> +      contains:
->>> +        const: samsung,snps-dwc3
->>> +  required:
->>> +    - compatible
->> This select is not needed.
->>
->>> +
->>> +properties:
->>> +  compatible:
->>> +    items:
->>> +      - enum:
->>> +          - samsung,exynos8855-dwc3
->>> +      - const: samsung,snps-dwc3
->> And this fallback is not really accurate. Samsung does not have snps
->> device, because snps is a vendor. Anyway, generic fallbacks should go
->> away, drop, so you are left with samsung,exynos8855-dwc3 only.
-> 
-> Hi Krzysztof,
-> 
-> Thanks for your review comments.
-> And We apologize for our repeated below explanation, but we wanted to 
-> ensure our intentions were clear for each point to avoid any 
-> misunderstanding.
-> 
-> The original intent of the generic fallback was to support existing 
-> Exynos dwc3 bindings from a parent/child representation from 
-
-How does it support existing bindings? I don't understand. There is no
-such fallback in existing bindings.
-
-> (samsung,exynos-dwc3.yaml), and upcoming SoCs (Exynos 8865, 9955, and 
-> 9965) can use this flattened representation without requiring a unique 
-> compatible string for every project in the dwc3-generic-plat driver 
-
-I did not forbid you to use fallbacks, so I do not understand why you
-would need unique compatible for every device in the driver.
-
-This is already heavily documented and explained in beginners docs.
-Please read writing bindings docs and maybe also DTS101 slides. I even
-gave the talk DTS101 two months ago in your timezone...
 
 
-> of_match_table. We referred to qcom,snps-dwc3 as a helpful reference for 
-> this approach.
+On September 18, 2026 2:45:10 PM GMT+02:00, Maxime Chevallier <maxime=2Ech=
+evallier@bootlin=2Ecom> wrote:
+>
+>
+>On 9/18/26 14:25, Nicolai Buchwitz wrote:
+>> Hi Maxime
+>>=20
+>> On 17=2E9=2E2026 23:53, Maxime Chevallier wrote:
+>>> DMA bufsize selection isn't made on the MTU but the actual frame lengt=
+h,
+>>> so including the L2 header=2E On DWMAC4, if the len is exactly BUF_SIZ=
+E_8KiB,
+>>> the next larger size is incorrectly selected=2E
+>>>
+>>> Lets fix the comparison and while at it, rename the parameter from len
+>>> to mtu=2E
+>>=20
+>> Isn't it "[=2E=2E=2E] from mtu to len"?
+>
+>:(
+>
+>Bah, if respin is required I'll fix this
+>
+>>>
+>>> Fixes: c3efed5ad1b0 ("net: stmmac: Enable dwmac4 jumbo frame more than=
+ 8KiB")=2E
+>>> Signed-off-by: Maxime Chevallier <maxime=2Echevallier@bootlin=2Ecom>
+>>> ---
+>>> =C2=A0drivers/net/ethernet/stmicro/stmmac/dwmac4_descs=2Ec | 4 ++--
+>>> =C2=A0drivers/net/ethernet/stmicro/stmmac/hwif=2Eh=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 2 +-
+>>> =C2=A0drivers/net/ethernet/stmicro/stmmac/ring_mode=2Ec=C2=A0=C2=A0=C2=
+=A0 | 4 ++--
+>>> =C2=A03 files changed, 5 insertions(+), 5 deletions(-)
+>>>
+>>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs=2Ec b/dr=
+ivers/net/ethernet/stmicro/stmmac/dwmac4_descs=2Ec
+>>> index 2994df41ec2c=2E=2Ec6a8f8d73501 100644
+>>> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs=2Ec
+>>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs=2Ec
+>>> @@ -474,11 +474,11 @@ static void dwmac4_set_sarc(struct dma_desc *p, =
+u32 sarc_type)
+>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 sarc_type))=
+;
+>>> =C2=A0}
+>>>
+>>> -static int set_16kib_bfsize(int mtu)
+>>> +static int set_16kib_bfsize(int len)
+>>> =C2=A0{
+>>> =C2=A0=C2=A0=C2=A0=C2=A0 int ret =3D 0;
+>>>
+>>> -=C2=A0=C2=A0=C2=A0 if (unlikely(mtu >=3D BUF_SIZE_8KiB))
+>>> +=C2=A0=C2=A0=C2=A0 if (unlikely(len > BUF_SIZE_8KiB))
+>>=20
+>> Should we drop set_16kib_bfsize() instead?
+>>=20
+>> After 6/7 it looks to me like the same test as the first branch of
+>> stmmac_set_bfsize()=2E The caller ends up there anyway when it returns =
+0
+>> and chain_mode_ops doesn't have it at all=2E
+>
+>True yeah :) however maybe we can wait for this to be merged and have the
+>cleanup in net-next ?
+>
+>Sashiko is getting crazy with the "pre-existing issues" everytime we touc=
+h
+>stmmac, cleanups are long overdue and this could be included in there :(
+>
 
-When people argue with me, they use more often poor examples as
-reference, not the good ones. Interesting pattern.
+Totally fine with me=2E Maybe the commit message can be fixed up on merge?=
+=20
 
-And why you did not take the proper example you even mentioned here -
-Documentation/devicetree/bindings/usb/samsung,exynos-dwc3.yaml - as
-reference?
+>Maxime
+>
+>
+FWIW
 
-Anyway, existing bug is not a reason to add new bug, don't you think?
-
-
-
-> 
-> As seen in samsung,exynos-dwc3.yaml, our existing bindings already 
-> support multiple SoCs with diverse clock requirements within a single 
-> file. Similarly, we plan to use a single flattened Samsung binding to 
-> manage these diverse clock requirements. for different SoCs.
-> 
-> Regarding the migration for current and future SoCs, would you prefer,
-
-I do not understand how any of this is relevant to my review comment.
-
-> 
-> Option A: A single flattened binding file using a common fallback 
-> compatible string (instead of samsung,snps-dwc3) to minimize 
-> of_match_table entries, and if/then constraints to handle diverse clock 
-> requirements.
-> Option B: Separate binding files for each individual SoCs.
-> 
-> Could you please let us know your preferred approach? Once confirmed, we 
-> will address your other review comments based on the selected approach.
-
-You do not have other bindings. You have one device. If you have more,
-then post more. We are not making reviews based on imaginary future things.
-
-Best regards,
-Krzysztof
+Reviewed-by: Nicolai Buchwitz <nb@tipi-net=2Ede>
 
