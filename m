@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 532F2C982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 15:23:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6758C982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 15:23:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ri8MoCutLUnAxAJvx/W7d6M2QnpZ79h8pcccg60WaOM=; b=ksgzmwTlcUi5//jEsaJbNn83dd
-	vpxoC2q1UNzMpfW0N7gW9x73RehI1duLuIHWyGrgIZ/Koz+gyDs+m9fvpekvj/VwrBELzpUtOGlyy
-	ikk1eugqpUBBjm1LUwn7invzO1pPydxedGPA3j+J7g2sjIo3CL8AjF9yYeFA3qUAp1hza+0n3TBEj
-	R4//rNnKdKxjcRz6gX2A3P8RDvuI9XAzWf47Y7OlUZab6BHoF+n1A+ORDMhxk37E/pZ0l4tRm7Bn2
-	OFLz6zq7rP+xKenocjdCIDTgcOGCWAS1kn8huzGOGs+UkUszQIlIzqBH1CF7NLE0cegHt5WpSsyDb
-	7p7+xyPg==;
+	bh=eFPCf8D5M1X5rx99UIXQoQ9iwlwi2YMPh/PDLFzLuus=; b=Q/w/371sfp8nYfqSO2Ct12KO/g
+	t0bo3VyvHrWWHV6HrptBeuaXj9VFOZmcvh9OSJAVh3d1KAL3M4F3oaITHMqCOrJqJf/rOzymwCS+4
+	bs23yKNrLpTMhBTzKSH5ROax+XjX8BITOA5gYcE1R4G3m348T5QT+ujBJMnZJJZWg1aC6iIbGmweV
+	+90KzK2/ytqunU8Eo9O+nuQc/GGoCPtUluD+hjXRYA5kzC4vN8gi/fvNCl9/eY12uJWdkmaNn9xkX
+	dR/X3tG0swko0qvGGLE2jAnHqCvBHjd7Lo/snGrX3TNwaGBwg+l9fHOn6E2UoDDoDs8e60kacYqtc
+	oranaMOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7aQb-0000000ErvO-49ze;
-	Fri, 18 Sep 2026 15:23:05 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1x7aQh-0000000Erxj-0ct8;
+	Fri, 18 Sep 2026 15:23:11 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7aQY-0000000Eru5-3R8X
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 15:23:04 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 3C5111A0993
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 15:22:56 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 018BD60649;
-	Fri, 18 Sep 2026 15:22:56 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E965110328FD9;
-	Fri, 18 Sep 2026 17:22:49 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1789744975; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=ri8MoCutLUnAxAJvx/W7d6M2QnpZ79h8pcccg60WaOM=;
-	b=cg6ZBC5WDILhswpSgON8oRSwmK/S8wqQRKQmx7TRN6JCs9US64BvsaQYq9DSkjFFAGTnVH
-	S7umg7XDZscGtph1aZjbzeVU3uqFZVCH3suMEQfLLFHqaDVi/k8MN6rQyijpct5j7Vgzjz
-	S3+WUoi92vFTtl4ZEmbumeEzL7fXe6f55NtEcHLr9msBCb1zT562hPRhFGeTI1jyLvYFht
-	FZmoGz6h9gE+VkBkOuLISfunIGOea/hNpD3GZKLILfYLvjugtkAjLVhudKcNXYIvV6FpJj
-	a4dYiXzEGw+7mDxHJV4hz9u6qF/+PTjv4PayBd2txng68vGzkIZseRrvtTsjMg==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+	id 1x7aQd-0000000ErwD-30QS;
+	Fri, 18 Sep 2026 15:23:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1789744982; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Qd/q2wVpxFcI3/WRIZ3tBdYsd2EoKb6XVtzU0JfS4MGDd+t2dLE1roaIP9XdmpACzy+o94UoDQt9s8xbtrAmt4oVs/Kmom7VlhtODLRhN0pcpjoo30Yerm9U91drzGGeCJz2xlWb3YjxxbO4qq/+1V/TBdlFyBvdroSzMFHuANQ=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1789744982; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=eFPCf8D5M1X5rx99UIXQoQ9iwlwi2YMPh/PDLFzLuus=; 
+	b=Gga2xjjA3q7CrkP8uzQjeRtnsSEZhTfWZgKsJV/dfwl3T4xyHZA7/ARoLsCS4wbry+Nq7xyglb0YTpv0RAD5nEU6G+diYyvxL0ZZcaP1NgoQCLfHGx5NrlHljixzu05YvJIgbnkoU1+76/n+Em1sTmfz67I3nlTYkcpirf7N7C4=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=michael.riesch@collabora.com;
+	dmarc=pass header.from=<michael.riesch@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1789744982;
+	s=zohomail; d=collabora.com; i=michael.riesch@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=eFPCf8D5M1X5rx99UIXQoQ9iwlwi2YMPh/PDLFzLuus=;
+	b=g0gd5AQX8gvsnb84joQ4GMx+VOlotLGfUFb4Sn9YJIbCFwwBgNRY53+uqKG55uvo
+	gKAWCDHb7bIGyMXemgg0gA5Je4Cqd90rBfKKW6CjfTSZnOJNLzW9n5Pa+z5OwJfyHCh
+	pLQlB7caar+Sd6hxOwxYR+P8P7tUHCmPuH5qyhTg=
+Received: by smtp.zohomail.com with SMTPS id 1789744980496928.7914211499516;
+	Fri, 18 Sep 2026 08:23:00 -0700 (PDT)
+Message-ID: <fa2f5b96-a44f-42b6-91b4-5895b57b4f53@collabora.com>
+Date: Fri, 18 Sep 2026 17:22:57 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] media: rockchip: rkcif: convert timeout to
+ secs_to_jiffies()
+To: Amin Gattout <amin.gattout@gmail.com>,
+ Mehdi Djait <mehdi.djait@linux.intel.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260918-rkcif-secs-to-jiffies-v1-1-110f336750b0@gmail.com>
+Content-Language: en-US
+From: Michael Riesch <michael.riesch@collabora.com>
+In-Reply-To: <20260918-rkcif-secs-to-jiffies-v1-1-110f336750b0@gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Date: Fri, 18 Sep 2026 17:22:49 +0200
-Message-Id: <DLIJN4CDS11K.RVJGK3UALMJE@bootlin.com>
-Subject: Re: [PATCH v2] net: macb: add TX stall timeout callback to recover
- from lost TSTART write
-Cc: "Lukasz Raczylo" <lukasz@raczylo.com>, "Steffen Jaeckel"
- <sjaeckel@suse.de>, "Drew Streib" <dtype@dtype.org>
-To: "Andrea della Porta" <andrea.porta@suse.com>, <netdev@vger.kernel.org>,
- "Andrew Lunn" <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, "Eric Dumazet" <edumazet@google.com>, "Jakub
- Kicinski" <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>,
- <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-rpi-kernel@lists.infradead.org>, "Nicolai Buchwitz"
- <nb@tipi-net.de>, "Conor Dooley" <conor.dooley@microchip.com>
-From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <468f480454a314303bac6a54780b153f689f2267.1781598350.git.andrea.porta@suse.com>
-In-Reply-To: <468f480454a314303bac6a54780b153f689f2267.1781598350.git.andrea.porta@suse.com>
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 7bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_082302_993888_472B1EDC 
-X-CRM114-Status: GOOD (  14.75  )
+X-CRM114-CacheID: sfid-20260918_082307_825787_352AFA21 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,81 +81,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello all,
+Hi Amin,
 
-On Tue Jun 16, 2026 at 3:23 PM CEST, Andrea della Porta wrote:
-> From: Lukasz Raczylo <lukasz@raczylo.com>
->
-> The MACB found in the Raspberry Pi RP1 suffers from sporadic stalls on
-> the TX queue.
-> While the exact root cause is not yet fully understood, it is likely
-> related to a hardware issue where a TSTART write to the NCR register
-> is missed, preventing the transmission from being kicked off.
->
-> Implement a timeout callback to handle TX queue stalls, triggering the
-> existing restart mechanism to recover.
+Thanks for the patch!
 
-Any news on this topic?
+On 9/18/26 15:05, Amin Gattout wrote:
+> Use secs_to_jiffies() to simplify the code.
+> 
+> Signed-off-by: Amin Gattout <amin.gattout@gmail.com>
 
-There was a guess that a "flush PCIe posted write after TSTART
-doorbell" patch [0] could solve it but I was sceptical [1]. We never
-landed that and only took the Tx timeout implementation. If it ever
-triggers then the kernel log gets a "NETDEV WATCHDOG: ..." critical
-line appended [2].
+Acked-by: Michael Riesch <michael.riesch@collabora.com>
 
-I got reminded because I came across on this wiki page [3] about the
-issue, whose author is in Cc. As an aside, I landed there by testing out
-the Marginalia search engine and queried "macb driver" (as one does).
+Best regards,
+Michael
 
-Main discovery of the day: it happens on EyeQ5 & latest net/main
-(46bc52d13594) as well. Thanks to Andrea for the quick reproducer.
+> ---
+>  drivers/media/platform/rockchip/rkcif/rkcif-stream.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
+> index 3130d420ad55..f82eaf9a37d1 100644
+> --- a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
+> +++ b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
+> @@ -314,7 +314,7 @@ static void rkcif_stream_stop_streaming(struct vb2_queue *queue)
+>  
+>  	stream->stopping = true;
+>  	ret = wait_event_timeout(stream->wq_stopped, !stream->stopping,
+> -				 msecs_to_jiffies(1000));
+> +				 secs_to_jiffies(1));
+>  
+>  	if (!ret && stream->stop_streaming)
+>  		stream->stop_streaming(stream);
+> 
+> ---
+> base-commit: 238650ef6c7c7cca08e032527329424c9fbd70e5
+> change-id: 20260918-rkcif-secs-to-jiffies-1b98a96465f7
+> 
+> Best regards,
+> --  
+> Amin Gattout <amin.gattout@gmail.com>
+> 
 
-	# udhcpc -i eth1
-	...
-	# iperf3 -c $IP -P10 -t3000
-	...
-	^C
-	# dmesg | grep eth1
-	[    2.182191] macb 2b00000.ethernet eth1: Cadence GEM rev 0x00070200 at 0=
-x02b00000 irq 35 (00:28:f8:94:24:69)
-	[   23.570335] macb 2b00000.ethernet eth1: PHY [2b00000.ethernet-ffffffff:=
-0e] driver [Marvell 88E1510] (irq=3DPOLL)
-	[   23.570981] macb 2b00000.ethernet eth1: configuring for phy/rgmii-id li=
-nk mode
-	[   27.783260] macb 2b00000.ethernet eth1: Link is Up - 1Gbps/Full - flow =
-control tx
-	[   42.182370] macb 2b00000.ethernet eth1: NETDEV WATCHDOG: CPU: 0: transm=
-it queue 0 timed out 5088 ms
-	[   51.158331] macb 2b00000.ethernet eth1: NETDEV WATCHDOG: CPU: 0: transm=
-it queue 0 timed out 5004 ms
-	[   56.262381] macb 2b00000.ethernet eth1: NETDEV WATCHDOG: CPU: 0: transm=
-it queue 0 timed out 10108 ms
-	[   61.126317] macb 2b00000.ethernet eth1: NETDEV WATCHDOG: CPU: 3: transm=
-it queue 0 timed out 14972 ms
-	[   67.206322] macb 2b00000.ethernet eth1: NETDEV WATCHDOG: CPU: 0: transm=
-it queue 0 timed out 5004 ms
-
-Note: the initial reproducer was `iperf3 -c $IP -P10 -t3000 -w4M`.
-I can reproduce without -w4M but -P10 is required even though we reach
-line rate with a single stream. This points to a race/mb issue in
-macb_start_xmit?
-
-I'm posting to see if anyone has theories. I'll be posting some race
-fixes soon but they don't fix it (not surprising as they are unrelated).
-I have many ideas but I need more time for testing; it'll be much easier
-now with a reproduction setup.
-
-[0]: https://lore.kernel.org/netdev/20260514215459.36109-2-lukasz@raczylo.c=
-om/
-[1]: https://lore.kernel.org/netdev/DIK002QFFNBY.31C3KUX2SQC6W@bootlin.com/
-[2]: https://elixir.bootlin.com/linux/v7.2.5/source/net/sched/sch_generic.c=
-#L563-L569
-[3]: https://dtype.org/wiki/Cm5_macb_network_hang
-
-Thanks,
-
---
-Th=C3=A9o Lebrun, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
 
