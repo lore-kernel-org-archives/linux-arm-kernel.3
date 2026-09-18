@@ -4,90 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81907C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 15:54:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35FCFC982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 15:55:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gkZT5+6MT1neXTSrRW8cuNq+wdvBlgmd5gXT5DoC4rY=; b=MexVYOt5bW1M0NTwDY6oFmDlte
-	XZDlw8vYgjgYMD/wWCJ764CnGxBDx8+5zxkqXuAYCBwxtCN/mgSfP3bgVZHFz68fxuM+u0uc3EKl9
-	nPgtmuLR16zMU4a11pBnZuKuKBQ45K3ln5UWwe6uZdnN6q5sJrD9lc3HKXYSTFDjPcLrKhgs69NqL
-	bCygoNlVWeRvglWj60U9wexjVIDprTANvj2DiMCDL/WhTvjQ0D/x8LwA4z4/sI5nxqgCHpdtUTUWb
-	C/Gl9A+MW5up9r1W7bUGpKc/+H9YFOLFjQq1lo1GdUKPUmXvDb9w8EZobUsHdGZ4VhTLjk4U8hCEF
-	RUEh7SJg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j466s7jbzClVSsJ+FEvZE7NgG+aTMlJRi85iOwX0jN8=; b=SrbZT0rRuM2tk9wUXazuJCnHk+
+	3gpQ827Xcmt4jyNRruey08Gq5V6JPPcKCtdfFa1ewnZbw4Oe8F9kT+CfLvKha7bgPOzsI8+b9xvBU
+	VIc/en12ag3PX05OWxyT87NGdzfQd8zdLNkZkzEqPPK/WymKYzo5FUm5+yA6xY4Z8IiY4l/bE/8y9
+	NVYCwujueAghHLqH5jrIdZfeolCMGhqYPofdWpbg/PYHQmSOM0yB8GDisWz/0jjF3sJwAos2EmjPm
+	8g9IfG6rz6a27dfYTjeImVMet+TVGQ5UU+At7AXXNRjsmM4mPt8T5BjqKXtqJ2M8XR0RXr0lF2pM2
+	kltp6gDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7avA-0000000EwJ6-2WR0;
-	Fri, 18 Sep 2026 15:54:40 +0000
-Received: from mail-pz2-x10.google.com ([2607:f8b0:4864:3b::10])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7av8-0000000EwI7-0AbS
+	id 1x7avm-0000000EwSL-37op;
+	Fri, 18 Sep 2026 15:55:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x7avk-0000000EwRP-16S4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 15:54:39 +0000
-Received: by mail-pz2-x10.google.com with SMTP id d2e1a72fcca58-86b90133ae8so718991b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 08:54:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789746877; x=1790351677; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=gkZT5+6MT1neXTSrRW8cuNq+wdvBlgmd5gXT5DoC4rY=;
-        b=pWrkFAawnNbbNY7Qy3dRJwqkip8qaFai1tt5p8zKXtajNgkEGOMvxsNv9ilScI6PFw
-         t45mn5aJIMHSb39AXjmiW4dj/YpAeXCul63Ldb9wXtbKFGE8dNv1wdCwvv3Ffdz/wQ1G
-         7BSJuwn7pUBgfZ9bcrO6iVmG9ZMrZRoJ5sTsyTXQdZLt6PYToBSSkb5dOK1abswisDBx
-         Qp62rVMnQzG/VzjmStrKbU9IANRIoJOvfbd7c0y/ByfTJVYWuMul3QSQHeiS3Q+KHUT/
-         F2UbLkw3BpwjEwBd6CN5Yby8wA6cgI8EUtkEkONe7XyhjjeZGYudLrDneU/suSRHcW0c
-         9ikg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789746877; x=1790351677;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=gkZT5+6MT1neXTSrRW8cuNq+wdvBlgmd5gXT5DoC4rY=;
-        b=y0SdNlwyTZuAhwuKPl1BDYILFgojah3RppejMP7XFXJBQfClL/+GtM0dhgYsRA3d9y
-         con/sPqtoT+1B3fibkFCTshBBwvYe5hgm5rb0Uwu7P77qwP//fD4FCSOQMSmprMMMBsB
-         Q9HMI+RE5Y3D2PcYcZHLecRmFtgv9yBby2W5H7sNLshrQgnNv8F62gFX2PASSqQdGPsB
-         nN4MHbQaqzWL7/5x6JLzXGHsumb7MR1LHU3wJeWC8Gp5LZuSLgYm8Snp4aj3klDaHp3I
-         ysoPX5gaqdpJRpTh5Kw2cg2Lnc9nbTy5j+3+egBpf49sB7pCDieAv1Y/h/BbrM8MNwX0
-         9F5Q==
-X-Forwarded-Encrypted: i=1; AKwUvBzYc+zVLOFhIz0tcXERNxxxJMnJtHcspjGRKaniTyFhkiPeoYj6KE8T0HUb0Jx8FK1+rkaMjKtZpdj0GlMMimJ8@lists.infradead.org
-X-Gm-Message-State: AFuF++k8rNdtzF30SY9nlZvZTX6sW6ulNkdKarP5J6eYUPs2jr2AgfFS
-	xnx+YB5O+eU+abCPHiv6CdbdPyBtBavRmLtZVQNg3ogzUnuIC1Rtc0cK
-X-Gm-Gg: AYBFou0risO8NayQ4UXchjdwCd6QfQ1wFLvdVLJ1Izo3sHm0QpUVYwtEa3uVJ2kc7EL
-	fxpesM6DvZRsXCHYS+Zg6jj5zhL7ZOgKk5VQzUa4m1kyAasKwS0VVbxunhC2Lv5PUirlwq51NVZ
-	I5S9o6p5UOXsIGGMhgxHvZUMcVfuEguPXqEPdH32y/jMwMFNRKgSHhW1p4+ZYs/LGceT/zgbMUG
-	E5Fj6oA47tlJ5xKlqzi3boVESUJ2+2kEFZ0c0YrD9VwT0tvciLBDRo2eX9ZeV3zA7oJr3XEdKFJ
-	/UV30eFIoQ4jRYbkRWBPquMqR6+R5My/XVT3jhoMBC3poyawQwG7n9XdIOjlys7NfHt2GagArsw
-	VpV/avOSLvfGF09ani7cH9HLCBtnMbKGX4exYglqD7LDh8vUvIVMai03WiWND/SB0EZ3CAbaSFv
-	2w0ueQ0Mo7YSydCSwVowB5VwxeklGIjPD6iMSImCj4oVlX1okaXsZRfF1lNzbyrTcnKUo6f4PV/
-	gUSFJQgPXU2x1Pg
-X-Received: by 2002:a05:6a00:90a9:b0:874:705d:f64a with SMTP id d2e1a72fcca58-874decf71f5mr5476461b3a.44.1789746876763;
-        Fri, 18 Sep 2026 08:54:36 -0700 (PDT)
-Received: from SGN-LDSENG.tasernet.com ([2405:4800:5cc3:11a:1ac0:4dff:fe8b:4a69])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-875dd8dfa1csm1091058b3a.46.2026.09.18.08.54.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Sep 2026 08:54:36 -0700 (PDT)
-From: Cong Nguyen <congnt264@gmail.com>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-rtc@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] rtc: mxc_v2: fix wake IRQ leak on probe failure and remove()
-Date: Fri, 18 Sep 2026 22:54:29 +0700
-Message-Id: <20260918155429.2549137-1-congnt264@gmail.com>
-X-Mailer: git-send-email 2.25.1
+	Fri, 18 Sep 2026 15:55:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 00D69168F;
+	Fri, 18 Sep 2026 08:55:09 -0700 (PDT)
+Received: from [10.57.83.108] (unknown [10.57.83.108])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 93FD43F7B4;
+	Fri, 18 Sep 2026 08:55:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789746912; bh=h6rfWJQHWA6AbcMjJ6geNACzDmvpZX6SlmU6TfDDjl4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Slvyn6V4Oo34Au5DOF1kboWsJhCsaV1c3o8YhZGZ1uDZIq6kJGrq06wenZFv5EDFt
+	 rc1I3KnVukf8/IyOeNPvQrdNuKb9cmLZVVwgE+SE8jrEkLVZCoxFvYokUmGawc8WSZ
+	 yCfWVIgzMcDRelK8r6NIxI4xxV77Jr9WyJ/BldhY=
+Message-ID: <f9a7cd29-8aa3-4436-a95e-999c03aad0d7@arm.com>
+Date: Fri, 18 Sep 2026 16:55:06 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/6] arm64: use hw_pte_val for HW PTE atomics
+To: Muhammad Usama Anjum <usama.anjum@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+ Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+ Alexander Potapenko <glider@google.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>,
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Michal Hocko <mhocko@suse.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-efi@vger.kernel.org, kasan-dev@googlegroups.com, linux-mm@kvack.org
+References: <20260914-pte0_arm-v1-0-bb53b663e396@arm.com>
+ <20260914-pte0_arm-v1-2-bb53b663e396@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260914-pte0_arm-v1-2-bb53b663e396@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_085438_076220_FE82B4AD 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20260918_085516_385563_E2C826FE 
+X-CRM114-Status: GOOD (  24.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,34 +83,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-dev_pm_set_wake_irq() in probe has no matching dev_pm_clear_wake_irq()
-anywhere -- not on later probe-failure paths, not in remove(). Switch
-to devm_pm_set_wake_irq(), which registers the clear automatically on
-every exit path.
+On 14/09/2026 14:51, Muhammad Usama Anjum wrote:
+> Add hw_pte_val() to preserve an lvalue for the HW PTE bits, so atomic
+> updates can take their address. pte_val() expects a SW PTE value and
+> cannot operate directly on a distinct hw_pte_t.
+> 
+> With ARCH_HAS_HW_PTE_T, use pte_val() on the wrapper's __pte member;
+> otherwise, use pte_val() directly.
+> 
+> The atomic operations and their ordering are unchanged.
+> 
+> Signed-off-by: Muhammad Usama Anjum <usama.anjum@arm.com>
+> ---
+>  arch/arm64/include/asm/pgtable.h | 10 +++++-----
+>  arch/arm64/mm/fault.c            |  6 +++---
+>  include/linux/pgtable_types.h    |  4 ++++
+>  3 files changed, 12 insertions(+), 8 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index 652ce413be389..4768ec59de555 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -1303,7 +1303,7 @@ static inline bool __ptep_test_and_clear_young(struct vm_area_struct *vma,
+>  	do {
+>  		old_pte = pte;
+>  		pte = pte_mkold(pte);
+> -		pte_val(pte) = cmpxchg_relaxed(&pte_val(*ptep),
+> +		pte_val(pte) = cmpxchg_relaxed(&hw_pte_val(*ptep),
+>  					       pte_val(old_pte), pte_val(pte));
+>  	} while (pte_val(pte) != pte_val(old_pte));
+>  
+> @@ -1346,7 +1346,7 @@ static inline pte_t __ptep_get_and_clear_anysz(struct mm_struct *mm,
+>  					       hw_pte_t *ptep,
+>  					       unsigned long pgsize)
+>  {
+> -	pte_t pte = __pte(xchg_relaxed(&pte_val(*ptep), 0));
+> +	pte_t pte = __pte(xchg_relaxed(&hw_pte_val(*ptep), 0));
+>  
+>  	switch (pgsize) {
+>  	case PAGE_SIZE:
+> @@ -1422,7 +1422,7 @@ static inline void ___ptep_set_wrprotect(struct mm_struct *mm,
+>  	do {
+>  		old_pte = pte;
+>  		pte = pte_wrprotect(pte);
+> -		pte_val(pte) = cmpxchg_relaxed(&pte_val(*ptep),
+> +		pte_val(pte) = cmpxchg_relaxed(&hw_pte_val(*ptep),
+>  					       pte_val(old_pte), pte_val(pte));
+>  	} while (pte_val(pte) != pte_val(old_pte));
+>  }
+> @@ -1460,7 +1460,7 @@ static inline void __clear_young_dirty_pte(struct vm_area_struct *vma,
+>  		if (flags & CYDP_CLEAR_DIRTY)
+>  			pte = pte_mkclean(pte);
+>  
+> -		pte_val(pte) = cmpxchg_relaxed(&pte_val(*ptep),
+> +		pte_val(pte) = cmpxchg_relaxed(&hw_pte_val(*ptep),
+>  					       pte_val(old_pte), pte_val(pte));
+>  	} while (pte_val(pte) != pte_val(old_pte));
+>  }
+> @@ -1830,7 +1830,7 @@ static inline bool ptep_try_set(hw_pte_t *ptep, pte_t new_pte)
+>  {
+>  	pteval_t old = 0;
+>  
+> -	if (!try_cmpxchg(&pte_val(*ptep), &old, pte_val(new_pte)))
+> +	if (!try_cmpxchg(&hw_pte_val(*ptep), &old, pte_val(new_pte)))
+>  		return false;
+>  
+>  	/*
+> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+> index b77f4be88e3ea..7d6c30f27214e 100644
+> --- a/arch/arm64/mm/fault.c
+> +++ b/arch/arm64/mm/fault.c
+> @@ -225,8 +225,8 @@ int __ptep_set_access_flags_anysz(struct vm_area_struct *vma,
+>  	/*
+>  	 * Setting the flags must be done atomically to avoid racing with the
+>  	 * hardware update of the access/dirty state. The PTE_RDONLY bit must
+> -	 * be set to the most permissive (lowest value) of *ptep and entry
+> -	 * (calculated as: a & b == ~(~a | ~b)).
+> +	 * be set to the most permissive (lowest value) of the current PTE and
+> +	 * entry (calculated as: a & b == ~(~a | ~b)).
 
-Fixes: fbc5ee9a6955 ("rtc: mxc_v2: use dev_pm_set_wake_irq() to simplify code")
-Reported-by: Sashiko AI review <sashiko-bot@kernel.org>
-Link: https://lore.kernel.org/r/20260914134826.EC26D1F000FF@smtp.kernel.org
-Assisted-by: LLM
-Signed-off-by: Cong Nguyen <congnt264@gmail.com>
----
- drivers/rtc/rtc-mxc_v2.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+This seems like an unrelated and unecessary comment change?
 
-diff --git a/drivers/rtc/rtc-mxc_v2.c b/drivers/rtc/rtc-mxc_v2.c
-index a07acbbcfaeb..7080aaf9ffa0 100644
---- a/drivers/rtc/rtc-mxc_v2.c
-+++ b/drivers/rtc/rtc-mxc_v2.c
-@@ -302,7 +302,7 @@ static int mxc_rtc_probe(struct platform_device *pdev)
- 		return pdata->irq;
- 
- 	device_init_wakeup(&pdev->dev, true);
--	ret = dev_pm_set_wake_irq(&pdev->dev, pdata->irq);
-+	ret = devm_pm_set_wake_irq(&pdev->dev, pdata->irq);
- 	if (ret)
- 		dev_err(&pdev->dev, "failed to enable irq wake\n");
- 
--- 
-2.25.1
+>  	 */
+>  	pte_val(entry) ^= PTE_RDONLY;
+>  	pteval = pte_val(pte);
+> @@ -235,7 +235,7 @@ int __ptep_set_access_flags_anysz(struct vm_area_struct *vma,
+>  		pteval ^= PTE_RDONLY;
+>  		pteval |= pte_val(entry);
+>  		pteval ^= PTE_RDONLY;
+> -		pteval = cmpxchg_relaxed(&pte_val(*ptep), old_pteval, pteval);
+> +		pteval = cmpxchg_relaxed(&hw_pte_val(*ptep), old_pteval, pteval);
+>  	} while (pteval != old_pteval);
+>  
+>  	/*
+> diff --git a/include/linux/pgtable_types.h b/include/linux/pgtable_types.h
+> index d6c5a7548550b..ee4eace5c3e1c 100644
+> --- a/include/linux/pgtable_types.h
+> +++ b/include/linux/pgtable_types.h
+> @@ -9,9 +9,13 @@
+>  #ifdef CONFIG_ARCH_HAS_HW_PTE_T
+>  typedef struct __hw_pte_t { pte_t __pte; } hw_pte_t;
+>  #define __pte_from_hw(pte)	((pte).__pte)
+> +
+
+nit: why the newline here (and equivalent below)?
+
+> +#define hw_pte_val(x)  pte_val((x).__pte)
+
+Wouldn't it be better to add these as part of the generic series? I know we
+prefer to add an api along with its first user, but in this case it seems odd,
+because you're effectively requiring that arm64 is the first merged arch to
+support this? You could also use the same argument to say that none of this
+should be merged until the commit where an arch turns on ARCH_HAS_HW_PTE_T.
+
+Thanks,
+Ryan
+
+
+>  #else
+>  #define hw_pte_t pte_t
+>  #define __pte_from_hw(pte)	(pte)
+> +
+> +#define hw_pte_val(x)  pte_val(x)
+>  #endif
+>  
+>  #endif /* !__ASSEMBLY__ */
+> 
 
 
