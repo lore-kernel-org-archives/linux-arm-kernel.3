@@ -4,67 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFEE6C982DC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 11:59:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA8B4C982DC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 11:59:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FTZzu47AOmRxHTR0Eyam8a+mT0R7a/crBOBUb7Y1wmI=; b=B6IGGMlhv1o8KAiPIHgpgGfG/b
-	2xEsqTuuChHFfucRe1DaSn7n6yuvw7ji5EaY+zZfe9gcrtMKNsbFC2c7h8F82MFAoLiuM5ubOvQ4J
-	cOpPgLWwLmu/Y96csNr67EUzv2TrvW2e/zK1F8tbTV5KMBh8yxaNlhHP2OGxxac1ALkTiOjB5cJrV
-	9LnH5B2KQ6ba16Ph0rw5chMw5sPWBnmyU5fsQIfSuvh8dB4jiocGoKhhgTZocb3mf4UJVKqaUmEMW
-	Y/fapxSbnosM0BQiJ7CWB0eRkai1hkZDdqtSEM9YTyEPM9Hvl9wcVaDfJYMktN79FSZhivDmrljlr
-	kQ/OtNRA==;
+	bh=dZ+UU0cW7lO7sc/YWjbCFQdvW29aK3TMctUKE8s0RwA=; b=efMmgTSHspVMiWzpPkHSuVL0ES
+	c+zjWQYUB6T93GGqav7AoabL+bZJ6GpUe9msTdmSkpV5V9BTdPiEI6JOhO74ZOXnlrURFdJyA/vV6
+	1+iTi6Tf1Xan536jCKs/lkeeC8bcmz04Ir0TYvawIKwRbD4l1mCIrtyAAE4Ch/M7OTYlui6l/AIKU
+	wNZfs88i9221+Khy0hRez+cbuW3JIXRcqthBMsUjmtMqC2vn2zT7DSB8jnEXFnihWkCQZdSIYvrvM
+	JxN37uDprl+m5i4cxNgHhRWFcy5hbp/FfBaegzC8/iJDPCEhKIufB2vopnWbBn1v3cEN80vOuP+W8
+	KWBYd2aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7XF1-0000000EJDM-2Al1;
-	Fri, 18 Sep 2026 11:58:55 +0000
-Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
+	id 1x7XFL-0000000EJGf-2c5C;
+	Fri, 18 Sep 2026 11:59:15 +0000
+Received: from out-119.mta0.migadu.com ([2001:41d0:1004:224b::77] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7XEy-0000000EJCg-1XXU
+	id 1x7XF7-0000000EJER-3PTe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 11:58:54 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=FTZzu47AOmRxHTR0Eyam8a+mT0R7a/crBOBUb7Y1wmI=;
-	b=2iI2NGkHtsj0pKWN/NSlZVoBkpiYmpnYJ1HMqRg97bQbgDGbJXsYzxrE1RSQE50iT3kZnaZ1r
-	ugnw7eBaUpx7P+dyZXKWjDZw5E3lp1WnMKCHoysh5eRZFpjB0II66WCYY+kvJVlIN1mP3T5YsE/
-	82FZwcek02meXDFkiwiIZGk=
-Received: from mail.maildlp.com (unknown [172.19.163.163])
-	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4hmW8D3pYRzKm5t;
-	Fri, 18 Sep 2026 19:47:40 +0800 (CST)
-Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id 317A84057A;
-	Fri, 18 Sep 2026 19:58:44 +0800 (CST)
-Received: from [10.67.120.103] (10.67.120.103) by
- kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Fri, 18 Sep 2026 19:58:43 +0800
-Message-ID: <497c6239-a75f-4087-83c8-efface3fe3d7@huawei.com>
-Date: Fri, 18 Sep 2026 19:58:43 +0800
+	Fri, 18 Sep 2026 11:59:03 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=dZ+UU0cW7lO7sc/YWjbCFQdvW29aK3TMctUKE8s0RwA=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1789732738; v=1; x=1790337538;
+ b=ldKEMTrFEy3fmKEVUcGHUBddV4/P9fTB3fA8AVfBU/OtKa+YViYhDrOqfKBcA9/FzLerUcYJ
+ +WhO1hmKDnphOMGOEVszkvAVYumPbFtorQCdA9scFqpQNrsH5Uulh7crREiWacPSIwLET2M83hc
+ sPs+LPXMFcMv7RpKzp/+P5DU=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id cca0b0410c54eb2f;
+	Fri, 18 Sep 2026 11:58:58 +0000
+X-Mizu-Trace-ID: cca0b0410c54eb2f
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5b83c1421ecso6310e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 04:58:54 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBxq1J+Zo8LZEu87EON/op2iPAZPhvZl4cv7iT02tmSzrKvnd+tr60VtIg3wFNnrJv01ghl6xfqOdjD0mOylQ+GT@lists.infradead.org
+X-Gm-Message-State: AFuF++mMkgRScsD/c0VCaHqhe4Yr/uqzQx12fu2xWuyNsprQYdMA0SPQ
+	XBKpLvWW6BBuI8QW54bDJYBvdL1dy0J4Hff5eX4zxODNyYz9SokdJ9rKMwf7RzMYDmAEmZjitSI
+	YY+h/tNwK9K2FS3z8j3wpBtYxSfnL9vYYRhm+GMF0
+X-Received: by 2002:a05:6512:3c9f:b0:5b2:a967:c0e1 with SMTP id
+ 2adb3069b0e04-5b8c0fcad95mr166760e87.0.1789732733287; Fri, 18 Sep 2026
+ 04:58:53 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 5/5] KVM: arm64: Enable HAFDBS for guests not on
- migration
-To: Leonardo Bras <leo.bras@arm.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>
-References: <20260901171558.2674031-1-leo.bras@arm.com>
- <20260901171558.2674031-6-leo.bras@arm.com>
-From: Tian Zheng <zhengtian10@huawei.com>
-In-Reply-To: <20260901171558.2674031-6-leo.bras@arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.120.103]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemr100010.china.huawei.com (7.202.195.125)
+References: <20260918040214.85580-1-ndaugoing@gmail.com> <20260918040214.85580-2-ndaugoing@gmail.com>
+ <CA+EHjTx8zzvgqj99TKWfRD58X-M8v+hs9358_r_1zZonFNEsgw@mail.gmail.com> <CAC2BP3K-fvW2s2j2ys+kPMuxrzeMw9yc6MrAk7U7CqCpb2WePQ@mail.gmail.com>
+In-Reply-To: <CAC2BP3K-fvW2s2j2ys+kPMuxrzeMw9yc6MrAk7U7CqCpb2WePQ@mail.gmail.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Fri, 18 Sep 2026 12:58:17 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTx9bTDuTnGgkrCcaAG+1S1Lx6+1BZnuhJcWNTJxWXkAHw@mail.gmail.com>
+X-Gm-Features: AcwNN1W8n3dmMVZr53drbRK261wAXv8qWFmrNE31MdA1aY5Yy24oy1p3VG9UCp8
+Message-ID: <CA+EHjTx9bTDuTnGgkrCcaAG+1S1Lx6+1BZnuhJcWNTJxWXkAHw@mail.gmail.com>
+Subject: Re: [PATCH v2] KVM: arm64: vgic: Do not remove in-flight LPIs from AP
+ list on disable
+To: Yuchao Zhang <ndaugoing@gmail.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_045852_872919_83EC2091 
-X-CRM114-Status: GOOD (  13.33  )
+X-CRM114-CacheID: sfid-20260918_045902_225907_99D51067 
+X-CRM114-Status: GOOD (  23.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,73 +86,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Yuchao,
 
+On Fri, 18 Sept 2026 at 12:51, Yuchao Zhang <ndaugoing@gmail.com> wrote:
+>
+> Hi Fuad,
+>
+> Thanks a lot for pointing me to that thread! I was not aware of
+> Hyunwoo's earlier report and the discussion with Oliver and Marc.
+>
+> I'll read through the thread and their rationale on the ap_list_lock
+> approach. I'm happy to defer to Hyunwoo's effort to avoid duplicate
+> work.
 
-On 9/2/2026 1:15 AM, Leonardo Bras wrote:
-> @@ -2570,53 +2571,76 @@ int __init kvm_mmu_init(u32 hyp_va_bits)
->   
->   out_destroy_pgtable:
->   	kvm_pgtable_hyp_destroy(hyp_pgtable);
->   out_free_pgtable:
->   	kfree(hyp_pgtable);
->   	hyp_pgtable = NULL;
->   out:
->   	return err;
->   }
->   
-> +static void kvm_set_hafdbs(struct kvm *kvm, bool set)
-> +{
-> +	/* Check if no action required */
-> +	if (!!(kvm->arch.mmu.vtcr & VTCR_EL2_HD) == set)
-> +		return;
-> +
-> +	if (set)
-> +		kvm->arch.mmu.vtcr |= VTCR_EL2_HD;
-> +	else
-> +		kvm->arch.mmu.vtcr &= ~VTCR_EL2_HD;
-> +
-> +	kvm_make_all_cpus_request(kvm, KVM_REQ_RELOAD_STAGE2);
-> +}
-> +
+I'm not sure you should defer to their effort. It doesn't seem like
+Hyunwoo has done any work on this for a while. I just wanted to point
+you to the existing discussion.
 
-Hi Leo,
+Cheers,
+/fuad
 
-HD alone is architecturally a no-op. According to the Arm spec, the
-VTCR_EL2.HD field description reads: "When the Effective value of
-VTCR_EL2.HA is 0, this field behaves as 0 for all purposes other than a
-direct read of the value of this bit." So patch 5 as it stands never
-actually enables stage-2 dirty management.
-
-In the combined series, I'm planning to replace both kvm_set_hafdbs()
-and our earlier enable/disable hooks with a single derived mode:
-
-```
-/*
-  *   logging && HDBSS-capable  ->  HDBSS  (HD|HA|HDBSS)
-  *   logging, no HDBSS         ->  off
-  *   !logging, HAFDBS-capable  ->  HAFDBS (HD|HA)
-  */
-void kvm_arch_update_hw_dirty_mode(struct kvm *kvm)
-{
-	bool logging = atomic_read(&kvm->nr_memslots_dirty_logging) != 0;
-	unsigned long target;
-
-	if (logging && kvm_supports_hdbss(kvm))
-		target = VTCR_EL2_HD | VTCR_EL2_HA | VTCR_EL2_HDBSS;
-	else if (logging || !kvm_supports_hafdbs(kvm))
-		target = 0;
-	else
-		target = VTCR_EL2_HD | VTCR_EL2_HA;
-	...
-}
-```
-
-HA is always set alongside HD by construction, so the no-op issue goes
-away.
-
-I'll fold this into the HDBSS v5 series when I send it out. Let me know
-if you'd rather keep it in your v2 instead.
-
-Thanks,
-Tian
+> Thanks again for the pointer!
+>
+> Best regards,
+> Yuchao
+>
+> Fuad Tabba <fuad.tabba@linux.dev> =E4=BA=8E2026=E5=B9=B49=E6=9C=8818=E6=
+=97=A5=E5=91=A8=E4=BA=94 15:22=E5=86=99=E9=81=93=EF=BC=9A
+> >
+> > Hi Yuchao,
+> >
+> > On Fri, 18 Sep 2026 12:02:14 +0800, Yuchao Zhang <ndaugoing@gmail.com> =
+wrote:
+> >
+> > [...]
+> >
+> > > Note: this closes the primary race (the last_lr_irq node itself is no
+> > > longer unlinkable while in-flight), but the fold traversal can still
+> > > race with a remote flush unlinking a subsequent non-LR node in the
+> > > ap_list tail. Fully closing that window needs the fold side to take
+> > > references before dropping locks (in the spirit of the prune-side fix
+> > > in commit 7258770e5814 ("KVM: arm64: vgic: Handle race between
+> > > interrupt affinity change and LPI disabling")) and is left as a
+> > > follow-up.
+> >
+> > This is the same race Hyunwoo reported back in June [1]. You might
+> > want to have a look at that thread first: Oliver and Marc's view there
+> > was that the fix is to take the ap_list_lock in
+> > vgic_v3_fold_lr_state() [2][3], and Hyunwoo posted a draft of that
+> > [4].
+> >
+> > Cheers,
+> > /fuad
+> >
+> > [1] https://lore.kernel.org/r/aiHrGM1f8czcUby4@v4bel
+> > [2] https://lore.kernel.org/r/aiJi5a3JJ-TbWL-s@kernel.org
+> > [3] https://lore.kernel.org/r/87a4t99z9n.wl-maz@kernel.org
+> > [4] https://lore.kernel.org/r/aiXvwGD1hS6vwLEd@v4bel
 
