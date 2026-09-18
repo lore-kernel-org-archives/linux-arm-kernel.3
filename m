@@ -4,120 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FA69C982D9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 10:46:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B052C982D9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 10:50:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mT+NMygNmsXH7gF8PxoVkaZFM13sJt1FS65AWCMQWnw=; b=LS7EgUfibcw79177HY+crUXTj3
-	zllB9JeVgvrK77E0bVIU7xuhOGeP3Rvnu5bkSZzZ8dEA0C3wuWspH0AEVvzSrr6XtGdqnx6wXOrnG
-	vQvPTPzCmXKS85KAWcmvkCzAf9m5x2w5TrDPFT4M5UhiTjfS6vQHbKkhwsjDzdjHcz+TwGUwrNtwe
-	r6jRcB4Z/m1Wd9fB2DepCHmrL4CMhKkilqia6z7IPwdKXvsywjgYHnB6KBI626N+EqlOyHVvVdS96
-	6CU4ojzeMqL5X7++LjgWgny/qA8ezEOX8/Gt7QE1rEUcr0zIVTdawqwCbCA6bQC4pSnAnoPZC1KYS
-	vO8shHow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eHH3FzjfKaEPZ3Y0wzN2fvakJlB8D0my9XKTNa0iZ4o=; b=C4P6jvaHLsOEyl5OUz2eMzy/yA
+	Gfa68EvibmNjjmyIZrOJNUq4/e6wPVUS8Vlwv1FHjy45CZD7fExmm4EF7Rr5KembN8ZvzPNH9Sbj/
+	xXDbiZ8JolwSz7oEHtGnH4A2Z29LwVc8yePssjmnRHZ5nQ+9JB3T+6Q+gauppbJK3Ecm1rJp5/d+H
+	FzEC6Wzr4UJnuoKZKPS84CAtt+0R6PWD8PjWhzYYc8RiNUXi5ZvIq0/r02Wxav/Ye/D7p5UAKjbSl
+	BHlWN+c0uPId9BwWMLnLIRMUK9fmCniHXiLximDVzUguMeDZpNNUWVYJgQIjwRKgvFn89zjVp/Be+
+	lNzoQHpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7W6w-0000000E8vT-435j;
-	Fri, 18 Sep 2026 10:46:30 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x7WB0-0000000E9OA-2nKq;
+	Fri, 18 Sep 2026 10:50:42 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7W6w-0000000E8vD-0TN6;
-	Fri, 18 Sep 2026 10:46:30 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B2CDA402B4;
-	Fri, 18 Sep 2026 10:46:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C93B1F000FF;
-	Fri, 18 Sep 2026 10:46:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789728389;
-	bh=mT+NMygNmsXH7gF8PxoVkaZFM13sJt1FS65AWCMQWnw=;
-	h=Date:Subject:To:References:From:In-Reply-To;
-	b=IJPDJdpiNMELRQQI7Cf8CB5CQWpFm+sNVRPgJ/z0zd8YFV7qAOl1/skzO7CSEc1BT
-	 xwbmfJBxwrOLPEsNULqncQ5dXvXNB+nwg1o/n4xJ7HflNbkupUUjspGRXPqiaoefGm
-	 ISdZGxki7VdldwJ9vQUVNFD1pyFSao6rn5LxfqYkLQLdna/aa0DppFuhJHEtf17+V/
-	 U+7rgX5T8rTh6r9QmZ3rLSvYcGWuc/kthuBDRApCH//VoXwj5Y82IZHbY1JBomBUbj
-	 wIh3H64ABBiQpzdul7AMKAsLC6St6GgfGj4RNZZEro7vaT2q2FEUpcg1M0Tlg9l+K1
-	 TRJEUA3yYj5aw==
-Message-ID: <1505ca0c-4a31-4673-bbe0-8474133fc504@kernel.org>
-Date: Fri, 18 Sep 2026 12:46:20 +0200
+	id 1x7WAw-0000000E9NO-25BB
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 18 Sep 2026 10:50:41 +0000
+Received: from edelgard.fodlan.icenowy.me (unknown [112.94.103.44])
+	by APP-03 (Coremail) with SMTP id rQCowACnqjh0F61q0B8JCA--.10784S2;
+	Fri, 18 Sep 2026 18:50:29 +0800 (CST)
+Message-ID: <ea18c92ce2af08a65bfd8834ea7f262d1bcb4bf2.camel@iscas.ac.cn>
+Subject: Re: [PATCH v7 1/7] dt-bindings: display: verisilicon,dc: add
+ support for nuvoton,ma35d1-dcu
+From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+To: Joey Lu <a0987203069@gmail.com>, maarten.lankhorst@linux.intel.com, 
+	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
+ simona@ffwll.ch, 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Conor
+ Dooley	 <conor.dooley@microchip.com>
+Date: Fri, 18 Sep 2026 18:50:28 +0800
+In-Reply-To: <20260918030125.315978-2-a0987203069@gmail.com>
+References: <20260918030125.315978-1-a0987203069@gmail.com>
+	 <20260918030125.315978-2-a0987203069@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: base64
+User-Agent: Evolution 3.58.3 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] media: dt-bindings: Correct white-space style
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- Keke Li <keke.li@amlogic.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Zhi Mao <zhi.mao@mediatek.com>,
- Tiffany Lin <tiffany.lin@mediatek.com>,
- Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
- Yunfei Dong <yunfei.dong@mediatek.com>, Bin Liu <bin.liu@mediatek.com>,
- Vikash Garodia <vikash.garodia@oss.qualcomm.com>,
- Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>,
- Bryan O'Donoghue <bod@kernel.org>,
- Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Xia Jiang <xia.jiang@mediatek.com>,
- Stanimir Varbanov <stanimir.varbanov@linaro.org>,
- linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-References: <20260801195528.235230-2-krzysztof.kozlowski@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260801195528.235230-2-krzysztof.kozlowski@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: rQCowACnqjh0F61q0B8JCA--.10784S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxArWUtFW8ArW7XrW3Gw1UAwb_yoWrZry3pF
+	95trWUJryxJrn5Xr1Utr1jyFyUJw1kJw1DJr18XF1UKr4UJr10qr4Ygr1qgF15Jr48Zr15
+	JF1UWr17Zw12yr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPGb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
+	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
+	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACY4xI67k04243AVAKzVAKj4xxM4xv
+	F2IEb7IF0Fy26I8I3I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wr
+	yl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWU
+	JVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7V
+	AKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42
+	IY6I8E87Iv6xkF7I0E14v26r4UJVWxJr1l6VACY4xI67k04243AbIYCTnIWIevJa73UjIF
+	yTuYvjxU3gyZUUUUU
+X-Originating-IP: [112.94.103.44]
+X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260918_035038_900624_8FEF2FF1 
+X-CRM114-Status: GOOD (  17.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,27 +86,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/08/2026 21:55, Krzysztof Kozlowski wrote:
-> Correct a few white-space issues, like double space after '=' or before
-> bracket '{' characters, which will be flagged by dt-check-style.  No
-> functional changes.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> ---
->  .../bindings/media/amlogic,c3-mipi-csi2.yaml  |  4 +-
->  .../bindings/media/i2c/galaxycore,gc05a2.yaml |  2 +-
->  .../media/mediatek,vcodec-encoder.yaml        |  2 +-
->  .../bindings/media/mediatek-jpeg-decoder.yaml |  4 +-
->  .../bindings/media/mediatek-jpeg-encoder.yaml |  2 +-
->  .../bindings/media/qcom,msm8996-venus.yaml    | 40 +++++++++----------
->  .../bindings/media/raspberrypi,pispbe.yaml    |  2 +-
->  7 files changed, 28 insertions(+), 28 deletions(-)
+5ZyoIDIwMjYtMDktMTjkupTnmoQgMTE6MDEgKzA4MDDvvIxKb2V5IEx15YaZ6YGT77yaCj4gQWRk
+IHRoZSBOdXZvdG9uIE1BMzVEMSBEQ1VsdHJhTGl0ZSAobnV2b3RvbixtYTM1ZDEtZGN1KSB0byB0
+aGUKPiBiaW5kaW5nLgo+IFRoZSBEQ1VsdHJhTGl0ZSB1c2VzIG9ubHkgZm91ciBjbG9ja3MgKGNv
+cmUsIGF4aSwgYWhiLCBwaXgwKSBhbmQgb25lCj4gcmVzZXQgKGNvcmUpLCB3aXRoIGEgc2luZ2xl
+IG91dHB1dCBwb3J0Lgo+IAo+IFRoZSBNQTM1RDEgY2xvY2sgY29udHJvbGxlciBnYXRlcyB0aGUg
+Y29yZSwgQVhJIGFuZCBBSEIgY2xvY2tzIHdpdGggYQo+IHNpbmdsZSBiaXQsIGJ1dCBlYWNoIHJl
+bWFpbnMgYSBkaXN0aW5jdCBjbG9jayBsaW5lIGZlZWRpbmcgdGhlIElQCj4gd2l0aAo+IGl0cyBv
+d24gcmF0ZSBjb25zdHJhaW50cywgc28gYWxsIGZvdXIgbXVzdCBzdGlsbCBiZSBsaXN0ZWQKPiBp
+bmRpdmlkdWFsbHkKPiBpbiB0aGUgZGV2aWNldHJlZTsgY29yZSwgYXhpIGFuZCBhaGIgaGFwcGVu
+IHRvIHNoYXJlIHRoZSBzYW1lIGNsb2NrCj4gcGhhbmRsZS4KPiAKPiBNb3ZlIHRoZSBjbG9ja3Mv
+Y2xvY2stbmFtZXMgbWluSXRlbXMgdG8gNCBhbmQgcmVzZXRzL3Jlc2V0LW5hbWVzCj4gbWluSXRl
+bXMgdG8gMSBhdCB0aGUgdG9wIGxldmVsLCBzaW5jZSB0aGF0IGlzIHRoZSBsb3dlc3QgY291bnQg
+YW55Cj4gc3VwcG9ydGVkIHZhcmlhbnQgbmVlZHMuwqAgQWRkIGFuIGFsbE9mL2lmIGJsb2NrIHRo
+YXQgdGlnaHRlbnMgdGhlCj4gY29uc3RyYWludCBiYWNrIHVwIHRvIHRoZSBmaXhlZCA1LWNsb2Nr
+LzMtcmVzZXQgdG9wb2xvZ3kgcmVxdWlyZWQgYnkKPiB0aGUgZXhpc3RpbmcgdGhlYWQsdGgxNTIw
+LWRjODIwMCBjb21wYXRpYmxlLCBhbmQgYW5vdGhlciBvbmUgdGhhdAo+IGNhcHMKPiB0aGUgbmV3
+IG51dm90b24sbWEzNWQxLWRjdSBjb21wYXRpYmxlIGF0IHRoZSA0LWNsb2NrLzEtcmVzZXQgY291
+bnQgaXQKPiBhY3R1YWxseSB3aXJlcyB1cC4KPiAKPiBSZXN0cmljdCB0aGUgc2FtZSBudXZvdG9u
+LG1hMzVkMS1kY3UgaWYgYmxvY2sgdG8gYSBzaW5nbGUgcG9ydEAwLAo+IHNpbmNlIHRoZSBEQ1Vs
+dHJhTGl0ZSBvbmx5IGhhcyBvbmUgb3V0cHV0IHBvcnQuCgpCeSB0aGUgd2F5LCB3aGVuIHdpbGwg
+dGhlIE1BMzVEMSBkZXZpY2UgdHJlZSBzb3VyY2VzIGJlIHVwZGF0ZWQ/IEkgc2F3CmEgbG90IG9m
+IGRyaXZlcnMgYmVpbmcgbWVyZ2VkIGJ1dCB3L28gY29ycmVzcG9uZGluZyBEVCBub2Rlczogc2Ro
+Y2ktb2YtCm1hMzVkMSwgbnV2b3Rvbi1tYTM1ZDEtbmFuZC1jb250cm9sbGVyLCBwaHktbWEzNWQx
+LXVzYjIsIHJ0Yy1tYTM1ZDEsCnNwaS1tYTM1ZDEtcXNwaSwgbWEzNWQxX3dkdC4KClRoYW5rcywK
+SWNlbm93eQoKPiAKPiBTaWduZWQtb2ZmLWJ5OiBKb2V5IEx1IDxhMDk4NzIwMzA2OUBnbWFpbC5j
+b20+Cj4gQWNrZWQtYnk6IENvbm9yIERvb2xleSA8Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5jb20+
+Cj4gLS0tCj4gwqAuLi4vYmluZGluZ3MvZGlzcGxheS92ZXJpc2lsaWNvbixkYy55YW1swqDCoMKg
+wqDCoCB8IDUxCj4gKysrKysrKysrKysrKysrKysrKwo+IMKgMSBmaWxlIGNoYW5nZWQsIDUxIGlu
+c2VydGlvbnMoKykKPiAKPiBkaWZmIC0tZ2l0Cj4gYS9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUv
+YmluZGluZ3MvZGlzcGxheS92ZXJpc2lsaWNvbixkYy55YW1sCj4gYi9Eb2N1bWVudGF0aW9uL2Rl
+dmljZXRyZWUvYmluZGluZ3MvZGlzcGxheS92ZXJpc2lsaWNvbixkYy55YW1sCj4gaW5kZXggOTE5
+YTkwMDEyMjAxMi4uZTFlNmEzYTk1MzY0NiAxMDA2NDQKPiAtLS0gYS9Eb2N1bWVudGF0aW9uL2Rl
+dmljZXRyZWUvYmluZGluZ3MvZGlzcGxheS92ZXJpc2lsaWNvbixkYy55YW1sCj4gKysrIGIvRG9j
+dW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2Rpc3BsYXkvdmVyaXNpbGljb24sZGMueWFt
+bAo+IEBAIC0xNyw2ICsxNyw3IEBAIHByb3BlcnRpZXM6Cj4gwqDCoMKgwqAgaXRlbXM6Cj4gwqDC
+oMKgwqDCoMKgIC0gZW51bToKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoCAtIHRoZWFkLHRoMTUyMC1k
+YzgyMDAKPiArwqDCoMKgwqDCoMKgwqDCoMKgIC0gbnV2b3RvbixtYTM1ZDEtZGN1Cj4gwqDCoMKg
+wqDCoMKgIC0gY29uc3Q6IHZlcmlzaWxpY29uLGRjICMgREMgSVBzIGhhdmUgZGlzY292ZXJhYmxl
+IElEL3JldmlzaW9uCj4gcmVnaXN0ZXJzCj4gwqAKPiDCoMKgIHJlZzoKPiBAQCAtMjYsNiArMjcs
+NyBAQCBwcm9wZXJ0aWVzOgo+IMKgwqDCoMKgIG1heEl0ZW1zOiAxCj4gwqAKPiDCoMKgIGNsb2Nr
+czoKPiArwqDCoMKgIG1pbkl0ZW1zOiA0Cj4gwqDCoMKgwqAgaXRlbXM6Cj4gwqDCoMKgwqDCoMKg
+IC0gZGVzY3JpcHRpb246IERDIENvcmUgY2xvY2sKPiDCoMKgwqDCoMKgwqAgLSBkZXNjcmlwdGlv
+bjogRE1BIEFYSSBidXMgY2xvY2sKPiBAQCAtMzQsNiArMzYsNyBAQCBwcm9wZXJ0aWVzOgo+IMKg
+wqDCoMKgwqDCoCAtIGRlc2NyaXB0aW9uOiBQaXhlbCBjbG9jayBvZiBvdXRwdXQgMQo+IMKgCj4g
+wqDCoCBjbG9jay1uYW1lczoKPiArwqDCoMKgIG1pbkl0ZW1zOiA0Cj4gwqDCoMKgwqAgaXRlbXM6
+Cj4gwqDCoMKgwqDCoMKgIC0gY29uc3Q6IGNvcmUKPiDCoMKgwqDCoMKgwqAgLSBjb25zdDogYXhp
+Cj4gQEAgLTQyLDEyICs0NSwxNCBAQCBwcm9wZXJ0aWVzOgo+IMKgwqDCoMKgwqDCoCAtIGNvbnN0
+OiBwaXgxCj4gwqAKPiDCoMKgIHJlc2V0czoKPiArwqDCoMKgIG1pbkl0ZW1zOiAxCj4gwqDCoMKg
+wqAgaXRlbXM6Cj4gwqDCoMKgwqDCoMKgIC0gZGVzY3JpcHRpb246IERDIENvcmUgcmVzZXQKPiDC
+oMKgwqDCoMKgwqAgLSBkZXNjcmlwdGlvbjogRE1BIEFYSSBidXMgcmVzZXQKPiDCoMKgwqDCoMKg
+wqAgLSBkZXNjcmlwdGlvbjogQ29uZmlndXJhdGlvbiBBSEIgYnVzIHJlc2V0Cj4gwqAKPiDCoMKg
+IHJlc2V0LW5hbWVzOgo+ICvCoMKgwqAgbWluSXRlbXM6IDEKPiDCoMKgwqDCoCBpdGVtczoKPiDC
+oMKgwqDCoMKgwqAgLSBjb25zdDogY29yZQo+IMKgwqDCoMKgwqDCoCAtIGNvbnN0OiBheGkKPiBA
+QCAtNzksNiArODQsNTIgQEAgcmVxdWlyZWQ6Cj4gwqDCoCAtIHJlc2V0LW5hbWVzCj4gwqDCoCAt
+IHBvcnRzCj4gwqAKPiArYWxsT2Y6Cj4gK8KgIC0gaWY6Cj4gK8KgwqDCoMKgwqAgcHJvcGVydGll
+czoKPiArwqDCoMKgwqDCoMKgwqAgY29tcGF0aWJsZToKPiArwqDCoMKgwqDCoMKgwqDCoMKgIGNv
+bnRhaW5zOgo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIGNvbnN0OiB0aGVhZCx0aDE1MjAtZGM4
+MjAwCj4gK8KgwqDCoCB0aGVuOgo+ICvCoMKgwqDCoMKgIHByb3BlcnRpZXM6Cj4gK8KgwqDCoMKg
+wqDCoMKgIGNsb2NrczoKPiArwqDCoMKgwqDCoMKgwqDCoMKgIG1pbkl0ZW1zOiA1Cj4gKwo+ICvC
+oMKgwqDCoMKgwqDCoCBjbG9jay1uYW1lczoKPiArwqDCoMKgwqDCoMKgwqDCoMKgIG1pbkl0ZW1z
+OiA1Cj4gKwo+ICvCoMKgwqDCoMKgwqDCoCByZXNldHM6Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoCBt
+aW5JdGVtczogMwo+ICsKPiArwqDCoMKgwqDCoMKgwqAgcmVzZXQtbmFtZXM6Cj4gK8KgwqDCoMKg
+wqDCoMKgwqDCoCBtaW5JdGVtczogMwo+ICsKPiArwqAgLSBpZjoKPiArwqDCoMKgwqDCoCBwcm9w
+ZXJ0aWVzOgo+ICvCoMKgwqDCoMKgwqDCoCBjb21wYXRpYmxlOgo+ICvCoMKgwqDCoMKgwqDCoMKg
+wqAgY29udGFpbnM6Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgY29uc3Q6IG51dm90b24sbWEz
+NWQxLWRjdQo+ICvCoMKgwqAgdGhlbjoKPiArwqDCoMKgwqDCoCBwcm9wZXJ0aWVzOgo+ICvCoMKg
+wqDCoMKgwqDCoCBjbG9ja3M6Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoCBtYXhJdGVtczogNAo+ICsK
+PiArwqDCoMKgwqDCoMKgwqAgY2xvY2stbmFtZXM6Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoCBtYXhJ
+dGVtczogNAo+ICsKPiArwqDCoMKgwqDCoMKgwqAgcmVzZXRzOgo+ICvCoMKgwqDCoMKgwqDCoMKg
+wqAgbWF4SXRlbXM6IDEKPiArCj4gK8KgwqDCoMKgwqDCoMKgIHJlc2V0LW5hbWVzOgo+ICvCoMKg
+wqDCoMKgwqDCoMKgwqAgbWF4SXRlbXM6IDEKPiArCj4gK8KgwqDCoMKgwqDCoMKgIHBvcnRzOgo+
+ICvCoMKgwqDCoMKgwqDCoMKgwqAgcHJvcGVydGllczoKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oCBwb3J0QDE6IGZhbHNlCj4gKwo+ICvCoMKgwqDCoMKgwqDCoMKgwqAgcmVxdWlyZWQ6Cj4gK8Kg
+wqDCoMKgwqDCoMKgwqDCoMKgwqAgLSBwb3J0QDAKPiArCj4gwqBhZGRpdGlvbmFsUHJvcGVydGll
+czogZmFsc2UKPiDCoAo+IMKgZXhhbXBsZXM6Cg==
 
-This received reviews, is trivial, waits on the lists for 1.5 monts and
-it seems people are repeating what I did.
-
-I understand this won't be picked up by media.
-
-Best regards,
-Krzysztof
 
