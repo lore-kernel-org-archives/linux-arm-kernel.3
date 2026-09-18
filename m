@@ -4,112 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B6B3C982D7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 18:29:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBC71C982DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 18:31:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xkCUHEW8BaYz+mvJmpvhPzJPz+lQKTKEiJB6NksDW9o=; b=O9yc3LOHMPkkKqZl0d5eHeVefE
-	cvy7hBzjslkcEqirYH80OzPzEqHspIXbRtUmqbdpEj4yV4PJAJ25eqjB9frQ6mXv5O8mw16njoqIm
-	EvUGOM24XzVFhybrhvFhgOXcvkDinomggU9hUCg3O4NwJccec4Efr+v/Z6vRqfoXZFWyB8jChpIJ7
-	2xIkAnB41O6OwZmbTRe0GxRrV3OdDuD9xFL7QVBIF5rri9lPu09D4fTk3BQd5HNbsJaWBq1F7I4oH
-	z7Ox8MxMPuPWLDfN4p+Lh7f+XgBXnN4rmdqtEvVw+XI7HtosTpqfA6Tt9ui6NvO5akNXHgAoGJ3eC
-	IcxVk1dA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UthLOTqsgx1H7Ky6X1sMBpSJ/ushOzRSeE2EVOIQouM=; b=xW+YPzje+a0JuZbAOwEDlWtN6j
+	psGOx0GZmIaWm34ZGu9TqKz4qNVRvVHVx3XFX1x3QmUfuoowE/cj2Qp9JOnSIhHgj6dbfLTuQmFDZ
+	EyYSeXcMeyaCT5E/Eq+geXDaj6emR6Wt8A5pQ08JT9wbChmB5fYvj+IR9wwRch+RNdE9Nlp6P3cYU
+	bLlnzpEBUArkUucqukQZhuNf2T5VyPgNCa/LXjQDcgTb9dsWTkpGPbJJ0lUAKYwJotcFWatipqBOF
+	+n4gFr0rRWVHmygK6bZQ4ABVjdroASPDhzAu1nFInJyKfwxSLxnixyTHIoZPw4St6iKiEsO/tYoIs
+	TV9uhFag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7dLA-0000000FJVM-1A6X;
-	Fri, 18 Sep 2026 18:29:40 +0000
-Received: from mail-ed2-x10.google.com ([2a00:1450:4864:33::10])
+	id 1x7dMP-0000000FJhx-2Te4;
+	Fri, 18 Sep 2026 18:30:57 +0000
+Received: from mail-pz2-x10.google.com ([2607:f8b0:4864:3b::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7dL8-0000000FJUk-1jX1
+	id 1x7dMM-0000000FJgv-3mGd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 18:29:39 +0000
-Received: by mail-ed2-x10.google.com with SMTP id 4fb4d7f45d1cf-6a605c198fdso1603486a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 11:29:37 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1789756176; cv=none;
+	Fri, 18 Sep 2026 18:30:56 +0000
+Received: by mail-pz2-x10.google.com with SMTP id 41be03b00d2f7-cc4d04d740cso707070a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 11:30:53 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789756253; cv=none;
         d=google.com; s=arc-20260327;
-        b=YmRJsqPAuPtJBmf4Fooc2NvFox1TiSAUIaDpFaPF1v2GSH2yEf9VJtux184ReKCAQH
-         xh+6xBn65/ls7FfqkFOPd5HwCQXq1a0KVvXDrcjpOozaFin2A7HAyhZQhjKdcDru4FGT
-         O4Itm8M/Xd6a1c88DdeaohOfOaCCwQBQ5AMTZF/9yKX72Yds/HIwszSAr36Zc42wyI9g
-         oggHv3xd6IXe+yEvbfQ2OEkGYaWZw1PyHmfh8jNcEQYmL6JYnHAdMsSFMKbO0Hc9iV9X
-         NuTHGEfnteYvTZugFXaKS9XFF1xSObf4rRlqbs1uCNZKNTZWXpzm3TuzTYI6J4F6gm33
-         fFow==
+        b=WYog8TZTXetRVhPM/VQ/az30scJHR0URCFG7P8C9E2YsT9kfwCMqTrK0La54sechA7
+         jSp2GXFtUS3iWDxJW6GNvYRbGaSroL8QM+lP857/RCUae4D+Wer+7ilPU6dEZ10oTDyZ
+         +u/nKgUIknapvjCfhUbOMHwH0yNH07JBcTuk0QSvxKXsdNQJThMFFc1yLRayl7yG1oe8
+         zhZkjKB6814A6hwGpgFVpv+XzKt6TNn/zz/uOKHAL+1NCACX9gqYbUlrWfA6PsUTvr/i
+         oiVhui/F5czKwcBL+X2pl5Y85B5yua9fOSK7niOsHHtDG3T4nemIvzDjOX9ZTNPJzYpQ
+         UShQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=xkCUHEW8BaYz+mvJmpvhPzJPz+lQKTKEiJB6NksDW9o=;
-        fh=0BowbVYgowuUN+C4SOTaOdciJ3Y2p0j6v7GuDGxSMfg=;
-        b=Wfcp/nKBpOco/MXS/nyC4sUSVyVcVBc/6aBZnnRdpVW+cBwxK8AQk7Q1CAWDUBaWBF
-         80/9GrvCaNMgYDgUk3TW0p689v/IhfRR0KbplSfNJaViZ8Ac9yJaCkS0jzHp1lS6eZ0U
-         o8h/9loG+LUbptjMjGiuvuptLCiolbNBrCSMXkJvrxSpdc0PyX1CrNcjUi1MbFdZ+6RC
-         oP3JWlTMKDyhAdzp1IY8lwt6qjaktU9+Y/ENqyKKC1TFQSXeugwqVYpGSlN5oQ8EklDd
-         Ctve1MRdg0BnYy2rqfDU1vtcYCSCuusFOjpKJHjJ5cbg9tG4u07Uv6Jg4Sg+DFhkXQ3a
-         9u4Q==;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=UthLOTqsgx1H7Ky6X1sMBpSJ/ushOzRSeE2EVOIQouM=;
+        fh=9KjdOpNjmLAxsqSiPhFZqRAlhMS4mYV/UbYrLpGvofw=;
+        b=ULdLFtmT2wPTO0TeNSKRTDvnnVe9ysQ6b0jC1rVd3AiLDVOD0pgMy6lNW6YD6Ndk5m
+         U64qK3tiylHDT0TugbEvl6ah9xY+zNsNe2OFZVdWZ1Ylk2s5e8QmoEaX6ED8J8ivRGUx
+         brwzzjALNyE3re/U4pm7kYletzCngOrx60ADb2x3ryplw+NMVSAvvajFxStM87F8pQ/Y
+         tNN6s9DnQcgvxPFgHgr4h4Gbq11r1iVh1HX/Wuyo7mxfvzCWuj4YdpT9J33PbdZUKZew
+         2HACd8lkCMtZe9Jz+3ySSccSk4csvyINLUQpyKoZ5KnTz2a9R66agQ74u8UAD4kxvzKv
+         aX6Q==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789756176; x=1790360976; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=xkCUHEW8BaYz+mvJmpvhPzJPz+lQKTKEiJB6NksDW9o=;
-        b=hGjufEcws53yCxlSYLE5lffmiYEJVMuCofc3uqIAlKKcun3mV13OcdbdeMGmptBNUn
-         8ZrlPDYyCNy3mBT8AY/Uf+tiCOiwp2r9HxDpdoiTgfGKT9ox5FQgq0A0cUshliYqbQ3n
-         /Tkb/rZjOY71jJbOin/jZyGFn+g5QiY6p8KBuJ2w2oE+Kl5yVgb2gkckkqiiZaA6eVbe
-         lEAijhOPXZ8d1VoQlnyYSRQGeq/mzoMWQ29cB25GGqmZgIWBy0KkPYTUUi32ZOWgwHB3
-         nmrDgAcKJENsl94AlJgfJlsNhO3kKV64T+uNawY7f1sSN/z2JXsG/rmaccCf2uIQuvoP
-         2E2Q==
+        d=gmail.com; s=20251104; t=1789756253; x=1790361053; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=UthLOTqsgx1H7Ky6X1sMBpSJ/ushOzRSeE2EVOIQouM=;
+        b=RydFIpVhlpg4mqTJ7kOGY5CAD/CZ0idd685xsyHS5BVdKr2tp8WIVV8gRb4yqssMCz
+         esKkftT1qQtwN+SiUA1F/qFsJCTWIoLzb7Nl2FVdzFL0wddpGVPkpN/hw1NHFXZA6QJ7
+         yVEvMQKS2IcAPlAgkKl0EVReN1+ijnWRIQDGbMzR79BOBCCG3tiAnyK/WCHbB/CNQbTT
+         +jtJvFRVE+8QefjMMUcAoK1ybZzrJQCZ33kDBULbmb7juXd2jeuLWD1kwWSVlbqCUe88
+         35mxnf3X3oIKZVK3pT1CQsRoiswGRuJ4TI+cQ8HY2Jl8Hg+vCFsObz//uDpYconMZtEJ
+         TvnA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789756176; x=1790360976;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=xkCUHEW8BaYz+mvJmpvhPzJPz+lQKTKEiJB6NksDW9o=;
-        b=kLhWOWVOlDCFY/fUxR0NTENLvcI+Aa8ekZByEOqQLUIN+JfL/XAA7yrghlqScjQq5F
-         lhpeIJwoNwje6OUMXhisNcbiHKjlj0yPbfjOu00sYzjgMK8aDMfB1JLxvL2/T/pDg9ML
-         +LjsFbmWOiuRTK3y2yRRT9qbTcBoMVKWCDeruKnLzHvPL5/yZrT4ykpC1IxiVwIKwN1S
-         xIVJWDBzhEwuN/7Qoj0F35FFW38fzDegoYWbeiEN1cHXQOzI33W9JMa6iQyYs0m7+inV
-         Jn8g8HO4Wk94C9fgK3K2wTZaMd0Zr6hnWyz4bVOlO5QVLRwKmEgz+A8N3qszsSpTgtGq
-         aCjg==
-X-Forwarded-Encrypted: i=1; AKwUvByS0z5ECg26nd8RhZ3JBZasgMmKCef+h4ldSvhg224chsBGAyYv+SHaYl3/X8tUd6+EgGwPdENaR84IGLtsoA4b@lists.infradead.org
-X-Gm-Message-State: AFuF++lD7dAJo7QsUMfTFNiJNC+hVOVGon2gNnWnYhAVkm3q2xL4aQIj
-	AtFSzKhEIDuNbffP3WBP3h9tMNUXpaq49zq3NJ5CwHuSW+/i3XKlXJCYE63Qsd+OwDQ770zdEic
-	ZqbbtncSFLYIQ0caSlkaNc7hwWUk0Rgc=
-X-Gm-Gg: AYBFou1+mScJrriokQRd6khlJg5nGzYDTajHIuBvvQ0mlnRKeNGhqh7F76paTMHAbdT
-	IgvKi5wAK5mcOfYqtwKn04zIF4wp9DI3r9KDYNCjH5DXfMfDbypp8+emK2ojIwMlXso/5P7zCcP
-	tSLF9XLCxU1A5Ad7V7SvFZYGhszsw0irxl42EPPwaehOH0deT7iaaLP8+lLzqcbBfo81rIR3kxc
-	Mc3dSMqb9Mr/x8M+s1sZEdh32lbL4xzDHUbeYwKQW4Fb4Ht39uONNsv0i/I+xnFsCVUGtNWmnQz
-	8W59hTjzoYXH2aleniRqlAuKmBKlp7lkbyeh3jIylwYdIY0blz+lwAE6sHnrRDCI
-X-Received: by 2002:a17:907:1c0f:b0:c29:d62b:fcfa with SMTP id
- a640c23a62f3a-c2a156590b7mr346464966b.2.1789756176118; Fri, 18 Sep 2026
- 11:29:36 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1789756253; x=1790361053;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=UthLOTqsgx1H7Ky6X1sMBpSJ/ushOzRSeE2EVOIQouM=;
+        b=LI73MUJvxJIHqGhde/wZI+tvS4FjXn+vF9XxZ0rn1KZAT7nTNJGDQF78p5iuRKQY7a
+         DEj3TVawxPG2enD/N8TOnX1oHlysHCJtKGWVPU7Oztq2cE71LEBCnFyGSwOfChF5KCpb
+         N00tCV7SvCbNXwTVgfQCvUayirJiiPi8xTlySat0D+sARwYD9FZ/ypIAumnkrwxFfxeN
+         PuxgXxzEz7xFb0cxjknD3wZAUIKRgwowyJz4GP2zybdMG93olWElUHMehIPjpOzhGbD/
+         fePYQwh/lmzN54rjsAgV6693okZdcRMnhru1lSMYAmXhPZfi28EhJUpWgJkmXRV9sVga
+         iRyg==
+X-Forwarded-Encrypted: i=1; AKwUvBwuqm+AUyFhWV8jak3mXP1RhyTorqkFzfNqHsMEtJ+KTKyb4nXmSDHcpZrh2FbtxA/PHWnUssPpd8JchrDEWVe7@lists.infradead.org
+X-Gm-Message-State: AFuF++mANaj+Bhfq64IOstasfsPWmtjiJwk5lNjD2QkiaoV3hE2yHOTP
+	V5cDyZWSJiJZuaCBgTmreuoS65eeTAh7AV2sk3ELzI5y1T6e7bzpVE6AkKTHgfv5C3uj0W+hdRp
+	kjcwYF8uXK0w3H4QS7eSUkd5uug8N68s=
+X-Gm-Gg: AYBFou2Lu18KuOLG2maBmqBygAkru+26uGOTzWthgNVHOAeUXKFBgiMCCPw4jwGVs3N
+	bHdfyPd2Uyyv0awaI2M3Z0QOCVKkwM2MB+u67sqGwdkJQZARb9Bh/rm9tpvdDt+oP/EA6kCM+bK
+	eINKRnkHMXt8A8nO7+cCfnlPDPJZjjmm8Ip7n9wYWzSQN6ivYWNfvPpbQeGvgFl3Ttrde54QtBI
+	lsC5v8saDrVppWwVMq3TKtc/y7a7wDQGqBLMM0F/5UJjHNHCbemKru4oxafmyZJPYl9PGSjpMn2
+	SISC8ekumBPBuPJbaaM6xC6YEcVHbWZtt1J2bPvQrQ0fNNW0mJA2Sqk46syLvZP/ScznJIwPvEu
+	6jf0zUKD/YUa3
+X-Received: by 2002:a17:90b:2681:b0:39e:6c69:f482 with SMTP id
+ 98e67ed59e1d1-39e6c69f55fmr655165a91.65.1789756253090; Fri, 18 Sep 2026
+ 11:30:53 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260918175736.355305-1-l.scorcia@gmail.com> <20260918175736.355305-4-l.scorcia@gmail.com>
-In-Reply-To: <20260918175736.355305-4-l.scorcia@gmail.com>
-From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Date: Fri, 18 Sep 2026 20:29:24 +0200
-X-Gm-Features: AcwNN1UQFOY_vCJJJdBRj6O6gZ3zFhbPbxWCZbiFNcjPHyL_aMs2Ld1pz8hUFJk
-Message-ID: <CAORyz2KEfzcJ_2AphkPU6o-YhLAqudCXVdY+LDoynUx_FsTMJg@mail.gmail.com>
-Subject: Re: [PATCH 3/4] soc: mediatek: mt8167-mmsys: add routes for all
- display paths
-To: linux-mediatek@lists.infradead.org
-Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, CK Hu <ck.hu@mediatek.com>, 
-	Jitao shi <jitao.shi@mediatek.com>, dri-devel@lists.freedesktop.org, 
+References: <20260918-kbingham-orientation-v6-0-5e8b1f01be29@ideasonboard.com> <20260918-kbingham-orientation-v6-5-5e8b1f01be29@ideasonboard.com>
+In-Reply-To: <20260918-kbingham-orientation-v6-5-5e8b1f01be29@ideasonboard.com>
+From: Svyatoslav Ryhel <clamor95@gmail.com>
+Date: Fri, 18 Sep 2026 21:30:41 +0300
+X-Gm-Features: AcwNN1UUuDTcQsQdT6LSC3YiQR-XJenFcyp7p3MxtUdbO4cYi1dTxigUEDSEcPc
+Message-ID: <CAPVz0n2pZukL2tnaJef-N=kRiudVLN7RsTjKJJkTqp9-_k7HwA@mail.gmail.com>
+Subject: Re: [PATCH v6 5/6] ARM: tegra: Convert to new media orientation definitions
+To: Kieran Bingham <kieran.bingham@ideasonboard.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jacopo Mondi <jacopo@jmondi.org>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
+	Jimmy Su <jimmy.su@intel.com>, Matthias Fend <matthias.fend@emfend.at>, 
+	Mikhail Rudenko <mike.rudenko@gmail.com>, Daniel Scally <dan.scally@ideasonboard.com>, 
+	Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
+	Michael Riesch <michael.riesch@collabora.com>, 
+	Benjamin Mugnier <benjamin.mugnier@foss.st.com>, 
+	Sylvain Petinot <sylvain.petinot@foss.st.com>, 
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+	Paul Elder <paul.elder@ideasonboard.com>, Martin Kepplinger <martin.kepplinger@puri.sm>, 
+	Quentin Schulz <quentin.schulz@theobroma-systems.com>, 
+	Tommaso Merciai <tomm.merciai@gmail.com>, Richard Acayan <mailingradian@gmail.com>, 
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
+	Heiko Stuebner <heiko@sntech.de>, Thierry Reding <thierry.reding@kernel.org>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, linux-media@vger.kernel.org, 
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
+	linux@ew.tq-group.com, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-tegra@vger.kernel.org, 
+	Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_112938_466634_2C609AF8 
-X-CRM114-Status: UNSURE (   8.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260918_113055_273034_6B8CCF51 
+X-CRM114-Status: GOOD (  13.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,14 +141,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sashiko found [1] some copy-and-paste errors in this patch that are
-worth correcting. I must have checked it a hundred times but they
-still slipped in.
-I will send a revised v2 after waiting a few days for additional reviews.
-Thank you
+=D0=BF=D1=82, 18 =D0=B2=D0=B5=D1=80. 2026=E2=80=AF=D1=80. =D0=BE 13:44 Kier=
+an Bingham
+<kieran.bingham@ideasonboard.com> =D0=BF=D0=B8=D1=88=D0=B5:
+>
+> From: Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
+>
+> The orientation property for video interface devices now has definitions
+> to prevent hardcoded integer values for the enum options.
+>
+> Update the users throughout the nvidia device trees to use the new
+> definitions.
+>
+> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> Signed-off-by: Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
+> ---
+> v2:
+>  - Fix MEDIA_ORIENTATION_REAR to MEDIA_ORIENTATION_BACK
+> ---
+>  arch/arm/boot/dts/nvidia/tegra30-asus-nexus7-grouper-common.dtsi | 3 ++-
+>  arch/arm/boot/dts/nvidia/tegra30-asus-transformer-common.dtsi    | 3 ++-
+>  arch/arm/boot/dts/nvidia/tegra30-lg-p895.dts                     | 4 +++=
+-
+>  arch/arm/boot/dts/nvidia/tegra30-lg-x3.dtsi                      | 3 ++-
+>  4 files changed, 9 insertions(+), 4 deletions(-)
+>
 
-[1] https://sashiko.dev/#/message/20260918175736.355305-4-l.scorcia%40gmail.com
--- 
-Luca Leonardo Scorcia
-l.scorcia@gmail.com
+Reviewed-by: Svyatoslav Ryhel <clamor95@gmail.com>
 
