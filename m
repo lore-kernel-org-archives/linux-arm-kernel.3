@@ -4,71 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 557F6C982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 11:53:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFEE6C982DC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 11:59:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=upkUEcdxz5STfJPQ4kkmMOejVzK2A86eaQiIajui414=; b=EEBZ85mjh0HJmL88nSY6P+OdPV
-	JCNJcVsqvuixuUr7M9QwDuO0QoXwqe3iGs9uDIH4NYmtcZahy/sIc6wwgD09VSl35Al/hvuXRNSvS
-	EKLyn9lsHc/vLfY1vahOBeIMP6c48HuuxkSHpf5IjleD2JEsDCfGpMAkhxcngabhwxWI3prn7ZHsT
-	YK03qOQzmc/3E+DsI0uI/wToiVtmuWqXJfK3aPctXoZ4T25manHF3a+6nyOUvYp+Aizt6UuB6yH2G
-	TN962f/rdPF2RrY72BDaSDHWs+zeGQKgfhCmTf/aLUlDvEZclLYkB/t2Mv74P0HgiqXwS3GO7FIqP
-	H7T4cNzg==;
+	bh=FTZzu47AOmRxHTR0Eyam8a+mT0R7a/crBOBUb7Y1wmI=; b=B6IGGMlhv1o8KAiPIHgpgGfG/b
+	2xEsqTuuChHFfucRe1DaSn7n6yuvw7ji5EaY+zZfe9gcrtMKNsbFC2c7h8F82MFAoLiuM5ubOvQ4J
+	cOpPgLWwLmu/Y96csNr67EUzv2TrvW2e/zK1F8tbTV5KMBh8yxaNlhHP2OGxxac1ALkTiOjB5cJrV
+	9LnH5B2KQ6ba16Ph0rw5chMw5sPWBnmyU5fsQIfSuvh8dB4jiocGoKhhgTZocb3mf4UJVKqaUmEMW
+	Y/fapxSbnosM0BQiJ7CWB0eRkai1hkZDdqtSEM9YTyEPM9Hvl9wcVaDfJYMktN79FSZhivDmrljlr
+	kQ/OtNRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7X9Z-0000000EIpd-3yjE;
-	Fri, 18 Sep 2026 11:53:17 +0000
-Received: from out-20.mta0.migadu.com ([2001:41d0:1004:224b::14] helo=mta0.migadu.com)
+	id 1x7XF1-0000000EJDM-2Al1;
+	Fri, 18 Sep 2026 11:58:55 +0000
+Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7X9W-0000000EIox-1lwG
+	id 1x7XEy-0000000EJCg-1XXU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 11:53:16 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=Us9LrP9tn+cuJ23nFB72OLu50wkifpY3Zpopv4/iL6Y=;
- c=simple/simple; d=jimenezcarrero.com;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1789732387; v=1; x=1790337187;
- b=d/f5oLl/SH336LyEBGAZxWL2G4XFl5CeATmwv/LL33SBRxdOil55kxUaJcrxiJ8lZB5xVx/2
- Ywm1zltLTipe4xxje7No+Q4L/V6dKSGS3ABQph+bQKWUQj4YBxq9dDXLCYT3SRqCkI+JalnN5+G
- 5doz8fpnoerAYriWv9DA88JUqr7lmGd4Y9cgI1V/6Fvep9q7zCL3AbABd7EyRmNJpYQvGhROUiE
- KxzkFmxP22QQpFexXb5vw/3VOfjER0hRzqDjUvmGU/UObPsdk93f2OxiNOO+0OT3Glpn430On9y
- O69c622QDZtMhzEqZSSKDYqsnQH+w8UTLSCv6VULmZD7A==
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 4f71428dc03b4a63;
-	Fri, 18 Sep 2026 11:52:57 +0000
-X-Mizu-Trace-ID: 4f71428dc03b4a63
-X-Migadu-Flow: FLOW_OUT
-From: Juan Jimenez Carrero <juan@jimenezcarrero.com>
-To: rf@opensource.cirrus.com,
-	khalilst@gmail.com
-Cc: khalil@rentman.nl,
-	broonie@kernel.org,
-	hansg@kernel.org,
-	ilpo.jarvinen@linux.intel.com,
-	patches@opensource.cirrus.com,
-	linux-spi@vger.kernel.org,
-	platform-driver-x86@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	daniel@zonque.org,
-	haojian.zhuang@gmail.com,
-	robert.jarzmik@free.fr
-Subject: Re: [PATCH v3 0/3] Fix CS35L56 amplifier on Intel LPSS SPI with broken ACPI cs-gpios
-Date: Fri, 18 Sep 2026 13:52:40 +0200
-Message-ID: <20260918115240.29204-1-juan@jimenezcarrero.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <a15eae4d-d533-4280-986c-5de90d5fd2e4@opensource.cirrus.com>
-References: <a15eae4d-d533-4280-986c-5de90d5fd2e4@opensource.cirrus.com>
+	Fri, 18 Sep 2026 11:58:54 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=FTZzu47AOmRxHTR0Eyam8a+mT0R7a/crBOBUb7Y1wmI=;
+	b=2iI2NGkHtsj0pKWN/NSlZVoBkpiYmpnYJ1HMqRg97bQbgDGbJXsYzxrE1RSQE50iT3kZnaZ1r
+	ugnw7eBaUpx7P+dyZXKWjDZw5E3lp1WnMKCHoysh5eRZFpjB0II66WCYY+kvJVlIN1mP3T5YsE/
+	82FZwcek02meXDFkiwiIZGk=
+Received: from mail.maildlp.com (unknown [172.19.163.163])
+	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4hmW8D3pYRzKm5t;
+	Fri, 18 Sep 2026 19:47:40 +0800 (CST)
+Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
+	by mail.maildlp.com (Postfix) with ESMTPS id 317A84057A;
+	Fri, 18 Sep 2026 19:58:44 +0800 (CST)
+Received: from [10.67.120.103] (10.67.120.103) by
+ kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Fri, 18 Sep 2026 19:58:43 +0800
+Message-ID: <497c6239-a75f-4087-83c8-efface3fe3d7@huawei.com>
+Date: Fri, 18 Sep 2026 19:58:43 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 5/5] KVM: arm64: Enable HAFDBS for guests not on
+ migration
+To: Leonardo Bras <leo.bras@arm.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>
+References: <20260901171558.2674031-1-leo.bras@arm.com>
+ <20260901171558.2674031-6-leo.bras@arm.com>
+From: Tian Zheng <zhengtian10@huawei.com>
+In-Reply-To: <20260901171558.2674031-6-leo.bras@arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.120.103]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemr100010.china.huawei.com (7.202.195.125)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_045315_064096_C35106CF 
-X-CRM114-Status: UNSURE (   9.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260918_045852_872919_83EC2091 
+X-CRM114-Status: GOOD (  13.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,46 +79,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 17 Sep 2026 14:42:18 +0100, Richard Fitzgerald wrote:
-> The latest BIOS (01.06.02) is reported to fix the problem:
-> https://bugzilla.kernel.org/show_bug.cgi?id=221064#c23
 
-Thanks, Richard. Confirmed on the same machine as my earlier report:
 
-  HP EliteBook 8 G1i 14 inch, DMI board 8D8A, SKU D75TQET#ABE
-  BIOS X91 Ver. 01.05.02 -> X91 Ver. 01.06.02 (dated 07/22/2026)
+On 9/2/2026 1:15 AM, Leonardo Bras wrote:
+> @@ -2570,53 +2571,76 @@ int __init kvm_mmu_init(u32 hyp_va_bits)
+>   
+>   out_destroy_pgtable:
+>   	kvm_pgtable_hyp_destroy(hyp_pgtable);
+>   out_free_pgtable:
+>   	kfree(hyp_pgtable);
+>   	hyp_pgtable = NULL;
+>   out:
+>   	return err;
+>   }
+>   
+> +static void kvm_set_hafdbs(struct kvm *kvm, bool set)
+> +{
+> +	/* Check if no action required */
+> +	if (!!(kvm->arch.mmu.vtcr & VTCR_EL2_HD) == set)
+> +		return;
+> +
+> +	if (set)
+> +		kvm->arch.mmu.vtcr |= VTCR_EL2_HD;
+> +	else
+> +		kvm->arch.mmu.vtcr &= ~VTCR_EL2_HD;
+> +
+> +	kvm_make_all_cpus_request(kvm, KVM_REQ_RELOAD_STAGE2);
+> +}
+> +
 
-I dumped the ACPI tables before and after the update. The only change
-in Scope (\_SB.PC00.SPI0) is the cs-gpios property:
+Hi Leo,
 
-   "cs-gpios",
-  -Package (0x01)
-  +Package (0x05)
-   {
-  +    Zero,
-  +    GSPK,
-  +    Zero,
-  +    Zero,
-       Zero
-   }
+HD alone is architecturally a no-op. According to the Arm spec, the
+VTCR_EL2.HD field description reads: "When the Effective value of
+VTCR_EL2.HA is 0, this field behaves as 0 for all purposes other than a
+direct read of the value of this bit." So patch 5 as it stands never
+actually enables stage-2 dirty management.
 
-CS0 stays on the native chip select and CS1 becomes GpioIo resource 0
-of GSPK, which is the same GPIO that 2/3 installs. Device (GSPK) is
-unchanged between the two versions.
+In the combined series, I'm planning to replace both kvm_set_hafdbs()
+and our earlier enable/disable hooks with a single derived mode:
 
-On 01.06.02 with an unpatched kernel (7.2.5, no out-of-tree modules,
-taint 0) both amplifiers probe, the calibration is applied and the
-speakers play. The "cs1 >= max 1" error is gone.
+```
+/*
+  *   logging && HDBSS-capable  ->  HDBSS  (HD|HA|HDBSS)
+  *   logging, no HDBSS         ->  off
+  *   !logging, HAFDBS-capable  ->  HAFDBS (HD|HA)
+  */
+void kvm_arch_update_hw_dirty_mode(struct kvm *kvm)
+{
+	bool logging = atomic_read(&kvm->nr_memslots_dirty_logging) != 0;
+	unsigned long target;
 
-With 2/3 and 3/3 still loaded on 01.06.02, the quirk matches the DMI
-entry but returns early because cs < num_chipselect, so the series
-does no harm on the fixed firmware. On 01.05.02 it is still needed,
-and my earlier Tested-by stands for that case.
+	if (logging && kvm_supports_hdbss(kvm))
+		target = VTCR_EL2_HD | VTCR_EL2_HA | VTCR_EL2_HDBSS;
+	else if (logging || !kvm_supports_hafdbs(kvm))
+		target = 0;
+	else
+		target = VTCR_EL2_HD | VTCR_EL2_HA;
+	...
+}
+```
 
-One small detail in case there is a v4: the DMI entry's .ident says
-"HP EliteBook 8 G1i 16 inch", but board 8D8A is also the 14 inch model
-I tested on.
+HA is always set alongside HD by construction, so the no-op issue goes
+away.
+
+I'll fold this into the HDBSS v5 series when I send it out. Let me know
+if you'd rather keep it in your v2 instead.
 
 Thanks,
-Juan
+Tian
 
