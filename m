@@ -4,140 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1DC2C982D2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 02:56:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82ED3C982D2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 03:01:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TZUL3Eplppm51Vvf3wRkb6Rb9P1+9cpJIHUMnzRdvMo=; b=apbMD1d4O7CRRErlHgvtyDhhSV
-	fvYbfSETinEda4x/Xb0u9p/LzVAZGXDynwXmwdFx6ksZQzZf1QJHsSZ76Q97xumDS2Pe1XZPxzyh0
-	BfT7dQYo/OHsvYm90f2PqLVnrk5KMKBiOFZRGU6CPO7TSyRVLNqARaxPsDL88dcSuJ94BxID7Yi0k
-	icmSK+8tzGrm4nFSLpFcaelErbQsNk2xKNFXvn/0gyyPjHc/rBF3DtpXkaz2FVJWZwqrBEAlBZDOI
-	D5lMzPu5eklO9toaxaFcaasmnZJkXecYVpSYVjBv+MXObJCAVUQHx7KxTbNVTCOH9H3U0WxGtblm7
-	jxB1VZVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bdKFcHr+t1P8kB1M0oZWW1CebC16dNbe38DihNTmLO8=; b=SkyIoTG67etWghYI3ph+yh63/G
+	3rofMEdP6CHZNXCUAUh1YWcSrEOEgOfnmOqYnjCjYAU/V6r19uIGu+QHx53eb+LbsaEXbXN3YWvXS
+	ZBjontv1LeG6faNTKI9IZRbZ/4stTmtfYYMNqc+qqW4I3Ano4wZBd60DwGUlTgvd63LvuLQnH0pJO
+	oG++r/f4Vg53cGnMmi1UyVbFmr756tS+ajH8hlWf3gy29rD/UBgbYj6aQu34SBkAWEI4QGC/8rWcf
+	9kJgJnFhFbFG22ByTSSzt5vG56ASUtfMGPyWuc+2VBDotQ+7nqVffXtvwCbVa6n2tuhCaZ7ToITxG
+	DnFaEWrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Oln-0000000DLlI-3Mlr;
-	Fri, 18 Sep 2026 02:56:11 +0000
-Received: from mail-westcentralusazon11010063.outbound.protection.outlook.com ([40.93.198.63] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1x7Or4-0000000DLye-1Knh;
+	Fri, 18 Sep 2026 03:01:38 +0000
+Received: from mail-pj2-x11.google.com ([2607:f8b0:4864:39::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Olj-0000000DLkq-2rl7
+	id 1x7Or1-0000000DLyC-2adU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 02:56:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nLHKq9zxPhocxTW06dgEGWKifSB1H/LpKvs7hgxsQZWoqG1y8pL5Q/2qtSVPzIwqAt7ognbh6cxJJnAWHhDQZ5dlSCJxfPJgFILZD+JZZfpCVL012bnhvOHUfzhCEGXy1NIWUqtoVpYXgrKyNz9py4O7zGe01aGnXW1pJyUGdreZTVOpuFhCLDQ4m1QMEeAoQKXdPne0qjHfMSTrCOBQh+yi8w7KHe4C0FmHfj5OhptC+lEcdMjEr/XwjpUTD/uJC2K0bIp59tJSTZfpNuAVUBjMcUDlko6yBVQMkaMHxKI7hfdQyh5c8Z5AIEVHrsB9+MvZtmowwWYlpCLC62ToCw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TZUL3Eplppm51Vvf3wRkb6Rb9P1+9cpJIHUMnzRdvMo=;
- b=JUG57x5HdiXtsGIEOEnW2wPNOUwv51Ahe1YrzikJT9iM6l1tQlcDM9PFvOdZ8pyXnV7B4I9gFcmtQvff/xsPKzRmt1Ud5tSGbaHqSTvYORb3pNSkkv7ahLg29ev5E2QDOfuBU3L3hv+3tk+QLq9E8V64tHMl7/uNaHYRIgHM4+C7rXRjiHsqmJcfdH1NK8xd7knI+BO6kebROWjG4B4+OQY0pHwkiY+vpVn1xav42+jvW/DxlG4pa1b+WLMqhpG8KKUhCWKYdGbnTgm+EPE1xEB7eMrFb75fDT562sBlI20kWEgSYLJE86HeikPUEKIwBREaMYuB3yl6MPY4/xKHpg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TZUL3Eplppm51Vvf3wRkb6Rb9P1+9cpJIHUMnzRdvMo=;
- b=VtOZlXfQ7Dp5D9dQbb5WYhCeSNtwDHGDSFE6PReR/BYNhdktwuoc7HYmESkgRCpQG+hM6NcSomG1jTrzCu8iFSSM+BIu2d3gdOlYXezxTw7r/uFPQDjn02qWGBwfTTnZ6mkomx7J6Jb8OsTAkRFvSy+WzeM5HUpB42P+TllxD19zU96VkjbICWIbYo4w9aXb2ITKiVkEmbdORJHLnh5XSdvwCtycrQ4dSoRybGfyuuaRXVOkByfAIeFuLQgAtyXQzLCUQkrEK9o16JfOBNGwMeQVymHVxGI6/rGOdK+idUjtvlWH9YGL7W7wznlsYgInwB3YYCOw7hg2VSJFLU4RCQ==
-Received: from SAWPR12MB999267.namprd12.prod.outlook.com
- (2603:10b6:806:55f::17) by CY5PR12MB6132.namprd12.prod.outlook.com
- (2603:10b6:930:24::8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Fri, 18 Sep
- 2026 02:55:55 +0000
-Received: from SAWPR12MB999267.namprd12.prod.outlook.com
- ([fe80::fe35:8a00:d9eb:40f9]) by SAWPR12MB999267.namprd12.prod.outlook.com
- ([fe80::fe35:8a00:d9eb:40f9%4]) with mapi id 15.21.0428.011; Fri, 18 Sep 2026
- 02:55:55 +0000
-From: Ankit Agrawal <ankita@nvidia.com>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	"linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-CC: Alexey Kardashevskiy <aik@amd.com>, Catalin Marinas
-	<catalin.marinas@arm.com>, Dan Williams <dan.j.williams@intel.com>, Jason
- Gunthorpe <jgg@ziepe.ca>, Jonathan Cameron <jic23@kernel.org>, Marc Zyngier
-	<maz@kernel.org>, Samuel Ortiz <sameo@rivosinc.com>, Steven Price
-	<steven.price@arm.com>, Suzuki K Poulose <Suzuki.Poulose@arm.com>, Will
- Deacon <will@kernel.org>, Xu Yilun <yilun.xu@linux.intel.com>
-Subject: Re: [PATCH v5 11/15] coco: host: arm64: Connect RMM pdev streams for
- IDE devices
-Thread-Topic: [PATCH v5 11/15] coco: host: arm64: Connect RMM pdev streams for
- IDE devices
-Thread-Index: AQHdQTBNZsWT6J6bdkaQWvWFEK2da7bTrZ40
-Date: Fri, 18 Sep 2026 02:55:55 +0000
-Message-ID: <SAWPR12MB9992670293875EF547CA440A18B0872@SAWPR12MB999267.namprd12.prod.outlook.com>
-References: <20260910140509.868402-1-aneesh.kumar@kernel.org>
- <20260910140509.868402-12-aneesh.kumar@kernel.org>
-In-Reply-To: <20260910140509.868402-12-aneesh.kumar@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SAWPR12MB999267:EE_|CY5PR12MB6132:EE_
-x-ms-office365-filtering-correlation-id: aeddfb62-d449-4c05-d3d5-08df15305bfc
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|23010399003|10067099003|4143699003|18002099003|22082099003|56012099006|11063799006|38070700021;
-x-microsoft-antispam-message-info: 6n59Z9ql29wnkppqkGHsx35tq0NUMcyMhGavkCUDyZbRsPM2QJW7fX233y6iq5wpW7M671gDSODRLQEVi9v+ytgpbFyo+vcmhHLWUtAAKAIbl12X9+i46O4gzBW2izdLHKzYGy/CI5nbNDfvtvG6K2A3ehGTHwrILyychtdUAVLZ7tFG5jpWnepkBVfndygxe7Cqdd/pIjWvYZ9CfxsLEyoAIi4sLGy8iVqFLnTtRmNPUxNt9dEROVwMQmPX4ZuFRpM5qG1ok7GSiwrw4K+AP1zuKnoY+AdW6mQ/gqk+mu8ZlaTDGqhxHiV7aEJTUOJM0M7Ih66BKDymvP6T4ZTkT+QBUD/XOYjofcRUdoG52EZ/RiXgvDnGlKQ0nGfgY37WqNhAEX2Yv0ZezNGJUO1BKj98mYi4aTyP0ZXr128s8jzP57chkpPzyk2CX40EbvyAG8LwlZsa4jnM0JdQkReW8ywq13lQHhLuYkcpUXahqNLP2EqCJZwMeQOvGnz0wRe4AKIFdfP3iQ1yr1YUdKfV9Qa6FhiVeI8C1msIbIUHUafgb4tBsMA8Vi2htE+Q2MMm+JlZwqrj0fNkelo+YD9toeRjy/pZapkAqxTBCKWVZW0NcV1HfACxwZZ9lMcLG6Mv6VsvRDINajIVIDy9S/KlY5eQGXf+VeVTFxU3PCiKZmJvIQaKWS5khpQFN7Kjb5FaHJ/0+zTd/zR4TTejReRT72I/wdnJUzdn461zK+B1wrY=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SAWPR12MB999267.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(23010399003)(10067099003)(4143699003)(18002099003)(22082099003)(56012099006)(11063799006)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?/joV5VzVRLiA6BOR3vtVnPZXTB8SW/zDmsX+2GMweqXhucZnnAxrna6GQb?=
- =?iso-8859-1?Q?yxQQ2wUrTOGM7WAQayCf/Z/dHlN1KlTxEQr1yX4s5OSnja8qo6KtzIQupv?=
- =?iso-8859-1?Q?5v2gcKNu0HpUJ5oPGc6ls9Xd3B8OFifXce3+oY+zbh22TNsEpiRSxAvPIA?=
- =?iso-8859-1?Q?4TMXzDhk3rg91UOYFHivwomHArMQ03PGXYKdMvAOPxEqK5C61FOyz9PSzc?=
- =?iso-8859-1?Q?DMcGHjIBKgJ52g5/i7f3dd33OHk0PnNlktU4kLzSfsbVUoDVh3OJDCQMEp?=
- =?iso-8859-1?Q?DzRRy486URRWomP7sUmcCWhZgGCHfzsS/mSCt3q7o2FwbH5t+reULZdhZh?=
- =?iso-8859-1?Q?9Ll/AfnGpgN3XvB2rvKCaza7Xaw6HurACSbVr/PG7CWrsYUIBYJRws1/Pf?=
- =?iso-8859-1?Q?+egVF0wH4mKVB5oRvNBeyBI5aKXV4GLLeBnjky6AEpZbus9UFwqSNcNvJn?=
- =?iso-8859-1?Q?ujdj91T0GAM5UIWXrbqsEsB7EtSUeizk08PT0EO31/ZX50wHM0qA+/OaGX?=
- =?iso-8859-1?Q?oFtOulheZOgHJ6AQmN2m20K5EEVyN6BLQqac6l42E8k2l9vmFtT64fTwNS?=
- =?iso-8859-1?Q?8t/dzysdATLL3+Av2PrVzAXasPo4OvIZz74u+A3qaa5tnxFh9phFtdzoNe?=
- =?iso-8859-1?Q?ZXrNN47ewQiUSJ8AkT/9zjURY9YG8VZ+65tGUDCE0lSvqjix62d3Lxu0YS?=
- =?iso-8859-1?Q?C96yJfXNmmyk9SrJHv97mAPqXDqXYifL/SN3XVTGnMZ3Z8v9NLpnPj5/1v?=
- =?iso-8859-1?Q?SBqz/8jndnezLEPmcPU7faz1KVNKF1kAu8QVk0otQewdLy9kWyCcmFu4ta?=
- =?iso-8859-1?Q?W5pBEhHA1WZo0ib4MxWLGzGvVSJcJlP/5GBzK2kJSC/KBPlMWGIN3rnw5B?=
- =?iso-8859-1?Q?e1cSkqdSG3IGU+liEKFe6V73dOXNNUN7uZtSFue69lkmHGmuzTYR4QhlPe?=
- =?iso-8859-1?Q?9W5oV+Txu+E3u+t3+t4Rb3pTk2rPhxZuK8C5Hl0W2v6qZBMF78nv/mIVF5?=
- =?iso-8859-1?Q?rPkmCt6OzMK1vl4txHb6ONcgF/NIZ3quOECAFO0UYk7Lya8IpxNzwE8hDU?=
- =?iso-8859-1?Q?V9Hk0wxy8tu4h1LWYxrQDtXu0SPvMSncYkhfiiUkZ5XeqvIN2NpcAny+XW?=
- =?iso-8859-1?Q?4tSQIrfrB/GAZM/xJ7OXsGzH6I68498FcQAcAE7BS2GjtAivKNOg/hUn5D?=
- =?iso-8859-1?Q?QOT3Rx7hWzcXthmOWcfCfHX7UpVRBf/XPDQLVNj7NZnm8pf9v+We9IfU5S?=
- =?iso-8859-1?Q?S4LPH2AC51SUTQs3UrKsbuKJ+TE/tLIr08TjJuxZMIv99UTWZUa17pRDgQ?=
- =?iso-8859-1?Q?sIVftpjWKjKGKDp4KCHCzLI/8eX8ufxqxen7Po0jxyCMhWTulDxhqpaCQu?=
- =?iso-8859-1?Q?8mhv1tzBJlf+YmzaGljPmRV7+F2+PVyYMS3NMizezFQbpicrXVnu2crxtO?=
- =?iso-8859-1?Q?lR60zvIJnTcEK1QjW+15se/JihrfVklCxIRCdLIXm+jAJj59DqIypsQ9O6?=
- =?iso-8859-1?Q?dqsVOp0xhE5WdyIuB16tjG8pqKc3mT1QhGA9b7OUb1QtxxPqfiZG/uTOOX?=
- =?iso-8859-1?Q?6QZNhKrC/Wf+wQzpeQMBUyuJPA9dDoIQ/gKA+8V7MJBfDBYV5vU4ddTRIi?=
- =?iso-8859-1?Q?F4o4lccEg2v6Oyqd5NLi/sTP68X01ZyLrFJgqDnAxhLeXXJ6/W3OXJc9Dc?=
- =?iso-8859-1?Q?gJ0KcTlz1HUePhhKfevn6wKoiQTZtsSsLzaIm98zsnZ7F9v8PYVo7Qov/b?=
- =?iso-8859-1?Q?8G1MU2buDjoEu6LAOSJgjWe4laVtXOckk+IvcwqgWg5oBK?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 18 Sep 2026 03:01:36 +0000
+Received: by mail-pj2-x11.google.com with SMTP id d9443c01a7336-2d90ba1d807so2924295ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 20:01:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789700494; x=1790305294; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=bdKFcHr+t1P8kB1M0oZWW1CebC16dNbe38DihNTmLO8=;
+        b=oda39kS3SQk6KHWYFbiyntAKML0M0bXS5s0207ffvYsxzIjV3RnR95nJ99BnGKUbja
+         9F3LNxw+rNBy9wyO4RBOM2wscc4XC4zjsaoggAHUJ1Qdneu3teMZHFvOG3PjuFlr6u+g
+         zrh2ZoHaKF82l2pUVs0b6S03cWJLdyqaT5u/XStYXDBjnH0UfNuQZuTlmlmJIbCq0KVD
+         B/nxjUdUdseJvRSkWybPCot4iX9NBTrcDgYuqOcnoV4bsU1MTGUBJ1rHoJ7DS1TV/j0H
+         fmK0Ie7d1qiZwzn/2xMJLJy/LXOy+lCxo7dSp9aXiZU1sV4GhNy/Hfr3Hiaxyztqj+Ej
+         fyYA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789700494; x=1790305294;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=bdKFcHr+t1P8kB1M0oZWW1CebC16dNbe38DihNTmLO8=;
+        b=AtwqNVSGYfTv69R2YN0jG5pv5R373XfPOJDjDuZhbPYWJPJGTm5LZVOYhUYSAEiAcn
+         bQSo2UDTkb8BeNYQyGFwYDhP1D64LcNTk6TF4CFO6xxXB4On2NHOGO0pWueXjEZCUPrO
+         6ZJMYtGWHgf9Wkl2lvTtkL5RdY5ncDXh0QrJJkF2HgVf2LB42HWnTtcv18erWVC3AJ7V
+         GUhnuduapC7YPmSfaV4UqO2aj5iIuFevUIk33ED30B9h+zxBS5gqHnEKyz6SlNzi2NJF
+         Yr7TDgyiL5IxXtP8ZGeStxo6il53Z+Ewg9ki4B9YXirGIof+BwdU3VhR1Sp2Ilx/qk8r
+         Mlfg==
+X-Forwarded-Encrypted: i=1; AKwUvByia+C8vwfMZeSFRNg6dIGWnBLgwS4yjkA9QF8q7ua5sDgBJYPyC0EaPemFqlx/4v1LVdNIYqGQ1PBK7U1ClrBV@lists.infradead.org
+X-Gm-Message-State: AFuF++lNcYba96nuZHoiRAGBMo8emK92z5ij14LFCefeHrrqYTY3fY3Q
+	GbiPKxWetkJdvpqxOIbJH3WLmUvLyPz/g9c3UNsL7AuEly9tOfpkW/PV
+X-Gm-Gg: AYBFou2PzwzxdKiEFQ9alxnDt2hAx9Za3IR/XGfsboX4VqSCUsAbxGxKZgYeHw96HB3
+	FE5XhRjbsnpVRmAtcbtjkJfA7+17Gcl9oZOKpFCRIxc1KacXctGZDnw3wJyuNAqYqhXaW78t0dq
+	PG/73kuEofy12wW8T3yUHcM5/p+qLOhNtNJEohqGFgAlJj1GqtbxoxI+FsTREhstMNj+y8mZz5O
+	Bk+61jqqIMTKTGVApRoEp6874fLuFRZ5cBRksxso84qL/3oMDdiVH5Eo2HtGv3NTUrqg9AxNY2l
+	BAdRI7ZiqLezKYEe0tDCORuiND7ERVwAdVjflBNInlSC/SjbQXcEIlHnK1psDvh5xhpfaHnxNU7
+	IGrcOISvbEff2R171J6Bw+gHOqDa3ml7z/m59em8pccaGL4zZhC4evsC1feBHH4+gkWC+/duD9H
+	AmdvZK0/GPnEdsYKgMDN734M4GNe4RYId3BvegidNx9Rez9Jtl3UwgG8fsMRue+WV9figp/iK5/
+	9gqLFheX43uVmF41WLOdLDjZ9H9AkcULtV1tS878YtotiAJlpuVtW6viYXSvfI=
+X-Received: by 2002:a17:90b:4c50:b0:39e:4c7e:f03f with SMTP id 98e67ed59e1d1-39e54f6a423mr2356087a91.28.1789700494073;
+        Thu, 17 Sep 2026 20:01:34 -0700 (PDT)
+Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39e362e9402sm7969141a91.15.2026.09.17.20.01.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 17 Sep 2026 20:01:32 -0700 (PDT)
+From: Joey Lu <a0987203069@gmail.com>
+To: zhengxingda@iscas.ac.cn,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: ychuang3@nuvoton.com,
+	schung@nuvoton.com,
+	yclu4@nuvoton.com,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Lu <a0987203069@gmail.com>
+Subject: [PATCH v7 0/7] drm/verisilicon: add Nuvoton MA35D1 DCU Lite support
+Date: Fri, 18 Sep 2026 11:01:18 +0800
+Message-ID: <20260918030125.315978-1-a0987203069@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SAWPR12MB999267.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: aeddfb62-d449-4c05-d3d5-08df15305bfc
-X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Sep 2026 02:55:55.5443
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 2sEJzabHGbQMZrRylSCkfcUeqRmS0uPOvHVKGyxqTqj+FjLMAgaqHteXjvgjnr8O+s4r91zLqpm2JPai9LHjrg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6132
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_195608_457278_F64CFBB9 
-X-CRM114-Status: UNSURE (   7.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260917_200135_709665_5E3F42DE 
+X-CRM114-Status: GOOD (  21.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,20 +110,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Aneesh=0A=
-=0A=
-As I read it, the address ranges handed to RMM in this patch are captured=
-=0A=
-once and at the point cca_tsm_connect() runs. That becomes the address=0A=
-range RMM has on record for the pdev/stream going forward.=0A=
-=0A=
-So a couple of questions on that..=0A=
-1.  Is connect -> {driver probe / vfio-pci bind } the intended=0A=
-     sequence or is that ordering left entirely to userspace/VMM policy?=0A=
-2. Are the resources/BARs captured at connect time assumed to be=0A=
-    fixed for the lifetime of the PDEV? If a PCI rescan (or resource=0A=
-    reassignment such as pci=3Drealloc, a hotplug re-enumeration=0A=
-    happens after connect, is that expected to be rejected/blocked?=0A=
-=0A=
-Thanks=0A=
+This series adds support for the Verisilicon DCUltraLite display
+controller as integrated in the Nuvoton MA35D1 SoC.
+
+The Verisilicon DC driver and its DT binding were originally written by
+Icenowy Zheng <zhengxingda@iscas.ac.cn> for the T-Head TH1520 SoC, which
+carries a DC8200 IP block.  The present series builds on that foundation
+with gratitude to Icenowy for the original work.
+
+The DCUltraLite is a different variant in the DC IP family.  While the two
+IPs share a broadly similar register layout, a number of differences
+prevent the existing driver from working on the MA35D1 without
+modification:
+
+  - No CONFIG_EX commit path: the DC8200 staging registers
+    (FB_CONFIG_EX, FB_TOP_LEFT, FB_BOTTOM_RIGHT, FB_BLEND_CONFIG,
+    PANEL_CONFIG_EX) are absent.  The DCUltraLite uses enable (bit 0) and
+    reset (bit 4) bits in FB_CONFIG for direct framebuffer updates, and
+    requires a per-frame VALID bit toggle (FB_CONFIG bit 3) to latch
+    configuration changes.
+
+  - No PANEL_START register: panel output begins when
+    PANEL_CONFIG.RUNNING is set; the DC8200 multi-display sync start
+    register at 0x1CCC does not exist.
+
+  - Different IRQ registers: DISP_IRQ_STA at 0x147C / DISP_IRQ_EN at
+    0x1480, versus the DC8200's TOP_IRQ_ACK at 0x0010 / TOP_IRQ_EN at
+    0x0014.
+
+  - Simpler clock topology: the MA35D1 clock controller gates the core,
+    AXI and AHB clocks with a single bit, so the devicetree supplies the
+    same clock phandle for all three; only the pixel clock is distinct.
+    No second output port is present, so no pix1 clock is needed either.
+
+  - Single display output: no per-output indexing beyond index 0 is
+    needed.
+
+  - Hardware-discoverable identity: the DCUltraLite exposes chip identity
+    registers whose model field reads 0x0 (revision 0x5560,
+    customer_id 0x305), allowing the existing vs_fill_chip_identity()
+    path to identify the variant purely through register reads.
+
+Patch 1 adds the nuvoton,ma35d1-dcu compatible to the verisilicon,dc DT
+binding and relaxes the top-level clock/reset item counts so per-variant
+allOf/if blocks can constrain each compatible's actual topology.
+
+Patch 2 adds the register-level macros needed by the DC8000 ops.
+
+Patches 3-4 introduce the driver changes in two logical steps: the
+vs_dc_funcs hardware ops vtable with DC8200 ops extracted into
+vs_dc8200.c, and the DC8000 ops in vs_dc8000.c.  Patch 5 adds the
+DCUltraLite HWDB entry that gates hardware recognition once all support
+is in place.
+
+Patch 6 adds the Kconfig dependency on ARCH_MA35, placed last because it
+is only meaningful after the HWDB entry is added.
+
+Patch 7 fixes a pre-existing DC8200 bug in the primary plane disable
+path that Icenowy spotted while reviewing patch 3.
+
+All patches have been tested on Nuvoton MA35D1 hardware.
+
+Changes from v6:
+  - [dt-bindings] Added a "port@1: false" / "required: port@0"
+    restriction to the nuvoton,ma35d1-dcu allOf/if block, since the
+    DCUltraLite only has a single output port.
+  - [driver] Fixed 3 "alignment should match open parenthesis"
+    checkpatch --strict issues introduced by patch 3:
+    vs_crtc_atomic_begin() and vs_crtc_atomic_flush() continuation
+    lines in vs_crtc.c, and vs_dc8200_primary_plane_update_ex()'s
+    continuation line in vs_dc8200.c.
+  - [driver] Added patch 7 to fix the pre-existing DC8200 FB_EN
+    regmap_set_bits()/regmap_clear_bits() bug in
+    vs_dc8200_primary_plane_disable_ex(), carried over unchanged since
+    commit dbf21777caa8 ("drm: verisilicon: add a driver for
+    Verisilicon display controllers").
+
+Joey Lu (7):
+  dt-bindings: display: verisilicon,dc: add support for
+    nuvoton,ma35d1-dcu
+  drm/verisilicon: add register-level macros for DC8000
+  drm/verisilicon: introduce per-variant hardware ops table
+  drm/verisilicon: add DC8000 (DCUltraLite) display controller support
+  drm/verisilicon: add DCUltraLite chip identity to HWDB
+  drm/verisilicon: extend Kconfig to support ARCH_MA35 platforms
+  drm/verisilicon: fix DC8200 primary plane disable clearing FB_EN
+
+ .../bindings/display/verisilicon,dc.yaml      |  51 ++++++++
+ drivers/gpu/drm/verisilicon/Kconfig           |   2 +-
+ drivers/gpu/drm/verisilicon/Makefile          |   2 +-
+ drivers/gpu/drm/verisilicon/vs_bridge.c       |  20 +--
+ drivers/gpu/drm/verisilicon/vs_crtc.c         |  38 +++++-
+ drivers/gpu/drm/verisilicon/vs_crtc_regs.h    |   1 +
+ drivers/gpu/drm/verisilicon/vs_dc.c           |   9 +-
+ drivers/gpu/drm/verisilicon/vs_dc.h           |  33 +++++
+ drivers/gpu/drm/verisilicon/vs_dc8000.c       |  92 +++++++++++++
+ drivers/gpu/drm/verisilicon/vs_dc8200.c       | 121 ++++++++++++++++++
+ drivers/gpu/drm/verisilicon/vs_drm.c          |   5 +-
+ drivers/gpu/drm/verisilicon/vs_drm.h          |   8 ++
+ drivers/gpu/drm/verisilicon/vs_hwdb.c         |  14 ++
+ drivers/gpu/drm/verisilicon/vs_hwdb.h         |   6 +
+ .../gpu/drm/verisilicon/vs_primary_plane.c    |  32 +----
+ .../drm/verisilicon/vs_primary_plane_regs.h   |   3 +
+ 16 files changed, 382 insertions(+), 55 deletions(-)
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_dc8000.c
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_dc8200.c
+
+-- 
+2.43.0
+
 
