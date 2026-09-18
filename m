@@ -4,54 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA249C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 16:15:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49682C982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 16:16:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BGQmYnb6QmPK7Dalbu5acCmGDnjMEGrMKannhaz7hEo=; b=DZZsv/qvKgkJMe
-	GIhmIVgZHolt2EVSsakFOy9oe36emZ1yxA/3RdMlFmN8gnLBQpzZ5YBerGGAISXPF5YxZ48MU65Au
-	x++23jv+gq8ZzVgQaiJWCJ5zcb3090WrG09V2YLrfIxRVp614elB/5Pso9r9FXknxAqRTJnumjbXk
-	a9xjBRIuOizOAhlaE8QQatuvAVCBBWBVKtOSqzkkUbowT91bIrjS7VxQs/4qkijdJBsHF5VmRqBrB
-	j5LVJvLsDw/pYrCg0ulJF9skD2tR7GS5UwNz/cmciw/d6e1Yj4PdN2Mwb7N4dJ2af/nqa+VFdXqIh
-	XbgIon48/Fscmz2PgXVg==;
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QLG64Lk9Qo+wSa/UoMfS9Cd32ZbWvo/1GRFToRmYhMI=; b=XqntGKvKLwrl32vd4SDrI10V/I
+	9CEXmIRoV6CxHuFNgYcapIO2qS6yk7Yq+xqK0B3hlq/5HNdx7M6GlbKuRFqgkOf/aEgqbsz4Zf/IR
+	ViJzZVRJ5Hx3NWSH6lSOnCnRWk0t8Sn4AL5Kq7oEmet4oQdccK6QUFuZyC/mtHcoWU6krJGjaWpzi
+	ttNMdrfsdLgLrLUzwHC3druPG9KdP37NEpUTmN1HlBGgPwpKdbWjW36NYfxRojmJLJedshrD3/YwX
+	0iBoqVcC0LsbhWG6IZlISWFjIKqG2rHOtO66r51oIvSP/lq2/CN2krvQS2yPJzX48ih+1wVzD09Xw
+	IzUmWbWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7bFa-0000000Ezte-1Qb5;
-	Fri, 18 Sep 2026 16:15:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x7bFe-0000000EzyA-1aOB;
+	Fri, 18 Sep 2026 16:15:50 +0000
+Received: from mail-eastusazon11011004.outbound.protection.outlook.com ([52.101.52.4] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7bFD-0000000EzYh-204B
+	id 1x7bFS-0000000EznI-000D
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 16:15:23 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D3360601EF;
-	Fri, 18 Sep 2026 16:15:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 798031F0089B;
-	Fri, 18 Sep 2026 16:15:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789748122;
-	bh=BGQmYnb6QmPK7Dalbu5acCmGDnjMEGrMKannhaz7hEo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=gVfV/YliCqgFe3j7/EqyE331jMQcIkWkHEMOW44yLOSkTCvChlgCLoPssporg/DBx
-	 e+MkTwXJpiH/V2/PqLJNyxInU84fAxMNCcTapDNZg/2OqDzKiyrPeW/8sxaUNQ+2Yj
-	 aPMjm14eDX/9G73Z7hrMnVaiPlGZtryR10nzL8Gy7eJA9P2HvyqxP0Kf9x/D3iUYmh
-	 odISHHY0J1XTDuc+A1WmV0tGeil9e5Pr4EFMWMGGi016pX1j9IN/hrTA+kW3onlIow
-	 MquMiIfS/pZ4QWtQDO3q6IaVH0Y2wZbuMpur4ZBhFP7S+g8RjKYxSW9o6bJHbycqZ5
-	 ykFRIXHIGa7DA==
-From: Will Deacon <will@kernel.org>
-To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 19/21] arm64: entry: The great stack switcheroo
-Date: Fri, 18 Sep 2026 17:14:03 +0100
-Message-ID: <20260918161407.2300-20-will@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260918161407.2300-1-will@kernel.org>
-References: <20260918161407.2300-1-will@kernel.org>
+	Fri, 18 Sep 2026 16:15:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=sFZmHfNS813zXdNc/XEnSnNOfy/WKHzyFBORA0fGwwn9/8S/yJh5/na9xCenmL19QZzATX5f2jgxu3e0DPz3IzVvG2IkMxL9PN9cOG/VI2ArFVKqPvyWk43ril2MXt+bdeoHKMeDfqiL6j6y5q16SmfyFhlMa9plMm/Rymvu/Ba+sILk+IBhKBSNsDmcElWKPPNhbKrcBZnSXpI2YeJvmPpcwy58oIOFUDheehV60NxciwaXHQFtIe4QQ4NKP3iRWZ9OEhL9ttRpqHmjeRuNaPcN96hh0YztwnnsLbA+IHZTSQOaJZ6exk2HZxsksX5fcZkhpxMA4ssKDdIZAPD3lg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QLG64Lk9Qo+wSa/UoMfS9Cd32ZbWvo/1GRFToRmYhMI=;
+ b=LbokbbF1iEsW66AZuMO0j3uM4CAnZ+w6ZjAUEDV9oQgy22jbLy4ke48sAnQipeh5vjc3GdXxKmm7D6AJJdtW+Ch6u0/DwF+hJIGQd8VnBEAI5JMRD1KrkjqSkVHaSYIio2d0eXpXn1ez0rr8ARri834w0xkNNLL0NEjjMGrGVMK4NEXqQmLO7rjayw3mDrBwX3qvb6SrFZ4pPHzZRnmLb3LsMLZyoLH3Go0H0pJEwndudO5VlwaPIc4OZJF4wSZ+X+9T6a1uxwkNwDxqaub+MxyMmngrNrDbKXgFRLxBEoAZkpoGdKUGOzRaOtIHpMwt/WobJ88tU1YR/8SUqG+FrA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QLG64Lk9Qo+wSa/UoMfS9Cd32ZbWvo/1GRFToRmYhMI=;
+ b=RFFq/k7KOo8H67N6n2wEBf9+5RBhU3UM7a3NgmYzIgDsBpi++HRcIwabNiP3Vb/88iBOydXe81lna2hmk4w1l4Piu57TVy+ibLl3UKAIH0UTnqtXO5Z1XFisfqALlKVyCelAwItnv6qRViFvAgk3EtQkQwoVfoZZ4AaDkKsVolyFvbGTcM4t8mcBv2RIOOxex2BaelXZ//qMgMhMI7TGQaSHWhjMAgnWpwxAaV4HgkBPZlss1tJgzTQebGA7w0TDQ8Uw91qLHvSUiSHFAa8rnq2D0eK59aUdZYj4kDqhqy1XkNPcI7CUmBC9kSG4rRPHg0FK9jVw6NH32+Ya6/bWdw==
+Received: from DS7PR03CA0322.namprd03.prod.outlook.com (2603:10b6:8:2b::29) by
+ IA1PR12MB8519.namprd12.prod.outlook.com (2603:10b6:208:44c::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.13; Fri, 18 Sep
+ 2026 16:15:32 +0000
+Received: from CO1PEPF000066EB.namprd05.prod.outlook.com
+ (2603:10b6:8:2b:cafe::85) by DS7PR03CA0322.outlook.office365.com
+ (2603:10b6:8:2b::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.428.13 via Frontend Transport; Fri,
+ 18 Sep 2026 16:15:31 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ CO1PEPF000066EB.mail.protection.outlook.com (10.167.249.7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.451.8 via Frontend Transport; Fri, 18 Sep 2026 16:15:31 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Fri, 18 Sep
+ 2026 09:14:58 -0700
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Fri, 18 Sep
+ 2026 09:14:58 -0700
+Received: from dgx-1v-42.nvidia.com (10.127.8.11) by mail.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
+ Transport; Fri, 18 Sep 2026 09:14:58 -0700
+From: Jamie Nguyen <jamien@nvidia.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+	<guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>, "Catalin
+ Marinas" <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "Rafael J
+ . Wysocki" <rafael@kernel.org>
+CC: Len Brown <lenb@kernel.org>, Dat Mach <dmach@nvidia.com>,
+	<linux-acpi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Jamie Nguyen <jamien@nvidia.com>
+Subject: Re: [PATCH v2 0/3] ACPI: arm64: FFH Operation Region support for FF-A (offset 2)
+Date: Fri, 18 Sep 2026 09:14:57 -0700
+Message-ID: <20260918161457.1441579-1-jamien@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260901192906.133670-1-jamien@nvidia.com>
+References: <20260901192906.133670-1-jamien@nvidia.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO1PEPF000066EB:EE_|IA1PR12MB8519:EE_
+X-MS-Office365-Filtering-Correlation-Id: c8c4e1b9-59cd-492f-8ad5-08df15a01017
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|82310400026|23010399003|36860700016|22082099003|18002099003|11063799006|10067099003|56012099006;
+X-Microsoft-Antispam-Message-Info: 25DUMHU7mqUGzsbIpiAucpyDDE8yLmL49f8jB92neeey7i7/p9iMsnfCgnEc+0nW8B2kiFv1qRYYoptS0Lx8t7XCKHXzDHYs20gEy2shgj8fHq7xsK4w73T4k+4IBUtvzGPOVAJc+PeDjyqklJ3MySuWkzOvCtoJueDoTnG5fZWHQhSBZqBkY7lJ8xeDRGFb8As8mF43zY0RP47Fruq1rXRMrthkt5DwEfCD4hgv4JJgeQXmaqa/eR4+KEksSeSrTQtP77pyRAqAN6urH7In2Sy1BYxFnJY6stfqdz++Ql2XU94/rOsiSNLimANRc3Lk4TJCxy6u9xx16Vk0pyfGG6UmtpBVnURZRT0Q4m5njzZyz8sjeP6JfC4FqajkAa8pfnEmTOeOzLs+bYrMa0hCJkzYPSPrc2xsYPiRYePmAOrFY+Tuavu4VwP5YByp9NymckCJ6DbPVKcoxXOJ4if7VzJjMuGXwFQIpnTE9tFxyoa51sVPQ5pXkfX6+Ug/bgK87eFcaP0obDuRlItLaRG7c9KV5M+hjmoKPPfyHnQzD/DgPmsYdKk1eQhXq5x2+wgCN352wh1o6SB0lXAwZdL1XN/AMSnD8e132l8v/Js6AtNXt0LdnlXsHq8qSwMA8+ITE//3lkB21/Ah011j4SLLh8j2xcmB6PKgg7s0xJmZh4awgfCO77LRbl5IUxIMPkLh94I/s4hMYWp+3AJZVeAqnw==
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(82310400026)(23010399003)(36860700016)(22082099003)(18002099003)(11063799006)(10067099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: aSpvSnw1tzSt3WNF8kd6GlUmslmKxvJvhUMr/SLsnf1pRgM7ZoNjlsFtb4eGRECd1wlvdSb+m1E1Om134xGmVd5Dy6yPPUxRmGLvMh+Y7NwzzWOMIqY/lsKI4BBTMq4eSyioKESP0Kme6BhDXQJ2dyWtECns1NKXzh9Gz3dZ46uI+uJ+yiSqvaWNsQRFdcq/oAnoB8jVBSTdzEso4F5ui/pjyxL/CwhKQ7nf0JSi9Us2EG4a5n1of3+IFT7mKolykZiVGpYfkqoCCG/Ap6H8Y5v2QrwV0FqtwiQprDb2Ai3iSv+UlNzVQfTH1stxJQOtOH+ld2nZFR84weM75NGG3TdNBQf/BOCogRNd4L5CJSHMpM7CocvuSbBh4cgOFv+2ZU9Nhu7UF/lxkiwv1rrhCwcSJ9GVrAVXFxqUpu2qPeIymofATq48526SXdt/4hd+
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Sep 2026 16:15:31.7904
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c8c4e1b9-59cd-492f-8ad5-08df15a01017
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000066EB.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB8519
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260918_091538_248679_F7C1DA31 
+X-CRM114-Status: UNSURE (   5.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,362 +129,13 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Vladimir Murzin <vladimir.murzin@arm.com>, Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, Linus Walleij <linusw@kernel.org>, linux-kernel@vger.kernel.org, Mostafa Saleh <smostafa@google.com>, Marc Zyngier <maz@kernel.org>, David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, Oliver Upton <oupton@kernel.org>, Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With the kernel stack pointer in SP_EL1 and the overflow stack pointer
-in SP_EL0, it is now straightforward to switch between the two on
-exception entry from EL1 by writing to SPSel. However, since exception
-entry sets PSTATE.SP to 1 (selecting SP_EL1 as the stack pointer),
-repurposing the overflow stack as a more general kernel exception stack
-would require writing to SPSel on every exception entry from the kernel.
+Gentle ping on this. The series still applies cleanly to v7.3-rc1 and
+current linux-next, and I'm happy to respin if you'd prefer anything
+changed.
 
-Switch things around so that the overflow stack resides in SP_EL1, with
-the kernel stack residing in SP_EL0.
-
-Signed-off-by: Will Deacon <will@kernel.org>
----
- arch/arm64/include/asm/kvm_asm.h | 16 +++++++++++++++
- arch/arm64/kernel/entry-common.c | 34 ++++++++++++++++----------------
- arch/arm64/kernel/entry.S        | 26 +++++++++++++-----------
- arch/arm64/kernel/head.S         |  5 ++++-
- arch/arm64/kernel/sleep.S        |  3 ++-
- arch/arm64/kernel/smp.c          |  8 +++++---
- arch/arm64/kvm/hyp/entry.S       |  3 +++
- arch/arm64/mm/proc.S             | 10 ++++++++--
- 8 files changed, 70 insertions(+), 35 deletions(-)
-
-diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-index 1cfe9216a2ff..bde046c3ca79 100644
---- a/arch/arm64/include/asm/kvm_asm.h
-+++ b/arch/arm64/include/asm/kvm_asm.h
-@@ -398,6 +398,22 @@ void __noreturn __cold nvhe_hyp_panic_handler(u64 esr, u64 spsr, u64 elr_virt,
- 	ldp	x29, lr,  [\ctxt, #CPU_XREG_OFFSET(29)]
- .endm
- 
-+#ifdef __KVM_VHE_HYPERVISOR__
-+.macro activate_exception_stack
-+msr	spsel, #1
-+.endm
-+
-+.macro deactivate_exception_stack
-+msr	spsel, #0
-+.endm
-+#else
-+.macro activate_exception_stack
-+.endm
-+
-+.macro deactivate_exception_stack
-+.endm
-+#endif
-+
- .macro save_sp_el0 ctxt, tmp
- 	mrs	\tmp,	sp_el0
- 	str	\tmp,	[\ctxt, #CPU_SP_EL0_OFFSET]
-diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-index 9738142780df..9d734cd09f62 100644
---- a/arch/arm64/kernel/entry-common.c
-+++ b/arch/arm64/kernel/entry-common.c
-@@ -327,7 +327,7 @@ static void debug_exception_exit(struct pt_regs *regs)
- }
- NOKPROBE_SYMBOL(debug_exception_exit);
- 
--static void noinstr el1t_64_check_overflow_stack(struct pt_regs *regs)
-+static void noinstr el1h_64_check_overflow_stack(struct pt_regs *regs)
- {
- 	unsigned long sp = kernel_stack_pointer(regs) - sizeof(*regs);
- 	unsigned long ovf_stack = (unsigned long)this_cpu_ptr(overflow_stack);
-@@ -343,28 +343,28 @@ static void noinstr el1t_64_check_overflow_stack(struct pt_regs *regs)
- 		cpu_park_loop();
- }
- 
--asmlinkage void noinstr el1t_64_sync_handler(struct pt_regs *regs)
-+asmlinkage void noinstr el1h_64_sync_handler(struct pt_regs *regs)
- {
--	el1t_64_check_overflow_stack(regs);
--	el1h_64_sync_handler(regs);
-+	el1h_64_check_overflow_stack(regs);
-+	el1t_64_sync_handler(regs);
- }
- 
--asmlinkage void noinstr el1t_64_irq_handler(struct pt_regs *regs)
-+asmlinkage void noinstr el1h_64_irq_handler(struct pt_regs *regs)
- {
--	el1t_64_check_overflow_stack(regs);
--	el1h_64_irq_handler(regs);
-+	el1h_64_check_overflow_stack(regs);
-+	el1t_64_irq_handler(regs);
- }
- 
--asmlinkage void noinstr el1t_64_fiq_handler(struct pt_regs *regs)
-+asmlinkage void noinstr el1h_64_fiq_handler(struct pt_regs *regs)
- {
--	el1t_64_check_overflow_stack(regs);
--	el1h_64_fiq_handler(regs);
-+	el1h_64_check_overflow_stack(regs);
-+	el1t_64_fiq_handler(regs);
- }
- 
--asmlinkage void noinstr el1t_64_error_handler(struct pt_regs *regs)
-+asmlinkage void noinstr el1h_64_error_handler(struct pt_regs *regs)
- {
--	el1t_64_check_overflow_stack(regs);
--	el1h_64_error_handler(regs);
-+	el1h_64_check_overflow_stack(regs);
-+	el1t_64_error_handler(regs);
- }
- 
- static void noinstr el1_abort(struct pt_regs *regs, unsigned long esr)
-@@ -494,7 +494,7 @@ static void noinstr el1_fpac(struct pt_regs *regs, unsigned long esr)
- 	arm64_exit_to_kernel_mode(regs, state);
- }
- 
--asmlinkage void noinstr el1h_64_sync_handler(struct pt_regs *regs)
-+asmlinkage void noinstr el1t_64_sync_handler(struct pt_regs *regs)
- {
- 	unsigned long esr = read_sysreg(esr_el1);
- 
-@@ -578,17 +578,17 @@ static void noinstr el1_interrupt(struct pt_regs *regs,
- 		__el1_irq(regs, handler);
- }
- 
--asmlinkage void noinstr el1h_64_irq_handler(struct pt_regs *regs)
-+asmlinkage void noinstr el1t_64_irq_handler(struct pt_regs *regs)
- {
- 	el1_interrupt(regs, handle_arch_irq);
- }
- 
--asmlinkage void noinstr el1h_64_fiq_handler(struct pt_regs *regs)
-+asmlinkage void noinstr el1t_64_fiq_handler(struct pt_regs *regs)
- {
- 	el1_interrupt(regs, handle_arch_fiq);
- }
- 
--asmlinkage void noinstr el1h_64_error_handler(struct pt_regs *regs)
-+asmlinkage void noinstr el1t_64_error_handler(struct pt_regs *regs)
- {
- 	unsigned long esr = read_sysreg(esr_el1);
- 	irqentry_state_t state;
-diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
-index 38f9327e6a0a..afcd84510daf 100644
---- a/arch/arm64/kernel/entry.S
-+++ b/arch/arm64/kernel/entry.S
-@@ -54,6 +54,12 @@
- 
- 	.macro kernel_ventry_el1h, regsize:req, label:req
- 	sub	sp, sp, #PT_REGS_SIZE
-+	b	el1h_\regsize\()_\label
-+	.endm
-+
-+	.macro kernel_ventry_el1t, regsize:req, label:req
-+	msr	spsel, #0			// Stay on the kernel stack
-+	sub	sp, sp, #PT_REGS_SIZE
- 
- 	/*
- 	 * Test whether the SP has overflowed, without corrupting a GPR.
-@@ -65,12 +71,6 @@
- 	tbnz	x0, #THREAD_SHIFT, __bad_stack
- 	sub	x0, sp, x0			// x0'' = sp' - x0' = (sp + x0) - sp = x0
- 	sub	sp, sp, x0			// sp'' = sp' - x0 = (sp + x0) - x0 = sp
--	b	el1h_\regsize\()_\label
--	.endm
--
--	.macro kernel_ventry_el1t, regsize:req, label:req
--	msr	spsel, #0			// Stay on the overflow stack
--	sub	sp, sp, #PT_REGS_SIZE
- 	b	el1t_\regsize\()_\label
- 	.endm
- 
-@@ -208,7 +208,10 @@ alternative_cb_end
- 	ldr_this_cpu	tsk, __entry_task, x20
- 	msr	tpidrro_el0, tsk
- 	adr_this_cpu	x19, overflow_stack + OVERFLOW_STACK_SIZE, x20
--	msr	sp_el0, x19
-+	mov	x20, sp
-+	msr	sp_el0, x20
-+	mov	sp, x19
-+	msr	spsel, #0
- 
- 	/*
- 	 * Ensure MDSCR_EL1.SS is clear, since we can unmask debug exceptions
-@@ -346,6 +349,9 @@ alternative_else_nop_endif
- 
- 	.if	\el == 0
- 	ldr	x23, [sp, #S_SP]		// load return stack pointer
-+	mov	x0, sp
-+	msr	spsel, #1
-+	mov	sp, x0
- 	msr	sp_el0, x23
- 	msr	tpidrro_el0, xzr
- 	tst	x22, #PSR_MODE32_BIT		// native task?
-@@ -532,16 +538,14 @@ SYM_CODE_START_LOCAL(__bad_stack)
- 	add	sp, sp, #PT_REGS_SIZE
- 
- 	/* Switch to the overflow stack */
--	msr	spsel, #0
-+	msr	spsel, #1
- 
- 	/* Stash the exception regs */
- 	sub	sp, sp, #PT_REGS_SIZE
- 	kernel_entry 1
- 
- 	/* Fix-up the saved SP */
--	msr	spsel, #1
--	mov	x0, sp
--	msr	spsel, #0
-+	mrs	x0, sp_el0
- 	str	x0, [sp, #S_SP]
- 
- 	/* Stash the regs for handle_bad_stack */
-diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
-index 27a19e1a0ee6..7419e1d8b7ec 100644
---- a/arch/arm64/kernel/head.S
-+++ b/arch/arm64/kernel/head.S
-@@ -211,8 +211,11 @@ SYM_CODE_END(preserve_boot_args)
- 	ldr	\tmp1, [\tmp1, \tmp2, lsl #3]
- 	set_this_cpu_offset \tmp1
- 
--	adr_this_cpu	\tmp1, overflow_stack + OVERFLOW_STACK_SIZE, \tmp2
-+	mov	\tmp1, sp
- 	msr	sp_el0, \tmp1
-+	adr_this_cpu	\tmp1, overflow_stack + OVERFLOW_STACK_SIZE, \tmp2
-+	mov	sp, \tmp1
-+	msr	spsel, #0
- 	.endm
- 
- /*
-diff --git a/arch/arm64/kernel/sleep.S b/arch/arm64/kernel/sleep.S
-index f093cdf71be1..facf3f1cc3b1 100644
---- a/arch/arm64/kernel/sleep.S
-+++ b/arch/arm64/kernel/sleep.S
-@@ -133,7 +133,8 @@ SYM_FUNC_START(_cpu_resume)
- 	add	x0, x0, #SLEEP_STACK_DATA_SYSTEM_REGS
- 	/* load sp from context */
- 	ldr	x2, [x0, #CPU_CTX_SP]
--	mov	sp, x2
-+	msr	sp_el0, x2
-+
- 	/*
- 	 * cpu_do_resume expects x0 to contain context address pointer
- 	 */
-diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index 4c122d6598de..b2e778aae881 100644
---- a/arch/arm64/kernel/smp.c
-+++ b/arch/arm64/kernel/smp.c
-@@ -447,14 +447,16 @@ void __init smp_cpus_done(unsigned int max_cpus)
- 	mark_linear_text_alias_ro();
- }
- 
--static void __init set_boot_cpu_offset(void)
-+static void __init update_boot_cpu_offset_and_overflow_stack(void)
- {
- 	u64 ovf_sp = (u64)raw_cpu_ptr(overflow_stack) + OVERFLOW_STACK_SIZE;
- 
- 	asm volatile(
- 	"	msr	tpidr_el1, %1\n"
- 	"	add	%0, %0, %1\n"
--	"	msr	sp_el0, %0" /* Update the overflow stack pointer */
-+	"	msr	spsel, #1\n"
-+	"	mov	sp, %0\n" /* Update the overflow stack pointer */
-+	"	msr	spsel, #0"
- 	: "+r" (ovf_sp)
- 	: "r" (per_cpu_offset(0))
- 	: "memory");
-@@ -467,7 +469,7 @@ void __init smp_prepare_boot_cpu(void)
- 	 * setup_per_cpu_areas(), and CPU0's boot time per-cpu area will be
- 	 * freed shortly, so we must move over to the runtime per-cpu area.
- 	 */
--	set_boot_cpu_offset();
-+	update_boot_cpu_offset_and_overflow_stack();
- 
- 	cpuinfo_store_boot_cpu();
- 	setup_boot_cpu_features();
-diff --git a/arch/arm64/kvm/hyp/entry.S b/arch/arm64/kvm/hyp/entry.S
-index 4c89931a6a92..4d1205d04383 100644
---- a/arch/arm64/kvm/hyp/entry.S
-+++ b/arch/arm64/kvm/hyp/entry.S
-@@ -31,6 +31,7 @@ SYM_FUNC_START(__guest_enter)
- 	save_callee_saved_regs x1
- 
- 	// Save hyp's sp_el0 and tpidrro_el0
-+	activate_exception_stack
- 	save_sp_el0	x1, x2
- 	save_tpidrro_el0 x1, x2
- 
-@@ -50,6 +51,7 @@ alternative_else_nop_endif
- 	// that would usually be synchonized by the ERET.
- 	isb
- 	mov	x0, #ARM_EXCEPTION_IRQ
-+	deactivate_exception_stack
- 	ret
- 
- 1:
-@@ -167,6 +169,7 @@ SYM_INNER_LABEL(__guest_exit, SYM_L_GLOBAL)
- 	// Restore hyp's sp_el0 and tpidrro_el0
- 	restore_sp_el0 x2, x3
- 	restore_tpidrro_el0 x2, x3
-+	deactivate_exception_stack
- 
- 	// Now restore the hyp regs
- 	restore_callee_saved_regs x2
-diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
-index ad4965d34978..bec7f858fae9 100644
---- a/arch/arm64/mm/proc.S
-+++ b/arch/arm64/mm/proc.S
-@@ -87,6 +87,7 @@
-  * This must be kept in sync with struct cpu_suspend_ctx in <asm/suspend.h>.
-  */
- SYM_FUNC_START(cpu_do_suspend)
-+	msr	spsel, #1
- 	mrs	x2, tpidr_el0
- 	mrs	x3, tpidrro_el0
- 	mrs	x4, contextidr_el1
-@@ -98,7 +99,7 @@ SYM_FUNC_START(cpu_do_suspend)
- 	mrs	x10, oslsr_el1
- 	mrs	x11, sctlr_el1
- 	get_this_cpu_offset x12
--	mrs	x13, sp_el0
-+	mov	x13, sp				// SP_EL1
- 	stp	x2, x3, [x0]
- 	stp	x4, x5, [x0, #16]
- 	stp	x6, x7, [x0, #32]
-@@ -114,6 +115,7 @@ alternative_if ARM64_HAS_TCR2
- 	mrs	x2, REG_TCR2_EL1
- 	str	x2, [x0, #104]
- alternative_else_nop_endif
-+	msr	spsel, #0
- 	ret
- SYM_FUNC_END(cpu_do_suspend)
- 
-@@ -121,6 +123,8 @@ SYM_FUNC_END(cpu_do_suspend)
-  * cpu_do_resume - restore CPU register context
-  *
-  * x0: Address of context pointer
-+ *
-+ * Entered with SPSel == 1, returns with SPSel == 0.
-  */
- SYM_FUNC_START(cpu_do_resume)
- 	ldp	x2, x3, [x0]
-@@ -159,7 +163,8 @@ alternative_else_nop_endif
- 
- 	msr	sctlr_el1, x12
- 	set_this_cpu_offset x13
--	msr	sp_el0, x14
-+	mov	sp, x14				// SP_EL1
-+
- 	/*
- 	 * Restore oslsr_el1 by writing oslar_el1
- 	 */
-@@ -182,6 +187,7 @@ alternative_else_nop_endif
- 
- 	ptrauth_keys_install_kernel_nosync x15, x1, x2, x3
- 	isb
-+	msr	spsel, #0
- 	ret
- SYM_FUNC_END(cpu_do_resume)
- #endif
--- 
-2.55.0.1082.g2b9226bbc0-goog
-
+Thanks,
+Jamie
 
