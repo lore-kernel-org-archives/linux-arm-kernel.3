@@ -4,96 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49B39C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 04:02:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3371AC982D2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 04:16:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YLHxgWDH6NZEUyidyM1IgI1xUcXj8vFEb1hVxsczrbo=; b=Vb1YQWOzKaXz6zUb9jwzbxJW//
-	IO8YB8gIbB2AqZDnTxwnHCjXUw1MI44TGIYj8GfSZsqi5ZA0sJClHuNNtRksbvjdzkXiIzB0kbkEL
-	MJDm9qpM2lg+zv2UgWn9cgZHKVfR4b0VRXZGQ2TVcqVJ2oqwzUsMJCTLUi4HwyRaNaVupvlLM03C0
-	SmusG1uEhqaRV8ZbwXhi25z5oZC6UbMbjS3Ax+1tlIDYyYCDv2j9GfWgqgDHDD/WIoAcA0+4FuWrY
-	C/+iDXY3Fqsd21GZZ45OGUCc9iihhDAWUT3i6OlPgzb4SkMHc9FzPjV+vvgN9xHPZ6P2xKWRSCG2A
-	zpjsHQyg==;
+	bh=g5DKEYyvWEAWVKejXJm1cVbz3X+KIz29ykH7P6jopns=; b=GfqR271iGwnRFPt1lg5M2Okd2a
+	FMU9IIJZfnMlGg1Hzx1aZN72yih8ik9zsPUnfaaK9WCmFBxF03ZDcqgLjBcyzTKID8enR/ghMKd4v
+	SHYfCcJEzzCvr644QhN+GFmv72FenIY6lNAI/bdF+Wo7s6aKCLyHNC65N045izCkddUru6j0S1atY
+	FkSMbA+obqtNxvJUW8eMK4reYUdGVTY34fgXYAXoLlMZ7ivN4DPRMmysrvDz/cKDZni+24AIUjgKT
+	HrrM+Utxavv1rP+R7S1j2J9nlrFn5O3tRpXjX5NaKh0Z9gEIPHGHQQYJXntKoe87bIPy9zodwtmLe
+	HcBGJp5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Po0-0000000DQZV-1ARu;
-	Fri, 18 Sep 2026 04:02:32 +0000
-Received: from mail-oa2-x2a.google.com ([2607:f8b0:4864:30::2a])
+	id 1x7Q1Y-0000000DRNd-3nDg;
+	Fri, 18 Sep 2026 04:16:32 +0000
+Received: from mail-yx2-x10.google.com ([2607:f8b0:4864:41::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Pnw-0000000DQY5-0CwF
+	id 1x7Q1W-0000000DRNI-1bDy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 04:02:29 +0000
-Received: by mail-oa2-x2a.google.com with SMTP id 586e51a60fabf-483c65c2fa7so240525fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 21:02:27 -0700 (PDT)
+	Fri, 18 Sep 2026 04:16:31 +0000
+Received: by mail-yx2-x10.google.com with SMTP id 956f58d0204a3-66e4ab201ecso307904d50.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 21:16:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789704989; cv=none;
+        d=google.com; s=arc-20260327;
+        b=rHS/Yrp1R4GXMclWXN+bgszphU2Ea4WW5gtmvZVqP+h8YPYFnl1/7uiN1AvGbQ2hC8
+         IzKVfzVRes8Z3UO7Zt3Ii7aZp9WOO0E6YxUE8CW3dbxJ+JZTCdlmZ9Ipo28j1f1ADlqK
+         oHJ+x2CN8sZm30O7PwJK+QX908iSrduWZqvt8YelfwiQtmWewBdXcS+o9c5ewHLUnBdR
+         gWXsqdLNrA5CnYUwMlaSp5eZYjAzXd4Uz115azeC0KFPzfiKvmSCPcGeD2/8x9fmMMkv
+         qluNUbXWJNpx7vatz/WagFDz5r6yjKrmhXCX+Sfzk5jlq7pvmZqUbMZz126fpXPU6tBh
+         AEgg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=g5DKEYyvWEAWVKejXJm1cVbz3X+KIz29ykH7P6jopns=;
+        fh=vfcRMQ9vvkZZzkHSoQtGmHtFiNB0rAKSv1py2pxtakw=;
+        b=NnudNCRiVN7osOE+6TzbB4gUzbMTfX/Cbo/dfEwu9jitEL+yaSnyKnL4NK5mRvTq/v
+         R6SDl3Lfi4fjS8jHJG50XYosiLg+K5oeiD7+oaBHkJTLEa2MNnvGLBAD5scCT0PK7UAW
+         NfCFOa+Km1KRH6To1qPKyQopAbUmZHfm8bYux+d5c0V4UXd/zkPnR2lP7JU2se1CDp0r
+         /jIfuWkJZ6uJUBc8JVyWHGH2GtRJiGeSoo47DwyzYJAgrs1j3A4f5XzUVqcqgSdPnOQX
+         7SxZRMrmBno0Thv3ACvVLb4muxxD4g5DYmnHHRAN508dvIcX5SbbupPZHyfljuO33Idu
+         NukQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789704147; x=1790308947; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=YLHxgWDH6NZEUyidyM1IgI1xUcXj8vFEb1hVxsczrbo=;
-        b=HXEIPvz12yJTka3ZYj39dnFNQ1sMo/xq+VQ2CCeqLlvq9+uf1YhPyQ+/LAv9ySa1QW
-         VEMOrJ/Vg8SLGOTqtLZUohh9oKI419i3zffOHPRX6VVY8kBeTaC9aL6CdsnrORygTOkP
-         hyH2gmE5UHxs8xvWRkvtyKuFtSFPzd9NSi0j/1PJ44lWZ4BS0hmuaXYr2ZQ3ZJwvBJZg
-         693EthK3azV01qyS80IjXTJLsrJACsoafiEYDYayQUJlDh57VFal8xu2Y80pCxrhVSfX
-         HYoZ40E9dxVEF3gLfZPsmFqaW9Q4aR1ZLRE5kKReeMhEMLD5WoxtMr6s5XoNVkKYmmKB
-         2zKw==
+        d=chromium.org; s=google; t=1789704989; x=1790309789; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=g5DKEYyvWEAWVKejXJm1cVbz3X+KIz29ykH7P6jopns=;
+        b=IbEuUo79ioRvalCoYfD6x2EGFjltXP6gm5iLise6VhC9ei8AYM3qIOYM9+Vgr3CIGO
+         8y4TZUSytdvnvyR0jkEn9XuTgwdFmzUS9o9sBJ5EHxJ+uNjWGIzm+3h3rBa4TO3/BiJt
+         plwACprTjtIVABxz23B2WvLfRX5zktp9PcvNI=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789704147; x=1790308947;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=YLHxgWDH6NZEUyidyM1IgI1xUcXj8vFEb1hVxsczrbo=;
-        b=2N4o+fy6KCqq+T9S1NzfaXNlaIlFQHKgPyRhkn+Ugv2V/m51T5xAqgIvm5MbAqF9KL
-         zfFXYdOxErX4sbnMpR7C5yCVMI5kjJF1VJgbK5Xb3N91CLaQJgEfIHN0q2K15z35/gzQ
-         fcQzBSJgpV6d3dXghoh3uE3CRIhaXbBRmA405njNNIraJhGwBcOeY1k5ksc1+rzn/JJL
-         RGkzdy2t4Rwq1xEmXm2ZHkZ/01IEnNVCsmt8EEjmm67RYDHbxbOPn8XwEEvIMMAUR7N0
-         rgEVTPgHpjZq5Eb30f40jAGnnakXcLAlrWO+u4QAHoB2YZuix2gWsebBL+I5MPKsUFA4
-         UoGg==
-X-Forwarded-Encrypted: i=1; AKwUvBwIRvNI7Vf7r70QRhN90cbm1t5rreG22gL70s7U1CoobdbxU5oV5T04wHTWBJeNvYMREYnnMYdKjMy18Td2IAux@lists.infradead.org
-X-Gm-Message-State: AFuF++lnZwPs+9UkPJo6Fu0O67swqTHBba21oHjsuMT/gnlitUgdxrbm
-	v5zFp+99LyYEDWo0xs/EROnIC19RXU+qhqFcb5j6poyh3laX6KBg+Sr0
-X-Gm-Gg: AYBFou2SIbnbVrAgZcSYDsTGUTPMC/1LkipHmP1DkMJ+PEE0QUuYr7pfOm4Q+7hvcnV
-	0oDPnIoa5+rsMGPs27AAwED07DutCHS6PJn1+az1A4Tkc7WaiLT5tivDGwIuwiOua5nmd90tRaU
-	XbXo2PAc8gTe0IHx6wfSScrr8xfnS2+wmcrr8XA9Q55CLK4IKPTjIB+fdmjXKe8kc1a5nbBMzXq
-	DOeWd0VYGKxNQ6TjJcN3kEyM/71xLlJZDpcqUd7LgKGH5UP1hxlju+SStYJdlZutoUxpIdQtsky
-	Vl19BmPBV1uCIkAjuWRYKNXwTnrZgvDK8Nlu4co3PWniymHJy1WIBkyQWlTGaFkEoNVno8HYUgL
-	Xs2OsJdabVO7pCmkLf8gGc30aoG+oLd/6aY+/f4aHic5Szf7p+Ch5xOFcb4JdBmlKBBIYDDi+oH
-	WfaIQgBHgMfjUMpyZceLQX251+6cnBxLIYYvG0PgUGK0eg+W2FbJWJYK/GlQSw46Cx9xIxhlMIM
-	MuOKHb7RepggChLNgXGI41qwkcef5ZT2E9T6yQ=
-X-Received: by 2002:a4a:edc7:0:b0:6bd:f333:7b83 with SMTP id 006d021491bc7-6ca9a44dc18mr1362602eaf.16.1789704146860;
-        Thu, 17 Sep 2026 21:02:26 -0700 (PDT)
-Received: from localhost.localdomain ([2409:8a1e:2e81:7320:608a:778a:c473:ac82])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33c287be968sm719908eec.26.2026.09.17.21.02.23
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 17 Sep 2026 21:02:26 -0700 (PDT)
-From: zjamg <ndaugoing@gmail.com>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>
-Cc: James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Yuchao Zhang <ndaugoing@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH v2] KVM: arm64: vgic: Do not remove in-flight LPIs from AP list on disable
-Date: Fri, 18 Sep 2026 12:02:14 +0800
-Message-ID: <20260918040214.85580-2-ndaugoing@gmail.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260918040214.85580-1-ndaugoing@gmail.com>
-References: <20260918040214.85580-1-ndaugoing@gmail.com>
+        d=1e100.net; s=20260707; t=1789704989; x=1790309789;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=g5DKEYyvWEAWVKejXJm1cVbz3X+KIz29ykH7P6jopns=;
+        b=trupaPEkISz3ANAQVMSGtcWZLyHWcPs0BTenBf4OeJQw5AmDDh2EC3ulz4FTpa7OxZ
+         6EvgbMmMuEUsZoA7FvJhN1apMEjKHcuIndQiMjP6lQlC3qsf8m5ev2roCOGCNYrbDPcl
+         tTUaXf02dRtS7buJ/EQr+Jhjl5YMNttBVWlNA9LZPB8cnrhJLVmvkbCJ3YyEq43CY3rc
+         J+AYhkzsFxl8fwSAASFjOs/AmhWJ4lrWkdBFmDpd8NpTaJvJLhd9afUf2EjJ4+cJS29F
+         A2jlrGghcoISGDCi1dP7oeFk8p+BHpeCpcPKVnzkV2m6zJhtoTe+6f2QJAIhsVM8peMu
+         ikag==
+X-Forwarded-Encrypted: i=1; AKwUvByORmQJkjqrLiln2p197ROEFLWWzUHqr8vcSp8Eum0vi7csdR7dGsdRl65KRO9j5mXiYzLbIFnCc1kBgzomfNv4@lists.infradead.org
+X-Gm-Message-State: AFuF++m2isR6ZAOK6SixMc+J5ldnr5N3gQkbGSRunWrE/VJ6WNuCwPfY
+	LkWgBJ2DKN41gGeiCNNfx7mWu/dXXxV0vmVcjrWQ2UhQIBzTq+8yNqlnCbgW849/MJsIqs07t5m
+	f7YrAk6el7xyoR/4lxczRlD+OnjLYEfj2AkvoPHm4
+X-Gm-Gg: AYBFou3UfIc10bPVfaTlJnWa35m0Reh12l1GZDRiHwA+/LRwuph4YWczByHyGnChtet
+	+XJ/SEfOGgj0uuu/1cQMmYlmjILFKYj5ukc7+l957V4WO33qM8JbwvC0LDUOSIBOha0ECvhtFkj
+	FJW7OzSYL2uyym7yQ1v/iwbkIs5ZJ3cmlZlzjrWm16As4oPhQ5UrxhqJJC6gVKd1gatE7Uzo4fX
+	NHJOcRE++4zuOoIDa8uZG+N4fJzStftA+UvMvGYUNKPSUe9o3lGebuMJrnD6wDCL9stFDO0GHL9
+	yFqpgC3ixdt8X5XcsSmPUux//3Hu91SS2XTwP8zCISdJ9+yCmkePZ0nH4iD6XHcpTKYT9pyoF0y
+	a9TCbx6W7xA==
+X-Received: by 2002:a05:690e:809:10b0:671:3141:3832 with SMTP id
+ 956f58d0204a3-6717fc76ff0mr285169d50.4.1789704988719; Thu, 17 Sep 2026
+ 21:16:28 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260916033327.3054126-1-wenst@chromium.org> <20260916033327.3054126-2-wenst@chromium.org>
+ <f6ace486-70d8-4e81-89cb-e9d55ad9ac8b@suse.de>
+In-Reply-To: <f6ace486-70d8-4e81-89cb-e9d55ad9ac8b@suse.de>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Fri, 18 Sep 2026 12:16:17 +0800
+X-Gm-Features: AcwNN1UR3eVFLoBD9oF0TIdnuDNIVRYA94Woweb8vmhnl_ZgpInsWYdL86x54Xk
+Message-ID: <CAGXv+5ErgWVNtnRiW+QA7+Mzh=W_Y+HGL_iRa1fOaXCYSoAwMA@mail.gmail.com>
+Subject: Re: [PATCH RFT v2 1/5] drm: Split framebuffer pixel offset
+ calculation from drm_fb_dma_get_gem_addr()
+To: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: Liu Ying <victor.liu@nxp.com>, Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>, 
+	Lucas Stach <l.stach@pengutronix.de>, Chen-Yu Tsai <wens@kernel.org>, 
+	Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, linux-sunxi@lists.linux.dev, 
+	imx@lists.linux.dev, dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_210228_107293_2B20CF02 
-X-CRM114-Status: GOOD (  23.10  )
+X-CRM114-CacheID: sfid-20260917_211630_492353_CCDF474A 
+X-CRM114-Status: GOOD (  35.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,151 +123,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yuchao Zhang <ndaugoing@gmail.com>
-
-By code inspection, a race condition and potential Use-After-Free/crash
-exists between remote LPI disabling and local LR folding when EOImode==0.
-
-Commit 6da5e537f5af ("KVM: arm64: vgic: Pick EOIcount deactivations from
-AP-list tail") introduced tracking the last interrupt placed in a List
-Register in per-CPU host data (*host_data_ptr(last_lr_irq)) and traverses
-the remaining ap_list via list_for_each_entry_continue() in
-vgic_v3_fold_lr_state().
-
-However, an interrupt loaded into an LR can be an LPI. While vCPU-B is
-running the guest, another vCPU-A can write to vCPU-B's redistributor
-GICR_CTLR to clear EnableLPIs, which dispatches vgic_flush_pending_lpis().
-
-vgic_flush_pending_lpis() unconditionally removes all LPIs from ap_list
-without checking whether the interrupt is currently in an LR
-(irq->on_lr):
-- It calls list_del(&irq->ap_list), setting ap_list.next to LIST_POISON1,
-  and drops the AP-list reference.
-- If the LPI is unmapped or its translation cache was invalidated, the
-  vgic_irq refcount drops to zero and the object is freed via RCU.
-- Meanwhile, vCPU-B's per-CPU *host_data_ptr(last_lr_irq) cannot be
-  cleared by remote vCPUs and is left dangling.
-
-When vCPU-B subsequently exits the guest:
-1. vgic_v3_fold_lr_state() resumes using the unlinked last_lr_irq.
-2. list_for_each_entry_continue() unconditionally evaluates
-   list_next_entry(irq, ap_list) during loop initialization, accessing
-   LIST_POISON1 (or freed memory).
-3. If eoicount > 0, it attempts guard(raw_spinlock)(&irq->irq_lock) on
-   the poisoned address, leading to an immediate host kernel panic.
-
-Fix this by:
-1. In vgic_flush_pending_lpis(), do not remove LPIs that are currently
-   in-flight in an LR (irq->on_lr == true). They will be naturally pruned
-   by the owning vCPU's vgic_prune_ap_list() after LR folding.
-2. In vgic_fold_state(), clear *host_data_ptr(last_lr_irq) after folding
-   so that no stale pointer survives past guest execution.
-3. In vgic_v3_fold_lr_state() and vgic_v2_fold_lr_state(), bail out
-   immediately if eoicount is zero, avoiding unnecessary list_next_entry()
-   evaluation.
-4. In vgic_v3_fold_lr(), do not resurrect the pending state of an edge
-   LPI folded while the redistributor has LPIs disabled.
-   vgic_flush_pending_lpis() cannot remotely clear the LRs of a running
-   vCPU, so such an LPI would otherwise be requeued and re-injected
-   while GICR_CTLR.EnableLPIs is 0, violating the flush semantics (and
-   the architecture, which gives no expectation of the pending state
-   being retained across a disable).
-
-Note: this closes the primary race (the last_lr_irq node itself is no
-longer unlinkable while in-flight), but the fold traversal can still
-race with a remote flush unlinking a subsequent non-LR node in the
-ap_list tail. Fully closing that window needs the fold side to take
-references before dropping locks (in the spirit of the prune-side fix
-in commit 7258770e5814 ("KVM: arm64: vgic: Handle race between
-interrupt affinity change and LPI disabling")) and is left as a
-follow-up.
-
-Fixes: 6da5e537f5af ("KVM: arm64: vgic: Pick EOIcount deactivations from AP-list tail")
-Cc: stable@vger.kernel.org
-Signed-off-by: Yuchao Zhang <ndaugoing@gmail.com>
----
- arch/arm64/kvm/vgic/vgic-v2.c |  3 +++
- arch/arm64/kvm/vgic/vgic-v3.c | 14 ++++++++++++--
- arch/arm64/kvm/vgic/vgic.c    | 10 +++++++---
- 3 files changed, 22 insertions(+), 5 deletions(-)
-
-diff --git a/arch/arm64/kvm/vgic/vgic-v2.c b/arch/arm64/kvm/vgic/vgic-v2.c
-index 7182f63fc938..7b6cd05ce32d 100644
---- a/arch/arm64/kvm/vgic/vgic-v2.c
-+++ b/arch/arm64/kvm/vgic/vgic-v2.c
-@@ -122,6 +122,9 @@ void vgic_v2_fold_lr_state(struct kvm_vcpu *vcpu)
- 	for (int lr = 0; lr < vgic_cpu->vgic_v2.used_lrs; lr++)
- 		vgic_v2_fold_lr(vcpu, cpuif->vgic_lr[lr]);
- 
-+	if (!eoicount)
-+		return;
+On Thu, Sep 17, 2026 at 11:20=E2=80=AFPM Thomas Zimmermann <tzimmermann@sus=
+e.de> wrote:
+>
+> Hi
+>
+> Am 16.09.26 um 05:33 schrieb Chen-Yu Tsai:
+> > Currently drm_fb_dma_get_gem_addr() calculates the offset into the
+> > framebuffer memory for the framebuffer's unclipped source coordinates,
+> > adds that to the framebuffer's backing storage, and returns the result.
+> >
+> > We are about to add a variant that uses the clipped source coordinates,
+> > so there is already some reuse of code. However, calculating the data
+> > offset for a given pixel is not specific to the DMA FB helpers. The
+> > offset is only related to the framebuffer.
+> >
+> > Split out the offset calculation into a new framebuffer helper so that
+> > non-DMA users can also reuse the same code.
+> >
+> > Suggested-by: Thomas Zimmermann <tzimmermann@suse.de>
+> > Cc: <stable@vger.kernel.org> # dependency for next patch
+> > Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+> > ---
+> > Changes since v1:
+> > - New patch
+> > ---
+> >   drivers/gpu/drm/drm_fb_dma_helper.c | 28 ++----------------
+> >   drivers/gpu/drm/drm_framebuffer.c   | 45 ++++++++++++++++++++++++++++=
 +
- 	/* See the GICv3 equivalent for the EOIcount handling rationale */
- 	list_for_each_entry_continue(irq, &vgic_cpu->ap_list_head, ap_list) {
- 		u32 lr;
-diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
-index 726e20a1da6e..dd1314f4543d 100644
---- a/arch/arm64/kvm/vgic/vgic-v3.c
-+++ b/arch/arm64/kvm/vgic/vgic-v3.c
-@@ -96,9 +96,16 @@ static void vgic_v3_fold_lr(struct kvm_vcpu *vcpu, u64 val)
- 		deactivated = irq->active && !(val & ICH_LR_ACTIVE_BIT);
- 		irq->active = !!(val & ICH_LR_ACTIVE_BIT);
- 
--		/* Edge is the only case where we preserve the pending bit */
-+		/*
-+		 * Edge is the only case where we preserve the pending bit.
-+		 * Do not resurrect the pending state of LPIs once the
-+		 * redistributor has them disabled: vgic_flush_pending_lpis()
-+		 * has discarded them, and the LRs of a running vCPU cannot
-+		 * be remotely cleared.
-+		 */
- 		if (irq->config == VGIC_CONFIG_EDGE &&
--		    (val & ICH_LR_PENDING_BIT))
-+		    (val & ICH_LR_PENDING_BIT) &&
-+		    (irq->intid < VGIC_MIN_LPI || vgic_lpis_enabled(vcpu)))
- 			irq->pending_latch = true;
- 
- 		/*
-@@ -155,6 +162,9 @@ void vgic_v3_fold_lr_state(struct kvm_vcpu *vcpu)
- 	for (int lr = 0; lr < cpuif->used_lrs; lr++)
- 		vgic_v3_fold_lr(vcpu, cpuif->vgic_lr[lr]);
- 
-+	if (!eoicount)
-+		return;
-+
- 	/*
- 	 * EOIMode=0: use EOIcount to emulate deactivation. We are
- 	 * guaranteed to deactivate in reverse order of the activation, so
-diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
-index b25303d9919f..0d7d75c3ac93 100644
---- a/arch/arm64/kvm/vgic/vgic.c
-+++ b/arch/arm64/kvm/vgic/vgic.c
-@@ -205,10 +205,12 @@ void vgic_flush_pending_lpis(struct kvm_vcpu *vcpu)
- 		if (irq_is_lpi(vcpu->kvm, irq->intid)) {
- 			raw_spin_lock(&irq->irq_lock);
- 			irq->pending_latch = false;
--			list_del(&irq->ap_list);
--			irq->vcpu = NULL;
-+			if (!irq->on_lr) {
-+				list_del(&irq->ap_list);
-+				irq->vcpu = NULL;
-+				deleted |= vgic_put_irq_norelease(vcpu->kvm, irq);
-+			}
- 			raw_spin_unlock(&irq->irq_lock);
--			deleted |= vgic_put_irq_norelease(vcpu->kvm, irq);
- 		}
- 	}
- 
-@@ -873,6 +875,8 @@ static void vgic_fold_state(struct kvm_vcpu *vcpu)
- 		vgic_v2_fold_lr_state(vcpu);
- 	else
- 		vgic_v3_fold_lr_state(vcpu);
-+
-+	*host_data_ptr(last_lr_irq) = NULL;
- }
- 
- /* Requires the irq_lock to be held. */
--- 
-2.53.0
+> >   include/drm/drm_framebuffer.h       |  3 ++
+> >   3 files changed, 51 insertions(+), 25 deletions(-)
+> >
+> > diff --git a/drivers/gpu/drm/drm_fb_dma_helper.c b/drivers/gpu/drm/drm_=
+fb_dma_helper.c
+> > index fd71969d2fb1..ab0f37d8a5ff 100644
+> > --- a/drivers/gpu/drm/drm_fb_dma_helper.c
+> > +++ b/drivers/gpu/drm/drm_fb_dma_helper.c
+> > @@ -75,36 +75,14 @@ dma_addr_t drm_fb_dma_get_gem_addr(struct drm_frame=
+buffer *fb,
+> >                                  unsigned int plane)
+> >   {
+> >       struct drm_gem_dma_object *obj;
+> > -     dma_addr_t dma_addr;
+> > -     u8 h_div =3D 1, v_div =3D 1;
+> > -     u32 block_w =3D drm_format_info_block_width(fb->format, plane);
+> > -     u32 block_h =3D drm_format_info_block_height(fb->format, plane);
+> > -     u32 block_size =3D fb->format->char_per_block[plane];
+> > -     u32 sample_x;
+> > -     u32 sample_y;
+> > -     u32 block_start_y;
+> > -     u32 num_hblocks;
+> >
+> >       obj =3D drm_fb_dma_get_gem_obj(fb, plane);
+> >       if (!obj)
+> >               return 0;
+> >
+> > -     dma_addr =3D obj->dma_addr + fb->offsets[plane];
+> > -
+> > -     if (plane > 0) {
+> > -             h_div =3D fb->format->hsub;
+> > -             v_div =3D fb->format->vsub;
+> > -     }
+> > -
+> > -     sample_x =3D (state->src_x >> 16) / h_div;
+> > -     sample_y =3D (state->src_y >> 16) / v_div;
+> > -     block_start_y =3D (sample_y / block_h) * block_h;
+> > -     num_hblocks =3D sample_x / block_w;
+> > -
+> > -     dma_addr +=3D fb->pitches[plane] * block_start_y;
+> > -     dma_addr +=3D block_size * num_hblocks;
+> > -
+> > -     return dma_addr;
+> > +     return obj->dma_addr + drm_framebuffer_get_block_offset(fb, plane=
+,
+> > +                                                             state->sr=
+c_x >> 16,
+> > +                                                             state->sr=
+c_y >> 16);
+> >   }
+> >   EXPORT_SYMBOL_GPL(drm_fb_dma_get_gem_addr);
+> >
+> > diff --git a/drivers/gpu/drm/drm_framebuffer.c b/drivers/gpu/drm/drm_fr=
+amebuffer.c
+> > index d32aceb6ca9b..9e1231162047 100644
+> > --- a/drivers/gpu/drm/drm_framebuffer.c
+> > +++ b/drivers/gpu/drm/drm_framebuffer.c
+> > @@ -1208,6 +1208,51 @@ void drm_framebuffer_print_info(struct drm_print=
+er *p, unsigned int indent,
+> >       }
+> >   }
+> >
+> > +/**
+> > + * drm_framebuffer_get_block_offset() - Get offset to start of pixel b=
+lock for
+> > + * the given framebuffer and coordinates.
+> > + * @fb: The framebuffer
+> > + * @plane: Which plane
+> > + * @x: x coordinate for pixel
+> > + * @y: y coordinate for pixel
+> > + *
+> > + * This function will usually be called from the PLANE callback functi=
+ons,
+> > + * or from one of the helpers that calculates the framebuffer's DMA ad=
+dress.
+> > + *
+> > + * Return: offset from start of framebuffer to start of pixel block
+> > + */
+> > +u32 drm_framebuffer_get_block_offset(struct drm_framebuffer *fb, unsig=
+ned int plane,
+> > +                                  unsigned int x, unsigned int y)
+>
+> Better use u64 as return type.
 
+To avoid overflow? Not sure who would use crazy large framebuffers, but
+doesn't hurt to play it safe.
+
+> > +{
+> > +     u8 h_div =3D 1, v_div =3D 1;
+> > +     u32 block_w =3D drm_format_info_block_width(fb->format, plane);
+> > +     u32 block_h =3D drm_format_info_block_height(fb->format, plane);
+> > +     u32 block_size =3D fb->format->char_per_block[plane];
+> > +     u32 sample_x;
+> > +     u32 sample_y;
+> > +     u32 block_start_y;
+> > +     u32 num_hblocks;
+> > +     u32 offset;
+> > +
+> > +     offset =3D fb->offsets[plane];
+> > +
+> > +     if (plane > 0) {
+> > +             h_div =3D fb->format->hsub;
+> > +             v_div =3D fb->format->vsub;
+> > +     }
+> > +
+> > +     sample_x =3D x / h_div;
+> > +     sample_y =3D y / v_div;
+> > +     block_start_y =3D (sample_y / block_h) * block_h;
+> > +     num_hblocks =3D sample_x / block_w;
+> > +
+> > +     offset +=3D fb->pitches[plane] * block_start_y;
+> > +     offset +=3D block_size * num_hblocks;
+>
+> User space controls the values in fb->offsets and fb->pitches.  I'm not
+> sure how well they have been validated already at this point. Did you
+> investigate this?
+
+It wouldn't be worse than before, since this changes is purely code movemen=
+t.
+
+There are minimal sanity checks done by drm_internal_framebuffer_create()
+in framebuffer_check(), such as offset overflow or pitch size too small,
+but that's about it. It would be up to individual drivers to perform more
+checks that match their hardware limitations.
+
+What sort of issues are you thinking about?
+
+
+ChenYu
+
+> Best regards
+> Thomas
+>
+>
+> > +
+> > +     return offset;
+> > +}
+> > +EXPORT_SYMBOL(drm_framebuffer_get_block_offset);
+> > +
+> >   #ifdef CONFIG_DEBUG_FS
+> >   static int drm_framebuffer_info(struct seq_file *m, void *data)
+> >   {
+> > diff --git a/include/drm/drm_framebuffer.h b/include/drm/drm_framebuffe=
+r.h
+> > index 38b24fc8978d..c07aea1cc59f 100644
+> > --- a/include/drm/drm_framebuffer.h
+> > +++ b/include/drm/drm_framebuffer.h
+> > @@ -220,6 +220,9 @@ void drm_framebuffer_remove(struct drm_framebuffer =
+*fb);
+> >   void drm_framebuffer_cleanup(struct drm_framebuffer *fb);
+> >   void drm_framebuffer_unregister_private(struct drm_framebuffer *fb);
+> >
+> > +u32 drm_framebuffer_get_block_offset(struct drm_framebuffer *fb, unsig=
+ned int plane,
+> > +                                  unsigned int x, unsigned int y);
+> > +
+> >   /**
+> >    * drm_framebuffer_get - acquire a framebuffer reference
+> >    * @fb: DRM framebuffer
+>
+> --
+> --
+> Thomas Zimmermann
+> Graphics Driver Developer
+> SUSE Software Solutions Germany GmbH
+> Frankenstr. 146, 90461 N=C3=BCrnberg, Germany, www.suse.com
+> GF: Jochen Jaser, Andrew McDonald, (HRB 36809, AG N=C3=BCrnberg)
+>
+>
 
