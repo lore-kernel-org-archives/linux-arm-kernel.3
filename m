@@ -4,144 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BF8AC982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 14:58:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0250FC982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 14:58:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=66NICZkpa47NvpHYnIVSUpRZllbnikkprLG0oLOMVPo=; b=Z3MrxVt20llqpHi6CNbu81BN4u
-	bmjOJdofXXfsuNG6pboPt4JJD7L3PqS8KrsL3CB6egFVLAOypIwf8Rp8ZObHhTiTj+e9XuDyqqerQ
-	qARFP9fe0S8VUhIbCSlGH2DJM1AejNfZFwqNG+9RImVceo26IemTNg/vwG7e0WktCdPdPzXdGEhcZ
-	6s3bxLBjJv51jVK/dmCHqDrsdmBSGDT8UCKVHYR37vIjMUuMuhT9Jg4FOno9aHgsnzzMM5ei4BO7A
-	/PFL645dPwMIRN3T1D/ZueX2wvZefZpsldVXvX0KBtHQPkIm4U6b61sDIthev+0YAseiyhB2pSTUa
-	9JitRrmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=42YPCI4QCsZaMNyDC5mW32bMOIACfYflBli7hCrEV5k=; b=3VR980V9AHLCSYzQ9bq2pmsGxu
+	phHmJUz8x+Tx38Oa67tD6FA7y9g5wOFdFJMaxLwxq7KbJtdhyAUiFsEZNiVuOzTM7nzMpkTXZNStS
+	ajVN1OWM/SGLpifBq+XivURsa0iPwk1RmKbggis5SYBlcCwqGTK6G/baXowqI5WUJbC3tFN0Lz+im
+	pWDPTBlZ0ZCBBrMcLynWGLHYGqyRpbuo5KbM3kBP8cuRb6WGSjw42Zz69hLTEabmnT0xg+lJC2kLi
+	0TWBPLJj/u9bJ2Q9q/vNjtSb6m1Xc0Nb8zz6ilOw7XlCC4bZIyakwtlBNc/Hb8FJTJ6UY1x2gmANB
+	yglKFEaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Ygt-0000000EX0T-44iZ;
-	Fri, 18 Sep 2026 13:31:47 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x7a2j-0000000Eo2V-0MDr;
+	Fri, 18 Sep 2026 14:58:25 +0000
+Received: from mail-francesouthazon11011053.outbound.protection.outlook.com ([40.107.130.53] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Ygl-0000000EWu8-1yaH
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 18 Sep 2026 13:31:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=66NICZkpa47NvpHYnIVSUpRZllbnikkprLG0oLOMVPo=; b=dBD9F4JArltW5bwwsQcNo4Zo11
-	Z36ZHBWjbmbUMmYnzUzIhJTa+aGd6hjTq6XZBhiIY2buR3F/25I/fkTtb+Y98CUESaTTcKUdET/4s
-	50RY/bvJjkomS+ChIJpaQI/e2rZOe654M6Y/D9OuOs5J1+Aonr/Q8Lj1XRQw6KboiDFXAjBJUbEsf
-	KIi7844LEeHiLmPkmm0EMG8A/ZadC6XyHk6JmWdVpmJqdCrWJ1kpyAPsPnVPRd3WPMz0LamuFouR0
-	9H9CO14faekvy1bhMVsaweRLS/oJzCVDkGtxgAIeND3sD9To1Jv0rxO5NxZ7ZxNlnYaqO+HEHOTzq
-	Dj58CD7w==;
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x7Ygg-0000000A8Ww-2crR
+	id 1x7a2g-0000000Eo1H-0tLm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 13:31:38 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68IA1Utn3274380;
-	Fri, 18 Sep 2026 13:31:20 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=66NICZkpa47NvpHYn
-	IVSUpRZllbnikkprLG0oLOMVPo=; b=D6+8wN4vxi9HrM/bWhCTlMz5VVZElLPoM
-	O4XvzCrIz9QQmpHS+tqcrdi6LDJVAX7h2CysiZJ+9yzvJ2upi2BU7lSq/QYCxq3I
-	jyHdoaSlPPoFSK39iR3q7eCjDo/vsOnnZMO3s5w3v339IFXKWWVs4sbrmgyyRERb
-	Fyz0C/Rbs8Cb554/SxIGQe6vlqlJn1FxmsQCq6gpAhdzBqpzgUJ/ovbs4SnTIdJU
-	MYNzCNTxzoR+AoGQAjlIZ1hEDGCsa0t60an2TTCbJ+nUQNi3fwD7L/SU0XnNbjja
-	gvZ/yorNKNg85AWfHM5CabhkYuyrG4zusmPxa4Evqan8bA5YxlgfA==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gmxdqra2d-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 18 Sep 2026 13:31:19 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68IDO1fV722844;
-	Fri, 18 Sep 2026 13:31:18 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gr5fjqgvk-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 18 Sep 2026 13:31:17 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68IDVAXt51642854
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 18 Sep 2026 13:31:10 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id AD4CE20040;
-	Fri, 18 Sep 2026 13:31:10 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 5ECF320049;
-	Fri, 18 Sep 2026 13:31:10 +0000 (GMT)
-Received: from tuxmaker.lnxne.boe (unknown [9.87.85.9])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 18 Sep 2026 13:31:10 +0000 (GMT)
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org
-Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v8 07/29] KVM: Make device name configurable
-Date: Fri, 18 Sep 2026 15:30:44 +0200
-Message-ID: <20260918133107.1042730-8-seiden@linux.ibm.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260918133107.1042730-1-seiden@linux.ibm.com>
-References: <20260918133107.1042730-1-seiden@linux.ibm.com>
+	Fri, 18 Sep 2026 14:58:24 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=G236crVJihbJE/EU1ZJzLSngLQLDXSUDgNwOs09uCb5CRK2bK3Gx8fZ2+BCPyh9mHx95C9mNDrIRWbwC1sAtVDJQ4L2DqPqovKAnNOl2dONClUzTCIm8OlM/tZ3jYxURYQLd2jS70qRCd4/CP03h9l78NrAYMLun5UdXX6vKYH4Man6HqYNjHYQmL8TNSIFgoQdkMxb9Mf5IW3ExfUR4qYLvNTTk2NrQhLV6lc/Y1TWBY7xAGkFXPk25R+bXmyKrkV7IksjeH/G+7KWNdF7OzFM3LrNP+gAOi51GC4Lf1XlGPYmsW3yP8TFT8xqc0+qFUMJahI//q5GBA25sQZd8nA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=42YPCI4QCsZaMNyDC5mW32bMOIACfYflBli7hCrEV5k=;
+ b=OWJf6zjWBDcbJhdXJWUo7oGaqlLPIQK1K/rKYtSwmyvFB0J83mXTi/xLAlxB45oVmWnvSwozyhUb/mD9ccu3uYKUe5WXS3MJDyaytU76pyLQvypDv0kFricQv4sdfZjegs9ACqcFYuoHruGed/igrFKQhHYeAgCI3hSSojVKehyDppvwg6nCCUql052cRFGF/iOm3x644ZDR/7mRHtPa6bP0sW0UNx4LKpdJ8njuF/udds6OERMW195uUmwcNlUJ0WZul4FODBRBIzO2b2u3/MXVimWRIwUkLXObj/ajw8iQb7S19bVnPOJJkZCvMJR/woq7YHjeWJbTPvEt+PUJVA==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=linaro.org smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=42YPCI4QCsZaMNyDC5mW32bMOIACfYflBli7hCrEV5k=;
+ b=iyCCAu4vT6oTsyroAkCH7t58gJXbndjZMWnxAEUL2ee7kw3AA865C4YhPdshIlA8Qdh4gWRoXMIYo5XlqWKLv9EzQSU/MJa3Giu/fuD/NJKpAZqNbiOiKOsUTtKc6PwcDy4vL2Xjc/UwyfAe750leGb382AsbTtYjTua4gE9/OI=
+Received: from AM9P195CA0020.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:21f::25)
+ by DB5PR08MB10310.eurprd08.prod.outlook.com (2603:10a6:10:4a1::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.8; Fri, 18 Sep
+ 2026 14:58:06 +0000
+Received: from AM2PEPF00070CF5.eurprd02.prod.outlook.com
+ (2603:10a6:20b:21f:cafe::72) by AM9P195CA0020.outlook.office365.com
+ (2603:10a6:20b:21f::25) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.428.13 via Frontend Transport; Fri,
+ 18 Sep 2026 14:58:06 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AM2PEPF00070CF5.mail.protection.outlook.com (10.167.242.7) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.8
+ via Frontend Transport; Fri, 18 Sep 2026 14:58:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kUjIQ6B0XO2gC6tGVau0U4CDbmnX5xZq6D4fF/L6WLsi9VNlwXNANw1tNF7N1BwOQqTTuo6ki2Jlyg3UVzNlrRfEb6v6aHX+ziT0JrgrwsDt0X76FWf0xthh/xCQ7aiPNlYJi8wJZ1GhWgdERQLQcYU02VIpsuFyTMBGa2Et0Y9DB7p2+Kusi/K0fXY+DOjTirKWyaWwLRu1k5f+RJiFs3f+z+7Zno0qEcd5lwCbHAS/nO5kf35xgxNjKKXH6UbRWR/hZN7KDXcSvF+paUhOJO+BC4cX24H93IEnHV65m4b1GoOcPyc7MLX/QjwQGB8/ui1lYCKbfUNIra0Mp0rF3A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=42YPCI4QCsZaMNyDC5mW32bMOIACfYflBli7hCrEV5k=;
+ b=kyoKpBn6Zo2s6JAb1M4r9+M17VvhRXrqhPyt7cKP01cbkbIRxRZPChXkVscZA/QwqgDQWgQnlIP4/GaB+IrZFX2PuBJ6mBQE0ep0Ot+VMgngWZiDzdmQB3bIIOVqppH5fTfjYH8QrohET7Lm5SX/qNmWYLedRJtrHaIyDBtx7vmOjrzy4Yi5bWYYbT0njvqSl+0xbWyeNqotHiFpTiUgx5JmGfFUZBVuNdce9Zm2XNwNg3g57BmXypbMuOca9hNcHkMbIi8wJnjOkQW6dTOqE8qhdGheXCmErDSLtVriZroOz7EINpGcCTzJ76fA4sNQPDcN6aAF6/s0dzoMXP2WuQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=42YPCI4QCsZaMNyDC5mW32bMOIACfYflBli7hCrEV5k=;
+ b=iyCCAu4vT6oTsyroAkCH7t58gJXbndjZMWnxAEUL2ee7kw3AA865C4YhPdshIlA8Qdh4gWRoXMIYo5XlqWKLv9EzQSU/MJa3Giu/fuD/NJKpAZqNbiOiKOsUTtKc6PwcDy4vL2Xjc/UwyfAe750leGb382AsbTtYjTua4gE9/OI=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from PAVPR08MB9674.eurprd08.prod.outlook.com (2603:10a6:102:31d::14)
+ by AS8PR08MB9908.eurprd08.prod.outlook.com (2603:10a6:20b:562::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.9; Fri, 18 Sep
+ 2026 14:57:33 +0000
+Received: from PAVPR08MB9674.eurprd08.prod.outlook.com
+ ([fe80::6f25:3681:7c97:ea2e]) by PAVPR08MB9674.eurprd08.prod.outlook.com
+ ([fe80::6f25:3681:7c97:ea2e%5]) with mapi id 15.21.0451.004; Fri, 18 Sep 2026
+ 14:57:33 +0000
+Message-ID: <3f91ecea-05ad-4b95-9352-37ae2203807b@arm.com>
+Date: Fri, 18 Sep 2026 15:57:32 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v11 9/9] coresight: etm3x: introduce struct etm_caps
+To: Yeoreum Yun <yeoreum.yun@arm.com>, James Clark <james.clark@linaro.org>,
+ Leo Yan <leo.yan@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-rt-devel@lists.linux.dev
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+ Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>
+References: <20260915-separate_etm_cfg_v2-v11-0-d2b258d51747@arm.com>
+ <20260915-separate_etm_cfg_v2-v11-9-d2b258d51747@arm.com>
+Content-Language: en-US
+From: Mike Leach <mike.leach@arm.com>
+In-Reply-To: <20260915-separate_etm_cfg_v2-v11-9-d2b258d51747@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: LO4P123CA0522.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:272::8) To PAVPR08MB9674.eurprd08.prod.outlook.com
+ (2603:10a6:102:31d::14)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE4MDE5MiBTYWx0ZWRfX6PFHKHixtLOW
- x5tY9MowY7VnfJT3WZrK6fAPYr5okJiVO0YYQSEaqW+BLXDkfGkDvmC9H0N93v5CNQwQC5wWho8
- mbvwLeMeUUTg5fzEYrd/vZRPHuRIiX84vidrWeT95x0CYGqmU9xDN7sSqZWREiwhgQoUaIRqMrJ
- 8nvksHH9CrPJotrP5fgYX6QSE6JW8l4NmewW4Xj8DW2hLid4cxTvf77m/IZN6A1ayumQGSle1D7
- mLiyUwesEwzGA52LoMXsNRlQkLt5DLbUwHl61WtwJbDtofTuDlo6nSFAFnLYNbpiqj9kv90CKZ1
- eEHqHz5IzeeR8ZY1m+NzMRsHxuYSgokUMsCcYvwqsweXlXYLhP8mfmVVdyWkqTujalpsqSH34C0
- bzMLS+ROP50iVVpWMtMfLh3S/zmnAxN1kV1rkFmTsbOSTx4mLgo5JCXKeqA6KoYrVM90qal5uXM
- Wnyyu7J/OtRfpNaS9Sg==
-X-Proofpoint-GUID: RgsPdhZ0RH5nmL3PNSwi9xljPgTIobIF
-X-Authority-Analysis: v=2.4 cv=DobDa2/+ c=1 sm=1 tr=0 ts=6aad3d27 cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
- a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=uAbxVGIbfxUO_5tXvNgY:22 a=1XWaLZrsAAAA:8 a=VnNF1IyMAAAA:8
- a=0LJ3BSutFHZo8nszAoUA:9
-X-Proofpoint-ORIG-GUID: DM1GbzmWFPq4hzPjCb4MgZ9lsqohNb1_
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE4MDE5MiBTYWx0ZWRfX9MCrXhz5L7VZ
- zyrTHGHU4YuwLnBR6YO+zB7TDsX+fcAWgmA7HNIYUZFFwntw4iRz0EmBDjnDpOW8puRnFj9g3KZ
- 5a6OkGmRKkZvXoG7n0FGUMD/iaAe0TY=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-18_03,2026-09-16_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 malwarescore=0 priorityscore=1501 suspectscore=0 impostorscore=0
- spamscore=0 clxscore=1015 adultscore=0 bulkscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609180192
+X-MS-TrafficTypeDiagnostic: PAVPR08MB9674:EE_|AS8PR08MB9908:EE_|AM2PEPF00070CF5:EE_|DB5PR08MB10310:EE_
+X-MS-Office365-Filtering-Correlation-Id: b51139b6-96a6-4ad9-c225-08df15953f10
+X-LD-Processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr,ExtAddr
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|23010399003|1800799024|366016|7416014|376014|3023799007|6133799003|10067099003|11063799006|4143699003|56012099006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info-Original: LJ4gcsdLQeRJC/J0pB1chgX4U5pSXhxgl/tEULhZ/fweX+NKBuB8/I+z57srH8Qwz1g/wroHxGxOjn4jVk1bN0XdOurxLi5eyF3aC9RAcwTPS89WlYt5pGu4D+0uAaIv5FkM47FLPqrUFGwVXv6/MzoWg+/cZUzS+IOjgmpvwMAGQHtzB+oRZ05dbl+66IpjU1lm7zrP0bZiyHJ+ufMC4W+vP+TIWL12mqO6ebz/GUU2uMJZqtWk0ROaYNn2WE086ifr//gos/Paz3MOgvQ3Qi/ra1EVOs5nZspvzmbEJUhP5X05gebQ3ILVPQIGwIOBJzFO3cWsWTO9PYXw4YYbQ5sbUFb8yhPZdimiofN8fay8VKUsHlNLFZy6vmqqZN+im5VZ/EH9JoWVHeM2agUgHIh50a5i5ib3UaxzT1E+OI3XPIzFbNarDJ+9YKkshePFu8SdnrF8YWCB2gbvbmKq7IAU3hHBiPAWe0vYvPR1CSgRFqrzcK4kFnpJqYMn8jozR9+l6Gh37Y89N+v1UOhrZ26ryRwXYhDrv+oXznLUPnXLoepPaLRZpF2yJRIDPyFVgyozYoTQ7eyf+qrYpy0jv3BLmQeMy+njU+cVhyZ2hmiJmrpjhvhU4vSkUPAigYeaYrnh2x4ky3g75EeoNETNBtoDZmoKxS0+zd7hI91/Vrc=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAVPR08MB9674.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(7416014)(376014)(3023799007)(6133799003)(10067099003)(11063799006)(4143699003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked: jLeFcOVsX+J3LKM11gqwm14aVP9IDHDcqP8v9r4CC5qZ7ynN8SPKVNAfoddW9QspfmgqJVdUjzWuSbimdBSV7MdCbpqEylBstsEIatnRjAXYjUDAA72/fLpvUCKp9Y8njrtdNGxKY6+Bx3FLFYdKz41FgwpIYQzC3O6Wbcjq13iC0MBw4+tmlkyNejSjqkX0aVZIAG4YYYvm0pweyNX0cqChnSq/CEssHg4fL6hrsWkzi47l6KvviX6jE8lzBvPFACm7QUA53+0/896huMeIMpSAhrdA2u1o2rAicsXB+PnTMAl5ZGAVJ8g6zYXLM0z/pmclxU4CxYXeapb+nKBr5A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB9908
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM2PEPF00070CF5.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 1ebae819-ad38-4c6d-3e45-08df15952b4c
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|376014|35042699022|1800799024|14060799003|36860700016|7416014|6133799003|18002099003|22082099003|3023799007|10067099003|4143699003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: zfNanLIgeTKQdwDEjewOkSjmbhKihF2VqFFTfzYh1XxKPpzsGfeFHcxHcr9+Ao42jYLFKZQYsAE+GnwJtoWwDxwgBbGNcb0fJSG6V6+LKbzlOWkv1CvWCWWCaHbkJ1RjVMeK8jEm96BqKlWwRdDWCjKEl1FIpOlU1Uj9y8/HRmYW64vVv3gBmorxwQSFN229VX7yUfHCMwkBpSevpa/yOXY/MKMB7A7ktzLSn50wNmEWs09zr39NJudPKBmdJ6PsBTDgt3tpifG409y8xLBW8Epz7eaq9NhpC48A42rRFXijuE5+JCJnPDFEhsPTHLujYhHEQsY9dGkVq+gMZRB4Z+8EAQP3kQTjnB3A5SoOMdDZbYCBhqcyfTch/J9ebYbtQXYR6d19+jEIBerWzpaWgD7CGCbGjmP4l4PQjDO+KI/G7vrXKZ2RtJV6f7F9VpuUdBZb2QLryX+TLRMEtEUcEAQi73Iwqh4jMB2+Ty2PGnxcnthjgYFtRNwy5x+Lf5hD6e2BH8/3u9WL4zBLP+5Rz+2/p37TFNHClEJQyLTFB6ivzJo4CMsLpbcZw8s0revkyDFpAp78QiS8jurlh9As2JMykyCE+fPZrCvhsif+hZxQ8fUTAFt4vOoHY732VbxrobYbc2apcLks2JvRpXnKTwrN/SgBwM0/rcBczF9NjiQFQmhXBwtJgg81fjBYrvrL3xkDElAxluGHd6/HnoKsKg==
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(376014)(35042699022)(1800799024)(14060799003)(36860700016)(7416014)(6133799003)(18002099003)(22082099003)(3023799007)(10067099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 1l7FwcpR9t5r6mDeMH3PjwlMNryib4fzdVnBM9Hck+mes7oLr2oCZT0I3DnX/69O1J1T4xbmy5bIPuvyVAk2Z+BCB3qQ0OQMESIbjMj3IIrulYWrAtFQdqIC6V0hVuWgSvhkaBPY/9+VerD3MG21ziqKEt0VD1upMtT/iASc1sEerSxY0TFBfsjSld+asAkolRvCPEnISUFx5CrsvhsKtCsUwKWUqGdkldE94On5eIHTwS1I26eTt6/kLMspkbSk6ShIqP9ZQxsFSHfzYhoXgPo9roJWINZgYx3Wurq/AbBlJ6OyTG2olUNsOjDcMdw52HpFEa99BwwSqscFQ0gjpPDDnRvDgdDo8cikwuojJaj7xdh2QrwHPXsbP/39DgPfCwcPEqbGg+RfI2X2F+uHzFfbSCROavKzUUqUsORtKGbwWbzVWVyrYw84A+ZdhI6D
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Sep 2026 14:58:06.1268
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b51139b6-96a6-4ad9-c225-08df15953f10
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM2PEPF00070CF5.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB5PR08MB10310
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_143135_385842_2ABCEA53 
-X-CRM114-Status: GOOD (  18.74  )
+X-CRM114-CacheID: sfid-20260918_075822_419150_E606034D 
+X-CRM114-Status: GOOD (  20.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,145 +161,356 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow KVM implementations to choose alternative device names. This is
-especially useful for architectures providing multiple KVM
-implementations simultaneously. Architectures providing multiple KVM
-implementations must compile the KVM common code once per
-implementation and mange symbols.
+Reviewed-by: Mike Leach <mike.leach@arm.com>
 
-Suggested-by: Sean Christopherson <seanjc@google.com>
-Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
----
- arch/s390/kvm/gmap/trace_gmap.h |  4 +++-
- arch/s390/kvm/s390/Makefile     |  2 +-
- include/linux/kvm_host.h        |  3 +++
- include/trace/events/kvm.h      |  8 +++++++-
- virt/kvm/Makefile.kvm           |  5 +++++
- virt/kvm/kvm_main.c             | 10 +++++-----
- 6 files changed, 24 insertions(+), 8 deletions(-)
-
-diff --git a/arch/s390/kvm/gmap/trace_gmap.h b/arch/s390/kvm/gmap/trace_gmap.h
-index 15ec88bdce55..78d26dae59f9 100644
---- a/arch/s390/kvm/gmap/trace_gmap.h
-+++ b/arch/s390/kvm/gmap/trace_gmap.h
-@@ -4,8 +4,10 @@
- 
- #include <linux/tracepoint.h>
- 
-+#undef UNPACK_KVM
-+#define UNPACK_KVM(name) name
- #undef TRACE_SYSTEM
--#define TRACE_SYSTEM kvm
-+#define TRACE_SYSTEM UNPACK_KVM(KVM_DEV_NAME)
- #undef TRACE_INCLUDE_PATH
- #define TRACE_INCLUDE_PATH ../gmap
- #undef TRACE_INCLUDE_FILE
-diff --git a/arch/s390/kvm/s390/Makefile b/arch/s390/kvm/s390/Makefile
-index 762a63826423..b91334db90a2 100644
---- a/arch/s390/kvm/s390/Makefile
-+++ b/arch/s390/kvm/s390/Makefile
-@@ -4,7 +4,7 @@ KVM := ../../../../virt/kvm
- include $(srctree)/virt/kvm/Makefile.kvm
- include $(srctree)/arch/s390/kvm/gmap/Makefile
- 
--ccflags-y := -I$(src) -I$(srctree)/arch/s390/kvm/gmap
-+ccflags-y += -I$(src) -I$(srctree)/arch/s390/kvm/gmap
- 
- kvm-y += s390.o intercept.o interrupt.o priv.o sigp.o
- kvm-y += diag.o gaccess.o guestdbg.o vsie.o pv.o
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index 2b56fb4e8555..5926478563e8 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -45,6 +45,9 @@
- #include <asm/kvm_host.h>
- #include <linux/kvm_dirty_ring.h>
- 
-+#define __KVM_DEV_STRING(name, x) __stringify(name ## _ ## x)
-+#define KVM_DEV_STRING(x) __KVM_DEV_STRING(KVM_DEV_NAME, x)
-+
- #ifndef KVM_MAX_VCPU_IDS
- #define KVM_MAX_VCPU_IDS KVM_MAX_VCPUS
- #endif
-diff --git a/include/trace/events/kvm.h b/include/trace/events/kvm.h
-index b282e3a86769..f37582730ffc 100644
---- a/include/trace/events/kvm.h
-+++ b/include/trace/events/kvm.h
-@@ -4,8 +4,14 @@
- 
- #include <linux/tracepoint.h>
- 
-+#undef UNPACK_KVM
-+#define UNPACK_KVM(name) name
- #undef TRACE_SYSTEM
--#define TRACE_SYSTEM kvm
-+#define TRACE_SYSTEM UNPACK_KVM(KVM_DEV_NAME)
-+#undef TRACE_SYSTEM_VAR
-+#define TRACE_SYSTEM_VAR kvm
-+#undef TRACE_INCLUDE_FILE
-+#define TRACE_INCLUDE_FILE kvm
- 
- #define ERSN(x) { KVM_EXIT_##x, "KVM_EXIT_" #x }
- 
-diff --git a/virt/kvm/Makefile.kvm b/virt/kvm/Makefile.kvm
-index dd40544b8ecb..ee66d460c494 100644
---- a/virt/kvm/Makefile.kvm
-+++ b/virt/kvm/Makefile.kvm
-@@ -5,6 +5,11 @@
- 
- KVM ?= ../../../virt/kvm
- 
-+KVM_DEV_NAME ?= kvm
-+KVM_DEV_MINOR ?= KVM_MINOR
-+
-+ccflags-y +=-DKVM_DEV_NAME=$(KVM_DEV_NAME) -DKVM_DEV_MINOR=$(KVM_DEV_MINOR)
-+
- kvm-y := $(KVM)/kvm_main.o $(KVM)/eventfd.o $(KVM)/binary_stats.o
- kvm-$(CONFIG_KVM_VFIO) += $(KVM)/vfio.o
- kvm-$(CONFIG_KVM_MMIO) += $(KVM)/coalesced_mmio.o
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index 891a67cb365a..4f25e170b542 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -5596,8 +5596,8 @@ static struct file_operations kvm_chardev_ops = {
- };
- 
- static struct miscdevice kvm_dev = {
--	KVM_MINOR,
--	"kvm",
-+	KVM_DEV_MINOR,
-+	__stringify(KVM_DEV_NAME),
- 	&kvm_chardev_ops,
- };
- 
-@@ -6376,7 +6376,7 @@ static void kvm_init_debug(void)
- 	const struct kvm_stats_desc *pdesc;
- 	int i;
- 
--	kvm_debugfs_dir = debugfs_create_dir("kvm", NULL);
-+	kvm_debugfs_dir = debugfs_create_dir(__stringify(KVM_DEV_NAME), NULL);
- 
- 	for (i = 0; i < kvm_vm_stats_header.num_desc; ++i) {
- 		pdesc = &kvm_vm_stats_desc[i];
-@@ -6521,7 +6521,7 @@ int kvm_init(unsigned vcpu_size, unsigned vcpu_align, struct module *module)
- 	if (!vcpu_align)
- 		vcpu_align = __alignof__(struct kvm_vcpu);
- 	kvm_vcpu_cache =
--		kmem_cache_create_usercopy("kvm_vcpu", vcpu_size, vcpu_align,
-+		kmem_cache_create_usercopy(KVM_DEV_STRING(vcpu), vcpu_size, vcpu_align,
- 					   SLAB_ACCOUNT,
- 					   offsetof(struct kvm_vcpu, arch),
- 					   offsetofend(struct kvm_vcpu, stats_id)
-@@ -6574,7 +6574,7 @@ int kvm_init(unsigned vcpu_size, unsigned vcpu_align, struct module *module)
- 	 */
- 	r = misc_register(&kvm_dev);
- 	if (r) {
--		pr_err("kvm: misc device register failed\n");
-+		pr_err(__stringify(KVM_DEV_NAME) ": misc device register failed\n");
- 		goto err_register;
- 	}
- 
--- 
-2.53.0
+On 9/15/26 12:34, Yeoreum Yun wrote:
+> Introduce struct etm_caps to describe ETMv3 capabilities
+> and move capabilities information into it.
+> 
+> Since drvdata->etmccr and drvdata->etmccer are used to check
+> whether it supports fifofull logic and timestamping,
+> remove etmccr and etmccer field from drvdata and add relevant fields
+> in etm_caps structure.
+> 
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> ---
+>   drivers/hwtracing/coresight/coresight-etm.h        | 42 +++++++++++++---------
+>   drivers/hwtracing/coresight/coresight-etm3x-core.c | 42 +++++++++++++---------
+>   .../hwtracing/coresight/coresight-etm3x-sysfs.c    | 24 ++++++++-----
+>   3 files changed, 66 insertions(+), 42 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-etm.h b/drivers/hwtracing/coresight/coresight-etm.h
+> index f3796162168d4..cb5f18dcdd974 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm.h
+> +++ b/drivers/hwtracing/coresight/coresight-etm.h
+> @@ -140,6 +140,30 @@
+>   				 ETM_ADD_COMP_0		|	\
+>   				 ETM_EVENT_NOT_A)
+>   
+> +/**
+> + * struct etm_caps - specifics ETM capabilities
+> + * @port_size:	port size as reported by ETMCR bit 4-6 and 21.
+> + * @nr_addr_cmp:Number of pairs of address comparators as found in ETMCCR.
+> + * @nr_cntr:	Number of counters as found in ETMCCR bit 13-15.
+> + * @nr_ext_inp:	Number of external input as found in ETMCCR bit 17-19.
+> + * @nr_ext_out:	Number of external output as found in ETMCCR bit 20-22.
+> + * @nr_ctxid_cmp: Number of contextID comparators as found in ETMCCR bit 24-25.
+> + * @fifofull:	FIFOFULL logic is present.
+> + * @timestamp:	Timestamping is implemented.
+> + * @retstack:	Return stack is implemented.
+> + */
+> +struct etm_caps {
+> +	int	port_size;
+> +	u8	nr_addr_cmp;
+> +	u8	nr_cntr;
+> +	u8	nr_ext_inp;
+> +	u8	nr_ext_out;
+> +	u8	nr_ctxid_cmp;
+> +	bool	fifofull : 1;
+> +	bool	timestamp : 1;
+> +	bool	retstack : 1;
+> +};
+> +
+>   /**
+>    * struct etm_config - configuration information related to an ETM
+>    * @mode:	controls various modes supported by this ETM/PTM.
+> @@ -212,19 +236,12 @@ struct etm_config {
+>    * @csdev:	component vitals needed by the framework.
+>    * @spinlock:	only one at a time pls.
+>    * @cpu:	the cpu this component is affined to.
+> - * @port_size:	port size as reported by ETMCR bit 4-6 and 21.
+>    * @arch:	ETM/PTM version number.
+> + * @caps:	ETM capabilities.
+>    * @use_cpu14:	true if management registers need to be accessed via CP14.
+>    * @sticky_enable: true if ETM base configuration has been done.
+>    * @boot_enable:true if we should start tracing at boot time.
+>    * @os_unlock:	true if access to management registers is allowed.
+> - * @nr_addr_cmp:Number of pairs of address comparators as found in ETMCCR.
+> - * @nr_cntr:	Number of counters as found in ETMCCR bit 13-15.
+> - * @nr_ext_inp:	Number of external input as found in ETMCCR bit 17-19.
+> - * @nr_ext_out:	Number of external output as found in ETMCCR bit 20-22.
+> - * @nr_ctxid_cmp: Number of contextID comparators as found in ETMCCR bit 24-25.
+> - * @etmccr:	value of register ETMCCR.
+> - * @etmccer:	value of register ETMCCER.
+>    * @traceid:	value of the current ID for this component.
+>    * @active_config:	structure holding current running configuration.
+>    * @config:	structure holding sysfs mode configuration.
+> @@ -235,19 +252,12 @@ struct etm_drvdata {
+>   	struct coresight_device		*csdev;
+>   	spinlock_t			spinlock;
+>   	int				cpu;
+> -	int				port_size;
+>   	u8				arch;
+> +	struct etm_caps			caps;
+>   	bool				use_cp14;
+>   	bool				sticky_enable;
+>   	bool				boot_enable;
+>   	bool				os_unlock;
+> -	u8				nr_addr_cmp;
+> -	u8				nr_cntr;
+> -	u8				nr_ext_inp;
+> -	u8				nr_ext_out;
+> -	u8				nr_ctxid_cmp;
+> -	u32				etmccr;
+> -	u32				etmccer;
+>   	u32				traceid;
+>   	struct etm_config		active_config;
+>   	struct etm_config		config;
+> diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
+> index 12bb38dc596e7..79c7cbe2084de 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
+> @@ -308,6 +308,7 @@ void etm_config_trace_mode(struct etm_config *config)
+>   static int etm_parse_event_config(struct etm_drvdata *drvdata,
+>   				  struct perf_event *event)
+>   {
+> +	const struct etm_caps *caps = &drvdata->caps;
+>   	struct etm_config *config = &drvdata->active_config;
+>   	struct perf_event_attr *attr = &event->attr;
+>   	u8 ts_level;
+> @@ -356,8 +357,7 @@ static int etm_parse_event_config(struct etm_drvdata *drvdata,
+>   	 * has ret stack) on the same SoC. So only enable when it can be honored
+>   	 * - trace will still continue normally otherwise.
+>   	 */
+> -	if (ATTR_CFG_GET_FLD(attr, retstack) &&
+> -	    (drvdata->etmccer & ETMCCER_RETSTACK))
+> +	if (ATTR_CFG_GET_FLD(attr, retstack) && (caps->retstack))
+>   		config->ctrl |= ETMCR_RETURN_STACK;
+>   
+>   	return 0;
+> @@ -367,6 +367,7 @@ static int etm_enable_hw(struct etm_drvdata *drvdata)
+>   {
+>   	int i, rc;
+>   	u32 etmcr;
+> +	const struct etm_caps *caps = &drvdata->caps;
+>   	struct etm_config *config = &drvdata->active_config;
+>   	struct coresight_device *csdev = drvdata->csdev;
+>   
+> @@ -388,7 +389,7 @@ static int etm_enable_hw(struct etm_drvdata *drvdata)
+>   	etmcr = etm_readl(drvdata, ETMCR);
+>   	/* Clear setting from a previous run if need be */
+>   	etmcr &= ~ETM3X_SUPPORTED_OPTIONS;
+> -	etmcr |= drvdata->port_size;
+> +	etmcr |= caps->port_size;
+>   	etmcr |= ETMCR_ETM_EN;
+>   	etm_writel(drvdata, config->ctrl | etmcr, ETMCR);
+>   	etm_writel(drvdata, config->trigger_event, ETMTRIGGER);
+> @@ -396,11 +397,11 @@ static int etm_enable_hw(struct etm_drvdata *drvdata)
+>   	etm_writel(drvdata, config->enable_event, ETMTEEVR);
+>   	etm_writel(drvdata, config->enable_ctrl1, ETMTECR1);
+>   	etm_writel(drvdata, config->fifofull_level, ETMFFLR);
+> -	for (i = 0; i < drvdata->nr_addr_cmp; i++) {
+> +	for (i = 0; i < caps->nr_addr_cmp; i++) {
+>   		etm_writel(drvdata, config->addr_val[i], ETMACVRn(i));
+>   		etm_writel(drvdata, config->addr_acctype[i], ETMACTRn(i));
+>   	}
+> -	for (i = 0; i < drvdata->nr_cntr; i++) {
+> +	for (i = 0; i < caps->nr_cntr; i++) {
+>   		etm_writel(drvdata, config->cntr_rld_val[i], ETMCNTRLDVRn(i));
+>   		etm_writel(drvdata, config->cntr_event[i], ETMCNTENRn(i));
+>   		etm_writel(drvdata, config->cntr_rld_event[i],
+> @@ -414,9 +415,9 @@ static int etm_enable_hw(struct etm_drvdata *drvdata)
+>   	etm_writel(drvdata, config->seq_32_event, ETMSQ32EVR);
+>   	etm_writel(drvdata, config->seq_13_event, ETMSQ13EVR);
+>   	etm_writel(drvdata, config->seq_curr_state, ETMSQR);
+> -	for (i = 0; i < drvdata->nr_ext_out; i++)
+> +	for (i = 0; i < caps->nr_ext_out; i++)
+>   		etm_writel(drvdata, ETM_DEFAULT_EVENT_VAL, ETMEXTOUTEVRn(i));
+> -	for (i = 0; i < drvdata->nr_ctxid_cmp; i++)
+> +	for (i = 0; i < caps->nr_ctxid_cmp; i++)
+>   		etm_writel(drvdata, config->ctxid_pid[i], ETMCIDCVRn(i));
+>   	etm_writel(drvdata, config->ctxid_mask, ETMCIDCMR);
+>   	etm_writel(drvdata, config->sync_freq, ETMSYNCFR);
+> @@ -562,6 +563,7 @@ static int etm_enable(struct coresight_device *csdev, struct perf_event *event,
+>   static void etm_disable_hw(struct etm_drvdata *drvdata)
+>   {
+>   	int i;
+> +	const struct etm_caps *caps = &drvdata->caps;
+>   	struct etm_config *config = &drvdata->active_config;
+>   	struct coresight_device *csdev = drvdata->csdev;
+>   
+> @@ -571,7 +573,7 @@ static void etm_disable_hw(struct etm_drvdata *drvdata)
+>   	/* Read back sequencer and counters for post trace analysis */
+>   	config->seq_curr_state = (etm_readl(drvdata, ETMSQR) & ETM_SQR_MASK);
+>   
+> -	for (i = 0; i < drvdata->nr_cntr; i++)
+> +	for (i = 0; i < caps->nr_cntr; i++)
+>   		config->cntr_val[i] = etm_readl(drvdata, ETMCNTVRn(i));
+>   
+>   	etm_set_pwrdwn(drvdata);
+> @@ -626,6 +628,7 @@ static void etm_disable_perf(struct coresight_device *csdev)
+>   static void etm_disable_sysfs(struct coresight_device *csdev)
+>   {
+>   	struct etm_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+> +	const struct etm_caps *caps = &drvdata->caps;
+>   	struct etm_config *config = &drvdata->config;
+>   	const struct etm_config *active_config = &drvdata->active_config;
+>   	int i;
+> @@ -641,7 +644,7 @@ static void etm_disable_sysfs(struct coresight_device *csdev)
+>   	 * Userspace may read seq_curr_state and cntr_val through sysfs
+>   	 * after the sysfs-session has been disabled.
+>   	 */
+> -	for (i = 0; i < drvdata->nr_cntr; i++)
+> +	for (i = 0; i < caps->nr_cntr; i++)
+>   		config->cntr_val[i] = active_config->cntr_val[i];
+>   
+>   	config->seq_curr_state = active_config->seq_curr_state;
+> @@ -726,7 +729,9 @@ static void etm_init_arch_data(void *info)
+>   {
+>   	u32 etmidr;
+>   	u32 etmccr;
+> +	u32 etmccer;
+>   	struct etm_drvdata *drvdata = info;
+> +	struct etm_caps *caps = &drvdata->caps;
+>   
+>   	/* Make sure all registers are accessible */
+>   	etm_os_unlock(drvdata);
+> @@ -751,16 +756,19 @@ static void etm_init_arch_data(void *info)
+>   	/* Find all capabilities */
+>   	etmidr = etm_readl(drvdata, ETMIDR);
+>   	drvdata->arch = BMVAL(etmidr, 4, 11);
+> -	drvdata->port_size = etm_readl(drvdata, ETMCR) & PORT_SIZE_MASK;
+> +	caps->port_size = etm_readl(drvdata, ETMCR) & PORT_SIZE_MASK;
+> +
+> +	etmccer = etm_readl(drvdata, ETMCCER);
+> +	caps->timestamp = !!(etmccer & ETMCCER_TIMESTAMP);
+> +	caps->retstack = !!(etmccer & ETMCCER_RETSTACK);
+>   
+> -	drvdata->etmccer = etm_readl(drvdata, ETMCCER);
+>   	etmccr = etm_readl(drvdata, ETMCCR);
+> -	drvdata->etmccr = etmccr;
+> -	drvdata->nr_addr_cmp = BMVAL(etmccr, 0, 3) * 2;
+> -	drvdata->nr_cntr = BMVAL(etmccr, 13, 15);
+> -	drvdata->nr_ext_inp = BMVAL(etmccr, 17, 19);
+> -	drvdata->nr_ext_out = BMVAL(etmccr, 20, 22);
+> -	drvdata->nr_ctxid_cmp = BMVAL(etmccr, 24, 25);
+> +	caps->fifofull = !!(etmccr & ETMCCR_FIFOFULL);
+> +	caps->nr_addr_cmp = BMVAL(etmccr, 0, 3) * 2;
+> +	caps->nr_cntr = BMVAL(etmccr, 13, 15);
+> +	caps->nr_ext_inp = BMVAL(etmccr, 17, 19);
+> +	caps->nr_ext_out = BMVAL(etmccr, 20, 22);
+> +	caps->nr_ctxid_cmp = BMVAL(etmccr, 24, 25);
+>   
+>   	coresight_clear_self_claim_tag_unlocked(&drvdata->csa);
+>   	etm_set_pwrdwn(drvdata);
+> diff --git a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
+> index 2c8c129228589..36d4673537930 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
+> @@ -53,8 +53,9 @@ static ssize_t nr_addr_cmp_show(struct device *dev,
+>   {
+>   	unsigned long val;
+>   	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
+> +	const struct etm_caps *caps = &drvdata->caps;
+>   
+> -	val = drvdata->nr_addr_cmp;
+> +	val = caps->nr_addr_cmp;
+>   	return sprintf(buf, "%#lx\n", val);
+>   }
+>   static DEVICE_ATTR_RO(nr_addr_cmp);
+> @@ -63,8 +64,9 @@ static ssize_t nr_cntr_show(struct device *dev,
+>   			    struct device_attribute *attr, char *buf)
+>   {	unsigned long val;
+>   	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
+> +	const struct etm_caps *caps = &drvdata->caps;
+>   
+> -	val = drvdata->nr_cntr;
+> +	val = caps->nr_cntr;
+>   	return sprintf(buf, "%#lx\n", val);
+>   }
+>   static DEVICE_ATTR_RO(nr_cntr);
+> @@ -75,7 +77,7 @@ static ssize_t nr_ctxid_cmp_show(struct device *dev,
+>   	unsigned long val;
+>   	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>   
+> -	val = drvdata->nr_ctxid_cmp;
+> +	val = drvdata->caps.nr_ctxid_cmp;
+>   	return sprintf(buf, "%#lx\n", val);
+>   }
+>   static DEVICE_ATTR_RO(nr_ctxid_cmp);
+> @@ -115,7 +117,7 @@ static ssize_t reset_store(struct device *dev,
+>   		memset(config, 0, sizeof(struct etm_config));
+>   		config->mode = ETM_MODE_EXCLUDE;
+>   		config->trigger_event = ETM_DEFAULT_EVENT_VAL;
+> -		for (i = 0; i < drvdata->nr_addr_cmp; i++) {
+> +		for (i = 0; i < drvdata->caps.nr_addr_cmp; i++) {
+>   			config->addr_type[i] = ETM_ADDR_TYPE_NONE;
+>   		}
+>   
+> @@ -146,6 +148,7 @@ static ssize_t mode_store(struct device *dev,
+>   	int ret;
+>   	unsigned long val;
+>   	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
+> +	const struct etm_caps *caps = &drvdata->caps;
+>   	struct etm_config *config = &drvdata->config;
+>   
+>   	ret = kstrtoul(buf, 16, &val);
+> @@ -166,7 +169,7 @@ static ssize_t mode_store(struct device *dev,
+>   		config->ctrl &= ~ETMCR_CYC_ACC;
+>   
+>   	if (config->mode & ETM_MODE_STALL) {
+> -		if (!(drvdata->etmccr & ETMCCR_FIFOFULL)) {
+> +		if (!caps->fifofull) {
+>   			dev_warn(dev, "stall mode not supported\n");
+>   			ret = -EINVAL;
+>   			goto err_unlock;
+> @@ -176,7 +179,7 @@ static ssize_t mode_store(struct device *dev,
+>   		config->ctrl &= ~ETMCR_STALL_MODE;
+>   
+>   	if (config->mode & ETM_MODE_TIMESTAMP) {
+> -		if (!(drvdata->etmccer & ETMCCER_TIMESTAMP)) {
+> +		if (!caps->timestamp) {
+>   			dev_warn(dev, "timestamp not supported\n");
+>   			ret = -EINVAL;
+>   			goto err_unlock;
+> @@ -321,13 +324,14 @@ static ssize_t addr_idx_store(struct device *dev,
+>   	int ret;
+>   	unsigned long val;
+>   	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
+> +	const struct etm_caps *caps = &drvdata->caps;
+>   	struct etm_config *config = &drvdata->config;
+>   
+>   	ret = kstrtoul(buf, 16, &val);
+>   	if (ret)
+>   		return ret;
+>   
+> -	if (val >= drvdata->nr_addr_cmp)
+> +	if (val >= caps->nr_addr_cmp)
+>   		return -EINVAL;
+>   
+>   	/*
+> @@ -624,13 +628,14 @@ static ssize_t cntr_idx_store(struct device *dev,
+>   	int ret;
+>   	unsigned long val;
+>   	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
+> +	const struct etm_caps *caps = &drvdata->caps;
+>   	struct etm_config *config = &drvdata->config;
+>   
+>   	ret = kstrtoul(buf, 16, &val);
+>   	if (ret)
+>   		return ret;
+>   
+> -	if (val >= drvdata->nr_cntr)
+> +	if (val >= caps->nr_cntr)
+>   		return -EINVAL;
+>   	/*
+>   	 * Use spinlock to ensure index doesn't change while it gets
+> @@ -1030,13 +1035,14 @@ static ssize_t ctxid_idx_store(struct device *dev,
+>   	int ret;
+>   	unsigned long val;
+>   	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
+> +	const struct etm_caps *caps = &drvdata->caps;
+>   	struct etm_config *config = &drvdata->config;
+>   
+>   	ret = kstrtoul(buf, 16, &val);
+>   	if (ret)
+>   		return ret;
+>   
+> -	if (val >= drvdata->nr_ctxid_cmp)
+> +	if (val >= caps->nr_ctxid_cmp)
+>   		return -EINVAL;
+>   
+>   	/*
+> 
 
 
