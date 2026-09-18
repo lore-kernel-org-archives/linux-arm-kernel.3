@@ -4,117 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64FC8C982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 13:41:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C35CDC982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 13:41:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8LClDxrITmybPw/RDvdGi/ZCnnnT6FM/8jbV0TZBMMY=; b=QeZ1jUBQfdXGGbAoQ4fXvuPd+9
-	jwC/wtiHWhaK8wwjQH3w3TYwtJYmuIrQpI1qng/tyxuiydZALWuJwWuBVr+rnaeMW8oi/gxGGvko3
-	EUduOzcX3vkj0b0ILX090AOKDRYunxo+hjJXd++mHTGQ8vTb3veamIDtFBOEIXtj5bXSpfg/U5A/J
-	zKr+4RbZqTVrHo0vJuCUWx+pm+mRasAXz3Nn3zh4n5VI/fbdxI321SRju62P7DJcv4rk8WlXbtvhx
-	sZkictoDbDDCEmPMyU3Qy1EVs8Zz7Ceg3NEGb4aiOEn4rfB8baD+MJAB/BrzPH82CaA+cM0LFRJFD
-	+mdvpxsA==;
+	bh=RH7/ACgaLAD7xiHpi23Sm9CXa397B2KbF2Zs4gvs6bI=; b=HBo85rlwPrLY52PkHVmrZ0HB9f
+	wSkVIOpoRnPFHDzgZQEG1973COV4SB5qPiiLHl72sD8yxCbfZGJjJ+XdOtlouM+wrYw9rLk3BxBxi
+	DxUt4jpCG19oloWZ9ExbeB/Na1ieiGxKkhMgXYbMbIVKsh1piB6XDMhi8zXfnPpGMbHsBKd5qLuux
+	92v4rRDD/Al43EbBvZhR7Rd1WRprOitQV08rEHvwr3o/jnkSVIImdpisel1yWnQwh9seJHYNZYuZm
+	owBW3OC3c1H6azLPsjqZeXu4OZv4My+CbkCPAUtp1yp/qtYsCNbNOaETXNpUCIszkzOMlzA2Y/6mb
+	dcV1063g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7YqD-0000000Ebqu-3v6z;
-	Fri, 18 Sep 2026 13:41:25 +0000
+	id 1x7Ygv-0000000EX3N-0Vd3;
+	Fri, 18 Sep 2026 13:31:49 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Ypo-0000000EbPL-0J48
+	id 1x7Ygn-0000000EWuK-0ukM
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 18 Sep 2026 13:41:00 +0000
+	Fri, 18 Sep 2026 13:31:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=8LClDxrITmybPw/RDvdGi/ZCnnnT6FM/8jbV0TZBMMY=; b=pMy8NU46xSEyDH4DbpdiHd5VhL
-	8qQBdrViDjkA6PlACPcUTheaYVhOOBKEyKuoLdGgwUv9/VvDoJsdi1Fk4QCj8mC+jFXufmxKGG3WP
-	Jl+/BokIcsWD5IEWngarVAbheNIeHrLRR9ycYKaCEF3k/3vjEVSdGXXBkQkhpOjpvQ/zqjIwsFXA8
-	sEdtt9lRgNC2OZiA0i0FuVPQcgXDDnuAkVJ0PWebRkWxJsVIpyntQwIcu0/3e2J3oJxQrs+BJkBlv
-	torquu0amnrw9cumaZHLUwdqE3m+TFByV1aLPeOMVqLk/oYonlbgTq5yvrtENwnuOvZCMYAG/JGI7
-	v5z4iVBw==;
-Received: from mail-pz2-x10.google.com ([2607:f8b0:4864:3b::10])
+	bh=RH7/ACgaLAD7xiHpi23Sm9CXa397B2KbF2Zs4gvs6bI=; b=iyVdIav4BESNMu4ELIdk3XE+nz
+	3llJeDEeHsZUGGbbswlQRiAd207nl5Ub0vLgNcAKsDI3QxRLa7EjQIQUzwYO9iKYuAFicAO3A4s5W
+	qLCh0ThpFeiqjybAywVR3Idqgrl1BQqUThpQRMAcvfHQBJpytMNZx4ruszLhksHWMZEhC4VMSGcWH
+	VeEiuJnCh3BCld4LPR30sfdI4T4tfuEZEhptpiSFwfee/55XGFcaI+UopWuL9Btc/uNx/0osTnMbT
+	qiOv4kbqaeXV98dz9d9jklRivh2WdWUSw0PafJIM1kaUR3cuvCLHMCQBzNZEH/1WZwe6J5g4kMG9V
+	Tq/AgXJA==;
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x7Ypl-0000000A9Qz-1448
+	id 1x7Ygh-0000000A8XN-2W0T
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 13:40:59 +0000
-Received: by mail-pz2-x10.google.com with SMTP id 41be03b00d2f7-cc1cea34ef3so678921a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 06:40:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789738855; x=1790343655; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=8LClDxrITmybPw/RDvdGi/ZCnnnT6FM/8jbV0TZBMMY=;
-        b=Ccsj8KUaQ/NZ2qDh0UFpVLB97RGzASgLYzqt2xq6FtbRp5bBiKO9vhgdhlLuyhib10
-         2GjeEd3UIVwN7EKSB2FDTfivnloZrRPVSn6FvWjT/ByiMxSUmamM7A86RX2rhf99fy+z
-         8yavTyIAF9I65YQ4Ow7uq8SgO6pHEBObdLpdE2Zkkgl8NNLYG++iLvO+SDRPAUR/k013
-         eTT01APf5fU63PkFaZ56SFY1zq3hP1jR1XDUwuKd52bM7n8NBlONNw/rrRcg3XiWcfVv
-         la6Zwa7bhKdlS35BcZ6wYXxWgbb4XMHMdV0cOyNkonTztj5R7suiKJy6P7lDTbyczj8s
-         cd+Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789738855; x=1790343655;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8LClDxrITmybPw/RDvdGi/ZCnnnT6FM/8jbV0TZBMMY=;
-        b=DJdD43LrAnnwNEelwIlgB0/eysN7grGZBgh0q2arisTG/hNqJhFyKxzJWaLoT5XON2
-         vQKA6PK2LEx7vBfoQQaEB37TR4UoINQmj5BHwnv6JRsv7gFGeNakLr2m9C0B44q+GgtB
-         qY1XYxRpZyl5pZ79MU4TgtQvh1nggrcq2nh2lY3CrcQ3jPAigIfFUyBq5iF/HMuUnjXx
-         sVrNjLM7pWgup+uSh8Z14+v1/8GUuVtX3TCDbNJP29TdcTi04TtS4lXLmCYuzruc+1TA
-         vS0K+WqW9jWCzCRWedeW2By46zqlVR/Dpwr2ucNcJmMS/CihkBQyyTq8gu8g4l4vhxM5
-         ACIA==
-X-Forwarded-Encrypted: i=1; AKwUvBwMEJV8nGjNCyR/L+2/hw6PYRO2q2rdA2iWBPt0Q02zwcZKxU6+ZH2YoO1WiA76sqxwgp8tmJw0QWroozvOqegu@lists.infradead.org
-X-Gm-Message-State: AFuF++kDr5Hx7xAZShZRzrq2UwPv2myP7EcZYF4M/gOZDV2w6kjq8sYN
-	+i8V6wrCcOH2TQMK1LjEiyBxCr+1eoxT6ZHo8dWVXlrfy7w9ea06pCc3
-X-Gm-Gg: AYBFou0ZpCtAiN9yEfRYYvV160p5RBWEXBaUHht9OJGIi9fHDj9itIlyOslXTLgltUD
-	REY95O4U7ck+RNjxCQlAeBAm/cFXfbwBXsQmjNCpd6fbI+mZDK1wxyOgHciGCExnU99kK3wopYm
-	dC9tiXI/UJa14uXhgOcrvk3tEZn1RKjWHvpeTupJc2Q7VP6TzoTDCxrdNGSRMFQNVa36VY3cf9y
-	Duv3vAw5vAxTFnXp3boGzVxGVoOIHRWRkD+vw44zfmKtQ4q0qOk2oVkPYTMDLP776wD4e8Y7eIA
-	dhTk+Tb0TtiWL3Dmj7/tMvqaFR8EVsG/0bPpwRD9egtqi40aOl+3Bo/j8uNbwSMjFJt6mOkIcbQ
-	I0yKxEyIZYLaaFPFhfvwCQiiw7x/bgUaEdPtlOsq8g8RWdHHTPs48Q1CCUWtjhzeQo8+ACTal42
-	tglct0QOlXtYtvNdVwfyBFUGZeFvzSzNEuUTrVwo7hvN5J1zZtq1h2jqepJGN0X0djnPVy/Rhy4
-	2IceOV5+hu27QFAKDd6FX92DI00IyKrtGQDT19p7YwLD+xsXzuzLwwI+44CQxRxcnsSNna1spMU
-	uvIBz+AgxAE2UQ==
-X-Received: by 2002:a17:90b:53c4:b0:39e:d2a:e2dc with SMTP id 98e67ed59e1d1-39e54d1ea4dmr6218148a91.12.1789738855077;
-        Fri, 18 Sep 2026 06:40:55 -0700 (PDT)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39e3617443asm13253792a91.9.2026.09.18.06.40.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Sep 2026 06:40:54 -0700 (PDT)
-From: phucduc.bui@gmail.com
-To: Mark Brown <broonie@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	cassiogabrielcontato@gmail.com,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-	Jiaxin Yu <jiaxin.yu@mediatek.com>,
-	linux-sound@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH 15/15] ASoC: mediatek: mt8192-mt6359: Fix error handling in MTKAIF calibration
-Date: Fri, 18 Sep 2026 20:39:11 +0700
-Message-ID: <20260918133912.133799-16-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260918133912.133799-1-phucduc.bui@gmail.com>
-References: <20260918133912.133799-1-phucduc.bui@gmail.com>
+	Fri, 18 Sep 2026 13:31:39 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68IA1fgq803525;
+	Fri, 18 Sep 2026 13:31:21 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=RH7/ACgaLAD7xiHpi
+	23Sm9CXa397B2KbF2Zs4gvs6bI=; b=TxuRd6GEvIDaUeTuWYkqIuTGCWsIJbI0f
+	PAYs+vRgRT6tMsjwfK2YGOxQw9zFaMriFhZfvdyuSBDjYyEXlk3YTalTNonK9FUY
+	h+lsaHq+qEdrQaGMCFiN9KWMfnsWcnmm+UHKDZfAZv38Y+GV0uACDWKiGiigWYIt
+	GlrpGuT0GvkfCL3i0kY1lEYCU7mhMZjwpKlfMN2HM6XluFH5UxDMvD58NWmCJbsx
+	nZbXkTNTZDTbtf5lnXfrN/CXd2nGtEfWAu+7ow7uJbXPNEi7RNssfRp4V5PbRcx+
+	FJzWMJDeeAYZE0/nBBPPv9XEoWRzH4tBJDYLJNtRVE9hq72S+Yw2A==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gmv5j8145-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 18 Sep 2026 13:31:20 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68IDOCl1695830;
+	Fri, 18 Sep 2026 13:31:20 GMT
+Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gra3fek79-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 18 Sep 2026 13:31:19 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68IDV8ao51642828
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 18 Sep 2026 13:31:09 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id DCBE220040;
+	Fri, 18 Sep 2026 13:31:08 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 8E59020049;
+	Fri, 18 Sep 2026 13:31:08 +0000 (GMT)
+Received: from tuxmaker.lnxne.boe (unknown [9.87.85.9])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 18 Sep 2026 13:31:08 +0000 (GMT)
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH v8 02/29] KVM: Add file back-pointer to struct kvm
+Date: Fri, 18 Sep 2026 15:30:39 +0200
+Message-ID: <20260918133107.1042730-3-seiden@linux.ibm.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260918133107.1042730-1-seiden@linux.ibm.com>
+References: <20260918133107.1042730-1-seiden@linux.ibm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE4MDE4NCBTYWx0ZWRfX9xIhu1g9ugrX
+ rH4DjmJFGl8+lyQPTbtptshAtETCkgumxcoebAzSqdVptl4BKNfxgmwR5CWWeHNj7t4X+XFS8H8
+ OoJ6tytuZd6znqTlmLnzkuow6Wvvvt7QOF3rDLpsGX9J9g+3p4Xomo8WC3nb8PUWtTi/mTaIYWJ
+ h/LiiGRKzWIL/Z/rthHqr+/ZaXTt4zwM5qjoFvMS86ULz/cj7OZ7+tWCC+WY0V99GxVa9a+9KeH
+ AWeh38cbWwX/lJj3E1pBPLHTuDZvVuwmZ80jHiEmW3zcOfp8VpIwkmOWAaCUjhtcVZV7IFU5I0l
+ Of8O38piHZDqih2GmuoXZt1zG78Xl+UlH46BuLtjTDr6xLsRUc/RjbGTfmolG4xa0Y2Z55hqCvr
+ 00WibjrLsXQ/zdx3KxpQlpxxJyYxEw6L3GLKzhQisz7pKVLlLNikNfYme9U2e1hIIMppWnVYD6V
+ FwyDd/RYi2DSNNZgTPg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE4MDE4NCBTYWx0ZWRfX6I+kRjZoQGyD
+ vpYKSCuMscvu/Vxtyd30LkMGo8FBLEAp5tGdrIUeTJhqCCdShCZc9ERtbIZc2O96UMP7Bak0sR6
+ /JYJ/q3d4yvfGTiBlulpDZ8UMOewdvI=
+X-Authority-Analysis: v=2.4 cv=Zsx4uN7G c=1 sm=1 tr=0 ts=6aad3d29 cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
+ a=Y2IxJ9c9Rs8Kov3niI8_:22 a=1XWaLZrsAAAA:8 a=VnNF1IyMAAAA:8
+ a=q3OYOvv_GcRzabu4IdsA:9
+X-Proofpoint-ORIG-GUID: hhakXsoQk_t-0CLSijhO_PAbfQM46rA6
+X-Proofpoint-GUID: tNskIW43qKDl8CnCnNcc1c165n-p9K5N
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-18_03,2026-09-16_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 impostorscore=0 clxscore=1015 priorityscore=1501
+ lowpriorityscore=0 bulkscore=0 adultscore=0 phishscore=0 spamscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2609180184
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_144057_380959_31351991 
-X-CRM114-Status: GOOD (  13.26  )
+X-CRM114-CacheID: sfid-20260918_143135_976559_48C0336E 
+X-CRM114-Status: GOOD (  17.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,93 +157,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+Add kvm->file as a no-reference back-pointer to the VM file in struct
+kvm. The pointer is set at VM creation time and cleared under
+WRITE_ONCE() in kvm_vm_release() before the file is freed.
+Callers storing the file must take their own reference.
 
-mt8192_mt6359_mtkaif_calibration() ignored the return values of
-pm_runtime_get_sync() and mt8192_afe_gpio_request(), which could
-leave PM runtime references or GPIO state unbalanced on failure.
-
-Switch to pm_runtime_resume_and_get(), check each GPIO request,
-and unwind on error.
-
-Fixes: 18b13ff23fab ("ASoC: mediatek: mt8192: add machine driver with mt6359, rt1015 and rt5682")
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+Co-developed-by: Sean Christopherson <seanjc@google.com>
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
- .../mt8192/mt8192-mt6359-rt1015-rt5682.c      | 37 +++++++++++++------
- 1 file changed, 25 insertions(+), 12 deletions(-)
+ include/linux/kvm_host.h | 6 ++++++
+ virt/kvm/kvm_main.c      | 4 ++++
+ 2 files changed, 10 insertions(+)
 
-diff --git a/sound/soc/mediatek/mt8192/mt8192-mt6359-rt1015-rt5682.c b/sound/soc/mediatek/mt8192/mt8192-mt6359-rt1015-rt5682.c
-index c86348691641..b010726e9b57 100644
---- a/sound/soc/mediatek/mt8192/mt8192-mt6359-rt1015-rt5682.c
-+++ b/sound/soc/mediatek/mt8192/mt8192-mt6359-rt1015-rt5682.c
-@@ -163,12 +163,23 @@ static int mt8192_mt6359_mtkaif_calibration(struct snd_soc_pcm_runtime *rtd)
- 	int chosen_phase_1, chosen_phase_2, chosen_phase_3;
- 	int counter;
- 	int mtkaif_calib_ok;
-+	int ret = 0;
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index a1bf6d4a8f46..2b56fb4e8555 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -784,6 +784,12 @@ struct kvm {
+ 	 * kvm_swap_active_memslots().
+ 	 */
+ 	struct mutex slots_arch_lock;
++	/*
++	 * Back-reference to the VM file for subsystems (e.g., VFIO). Holds no
++	 * reference to avoid pinning the VM. Callers storing the file must
++	 * take their own reference.
++	 */
++	struct file *file;
+ 	struct mm_struct *mm; /* userspace tied to this vm */
+ 	unsigned long nr_memslot_pages;
+ 	/* The two memslot sets - active and inactive (per address space) */
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 0172ca94f82e..bab71d398236 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -1352,6 +1352,8 @@ static int kvm_vm_release(struct inode *inode, struct file *filp)
  
--	pm_runtime_get_sync(afe->dev);
--	mt8192_afe_gpio_request(afe->dev, true, MT8192_DAI_ADDA, 1);
--	mt8192_afe_gpio_request(afe->dev, true, MT8192_DAI_ADDA, 0);
--	mt8192_afe_gpio_request(afe->dev, true, MT8192_DAI_ADDA_CH34, 1);
--	mt8192_afe_gpio_request(afe->dev, true, MT8192_DAI_ADDA_CH34, 0);
-+	ret = pm_runtime_resume_and_get(afe->dev);
-+	if (ret < 0)
-+		return ret;
-+	ret = mt8192_afe_gpio_request(afe->dev, true, MT8192_DAI_ADDA, 1);
-+	if (ret)
-+		goto err_pm_put;
-+	ret = mt8192_afe_gpio_request(afe->dev, true, MT8192_DAI_ADDA, 0);
-+	if (ret)
-+		goto err_disable_adda_1;
-+	ret = mt8192_afe_gpio_request(afe->dev, true, MT8192_DAI_ADDA_CH34, 1);
-+	if (ret)
-+		goto err_disable_adda_0;
-+	ret = mt8192_afe_gpio_request(afe->dev, true, MT8192_DAI_ADDA_CH34, 0);
-+	if (ret)
-+		goto err_disable_adda_ch34_1;
+ 	kvm_irqfd_release(kvm);
  
- 	mt6359_mtkaif_calibration_enable(cmpnt_codec);
- 
-@@ -289,10 +300,14 @@ static int mt8192_mt6359_mtkaif_calibration(struct snd_soc_pcm_runtime *rtd)
- 
- 	mt6359_mtkaif_calibration_disable(cmpnt_codec);
- 
--	mt8192_afe_gpio_request(afe->dev, false, MT8192_DAI_ADDA, 1);
--	mt8192_afe_gpio_request(afe->dev, false, MT8192_DAI_ADDA, 0);
--	mt8192_afe_gpio_request(afe->dev, false, MT8192_DAI_ADDA_CH34, 1);
- 	mt8192_afe_gpio_request(afe->dev, false, MT8192_DAI_ADDA_CH34, 0);
-+err_disable_adda_ch34_1:
-+	mt8192_afe_gpio_request(afe->dev, false, MT8192_DAI_ADDA_CH34, 1);
-+err_disable_adda_0:
-+	mt8192_afe_gpio_request(afe->dev, false, MT8192_DAI_ADDA, 0);
-+err_disable_adda_1:
-+	mt8192_afe_gpio_request(afe->dev, false, MT8192_DAI_ADDA, 1);
-+err_pm_put:
- 	pm_runtime_put(afe->dev);
- 
- 	dev_dbg(afe->dev, "%s(), mtkaif_chosen_phase[0/1/2]:%d/%d/%d\n",
-@@ -301,7 +316,7 @@ static int mt8192_mt6359_mtkaif_calibration(struct snd_soc_pcm_runtime *rtd)
- 		afe_priv->mtkaif_chosen_phase[1],
- 		afe_priv->mtkaif_chosen_phase[2]);
- 
--	return 0;
-+	return ret;
++	WRITE_ONCE(kvm->file, NULL);
++
+ 	kvm_put_kvm(kvm);
+ 	return 0;
  }
+@@ -5532,6 +5534,8 @@ static int kvm_dev_ioctl_create_vm(unsigned long type)
+ 		goto put_kvm;
+ 	}
  
- static int mt8192_mt6359_init(struct snd_soc_pcm_runtime *rtd)
-@@ -319,9 +334,7 @@ static int mt8192_mt6359_init(struct snd_soc_pcm_runtime *rtd)
- 	afe_priv->mtkaif_protocol = MTKAIF_PROTOCOL_2_CLK_P2;
- 
- 	/* mtkaif calibration */
--	mt8192_mt6359_mtkaif_calibration(rtd);
--
--	return 0;
-+	return mt8192_mt6359_mtkaif_calibration(rtd);
- }
- 
- static int mt8192_rt5682_init(struct snd_soc_pcm_runtime *rtd)
++	kvm->file = file;
++
+ 	/*
+ 	 * Don't call kvm_put_kvm anymore at this point; file->f_op is
+ 	 * already set, with ->release() being kvm_vm_release().  In error
 -- 
-2.43.0
+2.53.0
 
 
