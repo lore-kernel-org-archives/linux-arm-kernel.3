@@ -4,97 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56730C982D2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 06:22:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71411C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 06:23:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rNMK1oveRj5l3CUKdcVnFNQ6+pbzm/NbL31Ljykro28=; b=xzYNDFZx+4QTs45VVVNahUecq2
-	4V8UKpwYrW7d/BBUAJV7m+KkkT5uqcga4RKZfm0eTMRpoLxs/XTxvENQpRnNq8bhIE1Tyjf9Wf3jc
-	9heombyarA71q2PYEfro2tkiW9foHGI80tfD5YplikqlgY1BIYvRo++WB4Wm/Jknv9D/NA4esduse
-	UXEx4WKtZuCgB5Tt8oIj1wX6wk+WFmRApEhGj0OoqD3/HmCR/HSRCoL2M4PckrCrXPfM75nTejWUG
-	wpf1Ikhl4clSlaFLf3Bp8jn6Ks1ARhAyp/C8+0sum/ueOiuLmIRIkehjqLzHysHZeMy9cgYYykrl0
-	xZaUcx7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kJRkH9y0iL21fiS3CIdzGL0TrDMTu7cAWMx2Tblk4Mw=; b=lS6GActmfp6D6FR16GYZO4oAii
+	JCXNlTHTu04ZdJ2DCm+fPM5YQ0beuGy6ytrQO5NJwKmxOS5ZRUxMpUPwsYTIAA3VhsP/LwlJYB5hJ
+	FrabN3lJCjHTcjj5RT3ypef+vvNsxwiZ/n5GuLw6vIOYPjKj6dmoYV/brDjJU9OOm9jtzJDB4LQz1
+	ug4J86kDYhwQGY4iz/42SN3IwTJp2DKsSZOXe73NnhyGBkxOAqc7NpnRAfUYv6m4rtrAKzs2nt3Rz
+	1e8z9etnYOx+7Rk1klQhLCbuISdqasZMxy6ae7nTt0ygsppcEj+z9Y7tlQpz6xjM5yMWcaV+tlAHK
+	fnqssKpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Rz6-0000000DYZC-1QLu;
-	Fri, 18 Sep 2026 06:22:08 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1x7Rzs-0000000DYit-0843;
+	Fri, 18 Sep 2026 06:22:56 +0000
+Received: from fhigh-b7-smtp.messagingengine.com ([202.12.124.158])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Rz3-0000000DYYM-0Kra;
-	Fri, 18 Sep 2026 06:22:06 +0000
-Received: from edelgard.fodlan.icenowy.me (unknown [112.94.103.44])
-	by APP-01 (Coremail) with SMTP id qwCowADnuu5y2KxqkbJICA--.14966S2;
-	Fri, 18 Sep 2026 14:21:41 +0800 (CST)
-Message-ID: <b8efa0db854929a353c430f78fffd907bd7ccb65.camel@iscas.ac.cn>
-Subject: Re: [PATCH v4 01/20] dt-bindings: phy: Add
- starfive,jh7110-inno-hdmi-phy
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Joshua Peisach
- <jpeisach@ubuntu.com>
-Cc: Michal Wilczynski <m.wilczynski@samsung.com>, Vinod Koul
- <vkoul@kernel.org>,  Neil Armstrong <neil.armstrong@linaro.org>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Andrzej Hajda	 <andrzej.hajda@intel.com>,
- Robert Foss <rfoss@kernel.org>, Laurent Pinchart	
- <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>,
- Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
- <luca.ceresoli@bootlin.com>, Maarten Lankhorst	
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
- Thomas Zimmermann <tzimmermann@suse.de>, Lee Jones <lee@kernel.org>, Andy
- Yan <andy.yan@rock-chips.com>, Philipp Zabel	 <p.zabel@pengutronix.de>,
- Emil Renner Berthing <kernel@esmil.dk>, Hal Feng	
- <hal.feng@starfivetech.com>, Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Paul
- Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,  Dominique
- Belhachemi	 <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>, Jerome
- Brunet	 <jbrunet+clk@baylibre.com>, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, mfd@lists.linux.dev,
- linux-clk@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, 	linux-riscv@lists.infradead.org, Marek
- Szyprowski <m.szyprowski@samsung.com>,  Maud Spierings
- <maud_spierings@murena.io>, Graham Markall <hello@big-grey.co.uk>, Chaoyi
- Chen	 <chaoyi.chen@rock-chips.com>, Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?=	
- <u.kleine-koenig@baylibre.com>
-Date: Fri, 18 Sep 2026 14:21:37 +0800
-In-Reply-To: <20260918-futuristic-mindful-waxbill-21fa2d@quoll>
-References: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
-	 <CGME20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125@eucas1p2.samsung.com>
-	 <20260915-jh7110-clean-send-v4-1-f0e4fd6f2cc8@samsung.com>
-	 <20260917-mutant-chamois-of-competence-46ca77@quoll>
-	 <DLI0QTP0NUHS.DAFYGACKWKWO@ubuntu.com>
-	 <20260918-futuristic-mindful-waxbill-21fa2d@quoll>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 
+	id 1x7Rzo-0000000DYiK-3zge
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 18 Sep 2026 06:22:54 +0000
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 52E757A00E8;
+	Fri, 18 Sep 2026 02:22:50 -0400 (EDT)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Fri, 18 Sep 2026 02:22:51 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1789712569;
+	 x=1789798969; bh=kJRkH9y0iL21fiS3CIdzGL0TrDMTu7cAWMx2Tblk4Mw=; b=
+	KuGsUWhFMeuW9g6yJPio9dJtFDd53WJUVuKXzHni9ASZoEBa7w3UdegqQavBrzSp
+	FHhj1ntJTHJLf5kFeGch8P4TeIQHBqu8VXqMXvjP8OjY4zybZ3Rg/hkGwhBaijRj
+	3CbHE7QjSuwIT/mKVRriIlAthkrkozi7xn+sHSC8SGMt6xzBnjMJiDxJgFpWrcRK
+	XVAbZfNGnxV6W7bE9IRXOICx71YRbdHI19vs/ERn2RcgpSNXH3+hthBHDn84INzV
+	wPXobz+8VSzg8YnmYDj7xK8QGTz18Ztcy8Iovqhhk7pp1exXFyQ9YnvHd3+vV44G
+	/uB+WGD70lbUHPOQQzLAzw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1789712569; x=
+	1789798969; bh=kJRkH9y0iL21fiS3CIdzGL0TrDMTu7cAWMx2Tblk4Mw=; b=h
+	ecKULoFxbDXvLtzDUdWJZ4klvoKWbD0XRBPSqkAD2+8L0Y58nNL4zKDQF8+3/NfQ
+	upT2/YeMW6yxggKS3IGmqBMh5WyyD5qi2hK+xLGk17GfY8+91mEPS0813mh34cKn
+	zBM1Ku16Dgdg1dViUKrTCYcjJiT0y+U31ir0UxvC/Jzt3wg4Lfow/JZQQPbeIm//
+	yD+kKxmQKj9SQirA2NBYbBH48rf4LpeXZd9f+aeHtP2PNpWsj5laM3tDFmz5GeRO
+	X91RttRw7UE1lsUJSoQ7YzXG96g0yFEGu3Sa0VbpKIvCaM53Wu0m7JPgur7um33T
+	t5iPrl3KPc7Hv6YaPHx+w==
+X-ME-Sender: <xms:tdisarwmHHpdu8i3t4TkiPBBuLGV-drSoZa96TGnoF9z5ZVE-y9CwQ>
+    <xme:tdisauE5qOH2Qyq5uiANm5XN7rQWI5-VO9ThNUnYicybMde8Nv1QN5_SD7zX6kmHM
+    cz-05IUXenzxQtEfqbf4bKdicGRwI6lCN4KqNPc_kddwjQj0hmkqI8>
+X-ME-Proxy-Cause: dmFkZTFEqTwzIprk1GtZpod+3Rl4MAua1izFjbVrb8H3Skw9dkRhugzxqCpAiUunM7SAJ1
+    tzH+jABzo6ntMxneef+S1CTmpsAYV0v65Wd6jfWLEyz2Slhom95w2Rdk3fxJra7Mo/o4//
+    bsG2AyDb/o92QNVOY1wHK2KdHaOXRlyq5ZayGSDksln3KeZ8XY4o43NOox8Ic2rB7qJ+dO
+    TCcLbWjJwxEoHuNjaJkB5cr5Lx53s7OuYayv8/wGahLEx1b83hmoz1KreHBN/GcZUHiwAx
+    Whr4/NoHuti+JIo673LXPUzJ8g4o+an8tlfo3jVblOp8K3Wp0873pDx3kIlB/PvO0BQdqv
+    MhY5+Zio7jMkON6Dc4962pLR4jfgPcPlhrISNdKQ5rNMakuREPTq+44jdawHrsXnRn4y61
+    0niKreB7mJV6p4gcFKBx/Q3f0QMSBU0NW5h3p+vWufkUuo9JRK2BgeyXULa14U07mKXMSV
+    Bor+oAnAMkq9EJ7VUMMA0fqHjXQBDn3wlJIYjcYSLH9d5yMuBnYCedzXkl7VkJNC5FI+94
+    tSoYV0RbgrH5uJ/Ya/wsrfzYc4hb/jwCGiNR7HYsNz2dKOwxBpTW31qXxZKsrLFZWsSPap
+    cYCObrGDVDP6HwaGZPHjsSZ4tOZEjDUGEA+NHd614qsY5PSnB+NkmyOu8XvQ
+X-ME-Proxy: <xmx:t9isar2jwiZMxB-smgPoh66sJGOMJEjtanEKsscpOSVx2qNqcqLNgA>
+    <xmx:t9isaqj44Wtn_bxQumxtokd4ObqSfW6xjRAXndfpogwwqOWZpKOUyw>
+    <xmx:t9isaro_YUBrFWR1Ia7BmHXoEYf4ZOPCptMHSu_bQ6VkjCrHNRwkDg>
+    <xmx:t9isatMNsypAxfiPU-KUMbtELH-qgANjXD42PQijVhkNxqAhRQY67g>
+    <xmx:udisah909h-WXrwp5hXuF3jPfIRYCd59Fj8tcjOp91qea-A4DVa-q6mX>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id F17DB32A0084; Fri, 18 Sep 2026 02:22:44 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowADnuu5y2KxqkbJICA--.14966S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7tw4xKF13WFyUCw1UKF1rWFg_yoW5Jr18pF
-	WDK3ZIkr4DJr1xAwn293WjgryF9w47A34Yqry5Wryjvr98tF1rtr4xGr45u3WDKr4fWr42
-	vF1jk34fu3sYyaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvGb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwV
-	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr
-	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7
-	MxkF7I0En4kS14v26rWY6Fy7MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r
-	4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF
-	67AKxVWrXVW8Jr1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6x
-	IIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvE
-	x4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa
-	73UjIFyTuYvjxU9PfHDUUUU
-X-Originating-IP: [112.94.103.44]
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
+X-ThreadId: AytAa-GFwSww
+Date: Fri, 18 Sep 2026 08:22:24 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: =?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>,
+ "Masami Hiramatsu" <mhiramat@kernel.org>
+Cc: "Christian Brauner" <brauner@kernel.org>, linux-kernel@vger.kernel.org,
+ linux-kbuild@vger.kernel.org, kernel-dev@igalia.com,
+ "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
+ linux-alpha@vger.kernel.org, linux-s390@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev,
+ linux-mips@vger.kernel.org, sparclinux@vger.kernel.org
+Message-Id: <4fa47186-08b3-4b2a-bbcc-16b14a50ee21@app.fastmail.com>
+In-Reply-To: <20260917-tonyk-syscall_table-v7-4-f4cd8f8e3265@igalia.com>
+References: <20260917-tonyk-syscall_table-v7-0-f4cd8f8e3265@igalia.com>
+ <20260917-tonyk-syscall_table-v7-4-f4cd8f8e3265@igalia.com>
+Subject: Re: [PATCH v7 04/13] arm: Use the common syscall table
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_232205_496431_B6DB0015 
-X-CRM114-Status: GOOD (  34.24  )
+X-CRM114-CacheID: sfid-20260917_232253_035709_9DA8F348 
+X-CRM114-Status: GOOD (  16.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,83 +114,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E5=9C=A8 2026-09-18=E4=BA=94=E7=9A=84 08:16 +0200=EF=BC=8CKrzysztof Kozlow=
-ski=E5=86=99=E9=81=93=EF=BC=9A
-> On Thu, Sep 17, 2026 at 08:34:18PM -0400, Joshua Peisach wrote:
-> > On Thu Sep 17, 2026 at 2:51 AM EDT, Krzysztof Kozlowski wrote:
-> > > On Tue, Sep 15, 2026 at 05:32:09PM +0200, Michal Wilczynski
-> > > wrote:
-> > > > Add the dt-binding for the StarFive JH7110 Innosilicon HDMI
-> > > > PHY.
-> > > >=20
-> > > > This device is a child of the starfive,jh7110-hdmi-subsystem
-> > > > node. It
-> > > > functions as both a PHY provider for the controller and as a
-> > > > clock
-> > > > provider for the variable pixel clock (hdmi_pclk), which it
-> > > > generates
-> > > > from its refoclk.
-> > > >=20
-> > > > Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
-> > >=20
-> > > While I appreciate other people looking at this, I don't think
-> > > review
-> > > here applies. It was a blanket tag, given to the entire series,
-> > > with
-> > > exception that it is from newbie, thus I want to ask: was this
-> > > binding
-> > > REALLY reviewed by Joshua?
-> > >=20
-> > > Are the rest of the patches actually reviewed or just "looks good
-> > > to
-> > > me"? I see no comments from Joshua on v3, v2 and v1, which is
-> > > usual sign
-> > > of doing review.
-> > >=20
-> > >=20
-> > I commented on v3 saying that I would test if I could. I don't just
->=20
-> Testing has nothing to do with reviewing.
->=20
-> > throw "Reviewed-by" on everything I look at.
-> >=20
-> > If anything, I've been trying to be more honest in reviews, and
-> > only
-> > review ones that I actually care about[1].
->=20
-> You gave blanket tag for entire series, so I do not get this
-> argument.
->=20
-> >=20
-> > If reviewing patches isn't a good way for newbies to start getting
-> > familiar with the kernel code (especially a NEW driver), then I
-> > don't
-> > know what is.
->=20
-> Writing code and receiving review is something for newbies to start
-> with. If you do not know kernel code or bindings, why do you think
-> your review is applicable? If I try to review design of a post-
-> tension
-> concrete bridge, I would probably learn something. Would my
-> review apply? No.
+On Fri, Sep 18, 2026, at 01:46, Andr=C3=A9 Almeida wrote:
+> Remove some of the duplicated code by using the common syscall number
+> table.
+>
+> Signed-off-by: Andr=C3=A9 Almeida <andrealmeid@igalia.com>
+> ---
+> Changes from v6:
+> - Added back syscalls from 403 to 423 to local table. arm32 can't use =
+the
+> common table for those syscalls, because arm doesn't implements compat_
+> entry points for syscalls like pselect6, ppoll, etc., and OABI uses co=
+mpat_
+> entry points when it's available, so this would cause a build error.
 
-My personal thoughts: everyone should be able to send R-b, but the
-effect of the R-b depends on who sent it.
+That's too bad, especially if this is only needed for OABI, which
+nobody should be using any more. I had hoped we could kill off OABI
+soonish, but that is currently blocked on the discussion about keeping
+RiscPC alive.
 
-In this case, I am okay about adding Joshua's R-b, but I don't
-necessarily think the patchset is reviewed enough because of this R-b.
+One possible idea would be to rework the table to differentiate
+the cases using separate ABI tags for the three cases (EABI native,
+OABI native, OABI on EABI), instead of using the compat column:
 
-Thanks,
-Icenowy
+--- a/arch/arm/tools/syscall.tbl
++++ b/arch/arm/tools/syscall.tbl
+@@ -115,7 +115,8 @@
+ 99     common  statfs                  sys_statfs
+ 100    common  fstatfs                 sys_fstatfs
+ # 101 was sys_ioperm
+-102    oabi    socketcall              sys_socketcall          sys_oabi=
+_socketcall
++102    oabi    socketcall              sys_socketcall
++102    oabic   socketcall              sys_oabi_socketcall
+ 103    common  syslog                  sys_syslog
+ 104    common  setitimer               sys_setitimer
+ 105    common  getitimer               sys_getitimer
+@@ -131,7 +132,8 @@
+ 114    common  wait4                   sys_wait4
+ 115    common  swapoff                 sys_swapoff
+ 116    common  sysinfo                 sys_sysinfo
+-117    oabi    ipc                     sys_ipc                 sys_oabi=
+_ipc
++117    oabi    ipc                     sys_ipc
++117    oabic   ipc                     sys_oabi_ipc
+ 118    common  fsync                   sys_fsync
+ 119    common  sigreturn               sys_sigreturn_wrapper
+ 120    common  clone                   sys_clone
+@@ -194,8 +196,12 @@
+ 177    common  rt_sigtimedwait         sys_rt_sigtimedwait_time32
+ 178    common  rt_sigqueueinfo         sys_rt_sigqueueinfo
+ 179    common  rt_sigsuspend           sys_rt_sigsuspend
+-180    common  pread64                 sys_pread64             sys_oabi=
+_pread64
+-181    common  pwrite64                sys_pwrite64            sys_oabi=
+_pwrite64
++180    eabi    pread64                 sys_pread64
++180    oabi    pread64                 sys_pread64
++180    oabic   pread64                 sys_oabi_pread64
++181    eabi    pwrite64                sys_pwrite64
++181    oabi    pwrite64                sys_pwrite64
++181    oabic   pwrite64                sys_oabi_pwrite64
+ 182    common  chown                   sys_chown16
+ 183    common  getcwd                  sys_getcwd
+ 184    common  capget                  sys_capget
+...
 
->=20
-> Best regards,
-> Krzysztof
->=20
->=20
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
+Not great, but it has the additional advantage of finally being able
+to share the table file with the arm64 copy.
+
+Another idea would be to actually add the six compat_sys_
+entry points for OABI from the common table, or redirect
+them like
+
+diff --git a/arch/arm/include/asm/unistd.h b/arch/arm/include/asm/unistd=
+.h
+index 9fb00973c608..1ff4b6579ba1 100644
+--- a/arch/arm/include/asm/unistd.h
++++ b/arch/arm/include/asm/unistd.h
+@@ -33,6 +33,15 @@
+ #define __ARCH_WANT_SYS_OLD_GETRLIMIT
+ #define __ARCH_WANT_OLD_READDIR
+ #define __ARCH_WANT_SYS_SOCKETCALL
++
++/* allow using compat column from shared syscall table */
++#define compat_sys_pselect6_time64 sys_pselect6_time64
++#define compat_sys_ppoll_time64 sys_ppoll_time64
++#define compat_sys_io_pgetevents_time64 sys_io_pgetevents_time64
++#define compat_sys_recvmmsg_time64 sys_recvmmsg_time64
++#define compat_sys_rt_sigtimedwait_time64 sys_rt_sigtimedwait_time64
++#define compat_sys_epoll_pwait2 sys_epoll_pwait2
++
+ #endif
+ #define __ARCH_WANT_SYS_FORK
+ #define __ARCH_WANT_SYS_VFORK
+
+This would be the least invasive here, but also the least intuitive.
+
+        Arnd
 
