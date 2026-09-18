@@ -4,82 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 374B8C982D7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 10:03:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A83BBC982D7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 10:05:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vf+VMKVEe34XIFcoM0F3NyOnHOuNbUrZlrEVL6D0Cdw=; b=lYC3eQiWXinSWjNqXj1NTJ7BeR
-	EfHbIyj7T4caKz/wRFAQDL+cfZWTziLZJTEACfAp2k0g2EIVCF/Fl9wAoY8gEZP0M9osy3VzCoIoB
-	xbCq3kzJ/b84vm/LWe9bXz/O0pvivD2BQlaz5U6+pjS4dGeFRRFrCq8kRHYrb8lc3tfZjtvEEa4S9
-	Oai6ZSADIeM61oOShXPH/mLV14gn9MNtlUJMhnADmOkUw9LxSoWC9afmtdlFB4gXxxfK8no2q32jk
-	hAYvk3TFVujiOCGFd/Ns6aO6NQh4owel8fHnl4XhHXDV02dvMquu4MtqENpRpdfAnlGWIjykRxQi6
-	BvB1xOlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=bfaXW7wU2Gx3b0iIq5PWlfZLjeuExHQmCFOsha4SOmk=; b=z30/8ZfOxIuiGJ
+	eZAQWvsLS8mwUYk+h57iiY4T1BGWe9J+yqx/u7TX6DHibLU/evkZwXHdoqj7vKCDNn/xkODVIxuaa
+	xP/u3DYtdCk5UVZweORWsD+0wygAdk0/9mCgXF7hwOQewEUHy80mM7hnulpObeNuBEoIqaioU7hqs
+	YT2BBjdtuvNeZclYRBlBqr05fUz1AAdhKtuLBPUhgN6Tev9SL84EwNaQIiUUwdbiykCByWr4eY3gk
+	T3zhFW+m2v43+6aQxibuyxUwdIYVO5Nog1ThXGn6rZiu1fYQ8O40aflLLiGVkhyYAr2uqmvR2bnK1
+	zdzRzOxDDTnP6XVdmMPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7VQz-0000000E2AO-0le9;
-	Fri, 18 Sep 2026 10:03:09 +0000
-Received: from mgamail.intel.com ([192.198.163.4])
+	id 1x7VTV-0000000E2mh-1qHs;
+	Fri, 18 Sep 2026 10:05:45 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7VQx-0000000E29j-0vYc;
-	Fri, 18 Sep 2026 10:03:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789725788; x=1821261788;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=uElSAhyH1PpeEPWtCcp7Howb3i9y6eQxOdUHga4bW1E=;
-  b=GR14b0haBjIpr/0DhwIvkhYI9Xn76vRme6b0RAZGOxziKklvYSHtL+/E
-   I/IfWr3MBEek9YuXfc982aukkD1MAZgjBFfsG9S7NQn24CbEtGH1UhJ+J
-   BuPMAcRBsshrxSTkazqO4qbRp57l4lsZjacCEyn+sDyPB1pNJJNfm0674
-   BeHu+Ya/pGGxvZ+SVc561QG1sHbape1MtTOXo4Ur59g6/lE5+DO3LMqMq
-   iujsdp9/udHx9teUs85XdaC+txnr3Y8Zm4/lAMLblqs2wbIZfcljg/I3g
-   bvV/WzKBMQNWYYB4F4Fb8gujaSfj2ZKvqKWrK6Ssw20LXcgO3LHbJQgRB
-   g==;
-X-CSE-ConnectionGUID: 7JJ5xXsyRvCaA1gdTalJiA==
-X-CSE-MsgGUID: 9YpDHz9rS+237zQauBOLJQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="728803"
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="728803"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa114.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Sep 2026 03:03:06 -0700
-X-CSE-ConnectionGUID: Fzk0+0vuSaGiYihkFXoX7g==
-X-CSE-MsgGUID: JJFCgwzZRAm1B0qK2MGLwQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="270024013"
-Received: from black.igk.intel.com ([10.91.253.5])
-  by fmviesa006.fm.intel.com with ESMTP; 18 Sep 2026 03:03:03 -0700
-Received: by black.igk.intel.com (Postfix, from userid 1008)
-	id 0041099; Fri, 18 Sep 2026 12:03:01 +0200 (CEST)
-Date: Fri, 18 Sep 2026 12:03:01 +0200
-From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-To: Joshua Crofts <joshua.crofts1@gmail.com>
-Cc: Peter Chen <peter.chen@kernel.org>, Pawel Laszczak <pawell@cadence.com>,
-	Roger Quadros <rogerq@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Mathias Nyman <mathias.nyman@intel.com>,
-	Chunfeng Yun <chunfeng.yun@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, stable@vger.kernel.org
-Subject: Re: [PATCH 4/6] usb: typec: ucsi: ccg: add missing
- pm_runtime_dont_use_autosuspend() call
-Message-ID: <aq0MVewexVIdq_qs@black.igk.intel.com>
-References: <20260915090223.1346-1-joshua.crofts1@gmail.com>
- <20260915090223.1346-5-joshua.crofts1@gmail.com>
+	id 1x7VTS-0000000E2lB-0YIf;
+	Fri, 18 Sep 2026 10:05:44 +0000
+Received: from ping.linuxembedded.co.uk (cpc89244-aztw30-2-0-cust6594.18-1.cable.virginm.net [86.31.185.195])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 41905236;
+	Fri, 18 Sep 2026 12:03:51 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1789725832;
+	bh=0tWYUZiixVnvD59lVl7V1A+pe3zDJA5LsRCVuPk+vBk=;
+	h=From:Subject:Date:To:Cc:From;
+	b=qkVxBqHjmma1aIBSh/W1KRZfWIsingY4v8DrXgBkCLxfeDkvIXIRKAMdzwe4tqOS2
+	 l/u0x+ENIc7JM6rz1rL2W8mwVxpeh4AsZFojwy6XgP5wELKuIjczO6gLoTubTcuwln
+	 Jcyc6qhvMNe5BmxFjBUhsXgXacpClDHIJT2AbAbE=
+From: Kieran Bingham <kieran.bingham@ideasonboard.com>
+Subject: [PATCH v5 0/6] dt-bindings: Orientation defines
+Date: Fri, 18 Sep 2026 11:05:21 +0100
+Message-Id: <20260918-kbingham-orientation-v5-0-e1a134326988@ideasonboard.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260915090223.1346-5-joshua.crofts1@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAOEMrWoC/3XNTQ6DIBCG4asY1qWhiPx01Xs0XYCgThrBgCFtj
+ Hcvmibd2OU7yffMgpKL4BK6VguKLkOC4Es0pwq1g/a9w2BLI0ooJ5xI/DTg+0GPOJSdn/VcBpg
+ S3bWkM1w1ApXpFF0Hr529P0oPkOYQ3/uXTLfrF6T8GMwUE8zERUjjFBWG3cA6nYI3QUd7bsOIN
+ jeznyUJ+2OxYtU1V0pay+tDa13XD13jikMLAQAA
+X-Change-ID: 20260608-kbingham-orientation-20afc0fb6957
+To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Jacopo Mondi <jacopo@jmondi.org>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>, Jimmy Su <jimmy.su@intel.com>, 
+ Matthias Fend <matthias.fend@emfend.at>, 
+ Mikhail Rudenko <mike.rudenko@gmail.com>, 
+ Daniel Scally <dan.scally@ideasonboard.com>, 
+ Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
+ Michael Riesch <michael.riesch@collabora.com>, 
+ Benjamin Mugnier <benjamin.mugnier@foss.st.com>, 
+ Sylvain Petinot <sylvain.petinot@foss.st.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Paul Elder <paul.elder@ideasonboard.com>, 
+ Martin Kepplinger <martin.kepplinger@puri.sm>, 
+ Quentin Schulz <quentin.schulz@theobroma-systems.com>, 
+ Tommaso Merciai <tomm.merciai@gmail.com>, 
+ Svyatoslav Ryhel <clamor95@gmail.com>, 
+ Richard Acayan <mailingradian@gmail.com>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Bjorn Andersson <andersson@kernel.org>, 
+ Konrad Dybcio <konradybcio@kernel.org>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>, 
+ Magnus Damm <magnus.damm@gmail.com>, Heiko Stuebner <heiko@sntech.de>, 
+ Thierry Reding <thierry.reding@kernel.org>, 
+ Jonathan Hunter <jonathanh@nvidia.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux@ew.tq-group.com, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
+ linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-tegra@vger.kernel.org, 
+ Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>, 
+ Alexander Stein <alexander.stein@ew.tq-group.com>, 
+ David Heidelberg <david@ixit.cz>, 
+ Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>, 
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>, 
+ Quentin Schulz <quentin.schulz@cherry.de>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789725933; l=4234;
+ i=kieran.bingham@ideasonboard.com; s=20260207; h=from:subject:message-id;
+ bh=0tWYUZiixVnvD59lVl7V1A+pe3zDJA5LsRCVuPk+vBk=;
+ b=/NCC6ht+TiMEJOrDiWTCe63UziN/m3CKwxyK+5kXXDl3uVCHE+GHRtth7vbpOTtyf+MEK+Ev7
+ SNIhs1ck1JdCbMp2wVWxirResfZ7Sus0HogXDLaHlv5r0qlwL+BcX0t
+X-Developer-Key: i=kieran.bingham@ideasonboard.com; a=ed25519;
+ pk=FVXKN7YuwHc6UtbRUeTMAmranfsQomA+vnilfglWdaY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_030307_267544_ACA2952E 
-X-CRM114-Status: GOOD (  14.85  )
+X-CRM114-CacheID: sfid-20260918_030542_640069_2D2EA30D 
+X-CRM114-Status: GOOD (  11.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,39 +111,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 15, 2026 at 09:02:21AM +0000, Joshua Crofts wrote:
-> ucsi_ccg_remove() disables PM runtime on teardown, but doesn't call
-> pm_runtime_dont_use_autosuspend(), causing resource leaks.
-> 
-> Add the missing pm_runtime_dont_use_autosuspend() call.
-> 
-> Found using Coccinelle.
-> 
-> Fixes: a94ecde41f7e ("usb: typec: ucsi: ccg: enable runtime pm support")
-> Cc: <stable@vger.kernel.org>
-> Signed-off-by: Joshua Crofts <joshua.crofts1@gmail.com>
+Add a new dt-bindings/media/video-interface-devices.h header that
+initially supports the Orientation types and convert existing users
+throughout the code base.
 
-Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+v3 collects tags, and fixes the typo, but drops all hunks that do not
+apply on the media-next tree so that these changes can be merged. Once
+the core feature is accepted a second sweep will convert remaining (new)
+additions of the orientation field.
 
-> ---
->  drivers/usb/typec/ucsi/ucsi_ccg.c | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/usb/typec/ucsi/ucsi_ccg.c b/drivers/usb/typec/ucsi/ucsi_ccg.c
-> index 91c2958a708c..9d3ebb255de7 100644
-> --- a/drivers/usb/typec/ucsi/ucsi_ccg.c
-> +++ b/drivers/usb/typec/ucsi/ucsi_ccg.c
-> @@ -1519,6 +1519,7 @@ static void ucsi_ccg_remove(struct i2c_client *client)
->  
->  	cancel_work_sync(&uc->pm_work);
->  	cancel_work_sync(&uc->work);
-> +	pm_runtime_dont_use_autosuspend(uc->dev);
->  	pm_runtime_disable(uc->dev);
->  	ucsi_unregister(uc->ucsi);
->  	free_irq(uc->irq, uc);
-> -- 
-> 2.47.3
+v2:
+ - Now expands from the original v1 "dt-bindings: media: Add macros for
+   video interface devices" to update
+   Documentation/devicetree/bindings/media/video-interface-devices.yaml
+   and extend to actually change all users to the new types.
+ - Link to v2: https://lore.kernel.org/r/20260626-kbingham-orientation-v2-0-47178be927b4@ideasonboard.com
 
+v3:
+ - Fix the arch/arm/boot/dts/nvidia/tegra30-lg-x3.dtsi
+   MEDIA_ORIENTATION_REAR to MEDIA_ORIENTATION_BACK
+   - Though this patch is dropped from this series to post the main
+     integration through the media tree.
+ - Drop (temporarily) changes to:
+    - arch/arm/boot/dts/nvidia/tegra30-lg-x3.dtsi
+    - arch/arm64/boot/dts/qcom/sdm670-google-common.dtsi
+    - arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus-radxa-cam4k-cam0.dtso
+    - arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus-radxa-cam4k-cam1.dtso
+ - Non applying changes will be re-posted after the core feature
+   lands in linux-next, or after those changes appear in media-next.
+
+-v4:
+ - Rebased media-committers/next (v7.2-rc1)
+ - Reintroduced updates to:
+   - arch/arm/boot/dts/nvidia/tegra30-lg-x3.dtsi
+   - arch/arm64/boot/dts/qcom/sdm670-google-common.dtsi
+   - arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus-radxa-cam4k-cam0.dtso
+   - arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus-radxa-cam4k-cam1.dtso
+ - Squash header introduction and bindings updates
+ - Link to v4: https://lore.kernel.org/r/20260804-kbingham-orientation-v4-0-336998dd63b4@ideasonboard.com
+
+-v5:
+ - Definitions now accepted in linux-media, rebased to get conversions in.
+ - Converts new himax,hm1246 binding
+
+---
+Kieran Bingham (6):
+      arm64: dts: freescale: Convert to new media orientation definitions
+      arm64: dts: qcom: Convert to new media orientation definitions
+      arm64: dts: renesas: Convert to new media orientation definitions
+      arm64: dts: rockchip: Convert to new media orientation definitions
+      ARM: tegra: Convert to new media orientation definitions
+      dt-bindings: media: i2c: himax,hm1246: Use video-interface-devices
+
+ Documentation/devicetree/bindings/media/i2c/himax,hm1246.yaml        | 3 ++-
+ arch/arm/boot/dts/nvidia/tegra30-asus-nexus7-grouper-common.dtsi     | 3 ++-
+ arch/arm/boot/dts/nvidia/tegra30-asus-transformer-common.dtsi        | 3 ++-
+ arch/arm/boot/dts/nvidia/tegra30-lg-p895.dts                         | 4 +++-
+ arch/arm/boot/dts/nvidia/tegra30-lg-x3.dtsi                          | 3 ++-
+ .../boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314-imx219.dtso    | 3 ++-
+ arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi                    | 3 ++-
+ arch/arm64/boot/dts/qcom/qcm6490-fairphone-fp5.dts                   | 3 ++-
+ arch/arm64/boot/dts/qcom/sc8280xp-lenovo-thinkpad-x13s.dts           | 3 ++-
+ arch/arm64/boot/dts/qcom/sdm670-google-common.dtsi                   | 3 ++-
+ .../boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx219.dtso     | 3 ++-
+ .../boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx462.dtso     | 3 ++-
+ .../boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx219.dtso     | 3 ++-
+ .../boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx462.dtso     | 3 ++-
+ arch/arm64/boot/dts/rockchip/px30-pp1516.dtsi                        | 3 ++-
+ arch/arm64/boot/dts/rockchip/px30-ringneck-haikou-video-demo.dtso    | 3 ++-
+ arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts                | 5 +++--
+ .../boot/dts/rockchip/rk3588-rock-5b-plus-radxa-cam4k-cam0.dtso      | 3 ++-
+ .../boot/dts/rockchip/rk3588-rock-5b-plus-radxa-cam4k-cam1.dtso      | 3 ++-
+ 19 files changed, 40 insertions(+), 20 deletions(-)
+---
+base-commit: aedd77ea8168f00687c1248cdf115071e869cf93
+change-id: 20260608-kbingham-orientation-20afc0fb6957
+
+Best regards,
 -- 
-heikki
+--
+Kieran
+
 
