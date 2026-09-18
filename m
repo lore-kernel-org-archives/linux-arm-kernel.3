@@ -4,129 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3972EC982D7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 09:06:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78D9FC982D7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 09:11:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7uSQneWyD9u8uXUDCmfCQSOWQMsG1MluBHm0qVsycCg=; b=B65nlH67Wl0wnbL0T814Jbn8Hv
-	lFZeLV7/18XiGJJoS5sO3eWj+9NpDw8Y/s33vZ3p9wAB3P9oL3O/ujLG2UMAwRCiXsGFQlBF4jqsB
-	8GQSs2MkjdiFyjlhYUdmPR3iUwHrOLjK1eKq4OWEjp6vxMSSQZLuloVxSHqf+8AFO8w2UI7u4p6L+
-	U7dN2DGKweyLIhmCRd4yc8HpPR8ygeF3ZA5oFFqJWjt2bQiOq0cwDfXKTJnIe0PPN6PdVCDoE5XW/
-	gAcSPsyDRVMRBVL58Xgz2TJFhpRiKXFjikqjBX01VD9Ft5yMibr1QjClM2X6zWclniQP1uxY0JRKE
-	QeYABDxQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dG/NQKkV41YhIgrIyd1kGa7K3ptoEDA2CGGt3WrAYAE=; b=SxdT1NBpSV0v6pw2IVuMS1xzSQ
+	SkU7UHl4OWpMc4CQgbAykVRjkMlYzeJKasAwmjiETtWCX6Z48uSg95GrRrIWu5MrTP7BY0YYZCKZo
+	rXN0KNDerj0EJ4dOAUoTtnx0NZ9CGj0o9k/JXGqqN6nxpxRhmyNJZh9p/ItOSQNf2vDlpgZUYBFkN
+	BrkfiHMerCpA6N5rmSznBHzIpZvcERTfQxYcDcp8y/obyY2RLlfSoe4djIYMt/rHsN4nzv2wXlIfq
+	mGaKOGp7x9v3GhR5gRQOagzer8w/3fHeOubhYAJHy57s/YN2+FTHtYS3ONKxAaz+eIHUFGyn9fKVC
+	meib6pYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7UXZ-0000000Dsyu-0Tog;
-	Fri, 18 Sep 2026 09:05:53 +0000
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	id 1x7Ucj-0000000Dtf8-0VNF;
+	Fri, 18 Sep 2026 09:11:13 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7UXW-0000000Dsxj-2ajj
+	id 1x7Uci-0000000Dteq-0CnK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 09:05:52 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e721b5503so5029755e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 02:05:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1789722349; x=1790327149; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:organization
-         :autocrypt:content-language:references:cc:to:subject:reply-to:from
-         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=7uSQneWyD9u8uXUDCmfCQSOWQMsG1MluBHm0qVsycCg=;
-        b=L32eejerRBzuJGzqnXciCKToKO31+xEqNw55YO1IsSxxCNKt8zik8k9wXsvjZ9bgrM
-         J5/DQHKmUrkGRs0hzyIQd8InHaGaCeHgnTy+zdR8xAGjHAqyKIuOvPHAvuk7C468XBgN
-         S7kdYFmpQ+543MHfDSqQ7FsXZqYP3BAhmlNJV5/8MXkiSXrua6tvQwmizyieMvB+QB08
-         LohCWy1VcNhY74NbyoHq1Z4TrAMk4Jok3L1v9/n+B1bpAc57sZ9BTfN6JJOa7I0VXfT6
-         NJbDVF2CNSR+fj+Hg/Y+zgULuZaOurDL5y7Tq9etEuels6qUZvzV0TzVeFyqqY9qmFF6
-         DC+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789722349; x=1790327149;
-        h=content-transfer-encoding:content-type:in-reply-to:organization
-         :autocrypt:content-language:references:cc:to:subject:reply-to:from
-         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=7uSQneWyD9u8uXUDCmfCQSOWQMsG1MluBHm0qVsycCg=;
-        b=V0NW2EJXrjEW0OXmULI3O1zbdTxVNvKhcfqk3c6fWi1YxPD7nKOz6Awc7rejaWsgD9
-         cyxVHppwdK6Q0i00Agoek0TJURtG9OpqD6EKFL7lql3wqT/16mMXg+J7aY/qETMqRTDK
-         zVGrn7fnKfBeSHwA+u3Igm3MVyG55TILkcyG0zVi2/ONAbax145U6BsH6hueXJuAWvoJ
-         6PLqBsZpejqPu6HYKjbQlYV738l25Wn4jT5UmXeH4Ks78zf2ICFqQSl1QUIGKr0kbD1n
-         cOrch+2fufPmvrXKkFALkFTMieuN3X/fXwsS0DurTIDtnqV7xK2PSjKGRB2T5zjFYaxv
-         erNw==
-X-Forwarded-Encrypted: i=1; AKwUvBwQ88GbRqUdwXEzG2NVFhChq2HAMe0hL4/D4WSk8LF4pMb9B/i2+aJerueTmqdWwR8AGczzlMO//zFtepwVGE2r@lists.infradead.org
-X-Gm-Message-State: AFuF++nWoQZL/ab5XYxTgO5sqGLc/Pew+oM5IFinwlDY3xNFyHXk0wOo
-	5aEaFgAMkzC4kdwy+MVgLvaPShAA+FVKvBmCn4mHsoKVliSPWIBqEqMTBv5b+o8YKpI=
-X-Gm-Gg: AYBFou2splVF11fu6OnsZzQ4EQDwa+LCubYQc/6fDrkWz07BrNbB1w8h3UKKm0LPNIu
-	mngyBuNvrkQFMn0tU8ljgvoccxScBwnWcH21I14sSs/c2DTZ7mX0DTEx2kaFfm/ZpWhDS/IYwgq
-	2jAPidsM8OAKedIpWLCnKRCNxGgszPryCEVUDrREOJLIoZuoyM/5t6ypK7pjj50xOK6w6P3ivas
-	s2JSjKvWnW6J04qBsRRAU3Dw0mc2vxGEai0E57YYvuaCM6dCvT2FoCIkqviri2KwX+3pM2+zQOh
-	62k11ItqWcJ8ySqZtLU13FXiD/wJrFAIPzcnliSvZ8JE6R1NemAzYLuHacoZlTCrQ6uPvPeStjM
-	dMWmyo2wzzh2XOOIHo+cpwuLSt0CUQ7r7Eh+wMTIFAp0hty8evuLAFvZ6JLO8vFRe5j8CMbt+Ru
-	UwDwCNajD8i6nlussZNctnbjSpoPMV91p/GxAUYSh7CYy2RfIHk3G1TfD/bRh/t14pp/+CcUJr8
-	TN7RyEqTWEPzb9RgNv/Pn9NbG8O/BoIOGc99G5ZqvP63XfkfgvDnQ==
-X-Received: by 2002:a05:600c:1f8f:b0:49e:8354:26fb with SMTP id 5b1f17b1804b1-49fc574c729mr22905995e9.32.1789722348545;
-        Fri, 18 Sep 2026 02:05:48 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:106d:1080:c55f:cb91:1ca5:54dc? ([2a01:e0a:106d:1080:c55f:cb91:1ca5:54dc])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fc471b9a2sm26149925e9.0.2026.09.18.02.05.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 18 Sep 2026 02:05:48 -0700 (PDT)
-Message-ID: <43f75100-b255-462b-aed2-b3f19fb19342@linaro.org>
-Date: Fri, 18 Sep 2026 11:05:46 +0200
+	Fri, 18 Sep 2026 09:11:12 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C426E40193;
+	Fri, 18 Sep 2026 09:11:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECAB21F00893;
+	Fri, 18 Sep 2026 09:11:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789722671;
+	bh=dG/NQKkV41YhIgrIyd1kGa7K3ptoEDA2CGGt3WrAYAE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=FcgVFMee+7sqAMMPEXTmkt4Ce4EqkYw/71EiqfiHMdlyb3ofAgUVEqi1SAGuiQ3IP
+	 Z0xlcRWx8VoB9qokS9t1VxTzx+gFGV7kzSxOxWThG/a+ERFdVpq0rr8yxZHwIn13VO
+	 Bb1ni3BbkCkjdpaUZ9NQhibPREdVJFxI5PdG4QQsfiEdcTiJtgLkIoYXypHnLI+YJu
+	 a0WQ54kX1lr8qictRHrNQUoz5VfQmxDrLrTCuHaabztx3f33sw14YBlKYxpxlu1Leh
+	 tYGkxMvWrqr2maFU8Z9S6g1dGkY0GDCwjiP539adNBTTDrEFmRIaQ3qZ5whpL33YE5
+	 J8D58mL5RX1Dw==
+Message-ID: <930f3db4-9034-4a48-98b2-07a44de3a718@kernel.org>
+Date: Fri, 18 Sep 2026 11:11:04 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH v12 2/6] mfd: khadas-mcu: Use MFD_CELL_* macros for cell
- declarations
-To: linux-kernel-dev@aliel.fr, Lee Jones <lee@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Beniamino Galvani <b.galvani@gmail.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>
-Cc: linux-amlogic@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
- mfd@lists.linux.dev
-References: <20260917-add-mcu-fan-khadas-vim4-v12-0-497cd543a148@aliel.fr>
- <20260917-add-mcu-fan-khadas-vim4-v12-2-497cd543a148@aliel.fr>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20260917-add-mcu-fan-khadas-vim4-v12-2-497cd543a148@aliel.fr>
+Subject: Re: [PATCH v8 02/10] powerpc/8xx: add pte_set_huge()
+To: Barry Song <baohua@kernel.org>
+Cc: Wen Jiang <jiangwenxiaomi@gmail.com>, akpm@linux-foundation.org,
+ catalin.marinas@arm.com, linux-mm@kvack.org, urezki@gmail.com,
+ will@kernel.org, Xueyuan.chen21@gmail.com, ajd@linux.ibm.com,
+ anshuman.khandual@arm.com, david@kernel.org, dev.jain@arm.com,
+ jiangwen6@xiaomi.com, leo.yan@arm.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com, rppt@kernel.org,
+ ryan.roberts@arm.com
+References: <20260917052933.188679-1-jiangwenxiaomi@gmail.com>
+ <20260917052933.188679-3-jiangwenxiaomi@gmail.com>
+ <58e3b456-7389-4752-8de5-1cc82964c3c7@kernel.org>
+ <CAGsJ_4wKG91hd1Y3W4mbdh6B8Kq09JyDjyvXeeCmQj+L6bHm2A@mail.gmail.com>
+Content-Language: fr-FR
+From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+In-Reply-To: <CAGsJ_4wKG91hd1Y3W4mbdh6B8Kq09JyDjyvXeeCmQj+L6bHm2A@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_020550_714994_7D3D82B2 
-X-CRM114-Status: GOOD (  18.50  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,53 +76,95 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/17/26 09:59, Ronald Claveau via B4 Relay wrote:
-> From: Ronald Claveau <linux-kernel-dev@aliel.fr>
-> 
-> Convert khadas_mcu_fan_cells[] and khadas_mcu_cells[] to use the
-> MFD_CELL_NAME() helper macro instead of open-coding the struct
-> mfd_cell initialisers. While at it, make both arrays const since
-> they are never modified after initialisation.
-> 
-> This is a pure cleanup with no functional change, done in
-> preparation for a subsequent patch which will need to attach
-> platform_data to the fan cell.
-> 
-> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
-> ---
->   drivers/mfd/khadas-mcu.c | 8 ++++----
->   1 file changed, 4 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/mfd/khadas-mcu.c b/drivers/mfd/khadas-mcu.c
-> index ba981a7886921..0e74efe14f367 100644
-> --- a/drivers/mfd/khadas-mcu.c
-> +++ b/drivers/mfd/khadas-mcu.c
-> @@ -75,13 +75,13 @@ static const struct regmap_config khadas_mcu_regmap_config = {
->   	.cache_type	= REGCACHE_MAPLE,
->   };
->   
-> -static struct mfd_cell khadas_mcu_fan_cells[] = {
-> +static const struct mfd_cell khadas_mcu_fan_cells[] = {
->   	/* VIM1/2 Rev13+ and VIM3 only */
-> -	{ .name = "khadas-mcu-fan-ctrl", },
-> +	MFD_CELL_NAME("khadas-mcu-fan-ctrl"),
->   };
->   
-> -static struct mfd_cell khadas_mcu_cells[] = {
-> -	{ .name = "khadas-mcu-user-mem", },
-> +static const struct mfd_cell khadas_mcu_cells[] = {
-> +	MFD_CELL_NAME("khadas-mcu-user-mem"),
->   };
->   
->   static int khadas_mcu_probe(struct i2c_client *client)
-> 
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
-Thanks,
-Neil
+Le 18/09/2026 à 10:44, Barry Song a écrit :
+> On Fri, Sep 18, 2026 at 2:14 PM Christophe Leroy (CS GROUP)
+> <chleroy@kernel.org> wrote:
+>>
+>>
+>>
+>> Le 17/09/2026 à 07:29, Wen Jiang a écrit :
+>>> From: Wen Jiang <jiangwen6@xiaomi.com>
+>>>
+>>> vmap installs PTE-level block mappings (SZ_16K/SZ_512K on powerpc/8xx)
+>>> by reusing set_huge_pte_at(), a HugeTLB helper gated by
+>>> CONFIG_HUGETLB_PAGE. This makes the feature silently unavailable on
+>>> CONFIG_HUGETLB_PAGE=n kernels and couples mm/vmalloc.c to HugeTLB
+>>> internals it does not otherwise need.
+>>>
+>>> Add pte_set_huge() to powerpc/8xx, next to the existing
+>>> pmd_clear_huge()/pud_clear_huge() in mm/nohash/8xx.c. It builds the huge
+>>> PTE and writes it into the backing cells directly, without going through
+>>> set_huge_pte_at(), so it does not depend on CONFIG_HUGETLB_PAGE.
+>>>
+>>> No pte_clear_huge() is needed: 8xx does not implement
+>>> arch_vmap_pte_range_unmap_size(), so the vmap unmap path never takes the
+>>> block-mapping branch.
+>>>
+>>> In practice PPC_8xx selects HUGETLBFS unconditionally, so
+>>> CONFIG_HUGETLB_PAGE=n does not occur there today; this is a decoupling
+>>> cleanup rather than a new configuration.
+>>
+>> 8xx selects CONFIG_HUGETLB_PAGE because it uses set_huge_pte_at() to map
+>> kernel text with large pages. That was added by commit 34536d780683
+>> ("powerpc/8xx: Add a function to early map kernel via huge pages")
+>>
+>> But now pte_set_huge() could be used instead in
+>> __early_map_kernel_hugepage() and then CONFIG_HUGETLB_PAGE could be removed.
+> 
+> Hi Christophe,
+> 
+> Do you mean the code below? If so, it sounds like a good place to
+> clean this up for powerpc as a separate cleanup patch.
+
+Yes this is what I have in mind allthough I have not studied it in details.
+
+> 
+> diff --git a/arch/powerpc/mm/nohash/8xx.c b/arch/powerpc/mm/nohash/8xx.c
+> index 2518d2a6bdb4..830cdb391161 100644
+> --- a/arch/powerpc/mm/nohash/8xx.c
+> +++ b/arch/powerpc/mm/nohash/8xx.c
+> @@ -87,9 +87,7 @@ static int __ref
+> __early_map_kernel_hugepage(unsigned long va, phys_addr_t pa,
+>          if (WARN_ON(!ptep))
+>                  return -ENOMEM;
+> 
+> -       set_huge_pte_at(&init_mm, va, ptep,
+> -                       arch_make_huge_pte(pfn_pte(pa >> PAGE_SHIFT,
+> prot), shift, 0),
+> -                       1UL << shift);
+> +       pte_set_huge(ptep, va, pa, prot, 1UL << shift);
+> 
+>          return 0;
+>   }
+> diff --git a/arch/powerpc/platforms/Kconfig.cputype
+> b/arch/powerpc/platforms/Kconfig.cputype
+> index f0adbf7ecb7f..efba4d960083 100644
+> --- a/arch/powerpc/platforms/Kconfig.cputype
+> +++ b/arch/powerpc/platforms/Kconfig.cputype
+> @@ -41,7 +41,6 @@ config PPC_8xx
+>          select FSL_SOC
+>          select PPC_KUEP
+>          select HAVE_ARCH_VMAP_STACK
+> -       select HUGETLBFS
+> 
+>   config 44x
+>          bool "AMCC 44x, 46x or 47x"
+> 
+>>
+>>>
+>>> There is no caller yet: mm/vmalloc.c is converted later in this series,
+>>> once the generic fallbacks are in place.
+>>>
+>>> Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
+>>
+>> Reviewed-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
+> 
+> Best Regards
+> Barry
+
 
