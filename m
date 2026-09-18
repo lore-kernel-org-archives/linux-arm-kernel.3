@@ -4,60 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 355D5C982D9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 10:44:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F41C5C982DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 10:44:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CiwXmmdbIEfz+vTg//E8LLcXzxRdgCAkhdh9vMT66So=; b=WUMqS3GJyujuflot683N7ZaEE/
-	dDHooWEG0Dfvz1HbZNeYdfhtZAU34PWeNGaKvugP2pVpWjhMIpbDwz3DuT5EOr4JFc/BfAxPlEGyl
-	ntuhPDvwh1/RET1F02lzB7hPHcJNspj77EIXEUwCeqhQ4oC3/3sWOaALOZveCE2j87Tpys7T/bVZc
-	hplolFj85kG3X7kGnEYZuYdzP9sRHtuY18xEkTgKFtO8oeCFxpyrhiFYDtZCIfzlGZivK0PoN8IOg
-	GyolA3at4cp4hFbzyzNI33fOb+fcKny2+ELrZwnteNdkpM6Wj5yuUsS/TxLGw2ZJ49uSEa6Ffv9I6
-	xmTDSFXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ekTM1P5YRyr4Ur/7C/VzK/woIUQbSytjW/zwi9aKj9Y=; b=XxczfYaeeSLf0b
+	o2Qr0ZIXokOB0Oo/Keve6rMkGrHQsYsz3sKn7Ih5cm2l8VoHzgShWtcA30B7Uv3GEDqaET3xheSHL
+	a6NPZq4IHirMOiWZ9kiIbiJc4kuSWWzole6e/P5q3UDfIfzdB5SVemdxzsdp1R0JAFuPqJ9W4vp2q
+	qQbfs/iCQnwTCfFQTnAnYOLzUGBvWU8ZsDtu/N68glKIWQx7dyH7U82qnPCrFtx6DQUZTjQ0GY/Si
+	A9T4cdwChEDlBuBWfntw5c3KuK4NNE9ryWkFJUWoqp7ZpS00kKATJvQwe63w4zS582h8HIeXoCcaZ
+	npbAoQD7cHaJysqPjY+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7W4o-0000000E7eE-3wwg;
-	Fri, 18 Sep 2026 10:44:18 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1x7W4w-0000000E7id-0miq;
+	Fri, 18 Sep 2026 10:44:26 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7W4m-0000000E7cv-2kMb;
-	Fri, 18 Sep 2026 10:44:17 +0000
-Date: Fri, 18 Sep 2026 12:44:11 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1789728252;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type;
-	bh=CiwXmmdbIEfz+vTg//E8LLcXzxRdgCAkhdh9vMT66So=;
-	b=zkR1T3tRFNENllO1IxZSff/YZuLZTtXxgK6Qz5tbfKrFxxcW8iRe+lAWUuLsUhln4E3TlS
-	PkBQBnZ0IV//J7/oAWUEzvK30dUJT1ieMRk9FF1/njKe6UfuB+K4rL/FvwZRy7aNcVSv0p
-	aVqsxhqEX9USUOfn8fbzIOk3vXTwPmfbggUi3qkm/cdlTn2nfGBbPy2aqUdvPJ8F5SEbjB
-	PS0SeTi/VvRpL9oJ9/6FfvR6ltAL0cdPppFeh/2nqkmulqlukjILpcLhKbzAC1hhELAZx6
-	6+XK6OUiMgz89pvCRRaNd3z4SBujbZ5a9SnAOBHv3BXbLZrF9loKSzG7M8qb7A==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1789728252;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type;
-	bh=CiwXmmdbIEfz+vTg//E8LLcXzxRdgCAkhdh9vMT66So=;
-	b=AN4XQTipSgxZGuyyIvfehlnKXDByEhYUOqND+SeJ86JRP+gb85pNMBAGKni4U2TqO7foJe
-	bPGDq7wUikOet+AQ==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	bcm-kernel-feedback-list@broadcom.com
-Subject: [PATCH] platform/raspberrypi: Use %p for pointer formatting
-Message-ID: <20260918104411.gMUABcHB@linutronix.de>
+	id 1x7W4t-0000000E7gL-3mcK;
+	Fri, 18 Sep 2026 10:44:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=ekTM1P5YRyr4Ur/7C/VzK/woIUQbSytjW/zwi9aKj9Y=; b=gK5bO4d7xktlAT2qf4/rxy18YO
+	HBSl7gkVxJBitGkV/yiCtJ4YHxAmEbBEUJz54nmlvGfP5nCbpxfNctt5/TsA81ii6NwU7ooJcYSfk
+	lEEHz2VbOESfD8mMU9hrpdxm1Xr2Gx8yzBqoH1Ep+8JFkcpnMGihGrlFXbCYI7qi5Ja3jbl4YOogD
+	JJr0BWvYQy5UkuzRkS7R7is7NbPxdXqUOT+CG+uPSowJ7eeJzyxSgJNgKRyMJqx+E5WUJBkYx+ffx
+	uEV/YwDDSxcq4y+gAvZ38osthnjF0U7UZ6cQCDXdWVBrTwQDTM+T26aMzn122d77ItyIUZAUVOzz6
+	HTAU93FQ==;
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x7W4r-00000009wo2-05eP;
+	Fri, 18 Sep 2026 10:44:22 +0000
+Received: from ping.linuxembedded.co.uk (cpc89244-aztw30-2-0-cust6594.18-1.cable.virginm.net [86.31.185.195])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 114004D3A;
+	Fri, 18 Sep 2026 12:42:35 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1789728156;
+	bh=ILvl/y5sag2JhhGEy9CngiSkng7+/GuEan+czF6epJE=;
+	h=From:Subject:Date:To:Cc:From;
+	b=iAVGcdDjAmFpEsC9Td2frqmEvWpKTMW3EQaCb57qiLWT4gLDoCiNu0+TZM7NqQQHI
+	 TzjeRyqjdYCFjbloJLdlVGFwt+tWvmao2xLzdNtxerqd8uetQMiAHpy4NWHucZ6N+K
+	 OFiO0qaI2HrDAvx0Kzs3LWbKePWhuVp7pJHHKI8Y=
+From: Kieran Bingham <kieran.bingham@ideasonboard.com>
+Subject: [PATCH v6 0/6] dt-bindings: Orientation defines
+Date: Fri, 18 Sep 2026 11:44:12 +0100
+Message-Id: <20260918-kbingham-orientation-v6-0-5e8b1f01be29@ideasonboard.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAPwVrWoC/3XP3wqDIBgF8FcJr+cwNf/sau8xdqFpJSMdGrIRv
+ fssBt3U5fng/A7fDJKNziZwq2YQbXbJBV8Cu1SgHZTvLXSmZIARZoghAV/a+X5QIwyl5yc1lQL
+ ESHUt6jSTDQel+o62c5+NfTxLHlyaQvxuKxmv1z+I2TGYMUSQ8poLbSXmmt6dsSoFr4OK5tqGE
+ axuprslED2xaLEIYVIKYxg5tZrdkvXJo7kplq1VTSjBTApxYC3L8gN/cymVVwEAAA==
+X-Change-ID: 20260608-kbingham-orientation-20afc0fb6957
+To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Jacopo Mondi <jacopo@jmondi.org>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>, Jimmy Su <jimmy.su@intel.com>, 
+ Matthias Fend <matthias.fend@emfend.at>, 
+ Mikhail Rudenko <mike.rudenko@gmail.com>, 
+ Daniel Scally <dan.scally@ideasonboard.com>, 
+ Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
+ Michael Riesch <michael.riesch@collabora.com>, 
+ Benjamin Mugnier <benjamin.mugnier@foss.st.com>, 
+ Sylvain Petinot <sylvain.petinot@foss.st.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Paul Elder <paul.elder@ideasonboard.com>, 
+ Martin Kepplinger <martin.kepplinger@puri.sm>, 
+ Quentin Schulz <quentin.schulz@theobroma-systems.com>, 
+ Tommaso Merciai <tomm.merciai@gmail.com>, 
+ Svyatoslav Ryhel <clamor95@gmail.com>, 
+ Richard Acayan <mailingradian@gmail.com>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Bjorn Andersson <andersson@kernel.org>, 
+ Konrad Dybcio <konradybcio@kernel.org>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>, 
+ Magnus Damm <magnus.damm@gmail.com>, Heiko Stuebner <heiko@sntech.de>, 
+ Thierry Reding <thierry.reding@kernel.org>, 
+ Jonathan Hunter <jonathanh@nvidia.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux@ew.tq-group.com, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
+ linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-tegra@vger.kernel.org, 
+ Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>, 
+ Alexander Stein <alexander.stein@ew.tq-group.com>, 
+ David Heidelberg <david@ixit.cz>, 
+ Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>, 
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>, 
+ Quentin Schulz <quentin.schulz@cherry.de>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789728257; l=4409;
+ i=kieran.bingham@ideasonboard.com; s=20260207; h=from:subject:message-id;
+ bh=ILvl/y5sag2JhhGEy9CngiSkng7+/GuEan+czF6epJE=;
+ b=3/FgQrQgkYY9+ZjpzZq1dETbFJvszDKs87yfCdXr2I0lYwhXFsJToiHbUXijlDMrTaFlD+xlf
+ s5fOZcP1vEtBidRUHLxo4Vz0vOlwKNShbAwoZ8nArFmRvis50UNKWa4
+X-Developer-Key: i=kieran.bingham@ideasonboard.com; a=ed25519;
+ pk=FVXKN7YuwHc6UtbRUeTMAmranfsQomA+vnilfglWdaY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_034416_848270_D58C26EC 
-X-CRM114-Status: UNSURE (   9.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260918_114421_202153_B5140AAC 
+X-CRM114-Status: GOOD (  12.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,59 +125,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since commit ad67b74d2469d ("printk: hash addresses printed with
-%p") pointers are hashed by default and the behaviour can be controller
-by `hash_pointers' boot argument.
-The policy on %p is to not introduce new ones.
-Removing %pK makes it possible to remove its handling from the library.
+Add a new dt-bindings/media/video-interface-devices.h header that
+initially supports the Orientation types and convert existing users
+throughout the code base.
 
-Ideally I would the %p usage here but can't tell how important it is for
-debugging.
+v3 collects tags, and fixes the typo, but drops all hunks that do not
+apply on the media-next tree so that these changes can be merged. Once
+the core feature is accepted a second sweep will convert remaining (new)
+additions of the orientation field.
 
-Use %p instead %pK.
+v2:
+ - Now expands from the original v1 "dt-bindings: media: Add macros for
+   video interface devices" to update
+   Documentation/devicetree/bindings/media/video-interface-devices.yaml
+   and extend to actually change all users to the new types.
+ - Link to v2: https://lore.kernel.org/r/20260626-kbingham-orientation-v2-0-47178be927b4@ideasonboard.com
 
-Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+v3:
+ - Fix the arch/arm/boot/dts/nvidia/tegra30-lg-x3.dtsi
+   MEDIA_ORIENTATION_REAR to MEDIA_ORIENTATION_BACK
+   - Though this patch is dropped from this series to post the main
+     integration through the media tree.
+ - Drop (temporarily) changes to:
+    - arch/arm/boot/dts/nvidia/tegra30-lg-x3.dtsi
+    - arch/arm64/boot/dts/qcom/sdm670-google-common.dtsi
+    - arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus-radxa-cam4k-cam0.dtso
+    - arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus-radxa-cam4k-cam1.dtso
+ - Non applying changes will be re-posted after the core feature
+   lands in linux-next, or after those changes appear in media-next.
+
+-v4:
+ - Rebased media-committers/next (v7.2-rc1)
+ - Reintroduced updates to:
+   - arch/arm/boot/dts/nvidia/tegra30-lg-x3.dtsi
+   - arch/arm64/boot/dts/qcom/sdm670-google-common.dtsi
+   - arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus-radxa-cam4k-cam0.dtso
+   - arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus-radxa-cam4k-cam1.dtso
+ - Squash header introduction and bindings updates
+ - Link to v4: https://lore.kernel.org/r/20260804-kbingham-orientation-v4-0-336998dd63b4@ideasonboard.com
+
+-v5:
+ - Definitions now accepted in linux-media, rebased to get conversions in.
+ - Converts new himax,hm1246 binding
+ - Link to v5: https://lore.kernel.org/r/20260918-kbingham-orientation-v5-0-e1a134326988@ideasonboard.com
+
+-v6:
+ - Keep himax,hm1246 example as MEDIA_ORIENTATION_EXTERNAL
+
 ---
- drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c  | 4 ++--
- drivers/platform/raspberrypi/vchiq-interface/vchiq_core.c | 2 +-
- 2 files changed, 3 insertions(+), 3 deletions(-)
+Kieran Bingham (6):
+      arm64: dts: freescale: Convert to new media orientation definitions
+      arm64: dts: qcom: Convert to new media orientation definitions
+      arm64: dts: renesas: Convert to new media orientation definitions
+      arm64: dts: rockchip: Convert to new media orientation definitions
+      ARM: tegra: Convert to new media orientation definitions
+      dt-bindings: media: i2c: himax,hm1246: Use video-interface-devices
 
-diff --git a/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c b/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c
-index e786417032522..c99f63b80addf 100644
---- a/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c
-+++ b/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c
-@@ -891,7 +891,7 @@ void vchiq_dump_platform_instances(struct vchiq_state *state, struct seq_file *f
- 		}
- 		rcu_read_unlock();
- 
--		seq_printf(f, "Instance %pK: pid %d,%s completions %d/%d\n",
-+		seq_printf(f, "Instance %p: pid %d,%s completions %d/%d\n",
- 			   instance, instance->pid,
- 			   instance->connected ? " connected, " :
- 			   "",
-@@ -908,7 +908,7 @@ void vchiq_dump_platform_service_state(struct seq_file *f,
- 	struct user_service *user_service =
- 			(struct user_service *)service->base.userdata;
- 
--	seq_printf(f, "  instance %pK", service->instance);
-+	seq_printf(f, "  instance %p", service->instance);
- 
- 	if ((service->base.callback == service_callback) && user_service->is_vchi) {
- 		seq_printf(f, ", %d/%d messages",
-diff --git a/drivers/platform/raspberrypi/vchiq-interface/vchiq_core.c b/drivers/platform/raspberrypi/vchiq-interface/vchiq_core.c
-index 48d6b1d743293..bb4e5015956d6 100644
---- a/drivers/platform/raspberrypi/vchiq-interface/vchiq_core.c
-+++ b/drivers/platform/raspberrypi/vchiq-interface/vchiq_core.c
-@@ -3915,7 +3915,7 @@ void vchiq_dump_state(struct seq_file *f, struct vchiq_state *state)
- 	seq_printf(f, "State %d: %s\n", state->id,
- 		   conn_state_names[state->conn_state]);
- 
--	seq_printf(f, "  tx_pos=0x%x(@%pK), rx_pos=0x%x(@%pK)\n",
-+	seq_printf(f, "  tx_pos=0x%x(@%p), rx_pos=0x%x(@%p)\n",
- 		   state->local->tx_pos,
- 		   state->tx_data + (state->local_tx_pos & VCHIQ_SLOT_MASK),
- 		   state->rx_pos,
+ Documentation/devicetree/bindings/media/i2c/himax,hm1246.yaml        | 3 ++-
+ arch/arm/boot/dts/nvidia/tegra30-asus-nexus7-grouper-common.dtsi     | 3 ++-
+ arch/arm/boot/dts/nvidia/tegra30-asus-transformer-common.dtsi        | 3 ++-
+ arch/arm/boot/dts/nvidia/tegra30-lg-p895.dts                         | 4 +++-
+ arch/arm/boot/dts/nvidia/tegra30-lg-x3.dtsi                          | 3 ++-
+ .../boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314-imx219.dtso    | 3 ++-
+ arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi                    | 3 ++-
+ arch/arm64/boot/dts/qcom/qcm6490-fairphone-fp5.dts                   | 3 ++-
+ arch/arm64/boot/dts/qcom/sc8280xp-lenovo-thinkpad-x13s.dts           | 3 ++-
+ arch/arm64/boot/dts/qcom/sdm670-google-common.dtsi                   | 3 ++-
+ .../boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx219.dtso     | 3 ++-
+ .../boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx462.dtso     | 3 ++-
+ .../boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx219.dtso     | 3 ++-
+ .../boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx462.dtso     | 3 ++-
+ arch/arm64/boot/dts/rockchip/px30-pp1516.dtsi                        | 3 ++-
+ arch/arm64/boot/dts/rockchip/px30-ringneck-haikou-video-demo.dtso    | 3 ++-
+ arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts                | 5 +++--
+ .../boot/dts/rockchip/rk3588-rock-5b-plus-radxa-cam4k-cam0.dtso      | 3 ++-
+ .../boot/dts/rockchip/rk3588-rock-5b-plus-radxa-cam4k-cam1.dtso      | 3 ++-
+ 19 files changed, 40 insertions(+), 20 deletions(-)
+---
+base-commit: aedd77ea8168f00687c1248cdf115071e869cf93
+change-id: 20260608-kbingham-orientation-20afc0fb6957
+
+Best regards,
 -- 
-2.55.0
+--
+Kieran
 
 
