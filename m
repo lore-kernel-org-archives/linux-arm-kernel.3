@@ -4,70 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04516C982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 00:28:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F76CC982D2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 00:35:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
+	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=naEoqeYe8X/Jw2DES4clEmxwgKBwecpzN9gXVazxB2c=; b=3Js1HEXTlBtZkaYBt1C3P4DGgh
-	2F5xxtDsgR1EunibqcLoW0KiHh+worHuD4m+A5JsL4VkKE+55/BMuqp9emSkSb3cnIs58hFw52Y9c
-	HzCfBUteoLcyYcWK/ApdvS50Q7BTT5jp1fXS7E6TZ4P0cc1gA3248EtDQyZSs7D+DljuSX0Sn3ja6
-	g91CIQrHTHHwegW20F37qISWV9rx9HGy0mrKcsguxcYc1t+ZAnaP4eMJSOff+tVZ34/nzTi/pnsau
-	W9DmZkwjhc+F4Z26SvLKW/UKjim8fSnCuUO6EEQ3Pvx5ylRacD/u2ktA6Dq28a2UY1/PPcXT4tGif
-	KLwNIxMA==;
+	bh=8QgXkkNdHre4C26c9GV+NpL0QV5WDefYsihE2tDLo6E=; b=AHcL8oMZGjs7gSFSEVU6smiaaO
+	Jrf5e+D+3MyK8QUQ6G8FTA9uJ98uxeFOqP5fTiJOjeTSO9C+6bncKvF2jrCS8CmQQndl9dcJixsMd
+	0RVRX3sHt5WimM3ORtAbvQwYGz8Po+uyEfD2ygol/phh3BHlrfG5g558lUouEkqkUc4i1QJjVSM7T
+	Z40D0eO73QHattePJxUMUTyqnt2m+ChGQy4HK1RnICy75dP0pp4et/Q2LLUNzKpr0dPLTUmPxiVlN
+	JXCJddmRGP8pfbKZqeopfgaRUUSeKCF34NA5ui2lWwkp84gp+dQCjD/VyAGDtq6BbxresBERgTfX9
+	JaQlhcFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7MSN-0000000D1e4-42Wc;
-	Fri, 18 Sep 2026 00:27:59 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1x7MZD-0000000D2eE-2xXL;
+	Fri, 18 Sep 2026 00:35:03 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7MSB-0000000D1Xl-3TlW
+	id 1x7MZA-0000000D2dH-3lB2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 00:27:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Subject:Date:From:From:Reply-To;
-	bh=naEoqeYe8X/Jw2DES4clEmxwgKBwecpzN9gXVazxB2c=; b=XodOcefMOcWjo30lLhyeafEgnY
-	lkG5gqfSOJfXXJ5QQtAqadwAFQEt7Eo31AzUj3UDkGIT1CglyBfycgr/i9RqiVlfvJmBCgTjbIYLj
-	teh6yAEbomupgAWSWsvtY/ZnfmG1cVhwI3H3T9t5JcznyqaEk4KbYzEdr09JF1xAp6jqDF4ynp6OC
-	oe1+mArvhPj07ZyE66ZtRi+7Y1x5ZWTJAvqOM3Ps0idvsTU0TMHRhcvR0d1AP4bJiUrN9F5MoSYXJ
-	HBeVkKWa6gaeZSxXhv8zaOZum5EUMHqbMmdpUersL4o7ICCCe8nYSmVFTVepaMLLam8Ov25R+H8Z3
-	kiLeyigA==;
-Received: from [177.172.123.214] (helo=[192.168.15.100])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1x7MRt-003iDv-JQ; Fri, 18 Sep 2026 02:27:29 +0200
-From: =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-Date: Thu, 17 Sep 2026 21:27:01 -0300
-Subject: [PATCH v9 3/3] arm64: vdso: Implement
- __vdso_futex_robust_try_unlock()
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260917-tonyk-robust_arm-v9-3-ab082b1b4c4b@igalia.com>
-References: <20260917-tonyk-robust_arm-v9-0-ab082b1b4c4b@igalia.com>
-In-Reply-To: <20260917-tonyk-robust_arm-v9-0-ab082b1b4c4b@igalia.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, 
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
- Peter Zijlstra <peterz@infradead.org>, Florian Weimer <fweimer@redhat.com>, 
- Darren Hart <dvhart@infradead.org>, Ingo Molnar <mingo@kernel.org>, 
- Davidlohr Bueso <dave@stgolabs.net>, Arnd Bergmann <arnd@arndb.de>, 
- Uros Bizjak <ubizjak@gmail.com>, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-arch@vger.kernel.org, kernel-dev@igalia.com, 
- LKML <linux-kernel@vger.kernel.org>, 
- =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-X-Mailer: b4 0.15.2
+	Fri, 18 Sep 2026 00:35:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ubuntu.com;
+ h=In-Reply-To: References: Cc: To: From: Subject: Message-Id: Date:
+ Content-Type: Content-Transfer-Encoding: Mime-Version; q=dns/txt;
+ s=fe-953a8a3ca9; t=1789691700;
+ bh=8QgXkkNdHre4C26c9GV+NpL0QV5WDefYsihE2tDLo6E=;
+ b=gMG6wtvqMKTyhBxYmDYbtBzGs+48odI7aJ98gEFJSOaQUNM3nPdDmOqqwFULzf4Go7aDmobPf
+ 8Z8lytX1QsM+OJmWGfIRbkhJAUUdm2XZnFTBCTb22mppBLadwiEXp/39thPzvM0Hh98syCefIIs
+ S3C5P5MVfPP8HwEQyMQLbLzNNqwLw1EA1ATj+k/4FAIMsoqdL5F2LzkaMt2FOEyBqrilPHB5Bqq
+ Tz3ZoUPk8cE8PqSXMxEr8TsD4OwX0Z7YsoDic5iwDOXi7NXZExL3Aqc6J8uR6WA1elPQlWeEAXT
+ xQWA/ocMSzQPYjVbvJaJ/lvs71y84WKJOL1mEjyNPT9w==
+X-Forward-Email-ID: 6aac871042fb3e762f6d18f9
+X-Forward-Email-Sender: rfc822; jpeisach@ubuntu.com, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 2.14.2
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8; format=Flowed
+Date: Thu, 17 Sep 2026 20:34:18 -0400
+Message-Id: <DLI0QTP0NUHS.DAFYGACKWKWO@ubuntu.com>
+Subject: Re: [PATCH v4 01/20] dt-bindings: phy: Add
+ starfive,jh7110-inno-hdmi-phy
+From: "Joshua Peisach" <jpeisach@ubuntu.com>
+To: "Krzysztof Kozlowski" <krzk@kernel.org>, "Michal Wilczynski"
+ <m.wilczynski@samsung.com>
+Cc: "Vinod Koul" <vkoul@kernel.org>, "Neil Armstrong"
+ <neil.armstrong@linaro.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ "Andrzej Hajda" <andrzej.hajda@intel.com>, "Robert Foss"
+ <rfoss@kernel.org>, "Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>,
+ "Jonas Karlman" <jonas@kwiboo.se>, "Jernej Skrabec"
+ <jernej.skrabec@gmail.com>, "Luca Ceresoli" <luca.ceresoli@bootlin.com>,
+ "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
+ <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "Lee
+ Jones" <lee@kernel.org>, "Andy Yan" <andy.yan@rock-chips.com>, "Philipp
+ Zabel" <p.zabel@pengutronix.de>, "Emil Renner Berthing" <kernel@esmil.dk>,
+ "Hal Feng" <hal.feng@starfivetech.com>, "Michael Turquette"
+ <mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>, "Heiko
+ Stuebner" <heiko@sntech.de>, "Paul Walmsley" <pjw@kernel.org>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Alexandre Ghiti" <alex@ghiti.fr>, "Dominique Belhachemi" <db@domibel.de>,
+ "Brian Masney" <bmasney+clk@redhat.com>, "Jerome Brunet"
+ <jbrunet+clk@baylibre.com>, <linux-phy@lists.infradead.org>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <dri-devel@lists.freedesktop.org>, <mfd@lists.linux.dev>,
+ <linux-clk@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
+ "Marek Szyprowski" <m.szyprowski@samsung.com>, "Maud Spierings"
+ <maud_spierings@murena.io>, "Graham Markall" <hello@big-grey.co.uk>,
+ "Icenowy Zheng" <zhengxingda@iscas.ac.cn>, "Chaoyi Chen"
+ <chaoyi.chen@rock-chips.com>, "Joshua Peisach" <jpeisach@ubuntu.com>,
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+X-Mailer: aerc 0.21.0
+References: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
+ <CGME20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125@eucas1p2.samsung.com> <20260915-jh7110-clean-send-v4-1-f0e4fd6f2cc8@samsung.com> <20260917-mutant-chamois-of-competence-46ca77@quoll>
+In-Reply-To: <20260917-mutant-chamois-of-competence-46ca77@quoll>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_172748_045213_DCEFAEB9 
-X-CRM114-Status: GOOD (  28.26  )
+X-CRM114-CacheID: sfid-20260917_173501_153825_38DEF05E 
+X-CRM114-Status: GOOD (  19.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,238 +103,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The futex's robust list uAPI has a struct robust_list_head::list_op_pending
-pointer used by userspace as a temporary variable while the mutex unlock is
-happening. User sets it to the futex address that's about to be released
-and removed from the robust list, and list_op_pending is cleared after.
-After a thread dies, the kernel checks it's list_op_pending and wakes the
-mutex in that address, to prevent starvation, and flip a bit in the mutex
-word (FUTEX_OWNER_DIED).
+On Thu Sep 17, 2026 at 2:51 AM EDT, Krzysztof Kozlowski wrote:
+> On Tue, Sep 15, 2026 at 05:32:09PM +0200, Michal Wilczynski wrote:
+>> Add the dt-binding for the StarFive JH7110 Innosilicon HDMI PHY.
+>>=20
+>> This device is a child of the starfive,jh7110-hdmi-subsystem node. It
+>> functions as both a PHY provider for the controller and as a clock
+>> provider for the variable pixel clock (hdmi_pclk), which it generates
+>> from its refoclk.
+>>=20
+>> Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
+>
+> While I appreciate other people looking at this, I don't think review
+> here applies. It was a blanket tag, given to the entire series, with
+> exception that it is from newbie, thus I want to ask: was this binding
+> REALLY reviewed by Joshua?
+>
+> Are the rest of the patches actually reviewed or just "looks good to
+> me"? I see no comments from Joshua on v3, v2 and v1, which is usual sign
+> of doing review.
+>
+>
+I commented on v3 saying that I would test if I could. I don't just
+throw "Reviewed-by" on everything I look at.
 
-However, there's a critical section where the user thread dies after the
-mutex is released but before list_op_pending is cleared. If that happens,
-another thread can wake up, use the lock, release it, and free its
-memory. Now, if the robust list cleanup happens after this, the
-killed thread's list_op_pending becomes a dandling pointer. The
-kernel wrongly treats this address as a mutex, calls a futex_wake()
-on it and flips a bit, causing a memory corruption.
+If anything, I've been trying to be more honest in reviews, and only
+review ones that I actually care about[1].
 
-To avoid using the dangling pointer, implement
-__vdso_futex_robust_try_unlock() for arm64. Make the VDSO release the mutex
-and clear the list_op_pending fields, just as is done in userspace right
-now. But having it in a VDSO means that, in the case of a killed user
-thread, the kernel can know exactly in which part of the release process
-the thread was interrupt, check the registers for the operation success and
-clears the list_op_pending on behalf of the user thread to prevent the
-use-after-free bug.
+If reviewing patches isn't a good way for newbies to start getting
+familiar with the kernel code (especially a NEW driver), then I don't
+know what is.
 
-The need for checking the instructions addresses and the register makes
-this mechanism arch-dependent. Implement it using LL/SC semantics. If the
-user instruction pointer is between the labels
-__futex_list64_try_unlock_cs_start and __futex_list64_try_unlock_cs_end,
-the critical section was interrupted. The kernel checks for the result
-register (always w3) of the stlxr instruction used for atomically releasing
-the mutex. If it's 0, the release happened and the kernel should clear the
-list_op_pending field (always stored at x2).
+And to be clear, I'm not using a LLM to review. I am using actual
+intelligence. For the JH7110 PR specifically, I did actually go through
+and review each commit, because I wanted to learn what was happening
+and why. Actually, that's why I asked where the data sheet was[2].
 
-Signed-off-by: André Almeida <andrealmeid@igalia.com>
----
-v9:
- - Refactor assembly code style
- - Make sure [pop_reg] is allocated to a register, defining it as a "r"
- input
- - Make [lock] a read-write param using +Q
+So if you really want to, drop the Reviewed-by tag. And if it makes
+you feel better, I'll leave the series alone.
 
-v7:
- - Typo in message: success result for stlex is 0, not 1
- - pop_reg is read afterwards so define it as an output parameter "+Q"
+-Josh
 
-v6:
- - Complete reword of commit message to make it clear
- - Better commit split, only the specific aarch64 things here
- - Use explicity labels instead of macros
+[1] I won't be reviewing PRs around devicetree since I'm not confident
+(or frankly, interested) in it at this point. https://lore.kernel.org/all/D=
+L94TU52KBMO.2HAKJMJXV2CPE@ubuntu.com/
 
-v4:
- - Guard makefile for vfutex.o with ifdef
- - Moved _start label one instruction above
- - Use results register (w3) to check for store success instead of using zero
-   flag
-
-v3:
- - Managed to get pop to always be stored at x2
----
- arch/arm64/Kconfig                |  1 +
- arch/arm64/kernel/vdso.c          | 17 ++++++++++++++--
- arch/arm64/kernel/vdso/Makefile   | 10 ++++++++++
- arch/arm64/kernel/vdso/vdso.lds.S |  9 +++++++++
- arch/arm64/kernel/vdso/vfutex.c   | 41 +++++++++++++++++++++++++++++++++++++++
- 5 files changed, 76 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index b5a51b0ef944..5a3705b9d2e1 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -222,6 +222,7 @@ config ARM64
- 	select HAVE_RELIABLE_STACKTRACE
- 	select HAVE_POSIX_CPU_TIMERS_TASK_WORK
- 	select HAVE_FUNCTION_ARG_ACCESS_API
-+	select HAVE_FUTEX_ROBUST_UNLOCK
- 	select MMU_GATHER_RCU_TABLE_FREE
- 	select HAVE_RSEQ
- 	select HAVE_RUST if RUSTC_SUPPORTS_ARM64
-diff --git a/arch/arm64/kernel/vdso.c b/arch/arm64/kernel/vdso.c
-index 95162061cd82..052667ba6cde 100644
---- a/arch/arm64/kernel/vdso.c
-+++ b/arch/arm64/kernel/vdso.c
-@@ -69,16 +69,27 @@ static inline void __vdso_futex_update_ips(struct mm_struct *mm, bool is_32bit,
- 	futex_set_vdso_cs_range(fd, 0, start, end, is_32bit);
- }
- 
-+static inline void vdso_futex_update_ips(struct mm_struct *mm)
-+{
-+	unsigned long vdso = (unsigned long)mm->context.vdso;
-+
-+	__vdso_futex_update_ips(mm, false,
-+				VDSO_SYMBOL(vdso, futex_list64_try_unlock_cs_start),
-+				VDSO_SYMBOL(vdso, futex_list64_try_unlock_cs_end));
-+}
-+
- #else
--static inline void __vdso_futex_update_ips(struct mm_struct *mm, bool is_32bit, void *startp,
--					   void *endp)
-+static inline void vdso_futex_update_ips(struct mm_struct *mm) {}
- #endif /* CONFIG_FUTEX_ROBUST_UNLOCK */
- 
-+
- static int vdso_mremap(const struct vm_special_mapping *sm,
- 		       struct vm_area_struct *new_vma)
- {
- 	current->mm->context.vdso = (void *)new_vma->vm_start;
- 
-+	vdso_futex_update_ips(current->mm);
-+
- 	return 0;
- }
- 
-@@ -366,5 +377,7 @@ int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
- 	ret = __setup_additional_pages(VDSO_ABI_AA64, mm, bprm, uses_interp);
- 	mmap_write_unlock(mm);
- 
-+	vdso_futex_update_ips(mm);
-+
- 	return ret;
- }
-diff --git a/arch/arm64/kernel/vdso/Makefile b/arch/arm64/kernel/vdso/Makefile
-index 7dec05dd33b7..985346c7a0bb 100644
---- a/arch/arm64/kernel/vdso/Makefile
-+++ b/arch/arm64/kernel/vdso/Makefile
-@@ -11,6 +11,10 @@ include $(srctree)/lib/vdso/Makefile.include
- 
- obj-vdso := vgettimeofday.o note.o sigreturn.o vgetrandom.o vgetrandom-chacha.o
- 
-+ifdef CONFIG_FUTEX_ROBUST_UNLOCK
-+  obj-vdso += vfutex.o
-+endif
-+
- # Build rules
- targets := $(obj-vdso) vdso.so vdso.so.dbg
- obj-vdso := $(addprefix $(obj)/, $(obj-vdso))
-@@ -45,9 +49,11 @@ CC_FLAGS_ADD_VDSO := -O2 -mcmodel=tiny -fasynchronous-unwind-tables
- 
- CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_REMOVE_VDSO)
- CFLAGS_REMOVE_vgetrandom.o = $(CC_FLAGS_REMOVE_VDSO)
-+CFLAGS_REMOVE_vfutex.o = $(CC_FLAGS_REMOVE_VDSO)
- 
- CFLAGS_vgettimeofday.o = $(CC_FLAGS_ADD_VDSO)
- CFLAGS_vgetrandom.o = $(CC_FLAGS_ADD_VDSO)
-+CFLAGS_vfutex.o = $(CC_FLAGS_ADD_VDSO)
- 
- ifneq ($(c-gettimeofday-y),)
-   CFLAGS_vgettimeofday.o += -include $(c-gettimeofday-y)
-@@ -57,6 +63,10 @@ ifneq ($(c-getrandom-y),)
-   CFLAGS_vgetrandom.o += -include $(c-getrandom-y)
- endif
- 
-+ifneq ($(c-futex-y),)
-+  CFLAGS_vfutex.o += -include $(c-futex-y)
-+endif
-+
- targets += vdso.lds
- CPPFLAGS_vdso.lds += -P -C -U$(ARCH)
- 
-diff --git a/arch/arm64/kernel/vdso/vdso.lds.S b/arch/arm64/kernel/vdso/vdso.lds.S
-index 52314be29191..225f59bb81d1 100644
---- a/arch/arm64/kernel/vdso/vdso.lds.S
-+++ b/arch/arm64/kernel/vdso/vdso.lds.S
-@@ -104,6 +104,9 @@ VERSION
- 		__kernel_clock_gettime;
- 		__kernel_clock_getres;
- 		__kernel_getrandom;
-+#ifdef CONFIG_FUTEX_ROBUST_UNLOCK
-+		__vdso_futex_robust_list64_try_unlock;
-+#endif
- 	local: *;
- 	};
- }
-@@ -112,3 +115,9 @@ VERSION
-  * Make the sigreturn code visible to the kernel.
-  */
- VDSO_sigtramp		= __kernel_rt_sigreturn;
-+
-+#ifdef CONFIG_FUTEX_ROBUST_UNLOCK
-+VDSO_futex_list64_try_unlock_cs_start = __futex_list64_try_unlock_cs_start;
-+VDSO_futex_list64_try_unlock_cs_success = __futex_list64_try_unlock_cs_success;
-+VDSO_futex_list64_try_unlock_cs_end = __futex_list64_try_unlock_cs_end;
-+#endif
-diff --git a/arch/arm64/kernel/vdso/vfutex.c b/arch/arm64/kernel/vdso/vfutex.c
-new file mode 100644
-index 000000000000..7622aa34bfdb
---- /dev/null
-+++ b/arch/arm64/kernel/vdso/vfutex.c
-@@ -0,0 +1,41 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+#include <linux/stringify.h>
-+#include <vdso/futex.h>
-+
-+#define LABEL(l)						\
-+	"	.globl " #l "\n"				\
-+	#l ":\n"
-+
-+__u32 __vdso_futex_robust_list64_try_unlock(__u32 *lock, __u32 tid, __u64 *pop)
-+{
-+	/*
-+	 * arm64_futex_robust_unlock_get_pop() depends on this exact register
-+	 * allocation to work correctly.
-+	 */
-+	register __u64 pop_reg asm("x2") = (__u64) pop;
-+	register __u32 result_reg asm("w3") = 0;
-+	__u32 val;
-+
-+	asm volatile (
-+		"	prfm	pstl1strm, %[lock]		\n"
-+		"retry:						\n"
-+		"	ldxr	%w[val], %[lock]		\n"
-+		"	cmp	%w[tid], %w[val]		\n"
-+		"	b.ne	__futex_list64_try_unlock_cs_end\n"
-+		"	stlxr	%w[result], wzr, %[lock]	\n"
-+		LABEL(__futex_list64_try_unlock_cs_start)
-+		"	cbnz	%w[result], retry		\n"
-+		LABEL(__futex_list64_try_unlock_cs_success)
-+		"	str	xzr, [%x[pop_reg]]		\n"
-+		LABEL(__futex_list64_try_unlock_cs_end)
-+
-+		: [val] "=&r" (val),
-+		  [result] "=&r" (result_reg),
-+		  [lock] "+Q" (*lock)
-+		: [tid] "r" (tid),
-+		  [pop_reg] "r" (pop_reg)
-+		: "cc", "memory"
-+	);
-+
-+	return val;
-+}
-
--- 
-2.55.0
-
+[2] Michal giving me the hardware info:
+https://lore.kernel.org/all/071901ef-57f3-456f-af5b-a8c99a0a7dd3@samsung.co=
+m/
 
