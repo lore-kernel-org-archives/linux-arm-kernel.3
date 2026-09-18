@@ -4,61 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6FC9C982D7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 23:00:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68AB4C982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 23:00:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=ODTQrY0Jnry0Dfu3UICCoe8mZrLfiMVB8y8nz6T8EQE=; b=fJ6jHF+pxbiW+U
-	gezN5654gxO/DYkMjy79LqGDRBFflGPNsr7jZhVkhD7G56judgrGgXU6lyZPb6uvZ8jFeBeXgoV9y
-	BUXF9uWKwBprgFdczVSIqTvRKAaSvnzwkB3Y5+/gkJk6W9eN1qOgQIikyvZkHUZpk6IJl0K5DRIkr
-	EggjnqJoFkNtlBvYwac0GE9HP1NJJyxvsfpoCjK+XsxLiOaFGJS+NeVj8JCtWnVS13LYamVFAGnxm
-	b5RBDJAk1plbJ8a2o8c1spnA9Uq7KDoFRLLuO7j84MJoSvLrAsprBRr6ZSk1LEJUg6GGx0vb95nN7
-	AxcKvxgQsVfH5aDbBBZQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:Subject:
+	From:MIME-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DmLZ94AHYP63wdAVIRZYQYO4b0tflVV2n0V+mhCuajs=; b=B/q5fBHCY4AyL0my/vopQAJxnZ
+	m7x6g+r9AChIZ+D5bvDTlBUmFhdgL0EPxKp3wyzs//f1Ri9QpGDaZN97sUxWYCMMBSnTyIRmE9SUv
+	TNVldTY9sndQOu7y9Ta5GpViqniJbnsTN72eqTBpDF+IiycRh7MupBMXomKV1fIogU7zOh1TfB7rX
+	l9eHJO2kYThpzzyi4W5v6YX/Lm1awWiQfCiPxlCgjjGzuSYXv/ri4IEDgb8LNsogzDzh9sO1Yb+Nv
+	AwZwA+C1h1iSlScLSRsr8KzahaHmxgAZyvnIN7cvlH6blw2GfTNDFyvMT50Ctf1iJhm+AZSFwz2jc
+	HM+DYGWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7hZ4-0000000Fg7X-3Yhv;
-	Fri, 18 Sep 2026 23:00:18 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x7hZY-0000000FgER-0lLd;
+	Fri, 18 Sep 2026 23:00:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7hZ3-0000000Fg7Q-429Z
+	id 1x7hZX-0000000FgDy-1KTw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 23:00:18 +0000
+	Fri, 18 Sep 2026 23:00:47 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5FEBF40384;
-	Fri, 18 Sep 2026 23:00:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1276C1F000FF;
-	Fri, 18 Sep 2026 23:00:17 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 633CF6053D;
+	Fri, 18 Sep 2026 23:00:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 414BC1F000FF;
+	Fri, 18 Sep 2026 23:00:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789772417;
-	bh=ODTQrY0Jnry0Dfu3UICCoe8mZrLfiMVB8y8nz6T8EQE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To;
-	b=oLTy+OD6g/37bVTLXaNX0EZiObFu59/4XeOqEG62ekDkw/ztpvQkkogMu189UZa7A
-	 mGAad6qFw8J/sUBL9JZHnmtiLhuTzCDdPozJbGAVl7PiUaz4gWMCu7JiMlVKkTSCaw
-	 +YfAVpn4M2CC19X1EXCEgBJ2RMIa3bPCqaWnXUHfb8r05WrHiq67rxJmMA5R1quXqf
-	 htus6gV7Jv7wOGz27XSMw+2vCB5eEI1b0CDjDKwE5vcn+GBLvq6Y16oHmM/JMM0Hn/
-	 1twk7jc9DlL+zhdgbFzx11yGaXOz6Lws0Pjj3ixaVzWTLEIHLJqmucY6rMEhuWPfGE
-	 mpNZFawkau82Q==
-Date: Fri, 18 Sep 2026 18:00:15 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Soeren Moch <smoch@web.de>
-Cc: Richard Zhu <hongxing.zhu@nxp.com>, stable@vger.kernel.org,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Bjorn Helgaas <bhelgaas@google.com>, Frank Li <Frank.Li@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Thorsten Leemhuis <regressions@leemhuis.info>
-Subject: Re: [PATCH] PCI: imx6: Keep Root Port MSI capability also for i.MX6Q
-Message-ID: <20260918230015.GA1205610@bhelgaas>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260427115804.134231-1-smoch@web.de>
+	s=k20260515; t=1789772446;
+	bh=DmLZ94AHYP63wdAVIRZYQYO4b0tflVV2n0V+mhCuajs=;
+	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
+	b=H/FGilupSkbIY0CbH7lTao6/7xUMgAR7Ql0qN2rDu3+stEAJ66vVVgeFTge2+8F/A
+	 zLrfunsKdJKiq1q7k+b+vmEObHnkvqXEdgNanEUIku0QLxtceoEc/Sof1sgIojlduh
+	 88MIeYtz/qa/c8a2TgbgB+POBnLkmjwtLP3JOrwmEit33c6K0No8VYm8d1a8CYT+2/
+	 bKHZj57i40fguNnd33sMRn4URcW+BKqA6IvdE8DtrblriABP9YKJ9704ufX2yL36/3
+	 eeWqDWm876tqUr/Wm5O0ZsHZtf3qiarnkWLczessiYlHmeoztgZ9iFrCyRYCszYMt8
+	 ijJuStzO121yg==
+From: sashiko-bot@kernel.org
+Subject: Re: [PATCH v7 11/11] unwind: arm64: Use sframe to unwind interrupt
+ frames
+To: "Mark Rutland" <mark.rutland@arm.com>, "Jens Remus" <jremus@linux.ibm.com>, "Roman
+ Gushchin" <roman.gushchin@linux.dev>, "Catalin Marinas" <catalin.marinas@arm.com>, "Peter
+ Zijlstra" <peterz@infradead.org>, "Josh Poimboeuf" <jpoimboe@kernel.org>, "Will
+ Deacon" <will@kernel.org>, "Weinan Liu" <wnliu@google.com>, "Indu Bhagat" <ibhagatgnu@gmail.com>, "Steven
+ Rostedt" <rostedt@goodmis.org>, "Jiri Kosina" <jikos@kernel.org>, "Dylan
+ Hatch" <dylanbhatch@google.com>
+Cc: "Puranjay Mohan" <puranjay@kernel.org>, "Herbert Xu" <herbert@gondor.apana.org.au>, linux-kernel@vger.kernel.org, "Mostafa
+ Saleh" <smostafa@google.com>, "Prasanna Kumar T S M" <ptsm@linux.microsoft.com>, "Randy
+ Dunlap" <rdunlap@infradead.org>, linux-toolchains@vger.kernel.org, joe.lawrence@redhat.com, "David
+ S. Miller" <davem@davemloft.net>, linux-arm-kernel@lists.infradead.org, live-patching@vger.kernel.org, "Song
+ Liu" <song@kernel.org>
+In-Reply-To: <20260918224157.1471085-12-dylanbhatch@google.com>
+References: <20260918224157.1471085-1-dylanbhatch@google.com>
+ <20260918224157.1471085-12-dylanbhatch@google.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Fri, 18 Sep 2026 23:00:44 +0000
+Message-Id: <20260918230045.414BC1F000FF@smtp.kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,76 +74,83 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: sashiko-reviews@lists.linux.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[+cc Thorsten, possible regzbot confusion?]
+Thank you for your contribution! Sashiko AI review found 1 potential issue(=
+s) to consider:
+- [High] arm64: noinstr violation by calling sframe_find() in stack unwinder
+--
 
-On Mon, Apr 27, 2026 at 01:58:04PM +0200, Soeren Moch wrote:
-> Also on the NXP i.MX6Q chipset MSIs from the endpoints won't be received by
-> the iMSI-RX MSI controller if the Root Port MSI capability is disabled.
-> 
-> Even though the Root Port MSIs won't be received by the iMSI-RX controller
-> due to design, this chipset has some weird hardware bug that prevents
-> the endpoint MSIs from reaching when the Root Port MSI capability is
-> disabled.
-> 
-> Hence, always keep the Root Port MSI capability for this chipset.
-> 
-> Note that by keeping Root Port MSI capability, Root Port MSIs such as AER,
-> PME and others won't be received by default. So users need to use
-> workarounds such as passing 'pcie_pme=nomsi' cmdline param.
-> 
-> Fixes: 3a4e8302e72f ("PCI: imx6: Keep Root Port MSI capability with iMSI-RX to work around hardware bug")
-> Cc: <stable@vger.kernel.org> # 7.0.x
-> Signed-off-by: Soeren Moch <smoch@web.de>
+commit 13ca4d55a43f451bf08442b7e6af494a6c23a78e
+Author: Dylan Hatch <dylanbhatch@google.com>
 
-This thread is still listed as a regression:
-https://linux-regtracking.leemhuis.info/regzbot/regression/lore/20260427115804.134231-1-smoch@web.de/
+unwind: arm64: Use sframe to unwind interrupt frames
 
-But I *think* it's been resolved by:
+This patch adds kunwind_next_regs_sframe() to unwind interrupt frames using
+sframe info, falling back to frame-pointer unwinding on failure. It updates
+the exception boundary unwinding logic to recover the return address more
+reliably when sframe data is present.
 
-  b4bee12ebecc ("PCI: imx6: Keep i.MX6 Root Port MSI/MSI-X Capabilities with iMSI-RX to work around hardware bug")
+> diff --git a/arch/arm64/kernel/stacktrace.c b/arch/arm64/kernel/stacktrac=
+e.c
+> index 3ebcf8c53fb04..5aaeac9611015 100644
+> --- a/arch/arm64/kernel/stacktrace.c
+> +++ b/arch/arm64/kernel/stacktrace.c
+[ ... ]
+> @@ -244,6 +247,162 @@ kunwind_next_frame_record(struct kunwind_state *sta=
+te)
+>  	return 0;
+>  }
+> =20
+> +#ifdef CONFIG_HAVE_UNWIND_KERNEL_SFRAME
+[ ... ]
+> +/*
+> + * Unwind from a pt_regs according to sframe.
+> + */
+> +static __always_inline int
+> +kunwind_next_regs_sframe(struct kunwind_state *state)
+> +{
+> +	struct unwind_frame frame;
+> +	unsigned long cfa, fp, ra;
+> +	enum kunwind_source source =3D KUNWIND_SOURCE_FRAME;
+> +	struct pt_regs *regs =3D state->regs;
+> +
+> +	int err;
+> +
+> +	if (WARN_ON_ONCE(state->source !=3D KUNWIND_SOURCE_REGS_PC))
+> +		return -EINVAL;
+> +	if (WARN_ON_ONCE(!state->regs))
+> +		return -EINVAL;
+> +
+> +	/* FP/SP alignment 8 bytes */
+> +	if (state->common.fp & 0x7)
+> +		return -EINVAL;
+> +
+> +	err =3D sframe_find(state->common.pc, &frame);
 
-Can you confirm?
+[Severity: High]
+Does calling sframe_find() here violate the noinstr guarantee of the stack
+unwinding path?
 
-Maybe regzbot is confused by the fact that the regression was first
-attributed to 3a4e8302e72f, and then later attributed to
-f5cd8a929c825?
+The unwind path is called via arch_stack_walk() -> kunwind_stack_walk() ->
+kunwind_next() -> kunwind_next_regs_sframe().
 
-> ---
-> Cc: Manivannan Sadhasivam <mani@kernel.org>
-> Cc: Richard Zhu <hongxing.zhu@nxp.com>
-> Cc: Lucas Stach <l.stach@pengutronix.de>
-> Cc: Bjorn Helgaas <bhelgaas@google.com>
-> Cc: Frank Li <Frank.Li@nxp.com>
-> Cc: Fabio Estevam <festevam@gmail.com>
-> Cc: linux-pci@vger.kernel.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: imx@lists.linux.dev
-> Cc: linux-kernel@vger.kernel.org
-> 
-> Tested on a tbs2910 board [1]
-> [1] arch/arm/boot/dts/nxp/imx/imx6q-tbs2910.dts
-> ---
->  drivers/pci/controller/dwc/pci-imx6.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index 6d6a1688e7eb..3d461bdef967 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -1865,7 +1865,8 @@ static const struct imx_pcie_drvdata drvdata[] = {
->  		.flags = IMX_PCIE_FLAG_IMX_PHY |
->  			 IMX_PCIE_FLAG_SPEED_CHANGE_WORKAROUND |
->  			 IMX_PCIE_FLAG_BROKEN_SUSPEND |
-> -			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
-> +			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND |
-> +			 IMX_PCIE_FLAG_KEEP_MSI_CAP,
->  		.dbi_length = 0x200,
->  		.gpr = "fsl,imx6q-iomuxc-gpr",
->  		.ltssm_off = IOMUXC_GPR12,
-> -- 
-> 2.43.0
-> 
+Since arch_stack_walk() is explicitly marked noinstr to guarantee safe
+execution in uninstrumentable contexts (like nmi), calling instrumentable
+or rcu-protected functions like sframe_find() and __module_text_address()
+could cause a recursive fault or kernel panic if tracing or kasan is active.
+
+Additionally, could accessing rcu-protected module structures without rcu
+watching lead to use-after-free bugs when stack unwinding is routinely
+triggered by tools like perf or bpf tracing?
+
+> +	if (err)
+> +		return -EINVAL;
+> +
+
+--=20
+Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20260918224157.1471=
+085-1-dylanbhatch@google.com?part=3D11
 
