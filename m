@@ -4,89 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31C8CC982D6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 00:18:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40C4CC982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 00:19:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ze9VNiKl6gpQF1dbQkXgpHisrGJOTGys22qHllYAsvk=; b=YpFJ1Ynci+Ghs3jjy72P98h/Ov
-	Heyf0IyUvbiR0TcW5mjlszUAyIBgdc+NGUkPQw2MIqtkNtGKolnO0nuPILr2qo/b+5anp1r23DANp
-	eJBvA8mhJrmcusNx+Yrx2YvKNrFFOKa+eBMdcvHS3lXr+vNm9KEXF5u21BfUKmEU5+mwKMnw7FAvs
-	nDhgeFeSQYmqz+wmU+vDh7kNv36u7wF6xGi4ZI7aIn+0xNbEXUMmGvsJEg5lvUFM2JUk8j46a0QMz
-	5a97vZ/E9nwKyxmR6LHMOevdr6xnUhD6tCwMPnCEaPo7sVqL8KHVYyHgO4dnBpccjwySXyyDtdEmc
-	Ff2UvxZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KX1mrTXXm/YmQ3NBa1KYqQPnHEYJ4Px7YbYyq2YMDkE=; b=fSy4suFrELBV/3n0Gx4IlVvtLw
+	Zb1RQxWUdFJRrXO5+WFVc8uxmW3hV8Ke8cpa6XraKnKm0zCSXJ6UpYsj1i2NcnKWKhLfsYXxaRm8N
+	huXukXCb1z9KrT1Y4rLdwgEfr2/7KOKp7BiQAzJOJ8APPwgGpx1lYfwCfXirZ20kEVWgI+SpwifCJ
+	I9Opqsax5Z1pQ0kNL/LJGuBmE06//5Cx2uFJElMYfb32/JgJYkko033awUv5WeT9mj9t/PsnCrYuP
+	BWF0JoDhZmQ2LZstRqcVJW2BoFqqGPKCDPChMuWYKg6GZF0dDj4fpEpGV5zXTZLaQrfULxbxh8MWW
+	u8Oyogfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7MJO-0000000D0hO-0n4B;
-	Fri, 18 Sep 2026 00:18:42 +0000
-Received: from mail-pz2-x0e.google.com ([2607:f8b0:4864:3b::e])
+	id 1x7MJx-0000000D0og-2DAx;
+	Fri, 18 Sep 2026 00:19:17 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7MJM-0000000D0gt-2We8
+	id 1x7MJv-0000000D0o3-3FIb
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 18 Sep 2026 00:19:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=KX1mrTXXm/YmQ3NBa1KYqQPnHEYJ4Px7YbYyq2YMDkE=; b=cu4Ma67ZDu+ckKnLk5QuKxr4qi
+	tKKlQKxeMbUeQsSXNvb/9zaStiF9KMjpFTFcd+Yr7zJH9GIdO4m4w3h9poZaqzNNBPAboUUzI8rXO
+	rNv3Ck4esj2/WfT1COExw0xZrY5N3AoO1KMavbhG0VnAQX4OLymya6VSBrb14+1tfYq4WeVb6gDlC
+	Rhwz+oNUPwoaL/vNAUOfDkHN097XEOuxLhtQYxgmMBFalMdm/Cs6FX0vSgKT3u1WhFOFN4fCxDeq3
+	SGEJHIQ3aLJSkyCpWHovAngSX0No4gkNP9m6dpI5YdCnLSvDNivsKBwFdZ9/leGngdprvxOsO1yLm
+	ZRrcHCXQ==;
+Received: from gate.crashing.org ([63.228.1.57])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x7MJs-00000009Qos-1H8N
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 00:18:41 +0000
-Received: by mail-pz2-x0e.google.com with SMTP id 41be03b00d2f7-cc1cea4c7a0so47415a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 17:18:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789690720; x=1790295520; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ze9VNiKl6gpQF1dbQkXgpHisrGJOTGys22qHllYAsvk=;
-        b=VHjqDcK1P2moYPhgiJT2FqK/FuXGYLKsBvtPQwIK9BKCGzthQamrxEZk1UDXPxH0Jm
-         hnx/YQcymFNbHDPdi7R2832l/20raVfu2PN4GNvFP/H3UAKiM8u1v7tfnnAzm10iUir6
-         3oU1nvcovMs7BWzXgfggAs0+oyMk9g4qSJqVm769wc9WUSX8Mq9tBaAdVn7TTamc6+yY
-         9qPikwLKPwg1VDwkt3/vgpMLl4YbGjFiWK77tPUoO7aUfRSl624tzXYFJlxwtT/5Rfsy
-         ps7UYtwMT7eY+gxAZGJBwDrJl9xFNsNzwhItZHCDHMYyZl4Huhsgsv3rMmgnoTBTX6TC
-         Nz2w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789690720; x=1790295520;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ze9VNiKl6gpQF1dbQkXgpHisrGJOTGys22qHllYAsvk=;
-        b=z2f+ZJ5FvKIRIa6Z2VYfKlzVUFPdbVzGoa6tDjT1jjn0mID46a+2QyGvzQnJRf9Mc1
-         3NJcfrV3By5R+1XjLfnAxX9wzD5nx5+oidZ5n6a6tRBrBeqmzy6KPIf3HC0zDxvNv4ul
-         Xp1vLUYHbs7HnvDc8u8j8UBB52kZRzO2pIfgZcYyozogVmlMsTKnZbkpcpe27kp3FQe4
-         6+EkS7yKQZaL4Qk9+IQUNQAz0uQc+tkf/RL+/LiIUmXVVBCv0hKQabNB8va+ilbc2UDd
-         uRRXDUvDiFGPnmvlRJ8EQngwW2iHCJKU740b6oUQ3UsueS4NXUa8RDFejIQ1QsSqoCka
-         hycQ==
-X-Forwarded-Encrypted: i=1; AKwUvBznQBEMYqdHn5M8+a6d9HtmUvrPpTK6E7jPEqtcwuuV2wbTnWHLay1yD+mgmhm0op8D5IZzdsKpdNuihQAacUIJ@lists.infradead.org
-X-Gm-Message-State: AFuF++nC/2A3U71HPkIzmQ95c7US22bt3sUrbO8XO7TiYy5ACNi5yHU5
-	l/rYCJgt/pok8l2Ja1NUup3IH6xenokdSLo8/KcS/DlCuAsA08ghpWfglFG/Fw==
-X-Gm-Gg: AYBFou26IdwhZ+PL1T7DOr46EORdabS1AcUJfq5o4w0M7Arm//AMEe98lUdenDa4JvE
-	teAi7a9JoqKORdk2SeBxlELBIQCZ1nKgKpesY7fDr1DAjj0a25vqabXduacqGvh7Ipp8W+VX201
-	FDdBYk9RzsmFSk2EUzboxB4ajjG4aYMH6hOBdTXmgWIondkLU/kEaeo9jw7paetPB9/jRvGJ9LL
-	xHWOplEMqtEE43upUpRBYOVx0wXMmSendvJ2WgpNctJuA/B3kl1ybtgGlQE6oco3oqZzuoTy++9
-	yre/0Gtz60lmAR4biLPl4RP02VKSGexgebBan3EIGojH5PhIbcsqWVN/8nbFx3HutOva8IhYSNl
-	EnWQ9qnam9S4esbjwHM6sPPTP7IWHDXraQ965cmMpWFUokFl5TdernyTKAQRRRDhwDRoICJcT0s
-	YVely8svaic4meF/JdQceigxlINqYiS2oSyZXgjPal6ls1cV+kfhdRYAJQuKd8ixzieRsinkJd8
-	ew8FgfijTsPVywPu5Fq5nSHGouvDpP1bJJplSfzZCwPttttjvrYS9sYybGHkniRRgT6NJ+xKFcD
-	FU5h7hM90wuxNrHbpAvAFSv1oVWTVJoqZHmtm8JK6QW8HTB7
-X-Received: by 2002:a17:90b:2886:b0:39e:25c2:b9e0 with SMTP id 98e67ed59e1d1-39e54d564ccmr1600831a91.25.1789690719570;
-        Thu, 17 Sep 2026 17:18:39 -0700 (PDT)
-Received: from ryzen.lan ([2601:644:8000:7a86::e34])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39e55a0e7e2sm337468a91.4.2026.09.17.17.18.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 17 Sep 2026 17:18:37 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: dmaengine@vger.kernel.org
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Frank Li <Frank.Li@kernel.org>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	linux-kernel@vger.kernel.org (open list),
-	linuxppc-dev@lists.ozlabs.org (open list:FREESCALE SOC DRIVERS),
-	linux-arm-kernel@lists.infradead.org (moderated list:FREESCALE SOC DRIVERS)
-Subject: [PATCHv3] dmaengine: bestcomm: use platform machinery to get irq
-Date: Thu, 17 Sep 2026 17:18:35 -0700
-Message-ID: <20260918001835.154305-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.55.0
+	Fri, 18 Sep 2026 00:19:14 +0000
+Received: from [IPv6:::1] (localhost [127.0.0.1])
+	by gate.crashing.org (8.18.1/8.18.1/Debian-2) with ESMTP id 68I0IPF23974234;
+	Thu, 17 Sep 2026 19:18:33 -0500
+Message-ID: <d607e8d94d17ac7b7832725b0672560fb1346ada.camel@kernel.crashing.org>
+Subject: Re: [PATCH] usb: gadget: aspeed-vhub: cancel wake work on device
+ removal
+From: Benjamin Herrenschmidt <benh@kernel.crashing.org>
+To: Fan Wu <fanwu01@zju.edu.cn>, gregkh@linuxfoundation.org,
+        linux-usb@vger.kernel.org
+Cc: joel@jms.id.au, andrew@codeconstruct.com.au, linux-aspeed@lists.ozlabs.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        stable@vger.kernel.org, Song Li
+ <songl@zju.edu.cn>
+Date: Fri, 18 Sep 2026 10:18:24 +1000
+In-Reply-To: <20260908041740.613713-1-fanwu01@zju.edu.cn>
+References: <20260908041740.613713-1-fanwu01@zju.edu.cn>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.62.0-0ubuntu1~ppa1~24.04 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_171840_641318_ECA82E52 
-X-CRM114-Status: GOOD (  20.05  )
+X-CRM114-CacheID: sfid-20260918_011912_748822_413DEE43 
+X-CRM114-Status: GOOD (  23.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,177 +79,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-platform_get_irq() avoids having to explicitly map and dispose of an irq
-by having the platform_device machinery take care of it.
+On Tue, 2026-09-08 at 04:17 +0000, Fan Wu wrote:
+> wake_work is armed from the gadget .wakeup callback to resume suspended
+> downstream ports, and it is never cancelled in ast_vhub_remove(), so a
+> work item queued before or during removal can run after devm has freed
+> vhub and its ports, a use-after-free.
+>=20
+> Cancelling the work alone is not sufficient: usb_gadget_wakeup() takes
+> no lock and the unbind path never clears wakeup_en, so a remote-wakeup
+> request in flight on another CPU can re-arm the work after the cancel
+> and before vhub is freed.
+>=20
+> ast_vhub_del_dev() already clears d->registered under vhub->lock before
+> unregistering the gadget. Refuse the wakeup in ast_vhub_udc_wakeup()
+> once d->registered is clear: the check and the schedule_work() are then
+> atomic against the unbind, so a wakeup that passed before the flag was
+> cleared is drained by the cancel_work_sync() after the del_dev loop,
+> and one that arrives later returns without arming. Also move INIT_WORK()
+> to the top of ast_vhub_probe(), since the probe error path reuses
+> ast_vhub_remove() and would otherwise cancel a never-initialized work
+> item.
+>=20
+> This issue was found by an in-house static analysis tool.
 
-This requires replacing the device_node with a platform_device in the
-bcom_eng struct so that platform_get_irq() can use it.
+Reviewed-by: Benjamin Herrenschmidt <benh@kernel.crashing.org>
 
-Conveniently, this also allows getting rid of of_node_get and
-of_node_put as the platform_device machinery also handles that.
-
-Adjust the goto labels in bcom_task_alloc to match what is being freed.
-
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
----
- v3: drop stale description
- v2: resend
- drivers/dma/bestcomm/bestcomm.c            | 47 ++++++++--------------
- include/linux/fsl/bestcomm/bestcomm_priv.h |  2 +-
- 2 files changed, 18 insertions(+), 31 deletions(-)
-
-diff --git a/drivers/dma/bestcomm/bestcomm.c b/drivers/dma/bestcomm/bestcomm.c
-index 241a91936fe8..1006030ff167 100644
---- a/drivers/dma/bestcomm/bestcomm.c
-+++ b/drivers/dma/bestcomm/bestcomm.c
-@@ -47,6 +47,7 @@ bcom_task_alloc(int bd_count, int bd_size, int priv_size)
- {
- 	int i, tasknum = -1;
- 	struct bcom_task *tsk;
-+	int irq;
- 
- 	/* Don't try to do anything if bestcomm init failed */
- 	if (!bcom_eng)
-@@ -67,30 +68,32 @@ bcom_task_alloc(int bd_count, int bd_size, int priv_size)
- 	if (tasknum < 0)
- 		return NULL;
- 
-+	irq = platform_get_irq(bcom_eng->pdev, tasknum);
-+	if (irq < 0)
-+		goto err1;
-+
- 	/* Allocate our structure */
- 	tsk = kzalloc(sizeof(struct bcom_task) + priv_size, GFP_KERNEL);
- 	if (!tsk)
--		goto error;
-+		goto err1;
- 
- 	tsk->tasknum = tasknum;
- 	if (priv_size)
- 		tsk->priv = (void*)tsk + sizeof(struct bcom_task);
- 
- 	/* Get IRQ of that task */
--	tsk->irq = irq_of_parse_and_map(bcom_eng->ofnode, tsk->tasknum);
--	if (!tsk->irq)
--		goto error;
-+	tsk->irq = irq;
- 
- 	/* Init the BDs, if needed */
- 	if (bd_count) {
- 		tsk->cookie = kmalloc_array(bd_count, sizeof(void *),
- 					    GFP_KERNEL);
- 		if (!tsk->cookie)
--			goto error;
-+			goto err2;
- 
- 		tsk->bd = bcom_sram_alloc(bd_count * bd_size, 4, &tsk->bd_pa);
- 		if (!tsk->bd)
--			goto error;
-+			goto err3;
- 		memset_io(tsk->bd, 0x00, bd_count * bd_size);
- 
- 		tsk->num_bd = bd_count;
-@@ -99,17 +102,12 @@ bcom_task_alloc(int bd_count, int bd_size, int priv_size)
- 
- 	return tsk;
- 
--error:
--	if (tsk) {
--		if (tsk->irq)
--			irq_dispose_mapping(tsk->irq);
--		bcom_sram_free(tsk->bd);
--		kfree(tsk->cookie);
--		kfree(tsk);
--	}
--
-+err3:
-+	kfree(tsk->cookie);
-+err2:
-+	kfree(tsk);
-+err1:
- 	bcom_eng->tdt[tasknum].stop = 0;
--
- 	return NULL;
- }
- EXPORT_SYMBOL_GPL(bcom_task_alloc);
-@@ -125,7 +123,6 @@ bcom_task_free(struct bcom_task *tsk)
- 	bcom_eng->tdt[tsk->tasknum].stop  = 0;
- 
- 	/* Free everything */
--	irq_dispose_mapping(tsk->irq);
- 	bcom_sram_free(tsk->bd);
- 	kfree(tsk->cookie);
- 	kfree(tsk);
-@@ -377,16 +374,12 @@ static int mpc52xx_bcom_probe(struct platform_device *op)
- 	if (IS_ERR(regs))
- 		return PTR_ERR(regs);
- 
--	/* Get the bestcomm node */
--	of_node_get(op->dev.of_node);
--
- 	/* Prepare SRAM */
- 	ofn_sram = of_find_matching_node(NULL, mpc52xx_sram_ids);
- 	if (!ofn_sram) {
- 		printk(KERN_ERR DRIVER_NAME ": "
- 			"No SRAM found in device tree\n");
--		rv = -ENODEV;
--		goto error_ofput;
-+		return -ENODEV;
- 	}
- 	rv = bcom_sram_init(ofn_sram, DRIVER_NAME);
- 	of_node_put(ofn_sram);
-@@ -394,7 +387,7 @@ static int mpc52xx_bcom_probe(struct platform_device *op)
- 	if (rv) {
- 		printk(KERN_ERR DRIVER_NAME ": "
- 			"Error in SRAM init\n");
--		goto error_ofput;
-+		return rv;
- 	}
- 
- 	/* Get a clean struct */
-@@ -405,8 +398,7 @@ static int mpc52xx_bcom_probe(struct platform_device *op)
- 	}
- 
- 	/* Save the node */
--	bcom_eng->ofnode = op->dev.of_node;
--
-+	bcom_eng->pdev = op;
- 	bcom_eng->regs = regs;
- 	bcom_eng->regs_base = res_bcom->start;
- 
-@@ -426,8 +418,6 @@ static int mpc52xx_bcom_probe(struct platform_device *op)
- 	kfree(bcom_eng);
- 	bcom_eng = NULL;
- 	bcom_sram_cleanup();
--error_ofput:
--	of_node_put(op->dev.of_node);
- 
- 	printk(KERN_ERR "DMA: MPC52xx BestComm init failed !\n");
- 
-@@ -443,9 +433,6 @@ static void mpc52xx_bcom_remove(struct platform_device *op)
- 	/* Cleanup SRAM */
- 	bcom_sram_cleanup();
- 
--	/* Release the node */
--	of_node_put(bcom_eng->ofnode);
--
- 	/* Release memory */
- 	kfree(bcom_eng);
- 	bcom_eng = NULL;
-diff --git a/include/linux/fsl/bestcomm/bestcomm_priv.h b/include/linux/fsl/bestcomm/bestcomm_priv.h
-index 3b52f3ffbdf8..cddde7c74cb5 100644
---- a/include/linux/fsl/bestcomm/bestcomm_priv.h
-+++ b/include/linux/fsl/bestcomm/bestcomm_priv.h
-@@ -66,7 +66,7 @@ struct bcom_tdt {
-  * This holds all info needed globaly to handle the engine
-  */
- struct bcom_engine {
--	struct device_node		*ofnode;
-+	struct platform_device		*pdev;
- 	struct mpc52xx_sdma __iomem     *regs;
- 	phys_addr_t                      regs_base;
- 
--- 
-2.55.0
-
+> Fixes: 7ecca2a4080c ("usb/gadget: Add driver for Aspeed SoC virtual hub")
+> Cc: stable@vger.kernel.org
+> Assisted-by: Codex:gpt-5.6
+> Co-developed-by: Song Li <songl@zju.edu.cn>
+> Signed-off-by: Song Li <songl@zju.edu.cn>
+> Signed-off-by: Fan Wu <fanwu01@zju.edu.cn>
+> ---
+> =C2=A0drivers/usb/gadget/udc/aspeed-vhub/core.c | 4 ++++
+> =C2=A0drivers/usb/gadget/udc/aspeed-vhub/dev.c=C2=A0 | 2 +-
+> =C2=A0drivers/usb/gadget/udc/aspeed-vhub/hub.c=C2=A0 | 5 +++--
+> =C2=A0drivers/usb/gadget/udc/aspeed-vhub/vhub.h | 1 +
+> =C2=A04 files changed, 9 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/drivers/usb/gadget/udc/aspeed-vhub/core.c b/drivers/usb/gadg=
+et/udc/aspeed-vhub/core.c
+> index 4a8b9ff83..069673f0d 100644
+> --- a/drivers/usb/gadget/udc/aspeed-vhub/core.c
+> +++ b/drivers/usb/gadget/udc/aspeed-vhub/core.c
+> @@ -267,6 +267,9 @@ static void ast_vhub_remove(struct platform_device *p=
+dev)
+> =C2=A0	for (i =3D 0; i < vhub->max_ports; i++)
+> =C2=A0		ast_vhub_del_dev(&vhub->ports[i].dev);
+> =C2=A0
+> +	/* Final drain; the worker takes vhub->lock, so stay outside of it */
+> +	cancel_work_sync(&vhub->wake_work);
+> +
+> =C2=A0	spin_lock_irqsave(&vhub->lock, flags);
+> =C2=A0
+> =C2=A0	/* Mask & ack all interrupts=C2=A0 */
+> @@ -328,6 +331,7 @@ static int ast_vhub_probe(struct platform_device *pde=
+v)
+> =C2=A0		return -ENOMEM;
+> =C2=A0
+> =C2=A0	spin_lock_init(&vhub->lock);
+> +	INIT_WORK(&vhub->wake_work, ast_vhub_wake_work);
+> =C2=A0	vhub->pdev =3D pdev;
+> =C2=A0	vhub->port_irq_mask =3D GENMASK(VHUB_IRQ_DEV1_BIT + vhub->max_port=
+s - 1,
+> =C2=A0				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 VHUB_IRQ_DEV1_BIT);
+> diff --git a/drivers/usb/gadget/udc/aspeed-vhub/dev.c b/drivers/usb/gadge=
+t/udc/aspeed-vhub/dev.c
+> index 8b9449d16..4b389de0d 100644
+> --- a/drivers/usb/gadget/udc/aspeed-vhub/dev.c
+> +++ b/drivers/usb/gadget/udc/aspeed-vhub/dev.c
+> @@ -280,7 +280,7 @@ static int ast_vhub_udc_wakeup(struct usb_gadget* gad=
+get)
+> =C2=A0	int rc =3D -EINVAL;
+> =C2=A0
+> =C2=A0	spin_lock_irqsave(&d->vhub->lock, flags);
+> -	if (!d->wakeup_en)
+> +	if (!d->wakeup_en || !d->registered)
+> =C2=A0		goto err;
+> =C2=A0
+> =C2=A0	DDBG(d, "Device initiated wakeup\n");
+> diff --git a/drivers/usb/gadget/udc/aspeed-vhub/hub.c b/drivers/usb/gadge=
+t/udc/aspeed-vhub/hub.c
+> index 02fe1a08d..d0345f310 100644
+> --- a/drivers/usb/gadget/udc/aspeed-vhub/hub.c
+> +++ b/drivers/usb/gadget/udc/aspeed-vhub/hub.c
+> @@ -558,7 +558,7 @@ void ast_vhub_device_connect(struct ast_vhub *vhub,
+> =C2=A0		ast_vhub_send_host_wakeup(vhub);
+> =C2=A0}
+> =C2=A0
+> -static void ast_vhub_wake_work(struct work_struct *work)
+> +void ast_vhub_wake_work(struct work_struct *work)
+> =C2=A0{
+> =C2=A0	struct ast_vhub *vhub =3D container_of(work,
+> =C2=A0					=C2=A0=C2=A0=C2=A0=C2=A0 struct ast_vhub,
+> @@ -588,6 +588,8 @@ static void ast_vhub_wake_work(struct work_struct *wo=
+rk)
+> =C2=A0
+> =C2=A0void ast_vhub_hub_wake_all(struct ast_vhub *vhub)
+> =C2=A0{
+> +	lockdep_assert_held(&vhub->lock);
+> +
+> =C2=A0	/*
+> =C2=A0	 * A device is trying to wake the world, because this
+> =C2=A0	 * can recurse into the device, we break the call chain
+> @@ -1076,7 +1078,6 @@ static int ast_vhub_init_desc(struct ast_vhub *vhub=
+)
+> =C2=A0int ast_vhub_init_hub(struct ast_vhub *vhub)
+> =C2=A0{
+> =C2=A0	vhub->speed =3D USB_SPEED_UNKNOWN;
+> -	INIT_WORK(&vhub->wake_work, ast_vhub_wake_work);
+> =C2=A0
+> =C2=A0	return ast_vhub_init_desc(vhub);
+> =C2=A0}
+> diff --git a/drivers/usb/gadget/udc/aspeed-vhub/vhub.h b/drivers/usb/gadg=
+et/udc/aspeed-vhub/vhub.h
+> index aca2050e2..96f1c3709 100644
+> --- a/drivers/usb/gadget/udc/aspeed-vhub/vhub.h
+> +++ b/drivers/usb/gadget/udc/aspeed-vhub/vhub.h
+> @@ -547,6 +547,7 @@ void ast_vhub_hub_suspend(struct ast_vhub *vhub);
+> =C2=A0void ast_vhub_hub_resume(struct ast_vhub *vhub);
+> =C2=A0void ast_vhub_hub_reset(struct ast_vhub *vhub);
+> =C2=A0void ast_vhub_hub_wake_all(struct ast_vhub *vhub);
+> +void ast_vhub_wake_work(struct work_struct *work);
+> =C2=A0
+> =C2=A0/* dev.c */
+> =C2=A0int ast_vhub_init_dev(struct ast_vhub *vhub, unsigned int idx);
 
