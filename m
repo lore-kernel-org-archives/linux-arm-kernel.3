@@ -4,91 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F76CC982D2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 00:35:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 014E0C982D2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 00:37:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
-	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8QgXkkNdHre4C26c9GV+NpL0QV5WDefYsihE2tDLo6E=; b=AHcL8oMZGjs7gSFSEVU6smiaaO
-	Jrf5e+D+3MyK8QUQ6G8FTA9uJ98uxeFOqP5fTiJOjeTSO9C+6bncKvF2jrCS8CmQQndl9dcJixsMd
-	0RVRX3sHt5WimM3ORtAbvQwYGz8Po+uyEfD2ygol/phh3BHlrfG5g558lUouEkqkUc4i1QJjVSM7T
-	Z40D0eO73QHattePJxUMUTyqnt2m+ChGQy4HK1RnICy75dP0pp4et/Q2LLUNzKpr0dPLTUmPxiVlN
-	JXCJddmRGP8pfbKZqeopfgaRUUSeKCF34NA5ui2lWwkp84gp+dQCjD/VyAGDtq6BbxresBERgTfX9
-	JaQlhcFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1gwNE+OBSnQyLjeDU8H4XDoiVsytL2D9V4t/U5WKHu8=; b=NtxsyO7EbvMpJv5lM7COPNV+Ub
+	h653DT9XTIW1aWqof2RLTvEijlXrOlkKhifwUeIccanUgnLM+/ZyEoWXca0YQrzufKL/iq+YLkBcy
+	VK4hzeozFSonhHOL3ATKq9l89r+/w27MPjtmA13/J8IVd436n5umOBUq/DzCC4kgvPmPLVxKjdjRq
+	bB45qZdQzBYti5iNw1D+dTv8gJuV83ptlyExo96nx//O+IodxFpm6fSit0t2k5BTQ7W3kx+OLP49+
+	bFfRR45ouqaIr67YxRamW8XvVxfhf2OjyzQALXPPIp7PHTsf3MtuKSfe0TQxSi8AzAfJqdnrjGfKZ
+	nWRQLN/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7MZD-0000000D2eE-2xXL;
-	Fri, 18 Sep 2026 00:35:03 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1x7Mbf-0000000D2ye-03pP;
+	Fri, 18 Sep 2026 00:37:35 +0000
+Received: from [216.200.240.185] (helo=mailgw02.mediatek.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7MZA-0000000D2dH-3lB2
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 00:35:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ubuntu.com;
- h=In-Reply-To: References: Cc: To: From: Subject: Message-Id: Date:
- Content-Type: Content-Transfer-Encoding: Mime-Version; q=dns/txt;
- s=fe-953a8a3ca9; t=1789691700;
- bh=8QgXkkNdHre4C26c9GV+NpL0QV5WDefYsihE2tDLo6E=;
- b=gMG6wtvqMKTyhBxYmDYbtBzGs+48odI7aJ98gEFJSOaQUNM3nPdDmOqqwFULzf4Go7aDmobPf
- 8Z8lytX1QsM+OJmWGfIRbkhJAUUdm2XZnFTBCTb22mppBLadwiEXp/39thPzvM0Hh98syCefIIs
- S3C5P5MVfPP8HwEQyMQLbLzNNqwLw1EA1ATj+k/4FAIMsoqdL5F2LzkaMt2FOEyBqrilPHB5Bqq
- Tz3ZoUPk8cE8PqSXMxEr8TsD4OwX0Z7YsoDic5iwDOXi7NXZExL3Aqc6J8uR6WA1elPQlWeEAXT
- xQWA/ocMSzQPYjVbvJaJ/lvs71y84WKJOL1mEjyNPT9w==
-X-Forward-Email-ID: 6aac871042fb3e762f6d18f9
-X-Forward-Email-Sender: rfc822; jpeisach@ubuntu.com, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 2.14.2
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8; format=Flowed
-Date: Thu, 17 Sep 2026 20:34:18 -0400
-Message-Id: <DLI0QTP0NUHS.DAFYGACKWKWO@ubuntu.com>
-Subject: Re: [PATCH v4 01/20] dt-bindings: phy: Add
- starfive,jh7110-inno-hdmi-phy
-From: "Joshua Peisach" <jpeisach@ubuntu.com>
-To: "Krzysztof Kozlowski" <krzk@kernel.org>, "Michal Wilczynski"
- <m.wilczynski@samsung.com>
-Cc: "Vinod Koul" <vkoul@kernel.org>, "Neil Armstrong"
- <neil.armstrong@linaro.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- "Andrzej Hajda" <andrzej.hajda@intel.com>, "Robert Foss"
- <rfoss@kernel.org>, "Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>,
- "Jonas Karlman" <jonas@kwiboo.se>, "Jernej Skrabec"
- <jernej.skrabec@gmail.com>, "Luca Ceresoli" <luca.ceresoli@bootlin.com>,
- "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
- <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "Lee
- Jones" <lee@kernel.org>, "Andy Yan" <andy.yan@rock-chips.com>, "Philipp
- Zabel" <p.zabel@pengutronix.de>, "Emil Renner Berthing" <kernel@esmil.dk>,
- "Hal Feng" <hal.feng@starfivetech.com>, "Michael Turquette"
- <mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>, "Heiko
- Stuebner" <heiko@sntech.de>, "Paul Walmsley" <pjw@kernel.org>, "Palmer
- Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
- "Alexandre Ghiti" <alex@ghiti.fr>, "Dominique Belhachemi" <db@domibel.de>,
- "Brian Masney" <bmasney+clk@redhat.com>, "Jerome Brunet"
- <jbrunet+clk@baylibre.com>, <linux-phy@lists.infradead.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <dri-devel@lists.freedesktop.org>, <mfd@lists.linux.dev>,
- <linux-clk@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
- "Marek Szyprowski" <m.szyprowski@samsung.com>, "Maud Spierings"
- <maud_spierings@murena.io>, "Graham Markall" <hello@big-grey.co.uk>,
- "Icenowy Zheng" <zhengxingda@iscas.ac.cn>, "Chaoyi Chen"
- <chaoyi.chen@rock-chips.com>, "Joshua Peisach" <jpeisach@ubuntu.com>,
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-X-Mailer: aerc 0.21.0
-References: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
- <CGME20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125@eucas1p2.samsung.com> <20260915-jh7110-clean-send-v4-1-f0e4fd6f2cc8@samsung.com> <20260917-mutant-chamois-of-competence-46ca77@quoll>
-In-Reply-To: <20260917-mutant-chamois-of-competence-46ca77@quoll>
+	id 1x7Mbc-0000000D2xK-2WHL;
+	Fri, 18 Sep 2026 00:37:33 +0000
+X-UUID: 1e47e1dcb2f911f1acbe4559397dec65-20260917
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=1gwNE+OBSnQyLjeDU8H4XDoiVsytL2D9V4t/U5WKHu8=;
+	b=O0rVwSh5F81ot508m8Q9fWpIAAVAoohpA7b5k1r4x/V/sS7Mi6IUlDU06ZKrF9cD39KJUy/d3PfqIa2E5oFmP/v+QqnH9PN5dvAx3zSn3ZIewn3JkIrdF45Gn3KmlI8F9hJ+TxABrcF2IpmJiO9RI9EQyP7jluNyKwRmTd9v9DA=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:2f5f3de0-7277-4169-b533-789f4b46c75a,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-5
+X-CID-META: VersionHash:7db8b62,CLOUDID:37a17428-9ebf-4787-bb42-3cd26eee85aa,B
+	ulkID:nil,BulkQuantity:0,SF:81|82|83|102|836|865|888|898,TC:-5,Content:0|1
+	5|50|99,EDM:-3,IP:nil,URL:99|1,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,
+	OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 1e47e1dcb2f911f1acbe4559397dec65-20260917
+Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw02.mediatek.com
+	(envelope-from <justin.yeh@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 822324489; Thu, 17 Sep 2026 17:37:24 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Fri, 18 Sep 2026 08:37:22 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Fri, 18 Sep 2026 08:37:22 +0800
+From: Justin Yeh <justin.yeh@mediatek.com>
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: <Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-mediatek@lists.infradead.org>
+Subject: Re: [PATCH 0/2] Allow mtk-regulator-coupler to be built as a module
+Date: Fri, 18 Sep 2026 08:37:22 +0800
+Message-ID: <20260918003722.2764284-1-justin.yeh@mediatek.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20260903062056.1024263-1-justin.yeh@mediatek.com>
+References: <20260903062056.1024263-1-justin.yeh@mediatek.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_173501_153825_38DEF05E 
-X-CRM114-Status: GOOD (  19.53  )
+X-CRM114-CacheID: sfid-20260917_173732_643180_FB429BA1 
+X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,52 +89,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu Sep 17, 2026 at 2:51 AM EDT, Krzysztof Kozlowski wrote:
-> On Tue, Sep 15, 2026 at 05:32:09PM +0200, Michal Wilczynski wrote:
->> Add the dt-binding for the StarFive JH7110 Innosilicon HDMI PHY.
->>=20
->> This device is a child of the starfive,jh7110-hdmi-subsystem node. It
->> functions as both a PHY provider for the controller and as a clock
->> provider for the variable pixel clock (hdmi_pclk), which it generates
->> from its refoclk.
->>=20
->> Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
->
-> While I appreciate other people looking at this, I don't think review
-> here applies. It was a blanket tag, given to the entire series, with
-> exception that it is from newbie, thus I want to ask: was this binding
-> REALLY reviewed by Joshua?
->
-> Are the rest of the patches actually reviewed or just "looks good to
-> me"? I see no comments from Joshua on v3, v2 and v1, which is usual sign
-> of doing review.
->
->
-I commented on v3 saying that I would test if I could. I don't just
-throw "Reviewed-by" on everything I look at.
+Hi Mark, Liam, Matthias, Angelo,
 
-If anything, I've been trying to be more honest in reviews, and only
-review ones that I actually care about[1].
+Gentle ping on this series, sent two weeks ago:
+https://lore.kernel.org/all/20260903062056.1024263-1-justin.yeh@mediatek.com/
 
-If reviewing patches isn't a good way for newbies to start getting
-familiar with the kernel code (especially a NEW driver), then I don't
-know what is.
+Is it OK to pick up as it is, or is there something you would like me to
+change first?
 
-And to be clear, I'm not using a LLM to review. I am using actual
-intelligence. For the JH7110 PR specifically, I did actually go through
-and review each commit, because I wanted to learn what was happening
-and why. Actually, that's why I asked where the data sheet was[2].
+One note on the routing: patch 2/2 (soc/mediatek Kconfig) depends on the
+exports added by patch 1/2 (regulator core), so the two have to land in
+that order - ideally via the same tree.
 
-So if you really want to, drop the Reviewed-by tag. And if it makes
-you feel better, I'll leave the series alone.
-
--Josh
-
-[1] I won't be reviewing PRs around devicetree since I'm not confident
-(or frankly, interested) in it at this point. https://lore.kernel.org/all/D=
-L94TU52KBMO.2HAKJMJXV2CPE@ubuntu.com/
-
-[2] Michal giving me the hardware info:
-https://lore.kernel.org/all/071901ef-57f3-456f-af5b-a8c99a0a7dd3@samsung.co=
-m/
+Thanks,
+Justin
 
