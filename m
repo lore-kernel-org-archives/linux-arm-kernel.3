@@ -4,65 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31D17C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 14:52:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCCC4C982DF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 14:52:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vvNz7ORen3PSiD9Ob0ccdEXjPJHi9sMa7LdVymvBluQ=; b=nSiWlPlVBPl8KXrg3QWbsyj9mL
-	ClpkEpZ0wdyeJ6lVBUlH+z7h8doC2GgFUtj3vAlRUmUfhUgopzHF+VhWjMtaSMajRDBDcRR7NCmoH
-	UmwW48+vnu0IWd5Jx2tNfGcZqrqzeXRL5sO/Af2D2QQ7VtYFcdR+EYZkux2zH5xCY5apd/inAuMoQ
-	SC4Y17fk1uoo6KMzJDg7Zk0ARdLU3T0P3yTFFqO7y4DxLo7N417xChSbjmqFnM/cs/Qjfnf8CDGvc
-	c3rv/UDdF2ZHGxI8SRoggx8WKN4EYXiMIYCMIDkVugLt31RL8S2JWJPe9qDFdtvFOb0UaxKtPNLU+
-	eTb2j0bw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uZBdSvEW3nA8W18mYzFaVqXGJb3q3bjw0DazXvHmoi0=; b=JVq6Zp61LF1D80snwJj4HwoHvz
+	DlhvGggflc+EmASs95hSyJmIX4WyTISOw79JVZ2MHi/A2bpYdGDLlXOA3EDPafAYrJlhEc42KruGL
+	oN7LMAGBt1+9P7WldHP33tf9qYfCIEPKrhTA9DnztAK8u9IUKWWILDYF5MhcyM0ZH0oMdpZhQc6Dj
+	OhiW6bEPytrf1Si7A9wl/DQrUxFT5AYJu4XE1muGqG8eu5UkBLuTWRndrKtXdebZMdZghpVrkN9wC
+	pVhsu22K/vgu+a61SGf7xEok1IXe/50tVqbF0nH+hU5JWIOMq1i+GmYWpqHlBNJCqQstMX/oEHF6D
+	TgwvTpWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7ZxD-0000000EmOm-3eHt;
+	id 1x7ZxD-0000000EmOM-35tt;
 	Fri, 18 Sep 2026 14:52:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from mail-westeuropeazon11011018.outbound.protection.outlook.com ([52.101.70.18] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7ZxA-0000000EmLx-1q7y
+	id 1x7Zx8-0000000EmK0-01ll
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 14:52:40 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 33C3E43979;
-	Fri, 18 Sep 2026 14:52:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 647A31F00899;
-	Fri, 18 Sep 2026 14:52:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789743160;
-	bh=vvNz7ORen3PSiD9Ob0ccdEXjPJHi9sMa7LdVymvBluQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Jj0V6xm5TJ2pc8mBHHodzPp/2jj3Un8PFgREui2g1TBsCy5SRrlQWTDZRaPk4mIzF
-	 cIpvO1s9R9MXatvSz5/k/U4PjzWJFyQtLJWsogXDHfd2rYAFR7i5yoFElHSJ2T49lU
-	 Mx/Aa6kb4dVV5WmpfkQ6bkdeVYPea03RuH/ozCaMzvlalGYW/JlKVjCw7Zd3/jEtSz
-	 ueVF4Sw393qTfmQxGbmORVp2Cw78OM4pocH8MUQXS/meuGt1ZMWaB6z8Kh/RwpjHJc
-	 anibXqUkABAHngNvS2UI6JjetJD3aa2fm01Xi2IrdfbvnRlvX3gp2N5xmvWcnTbSSk
-	 iwGy1NEFm4ZZg==
-From: Will Deacon <will@kernel.org>
-To: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org,
-	Will Deacon <will@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Eric Biggers <ebiggers@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Marc Zyngier <maz@kernel.org>
-Subject: [PATCH v3 05/13] arm64: lib: Assume a little-endian kernel in optimised string routines
-Date: Fri, 18 Sep 2026 15:52:07 +0100
-Message-ID: <20260918145217.1669-6-will@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260918145217.1669-1-will@kernel.org>
-References: <20260918145217.1669-1-will@kernel.org>
+	Fri, 18 Sep 2026 14:52:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=t6kBEoXjSnu67q6lYjwIGncvELHByZLPu//wDQphZgPsJmZvgpdzukGph4gJ4cB/LzFAoDr3mD07IpB5wQZBnUm1UZqf5KRRuCBy+zvQR+IfhwrwUT/i9mNEmWzO5N6RRjPuOsbMef1WGXoBCxZ/BZeZAdVb/Rdv/STUYoxZrvZ/xvM+3yg3fNIupXVi71MtEayHgrePTrqVlBRiuz/6zDp26PvOQjEHVAOWOmwT83pr42N3Ad3JBeBpIprPDCMlqUduv9TEmZ4MrmJ8AorVA4HS2ceGmTtUImXOndhR3KuC62dxB2nahQ9nca9cTfUIOip28og7Ub/awwAesnVUdw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uZBdSvEW3nA8W18mYzFaVqXGJb3q3bjw0DazXvHmoi0=;
+ b=ctMnCCwvEBarzJDBfyWagXHyicE4Wd3autcGq/lKWKqOfd2PZ1zLtnIt6c64x+zioAQuPmUiTIgJWZXltMGf/v5j1KSOYyBG1l6g9q4arIE1Ly0Wiz3wjQDvN5WRRIvAXQvJLDPuMPbzT8THbB3fU/VuxSiWcVsTNj+UkiMTwpQta4D3CCYK/B+SB/JqQpMQMI0w8AiP5aJhbU8dyqMbLa+qbLaY/7Tr2JaWmYBIBJew2/0dpLoglGnjqR+RL3jqWHx1JzbbcBUFUjFRoVL6yV1TDUotvMmKd3xym+t9uF3SiA/vZi1PIWIS2kIHl87IjjceNkJ4YTuoI8VlIl2t2w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uZBdSvEW3nA8W18mYzFaVqXGJb3q3bjw0DazXvHmoi0=;
+ b=o7cF4AoZYLy5rrhAhUI0nXsI09ZtSbYM+JKkUWCUWR6z0XtPQRkJt3Ij60ehdW0TpYYtmS52BgdENkLwr4uSfD7uomLxvkC9abGFsWY1cep1ehAZLHHwKkUILEPmfxksGlC2FQxE7Fnwmz57QYree19qgFl1ftze+tuIzcuZiK/xw5WLIkeDc9ktQ9g9RKBI6WHuEcRtZ+RXPsjZ1mSiub19NUMmaTcgnJbO5R6rw97uI66Tx7fpKJc8XZK3EwBNGwTU2lf+iJuFqqQ0mX9vZbkn+CXd3y2cvX7Fm7uK5fI8RB7HiNJO3qwjwOBlZHKp8wKcLT9hhO8G8tLqdc2xUg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AS1PR04MB9653.eurprd04.prod.outlook.com (2603:10a6:20b:475::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.13; Fri, 18 Sep
+ 2026 14:52:32 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0428.011; Fri, 18 Sep 2026
+ 14:52:32 +0000
+Date: Fri, 18 Sep 2026 09:52:22 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>
+Cc: Ulf Hansson <ulfh@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>, Lucas Stach <l.stach@pengutronix.de>,
+	linux-pm@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Zhou Peng <eagle.zhou@nxp.com>, Xiahong Bao <xiahong.bao@nxp.com>,
+	Ming Zhou <ming.zhou@nxp.com>
+Subject: Re: [PATCH v2] pmdomain: imx8m-blk-ctrl: Serialize power on/off
+ across sibling domains
+Message-ID: <aq1QJmhK9c3wwFZ-@SMW015318>
+References: <20260917-imx8mp-blk-ctrl-v2-1-81d29e907a5d@oss.nxp.com>
+ <aqwYbhghBVb1fwdy@SMW015318>
+ <aqycJQHcR9bqwXKr@lsvm11u0000189.swis.ap-northeast-2.aws.nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aqycJQHcR9bqwXKr@lsvm11u0000189.swis.ap-northeast-2.aws.nxp.com>
+X-ClientProxiedBy: CY5PR14CA0005.namprd14.prod.outlook.com
+ (2603:10b6:930:2::14) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS1PR04MB9653:EE_
+X-MS-Office365-Filtering-Correlation-Id: 81b5693e-4323-4b96-ed1a-08df159477e3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|376014|7416014|1800799024|23010399003|6133799003|10067099003|5023799004|11063799006|4143699003|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: Fo91ytMOEihwE78uwhRM9iDguepVE6IVIBVQrggRusbef5InmeHh358XyUa9cpFd5iqQrckB2wwbZS2CLpR+bXrmziKQBYx7YiWeOkkWGatmKichkROC4A5Nyw2OLY3Rpqk8DcjF0nes9Km7NcsRsuhwNek/8CxxYGThexjeRE9DqHisCTy4Tv0cX2+MMx9wEqOxNXrmrcuvd0LII5Qdm/bQV7D485FvuUXAoHSrpgxAidenEMYfZERWsthrlRA6448PKBDJMgW6d/H3bCoJLrkY29NqtObpbHzHLa3n/C0AVebomxWoGmE4ETuYA4mOPzsbhQBBVu8fjVPjfLL2XtgfzXap5wUZA0agXG7up9T0xEzwzzDZ+2lTnnsnn/yK9gQVnbRKgYg3cWx9tRCOLCNHrpGIflHgPuZ627zCvo+eaBBGPosFWv4mMSuF98tFtC7AWN4O4HefOUmxg1mOogcc3V0S3yH4M7w40qmDrAG2rwOzE431niLcTC0wMggZJDb4baPV1glAfiGvsQ6dKONPUpmhB1uKHgYvUG7Xoddcg0vMk4t/upnZCt6yZKSmOSpoaoat2EH3ho6N6cbHoEm58Sp2CwTNdDQCe7dQkhBJSSBgyHX2ehsJBLmxViPe
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(376014)(7416014)(1800799024)(23010399003)(6133799003)(10067099003)(5023799004)(11063799006)(4143699003)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?L3Hf5UiYLMsBONam6ovXufMjFKMkkib5I5WWBk+EAdIPfDitpEcv3CWoKirI?=
+ =?us-ascii?Q?WGNpq+qD5QsTMRElyNtm0E53JQZyiy+uugRtoMIzXqbbe16/qtIeWtKX8Lmb?=
+ =?us-ascii?Q?EEAw21oAS6zrCjE3pL6x7M76jx4sdRdIvTXLeoSM/aEHE1TdG5M3BVAxMc8E?=
+ =?us-ascii?Q?yNMIePDVP5Z78LHFIFBuwnL92zIjI9PJOZTTyKXcgeJIhK7/jLml5qSz/9KS?=
+ =?us-ascii?Q?vMFu7ByCE4Lac2Kv+K9iFljAwOMvzF9f2IDSb8sRam9ot6To9XzDzy8HWmJq?=
+ =?us-ascii?Q?LAyF5E4bPI/U0OKh95FdYvHWo++qxBzcZ31CB7n1H6hPrpSFdmY7p0sAa/sG?=
+ =?us-ascii?Q?BIkhprHXkUyul0ewIHtfp3+7v3OaKoI+bffMwly7iKQQC1BjSVlvBE2tPq8h?=
+ =?us-ascii?Q?l59AgyW3JaSZHnVAX1WEroophnjbC0gbpEAVIgH3F2VZp9uwjfCS7QmLEEwj?=
+ =?us-ascii?Q?9pgxyKd1Do9yMriiCkM7UKRjydT1GctiwF5ijsS1orE2SRdz2WdYOrAr6Wb/?=
+ =?us-ascii?Q?mmP6eMtgXJ3OBCEixpgGigbt/jntW6SR02h0DIn3K/BtjkqQWFYwLwFUtHG0?=
+ =?us-ascii?Q?tcQD7lQERaMmUIU4/i8AnL5tK1kVD49WiEFwZpYYEMqSVmdmYb4MYhal6PsB?=
+ =?us-ascii?Q?3i09T1FljqxAPPKtoF/ViLqOH6MLvBOyIAduduQC8qUZIPcl+jpDTbKuM2xP?=
+ =?us-ascii?Q?pcI8nbU12QM2nvgo6OIUlJhpX5d2wZegQOp+yAiHtfwuZTREcblUoXfRQQeS?=
+ =?us-ascii?Q?73Zvqork2dRK2/bteDC1NjVmjA/1UCZiR7irUj/poF57QJs77d4hs3mKGg+y?=
+ =?us-ascii?Q?c8nimHGZUkeMZ+wLIdV51eVbLR322PTknrghc1gjAfjB5Uco04UBWkVU4Jc0?=
+ =?us-ascii?Q?B5MyuT2I9AMl+eXCX3BLsVl7X3lgAn3dVKS4plZ5dcf6l8hZYWgJtGBX3M4z?=
+ =?us-ascii?Q?A/A46C3btCeJwH0mK13SmrugGXE6fWTwbkTH4rGq10jC2G1lGla1VLijfpxk?=
+ =?us-ascii?Q?cdEVoFozGmi0J2EGwU9pAXr0f6qqlAnNchc/fk1rNpXNuunTHrGJ34heg7rd?=
+ =?us-ascii?Q?CogyNyNtCV+5yVcmFX/SYVPpGS+2Pba1OxPrIfMhm2BVbZThwa6vIpzVJptv?=
+ =?us-ascii?Q?8sBXPhb4WtYppP+6BUA9iwzD3rW0p7f+p2O2Fbkev6tewYUypwjchhGy0z/R?=
+ =?us-ascii?Q?r5RefdLBhAeLaW/mJEJv/6ANmhCn9evx8hSeSYauUPA7Gk8WB701iM+Ih86C?=
+ =?us-ascii?Q?/PpE63nBQnkagTm8gfCF5nvlJUQx7oprbH/MGgSRS4o2yc3l1si6PTjK8D1i?=
+ =?us-ascii?Q?lUvZEZcSPISOhEdxZciEjx+2FWeZUCLPEoKRfr8m7/dZaI5kFEafbb2KAbAt?=
+ =?us-ascii?Q?XJwuFN7+7CEAAO5RVsp/SZRPL4o/kN1zm37+N56uq7Kxp4LuL3CYyzzNi5DZ?=
+ =?us-ascii?Q?bGoFXAHRYyBumA27ZDWx0IZpaQMTNq4WToxQgOM4h1lnNV3iZKMm2mN5OZMw?=
+ =?us-ascii?Q?T9TNtrpwKCpWUH2yj2qG5rg+qqjmJTJeUuE4gsG801B4BRbyewDGfh3O+sQ7?=
+ =?us-ascii?Q?vbhTU/UMpmb2NVYJFqlanR1wOJnDQPmBR0EAGxEwIBtnmfcPe9wsFNmWu8nr?=
+ =?us-ascii?Q?hzpLpj4IkAhocGCnW/scz6ZhkH+p9zmevTOr6hXakUftO2HrQbb8jNvGJ4rf?=
+ =?us-ascii?Q?RLZDis3zIuZwkdRKxZfX4sUHxo0fzIjUvqW0UUy7khtbywaJNBlxzsZfDe72?=
+ =?us-ascii?Q?SKIP0aBUMHXluo01cMEXOwRKUzb+P4wdGZtyYfDBCs0gl9n1oWVH?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 81b5693e-4323-4b96-ed1a-08df159477e3
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Sep 2026 14:52:32.4307
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: NMjE4zu62DZZ4+G397NgQTAH+6Gzp8WbiG5BUFKv271Dx3ZqQBuBMslk+XM+cXbUyh8UdhGil8jb6H0AyKpOFWY4IxvX0onhnYyyahih3QKahI3WRupDD8tson6nOCkn
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9653
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260918_075238_196913_3C592159 
+X-CRM114-Status: GOOD (  43.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,397 +145,216 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Big-endian support on arm64 depends on BROKEN. In preparation for
-removing the dead code altogether, remove the big-endian-specific
-support from the arm64 optimised string routines. Although these
-started life as a fork of Arm's "cortex strings" library and later got
-updated with the "optimized-routines" code, the in-kernel implementation
-has always been different enough that removing the unused big-endian
-portion still makes sense.
+On Fri, Sep 18, 2026 at 11:08:06AM +0900, Ming Qian(OSS) wrote:
+> Hi Frank,
+>
+> On Thu, Sep 17, 2026 at 11:42:22AM -0500, Frank Li wrote:
+> > On Thu, Sep 17, 2026 at 04:07:54PM +0900, Ming Qian wrote:
+> > > On i.MX8MP the VPU blk-ctrl exposes G1, G2 and VC8000E as three separate
+> > > genpds, each serialized only by its own genpd lock, so their power_on and
+> > > power_off callbacks can run concurrently on SMP.
+> > >
+> > > The sequences are not independent: they share the VPUMIX bus domain, the
+> > > VPU_NOC and the ADB400 handshake. On power up the GPC cannot ack-verify
+> > > the ADB400 handshake - the ack only completes once blk-ctrl sets the bus
+> > > clk-en bit - so it just waits a fixed delay instead of polling hskack. A
+> > > sibling transition landing inside another domain's reset window disturbs
+> > > that shared clock and handshake timing, the victim's reset does not take
+> > > effect, and its block registers read back all zeros: the decoder times
+> > > out or the encoder fails its format check.
+> > >
+> > > Serialize the blk-ctrl reset sequence with a per-blk-ctrl mutex; the
+> > > driver deliberately avoids a genpd hierarchy, so the genpd core gives no
+> > > cross-sibling serialization.
+> > >
+> > > Fixes: a1a5f15f7f6c ("soc: imx: imx8m-blk-ctrl: add i.MX8MP VPU blk ctrl")
+> > > Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+> > > ---
+> > > Problem:
+> > > On i.MX8MP, running the VC8000E encoder and the G1/G2 decoders
+> > > concurrently rarely and non-deterministically leaves a VPU stuck in
+> > > reset: its block registers read back all zeros. A decoder then times out
+> > > or the encoder fails its format check.
+> > >
+> > > Root cause:
+> > > The VPU blk-ctrl exposes G1, G2 and VC8000E as three separate genpds,
+> > > serialized only by the per-genpd lock, so on SMP their power_on/power_off
+> > > callbacks can run concurrently. The sequences share the VPUMIX bus
+> > > domain, the VPU_NOC and the ADB400 handshake. On power up the GPC does
+> > > not ack-verify the ADB400 handshake - the ack only completes once
+> > > blk-ctrl sets the bus clk-en bit - so it just waits a fixed delay. A
+> > > sibling transition landing inside another domain's reset window disturbs
+> > > that shared clock and handshake timing, the victim's reset fails to take
+> > > effect, and its block is left in reset with registers reading zero.
+> > >
+> > > Fix:
+> > > Serialize the blk-ctrl reset sequence with a per-blk-ctrl mutex, so a
+> > > sibling domain cannot run its sequence while another is inside its reset
+> > > window. The driver deliberately avoids a genpd hierarchy, so the genpd
+> > > core provides no cross-sibling serialization.
+> > >
+> > > Test:
+> > > i.MX8MP, Android 6.18 kernel, concurrent H.264 decode and encode. Without
+> > > this patch the failure reproduces within one to two hours. With it the
+> > > same test ran overnight, over 14 hours, without a single occurrence.
+> > > ---
+> > > Changes in v2:
+> > > - Replace guard(mutex) with explicit mutex_lock()/mutex_unlock():
+> > >   power_on() already unwinds errors with goto, and cleanup.h asks not to
+> > >   mix goto and scope-based cleanup in one function (sashiko-bot).
+> > > - Shorten the commit message to the essentials and move the detailed
+> > >   hardware analysis into this cover letter (Frank Li).
+> > > - Link to v1: https://patch.msgid.link/20260915-imx8mp-blk-ctrl-v1-1-b3b4e6e7e676@oss.nxp.com
+> > >
+> > > To: Ulf Hansson <ulfh@kernel.org>
+> > > To: Frank Li <Frank.Li@nxp.com>
+> > > To: Sascha Hauer <s.hauer@pengutronix.de>
+> > > To: Pengutronix Kernel Team <kernel@pengutronix.de>
+> > > To: Fabio Estevam <festevam@gmail.com>
+> > > To: Shawn Guo <shawnguo@kernel.org>
+> > > To: Peng Fan <peng.fan@nxp.com>
+> > > Cc: linux-pm@vger.kernel.org
+> > > Cc: imx@lists.linux.dev
+> > > Cc: linux-arm-kernel@lists.infradead.org
+> > > Cc: linux-kernel@vger.kernel.org
+> > > ---
+> > >  drivers/pmdomain/imx/imx8m-blk-ctrl.c | 23 ++++++++++++++++++++++-
+> > >  1 file changed, 22 insertions(+), 1 deletion(-)
+> > >
+> > > diff --git a/drivers/pmdomain/imx/imx8m-blk-ctrl.c b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
+> > > index 479789009c7f..270f43229fe7 100644
+> > > --- a/drivers/pmdomain/imx/imx8m-blk-ctrl.c
+> > > +++ b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
+> > > @@ -15,6 +15,7 @@
+> > >  #include <linux/pm_runtime.h>
+> > >  #include <linux/regmap.h>
+> > >  #include <linux/clk.h>
+> > > +#include <linux/mutex.h>
+> > >
+> > >  #include <dt-bindings/power/imx8mm-power.h>
+> > >  #include <dt-bindings/power/imx8mn-power.h>
+> > > @@ -34,6 +35,12 @@ struct imx8m_blk_ctrl {
+> > >  	struct regmap *regmap;
+> > >  	struct imx8m_blk_ctrl_domain *domains;
+> > >  	struct genpd_onecell_data onecell_data;
+> > > +	/*
+> > > +	 * Serializes the blk-ctrl reset/clock sequence across sibling domains;
+> > > +	 * their transitions interact through the shared VPUMIX bus domain,
+> > > +	 * VPU_NOC and the not-ack-verified ADB400 handshake (ERR050531).
+> > > +	 */
+> > > +	struct mutex power_lock;
+> > >  };
+> > >
+> > >  struct imx8m_blk_ctrl_domain_data {
+> > > @@ -98,12 +105,14 @@ static int imx8m_blk_ctrl_power_on(struct generic_pm_domain *genpd)
+> > >  	struct imx8m_blk_ctrl *bc = domain->bc;
+> > >  	int ret;
+> > >
+> > > +	mutex_lock(&bc->power_lock);
+> > > +
+> > >  	/* make sure bus domain is awake */
+> > >  	ret = pm_runtime_get_sync(bc->bus_power_dev);
+> > >  	if (ret < 0) {
+> > >  		pm_runtime_put_noidle(bc->bus_power_dev);
+> > >  		dev_err(bc->dev, "failed to power up bus domain\n");
+> > > -		return ret;
+> > > +		goto unlock;
+> >
+> > can you use auto cleanup guard()
+> >
+> > Frank
+> >
+>
+> v1 did exactly that, and sashiko-bot flagged it, because
+> imx8m_blk_ctrl_power_on() unwinds its errors with goto:
+>
+>   https://patch.msgid.link/20260915102028.2CFFD1F000FF@smtp.kernel.org
+>
+> According to the cleanup subsystem guidelines (include/linux/cleanup.h),
+> using goto and scope-based cleanup helpers shouldn't be mixed in the same
+> function:
+>
+>    * Lastly, given that the benefit of cleanup helpers is removal of
+>    * "goto", and that the "goto" statement can jump between scopes, the
+>    * expectation is that usage of "goto" and cleanup helpers is never
+>    * mixed in the same function. I.e. for a given routine, convert all
+>    * resources that need a "goto" cleanup to scope-based cleanup, or
+>    * convert none of them.
+>
+> So v2 changed imx8m_blk_ctrl_power_on() back from guard() to
+> mutex_lock(), and imx8m_blk_ctrl_power_off() follows the same style for
+> consistency.
 
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
-Acked-by: Arnd Bergmann <arnd@arndb.de>
-Acked-by: Marc Zyngier <maz@kernel.org>
-Acked-by: Eric Biggers <ebiggers@kernel.org>
-Signed-off-by: Will Deacon <will@kernel.org>
----
- arch/arm64/lib/memcmp.S  |  2 -
- arch/arm64/lib/strcmp.S  | 34 +--------------
- arch/arm64/lib/strlen.S  | 26 -----------
- arch/arm64/lib/strncmp.S | 93 +++-------------------------------------
- arch/arm64/lib/strnlen.S | 16 +------
- 5 files changed, 8 insertions(+), 163 deletions(-)
+include/linux/cleanup.h, the description is not exactly correct. The major
+means is avoid goto back to cleanup scope, which will cause scope's cause.
 
-diff --git a/arch/arm64/lib/memcmp.S b/arch/arm64/lib/memcmp.S
-index a5ccf2c55f91..1f528ce046e4 100644
---- a/arch/arm64/lib/memcmp.S
-+++ b/arch/arm64/lib/memcmp.S
-@@ -103,10 +103,8 @@ L(last_bytes):
- 
- 	/* Compare data bytes and set return value to 0, -1 or 1.  */
- L(return):
--#ifndef __AARCH64EB__
- 	rev	data1, data1
- 	rev	data2, data2
--#endif
- 	cmp	data1, data2
- L(ret_eq):
- 	cset	result, ne
-diff --git a/arch/arm64/lib/strcmp.S b/arch/arm64/lib/strcmp.S
-index 9b89b4533607..2389b47dca22 100644
---- a/arch/arm64/lib/strcmp.S
-+++ b/arch/arm64/lib/strcmp.S
-@@ -38,14 +38,6 @@
- #define shift		x9
- #define off2		x10
- 
--/* On big-endian early bytes are at MSB and on little-endian LSB.
--   LS_FW means shifting towards early bytes.  */
--#ifdef __AARCH64EB__
--# define LS_FW lsl
--#else
--# define LS_FW lsr
--#endif
--
- /* NUL detection works on the principle that (X - 1) & (~X) & 0x80
-    (=> (X - 1) & ~(X | 0x7f)) is non-zero iff a byte is zero, and
-    can be done in parallel across the entire word.
-@@ -67,28 +59,17 @@ L(loop_aligned):
- 	ldr	data2, [src1, off2]
- 	ldr	data1, [src1], 8
- L(start_realigned):
--#ifdef __AARCH64EB__
--	rev	tmp, data1
--	sub	has_nul, tmp, zeroones
--	orr	tmp, tmp, REP8_7f
--#else
- 	sub	has_nul, data1, zeroones
- 	orr	tmp, data1, REP8_7f
--#endif
- 	bics	has_nul, has_nul, tmp	/* Non-zero if NUL terminator.  */
- 	ccmp	data1, data2, 0, eq
- 	b.eq	L(loop_aligned)
--#ifdef __AARCH64EB__
--	rev	has_nul, has_nul
--#endif
- 	eor	diff, data1, data2
- 	orr	syndrome, diff, has_nul
- L(end):
--#ifndef __AARCH64EB__
- 	rev	syndrome, syndrome
- 	rev	data1, data1
- 	rev	data2, data2
--#endif
- 	clz	shift, syndrome
- 	/* The most-significant-non-zero bit of the syndrome marks either the
- 	   first bit that is different, or the top bit of the first zero byte.
-@@ -113,7 +94,7 @@ L(mutual_align):
- 	ldr	data1, [src1], 8
- 	neg	shift, src2, lsl 3	/* Bits to alignment -64.  */
- 	mov	tmp, -1
--	LS_FW	tmp, tmp, shift
-+	lsr	tmp, tmp, shift
- 	orr	data1, data1, tmp
- 	orr	data2, data2, tmp
- 	b	L(start_realigned)
-@@ -135,9 +116,6 @@ L(src1_aligned):
- 	neg	shift, src2, lsl 3
- 	bic	src2, src2, 7
- 	ldr	data3, [src2], 8
--#ifdef __AARCH64EB__
--	rev	data3, data3
--#endif
- 	lsr	tmp, zeroones, shift
- 	orr	data3, data3, tmp
- 	sub	has_nul, data3, zeroones
-@@ -152,9 +130,6 @@ L(src1_aligned):
- L(loop_unaligned):
- 	ldr	data3, [src1, off1]
- 	ldr	data2, [src1, off2]
--#ifdef __AARCH64EB__
--	rev	data3, data3
--#endif
- 	sub	has_nul, data3, zeroones
- 	orr	tmp, data3, REP8_7f
- 	ldr	data1, [src1], 8
-@@ -163,9 +138,6 @@ L(loop_unaligned):
- 	b.eq	L(loop_unaligned)
- 
- 	lsl	tmp, has_nul, shift
--#ifdef __AARCH64EB__
--	rev	tmp, tmp
--#endif
- 	eor	diff, data1, data2
- 	orr	syndrome, diff, tmp
- 	cbnz	syndrome, L(end)
-@@ -174,10 +146,6 @@ L(tail):
- 	neg	shift, shift
- 	lsr	data2, data3, shift
- 	lsr	has_nul, has_nul, shift
--#ifdef __AARCH64EB__
--	rev     data2, data2
--	rev	has_nul, has_nul
--#endif
- 	eor	diff, data1, data2
- 	orr	syndrome, diff, has_nul
- 	b	L(end)
-diff --git a/arch/arm64/lib/strlen.S b/arch/arm64/lib/strlen.S
-index 4919fe81ae54..a8c49a3886f6 100644
---- a/arch/arm64/lib/strlen.S
-+++ b/arch/arm64/lib/strlen.S
-@@ -85,14 +85,6 @@ SYM_FUNC_START(__pi_strlen)
- 	cmp	tmp1, MIN_PAGE_SIZE - 16
- 	b.gt	L(page_cross)
- 	ldp	data1, data2, [srcin]
--#ifdef __AARCH64EB__
--	/* For big-endian, carry propagation (if the final byte in the
--	   string is 0x01) means we cannot use has_nul1/2 directly.
--	   Since we expect strings to be small and early-exit,
--	   byte-swap the data now so has_null1/2 will be correct.  */
--	rev	data1, data1
--	rev	data2, data2
--#endif
- 	sub	tmp1, data1, zeroones
- 	orr	tmp2, data1, REP8_7f
- 	sub	tmp3, data2, zeroones
-@@ -144,19 +136,7 @@ L(page_cross_entry):
- 
- 	/* Enter with C = has_nul1 == 0.  */
- L(tail):
--#ifdef __AARCH64EB__
--	/* For big-endian, carry propagation (if the final byte in the
--	   string is 0x01) means we cannot use has_nul1/2 directly.  The
--	   easiest way to get the correct byte is to byte-swap the data
--	   and calculate the syndrome a second time.  */
--	csel	data1, data1, data2, cc
--	rev	data1, data1
--	sub	tmp1, data1, zeroones
--	orr	tmp2, data1, REP8_7f
--	bic	has_nul1, tmp1, tmp2
--#else
- 	csel	has_nul1, has_nul1, has_nul2, cc
--#endif
- 	sub	len, src, srcin
- 	rev	has_nul1, has_nul1
- 	add	tmp2, len, 8
-@@ -194,13 +174,7 @@ L(page_cross):
- 	ldp	data1, data2, [src]
- 	lsl	tmp1, srcin, 3
- 	mov	tmp4, -1
--#ifdef __AARCH64EB__
--	/* Big-endian.	Early bytes are at MSB.	 */
--	lsr	tmp1, tmp4, tmp1	/* Shift (tmp1 & 63).  */
--#else
--	/* Little-endian.  Early bytes are at LSB.  */
- 	lsl	tmp1, tmp4, tmp1	/* Shift (tmp1 & 63).  */
--#endif
- 	orr	tmp1, tmp1, REP8_80
- 	orn	data1, data1, tmp1
- 	orn	tmp2, data2, tmp1
-diff --git a/arch/arm64/lib/strncmp.S b/arch/arm64/lib/strncmp.S
-index fe7bbc0b42a7..e4fde8586089 100644
---- a/arch/arm64/lib/strncmp.S
-+++ b/arch/arm64/lib/strncmp.S
-@@ -45,19 +45,6 @@
- #define offset		pos
- #define neg_offset	x15
- 
--/* Define endian dependent shift operations.
--   On big-endian early bytes are at MSB and on little-endian LSB.
--   LS_FW means shifting towards early bytes.
--   LS_BK means shifting towards later bytes.
--   */
--#ifdef __AARCH64EB__
--#define LS_FW lsl
--#define LS_BK lsr
--#else
--#define LS_FW lsr
--#define LS_BK lsl
--#endif
--
- SYM_FUNC_START(__pi_strncmp)
- 	cbz	limit, L(ret0)
- 	eor	tmp1, src1, src2
-@@ -86,7 +73,6 @@ L(start_realigned):
- 	/* End of main loop */
- 
- L(full_check):
--#ifndef __AARCH64EB__
- 	orr	syndrome, diff, has_nul
- 	add	limit, limit, 8	/* Rewind limit to before last subs. */
- L(syndrome_check):
-@@ -105,55 +91,6 @@ L(syndrome_check):
- 	sub	result, data1, data2, lsr #56
- 	csel result, result, xzr, hi
- 	ret
--#else
--	/* Not reached the limit, must have found the end or a diff.  */
--	tbz	limit, #63, L(not_limit)
--	add	tmp1, limit, 8
--	cbz	limit, L(not_limit)
--
--	lsl	limit, tmp1, #3	/* Bits -> bytes.  */
--	mov	mask, #~0
--	lsr	mask, mask, limit
--	bic	data1, data1, mask
--	bic	data2, data2, mask
--
--	/* Make sure that the NUL byte is marked in the syndrome.  */
--	orr	has_nul, has_nul, mask
--
--L(not_limit):
--	/* For big-endian we cannot use the trick with the syndrome value
--	   as carry-propagation can corrupt the upper bits if the trailing
--	   bytes in the string contain 0x01.  */
--	/* However, if there is no NUL byte in the dword, we can generate
--	   the result directly.  We can't just subtract the bytes as the
--	   MSB might be significant.  */
--	cbnz	has_nul, 1f
--	cmp	data1, data2
--	cset	result, ne
--	cneg	result, result, lo
--	ret
--1:
--	/* Re-compute the NUL-byte detection, using a byte-reversed value.  */
--	rev	tmp3, data1
--	sub	tmp1, tmp3, zeroones
--	orr	tmp2, tmp3, #REP8_7f
--	bic	has_nul, tmp1, tmp2
--	rev	has_nul, has_nul
--	orr	syndrome, diff, has_nul
--	clz	pos, syndrome
--	/* The most-significant-non-zero bit of the syndrome marks either the
--	   first bit that is different, or the top bit of the first zero byte.
--	   Shifting left now will bring the critical information into the
--	   top bits.  */
--L(end_quick):
--	lsl	data1, data1, pos
--	lsl	data2, data2, pos
--	/* But we need to zero-extend (char is unsigned) the value and then
--	   perform a signed 32-bit subtraction.  */
--	lsr	data1, data1, #56
--	sub	result, data1, data2, lsr #56
--	ret
--#endif
- 
- L(mutual_align):
- 	/* Sources are mutually aligned, but are not currently at an
-@@ -167,7 +104,7 @@ L(mutual_align):
- 	neg	tmp3, count, lsl #3	/* 64 - bits(bytes beyond align). */
- 	ldr	data2, [src2], #8
- 	mov	tmp2, #~0
--	LS_FW	tmp2, tmp2, tmp3	/* Shift (count & 63).  */
-+	lsr	tmp2, tmp2, tmp3	/* Shift (count & 63).  */
- 	/* Adjust the limit and ensure it doesn't overflow.  */
- 	adds	limit, limit, count
- 	csinv	limit, limit, xzr, lo
-@@ -236,15 +173,15 @@ L(src1_aligned):
- 	neg	neg_offset, offset
- 	ldr	data1, [src1], #8
- 	ldp	tmp1, tmp2, [src2], #16
--	LS_BK	mask, mask, neg_offset
-+	lsl	mask, mask, neg_offset
- 	and	neg_offset, neg_offset, #63	/* Need actual value for cmp later. */
- 	/* Skip the first compare if data in tmp1 is irrelevant. */
- 	tbnz	offset, 6, L(misaligned_mid_loop)
- 
- L(loop_misaligned):
- 	/* STEP_A: Compare full 8 bytes when there is enough data from SRC2.*/
--	LS_FW	data2, tmp1, offset
--	LS_BK	tmp1, tmp2, neg_offset
-+	lsr	data2, tmp1, offset
-+	lsl	tmp1, tmp2, neg_offset
- 	subs	limit, limit, #8
- 	orr	data2, data2, tmp1	/* 8 bytes from SRC2 combined from two regs.*/
- 	sub	has_nul, data1, zeroones
-@@ -258,23 +195,12 @@ L(loop_misaligned):
- 	ldr	data1, [src1], #8
- L(misaligned_mid_loop):
- 	/* STEP_B: Compare first part of data1 to second part of tmp2. */
--	LS_FW	data2, tmp2, offset
--#ifdef __AARCH64EB__
--	/* For big-endian we do a byte reverse to avoid carry-propagation
--	problem described above. This way we can reuse the has_nul in the
--	next step and also use syndrome value trick at the end. */
--	rev	tmp3, data1
--	#define data1_fixed tmp3
--#else
-+	lsr	data2, tmp2, offset
- 	#define data1_fixed data1
--#endif
- 	sub	has_nul, data1_fixed, zeroones
- 	orr	tmp3, data1_fixed, #REP8_7f
- 	eor	diff, data2, data1	/* Non-zero if differences found.  */
- 	bic	has_nul, has_nul, tmp3	/* Non-zero if NUL terminator.  */
--#ifdef __AARCH64EB__
--	rev	has_nul, has_nul
--#endif
- 	cmp	limit, neg_offset, lsr #3
- 	orr	syndrome, diff, has_nul
- 	bic	syndrome, syndrome, mask	/* Ignore later bytes. */
-@@ -284,7 +210,7 @@ L(misaligned_mid_loop):
- 	/* STEP_C: Compare second part of data1 to first part of tmp1. */
- 	ldp	tmp1, tmp2, [src2], #16
- 	cmp	limit, #8
--	LS_BK	data2, tmp1, neg_offset
-+	lsl	data2, tmp1, neg_offset
- 	eor	diff, data2, data1	/* Non-zero if differences found.  */
- 	orr	syndrome, diff, has_nul
- 	and	syndrome, syndrome, mask	/* Ignore earlier bytes. */
-@@ -295,13 +221,6 @@ L(misaligned_mid_loop):
- 	sub	limit, limit, #8
- 	b	L(loop_misaligned)
- 
--#ifdef	__AARCH64EB__
--L(syndrome_check):
--	clz	pos, syndrome
--	cmp	pos, limit, lsl #3
--	b.lo	L(end_quick)
--#endif
--
- L(ret0):
- 	mov	result, #0
- 	ret
-diff --git a/arch/arm64/lib/strnlen.S b/arch/arm64/lib/strnlen.S
-index d5ac0e10a01d..b20011d559f1 100644
---- a/arch/arm64/lib/strnlen.S
-+++ b/arch/arm64/lib/strnlen.S
-@@ -91,22 +91,10 @@ SYM_FUNC_START(__pi_strnlen)
- 	*/
- 	sub	len, src, srcin
- 	cbz	has_nul1, .Lnul_in_data2
--CPU_BE( mov	data2, data1 )	/*perpare data to re-calculate the syndrome*/
- 
- 	sub	len, len, #8
- 	mov	has_nul2, has_nul1
- .Lnul_in_data2:
--	/*
--	* For big-endian, carry propagation (if the final byte in the
--	* string is 0x01) means we cannot use has_nul directly.  The
--	* easiest way to get the correct byte is to byte-swap the data
--	* and calculate the syndrome a second time.
--	*/
--CPU_BE( rev	data2, data2 )
--CPU_BE( sub	tmp1, data2, zeroones )
--CPU_BE( orr	tmp2, data2, #REP8_7f )
--CPU_BE( bic	has_nul2, tmp1, tmp2 )
--
- 	sub	len, len, #8
- 	rev	has_nul2, has_nul2
- 	clz	pos, has_nul2
-@@ -139,10 +127,8 @@ CPU_BE( bic	has_nul2, tmp1, tmp2 )
- 	lsl	tmp4, tmp4, #3  /* Bytes beyond alignment -> bits.  */
- 
- 	mov	tmp2, #~0
--	/* Big-endian.  Early bytes are at MSB.  */
--CPU_BE( lsl	tmp2, tmp2, tmp4 )	/* Shift (tmp1 & 63).  */
- 	/* Little-endian.  Early bytes are at LSB.  */
--CPU_LE( lsr	tmp2, tmp2, tmp4 )	/* Shift (tmp1 & 63).  */
-+	lsr	tmp2, tmp2, tmp4	/* Shift (tmp1 & 63).  */
- 
- 	cmp	tmp1, #8
- 
--- 
-2.55.0.1082.g2b9226bbc0-goog
+err:
 
+guard()
+goto err
+
+sashiko mark feedback as low. I think it is fine by use guard, if your goto
+to do tear down work.
+
+Frank
+
+>
+> Regards,
+> Ming
+>
+> > >  	}
+> > >
+> > >  	/* put devices into reset */
+> > > @@ -148,12 +157,16 @@ static int imx8m_blk_ctrl_power_on(struct generic_pm_domain *genpd)
+> > >  	/* disable upstream clocks */
+> > >  	clk_bulk_disable_unprepare(data->num_clks, domain->clks);
+> > >
+> > > +	mutex_unlock(&bc->power_lock);
+> > > +
+> > >  	return 0;
+> > >
+> > >  clk_disable:
+> > >  	clk_bulk_disable_unprepare(data->num_clks, domain->clks);
+> > >  bus_put:
+> > >  	pm_runtime_put(bc->bus_power_dev);
+> > > +unlock:
+> > > +	mutex_unlock(&bc->power_lock);
+> > >
+> > >  	return ret;
+> > >  }
+> > > @@ -164,6 +177,8 @@ static int imx8m_blk_ctrl_power_off(struct generic_pm_domain *genpd)
+> > >  	const struct imx8m_blk_ctrl_domain_data *data = domain->data;
+> > >  	struct imx8m_blk_ctrl *bc = domain->bc;
+> > >
+> > > +	mutex_lock(&bc->power_lock);
+> > > +
+> > >  	/* put devices into reset and disable clocks */
+> > >  	if (data->mipi_phy_rst_mask)
+> > >  		regmap_clear_bits(bc->regmap, BLK_MIPI_RESET_DIV, data->mipi_phy_rst_mask);
+> > > @@ -177,6 +192,8 @@ static int imx8m_blk_ctrl_power_off(struct generic_pm_domain *genpd)
+> > >  	/* allow bus domain to suspend */
+> > >  	pm_runtime_put(bc->bus_power_dev);
+> > >
+> > > +	mutex_unlock(&bc->power_lock);
+> > > +
+> > >  	return 0;
+> > >  }
+> > >
+> > > @@ -202,6 +219,10 @@ static int imx8m_blk_ctrl_probe(struct platform_device *pdev)
+> > >
+> > >  	bc->dev = dev;
+> > >
+> > > +	ret = devm_mutex_init(dev, &bc->power_lock);
+> > > +	if (ret)
+> > > +		return ret;
+> > > +
+> > >  	bc_data = of_device_get_match_data(dev);
+> > >
+> > >  	base = devm_platform_ioremap_resource(pdev, 0);
+> > >
+> > > ---
+> > > base-commit: 27953c044974baf7e24dee3e9342fe0103dea80c
+> > > change-id: 20260911-imx8mp-blk-ctrl-c46f26783073
+> > >
+> > >
 
