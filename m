@@ -4,46 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BF7BC982D9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 10:44:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49D21C982DC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 10:44:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YNIo3r07s3nVE7+pr0kmSMOj3FlpGWPt07b7s9jLBx0=; b=QDBbXpgJnPlJAQ0c9azsgqX2j1
-	T64nNw17W69l5se/09Uemuev/1ccnoNgy5YMX6+PSnQODzTUjTokQMHOImfFTv4jqbteP8KVt+3gF
-	aEWqVqfPqOmVqL0k2UrbcqzsOtTZ9zMGF3g8h7HlFzDh5Oeo1EnnEDPT7DHYQRKiLLV9mY+nBJ46K
-	tsm8TWjzch8RMnrg4RHkKL0CpH0F9MIsmomSTkeQ0WNhws+K7RPn7bD1Nx3djrzP/e0MgVn2EOZ/z
-	1Sgn5nblsS3mrLxdIwfhx7HaBhpSbBM1/cOa/RwP2IsAFhof412wJsHDCLzVPFRWN4mgH9VexsRwN
-	dpzlEMCQ==;
+	bh=OdUiFm+GCpbKCTMvMwqKzb58UX4O9xUj2dhYUfKXvFg=; b=4DYsLdcnVvOGwKgTbkI3ghLELO
+	DVBoGrwdKyvkTK+PgpHBDCVNbaFE/FDlzeBbbV4AqPvqk/D0VqpZDG3p7d3d/+IPpwfZj4gy0RVp3
+	Ua4vWewLUnIn15ePc/QAQ5OloO7/DdFR7LkNlrifoM/yeD+D02Wuog2k9HFjMfumqDVTY7OUbgnkb
+	OCWNKxH8soft0R5C7S/rXbu+aIqwfNgRsjrcbE92O4lUAu4KGC4VYFBZ/ojzZYUsbBwSfr1yZC+5F
+	aerl2FCv5RTgJsBMivhx3wlHODsQuv0Gdvc1lJHE0ki6IEXTDsyy/4WvxvKynG/HfCSvCZalgNQaR
+	b+UXeZ7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7W53-0000000E7pr-3S72;
-	Fri, 18 Sep 2026 10:44:33 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1x7W59-0000000E7uE-0ft3;
+	Fri, 18 Sep 2026 10:44:39 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7W4u-0000000E7gK-1Ww3;
+	id 1x7W4x-0000000E7j0-0Yux;
+	Fri, 18 Sep 2026 10:44:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=OdUiFm+GCpbKCTMvMwqKzb58UX4O9xUj2dhYUfKXvFg=; b=a0jRUTQD4SFSstnXoMPLpTCSLT
+	NxVICMxnHV+gEUPGDARflSNzRcPBJLqw4vjy5CQtvR0eYGkCdTMd+8WK8fC5+LPLbg+cevyf3yI65
+	sL4I4YzsLpPwGht+YJ/7PqtmspBov1hT9VQ/iUIJs5c0EofcJkTWg7bVXt8UTMJIXtbdg2A9n1L+v
+	CZPQooZExIN0hWxnNUd15TNzc2MKv1MJwhyb7dSFuC0gIuiodP7+BLjRS4vh3yPWWFIpW+E+TMP8E
+	lmtZVL6H/DKhZ0ndbmMj91A66dvB8ObMIU7plPGMu80H2GY8hYkFoVNViBAj5qPpLiXwa1n3DjFwp
+	Bcva9ilg==;
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x7W4u-00000009woq-1bV9;
 	Fri, 18 Sep 2026 10:44:25 +0000
 Received: from ping.linuxembedded.co.uk (cpc89244-aztw30-2-0-cust6594.18-1.cable.virginm.net [86.31.185.195])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 2EAB64D78;
-	Fri, 18 Sep 2026 12:42:38 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id AABE24D85;
+	Fri, 18 Sep 2026 12:42:39 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1789728159;
-	bh=JM1OrO7785S1RFd9EW2UIqiD6tchSt3vlHgsKZaPz5o=;
+	s=mail; t=1789728161;
+	bh=JsLs0rmqu7T5B6WRc65pS0x+tFeJdvC8zGgVnTQ5qvY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=uX1rGkOoI6s/LZRE+fCO5OqvT+pRmyrDoYn6F9apWH1HjFzMywi9QeZ9+CtojCDMq
-	 +KPmtr0kffXKevcDP3chagKyY92VpFHc0wNc/f+5uLEA+0d3q2wFhZkTQtHHVGZXEJ
-	 Oa2q2/ZyteBfTsfbisHiW+AgpxhFoGpJs104pKF0=
+	b=uiHWxvRCYZqUmXlw5ZcJaFHaDf+hUya6JYR+c06jy5Fh1Xqtuf3p43iRhT5ujErQy
+	 U1NPURrwKte37Pjo0GZgqDyYPXZmHS1ItsbetoLbgAREtA5nZC33m5VvGEF3nNwFYe
+	 kSY2Y2k4O6tTfbzWnQ0zyEEvsPiMTrySAjVzbX34=
 From: Kieran Bingham <kieran.bingham@ideasonboard.com>
-Date: Fri, 18 Sep 2026 11:44:14 +0100
-Subject: [PATCH v6 2/6] arm64: dts: qcom: Convert to new media orientation
- definitions
+Date: Fri, 18 Sep 2026 11:44:15 +0100
+Subject: [PATCH v6 3/6] arm64: dts: renesas: Convert to new media
+ orientation definitions
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260918-kbingham-orientation-v6-2-5e8b1f01be29@ideasonboard.com>
+Message-Id: <20260918-kbingham-orientation-v6-3-5e8b1f01be29@ideasonboard.com>
 References: <20260918-kbingham-orientation-v6-0-5e8b1f01be29@ideasonboard.com>
 In-Reply-To: <20260918-kbingham-orientation-v6-0-5e8b1f01be29@ideasonboard.com>
 To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
@@ -78,20 +92,19 @@ Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
  linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
  linux-tegra@vger.kernel.org, 
  Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>, 
- Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>, 
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>, 
  David Heidelberg <david@ixit.cz>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789728257; l=3298;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789728257; l=3939;
  i=kieran.bingham@ideasonboard.com; s=20260207; h=from:subject:message-id;
- bh=Y0ji9WJtRwlRDZpyYXEqKYUbnsF0IWYDo6VO2YsmO5g=;
- b=byO5QW/u+OBT2gRa8x/wpZzCTNJc12wLI/q2odrrVhaixDt6yDBmXBOH7WHgA3r3lztLXRUiA
- 1WrSFLkNwTwCX7liuzjqPIRhRUjJFroVzUQtXnaqcbrT8e7hHxVgIZn
+ bh=XDi4hx7NWPxhoMOeoVSwhxG05epRot/I7J5vXUg/6Pw=;
+ b=cP3OvuunAXZXZZfg0wJUFIYb1FzwqcCQTd7//iNNRYu55LdhSpCto9Ui0SciwH/jT/pR1Gq8g
+ F4kXEDxqErMDMp0hqYA4pS5JWVJgb+1zOLahMHh0Ot8Tc/SaFuzcfWr
 X-Developer-Key: i=kieran.bingham@ideasonboard.com; a=ed25519;
  pk=FVXKN7YuwHc6UtbRUeTMAmranfsQomA+vnilfglWdaY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_034424_554456_8981C72C 
-X-CRM114-Status: GOOD (  11.35  )
+X-CRM114-CacheID: sfid-20260918_114424_533636_372591A0 
+X-CRM114-Status: GOOD (  10.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,83 +124,104 @@ From: Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
 The orientation property for video interface devices now has definitions
 to prevent hardcoded integer values for the enum options.
 
-Update the users throughout the qualcomm device trees to use the new
+Update the users throughout the renesas device trees to use the new
 definitions.
 
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Reviewed-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 Reviewed-by: David Heidelberg <david@ixit.cz>
 Signed-off-by: Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
 ---
- arch/arm64/boot/dts/qcom/qcm6490-fairphone-fp5.dts         | 3 ++-
- arch/arm64/boot/dts/qcom/sc8280xp-lenovo-thinkpad-x13s.dts | 3 ++-
- arch/arm64/boot/dts/qcom/sdm670-google-common.dtsi         | 3 ++-
- 3 files changed, 6 insertions(+), 3 deletions(-)
+ .../arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx219.dtso | 3 ++-
+ .../arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx462.dtso | 3 ++-
+ .../arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx219.dtso | 3 ++-
+ .../arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx462.dtso | 3 ++-
+ 4 files changed, 8 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/qcom/qcm6490-fairphone-fp5.dts b/arch/arm64/boot/dts/qcom/qcm6490-fairphone-fp5.dts
-index f41ad446a39e..e2b7f1bd05ab 100644
---- a/arch/arm64/boot/dts/qcom/qcm6490-fairphone-fp5.dts
-+++ b/arch/arm64/boot/dts/qcom/qcm6490-fairphone-fp5.dts
-@@ -13,6 +13,7 @@
- #include <dt-bindings/iio/qcom,spmi-adc7-pmk8350.h>
- #include <dt-bindings/leds/common.h>
+diff --git a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx219.dtso b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx219.dtso
+index 3acaf714cf24..b816382bba0a 100644
+--- a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx219.dtso
++++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx219.dtso
+@@ -12,6 +12,7 @@
+ 
+ #include <dt-bindings/gpio/gpio.h>
  #include <dt-bindings/media/video-interfaces.h>
 +#include <dt-bindings/media/video-interface-devices.h>
- #include <dt-bindings/pinctrl/qcom,pmic-gpio.h>
- #include <dt-bindings/regulator/qcom,rpmh-regulator.h>
- #include <dt-bindings/sound/qcom,q6asm.h>
-@@ -701,7 +702,7 @@ camera@10 {
- 		pinctrl-0 = <&cam_mclk3_default>;
- 		pinctrl-names = "default";
  
--		orientation = <0>; /* Front facing */
-+		orientation = <MEDIA_ORIENTATION_FRONT>;
- 		rotation = <270>;
+ &{/} {
+ 	clk_cam_j1: clk-cam-j1 {
+@@ -44,7 +45,7 @@ cam@10 {
+ 		VDIG-supply = <&reg_cam_j1>;
+ 		VDDL-supply = <&reg_cam_j1>;
+ 
+-		orientation = <2>;
++		orientation = <MEDIA_ORIENTATION_EXTERNAL>;
+ 		rotation = <0>;
  
  		port {
-diff --git a/arch/arm64/boot/dts/qcom/sc8280xp-lenovo-thinkpad-x13s.dts b/arch/arm64/boot/dts/qcom/sc8280xp-lenovo-thinkpad-x13s.dts
-index 218573a97785..3b5f6a29e969 100644
---- a/arch/arm64/boot/dts/qcom/sc8280xp-lenovo-thinkpad-x13s.dts
-+++ b/arch/arm64/boot/dts/qcom/sc8280xp-lenovo-thinkpad-x13s.dts
-@@ -11,6 +11,7 @@
- #include <dt-bindings/input/gpio-keys.h>
- #include <dt-bindings/input/input.h>
- #include <dt-bindings/leds/common.h>
-+#include <dt-bindings/media/video-interface-devices.h>
- #include <dt-bindings/regulator/qcom,rpmh-regulator.h>
+diff --git a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx462.dtso b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx462.dtso
+index a19bc0840392..4019b80a88b7 100644
+--- a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx462.dtso
++++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx462.dtso
+@@ -12,6 +12,7 @@
  
- #include "sc8280xp.dtsi"
-@@ -683,7 +684,7 @@ camera@10 {
- 
- 		clocks = <&camcc CAMCC_MCLK3_CLK>;
- 
--		orientation = <0>;	/* Front facing */
-+		orientation = <MEDIA_ORIENTATION_FRONT>;
- 
- 		avdd-supply = <&vreg_l6q>;
- 		dvdd-supply = <&vreg_l2q>;
-diff --git a/arch/arm64/boot/dts/qcom/sdm670-google-common.dtsi b/arch/arm64/boot/dts/qcom/sdm670-google-common.dtsi
-index b4854801a5f5..7880d85b52fe 100644
---- a/arch/arm64/boot/dts/qcom/sdm670-google-common.dtsi
-+++ b/arch/arm64/boot/dts/qcom/sdm670-google-common.dtsi
-@@ -9,6 +9,7 @@
  #include <dt-bindings/gpio/gpio.h>
- #include <dt-bindings/input/input.h>
- #include <dt-bindings/leds/common.h>
+ #include <dt-bindings/media/video-interfaces.h>
 +#include <dt-bindings/media/video-interface-devices.h>
- #include <dt-bindings/pinctrl/qcom,pmic-gpio.h>
- #include <dt-bindings/power/qcom-rpmpd.h>
- #include "sdm670.dtsi"
-@@ -460,7 +461,7 @@ camera@1a {
- 		pinctrl-names = "default";
  
- 		rotation = <270>;
--		orientation = <0>;
-+		orientation = <MEDIA_ORIENTATION_FRONT>;
+ &{/} {
+ 	clk_cam_j1: clk-cam-j1 {
+@@ -46,7 +47,7 @@ cam@1a {
+ 		vdda-supply = <&reg_cam_j1>;
+ 		vddd-supply = <&reg_cam_j1>;
+ 
+-		orientation = <2>;
++		orientation = <MEDIA_ORIENTATION_EXTERNAL>;
+ 		rotation = <0>;
  
  		port {
- 			cam_front_endpoint: endpoint {
+diff --git a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx219.dtso b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx219.dtso
+index 512810b861aa..fea1ef4a1178 100644
+--- a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx219.dtso
++++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx219.dtso
+@@ -12,6 +12,7 @@
+ 
+ #include <dt-bindings/gpio/gpio.h>
+ #include <dt-bindings/media/video-interfaces.h>
++#include <dt-bindings/media/video-interface-devices.h>
+ 
+ &{/} {
+ 	clk_cam_j2: clk-cam-j2 {
+@@ -44,7 +45,7 @@ cam@10 {
+ 		VDIG-supply = <&reg_cam_j2>;
+ 		VDDL-supply = <&reg_cam_j2>;
+ 
+-		orientation = <2>;
++		orientation = <MEDIA_ORIENTATION_EXTERNAL>;
+ 		rotation = <0>;
+ 
+ 		port {
+diff --git a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx462.dtso b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx462.dtso
+index a31524b59834..177201a8a6d2 100644
+--- a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx462.dtso
++++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx462.dtso
+@@ -12,6 +12,7 @@
+ 
+ #include <dt-bindings/gpio/gpio.h>
+ #include <dt-bindings/media/video-interfaces.h>
++#include <dt-bindings/media/video-interface-devices.h>
+ 
+ &{/} {
+ 	clk_cam_j2: clk-cam-j2 {
+@@ -46,7 +47,7 @@ cam@1a {
+ 		vdda-supply = <&reg_cam_j2>;
+ 		vddd-supply = <&reg_cam_j2>;
+ 
+-		orientation = <2>;
++		orientation = <MEDIA_ORIENTATION_EXTERNAL>;
+ 		rotation = <0>;
+ 
+ 		port {
 
 -- 
 2.52.0
