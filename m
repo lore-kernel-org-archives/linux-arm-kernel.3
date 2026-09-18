@@ -4,86 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E07FDC982DF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 09:18:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3816FC982DC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 09:19:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=F++R57QYuDvzUJty6cC3PAkfnW/2M4IN8xpJOMy5r64=; b=RppHaA4VxSaGfQ
-	5EasUEKExRCReoQnJ1AmsvupzHJzDwCIxN3TGMSson1GaaTHZhaT2W1zV7a8RVg8B4OOIoRRlRGWP
-	NFtD8woc7O6p0+LkRFhon+wzQAL/JIhp5tPy6zFWNJKIDEHv9r3FFHoHqrIIWQePgJgP4S1sgkV7E
-	9qymJQt/XxzTDMNPiC+2wvk8i3xoXd0UsCfknpqpFb3Q96dNQqk0jlrNJTDETECDPiiaoytGJGJJp
-	q0QVjdReU30C+k9ifiQhFlUKhKZIPp3eTSmNneD2gIyhJz64ggcNjeyJL/IIITJcRmxzjgZDqicn/
-	G99bM4ajzPuKCTSnzPuQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1A7PS1QVqkJqgZkHTjE3VxuBN5PJKQohl6XZ/YElsz4=; b=h4BxkSBnAUaqCvwhBlO21jhdqV
+	k1yuVeran/0CvEgjW9Kb6Lk6+zFrRGZXzqqCNC1yIqvQBmG/Kh0pfxV+/Y7iwlFVLmZok2qt6pbb5
+	9F1DZ6lKvyf6Pn2U+8d0ILNw802++AqcQfqZFbckcBazkYIx39IPtFGMifxWZW7h/t87Y72GmPmZC
+	nFW7MvFkde7Aj/e6JU7s8srWrIcMHb2VwSKUn0VT8Cv1t8DnYy3UL1VnY/+UGjvrxpb+wQ5YRg9YM
+	4ZE6ZJn1LB4PWvhbxUW1rKeSuj70mlP4OFiEwOK7WRQBv1X9SdzteiOfBnvnOojXU3e+yktxedwUo
+	RPwgna5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Uk9-0000000Dv2O-1nQX;
-	Fri, 18 Sep 2026 09:18:53 +0000
-Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
+	id 1x7UkK-0000000Dv9S-2yQk;
+	Fri, 18 Sep 2026 09:19:04 +0000
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Ujz-0000000Duzb-0AOK
+	id 1x7UkI-0000000Dv7U-2yRB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 09:18:45 +0000
-Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-482f63546c3so367003f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 02:18:41 -0700 (PDT)
+	Fri, 18 Sep 2026 09:19:03 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e71cdb22bso3995255e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 02:19:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1789723121; x=1790327921; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=F++R57QYuDvzUJty6cC3PAkfnW/2M4IN8xpJOMy5r64=;
-        b=bJVzPQVNv5Tmlx9Al3rctg2xKZRKmpoh4ht6LwCnXuECSxcGUHVMeSsTq+llQEzI6b
-         lr2Vf4pRGkCD+hyx7AhC/pn5RzhBUVJndvkg6pPmLHXQ5/YZFegIMJ8SGwQ075OVs1iY
-         MKQjgxZV1zwntzpvktB6+ole2uNrT/iVpfMA2bEVIDgv0Ic8pDxCL/qhjOsVz0+5tsst
-         vkoxbnN0dKyoM/NjPVAIXGOqBzJ/qzTT9/l4383AAPH0eGcLDESpbFyiG6ZResS0IyHJ
-         BvBzwo77iX/LVHkW0eqfXHCfHz2DBXmH7FtdriAWpGE7EXBB8OZpIvHpaoYPM4XaFffS
-         8U/Q==
+        d=baylibre.com; s=google; t=1789723141; x=1790327941; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=1A7PS1QVqkJqgZkHTjE3VxuBN5PJKQohl6XZ/YElsz4=;
+        b=EkQqXuY1IQNrj8nyBFGXjStirQjEwIl8L528BAHwgfnaeyM9AckPlaoUgCz50xX7K3
+         jGTjXK43sUR5AM3THEYgD97/Tnrn2y+ibjqBXOP7m7oUA8snWot32MKBVQSF+ap1JXf/
+         4f/38kI7kjIRHeHVceZgV0fhcqvbRoawMSa6mn7YwLRNL/0MI5T7b6fGujYX0pg4lqrB
+         yT8WdRMbjIH7RrKnskHsYt3WGiJHAqMViAF7FSKGR4ozmRfebP5igW74eRVwUA+TilpI
+         N9vuLb9c75e+nRKaHZHZgijNATeUrT4GrRsOtULu54U55JiP4RqTWlACvQqxgfBEX2Yy
+         cLDA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789723121; x=1790327921;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=F++R57QYuDvzUJty6cC3PAkfnW/2M4IN8xpJOMy5r64=;
-        b=Fnt/SxnL3UpIXoIb8dhas4lXGdoSRyeq7TqTEWRnzckUibGkEp3hYaNa306P2zWNTS
-         Yozw9L/hsMK9N2Q7YqaMlb9BwUtJnGJQ5Z4g2uXTFzHDq7Ek1f77ib/7Am8vaOYauK2T
-         DGPyrmUQuQDKUEfTeNmmY9BG9XRfTvqkMfBe2Bu7+Shzq88O/zry1X5DklDLtAJsPiZh
-         lZTTjnGtlK+Syu0vYUp3IZJR2FhDWd4JiVgH9F6IppmQnwLV2e2JT4lmLZ6l694KzQXu
-         PyzMm+yseYxIxQoyj7xfEIUgzODeOOU0Ya5t/cK5HPuWwcu36LozKNruY/7IT6qkEDo8
-         TEmg==
-X-Forwarded-Encrypted: i=1; AKwUvBzPlOdRZdIgIVuT66TBWkZgFz/+WmonxuhZ3li0UoSzOy8p7gUBTmKjF78LdrREkCb/Bj8OyzOyBes7+XlJ8Pze@lists.infradead.org
-X-Gm-Message-State: AFuF++lYRhD2zPh/7rfJ9qXWFyC/voG0aUqISg75bVSMQmu6hz+YnJzH
-	d6aW492zrTy0kHknPkM6PW7RMaLrVpZ6NecgSWgLvw8lF5Qb4XsSp4em1+FK0b/pSR0=
-X-Gm-Gg: AYBFou3e8AYkMB/YNyioUYj4on87GfYfZnk+ZTbPVp6QIiw04KK+da1ZwVER+d+GzpE
-	UzaQRMkK3TDawHPNGKSH2PRK8tywohq85YJRA0SwgUvsSeS1DE7cB0Q/lJTb+6DVuTFrtRTf+7X
-	APRqEBTX0Mx91t+zwEhIjCWwWpFPildBZxBkiBg5c7/3TUsYO2rliYFvioDcQq+MgTkAZMCP6xN
-	v/HBZJB3DruVR5NfarQuae5L9ORjj3eLvsEfduMK7gylHmHN6C4QT420DT5nyJZhh1Z80DJNYNa
-	nqWoeeid8BM0L+qqWj9JM4Rn2cyVQVTdVhd0hxszVNjPdGs0DF8aRmr444XUvmIQCbWlV502K/r
-	OG8iBuRuXw5DYg6V+ceWfc/m9tAbsuBMdnB/N2oYOJZBwH0rywSV2YQQp9hvp68suy6Q3vK9UtX
-	s84E0zgRFMS3K5p7G3exLyJOCHAars63lIilsJx5gGieIzRnMnPKk8S/hi0qQQKyUQVrs=
-X-Received: by 2002:a05:600c:358c:b0:499:be2d:c290 with SMTP id 5b1f17b1804b1-49fc56b4ebemr26777785e9.9.1789723120709;
-        Fri, 18 Sep 2026 02:18:40 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1789723141; x=1790327941;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=1A7PS1QVqkJqgZkHTjE3VxuBN5PJKQohl6XZ/YElsz4=;
+        b=jW1RSL97mGd16aRqFbaaf/b8DpwMirRJmsIaiTepFjwTSciSntuPKNWeHpITaL3IF5
+         0mKmPGtkkYmxR0RUH8+y5p4hNGI1gi6MdXZal0SL0MdV19tZA91rVJ4J+cvHI19LA2jK
+         rIfEsOwqdQ7YN+bfy2F83qr3hX8EiBAkFQofSmC7v7FL2bdGEQDJ5V9/fx9LLvIy7WvK
+         9018VbUmFYNVCjHy9nIn/xY5Y66Oht3vUaybi6auyfVvquUwtXhP6d87t+19uCA8H+AR
+         BKOL3rpIi7ZmKIpYMDtSFgkVUe+NZFKtv6faFQ19hpY9+ao2aUExEAPrI0Jty4KYVP2g
+         5J3A==
+X-Forwarded-Encrypted: i=1; AKwUvBxN+viZ4f0+2xbpaRUmic0whKSFPo+m1av3sIC99zGRq0zag8qMlzqq/KwHHksvnkeYAeah2Dv2Sfk4QEcJJnyT@lists.infradead.org
+X-Gm-Message-State: AFuF++mH0fwmSYK8xbFL+lRav0M0g7t9HtYXhdxs+KF8Ls/uqm/4yYeE
+	ekc+fn0gfR7H/zCJDjtSnTid5xrjnH0pLiae4/O8SjLy7n7RSo7NmrLKj7ZgxfCd0Ts=
+X-Gm-Gg: AYBFou0yKV74uZebqI+EmHgIRjfRLlzpOjmoq32Gfynzw8B6T6yVwS2zfUtUnexc00w
+	pcFLlq+bJV9UdbQZgoX0bNbL0JKhdKHyE4dYhYE/c2RdujYB08EROWQkq1ODxBy9fSgqaJa8jXp
+	d1nVk3An9BKkgfG1Abdrs3Ii+h7YmDIrL0wImFlNA7ZtUQn56/lISv6uusZAcJV9bXLXACxPFpr
+	FFAaG4K/rvISJeL/hA56364ZgHY3FHr+MstMzfzDx5jI6QCgRkjisuVKQC2YAYjLLuqF8nGTeCA
+	LnpWt738dK/BCqB5D2yWFM7HAkULm52Tyjnko0fyxUI63lltF82ylrR/0qWfTPmtXD9TLbYz4g7
+	Lo0Nbz3QaykZo+ePjkLN0L74V/bVPXRK5wLIjIB5ubg71ZxP0Vw83z5Y0mvd2vRXfApJXNQip23
+	VHeCM2cTfHEVRXfGHgjWCotw8Tv461EsHyl8gluywRvwCmUdcEo3Ytq09TJ7GdxC0UHPw=
+X-Received: by 2002:a05:600c:5251:b0:49c:fa20:cc00 with SMTP id 5b1f17b1804b1-49fc5736898mr19681525e9.23.1789723141196;
+        Fri, 18 Sep 2026 02:19:01 -0700 (PDT)
 Received: from localhost ([2001:4090:a244:8223:7a95:1dd3:2926:35eb])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fbd22dbf2sm135573225e9.10.2026.09.18.02.18.40
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fc481c738sm25502155e9.1.2026.09.18.02.18.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Sep 2026 02:18:40 -0700 (PDT)
+        Fri, 18 Sep 2026 02:19:00 -0700 (PDT)
 From: "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
-Subject: [PATCH v9 0/9] arm64: dts: ti: Split wkup R5F memory region for
- IO+DDR resume
-Date: Fri, 18 Sep 2026 11:17:44 +0200
-Message-Id: <20260918-topic-am62a-ioddr-dt-v6-19-v9-0-40972ef1f663@baylibre.com>
+Date: Fri, 18 Sep 2026 11:17:46 +0200
+Subject: [PATCH v9 2/9] arm64: dts: ti: k3-am62d2-evm: Fix wkup R5F memory
+ region size
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIALgBrWoC/4XSzW7DIAwH8FepOI8JDMGw095j2oHPFWltKhJFq
- 6q8+0h3SDUhevz78LONuZEplhwn8na4kRKXPOXxXIN5ORB/tOevSHOomQADxYAzOo+X7Kk9KbA
- 0jyEUGma6KMoNZcEicmCaByQVuJSY8s8d//is+ZineSzXe6+Fb9U/VjDRYxdOGeWQIoJzkgV4d
- /b6nV2Jr348kU1e4EHj0NWgagK9Qx+jV4NuaOJR011NVM1LLlF4B8KLhiZ3TYLparJqyQMGZT0
- Owje0YdcU411t2DbVg7IMhE2p9W7qUevPprYrKJucNZhcZA0Ndw2fzIZViyY47bjSwG1D07tmn
- vwQXTWU9ZospBCt+qet6/oLR+n0OekCAAA=
-X-Change-ID: 20260210-topic-am62a-ioddr-dt-v6-19-0da7712081d7
+Message-Id: <20260918-topic-am62a-ioddr-dt-v6-19-v9-2-40972ef1f663@baylibre.com>
+References: <20260918-topic-am62a-ioddr-dt-v6-19-v9-0-40972ef1f663@baylibre.com>
+In-Reply-To: <20260918-topic-am62a-ioddr-dt-v6-19-v9-0-40972ef1f663@baylibre.com>
 To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
  Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -103,20 +99,19 @@ Cc: Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>,
  Akashdeep Kaur <a-kaur@ti.com>, linux-arm-kernel@lists.infradead.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  llvm@lists.linux.dev, Hari Nagalla <hnagalla@ti.com>, 
- "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>, 
- Stefano Radaelli <stefano.r@variscite.com>
+ "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6355; i=msp@baylibre.com;
- h=from:subject:message-id; bh=ROvZb4xUz6DU189xV6s7Pm/YrJwcTfi3qs6DKqPM7Kw=;
- b=owGbwMvMwCXWejAsc4KoVzDjabUkhqy1jHtXaHV75GfFrZnotvVfZt4xx7/ClZ/+blHfsMwgg
- 0GFYeGZjlIWBjEuBlkxRZbOxNC0//I7jyUvWrYZZg4rE8gQBi5OAZhIoAkjw97vYl3ZCv1C97V+
- ifHsviRpozP1YOYyX535h98ZZz7I3sTwP+7BKznNUz3sHYufxoae0w7TcTi316z0cI3x0r32ywJ
- msQAA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1711; i=msp@baylibre.com;
+ h=from:subject:message-id; bh=JLFkTSGjzUIWuYTsCyKMnF+JWvzM56a45FnykYK086Q=;
+ b=owGbwMvMwCXWejAsc4KoVzDjabUkhqy1jCeOn7obHnw1gNGifKrQxqei1jUut4QKDn02OHdju
+ 2fjVY1HHaUsDGJcDLJiiiydiaFp/+V3HktetGwzzBxWJpAhDFycAjCR9RcY/vAqT7E8mCMnqOon
+ 6pknWNIaVq5RoGoYoRy1TKp0ZYlZOsN/f1m1A2FaU87eWTuFS8S8T/Z3Zpcwi+qRFfE2cwv6k36
+ yAAA=
 X-Developer-Key: i=msp@baylibre.com; a=openpgp;
  fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_021843_148260_CE608457 
-X-CRM114-Status: GOOD (  19.92  )
+X-CRM114-CacheID: sfid-20260918_021902_774796_B4FCE829 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,143 +126,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The wkup_r5fss0_core0_memory_region was reserved with only
+0x0f00000 but the MCU SDK linker for the wkup R5F firmware on
+AM62A defines the DM code/data DDR footprint differently:
 
-Split the firmware memory region in more specific parts so it is better
-described where which information is stored. Specifically the LPM metadata
-region is important as bootloader software like U-Boot has to know where
-that data is to be able to read that data and resume from RAM.
+    /* DDR for DM R5F code/data [ size 27 MiB + 364 KB ] */
+    DDR                         : ORIGIN = 0x9CAA5000 LENGTH = 0x1B5B000
 
-The bindings are already applied. The remaining patches use the new
-layout for the platforms that are capable to support IO+DDR. For IO+DDR
-the new layout is necessary as it defines the location of the LPM
-metadata.
+which results in an end at 0x9e600000. For this memory region which
+starts at 0x9c900000 this means a length of:
 
-Additionally the two important devicetree nodes for resuming from IO+DDR
-have the bootph-pre-ram flag added as this data needs to be read before
-the RAM is in use.
+    0x9e600000 - 0x9c900000 = 0x1d00000
 
-The changes in this series were suggested as part of the IO+DDR u-boot series:
-  https://lore.kernel.org/r/814c211f-a9eb-4311-bb84-165b1a69755f@ti.com
+AM62A additionally has a second DM firmware for edgeai whose highest
+section end address reaches 0x9e700000, so the region should end there:
 
-Note that concerns about uboot fixup of memory region fixups were
-discussed here:
-  https://lore.kernel.org/r/DJD1Y3G9S1SP.2GHOZ5X4RYJFA@baylibre.com
+    0x9e700000 - 0x9c900000 = 0x1e00000
 
-Best
-Markus
-
+Link: https://github.com/TexasInstruments/mcupsdk-core-k3/blob/k3_main/examples/drivers/ipc/ipc_rpmsg_echo_linux/am62ax-sk/r5fss0-0_freertos/ti-arm-clang/linker.cmd
+Fixes: 1544bca2f188 ("arm64: dts: ti: Add support for AM62D2-EVM")
+Reviewed-by: Bryan Brattlof <bb@ti.com>
+Reviewed-by: Kendall Willis <k-willis@ti.com>
 Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
 ---
-Changes in v9:
-- Fix scripts/dtc/dt-check-style issues
-- Link to v8: https://patch.msgid.link/20260903-topic-am62a-ioddr-dt-v6-19-v8-0-74c650dfdea6@baylibre.com
+ arch/arm64/boot/dts/ti/k3-am62d2-evm.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Changes in v8:
-- Rebase to v7.3-rc1
-- Increase the AM62A wkup R5F memory region to end at 0x9e700000 to
-  also fit the edgeai DM firmware as requested by Paresh
-- Move the memory region definitions back into the base board dts files
-  of all AM62A and AM62P boards
-- Added bootph-pre-ram to the memory regions are merged into the
-  bootph-pre-ram at the end of the series
-- Link to v7: https://lore.kernel.org/r/20260701-topic-am62a-ioddr-dt-v6-19-v7-0-e9db8b16821a@baylibre.com
+diff --git a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
+index f5ceb6a1b5de..a8c794d07343 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
++++ b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
+@@ -67,7 +67,7 @@ wkup_r5fss0_core0_dma_memory_region: memory@9c800000 {
+ 
+ 		wkup_r5fss0_core0_memory_region: memory@9c900000 {
+ 			compatible = "shared-dma-pool";
+-			reg = <0x00 0x9c900000 0x00 0xf00000>;
++			reg = <0x00 0x9c900000 0x00 0x1e00000>;
+ 			no-map;
+ 			bootph-pre-ram;
+ 		};
 
-Changes in v7:
-- Rebase to v7.1-rc1
-- Fix commit messages
-- Link to v6: https://lore.kernel.org/r/20260609-topic-am62a-ioddr-dt-v6-19-v6-0-16afba97fbe0@baylibre.com
-
-Changes in v6:
-- Added fixes for the length of the wkup_r5fss0_core0_memory_region.
-  Thanks Francesco for pointing that out. am62a firmware is shorter than
-  am62p firmware. I calculated both and fixed all devicetrees using
-  them. All patches have different Fixes tags so I kept them separate.
-- Fixed the length of the split memory layout as well.
-- Removed the double definition of memory regions for the var-som board.
-- Link to v5: https://lore.kernel.org/r/20260601-topic-am62a-ioddr-dt-v6-19-v5-0-3856a023aff2@baylibre.com
-
-Changes in v5:
-- Move all changes into k3-am62a/p-ti-ipc-firmware.dtsi
-- Dropped the patch that adds bootph-pre-ram to k3-am62a stuff as it is
-  already present in k3-am62d2-evm.dts and got moved into the
-  firmware.dtsi file which covers am62a as well then.
-- Link to v4: https://lore.kernel.org/r/20260429-topic-am62a-ioddr-dt-v6-19-v4-0-fc27d6ac753c@baylibre.com
-
-Changes in v4:
-- Rebased to v7.1-rc1
-- Dropped all already applied patches that are the bindings and the
-  initial introduction of memory-region-names
-- Link to v3: https://lore.kernel.org/r/20260318-topic-am62a-ioddr-dt-v6-19-v3-0-c41473cb23c3@baylibre.com
-
-Changes in v3:
-- Squash the enforcement of the memory-region-names requirement in the
-  patch adding the memory-region-names, as suggested.
-- Link to v2: https://lore.kernel.org/r/20260312-topic-am62a-ioddr-dt-v6-19-v2-0-37cb7ceec658@baylibre.com
-
-Changes in v2:
-- Make memory-region-names required if memory-region is present
-- Fixup memory-region and memory-region-names conditions. Require either
-  2 or 6 regions for memory-region and memory-region-names
-- Reword and restructure the binding documentation for memory-region and
-  memory-region-names
-- Add memory-region-names to all uses of memory-region
-- Link to v1: https://lore.kernel.org/r/20260303-topic-am62a-ioddr-dt-v6-19-v1-0-12fe72bb40d2@baylibre.com
-
-To: Nishanth Menon <nm@ti.com>
-To: Vignesh Raghavendra <vigneshr@ti.com>
-To: Tero Kristo <kristo@kernel.org>
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Nathan Chancellor <nathan@kernel.org>
-To: Nick Desaulniers <ndesaulniers@google.com>
-To: Bill Wendling <morbo@google.com>
-To: Justin Stitt <justinstitt@google.com>
-To: Andrew Davis <afd@ti.com>
-To: Judith Mendez <jm@ti.com>
-To: Daniel Schultz <d.schultz@phytec.de>
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: Bryan Brattlof <bb@ti.com>
-To: Paresh Bhagat <p-bhagat@ti.com>
-To: Devarsh Thakkar <devarsht@ti.com>
-To: Jai Luthra <jai.luthra@ideasonboard.com>
-To: Beleswar Padhi <b-padhi@ti.com>
-To: Francesco Dolcini <francesco.dolcini@toradex.com>
-To: Stefano Radaelli <stefano.radaelli21@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: devicetree@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: llvm@lists.linux.dev
-Cc: Hari Nagalla <hnagalla@ti.com>
-
----
-Markus Schneider-Pargmann (TI) (9):
-      arm64: dts: ti: k3-am62a-phycore-som: Fix wkup R5F memory region size
-      arm64: dts: ti: k3-am62d2-evm: Fix wkup R5F memory region size
-      arm64: dts: ti: k3-am62a7-sk: Fix wkup R5F memory region size
-      arm64: dts: ti: k3-am62p-verdin: Fix wkup R5F memory region size
-      arm64: dts: ti: k3-am62p5-sk: Fix wkup R5F memory region size
-      arm64: dts: ti: var-som-am62p: Fix wkup R5F memory region size
-      arm64: dts: ti: k3-am62a: Split r5f memory region
-      arm64: dts: ti: k3-am62p: Split r5f memory region
-      arm64: dts: ti: Add wkup R5F nodes to pre-ram bootphase
-
- arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi   | 29 ++++++++++++++++++--
- .../boot/dts/ti/k3-am62a-ti-ipc-firmware.dtsi      | 11 ++++++--
- arch/arm64/boot/dts/ti/k3-am62a7-sk.dts            | 29 ++++++++++++++++++--
- arch/arm64/boot/dts/ti/k3-am62d2-evm.dts           | 32 ++++++++++++++++++----
- .../boot/dts/ti/k3-am62p-ti-ipc-firmware.dtsi      | 11 ++++++--
- arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi        | 29 ++++++++++++++++++--
- arch/arm64/boot/dts/ti/k3-am62p5-sk.dts            | 29 ++++++++++++++++++--
- arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi      | 29 ++++++++++++++++++--
- 8 files changed, 179 insertions(+), 20 deletions(-)
----
-base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
-change-id: 20260210-topic-am62a-ioddr-dt-v6-19-0da7712081d7
-
-Best regards,
---  
-Markus Schneider-Pargmann (TI) <msp@baylibre.com>
+-- 
+2.55.0
 
 
