@@ -4,144 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 508DDC982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 13:49:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED72EC982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 13:50:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EC6ODJrsUuCqc3qVx+Da/AzqSfYF6fjwsd5MapCzflg=; b=t1xs6CcilRj1pNcZxhfyVB3HMl
-	skLfcvgtaK0WEMBSa7NtNssrsImLqq7yQpEWmRELXWAq71v0Jq+UHjy08W40eZOIrtzKpXCP7CQnq
-	MOM2aLazmAEMX6/6Aas8l3TyY3D7x8+EvCYyDy3fiPuCsEAxDzDI4ZeoyExZa7mhm7taThR+jeaTU
-	tNqHDzI0dEo9Fu2/Ew5qLS9xhbVrFks2tlUej9fd91Ayza+0plhd6iB63lay1q65Fh5Q2QWIuqNgv
-	qMLWh7XUcLNe6yN9IqhayckRiDEIHSpseueQhz6E+K7rZlqNn54QE6Ha99g59FwG+seg8FMIR37v1
-	jgyNaQjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qcWnwec7uqVkMYjRHidWykuidcVNylxvNN1HBPlUU4E=; b=sYavpjKsEilXdn4g9zEiNSDJ71
+	C7jY07HsoBi5zubbubrfWXujX2wug7TdBpumez13aRCEe7PiqCDUYfkzrokbeQJCwtlhIaZmIHrp2
+	rynVf74+1ohc7X9B/Q/zl8X+K5Myjk5ADcIqJFBA09/8rLt3f+6oa/Cftut5OaYIbWhygAxmQSoRM
+	H1AaNAAGB/dTJkhN8QkxG4+gUVS4y/GHCqwT+9sjZolrPwzeKn+QmqarXyFvuP+bBCDUN2Y+8D/+c
+	b3dGXTM/wsZJ42IKNIrSQFH1Pt9HQC7nk2GGfZeoNSRm0pj556P098mrkn7oHVVP8kJ6jkMB1C4F2
+	vxGEI9wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Ygw-0000000EX6L-0kAc;
-	Fri, 18 Sep 2026 13:31:50 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x7YyW-0000000EdAd-3Bdk;
+	Fri, 18 Sep 2026 13:50:00 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Ygo-0000000EWw6-3kje
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 18 Sep 2026 13:31:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=EC6ODJrsUuCqc3qVx+Da/AzqSfYF6fjwsd5MapCzflg=; b=i+cnt2gpuxpPQyfsIVzIS3hPVA
-	sA9QQ+b4r4Zt2OKjoim5flu1k1lwSCNnqj0tnEXdS6DJQrBlGl60oUx6bd0ddZGjhzimXv8e444KG
-	avtRoJUfaDRJuoX6OCQyCkcVhzIeFt5UNpYESNi08HJ4JjM2dHinXvV0cnx08IxA7bU+YGIbSTSwU
-	MfjQy1cnIjFFACKR0K+lc2J4XlP3xlA51lkggsSciRGpL1cRe9LzGwXOQWRKraSqStCMnbRDHwzo/
-	tAFxXxHVnJdG8gHqRArhguMelrOUDJ+v8v6mxQ7ZQxYCvSoc4Trlkm9R8NpdsJZv67gkDK9g4r884
-	X6AtobQA==;
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x7Ygl-0000000A8Zn-3msv
+	id 1x7YyT-0000000Ed9w-0P5r
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 13:31:41 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68IA1Qpw960717;
-	Fri, 18 Sep 2026 13:31:25 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=EC6ODJrsUuCqc3qVx
-	+Da/AzqSfYF6fjwsd5MapCzflg=; b=EzIMRtgY98gF33pBHeRTVlWmaOUrVIpgt
-	0rCVz5JkKj0XMr+LgWMqvPgNr+FsAo/5W+89R6VCB3WUeN7T/TuWxzVFdeScamlT
-	ECJA4s9EofgycR0kOD+77nvKeXeFWYMtH5PTWDFoBKbNRDN1B/WmeWotzGy7ZlGw
-	4QkVuUoLOMWMr522Xfon7lhqt4z90hdECFfEJh4agSyvXm2TQc0Yu48ewEKDaKqM
-	1xYygyuf0XYG6Zgm0a6J9+iVizdnZ3kd/Iep1MrxtOBBlOijmBgKz+CbHFbzBND3
-	TaTfP72//aY6rzEmz0iPrk3QVt+ytGCv+d0kDL70A3X8gLHFO7FZA==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gmxf5gb7b-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 18 Sep 2026 13:31:24 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68IDNqTI1684357;
-	Fri, 18 Sep 2026 13:31:23 GMT
-Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4gs4tv8bhn-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 18 Sep 2026 13:31:23 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68IDVFxD38928854
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 18 Sep 2026 13:31:15 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 6D82720040;
-	Fri, 18 Sep 2026 13:31:15 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 1681420049;
-	Fri, 18 Sep 2026 13:31:15 +0000 (GMT)
-Received: from tuxmaker.lnxne.boe (unknown [9.87.85.9])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 18 Sep 2026 13:31:15 +0000 (GMT)
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org
-Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v8 20/29] s390: Introduce Start Arm Execution instruction
-Date: Fri, 18 Sep 2026 15:30:57 +0200
-Message-ID: <20260918133107.1042730-21-seiden@linux.ibm.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260918133107.1042730-1-seiden@linux.ibm.com>
-References: <20260918133107.1042730-1-seiden@linux.ibm.com>
+	Fri, 18 Sep 2026 13:49:59 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=vlL/6qFQciiyrcZ1DCxuGiD99f52TjDf+ezAnmIKhV1TZ2iGz2sC8mubYjbHgcn54wxCptfQwnog4KqSVqdifbQKFjXd0fqyP27LAmE6ogCrjuAcV7iqwc58fvQn37l02hl77b2LsECoNn+fQNPFpndA/HBuYqhPA2QDrBTE5wXXLMfcKCsoEYGYOkGR39hQEWCw5GY7o+ogGxU3t1Z/FgUjr2uOVuExVBRU44EnMdfgVt0JOPtfBa/V/fkLEapd1cvAyGy+a/jgFQumIQY5q7M26rNO2RvBpziNbSge1yrHcVAeMrUarn7p9HHsv9iG0dE/tq1/rP1OHEnJVaSzZA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qcWnwec7uqVkMYjRHidWykuidcVNylxvNN1HBPlUU4E=;
+ b=OARknrNwGeeZGL85pVuCXmSuooxccb2qUhkVE2Eq8n4WgdvP70lns/lY1J0fBZ0lArtJt0vfJuUqOt+/rEBn4S/w+uerLMev30Sde94uG0t5DzddefO0ETxFENfFfWgLdk7JdORgRDys8YrAWy4yAtpJv1p6+c4DQBW7laFcCF7Uub+PcJKLmw3c/D0PgDvHwdNVRn3G+3tPWd0hR9m1C/xI1iPJ3rAy4TuwFCP8L9/l0P+Fw2nAqBzZtzUOQBcH+5OrHlKRzKA+9WwG4mcIKsIygANUiw76bFh0VhTS/yxusHHwt57QRMqhRY1U6Fp2IZyNmkgI+wSZnZNWF7xIqw==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=linaro.org smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qcWnwec7uqVkMYjRHidWykuidcVNylxvNN1HBPlUU4E=;
+ b=B+bN4jIJzX8ozIhkmPK11mf4xTry/KGYDFjNw8HvRC2uWt76OidbEpW0diTXpNU3Njbf/pA7ODytGk9llDPQze6lzAspZTnJf2Yvhi+W6X9cNE/5j4lzge6m+MPSOYONEQP17awQG5pSk0fa7wYM/U0Hn6GEK+qRxu6GNVZuOcU=
+Received: from AS9PR06CA0715.eurprd06.prod.outlook.com (2603:10a6:20b:49f::34)
+ by DB9PR08MB9540.eurprd08.prod.outlook.com (2603:10a6:10:451::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.5; Fri, 18 Sep
+ 2026 13:49:44 +0000
+Received: from CPH1EPF00000520.eurprd04.prod.outlook.com
+ (2603:10a6:20b:49f:cafe::2e) by AS9PR06CA0715.outlook.office365.com
+ (2603:10a6:20b:49f::34) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.428.13 via Frontend Transport; Fri,
+ 18 Sep 2026 13:49:43 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ CPH1EPF00000520.mail.protection.outlook.com (10.167.241.235) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.8
+ via Frontend Transport; Fri, 18 Sep 2026 13:49:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=A3fEo7vhaU0vnNxbySWE+6kyYwPezMQnllqeY7wzfajA2xm66l6OnS75cH8LSPhR6Pg/l3BxQzx+/7Rv+Iq6IV2FQs2LFZ2WV2yRmKf7bO+1BKL6k9k9pc4A7u/3afJ3laGUOqvIoyi9Be1OvdYukTbiMExtkQKnkUtePd1tuZUQTaSKoVIHuRQgJ/KVd26ZWtoRuAIyM1w2tS0bTZFlcN0vykhqxorNdMYzo4aZ7dB3+vkAKQ567GXDVyodDXik0/KD0/U4iD0ba0N7IiWxXt0hRyf0Z/GFFerFu0c9L/lctw2thmIKBYyOWPdi8TeNPzPV6H8gM5lwxmPtfwM87w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qcWnwec7uqVkMYjRHidWykuidcVNylxvNN1HBPlUU4E=;
+ b=uEw1mQp1SCWpQsS/UHz3s/KhP5X5DOWL4oaRyv7IBcP6t4xR/+l67XHzYCl15YrOKWwVKDAKSGrknjuvNOKmAnRZLPnldO5ltFdTH3WBtBYSNaeuCQOx00xAedobz/kt84UEQ1iApb3YK1D3X7JB3KGyDjaSnwCE3rsSw7scC8uJEkvSDVrSJvbSgfGI7cEVEsZTyuGawP+FPMid+OTGqDENsbiQJ59302edn8EZzsIqmRs8PRoIX9B6o76GQjfYFnZyuFG8XAh0EOrz6eGm8uG3sz9OyJ3UTblTqGDjxHu/7oOtdlpCwsNgwYS65bltmSG5d4EBPz6Jp7/W0RXWJQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qcWnwec7uqVkMYjRHidWykuidcVNylxvNN1HBPlUU4E=;
+ b=B+bN4jIJzX8ozIhkmPK11mf4xTry/KGYDFjNw8HvRC2uWt76OidbEpW0diTXpNU3Njbf/pA7ODytGk9llDPQze6lzAspZTnJf2Yvhi+W6X9cNE/5j4lzge6m+MPSOYONEQP17awQG5pSk0fa7wYM/U0Hn6GEK+qRxu6GNVZuOcU=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from PAVPR08MB9674.eurprd08.prod.outlook.com (2603:10a6:102:31d::14)
+ by DBBPR08MB10793.eurprd08.prod.outlook.com (2603:10a6:10:53d::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.5; Fri, 18 Sep
+ 2026 13:49:11 +0000
+Received: from PAVPR08MB9674.eurprd08.prod.outlook.com
+ ([fe80::6f25:3681:7c97:ea2e]) by PAVPR08MB9674.eurprd08.prod.outlook.com
+ ([fe80::6f25:3681:7c97:ea2e%5]) with mapi id 15.21.0451.004; Fri, 18 Sep 2026
+ 13:49:10 +0000
+Message-ID: <bf0dea40-8dd1-4108-a3de-28288a31a668@arm.com>
+Date: Fri, 18 Sep 2026 14:49:09 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v11 3/9] coresight: etm4x: fix inconsistencies with sysfs
+ configuration
+To: Yeoreum Yun <yeoreum.yun@arm.com>, James Clark <james.clark@linaro.org>,
+ Leo Yan <leo.yan@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-rt-devel@lists.linux.dev
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+ Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
+ nd@arm.com
+References: <20260915-separate_etm_cfg_v2-v11-0-d2b258d51747@arm.com>
+ <20260915-separate_etm_cfg_v2-v11-3-d2b258d51747@arm.com>
+Content-Language: en-US
+From: Mike Leach <mike.leach@arm.com>
+In-Reply-To: <20260915-separate_etm_cfg_v2-v11-3-d2b258d51747@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: PR3P189CA0054.EURP189.PROD.OUTLOOK.COM
+ (2603:10a6:102:53::29) To PAVPR08MB9674.eurprd08.prod.outlook.com
+ (2603:10a6:102:31d::14)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: IEVhVmBpA1jc5d-_GK7vOGB9NrfqqidR
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE4MDE4NCBTYWx0ZWRfX/f89X5ytzz26
- iztav76V3YIXrypgTRieWtU/tYjRJEihCLfysYkLVPJFPWtK2jPk+qF+scPHtTXacCenhBAVPxy
- mtzqRcneAEFutIhvfTX20nueNL+A7c0=
-X-Authority-Analysis: v=2.4 cv=cvgOAF4i c=1 sm=1 tr=0 ts=6aad3d2c cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=U7nrCbtTmkRpXpFmAIza:22 a=VnNF1IyMAAAA:8 a=D7HF9d94yUUfLUezzdoA:9
-X-Proofpoint-ORIG-GUID: vQEt_WSTqkSk_mvxOUD2nPTSI9fJFCWw
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE4MDE4NCBTYWx0ZWRfX5VTFoRBA5hIF
- btvRL5wdFR3wTzH2Uc+oYxw+nUVYzknJfQ1bqvCDlduAPXz+tVZjEVRIui6KtFe7NM4XqKCUEJu
- +AMSJmRpVYq0GsZiucz5Vha2nxjnCAxsdAmG4uO/nwF1ZEPCF3Tu2d3BrjiNjsiDmqWDavUXeq2
- to/apKYsZWpMkQn2V/TAvKRCckIsADFivHsPVL003hGMRb3JGIcWcKuwDil6N9/I8clyqzraVHj
- g5U17lPWY5Ba2IwyKKDNWU/Y8ql3IRqzidXp2hMJqRJdjfzT5D7DRt6R9wxgbR6mRPSa53EhgBd
- WEvtEwSe3tibCwYkKgJZPph3sEgFRfjpxwCEmE6pyJ1KYvwqGgM+QiybPtXIXMHovlD67rowQCA
- xdWZL3CDNcKHg17hWu422Z//XSAv3R+I8VTIX/Y9/uzZPmAUy8aiUYsITUY4T17ajnsO9LxIstO
- xaQnKYi3+CJogGtv68Q==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-18_03,2026-09-16_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 lowpriorityscore=0 clxscore=1015 priorityscore=1501
- suspectscore=0 bulkscore=0 impostorscore=0 phishscore=0 spamscore=0
- adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
- definitions=main-2609180184
+X-MS-TrafficTypeDiagnostic: PAVPR08MB9674:EE_|DBBPR08MB10793:EE_|CPH1EPF00000520:EE_|DB9PR08MB9540:EE_
+X-MS-Office365-Filtering-Correlation-Id: df8cc95e-d6f8-4cc0-e143-08df158bb19d
+X-LD-Processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr,ExtAddr
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|376014|23010399003|7416014|366016|6133799003|3023799007|18002099003|22082099003|10067099003|56012099006|5023799004|11063799006|4143699003;
+X-Microsoft-Antispam-Message-Info-Original: mCyB5nraCeDkXI6PUiT+ZV6KGNUJTZfrjEAjaFZv2F76tsD7HIJ7y5z/VWn6cjDg0SL7Ap9cfIm2u9i19Jjg+5kp2kE+DIWLV3hjZZmcZAETpcIgv7gUgZwmkSNs27TI3gO1upTr9EOpycNTY1kT+sNqtBBwbAJaJO3TUPjPuA3ZDa/an91w3vmnjmuIEsrAP3MIKqQdTrrX3ue1WrSzXGbBbBLjTMU081fepPb0SSeV2d3cr3FYYlesF8vZuRvVX7oFnlYf42MvgyalZEV8ELXXyef1Z53tQ8+loy1AcT0Sd5yzi45SybPCqYEsRrqdgmoyCvn3Ov3U9kiXEiPAmBCzpOmx8FEVzGMAu2xqOQ+fUISfGZT451cLMRhGiHzyAXANtN6p79LQJH8g1znstm5hfQTpM1TbBBtZ+rm7lDWbT61cHr6RlhW9B2Nag2KKVRz1ACxFaBa+rHza9R8/kXP+AbXcMQA0Ang2Ss537Zsxjb9A3TYfW4Vfj5biLGuqtGscP27pRdi6lDQjz7tt5asXARZmDMCHrX+PCXjtVsPcOIW3xBXm9Py6HYc9Sr/PjbdDyOO1dcu6aXjFlJR7wytvqfGjFXa6Q/+EytlG9Pql07SmP0Qw7SIhpNKLrqaxXlFjZuOIxd+wNmQNsc99Eki0OgRaTzNV6T5TCE2jfgk=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAVPR08MB9674.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(23010399003)(7416014)(366016)(6133799003)(3023799007)(18002099003)(22082099003)(10067099003)(56012099006)(5023799004)(11063799006)(4143699003);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked: hpWVFznBn8wIAE6asfMh3WvT4VPVKxp0kIovhsZKKMFcsNEGG4HZiGAj1KiSRTlWJmiROTClT1Vrh8bfxND2T3WbWXB1oxXLkEPasMr/2bBCBKEEWpxwTozKmCS/77/wcZXh5oR0zrQxfGSvxHyUxGbdopqeR0ah7tljfKbRWOT6ygicQY4G4GVHYhUbNFSSnkMG0JmNvj7UG/xJJP3yMKqNIEl/ZHmn93i7/h1om/vfJVvNreKEHVk6bXhcdegsjad3g5QsJQgkzHv1f0p28aetxEOjBZ3TdYwsqg2ZILQh+3sc2CrAPWSMwYAPe7B9i9HviKgY/I5yhRVdW0k7+g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR08MB10793
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: CPH1EPF00000520.eurprd04.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 8c299f7e-9988-4a10-8502-08df158b9dda
+X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|23010399003|376014|7416014|14060799003|82310400026|36860700016|1800799024|3023799007|6133799003|4143699003|11063799006|5023799004|56012099006|18002099003|22082099003|10067099003;
+X-Microsoft-Antispam-Message-Info: aJW6tTahf5H4LTo5lZSnk2L7QJH7qC4ToeAXOtsfSdpVVMX/NloHdXMlXawqdu4QWQO9AW78Siw6uE3glAhI0WFpnO1whFl7mNN5tUsB6Ua6VzhfEUAmqHkOY9Rr4Kvh4CGqTPhBXNcrvqV+S0CJxRmAwrR+/4frIsuVAL9EUWGFRYdvMnBIBWfvgSE1NMfkq+nR0G+sR98zC1ta9LyYJOW1KWaQFfmfzxAORma87U4S3OBWmhM6HE8kH1DwKzvEq18vLy2tiNZAOrUFya9mJQlu381NknDAQwle4x+Z5nMoQVj/t8jjRw0V82q6r0iG1SsrnTe+oY83xwAv5Tuxz+OcIw/zrmOuz/2Q4R5Ki3SHuUgzokNBizAuaPgaXFcO49xmoLk+eYLeOOnGTqzpueKflDQV9ypG9MdsmXsSM7q1PmmljQ2lhzPLks9tkV3a3T0FmRfW+0qATzfhsKTCpOaVcMuMybOsyJVZOvR1G+xGuLOHoBqlkDACx5JtYHY+pC+w0pEkBBbyYeJDFVdVtGKjJfrAp0dsvMoaI0tvEYlN91ep4NJeRRxHbCyoa9Gmu2c5iRcN3/0SEAYJ6PNAUchrTSnaw95S0aLD9ZtsfN8ix2amMUI9/6rRynYjz16lhgxNN+jK34FKg4TMPiBGqBSB36azLbW2dymBIxPlRj0Iw0b++YqvS6WysdLTl+j4QJ/TFApv+aw+pqZQqTTa8A==
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(23010399003)(376014)(7416014)(14060799003)(82310400026)(36860700016)(1800799024)(3023799007)(6133799003)(4143699003)(11063799006)(5023799004)(56012099006)(18002099003)(22082099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: SrOTOHGNnHUlFHV5m0tj0QpOX+YM/1B77Ee0tmEIpoyHsuHf/7USYud4mjX7+VYtEIU5BeJWkxmcAtk4YuN64famiGFpjDqGRZAswHwpU6ysbBIZzTc3oZx5bp6Wh4z55DQA68bsKBpJ0HiBSdUpu+k4PhbkzOWXvFyPAHILV2yfmK905KbSAB6z1TOHS0nrRgxuiY5EwrUO1GOFLY/NKbSBhP4A4KpAQ/1NJM0NFbQzQ/9etSgVUW/DndbeE0uf3b9gVvKRQWMjarx0SRHdJgnndBQkHroWFZMwEVIbEp5EN31MpUWf6wdqkSi0qMjEoSfW9yeHtM959K2vA43Rxg3nbjADfWrdvCINTiMfDkWKgnv6ItCwRci2ZSxyrSvau/HLtARkns6YnUAHYoEbPWoAednT4awMazLJB8hoMLFdd0BxU3jbU91fal3rkjum
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Sep 2026 13:49:43.2608
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: df8cc95e-d6f8-4cc0-e143-08df158bb19d
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: CPH1EPF00000520.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB9540
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_143140_328907_ECC4D0C9 
-X-CRM114-Status: GOOD (  25.81  )
+X-CRM114-CacheID: sfid-20260918_064957_387261_A472AAC9 
+X-CRM114-Status: GOOD (  28.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,351 +163,524 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Start Arm Execution (SAE) instruction is the centerpiece for
-executing arm64 (KVM) guests on s390. Its purpose is, similar to SIE, to
-enable accelerated execution of arm64 virtual machines. SAE expects the
-physical address of a control block as the only argument.
+Hi,
 
-The host is responsible to save & restore
- - GPRs 0-13
- - access register 0-15
- - breaking event register (BEAR)
- - vector/floating point registers
-between SAE executions to guarantee host consistency.
+On 9/15/26 12:34, Yeoreum Yun wrote:
+> The current ETM4x configuration via sysfs can lead to
+> several inconsistencies:
+> 
+>    - If the configuration is modified via sysfs while a perf session is
+>      active, the running configuration may differ before a sched-out and
+>      after a subsequent sched-in.
+> 
+>    - If a perf session and a sysfs session enable tracing concurrently,
+>      the configuration from configfs may become corrupted.
+> 
+>    - There is a risk of corrupting drvdata->config if a perf session enables
+>      tracing while cscfg_csdev_disable_active_config() is being handled in
+>      etm4_disable_sysfs().
+> 
+> To resolve these issues, separate the configuration into:
+> 
+>    - active_config: the configuration applied to the current session
+>    - config: the configuration set via sysfs
+> 
 
-GPRs and BEAR are save and restores in the asm functions. The other
-register are handled in within C code. Access registers are handled in a
-later patch and SVEs will be handled when they are introduced in a
-future series. Most arm64 registers are handled by a satellite block
-called save_area. Some registers, frequently used by hypervisors, are
-placed into the SAE control block itself.
+I'll add a comment about naming here - active_config is a bit overloaded 
+in the code as it is also used by the csconfig code to represent a 
+loaded and active configuration - which may at some point be applied to 
+the active_config above.
 
-Enlighten asm/kvm_host_types.h for the new header variant. The new
-header is chosen instead of asm/kvm_host_s390_types.h if KVM_S390_ARM64
-is defined.
+If active_config is for the current session then curr_config would work.
 
-Co-developed-by: Andreas Grapentin <gra@linux.ibm.com>
-Signed-off-by: Andreas Grapentin <gra@linux.ibm.com>
-Co-developed-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
-Signed-off-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
-Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
----
- arch/s390/include/asm/asm-prototypes.h       |   1 +
- arch/s390/include/asm/kvm_host_arm64_types.h | 124 +++++++++++++++++++
- arch/s390/include/asm/kvm_host_types.h       |   4 +
- arch/s390/include/asm/sae.h                  |  58 +++++++++
- arch/s390/include/asm/stacktrace.h           |   5 +
- arch/s390/kernel/asm-offsets.c               |   1 +
- arch/s390/kernel/entry.S                     |  22 ++++
- arch/s390/tools/opcodes.txt                  |   3 +
- 8 files changed, 218 insertions(+)
- create mode 100644 arch/s390/include/asm/kvm_host_arm64_types.h
- create mode 100644 arch/s390/include/asm/sae.h
+Additionally config also appears as a local pointer in many of the 
+functions. If this is the sysfs config then sysfs_config would work better.
 
-diff --git a/arch/s390/include/asm/asm-prototypes.h b/arch/s390/include/asm/asm-prototypes.h
-index d4da4436d02b..faa2afb259a1 100644
---- a/arch/s390/include/asm/asm-prototypes.h
-+++ b/arch/s390/include/asm/asm-prototypes.h
-@@ -6,6 +6,7 @@
- #include <asm/bug.h>
- #include <asm/fpu.h>
- #include <asm/nospec-branch.h>
-+#include <asm/sae.h>
- #include <asm-generic/asm-prototypes.h>
- 
- #endif /* _ASM_S390_PROTOTYPES_H */
-diff --git a/arch/s390/include/asm/kvm_host_arm64_types.h b/arch/s390/include/asm/kvm_host_arm64_types.h
-new file mode 100644
-index 000000000000..8783a66d3029
---- /dev/null
-+++ b/arch/s390/include/asm/kvm_host_arm64_types.h
-@@ -0,0 +1,124 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef ASM_KVM_HOST_ARM64_TYPES_H
-+#define ASM_KVM_HOST_ARM64_TYPES_H
-+
-+#include <linux/types.h>
-+#include <linux/kvm_types.h>
-+#include <linux/compiler_attributes.h>
-+#include <asm/page.h>
-+#include <asm/fault.h>
-+
-+struct kvm_sae_block {
-+	u64	_0000[16];		/* 0x0000 */
-+#define SAE_ICPTR_SPURIOUS			0x00
-+#define SAE_ICPTR_VALIDITY			0x01
-+#define SAE_ICPTR_HOST_ACCESS_EXCEPTION		0x02
-+#define SAE_ICPTR_SYNCHRONOUS_EXCEPTION		0x03
-+#define SAE_ICPTR_TIMER				0x04
-+#define SAE_ICPTR_PE_INTERCOMM			0x05
-+#define SAE_ICPTR_GUEST_ADDRESS_SIZE		0x06
-+#define SAE_ICPTR_STOP				0x07
-+#define SAE_ICPTR_MIO_ADDRESS			0x08
-+#define SAE_ICPTR_PMU				0x09
-+#define SAE_ICPTR_MAINTENANCE			0x0a
-+	u8	icptr;			/* 0x0080 */
-+	u8	_0081[7];		/* 0x0081 */
-+	u64	scad;			/* 0x0088 */
-+	u64	_0090[16];		/* 0x0090 */
-+	u32	cntp_ctl;		/* 0x0110 */
-+	u32	cntv_ctl;		/* 0x0114 */
-+	u8	irq_ctl;		/* 0x0118 */
-+	u8	_0119[7];		/* 0x0119 */
-+	struct {
-+		u64	ich_hcr_el2;	/* 0x0120 */
-+		u64	ich_vmcr_el2;	/* 0x0128 */
-+		u64	ich_ap0r0_el2;	/* 0x0130 */
-+		u64	ich_ap1r0_el2;	/* 0x0138 */
-+		u64	_0140[2];	/* 0x0140 */
-+		u64	ich_lrn_el2[4];	/* 0x0150 */
-+		u64	_0170[4];	/* 0x0170 */
-+	} ic_regs;
-+	u64	_0190[12];		/* 0x0190 */
-+	u64	contextidr_el1;		/* 0x01f0 */
-+	u32	wip;			/* 0x01f8 */
-+	u32	_01fc;			/* 0x01fc */
-+#define SAE_SD_FORMAT_0                 0x00
-+	u8	sdf;			/* 0x0200  */
-+	u8	_0201[7];		/* 0x0201  */
-+	u64	mso;			/* 0x0208  */
-+	u64	msl;			/* 0x0210  */
-+	u64	hbasce;			/* 0x0218  */
-+	u64	_0220;			/* 0x0220  */
-+	u64	gpto;			/* 0x0228  */
-+	u64	ic;			/* 0x0230  */
-+	u64	ec;			/* 0x0238  */
-+	u64	save_area;		/* 0x0240  */
-+	u64	_0248[7];		/* 0x0248  */
-+	u8	_0280[6];		/* 0x0280  */
-+	u16	lrcpua;			/* 0x0286  */
-+	u64	pstate;			/* 0x0288  */
-+	u64	pc;			/* 0x0290  */
-+	u64	sp_el0;			/* 0x0298  */
-+	u64	sp_el1;			/* 0x02a0  */
-+	u64	_02a8;			/* 0x02a8  */
-+	struct {			/* 0x02b0  */
-+		u32	_fpcr_res0;
-+		u32	fpcr;
-+	};
-+	struct {			/* 0x02b8  */
-+		u32	_fpsr_res0;
-+		u32	fpsr;
-+	};
-+	u16	sve_pregs[16];		/* 0x02c0  */
-+	u16	sve_ffr;		/* 0x02e0  */
-+	u8	_02e2[6];		/* 0x02e2  */
-+	u64	_02e8[3];		/* 0x02e8  */
-+
-+	u64	gpr[31];		/* 0x0300  */
-+	u64	_03f8;			/* 0x03f8  */
-+
-+	union {
-+		u64	icptd[8];		/* 0x0400 */
-+		/* validity-interception reason; icptr 0x01 */
-+		u16 vir;			/* 0x0400 */
-+		/* host access interception details; icptr 0x02 */
-+		struct {
-+			u64		esr_el2;	/* 0x0400 */
-+			u8		_0408[6];	/* 0x0408 */
-+			u16		pic;		/* 0x040e */
-+			union teid	teid;		/* 0x0410 */
-+			gva_t		far_el2;	/* 0x0418 */
-+			gva_t		vaddr;		/* 0x0420 */
-+			u64		suppl;		/* 0x0428 */
-+			u8		gltl;		/* 0x0430 */
-+			u8		_0431[7];	/* 0x0431 */
-+			u64		_0438;		/* 0x0438 */
-+		} hai;
-+		/* exception-interception details; icptr 0x03 */
-+		struct {
-+			u64	esr_el2;		/* 0x0400 */
-+			u64	_0408[2];		/* 0x0408 */
-+			gva_t	far_el2;		/* 0x0418 */
-+		} trap;
-+		/* timer-interception reason; icptr 0x04 */
-+#define SAE_IR_TIMER_ID_VIRT		BIT(6)
-+#define SAE_IR_TIMER_ID_PHYS		BIT(7)
-+		u8	tir;			/* 0x0400 */
-+	};
-+	u64	_0440[376];			/* 0x0440 */
-+} __packed __aligned(PAGE_SIZE);
-+static_assert(sizeof(struct kvm_sae_block) == PAGE_SIZE);
-+
-+struct kvm_sae_save_area {
-+#define SAE_SAVE_AREA_FORMAT_0	0x00
-+	u8	saf;		/* 0x0000 */
-+	u8	_0001[5];	/* 0x0001 */
-+#define SAE_SAS_VALID		BIT(0)
-+	u16	sas;		/* 0x0006 */
-+	u64	sdo;		/* 0x0008 */
-+	u64	_0010[2];	/* 0x0010 */
-+	u64	regs[508];	/* 0x0020 */
-+} __packed __aligned(PAGE_SIZE);
-+static_assert(sizeof(struct kvm_sae_save_area) == PAGE_SIZE);
-+
-+#endif /* ASM_KVM_HOST_ARM64_TYPES_H */
-diff --git a/arch/s390/include/asm/kvm_host_types.h b/arch/s390/include/asm/kvm_host_types.h
-index e5bdba07cab0..d308739ebcf5 100644
---- a/arch/s390/include/asm/kvm_host_types.h
-+++ b/arch/s390/include/asm/kvm_host_types.h
-@@ -3,6 +3,10 @@
- #ifndef ASM_KVM_HOST_TYPES_H
- #define ASM_KVM_HOST_TYPES_H
- 
-+#ifdef KVM_S390_ARM64
-+#include <asm/kvm_host_arm64_types.h>
-+#else
- #include <asm/kvm_host_s390_types.h>
-+#endif /* KVM_S390_ARM64 */
- 
- #endif /* ASM_KVM_HOST_TYPES_H */
-diff --git a/arch/s390/include/asm/sae.h b/arch/s390/include/asm/sae.h
-new file mode 100644
-index 000000000000..b644e65c4e37
---- /dev/null
-+++ b/arch/s390/include/asm/sae.h
-@@ -0,0 +1,58 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __ASM_S390_SAE_H
-+#define __ASM_S390_SAE_H
-+
-+#include <linux/linkage.h>
-+#include <linux/types.h>
-+
-+#ifndef __ASSEMBLER__
-+
-+/* defined in arch/s390/kernel/entry.S */
-+asmlinkage void __sae64a(phys_addr_t sae_block_phys);
-+
-+#include <linux/io.h>
-+#include <asm/kvm_host_arm64_types.h>
-+
-+/**
-+ * sae64a() - Start Arm Execution
-+ * @sae_block: pointer to the SAE control block
-+ */
-+static inline void sae64a(struct kvm_sae_block *sae_block)
-+{
-+	__sae64a(virt_to_phys(sae_block));
-+}
-+
-+/**
-+ * stiasrm() - STore and Invalidate Arm System Register Multiple
-+ * @save_area: Pointer to SAE save area
-+ *
-+ * Store the guest system registers to the save area.
-+ * The values in the guest are no longer valid.
-+ */
-+static __always_inline void stiasrm(struct kvm_sae_save_area *save_area)
-+{
-+	asm volatile(
-+		"	.insn	rre,0xb9a70000,%[r1],0\n"
-+		: "+m"(*save_area)
-+		: [r1] "a"(save_area)
-+	);
-+}
-+
-+/**
-+ * lasrm() - Load Arm System Register Multiple
-+ *
-+ * @save_area: Pointer to SAE save area
-+ *
-+ * Load the system registers from save_area into the guest.
-+ */
-+static __always_inline void lasrm(struct kvm_sae_save_area *save_area)
-+{
-+	asm volatile(
-+		"	.insn	rre,0xb9a60000,%[r1],0\n"
-+		:
-+		: "m"(*save_area), [r1] "a"(save_area)
-+	);
-+}
-+
-+#endif /* !__ASSEMBLER__ */
-+#endif /* __ASM_S390_SAE_H */
-diff --git a/arch/s390/include/asm/stacktrace.h b/arch/s390/include/asm/stacktrace.h
-index ac3606c3babe..2d332d7c8145 100644
---- a/arch/s390/include/asm/stacktrace.h
-+++ b/arch/s390/include/asm/stacktrace.h
-@@ -59,6 +59,7 @@ static inline bool on_stack(struct stack_info *info,
- struct stack_frame {
- 	union {
- 		unsigned long empty[9];
-+		/* SIE stack frame */
- 		struct {
- 			unsigned long sie_control_block;
- 			unsigned long sie_savearea;
-@@ -68,6 +69,10 @@ struct stack_frame {
- 			unsigned long sie_guest_asce;
- 			unsigned long sie_irq;
- 		};
-+		/* SAE stack frame */
-+		struct {
-+			unsigned long sae_bear;
-+		};
- 	};
- 	unsigned long gprs[10];
- 	unsigned long back_chain;
-diff --git a/arch/s390/kernel/asm-offsets.c b/arch/s390/kernel/asm-offsets.c
-index f6dd2b67dcee..f9f9c2246074 100644
---- a/arch/s390/kernel/asm-offsets.c
-+++ b/arch/s390/kernel/asm-offsets.c
-@@ -70,6 +70,7 @@ int main(void)
- 	OFFSET(__SF_SIE_CONTROL_PHYS, stack_frame, sie_control_block_phys);
- 	OFFSET(__SF_SIE_GUEST_ASCE, stack_frame, sie_guest_asce);
- 	OFFSET(__SF_SIE_IRQ, stack_frame, sie_irq);
-+	OFFSET(__SF_SAE_BEAR, stack_frame, sae_bear);
- 	DEFINE(STACK_FRAME_OVERHEAD, sizeof(struct stack_frame));
- 	BLANK();
- 	OFFSET(__SFUSER_BACKCHAIN, stack_frame_user, back_chain);
-diff --git a/arch/s390/kernel/entry.S b/arch/s390/kernel/entry.S
-index 10dd9bbdf985..af515f2b6c11 100644
---- a/arch/s390/kernel/entry.S
-+++ b/arch/s390/kernel/entry.S
-@@ -245,6 +245,28 @@ EXPORT_SYMBOL(__sie64a)
- EXPORT_SYMBOL(sie_exit)
- #endif
- 
-+#if IS_ENABLED(CONFIG_KVM)
-+/*
-+ * __sae64a calling convention:
-+ * %r2 pointer to sae control block physical address
-+ */
-+SYM_FUNC_START(__sae64a)
-+	stmg	%r6,%r14,__SF_GPRS(%r15)	# store kernel registers
-+	STBEAR	__SF_SAE_BEAR(%r15)		# save breaking event address register
-+	.insn	rre,0xb9a50000,%r2,0		# Start Arm Execution
-+	LBEAR	__SF_SAE_BEAR(%r15)		# restore breaking event address register
-+	lmg	%r6,%r14,__SF_GPRS(%r15)	# restore kernel registers
-+	xgr	%r0,%r0				# clear guest registers to
-+	xgr	%r1,%r1				# prevent speculative use
-+	xgr	%r2,%r2
-+	xgr	%r3,%r3
-+	xgr	%r4,%r4
-+	xgr	%r5,%r5
-+	BR_EX	%r14
-+SYM_FUNC_END(__sae64a)
-+EXPORT_SYMBOL(__sae64a)
-+#endif
-+
- /*
-  * SVC interrupt handler routine. System calls are synchronous events and
-  * are entered with interrupts disabled.
-diff --git a/arch/s390/tools/opcodes.txt b/arch/s390/tools/opcodes.txt
-index def2659f6602..0e4773c94af0 100644
---- a/arch/s390/tools/opcodes.txt
-+++ b/arch/s390/tools/opcodes.txt
-@@ -594,6 +594,9 @@ b9a0	clp	RRF_U0RR
- b9a1	tpei	RRE_RR
- b9a2	ptf	RRE_R0
- b9a4	uvc	RRF_URR
-+b9a5	sae	RRE_R0
-+b9a6	lasrm	RRE_R0
-+b9a7	stiasrm	RRE_R0
- b9aa	lptea	RRF_RURR2
- b9ab	essa	RRF_U0RR
- b9ac	irbm	RRE_RR
--- 
-2.53.0
+This should make all the code a lot more readable, and easier to spot 
+exactly which config we are dealing with.
+
+
+
+> Additionally:
+> 
+>    - Apply the configuration from configfs after taking the appropriate mode.
+> 
+>    - Since active_config and related fields are accessed only by the local CPU
+>      in etm4_enable/disable_sysfs_smp_call() (similar to perf enable/disable),
+>      remove the lock/unlock from the sysfs enable/disable path and
+>      startup/dying_cpu except when to access config fields.
+> 
+> As the active_config is used for cfg-configfs, etmv4 doesn't need to set
+> its lock for the cfg-configfs since the active_config is proceted by cs_mode
+> otherwise it would make a possible cpu-stall when it get interrupt while
+> setting the sysfs configuration.
+> 
+> Therefore, set the drv_spinlock for cfg-configfs as NULL and
+> let the cfg-configfs disable irq without grap drv_spinlock when it is NULL.
+> 
+> Fixes: 54ff892b76c6 ("coresight: etm4x: splitting struct etmv4_drvdata")
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> ---
+>   drivers/hwtracing/coresight/coresight-config.c     |  18 ++--
+>   drivers/hwtracing/coresight/coresight-config.h     |  22 ++++
+>   drivers/hwtracing/coresight/coresight-etm4x-cfg.c  |  13 ++-
+>   drivers/hwtracing/coresight/coresight-etm4x-core.c | 118 ++++++++++++---------
+>   .../hwtracing/coresight/coresight-etm4x-sysfs.c    |   6 +-
+>   drivers/hwtracing/coresight/coresight-etm4x.h      |   4 +-
+>   6 files changed, 113 insertions(+), 68 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-config.c b/drivers/hwtracing/coresight/coresight-config.c
+> index 4f72ae71b696e..0e296289f286d 100644
+> --- a/drivers/hwtracing/coresight/coresight-config.c
+> +++ b/drivers/hwtracing/coresight/coresight-config.c
+> @@ -73,13 +73,12 @@ static void cscfg_init_reg_param(struct cscfg_feature_csdev *feat_csdev,
+>   /* set values into the driver locations referenced in cscfg_reg_csdev */
+>   static int cscfg_set_on_enable(struct cscfg_feature_csdev *feat_csdev)
+>   {
+> -	unsigned long flags;
+>   	int i;
+>   
+> -	raw_spin_lock_irqsave(feat_csdev->drv_spinlock, flags);
+> -	for (i = 0; i < feat_csdev->nr_regs; i++)
+> -		cscfg_set_reg(&feat_csdev->regs_csdev[i]);
+> -	raw_spin_unlock_irqrestore(feat_csdev->drv_spinlock, flags);
+> +	scoped_guard(feat_csdev_lock, feat_csdev) {
+> +		for (i = 0; i < feat_csdev->nr_regs; i++)
+> +			cscfg_set_reg(&feat_csdev->regs_csdev[i]);
+> +	}
+>   	dev_dbg(&feat_csdev->csdev->dev, "Feature %s: %s",
+>   		feat_csdev->feat_desc->name, "set on enable");
+>   	return 0;
+> @@ -88,13 +87,12 @@ static int cscfg_set_on_enable(struct cscfg_feature_csdev *feat_csdev)
+>   /* copy back values from the driver locations referenced in cscfg_reg_csdev */
+>   static void cscfg_save_on_disable(struct cscfg_feature_csdev *feat_csdev)
+>   {
+> -	unsigned long flags;
+>   	int i;
+>   
+> -	raw_spin_lock_irqsave(feat_csdev->drv_spinlock, flags);
+> -	for (i = 0; i < feat_csdev->nr_regs; i++)
+> -		cscfg_save_reg(&feat_csdev->regs_csdev[i]);
+> -	raw_spin_unlock_irqrestore(feat_csdev->drv_spinlock, flags);
+> +	scoped_guard(feat_csdev_lock, feat_csdev) {
+> +		for (i = 0; i < feat_csdev->nr_regs; i++)
+> +			cscfg_save_reg(&feat_csdev->regs_csdev[i]);
+> +	}
+>   	dev_dbg(&feat_csdev->csdev->dev, "Feature %s: %s",
+>   		feat_csdev->feat_desc->name, "save on disable");
+>   }
+> diff --git a/drivers/hwtracing/coresight/coresight-config.h b/drivers/hwtracing/coresight/coresight-config.h
+> index 90fd937d3bd83..ae6295e308131 100644
+> --- a/drivers/hwtracing/coresight/coresight-config.h
+> +++ b/drivers/hwtracing/coresight/coresight-config.h
+> @@ -7,6 +7,7 @@
+>   #ifndef _CORESIGHT_CORESIGHT_CONFIG_H
+>   #define _CORESIGHT_CORESIGHT_CONFIG_H
+>   
+> +#include <linux/cleanup.h>
+>   #include <linux/coresight.h>
+>   #include <linux/types.h>
+>   
+> @@ -259,4 +260,25 @@ void cscfg_csdev_disable_config(struct cscfg_config_csdev *config_csdev);
+>   /* reset a feature to default values */
+>   void cscfg_reset_feat(struct cscfg_feature_csdev *feat_csdev);
+>   
+> +#define feat_csdev_lock(feat_csdev, flags)				\
+> +	do {								\
+> +		raw_spinlock_t *__lock = feat_csdev->drv_spinlock;	\
+> +		typecheck(unsigned long, flags);			\
+> +		if (__lock)						\
+> +			raw_spin_lock_irqsave(__lock, flags);		\
+> +	} while (0)
+> +
+> +#define feat_csdev_unlock(feat_csdev, flags)				\
+> +	do {								\
+> +		raw_spinlock_t *__lock = feat_csdev->drv_spinlock;	\
+> +		typecheck(unsigned long, flags);			\
+> +		if (__lock)						\
+> +			raw_spin_unlock_irqrestore(__lock, flags);	\
+> +	} while (0)
+> +
+> +DEFINE_LOCK_GUARD_1(feat_csdev_lock, struct cscfg_feature_csdev,
+> +		    feat_csdev_lock(_T->lock, _T->flags),
+> +		    feat_csdev_unlock(_T->lock, _T->flags),
+> +		    unsigned long flags)
+> +
+>   #endif /* _CORESIGHT_CORESIGHT_CONFIG_H */
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> index e1a59b4345052..d24f533c623d0 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> @@ -47,7 +47,7 @@ static int etm4_cfg_map_reg_offset(struct etmv4_drvdata *drvdata,
+>   				   struct cscfg_regval_csdev *reg_csdev, u32 offset)
+>   {
+>   	int err = -EINVAL, idx;
+> -	struct etmv4_config *drvcfg = &drvdata->config;
+> +	struct etmv4_config *drvcfg = &drvdata->active_config;
+>   	u32 off_mask;
+>   
+>   	if (((offset >= TRCEVENTCTL0R) && (offset <= TRCVIPCSSCTLR)) ||
+> @@ -154,11 +154,14 @@ static int etm4_cfg_load_feature(struct coresight_device *csdev,
+>   	int i = 0, err = 0;
+>   
+>   	/*
+> -	 * essential we set the device spinlock - this is used in the generic
+> -	 * programming routines when copying values into the drvdata structures
+> -	 * via the pointers setup in etm4_cfg_map_reg_offset().
+> +	 * drvdata structure of etm4 for configfs is active_config and
+> +	 * this active_config is protected with csdev->mode by restricting
+> +	 * access to active_config after mode changed to PERF or SYSFS.
+> +	 *
+> +	 * Therefore, it doesn't need to protected with etmv4_drvdata->spinlock
+> +	 * to feature applying and set the NULL.
+>   	 */
+> -	feat_csdev->drv_spinlock = &drvdata->spinlock;
+> +	feat_csdev->drv_spinlock = NULL;
+>   
+>   	/* process the register descriptions */
+>   	for (i = 0; i < feat_csdev->nr_regs && !err; i++) {
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> index 2247ad55d4442..2df7f592bb5cf 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> @@ -239,6 +239,7 @@ void etm4_release_trace_id(struct etmv4_drvdata *drvdata)
+>   struct etm4_enable_arg {
+>   	struct etmv4_drvdata *drvdata;
+>   	struct coresight_path *path;
+> +	struct etmv4_config config;
+
+drvdata contains both active_config and config - why the extra copy here?
+
+>   	int rc;
+>   };
+>   
+> @@ -264,10 +265,11 @@ static void etm4x_prohibit_trace(struct etmv4_drvdata *drvdata)
+>   static u64 etm4x_get_kern_user_filter(struct etmv4_drvdata *drvdata)
+>   {
+>   	u64 trfcr = drvdata->trfcr;
+> +	struct etmv4_config *config = &drvdata->active_config;
+>   
+> -	if (drvdata->config.mode & ETM_MODE_EXCL_KERN)
+> +	if (config->mode & ETM_MODE_EXCL_KERN)
+>   		trfcr &= ~TRFCR_EL1_ExTRE;
+> -	if (drvdata->config.mode & ETM_MODE_EXCL_USER)
+> +	if (config->mode & ETM_MODE_EXCL_USER)
+>   		trfcr &= ~TRFCR_EL1_E0TRE;
+>   
+>   	return trfcr;
+> @@ -275,7 +277,7 @@ static u64 etm4x_get_kern_user_filter(struct etmv4_drvdata *drvdata)
+>   
+>   /*
+>    * etm4x_allow_trace - Allow CPU tracing in the respective ELs,
+> - * as configured by the drvdata->config.mode for the current
+> + * as configured by the drvdata->active_config.mode for the current
+>    * session. Even though we have TRCVICTLR bits to filter the
+>    * trace in the ELs, it doesn't prevent the ETM from generating
+>    * a packet (e.g, TraceInfo) that might contain the addresses from
+> @@ -286,12 +288,13 @@ static u64 etm4x_get_kern_user_filter(struct etmv4_drvdata *drvdata)
+>   static void etm4x_allow_trace(struct etmv4_drvdata *drvdata)
+>   {
+>   	u64 trfcr, guest_trfcr;
+> +	struct etmv4_config *config = &drvdata->active_config;
+>   
+>   	/* If the CPU doesn't support FEAT_TRF, nothing to do */
+>   	if (!drvdata->trfcr)
+>   		return;
+>   
+> -	if (drvdata->config.mode & ETM_MODE_EXCL_HOST)
+> +	if (config->mode & ETM_MODE_EXCL_HOST)
+>   		trfcr = drvdata->trfcr & ~(TRFCR_EL1_ExTRE | TRFCR_EL1_E0TRE);
+>   	else
+>   		trfcr = etm4x_get_kern_user_filter(drvdata);
+> @@ -299,7 +302,7 @@ static void etm4x_allow_trace(struct etmv4_drvdata *drvdata)
+>   	write_trfcr(trfcr);
+>   
+>   	/* Set filters for guests and pass to KVM */
+> -	if (drvdata->config.mode & ETM_MODE_EXCL_GUEST)
+> +	if (config->mode & ETM_MODE_EXCL_GUEST)
+>   		guest_trfcr = drvdata->trfcr & ~(TRFCR_EL1_ExTRE | TRFCR_EL1_E0TRE);
+>   	else
+>   		guest_trfcr = etm4x_get_kern_user_filter(drvdata);
+> @@ -492,7 +495,7 @@ static int etm4_enable_trace_unit(struct etmv4_drvdata *drvdata)
+>   static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
+>   {
+>   	int i, rc;
+> -	struct etmv4_config *config = &drvdata->config;
+> +	struct etmv4_config *config = &drvdata->active_config;
+>   	struct coresight_device *csdev = drvdata->csdev;
+>   	struct device *etm_dev = &csdev->dev;
+>   	struct csdev_access *csa = &csdev->access;
+> @@ -612,27 +615,44 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
+>   static void etm4_enable_sysfs_smp_call(void *info)
+>   {
+>   	struct etm4_enable_arg *arg = info;
+> +	struct etmv4_drvdata *drvdata;
+>   	struct coresight_device *csdev;
+> +	unsigned long cfg_hash;
+> +	int preset;
+>   
+>   	if (WARN_ON(!arg))
+>   		return;
+>   
+> -	csdev = arg->drvdata->csdev;
+> -	if (!coresight_take_mode(csdev, CS_MODE_SYSFS)) {
+> -		/* Someone is already using the tracer */
+> -		arg->rc = -EBUSY;
+> -		return;
+> +	drvdata = arg->drvdata;
+> +	csdev = drvdata->csdev;
+> +
+> +	drvdata->active_config = arg->config;
+
+This can happen before the smp call removing the need for arg->config?
+
+> +
+> +	/* enable any config activated by configfs */
+> +	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
+> +	if (cfg_hash) {
+> +		arg->rc = cscfg_csdev_enable_active_config(csdev,
+> +							   cfg_hash,
+> +							   preset);
+> +		if (arg->rc)
+> +			return;
+>   	}
+>   
+> -	arg->rc = etm4_enable_hw(arg->drvdata);
+> +	drvdata->trcid = arg->path->trace_id;
+>   
+> -	/* The tracer didn't start */
+> +	/* Tracer will never be paused in sysfs mode */
+> +	drvdata->paused = false;
+> +
+> +	arg->rc = etm4_enable_hw(drvdata);
+>   	if (arg->rc) {
+> -		coresight_set_mode(csdev, CS_MODE_DISABLED);
+> +		cscfg_csdev_disable_active_config(csdev);
+>   		return;
+>   	}
+>   
+> +	drvdata->sticky_enable = true;
+>   	csdev->path = arg->path;
+> +
+> +	return;
+>   }
+>   
+>   /*
+> @@ -669,7 +689,7 @@ static int etm4_config_timestamp_event(struct etmv4_drvdata *drvdata,
+>   {
+>   	int ctridx;
+>   	int rselector;
+> -	struct etmv4_config *config = &drvdata->config;
+> +	struct etmv4_config *config = &drvdata->active_config;
+>   
+>   	/* No point in trying if we don't have at least one counter */
+>   	if (!drvdata->nr_cntr)
+> @@ -752,7 +772,7 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
+>   {
+>   	int ret = 0;
+>   	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+> -	struct etmv4_config *config = &drvdata->config;
+> +	struct etmv4_config *config = &drvdata->active_config;
+>   	struct perf_event_attr max_timestamp = {
+>   		.ATTR_CFG_FLD_timestamp_CFG = U64_MAX,
+>   	};
+> @@ -919,46 +939,36 @@ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_pa
+>   {
+>   	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+>   	struct etm4_enable_arg arg = { };
+> -	unsigned long cfg_hash;
+> -	int ret, preset;
+> +	int ret;
+>   
+> -	/* enable any config activated by configfs */
+> -	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
+> -	if (cfg_hash) {
+> -		ret = cscfg_csdev_enable_active_config(csdev, cfg_hash, preset);
+> -		if (ret) {
+> -			etm4_release_trace_id(drvdata);
+> -			return ret;
+> -		}
+> +	if (!coresight_take_mode(csdev, CS_MODE_SYSFS)) {
+> +		/* Someone is already using the tracer */
+> +		return -EBUSY;
+>   	}
+>   
+> -	raw_spin_lock(&drvdata->spinlock);
+> -
+> -	drvdata->trcid = path->trace_id;
+> -
+> -	/* Tracer will never be paused in sysfs mode */
+> -	drvdata->paused = false;
+> -
+>   	/*
+>   	 * Executing etm4_enable_hw on the cpu whose ETM is being enabled
+>   	 * ensures that register writes occur when cpu is powered.
+>   	 */
+>   	arg.drvdata = drvdata;
+>   	arg.path = path;
+> +
+> +	scoped_guard(raw_spinlock, &drvdata->spinlock) {
+> +		arg.config = drvdata->config;
+
+Given as mentioned above that once a mode is set then active_config is 
+protected, this should simply be drvdata->active_config = 
+drvdata->config; ??
+
+> +	}
+> +
+>   	ret = smp_call_function_single(drvdata->cpu,
+>   				       etm4_enable_sysfs_smp_call, &arg, 1);
+>   	if (!ret)
+>   		ret = arg.rc;
+> -	if (!ret)
+> -		drvdata->sticky_enable = true;
+> -
+> -	if (ret)
+> +	if (!ret) {
+> +		dev_dbg(&csdev->dev, "ETM tracing enabled\n");
+> +	} else {
+>   		etm4_release_trace_id(drvdata);
+> +		/* The tracer didn't start */
+> +		coresight_set_mode(csdev, CS_MODE_DISABLED);
+> +	}
+>   
+> -	raw_spin_unlock(&drvdata->spinlock);
+> -
+> -	if (!ret)
+> -		dev_dbg(&csdev->dev, "ETM tracing enabled\n");
+>   	return ret;
+>   }
+>   
+> @@ -1044,7 +1054,7 @@ static void etm4_disable_trace_unit(struct etmv4_drvdata *drvdata)
+>   static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
+>   {
+>   	u32 control;
+> -	struct etmv4_config *config = &drvdata->config;
+> +	struct etmv4_config *config = &drvdata->active_config;
+>   	struct coresight_device *csdev = drvdata->csdev;
+>   	struct csdev_access *csa = &csdev->access;
+>   	int i;
+> @@ -1086,8 +1096,9 @@ static void etm4_disable_sysfs_smp_call(void *info)
+>   
+>   	etm4_disable_hw(drvdata);
+>   
+> +	cscfg_csdev_disable_active_config(drvdata->csdev);
+> +
+>   	drvdata->csdev->path = NULL;
+> -	coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
+>   }
+>   
+>   static int etm4_disable_perf(struct coresight_device *csdev,
+> @@ -1130,8 +1141,9 @@ static int etm4_disable_perf(struct coresight_device *csdev,
+>   static void etm4_disable_sysfs(struct coresight_device *csdev)
+>   {
+>   	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+> -
+> -	raw_spin_lock(&drvdata->spinlock);
+> +	struct etmv4_config *config = &drvdata->config;
+> +	const struct etmv4_config *active_config = &drvdata->active_config;
+> +	int i;
+>   
+>   	/*
+>   	 * Executing etm4_disable_hw on the cpu whose ETM is being disabled
+> @@ -1140,9 +1152,17 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
+>   	smp_call_function_single(drvdata->cpu, etm4_disable_sysfs_smp_call,
+>   				 drvdata, 1);
+>   
+> -	raw_spin_unlock(&drvdata->spinlock);
+> +	/*
+> +	 * Userspace may read ss_status and cntr_val through sysfs after
+> +	 * the sysfs-session has been disabled.
+> +	 */
+> +	for (i = 0; i < drvdata->nr_ss_cmp; i++)
+> +		config->ss_status[i] = active_config->ss_status[i];
+>   
+> -	cscfg_csdev_disable_active_config(csdev);
+> +	for (i = 0; i < drvdata->nr_cntr; i++)
+> +		config->cntr_val[i] = active_config->cntr_val[i];
+> +
+
+Readback of TRCSEQSTR needed here too.
+
+> +	coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
+>   
+>   	/*
+>   	 * we only release trace IDs when resetting sysfs.
+> @@ -1690,7 +1710,7 @@ static void etm4_set_default(struct etmv4_config *config)
+>   static int etm4_get_next_comparator(struct etmv4_drvdata *drvdata, u32 type)
+>   {
+>   	int nr_comparator, index = 0;
+> -	struct etmv4_config *config = &drvdata->config;
+> +	struct etmv4_config *config = &drvdata->active_config;
+>   
+>   	/*
+>   	 * nr_addr_cmp holds the number of comparator _pair_, so time 2
+> @@ -1731,7 +1751,7 @@ static int etm4_set_event_filters(struct etmv4_drvdata *drvdata,
+>   {
+>   	int i, comparator, ret = 0;
+>   	u64 address;
+> -	struct etmv4_config *config = &drvdata->config;
+> +	struct etmv4_config *config = &drvdata->active_config;
+>   	struct etm_filters *filters = event->hw.addr_filters;
+>   
+>   	if (!filters)
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+> index 8d73248b840a6..f64c0acebc701 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+> @@ -1613,7 +1613,7 @@ static ssize_t cntr_val_store(struct device *dev,
+>   		return -EINVAL;
+>   	if (val > ETM_CNTR_MAX_VAL)
+>   		return -EINVAL;
+> -	if (coresight_get_mode(drvdata->csdev))
+> +	if (coresight_get_mode(drvdata->csdev) == CS_MODE_SYSFS)
+>   		return -EBUSY;
+>   
+>   	raw_spin_lock(&drvdata->spinlock);
+> @@ -1799,7 +1799,7 @@ static ssize_t sshot_ctrl_store(struct device *dev,
+>   
+>   	if (kstrtoul(buf, 16, &val))
+>   		return -EINVAL;
+> -	if (coresight_get_mode(drvdata->csdev))
+> +	if (coresight_get_mode(drvdata->csdev) == CS_MODE_SYSFS)
+>   		return -EBUSY;
+>   
+>   	raw_spin_lock(&drvdata->spinlock);
+> @@ -1851,7 +1851,7 @@ static ssize_t sshot_pe_ctrl_store(struct device *dev,
+>   
+>   	if (kstrtoul(buf, 16, &val))
+>   		return -EINVAL;
+> -	if (coresight_get_mode(drvdata->csdev))
+> +	if (coresight_get_mode(drvdata->csdev) == CS_MODE_SYSFS)
+>   		return -EBUSY;
+>   
+>   	raw_spin_lock(&drvdata->spinlock);
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
+> index df9e0748d71ec..c33700711154d 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x.h
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
+> @@ -1019,7 +1019,8 @@ struct etmv4_save_state {
+>    *		allows tracing at all ELs. We don't want to compute this
+>    *		at runtime, due to the additional setting of TRFCR_CX when
+>    *		in EL2. Otherwise, 0.
+> - * @config:	structure holding configuration parameters.
+> + * @active_config:	structure holding current applied configuration.
+> + * @config:	structure holding sysfs mode configuration.
+>    * @save_state:	State to be preserved across power loss
+>    * @skip_power_up: Indicates if an implementation can skip powering up
+>    *		   the trace unit.
+> @@ -1077,6 +1078,7 @@ struct etmv4_drvdata {
+>   	bool				skip_power_up : 1;
+>   	bool				paused : 1;
+>   	u64				trfcr;
+> +	struct etmv4_config		active_config;
+>   	struct etmv4_config		config;
+>   	struct etmv4_save_state		*save_state;
+>   	DECLARE_BITMAP(arch_features, ETM4_IMPDEF_FEATURE_MAX);
+> 
+
+Regards
+
+Mike
 
 
