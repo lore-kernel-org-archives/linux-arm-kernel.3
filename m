@@ -4,113 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23CC2C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 08:30:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFE1EC88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 08:33:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=48Dk3iwNBX2jdzyXIh2OB09+BWpkuBMXHAxnmCdSn4s=; b=BS+MZP1v4garO5fnL7/EKfjF/4
-	LTL1lKN4Xya2kaGor8VV35y5h9QjDqWlAta3do6tazhXONQGeB4FdMpa7bd9ylBE0eTDGT/WeriYP
-	j9CJib5+3XmyYgecEFbJdS7og2vk3u4QKoT4jru5OiOKmPtsLG4cv8Uk8u8LzQHRe+ObV6fuki9ze
-	da2TQEdjDUnTzD4SZaVh4EzEaZ22A/rAVwHxF22aX1ZyArrxNdkNVipyySxJxPKvQXcJ+LgFfVtgt
-	gNO6JF0GjOkkGrssxkfKmbNNSYGBywdUU4a5/E+NXC3auX4yqL4tUvcISXeooZzLDLa032SXV5aT8
-	B3OXhvRg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pKTzsHsh+KOl7XVkDAfUJy4MbfFG1awKeay+vTS1O6M=; b=j0+OYtna7QXNgnvZemQO/8m0iG
+	RlebQKa4UonSBOWRpEQW70hmd6gjuHau1dlQpBK7oH/5XAT9OkjtWo1HO1BYwJQHRPtzEfI64gngd
+	ps9shietIzCtERyWCiO8+MRwg2xnobvvMf/nsNfapnl5Abd20mdnW9hAuLf4iXlfbTaJYkuhRsW7s
+	mmHaeiBQkrDmaSdBt2nLA81C9V/Qd6++RpFj1CcWzWGr5S9ZiJPhoghL86JHCQ71WrAfp+XE97Aeu
+	BwEBNzB3aEshaSRagwgIIG02wgN3FIMNfNYOKDC49+rEKX7rV7ry5Rf7OhusGNg2n3BM5tl8RGyHa
+	g9bh/qDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Tyx-0000000DojD-2JrD;
-	Fri, 18 Sep 2026 08:30:07 +0000
-Received: from mail-pz2-x0d.google.com ([2607:f8b0:4864:3b::d])
+	id 1x7U1p-0000000Dp5h-48Kp;
+	Fri, 18 Sep 2026 08:33:05 +0000
+Received: from mail-ed2-x0f.google.com ([2a00:1450:4864:33::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Tyv-0000000Doij-1kOP
+	id 1x7U1n-0000000Dp4z-1Y8D
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 08:30:06 +0000
-Received: by mail-pz2-x0d.google.com with SMTP id d2e1a72fcca58-85469b35611so311624b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 01:30:05 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1789720204; cv=none;
-        d=google.com; s=arc-20260327;
-        b=h0UD5ayyw/FO1EOkV8R26Ds89D58po9+Vi9Uqi210NZoGMUOiN3hSIgClUg7A2JgUr
-         UhmiKsW/5JRiIKbqsfbZdGRoxgaGxILK2Sph9lrWdkx/b1ZyXMuLb+8ejQLXesZ3437y
-         TGdD23S1My9KDt0r7/bHqLNf4Jqxs9O0Mg0Q1zDu167gMhSs2M7rYPvqkcB7GMFcl254
-         Bepug/QJ4FB4L8snwgt+tHttBfD6A/l2EHseTZzlgrj0sfCrhb/ms6HvUqKFUU4/u0iv
-         mn5a5Bj27QXtrEV7+JWI2F7ePVQNNhpbq2L85JwQUpAfE5823RiX2qJE76/RxMAu7KA/
-         9TCQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=48Dk3iwNBX2jdzyXIh2OB09+BWpkuBMXHAxnmCdSn4s=;
-        fh=7VfapR26ZS9hGCsP4r7FepSwpCtUjmAKOllQbISZAj4=;
-        b=EJqTbx0Iga4ODOUya3QvvgfU1VmcfnnBFK+eTg0Bs/A6rlvW14NwtgDTR5haw/PwdI
-         ULuImlAl8j6Cy7qSypfYZQxZv6rj+PSMqGQZWQPWNj+pOzBbtI2XhBq/Wg0WNsIM9nkZ
-         K+P0n2Z3wl2b2WSGE8ConLpV/qaabsCJI/CwRnQgmgCjJX2Le5gYy37BM5/+3rfm09/4
-         Ioy0yJXO2i/LFXzeKmmeEaUQdUUcGnep3JbLgcEBN+vVaPZOS9PaKUraTnHZJX32Oqts
-         vuAxGlXQWeEXXulbPoPqsMdl/ycaQ8gW6Tf2iidbfCvzY6FW08b781V8Kpaf7kTgSKy4
-         lTVQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Fri, 18 Sep 2026 08:33:04 +0000
+Received: by mail-ed2-x0f.google.com with SMTP id 4fb4d7f45d1cf-6aa1da63791so587794a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 01:33:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789720204; x=1790325004; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=48Dk3iwNBX2jdzyXIh2OB09+BWpkuBMXHAxnmCdSn4s=;
-        b=DkcBIBKR9pb3D0USjUpPSrXALpgjEHDZv4IIjjj9erHZUOCAUAAWptqTbrZgyNGyvx
-         zg/JMEp2Et2QBLTELtp8wfctq4gAxDAewlb7dLO9Bumj9pJTptNCRx48HavRs6TQNdCj
-         vrAO2aJdFgqwgU+QXIRNTMYqTYni2Fgms9tMs0jHhs8waRIhddUmvld0GwOMGUw6p0Qd
-         WD+J0FT0vF/2x/xpb+0c1yUDSOfKkeaEGixz4wQN//z2AGdxrQTYrOkqRoFGeeyCVfM+
-         hOJ5ZetTm0oXRonbCmxXfeyTCqx6N2QFC4+MmS9sQ/X0/b9BPFa4HnRobh90LYFp/8Y9
-         /Igw==
+        d=linaro.org; s=google; t=1789720381; x=1790325181; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=pKTzsHsh+KOl7XVkDAfUJy4MbfFG1awKeay+vTS1O6M=;
+        b=cTlugQFuL/TTkmzBQrVTCfh3hFkBqgYO2DRu2zslEA8UmDlmqp6WqOk+CeZd3fU+pf
+         UXbrC/UutJ17lRg+UDPL61zidJQzbzN6PNQ1X4yGmycfa8B6vznRHi1JHdF7vswPxbBq
+         ZAcJ1a0rwLutH3MxQTx+qd5w2YU7GBrSKURVElkKt3YVCK7AyZwq0hHofeeu/1TMvGPj
+         HV3ssoIACeFQC0l8novKnWWcFBELG+RzhDfxAaNIhnHQQBzDkETRyOcJ3GQ8EMCthPgx
+         Ggptjpy5SZDih0vHcMc82LvXhJ9GZuiC1cBAtQltuAS2646s+J8jTZwYjhmHCq7ElrZ7
+         6geA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789720204; x=1790325004;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1789720381; x=1790325181;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=48Dk3iwNBX2jdzyXIh2OB09+BWpkuBMXHAxnmCdSn4s=;
-        b=UVQDcgznKjP1D7x+NSOzrEj/hfZQDnTESi5dlN1L7HAcIhmJFX20g7nZRG2HW8q47+
-         g6CmmGuzlHjAZiOKDYiVcdSTC8FBWbofyK7Sstzfw0bnLseoj5n6VSkH4dPy12mkjgLW
-         qJ3/I9iSMcjQOiRRadz0954JO5cDp1Vb6oByqHCLboLf+AimEZkCC6a2G7OkyQUcAd0x
-         p2NJCOjF3Sdf03vh8u2+Ryn6WbjElDFsE+WZH2yx6B2qRw4bsHdvwXr3bXoMPiToi+Hw
-         4XDbGigBg2K0n1xKj9dSwZTyThsM0ueIrzOwf33hWPJZg4u3KO/wXjaxvw+5eNpUFXkc
-         FEbQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwMX83QWZ9ZElMfDx9hwTEBW/SerU6vvhJdKC0QopQNydhOZYM48L+Gv9c1ZFU35uPIzCPNQvv/XWLFyZ88IYDT@lists.infradead.org
-X-Gm-Message-State: AFuF++lFTMXJwnqta40LN9r/3mu/50fC6VmDiSLoMwW9eGGA8EHo01vW
-	pIKSPL7co0ifMIPsH0GRf33GPQyDROwhU0FcdCI5pKfp+R0TyBuo2BBJpx3vDm2gR6hBup8w3BA
-	r0/ZxKe3qK0L7lbNPlYx4/Hn9oAIcBw8=
-X-Gm-Gg: AYBFou17d94xR6jSbLeGyLMrdsc78aCrV6y3d4ZysjdJ5iNzK0w9wFzgRPvGhmZsqF7
-	yuv1Km/drM83b52A8jOxNKkeAD504Rl4UOHxh3ojDvUcBTUMY8OKGLRyVrMk05kbsLkrYBlETjh
-	yMFRAlu8SJ+J7MjIkwr+yHXj4xcINWlpq93hu7i5QXuPJhs9ectTQ++cqhhkdJo30/z0DBxBuFa
-	mTjEXbGRTXQbiZlxZL7XRABzPZD7rOaeCVFug7JV5yxgf2g+javSSVLtdfarTwczvAzNN5NGf7V
-	2Bm0cWL0FSlO44oduFyaCHlnzFeNcTAllwuQ+uwzPUD70HiOuG5xKVNY1aYWaTmOXzWVDpEXnZv
-	pI4ShkR++HR/jtpWoUskUuUtmyIiQc3+dTUM=
-X-Received: by 2002:a05:6a00:1f06:b0:857:73e2:9108 with SMTP id
- d2e1a72fcca58-874ddbffd9bmr3487891b3a.24.1789720204444; Fri, 18 Sep 2026
- 01:30:04 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260917183602.GA1036092@bhelgaas> <7c2a8582-280e-471a-b4b0-037b2cda6ad8@app.fastmail.com>
-In-Reply-To: <7c2a8582-280e-471a-b4b0-037b2cda6ad8@app.fastmail.com>
-From: Semih Baskan <strst.gs@gmail.com>
-Date: Fri, 18 Sep 2026 11:29:53 +0300
-X-Gm-Features: AcwNN1Vmx2igfjBEkpa8Vuj31sAw9NZLYiN87fYoRwyCYEORDw-WFA-KB1pOT20
-Message-ID: <CAAsRjRnV-RTddO6h2XCUz2N5pB0pS8i_-_2XRcD=WOTA7AAFZQ@mail.gmail.com>
-Subject: Re: [PATCH] PCI: iproc: Use pci_alloc_host_bridge() on BCMA
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Bjorn Helgaas <helgaas@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, bhelgaas@google.com, 
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
-	bcm-kernel-feedback-list@broadcom.com, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
-	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, linux-pci@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Rosen Penev <rosenp@gmail.com>, rani.hod@gmail.com
+        bh=pKTzsHsh+KOl7XVkDAfUJy4MbfFG1awKeay+vTS1O6M=;
+        b=feT3YSU0Wk8gyljWeybDtJG8N5qCb+0HyWQdllkjrIfykpp5zoDaB9jVbE1tGipYfb
+         RZRezJ4+O6cdBixgJBIb0AZ/FKtzohjM70S3/uiAvV7qRgzbbnPqzz1lHtUMO4CHHLWO
+         3gJjS0l5taVpjINIUMxVHOWfAHG6Q4AkzMU1FThiremzD6lXN5iMR413FUsjKh+zV+04
+         BZyx4R/R7IuJcbyV0O+Oqvq3s46EWSnGxFOso2uqzR7iW/kQoJEY2rNkWD3Y3DFVzYxH
+         oo2xCU828Ru/ENV5bBeYGO5dAEoEOxvD8ohlknXhKkTyuOeevi+wPJE4ouVDLOL8Qp/2
+         iVAw==
+X-Forwarded-Encrypted: i=1; AKwUvBwWQyDG4ARwaGoW/WiOpbM3pn40xN0v9v7O2r19jQDZ2e5hkCB//tt1PCZwCVeEQR6nL+ZsTDjryw/NQYolIqtw@lists.infradead.org
+X-Gm-Message-State: AFuF++mi4k7h7axl3GjZ7MReXYyqWcKwwfLRBISDF7WgInBIUQxebt7p
+	k05ymXPA2/MvCf9nqQz3nasAZ6nGAuob0MdiH178JnpLDSyvz0RTXVAr1NCPzoT7S9c=
+X-Gm-Gg: AYBFou3Wd+2USpteffiKrLNgcfrZw2yISQhgAdcgD/Y/+6OVES1JBM3LqdHtX6BojKY
+	1jL3xXkeewlkfCwPPuR6lVcp5NtuCNvLNTJrqqh43AnY52AldQ5QN7ttuhjWjpa/Vef1w5AJHta
+	SkrVcccfMbmtmxN2l1yT6nMe9vx27o58Avp5162fwdyUxfbYAGITHBRaQmxXWtqIapsSPC6cReL
+	0hDIGtB4kiEGWfWzdad4BPF0Ij4/ydzxYGFWoYCfvUr1tHYglmjqPOl29pa9izEKHzKGXmBleuj
+	dLidKaGNqjdYZoCIok17nykL6/BQ7MGr6cLDbQGYzucJoD+JovLSe28iuJpk48ufOiIqjjQJk9J
+	I/qPfEMceTIKTeQvhGmZ0MTe1dtDJN0oYQ3r5xbMtFfA6OOXTA2g/mvJtrnfWxwys39sv/q8PJv
+	ggA8V2kWzB54n3jGaQB8DRAhSpsTWSFXvQoUGLW+2v3biLgMebkOwBRExpBSiNspwJty5bnECO2
+	wM=
+X-Received: by 2002:a05:6402:4026:b0:6a8:e223:fee5 with SMTP id 4fb4d7f45d1cf-6aa531ef01fmr709732a12.44.1789720381295;
+        Fri, 18 Sep 2026 01:33:01 -0700 (PDT)
+Received: from draszik.lan ([109.255.181.4])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6aa59605618sm513138a12.11.2026.09.18.01.33.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 18 Sep 2026 01:33:00 -0700 (PDT)
+Message-ID: <950335110f9d9c22a026fa5174e492c4194299a5.camel@linaro.org>
+Subject: Re: [PATCH] phy: exynos5-usbdrd: Use dynamic phy_cfg size to
+ prevent OOB access
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Selvarasu Ganesan <selvarasu.g@samsung.com>, vkoul@kernel.org, 
+	neil.armstrong@linaro.org, krzk@kernel.org, peter.griffin@linaro.org, 
+	alim.akhtar@samsung.com, pritam.sutar@samsung.com, kernel@lvkasz.us, 
+	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+Cc: jh0801.jung@samsung.com, dh10.jung@samsung.com, akash.m5@samsung.com, 
+	muhammed.ali@samsung.com, thiagu.r@samsung.com
+Date: Fri, 18 Sep 2026 09:34:24 +0100
+In-Reply-To: <20260831070309.158069-1-selvarasu.g@samsung.com>
+References: <CGME20260831070349epcas5p4c62a4e46592dffe95723ddd51a6068e0@epcas5p4.samsung.com>
+	 <20260831070309.158069-1-selvarasu.g@samsung.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-9 
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_013005_463436_A2675271 
-X-CRM114-Status: GOOD (  19.62  )
+X-CRM114-CacheID: sfid-20260918_013303_454577_DB213375 
+X-CRM114-Status: GOOD (  13.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,60 +107,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 10:27:54PM +0200, Arnd Bergmann wrote:
-> Would it be help to change the probe order so the bcma driver
-> always comes before the platform driver?
+On Mon, 2026-08-31 at 12:33 +0530, Selvarasu Ganesan wrote:
+> The probe loop currently iterates using EXYNOS5_DRDPHYS_NUM (2),
+> creating both UTMI and PIPE3 PHY instances regardless of the SoC
+> capability. Several SoCs (Exynos2200, Exynos7870, Exynos850, Exynos990,
+> and ExynosAutoV920) provide phy_cfg arrays containing only a single
+> element.
+>=20
+> On these SoCs, when the loop reaches index 1, the driver reads past the
+> end of the rodata array, populating the second PHY instance with garbage
+> data. Since the configuration structure contains critical function
+> pointers (phy_isol, phy_init, set_refclk), any subsequent access to this
+> PHY instance via exynos5_usbdrd_phy_xlate could result in a kernel oops.
+>=20
+> Fix this by adding 'n_phy_cfg' to struct exynos5_usbdrd_phy_drvdata to
+> store the actual size of the phy_cfg array for each SoC. Update the
+> probe loop and the xlate function to bound their access against this
+> value instead of the hardcoded EXYNOS5_DRDPHYS_NUM.
+>=20
+> Assisted-by: Claude:claude-sonnet-5
 
-Only where the DT window matches the EROM one, because that is where
-the platform driver backs out.
+Shouldn't this be 'Assisted-by: LLM'?
 
-In the tree as it is, the platform driver binds first.
-bcma_bus_register() populates the axi node's children before it
-registers the cores (drivers/bcma/main.c), and with both drivers built
-in the two PCIe drivers are already registered by then (both are
-device_initcall and drivers/pci links before drivers/bcma), so the pcie
-platform devices are bound as soon as they are created. The order of the
-two objects in drivers/pci/controller/Makefile does not change that.
+> Signed-off-by: Selvarasu Ganesan <selvarasu.g@samsung.com>
+> ---
+> =C2=A0drivers/phy/samsung/phy-exynos5-usbdrd.c | 17 +++++++++++++++--
+> =C2=A01 file changed, 15 insertions(+), 2 deletions(-)
 
-I tried both orders on an RT-N18U (BCM47081, revision 0x01) with both
-drivers built in, on an OpenWrt 6.18 kernel with pcie-iproc-bcma.c as
-in this patch and no wifi driver built.
+Other than that:
 
-With the platform driver first, the board did not come up, on two
-flashes. The same tree built with only the BCMA driver boots it.
-
-With of_platform_default_populate() moved after
-bcma_register_devices() as a test, it boots. pcie-iproc-bcma takes the
-first controller and enumerates the BCM4360 as before. The platform
-driver then probes the same node and fails in
-devm_pci_alloc_host_bridge(), which it reports as -ENOMEM:
-
-  iproc-pcie 18012000.pcie: resource collision: [mem
-0x08000000-0x0fffffff] conflicts with PCIe MEM space [mem
-0x08000000-0x0fffffff]
-
-On the second and third controllers the DT window is
-0x20000000/0x28000000 and the EROM one 0x40000000/0x48000000, so the
-platform driver's request goes through and its probe carries on with
-the DT window until the link check, which fails because nothing is
-connected to those two on this board. That is as far as this board can
-show.
-
-On the first controller the DT window and the EROM one are the same,
-so the window plays no part in the no-boot. With PCIE_IPROC_BCMA not
-set at all the board did not come up either. Clearing
-has_apb_err_disable for IPROC_PCIE_PAXB, one line, makes that
-platform-only kernel boot and enumerate the BCM4360; nothing else
-differs between the two builds. The flag makes the driver read and
-write APB_ERR_EN (0xf40) around every config access to bus 1 and
-above (538928fd6ce8). In the bcma-first build the platform driver
-never reached bus 1. The PAXB_BCMA register table has no such
-register, and 404349c5c806 ("PCI: iproc: Add BCMA type") describes
-the BCMA-based NS as a legacy PAXB with some registers missing. On
-Rafa=C5=82's BCM47094 (revision 0x07) the platform driver as shipped
-enumerates both BCM4366s. I could not see what the access to 0xf40
-does on revision 0x01, only that the board comes up without it.
-
-Best regards,
-Semih
+Reviewed-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
 
