@@ -4,86 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27BF9C982D9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 10:21:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5225C982D9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 10:32:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mboPEqvEACJTAtKfdZ1iQemoHuICqAXG3If2FFLFlMA=; b=or478DiN8Yc7quyhGU1RJbFsw5
-	lmvMjIpja9F+OL4aNyUz8T7SWFRTnOJMQBA7i+2SMUXDkiO/Gyq/ksqzhHr/rUyaYWUxW+jD+QMOr
-	3dkE1fUrhjcGWgRH4mUlIgQq+x5Mwn7EXjnzD9tT63aCLWyaPFf0wzccTHBFviGPJUUNl4knkMqRB
-	jwW8LkdTPNlmWcfxEh+y/ppSf/gGuwnD/8ABPz3R8HYayinvU+6MTjsPwbXB8BBHF3mGGHAW3OvYL
-	LA8gwV6NKZ05AQtef+9g/E01Da/R0I+3S5+x9YrkSgpM+yUeba19jFU4J5k512IZtK2ZJjHfDx3hw
-	U9WFVCXw==;
+	bh=cJlPJ6KrwzaPtZRHGm72iMAfPMKAwd2u1wBguAbnglk=; b=RKNAyjJZyZ9gnt5aJgh/DA6Ohg
+	0guR5p+1SdJYB5uogDzz4JZQ7QmviYqFXsM9uXbHhxNAvnsKVhpnkTctmSrhGZ48RFetuYRMe3Coa
+	6ACNfXxBOe1nSd7Ege+4j4UGVaxxYcRTv/l/px00oiworlbvS9dGurwRaLYrZwQHuMuY2bhx9QROL
+	IySLk9wDnsseoxsUAv7r/qoBkU5KpnByDspPKyi+dDypV/zo+Es0spcAilUGniqKTPNqzmi/VzbCL
+	AMw1yH5Ki8mK6SfsmT5eXRjP4z4hgyTYe6lPBXK+1U+fIGgWGLxKTVcT9wacg1FZqFmI+VNKH94tK
+	/mS0IRAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Vik-0000000E5Qn-1tdi;
-	Fri, 18 Sep 2026 10:21:30 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1x7Vtk-0000000E6DB-180g;
+	Fri, 18 Sep 2026 10:32:52 +0000
+Received: from fhigh-b2-smtp.messagingengine.com ([202.12.124.153])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Vid-0000000E5Or-2Okf
+	id 1x7Vtg-0000000E6Ca-49Jv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 10:21:28 +0000
-Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20260918102113epoutp01cc8d0f6839119cc864ed767ae77f4696~WYxwJDTn50116101161epoutp01_
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 10:21:13 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20260918102113epoutp01cc8d0f6839119cc864ed767ae77f4696~WYxwJDTn50116101161epoutp01_
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1789726874;
-	bh=mboPEqvEACJTAtKfdZ1iQemoHuICqAXG3If2FFLFlMA=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=q5/rYOyzAIRpwubUTigeHz6catvyr++oiaU0INH8BrZP7KLLV9GmF/P5lT+WyNEqy
-	 UjLYF4YCdC/VH4C7Haw4t0HWT7x0kdeA4NnZG3++Eq4dMR/OGK38YtBcwoHISHcvKG
-	 4qkctIkTlEfF4mqOP/2EOkD1nnjrUbES0DxJmT9w=
-Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
-	20260918102113epcas5p2a37090873c7e08a5b15b0fecf005810b~WYxvgUOtV0355903559epcas5p2C;
-	Fri, 18 Sep 2026 10:21:13 +0000 (GMT)
-Received: from epcas5p1.samsung.com (unknown [182.195.38.92]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4hmTDS15Ysz6B9m7; Fri, 18 Sep
-	2026 10:21:12 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
-	20260918102111epcas5p202e3b90fcfd624683f76a2ee45f199d4~WYxt86RB51756317563epcas5p20;
-	Fri, 18 Sep 2026 10:21:11 +0000 (GMT)
-Received: from [107.122.5.126] (unknown [107.122.5.126]) by
-	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20260918102109epsmtip1577c944b77491d8b4992d17593276ce2~WYxrze7hA1639116391epsmtip1_;
-	Fri, 18 Sep 2026 10:21:09 +0000 (GMT)
-Message-ID: <32029c62-faad-42e3-b1bb-e66772ca8ac0@samsung.com>
-Date: Fri, 18 Sep 2026 15:51:08 +0530
+	Fri, 18 Sep 2026 10:32:50 +0000
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id CBA507A00F2;
+	Fri, 18 Sep 2026 06:32:45 -0400 (EDT)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Fri, 18 Sep 2026 06:32:47 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1789727565;
+	 x=1789813965; bh=cJlPJ6KrwzaPtZRHGm72iMAfPMKAwd2u1wBguAbnglk=; b=
+	dFvURW/J1SQZAu0mUwTYAC8lxjZsdsK3kzB8b4zNOBTxRBKp9yCLCsbJMNSfwLjc
+	QXsV5DtzA4gAVpQWRegAHW2JOoNVnloVGZ7wFX0pm5RWgVEAkX9xlLBPjgTSzMWN
+	f4JWZ8XfWFZXqNdJBun3Y3mF6disUH0g7A86htzKdWhZLXvemCnwX36w7lbvFvD4
+	IqaGq1n2HLz6nbEaDtDgXhF1hGkIKSLyQEGBQPTYS6UPTKfVFg4AoS8GNu/2XgVA
+	ZsZ2u8dPnklpIitb5FlisouG2Rift1/SpoPyXuukCx1xj7SstAX7b68l4PVGmcP6
+	Ocz99nNdHnJkPlay3JB+3Q==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1789727565; x=
+	1789813965; bh=cJlPJ6KrwzaPtZRHGm72iMAfPMKAwd2u1wBguAbnglk=; b=T
+	yBzL8HmNLcB4gacab2fwsDqevHG41Eea7u0dsn+T7Deg5s/eIUODwGy1FTXT3pji
+	X1EStDHwMjbFdtEwBbhGc/KI+WkL10QK59PDR0dGtkdlkpgMD3o3aUdFT13GnZFw
+	oeAJDFkpexXOuvnP9DiNVLhD7+4hH6lyLVvSGBwMo+gY2CVYFdAd4aH6uKCOJD+O
+	kSP3NPNqwRfYphnWwjxDxWvY7MLZLy59QuI/psVZrWppX1dxesJJ0yDm2/GmTKY8
+	fUSgFYl/LGSkM59xeI5ZSWv0WEGGt2Wrhzk7m4/OhUSJ0mTbpo81KC7XH8gDfuxb
+	LhTK1p55s/dRb8LwJsKJw==
+X-ME-Sender: <xms:SBOtamZCGAGaaQSZa4Lu85u4Gc0johHUqPtR1QTS66s2s_KT0aOgJQ>
+    <xme:SBOtakO9kshPefeRgkgOllQ3PmFYrPb4Bz4UQPFyTlHFEy-GfT5b8nhKh-asIOtC9
+    xrxkMwPDvpnCBClWo_qwBICS0jwoVAoO9z0So-j6LtOTtvd2PxuVlg7IA>
+X-ME-Proxy-Cause: dmFkZTF5VEATVaMYyKFJSRUSQdUBNm2t11Xfp3YCiJoB0OBrOzg5c/hUGdi4k2O0WTLDO/
+    mZZQH7joCc/ok/6bLRnUiKydUYRV0MrUpZS317vfpcDk99C5OW8krUIfr5LYaC7moreYJi
+    pqL8zXo3BeiZXDJIWaor8FXuShpbw7Z//hwAuoYM3IYkQ99NJ+7Nludjrsns5Iajr5mH4s
+    GlZGPytp6Xx54QBDrRThFQ/SpnIcX6JvukKQdEVhOaxlvsHD4ePmPTYDyLvsB/6cwD8Csz
+    BvM5xrqdztQPBwpVx2IHKkedVbDvJGaJQQsfLeX7yPlXJdjBCNRDOj0MuOK1sLZshUdUnn
+    l82RJz14zbSswblwf/TrHlD/eCT0JjwIleMqrx4Z6/oD8HlnpePPBDT2i1PCUrW+/mtGGS
+    m5rj12PzD1tIcEKdTZiwoS3yFocHPXClCxfmtN4kFZQC1+uJllgvPLrq0ZU5ESwuPbfROl
+    2YeqGL+IPXem+coSi8F05UaAqbM8wJaN6xcOGxS/8z8weVxRCMKg1fWa30yojLJWP1xBxW
+    /HDTt+VwKuBjEdCXWgdQpCNj4Mv4S8S/Ji9r+qSHBN6EVXR4yfwKRFpvNKOfUMb6zOPH3D
+    Um/j//xJdvXm4zJhztkAWQbyfGlTt8/BuINPQiBHqe9+hJHgCLCFYC5DDu/w
+X-ME-Proxy: <xmx:ShOtau-h_mrJALDN1uhg9S1I4pAiddHedX0NHYvJJt9oyC2V0l3JIA>
+    <xmx:ShOtandIZHuVs4AveSr8Ge1jJupVLYcC8esReVwlOwZ3qTH-oW9ZSg>
+    <xmx:ShOtaivkIO2fX4T9cVotsuhFI97_rlcjL7Wkc2FO_jTZPhAzZuac9g>
+    <xmx:ShOtao1fvoehWFnWlhotg4RTUf-GT2-RE4PqHNAvvmdgngvn-ibG4w>
+    <xmx:TROtavBfFsvnDRdY0B5AyM6DmDmFa3PRTYdunkjNnAeDvXaEKcbH0SzL>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 0F91B32A0085; Fri, 18 Sep 2026 06:32:40 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] phy: exynos5-usbdrd: Use dynamic phy_cfg size to
- prevent OOB access
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
-	vkoul@kernel.org, neil.armstrong@linaro.org, krzk@kernel.org,
-	peter.griffin@linaro.org, alim.akhtar@samsung.com, pritam.sutar@samsung.com,
-	kernel@lvkasz.us, linux-phy@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: jh0801.jung@samsung.com, dh10.jung@samsung.com, akash.m5@samsung.com,
-	muhammed.ali@samsung.com, thiagu.r@samsung.com
-Content-Language: en-US
-From: Selvarasu Ganesan <selvarasu.g@samsung.com>
-In-Reply-To: <950335110f9d9c22a026fa5174e492c4194299a5.camel@linaro.org>
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20260918102111epcas5p202e3b90fcfd624683f76a2ee45f199d4
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20260831070349epcas5p4c62a4e46592dffe95723ddd51a6068e0
-References: <CGME20260831070349epcas5p4c62a4e46592dffe95723ddd51a6068e0@epcas5p4.samsung.com>
-	<20260831070309.158069-1-selvarasu.g@samsung.com>
-	<950335110f9d9c22a026fa5174e492c4194299a5.camel@linaro.org>
+X-ThreadId: A1v-knPnKEnN
+Date: Fri, 18 Sep 2026 12:32:12 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Semih Baskan" <strst.gs@gmail.com>
+Cc: "Bjorn Helgaas" <helgaas@kernel.org>,
+ "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ "Manivannan Sadhasivam" <mani@kernel.org>, "Rob Herring" <robh@kernel.org>,
+ bhelgaas@google.com, "Ray Jui" <rjui@broadcom.com>,
+ "Scott Branden" <sbranden@broadcom.com>,
+ bcm-kernel-feedback-list@broadcom.com,
+ =?UTF-8?Q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>,
+ =?UTF-8?Q?Rafa=C5=82_Mi=C5=82ecki?= <zajec5@gmail.com>,
+ "Florian Fainelli" <florian.fainelli@broadcom.com>,
+ linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, "Rosen Penev" <rosenp@gmail.com>,
+ rani.hod@gmail.com
+Message-Id: <dc370463-125e-48d2-af6b-c3b4783f57ea@app.fastmail.com>
+In-Reply-To: <CAAsRjRnV-RTddO6h2XCUz2N5pB0pS8i_-_2XRcD=WOTA7AAFZQ@mail.gmail.com>
+References: <20260917183602.GA1036092@bhelgaas>
+ <7c2a8582-280e-471a-b4b0-037b2cda6ad8@app.fastmail.com>
+ <CAAsRjRnV-RTddO6h2XCUz2N5pB0pS8i_-_2XRcD=WOTA7AAFZQ@mail.gmail.com>
+Subject: Re: [PATCH] PCI: iproc: Use pci_alloc_host_bridge() on BCMA
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_032125_276696_3C10F387 
-X-CRM114-Status: GOOD (  19.54  )
+X-CRM114-CacheID: sfid-20260918_033249_315219_E2EC3DC7 
+X-CRM114-Status: GOOD (  25.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,41 +121,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On 9/18/2026 2:04 PM, André Draszik wrote:
-> On Mon, 2026-08-31 at 12:33 +0530, Selvarasu Ganesan wrote:
->> The probe loop currently iterates using EXYNOS5_DRDPHYS_NUM (2),
->> creating both UTMI and PIPE3 PHY instances regardless of the SoC
->> capability. Several SoCs (Exynos2200, Exynos7870, Exynos850, Exynos990,
->> and ExynosAutoV920) provide phy_cfg arrays containing only a single
->> element.
->>
->> On these SoCs, when the loop reaches index 1, the driver reads past the
->> end of the rodata array, populating the second PHY instance with garbage
->> data. Since the configuration structure contains critical function
->> pointers (phy_isol, phy_init, set_refclk), any subsequent access to this
->> PHY instance via exynos5_usbdrd_phy_xlate could result in a kernel oops.
->>
->> Fix this by adding 'n_phy_cfg' to struct exynos5_usbdrd_phy_drvdata to
->> store the actual size of the phy_cfg array for each SoC. Update the
->> probe loop and the xlate function to bound their access against this
->> value instead of the hardcoded EXYNOS5_DRDPHYS_NUM.
->>
->> Assisted-by: Claude:claude-sonnet-5
-> Shouldn't this be 'Assisted-by: LLM'?
-You are correct. I will update the tag to 'Assisted-by: LLM' as per the 
-kernel documentation in the next version.
-
-Thank you for pointing this out.
-
-Thanks,
-Selva
+On Fri, Sep 18, 2026, at 10:29, Semih Baskan wrote:
+> On Thu, Sep 17, 2026 at 10:27:54PM +0200, Arnd Bergmann wrote:
+>> Would it be help to change the probe order so the bcma driver
+>> always comes before the platform driver?
 >
->> Signed-off-by: Selvarasu Ganesan <selvarasu.g@samsung.com>
->> ---
->>   drivers/phy/samsung/phy-exynos5-usbdrd.c | 17 +++++++++++++++--
->>   1 file changed, 15 insertions(+), 2 deletions(-)
-> Other than that:
+> Only where the DT window matches the EROM one, because that is where
+> the platform driver backs out.
+
+I'm probably missing one of the steps here, sorry I'm not too
+familiar with the platform.
+
+If the DT window doesn't match, how does the bcma driver find
+the device node that corresponds to the EROM entry to populate
+the child nodes?
+
+> With of_platform_default_populate() moved after
+> bcma_register_devices() as a test, it boots. pcie-iproc-bcma takes the
+> first controller and enumerates the BCM4360 as before. The platform
+> driver then probes the same node and fails in
+> devm_pci_alloc_host_bridge(), which it reports as -ENOMEM:
 >
-> Reviewed-by: André Draszik <andre.draszik@linaro.org>
+>   iproc-pcie 18012000.pcie: resource collision: [mem
+> 0x08000000-0x0fffffff] conflicts with PCIe MEM space [mem
+> 0x08000000-0x0fffffff]
+
+The driver should probably check earlier if the device is
+already bound to the bcma bus, rather than just trying to
+request the bus windows. If anything, I would have expected
+the conflict on the 18012000 address for the register
+base.
+
+I see an ioremap() of bdev->addr in drivers/bcma/scan.c but
+don't see a corresponding request_resource() for it, so maybe
+an easy fix is to add this to the bcma bus scan and
+make sure that always happens before the pci driver probe?
+That way, the platform driver would just not be able to
+probe on a bcma based SoC regardless of the memory window
+settings.
+
+> On the second and third controllers the DT window is
+> 0x20000000/0x28000000 and the EROM one 0x40000000/0x48000000, so the
+> platform driver's request goes through and its probe carries on with
+> the DT window until the link check, which fails because nothing is
+> connected to those two on this board. That is as far as this board can
+> show.
+
+A few more questions, for my understanding:
+
+If a board has nothing connected to one of the host bridges,
+why is the pcie host bridge still marked as status="ok"?
+Do you need a driver to put it into low-power mode, or
+should this just be marked as disabled?
+
+Does the platform driver reprogram the windows to match the DT
+description, or does it rely on the boot loader to ensure they
+ranges/dma-ranges properties match the register contents?
+
+When using the bcma driver, does that update the ranges properties
+in memory to match the EROM contents?
+
+      Arnd
 
