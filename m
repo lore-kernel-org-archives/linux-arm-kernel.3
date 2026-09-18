@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B4A3C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 15:03:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 073D0C982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 15:03:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7Kq4FY8QEDk1BLA1wcKf1js43+qFWt5S2y+8get5iaY=; b=sHIXk6lCIZUwiWLCzjj96Zj76z
-	KPaI8F+yeX64LbLXuWpLBkeqVcU3s6nfpn0n7mUxiNINySKn0WXzsCrahKG8b7bKcwY2Hq6DEjAL3
-	ERUwMz43xpnYiRmbOtSpJiSuzYhfF5Bamm3qltKJuPVPCGSjJpXXVs+RGCC815J+8cbgDmRu57bAQ
-	n9e3kb6SqL7V2tVPDJ9DAJuf9HRA4gbTteX/vlOaWKS74GvvJrf4zTnf/yH/O65NTY+EVPsNouaCy
-	YhIqKyw4N7+Xi5Xp4ZBrgR2O4N7yxrGA71n5cv/6iFtTxLK2/A1yMspfD3dcpLM16KtJrORDFDT/O
-	+Z/14U0Q==;
+	bh=PJerFyzkPWj2kC6tDp4sQaXJPJbZR893tvs3BZgfH2o=; b=fZ0ljU/T/ZFeB011Q7by92UVTw
+	R+kjdjXs1z6vvTLfl40owWHxfFrGPcD99+LW3iJL+jeeUCfz4681XJtRQm+na9y4ao+6FibYYwUyi
+	MkId+2MpMOySj5/VWU9aXShP5T/eaUvcUVPIBGLEhA9aCmp2q1suZ9+o7tH9Zq2Cz0Krbx8Xe+U5Z
+	Q8FQwtz3vwUntJ0AROYDrDmtLAsjp0Rs+b6aaK4N/f5tlzRVoRWf1XFomhd916fn1LbUvQd63LGt5
+	b8RM0sDWjP3JeT9oSg0du+PvAwHJTdBZ7/x/xFKQyith+TISAxZ3SrsPsx/mS+K8kHh4H7z4oP5Tu
+	DOKLt45A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Ygt-0000000EWzE-2L7f;
+	id 1x7Ygt-0000000EWzz-3LF1;
 	Fri, 18 Sep 2026 13:31:47 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Ygj-0000000EWtc-4Af6
+	id 1x7Ygl-0000000EWuA-2SPI
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 18 Sep 2026 13:31:38 +0000
+	Fri, 18 Sep 2026 13:31:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=7Kq4FY8QEDk1BLA1wcKf1js43+qFWt5S2y+8get5iaY=; b=nqrJCRphtru5K2RjRxaBK4fJSo
-	dOhjqBReOVod/XbumKM7lde8e+B81BUSJdsslbjUgomKX1kFjsqzRUvfqSfVnCZxjUz9Le9vO8WZe
-	2P2CWgeHFY2VDDb+G359rP0vsUriI2FaFPcTYGWCDtuz6fqq6fkal8YHEd+HQiTXUU/L95P/cwFl4
-	faXshLgwxFUwHzBtz/u+PgtOvVqXTA8EvPlzrtU2ippazuvULrys9wBDtyN5cn+e3hjq527dM7uFo
-	G8oItG3IRSEg3asV7V4laORaZI+YY8Xc8YbDYshjbVQKN2OuEpYUHUBpFYhBNbfuVgBoI0FWejs6R
-	lOM/5jYQ==;
+	bh=PJerFyzkPWj2kC6tDp4sQaXJPJbZR893tvs3BZgfH2o=; b=Hy8Z4s+pP8VEXXvVv5QbXTPWrU
+	d2+LrlqVVXC01D325LjRsliE8ZQ/MTURmYyIE4TATfqx2dCw8rrcvayp/uE25jGGxuUqU2vqe5gm5
+	ciNLLvGNzo3N7Z8JhQk1fSIsK4OS4bAM5F/yL9GfwJa4MaLetVJSde8x2U7Tem58BMp5hfhs9r4ox
+	00FLJqngdPoSCkCfFH+h+TVWG9crE940c8ZOFWNvIGTsvvSxzZ3DB+pl2s1t9PoAYcP3nCFm252JT
+	zojFte/bjeqN0wB77Y2CoY7VPSo5VNRN9WnSYZy+ITLBAGRIb8VO3J58pZguyTB8s1j/AXslbJuCV
+	Nzq3eLKQ==;
 Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x7Ygg-0000000A8XG-3Pco
+	id 1x7Ygh-0000000A8X0-1QeK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 13:31:36 +0000
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68IA1eGB3979474;
-	Fri, 18 Sep 2026 13:31:22 GMT
+	Fri, 18 Sep 2026 13:31:38 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68IA1aJ2803415;
+	Fri, 18 Sep 2026 13:31:20 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=7Kq4FY8QEDk1BLA1w
-	cKf1js43+qFWt5S2y+8get5iaY=; b=pdQXN12dx8LQJWGWwVofN+K+fRKSW7a/R
-	Jjox1sUdvFoug4dhe9k1Ow8p2RYjr368VfDxRyEbBI1mMqpdPtXGHM+/W6s+uUj3
-	91hWkukaQPLIxzTNS9LIqQH+pBN6nU0HW0PRk3Wx1JWyDrXxIHkDxpoVvaUxSWyI
-	8c5h7YEXe852aa/HiCAjSHZ+DTVSdWMhJVnbgahO5hX3Ao+bbRfvto2nJOxK4YsV
-	OOEiyC1gpV5ftA4LM7d3rCDHFjlZkdAE7dLdQ/ONpQSWLKTtiD0+hUB44HbkjV/Q
-	BiStOr/11ZaG5CVfepb+TfKJcMnc/5F32fY1Rp+7sOrjsU+x6vJEA==
+	:mime-version:references:subject:to; s=pp1; bh=PJerFyzkPWj2kC6tD
+	p4sQaXJPJbZR893tvs3BZgfH2o=; b=capNOPzOD1E02x62atzFqiR3/2KEAwZ4z
+	4J0OEtBf2Sx0U/ybBG7MMUrtfxerwhQxaKgcpb5/3WyWyaBJzYwCkQjhY0FmOdXC
+	fuIcUybcKzaa0Hmr1vDNEXz4361a4yzVnCN8WvdZLG1njSwrVc/QUHi5vmuU0Sg9
+	0tzLaI4pmrqPQaP5igbLhy4Z1WFqAuEBOHoEtkFqUoNPORH7yuYNmbBd79dfu/HB
+	0x0Hg4Vz30jOEPm1450FWodqYI6EXQtVAmePY4VzTU19E1zhCfZbQvqBvw9tcRn8
+	E8JorFMhQS+CQXbG78kljqdSlQvYiNEdbUxzWT3OpeAeit95DIIVA==
 Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gmw5eftsr-1
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gmv5j813s-1
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 18 Sep 2026 13:31:21 +0000 (GMT)
+	Fri, 18 Sep 2026 13:31:19 +0000 (GMT)
 Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68IDNxAe695613;
-	Fri, 18 Sep 2026 13:31:21 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gra3fek7d-1
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68IDNtoF695598;
+	Fri, 18 Sep 2026 13:31:18 GMT
+Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gra3fek77-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 18 Sep 2026 13:31:21 +0000 (GMT)
+	Fri, 18 Sep 2026 13:31:18 +0000 (GMT)
 Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68IDVDO543123018
+	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68IDVBB146072144
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 18 Sep 2026 13:31:13 GMT
+	Fri, 18 Sep 2026 13:31:11 GMT
 Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 39C7E20040;
-	Fri, 18 Sep 2026 13:31:13 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 72E8320040;
+	Fri, 18 Sep 2026 13:31:11 +0000 (GMT)
 Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id E0BFE2004B;
-	Fri, 18 Sep 2026 13:31:12 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 1C13C20049;
+	Fri, 18 Sep 2026 13:31:11 +0000 (GMT)
 Received: from tuxmaker.lnxne.boe (unknown [9.87.85.9])
 	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 18 Sep 2026 13:31:12 +0000 (GMT)
+	Fri, 18 Sep 2026 13:31:11 +0000 (GMT)
 From: Steffen Eiden <seiden@linux.ibm.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -103,9 +103,9 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
         Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
         Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
         Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v8 14/29] KVM: arm64: Use accessor functions for core regs
-Date: Fri, 18 Sep 2026 15:30:51 +0200
-Message-ID: <20260918133107.1042730-15-seiden@linux.ibm.com>
+Subject: [PATCH v8 09/29] KVM: Replace CONFIG_KVM_MMIO with KVM_NO_MMIO
+Date: Fri, 18 Sep 2026 15:30:46 +0200
+Message-ID: <20260918133107.1042730-10-seiden@linux.ibm.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260918133107.1042730-1-seiden@linux.ibm.com>
 References: <20260918133107.1042730-1-seiden@linux.ibm.com>
@@ -113,35 +113,36 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
 X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE4MDE4NCBTYWx0ZWRfXxnSVzOquEoRT
- Ge43JShlD0pjtnWWebUghNqP9gI3ITcEhuekJvArIv5S1ZwuRgbTnctrJLA2olnTVViNt6aGVaW
- 32tSWtdnChEvMi4sXJh+cbHrs2XfhWEYyx/J+2gs2jYE71dtbvrE5QFCpa/+gS+kgkzjXcQ10a0
- Mi64ROvd+RR/XnpMkmu15Iu+bl8aZRoJBZxARvyEjhznjZMC8RLmfNFwgx2hqjFTLsNFS26I0kF
- kcRwreLQ3pdUKmfFeBf6Kt2pxm9/MG0e08iYn988Unqp0AgCNGCtmLAJn+6VCHrpC5VtGLu5kNu
- E6i470YV3qAPueFAfHbpIwb7aFETtqdkWA/WH37LLAgVfrGsoBKaay8rvGjCQTXqvLSq6rCe5wT
- FzoVhXl3kPxl4PmMnqC+GHdrDx7nahAdqORBcKj3OP+JEADf6jPZrZcXJ8N9KdF0sEZLM1C2c/i
- pmdT6lt0S0dyEIZ4Dgw==
-X-Authority-Analysis: v=2.4 cv=E/NYNqdl c=1 sm=1 tr=0 ts=6aad3d2a cx=c_pps
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE4MDE4NCBTYWx0ZWRfX5W8eSHV56JqQ
+ zxat/vZ8FLwoy1goBNurPRN9EJ59PsyrOOkWUumHTYDzkfZR+XAoS8Y823MGgNA4S2jAmffWnHt
+ iwnbgXhiJ3NdGxM55EyMZDmhsHd29HxUpqR0ApeGhKmNUCIloMWAAwUjCgqNFvgn6r2huURbYxF
+ cJHDAri4Uy8Abu7+2v7i1qG2LDBo9si10764Cr/f4NpE+snRN/NB68RHDlkvV5kcGIzkU84yrg/
+ H0OYKsLt564IJX107rvHNzwHHfEXiHS/v4PunYXwTASbgKUwkQ/Vep6nRaAUF5KaQen52fJwKRf
+ B6wXBqBCqcmBZI7MOBiPSlLVxIJWlHuPxzmk+g9gMZgJvPVuGnCm4VLi/jE/BlOBlc3iblJ9k94
+ WbXjOEmnW5bP5cMVPINitbihnuSHZOkP3UE0TJEJ6Bav/WBGSgWoilTTMEwaYHuDcvuRE+ZS+ML
+ B34JwO6+OO2TcHYwbPQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE4MDE4NCBTYWx0ZWRfX+wTm/+QPjKgk
+ rlnuE55E97Rq1z9h1NEp8QWVqC6kWaXT4F1VkbJAVSIvy1HC3NEQIaSdRRadmT1/8n/ybj7hrBb
+ 7I+D1j+VtAZQk0P+XvBMCz0bFy2nN+k=
+X-Authority-Analysis: v=2.4 cv=Zsx4uN7G c=1 sm=1 tr=0 ts=6aad3d28 cx=c_pps
  a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
  a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=V8glGbnc2Ofi9Qvn3v5h:22 a=VnNF1IyMAAAA:8 a=5d8JqmD_1xC0DvqtPZgA:9
-X-Proofpoint-ORIG-GUID: qcCBgPh0KK7EETcpVsndmPWRjc1yAd5c
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE4MDE4NCBTYWx0ZWRfX5Vtcu3rwuL/T
- 56miinYwUq6J9X1g/b7W7JPeFyVgJmrBwdRvjeK9uPvC6B7FBsj2zPqNyvcijZepL9SlUuVBx9U
- /Jee2B1JI1rV8yhGbOtaNSNApC8DFfs=
-X-Proofpoint-GUID: 1seeCj-Vufx83P-PhTYJVU21v1hkxc78
+ a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VwQbUJbxAAAA:8 a=VnNF1IyMAAAA:8
+ a=b18d5-NrEheKXPzz568A:9 a=ysjONUepx5X5FVbz:21
+X-Proofpoint-ORIG-GUID: ivCGvatQpcaSTNAG3aLlm7accMHLCFra
+X-Proofpoint-GUID: NFuGtSrDvcWlTIxdbTmNh1uMz78N_e67
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-09-18_03,2026-09-16_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 lowpriorityscore=0 priorityscore=1501 spamscore=0
- adultscore=0 clxscore=1015 bulkscore=0 malwarescore=0 suspectscore=0
- phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ malwarescore=0 impostorscore=0 clxscore=1015 priorityscore=1501
+ lowpriorityscore=0 bulkscore=0 adultscore=0 phishscore=0 spamscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
  route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
  definitions=main-2609180184
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_143135_372463_1A1C7017 
-X-CRM114-Status: GOOD (  16.74  )
+X-CRM114-CacheID: sfid-20260918_143135_598650_E30286BB 
+X-CRM114-Status: GOOD (  22.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,120 +157,279 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Instead of accessing the value directly use assessor function that
-abstract the actual location of the register values. Add a helper
-function to reset fpsimd registers. Enables other KVM implementations to
-reuse this code.
+Defining KVM_MMIO is not flexible enough for multi-KVM systems where one
+KVM implements MMIO but others do not. Therefore, remove KVM_MMIO from
+the config space and use the macro KVM_NO_MMIO instead.
+Define KVM_NO_MMIO for KVM/s390 and for selected KVM/powerpc
+configurations.
+
+coalesced_mmio.c is now always compiled&linked. However, for
+architectures/configurations defining KVM_NO_MMIO this effectively
+collapses to an empty object with no mmio code.
 
 No functional changes.
 
+Suggested-by: Marc Zyngier <maz@kernel.org>
 Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
- arch/arm64/include/asm/kvm_emulate.h | 34 ++++++++++++++++++++++++++--
- arch/arm64/kvm/guest.c               | 14 ++++++------
- 2 files changed, 39 insertions(+), 9 deletions(-)
+ arch/arm64/kvm/Kconfig                | 1 -
+ arch/loongarch/kvm/Kconfig            | 1 -
+ arch/mips/kvm/Kconfig                 | 1 -
+ arch/powerpc/include/asm/kvm_host.h   | 7 +++++++
+ arch/powerpc/kvm/Kconfig              | 4 ----
+ arch/riscv/kvm/Kconfig                | 1 -
+ arch/s390/include/asm/kvm_host_s390.h | 2 ++
+ arch/x86/kvm/Kconfig                  | 1 -
+ include/linux/kvm_host.h              | 2 +-
+ virt/kvm/Kconfig                      | 3 ---
+ virt/kvm/Makefile.kvm                 | 4 ++--
+ virt/kvm/coalesced_mmio.c             | 4 ++++
+ virt/kvm/coalesced_mmio.h             | 2 +-
+ virt/kvm/kvm_main.c                   | 8 ++++----
+ 14 files changed, 21 insertions(+), 20 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index 8603766c1b4d..b31d50bdf59e 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -141,6 +141,31 @@ static __always_inline unsigned long *vcpu_cpsr(const struct kvm_vcpu *vcpu)
- 	return (unsigned long *)&vcpu->arch.ctxt.regs.pstate;
- }
+diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+index 7329124deb2f..8475f32ad9e6 100644
+--- a/arch/arm64/kvm/Kconfig
++++ b/arch/arm64/kvm/Kconfig
+@@ -22,7 +22,6 @@ menuconfig KVM
+ 	select KVM_COMMON
+ 	select KVM_GENERIC_HARDWARE_ENABLING
+ 	select HAVE_KVM_CPU_RELAX_INTERCEPT
+-	select KVM_MMIO
+ 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
+ 	select VIRT_XFER_TO_GUEST_WORK
+ 	select KVM_VFIO
+diff --git a/arch/loongarch/kvm/Kconfig b/arch/loongarch/kvm/Kconfig
+index a427429a2b05..fd387326d2f2 100644
+--- a/arch/loongarch/kvm/Kconfig
++++ b/arch/loongarch/kvm/Kconfig
+@@ -26,7 +26,6 @@ config KVM
+ 	select KVM_COMMON
+ 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
+ 	select KVM_GENERIC_HARDWARE_ENABLING
+-	select KVM_MMIO
+ 	select VIRT_XFER_TO_GUEST_WORK
+ 	select SCHED_INFO
+ 	select GUEST_PERF_EVENTS if PERF_EVENTS
+diff --git a/arch/mips/kvm/Kconfig b/arch/mips/kvm/Kconfig
+index c24b872afbcb..849ce7c7c4df 100644
+--- a/arch/mips/kvm/Kconfig
++++ b/arch/mips/kvm/Kconfig
+@@ -22,7 +22,6 @@ config KVM
+ 	select EXPORT_UASM
+ 	select KVM_COMMON
+ 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
+-	select KVM_MMIO
+ 	select KVM_GENERIC_HARDWARE_ENABLING
+ 	help
+ 	  Support for hosting Guest kernels.
+diff --git a/arch/powerpc/include/asm/kvm_host.h b/arch/powerpc/include/asm/kvm_host.h
+index ad7c34e9b227..620f163d65a9 100644
+--- a/arch/powerpc/include/asm/kvm_host.h
++++ b/arch/powerpc/include/asm/kvm_host.h
+@@ -29,6 +29,13 @@
  
-+static __always_inline unsigned long *vcpu_sp_el0(struct kvm_vcpu *vcpu)
-+{
-+	return (unsigned long *)&vcpu->arch.ctxt.regs.sp;
-+}
+ #define __KVM_HAVE_ARCH_VCPU_DEBUGFS
+ 
++#if !defined(CONFIG_KVM_BOOK3S_32_HANDLER) && \
++	!defined(CONFIG_KVM_BOOK3S_PR_POSSIBLE) && \
++	!defined(CONFIG_KVM_E500V2) && \
++	!defined(CONFIG_KVM_E500MC)
++#define KVM_NO_MMIO
++#endif
 +
-+static __always_inline u64 *vcpu_sp_el1(struct kvm_vcpu *vcpu)
-+{
-+	return __ctxt_sys_reg(&vcpu->arch.ctxt, SP_EL1);
-+}
+ #define KVM_MAX_VCPUS		NR_CPUS
+ #define KVM_MAX_VCORES		NR_CPUS
+ 
+diff --git a/arch/powerpc/kvm/Kconfig b/arch/powerpc/kvm/Kconfig
+index 1fae2de8fa68..cacc22e34afd 100644
+--- a/arch/powerpc/kvm/Kconfig
++++ b/arch/powerpc/kvm/Kconfig
+@@ -30,7 +30,6 @@ config KVM_BOOK3S_HANDLER
+ config KVM_BOOK3S_32_HANDLER
+ 	bool
+ 	select KVM_BOOK3S_HANDLER
+-	select KVM_MMIO
+ 
+ config KVM_BOOK3S_64_HANDLER
+ 	bool
+@@ -38,7 +37,6 @@ config KVM_BOOK3S_64_HANDLER
+ 
+ config KVM_BOOK3S_PR_POSSIBLE
+ 	bool
+-	select KVM_MMIO
+ 
+ config KVM_BOOK3S_HV_POSSIBLE
+ 	bool
+@@ -201,7 +199,6 @@ config KVM_E500V2
+ 	depends on PPC_E500 && !PPC_E500MC
+ 	depends on !CONTEXT_TRACKING_USER
+ 	select KVM
+-	select KVM_MMIO
+ 	help
+ 	  Support running unmodified E500 guest kernels in virtual machines on
+ 	  E500v2 host processors.
+@@ -216,7 +213,6 @@ config KVM_E500MC
+ 	depends on PPC_E500MC
+ 	depends on !CONTEXT_TRACKING_USER
+ 	select KVM
+-	select KVM_MMIO
+ 	select KVM_BOOKE_HV
+ 	help
+ 	  Support running unmodified E500MC/E5500/E6500 guest kernels in
+diff --git a/arch/riscv/kvm/Kconfig b/arch/riscv/kvm/Kconfig
+index 3cb4f8037300..2e3c4e6c1cd7 100644
+--- a/arch/riscv/kvm/Kconfig
++++ b/arch/riscv/kvm/Kconfig
+@@ -26,7 +26,6 @@ config KVM
+ 	select KVM_COMMON
+ 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
+ 	select KVM_GENERIC_HARDWARE_ENABLING
+-	select KVM_MMIO
+ 	select VIRT_XFER_TO_GUEST_WORK
+ 	select SCHED_INFO
+ 	select GUEST_PERF_EVENTS if PERF_EVENTS
+diff --git a/arch/s390/include/asm/kvm_host_s390.h b/arch/s390/include/asm/kvm_host_s390.h
+index 5fd7f49d7c0d..451346f32008 100644
+--- a/arch/s390/include/asm/kvm_host_s390.h
++++ b/arch/s390/include/asm/kvm_host_s390.h
+@@ -40,6 +40,8 @@
+ 
+ #define KVM_S390_MANAGES_S390_GUEST 1
+ 
++#define KVM_NO_MMIO
 +
-+static __always_inline __u128 *vcpu_vreg(struct kvm_vcpu *vcpu, int n)
-+{
-+	return &vcpu->arch.ctxt.fp_regs.vregs[n];
-+}
+ /*
+  * These seem to be used for allocating ->chip in the routing table, which we
+  * don't use. 1 is as small as we can get to reduce the needed memory. If we
+diff --git a/arch/x86/kvm/Kconfig b/arch/x86/kvm/Kconfig
+index fa20f64d6a2f..82b6c91e763b 100644
+--- a/arch/x86/kvm/Kconfig
++++ b/arch/x86/kvm/Kconfig
+@@ -31,7 +31,6 @@ config KVM_X86
+ 	select VHOST_TASK
+ 	select KVM_ASYNC_PF
+ 	select USER_RETURN_NOTIFIER
+-	select KVM_MMIO
+ 	select SCHED_INFO
+ 	select PERF_EVENTS
+ 	select GUEST_PERF_EVENTS
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index b7bd20fc9e34..7ebc9aaaec2d 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -846,7 +846,7 @@ struct kvm {
+ 	struct kvm_vm_stat stat;
+ 	struct kvm_arch arch;
+ 	refcount_t users_count;
+-#ifdef CONFIG_KVM_MMIO
++#ifndef KVM_NO_MMIO
+ 	struct kvm_coalesced_mmio_ring *coalesced_mmio_ring;
+ 	spinlock_t ring_lock;
+ 	struct list_head coalesced_zones;
+diff --git a/virt/kvm/Kconfig b/virt/kvm/Kconfig
+index 008b110ebdb7..69b47cb6526c 100644
+--- a/virt/kvm/Kconfig
++++ b/virt/kvm/Kconfig
+@@ -40,9 +40,6 @@ config NEED_KVM_DIRTY_RING_WITH_BITMAP
+ 	bool
+ 	depends on HAVE_KVM_DIRTY_RING
+ 
+-config KVM_MMIO
+-       bool
+-
+ config KVM_ASYNC_PF
+        bool
+ 
+diff --git a/virt/kvm/Makefile.kvm b/virt/kvm/Makefile.kvm
+index ee66d460c494..9a3b05a01c62 100644
+--- a/virt/kvm/Makefile.kvm
++++ b/virt/kvm/Makefile.kvm
+@@ -10,9 +10,9 @@ KVM_DEV_MINOR ?= KVM_MINOR
+ 
+ ccflags-y +=-DKVM_DEV_NAME=$(KVM_DEV_NAME) -DKVM_DEV_MINOR=$(KVM_DEV_MINOR)
+ 
+-kvm-y := $(KVM)/kvm_main.o $(KVM)/eventfd.o $(KVM)/binary_stats.o
++kvm-y := $(KVM)/kvm_main.o $(KVM)/eventfd.o $(KVM)/binary_stats.o \
++	 $(KVM)/coalesced_mmio.o
+ kvm-$(CONFIG_KVM_VFIO) += $(KVM)/vfio.o
+-kvm-$(CONFIG_KVM_MMIO) += $(KVM)/coalesced_mmio.o
+ kvm-$(CONFIG_KVM_ASYNC_PF) += $(KVM)/async_pf.o
+ kvm-$(CONFIG_HAVE_KVM_IRQ_ROUTING) += $(KVM)/irqchip.o
+ kvm-$(CONFIG_HAVE_KVM_DIRTY_RING) += $(KVM)/dirty_ring.o
+diff --git a/virt/kvm/coalesced_mmio.c b/virt/kvm/coalesced_mmio.c
+index 6b1d90161099..d6cae6855237 100644
+--- a/virt/kvm/coalesced_mmio.c
++++ b/virt/kvm/coalesced_mmio.c
+@@ -15,6 +15,8 @@
+ #include <linux/slab.h>
+ #include <linux/kvm.h>
+ 
++#ifndef KVM_NO_MMIO
 +
-+static __always_inline __u32 *vcpu_fpsr(struct kvm_vcpu *vcpu)
-+{
-+	return &vcpu->arch.ctxt.fp_regs.fpsr;
-+}
+ #include "coalesced_mmio.h"
+ 
+ static inline struct kvm_coalesced_mmio_dev *to_mmio(struct kvm_io_device *dev)
+@@ -188,3 +190,5 @@ int kvm_vm_ioctl_unregister_coalesced_mmio(struct kvm *kvm,
+ 	 */
+ 	return 0;
+ }
 +
-+static __always_inline __u32 *vcpu_fpcr(struct kvm_vcpu *vcpu)
-+{
-+	return &vcpu->arch.ctxt.fp_regs.fpcr;
-+}
-+
- static __always_inline bool vcpu_mode_is_32bit(const struct kvm_vcpu *vcpu)
- {
- 	return !!(*vcpu_cpsr(vcpu) & PSR_MODE32_BIT);
-@@ -737,6 +762,11 @@ static inline void vcpu_set_hcrx(struct kvm_vcpu *vcpu)
++#endif /* !KVM_NO_MMIO */
+diff --git a/virt/kvm/coalesced_mmio.h b/virt/kvm/coalesced_mmio.h
+index 36f84264ed25..bcaa34fce1e8 100644
+--- a/virt/kvm/coalesced_mmio.h
++++ b/virt/kvm/coalesced_mmio.h
+@@ -11,7 +11,7 @@
+  *
+  */
+ 
+-#ifdef CONFIG_KVM_MMIO
++#ifndef KVM_NO_MMIO
+ 
+ #include <linux/list.h>
+ 
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index a7ce1f22b3de..32b8aad8fa2b 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -4061,7 +4061,7 @@ static vm_fault_t kvm_vcpu_fault(struct vm_fault *vmf)
+ 	else if (vmf->pgoff == KVM_PIO_PAGE_OFFSET)
+ 		page = virt_to_page(vcpu->arch.pio_data);
+ #endif
+-#ifdef CONFIG_KVM_MMIO
++#ifndef KVM_NO_MMIO
+ 	else if (vmf->pgoff == KVM_COALESCED_MMIO_PAGE_OFFSET)
+ 		page = virt_to_page(vcpu->kvm->coalesced_mmio_ring);
+ #endif
+@@ -4902,7 +4902,7 @@ static int kvm_vm_ioctl_check_extension_generic(struct kvm *kvm, long arg)
+ 	case KVM_CAP_ENABLE_CAP_VM:
+ 	case KVM_CAP_HALT_POLL:
+ 		return 1;
+-#ifdef CONFIG_KVM_MMIO
++#ifndef KVM_NO_MMIO
+ 	case KVM_CAP_COALESCED_MMIO:
+ 		return KVM_COALESCED_MMIO_PAGE_OFFSET;
+ 	case KVM_CAP_COALESCED_PIO:
+@@ -5243,7 +5243,7 @@ static long kvm_vm_ioctl(struct file *filp,
+ 		break;
  	}
- }
+ #endif
+-#ifdef CONFIG_KVM_MMIO
++#ifndef KVM_NO_MMIO
+ 	case KVM_REGISTER_COALESCED_MMIO: {
+ 		struct kvm_coalesced_mmio_zone zone;
  
-+static inline void kvm_reset_fpsimd(struct kvm_vcpu *vcpu)
-+{
-+	memset(&vcpu->arch.ctxt.fp_regs, 0, sizeof(vcpu->arch.ctxt.fp_regs));
-+}
-+
- /* Reset a vcpu's core registers. */
- static inline void kvm_reset_vcpu_core(struct kvm_vcpu *vcpu)
- {
-@@ -752,8 +782,8 @@ static inline void kvm_reset_vcpu_core(struct kvm_vcpu *vcpu)
- 	/* Reset core registers */
- 	memset(vcpu_gp_regs(vcpu), 0, sizeof(vcpu_gp_regs(vcpu)));
- 	*vcpu_pc(vcpu) = 0;
--	vcpu->arch.ctxt.regs.sp = 0;
--	memset(&vcpu->arch.ctxt.fp_regs, 0, sizeof(vcpu->arch.ctxt.fp_regs));
-+	*vcpu_sp_el0(vcpu) = 0;
-+	kvm_reset_fpsimd(vcpu);
- 	vcpu->arch.ctxt.spsr_abt = 0;
- 	vcpu->arch.ctxt.spsr_und = 0;
- 	vcpu->arch.ctxt.spsr_irq = 0;
-diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-index 81d850d5a328..773f6c8e5026 100644
---- a/arch/arm64/kvm/guest.c
-+++ b/arch/arm64/kvm/guest.c
-@@ -137,16 +137,16 @@ static void *core_reg_addr(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- 		return &vcpu_gp_regs(vcpu)[off];
- 
- 	case KVM_REG_ARM_CORE_REG(regs.sp):
--		return &vcpu->arch.ctxt.regs.sp;
-+		return vcpu_sp_el0(vcpu);
- 
- 	case KVM_REG_ARM_CORE_REG(regs.pc):
--		return &vcpu->arch.ctxt.regs.pc;
-+		return vcpu_pc(vcpu);
- 
- 	case KVM_REG_ARM_CORE_REG(regs.pstate):
--		return &vcpu->arch.ctxt.regs.pstate;
-+		return vcpu_cpsr(vcpu);
- 
- 	case KVM_REG_ARM_CORE_REG(sp_el1):
--		return __ctxt_sys_reg(&vcpu->arch.ctxt, SP_EL1);
-+		return vcpu_sp_el1(vcpu);
- 
- 	case KVM_REG_ARM_CORE_REG(elr_el1):
- 		return __ctxt_sys_reg(&vcpu->arch.ctxt, ELR_EL1);
-@@ -170,13 +170,13 @@ static void *core_reg_addr(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- 	     KVM_REG_ARM_CORE_REG(fp_regs.vregs[31]):
- 		off -= KVM_REG_ARM_CORE_REG(fp_regs.vregs[0]);
- 		off /= 4;
--		return &vcpu->arch.ctxt.fp_regs.vregs[off];
-+		return vcpu_vreg(vcpu, off);
- 
- 	case KVM_REG_ARM_CORE_REG(fp_regs.fpsr):
--		return &vcpu->arch.ctxt.fp_regs.fpsr;
-+		return vcpu_fpsr(vcpu);
- 
- 	case KVM_REG_ARM_CORE_REG(fp_regs.fpcr):
--		return &vcpu->arch.ctxt.fp_regs.fpcr;
-+		return vcpu_fpcr(vcpu);
- 
- 	default:
- 		return NULL;
+@@ -5578,7 +5578,7 @@ static long kvm_dev_ioctl(struct file *filp,
+ #ifdef CONFIG_X86
+ 		r += PAGE_SIZE;    /* pio data page */
+ #endif
+-#ifdef CONFIG_KVM_MMIO
++#ifndef KVM_NO_MMIO
+ 		r += PAGE_SIZE;    /* coalesced mmio ring page */
+ #endif
+ 		break;
 -- 
 2.53.0
 
