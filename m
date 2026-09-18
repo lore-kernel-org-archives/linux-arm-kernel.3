@@ -4,83 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 736CEC982D9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 10:33:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A00C0C982D9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 10:34:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	bh=G/fO5FlRuEocHNQCmGx71FcmWAbH2HBbMkGQ6JIB1n0=; b=1LWhMp4pXH5ztV0fJrMSQ0aS3s
-	oi74KuJljnI9QrjUPc3GixtyfudiVO7PhGNZAn8EU1CQb32j/65mGVbCW/ILc3mhc3TKmR1HYsyvg
-	QDwzS6EXV8DOXPeHG11ivY/pW+3E3GcOjoPBLCnUsCEzs0OJGlk4jyDjFgd2Ou+ohgGVTIkQYg0lD
-	2T1GbFbsO8PKBr2n8RsiBZKLJ4p4t2boc8w/svscYDXXOipSPBde40ClN4yE2A/vDDdZl3GPrVv+p
-	qK6hTEHSF2H72kf9L9JvoHujzgw92oxLxOKmbyixgrWlMO6mSekurIjT6hKRO2TaAeJinx6T6RRMo
-	9unPIu3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o+oZnGlHZIGMyCuHE5hh6qyYk862NKFKTYCCieZ2ADg=; b=gGi3padTygdfr1R/yINHBElOCh
+	y0BHi4Gufhh9LP26xW13CTsvxBad5CHk+yY7E6cUlaMjT0XWkCola/TB3NvZ76ys2nl3WiQXwq5uu
+	+AcLEq8FapLJfC+peaI0r8eXBfqm/+EcvxIEf09IDPGNv/hhzOkrevSxprOFRG5nHAn2RwNVHbo8x
+	n81Z4YN86o2g2XOyFqa97YR7BQ9y0CiJSi0GhMlzxWEvUDfihDYZO72RTeBvUSQzt1w7/UdaLYpBH
+	DK/YfoaunztRNJfmkPvDpclu9CpONCRJtiaoztX2ZpAD3tSm6Vk16rMZIPXwYfKsnvQ/LU4FrLpH1
+	NE7QCnEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Vtv-0000000E6Fs-1daf;
-	Fri, 18 Sep 2026 10:33:03 +0000
-Received: from mailout4.samsung.com ([203.254.224.34])
+	id 1x7Vuj-0000000E6SI-3QLu;
+	Fri, 18 Sep 2026 10:33:54 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Vtn-0000000E6DG-1q5V
+	id 1x7Vuf-0000000E6RX-3zsU
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 18 Sep 2026 10:33:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=o+oZnGlHZIGMyCuHE5hh6qyYk862NKFKTYCCieZ2ADg=; b=FLsQsAx8KE+aLSX99Frqqd/G1o
+	6RsGkKYNvXBFbUDRTYV5ZKOK0qS2tg67hZNwgnwaxT/GoTGDP+/pnloI1bsbEnehdujIePHj25q69
+	fpRZhg5WEIhun9EJ2CQzCmtXg3Lw+svObqDMByqR12BFcNtvF2xl8JAjgmHvp/S/+hOuEgnW2xot5
+	4g7YDl5mywZbrGDcGLf7G7fnT6CaWKoogJVhj7Q+vVRFE4R0/yJplN0sbHrYdo4ADBBVsLUp39I7x
+	2NTRdQMqxHYoCGS9nZ5mCFNvogtmbo5odri7Ely3C3fkhMb+NqTlm2GUbyO4734A0fzmfWJqG9rr9
+	rhy/qxig==;
+Received: from m16.mail.126.com ([220.197.31.8])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x7Vuc-00000009w2X-2S0a
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 10:32:57 +0000
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20260918103251epoutp0491699069768fdf606dc71844609ea7ac~WY75mOjD22745327453epoutp04O
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 10:32:51 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20260918103251epoutp0491699069768fdf606dc71844609ea7ac~WY75mOjD22745327453epoutp04O
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1789727571;
-	bh=G/fO5FlRuEocHNQCmGx71FcmWAbH2HBbMkGQ6JIB1n0=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=SPcxMw5Wj2fUsgclY0yoANRSZ/kKgABR9Eo7W1UEkrf0wbY5NJ3thqoAzBxXHWus8
-	 0lo6eE2UKl2INlHUG+1Tk4x2VjsK4SYn9I2Hhm1t1lIckVvSKK/DZGilqPQEZAkj3t
-	 otCuc5JQ7dLDWLP5NLyvSGo+p/Vck+W+PKO6Jo80=
-Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
-	20260918103250epcas5p12ea5e88ac36103898712ab45eeedd8cf~WY75Fn9oV2545625456epcas5p1n;
-	Fri, 18 Sep 2026 10:32:50 +0000 (GMT)
-Received: from epcas5p4.samsung.com (unknown [182.195.38.89]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4hmTTs67L8z6B9m8; Fri, 18 Sep
-	2026 10:32:49 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
-	20260918103249epcas5p49c9b4bf6fd60c28f5f09f0b7b69828b6~WY73wwcaF2951229512epcas5p4l;
-	Fri, 18 Sep 2026 10:32:49 +0000 (GMT)
-Received: from vega.samsungds.net (unknown [107.108.73.84]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20260918103246epsmtip21d5c7565d73ad5927a1fd761e7fb625e~WY70toq-q0288802888epsmtip2s;
-	Fri, 18 Sep 2026 10:32:45 +0000 (GMT)
-From: Selvarasu Ganesan <selvarasu.g@samsung.com>
-To: vkoul@kernel.org, neil.armstrong@linaro.org, mani@kernel.org,
-	krzk@kernel.org, peter.griffin@linaro.org, alim.akhtar@samsung.com,
-	pritam.sutar@samsung.com, andre.draszik@linaro.org, kernel@lvkasz.us,
-	pengpeng@iscas.ac.cn, selvarasu.g@samsung.com,
-	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: jh0801.jung@samsung.com, h10.kim@samsung.com, dh10.jung@samsung.com,
-	akash.m5@samsung.com, hongpooh.kim@samsung.com, eomji.oh@samsung.com,
-	shijie.cai@samsung.com, muhammed.ali@samsung.com, thiagu.r@samsung.com
-Subject: [PATCH v2] phy: exynos5-usbdrd: Use dynamic phy_cfg size to prevent
- OOB access
-Date: Fri, 18 Sep 2026 16:01:47 +0530
-Message-Id: <20260918103147.2628614-1-selvarasu.g@samsung.com>
-X-Mailer: git-send-email 2.17.1
+	Fri, 18 Sep 2026 10:33:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
+	Content-Type; bh=o+oZnGlHZIGMyCuHE5hh6qyYk862NKFKTYCCieZ2ADg=;
+	b=Mdj+wLodmw30hc3o+5LCnBT1zwxAS4bhZq8B3ESj2ef5vZ9UbKE+ggW/FtnHtv
+	VY8pQMpDfaMEhTDPVPrhX/3c6bRL5gZV8PhXP7Q/MIhO2xRJgSiYWVW4zUP+YC9V
+	ox9SWy9QePhHw3+e86s3IcRL6vkJiKfVP0qdHLF0JTQR4=
+Message-ID: <62d9f679-68dd-45bc-9754-9e0ae931d2af@126.com>
+Date: Fri, 18 Sep 2026 18:32:53 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20260918103249epcas5p49c9b4bf6fd60c28f5f09f0b7b69828b6
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20260918103249epcas5p49c9b4bf6fd60c28f5f09f0b7b69828b6
-References: <CGME20260918103249epcas5p49c9b4bf6fd60c28f5f09f0b7b69828b6@epcas5p4.samsung.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] net: stmmac: do not cache the new TSO MSS before it
+ reaches the DMA
+To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Linkui Xiao <xiaolinkui@kylinos.cn>, stable@vger.kernel.org
+References: <20260917124234.1348673-1-xiaolinkui@126.com>
+ <aqwlUWN3rAXfcaWr@lore-qca>
+Content-Language: en-US
+From: Linkui Xiao <xiaolinkui@126.com>
+In-Reply-To: <aqwlUWN3rAXfcaWr@lore-qca>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: _____wDnNx9WE61q7PYEBg--.785S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxXr1DGFW7ZFWkZry5Ww15Jwb_yoWrKFy8pF
+	WUAa90y395Jr4fZw4kCw40qa4rJay3tF4Yyw18Kr9xCw43tr9Ygry3KrW5Wa4Uur95Zr1S
+	ka1qka47CF4DZrDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UZZ2-UUUUU=
+X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBqBfftmqtE1ckogAA3T
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_033256_130927_CD81398C 
-X-CRM114-Status: GOOD (  20.08  )
+X-CRM114-CacheID: sfid-20260918_113347_269141_C000F189 
+X-CRM114-Status: GOOD (  24.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,167 +91,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The probe loop currently iterates using EXYNOS5_DRDPHYS_NUM (2),
-creating both UTMI and PIPE3 PHY instances regardless of the SoC
-capability. Several SoCs (Exynos2200, Exynos7870, Exynos850, Exynos990,
-and ExynosAutoV920) provide phy_cfg arrays containing only a single
-element.
+Hi Lorenzo,
 
-On these SoCs, when the loop reaches index 1, the driver reads past the
-end of the rodata array, populating the second PHY instance with garbage
-data. Since the configuration structure contains critical function
-pointers (phy_isol, phy_init, set_refclk), any subsequent access to this
-PHY instance via exynos5_usbdrd_phy_xlate could result in a kernel oops.
+thanks for the review.
 
-Fix this by adding 'n_phy_cfg' to struct exynos5_usbdrd_phy_drvdata to
-store the actual size of the phy_cfg array for each SoC. Update the
-probe loop and the xlate function to bound their access against this
-value instead of the hardcoded EXYNOS5_DRDPHYS_NUM.
+On 2026/9/18 01:37, Lorenzo Bianconi wrote:
+>> From: Linkui Xiao <xiaolinkui@kylinos.cn>
+>>
+>> stmmac_tso_xmit() fills the MSS context descriptor and stores the new
+>> MSS in tx_q->mss right away, but the descriptor only gets its OWN bit
+>> much later, right before the frame is handed to the DMA. Every error
+>> path in between - the dma_map_single() of the linear part and the
+>> skb_frag_dma_map() of each fragment - returns with tx_q->mss already
+>> updated while the MAC is still programmed with the previous MSS; the
+>> abandoned context descriptor is later reclaimed by stmmac_tx_clean().
+>>
+>> The next skb carrying the same MSS then compares equal to the cached
+>> value, so no context descriptor is emitted and the hardware segments
+>> the TCP stream with a stale MSS, generating frames whose payload size
+>> does not match what the stack accounted for.
+>>
+>> Only update tx_q->mss once the context descriptor has been given to the
+>> DMA so that the cached value always describes what the hardware is
+>> actually programmed with.
+>>
+>> Fixes: f748be531d70 ("stmmac: support new GMAC4")
+>> Cc: stable@vger.kernel.org
+>> Signed-off-by: Linkui Xiao <xiaolinkui@kylinos.cn>
+>> ---
+>>   drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 2 +-
+>>   1 file changed, 1 insertion(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+>> index af2d38a2bb3d..a8f94cd6abb4 100644
+>> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+>> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+>> @@ -4563,7 +4563,6 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
+>>   			mss_desc = &tx_q->dma_tx[tx_q->cur_tx];
+>>   
+>>   		stmmac_set_mss(priv, mss_desc, mss);
+>> -		tx_q->mss = mss;
+>>   		tx_q->cur_tx = STMMAC_NEXT_ENTRY(tx_q->cur_tx,
+>>   						priv->dma_conf.dma_tx_size);
+>>   		WARN_ON(tx_q->tx_skbuff[tx_q->cur_tx]);
+>> @@ -4714,6 +4713,7 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
+>>   		 */
+>>   		dma_wmb();
+>>   		stmmac_set_tx_owner(priv, mss_desc);
+>> +		tx_q->mss = mss;
+> 
+> I think the issue is real. A couple of comments:
+> - do you think we should run stmmac_release_tx_desc() on mss descritpr in order
+>    to clean it up?
+> - I guess we should use the same approach used for data descriptor and advance
+>    tx_q->cur_tx when there are no other possible error condition. What do you
+>    think?
 
-Assisted-by: LLM
-Signed-off-by: Selvarasu Ganesan <selvarasu.g@samsung.com>
-Tested-by: Łukasz Lebiedziński <kernel@lvkasz.us>
-Reviewed-by: Alim Akhtar <alim.akhtar@samsung.com>
-Reviewed-by: André Draszik <andre.draszik@linaro.org>
-Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
----
+I started from your second suggestion, because that is the one that 
+makes the
+error handling consistent: tx_q->cur_tx is no longer advanced while the
+context descriptor is being filled, it moves past it together with the data
+descriptors, exactly like stmmac_xmit() does. On failure the ring index is
+therefore still where it was and there is nothing to unwind.
 
-Changes in V2:
-- Updated 'Assisted-by' tag to follow the proper kernel documentation
-  format.
-- Link to v1:
-  https://lore.kernel.org/all/20260831070309.158069-1-selvarasu.g@samsung.com/
----
- drivers/phy/samsung/phy-exynos5-usbdrd.c | 17 +++++++++++++++--
- 1 file changed, 15 insertions(+), 2 deletions(-)
+That in turn makes your first suggestion mandatory rather than optional.
+stmmac_tx_clean() walks the ring until it reaches tx_q->cur_tx, and the
+context descriptor now sits exactly at the slot cur_tx points to, so the
+cleaner cannot reach it and a descriptor tagged with CTXT|TCMSSV would stay
+in the ring until the slot is reused. The error paths release it explicitly
+instead, using the same helper the cleaner uses for descriptors. OWN is 
+never
+granted on that descriptor on these paths, so zeroing des0-des3 cannot race
+with the DMA engine.
 
-diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
-index 087d552eb511..f10cf7b6e0aa 100644
---- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
-+++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
-@@ -477,6 +477,7 @@ struct exynos5_usbdrd_phy_config {
- 
- struct exynos5_usbdrd_phy_drvdata {
- 	const struct exynos5_usbdrd_phy_config *phy_cfg;
-+	int n_phy_cfg;
- 	const struct exynos5_usbdrd_phy_tuning **phy_tunes;
- 	const struct phy_ops *phy_ops;
- 	const char * const *clk_names;
-@@ -1173,7 +1174,7 @@ static struct phy *exynos5_usbdrd_phy_xlate(struct device *dev,
- {
- 	struct exynos5_usbdrd_phy *phy_drd = dev_get_drvdata(dev);
- 
--	if (WARN_ON(args->args[0] >= EXYNOS5_DRDPHYS_NUM))
-+	if (WARN_ON(args->args[0] >= phy_drd->drv_data->n_phy_cfg))
- 		return ERR_PTR(-ENODEV);
- 
- 	return phy_drd->phys[args->args[0]].phy;
-@@ -2021,6 +2022,7 @@ static const char * const exynos5_regulator_names[] = {
- 
- static const struct exynos5_usbdrd_phy_drvdata exynos2200_usb32drd_phy = {
- 	.phy_cfg		= phy_cfg_exynos2200,
-+	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos2200),
- 	.phy_ops		= &exynos2200_usbdrd_phy_ops,
- 	.pmu_offset_usbdrd0_phy	= EXYNOS2200_PHY_CTRL_USB20,
- 	.clk_names		= exynos5_clk_names,
-@@ -2034,6 +2036,7 @@ static const struct exynos5_usbdrd_phy_drvdata exynos2200_usb32drd_phy = {
- 
- static const struct exynos5_usbdrd_phy_drvdata exynos5420_usbdrd_phy = {
- 	.phy_cfg		= phy_cfg_exynos5,
-+	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos5),
- 	.phy_ops		= &exynos5_usbdrd_phy_ops,
- 	.pmu_offset_usbdrd0_phy	= EXYNOS5_USBDRD_PHY_CONTROL,
- 	.pmu_offset_usbdrd1_phy	= EXYNOS5420_USBDRD1_PHY_CONTROL,
-@@ -2047,6 +2050,7 @@ static const struct exynos5_usbdrd_phy_drvdata exynos5420_usbdrd_phy = {
- 
- static const struct exynos5_usbdrd_phy_drvdata exynos5250_usbdrd_phy = {
- 	.phy_cfg		= phy_cfg_exynos5,
-+	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos5),
- 	.phy_ops		= &exynos5_usbdrd_phy_ops,
- 	.pmu_offset_usbdrd0_phy	= EXYNOS5_USBDRD_PHY_CONTROL,
- 	.clk_names		= exynos5_clk_names,
-@@ -2059,6 +2063,7 @@ static const struct exynos5_usbdrd_phy_drvdata exynos5250_usbdrd_phy = {
- 
- static const struct exynos5_usbdrd_phy_drvdata exynos5433_usbdrd_phy = {
- 	.phy_cfg		= phy_cfg_exynos5,
-+	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos5),
- 	.phy_ops		= &exynos5_usbdrd_phy_ops,
- 	.pmu_offset_usbdrd0_phy	= EXYNOS5_USBDRD_PHY_CONTROL,
- 	.pmu_offset_usbdrd1_phy	= EXYNOS5433_USBHOST30_PHY_CONTROL,
-@@ -2072,6 +2077,7 @@ static const struct exynos5_usbdrd_phy_drvdata exynos5433_usbdrd_phy = {
- 
- static const struct exynos5_usbdrd_phy_drvdata exynos7_usbdrd_phy = {
- 	.phy_cfg		= phy_cfg_exynos5,
-+	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos5),
- 	.phy_ops		= &exynos5_usbdrd_phy_ops,
- 	.pmu_offset_usbdrd0_phy	= EXYNOS5_USBDRD_PHY_CONTROL,
- 	.clk_names		= exynos5_clk_names,
-@@ -2084,6 +2090,7 @@ static const struct exynos5_usbdrd_phy_drvdata exynos7_usbdrd_phy = {
- 
- static const struct exynos5_usbdrd_phy_drvdata exynos7870_usbdrd_phy = {
- 	.phy_cfg		= phy_cfg_exynos7870,
-+	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos7870),
- 	.phy_tunes		= exynos7870_tunes,
- 	.phy_ops		= &exynos7870_usbdrd_phy_ops,
- 	.pmu_offset_usbdrd0_phy	= EXYNOS5_USBDRD_PHY_CONTROL,
-@@ -2097,6 +2104,7 @@ static const struct exynos5_usbdrd_phy_drvdata exynos7870_usbdrd_phy = {
- 
- static const struct exynos5_usbdrd_phy_drvdata exynos850_usbdrd_phy = {
- 	.phy_cfg		= phy_cfg_exynos850,
-+	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos850),
- 	.phy_ops		= &exynos850_usbdrd_phy_ops,
- 	.pmu_offset_usbdrd0_phy	= EXYNOS5_USBDRD_PHY_CONTROL,
- 	.clk_names		= exynos5_clk_names,
-@@ -2125,6 +2133,7 @@ static const struct exynos5_usbdrd_phy_tuning *exynos990_tunes[PTS_MAX] = {
- 
- static const struct exynos5_usbdrd_phy_drvdata exynos990_usbdrd_phy = {
- 	.phy_cfg		= phy_cfg_exynos850,
-+	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos850),
- 	.phy_ops		= &exynos850_usbdrd_phy_ops,
- 	.phy_tunes		= exynos990_tunes,
- 	.pmu_offset_usbdrd0_phy	= EXYNOS990_PHY_CTRL_USB20,
-@@ -2661,6 +2670,7 @@ static const struct phy_ops exynosautov920_usb31drd_combo_ssphy_ops = {
- static const
- struct exynos5_usbdrd_phy_drvdata exynosautov920_usb31drd_combo_ssphy = {
- 	.phy_cfg		= usb31drd_phy_cfg_exynosautov920,
-+	.n_phy_cfg		= ARRAY_SIZE(usb31drd_phy_cfg_exynosautov920),
- 	.phy_ops		= &exynosautov920_usb31drd_combo_ssphy_ops,
- 	.pmu_offset_usbdrd0_phy	= EXYNOSAUTOV920_PHY_CTRL_USB31,
- 	.clk_names		= exynos5_clk_names,
-@@ -2691,6 +2701,7 @@ exynos5_usbdrd_phy_config usbdrd_hsphy_cfg_exynosautov920[] = {
- static const
- struct exynos5_usbdrd_phy_drvdata exynosautov920_usbdrd_combo_hsphy = {
- 	.phy_cfg		= usbdrd_hsphy_cfg_exynosautov920,
-+	.n_phy_cfg		= ARRAY_SIZE(usbdrd_hsphy_cfg_exynosautov920),
- 	.phy_ops		= &exynosautov920_usbdrd_combo_hsphy_ops,
- 	.pmu_offset_usbdrd0_phy	= EXYNOSAUTOV920_PHY_CTRL_USB20,
- 	.clk_names		= exynos5_clk_names,
-@@ -2719,6 +2730,7 @@ static const struct exynos5_usbdrd_phy_config phy_cfg_exynosautov920[] = {
- 
- static const struct exynos5_usbdrd_phy_drvdata exynosautov920_usbdrd_phy = {
- 	.phy_cfg		= phy_cfg_exynosautov920,
-+	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynosautov920),
- 	.phy_ops		= &exynosautov920_usbdrd_phy_ops,
- 	.pmu_offset_usbdrd0_phy	= EXYNOSAUTOV920_PHY_CTRL_USB20,
- 	.clk_names		= exynos5_clk_names,
-@@ -2895,6 +2907,7 @@ static const char * const gs101_regulator_names[] = {
- 
- static const struct exynos5_usbdrd_phy_drvdata gs101_usbd31rd_phy = {
- 	.phy_cfg			= phy_cfg_gs101,
-+	.n_phy_cfg			= ARRAY_SIZE(phy_cfg_gs101),
- 	.phy_tunes			= gs101_tunes,
- 	.phy_ops			= &gs101_usbdrd_phy_ops,
- 	.pmu_offset_usbdrd0_phy		= GS101_PHY_CTRL_USB20,
-@@ -3052,7 +3065,7 @@ static int exynos5_usbdrd_phy_probe(struct platform_device *pdev)
- 
- 	dev_vdbg(dev, "Creating usbdrd_phy phy\n");
- 
--	for (i = 0; i < EXYNOS5_DRDPHYS_NUM; i++) {
-+	for (i = 0; i < drv_data->n_phy_cfg; i++) {
- 		struct phy *phy = devm_phy_create(dev, NULL, drv_data->phy_ops);
- 
- 		if (IS_ERR(phy))
--- 
-2.17.1
+Concretely, v2:
+
+  - keeps tx_q->cur_tx untouched while the context descriptor is filled 
+and lets
+    it advance together with the data descriptors;
+
+  - moves first_entry past the context slot, so the error_dma_unmap 
+unwind loop
+    does not call stmmac_free_tx_buffer() on a slot that has no skb 
+attached, and
+    is_last_segment = CIRC_CNT(tx_q->cur_tx, first_entry, ...) == 1 
+keeps the
+    correct value for single descriptor frames;
+
+  - updates tx_q->mss only after stmmac_set_tx_owner(mss_desc);
+
+  - releases the context descriptor at the common "error:" label, which 
+covers
+    both the dma_map_single() of the linear part and the 
+skb_frag_dma_map() of
+    every fragment.
+
+Nothing else changes. first_tx is sampled before the context descriptor is
+allocated, so the tx_packets accounting used by the coalescing logic is
+unaffected, and stmmac_tso_get_num_desc() already counts the context 
+descriptor,
+so the stmmac_tx_avail() check is unchanged as well. The
+WARN_ON(tx_q->tx_skbuff[tx_q->cur_tx]) that followed the old cur_tx 
+update is
+dropped: it checked the first data slot, which the WARN_ON on
+tx_q->tx_skbuff[entry] right after the first_entry assignment already 
+covers.
+
+v2 follows in a moment.
+
+Regards,
+Linkui
+
+> 
+> Regards,
+> Lorenzo
+> 
+>>   	}
+>>   
+>>   	if (netif_msg_pktdata(priv)) {
+>> -- 
+>> 2.25.1
+>>
+>>
 
 
