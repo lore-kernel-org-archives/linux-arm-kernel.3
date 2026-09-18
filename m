@@ -4,78 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0858C982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 09:42:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6CACC982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 09:47:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fPb0WbImBjfAIklYwHIG1VTsh0GGmgNxiNUBUCQCCYk=; b=VPNlp8D/RdZzuU8O+NfF+gFwpJ
-	TFkjDkBXOlkck10Mg30Tp4YEAPnUEKwjzkl/VLxbUHouYegHCV/lx/FNhtwonco7W65PFCKpEhyOD
-	5iqnQy9C+AMO59cvwqChZ5exgs1cl0g+K7CqHksqK139w5UfpHOT+i29hNVqnUqcRgKHNN7xDHs9E
-	qFk77L1BkjxrZs6GvoaX8E46lcUyVz+5jd3lLq92SsCXDs3tPUSejepPIUXsOznInkWKlwolqML9Q
-	bYoJ/JxoE+rZnWFcldlAsbj8keWgsQKr2zGPD0z0gFGunQJx0LtERRYPsx6RZuQnJiiEVi1cQLh3L
-	jryM4UQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=POZ8I3KruROeVIpmgCcthihZacjjcRxYvIovx0soJVQ=; b=Jl0a/e11EK5AzwvdijCXFf84RV
+	HxsJgLoIfgyrybTGUq1xJg9ODnBjv8ocBOly52g4/JLZN3tK9OWvfhTsraAnV9QkGppKPGb3aPZ2Y
+	KyyQFlDmUFaSqfWXjxLah53hvusqy1vmVetGanPpv9aCK84qScNVOtuu29PPupBx/axIUoqMn3rZQ
+	xzkm/o27aaNrtQLX7r8Jwf6MfEE1KIZtUDCWWgDeA1+HWpyCP1qOZ59+Q8i7rl6tqe3V99ksIEiET
+	c7LxOPQkeStermQ9mLzuW+ewT4Rd839ecDZcDCv0+rb1y+ZMg/4qcRwMAcKR8LKKD+VSrlEOS/Unp
+	aS8aPMQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7V6S-0000000Dymo-3xeD;
-	Fri, 18 Sep 2026 09:41:57 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7V6G-0000000DyjB-1zIy
+	id 1x7VBk-0000000DzI0-07Li;
+	Fri, 18 Sep 2026 09:47:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x7VBh-0000000DzHO-35cB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 09:41:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789724504; x=1821260504;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=NdtJRaDGbY7hMtqbi401f0ZdRPXIAcaHSgKiwXmJr98=;
-  b=bGgV2TG+lj9M5Xbqdki6bUngfZYz0X2ciGreKQl/ja44gnf3hhkRk+j6
-   AZt9EPkxe6Zu0Run5rn3HBM3X90/E3N1V6N0kOmN36epQuaZGOBfbN/O8
-   OzanaZM2ULijjHSkIxvh+Ry9/Etrf88ItzHEh93eFDRbBaN4LDifd0XlI
-   yC66bqFppNinNdlaVXezQeCTZN/rhJjYGsnw0RYv1dJYdQuHQSK49mbKX
-   WpB/gI7gGSnE0McCBWiAn/0AdEfnGkuquYwRNs5IGwkDaqZAI3cfqiDcO
-   MUC/nPynxiQKNpD8qS137/PqkBYV5xgjPfqoSGDpuindoFx/FJNSTtMjF
-   A==;
-X-CSE-ConnectionGUID: lE4wnHZmRHWRAnYmBZX0uQ==
-X-CSE-MsgGUID: LLYbB4OMT3qy/pVVkvaWeQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="90349580"
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="90349580"
-Received: from fmviesa012.fm.intel.com ([10.60.135.152])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Sep 2026 02:41:44 -0700
-X-CSE-ConnectionGUID: Bj1UG52SQ/mpwKd7nSV5rQ==
-X-CSE-MsgGUID: BbzNYCtOQk+Y4TZjJOckRg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="2508382"
-Received: from carterle-desk.ger.corp.intel.com (HELO localhost) ([10.245.245.170])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Sep 2026 02:41:42 -0700
-Date: Fri, 18 Sep 2026 12:41:39 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Malathi A <malathi.a2000@gmail.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] serial: 8250_uniphier: Use dev_err_probe() in probe
- error paths
-Message-ID: <aq0HU0ydof9GLp4_@ashevche-desk.local>
-References: <20260918074546.245342-1-malathi.a2000@gmail.com>
+	Fri, 18 Sep 2026 09:47:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D3186168F;
+	Fri, 18 Sep 2026 02:47:15 -0700 (PDT)
+Received: from [10.57.6.197] (unknown [10.57.6.197])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 801D93F882;
+	Fri, 18 Sep 2026 02:47:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789724839; bh=eSlqW067KZEESlksS4pzEEOFJpVLZHMuQ6i8lq4fTU4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=fETqMfGisKk6NTxLoU1SBAaZzF4uzWxwEO9GudmINWmDd6C/oSVjhWMWDT2uStWJ5
+	 ycmJ+DkKfZGrxwDKDUK3kQ1Wtz273cxB6y7o27WOQyO49zZ/JZpH46scbKmQExn0DR
+	 sZ95l4hiNczrmOzTk5BdWjJEPwCKoXP6SGVSRv7s=
+Message-ID: <76fb1cc8-60f4-4725-a839-76fcf928e232@arm.com>
+Date: Fri, 18 Sep 2026 10:47:14 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260918074546.245342-1-malathi.a2000@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v18 05/23] KVM: arm64: Track the type of VM in kvm_arch
+Content-Language: en-GB
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
+ will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
+ aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
+ joey.gouly@arm.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev,
+ gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com,
+ alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com,
+ lpieralisi@kernel.org, enju.kohei@fujitsu.com
+References: <20260915160141.3543048-1-suzuki.poulose@arm.com>
+ <20260915160141.3543048-6-suzuki.poulose@arm.com>
+ <CA+EHjTz65G0MM=tOrzmk=jMweBX1us6FqfrmSkQs4KSyAEoxhg@mail.gmail.com>
+ <e26cbb4e-84e2-4fcc-9eb0-93bfd4aff4a7@arm.com>
+ <CA+EHjTw6TOSEs1GtUcUy9WACpGRJBA9yTn9Ro_+tiD=XkeHr4g@mail.gmail.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <CA+EHjTw6TOSEs1GtUcUy9WACpGRJBA9yTn9Ro_+tiD=XkeHr4g@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_024144_735977_DA88DFAF 
-X-CRM114-Status: GOOD (  12.73  )
+X-CRM114-CacheID: sfid-20260918_024721_827551_CD26867C 
+X-CRM114-Status: GOOD (  15.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,28 +80,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 18, 2026 at 07:45:46AM +0000, Malathi A wrote:
-> devm_clk_get_enabled() returns -EPROBE_DEFER while the clock provider is
-> not registered yet, and uniphier_uart_probe() reports that with
-> dev_err(). Every retry of an intermittently deferred probe therefore
-> prints "failed to get and enable clock" at error level, which is only
-> dmesg noise.
+On 18/09/2026 10:14, Fuad Tabba wrote:
+> Hi Suzuki,
 > 
-> Use dev_err_probe() instead: it demotes -EPROBE_DEFER to dev_dbg() and
-> records the reason for /sys/kernel/debug/devices_deferred. Convert the
-> other two error messages in probe as well, so the whole function follows
-> the "return dev_err_probe()" pattern already used by other 8250 drivers
-> such as 8250_em.c. Those two codes are never -EPROBE_DEFER, so there the
-> conversion is a readability change only.
+> On <date>, Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+> [...]
+>> +       if (WARN_ON_ONCE(!kvm))
+>> +               return false;
+>> +
+>> +       /* Cover both pKVM host and Realm VMs */
+>> +       if (!kvm_vm_hyp_is_distrusting(kvm))
+>> +               return true;
 > 
-> Errors other than a deferral are still logged at error level, now with
-> the error code added by the helper. No functional change otherwise.
+> I'd drop the WARN_ON_ONCE. 
 
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+I would say, we need it. i.e., we are filtering kvm_arch_vm_ioctl(),
+where it is called from the kvm instance ioctl. So, kvm must be !NULL.
 
--- 
-With Best Regards,
-Andy Shevchenko
 
+> And this early return needs the `>=` from
+> patch 13, or non-protected pKVM VMs skip the filter.
+> 
+
+Of course, This snippet is for Patch 20 and I have fixed the comparison.
+
+
+>> I resorted to is_protected_kvm_enabled() to make it faster than using
+>> the vm_flavor checks. I could rever those anyways.
+> 
+> Agreed it's the faster test. I'd just call it by name at the three
+> sites rather than through a macro.
+> 
+>> Do you mean something like :
+>>
+>>          if (kvm_vm_is_protected_pkvm(host_kvm))
+>>                  hyp_vm->kvm.arch.vm_flavor = VM_PROTECTED_PKVM;
+>>          else
+>>                  hyp_vm->kvm.arch.vm_flavor = VM_PKVM;
+> 
+> Yes, exactly that.
+> 
+>> Do we additionally need to WARN_ON() if we encounter a VM_REALM ?
+> 
+> No, the host shouldn't be able to trigger a WARN at EL2.
+
+Alright.
+
+> 
+>> Apologies, I thought this one didn't change, but later patches changes
+>> them, which is why I kept this.
+> 
+> No worries. With those two in, please keep the tag.
+
+Thanks
+Suzuki
+
+> 
+> Cheers,
+> /fuad
 
 
