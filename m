@@ -4,141 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7503C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 15:23:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A39CC982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 15:24:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L8Zv5TBPNyEFHc5wUzOU6C5JU8jClmUyr8X0Da0LvnM=; b=0R0NA2m0lJABB/LEa9TCtH+6cq
-	mlIidL10eXNInkCVhSWTNXzDrbkYn169i4z/rL20MDlPa9co3LQzUlwNdbo/XwJRmIq2qNRvq2w0x
-	sjvLGIwcP2+TQQt4FWhURQCpsVYJjWlXBncqwXLaOe9rHYmoTQbmR8EqFXb09eDwKeqg7odZX6ljR
-	maTruWJDz0m6RA7GDe8w0A3MaB8wrAp2ss5rHy5FWwtBfhH2cycpntBTh7bUNvCKiUAtQd2Uxyku6
-	uobgN8H/OOr6a0MGu4h2BM1kjiDWsezIBUC0L2Mw3dus7PGhcRM7MZUiES0MUKHNmgZAxLctvCBJE
-	RqtPYMRg==;
+	bh=hO/lsissal4WESdbZEI6cX7APaokIBi+quRx+b4bgQk=; b=LtUYGge2ZJxwno8tDB+M+GZMuD
+	GBAgMnvxAyGOyVaQYIm1xu+x44Gjf0wGWzGTnOLzZT7led6tOlw6RcDLGdTkUaMcMX2Ba8mJIW8L2
+	qJRtPw7XNcHLUUg4aJkuMpF6EuAchP8eWityqwVZurkTRS2bKydeKpeHW3jgTBYtSki7Yo/LoyCRr
+	x6JFPpx4KGVZ3axPjh/MWRgocrb3P4XZGHTecAF9b7900z3SOXrvqPnZQ3gZza5J+H45eY6UmuQdl
+	R7OJCghvomijC1cVYVZhrc2buh12O6mMIT+HKy+PxN8Rg94r+nrNU4LgQvVUDWvoe7bRwCCcZVtdL
+	X6ox2guA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7aRG-0000000EsCU-2q0X;
-	Fri, 18 Sep 2026 15:23:46 +0000
-Received: from mail-northcentralusazon11012001.outbound.protection.outlook.com ([40.107.200.1] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1x7aRr-0000000EsQ3-3qNZ;
+	Fri, 18 Sep 2026 15:24:23 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7aRD-0000000EsAU-3cRk
+	id 1x7aRp-0000000EsPB-0ExR
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 18 Sep 2026 15:24:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=hO/lsissal4WESdbZEI6cX7APaokIBi+quRx+b4bgQk=; b=ScwXredPy0ByjOBVrB4GoN7z27
+	RjJa/SzvwBSIg4GZjFOT8MiJFjcKYrmMCv/BbZh9cT9dBexCNuNQ7yVi11Fp03VQxjaQGL7ItzYqb
+	US2xCoWUH55Vu7WJDSoHNbTridvuNTgevokTcpSjA3L/pHM7scAtgAFBF/5AD5J7FUSsxx1qBQhJS
+	LISRxZ3yKs/TmDQrvu3/tODoD1twsCYsPXylaOEzuOQVIdyOu5F22BKs26WYSBbQJiZxvwZYSjjLl
+	+VuPdg7oXmO34tDtUZxCApj6OMlJzZV3xmgauWImyVhNb+VaUnEkffhHlzJkLx9f17gVrQ3PM2QIr
+	eZiS3S1g==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x7aRl-0000000AGAK-3MOb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 15:23:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=s7ZfUdd5HHiW6pUjUNNmy7DvqJZM4RYntHvWvvt5vpTZWWcob0AXtegwj6hMZM3EGxMNoZ7yVLNFnsnPJXl3PUD9LL885VQJGnY8ogcNrStvL08Qi2MDl4ZmZkvC75HbB8qOMaYuzimjyu9LQF1ncqBuK/yfU644cNOXmIK1N8T6PAN9FfKSF7SOyqP6ogxHcrCyKlbb5hLlzYw4W1AjTOfzm4cTD0rXlY0rloQgvD40BoXDawtyII5nz8EmX3wGU0jbRf5XcMFCOUJk6fVgicP8g/pzu2qcstDeWlYomF7N9gFHE39vxT3rcGcE2/3sVKNkWaOIP5IYYEA1Sbj4PQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=L8Zv5TBPNyEFHc5wUzOU6C5JU8jClmUyr8X0Da0LvnM=;
- b=TG2H5GdTZBaHE4Rn20CP8zIXNy9U5+c5hWeKZf5ia+kkQx0KQ1c4kZzsNWENMLIUynEjXmbUszdkTqrg0bDgwGKsvjK4QVe9g59/6ELSdcot921TK/VpStFUHwzpSZTxvd8ychuvDDTa1CVo2GuKYqUe4WMTKuh0ZnEY1twY8QaFNbyLYgD/oIiD82i++E0P8ZOJSNGfUfh5fTHdWNftcM9FUGxD5uvVcyPo1yjtI2kGUr+myVAmAZJx9VV1fuUdVV0PcE7cKYMk5WzGVwy6gHlR35PUKE9SwJhwpLhSrOIViPE83xYxjlwy58MO5zpxMRRzAXW4BJB3/wbCAL/fEg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=L8Zv5TBPNyEFHc5wUzOU6C5JU8jClmUyr8X0Da0LvnM=;
- b=e7+nWHkFKxEs4xjclsVDiyYvOw/7y7ZG2JOMhNxYcVAZDVdDLhj2uJTT0sp+TEBhiHFqUlwFDq5hsKkH56sFsfqL2uxkNYWK12afL1B+1yoylIDbW/FCOpA7cuWN0ULJwyb92/UnSo5m9FYFzFo5r++J7IaByPwx+ngyjPFbHPw=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from PH7PR12MB5685.namprd12.prod.outlook.com (2603:10b6:510:13c::22)
- by MW3PR12MB4442.namprd12.prod.outlook.com (2603:10b6:303:55::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.13; Fri, 18 Sep
- 2026 15:23:37 +0000
-Received: from PH7PR12MB5685.namprd12.prod.outlook.com
- ([fe80::ce69:cfae:774d:a65c]) by PH7PR12MB5685.namprd12.prod.outlook.com
- ([fe80::ce69:cfae:774d:a65c%3]) with mapi id 15.21.0428.011; Fri, 18 Sep 2026
- 15:23:37 +0000
-Message-ID: <97c30fce-9bda-4c61-b1b9-10297b89c8d9@amd.com>
-Date: Fri, 18 Sep 2026 17:23:32 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 7/9] dma-buf: system_heap: Enforce shared-granule
- alignment for cc-shared buffers
-To: Catalin Marinas <catalin.marinas@arm.com>,
- "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Cc: linux-coco@lists.linux.dev, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- iommu@lists.linux.dev, Jason Gunthorpe <jgg@ziepe.ca>,
- Marc Zyngier <maz@kernel.org>, Marek Szyprowski <m.szyprowski@samsung.com>,
- Robin Murphy <robin.murphy@arm.com>, Steven Price <steven.price@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Thomas Gleixner
- <tglx@kernel.org>, Will Deacon <will@kernel.org>,
- Sumit Semwal <sumit.semwal@linaro.org>, "T.J. Mercier" <tjmercier@google.com>
-References: <aq1V3oeDdvXobt8J@arm.com>
-Content-Language: en-US
-From: =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
-In-Reply-To: <aq1V3oeDdvXobt8J@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR0P281CA0204.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:ad::13) To PH7PR12MB5685.namprd12.prod.outlook.com
- (2603:10b6:510:13c::22)
+	Fri, 18 Sep 2026 15:24:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C9FD4168F;
+	Fri, 18 Sep 2026 08:24:10 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E7E983F7B4;
+	Fri, 18 Sep 2026 08:24:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789745054; bh=QEXJlDyXgTRNfVdIg/gcujnPjsSNgQiBcl0rt6qSV00=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=LUToO6mp3W4N1KlcxlP+mPUgIjMhAvfzvmzPpM1xE4XZ5vX8PMOX8Nsznc7gKHzZY
+	 Q+iYMWHWb9xPbN/NpO+mdfBVOgiFihOmdstvAgzBxOKr/X2uwt7/70ulA5GQ1qbxTz
+	 MV4R04acYq3ybAqiwyZIuk5Lko1s5S1P2aImmShc=
+Date: Fri, 18 Sep 2026 16:24:09 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Andre Przywara <andre.przywara@arm.com>
+Subject: Re: [PATCH v4 2/8] firmware: smccc: Add support for Live Firmware
+ Activation (LFA)
+Message-ID: <aq1XmaBemuGybxp2@J2N7QTR9R3>
+References: <20260918141112.2115555-1-andre.przywara@arm.com>
+ <20260918141112.2115555-3-andre.przywara@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PR12MB5685:EE_|MW3PR12MB4442:EE_
-X-MS-Office365-Filtering-Correlation-Id: b5c21178-2935-4c17-2af9-08df1598cfd8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|7416014|376014|1800799024|56012099006|11063799006|10067099003|22082099003|18002099003|6133799003|3023799007;
-X-Microsoft-Antispam-Message-Info: 9QRZpg1ESsyFKWkH+5GD5lwJXKhfvKSo18efzukus27ugsy2Xs/Fu/7r23KR8PuVykP2FKvSB8/8nxtn26PdOgANFMBMM8xwPyGnunL7X7aH2ZBOpjrzXrjLC8BzG6e+82BfDbyiEDO7Z3IC2QQyqgGNPqjVquEXyaGg2C0zWEk3yFU4NGHI5uMUyp6WtoisJHmFA/FGitcG08181Bhko4aT6AMmMhcd4RxuvI2UeZtn5ibMB15WrOk05jPjF7IriWaP/Mf3VzZgPpe/nd+oRjOf9q0yrnGp1urRxnxMp59vONzRdLa8r+Jos3odOX8myMhLMfodN+Aj+ZZlbl8AQduc/XtLjen6dBfrdothIthpHB2vm8khHzwUYe5GalCaQw9Dg06J3zMtblGzLnAJ1BPfKafIhcXp9HsJxqjEHju7L9QcNbm6DMhCBGxkHdgne+4n8AC6vsaACsRegcLpH/1yeKfVuE9l+J1A44tagv3PAdDrNtVXe+s5fSabEFLSSQYYn26LhBp8JB3VmzaYuMFUvwQN2ClUk9TRn/pibsZdhZNX0mgHYDrrfAWjLrLwsU7s+aJVCbOyeMQo0g6/4gL2lp9ivhHyP9dmAmGwJVJVBnw7KSw0w2FCkz1j561yTs6R/s+zto/IX5mtpZaZV/H2eTPJMu6oIA4nk0f3r7s=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5685.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(7416014)(376014)(1800799024)(56012099006)(11063799006)(10067099003)(22082099003)(18002099003)(6133799003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dUJDVFNUeTNFZHRyZFJPS01VdUx6RzErSDVIWW5Qak93anZLZHpoVW1ZYUpj?=
- =?utf-8?B?QXZ5T1lTa25rRlBPTHZsVGJQZGZQQjc2U1hUYU5jSnhpSytwaVJpMmpzdW9r?=
- =?utf-8?B?K0l0SmJ2aHZBTnZjaWRiNktrWjRRT0FISjJZSGJOSEZJNi9nYjQzcEJiL010?=
- =?utf-8?B?WFNreU51L3JLYjg3eGNJMWFZZnVYRVpTeWNtb2JHc0FiWU9hZnZVSXJHY21D?=
- =?utf-8?B?V0RBcDI5ZDFmdjNuSjI1YWxVNEhvZjNkZ3BHVGhrNjNQNmNMeGlkSldLa2o4?=
- =?utf-8?B?emU4YUJ4TEZXS0t0Njd4dCtmcGFKY1c0amtZak82ZWlaT29ZZ0taN29WMGRC?=
- =?utf-8?B?dmUreDNZY21LSnVVelc4QkFGNlZPNUl3clZvdnR6cU1yYi9WWVlzTVRSUlZL?=
- =?utf-8?B?dXErR1BkWk5kZExPSEM5U1VZblhDSlJ4b0pTa2pIMnJ5akp5MHlNV1BmSHFN?=
- =?utf-8?B?c1VIRFNRTFRFQTJZekg5WncvVW5MWGdwZzdDQVRpVGpNUGV1MXE0RGRlYWVw?=
- =?utf-8?B?Qjh1aHhmaHRmdUcvQk1vaWoxU1dIYmdFa2J6MzQ5ZFdlZWQ4ZXRmVTNiOXA3?=
- =?utf-8?B?SWo5NGU4YTJpSEY1QVBwYkl5Rnl4WldqODJVaWpNbTNQVkkzd2pJN08wOU8v?=
- =?utf-8?B?NkUvMWVZM05rYjhMc0NyT2c5eER5SDE3TzdrcnBpVzV3MnhaNERvc0VDUHNQ?=
- =?utf-8?B?Z1dKVTV5dFdNR1V4S2grQVIxcm1KVWQzWFB1YXdLR1BEUE5Wd1dSUklzOUp3?=
- =?utf-8?B?RWJFaStnMUJzWU5iZjhLTVJFNzA4bkV2aFhLVGhyQncwVTBkNi9xSkgxanUw?=
- =?utf-8?B?QmpmRXhnekV3L0JDWmNXYTExeU9GZ3Z6T2V3OFhHOHdWbklWUVV1MXV4alpn?=
- =?utf-8?B?Nlh6UjA5MUkrMmpIazNyOWY3Q1B0L3BXYUQ3Nmh5RFM4bGl5MVYvNzJXSXo4?=
- =?utf-8?B?TURTRjFqeWpJSlBQcGN2RXJHMGZEWmlGMGw5RnBsaXZ3alhidFU5ZndtRWpk?=
- =?utf-8?B?MjFEYVg2TDlObS85UHJ5RjREd0ZTUDZCRFdGZldBNjg1QnpvaVJXSldDajJI?=
- =?utf-8?B?S3ZrVit5eHV6dW5GT0UrNTRXL1B1dEtueVNYSHRTL0h2b3RkbW1tMXpKcUZy?=
- =?utf-8?B?Y1RYcDdQeWhmakhVSFJmdUk2UHhMbGJxMlgxeDQ3b2hJcG5GK3dobjF1VUly?=
- =?utf-8?B?d1VKalBMeXAvdFpiOVd4dEE3Umh1T2FHeDE0amZ4QVFJTmZUNXBMOXowTXcx?=
- =?utf-8?B?bTJuNExWVHhMYm5QODVIVnJUTnUzR2ZnWGpocWJnNFFWZ2U0bFBxRjI3UUhm?=
- =?utf-8?B?cHcxVEpRTW9qZm9FdXV2a1FGRmQ1V1dwUDZrazUzZHlCclorUmhraHRLeVQx?=
- =?utf-8?B?a0wxTWFsVjY0cGFQRXlPUjdyOTJoWHYzaFVXSlNCM25UMW5wNFloaDJpVlBF?=
- =?utf-8?B?Y090VnBybnJ6ZkptN0FmNjRTUU9ucm5lTzgrY1l1OU9tUUZVaWpLbFhQbGpW?=
- =?utf-8?B?ZytUMnhuakZyZkYwcEhkYVc3TzIvcGZmYnVLa0lWMC9hREluMGFlaXNDQUpT?=
- =?utf-8?B?blR0OSs3aTh6UTJUdmRsSVNlWnZwdWErSzdaK2lPQm94MEZsbWo0VFVFVS82?=
- =?utf-8?B?ZUlXQk9XQ2cydGMrdWtlRko4eEJHUnhtRXU4SXVBQk9CeHNnbTBzVU9tY1g1?=
- =?utf-8?B?eWhIclV5L2xSL0VtTzBWSHJYS1dHNDR6UVNMak9wMWxhVVdWZWdpTXhYajgz?=
- =?utf-8?B?c05YN2JsaXEyRTl3QWd6elpRYXhFdjNVTlFJanBuZElpZWd4NDhmU2xweE12?=
- =?utf-8?B?TFByWE96bDlMODRvbDZFcnhZK2t3VEw0OTNRR3YxZzQvMG5uRHZlT25MNDRj?=
- =?utf-8?B?OUFEQ09sdjdKNGl4UVRMeUltMElGYkY4Z05ZeFVOUjcySE05U0swM1FXT3U1?=
- =?utf-8?B?S1ZmcS9oWWpqSVF5bFVTRGtZeVVsTG1vV3hsa043bGMzUU5jampLVStJWE9l?=
- =?utf-8?B?ZmJPWDV2ZEtkYVo1cHlnWVhRODJ2ZmNiTnRaN2EzcVFuSGoxNTJpVFdnbVUy?=
- =?utf-8?B?VmdyUnlnMTJ5UnVTUkxnUXlZaUY5RGdESUpYZS9YbXNyTlpjZU5VWWtxUXZm?=
- =?utf-8?B?cXFBMVlUUXBUTkNjOUJMcC94SUNBaFJ6c2xmYXFLN2ZmY1pld0xrSWR3ZUFh?=
- =?utf-8?B?Vk9tbUtPcnRMVU1YdE9WNUg3dkpqTVdXNk1VV204blQ1aG0yTVNwSXovV3Y4?=
- =?utf-8?B?c3l1dTVzN3YwVE5RcWlkalB2Yy9kNXlmMU1ocTJ4QzRzbFAyWmhyR1doV1F1?=
- =?utf-8?Q?r15hC43LoXYMYoD+bD?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b5c21178-2935-4c17-2af9-08df1598cfd8
-X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB5685.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Sep 2026 15:23:37.7630
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: d3Q4zDZETqKadT+q0wgEDbDaPceJt4fXR/MgVrG/jUWz3d6DE++cQMFY56KeXTDA
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW3PR12MB4442
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260918141112.2115555-3-andre.przywara@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_082343_918235_787B9DFF 
-X-CRM114-Status: GOOD (  33.06  )
+X-CRM114-CacheID: sfid-20260918_162418_177688_4BF6D948 
+X-CRM114-Status: GOOD (  52.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,155 +80,581 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Conor Dooley <conor+dt@kernel.org>, Trilok Soni <trilokkumar.soni@oss.qualcomm.com>, Salman Nabi <salman.nabi@arm.com>, Rob Herring <robh@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, linux-kernel@vger.kernel.org, Varun Wadekar <vwadekar@nvidia.com>, Sudeep Holla <sudeep.holla@kernel.org>, devicetree@vger.kernel.org, vsethi@nvidia.com, Nirmoy Das <nirmoyd@nvidia.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/18/26 17:16, Catalin Marinas wrote:
-> First, none of the DMA-BUF maintainers have been cc'ed. It might be fine
-> for an RFC but this series got to version 6. We need their feedback.
+Hi Andre,
 
-Yeah, thanks for doing this.
-> On Fri, Sep 04, 2026 at 04:04:50PM +0530, Aneesh Kumar K.V (Arm) wrote:
->> The system heap can allocate buffers that are decrypted and shared with the
->> host. For confidential-computing guests, those shared buffers must cover
->> whole shared-buffer granule; otherwise a userspace mmap of the dma-buf may
->> expose only part of a host-managed granule and allow unintended access to
->> adjacent private memory.
->>
->> Require cc-shared system-heap allocations to have a size aligned to
->> mem_cc_shared_granule_size(), and allocate pages at least as large as the
->> required granule. Keep the allocation bounded by the existing heap orders,
->> but fall back to an exact minimum-order allocation when the required
->> granule is not one of the preferred heap orders.
+I have a bunch of comments below. Most of those are on the structure of
+the kernel code; I haven't looked at LFA itself in detail, and so I
+don't know how much sense that makes.
 
-Uff, I don't think we can do that.
-
-That is massively platform specific behavior in a non platform specific code.
-
-When the architecture can only expose unencrypted memory in larger chunks than the only real alternative is to use bounce buffers and those are incompatible with DMA-buf.
-
-Additional to that you can trivially circumvent this with a memfd and udmabuf, so you most likely don't win anything with that.
-
-Regards,
-Christian.
-
->>
->> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
->> ---
->>  drivers/dma-buf/heaps/system_heap.c | 50 +++++++++++++++++++++++------
->>  1 file changed, 41 insertions(+), 9 deletions(-)
->>
->> diff --git a/drivers/dma-buf/heaps/system_heap.c b/drivers/dma-buf/heaps/system_heap.c
->> index c8959eadc71d..9cbfcebe2088 100644
->> --- a/drivers/dma-buf/heaps/system_heap.c
->> +++ b/drivers/dma-buf/heaps/system_heap.c
->> @@ -55,7 +55,6 @@ struct dma_heap_attachment {
->>  #define HIGH_ORDER_GFP  (((GFP_HIGHUSER | __GFP_ZERO | __GFP_NOWARN \
->>  				| __GFP_NORETRY) & ~__GFP_RECLAIM) \
->>  				| __GFP_COMP)
->> -static gfp_t order_flags[] = {HIGH_ORDER_GFP, HIGH_ORDER_GFP, LOW_ORDER_GFP};
->>  /*
->>   * The selection of the orders used for allocation (1MB, 64K, 4K) is designed
->>   * to match with the sizes often found in IOMMUs. Using order 4 pages instead
->> @@ -375,26 +374,44 @@ static const struct dma_buf_ops system_heap_buf_ops = {
->>  	.release = system_heap_dma_buf_release,
->>  };
->>  
->> +static struct page *system_heap_alloc_order(unsigned int order)
->> +{
->> +	gfp_t flags = order ? HIGH_ORDER_GFP : LOW_ORDER_GFP;
->> +
->> +	if (mem_accounting)
->> +		flags |= __GFP_ACCOUNT;
->> +
->> +	return alloc_pages(flags, order);
->> +}
->> +
->>  static struct page *alloc_largest_available(unsigned long size,
->> -					    unsigned int max_order)
->> +					    unsigned int max_order,
->> +					    unsigned int min_order)
->>  {
->>  	struct page *page;
->>  	int i;
->> -	gfp_t flags;
->>  
->>  	for (i = 0; i < NUM_ORDERS; i++) {
->>  		if (size <  (PAGE_SIZE << orders[i]))
->>  			continue;
->> -		if (max_order < orders[i])
->> +
->> +		if (max_order < orders[i] || orders[i] < min_order)
->>  			continue;
->> -		flags = order_flags[i];
->> -		if (mem_accounting)
->> -			flags |= __GFP_ACCOUNT;
->> -		page = alloc_pages(flags, orders[i]);
->> +
->> +		page = system_heap_alloc_order(orders[i]);
->>  		if (!page)
->>  			continue;
->>  		return page;
->>  	}
->> +	/*
->> +	 * The required minimum order might not be one of the preferred heap
->> +	 * orders. Allocate exactly min_order when it does not exceed the
->> +	 * remaining size.
->> +	 */
->> +	if (min_order && min_order <= max_order &&
->> +	    size >= (PAGE_SIZE << min_order))
->> +		return system_heap_alloc_order(min_order);
->> +
->>  	return NULL;
->>  }
->>  
->> @@ -409,6 +426,8 @@ static struct dma_buf *system_heap_allocate(struct dma_heap *heap,
->>  	unsigned int max_order = orders[0];
->>  	struct system_heap_priv *priv = dma_heap_get_drvdata(heap);
->>  	bool cc_shared = priv->cc_shared;
->> +	unsigned int min_order = 0;
->> +	size_t cc_granule_size;
->>  	struct dma_buf *dmabuf;
->>  	struct sg_table *table;
->>  	struct scatterlist *sg;
->> @@ -425,6 +444,18 @@ static struct dma_buf *system_heap_allocate(struct dma_heap *heap,
->>  	buffer->heap = heap;
->>  	buffer->len = len;
->>  	buffer->cc_shared = cc_shared;
->> +	if (cc_shared_buffer(buffer)) {
->> +		cc_granule_size = mem_cc_shared_granule_size();
->> +		if (!IS_ALIGNED(len, cc_granule_size)) {
->> +			ret = -EINVAL;
->> +			goto free_buffer;
->> +		}
->> +		min_order = get_order(cc_granule_size);
->> +		if (min_order > max_order) {
->> +			ret = -EINVAL;
->> +			goto free_buffer;
->> +		}
->> +	}
->>  
->>  	INIT_LIST_HEAD(&pages);
+On Fri, Sep 18, 2026 at 04:11:05PM +0200, Andre Przywara wrote:
+> From: Salman Nabi <salman.nabi@arm.com>
 > 
-> You need to get a proper base so that Sashiko can review this series. I
-> ran it through Claude and the above is wrong to go to free_buffer which
-> walks over the pages list that has not been initialised yet.
-> 
-> Another issue, I'm just copying it verbatim:
-> 
-> drivers/dma-buf/heaps/system_heap.c:379 (patch 7/9)
-> system_heap_alloc_order() picks "order ? HIGH_ORDER_GFP :
-> LOW_ORDER_GFP".  HIGH_ORDER_GFP clears __GFP_RECLAIM and sets
-> __GFP_NORETRY, which was fine while orders 8/4 always had order 0 as a
-> fallback.  The new min_order fallback at line 411 has no smaller order
-> to fall back to - it is the mandatory minimum.  On a 16K-page host with
-> a 4K-page guest, min_order = get_order(SZ_16K) = 2, which is not in
-> orders[] = {8, 4, 0}, and order 0 is filtered out by "orders[i] <
-> min_order".  Every tail allocation below 64K therefore goes through the
-> non-reclaiming fallback and returns -ENOMEM under pressure that ordinary
-> reclaim would have cleared.  Note any fix must keep __GFP_COMP:
-> compound_order()/page_size() are used on the result
-> (system_heap_set_page_decrypted(), the free paths and sg_set_page()).
-> 
+> The Arm Live Firmware Activation (LFA) is a specification [1] to describe
+> activating firmware components without a reboot. Those components
+> (like TF-A's BL31, EDK-II, TF-RMM, secure paylods) would be updated the
+> usual way: via fwupd, FF-A or other secure storage methods, or via some
+> IMPDEF Out-Of-Bound method. The user can then activate this new firmware,
+> at system runtime, without requiring a reboot.
+> The specification covers the SMCCC interface to list and query available
+> components and eventually trigger the activation.
 
+It'd be helpful to have a few basic concepts covered here or in the
+code. For example, I have no idea what a "rendezvous" is, and it's not
+at all obvious from the code.
+
+> Add a new directory under /sys/firmware to present firmware components
+> capable of live activation. Each of them is a directory under lfa/,
+> and is identified via its GUID.
+
+Nit: it's a UUID, not a GUID. Please use the term "UUID" consistently.
+
+[...]
+
+> +/* LFA return values */
+> +#define LFA_SUCCESS			0
+> +#define LFA_NOT_SUPPORTED		1
+> +#define LFA_BUSY			2
+> +#define LFA_AUTH_ERROR			3
+> +#define LFA_NO_MEMORY			4
+> +#define LFA_CRITICAL_ERROR		5
+> +#define LFA_DEVICE_ERROR		6
+> +#define LFA_WRONG_STATE			7
+> +#define LFA_INVALID_PARAMETERS		8
+> +#define LFA_COMPONENT_WRONG_STATE	9
+> +#define LFA_INVALID_ADDRESS		10
+> +#define LFA_ACTIVATION_FAILED		11
+
+The spec has these as negative values, e.g. LFA_NOT_SUPPORTED is '-1'.
+
+Other SMCCC specs (e.g. PSCI, FFA) follow that convention, and we match
+that exactly in the Linux definitions, e.g.
+
+| #define PSCI_RET_NOT_SUPPORTED                        -1
+
+... and:
+
+| #define FFA_RET_NOT_SUPPORTED      (-1)
+
+Please do the same here. Match the spec, and update the code
+accordingly. Doing differently is needlessly confusing and will lead to
+bugs.
+
+> +
+> +#define LFA_ERROR_STRING(name) \
+> +	[name] = #name
+> +
+> +static const char * const lfa_error_strings[] = {
+> +	LFA_ERROR_STRING(LFA_SUCCESS),
+> +	LFA_ERROR_STRING(LFA_NOT_SUPPORTED),
+> +	LFA_ERROR_STRING(LFA_BUSY),
+> +	LFA_ERROR_STRING(LFA_AUTH_ERROR),
+> +	LFA_ERROR_STRING(LFA_NO_MEMORY),
+> +	LFA_ERROR_STRING(LFA_CRITICAL_ERROR),
+> +	LFA_ERROR_STRING(LFA_DEVICE_ERROR),
+> +	LFA_ERROR_STRING(LFA_WRONG_STATE),
+> +	LFA_ERROR_STRING(LFA_INVALID_PARAMETERS),
+> +	LFA_ERROR_STRING(LFA_COMPONENT_WRONG_STATE),
+> +	LFA_ERROR_STRING(LFA_INVALID_ADDRESS),
+> +	LFA_ERROR_STRING(LFA_ACTIVATION_FAILED)
+> +};
+
+If you really need this, you can use a switch statement instead of an
+array.
+
+> +
+> +static const char *lfa_error_string(long error)
+> +{
+> +	if (error > 0)
+> +		return lfa_error_strings[LFA_SUCCESS];
+> +
+> +	error = -error;
+> +	if (error < ARRAY_SIZE(lfa_error_strings))
+> +		return lfa_error_strings[error];
+> +
+> +	return lfa_error_strings[LFA_DEVICE_ERROR];
+> +}
+
+Why map unknown errors to "LFA_DEVICE_ERROR" ?
+
+Use a switch statement. Map unkown values to something like
+"<UNKNOWN>". When you log a string, also log the numeric value in case
+we don't have a string for that value e.g
+
+	pr_info("LFA_FOO returned %d (%s), err, lfa_error_string(err));
+
+> +
+> +static const int lfa_error_map[] = {
+> +	[LFA_SUCCESS]			= 0,
+> +	[LFA_NOT_SUPPORTED]		= -EOPNOTSUPP,
+> +	[LFA_BUSY]			= -EBUSY,
+> +	[LFA_AUTH_ERROR]		= -EPERM,
+> +	[LFA_NO_MEMORY]			= -ENOMEM,
+> +	[LFA_CRITICAL_ERROR]		= -EACCES,
+> +	[LFA_DEVICE_ERROR]		= -EIO,
+> +	[LFA_WRONG_STATE]		= -EPROTO,
+> +	[LFA_INVALID_PARAMETERS]	= -EINVAL,
+> +	[LFA_COMPONENT_WRONG_STATE]	= -EPROTO,
+> +	[LFA_INVALID_ADDRESS]		= -ENXIO,
+> +	[LFA_ACTIVATION_FAILED]		= -EIO,
+> +};
+>
+> +static int lfa_to_linux_errno(long lfa_error)
+> +{
+> +	if (lfa_error > 0)
+> +		return -EINVAL;
+> +
+> +	if (-lfa_error > LFA_ACTIVATION_FAILED)
+> +		return -EINVAL;
+> +
+> +	return lfa_error_map[-lfa_error];
+> +}
+
+Please use a switch statement as with psci_to_linux_errno(). 
+
+That will handle negative values fine, and we can remove the unnecessary
+negation I complained about above.
+
+By construction that'll avoid a bunch of potential problems with using
+an array (e.g. going out-of-bounds, failing to update bouns checks,
+values in gaps being mapped to 0).
+
+e.g. 
+
+| static int lfa_to_linux_errono(long lfa_errno)
+| {
+| 	switch (lfa_errno) {
+| 	case LFA_SUCCESS:
+| 		return 0;
+| 	case LFA_NOT_SUPPORTED:
+| 		return -EOPNOTSUPP;
+| 	...
+| 	default:
+| 		return -EINVAL;
+| 	}
+| }
+
+> +
+> +enum image_attr_names {
+> +	LFA_ATTR_NAME,
+> +	LFA_ATTR_CURRENT_VERSION,
+> +	LFA_ATTR_PENDING_VERSION,
+> +	LFA_ATTR_ACT_CAPABLE,
+> +	LFA_ATTR_ACT_PENDING,
+> +	LFA_ATTR_MAY_RESET_CPU,
+> +	LFA_ATTR_CPU_RENDEZVOUS,
+> +	LFA_ATTR_FORCE_CPU_RENDEZVOUS,
+> +	LFA_ATTR_ACTIVATE,
+> +	LFA_ATTR_CANCEL,
+> +	LFA_ATTR_NR_IMAGES
+> +};
+> +
+> +struct fw_image {
+> +	struct kobject kobj;
+> +	const char *image_name;
+> +	int fw_seq_id;
+> +	u64 current_version;
+> +	u64 pending_version;
+> +	bool activation_capable;
+> +	bool activation_pending;
+> +	bool may_reset_cpu;
+> +	bool cpu_rendezvous;
+> +	bool cpu_rendezvous_forced;
+> +	bool use_cpu_rendezvous;
+> +	struct kobj_attribute image_attrs[LFA_ATTR_NR_IMAGES];
+> +};
+> +
+> +static struct fw_image *kobj_to_fw_image(struct kobject *kobj)
+> +{
+> +	return container_of(kobj, struct fw_image, kobj);
+> +}
+> +
+> +/* A UUID split over two 64-bit registers */
+> +struct uuid_regs {
+> +	u64 uuid_lo;
+> +	u64 uuid_hi;
+> +};
+> +
+> +/* A list of known GUIDs, to be shown in the "name" sysfs file. */
+> +static const struct fw_image_uuid {
+> +	const char *name;
+> +	const char *uuid;
+> +} fw_images_uuids[] = {
+> +	{
+> +		.name = "TF-A BL31 runtime",
+> +		.uuid = "47d4086d-4cfe-9846-9b95-2950cbbd5a00",
+> +	},
+> +	{
+> +		.name = "BL33 non-secure payload",
+> +		.uuid = "d6d0eea7-fcea-d54b-9782-9934f234b6e4",
+> +	},
+> +	{
+> +		.name = "TF-RMM",
+> +		.uuid = "6c0762a6-12f2-4b56-92cb-ba8f633606d9",
+> +	},
+> +};
+
+As commented before, this has to go.
+
+[...]
+
+> +static void remove_invalid_fw_images(struct work_struct *work)
+> +{
+> +	struct kobject *kobj, *tmp;
+> +	struct list_head images_to_delete = LIST_HEAD_INIT(images_to_delete);
+> +
+> +	/*
+> +	 * Remove firmware images including directories that are no longer
+> +	 * present in the LFA agent after updating the existing ones.
+> +	 * Delete list images before calling kobject_del() and kobject_put() on
+> +	 * them. Kobject_del() uses kset->list_lock itself which can cause lock
+> +	 * recursion, and kobject_put() may sleep.
+> +	 */
+
+This is quite hard to parse.
+
+In particular, the sentence starting "Delete list images" doesn't make
+sense to me -- I think you're saying place those entries into "delete
+list", but "Delete" at the start of the sentence reads as a verb.
+
+> +	spin_lock(&lfa_kset->list_lock);
+> +	list_for_each_entry_safe(kobj, tmp, &lfa_kset->list, entry) {
+> +		struct fw_image *image = kobj_to_fw_image(kobj);
+> +
+> +		if (image->fw_seq_id == -1)
+> +			list_move_tail(&kobj->entry, &images_to_delete);
+> +	}
+> +	spin_unlock(&lfa_kset->list_lock);
+> +
+> +	/*
+> +	 * Now safely remove the sysfs kobjects for the deleted list items
+> +	 */
+
+Likewise, this comment is confusing.
+
+> +	list_for_each_entry_safe(kobj, tmp, &images_to_delete, entry) {
+> +		struct fw_image *image = kobj_to_fw_image(kobj);
+> +
+> +		delete_fw_image_node(image);
+> +	}
+> +}
+> +
+> +static void set_image_flags(struct fw_image *image, int seq_id,
+> +			    u32 image_flags, u64 reg_current_ver,
+> +			    u64 reg_pending_ver)
+> +{
+> +	image->fw_seq_id = seq_id;
+> +	image->current_version = reg_current_ver;
+> +	image->pending_version = reg_pending_ver;
+> +	image->activation_capable = !!(image_flags & BIT(0));
+> +	image->activation_pending = !!(image_flags & BIT(1));
+> +	image->may_reset_cpu = !!(image_flags & BIT(2));
+> +	/* cpu_rendezvous_optional bit has inverse logic in the spec */
+> +	image->cpu_rendezvous = !(image_flags & BIT(3));
+> +}
+> +
+> +static unsigned long get_nr_lfa_components(void)
+> +{
+> +	struct arm_smccc_1_2_regs reg = { 0 };
+
+Please use 'regs' to match the 'arm_smccc_1_2_regs' name.
+
+Likewise for other instances.
+
+> +
+> +	reg.a0 = ARM_SMCCC_LFA_GET_INFO;
+> +	reg.a1 = 0; /* lfa_info_selector = 0 */
+> +
+> +	arm_smccc_1_2_invoke(&reg, &reg);
+> +	if (reg.a0 != LFA_SUCCESS)
+> +		return reg.a0;
+> +
+> +	return reg.a1;
+> +}
+> +
+> +static const char *get_image_name(const struct fw_image *image)
+> +{
+> +	if (image->image_name && image->image_name[0] != '\0')
+> +		return image->image_name;
+> +
+> +	return kobject_name(&image->kobj);
+> +}
+
+As before, please just use the UUID.
+
+I *assume* that we cannot have more than one image for a given
+component, and hence we cannot have two entries for the same UUID? Is
+that mandated by the LFA spec?
+
+> +
+> +static int lfa_cancel(void *data)
+> +{
+> +	struct fw_image *image = data;
+> +	struct arm_smccc_1_2_regs reg = { 0 };
+> +
+> +	reg.a0 = ARM_SMCCC_LFA_CANCEL;
+> +	reg.a1 = image->fw_seq_id;
+> +	arm_smccc_1_2_invoke(&reg, &reg);
+> +
+> +	/*
+> +	 * When firmware activation is called with "skip_cpu_rendezvous=1",
+> +	 * LFA_CANCEL can fail with LFA_BUSY if the activation could not be
+> +	 * cancelled.
+> +	 */
+> +	if (reg.a0 == LFA_SUCCESS) {
+> +		pr_info("Activation cancelled for image %s\n",
+> +			get_image_name(image));
+> +	} else {
+> +		pr_err("Activation not cancelled for image %s: %s\n",
+> +		       get_image_name(image), lfa_error_string(reg.a0));
+> +		return -EINVAL;
+> +	}
+> +
+> +	return reg.a0;
+> +}
+> +
+> +/*
+> + * Try a single activation call. The smc_lock writer lock must be held,
+> + * and it must be called from inside stop_machine() when CPU rendezvous is
+> + * required.
+> + * Returns a Linux error code, not an LFA one.
+> + */
+> +static int _lfa_activate(void *data)
+> +{
+> +	struct fw_image *image = data;
+> +	struct arm_smccc_1_2_regs reg = { 0 }, res;
+
+Elsewhere you used the same strucutre for input and output; why do you
+need separate structures here?
+
+> +
+> +	reg.a0 = ARM_SMCCC_LFA_ACTIVATE;
+> +	reg.a1 = image->fw_seq_id;
+> +	/*
+> +	 * As we do not support updates requiring a CPU reset (yet),
+> +	 * we pass 0 in reg.a3 and reg.a4, holding the entry point and
+> +	 * context ID respectively.
+> +	 * Use the cached value of the rendezvous status, to be consistent
+> +	 * with how we were called (via stop_machine() or not).
+> +	 */
+> +	reg.a2 = !image->use_cpu_rendezvous;
+
+It is odd to have this comment in the middle of the set of parameters.
+
+It'd be nicer to have:
+
+	struct arm_smccc_1_2_regs regs = {
+		/*
+		 * One comment block for all the params.
+		 */
+		.a0 = ARM_SMCCC_LFA_ACTIVATE,
+		.a1 = image->fw_seq_id,
+		.a2 = !image->use_cpu_rendezvous,
+		.a3 = 0, // entry point
+		.a4 = 0, // context id
+	};
+
+> +	arm_smccc_1_2_invoke(&reg, &res);
+> +
+> +	if ((long)res.a0 < 0)
+> +		return lfa_to_linux_errno((long)res.a0);
+> +
+> +	if (res.a1 & LFA_ACTIVATE_CALL_AGAIN)
+> +		return -EAGAIN;
+> +
+> +	return 0;
+> +}
+> +
+> +static int activate_fw_image(struct fw_image *image)
+> +{
+> +	int ret;
+> +
+> +retry:
+> +	/*
+> +	 * cpu_rendezvous_forced is set by the administrator, via sysfs,
+> +	 * cpu_rendezvous is dictated by each firmware component.
+> +	 */
+> +	image->use_cpu_rendezvous = image->cpu_rendezvous_forced ||
+> +				    image->cpu_rendezvous;
+> +	if (image->use_cpu_rendezvous)
+> +		ret = stop_machine(call_lfa_activate, image, cpu_online_mask);
+
+What prevents cpu_online_mask changing under your feet here?
+
+This looks odd given call_lfa_activate() doesn't seem to distinguish
+secondaries from one another. Does LFA expect all callers to pass the
+exact same arguments for a "rendezvous"?
+
+
+> +	else
+> +		ret = call_lfa_activate(image);
+> +
+> +	if (!ret) {
+> +		update_fw_images_tree();
+> +
+> +		return 0;
+> +	}
+
+Odd whitespace here. There doesn't need to be a blank line before the
+return.
+
+> +
+> +	/* SMC returned with call_again flag set, or with LFA_BUSY */
+> +	if (ret == -EAGAIN || ret == -EBUSY)
+> +		goto retry;
+
+Should this be a do { ... } while (...) loop?
+
+> +
+> +	lfa_cancel(image);
+> +
+> +	pr_err("LFA_ACTIVATE for image %s failed\n", get_image_name(image));
+> +
+> +	return ret;
+> +}
+> +
+> +static int prime_fw_image(struct fw_image *image)
+> +{
+> +	struct arm_smccc_1_2_regs reg = { 0 }, res;
+
+Do you need separate input and output strutctures?
+
+> +	int ret;
+> +
+> +	if (image->may_reset_cpu) {
+> +		pr_err("CPU reset not supported by kernel driver\n");
+> +
+> +		return -EINVAL;
+> +	}
+
+Unnecessary newline again.
+
+> +
+> +	reg.a0 = ARM_SMCCC_LFA_PRIME;
+> +retry:
+> +	/*
+> +	 * LFA_PRIME will return 1 in reg.a1 if the firmware priming
+> +	 * is still in progress. In that case LFA_PRIME will need to
+> +	 * be called again.
+> +	 * reg.a1 will become 0 once the prime process completes.
+> +	 */
+> +	reg.a1 = image->fw_seq_id;
+> +	arm_smccc_1_2_invoke(&reg, &res);
+> +	if ((long)res.a0 < 0) {
+> +		pr_err("LFA_PRIME for image %s failed: %s\n",
+> +		       get_image_name(image),
+> +		       lfa_error_string((long)res.a0));
+> +
+> +		return lfa_to_linux_errno((long)res.a0);
+> +	}
+> +
+> +	if (res.a1 & LFA_PRIME_CALL_AGAIN)
+> +		goto retry;
+
+Should this be a loop?
+
+> +
+> +	return 0;
+> +}
+
+[...]
+
+> +static ssize_t current_version_show(struct kobject *kobj,
+> +				    struct kobj_attribute *attr, char *buf)
+> +{
+> +	struct fw_image *image = kobj_to_fw_image(kobj);
+> +	u32 maj, min;
+> +
+> +	maj = image->current_version >> 32;
+> +	min = image->current_version & 0xffffffff;
+> +
+
+You can use upper_32_bits() and lower_32_bits() here.
+
+> +	return sysfs_emit(buf, "%u.%u\n", maj, min);
+> +}
+> +
+> +static ssize_t pending_version_show(struct kobject *kobj,
+> +				    struct kobj_attribute *attr, char *buf)
+> +{
+> +	struct fw_image *image = kobj_to_fw_image(kobj);
+> +	struct arm_smccc_1_2_regs reg = { 0 };
+> +
+> +	/*
+> +	 * Similar to activation pending, this value can change following an
+> +	 * update, we need to retrieve fresh info instead of stale information.
+> +	 */
+> +	reg.a0 = ARM_SMCCC_LFA_GET_INVENTORY;
+> +	reg.a1 = image->fw_seq_id;
+> +	arm_smccc_1_2_invoke(&reg, &reg);
+> +	if (reg.a0 == LFA_SUCCESS) {
+> +		if (reg.a5 != 0 && image->activation_pending) {
+> +			u32 maj, min;
+> +
+> +			image->pending_version = reg.a5;
+> +			maj = reg.a5 >> 32;
+> +			min = reg.a5 & 0xffffffff;
+
+You could use upper_32_bits() and lower_32_bits() here.
+
+> +
+> +			return sysfs_emit(buf, "%u.%u\n", maj, min);
+> +		}
+> +	}
+> +
+> +	return sysfs_emit(buf, "N/A\n");
+
+Why a string rather than an error code?
+
+[...]
+
+> +static int lfa_smccc_probe(struct arm_smccc_device *sdev)
+> +{
+> +	struct arm_smccc_1_2_regs reg = { 0 };
+> +	int err;
+> +
+> +	reg.a0 = ARM_SMCCC_LFA_GET_VERSION;
+> +	arm_smccc_1_2_invoke(&reg, &reg);
+> +	if ((s32)reg.a0 == -LFA_NOT_SUPPORTED)
+> +		return -ENODEV;
+> +
+> +	pr_info("Live Firmware Activation: detected v%ld.%ld\n",
+> +		reg.a0 >> 16, reg.a0 & 0xffff);
+
+You can use upper_16_bits() and lower_16_bits().
+
+> +
+> +	fw_images_update_wq = alloc_workqueue("fw_images_update_wq",
+> +					      WQ_UNBOUND | WQ_MEM_RECLAIM, 1);
+> +	if (!fw_images_update_wq) {
+> +		pr_err("Live Firmware Activation: Failed to allocate workqueue.\n");
+> +
+> +		return -ENOMEM;
+> +	}
+> +	INIT_WORK(&fw_images_update_work, remove_invalid_fw_images);
+> +
+> +	init_image_default_attrs();
+> +	lfa_kset = kset_create_and_add("lfa", NULL, firmware_kobj);
+> +	if (!lfa_kset) {
+> +		destroy_workqueue(fw_images_update_wq);
+> +
+> +		return -ENOMEM;
+> +	}
+> +
+> +	err = update_fw_images_tree();
+> +	if (err != 0) {
+> +		kset_unregister(lfa_kset);
+> +		destroy_workqueue(fw_images_update_wq);
+> +	}
+> +
+> +	return err;
+> +}
+
+There was an interrupt in the binding, not detected or used here. What's
+going on?
+
+Mark.
 
