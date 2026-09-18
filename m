@@ -4,71 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E007C982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 15:56:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC60FC982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 15:57:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hhGPlXYSIo33J7nYUvrp3043PHqrzomzJnIGNB3f+cM=; b=pGrfzgNPOzMOsNxqTNm+k90wcD
-	plsiEQh5IH78Jzi6vYXp3x8ZUOj0MIq0/xMP6MskS/gkyUwgqwcXKBqq3VzRotpJOeT9vVRxAAbu1
-	05God2VRZ/T+0119r3dS9vvC58E6YxEjHdadr7VwGSoa/6RGyw/5ktra61d58qPlOCQHkfriSXsWo
-	tw+ljjR5nNqbTc+XHPATo4BaUkr5F/3kYVdRcC1ahfUYGTcWHM6kbjADG7Wrn0O7SnXHD8xh5fVSs
-	8gfdPVb7m/omy5gtFo4lxIO3jll2k2+xrfUV7N10EnVzBAvhXTKgoprzUBNxja+IuUBcTeU/Qk7+z
-	v8e6kxfQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KcbJsmqKUVlgmMgW8drjDCDfJeq+Ke5tmTlLzlkgAFE=; b=hUftpvdA2ULMDQ8mdRiiYYMvAI
+	CXGrwkrIb4wjz1nKdwUbSSPybUdHJrfjj1R5/CAAvud6azbKAyfHdMncdEVtup95uRI1Lm87QHSEr
+	2cOAeJ3nmtTuwpykkhJAYNr385hLm7zYdDtmbX+sAvJfiKxZvXnvo6/PKyvVIpeqODXZxx6H+4VDd
+	g2EAovBoc3AzmRu9DuTcwYVWLUW5z6wDAVHbcrvPDjD+3YLUo1hkSPmhuQKsSpDDOZGP144xoHq3G
+	8Mxz3qv74uagax+kxDBnhdE71iPhGr7UM6wNCBQKbEl1Mn1b+k0mWuTxHJh5PK3RYREOZ+WBsm2+T
+	DHnoQO8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7awv-0000000Ewf7-0F9m;
-	Fri, 18 Sep 2026 15:56:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7aws-0000000Eweg-1Xe8
+	id 1x7axK-0000000Ewii-0osh;
+	Fri, 18 Sep 2026 15:56:54 +0000
+Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x7axH-0000000Ewi8-0ym3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 15:56:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F24BC168F;
-	Fri, 18 Sep 2026 08:56:18 -0700 (PDT)
-Received: from [10.57.83.108] (unknown [10.57.83.108])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D24E43F7B4;
-	Fri, 18 Sep 2026 08:56:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789746982; bh=Yztiuro1Xc4OykaRC7nI2YhmfOG7q71r/xjUWYC+jiY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=k8+yX0WZ+rqA/zHh0tPVeR+rCnkkhVppK+TFsnAsx1MVJp9p/INl8Xqdh1PFciqLa
-	 Ht6MB/DHCzgmdORKU98cHJb5LEiEMSNgI53Sl4eu8dgPwvgZaI1gJ2AGYSnqO9pgbW
-	 3zEuzJlYEW4yLfB4bv2Ny6h1LJ1ATOXA1EjmCQik=
-Message-ID: <37bb7c39-f16b-494a-ab96-771b2d4f6b85@arm.com>
-Date: Fri, 18 Sep 2026 16:56:17 +0100
+	Fri, 18 Sep 2026 15:56:52 +0000
+Received: by mail-pj2-x10.google.com with SMTP id d9443c01a7336-2d747f0135fso9320895ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 08:56:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789747010; x=1790351810; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=KcbJsmqKUVlgmMgW8drjDCDfJeq+Ke5tmTlLzlkgAFE=;
+        b=ZgRerTzwsmtAj+uaxMpzmANKMIh47FWzyWYxfVyhnSZcAqNOjaK7LJbAIDaw3A+vlh
+         5nwuR8UVzFhfO/D9APbnj21ss6AUzZS8aWeAl0hUWC5116a3b46gmQcG1ibwQOn1vp2s
+         ZVSCO+oF0rUK/7MxOLk+Saoj1Dk5tX+fv4rutwrGLSRKSeOYumrUYFO2SsBwjEZZzCb3
+         zD11wukjuq+hHnMuD1MLnqEfCqAbJyhE33TS+zO+19ncikHULmhWFyze3YZSr+5G50kH
+         5haMyDzX/jg4N8JJQLcS+6Ny8Uf8IgVwbDv+kXwAc7yGL0LKxVQr+iNObKxRSCrTEUgm
+         QKmQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789747010; x=1790351810;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=KcbJsmqKUVlgmMgW8drjDCDfJeq+Ke5tmTlLzlkgAFE=;
+        b=FfXTGlxzntAkBADZnndT7lwLRsr84U9V8k+7Pl6a++0RyZzsyEz9SM+kYxuoatcqdc
+         BhzAZYbsl07ei3vjlf3gRpSELz3l0yej6ZbimMFXQyrz2g+S2gS5gqLU0L4m5vRlMdva
+         F4rIHsNZfE0kXuIcVkBqunLDCQ9uueELg8IKwFKVJ0WcmYR+hFdfX463uvDDn/TXioZB
+         kgNsgsWOutekRNntas5RzB40tO//G/vNUhxdYcO7a/mSN4eugc62fw9tuLyqE6cJreQ0
+         djTOLrcHNrl9epVyNDXnYspg1GPD3o5zJKYNjh0Zjdn6sJkObz/OK6bydWzYl7IQZseH
+         q95Q==
+X-Forwarded-Encrypted: i=1; AKwUvBx8Tp/UlCWj7NaNbXP2MafilwU7GZqlu0v8OCyQJy0kJZ4rl+t5SiPs1GqPMUU1Vox39W92sEgPEgUxQnL8kiw8@lists.infradead.org
+X-Gm-Message-State: AFuF++nBOoBvFfN2KLT8w995MLab/FD6G1Y+au9LhF89Lzj6h3LDqKhh
+	g5zSs33lDreY0OBgcu1PTEzRYSSpMQYFjdazULTn0NVmJzrFrDhxYNtGb/ONhQ==
+X-Gm-Gg: AYBFou3s0T/h6IlcK730VMEZ97CbRqxcRxDzywFBgz6mLqcKd8kx9uQ/JimUE8DZDie
+	q5ao2exmJl2FAeJFH+O240atrN+/phHQb/FlZyWgbme/VqkZz1zBPb7Zr8UKy1qMC+7heP3G45w
+	p2ENrsByijpLUtNNg0gG1UETiUTOIGOroDIbWY+Dn7yk34z0jPTHOa2sIJEWCCsQEMZNjeo1t1s
+	KwwBUEm+nBV+NbdgqDr9LAtg7ZjMDkF4cP7QXztAnSMR3gCkOPBF8jbVosYEdJyB66m36gFB3sm
+	HxWmN5BBE8AQkDudeEsw51/BCWjayNVWmWjI9GIFgW/1kxewiWOCwWLygsulY9rP6HmD7KgKMhh
+	v19LP7nuAm92Nu6+rXe35PFy3hyn8cAWImARtPjAVzDZEQLUlUb5yOPZRZpT55w5ER+HJ3z/XKb
+	91Rmw/c8xzWPJ492Fsqa/DKTK+wlMCbRneGBbMxSLsFDTFWM0kW6NWR9Lr/lYFjsDA00lTYHcIn
+	4lYv/hRkasyJm7SzA==
+X-Received: by 2002:a17:903:1844:b0:2dd:c100:942f with SMTP id d9443c01a7336-2ddc1009bf7mr1190205ad.45.1789747010314;
+        Fri, 18 Sep 2026 08:56:50 -0700 (PDT)
+Received: from SGN-LDSENG.tasernet.com ([2405:4800:5cc3:11a:1ac0:4dff:fe8b:4a69])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ddb7525be8sm10938445ad.24.2026.09.18.08.56.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 18 Sep 2026 08:56:49 -0700 (PDT)
+From: Cong Nguyen <congnt264@gmail.com>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-rtc@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] rtc: mxc_v2: fix clock-unprepare race with the still-live alarm IRQ
+Date: Fri, 18 Sep 2026 22:56:42 +0700
+Message-Id: <20260918155642.2557978-1-congnt264@gmail.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/6] arm64: convert between HW PTEs and SW PTE values
-To: Muhammad Usama Anjum <usama.anjum@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
- Ilias Apalodimas <ilias.apalodimas@linaro.org>,
- Andrey Ryabinin <ryabinin.a.a@gmail.com>,
- Alexander Potapenko <glider@google.com>,
- Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>,
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-efi@vger.kernel.org, kasan-dev@googlegroups.com, linux-mm@kvack.org
-References: <20260914-pte0_arm-v1-0-bb53b663e396@arm.com>
- <20260914-pte0_arm-v1-3-bb53b663e396@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260914-pte0_arm-v1-3-bb53b663e396@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_085626_510866_2385DC76 
-X-CRM114-Status: GOOD (  17.38  )
+X-CRM114-CacheID: sfid-20260918_085651_273495_77982418 
+X-CRM114-Status: GOOD (  12.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,69 +102,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/09/2026 14:51, Muhammad Usama Anjum wrote:
-> __ptep_get() returns a SW PTE value, and __set_pte_nosync() accepts one.
-> When HW PTEs use a distinct hw_pte_t, directly reading or writing *ptep
-> as a SW PTE value no longer satisfies those interfaces.
-> 
-> Use __pte_from_hw after READ_ONCE() to obtain a SW PTE value and add
-> __hw_pte before WRITE_ONCE() to form an HW PTE.
-> 
-> Define __hw_pte for both the wrapper and alias configurations so the
-> same accessor code works in either case.
-> 
-> Signed-off-by: Muhammad Usama Anjum <usama.anjum@arm.com>
-> ---
->  arch/arm64/include/asm/pgtable.h | 4 ++--
->  include/linux/pgtable_types.h    | 2 ++
->  2 files changed, 4 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-> index 4768ec59de555..67c4a6179e154 100644
-> --- a/arch/arm64/include/asm/pgtable.h
-> +++ b/arch/arm64/include/asm/pgtable.h
-> @@ -360,7 +360,7 @@ static inline pte_t pte_clear_uffd(pte_t pte)
->  
->  static inline void __set_pte_nosync(hw_pte_t *ptep, pte_t pte)
->  {
-> -	WRITE_ONCE(*ptep, pte);
-> +	WRITE_ONCE(*ptep, __hw_pte(pte));
->  }
->  
->  static inline void __set_pte_complete(pte_t pte)
-> @@ -381,7 +381,7 @@ static inline void __set_pte(hw_pte_t *ptep, pte_t pte)
->  
->  static inline pte_t __ptep_get(hw_pte_t *ptep)
->  {
-> -	return READ_ONCE(*ptep);
-> +	return __pte_from_hw(READ_ONCE(*ptep));
->  }
->  
->  extern void __sync_icache_dcache(pte_t pteval);
-> diff --git a/include/linux/pgtable_types.h b/include/linux/pgtable_types.h
-> index ee4eace5c3e1c..b5862a16aa497 100644
-> --- a/include/linux/pgtable_types.h
-> +++ b/include/linux/pgtable_types.h
-> @@ -9,11 +9,13 @@
->  #ifdef CONFIG_ARCH_HAS_HW_PTE_T
->  typedef struct __hw_pte_t { pte_t __pte; } hw_pte_t;
->  #define __pte_from_hw(pte)	((pte).__pte)
-> +#define __hw_pte(pte)  ((hw_pte_t) { (pte) })
+remove() unprepares the clock, but the alarm IRQ is devm-managed and
+only actually freed after remove() returns -- so it's still live while
+the clock is unprepared. If it fires in that window,
+mxc_rtc_interrupt() calls clk_enable() on an unprepared clock.
 
-same comment as for patch 2; wouldn't this be better off in the generic series?
+Free the IRQ explicitly in remove(), before touching the clock, so it
+can't fire during or after the unprepare.
 
-Thanks,
-Ryan
+Fixes: 55d5a86618d3 ("rtc: mxc_v2: Add missing clk_disable_unprepare()")
+Reported-by: Sashiko AI review <sashiko-bot@kernel.org>
+Link: https://lore.kernel.org/r/20260914134826.EC26D1F000FF@smtp.kernel.org
+Assisted-by: LLM
+Signed-off-by: Cong Nguyen <congnt264@gmail.com>
+---
+ drivers/rtc/rtc-mxc_v2.c | 1 +
+ 1 file changed, 1 insertion(+)
 
->  
->  #define hw_pte_val(x)  pte_val((x).__pte)
->  #else
->  #define hw_pte_t pte_t
->  #define __pte_from_hw(pte)	(pte)
-> +#define __hw_pte(pte)  (pte)
->  
->  #define hw_pte_val(x)  pte_val(x)
->  #endif
-> 
+diff --git a/drivers/rtc/rtc-mxc_v2.c b/drivers/rtc/rtc-mxc_v2.c
+index a07acbbcfaeb..3c174f6004c5 100644
+--- a/drivers/rtc/rtc-mxc_v2.c
++++ b/drivers/rtc/rtc-mxc_v2.c
+@@ -365,6 +365,7 @@ static void mxc_rtc_remove(struct platform_device *pdev)
+ {
+ 	struct mxc_rtc_data *pdata = platform_get_drvdata(pdev);
+ 
++	devm_free_irq(&pdev->dev, pdata->irq, &pdev->dev);
+ 	clk_disable_unprepare(pdata->clk);
+ }
+ 
+-- 
+2.25.1
 
 
