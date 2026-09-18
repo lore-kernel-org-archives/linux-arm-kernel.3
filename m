@@ -4,75 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F31AC982D2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 07:12:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B476C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 07:14:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ONcQ26rozGTeYTFN4AmRp548glZjumb6wG79sSd/wGw=; b=iY3IKJPuwhZxDMJw7/o3wQ7vW7
-	EIhNy4I3RG6EIMds4MTyuTVT2fl+c0Vt70GbsM3e8cbKzFqpQ0N3yKa+fe7ISmzUUhpApOtksEFoa
-	MJjymxwyA3cEAyqgb79OKhbKHEAb+Q8hPVfNpcgA6JAU7Y4uRdPxsqK2om/vd7ln+sAmgCvl6v9GT
-	ON31M9S5AxctpGl2ukwdQr4ekS/jfWjyk43BCpHsQa8qd0PcqG/9R+6QyO8Fcp+Wn2AJK1b3M+EDf
-	9zx1tJ9bQHTXeI2FOjoj6mytGC4RfnUUQKjI+9I3mc96sTGXZEc9fXW2WuTcUzSrcDfs+xRro2br9
-	00D0Cc9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JSN/3RICUGwBIu5VwI98GdvFqpcrp4blbXSy58qpsRU=; b=2ih+uZeU4YKQFgqDY1nMI1yOuX
+	QesHZJJqAW1eaEvSM3CPJupL/OL0CIuHtIcRj1i3L6/Ul48lQKFDQR4IuZ86zEGEt9tzzJ9VEi9ME
+	CCXB5TrV+DocmhjYHWF+wd5sSwzaidNoyUsxW0yjF45NFSXTUne8AQ6jRCcFHciCWxOnZzSRWoI1Q
+	fEoWKO4VqBiaB3mLVkfnxj/b3oDTTo2roPr4a72DJ3HxebRrtvC9YA4KVPlYbXmfBEuCkamKNn5r5
+	kIVSzYClpa1MxVnTOCnxX6dNWiWU9sn/vgsNUZkNirnoLJb68o0CKApNZctPp6tMBXSjmhAIlP1om
+	L6zt32BA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7SlG-0000000DfCL-35cn;
-	Fri, 18 Sep 2026 07:11:54 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1x7SnZ-0000000DfL1-0BVP;
+	Fri, 18 Sep 2026 07:14:17 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Sl9-0000000DfAl-31m7
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 07:11:49 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id BFAA3C58469;
-	Fri, 18 Sep 2026 07:12:29 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id E270960649;
-	Fri, 18 Sep 2026 07:11:44 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8FDDB11C7B021;
-	Fri, 18 Sep 2026 09:11:33 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1789715503; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=ONcQ26rozGTeYTFN4AmRp548glZjumb6wG79sSd/wGw=;
-	b=BOn559NGFM4JJTDaDZomXpW+HeR6L1FpzuDZcpegacC0EWH17CgOUh8GaZeLbsSQA+OKgI
-	YJqBv3xsMKPOjMOSHWrbzoJz6mPq8JbhfWjuIQhyAJOi23et+j6/9UkTWFXjrVbEo+DXBA
-	LAHVKlG8pvIOHGBjNnC8FqtxEt6J2+/6uHVGmb2y5eHgB1/ziSBondVCal7Tk1qz3mhkpx
-	roCnuoCqnGySL7UjrqsowJSlJEqVDnviYjtCb7Rt0e71lCmECtuljGFyXLbqKlKmp+HlbT
-	zlpmRCdB42oHn9bH3HrcRcJC6LclwNeN7n8bUBjVSUtQXqS+mt3VqKtAijKPrA==
-Message-ID: <986afd25-f69d-4b73-9e7d-f1403a1c6e6e@bootlin.com>
-Date: Fri, 18 Sep 2026 09:11:32 +0200
+	id 1x7SnV-0000000DfKe-1txJ;
+	Fri, 18 Sep 2026 07:14:15 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D4BA643309;
+	Fri, 18 Sep 2026 07:14:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D737D1F000FF;
+	Fri, 18 Sep 2026 07:14:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789715652;
+	bh=JSN/3RICUGwBIu5VwI98GdvFqpcrp4blbXSy58qpsRU=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=Ko5U5HydpSiCUC607T3WB/2e0AHn/OAQOLnxt0skGjaJ6dlvhiveUPAe5HA2uE/PT
+	 /hc+DeZpWm/sd4F8F5oAdb0eLJNrmiRC+bntUlPg4EDlGiIcfENFfIbBGiIxZDGJK+
+	 wUq6IdZ/oaxCSHRvKEaIWY6++Qi6+D40+DXu4AW9PP3xG3yH/xeFAfC9eAUQ8BglQC
+	 k3mFx4QcVIodeIsTG2wP5wzvEjPZ+f94XFWjmYH+IIE1de1/4uniXYM9JgPIaPqejU
+	 MOnV3VtS8mgbZEoQ/cKvMnpocjve8EM2tRtFBwQoUzlU/nCjp62BkJGkb9lbetw+5s
+	 qREbZFA6/p+FA==
+X-Mailer: emacs 31.1 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	x86@kernel.org
+Subject: Re: [PATCH v4 3/5] dma: swiotlb: Centralize memory-encryption pool
+ sizing
+In-Reply-To: <aqwPKO80ZEn0cqa7@arm.com>
+References: <20260914070135.313337-1-aneesh.kumar@kernel.org>
+ <20260914070135.313337-4-aneesh.kumar@kernel.org>
+ <aqwPKO80ZEn0cqa7@arm.com>
+Date: Fri, 18 Sep 2026 12:43:59 +0530
+Message-ID: <yq5a1par116w.fsf@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2 2/3] net: stmmac: advertise integrated PCS
- interfaces to phylink
-To: Thomas Karpiniec <tom.karpiniec@outlook.com>, netdev@vger.kernel.org
-Cc: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Russell King <linux@armlinux.org.uk>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>,
- Choong Yong Liang <yong.liang.choong@linux.intel.com>,
- Bartosz Golaszewski <brgl@kernel.org>, Coia Prant <coiaprant@gmail.com>,
- linux-arm-msm@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <SJ2PR11MB8401F5C3A075DE2A0013E063E4872@SJ2PR11MB8401.namprd11.prod.outlook.com>
- <SJ2PR11MB8401D53F5519472525156BA9E4872@SJ2PR11MB8401.namprd11.prod.outlook.com>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <SJ2PR11MB8401D53F5519472525156BA9E4872@SJ2PR11MB8401.namprd11.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_001147_931808_C40B00B4 
-X-CRM114-Status: GOOD (  16.06  )
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,53 +106,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Thomas,
+Catalin Marinas <catalin.marinas@arm.com> writes:
 
-On 9/18/26 06:50, Thomas Karpiniec wrote:
-> From: Thomas Karpiniec <tom@wendy.sh>
-> 
-> stmmac_phylink_setup() adds interfaces reported by platform
-> get_interfaces() and non-integrated PCS instances to
-> config->supported_interfaces, but omits the integrated PCS.
-> 
-> On qcom-ethqos with 2500BASE-X selected by firmware, this leaves SGMII
-> out of the supported interface bitmap, causing phylink to remove the
-> lower-speed modes of a switching PHY such as QCA8081.
-> 
-> Add the integrated PCS interface bitmap to config->supported_interfaces.
-> 
-> Fixes: 68cff4fff61f ("net: stmmac: add BASE-X support to integrated PCS")
-> Cc: stable@vger.kernel.org # 7.0+
-> Assisted-by: LLM sparse
-> Signed-off-by: Thomas Karpiniec <tom@wendy.sh>
+> On Mon, Sep 14, 2026 at 12:31:32PM +0530, Aneesh Kumar K.V (Arm) wrote:
+>> +/**
+>> + * swiotlb_adjusted_size() - get the prospective adjusted SWIOTLB size
+>> + *
+>> + * Return the size that confidential-computing guest sizing would select for
+>> + * the default pool, without changing the configured SWIOTLB size. An
+>> + * explicit swiotlb= size is always preserved. An explicit area count is
+>> + * included in the size calculation. Automatic area sizing is initialized
+>> + * later from the running kernel's possible CPU map and any resulting size
+>> + * adjustment is therefore not reflected in the returned size.
+>> + */
+>> +unsigned long __init swiotlb_adjusted_size(void)
+>> +{
+>> +	unsigned long nslabs, size = swiotlb_size_or_default();
+>> +
+>> +	if (swiotlb_default_size_changed() ||
+>> +	    !cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT))
+>> +		return size;
+>> +	/*
+>> +	 * For SEV and TDX and CCA, all DMA has to occur via
+>> +	 * shared/unencrypted pages. Kernel uses SWIOTLB to make this
+>> +	 * happen without changing device drivers. However, depending on
+>> +	 * the workload being run, the default 64MB of SWIOTLB may not be
+>> +	 * enough and SWIOTLB may run out of buffers for DMA, resulting in
+>> +	 * I/O errors and/or performance degradation especially with high
+>> +	 * I/O workloads.
+>> +	 *
+>> +	 * Adjust the default size of SWIOTLB using a percentage of guest
+>> +	 * memory for SWIOTLB buffers. Also, as the SWIOTLB bounce buffer
+>> +	 * memory is allocated from low memory, ensure that the adjusted
+>> +	 * size is within the limits of low available memory.
+>
+> Nit: if SWIOTLB_ANY is passed, do we still allocate only from low
+> memory? I think this comment made sense on x86 but it's not valid for
+> s390, pseries with the changes so far.
+>
 
-Looks good to me, thanks !
+I'll remove that part of the comment, as the code does not check the
+adjusted size against the low-memory limit.
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+>
+> Otherwise:
+>
+> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
-Maxime
-
-
-> ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 6 ++++++
->  1 file changed, 6 insertions(+)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 1350e92943ac..f956e0d2ec64 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -1414,6 +1414,12 @@ static int stmmac_phylink_setup(struct stmmac_priv *priv)
->  		__set_bit(priv->plat->phy_interface,
->  			  config->supported_interfaces);
->  
-> +	/* If we have an integrated PCS, add the interfaces it supports. */
-> +	if (priv->integrated_pcs)
-> +		phy_interface_or(config->supported_interfaces,
-> +				 config->supported_interfaces,
-> +				 priv->integrated_pcs->pcs.supported_interfaces);
-> +
->  	/* If we have an xpcs, it defines which PHY interfaces are supported. */
->  	if (priv->hw->xpcs)
->  		pcs = xpcs_to_phylink_pcs(priv->hw->xpcs);
-
+-aneesh
 
