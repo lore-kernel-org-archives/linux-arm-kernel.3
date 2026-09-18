@@ -4,65 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68AB4C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 23:00:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF1F5C982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 23:46:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:Subject:
-	From:MIME-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DmLZ94AHYP63wdAVIRZYQYO4b0tflVV2n0V+mhCuajs=; b=B/q5fBHCY4AyL0my/vopQAJxnZ
-	m7x6g+r9AChIZ+D5bvDTlBUmFhdgL0EPxKp3wyzs//f1Ri9QpGDaZN97sUxWYCMMBSnTyIRmE9SUv
-	TNVldTY9sndQOu7y9Ta5GpViqniJbnsTN72eqTBpDF+IiycRh7MupBMXomKV1fIogU7zOh1TfB7rX
-	l9eHJO2kYThpzzyi4W5v6YX/Lm1awWiQfCiPxlCgjjGzuSYXv/ri4IEDgb8LNsogzDzh9sO1Yb+Nv
-	AwZwA+C1h1iSlScLSRsr8KzahaHmxgAZyvnIN7cvlH6blw2GfTNDFyvMT50Ctf1iJhm+AZSFwz2jc
-	HM+DYGWA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Aqeltcbk5Y0DT3NsWMqHIyENcVAY79AXe5OsLKEh8Rw=; b=2qKHXiriDxzXaP5d7aS6ldAGoJ
+	szuS9USwryrlv9ouI2D4u4eX8ScKuz3SPsnptZ6fwNcecj/JvTXNsu8WvE5vwluJP9Oi0UGQyxc/9
+	txYdOkQJfp3bsSpYRo893TIEjKKrji8Z0jIigDoogQdrIS0pKf9AoxbZbN8oOx8D3GxajoF5l2saM
+	oRr324ZmuA6x2IqB6WwvszSR5Z6ly/QWWdD4HMaFdTui1gEfyZXKm+SNP50v7T42b7FzHQ/ibLg+6
+	SaUXtLdwQDsTbdDb+RNcCXQlTaugBb59jKgAWxvvfsfEJWrKMlJKk07hh9udlJ4oEu8NoO+eYDx2p
+	of/q7eQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7hZY-0000000FgER-0lLd;
-	Fri, 18 Sep 2026 23:00:48 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x7hHa-0000000Fdzm-2y72;
+	Fri, 18 Sep 2026 22:42:14 +0000
+Received: from mail-pg1-x548.google.com ([2607:f8b0:4864:20::548])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7hZX-0000000FgDy-1KTw
+	id 1x7hHW-0000000FdwB-0usw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 23:00:47 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 633CF6053D;
-	Fri, 18 Sep 2026 23:00:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 414BC1F000FF;
-	Fri, 18 Sep 2026 23:00:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789772446;
-	bh=DmLZ94AHYP63wdAVIRZYQYO4b0tflVV2n0V+mhCuajs=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=H/FGilupSkbIY0CbH7lTao6/7xUMgAR7Ql0qN2rDu3+stEAJ66vVVgeFTge2+8F/A
-	 zLrfunsKdJKiq1q7k+b+vmEObHnkvqXEdgNanEUIku0QLxtceoEc/Sof1sgIojlduh
-	 88MIeYtz/qa/c8a2TgbgB+POBnLkmjwtLP3JOrwmEit33c6K0No8VYm8d1a8CYT+2/
-	 bKHZj57i40fguNnd33sMRn4URcW+BKqA6IvdE8DtrblriABP9YKJ9704ufX2yL36/3
-	 eeWqDWm876tqUr/Wm5O0ZsHZtf3qiarnkWLczessiYlHmeoztgZ9iFrCyRYCszYMt8
-	 ijJuStzO121yg==
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH v7 11/11] unwind: arm64: Use sframe to unwind interrupt
- frames
-To: "Mark Rutland" <mark.rutland@arm.com>, "Jens Remus" <jremus@linux.ibm.com>, "Roman
- Gushchin" <roman.gushchin@linux.dev>, "Catalin Marinas" <catalin.marinas@arm.com>, "Peter
- Zijlstra" <peterz@infradead.org>, "Josh Poimboeuf" <jpoimboe@kernel.org>, "Will
- Deacon" <will@kernel.org>, "Weinan Liu" <wnliu@google.com>, "Indu Bhagat" <ibhagatgnu@gmail.com>, "Steven
- Rostedt" <rostedt@goodmis.org>, "Jiri Kosina" <jikos@kernel.org>, "Dylan
- Hatch" <dylanbhatch@google.com>
-Cc: "Puranjay Mohan" <puranjay@kernel.org>, "Herbert Xu" <herbert@gondor.apana.org.au>, linux-kernel@vger.kernel.org, "Mostafa
- Saleh" <smostafa@google.com>, "Prasanna Kumar T S M" <ptsm@linux.microsoft.com>, "Randy
- Dunlap" <rdunlap@infradead.org>, linux-toolchains@vger.kernel.org, joe.lawrence@redhat.com, "David
- S. Miller" <davem@davemloft.net>, linux-arm-kernel@lists.infradead.org, live-patching@vger.kernel.org, "Song
- Liu" <song@kernel.org>
-In-Reply-To: <20260918224157.1471085-12-dylanbhatch@google.com>
+	Fri, 18 Sep 2026 22:42:11 +0000
+Received: by mail-pg1-x548.google.com with SMTP id 41be03b00d2f7-cc1b8088202so1100786a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 15:42:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1789771329; x=1790376129; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Aqeltcbk5Y0DT3NsWMqHIyENcVAY79AXe5OsLKEh8Rw=;
+        b=Zijoik26Iin7kN8YBmwFfIeL7gBUWDJAglw6twvdL2LnH3w2DHIj+wvnsQqb4RTES2
+         1AYM4qQYRbjht7LcSOJi4hUne80wQG5DFTM6okqnNWwzCQCYw/6KFOkSZ0KIb6wgn41g
+         fE4xTFaT903M/qDBl0QPtIj7jL5lvWgKuQvzmhv9t+sBQ9n/UFbY3KhdnWefYzuHIMle
+         UIpAv9KWGnZGoCFyxJJ089LVp1woXQqPnIexv+aYnTYDAqDmt1HOatB3CS0Mms0XnFnG
+         vDDz3oLaVjaqfN3V51O66QwldSOF2mCfRzunLHbScTiNJr1GE7meoQDvWH4HcJjLZKbw
+         neug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789771329; x=1790376129;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Aqeltcbk5Y0DT3NsWMqHIyENcVAY79AXe5OsLKEh8Rw=;
+        b=bA32V+TuYDi8XXm8Hg7acOLR7kqiJBLb5YqjyTeF3UwXoeqGoNmNMHKpAnjEGA4O77
+         QHdxvdkMG7s9cEGuJBhqVJyf7gqf4WFCrNzo+cMxQWTmFDInUpUGY5TQnSU5LmfTdTCd
+         SdjgtucNOmmobd/ZmbvMJfZ+3y+kFjOR918AE5DTNDJ0ce/cOlnv6iZh52RLEzX9VqxP
+         Yqh6xXP1cOZwDe6DoCNMQ9xbcVzSRFu0u9xIHJ1JC0hbCN7wjVHZgQI9jNeWeM4Z9rfj
+         KvgRSjDW8j/iZs1mErKAX8TsNJ2ow03BehrxqjiYcNt8E1qRJOSO78bfleHIngglMhOh
+         VSzA==
+X-Forwarded-Encrypted: i=1; AKwUvBwrF0ADaqah1qDYWQhx47ND2AQrtd/ZHLO65LmOdXe36E6eRksgS/hDhg2rwQNGG1dipB1+IooTKwvv1+1aTpKb@lists.infradead.org
+X-Gm-Message-State: AFuF++kgIzYproeUdRJmxyckoztB/zdfu935kshagUUu97652Oq8ZgxU
+	7YE9RL1turw/rE1mRZka2Cxo1oI5YGy82hGvdkIA31KFLsq427irNWLuVa7IfftLVTFVZijE1gj
+	bEliBp+hmGvniQ8abrzD76lnvkQ==
+X-Received: from pfbgo3.prod.google.com ([2002:a05:6a00:3b03:b0:851:7d32:90e0])
+ (user=dylanbhatch job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6a21:517:b0:3dd:a196:30a9 with SMTP id adf61e73a8af0-3dda196341emr1224576637.89.1789771328828;
+ Fri, 18 Sep 2026 15:42:08 -0700 (PDT)
+Date: Fri, 18 Sep 2026 22:41:49 +0000
+In-Reply-To: <20260918224157.1471085-1-dylanbhatch@google.com>
+Mime-Version: 1.0
 References: <20260918224157.1471085-1-dylanbhatch@google.com>
- <20260918224157.1471085-12-dylanbhatch@google.com>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Fri, 18 Sep 2026 23:00:44 +0000
-Message-Id: <20260918230045.414BC1F000FF@smtp.kernel.org>
+X-Mailer: git-send-email 2.55.0.1082.g2b9226bbc0-goog
+Message-ID: <20260918224157.1471085-4-dylanbhatch@google.com>
+Subject: [PATCH v7 03/11] sframe: Add support for reading vmlinux .sframe contents
+From: Dylan Hatch <dylanbhatch@google.com>
+To: Roman Gushchin <roman.gushchin@linux.dev>, Weinan Liu <wnliu@google.com>, 
+	Will Deacon <will@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
+	Indu Bhagat <ibhagatgnu@gmail.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Steven Rostedt <rostedt@goodmis.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Jiri Kosina <jikos@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Jens Remus <jremus@linux.ibm.com>
+Cc: Dylan Hatch <dylanbhatch@google.com>, Prasanna Kumar T S M <ptsm@linux.microsoft.com>, 
+	Puranjay Mohan <puranjay@kernel.org>, Song Liu <song@kernel.org>, joe.lawrence@redhat.com, 
+	linux-toolchains@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	live-patching@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Randy Dunlap <rdunlap@infradead.org>, Mostafa Saleh <smostafa@google.com>, 
+	Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260918_154210_311731_0C00A993 
+X-CRM114-Status: GOOD (  29.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,83 +96,524 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: sashiko-reviews@lists.linux.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 1 potential issue(=
-s) to consider:
-- [High] arm64: noinstr violation by calling sframe_find() in stack unwinder
---
+From: Josh Poimboeuf <jpoimboe@kernel.org>
 
-commit 13ca4d55a43f451bf08442b7e6af494a6c23a78e
-Author: Dylan Hatch <dylanbhatch@google.com>
+In preparation for using sframe to unwind kernel space stacks, add an
+sframe_find() interface for finding the sframe information associated
+with a given vmlinux text address.
 
-unwind: arm64: Use sframe to unwind interrupt frames
+Treat a RA offset from CFA of zero as indication that the RA is not
+saved (on the stack).  For the topmost frame treat it as indication that
+the RA is in the link/RA register, such as on arm64 and s390, and obtain
+it from there.  For non-topmost frames treat it as error, as the RA must
+be saved.
 
-This patch adds kunwind_next_regs_sframe() to unwind interrupt frames using
-sframe info, falling back to frame-pointer unwinding on failure. It updates
-the exception boundary unwinding logic to recover the return address more
-reliably when sframe data is present.
+[ Jens Remus: Add initial support for SFrame V3 (limited to regular
+FDEs).  Add support for PC-relative FDE function start offset.  Simplify
+logic by using an internal FDE representation.  Rename struct sframe_fre
+to sframe_fre_internal to align with struct sframe_fde_internal.
+Cleanup includes.  Fix checkpatch errors "spaces required around that
+':'". ]
 
-> diff --git a/arch/arm64/kernel/stacktrace.c b/arch/arm64/kernel/stacktrac=
-e.c
-> index 3ebcf8c53fb04..5aaeac9611015 100644
-> --- a/arch/arm64/kernel/stacktrace.c
-> +++ b/arch/arm64/kernel/stacktrace.c
-[ ... ]
-> @@ -244,6 +247,162 @@ kunwind_next_frame_record(struct kunwind_state *sta=
-te)
->  	return 0;
->  }
-> =20
-> +#ifdef CONFIG_HAVE_UNWIND_KERNEL_SFRAME
-[ ... ]
-> +/*
-> + * Unwind from a pt_regs according to sframe.
-> + */
-> +static __always_inline int
-> +kunwind_next_regs_sframe(struct kunwind_state *state)
-> +{
-> +	struct unwind_frame frame;
-> +	unsigned long cfa, fp, ra;
-> +	enum kunwind_source source =3D KUNWIND_SOURCE_FRAME;
-> +	struct pt_regs *regs =3D state->regs;
-> +
-> +	int err;
-> +
-> +	if (WARN_ON_ONCE(state->source !=3D KUNWIND_SOURCE_REGS_PC))
-> +		return -EINVAL;
-> +	if (WARN_ON_ONCE(!state->regs))
-> +		return -EINVAL;
-> +
-> +	/* FP/SP alignment 8 bytes */
-> +	if (state->common.fp & 0x7)
-> +		return -EINVAL;
-> +
-> +	err =3D sframe_find(state->common.pc, &frame);
+[ Dylan Hatch: Adapt for in-kernel unwinding. Squash parts of patches by
+Jens Remus <jremus@linux.ibm.com>:
+ - "unwind_user: Enable archs that pass RA in a register"
+ - "unwind_user: Flexible FP/RA recovery rules"
+ - "unwind_user: Flexible CFA recovery rules"
+ - "unwind_user/sframe: Add support for outermost frame indication" ]
 
-[Severity: High]
-Does calling sframe_find() here violate the noinstr guarantee of the stack
-unwinding path?
+Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
+Co-developed-by: Jens Remus <jremus@linux.ibm.com>
+Signed-off-by: Jens Remus <jremus@linux.ibm.com>
+Reviewed-by: Indu Bhagat <ibhagatgnu@gmail.com>
+Signed-off-by: Steven Rostedt <rostedt@goodmis.org>
+Co-developed-by: Dylan Hatch <dylanbhatch@google.com>
+Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
 
-The unwind path is called via arch_stack_walk() -> kunwind_stack_walk() ->
-kunwind_next() -> kunwind_next_regs_sframe().
+---
 
-Since arch_stack_walk() is explicitly marked noinstr to guarantee safe
-execution in uninstrumentable contexts (like nmi), calling instrumentable
-or rcu-protected functions like sframe_find() and __module_text_address()
-could cause a recursive fault or kernel panic if tracing or kasan is active.
+This patch is adaped from commit 9f0daa3a841e ("unwind_user/sframe: Add
+support for reading .sframe contents"), and squashes in part of:
 
-Additionally, could accessing rcu-protected module structures without rcu
-watching lead to use-after-free bugs when stack unwinding is routinely
-triggered by tools like perf or bpf tracing?
+ - 79313210e44e ("unwind_user/sframe: Add support for outermost frame
+indication")
+ - 70b5d8a3ddc0 ("unwind_user: Enable archs that pass RA in a register")
+ - 29774da9d30f ("unwind_user: Flexible FP/RA recovery rules")
+ - 9c9b953fe83c ("unwind_user: Flexible CFA recovery rules")
 
-> +	if (err)
-> +		return -EINVAL;
-> +
+all of which are from Steven's sframe/core branch.
 
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20260918224157.1471=
-085-1-dylanbhatch@google.com?part=3D11
+The patch also squash the relevant parts of the following two patching
+from v6 of this series:
+
+ - sframe: Allow kernelspace sframe sections
+ - sframe: Provide PC lookup for vmlinux .sframe section
+
+Changes include:
+ - Replace user-access sections with direct pointer reads.
+ - (sashiko) use get_unaligned() when reading packed .sframe contents.
+ - Create include/linux/unwind_types.h to define SFrame unwind rules.
+ - Implement sframe_find() to perform an SFrame IP lookup on
+   kernel_sfsec.
+ - Squash in SFRAME_V3_FRE_RA_UNDEFINED_P(fre->info) to support Arm64 RA
+   behavior.
+ - Omit kernel/unwind/sframe_debug.h, added in later patch.
+---
+ include/linux/sframe.h       |   4 +-
+ include/linux/unwind_types.h |  34 ++++
+ kernel/unwind/sframe.c       | 349 +++++++++++++++++++++++++++++++++++
+ kernel/unwind/sframe.h       |   1 +
+ 4 files changed, 387 insertions(+), 1 deletion(-)
+ create mode 100644 include/linux/unwind_types.h
+
+diff --git a/include/linux/sframe.h b/include/linux/sframe.h
+index 54e5cb76cb92c..c1fe8ac7df7b3 100644
+--- a/include/linux/sframe.h
++++ b/include/linux/sframe.h
+@@ -3,6 +3,7 @@
+ #define _LINUX_SFRAME_H
+ 
+ #include <linux/init.h>
++#include <linux/unwind_types.h>
+ 
+ #ifdef CONFIG_UNWIND_SFRAME_LOOKUP
+ 
+@@ -22,11 +23,12 @@ struct sframe_section {
+ extern struct sframe_section kernel_sfsec __ro_after_init;
+ 
+ void __init init_sframe_table(void);
++extern int sframe_find(unsigned long ip, struct unwind_frame *frame);
+ 
+ #else /* !CONFIG_UNWIND_SFRAME_LOOKUP */
+ 
+ static inline void __init init_sframe_table(void) {}
+-
++static inline int sframe_find(unsigned long ip, struct unwind_frame *frame) { return -EINVAL; }
+ #endif /* CONFIG_UNWIND_SFRAME_LOOKUP */
+ 
+ #endif /* _LINUX_SFRAME_H */
+diff --git a/include/linux/unwind_types.h b/include/linux/unwind_types.h
+new file mode 100644
+index 0000000000000..d0e69189af2ab
+--- /dev/null
++++ b/include/linux/unwind_types.h
+@@ -0,0 +1,34 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _LINUX_UNWIND_TYPES_H
++#define _LINUX_UNWIND_TYPES_H
++
++enum unwind_cfa_rule {
++	UNWIND_CFA_RULE_SP_OFFSET,		/* CFA = SP + offset */
++	UNWIND_CFA_RULE_FP_OFFSET,		/* CFA = FP + offset */
++	/* REG and DEREF variants not implemented -- flex FDEs not supported. */
++};
++
++struct unwind_cfa_rule_data {
++	enum unwind_cfa_rule rule;
++	s32 offset;
++	unsigned int regnum;
++};
++
++enum unwind_rule {
++	UNWIND_RULE_RETAIN,		/* entity = entity */
++	UNWIND_RULE_CFA_OFFSET_DEREF,	/* entity = *(CFA + offset) */
++};
++
++struct unwind_rule_data {
++	enum unwind_rule rule;
++	s32 offset;
++};
++
++struct unwind_frame {
++	struct unwind_cfa_rule_data cfa;
++	struct unwind_rule_data ra;
++	struct unwind_rule_data fp;
++	bool outermost;
++};
++
++#endif /* _LINUX_UNWIND_TYPES_H */
+diff --git a/kernel/unwind/sframe.c b/kernel/unwind/sframe.c
+index 5f49f05e6226d..f3975c7e89493 100644
+--- a/kernel/unwind/sframe.c
++++ b/kernel/unwind/sframe.c
+@@ -8,6 +8,9 @@
+ #include <linux/mm.h>
+ #include <linux/string_helpers.h>
+ #include <linux/sframe.h>
++#include <linux/unaligned.h>
++#include <linux/unwind_types.h>
++#include <linux/kallsyms.h>
+ #include <asm/sections.h>
+ 
+ #include "sframe.h"
+@@ -15,6 +18,352 @@
+ static bool sframe_init __ro_after_init;
+ struct sframe_section kernel_sfsec __ro_after_init;
+ 
++struct sframe_fde_internal {
++	unsigned long	func_addr;
++	u32		func_size;
++	u32		fda_off;
++	u32		fres_off;
++	u32		fres_num;
++	u8		info;
++	u8		info2;
++	u8		rep_size;
++};
++
++struct sframe_fre_internal {
++	unsigned int	size;
++	u32		ip_off;
++	s32		cfa_off;
++	s32		ra_off;
++	s32		fp_off;
++	u8		info;
++};
++
++static __always_inline unsigned char fre_type_to_size(unsigned char fre_type)
++{
++	if (fre_type > 2)
++		return 0;
++	return 1 << fre_type;
++}
++
++static __always_inline unsigned char dataword_size_enum_to_size(unsigned char dataword_size)
++{
++	if (dataword_size > 2)
++		return 0;
++	return 1 << dataword_size;
++}
++
++static __always_inline int __read_fde(struct sframe_section *sec,
++				      unsigned int fde_num,
++				      struct sframe_fde_internal *fde)
++{
++	unsigned long fde_addr, fda_addr, func_addr;
++	struct sframe_fde_v3 *_fde;
++	struct sframe_fda_v3 *_fda;
++
++	fde_addr = sec->fdes_start + (fde_num * sizeof(struct sframe_fde_v3));
++	_fde = (struct sframe_fde_v3 *)fde_addr;
++
++	func_addr = fde_addr + _fde->func_start_off;
++
++	fda_addr = sec->fres_start + _fde->fres_off;
++	if (fda_addr + sizeof(struct sframe_fda_v3) > sec->fres_end ||
++	    fda_addr + sizeof(struct sframe_fda_v3) < sec->fres_start)
++		return -EINVAL;
++	_fda = (struct sframe_fda_v3 *)fda_addr;
++
++	fde->func_addr	= func_addr;
++	fde->func_size	= _fde->func_size;
++	fde->fda_off	= _fde->fres_off;
++	fde->fres_off	= _fde->fres_off + sizeof(struct sframe_fda_v3);
++	fde->fres_num	= _fda->fres_num;
++	fde->info	= _fda->info;
++	fde->info2	= _fda->info2;
++	fde->rep_size	= _fda->rep_size;
++
++	return 0;
++}
++
++static __always_inline int __find_fde(struct sframe_section *sec,
++				      unsigned long ip,
++				      struct sframe_fde_internal *fde)
++{
++	unsigned long func_addr_low = 0, func_addr_high = ULONG_MAX;
++	struct sframe_fde_v3 *first, *low, *high, *found = NULL;
++	int ret;
++
++	first = (void *)sec->fdes_start;
++	low = first;
++	high = first + sec->num_fdes - 1;
++
++	while (low <= high) {
++		struct sframe_fde_v3 *mid;
++		s64 func_off;
++		unsigned long func_addr;
++
++		mid = low + ((high - low) / 2);
++
++		func_off = get_unaligned((s64 *)mid);
++		func_addr = (unsigned long)mid + func_off;
++
++		if (ip >= func_addr) {
++			if (func_addr < func_addr_low)
++				return -EFAULT;
++
++			func_addr_low = func_addr;
++
++			found = mid;
++			low = mid + 1;
++		} else {
++			if (func_addr > func_addr_high)
++				return -EFAULT;
++
++			func_addr_high = func_addr;
++
++			high = mid - 1;
++		}
++	}
++
++	if (!found)
++		return -EINVAL;
++
++	ret = __read_fde(sec, found - first, fde);
++	if (ret)
++		return ret;
++
++	/* make sure it's not in a gap */
++	if (ip < fde->func_addr || ip >= fde->func_addr + fde->func_size)
++		return -EINVAL;
++
++	return 0;
++}
++
++#define ____GET_AND_INC(to, from, type)					\
++({									\
++	type __to;							\
++	(__to) = get_unaligned((type *)(from));				\
++	from += sizeof(__to);						\
++	to = __to;							\
++})
++
++#define __GET_AND_INC(to, from, size, u_or_s)			\
++({								\
++	switch (size) {						\
++	case 1:							\
++		____GET_AND_INC(to, from, u_or_s##8);		\
++		break;						\
++	case 2:							\
++		____GET_AND_INC(to, from, u_or_s##16);		\
++		break;						\
++	case 4:							\
++		____GET_AND_INC(to, from, u_or_s##32);		\
++		break;						\
++	default:						\
++		return -EFAULT;					\
++	}							\
++})
++
++#define GET_UNSIGNED_AND_INC(to, from, size)			\
++	__GET_AND_INC(to, from, size, u)
++
++#define GET_SIGNED_AND_INC(to, from, size)			\
++	__GET_AND_INC(to, from, size, s)
++
++#define GET_AND_INC(to, from, size)				\
++	_Generic(to,						\
++		 u8 :	GET_UNSIGNED_AND_INC(to, from, size),	\
++		 u16 :	GET_UNSIGNED_AND_INC(to, from, size),	\
++		 u32 :	GET_UNSIGNED_AND_INC(to, from, size),	\
++		 u64 :	GET_UNSIGNED_AND_INC(to, from, size),	\
++		 s8 :	GET_SIGNED_AND_INC(to, from, size),	\
++		 s16 :	GET_SIGNED_AND_INC(to, from, size),	\
++		 s32 :	GET_SIGNED_AND_INC(to, from, size),	\
++		 s64 :	GET_SIGNED_AND_INC(to, from, size))
++
++static __always_inline int __read_fre(struct sframe_section *sec,
++				      struct sframe_fde_internal *fde,
++				      unsigned long fre_addr,
++				      struct sframe_fre_internal *fre)
++{
++	unsigned char fde_type = SFRAME_V3_FDE_TYPE(fde->info2);
++	unsigned char fde_pctype = SFRAME_V3_FDE_PCTYPE(fde->info);
++	unsigned char fre_type = SFRAME_V3_FDE_FRE_TYPE(fde->info);
++	unsigned char dataword_count, dataword_size;
++	s32 cfa_off, ra_off, fp_off;
++	unsigned long cur = fre_addr;
++	unsigned char addr_size;
++	u32 ip_off;
++	u8 info;
++
++	addr_size = fre_type_to_size(fre_type);
++	if (!addr_size)
++		return -EFAULT;
++
++	if (fre_addr + addr_size + 1 > sec->fres_end)
++		return -EFAULT;
++
++	GET_AND_INC(ip_off, cur, addr_size);
++	if (fde_pctype == SFRAME_FDE_PCTYPE_INC && ip_off > fde->func_size)
++		return -EFAULT;
++
++	GET_AND_INC(info, cur, 1);
++	dataword_count = SFRAME_V3_FRE_DATAWORD_COUNT(info);
++	dataword_size  = dataword_size_enum_to_size(SFRAME_V3_FRE_DATAWORD_SIZE(info));
++	if (!dataword_size || !dataword_count)
++		return -EFAULT;
++
++	if (cur + (dataword_count * dataword_size) > sec->fres_end)
++		return -EFAULT;
++
++	/* Flexible FDEs not supported */
++	if (fde_type != SFRAME_FDE_TYPE_DEFAULT)
++		return -EFAULT;
++
++	fre->size	= addr_size + 1 + (dataword_count * dataword_size);
++
++	GET_AND_INC(cfa_off, cur, dataword_size);
++	dataword_count--;
++
++	ra_off = sec->ra_off;
++	if (!ra_off && dataword_count) {
++		dataword_count--;
++		GET_AND_INC(ra_off, cur, dataword_size);
++	}
++
++	fp_off = sec->fp_off;
++	if (!fp_off && dataword_count) {
++		dataword_count--;
++		GET_AND_INC(fp_off, cur, dataword_size);
++	}
++
++	if (dataword_count)
++		return -EFAULT;
++
++	fre->ip_off	= ip_off;
++	fre->cfa_off	= cfa_off;
++	fre->ra_off	= ra_off;
++	fre->fp_off	= fp_off;
++	fre->info	= info;
++
++	return 0;
++}
++
++static __always_inline int
++sframe_init_cfa_rule_data(struct unwind_cfa_rule_data *cfa_rule_data,
++			  u8 info, s32 offset)
++{
++	switch (SFRAME_V3_FRE_CFA_BASE_REG_ID(info)) {
++	case SFRAME_BASE_REG_SP:
++		cfa_rule_data->rule = UNWIND_CFA_RULE_SP_OFFSET;
++		break;
++	case SFRAME_BASE_REG_FP:
++		cfa_rule_data->rule = UNWIND_CFA_RULE_FP_OFFSET;
++		break;
++	default:
++		/* Flex FDEs not supported; base can't be another register */
++		return -EINVAL;
++	}
++
++	cfa_rule_data->offset = offset;
++
++	return 0;
++}
++
++static __always_inline void
++sframe_init_rule_data(struct unwind_rule_data *rule_data, s32 offset)
++{
++	if (!offset) {
++		rule_data->rule = UNWIND_RULE_RETAIN;
++		return;
++	}
++	/* Flex FDEs not supported; always deref */
++	rule_data->rule = UNWIND_RULE_CFA_OFFSET_DEREF;
++	rule_data->offset = offset;
++}
++
++static __always_inline int __find_fre(struct sframe_section *sec,
++				      struct sframe_fde_internal *fde,
++				      unsigned long ip,
++				      struct unwind_frame *frame)
++{
++	unsigned char fde_pctype = SFRAME_V3_FDE_PCTYPE(fde->info);
++	struct sframe_fre_internal *fre, *prev_fre = NULL;
++	struct sframe_fre_internal fres[2];
++	unsigned long fre_addr;
++	bool which = false;
++	unsigned int i;
++	u32 ip_off;
++
++	ip_off = ip - fde->func_addr;
++
++	if (fde_pctype == SFRAME_FDE_PCTYPE_MASK) {
++		if (!fde->rep_size)
++			return -EFAULT;
++		ip_off %= fde->rep_size;
++	}
++
++	fre_addr = sec->fres_start + fde->fres_off;
++
++	for (i = 0; i < fde->fres_num; i++) {
++		int ret;
++
++		/*
++		 * Alternate between the two fre_addr[] entries for 'fre' and
++		 * 'prev_fre'.
++		 */
++		fre = which ? fres : fres + 1;
++		which = !which;
++
++		ret = __read_fre(sec, fde, fre_addr, fre);
++		if (ret)
++			return ret;
++
++		fre_addr += fre->size;
++
++		if (prev_fre && fre->ip_off <= prev_fre->ip_off)
++			return -EFAULT;
++
++		if (fre->ip_off > ip_off)
++			break;
++
++		prev_fre = fre;
++	}
++
++	if (!prev_fre)
++		return -EINVAL;
++	fre = prev_fre;
++
++	if (sframe_init_cfa_rule_data(&frame->cfa, fre->info, fre->cfa_off))
++		return -EINVAL;
++
++	sframe_init_rule_data(&frame->ra, fre->ra_off);
++	sframe_init_rule_data(&frame->fp, fre->fp_off);
++	frame->outermost = SFRAME_V3_FRE_RA_UNDEFINED_P(fre->info);
++
++	return 0;
++}
++
++static __always_inline int __sframe_find(struct sframe_section *sec,
++					 unsigned long ip,
++					 struct unwind_frame *frame)
++{
++	struct sframe_fde_internal fde;
++	int ret;
++
++	ret = __find_fde(sec, ip, &fde);
++	if (ret)
++		return ret;
++
++	return __find_fre(sec, &fde, ip, frame);
++}
++
++int sframe_find(unsigned long ip, struct unwind_frame *frame)
++{
++	if (!frame || !sframe_init)
++		return -EINVAL;
++
++	return  __sframe_find(&kernel_sfsec, ip, frame);
++}
++
+ static int sframe_read_header(struct sframe_section *sec)
+ {
+ 	unsigned long header_end, fdes_start, fdes_end, fres_start, fres_end;
+diff --git a/kernel/unwind/sframe.h b/kernel/unwind/sframe.h
+index bf895107c2070..17daf68309e61 100644
+--- a/kernel/unwind/sframe.h
++++ b/kernel/unwind/sframe.h
+@@ -74,5 +74,6 @@ struct sframe_fda_v3 {
+ #define SFRAME_V3_FRE_DATAWORD_COUNT(info)		(((info) >> 1) & 0xf)
+ #define SFRAME_V3_FRE_DATAWORD_SIZE(info)		(((info) >> 5) & 0x3)
+ #define SFRAME_V3_AARCH64_FRE_MANGLED_RA_P(info)	(((info) >> 7) & 0x1)
++#define SFRAME_V3_FRE_RA_UNDEFINED_P(info)		(SFRAME_V3_FRE_DATAWORD_COUNT(info) == 0)
+ 
+ #endif /* _SFRAME_H */
+-- 
+2.55.0.1082.g2b9226bbc0-goog
+
 
