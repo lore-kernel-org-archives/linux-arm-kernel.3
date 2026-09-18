@@ -4,120 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49682C982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 16:16:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97711C982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 16:19:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QLG64Lk9Qo+wSa/UoMfS9Cd32ZbWvo/1GRFToRmYhMI=; b=XqntGKvKLwrl32vd4SDrI10V/I
-	9CEXmIRoV6CxHuFNgYcapIO2qS6yk7Yq+xqK0B3hlq/5HNdx7M6GlbKuRFqgkOf/aEgqbsz4Zf/IR
-	ViJzZVRJ5Hx3NWSH6lSOnCnRWk0t8Sn4AL5Kq7oEmet4oQdccK6QUFuZyC/mtHcoWU6krJGjaWpzi
-	ttNMdrfsdLgLrLUzwHC3druPG9KdP37NEpUTmN1HlBGgPwpKdbWjW36NYfxRojmJLJedshrD3/YwX
-	0iBoqVcC0LsbhWG6IZlISWFjIKqG2rHOtO66r51oIvSP/lq2/CN2krvQS2yPJzX48ih+1wVzD09Xw
-	IzUmWbWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JrqHy/Ltwsv9DxVnw14hRzfEI6+yxaAfvyb1bklLGNA=; b=0tKb7y24PxPzDnAxLIrEmgnN9h
+	cIAfLuvPQ6m3zjc0qG6QUwV3qep1bI0GldmQr+P52uoLn5LgGVsDN/P3HGYQ2uugePVhz5LfSgKTI
+	Y/sUavT5avZrqDlL629SwjHMCBYbLHvET2yLT3441Q1HCtozh73ZYs4PUW/pUxfPWCB4OK4icU4aB
+	NhuzaKzACWCltLU2b2qltP6WElcEYdi4jTFe5u2g7OcvviZLy1tyuHrWSjdRMDA6MKrSupoAj1/tM
+	/zFLnTWjke7gXkGJiwr+6wx5UE5y4b8dOetBUc4hGCCs7WtJJXLFP+ssw9utkAWUnhnUEf4bt2Vdo
+	2KPCM5rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7bFe-0000000EzyA-1aOB;
-	Fri, 18 Sep 2026 16:15:50 +0000
-Received: from mail-eastusazon11011004.outbound.protection.outlook.com ([52.101.52.4] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1x7bJL-0000000F0qy-29Hc;
+	Fri, 18 Sep 2026 16:19:39 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7bFS-0000000EznI-000D
+	id 1x7bJK-0000000F0qc-0cEo
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 18 Sep 2026 16:19:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=JrqHy/Ltwsv9DxVnw14hRzfEI6+yxaAfvyb1bklLGNA=; b=NDSF8bIpggLNawlrY7nbO5IkXO
+	fAB2n8rUuGBzp2tIH7b5vto1kh+LezFFMRyu00MHAJW46WxoVfN9mQs/A40vn3vvDvlIk7N+QT2w0
+	eHMcfSd2JqQ2gxUvkGyiUY9yY1pe+weKMBNfNU0AFj4qEFDCfQ5fEumdrG5HHE6tMLnAMO/Dh8qOq
+	fTAuO9mtFUpgzp6+TrdiKMI7zXoGhI2rq0rnNhms8egj2psOGU6td8g8FdR14nDScCUEeP9S6Uydp
+	N0N9C+PWkDUDpXUAzM57hOXu2qZvuzUmFujMv/kvhlRN2dEhIjtNerlDJeMm+Or7j3hGMXDW7BEf1
+	NS9i/WIA==;
+Received: from mail-pz2-x0e.google.com ([2607:f8b0:4864:3b::e])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x7bJH-0000000AJLd-0wKS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 16:15:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sFZmHfNS813zXdNc/XEnSnNOfy/WKHzyFBORA0fGwwn9/8S/yJh5/na9xCenmL19QZzATX5f2jgxu3e0DPz3IzVvG2IkMxL9PN9cOG/VI2ArFVKqPvyWk43ril2MXt+bdeoHKMeDfqiL6j6y5q16SmfyFhlMa9plMm/Rymvu/Ba+sILk+IBhKBSNsDmcElWKPPNhbKrcBZnSXpI2YeJvmPpcwy58oIOFUDheehV60NxciwaXHQFtIe4QQ4NKP3iRWZ9OEhL9ttRpqHmjeRuNaPcN96hh0YztwnnsLbA+IHZTSQOaJZ6exk2HZxsksX5fcZkhpxMA4ssKDdIZAPD3lg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QLG64Lk9Qo+wSa/UoMfS9Cd32ZbWvo/1GRFToRmYhMI=;
- b=LbokbbF1iEsW66AZuMO0j3uM4CAnZ+w6ZjAUEDV9oQgy22jbLy4ke48sAnQipeh5vjc3GdXxKmm7D6AJJdtW+Ch6u0/DwF+hJIGQd8VnBEAI5JMRD1KrkjqSkVHaSYIio2d0eXpXn1ez0rr8ARri834w0xkNNLL0NEjjMGrGVMK4NEXqQmLO7rjayw3mDrBwX3qvb6SrFZ4pPHzZRnmLb3LsMLZyoLH3Go0H0pJEwndudO5VlwaPIc4OZJF4wSZ+X+9T6a1uxwkNwDxqaub+MxyMmngrNrDbKXgFRLxBEoAZkpoGdKUGOzRaOtIHpMwt/WobJ88tU1YR/8SUqG+FrA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QLG64Lk9Qo+wSa/UoMfS9Cd32ZbWvo/1GRFToRmYhMI=;
- b=RFFq/k7KOo8H67N6n2wEBf9+5RBhU3UM7a3NgmYzIgDsBpi++HRcIwabNiP3Vb/88iBOydXe81lna2hmk4w1l4Piu57TVy+ibLl3UKAIH0UTnqtXO5Z1XFisfqALlKVyCelAwItnv6qRViFvAgk3EtQkQwoVfoZZ4AaDkKsVolyFvbGTcM4t8mcBv2RIOOxex2BaelXZ//qMgMhMI7TGQaSHWhjMAgnWpwxAaV4HgkBPZlss1tJgzTQebGA7w0TDQ8Uw91qLHvSUiSHFAa8rnq2D0eK59aUdZYj4kDqhqy1XkNPcI7CUmBC9kSG4rRPHg0FK9jVw6NH32+Ya6/bWdw==
-Received: from DS7PR03CA0322.namprd03.prod.outlook.com (2603:10b6:8:2b::29) by
- IA1PR12MB8519.namprd12.prod.outlook.com (2603:10b6:208:44c::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.13; Fri, 18 Sep
- 2026 16:15:32 +0000
-Received: from CO1PEPF000066EB.namprd05.prod.outlook.com
- (2603:10b6:8:2b:cafe::85) by DS7PR03CA0322.outlook.office365.com
- (2603:10b6:8:2b::29) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.428.13 via Frontend Transport; Fri,
- 18 Sep 2026 16:15:31 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- CO1PEPF000066EB.mail.protection.outlook.com (10.167.249.7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.451.8 via Frontend Transport; Fri, 18 Sep 2026 16:15:31 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Fri, 18 Sep
- 2026 09:14:58 -0700
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Fri, 18 Sep
- 2026 09:14:58 -0700
-Received: from dgx-1v-42.nvidia.com (10.127.8.11) by mail.nvidia.com
- (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
- Transport; Fri, 18 Sep 2026 09:14:58 -0700
-From: Jamie Nguyen <jamien@nvidia.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
-	<guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>, "Catalin
- Marinas" <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "Rafael J
- . Wysocki" <rafael@kernel.org>
-CC: Len Brown <lenb@kernel.org>, Dat Mach <dmach@nvidia.com>,
-	<linux-acpi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Jamie Nguyen <jamien@nvidia.com>
-Subject: Re: [PATCH v2 0/3] ACPI: arm64: FFH Operation Region support for FF-A (offset 2)
-Date: Fri, 18 Sep 2026 09:14:57 -0700
-Message-ID: <20260918161457.1441579-1-jamien@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260901192906.133670-1-jamien@nvidia.com>
-References: <20260901192906.133670-1-jamien@nvidia.com>
+	Fri, 18 Sep 2026 16:19:37 +0000
+Received: by mail-pz2-x0e.google.com with SMTP id 41be03b00d2f7-cc4c3304784so779277a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 09:19:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789748372; x=1790353172; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=JrqHy/Ltwsv9DxVnw14hRzfEI6+yxaAfvyb1bklLGNA=;
+        b=GIfSYgLgfevXSk0jkt2RqXPiizZ7na/boO8TGyCTG35hdzJYFNsLevSKFjEXvkoj30
+         84599WGZXWfCp1l6974faFzBiILA6s6IAnNNPKc/+eyqdosTEj9NQtMCssEv+7QrBwhM
+         ltOQXszSCOZppWsVsyTjUbXLE/0myDS563Yht5WjIyash7powCkXz2JMRWLW7Xo3WCsV
+         ceX13wHhLol1eVZeybUdVBiGVrcnu/lVMTbogo2X+yzINFuKi3dqBkFrjS0oh/mfiA7n
+         a44f44T4qZFpJr9Cp0paEzUFnmFxl9tsWH0hgOVRCnjjYNzaGOwAZ9jBsRD/IVxqOk9O
+         NWpQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789748372; x=1790353172;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=JrqHy/Ltwsv9DxVnw14hRzfEI6+yxaAfvyb1bklLGNA=;
+        b=dS/IMTBOwDcWRGgVNmQg+MG8AMGitQLt112wObYp+4V1+GtKdz8tmmMZTzSYntZYkN
+         cXgbijvRRjzNrW7/7WC4DtPyDhmiQXDCEndw3M94dIPzma1rTve4bxLwBh2sjet40K3a
+         gsHuiWol3lIGT4DyPK002W4t6h4X1pcSE16wIxWY7erlevCrNIpRE4YyR2KLY9xOgfeT
+         IltGgxZzhvuoQOF3GgcuOcODvCqcx+gQCH7e72GOwpfpcd0YaF4U0QmqG3TJHMJgVBXh
+         iwwntvT/hXNxYLqTwUIq4IZNZkgpOE5VaJDUcOFPkb7KNkIHThjFLs/9z2c5fN/1aEPo
+         1k1w==
+X-Forwarded-Encrypted: i=1; AKwUvBxIvuO1C//W++Dx0LAIkVNpy/ATpAKMrFCildBGSW+Y9a5/0odvRIPtvvSg9ZMoof4ahMLZK3KdvVGzQch8h7eQ@lists.infradead.org
+X-Gm-Message-State: AFuF++m3OS3ruuqCHrH5/R2g1fWYA/clf9WCEMm4l/c1Yjgop/LmsUBE
+	DlgrfV95jI5u7a4SWlc3t59gSBiXab+7H4CVRhLUktq+3AdTzQ6ZRHWX
+X-Gm-Gg: AYBFou0O6Y7O/jyHfX8W1ntrG1M6usmfDh1IBa8yR5hMbAACagpC2mcQEBFiliPPfnj
+	+6UondCT6yUXeW8Xrwmdd/77i+L2f0dfpoqnJ1PCSh6Yp98AKVVNa5A4GnTKJOQ6HPTEu6duKWM
+	KKEQnD9p/g1VMgsSv6hjN5nb8pLLAr0dcul9Kv1csl4oCbYY/8VC8BrlwCCkxxxjpljIlLlFAXM
+	7QNXL5Dl3XYruiL5iXwZgs3M6HZAZ8z8JHzYXQnr+z1tqgi38aCtgOghm+9dxQsyB6eOwz1TWej
+	qRvS3oZzPNmkhp8bt5taMOFLcnPmXu+NMxCl+fBEYPC2pfxyckjatZuJMKD22ZreQQhCjYHQwYD
+	DBULPwS+0QEcEGMpMt+l+7X5eLEGbzkSoslsjBRUbdfl3bqhpdN3Gu4IBC76s+z8zKtL7GaAlWs
+	CyEvbOHBC1JAAlxM8DWo5JxOJnhtm+XAujmjtYI7R/GL7XMtEaKwgXXWLCGT1wtpKjx+FyEEI4A
+	hnwj0mkGR9gDZ6r
+X-Received: by 2002:a17:90b:5403:b0:39e:6a7f:eeed with SMTP id 98e67ed59e1d1-39e6a7ff0b0mr1221280a91.18.1789748372302;
+        Fri, 18 Sep 2026 09:19:32 -0700 (PDT)
+Received: from SGN-LDSENG.tasernet.com ([2405:4800:5cc3:11a:1ac0:4dff:fe8b:4a69])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-144ce046d96sm4934242c88.11.2026.09.18.09.19.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 18 Sep 2026 09:19:31 -0700 (PDT)
+From: Cong Nguyen <congnt264@gmail.com>
+To: Jacky Huang <ychuang3@nuvoton.com>
+Cc: Shan-Chun Hung <schung@nuvoton.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rtc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] rtc: ma35d1: fix unchecked IRQ error and IRQ-before-rtcdev ordering
+Date: Fri, 18 Sep 2026 23:19:25 +0700
+Message-Id: <20260918161925.2639130-1-congnt264@gmail.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000066EB:EE_|IA1PR12MB8519:EE_
-X-MS-Office365-Filtering-Correlation-Id: c8c4e1b9-59cd-492f-8ad5-08df15a01017
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|82310400026|23010399003|36860700016|22082099003|18002099003|11063799006|10067099003|56012099006;
-X-Microsoft-Antispam-Message-Info: 25DUMHU7mqUGzsbIpiAucpyDDE8yLmL49f8jB92neeey7i7/p9iMsnfCgnEc+0nW8B2kiFv1qRYYoptS0Lx8t7XCKHXzDHYs20gEy2shgj8fHq7xsK4w73T4k+4IBUtvzGPOVAJc+PeDjyqklJ3MySuWkzOvCtoJueDoTnG5fZWHQhSBZqBkY7lJ8xeDRGFb8As8mF43zY0RP47Fruq1rXRMrthkt5DwEfCD4hgv4JJgeQXmaqa/eR4+KEksSeSrTQtP77pyRAqAN6urH7In2Sy1BYxFnJY6stfqdz++Ql2XU94/rOsiSNLimANRc3Lk4TJCxy6u9xx16Vk0pyfGG6UmtpBVnURZRT0Q4m5njzZyz8sjeP6JfC4FqajkAa8pfnEmTOeOzLs+bYrMa0hCJkzYPSPrc2xsYPiRYePmAOrFY+Tuavu4VwP5YByp9NymckCJ6DbPVKcoxXOJ4if7VzJjMuGXwFQIpnTE9tFxyoa51sVPQ5pXkfX6+Ug/bgK87eFcaP0obDuRlItLaRG7c9KV5M+hjmoKPPfyHnQzD/DgPmsYdKk1eQhXq5x2+wgCN352wh1o6SB0lXAwZdL1XN/AMSnD8e132l8v/Js6AtNXt0LdnlXsHq8qSwMA8+ITE//3lkB21/Ah011j4SLLh8j2xcmB6PKgg7s0xJmZh4awgfCO77LRbl5IUxIMPkLh94I/s4hMYWp+3AJZVeAqnw==
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(82310400026)(23010399003)(36860700016)(22082099003)(18002099003)(11063799006)(10067099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: aSpvSnw1tzSt3WNF8kd6GlUmslmKxvJvhUMr/SLsnf1pRgM7ZoNjlsFtb4eGRECd1wlvdSb+m1E1Om134xGmVd5Dy6yPPUxRmGLvMh+Y7NwzzWOMIqY/lsKI4BBTMq4eSyioKESP0Kme6BhDXQJ2dyWtECns1NKXzh9Gz3dZ46uI+uJ+yiSqvaWNsQRFdcq/oAnoB8jVBSTdzEso4F5ui/pjyxL/CwhKQ7nf0JSi9Us2EG4a5n1of3+IFT7mKolykZiVGpYfkqoCCG/Ap6H8Y5v2QrwV0FqtwiQprDb2Ai3iSv+UlNzVQfTH1stxJQOtOH+ld2nZFR84weM75NGG3TdNBQf/BOCogRNd4L5CJSHMpM7CocvuSbBh4cgOFv+2ZU9Nhu7UF/lxkiwv1rrhCwcSJ9GVrAVXFxqUpu2qPeIymofATq48526SXdt/4hd+
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Sep 2026 16:15:31.7904
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c8c4e1b9-59cd-492f-8ad5-08df15a01017
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000066EB.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB8519
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_091538_248679_F7C1DA31 
-X-CRM114-Status: UNSURE (   5.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260918_171935_326007_0E7925E1 
+X-CRM114-Status: GOOD (  15.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,10 +114,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Gentle ping on this. The series still applies cleanly to v7.3-rc1 and
-current linux-next, and I'm happy to respin if you'd prefer anything
-changed.
+platform_get_irq()'s return goes straight into rtc->irq_num and then
+devm_request_irq()'s unsigned int irq parameter with no check --
+passing a negative error (like -EPROBE_DEFER) through that conversion
+turns it into a large positive number, so devm_request_irq() just
+fails with -EINVAL instead of deferring the probe.
 
-Thanks,
-Jamie
+Separately, the IRQ is requested before rtc->rtcdev is allocated and
+registered. Since devm teardown is LIFO, unbind or a later probe
+failure frees rtcdev before the IRQ, so an alarm firing in that window
+has ma35d1_rtc_interrupt() call rtc_update_irq() on freed memory.
+
+Check irq_num for a negative return, and move the IRQ request to
+after the RTC device is fully registered.
+
+Fixes: dc0684adf3b6 ("rtc: Add driver for Nuvoton ma35d1 rtc controller")
+Reported-by: Sashiko AI review <sashiko-bot@kernel.org>
+Link: https://lore.kernel.org/r/20260914133532.CBFAA1F000FF@smtp.kernel.org
+Assisted-by: LLM
+Signed-off-by: Cong Nguyen <congnt264@gmail.com>
+---
+ drivers/rtc/rtc-ma35d1.c | 12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/rtc/rtc-ma35d1.c b/drivers/rtc/rtc-ma35d1.c
+index cfcfc28060f6..76d59b313721 100644
+--- a/drivers/rtc/rtc-ma35d1.c
++++ b/drivers/rtc/rtc-ma35d1.c
+@@ -236,11 +236,8 @@ static int ma35d1_rtc_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	rtc->irq_num = platform_get_irq(pdev, 0);
+-
+-	ret = devm_request_irq(&pdev->dev, rtc->irq_num, ma35d1_rtc_interrupt,
+-			       IRQF_NO_SUSPEND, "ma35d1rtc", rtc);
+-	if (ret)
+-		return dev_err_probe(&pdev->dev, ret, "Failed to request rtc irq\n");
++	if (rtc->irq_num < 0)
++		return dev_err_probe(&pdev->dev, rtc->irq_num, "failed to get rtc irq\n");
+ 
+ 	platform_set_drvdata(pdev, rtc);
+ 
+@@ -258,6 +255,11 @@ static int ma35d1_rtc_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return dev_err_probe(&pdev->dev, ret, "Failed to register rtc device\n");
+ 
++	ret = devm_request_irq(&pdev->dev, rtc->irq_num, ma35d1_rtc_interrupt,
++			       IRQF_NO_SUSPEND, "ma35d1rtc", rtc);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret, "Failed to request rtc irq\n");
++
+ 	return 0;
+ }
+ 
+-- 
+2.25.1
+
 
