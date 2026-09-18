@@ -4,74 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58777C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 18:42:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81617C982D7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 18:43:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5sY2K0NFqeHlnnXVJj9mphRlP5+qDd3iUqsbcAY+xNQ=; b=rYfFU6gkZwCKTwC2CuRIGQTh46
-	9W9tllvpNgRNsVB01TOaIuQmnE68SU4FAM25Kbr0kXiS0Ohyt33F3XbG/mtPGkF7hoTxlYDagwdZY
-	JtltGtrikhD0MqMr+1FZZptBVmQOFrtnpKp3Q+rthbd7G0O1oZu9DXvySSLc0zwpKgER6YH1/vYBg
-	9v9iU22L51hPBoP/DTtlRiGxeqSKqruljVxqejPQYxysiD9E2qbm4YDKVg8sEkxdbUxlBY4JYWxZQ
-	8dMmM0dolIZU0Um2wVEa2FO4nK1kn1rzroEG9vsGmp63E5pG29aCr3WWbbSqD/l2b1Q5+3oLQk3dm
-	AHTMBBEA==;
+	bh=Ij3/p0dhbAUiVjyYTDfkDCSx8NXCa/WOMpRl+VoVpxA=; b=xkeM2xL1iFZyDotFEW/a+a4TIh
+	oiORlJpCY3NLzAANqc8+oOOhY5K3k/NW2j65PjXGyictHtmO4xOhgXmVsodVsZRrppLgGFfiIyEqj
+	xEpzpZD7v9VUsK1UJ/KYE46rh24neJc6TFKePeV8DKaDDrMLsac56BioeiyrG2zgVgsLC/7fNMJ1r
+	07gYH4gYP63VXlsgBIRw4YbnBd0JEjNDMEroJGuwgPGC/QzTEK5+t8efByzDx1HaI0H1bbo6q20nq
+	DSXTa5spD49H2TrbTGchmCtcfxJ+6G2KbyrKDpVTkj2dalHEm++bHcqkjXFOpTX9uM6veSJT6udTZ
+	SqPXc4aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7dXB-0000000FLC1-0OQI;
-	Fri, 18 Sep 2026 18:42:05 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x7dY3-0000000FLGz-0zjo;
+	Fri, 18 Sep 2026 18:42:59 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7dXA-0000000FLBt-1iTM
+	id 1x7dY2-0000000FLGp-0j3H
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 18:42:04 +0000
+	Fri, 18 Sep 2026 18:42:58 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BC36440764;
-	Fri, 18 Sep 2026 18:42:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62F2A1F000FF;
-	Fri, 18 Sep 2026 18:42:03 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9944E6053B;
+	Fri, 18 Sep 2026 18:42:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C17F1F000FF;
+	Fri, 18 Sep 2026 18:42:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789756923;
-	bh=5sY2K0NFqeHlnnXVJj9mphRlP5+qDd3iUqsbcAY+xNQ=;
+	s=k20260515; t=1789756977;
+	bh=Ij3/p0dhbAUiVjyYTDfkDCSx8NXCa/WOMpRl+VoVpxA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=dGsvJzURnx4P2I2ySeknphYi171fhnjGzSiD1bWzXoT3bnkbdVesM6rLQImvP+Rng
-	 Tk1LDa0FfDwc1zq+cR9oPuMBlf5PNOSu1W9pnXJDcJW6IXEHDGGCxqoXWF39997mPF
-	 i3qD1PswT/s8eLDbaIRPOaUTvyvWttwc0L6vTjqrP25zlQnG1durEI9UZxpQTYY0os
-	 vk0kMkn1GVD9F5rorzOzFa6GQZZYfGSyX7bngD2cTHwC8fDlNPbvQmNo7w3bQWLNSn
-	 dV+HPLPKau1h2cPRnbjw/Sf4SAsgpxD7Vud+vm+C8T/WeoUk7J/5pRO7XygeqBHBqw
-	 WecR2YK94mx/A==
-Date: Fri, 18 Sep 2026 13:42:01 -0500
+	b=oWkvT9Htb1/VrVpaMsiU4UOOK0PQWV5wnQX3psqVI9gxTN0+dVXGLEog6wMQXekS4
+	 w+is54urG2RnpZ6bWzR9KBvS3VMmVwy4iyps7T6AOdQhTUebNcT92lJ6QZg5n18OIl
+	 oV/IiOuzYTvqzIYDXASXEZB4Yf1FvSQTsqxjxsJ325i1BAvjI4vmxHncoW3Ksdl4jI
+	 cq70e3N99vvoo8Cl79VA7ld9J4ODbVbdSKJ9SwS60/BmmIWxtkA/M7KcilFDKygsjW
+	 YoHyFjGYrsUynpzgfJRlHVQXr3IVnw38Lr1sOndN/RO1ccsUA4TDw6IX+/gWb1x9nc
+	 yBH6IFHFcb+mA==
+Date: Fri, 18 Sep 2026 13:42:55 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	devicetree@vger.kernel.org, Samuel Holland <samuel@sholland.org>,
-	Maxime Ripard <mripard@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	linux-sunxi@lists.linux.dev, Philipp Zabel <p.zabel@pengutronix.de>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+To: Patrice Chotard <patrice.chotard@foss.st.com>
+Cc: Christophe Roullier <christophe.roullier@foss.st.com>,
 	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
-	Jakub Kicinski <kuba@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>, linux-kernel@vger.kernel.org,
-	Andre Przywara <andre.przywara@arm.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	Richard Cochran <richardcochran@gmail.com>,
-	Eric Dumazet <edumazet@google.com>
-Subject: Re: [PATCH net-next v2 1/2] dt-bindings: net: sun8i-emac: Add A733
- GMAC210 compatible
-Message-ID: <178975692133.1355528.3349670401889953428.robh@kernel.org>
-References: <20260910-allwinner-a733-gmac-support-v2-0-4f4a1e520c23@baylibre.com>
- <20260910-allwinner-a733-gmac-support-v2-1-4f4a1e520c23@baylibre.com>
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Simeon Marijon <simeon.marijon@foss.st.com>,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH 1/3] dt-bindings: nvmem: add binding for STM32MPX TAMP
+ backup registers
+Message-ID: <178975697493.1358225.12539962963666785405.robh@kernel.org>
+References: <20260910-upstream_nvram_reworked-v1-0-521c16175cef@foss.st.com>
+ <20260910-upstream_nvram_reworked-v1-1-521c16175cef@foss.st.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260910-allwinner-a733-gmac-support-v2-1-4f4a1e520c23@baylibre.com>
+In-Reply-To: <20260910-upstream_nvram_reworked-v1-1-521c16175cef@foss.st.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,25 +80,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 10 Sep 2026 12:25:26 +0200, Jerome Brunet wrote:
-> The A733 GMAC210 is a DesignWare MAC 5.20 close to the A523 GMAC200, with
-> the following differences:
+On Thu, 10 Sep 2026 16:11:22 +0200, Patrice Chotard wrote:
+> From: Simeon Marijon <simeon.marijon@foss.st.com>
 > 
->  * The glue configuration registers are a dedicated MMIO region of the
->    controller instead of a syscon register, so a second reg entry replaces
->    the syscon phandle.
->  * The DMA channels and the LPI event have their own interrupt lines.
->  * A PTP reference clock and an AHB reset are needed.
->  * Unlike the A523, the controller does not appear to belong to a power
->    domain.
->  * The TX clock delay field is 5 bits wide, allowing up to 3100ps.
+> Adds the binding documentation for TAMP backup registers.
+> The backup registers is a part of the TAMP device of STM32 MPU.
 > 
-> Add the new compatible and describe those differences.
-> 
-> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+> Signed-off-by: Simeon Marijon <simeon.marijon@foss.st.com>
+> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
 > ---
->  .../bindings/net/allwinner,sun8i-a83t-emac.yaml    | 130 ++++++++++++++++++---
->  1 file changed, 115 insertions(+), 15 deletions(-)
+>  .../bindings/nvmem/st,stm32-tamp-nvram.yaml        | 57 ++++++++++++++++++++++
+>  MAINTAINERS                                        |  7 +++
+>  2 files changed, 64 insertions(+)
 > 
 
 Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
