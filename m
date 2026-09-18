@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF8B3C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 16:15:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4551CC982DF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 16:15:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QbYLgua3LTRCkHC2dRvKQSbxhGctAFKekAK0EDDmZSU=; b=hE+k408LJYo27U
-	ZO0rLQig32pdvZe3wGYuGIYAnFkabAKIJN9ZfaeDYK6rljM2CnWx1Bt/8D6GGlN+U2jE6MVeI/UDm
-	elc0m4t7qoQeiqpy7yoTmyJvQ7lJ3omeKXC+/CBPqpmk+o6KEA+EAkOC5wnwGOm4SBHiWaBRHXEeJ
-	7yoqvdhQeuGW2wdv7EE/QFykiJ0Qz4DHy99Jg5Z2Ty2N23IFEKDIhdtQWSP/PAurYGEV4frAmvKXF
-	ng8HLL4WUWtFeLIIW57fmvIoIZiMV2W7Kk0VvG5Ff5nOTgNsYZ/m7f685h8y0tu66oE0mx5OiAZ6T
-	y2tMz7VdRZGN5vUd4uug==;
+	List-Owner; bh=dtOLc80ZchH1SrJFHNt1KR4Dm3KMyagivA2zXxrs1go=; b=ytWuRigvOvn3Oi
+	RXPXV1tQ5LjtcE41CJWBE7vYOD8QRxIRQmeWeS8RnPjZYz4VohjVqYStscm636+EQ6D+Eaoi4MUVe
+	+xqGbvaVZ4DwQ84gszWkCFWEauYmWjewzgxjwcsiVl5fbsJtd2XEfV2nYICkNOfnjZJnWrxvuL/Ii
+	e7auFZ23lz55d7mLsYZCOh7NjB48eTfmM2HSVun+0C9pXWDJcuR37qRy8rW3Ef9k68IVQuLZtN/2E
+	myviZ0RS696LQD4+ALYmHZ5u/0dzr/Gja1Ycs1bIjWm5xyFaTUMO838VRcMXsUmaeAFpvxOLbaEee
+	kfC/1/+y2+C4YmMuqBkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7bEl-0000000Ez5z-24NI;
+	id 1x7bEl-0000000Ez6c-2uTm;
 	Fri, 18 Sep 2026 16:14:55 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7bEW-0000000Eyvz-2mz5
+	id 1x7bEe-0000000Ez1p-0bqb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 16:14:40 +0000
+	Fri, 18 Sep 2026 16:14:48 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6D37044030;
-	Fri, 18 Sep 2026 16:14:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6397D1F00898;
-	Fri, 18 Sep 2026 16:14:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 95F786053D;
+	Fri, 18 Sep 2026 16:14:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 650CE1F00898;
+	Fri, 18 Sep 2026 16:14:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789748080;
-	bh=QbYLgua3LTRCkHC2dRvKQSbxhGctAFKekAK0EDDmZSU=;
+	s=k20260515; t=1789748087;
+	bh=dtOLc80ZchH1SrJFHNt1KR4Dm3KMyagivA2zXxrs1go=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=UMSBMPqO8Wnq9czmGejil4XXGqU+RtD33pykqoNceiGbGOR3FhEfWGsEdR6/+YYp5
-	 MvMwHsljDqr5Ym7RSNgHZtmw/Wf4B9ErzLVO7yq+CIHY6GQtMTr6Wz059JmuCyB1Dj
-	 isxtlJevCFivSWcKZcPW8KsZvucON1RxNznHLSdIiYVB6w+ocxv6RlLZLSww7/tlus
-	 /3Em1SfAUDKdy0UVnLR9/ZaNNWgYGDLcMFWrHXaa1/mDQWEmbtXPmNPi/n5VjN9Trg
-	 2JOmMon8k+7OSoUD1jQtJSB/juWVd40zsEeQwtaOt08SWCD6AD8mGz164psJ6qTA9C
-	 4YdkwCHepl+/w==
+	b=Qb0YxHlt3q2DkGZ8Sdf5eTPdlGv44KUoKGREksMF7S+ufmYvYiQYiXZeo/ew3aUr3
+	 4BtWfDhb/8qtxjgh1uAA7jqIAUiCI3k1MCNgIQRA9D/zNy1p8vG9szNXJod811+iX2
+	 ltFzvp0/byPOhWY9lnSUdbO0nKnElVNG1C4vEh3LqYbuZNVFemTx1ddedSqmccvTdI
+	 mUXS9g5py+KBJnKBFbz+FQkejtujW0lysjn7/7mqKoSL2BU+dd+IvncGgSmOECsljt
+	 dV5UihvAzdi+mCEBychIY6zIeobzLCtiwlsZZ181aUFQA8iolhFMhQJtp+Kftj2Wbp
+	 HVOW7lca2e+YA==
 From: Will Deacon <will@kernel.org>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 07/21] selftests/bpf: arm64: Use TPIDRRO_EL0 instead of SP_EL0 for 'current'
-Date: Fri, 18 Sep 2026 17:13:51 +0100
-Message-ID: <20260918161407.2300-8-will@kernel.org>
+Subject: [PATCH v2 09/21] arm64: stackprotector: Re-enable per-task stackprotector
+Date: Fri, 18 Sep 2026 17:13:53 +0100
+Message-ID: <20260918161407.2300-10-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260918161407.2300-1-will@kernel.org>
 References: <20260918161407.2300-1-will@kernel.org>
@@ -67,28 +67,51 @@ Cc: Mark Rutland <mark.rutland@arm.com>, Vladimir Murzin <vladimir.murzin@arm.co
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The current task pointer now lives in TPIDRRO_EL0 instead of SP_EL0, so
-update the bpf selftests with the new register allocation.
+Now that 'current' resides in TPIDRRO_EL0, update the per-task
+stackprotector compiler invocation to use the new register.
+
+Note that this requires a very recent build of clang [1], as (unlike
+GCC), it historically rejected all registers other than SP_EL0.
 
 Cc: Mark Rutland <mark.rutland@arm.com>
+Link: https://github.com/llvm/llvm-project/pull/188054 [1]
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- tools/testing/selftests/bpf/progs/verifier_jit_inline.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/Kconfig  | 3 +--
+ arch/arm64/Makefile | 2 +-
+ 2 files changed, 2 insertions(+), 3 deletions(-)
 
-diff --git a/tools/testing/selftests/bpf/progs/verifier_jit_inline.c b/tools/testing/selftests/bpf/progs/verifier_jit_inline.c
-index 02e562f56f9d..a3d6c095acc3 100644
---- a/tools/testing/selftests/bpf/progs/verifier_jit_inline.c
-+++ b/tools/testing/selftests/bpf/progs/verifier_jit_inline.c
-@@ -9,7 +9,7 @@ __success __retval(0)
- __arch_x86_64
- __jited("	addq	%gs:{{.*}}, %rax")
- __arch_arm64
--__jited("	mrs	x8, SP_EL0")
-+__jited("	mrs	x8, TPIDRRO_EL0")
- __arch_riscv64
- __jited("	mv	a5, tp")
- __arch_loongarch
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index b8270b301809..020fcaf36b1b 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -2450,12 +2450,11 @@ config RANDOMIZE_MODULE_REGION_FULL
+ 	  exhaustion, modules might be able to fall back to a larger 2GB area.
+ 
+ config CC_HAVE_STACKPROTECTOR_SYSREG
+-	def_bool $(cc-option,-mstack-protector-guard=sysreg -mstack-protector-guard-reg=sp_el0 -mstack-protector-guard-offset=0)
++	def_bool $(cc-option,-mstack-protector-guard=sysreg -mstack-protector-guard-reg=tpidrro_el0 -mstack-protector-guard-offset=0)
+ 
+ config STACKPROTECTOR_PER_TASK
+ 	def_bool y
+ 	depends on STACKPROTECTOR && CC_HAVE_STACKPROTECTOR_SYSREG
+-	depends on BROKEN
+ 
+ config UNWIND_PATCH_PAC_INTO_SCS
+ 	bool "Enable shadow call stack dynamically using code patching"
+diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
+index 6b005c8fef70..a293ab67818f 100644
+--- a/arch/arm64/Makefile
++++ b/arch/arm64/Makefile
+@@ -72,7 +72,7 @@ ifeq ($(CONFIG_STACKPROTECTOR_PER_TASK),y)
+ prepare: stack_protector_prepare
+ stack_protector_prepare: prepare0
+ 	$(eval KBUILD_CFLAGS += -mstack-protector-guard=sysreg		  \
+-				-mstack-protector-guard-reg=sp_el0	  \
++				-mstack-protector-guard-reg=tpidrro_el0	  \
+ 				-mstack-protector-guard-offset=$(shell	  \
+ 			awk '{if ($$2 == "TSK_STACK_CANARY") print $$3;}' \
+ 				$(objtree)/include/generated/asm-offsets.h))
 -- 
 2.55.0.1082.g2b9226bbc0-goog
 
