@@ -4,74 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA8B4C982DC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 11:59:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A928C982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 12:00:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dZ+UU0cW7lO7sc/YWjbCFQdvW29aK3TMctUKE8s0RwA=; b=efMmgTSHspVMiWzpPkHSuVL0ES
-	c+zjWQYUB6T93GGqav7AoabL+bZJ6GpUe9msTdmSkpV5V9BTdPiEI6JOhO74ZOXnlrURFdJyA/vV6
-	1+iTi6Tf1Xan536jCKs/lkeeC8bcmz04Ir0TYvawIKwRbD4l1mCIrtyAAE4Ch/M7OTYlui6l/AIKU
-	wNZfs88i9221+Khy0hRez+cbuW3JIXRcqthBMsUjmtMqC2vn2zT7DSB8jnEXFnihWkCQZdSIYvrvM
-	JxN37uDprl+m5i4cxNgHhRWFcy5hbp/FfBaegzC8/iJDPCEhKIufB2vopnWbBn1v3cEN80vOuP+W8
-	KWBYd2aw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=WwRXHz5FiptGYQutzRNzBHkTh1iJbrIvkQlOJLZw8zA=; b=KkxwbzO2bLM667
+	0qvY77eCX+yA9f3anP3HVt0mnKU5VS/Fg9jpSFA2IgwsrUXB2c+m31HfZd/N4RmOZGnw+luvzVBlh
+	IxJeD7OHIaIlBjnF/g3qCDKkiwufcvNPEIvkZD8Ns5x/7fNeBbP4et4ClolfrcpWZR6jaIVNs/8Vi
+	aGE15ISDbFIC6tvIPAmQ5//O8nIxdB3yaQ6y4yxG1bj0+2s9HqM23hopipzKSgfxlBYgE0lZrc3zO
+	sUO5Xt6exa23n6+GTL9tz6Ok5BbMETCxF3LxDzGHj2MVJaWMx2CaSWpX4MGQIUNDKAAPcvvqPRmOx
+	cSfJLWy6RaZxLFoI0vpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7XFL-0000000EJGf-2c5C;
-	Fri, 18 Sep 2026 11:59:15 +0000
-Received: from out-119.mta0.migadu.com ([2001:41d0:1004:224b::77] helo=mta0.migadu.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7XF7-0000000EJER-3PTe
+	id 1x7XGW-0000000EJTi-2YU8;
+	Fri, 18 Sep 2026 12:00:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x7XGU-0000000EJT5-1xtE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 11:59:03 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=dZ+UU0cW7lO7sc/YWjbCFQdvW29aK3TMctUKE8s0RwA=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1789732738; v=1; x=1790337538;
- b=ldKEMTrFEy3fmKEVUcGHUBddV4/P9fTB3fA8AVfBU/OtKa+YViYhDrOqfKBcA9/FzLerUcYJ
- +WhO1hmKDnphOMGOEVszkvAVYumPbFtorQCdA9scFqpQNrsH5Uulh7crREiWacPSIwLET2M83hc
- sPs+LPXMFcMv7RpKzp/+P5DU=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id cca0b0410c54eb2f;
-	Fri, 18 Sep 2026 11:58:58 +0000
-X-Mizu-Trace-ID: cca0b0410c54eb2f
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5b83c1421ecso6310e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 04:58:54 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBxq1J+Zo8LZEu87EON/op2iPAZPhvZl4cv7iT02tmSzrKvnd+tr60VtIg3wFNnrJv01ghl6xfqOdjD0mOylQ+GT@lists.infradead.org
-X-Gm-Message-State: AFuF++mMkgRScsD/c0VCaHqhe4Yr/uqzQx12fu2xWuyNsprQYdMA0SPQ
-	XBKpLvWW6BBuI8QW54bDJYBvdL1dy0J4Hff5eX4zxODNyYz9SokdJ9rKMwf7RzMYDmAEmZjitSI
-	YY+h/tNwK9K2FS3z8j3wpBtYxSfnL9vYYRhm+GMF0
-X-Received: by 2002:a05:6512:3c9f:b0:5b2:a967:c0e1 with SMTP id
- 2adb3069b0e04-5b8c0fcad95mr166760e87.0.1789732733287; Fri, 18 Sep 2026
- 04:58:53 -0700 (PDT)
+	Fri, 18 Sep 2026 12:00:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2C284143D;
+	Fri, 18 Sep 2026 05:00:20 -0700 (PDT)
+Received: from [10.41.4.144] (e142021.arm.com [10.41.4.144])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ED1AB3F882;
+	Fri, 18 Sep 2026 05:00:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789732823; bh=bM7kA5yXVpAe2N81reCqQxQTOv0RJe1wxSCWH8EsWr8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=XkEDabmBheiCe+/LaTlra5Vgi0cko0/XOIWyrmpjZSq+2fx3JjNly9HRswxfFDJ8D
+	 QCJkqQ9h5uNJ65tgfG+ovxBfylbiwy/IA/69AlPOrJoa+lPSPvIc5MQDXTTuKK9Mxp
+	 fYBqHrIco/556kXQKvnR6cpLIs+1WlhFKgG1/pdo=
+Message-ID: <830ad111-e819-43c2-b0a2-248e0542d7f2@arm.com>
+Date: Fri, 18 Sep 2026 14:00:20 +0200
 MIME-Version: 1.0
-References: <20260918040214.85580-1-ndaugoing@gmail.com> <20260918040214.85580-2-ndaugoing@gmail.com>
- <CA+EHjTx8zzvgqj99TKWfRD58X-M8v+hs9358_r_1zZonFNEsgw@mail.gmail.com> <CAC2BP3K-fvW2s2j2ys+kPMuxrzeMw9yc6MrAk7U7CqCpb2WePQ@mail.gmail.com>
-In-Reply-To: <CAC2BP3K-fvW2s2j2ys+kPMuxrzeMw9yc6MrAk7U7CqCpb2WePQ@mail.gmail.com>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Fri, 18 Sep 2026 12:58:17 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTx9bTDuTnGgkrCcaAG+1S1Lx6+1BZnuhJcWNTJxWXkAHw@mail.gmail.com>
-X-Gm-Features: AcwNN1W8n3dmMVZr53drbRK261wAXv8qWFmrNE31MdA1aY5Yy24oy1p3VG9UCp8
-Message-ID: <CA+EHjTx9bTDuTnGgkrCcaAG+1S1Lx6+1BZnuhJcWNTJxWXkAHw@mail.gmail.com>
-Subject: Re: [PATCH v2] KVM: arm64: vgic: Do not remove in-flight LPIs from AP
- list on disable
-To: Yuchao Zhang <ndaugoing@gmail.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/8] firmware: smccc: lfa: Add timeout and trigger
+ watchdog
+To: Nirmoy Das <nirmoyd@nvidia.com>
+References: <20260706134455.132091-1-andre.przywara@arm.com>
+ <20260706134455.132091-4-andre.przywara@arm.com>
+ <20260710100830.65336-1-nirmoyd@nvidia.com>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <20260710100830.65336-1-nirmoyd@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_045902_225907_99D51067 
-X-CRM114-Status: GOOD (  23.42  )
+X-CRM114-CacheID: sfid-20260918_050026_581652_0458CDF5 
+X-CRM114-Status: GOOD (  21.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,64 +68,155 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Trilok Soni <trilokkumar.soni@oss.qualcomm.com>, Salman Nabi <salman.nabi@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, linux-kernel@vger.kernel.org, Varun Wadekar <vwadekar@nvidia.com>, Sudeep Holla <sudeep.holla@kernel.org>, vsethi@nvidia.com, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yuchao,
+Hi,
 
-On Fri, 18 Sept 2026 at 12:51, Yuchao Zhang <ndaugoing@gmail.com> wrote:
->
-> Hi Fuad,
->
-> Thanks a lot for pointing me to that thread! I was not aware of
-> Hyunwoo's earlier report and the discussion with Oliver and Marc.
->
-> I'll read through the thread and their rationale on the ap_list_lock
-> approach. I'm happy to defer to Hyunwoo's effort to avoid duplicate
-> work.
+On 7/10/26 12:08, Nirmoy Das wrote:
+> On Mon, 6 Jul 2026 15:44:43 +0200, Andre Przywara wrote:
+> 
+> Hi Andre,
+> 
+>> From: Vedashree Vidwans <vvidwans@nvidia.com>
+>>
+>> Enhance PRIME/ACTIVATION functions to touch watchdog and implement
+>> timeout mechanism. This update ensures that any potential hangs are
+>> detected promptly and that the LFA process is allocated sufficient
+>> execution time before the watchdog timer expires. These changes improve
+>> overall system reliability by reducing the risk of undetected process
+>> stalls and unexpected watchdog resets.
+>>
+>> Signed-off-by: Vedashree Vidwans <vvidwans@nvidia.com>
+>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+>> ---
+>>   drivers/firmware/smccc/lfa_fw.c | 43 ++++++++++++++++++++++++++++++---
+>>   1 file changed, 39 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/drivers/firmware/smccc/lfa_fw.c b/drivers/firmware/smccc/lfa_fw.c
+>> index b333b1e28c0d..357e41f95206 100644
+>> --- a/drivers/firmware/smccc/lfa_fw.c
+>> +++ b/drivers/firmware/smccc/lfa_fw.c
+>> @@ -6,11 +6,14 @@
+>>   #include <linux/arm-smccc.h>
+>>   #include <linux/arm-smccc-bus.h>
+>>   #include <linux/array_size.h>
+>> +#include <linux/delay.h>
+>>   #include <linux/fs.h>
+>>   #include <linux/init.h>
+>>   #include <linux/kobject.h>
+>> +#include <linux/ktime.h>
+>>   #include <linux/list.h>
+>>   #include <linux/module.h>
+>> +#include <linux/nmi.h>
+>>   #include <linux/psci.h>
+>>   #include <linux/stop_machine.h>
+>>   #include <linux/string.h>
+>> @@ -27,6 +30,11 @@
+>>   #define LFA_PRIME_CALL_AGAIN		BIT(0)
+>>   #define LFA_ACTIVATE_CALL_AGAIN		BIT(0)
+>>   
+>> +#define LFA_PRIME_BUDGET_MS		30000		/* 30s cap */
+>> +#define LFA_PRIME_DELAY_MS		10		/* 10ms between polls */
+>> +#define LFA_ACTIVATE_BUDGET_MS		10000		/* 10s cap */
+>> +#define LFA_ACTIVATE_DELAY_MS		10		/* 10ms between polls */
+>> +
+>>   /* LFA return values */
+>>   #define LFA_SUCCESS			0
+>>   #define LFA_NOT_SUPPORTED		1
+>> @@ -276,6 +284,7 @@ static int call_lfa_activate(void *data)
+>>   	struct fw_image *image = data;
+>>   	struct arm_smccc_1_2_regs reg = { 0 }, res;
+>>   
+>> +	touch_nmi_watchdog();
+>>   	reg.a0 = ARM_SMCCC_LFA_ACTIVATE;
+>>   	reg.a1 = image->fw_seq_id;
+>>   	/*
+>> @@ -299,6 +308,7 @@ static int call_lfa_activate(void *data)
+>>   
+>>   static int activate_fw_image(struct fw_image *image)
+>>   {
+>> +	ktime_t end = ktime_add_ms(ktime_get(), LFA_ACTIVATE_BUDGET_MS);
+>>   	int ret;
+>>   
+>>   retry:
+>> @@ -314,8 +324,14 @@ static int activate_fw_image(struct fw_image *image)
+>>   	}
+>>   
+>>   	/* SMC returned with call_again flag set, or with LFA_BUSY */
+>> -	if (ret == -LFA_CALL_AGAIN || ret == -LFA_BUSY)
+>> -		goto retry;
+>> +	if (ret == -LFA_CALL_AGAIN || ret == -LFA_BUSY) {
+>> +		if (ktime_before(ktime_get(), end)) {
+>> +			msleep_interruptible(LFA_ACTIVATE_DELAY_MS);
+>> +			goto retry;
+>> +		}
+>> +
+>> +		ret = -LFA_TIMED_OUT;
+>> +	}
+> 
+> msleep_interruptible()'s return is ignored (here and in the PRIME
+> loop), so a pending signal can turn this into premature retries.
 
-I'm not sure you should defer to their effort. It doesn't seem like
-Hyunwoo has done any work on this for a while. I just wanted to point
-you to the existing discussion.
+Ah, thanks, that's a good point. I fixed that now. I don't think it 
+really matters for the 10ms delay here, but it would break the outer 
+timeout as well, which is a couple of seconds.
 
 Cheers,
-/fuad
+Andre
 
-> Thanks again for the pointer!
->
-> Best regards,
-> Yuchao
->
-> Fuad Tabba <fuad.tabba@linux.dev> =E4=BA=8E2026=E5=B9=B49=E6=9C=8818=E6=
-=97=A5=E5=91=A8=E4=BA=94 15:22=E5=86=99=E9=81=93=EF=BC=9A
-> >
-> > Hi Yuchao,
-> >
-> > On Fri, 18 Sep 2026 12:02:14 +0800, Yuchao Zhang <ndaugoing@gmail.com> =
-wrote:
-> >
-> > [...]
-> >
-> > > Note: this closes the primary race (the last_lr_irq node itself is no
-> > > longer unlinkable while in-flight), but the fold traversal can still
-> > > race with a remote flush unlinking a subsequent non-LR node in the
-> > > ap_list tail. Fully closing that window needs the fold side to take
-> > > references before dropping locks (in the spirit of the prune-side fix
-> > > in commit 7258770e5814 ("KVM: arm64: vgic: Handle race between
-> > > interrupt affinity change and LPI disabling")) and is left as a
-> > > follow-up.
-> >
-> > This is the same race Hyunwoo reported back in June [1]. You might
-> > want to have a look at that thread first: Oliver and Marc's view there
-> > was that the fix is to take the ap_list_lock in
-> > vgic_v3_fold_lr_state() [2][3], and Hyunwoo posted a draft of that
-> > [4].
-> >
-> > Cheers,
-> > /fuad
-> >
-> > [1] https://lore.kernel.org/r/aiHrGM1f8czcUby4@v4bel
-> > [2] https://lore.kernel.org/r/aiJi5a3JJ-TbWL-s@kernel.org
-> > [3] https://lore.kernel.org/r/87a4t99z9n.wl-maz@kernel.org
-> > [4] https://lore.kernel.org/r/aiXvwGD1hS6vwLEd@v4bel
+>>   
+>>   	lfa_cancel(image);
+>>   
+>> @@ -328,6 +344,7 @@ static int activate_fw_image(struct fw_image *image)
+>>   static int prime_fw_image(struct fw_image *image)
+>>   {
+>>   	struct arm_smccc_1_2_regs reg = { 0 }, res;
+>> +	ktime_t end = ktime_add_ms(ktime_get(), LFA_PRIME_BUDGET_MS);
+>>   
+>>   	if (image->may_reset_cpu) {
+>>   		pr_err("CPU reset not supported by kernel driver\n");
+>> @@ -335,6 +352,8 @@ static int prime_fw_image(struct fw_image *image)
+>>   		return -EINVAL;
+>>   	}
+>>   
+>> +	touch_nmi_watchdog();
+>> +
+>>   	reg.a0 = ARM_SMCCC_LFA_PRIME;
+>>   retry:
+>>   	/*
+>> @@ -353,8 +372,24 @@ static int prime_fw_image(struct fw_image *image)
+>>   		return res.a0;
+>>   	}
+>>   
+>> -	if (res.a1 & LFA_PRIME_CALL_AGAIN)
+>> -		goto retry;
+>> +	if (res.a1 & LFA_PRIME_CALL_AGAIN) {
+>> +		int ret;
+>> +
+>> +		/* SMC returned with call_again flag set */
+>> +		if (ktime_before(ktime_get(), end)) {
+>> +			msleep_interruptible(LFA_PRIME_DELAY_MS);
+>> +			goto retry;
+>> +		}
+>> +
+>> +		pr_err("LFA_PRIME for image %s timed out",
+>> +		       get_image_name(image));
+>> +
+>> +		ret = lfa_cancel(image);
+>> +		if (ret != 0)
+>> +			return ret;
+>> +
+>> +		return -ETIMEDOUT;
+>> +	}
+>>   
+>>   	return 0;
+>>   }
+>> -- 
+>> 2.43.0
+> 
+> Regards,
+> Nirmoy
+
 
