@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20318C982DF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 16:15:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 501B2C982E0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 16:15:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Tc8GR7rTTo27bA7yHyZhX9hh9yph2GkWra5UE2xqfbs=; b=M72QeAW11enh1G
-	IeH+/rG5uY5dGpXrVGc767OANdrShzlJlw6rVkcrWrvsNlo049MXD94ckMU/FAfrok4Pyg34C4m7J
-	fjyqBMFVGmzjUW5Zh07EKKfTpmxHuci70uzMC+NcbQTIHVhydr7t9RS/0bLp48Pnf69M8cn4dg6yY
-	FaDDIcsAeaHA5JF8cCPuc7VivCkUGzzcIFLK+ZwYMv8IEyhwL12NMLhbHSwcfgiUP0eBAjaJtPf9f
-	zEdLCBy5C0Slue86ntWtWZI+cdWSAG6Z9qTqOflkytWjCXvD55ipxHO3soK4iJB0WCK0pnScuC2rS
-	n6hnMztAZ5HYqfBhtvPQ==;
+	List-Owner; bh=8nBLQSKemxDIktlR563dkf+XaG9PZ7B4rjq2+jvC9t0=; b=GquuY3AMZN6WKd
+	2avIXhNOVIwfQYznIUi8CL8FeulQZJnKTzrpDvIqz+FXpP9//azAjkor9sgIoabtP2ByGyLp81GXB
+	f+Into3LyP537Vid0NckFtc5uefGZj7bm6RS8s1v9DiJs7rpoHLWOG9ZqgbagMKpRid+V768K18Lc
+	uNKnJgYKK1/xvvclyB7C3hm04joBk88+d6N8gm8x8TLO9DeIFpwJzIRO1okoaetLNC0QQqaCBuR69
+	8iUcIkSNUCPeuQnjRtEAt37OqAQ/LsHvGD4cmjd82f9w/iuuFbwq8hzYOmeM+9NA7lOWCW1KnLuHO
+	B1uH2MQVHfkaMDT3Ohrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7bF6-0000000EzP5-3fss;
-	Fri, 18 Sep 2026 16:15:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x7bF7-0000000EzPY-0Kws;
+	Fri, 18 Sep 2026 16:15:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7bEs-0000000EzDx-1JRU
+	id 1x7bEv-0000000EzGO-1dOw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 16:15:02 +0000
+	Fri, 18 Sep 2026 16:15:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id BAB706022B;
+	by sea.source.kernel.org (Postfix) with ESMTP id 1A590401C5;
+	Fri, 18 Sep 2026 16:15:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CD191F00898;
 	Fri, 18 Sep 2026 16:15:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DF501F000FF;
-	Fri, 18 Sep 2026 16:14:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789748101;
-	bh=Tc8GR7rTTo27bA7yHyZhX9hh9yph2GkWra5UE2xqfbs=;
+	s=k20260515; t=1789748105;
+	bh=8nBLQSKemxDIktlR563dkf+XaG9PZ7B4rjq2+jvC9t0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=BpMwUcXtxZXvVSt7IywpT3I566I5Wb9vA+b1HRQ0SPTXq31VO5Co5iAq1W1lssnp+
-	 IRFyEi/tH1AwRv4wOS9f00oUX4wA4BGBgQYEFHmVRtbVwkEa7E9ynmxDJoyxPQHoza
-	 FqFdiKbeyxonu1drcwS0+otlkvWbj/Cm3sc6R9u9TW3VMtSLcqnugO3TFIKBJ659P3
-	 VIBg6/F5AoGPaTLb0A27uHciXsGIElTW00LAeCsI5a/w372TjfMF4FF4S2wb4RvnxS
-	 h0aTrKhu6AtkY1O02DW3VjZqu+oUnMuAFU7prdjm+52PTI1QjUvir49tbHIunMVEVO
-	 w1JYAxdBenYQg==
+	b=Z/ffdFAMxmWA9YF2dCYlP4WVx8iG4pj2rNzJqqF7scRBaWTu8PUGnJ/RLD+kbIzDc
+	 50DJpkxeP1moeVXfp135B87JcBo0uHGmXQWF2XKtqE8eL4xHRuAWOVbcKcx9av58Tp
+	 BEVVhahBxZNv3dbKArxMlqTDUaWgwgFsx1qAYCJoHIBcAhdFqSJUPei3Bk5cu2Cynt
+	 alJs+g5kiqed+FY6dL0LmkdsqqhwtG5O6qSMjqTNuiA+ZxtKmLHwty7AP7ML5f6okU
+	 B+RhZ1XlPlYxzQqYg1cGypFhkVKuSEc7L6aAFLu15Yc86AHTtCcghi5l/LDZL5e0fA
+	 XfWAtM9QciATA==
 From: Will Deacon <will@kernel.org>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 13/21] arm64: sdei: Guard most of asm/sdei.h with CONFIG_ARM_SDE_INTERFACE
-Date: Fri, 18 Sep 2026 17:13:57 +0100
-Message-ID: <20260918161407.2300-14-will@kernel.org>
+Subject: [PATCH v2 14/21] arm64: sdei: Support SDEI events from kernel handler and thread modes
+Date: Fri, 18 Sep 2026 17:13:58 +0100
+Message-ID: <20260918161407.2300-15-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260918161407.2300-1-will@kernel.org>
 References: <20260918161407.2300-1-will@kernel.org>
@@ -63,47 +63,55 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Vladimir Murzin <vladimir.murzin@arm.com>, kernel test robot <lkp@intel.com>, Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, Linus Walleij <linusw@kernel.org>, linux-kernel@vger.kernel.org, Mostafa Saleh <smostafa@google.com>, Marc Zyngier <maz@kernel.org>, David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, Oliver Upton <oupton@kernel.org>, Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, Vladimir Murzin <vladimir.murzin@arm.com>, Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, Linus Walleij <linusw@kernel.org>, linux-kernel@vger.kernel.org, Mostafa Saleh <smostafa@google.com>, Marc Zyngier <maz@kernel.org>, David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, Oliver Upton <oupton@kernel.org>, Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The SDEI header includes are a bit of a mess: linux/arm_sdei.h only
-includes asm/sdei.h if CONFIG_ARM_SDE_INTERFACE=y and then goes on to
-provide a definition of the sdei_arch_get_entry_point() macro if it
-hasn't already been defined. asm/sdei.h, however, defines the same macro
-unconditionally and so this breaks the build if CONFIG_ARM_SDE_INTERFACE
-is not set and asm/sdei.h is included after linux/arm_sdei.h.
+Section 5.2.2 ("Event resume context") of the SDEI specification states
+that, as a result of an SDEI_EVENT_COMPLETE_AND_RESUME call:
 
-The kbuild robot ran into this situation with randconfig testing, thanks
-to the transitive inclusion of asm/sdei.h via asm/stacktrace.h.
+ | SPSR_ELc is set to the PSTATE when the event was taken
 
-Guard most of asm/sdei.h with CONFIG_ARM_SDE_INTERFACE to avoid
-redefining macros provided by linux/arm_sdei.h.
+In preparation for making use of both thread and handler modes in the
+kernel, adjust the SDEI event handler so that we return to the correct
+kernel vector for the interrupted mode.
 
-Reported-by: kernel test robot <lkp@intel.com>
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/include/asm/sdei.h | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/arm64/kernel/sdei.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/include/asm/sdei.h b/arch/arm64/include/asm/sdei.h
-index b2248bd3cb58..b96eb9e22d4b 100644
---- a/arch/arm64/include/asm/sdei.h
-+++ b/arch/arm64/include/asm/sdei.h
-@@ -9,6 +9,7 @@
+diff --git a/arch/arm64/kernel/sdei.c b/arch/arm64/kernel/sdei.c
+index 778f2a1faac8..6337ce905593 100644
+--- a/arch/arm64/kernel/sdei.c
++++ b/arch/arm64/kernel/sdei.c
+@@ -208,7 +208,7 @@ unsigned long __kprobes do_sdei_event(struct pt_regs *regs,
+ 	int i, err = 0;
+ 	int clobbered_registers = 4;
+ 	u64 elr = read_sysreg(elr_el1);
+-	u32 kernel_mode = read_sysreg(CurrentEL) | 1;	/* +SPSel */
++	u32 kernel_mode = read_sysreg(CurrentEL);
+ 	unsigned long vbar = read_sysreg(vbar_el1);
  
- #define SDEI_STACK_SIZE		IRQ_STACK_SIZE
+ 	if (arm64_kernel_unmapped_at_el0())
+@@ -233,7 +233,7 @@ unsigned long __kprobes do_sdei_event(struct pt_regs *regs,
+ 		pr_warn("unsafe: exception during handler\n");
+ 	}
  
-+#ifdef CONFIG_ARM_SDE_INTERFACE
- #ifndef __ASSEMBLER__
+-	mode = regs->pstate & (PSR_MODE32_BIT | PSR_MODE_MASK);
++	mode = regs->pstate & (PSR_MODE32_BIT | PSR_MODE_MASK) & ~PSR_MODE_h_BIT;
  
- #include <linux/linkage.h>
-@@ -50,4 +51,5 @@ unsigned long sdei_arch_get_entry_point(int conduit);
- #define sdei_arch_get_entry_point(x)	sdei_arch_get_entry_point(x)
+ 	/*
+ 	 * If we interrupted the kernel with interrupts masked, we always go
+@@ -251,7 +251,7 @@ unsigned long __kprobes do_sdei_event(struct pt_regs *regs,
+ 	 * address'.
+ 	 */
+ 	if (mode == kernel_mode)
+-		return vbar + 0x280;
++		return vbar + (regs->pstate & PSR_MODE_h_BIT ? 0x280 : 0x80);
+ 	else if (mode & PSR_MODE32_BIT)
+ 		return vbar + 0x680;
  
- #endif /* __ASSEMBLER__ */
-+#endif /* CONFIG_ARM_SDE_INTERFACE */
- #endif	/* __ASM_SDEI_H */
 -- 
 2.55.0.1082.g2b9226bbc0-goog
 
