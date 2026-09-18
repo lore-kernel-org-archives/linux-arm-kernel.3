@@ -4,68 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F31CC982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 17:00:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F811C982D7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 17:01:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SRAz6d/UlGZbpbGkU/T6BtesHYARxZDe5FAnr3CvBMY=; b=JRq0teHCKko05ls0kcA+R8j9j+
-	YSnNfhkVNSp4UztJE+nh42ILngDSy/eVsMKrWFqg5BnejaT7o+ZGwfPd2y4fWAmJc59hK2o/zzJeO
-	COXZKTShNLQAW27OosROKcZNzKFKoQcEB4SDGcFNhGjl7q4J0qZd1hf/h12/B1zTCXTWFsMLA0Rjl
-	VjwrPzLfQhwPYYFJ9CNtW4lWmOEySIBu8SEDGPd6XL4e+ZaTrNTzcKfykbZztHqvjuWAOWiJa4cuq
-	u4DIj2R95WiJ9PoWAL231LX7ZrV+tTftisK3hKVCEdGxQzUhaIL3rJ2sZ8DDMraM4GUZvFO3Rh1+q
-	PVoWYbKQ==;
+	bh=XvEzZ5yV9vzGVdbkrsIgJ4kI78ty053dRTiVvQhIbhM=; b=J6pW6O1pZcSrv+rWSzW7MqNL1n
+	pq0cJQVhnHl2A5+zJtjmD6CKscaN3bhSJKL1cPxGBDp/RCDTp8iKSIOu1dosw35p9ZfNuSSgKGH1R
+	bvNegCupfCBxPPcBzEB5yGZaoU/9gfxPhnL/m398Q5yIJY8W33iKpVNyC2hBpPpEK6t7Vce8KMx0N
+	qRtqZrpcoPQTgS/fVoQEcnCfekUcaBhg/m74PfCrr17P9QgtTsy5BFR5KUY/5VIQO0C2gIH8emtiO
+	lH4I0MqyNz53AxeWBWE6XN0yHxdyKR6Y1dAnTfMUKTHpcGhfed2QBsiefe8XS2lKA6ZFRJvLrNov6
+	nhrN7/rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7bwq-0000000F857-0r00;
-	Fri, 18 Sep 2026 17:00:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7bwn-0000000F84D-3Aip
+	id 1x7by0-0000000F8Ms-2klG;
+	Fri, 18 Sep 2026 17:01:40 +0000
+Received: from mail-vs2-x0e.google.com ([2a00:1450:4864:3a::e])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x7bxy-0000000F8MC-13cz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 17:00:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1C7711476;
-	Fri, 18 Sep 2026 10:00:21 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8A7203F86C;
-	Fri, 18 Sep 2026 10:00:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789750824; bh=+HEjUYFWTGLYxr8PX6lAWu1BSI8JsmZfOErx/Ka5hNw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cqzxrFB5qn/UMV+YaBf8m1wQslh3F2mqCMM0KUL0ZeuTtNog0UvyqR5XfAVN0AXq0
-	 POQ2tTPOQ+fqjmocNdXRlFEcXlHT/MPwhLy3arI9NFwDe39d7XHbaBOt2f+rqPFRbr
-	 u8K0gpoo67xg3cqAD02Ez823oQUTcxpyjiEEk4JQ=
-Date: Fri, 18 Sep 2026 18:00:20 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Mike Leach <mike.leach@arm.com>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, James Clark <james.clark@linaro.org>,
-	Leo Yan <leo.yan@arm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>, nd@arm.com
-Subject: Re: [PATCH v11 3/9] coresight: etm4x: fix inconsistencies with sysfs
- configuration
-Message-ID: <aq1uJKUVlJVfZwGF@e129823.arm.com>
-References: <20260915-separate_etm_cfg_v2-v11-0-d2b258d51747@arm.com>
- <20260915-separate_etm_cfg_v2-v11-3-d2b258d51747@arm.com>
- <bf0dea40-8dd1-4108-a3de-28288a31a668@arm.com>
+	Fri, 18 Sep 2026 17:01:40 +0000
+Received: by mail-vs2-x0e.google.com with SMTP id 71dfb90a1353d-5c98e1942dfso651776e0c.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 10:01:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789750897; cv=none;
+        d=google.com; s=arc-20260327;
+        b=szD1XDWWKoTUSuADS4nMkV62F42PGn/sfyMlSGCcrC7Wz04idQn0pBrI0BiE0XS7Kc
+         qYR4GqtR7+RQS382qLHdKckUaUaIA5xHpdI0k5ieY82z4Bbr3Br0S6FUJAmpqJQbN2Bd
+         qnyZaSoTkvJuX9L7kzDuBQcgMZgdRoxVzZ1FNVrFphStsmZiAfDDizfyyuKn3JUR3ca7
+         PR++No1LAf6VRiKsoK2hU4XXS94JUxjG3Z0Xp+wCzIIL0KODoPfBDGVUeXi7mOINCa0j
+         mCkfJDVnoSN2PC53/Ns9hbuf9l5sZOujlDS1L0sS7DRMNiWaAIomCvNCi+lvyRS9TXuU
+         +67A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=XvEzZ5yV9vzGVdbkrsIgJ4kI78ty053dRTiVvQhIbhM=;
+        fh=h/Q2ZEvzVivGfsT8WVJ81N0yYTVBdSl7F2O0yWQPwMM=;
+        b=gEgVrJyIisvoNQtbR28XMnhMnHAtohwxSnz6EUJN3cfkdJqt074wgAzgOrhgvQvn6c
+         9FEuecDOAQLo7hryoI2UvCaJtHH+MEnSmlMwSkErcego3Kb/dA839sRkp/U3WNxNkaPi
+         e+1Mi1Uiuo1FAbJr1FrnjP+JrWm5idQyVfUcsBz16Gqt16IDmOTpPSqSPB7Q3qz1x3Lh
+         L0v04tG3/3bPaSphGXhoKvLdavNX1lr/aapgCKwwl8wGGuTtt15UXfOFg0oA5bSkJYyE
+         RwXxMVObu5UVtixFJxP+vkJqq9ghBnM3nIUuqt0ba3TlnzopGOXwTt12KDatFTiSwua1
+         scpg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1789750897; x=1790355697; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=XvEzZ5yV9vzGVdbkrsIgJ4kI78ty053dRTiVvQhIbhM=;
+        b=fj5bbnaBmFD/4k/fsHKaDr++TpJPMs//FjOQB6CcEBvSNhsn2fA1rPe+IDJ3a9wmy/
+         UuqSzh/tkI19yc8hOE5Ll1vYBEvi5JCLhMF3RC5RSOESQy2N7nlu3njFm8DrfFCRKxLH
+         GDxQUjhqGipFbiBU4v+e/XBaPH/LhsD075X8PsVtlQqwmXWhhucBoW4z7maFBiiMlocF
+         TT+oELbVhEuK7kq+hEHQVi7zcr+tupr/9UGzO0X2SKrsgHMY9vot8ooo/t4xWSG21UOW
+         eKaQmSSVRE91Sfe3xpkP43t4QdCZpKCSvAmd3K9cwKy08XwXHm4tF3Doq8fvBCpMNx/U
+         wC7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789750897; x=1790355697;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=XvEzZ5yV9vzGVdbkrsIgJ4kI78ty053dRTiVvQhIbhM=;
+        b=zKtxoDaVcNmGPClxtEyci27TbHe5qYShLb8zqROebAMCzbByCOvB3QvekSsSDwbrjj
+         0Lh5GrNsPEjaW7p0LLLBsMBQSdUZuaUuRP7mWjNCdKeCdnygoY0+GC37M8NrVoSRQKaJ
+         rMVmYSEYfErtVXP/Su3W+ZINPOeOqN88tfZzXhEXpew159+zosNf4OBI5ONf/m0oI3oL
+         cP1Y9rj0Ohat4ge7TG4aQJQWnsBP38j/RN0CX6PR4h8rYMw+lMa8DZts2+Isx1Ux6Fcc
+         vMWVEsnLUO6kbq7RFctoXWXELFq2tXuv2RWBBDjiwRIM0NCDuSKPLlw56AlDwg3vtJ8O
+         E0oQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxtbNngD2fZvK+M6Pg9yu82xupwUND1sRuSJnFvSKaCePGyLUPRqbslLAUiNapa33Dmta8TTEofhBaH4PUX5/dB@lists.infradead.org
+X-Gm-Message-State: AFuF++n6JXibzeRYSFm60hkLrL+a3RhUngRSdkZkk0KZC/vtnMPHGv/a
+	pFh4cyvuiCsSnY1e0q1fmVUACA4q1iuB+5lStYeBuXo9vtyopgXENUURXk9sDUtEscdSPNfZN0b
+	Wzmm7URtVlLby9aby700WQSMAYa06NQvsSkTxq7XwIw==
+X-Gm-Gg: AYBFou3M8p+lbfPAEGYf9/ECRQAyIBdjLnHzJnfcCVEnD/ErwUseGZDjL4eQWkbN45l
+	lHnKwzTxxcgPvFzv/W0Vmi8nRv2f28FbbtROxPCt1Z4TJHwbZTtoXkqujcdUJqasjeeZ6ZBjcbe
+	dzOXSAzfDzd8VhGnC3xEltKV1xJvX8T80HblggsKZtgsPdlS0z/KM7BIekId5eClsHq7KNSKJaL
+	HHIiX84pawJgftck//ssTK5OoISlFjSGoh3kK/Pd4+SXfeL/FzLieiM2h9o1ht4w13ssktQmz6l
+	IXayEWjqR2LUWWhiAv8RV9XG8WGC7dmkOTvWJGCowqHaUFL/ViuYYhhqM+CyTtkb+/qeZnSgaY9
+	VcfeRYqcDSb1Gtno=
+X-Received: by 2002:a05:6122:8c5:b0:5c8:2a47:b111 with SMTP id
+ 71dfb90a1353d-5c9b58bee96mr1899596e0c.3.1789750886990; Fri, 18 Sep 2026
+ 10:01:26 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <bf0dea40-8dd1-4108-a3de-28288a31a668@arm.com>
+References: <20260722-contrib-pg-pixel10-initial-dts-v2-0-3abae9717feb@linaro.org>
+ <20260722-contrib-pg-pixel10-initial-dts-v2-4-3abae9717feb@linaro.org> <20260724-dancing-skunk-of-novelty-72c1b8@quoll>
+In-Reply-To: <20260724-dancing-skunk-of-novelty-72c1b8@quoll>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Fri, 18 Sep 2026 18:01:14 +0100
+X-Gm-Features: AcwNN1X4yZ0E4jX5loLfFRJVRA0cZleBO7KYxG0RnMrM3HwM6hHoo94HHHxPgno
+Message-ID: <CADrjBPr3Z9z43iEpv5dXKR3iBAr0mAP=Gp--9inaiRkn19BDng@mail.gmail.com>
+Subject: Re: [PATCH v2 4/5] arm64: dts: google: Add initial dts for frankel/blazer/mustang
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Jiri Slaby <jirislaby@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Linus Walleij <linusw@kernel.org>, 
+	Drew Fustini <fustini@kernel.org>, Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, 
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-serial@vger.kernel.org, 
+	soc@lists.linux.dev, Douglas Anderson <dianders@chromium.org>, 
+	Juan Yescas <jyescas@google.com>, RD Babiera <rdbabiera@google.com>, 
+	Brian Norris <briannorris@google.com>, William McVicker <willmcvicker@google.com>, 
+	kernel-team@android.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_100025_881340_0ACD3C64 
-X-CRM114-Status: GOOD (  59.05  )
+X-CRM114-CacheID: sfid-20260918_100138_384172_0614A8C1 
+X-CRM114-Status: GOOD (  20.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,528 +129,524 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 18, 2026 at 02:49:09PM +0100, Mike Leach wrote:
-> Hi,
-> 
-> On 9/15/26 12:34, Yeoreum Yun wrote:
-> > The current ETM4x configuration via sysfs can lead to
-> > several inconsistencies:
-> > 
-> >    - If the configuration is modified via sysfs while a perf session is
-> >      active, the running configuration may differ before a sched-out and
-> >      after a subsequent sched-in.
-> > 
-> >    - If a perf session and a sysfs session enable tracing concurrently,
-> >      the configuration from configfs may become corrupted.
-> > 
-> >    - There is a risk of corrupting drvdata->config if a perf session enables
-> >      tracing while cscfg_csdev_disable_active_config() is being handled in
-> >      etm4_disable_sysfs().
-> > 
-> > To resolve these issues, separate the configuration into:
-> > 
-> >    - active_config: the configuration applied to the current session
-> >    - config: the configuration set via sysfs
-> > 
-> 
-> I'll add a comment about naming here - active_config is a bit overloaded in
-> the code as it is also used by the csconfig code to represent a loaded and
-> active configuration - which may at some point be applied to the
-> active_config above.
-> 
-> If active_config is for the current session then curr_config would work.
-> 
-> Additionally config also appears as a local pointer in many of the
-> functions. If this is the sysfs config then sysfs_config would work better.
-> 
-> This should make all the code a lot more readable, and easier to spot
-> exactly which config we are dealing with.
+Hi Krzysztof,
 
-Okay. then I'll change the each name with curr_config and sysfs_config
-and rename all.
+Thank you for the time spent reviewing this and review feedback.
 
-Thanks ;)
-
-> 
-> 
-> > Additionally:
-> > 
-> >    - Apply the configuration from configfs after taking the appropriate mode.
-> > 
-> >    - Since active_config and related fields are accessed only by the local CPU
-> >      in etm4_enable/disable_sysfs_smp_call() (similar to perf enable/disable),
-> >      remove the lock/unlock from the sysfs enable/disable path and
-> >      startup/dying_cpu except when to access config fields.
-> > 
-> > As the active_config is used for cfg-configfs, etmv4 doesn't need to set
-> > its lock for the cfg-configfs since the active_config is proceted by cs_mode
-> > otherwise it would make a possible cpu-stall when it get interrupt while
-> > setting the sysfs configuration.
-> > 
-> > Therefore, set the drv_spinlock for cfg-configfs as NULL and
-> > let the cfg-configfs disable irq without grap drv_spinlock when it is NULL.
-> > 
-> > Fixes: 54ff892b76c6 ("coresight: etm4x: splitting struct etmv4_drvdata")
-> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> > ---
-> >   drivers/hwtracing/coresight/coresight-config.c     |  18 ++--
-> >   drivers/hwtracing/coresight/coresight-config.h     |  22 ++++
-> >   drivers/hwtracing/coresight/coresight-etm4x-cfg.c  |  13 ++-
-> >   drivers/hwtracing/coresight/coresight-etm4x-core.c | 118 ++++++++++++---------
-> >   .../hwtracing/coresight/coresight-etm4x-sysfs.c    |   6 +-
-> >   drivers/hwtracing/coresight/coresight-etm4x.h      |   4 +-
-> >   6 files changed, 113 insertions(+), 68 deletions(-)
-> > 
-> > diff --git a/drivers/hwtracing/coresight/coresight-config.c b/drivers/hwtracing/coresight/coresight-config.c
-> > index 4f72ae71b696e..0e296289f286d 100644
-> > --- a/drivers/hwtracing/coresight/coresight-config.c
-> > +++ b/drivers/hwtracing/coresight/coresight-config.c
-> > @@ -73,13 +73,12 @@ static void cscfg_init_reg_param(struct cscfg_feature_csdev *feat_csdev,
-> >   /* set values into the driver locations referenced in cscfg_reg_csdev */
-> >   static int cscfg_set_on_enable(struct cscfg_feature_csdev *feat_csdev)
-> >   {
-> > -	unsigned long flags;
-> >   	int i;
-> > -	raw_spin_lock_irqsave(feat_csdev->drv_spinlock, flags);
-> > -	for (i = 0; i < feat_csdev->nr_regs; i++)
-> > -		cscfg_set_reg(&feat_csdev->regs_csdev[i]);
-> > -	raw_spin_unlock_irqrestore(feat_csdev->drv_spinlock, flags);
-> > +	scoped_guard(feat_csdev_lock, feat_csdev) {
-> > +		for (i = 0; i < feat_csdev->nr_regs; i++)
-> > +			cscfg_set_reg(&feat_csdev->regs_csdev[i]);
-> > +	}
-> >   	dev_dbg(&feat_csdev->csdev->dev, "Feature %s: %s",
-> >   		feat_csdev->feat_desc->name, "set on enable");
-> >   	return 0;
-> > @@ -88,13 +87,12 @@ static int cscfg_set_on_enable(struct cscfg_feature_csdev *feat_csdev)
-> >   /* copy back values from the driver locations referenced in cscfg_reg_csdev */
-> >   static void cscfg_save_on_disable(struct cscfg_feature_csdev *feat_csdev)
-> >   {
-> > -	unsigned long flags;
-> >   	int i;
-> > -	raw_spin_lock_irqsave(feat_csdev->drv_spinlock, flags);
-> > -	for (i = 0; i < feat_csdev->nr_regs; i++)
-> > -		cscfg_save_reg(&feat_csdev->regs_csdev[i]);
-> > -	raw_spin_unlock_irqrestore(feat_csdev->drv_spinlock, flags);
-> > +	scoped_guard(feat_csdev_lock, feat_csdev) {
-> > +		for (i = 0; i < feat_csdev->nr_regs; i++)
-> > +			cscfg_save_reg(&feat_csdev->regs_csdev[i]);
-> > +	}
-> >   	dev_dbg(&feat_csdev->csdev->dev, "Feature %s: %s",
-> >   		feat_csdev->feat_desc->name, "save on disable");
-> >   }
-> > diff --git a/drivers/hwtracing/coresight/coresight-config.h b/drivers/hwtracing/coresight/coresight-config.h
-> > index 90fd937d3bd83..ae6295e308131 100644
-> > --- a/drivers/hwtracing/coresight/coresight-config.h
-> > +++ b/drivers/hwtracing/coresight/coresight-config.h
-> > @@ -7,6 +7,7 @@
-> >   #ifndef _CORESIGHT_CORESIGHT_CONFIG_H
-> >   #define _CORESIGHT_CORESIGHT_CONFIG_H
-> > +#include <linux/cleanup.h>
-> >   #include <linux/coresight.h>
-> >   #include <linux/types.h>
-> > @@ -259,4 +260,25 @@ void cscfg_csdev_disable_config(struct cscfg_config_csdev *config_csdev);
-> >   /* reset a feature to default values */
-> >   void cscfg_reset_feat(struct cscfg_feature_csdev *feat_csdev);
-> > +#define feat_csdev_lock(feat_csdev, flags)				\
-> > +	do {								\
-> > +		raw_spinlock_t *__lock = feat_csdev->drv_spinlock;	\
-> > +		typecheck(unsigned long, flags);			\
-> > +		if (__lock)						\
-> > +			raw_spin_lock_irqsave(__lock, flags);		\
-> > +	} while (0)
+On Fri, 24 Jul 2026 at 07:59, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>
+> On Wed, Jul 22, 2026 at 10:55:55AM +0100, Peter Griffin wrote:
+> > diff --git a/arch/arm64/boot/dts/google/lga-pixel-common.dtsi b/arch/arm64/boot/dts/google/lga-pixel-common.dtsi
+> > new file mode 100644
+> > index 000000000000..57c318ab44c9
+> > --- /dev/null
+> > +++ b/arch/arm64/boot/dts/google/lga-pixel-common.dtsi
+> > @@ -0,0 +1,23 @@
+> > +// SPDX-License-Identifier: GPL-2.0 OR BSD-3-Clause
+> > +/*
+> > + * Google Pixel 10 family common dtsi.
+> > + *
+> > + * Copyright 2024-2025 Google LLC.
+> > + */
 > > +
-> > +#define feat_csdev_unlock(feat_csdev, flags)				\
-> > +	do {								\
-> > +		raw_spinlock_t *__lock = feat_csdev->drv_spinlock;	\
-> > +		typecheck(unsigned long, flags);			\
-> > +		if (__lock)						\
-> > +			raw_spin_unlock_irqrestore(__lock, flags);	\
-> > +	} while (0)
+> > +#include "lga.dtsi"
 > > +
-> > +DEFINE_LOCK_GUARD_1(feat_csdev_lock, struct cscfg_feature_csdev,
-> > +		    feat_csdev_lock(_T->lock, _T->flags),
-> > +		    feat_csdev_unlock(_T->lock, _T->flags),
-> > +		    unsigned long flags)
+> > +&{/} {
+>
+> This is overlay style, but the file is DTSI. Just use standard '/ {' -
+> that's simple and obvious enough path.
+
+I've fixed this and all the other review points made here in v3 (which
+I will send out shortly). After seeing your recent DT cleanup patches
+for Exynos/gs101 I've made it pass `dt-check-style --mode=strict ` as
+well.
+
+>
+> > +     chosen {
+> > +             stdout-path = "serial0";
+> > +     };
 > > +
-> >   #endif /* _CORESIGHT_CORESIGHT_CONFIG_H */
-> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> > index e1a59b4345052..d24f533c623d0 100644
-> > --- a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> > @@ -47,7 +47,7 @@ static int etm4_cfg_map_reg_offset(struct etmv4_drvdata *drvdata,
-> >   				   struct cscfg_regval_csdev *reg_csdev, u32 offset)
-> >   {
-> >   	int err = -EINVAL, idx;
-> > -	struct etmv4_config *drvcfg = &drvdata->config;
-> > +	struct etmv4_config *drvcfg = &drvdata->active_config;
-> >   	u32 off_mask;
-> >   	if (((offset >= TRCEVENTCTL0R) && (offset <= TRCVIPCSSCTLR)) ||
-> > @@ -154,11 +154,14 @@ static int etm4_cfg_load_feature(struct coresight_device *csdev,
-> >   	int i = 0, err = 0;
-> >   	/*
-> > -	 * essential we set the device spinlock - this is used in the generic
-> > -	 * programming routines when copying values into the drvdata structures
-> > -	 * via the pointers setup in etm4_cfg_map_reg_offset().
-> > +	 * drvdata structure of etm4 for configfs is active_config and
-> > +	 * this active_config is protected with csdev->mode by restricting
-> > +	 * access to active_config after mode changed to PERF or SYSFS.
-> > +	 *
-> > +	 * Therefore, it doesn't need to protected with etmv4_drvdata->spinlock
-> > +	 * to feature applying and set the NULL.
-> >   	 */
-> > -	feat_csdev->drv_spinlock = &drvdata->spinlock;
-> > +	feat_csdev->drv_spinlock = NULL;
-> >   	/* process the register descriptions */
-> >   	for (i = 0; i < feat_csdev->nr_regs && !err; i++) {
-> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > index 2247ad55d4442..2df7f592bb5cf 100644
-> > --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > @@ -239,6 +239,7 @@ void etm4_release_trace_id(struct etmv4_drvdata *drvdata)
-> >   struct etm4_enable_arg {
-> >   	struct etmv4_drvdata *drvdata;
-> >   	struct coresight_path *path;
-> > +	struct etmv4_config config;
-> 
-> drvdata contains both active_config and config - why the extra copy here?
-
-This is because of a minor consistency before applying the configuration
-to hardware. Since drvdata->sysfs_config could be modified while copying
-the contents into the active_config as a purpose of snapshot at the time
-of enable, add this argument.
-
-For example, while enabling, sysfs could modify the ctxid_mask0 and
-ctxid_mask1 and this could be teared when active_config is copied from
-drvdata->config directly.
-
-Therefore, make a config as a *snapshot* while holding a drvdata->lock.
-otherwise, we need to change all spinlock usage in sysfs should be
-irqsave but it seems much awful.
-
-But I think we can remove it if we move the copy config to active_config
-into etm4_enable_sysfs() since there, sysfs_mode is taken. so
-active_config could be accessed safely.
-
-I'll move the drvdata->active_config = drvdata->config into 
-etm4_enable_sysfs() and will remove this arg.
-
-Thanks!
-
-> 
-> >   	int rc;
-> >   };
-> > @@ -264,10 +265,11 @@ static void etm4x_prohibit_trace(struct etmv4_drvdata *drvdata)
-> >   static u64 etm4x_get_kern_user_filter(struct etmv4_drvdata *drvdata)
-> >   {
-> >   	u64 trfcr = drvdata->trfcr;
-> > +	struct etmv4_config *config = &drvdata->active_config;
-> > -	if (drvdata->config.mode & ETM_MODE_EXCL_KERN)
-> > +	if (config->mode & ETM_MODE_EXCL_KERN)
-> >   		trfcr &= ~TRFCR_EL1_ExTRE;
-> > -	if (drvdata->config.mode & ETM_MODE_EXCL_USER)
-> > +	if (config->mode & ETM_MODE_EXCL_USER)
-> >   		trfcr &= ~TRFCR_EL1_E0TRE;
-> >   	return trfcr;
-> > @@ -275,7 +277,7 @@ static u64 etm4x_get_kern_user_filter(struct etmv4_drvdata *drvdata)
-> >   /*
-> >    * etm4x_allow_trace - Allow CPU tracing in the respective ELs,
-> > - * as configured by the drvdata->config.mode for the current
-> > + * as configured by the drvdata->active_config.mode for the current
-> >    * session. Even though we have TRCVICTLR bits to filter the
-> >    * trace in the ELs, it doesn't prevent the ETM from generating
-> >    * a packet (e.g, TraceInfo) that might contain the addresses from
-> > @@ -286,12 +288,13 @@ static u64 etm4x_get_kern_user_filter(struct etmv4_drvdata *drvdata)
-> >   static void etm4x_allow_trace(struct etmv4_drvdata *drvdata)
-> >   {
-> >   	u64 trfcr, guest_trfcr;
-> > +	struct etmv4_config *config = &drvdata->active_config;
-> >   	/* If the CPU doesn't support FEAT_TRF, nothing to do */
-> >   	if (!drvdata->trfcr)
-> >   		return;
-> > -	if (drvdata->config.mode & ETM_MODE_EXCL_HOST)
-> > +	if (config->mode & ETM_MODE_EXCL_HOST)
-> >   		trfcr = drvdata->trfcr & ~(TRFCR_EL1_ExTRE | TRFCR_EL1_E0TRE);
-> >   	else
-> >   		trfcr = etm4x_get_kern_user_filter(drvdata);
-> > @@ -299,7 +302,7 @@ static void etm4x_allow_trace(struct etmv4_drvdata *drvdata)
-> >   	write_trfcr(trfcr);
-> >   	/* Set filters for guests and pass to KVM */
-> > -	if (drvdata->config.mode & ETM_MODE_EXCL_GUEST)
-> > +	if (config->mode & ETM_MODE_EXCL_GUEST)
-> >   		guest_trfcr = drvdata->trfcr & ~(TRFCR_EL1_ExTRE | TRFCR_EL1_E0TRE);
-> >   	else
-> >   		guest_trfcr = etm4x_get_kern_user_filter(drvdata);
-> > @@ -492,7 +495,7 @@ static int etm4_enable_trace_unit(struct etmv4_drvdata *drvdata)
-> >   static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
-> >   {
-> >   	int i, rc;
-> > -	struct etmv4_config *config = &drvdata->config;
-> > +	struct etmv4_config *config = &drvdata->active_config;
-> >   	struct coresight_device *csdev = drvdata->csdev;
-> >   	struct device *etm_dev = &csdev->dev;
-> >   	struct csdev_access *csa = &csdev->access;
-> > @@ -612,27 +615,44 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
-> >   static void etm4_enable_sysfs_smp_call(void *info)
-> >   {
-> >   	struct etm4_enable_arg *arg = info;
-> > +	struct etmv4_drvdata *drvdata;
-> >   	struct coresight_device *csdev;
-> > +	unsigned long cfg_hash;
-> > +	int preset;
-> >   	if (WARN_ON(!arg))
-> >   		return;
-> > -	csdev = arg->drvdata->csdev;
-> > -	if (!coresight_take_mode(csdev, CS_MODE_SYSFS)) {
-> > -		/* Someone is already using the tracer */
-> > -		arg->rc = -EBUSY;
-> > -		return;
-> > +	drvdata = arg->drvdata;
-> > +	csdev = drvdata->csdev;
+> > +     aliases {
+> > +             serial0 = "/soc@0/serial@db62000";      /* &lsion_cli16_uart */
+> > +             ufs0 = "/ufs-placeholder";              /* &ufs - TODO "/soc@0/ufs@3c400000" */
+>
+> UFS does not have aliases, please drop.
+>
+> > +     };
+> > +};
 > > +
-> > +	drvdata->active_config = arg->config;
-> 
-> This can happen before the smp call removing the need for arg->config?
-
-Yes! That's fair enough :)
-
-> 
+> > +&osc {
+> > +     clock-frequency = <38400000>;
+> > +};
+> > diff --git a/arch/arm64/boot/dts/google/lga.dtsi b/arch/arm64/boot/dts/google/lga.dtsi
+> > new file mode 100644
+> > index 000000000000..343156a8c039
+> > --- /dev/null
+> > +++ b/arch/arm64/boot/dts/google/lga.dtsi
+> > @@ -0,0 +1,423 @@
+> > +// SPDX-License-Identifier: GPL-2.0 OR BSD-3-Clause
+> > +/*
+> > + * Google Tensor G5 (laguna) SoC rev B0
+> > + *
+> > + * Copyright 2024-2025 Google LLC.
+> > + */
 > > +
-> > +	/* enable any config activated by configfs */
-> > +	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
-> > +	if (cfg_hash) {
-> > +		arg->rc = cscfg_csdev_enable_active_config(csdev,
-> > +							   cfg_hash,
-> > +							   preset);
-> > +		if (arg->rc)
-> > +			return;
-> >   	}
-> > -	arg->rc = etm4_enable_hw(arg->drvdata);
-> > +	drvdata->trcid = arg->path->trace_id;
-> > -	/* The tracer didn't start */
-> > +	/* Tracer will never be paused in sysfs mode */
-> > +	drvdata->paused = false;
+> > +/dts-v1/;
 > > +
-> > +	arg->rc = etm4_enable_hw(drvdata);
-> >   	if (arg->rc) {
-> > -		coresight_set_mode(csdev, CS_MODE_DISABLED);
-> > +		cscfg_csdev_disable_active_config(csdev);
-> >   		return;
-> >   	}
-> > +	drvdata->sticky_enable = true;
-> >   	csdev->path = arg->path;
+> > +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> > +#include <dt-bindings/interrupt-controller/irq.h>
 > > +
-> > +	return;
-> >   }
-> >   /*
-> > @@ -669,7 +689,7 @@ static int etm4_config_timestamp_event(struct etmv4_drvdata *drvdata,
-> >   {
-> >   	int ctridx;
-> >   	int rselector;
-> > -	struct etmv4_config *config = &drvdata->config;
-> > +	struct etmv4_config *config = &drvdata->active_config;
-> >   	/* No point in trying if we don't have at least one counter */
-> >   	if (!drvdata->nr_cntr)
-> > @@ -752,7 +772,7 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
-> >   {
-> >   	int ret = 0;
-> >   	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-> > -	struct etmv4_config *config = &drvdata->config;
-> > +	struct etmv4_config *config = &drvdata->active_config;
-> >   	struct perf_event_attr max_timestamp = {
-> >   		.ATTR_CFG_FLD_timestamp_CFG = U64_MAX,
-> >   	};
-> > @@ -919,46 +939,36 @@ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_pa
-> >   {
-> >   	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-> >   	struct etm4_enable_arg arg = { };
-> > -	unsigned long cfg_hash;
-> > -	int ret, preset;
-> > +	int ret;
-> > -	/* enable any config activated by configfs */
-> > -	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
-> > -	if (cfg_hash) {
-> > -		ret = cscfg_csdev_enable_active_config(csdev, cfg_hash, preset);
-> > -		if (ret) {
-> > -			etm4_release_trace_id(drvdata);
-> > -			return ret;
-> > -		}
-> > +	if (!coresight_take_mode(csdev, CS_MODE_SYSFS)) {
-> > +		/* Someone is already using the tracer */
-> > +		return -EBUSY;
-> >   	}
-> > -	raw_spin_lock(&drvdata->spinlock);
-> > -
-> > -	drvdata->trcid = path->trace_id;
-> > -
-> > -	/* Tracer will never be paused in sysfs mode */
-> > -	drvdata->paused = false;
-> > -
-> >   	/*
-> >   	 * Executing etm4_enable_hw on the cpu whose ETM is being enabled
-> >   	 * ensures that register writes occur when cpu is powered.
-> >   	 */
-> >   	arg.drvdata = drvdata;
-> >   	arg.path = path;
+> > +/ {
+> > +     #address-cells = <2>;
+> > +     #size-cells = <2>;
+> > +     interrupt-parent = <&gic>;
 > > +
-> > +	scoped_guard(raw_spinlock, &drvdata->spinlock) {
-> > +		arg.config = drvdata->config;
-> 
-> Given as mentioned above that once a mode is set then active_config is
-> protected, this should simply be drvdata->active_config = drvdata->config;
-> ??
-
-Right. Here is much better!
-
-> 
-> > +	}
+> > +     osc: clock-38400000 {
+> > +             compatible = "fixed-clock";
+> > +             #clock-cells = <0>;
+> > +     };
 > > +
-> >   	ret = smp_call_function_single(drvdata->cpu,
-> >   				       etm4_enable_sysfs_smp_call, &arg, 1);
-> >   	if (!ret)
-> >   		ret = arg.rc;
-> > -	if (!ret)
-> > -		drvdata->sticky_enable = true;
-> > -
-> > -	if (ret)
-> > +	if (!ret) {
-> > +		dev_dbg(&csdev->dev, "ETM tracing enabled\n");
-> > +	} else {
-> >   		etm4_release_trace_id(drvdata);
-> > +		/* The tracer didn't start */
-> > +		coresight_set_mode(csdev, CS_MODE_DISABLED);
-> > +	}
-> > -	raw_spin_unlock(&drvdata->spinlock);
-> > -
-> > -	if (!ret)
-> > -		dev_dbg(&csdev->dev, "ETM tracing enabled\n");
-> >   	return ret;
-> >   }
-> > @@ -1044,7 +1054,7 @@ static void etm4_disable_trace_unit(struct etmv4_drvdata *drvdata)
-> >   static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
-> >   {
-> >   	u32 control;
-> > -	struct etmv4_config *config = &drvdata->config;
-> > +	struct etmv4_config *config = &drvdata->active_config;
-> >   	struct coresight_device *csdev = drvdata->csdev;
-> >   	struct csdev_access *csa = &csdev->access;
-> >   	int i;
-> > @@ -1086,8 +1096,9 @@ static void etm4_disable_sysfs_smp_call(void *info)
-> >   	etm4_disable_hw(drvdata);
-> > +	cscfg_csdev_disable_active_config(drvdata->csdev);
+> > +     cpus: cpus {
+> > +             #address-cells = <1>;
+> > +             #size-cells = <0>;
 > > +
-> >   	drvdata->csdev->path = NULL;
-> > -	coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
-> >   }
-> >   static int etm4_disable_perf(struct coresight_device *csdev,
-> > @@ -1130,8 +1141,9 @@ static int etm4_disable_perf(struct coresight_device *csdev,
-> >   static void etm4_disable_sysfs(struct coresight_device *csdev)
-> >   {
-> >   	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-> > -
-> > -	raw_spin_lock(&drvdata->spinlock);
-> > +	struct etmv4_config *config = &drvdata->config;
-> > +	const struct etmv4_config *active_config = &drvdata->active_config;
-> > +	int i;
-> >   	/*
-> >   	 * Executing etm4_disable_hw on the cpu whose ETM is being disabled
-> > @@ -1140,9 +1152,17 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
-> >   	smp_call_function_single(drvdata->cpu, etm4_disable_sysfs_smp_call,
-> >   				 drvdata, 1);
-> > -	raw_spin_unlock(&drvdata->spinlock);
-> > +	/*
-> > +	 * Userspace may read ss_status and cntr_val through sysfs after
-> > +	 * the sysfs-session has been disabled.
-> > +	 */
-> > +	for (i = 0; i < drvdata->nr_ss_cmp; i++)
-> > +		config->ss_status[i] = active_config->ss_status[i];
-> > -	cscfg_csdev_disable_active_config(csdev);
-> > +	for (i = 0; i < drvdata->nr_cntr; i++)
-> > +		config->cntr_val[i] = active_config->cntr_val[i];
+> > +             hayes_0: cpu@0 {
+> > +                     compatible = "arm,cortex-a520";
+> > +                     reg = <0x000>;
 > > +
-> 
-> Readback of TRCSEQSTR needed here too.
+> > +                     #cooling-cells = <2>;
+> > +                     capacity-dmips-mhz = <258>;
+> > +                     device_type = "cpu";
+> > +                     enable-method = "psci";
+> > +                     power-domain-names = "psci";
+> > +                     power-domains = <&cpu_pd0>;
+> > +             };
+> > +
+> > +             hayes_1: cpu@100 {
+> > +                     compatible = "arm,cortex-a520";
+> > +                     reg = <0x100>;
+> > +
+> > +                     #cooling-cells = <2>;
+> > +                     capacity-dmips-mhz = <258>;
+> > +                     device_type = "cpu";
+> > +                     enable-method = "psci";
+> > +                     power-domain-names = "psci";
+> > +                     power-domains = <&cpu_pd1>;
+> > +             };
+> > +
+> > +             hunter_0: cpu@200 {
+> > +                     compatible = "arm,cortex-a725";
+> > +                     reg = <0x200>;
+> > +
+> > +                     #cooling-cells = <2>;
+> > +                     capacity-dmips-mhz = <891>;
+> > +                     device_type = "cpu";
+> > +                     enable-method = "psci";
+> > +                     power-domain-names = "psci";
+> > +                     power-domains = <&cpu_pd2>;
+> > +             };
+> > +
+> > +             hunter_1: cpu@300 {
+> > +                     compatible = "arm,cortex-a725";
+> > +                     reg = <0x300>;
+> > +
+> > +                     #cooling-cells = <2>;
+> > +                     capacity-dmips-mhz = <891>;
+> > +                     device_type = "cpu";
+> > +                     enable-method = "psci";
+> > +                     power-domain-names = "psci";
+> > +                     power-domains = <&cpu_pd3>;
+> > +             };
+> > +
+> > +             hunter_2: cpu@400 {
+> > +                     compatible = "arm,cortex-a725";
+> > +                     reg = <0x400>;
+> > +
+> > +                     #cooling-cells = <2>;
+> > +                     capacity-dmips-mhz = <891>;
+> > +                     device_type = "cpu";
+> > +                     enable-method = "psci";
+> > +                     power-domain-names = "psci";
+> > +                     power-domains = <&cpu_pd4>;
+> > +             };
+> > +
+> > +             hunter_3: cpu@500 {
+> > +                     compatible = "arm,cortex-a725";
+> > +                     reg = <0x500>;
+> > +
+> > +                     #cooling-cells = <2>;
+> > +                     capacity-dmips-mhz = <891>;
+> > +                     device_type = "cpu";
+> > +                     enable-method = "psci";
+> > +                     power-domain-names = "psci";
+> > +                     power-domains = <&cpu_pd5>;
+> > +             };
+> > +
+> > +             hunter_4: cpu@600 {
+> > +                     compatible = "arm,cortex-a725";
+> > +                     reg = <0x600>;
+> > +
+> > +                     #cooling-cells = <2>;
+> > +                     capacity-dmips-mhz = <891>;
+> > +                     device_type = "cpu";
+> > +                     enable-method = "psci";
+> > +                     power-domain-names = "psci";
+> > +                     power-domains = <&cpu_pd6>;
+> > +             };
+> > +
+> > +             hunterelp_0: cpu@700 {
+> > +                     compatible = "arm,cortex-x4";
+> > +                     reg = <0x700>;
+> > +
+> > +                     #cooling-cells = <2>;
+> > +                     capacity-dmips-mhz = <1024>;
+> > +                     device_type = "cpu";
+> > +                     enable-method = "psci";
+> > +                     power-domain-names = "psci";
+> > +                     power-domains = <&cpu_pd7>;
+> > +             };
+> > +
+> > +             cpu-map {
+> > +                     cluster0 {
+> > +                             core0 {
+> > +                                     cpu = <&hayes_0>;
+> > +                             };
+> > +                             core1 {
+> > +                                     cpu = <&hayes_1>;
+> > +                             };
+> > +                             core2 {
+> > +                                     cpu = <&hunter_0>;
+> > +                             };
+> > +                             core3 {
+> > +                                     cpu = <&hunter_1>;
+> > +                             };
+> > +                             core4 {
+> > +                                     cpu = <&hunter_2>;
+> > +                             };
+> > +                             core5 {
+> > +                                     cpu = <&hunter_3>;
+> > +                             };
+> > +                             core6 {
+> > +                                     cpu = <&hunter_4>;
+> > +                             };
+> > +                             core7 {
+> > +                                     cpu = <&hunterelp_0>;
+> > +                             };
+> > +                     };
+> > +             };
+> > +
+> > +             idle-states {
+> > +                     entry-method = "psci";
+> > +
+> > +                     cpu_lit_c2: cpu-lit-c2 {
+> > +                             compatible = "arm,idle-state";
+> > +
+> > +                             entry-latency-us = <132>;
+> > +                             exit-latency-us = <296>;
+> > +                             min-residency-us = <3610>;
+> > +
+> > +                             idle-state-name = "cpu-lit-c2";
+> > +                             local-timer-stop;
+> > +
+> > +                             arm,psci-suspend-param = <0x40000003>;
+> > +                     };
+> > +
+> > +                     cpu_mid1_c2: cpu-mid1-c2 {
+> > +                             compatible = "arm,idle-state";
+> > +
+> > +                             entry-latency-us = <130>;
+> > +                             exit-latency-us = <274>;
+> > +                             min-residency-us = <2720>;
+> > +
+> > +                             idle-state-name = "cpu-mid1-c2";
+> > +                             local-timer-stop;
+> > +
+> > +                             arm,psci-suspend-param = <0x40000003>;
+> > +                     };
+> > +
+> > +                     cpu_mid2_c2: cpu-mid2-c2 {
+> > +                             compatible = "arm,idle-state";
+> > +
+> > +                             entry-latency-us = <130>;
+> > +                             exit-latency-us = <274>;
+> > +                             min-residency-us = <2720>;
+> > +
+> > +                             idle-state-name = "cpu-mid2-c2";
+> > +                             local-timer-stop;
+> > +
+> > +                             arm,psci-suspend-param = <0x40000003>;
+> > +                     };
+> > +
+> > +                     cpu_big_c2: cpu-big-c2 {
+> > +                             compatible = "arm,idle-state";
+> > +
+> > +                             entry-latency-us = <110>;
+> > +                             exit-latency-us = <413>;
+> > +                             min-residency-us = <3950>;
+> > +
+> > +                             idle-state-name = "cpu-big-c2";
+> > +                             local-timer-stop;
+> > +
+> > +                             arm,psci-suspend-param = <0x40000003>;
+> > +                     };
+> > +             };
+> > +
+> > +             domain-idle-states {
+> > +                     cluster_1_c3: cluster-1-c3 {
+> > +                             compatible = "domain-idle-state";
+> > +
+> > +                             entry-latency-us = <325>;
+> > +                             exit-latency-us = <553>;
+> > +                             min-residency-us = <10000>;
+> > +
+> > +                             idle-state-name = "cluster-1-c3";
+> > +
+> > +                             arm,psci-suspend-param = <0x40010033>;
+> > +                     };
+> > +
+> > +                     cluster_2_c3: cluster-2-c3 {
+> > +                             compatible = "domain-idle-state";
+> > +
+> > +                             entry-latency-us = <345>;
+> > +                             exit-latency-us = <673>;
+> > +                             min-residency-us = <10000>;
+> > +
+> > +                             idle-state-name = "cluster-2-c3";
+> > +
+> > +                             arm,psci-suspend-param = <0x40010033>;
+> > +                     };
+> > +
+> > +                     cluster_c4_deep: cluster-c4-deep {
+> > +                             compatible = "domain-idle-state";
+> > +
+> > +                             entry-latency-us = <510>;
+> > +                             exit-latency-us = <1027>;
+> > +                             min-residency-us = <10000>;
+> > +
+> > +                             idle-state-name = "cluster-c4-deep";
+> > +
+> > +                             arm,psci-suspend-param = <0x40020333>;
+> > +                     };
+> > +             };
+> > +     };
+> > +
+> > +     memory: memory@80000000 {
+> > +             device_type = "memory";
+> > +             /* We expect the bootloader to fill in the size */
+> > +             reg = <0x0 0x80000000 0x0 0x0>;
+> > +     };
+>
+> The memory node should go to the DTS (or common DTSI). It's not part of
+> SoC usually.
+>
+> Also, add short comment why do you need label. It will cause
+> dt-style-check warning.
+>
+>
+> > +
+> > +     psci {
+> > +             compatible = "arm,psci-1.0";
+> > +             method = "smc";
+> > +
+> > +             cpu_pd0: power-domain-cpu0 {
+> > +                     #power-domain-cells = <0>;
+> > +                     domain-idle-states = <&cpu_lit_c2>;
+> > +                     power-domains = <&cpu_top_cl>;
+> > +             };
+> > +
+> > +             cpu_pd1: power-domain-cpu1 {
+> > +                     #power-domain-cells = <0>;
+> > +                     domain-idle-states =  <&cpu_lit_c2>;
+> > +                     power-domains = <&cpu_top_cl>;
+> > +             };
+> > +
+> > +             cpu_pd2: power-domain-cpu2 {
+> > +                     #power-domain-cells = <0>;
+> > +                     domain-idle-states =  <&cpu_mid1_c2>;
+> > +                     power-domains = <&cpucl1>;
+> > +             };
+> > +
+> > +             cpu_pd3: power-domain-cpu3 {
+> > +                     #power-domain-cells = <0>;
+> > +                     domain-idle-states =  <&cpu_mid1_c2>;
+> > +                     power-domains = <&cpucl1>;
+> > +             };
+> > +
+> > +             cpu_pd4: power-domain-cpu4 {
+> > +                     #power-domain-cells = <0>;
+> > +                     domain-idle-states =  <&cpu_mid1_c2>;
+> > +                     power-domains = <&cpucl1>;
+> > +             };
+> > +
+> > +             cpu_pd5: power-domain-cpu5 {
+> > +                     #power-domain-cells = <0>;
+> > +                     domain-idle-states =  <&cpu_mid2_c2>;
+> > +                     power-domains = <&cpucl2>;
+> > +             };
+> > +
+> > +             cpu_pd6: power-domain-cpu6 {
+> > +                     #power-domain-cells = <0>;
+> > +                     domain-idle-states =  <&cpu_mid2_c2>;
+> > +                     power-domains = <&cpucl2>;
+> > +             };
+> > +
+> > +             cpu_pd7: power-domain-cpu7 {
+> > +                     #power-domain-cells = <0>;
+> > +                     domain-idle-states =  <&cpu_big_c2>;
+> > +                     power-domains = <&cpucl2>;
+> > +             };
+> > +
+> > +             cpucl1: power-domain-cluster-1 {
+> > +                     #power-domain-cells = <0>;
+> > +                     domain-idle-states = <&cluster_1_c3>;
+> > +                     power-domains = <&cpu_top_cl>;
+> > +             };
+> > +
+> > +             cpucl2: power-domain-cluster-2 {
+> > +                     #power-domain-cells = <0>;
+> > +                     domain-idle-states = <&cluster_2_c3>;
+> > +                     power-domains = <&cpu_top_cl>;
+> > +             };
+> > +
+> > +             cpu_top_cl: power-domain-top-cluster {
+> > +                     #power-domain-cells = <0>;
+> > +                     domain-idle-states = <&cluster_c4_deep>;
+> > +             };
+> > +     };
+> > +
+> > +     reserved_memory: reserved-memory {
+> > +             #address-cells = <2>;
+> > +             #size-cells = <2>;
+> > +             ranges;
+> > +
+> > +             /*
+> > +              * Store ramoops at a known location in DRAM, for access by the ABL
+> > +              * following a crash-reset.
+> > +              */
+> > +             ramoops@95200000 {
+> > +                     compatible = "ramoops";
+> > +                     reg = <0x0 0x95200000 0x0 0x400000>;
+> > +                     console-size = <0x200000>;
+> > +                     pmsg-size = <0x200000>;
+> > +             };
+> > +
+> > +             /* bootloader logs */
+> > +             bldr_log_reserved: bldr-log-reserved@95600000 {
+> > +                     reg = <0x0 0x95600000 0x0 0x100000>;
+> > +                     no-map;
+> > +             };
+> > +
+> > +             /* gsa logs */
+> > +             gsa_reserved_log: gsa-reserved-log@a61b0000 {
+> > +                     reg = <0x0 0xa61b0000 0x0 0x00004000>;
+> > +                     no-map;
+> > +             };
+> > +
+> > +             /* Android BootLoader (ABL) for ramdump/coredump processing */
+> > +             abl@be000000 {
+> > +                     reg = <0x0 0xbe000000 0x0 0x1000000>;
+> > +                     no-map;
+> > +             };
+> > +     };
+> > +
+> > +     soc: soc@0 {
+> > +             compatible = "simple-bus";
+> > +             ranges = <0 0 0 0 0x10 0>;
+> > +
+> > +             dma-ranges = <0 0 0 0 0x10 0>;
+> > +
+> > +             #address-cells = <2>;
+> > +             #size-cells = <2>;
+> > +
+> > +             gic: interrupt-controller@5880000 {
+> > +                     compatible = "arm,gic-v3";
+> > +                     reg = <0 0x05880000 0 0x10000>,
+> > +                           <0 0x05900000 0 0x200000>;
+>
+> In some other places you use hex everywhere, also for '0' (so '0x0').
+> Switch to consistent 0x0 everywhere for new code.
+>
+> > +                     ranges;
+>
+> Why ranges? There is no MSI child node with unit address.
+>
+> > +
+> > +                     #address-cells = <2>;
+> > +                     #size-cells = <2>;
+> > +
+> > +                     #interrupt-cells = <4>;
+> > +                     interrupt-controller;
+> > +                     interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH 0>;
+> > +
+> > +                     ppi-partitions {
+> > +                             ppi_cluster0: interrupt-partition-0 {
+> > +                                     affinity = <&hayes_0 &hayes_1
+> > +                                                 &hunter_0 &hunter_1 &hunter_2
+> > +                                                 &hunter_3 &hunter_4>;
+> > +                             };
+> > +
+> > +                             ppi_cluster1: interrupt-partition-1 {
+> > +                                     affinity = <&hunterelp_0>;
+> > +                             };
+> > +                     };
+> > +             };
+> > +
+> > +             lsion_cli16_uart: serial@db62000 {
+> > +                     compatible = "google,lga-uart", "snps,dw-apb-uart";
+> > +                     reg = <0 0x0db62000 0 0x100>;
+> > +
+> > +                     clock-frequency = <200000000>;
+> > +                     interrupts = <GIC_SPI 688 IRQ_TYPE_LEVEL_HIGH 0>;
+> > +                     reg-io-width = <4>;
+> > +                     reg-shift = <2>;
+> > +
+> > +                     status = "disabled";
+> > +             };
+> > +     };
+> > +
+> > +     timer {
+> > +             compatible = "arm,armv8-timer";
+> > +             interrupts =
+> > +                     <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW) 0>,
+>
+> Join line:
+>
+> interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW) 0>,
+>
+> even if it goes beyond 80 char limit. That's fine, exceptions are
+> allowed and one line makes 'greps' or 'seds' easier.
+>
+> > +                     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW) 0>,
+> > +                     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW) 0>,
+> > +                     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW) 0>;
+> > +     };
+> > +
+> > +     /*
+> > +      * The Pixel bootloader considers it a fatal error if it doesn't find
+> > +      * a `ufs0` alias so it can add calibration data to the node. Until
+>
+> Fake node is ok, but alias won't fly because aliases are not allowed for
+> ufs. Well, would work 10 years ago, but this is a device from ~2025 (so
+> SoC maybe a bit earlier), thus Google already knew that they MUST talk
+> with upstream open source maintainers before they ship such ABI.
+>
+> They did not talk, so you reap what you sow.
+>
+> There is no more excuse for a vendor to ignore open source and push
+> whatever-ABI-they-wish into their product, if they ever want to upstream
+> that product.
+>
+> I know it is not your fault, obviously. And I know that not much you can
+> do, so that is not rant towards you nor towards Doug.
+>
+> You will have to keep this part of patch out of tree or fix the Pixel
+> bootloader.
 
-Right. I've noticted after I post this patch. I'll fix in the next
-version. Thanks!
+I've dropped the ufs0 alias in v3 and added some glue to our build
+system so things still boot while we await a new bootloader that
+doesn't treat this as a fatal error.
 
-> 
-> > +	coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
-> >   	/*
-> >   	 * we only release trace IDs when resetting sysfs.
-> > @@ -1690,7 +1710,7 @@ static void etm4_set_default(struct etmv4_config *config)
-> >   static int etm4_get_next_comparator(struct etmv4_drvdata *drvdata, u32 type)
-> >   {
-> >   	int nr_comparator, index = 0;
-> > -	struct etmv4_config *config = &drvdata->config;
-> > +	struct etmv4_config *config = &drvdata->active_config;
-> >   	/*
-> >   	 * nr_addr_cmp holds the number of comparator _pair_, so time 2
-> > @@ -1731,7 +1751,7 @@ static int etm4_set_event_filters(struct etmv4_drvdata *drvdata,
-> >   {
-> >   	int i, comparator, ret = 0;
-> >   	u64 address;
-> > -	struct etmv4_config *config = &drvdata->config;
-> > +	struct etmv4_config *config = &drvdata->active_config;
-> >   	struct etm_filters *filters = event->hw.addr_filters;
-> >   	if (!filters)
-> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> > index 8d73248b840a6..f64c0acebc701 100644
-> > --- a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> > @@ -1613,7 +1613,7 @@ static ssize_t cntr_val_store(struct device *dev,
-> >   		return -EINVAL;
-> >   	if (val > ETM_CNTR_MAX_VAL)
-> >   		return -EINVAL;
-> > -	if (coresight_get_mode(drvdata->csdev))
-> > +	if (coresight_get_mode(drvdata->csdev) == CS_MODE_SYSFS)
-> >   		return -EBUSY;
-> >   	raw_spin_lock(&drvdata->spinlock);
-> > @@ -1799,7 +1799,7 @@ static ssize_t sshot_ctrl_store(struct device *dev,
-> >   	if (kstrtoul(buf, 16, &val))
-> >   		return -EINVAL;
-> > -	if (coresight_get_mode(drvdata->csdev))
-> > +	if (coresight_get_mode(drvdata->csdev) == CS_MODE_SYSFS)
-> >   		return -EBUSY;
-> >   	raw_spin_lock(&drvdata->spinlock);
-> > @@ -1851,7 +1851,7 @@ static ssize_t sshot_pe_ctrl_store(struct device *dev,
-> >   	if (kstrtoul(buf, 16, &val))
-> >   		return -EINVAL;
-> > -	if (coresight_get_mode(drvdata->csdev))
-> > +	if (coresight_get_mode(drvdata->csdev) == CS_MODE_SYSFS)
-> >   		return -EBUSY;
-> >   	raw_spin_lock(&drvdata->spinlock);
-> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
-> > index df9e0748d71ec..c33700711154d 100644
-> > --- a/drivers/hwtracing/coresight/coresight-etm4x.h
-> > +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
-> > @@ -1019,7 +1019,8 @@ struct etmv4_save_state {
-> >    *		allows tracing at all ELs. We don't want to compute this
-> >    *		at runtime, due to the additional setting of TRFCR_CX when
-> >    *		in EL2. Otherwise, 0.
-> > - * @config:	structure holding configuration parameters.
-> > + * @active_config:	structure holding current applied configuration.
-> > + * @config:	structure holding sysfs mode configuration.
-> >    * @save_state:	State to be preserved across power loss
-> >    * @skip_power_up: Indicates if an implementation can skip powering up
-> >    *		   the trace unit.
-> > @@ -1077,6 +1078,7 @@ struct etmv4_drvdata {
-> >   	bool				skip_power_up : 1;
-> >   	bool				paused : 1;
-> >   	u64				trfcr;
-> > +	struct etmv4_config		active_config;
-> >   	struct etmv4_config		config;
-> >   	struct etmv4_save_state		*save_state;
-> >   	DECLARE_BITMAP(arch_features, ETM4_IMPDEF_FEATURE_MAX);
-> > 
-> 
-> Regards
-> 
-> Mike
+Thanks,
 
-Thanks!
-
--- 
-Sincerely,
-Yeoreum Yun
+Peter.
 
