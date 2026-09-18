@@ -4,58 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA638C982DC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 11:31:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56D07C982DC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 11:32:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xku0mQ7DlQYT23dIZk7jLMoqOmM1hgklzsAYADSbmPA=; b=uHTg0T8+el3T8RGCJjYVdbvRxP
-	QQu9kSFc3biwWp/MDzhZ1Kj6NrRkAE9NmnbwndeI9mkgaF5Hk4hkbTjpfGlijLCGrnssUrN6kSv+T
-	3fUDkjLXHGrjjbfbd6AuFfaW2NtWLeYdPwDOH5XhqJz8Q6mcb3bGy6GGPQUAR1tDL5vDhJcE75t48
-	YEqmFS6/6chMhaKQ06XWjupmZZBIQcmiKs53mLAgiKGYS/sIiZ4hwftQTvB68Cnomv1shw8ZetjP3
-	VTrf9YXN852C0WlWmXIIw36Z8RB6sKR6T6LF7xFyYtdhEYxtw9ByTxDWBjZoHY4bi64uawqhNQ4/1
-	vciIyKPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T8G3xttoyfgp5TiWrui8/SqI0fYFvNsUiYAZwNu6dqU=; b=zM16Z7pvZ5ggr3sg6ux0IbJ/jl
+	zgKPomYEYtcKeqO22YsD9g9FV34V7Vpur8y/gn69fHEPMcYx+Gi+Z6bUmfriTFxy1pyzqPoM3xR17
+	9WoCJjbDQkLs+7oqO7aTuAYJYRySZAMpUMURO3qcp0y+aPHqedk7oCoOKgIXV/fQtpKUhuFhRRzpL
+	J+DgkFkKb03Q9Pjb6Vxzs0msrwd6VzWnx7THgi1dJKtcHDzi3ddW2u8x8ckUR9wg1/yjq1mg09F+y
+	AuDm10s0iJK7OE1Is1HtG/EKaYY+n0VFW1CYtGBUo0krwNKX12Fx3pGMoNgU5wiKvLAcxpzR2IWCU
+	UV4xLRnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Wo5-0000000EE74-3K5h;
-	Fri, 18 Sep 2026 11:31:05 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x7Wp4-0000000EEJK-1Cr3;
+	Fri, 18 Sep 2026 11:32:06 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Wo4-0000000EE6v-3lrZ
+	id 1x7Wp3-0000000EEJ2-15Y9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 11:31:04 +0000
+	Fri, 18 Sep 2026 11:32:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A71A540257;
-	Fri, 18 Sep 2026 11:31:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BCB71F00893;
-	Fri, 18 Sep 2026 11:31:03 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A90C1439C5;
+	Fri, 18 Sep 2026 11:32:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84E9A1F00893;
+	Fri, 18 Sep 2026 11:32:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789731064;
-	bh=xku0mQ7DlQYT23dIZk7jLMoqOmM1hgklzsAYADSbmPA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=A6+N6bW2eJ7X4uwztiq31Ufy1pmskigYpnd6qsud3xUqe5gCkkHLsAKZ/duoShy+9
-	 +lhzplWdQKyV5N3f/FaXzTRtHKFDZVaDYyMpuQo3nIb8flk7693fRrBetLN+IQFy4i
-	 kpDnqL+9bVxNWIBVnOztrL0aY+sAyzMM+BjDTFZ0XMcuKgr+CWPGsJQQBDIFcS1Eom
-	 NMyuYaMKjBBf6EsCM/TrTL9wBeKPvH4MLPZkI2vM/YHXSGH0D/s0igK6IN+ZHYrMs7
-	 LG++/dv5USnAKDQxbiCu+g5TlBsGkxVpiwss1ev6VqDrRqjIrqP7fWpHx6Ui7xp287
-	 dXLwbpjP5MtZQ==
-Date: Fri, 18 Sep 2026 13:31:00 +0200
+	s=k20260515; t=1789731124;
+	bh=T8G3xttoyfgp5TiWrui8/SqI0fYFvNsUiYAZwNu6dqU=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To;
+	b=VAcUZwdGP+qXxOowZa87OWn1w7XLGZ9G9C1f1mvSWmnAO8jYpb7RF6FgzPKK0LqbK
+	 F5Z+eWOr+OKg2D9//nETCN8Frg9HoSo4uGIQLUWTj+EbyV+MxAtnILmBHtb2aQ2m2w
+	 cHNcTMIx0vbfLkf2mewtGwsV3detkDgRrtf4NO1oe13kBi1gPqzfRaZuaKmEaffg/K
+	 K4iHqrpWN6IyXTDzJMU2cT/r/tHIRbbOzqlBfr577e9PLCm4zpbK2ORUtMV8W07hrY
+	 TOR6U+MnwO1+7JOmIZhy3tcR/yPeB6to3kumVUiBruOK5O42zft9Nnq67g9ttLxj1X
+	 DovrIsFdbm5Hg==
+Message-ID: <2b3536a5-786d-44cd-9f47-e008a14e9a96@kernel.org>
+Date: Fri, 18 Sep 2026 13:31:58 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/4] dt-bindings: vendor-prefixes: Add Tibbo
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Andrew Gaylard <ag@ffroot.co.za>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	qinjian@cqplus1.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	linux@armlinux.org.uk
-Subject: Re: [PATCH 3/4] arm: dts: sunplus: add Tibbo LTPP3G2 board
-Message-ID: <20260918-silent-zircon-cuttlefish-bafcbc@quoll>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ qinjian@cqplus1.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, linux@armlinux.org.uk
 References: <20260917082632.626614-1-ag@ffroot.co.za>
- <20260917082632.626614-4-ag@ffroot.co.za>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260917082632.626614-4-ag@ffroot.co.za>
+ <20260917082632.626614-2-ag@ffroot.co.za>
+ <20260918-noble-black-numbat-e5ecbf@quoll>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20260918-noble-black-numbat-e5ecbf@quoll>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,103 +116,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 10:26:31AM +0200, Andrew Gaylard wrote:
-> Add a DTS for the Tibbo LTPP3G2 board, which uses the Sunplus SP7021
-> SoC. The initial DTS was provided by Sunplus Technology Co. and has
-> been adapted for upstream with permission.
+On 18/09/2026 13:29, Krzysztof Kozlowski wrote:
+> On Thu, Sep 17, 2026 at 10:26:29AM +0200, Andrew Gaylard wrote:
+>> Add the vendor prefix for Tibbo Technology Inc., manufacturer of the LTPP3G2 board.
+>>
+>> Signed-off-by: Andrew Gaylard <ag@ffroot.co.za>
 > 
-> The board features eMMC, SPI, a bit-banged I2C EEPROM (Atmel 24C16),
-> PWM output to a buzzer, a watchdog, RTC, and two GPIO LEDs (heartbeat
-> and MMC activity).
-> 
-> Signed-off-by: Andrew Gaylard <ag@ffroot.co.za>
-> ---
->  MAINTAINERS                                   |   6 +
->  arch/arm/boot/dts/sunplus/Makefile            |   5 +-
->  .../dts/sunplus/sunplus-sp7021-ltpp3g2.dts    | 182 ++++++++++++++++++
->  3 files changed, 190 insertions(+), 3 deletions(-)
->  create mode 100644 arch/arm/boot/dts/sunplus/sunplus-sp7021-ltpp3g2.dts
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index a53620839407..f54a833484a0 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -3737,6 +3737,12 @@ F:	drivers/reset/reset-sunplus.c
->  F:	include/dt-bindings/clock/sunplus,sp7021-clkc.h
->  F:	include/dt-bindings/reset/sunplus,sp7021-reset.h
->  
-> +ARM/TIBBO LTPP3G2 BOARD
-> +M:	Andrew Gaylard <ag@ffroot.co.za>
-> +L:	linux-arm-kernel@lists.infradead.org
-> +S:	Maintained
-> +F:	arch/arm/boot/dts/sunplus/sunplus-sp7021-ltpp3g2.dts
-> +
->  ARM/Synaptics SoC support
->  M:	Jisheng Zhang <jszhang@kernel.org>
->  M:	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>
-> diff --git a/arch/arm/boot/dts/sunplus/Makefile b/arch/arm/boot/dts/sunplus/Makefile
-> index 868f2ea0c127..25ba2e530c35 100644
-> --- a/arch/arm/boot/dts/sunplus/Makefile
-> +++ b/arch/arm/boot/dts/sunplus/Makefile
-> @@ -1,5 +1,4 @@
->  # SPDX-License-Identifier: GPL-2.0
->  dtb-$(CONFIG_SOC_SP7021) += \
-> -	sunplus-sp7021-demo-v3.dtb
-> -dtb-$(CONFIG_SOC_SP7021) += \
-> -	sunplus-sp7021-demo-v3.dtb
-> +	sunplus-sp7021-demo-v3.dtb \
-> +	sunplus-sp7021-ltpp3g2.dtb
-> diff --git a/arch/arm/boot/dts/sunplus/sunplus-sp7021-ltpp3g2.dts b/arch/arm/boot/dts/sunplus/sunplus-sp7021-ltpp3g2.dts
-> new file mode 100644
-> index 000000000000..f91b0de79c3d
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/sunplus/sunplus-sp7021-ltpp3g2.dts
-> @@ -0,0 +1,182 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Device Tree Source for Tibbo LTPP board G2
-> + *
-> + * Copyright (C) 2021 Sunplus Technology Co.
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include "sunplus-sp7021-achip.dtsi"
-> +
-> +/ {
-> +	compatible = "tibbo,ltpp3g2", "sunplus,sp7021";
-> +	model = "Tibbo LTPP3G2";
-> +
-> +	aliases {
-> +		serial0 = &uart0;
-> +	};
-> +
-> +	chosen {
-> +		bootargs = "console=ttySUP0,115200 earlycon root=/dev/mmcblk0p8 rootwait";
+> Wrong order.
 
-None of above should be here. earlycon is for debugging. Console is
-below. root - why booting is fixed to mmc? Why none of other boot
-methods are suitable or allowed?
+Also:
 
-> +		stdout-path = "serial0:115200n8";
-> +	};
-
-...
-
-> +	pins_btuart: pinmux_btuart-pins {
-> +		sunplus,pins = <
-> +			SPPCTL_IOPAD(40, SPPCTL_PCTL_G_PMUX, MUXF_UA4_RX, 0)
-> +			SPPCTL_IOPAD(41, SPPCTL_PCTL_G_PMUX, MUXF_UA4_TX, 0)
-> +			SPPCTL_IOPAD(56, SPPCTL_PCTL_G_PMUX, MUXF_UA4_RTS, SPPCTL_PCTL_L_ONV)
-> +			SPPCTL_IOPAD(49, SPPCTL_PCTL_G_PMUX, MUXF_UA4_CTS, 0)
-> +		>;
-> +	};
-> +
-> +	pins_bt_reset: pinmux_bt_reset-pins {
-
-Please follow DTS coding style for naming.
+Please run scripts/checkpatch.pl on the patches and fix reported
+warnings. After that, run also 'scripts/checkpatch.pl --strict' on the
+patches and (probably) fix more warnings. Some warnings can be ignored,
+especially from --strict run, but the code here looks like it needs a
+fix. Feel free to get in touch if the warning is not clear.
 
 Best regards,
 Krzysztof
-
 
