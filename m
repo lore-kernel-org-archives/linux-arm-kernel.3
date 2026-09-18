@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 913B1C982E1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB126C982DF
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 13:41:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,65 +12,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6IqpjYfx/a4AJRpAQpXk9jWJIkdnAOStvdzRpJSsoaA=; b=Ev4cEXn957vn+KOcR8arOeG2/3
-	YYXGCCH0n9YiVs+LL5/O8oL+tNJloL5B7Sm3T/zlk59wnYbYzFxa9L97yH9uqcDv69YyWBP1jblOd
-	wxx8H/MkE2FhlPw+yWDkNi7aPg3ii9xlUIXyIXko//8EO14nLth1HPrXlkKPHAporrvExcfK+/YJ+
-	L8ncBBAJYXmUMQvdtGCCc3rHOJucGI8VNEc0ELPlK+kDT5biG+lyHbTiKXGKS2AYkoCfMIruwsc6L
-	OItehmusOb4MDSNCcu/qJBn/3J594l/c315t4FatPxwLHPtrySyj1L26w/tFM84Rmlrjda561sSeE
-	lh/sBBWw==;
+	bh=84KmttxwxJZo38Fsi4kV8h//UiHGZgZirQkHOuGC9Ho=; b=2y7NnpvqJieXqzKdWgZOUB4rBX
+	Y04cpm3zwlnbT8QZ7JIEFzv3SSch5RbswPGTp/cwBEwKWII9irdg2GJj2k6q6IyFW/d7LMmKHrY6r
+	Y3dTIQB/81mBMdTJm3eBW+jdBe3zz1xuKQCdwcyU+8H4nKzWhsDYpkZr54E3rpNn6Ei6x4pcdu4kO
+	CDSg114lyZQFgt1q3BVFNq6LrFEyCT35TG0qo1tL+Ixd2oWEUFi3a5Dum8X7ZuKKwnIq0oz2Acpx4
+	XlqvaQsl1OPD+S8+j1i4WZ3bETsojlV35nVHdQdvGwf5c11Wj/AM5jj0frCN5OjuZxLli0TtI56+c
+	iKLDRLuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Ypj-0000000EbND-1zIj;
-	Fri, 18 Sep 2026 13:40:55 +0000
+	id 1x7Ypp-0000000EbTf-1eO8;
+	Fri, 18 Sep 2026 13:41:01 +0000
 Received: from mail-pj2-x11.google.com ([2607:f8b0:4864:39::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7YpL-0000000EayE-0PjU
+	id 1x7Ype-0000000EbIq-29dg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 13:40:32 +0000
-Received: by mail-pj2-x11.google.com with SMTP id 98e67ed59e1d1-396ccd78e6eso245426a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 06:40:30 -0700 (PDT)
+	Fri, 18 Sep 2026 13:40:52 +0000
+Received: by mail-pj2-x11.google.com with SMTP id 98e67ed59e1d1-398a1676000so653656a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 06:40:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789738830; x=1790343630; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1789738850; x=1790343650; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=6IqpjYfx/a4AJRpAQpXk9jWJIkdnAOStvdzRpJSsoaA=;
-        b=H7r+VZMFfKrc0nGMZozPxAzU9lLo4n/Ld4W7WzcK34FIVc9lDQIi1I5WyA3836kNKm
-         WeJcs3E4ff6p9/TNwCwr2oeZRVLbngefduantReq1TiDpZ7269GQF/kNqRDrWGI1XmTH
-         pNkIRo1RTrgLW7o6yd0myxnTD/SsYoHa4+LhLdT7rwh8+Ackq9V7Etyw0J0ay/I7FhPI
-         BjjGLZdxVRpCZDgnkFN0MDhmRP/uRh47XpNDKtdB+Xuw8hM10gz4yOWm+vWRWMGe7dqo
-         JC2By8cDnByJWOPcTKAGFEtfAcXkfKEqrWjHKad2G5GPJcXcjkuyiJg9q+DbJW3xbX9j
-         PQtw==
+        bh=84KmttxwxJZo38Fsi4kV8h//UiHGZgZirQkHOuGC9Ho=;
+        b=jKKcJcKRN/lRBB39qfr4enYgp7JoGRmZaMh8CbqI6N/Pb4gpVWSDs8XQgnV7thSicC
+         Axv/3r6c7ajcTmu2EDLxpdDuy1nq5TtfyrLX3J4MzhKnUU10Jay19ovISz+oxo/6w/uC
+         KGieqdOkgNmQW0nVHI539x1GGdoAK4Tk+Qa1zrB+nNmUQq7pbhCQafRUaKiQF5v85pzH
+         gQAjKCRQd77e7aUqht94SqGiBT4YBlFy4GnccWZS9xECXiBFSWX/ZJBx4HLSO+F0brYQ
+         aDG8UjLyoiRN6CjbfcSDbovc6HG7NvvqD+/ov/emjvCZBid8tRTs7WtrppHyXByAyp1c
+         eHYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789738830; x=1790343630;
+        d=1e100.net; s=20260707; t=1789738850; x=1790343650;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6IqpjYfx/a4AJRpAQpXk9jWJIkdnAOStvdzRpJSsoaA=;
-        b=q3Ft4VkWXVbvjb/L4ODhdRkcJVKVFtaTW5YfaE+5BSJ5Qle7aVPHV3W/7zMcDZHAmm
-         i7pko8c+WyxFWAA9De314XW8eV/++zOlv0tke4JPDVnSsHdK70YfHX6HmWO/YAF7Toeb
-         LTV0KLO6QWk3EYc1i+XP7iepalMLvmO8Fd1Gt1bcfrt58RcZd23C4M0txTioSWdmfhJ9
-         5YTWQqEV87VBlVItEREw2I4stFHCk3pkYEXWTjgd3FzjWWAF54WLcEArIWPViIw03H+j
-         2XNcTDU9VvgJS9+mNgt9b0R2jRauyetEn0WFouFKK9raDfgULc2l8u8AmJoJLKkhhNWB
-         WsxA==
-X-Forwarded-Encrypted: i=1; AKwUvBxG2Li0UEb4U0VrG2I/5HEIEe7h3UybK3Ejqr8txTQ6wdAGs9F16xfOicU5U5o49BWfvHyaU2UTesRNvOceaqIz@lists.infradead.org
-X-Gm-Message-State: AFuF++lvRz1Y4FVYK8W9gY2jeT9yBVUg8OFhDrjKclkAsrhsW2hH03Zc
-	8hcO7phg8i7R5OZruw+Lb47hJIK4fZkxvgEVRpH8MIB1Lvj9nwko6nAl
-X-Gm-Gg: AYBFou1Nh82swCmKfw/lvpJsfueXXkZlEYrz9q0okmD+i96eZVQ2s53Na6TMrdliacf
-	5XQkU6c8X/S/FffRbUHcTrILLawadGJI63j5jxLObSLXudwYq1sbzfMqb+V5lFHEg2hx5c81hE6
-	kXrozE54fwpyr5/dZLYJPE0e6Dekox7exU39kSE94YymHkZNhe1W1DODHex1+wFTWunKlk2UCHS
-	rg4ptJqoZ3E97nyqDF7iNzISIynnwC3xRwus8mHktgOVFvuO488MV9Kx7zPzrP+mYcUQRqwKQMe
-	xoitF5VZwdP/Z6G8Iq0IurlQaItFCvtShW4W/RXQ/ktCHYJFNCGvR5J9JUTgI0ZCb01+F5x4sl8
-	d6PLDbl2ZH0iS/Zl1IdVbbcF1LZ+3HRuFaSWLCCTpKatTpH8UPKeNwyMn9Xh1SK9eDJ1lJS01RU
-	iJIvz0f9jveUm7skGrLBl9+GVaMVueH6v0hTRiC15CCANPHM/2p91joaJN3Sj5eYfCnOqtrT9JA
-	jpcx94LmN3alecwNLiLs9wENPiFZkBEu+md++4lIouUdfI8dFjCpxLF5gd64hYuII2VH8wTQt4l
-	YOKs5yehPqkO6A==
-X-Received: by 2002:a17:90b:3e47:b0:39e:4c7e:bc7 with SMTP id 98e67ed59e1d1-39e55738568mr3739571a91.21.1789738830398;
-        Fri, 18 Sep 2026 06:40:30 -0700 (PDT)
+        bh=84KmttxwxJZo38Fsi4kV8h//UiHGZgZirQkHOuGC9Ho=;
+        b=HLxRsj/HdkxfMZHg6/iby5W9Q0mu/rRp6pSsx7N2cglVMLuJsbME5XxX8IHcpBzW5B
+         5JzD/apwihpVMMp6kzlCARKC3V8ztrkt0xHrmhOEKRYhMW2kH6oOMfi50/kH4pW7yz9F
+         R3Aoa8b2JXE5X8YPI2Iq/YpfmA7AbyMMlMzCv9iOlfVu5GUSa1NmgG+X1CWcsLMMgrwl
+         Mp118lh3cKvMGGVZBcTDcDpuZcF2m6oBXM1Qvp5+uWrU0dK8EEOSIiinz+HmqQjK8SHi
+         PKY7kPRT/DMdTWOVzVejWFftXx5Z0rAeElIC25ehFXeShdmif7pxrUSO3FMIWmkwwWkQ
+         oLuw==
+X-Forwarded-Encrypted: i=1; AKwUvByikSBATSwiyewFFGmrP60vzDYS4U/2KxBPuSYTa6xNFKzyPyG6CFfOImih0NPPVwduEfQoBUNStKYNGIi3bpEh@lists.infradead.org
+X-Gm-Message-State: AFuF++l2tY5ACmuMB7cSOA3WH/EOyJD0gcOHng0fjy3KVBfW1WM5I4JG
+	QJ1vYXVOkdowaCbTwP2GyUsCLTR5B+w/pPLcqX4MQWDGhJuwfncBwp/y
+X-Gm-Gg: AYBFou2Tk/eNtyOAYXbg5pdOHRJcy7/tdA4CZnKwrDtlizbR+/nZMIiDwZdOnotWkca
+	I3h02B47d2iYOPHhR0Wa9xAfK/8PypW5xqGak3IYYTe4D64S0d4Q0H9EvfX5bqbzSwWfYemhbKw
+	UTeMYprPxUc8jjCkubx5Q46vWlZbnRzfeiB1gBOGSVkwEJQw/Wr0cD78dAWi0dJclPt/fk/cqvX
+	UHoYo3/bKEO4sL0/9PuwG5FJ/8DsOuQZBbLMcT9JcbnDKv29jnEJbWzu50dMxDmlNd7fuRh55fF
+	ockZCXhCKhrio6/g0QKV83Ywix7Jj8h2TA+KQcjA/fgO9bM12SkFi9Md/0bjoS0IKLce70toNyT
+	bkqoqvtsm4HRUvMjUyS1GBKGdcF9DBpuFK+Dhl6pzj7MdQ2cAwGaNVo1ZzZoPuaPvjiQJR8wi4q
+	3JAu1/Hv/8UunWSc7FssJgWqVM7EhP9nIFCBHN21I5UOL4oLA+9TlQ7gvOqLx/swR1vdl9ckf7J
+	96C2Rx6P/PVnZmhRNU9eMSZ85tNjexTVNI1L2XhX6D0v/APtekMCCou7BABB00sWY0JdD52b/c0
+	8y/0e5TYGoDQpMgHoc3YTeQE
+X-Received: by 2002:a17:90b:17c1:b0:398:e86b:ce14 with SMTP id 98e67ed59e1d1-39e54e3f526mr5588018a91.20.1789738849715;
+        Fri, 18 Sep 2026 06:40:49 -0700 (PDT)
 Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39e3617443asm13253792a91.9.2026.09.18.06.40.26
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39e3617443asm13253792a91.9.2026.09.18.06.40.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Sep 2026 06:40:30 -0700 (PDT)
+        Fri, 18 Sep 2026 06:40:49 -0700 (PDT)
 From: phucduc.bui@gmail.com
 To: Mark Brown <broonie@kernel.org>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
@@ -89,17 +89,17 @@ Cc: Liam Girdwood <lgirdwood@gmail.com>,
 	linux-mediatek@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH 10/15] ASoC: mediatek: mt8192: Handle regcache_sync() failure in runtime resume
-Date: Fri, 18 Sep 2026 20:39:06 +0700
-Message-ID: <20260918133912.133799-11-phucduc.bui@gmail.com>
+Subject: [PATCH 14/15] ASoC: mediatek: mt8192: Propagate errors in I2S DAI DAPM event handlers
+Date: Fri, 18 Sep 2026 20:39:10 +0700
+Message-ID: <20260918133912.133799-15-phucduc.bui@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260918133912.133799-1-phucduc.bui@gmail.com>
 References: <20260918133912.133799-1-phucduc.bui@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_064031_138301_FFB97C00 
-X-CRM114-Status: GOOD (  12.51  )
+X-CRM114-CacheID: sfid-20260918_064051_341502_1DE9128D 
+X-CRM114-Status: GOOD (  13.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,37 +116,94 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: bui duc phuc <phucduc.bui@gmail.com>
 
-Currently, the return value of regcache_sync() in
-mt8192_afe_runtime_resume() is ignored. If regcache_sync() fails, the
-function continues execution with clocks enabled and regcache out of sync.
+Currently, DAPM event handlers in mt8192-dai-i2s.c ignore return values
+from mt8192_afe_gpio_request(), mt8192_apll1_enable(),
+mt8192_apll2_enable(), and mt8192_mck_enable(). If GPIO configuration or
+clock setup fails during DAPM events, the error is silently ignored.
 
-Fix this by checking the return value of regcache_sync(). On failure,
-restore regcache to cache-only mode and disable the clocks enabled
-earlier in the function.
+Fix this by checking and propagating error codes properly in all I2S DAI
+DAPM event handlers.
 
-Fixes: 125ab5d588b0 ("ASoC: mediatek: mt8192: add platform driver")
+Fixes: 2c37b4ed730b ("ASoC: mediatek: mt8192: support i2s in platform driver")
 Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 ---
- sound/soc/mediatek/mt8192/mt8192-afe-pcm.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ sound/soc/mediatek/mt8192/mt8192-dai-i2s.c | 20 ++++++++++++++------
+ 1 file changed, 14 insertions(+), 6 deletions(-)
 
-diff --git a/sound/soc/mediatek/mt8192/mt8192-afe-pcm.c b/sound/soc/mediatek/mt8192/mt8192-afe-pcm.c
-index e4ecd23df180..5aaff5bebfb6 100644
---- a/sound/soc/mediatek/mt8192/mt8192-afe-pcm.c
-+++ b/sound/soc/mediatek/mt8192/mt8192-afe-pcm.c
-@@ -2104,7 +2104,11 @@ static int mt8192_afe_runtime_resume(struct device *dev)
- 		goto skip_regmap;
+diff --git a/sound/soc/mediatek/mt8192/mt8192-dai-i2s.c b/sound/soc/mediatek/mt8192/mt8192-dai-i2s.c
+index 1632fc94776d..5608b534af0d 100644
+--- a/sound/soc/mediatek/mt8192/mt8192-dai-i2s.c
++++ b/sound/soc/mediatek/mt8192/mt8192-dai-i2s.c
+@@ -586,6 +586,7 @@ static int mtk_i2s_en_event(struct snd_soc_dapm_widget *w,
+ 	struct snd_soc_component *cmpnt = snd_soc_dapm_to_component(w->dapm);
+ 	struct mtk_base_afe *afe = snd_soc_component_get_drvdata(cmpnt);
+ 	struct mtk_afe_i2s_priv *i2s_priv;
++	int ret;
  
- 	regcache_cache_only(afe->regmap, false);
--	regcache_sync(afe->regmap);
-+	ret = regcache_sync(afe->regmap);
-+	if (ret) {
-+		regcache_cache_only(afe->regmap, true);
-+		mt8192_afe_disable_clock(afe);
-+	}
+ 	i2s_priv = get_i2s_priv_by_name(afe, w->name);
  
- 	/* enable audio sys DCM for power saving */
- 	regmap_update_bits(afe_priv->infracfg,
+@@ -599,16 +600,17 @@ static int mtk_i2s_en_event(struct snd_soc_dapm_widget *w,
+ 
+ 	switch (event) {
+ 	case SND_SOC_DAPM_PRE_PMU:
+-		mt8192_afe_gpio_request(afe->dev, true, i2s_priv->id, 0);
++		ret = mt8192_afe_gpio_request(afe->dev, true, i2s_priv->id, 0);
+ 		break;
+ 	case SND_SOC_DAPM_POST_PMD:
+-		mt8192_afe_gpio_request(afe->dev, false, i2s_priv->id, 0);
++		ret = mt8192_afe_gpio_request(afe->dev, false, i2s_priv->id, 0);
+ 		break;
+ 	default:
++		ret = 0;
+ 		break;
+ 	}
+ 
+-	return 0;
++	return ret;
+ }
+ 
+ static int mtk_apll_event(struct snd_soc_dapm_widget *w,
+@@ -617,6 +619,7 @@ static int mtk_apll_event(struct snd_soc_dapm_widget *w,
+ {
+ 	struct snd_soc_component *cmpnt = snd_soc_dapm_to_component(w->dapm);
+ 	struct mtk_base_afe *afe = snd_soc_component_get_drvdata(cmpnt);
++	int ret;
+ 
+ 	dev_dbg(cmpnt->dev, "%s(), name %s, event 0x%x\n",
+ 		__func__, w->name, event);
+@@ -624,9 +627,11 @@ static int mtk_apll_event(struct snd_soc_dapm_widget *w,
+ 	switch (event) {
+ 	case SND_SOC_DAPM_PRE_PMU:
+ 		if (snd_soc_dapm_widget_name_cmp(w, APLL1_W_NAME) == 0)
+-			mt8192_apll1_enable(afe);
++			ret = mt8192_apll1_enable(afe);
+ 		else
+-			mt8192_apll2_enable(afe);
++			ret = mt8192_apll2_enable(afe);
++		if (ret)
++			return ret;
+ 		break;
+ 	case SND_SOC_DAPM_POST_PMD:
+ 		if (snd_soc_dapm_widget_name_cmp(w, APLL1_W_NAME) == 0)
+@@ -704,6 +709,7 @@ static int mtk_mclk_en_event(struct snd_soc_dapm_widget *w,
+ 	struct snd_soc_component *cmpnt = snd_soc_dapm_to_component(w->dapm);
+ 	struct mtk_base_afe *afe = snd_soc_component_get_drvdata(cmpnt);
+ 	struct mtk_afe_i2s_priv *i2s_priv;
++	int ret;
+ 
+ 	dev_dbg(cmpnt->dev, "%s(), name %s, event 0x%x\n",
+ 		__func__, w->name, event);
+@@ -716,7 +722,9 @@ static int mtk_mclk_en_event(struct snd_soc_dapm_widget *w,
+ 
+ 	switch (event) {
+ 	case SND_SOC_DAPM_PRE_PMU:
+-		mt8192_mck_enable(afe, i2s_priv->mclk_id, i2s_priv->mclk_rate);
++		ret = mt8192_mck_enable(afe, i2s_priv->mclk_id, i2s_priv->mclk_rate);
++		if (ret)
++			return ret;
+ 		break;
+ 	case SND_SOC_DAPM_POST_PMD:
+ 		i2s_priv->mclk_rate = 0;
 -- 
 2.43.0
 
