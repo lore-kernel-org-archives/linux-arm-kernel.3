@@ -4,92 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBC27C982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 14:54:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BF8AC982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 14:58:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oo6D6URAaDvJzqA8a3rL3pvgHutk8Ae/Aa71TYMUavY=; b=WbBW+MyiNorvStOCyatQvyGN4S
-	H5/pLIuLvKD7OnZRUMPEmVDNqzcPhBHTXzPQpmp5I7/LDrs740bZxjmoQpmR5ZQLeUWOZYMHyqZQc
-	tf7iNEbaBXEmliM6PQS+HsjjIhPAyYlpSEoctz4q5XIfghU0rkC+meh5Cr0M4yytSWQqIOFTxYSNf
-	sLvBenZgJUv2cb/LlVl9x6I95J2vQwyzsqGP3ociGLrU3E7wvvnpZ93Sc0A2ZanCK0ecav6qzPIyV
-	Fgc24xx41do9qlZEAgD2F1hTC1eoLKzA/7U7T7jMuDbdRgXOnypkNNR1VY1RQmE9vwDDal6C0B3+M
-	vv2+tONA==;
+	bh=66NICZkpa47NvpHYnIVSUpRZllbnikkprLG0oLOMVPo=; b=Z3MrxVt20llqpHi6CNbu81BN4u
+	bmjOJdofXXfsuNG6pboPt4JJD7L3PqS8KrsL3CB6egFVLAOypIwf8Rp8ZObHhTiTj+e9XuDyqqerQ
+	qARFP9fe0S8VUhIbCSlGH2DJM1AejNfZFwqNG+9RImVceo26IemTNg/vwG7e0WktCdPdPzXdGEhcZ
+	6s3bxLBjJv51jVK/dmCHqDrsdmBSGDT8UCKVHYR37vIjMUuMuhT9Jg4FOno9aHgsnzzMM5ei4BO7A
+	/PFL645dPwMIRN3T1D/ZueX2wvZefZpsldVXvX0KBtHQPkIm4U6b61sDIthev+0YAseiyhB2pSTUa
+	9JitRrmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7YSV-0000000ETNo-40UL;
-	Fri, 18 Sep 2026 13:16:55 +0000
+	id 1x7Ygt-0000000EX0T-44iZ;
+	Fri, 18 Sep 2026 13:31:47 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7YSC-0000000ET1i-31tu
+	id 1x7Ygl-0000000EWu8-1yaH
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 18 Sep 2026 13:16:37 +0000
+	Fri, 18 Sep 2026 13:31:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=Oo6D6URAaDvJzqA8a3rL3pvgHutk8Ae/Aa71TYMUavY=; b=Eu7tfpUVKd/yYmrhK4A+bP1OHq
-	3l4yTkO0Zv9H+qT1RMV0APZpn/KIUpZDmI05wbR7boJOZM3aHYUYK0e5JvVWBzE+tqCYg2AJnFeda
-	5y4nnYBCd7V0eNRrVDlm2FSYP5oII2DfoGBTlAboy3pJt8SLkdIjkJTyGr1XzAXp1XhYWk8gsCF9h
-	3NIO3VNrDHVG+4KFF8u6nABSjz3+RtEXjiPB4Hcr4tSD228Qevms41yzkmF68GD5Ep3vD5aeuEW/J
-	dm7WKVx+SMI0w/mrkOqg7oc/+eU3F5iKRvyadjx5e8/Z8BCiVf9J4MlFU2SS63ucYXSRiw8XHOaDj
-	5lELelGA==;
-Received: from mr-2004g-snip6-6.eps.apple.com ([2a01:b747:3000:203::43] helo=outbound.mr.icloud.com)
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=66NICZkpa47NvpHYnIVSUpRZllbnikkprLG0oLOMVPo=; b=dBD9F4JArltW5bwwsQcNo4Zo11
+	Z36ZHBWjbmbUMmYnzUzIhJTa+aGd6hjTq6XZBhiIY2buR3F/25I/fkTtb+Y98CUESaTTcKUdET/4s
+	50RY/bvJjkomS+ChIJpaQI/e2rZOe654M6Y/D9OuOs5J1+Aonr/Q8Lj1XRQw6KboiDFXAjBJUbEsf
+	KIi7844LEeHiLmPkmm0EMG8A/ZadC6XyHk6JmWdVpmJqdCrWJ1kpyAPsPnVPRd3WPMz0LamuFouR0
+	9H9CO14faekvy1bhMVsaweRLS/oJzCVDkGtxgAIeND3sD9To1Jv0rxO5NxZ7ZxNlnYaqO+HEHOTzq
+	Dj58CD7w==;
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x7YS7-0000000A7En-3Tq3
+	id 1x7Ygg-0000000A8Ww-2crR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 13:16:34 +0000
-Received: from outbound.mr.icloud.com (unknown [127.0.0.2])
-	by p00-icloudmta-asmtp-us-west-2a-10-percent-1 (Postfix) with ESMTPS id 50241180185B;
-	Fri, 18 Sep 2026 13:16:21 +0000 (UTC)
-X-ICL-RepId: 01a0b4a9-2d8e-7d9b-b824-aed8472b9981
-X-ICL-Out-Info: HUtFAUMEWwJACUgBTUQeDx5WFlZNRAJCTQFMHV8EUxxCDFYAXRcOVk1KF1UYREVRMFAbXwJCDxwTVhUTC1NWWxNVF0YJGQhdHRkKUFAGXRIYXBRcUFgeRhJWDV0JGQZAXlAbXwJCDxwTVhUTHUMZDysISgRDB0UCXgslEwlTVlsTVRdGCRkIXR0ZFVoJClcAQAtOA1QGUx8RTxweGwZGA0IUTApUAFwLQwgeB1gCK1sTVRdGCRkIXR0HWEcURw4PGVoUXBhT
-Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=icloud.com; s=1a1hai; t=1789737383; x=1792329383; bh=Oo6D6URAaDvJzqA8a3rL3pvgHutk8Ae/Aa71TYMUavY=; h=From:Date:Subject:MIME-Version:Content-Type:Message-Id:To:x-icloud-hme; b=UyKuVi9eQPOZjsKxOv9GbLc4Baa32MSMXR7sjtC6m0b+ORS30uCtws+q8n9CGOpHwnRWLJ13SQIQ60EHX1LEoiJngJGrC1JbxW8DwrqwOYaPIZZnzRgsKY/TNZDbcr1CF6pbG1N/qiAIrrSa1r74PJgdbr68zu90/lbFHDKE7P1Mr+M0VfkUrUbv2DPm1QZWYT5u8DqJ1PeyKWrekxj9Cd+HXntXYBIC109AoFYIdpJZPsCFCTMw63Nca3+vUT2cOhQ8vZZWraku4eVWwVFQbmux8LZW8EcMxIOPq6UEkZKA2TjJZEJy3KdN/Au94HSxZSV3CrJGq2Rr+I5WOlujOw==
-Received: from [127.0.0.1] (unknown [17.156.200.36])
-	by p00-icloudmta-asmtp-us-west-2a-10-percent-1 (Postfix) with ESMTPSA id E330A1800864;
-	Fri, 18 Sep 2026 13:16:17 +0000 (UTC)
-From: Sofus Forstreuter <sofus.c@icloud.com>
-Date: Fri, 18 Sep 2026 15:15:17 +0200
-Subject: [PATCH 12/14] media: apple: avd: add vp9 support
+	Fri, 18 Sep 2026 13:31:38 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68IA1Utn3274380;
+	Fri, 18 Sep 2026 13:31:20 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=66NICZkpa47NvpHYn
+	IVSUpRZllbnikkprLG0oLOMVPo=; b=D6+8wN4vxi9HrM/bWhCTlMz5VVZElLPoM
+	O4XvzCrIz9QQmpHS+tqcrdi6LDJVAX7h2CysiZJ+9yzvJ2upi2BU7lSq/QYCxq3I
+	jyHdoaSlPPoFSK39iR3q7eCjDo/vsOnnZMO3s5w3v339IFXKWWVs4sbrmgyyRERb
+	Fyz0C/Rbs8Cb554/SxIGQe6vlqlJn1FxmsQCq6gpAhdzBqpzgUJ/ovbs4SnTIdJU
+	MYNzCNTxzoR+AoGQAjlIZ1hEDGCsa0t60an2TTCbJ+nUQNi3fwD7L/SU0XnNbjja
+	gvZ/yorNKNg85AWfHM5CabhkYuyrG4zusmPxa4Evqan8bA5YxlgfA==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gmxdqra2d-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 18 Sep 2026 13:31:19 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68IDO1fV722844;
+	Fri, 18 Sep 2026 13:31:18 GMT
+Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gr5fjqgvk-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 18 Sep 2026 13:31:17 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68IDVAXt51642854
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 18 Sep 2026 13:31:10 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id AD4CE20040;
+	Fri, 18 Sep 2026 13:31:10 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 5ECF320049;
+	Fri, 18 Sep 2026 13:31:10 +0000 (GMT)
+Received: from tuxmaker.lnxne.boe (unknown [9.87.85.9])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 18 Sep 2026 13:31:10 +0000 (GMT)
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH v8 07/29] KVM: Make device name configurable
+Date: Fri, 18 Sep 2026 15:30:44 +0200
+Message-ID: <20260918133107.1042730-8-seiden@linux.ibm.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260918133107.1042730-1-seiden@linux.ibm.com>
+References: <20260918133107.1042730-1-seiden@linux.ibm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260918-avd-v1-12-49977931f455@icloud.com>
-References: <20260918-avd-v1-0-49977931f455@icloud.com>
-In-Reply-To: <20260918-avd-v1-0-49977931f455@icloud.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Neal Gompa <neal@gompa.dev>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
- Heiko Stuebner <heiko@sntech.de>
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
- asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- Sofus Forstreuter <sofus.c@icloud.com>
-X-Mailer: b4 0.15.2
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE4MDE4OCBTYWx0ZWRfX7ZG5P08XdlMv
- AoUE1Sd7b4VXc0dim6ObVlcHrs+aomjVRBl5baVhdyLCLO0ueZAnze3m9KDhwAXx8D+hnXUjwpy
- ULLLmFR0J0IHuBU+BOvnxNOq7+krQn5wdDhuAXxbRJiPOTdyQ5apP9rboC85SX4p3Y34WGJl5EY
- W4IyWxUcsMwolouwiPqJ7paBwof1d8JwpV5j3T/Zonq/TmQmj8Q77qvq9kj86frx4vr9AVQ1cef
- g9pdzpgUWv5sHXr8CR2UhfXFM7LaXSxDILEiDzDAq7DnCx7Fm/OtXIm48bW3wNFGsnYPdciJEqh
- t2WU55l9gcj4Xn6rdsGHI3LMYKK+TEZ+quOQ9guq1BqYUVDExwDHfESuCC9kL8=
-X-Authority-Info-Out: v=2.4 cv=Iv0Tsb/g c=1 sm=1 tr=0 ts=6aad39a6
- cx=c_apl:c_pps:t_out a=9mRn2PO/+PIrVdEbaIuMPg==:117
- a=9mRn2PO/+PIrVdEbaIuMPg==:17 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
- a=x7bEGLp0ZPQA:10 a=kLM9Tyy99jAA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=v3ZZPjhaAAAA:8 a=7YfXLusrAAAA:8 a=QX4gbG5DAAAA:8 a=s8YR1HE3AAAA:8
- a=Rqfy-2Hu8ob1gihRBwcA:9 a=QEXdDO2ut3YA:10 a=SLz71HocmBbuEhFRYD3r:22
- a=AbAUZ8qAyYyZVLSsDulk:22 a=jGH_LyMDp9YhSvY-UuyI:22
-X-Proofpoint-ORIG-GUID: qpHvihYuoXep2Ks93pAAqStTbPmmLHqo
-X-Proofpoint-GUID: qpHvihYuoXep2Ks93pAAqStTbPmmLHqo
-X-JNJ: AAAAAAABqfvPZxyj45cAkc9dumE8uBUoLRn2xRxA2GAbGHuyzuQa9qgZNZq/vIcmJjRgkSBELy3lWx5CShVxmrRTJmkmjbeIzr/LjtVzMUoDGLae6+LAziRYMsyq5Bw3Qw77htl2wVrVbx3J+DEz/unGHq6llYtpwYo2ko5wxai+fgUYmWoZ1EnC86Dr2a61zNawkVvlT1obc0byFWr61i7LaVZOzpqbZWcbO3FCZHOt8O+NCAAP5XikiFjj0qk60QXOLac5cDbCz3ehpXlEXSs9GghFAOpRiH7vKZ49VJ0Xnpvt8CbSnsWuAAiaa8QAIyAaThLycg5NuNtbrAKJhPDb2c+MYAZYJIDW8Aii7yluWEzxSfpm9ZeQDs2Xj7DMY+v/6I1mnU+F/tU/l9JxAj7OBi4/7nfyOdFCfOAGm89ee8LaWEc4bTzKmDwjAGlaW30EvnPPLbPYNfYUACWKV5anfpCIcQvTwoBq5cbCJkNIXUY+YBQ31zO8Y111ekaVxq7E9LDLFJhbWno02B0okjnhZ1qvZw8ABpXHVLaWO2jcFEocYgH3vemCA4aOfcahwimxvahs9z3qUQAgxyJMMIg+Kd2C03UlFdQfn8pqLzfopywTLJlWerGFrVAlW/LWH85A4jMP91WJVBU/Pbvx1OImcWY+J310d8KkxlKT3wTqk549ZJohQ2JY/bKc+0NV6RM6qj58ig6mdDK79w/5WvMhg7MgPy2uIRRnRU3Z8Okg89ucGcL2E148qDnFa8yph/K3dqYBJWEXyJmJPaSXtvdGrBQYDuDfeK1OSQBqL55Dpw8w+Y44TjsgmqS8wZDR7RyOpMV4zZIC97zbZJv58YJtPnu8qRh5UZcua2L7loAjIo0riVfuN2Pan10=
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE4MDE5MiBTYWx0ZWRfX6PFHKHixtLOW
+ x5tY9MowY7VnfJT3WZrK6fAPYr5okJiVO0YYQSEaqW+BLXDkfGkDvmC9H0N93v5CNQwQC5wWho8
+ mbvwLeMeUUTg5fzEYrd/vZRPHuRIiX84vidrWeT95x0CYGqmU9xDN7sSqZWREiwhgQoUaIRqMrJ
+ 8nvksHH9CrPJotrP5fgYX6QSE6JW8l4NmewW4Xj8DW2hLid4cxTvf77m/IZN6A1ayumQGSle1D7
+ mLiyUwesEwzGA52LoMXsNRlQkLt5DLbUwHl61WtwJbDtofTuDlo6nSFAFnLYNbpiqj9kv90CKZ1
+ eEHqHz5IzeeR8ZY1m+NzMRsHxuYSgokUMsCcYvwqsweXlXYLhP8mfmVVdyWkqTujalpsqSH34C0
+ bzMLS+ROP50iVVpWMtMfLh3S/zmnAxN1kV1rkFmTsbOSTx4mLgo5JCXKeqA6KoYrVM90qal5uXM
+ Wnyyu7J/OtRfpNaS9Sg==
+X-Proofpoint-GUID: RgsPdhZ0RH5nmL3PNSwi9xljPgTIobIF
+X-Authority-Analysis: v=2.4 cv=DobDa2/+ c=1 sm=1 tr=0 ts=6aad3d27 cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
+ a=uAbxVGIbfxUO_5tXvNgY:22 a=1XWaLZrsAAAA:8 a=VnNF1IyMAAAA:8
+ a=0LJ3BSutFHZo8nszAoUA:9
+X-Proofpoint-ORIG-GUID: DM1GbzmWFPq4hzPjCb4MgZ9lsqohNb1_
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE4MDE5MiBTYWx0ZWRfX9MCrXhz5L7VZ
+ zyrTHGHU4YuwLnBR6YO+zB7TDsX+fcAWgmA7HNIYUZFFwntw4iRz0EmBDjnDpOW8puRnFj9g3KZ
+ 5a6OkGmRKkZvXoG7n0FGUMD/iaAe0TY=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-18_03,2026-09-16_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 malwarescore=0 priorityscore=1501 suspectscore=0 impostorscore=0
+ spamscore=0 clxscore=1015 adultscore=0 bulkscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609180192
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_141632_311415_25DC27B3 
-X-CRM114-Status: GOOD (  19.32  )
+X-CRM114-CacheID: sfid-20260918_143135_385842_2ABCEA53 
+X-CRM114-Status: GOOD (  18.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,1210 +156,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The fluster scores is 216/305 for VP9-TEST-VECTORS and 1/6 for
-VP9-TEST-VECTORS-HIGH.
+Allow KVM implementations to choose alternative device names. This is
+especially useful for architectures providing multiple KVM
+implementations simultaneously. Architectures providing multiple KVM
+implementations must compile the KVM common code once per
+implementation and mange symbols.
 
-Signed-off-by: Sofus Forstreuter <sofus.c@icloud.com>
+Suggested-by: Sean Christopherson <seanjc@google.com>
+Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
- drivers/media/platform/apple/avd/Kconfig    |    1 +
- drivers/media/platform/apple/avd/Makefile   |    2 +-
- drivers/media/platform/apple/avd/avd-v4l2.c |   37 +
- drivers/media/platform/apple/avd/avd-vp9.c  | 1072 +++++++++++++++++++++++++++
- drivers/media/platform/apple/avd/avd.h      |   10 +
- 5 files changed, 1121 insertions(+), 1 deletion(-)
+ arch/s390/kvm/gmap/trace_gmap.h |  4 +++-
+ arch/s390/kvm/s390/Makefile     |  2 +-
+ include/linux/kvm_host.h        |  3 +++
+ include/trace/events/kvm.h      |  8 +++++++-
+ virt/kvm/Makefile.kvm           |  5 +++++
+ virt/kvm/kvm_main.c             | 10 +++++-----
+ 6 files changed, 24 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/media/platform/apple/avd/Kconfig b/drivers/media/platform/apple/avd/Kconfig
-index 9e2e4e3fa56e..6d31f9285973 100644
---- a/drivers/media/platform/apple/avd/Kconfig
-+++ b/drivers/media/platform/apple/avd/Kconfig
-@@ -10,6 +10,7 @@ config VIDEO_APPLE_AVD
- 	select V4L2_MEM2MEM_DEV
- 	select VIDEOBUF2_DMA_CONTIG
- 	select V4L2_H264
-+	select V4L2_VP9
- 	help
- 	  Support for hardware video decoding on Apple Silicon devices using
- 	  the Apple Video Decoder (AVD).
-diff --git a/drivers/media/platform/apple/avd/Makefile b/drivers/media/platform/apple/avd/Makefile
-index 837182588e2a..54ea67a589cd 100644
---- a/drivers/media/platform/apple/avd/Makefile
-+++ b/drivers/media/platform/apple/avd/Makefile
-@@ -1,4 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0-only
+diff --git a/arch/s390/kvm/gmap/trace_gmap.h b/arch/s390/kvm/gmap/trace_gmap.h
+index 15ec88bdce55..78d26dae59f9 100644
+--- a/arch/s390/kvm/gmap/trace_gmap.h
++++ b/arch/s390/kvm/gmap/trace_gmap.h
+@@ -4,8 +4,10 @@
  
--apple-avd-y := avd-drv.o avd-v4l2.o avd-hw.o avd-h264.o
-+apple-avd-y := avd-drv.o avd-v4l2.o avd-hw.o avd-h264.o avd-vp9.o
- obj-$(CONFIG_VIDEO_APPLE_AVD) += apple-avd.o
-diff --git a/drivers/media/platform/apple/avd/avd-v4l2.c b/drivers/media/platform/apple/avd/avd-v4l2.c
-index 36117fd5fbff..52dcb70b340c 100644
---- a/drivers/media/platform/apple/avd/avd-v4l2.c
-+++ b/drivers/media/platform/apple/avd/avd-v4l2.c
-@@ -227,6 +227,29 @@ static const struct avd_ctrls avd_h264_ctrls = {
- 	.num_ctrls = ARRAY_SIZE(avd_h264_ctrl_descs),
+ #include <linux/tracepoint.h>
+ 
++#undef UNPACK_KVM
++#define UNPACK_KVM(name) name
+ #undef TRACE_SYSTEM
+-#define TRACE_SYSTEM kvm
++#define TRACE_SYSTEM UNPACK_KVM(KVM_DEV_NAME)
+ #undef TRACE_INCLUDE_PATH
+ #define TRACE_INCLUDE_PATH ../gmap
+ #undef TRACE_INCLUDE_FILE
+diff --git a/arch/s390/kvm/s390/Makefile b/arch/s390/kvm/s390/Makefile
+index 762a63826423..b91334db90a2 100644
+--- a/arch/s390/kvm/s390/Makefile
++++ b/arch/s390/kvm/s390/Makefile
+@@ -4,7 +4,7 @@ KVM := ../../../../virt/kvm
+ include $(srctree)/virt/kvm/Makefile.kvm
+ include $(srctree)/arch/s390/kvm/gmap/Makefile
+ 
+-ccflags-y := -I$(src) -I$(srctree)/arch/s390/kvm/gmap
++ccflags-y += -I$(src) -I$(srctree)/arch/s390/kvm/gmap
+ 
+ kvm-y += s390.o intercept.o interrupt.o priv.o sigp.o
+ kvm-y += diag.o gaccess.o guestdbg.o vsie.o pv.o
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index 2b56fb4e8555..5926478563e8 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -45,6 +45,9 @@
+ #include <asm/kvm_host.h>
+ #include <linux/kvm_dirty_ring.h>
+ 
++#define __KVM_DEV_STRING(name, x) __stringify(name ## _ ## x)
++#define KVM_DEV_STRING(x) __KVM_DEV_STRING(KVM_DEV_NAME, x)
++
+ #ifndef KVM_MAX_VCPU_IDS
+ #define KVM_MAX_VCPU_IDS KVM_MAX_VCPUS
+ #endif
+diff --git a/include/trace/events/kvm.h b/include/trace/events/kvm.h
+index b282e3a86769..f37582730ffc 100644
+--- a/include/trace/events/kvm.h
++++ b/include/trace/events/kvm.h
+@@ -4,8 +4,14 @@
+ 
+ #include <linux/tracepoint.h>
+ 
++#undef UNPACK_KVM
++#define UNPACK_KVM(name) name
+ #undef TRACE_SYSTEM
+-#define TRACE_SYSTEM kvm
++#define TRACE_SYSTEM UNPACK_KVM(KVM_DEV_NAME)
++#undef TRACE_SYSTEM_VAR
++#define TRACE_SYSTEM_VAR kvm
++#undef TRACE_INCLUDE_FILE
++#define TRACE_INCLUDE_FILE kvm
+ 
+ #define ERSN(x) { KVM_EXIT_##x, "KVM_EXIT_" #x }
+ 
+diff --git a/virt/kvm/Makefile.kvm b/virt/kvm/Makefile.kvm
+index dd40544b8ecb..ee66d460c494 100644
+--- a/virt/kvm/Makefile.kvm
++++ b/virt/kvm/Makefile.kvm
+@@ -5,6 +5,11 @@
+ 
+ KVM ?= ../../../virt/kvm
+ 
++KVM_DEV_NAME ?= kvm
++KVM_DEV_MINOR ?= KVM_MINOR
++
++ccflags-y +=-DKVM_DEV_NAME=$(KVM_DEV_NAME) -DKVM_DEV_MINOR=$(KVM_DEV_MINOR)
++
+ kvm-y := $(KVM)/kvm_main.o $(KVM)/eventfd.o $(KVM)/binary_stats.o
+ kvm-$(CONFIG_KVM_VFIO) += $(KVM)/vfio.o
+ kvm-$(CONFIG_KVM_MMIO) += $(KVM)/coalesced_mmio.o
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 891a67cb365a..4f25e170b542 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -5596,8 +5596,8 @@ static struct file_operations kvm_chardev_ops = {
  };
  
-+static const struct avd_ctrl_desc avd_vp9_ctrl_descs[] = {
-+	{
-+		.cfg.id = V4L2_CID_STATELESS_VP9_FRAME,
-+		.cfg.ops = &avd_ctrl_ops,
-+	},
-+	{
-+		.cfg.id = V4L2_CID_STATELESS_VP9_COMPRESSED_HDR,
-+	},
-+	{
-+		.cfg.id = V4L2_CID_MPEG_VIDEO_VP9_PROFILE,
-+		.cfg.min = V4L2_MPEG_VIDEO_VP9_PROFILE_0,
-+		.cfg.max = V4L2_MPEG_VIDEO_VP9_PROFILE_2,
-+		.cfg.menu_skip_mask =
-+			BIT(V4L2_MPEG_VIDEO_VP9_PROFILE_1),
-+		.cfg.def = V4L2_MPEG_VIDEO_VP9_PROFILE_0,
-+	},
-+};
-+
-+static const struct avd_ctrls avd_vp9_ctrls = {
-+	.ctrls = avd_vp9_ctrl_descs,
-+	.num_ctrls = ARRAY_SIZE(avd_vp9_ctrl_descs),
-+};
-+
- static const struct avd_coded_fmt_desc avd_coded_fmts[] = {
- 	{
- 		.fourcc = V4L2_PIX_FMT_H264_SLICE,
-@@ -243,6 +266,20 @@ static const struct avd_coded_fmt_desc avd_coded_fmts[] = {
- 		.subsystem_flags = VB2_V4L2_FL_SUPPORTS_M2M_HOLD_CAPTURE_BUF,
- 		.capability = AVD_CAPABILITY_H264,
- 	},
-+	{
-+		.fourcc = V4L2_PIX_FMT_VP9_FRAME,
-+		.frmsize = {
-+			.min_width = 64,
-+			.max_width = 16384,
-+			.step_width = 64,
-+			.min_height = 64,
-+			.max_height = 16384,
-+			.step_height = 16,
-+		},
-+		.ctrls = &avd_vp9_ctrls,
-+		.ops = &avd_vp9_fmt_ops,
-+		.capability = AVD_CAPABILITY_VP9,
-+	},
+ static struct miscdevice kvm_dev = {
+-	KVM_MINOR,
+-	"kvm",
++	KVM_DEV_MINOR,
++	__stringify(KVM_DEV_NAME),
+ 	&kvm_chardev_ops,
  };
  
- static bool avd_is_capable(struct avd_ctx *ctx, unsigned int capability)
-diff --git a/drivers/media/platform/apple/avd/avd-vp9.c b/drivers/media/platform/apple/avd/avd-vp9.c
-new file mode 100644
-index 000000000000..76599a1a3981
---- /dev/null
-+++ b/drivers/media/platform/apple/avd/avd-vp9.c
-@@ -0,0 +1,1072 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Apple Video Decoder VP9 driver
-+ *
-+ * Copyright (C) 2026 The Asahi Linux Contributors
-+ * Copyright (C) 2026 Sofus Forstreuter <sofus.c@icloud.com>
-+ * Copyright (C) 2023 Eileen Yoon <eyn@gmx.com>
-+ *
-+ * Copyright (C) 2019 Collabora, Ltd.
-+ *	Boris Brezillon <boris.brezillon@collabora.com>
-+ * Copyright (C) 2021 Collabora, Ltd.
-+ *	Andrzej Pietrasiewicz <andrzej.p@collabora.com>
-+ *
-+ * Copyright (C) 2016 Rockchip Electronics Co., Ltd.
-+ *	Alpha Lin <Alpha.Lin@rock-chips.com>
-+ */
-+
-+#include <linux/dev_printk.h>
-+#include <linux/unaligned.h>
-+
-+#include <media/v4l2-vp9.h>
-+#include <media/videobuf2-dma-contig.h>
-+
-+#include "avd.h"
-+#include "avd-inst.h"
-+
-+#define VP9_Q_IDX(v)	FIELD_PREP(GENMASK(31, 15), v)
-+#define VP9_Q_DC_Y(v)	FIELD_PREP(GENMASK(14, 10), v)
-+#define VP9_Q_DC_UV(v)	FIELD_PREP(GENMASK(9, 5), v)
-+#define VP9_Q_AC_UV(v)	FIELD_PREP(GENMASK(4, 0), v)
-+
-+#define VP9_LF_SHARPNESS(v)	FIELD_PREP(GENMASK(31, 28), v)
-+#define VP9_LF_REF0(v)		FIELD_PREP(GENMASK(27, 21), v)
-+#define VP9_LF_REF1(v)		FIELD_PREP(GENMASK(20, 14), v)
-+#define VP9_LF_REF2(v)		FIELD_PREP(GENMASK(13, 7), v)
-+#define VP9_LF_REF3(v)		FIELD_PREP(GENMASK(6, 0), v)
-+
-+#define VP9_LF_LV(v)	FIELD_PREP(GENMASK(31, 14), v)
-+#define VP9_LF_MODE0(v)	FIELD_PREP(GENMASK(13, 7), v)
-+#define VP9_LF_MODE1(v)	FIELD_PREP(GENMASK(6, 0), v)
-+
-+#define VP9_FEAT_LVL_ALT_Q_EN(v)	FIELD_PREP(BIT(21), !!(v))
-+#define VP9_FEAT_LVL_ALT_Q(v)		FIELD_PREP(GENMASK(20, 12), v)
-+#define VP9_FEAT_LVL_ALT_L_EN(v)	FIELD_PREP(BIT(11), !!(v))
-+#define VP9_FEAT_LVL_ALT_L(v)		FIELD_PREP(GENMASK(10, 4), v)
-+#define VP9_FEAT_LVL_REF_FRAME_EN(v)	FIELD_PREP(BIT(3), !!(v))
-+#define VP9_FEAT_LVL_REF_FRAME(v)	FIELD_PREP(GENMASK(2, 1), v)
-+#define VP9_FEAT_LVL_SKIP_EN(v)		FIELD_PREP(BIT(0), !!(v))
-+#define VP9_FEAT_LVL_SKIP(v)
-+
-+#define VP9_REF_SEL_LAST(v)	FIELD_PREP(GENMASK(2, 0), v)
-+#define VP9_REF_BIAS_LAST(v)	FIELD_PREP(BIT(3), !!(v))
-+#define VP9_REF_SEL_GOLDEN(v)	FIELD_PREP(GENMASK(6, 4), v)
-+#define VP9_REF_BIAS_GOLDEN(v)	FIELD_PREP(BIT(7), !!(v))
-+#define VP9_REF_SEL_ALT(v)	FIELD_PREP(GENMASK(10, 8), v)
-+#define VP9_REF_BIAS_ALT(v)	FIELD_PREP(BIT(11), !!(v))
-+#define VP9_REFERENCE_MODE(v)	FIELD_PREP(GENMASK(13, 12), v)
-+#define VP9_PARALLEL_DEC(v)	FIELD_PREP(BIT(14), !!(v))
-+#define VP9_REFRESH_CTX(v)	FIELD_PREP(BIT(15), !!(v))
-+#define VP9_INTERP_FILTER(v)	FIELD_PREP(GENMASK(18, 16), v)
-+#define VP9_HIGH_PREC_MV(v)	FIELD_PREP(BIT(19), !!(v))
-+#define VP9_ERR_RES(v)		FIELD_PREP(BIT(20), !!(v))
-+#define VP9_HAS_REF(v)		FIELD_PREP(BIT(21), !!(v))
-+#define VP9_SEG_ABS(v)		FIELD_PREP(BIT(22), !!(v))
-+#define VP9_SEG_UDATA_TEMP(v)	FIELD_PREP(BIT(23), !!(v))
-+#define VP9_SEG_UPDATE_MAP(v)	FIELD_PREP(BIT(24), !!(v))
-+#define VP9_SEG_ENABLED(v)	FIELD_PREP(BIT(25), !!(v))
-+#define VP9_SEG_RESET(v)	FIELD_PREP(BIT(26), !!(v))
-+
-+#define VP9_MAX_TILE_COLS	(1 << 4)
-+#define VP9_REF_SCALE_SHIFT	14
-+#define VP9_LAST_FRAME		1
-+#define VP9_GOLDEN_FRAME	2
-+#define VP9_ALTREF_FRAME	3
-+
-+struct avd_vp9_seg_probs {
-+	u8 tree_probs[7];
-+	u8 pred_probs[3];
-+};
-+
-+struct avd_vp9_probs {
-+	struct avd_vp9_seg_probs seg;
-+	u8 tx8[2][1];
-+	u8 tx16[2][2];
-+	u8 tx32[2][3];
-+	/* [4][2][2][k=6][(k == 0) ? 3 : 6][3] */
-+	u8 coef[1584];
-+	u8 skip[3];
-+	u8 inter_mode[7][3];
-+	u8 interp_filter[4][2];
-+	u8 is_inter[4];
-+	u8 comp_mode[5];
-+	u8 single_ref[5][2];
-+	u8 comp_ref[5];
-+	u8 y_mode[4][9];
-+	u8 uv_mode[10][9];
-+	u8 partition[16][3];
-+	u8 joint[3];
-+	struct mv_comp {
-+		u8 sign;
-+		u8 classes[10];
-+		u8 class0_bit;
-+		u8 bits[10];
-+	} mv_comp[2];
-+	struct mv_fr {
-+		u8 class0_fr[2][3];
-+		u8 fr[3];
-+	} mv_fr[2];
-+	struct mv_hp {
-+		u8 class0_hp;
-+		u8 hp;
-+	} mv_hp[2];
-+};
-+
-+struct avd_vp9_frame_symbol_counts {
-+	u32 padding;
-+	u32 tx8p[2][2];
-+	u32 tx16p[2][3];
-+	u32 tx32p[2][4];
-+	/* [4][2][2][k=6][(k == 0) ? 3 : 6] */
-+	u32 eob_0[528];
-+	/*
-+	 * struct ref_cnt { u32 coef[3]; u32 eob_1; }
-+	 * struct ref_cnt cef_counts[4][2][2][k=6][(k == 0) ? 3 : 6];
-+	 */
-+	u32 ref_cnt[2112];
-+	u32 skip[3][2];
-+	u32 mv_mode[7][4];
-+	u32 filter[4][3];
-+	u32 intra_inter[4][2];
-+	u32 comp[5][2];
-+	u32 single_ref[5][2][2];
-+	u32 comp_ref[5][2];
-+	u32 y_mode[4][10];
-+	u32 uv_mode[10][10];
-+	u32 partition[16][4];
-+	u32 mv_joint[4];
-+	struct mv_comp_ctn {
-+		u32 sign[2];
-+		u32 classes[11];
-+		u32 class0[2];
-+		u32 bits[10][2];
-+	} mv_comp[2];
-+	struct mv_fr_cnt {
-+		u32 class0_fr[2][4];
-+		u32 fr[4];
-+	} mv_fr[2];
-+	struct mv_hp_cnt {
-+		u32 class0_hp[2];
-+		u32 hp[2];
-+	} mv_hp[2];
-+};
-+
-+struct avd_vp9_frame_info {
-+	u32 valid : 1;
-+	u32 segmapid : 1;
-+	u32 frame_context_idx : 2;
-+	u32 reference_mode : 2;
-+	u32 tx_mode : 3;
-+	u32 interpolation_filter : 3;
-+	u32 flags;
-+	u64 timestamp;
-+	struct v4l2_vp9_segmentation seg;
-+	struct v4l2_vp9_loop_filter lf;
-+};
-+
-+struct avd_vp9_run {
-+	struct avd_run base;
-+
-+	const struct v4l2_ctrl_vp9_frame *decode_params;
-+	const struct v4l2_ctrl_vp9_compressed_hdr *prob_updates;
-+};
-+
-+struct avd_vp9_ctx {
-+	struct v4l2_vp9_frame_symbol_counts cnts;
-+	struct v4l2_vp9_frame_context probability_tables;
-+	struct v4l2_vp9_frame_context frame_context[4];
-+	struct avd_vp9_bufs {
-+		struct avd_buf az_left;
-+		struct avd_buf above_info;
-+		struct avd_buf ip_above;
-+		struct avd_buf lf_above;
-+		struct avd_buf lf_left_info;
-+		struct avd_buf lf_left;
-+		struct avd_buf color;
-+		struct avd_buf seg;
-+		struct avd_buf counts;
-+		struct avd_buf probs;
-+	} bufs;
-+	struct avd_vp9_frame_info cur;
-+	struct avd_vp9_frame_info last;
-+	u8 submit_num;
-+};
-+
-+static void set_refs(struct avd_ctx *ctx, struct avd_vp9_run *run)
-+{
-+	const struct v4l2_ctrl_vp9_frame *frame = run->decode_params;
-+	struct avd_decoded_buffer *dst, *ref_buf[4];
-+	dma_addr_t addr;
-+	int xscale, yscale;
-+
-+	dst = vb2_to_avd_decoded_buf(&run->base.bufs.dst->vb2_buf);
-+
-+	ref_buf[0] = avd_get_ref_buf(ctx, &dst->base.vb, frame->last_frame_ts);
-+	ref_buf[1] =
-+		avd_get_ref_buf(ctx, &dst->base.vb, frame->golden_frame_ts);
-+	ref_buf[2] = avd_get_ref_buf(ctx, &dst->base.vb, frame->alt_frame_ts);
-+
-+	push(0, "");
-+	push(0, "");
-+	push(0, "");
-+
-+	for (int i = 0; i < V4L2_VP9_NUM_FRAME_CTX - 1; i++) {
-+		addr = vb2_dma_contig_plane_dma_addr(
-+			       &ref_buf[i]->base.vb.vb2_buf, 0) +
-+		       ref_buf[i]->comp.start_offset;
-+
-+		push(AVD_REF_FLAG_CONST, "hdr_9c_ref_100");
-+		push(AVD_HDR_HEIGHT(ref_buf[i]->vp9.height - 1) |
-+			     AVD_HDR_WIDTH(ref_buf[i]->vp9.width - 1),
-+		     "hdr_70_ref_height_width");
-+
-+		xscale = (ref_buf[i]->vp9.width << VP9_REF_SCALE_SHIFT) /
-+			 dst->vp9.width;
-+		yscale = (ref_buf[i]->vp9.height << VP9_REF_SCALE_SHIFT) /
-+			 dst->vp9.height;
-+		push(AVD_HDR_HEIGHT(xscale) | AVD_HDR_WIDTH(yscale),
-+		     "ref_scale");
-+
-+		push_comp(ctx, addr, ref_buf[i]->comp.offsets);
-+	}
-+}
-+
-+static u32 make_flags1(struct avd_ctx *ctx, struct avd_vp9_run *run)
-+{
-+	struct avd_vp9_ctx *vp9_ctx = ctx->priv;
-+	const struct v4l2_ctrl_vp9_frame *frame = run->decode_params;
-+	struct avd_decoded_buffer *dst, *last, *golden, *alt;
-+
-+	dst = vb2_to_avd_decoded_buf(&run->base.bufs.dst->vb2_buf);
-+	last = avd_get_ref_buf(ctx, &dst->base.vb, frame->last_frame_ts);
-+	golden = avd_get_ref_buf(ctx, &dst->base.vb, frame->golden_frame_ts);
-+	alt = avd_get_ref_buf(ctx, &dst->base.vb, frame->alt_frame_ts);
-+	u32 flags;
-+
-+	/*
-+	 * i have only seen V4L2_VP9_SIGN_BIAS_ALT, im simply guessing the
-+	 * same applies for last and golden
-+	 */
-+	flags = VP9_REF_SEL_LAST(VP9_LAST_FRAME);
-+
-+	flags |= VP9_REF_BIAS_LAST(frame->ref_frame_sign_bias &
-+				   V4L2_VP9_SIGN_BIAS_LAST);
-+	flags |= VP9_REF_SEL_GOLDEN(golden == last ? VP9_LAST_FRAME :
-+						     VP9_GOLDEN_FRAME);
-+	flags |= VP9_REF_BIAS_GOLDEN(frame->ref_frame_sign_bias &
-+				     V4L2_VP9_SIGN_BIAS_GOLDEN);
-+	flags |= VP9_REF_SEL_ALT(alt != golden ? VP9_ALTREF_FRAME :
-+				 alt != last   ? VP9_GOLDEN_FRAME :
-+						 VP9_LAST_FRAME);
-+	flags |= VP9_REF_BIAS_ALT(frame->ref_frame_sign_bias &
-+				  V4L2_VP9_SIGN_BIAS_ALT);
-+
-+	flags |= VP9_REFERENCE_MODE(frame->reference_mode);
-+
-+	flags |= VP9_PARALLEL_DEC(frame->flags &
-+				  V4L2_VP9_FRAME_FLAG_PARALLEL_DEC_MODE);
-+	flags |= VP9_REFRESH_CTX(frame->flags &
-+				 V4L2_VP9_FRAME_FLAG_REFRESH_FRAME_CTX);
-+	flags |= VP9_INTERP_FILTER(frame->interpolation_filter);
-+	flags |= VP9_HIGH_PREC_MV(frame->flags &
-+				  V4L2_VP9_FRAME_FLAG_ALLOW_HIGH_PREC_MV);
-+
-+	flags |=
-+		VP9_ERR_RES(frame->flags & V4L2_VP9_FRAME_FLAG_ERROR_RESILIENT);
-+
-+	flags |= VP9_SEG_ABS(frame->seg.flags &
-+			     V4L2_VP9_SEGMENTATION_FLAG_ABS_OR_DELTA_UPDATE);
-+	flags |= VP9_SEG_UDATA_TEMP(
-+		frame->seg.flags & V4L2_VP9_SEGMENTATION_FLAG_UPDATE_DATA &&
-+		frame->seg.flags & V4L2_VP9_SEGMENTATION_FLAG_TEMPORAL_UPDATE);
-+	flags |= VP9_SEG_UPDATE_MAP(frame->seg.flags &
-+				    V4L2_VP9_SEGMENTATION_FLAG_UPDATE_MAP);
-+	flags |= VP9_SEG_ENABLED(frame->seg.flags &
-+				 V4L2_VP9_SEGMENTATION_FLAG_ENABLED);
-+
-+	flags |= VP9_HAS_REF(
-+		!(frame->flags & V4L2_VP9_FRAME_FLAG_ERROR_RESILIENT) &&
-+		!(frame->flags & V4L2_VP9_FRAME_FLAG_KEY_FRAME) &&
-+		vp9_ctx->last.valid &&
-+		vp9_ctx->last.flags & V4L2_VP9_FRAME_FLAG_SHOW_FRAME &&
-+		!(vp9_ctx->last.flags & V4L2_VP9_FRAME_FLAG_KEY_FRAME));
-+
-+	flags |= VP9_SEG_RESET(
-+		frame->seg.flags & V4L2_VP9_SEGMENTATION_FLAG_ENABLED &&
-+		(frame->flags & V4L2_VP9_FRAME_FLAG_KEY_FRAME ||
-+		 (vp9_ctx->last.valid &&
-+		  !(vp9_ctx->last.seg.flags &
-+		    V4L2_VP9_SEGMENTATION_FLAG_ENABLED) &&
-+		  vp9_ctx->last.flags & (V4L2_VP9_FRAME_FLAG_KEY_FRAME |
-+					 V4L2_VP9_FRAME_FLAG_INTRA_ONLY))));
-+
-+	return flags;
-+}
-+
-+static u32 seg_features(struct avd_ctx *ctx, struct avd_vp9_run *run,
-+			unsigned int segid)
-+{
-+	struct avd_vp9_ctx *vp9_ctx = ctx->priv;
-+	const struct v4l2_vp9_segmentation *seg = &vp9_ctx->cur.seg;
-+	u32 feature_val = 0;
-+	int feature_id = 0;
-+
-+	feature_id = V4L2_VP9_SEG_LVL_ALT_Q;
-+	feature_val |= VP9_FEAT_LVL_ALT_Q_EN(v4l2_vp9_seg_feat_enabled(
-+		seg->feature_enabled, feature_id, segid));
-+	feature_val |= VP9_FEAT_LVL_ALT_Q(seg->feature_data[segid][feature_id]);
-+
-+	feature_id = V4L2_VP9_SEG_LVL_ALT_L;
-+	feature_val |= VP9_FEAT_LVL_ALT_L_EN(v4l2_vp9_seg_feat_enabled(
-+		seg->feature_enabled, feature_id, segid));
-+	feature_val |= VP9_FEAT_LVL_ALT_L(seg->feature_data[segid][feature_id]);
-+
-+	feature_id = V4L2_VP9_SEG_LVL_REF_FRAME;
-+	feature_val |= VP9_FEAT_LVL_REF_FRAME_EN(v4l2_vp9_seg_feat_enabled(
-+		seg->feature_enabled, feature_id, segid));
-+	feature_val |=
-+		VP9_FEAT_LVL_REF_FRAME(seg->feature_data[segid][feature_id]);
-+
-+	feature_id = V4L2_VP9_SEG_LVL_SKIP;
-+	feature_val |= VP9_FEAT_LVL_SKIP_EN(v4l2_vp9_seg_feat_enabled(
-+		seg->feature_enabled, feature_id, segid));
-+
-+	return feature_val;
-+}
-+
-+static void set_header(struct avd_ctx *ctx, struct avd_vp9_run *run)
-+{
-+	struct avd_vp9_ctx *vp9_ctx = ctx->priv;
-+	const struct v4l2_ctrl_vp9_compressed_hdr *prob_updates =
-+		run->prob_updates;
-+	const struct v4l2_ctrl_vp9_frame *frame = run->decode_params;
-+	struct avd_dev *avd = ctx->dev;
-+	u32 bytesperline;
-+
-+	bool intra_only = !!(frame->flags & (V4L2_VP9_FRAME_FLAG_KEY_FRAME |
-+					     V4L2_VP9_FRAME_FLAG_INTRA_ONLY));
-+
-+	push(AVD_OP_HDR | AVD_OP_HDR_FLAG_DECOMP(ctx->decomp) |
-+		     AVD_OP_HDR_FLAG_INTRA(intra_only) | AVD_OP_HDR_CONST |
-+		     AVD_OP_HDR_FLAG_PIPE_STATE(
-+			     !(avd->variant->quirks & AVD_QUIRK_NO_PIPE_STATE)),
-+	     "hdr_34_start_hdr");
-+
-+	push(AVD_HDR_CODEC_MODE(AVD_CODEC_VP9), "hdr_38_mode");
-+
-+	push(AVD_HDR_HEIGHT(frame->frame_height_minus_1) |
-+		     AVD_HDR_WIDTH(frame->frame_width_minus_1),
-+	     "hdr_28_height_width_shift3");
-+	push(0, "");
-+	push(AVD_HDR_HEIGHT(frame->frame_height_minus_1) |
-+		     AVD_HDR_WIDTH(frame->frame_width_minus_1),
-+	     "hdr_38_height_width_shift3");
-+
-+	push(AVD_HDR_COMMON_CHROMA_FORMAT(1) |
-+		     AVD_HDR_COMMON_BIT_DEPTH_C(frame->bit_depth - 8) |
-+		     AVD_HDR_COMMON_BIT_DEPTH_L(frame->bit_depth - 8) |
-+		     AVD_HDR_COMMON_LUMA_CBS(3) |
-+		     AVD_HDR_COMMON_LUMA_TBS(min(prob_updates->tx_mode, 3)) |
-+		     AVD_HDR_COMMON_FLAG0(prob_updates->tx_mode &
-+					  V4L2_VP9_TX_MODE_SELECT),
-+	     "hdr_2c_txfm_mode");
-+
-+	push(make_flags1(ctx, run), "hdr_40_flags1_pt1");
-+
-+	for (int i = 0; i < 8; i++)
-+		push(seg_features(ctx, run, i), "seg");
-+
-+	push(AVD_HDR_FEAT_VP9, "unk_const");
-+	push(0, "");
-+	push(0, "");
-+
-+	pusha(vp9_ctx->bufs.counts.addr, "counts", 0);
-+	pusha(vp9_ctx->bufs.probs.addr, "probs", 0);
-+	pusha(vp9_ctx->bufs.above_info.addr, "above_info", 0);
-+	pusha(vp9_ctx->bufs.seg.addr, "seg", 1);
-+	pusha(vp9_ctx->bufs.seg.addr, "seg", 2);
-+	pusha(vp9_ctx->bufs.color.addr, "color", 3);
-+	pusha(vp9_ctx->bufs.color.addr, "color", 4);
-+
-+	push(VP9_Q_IDX(frame->quant.base_q_idx) |
-+		     VP9_Q_DC_Y(frame->quant.delta_q_y_dc) |
-+		     VP9_Q_DC_UV(frame->quant.delta_q_uv_dc) |
-+		     VP9_Q_AC_UV(frame->quant.delta_q_uv_ac),
-+	     "hdr_4c_base_q_idx");
-+	/* filter related flags? */
-+	push(VP9_LF_SHARPNESS(frame->lf.sharpness) |
-+		     (frame->lf.flags &
-+				      V4L2_VP9_LOOP_FILTER_FLAG_DELTA_ENABLED ?
-+			      VP9_LF_REF0(frame->lf.ref_deltas[0]) |
-+				      VP9_LF_REF1(frame->lf.ref_deltas[1]) |
-+				      VP9_LF_REF2(frame->lf.ref_deltas[2]) |
-+				      VP9_LF_REF3(frame->lf.ref_deltas[3]) :
-+			      0),
-+	     "hdr_44_flags1_pt2");
-+
-+	push(VP9_LF_LV(frame->lf.level) |
-+		     (frame->lf.flags &
-+				      V4L2_VP9_LOOP_FILTER_FLAG_DELTA_ENABLED ?
-+			      VP9_LF_MODE0(frame->lf.mode_deltas[0]) |
-+				      VP9_LF_MODE1(frame->lf.mode_deltas[1]) :
-+			      0),
-+	     "hdr_48_loop_filter_level");
-+
-+	push(0, "");
-+	push(0, "");
-+
-+	if (avd->variant->revision == 3)
-+		push(0, "");
-+	if (!(avd->variant->quirks & AVD_QUIRK_NO_PIPE_STATE))
-+		pusha(ctx->pipe_state.addr, "pipe_state", 0);
-+
-+	pusha(vp9_ctx->bufs.ip_above.addr, "ip_above", 0);
-+	pusha(vp9_ctx->bufs.lf_above.addr, "lf_above", 0);
-+	/* no lf_above_info? */
-+	pusha((u64)0, "hdr_e8_sps0_tile_addr_lsb8", 0);
-+	pusha(vp9_ctx->bufs.lf_left.addr, "lf_left", 0);
-+	pusha(vp9_ctx->bufs.lf_left_info.addr, "lf_left_info", 0);
-+	pusha(vp9_ctx->bufs.az_left.addr, "az_left", 0);
-+
-+	push(0, "");
-+
-+	push_comp(ctx, run->base.comp_out, ctx->comp.offsets);
-+
-+	pusha((u64)0, "packed_fmt_scratch", 0);
-+
-+	bytesperline = ctx->decoded_fmt.fmt.pix_mp.plane_fmt[0].bytesperline;
-+	if (avd->variant->quirks & AVD_QUIRK_LSR)
-+		bytesperline = bytesperline >> 4;
-+
-+	pusha(run->base.y_out, "hdr_168_y_addr_lsb8", 0);
-+	push(bytesperline, "hdr_170_width_align");
-+	pusha(run->base.uv_out, "hdr_16c_uv_addr_lsb8", 0);
-+	push(bytesperline, "hdr_174_width_align");
-+	push(0, "");
-+	push(AVD_HDR_HEIGHT(frame->frame_height_minus_1) |
-+		     AVD_HDR_WIDTH(frame->frame_width_minus_1),
-+	     "cm3_height_width");
-+
-+	if (!(intra_only))
-+		set_refs(ctx, run);
-+}
-+
-+static void set_tiles(struct avd_ctx *ctx, struct avd_vp9_run *run)
-+{
-+	const struct v4l2_ctrl_vp9_frame *frame = run->decode_params;
-+	struct avd_vp9_ctx *vp9_ctx = ctx->priv;
-+	struct vb2_v4l2_buffer *src = v4l2_m2m_next_src_buf(ctx->fh.m2m_ctx);
-+	const u8 *data = vb2_plane_vaddr(&src->vb2_buf, 0);
-+
-+	u32 offset =
-+		frame->uncompressed_header_size + frame->compressed_header_size;
-+	u32 size = vb2_get_plane_payload(&src->vb2_buf, 0) - offset;
-+	u32 num_tile_rows = 1 << frame->tile_rows_log2;
-+	u32 num_tile_cols = 1 << frame->tile_cols_log2;
-+	u32 tile_size;
-+
-+	/* 6.2.6 Compute image size syntax */
-+	u32 sb_64_cols = (((frame->frame_width_minus_1 + 8) >> 3) + 7) >> 3;
-+	u32 sb_64_rows = (((frame->frame_height_minus_1 + 8) >> 3) + 7) >> 3;
-+
-+	for (int row = 0; row < num_tile_rows; row++)
-+		for (int col = 0; col < num_tile_cols; col++) {
-+			ctx->job.num++;
-+			if (row == num_tile_rows - 1 &&
-+			    col == num_tile_cols - 1) {
-+				tile_size = size;
-+			} else {
-+				tile_size = get_unaligned_be32(&data[offset]);
-+				/* i have crashed my computer because of this */
-+				if (tile_size > size - 4)
-+					return;
-+				offset += 4;
-+				size -= 4;
-+			}
-+			push(AVD_OP_CODED_DATA |
-+				     AVD_OP_CODED_DATA_ADDR(
-+					     run->base.coded_in >> 32),
-+			     "cm3_cmd_set_slice_data");
-+			push((u32)((run->base.coded_in + offset) & 0xffffffff),
-+			     "til_ab4_tile_addr_low");
-+			push(tile_size, "til_ab8_tile_size");
-+			push(AVD_OP_SL_DIM_START |
-+				     AVD_OP_SL_DIM_START_Y((row * sb_64_rows) /
-+							   num_tile_rows) |
-+				     AVD_OP_SL_DIM_START_X((col * sb_64_cols) /
-+							   num_tile_cols),
-+			     "i");
-+
-+			push(AVD_SL_DIM_END_COL(col) |
-+				     AVD_SL_DIM_END_Y(((row + 1) * sb_64_rows) /
-+							      num_tile_rows - 1) |
-+				     AVD_SL_DIM_END_X(((col + 1) * sb_64_cols) /
-+							      num_tile_cols - 1),
-+			     "til_ac0_tile_dims");
-+
-+			offset += tile_size;
-+			size -= tile_size;
-+			vp9_ctx->submit_num++;
-+		}
-+}
-+
-+static void update_dec_buf_info(struct avd_decoded_buffer *buf,
-+				const struct v4l2_ctrl_vp9_frame *dec_params)
-+{
-+	buf->vp9.width = dec_params->frame_width_minus_1 + 1;
-+	buf->vp9.height = dec_params->frame_height_minus_1 + 1;
-+	buf->vp9.bit_depth = dec_params->bit_depth;
-+}
-+
-+static void update_ctx_cur_info(struct avd_vp9_ctx *vp9_ctx,
-+				struct avd_decoded_buffer *buf,
-+				const struct v4l2_ctrl_vp9_frame *dec_params)
-+{
-+	vp9_ctx->cur.valid = true;
-+	vp9_ctx->cur.reference_mode = dec_params->reference_mode;
-+	vp9_ctx->cur.interpolation_filter = dec_params->interpolation_filter;
-+	vp9_ctx->cur.flags = dec_params->flags;
-+	vp9_ctx->cur.timestamp = buf->base.vb.vb2_buf.timestamp;
-+	vp9_ctx->cur.seg = dec_params->seg;
-+	vp9_ctx->cur.lf = dec_params->lf;
-+}
-+
-+static void update_ctx_last_info(struct avd_vp9_ctx *vp9_ctx)
-+{
-+	vp9_ctx->last = vp9_ctx->cur;
-+}
-+
-+static void copy_vp9_frame_mv(struct avd_vp9_probs *avd_probs,
-+			      const struct v4l2_vp9_frame_context *probs)
-+{
-+	memcpy(avd_probs->joint, probs->mv.joint, sizeof(avd_probs->joint));
-+	for (int i = 0; i < 2; i++) {
-+		avd_probs->mv_comp[i].sign = probs->mv.sign[i];
-+		memcpy(avd_probs->mv_comp[i].bits, probs->mv.bits[i],
-+		       sizeof(avd_probs->mv_comp[i].bits));
-+		avd_probs->mv_comp[i].class0_bit = probs->mv.class0_bit[i];
-+		memcpy(avd_probs->mv_comp[i].classes, probs->mv.classes[i],
-+		       sizeof(avd_probs->mv_comp[i].bits));
-+
-+		memcpy(avd_probs->mv_fr[i].class0_fr, probs->mv.class0_fr[i],
-+		       sizeof(avd_probs->mv_fr[i].class0_fr));
-+		memcpy(avd_probs->mv_fr[i].fr, probs->mv.fr[i],
-+		       sizeof(avd_probs->mv_fr[i].fr));
-+
-+		avd_probs->mv_hp[i].class0_hp = probs->mv.class0_hp[i];
-+		avd_probs->mv_hp[i].hp = probs->mv.hp[i];
-+	}
-+}
-+
-+static void init_probs(struct avd_ctx *ctx, const struct avd_vp9_run *run)
-+{
-+	const struct v4l2_ctrl_vp9_frame *dec_params;
-+	struct avd_vp9_ctx *vp9_ctx = ctx->priv;
-+	struct avd_vp9_probs *avd_probs = vp9_ctx->bufs.probs.cpu;
-+	const struct v4l2_vp9_segmentation *seg;
-+	const struct v4l2_vp9_frame_context *probs;
-+	bool intra_only;
-+	int count = 0;
-+
-+	dec_params = run->decode_params;
-+	probs = &vp9_ctx->probability_tables;
-+	seg = &dec_params->seg;
-+
-+	memset(avd_probs, 0, sizeof(*avd_probs));
-+
-+	intra_only = !!(dec_params->flags & (V4L2_VP9_FRAME_FLAG_KEY_FRAME |
-+					     V4L2_VP9_FRAME_FLAG_INTRA_ONLY));
-+
-+	memcpy(avd_probs->tx8, probs->tx8, sizeof(avd_probs->tx8));
-+	memcpy(avd_probs->tx16, probs->tx16, sizeof(avd_probs->tx16));
-+	memcpy(avd_probs->tx32, probs->tx32, sizeof(avd_probs->tx32));
-+	memcpy(avd_probs->skip, probs->skip, sizeof(avd_probs->skip));
-+	memcpy(avd_probs->inter_mode, probs->inter_mode,
-+	       sizeof(avd_probs->inter_mode));
-+	memcpy(avd_probs->interp_filter, probs->interp_filter,
-+	       sizeof(avd_probs->interp_filter));
-+	memcpy(avd_probs->is_inter, probs->is_inter,
-+	       sizeof(avd_probs->is_inter));
-+	memcpy(avd_probs->comp_mode, probs->comp_mode,
-+	       sizeof(avd_probs->comp_mode));
-+	memcpy(avd_probs->single_ref, probs->single_ref,
-+	       sizeof(avd_probs->single_ref));
-+	memcpy(avd_probs->comp_ref, probs->comp_ref,
-+	       sizeof(avd_probs->comp_ref));
-+	memcpy(avd_probs->y_mode, probs->y_mode, sizeof(avd_probs->y_mode));
-+
-+	memcpy(avd_probs->partition,
-+	       intra_only ? v4l2_vp9_kf_partition_probs : probs->partition,
-+	       sizeof(avd_probs->partition));
-+	memcpy(avd_probs->uv_mode,
-+	       intra_only ? v4l2_vp9_kf_uv_mode_prob : probs->uv_mode,
-+	       sizeof(avd_probs->uv_mode));
-+
-+	copy_vp9_frame_mv(avd_probs, probs);
-+
-+	for (int t = 0; t < 4; t++)
-+		for (int i = 0; i < 2; i++)
-+			for (int j = 0; j < 2; j++)
-+				for (int k = 0; k < 6; k++) {
-+					int max_l = (k == 0) ? 3 : 6;
-+					for (int l = 0; l < max_l; l++) {
-+						for (int n = 0; n < 3; n++)
-+							avd_probs->coef[count++] =
-+								probs->coef[t][i][j][k][l][n];
-+					}
-+				}
-+
-+	memcpy(avd_probs->seg.pred_probs, seg->pred_probs,
-+	       sizeof(avd_probs->seg.pred_probs));
-+	memcpy(avd_probs->seg.tree_probs, seg->tree_probs,
-+	       sizeof(avd_probs->seg.tree_probs));
-+}
-+
-+static int validate_dec_params(struct avd_ctx *ctx,
-+			       const struct v4l2_ctrl_vp9_frame *dec_params)
-+{
-+	unsigned int aligned_width, aligned_height;
-+
-+	if (dec_params->bit_depth > 10)
-+		/* not implemented */
-+		return -EINVAL;
-+
-+	if (dec_params->profile == 1 || dec_params->profile > 2)
-+		return -EINVAL;
-+
-+	if (dec_params->frame_height_minus_1 + 1 < 64 ||
-+	    dec_params->frame_width_minus_1 + 1 < 64)
-+		return -EINVAL;
-+
-+	aligned_width = round_up(dec_params->frame_width_minus_1 + 1, 64);
-+	aligned_height = round_up(dec_params->frame_height_minus_1 + 1, 16);
-+
-+	/*
-+	 * Userspace should update the capture/decoded format when the
-+	 * resolution changes.
-+	 */
-+	if (aligned_width != ctx->decoded_fmt.fmt.pix_mp.width ||
-+	    aligned_height != ctx->decoded_fmt.fmt.pix_mp.height) {
-+		dev_err(ctx->dev->dev,
-+			"unexpected bitstream resolution %dx%d\n",
-+			aligned_width, aligned_height);
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
-+static int avd_vp9_alloc_bufs(struct avd_ctx *ctx)
-+{
-+	struct avd_dev *avd = ctx->dev;
-+	struct avd_vp9_ctx *vp9_ctx = ctx->priv;
-+	int ret, w, h, bit_depth;
-+
-+	w = fmt_width(ctx);
-+	h = fmt_height(ctx);
-+	bit_depth = (ctx->image_fmt == AVD_IMG_FMT_420_10BIT ||
-+		     ctx->image_fmt == AVD_IMG_FMT_422_10BIT) ?
-+			    10 :
-+			    8;
-+
-+	ret = avd_buf_alloc(avd, &vp9_ctx->bufs.probs,
-+			    sizeof(struct avd_vp9_probs));
-+	if (ret)
-+		return ret;
-+
-+	ret = avd_buf_alloc(avd, &vp9_ctx->bufs.counts,
-+			    sizeof(struct avd_vp9_frame_symbol_counts));
-+	if (ret)
-+		return ret;
-+
-+	ret = avd_buf_alloc(avd, &vp9_ctx->bufs.color,
-+			    DIV_ROUND_UP(w, 16) * DIV_ROUND_UP(h, 64) * 144);
-+	if (ret)
-+		return ret;
-+
-+	ret = avd_buf_alloc(avd, &vp9_ctx->bufs.ip_above,
-+			    DIV_ROUND_UP(w, 16) * 4 * bit_depth +
-+				    (VP9_MAX_TILE_COLS - 1) * 128);
-+	if (ret)
-+		return ret;
-+	ret = avd_buf_alloc(avd, &vp9_ctx->bufs.lf_above,
-+			    DIV_ROUND_UP(w, 8) * 16 * bit_depth);
-+	if (ret)
-+		return ret;
-+
-+	ret = avd_buf_alloc(avd, &vp9_ctx->bufs.seg, DIV_ROUND_UP(w, 8) * 24);
-+	if (ret)
-+		return ret;
-+
-+	ret = avd_buf_alloc(avd, &vp9_ctx->bufs.lf_left,
-+			    DIV_ROUND_UP(h, 8) * 16 * bit_depth);
-+	if (ret)
-+		return ret;
-+
-+	ret = avd_buf_alloc(avd, &vp9_ctx->bufs.lf_left_info,
-+			    DIV_ROUND_UP(h, 64) * 16);
-+	if (ret)
-+		return ret;
-+
-+	ret = avd_buf_alloc(avd, &vp9_ctx->bufs.az_left,
-+			    bit_depth * 36 * DIV_ROUND_UP(h, 8) +
-+				    bit_depth * 18 * DIV_ROUND_UP(h, 16));
-+	if (ret)
-+		return ret;
-+
-+	ret = avd_buf_alloc(avd, &vp9_ctx->bufs.above_info,
-+			    DIV_ROUND_UP(w, 64) * 288 +
-+				    (VP9_MAX_TILE_COLS - 1) * 128);
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+
-+static int avd_vp9_run_preamble(struct avd_ctx *ctx, struct avd_vp9_run *run)
-+{
-+	struct v4l2_ctrl *ctrl;
-+	const struct v4l2_ctrl_vp9_frame *dec_params;
-+	struct avd_vp9_ctx *vp9_ctx = ctx->priv;
-+	unsigned int fctx_idx;
-+	int ret;
-+
-+	avd_run_preamble(ctx, &run->base);
-+
-+	ctrl = v4l2_ctrl_find(&ctx->ctrl_hdl,
-+			      V4L2_CID_STATELESS_VP9_COMPRESSED_HDR);
-+	if (WARN_ON(!ctrl))
-+		return -EINVAL;
-+	run->prob_updates = ctrl->p_cur.p;
-+
-+	ctrl = v4l2_ctrl_find(&ctx->ctrl_hdl, V4L2_CID_STATELESS_VP9_FRAME);
-+	if (WARN_ON(!ctrl))
-+		return -EINVAL;
-+	dec_params = ctrl->p_cur.p;
-+
-+	ret = validate_dec_params(ctx, dec_params);
-+	if (ret)
-+		return ret;
-+
-+	run->decode_params = dec_params;
-+
-+	vp9_ctx->cur.tx_mode = run->prob_updates->tx_mode;
-+
-+	fctx_idx = v4l2_vp9_reset_frame_ctx(dec_params, vp9_ctx->frame_context);
-+	vp9_ctx->cur.frame_context_idx = fctx_idx;
-+
-+	vp9_ctx->probability_tables = vp9_ctx->frame_context[fctx_idx];
-+	v4l2_vp9_fw_update_probs(&vp9_ctx->probability_tables,
-+				 run->prob_updates, dec_params);
-+
-+	return 0;
-+}
-+
-+static int avd_vp9_run(struct avd_ctx *ctx)
-+{
-+	struct avd_vp9_run run;
-+	struct avd_vp9_ctx *vp9_ctx;
-+	struct avd_decoded_buffer *dst;
-+	int ret;
-+
-+	ret = avd_vp9_run_preamble(ctx, &run);
-+	if (ret) {
-+		avd_run_postamble(ctx, &run.base);
-+		return ret;
-+	}
-+
-+	ret = avd_init_job(
-+		ctx, AVD_CODEC_VP9,
-+		(1 << run.decode_params->tile_rows_log2) *
-+				(1 << run.decode_params->tile_cols_log2) +
-+			1);
-+	if (ret)
-+		return ret;
-+
-+	init_probs(ctx, &run);
-+
-+	vp9_ctx = ctx->priv;
-+	dst = vb2_to_avd_decoded_buf(&run.base.bufs.dst->vb2_buf);
-+	update_dec_buf_info(dst, run.decode_params);
-+	update_ctx_cur_info(vp9_ctx, dst, run.decode_params);
-+
-+	set_header(ctx, &run);
-+	vp9_ctx->submit_num = 0;
-+	set_tiles(ctx, &run);
-+	avd_run_postamble(ctx, &run.base);
-+
-+	return avd_submit_job(ctx);
-+}
-+
-+#define copy_tx_and_skip(p1, p2)                                    \
-+	do {                                                        \
-+		memcpy((p1)->tx8, (p2)->tx8, sizeof((p1)->tx8));    \
-+		memcpy((p1)->tx16, (p2)->tx16, sizeof((p1)->tx16)); \
-+		memcpy((p1)->tx32, (p2)->tx32, sizeof((p1)->tx32)); \
-+		memcpy((p1)->skip, (p2)->skip, sizeof((p1)->skip)); \
-+	} while (0)
-+
-+static void avd_vp9_done(struct avd_ctx *ctx, struct vb2_v4l2_buffer *src_buf,
-+			 struct vb2_v4l2_buffer *dst_buf,
-+			 enum vb2_buffer_state result)
-+{
-+	struct avd_vp9_ctx *vp9_ctx = ctx->priv;
-+	unsigned int fctx_idx;
-+
-+	/* v4l2-specific stuff */
-+	if (result == VB2_BUF_STATE_ERROR)
-+		goto out_update_last;
-+
-+	/*
-+	 * vp9 stuff
-+	 *
-+	 * 6.1.2 refresh_probs()
-+	 *
-+	 * In the spec a complementary condition goes last in 6.1.2 refresh_probs(),
-+	 * but it makes no sense to perform all the activities from the first "if"
-+	 * there if we actually are not refreshing the frame context. On top of that,
-+	 * because of 6.2 uncompressed_header() whenever error_resilient_mode == 1,
-+	 * refresh_frame_context == 0. Consequently, if we don't jump to out_update_last
-+	 * it means error_resilient_mode must be 0.
-+	 */
-+	if (!(vp9_ctx->cur.flags & V4L2_VP9_FRAME_FLAG_REFRESH_FRAME_CTX))
-+		goto out_update_last;
-+
-+	fctx_idx = vp9_ctx->cur.frame_context_idx;
-+
-+	if (!(vp9_ctx->cur.flags & V4L2_VP9_FRAME_FLAG_PARALLEL_DEC_MODE)) {
-+		/* error_resilient_mode == 0 && frame_parallel_decoding_mode == 0 */
-+		struct v4l2_vp9_frame_context *probs =
-+			&vp9_ctx->probability_tables;
-+		bool frame_is_intra = vp9_ctx->cur.flags &
-+				      (V4L2_VP9_FRAME_FLAG_KEY_FRAME |
-+				       V4L2_VP9_FRAME_FLAG_INTRA_ONLY);
-+		struct tx_and_skip {
-+			u8 tx8[2][1];
-+			u8 tx16[2][2];
-+			u8 tx32[2][3];
-+			u8 skip[3];
-+		} _tx_skip, *tx_skip = &_tx_skip;
-+		struct v4l2_vp9_frame_symbol_counts *counts;
-+
-+		/* buffer the forward-updated TX and skip probs */
-+		if (frame_is_intra)
-+			copy_tx_and_skip(tx_skip, probs);
-+
-+		/* 6.1.2 refresh_probs(): load_probs() and load_probs2() */
-+		*probs = vp9_ctx->frame_context[fctx_idx];
-+
-+		/* if FrameIsIntra then undo the effect of load_probs2() */
-+		if (frame_is_intra)
-+			copy_tx_and_skip(probs, tx_skip);
-+
-+		counts = &vp9_ctx->cnts;
-+
-+		v4l2_vp9_adapt_coef_probs(
-+			probs, counts,
-+			!vp9_ctx->last.valid ||
-+				vp9_ctx->last.flags &
-+					V4L2_VP9_FRAME_FLAG_KEY_FRAME,
-+			frame_is_intra);
-+		if (!frame_is_intra) {
-+			const struct avd_vp9_frame_symbol_counts *cnts;
-+			int i;
-+			u32 tx16p[2][4];
-+			u32 sign[2][2];
-+			u32 classes[2][11];
-+			u32 class0[2][2];
-+			u32 bits[2][10][2];
-+			u32 class0_fp[2][2][4];
-+			u32 fp[2][4];
-+			u32 class0_hp[2][2];
-+			u32 hp[2][2];
-+
-+			cnts = vp9_ctx->bufs.counts.cpu;
-+
-+			for (i = 0; i < ARRAY_SIZE(cnts->tx16p); ++i)
-+				memcpy(tx16p[i], cnts->tx16p[i],
-+				       sizeof(tx16p[0]));
-+
-+			for (i = 0; i < 2; i++) {
-+				memcpy(sign[i], cnts->mv_comp[i].sign,
-+				       sizeof(sign[0]));
-+				memcpy(classes[i], cnts->mv_comp[i].classes,
-+				       sizeof(classes[0]));
-+				memcpy(class0[i], cnts->mv_comp[i].class0,
-+				       sizeof(class0[0]));
-+				memcpy(bits[i], cnts->mv_comp[i].bits,
-+				       sizeof(bits[0]));
-+				memcpy(class0_fp[i], cnts->mv_fr[i].class0_fr,
-+				       sizeof(class0_fp[0]));
-+				memcpy(fp[i], cnts->mv_fr[i].fr, sizeof(fp[0]));
-+				memcpy(class0_hp[i], cnts->mv_hp[i].class0_hp,
-+				       sizeof(class0_hp[0]));
-+				memcpy(hp[i], cnts->mv_hp[i].hp, sizeof(hp[0]));
-+			}
-+
-+			counts->tx16p = &tx16p;
-+			counts->sign = &sign;
-+			counts->classes = &classes;
-+			counts->class0 = &class0;
-+			counts->bits = &bits;
-+			counts->class0_fp = &class0_fp;
-+			counts->fp = &fp;
-+			counts->class0_hp = &class0_hp;
-+			counts->hp = &hp;
-+
-+			/* load_probs2() already done */
-+			v4l2_vp9_adapt_noncoef_probs(
-+				&vp9_ctx->probability_tables, counts,
-+				vp9_ctx->cur.reference_mode,
-+				vp9_ctx->cur.interpolation_filter,
-+				vp9_ctx->cur.tx_mode, vp9_ctx->cur.flags);
-+		}
-+	}
-+
-+	/* 6.1.2 refresh_probs(): save_probs(fctx_idx) */
-+	vp9_ctx->frame_context[fctx_idx] = vp9_ctx->probability_tables;
-+
-+out_update_last:
-+	update_ctx_last_info(vp9_ctx);
-+}
-+
-+static noinline_for_stack void
-+avd_init_v4l2_vp9_count_tbl(struct avd_ctx *ctx)
-+{
-+	struct avd_vp9_ctx *vp9_ctx = ctx->priv;
-+	struct avd_vp9_frame_symbol_counts *cnts = vp9_ctx->bufs.counts.cpu;
-+	int coeff_cnts = 0, eob_cnts = 0;
-+
-+	vp9_ctx->cnts.intra_inter = &cnts->intra_inter;
-+	vp9_ctx->cnts.y_mode = &cnts->y_mode;
-+	vp9_ctx->cnts.uv_mode = &cnts->uv_mode;
-+	vp9_ctx->cnts.comp = &cnts->comp;
-+	vp9_ctx->cnts.comp_ref = &cnts->comp_ref;
-+	vp9_ctx->cnts.single_ref = &cnts->single_ref;
-+	vp9_ctx->cnts.filter = &cnts->filter;
-+	vp9_ctx->cnts.mv_mode = &cnts->mv_mode;
-+	vp9_ctx->cnts.mv_joint = &cnts->mv_joint;
-+	/* all of the mv use a different structure, so they must all be copied */
-+	vp9_ctx->cnts.tx8p = &cnts->tx8p;
-+	/*
-+	 * AVD also uses "u32 tx16p[2][3]" instead of "u32 tx16p[2][4]", so
-+	 * they must also be copied
-+	 */
-+	vp9_ctx->cnts.tx32p = &cnts->tx32p;
-+	vp9_ctx->cnts.partition = &cnts->partition;
-+	vp9_ctx->cnts.skip = &cnts->skip;
-+
-+	for (int t = 0; t < 4; t++)
-+		for (int i = 0; i < 2; i++)
-+			for (int j = 0; j < 2; j++)
-+				for (int k = 0; k < 6; k++) {
-+					int max_l = (k == 0) ? 3 : 6;
-+					for (int l = 0; l < max_l; l++) {
-+						vp9_ctx->cnts.coeff[t][i][j][k][l] =
-+							(u32 (*)[3])&cnts->ref_cnt[coeff_cnts];
-+						coeff_cnts += 3;
-+						vp9_ctx->cnts.eob[t][i][j][k][l][0] =
-+							&cnts->eob_0[eob_cnts++];
-+						vp9_ctx->cnts.eob[t][i][j][k][l][1] =
-+							&cnts->ref_cnt[coeff_cnts++];
-+					}
-+				}
-+}
-+
-+static int avd_vp9_start(struct avd_ctx *ctx)
-+{
-+	struct avd_vp9_ctx *vp9_ctx;
-+	int ret;
-+
-+	vp9_ctx = kzalloc_obj(*vp9_ctx, GFP_KERNEL);
-+	if (!vp9_ctx)
-+		return -ENOMEM;
-+
-+	ctx->priv = vp9_ctx;
-+	ret = avd_vp9_alloc_bufs(ctx);
-+	if (ret)
-+		goto err_free_ctx;
-+
-+	avd_init_v4l2_vp9_count_tbl(ctx);
-+
-+	return 0;
-+
-+err_free_ctx:
-+	kfree(vp9_ctx);
-+	ctx->priv = NULL;
-+	return ret;
-+}
-+
-+static void avd_vp9_stop(struct avd_ctx *ctx)
-+{
-+	struct avd_vp9_ctx *vp9_ctx = ctx->priv;
-+	struct avd_dev *avd = ctx->dev;
-+
-+	avd_buf_free(avd, &vp9_ctx->bufs.probs);
-+	avd_buf_free(avd, &vp9_ctx->bufs.counts);
-+	avd_buf_free(avd, &vp9_ctx->bufs.seg);
-+	avd_buf_free(avd, &vp9_ctx->bufs.color);
-+	avd_buf_free(avd, &vp9_ctx->bufs.ip_above);
-+	avd_buf_free(avd, &vp9_ctx->bufs.lf_above);
-+	avd_buf_free(avd, &vp9_ctx->bufs.above_info);
-+	avd_buf_free(avd, &vp9_ctx->bufs.az_left);
-+	avd_buf_free(avd, &vp9_ctx->bufs.lf_left_info);
-+	avd_buf_free(avd, &vp9_ctx->bufs.lf_left);
-+
-+	kfree(vp9_ctx);
-+}
-+
-+static enum avd_image_fmt avd_vp9_get_image_fmt(struct avd_ctx *ctx,
-+						struct v4l2_ctrl *ctrl)
-+{
-+#define BIT_DEPTH(chroma)                                      \
-+	(frame->bit_depth == 8 ? AVD_IMG_FMT_##chroma##_8BIT : \
-+				 AVD_IMG_FMT_##chroma##_10BIT)
-+	const struct v4l2_ctrl_vp9_frame *frame = ctrl->p_new.p_vp9_frame;
-+
-+	if (ctrl->id != V4L2_CID_STATELESS_VP9_FRAME)
-+		return AVD_IMG_FMT_ANY;
-+
-+	/* 7.2.2 Color config semantics */
-+	if (frame->flags & V4L2_VP9_FRAME_FLAG_X_SUBSAMPLING) {
-+		if (frame->flags & V4L2_VP9_FRAME_FLAG_Y_SUBSAMPLING)
-+			return BIT_DEPTH(420);
-+		else
-+			return BIT_DEPTH(422);
-+	}
-+
-+	return AVD_IMG_FMT_ANY;
-+#undef BIT_DEPTH
-+}
-+
-+static void avd_vp9_submit(struct avd_ctx *ctx)
-+{
-+	struct avd_vp9_ctx *vp9_ctx = ctx->priv;
-+	struct avd_dev *avd = ctx->dev;
-+	u32 submit_mask = ctx->dev->variant->revision == 3 ?
-+				  AVD_OP_EXEC_REV3_VP9_MASK :
-+				  0;
-+
-+	writel(AVD_OP_EXEC | submit_mask |
-+		       AVD_OP_EXEC_FLAG_START_REV4(avd->variant->revision ==
-+						   4) |
-+		       AVD_OP_EXEC_FLAG_START_REV3(avd->variant->revision ==
-+						   3) |
-+		       AVD_OP_EXEC_FIFO_IDX(ctx->fifo_idx) |
-+		       AVD_OP_EXEC_FIFO_MASK(avd->variant->fifo_slots),
-+	       avd->ctrl + avd->variant->submit_offset);
-+	for (int i = 0; i < vp9_ctx->submit_num - 1; i++)
-+		writel(AVD_OP_EXEC | submit_mask |
-+			       AVD_OP_EXEC_FIFO_IDX(ctx->fifo_idx) |
-+			       AVD_OP_EXEC_FIFO_MASK(avd->variant->fifo_slots),
-+		       avd->ctrl + avd->variant->submit_offset);
-+}
-+
-+const struct avd_coded_fmt_ops avd_vp9_fmt_ops = {
-+	.start = avd_vp9_start,
-+	.stop = avd_vp9_stop,
-+	.run = avd_vp9_run,
-+	.done = avd_vp9_done,
-+	.submit = avd_vp9_submit,
-+	.get_image_fmt = avd_vp9_get_image_fmt,
-+};
-diff --git a/drivers/media/platform/apple/avd/avd.h b/drivers/media/platform/apple/avd/avd.h
-index 5dab6cb077fa..facf23d151c0 100644
---- a/drivers/media/platform/apple/avd/avd.h
-+++ b/drivers/media/platform/apple/avd/avd.h
-@@ -91,6 +91,12 @@ struct avd_ctrls {
- 	unsigned int num_ctrls;
- };
+@@ -6376,7 +6376,7 @@ static void kvm_init_debug(void)
+ 	const struct kvm_stats_desc *pdesc;
+ 	int i;
  
-+struct avd_vp9_decoded_buffer_info {
-+	unsigned short width;
-+	unsigned short height;
-+	unsigned int bit_depth : 4;
-+};
-+
- struct avd_comp {
- 	u32 size;
- 	/* offset to start of compressed data */
-@@ -103,6 +109,9 @@ struct avd_decoded_buffer {
- 	/* Must be the first field in this struct. */
- 	struct v4l2_m2m_buffer base;
- 	struct avd_comp comp;
-+	union {
-+		struct avd_vp9_decoded_buffer_info vp9;
-+	};
- };
+-	kvm_debugfs_dir = debugfs_create_dir("kvm", NULL);
++	kvm_debugfs_dir = debugfs_create_dir(__stringify(KVM_DEV_NAME), NULL);
  
- static inline struct avd_decoded_buffer *
-@@ -238,6 +247,7 @@ void avd_run_preamble(struct avd_ctx *ctx, struct avd_run *run);
- void avd_run_postamble(struct avd_ctx *ctx, struct avd_run *run);
+ 	for (i = 0; i < kvm_vm_stats_header.num_desc; ++i) {
+ 		pdesc = &kvm_vm_stats_desc[i];
+@@ -6521,7 +6521,7 @@ int kvm_init(unsigned vcpu_size, unsigned vcpu_align, struct module *module)
+ 	if (!vcpu_align)
+ 		vcpu_align = __alignof__(struct kvm_vcpu);
+ 	kvm_vcpu_cache =
+-		kmem_cache_create_usercopy("kvm_vcpu", vcpu_size, vcpu_align,
++		kmem_cache_create_usercopy(KVM_DEV_STRING(vcpu), vcpu_size, vcpu_align,
+ 					   SLAB_ACCOUNT,
+ 					   offsetof(struct kvm_vcpu, arch),
+ 					   offsetofend(struct kvm_vcpu, stats_id)
+@@ -6574,7 +6574,7 @@ int kvm_init(unsigned vcpu_size, unsigned vcpu_align, struct module *module)
+ 	 */
+ 	r = misc_register(&kvm_dev);
+ 	if (r) {
+-		pr_err("kvm: misc device register failed\n");
++		pr_err(__stringify(KVM_DEV_NAME) ": misc device register failed\n");
+ 		goto err_register;
+ 	}
  
- extern const struct avd_coded_fmt_ops avd_h264_fmt_ops;
-+extern const struct avd_coded_fmt_ops avd_vp9_fmt_ops;
- 
- extern const struct v4l2_ctrl_ops avd_ctrl_ops;
- extern const struct v4l2_ioctl_ops avd_ioctl_ops;
-
 -- 
-2.55.0
+2.53.0
 
 
