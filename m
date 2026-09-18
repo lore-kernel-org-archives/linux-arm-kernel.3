@@ -4,102 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E415C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 06:56:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AFD9C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 06:58:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r0DMlHDuV2LFIDoZEFEovDOSN4mbDMuTeZ8dyf8LL5E=; b=V2t64y/DytVgxFRDFX8qX66Aei
-	GWmu8Fc+9ArKSNDSzq8FLdIfSuWXtv3/Y2GRCNAIDRiUKHwz/eBS2b+TTaxjJDgClpqPbdjo4QzRO
-	TEhEKm93ldMV7FAp3VN9Nh4JSctkzDb8LQ+M0BkdiYwiSAN/8RbJbsDWxNMS/DY7XE1/mt/D5o8Ec
-	KNJLdwf8kqtcbt0WvhM7hn6LO06oQyQStBpJ/p5Vbg260AkWZDqUk+Op1IgyQh/oQ3eft25va0C7n
-	5FRLSPB1mARXSoYasNSx1WLjGK6NkB0tIMrHmEYPkuVa3537PSMKxrQbbhnibR2SZ4YCXJglOW3Pt
-	MteSiiXw==;
+	bh=7udPRuZza2avsL25rwJu9WQ3r0isX0KVzyh3ouR1Yz0=; b=EE/NeZsZ1+mgqXLoz8DnbfNXwq
+	92DeMLUhDJumyuiJuFXa2ELyPrUAGP1KeMs3nM2RrDArAuYYT70hGbDaARQ+zvE/+QUixnbTExqxs
+	Rm+m3/4DBANvbu8Z7E89RnOFXXplfjsyKBEt75mKXqDCiUiuBdCCPX0a+bX+ueOKo9fskTMFrL8PA
+	Nv5qbJzkAG5t+vnSEmtdu44jTQWs6u70DggMAV/tnvMvk0rGayWluIRRcRgoz/HM4NkdThf3O+akR
+	+JCAjdJw6sPowrlqYSoVfeQgLqlajW+Q6bGkx6QTqcuuDmqBJmK6N1UL+rZk9Zr62kN16qFA85DH/
+	41wYZwLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7SWc-0000000DclE-1MFk;
-	Fri, 18 Sep 2026 06:56:46 +0000
-Received: from fout-b1-smtp.messagingengine.com ([202.12.124.144])
+	id 1x7SYT-0000000Dcyi-2D6F;
+	Fri, 18 Sep 2026 06:58:41 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7SWZ-0000000Dckf-1iwt
+	id 1x7SYP-0000000Dcxf-2BV3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 06:56:44 +0000
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfout.stl.internal (Postfix) with ESMTP id E59B21D000D1;
-	Fri, 18 Sep 2026 02:56:40 -0400 (EDT)
-Received: from ams-imap-03 ([10.64.2.23])
-  by ams-compute-02.internal (MEProxy); Fri, 18 Sep 2026 02:56:42 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1789714600;
-	 x=1789801000; bh=r0DMlHDuV2LFIDoZEFEovDOSN4mbDMuTeZ8dyf8LL5E=; b=
-	IIQG6gVlwyxnfndRAOQF8DPr3eBvygmerR9HX3Oji7Q7NGUw4Dt0JtZRHMbRnta0
-	V80YTxJisJyPw0B0KeLvc8fhYZ9decGe62XP5QNmcbqttuv8TtFG79IfU0aemYi4
-	uiEuZZb1ozW0tBn3HorBYNYyJirlSe0YEIiOGm4WtPsWxMBcic3I8MBEaVwUIB53
-	O6yqA+aBYMve0jUXckC/vuLQMCnPXPDyyABB/sKT/GmER1hez66cimoKbVQ+zXiO
-	RXXVnnQcdqd1pbI1j1q9K7g4rweyfHXnq+FRmpVMlWAAWv9MwE9VVaHLfTD5J2jY
-	+6qu/hzvAezLr/4ZD5xFZQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1789714600; x=
-	1789801000; bh=r0DMlHDuV2LFIDoZEFEovDOSN4mbDMuTeZ8dyf8LL5E=; b=A
-	un6ov5AyafMFDReHcxlqnbIvzm5Y30awBH8QlPD3wG5JnjypDCimPS/USVE3wq3q
-	YJWDInr8ToPbJTpXlrl+9Od+A0AlTYNFMqsS/3tlqdxd9zYVgwnzkr8UYFI9fTMH
-	DpT05u3F8wMtFqK+GOFph+r2xvR8/fErHwFvCy0EWpWUrtTYGEacY3NQPmMYHDkx
-	WkpppmNtRU5aliQ8Op2iXvONOYwkwQXXsQOVrluwrs/DvNDvVG2pbpEoGfNRoI6z
-	mXPTgp1q7tAivKcgOsSWGHgqJgNiK8Urg7pJ0zgCAYxNonLZcgLI0d19+Bly+RsZ
-	bpdvxUvUUNyk2+eotnEkA==
-X-ME-Sender: <xms:o-CsajFMjXBHK0crUge2XUaK2TNXE-RUYAlBczbg3g3ZCPsFg3GBeQ>
-    <xme:o-CsarJKWHWLG0uRXtna6zQxxl86JsbkYVoqbljcwJd46nj2cG2OkJyMmyAT6CHMt
-    hTlIoBOQD1e7PFj2I_YQzuILUybBJ75pDmeQGylXXiT4KQLbPW0eY9o>
-X-ME-Proxy-Cause: dmFkZTE51d9azPAy3ibgXqxIXNxqm9lJw06wJQTHmRm8LbSiKF8Xd7g8qBGhORcyEHzQ/1
-    0DlqsN+aXKv5vz1vSZ7AZAg5II1V2VVdx9CydhKGL0xtVYzUmWP7ID29eUPxi8x+1smOpa
-    rKrSvlCwSQyRFZXYCQlObz7bsCd3B03+ZYsA1IK5u4M7TzcL4La1jMvSsDiLl4WWVU5Rdm
-    Xyc9Yv33Wmp84TQcyYjsModn+ZUEs6WCXbyOI3q3qcWLIKXQ4QUortHdB4OQF8Xj3BpZBe
-    6WwBIG5S4vWLPoHQ/AKujLQeE3W48W9bxCEuIu6XBoB+YUYgTmwV7XqCjooXciDC4E3ip1
-    sc36EVWpP5l38nvEnQO23IZLUnaCD6L+jkg51GP9h4lyS4a7+LB2VhN20oe1jDGhLwthpF
-    11TxFT6LnC5znRnCc5mzQKHnJIjWlL1lwjWdUfSkn/VMwTFAkkYzim06996E60GjghK3Z6
-    QR+QaMsxDSrTftli7qiYJlCDdUz00v05LlqpXI8JYuUuchjhNFX9A/8s4O/MGFea5ihmXi
-    02SUuppX9nV+9clOVZXtgSUCbuSyh/sBW5OOhhtk1/rlLeEngR9BYvzHJHKz/5tiOTSMyn
-    I+TlWyxAqJW+3RklCko3m4md0A54Bl0rpnRYScEsTLFTHDfgm7FCJAPdc/oQ
-X-ME-Proxy: <xmx:peCsajoasIFWDIfYN0Z5BvnoiRwLeQ1SsVNAe20SYsPe0fPLfT4_mg>
-    <xmx:peCsauG5rRzL-MrGt2xYGh4WUsBai_iocFMRwsfTraB7qUaQyOdG8A>
-    <xmx:peCsav-6RyWXfDW6GLs8yHTNJWI083jbsHWVsj-g-p5SqEvjOHQaBQ>
-    <xmx:peCsajSIMS0v_VPXpFQi9IMbYJ_8IakqvpeCSO5eNOFC7S34_WNpeA>
-    <xmx:qOCsapSQj-4EJquIFoeo8pK6xMvtP3o2VkG57_DRjjxLl4vQ4ZJiqObj>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 1D2CC32A0084; Fri, 18 Sep 2026 02:56:35 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 18 Sep 2026 06:58:38 +0000
+Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 3FD7E1E6A;
+	Fri, 18 Sep 2026 08:56:50 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1789714610;
+	bh=V9cF5y+tutOk4VK6+m3sT0hS5YRLKDLB/lUHOug9XPA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=FLzf+935Kin+RI4p9MY+mBTKLOL2Dbi/QPunp1c47d1ud8V3TIn2W6rLUEz4Kfzww
+	 XNqFVeJYmHLqZJadSyBJjikSzyKCQAV/TTnaotSYr//BOZj7xXjKZ5s/aXjKECmkdM
+	 o5WiOteY2x92foPkOaMfRZZDhgPYvzebQKlL5mSM=
+Message-ID: <1d62db29-9add-4907-ab09-a916c551b161@ideasonboard.com>
+Date: Fri, 18 Sep 2026 09:58:30 +0300
 MIME-Version: 1.0
-X-ThreadId: AytAa-GFwSww
-Date: Fri, 18 Sep 2026 08:56:14 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: =?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>,
- "Masami Hiramatsu" <mhiramat@kernel.org>
-Cc: "Christian Brauner" <brauner@kernel.org>, linux-kernel@vger.kernel.org,
- linux-kbuild@vger.kernel.org, kernel-dev@igalia.com,
- "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
- linux-alpha@vger.kernel.org, linux-s390@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev,
- linux-mips@vger.kernel.org, sparclinux@vger.kernel.org
-Message-Id: <6e91a8c6-c078-4b42-92b6-9902e6d0d270@app.fastmail.com>
-In-Reply-To: <20260917-tonyk-syscall_table-v7-9-f4cd8f8e3265@igalia.com>
-References: <20260917-tonyk-syscall_table-v7-0-f4cd8f8e3265@igalia.com>
- <20260917-tonyk-syscall_table-v7-9-f4cd8f8e3265@igalia.com>
-Subject: Re: [PATCH v7 09/13] mips: Use the common syscall table
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] media: xilinx: vtc: Dynamically calculate pixel clock
+To: "Gugulothu, Rajesh" <rajesh.gugulothu@amd.com>
+Cc: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ "Simek, Michal" <michal.simek@amd.com>
+References: <20260729101808.3904212-1-rajesh.gugulothu@amd.com>
+ <bfdf98d4-e3f3-42ff-a0b4-55c67790e4d0@ideasonboard.com>
+ <CYYPR12MB9014FF79595C722B3482EDED9EB22@CYYPR12MB9014.namprd12.prod.outlook.com>
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Content-Language: en-US
+In-Reply-To: <CYYPR12MB9014FF79595C722B3482EDED9EB22@CYYPR12MB9014.namprd12.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_235643_803129_E566CB03 
-X-CRM114-Status: GOOD (  11.94  )
+X-CRM114-CacheID: sfid-20260917_235837_711989_D344A29D 
+X-CRM114-Status: GOOD (  29.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,44 +75,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 18, 2026, at 01:46, Andr=C3=A9 Almeida wrote:
+Hi,
 
-> +
-> +src_n32 :=3D $(src)/syscall_n.tbl
-> +src_n64 :=3D $(src)/syscall_n.tbl
-> +src_o32 :=3D $(src)/syscall_o32.tbl
-> +
-> +.SECONDEXPANSION:
-> +
-> +$(uapi)/unistd_%.h: $(systbl_common) $$(src_$$*) $(syshdr) FORCE
-> +	$(call if_changed,syshdr)
-> +
-> +$(kapi)/unistd_nr_%.h: $(systbl_common) $$(src_$$*) $(sysnr) FORCE
->  	$(call if_changed,sysnr)
->=20
-> -$(kapi)/syscall_table_%.h: $(src)/syscall_%.tbl $(systbl) FORCE
-> +$(kapi)/syscall_table_%.h: $(systbl) $(systbl_common) $$(src_$$*) FOR=
-CE
->  	$(call if_changed,systbl)
+On 07/09/2026 12:50, Gugulothu, Rajesh wrote:
+> AMD General
+> 
+> Hi Tomi,
+> 
+> Thanks for the review, and Laurent for looping you in.
+> 
+>> -----Original Message-----
+>> From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+>> Sent: Thursday, September 3, 2026 3:38 PM
+>> To: Gugulothu, Rajesh <rajesh.gugulothu@amd.com>; Laurent Pinchart
+>> <laurent.pinchart@ideasonboard.com>; Simek, Michal <michal.simek@amd.com>
+>> Cc: linux-media@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
+>> kernel@vger.kernel.org; Mauro Carvalho Chehab <mchehab@kernel.org>
+>> Subject: Re: [PATCH] media: xilinx: vtc: Dynamically calculate pixel clock
+>>
+>> Hi,
+>>
+>> On 29/07/2026 13:18, Rajesh Gugulothu wrote:
+>>> This update enables the vtc to set the pixel clock based on the
+>>> specified timing parameters. A new fps field is added to struct
+>>> xvtc_config and the pixel rate is computed as fps * hsize * vsize.
+>>> After setting the rate, the actual clock rate is read back and a
+>>> warning is emitted if it deviates beyond a small tolerance.
+>>>
+>>> The pixel rate is computed in unsigned long arithmetic to avoid a
+>>> 32-bit overflow in the fps * hsize * vsize product.
+>>>
+>>> Signed-off-by: Rajesh Gugulothu <rajesh.gugulothu@amd.com>
+>>> ---
+>>>    drivers/media/platform/xilinx/xilinx-vtc.c | 19 +++++++++++++++++++
+>>>    drivers/media/platform/xilinx/xilinx-vtc.h |  1 +
+>>>    2 files changed, 20 insertions(+)
+>>>
+>>> diff --git a/drivers/media/platform/xilinx/xilinx-vtc.c
+>>> b/drivers/media/platform/xilinx/xilinx-vtc.c
+>>> index 92fec7bb4..695eb2a46 100644
+>>> --- a/drivers/media/platform/xilinx/xilinx-vtc.c
+>>> +++ b/drivers/media/platform/xilinx/xilinx-vtc.c
+>>> @@ -141,6 +141,9 @@
+>>>
+>>>    #define XVTC_GENERATOR_GLOBAL_DELAY                0x0104
+>>>
+>>> +/* Value of 1 = .01% */
+>>> +#define XVTC_CLK_MAX_PCT_ERR                        1
+>>> +
+>>>    /**
+>>>     * struct xvtc_device - Xilinx Video Timing Controller device structure
+>>>     * @xvip: Xilinx Video IP device
+>>> @@ -175,10 +178,26 @@ int xvtc_generator_start(struct xvtc_device *xvtc,
+>>>                        const struct xvtc_config *config)
+>>>    {
+>>>       int ret;
+>>> +    unsigned long s_rate;
+>>> +    unsigned long g_rate;
+>>> +    unsigned long clk_err;
+>>>
+>>>       if (!xvtc->has_generator)
+>>>               return -ENXIO;
+>>>
+>>> +    s_rate = (unsigned long)config->fps * config->hsize * config->vsize;
+>>> +    ret = clk_set_rate(xvtc->xvip.clk, s_rate);
+>>> +    if (ret < 0)
+>>> +            return ret;
+>>> +
+>>> +    /* Verify that the clock is within a reasonable tolerance. */
+>>> +    g_rate = clk_get_rate(xvtc->xvip.clk);
+>>> +    clk_err = (abs(g_rate - s_rate) * 10000) / (s_rate);
+>>> +    if (clk_err > XVTC_CLK_MAX_PCT_ERR)
+>>> +            dev_warn(xvtc->xvip.dev,
+>>> +                     "Failed to set clk rate: %lu, actual rate: %lu\n",
+>>> +                     s_rate, g_rate);
+>>> +
+>>>       ret = clk_prepare_enable(xvtc->xvip.clk);
+>>>       if (ret < 0)
+>>>               return ret;
+>>> diff --git a/drivers/media/platform/xilinx/xilinx-vtc.h
+>>> b/drivers/media/platform/xilinx/xilinx-vtc.h
+>>> index 855845911..0f360ed55 100644
+>>> --- a/drivers/media/platform/xilinx/xilinx-vtc.h
+>>> +++ b/drivers/media/platform/xilinx/xilinx-vtc.h
+>>> @@ -27,6 +27,7 @@ struct xvtc_config {
+>>>       unsigned int vsync_start;
+>>>       unsigned int vsync_end;
+>>>       unsigned int vsize;
+>>> +    unsigned int fps;
+>>>    };
+>>>
+>>>    struct xvtc_device *xvtc_of_get(struct device_node *np);
+>>
+>> In upstream there's a single user for the VTC: the TPG driver. It doesn't set the fps
+>> field, so the above code would always try to set the rate to 0, wouldn't it?
+>>
+> You're right. The VTC change was posted without the TPG hunk that sets
+> fps (xtpg_config_vtc(): .fps = xtpg->fi_d / xtpg->fi_n), so upstream fps
+> stays 0 and we end up calling clk_set_rate(clk, 0) and dividing by zero.
+> I will include the TPG change in the series so the VTC code has a real
+> user.
+> 
+>> What is "reasonable tolerance", why did you arrive to .01%? Also, the actual result is
+>> not visible to the user.
+>>
+> Agreed, the 0.01% threshold was arbitrary. I will drop both the tolerance
+> and the dev_warn() - a log message is not something userspace can act on.
+> Instead the driver can use clk_round_rate() to get the achievable rate
+> and report the actual value through the API rather than dmesg. Does this
+> approach sound fine to you?
+> 
+>> I think this is a slightly bigger topic than a single VTC patch. There should be a
+>> userspace API to set the FPS, and the user should see what was the actual rate he
+>> got via the API (instead of a dev_warn when the rate is off more than an arbitrary
+>> tolerance).
+> 
+> Agreed. For v2 I will make the frame rate a userspace parameter and
+> report the achieved rate back through the same API, dropping the
+> tolerance/dev_warn heuristic entirely.
+> 
+> I plan to use the V4L2 frame-interval interface (VIDIOC_S/G_PARM on the
+> TPG source pad): compute the pixel clock from the requested interval,
+> program it via the VTC, and write the granted interval back so userspace
+> sees what it got. Let me know if you would prefer a different interface
+> (e.g. DV timings or a dedicated control); I would like to settle the API
+> before I respin.
+I think this sounds fine.
 
-I can see how this will work, but I'm not sure we want to keep
-maintaining it like this, if anybody wanting to use the syscall
-table input files now has to use and understand .SECONDEXPANSION.
+Do you have a design to test the TPG? I think Vivado dropped it many 
+years ago, and I have never actually ran the TPG driver.
 
-For instance, we will already have to duplicate this for the
-./tools/perf/arch/powerpc/entry/syscalls/syscall.tbl
-directory in the kernel, but I assume that others already have
-something like this in userspace.
+  Tomi
 
-I really liked the idea of combining the n32/n64 tables into one
-file, but the added complexity of using two input files for three
-ABIs here makes this much less appealing. The easiest way would
-be to give up here and revert back to three input files.
-
-A possible alternative may be to go all the way and only have
-one syscall.tbl file per architecture to simplify the scripts,
-and then combine mips o32/n32/n64 into one file and do the
-same thing for arm oabi/eabi/aarch64 and x86 i386/x86-64/x32.
-
-      Arnd
 
