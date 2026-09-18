@@ -4,62 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E947FC982E7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 13:33:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF84EC982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 13:34:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SBA0E8AODEBadx1kh06AjWaY/QYpRulbt0rkULl2OkQ=; b=uoQxR0hJuxmk+4Mgcyv4ytA6u3
-	bT8NvdxDV7JSHZGL41gkSv7/adomNSsC76dIGBPFzdOEv+UPSkOUxZebjL+5lEwingok8ELW1+3cE
-	qE/e9fYLW6Bu5ZXCKLnem2Fh8RMYoQgZjKR245oCZuMf7Id1FGrQ8IEoROEb+8mKnCBV3cr+ET3u3
-	MBHEuMR5JFmL+qLL01NqJrt47ZtxUvGhUG0D4SbOxfvmj7HrsxbI67fMaKHkyFYR/fe1/VZWXojn0
-	zRrTuW6dVZ/fi/5dac9arzsBMkAoB90CjW9H0AZv4qNdwNZST/vMBYp24cbqvM8Bz7XrAdy5JIC1s
-	zn6BlDSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DcCDTQc07A7TDdFj59KiYFwuhrizZITMxq2+rV42wrA=; b=TeBhAUMB4/yG1zUCR6gq65DWMQ
+	zbEi/JF8RSOOBvlNAJGvLVzMB7ONkLfcp+3EQHwGt84514VRQSCqv4/4kM1RRrI0c0hF01pI+kvQJ
+	N/XNgUyOn1dme54mAp+1cEL/o5faSvkqszxYeRf4udZSokzbiGlYhoHA8lpD1YHexz0HeaJDs/f2S
+	t06dPhwpQtlIbNxDdYkIYDqLVMshs4tJlm8vGGa83GlH5P7MVRgTRn4g53sT1O3fCAUzQiob01yZl
+	F+Lsq8i+/xFaHvkIkofGvpNBb7uu6xSDN1UTC6hmgNUKDrAsmRJqBWVOuwyHoSkjSJkxTkorIIqwc
+	w8sOUq5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7YiJ-0000000EYDA-2gty;
-	Fri, 18 Sep 2026 13:33:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x7YSH-0000000ET6i-2CCE;
+	Fri, 18 Sep 2026 13:16:41 +0000
+Received: from mr-2004f-snip6-5.eps.apple.com ([2a01:b747:3000:203::38] helo=outbound.mr.icloud.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7YhH-0000000EXOg-01Xy
+	id 1x7YRs-0000000ESZS-2afJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 13:32:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7FB0F404BC;
-	Fri, 18 Sep 2026 13:32:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C2851F000FF;
-	Fri, 18 Sep 2026 13:32:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789738330;
-	bh=SBA0E8AODEBadx1kh06AjWaY/QYpRulbt0rkULl2OkQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=JgoKnDJTFyKqWWSymRW9iF2B8lN//StBJtI/lM5LftfwpC/oAuS2Fg0k/8O4JRcwf
-	 Tl7mBtu4h+LQRuWG0cPoWRV1dBwXHLGe9mclufmEq3resy0LAp8ku49P2lG5/qU+9e
-	 ydZZbffbURfmQDXNwMq0V4Po/IbbKyQUdkGQBwmX7YWlrVsKOoIh8QXofE1j20kVxQ
-	 PHx54Jc/GgLFS7u/pPAOhPkRtNTOFFSFIvRrcpilGtw/NeSRLgfZxxB5B91F+sdb54
-	 VOw5poxNzPjxBrYZUU/iqcRsR5EqZii55rwBeRJr2ZsWYHJILgt1L+1x/ZGFD2RFe8
-	 0wa6jemDP32qQ==
-Date: Fri, 18 Sep 2026 14:32:06 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Hans de Goede <johannes.goede@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>,
-	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
-	Frank.Li@kernel.org, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 1/2] module: add SCMI device table alias support
-Message-ID: <20260918-impetuous-daring-barnacle-1ea4d0@sudeepholla>
-References: <20260918092951.5656-1-johannes.goede@oss.qualcomm.com>
- <20260918092951.5656-2-johannes.goede@oss.qualcomm.com>
+	Fri, 18 Sep 2026 13:16:18 +0000
+Received: from outbound.mr.icloud.com (unknown [127.0.0.2])
+	by p00-icloudmta-asmtp-us-west-2a-10-percent-1 (Postfix) with ESMTPS id 6B49A1800364;
+	Fri, 18 Sep 2026 13:16:11 +0000 (UTC)
+X-ICL-RepId: 01a0b4a9-06a6-7e78-9b84-7b2d922ed33c
+X-ICL-Out-Info: HUtFAUMEWwJACUgBTUQeDx5WFlZNRAJCTQFMHV8EUxxCDFYAXRcOVk1KF1UYREVRMFAbXwJCDxwTVhUTC1NWWxNVF0YJGQhdHRkKUFAGXRIYXBRcUFgeRhJWDV0JGQZAXlAbXwJCDxwTVhUTHUMZDysISgRDB0UCXgslEwlTVlsTVRdGCRkIXR0ZFVoJClcAQAtOA1QGUx8RTxweGwZGC10NQQpaAFIBQV9MBlh3AlEcVg1XQ1QEX04ZDEodUlZbE1UXRgk=
+Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=icloud.com; s=1a1hai; t=1789737376; x=1792329376; bh=DcCDTQc07A7TDdFj59KiYFwuhrizZITMxq2+rV42wrA=; h=From:Date:Subject:MIME-Version:Content-Type:Message-Id:To:x-icloud-hme; b=ZP0BWKqJ76a9QIho05vUDNPW8lM7SUK7DyeoxOWciIck7eqxtyb7kHCoCHG1/2LAa9hagJDa2+emdzsAJgerIwuATLLmibXjurXgXCaoz09hHYuFqfldh7PdsmYBpljdPZwzr9QAXKCKz/m91FIzUhjlcWNoBGnjsV5oP+eU71cq2QbeqjGdGAYLGOnYDoeLfrz3cjRdzN1f70ifG7Qi7X4oCVXurhTojgmWT73wwqcxD8nkx8IuKFJvxjJYfP4s3wqFTQYBS8sdRTUkZqpYUSgkTyGGamLxWYKYwoLdUjBSDH8nMEMBMlQn+rwVQyhMvi+9l6Zqymt9t9dEoAYTLQ==
+Received: from [127.0.0.1] (unknown [17.156.200.36])
+	by p00-icloudmta-asmtp-us-west-2a-10-percent-1 (Postfix) with ESMTPSA id 8765D180187A;
+	Fri, 18 Sep 2026 13:16:07 +0000 (UTC)
+From: Sofus Forstreuter <sofus.c@icloud.com>
+Date: Fri, 18 Sep 2026 15:15:14 +0200
+Subject: [PATCH 09/14] arm64: dts: apple: t6031: add avd nodes
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260918092951.5656-2-johannes.goede@oss.qualcomm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260918-avd-v1-9-49977931f455@icloud.com>
+References: <20260918-avd-v1-0-49977931f455@icloud.com>
+In-Reply-To: <20260918-avd-v1-0-49977931f455@icloud.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ Heiko Stuebner <heiko@sntech.de>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ Sofus Forstreuter <sofus.c@icloud.com>
+X-Mailer: b4 0.15.2
+X-Authority-Info-Out: v=2.4 cv=A89h/qWG c=1 sm=1 tr=0 ts=6aad399d
+ cx=c_apl:c_pps:t_out a=9mRn2PO/+PIrVdEbaIuMPg==:117
+ a=9mRn2PO/+PIrVdEbaIuMPg==:17 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
+ a=x7bEGLp0ZPQA:10 a=kLM9Tyy99jAA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=v3ZZPjhaAAAA:8 a=i4oxPFHrzJf6BXMseXkA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: c0EIi3ogtwusjNxhSgGy5S1iAqzWfLzB
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE4MDE4OCBTYWx0ZWRfX6vlJ1p/jkrE6
+ 1dxKRe9ot+Aj+yMc1rjBaC435oWFlEjCUC5FL2l1+VAJPEcjA28ENkzskilsEDoZ4HZ0sEiwzJz
+ YsWJVi2DXZZwdhMvYbvqgNasR9ivuTN0I7MtVa8qEiKoOWS5S9Whnh1l6PcklvtI+/n74FiG7yw
+ 4yYzv7oWehCpHjTnA8oMe+Qre0+8EjwIK+sWKZS3DeMYQkBLpctsGesXgQKBjJ38paHaQ3dwtQf
+ Ye34Rc0UP/WzdJiFu5R9FiXUYWq0Ok42gF0zwdv2yEWdkbQtD/zlr9laLdNxlj0OIWN5P3Cd5uf
+ dFsc8kl+jB6gnUtRZ8FCbRfYd3OugZ6z4OpT9CYdgqLosQoTq+1gBLyLsWpGo8=
+X-Proofpoint-GUID: c0EIi3ogtwusjNxhSgGy5S1iAqzWfLzB
+X-JNJ: AAAAAAAB4Wl49F+tIp8pRKLmkT+eRNtcIhhIQ+tJ75569LCQGzxZgutXv4Bm+qVMK8Wv/DiE4QmHduSojOTxlfww+NhBR7mSncdxGBAu/XdlS3RISxMT45UVTUHqzWAUlr7EN3tfWt6gDETPaEPwWTruUtviAcn5VP7j3TLT4mq6lANxXdghpR79dz5Sreyuw9MNdnD5LKuzBCgyv08dYlSzdFlBa2iCqGYrNO23bwX2zQ6cKd7VKYx1pEnsQZgJpuvqvbcdNwbHG/iLQsmYigyPVFhCQ6Hy2PxABC0EV2MJon/uB/8rEFn3ceXYxjo5AdddDS9UmmSauxLXXrKoZPC2PIWttbYVVW1pbVv1Xfb8Lx2BFU+y2hyfT1mhYR5/TwNJNxzKCX+Uv9iJPYIU4TSqDef44LlXUoUktu2CRa7HenV5sa3dMynZHfVQmRQt19HRWOzaTDB9lHvvi/ZL7WZTQHvwm/hNRWEScKqm40IJ0VVfV/6PC/VBBdZDSYlz6Y2++8dkmxmlBVOqJyV5CzcKOiztc6wfInsHeXpWHolpauYMlro1KpaQv2ho59WztYHeFvUxWOeX0y307gwgh4xDrIvNgIdXxqLnIGgRk63nT7TCIpLPxqr7PH1dw4totbOwiQGhz4r2XWi/C0FJ2vaBoHP7hZe5fPa4Ec4og8IC3q4FIfACvPqzgXAzGyeYfGI93LlardSGFT2J44Aoj5whOTzmMdGSnrSLvYWYXQrZhF3tCMJD7iUI1cfdHLmgSO+J5PdfPJK5tWYsijH+JRKqtAh2xNM7Fh6EFWpd9NWM5GVN2Okr5iEOIvj6WimNedgK0N+xYi/yDBaZT+kEIdAqiun028lbGSUhVBXqEW0V+9Jufe91hxf/hcS05WeIETvO/NN3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260918_061616_724430_9DA919C8 
+X-CRM114-Status: UNSURE (   8.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,147 +88,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 18, 2026 at 11:29:50AM +0200, Hans de Goede wrote:
-> From: Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
-> 
-> SCMI client drivers already describe their bus match data with
-> MODULE_DEVICE_TABLE(scmi, ...), but modpost does not know how to consume
-> SCMI device tables. As a result, SCMI modules do not get generated module
-> aliases from their id tables.
-> 
-> Move struct scmi_device_id to mod_devicetable.h so it has a fixed layout
-> visible to modpost, add the corresponding generated offsets and teach
-> file2alias to emit scmi:<protocol>:<name> aliases.
-> 
-> Use the same stable alias format for SCMI device uevents and sysfs
-> modaliases. The previous string included the instance-specific device
-> name, which is not useful for matching modules.
-> 
-> Assisted-by: Codex:GPT-5.5
-> Reviewed-by: Hans de Goede <johannes.goede@oss.qualcomm.com>
-> Tested-by: Hans de Goede <johannes.goede@oss.qualcomm.com>
-> Signed-off-by: Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
-> Signed-off-by: Hans de Goede <johannes.goede@oss.qualcomm.com>
-> ---
-> Changes in v7:
-> - Rebase on top of v7.3-rc3
-> 
-> Changes in v4:
-> - Drop unused driver_data member from struct scmi_device_id (Uwe)
-> - Drop device-id/scmi.h include from mod_devicetable.h (Uwe)
-> - Add device-id/scmi.h to devicetable-offsets.c and file2alias.c (Uwe)
-> 
-> Changes in v3:
-> - Adjust for ad428f5811bd ("mod_devicetable.h: Split into per subsystem
->   headers")
-> - Add '\n' to modalias_show() output, matching other subsystems' modalias
-> 
-> Changes in v2:
-> - Drop #include <linux/mod_devicetable.h> from scmi_protocol.h
-> - Link to v1: https://patch.msgid.link/20260616-scmi-modalias-v1-0-662b8dd52ab2@oss.qualcomm.com
-> ---
->  MAINTAINERS                       |  1 +
->  drivers/firmware/arm_scmi/bus.c   | 21 ++++++++++-----------
->  include/linux/device-id/scmi.h    | 17 +++++++++++++++++
->  include/linux/scmi_protocol.h     |  6 +-----
->  scripts/mod/devicetable-offsets.c |  5 +++++
->  scripts/mod/file2alias.c          | 12 ++++++++++++
->  6 files changed, 46 insertions(+), 16 deletions(-)
->  create mode 100644 include/linux/device-id/scmi.h
-> 
+Signed-off-by: Sofus Forstreuter <sofus.c@icloud.com>
+---
+ arch/arm64/boot/dts/apple/t6031-dieX.dtsi | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
 
-[...]
-
-> diff --git a/include/linux/device-id/scmi.h b/include/linux/device-id/scmi.h
-> new file mode 100644
-> index 000000000000..1b4ccfa9dcc5
-> --- /dev/null
-> +++ b/include/linux/device-id/scmi.h
-> @@ -0,0 +1,17 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +#ifndef LINUX_DEVICE_ID_SCMI_H
-> +#define LINUX_DEVICE_ID_SCMI_H
-> +
-> +#ifdef __KERNEL__
-> +#include <linux/types.h>
-> +#endif
-> +
-> +#define SCMI_NAME_SIZE		32
-> +#define SCMI_MODULE_PREFIX	"scmi:"
-> +
-> +struct scmi_device_id {
-> +	__u8 protocol_id;
-> +	char name[SCMI_NAME_SIZE];
-> +};
-> +
-> +#endif /* ifndef LINUX_DEVICE_ID_SCMI_H */
-
-You need to include this above file in include/linux/mod_devicetable.h
-to avoid duplication of its inclusion elsewhere. That's the pattern followed
-I see.
-
-> diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-> index 5ab73b1ab9aa..ba53302d95f5 100644
-> --- a/include/linux/scmi_protocol.h
-> +++ b/include/linux/scmi_protocol.h
-> @@ -9,6 +9,7 @@
->  #define _LINUX_SCMI_PROTOCOL_H
->  
->  #include <linux/bitfield.h>
-> +#include <linux/device-id/scmi.h>
->  #include <linux/device.h>
->  #include <linux/notifier.h>
->  #include <linux/types.h>
-> @@ -951,11 +952,6 @@ struct scmi_device {
->  
->  #define to_scmi_dev(d) container_of_const(d, struct scmi_device, dev)
->  
-> -struct scmi_device_id {
-> -	u8 protocol_id;
-> -	const char *name;
-> -};
-> -
->  struct scmi_driver {
->  	const char *name;
->  	int (*probe)(struct scmi_device *sdev);
-> diff --git a/scripts/mod/devicetable-offsets.c b/scripts/mod/devicetable-offsets.c
-> index b4178c42d08f..91ec3704ee2b 100644
-> --- a/scripts/mod/devicetable-offsets.c
-> +++ b/scripts/mod/devicetable-offsets.c
-> @@ -1,5 +1,6 @@
->  // SPDX-License-Identifier: GPL-2.0
->  #define COMPILE_OFFSETS
-> +#include <linux/device-id/scmi.h>
-
-Drop this for above mentioned reason.
-
->  #include <linux/kbuild.h>
->  #include <linux/mod_devicetable.h>
->  
-> @@ -144,6 +145,10 @@ int main(void)
->  	DEVID(rpmsg_device_id);
->  	DEVID_FIELD(rpmsg_device_id, name);
->  
-> +	DEVID(scmi_device_id);
-> +	DEVID_FIELD(scmi_device_id, protocol_id);
-> +	DEVID_FIELD(scmi_device_id, name);
-> +
->  	DEVID(i2c_device_id);
->  	DEVID_FIELD(i2c_device_id, name);
->  
-> diff --git a/scripts/mod/file2alias.c b/scripts/mod/file2alias.c
-> index 8d36c74dec2d..5379b1def07b 100644
-> --- a/scripts/mod/file2alias.c
-> +++ b/scripts/mod/file2alias.c
-> @@ -121,6 +121,7 @@ typedef struct {
->  /* Big exception to the "don't include kernel headers into userspace, which
->   * even potentially has different endianness and word sizes, since
->   * we handle those differences explicitly below */
-> +#include "../../include/linux/device-id/scmi.h"
-
-Drop this for above mentioned reason.
+diff --git a/arch/arm64/boot/dts/apple/t6031-dieX.dtsi b/arch/arm64/boot/dts/apple/t6031-dieX.dtsi
+index 2e9d3d2e6dea..431d13ec41a9 100644
+--- a/arch/arm64/boot/dts/apple/t6031-dieX.dtsi
++++ b/arch/arm64/boot/dts/apple/t6031-dieX.dtsi
+@@ -73,6 +73,30 @@ DIE_NODE(pinctrl_aop): pinctrl@2a8824000 {
+ 				<AIC_IRQ DIE_NO 601 IRQ_TYPE_LEVEL_HIGH>;
+ 	};
+ 
++	DIE_NODE(avd): avd@2cd080000 {
++		compatible = "apple,t6031-avd", "apple,t8122-avd";
++		reg = <0x2 0xcd080000 0x0 0x12000>,
++		      <0x2 0xcd092000 0x0 0x12000>,
++		      <0x2 0xcd0a4000 0x0 0x4000>,
++		      <0x2 0xcd100000 0x0 0x10000>;
++		reg-names = "code", "sram", "mbox", "ctrl";
++		interrupt-parent = <&aic>;
++		interrupts = <AIC_IRQ DIE_NO 1185 IRQ_TYPE_LEVEL_HIGH>,
++			     <AIC_IRQ DIE_NO 1186 IRQ_TYPE_LEVEL_HIGH>;
++		power-domains = <&DIE_NODE(ps_avd_sys)>;
++		resets = <&DIE_NODE(ps_avd_sys)>;
++		iommus = <&DIE_NODE(avd_dart) 0>;
++	};
++
++	DIE_NODE(avd_dart): iommu@2cd010000 {
++		compatible = "apple,t6031-dart", "apple,t8110-dart";
++		reg = <0x2 0xcd010000 0x0 0x4000>;
++		#iommu-cells = <1>;
++		interrupt-parent = <&aic>;
++		interrupts = <AIC_IRQ DIE_NO 1192 IRQ_TYPE_LEVEL_HIGH>;
++		power-domains = <&DIE_NODE(ps_avd_sys)>;
++	};
++
+ 	DIE_NODE(pinctrl_ap): pinctrl@2b3000000 {
+ 		compatible = "apple,t6031-pinctrl", "apple,t8103-pinctrl";
+ 		reg = <0x2 0xb3000000 0x0 0x4000>;
 
 -- 
-Regards,
-Sudeep
+2.55.0
+
 
