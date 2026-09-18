@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F2D3C982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 16:15:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 284D1C982E1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 16:15:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OPmtMvErDChPnAkncAvX9/4lDdnZXVCa66ctdGe0lWk=; b=UERiDz/j77ThbV
-	tnDd4vDouaStyraZUL+/rdApvP6aCrgq/BxCJ1H4wGda2ODMCcytbotJdatt8BL+rQj3HrpcGtD3E
-	pEK1PFPFCmuKhK79C+ZjyTr9Yf7IaaoS60C+HKd5bm7Fyvi/8cN/uBcOlenqSXe1WJwfkp0DGyRO2
-	1SmZE/XQDu+iqzD91CXAPmO7Phv4bk9nnq4lP3PRA/uRRT9D4Z+bpoR0to7LFGdG08Acgj89VnF1h
-	7rAr9nWIaRaCTaglsRtXAGLDKvAhBuPx/9NoQScrPJXSJDgxeUAH4o660lL2XnmgjzQqeqqk5yUp3
-	22ayj1+owo6z1mSj2ZFw==;
+	List-Owner; bh=Eo1Mu3/UqB3iPcOR9znRzzkYsVC8kR8uT7JIdm2G87o=; b=fY3iv6uZOVR7O1
+	LLPQtaA1O5CPuShHKnP8+KgCgOqqT74EOmsF77Pfut2BFFGGR21KexTJqXEftWYfcntkwNu1rKEFo
+	AGLsk3ehGTCtyprF6gKaDj6zAr1ER1BgDn++5QQrhNyWb547lZ27aYXheF3xRXSjxGqyKMhhcuUBo
+	NoFGJtYmbrNbJy1uOlAia4lGsxVfIudwP3DAM1YAUHZac6r/dNqJk00Xh46ZsEJOc/FaQ3ZyAFRbI
+	UcKRMXJIs/WGwp219dNaZn7bcnGSZZzk6F8qpXlFjQf6hFrekkrJTL/FYCvDmsZkkT12QMDgt9Mk3
+	SiEs0YIaOnYksebBGYmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7bF6-0000000EzOA-09Kw;
-	Fri, 18 Sep 2026 16:15:16 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x7bF7-0000000EzPt-1MTT;
+	Fri, 18 Sep 2026 16:15:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7bEo-0000000Ez9d-0Q9W
+	id 1x7bEz-0000000EzIY-1Ggq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 16:14:58 +0000
+	Fri, 18 Sep 2026 16:15:09 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CFBB543BC1;
-	Fri, 18 Sep 2026 16:14:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF6371F00899;
-	Fri, 18 Sep 2026 16:14:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BC4666022B;
+	Fri, 18 Sep 2026 16:15:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A6C51F000FF;
+	Fri, 18 Sep 2026 16:15:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789748097;
-	bh=OPmtMvErDChPnAkncAvX9/4lDdnZXVCa66ctdGe0lWk=;
+	s=k20260515; t=1789748108;
+	bh=Eo1Mu3/UqB3iPcOR9znRzzkYsVC8kR8uT7JIdm2G87o=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=KjrujF6I8y3AN56jW7bSdjLKy8uypi9i70m0KIMGyZzzAZOpzq6tSGxK4t1tdRAml
-	 j4isO93RUuPAhEifUXnYxsswhXO4mAj1efZp0KL+1wnE47A1YQcZwkN43GqxvstJ5s
-	 wed0kDmZZwVnlLug6QXUj2vwe/lpG6HT5LU4TtMHOpn3q54KSDwvaCEmB7JzJOvSxY
-	 3D2EWtoM5pjXNy4ZFI91JATLqj+mSK+cKzU5H60uiRzkkhxalzeQ2UEk4w1iAhqPQ1
-	 WSFKUUfUSXJtSP/EtGUdrszLLl+2ce2vYjHztTN2vPLJdGhNQYwwwSMD3pYUwziXg6
-	 PHiiyoYRz7N5g==
+	b=i1bL8DTyxaWwPU8TmGAoCePCspJVY5PvZJnYDmNVOGLub5VO4F6tsWTvDd1WS/AkC
+	 94V05/JqBZRNJDkHkd5DzYnOdbBcVuLaxspjaPJqk/97qxUHkYs17+qq14oapAeo8P
+	 KIcaGIOomO9VflToJe9jdtuve71vCN8mpBlKkOfJemv1zI2uIBjlJUJaRTa5xMWtNo
+	 85IMk1+2akR7OhmPUGmVYjj5NB5xVqrwDXqQYlzie/ycIcdcTwoVx+Au08Qj/2AFfw
+	 k3bNy9qpww/NLJ+RWZ907wCvj/QquOD3pwDWmRg7M/caCZG2gXNLm0GBtXf4gkTFMb
+	 aKX/Tb8Vw1slA==
 From: Will Deacon <will@kernel.org>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 12/21] KVM: arm64: Preserve handler/thread bit of EL1 mode in __finalise_el2()
-Date: Fri, 18 Sep 2026 17:13:56 +0100
-Message-ID: <20260918161407.2300-13-will@kernel.org>
+Subject: [PATCH v2 15/21] arm64: entry: Point SP_EL0 at the overflow stack
+Date: Fri, 18 Sep 2026 17:13:59 +0100
+Message-ID: <20260918161407.2300-16-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260918161407.2300-1-will@kernel.org>
 References: <20260918161407.2300-1-will@kernel.org>
@@ -67,48 +67,75 @@ Cc: Mark Rutland <mark.rutland@arm.com>, Vladimir Murzin <vladimir.murzin@arm.co
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-__finalise_el2() unconditionally returns to EL2h when VHE is being used.
-In preparation for handling callers from both EL1h and EL1t, preserve
-the handler/thread bit of the calling mode when rewriting the exception
-level in the SPSR.
+With SP_EL0 now available for use in the kernel, point it at the
+overflow stack so that exception entry from EL1h will later be able to
+switch to the overflow stack by writing to SPSel.
 
+Cc: Mark Rutland <mark.rutland@arm.com>
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/include/uapi/asm/ptrace.h | 1 +
- arch/arm64/kernel/hyp-stub.S         | 7 ++++---
- 2 files changed, 5 insertions(+), 3 deletions(-)
+ arch/arm64/kernel/entry.S |  2 ++
+ arch/arm64/kernel/head.S  |  3 +++
+ arch/arm64/kernel/smp.c   | 12 ++++++++++--
+ 3 files changed, 15 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/include/uapi/asm/ptrace.h b/arch/arm64/include/uapi/asm/ptrace.h
-index 15649a253a57..25d9d9a0a6f7 100644
---- a/arch/arm64/include/uapi/asm/ptrace.h
-+++ b/arch/arm64/include/uapi/asm/ptrace.h
-@@ -37,6 +37,7 @@
- #define PSR_MODE_EL3t	0x0000000c
- #define PSR_MODE_EL3h	0x0000000d
- #define PSR_MODE_MASK	0x0000000f
-+#define PSR_MODE_h_BIT	0x00000001
+diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
+index a45be0a837c8..6958ee238649 100644
+--- a/arch/arm64/kernel/entry.S
++++ b/arch/arm64/kernel/entry.S
+@@ -227,6 +227,8 @@ alternative_cb_end
+ 	mrs	x21, sp_el0
+ 	ldr_this_cpu	tsk, __entry_task, x20
+ 	msr	tpidrro_el0, tsk
++	adr_this_cpu	x19, overflow_stack + OVERFLOW_STACK_SIZE, x20
++	msr	sp_el0, x19
  
- /* AArch32 CPSR bits */
- #define PSR_MODE32_BIT		0x00000010
-diff --git a/arch/arm64/kernel/hyp-stub.S b/arch/arm64/kernel/hyp-stub.S
-index 37c6976e44a4..f61778cccd3c 100644
---- a/arch/arm64/kernel/hyp-stub.S
-+++ b/arch/arm64/kernel/hyp-stub.S
-@@ -149,10 +149,11 @@ SYM_CODE_START_LOCAL(__finalise_el2)
+ 	/*
+ 	 * Ensure MDSCR_EL1.SS is clear, since we can unmask debug exceptions
+diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
+index c33551ee6572..27a19e1a0ee6 100644
+--- a/arch/arm64/kernel/head.S
++++ b/arch/arm64/kernel/head.S
+@@ -210,6 +210,9 @@ SYM_CODE_END(preserve_boot_args)
+ 	ldr	w\tmp2, [\tsk, #TSK_TI_CPU]
+ 	ldr	\tmp1, [\tmp1, \tmp2, lsl #3]
+ 	set_this_cpu_offset \tmp1
++
++	adr_this_cpu	\tmp1, overflow_stack + OVERFLOW_STACK_SIZE, \tmp2
++	msr	sp_el0, \tmp1
+ 	.endm
  
- 	isb
+ /*
+diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+index 702dee8d0db5..4c122d6598de 100644
+--- a/arch/arm64/kernel/smp.c
++++ b/arch/arm64/kernel/smp.c
+@@ -51,6 +51,7 @@
+ #include <asm/processor.h>
+ #include <asm/smp_plat.h>
+ #include <asm/sections.h>
++#include <asm/stacktrace.h>
+ #include <asm/tlbflush.h>
+ #include <asm/ptrace.h>
+ #include <asm/virt.h>
+@@ -448,8 +449,15 @@ void __init smp_cpus_done(unsigned int max_cpus)
  
--	// Hack the exception return to stay at EL2
-+	// Hack the exception return to stay at EL2 ...
- 	mrs	x0, spsr_el1
--	and	x0, x0, #~PSR_MODE_MASK
--	mov	x1, #PSR_MODE_EL2h
-+	// ... preserving the 'h' bit so we don't swizzle SP.
-+	and	x0, x0, #(~PSR_MODE_MASK | PSR_MODE_h_BIT)
-+	mov	x1, #PSR_MODE_EL2t
- 	orr	x0, x0, x1
- 	msr	spsr_el1, x0
+ static void __init set_boot_cpu_offset(void)
+ {
+-	asm volatile("msr tpidr_el1, %0"
+-			:: "r" (per_cpu_offset(0)) : "memory");
++	u64 ovf_sp = (u64)raw_cpu_ptr(overflow_stack) + OVERFLOW_STACK_SIZE;
++
++	asm volatile(
++	"	msr	tpidr_el1, %1\n"
++	"	add	%0, %0, %1\n"
++	"	msr	sp_el0, %0" /* Update the overflow stack pointer */
++	: "+r" (ovf_sp)
++	: "r" (per_cpu_offset(0))
++	: "memory");
+ }
  
+ void __init smp_prepare_boot_cpu(void)
 -- 
 2.55.0.1082.g2b9226bbc0-goog
 
