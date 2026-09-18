@@ -4,59 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A928C982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 12:00:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73A64C982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 12:06:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WwRXHz5FiptGYQutzRNzBHkTh1iJbrIvkQlOJLZw8zA=; b=KkxwbzO2bLM667
-	0qvY77eCX+yA9f3anP3HVt0mnKU5VS/Fg9jpSFA2IgwsrUXB2c+m31HfZd/N4RmOZGnw+luvzVBlh
-	IxJeD7OHIaIlBjnF/g3qCDKkiwufcvNPEIvkZD8Ns5x/7fNeBbP4et4ClolfrcpWZR6jaIVNs/8Vi
-	aGE15ISDbFIC6tvIPAmQ5//O8nIxdB3yaQ6y4yxG1bj0+2s9HqM23hopipzKSgfxlBYgE0lZrc3zO
-	sUO5Xt6exa23n6+GTL9tz6Ok5BbMETCxF3LxDzGHj2MVJaWMx2CaSWpX4MGQIUNDKAAPcvvqPRmOx
-	cSfJLWy6RaZxLFoI0vpQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ATSv76TzecJnDtgNPntPTTTtbBbxD7pM0qiupKLf72U=; b=tLs75tEeKX2jen1yPXJdpDep/i
+	6jrAbkYijFYAweZb0Kq3vkNZjzdqIDdMI9G40XmqLPcBkLfR3ln2+ix0MtzkCEMrrGgqmheSnmrgN
+	yLsksY2BhfmeWtoJDydDK7/FYHxEKWtpr0Bv2r4zLWt+/q2fW9SMDLIAoeiIK9oKGa34I1aAp/eSL
+	qOp27PN2m6YMfHBSjHPzOWMDD62gJ9U/u1xC41EL8JxIv6IGFuC1oOXTvTYm51I6q8GWHTQB4ueS4
+	C7otffvZm+6YpXnXAhMbM1ykU+G9Uq3nFSR8oX6v0i+6Jx6pXdVkIA4kDuAjmmOO3z8vujUH7Syag
+	ginC/jYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7XGW-0000000EJTi-2YU8;
-	Fri, 18 Sep 2026 12:00:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7XGU-0000000EJT5-1xtE
+	id 1x7XLv-0000000EK4l-2ont;
+	Fri, 18 Sep 2026 12:06:03 +0000
+Received: from out-67.mta0.migadu.com ([2001:41d0:1004:224b::43] helo=mta0.migadu.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x7XLs-0000000EK3W-08TA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 12:00:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2C284143D;
-	Fri, 18 Sep 2026 05:00:20 -0700 (PDT)
-Received: from [10.41.4.144] (e142021.arm.com [10.41.4.144])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ED1AB3F882;
-	Fri, 18 Sep 2026 05:00:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789732823; bh=bM7kA5yXVpAe2N81reCqQxQTOv0RJe1wxSCWH8EsWr8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=XkEDabmBheiCe+/LaTlra5Vgi0cko0/XOIWyrmpjZSq+2fx3JjNly9HRswxfFDJ8D
-	 QCJkqQ9h5uNJ65tgfG+ovxBfylbiwy/IA/69AlPOrJoa+lPSPvIc5MQDXTTuKK9Mxp
-	 fYBqHrIco/556kXQKvnR6cpLIs+1WlhFKgG1/pdo=
-Message-ID: <830ad111-e819-43c2-b0a2-248e0542d7f2@arm.com>
-Date: Fri, 18 Sep 2026 14:00:20 +0200
+	Fri, 18 Sep 2026 12:06:01 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=GQDpK0dc1fRX5xqYlgvNb2kn+E+OlZng7gkPioKRS90=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1789733158; v=1; x=1790337958;
+ b=khqJ+9GZiuJ1ZP+SQKoK3VQx6poPai44MRzzoEo8XFFNK5cKHZoJTsVpGEkYcL90ZWotBEUk
+ mFXmRxCVTx1Q716ywLagGhulelI76nV8i/LBRoeqk0TzORZcd09xC5bEhbd11YR7njZMjHi5/uI
+ UjGjt4jW6zwIEor5E01W7ClQ=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 4620aac8f7d1920a;
+	Fri, 18 Sep 2026 12:05:58 +0000
+X-Mizu-Trace-ID: 4620aac8f7d1920a
+X-Migadu-Flow: FLOW_OUT
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Jack Thomson <jackabt@amazon.com>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Fuad Tabba <tabba@google.com>
+Subject: [PATCH] KVM: arm64: Restore the VM's feature bitmap when kvm_setup_vcpu() fails
+Date: Fri, 18 Sep 2026 13:05:53 +0100
+Message-Id: <20260918120553.163139-1-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/8] firmware: smccc: lfa: Add timeout and trigger
- watchdog
-To: Nirmoy Das <nirmoyd@nvidia.com>
-References: <20260706134455.132091-1-andre.przywara@arm.com>
- <20260706134455.132091-4-andre.przywara@arm.com>
- <20260710100830.65336-1-nirmoyd@nvidia.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20260710100830.65336-1-nirmoyd@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_050026_581652_0458CDF5 
-X-CRM114-Status: GOOD (  21.03  )
+X-CRM114-CacheID: sfid-20260918_050600_215942_CC95FC80 
+X-CRM114-Status: GOOD (  14.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,155 +74,89 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Trilok Soni <trilokkumar.soni@oss.qualcomm.com>, Salman Nabi <salman.nabi@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, linux-kernel@vger.kernel.org, Varun Wadekar <vwadekar@nvidia.com>, Sudeep Holla <sudeep.holla@kernel.org>, vsethi@nvidia.com, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+__kvm_vcpu_set_target() copies the requested features into the VM-wide
+bitmap before kvm_setup_vcpu() runs and doesn't undo it when setup
+fails, so a rejected KVM_ARM_VCPU_INIT leaves the VM recording features
+that were never set up. With HAS_EL2 | HAS_EL2_E2H0 on a host without
+FEAT_NV1, kvm_vcpu_init_nested() returns -EINVAL before it allocates any
+nested stage-2 MMU, and vcpu_has_nv() is then true with
+nested_mmus_size == 0; its -ENOMEM paths do the same on a VM's first
+INIT.
 
-On 7/10/26 12:08, Nirmoy Das wrote:
-> On Mon, 6 Jul 2026 15:44:43 +0200, Andre Przywara wrote:
-> 
-> Hi Andre,
-> 
->> From: Vedashree Vidwans <vvidwans@nvidia.com>
->>
->> Enhance PRIME/ACTIVATION functions to touch watchdog and implement
->> timeout mechanism. This update ensures that any potential hangs are
->> detected promptly and that the LFA process is allocated sufficient
->> execution time before the watchdog timer expires. These changes improve
->> overall system reliability by reducing the risk of undetected process
->> stalls and unexpected watchdog resets.
->>
->> Signed-off-by: Vedashree Vidwans <vvidwans@nvidia.com>
->> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
->> ---
->>   drivers/firmware/smccc/lfa_fw.c | 43 ++++++++++++++++++++++++++++++---
->>   1 file changed, 39 insertions(+), 4 deletions(-)
->>
->> diff --git a/drivers/firmware/smccc/lfa_fw.c b/drivers/firmware/smccc/lfa_fw.c
->> index b333b1e28c0d..357e41f95206 100644
->> --- a/drivers/firmware/smccc/lfa_fw.c
->> +++ b/drivers/firmware/smccc/lfa_fw.c
->> @@ -6,11 +6,14 @@
->>   #include <linux/arm-smccc.h>
->>   #include <linux/arm-smccc-bus.h>
->>   #include <linux/array_size.h>
->> +#include <linux/delay.h>
->>   #include <linux/fs.h>
->>   #include <linux/init.h>
->>   #include <linux/kobject.h>
->> +#include <linux/ktime.h>
->>   #include <linux/list.h>
->>   #include <linux/module.h>
->> +#include <linux/nmi.h>
->>   #include <linux/psci.h>
->>   #include <linux/stop_machine.h>
->>   #include <linux/string.h>
->> @@ -27,6 +30,11 @@
->>   #define LFA_PRIME_CALL_AGAIN		BIT(0)
->>   #define LFA_ACTIVATE_CALL_AGAIN		BIT(0)
->>   
->> +#define LFA_PRIME_BUDGET_MS		30000		/* 30s cap */
->> +#define LFA_PRIME_DELAY_MS		10		/* 10ms between polls */
->> +#define LFA_ACTIVATE_BUDGET_MS		10000		/* 10s cap */
->> +#define LFA_ACTIVATE_DELAY_MS		10		/* 10ms between polls */
->> +
->>   /* LFA return values */
->>   #define LFA_SUCCESS			0
->>   #define LFA_NOT_SUPPORTED		1
->> @@ -276,6 +284,7 @@ static int call_lfa_activate(void *data)
->>   	struct fw_image *image = data;
->>   	struct arm_smccc_1_2_regs reg = { 0 }, res;
->>   
->> +	touch_nmi_watchdog();
->>   	reg.a0 = ARM_SMCCC_LFA_ACTIVATE;
->>   	reg.a1 = image->fw_seq_id;
->>   	/*
->> @@ -299,6 +308,7 @@ static int call_lfa_activate(void *data)
->>   
->>   static int activate_fw_image(struct fw_image *image)
->>   {
->> +	ktime_t end = ktime_add_ms(ktime_get(), LFA_ACTIVATE_BUDGET_MS);
->>   	int ret;
->>   
->>   retry:
->> @@ -314,8 +324,14 @@ static int activate_fw_image(struct fw_image *image)
->>   	}
->>   
->>   	/* SMC returned with call_again flag set, or with LFA_BUSY */
->> -	if (ret == -LFA_CALL_AGAIN || ret == -LFA_BUSY)
->> -		goto retry;
->> +	if (ret == -LFA_CALL_AGAIN || ret == -LFA_BUSY) {
->> +		if (ktime_before(ktime_get(), end)) {
->> +			msleep_interruptible(LFA_ACTIVATE_DELAY_MS);
->> +			goto retry;
->> +		}
->> +
->> +		ret = -LFA_TIMED_OUT;
->> +	}
-> 
-> msleep_interruptible()'s return is ignored (here and in the PRIME
-> loop), so a pending signal can turn this into premature retries.
+Nothing in the tree loads a vCPU whose init failed, so this is latent.
+The pending KVM_PRE_FAULT_MEMORY series for arm64 does, and the second
+such load NULL-dereferences in get_s2_mmu_nested() under mmu_lock.
 
-Ah, thanks, that's a good point. I fixed that now. I don't think it 
-really matters for the 10ms delay here, but it would break the outer 
-timeout as well, which is a couple of seconds.
+Setup reads the VM-wide bitmap, so the copy can't be deferred; restore
+the previous value instead when kvm_setup_vcpu() fails.
 
-Cheers,
-Andre
+Fixes: 1de10b7d13a97 ("KVM: arm64: Get rid of vCPU-scoped feature bitmap")
+Fixes: 427733579744e ("KVM: arm64: Select default PMU in KVM_ARM_VCPU_INIT handler")
+Link: https://lore.kernel.org/r/20260825-kvm-arm-prefault-v1-0-befe8947702e@kernel.org/
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
+The series' generic kvm_vcpu_pre_fault_memory() calls vcpu_load()
+before any arm64 hook, so there is no arm64 check it can pass through
+first. Reproduced on kvmarm/next plus the series under
+QEMU (-cpu max with an Apple M2 MIDR, which has_nv1() denies;
+kvm-arm.mode=nested): KVM_ARM_VCPU_INIT with HAS_EL2 | HAS_EL2_E2H0
+returns -EINVAL, then KVM_PRE_FAULT_MEMORY twice. The first call loads
+with hw_mmu still the canonical MMU and its vcpu_put() clears hw_mmu;
+the second takes the !hw_mmu path into get_s2_mmu_nested(), whose
+search over nested_mmus_size == 0 leaves s2_mmu NULL for the
+BUG_ON(atomic_read(&s2_mmu->refcnt)):
 
->>   
->>   	lfa_cancel(image);
->>   
->> @@ -328,6 +344,7 @@ static int activate_fw_image(struct fw_image *image)
->>   static int prime_fw_image(struct fw_image *image)
->>   {
->>   	struct arm_smccc_1_2_regs reg = { 0 }, res;
->> +	ktime_t end = ktime_add_ms(ktime_get(), LFA_PRIME_BUDGET_MS);
->>   
->>   	if (image->may_reset_cpu) {
->>   		pr_err("CPU reset not supported by kernel driver\n");
->> @@ -335,6 +352,8 @@ static int prime_fw_image(struct fw_image *image)
->>   		return -EINVAL;
->>   	}
->>   
->> +	touch_nmi_watchdog();
->> +
->>   	reg.a0 = ARM_SMCCC_LFA_PRIME;
->>   retry:
->>   	/*
->> @@ -353,8 +372,24 @@ static int prime_fw_image(struct fw_image *image)
->>   		return res.a0;
->>   	}
->>   
->> -	if (res.a1 & LFA_PRIME_CALL_AGAIN)
->> -		goto retry;
->> +	if (res.a1 & LFA_PRIME_CALL_AGAIN) {
->> +		int ret;
->> +
->> +		/* SMC returned with call_again flag set */
->> +		if (ktime_before(ktime_get(), end)) {
->> +			msleep_interruptible(LFA_PRIME_DELAY_MS);
->> +			goto retry;
->> +		}
->> +
->> +		pr_err("LFA_PRIME for image %s timed out",
->> +		       get_image_name(image));
->> +
->> +		ret = lfa_cancel(image);
->> +		if (ret != 0)
->> +			return ret;
->> +
->> +		return -ETIMEDOUT;
->> +	}
->>   
->>   	return 0;
->>   }
->> -- 
->> 2.43.0
-> 
-> Regards,
-> Nirmoy
+  Unable to handle kernel NULL pointer dereference at virtual address 0000000000000074
+  Call trace:
+   kvm_vcpu_load_hw_mmu+0x94/0x2c0 (P)
+   kvm_arch_vcpu_load+0x2a8/0x5e8
+   kvm_vcpu_pre_fault_memory+0xa0/0x1b8
+   kvm_vcpu_ioctl+0x40c/0x6d0
+
+The thread dies with mmu_lock held for write and an RCU stall in
+queued_write_lock_slowpath() follows. With the fix both calls return
+-ENOENT and the host is unaffected. Applies unchanged to v7.3-rc3.
+
+ arch/arm64/kvm/arm.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index eaf583b771931..c2eb9b6da80f4 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -1685,6 +1685,7 @@ static int kvm_setup_vcpu(struct kvm_vcpu *vcpu)
+ static int __kvm_vcpu_set_target(struct kvm_vcpu *vcpu,
+ 				 const struct kvm_vcpu_init *init)
+ {
++	DECLARE_BITMAP(old_features, KVM_VCPU_MAX_FEATURES);
+ 	unsigned long features = init->features[0];
+ 	struct kvm *kvm = vcpu->kvm;
+ 	int ret = -EINVAL;
+@@ -1695,11 +1696,17 @@ static int __kvm_vcpu_set_target(struct kvm_vcpu *vcpu,
+ 	    kvm_vcpu_init_changed(vcpu, init))
+ 		goto out_unlock;
+ 
++	/* Setup reads the VM-wide bitmap, so undo the copy if setup fails. */
++	bitmap_copy(old_features, kvm->arch.vcpu_features,
++		    KVM_VCPU_MAX_FEATURES);
+ 	bitmap_copy(kvm->arch.vcpu_features, &features, KVM_VCPU_MAX_FEATURES);
+ 
+ 	ret = kvm_setup_vcpu(vcpu);
+-	if (ret)
++	if (ret) {
++		bitmap_copy(kvm->arch.vcpu_features, old_features,
++			    KVM_VCPU_MAX_FEATURES);
+ 		goto out_unlock;
++	}
+ 
+ 	/* Now we know what it is, we can reset it. */
+ 	kvm_reset_vcpu(vcpu);
+
+base-commit: 089e4f3c4862ba3f29dff2361caa8084879194fd
+-- 
+2.39.5
 
 
