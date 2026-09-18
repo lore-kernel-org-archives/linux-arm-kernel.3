@@ -4,79 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 231F9C982D2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 01:28:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 217F6C982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 01:39:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4woeKBq94StRBWQOlx29oSEhrI6HXyHnkC3tl4QTEwA=; b=ULvkAxFf1ehMx3NI0qcA8AA03L
-	pdOGkEZGrvIcQLPBdd9t9eUnQ3o357rmiriQSbOZ64U+GuS2vhSjoMzxKibfud2zYiX96BnXHV9ha
-	B0yDYYvGJ06ZRze+xVKqAYSUH6InGXHAxZ5s56vZwNapQRKVkwr/KylLhOk5/AlZgqWL8XPVoEuiU
-	ydgvJWHMjuT31ha2uhGk1fhZTf/URNubgJ42vqw+IZXHcbbHEM7yfY/p2vDrMeItfTFZRbF0Mm7EI
-	wxTjdTNfZnLfe/RF5GZ4unZH9zjh2VBOGq3tQSgKJMSost1gcwMbY9oOkgr6cxzSB1iWuHVkXiIri
-	56JyTImw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ANSYXhkR59VMjSJxw7ihndcWaAezvhBNEHzaW2IaT8Q=; b=efbwmnk6gNXR9hja3SIKjXgNuB
+	gM+1u4MzROQDy6w5t7wEjVZSdaWUGC/V9MBHDQTcMsQwd+S4vCfB6iABNu9tb8hE36W5U/Bedgpj1
+	KYbHaeauSC/35pPewKVw0xrP2rcGkDSP7nRW9jdvSdnmem7kqKYY3Y/fOLhdW/V9CYlgd6DizZImG
+	aTTaqmA3NiHKlhhSROt3fnXjtWd3LBoYJruQXBEiygHoaa5mQ/roBNU2BOZeGozhviweqfM452409
+	amzX0On/wi74wu906zldySilh7jRzf4IRjP9oKuBScP5y0ID8FCgq/vADyFNoxUPxWtcBERa50t7Z
+	nkh442yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Lox-0000000Cxcw-3QIs;
-	Thu, 17 Sep 2026 23:47:15 +0000
+	id 1x7NYy-0000000DAwg-2lMb;
+	Fri, 18 Sep 2026 01:38:52 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7LoV-0000000CxLr-1jM8
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 17 Sep 2026 23:46:48 +0000
+	id 1x7NYx-0000000DAw2-2D1F;
+	Fri, 18 Sep 2026 01:38:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=4woeKBq94StRBWQOlx29oSEhrI6HXyHnkC3tl4QTEwA=; b=d7vaztYSPt4t49mMUQLa3rzelc
-	/Z4TGBQik4RbyHX6LoZrbjf8JYkahKlxWH/jQ/1PMwEu3jHbR2pN6NY9C5lBA29PzLOtExmX6Pj5W
-	wLmnrTVTHdte6Fvn3RjOdaGXuPaFAlX6AwAvHQNr7AzPpcq5LGMzS3Yh5FIQnWd7CvTI9aiXSAyNZ
-	6qDIQgqqBbEft14rs9MBpiTeia9zD/tzQie2zcw+azCufd4RcAR3sfO2/ZgQIMjw06OxmgQyRffFR
-	+XGFMHKjwK46MeYoW3BE6EQOCj+nY9oU8V5lmRjnNgesq04UWct3lXHDR2SoiOvqF8mBXChVKoG2m
-	DHOmIKkg==;
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=ANSYXhkR59VMjSJxw7ihndcWaAezvhBNEHzaW2IaT8Q=; b=o/q5zSt1Pk4JiweCSLOrFSHYiX
+	I9VZIpxLU75lX73oDfm5vtOqjU3cXyrB9RovyV9rhdZXQhRFSoQhP4kn5LP5BVe/vVfh/2YWqwPBx
+	V+U9LGSbVRXF4HkBCP9P8qAABkXD4lAPFPNtCMK3bsru4t0SdxDaIZ0zSplBVI2fRXl+u0Xhyf6cp
+	8MCfLxvmVorZoEjLD6Qgow5R+/ZbIGY4BPeTHawc33oGpDin0mscK6HumBFjuoGK/hrxPRN/gE6oq
+	oBoLW/mjKw7/axzLT6uSQ5ykABEcWK76wVO0uvMQ1SAI9p9awOSWt3IT/ezcz+RGpl4UHUrVG3KcL
+	2R4e4Z9w==;
+Received: from xs1.mindbit.ro ([80.86.107.70] helo=mail.mindbit.ro)
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x7LoS-00000009ObV-3QQF
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Sep 2026 23:46:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Subject:Date:From:From:Reply-To;
-	bh=4woeKBq94StRBWQOlx29oSEhrI6HXyHnkC3tl4QTEwA=; b=lPNUJ+smduwTEkTJXPhlyWa/bu
-	qT3kycq/AYCLQ+UGQLalP3kMkiTD7mnoeF49/iVDlcmcqvRgz0E4GzpftXM5EySOFLvb7ZZrpJ0Tm
-	peCacoE3hjdarKSgsHgpbSQE79Y0m+OtTEHMb3heizy828xBBcIUPveCWcR29GK4QYexmBLIyxnfN
-	s+J5kvx54BaUQT3JUQotI9fVHZ0MMTGOPqIFsA7bUSdJ+FKIit6t5nlagNnSwYtV8JavBujMEsW2n
-	evDRy81OR41861FmBpJyyuOYEQsk23gCpP7Hcdgbj7nm2Jm5HuLQ46LawWwmGhqa6vFb2/q0/WlxS
-	n7YBxcow==;
-Received: from [177.172.123.214] (helo=[192.168.15.100])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1x7LoO-003hU7-5A; Fri, 18 Sep 2026 01:46:40 +0200
-From: =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-Date: Thu, 17 Sep 2026 20:46:10 -0300
-Subject: [PATCH v7 07/13] mips: Remove duplicated syscallnr.sh
+	id 1x7NYu-00000009U9v-20PT;
+	Fri, 18 Sep 2026 01:38:50 +0000
+Received: from dog.kanata.rendec.net (pool-174-112-193-187.cpe.net.cable.rogers.com [174.112.193.187])
+	by mail.mindbit.ro (Postfix) with ESMTPSA id 7125DCFB00;
+	Fri, 18 Sep 2026 04:38:41 +0300 (EEST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.mindbit.ro 7125DCFB00
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rendec.net;
+	s=default; t=1789695524;
+	bh=ANSYXhkR59VMjSJxw7ihndcWaAezvhBNEHzaW2IaT8Q=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=UUFShpgXvfTYmy5brAtO+WcGmV3rDOVegPicqUL9zj5RA97uAyCc0vfhtHnzp/cQH
+	 lgeeNGr8EpfgrhVgpHTSVShEQZYxefMGS8F0yRGsV0AMLZEpZTcIUiyPyt1BPurz1T
+	 QeL8n0QO4KTZtuGI3Fssf17KVkFYkV94FPUlOU4J3LHfbLCcQE0NnCbtp8LMjIzRPj
+	 BkZIf6EYcJINqt5ciNEZvPKrZ8FzR0I3gol01O0FC8usyqs2NjCmZJwrm+34Qg3s6k
+	 CPF/2PttvoU63/4X9NEUaoDvenduK8aRmniNzluH4xUpg5/SUNz8Ohjtp4wuKWwiWI
+	 1ZPjwGiDMTlLA==
+Message-ID: <6a4202752078c5f55882d3a4f5113829201dfb7b.camel@rendec.net>
+Subject: Re: [PATCH v2 0/6] riscv: Make IPI_MAX visible and use it
+ consistently
+From: Radu Rendec <radu@rendec.net>
+To: Guo Ren <guoren@kernel.org>, Thomas Gleixner <tglx@kernel.org>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Daniel
+ Lezcano	 <daniel.lezcano@kernel.org>, Anup Patel <anup@brainfault.org>,
+ Tiffany Lin	 <tiffany.lin@mediatek.com>, Andrew-CT Chen
+ <andrew-ct.chen@mediatek.com>,  Yunfei Dong <yunfei.dong@mediatek.com>,
+ Minghsiu Tsai <minghsiu.tsai@mediatek.com>, Houlong Wei	
+ <houlong.wei@mediatek.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, "tip-bot2 for GUO Ren (XuanTie)"	
+ <tip-bot2@linutronix.de>, Nathan Chancellor <nathan@kernel.org>
+Date: Thu, 17 Sep 2026 21:38:39 -0400
+In-Reply-To: <CAJF2gTQZWfvN8c7E3+jcmzD0GqzYKzYO9vLd=eR36azKU1Uq5g@mail.gmail.com>
+References: <20260911-ipi_max-v2-0-a77826ff189e@kernel.org>
+	 <81f0bf10b41dff85872487ab68c750471b7c2f89.camel@rendec.net>
+	 <CAJF2gTQZWfvN8c7E3+jcmzD0GqzYKzYO9vLd=eR36azKU1Uq5g@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260917-tonyk-syscall_table-v7-7-f4cd8f8e3265@igalia.com>
-References: <20260917-tonyk-syscall_table-v7-0-f4cd8f8e3265@igalia.com>
-In-Reply-To: <20260917-tonyk-syscall_table-v7-0-f4cd8f8e3265@igalia.com>
-To: Masami Hiramatsu <mhiramat@kernel.org>, Arnd Bergmanon <arnd@arndb.de>
-Cc: Christian Brauner <brauner@kernel.org>, linux-kernel@vger.kernel.org, 
- linux-kbuild@vger.kernel.org, kernel-dev@igalia.com, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- linux-alpha@vger.kernel.org, linux-s390@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev, 
- linux-mips@vger.kernel.org, sparclinux@vger.kernel.org, 
- =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_004644_903631_650ED226 
-X-CRM114-Status: UNSURE (   8.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260918_023848_647955_C7D7F035 
+X-CRM114-Status: GOOD (  33.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,73 +98,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The common scripts/ already have a script for generating the numbers of
-syscalls file. Use it and drop the custom script.
+On Thu, 2026-09-17 at 19:22 +0800, Guo Ren wrote:
+> On Mon, Sep 14, 2026 at 3:53=E2=80=AFAM Radu Rendec <radu@rendec.net> wro=
+te:
+> >=20
+> > On Fri, 2026-09-11 at 03:27 +0000, Guo Ren wrote:
+> > > This series removes the implicit assumption that RISC-V supports exac=
+tly
+> > > eight IPI message types.
+> > >=20
+> > > Currently, the SBI, CLINT and ACLINT SSWI IPI providers use
+> > > BITS_PER_BYTE when sizing the generic IPI mux, while IMSIC carries a
+> > > separate IMSIC_NR_IPI definition set to 8. These values happen to mat=
+ch
+> > > IPI_MAX today, but neither is the proper source of truth for the numb=
+er
+> > > of RISC-V IPI message types.
+> > >=20
+> > > Move enum ipi_message_type to asm/smp.h so IPI providers can use IPI_=
+MAX
+> > > directly, then replace the BITS_PER_BYTE and IMSIC_NR_IPI uses with
+> > > IPI_MAX.
+> > >=20
+> > > This also makes adding future RISC-V IPI message types independent of
+> > > the current eight-entry assumption.
+> > >=20
+> > > A follow-up patch renames the MediaTek VPU mailbox terminator from
+> > > IPI_MAX to IPI_VPU_MAX. That token belongs to the VPU firmware IPI id
+> > > enum and should follow the same prefixed convention as IPI_VPU_INIT
+> > > (and SCP_IPI_MAX on the SCP side), instead of reusing the generic
+> > > IPI_MAX name.
+> > >=20
+> > > ---
+> > > GUO Ren (XuanTie) (4):
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clocksource: clint: Use IPI_MAX for IP=
+I muxing
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 irqchip/aclint-sswi: Use IPI_MAX for I=
+PI muxing
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 irqchip/imsic: Use IPI_MAX instead of =
+IMSIC_NR_IPI
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: mtk-vpu: rename IPI_MAX to IPI_=
+VPU_MAX
+> > >=20
+> > > tip-bot2 for GUO Ren (XuanTie) (2):
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 riscv: smp: Move enum ipi_message_type=
+ to asm/smp.h
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 riscv: sbi: Use IPI_MAX for SBI IPI mu=
+xing
+> >=20
+> > I am confused. Thomas merged your entire v1 series a week before (see
+> > the individual replies from tip-bot2@linutronix.de). Why are you
+> > sending v2?
+> >=20
+> > Patch 6 was not included in v1 (but it's clearly related), so perhaps
+> > you meant to send only this one as a separate patch?
+> >=20
+> > Also:
+> > =C2=A0* The cover letter should include a changelog, indicating what ch=
+anges
+> > =C2=A0=C2=A0 were made in each version compared to the previous one.
+> > =C2=A0* Patches 1 and 2 carry a "From:" tag that attributes authorship =
+to
+> > =C2=A0=C2=A0 tip-bot2, which is wrong (if these patches were to be appl=
+ied).
+>=20
+> Sorry for the noise, and thanks for catching these.
 
-Signed-off-by: André Almeida <andrealmeid@igalia.com>
----
- arch/mips/kernel/syscalls/Makefile     |  7 +++----
- arch/mips/kernel/syscalls/syscallnr.sh | 26 --------------------------
- 2 files changed, 3 insertions(+), 30 deletions(-)
+No worries :)
 
-diff --git a/arch/mips/kernel/syscalls/Makefile b/arch/mips/kernel/syscalls/Makefile
-index 56f6f093bb88..1bfc2346d100 100644
---- a/arch/mips/kernel/syscalls/Makefile
-+++ b/arch/mips/kernel/syscalls/Makefile
-@@ -5,16 +5,15 @@ uapi := arch/$(SRCARCH)/include/generated/uapi/asm
- $(shell mkdir -p $(uapi) $(kapi))
- 
- syshdr := $(srctree)/scripts/syscallhdr.sh
--sysnr := $(src)/syscallnr.sh
-+sysnr := $(srctree)/scripts/syscallnr.sh
- systbl := $(srctree)/scripts/syscalltbl.sh
- 
- quiet_cmd_syshdr = SYSHDR  $@
-       cmd_syshdr = $(CONFIG_SHELL) $(syshdr) --offset __NR_Linux $< $@
- 
- quiet_cmd_sysnr = SYSNR   $@
--      cmd_sysnr = $(CONFIG_SHELL) '$(sysnr)' '$<' '$@'		\
--		  '$(sysnr_abis_$(basetarget))'			\
--		  '$(sysnr_pfx_$(basetarget))'
-+      cmd_sysnr = $(CONFIG_SHELL) $(sysnr) \
-+		  --prefix $(sysnr_pfx_$(basetarget))_Linux_ $< $@
- 
- quiet_cmd_systbl = SYSTBL  $@
-       cmd_systbl = $(CONFIG_SHELL) $(systbl) $< $@
-diff --git a/arch/mips/kernel/syscalls/syscallnr.sh b/arch/mips/kernel/syscalls/syscallnr.sh
-deleted file mode 100644
-index c190bbefbfc2..000000000000
---- a/arch/mips/kernel/syscalls/syscallnr.sh
-+++ /dev/null
-@@ -1,26 +0,0 @@
--#!/bin/sh
--# SPDX-License-Identifier: GPL-2.0
--
--in="$1"
--out="$2"
--my_abis=`echo "($3)" | tr ',' '|'`
--prefix="$4"
--
--fileguard=_UAPI_ASM_MIPS_`basename "$out" | sed \
--	-e 'y/abcdefghijklmnopqrstuvwxyz/ABCDEFGHIJKLMNOPQRSTUVWXYZ/' \
--	-e 's/[^A-Z0-9_]/_/g' -e 's/__/_/g'`
--grep -E "^[0-9A-Fa-fXx]+[[:space:]]+${my_abis}" "$in" | sort -n | (
--	printf "#ifndef %s\n" "${fileguard}"
--	printf "#define %s\n" "${fileguard}"
--	printf "\n"
--
--	nxt=0
--	while read nr abi name entry compat ; do
--		nxt=$((nr+1))
--	done
--
--	printf "#define __NR_%s_Linux_syscalls\t%s\n" "${prefix}" "${nxt}"
--	printf "\n"
--	printf "#endif /* %s */" "${fileguard}"
--	printf "\n"
--) > "$out"
+> You are right on both points. I missed the cover-letter changelog,
+> and I should not have resent the already-merged patches as v2. The
+> "From: tip-bot2" tags were added by b4 because those two patches had
+> already landed; that is useful as a reminder to me, but it should not
+> have been left in the patches themselves.
+>=20
+> I should have skipped the b4 v2 flow and just sent patch 6 on its
+> own. The only remaining change is the mtk-vpu IPI_MAX rename, which
+> is needed after IPI_MAX became visible from <asm/smp.h>.
 
--- 
-2.55.0
+Ugh, I missed that part. Because the IPI_MAX rename was already picked
+up, it's going to break the mtk-vpu driver until patch 6 is picked up
+too.
 
+> If you are willing to pick patch 6 as-is, I would appreciate it.
+> Otherwise I will resend it as a standalone patch.
+
+I cannot pick up anything myself because I'm just a reviewer. But I
+don't see any reason why patch 6 couldn't be picked up as-is, as long
+as everyone is on the same page. The "[PATCH v2 6/6]" part of the
+subject is dropped anyway.
+
+I now realize that patch 1 (which introduces the conflicting change)
+was picked up by Thomas via the irq/drivers tip branch, but patch 6 is
+strictly a media subsystem patch, so I guess normally it should be
+picked up by a different maintainer via a different tree.
+
+Thomas, are you willing to pick this up too? I'm thinking it could
+avoid some pain if irq/drivers gets merged into mainline first, before
+patch 6 makes it there through the media subsystem. Also, it's a pretty
+"innocent" patch, it just renames an enum value, and it's contained
+within that driver.
+
+--=20
+Best regards,
+Radu
 
