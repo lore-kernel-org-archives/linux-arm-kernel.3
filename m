@@ -4,63 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AFD9C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 06:58:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5325BC982D2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 07:01:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7udPRuZza2avsL25rwJu9WQ3r0isX0KVzyh3ouR1Yz0=; b=EE/NeZsZ1+mgqXLoz8DnbfNXwq
-	92DeMLUhDJumyuiJuFXa2ELyPrUAGP1KeMs3nM2RrDArAuYYT70hGbDaARQ+zvE/+QUixnbTExqxs
-	Rm+m3/4DBANvbu8Z7E89RnOFXXplfjsyKBEt75mKXqDCiUiuBdCCPX0a+bX+ueOKo9fskTMFrL8PA
-	Nv5qbJzkAG5t+vnSEmtdu44jTQWs6u70DggMAV/tnvMvk0rGayWluIRRcRgoz/HM4NkdThf3O+akR
-	+JCAjdJw6sPowrlqYSoVfeQgLqlajW+Q6bGkx6QTqcuuDmqBJmK6N1UL+rZk9Zr62kN16qFA85DH/
-	41wYZwLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xoKeOk0v0E+lrs5eZG2JMMltTlaNFbdGi9KSvcSzDqE=; b=N3krvTV7qwmqjYTK4EzNLg8cCh
+	Jdp1acsSLdyg4KxrzkVvk2EtMeIjSCcsEKnRlEPJXCBSl0gaRxrJOZ4B3VuFR936DJsPnowJ0b+F2
+	QMYgcouB9y6SlHTiYoHu/w7yxWk5zTrMoLQ+dtRmnw8pkAyhpcYfTznVDi14WYnVYHQ+zClkL0f/r
+	rrycQiH1984BTBhEtBfdLUkg/3cHsE4PRhsbuht1izY0/BJgjEBP/eRKTWma91GrClVQfiwMjxsTb
+	NDeh0nThyzT3JRN9lt8xjPj6I4i/+61MHANYav7x2ZoUWKTRtGhmXYumbQakC5qkx5Um9CMsIg8GH
+	8jatHvBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7SYT-0000000Dcyi-2D6F;
-	Fri, 18 Sep 2026 06:58:41 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1x7Saf-0000000DdE1-42tj;
+	Fri, 18 Sep 2026 07:00:57 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7SYP-0000000Dcxf-2BV3
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 06:58:38 +0000
-Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 3FD7E1E6A;
-	Fri, 18 Sep 2026 08:56:50 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1789714610;
-	bh=V9cF5y+tutOk4VK6+m3sT0hS5YRLKDLB/lUHOug9XPA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=FLzf+935Kin+RI4p9MY+mBTKLOL2Dbi/QPunp1c47d1ud8V3TIn2W6rLUEz4Kfzww
-	 XNqFVeJYmHLqZJadSyBJjikSzyKCQAV/TTnaotSYr//BOZj7xXjKZ5s/aXjKECmkdM
-	 o5WiOteY2x92foPkOaMfRZZDhgPYvzebQKlL5mSM=
-Message-ID: <1d62db29-9add-4907-ab09-a916c551b161@ideasonboard.com>
-Date: Fri, 18 Sep 2026 09:58:30 +0300
+	id 1x7Sae-0000000DdDe-0IUS;
+	Fri, 18 Sep 2026 07:00:56 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 353A66053E;
+	Fri, 18 Sep 2026 07:00:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 881A21F000FF;
+	Fri, 18 Sep 2026 07:00:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789714854;
+	bh=xoKeOk0v0E+lrs5eZG2JMMltTlaNFbdGi9KSvcSzDqE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ddEaqhLhDpDSoBo7I/HnGD6o5TYNSCCk1vbkXYkLf2/bYgvnrydMc+ZR6x61gKESK
+	 UGKv/IbSNvNPBR1vOqX+r9JgWXrjvDTCFcOrJvX6CibAfDXYyk6MiteN00P/s7B3u+
+	 4zD3d4ENXshV5oFAYsQ0wtE3JwGN5yRx90fDESoEzj0+9cqfqRYDfdP6RS+BNKREuT
+	 If8/BphX6k0RBR5SE1XpB9ELckQp2CWM3mcQAwcOTD/Cv/a+7A17/8AghwaLxNVQ0B
+	 eUvYhxRKtRV4PGfHxJCp8USPFFWEE1cSPHIbDRVKPWKtzqf+hzV40iuv2VjMTh+sI1
+	 CPFp1z3iL/qqw==
+Date: Fri, 18 Sep 2026 10:00:44 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Wandun Chen <chenwandun1@gmail.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
+	dave.hansen@linux.intel.com, x86@kernel.org, robh@kernel.org,
+	saravanak@kernel.org, akpm@linux-foundation.org,
+	baoquan.he@linux.dev, pasha.tatashin@soleen.com,
+	pratyush@kernel.org, m.szyprowski@samsung.com, mark.rutland@arm.com,
+	kernel@xen0n.name, alex@ghiti.fr, hpa@zytor.com,
+	ruirui.yang@linux.dev, robin.murphy@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, kexec@lists.infradead.org,
+	linux-mm@kvack.org, iommu@lists.linux.dev
+Subject: Re: [PATCH v6 06/10] memblock: introduce MEMBLOCK_NODUMP flag
+Message-ID: <aqzhnOKOq5m4klFU@kernel.org>
+References: <20260902073116.802752-1-chenwandun1@gmail.com>
+ <20260902073116.802752-7-chenwandun1@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] media: xilinx: vtc: Dynamically calculate pixel clock
-To: "Gugulothu, Rajesh" <rajesh.gugulothu@amd.com>
-Cc: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- "Simek, Michal" <michal.simek@amd.com>
-References: <20260729101808.3904212-1-rajesh.gugulothu@amd.com>
- <bfdf98d4-e3f3-42ff-a0b4-55c67790e4d0@ideasonboard.com>
- <CYYPR12MB9014FF79595C722B3482EDED9EB22@CYYPR12MB9014.namprd12.prod.outlook.com>
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Content-Language: en-US
-In-Reply-To: <CYYPR12MB9014FF79595C722B3482EDED9EB22@CYYPR12MB9014.namprd12.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_235837_711989_D344A29D 
-X-CRM114-Status: GOOD (  29.13  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260902073116.802752-7-chenwandun1@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,136 +79,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Wed, Sep 02, 2026 at 03:31:12PM +0800, Wandun Chen wrote:
+> From: Wandun Chen <chenwandun@lixiang.com>
+> 
+> Add MEMBLOCK_NODUMP to mark regions that should be excluded from
+> kdump vmcores.
+> 
+> The flag is meant for reserved memory that carries no data useful for
+> crash analysis. Reusable reserved regions such as CMA may hold useful
+> data, so these regions must not be marked MEMBLOCK_NODUMP. Subsequent
+> patches wire this up for /reserved-memory and /memreserve/ entries.
+> 
+> Suggested-by: Rob Herring <robh@kernel.org>
+> Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
+> Tested-by: Meijing Zhao <zhaomeijing@lixiang.com>
 
-On 07/09/2026 12:50, Gugulothu, Rajesh wrote:
-> AMD General
-> 
-> Hi Tomi,
-> 
-> Thanks for the review, and Laurent for looping you in.
-> 
->> -----Original Message-----
->> From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
->> Sent: Thursday, September 3, 2026 3:38 PM
->> To: Gugulothu, Rajesh <rajesh.gugulothu@amd.com>; Laurent Pinchart
->> <laurent.pinchart@ideasonboard.com>; Simek, Michal <michal.simek@amd.com>
->> Cc: linux-media@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
->> kernel@vger.kernel.org; Mauro Carvalho Chehab <mchehab@kernel.org>
->> Subject: Re: [PATCH] media: xilinx: vtc: Dynamically calculate pixel clock
->>
->> Hi,
->>
->> On 29/07/2026 13:18, Rajesh Gugulothu wrote:
->>> This update enables the vtc to set the pixel clock based on the
->>> specified timing parameters. A new fps field is added to struct
->>> xvtc_config and the pixel rate is computed as fps * hsize * vsize.
->>> After setting the rate, the actual clock rate is read back and a
->>> warning is emitted if it deviates beyond a small tolerance.
->>>
->>> The pixel rate is computed in unsigned long arithmetic to avoid a
->>> 32-bit overflow in the fps * hsize * vsize product.
->>>
->>> Signed-off-by: Rajesh Gugulothu <rajesh.gugulothu@amd.com>
->>> ---
->>>    drivers/media/platform/xilinx/xilinx-vtc.c | 19 +++++++++++++++++++
->>>    drivers/media/platform/xilinx/xilinx-vtc.h |  1 +
->>>    2 files changed, 20 insertions(+)
->>>
->>> diff --git a/drivers/media/platform/xilinx/xilinx-vtc.c
->>> b/drivers/media/platform/xilinx/xilinx-vtc.c
->>> index 92fec7bb4..695eb2a46 100644
->>> --- a/drivers/media/platform/xilinx/xilinx-vtc.c
->>> +++ b/drivers/media/platform/xilinx/xilinx-vtc.c
->>> @@ -141,6 +141,9 @@
->>>
->>>    #define XVTC_GENERATOR_GLOBAL_DELAY                0x0104
->>>
->>> +/* Value of 1 = .01% */
->>> +#define XVTC_CLK_MAX_PCT_ERR                        1
->>> +
->>>    /**
->>>     * struct xvtc_device - Xilinx Video Timing Controller device structure
->>>     * @xvip: Xilinx Video IP device
->>> @@ -175,10 +178,26 @@ int xvtc_generator_start(struct xvtc_device *xvtc,
->>>                        const struct xvtc_config *config)
->>>    {
->>>       int ret;
->>> +    unsigned long s_rate;
->>> +    unsigned long g_rate;
->>> +    unsigned long clk_err;
->>>
->>>       if (!xvtc->has_generator)
->>>               return -ENXIO;
->>>
->>> +    s_rate = (unsigned long)config->fps * config->hsize * config->vsize;
->>> +    ret = clk_set_rate(xvtc->xvip.clk, s_rate);
->>> +    if (ret < 0)
->>> +            return ret;
->>> +
->>> +    /* Verify that the clock is within a reasonable tolerance. */
->>> +    g_rate = clk_get_rate(xvtc->xvip.clk);
->>> +    clk_err = (abs(g_rate - s_rate) * 10000) / (s_rate);
->>> +    if (clk_err > XVTC_CLK_MAX_PCT_ERR)
->>> +            dev_warn(xvtc->xvip.dev,
->>> +                     "Failed to set clk rate: %lu, actual rate: %lu\n",
->>> +                     s_rate, g_rate);
->>> +
->>>       ret = clk_prepare_enable(xvtc->xvip.clk);
->>>       if (ret < 0)
->>>               return ret;
->>> diff --git a/drivers/media/platform/xilinx/xilinx-vtc.h
->>> b/drivers/media/platform/xilinx/xilinx-vtc.h
->>> index 855845911..0f360ed55 100644
->>> --- a/drivers/media/platform/xilinx/xilinx-vtc.h
->>> +++ b/drivers/media/platform/xilinx/xilinx-vtc.h
->>> @@ -27,6 +27,7 @@ struct xvtc_config {
->>>       unsigned int vsync_start;
->>>       unsigned int vsync_end;
->>>       unsigned int vsize;
->>> +    unsigned int fps;
->>>    };
->>>
->>>    struct xvtc_device *xvtc_of_get(struct device_node *np);
->>
->> In upstream there's a single user for the VTC: the TPG driver. It doesn't set the fps
->> field, so the above code would always try to set the rate to 0, wouldn't it?
->>
-> You're right. The VTC change was posted without the TPG hunk that sets
-> fps (xtpg_config_vtc(): .fps = xtpg->fi_d / xtpg->fi_n), so upstream fps
-> stays 0 and we end up calling clk_set_rate(clk, 0) and dividing by zero.
-> I will include the TPG change in the series so the VTC code has a real
-> user.
-> 
->> What is "reasonable tolerance", why did you arrive to .01%? Also, the actual result is
->> not visible to the user.
->>
-> Agreed, the 0.01% threshold was arbitrary. I will drop both the tolerance
-> and the dev_warn() - a log message is not something userspace can act on.
-> Instead the driver can use clk_round_rate() to get the achievable rate
-> and report the actual value through the API rather than dmesg. Does this
-> approach sound fine to you?
-> 
->> I think this is a slightly bigger topic than a single VTC patch. There should be a
->> userspace API to set the FPS, and the user should see what was the actual rate he
->> got via the API (instead of a dev_warn when the rate is off more than an arbitrary
->> tolerance).
-> 
-> Agreed. For v2 I will make the frame rate a userspace parameter and
-> report the achieved rate back through the same API, dropping the
-> tolerance/dev_warn heuristic entirely.
-> 
-> I plan to use the V4L2 frame-interval interface (VIDIOC_S/G_PARM on the
-> TPG source pad): compute the pixel clock from the requested interval,
-> program it via the VTC, and write the granted interval back so userspace
-> sees what it got. Let me know if you would prefer a different interface
-> (e.g. DV timings or a dedicated control); I would like to settle the API
-> before I respin.
-I think this sounds fine.
+Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 
-Do you have a design to test the TPG? I think Vivado dropped it many 
-years ago, and I have never actually ran the TPG driver.
+> ---
+>  include/linux/memblock.h |  9 +++++++++
+>  mm/memblock.c            | 16 ++++++++++++++++
+>  2 files changed, 25 insertions(+)
 
-  Tomi
-
+-- 
+Sincerely yours,
+Mike.
 
