@@ -4,96 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F4CDC982D2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 05:54:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0D15C982D2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 05:57:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lmlV7xFHRVTdsb3n+oqHHiehmNTVMleq48/Xf23jFaU=; b=Bqwl8dIzh3AlLs7vHXnxPw9lM6
-	DyW2kL7qBK+U8/wu1pt/K7phVXa6zKk+ulwMbo7spAm5ItT9pkrjjzs+7zF0xsO7W/jbg5lhG3AdQ
-	bgUeaPiYumWPNTeRtTfdz4Kq/qZ0ZlSCE+ixhIy6QMVJm9w51C2NkTPrt9Yy0Om+J36dTixUH/NDC
-	eqXu4HJM0oFb4SGM5+1QsLcaoX9t8J9cJpkjomiMFI1FD1D95Agn1BL6LsqxWm6YDMr1Run5iuHvK
-	H3L8CvkI5qcmmU1K9t+RDWAMkaV4Pa/xAsuecnoH99lrNyUyS5D0R8xY9mATpQBu70zlRN1+hLU8A
-	5E/8DxuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4n98uE0B+9mziyyWPWkocZ+VLA9+G84bxcBJo0+ht+k=; b=DwLjbljaqyaxr55cCLHnSJ0ibD
+	ZZ7KqQRPCjooLe/dsXHN5mk00UxeJR69yn6AYOIa8I9hdV6m4IN7/v95Dlfp7CcHNTTzoC99jONdF
+	bt4NbfAj2JSTTlitFC+BQTyn/md4rgRKoKRFfjjfyIUtBcRwoBYWt3BwraCk//WllNCmL6SJ4u1Ta
+	wjB58W8tB5FlKGGyzP+L+Eqv3c2CuASPpnX/l9F72gcug9R3MMCKRSIOy7GH/kKM1SYw1nJgrCAok
+	GJn0M9zsF2Y/H8K4NpHwOiv2zlSJcfaRCZ7108NZWSOOi35BZvNIiwPwvPc3V0tb7xxWSecZfu305
+	JFg/C26A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7RY6-0000000DWIr-3Lts;
-	Fri, 18 Sep 2026 05:54:14 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1x7Rb5-0000000DWQP-0b29;
+	Fri, 18 Sep 2026 05:57:19 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7RY4-0000000DWIU-09kY
+	id 1x7Rb2-0000000DWQ0-1UFS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 05:54:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789710852; x=1821246852;
-  h=message-id:date:mime-version:cc:subject:to:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=lmlV7xFHRVTdsb3n+oqHHiehmNTVMleq48/Xf23jFaU=;
-  b=dT2qWyi/C2/dfpPyqRAvrLoTFhsEfilnIzU2WhU3F/QSL52ILY+sReFt
-   5S/1zk4YOEQeHTvvE5OrgGVhqSsC97SjcylqJhumYEerrHTLX0La2Vl6x
-   nzI3HXXTX7B8iyAJZ63Px7xjaKY72BK97PE9Tlzu50xLNBKikUwFfq/rP
-   GJ/YdoS6rMF3OqAHT6Xn5g4rFJe2iynxL5ZEUHc/NFuIXIW86H4/S5oF3
-   MI37r5zWA2zkZ0yHzlZ1YW/GPPUXuGd6BUFXo7yi1Sf8mTuyFBdMmPl62
-   9NqknRpLE4lgrp+r8MW8mjIHWwTnMlpzE5vjCEpLKVsLWYvY04d+ubWHw
-   Q==;
-X-CSE-ConnectionGUID: hEI68ttTRS+pebVvuxq/tw==
-X-CSE-MsgGUID: uQ2Xr839R+OnjnlNF/R6/A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="90326550"
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="90326550"
-Received: from fmviesa013.fm.intel.com ([10.60.135.153])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Sep 2026 22:54:10 -0700
-X-CSE-ConnectionGUID: KgABx0ZsR3iY4fYq/tVq2Q==
-X-CSE-MsgGUID: GZcbDF/7SxSIjyTZ91er0w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="2628589"
-Received: from unknown (HELO [10.238.1.188]) ([10.238.1.188])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Sep 2026 22:54:05 -0700
-Message-ID: <2ba47d98-21b5-40de-9df0-be6676ade064@linux.intel.com>
-Date: Fri, 18 Sep 2026 13:54:02 +0800
+	Fri, 18 Sep 2026 05:57:18 +0000
+Received: from edelgard.fodlan.icenowy.me (unknown [112.94.103.44])
+	by APP-01 (Coremail) with SMTP id qwCowAB3EPS20qxqc19ICA--.15319S2;
+	Fri, 18 Sep 2026 13:57:11 +0800 (CST)
+Message-ID: <75cf43a96c36a9afd76b191437a6675ffa8cba36.camel@iscas.ac.cn>
+Subject: Re: [PATCH v7 1/7] dt-bindings: display: verisilicon,dc: add
+ support for nuvoton,ma35d1-dcu
+From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+To: Joey Lu <a0987203069@gmail.com>, maarten.lankhorst@linux.intel.com, 
+	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
+ simona@ffwll.ch, 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Conor
+ Dooley	 <conor.dooley@microchip.com>
+Date: Fri, 18 Sep 2026 13:57:10 +0800
+In-Reply-To: <20260918030125.315978-2-a0987203069@gmail.com>
+References: <20260918030125.315978-1-a0987203069@gmail.com>
+	 <20260918030125.315978-2-a0987203069@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: base64
+User-Agent: Evolution 3.58.3 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: baolu.lu@linux.intel.com, "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
- Nicolin Chen <nicolinc@nvidia.com>,
- "linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>,
- "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Alexey Kardashevskiy <aik@amd.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Dan Williams <dan.j.williams@intel.com>,
- Joerg Roedel <joro@8bytes.org>, Jonathan Cameron <jic23@kernel.org>,
- Marc Zyngier <maz@kernel.org>, Pranjal Shrivastava <praan@google.com>,
- Robin Murphy <robin.murphy@arm.com>, Samuel Ortiz <sameo@rivosinc.com>,
- Steven Price <steven.price@arm.com>,
- Suzuki K Poulose <Suzuki.Poulose@arm.com>, Will Deacon <will@kernel.org>,
- Xu Yilun <yilun.xu@linux.intel.com>,
- Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>
-Subject: Re: [RFC PATCH v4 03/16] iommu/arm-smmu-v3: Add initial pSMMU realm
- viommu plumbing
-To: Jason Gunthorpe <jgg@ziepe.ca>, "Tian, Kevin" <kevin.tian@intel.com>
-References: <20260903171704.GK2890729@ziepe.ca> <yq5acxupjsy2.fsf@kernel.org>
- <20260907125228.GB667892@ziepe.ca> <yq5atsnyag84.fsf@kernel.org>
- <20260909124628.GH2543240@ziepe.ca>
- <CO1PR11MB4835512E374074A5F4AD0A6C8CBF2@CO1PR11MB4835.namprd11.prod.outlook.com>
- <20260910124632.GB4083318@ziepe.ca>
- <CO1PR11MB4835FF972283C09D7D683DAE8CBA2@CO1PR11MB4835.namprd11.prod.outlook.com>
- <20260915134318.GB3196566@ziepe.ca>
- <CO1PR11MB4835562E7714F368E669D3B48CB92@CO1PR11MB4835.namprd11.prod.outlook.com>
- <20260916123954.GC3196566@ziepe.ca>
-Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <20260916123954.GC3196566@ziepe.ca>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: qwCowAB3EPS20qxqc19ICA--.15319S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxArWUtFW8ArW7Xr1fAFWxXrb_yoWrCFW5pF
+	95JFWUJryxJrn5Xr1Utr1jyFyUJw1kJw1DJr18XF1UKr4UJr10qr4Ygr1qgF15Jr48Xr15
+	JF1UWr17Zw17Ar7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPGb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
+	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVWUJVW8Jw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFcxC0VAYjxAxZF0Ew4CEw7xC0wAC
+	Y4xI67k04243AVC20s07M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r4a6r
+	W5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_
+	Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x
+	0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8
+	JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIx
+	AIcVC2z280aVCY1x0267AKxVW8JVW8Jr1l6VACY4xI67k04243AbIYCTnIWIevJa73UjIF
+	yTuYvjxU3rb1DUUUU
+X-Originating-IP: [112.94.103.44]
+X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_225412_114631_C424DC39 
-X-CRM114-Status: GOOD (  16.05  )
+X-CRM114-CacheID: sfid-20260917_225716_789700_5A4B51AE 
+X-CRM114-Status: GOOD (  18.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,39 +86,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/16/2026 8:39 PM, Jason Gunthorpe wrote:
-> On Wed, Sep 16, 2026 at 05:54:57AM +0000, Tian, Kevin wrote:
->>> At least for ARM there is effectively no entanglement with the actual
->>> host iommu driver. The viommu is entirely provided by software in the
->>> RMM world, so it can have its own dedicated driver. In ARM T=1
->>> transactions are alwayus routed to the RMM's iommu and there is no
->>> relation to the host.
->>>
->>> I am interested how Intel works here, but I thought it was similar.
->> Largely yes. Main difference at Intel side is that TDX still relies on the
->> host to initiate iotlb invalidation (upon notification from KVM on S-EPT
->> change). Currently we put this logic in intel-iommu driver but it's more
->> about wrapping invalidation info and passing it to the firmware. Moving
->> it into the tsm driver should be straightforward.
->>
->> Maybe there'll be other subtle connections to host iommu driver but
->> it doesn't sound a hard problem to solve.
-> Okay, so I saw the driver posting for basic iommu support, can we try
-> to rework that to be split out like Aneesh is doing so everything
-> about TDX calls lives in tsm and intel iommu only provides a small API
-> surface to exchange whatever details are needed to bootstrap TDX
-> module?
+5ZyoIDIwMjYtMDktMTjkupTnmoQgMTE6MDEgKzA4MDDvvIxKb2V5IEx15YaZ6YGT77yaCj4gQWRk
+IHRoZSBOdXZvdG9uIE1BMzVEMSBEQ1VsdHJhTGl0ZSAobnV2b3RvbixtYTM1ZDEtZGN1KSB0byB0
+aGUKPiBiaW5kaW5nLgo+IFRoZSBEQ1VsdHJhTGl0ZSB1c2VzIG9ubHkgZm91ciBjbG9ja3MgKGNv
+cmUsIGF4aSwgYWhiLCBwaXgwKSBhbmQgb25lCj4gcmVzZXQgKGNvcmUpLCB3aXRoIGEgc2luZ2xl
+IG91dHB1dCBwb3J0Lgo+IAo+IFRoZSBNQTM1RDEgY2xvY2sgY29udHJvbGxlciBnYXRlcyB0aGUg
+Y29yZSwgQVhJIGFuZCBBSEIgY2xvY2tzIHdpdGggYQo+IHNpbmdsZSBiaXQsIGJ1dCBlYWNoIHJl
+bWFpbnMgYSBkaXN0aW5jdCBjbG9jayBsaW5lIGZlZWRpbmcgdGhlIElQCj4gd2l0aAo+IGl0cyBv
+d24gcmF0ZSBjb25zdHJhaW50cywgc28gYWxsIGZvdXIgbXVzdCBzdGlsbCBiZSBsaXN0ZWQKPiBp
+bmRpdmlkdWFsbHkKPiBpbiB0aGUgZGV2aWNldHJlZTsgY29yZSwgYXhpIGFuZCBhaGIgaGFwcGVu
+IHRvIHNoYXJlIHRoZSBzYW1lIGNsb2NrCj4gcGhhbmRsZS4KPiAKPiBNb3ZlIHRoZSBjbG9ja3Mv
+Y2xvY2stbmFtZXMgbWluSXRlbXMgdG8gNCBhbmQgcmVzZXRzL3Jlc2V0LW5hbWVzCj4gbWluSXRl
+bXMgdG8gMSBhdCB0aGUgdG9wIGxldmVsLCBzaW5jZSB0aGF0IGlzIHRoZSBsb3dlc3QgY291bnQg
+YW55Cj4gc3VwcG9ydGVkIHZhcmlhbnQgbmVlZHMuwqAgQWRkIGFuIGFsbE9mL2lmIGJsb2NrIHRo
+YXQgdGlnaHRlbnMgdGhlCj4gY29uc3RyYWludCBiYWNrIHVwIHRvIHRoZSBmaXhlZCA1LWNsb2Nr
+LzMtcmVzZXQgdG9wb2xvZ3kgcmVxdWlyZWQgYnkKPiB0aGUgZXhpc3RpbmcgdGhlYWQsdGgxNTIw
+LWRjODIwMCBjb21wYXRpYmxlLCBhbmQgYW5vdGhlciBvbmUgdGhhdAo+IGNhcHMKPiB0aGUgbmV3
+IG51dm90b24sbWEzNWQxLWRjdSBjb21wYXRpYmxlIGF0IHRoZSA0LWNsb2NrLzEtcmVzZXQgY291
+bnQgaXQKPiBhY3R1YWxseSB3aXJlcyB1cC4KPiAKPiBSZXN0cmljdCB0aGUgc2FtZSBudXZvdG9u
+LG1hMzVkMS1kY3UgaWYgYmxvY2sgdG8gYSBzaW5nbGUgcG9ydEAwLAo+IHNpbmNlIHRoZSBEQ1Vs
+dHJhTGl0ZSBvbmx5IGhhcyBvbmUgb3V0cHV0IHBvcnQuCj4gCj4gU2lnbmVkLW9mZi1ieTogSm9l
+eSBMdSA8YTA5ODcyMDMwNjlAZ21haWwuY29tPgo+IEFja2VkLWJ5OiBDb25vciBEb29sZXkgPGNv
+bm9yLmRvb2xleUBtaWNyb2NoaXAuY29tPgo+IC0tLQo+IMKgLi4uL2JpbmRpbmdzL2Rpc3BsYXkv
+dmVyaXNpbGljb24sZGMueWFtbMKgwqDCoMKgwqAgfCA1MQo+ICsrKysrKysrKysrKysrKysrKysK
+PiDCoDEgZmlsZSBjaGFuZ2VkLCA1MSBpbnNlcnRpb25zKCspCj4gCj4gZGlmZiAtLWdpdAo+IGEv
+RG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2Rpc3BsYXkvdmVyaXNpbGljb24sZGMu
+eWFtbAo+IGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2Rpc3BsYXkvdmVyaXNp
+bGljb24sZGMueWFtbAo+IGluZGV4IDkxOWE5MDAxMjIwMTIuLmUxZTZhM2E5NTM2NDYgMTAwNjQ0
+Cj4gLS0tIGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2Rpc3BsYXkvdmVyaXNp
+bGljb24sZGMueWFtbAo+ICsrKyBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9k
+aXNwbGF5L3ZlcmlzaWxpY29uLGRjLnlhbWwKPiBAQCAtMTcsNiArMTcsNyBAQCBwcm9wZXJ0aWVz
+Ogo+IMKgwqDCoMKgIGl0ZW1zOgo+IMKgwqDCoMKgwqDCoCAtIGVudW06Cj4gwqDCoMKgwqDCoMKg
+wqDCoMKgwqAgLSB0aGVhZCx0aDE1MjAtZGM4MjAwCj4gK8KgwqDCoMKgwqDCoMKgwqDCoCAtIG51
+dm90b24sbWEzNWQxLWRjdQo+IMKgwqDCoMKgwqDCoCAtIGNvbnN0OiB2ZXJpc2lsaWNvbixkYyAj
+IERDIElQcyBoYXZlIGRpc2NvdmVyYWJsZSBJRC9yZXZpc2lvbgo+IHJlZ2lzdGVycwo+IMKgCj4g
+wqDCoCByZWc6Cj4gQEAgLTI2LDYgKzI3LDcgQEAgcHJvcGVydGllczoKPiDCoMKgwqDCoCBtYXhJ
+dGVtczogMQo+IMKgCj4gwqDCoCBjbG9ja3M6Cj4gK8KgwqDCoCBtaW5JdGVtczogNAo+IMKgwqDC
+oMKgIGl0ZW1zOgo+IMKgwqDCoMKgwqDCoCAtIGRlc2NyaXB0aW9uOiBEQyBDb3JlIGNsb2NrCj4g
+wqDCoMKgwqDCoMKgIC0gZGVzY3JpcHRpb246IERNQSBBWEkgYnVzIGNsb2NrCj4gQEAgLTM0LDYg
+KzM2LDcgQEAgcHJvcGVydGllczoKPiDCoMKgwqDCoMKgwqAgLSBkZXNjcmlwdGlvbjogUGl4ZWwg
+Y2xvY2sgb2Ygb3V0cHV0IDEKPiDCoAo+IMKgwqAgY2xvY2stbmFtZXM6Cj4gK8KgwqDCoCBtaW5J
+dGVtczogNAo+IMKgwqDCoMKgIGl0ZW1zOgo+IMKgwqDCoMKgwqDCoCAtIGNvbnN0OiBjb3JlCj4g
+wqDCoMKgwqDCoMKgIC0gY29uc3Q6IGF4aQo+IEBAIC00MiwxMiArNDUsMTQgQEAgcHJvcGVydGll
+czoKPiDCoMKgwqDCoMKgwqAgLSBjb25zdDogcGl4MQo+IMKgCj4gwqDCoCByZXNldHM6Cj4gK8Kg
+wqDCoCBtaW5JdGVtczogMQo+IMKgwqDCoMKgIGl0ZW1zOgo+IMKgwqDCoMKgwqDCoCAtIGRlc2Ny
+aXB0aW9uOiBEQyBDb3JlIHJlc2V0Cj4gwqDCoMKgwqDCoMKgIC0gZGVzY3JpcHRpb246IERNQSBB
+WEkgYnVzIHJlc2V0Cj4gwqDCoMKgwqDCoMKgIC0gZGVzY3JpcHRpb246IENvbmZpZ3VyYXRpb24g
+QUhCIGJ1cyByZXNldAo+IMKgCj4gwqDCoCByZXNldC1uYW1lczoKPiArwqDCoMKgIG1pbkl0ZW1z
+OiAxCj4gwqDCoMKgwqAgaXRlbXM6Cj4gwqDCoMKgwqDCoMKgIC0gY29uc3Q6IGNvcmUKPiDCoMKg
+wqDCoMKgwqAgLSBjb25zdDogYXhpCj4gQEAgLTc5LDYgKzg0LDUyIEBAIHJlcXVpcmVkOgo+IMKg
+wqAgLSByZXNldC1uYW1lcwo+IMKgwqAgLSBwb3J0cwo+IMKgCj4gK2FsbE9mOgo+ICvCoCAtIGlm
+Ogo+ICvCoMKgwqDCoMKgIHByb3BlcnRpZXM6Cj4gK8KgwqDCoMKgwqDCoMKgIGNvbXBhdGlibGU6
+Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoCBjb250YWluczoKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oCBjb25zdDogdGhlYWQsdGgxNTIwLWRjODIwMAoKSnVzdCBhIG5vdGU6IGEgbmV3IGNvbXBhdGli
+bGUgc3RyaW5nLCBgc3RhcmZpdmUsamg3MTEwLWRjODIwMGAsIGlzCmZsb2F0aW5nIGluIHRoZSBt
+YWlsaW5nIGxpc3Q7IGFsdGhvdWdoIEkgZG9uJ3QgdGhpbmsgaXQgd2lsbCBiZSBzb29uCmVub3Vn
+aCBmb3IgaXQgdG8gYmUgYXBwbGllZCBiZWZvcmUgdGhpcyBwYXRjaHNldC4KClRoYW5rcywKSWNl
+bm93eQoKPiArwqDCoMKgIHRoZW46Cj4gK8KgwqDCoMKgwqAgcHJvcGVydGllczoKPiArwqDCoMKg
+wqDCoMKgwqAgY2xvY2tzOgo+ICvCoMKgwqDCoMKgwqDCoMKgwqAgbWluSXRlbXM6IDUKPiArCj4g
+K8KgwqDCoMKgwqDCoMKgIGNsb2NrLW5hbWVzOgo+ICvCoMKgwqDCoMKgwqDCoMKgwqAgbWluSXRl
+bXM6IDUKPiArCj4gK8KgwqDCoMKgwqDCoMKgIHJlc2V0czoKPiArwqDCoMKgwqDCoMKgwqDCoMKg
+IG1pbkl0ZW1zOiAzCj4gKwo+ICvCoMKgwqDCoMKgwqDCoCByZXNldC1uYW1lczoKPiArwqDCoMKg
+wqDCoMKgwqDCoMKgIG1pbkl0ZW1zOiAzCj4gKwo+ICvCoCAtIGlmOgo+ICvCoMKgwqDCoMKgIHBy
+b3BlcnRpZXM6Cj4gK8KgwqDCoMKgwqDCoMKgIGNvbXBhdGlibGU6Cj4gK8KgwqDCoMKgwqDCoMKg
+wqDCoCBjb250YWluczoKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBjb25zdDogbnV2b3Rvbixt
+YTM1ZDEtZGN1Cj4gK8KgwqDCoCB0aGVuOgo+ICvCoMKgwqDCoMKgIHByb3BlcnRpZXM6Cj4gK8Kg
+wqDCoMKgwqDCoMKgIGNsb2NrczoKPiArwqDCoMKgwqDCoMKgwqDCoMKgIG1heEl0ZW1zOiA0Cj4g
+Kwo+ICvCoMKgwqDCoMKgwqDCoCBjbG9jay1uYW1lczoKPiArwqDCoMKgwqDCoMKgwqDCoMKgIG1h
+eEl0ZW1zOiA0Cj4gKwo+ICvCoMKgwqDCoMKgwqDCoCByZXNldHM6Cj4gK8KgwqDCoMKgwqDCoMKg
+wqDCoCBtYXhJdGVtczogMQo+ICsKPiArwqDCoMKgwqDCoMKgwqAgcmVzZXQtbmFtZXM6Cj4gK8Kg
+wqDCoMKgwqDCoMKgwqDCoCBtYXhJdGVtczogMQo+ICsKPiArwqDCoMKgwqDCoMKgwqAgcG9ydHM6
+Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoCBwcm9wZXJ0aWVzOgo+ICvCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgIHBvcnRAMTogZmFsc2UKPiArCj4gK8KgwqDCoMKgwqDCoMKgwqDCoCByZXF1aXJlZDoKPiAr
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAtIHBvcnRAMAo+ICsKPiDCoGFkZGl0aW9uYWxQcm9wZXJ0
+aWVzOiBmYWxzZQo+IMKgCj4gwqBleGFtcGxlczoK
 
-Are you referring to this series?
-
-https://lore.kernel.org/linux-iommu/20260915074235.1219183-1-baolu.lu@linux.intel.com/
-
-It initializes the iommu managed by the secure world (the TDX module).
-
-I’m happy to rework it as you suggested by moving most of the TDX-
-related code into the tsm driver and leaving the host iommu driver to
-provide only the necessary assistance.
-
-Thanks,
-baolu
 
