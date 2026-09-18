@@ -4,91 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A35F1C982D9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 10:45:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04540C982D6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 10:45:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wlXiO3r5sfzIx3Xqv73ve4KoVoqUA+2PC09e+c2x20M=; b=w1KFx5RzG3jAKzSxWuaoveZ/uM
-	nqhzhhNkNafNA/IxQa8n8zK2hh3rU+A7P30uYROMaRqcmcGnslz+ZkWEBOU3hn0oAHBbCLtMHRSZG
-	kupWhduNNnPp56MF6gh0Z3hKvc69WOjZW8Lzn+SZhASMz/rkjBiiG5GoN9BtNa4hFCt0d9Ty58giS
-	0tPkt8Jhplo0LLg5ITD+lc+kSe0oSRylnp0tVzZb+qwuVqYoy8jPi526138Zz1Txu+B4eOPF4Hxit
-	4LkzrBZ6slpFhUubHmQtImtCumH5P1IjeVvXv4Aaxu61Aq6hNHo3oT93jXhPn5qt9FZ5yTTOrkHxD
-	PJgIV7BQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hIzulSOfGcXVqsgqU0OwvsRiP5B9G3lK3Cp7l6JKQPs=; b=pGPiSTL8ea1r2Vpo0t3DJe83lw
+	MHhY7KZ00K6rKFG2vAw+Tj/yLQHBM/NYlMua4fmL73qxRnF5/mihzi0JdrHddQeOE2yGzz3By6EWP
+	m1bQoQPtxajKXTBHoZE/nx5S3gBXdmVJvS0FzSGGlveuREf7dAE1wVcurcjCe9hxzS1Hcp2bmGcRl
+	wFOLZIsRPfqjXtgJNDHPzLYyy48oIjJkoGjUXdCisImg1EQEQG+hdbuaOfhA0TXsog3c/peNGCFrT
+	oqOVQJm9/42s2J3tqwv19LAx+NVSo9hSMaxXBa7dkpP/cP/w/gBjvCzxCcjVzoSOZoXtb4npiz9O+
+	F732cF3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7W5R-0000000E8C5-1kXE;
-	Fri, 18 Sep 2026 10:44:57 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1x7W5e-0000000E8Qm-2V5i;
+	Fri, 18 Sep 2026 10:45:10 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7W4z-0000000E7lK-3JM0;
-	Fri, 18 Sep 2026 10:44:31 +0000
-Received: from ping.linuxembedded.co.uk (cpc89244-aztw30-2-0-cust6594.18-1.cable.virginm.net [86.31.185.195])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 2A7564F07;
-	Fri, 18 Sep 2026 12:42:44 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1789728165;
-	bh=F6TvpcEVosqVPYmYYk2zyN5vocsuBaY0vDUb/g4fM9Y=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=AnhH/oE2XOJ3Jhxmu7HdEKMMIjTcKMzZsrzIasIBLMSNJCv9a1rw2L1pXeSnEOMTp
-	 n6mE/tLr3BZdQ0OVugoqrdxvGd3KB33cpBo8CdMP+6qZAiWZfztFctaBWT/KZeYnWa
-	 X/ilA5/ogcWIMR7qu/AKEGD/uwbyfANa4JkzrXlY=
-From: Kieran Bingham <kieran.bingham@ideasonboard.com>
-Date: Fri, 18 Sep 2026 11:44:18 +0100
-Subject: [PATCH v6 6/6] dt-bindings: media: i2c: himax,hm1246: Use
- video-interface-devices
+	id 1x7W5K-0000000E859-0Yqd;
+	Fri, 18 Sep 2026 10:44:50 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5DDC660A82;
+	Fri, 18 Sep 2026 10:44:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E075F1F000FF;
+	Fri, 18 Sep 2026 10:44:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789728289;
+	bh=hIzulSOfGcXVqsgqU0OwvsRiP5B9G3lK3Cp7l6JKQPs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=a/ebx6ZE3GhCdIC9wVB4ASAmLQpKwpiY/K9Mfznw6N9dPYwguxfHQZNhzmCWFeUv5
+	 pleWqu9AShpPNcTX6adwqqadsCifUFfBKICey/vFNuzcenhmtJoYeG63IibsyvF923
+	 mo39/42EPT1S/WTH9i89g0CF3Mavj472+NxSkXv9bdF74xCwUkTF4gywhCduu/NWbt
+	 Wg0kFye//eV3aS5SJ/lJSmHOIQTS8C33Cqw1nsmDvTXsOa//3l39roD/PcQXNXC6SI
+	 DWTHVWILJc2FGgvBQWgYZv8K2ZmDWizLGesd1Cmdwc4vetjE3mPFth0wqVyf9rgKWC
+	 QTUFV4d5qXV/g==
+Date: Fri, 18 Sep 2026 12:44:45 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Conor Dooley <conor+dt@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	linux-rpi-kernel@lists.infradead.org
+Subject: Re: [PATCH] media: dt-bindings: raspberrypi,pispbe: Fix example
+ indent
+Message-ID: <20260918-amusing-rat-of-nirvana-cda3f9@quoll>
+References: <20260917002554.362516-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260918-kbingham-orientation-v6-6-5e8b1f01be29@ideasonboard.com>
-References: <20260918-kbingham-orientation-v6-0-5e8b1f01be29@ideasonboard.com>
-In-Reply-To: <20260918-kbingham-orientation-v6-0-5e8b1f01be29@ideasonboard.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Jacopo Mondi <jacopo@jmondi.org>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>, Jimmy Su <jimmy.su@intel.com>, 
- Matthias Fend <matthias.fend@emfend.at>, 
- Mikhail Rudenko <mike.rudenko@gmail.com>, 
- Daniel Scally <dan.scally@ideasonboard.com>, 
- Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
- Michael Riesch <michael.riesch@collabora.com>, 
- Benjamin Mugnier <benjamin.mugnier@foss.st.com>, 
- Sylvain Petinot <sylvain.petinot@foss.st.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Paul Elder <paul.elder@ideasonboard.com>, 
- Martin Kepplinger <martin.kepplinger@puri.sm>, 
- Quentin Schulz <quentin.schulz@theobroma-systems.com>, 
- Tommaso Merciai <tomm.merciai@gmail.com>, 
- Svyatoslav Ryhel <clamor95@gmail.com>, 
- Richard Acayan <mailingradian@gmail.com>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>, 
- Geert Uytterhoeven <geert+renesas@glider.be>, 
- Magnus Damm <magnus.damm@gmail.com>, Heiko Stuebner <heiko@sntech.de>, 
- Thierry Reding <thierry.reding@kernel.org>, 
- Jonathan Hunter <jonathanh@nvidia.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux@ew.tq-group.com, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
- linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- linux-tegra@vger.kernel.org, 
- Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789728257; l=1278;
- i=kieran.bingham@ideasonboard.com; s=20260207; h=from:subject:message-id;
- bh=zj0TRPd2r+l+CPw8KXOYUgmrO4GRMVVMAHrTLWUo4iY=;
- b=Hr6H/4uJ2Ofm5pjTJhZRU6jZzp9KXp8SsSLerp3e166U5M1d90/cFvvGs5guDRBlHx+joE/ec
- nf3mQVJ4lxnBPnrBMrnIqA9Yx+RgDsgC3UQc+I8me1Uv3ykqmv5j6Z/
-X-Developer-Key: i=kieran.bingham@ideasonboard.com; a=ed25519;
- pk=FVXKN7YuwHc6UtbRUeTMAmranfsQomA+vnilfglWdaY=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_034430_571358_70095C36 
-X-CRM114-Status: GOOD (  10.49  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260917002554.362516-1-marek.vasut+renesas@mailbox.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,45 +73,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
+On Thu, Sep 17, 2026 at 02:25:18AM +0200, Marek Vasut wrote:
+> Fix two spaces before { in example. No functional change.
+> 
+> DT checker reports this as follows:
+> "
+> ./Documentation/devicetree/bindings/media/raspberrypi,pispbe.yaml:56: example 0 [redundant-whitespace] extra whitespace before {
 
-The orientation property for video interface devices now has definitions
-to prevent hardcoded integer values for the enum options.
+I already posted this for more files:
+https://lore.kernel.org/all/20260801195528.235230-2-krzysztof.kozlowski@oss.qualcomm.com/
 
-Update the example binding documentation.
+And doing such changes file-per-file is quite a churn, so better to
+combine commits.
 
-Signed-off-by: Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
-
----
-v6:
- - Actually use the correct orientation!
----
- Documentation/devicetree/bindings/media/i2c/himax,hm1246.yaml | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/Documentation/devicetree/bindings/media/i2c/himax,hm1246.yaml b/Documentation/devicetree/bindings/media/i2c/himax,hm1246.yaml
-index a65488fcc643..9994105552e7 100644
---- a/Documentation/devicetree/bindings/media/i2c/himax,hm1246.yaml
-+++ b/Documentation/devicetree/bindings/media/i2c/himax,hm1246.yaml
-@@ -86,6 +86,7 @@ examples:
-   - |
-     #include <dt-bindings/gpio/gpio.h>
-     #include <dt-bindings/media/video-interfaces.h>
-+    #include <dt-bindings/media/video-interface-devices.h>
- 
-     i2c {
-         #address-cells = <1>;
-@@ -103,7 +104,7 @@ examples:
-             iovdd-supply = <&hm1246_iovdd>;
-             dvdd-supply = <&hm1246_dvdd>;
- 
--            orientation = <2>;
-+            orientation = <MEDIA_ORIENTATION_EXTERNAL>;
-             rotation = <0>;
- 
-             port {
-
--- 
-2.52.0
+Best regards,
+Krzysztof
 
 
