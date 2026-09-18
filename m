@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BC1BC982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 14:11:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 906CCC982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 14:11:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5OcZ3HbYtIeYRRXVQKXFZiwk4WCSqfOF9R0M+z4jE/c=; b=1LUpI3Bnbx28yi
-	mON4/d+IdqkcOBmfZWQCioe0G1CGMNuM2m7HA1gnWkxAWsplXrlSPyVTC/LGJNQthSsq0ozH0KCJQ
-	w++gyRPIUdRO6GXWmaOkJZdBe0M60q7oJJdZT+YiscoeD3cQPbktIkhkQ2K2+6ukEvaS6HpJXZv2P
-	gtnV+QfaXCIrG7G/co4tRz7JxY2PQVW51P8MgNMcf9EyVM2HxTa++gJUbp8TJns2pb4nrkEm5IyYB
-	J9rK+UqYf3TrY69N87Vw4XgkVK43cmiXhMKPwzNYT/ckDgK3Nw9wsJKgkE8V3sLpKrmrCMd83IZsW
-	YRsgcKA8xgRtHZKmr4Zw==;
+	List-Owner; bh=TTuPpDvpmOeEbZ/SmFYH4VtDDf7zUjAXMw+KmVeaJhk=; b=HEYHPqlrBcI86p
+	wTFjZaBUF3qEwujm6zYYel4NJ5t+j7b+eadIlh0rW5DYD+s2stt6yBHuvSpW9/RfyNfvEXZOmiE62
+	qejKBz+E0ukPHKhKW/OlelyNCXVq3C/6XG1xp3k5LrYVO8FPb9DIyivOgg/7asPqfYoV5ATKv9pR0
+	+tPmbMMxy7ylbCTv2bowpM64gjiKLnw6Fn5z+3Ec2cuT+gen8eYZHw0ZscA0u3I/Aax7LS+M2Jkqv
+	fUF7UMCb553hxu7ALfPVI/rBBGveP9RC5CZY2qL9+KXRGIshL1Ph6H4WMn3A9EO/wWPxohefAAVFt
+	3p7McS/64Rt9rGBsUIcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7ZJV-0000000Efn9-1L0R;
+	id 1x7ZJV-0000000EfnM-1ojm;
 	Fri, 18 Sep 2026 14:11:41 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7ZJP-0000000Efkc-3toL
+	id 1x7ZJR-0000000EflC-23oZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 14:11:37 +0000
+	Fri, 18 Sep 2026 14:11:38 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B0DF2168F;
-	Fri, 18 Sep 2026 07:11:29 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B52B21E4D;
+	Fri, 18 Sep 2026 07:11:32 -0700 (PDT)
 Received: from e142021.Arm.com (e142021.arm.com [10.41.4.144])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9851E3F86C;
-	Fri, 18 Sep 2026 07:11:30 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9CF073F86C;
+	Fri, 18 Sep 2026 07:11:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789740693; bh=EqKIdJZ0C+yXX2cIFzzx7FCYTPgkMMFND81vIIt+GIE=;
+	t=1789740696; bh=tqqHViVw4RtjptjFs9M84wpARYpMZc1L7EOtLQIh1oo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=F8FyOcCXQckp4bzNt3OPkNZh/YqjJUFVK3Ks90QuELF1e+SfV/oHOHnLlbvEJbIjW
-	 +0+W6JoEjuh4aPKeFPi1H2YKg+jWtMQuTPHrDEB65dDB4bMg/rHN6FapE+LfjOWR5d
-	 ec95aBneWJET/Ps4qFVCb0yDoYk/OG7950gLn2Bc=
+	b=YLmw7Nwo80b6aduB5DEetF7b3bjN96QlcDU+DDuMilue4/P/UWwGZXj7+cgSSgiAB
+	 +vK7xolsHS6S7ansbLxSMUguVmiqgOUriItR/PIsEwp+bDA3WgfzAwxaVecpy0E+4g
+	 TvPPj6M+GMyQnrRryW9okdFmZzx4Ty5aBbfSZoGE=
 From: Andre Przywara <andre.przywara@arm.com>
 To: Mark Rutland <mark.rutland@arm.com>,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Sudeep Holla <sudeep.holla@kernel.org>
-Subject: [PATCH v4 3/8] firmware: smccc: lfa: Add timeout and trigger watchdog
-Date: Fri, 18 Sep 2026 16:11:06 +0200
-Message-ID: <20260918141112.2115555-4-andre.przywara@arm.com>
+Subject: [PATCH v4 4/8] firmware: smccc: lfa: Register ACPI notification
+Date: Fri, 18 Sep 2026 16:11:07 +0200
+Message-ID: <20260918141112.2115555-5-andre.przywara@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260918141112.2115555-1-andre.przywara@arm.com>
 References: <20260918141112.2115555-1-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_071136_372891_5C01C4BF 
-X-CRM114-Status: GOOD (  17.62  )
+X-CRM114-CacheID: sfid-20260918_071137_639931_C03AD631 
+X-CRM114-Status: GOOD (  20.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,128 +71,197 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Vedashree Vidwans <vvidwans@nvidia.com>
 
-Enhance PRIME/ACTIVATION functions to touch watchdog and implement
-timeout mechanism. This update ensures that any potential hangs are
-detected promptly and that the LFA process is allocated sufficient
-execution time before the watchdog timer expires. These changes improve
-overall system reliability by reducing the risk of undetected process
-stalls and unexpected watchdog resets.
+The Arm LFA spec describes an ACPI notification mechanism, where the
+platform (firmware) can notify an LFA client about newly available
+firmware imag updates ("pending images" in LFA terms).
+
+Add a faux device after discovering the existence of an LFA agent via
+the SMCCC discovery mechnism, and use that device to check for the ACPI
+notification description. Register this when one is provided.
+
+The notification just conveys the fact that at least one firmware image
+has now a pending update, it doesn't say which, also there could be more
+than one pending. Loop through all images to find every which needs to
+be activated, and trigger the activation. We need to do this is a loop,
+since an activation might change the number and the status of available
+images.
 
 Signed-off-by: Vedashree Vidwans <vvidwans@nvidia.com>
-Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+[Andre: convert from platform driver to smccc bus]
+Signed-off-by: Andre Przywara <andre.przywar@arm.com>
 ---
- drivers/firmware/smccc/lfa_fw.c | 43 +++++++++++++++++++++++++++++----
- 1 file changed, 38 insertions(+), 5 deletions(-)
+ drivers/firmware/smccc/lfa_fw.c | 122 +++++++++++++++++++++++++++++++-
+ 1 file changed, 121 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/firmware/smccc/lfa_fw.c b/drivers/firmware/smccc/lfa_fw.c
-index 7cf847e102d5a..b6ce478d3fc01 100644
+index b6ce478d3fc01..bb89fffde6856 100644
 --- a/drivers/firmware/smccc/lfa_fw.c
 +++ b/drivers/firmware/smccc/lfa_fw.c
-@@ -6,11 +6,14 @@
+@@ -3,12 +3,14 @@
+  * Copyright (C) 2025 Arm Limited
+  */
+ 
++#include <linux/acpi.h>
  #include <linux/arm-smccc.h>
  #include <linux/arm-smccc-bus.h>
  #include <linux/array_size.h>
-+#include <linux/delay.h>
+ #include <linux/delay.h>
  #include <linux/fs.h>
  #include <linux/init.h>
++#include <linux/kernel.h>
  #include <linux/kobject.h>
-+#include <linux/ktime.h>
+ #include <linux/ktime.h>
  #include <linux/list.h>
- #include <linux/module.h>
-+#include <linux/nmi.h>
- #include <linux/psci.h>
+@@ -18,11 +20,13 @@
  #include <linux/stop_machine.h>
  #include <linux/string.h>
-@@ -27,6 +30,11 @@
- #define LFA_PRIME_CALL_AGAIN		BIT(0)
- #define LFA_ACTIVATE_CALL_AGAIN		BIT(0)
+ #include <linux/sysfs.h>
++#include <linux/types.h>
+ #include <linux/uuid.h>
+ #include <linux/workqueue.h>
  
-+#define LFA_PRIME_BUDGET_MS		30000		/* 30s cap */
-+#define LFA_PRIME_DELAY_MS		10		/* 10ms between polls */
-+#define LFA_ACTIVATE_BUDGET_MS		10000		/* 10s cap */
-+#define LFA_ACTIVATE_DELAY_MS		10		/* 10ms between polls */
-+
- /* LFA return values */
- #define LFA_SUCCESS			0
- #define LFA_NOT_SUPPORTED		1
-@@ -295,6 +303,7 @@ static int call_lfa_activate(void *data)
- 	struct fw_image *image = data;
- 	struct arm_smccc_1_2_regs reg = { 0 }, res;
+ #include <uapi/linux/psci.h>
  
-+	touch_nmi_watchdog();
- 	reg.a0 = ARM_SMCCC_LFA_ACTIVATE;
- 	reg.a1 = image->fw_seq_id;
- 	/*
-@@ -318,6 +327,7 @@ static int call_lfa_activate(void *data)
++#define DRIVER_NAME	"ARM_LFA"
+ #undef pr_fmt
+ #define pr_fmt(fmt) "Arm LFA: " fmt
  
- static int activate_fw_image(struct fw_image *image)
- {
-+	ktime_t end = ktime_add_ms(ktime_get(), LFA_ACTIVATE_BUDGET_MS);
- 	int ret;
- 
- retry:
-@@ -339,8 +349,15 @@ static int activate_fw_image(struct fw_image *image)
- 	}
- 
- 	/* SMC returned with call_again flag set, or with LFA_BUSY */
--	if (ret == -EAGAIN || ret == -EBUSY)
--		goto retry;
-+	if (ret == -EAGAIN || ret == -EBUSY) {
-+		if (ktime_before(ktime_get(), end)) {
-+			if (!msleep_interruptible(LFA_ACTIVATE_DELAY_MS))
-+				goto retry;
-+			ret = -EINTR;
-+		} else {
-+			ret = -ETIMEDOUT;
-+		}
-+	}
- 
- 	lfa_cancel(image);
- 
-@@ -352,6 +369,7 @@ static int activate_fw_image(struct fw_image *image)
- static int prime_fw_image(struct fw_image *image)
- {
- 	struct arm_smccc_1_2_regs reg = { 0 }, res;
-+	ktime_t end = ktime_add_ms(ktime_get(), LFA_PRIME_BUDGET_MS);
- 	int ret;
- 
- 	if (image->may_reset_cpu) {
-@@ -360,6 +378,8 @@ static int prime_fw_image(struct fw_image *image)
- 		return -EINVAL;
- 	}
- 
-+	touch_nmi_watchdog();
-+
- 	reg.a0 = ARM_SMCCC_LFA_PRIME;
- retry:
- 	/*
-@@ -378,10 +398,23 @@ static int prime_fw_image(struct fw_image *image)
- 		return lfa_to_linux_errno((long)res.a0);
- 	}
- 
--	if (res.a1 & LFA_PRIME_CALL_AGAIN)
--		goto retry;
-+	if (!(res.a1 & LFA_PRIME_CALL_AGAIN))
-+		return 0;
- 
--	return 0;
-+	/* SMC returned with call_again flag set */
-+	if (ktime_before(ktime_get(), end)) {
-+		if (!msleep_interruptible(LFA_PRIME_DELAY_MS))
-+			goto retry;
-+		ret = -EINTR;
-+	} else {
-+		pr_err("LFA_PRIME for image %s timed out",
-+		       get_image_name(image));
-+		ret = -ETIMEDOUT;
-+	}
-+
-+	lfa_cancel(image);
-+
-+	return ret;
+@@ -733,6 +737,112 @@ static int update_fw_images_tree(void)
+ 	return 0;
  }
  
- static ssize_t name_show(struct kobject *kobj, struct kobj_attribute *attr,
++/*
++ * Go through all FW images in a loop and trigger activation
++ * of all activatible and pending images.
++ * We have to restart enumeration after every triggered activation,
++ * since the firmware images might have changed during the activation.
++ */
++static int activate_pending_image(void)
++{
++	struct kobject *kobj;
++	bool found_pending = false;
++	struct fw_image *image;
++	int ret;
++
++	spin_lock(&lfa_kset->list_lock);
++	list_for_each_entry(kobj, &lfa_kset->list, entry) {
++		image = kobj_to_fw_image(kobj);
++
++		if (image->fw_seq_id == -1)
++			continue; /* Invalid FW component */
++
++		update_fw_image_pending(image);
++		if (image->activation_capable && image->activation_pending) {
++			found_pending = true;
++			break;
++		}
++	}
++	spin_unlock(&lfa_kset->list_lock);
++
++	if (!found_pending)
++		return -ENOENT;
++
++	ret = prime_fw_image(image);
++	if (ret)
++		return ret;
++
++	ret = activate_fw_image(image);
++	if (ret)
++		return ret;
++
++	pr_info("%s: automatic activation succeeded\n", get_image_name(image));
++
++	return 0;
++}
++
++#ifdef CONFIG_ACPI
++static void lfa_acpi_notify_handler(acpi_handle handle, u32 event, void *data)
++{
++	int ret;
++
++	while (!(ret = activate_pending_image()))
++		;
++
++	if (ret != -ENOENT)
++		pr_warn("notified image activation failed: %d\n", ret);
++}
++
++static int lfa_register_acpi(struct device *dev)
++{
++	struct acpi_device *acpi_dev;
++	acpi_handle handle;
++	acpi_status status;
++
++	acpi_dev = acpi_dev_get_first_match_dev("ARML0003", NULL, -1);
++	if (!acpi_dev)
++		return -ENODEV;
++	handle = acpi_device_handle(acpi_dev);
++	if (!handle) {
++		acpi_dev_put(acpi_dev);
++		return -ENODEV;
++	}
++
++	/* Register notify handler that indicates LFA updates are available */
++	status = acpi_install_notify_handler(handle, ACPI_DEVICE_NOTIFY,
++					     lfa_acpi_notify_handler, NULL);
++	if (ACPI_FAILURE(status)) {
++		acpi_dev_put(acpi_dev);
++		return -EIO;
++	}
++
++	ACPI_COMPANION_SET(dev, acpi_dev);
++
++	return 0;
++}
++
++static void lfa_remove_acpi(struct device *dev)
++{
++	struct acpi_device *acpi_dev = ACPI_COMPANION(dev);
++	acpi_handle handle = acpi_device_handle(acpi_dev);
++
++	if (handle)
++		acpi_remove_notify_handler(handle,
++					   ACPI_DEVICE_NOTIFY,
++					   lfa_acpi_notify_handler);
++	acpi_dev_put(acpi_dev);
++}
++#else	/* !CONFIG_ACPI */
++static int lfa_register_acpi(struct device *dev)
++{
++	return -ENODEV;
++}
++
++static void lfa_remove_acpi(struct device *dev)
++{
++}
++#endif
++
+ static int lfa_smccc_probe(struct arm_smccc_device *sdev)
+ {
+ 	struct arm_smccc_1_2_regs reg = { 0 };
+@@ -769,11 +879,21 @@ static int lfa_smccc_probe(struct arm_smccc_device *sdev)
+ 		destroy_workqueue(fw_images_update_wq);
+ 	}
+ 
+-	return err;
++	if (!acpi_disabled) {
++		err = lfa_register_acpi(&sdev->dev);
++		if (!err)
++			pr_info("registered LFA ACPI notification\n");
++		if (err != -ENODEV)
++			return err;
++	}
++
++	return 0;
+ }
+ 
+ static void lfa_smccc_remove(struct arm_smccc_device *sdev)
+ {
++	if (!acpi_disabled)
++		lfa_remove_acpi(&sdev->dev);
+ 	clean_fw_images_tree();
+ 	flush_workqueue(fw_images_update_wq);
+ 	destroy_workqueue(fw_images_update_wq);
 -- 
 2.43.0
 
