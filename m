@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A79D2C982DF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 13:33:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F966C982E1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 13:33:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6kkUuBtQh7OlhH3THIaN3BECiqBALGTcSbqHwQf9XXw=; b=36nlZlZ0zDeM5mRy8ne+fueoEa
-	AiS3c00GkrrOZRDK68xjwkLWrtTMBJwmqKqHy8IZ37KXtDfSzwb/slBTarpP7s21Rop61mnZS96R9
-	9LFPBxLdkavUDxqAKjte9PXmS/RzQyDnEXG9nbu+I+PP0VUv4ZZhngpio6JFdBv+Q8gq9mlK53FTs
-	tURr3TYuzXLxkulJxfF7/szESKBI5zTatjAVlcvWjq6k+bl9FaQiISacg1Ng7sPpqlxsOMbFWmKu6
-	5Gf7oDtfoITuxwWqgIFxPtRbjVDEeo/+y9m58VbjgrDvcMJfik9PlXarqQaOvpSqtLbUkrT2gGwMq
-	fLnEstGg==;
+	bh=WCL+CA7pTX69IiknF0LM7xJ6P4tgzKbQdTZYtTbfrv8=; b=Jxavb05O44iqHIFg2tHaWuJiaB
+	Z9psnCdEuqjxHoLwvkzXhDZkgbT6+UAIHF08HNVoseUOxfA6bFndYTsMXEOjFYkKp3BIB5UQAOqjh
+	JqnIEmCBq7Ud2kLoWUjIscoNiriJ8KWZtTPfGyZIgl5TsD6BMbYCIDTzol40WUH2oobfGyehPbug9
+	CWlcVReVCHjEfqieJRJ+WbNFLQKU/Sd5gm6wiRKMzQBkQjYvydiBrzC/Ky6hPPKjsUojWfmNmqEXF
+	rm9Mm+E4s1h8GssuJU6fpuLBnCVkGs1SyLdeWLNrQfa0KeSjFo3o3Z9HH16wv72hgKbNTtKD9zNSt
+	QmnWNYAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7YiG-0000000EY6y-1Etp;
-	Fri, 18 Sep 2026 13:33:12 +0000
+	id 1x7YiH-0000000EY9I-2arh;
+	Fri, 18 Sep 2026 13:33:13 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Ygq-0000000EWwd-1gVc
+	id 1x7Ygs-0000000EWx0-0NCX
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 18 Sep 2026 13:31:45 +0000
+	Fri, 18 Sep 2026 13:31:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=6kkUuBtQh7OlhH3THIaN3BECiqBALGTcSbqHwQf9XXw=; b=VH4+1PjpYnKdqujbsju5yqqjLd
-	7YqCjagCTHf1PcO+NqTAWXubzYpm0eZVIW0m8lBAJYTz4qtj64EXGgZDnG6RSybmW3b5XPSEbOAE5
-	Y5qJVSXMiv8Jh9v1XmfhOM3CCzrZSmFOipCtIfoCegPVXyAsW7ZFhp53EILxpoAxBl9YG8zHpneVb
-	GjSo3q/xP/KtHss8ZOQrQL8h60YiQJ94RD1IT8pbUG+kPAOKs0E5qIAeAHcVRDwwgYBt20JCq/hSx
-	PSlLsCfzA6PLvr0b+A7yHUb8JSFK6QXtgY8+V0SeurhndEhV+UA0dhmKxT47DyKzzmioPk+bSvbZY
-	7NhYiYhA==;
+	bh=WCL+CA7pTX69IiknF0LM7xJ6P4tgzKbQdTZYtTbfrv8=; b=Yl8qw6XcIGiMq9kJxgxfVMPEv6
+	nUljMPCWI/td4xQ4GYIEW5Gbn/0/1OHpIxqt7Yfvx1ZRMv+bRjE254uqTJwHmsGR7Q3LH4sv2Vlxn
+	iSAyph7gyrLprBgEB0eqGqsYV4NRJS6EYWlLGPFrzRe4tJpSczSmAjzrBLTEcK+xE90nnLo978Fcs
+	EdGrBJbARHRQTr937mmRehy+QoOUeHcXfH7kUoNqn6qyJZY7cukzG+Ut9EJVESKIS2s+947JdIYBS
+	hIR+nkhpgyH33mqzoyc+UqDQgCYypQhiRkJzus+uKIEyUVKx48GAltTGwGi88L+ni9naO5D3nLAwO
+	Zu4Sa6mA==;
 Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x7Ygm-0000000A8aD-32NT
+	id 1x7Ygn-0000000A8aO-3vT8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 13:31:43 +0000
+	Fri, 18 Sep 2026 13:31:44 +0000
 Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68IDVPwo1378486;
-	Fri, 18 Sep 2026 13:31:25 GMT
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68IDVOT61378352;
+	Fri, 18 Sep 2026 13:31:28 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=6kkUuBtQh7OlhH3TH
-	IaN3BECiqBALGTcSbqHwQf9XXw=; b=dDeFysFvwhN6ZeT7hO77ICIqsIxHCgLuG
-	cZYIL3mceklZ+ydaG1C1l3MR44Lj79XbwwS09ftoKsPmO7VGhIyCmhaMmFnMiOiv
-	UOBfX+CZCYO2jZ/8Ure/vi5xlijJq1EIXkGXw+BpG1KtbH06jiWdrwB4uAqirMK5
-	KFK03/+KmNfmNA0c9Gvvq7Ge0VtZ1oGCZG/AT4oU1qF5h76U2c3pO0x74OoRBbIF
-	QUURVQ8s2DfT8c1D5QaBRiu+zUFBoVJVEOzFgUC/q2lKPEg+QSS5ZbCggxVhY5dq
-	pxCtnGOhn/2Z+v9+ASDDF8IFH+vPstD+o3U00M5GrQZ/2I2K22V4w==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gmx848a66-1
+	:mime-version:references:subject:to; s=pp1; bh=WCL+CA7pTX69IiknF
+	0LM7xJ6P4tgzKbQdTZYtTbfrv8=; b=Ng7dJ5l0KJktT8YucRQbjpsZ7Ya/5ZANe
+	zBluefEEky4NgtdfmAMTZJ+66ZLHY48uKTg4TPz4hOp/azjCjsm/1fWnrJwd1wTH
+	LRv52FfHOEmG8vlQbe5v1FBuqWHd/+cCZ4ZGu8w815r4zXdTDWv03Ak2d9aMUTHz
+	qDREDdNDmEGetkikEF97IStY/dhMxPe+rfisDXPf9H58PKRhUJzazqIDtwK92NuB
+	o5Kc+feQyrt0dEuLJY3jUI6FK1/otCZmaw84SnGPEkPFYXR+vJ8W410P5RZzWRjb
+	nH/AHIX2vVFGOhHli3WnsuivH3cSahwXZF4o9QxN+ooSUsHLJ+cuQ==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gmx848a6w-1
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 18 Sep 2026 13:31:24 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68IDO1fX722844;
-	Fri, 18 Sep 2026 13:31:21 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gr5fjqgvt-1
+	Fri, 18 Sep 2026 13:31:27 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68IDNs9f771781;
+	Fri, 18 Sep 2026 13:31:26 GMT
+Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4gr5fffhd0-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 18 Sep 2026 13:31:20 +0000 (GMT)
+	Fri, 18 Sep 2026 13:31:26 +0000 (GMT)
 Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68IDVC6849152392
+	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68IDVIYY51511726
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 18 Sep 2026 13:31:12 GMT
+	Fri, 18 Sep 2026 13:31:19 GMT
 Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 277DD20040;
-	Fri, 18 Sep 2026 13:31:12 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id D038E20040;
+	Fri, 18 Sep 2026 13:31:18 +0000 (GMT)
 Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id CCDBD20049;
-	Fri, 18 Sep 2026 13:31:11 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 829712004B;
+	Fri, 18 Sep 2026 13:31:18 +0000 (GMT)
 Received: from tuxmaker.lnxne.boe (unknown [9.87.85.9])
 	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 18 Sep 2026 13:31:11 +0000 (GMT)
+	Fri, 18 Sep 2026 13:31:18 +0000 (GMT)
 From: Steffen Eiden <seiden@linux.ibm.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -103,9 +103,9 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
         Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
         Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
         Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v8 11/29] arm64: ptrace: Use constants for compat register numbers
-Date: Fri, 18 Sep 2026 15:30:48 +0200
-Message-ID: <20260918133107.1042730-12-seiden@linux.ibm.com>
+Subject: [PATCH v8 29/29] KVM: s390: Enforce no unexpected external symbol exports in s390 KVM
+Date: Fri, 18 Sep 2026 15:31:06 +0200
+Message-ID: <20260918133107.1042730-30-seiden@linux.ibm.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260918133107.1042730-1-seiden@linux.ibm.com>
 References: <20260918133107.1042730-1-seiden@linux.ibm.com>
@@ -113,24 +113,23 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
 X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE4MDE5MiBTYWx0ZWRfX3oHdTM0RcM9M
- lJA/QRIcr2gycnElpo/MDeE2zEa/GHQIylJu8moeaG9G0rL5XqCLPB3TcdMk75TJfOPH7wd5uA2
- 12T+ArQ0VYltavLHTvLNJwriHMxpLe52i3M9sZ7oVCrkD+ahn/8vhbtKBQfD9xXxCDGMu3mMSoD
- CIG21Za8Lv9fwHNDXpBiK99JdvVFE74DCjcSnbGlHopkZOfAl8VvyEcWAiWOLZUGYrfRcx64HVm
- 3Sy1NhBOAg4XrfyFqDYErSYKLBCbiJBsfXz84J7u2O8H8py6vY+XsOUP6/QJ1NSoPD/hrBzWc8n
- vSu7u9U/gIS3dzZwvgTkKK7WXj4Kmhgx1cq/JNxR7MzjABiPnbzAjcv9i+024blZV6I7cqAsBfu
- T4Eh/mFQEGhmTbfmLOULX6OFejk0Kg0yGyWC8MbwO2WKaVP3qdehPEtD+oRl3k270uMSq6/PeBC
- R1DurimcSDSxTOzw6Rg==
-X-Proofpoint-ORIG-GUID: 8p8JeldyMPn5HZt2Ye27SKz3ElNncAyV
-X-Proofpoint-GUID: _WjLFTjcQpS3C97htwFQBPucWAYwRzl5
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE4MDE5MiBTYWx0ZWRfX1JVlF1JJiUpF
- MpkoXI2Yb2IHIE1je1OHNCRP/sORPGCJ4XY2+VOzfbf/9ozdZDXut91oYhiEI5AkpB1WMrxurKE
- Iu3MCS/OmPCs+V1FGjTP+wv3wSt3nEo=
-X-Authority-Analysis: v=2.4 cv=cY9HPXDM c=1 sm=1 tr=0 ts=6aad3d2c cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE4MDE5MiBTYWx0ZWRfXy6qgH+KHIi4l
+ DepgFH3mLaQBLw17bC4HCSFeciPpdFxhfb6dSsDtaggdjh93h/l0tf4zeD9FRCJqqlmhVLpv72t
+ +sT3zeQMLT09IVX10Xb8wVqIwuVifOH4oJajXEEsw5qMexlB9/bb3hmM450II72zEYPDbR/gGUl
+ jjQKAlM1bxjyNaYSnAX5NOR4XWLSolKqcRLDOEHNzM68VkBN+/LdvpbDW0cw5CrXY0G3qffTnWP
+ whF0kK55LOrp76uqoGd5Pufgx2SRdjQMMw/4AZg4myW39nAS0PUQ87pqdn9ZYmwJMIieYuzX4+a
+ h335zQPYPWyXQ0adqXDXURADgDQTm3jXwtVU2FlCwb6Pw25Ny9v0prC/VuTS7YOQLbjyawjjRHd
+ ZkFva0/diMdAzwYP+0dcjwAc0WgjhpUstNUmDjXyjeGcZXXWwMXiUV3aOz9lGgzkHwa7YgwW+qZ
+ Mxw7rP1hz7EsrQOUXgA==
+X-Proofpoint-ORIG-GUID: zvGj3enOp3CadNtbS38DnRKI3uoq46V4
+X-Proofpoint-GUID: CK-Htzt2iMw14alug5hpUMBDv9Xuwa9G
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE4MDE5MiBTYWx0ZWRfXzwKyHnhxKqz0
+ IeRxDXTiVO5ZVklAPLaKFCS0Y9Du1FRKba6zFWKr+ZzbTXXnNHzysHARjwCeSXu7PMuGBSexw/Z
+ hOorftFQwkzFgM+7xk48f/wBR+KfLSM=
+X-Authority-Analysis: v=2.4 cv=cY9HPXDM c=1 sm=1 tr=0 ts=6aad3d2f cx=c_pps
+ a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
  a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=iQ6ETzBq9ecOQQE5vZCe:22 a=VwQbUJbxAAAA:8 a=VnNF1IyMAAAA:8
- a=8sKaXpLx0aSSeG29UzUA:9
+ a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8 a=DPUpadGSCr_GuARIGB0A:9
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-09-18_04,2026-09-16_02,2025-10-01_01
@@ -140,8 +139,8 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609180192
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_143141_856770_077E5DAD 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20260918_143142_311550_42780511 
+X-CRM114-Status: GOOD (  18.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,87 +155,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Define an enum to determine the register number for the mapping from
-AArch32 and AArch64 registers. This allows for a more flexible use of
-the register mappings.
+Add a Makefile check to arch/s390/kvm that fails the build on any
+EXPORT_SYMBOL_GPL or EXPORT_SYMBOL not in the allowed list. A symbol
+may only use EXPORT_SYMBOL_GPL if it is defined in exactly one of the
+two s390 KVM modules (kvm or kvm-arm64). A symbol defined in both
+modules could cause a link conflict if built builtin.
 
-Reviewed-by: Marc Zyngier <maz@kernel.org>
+While at it remove the unnecessary EXPORT_SYMBOL_GPL from
+kvm_s390_pv_is_protected, which has no external callers.
+
 Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
- arch/arm64/include/asm/ptrace.h | 60 ++++++++++++++++++++++-----------
- 1 file changed, 41 insertions(+), 19 deletions(-)
+ arch/s390/kvm/Makefile       |  1 +
+ arch/s390/kvm/arm64/Makefile | 14 ++++++++++++++
+ arch/s390/kvm/s390/Makefile  | 16 ++++++++++++++++
+ arch/s390/kvm/s390/pv.c      |  1 -
+ 4 files changed, 31 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
-index f7dc5fb9427d..49a83a0636b9 100644
---- a/arch/arm64/include/asm/ptrace.h
-+++ b/arch/arm64/include/asm/ptrace.h
-@@ -102,26 +102,48 @@
- #define COMPAT_USER_SZ	296
+diff --git a/arch/s390/kvm/Makefile b/arch/s390/kvm/Makefile
+index 380db443a0e9..0e474335bb78 100644
+--- a/arch/s390/kvm/Makefile
++++ b/arch/s390/kvm/Makefile
+@@ -5,3 +5,4 @@
  
- /* Architecturally defined mapping between AArch32 and AArch64 registers */
-+enum {
-+	__compat_fp		= 11,
-+	__compat_sp		= 13,
-+	__compat_lr		= 14,
-+	__compat_sp_hyp		= 15,
-+	__compat_lr_irq		= 16,
-+	__compat_sp_irq		= 17,
-+	__compat_lr_svc		= 18,
-+	__compat_sp_svc		= 19,
-+	__compat_lr_abt		= 20,
-+	__compat_sp_abt		= 21,
-+	__compat_lr_und		= 22,
-+	__compat_sp_und		= 23,
-+	__compat_r8_fiq		= 24,
-+	__compat_r9_fiq		= 25,
-+	__compat_r10_fiq	= 26,
-+	__compat_r11_fiq	= 27,
-+	__compat_r12_fiq	= 28,
-+	__compat_sp_fiq		= 29,
-+	__compat_lr_fiq		= 30,
-+};
+ obj-$(CONFIG_KVM) += s390/
+ obj-$(CONFIG_KVM) += arm64/
 +
- #define compat_usr(x)	regs[(x)]
--#define compat_fp	regs[11]
--#define compat_sp	regs[13]
--#define compat_lr	regs[14]
--#define compat_sp_hyp	regs[15]
--#define compat_lr_irq	regs[16]
--#define compat_sp_irq	regs[17]
--#define compat_lr_svc	regs[18]
--#define compat_sp_svc	regs[19]
--#define compat_lr_abt	regs[20]
--#define compat_sp_abt	regs[21]
--#define compat_lr_und	regs[22]
--#define compat_sp_und	regs[23]
--#define compat_r8_fiq	regs[24]
--#define compat_r9_fiq	regs[25]
--#define compat_r10_fiq	regs[26]
--#define compat_r11_fiq	regs[27]
--#define compat_r12_fiq	regs[28]
--#define compat_sp_fiq	regs[29]
--#define compat_lr_fiq	regs[30]
-+#define compat_fp	regs[__compat_fp]
-+#define compat_sp	regs[__compat_sp]
-+#define compat_lr	regs[__compat_lr]
-+#define compat_sp_hyp	regs[__compat_sp_hyp]
-+#define compat_lr_irq	regs[__compat_lr_irq]
-+#define compat_sp_irq	regs[__compat_sp_irq]
-+#define compat_lr_svc	regs[__compat_lr_svc]
-+#define compat_sp_svc	regs[__compat_sp_svc]
-+#define compat_lr_abt	regs[__compat_lr_abt]
-+#define compat_sp_abt	regs[__compat_sp_abt]
-+#define compat_lr_und	regs[__compat_lr_und]
-+#define compat_sp_und	regs[__compat_sp_und]
-+#define compat_r8_fiq	regs[__compat_r8_fiq]
-+#define compat_r9_fiq	regs[__compat_r9_fiq]
-+#define compat_r10_fiq	regs[__compat_r10_fiq]
-+#define compat_r11_fiq	regs[__compat_r11_fiq]
-+#define compat_r12_fiq	regs[__compat_r12_fiq]
-+#define compat_sp_fiq	regs[__compat_sp_fiq]
-+#define compat_lr_fiq	regs[__compat_lr_fiq]
+diff --git a/arch/s390/kvm/arm64/Makefile b/arch/s390/kvm/arm64/Makefile
+index bd78d64939d1..d84d3be74037 100644
+--- a/arch/s390/kvm/arm64/Makefile
++++ b/arch/s390/kvm/arm64/Makefile
+@@ -3,6 +3,7 @@
+ KVM := ../../../../virt/kvm
+ KVM_DEV_NAME = kvm_arm64
+ KVM_DEV_MINOR = MISC_DYNAMIC_MINOR
++KVM_CHECK_EXPORT_DIRS ?= $(srctree)/virt/kvm $(srctree)/arch/s390/kvm/gmap $(src)
+ include $(srctree)/virt/kvm/Makefile.kvm
+ include $(srctree)/arch/s390/kvm/gmap/Makefile
+ include $(src)/Makefile.gen
+@@ -91,3 +92,16 @@ targets += kvm-unnamespaced.o kvm_symbol_list kvm-namespaced.o
+ endif
  
- static inline unsigned long compat_psr_to_pstate(const unsigned long psr)
+ obj-$(CONFIG_KVM) += kvm-arm64.o
++
++# Fail the build if there is unexpected EXPORT_SYMBOL_GPL (or EXPORT_SYMBOL)
++# usage in arm64 KVM code. A symbol may only use EXPORT_SYMBOL_GPL if it is
++# defined in exactly one of the two s390 KVM modules (kvm or kvm_arm64). A
++# symbol defined in both would cause a conflict during linking if builtin is
++# selected. Catch the issue early.
++
++# This "symbol" is not exported by arm on s390 but still in the source code and the
++# export check scans unexpanded source code.
++kvm_exports_allowed := kvm_file_to_kvm_fn
++
++$(eval $(call kvm_check_exports,EXPORT_SYMBOL_GPL))
++$(eval $(call kvm_check_exports,EXPORT_SYMBOL))
+diff --git a/arch/s390/kvm/s390/Makefile b/arch/s390/kvm/s390/Makefile
+index b91334db90a2..5d6eb45d3037 100644
+--- a/arch/s390/kvm/s390/Makefile
++++ b/arch/s390/kvm/s390/Makefile
+@@ -1,6 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ 
+ KVM := ../../../../virt/kvm
++KVM_CHECK_EXPORT_DIRS ?= $(srctree)/virt/kvm $(srctree)/arch/$(ARCH)/kvm/gmap $(src)
+ include $(srctree)/virt/kvm/Makefile.kvm
+ include $(srctree)/arch/s390/kvm/gmap/Makefile
+ 
+@@ -12,3 +13,18 @@ kvm-y += $(gmap-y)
+ 
+ kvm-$(CONFIG_VFIO_PCI_ZDEV_KVM) += pci.o
+ obj-$(CONFIG_KVM) += kvm.o
++
++# Fail the build if there is unexpected EXPORT_SYMBOL_GPL (or EXPORT_SYMBOL)
++# usage in s390 KVM code. A symbol may only use EXPORT_SYMBOL_GPL if it is
++# defined in exactly one of the two s390 KVM modules (kvm or kvm_arm64). A
++# symbol defined in both would cause a conflict during linking if builtin is
++# selected. Catch the issue early.
++kvm_exports_allowed := kvm_s390_pv_cpu_is_protected \
++		       kvm_arch_crypto_set_masks \
++		       kvm_arch_crypto_clear_masks \
++		       kvm_s390_gisc_register \
++		       kvm_s390_gisc_unregister \
++		       kvm_file_to_kvm_fn
++
++$(eval $(call kvm_check_exports,EXPORT_SYMBOL_GPL))
++$(eval $(call kvm_check_exports,EXPORT_SYMBOL))
+diff --git a/arch/s390/kvm/s390/pv.c b/arch/s390/kvm/s390/pv.c
+index b18abd0e29ef..1fec224e4d2b 100644
+--- a/arch/s390/kvm/s390/pv.c
++++ b/arch/s390/kvm/s390/pv.c
+@@ -29,7 +29,6 @@ bool kvm_s390_pv_is_protected(struct kvm *kvm)
+ 	lockdep_assert_held(&kvm->lock);
+ 	return !!kvm_s390_pv_get_handle(kvm);
+ }
+-EXPORT_SYMBOL_GPL(kvm_s390_pv_is_protected);
+ 
+ bool kvm_s390_pv_cpu_is_protected(struct kvm_vcpu *vcpu)
  {
 -- 
 2.53.0
