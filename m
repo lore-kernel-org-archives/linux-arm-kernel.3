@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0F63C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 06:28:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBD4BC982D2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 06:33:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YaeovCCcKo4LXDy70ugQFFbgV9Ov4ukWmKtdxBtxQ+w=; b=uAMx7X9L0ckrnbKZot8O1OiXgy
-	fRPVg1OXuwKTTRJ61xQd+vjxlqwjj77v0xUkzfDih1XQ5vb/2A0kRosbW8GFIenpSqQyjMLwch6R1
-	/7jYYbOKzC4HwnNsFBpTIlZrJCo9UbCBk99nCRqHlF/KItf2bs2qsnhDLXNt5IEe+fYBeAbe4tVo6
-	ib6lz04eRfuvCpSNNE4FNaV7knarnRk3rDqr3+HMZUBd3DUSvby1LQl13OdQeZBiWatxmIt1AXNpI
-	JxGteCgWe7YI04TmCnsCPfLiagABi6+RMbJhohGxdzhJLmLPwcrLNJBde2Ng6HnwfR0RWRbhii8nT
-	WUgarR1Q==;
+	bh=ftGzUpVnNIEGoE6GoszZOmgYNmKU7OUqLtpA5Ajpo6w=; b=dQkCc/G6PtqG+fKxiFM4XpFria
+	rg9/u/Jnl+G/JgVidIbl9EeWXaNrO1TkbA1UsLAxq4ltvcBDZJz7m1rmbyryVms8b28xPwovAsMNh
+	76bEvzk0W/GcIkVz4MWRb0UzxTJUr1e+nM9nuF8u5hiiKuflkCh4kjzZDPYzVfC6vQIJsixb7PcoP
+	Puryfn8Y51E4kpOpBem6Ji4cId5J/TJIjNCLtkAdhBZjt0Yhujn1qOgwLVfKfO3nn8RtWQlKs3Umm
+	OAfRjRHtq4+S/Wcm+okdM1bNlJbAU++Ecn75ra9YbwkUXR9tXHgjkPYEyilvbACx84BEx70saUD1O
+	VsNmpGyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7S5N-0000000DZbU-0qGV;
-	Fri, 18 Sep 2026 06:28:37 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1x7S9z-0000000Da9S-3tZh;
+	Fri, 18 Sep 2026 06:33:24 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7S5J-0000000DZav-2G3q
+	id 1x7S9x-0000000Da8x-2HaP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 06:28:35 +0000
+	Fri, 18 Sep 2026 06:33:23 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 43200C5846A;
-	Fri, 18 Sep 2026 06:29:15 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 757BE1A0975;
+	Fri, 18 Sep 2026 06:33:18 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 79C7E60649;
-	Fri, 18 Sep 2026 06:28:30 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D826811C7B021;
-	Fri, 18 Sep 2026 08:28:18 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 3985460649;
+	Fri, 18 Sep 2026 06:33:18 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 70D9511C7B021;
+	Fri, 18 Sep 2026 08:33:01 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1789712909; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1789713196; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=YaeovCCcKo4LXDy70ugQFFbgV9Ov4ukWmKtdxBtxQ+w=;
-	b=c2PMFaP2a+305bFeri5vtlqTR+1XwXfM/gXP6oKloXDIAu/G/wPE5IQKnaG4aJ8zkXArPV
-	kyhhYv50l773fscKGmHA8H2tJBz3tW6WdrWkoXgq3Y6UGS8iF2wBfCYardyKZczx5DoCX4
-	bdRrfNyr9/dDtpq6jJsyFZ1VkPhW0tE0NjTDYNZ1b733PZR7SBVEMgeeIkGvsNpkn16oWg
-	kPuVjf19HuCUK/f2+bRfy6FU5nwnefwKZG02zWQ4LSuz2zaXR1qiTbTEjsW3ixhtlH46po
-	+olofKih/bQ4WOtvVtPAPjSyEwaVkjjBL/XjxM56BgPgAE7J3i5tBDNdEYD6QA==
-Message-ID: <a5b6164c-776a-432a-906f-b98d67c529db@bootlin.com>
-Date: Fri, 18 Sep 2026 08:28:18 +0200
+	bh=ftGzUpVnNIEGoE6GoszZOmgYNmKU7OUqLtpA5Ajpo6w=;
+	b=JgPp/hQmS7v2mjAPcx1oSH0N+/rwCpjI6NkxS02z/PBFoX6R0xtzlE1UFF7Xcf/OCCtjU3
+	gN1gRrnmvGl0mNhl8eV6rAdz0ArMMcnUUc2LZXlp9aOKKI84aRpEucGVCKZ7SHQSPfYizv
+	5rg+K/tfQNuAzUREELMQuJBcsuiDxUndjAnN6/nth3AY+B6tHLnBqBIoRx5DzdNLyfNfDz
+	o7SZYZGeiNpqwPWSVVW9QA9hC6Qc6EF9+Df2i1L8Ae5Nw/X6BNOfvVWNYB1mzgdNJVg9B3
+	dgcQc8BEZhA6zgjuTF3awLtKRlDFS3bM/H5m6E5aOeZk+agF76MjktGn6E7SOA==
+Message-ID: <97fd4b73-258a-44c5-beaa-53141d2807e0@bootlin.com>
+Date: Fri, 18 Sep 2026 08:33:01 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3 3/3] net: stmmac: sun8i: add support for
- Allwinner H616 EMAC1
+Subject: Re: [PATCH net-next v3 1/3] net: stmmac: sun8i: reset the MAC after
+ PHY initialization
 To: James Hilliard <james.hilliard1@gmail.com>,
  Richard Genoud <richard.genoud@bootlin.com>,
  Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
@@ -69,16 +69,16 @@ Cc: Maxime Ripard <mripard@kernel.org>,
  linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
  linux-stm32@st-md-mailman.stormreply.com
 References: <20260917-submit-h616-emac1-v1-v3-0-62cb8316e19b@gmail.com>
- <20260917-submit-h616-emac1-v1-v3-3-62cb8316e19b@gmail.com>
+ <20260917-submit-h616-emac1-v1-v3-1-62cb8316e19b@gmail.com>
 Content-Language: en-US
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20260917-submit-h616-emac1-v1-v3-3-62cb8316e19b@gmail.com>
+In-Reply-To: <20260917-submit-h616-emac1-v1-v3-1-62cb8316e19b@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_232833_768282_E99CBE89 
-X-CRM114-Status: GOOD (  16.98  )
+X-CRM114-CacheID: sfid-20260917_233321_798536_3276D94B 
+X-CRM114-Status: GOOD (  27.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,70 +96,119 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Hi,
 
 On 9/17/26 19:55, James Hilliard wrote:
-> The H616 secondary EMAC uses a separate system-control clock register
-> and supports only RMII at 10/100 Mbps. It connects internally to the
-> co-packaged AC200 or AC300 EPHY and has no external PHY pins.
+> The MAC software reset needs a running receive clock from the PHY.
+> Resetting the MAC at the end of probe therefore fails when the PHY driver
+> has not been loaded or its probe has deferred on a missing supplier. The
+> failure removes the MAC and its MDIO bus, so loading the missing driver
+> later cannot recover the interface without reprobing the MAC.
 > 
-> Add an EMAC1 variant using the dedicated register and enable only RMII.
-> Leave PHY initialization to the PHY driver instead of using the H3
-> internal-PHY controls. No RX or TX clock delays are configured for this
-> RMII-only variant.
+> Perform the software reset in the DMA reset callback instead. The stmmac
+> core calls it during hardware setup after attaching and initializing the
+> PHY, and resumes a suspended PHY before reopening or resuming the MAC.
+> Keep the existing register clearing after a successful reset and return
+> reset errors through the normal hardware-setup error path.
 > 
-> Co-developed-by: Richard Genoud <richard.genoud@bootlin.com>
-> Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
+> Remove the unconditional reset from probe. Keep the separate H3 MDIO-mux
+> reset after switching the mux and powering the selected PHY, since it is
+> needed to latch the selected interface before MDIO accesses.
+> 
 > Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 
 Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
-Thanks :)
-
 Maxime
 
 > ---
->  drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c | 16 ++++++++++++++++
->  1 file changed, 16 insertions(+)
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c | 50 +++++++++++------------
+>  1 file changed, 24 insertions(+), 26 deletions(-)
 > 
 > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> index 4523a14f5e0c..1020168f1c3a 100644
+> index 48c52eb96233..4523a14f5e0c 100644
 > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
 > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> @@ -81,6 +81,13 @@ static const struct reg_field sun8i_syscon_reg_field = {
->  	.msb = 31,
->  };
+> @@ -269,11 +269,32 @@ static const struct emac_variant emac_variant_h6 = {
+>  #define SYSCON_ETCS_EXT_GMII	0x1
+>  #define SYSCON_ETCS_INT_GMII	0x2
 >  
-> +/* EMAC1 clock register @ 0x34 in the "system control" address range */
-> +static const struct reg_field sun8i_syscon_reg_field_emac1 = {
-> +	.reg = 0x34,
-> +	.lsb = 0,
-> +	.msb = 31,
-> +};
+> +static int sun8i_dwmac_reset(void __iomem *ioaddr)
+> +{
+> +	u32 v;
 > +
->  /* EMAC clock register @ 0x164 in the CCU address range */
->  static const struct reg_field sun8i_ccu_reg_field = {
->  	.reg = 0x164,
-> @@ -143,6 +150,13 @@ static const struct emac_variant emac_variant_h6 = {
->  	.tx_delay_max = 7,
->  };
+> +	v = readl(ioaddr + EMAC_BASIC_CTL1);
+> +	writel(v | 0x01, ioaddr + EMAC_BASIC_CTL1);
+> +
+> +	/* The timeout was previously set to 10ms, but some board (OrangePI0)
+> +	 * need more if no cable plugged. 100ms seems OK
+> +	 */
+> +	return readl_poll_timeout(ioaddr + EMAC_BASIC_CTL1, v,
+> +				  !(v & 0x01), 100, 100000);
+> +}
+> +
+>  /* sun8i_dwmac_dma_reset() - reset the EMAC
+>   * Called from stmmac via stmmac_dma_ops->reset
+>   */
+>  static int sun8i_dwmac_dma_reset(void __iomem *ioaddr)
+>  {
+> +	int ret;
+> +
+> +	/* The PHY receive clock must be running for the reset to complete. */
+> +	ret = sun8i_dwmac_reset(ioaddr);
+> +	if (ret)
+> +		return ret;
+> +
+>  	writel(0, ioaddr + EMAC_RX_CTL1);
+>  	writel(0, ioaddr + EMAC_TX_CTL1);
+>  	writel(0, ioaddr + EMAC_RX_FRM_FLT);
+> @@ -738,27 +759,6 @@ static void sun8i_dwmac_flow_ctrl(struct mac_device_info *hw,
+>  	writel(v, ioaddr + EMAC_TX_FLOW_CTL);
+>  }
 >  
-> +static const struct emac_variant emac_variant_h616_emac1 = {
-> +	.syscon_field = &sun8i_syscon_reg_field_emac1,
-> +	/* The co-packaged AC200/AC300 PHY does not use the H3 PHY controls. */
-> +	.soc_has_internal_phy = false,
-> +	.support_rmii = true,
-> +};
-> +
->  #define EMAC_BASIC_CTL0 0x00
->  #define EMAC_BASIC_CTL1 0x04
->  #define EMAC_INT_STA    0x08
-> @@ -1276,6 +1290,8 @@ static const struct of_device_id sun8i_dwmac_match[] = {
->  		.data = &emac_variant_a64 },
->  	{ .compatible = "allwinner,sun50i-h6-emac",
->  		.data = &emac_variant_h6 },
-> +	{ .compatible = "allwinner,sun50i-h616-emac1",
-> +		.data = &emac_variant_h616_emac1 },
->  	{ }
->  };
->  MODULE_DEVICE_TABLE(of, sun8i_dwmac_match);
+> -static int sun8i_dwmac_reset(struct stmmac_priv *priv)
+> -{
+> -	u32 v;
+> -	int err;
+> -
+> -	v = readl(priv->ioaddr + EMAC_BASIC_CTL1);
+> -	writel(v | 0x01, priv->ioaddr + EMAC_BASIC_CTL1);
+> -
+> -	/* The timeout was previously set to 10ms, but some board (OrangePI0)
+> -	 * need more if no cable plugged. 100ms seems OK
+> -	 */
+> -	err = readl_poll_timeout(priv->ioaddr + EMAC_BASIC_CTL1, v,
+> -				 !(v & 0x01), 100, 100000);
+> -
+> -	if (err) {
+> -		dev_err(priv->device, "EMAC reset timeout\n");
+> -		return err;
+> -	}
+> -	return 0;
+> -}
+> -
+>  /* Search in mdio-mux node for internal PHY node and get its clk/reset */
+>  static int get_ephy_nodes(struct stmmac_priv *priv)
+>  {
+> @@ -895,7 +895,9 @@ static int mdio_mux_syscon_switch_fn(int current_child, int desired_child,
+>  		/* After changing syscon value, the MAC need reset or it will
+>  		 * use the last value (and so the last PHY set).
+>  		 */
+> -		ret = sun8i_dwmac_reset(priv);
+> +		ret = sun8i_dwmac_reset(priv->ioaddr);
+> +		if (ret)
+> +			dev_err(priv->device, "EMAC reset timeout\n");
+>  	}
+>  	return ret;
+>  }
+> @@ -1217,10 +1219,6 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
+>  			dev_err(&pdev->dev, "Failed to register mux\n");
+>  			goto dwmac_mux;
+>  		}
+> -	} else {
+> -		ret = sun8i_dwmac_reset(priv);
+> -		if (ret)
+> -			goto dwmac_remove;
+>  	}
+>  
+>  	pm_runtime_put(&pdev->dev);
 > 
 
 
