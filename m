@@ -4,89 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F0F6C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 17:50:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D216C982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 17:54:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TG2xvNJBCXx1WTpRAKtFtjW+qEDTB07eN3TryfDzbiM=; b=QUrCpXx2ywt9jyOB9KBmoC9+k+
-	BAITdS7ttCV+0xSCRUPON8bLOjMsYUnxzCLIjf+zWkwUlv/bXISpbG4oZnVf9wLAcYyXGVaYkyCAx
-	LIpyp8WahufTH4tCRPn4UwN+WcAASRPU2o84kEDsFi6SJYAluWf5gk9R7FSHcSSQkuXqFqPzUCq/3
-	KQ7D+0hP93xKbdjNB4mhZ56uS3+YXr7FjYOFcKq2wQsJtH8SP/iQp6tdfZ2r+oH5WYWh+wscETmJO
-	xO5aoW+HNMl4i6bPmlMUWnHv2EDyaEtNBNhEpQfY7YLB/WfYl65gkcYZ7LA/gce+0XFdxnBgNWbgp
-	+XHabxNw==;
+	bh=jf1Sg8JZNv68DkLQ9YM/PpRyl/DdqtnqTNtVqMW7pCQ=; b=KCi41MEwY4Uh5AaSKHCCCvEGtN
+	ghtm31JhO97H6Op3kucxDEFpPk7o1rq4IXLdVwdwcTbMKAwYCcHzashCBKqDb+yHlVAxmjuuVyRfb
+	tW18wL8bK/Q+PO0WM3eH0uzlqb7scEOH5NDGSgoKBxThHTf0+zWM5fK9d2KealizNpYlr7H/w2Tc8
+	ZB5OXE2M4sfvyVn3iofLIUz8tp/ZIXAFh6fiQaYdy3aZ9S6nykrG7AWtXWKfYsMRgQnoq3kP5/kdq
+	B0cUt91FAWxHIlxeylH4k58kgomX2SNjaQ3+INXgroAqZoByIeDnlADbZ0C93Kiv7oFF2Gx/wmE67
+	Mji6qmkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7cjP-0000000FDeQ-1Wmv;
-	Fri, 18 Sep 2026 17:50:39 +0000
+	id 1x7cmz-0000000FE25-35Eo;
+	Fri, 18 Sep 2026 17:54:22 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7cjO-0000000FDe1-1rjU;
-	Fri, 18 Sep 2026 17:50:38 +0000
+	id 1x7cmy-0000000FE1y-3CUq
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 18 Sep 2026 17:54:20 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 803D1602CC;
-	Fri, 18 Sep 2026 17:50:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05B751F000FF;
-	Fri, 18 Sep 2026 17:50:36 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 341186053B;
+	Fri, 18 Sep 2026 17:54:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABE0C1F000FF;
+	Fri, 18 Sep 2026 17:54:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789753837;
-	bh=TG2xvNJBCXx1WTpRAKtFtjW+qEDTB07eN3TryfDzbiM=;
+	s=k20260515; t=1789754059;
+	bh=jf1Sg8JZNv68DkLQ9YM/PpRyl/DdqtnqTNtVqMW7pCQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Jvtw5OGw0qgxCGGmNESlcbfLK2iqnqleBg0SZDDtuoGuy78On8VzRlf5agdDYe+aU
-	 D6fKMdGPGu7vRSVE6n19/ak5jN+gjUEEsJiZWAp+R6AcU36ncJQ2YmcNHh2BdV2jls
-	 lW4iilLjgjTT/9jjNUn/+Sw/SSB0acL/5kXk21rl3MJvDnGoszcdb2gW1s3X28f9Gy
-	 JJLm3W9SWzbxgAVFkyPJaWtMf9t6tXYLrwRFxYKc08K498LyrxQs+yjQc7dHjkZauV
-	 Dur9aZKISUJ/kR5yNKl4bmrQEr8tdm1OlVy1NnuMJ7WaQo98QZGYMeSTsH6hq2y092
-	 XceuyyBfUgXdg==
-Date: Fri, 18 Sep 2026 23:20:32 +0530
+	b=Klb0wgBf/SLgWj8gfV4cN6tyX52Ht6NPmHY80Oiah1HnBqO/OyUciZTIDi9BkPFl+
+	 kVtM4MDrwL3iJ+Dk/0t3AaAekBg9bRyzcdefzbxTjxuIEhjb8dcgDVZPk9jdRN7OdI
+	 LMGZig5sWRuoHAiWPcr+7SpWNuYKQHu27i4Oj2XHabTFt/dxwR3ueBfq3VstKbxvyC
+	 AdTWPXpOPqP7ncNnv7LeerbxTpIM5NuWsruvwllc0f4393t8cH2oYPxlos/dV9NO5x
+	 dI7koVgdfW93gUCUPDUTUS2xQtbdNyDCufvoJUpFbuz/kdK/aX6pyvQl6zfm5KCgdj
+	 zRxyAidCalLFA==
+Date: Fri, 18 Sep 2026 23:24:15 +0530
 From: Vinod Koul <vkoul@kernel.org>
 To: Frank.Li@oss.nxp.com
-Cc: Aubin Constans <aubin.constans@microchip.com>,
-	Ulf Hansson <ulfh@kernel.org>,
+Cc: Eugen Hristev <ehristev@kernel.org>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
 	Nicolas Ferre <nicolas.ferre@microchip.com>,
 	Alexandre Belloni <alexandre.belloni@bootlin.com>,
 	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Paul Cercueil <paul@crapouillou.net>,
-	Russell King <linux@armlinux.org.uk>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Andreas =?iso-8859-1?Q?F=E4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Jesper Nilsson <jesper.nilsson@axis.com>,
-	Lars Persson <lars.persson@axis.com>,
-	Linus Walleij <linusw@kernel.org>, Fan Wu <fanwu01@zju.edu.cn>,
-	Rosen Penev <rosenp@gmail.com>, Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	Pedro Demarchi Gomes <pedrodemargomes@gmail.com>,
-	Zhan Xusheng <zhanxusheng1024@gmail.com>,
-	Pan Chuang <panchuang@vivo.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
-	Rakuram Eswaran <rakuram.e96@gmail.com>,
-	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
-	Runyu Xiao <runyu.xiao@seu.edu.cn>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	"open list:MULTIMEDIA CARD (MMC), SECURE DIGITAL (SD) AND..." <linux-mmc@vger.kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Felix Gu <ustc.gu@gmail.com>, Stepan Ionichev <sozdayvek@gmail.com>,
+	Shuvam Pandey <shuvampandey1@gmail.com>,
+	Antoniu Miclaus <antoniu.miclaus@analog.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Piyush Patle <piyushpatle228@gmail.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>,
+	Takashi Sakamoto <o-takashi@sakamocchi.jp>,
+	Giorgi Tchankvetadze <giorgitchankvetadze1997@gmail.com>,
+	Olivier Moysan <olivier.moysan@foss.st.com>,
+	"Rob Herring (Arm)" <robh@kernel.org>,
+	Pei Xiao <xiaopei01@kylinos.cn>, Shi Hao <i.shihao.999@gmail.com>,
+	Kees Cook <kees+treewide@kernel.org>,
+	Michael Hennerich <michael.hennerich@analog.com>,
+	"open list:MICROCHIP SAMA5D2-COMPATIBLE ADC DRIVER" <linux-iio@vger.kernel.org>,
 	"moderated list:ARM/Microchip (AT91) SoC support" <linux-arm-kernel@lists.infradead.org>,
 	open list <linux-kernel@vger.kernel.org>,
-	"open list:INGENIC JZ47xx SoCs" <linux-mips@vger.kernel.org>,
-	"open list:ARM/FREESCALE IMX / MXC / LAYERSCAPE ARM ARCHIT..." <imx@lists.linux.dev>,
-	"open list:OMAP HS MMC SUPPORT" <linux-omap@vger.kernel.org>,
-	"moderated list:ARM/ACTIONS SEMI ARCHITECTURE" <linux-actions@lists.infradead.org>,
-	"open list:TMIO/SDHI MMC DRIVER" <linux-renesas-soc@vger.kernel.org>,
-	"open list:ARM/ARTPEC MACHINE SUPPORT" <linux-arm-kernel@axis.com>
-Subject: Re: [PATCH v2 1/1] mmc: use dmaengine_get_dma_device() instead of
+	"moderated list:ARM/STM32 ARCHITECTURE" <linux-stm32@st-md-mailman.stormreply.com>,
+	imx@lists.linux.dev
+Subject: Re: [PATCH 1/1] iio: use dmaengine_get_dma_device() instead of
  chan->device->dev
-Message-ID: <aq156IdeXdaE4Fqg@parshuram>
-References: <20260918152349.2101305-1-Frank.Li@oss.nxp.com>
+Message-ID: <aq16x3gAOIslmNE4@parshuram>
+References: <20260917203652.1279059-1-Frank.Li@oss.nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260918152349.2101305-1-Frank.Li@oss.nxp.com>
+In-Reply-To: <20260917203652.1279059-1-Frank.Li@oss.nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,11 +96,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18-09-26, 11:23, Frank.Li@oss.nxp.com wrote:
+On 17-09-26, 16:36, Frank.Li@oss.nxp.com wrote:
 > From: Frank Li <Frank.Li@nxp.com>
 > 
 > Replace direct dma_chan::device::dev access with the proper
-> dmaengine_get_dma_device() for consumer API
+> dmaengine_get_dma_device() accessor in IIO DMA consumers.
 > 
 > chan->device->dev is not always the device used for DMA mapping.
 > Some DMA engines support per-channel IOMMU mappings, so different
@@ -116,7 +111,6 @@ On 18-09-26, 11:23, Frank.Li@oss.nxp.com wrote:
 > private. DMA consumers should not access DMA engine internals directly.
 > 
 > Assisted-by: LLM
-> Reviewed-by: Linus Walleij <linusw@kernel.org>
 > Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
 Reviewed-by: Vinod Koul <vkoul@kernel.org>
