@@ -4,145 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C69AC982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 13:39:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A21DC982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 13:39:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zg61270tTkGqKKJ4JDj4mB3Ld40GCP4fvHt1fZMrxp0=; b=3GLz/7jdGTINWIbCLqZnnSt/Cw
-	2bfrwaRTCfNoDv9hJXrTE1TIhDjy1bN2psu7GzUO1mB472ZQLCX4cb/uyDC9wl+Tb+gBhAwpSFBUW
-	XNN+KAMhZGEd8988X4mReZ0K4UcD1455N4kf4CSN00dPEs6wkCuxrTsnRR8GXy47Myof3geEy/exr
-	Czw8v0Jn7iHGTvtQnlDgyL3P0IWG46IVag1p1UTpSi5s7WUyxsLLY1Bj7C8qxk1W4BH/9Y3IWgJUV
-	r8Epw96VaTfHb6DeWbzVWX1xygFvklVRc/RwPR6oLVQn8gV6gRkcvY7qPEwXj2nNbw4DrrUG++c2A
-	mjh0MxJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TxsRadM9sjHy6Zgyy9bUhpwEa5BB107/pv0esjxDrJQ=; b=dd/FJTyHbiGiSu2pIqOXhWd0XY
+	BEw6jozhP8bXGLL9w/4EVYI/jOhNfiJZU68yPq9fZLKzDrRS7FjnXdczKWEn/iWxKpsDFvGMIIqdH
+	85/L8xF7iOLRUkibLwt3YFNIK7yJ/9ZVRZ5T8D2Mrl/VUAVxmcyBUtfP/2l69TN9DApLNC9Bjo8ve
+	39AGjmvL+qUxf5an608aK5D45MtpZaUhpfNSE0HjaJ/g3P/G+axHofVoy+azKXVbR4DHLsN3UYFMQ
+	Zu4k00N2O1fw/pv8CYKqz3Oea6lC3Rjrg+LVwYmk1tG430YZcBECa+pYwO4KeEKzaEsjxZVKCb5oo
+	ROzwoAsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Yo4-0000000EaBi-3Gom;
-	Fri, 18 Sep 2026 13:39:12 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x7Yoa-0000000EaJE-47Hc;
+	Fri, 18 Sep 2026 13:39:45 +0000
+Received: from mail-pj2-x0e.google.com ([2607:f8b0:4864:39::e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Yo3-0000000EaB5-1nF8
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 18 Sep 2026 13:39:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Zg61270tTkGqKKJ4JDj4mB3Ld40GCP4fvHt1fZMrxp0=; b=leBuQpdNI8+EDfyKXoY0f7s59Q
-	56dHN19jhHOnKaGjvyS+uPhy7MieWMseN5W4wZw5B2eQQS1MrnwlsAcgxd+xplVYv8SbaGZHIQZCY
-	iacBBzyO5fbw+4of2yiaA+YQ6FS9zr+pkBlhJimopQi0aveXLalhhUyIxKXAI+VwsqK/rPW/QFen4
-	D+e+IX0IKbCK+5lh4TQx4VCNo2J5dIdLaUCP6ZovL4g0ewLb9B8axsFPOtwak2m2btO52ehgOz5zJ
-	hs9oaEhLfxbDj2Vhm+mUVomdc+mDsmECIXEvXZHnfLSIiTJAe6U+aDnNiLhzV4cngVB1gQQBd2x9n
-	8C7TkQtw==;
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x7Yo0-0000000A9J1-24qB
+	id 1x7YoY-0000000EaIJ-1ZmZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 13:39:10 +0000
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68IDVW4o217069;
-	Fri, 18 Sep 2026 13:38:53 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=Zg61270tTkGqKKJ4JDj4mB3Ld40GCP
-	4fvHt1fZMrxp0=; b=hjI6uadR0ijaodzmA4kzryzl8Z/+0tu3OY00hFk769Wpmi
-	Wk0GZqDwusrlINtZHrta3dP5bJr69KxBASMz5bUDBsj2bVhJjb5aH8iEAjQcVqFI
-	QVfFLsyifgEPvlGdN/JGZfs49zteZJZxCNeIcHQviEQr19eFTxjVkX8PjzZzuWZQ
-	YaaMsGudMwVJp6oYdu97NcGOuM+aX2PXpTcdpVtyBrNrIvWsSj2iHlpIv0Hz1xcY
-	5diEI6tnHu2MfETckfAY+8HzYyXjMMt9cMaPi+PV1xo6hgl8dIisBVBOPXKFIGG/
-	0Mc7bIoB2KrKrYGt+YbsCVLXinqEjb8ToZNQ0dtw==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gmw5efv2g-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 18 Sep 2026 13:38:52 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68IDNtqJ695598;
-	Fri, 18 Sep 2026 13:38:51 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gra3fem78-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 18 Sep 2026 13:38:51 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68IDceSe27722194
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 18 Sep 2026 13:38:40 GMT
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 1EFCC2004E;
-	Fri, 18 Sep 2026 13:38:40 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 2E9C320043;
-	Fri, 18 Sep 2026 13:38:39 +0000 (GMT)
-Received: from osiris (unknown [9.111.4.88])
-	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Fri, 18 Sep 2026 13:38:39 +0000 (GMT)
-Date: Fri, 18 Sep 2026 15:38:37 +0200
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: Steffen Eiden <seiden@linux.ibm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v8 00/29] KVM: s390: Introduce arm64 KVM
-Message-ID: <20260918133837.84754-A-seiden@linux.ibm.com>
-References: <20260918133107.1042730-1-seiden@linux.ibm.com>
+	Fri, 18 Sep 2026 13:39:44 +0000
+Received: by mail-pj2-x0e.google.com with SMTP id 98e67ed59e1d1-396ccda24afso573076a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 06:39:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789738781; x=1790343581; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=TxsRadM9sjHy6Zgyy9bUhpwEa5BB107/pv0esjxDrJQ=;
+        b=Iqd3V920jLsuEnMksCQoNZqxEdKw92as8yQVHTk2dbUrF3fpBCK+nDtEswbiWw1ITB
+         nRiMSQFB/yu65jISw4CcYaPTxzQ+yV/BSeyh4TQeDEs/7pEBc7ycagU2PLnugfRfujZy
+         4Hu2NcK2DZGzUY75XsdMhf6fJzeZzXFtpGeq77OUwjDr8MDyACl89VNjmkFcCPiIisSe
+         VMA7+jcHvZnDdDvHFy2zvG8H8O8Kg2YWOHO8JC1wQ4XnXQsiJkdGb+FW6hbgQ9doF7Ly
+         pImLPVBDrT07cfnMr6DG2HqD1ZC88dt9yqMXXb4LAjQ3PUEd9vuhHa4JrJNP9ByTHu1R
+         dCFQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789738781; x=1790343581;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=TxsRadM9sjHy6Zgyy9bUhpwEa5BB107/pv0esjxDrJQ=;
+        b=Ua23eJk3wS02RtMuhFCGF4xAJXaR6aSm5wK2utEE5+oHvfN2KKFuyMkP7olbFDbi0q
+         W5BsVy/nMdJXopNefO+wrKjJW4PSKOEC6tjwMeceAG/hoiu331sbqnOSoLShKBJG9Ljs
+         zLJDGeG55ZmQQMIHlCqSCYKSVIh+D/G/3DBfehqr8Pv/ECI+zksXCiqZqaY+TxMa7yPF
+         HPnqV4N3CYg4tXi5xUN3Zrz9ktvDBW5Mr5gxxPODwj873MWd1u+S8pkBI5qWWtbZlHEV
+         kDt5ceyrGahGp3tjxoXw2ea3ZDJnDiiG8BP3ijRJt26Ua/ioGMaaGiR4c9Yk3uKHDoFV
+         CyUQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxJjHWrJ1JuAiuciTGZN3ASIV46i7XJ0VXW9GFOHkLZ0AB9ruMnykC09aTUD6HLAA79/xEnBSey/zSnW8kNrwhz@lists.infradead.org
+X-Gm-Message-State: AFuF++kc/mJAt7FJswc6mElspMAV+BfN7vDReyKRDqyOKTda+T37AUSH
+	sa6n4YuqP8cVWFGAHNfxu/FeBNXm+pNWW2cJo7Pwrjlc7psFm8JOCFSu
+X-Gm-Gg: AYBFou32C/J/+GHcDwD7GvVOR/mmNP1iw+O278ytSyRpf4d9cR3aFHr8l8CVOAiWtiL
+	T3Qxvo1r0XvO7fnvR6iAvhvBrwj7s+zsc/R81eKWbHY+oPVtljLTyIJAOTKwl9CTCznvZ6eHZtp
+	bS/pwW2c8wReSfDdEzTL2B4axce+GwHh9X83WfuenGlof856lRsZebKcKrJJplW5KCc7RrxTxr/
+	BkCLn1m5nvTS4K/PBZjzstg36CZEUUQP/JaQ567inZ1mwjmNJMKVBNayLclxPvwZ/ELFoB7ENc6
+	PcHgfffhtKV4YMOjcWr3zsOk0fllx1GS/r1/R3BLCSwzJemt/5lynqzNGQD70Dg22jMkmvhIxn8
+	ZLRfZpk7EirWcl2ukAIX7t4kVtcq+SRavQxbXJbEhQWA7a2QjIg5dP836D930FLz9OukQvRroFR
+	RGALkZSnfQjUEOl6vOJKQLSV+TM/etqWDyDAywOud47gDgBOQ+KeSu8ksjBeJCm6FnOfYM3DJBU
+	1LWgzAarNL6cZX9K9lXD2q/WpnvLspXlu+egBae2mmTplTD6xH7dnbClgWeK63w0ynqD9KkCxR/
+	JL4K/Se8SSpIBg==
+X-Received: by 2002:a17:90b:2dc3:b0:39d:e9b6:cec9 with SMTP id 98e67ed59e1d1-39e54d36756mr10232434a91.7.1789738781094;
+        Fri, 18 Sep 2026 06:39:41 -0700 (PDT)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39e3617443asm13253792a91.9.2026.09.18.06.39.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 18 Sep 2026 06:39:40 -0700 (PDT)
+From: phucduc.bui@gmail.com
+To: Mark Brown <broonie@kernel.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	cassiogabrielcontato@gmail.com,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+	Jiaxin Yu <jiaxin.yu@mediatek.com>,
+	linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [PATCH 00/15] ASoC: mediatek: mt8192: Improve error handling
+Date: Fri, 18 Sep 2026 20:38:56 +0700
+Message-ID: <20260918133912.133799-1-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260918133107.1042730-1-seiden@linux.ibm.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE4MDE5MiBTYWx0ZWRfX8NOiLounXJV3
- p4ksMi+kacIKw6TqakTSOWUZIjsH2DBZucRYVsqR+C0f+TOO43S45ZXwBcY6K1/Qd2q8DKEW1eu
- QrBPzt74AVs+tqgzffd90bN/heuvGcsUXjF/l8Zmvbxe1kfWh+moMOGAAPs4eCK9pbGpfvJXzd+
- RhQIfW3O3xyFLIXqVbX7EQJ5jCdA3OEiBr3+kfwzLXbxwgWzJKhX1qu2MH4j7+yeebTBnVl5oUX
- ScjFiIWRQmltqq31pShmheu+2L17BGoyROyfMzLAYryD9/LigRfFa0xe0n4EGT9RUYDOokB+kvr
- QX5xm34Nys6Ulv1noKx+U2zTJBFGfzZ1EiQq70azxz7PV22vupBQ1BZ9F5EhEPLM4+R7sDejhLq
- 1Fd0lXRTi3dOV5+Lz/pYUS7i9pzuP7GfzqGar3+5nNWKo86sJ9mSnUDuPBUDtXyAeiHT4PTGRcX
- 2sQPP30nzlUmVZHDRwQ==
-X-Authority-Analysis: v=2.4 cv=E/NYNqdl c=1 sm=1 tr=0 ts=6aad3eec cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=HQ_ZLx768mUr4WH56XwA:9
- a=CjuIK1q_8ugA:10
-X-Proofpoint-ORIG-GUID: yj9WjxwmCZmDszY55CZnhGcPKW1x8ZIB
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE4MDE5MiBTYWx0ZWRfXwBa5tmX9Zui/
- 5FEAMNIa/C7zCAuqUZ505lFt9Er8ruJIiz5lWDQq4U1WX8LIo3/FCvOn/E5QvQ2XhI5wD1EOoYN
- wx38zl2LIwJnoR4aMry/I7e4pu8gzuk=
-X-Proofpoint-GUID: 0oxN8qpLp3I7KaiEFna4SOFT743i7NUu
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-18_04,2026-09-16_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 lowpriorityscore=0 priorityscore=1501 spamscore=0
- adultscore=0 clxscore=1015 bulkscore=0 malwarescore=0 suspectscore=0
- phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
- definitions=main-2609180192
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_143908_832471_D46A3851 
-X-CRM114-Status: GOOD (  14.40  )
+X-CRM114-CacheID: sfid-20260918_063942_413432_8AFA0B30 
+X-CRM114-Status: UNSURE (   9.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,53 +112,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 18, 2026 at 03:30:37PM +0200, Steffen Eiden wrote:
-> Introduce arm-on-s390. Enable KVM-accelerated ARM CPU virtualisation on s390.
-> 
+From: bui duc phuc <phucduc.bui@gmail.com>
 
-...
+Hi all, 
 
-> 
-> Hendrik Brueckner (1):
->   s390/hwcaps: Report SAE support as hwcap
-> 
-> Steffen Eiden (28):
->   KVM: Introduce file_to_kvm_<arch>() infrastructure
->   KVM: Add file back-pointer to struct kvm
->   KVM: x86: Use file_to_kvm_x86() in SEV
->   KVM/vfio: Use file-based reference counting for KVM
->   KVM: Restrict kvm_get_kvm/kvm_put_kvm export to internal KVM modules
+This series addresses part of the error handling in the MT8192 driver.
 
-@Sean: I think yo udeserve Co-authorshiop for those 4
-(if not already there)
+It propagates errors from clock operations, GPIO requests, and DAPM event
+handlers, and uses dev_err_probe() for cleaner probe logic.
 
-If you think the same please give me your signoff
+Compile-tested only.
 
-	Steffen
+Best regards, 
+Phuc
 
->   KVM: Move export symbol check macros to Makefile.kvm
->   KVM: Make device name configurable
->   KVM: Move architecture capability Kconfigs to header defines
->   KVM: Replace CONFIG_KVM_MMIO with KVM_NO_MMIO
->   arm64: Use proper include variant
->   arm64: ptrace: Use constants for compat register numbers
->   arm64: sysreg: Convert SPSR_ELx to automatic register generation
->   KVM: arm64: Access elements of vcpu_gp_regs individually
->   KVM: arm64: Use accessor functions for core regs
->   arm64: Prepare sharing arm64 headers with s390
->   arm64: Share arm64 headers with s390
->   KVM: arm64: Share arm64 code with s390
->   s390/tools: Use arm64 headers
->   KVM: s390: Use arm64 code
->   s390: Introduce Start Arm Execution instruction
->   KVM: s390: arm64: Introduce host definitions
->   KVM: s390: Add basic arm64 kvm module
->   KVM: s390: arm64: Implement required functions
->   KVM: s390: arm64: Implement vm/vcpu create destroy.
->   KVM: s390: arm64: Implement vCPU IOCTLs
->   KVM: s390: arm64: Implement basic page fault handler
->   KVM: s390: arm64: Integrate arm on s390
->   KVM: s390: Enforce no unexpected external symbol exports in s390 KVM
+bui duc phuc (15):
+  ASoC: mediatek: mt8192: fix APLL mux error handling
+  ASoC: mediatek: mt8192: fix AFE clock error handling
+  ASoC: mediatek: mt8192: fix error handling in APLL enable functions
+  ASoC: mediatek: mt8192: fix MCK clock error handling
+  ASoC: mediatek: mt8192: switch to devm_clk_get_optional()
+  ASoC: mediatek: mt8192: Use dev_err_probe() in mt8192_init_clock()
+  ASoC: mediatek: mt8192: Propagate errors in mt8192_afe_gpio_request()
+  ASoC: mediatek: mt8192: Use dev_err_probe() for devm_pinctrl_get()
+  ASoC: mediatek: mt8192: check return values in mt8192_afe_gpio_init()
+  ASoC: mediatek: mt8192: Handle regcache_sync() failure in runtime
+    resume
+  ASoC: mediatek: mt8192: Remove redundant error message
+  ASoC: mediatek: mt8192: Propagate mt8192_afe_gpio_request() errors in
+    ADDA DAI
+  ASoC: mediatek: mt8192: Propagate errors in TDM DAI DAPM event
+    handlers
+  ASoC: mediatek: mt8192: Propagate errors in I2S DAI DAPM event
+    handlers
+  ASoC: mediatek: mt8192-mt6359: Fix error handling in MTKAIF
+    calibration
 
-...
+ sound/soc/mediatek/mt8192/mt8192-afe-clk.c    | 163 +++++++++++-------
+ sound/soc/mediatek/mt8192/mt8192-afe-gpio.c   |  94 +++++-----
+ sound/soc/mediatek/mt8192/mt8192-afe-pcm.c    |  12 +-
+ sound/soc/mediatek/mt8192/mt8192-dai-adda.c   |  44 +++--
+ sound/soc/mediatek/mt8192/mt8192-dai-i2s.c    |  20 ++-
+ sound/soc/mediatek/mt8192/mt8192-dai-tdm.c    |  18 +-
+ .../mt8192/mt8192-mt6359-rt1015-rt5682.c      |  37 ++--
+ 7 files changed, 240 insertions(+), 148 deletions(-)
+
+-- 
+2.43.0
+
 
