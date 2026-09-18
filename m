@@ -4,64 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5FA9C982D7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 22:58:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6FC9C982D7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 23:00:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:Subject:
-	From:MIME-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sHXwsGr1uavLjHSu6rlc+2w5RT2dJPcmThYuznQz0y0=; b=DhGKntcwbt6ZgCFg0rPgGliDdJ
-	nq0HhJT3TUXVTaM+0xMH5gFuEwXtFpsswiqZcTRX7lY+dKUM77GDxSrlwTScAKge3k9o28YjDDlIy
-	TYnHrUIQely6M2azZx/YxhzBQ6QixES1jeXRNVi4MJev8xWADMnpnbKJOUldxI/pPB0RRaPrksDSV
-	3NrrCiAqh85Oqb0qXTUBH3olmCnqfHJxKkGwFDnyi+2Atj3TX5QDzaq1mh83TpzoSMAtJ/50bpXnZ
-	OostZ3ksluSJTVsw1xJPh/NQP9mgvfBIXOVuRLKhLqXfl+RY3UtNEcXwmDY8I5oGXlXe20W9o6qaN
-	7exlsxfw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=ODTQrY0Jnry0Dfu3UICCoe8mZrLfiMVB8y8nz6T8EQE=; b=fJ6jHF+pxbiW+U
+	gezN5654gxO/DYkMjy79LqGDRBFflGPNsr7jZhVkhD7G56judgrGgXU6lyZPb6uvZ8jFeBeXgoV9y
+	BUXF9uWKwBprgFdczVSIqTvRKAaSvnzwkB3Y5+/gkJk6W9eN1qOgQIikyvZkHUZpk6IJl0K5DRIkr
+	EggjnqJoFkNtlBvYwac0GE9HP1NJJyxvsfpoCjK+XsxLiOaFGJS+NeVj8JCtWnVS13LYamVFAGnxm
+	b5RBDJAk1plbJ8a2o8c1spnA9Uq7KDoFRLLuO7j84MJoSvLrAsprBRr6ZSk1LEJUg6GGx0vb95nN7
+	AxcKvxgQsVfH5aDbBBZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7hXC-0000000FfyL-2Mc2;
-	Fri, 18 Sep 2026 22:58:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x7hZ4-0000000Fg7X-3Yhv;
+	Fri, 18 Sep 2026 23:00:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7hXA-0000000Ffy8-1Rtc
+	id 1x7hZ3-0000000Fg7Q-429Z
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 22:58:20 +0000
+	Fri, 18 Sep 2026 23:00:18 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 594E96053B;
-	Fri, 18 Sep 2026 22:58:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5840A1F000FF;
-	Fri, 18 Sep 2026 22:58:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5FEBF40384;
+	Fri, 18 Sep 2026 23:00:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1276C1F000FF;
+	Fri, 18 Sep 2026 23:00:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789772299;
-	bh=sHXwsGr1uavLjHSu6rlc+2w5RT2dJPcmThYuznQz0y0=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=fYyWHMS47LQnb+FfECXaQNJ/Y8oIM4F8d+0+1oA7LXEA+oMxpN020GMzYA0JRd3J2
-	 zw8re8HCCQoTjcPrZ9LIxCFSpvhvJpJrz9eHS8KmAfr6WttP+BZwID657VRPR62OHA
-	 CyWnSchK96yhS6XinnVAEht+F6qbQSFBES4X8cTWbSsryYVskzVOKlyFyUGTHLg7Of
-	 X29J2CnW9jfdiYWzwkWLtgRp96dr86CzLfu2SeOQXfwSAqWynLK1gt76IowceucSn7
-	 EsTX6e2H4WwA3qVKJ2CbcchbihJXcqAlX5bD4hXHJRSzQ/G2ZT/De8s4scKmXgnr3T
-	 qKbhadLqYloHA==
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH v7 10/11] arm64, crypto/lib: Annotate leaf functions
- with CFI info
-To: "Peter Zijlstra" <peterz@infradead.org>, "Roman Gushchin" <roman.gushchin@linux.dev>, "Indu
- Bhagat" <ibhagatgnu@gmail.com>, "Dylan Hatch" <dylanbhatch@google.com>, "Jens
- Remus" <jremus@linux.ibm.com>, "Catalin Marinas" <catalin.marinas@arm.com>, "Steven
- Rostedt" <rostedt@goodmis.org>, "Jiri Kosina" <jikos@kernel.org>, "Weinan
- Liu" <wnliu@google.com>, "Mark Rutland" <mark.rutland@arm.com>, "Josh
- Poimboeuf" <jpoimboe@kernel.org>, "Will Deacon" <will@kernel.org>
-Cc: "Mostafa Saleh" <smostafa@google.com>, "Herbert Xu" <herbert@gondor.apana.org.au>, "David
- S. Miller" <davem@davemloft.net>, linux-toolchains@vger.kernel.org, live-patching@vger.kernel.org, joe.lawrence@redhat.com, "Prasanna
- Kumar T S M" <ptsm@linux.microsoft.com>, "Puranjay Mohan" <puranjay@kernel.org>, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, "Randy
- Dunlap" <rdunlap@infradead.org>, "Song Liu" <song@kernel.org>
-In-Reply-To: <20260918224157.1471085-11-dylanbhatch@google.com>
-References: <20260918224157.1471085-1-dylanbhatch@google.com>
- <20260918224157.1471085-11-dylanbhatch@google.com>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Fri, 18 Sep 2026 22:58:16 +0000
-Message-Id: <20260918225817.5840A1F000FF@smtp.kernel.org>
+	s=k20260515; t=1789772417;
+	bh=ODTQrY0Jnry0Dfu3UICCoe8mZrLfiMVB8y8nz6T8EQE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=oLTy+OD6g/37bVTLXaNX0EZiObFu59/4XeOqEG62ekDkw/ztpvQkkogMu189UZa7A
+	 mGAad6qFw8J/sUBL9JZHnmtiLhuTzCDdPozJbGAVl7PiUaz4gWMCu7JiMlVKkTSCaw
+	 +YfAVpn4M2CC19X1EXCEgBJ2RMIa3bPCqaWnXUHfb8r05WrHiq67rxJmMA5R1quXqf
+	 htus6gV7Jv7wOGz27XSMw+2vCB5eEI1b0CDjDKwE5vcn+GBLvq6Y16oHmM/JMM0Hn/
+	 1twk7jc9DlL+zhdgbFzx11yGaXOz6Lws0Pjj3ixaVzWTLEIHLJqmucY6rMEhuWPfGE
+	 mpNZFawkau82Q==
+Date: Fri, 18 Sep 2026 18:00:15 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Soeren Moch <smoch@web.de>
+Cc: Richard Zhu <hongxing.zhu@nxp.com>, stable@vger.kernel.org,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Bjorn Helgaas <bhelgaas@google.com>, Frank Li <Frank.Li@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Thorsten Leemhuis <regressions@leemhuis.info>
+Subject: Re: [PATCH] PCI: imx6: Keep Root Port MSI capability also for i.MX6Q
+Message-ID: <20260918230015.GA1205610@bhelgaas>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260427115804.134231-1-smoch@web.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,89 +70,76 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: sashiko-reviews@lists.linux.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 1 potential issue(=
-s) to consider:
-- [Medium] arm64: CFI start directive placed before function alignment corr=
-upts DWARF FDE bounds
---
+[+cc Thorsten, possible regzbot confusion?]
 
-commit 498fccd9732a9f4edcb2b385432263d6681de459
-Author: Dylan Hatch <dylanbhatch@google.com>
+On Mon, Apr 27, 2026 at 01:58:04PM +0200, Soeren Moch wrote:
+> Also on the NXP i.MX6Q chipset MSIs from the endpoints won't be received by
+> the iMSI-RX MSI controller if the Root Port MSI capability is disabled.
+> 
+> Even though the Root Port MSIs won't be received by the iMSI-RX controller
+> due to design, this chipset has some weird hardware bug that prevents
+> the endpoint MSIs from reaching when the Root Port MSI capability is
+> disabled.
+> 
+> Hence, always keep the Root Port MSI capability for this chipset.
+> 
+> Note that by keeping Root Port MSI capability, Root Port MSIs such as AER,
+> PME and others won't be received by default. So users need to use
+> workarounds such as passing 'pcie_pme=nomsi' cmdline param.
+> 
+> Fixes: 3a4e8302e72f ("PCI: imx6: Keep Root Port MSI capability with iMSI-RX to work around hardware bug")
+> Cc: <stable@vger.kernel.org> # 7.0.x
+> Signed-off-by: Soeren Moch <smoch@web.de>
 
-arm64, crypto/lib: Annotate leaf functions with CFI info
+This thread is still listed as a regression:
+https://linux-regtracking.leemhuis.info/regzbot/regression/lore/20260427115804.134231-1-smoch@web.de/
 
-This commit adds simple CFI annotations to assembly leaf functions so that
-the link register can be recovered by the unwinder. It introduces the
-SYM_LEAF_FUNC_START macro family for these annotations.
+But I *think* it's been resolved by:
 
-> diff --git a/arch/arm64/include/asm/linkage.h b/arch/arm64/include/asm/li=
-nkage.h
-> index d1f7a16729d25..c4377e6ba0a67 100644
-> --- a/arch/arm64/include/asm/linkage.h
-> +++ b/arch/arm64/include/asm/linkage.h
-> @@ -47,4 +53,27 @@
-> =20
->  #define __bss_pgtbl __section(".bss..pgtbl") __aligned(PAGE_SIZE)
-> =20
-> +/*
-> + * SYM_[TYPED_]LEAF_FUNC_[START|END] macros add CFI minimal CFI directiv=
-es
-> + * allowing .sframe data to be generated for functions which do not modi=
-fy the
-> + * LR (x30). Unwind data will not be correct if these macros are used on
-> + * non-leaf functions, as additional CFI directives would be necessary i=
-n such
-> + * cases.
-> + */
-> +#define SYM_LEAF_FUNC_START(name)			\
-> +	.cfi_startproc ;				\
-> +	SYM_FUNC_START(name)
+  b4bee12ebecc ("PCI: imx6: Keep i.MX6 Root Port MSI/MSI-X Capabilities with iMSI-RX to work around hardware bug")
 
-[Severity: Medium]
-Will placing .cfi_startproc before SYM_FUNC_START() cause the DWARF FDE bou=
-nds
-to include alignment padding bytes?
+Can you confirm?
 
-Since SYM_FUNC_START() emits the .balign directive for the function,
-placing .cfi_startproc before it captures this padding. This can misalign
-the FDE start address relative to the function symbol, which could confuse
-stack unwinders like the sframe unwinder.
+Maybe regzbot is confused by the fact that the regression was first
+attributed to 3a4e8302e72f, and then later attributed to
+f5cd8a929c825?
 
-Should the .cfi_startproc directive be emitted after the alignment within
-SYM_FUNC_START() completes?
-
-> +
-> +#define SYM_LEAF_FUNC_END(name)				\
-> +	.cfi_endproc ;					\
-> +	SYM_FUNC_END(name)
-> +
-> +#define SYM_LEAF_FUNC_START_LOCAL(name)			\
-> +	.cfi_startproc ;				\
-> +	SYM_FUNC_START_LOCAL(name)
-
-[Severity: Medium]
-Does the same alignment issue apply to SYM_LEAF_FUNC_START_LOCAL()? The
-.cfi_startproc directive is emitted before SYM_FUNC_START_LOCAL(), which
-also handles function alignment.
-
-> +
-> +#define SYM_TYPED_LEAF_FUNC_START(name)			\
-> +	.cfi_startproc ;				\
-> +	SYM_TYPED_FUNC_START(name)
-
-[Severity: Medium]
-Could this also lead to misaligned FDE start addresses for typed leaf
-functions, since .cfi_startproc is placed before SYM_TYPED_FUNC_START()
-alignment?
-
-> +
->  #endif
-
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20260918224157.1471=
-085-1-dylanbhatch@google.com?part=3D10
+> ---
+> Cc: Manivannan Sadhasivam <mani@kernel.org>
+> Cc: Richard Zhu <hongxing.zhu@nxp.com>
+> Cc: Lucas Stach <l.stach@pengutronix.de>
+> Cc: Bjorn Helgaas <bhelgaas@google.com>
+> Cc: Frank Li <Frank.Li@nxp.com>
+> Cc: Fabio Estevam <festevam@gmail.com>
+> Cc: linux-pci@vger.kernel.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: imx@lists.linux.dev
+> Cc: linux-kernel@vger.kernel.org
+> 
+> Tested on a tbs2910 board [1]
+> [1] arch/arm/boot/dts/nxp/imx/imx6q-tbs2910.dts
+> ---
+>  drivers/pci/controller/dwc/pci-imx6.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> index 6d6a1688e7eb..3d461bdef967 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -1865,7 +1865,8 @@ static const struct imx_pcie_drvdata drvdata[] = {
+>  		.flags = IMX_PCIE_FLAG_IMX_PHY |
+>  			 IMX_PCIE_FLAG_SPEED_CHANGE_WORKAROUND |
+>  			 IMX_PCIE_FLAG_BROKEN_SUSPEND |
+> -			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
+> +			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND |
+> +			 IMX_PCIE_FLAG_KEEP_MSI_CAP,
+>  		.dbi_length = 0x200,
+>  		.gpr = "fsl,imx6q-iomuxc-gpr",
+>  		.ltssm_off = IOMUXC_GPR12,
+> -- 
+> 2.43.0
+> 
 
