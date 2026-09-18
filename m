@@ -4,111 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECA2AC88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 07:48:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33372C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 07:52:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MXqdDZMk2n2ZA2FZuhNJE90D+Z4Rs/KppQMaR2DzMcs=; b=opA42IJ/sdpDGeFdbHb9s9OtGh
-	7LRD09o64Wdnnjlec8ottyGYSadXPzzvykPUFyzBvJ57aDSjl7Ha8i5EyItOJf1s6/ZovqRLkqAft
-	hNssAehxh1E8e4p826OkuBHoo+UX/hUneGATEGk1d33cKUiyVVn8BBHGYg8SY5qtD13IivcxaiNPp
-	dKEFbr3Vpiq1LRmqERk0PiRRjXhhuQq5Mn4CCG7k2/ZvPMrZmEMCp++p866OITPqXSHYe3dOsX2Kp
-	dvJ+rApgHqGTfeTngXt7kbISZphSmQhsj8s+guJGZfb+my7sXs09cX3WhjzKWzN8Fa80ynvWkDMij
-	yaKC44DA==;
+	bh=GENi4md1c446ap3YU+8WbAIKW0z2UxkHlaNTGXc/qAc=; b=AOv7HjCk6D+dftIOoz+i7O8CwV
+	y/azbx6IcKrjv45fJZBXVKNFmHvwuQo0Hm3nPhyR0x3xa3mW3JOo2tjju2SILTeFz1yKHwSfoPjsk
+	6x/N0g0ubxcrCfUmXwEka3DDzE9Z9j67Ua9+5XgJT0EzajLm1DZFPi6W1KX2dVEEohRFMNPeXyE/9
+	t1JD4FnaeDmG8cf0Jum6OPiysW02tZsvDbwfjNsHTtjSJ7Q/nIMCBevReW5C1m174x6tgtdt4oDA1
+	tnriWmxCwccW5shA1ZxEgzhe/0POLqK594yI+VBk0D/cF86XmsW7RqgmzyTD1pTpR0nMkuB1Ik0yb
+	9SlkIIzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7TKg-0000000DjVZ-1jS2;
-	Fri, 18 Sep 2026 07:48:30 +0000
-Received: from mail-wr2-x0f.google.com ([2a00:1450:4864:30::f])
+	id 1x7TOD-0000000DjmW-27rx;
+	Fri, 18 Sep 2026 07:52:09 +0000
+Received: from mail-qk2-x0f.google.com ([2607:f8b0:4864:34::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7TKe-0000000DjV1-0ypT
+	id 1x7TOA-0000000Djls-2dll
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 07:48:29 +0000
-Received: by mail-wr2-x0f.google.com with SMTP id ffacd0b85a97d-486e1a044c5so239280f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 00:48:26 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1789717705; cv=none;
+	Fri, 18 Sep 2026 07:52:07 +0000
+Received: by mail-qk2-x0f.google.com with SMTP id d75a77b69052e-52fb76ef1d0so3992321cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 00:52:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789717925; cv=none;
         d=google.com; s=arc-20260327;
-        b=BvKfRfJpePpJq3v4Pc5v2UxVBvjJwcrJ6ShCjv5b4Z+t5BNk6nt2RT+Az6A7EjWyBX
-         a6p8yK3cv3UG+xQzXFpIuTMikmafH8FPexZJzbTjyI/f1V6Em786mr2P9V49EkVnzMVf
-         gCtB4u8gYegx2pEdsymmB5F5ZVisjndpwDTmCcz6YyOFLxe3odmYBrQKVP5sMEBHEe1z
-         dAsMVbnl+D0pL08E9zGN0V7vTfuFMdYoWhe2CmY/SGYlF6D7hN6ACJ/rjJn8z5NfIp7d
-         KjCmiBOFgdGSO3kMBvobfnfQF1AukJfhmAUQTXwwdd9tvrMN8BC8ugFR9a2n12BF/YpJ
-         WhnA==
+        b=hAZCTS0ehkToSjohyaWM/XaEGJQgC2YAJPFDYXw80oLlb+SorUQJScoWgjltNVROBa
+         ItzNbWwjvHndNKqJnIdUCHttwM1PL+0uIC4avnltGgGCCmenDUUeWsG2y2xpAyZqyHlI
+         FHW6/7qGqyBSpldplQcC3H0Mv9QDy43K2GjjhrNYgGS1D6uE+Fotlyb3J30ttgLaq24l
+         xVTo5xXx2TsJotgZj5OZWwSk+e/GBbObtbTq2f02aP7z7eY78B5+I4cPGDV10iLDnDpy
+         FXYsFenV7rOenzmF9MIuXPjCJff15WICZSUVKrHipNIhx5WzvRkzz96QlAcgJ48FYG9x
+         uT0g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=MXqdDZMk2n2ZA2FZuhNJE90D+Z4Rs/KppQMaR2DzMcs=;
-        fh=LNjqnn65tV56eot5djRi7yTmtyEi7Wr/mtVKECfvtFM=;
-        b=Ou/sglvM9KRBU2DNPxY/gqXyULIKUolQvgZxdAgK5Rji4V6cVWA8jFNPZkwHTvB8vW
-         nfiRADUD0vUJempyqRadZt/mPfBOS2tvVSmltn5NlliFnL+UlLQp5CgSkHVWc0En1PdP
-         7aozIT1NGss6+q9v7LL9/pVyG3NFZ0uVZhF2vxusYd5f6IAB1T/bmuPt7NDJnEz7gQxn
-         f0bXsERzUxkulZ8p/5GCjvDWkwGuBA9huUEH/licxvDaEK0hzRWi0dTI7URwqJlez+Pu
-         7nOqBBCRCDqBZhTClEDorqxTQBzdW8eCuhschQvc6h0DZtGCmZwCV/qqVYxFMcUDGFqk
-         w06Q==;
+        bh=GENi4md1c446ap3YU+8WbAIKW0z2UxkHlaNTGXc/qAc=;
+        fh=cXapT4wULyqU5cD07xx11SJRRomg7X/zLcpxIsIrrxs=;
+        b=ZDqSXxl2SmqYRgBVTVfMiuP0kWKQBXX32qgl7cR3jj1RTRGEP92zx2eVTejhPz8l72
+         wh/jJroVUtxh6PzhElGUX3P6PSMNOzGZfbS2Rze7whFmE2z+PKecKgLQOzvM+/CpS6Q+
+         jpFATdJhq/CgP3L1kRu3DdHjPn1K0GjO9O8w/xFy/oZJKd7u9pqiIVQGO9Uv6fyYxaV9
+         tuaDW3JALr1eI4tt1S/q9ZoFuz+Fr8pS5MlG1MFaEdJmwlUnviw2uz/akR5yUxDEJju9
+         UUGSPe32fzL5lA8TXMRvPSGdv9euZb2u6AD1wxl3mhd1mLAUCPOSnOHCg8vn+WLxqasU
+         gIAw==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789717705; x=1790322505; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1789717925; x=1790322725; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=MXqdDZMk2n2ZA2FZuhNJE90D+Z4Rs/KppQMaR2DzMcs=;
-        b=SsMYonO9NA7MqDQ9ncnLT06KBC5R1BCLyeBBCRfOF2enKL79wBEBUJaeJSwhqNREaP
-         OFOgFbDqJ3E4CutDHQ+vbhrG+lHQbywmdSk+lCJW4xRUdZECtqcgprzN35ZyX6za6A33
-         6ejlLh+E/qIQdsKspiDKyww5YD5qCt/zvE/v4WIMeRSuhSHFxsR/6f/CBdprxSZl1faB
-         Xk8ukeJe8ee+e6+Y9frjDBNnuExwO+HORmIwm0tOzEMm3IxGWuCt1++PjQns1L0yCbPp
-         MJ11UCHBvOMJr5b4/BgH++njtraEEBb7vZdPkkQ6bi6uco7KklwqEzho4kN72mMn3/NH
-         QFRQ==
+        bh=GENi4md1c446ap3YU+8WbAIKW0z2UxkHlaNTGXc/qAc=;
+        b=mOt+zT7M6rLiWQxpsxrP/E6toM8f1QESLulaAPpz3Q4hsQ3Gqexr8ErdIs8JUQbGAZ
+         NpMoVgpuIhcMZer1/xLDxbay6xciDR46sPI0fZtqKWh5NcNSn0DfCMUiYJKlYp2ytv69
+         pyc+LwjoDthDOTKdk4VcYSbuqU83gh2mz+SC79dQ+oJbBB8kBnvI2B5Pm71gys0J+Elo
+         P3Z2pPuMMfZmx5+EEopmZdntGwmo/CMyACU1NpuLs60164tRQPadG+IJtrMzab3+DzOt
+         drILUubyx2AmPOjTNd5snrZde8Cpf+o7LvWKH2DP4fC2HdXKEy6MQ/A93QjjkfPbpkOx
+         f5xw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789717705; x=1790322505;
+        d=1e100.net; s=20260707; t=1789717925; x=1790322725;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=MXqdDZMk2n2ZA2FZuhNJE90D+Z4Rs/KppQMaR2DzMcs=;
-        b=UVoMqo2GEh9DabJg8OqOj6yTligbjazLFNmEimZL+mofrtj3N20h6OdXFVITH/qkCk
-         7s0kf16st1LhXci4ZrHz27PNe77qW8/0mY/lWb1s3qpDJgcw74J8Faw8ObiIg76ya1om
-         9lEbP+t8u4TejaWNdK11DKoLUQenyI53NS7aHacIxnl9zEDoVCh92dTg1nQqUIQ9Zn27
-         6BgAirPJCIPNIwRcrB/xWejSd+loUZKVDjf6KPYRexCvBJoh9O6VqqkAKowENvNFSApC
-         AIMJuvXKX/r/k0YeFsujXgEIQ7fbF1UYN0Q1Stu19iHIoRHeNOV30NrjhNZmUckdXGso
-         /0EQ==
-X-Forwarded-Encrypted: i=1; AKwUvByoyouUO3CS2yUmhMgW12CUHErK4SRQg4Xab9ybINJ5AR6FxJgiJNluZZbHDzlq2GKD8u5nrj5RUuSJ4IPnaAeN@lists.infradead.org
-X-Gm-Message-State: AFuF++mMRB05sGn/dPQ6RjUiyw/dP8qjNwixZzB8oEBGI/I5PEhxxLF8
-	GYu4ElBKth2dznXaS+8yuqQd83M7E3j8TKGPSNbFbhpvyubRo6Pr4UkCI1XLIuOj93b+VXXI565
-	nUR75QX/0BrRiHczGTdt+4Q4qR6PC0u4=
-X-Gm-Gg: AYBFou1x62SmPT+91g8ij6nBGBpUpGy5pOmEppP40KGetnTpLAfwy+WL40Kyoaqz3EW
-	whtGidWtemzQC+IF5v4b0CmEWb7XPSF7Vp6u8cZBGpkmnJfD+tTXKnGjt6/rUPfCHHBQ40oCnrY
-	PyM4toFjd5W3CXGRRQmWkdsxeEjNM/JXD27VWkUfPiLcED5+/BxvWuD5SQ0/YFdv/Rv3hgYTSYQ
-	ywXaQPyOAUHJhfPt9YfLyARxbdXJgMUoeeuSEY2i49fsMKuHVQ026LhGUybJDEwjA+jZGOgpu+c
-	0UXajjXKqL6uxOfYKQmpvVaqN6sLDUNSsd8lPD7XV67Sqm9aN4Svs29Bw0+lPok0MeM=
-X-Received: by 2002:a05:6000:4b13:b0:487:1687:197d with SMTP id
- ffacd0b85a97d-4871e212458mr1713724f8f.6.1789717705281; Fri, 18 Sep 2026
- 00:48:25 -0700 (PDT)
+        bh=GENi4md1c446ap3YU+8WbAIKW0z2UxkHlaNTGXc/qAc=;
+        b=eIC2pXxgMApLeXz2f49CxWNQAKZuwQJL5jQt+L69JsECskZeBs4oOFJjQzpdDhi/e9
+         6TgEditfj03JTSzeVfCy2VyzI1QUdvRxpMgq14nFpdxNyB0itg1K6g+ORK/SljUhOLfQ
+         9T9kUEtZufzNqy5yiYszsWcR2J7En1ZPcznbRrsl4SzaqxY3IvGcd5c1as+rUMh6Azwj
+         q8+5vDQvFvJRTPAfwgLGOoo9SYYcPgDkH7UxHphmXH8mR3PmnlnHg8N5SrFe8SQ1SYIL
+         pnSyCHRU5K97pnWve63SveECCwWm8GODNnb0WxJMwDMsLgzmduSE5OrtylMA7LkDruRA
+         Khkw==
+X-Forwarded-Encrypted: i=1; AKwUvByQQI4XA/3ICdPx4AdvlSE2wkMLwjSy75CKz+bNixhsSCtlEHe4pvZEH1tmK4To8GCT0IWHqGe3d9zcBIkY6zNI@lists.infradead.org
+X-Gm-Message-State: AFuF++kAWMt2gmODxswOuxnyFCMtXUv8dH1Jvn+K3h3PvmO8q4QdRIJt
+	RkdBvmUghG4LfCkkHKLBzo1QHoCPNGfTvEac5p+ATJK4rF5jqJm+/BeBvjGu/o1sIQ+igBgShoz
+	0qcnxHh758PaLe39POpMOw3Dsnxxrg+k=
+X-Gm-Gg: AYBFou1kRE+AgRfBDZNEzECIeDYyPANB0mmz2bg7+r4eEaCINRiFEEwFoazEu4a+K2l
+	86xAj6lUbeC1QjAjRDVhusSlv9+KPQkTxiZ2gDkF9bbdTbAalb3+1adTdTUm9rDw6xmoBbMlNZo
+	3f+2AcGVUclqkB3gpGWpAuv+iLg52LAkIkLiBNjSZo0vHnffjqpAGDwgBGTtjmRnrRjr68qyJr0
+	ePw42zFuCB+FHjWwkfjhoVZ2WxODqdxUd6xUKJtbfgenVZi69ISb5UOleGt7i3lKY4d9rLqvjxn
+	S0U7tuWlA8SAW0xJRRTGsXtQblcULATpChuxMXngAd3auqU+WlqZWazHNz+nIIX1GBub55sftSP
+	7MRJlf1C0zA/15w==
+X-Received: by 2002:a05:622a:54b:b0:530:e6b9:f5d9 with SMTP id
+ d75a77b69052e-5329e2887c3mr28806961cf.20.1789717924743; Fri, 18 Sep 2026
+ 00:52:04 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260917052933.188679-1-jiangwenxiaomi@gmail.com>
- <20260917052933.188679-2-jiangwenxiaomi@gmail.com> <CAGsJ_4xujxpH6OuuUao2=TAjTMKhr77ufW6OoZuk-VB=YPd6fw@mail.gmail.com>
-In-Reply-To: <CAGsJ_4xujxpH6OuuUao2=TAjTMKhr77ufW6OoZuk-VB=YPd6fw@mail.gmail.com>
-From: Wen Jiang <jiangwenxiaomi@gmail.com>
-Date: Fri, 18 Sep 2026 15:48:13 +0800
-X-Gm-Features: AcwNN1U7w_zpIxImLoNROHRiindh6mTvUu1jbd9liF3b4JQySYxKRKgU7ZyE2AY
-Message-ID: <CAHKocdHS-D7Gg_n3razCrp-QT5seT4KWz9r1TSWVVwLFsZmU7Q@mail.gmail.com>
-Subject: Re: [PATCH v8 01/10] arm64/mm: add pte_set_huge() and pte_clear_huge()
-To: Barry Song <baohua@kernel.org>
-Cc: akpm@linux-foundation.org, catalin.marinas@arm.com, linux-mm@kvack.org, 
-	urezki@gmail.com, will@kernel.org, Xueyuan.chen21@gmail.com, 
-	ajd@linux.ibm.com, anshuman.khandual@arm.com, chleroy@kernel.org, 
-	david@kernel.org, dev.jain@arm.com, jiangwen6@xiaomi.com, leo.yan@arm.com, 
+References: <20260917155834.2161361-1-vulab@iscas.ac.cn>
+In-Reply-To: <20260917155834.2161361-1-vulab@iscas.ac.cn>
+From: Alexey Charkov <alchark@gmail.com>
+Date: Fri, 18 Sep 2026 11:51:56 +0400
+X-Gm-Features: AcwNN1WPnMYUOHlV-frab_8tJfPEncIhhSiRLeqBqP4mXUOCMzFeKOSH0f4nq-I
+Message-ID: <CABjd4Yy-9A0xWCDfZemHOTZDrDdtdO05nUjmN=w=sLwYjzZn8Q@mail.gmail.com>
+Subject: Re: [PATCH] serial: vt8500: Fix clock reference leak in vt8500_serial_probe()
+To: Wentao Liang <vulab@iscas.ac.cn>
+Cc: gregkh@linuxfoundation.org, jirislaby@kernel.org, krzk@kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, maddy@linux.ibm.com, mpe@ellerman.id.au, 
-	npiggin@gmail.com, rppt@kernel.org, ryan.roberts@arm.com
+	linux-serial@vger.kernel.org, linux@prisktech.co.nz, stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_004828_299528_1164CFF5 
-X-CRM114-Status: GOOD (  24.73  )
+X-CRM114-CacheID: sfid-20260918_005206_675617_E037EDFD 
+X-CRM114-Status: GOOD (  17.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,73 +119,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 18 Sept 2026 at 07:22, Barry Song <baohua@kernel.org> wrote:
+On Thu, Sep 17, 2026 at 7:58=E2=80=AFPM Wentao Liang <vulab@iscas.ac.cn> wr=
+ote:
 >
-> On Thu, Sep 17, 2026 at 1:29=E2=80=AFPM Wen Jiang <jiangwenxiaomi@gmail.c=
-om> wrote:
-> >
-> > From: Wen Jiang <jiangwen6@xiaomi.com>
-> >
-> > vmap installs PTE-level block mappings (PTE_CONT on arm64) by reusing
-> > set_huge_pte_at() and huge_ptep_get_and_clear(), which are HugeTLB
-> > helpers gated by CONFIG_HUGETLB_PAGE. This makes the feature silently
-> > unavailable on CONFIG_HUGETLB_PAGE=3Dn kernels and couples mm/vmalloc.c=
- to
-> > HugeTLB internals it does not otherwise need.
-> >
-> > Add pte_set_huge()/pte_clear_huge() to arm64, joining the existing
-> > pmd_set_huge()/pud_set_huge() family in mm/mmu.c. They build on
-> > __set_ptes() and __get_and_clear_full_ptes() directly, so they do not
-> > depend on CONFIG_HUGETLB_PAGE.
-> >
-> > There is no caller yet: mm/vmalloc.c is converted later in this series,
-> > once the generic fallbacks are in place.
-> >
-> > Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
+> of_clk_get() returns a clock with a reference that has to be released
+> with clk_put(). If clk_prepare_enable() fails the function returns
+> without doing so, leaking the reference.
 >
-> I tried to apply the patch to mm-new, but it doesn't apply.
+> Add the missing clk_put() on that error path.
 >
-> % git am raw
-> Applying: arm64/mm: add pte_set_huge() and pte_clear_huge()
-> error: patch failed: arch/arm64/mm/mmu.c:1872
-> error: arch/arm64/mm/mmu.c: patch does not apply
-> Patch failed at 0001 arm64/mm: add pte_set_huge() and pte_clear_huge()
-> hint: Use 'git am --show-current-patch=3Ddiff' to see the failed patch
-> When you have resolved this problem, run "git am --continue".
-> If you prefer to skip this patch, run "git am --skip" instead.
-> To restore the original branch and stop patching, run "git am --abort".
+> Fixes: 12faa35ae5cb ("serial: vt8500: UART uses gated clock rather than 2=
+4Mhz reference")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+> ---
+>  drivers/tty/serial/vt8500_serial.c | 1 +
+>  1 file changed, 1 insertion(+)
 >
-> % patch -p1 < raw
-> patching file 'arch/arm64/include/asm/pgtable.h'
-> patching file 'arch/arm64/mm/mmu.c'
-> 1 out of 1 hunks failed--saving rejects to 'arch/arm64/mm/mmu.c.rej'
->
->
-> [...]
->
-> > +void pte_set_huge(pte_t *ptep, unsigned long addr, phys_addr_t phys,
-> > +                 pgprot_t prot, unsigned long size)
-> > +{
-> > +       unsigned long pfn =3D __phys_to_pfn(phys);
-> > +       pte_t new_pte =3D pte_mkcont(pfn_pte(pfn, prot));
->
-> Maybe we can drop the `new_` prefix.
->
+> diff --git a/drivers/tty/serial/vt8500_serial.c b/drivers/tty/serial/vt85=
+00_serial.c
+> index 78a1c1eea11b..fc6fdc751b16 100644
+> --- a/drivers/tty/serial/vt8500_serial.c
+> +++ b/drivers/tty/serial/vt8500_serial.c
+> @@ -656,6 +656,7 @@ static int vt8500_serial_probe(struct platform_device=
+ *pdev)
+>         ret =3D clk_prepare_enable(vt8500_port->clk);
+>         if (ret) {
+>                 dev_err(&pdev->dev, "failed to enable clock\n");
+> +               clk_put(vt8500_port->clk);
 
-Will do.
+The probe function currently mixes devm-managed and manual resource
+allocations, with the clk standing out in particular. Instead of
+adding a manual clk_put, could you please switch the clk calls to
+devm_clk_get_enabled and drop redundant boilerplate?
 
-> > +       unsigned int nr =3D size >> PAGE_SHIFT;
-> > +
-> > +       VM_WARN_ON(!IS_ALIGNED(pfn, CONT_PTES));
-> > +       VM_WARN_ON(!IS_ALIGNED(size, CONT_PTE_SIZE));
->
-> Do we also need to check that `addr` is aligned?
->
-
-Yes. arch_vmap_pte_range_map_size() already guarantees all three,
-since we are already checking two of them here, we should complete the
-set. I'll add it in v9.
-
-Thanks,
-Wen
+Best regards,
+Alexey
 
