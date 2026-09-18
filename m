@@ -4,78 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85D48C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 12:54:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 324B4C982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 12:57:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IZSVa0g2ztWQ8+r1qgpcbkI2lI4vaWG+BMaMpsWGUjs=; b=xxk7XgH2ZBVYtpbEcpngU8xtIy
-	mjPePGe3j3L4rrApzZE6dmdHsA5L52+Es/wA5HMGCbSqKT7/ErFJnZTcso4HTXsai0mO3ZADYzPJ0
-	hvX5dLlSoM28Kd5YYlJJf72qh1Y66EJ6eVhFIYYl1Xi3kfpPn2jjgxCyk/2ioS41/xzqiao1IlkRK
-	9evwoFsdyO2cWxxG1p8NdbtMxNoH4Tw10v/wCImtub4Uq/HO4WE497GvJkmi6lBJD13zGwD7m+0jW
-	JN7M/zFcuBk9+T4oRMVxVPGG3WxujhsPv6e1qpjldyyInXjRkhfMCIQshrr5TCxl/tol8aIoMdRr3
-	/tkBYzmg==;
+	bh=B3oCUeU/QfnCX52cxfUjOmB6CxbfczOWH2BcGVdKT7I=; b=Gljksc0hKviIexDMbRNhL4QvhX
+	MxcpWUx1952v0wr3O4noYu3dPSYEuAr5YASi/JfNem/2XoHUrLxtMf61QgWFmtqHdYyI8E/gZ70iq
+	O9hOYZohOGMLYvA8VBqYrPTg1ms1f+IepmtL0Eqbv1srafmssxp6CAY0Plot/ozbIwxg7oQnxxO5M
+	7Ce6b64J7U7rJTREeRRhPK2WMxSZQ1IZm57YgcFKtfW9Cs/9Q9RbVDBnf4xhprWCGnWkxtXdhnKkt
+	UwUcENxibw02dzVbNTzI3EbDZygafuZsFhJJLyNLD8Sn8ugXLPNUsuFnBFfJdRU2PdjFbLmEFcbU6
+	dhjgXjXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Y6G-0000000EQ2C-024a;
-	Fri, 18 Sep 2026 12:53:56 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x7Y9j-0000000EQMu-2Ena;
+	Fri, 18 Sep 2026 12:57:31 +0000
+Received: from mail-japaneastazon11023098.outbound.protection.outlook.com ([52.101.127.98] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Y6F-0000000EQ1p-0u9h;
-	Fri, 18 Sep 2026 12:53:55 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A55C260A8F;
-	Fri, 18 Sep 2026 12:53:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A728C1F00898;
-	Fri, 18 Sep 2026 12:53:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789736034;
-	bh=IZSVa0g2ztWQ8+r1qgpcbkI2lI4vaWG+BMaMpsWGUjs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=eOvhNAH9jJfve68zgfKNDmGY89el9cOkf2NIB06BpJLj53pc9qiqRSzrucRtJzCCp
-	 h2tqnDvQ03aQIYDWbL4nVJObNeOWUZT2GPrI9o4llobNMwAkkyVL4hP66hkLudqA0m
-	 56/0Y4QHnVhrCbfxYWokAaR5NVn+h2zEDZQsf1kOlWgdub1iVzObD4ooMdu6g99ZNb
-	 WikShDV3gpkWy9APDZtbCZ0WqHgW5CdQ4ZVYnYp9bKn4MeLY1jkD0hhlhmHxPam8S6
-	 3Y11SOUY8xQba25BtAaqGIrFJeSnWqMr3dkw1NpngGRLEhhfvCTBQeAjLvt7L9mShC
-	 9+A9gxqAZZtbA==
-Date: Fri, 18 Sep 2026 14:53:52 +0200
-From: Thierry Reding <thierry.reding@kernel.org>
-To: Kieran Bingham <kieran.bingham@ideasonboard.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Jacopo Mondi <jacopo@jmondi.org>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, Jimmy Su <jimmy.su@intel.com>, 
-	Matthias Fend <matthias.fend@emfend.at>, Mikhail Rudenko <mike.rudenko@gmail.com>, 
-	Daniel Scally <dan.scally@ideasonboard.com>, Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
-	Michael Riesch <michael.riesch@collabora.com>, Benjamin Mugnier <benjamin.mugnier@foss.st.com>, 
-	Sylvain Petinot <sylvain.petinot@foss.st.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
-	Paul Elder <paul.elder@ideasonboard.com>, Martin Kepplinger <martin.kepplinger@puri.sm>, 
-	Quentin Schulz <quentin.schulz@theobroma-systems.com>, Tommaso Merciai <tomm.merciai@gmail.com>, 
-	Svyatoslav Ryhel <clamor95@gmail.com>, Richard Acayan <mailingradian@gmail.com>, 
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
-	Heiko Stuebner <heiko@sntech.de>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux@ew.tq-group.com, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-tegra@vger.kernel.org, 
-	Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>, Alexander Stein <alexander.stein@ew.tq-group.com>, 
-	David Heidelberg <david@ixit.cz>
-Subject: Re: [PATCH v6 1/6] arm64: dts: freescale: Convert to new media
- orientation definitions
-Message-ID: <aq00WXsI5T7Vjz4K@orome>
-References: <20260918-kbingham-orientation-v6-0-5e8b1f01be29@ideasonboard.com>
- <20260918-kbingham-orientation-v6-1-5e8b1f01be29@ideasonboard.com>
+	id 1x7Y9g-0000000EQLv-28ZW;
+	Fri, 18 Sep 2026 12:57:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=X7lRXxkdLAGvDbv0SntGDpRg1b7WMPoBFJJGkPjRyzsBxejQeFAwFe+TVqe5RSegDp2a0w3aPUgOwTNIxJ/glFEp/GO1tTFId5zTfg+RCQntzMNmLp8Z+MhXT77rRfpHhbYJnXSRv895GNTtjxqrAhh7hBy0umwhNIF1a40luWVIWoureR6voVnI3+UJhk7SKaGe6atg2oMUswMzFdi1gyVqRcollkZsjlKeGH/SNy2ec9IX4lp59h1lAVi5FelTEBoVejBQhaAmk0cAbAQRXlvH4fFicVMZsyTC+AS+xH4/9VptphpYozXUG/lsZUWRIM6jWIOxnauQ01nEx7D6eA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=B3oCUeU/QfnCX52cxfUjOmB6CxbfczOWH2BcGVdKT7I=;
+ b=qtuNlW6vpDS29L4rUL9/1LmI7ZKiKAJlnYZ3H+gO8VryQG/5uuzd5MWpoHyiiYyfW82alAgQWtCvX88kH2MJvz6WepDDkyx706z9TPxnb0iMl2hORSjD0j2Ewpkvcq1u1zPpwjrxgCx8QrStNzcq+imP1oC0nIcCdaRFbHtRsGfZI2j3owlFi4WnartyVmnlPZBCV7nH9jZ3KyVCeSxEhEc/fxmQNL2Y//isO9YYLrnj4IUyV2W1TZtmsr7payxIX0pmHu6/fmTIQGEj5GkqcfcDjWcAUiWqZ/+U1qBki9r2oxibsLanrEWovZKSH9zTZeTA825DUGzupLPbSsTQXQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=crepuse.com; dmarc=pass action=none header.from=crepuse.com;
+ dkim=pass header.d=crepuse.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=crepuse.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=B3oCUeU/QfnCX52cxfUjOmB6CxbfczOWH2BcGVdKT7I=;
+ b=KgSPBvoYggCLul8MdaZZ3lMy3DrbClxBnrCU7kqojlHsQ6QPmfR4an9hLbdh/Lb6O75sn3VXunNP1apwJD/rA6Nfh7omaKwJTgtf6lNXSjULMavCsrLh4fg5dxEinnYruwm4GLTQ7I/OKAcd9h5i8KVe+lI4so2FCT6rdmhjrYBQMQgwTH9vhFgqaZby0ZqMyrz1+8NjoD69/xuG/pW9wrE8yOgfiUY5kPof9VjkUwTcSsifPVXu9vK/8QxYPTBZnnuTk3h+Jxz4/ZxxHs6KXK2wTS6O46DtumdKZpU+ROfGh4jq9RjL2X/BQYRpYq1QY/g7w/T2WAkqcsSpu4+rjg==
+Received: from PS1PPF6469DE8C6.apcprd06.prod.outlook.com (2603:1096:308::253)
+ by TYUPR06MB5980.apcprd06.prod.outlook.com (2603:1096:400:357::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.11; Fri, 18 Sep
+ 2026 12:57:20 +0000
+Received: from PS1PPF6469DE8C6.apcprd06.prod.outlook.com
+ ([fe80::e60a:2617:6895:a0cf]) by PS1PPF6469DE8C6.apcprd06.prod.outlook.com
+ ([fe80::e60a:2617:6895:a0cf%6]) with mapi id 15.21.0406.007; Fri, 18 Sep 2026
+ 12:57:20 +0000
+From: Mizuno Miotsuki <founder@crepuse.com>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>, Mark Brown <broonie@kernel.org>
+CC: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>, Heiko Stuebner <heiko@sntech.de>,
+	"linux-sound@vger.kernel.org" <linux-sound@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-rockchip@lists.infradead.org"
+	<linux-rockchip@lists.infradead.org>
+Subject: [RFC PATCH 1/1] ASoC: codecs: rk3308: add support for codec revision
+ B
+Thread-Topic: [RFC PATCH 1/1] ASoC: codecs: rk3308: add support for codec
+ revision B
+Thread-Index: AQHdR209FKBudBxAWU219pfDz4ypYw==
+Date: Fri, 18 Sep 2026 12:57:19 +0000
+Message-ID: <20260918125711.94361-2-founder@crepuse.com>
+References: <20260918125711.94361-1-founder@crepuse.com>
+In-Reply-To: <20260918125711.94361-1-founder@crepuse.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=crepuse.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PS1PPF6469DE8C6:EE_|TYUPR06MB5980:EE_
+x-ms-office365-filtering-correlation-id: 6a1d1d7d-4302-4951-e823-08df15845ff7
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|23010399003|1800799024|7416014|22082099003|6133799003|18002099003|5023799004|56012099006|10067099003|3023799007|38070700021;
+x-microsoft-antispam-message-info: 71SBP57xf3ITWNqnuHvB8cE3Mqd9mfhSQH0HH2wOSTk6RWo6C9UQ4zOg0SuYKGHW4w2rwcIrSvW0TtEhLEXbpGgZJg0CRHKcLE32rjSGOGJsVHY/+QCgRB3naPvBwlcmhWBv3KV+cZfupmn2YoRsoGHIjYWVYXZzaZixfcSkKekqOC+Ual83i3xgbNWGSYN3AsWau+fHYxGHs7mb29RcjYG7POH99qKLZpPFspmjuwvCnFzaEAmKZcv+pX7uld2wYw4hH0Irxco+atzAsTi5SurW/i3URzPN3mc3fhq3RfTAt5mBYE7vABL1R2tSBBhsKsru9goK7JSHN0gMlY+FxikBkSz4OdcJZHZhcx7gNtKDGoYa62jVbdQ2ZHDHydilK55DnJBhzMX59exHEf+3RYSiacJixRGtaRGN2nTnnPioSlwYdo0xigvwcYkZ8z/XbNOdJ/NCdPdcyAIPa9TVbdJnYyE/ZOweI4q8fzB8xOFUQh8i2kIuq92N8290WGs9dXLuPgGqu+FywK+3VXB6sgOgcu501+NRRy+O993JNHOu/Kt8+9TbYahjJjq++mfzzmmZ46N2Dutdd0jhrzg1QKDRh/eFc0W3IyBJIMygTDnN7Bg6y31v1MMHanuADr151y0wF2c3kD+R/epFeu6zJ2c1do48HU0xB5k9Y8FYTYkMVBwEnxKG7wrJrBV0yUX8rCLpdHUFkpZ9xS1yQgHbq2EtXHlnqBBy6phV6vP4wGo=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PS1PPF6469DE8C6.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(23010399003)(1800799024)(7416014)(22082099003)(6133799003)(18002099003)(5023799004)(56012099006)(10067099003)(3023799007)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?/o6YkM8Qp+077xuttqn/jjjuZxrFqadjMlMElmAwQQXHv9Aw5vpVdHmKX7?=
+ =?iso-8859-1?Q?RUCW3lpxmXYrDqGH2KZoziHfLVMo9mMcQ27LcM4p9fCLvfB/hzhijEi+rq?=
+ =?iso-8859-1?Q?aX1qfsYBmNs77NfnXcbfBO3ZqgG4QJ4DDeorAWp9ZzqFPF1RKzrp3D4KJt?=
+ =?iso-8859-1?Q?5Mhy84TwNxG86gIiM/Hf7BvDEY6wSAiB9G5g6U8kvBDgOLcIMKvwVwUGD4?=
+ =?iso-8859-1?Q?b5p19rxCtGghQcBSlQrQNS4IzXTbLsRiYLqdJ8Y+s1E9W0tN4BfTQv37fI?=
+ =?iso-8859-1?Q?gMunfb2aRFE6zp20UULE7kApyfNe7JsqpxmftTd3+9HWD4WFg9O9F5ZfM7?=
+ =?iso-8859-1?Q?HWGDXXBmD/ITnYasgnVQqp9G5Lc2pLROqg6r/kaJcMjPPVIWOv9fRbEep/?=
+ =?iso-8859-1?Q?53IL7DCWVRydsDJvzr50x/yiiUXBLEnkoNP/2uiLKTaDTnKpcCkJOCcKVS?=
+ =?iso-8859-1?Q?Fk6URcM+Zz4VghklU/h66I3EMxRNRXR2NooVNQoMeHnwucei+75tNIso48?=
+ =?iso-8859-1?Q?l1u/pjG1Q8Vfq6/lcyFyat5fn2f0oM2X+Rsoi3/a1VSqXIH2IiObVQozCK?=
+ =?iso-8859-1?Q?Sj1HTcumI8TzFdjbkWG4XH+WmsYukoquT2uQZQClH5+OV686p9z294RnRB?=
+ =?iso-8859-1?Q?+wYpDBcIweSN1QklOHoyzsaP8XbD4hx3NcpMw2jXJqgSzt53iZ8L5gRlfo?=
+ =?iso-8859-1?Q?1iJF8eBimHbg+VUlViZStenIlrt1p6gbYQDNXzdv8keyZTWFaYUkMSRB66?=
+ =?iso-8859-1?Q?nCIa6H1LjDOTFtzXpG21K1/tRE92GurF2c18ACUkmcYX3A5lVtpjCKaXU/?=
+ =?iso-8859-1?Q?6cNccnh0XioxsPTfTOX99tITDTD5FvBuGw5lUm23+f1D7BIrlCHQgFcJS7?=
+ =?iso-8859-1?Q?CcWRItPtFuK5Oj3QvZrIQj8gn/+HvWhQXIoR1/GPuWFWhomXANnO748BhV?=
+ =?iso-8859-1?Q?r/o/kLe4m2SrEi+LttAZ7i0ThYZrRALHG/dqDhlbTco3yPLovaqS6xH8Nu?=
+ =?iso-8859-1?Q?vCJIyAfJYqMKyboBjSnJ0S/nxJhx3S1FuH+39Nl7BTemXKThkDKIR/4y1A?=
+ =?iso-8859-1?Q?FApAZ08fFqMtV61NMcHXB2z9KjsmP/IYcboU+8+sC7KpjT7MlPtLQCQU3d?=
+ =?iso-8859-1?Q?ASzuCNz1ZK9wmMfg1ghm4lQxmlr6e2PKgfFcgnNE/t3K/Y8LDMksdXYZZ1?=
+ =?iso-8859-1?Q?EDYz6GUYDrGkV4P8NHVRpvda+UAmyEePQruSnOM/X+MkxbWtxyQO8ClUr8?=
+ =?iso-8859-1?Q?x8ZJjGT4Kj0Qm3sXhTZPI9VAdksZtx2FAAJwoJVLwqv0vsUwTlvk9WYxpr?=
+ =?iso-8859-1?Q?aGuX0Ta3usiZ1+8wHR0FhiKay/cZZj/zzZj/cAjRZtR+NJofTHDXNoSOjW?=
+ =?iso-8859-1?Q?gzy+i47NN3iaMm31m2uyp61maftx3Q7bxIEnzzFtIAeCXn3npxe19VTg46?=
+ =?iso-8859-1?Q?vTsYDVN4LNmx5xm98b9mkebqRr1Y9wGliqeos/ATXU+inJKdWich+ho2+p?=
+ =?iso-8859-1?Q?b/SAEyupSIPr3fc0rOIhEm2qOYKutxbNIxo8mPjlTwaAHXgjdVgC45whZC?=
+ =?iso-8859-1?Q?T5Ej5U/0JNOCZeoFDyGDa02avfCCZn9DX0r4h2JaHgrKD+OizMgyfftKTO?=
+ =?iso-8859-1?Q?vvP2rtLACobH4OyxClOHi8ru9cO0MVfpZul03aGU0d3KLCeQwWO3UJ37FQ?=
+ =?iso-8859-1?Q?urgsZx2muZ5z+swuStDjpjP5lFkStTfnLMdhRRS4GGRgn//uvEqLJ9bBUJ?=
+ =?iso-8859-1?Q?AMaokcNbfPArP/yl5pGRcGVfGud5TzQoMjg+wBzl8Nm50z?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="6wdh2b42vbclylnf"
-Content-Disposition: inline
-In-Reply-To: <20260918-kbingham-orientation-v6-1-5e8b1f01be29@ideasonboard.com>
+X-OriginatorOrg: crepuse.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PS1PPF6469DE8C6.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6a1d1d7d-4302-4951-e823-08df15845ff7
+X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Sep 2026 12:57:19.9676
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 1d352272-7d70-4a91-9c85-0db444db1bc9
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: gksFxSgMEWmepfqTLTVPO3WIxUtlHzfBbqcRIYVE4jQCtzmo07Jlwiv9FqlEZKO8IyAalkFuUKTF+bcNdVWdSA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYUPR06MB5980
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260918_055728_688310_056F1ECF 
+X-CRM114-Status: GOOD (  14.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,56 +144,213 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---6wdh2b42vbclylnf
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v6 1/6] arm64: dts: freescale: Convert to new media
- orientation definitions
-MIME-Version: 1.0
-
-On Fri, Sep 18, 2026 at 11:44:13AM +0100, Kieran Bingham wrote:
-> From: Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
->=20
-> The orientation property for video interface devices now has definitions
-> to prevent hardcoded integer values for the enum options.
->=20
-> Update the users throughout the freescale/NXP device trees to use the new
-> definitions.
->=20
-> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> Reviewed-by: David Heidelberg <david@ixit.cz>
-> Signed-off-by: Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
-> ---
->  .../boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314-imx219.dtso      |=
- 3 ++-
->  arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi                      |=
- 3 ++-
->  2 files changed, 4 insertions(+), 2 deletions(-)
-
-Reviewed-by: Thierry Reding <treding@nvidia.com>
-
---6wdh2b42vbclylnf
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmqtNF8ACgkQ3SOs138+
-s6FhoBAAmy8KNMV4HskuU6PSl9pgsRdWX8u79Y1uLeY0OEPdqN8zN04yU9vPBd3j
-gFwQSlydnv11bvR6t4TI96MCj+ywVc+PtdTnyFIXnbj9g/oHFczVj4MuARWOi1F3
-rA1znqZNfPOQrqkXDseRP8h3vrzAsJJcE/3xC7ak15m8gCCjQaY3MJEogRIsqLfj
-Z7IQ1HSaEJyfOfk/HJ2MGzLvgF0eV/EsNOSZaTtjA10WLWeCXffPGocBG6DvsN44
-J9d1NyiMS3GPQiAhwukkDJtS/+qKd7ebtDa/kgKq0vXLRLudY/d73FGAbpmYJjBb
-RDr2fxeK6L/7iuJnhzUd+9hWb3o1wJBehyDQMk1VTQ3cs7kVvmvMFAlIFJaNcIvY
-pZ/UHqmMWO3cZc15hxezUpSD4nwPIXHF3/Rrpu4KpuvQ2qvfQ6Dmo/Si1QNrF3Kw
-iedvIhm6NcO4lXgJ3kwHxS1yh/x8ZKe0Sg42B4X2oR0RfFhPtsDLCL2b0mpyoub9
-fbKcVmleDcA3AUEAX8Q0dipTpyF1uSzNgp9w+3M7UQLfCeXpiVmXoSl0ALqhd/Kb
-O0RmNU/AubW0LVBBDbobrI5TxS7EtdPt2SJP0I+x6JRFFBvd91smEBNSciFoauKO
-L90R0Zfcrac0q8D3mb+pO7zJn1kkzm3j+abTzj3YHJ3FC92Q/xQ=
-=7yvd
------END PGP SIGNATURE-----
-
---6wdh2b42vbclylnf--
+The RK3308 codec driver detects codec revision B (chip ID 0x3308),=0A=
+but currently rejects it during probe. Revision B needs an additional=0A=
+DAC output VCM charge and depop sequence using DAC_ANA_CON14 and=0A=
+DAC_ANA_CON15.=0A=
+=0A=
+Model the shared revision-B DAC output VCM as a playback-only DAPM=0A=
+supply used by both HPOUT and LINEOUT. Charge the reference while both=0A=
+CON15 channels are connected to VCM, then establish DC_FROM_INTERNAL as=0A=
+the playback baseline. LINEOUT events switch each enabled channel to=0A=
+LINEOUT_FROM_INTERNAL after its output driver is enabled and return it=0A=
+to DC_FROM_INTERNAL after disable. When the last analogue output powers=0A=
+down, return both channels to VCM and disable the shared reference.=0A=
+=0A=
+All new register writes are conditional on codec revision B.=0A=
+Capture-only streams do not traverse the new supply, so they do not=0A=
+touch DAC_ANA_CON14 or DAC_ANA_CON15. Revisions A and C gain no=0A=
+additional MMIO writes.=0A=
+=0A=
+For HPOUT-only playback, keep CON15 at DC_FROM_INTERNAL, matching the=0A=
+newer Rockchip 6.1 downstream driver. Physical HPOUT validation is still=0A=
+needed.=0A=
+=0A=
+Tested on a DFRobot UNIHIKER M10 V1.2 with codec revision B.=0A=
+Revision-B probe, the board MICBIAS1 route, and physical onboard=0A=
+microphone capture passed. A short capture-startup transient is also=0A=
+present with the Rockchip vendor driver unless a longer wait is added,=0A=
+so it is not treated as a regression and no generic 250 ms mute delay is=0A=
+added here. Capture-only isolation from DAC_ANA_CON14/15 and playback=0A=
+PCM, DAPM, and LINEOUT register endpoints were verified with the=0A=
+preceding clean LINEOUT-only candidate. The shared-output revision is=0A=
+compile-tested only. Physical LINEOUT and HPOUT audio were not tested=0A=
+because suitable hardware endpoints were unavailable.=0A=
+=0A=
+Signed-off-by: Mizuno Miotsuki <founder@crepuse.com>=0A=
+---=0A=
+ sound/soc/codecs/rk3308_codec.c | 102 +++++++++++++++++++++++++++++++-=0A=
+ 1 file changed, 99 insertions(+), 3 deletions(-)=0A=
+=0A=
+diff --git a/sound/soc/codecs/rk3308_codec.c b/sound/soc/codecs/rk3308_code=
+c.c=0A=
+index 60befe9d37f0..8514d94d4051 100644=0A=
+--- a/sound/soc/codecs/rk3308_codec.c=0A=
++++ b/sound/soc/codecs/rk3308_codec.c=0A=
+@@ -192,6 +192,90 @@ static int rk3308_codec_pop_sound_set(struct snd_soc_d=
+apm_widget *w,=0A=
+ 	return 0;=0A=
+ }=0A=
+ =0A=
++static int rk3308_codec_dac_output_vcm_event(struct snd_soc_dapm_widget *w=
+,=0A=
++					     struct snd_kcontrol *kcontrol,=0A=
++					     int event)=0A=
++{=0A=
++	struct snd_soc_component *component =3D snd_soc_dapm_to_component(w->dapm=
+);=0A=
++	struct rk3308_codec_priv *rk3308 =3D snd_soc_component_get_drvdata(compon=
+ent);=0A=
++	unsigned int val;=0A=
++=0A=
++	if (rk3308->codec_ver !=3D ACODEC_VERSION_B)=0A=
++		return 0;=0A=
++=0A=
++	switch (event) {=0A=
++	case SND_SOC_DAPM_PRE_PMU:=0A=
++		/* Keep the DAC outputs at VCM while their reference is charged. */=0A=
++		regmap_update_bits(rk3308->regmap, RK3308_DAC_ANA_CON15,=0A=
++				   RK3308_DAC_LINEOUT_POP_SOUND_L_MSK |=0A=
++				   RK3308_DAC_LINEOUT_POP_SOUND_R_MSK,=0A=
++				   RK3308_DAC_L_SEL_DC_FROM_VCM |=0A=
++				   RK3308_DAC_R_SEL_DC_FROM_VCM);=0A=
++		regmap_update_bits(rk3308->regmap, RK3308_DAC_ANA_CON14,=0A=
++				   RK3308_DAC_CURRENT_CHARGE_MSK, 1);=0A=
++		regmap_set_bits(rk3308->regmap, RK3308_DAC_ANA_CON14,=0A=
++				RK3308_DAC_VCM_LINEOUT_EN);=0A=
++		for (val =3D 1; val <=3D 0xf; val++) {=0A=
++			regmap_update_bits(rk3308->regmap, RK3308_DAC_ANA_CON14,=0A=
++					   RK3308_DAC_CURRENT_CHARGE_MSK, val);=0A=
++			usleep_range(200, 400);=0A=
++		}=0A=
++		msleep(20);=0A=
++		break;=0A=
++	case SND_SOC_DAPM_POST_PMU:=0A=
++		regmap_update_bits(rk3308->regmap, RK3308_DAC_ANA_CON15,=0A=
++				   RK3308_DAC_LINEOUT_POP_SOUND_L_MSK |=0A=
++				   RK3308_DAC_LINEOUT_POP_SOUND_R_MSK,=0A=
++				   RK3308_DAC_L_SEL_DC_FROM_INTERNAL |=0A=
++				   RK3308_DAC_R_SEL_DC_FROM_INTERNAL);=0A=
++		break;=0A=
++	case SND_SOC_DAPM_POST_PMD:=0A=
++		regmap_update_bits(rk3308->regmap, RK3308_DAC_ANA_CON15,=0A=
++				   RK3308_DAC_LINEOUT_POP_SOUND_L_MSK |=0A=
++				   RK3308_DAC_LINEOUT_POP_SOUND_R_MSK,=0A=
++				   RK3308_DAC_L_SEL_DC_FROM_VCM |=0A=
++				   RK3308_DAC_R_SEL_DC_FROM_VCM);=0A=
++		regmap_update_bits(rk3308->regmap, RK3308_DAC_ANA_CON14,=0A=
++				   RK3308_DAC_CURRENT_CHARGE_MSK, 1);=0A=
++		regmap_clear_bits(rk3308->regmap, RK3308_DAC_ANA_CON14,=0A=
++				  RK3308_DAC_VCM_LINEOUT_EN);=0A=
++		break;=0A=
++	default:=0A=
++		break;=0A=
++	}=0A=
++=0A=
++	return 0;=0A=
++}=0A=
++=0A=
++static int rk3308_codec_lineout_event(struct snd_soc_dapm_widget *w,=0A=
++				      struct snd_kcontrol *kcontrol,=0A=
++				      int event)=0A=
++{=0A=
++	struct snd_soc_component *component =3D snd_soc_dapm_to_component(w->dapm=
+);=0A=
++	struct rk3308_codec_priv *rk3308 =3D snd_soc_component_get_drvdata(compon=
+ent);=0A=
++	unsigned int mask =3D RK3308_DAC_LINEOUT_POP_SOUND_L_MSK << w->shift;=0A=
++	unsigned int val;=0A=
++=0A=
++	if (rk3308->codec_ver !=3D ACODEC_VERSION_B)=0A=
++		return 0;=0A=
++=0A=
++	switch (event) {=0A=
++	case SND_SOC_DAPM_POST_PMU:=0A=
++		val =3D RK3308_DAC_L_SEL_LINEOUT_FROM_INTERNAL << w->shift;=0A=
++		break;=0A=
++	case SND_SOC_DAPM_POST_PMD:=0A=
++		val =3D RK3308_DAC_L_SEL_DC_FROM_INTERNAL << w->shift;=0A=
++		break;=0A=
++	default:=0A=
++		return 0;=0A=
++	}=0A=
++=0A=
++	regmap_update_bits(rk3308->regmap, RK3308_DAC_ANA_CON15, mask, val);=0A=
++	usleep_range(20, 40);=0A=
++=0A=
++	return 0;=0A=
++}=0A=
++=0A=
+ static const struct snd_soc_dapm_widget rk3308_codec_dapm_widgets[] =3D {=
+=0A=
+ 	SND_SOC_DAPM_INPUT("MIC1"),=0A=
+ 	SND_SOC_DAPM_INPUT("MIC2"),=0A=
+@@ -322,6 +406,10 @@ static const struct snd_soc_dapm_widget rk3308_codec_d=
+apm_widgets[] =3D {=0A=
+ 	SND_SOC_DAPM_OUT_DRV_E("HPOUT_POP_SOUND_R", SND_SOC_NOPM, 4, 0, NULL, 0,=
+=0A=
+ 			       rk3308_codec_pop_sound_set,=0A=
+ 			       SND_SOC_DAPM_POST_PMU | SND_SOC_DAPM_PRE_PMD),=0A=
++	SND_SOC_DAPM_SUPPLY("DAC_OUTPUT_VCM", SND_SOC_NOPM, 0, 0,=0A=
++			    rk3308_codec_dac_output_vcm_event,=0A=
++			    SND_SOC_DAPM_PRE_PMU | SND_SOC_DAPM_POST_PMU |=0A=
++			    SND_SOC_DAPM_POST_PMD),=0A=
+ 	SND_SOC_DAPM_OUT_DRV("L_HPOUT_EN", RK3308_DAC_ANA_CON03, 1, 0, NULL, 0),=
+=0A=
+ 	SND_SOC_DAPM_OUT_DRV("R_HPOUT_EN", RK3308_DAC_ANA_CON03, 5, 0, NULL, 0),=
+=0A=
+ 	SND_SOC_DAPM_OUT_DRV("L_HPOUT_WORK", RK3308_DAC_ANA_CON03, 2, 0, NULL, 0)=
+,=0A=
+@@ -329,8 +417,12 @@ static const struct snd_soc_dapm_widget rk3308_codec_d=
+apm_widgets[] =3D {=0A=
+ 	SND_SOC_DAPM_OUTPUT("HPOUT_L"),=0A=
+ 	SND_SOC_DAPM_OUTPUT("HPOUT_R"),=0A=
+ =0A=
+-	SND_SOC_DAPM_OUT_DRV("L_LINEOUT_EN", RK3308_DAC_ANA_CON04, 0, 0, NULL, 0)=
+,=0A=
+-	SND_SOC_DAPM_OUT_DRV("R_LINEOUT_EN", RK3308_DAC_ANA_CON04, 4, 0, NULL, 0)=
+,=0A=
++	SND_SOC_DAPM_OUT_DRV_E("L_LINEOUT_EN", RK3308_DAC_ANA_CON04, 0, 0,=0A=
++			       NULL, 0, rk3308_codec_lineout_event,=0A=
++			       SND_SOC_DAPM_POST_PMU | SND_SOC_DAPM_POST_PMD),=0A=
++	SND_SOC_DAPM_OUT_DRV_E("R_LINEOUT_EN", RK3308_DAC_ANA_CON04, 4, 0,=0A=
++			       NULL, 0, rk3308_codec_lineout_event,=0A=
++			       SND_SOC_DAPM_POST_PMU | SND_SOC_DAPM_POST_PMD),=0A=
+ 	SND_SOC_DAPM_OUTPUT("LINEOUT_L"),=0A=
+ 	SND_SOC_DAPM_OUTPUT("LINEOUT_R"),=0A=
+ };=0A=
+@@ -466,6 +558,8 @@ static const struct snd_soc_dapm_route rk3308_codec_dap=
+m_routes[] =3D {=0A=
+ 	{ "HPOUT_R", NULL, "DAC_BUF_REF_R" },=0A=
+ 	{ "L_HPOUT_EN", NULL, "DAC_L_HPMIX_SEL" },=0A=
+ 	{ "R_HPOUT_EN", NULL, "DAC_R_HPMIX_SEL" },=0A=
++	{ "L_HPOUT_EN", NULL, "DAC_OUTPUT_VCM" },=0A=
++	{ "R_HPOUT_EN", NULL, "DAC_OUTPUT_VCM" },=0A=
+ 	{ "L_HPOUT_WORK", NULL, "L_HPOUT_EN" },=0A=
+ 	{ "R_HPOUT_WORK", NULL, "R_HPOUT_EN" },=0A=
+ 	{ "HPOUT_POP_SOUND_L", NULL, "L_HPOUT_WORK" },=0A=
+@@ -475,6 +569,8 @@ static const struct snd_soc_dapm_route rk3308_codec_dap=
+m_routes[] =3D {=0A=
+ =0A=
+ 	{ "L_LINEOUT_EN", NULL, "DAC_L_HPMIX_SEL" },=0A=
+ 	{ "R_LINEOUT_EN", NULL, "DAC_R_HPMIX_SEL" },=0A=
++	{ "L_LINEOUT_EN", NULL, "DAC_OUTPUT_VCM" },=0A=
++	{ "R_LINEOUT_EN", NULL, "DAC_OUTPUT_VCM" },=0A=
+ 	{ "LINEOUT_L", NULL, "L_LINEOUT_EN" },=0A=
+ 	{ "LINEOUT_R", NULL, "R_LINEOUT_EN" },=0A=
+ };=0A=
+@@ -855,7 +951,7 @@ static int rk3308_codec_get_version(struct rk3308_codec=
+_priv *rk3308)=0A=
+ 		break;=0A=
+ 	case 0x3308:=0A=
+ 		rk3308->codec_ver =3D ACODEC_VERSION_B;=0A=
+-		return dev_err_probe(rk3308->dev, -EINVAL, "Chip version B not supported=
+\n");=0A=
++		break;=0A=
+ 	case 0x3308c:=0A=
+ 		rk3308->codec_ver =3D ACODEC_VERSION_C;=0A=
+ 		break;=0A=
+-- =0A=
+2.55.0=0A=
+=0A=
 
