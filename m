@@ -4,68 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D25B8C982DD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 19:20:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26CCDC982D7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 19:22:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wezTXlpBdA+wJTIARYjMTiZlMLPhFPe4lv1SIcKvFyc=; b=TUtb2IatN7BI3p7hRkuN1lN/e8
-	a7y+XaO1CeEN8iUBFu7ju0S7sl+EEd5Whf476MjBkIs4Esgegd7av3kMvszjXRho1LZQ+TIvkPRrK
-	sr+fOOW9CTQBQcV0eIeEpkj6MRHHaeOalANfgHJ1RvvIkQ98hbFSkQGwZWyp4Xm3x6OqA1Z47RRCI
-	Ke9liffTjmxXUnQOU1XsjfTCxnRSUbt/x9yFZ8Zsm61KGmZlleZZfJgek6tuj4/+krNG7zbuvatz7
-	igvXO+qhESRkr5l08Y5LxTAaZp08gMReS90m3HGsXb0wiVGuFfbi01m5dfWhszGPLz2gDJ8amJSl2
-	xroEcc1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+f/z0JP+U4EtOy/3h9UdmQJB7RkUpXUnEhmZ55aJB1w=; b=jGQP5R96pm+62lBwL7JH8+Xj1d
+	RSGKE+TgWXhMXw8lymD+DlgVnbVHJYPlcxlv0VypRlfpUaJ5fRZ/yLFetLZ6uOPhhYno+XHIgdeYF
+	zaVA6tLoeXciGS6NWxlRnrvvDS3eJXtM81jAHKBhvPbRHwOfB/eZOXffgye1fBVRGsuRnYnSHdicR
+	bXEzUFiS+ABrQrnIpw1NF0PhuYQ8w3bH0RYTqKObgmeCdULjUrm5dhHwAFHFsq4LgA9gIijFAMk3G
+	FOBIClM061nsAsZO2Lbb+xFrwCY2ODRUgdOxf9c7DN1p5EN17JVEf0bdjE1EBr0c58eLt/gE9U8uN
+	94ffOcgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7e89-0000000FP2J-0Asp;
-	Fri, 18 Sep 2026 19:20:17 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x7e9l-0000000FPAH-1NxE;
+	Fri, 18 Sep 2026 19:21:57 +0000
+Received: from fout-a2-smtp.messagingengine.com ([103.168.172.145])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7e87-0000000FP2D-2ofR
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 19:20:15 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B80F36053B;
-	Fri, 18 Sep 2026 19:20:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F6FE1F000FF;
-	Fri, 18 Sep 2026 19:20:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789759214;
-	bh=wezTXlpBdA+wJTIARYjMTiZlMLPhFPe4lv1SIcKvFyc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fsvMH284ig4xcLTpLnDPeuONsoGN8ikE7Y6mcvsLLUCNRU//VybNhurSHlfHEnHH8
-	 DbTW8k4vbYk+DYC4j9Jo83a2BkvscXK9vmbpPc7vaHbps3XLlaKvWe1I1kLY38dW2Y
-	 /IHekHTPRxs/mqzLUlOdkb5ShSegJFkTTYTvsrJZavjuXhZGUUbZDeb3L49ehvvxLf
-	 eNzCHTCpej02+tESCaC2l4wDNmUz2UcO4gt8PJ1EKEfO1yMxiuKjOBsfoZenVn/GfV
-	 fttRUsUugQTlMgSbJR+bZzN8HVlbidzbOvwdtwROzOfZk36OCDNy0EzqoJ2qDcvpIL
-	 wJQ5njr+5I4nw==
-Date: Fri, 18 Sep 2026 14:20:12 -0500
-From: Rob Herring <robh@kernel.org>
-To: Ernest Van Hoecke <ernestvanhoecke@gmail.com>
-Cc: Frank Li <Frank.li@oss.nxp.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
-Subject: Re: [PATCH 3/6] dt-bindings: connector: Add Toradex camera connector
-Message-ID: <20260918192012.GA1465432-robh@kernel.org>
-References: <20260910-verdin-imx8mp-hmp-camera-ready-v1-0-3c9349ecdb9f@toradex.com>
- <20260910-verdin-imx8mp-hmp-camera-ready-v1-3-3c9349ecdb9f@toradex.com>
- <aqLaLmz7n31P6igy@SMW015318>
- <prwghb3ftrz5xd3hapxtlv2o2gm5xmuapnpz2h7fqulf75phqz@lk4yiaepormb>
+	id 1x7e9i-0000000FP9T-0Oem;
+	Fri, 18 Sep 2026 19:21:55 +0000
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfout.phl.internal (Postfix) with ESMTP id 113C7EC011F;
+	Fri, 18 Sep 2026 15:21:50 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-05.internal (MEProxy); Fri, 18 Sep 2026 15:21:50 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kumba.dev; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1789759310;
+	 x=1789845710; bh=+f/z0JP+U4EtOy/3h9UdmQJB7RkUpXUnEhmZ55aJB1w=; b=
+	Ohu7+E0X13bssI57AEV35UM19qwkKlVHxVKz5/OJt+5uWA2bgwvwe3I65n8Jhf4H
+	XLDByqkG4j8ffDCVs/Q6xYzKUa6ZT/YkddC6XEQthEIMEjXIosyRKdOol9cPjkW0
+	GVWBl9QS+kojtveKPxHjj9PW4MilZbXXa46XS05slNK38qsInjQFKZg2FMWnePDl
+	A3FZe2wvO4EDRwxbbsML/nBzWsfmJ0cMuhNNKW1i/h+IlVrPgcUUVLwrVbZx6b5b
+	zZVHADvusGbai2aK8rsNU3PGynlPKv8S1H9/t09am0oBZh5swBsqCKlZ8SGQO7+2
+	XBPWq+3T1OZp13yyfz4pqw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1789759310; x=
+	1789845710; bh=+f/z0JP+U4EtOy/3h9UdmQJB7RkUpXUnEhmZ55aJB1w=; b=K
+	r1ckQYrv3A14SBmzHUCbHcRHG+KEhtOeOtoMjBTC8ne+iBRnbL4+9+K5ap5YeO8j
+	o/fol20VTErYRDRisbqjD+ll6e1wb40zlKq3vt2BWX+5nWnI1kMqFUXXzyXRrxSG
+	FPE1Sbsfx1LGe+gExUOUcieKNDliLJE6zQefD7TGMyHm/6Mgl2Fg5KPtqq9IBEJ4
+	JKm3V1NyFS5gNeuJo1x0Yw6cU0A7mEy14Zu2rT8bg1/Q75DqPhBBXxsdUknnzIQU
+	J63jJ9wvl6eeLU6oQCwoc1EbnEDXin/yGS7uXopJ5I0pw3NVkybUX9nS+Dby1et8
+	tEmRHbdM/DKb5ime9EeTw==
+X-ME-Sender: <xms:TY-takZVLWMmtCpYhAQ3_6ZGp5fO9istKWENaeAQpssek2wJNCtRtw>
+    <xme:TY-tanlD5AcIn-tdu0_0iK8re9JAWHeyTVHplTp_TiRzh8I_I_k5ug03Hc8Mng4l8
+    mYAc6sTIbQeEQXp6_xJeAt2x6cku5s41YBtwE5g2_ul0EAUI7j1U1zE>
+X-ME-Received: <xmr:TY-taqgy1hsAGPCnB-K3cyoyrCABuJ8xH7xb4x3i31tmVH3BAjUgbg80bKajcooU0JJsnmP-UX0rnugrhtZM2iX4kOg5v4tAIQMLHydhZqQl5o8>
+X-ME-Proxy-Cause: dmFkZTEsnz2aMme9OvfQGG5Y8GSqHa68DLZlnr4e8JXNRIraPpfK2AhpuQYaQCdLuH4d4E
+    LCf7BP7IA/lS6ef53ADgoMj+JJ/mfoIxRWkwLbNogOo65dFObknUvCBwx3CuljCtfTjYt5
+    u8IgnSBS9MIdBJMYMpSU/2MI1Ww4O+I1oZuH5uDhV+KS5+9j2MZtNCFl8UITbzpMHz6hTx
+    WzNUI4GZ1f2aO6SUmft1nX6DFK0J3tXJBGRZ4ohV661vDuOQcfX53XrGmz+XUAmSLgNImo
+    TrAj3oMzAniMrTHGv2RdwVs4cQhQXPQQnkWU+5lZA5CRqlCfrOtrKugQ6Czie/gtclxKD8
+    8rCP1K1Oo295ye6IuknLXJz1K/9UvCX5a810NWifNAJj+yurGPJEHYnpxeSOJGdFMXUxpb
+    ZytZ2qLoMQaDQmUM+ymJHefuhzMvLzSspTnlPXRp/4LWi+9btixsrf33AsUTSZAdqUSmag
+    OQwv1XbeAFsqLjbamfIsE3Azyfr64SvJrmRkVvE/Xan0gCN60uC+eAOwoXV1xyrRjCHFcv
+    qnWEU87JqoV8Rp7+EzTjfxXqQEMX7CZxTCblmv49QPBahF/oz8T/VjEliwx7Ieh1t4F2x9
+    YP/g6ppWTbIgI2vFYObaMJ5WXLoyJCMyeMdxZGv7xik33Mv5KnCFg1za4wqQ
+X-ME-Proxy: <xmx:TY-tapQHDxEi6e7ZtWDdsVH1sBd4vGJpqgRHDJowfKqzhy1cAaBPyQ>
+    <xmx:TY-tarZ18w-SrJXRqbH8Lj9ezP2RFuzVHePc-gMghlMoqJBuzgQgig>
+    <xmx:TY-tamR1F9UYLt1Lxh_23KhO1spvkajFI5M-KhZjmmibFzU4npXRDg>
+    <xmx:TY-taq_ub46dhJx8_55xxaTJxPT5nq2DesWDiSk6-dB1hPvt1yJwAA>
+    <xmx:To-taqhcKck-bj2gDgjmyLIOWtaag69IjTaZXEJs5PhQYsLZefvKSQys>
+Feedback-ID: if8114916:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
+ 18 Sep 2026 15:21:49 -0400 (EDT)
+Message-ID: <c4a61df3-6786-446c-96cf-ebff064b9c46@kumba.dev>
+Date: Fri, 18 Sep 2026 15:21:48 -0400
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <prwghb3ftrz5xd3hapxtlv2o2gm5xmuapnpz2h7fqulf75phqz@lk4yiaepormb>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] rtc: fix typos in comments
+To: Hemanth Selam <hemanth.selam@gmail.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
+References: <20260904104758.23905-1-hemanth.selam@gmail.com>
+Content-Language: en-US
+From: Joshua Kinard <linux@kumba.dev>
+In-Reply-To: <20260904104758.23905-1-hemanth.selam@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260918_122154_477463_75BD3655 
+X-CRM114-Status: GOOD (  19.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,127 +112,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 10, 2026 at 06:39:30PM +0200, Ernest Van Hoecke wrote:
-> Hi Frank,
+On 09/04/2026 06:47, Hemanth Selam wrote:
+> Fix typos in comments, reported by scripts/checkpatch.pl using the
+> misspelling list in scripts/spelling.txt.  Only touches comments, no code
+> changes.
 > 
-> Thanks for reviewing this so quickly.
+> Assisted-by: Cursor:claude-opus-5
+> Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
+> ---
+>   drivers/rtc/rtc-ds1685.c   | 6 +++---
+>   drivers/rtc/rtc-meson.c    | 2 +-
+>   drivers/rtc/rtc-pcf8583.c  | 2 +-
+>   drivers/rtc/rtc-rk808.c    | 2 +-
+>   drivers/rtc/rtc-sa1100.c   | 2 +-
+>   drivers/rtc/rtc-spear.c    | 2 +-
+>   include/linux/rtc/ds1685.h | 4 ++--
+>   7 files changed, 10 insertions(+), 10 deletions(-)
 > 
-> On Thu, Sep 10, 2026 at 11:26:22AM -0500, Frank Li wrote:
-> > On Thu, Sep 10, 2026 at 05:37:59PM +0200, Ernest Van Hoecke wrote:
-> > > From: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
-> > >
-> > > Toradex boards route the sideband signals of their 24-pin camera
-> > > connectors to different GPIO controllers. Camera overlays which name
-> > > those controllers directly must therefore be duplicated for each host
-> > > board.
-> > >
-> > > Describe reset, power-down, detection and power-control as
-> > > connector-local GPIO functions. This lets an accessory overlay remain
-> > > independent of the host wiring. MIPI CSI-2, I2C, clocks and supplies
-> > > remain described separately because the GPIO nexus does not abstract
-> > > them.
-> > >
-> > > Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
-> > > ---
-> > >  .../connector/toradex,camera-connector.yaml        | 86 ++++++++++++++++++++++
-> > >  1 file changed, 86 insertions(+)
-> > >
-> > > diff --git a/Documentation/devicetree/bindings/connector/toradex,camera-connector.yaml b/Documentation/devicetree/bindings/connector/toradex,camera-connector.yaml
-> > > new file mode 100644
-> > > index 000000000000..06e6836e1aa6
-> > > --- /dev/null
-> > > +++ b/Documentation/devicetree/bindings/connector/toradex,camera-connector.yaml
-> > > @@ -0,0 +1,86 @@
-> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > +%YAML 1.2
-> > > +---
-> > > +$id: http://devicetree.org/schemas/connector/toradex,camera-connector.yaml#
-> > > +$schema: http://devicetree.org/meta-schemas/base.yaml#
-> > > +
-> > > +title: Toradex camera connector GPIO nexus
-> > > +
-> > > +maintainers:
-> > > +  - Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
-> > > +  - Toradex Linux BSP Team <linux-bsp@toradex.com>
-> > > +
-> > > +description: |
-> > > +  Toradex boards provide 24-pin camera connectors carrying MIPI CSI-2, I2C,
-> > > +  clock, power, and sideband GPIO signals. This binding describes the sideband
-> > > +  signals as a GPIO nexus. The other connector resources remain described by
-> > > +  the surrounding board device tree.
-> > > +
-> > > +  The nexus exposes connector-local GPIO function numbers to camera overlays
-> > > +  and maps the functions wired by a carrier board to their GPIO controllers.
-> > > +  GPIO specifiers contain a function number followed by standard GPIO flags.
-> > > +  A board may omit functions which it does not wire.
-> > > +
-> > > +  The function numbers are:
-> > > +    - 0: Camera reset, connector pin 11
-> > > +    - 1: Camera power-down, connector pin 22
-> > > +    - 2: Camera identification, connector pin 23
-> > > +    - 3: Camera power control, connector pin 24
-> > > +
-> > > +properties:
-> > > +  compatible:
-> > > +    const: toradex,camera-connector
-> > 
-> > Name is too generally, suggest use board name, we got similar comments at
-> > 
-> > https://lore.kernel.org/imx/20260629074734.3643227-2-chancel.liu@oss.nxp.com/
-> 
-> I saw that and it made me reconsider this name.
-> 
-> However, I believe that in our case it is specific enough. It is really
-> the same on all our carrier boards, and Toradex specific. It's also only
-> for cameras, which is more defined than just "io". Curious to see if
-> others agree or if we should come up with a name for this.
->  
-> > > +
-> > > +  "#gpio-cells":
-> > > +    const: 2
-> > > +
-> > > +  gpio-map:
-> > > +    minItems: 1
-> > > +    maxItems: 4
-> > > +
-> > > +  gpio-map-mask:
-> > > +    items:
-> > > +      - const: 0xffffffff
-> > 
-> > are you sure need full 32bit, only 4 pin, maybe 0xf should enough?
-> > 
+> diff --git a/drivers/rtc/rtc-ds1685.c b/drivers/rtc/rtc-ds1685.c
+> index 5fc8e36b1abf..beb987b76f24 100644
+> --- a/drivers/rtc/rtc-ds1685.c
+> +++ b/drivers/rtc/rtc-ds1685.c
+> @@ -1231,7 +1231,7 @@ ds1685_rtc_probe(struct platform_device *pdev)
+>   		dev_warn(&pdev->dev,
+>   			 "Main battery is exhausted! RTC may be invalid!\n");
+>   
+> -	/* Check the auxillary battery.  It is optional. */
+> +	/* Check the auxiliary battery.  It is optional. */
+>   	if (!(rtc->read(rtc, RTC_EXT_CTRL_4A) & RTC_CTRL_4A_VRT2))
+>   		dev_warn(&pdev->dev,
+>   			 "Aux battery is exhausted or not available.\n");
+> @@ -1395,7 +1395,7 @@ ds1685_rtc_poweroff(struct platform_device *pdev)
+>   		rtc->write(rtc, RTC_CTRL_A, ctrla);
+>   
+>   		/*
+> -		 * Read Control 4A and check the status of the auxillary
+> +		 * Read Control 4A and check the status of the auxiliary
+>   		 * battery.  This must be present and working (VRT2 = 1)
+>   		 * for wakeup and kickstart functionality to be useful.
+>   		 */
+> @@ -1407,7 +1407,7 @@ ds1685_rtc_poweroff(struct platform_device *pdev)
+>   			rtc->write(rtc, RTC_EXT_CTRL_4A, ctrl4a);
+>   
+>   			/*
+> -			 * The auxillary battery is present and working.
+> +			 * The auxiliary battery is present and working.
+>   			 * Enable extended functions (ABE=1), enable
+>   			 * wake-up (WIE=1), and enable kickstart (KSE=1)
+>   			 * in Control 4B.
+> diff --git a/include/linux/rtc/ds1685.h b/include/linux/rtc/ds1685.h
+> index 8ec0ebfaef04..55d3edc7e972 100644
+> --- a/include/linux/rtc/ds1685.h
+> +++ b/include/linux/rtc/ds1685.h
+> @@ -200,7 +200,7 @@ struct ds1685_rtc_platform_data {
+>    * access to the extended NV-SRAM by automatically incrementing the address
+>    * register when they are read from or written to.
+>    */
+> -#define RTC_CTRL_4A_VRT2	BIT(7)	/* Auxillary Battery Status */
+> +#define RTC_CTRL_4A_VRT2	BIT(7)	/* Auxiliary Battery Status */
+>   #define RTC_CTRL_4A_INCR	BIT(6)	/* Increment-in-Progress Status */
+>   #define RTC_CTRL_4A_PAB		BIT(3)	/* Power-Active Bar Control */
+>   #define RTC_CTRL_4A_RF		BIT(2)	/* RAM-Clear Flag */
+> @@ -215,7 +215,7 @@ struct ds1685_rtc_platform_data {
+>   /*
+>    * Bit names in Extended Control Register 4B.
+>    */
+> -#define RTC_CTRL_4B_ABE		BIT(7)	/* Auxillary Battery Enable */
+> +#define RTC_CTRL_4B_ABE		BIT(7)	/* Auxiliary Battery Enable */
+>   #define RTC_CTRL_4B_E32K	BIT(6)	/* Enable 32.768Hz on SQW Pin */
+>   #define RTC_CTRL_4B_CS		BIT(5)	/* Crystal Select */
+>   #define RTC_CTRL_4B_RCE		BIT(4)	/* RAM Clear-Enable */
 
-0x3 is enough for 4 pins...
+Huh, I am honestly now wondering how I made such simple typos all those 
+years ago, and why it took an AI agent to find them.  At least I was 
+consistent in making them, so that's gotta amount to something.
 
-> 
-> Indeed we could reduce the size of the mask, but I don't really see the
-> value in it. Isn't it good that a user can pass through the full GPIO?
+Thanks!
 
-This is what you are matching against. You don't want 0x12345671 to 
-match the 0x1 entry. So yes, all 1s is correct.
-
-> 
-> > > +      - const: 0
-> > > +
-> > > +  gpio-map-pass-thru:
-> > > +    items:
-> > > +      - const: 0
-> > > +      - const: 0xffffffff
-> > > +
-> > 
-> > missed
-> > 	gpio-controller: true
-> > 
-> 
-> This is one thing I didn't fully understand about the GPIO nexus
-> concept, why would we need this gpio-controller flag? Isn't the gpio
-> controller behind the nexus? The nexus just maps onto it. The actual
-> controller would be on the SoC or an expander.
-
-Correct. You don't want 'gpio-controller' here. That and 'gpio-map' are 
-mutually exclusive just like interrupts. There is an exception for 
-interrupts for when a PCI host controller is the interrupt controller 
-for PCI interrupts.
-
-Rob
+Acked-by: Joshua Kinard <linux@kumba.dev>
 
