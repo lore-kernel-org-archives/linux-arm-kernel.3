@@ -4,81 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3115EC982D7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 18:03:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7719EC982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 18:15:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=evwplLMAwECJHF4vfadONOqwuoBW61zgQ3sC3t0YxQ4=; b=Pa38JsMvUk56xJnsswcmvordGT
-	zjtgvBRzArKVgxFVjdhntNRL99tSNhl4NG48klIuIXpkRr9asjG4AsxKNxwCLKtvwvAZ9D9cqVOqO
-	nc6BXNI9gVW7qn9d2WTORznLh0AM1geuf1vm+0iWhaJlNDp3sGM1mGoXg1OC2/QF8Sm1RUiHs4/cp
-	1o2hDPnfpN/qrk3bvnIImyQmT5J0AGSeBBTKMSOxEoayQwDn3sx3vaOHcXurc8c+b49u82widiSil
-	rcFxXDKYf1muUF2KRDX13u4Zx7XievyKiJwT83cLDC+LIksyz+3jSlWFc/zRAay9SdpF/K2Gqp0Qi
-	hN525Nuw==;
+	bh=CbhXPRPJzPhnC7eGr+2poQlhUAHpaFK7HRpRDPeuPsU=; b=MU7yA1NVKWOZIvKuqR4UecmL2I
+	kx6UY+A1xWA/BbqwP6GG0t1n9glLjMye4VEyyMWOiCB53GeAXe+AuMObDoAgj5w3uOXhE6qPMBWTP
+	/YMOq+yt1bXXc0hbkdc9hybxUJUO8jG0V7d/V9dU7E1PlHv7GO5SN0cMTYvUmHAwOYlCpaBEajuud
+	03Av3sEW7aaEX8UlQ8FFPsFxyiakI4dZ2HO6IfDnGFuSyr6PnSn5/e7nRpU5huQA/1vqbFIlEjtcQ
+	aklIsE06IojsNVROQllZYG29uwdqyRoEPxGGhH2AS99Od/SAQmzRCbYpVA2y+OeSLPlDZbHSc72+X
+	fIUAGsEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7cw8-0000000FFTo-3mEa;
-	Fri, 18 Sep 2026 18:03:48 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x7d7C-0000000FGdW-18xF;
+	Fri, 18 Sep 2026 18:15:14 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7cw6-0000000FFTD-3pjN
+	id 1x7d7B-0000000FGdB-0cFP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 18:03:47 +0000
+	Fri, 18 Sep 2026 18:15:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1D763602CC;
-	Fri, 18 Sep 2026 18:03:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E17371F00899;
-	Fri, 18 Sep 2026 18:03:44 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8FB4B4347F;
+	Fri, 18 Sep 2026 18:15:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C71E1F000FF;
+	Fri, 18 Sep 2026 18:15:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789754625;
-	bh=evwplLMAwECJHF4vfadONOqwuoBW61zgQ3sC3t0YxQ4=;
+	s=k20260515; t=1789755312;
+	bh=CbhXPRPJzPhnC7eGr+2poQlhUAHpaFK7HRpRDPeuPsU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=dQLy7IwmxHP4CwtCsFQsvtDqbpQbBbAk0FLYki7k7EbL3aWpZGlnagumVxIM536Vq
-	 RjPF/73Ebw3mUrdYbjrNyix3YbHb2bq/3ChoXdTn7IsanIfYNOaDWpHcreNjakUTQ5
-	 7tckYUtx157FJpGEt4MUEKBsvnpuHrhdurTHYCu8+BujAIWPnCJDh8nRj98y+mjfUf
-	 6oydL4rnRtCqn+bUtqZLkJW5zTQzYech/8ZyKuMWjd+K2ulYM0mgfUr3LP8xF88zzq
-	 nvnYG7g1lITZntkHHw/UdKfiivbOpXFh1IOdwf2iUwtLI0ga++xF2/9bPjV9hfyOTS
-	 sxIu2swoofe/A==
-Date: Fri, 18 Sep 2026 23:33:41 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>
-Cc: Frank Li <Frank.li@oss.nxp.com>,
-	Andy Shevchenko <andriy.shevchenko@intel.com>,
-	linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
-	linux-sound@vger.kernel.org, linux-spi@vger.kernel.org,
-	Frank Li <Frank.Li@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
-	=?iso-8859-1?Q?Am=E9lie?= Delaunay <amelie.delaunay@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Andy Shevchenko <andy@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>, Mark Brown <broonie@kernel.org>
-Subject: Re: [PATCH v4 01/10] dmaengine: Move enum dma_slave_buswidth to a
- new header
-Message-ID: <aq18_TMNs4EJzgZO@parshuram>
-References: <20260911-dmaengine-support-wider-dma-masks-v4-0-72b8fd4cc78e@analog.com>
- <20260911-dmaengine-support-wider-dma-masks-v4-1-72b8fd4cc78e@analog.com>
- <aqgCQvRw9fns__0d@SMW015318>
- <aqjzvxI4ecoFvRLT@ashevche-desk.local>
- <aqlpoBJJXfZgsMxT@parshuram>
- <aqlwRkNcs_UqKjWs@parshuram>
- <aql6u3T0nnSVr-FC@SMW015318>
- <aqws8pN2rfS9-dCC@parshuram>
- <aqz1-OzFobOROuBw@nsa>
+	b=ktj/G0Wqt43Q8JVUKtdjIxDlECxpTb81j7LuFwY4MTGxTsji3X8jAIGFdYMZzuvIj
+	 ztAD59fwFf5BXIdZ7RlnUUPYA/mcko7PcO280exjookUWqGxa6StWCAYvhUaAfURuB
+	 HwvD4heR9IXqrZVolpO7TgFiOPm5ZHN7iBUZ3QT3pQTpoNjR9sERxPWiEVf4yLK3gi
+	 vnmPh/URbMpnWMpHImcd9xjoL11mAFcErmviIk+2M+IKo4aAl4IBSfw3K/sibAa3sm
+	 mBKeQrVEoUvivqKAY32Gypywqsvj0PYafjlQZvdQZTVSoM/F1G1nOuk8Up55dgyGly
+	 4SModAFf5nk+A==
+Date: Fri, 18 Sep 2026 13:15:10 -0500
+From: Rob Herring <robh@kernel.org>
+To: Srinivas Neeli <srinivas.neeli@amd.com>
+Cc: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rt-devel@lists.linux.dev, neelisrinivas18@gmail.com,
+	git@amd.com
+Subject: Re: [PATCH net-next v2 1/8] dt-bindings: net: add Xilinx TSN
+ Endpoint Ethernet MAC
+Message-ID: <20260918181510.GA1086854-robh@kernel.org>
+References: <20260909-patches_v2_external-v2-0-3a40babaff4c@amd.com>
+ <20260909-patches_v2_external-v2-1-3a40babaff4c@amd.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aqz1-OzFobOROuBw@nsa>
+In-Reply-To: <20260909-patches_v2_external-v2-1-3a40babaff4c@amd.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,53 +84,289 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18-09-26, 09:39, Nuno Sá wrote:
-> On Thu, Sep 17, 2026 at 11:39:54PM +0530, Vinod Koul wrote:
-> > On 15-09-26, 12:04, Frank Li wrote:
-> > > On Tue, Sep 15, 2026 at 09:50:22PM +0530, Vinod Koul wrote:
-> > > > On 15-09-26, 21:22, Vinod Koul wrote:
-> > 
-> > > > > > Traditional naming would be
-> > > > > > dma/engine/provider.h
-> > > > > > dma/engine/consumer.h
-> > > > >
-> > > > > consumer and provider and good names.. I would retain the full dmaengine
-> > > > > everywhere please. dma causes confusion already!
-> > > >
-> > > > Thinking about it again, drivers/dma/dmaengine.h should be the provider
-> > > 
-> > > There some dmaengine code outside drivers/dma directory, like
-> > > drivers/crypto/ccp/ccp-dmaengine.c
-> > 
-> > They chose to be outside, their choice... They need to be updated as
-> > well to point to ../../dma/dmaengine.h :-)
+On Wed, Sep 09, 2026 at 12:49:49AM +0530, Srinivas Neeli wrote:
+> Add a binding for the Xilinx TSN Endpoint Ethernet MAC IP. The
+> top-level node describes the IP wrapper, which owns the six shared
+> IP clocks and the xlnx,num-priorities parameter, and has two
+> children:
 > 
-> I tend to agree with Andy but anyways. I feel this is going a bit out of
-> scope now. So what we have now in the series is:
+>   - xlnx,tsn-ep-mac: the endpoint MAC, owning the host-side DMA
+>     channels (dmas / dma-names / tx-queues-config).
 > 
+>   - xlnx,tsn-switch: the three-port Ethernet switch covering the
+>     switch fabric and the two per-MAC register windows. The MDIO
+>     controllers and PTP register blocks sit at fixed offsets inside
+>     the per-MAC windows, accessed through the mdio-1 / mdio-2
+>     children and per-MAC interrupt-names entries. Each external
+>     port@N references its PHY through a phy-handle in the matching
+>     mdio-<N> child.
 > 
-> - include/linux/dmaengine.h (without enum dma_slave_buswidth)
-> - include/linux/dma/types.h (with enum dma_slave_buswidth and new
->   dma_buswidth_t type) - A future one would be dma_cap_mask_t and we could
->   drop bitmap.h from dmaengine.h
-> - include/linux/dma/widthmask.h - The new bitmap based API for bus_width
+> Co-developed-by: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
+> Signed-off-by: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
+> Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
 > 
-> I kind like the separation (and the whole point was to avoid bitmap.h in
-> the main dmaengine.h API) but tbh I'm not sure if a consumer driver
-> will ever use dma/widthmask.h without needing the consumer API. But
-> to sum things up, what do you suggest for vÛE?
+> ---
+> Changes in v2:
+> - Describe only the Bridged Endpoint configuration. The IP has so far been
+>   simulated only as a bridged endpoint, so the binding and driver describe
+>   that configuration alone. Support for an Endpoint-only design will be added
+>   once that IP variant is simulated.
+> - Rename ep-mac@ to ethernet@ and mdio-mac1/mdio-mac2 to mdio-1/mdio-2, and
+>   anchor the node names (^ethernet@[0-9a-f]+$, ^switch@[0-9a-f]+$), per
+>   ethernet-controller.yaml and mdio.yaml.
+> - Cap TX at 8 and RX at 8 channels. The IP exposes 8 priorities, so it
+>   drives at most 8 TX and 8 RX MCDMA channels. dma-names lists both
+>   directions, so its combined maxItems is 16 (8 TX + 8 RX). V1 allowed up
+>   to 16 per direction, which the hardware cannot use.
+> - Set additionalProperties: false on tx-queues-config and its queue nodes.
+> - Drop reg from the wrapper node. It has no registers of its own, ranges
+>   already describes the child windows.
+> - Add minItems: 7 to the switch interrupts to match interrupt-names.
+> - Use a ^(ethernet-)?ports$ container with additionalProperties: false and its
+>   own #address-cells/#size-cells, and require either ports or ethernet-ports.
+> - Require ethernet on the CPU port@0.
+> - Add reg (enum [1, 2]) on the external port@[1-2] ports and require reg,
+>   phy-mode and phy-handle. MAC1 and MAC2 use gmii/rgmii/rgmii-id.
+> - Require port@0, port@1 and port@2. The IP is a fixed three-port bridged
+>   design (port@0 CPU, port@1 MAC1, port@2 MAC2), so a device tree missing
+>   any of them cannot describe working hardware.
+> - Add #address-cells and #size-cells (both const 1) on the wrapper node,
+>   which the child ethernet@/switch@ windows need now that reg is dropped,
+>   and set unevaluatedProperties: false on the endpoint node.
+> ---
+>  .../net/xlnx,tsn-endpoint-ethernet-mac.yaml        | 364 +++++++++++++++++++++
+>  MAINTAINERS                                        |   7 +
+>  2 files changed, 371 insertions(+)
 > 
-> * include/linux/dmaengine.h as the consumer API and includes the new
-> the widthmask API
-> * provider/private goes to drivers/dma/dmaengine.h and just includes
-> include/linux/dmaengine.h as the starting point?
-> 
-> Let me know how do you want things for v5
+> diff --git a/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml b/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
+> new file mode 100644
+> index 000000000000..4e65d1710da7
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
+> @@ -0,0 +1,364 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/net/xlnx,tsn-endpoint-ethernet-mac.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Xilinx TSN Endpoint Ethernet MAC
+> +
+> +description:
+> +  TSN Endpoint Ethernet MAC IP implements IEEE 802.1 Time-Sensitive
+> +  Networking (TSN) standards and provides low-latency network connectivity
+> +  in the Bridged Endpoint configuration. The IP integrates a three-port
+> +  switch, with two ports connected to the external network and one port
+> +  connected to an internal endpoint. It also supports GMII/RGMII interfaces
+> +  for connection to an external PHY, enabling full-duplex operation at
+> +  100 Mb/s and 1 Gb/s speeds.
+> +
+> +maintainers:
+> +  - Srinivas Neeli <srinivas.neeli@amd.com>
+> +  - Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
+> +
+> +properties:
+> +  compatible:
+> +    const: xlnx,tsn-endpoint-ethernet-mac-3.0
+> +
+> +  clocks:
+> +    items:
+> +      - description: GTX clock for transmitter logic and RTC
+> +      - description: GTX 90-degree phase shifted clock for RGMII
+> +      - description: Host RX FIFO clock
+> +      - description: Host TX FIFO clock
+> +      - description: Reference clock for IDELAY control
+> +      - description: AXI-Lite register interface clock
+> +
+> +  clock-names:
+> +    items:
+> +      - const: gtx
+> +      - const: gtx90
+> +      - const: host_rxfifo
+> +      - const: host_txfifo
+> +      - const: ref
+> +      - const: s_axi
+> +
+> +  ranges: true
+> +
+> +  '#address-cells':
+> +    const: 1
+> +
+> +  '#size-cells':
+> +    const: 1
+> +
+> +  xlnx,num-priorities:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    minimum: 2
+> +    maximum: 8
+> +    description:
+> +      Number of traffic classes (priorities) configured in the IP.
+> +      This is an IP configuration parameter that determines the number of
+> +      priority queues available for QoS scheduling. Traffic classes map to
+> +      IEEE 802.1Q priority levels (0-7).
+> +
+> +patternProperties:
+> +  "^ethernet@[0-9a-f]+$":
+> +    type: object
+> +    $ref: /schemas/net/ethernet-controller.yaml#
+> +    unevaluatedProperties: false
+> +    description:
+> +      Endpoint MAC sub-node. Provides the host-side data path through the
+> +      DMA channels described by its dmas / dma-names.
+> +    properties:
+> +      compatible:
+> +        const: xlnx,tsn-ep-mac
+> +
+> +      reg:
+> +        maxItems: 1
+> +
+> +      dmas:
+> +        minItems: 2
+> +        maxItems: 16
+> +
+> +      dma-names:
+> +        minItems: 2
+> +        maxItems: 16
+> +        items:
+> +          pattern: "^(tx|rx)_chan[0-7]$"
+> +        description: |
+> +          Names matching the entries in 'dmas', one per DMA channel and in
+> +          the same order. TX channel names use "tx_chan<N>" and RX channel
+> +          names use "rx_chan<N>", where N is 0..7. Example: "tx_chan0",
+> +          "tx_chan1", ..., "rx_chan0", "rx_chan1", ....
+> +
+> +      tx-queues-config:
+> +        type: object
+> +        additionalProperties: false
+> +        description:
+> +          TX queue configuration node that maps IP priority queues to
+> +          DMA TX channels. The TSN IP supports multiple priority queues for
+> +          QoS scheduling, and each queue can be connected to a specific DMA
+> +          channel. This mapping defines which DMA TX channel is used to
+> +          transmit packets for each priority queue. For example, queue0
+> +          with xlnx,dma-channel-num set to 5 means priority queue 0 uses
+> +          tx_chan5 for data transfer.
+> +
+> +        patternProperties:
+> +          "^queue[0-7]$":
+> +            type: object
+> +            additionalProperties: false
+> +
+> +            description:
+> +              Each subnode represents a priority queue. The
+> +              xlnx,dma-channel-num property specifies which DMA TX channel
+> +              (tx_chan0 to tx_chan7) is connected to this queue for
+> +              transmitting packets.
+> +            properties:
+> +              xlnx,dma-channel-num:
+> +                $ref: /schemas/types.yaml#/definitions/uint32
+> +                description:
+> +                  DMA channel that transmits this priority queue, given as
+> +                  the N of the tx_chanN entry in dma-names.
+> +                minimum: 0
+> +                maximum: 7
+> +
+> +            required:
+> +              - xlnx,dma-channel-num
+> +
+> +    required:
+> +      - compatible
+> +      - reg
+> +      - dmas
+> +      - dma-names
+> +      - tx-queues-config
+> +
+> +  "^switch@[0-9a-f]+$":
+> +    type: object
+> +    $ref: /schemas/net/dsa/dsa.yaml#/$defs/ethernet-ports
+> +    description:
+> +      Three-port Ethernet switch sub-node. Contains the switch fabric
+> +      register window and the two per-MAC register windows. Each per-MAC
+> +      window houses an MDIO controller and a PTP register block at fixed
+> +      offsets. The IP's per-MAC and PTP-timer interrupts are exposed here.
+> +
+> +    properties:
+> +      compatible:
+> +        const: xlnx,tsn-switch
+> +
+> +      reg:
+> +        items:
+> +          - description: Switch fabric register window
+> +          - description: MAC1 register window (includes MDIO and PTP)
+> +          - description: MAC2 register window (includes MDIO and PTP)
+> +
+> +      reg-names:
+> +        items:
+> +          - const: switch
+> +          - const: mac1
+> +          - const: mac2
+> +
+> +      interrupts:
+> +        minItems: 7
+> +        maxItems: 7
+> +
+> +      interrupt-names:
+> +        items:
+> +          - const: ptp_rx_mac1
+> +          - const: ptp_tx_mac1
+> +          - const: mac_irq_mac1
+> +          - const: ptp_timer
+> +          - const: ptp_rx_mac2
+> +          - const: ptp_tx_mac2
+> +          - const: mac_irq_mac2
+> +
+> +      mdio-1:
+> +        $ref: /schemas/net/mdio.yaml#
+> +        description:
+> +          MDIO bus controller for MAC1. Registers reside inside the mac1
+> +          reg-names window.
+> +        unevaluatedProperties: false
+> +
+> +      mdio-2:
+> +        $ref: /schemas/net/mdio.yaml#
+> +        description:
+> +          MDIO bus controller for MAC2. Registers reside inside the mac2
+> +          reg-names window.
+> +        unevaluatedProperties: false
+> +
+> +    patternProperties:
+> +      "^(ethernet-)?ports$":
 
-Yes lets talk about dma_slave_buswidth, it is client type. This is
-configured by users to set the width of peripheral.
-So this needs to be in the include/linux/dmaengine.h
+'ethernet-' doesn't need to be optional for new bindings.
 
--- 
-~Vinod
+> +        type: object
+> +        additionalProperties: false
+> +
+> +        properties:
+> +          '#address-cells':
+> +            const: 1
+> +
+> +          '#size-cells':
+> +            const: 0
+> +
+> +          port@0:
+
+ethernet-port@0
+
+> +            type: object
+> +            unevaluatedProperties: true
+> +            description:
+> +              CPU port. Wired internally to the endpoint MAC sibling.
+> +
+> +            properties:
+> +              reg:
+> +                const: 0
+> +
+> +              phy-mode:
+> +                const: internal
+> +
+> +            required:
+> +              - ethernet
+> +
+> +        patternProperties:
+> +          "^port@[1-2]$":
+
+ethernet-port
+
+Rob
 
