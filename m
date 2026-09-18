@@ -4,107 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30713C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 05:47:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8850EC88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 05:53:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vOQuQl4xHHsYUfV8IRt8LMVoVN43GEAALICbdkpOnwk=; b=2nWJNa8ULo+pG5ETJ+tuk2yAcM
-	jfWzY4i9qlj54i1j1l9WzVWjQIw+xq1l4+QMzWsbP5e+M92B6hXQn3ouF2OyC+2xtSYEF+BXWkMBO
-	VujLUswZ0tlCm5e6+ZPcGTzM6PL4gDDolhHvWvu17fjTgDg8rw1ikYGEIADIZYM285bbEk9h+Ugxs
-	XnmW6QedNYer6uzD2ZVBSMlYbAmH7JmqZuUAoDSlvKfWhqK+/UMVarM9OBUtEhL2PbN233Lbpgkzp
-	VoTcgi5Lbff5wpIahYVr3ipO2WWpSO42eCs1oGiByNdVIpTl3eZSUtEz+BXhjhCCkYXmYS06RXYXi
-	/PG/cK6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Yn4jlCR1+KXfhj6w1DwkafrPG83kV4BowcaOZJVhhkA=; b=4uagQcFrHoC29YenJpDuBNgVSV
+	Oo8k12c4pfipDeJtL0oS/501ZmonZTyaTGgf0gdI/n49PR1Q8VzThrnlEIv3J5MT1AmbxjXGH9QFb
+	5k5Eg7ioqmDtFUVZiOE8dvJDIKSuGp//MI6kkMOBIPxJsJIIBEvCYE4O8lvmHUlC13k2fK9ZCmwRY
+	f4vubsxfDl6ZXJyJoKQ0DfcP5Y5txOwdeAoHVUSm/6I1p8O7ufqzFxre0usaEu3A5YuuMqnVwFC2C
+	+52njaL1wcgJU4t7jSQToIKXSHbdTahy+Hp+Ki896iRtqdUqxn1ZzSgzLiHRiTYCH2qg+7TeKe9mR
+	C8IqfJGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7RR8-0000000DW29-0Pda;
-	Fri, 18 Sep 2026 05:47:02 +0000
-Received: from fout-a4-smtp.messagingengine.com ([103.168.172.147])
+	id 1x7RWh-0000000DWD7-2eCW;
+	Fri, 18 Sep 2026 05:52:47 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7RR4-0000000DW1n-3JI0
+	id 1x7RWe-0000000DWCi-28Ab
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 05:47:00 +0000
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfout.phl.internal (Postfix) with ESMTP id 75A69EC01E1;
-	Fri, 18 Sep 2026 01:46:55 -0400 (EDT)
-Received: from ams-imap-03 ([10.64.2.23])
-  by ams-compute-02.internal (MEProxy); Fri, 18 Sep 2026 01:46:56 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1789710414;
-	 x=1789796814; bh=vOQuQl4xHHsYUfV8IRt8LMVoVN43GEAALICbdkpOnwk=; b=
-	c5GHBC89/s1hAHxNTUo8NCa7NKYdQyoxRykEfZyL49V+tNXU7S9IqENKUYYogY5u
-	TrXxouQNJk+/ukGxgr9NknzN4BSCVi1vpR5efoqRYitejvjK5tf743bZF0XTTM5b
-	dfX//JrDEeE5kPvJDagxX6DXDe4zxVABUUkjfL1SunTFEHESuilyakwK1n16zAUp
-	r6e+OYfP4iuiBOgkshONPsKeF6230D4P0KYhQy0qnMmgGMC4uKaQgLn0L48LrOvc
-	hIsOk5RZsp63UWcHkqEu0F1d4CSDeel9tcqqW7l4vNuMPDf/tEXBOFV3gOHuCUnk
-	32DSwwP7YEJQzAso3MYmig==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1789710414; x=
-	1789796814; bh=vOQuQl4xHHsYUfV8IRt8LMVoVN43GEAALICbdkpOnwk=; b=c
-	wrMGDmHD5MmmDR3xs+YhVGGiybgFiVCH2vZ3SUf6aGtZhku0SSlYJH4/ErgJAuRj
-	+1riSm/EamIGfl2Fxk8IOBX0Ac0NZ7Kuk1uj+LEg0V4dz9lnUkdlCxf3d6OsOk1q
-	bzyPK0GWEzNoQi8A4zRdyAsVyVRi8vOe0HCc1f6ogix1AqTyOWjI4eEL8JYR8Ykc
-	VEWrtwTVVCj1o2QJSDaB1W44kjc91ODT3+bfttEquCcj8jFsFOI37NsnRC9I7kFN
-	SdBZRvi9dI45VMSbkXpefayq/qcn9Zgig5+h9E0bHJXvPNShF1I7HXo5rZEc369+
-	3bU/wPioWzRe6rkWUifHw==
-X-ME-Sender: <xms:SdCsaqg2_UVmxD2QC5Nl2F_uy1ndELKzOzO9NrVLSZd_p-m72Fs15Q>
-    <xme:SdCsal0JWjpPUeMlNTQQET40FqTB2xpfDqCtdn88KlU-a9xFi8kTpXAXITIgvCC5d
-    iJaLo9lWWbh9eatrF1hwh4vkHZcgFy60t8vE2W5fgNCT07r-WuwTU1C>
-X-ME-Proxy-Cause: dmFkZTEYtRs0FMD0kTrhm17Art1N+H9Q4KIvT46UAFNPk7EDAm27bGjO2gB+rUw61KBpBc
-    N/NOlpeBwTJV750SUVWhoqe465YW3OhPE7ybCjaKfhhSTQ4cUuPVRuWZUngKUruwRfYPn9
-    /XKe+EiuHME6hif9UgDmQbEBUuXsGNOhyLiaHh06uObloHDh25jR69e4gfWbsYm6eCWiHT
-    dNV1zwF3UIrYSoETX4EuMxaifvVZN9qCTQUsDFHwddpmb73lMFQKpKZt4Dev3MfR1hjD/s
-    3Nzcoj6FPHAB02qFpS+loscNni7+4WNKnkQgBlDhkALW950KBLdQp+nSxBfGxU+w4gKbUO
-    lycrwjZI3E2Ow/DqbTPEoj0glfcAtS/ADI91hAAjgMzku4/Yrwq+TDybw2h4OQ0KMzQTO7
-    Ygu5W7hUt+fMR1Kg4c20ZSUsRKwFDVIwYE/oV+OmvzHeMr0bNkEC6JM6GDcZ417Ggk7IPb
-    H1pOVj/4NAxHZ8+uK3SXL/w2xDr5mOo216qo3rDCJ60kQS4rp8K5yngJ1OVPEw/5D1eEpW
-    nquPZMFIek4tpY/7dMK/RSTrbpQkNX89VvrNg/iOCl6jc5qoywlsSE/KKI3gIF8BEeB+Rp
-    1YxzX7lycbnVGxe98b1dbxC9e4gIGw6G3u37DfyvlkTopr0wQ4s9mSUok7kA
-X-ME-Proxy: <xmx:S9CsatF_qsk182wVJpA3lz2o5A86ug6hxGSGoe4pw0axhv3WJvd2hw>
-    <xmx:S9CsarHNQrxA4dRP0cfZ9gtrgUIB4sGD0VXyO4dUVxEwfSFDrdTVLA>
-    <xmx:S9Csat25CZVD6B_6lfV8t9NTEaEH4FWkTplIPkxxJwgAHIrN7_nCOw>
-    <xmx:S9CsaldI95E6jk_5DVgVZLec53xnYDNQg-cFBbIQbHRoAc5cCWwPTw>
-    <xmx:TtCsaipDFXDBPFz1X8UV0J2_D3uxYHL49Qb4-3inkgdWZNJehpr46lvW>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 3822632A0084; Fri, 18 Sep 2026 01:46:49 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 18 Sep 2026 05:52:46 +0000
+Received: from edelgard.fodlan.icenowy.me (unknown [112.94.103.44])
+	by APP-01 (Coremail) with SMTP id qwCowABnOe2i0axqXE9ICA--.14577S2;
+	Fri, 18 Sep 2026 13:52:35 +0800 (CST)
+Message-ID: <4a7b271d2a90eff94c27dec3bf24114ce44df1fd.camel@iscas.ac.cn>
+Subject: Re: [PATCH v7 7/7] drm/verisilicon: fix DC8200 primary plane
+ disable clearing FB_EN
+From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+To: Joey Lu <a0987203069@gmail.com>, maarten.lankhorst@linux.intel.com, 
+	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
+ simona@ffwll.ch, 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Fri, 18 Sep 2026 13:52:34 +0800
+In-Reply-To: <20260918030125.315978-8-a0987203069@gmail.com>
+References: <20260918030125.315978-1-a0987203069@gmail.com>
+	 <20260918030125.315978-8-a0987203069@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 
 MIME-Version: 1.0
-X-ThreadId: A1v-knPnKEnN
-Date: Fri, 18 Sep 2026 07:46:28 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Bjorn Helgaas" <helgaas@kernel.org>
-Cc: "Semih Baskan" <strst.gs@gmail.com>,
- "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- "Manivannan Sadhasivam" <mani@kernel.org>, "Rob Herring" <robh@kernel.org>,
- bhelgaas@google.com, "Ray Jui" <rjui@broadcom.com>,
- "Scott Branden" <sbranden@broadcom.com>,
- bcm-kernel-feedback-list@broadcom.com,
- =?UTF-8?Q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>,
- =?UTF-8?Q?Rafa=C5=82_Mi=C5=82ecki?= <zajec5@gmail.com>,
- "Florian Fainelli" <florian.fainelli@broadcom.com>,
- linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, "Rosen Penev" <rosenp@gmail.com>,
- rani.hod@gmail.com
-Message-Id: <8f36b2ea-38e0-4b57-86c9-9efef8fa8fa8@app.fastmail.com>
-In-Reply-To: <20260917214801.GA1054958@bhelgaas>
-References: <20260917214801.GA1054958@bhelgaas>
-Subject: Re: [PATCH] PCI: iproc: Use pci_alloc_host_bridge() on BCMA
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: qwCowABnOe2i0axqXE9ICA--.14577S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7WrWrXF1kJw48ZF43CF1ftFb_yoW8Ar1DpF
+	4ay3y8KF4rXayj9FyxtFWvgFyYv3W7J34fG3y8G3sIvrn8ta9xWFy8tFyxta4DWrZrAF4S
+	vFs29w47Cr1jkF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvqb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
+	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r4UMc
+	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY
+	1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8Jw
+	C20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAF
+	wI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjx
+	v20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2
+	jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0x
+	ZFpf9x07jUb18UUUUU=
+X-Originating-IP: [112.94.103.44]
+X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_224659_330964_6DBAF68E 
-X-CRM114-Status: GOOD (  17.69  )
+X-CRM114-CacheID: sfid-20260917_225244_948506_353AA126 
+X-CRM114-Status: GOOD (  12.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,35 +84,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026, at 23:48, Bjorn Helgaas wrote:
-> On Thu, Sep 17, 2026 at 10:27:54PM +0200, Arnd Bergmann wrote:
->> On Thu, Sep 17, 2026, at 20:36, Bjorn Helgaas wrote:
->> 
->> It feels wrong to me to change the devicetee file when that arguably
->> describes the device correctly, and we still need the node for the
->> bcma bus probe in the end.
->
-> I don't think pcie-iproc-bcma.c needs anything from DT at all.
-> Everything it needs is in EROM.
->
-> Some PCI drivers, e.g., wifi, need DT nodes, and I think those need to
-> be enclosed in a node for the PCI host controller, but
-> pcie-iproc-bcma.c itself doesn't care.
+=E5=9C=A8 2026-09-18=E4=BA=94=E7=9A=84 11:01 +0800=EF=BC=8CJoey Lu=E5=86=99=
+=E9=81=93=EF=BC=9A
+> vs_dc8200_primary_plane_disable_ex() calls regmap_set_bits() on
+> VSDC_FB_CONFIG_EX_FB_EN instead of regmap_clear_bits(), so disabling
+> the primary plane on DC8200-family hardware actually leaves the
+> framebuffer enable bit instead of clearing it.
+>=20
+> This bug predates this series: it was carried over unchanged from
+> vs_primary_plane_atomic_disable() when patch "drm/verisilicon:
+> introduce per-variant hardware ops table" split the DC8200-specific
+> implementation out into vs_dc8200.c.
+>=20
+> Fixes: dbf21777caa8 ("drm: verisilicon: add a driver for Verisilicon
+> display controllers")
 
-I understand that it just works without that, my only concerns is
-that having a DT node (which is required for adding child nodes)
-without a compatible string is going to cause problems later,
+Maybe it'd be better to fix this before adding DC variant abstraction,
+for easier backporting.
 
-From the DT perspective, it would be better to add a second
-(or third) compatible string to identify the device better and
-keep the existing generic string as a fallback. The
-pcie-iproc-platform driver can then skip the device based
-on the more specific string.
+Thanks,
+Icenowy
 
-Simply replacing the existing compatible string with a new one
-would solve the probe order problem and at least leave a
-well-formed device node, but this would still count as an
-incompatible binding update, which we try hard to avoid.
+> Signed-off-by: Joey Lu <a0987203069@gmail.com>
+> ---
+> =C2=A0drivers/gpu/drm/verisilicon/vs_dc8200.c | 4 ++--
+> =C2=A01 file changed, 2 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/verisilicon/vs_dc8200.c
+> b/drivers/gpu/drm/verisilicon/vs_dc8200.c
+> index f72da10295e1b..25b5906a1c5fc 100644
+> --- a/drivers/gpu/drm/verisilicon/vs_dc8200.c
+> +++ b/drivers/gpu/drm/verisilicon/vs_dc8200.c
+> @@ -70,8 +70,8 @@ static void
+> vs_dc8200_primary_plane_enable_ex(struct vs_dc *dc, unsigned int out
+> =C2=A0
+> =C2=A0static void vs_dc8200_primary_plane_disable_ex(struct vs_dc *dc,
+> unsigned int output)
+> =C2=A0{
+> -	regmap_set_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
+> -			VSDC_FB_CONFIG_EX_FB_EN);
+> +	regmap_clear_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
+> +			=C2=A0 VSDC_FB_CONFIG_EX_FB_EN);
+> =C2=A0
+> =C2=A0	vs_dc8200_plane_commit(dc, output);
+> =C2=A0}
 
-        Arnd
 
