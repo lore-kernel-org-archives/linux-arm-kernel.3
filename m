@@ -4,99 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D210C982D2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 02:46:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78503C982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 02:53:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6lGfz1siIT5q4E2uH8NernSgbLLCtHEciMJJUl+iNLo=; b=BFKoOvmKX/0dxQ1sYJy/7mTWTU
-	dSjdfGvq14SMmkKCAOkBjw4Ib4rjlahskKjtwnQ9XEDH9Aam1aKS6S+w2kMSQPZviUKSLYFkwdsAs
-	tICYEbg+4/UanEuF1fZ/leuFDZN+OUXrhk2Ue0uG6FYX76ZDc+0kKHbuf8PKbPU4A0QCmMOCQAYe3
-	olpFl6Q2pcGT8+1vnKmGjFsmE/YOEFwlrqE42XpvrnL+OoBtv1H+cny9KJpsbxurY4UK/+U9XbbQy
-	f4NRkGoudcAoVK6MeCsr/MB+eLpEtHUBVlrlzWP5Lee43RPwzaXfxO4G+hQKmr/RB0q4pLYIRQ+9y
-	EP4AU8vA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Rk+KoXta3dbAs20TzM2qXCVHC2ImAPUr9Ofh7+moDVo=; b=Iqd3ezdybFuCjdbxly9nQtPCmu
+	TdUGZHPabqfbVvneiB4fqEfCxQPvsxPzqDoDzMH+bwAPOHnOKB8lXtQD4t4nXgoDw4cB29LVG4z4G
+	TC6wWKc29u3KJQAA7OjkPNrDiXh5yHMy+AAsh2wdvY3DOZl4xYQuO72dctEwCMqKf8iDV4/w3XxYE
+	sDXF0j/tnIlA4VLqQJmDIkEnVdkU/Y95YG62evoTyY86a8WcTaamIk1jeFqC/zcyXR85sjk+QI5Rh
+	7Z2QpDrxUm9MrXCV5WXkA7S9XVUV5ipbtKj8J+sKRMbDrACl7vbzBVm00Fe4XPgI5464y8Mw3EbZ+
+	MaOlYKaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Occ-0000000DLKN-2tFd;
-	Fri, 18 Sep 2026 02:46:42 +0000
-Received: from mail-pz2-x10.google.com ([2607:f8b0:4864:3b::10])
+	id 1x7Oj5-0000000DLd8-1XWu;
+	Fri, 18 Sep 2026 02:53:23 +0000
+Received: from mail-pj2-x02.google.com ([2607:f8b0:4864:39::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7OcZ-0000000DLJe-2XPw
+	id 1x7Oj2-0000000DLcn-36ae
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 02:46:40 +0000
-Received: by mail-pz2-x10.google.com with SMTP id d2e1a72fcca58-85469f204f6so167625b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 19:46:39 -0700 (PDT)
+	Fri, 18 Sep 2026 02:53:21 +0000
+Received: by mail-pj2-x02.google.com with SMTP id 98e67ed59e1d1-3896ccc93b5so72182a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Sep 2026 19:53:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789699599; x=1790304399; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=6lGfz1siIT5q4E2uH8NernSgbLLCtHEciMJJUl+iNLo=;
-        b=KzaWi48iMK+StAjy5XHWQbyzMEacERQzprZSLFrharnrJpZD+j78mfohZMVxw0AdFh
-         icAYyZuhCILfJajKOUJ3QiBThRH5XnMixMyR2vvOtMsK4B8RJImZzz1t2aZ3c3pyvNNV
-         uGQTqO8FKipTy1qm7L0n2SqVWakOERFyWKSWMgugESL3mLidue0qpmYcmiDJpZV+kOQh
-         Sbubc21NxG8xxcERxORkRFHfmcgjJ6+5qlYLyWRS2jF6AbQn1u6TRkaJd3pQYGfggxFf
-         ZF/gsGnaaiWnLXmx2l7MMM4/wF+3h/9SfXnew2T8keHHGX4pKdbPcrYLm7DvzYnge54L
-         gUbw==
+        d=gmail.com; s=20251104; t=1789699999; x=1790304799; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Rk+KoXta3dbAs20TzM2qXCVHC2ImAPUr9Ofh7+moDVo=;
+        b=OIWkko0COY9Ktx37sS8IYRmBNad6XgiFIoyRxMhVW/M9pYoQO7SMbgpiQV4SFa2kZx
+         fPuPlMCO0/u2bPwLPMwVsYgMyemrgj3w7TJR8Dv99K8EoMGG/QQnD8rd/vXO573Ab1KQ
+         NM8TeH9JPAq+PaSLuOtYqJW0QEgpMLt1AWClC7vg7BCrW42Qykc6TlnGqgoW+il0fYUT
+         EV4rpmRpp0cqu25dOUy9LUpKnud5CSk4V/pYITiG39VvEJFHyVzfXzubfKPoqNuAnXVY
+         YocyDmfaNh+tAhSgthyWaBNjAku6tPg0PwR6dME9pa0Umzfc9McqSrFtYXNbzLqtEO4p
+         Cy8w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789699599; x=1790304399;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6lGfz1siIT5q4E2uH8NernSgbLLCtHEciMJJUl+iNLo=;
-        b=lvxY3oEX1y3Ps7PgWltoKk6yRq+tE+rpnnWf7dI5sjoN4biuhCV/3+m6IPEG9ok8mO
-         /zfgpKraMdP2pawnrHR3J9c7TfQDySQmnrodELDObBDfCeVuIpbVxNPHs7PiH4y56wSw
-         iIWkLq7PFgXJ0S0BmNYqKzJ/EQJvgOInc5kH14ZAvryMfvCgGryKjRNz3uu9mRPeWcuJ
-         z0f3IcvGXkWYGUloCnFfaGNoEMrYc1kEK//2NLluWe0n8Nu3jEz/naFhLYmZX5QKkuBF
-         ezGdT443g55w4id3mQn9ct7h47mmbqGThMzlqF9VlDKimqGwzeA87ieUrW6fv5PjUjXq
-         Vn5w==
-X-Forwarded-Encrypted: i=1; AKwUvBxDr+qrqdtYIdcTZyR7t9ogUQpE5TyH/6idniMB79sKAG7Vi+yM11WnyoofD81lDb58/Ak+3N1GWHLjvwmHJjzC@lists.infradead.org
-X-Gm-Message-State: AFuF++mT5oBWHDWQHrAN7tlNnyF/X22mlqmpNH0fgmd8REATUPZGipXt
-	5qF2/wSyqBXQssvmpaf6czsm0YTOO9rmb2fSXKuLmFn8G22uMg/bDXUj
-X-Gm-Gg: AYBFou26WZByTDoiBpzNIFG6oW00bSqsnwHuilHL9jy8NExFfJEJ9YGcuI43fhWmw/O
-	91ND1Ckv8rBosZcf/sQ3rKt1GxtNbEpDv/vHo1R9cKpMBxOXCa44erAcVbwR6aogM8M/tp7xVjc
-	DVp6PqIp9dFGN5/pt0DspVzbxOWKUKngUDbgZXvzeI0LfmVe98hRnllspTUYY8IJsCQ7VOu3Y9R
-	nOnYA1t+aFfUru58SjbHyaboZwgrK0vm/e4eGTRZrfnWWyvl8T6Cdub3agwX867Is5CrHnC+RnE
-	6PPINyDtDPRW/NliCohW6pA+ZdzXIvgjwPrV0R5Vqz8FUrFKAciFxpIpQ3AjfLx5feraKi0qwMV
-	zvgw/81ShLgxL0tbAbRd8RE9p7/jIH6gG2ykvNq05IZg6c6A7vDd7xjqFUfrZ3P3wvuS1NTTxmj
-	XaiRf1VQ6vclQGvmzh2cND2JNVOVjJJxw+5VCUORIdxRQTEEQccrjZMnkB5nAnTOoloXHcUchCR
-	m1jRMoHgrk72v4ywudvnxwMtISaR54Edw3/kFQ=
-X-Received: by 2002:a05:6a20:cc97:b0:3cc:9288:99aa with SMTP id adf61e73a8af0-3dd8c21565fmr2275776637.0.1789699598611;
-        Thu, 17 Sep 2026 19:46:38 -0700 (PDT)
-Received: from localhost.localdomain ([2409:8a1e:2e81:7320:ec74:2ce6:f939:d0ad])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33c287b0293sm349521eec.24.2026.09.17.19.46.34
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 17 Sep 2026 19:46:38 -0700 (PDT)
-From: zjamg <ndaugoing@gmail.com>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>
-Cc: Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Yuchao Zhang <ndaugoing@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH 1/1] KVM: arm64: vgic: Do not remove in-flight LPIs from AP list on disable
-Date: Fri, 18 Sep 2026 10:46:20 +0800
-Message-ID: <20260918024620.83869-2-ndaugoing@gmail.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260918024620.83869-1-ndaugoing@gmail.com>
-References: <20260918024620.83869-1-ndaugoing@gmail.com>
+        d=1e100.net; s=20260707; t=1789699999; x=1790304799;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Rk+KoXta3dbAs20TzM2qXCVHC2ImAPUr9Ofh7+moDVo=;
+        b=cfR2FmmnwydyyyL5vPZxWCo0KdVVFyWOCGt8JmPJjTP4dI1y+u2UB0I0MigbgFAJe3
+         L88AYZa0zPKDwma8ifm+jd7GyviktgXpR6nHzx8zxLPE+8UZdbnmqZvdKC+YOT7RugBu
+         5jMLii2iSeeczeUwFgITFiHGtsq1+ySUi1qgrjxmVbH5nSnmlob6uvnNQEs4HFHtKtTe
+         YyvGU8IDks0b3zERK46dq0ZaP22EeOMwh9nXDOi41joI3FQBtJwslz+UfSLthQFdoU0/
+         1oPtZLvW7VJgY93OK9UrQUR72EUfQzbB4AkjhQD5SafxM4oRlptf4Iw0ZdJC6WZ2nnNd
+         4Drw==
+X-Forwarded-Encrypted: i=1; AKwUvBxAGaQapvxGs/P7DsSUgBWYc+SnNfoOFORzAZInMcie8OnlVtbbBpOpgBDniZYzuZ8TZCgcaMCXjQsSsoAHLP8/@lists.infradead.org
+X-Gm-Message-State: AFuF++lx4eMv/Nj/itDixeCqr3GxVJ+BitA112RZAS61DxIRbmOB4yuD
+	Op/q8ULcA+4MfB+A91HdDzu5ywM2cUw/vL+nxDUVfEx82VrLeWEeVvUh
+X-Gm-Gg: AYBFou1PdYq5uzHEglJc/kr17BSQKrofEdds54X+3TunJQHpuV5Gz5Heecr3g3C86kA
+	9uEFCxPFWtrT6POF8HcztvCNwyB4Z0WMMo6rf7xXHB7I4UN0lRC48C0EP/ydofkypMdRWdER3uu
+	57LGRkGIbA9H5Kj2tkx/yV6RNj7esVDhFkzpVkU1iWmDbodNHbGn4E+ltpWPnlx93aMbgfEO5Vq
+	KGpKg2PUAHF2WMQhqtWuDNyzcSVHrTzTpaKEUvl77vKjelosc4KI37N/DdB+BocO1HDFDOV/Qf8
+	HAV+8mms5Sm7RCrlikLIO/4VJz/52w/Oo952BfsNIqBmPQ+wHZPBLJZDkEMhLfxW4YXc583AjvX
+	evPPn7Ii7+XlrI8Z4NLqGv5gdvbmod9O1YLPVg5cgWunNzFJfz2HH8VXjmI5OIIZTEUu+Of8kPd
+	2Ll0TqUt/DexNy1cZldbv3dSMdcMtqDl529SLq6L2YxTRDKjmb4DroAjQbCVAgafdRbMcPVLVR1
+	LgRgdQwIEsitYvcFAWNDDd5EE/6/Zb2YdLqcGK1RKj7EOf0QAKLZZmsEwB7/TVNQKbWmghiTVFn
+	7WwEX7ARDxztJp9GMRu5hAV0IyEDb82/LKZPPydvgb1ckXzLTXrD/GzD+3Ib2j6xmg==
+X-Received: by 2002:a17:90b:270d:b0:39d:b1bd:b384 with SMTP id 98e67ed59e1d1-39e54d0edbcmr2520801a91.17.1789699999069;
+        Thu, 17 Sep 2026 19:53:19 -0700 (PDT)
+Received: from ethan-latitude5420.. (host-127-24.cafrjco.fresno.ca.us.clients.pavlovmedia.net. [68.180.127.24])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-144ce02b063sm726939c88.9.2026.09.17.19.53.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 17 Sep 2026 19:53:18 -0700 (PDT)
+From: Ethan Nelson-Moore <enelsonmoore@gmail.com>
+To: linux-omap@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Ethan Nelson-Moore <enelsonmoore@gmail.com>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Andreas Kemnade <andreas@kemnade.info>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Roger Quadros <rogerq@kernel.org>,
+	Tony Lindgren <tony@atomide.com>,
+	Russell King <linux@armlinux.org.uk>
+Subject: [PATCH] ARM: OMAP2+: remove unused ctrl_module_wkup_44xx.h header
+Date: Thu, 17 Sep 2026 19:53:13 -0700
+Message-ID: <20260918025316.375757-1-enelsonmoore@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_194639_653752_3AA490D8 
-X-CRM114-Status: GOOD (  19.72  )
+X-CRM114-CacheID: sfid-20260917_195320_784889_5637AC55 
+X-CRM114-Status: GOOD (  13.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,125 +103,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yuchao Zhang <ndaugoing@gmail.com>
+The last use of ctrl_module_wkup_44xx.h was removed in
+commit 6bf588595913 ("ARM: OMAP4: Ctrl module register define diet"),
+but it was left behind. Remove it.
 
-By code inspection, a race condition and potential Use-After-Free/crash
-exists between remote LPI disabling and local LR folding when EOImode==0.
-
-Commit 6da5e537f5af ("KVM: arm64: vgic: Pick EOIcount deactivations from
-AP-list tail") introduced tracking the last interrupt placed in a List
-Register in per-CPU host data (*host_data_ptr(last_lr_irq)) and traverses
-the remaining ap_list via list_for_each_entry_continue() in
-vgic_v3_fold_lr_state().
-
-However, an interrupt loaded into an LR can be an LPI. While vCPU-B is
-running the guest, another vCPU-A can write to vCPU-B's redistributor
-GICR_CTLR to clear EnableLPIs, which dispatches vgic_flush_pending_lpis().
-
-vgic_flush_pending_lpis() unconditionally removes all LPIs from ap_list
-without checking whether the interrupt is currently in an LR
-(irq->on_lr):
-- It calls list_del(&irq->ap_list), setting ap_list.next to LIST_POISON1,
-  and drops the AP-list reference.
-- If the LPI is unmapped or its translation cache was invalidated, the
-  vgic_irq refcount drops to zero and the object is freed via RCU.
-- Meanwhile, vCPU-B's per-CPU *host_data_ptr(last_lr_irq) cannot be
-  cleared by remote vCPUs and is left dangling.
-
-When vCPU-B subsequently exits the guest:
-1. vgic_v3_fold_lr_state() resumes using the unlinked last_lr_irq.
-2. list_for_each_entry_continue() unconditionally evaluates
-   list_next_entry(irq, ap_list) during loop initialization, accessing
-   LIST_POISON1 (or freed memory).
-3. If eoicount > 0, it attempts guard(raw_spinlock)(&irq->irq_lock) on
-   the poisoned address, leading to an immediate host kernel panic.
-
-Fix this by:
-1. In vgic_flush_pending_lpis(), do not remove LPIs that are currently
-   in-flight in an LR (irq->on_lr == true). They will be naturally pruned
-   by the owning vCPU's vgic_prune_ap_list() after LR folding.
-2. In vgic_fold_state(), clear *host_data_ptr(last_lr_irq) after folding
-   so that no stale pointer survives past guest execution.
-3. In vgic_v3_fold_lr_state() and vgic_v2_fold_lr_state(), bail out
-   immediately if eoicount is zero, avoiding unnecessary list_next_entry()
-   evaluation.
-
-Note: this closes the primary race (the last_lr_irq node itself is no
-longer unlinkable while in-flight), but the fold traversal can still
-race with a remote flush unlinking a subsequent non-LR node in the
-ap_list tail. Fully closing that window needs the fold side to take
-references before dropping locks (in the spirit of the prune-side fix
-in commit 7258770e5814 ("KVM: arm64: vgic: Handle race between
-interrupt affinity change and LPI disabling")) and is left as a
-follow-up.
-
-Fixes: 6da5e537f5af ("KVM: arm64: vgic: Pick EOIcount deactivations from AP-list tail")
-Cc: stable@vger.kernel.org
-Signed-off-by: Yuchao Zhang <ndaugoing@gmail.com>
+Signed-off-by: Ethan Nelson-Moore <enelsonmoore@gmail.com>
 ---
- arch/arm64/kvm/vgic/vgic-v2.c |  3 +++
- arch/arm64/kvm/vgic/vgic-v3.c |  3 +++
- arch/arm64/kvm/vgic/vgic.c    | 10 +++++++---
- 3 files changed, 13 insertions(+), 3 deletions(-)
+ arch/arm/mach-omap2/ctrl_module_wkup_44xx.h | 89 ---------------------
+ 1 file changed, 89 deletions(-)
+ delete mode 100644 arch/arm/mach-omap2/ctrl_module_wkup_44xx.h
 
-diff --git a/arch/arm64/kvm/vgic/vgic-v2.c b/arch/arm64/kvm/vgic/vgic-v2.c
-index 7182f63fc938..7b6cd05ce32d 100644
---- a/arch/arm64/kvm/vgic/vgic-v2.c
-+++ b/arch/arm64/kvm/vgic/vgic-v2.c
-@@ -122,6 +122,9 @@ void vgic_v2_fold_lr_state(struct kvm_vcpu *vcpu)
- 	for (int lr = 0; lr < vgic_cpu->vgic_v2.used_lrs; lr++)
- 		vgic_v2_fold_lr(vcpu, cpuif->vgic_lr[lr]);
- 
-+	if (!eoicount)
-+		return;
-+
- 	/* See the GICv3 equivalent for the EOIcount handling rationale */
- 	list_for_each_entry_continue(irq, &vgic_cpu->ap_list_head, ap_list) {
- 		u32 lr;
-diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
-index 726e20a1da6e..c6eb5d9dca2d 100644
---- a/arch/arm64/kvm/vgic/vgic-v3.c
-+++ b/arch/arm64/kvm/vgic/vgic-v3.c
-@@ -155,6 +155,9 @@ void vgic_v3_fold_lr_state(struct kvm_vcpu *vcpu)
- 	for (int lr = 0; lr < cpuif->used_lrs; lr++)
- 		vgic_v3_fold_lr(vcpu, cpuif->vgic_lr[lr]);
- 
-+	if (!eoicount)
-+		return;
-+
- 	/*
- 	 * EOIMode=0: use EOIcount to emulate deactivation. We are
- 	 * guaranteed to deactivate in reverse order of the activation, so
-diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
-index b25303d9919f..0d7d75c3ac93 100644
---- a/arch/arm64/kvm/vgic/vgic.c
-+++ b/arch/arm64/kvm/vgic/vgic.c
-@@ -205,10 +205,12 @@ void vgic_flush_pending_lpis(struct kvm_vcpu *vcpu)
- 		if (irq_is_lpi(vcpu->kvm, irq->intid)) {
- 			raw_spin_lock(&irq->irq_lock);
- 			irq->pending_latch = false;
--			list_del(&irq->ap_list);
--			irq->vcpu = NULL;
-+			if (!irq->on_lr) {
-+				list_del(&irq->ap_list);
-+				irq->vcpu = NULL;
-+				deleted |= vgic_put_irq_norelease(vcpu->kvm, irq);
-+			}
- 			raw_spin_unlock(&irq->irq_lock);
--			deleted |= vgic_put_irq_norelease(vcpu->kvm, irq);
- 		}
- 	}
- 
-@@ -873,6 +875,8 @@ static void vgic_fold_state(struct kvm_vcpu *vcpu)
- 		vgic_v2_fold_lr_state(vcpu);
- 	else
- 		vgic_v3_fold_lr_state(vcpu);
-+
-+	*host_data_ptr(last_lr_irq) = NULL;
- }
- 
- /* Requires the irq_lock to be held. */
+diff --git a/arch/arm/mach-omap2/ctrl_module_wkup_44xx.h b/arch/arm/mach-omap2/ctrl_module_wkup_44xx.h
+deleted file mode 100644
+index 414f14d1e0a0..000000000000
+--- a/arch/arm/mach-omap2/ctrl_module_wkup_44xx.h
++++ /dev/null
+@@ -1,89 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0-only */
+-/*
+- * OMAP44xx CTRL_MODULE_WKUP registers and bitfields
+- *
+- * Copyright (C) 2009-2010 Texas Instruments, Inc.
+- *
+- * Benoit Cousson (b-cousson@ti.com)
+- * Santosh Shilimkar (santosh.shilimkar@ti.com)
+- *
+- * This file is automatically generated from the OMAP hardware databases.
+- * We respectfully ask that any modifications to this file be coordinated
+- * with the public linux-omap@vger.kernel.org mailing list and the
+- * authors above to ensure that the autogeneration scripts are kept
+- * up-to-date with the file contents.
+- */
+-
+-#ifndef __ARCH_ARM_MACH_OMAP2_CTRL_MODULE_WKUP_44XX_H
+-#define __ARCH_ARM_MACH_OMAP2_CTRL_MODULE_WKUP_44XX_H
+-
+-
+-/* Base address */
+-#define OMAP4_CTRL_MODULE_WKUP				0x4a30c000
+-
+-/* Registers offset */
+-#define OMAP4_CTRL_MODULE_WKUP_IP_REVISION		0x0000
+-#define OMAP4_CTRL_MODULE_WKUP_IP_HWINFO		0x0004
+-#define OMAP4_CTRL_MODULE_WKUP_IP_SYSCONFIG		0x0010
+-#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_0	0x0460
+-#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_1	0x0464
+-#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_2	0x0468
+-#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_3	0x046c
+-#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_4	0x0470
+-#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_5	0x0474
+-#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_6	0x0478
+-#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_7	0x047c
+-#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_8	0x0480
+-#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_9	0x0484
+-#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_10	0x0488
+-#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_11	0x048c
+-#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_12	0x0490
+-#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_13	0x0494
+-#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_14	0x0498
+-#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_15	0x049c
+-#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_16	0x04a0
+-#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_17	0x04a4
+-#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_18	0x04a8
+-#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_19	0x04ac
+-#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_20	0x04b0
+-#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_21	0x04b4
+-#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_22	0x04b8
+-#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_23	0x04bc
+-#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_24	0x04c0
+-#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_25	0x04c4
+-#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_26	0x04c8
+-#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_27	0x04cc
+-#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_28	0x04d0
+-#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_29	0x04d4
+-#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_30	0x04d8
+-#define OMAP4_CTRL_MODULE_WKUP_CONF_DEBUG_SEL_TST_31	0x04dc
+-
+-/* Registers shifts and masks */
+-
+-/* IP_REVISION */
+-#define OMAP4_IP_REV_SCHEME_SHIFT		30
+-#define OMAP4_IP_REV_SCHEME_MASK		(0x3 << 30)
+-#define OMAP4_IP_REV_FUNC_SHIFT			16
+-#define OMAP4_IP_REV_FUNC_MASK			(0xfff << 16)
+-#define OMAP4_IP_REV_RTL_SHIFT			11
+-#define OMAP4_IP_REV_RTL_MASK			(0x1f << 11)
+-#define OMAP4_IP_REV_MAJOR_SHIFT		8
+-#define OMAP4_IP_REV_MAJOR_MASK			(0x7 << 8)
+-#define OMAP4_IP_REV_CUSTOM_SHIFT		6
+-#define OMAP4_IP_REV_CUSTOM_MASK		(0x3 << 6)
+-#define OMAP4_IP_REV_MINOR_SHIFT		0
+-#define OMAP4_IP_REV_MINOR_MASK			(0x3f << 0)
+-
+-/* IP_HWINFO */
+-#define OMAP4_IP_HWINFO_SHIFT			0
+-#define OMAP4_IP_HWINFO_MASK			(0xffffffff << 0)
+-
+-/* IP_SYSCONFIG */
+-#define OMAP4_IP_SYSCONFIG_IDLEMODE_SHIFT	2
+-#define OMAP4_IP_SYSCONFIG_IDLEMODE_MASK	(0x3 << 2)
+-
+-/* CONF_DEBUG_SEL_TST_0 */
+-#define OMAP4_WKUP_MODE_SHIFT			0
+-#define OMAP4_WKUP_MODE_MASK				(1 << 0)
+-
+-#endif
 -- 
-2.53.0
+2.43.0
 
 
