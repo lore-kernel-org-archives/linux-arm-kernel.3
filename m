@@ -4,129 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB93BC982DD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 19:32:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BB24C982DD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 19:33:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=xA9TqT56uzHoio3Dn/bRlfu7pF+Mn+DEDcT+jkOCFzY=; b=MN8IC+b9S3DYu4
-	/Md0Mr8OEmZTwSKew5NMcE07EnQNnrJ4AlZ3vB60QgWNLtgoniQGFyXhWJv3x21Dxi44IDOlcA3yt
-	dWQqRJ1xgrJpcGVtcRDKquZbRZa3DZP9YJXBLAAfKhfAxQEW4X0hfStH7RLvjHzL7mgl/KOGslurX
-	Bg8UsX+chLG4HpyIW++ZXaWK1+eDS9K6l7bYTSUEM0Eb4R1YfhHQPI1fcHq21jw/Rj8jOMqlwpMK2
-	UPJuIwgbaS+e8+38KMsvMQ9rCeNn/p2bNaz+1CPZ4NGZIpYqi5e0h4gN/303jSPLNSqImjX/+c8NG
-	4J0uZ+naXCMXbsA1ikMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sSqwyN7Lx41J/1XR2bBQKHR+k8k6/S/N9gfyTr24T5o=; b=iOi6G00ZyDTAx4P48U9Y/+Ybny
+	JuBjmntzm+A6zyfGgEJC02Ru6Dlsf58z6IAcz737HylzwgP8paioa4qCCUrslWY7ew6grnsEf0GO5
+	JEouPsoEkZ3q8BUJiW8J07wd3svDCEh5F9lunghTL214Dg554mzSuddu/bHhq5s4FC+0Lhtvw+hp3
+	jPyPvs6nKSPk6Mm5ejZT1wHfTZ1Qe0FQn2bRLSQfyOnsKZPW8xYiW+V6bWxYwf351ujcT1DQTug7o
+	xKfIWnUMN9a8CTE6gk0ipZM57iCgHJ7nlyICA5hlvavNsJACgViCUS45xm6wJ/YPg/XgHUDMwhBCR
+	lkxaMSGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7dti-0000000FNaV-0sxL;
-	Fri, 18 Sep 2026 19:05:22 +0000
-Received: from mail-ed2-x10.google.com ([2a00:1450:4864:33::10])
+	id 1x7eKj-0000000FQFw-1KGG;
+	Fri, 18 Sep 2026 19:33:17 +0000
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7dte-0000000FNYT-3Jk9
+	id 1x7eKf-0000000FQEg-1dp4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 19:05:20 +0000
-Received: by mail-ed2-x10.google.com with SMTP id 4fb4d7f45d1cf-6a9ab2a135dso1494373a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 12:05:18 -0700 (PDT)
+	Fri, 18 Sep 2026 19:33:15 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49cd38e0f79so7288815e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 12:33:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1789758317; x=1790363117; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=xA9TqT56uzHoio3Dn/bRlfu7pF+Mn+DEDcT+jkOCFzY=;
-        b=gou7LVdtlkO+p3eB8TnWoutUEoJheHdBlA2qOGOr893vXrYnrui7sp2IGyj0nLhT86
-         NHPRzyIIZfXiU5pOp9ZmngTShMSxLRTZSwYrHEsFXDNE2Nyap/CNOEFTo6fHNGZ08g7z
-         br2fWzvvazG8eQ1a9aQoJ17l97fipnqGJeGOF1jjOtmUWXGCJG2xpWpkAZx0Wd3K7w+B
-         mYLXPQ5ges/VpJVSCgizoR2XKjUJ7yZ4PnmuvaHna3c3QBGqZUjBPKvlFefQMTATVcCX
-         SqeiKGNA951JUrLQ3NoNMvzQGZZv1HHI/0VI6pFugfAIkLwqOpH/2lx7H17WtCbf7GJW
-         Xy2A==
+        d=gmail.com; s=20251104; t=1789759991; x=1790364791; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=sSqwyN7Lx41J/1XR2bBQKHR+k8k6/S/N9gfyTr24T5o=;
+        b=h4CnDObLWD70Sr8EZ6PCJGHw8JQgXWMNPZivm/A+ZusFmreu3kzsdRvlnt3MPAC70G
+         W+x9Wwx4cgHST8bFQNwo0nlE+CzzT+heMOwdtIiECBSCpA97uskWYnyzNzxtp0rWV4GL
+         rIsdqT1Z0lxGT6OqUXMBfE7sa2sCT+o1Fo+beoapN+eQ74yYV4J1FsvSB0QFLtUg/f/6
+         n4j+dmeGQbi6cLWCyRf1XXyIiqQCYayYokMnu2bYwGTBMe/CJMqteJoyjj/TL0zSHkkW
+         T+2+jGDAqyx2O+jnJDRwtnXvv/DoG7Zh/c08fP8B7vw/UAzJ3b6uABQakC/wTZQ/2xoS
+         sF7w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789758317; x=1790363117;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=xA9TqT56uzHoio3Dn/bRlfu7pF+Mn+DEDcT+jkOCFzY=;
-        b=zBEJS2URYzvuZ2hbevuJiCJbKMuUJCCLDhxGK+LPiRwxUcjrooYNG9lxvT+V3tvTeZ
-         FMqIHEWCVE+CKK+pNHt6ACxzxPOHwp3x8T+2m/VBzqpzAuLRd2h9n9C2pahOYBMGrVwC
-         IaZ8+oYgpLiq2zi6iHmfqh6qUJ7Hx1akqIYeli3kUA5HB9Eg0gCnTQ+8vq5nvmEMIxxZ
-         BM0ROsr+FSsYZUl/CN63cmVWGzSFmgWE9OEDklHySe1DRvJmDGoHKmhFc3lZIC70W1tk
-         VhdsQHl8M+iw/2qB1naelL1wbriw8eNMbL87GrfOraOAOhaSTYI8zUpeFQ8+3ugzkhpI
-         jhhA==
-X-Forwarded-Encrypted: i=1; AKwUvBw22tlQTFwo31If8md168+6+4iQh/oceP75eqTilxCxD04yZ/dU4yc7RsfbsIjag17juw4YHEh1oMmQ7lkeK8r1@lists.infradead.org
-X-Gm-Message-State: AFuF++njER8mU47TeSVAjO3ec/lC+K/6Vs4F3a00K8xbb0+fn3+EwasE
-	2QR9NVMixfThvl1qDEU8UN4oOqSOsyTKF3DB++47ih2blE4Z9x/wrNLZS2c05kQSOE4FpNWc1AL
-	BFR3/0Pc=
-X-Gm-Gg: AYBFou0JST3UEVyf3NQNPadolVPqzxEjzjHun0CV8z2R9qEhACAek9Xi8JO5sa/bDrp
-	+C5DqkCGXlypW9yFITBzTqEafpdzcVf/sRW3RRpYq3ReLVQCZ99VKvwLKwhoyatHYf7hn7VOVoR
-	LBW33MRU0e7GMs1Hwlih4MBvXcEJUi5I3GrLymf2b4fQTr2k13VYwzVmH0ulsRtlDzihFXV9UKB
-	uSkd11l+qZNwCfKDRy5tuCIa2wDLhB8BxEPZHBg9ZIlSmOiIVEpQMYSF0H3h/lvKvOR6zheenWd
-	mtw10GNBvMRU5RUjBSKWz3c/OSaNZtR6ERHkpOrMFPAGrDd/sLH13LzVIGQKHCzJRINX4t08hBd
-	Ud1/txPZc8vANT9jzSJNalo1aVBmOnQ7ov/VnkGgyV9htpSqhHpMly6+cG2vjpz7iYfP2QNX29R
-	ocY7nXjsozXZs9d6dFpLD9aBj2Fg9QqHSV1etzO4AsY3jo+HMVJvVD2c1qN9khVY7yiIMNx+oWZ
-	0eyaC4qdZsi4ZNGiHeME+Gc/CkxUf4znXDe00jrZ2tYXuUZ2EvTY8n1JQ9/+nl7TA==
-X-Received: by 2002:a05:6402:4145:b0:6a9:9766:59ad with SMTP id 4fb4d7f45d1cf-6aa548d810emr2704620a12.43.1789758316858;
-        Fri, 18 Sep 2026 12:05:16 -0700 (PDT)
-Received: from petegriffin.c.googlers.com (116.118.90.34.bc.googleusercontent.com. [34.90.118.116])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6aa67d816b5sm276250a12.7.2026.09.18.12.05.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Sep 2026 12:05:16 -0700 (PDT)
-From: Peter Griffin <peter.griffin@linaro.org>
-Subject: [PATCH v4 0/4] Add Laguna/Tensor G5 SoC and Frankel, Blazer &
- Mustang boards
-Date: Fri, 18 Sep 2026 19:05:01 +0000
-Message-Id: <20260918-contrib-pg-pixel10-initial-dts-v4-0-745eaca28b1a@linaro.org>
+        d=1e100.net; s=20260707; t=1789759991; x=1790364791;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=sSqwyN7Lx41J/1XR2bBQKHR+k8k6/S/N9gfyTr24T5o=;
+        b=V2H+wHuLQYQmEpZxejBUdhY90ezlFWL0Y4X6YrwTSIycW1hPiujHZAIOkyugq/BZhb
+         4hqaHt5pFxpOgwwkC4jybNPeDd+QyXqMkKhAk0dGUOGvpMUeGoe/rKxjX53oULQAfmOA
+         Cjasgv95tFHsuSyAdjyw1nGmfhPD6kXR6Rdl5+DcM7c6Y0E0L7xs+OFpiMsl/dCOP4Cd
+         JutBdCqxd78xH+XAeGyvStDMsmGGbsBFN34X6KPJWAamt/t2gReY+hqs+jZWAenXgDAv
+         QILFFNiKitGnCBpnfL0PQqO3Tfanvs05+28py8zIkrvEwF17BH4EZWFW7y8Gi6UDsSfj
+         OFpQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzSuGEcvOqOIpXJ+j5KsIJw9Jb4OmZ/HXawFth22c/tkQS2sAfUvkHNGyszTwZgHXag/yC9AE5xzO7VVbcZraJL@lists.infradead.org
+X-Gm-Message-State: AFuF++noQScGQ0Q2O0Bza3bCp8qnFmqm9GU5WyxxK+phn04wCwuHAmHN
+	AcCVZjEKNnwRmiwWMYkm5WxBsJLdxyOG944I/tA1DC0YXr3UyPih3xZi
+X-Gm-Gg: AYBFou2Lusy2hS6sdhu/x9BQT/V9VcN7OX8EfEEYLMtkQTpwyzmAKNsuF8xRfxo9EZd
+	I+jnHiI0saeysq5MBRQQ7oIHxATL7jpCzEbtKf6EN8HG4MVm3iDHmP2giS9eDeqYvZ4R5tnt3l8
+	MwA5GJyG0DlEprtwo43AbfNoD6w1X4D+cSY1Nv1siYiAa68w6QBVG/Jhm0aT07707EbYM9lX9Ay
+	lJbOQcRPGhP/sv4hwc8L0WP/zoE4M+eNhikXYmcwg484MX0Vp0dLYo8WLqUhVAFg/NfpYnrkbcs
+	rssEzZyT1nigAxUVik5qVUZjHO6w4pYUYJM4MeAwy7PMWapmAYRtH8S3++GTtf3ilh7qqFKIi2c
+	ErEKPZgbcQ0FFfycvUUSl9pZ5f2oGTiAJ5BV/DVRSTHvCTmI0xCkONx5QRK7WXPMBUd6II9jfez
+	0SD0usBI+n0G0Cf0fWxDq2h7+BPQ2/X4Lx6z90mk1aZFkUFPflvciaRDnWvqQXYjAQc/wQ1HIur
+	/jI7sxTaSAJ9yGl2rn81B40uUi7to8TfHAs9G3DAkU=
+X-Received: by 2002:a05:600c:1986:b0:49b:9105:cdaf with SMTP id 5b1f17b1804b1-49fc56cb2f7mr87032645e9.8.1789759990865;
+        Fri, 18 Sep 2026 12:33:10 -0700 (PDT)
+Received: from [192.168.0.40] (212.71.14.70.adsl.dyn.edpnet.net. [212.71.14.70])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fcd2f7ef3sm10168685e9.0.2026.09.18.12.33.10
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 18 Sep 2026 12:33:10 -0700 (PDT)
+Message-ID: <74d59f1e-479a-495e-8413-51e1feca78f5@gmail.com>
+Date: Fri, 18 Sep 2026 21:33:10 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/2] dt-bindings: rtc: Add property for Raspberry Pi 5
+ RTC
+To: Stefan Wahren <wahrenst@gmx.net>, Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Jonathan Bell <jonathan@raspberrypi.com>, linux-rtc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260917135841.841680-1-sander.speetjens@gmail.com>
+ <20260917135841.841680-2-sander.speetjens@gmail.com>
+ <20260918-steadfast-unselfish-loris-996d7d@quoll>
+ <f5c04c5a-20c3-4f4c-bd1f-045516d24140@gmx.net>
+Content-Language: en-US
+From: Sander Speetjens <sander.speetjens@gmail.com>
+In-Reply-To: <f5c04c5a-20c3-4f4c-bd1f-045516d24140@gmx.net>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAF2LrWoC/4XNzQrCMBAE4FcpObuSpH/Gk+8hHtJ02y6UpCQhK
- KXvbiqCeOpxhuGblQX0hIFdi5V5TBTI2RyqU8HMpO2IQH3OTHLZ8FZwMM5GTx0sIyz0xDlXZCm
- SnqGPASo11Giauu2ahmVk8Tjk2X5wf+Q8UYjOvz5/Se7tl5byiE4SOJS606ha0Q7Y3Way2ruz8
- yPb7VT+PCUuh16ZPaMqrIWoeM3Vn7dt2xvRUDUyHQEAAA==
-X-Change-ID: 20260710-contrib-pg-pixel10-initial-dts-49f5ec657b66
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, Arnd Bergmann <arnd@arndb.de>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Linus Walleij <linusw@kernel.org>, Drew Fustini <fustini@kernel.org>, 
- Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, 
- "Guilherme G. Piccoli" <gpiccoli@igalia.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- soc@lists.linux.dev, Douglas Anderson <dianders@chromium.org>, 
- Juan Yescas <jyescas@google.com>, RD Babiera <rdbabiera@google.com>, 
- Brian Norris <briannorris@google.com>, 
- William McVicker <willmcvicker@google.com>, kernel-team@android.com, 
- linux-serial@vger.kernel.org, Peter Griffin <peter.griffin@linaro.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
- Brian Norris <briannorris@chromium.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6963;
- i=peter.griffin@linaro.org; h=from:subject:message-id;
- bh=idSz/4f1QVQHoHKJ9HY7cLr1ePY0I9DKUIMLr0x6hpE=;
- b=owEBbQKS/ZANAwAKAc7ouNYCNHK6AcsmYgBqrYtqcAeTl4ZeFIg7dO9m7NUqCkkLgycw9oehj
- jgCwjJLiYGJAjMEAAEKAB0WIQQO/I5vVXh1DVa1SfzO6LjWAjRyugUCaq2LagAKCRDO6LjWAjRy
- usewD/9JNAfxX1k3uSFD2XVvKZUgoCdpQzRMB/OOun7KDcIGoM/oz0Qkzkhoh152OjHRCZIlvwo
- pKBMsc1tsYxhgrz1QQ5sAr3GdIU9Dt9ZVvrwRGUw4fYpkmWVue7tbK7ajJw+OHmmzDR+FrkhUcA
- tFk/zKD7kdeee0UPBoCjEiq15S97/HaP2zGXYCsDsKM3Q2w+jRgkpZLQuTJlsaCq5dFv2XIr0vc
- jAowh+gjOp9mGjpNnjZTTzh+JzIPXmxsl1BwLZRwKmRloEQ6Q7KZyqDtOtyaTsrQmNqIObUjm/I
- sSEVtmDk0B3p2EyE15N8XswTr4uoBJYzwlfdLWWrMmg6/bh6/sX+dnoi4elqDK3esLwoTTArhri
- 4LtjtoNnW7TtuaEM9ua3ukbGRjVwDt5xfeOoyjt2Xq5cFVwqozROK9VKP/6ZD5pf46Zwvml6egS
- Eo+9E6kbJwG9HiGh4oF5chFWrtu1DpArOIYuoQC+5Nvsf+xGJSTz4kUFeVwQGRfylTg3pCxt0Xk
- QFVm84K+hVyXMzk5p7/eOR6rMeD9qRjIZbZsv6DhryZGHnP6yDFkToprioAXs5iMnFNiiuc31Gu
- s/WeebW7DotX0PG0XjcETPbB1qOInjEMZbOm5DpHY17pdMtx6n7aFm8A+K/bEX2a495pj44wg30
- blqClLuoEWjYRNw==
-X-Developer-Key: i=peter.griffin@linaro.org; a=openpgp;
- fpr=0EFC8E6F5578750D56B549FCCEE8B8D6023472BA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_120518_890635_187F160D 
-X-CRM114-Status: GOOD (  27.90  )
+X-CRM114-CacheID: sfid-20260918_123313_446677_0D074D00 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,162 +112,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi folks,
-
-This series adds initial basic support for Laguna (Tensor G5 SoC)
-found in Frankel (Pixel 10), Blazer (Pixel 10 Pro) and Mustang (Pixel
-10 Pro XL) phones.
-
-Whilst Tensor G1 to G4 SoCs (found in Pixel 6 to Pixel 9 and Pixel
-10a) were offshoots from the Samsung Exynos family. Laguna is an
-entirely in-house Google designed SoC.
-
-Currently this series adds very basic DT capable of booting to a
-initramfs busybox shell and is a v3 of Dougs original v1 submission
-with the contentious DT overlay parts removed.
-
-Whilst there is still interest in resolving the DT overlay topic (as
-I believe many vendors use this approach). I would like to decouple
-merging initial Laguna / Pixel 10  support from resolving that
-particular issue. I believe Doug intends to revisit the topic again at
-Linux Plumbers in Prague later this year.
-
-In v2 I've updated to use the usual upstream approach of having
-individual board files e.g. lga-frankel.dtb, lga-blazer.dtb,
-lga-mustang.dtb  the same as gs101-oriole.dtb and gs101-raven.dtb.
-
-It is worth noting, that with what is currently supported upstream there
-aren't any known differences versus pre mass production boards yet. So
-lga-blazer.dtb boots fine on my EVT 1.1 board with A0 silicon.
-
-At the point where differences do arise, we may need to either add A0
-silicon cut and other board variants upstream, or keep upstream as
-purely MP/B0 silicon and maintain a separate out of tree DT that uses
-overlays for Googlers needing to use pre MP devices. So far at least
-with Pixel 6 that wasn't necessary.
-
-Folks interested in trying this out and booting a pure upstream kernel
-on their own Pixel 10 device may wish to use the build system and docs
-found here:
-
-https://gitlab.com/LinaroLtd/googlelt/pixelscripts
-
-Example commands:
-
-make RUNTARGET=frankel flash
-make RUNTARGET=blazer flash
-
-Also in v2 I've added support for ramoops reserved-memory carveout and
-tested with `console=pstore` kernel argument. Additionally carveouts
-for the ABL bootloader are added (which is used when doing a debug
-boot (e.g. after a watchdog timeout). This allows for the extraction
-of various logs via fastboot oem commands (bootloader / kernel
-logs). The bootloader log can also be quite useful as it contains some
-amount of on device debug parsing which can provide some hints after a
-crash.
-
-Note: In v3 the ufs0 alias has been removed but the bootloader will
-consider a missing ufs0 alias a fatal error. Whilst we wait for a new
-bootloader release that changes that behaviour (kudos to Doug) the
-pixelscripts Makefile [1] will apply the node so that upstream DTBs
-are kept clean but things still boot on the device (see [1]).
-
-regards,
-
-Peter
-
-[1] https://gitlab.com/LinaroLtd/googlelt/pixelscripts/-/commit/156bd361b39c55303cb4de33cd66ace9b1f610f2
-
-Changes in v4:
-- Fix one remaining dt-check-style in lga-frankel (Peter)
-- Fix one remaining dt-check-style in lga-pixel-common (Peter)
-- Link to v3: https://lore.kernel.org/r/20260918-contrib-pg-pixel10-initial-dts-v3-0-c94e51140509@linaro.org
-
-Changes in v3:
-- Rebase on next-20260918
-- Collect up Reviewed-by / Tested-by tags
-- Use 0x0 instead of 0 consistently for new code (Krysztof)
-- Remove 'ranges' from gic-v3 as no msi child node with unit address (Krysztof)
-- Remove ufs0 alias and ufs placeholder node (Krysztof)
-- Remove memory node from lga.dtsi (Krysztof)
-  It turns out bootloader adds the memory node anyway
-- Use standard '/ {' not overlay style (Krysztof)
-- Update alias to point at label (Brian)
-- Remove GIC_CPU_MASK_SIMPLE for gicv3 interrupt controller (Shashiko)
-- Fix dt-check-style --mode=strict warnings (Peter)
-- Link to v2: https://lore.kernel.org/r/20260722-contrib-pg-pixel10-initial-dts-v2-0-3abae9717feb@linaro.org/
-
-Changes in v2:
-- Enable CONFIG_ARCH_GOOGLE in arm64 defconfig
-- Remove all the pre-production dt binding support (EVT, DVT, a0)
-- Remove dtbo overlays and add individual board dts
-- Update to lga-pixel-common naming like gs101-pixel-common
-- Reorder nodes alpha-numerically by the node name
-- Add ramoops reserved-memory (tested with console=pstore)
-- Add reserved-memory for bootloader & gsa logs
-- Add reserved-memory for Android BootLoader ABL (used on Watchdog
-  reset to extract boolotader logs / parse breadcrumbs / ramdump etc).
-- Add osc 38.4Mhz fixed-clock
-- Link to v1: https://lore.kernel.org/lkml/20251111192422.4180216-1-dianders@chromium.org/
-
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: André Draszik <andre.draszik@linaro.org>
-To: Tudor Ambarus <tudor.ambarus@linaro.org>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Jiri Slaby <jirislaby@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-To: Will Deacon <will@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: Linus Walleij <linusw@kernel.org>
-To: Drew Fustini <fustini@kernel.org>
-To: Kees Cook <kees@kernel.org>
-To: Tony Luck <tony.luck@intel.com>
-To: Guilherme G. Piccoli <gpiccoli@igalia.com>
-Cc: Douglas Anderson <dianders@chromium.org>
-Cc: Juan Yescas <jyescas@google.com>
-Cc: RD Babiera <rdbabiera@google.com>
-Cc: Brian Norris <briannorris@google.com>
-Cc: William McVicker <willmcvicker@google.com>
-Cc: devicetree@vger.kernel.org
-Cc: kernel-team@android.com
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-samsung-soc@vger.kernel.org
-Cc: linux-serial@vger.kernel.org
-Cc: soc@lists.linux.dev
-
-Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
----
-Douglas Anderson (2):
-      arm64: dts: google: Add dts directory for Google-designed silicon
-      arm64: dts: google: Add initial dts for frankel/blazer/mustang
-
-Peter Griffin (2):
-      dt-bindings: arm: google: Add dt bindings for frankel/blazer/mustang
-      arm64: defconfig: enable Tensor G5 SoC family
-
- Documentation/devicetree/bindings/arm/google.yaml |  48 ++-
- MAINTAINERS                                       |   1 +
- arch/arm64/Kconfig.platforms                      |   8 +
- arch/arm64/boot/dts/Makefile                      |   1 +
- arch/arm64/boot/dts/google/Makefile               |   6 +
- arch/arm64/boot/dts/google/lga-blazer.dts         |  15 +
- arch/arm64/boot/dts/google/lga-frankel.dts        |  15 +
- arch/arm64/boot/dts/google/lga-mustang.dts        |  15 +
- arch/arm64/boot/dts/google/lga-pixel-common.dtsi  |  22 ++
- arch/arm64/boot/dts/google/lga.dtsi               | 413 ++++++++++++++++++++++
- arch/arm64/configs/defconfig                      |   1 +
- 11 files changed, 526 insertions(+), 19 deletions(-)
----
-base-commit: 3f2425f5b5bbbdd991ca9cdfd5502e68d8895998
-change-id: 20260710-contrib-pg-pixel10-initial-dts-49f5ec657b66
-
-Best regards,
--- 
-Peter Griffin <peter.griffin@linaro.org>
-
+> On 9/18/26 15:27, Stefan Wahren wrote:
+>> Am 18.09.26 um 13:44 schrieb Krzysztof Kozlowski:
+>>> On Thu, Sep 17, 2026 at 03:58:40PM +0200, Sander Speetjens wrote:
+>>>> Add trickle-voltage-millivolt property for the Raspberry Pi 5 RTC.
+>>> Why? Describe the hardware, the need, not the diff.
+>> Is this something we can avoid by making this configurable via 
+>> userspace / hw_clock --param-set=parameter=value ? 
+I think it would be handy to have both.
+A cm5 board designer could choose to have a super-cap or lithium ion cell
+and for that a device-tree property would be handy for it is always the 
+same.
+But for a user attachable battery on the pi 5b via headers or soldering
+the userspace version would be easier.
 
