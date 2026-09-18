@@ -4,72 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7719EC982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 18:15:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86B0AC982D7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Sep 2026 18:23:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CbhXPRPJzPhnC7eGr+2poQlhUAHpaFK7HRpRDPeuPsU=; b=MU7yA1NVKWOZIvKuqR4UecmL2I
-	kx6UY+A1xWA/BbqwP6GG0t1n9glLjMye4VEyyMWOiCB53GeAXe+AuMObDoAgj5w3uOXhE6qPMBWTP
-	/YMOq+yt1bXXc0hbkdc9hybxUJUO8jG0V7d/V9dU7E1PlHv7GO5SN0cMTYvUmHAwOYlCpaBEajuud
-	03Av3sEW7aaEX8UlQ8FFPsFxyiakI4dZ2HO6IfDnGFuSyr6PnSn5/e7nRpU5huQA/1vqbFIlEjtcQ
-	aklIsE06IojsNVROQllZYG29uwdqyRoEPxGGhH2AS99Od/SAQmzRCbYpVA2y+OeSLPlDZbHSc72+X
-	fIUAGsEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pOhcWmnsbi53YPTXfAw+zcUnoooC/FX50KEoY7w9BnA=; b=x7SWhVCJNoI59XR+M6QqlWpHhb
+	e9upScK4xS7N4w4xua35Bdr1RB0e+Evm14OjoeOloRwOz28FiseKRdu23WqzlYGo/lcG/PZaA/HKC
+	AKtn0JUvxI5R2ezKRmoWMdYFnJ4d53oq2egH8ssZSt3ZqckkTsPFTGND9iW1oPmiEltFfMtHLduNg
+	1GI/egpPlBGqp1JoE12Z+l7RkVRlY8EwTJySmA8kH8+JuQKCQFtJEJEf8jwZA/2oYJ880LiD/pDJw
+	Q37rd+pQmQDhb43Z/YbY5x40BsMoVHVZuNYnPrh+6BhdsNiNtg/dztTdcXUgQ0cFfDNtOT9CnEqtg
+	YRmYhyHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7d7C-0000000FGdW-18xF;
-	Fri, 18 Sep 2026 18:15:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x7dEj-0000000FItN-1KFQ;
+	Fri, 18 Sep 2026 18:23:01 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7d7B-0000000FGdB-0cFP
+	id 1x7dEg-0000000FIsl-20xs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Sep 2026 18:15:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8FB4B4347F;
-	Fri, 18 Sep 2026 18:15:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C71E1F000FF;
-	Fri, 18 Sep 2026 18:15:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789755312;
-	bh=CbhXPRPJzPhnC7eGr+2poQlhUAHpaFK7HRpRDPeuPsU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ktj/G0Wqt43Q8JVUKtdjIxDlECxpTb81j7LuFwY4MTGxTsji3X8jAIGFdYMZzuvIj
-	 ztAD59fwFf5BXIdZ7RlnUUPYA/mcko7PcO280exjookUWqGxa6StWCAYvhUaAfURuB
-	 HwvD4heR9IXqrZVolpO7TgFiOPm5ZHN7iBUZ3QT3pQTpoNjR9sERxPWiEVf4yLK3gi
-	 vnmPh/URbMpnWMpHImcd9xjoL11mAFcErmviIk+2M+IKo4aAl4IBSfw3K/sibAa3sm
-	 mBKeQrVEoUvivqKAY32Gypywqsvj0PYafjlQZvdQZTVSoM/F1G1nOuk8Up55dgyGly
-	 4SModAFf5nk+A==
-Date: Fri, 18 Sep 2026 13:15:10 -0500
-From: Rob Herring <robh@kernel.org>
-To: Srinivas Neeli <srinivas.neeli@amd.com>
-Cc: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rt-devel@lists.linux.dev, neelisrinivas18@gmail.com,
-	git@amd.com
-Subject: Re: [PATCH net-next v2 1/8] dt-bindings: net: add Xilinx TSN
- Endpoint Ethernet MAC
-Message-ID: <20260918181510.GA1086854-robh@kernel.org>
-References: <20260909-patches_v2_external-v2-0-3a40babaff4c@amd.com>
- <20260909-patches_v2_external-v2-1-3a40babaff4c@amd.com>
+	Fri, 18 Sep 2026 18:23:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1789755778; x=1821291778;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=DQ11aT6chxj+is/hy9hP1fiwgbDJw2XvIWlCzvNSbts=;
+  b=Goiz7D5YCakOnpMdIsnQ5jaGlw1mKVEzFBws+ASbkDepwSCFYZIynLZY
+   0+CKB6JNSk2dtSovHZ2oqZ4ABtJZjFDDiy/IYW0/bL6x8TIcVIv2Et1DQ
+   yvDu8e7DABN26Apkkzc/B/h/GbQjTCHceRAvkgL8SXz5yk4jiOa8sgr4S
+   Z+BNo8KyDIGfYMK7KJp8rhk2IIZqu9AtbF0pZzNOm+/Q9MKJ+AJg7mw+X
+   L7ZpbJOgTvAcR7fZ7lCjrxHcFrKyRVX8u0rCXytkYEdmfU49SW5akR3s9
+   oNbw0arUy1jQc1iR1rhiiroXvHbo1tqXAAYz/k8HZoo0ElELD0dqaPgAJ
+   w==;
+X-CSE-ConnectionGUID: 5WHnhQZqR6u+GIxmC7mKRA==
+X-CSE-MsgGUID: Ee0zJLNUQYqD92MmQl47ag==
+X-IronPort-AV: E=Sophos;i="6.27,109,1787036400"; 
+   d="scan'208";a="73905459"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 18 Sep 2026 11:22:57 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Fri, 18 Sep 2026 11:22:57 -0700
+Received: from [10.171.248.88] (10.10.85.11) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
+ Transport; Fri, 18 Sep 2026 11:22:55 -0700
+Message-ID: <70fd2e40-ddc1-4e80-9c4b-cf2fa9c3929e@microchip.com>
+Date: Fri, 18 Sep 2026 20:22:54 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260909-patches_v2_external-v2-1-3a40babaff4c@amd.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] mmc: use assign_bit() where applicable
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Ulf Hansson <ulfh@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre Belloni
+	<alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Kees Cook <kees@kernel.org>, Peng Fan <peng.fan@nxp.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-mmc@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+References: <20260918141810.3023069-1-peng.fan@oss.nxp.com>
+Content-Language: en-US, fr
+From: Aubin Constans <aubin.constans@microchip.com>
+In-Reply-To: <20260918141810.3023069-1-peng.fan@oss.nxp.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260918_112258_748797_0102FBC3 
+X-CRM114-Status: GOOD (  15.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,289 +88,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 09, 2026 at 12:49:49AM +0530, Srinivas Neeli wrote:
-> Add a binding for the Xilinx TSN Endpoint Ethernet MAC IP. The
-> top-level node describes the IP wrapper, which owns the six shared
-> IP clocks and the xlnx,num-priorities parameter, and has two
-> children:
+On 18/09/2026 16:18, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
 > 
->   - xlnx,tsn-ep-mac: the endpoint MAC, owning the host-side DMA
->     channels (dmas / dma-names / tx-queues-config).
+> Convert open-coded if/else with set_bit/clear_bit and their
+> non-atomic __set_bit/__clear_bit variants to the assign_bit/__assign_bit
+> API.
 > 
->   - xlnx,tsn-switch: the three-port Ethernet switch covering the
->     switch fabric and the two per-MAC register windows. The MDIO
->     controllers and PTP register blocks sit at fixed offsets inside
->     the per-MAC windows, accessed through the mdio-1 / mdio-2
->     children and per-MAC interrupt-names entries. Each external
->     port@N references its PHY through a phy-handle in the matching
->     mdio-<N> child.
+> Done with Coccinelle semantic patch and manual fixups.
 > 
-> Co-developed-by: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
-> Signed-off-by: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
-> Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
-> 
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 > ---
-> Changes in v2:
-> - Describe only the Bridged Endpoint configuration. The IP has so far been
->   simulated only as a bridged endpoint, so the binding and driver describe
->   that configuration alone. Support for an Endpoint-only design will be added
->   once that IP variant is simulated.
-> - Rename ep-mac@ to ethernet@ and mdio-mac1/mdio-mac2 to mdio-1/mdio-2, and
->   anchor the node names (^ethernet@[0-9a-f]+$, ^switch@[0-9a-f]+$), per
->   ethernet-controller.yaml and mdio.yaml.
-> - Cap TX at 8 and RX at 8 channels. The IP exposes 8 priorities, so it
->   drives at most 8 TX and 8 RX MCDMA channels. dma-names lists both
->   directions, so its combined maxItems is 16 (8 TX + 8 RX). V1 allowed up
->   to 16 per direction, which the hardware cannot use.
-> - Set additionalProperties: false on tx-queues-config and its queue nodes.
-> - Drop reg from the wrapper node. It has no registers of its own, ranges
->   already describes the child windows.
-> - Add minItems: 7 to the switch interrupts to match interrupt-names.
-> - Use a ^(ethernet-)?ports$ container with additionalProperties: false and its
->   own #address-cells/#size-cells, and require either ports or ethernet-ports.
-> - Require ethernet on the CPU port@0.
-> - Add reg (enum [1, 2]) on the external port@[1-2] ports and require reg,
->   phy-mode and phy-handle. MAC1 and MAC2 use gmii/rgmii/rgmii-id.
-> - Require port@0, port@1 and port@2. The IP is a fixed three-port bridged
->   design (port@0 CPU, port@1 MAC1, port@2 MAC2), so a device tree missing
->   any of them cannot describe working hardware.
-> - Add #address-cells and #size-cells (both const 1) on the wrapper node,
->   which the child ethernet@/switch@ windows need now that reg is dropped,
->   and set unevaluatedProperties: false on the endpoint node.
-> ---
->  .../net/xlnx,tsn-endpoint-ethernet-mac.yaml        | 364 +++++++++++++++++++++
->  MAINTAINERS                                        |   7 +
->  2 files changed, 371 insertions(+)
+>   drivers/mmc/host/atmel-mci.c | 5 +----
+
+Acked-by: Aubin Constans <aubin.constans@microchip.com>
+
+>   drivers/mmc/host/ushc.c      | 5 +----
+>   2 files changed, 2 insertions(+), 8 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml b/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
-> new file mode 100644
-> index 000000000000..4e65d1710da7
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
-> @@ -0,0 +1,364 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/net/xlnx,tsn-endpoint-ethernet-mac.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Xilinx TSN Endpoint Ethernet MAC
-> +
-> +description:
-> +  TSN Endpoint Ethernet MAC IP implements IEEE 802.1 Time-Sensitive
-> +  Networking (TSN) standards and provides low-latency network connectivity
-> +  in the Bridged Endpoint configuration. The IP integrates a three-port
-> +  switch, with two ports connected to the external network and one port
-> +  connected to an internal endpoint. It also supports GMII/RGMII interfaces
-> +  for connection to an external PHY, enabling full-duplex operation at
-> +  100 Mb/s and 1 Gb/s speeds.
-> +
-> +maintainers:
-> +  - Srinivas Neeli <srinivas.neeli@amd.com>
-> +  - Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
-> +
-> +properties:
-> +  compatible:
-> +    const: xlnx,tsn-endpoint-ethernet-mac-3.0
-> +
-> +  clocks:
-> +    items:
-> +      - description: GTX clock for transmitter logic and RTC
-> +      - description: GTX 90-degree phase shifted clock for RGMII
-> +      - description: Host RX FIFO clock
-> +      - description: Host TX FIFO clock
-> +      - description: Reference clock for IDELAY control
-> +      - description: AXI-Lite register interface clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: gtx
-> +      - const: gtx90
-> +      - const: host_rxfifo
-> +      - const: host_txfifo
-> +      - const: ref
-> +      - const: s_axi
-> +
-> +  ranges: true
-> +
-> +  '#address-cells':
-> +    const: 1
-> +
-> +  '#size-cells':
-> +    const: 1
-> +
-> +  xlnx,num-priorities:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    minimum: 2
-> +    maximum: 8
-> +    description:
-> +      Number of traffic classes (priorities) configured in the IP.
-> +      This is an IP configuration parameter that determines the number of
-> +      priority queues available for QoS scheduling. Traffic classes map to
-> +      IEEE 802.1Q priority levels (0-7).
-> +
-> +patternProperties:
-> +  "^ethernet@[0-9a-f]+$":
-> +    type: object
-> +    $ref: /schemas/net/ethernet-controller.yaml#
-> +    unevaluatedProperties: false
-> +    description:
-> +      Endpoint MAC sub-node. Provides the host-side data path through the
-> +      DMA channels described by its dmas / dma-names.
-> +    properties:
-> +      compatible:
-> +        const: xlnx,tsn-ep-mac
-> +
-> +      reg:
-> +        maxItems: 1
-> +
-> +      dmas:
-> +        minItems: 2
-> +        maxItems: 16
-> +
-> +      dma-names:
-> +        minItems: 2
-> +        maxItems: 16
-> +        items:
-> +          pattern: "^(tx|rx)_chan[0-7]$"
-> +        description: |
-> +          Names matching the entries in 'dmas', one per DMA channel and in
-> +          the same order. TX channel names use "tx_chan<N>" and RX channel
-> +          names use "rx_chan<N>", where N is 0..7. Example: "tx_chan0",
-> +          "tx_chan1", ..., "rx_chan0", "rx_chan1", ....
-> +
-> +      tx-queues-config:
-> +        type: object
-> +        additionalProperties: false
-> +        description:
-> +          TX queue configuration node that maps IP priority queues to
-> +          DMA TX channels. The TSN IP supports multiple priority queues for
-> +          QoS scheduling, and each queue can be connected to a specific DMA
-> +          channel. This mapping defines which DMA TX channel is used to
-> +          transmit packets for each priority queue. For example, queue0
-> +          with xlnx,dma-channel-num set to 5 means priority queue 0 uses
-> +          tx_chan5 for data transfer.
-> +
-> +        patternProperties:
-> +          "^queue[0-7]$":
-> +            type: object
-> +            additionalProperties: false
-> +
-> +            description:
-> +              Each subnode represents a priority queue. The
-> +              xlnx,dma-channel-num property specifies which DMA TX channel
-> +              (tx_chan0 to tx_chan7) is connected to this queue for
-> +              transmitting packets.
-> +            properties:
-> +              xlnx,dma-channel-num:
-> +                $ref: /schemas/types.yaml#/definitions/uint32
-> +                description:
-> +                  DMA channel that transmits this priority queue, given as
-> +                  the N of the tx_chanN entry in dma-names.
-> +                minimum: 0
-> +                maximum: 7
-> +
-> +            required:
-> +              - xlnx,dma-channel-num
-> +
-> +    required:
-> +      - compatible
-> +      - reg
-> +      - dmas
-> +      - dma-names
-> +      - tx-queues-config
-> +
-> +  "^switch@[0-9a-f]+$":
-> +    type: object
-> +    $ref: /schemas/net/dsa/dsa.yaml#/$defs/ethernet-ports
-> +    description:
-> +      Three-port Ethernet switch sub-node. Contains the switch fabric
-> +      register window and the two per-MAC register windows. Each per-MAC
-> +      window houses an MDIO controller and a PTP register block at fixed
-> +      offsets. The IP's per-MAC and PTP-timer interrupts are exposed here.
-> +
-> +    properties:
-> +      compatible:
-> +        const: xlnx,tsn-switch
-> +
-> +      reg:
-> +        items:
-> +          - description: Switch fabric register window
-> +          - description: MAC1 register window (includes MDIO and PTP)
-> +          - description: MAC2 register window (includes MDIO and PTP)
-> +
-> +      reg-names:
-> +        items:
-> +          - const: switch
-> +          - const: mac1
-> +          - const: mac2
-> +
-> +      interrupts:
-> +        minItems: 7
-> +        maxItems: 7
-> +
-> +      interrupt-names:
-> +        items:
-> +          - const: ptp_rx_mac1
-> +          - const: ptp_tx_mac1
-> +          - const: mac_irq_mac1
-> +          - const: ptp_timer
-> +          - const: ptp_rx_mac2
-> +          - const: ptp_tx_mac2
-> +          - const: mac_irq_mac2
-> +
-> +      mdio-1:
-> +        $ref: /schemas/net/mdio.yaml#
-> +        description:
-> +          MDIO bus controller for MAC1. Registers reside inside the mac1
-> +          reg-names window.
-> +        unevaluatedProperties: false
-> +
-> +      mdio-2:
-> +        $ref: /schemas/net/mdio.yaml#
-> +        description:
-> +          MDIO bus controller for MAC2. Registers reside inside the mac2
-> +          reg-names window.
-> +        unevaluatedProperties: false
-> +
-> +    patternProperties:
-> +      "^(ethernet-)?ports$":
+> diff --git a/drivers/mmc/host/atmel-mci.c b/drivers/mmc/host/atmel-mci.c
+> index 8f4df250a77a..98933be5f174 100644
+> --- a/drivers/mmc/host/atmel-mci.c
+> +++ b/drivers/mmc/host/atmel-mci.c
+> @@ -1677,10 +1677,7 @@ static void atmci_detect_change(struct timer_list *t)
+> 
+>                  spin_lock(&host->lock);
+> 
+> -               if (!present)
+> -                       clear_bit(ATMCI_CARD_PRESENT, &slot->flags);
+> -               else
+> -                       set_bit(ATMCI_CARD_PRESENT, &slot->flags);
+> +               assign_bit(ATMCI_CARD_PRESENT, &slot->flags, present);
+> 
+>                  /* Clean up queue if present */
+>                  mrq = slot->mrq;
+> diff --git a/drivers/mmc/host/ushc.c b/drivers/mmc/host/ushc.c
+> index 7e8af5a06ac9..410e5bb62752 100644
+> --- a/drivers/mmc/host/ushc.c
+> +++ b/drivers/mmc/host/ushc.c
+> @@ -388,10 +388,7 @@ static void ushc_enable_sdio_irq(struct mmc_host *mmc, int enable)
+>   {
+>          struct ushc_data *ushc = mmc_priv(mmc);
+> 
+> -       if (enable)
+> -               set_bit(INT_EN, &ushc->flags);
+> -       else
+> -               clear_bit(INT_EN, &ushc->flags);
+> +       assign_bit(INT_EN, &ushc->flags, enable);
+>   }
+> 
+>   static void ushc_clean_up(struct ushc_data *ushc)
+> --
+> 2.51.0
+> 
 
-'ethernet-' doesn't need to be optional for new bindings.
-
-> +        type: object
-> +        additionalProperties: false
-> +
-> +        properties:
-> +          '#address-cells':
-> +            const: 1
-> +
-> +          '#size-cells':
-> +            const: 0
-> +
-> +          port@0:
-
-ethernet-port@0
-
-> +            type: object
-> +            unevaluatedProperties: true
-> +            description:
-> +              CPU port. Wired internally to the endpoint MAC sibling.
-> +
-> +            properties:
-> +              reg:
-> +                const: 0
-> +
-> +              phy-mode:
-> +                const: internal
-> +
-> +            required:
-> +              - ethernet
-> +
-> +        patternProperties:
-> +          "^port@[1-2]$":
-
-ethernet-port
-
-Rob
 
