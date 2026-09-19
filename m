@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11F74C982CC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 12:59:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1DFCC982DF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 12:59:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9amai/fCedQ3sHwz5sdKcEJq4hBV8gzILMhbJO3+SBs=; b=fRxWDv4xOXRHNUxtwlr55cqFRk
-	c2MNms3fm+WyxF3QPoM7FK29kBpyLj64GKUAvR9nhaB/xt6MK3gJHRrRFfy+qm+1QLICicro8OHDN
-	l1fB8PrXq2uYyQOQI0AmPIIJN+GO8m6yvX05ovHoq3WhcOzu9kz11wrLIVe6+LSdTXetnojkSRhos
-	HHsBOIDXaHglToHDFZkQfrwGqCxgIcn/d71EqY5Ly7ZMU0wtoM2R+DSS3Fwyn+gHMK+WytZTivavb
-	ICu7JoNGw+zC5LmidujiAEOVNh1YV+Sb+X1jkZcUGDlm1ydgyUeP56CXD8pYmuSHsetmJdv0zNRzP
-	j6CxGP5g==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mwgFbXEPvXREtvKOdLyewIIxAEW+prXX8zPZmbR1mw4=; b=adfazk+b9APNcLnHDWlJDT0yYd
+	aqquAoqxDioTpo8iqxdlWQZ2lfJVwn2Sl30d8DZJyjdpp5QN9VGSR7t5slf+D4Qe57kVnNMEzKC6F
+	6rG8viUqm/a3EuwAPhhoS14WvY7cvTUXhVuYlMtd2Kp+kDy1j7zjSYok8vDN1Vxs2+1XTtoVV9llZ
+	amV8UVTaT9V+fEyupLeLISmVssseArYs+ODM0kIofwsrPUwbS5tlpwsIPkDO3H3iAFfVef6y/32+v
+	f77qewqHzs5rP+gGMiGk5Ep4uGqxq+MEAHx57c3gg+b7nn6xBOJt/Cbaht0Z108dlIisVPeykcRSs
+	d55x7n4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7uej-0000000GIX1-3uN8;
-	Sat, 19 Sep 2026 12:59:01 +0000
+	id 1x7ueo-0000000GIXp-063J;
+	Sat, 19 Sep 2026 12:59:06 +0000
 Received: from m16.mail.163.com ([220.197.31.3])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7ueg-0000000GIWM-1dNM
+	id 1x7uef-0000000GIWK-46MP
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Sep 2026 12:59:00 +0000
+	Sat, 19 Sep 2026 12:59:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=9a
-	mai/fCedQ3sHwz5sdKcEJq4hBV8gzILMhbJO3+SBs=; b=fy4lTE0rS3nxNjt4yZ
-	9TLv9BGIXW/1Ao761kWE4dv5n0/g9Dzjosg6C/S9XIxVEMsSyc4LDUPUL6VkFY4K
-	Qwl2AH0c0nRsbsALFYZ0tnxyChAav28R87tbiGr5FjeT25juKLEPcc6ftlNBxCQt
-	y9CamrVitNDyzrywYN8JDEKzw=
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=mw
+	gFbXEPvXREtvKOdLyewIIxAEW+prXX8zPZmbR1mw4=; b=NG7zgMDPNqYk7Pf+hR
+	W9fb/+Ur6GzReJqWvPCzbTSb/x7lnkdeU1Ez95jGTM3us70QXo+KpaHPMwEh7Eb4
+	8jAVtkiGzt+Amm6hLCVtT/Kpi72FmDmD+DlwvXe+A5jLOj2XyAaHsUPA5YP3wz8U
+	MK6T7O6J806wnz0cZXXjoAE2E=
 Received: from hpl-VMware-Virtual-Platform.. (unknown [])
-	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wA3Rprlhq5qpMqHBg--.54511S3;
+	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wA3Rprlhq5qpMqHBg--.54511S2;
 	Sat, 19 Sep 2026 20:58:14 +0800 (CST)
 From: peilinhe2020@163.com
 To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
@@ -50,23 +50,22 @@ Cc: netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Peilin He <he.peilin@zte.com.cn>
-Subject: [PATCH net v8 1/2] net: stmmac: selftests: Prevent RXC from being disabled in LPI
-Date: Sat, 19 Sep 2026 20:54:12 +0800
-Message-ID: <20260919125413.18058-2-peilinhe2020@163.com>
+Subject: [PATCH net v8 0/2] net: stmmac: remove software VLAN tag stripping
+Date: Sat, 19 Sep 2026 20:54:11 +0800
+Message-ID: <20260919125413.18058-1-peilinhe2020@163.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260919125413.18058-1-peilinhe2020@163.com>
-References: <20260919125413.18058-1-peilinhe2020@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wA3Rprlhq5qpMqHBg--.54511S3
-X-Coremail-Antispam: 1Uf129KBjvJXoW7KFy7Cr1rAw4UJrWDZF1xuFg_yoW8Cr1xpa
-	97Aa4jkrn7XF1xJan8Jr48ZFy5Wa90yFW7Cw12ywnav3yUtFWSqrWS9FyrZa4UWrWDXFy3
-	ZFsF9a43uan8ArDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jweOJUUUUU=
-X-CM-SenderInfo: xshlzxhqkhjiisq6il2tof0z/xtbC8gYh0mquhub-1gAA3K
+X-CM-TRANSID: _____wA3Rprlhq5qpMqHBg--.54511S2
+X-Coremail-Antispam: 1Uf129KBjvdXoWruF18XF15ZFy3uF1fAr1kKrg_yoWDKrXE9F
+	W7tF93Ja1UJF4Y9Fy2krnxZ34fuasrGryxKw4DAFZF9ryxWFZ5GanYvrZxuFyxWFWrXF98
+	A34vvFyIyw1fWjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUbPC7UUUUUU==
+X-CM-SenderInfo: xshlzxhqkhjiisq6il2tof0z/xtbC8gYh0mquhub-0gAA3O
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260919_055858_817019_518898CA 
-X-CRM114-Status: GOOD (  11.73  )
+X-CRM114-CacheID: sfid-20260919_055858_406586_9E61ABCA 
+X-CRM114-Status: UNSURE (   7.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,49 +80,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+From: Peilin He <he.peilin@zte.com.cn>
 
-RXC is critical to the RX path and some register banks in stmmac, so
-it is blocked from being disabled in LPI when we know we're going
-to need that clock.
+This series removes the driver-level software VLAN stripping in stmmac.
 
-During selftests, we're in MAC loopback so the PHY may enter LPI and
-stop its RXC. This will prevent the RX path from properly receiving
-the looped-back packets, hence failing the selftests.
+Patch 1 is a prerequisite selftests fix from Maxime Chevallier to keep
+the ethtool selftests working on platforms where NETIF_F_VLAN_FEATURES
+may be empty after patch 2.
 
-As NETIF_F_VLAN_FEATURES may be empty on some platforms once the
-software VLAN stripping is removed, the phylink config attribute
-'eee_rx_clk_stop_enable' may no longer be unconditionally set to
-false, hence allowing RXC to be disabled during LPI on platforms
-that don't have any VLAN features. This is already the case for
-CONFIG_VLAN_8021Q=n builds.
+Patch 2 removes stmmac_rx_vlan() and the related VLAN RX feature
+advertisement.
 
-Fixes: 091810dbded9 ("net: stmmac: Introduce selftests support")
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Signed-off-by: Peilin He <he.peilin@zte.com.cn>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c | 2 ++
- 1 file changed, 2 insertions(+)
+Changes in v8:
+- Patch 1: fix inverted true/false description in commit log and mention
+  CONFIG_VLAN_8021Q=n builds.
+- Patch 2: drop Fixes tag, fix trailers, document user-visible feature
+  changes and EEE side effect, tolerate in-payload VLAN tag in
+  stmmac_has_ip_ethertype(), and gate NETIF_F_HW_VLAN_CTAG_RX on the
+  presence of VLAN ops callbacks.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-index 664d7cfde2f1..4f4d61a9c098 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-@@ -1847,12 +1847,14 @@ void stmmac_selftest_run(struct net_device *dev,
- 		return;
- 	}
- 
-+	phylink_rx_clk_stop_block(priv->phylink);
- 	for (i = 0; i < count; i++) {
- 		ret = stmmac_selftests[i].fn(priv);
- 		if (ret && (ret != -EOPNOTSUPP))
- 			etest->flags |= ETH_TEST_FL_FAILED;
- 		buf[i] = ret;
- 	}
-+	phylink_rx_clk_stop_unblock(priv->phylink);
- 
- 	stmmac_set_mac_loopback(priv, priv->ioaddr, false);
- }
+Maxime Chevallier (1):
+  net: stmmac: selftests: Prevent RXC from being disabled in LPI
+
+Peilin He (1):
+  net: stmmac: remove software VLAN tag stripping
+
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 38 +++++--------------
+ .../stmicro/stmmac/stmmac_selftests.c         |  2 +
+ 2 files changed, 12 insertions(+), 28 deletions(-)
+
 -- 
 2.43.0
 
