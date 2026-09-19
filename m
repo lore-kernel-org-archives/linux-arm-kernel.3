@@ -4,110 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C146EC982D7
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 07:25:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 923C3C982D7
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 07:33:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fAD6GbG/00mvVvJ/4iMpR9akbfBBXwDJ9dBrI57N/Qg=; b=IG7Dp3M2O3mXypBdxQfv/MkYsJ
-	drmVUGpjNHFjEsjvPq5Px57SCo7CyPvPw8In18dPgtsd2q5mGM5Huwcme6sJcnsCjsaTcpnENn4U0
-	d1YAturc7fviOSWXxEdOb2P7PBSMOnDfxS+0RBV2A/AS9YZt+a+1mOIEn+HRvGvGWil4467pTYcjF
-	z9A4rlO9I09Y26uvQ84raY+atPE/3oknAuNX1N6ULvyPR2sWAVDwmdQ9m8eWsvyuLNFERWoQRCDGm
-	E9qhvntfuThLLgfoWWGUpl0PM6Q7+WdlHO5cXeBeBy+HzFwK7faCA80NIlQJGI1Rqp4EVmuoWtq6D
-	vHCVkWYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KLllryddbvlzfJ9iiqvVmRzOK72twRQNaoO0m17eONQ=; b=or0lyuM+/+ZkRhbAZWzoQv4iup
+	th0m1SelhLBI/4/EzmnhXmFcvTFi5Mwpzma6alCKAQo9ivHD25slTbGEHavf3z9mBeJOltrHPlsPL
+	mbdddOA00L62w8HpkNxlU1zGT2rcFchgsiPWul3Tu6e8vaorG65CFdh+V0yItlWZ91MQbrYTjIiPi
+	Hs7KbGeiVa/7TO/5K8V6TnUxU+eu3W3t6FoOv4iNxdDcFXZ6CS0C+MIJ3wGcC8MTGWrLZOCsd3yfT
+	h2whrs7ZiQ4KvS+LGlKEVktl+3R6LWfzpxikdX9/FeLd3kllZNUkw/LNa+Yis47NJAmBqQPLKwsyY
+	UbfR/eGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7pRv-0000000G39Y-0snz;
-	Sat, 19 Sep 2026 07:25:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x7pZJ-0000000G3Zc-04Mr;
+	Sat, 19 Sep 2026 07:33:05 +0000
+Received: from mail-pz2-x10.google.com ([2607:f8b0:4864:3b::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7pRt-0000000G39Q-1PSX
+	id 1x7pZG-0000000G3Yi-0jaW
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Sep 2026 07:25:25 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C810642A0D;
-	Sat, 19 Sep 2026 07:25:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE8BE1F000FF;
-	Sat, 19 Sep 2026 07:25:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789802724;
-	bh=fAD6GbG/00mvVvJ/4iMpR9akbfBBXwDJ9dBrI57N/Qg=;
-	h=Date:Subject:To:References:From:In-Reply-To;
-	b=HoNoCvkv0GrWiliCtbLtqZZGme1pfStF/olhW/47guAXcMB8XnKa3Sh07a+mqlA6m
-	 5MTEXnHesA9Aab6th5cv0EJtMAHnoI1KvzryYAREHixC5mQKvhz2RW/uV4+75H89gg
-	 trPRt5Fm45TWpqqvFlxyg/OKDnEh3gzQoKDJTBH+IOQQZsmysQuRoInJwqPnfPQ9HX
-	 V4S31Htc2fn25ZBLkLAXyIIEFjFExdfJoYDuIkmT/QZKYYTGNRYoYBDEy/70bWUf8B
-	 qUCuSXQjdzUjn7QcMMQMywN1DTQcCZ8y1gYb6Ccd1CnniXc+HmjtdS07D3s0K2SxGA
-	 +6d9/xrns//Gw==
-Message-ID: <b787a787-5011-4f14-9332-4cca098b374d@kernel.org>
-Date: Sat, 19 Sep 2026 09:25:17 +0200
+	Sat, 19 Sep 2026 07:33:04 +0000
+Received: by mail-pz2-x10.google.com with SMTP id d2e1a72fcca58-86b90133ae8so1096858b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 19 Sep 2026 00:33:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=furiosa.ai; s=google; t=1789803181; x=1790407981; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=KLllryddbvlzfJ9iiqvVmRzOK72twRQNaoO0m17eONQ=;
+        b=Sk1CVQEhHgqb6IgqueyLA1zdnZs6qPVXZHFLFFzlIICmAhrPVZI4Z/fBzkHOWrTwcF
+         wtJWrl8AoYsTsKNR7BfP+6vRoIRgcoOM3pwKOaxrz150ox5IqOwtBpirU1ihUbd3H7Zi
+         MsRTppbfIeBWopEXT2b2gHnKkBK72sqcZXs3Q=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789803181; x=1790407981;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=KLllryddbvlzfJ9iiqvVmRzOK72twRQNaoO0m17eONQ=;
+        b=KADLmAdLh6nFVn42NKvLfD0Q7SBn6zQbnUlC2lEHE9Iq5u5z47PZfKKAWCLXqbYNmB
+         1P/UeGlQBV93dJM9yKkwKX8WWTxttKxgj84iDB04nEYoLhfi+U2xame0PzSSKo7Jst8C
+         5o5R/LHzckvGM954L99QrR4DMncqplCSQA0fouDa/1g25MVxdPiq9rSG6g/2otwMvXkL
+         WhFWZFI4kvOsTJAe2KylnhSxh87skQM2BgJZzUm+72JI52T84LCU/tNr43eWGD9DeZlO
+         DBXiOZYpKBvYQfkhOQ1XZlw4IOY7tlhkivyny/jpO0AJszYhNAEvLT96Ckss27waRuQR
+         w+Gg==
+X-Forwarded-Encrypted: i=1; AKwUvBwFYZRvly5aTA86ZpnnmPZ2ErxmkqHAgB2hCa8Yo5uydJJtkMInkSVWwuKY/nlC+a55GBoO3ipMVtkSXYkry2kP@lists.infradead.org
+X-Gm-Message-State: AFuF++nV/zPlm8EI1tKaghWXxZ/4a6Jb511UwcHygj/LhMqv1U0/4Mg+
+	04gEN29Q8s5fo9tqlWuBBqWW0g9LhlHP7MrsRDHZY/nq+UlU3AlYJt9GTwXI9m7Y77k=
+X-Gm-Gg: AYBFou2+RbUrcHX4BhfD6kDZAuO0hREdQZDsI4vJ2DRpTpIL0zv1VZnoD9khbQYPu7q
+	aEdcHV5C1TV4GfjXJI/70P8OW2XL2kg/AySvOKjwhWETt/o1BMJ9UJDl1AeMGpGHLI3+l06INYa
+	Db4oxV1iKExXksM30l9oLw6vbK25JCaKwrImz/rE/2T/OxMV8faozLbohM/9D9NvovYxbDKtO+X
+	wtrufyRZHgou4j3fBiIqzNTWNPJmIlpr7OT9D8YSbP9MowOEv/mcp6xUknWgn4nxEqiFIEOHcOa
+	El9/5pdQyFJw/Te9UmCl3/HUGIijONTIsLtvpc9dtnvVYO0Dd69MGC6a0MFK1MWJuo+R9/NDpJt
+	krKWpg+mEZXu27NSwmptRyT7pj3ruAhuF8UFl8YKoCN7wft1Jks4JQ/XnmYy9sO8gjpsRrPliDN
+	anqAVSdnwOq09SXgK4ia9aq/mXFIcrrq37ccUn0Bk9v2NwAuh3Zm7fI7ocQuDuVxaW3E5+Vavcb
+	g==
+X-Received: by 2002:a05:6a20:9f05:b0:3d0:e034:a26f with SMTP id adf61e73a8af0-3dd8c331ce1mr9065318637.17.1789803180426;
+        Sat, 19 Sep 2026 00:33:00 -0700 (PDT)
+Received: from rock-5b-plus ([61.83.209.48])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc72ae8eae3sm658733a12.14.2026.09.19.00.32.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 19 Sep 2026 00:32:59 -0700 (PDT)
+Date: Sat, 19 Sep 2026 16:32:39 +0900
+From: Sidong Yang <sidong.yang@furiosa.ai>
+To: Jiaxing Hu <gahing@gahingwoo.com>
+Cc: tomeu@tomeuvizoso.net, heiko@sntech.de, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, joro@8bytes.org, will@kernel.org, 
+	robin.murphy@arm.com, ulfh@kernel.org, p.zabel@pengutronix.de, ogabbay@kernel.org, 
+	zhangqing@rock-chips.com, royalnet026@gmail.com, abel.vesa@oss.qualcomm.com, 
+	sebastian.reichel@collabora.com, u.kleine-koenig@baylibre.com, chaoyi.chen@rock-chips.com, 
+	diederik@cknow-tech.com, alchark@flipper.net, dri-devel@lists.freedesktop.org, 
+	linux-rockchip@lists.infradead.org, iommu@lists.linux.dev, linux-pm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v13 00/14] accel/rocket: RK3576 NPU (RKNN) enablement
+Message-ID: <aq41BAp-6P0HMFBB@rock-5b-plus>
+References: <20260915104328.45901-1-gahing@gahingwoo.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5] dt-bindings: iio: adc: Add dt binding to xlnx,xadc
-To: Omer PALA <palaomer100@gmail.com>, Jonathan Cameron <jic23@kernel.org>,
- David Lechner <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>,
- "open list:IIO SUBSYSTEM AND DRIVERS" <linux-iio@vger.kernel.org>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>,
- "moderated list:ARM/ZYNQ ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>
-References: <20260918194434.9240-1-palaomer100@gmail.com>
- <20260918203257.6034-1-palaomer100@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260918203257.6034-1-palaomer100@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260915104328.45901-1-gahing@gahingwoo.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260919_003302_253177_70AA910E 
+X-CRM114-Status: GOOD (  59.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,28 +104,338 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/09/2026 22:32, Omer PALA wrote:
-> Add yaml devicetree binding for xlnx,zynq-xadc-1.00.a,
-> xlnx,axi-xadc-1.00.a and xlnx,system-management-wiz-1.3 from
-> xilinx-xadc.txt file.
+On Tue, Sep 15, 2026 at 10:43:14PM +1200, Jiaxing Hu wrote:
+> This adds the RK3576 NPU to accel/rocket, which today supports RK3588
+> only. The RK3576 carries two cores of the same RKNN block, wired up
+> differently. Two extra convolution buffer clocks, two power domains per
+> core, one reset where the RK3588 has two, no NPU SRAM rail, and a
+> PC_TASK_CON that packs the task number into sixteen bits, not twelve.
 > 
-> Signed-off-by: Omer PALA <palaomer100@gmail.com>
-> ---
->  Changes in v5:
->   Fix validation bypass: xlnx,external-mux-channel could be set even
->   when xlnx,external-mux was omitted entirely, due to "not: properties:"
->   being vacuously true when the key is absent. Now uses required +
->   properties with if/else.
+> 1/14 is Igor Paunovic's "[PATCH v2] accel/rocket: request the core clocks
+> by name", carried in the series since v11 so it applies to a plain
+> next-20260914 with nothing outside it to follow. It keeps his authorship
+> and its four tags, which name RK3588 boards. Everything else here was
+> tested on a Radxa ROCK 4D.
+> 
+> Two things changed since v12: a correction to what 3/14 CLAIMS, and a fix to
+> what 3/14 DOES. The first is why this respin exists; the second is a review
+> finding on the version I was about to send.
+> 
+> Igor Paunovic re-ran his induced-reset protocol on v12 as posted and
+> found an error in his own reports, which v12's 3/14 carried. His script
+> kept the scorer output of every inference per round and never aggregated
+> it, and his summaries scored only the one inference after the forced
+> autosuspend. Aggregated, the constant-0x80 result is in the rounds of
+> nearly every run, on every arm, on all three dates.
+> 
+> So the all-0x80 buffer is not a differential signal: it is what a job
+> cancelled by the reset looks like from userspace, whatever made it miss its
+> deadline. 3/14 says why, from the code, and his kprobe on
+> drm_sched_fence_finished() is the direct witness.
+> 
+>   3/14   loses the claim that 19 August showed no manifestation on either
+>          arm with the oracle 48/48 throughout, and "one event in 53
+>          differential resets against zero in 49" as a bound. His own
+>          summary replaces them, quoted as he wrote it, with the caveat
+>          that the protocol bounds and does not prove as the last sentence
+>          of the quote so that "it" has its referent. His 2026-09-12
+>          message is a third Link.
+> 
+>   3/14   drops "differential base" from its Tested-by comment, and 2/14
+>          gains "induced reset, JOB_TIMEOUT_MS=2". 4/14 already read
+>          that. All three now say the same thing, which is what he
+>          tested: one protocol, three patches, no differential.
+> 
+>   4/14   loses "45 induced resets across three cores". He corrected that
+>          in the same mail: all 45 landed on core 0, the other two being
+>          bound but idle in his single client protocol. Nothing else in
+>          that patch changes.
+> 
+> Thirteen of the fourteen diffs are byte for byte what v12 posted. 3/14's is
+> not: it is the one code change, four lines of lock scope, described below.
+> Two further commit messages moved and neither changes a line of code.
+> 9/14 gained the answer below to Sashiko's [High], and corrected its own
+> sentence about the twelve rk3576 boards that declare no domain-supply: they
+> never reach a first power-on, so the dummy regulator and the dev_warn it
+> described do not happen there. 13/14 corrected one number of its own,
+> derived from its own table, and dropped a claim about boot-to-boot drift
+> that one boot's own spread cannot support.
+> 
+> This is worth a respin, not a note in the thread: a commit message is the
+> permanent record, and v12's states something its own witness has
+> retracted.
+> 
+> And the code change, which is 3/14's own doing. That patch adds two PC
+> register writes to rocket_reset() -- masking INTERRUPT_MASK and clearing the
+> raw status before synchronize_irq() -- and in v12 they sat outside job_lock.
+> rocket_job_hw_submit() arms the same register and always runs under that
+> lock; reset.pending is set in rocket_job_timedout() without it and read in
+> hw_submit() with it, and both are plain atomics. So a submit that has
+> already passed its reset.pending check can re-arm the mask after the reset
+> clears it, leaving the block running a task with its interrupt live while
+> synchronize_irq() fences a handler that has already finished. The next
+> completion then stops a task that has only just started, which is the
+> failure 2/14 exists to prevent -- on the other register. In v13 the mask and
+> the clear are inside a scoped_guard(mutex, &core->job_lock); the
+> synchronize_irq() stays outside it, where it has to be.
+> 
+> It needs a multi-task job, so hw_submit() is running from the IRQ thread
+> rather than the scheduler thread and drm_sched_stop() does not fence it.
+> 
+> THIS CHANGE POSTDATES IGOR PAUNOVIC'S Tested-by ON 3/14. His runs were
+> against the v12 form, outside the lock. The tag is kept because the path and
+> the protocol are the same and the change only narrows when the two writes
+> may happen, but say if you would rather it were dropped until he has run the
+> new one.
+> 
+> Sashiko reviewed v12 on 12 September, ten mails. No code in v13 answers any
+> of it. Three findings are new; the fourth below, on 8/14, is not, and is here
+> because it lands on a binding this cover calls Acked and unchanged. The
+> answers to all four are arguments rather than changes. The one code change
+> in this version came from a different review, and is the next section:
+> 
+>   4/14  [High] the runtime PM put is asynchronous, and drm_sched_start()
+>         at the end of rocket_reset() lets the next job's
+>         pm_runtime_resume_and_get() cancel the pending autosuspend.
+>         pm_runtime_put_sync_suspend() is suggested. This is the v11
+>         finding below with a second mechanism attached.
+>   9/14  [High] forcing the NPU parent domain off at probe bypasses the
+>         idle sequence for its child domains, risking AXI bus hangs, and
+>         can make pm_genpd_add_subdomain() fail. 9/14 had not been
+>         reviewed before this.
+>   9/14  [Medium] need_regulator is being hijacked to force that
+>         power-off, which warns on the boards that declare no
+>         domain-supply.
+> 
+>   8/14  [High] rockchip,rk3568-iommu is called an unsafe fallback for
+>         rockchip,rk3576-npu-iommu, because a driver older than the July
+>         2026 devm_clk_bulk_get_all change binds the fallback and enables
+>         two of the five clocks. That is against a binding this cover
+>         calls unchanged since v9 and Acked, so it belongs here and not
+>         only in the thread.
+> 
+> All four have an answer below. Three of them are reasons the finding does
+> not stand, one of those being a reason not to make the change suggested.
+> The fourth, on 4/14, is incomplete coverage rather than a regression, and
+> the change that would close it is offered there for you to choose.
+> 
+> 9/14's is in the patch. RK3588_PD_NPU has carried need_regulator since it
+> was added, with req_mask 0 exactly as RK3576_PD_NPU has, so
+> rockchip_pd_power(pd, false) has been running at probe on every rk3588
+> board and rockchip_pmu_set_idle_request() has been returning immediately
+> because there is no request to make. Of the forty-nine in-tree rk3588 board
+> files, twenty-one enable an NPU core and declare the supply, two enable one
+> with no supply and take the dummy and the warn today (quartzpro64 and
+> youyeetoo-yy3588), and twenty-six enable no core at all, so ->power_on never
+> runs there and nothing warns. If the -EINVAL half held,
+> rockchip_pm_domain_probe() would fail on all forty-nine. The idle handshake
+> lives in the child domains and both SoCs keep it.
+> 
+> 4/14's outcome is right and the mechanism is not. rpm_resume() does not
+> cancel a running autosuspend timer: there is a comment in runtime.c saying
+> so, and it only deactivates the timer when timer_autosuspends is clear.
+> What defeats the suspend is the usage count, which is 1 once the next job
+> has resumed the device, so when the 50 ms timer fires
+> rpm_check_suspend_allowed() returns -EAGAIN. The end result is the one
+> Sashiko describes: no power-off, so 10/14's reset pulse and 9/14's delay do
+> not run.
+> 
+> The scope is narrower than the finding suggests. drm_sched_start()
+> completes the detached jobs with -ECANCELED rather than re-running them, so
+> with an empty entity queue nothing takes a new reference and the timer
+> fires cleanly, which is what the measurement above shows. The gap opens
+> only when a client has a second job queued or resubmits inside 50 ms. That
+> is incomplete coverage, not a regression: the patch is still
+> strictly better than the pm_runtime_put_noidle() it replaces, which
+> requested nothing at all. pm_runtime_put_sync_suspend() would close it, but
+> it would run a genpd power-off and a regulator disable under job_lock;
+> latching in_flight_job inside the guard and doing the synchronous put after
+> it would be cleaner. Say which you would rather have and it goes in the
+> next version.
+> 
+> 8/14's [High] does not stand, and acting on it would take the series with
+> it. rk_iommu_dt_ids[] has two entries, rockchip,iommu and
+> rockchip,rk3568-iommu, and rockchip,rk3576-iommu and rockchip,rk3588-iommu
+> already bind only through that fallback: dropping it leaves the NPU with no
+> IOMMU and 12/14 to 14/14 dead. The premise is right, in that before
+> 841363ebb508 the driver took only aclk and iface by name. The conclusion is
+> not. Every MMIO site in rockchip-iommu.c sits behind
+> pm_runtime_get_if_in_use() except rk_iommu_suspend() and rk_iommu_resume(),
+> which are the runtime PM callbacks themselves and run only on a resume. On
+> such a kernel the device never resumes,
+> because the only thing that could wake it is the device link from its master
+> and the master compatible rockchip,rk3576-rknn-core is added by 12/14 of this
+> series. 841363ebb508's own message says writes to DTE_ADDR are silently
+> dropped until the extra clocks run, and reads work: not the hang described.
+> 121 in-tree bindings have this shape, a fallback plus a compatible-gated
+> clock count, arm,mali-bifrost being the closest.
+> 
+> 9/14's [Medium] does not stand either. need_regulator exists only in
+> pm-domains.c and has two documented meanings there, both pre-existing, and
+> the dev_warn it names is a one-line warning from the regulator core in
+> ->power_on, not at the probe-time power-off.
+> 
+> Still open from v11, and the measurement below is the half of it that could
+> be measured. pm_runtime_put_autosuspend() is asynchronous with a 50 ms
+> delay, so on a workload whose submit gap is shorter the domain does not
+> cycle after a reset, 10/14's power-on pulse never fires, and
+> rocket_core_reset()'s own resets are all that run. Measured on the domain
+> rather than on the device, over one 60.8 s decode of Phi-3.5-mini on a ROCK
+> 4D, genpd's npu domain took 46.8 s active and 14.2 s idle, accounting for
+> the wall clock to within 0.2 s, and its idle-state usage count rose by 202.
+> The domain cycles about two hundred times a minute under a real decode, and
+> the pulse fires. Whether it cycles after a timed-out job depends on the gap
+> to the next submit, and inducing one needs a kernel with JOB_TIMEOUT_MS
+> lowered and a flash, so that half is still an argument.
 
-How many versions are you going to send one day? If you only used search:
-https://lore.kernel.org/all/?q=dfn%3ADocumentation%2Fdevicetree%2Fbindings%2Fiio%2Fadc%2Fxilinx-xadc.txt
+Hi, Jiaxing
 
-I asked for this indirectly in your staging patch. I pointed previous
-discussion where I said work was already done and received comments.
+I'm interested in your userspace runtime. As far as I know, There is no
+opensource userspace runtime running LLM on rocket driver. Do you have your
+private runtime?
 
-The lesson to take from that was to CHECK for existing work and READ
-existing comments.
+Thanks,
+Sidong
 
-Best regards,
-Krzysztof
+> 
+> 5/14 moves the iommu_detach_group(NULL, iommu_group_get(core->dev)) line
+> out of the IRQ handler and into rocket_job_next_locked().
+> ZhaoJinming's "accel/rocket: Fix iommu_group leak and unsafe IRQ
+> register access" changes the same line and is marked for stable. It
+> carries Fixes: 0810d5ad88a1, which is the tag on our 2/14 and 4/14; our
+> 5/14 carries no Fixes tag at all. Whichever lands first the other
+> conflicts; say which you would rather take.
+> 
+> Findings Sashiko labelled pre-existing, for Tomeu. These five recur across
+> both rounds, and num_cores was raised to Critical on 12/14 in the v12 one.
+> One not in the list is worth naming on its own: a 64-bit DMA address
+> truncated to 32 bits, which faults the IOMMU above 4 GB.
+> 
+>   - the job completion path takes iommu_group_get(core->dev) and never
+>     puts it, one group reference a job, flagged on seven of the nine
+>     mails the v11 round drew.
+>     5/14 moves this call without adding or removing it, so the leak
+>     is pre-existing but not untouched;
+>   - the shared IRQ handler touches registers without checking the PM
+>     state;
+>   - runtime suspend has no synchronize_irq();
+>   - num_cores is used both as an array length and as the probe index;
+>   - rdev is leaked through devres on probe deferral.
+> 
+> One more, not from Sashiko and not touched by this series, found while
+> checking 3/14's reasoning. rocket_core_fini() puts core->iommu_group and
+> NULLs it BEFORE rocket_job_fini(), which is what cancels the timeout worker
+> through drm_sched_fini(). A timeout in that window reaches
+> rocket_reset()'s iommu_detach_group(NULL, core->iommu_group) on the stored
+> pointer: a NULL dereference, or a use after free if it read the pointer
+> just before the store. It needs an unbind or a module unload with a job in
+> flight. Moving the cancellation ahead of the put fixes it, and 3/14 adds a
+> synchronize_irq() into that same window.
+> 
+> Still open from v9, no reply since. 9/14 does three things: it adds the
+> settle delay, renames a macro, and gives RK3576_PD_NPU a regulator,
+> which also makes every RK3576 board force that domain off at probe. I
+> asked whether it wants splitting; Abel Vesa's Reviewed-by may be the
+> answer, and I would rather split it than have it merged on my silence.
+> 13/14 also gives each core both NPU domains, which is the description
+> that has been tested here rather than the topology; if it should be one
+> domain per core, 6/14's minItems has to change with it.
+> 
+> The bindings are unchanged since v9 and both checks were re-run for v13
+> rather than quoted from then. dt-doc-validate and yamllint are clean on
+> all three, with dtschema 2026.6 and yamllint 1.38.0. CHECK_DTBS was run
+> from scratch over every rk3576 and rk3588 device tree the Makefile lists, 15
+> and 59, and the only complaint is on rk3588-rock-5b-pcie-ep: a
+> vpcie3v3-supply that rockchip,rk3588-pcie-ep does not allow. That one is
+> present at the base commit with none of this series applied, and nothing
+> here touches an rk3588 dts. 13/14 adds a property to a dts and not to a
+> binding, and rock-4d is among those targets.
+> 
+> Applying order, because this series lands in three trees and 14/14 is not
+> safe on its own. 09 and 10 go through pmdomain, 01 to 05 and 11 and 12
+> through accel, 13 and 14 through rockchip, and 06, 07 and 08 are bindings
+> that can go with whichever tree takes the code they describe. 14/14 sets status = "okay" on
+> both cores and both MMUs, so a kernel that has the DTS half and the driver
+> half but not the pmdomain half powers the domain on with neither 10/14's
+> reset pulse nor 09/14's settle delay and reads PC_VERSION into the async
+> SError that 07 and 09 describe. That is an unbootable rock-4d, not a
+> degraded feature. 14/14 depends on 09, 10, 12 and 13; the other
+> intermediates are safe, since 13/14 alone leaves every node disabled, 11
+> and 12 alone add no DT nodes, and 10 alone is inert because no in-tree
+> power-domain node carries resets until 13/14. 09 alone is the one that does
+> something: giving RK3576_PD_NPU need_regulator makes
+> rockchip_pm_add_one_domain() power that domain off at probe on all thirteen
+> in-tree rk3576 boards, with or without the rest of the series. 09/14 argues
+> that is deliberate and why; it is not a state nothing reaches.
+> Holding 14/14 a cycle is fine by me if that is easier than coordinating.
+> 
+> An index of what this series needs decided, each argued where it is raised:
+> 
+>   4/14   the shape of the fix, if you want one
+>   5/14   ours or ZhaoJinming's; whichever lands first the other conflicts
+>   9/14   whether it splits, and the macro suffix scheme it asks about
+>   13/14  both NPU domains per core, as tested, or one
+>   --     the rocket_core_fini() ordering bug: here or on its own
+>   14/14  hold it a cycle, or coordinate the three trees
+> 
+> Link to v12: https://lore.kernel.org/all/20260912065053.1519165-1-gahing@gahingwoo.com/
+> 
+> The tags:
+> 
+>   2/14   Tested-by: Igor Paunovic   # RK3588, three cores, induced
+>                                     # reset, JOB_TIMEOUT_MS=2
+>   3/14   Tested-by: Igor Paunovic   # RK3588, three cores, induced
+>                                     # reset, JOB_TIMEOUT_MS=2
+>   4/14   Tested-by: Igor Paunovic   # RK3588, three cores, induced
+>                                     # reset, JOB_TIMEOUT_MS=2
+>   5/14   Reviewed-by: Igor Paunovic
+>   6/14   Reviewed-by: Krzysztof Kozlowski
+>   7/14   Acked-by: Conor Dooley
+>   8/14   Acked-by: Conor Dooley
+>   9/14   Reviewed-by: Abel Vesa
+>   10/14  Reviewed-by: Abel Vesa
+> 
+> Igor Paunovic (1):
+>   accel/rocket: request the core clocks by name
+> 
+> Jiaxing Hu (13):
+>   accel/rocket: take the completion register writes under job_lock
+>   accel/rocket: wait for a running IRQ handler before resetting a core
+>   accel/rocket: let the core suspend after a reset
+>   accel/rocket: factor the completion tail out of the IRQ handler
+>   dt-bindings: npu: rockchip: add rockchip,rk3576-rknn-core
+>   dt-bindings: power: rockchip: allow resets in a power domain node
+>   dt-bindings: iommu: rockchip: describe the RK3576 NPU MMU
+>   pmdomain: rockchip: add optional per-domain power-on settle delay
+>   pmdomain: rockchip: cycle optional power-domain resets on power-on
+>   accel/rocket: select the per-core clock and reset counts from match
+>     data
+>   accel/rocket: add RK3576 NPU (RKNN) support
+>   arm64: dts: rockchip: add NPU (RKNN) nodes to rk3576
+>   arm64: dts: rockchip: enable the NPU on rk3576-rock-4d
+> 
+>  .../bindings/iommu/rockchip,iommu.yaml        |  28 ++++
+>  .../npu/rockchip,rk3588-rknn-core.yaml        |  47 +++++-
+>  .../power/rockchip,power-controller.yaml      |   8 +
+>  .../boot/dts/rockchip/rk3576-rock-4d.dts      |  22 +++
+>  arch/arm64/boot/dts/rockchip/rk3576.dtsi      |  86 +++++++++-
+>  drivers/accel/rocket/rocket_core.c            |  32 +++-
+>  drivers/accel/rocket/rocket_core.h            |  11 +-
+>  drivers/accel/rocket/rocket_device.c          |   7 +-
+>  drivers/accel/rocket/rocket_drv.c             |  42 ++++-
+>  drivers/accel/rocket/rocket_drv.h             |   2 +
+>  drivers/accel/rocket/rocket_job.c             | 151 +++++++++++++++---
+>  drivers/pmdomain/rockchip/pm-domains.c        |  83 +++++++---
+>  12 files changed, 456 insertions(+), 63 deletions(-)
+> 
+> 
+> base-commit: 1a1de54f7369cd2b5bac0f265910e60ad3a6b4c3
+> -- 
+> 2.43.0
+> 
+> 
+> _______________________________________________
+> Linux-rockchip mailing list
+> Linux-rockchip@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-rockchip
 
