@@ -4,91 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D2F0C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 14:46:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D17BEC982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 14:57:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1UcMBG13q7TO7qzdipxuscmR1WJ+KOa+mjW/lgeob0U=; b=b+ccMaFM1KJo6I6/0qKAR0dqC1
-	Qwci3S5AQ2jOCcxwJPZ+ByjqrJtr3R8WrkAEOTWAlrTCQyT+tTLu2VxaxB2KjVGM9rk8lB+0rPHL1
-	MBrsiMUm9a4t5ZZrfbFb5BVGZB0AHMdPeOv3wUwNQTXEimmaTX/duJgTi41ANZYwQMKs1RJ7ONiTg
-	JmMieF9secNw/MVtKhKJzBOLHdo+IOHefEFFuaee7hRWvFw31woPTxk6QtdPrhQ8WJI8pLhzuNOg5
-	aob7rGOeOJn7NZ/oZzDXBsELv08kzX6CWLKYUXLjs8FvR2x+Nc8s2X5BZC285YBn6NXO3vArff7ty
-	bqit4Rjg==;
+	bh=hwMYKiZPm2y3OBoj9z4kIBVQqZuXs87GFGfojHIy3GI=; b=CFNrJHiddQt5ObyeEvEPnYq9l6
+	xg9fRgA7tlMVlWXmHwRjWSZ5eISL1CYE4Lxb3M+LP3Fe4JFrG5y64575z+tMeRCGbWhQB/n9VxQIL
+	fcdwHwX+1RJONfaw19+31sbopvc4UUTm1J35/v0vl8ntfHJUne1VcfCTF/jMEK9d9alzNC3JpwK4g
+	6bfGmOXH/wulikBpLqK5iPHF30mQ/GmQmLeey2duQ1pI/XGDXQpntASDanAD0xj89EycJnAaPdtPm
+	Ii3M8T7hO/RmIPtzQjHRGZ+/Gc3CsudVl0xhMUGbRbip0txilGeQHZVsCkv8laZJ+f0HJympjN+h/
+	NSk98vTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7wKJ-0000000GOcC-3ocO;
-	Sat, 19 Sep 2026 14:46:03 +0000
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	id 1x7wVa-0000000GPJW-0jC0;
+	Sat, 19 Sep 2026 14:57:42 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7wKH-0000000GObW-44ja
+	id 1x7wVX-0000000GPJJ-3qs8
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Sep 2026 14:46:03 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e721b5503so16256465e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 19 Sep 2026 07:46:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1789829160; x=1790433960; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=1UcMBG13q7TO7qzdipxuscmR1WJ+KOa+mjW/lgeob0U=;
-        b=Pg/x2tEtXYuoE1iOc56f7tvBQbOWKJ6jxJcZpyscm5S6wB/YtztKsN8FW5lUz/39p6
-         E86ixOM7rCbdQ69ym/mKSBLPmPboLbXag2afS8ZNMrsdM41PLXGg8JHqfWypt7Ztd+mV
-         B6qtworTB0dymNRx1oMTzSZqZodZ61ozyCv6yzTxkiyEiIuAyJdR+0LI1mUBuWPGsNBZ
-         KlT5m1MJA7KgmZP1oCEyomG7UlrabCJoH1du+VNPRdjkYka17ZTrjnhoVXmYQEKCoYqE
-         x/wDhAL0+83UgcVP0IeAOkn/mxWq9bluO1LN3HxiwCcU228XlgQXO5R+qOlo+/Dr5fXx
-         IlKw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789829160; x=1790433960;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=1UcMBG13q7TO7qzdipxuscmR1WJ+KOa+mjW/lgeob0U=;
-        b=si2CJU6tmldpbZnuwysiccN3Je/LNHKyk76IgU4fd+OYza1BzZ8DNn570NeYOG7Cyg
-         JHL3xXndDLLR3dk0tx0axdCRXCubvkgf7WRNp6ZW4AZIBZ/f+yIMBBM3jdBFs6MeMw5V
-         65u/b5azyiEZInNptmR6xcvbM76tab+u1r55BeNxXEfNWJHahSXdrD2weoKdkNr84wbt
-         k9HArZR3qimc1F3e2Qa2don4BGSpZLaCGpE7QCO16sV+EjrG9TqnMos7WLsl6Be0O7QF
-         ewbtEBEpI/BZ9gxxACcKS9So40PFffX9hOlx3UxOYbtlWNRotKQJ6EriQRhiEsCrfHTl
-         xJ9g==
-X-Gm-Message-State: AFuF++mcD3p/YZTLkHUTi665Cvd8PlakotnBXa3Mx6ipz//EMnNF7rhB
-	UmsSuWXw2FFoymwjizZNnj6DLGbt87zFveQCrt/wmISPwmux6XMxD1SlZzG4alYSyyM=
-X-Gm-Gg: AYBFou3gK2KiLM/fRR48wi/i9842j509YF6Mr9c56FxJhzdF8OOg4+w01/9aFzNiGzh
-	Utbn2HOJuUrUcHP4LXvCkZC1QxOPRkteQUm1v6ROaTTYUw7JS8bA12VgbotcIRMGSG5NPC3HFwe
-	b9FienJDOK+4ce8O0LeELugy8xY0Y5UJlxQFA8Hp6Cxptfd60vxTu+kfEdLZnufrequvdRYg3C2
-	MPYiLRy5laEpg9u7SKbErYatwetzunSENeSrLLh/oNNz7ZYTxLMEUUmTjKP3z/JQs5O7kDS82aL
-	9kLJhBCAw8xOcAW3EuP80MlfgTBA3LzcQxNaumvnoELvpX981AtcHAbZlnzjLPlQtRnKM2xL1wH
-	DbqZ7GWmxaHBPLQLnj3kP6oeMXhm6vl6JTJ9tzz4kTXsnnfviGw3FCQaKhvBzVCeI0CRkR6TX7/
-	g6ArqilsMMoMU2tOnpmjMtS6hpIAngUZsctli9h6u3Xl2ZUfo/el7xJQKIFPI3g/RmovGnPwa32
-	sfQUHrkUj0LaS+TdOMtgUp/mKIZznSJAWkr1OiXDa7DhMSB7VtMROsz
-X-Received: by 2002:a05:600c:1f8f:b0:49e:8354:26fb with SMTP id 5b1f17b1804b1-49fc574c729mr81926275e9.32.1789829160140;
-        Sat, 19 Sep 2026 07:46:00 -0700 (PDT)
-Received: from ?IPV6:2a02:2f05:1204:e000:2cf7:c250:64a9:ae77? ([2a02:2f05:1204:e000:2cf7:c250:64a9:ae77])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48724589c02sm6931200f8f.24.2026.09.19.07.45.58
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 19 Sep 2026 07:45:58 -0700 (PDT)
-Message-ID: <77b1f993-141d-4d85-aaeb-0ff48d379f7e@tuxon.dev>
-Date: Sat, 19 Sep 2026 17:45:57 +0300
+	Sat, 19 Sep 2026 14:57:40 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0A34960AA4;
+	Sat, 19 Sep 2026 14:57:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 625771F000FF;
+	Sat, 19 Sep 2026 14:57:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789829858;
+	bh=hwMYKiZPm2y3OBoj9z4kIBVQqZuXs87GFGfojHIy3GI=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=UBShnuzNZLY5og2swhM4JcZuGUbhPH621d//TSqzd2LqOAKbXceBslQVOOgg8miXi
+	 zdz+Y5QD+3s7s2Fs1KrPH3/QXoactcKBWC5ACpGPxZb8CQ16JfU6wGGR06sSjXryeg
+	 wwh4ijWHZolW5VujXMK+b8lwaC86kFlNficqje1oRsYLXNZQ89AqY5ppFc8RNoPnQO
+	 3qZaGA3VE/rpzlRAsvtuTOcJskD1lONFY2tmQMpwPOxmNg3aONxm53/ef2NcoZyAcI
+	 A8gpYWaej6HgpdnU0VZtcKQFzTjivjVP+dZP/yiadqBmUZYuApvepJ6NreVJ/fcaVm
+	 a5i1GjcIAVf0Q==
+X-Mailer: emacs 31.1 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Jason Gunthorpe <jgg@ziepe.ca>,
+	Christian =?utf-8?Q?K=C3=B6nig?= <christian.koenig@amd.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	linux-coco@lists.linux.dev, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	Marc Zyngier <maz@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	"T.J. Mercier" <tjmercier@google.com>
+Subject: Re: [PATCH v6 7/9] dma-buf: system_heap: Enforce shared-granule
+ alignment for cc-shared buffers
+In-Reply-To: <20260918153642.GD11599@ziepe.ca>
+References: <aq1V3oeDdvXobt8J@arm.com>
+ <97c30fce-9bda-4c61-b1b9-10297b89c8d9@amd.com>
+ <20260918153642.GD11599@ziepe.ca>
+Date: Sat, 19 Sep 2026 20:27:29 +0530
+Message-ID: <yq5atsnl47c6.fsf@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: at91: Replace __ASSEMBLY__ with __ASSEMBLER__
-To: Thomas Huth <thuth@redhat.com>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260821083645.200344-1-thuth@redhat.com>
-Content-Language: en-US
-From: claudiu beznea <claudiu.beznea@tuxon.dev>
-In-Reply-To: <20260821083645.200344-1-thuth@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260919_074602_043692_50821324 
-X-CRM114-Status: GOOD (  10.79  )
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,17 +84,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Jason Gunthorpe <jgg@ziepe.ca> writes:
+
+> On Fri, Sep 18, 2026 at 05:23:32PM +0200, Christian K=C3=B6nig wrote:
+>> On 9/18/26 17:16, Catalin Marinas wrote:
+>> > First, none of the DMA-BUF maintainers have been cc'ed. It might be fi=
+ne
+>> > for an RFC but this series got to version 6. We need their feedback.
+>>=20
+>> Yeah, thanks for doing this.
+>> > On Fri, Sep 04, 2026 at 04:04:50PM +0530, Aneesh Kumar K.V (Arm) wrote:
+>> >> The system heap can allocate buffers that are decrypted and shared wi=
+th the
+>> >> host. For confidential-computing guests, those shared buffers must co=
+ver
+>> >> whole shared-buffer granule; otherwise a userspace mmap of the dma-bu=
+f may
+>> >> expose only part of a host-managed granule and allow unintended acces=
+s to
+>> >> adjacent private memory.
+>> >>
+>> >> Require cc-shared system-heap allocations to have a size aligned to
+>> >> mem_cc_shared_granule_size(), and allocate pages at least as large as=
+ the
+>> >> required granule. Keep the allocation bounded by the existing heap or=
+ders,
+>> >> but fall back to an exact minimum-order allocation when the required
+>> >> granule is not one of the preferred heap orders.
+>>=20
+>> Uff, I don't think we can do that.
+>>=20
+>> That is massively platform specific behavior in a non platform
+>> specific code.
+>
+> What we really need is an allocator API that does all this for the caller.
+>
+> It has been pointed out a few times, Aneesh maybe you need to try to
+> tackle that?
+>
+> dmabuf heap just wants
+>
+> 'allocate me an array of shared folios totaling XX bytes'
+>
+> Arch code can figure out how to do it. If some ARM configs only give
+> order 4 folios or whatever then dmabuf heap doesn't care.
+>
+> And solve the double/triple zeroing problem.
+>
+
+Agreed. Moving all the CoCo shared-allocation rules into one place makes
+this easier to follow.
+
++static struct page *system_heap_alloc_order(unsigned int order, gfp_t flag=
+s,
++					    bool cc_shared)
++{
++	struct cc_shared_pages mem;
++
++	if (!cc_shared)
++		return alloc_pages(flags, order);
++
++	/* The shared granule can raise the actual allocation order. */
++	flags |=3D __GFP_COMP;
++	if (alloc_cc_shared_pages(flags, PAGE_SIZE << order, &mem))
++		return NULL;
++
++	return mem.page;
++}
++
+ static struct page *alloc_largest_available(unsigned long size,
+-					    unsigned int max_order)
++					    unsigned int max_order,
++					    bool cc_shared)
+ {
+ 	struct page *page;
+	int i;
+ 	gfp_t flags;
+=20
+ 	for (i =3D 0; i < NUM_ORDERS; i++) {
+ 		if (size <  (PAGE_SIZE << orders[i]))
+ 			continue;
+ 		if (max_order < orders[i])
+ 			continue;
+ 		flags =3D order_flags[i];
+ 		if (mem_accounting)
+ 			flags |=3D __GFP_ACCOUNT;
+-		page =3D alloc_pages(flags, orders[i]);
++		page =3D system_heap_alloc_order(orders[i], flags, cc_shared);
+ 		if (!page)
+ 			continue;
+ 		return page;
 
 
-On 8/21/26 11:36, Thomas Huth wrote:
-> While the GCC and Clang compilers already define __ASSEMBLER__ auto-
-> matically when compiling assembly code, __ASSEMBLY__ is a macro that
-> only gets defined by the Makefiles in the kernel. This can be very
-> confusing when switching between userspace and kernelspace coding, or
-> when dealing with uapi headers that rather should use __ASSEMBLER__
-> instead. Let's standardize now on the __ASSEMBLER__ macro to avoid
-> this confusion.
-> 
-> Signed-off-by: Thomas Huth <thuth@redhat.com>
-Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+with mm/cc_shared.c having
+
+int alloc_cc_shared_pages_node(int nid, gfp_t gfp, size_t requested,
+			       struct cc_shared_pages *mem)
+{
+	struct cc_shared_layout layout;
+	struct page *page;
+	unsigned int order;
+	bool zero =3D gfp & __GFP_ZERO;
+	int ret;
+
+	if (!mem)
+		return -EINVAL;
+
+	ret =3D cc_shared_calc_layout(requested, &layout);
+	if (ret)
+		return ret;
+
+	order =3D get_order(layout.shared_size);
+	if (order > MAX_PAGE_ORDER)
+		return -EINVAL;
+
+	/*
+	 * State transitions require a linear-map address and may modify memory.
+	 * Allocate from low memory and defer requested zeroing until afterwards.
+	 */
+	gfp &=3D ~(__GFP_HIGHMEM | __GFP_ZERO);
+	if (nid =3D=3D NUMA_NO_NODE)
+		page =3D alloc_pages(gfp, order);
+	else
+		page =3D alloc_pages_node(nid, gfp, order);
+	if (!page)
+		return -ENOMEM;
+
+	ret =3D cc_make_shared(page_address(page), layout.shared_size);
+	if (ret) {
+		if (!cc_make_private(page_address(page), layout.shared_size))
+			__free_pages(page, order);
+		else
+			pr_warn_ratelimited("leaking %zu bytes with uncertain shared state\n",
+					    layout.shared_size);
+		return ret;
+	}
+
+	if (zero)
+		memset(page_address(page), 0, layout.shared_size);
+
+	mem->page =3D page;
+	mem->shared_size =3D layout.shared_size;
+	return 0;
+}
+
+-aneesh
 
