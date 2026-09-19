@@ -4,104 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13E82C982CC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 07:10:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4D63C982D7
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 07:11:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Xko9VPFILsIKFRtknUu5Sx/9/JaWUqswYKCJpV+0hs=; b=oPQyCxQ20qlVMhi1O3Y4muqnZ6
-	S1B7fKiOGmjQg5QtQaplFzmCR8GPTswzvIm3sO0Z73PtAknh0k8Bdt3X0VJrh3btJCx6cjBtHLC/I
-	1axHumm2mnO1OzdYS3MEoH3iVZ1abwys3vqmZqlgV8a47VRLPFS1Qq2Z4jZfSiYMEu6+v/X6+hCCq
-	BBphC3OHEQY794Uw95N1NQz/BzQ0A7usO5dYV1Vsdil4OhFPymWtpWpJMBpHu6YFbiWUL3d+p6OQf
-	tNaex7V4yONuWvQv4wCcM4V+uLWLrbxgIMmynE+aHWy9LAraMea5ZnwLsWRTu3BVMZ5oGpmHlCrDC
-	duHQbHpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bEP94n9v3wLAo85N51UgdrheAoXFz2CprleV4BZJMM8=; b=Fx0lGpUJDHVgK8do40KTH4S9mb
+	4j+/8UKnndX0pcdQRY3Uub1Qt15NUToNOR6rOiKy0e950MXWLxbaAwmZYrBd2Pj34L5ZDrQfD/La0
+	2QWkFFF/EJk8QVBlVebRo3MqqgtfOghS7NKyrDX50VC7KDMrsLcGvIfdf6UgYgUxHpwPSPiy477DB
+	shC5kZ7nRcf1NurcmxYeExIfb8SyVmAjFYRLGkwF7Iwibnel1+RPs1+L4Ck5G47I9Yr/qe/1MtVZs
+	iYCv55YJ/Vg9A53abHP7hZ3F60W3lUhCtov2TPB13FLXMmOU3dUGK5EV+9ajkdpI69l01Yskti/K7
+	KPE6h8ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7pDo-0000000G2QQ-0TWc;
-	Sat, 19 Sep 2026 07:10:52 +0000
+	id 1x7pEX-0000000G2WD-1hOl;
+	Sat, 19 Sep 2026 07:11:37 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7pDn-0000000G2QJ-0943
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Sep 2026 07:10:51 +0000
+	id 1x7pEW-0000000G2VA-03jm;
+	Sat, 19 Sep 2026 07:11:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7651543CF2;
-	Sat, 19 Sep 2026 07:10:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28F371F000FF;
-	Sat, 19 Sep 2026 07:10:45 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BD9CD402DD;
+	Sat, 19 Sep 2026 07:11:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F3261F000FF;
+	Sat, 19 Sep 2026 07:11:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789801850;
-	bh=1Xko9VPFILsIKFRtknUu5Sx/9/JaWUqswYKCJpV+0hs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=USdRR2+pduPF0P7s+UzOkruqa3Ehe9RaSBY3nFYwauOpX7GbMUaUufRegLl2lHDj1
-	 9di/InnTURqH94I3URtt1pcA6JFQMaeZz5F0rzgyuRY3TiYHfL+zmJQjg+9D+nvqrM
-	 xH3qHg10PxqxFtZWMLMXLZaVhILZinHv3RwWmvg3tWXT1X5PClV0++Ld9dtKv6BarF
-	 jGV79JKBoCeyqJgx9SRj/FhEHT0FfIetqddVBB5vsZf8kW/iUwmvx/AsCipU/+JWv2
-	 PiUnwHrdKf3oDPdDt+jOPXJaSGGobBRFEWuYVqkNEi8cwWSrHtFTb0s8gN4GBpPboi
-	 ZV7h1l8/P3JOg==
-Message-ID: <77606157-1d09-45a9-bf1c-b8c1d921cee3@kernel.org>
-Date: Sat, 19 Sep 2026 09:10:43 +0200
+	s=k20260515; t=1789801895;
+	bh=bEP94n9v3wLAo85N51UgdrheAoXFz2CprleV4BZJMM8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=F4W1bQei0WbJqW4r8EVplbGGhiwx7NXzD9fjTAJz1nnroqL5YVOgqQUiArkdtmHyr
+	 W9CUxLppulp2QWgWTUWbd/dAehRrSW/lkzZ8oqUe3f2GoaBZ9mxErL6fLMqXM7hUoW
+	 pflbnHmqkcZuRmlsQGGEHcLyopvAXc13ZfvUKI6JKD4iUk+a26j861qNbyRs7NwWAe
+	 5rxSiPFeIPanXD5TpncL4/J1QB4XlrZSZXGeFurkupyx3dvKksXmU0uWgTWfiWByEt
+	 kIY5KOkGCC+OaHU6gMgpAmJdMdOpQb8sI62v9yK0E5VZLKYJBnSZK7nFcRXx41rwCe
+	 CYxurd2l460hw==
+Date: Sat, 19 Sep 2026 10:11:24 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Baoquan He <baoquan.he@linux.dev>
+Cc: Wandun Chen <chenwandun1@gmail.com>, catalin.marinas@arm.com,
+	will@kernel.org, chenhuacai@kernel.org, pjw@kernel.org,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, tglx@kernel.org,
+	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
+	x86@kernel.org, robh@kernel.org, saravanak@kernel.org,
+	akpm@linux-foundation.org, pasha.tatashin@soleen.com,
+	pratyush@kernel.org, m.szyprowski@samsung.com, mark.rutland@arm.com,
+	kernel@xen0n.name, alex@ghiti.fr, hpa@zytor.com,
+	ruirui.yang@linux.dev, robin.murphy@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, kexec@lists.infradead.org,
+	linux-mm@kvack.org, iommu@lists.linux.dev
+Subject: Re: [PATCH v6 06/10] memblock: introduce MEMBLOCK_NODUMP flag
+Message-ID: <aq41nFRPtRWTQ7cK@kernel.org>
+References: <20260902073116.802752-1-chenwandun1@gmail.com>
+ <20260902073116.802752-7-chenwandun1@gmail.com>
+ <aqzxavL91icLw-Xv@fedora>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64: dts: imx8mp: add Olimex i.MX8MP-SOM-EVB kit
-To: Zoltan HERPAI <wigyori@uid0.hu>, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, Frank.Li@nxp.com, s.hauer@pengutronix.de,
- festevam@gmail.com, kernel@pengutronix.de
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260918195559.130443-1-wigyori@uid0.hu>
- <20260918195559.130443-3-wigyori@uid0.hu>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260918195559.130443-3-wigyori@uid0.hu>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aqzxavL91icLw-Xv@fedora>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,38 +80,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/09/2026 21:55, Zoltan HERPAI wrote:
-> This adds support for an i.MX8-based system-on-module + EVB board. The
+On Fri, Sep 18, 2026 at 04:08:10PM +0800, Baoquan He wrote:
+> On 09/02/26 at 03:31pm, Wandun Chen wrote:
+> > From: Wandun Chen <chenwandun@lixiang.com>
+> > 
+> > Add MEMBLOCK_NODUMP to mark regions that should be excluded from
+> > kdump vmcores.
+> > 
+> > The flag is meant for reserved memory that carries no data useful for
+> > crash analysis. Reusable reserved regions such as CMA may hold useful
+> > data, so these regions must not be marked MEMBLOCK_NODUMP. Subsequent
+> > patches wire this up for /reserved-memory and /memreserve/ entries.
+> > 
+> > Suggested-by: Rob Herring <robh@kernel.org>
+> > Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
+> > Tested-by: Meijing Zhao <zhaomeijing@lixiang.com>
+> > ---
+> >  include/linux/memblock.h |  9 +++++++++
+> >  mm/memblock.c            | 16 ++++++++++++++++
+> >  2 files changed, 25 insertions(+)
+> > 
+> > diff --git a/include/linux/memblock.h b/include/linux/memblock.h
+> > index d62db9e776cf..b2fcf11fba2b 100644
+> > --- a/include/linux/memblock.h
+> > +++ b/include/linux/memblock.h
+> > @@ -52,6 +52,8 @@ extern unsigned long long max_possible_pfn;
+> >   * kernel that we know is good to use. It is the only memory that
+> >   * allocations may happen from in this phase.
+> >   * @MEMBLOCK_RSRV_HUGETLB: memory is reserved for hugetlb pages
+> > + * @MEMBLOCK_NODUMP: exclude from kdump vmcore. It carries no data useful
+> > + * for crash analysis (e.g. firmware carveouts).
+> >   */
+> >  enum memblock_flags {
+> >  	MEMBLOCK_NONE		= 0x0,	/* No special request */
+> > @@ -63,6 +65,7 @@ enum memblock_flags {
+> >  	MEMBLOCK_RSRV_KERN	= 0x20,	/* memory reserved for kernel use */
+> >  	MEMBLOCK_KHO_SCRATCH	= 0x40,	/* scratch memory for kexec handover */
+> >  	MEMBLOCK_RSRV_HUGETLB	= 0x80, /* memory reserved for hugetlb pages */
+> > +	MEMBLOCK_NODUMP		= 0x100,/* exclude from kdump vmcore */
+> >  };
+> >  
+> >  /**
+> > @@ -160,6 +163,7 @@ int memblock_reserved_mark_noinit(phys_addr_t base, phys_addr_t size);
+> >  int memblock_reserved_mark_kern(phys_addr_t base, phys_addr_t size);
+> >  int memblock_mark_kho_scratch(phys_addr_t base, phys_addr_t size);
+> >  int memblock_clear_kho_scratch(phys_addr_t base, phys_addr_t size);
+> > +int memblock_mark_nodump(phys_addr_t base, phys_addr_t size);
+> >  
+> >  void memblock_free(void *ptr, size_t size);
+> >  void reset_all_zones_managed_pages(void);
+> > @@ -306,6 +310,11 @@ static inline bool memblock_is_kho_scratch(struct memblock_region *m)
+> >  	return m->flags & MEMBLOCK_KHO_SCRATCH;
+> >  }
+> >  
+> > +static inline bool memblock_is_nodump(struct memblock_region *m)
+> > +{
+> > +	return m->flags & MEMBLOCK_NODUMP;
+> > +}
+> > +
+> >  int memblock_search_pfn_nid(unsigned long pfn, unsigned long *start_pfn,
+> >  			    unsigned long  *end_pfn);
+> >  void __next_mem_pfn_range(int *idx, int nid, unsigned long *out_start_pfn,
+> > diff --git a/mm/memblock.c b/mm/memblock.c
+> > index f2952d725c10..2e87f39826dd 100644
+> > --- a/mm/memblock.c
+> > +++ b/mm/memblock.c
+> > @@ -1204,6 +1204,21 @@ __init int memblock_clear_kho_scratch(phys_addr_t base, phys_addr_t size)
+> >  				    MEMBLOCK_KHO_SCRATCH);
+> >  }
+> >  
+> > +/**
+> > + * memblock_mark_nodump - Mark a memory region with flag MEMBLOCK_NODUMP.
+> > + * @base: the base phys addr of the region
+> > + * @size: the size of the region
+> > + *
+> > + * Mark the region as not to be included in crash dumps.
+> > + *
+> > + * Return: 0 on success, -errno on failure.
+> > + */
+> > +int __init_memblock memblock_mark_nodump(phys_addr_t base, phys_addr_t size)
+>       ~~~~~~~~~~~~~~^
+> Is it impossible to use at runtime even thought it claims to be generic?
 
-Please do not use "This commit/patch/change", but imperative mood. See
-longer explanation here:
-https://elixir.bootlin.com/linux/v6.16/source/Documentation/process/submitting-patches.rst#L94
+This should only happen at boot.
 
-> product pages are here [1] and here [2] respectively.
-> 
-> There are two new files, one dts for the EVB and one dtsi for the SoM.
-> 
+Allowing modifications of memblock properties in runtime is a can of worms
+I don't want to open.
+ 
+> > +{
+> > +	return memblock_setclr_flag(&memblock.memory, base, size, 1,
+> > +				    MEMBLOCK_NODUMP);
+> > +}
+> > +
+> >  static bool should_skip_region(struct memblock_type *type,
+> >  			       struct memblock_region *m,
+> >  			       int nid, int flags)
+> > @@ -2887,6 +2902,7 @@ static const char * const flagname[] = {
+> >  	[ilog2(MEMBLOCK_RSRV_KERN)] = "RSV_KERN",
+> >  	[ilog2(MEMBLOCK_KHO_SCRATCH)] = "KHO_SCRATCH",
+> >  	[ilog2(MEMBLOCK_RSRV_HUGETLB)] = "RSV_HUGETLB",
+> > +	[ilog2(MEMBLOCK_NODUMP)] = "NODUMP",
+> >  };
+> >  
+> >  static int memblock_debug_show(struct seq_file *m, void *private)
+> > -- 
+> > 2.43.0
+> > 
 
-
-...
-
-
-> +&ecspi2 {
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +	cs-gpios = <&gpio5 13 GPIO_ACTIVE_LOW>;
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_ecspi2 &pinctrl_ecspi2_cs>;
-> +
-> +	status = "okay";
-> +
-> +	spidev1: spi@0 {
-> +		reg = <0>;
-> +		compatible = "rohm,dh2228fv";
-
-No, strong no. This does not exist. Don't invent fake devices on your board.
-
-
-Best regards,
-Krzysztof
+-- 
+Sincerely yours,
+Mike.
 
