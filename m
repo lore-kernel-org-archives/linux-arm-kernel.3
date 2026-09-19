@@ -4,103 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFD81C982DE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 01:07:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B63D6C982DE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 01:26:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6HewLLL8ipgY9ww2B3n9+2RGXN10iLBb3PUHWKJHjHA=; b=zrJrxjC2Q+Am9H1ILVWvj5DHeo
-	6+ZG/ZEX/LFUuoR0xy4ujIB3BFEB1NfIaU76rckWkATojLKJZ5rnrpXl3zPce41NvCTN2w72bQFDc
-	cwo/0eyv8Nb/G4cMrV0d7oNJPZPC028cJd5OXQx/MEQJDYrm4BpbhZns7j8s7AxqzUno7k+KV+b3W
-	pTUhqf9HgCzNnAWpAMBSHy4UIK+3POiCmxUf/DEccJKacd5TnT9mcY1KAPMMjaOKGPdYL4wLi+ji5
-	TNYZlqmqghsd/IvTgOPfnYWIJNOvPE3eapGXzH81yy8ohxgmHcHBJaTngEZ9HlM2PqOVTpBhO8vbZ
-	Bv3dhYXQ==;
+	bh=p3L0rxgEAbtQEbqFgNrv4RPCI8jZ2s9hpAeajLJYIjo=; b=eZybgWM441ZCce7z1L6724lDFV
+	cww0bxBOKNqkPvzSoTJbtDVe5Y/Nk1wlOP79pRV0Z/geUnaTnDvS9WqlBOG/ljkll5vdJaSVZduhI
+	Rgq1lvHqZX+Wa6zBHbsRd1QnKWNaXL+5CSTsKUPdZCf6S2I0x6nSSy0eyrL7PXtJeXVRlOIRfbqDd
+	PZN5YQq6xpBibj0RUizTRHWJJf3z/NyQ128s+wTHwW2zWLCacilYTTqSmHIJuaEVy7JOIzOVG1aiI
+	R4BhSr8JEe9S2cXzc58JVESxZqKnly/DsvN3jFaltS6WMoRD5myURuTpsA+PYCKaYpjdH4lQfprGD
+	4z2nr4hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7jYV-0000000FoMJ-1Q3s;
-	Sat, 19 Sep 2026 01:07:51 +0000
-Received: from watt.d-silva.org ([119.15.109.137] helo=www.nmnhosting.com)
+	id 1x7jqe-0000000Foqt-0YXk;
+	Sat, 19 Sep 2026 01:26:36 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7jYR-0000000FoLl-2mEH
+	id 1x7jqc-0000000Foqm-2WqF
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Sep 2026 01:07:49 +0000
-Received: from hawking.lan (ntp.lan [10.0.1.1])
-	by www.nmnhosting.com (Postfix) with ESMTPSA id 551E140497;
-	Sat, 19 Sep 2026 11:07:31 +1000 (AEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=d-silva.org; s=2025a;
-	t=1789780051;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=6HewLLL8ipgY9ww2B3n9+2RGXN10iLBb3PUHWKJHjHA=;
-	b=JF4OYFnz5uVwSTxfHxbiXOwgyD1ltxZwUJokhs/GboS1lWV2BGfUDtEpycPy0epafOFMww
-	/ideq4L0YJLp4kwiHDr5Sq8u/mdXbsXynYgW/l9uGHbXoguumsI/Zy5wxbEHU2gnGu0t8P
-	MfvQTuCHWNIsYVvqooav+p2J6x6Ufi/PkdAUftABbjc5qsdFVyXzKlxGZqEWYqcy0WzFHc
-	S8nHxBCGAWjGTjvFRAVjClB3+2W8x/mNIfuDaGCmOqNsG13X646mqz9pjl7mHdNOn5zbxq
-	0wHXVtCGyKQXwwok0npnNsev4zL+mdzuS49ghAOdcEnRxMsrtrkM4Pc0YrX9oQ==
-X-GPT-Reason: legitimate; the email is a technical discussion regarding
-	Linux kernel patches (net-next) and contains highly specific engineering
-	details about stmmac drivers and Allwinner H616 EMAC support; the
-	sender identity (alastair@d-silva.org) perfectly matches the recipient
-	mailbox (alastair@d-silva.org), indicating a personal/professional
-	communication; the presence of a link to msgid.link is consistent
-	with standard Linux kernel mailing list practices for patch submission;
-	there are no indicators of phishing, urgency, or unsolicited marketing.
-Message-ID: <ae87fcbacadb7447d5e249c03f43a49ee49cfdce.camel@d-silva.org>
-Subject: Re: [PATCH net-next v3 0/3] net: stmmac: add Allwinner H616 EMAC1
- support
-From: Alastair D'Silva <alastair@d-silva.org>
-To: James Hilliard <james.hilliard1@gmail.com>, Richard Genoud	
- <richard.genoud@bootlin.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David
- S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub
- Kicinski <kuba@kernel.org>,  Paolo Abeni <pabeni@redhat.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec
- <jernej.skrabec@gmail.com>,  Samuel Holland <samuel@sholland.org>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Giuseppe Cavallaro	
- <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>, Maxime
- Chevallier	 <maxime.chevallier@bootlin.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>
-Cc: Maxime Ripard <mripard@kernel.org>, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com
-Date: Sat, 19 Sep 2026 11:07:31 +1000
-In-Reply-To: <20260917-submit-h616-emac1-v1-v3-0-62cb8316e19b@gmail.com>
-References: <20260917-submit-h616-emac1-v1-v3-0-62cb8316e19b@gmail.com>
-Autocrypt: addr=alastair@d-silva.org; prefer-encrypt=mutual;
- keydata=mQINBGactvoBEADBFM2HqfQUUM4j40ZQPyYzmnM8S6zrycO0ipDDPMs7nZMzyzGzOdqfS
- VB/tuYvZOOKVWzJuWJ5aT/YyHx54r3L+D5hTkEG0sXPVJky3yTS9sbHEMSLBHb8TVVuhPVPuieV4g
- Nkqg5POMTidk8xAw50WpV++tUlewXVSciehnuCQPXhXMP7FcCh4uO8LdN7E8m7ir1LafKTFfoWPah
- KVT8NGG9r+ucrFcN5F+VnHxTDaI68yRPkNdtUWmp22wIX1KwDCtKFrndYO4p5Hv2hlDKomsuIIHHn
- muQGRwuh0xpf0nVJNF8ETZHMzxQLfo3e/HvxBFOTkwY9w7CuuQFZchbhS0I3PfmGT0+jiNcdfqjDC
- fPPB5uhy+DkR6wO72vuwFYUrpU2mdliDSdKEtWBHulnXMJjpBOXetfIwhI8G2dTVg59lN5i9DvJZc
- 7y1Sp+qfZQ4P9qpYZyQEKR4GNDOdnm6F2LW2cZkcyAU/Ii765zdDMTQMIzZNSxT/FcDd0K1voTNRl
- QHbQw+kmIMhzSv2JefcC9oNbE0XYzcBDNP5T3O/4itOQ90GCKQEPAbIPeBjlQif7kkyvo/H6yv4s9
- duuK7zbJD9AID/+KGLkpU3p68VDB/C2ZSb9rQz3p1CJNSfsX/CPk7sPqA7RKZ4a2B0hSJ2pJCncNZ
- KXtMlkkm/FmewARAQABtCdBbGFzdGFpciBEJ1NpbHZhIDxhbGFzdGFpckBkLXNpbHZhLm9yZz6JAl
- EEEwEKADsWIQTQGemDFwqYyU/dBWv75AdnjVo60gUCZpy2+gIbAwULCQgHAgIiAgYVCgkICwIEFgI
- DAQIeBwIXgAAKCRD75AdnjVo60qHZEACJnLfpS71Hk8bX0CLCNJ5wgqdZD3pBHEdbv9Ux9kRlZp4a
- ZFwlg9ltwBjl2dZP3PLtD9xQdsdYKVippKd5a7ZZC2y81oDaHjeC9LnPYn8+ce3mGE/+gRyoNfToY
- N06DeUNJKSlZ9t11UIqZCgfp12u16/Yrigy8C4ihEeHXlLhNX6JkeJR5gsHXJnC7vSuMZY+Qz2R72
- ZidWg+cd2WDMGop5sbTvc+55q94A7vTMlWzaix5HdbEUA3sd2U0dMBju5QodRGGhDQMcCu64TydRD
- MtMzzOk9ThJ036ze3HASWGOppyQmaw58k+XNzbHlr9Sc1LsFUNF7zpWXac2rzlywbyRAdFIT/TC76
- hy9zOkwIo2nwA/tdIwLx1j0UZPpAMQmcDUvJqZh6sE+fv6HN0yMPr+sSYJmriMt8Z6leCEHQXOHVI
- SI5z5FvV3coMmHYRq6aXpfs/8SLiYgkV3B0HE/E18Y3j1OkeLYoqIH1VfzQZeCSL/S77NYvk60/MV
- 1HFSyqLdUR3uWZI4uZzoEcMoB0GX33uCTp2Ntc00+wSntwekCUQLCMLUb7dZrbpVuobHoWWtkiD2I
- uE5kAiaVwwwzM0BUwiM6VzVoKbeECz93rdsNtwoDqM0NtzoISC46H/BKVQ9mRNXDO4ThEBpJ4H2Tn
- mPNRYYcR0u2mNy1EJII04w==
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-9 
+	Sat, 19 Sep 2026 01:26:34 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B02A9601FF;
+	Sat, 19 Sep 2026 01:26:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE9001F000FF;
+	Sat, 19 Sep 2026 01:26:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789781193;
+	bh=p3L0rxgEAbtQEbqFgNrv4RPCI8jZ2s9hpAeajLJYIjo=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=JZmutLaDrSSvKwpF1bXOQJe7FHYCACfDGfh9tPLD0ct/BOu7xu82Yf8weJ2jrUYCu
+	 B48diOYBirxOGBxXxWAKon7jDJapAWg+UuatBmElf4plCW7Lko98zfmmiClcwkWWJO
+	 zqpCG/XYFaiC8K+fFK08rV0uQFmCHLtZo2KkOiiZM3KZhTAI5Vurl5AQpVnQ0OlAvh
+	 8z7KVjhxAkXaU+YKqW9yqeDUYOpqvx4ol3Lgo2LOrVJOnDfG1YOZlPeQpL9qoau1te
+	 MPeb8i0jCHJW9kwhhgQRGZmlhiOuYerK4qLyrJH2NtrgBlkSg2IK7yyJ6B8pGxgZwq
+	 jyi62okAMtTSw==
+Subject: Re: [PATCH net v4 2/7] net: stmmac: selftests: Validate EEE based on
+ the actual LPI timer value
+From: netdev-bot+sashiko@kernel.org
+To: maxime.chevallier@bootlin.com
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, linux@armlinux.org.uk,
+ hkallweit1@gmail.com, alexis.lothore@bootlin.com, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, kernel@esmil.dk, minda.chen@starfivetech.com,
+ neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com,
+ martin.blumenstingl@googlemail.com, jan.petrous@oss.nxp.com,
+ ovidiu.panait.rb@renesas.com, Jose.Abreu@synopsys.com, nb@tipi-net.de,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, PKneuper@dspace.de,
+ david.laight.linux@gmail.com
+Date: Sat, 19 Sep 2026 01:26:31 +0000
+Message-ID: <178978119141.22033.4149996295411788008@kernel.org>
+In-Reply-To: <20260917215339.2022523-3-maxime.chevallier@bootlin.com>
+References: <20260917215339.2022523-3-maxime.chevallier@bootlin.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_180747_883913_3D8837C0 
-X-CRM114-Status: GOOD (  20.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,89 +79,245 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2026-09-17 at 11:55 -0600, James Hilliard wrote:
-> The H616 secondary EMAC supports RMII at 10/100 Mbps and uses a
-> separate
-> system-control clock register at offset 0x34. Add its binding and a
-> sun8i stmmac variant using that register. A distinct compatible
-> without
-> an older fallback prevents the driver from using EMAC0's clock
-> register.
->=20
-> EMAC1 connects internally to the co-packaged AC200 or AC300 EPHY and
-> has
-> no external PHY pins. Leave PHY initialization to the PHY driver
-> instead
-> of using the H3 internal-PHY controls. The RMII-only variant does not
-> expose the RGMII clock-delay properties.
->=20
-> First move the MAC software reset from probe to the DMA reset
-> callback,
-> after PHY initialization. This lets the MAC and its MDIO bus remain
-> registered when the PHY driver or one of its suppliers is not ready
-> yet.
-> Keep the separate H3 MDIO-mux reset sequence unchanged.
->=20
-> The AC200/AC300 EPHY driver and package bindings are already in
-> net-next. This series separates the H616 EMAC1 MAC driver and binding
-> support from the earlier combined series. PWM, MFD and device-tree
-> enablement are being handled separately.
->=20
-> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
-> ---
-> Changes in v3:
-> - Add a prerequisite fix moving the MAC software reset to the DMA
-> reset
-> =C2=A0 callback, after PHY initialization, so delayed module loading and
-> =C2=A0 deferred PHY probes do not tear down the MAC and its MDIO bus.
-> - Preserve the H3 MDIO-mux reset and propagate hardware-reset
-> failures
-> =C2=A0 through the normal stmmac hardware-setup error path.
-> - Add Alastair D'Silva to Cc and rebase onto current net-next.
-> - Link to v2: https://patch.msgid.link/20260915-submit-h616-emac1-v1-
-> v2-0-322b32e40eb9@gmail.com
->=20
-> Changes in v2:
-> - Drop EMAC1 TX/RX clock-delay property support and keep the existing
-> =C2=A0 RGMII-only delay descriptions unchanged, as requested by Maxime
-> Ripard.
-> - Clarify that EMAC1 connects internally to a co-packaged PHY, not an
-> =C2=A0 external PHY or the H3-style internal-PHY controls.
-> - Rebase onto current net-next.
-> - Link to v1: https://patch.msgid.link/20260915-submit-h616-emac1-v1-
-> v1-0-195de0bb1f8a@gmail.com
->=20
-> ---
-> James Hilliard (3):
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 net: stmmac: sun8i: reset the MAC after PH=
-Y initialization
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 dt-bindings: net: allwinner: add H616 EMAC=
-1
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 net: stmmac: sun8i: add support for Allwin=
-ner H616 EMAC1
->=20
-> =C2=A0.../bindings/net/allwinner,sun8i-a83t-emac.yaml=C2=A0=C2=A0=C2=A0 |=
- 13 +++++
-> =C2=A0.../devicetree/bindings/net/snps,dwmac.yaml=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 |=C2=A0 2 +
-> =C2=A0drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c=C2=A0 | 66
-> +++++++++++++---------
-> =C2=A03 files changed, 55 insertions(+), 26 deletions(-)
-> ---
-> base-commit: 26ee8cd69d46a14b37ba5e512084fe80d730127a
-> change-id: 20260914-submit-h616-emac1-v1-143703842abb
->=20
-> Best regards,
-> --=C2=A0=20
-> James Hilliard <james.hilliard1@gmail.com>
->=20
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider:
 
-Tested-by: Alastair D'Silva <alastair@d-silva.org>
-Reviewed-by:=C2=A0Alastair D'Silva <alastair@d-silva.org>
+Critical: 0 · High: 0 · Medium: 3 · Low: 0
 
-As a follow-up (non blocking), I would add the LED control registers I
-mentioned at the bottom of my test results.=20
+- [Medium] In stmmac_test_eee() the deadline of both new polling loops is
+  derived exclusively from priv->tx_lpi_timer (max_duration =…
+- [Medium] stmmac_test_eee() infers the *current* LPI state from
+  monotonic event counters instead of the actual MAC state.
+- [Medium] stmmac_test_eee() validates priv->tx_lpi_timer against
+  STMMAC_SFT_MAX_LPI (5 s) at stmmac_selftests.c:473 but never caches…
 
---=20
-Alastair D'Silva
+--
+
+net: stmmac: selftests: Validate EEE based on the actual LPI timer value
+
+The EEE selftest now sends a frame, waits up to roughly twice the configured
+LPI timer for the enter-LPI interrupt counter to increase, then sends a
+second frame and waits the same amount of time for the exit-LPI counter.
+It also bails out with -EOPNOTSUPP when the configured LPI timer exceeds
+five seconds.
+
+A few questions below.
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+> index 614b5995dec5f..2f9f7746c40ae 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+> @@ -30,6 +30,7 @@ struct stmmachdr {
+>  			      sizeof(struct stmmachdr))
+>  #define STMMAC_TEST_PKT_MAGIC	0xdeadcafecafedeadULL
+>  #define STMMAC_LB_TIMEOUT	msecs_to_jiffies(200)
+> +#define STMMAC_SFT_MAX_LPI	(5 * USEC_PER_SEC)
+>  
+>  struct stmmac_packet_attrs {
+>  	int vlan;
+> @@ -462,12 +463,16 @@ static int stmmac_test_mmc(struct stmmac_priv *priv)
+>  static int stmmac_test_eee(struct stmmac_priv *priv)
+>  {
+>  	struct stmmac_extra_stats *initial, *final;
+> -	int retries = 10;
+> +	unsigned long timeout, max_duration;
+>  	int ret;
+>  
+>  	if (!priv->dma_cap.eee || !priv->eee_active)
+>  		return -EOPNOTSUPP;
+>  
+> +	/* Bail out if the configured LPI timer is too long */
+> +	if (priv->tx_lpi_timer > STMMAC_SFT_MAX_LPI)
+> +		return -EOPNOTSUPP;
+> +
+
+[Severity: Medium]
+Is it intentional that priv->tx_lpi_timer is read twice here, once for the
+bound check and again later for max_duration, without caching the checked
+value?
+
+Between the two reads stmmac_test_eee() allocates two stats buffers and runs
+a full loopback transmit/receive, which can take up to STMMAC_LB_TIMEOUT
+(200 ms).
+
+priv->tx_lpi_timer is written outside the selftest by
+stmmac_mac_enable_tx_lpi() in stmmac_main.c:
+
+	priv->tx_lpi_timer = timer;
+	priv->eee_active = true;
+
+That path is reached from phylink_link_up()->phylink_activate_lpi() inside
+the phylink_resolve() work item, which takes only pl->phydev_mutex,
+phy->lock and pl->state_mutex, not rtnl. The selftest itself runs with
+rtnl_lock held from __dev_ethtool(), so the resolve work can update
+priv->tx_lpi_timer in the middle of the test.
+
+Given that neither ethnl_set_eee() nor phy_ethtool_set_eee() range-check
+ETHTOOL_A_EEE_TX_LPI_TIMER, can the value used for max_duration therefore be
+one that was never validated against STMMAC_SFT_MAX_LPI? For example, a
+timer of 60000000 us gives 120 s per wait loop, and 4000000000 us wraps in
+the u32 multiplication below to 3705032704 us, i.e. around 3705 s per loop,
+all spent in msleep(100) with rtnl_lock held.
+
+Would reading priv->tx_lpi_timer once into a local u32 and validating and
+using that single copy (with 64-bit or otherwise bounded arithmetic for the
+doubling) address this?
+
+>  	initial = kzalloc_obj(*initial);
+>  	if (!initial)
+>  		return -ENOMEM;
+> @@ -478,14 +483,21 @@ static int stmmac_test_eee(struct stmmac_priv *priv)
+>  		goto out_free_initial;
+>  	}
+>  
+> +	/* Snapshot stats, we want to count the in_lpi events. We may enter
+> +	 * LPI just after the packet was sent.
+> +	 */
+>  	memcpy(initial, &priv->xstats, sizeof(*initial));
+>  
+> +	/* Send a frame, then wait to enter LPI */
+>  	ret = stmmac_test_mac_loopback(priv);
+>  	if (ret)
+>  		goto out_free_final;
+>  
+> +	max_duration = usecs_to_jiffies(2 * priv->tx_lpi_timer);
+> +
+
+[Severity: Medium]
+Does this deadline hold for small LPI timer values?
+
+The patch adds an upper bail-out for priv->tx_lpi_timer but no lower bound,
+and the value is user-configurable via ethtool --set-eee tx-lpi-timer, and
+can also be 0 via the eee_timer module parameter used in stmmac_open().
+
+For a timer of 0 us, _usecs_to_jiffies(0) is 0, so "timeout = jiffies" is
+already at the boundary and the loop body may run zero or one time. For any
+timer below ~200 ms the budget is smaller than the loop's own msleep(100)
+granularity, so the loop degenerates to a single sample.
+
+Independently of the granularity, stmmac_mac_enable_tx_lpi() programs the
+link-status gate on every EEE enable:
+
+	stmmac_set_eee_timer(priv, priv->hw, STMMAC_DEFAULT_LIT_LS,
+			     STMMAC_DEFAULT_TWT_LS);
+
+with STMMAC_DEFAULT_LIT_LS defined as 0x3E8 in common.h, and
+dwmac4_set_eee_timer() documents it as:
+
+	/* LS: minimum time (ms) for which the link
+	 *  status from PHY should be ok before transmitting
+	 *  the LPI pattern. */
+
+So 1000 ms of stable link is required before LPI may be transmitted at all.
+With a configured LPI timer below roughly 400 ms and a recent link-up (the
+usual bring-link-up-then-run-ethtool-t sequence), does the enter-LPI
+deadline expire before the hardware is even permitted to enter LPI, making
+stmmac_test_eee() return -ETIMEDOUT and stmmac_selftest_run() set
+ETH_TEST_FL_FAILED on working hardware? The previous fixed ~900 ms budget
+covered those cases.
+
+Would a floor on max_duration, or a lower bail-out mirroring the new upper
+one, be appropriate?
+
+>  	/* We have no traffic in the line so, sooner or later it will go LPI */
+> -	while (--retries) {
+> +	timeout = jiffies + max_duration;
+> +	while (!time_after(jiffies, timeout)) {
+>  		memcpy(final, &priv->xstats, sizeof(*final));
+>  
+>  		if (final->irq_tx_path_in_lpi_mode_n >
+> @@ -494,20 +506,38 @@ static int stmmac_test_eee(struct stmmac_priv *priv)
+>  		msleep(100);
+>  	}
+>  
+> -	if (!retries) {
+> +	memcpy(final, &priv->xstats, sizeof(*final));
+> +	if (final->irq_tx_path_in_lpi_mode_n <=
+> +	    initial->irq_tx_path_in_lpi_mode_n) {
+>  		ret = -ETIMEDOUT;
+>  		goto out_free_final;
+>  	}
+>  
+> -	if (final->irq_tx_path_in_lpi_mode_n <=
+> -	    initial->irq_tx_path_in_lpi_mode_n) {
+> -		ret = -EINVAL;
+> +	/* Re-snapshot, as we want to measure exit_lpi events. We should be
+> +	 * in LPI right now.
+> +	 */
+> +	memcpy(initial, &priv->xstats, sizeof(*initial));
+> +
+> +	/* TX something so we go out of LPI */
+> +	ret = stmmac_test_mac_loopback(priv);
+> +	if (ret)
+>  		goto out_free_final;
+
+[Severity: Medium]
+Can the "We should be in LPI right now" assumption be established from
+irq_tx_path_in_lpi_mode_n?
+
+That counter is a monotonic per-event counter bumped from the IRQ handler
+and never decremented on exit, see dwmac4_irq_status():
+
+	if (status & LPI_CTRL_STATUS_TLPIEN) {
+		ret |= CORE_IRQ_TX_PATH_IN_LPI_MODE;
+		x->irq_tx_path_in_lpi_mode_n++;
+	}
+
+The enter baseline is taken before the first loopback frame, so an entry
+event that occurred in the window between the memcpy() and the transmit
+inside stmmac_test_mac_loopback() satisfies the first comparison even though
+the frame itself terminated that LPI interval:
+
+stmmac_xmit()
+	if (priv->tx_path_in_lpi_mode && priv->eee_sw_timer_en)
+		stmmac_stop_sw_lpi(priv);
+
+stmmac_stop_sw_lpi()
+	timer_delete_sync(&priv->eee_ctrl_timer);
+	stmmac_set_lpi_mode(priv, priv->hw, STMMAC_LPI_DISABLE, false, 0);
+	priv->tx_path_in_lpi_mode = false;
+
+The same applies when unrelated stack traffic (ARP/ND/MLD on an up
+interface) wakes the TX path during the up-to-100 ms poll interval, and for
+the LPITXA hardware path where queuing a frame leaves LPI immediately.
+
+In that case the re-snapshot folds the matching exit event into the new exit
+baseline, the second frame is sent while the MAC is already awake, no new TX
+exit-LPI event is generated, and with no further traffic the second loop
+drains its full budget and returns -ETIMEDOUT, which stmmac_selftest_run()
+reports as ETH_TEST_FL_FAILED.
+
+The driver already tracks the current state in priv->tx_path_in_lpi_mode
+(and LPI_CTRL_STATUS is readable). Would checking the actual state, or
+waiting for a fresh entry event after taking the exit baseline and before
+sending the wake frame, make the two phases deterministic? As written, phase
+one can also pass on an entry event that predates the test frame, so the
+enter-after-frame sequence described in the commit message is not strictly
+verified.
+
+> +
+> +	/* Wait for the exit LPI interrupt */
+> +	timeout = jiffies + max_duration;
+> +	while (!time_after(jiffies, timeout)) {
+> +		memcpy(final, &priv->xstats, sizeof(*final));
+> +
+> +		if (final->irq_tx_path_exit_lpi_mode_n >
+> +		    initial->irq_tx_path_exit_lpi_mode_n)
+> +			break;
+> +		msleep(100);
+>  	}
+>  
+> +	memcpy(final, &priv->xstats, sizeof(*final));
+>  	if (final->irq_tx_path_exit_lpi_mode_n <=
+>  	    initial->irq_tx_path_exit_lpi_mode_n) {
+> -		ret = -EINVAL;
+> +		ret = -ETIMEDOUT;
+>  		goto out_free_final;
+>  	}
+>  
+
+Thanks,
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260917215339.2022523-1-maxime.chevallier%40bootlin.com
 
