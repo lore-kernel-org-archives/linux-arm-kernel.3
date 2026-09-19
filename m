@@ -4,57 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBFFCC982CC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 12:10:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11AA9C982CC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 12:17:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+I3R075Hv9s4XnvOVsI+WaQ6JqB3q10uHHW3Vq6gzho=; b=qiQwUbdaXVTLZqcSUJvKHwODlq
-	Wk9QPRPrTsS/uGfR2nKrFx1UB01eucyZLLIsIcHUjLpV4qCmrQr/ahBOlZLmkyAYJVqy6wuArp0R2
-	I5NQCAJ8NoRTN9rXG+rWvbqy7kp49CvLyNBpozMegG/WWfrtjSSYB7jj2qA6XpxUaCM9XzEmNH/RT
-	5deZmiGBZUV3e0xV2XoC3kt04I8QvEkkqhZAULtBanVHiuHwKCT1KAnBdRElffuVJI1qJKfVrzuTD
-	OG5i1wcrYh+xv5cd7LJJ2SZHcPRECsI8CytDsYa5d9aLAytQqR9zLr6azriAj6CYxrnse8ZoyhVPR
-	YBc+n0XQ==;
+	bh=bxRkQkqpUhXtCKJ3gaZoY3yOukdG8nl6RZB5cRhPHes=; b=imJgpvLFsw1P7gNFsOtvgOwUYp
+	Y/TmhjBTYgsLif2jTs7ZTHGXkVmdCf/DTM0Y9aAEt4tWHa/hP6aOEBiwzM1uvzD6huIBnW396JEqF
+	xCmwWHmkempOUKA7e/jBjGZwmLpW34dCv5fWShTCXd/AVT4XVBIru836h/c1ut/5zUlcJwFuID0Mo
+	SOQXdfMD7Cp+G0XiO38obHURhlaPnAK6kfVEKvR/oXy/ARfuUfF9BUelu7zzf7GwK4ltBLjZaYFSZ
+	/PS9aar4Tr8/MxrovWXhsp9HLIaS4B2Q0h4HyLnLNIGxNvpT6eELrmteZHY+EMIsFFx0xItHqATd8
+	wPvS5qJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7tu8-0000000GEWn-3vmK;
-	Sat, 19 Sep 2026 12:10:52 +0000
-Received: from mail.mainlining.org ([5.75.144.95])
+	id 1x7u01-0000000GEek-2R0A;
+	Sat, 19 Sep 2026 12:16:57 +0000
+Received: from mail-8140.vip.163.com ([60.191.81.40])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7tu6-0000000GEWR-225n
+	id 1x7tzy-0000000GEeA-1SVy
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Sep 2026 12:10:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; s=202507r; d=mainlining.org; c=relaxed/relaxed;
-	h=Message-ID:Date:Subject:To:From; t=1789819844; bh=+I3R075Hv9s4XnvOVsI+WaQ
-	6JqB3q10uHHW3Vq6gzho=; b=f9+HpHVWaleU1mAYUv+78YIof+VglMMoq18QYUOawTidr8kPQz
-	hJJ3idTFpHGOtmiTudrn4CJ5P9/BbpBKFtR/RaWijoTIeWNPo/BMu0OVV8SCwdSjdXewBeq40kv
-	AHRekd2Kxa5IxhD7NGw88Vl/euhfiI0LeEsSKR6xiF5X5+V/WZ5mqfyAu5EqXxpS5wKMZjHNKwC
-	hlZpVvo3nCDoifWAIXAwcehvE09E/krlHFfz6Ogw4Vy83lDgtSyGc+Nu40PABYM1UJSVH/AtVqB
-	FRRW/Dg6T5vcuzrcda0UzrZKw6LpVVrK+bzT0kXTTxmXZTXZmypxnFyAK42EOWXadGg==;
-DKIM-Signature: v=1; a=ed25519-sha256; s=202507e; d=mainlining.org; c=relaxed/relaxed;
-	h=Message-ID:Date:Subject:To:From; t=1789819844; bh=+I3R075Hv9s4XnvOVsI+WaQ
-	6JqB3q10uHHW3Vq6gzho=; b=KrmKLTXOLdkAi8FYfICXmy5yU7VFfWn4aBTwvc4m9+3T90aSE3
-	z0wTka0SCtzb1BgIlirKQO5wrAKrhYEAAxAA==;
-From: Bradley Morgan <brads@mainlining.org>
-To: Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: "Paul E. McKenney" <paulmck@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Bradley Morgan <brads@mainlining.org>
-Subject: [PATCH RESEND] arm64: sleep: factor sleep_save_stash slot lookup into a macro
-Date: Sat, 19 Sep 2026 12:10:44 +0000
-Message-ID: <20260919121044.13883-1-brads@mainlining.org>
-X-Mailer: git-send-email 2.47.3
+	Sat, 19 Sep 2026 12:16:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=bx
+	RkQkqpUhXtCKJ3gaZoY3yOukdG8nl6RZB5cRhPHes=; b=iJhTDciwF4/an5bgh3
+	KrRsjtNxA50Gg/BAjlaWoa2zm9bJugpoLaKWuWS4PND+8xJNKMfr7wrX78a8QK5E
+	BB6cDSfhM7+CAl0t34ON9r6jER1s7AUYCQAgB2K/DZwdllx/Fx98a4+O6jzHPnl/
+	1n419ZEP7fD62jahPopg27v7I=
+Received: from 4CV529F122.company.local (unknown [])
+	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wD3MAqvfK5qJ4ONBg--.60098S2;
+	Sat, 19 Sep 2026 20:14:54 +0800 (CST)
+From: Ding Hui <dinghui1111@163.com>
+To: lorenzo.bianconi@oss.qualcomm.com,
+	netdev-bot+sashiko@kernel.org,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	netdev@vger.kernel.org (open list:STMMAC ETHERNET DRIVER),
+	linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/STM32 ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list)
+Cc: dinghui@lixiang.com,
+	xiasanbo@lixiang.com,
+	yangchen11@lixiang.com,
+	liuxuanjun@lixiang.com
+Subject: [PATCH net-next v3] net: stmmac: fix error path cleanup in DMA descriptor ring allocation
+Date: Sat, 19 Sep 2026 20:14:22 +0800
+Message-Id: <20260919121436.1642724-1-dinghui1111@163.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wD3MAqvfK5qJ4ONBg--.60098S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW3Gr1rWFWUWr1fJryfGFy3urg_yoW3Aw43pF
+	4xCw4vk3yjqrnxGa1DJw48X3W5AayFyr4YgFW7WwsruFnIkryFgF15Aryj9rWkArykuF1S
+	k398C3ZxAF1UJrUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jiiSdUUUUU=
+X-CM-SenderInfo: pglqwx1xlriiqr6rljoofrz/xtbC8x+UwGqufL+fXgAA3+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260919_051050_696546_095BB351 
-X-CRM114-Status: GOOD (  14.46  )
+X-CRM114-CacheID: sfid-20260919_051654_632569_445F1E39 
+X-CRM114-Status: GOOD (  18.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,159 +84,233 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Both __cpu_suspend_enter() and _cpu_resume() open code the same
-MPIDR_EL1 hash lookup to find the current CPU's slot in
-sleep_save_stash. Factor it into a get_sleep_stash_slot
-macro.
+From: Ding Hui <dinghui@lixiang.com>
 
-Since that macro would be the only remaining user of
-compute_mpidr_hash, inline the hash computation into
-get_sleep_stash_slot and just remove compute_mpidr_hash
-altogether.
+__alloc_dma_rx_desc_resources() and __alloc_dma_tx_desc_resources()
+allocate resources in multiple steps but return early on failure
+without cleaning up what they have already allocated. The outer
+error paths then call the free helpers on partially-initialized
+queues, which dereference pointers that were never allocated:
 
-No functional change intended.
+  - dma_free_rx_skbufs() and dma_free_rx_xskbufs() dereference
+    rx_q->buf_pool[i] via stmmac_free_rx_buffer(), but buf_pool
+    may be NULL if its kzalloc_objs() failed.
 
-Signed-off-by: Bradley Morgan <brads@mainlining.org>
+  - dma_free_tx_skbufs() dereferences tx_q->tx_skbuff_dma[i] via
+    stmmac_free_tx_buffer(), but tx_skbuff_dma may be NULL if its
+    kzalloc_objs() failed.
+
+  - stmmac_free_tx_buffer() dereferences tx_q->xdpf[i] and
+    tx_q->tx_skbuff[i] (aliased through a union), but tx_skbuff
+    may be NULL if its allocation failed while tx_skbuff_dma
+    succeeded.
+
+Fix this by making each allocation function responsible for undoing
+its own allocations on error, following the standard kernel error
+handling pattern of cleaning up in reverse order. Also add NULL
+checks in the free helpers as a defensive measure, since they may
+be called on partially-initialized queues.
+Additionally, make __free_dma_rx_desc_resources() and
+__free_dma_tx_desc_resources() clear the pointers they free, so that
+the NULL guards in the free helpers hold reliably when the long-lived
+priv->dma_conf is reused across XDP open/release cycles.
+
+Signed-off-by: Ding Hui <dinghui@lixiang.com>
+
 ---
-Resending from my new address.
+Changes in v3:
+  - Use addr directly in __alloc_dma_rx_desc_resources() error path
+    instead of the if/else block on rx_q->dma_erx/dma_rx.
+  - Clear the freed pointers in __free_dma_rx_desc_resources() and
+    __free_dma_tx_desc_resources().
+  - Link to v2:
+    https://lore.kernel.org/netdev/20260905154654.1725313-1-dinghui1111@163.com/
+Changes in v2:
+  - Instead of only adding NULL checks in the free helpers, also fix
+    __alloc_dma_rx_desc_resources() and __alloc_dma_tx_desc_resources()
+    to clean up their own allocations on error, as suggested by Andrew.
+  - Update commit message.
+  - Link to v1:
+    https://lore.kernel.org/netdev/20260830040610.1156008-1-dinghui1111@163.com/
+---
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 70 ++++++++++++++++---
+ 1 file changed, 60 insertions(+), 10 deletions(-)
 
- arch/arm64/kernel/sleep.S | 103 +++++++++++++++-----------------------
- 1 file changed, 41 insertions(+), 62 deletions(-)
-
-diff --git a/arch/arm64/kernel/sleep.S b/arch/arm64/kernel/sleep.S
-index f093cdf71be1..c1bec489ea76 100644
---- a/arch/arm64/kernel/sleep.S
-+++ b/arch/arm64/kernel/sleep.S
-@@ -7,48 +7,48 @@
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index f2fc89176654..4be1f5d51d69 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -1728,7 +1728,7 @@ static void stmmac_free_tx_buffer(struct stmmac_priv *priv,
+ 					 DMA_TO_DEVICE);
+ 	}
  
- 	.text
- /*
-- * Implementation of MPIDR_EL1 hash algorithm through shifting
-+ * Compute the address of the current CPU's entry in sleep_save_stash,
-+ * i.e. &sleep_save_stash[hash(MPIDR_EL1)], where the hash is an
-+ * implementation of the MPIDR_EL1 hash algorithm through shifting
-  * and OR'ing.
-  *
-- * @dst: register containing hash result
-- * @rs0: register containing affinity level 0 bit shift
-- * @rs1: register containing affinity level 1 bit shift
-- * @rs2: register containing affinity level 2 bit shift
-- * @rs3: register containing affinity level 3 bit shift
-- * @mpidr: register containing MPIDR_EL1 value
-- * @mask: register containing MPIDR mask
-- *
-  * Pseudo C-code:
-  *
-- *u32 dst;
-+ *	u64 mpidr = MPIDR_EL1 & mpidr_hash.mask;
-+ *	u32 hash = ((mpidr & 0xff) >> mpidr_hash.shift_aff[0]) |
-+ *		   ((mpidr & 0xff00) >> mpidr_hash.shift_aff[1]) |
-+ *		   ((mpidr & 0xff0000) >> mpidr_hash.shift_aff[2]) |
-+ *		   ((mpidr & 0xff00000000) >> mpidr_hash.shift_aff[3]);
-+ *	slot = &sleep_save_stash[hash];
-+ *
-+ * @slot: output register
-  *
-- *compute_mpidr_hash(u32 rs0, u32 rs1, u32 rs2, u32 rs3, u64 mpidr, u64 mask) {
-- *	u32 aff0, aff1, aff2, aff3;
-- *	u64 mpidr_masked = mpidr & mask;
-- *	aff0 = mpidr_masked & 0xff;
-- *	aff1 = mpidr_masked & 0xff00;
-- *	aff2 = mpidr_masked & 0xff0000;
-- *	aff3 = mpidr_masked & 0xff00000000;
-- *	dst = (aff0 >> rs0 | aff1 >> rs1 | aff2 >> rs2 | aff3 >> rs3);
-- *}
-- * Input registers: rs0, rs1, rs2, rs3, mpidr, mask
-- * Output register: dst
-- * Note: input and output registers must be disjoint register sets
--         (eg: a macro instance with mpidr = x1 and dst = x1 is invalid)
-+ * Clobbers: x2 - x8
-  */
--	.macro compute_mpidr_hash dst, rs0, rs1, rs2, rs3, mpidr, mask
--	and	\mpidr, \mpidr, \mask		// mask out MPIDR bits
--	and	\dst, \mpidr, #0xff		// mask=aff0
--	lsr	\dst ,\dst, \rs0		// dst=aff0>>rs0
--	and	\mask, \mpidr, #0xff00		// mask = aff1
--	lsr	\mask ,\mask, \rs1
--	orr	\dst, \dst, \mask		// dst|=(aff1>>rs1)
--	and	\mask, \mpidr, #0xff0000	// mask = aff2
--	lsr	\mask ,\mask, \rs2
--	orr	\dst, \dst, \mask		// dst|=(aff2>>rs2)
--	and	\mask, \mpidr, #0xff00000000	// mask = aff3
--	lsr	\mask ,\mask, \rs3
--	orr	\dst, \dst, \mask		// dst|=(aff3>>rs3)
-+	.macro get_sleep_stash_slot slot
-+	mrs	x3, mpidr_el1
-+	adr_l	x2, mpidr_hash
-+	ldr	x8, [x2, #MPIDR_HASH_MASK]
-+	/*
-+	 * Following code relies on the struct mpidr_hash
-+	 * members size.
-+	 */
-+	ldp	w4, w5, [x2, #MPIDR_HASH_SHIFTS]
-+	ldp	w6, w7, [x2, #(MPIDR_HASH_SHIFTS + 8)]
-+	and	x3, x3, x8			// mask out MPIDR bits
-+	and	x2, x3, #0xff			// aff0
-+	lsr	x2, x2, x4			// hash = aff0 >> shift_aff[0]
-+	and	x8, x3, #0xff00			// aff1
-+	lsr	x8, x8, x5
-+	orr	x2, x2, x8			// hash |= aff1 >> shift_aff[1]
-+	and	x8, x3, #0xff0000		// aff2
-+	lsr	x8, x8, x6
-+	orr	x2, x2, x8			// hash |= aff2 >> shift_aff[2]
-+	and	x8, x3, #0xff00000000		// aff3
-+	lsr	x8, x8, x7
-+	orr	x2, x2, x8			// hash |= aff3 >> shift_aff[3]
-+	ldr_l	\slot, sleep_save_stash
-+	add	\slot, \slot, x2, lsl #3	// slot = &sleep_save_stash[hash]
- 	.endm
- /*
-  * Save CPU state in the provided sleep_stack_data area, and publish its
-@@ -74,20 +74,8 @@ SYM_FUNC_START(__cpu_suspend_enter)
- 	mov	x2, sp
- 	str	x2, [x0, #SLEEP_STACK_DATA_SYSTEM_REGS + CPU_CTX_SP]
+-	if (tx_q->xdpf[i] &&
++	if (tx_q->xdpf && tx_q->xdpf[i] &&
+ 	    (tx_q->tx_skbuff_dma[i].buf_type == STMMAC_TXBUF_T_XDP_TX ||
+ 	     tx_q->tx_skbuff_dma[i].buf_type == STMMAC_TXBUF_T_XDP_NDO)) {
+ 		xdp_return_frame(tx_q->xdpf[i]);
+@@ -1738,7 +1738,7 @@ static void stmmac_free_tx_buffer(struct stmmac_priv *priv,
+ 	if (tx_q->tx_skbuff_dma[i].buf_type == STMMAC_TXBUF_T_XSK_TX)
+ 		tx_q->xsk_frames_done++;
  
--	/* find the mpidr_hash */
--	ldr_l	x1, sleep_save_stash
--	mrs	x7, mpidr_el1
--	adr_l	x9, mpidr_hash
--	ldr	x10, [x9, #MPIDR_HASH_MASK]
--	/*
--	 * Following code relies on the struct mpidr_hash
--	 * members size.
--	 */
--	ldp	w3, w4, [x9, #MPIDR_HASH_SHIFTS]
--	ldp	w5, w6, [x9, #(MPIDR_HASH_SHIFTS + 8)]
--	compute_mpidr_hash x8, x3, x4, x5, x6, x7, x10
--	add	x1, x1, x8, lsl #3
--
-+	/* publish this CPU's sleep_stack_data area in its stash slot */
-+	get_sleep_stash_slot x1
- 	str	x0, [x1]
- 	add	x0, x0, #SLEEP_STACK_DATA_SYSTEM_REGS
- 	stp	x29, lr, [sp, #-16]!
-@@ -117,18 +105,9 @@ SYM_FUNC_START(_cpu_resume)
- 	mov	x0, x19
- 	bl	finalise_el2
+-	if (tx_q->tx_skbuff[i] &&
++	if (tx_q->tx_skbuff && tx_q->tx_skbuff[i] &&
+ 	    tx_q->tx_skbuff_dma[i].buf_type == STMMAC_TXBUF_T_SKB) {
+ 		dev_kfree_skb_any(tx_q->tx_skbuff[i]);
+ 		tx_q->tx_skbuff[i] = NULL;
+@@ -1761,6 +1761,10 @@ static void dma_free_rx_skbufs(struct stmmac_priv *priv,
+ 	struct stmmac_rx_queue *rx_q = &dma_conf->rx_queue[queue];
+ 	int i;
  
--	mrs	x1, mpidr_el1
--	adr_l	x8, mpidr_hash		// x8 = struct mpidr_hash virt address
--
--	/* retrieve mpidr_hash members to compute the hash */
--	ldr	x2, [x8, #MPIDR_HASH_MASK]
--	ldp	w3, w4, [x8, #MPIDR_HASH_SHIFTS]
--	ldp	w5, w6, [x8, #(MPIDR_HASH_SHIFTS + 8)]
--	compute_mpidr_hash x7, x3, x4, x5, x6, x1, x2
--
--	/* x7 contains hash index, let's use it to grab context pointer */
--	ldr_l	x0, sleep_save_stash
--	ldr	x0, [x0, x7, lsl #3]
-+	/* retrieve this CPU's context pointer from its stash slot */
-+	get_sleep_stash_slot x1
-+	ldr	x0, [x1]
- 	add	x29, x0, #SLEEP_STACK_DATA_CALLEE_REGS
- 	add	x0, x0, #SLEEP_STACK_DATA_SYSTEM_REGS
- 	/* load sp from context */
++	/* buf_pool may not be allocated if alloc failed early */
++	if (!rx_q->buf_pool)
++		return;
++
+ 	for (i = 0; i < dma_conf->dma_rx_size; i++)
+ 		stmmac_free_rx_buffer(priv, rx_q, i);
+ }
+@@ -1802,6 +1806,10 @@ static void dma_free_rx_xskbufs(struct stmmac_priv *priv,
+ 	struct stmmac_rx_queue *rx_q = &dma_conf->rx_queue[queue];
+ 	int i;
+ 
++	/* buf_pool may not be allocated if alloc failed early */
++	if (!rx_q->buf_pool)
++		return;
++
+ 	for (i = 0; i < dma_conf->dma_rx_size; i++) {
+ 		struct stmmac_rx_buffer *buf = &rx_q->buf_pool[i];
+ 
+@@ -2097,6 +2105,10 @@ static void dma_free_tx_skbufs(struct stmmac_priv *priv,
+ 	struct stmmac_tx_queue *tx_q = &dma_conf->tx_queue[queue];
+ 	int i;
+ 
++	/* tx_skbuff_dma may not be allocated if alloc failed early */
++	if (!tx_q->tx_skbuff_dma)
++		return;
++
+ 	tx_q->xsk_frames_done = 0;
+ 
+ 	for (i = 0; i < dma_conf->dma_tx_size; i++)
+@@ -2154,13 +2166,20 @@ static void __free_dma_rx_desc_resources(struct stmmac_priv *priv,
+ 	size = stmmac_get_rx_desc_size(priv) * dma_conf->dma_rx_size;
+ 
+ 	dma_free_coherent(priv->device, size, addr, rx_q->dma_rx_phy);
++	rx_q->dma_erx = NULL;
++	rx_q->dma_rx = NULL;
++	rx_q->dma_rx_phy = 0;
+ 
+ 	if (xdp_rxq_info_is_reg(&rx_q->xdp_rxq))
+ 		xdp_rxq_info_unreg(&rx_q->xdp_rxq);
+ 
+ 	kfree(rx_q->buf_pool);
+-	if (rx_q->page_pool)
++	rx_q->buf_pool = NULL;
++
++	if (rx_q->page_pool) {
+ 		page_pool_destroy(rx_q->page_pool);
++		rx_q->page_pool = NULL;
++	}
+ }
+ 
+ static void free_dma_rx_desc_resources(struct stmmac_priv *priv,
+@@ -2202,9 +2221,16 @@ static void __free_dma_tx_desc_resources(struct stmmac_priv *priv,
+ 	size = stmmac_get_tx_desc_size(priv, tx_q) * dma_conf->dma_tx_size;
+ 
+ 	dma_free_coherent(priv->device, size, addr, tx_q->dma_tx_phy);
++	tx_q->dma_etx = NULL;
++	tx_q->dma_entx = NULL;
++	tx_q->dma_tx = NULL;
++	tx_q->dma_tx_phy = 0;
+ 
+ 	kfree(tx_q->tx_skbuff_dma);
++	tx_q->tx_skbuff_dma = NULL;
++
+ 	kfree(tx_q->tx_skbuff);
++	tx_q->tx_skbuff = NULL;
+ }
+ 
+ static void free_dma_tx_desc_resources(struct stmmac_priv *priv,
+@@ -2272,15 +2298,19 @@ static int __alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
+ 	}
+ 
+ 	rx_q->buf_pool = kzalloc_objs(*rx_q->buf_pool, dma_conf->dma_rx_size);
+-	if (!rx_q->buf_pool)
+-		return -ENOMEM;
++	if (!rx_q->buf_pool) {
++		ret = -ENOMEM;
++		goto err_destroy_pool;
++	}
+ 
+ 	size = stmmac_get_rx_desc_size(priv) * dma_conf->dma_rx_size;
+ 
+ 	addr = dma_alloc_coherent(priv->device, size, &rx_q->dma_rx_phy,
+ 				  GFP_KERNEL);
+-	if (!addr)
+-		return -ENOMEM;
++	if (!addr) {
++		ret = -ENOMEM;
++		goto err_free_buf_pool;
++	}
+ 
+ 	if (priv->extend_desc)
+ 		rx_q->dma_erx = addr;
+@@ -2296,10 +2326,22 @@ static int __alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
+ 	ret = xdp_rxq_info_reg(&rx_q->xdp_rxq, priv->dev, queue, napi_id);
+ 	if (ret) {
+ 		netdev_err(priv->dev, "Failed to register xdp rxq info\n");
+-		return -EINVAL;
++		goto err_free_dma;
+ 	}
+ 
+ 	return 0;
++
++err_free_dma:
++	dma_free_coherent(priv->device, size, addr, rx_q->dma_rx_phy);
++	rx_q->dma_erx = NULL;
++	rx_q->dma_rx = NULL;
++err_free_buf_pool:
++	kfree(rx_q->buf_pool);
++	rx_q->buf_pool = NULL;
++err_destroy_pool:
++	page_pool_destroy(rx_q->page_pool);
++	rx_q->page_pool = NULL;
++	return ret;
+ }
+ 
+ static int alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
+@@ -2352,14 +2394,14 @@ static int __alloc_dma_tx_desc_resources(struct stmmac_priv *priv,
+ 
+ 	tx_q->tx_skbuff = kzalloc_objs(struct sk_buff *, dma_conf->dma_tx_size);
+ 	if (!tx_q->tx_skbuff)
+-		return -ENOMEM;
++		goto err_free_skbuff_dma;
+ 
+ 	size = stmmac_get_tx_desc_size(priv, tx_q) * dma_conf->dma_tx_size;
+ 
+ 	addr = dma_alloc_coherent(priv->device, size,
+ 				  &tx_q->dma_tx_phy, GFP_KERNEL);
+ 	if (!addr)
+-		return -ENOMEM;
++		goto err_free_skbuff;
+ 
+ 	if (priv->extend_desc)
+ 		tx_q->dma_etx = addr;
+@@ -2369,6 +2411,14 @@ static int __alloc_dma_tx_desc_resources(struct stmmac_priv *priv,
+ 		tx_q->dma_tx = addr;
+ 
+ 	return 0;
++
++err_free_skbuff:
++	kfree(tx_q->tx_skbuff);
++	tx_q->tx_skbuff = NULL;
++err_free_skbuff_dma:
++	kfree(tx_q->tx_skbuff_dma);
++	tx_q->tx_skbuff_dma = NULL;
++	return -ENOMEM;
+ }
+ 
+ static int alloc_dma_tx_desc_resources(struct stmmac_priv *priv,
 -- 
-2.47.3
+2.34.1
+
 
