@@ -4,91 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 271EBC982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 14:21:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97BADC982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 14:25:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e2R+4kjVw0MIjcDwbj4ulbwDY6d2MGtIJTjtocSZokg=; b=OBDbdW5aI1ZZCYvlPSuYTNUMVm
-	9CdLjjIxS8cTXXWNu8VYlCGoGzEJI7LlS+yZwAPWScFLUHHn+RIpdfAzye0Ns9EkhJG8KD5YH4P/s
-	4lp9uKjv+uyJ3zrKiIYbzPEDkiLTvmNEZGBAWpi/+HWsjI0ToOpxnHJTC9pbKrLfQIa7x/u+Osauo
-	4CbH7VaS1du1QM/AF8zbCj81zSMzqBWRbOeIOGOO1f87aCUfefByg8IFunS9gwEwRsDlSTQz0JCMJ
-	d+f3GJv+YTxsNMP2JjGS12HCNf2gQ7u/5hAWaF8IM3euORyPv/2oAnj2p+YbyHAAHQasx9F7LuB5A
-	BGRHw0qA==;
+	bh=VpdVAxuNOwmWu0WfirEONZSR+j3md2xsgnrcoSx6gSA=; b=BWuFCV6aAjQSYwmSQ8OC9zavno
+	mg+aFna7rbjX5BpAsFZsZ1WIFJ18B+BjQqbISnBY9v6X1j/YXXdPGgsqkIowGfmj4ZYuZEX7P7Yfg
+	2xLb5nhGqsSuuCtPdB551XDtJ2w3/w2W2r/QLyeIcjOXDjmzFuHWxQqu9idO84w/jsoyEAZRo1KpZ
+	sBcho9SIV54xQOMfCbP+s0tkbNyuj3tDRb+UXPyQQwXrmxuM7sDt8y7F0WU8fXd5Wd33TkW80y9wB
+	mMotplZZJaxyuycpj48X19w6QTEm6eckf4rmHpw49M4Qec4J74DMQtE5X/GVTWP9jd83lly0WZvEq
+	Qr+6JRUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7vws-0000000GMgc-1io2;
-	Sat, 19 Sep 2026 14:21:50 +0000
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	id 1x7w02-0000000GMxO-1i2N;
+	Sat, 19 Sep 2026 14:25:06 +0000
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7vwq-0000000GMgA-1M1b
+	id 1x7w00-0000000GMx5-1SwN
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Sep 2026 14:21:49 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49b912e64ccso12198625e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 19 Sep 2026 07:21:47 -0700 (PDT)
+	Sat, 19 Sep 2026 14:25:05 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e71cdb22bso12390925e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 19 Sep 2026 07:25:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1789827706; x=1790432506; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1789827902; x=1790432702; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=e2R+4kjVw0MIjcDwbj4ulbwDY6d2MGtIJTjtocSZokg=;
-        b=VauVVVBekLx8i92QzUbHX3rAU2JXvNDMZCYWWkVN4X/6FHy95iTXR+mwLb2x6Sfjqj
-         1REY+LIU8IsByVyHUMn7d4CKKbH9nuA3tbWEyr4XaggplHl9LVVzb5kn6R4cjlAsHlua
-         8RAV4P5N2liApY6RpLJ5/GrYwEI8csJFITCLTSqWpviWKSNyqKb4lO7Xga4He+YG0bvD
-         YJ8vyQDbbDQFhNwHXJAimooa1xpCOMlIYL/Q14A8MRHJccyyN1Ran0B1x8BG9Hul6Pjc
-         /O9flPGeADxpZTA5lxU3KYE0agJ0V2UHmGc8IsI8NIeBAEXngUvB4gyljFAp+CZ5Pm9T
-         7HSw==
+        bh=VpdVAxuNOwmWu0WfirEONZSR+j3md2xsgnrcoSx6gSA=;
+        b=SMui42hRlc29zCVbujqkibVAWdqsFqAzuX9zYwzhcUXX3tfIMxJFKtxS4tdHSlQPTz
+         4C8vCFibm9zZnUQUMoPmPI9/xDNhpnjygFw2Ve1jdZIfgh0rzqIwE8hMRmvUI6cpaMTW
+         ap7204K15DEzGq7QSpzg0Arp/0RAfnlsnQio4GXGoHSTWxHEgeE6qtOfE49AqpUTW3IZ
+         9uCPdeRdSXFaajv8vIRfHRaOpK9zy7K5vHDVbQoIhHzONlCZDNK9cnhDhjqzUXLNJ472
+         O3sji5GbFRAtfKgz/Yz0QFtHIsgdATgrKPTqSXq28hnk4+CHjdBc+TEHDHMLovp6JYW5
+         FMhg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789827706; x=1790432506;
+        d=1e100.net; s=20260707; t=1789827902; x=1790432702;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=e2R+4kjVw0MIjcDwbj4ulbwDY6d2MGtIJTjtocSZokg=;
-        b=als3MqtU3OSbtOkn1fiGFAzY3dvSwrJyYMAzQBsIB0aQgWHiBCi3Ytk5+SbcEAjdQe
-         yx9nl+n6MVrMBqPdNmAWP6b2dENupydkvYls2xvOsqZna+cCXCzBhVPvFdnsvKJsHR0s
-         u9xE6tyFXarNB9HVAAKzHJMTls+Sku9qsKNPdu9ciQbeF3RWwOcg7EfP5LSdsY+foUzP
-         bhkh/qBCEf1eIp9YIogxMf0wMDJ3117dI2Xxd0wSycayoKK52UqimUNFpUlg2d63mHdC
-         oecCYWqETHSf/1AX6e1LFFCDzBlxs+kiN58rEzNeCZjUKTX7hbWGqGtuUWgayGABFgNW
-         1Q+Q==
-X-Gm-Message-State: AFuF++klAagbkWjA0j0E6KhEhLXVGsborNPzxLRqIv7knwcX7ZwRkEED
-	at63oWt7WZLorp8VGlH1eBP7B4vDchX0OkYO/AYDL1+C5aQmS7c+08VxPRnLFXmboSc=
-X-Gm-Gg: AYBFou1OiSFMd5mHVmy6QInrxmA7zeZQluqFTffvdjKSf/w6olez6t0ZSDncXcrMrpH
-	SO4Yo2+GQnuffgo1QDI9MEBeKYbTf84yiOCXdYnVzepivOIyUjdmZ4tvaWx2MZjoc+tM+E8uvVG
-	7NwJ1BbWoyBtaOrpePAXYEb6zR+CJbnKV+mCGPdRcWgYImXMd/Q6FbOaPTKbUylaKSVDpcxbbi1
-	mg73hsCpL+C/b0WY82pgH+8XbvcuMiPL3aep6OACK99ccF3Z9EcfwkmvWhrS+dmy1aBpsmfogG1
-	dnGlmW/l3+VpcnowG/87vYPDuB/l8XfcgwDSuoocrZWxFuU7IiNhGcLxHZIY1coTZVhIZDezKGw
-	pJtZ7kkaVJUNz+yVxN2gHDGaCbsUf9s5088thWFwa/c2MdnOrtWcFYhXZpe8hIh0dWWhmTgI40k
-	dV6lAn9AqcuwozhXR5szCsHlqPpTE+NBS8Y0TpaAWZwDJg5smsiyj5j0uSqDLP2e6q/wYyGZk2m
-	zOhecGQjda0dVJ1FVckgIz6epWEMILtT5okZyaM0rhXIJ1LGpK/S48=
-X-Received: by 2002:a05:600c:474c:b0:49c:f512:2361 with SMTP id 5b1f17b1804b1-49fc569587bmr82361065e9.14.1789827706512;
-        Sat, 19 Sep 2026 07:21:46 -0700 (PDT)
+        bh=VpdVAxuNOwmWu0WfirEONZSR+j3md2xsgnrcoSx6gSA=;
+        b=eHpBSD2QIh7bdsXFhn8FFATU7/QLJK2A2Vm6kmxNe5gSOcjyMitaAa14EMwW08Bekq
+         V3u6l0wpN/w9QYzbrhxm7PSTQj6WA+/AYYrVHOV5qIjQ1jIRLzobubSfReTVFWEH2ZjC
+         zkCpMEND9l5fZNFfEV6wtXCktobyXR5FEb+nJa5T5fkTmvl8vlLuWyqLyP/pMoO5kL+G
+         9YTP526K/ENi+un1CIYmeG5llCnXf9nvCH8qC2NqwK0WG8CsXvvG6Mp6Baxuak26pAd/
+         s3msWtcdvNv9Wn+6MYMCpBC4VUjIyfkp8+Vv1uPLCB9/Y6wrdIc/NfQTxqa1nsN0SSim
+         v5Mw==
+X-Forwarded-Encrypted: i=1; AKwUvBxs+tNBCyyc3UL0RwgTRNoGk6yDMppM4qzqnnblHIKCIJ3bPP4El3K9hMn6o/MogAHMhz3BgR/XqcpYxRr0VmL7@lists.infradead.org
+X-Gm-Message-State: AFuF++mTY5j3FTOXj7QgUFDH9ZnGDwtuAl4JH1fhRxX6fBTDRlp/8M3B
+	ltre/U6EQPLpmjZrkvB3qx4EUCk9McJFg/odRAKeNnE/ay9VW8REyIkODaEeMhuYw94=
+X-Gm-Gg: AYBFou387URlP9o9r8nHyNQLl8e5NbbpTKpGT5kQX1GhWORoPLNpLPHa8wkqgTeu369
+	iqB7CV6qxyUSkKvWZrSQCkRKJpT1u/tQOKPQpKxcJtyojV4LgW/hZXtkyEn9ervngyUznBCyHNG
+	CygrPktj3FvqVLw09O3fZ/mnZMuxg0i9j/k7dR8DRXNm2aMXb4cHfcDeJ47Oe2fCChEox29gK3Y
+	pVxCt8Wrh+jJyj8Dgfa/UJb5VfXaiBsmnTcLbuK+73X96Chl83c3rklyvjguY0/8G8BIaqacN5v
+	XiWtbzaISBVL545G6rhmsQYwrofihppUTAmpoQZ/worKaPZtODDgksuuRB9h1NTOEC0dgdvkviY
+	u41VN0iDR4aUb/q26YGA6rQ6th/YoF1t80DsUKlIOIvMgUNptmke0iXHY5cW33+kFhWLgTLmEgx
+	+WfpKMbRfB5Y+QblJLsHdOUVsZXm5iD/8yX3K3aC8HOpYZipCR3DgPovd4eaybDMtL44DocuBa8
+	KmK/vbss8y0/uY5TVLv1l5lNeRHMkw/+zek3UL1gK7rnhVeO2Zdipc=
+X-Received: by 2002:a05:600c:1d29:b0:49e:7c8c:361d with SMTP id 5b1f17b1804b1-49fc572b7afmr84151565e9.22.1789827902455;
+        Sat, 19 Sep 2026 07:25:02 -0700 (PDT)
 Received: from ?IPV6:2a02:2f05:1204:e000:2cf7:c250:64a9:ae77? ([2a02:2f05:1204:e000:2cf7:c250:64a9:ae77])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fc521f5d9sm38646635e9.2.2026.09.19.07.21.43
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fcd090f0csm106948995e9.15.2026.09.19.07.25.00
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 19 Sep 2026 07:21:44 -0700 (PDT)
-Message-ID: <06eac2e8-183a-4108-9eb5-8e141902e4bb@tuxon.dev>
-Date: Sat, 19 Sep 2026 17:21:42 +0300
+        Sat, 19 Sep 2026 07:25:01 -0700 (PDT)
+Message-ID: <111e4f31-1c2b-4e7b-ab8b-534544d2ae22@tuxon.dev>
+Date: Sat, 19 Sep 2026 17:24:59 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH resend] soc: atmel: Convert to of_machine_device_match()
-To: Geert Uytterhoeven <geert+renesas@glider.be>,
+Subject: Re: [PATCH v8 3/5] ARM: dts: microchip: sam9x60: Add GFX2D GPU
+To: Cyrille Pitchen <cyrille.pitchen@microchip.com>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
  Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <c3b4f8aceb5f0bc95fa10e6fa469574cfdaa8ee6.1788429505.git.geert+renesas@glider.be>
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Russell King <linux@armlinux.org.uk>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Manikandan Muralidharan <manikandan.m@microchip.com>
+References: <20260828-cpitchen-mainline_gfx2d-v8-0-378374559738@microchip.com>
+ <20260828-cpitchen-mainline_gfx2d-v8-3-378374559738@microchip.com>
 Content-Language: en-US
 From: claudiu beznea <claudiu.beznea@tuxon.dev>
-In-Reply-To: <c3b4f8aceb5f0bc95fa10e6fa469574cfdaa8ee6.1788429505.git.geert+renesas@glider.be>
+In-Reply-To: <20260828-cpitchen-mainline_gfx2d-v8-3-378374559738@microchip.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260919_072148_370421_E5FA9A7D 
-X-CRM114-Status: UNSURE (   7.72  )
+X-CRM114-CacheID: sfid-20260919_072504_399736_3805E987 
+X-CRM114-Status: UNSURE (   8.32  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,11 +116,11 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 9/3/26 12:59, Geert Uytterhoeven wrote:
-> Use the of_machine_device_match() helper instead of open-coding the same
-> operation.
+On 8/28/26 18:52, Cyrille Pitchen wrote:
+> Add support for the GFX2D GPU.
 > 
-> Signed-off-by: Geert Uytterhoeven<geert+renesas@glider.be>
+> Reviewed-by: Manikandan Muralidharan<manikandan.m@microchip.com>
+> Signed-off-by: Cyrille Pitchen<cyrille.pitchen@microchip.com>
 
 Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 
