@@ -4,102 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 612B5C982D7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16B49C982CC
 	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 07:45:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UHsMgvSR6TsG5pzfk10ZlHnde9nfOXLErU4zEY62MDo=; b=K4FyO+8XTvZE1pB93n9iGITTxZ
-	o83sHbPLOjBpHQjfPQ+3z5VZeUD3YXwmJVVidPAIuYewIhhO0ROUJyvqMbpkECJEN70oXrgfOLEiY
-	5CzkLXTamPOjFqorlPnJkbO/rlvpMM7CQ9vxfLZ3l+eIO5qObiAzANuMqUbgRUSf1mPjLHFBQv2rm
-	+rCiU2r7RcEDFXltgkhUrH/a2DA8UbsOYLp3kZGM+87QR6QQs4fK053M1IVHGFRWTJtDYsdt04knB
-	dOVK2/m/JxRq6HQZ9jv8Lwl4NgffVWZaM+TrDUyTp78HEKaulNknXOwfLya0DnpcBfNc1genpVb+m
-	Ary2Oc/Q==;
+	bh=nzhIw8jPRNxoB8iVaoAn3LrVYY24GoK7KU38cNUcsNA=; b=sNaXppvSIGxt044/9imJRT5keB
+	oLX7HXQ78lkLAxx1GEVfyAP+k7W6eNjSNMHlac1gHL/xVteXHX7gMm0+Qc5sA6L8mmU/W9LtvTPog
+	vwWd7pn33ZS9WtkycfGdgeCQXNOccKrRffa/m22nN6FF3Ky/uGVfaPTwjpjbFdNrhpxCIjYS+8UBN
+	B2Dn7OKa0NuOWNQLWsbv5KY1+av6xlZ6Rd/cft0m78hm36UjP+WFnT18NZNGo4Uhoy0Jz1iHcTMGV
+	N64oEg5M8cnnnfcYTig2ZLnlf4BIU49zrRDK6Nj874Xk9Zt0zFfeqVw2LWrCK5qT2wLTpNlveiQ50
+	/s/ir55Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7oyF-0000000G0aN-28Wk;
-	Sat, 19 Sep 2026 06:54:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x7pl6-0000000G4WQ-2H2U;
+	Sat, 19 Sep 2026 07:45:16 +0000
+Received: from mail-pj2-x0f.google.com ([2607:f8b0:4864:39::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7oyC-0000000G0Tm-222J;
-	Sat, 19 Sep 2026 06:54:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DDABA447F6;
-	Sat, 19 Sep 2026 06:54:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id A6CFAC2BD00;
-	Sat, 19 Sep 2026 06:54:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1789800882;
-	bh=6EejufrpwC/UtsiftUOzo0NzHkyCdWKMKJS4FmujPqE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=Jx5vjY/CCRE7CRlYzRSaE83vJkwuKU0rLyy3049H2XqQY2lsVFUSiTMPhrkltdSka
-	 VAspCoCSGTl6EviRc7hkTZYWr2KjKdxvNzUT6H8NtJ6v+73Q84NkcpE2YANHQII0zF
-	 XhHnjNsKtud9ASdC9OhGS1S07nX38T2h8fPGXq1dogXzTF24MQfsCViUaMvZW8Mkzk
-	 xPbwoiQGWy6QIuHtUP6gadVBZriqpZ+FfOkHmywR6KwuhPoqypq5UN+tYuMjF2XGm8
-	 WlVZpfivX80AUkgyRj2hsv/MfWNjSUtKkz5SBUD58omWLLuojCRAH6HRXM/zg6Jq1P
-	 0gbzD+oLBgiwQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 91612C982D8;
-	Sat, 19 Sep 2026 06:54:42 +0000 (UTC)
-From: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
-Date: Sat, 19 Sep 2026 08:54:38 +0200
-Subject: [PATCH RFC v3 10/12] arm64: dts: s32g: Add SerDes controller nodes
+	id 1x7pl3-0000000G4V6-37xn
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 19 Sep 2026 07:45:14 +0000
+Received: by mail-pj2-x0f.google.com with SMTP id 98e67ed59e1d1-396ccd5cf03so1537641a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 19 Sep 2026 00:45:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789803913; x=1790408713; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=nzhIw8jPRNxoB8iVaoAn3LrVYY24GoK7KU38cNUcsNA=;
+        b=ANSwHEeA2r4Nap/0NMQRL8RWAUO6is6/7eGPKw876+yEO9Os99Juqcn5mVd+87AAHC
+         /19oDHukn0GXwk0lHPCKP/ejDGKCsLq/z7R9Uf++wkLig41/Ma8hsnaf5voTO9lo2HHe
+         xWRBK422yCMQpbI4ETcCfFDd1d/MKOirh6SL/sAgHn1PPgZc3NxwdweoRlaKHN9yi5vp
+         oBl55XGYlVy1gMGB/bTjYGAksIxX7JxvHn+0qrq+Brtnhx7z353Za1cmBOwb8JhZAGFk
+         pyP45oElZo2KGH5llU8ckFLTClI3WhHlwP1lcW0ifG8kojx1NsUJzS6Xp7JkS2IiDjuX
+         zhmg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789803913; x=1790408713;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=nzhIw8jPRNxoB8iVaoAn3LrVYY24GoK7KU38cNUcsNA=;
+        b=owkGCn20nQyIY0TNwwNcDvcqzO9GyMYfvOF0dGqwmxXPesLaJMsiPd95XjttD3wD+P
+         +xUc0PMuckJremVZyZ/vGcp4godGR4RZ6C8vSeCMc3D/F7MtLOtPJEjH6HCis3PUFpBc
+         BsciMXaWlMSKLaYkXGCF3BsBeT2PRZUZOL6SibGB5zNGGPLjkIY4hlxc8jYYZioLAOTT
+         ThIIlL4Z50B2O45UW+TVNGuzk2N36daJP0KUD2w31ROhXExkAjU4KJEKEwrvqPFePt1z
+         GQ6eoGiKAr+L8VdUsbG4iv9TOTgO6XQcmHZaa0E8nxalKJtq2JPdKxwAY/fCvqYR1tVd
+         me/w==
+X-Forwarded-Encrypted: i=1; AKwUvBzdXqBCiA6Eruij4pyW+DbGkDAcn3R1KjYR7t0vKPyS8aH4o7pSH3k7jGDlanarY7UbW/4ZEwDP5gJ8VVLcIC7P@lists.infradead.org
+X-Gm-Message-State: AFuF++nIboz3KzyhmGeM554YsHvUhdaVYaZYzl0pqxhTtcTEKEGNglfH
+	it/9d5KITaVlyhdfLO7JBICcf8Z3uYS6ql/a7daRthUc73VS9Gb+UxOJ
+X-Gm-Gg: AYBFou2moQpkpXpbC80JMiwRyDjuQasRfRQXyfzGz000tuBbJfNk9cEAnKYzFwSFAtp
+	NQDcvkxAKZfcgn1Yfc+tn5jPtRXJk7VbsA7D47R3FHXCwP3hQ/aCB9zemf/q7by7zHCJt8eVqfN
+	P2RAMhrb4eu47oYtCO4Uicgw4/sbpX6m+8Jalb0zxd2KJvtvcXS1QJDNv6bAdHGZyLlGx5J5eJD
+	8wmsBwINGIVjEn2iBz8HsBzWIiwOOV/kSpAsVaWSncl+t4iFBQcKXWucKAN9XD5TukfMENJ2Ntp
+	Qv+PgAS/M6ed+vqDpA20f8vyQTAhvYT2hohVQlLbHxTp9rQeKx6H+5nvvMr++xYqCzB/7wTAQ6i
+	OWeEOTP+2IMQy08MXPJHuPNqNHWPoh/xW/7LS783j4hrkCSkb1pHnsSQpm8BueQalEbJG8JayBG
+	4XFwCa4H2EZnfikfJDHAJBZ3FqlkBWRukz43OuVbYJi3W4NjmDpcrKWv7YXBNaG/GDzMWScdo+J
+	w==
+X-Received: by 2002:a17:90a:c88d:b0:39e:4c80:f67f with SMTP id 98e67ed59e1d1-39e54f3aa58mr9006171a91.30.1789803912686;
+        Sat, 19 Sep 2026 00:45:12 -0700 (PDT)
+Received: from [192.168.101.188] ([207.90.239.231])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-144d55f299fsm6860122c88.15.2026.09.19.00.45.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 19 Sep 2026 00:45:12 -0700 (PDT)
+Message-ID: <aeb5b8a8-e01e-404f-9788-b4770ecdd9ef@gmail.com>
+Date: Sat, 19 Sep 2026 15:44:54 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 6/7] arm64: dts: allwinner: a523: add DWC3 USB3.0 node
+To: Per Larsson <per@palvencia.se>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Andre Przywara
+ <andre.przywara@arm.com>, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-phy@lists.infradead.org, linux-clk@vger.kernel.org,
+ linux-sunxi@lists.linux.dev
+References: <20250816084700.569524-1-iuncuim@gmail.com>
+ <20250816084700.569524-7-iuncuim@gmail.com> <20260915013336.68ee3611@rpi>
+Content-Language: en-US
+From: Mikhail Kalashnikov <iuncuim@gmail.com>
+In-Reply-To: <20260915013336.68ee3611@rpi>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260919-s32g_serdes-v3-10-9d68868c1e89@oss.nxp.com>
-References: <20260919-s32g_serdes-v3-0-9d68868c1e89@oss.nxp.com>
-In-Reply-To: <20260919-s32g_serdes-v3-0-9d68868c1e89@oss.nxp.com>
-To: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>, 
- NXP S32 Linux Team <s32@nxp.com>, Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>, 
- Magnus Damm <magnus.damm@gmail.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, 
- Bogdan Hamciuc <bogdan.hamciuc@nxp.com>, 
- Ionut Vicovan <ionut.vicovan@nxp.com>, Andrew Lunn <andrew@lunn.ch>, 
- Heiner Kallweit <hkallweit1@gmail.com>, 
- Russell King <linux@armlinux.org.uk>, Clark Wang <xiaoning.wang@nxp.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
- Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Richard Cochran <richardcochran@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org, 
- netdev@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
- imx@lists.linux.dev, linux-pci@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- Vincent Guittot <vincent.guittot@linaro.org>, 
- "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
-X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789800879; l=3680;
- i=jan.petrous@oss.nxp.com; s=20240922; h=from:subject:message-id;
- bh=+XdDZhOByuFg4ugqbcosSUu/1UqTDyBj7h2t2yZcItw=;
- b=kZUh437M7THMDFoZdyk69tr7g1HHaMmr1ZlQyhm0sBeIJNMStvThEvrBZyUPuUKNJgHwFCwqz
- YeZiqpPQy75C/lroDEnwnQIfWWGthgowbolg75PLA4GriZYTmxmDaPO
-X-Developer-Key: i=jan.petrous@oss.nxp.com; a=ed25519;
- pk=Ke3wwK7rb2Me9UQRf6vR8AsfJZfhTyoDaxkUCqmSWYY=
-X-Endpoint-Received: by B4 Relay for jan.petrous@oss.nxp.com/20240922 with
- auth_id=217
-X-Original-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260919_004513_795285_43C765F5 
+X-CRM114-Status: GOOD (  17.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,114 +110,30 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: jan.petrous@oss.nxp.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
-
-Add the SerDes/PCIe combo-PHY controller nodes for S32G2 and S32G3 in
-the disabled state. Each SoC integrates two SerDes instances (SerDes_0
-and SerDes_1) with identical register layout; every instance exposes
-the PCIe PHY and the two XPCS instances used for SGMII. Board device
-trees enable the required instance and add the lane PHY child nodes
-matching the wanted SerDes subsystem mode.
-
-Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
----
- arch/arm64/boot/dts/freescale/s32g2.dtsi | 32 ++++++++++++++++++++++++++++++++
- arch/arm64/boot/dts/freescale/s32g3.dtsi | 32 ++++++++++++++++++++++++++++++++
- 2 files changed, 64 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/s32g2.dtsi b/arch/arm64/boot/dts/freescale/s32g2.dtsi
-index 6a2774d53747..404913b208fb 100644
---- a/arch/arm64/boot/dts/freescale/s32g2.dtsi
-+++ b/arch/arm64/boot/dts/freescale/s32g2.dtsi
-@@ -877,6 +877,38 @@ gmac0mdio: mdio {
- 			};
- 		};
- 
-+		serdes0: serdes@40480000 {
-+			compatible = "nxp,s32g2-serdes0", "nxp,s32g2-serdes";
-+			reg = <0x40480000 0x108>,
-+			      <0x40483008 0x10>,
-+			      <0x40482000 0x800>,
-+			      <0x40482800 0x800>;
-+			reg-names = "ss-pcie", "pcie-phy", "xpcs0", "xpcs1";
-+			clocks = <&clks 1>, <&clks 2>, <&clks 3>, <&clks 4>;
-+			clock-names = "axi", "aux", "apb", "ref";
-+			resets = <&scmi_reset 9>, <&scmi_reset 8>;
-+			reset-names = "serdes", "pcie";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		serdes1: serdes@44180000 {
-+			compatible = "nxp,s32g2-serdes1", "nxp,s32g2-serdes";
-+			reg = <0x44180000 0x108>,
-+			      <0x44183008 0x10>,
-+			      <0x44182000 0x800>,
-+			      <0x44182800 0x800>;
-+			reg-names = "ss-pcie", "pcie-phy", "xpcs0", "xpcs1";
-+			clocks = <&clks 1>, <&clks 2>, <&clks 3>, <&clks 4>;
-+			clock-names = "axi", "aux", "apb", "ref";
-+			resets = <&scmi_reset 11>, <&scmi_reset 10>;
-+			reset-names = "serdes", "pcie";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
- 		gic: interrupt-controller@50800000 {
- 			compatible = "arm,gic-v3";
- 			reg = <0x50800000 0x10000>,
-diff --git a/arch/arm64/boot/dts/freescale/s32g3.dtsi b/arch/arm64/boot/dts/freescale/s32g3.dtsi
-index da3915b7e915..0d001b2895c6 100644
---- a/arch/arm64/boot/dts/freescale/s32g3.dtsi
-+++ b/arch/arm64/boot/dts/freescale/s32g3.dtsi
-@@ -956,6 +956,38 @@ gmac0mdio: mdio {
- 			};
- 		};
- 
-+		serdes0: serdes@40480000 {
-+			compatible = "nxp,s32g3-serdes0", "nxp,s32g3-serdes";
-+			reg = <0x40480000 0x108>,
-+			      <0x40483008 0x10>,
-+			      <0x40482000 0x800>,
-+			      <0x40482800 0x800>;
-+			reg-names = "ss-pcie", "pcie-phy", "xpcs0", "xpcs1";
-+			clocks = <&clks 1>, <&clks 2>, <&clks 3>, <&clks 4>;
-+			clock-names = "axi", "aux", "apb", "ref";
-+			resets = <&scmi_reset 9>, <&scmi_reset 8>;
-+			reset-names = "serdes", "pcie";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		serdes1: serdes@44180000 {
-+			compatible = "nxp,s32g3-serdes1", "nxp,s32g3-serdes";
-+			reg = <0x44180000 0x108>,
-+			      <0x44183008 0x10>,
-+			      <0x44182000 0x800>,
-+			      <0x44182800 0x800>;
-+			reg-names = "ss-pcie", "pcie-phy", "xpcs0", "xpcs1";
-+			clocks = <&clks 1>, <&clks 2>, <&clks 3>, <&clks 4>;
-+			clock-names = "axi", "aux", "apb", "ref";
-+			resets = <&scmi_reset 11>, <&scmi_reset 10>;
-+			reset-names = "serdes", "pcie";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
- 		swt8: watchdog@40500000 {
- 			compatible = "nxp,s32g3-swt", "nxp,s32g2-swt";
- 			reg = <0x40500000 0x1000>;
-
--- 
-2.55.0
-
-
+On 9/15/26 07:33, Per Larsson wrote:
+> On Sat, 16 Aug 2025 16:46:59 +0800
+> iuncuim <iuncuim@gmail.com> wrote:
+> 
+>> +			interrupts = <GIC_SPI 35 IRQ_TYPE_LEVEL_HIGH>;
+> 
+> (Sorry for the more-or-less necroposting)
+> 
+> This is the only mention of irq or interrupt in the entire series,
+> which at first led me to believe there was something missing given that
+> there's a "Nobody cared" message appearing when the port first detects
+> something connected to it followed by something about the irq
+> being disabled.
+> 
+> Now I read in the text of another patch (adding a TrimUi dts) that this
+> message comes when an interrupt storm is detected, and given that the
+> value in /proc/interrupts goes from zero to 100K in no time, that seems
+> likely to be the case here as well.
+> 
+Yes.> What is this interrupt supposed to be about, and can it be handled
+> better?
+This inerrupt should be disabled in host mode, I'll do it in v2.
+But except this message it doesn't affect functionality.
 
