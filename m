@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99852C982CC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 09:23:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40116C982CC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 09:33:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p2++DSH7qzxPkUFh8j6R7Yh1w31wukoOyoqI9yjfdzM=; b=gcbyl+E+vmInBsqLVM2DUevIW0
-	ez7lmHGVPgPy6QNjzAvaaAx8NsxfrMF4gaBi3jTlpFiB5EE1wxcemePqXo62AgTO78fU+6L459m7I
-	YpPeEpkpglZfJtcgkZgKgijtPUUz3nZEZb979d1jG866d1El6wQ8PTD9IkQ98VpPF8T+mYOn8MJ2m
-	ogaRHfxbMwtlBzPLq2UjMfKVycOzUEwdSrt7cDaHah9Z03a07wcV1MDgLsJAsAkcaLJ/R3Zip+WpC
-	u1jnUErzKswAyYACBot8KSFky+PBtyZ32sEE2WLMOfG0pmjQCuOQiSwOkhQfm5YaN1HDS9xee36Po
-	QgpJWlCw==;
+	bh=0caxOyaJoh8KN4zezLmE5kiSj3XpRezHw9bAKEfHF+E=; b=K3mMkL5cL+K2H+fDshx7/UjPJW
+	XXAi0ZSLTp6e+4suxyWZqIzav2ivUTBoEcvc83SAwUDRvVFTurVGqKh4pykO9OsmsR0r9esIMaHoN
+	K5ugF6VawFuGJ9Yp3lP/vdZJqXUumJzDYj6mxnNIAwCj2uU1bfurpSi8ChDwYwp/VGXgYA/OhDL5u
+	0xaHkqhPVcS3/4HWwkdgwRBIydNrRV8GXGVDUpQ7BciJC9R547cbjHgTfGvVIu8jQ+Y4wTjh8IX+Z
+	hDaxVQ9MwvT1djTLSFIEUn/uy+RHMx2U6t02VLPu4WzZKgolI+yinKchZ/IBYVw/mOEm+/lGukUJv
+	OJdDAYfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7rHc-0000000G7yc-2q45;
-	Sat, 19 Sep 2026 09:22:56 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x7rRY-0000000G8KI-24Pz;
+	Sat, 19 Sep 2026 09:33:12 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7rHa-0000000G7yW-3n5H
+	id 1x7rRW-0000000G8KA-253j
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Sep 2026 09:22:55 +0000
+	Sat, 19 Sep 2026 09:33:10 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 14067602C4;
-	Sat, 19 Sep 2026 09:22:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F9801F000FF;
-	Sat, 19 Sep 2026 09:22:53 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2BC3E6020C;
+	Sat, 19 Sep 2026 09:33:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C87281F000FF;
+	Sat, 19 Sep 2026 09:33:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789809773;
-	bh=p2++DSH7qzxPkUFh8j6R7Yh1w31wukoOyoqI9yjfdzM=;
+	s=k20260515; t=1789810387;
+	bh=0caxOyaJoh8KN4zezLmE5kiSj3XpRezHw9bAKEfHF+E=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=moAckOx/BPVEJ1RzH3Y4pPsnwzsAWrGRbxm3lk29vHVa/fqmDMYCpF8+laeQ8Fiqm
-	 vJhorci6+huPu6TpBGzoelksDEEX/IQiY0dRJ0mKPS8vlQ/rAh0mISFmMwPMe8fkf1
-	 VoCJfmw5k5d/ljYIKnyFd/KA8OvSz+JnXAT/Mfq4+z/EkVjnzbktETwTRcTKJDyUeL
-	 qmOr6mQ+wNCd2qyZnDppyIokInddhCdc52KGjbvXGaA4q4msaibojUzdBfB+kvBbj6
-	 eqmb2BzIbv7iOmAHMreAvi62AE1MhsBlYOLjxCeddTeWJ5Igubyss5hwZ4xz0RXamk
-	 5cGYpvHhLpGjg==
+	b=XDsjrrlC/bjieVDUM7zOk8gB4UIJFl0ddaQ+sC2uP+/yLsu5viZfE67d6SlH0ixE1
+	 qMAhmknJmMs7wGx8sQt27EdAOeDgKn1hK6JGmYWAbpkIcecakZ5L7iOHcB2tH23SJe
+	 X3FrTs3okSimGbCy3EAnHnLSh29C1NmKKzXLlSqFnEf06RizFeAvfziU3V9CKhGjbz
+	 n2XSP826Kn3M6DQ4nGxKzM439GmgWbwsKqsR25CJHdxO3IVh6AuKF5kw/EaLS+aYm/
+	 tzHXNRduo/Mj4wn+pnsUqB+mrcuz6UClC7uu8bBQqoZf5N8Qa0Nx/ni3qeiTf0aIet
+	 FuUGVQfh4gWOQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1x7rHX-0000000AvKU-1Eeq;
-	Sat, 19 Sep 2026 09:22:51 +0000
-Date: Sat, 19 Sep 2026 10:25:57 +0100
-Message-ID: <87h5jl4moq.wl-maz@kernel.org>
+	id 1x7rRR-0000000AvOn-27ai;
+	Sat, 19 Sep 2026 09:33:05 +0000
+Date: Sat, 19 Sep 2026 10:36:12 +0100
+Message-ID: <87fqz54m7n.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Sascha Bischoff <Sascha.Bischoff@arm.com>
 Cc: "linux-arm-kernel@lists.infradead.org"
@@ -69,10 +69,10 @@ Cc: "linux-arm-kernel@lists.infradead.org"
 	Timothy Hayes <Timothy.Hayes@arm.com>,
 	"fuad.tabba@linux.dev"
 	<fuad.tabba@linux.dev>
-Subject: Re: [PATCH v6 09/49] KVM: arm64: gic-v5: Create and manage VM and VPE tables
-In-Reply-To: <20260904113404.4051341-10-sascha.bischoff@arm.com>
+Subject: Re: [PATCH v6 35/49] KVM: arm64: gic-v5: Implement save/restore mechanisms for ISTs
+In-Reply-To: <20260904113404.4051341-36-sascha.bischoff@arm.com>
 References: <20260904113404.4051341-1-sascha.bischoff@arm.com>
-	<20260904113404.4051341-10-sascha.bischoff@arm.com>
+	<20260904113404.4051341-36-sascha.bischoff@arm.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
@@ -96,182 +96,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 04 Sep 2026 12:38:51 +0100,
+On Fri, 04 Sep 2026 12:52:03 +0100,
 Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
-> 
-> GICv5 uses a set of in-memory tables to track and manage VM state.
-> These must be allocated by the hypervisor and provided to the IRS.
-> 
-> The VMT (Virtual Machine Table) is a linear or two-level table
-> comprising VMT Entries (VMTEs). Each VMTE describes the state for a
-> single VM. This state includes things such as the SPI and LPI IST
-> configuration (coming in a future commit), an implementation-defined
-> VM Descriptor, and a VPE Table (VPET).
-> 
-> The VPET contains one entry per possible VPE ID belonging to a VM. It
-> is used to mark a VPE as valid and provide the address of an
-> implementation-defined VPE Descriptor (VPED), which the hardware uses
-> to track and manage VPE state.
-> 
-> Allocate each VM's VPEDs as a single dense array indexed by vcpu_idx,
-> while the VPET remains indexed by the userspace-provided vcpu_id. This
-> keeps VPED storage proportional to the number of vCPUs even when their
-> IDs are sparse.
-> 
-> The VMT and VPET are shared with the IRS. On systems with a
-> non-coherent IRS, cache maintenance operates at cache-line
-> granularity, while multiple entries can occupy the same cache line.
-> Use a common lock for CPU accesses to these tables and IRS command
-> processing so that writing back one entry cannot overwrite an IRS
-> update to a neighbouring entry.
-> 
-> The implementation-defined VMD and VPED storage is also visible to the
-> IRS. Round these allocations up to whole cache lines to prevent cache
-> maintenance from corrupting unrelated slab objects. Initialise the
-> storage before publishing its addresses to the IRS.
-> 
-> This commit adds support for allocating the VMT and its descriptor
-> backing state, and for managing VMTEs. The VMTEs can be initialised or
-> released for reuse. VM IDs are allocated with an IDA, while an XArray
-> tracks the host-side allocations associated with populated VMTEs.
-> 
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> ---
->  arch/arm64/kvm/Makefile              |   2 +-
->  arch/arm64/kvm/vgic/vgic-init.c      |   2 +
->  arch/arm64/kvm/vgic/vgic-v5-tables.c | 681 +++++++++++++++++++++++++++
->  arch/arm64/kvm/vgic/vgic-v5-tables.h | 100 ++++
->  arch/arm64/kvm/vgic/vgic-v5.c        |  19 +
->  drivers/irqchip/irq-gic-v5-irs.c     |  12 +-
->  include/kvm/arm_vgic.h               |   4 +
->  include/linux/irqchip/arm-gic-v5.h   |  14 +-
->  8 files changed, 824 insertions(+), 10 deletions(-)
->  create mode 100644 arch/arm64/kvm/vgic/vgic-v5-tables.c
->  create mode 100644 arch/arm64/kvm/vgic/vgic-v5-tables.h
-> 
 
-[...]
+Another LKP bot sparse finding at 202609191215.to1MBYak-lkp@intel.com:
 
-The lkp bot is reporting some interesting issues in
-202609190650.liMAzwjF-lkp@intel.com:
-
-> +	/* Allocate and assign the VM Descriptor, if required. */
-> +	if (vmt_info->vmd_size != 0) {
-> +		vmd_alloc_size = round_up(vmt_info->vmd_size,
-> +					  dma_get_cache_alignment());
-> +		vmd = kzalloc(vmd_alloc_size, GFP_KERNEL);
-> +		if (!vmd) {
-> +			ret = -ENOMEM;
-> +			goto out_fail;
-> +		}
-> +
-> +		/* Stash the VA so we can free it later */
-> +		vmi->vmd_base = vmd;
-
-The VMD is dynamically allocated.
-
-> +
-> +		tmp = FIELD_PREP(GICV5_VMTEL2E_VMD_ADDR,
-> +				 virt_to_phys(vmd) >> GICV5_VMTEL2E_VMD_ADDR_SHIFT);
-> +		vmte_val0 = tmp;
-> +	}
-> +
-> +	/*
-> +	 * Allocate and assign the VPE Table.
-> +	 *
-> +	 * First of all, iterate over all vcpus to find the highest VPE ID we
-> +	 * require - we need to ensure that we have enough storage for all
-> +	 * vcpu_id values that userspace has picked and not just the total
-> +	 * number of vcpus. This gives us the number of VPEs required for the
-> +	 * VM.
-> +	 *
-> +	 * Round up the number of VPEs to a whole power of two as we cannot
-> +	 * describe non-powers-of-two in the VMTE field as it conveys the number
-> +	 * of ID bits used and not the number of vPEs. IRS_IDR1.IAFFID_BITS is
-> +	 * encoded as N - 1, so expose at least one VPE ID bit even for a
-> +	 * single-vCPU VM to keep the views consistent.
-> +	 */
-> +	kvm_for_each_vcpu(i, vcpu, kvm) {
-> +		u16 vpe_id = vgic_v5_vpe_id(vcpu);
-> +
-> +		if (vpe_id > max_vpe_id)
-> +			max_vpe_id = vpe_id;
-> +	}
-> +
-> +	nr_cpus = max(2UL, roundup_pow_of_two(max_vpe_id + 1));
-> +	vmi->vpe_id_bits = fls(nr_cpus) - 1;
-> +
-> +	vpet_alloc_size = round_up((size_t)nr_cpus * sizeof(*vpet),
-> +				   dma_get_cache_alignment());
-> +	vpet = kzalloc(vpet_alloc_size, GFP_KERNEL);
-> +	if (!vpet) {
-> +		ret = -ENOMEM;
-> +		goto out_fail;
-> +	}
-> +
-> +	/* Stash the VA so we can free it later */
-> +	vmi->vpet_base = vpet;
-
-and so is the VPET.
-
-[...]
-
-> diff --git a/arch/arm64/kvm/vgic/vgic-v5-tables.h b/arch/arm64/kvm/vgic/vgic-v5-tables.h
-> new file mode 100644
-> index 0000000000000..962be0c7cd3f6
-> --- /dev/null
-> +++ b/arch/arm64/kvm/vgic/vgic-v5-tables.h
-> @@ -0,0 +1,100 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
 > +/*
-> + * Copyright (C) 2025, 2026 Arm Ltd.
+> + * Save a linear host IST to userspace memory.
+> + *
+> + * Only the architected 32-bit ISTE state is stored. Metadata is skipped when
+> + * striding through the host IST.
 > + */
+> +static int vgic_v5_save_linear_ist(const struct vgic_v5_ist_desc *ist,
+> +				   u32 __user *uaddr, size_t nr_entries)
+> +{
+> +	__le32 h_iste;
+> +	size_t index;
+> +	int ret;
 > +
-> +#ifndef __KVM_ARM_VGICV5_TABLES_H__
-> +#define __KVM_ARM_VGICV5_TABLES_H__
+> +	vgic_v5_clean_inval(ist->base,
+> +			    GICV5_LINEAR_IST_SIZE(ist->id_bits, ist->istsz));
 > +
-> +#include <linux/spinlock.h>
-> +#include <linux/idr.h>
-> +#include <linux/irqchip/arm-gic-v5.h>
+> +	for (index = 0; index < nr_entries; index++) {
+> +		__le32 *h_iste_addr = ist->base + index * ist->iste_size;
 > +
-> +/* Level 1 Virtual Machine Table Entry */
-> +typedef __le64 vmtl1_entry;
-> +
-> +/* Level 2 Virtual Machine Table Entry */
-> +struct vmtl2_entry {
-> +	__le64 val[4];
-> +};
-> +
-> +/* Virtual PE Table Entry */
-> +typedef __le64 vpe_entry;
-> +
-> +struct vgic_v5_vm_info {
-> +	void __iomem		*vmd_base;
-> +	vpe_entry __iomem	*vpet_base;
+> +		h_iste = READ_ONCE(*h_iste_addr);
+> +		ret = put_user(h_iste, uaddr);
 
-But pointers to allocated memory cannot be __iomem, as this qualifies
-MMIO registers.
+h_iste is an __le32, while uaddr is a pointer to u32. Not great, even
+if arm64 BE is now dead. I'll queue this:
 
-I'll queue the change below on top.
+@@ -1459,7 +1459,6 @@ static int vgic_v5_get_lpi_ist_desc(struct kvm *kvm,
+ static int vgic_v5_save_linear_ist(const struct vgic_v5_ist_desc *ist,
+ 				   u32 __user *uaddr, size_t nr_entries)
+ {
+-	__le32 h_iste;
+ 	size_t index;
+ 	int ret;
+ 
+@@ -1468,8 +1467,9 @@ static int vgic_v5_save_linear_ist(const struct vgic_v5_ist_desc *ist,
+ 
+ 	for (index = 0; index < nr_entries; index++) {
+ 		__le32 *h_iste_addr = ist->base + index * ist->iste_size;
++		u32 h_iste;
+ 
+-		h_iste = READ_ONCE(*h_iste_addr);
++		h_iste = le32_to_cpu(READ_ONCE(*h_iste_addr));
+ 		ret = put_user(h_iste, uaddr);
+ 		if (ret)
+ 			return ret;
+
+Thanks,
 
 	M.
-
-diff --git a/arch/arm64/kvm/vgic/vgic-v5-tables.h b/arch/arm64/kvm/vgic/vgic-v5-tables.h
-index b2ffbe68c05b4..89096926563f7 100644
---- a/arch/arm64/kvm/vgic/vgic-v5-tables.h
-+++ b/arch/arm64/kvm/vgic/vgic-v5-tables.h
-@@ -23,8 +23,8 @@ struct vmtl2_entry {
- typedef __le64 vpe_entry;
- 
- struct vgic_v5_vm_info {
--	void __iomem		*vmd_base;
--	vpe_entry __iomem	*vpet_base;
-+	void			*vmd_base;
-+	vpe_entry		*vpet_base;
- 	void			*vped_base;
- 	u8			vpe_id_bits;
- 
-
 
 -- 
 Jazz isn't dead. It just smells funny.
