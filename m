@@ -4,54 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD454C982CC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 11:34:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6DD4C982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 11:41:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:Cc:To:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tLkL7JzLdhgZQrxSRyacOVgrQVNh6vWMDZJo4yrNNdQ=; b=aa9/1Ga5l7NEArAY+B1mnZ2M6F
-	+4paaAMJZb+v1L/GLuG4CeVXAnPoZL6PGUGIKdhxGxXqosAkhjmORZL0rk4ykDTcY3TbVCUPt4hv3
-	gT3akSg13X+ZIl9xmly2kfA2Qvf2hfM/5jd2WqvU0zlTdsvAZU7BfZTfupRrviVLO/Jbe0qaTLBC/
-	NTr/rkh7Nqpo7dFk6Kf1SapUMhRjectoFPdNM4a5j+b2yeqj9c4rs0cWnIKOatSIwJ1QUsh5zE/nK
-	yfqVB0Zjogx1TKTtSy4XSHwoKAyh97XPUpen4XL5CyHcAYu8y67B55HJZbG9/blxR54LiCaYeFEE+
-	1kJ3Pmvw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:In-Reply-To:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=8bYQnCsebfj4gqtKaU+bL6poZ9H1ZaWhiAaWQhC3h+U=; b=0jb4Jkx0BZyW59
+	QF9OcOjnZ/KgdvnUmDoI9Vrv4tot7Kk3YEz+qQXDhH6EMbieE/uycWAOAtgJESmWNOBlIFHdVgLOi
+	wJ6OQgQTr1IcRWWa5Wadm+dHXxkpVFAzzFS80EcrnFYUF623OJB5wE25PsAaU+x2BiIDvGNeoEhM1
+	B7mIt0wpgpiW68napvPIxgdsV1KQ7j84TLBLu09neUii06EVRSiZIg7XWcd0yNimy77k8HcAiBdGz
+	kXKjE4dM2F/5b2l9SQJKMaH+v1b2C+XYpT8nKWDhC5kW25o5St8IF4pkpOasn2bIGtZnN++TESL8B
+	LrgB1Kbcx6EHGdvhuFTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7tBb-0000000GD1D-0C9R;
-	Sat, 19 Sep 2026 11:24:51 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1x7tRu-0000000GDfc-1cow;
+	Sat, 19 Sep 2026 11:41:42 +0000
+Received: from mail.mainlining.org ([5.75.144.95])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7tBX-0000000GD0m-0VYd
+	id 1x7tRs-0000000GDfH-1cHe
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Sep 2026 11:24:49 +0000
-Received: from monstersaurus.ideasonboard.com (cpc89244-aztw30-2-0-cust6594.18-1.cable.virginm.net [86.31.185.195])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id B9A561CF5;
-	Sat, 19 Sep 2026 13:22:57 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1789816977;
-	bh=Z8wkPmQUbHgQBu1B/ph7jlE+wdo/SOJNVn6V4NgjmD0=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date:From;
-	b=E54UYq9RUqmFHOocoYsZKlZvDH7Nbztbu9QniuXOze6Pmwl2qh/MSaUbG+hg9/O6C
-	 p+Amtq/VmdsBU/NaCNpo2P7WPLWQPqbBXoEy2sXATTTPe8CSggBRmLqFE7XV0Ov9/d
-	 YgcIvT2PQZrrwwjZHyjz/rFHxkBAp2oDAxg3kCvM=
-Content-Type: text/plain; charset="utf-8"
+	Sat, 19 Sep 2026 11:41:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; s=202507r; d=mainlining.org; c=relaxed/relaxed;
+	h=Message-ID:Subject:To:From:Date; t=1789818087; bh=8bYQnCsebfj4gqtKaU+bL6p
+	oZ9H1ZaWhiAaWQhC3h+U=; b=KD0Nek7eLljXr4oxwOJ5WCgz3V3lzDrfTI6iPq68fA3lCyfFny
+	orMm7Luv1AUqh6DpXtcHVnJehewPZNzj75UhgmgufqLfOAs9ltFQpUVO73hsguZaKdFq7WS3H1V
+	VHfqGCay7xrYnvtXGVwPso/5GgFosNVlYUv3gAmYDIkt3ujPAvsTXXA7/rik+z3SBOldcOOXtJR
+	8tybkmxloGFWO+ndff3VV5cnEKkhW1Zt+XA6YQX9T/g3+F1PbOStBHYlMunJBV9TkzsIiI+vLNW
+	e7jg8GtcbqEKgEXwLrTOCxY6BGAI11DLlA2v82IOWF4uN6eXCzCP6eCp/PpdI/cSOtg==;
+DKIM-Signature: v=1; a=ed25519-sha256; s=202507e; d=mainlining.org; c=relaxed/relaxed;
+	h=Message-ID:Subject:To:From:Date; t=1789818087; bh=8bYQnCsebfj4gqtKaU+bL6p
+	oZ9H1ZaWhiAaWQhC3h+U=; b=++Xk0d77hYyCmRvpe+Rac3hHO2idiUdcqXPHnlXefjPZSgDleC
+	Q0qRwfsmlCNaWgbb7DvRXmBojbJ0/kmhnIBQ==;
+Date: Sat, 19 Sep 2026 12:41:28 +0100
+From: Bradley Morgan <brads@mainlining.org>
+To: will@kernel.org
+Subject: Re: [PATCH v2 19/21] arm64: entry: The great stack switcheroo
+In-Reply-To: <20260918161407.2300-20-will@kernel.org>
+Message-ID: <18D0FCAB-2B5D-40C7-805F-78E5275C0701@mainlining.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20260918192447.GB1465432-robh@kernel.org>
-References: <20260910-verdin-imx8mp-hmp-camera-ready-v1-0-3c9349ecdb9f@toradex.com> <20260910-verdin-imx8mp-hmp-camera-ready-v1-3-3c9349ecdb9f@toradex.com> <aqLaLmz7n31P6igy@SMW015318> <prwghb3ftrz5xd3hapxtlv2o2gm5xmuapnpz2h7fqulf75phqz@lk4yiaepormb> <aqLif2zrrsbYd5sM@SMW015318> <aqLk5UAv-j39Jxd3@francesco-nb> <20260918192447.GB1465432-robh@kernel.org>
-Subject: Re: [PATCH 3/6] dt-bindings: connector: Add Toradex camera connector
-From: Kieran Bingham <kieran.bingham@ideasonboard.com>
-To: Francesco Dolcini <francesco.dolcini@toradex.com>, Rob Herring <robh@kernel.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>,
-Cc: Frank Li <Frank.li@oss.nxp.com>, Ernest Van Hoecke <ernestvanhoecke@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
-Date: Sat, 19 Sep 2026 12:24:38 +0100
-Message-ID: <178981707848.1761404.17065871878122418287@ping.linuxembedded.co.uk>
-User-Agent: alot/0.9.1
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260919_042447_606353_84EBE8AD 
-X-CRM114-Status: GOOD (  44.07  )
+X-CRM114-CacheID: sfid-20260919_044140_600637_01294733 
+X-CRM114-Status: GOOD (  17.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,213 +62,372 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, smostafa@google.com, arnd@arndb.de, catalin.marinas@arm.com, linusw@kernel.org, linux-kernel@vger.kernel.org, vladimir.murzin@arm.com, maz@kernel.org, david@kernel.org, ljs@kernel.org, oupton@kernel.org, ardb@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+On 18 September 2026 17:14:03 BST, Will Deacon <will@kernel.org> wrote:
+>With the kernel stack pointer in SP_EL1 and the overflow stack pointer
+>in SP_EL0, it is now straightforward to switch between the two on
+>exception entry from EL1 by writing to SPSel. However, since exception
+>entry sets PSTATE.SP to 1 (selecting SP_EL1 as the stack pointer),
+>repurposing the overflow stack as a more general kernel exception stack
+>would require writing to SPSel on every exception entry from the kernel.
+>
+>Switch things around so that the overflow stack resides in SP_EL1, with
+>the kernel stack residing in SP_EL0.
 
-+Dave @ Rpi
+Hi will, sigh.
 
-Quoting Rob Herring (2026-09-18 20:24:47)
-> On Thu, Sep 10, 2026 at 07:12:05PM +0200, Francesco Dolcini wrote:
-> > On Thu, Sep 10, 2026 at 12:01:51PM -0500, Frank Li wrote:
-> > > On Thu, Sep 10, 2026 at 06:39:30PM +0200, Ernest Van Hoecke wrote:
-> > > > Hi Frank,
-> > > >
-> > > > Thanks for reviewing this so quickly.
-> > > >
-> > > > On Thu, Sep 10, 2026 at 11:26:22AM -0500, Frank Li wrote:
-> > > > > On Thu, Sep 10, 2026 at 05:37:59PM +0200, Ernest Van Hoecke wrote:
-> > > > > > From: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
-> > > > > >
-> > > > > > Toradex boards route the sideband signals of their 24-pin camera
-> > > > > > connectors to different GPIO controllers. Camera overlays which=
- name
-> > > > > > those controllers directly must therefore be duplicated for eac=
-h host
-> > > > > > board.
-> > > > > >
-> > > > > > Describe reset, power-down, detection and power-control as
-> > > > > > connector-local GPIO functions. This lets an accessory overlay =
-remain
-> > > > > > independent of the host wiring. MIPI CSI-2, I2C, clocks and sup=
-plies
-> > > > > > remain described separately because the GPIO nexus does not abs=
-tract
-> > > > > > them.
-> > > > > >
-> > > > > > Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
-> > > > > > ---
-> > > > > >  .../connector/toradex,camera-connector.yaml        | 86 ++++++=
-++++++++++++++++
-> > > > > >  1 file changed, 86 insertions(+)
-> > > > > >
-> > > > > > diff --git a/Documentation/devicetree/bindings/connector/torade=
-x,camera-connector.yaml b/Documentation/devicetree/bindings/connector/torad=
-ex,camera-connector.yaml
-> > > > > > new file mode 100644
-> > > > > > index 000000000000..06e6836e1aa6
-> > > > > > --- /dev/null
-> > > > > > +++ b/Documentation/devicetree/bindings/connector/toradex,camer=
-a-connector.yaml
-> > > > > > @@ -0,0 +1,86 @@
-> > > > > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > > > > +%YAML 1.2
-> > > > > > +---
-> > > > > > +$id: http://devicetree.org/schemas/connector/toradex,camera-co=
-nnector.yaml#
-> > > > > > +$schema: http://devicetree.org/meta-schemas/base.yaml#
-> > > > > > +
-> > > > > > +title: Toradex camera connector GPIO nexus
-> > > > > > +
-> > > > > > +maintainers:
-> > > > > > +  - Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
-> > > > > > +  - Toradex Linux BSP Team <linux-bsp@toradex.com>
-> > > > > > +
-> > > > > > +description: |
-> > > > > > +  Toradex boards provide 24-pin camera connectors carrying MIP=
-I CSI-2, I2C,
-> > > > > > +  clock, power, and sideband GPIO signals. This binding descri=
-bes the sideband
-> > > > > > +  signals as a GPIO nexus. The other connector resources remai=
-n described by
-> > > > > > +  the surrounding board device tree.
-> > > > > > +
-> > > > > > +  The nexus exposes connector-local GPIO function numbers to c=
-amera overlays
-> > > > > > +  and maps the functions wired by a carrier board to their GPI=
-O controllers.
-> > > > > > +  GPIO specifiers contain a function number followed by standa=
-rd GPIO flags.
-> > > > > > +  A board may omit functions which it does not wire.
-> > > > > > +
-> > > > > > +  The function numbers are:
-> > > > > > +    - 0: Camera reset, connector pin 11
-> > > > > > +    - 1: Camera power-down, connector pin 22
-> > > > > > +    - 2: Camera identification, connector pin 23
-> > > > > > +    - 3: Camera power control, connector pin 24
-> > > > > > +
-> > > > > > +properties:
-> > > > > > +  compatible:
-> > > > > > +    const: toradex,camera-connector
-> > > > >
-> > > > > Name is too generally, suggest use board name, we got similar com=
-ments at
-> > > > >
-> > > > > https://lore.kernel.org/imx/20260629074734.3643227-2-chancel.liu@=
-oss.nxp.com/
-> > > >
-> > > > I saw that and it made me reconsider this name.
-> > > >
-> > > > However, I believe that in our case it is specific enough. It is re=
-ally
-> > > > the same on all our carrier boards, and Toradex specific. It's also=
- only
-> > > > for cameras, which is more defined than just "io". Curious to see if
-> > > > others agree or if we should come up with a name for this.
-> > >=20
-> > > If some days later, you update hardware connector to 30pin from 24pin=
-s.
-> >=20
-> > That connector is there since years, not days.
-> >=20
-> > We have multiple cameras, designed to mate with it.
-> >=20
-> > If tomorrow we will define a new camera connector (that is absolutely
-> > possible), the new connector will get its name, maybe
-> > toradex,camera-connector-v2, or toradex,camera-connector-22pin or
-> > whatever that connector would be named, not just in the DT, but also as
-> > a product and on the actual HW.
->=20
+https://lore.kernel.org/all/20260804143517.17524-1-include@grrlz.net/
 
-Diving in because, cameras :D
+Please be careful this won't conflict, I'll resubmit this.
 
 
-> I for one hate 'v2' naming.
->=20
+>
+>Signed-off-by: Will Deacon <will@kernel.org>
+>---
+> arch/arm64/include/asm/kvm_asm.h | 16 +++++++++++++++
+> arch/arm64/kernel/entry-common.c | 34 ++++++++++++++++----------------
+> arch/arm64/kernel/entry.S        | 26 +++++++++++++-----------
+> arch/arm64/kernel/head.S         |  5 ++++-
+> arch/arm64/kernel/sleep.S        |  3 ++-
+> arch/arm64/kernel/smp.c          |  8 +++++---
+> arch/arm64/kvm/hyp/entry.S       |  3 +++
+> arch/arm64/mm/proc.S             | 10 ++++++++--
+> 8 files changed, 70 insertions(+), 35 deletions(-)
+>
+>diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+>index 1cfe9216a2ff..bde046c3ca79 100644
+>--- a/arch/arm64/include/asm/kvm_asm.h
+>+++ b/arch/arm64/include/asm/kvm_asm.h
+>@@ -398,6 +398,22 @@ void __noreturn __cold nvhe_hyp_panic_handler(u64 esr, u64 spsr, u64 elr_virt,
+> 	ldp	x29, lr,  [\ctxt, #CPU_XREG_OFFSET(29)]
+> .endm
+> 
+>+#ifdef __KVM_VHE_HYPERVISOR__
+>+.macro activate_exception_stack
+>+msr	spsel, #1
+>+.endm
+>+
+>+.macro deactivate_exception_stack
+>+msr	spsel, #0
+>+.endm
+>+#else
+>+.macro activate_exception_stack
+>+.endm
+>+
+>+.macro deactivate_exception_stack
+>+.endm
+>+#endif
+>+
+> .macro save_sp_el0 ctxt, tmp
+> 	mrs	\tmp,	sp_el0
+> 	str	\tmp,	[\ctxt, #CPU_SP_EL0_OFFSET]
+>diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+>index 9738142780df..9d734cd09f62 100644
+>--- a/arch/arm64/kernel/entry-common.c
+>+++ b/arch/arm64/kernel/entry-common.c
+>@@ -327,7 +327,7 @@ static void debug_exception_exit(struct pt_regs *regs)
+> }
+> NOKPROBE_SYMBOL(debug_exception_exit);
+> 
+>-static void noinstr el1t_64_check_overflow_stack(struct pt_regs *regs)
+>+static void noinstr el1h_64_check_overflow_stack(struct pt_regs *regs)
+> {
+> 	unsigned long sp = kernel_stack_pointer(regs) - sizeof(*regs);
+> 	unsigned long ovf_stack = (unsigned long)this_cpu_ptr(overflow_stack);
+>@@ -343,28 +343,28 @@ static void noinstr el1t_64_check_overflow_stack(struct pt_regs *regs)
+> 		cpu_park_loop();
+> }
+> 
+>-asmlinkage void noinstr el1t_64_sync_handler(struct pt_regs *regs)
+>+asmlinkage void noinstr el1h_64_sync_handler(struct pt_regs *regs)
+> {
+>-	el1t_64_check_overflow_stack(regs);
+>-	el1h_64_sync_handler(regs);
+>+	el1h_64_check_overflow_stack(regs);
+>+	el1t_64_sync_handler(regs);
+> }
+> 
+>-asmlinkage void noinstr el1t_64_irq_handler(struct pt_regs *regs)
+>+asmlinkage void noinstr el1h_64_irq_handler(struct pt_regs *regs)
+> {
+>-	el1t_64_check_overflow_stack(regs);
+>-	el1h_64_irq_handler(regs);
+>+	el1h_64_check_overflow_stack(regs);
+>+	el1t_64_irq_handler(regs);
+> }
+> 
+>-asmlinkage void noinstr el1t_64_fiq_handler(struct pt_regs *regs)
+>+asmlinkage void noinstr el1h_64_fiq_handler(struct pt_regs *regs)
+> {
+>-	el1t_64_check_overflow_stack(regs);
+>-	el1h_64_fiq_handler(regs);
+>+	el1h_64_check_overflow_stack(regs);
+>+	el1t_64_fiq_handler(regs);
+> }
+> 
+>-asmlinkage void noinstr el1t_64_error_handler(struct pt_regs *regs)
+>+asmlinkage void noinstr el1h_64_error_handler(struct pt_regs *regs)
+> {
+>-	el1t_64_check_overflow_stack(regs);
+>-	el1h_64_error_handler(regs);
+>+	el1h_64_check_overflow_stack(regs);
+>+	el1t_64_error_handler(regs);
+> }
+> 
+> static void noinstr el1_abort(struct pt_regs *regs, unsigned long esr)
+>@@ -494,7 +494,7 @@ static void noinstr el1_fpac(struct pt_regs *regs, unsigned long esr)
+> 	arm64_exit_to_kernel_mode(regs, state);
+> }
+> 
+>-asmlinkage void noinstr el1h_64_sync_handler(struct pt_regs *regs)
+>+asmlinkage void noinstr el1t_64_sync_handler(struct pt_regs *regs)
+> {
+> 	unsigned long esr = read_sysreg(esr_el1);
+> 
+>@@ -578,17 +578,17 @@ static void noinstr el1_interrupt(struct pt_regs *regs,
+> 		__el1_irq(regs, handler);
+> }
+> 
+>-asmlinkage void noinstr el1h_64_irq_handler(struct pt_regs *regs)
+>+asmlinkage void noinstr el1t_64_irq_handler(struct pt_regs *regs)
+> {
+> 	el1_interrupt(regs, handle_arch_irq);
+> }
+> 
+>-asmlinkage void noinstr el1h_64_fiq_handler(struct pt_regs *regs)
+>+asmlinkage void noinstr el1t_64_fiq_handler(struct pt_regs *regs)
+> {
+> 	el1_interrupt(regs, handle_arch_fiq);
+> }
+> 
+>-asmlinkage void noinstr el1h_64_error_handler(struct pt_regs *regs)
+>+asmlinkage void noinstr el1t_64_error_handler(struct pt_regs *regs)
+> {
+> 	unsigned long esr = read_sysreg(esr_el1);
+> 	irqentry_state_t state;
+>diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
+>index 38f9327e6a0a..afcd84510daf 100644
+>--- a/arch/arm64/kernel/entry.S
+>+++ b/arch/arm64/kernel/entry.S
+>@@ -54,6 +54,12 @@
+> 
+> 	.macro kernel_ventry_el1h, regsize:req, label:req
+> 	sub	sp, sp, #PT_REGS_SIZE
+>+	b	el1h_\regsize\()_\label
+>+	.endm
+>+
+>+	.macro kernel_ventry_el1t, regsize:req, label:req
+>+	msr	spsel, #0			// Stay on the kernel stack
+>+	sub	sp, sp, #PT_REGS_SIZE
+> 
+> 	/*
+> 	 * Test whether the SP has overflowed, without corrupting a GPR.
+>@@ -65,12 +71,6 @@
+> 	tbnz	x0, #THREAD_SHIFT, __bad_stack
+> 	sub	x0, sp, x0			// x0'' = sp' - x0' = (sp + x0) - sp = x0
+> 	sub	sp, sp, x0			// sp'' = sp' - x0 = (sp + x0) - x0 = sp
+>-	b	el1h_\regsize\()_\label
+>-	.endm
+>-
+>-	.macro kernel_ventry_el1t, regsize:req, label:req
+>-	msr	spsel, #0			// Stay on the overflow stack
+>-	sub	sp, sp, #PT_REGS_SIZE
+> 	b	el1t_\regsize\()_\label
+> 	.endm
+> 
+>@@ -208,7 +208,10 @@ alternative_cb_end
+> 	ldr_this_cpu	tsk, __entry_task, x20
+> 	msr	tpidrro_el0, tsk
+> 	adr_this_cpu	x19, overflow_stack + OVERFLOW_STACK_SIZE, x20
+>-	msr	sp_el0, x19
+>+	mov	x20, sp
+>+	msr	sp_el0, x20
+>+	mov	sp, x19
+>+	msr	spsel, #0
+> 
+> 	/*
+> 	 * Ensure MDSCR_EL1.SS is clear, since we can unmask debug exceptions
+>@@ -346,6 +349,9 @@ alternative_else_nop_endif
+> 
+> 	.if	\el == 0
+> 	ldr	x23, [sp, #S_SP]		// load return stack pointer
+>+	mov	x0, sp
+>+	msr	spsel, #1
+>+	mov	sp, x0
+> 	msr	sp_el0, x23
+> 	msr	tpidrro_el0, xzr
+> 	tst	x22, #PSR_MODE32_BIT		// native task?
+>@@ -532,16 +538,14 @@ SYM_CODE_START_LOCAL(__bad_stack)
+> 	add	sp, sp, #PT_REGS_SIZE
+> 
+> 	/* Switch to the overflow stack */
+>-	msr	spsel, #0
+>+	msr	spsel, #1
+> 
+> 	/* Stash the exception regs */
+> 	sub	sp, sp, #PT_REGS_SIZE
+> 	kernel_entry 1
+> 
+> 	/* Fix-up the saved SP */
+>-	msr	spsel, #1
+>-	mov	x0, sp
+>-	msr	spsel, #0
+>+	mrs	x0, sp_el0
+> 	str	x0, [sp, #S_SP]
+> 
+> 	/* Stash the regs for handle_bad_stack */
+>diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
+>index 27a19e1a0ee6..7419e1d8b7ec 100644
+>--- a/arch/arm64/kernel/head.S
+>+++ b/arch/arm64/kernel/head.S
+>@@ -211,8 +211,11 @@ SYM_CODE_END(preserve_boot_args)
+> 	ldr	\tmp1, [\tmp1, \tmp2, lsl #3]
+> 	set_this_cpu_offset \tmp1
+> 
+>-	adr_this_cpu	\tmp1, overflow_stack + OVERFLOW_STACK_SIZE, \tmp2
+>+	mov	\tmp1, sp
+> 	msr	sp_el0, \tmp1
+>+	adr_this_cpu	\tmp1, overflow_stack + OVERFLOW_STACK_SIZE, \tmp2
+>+	mov	sp, \tmp1
+>+	msr	spsel, #0
+> 	.endm
+> 
+> /*
+>diff --git a/arch/arm64/kernel/sleep.S b/arch/arm64/kernel/sleep.S
+>index f093cdf71be1..facf3f1cc3b1 100644
+>--- a/arch/arm64/kernel/sleep.S
+>+++ b/arch/arm64/kernel/sleep.S
+>@@ -133,7 +133,8 @@ SYM_FUNC_START(_cpu_resume)
+> 	add	x0, x0, #SLEEP_STACK_DATA_SYSTEM_REGS
+> 	/* load sp from context */
+> 	ldr	x2, [x0, #CPU_CTX_SP]
+>-	mov	sp, x2
+>+	msr	sp_el0, x2
+>+
+> 	/*
+> 	 * cpu_do_resume expects x0 to contain context address pointer
+> 	 */
+>diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+>index 4c122d6598de..b2e778aae881 100644
+>--- a/arch/arm64/kernel/smp.c
+>+++ b/arch/arm64/kernel/smp.c
+>@@ -447,14 +447,16 @@ void __init smp_cpus_done(unsigned int max_cpus)
+> 	mark_linear_text_alias_ro();
+> }
+> 
+>-static void __init set_boot_cpu_offset(void)
+>+static void __init update_boot_cpu_offset_and_overflow_stack(void)
+> {
+> 	u64 ovf_sp = (u64)raw_cpu_ptr(overflow_stack) + OVERFLOW_STACK_SIZE;
+> 
+> 	asm volatile(
+> 	"	msr	tpidr_el1, %1\n"
+> 	"	add	%0, %0, %1\n"
+>-	"	msr	sp_el0, %0" /* Update the overflow stack pointer */
+>+	"	msr	spsel, #1\n"
+>+	"	mov	sp, %0\n" /* Update the overflow stack pointer */
+>+	"	msr	spsel, #0"
+> 	: "+r" (ovf_sp)
+> 	: "r" (per_cpu_offset(0))
+> 	: "memory");
+>@@ -467,7 +469,7 @@ void __init smp_prepare_boot_cpu(void)
+> 	 * setup_per_cpu_areas(), and CPU0's boot time per-cpu area will be
+> 	 * freed shortly, so we must move over to the runtime per-cpu area.
+> 	 */
+>-	set_boot_cpu_offset();
+>+	update_boot_cpu_offset_and_overflow_stack();
+> 
+> 	cpuinfo_store_boot_cpu();
+> 	setup_boot_cpu_features();
+>diff --git a/arch/arm64/kvm/hyp/entry.S b/arch/arm64/kvm/hyp/entry.S
+>index 4c89931a6a92..4d1205d04383 100644
+>--- a/arch/arm64/kvm/hyp/entry.S
+>+++ b/arch/arm64/kvm/hyp/entry.S
+>@@ -31,6 +31,7 @@ SYM_FUNC_START(__guest_enter)
+> 	save_callee_saved_regs x1
+> 
+> 	// Save hyp's sp_el0 and tpidrro_el0
+>+	activate_exception_stack
+> 	save_sp_el0	x1, x2
+> 	save_tpidrro_el0 x1, x2
+> 
+>@@ -50,6 +51,7 @@ alternative_else_nop_endif
+> 	// that would usually be synchonized by the ERET.
+> 	isb
+> 	mov	x0, #ARM_EXCEPTION_IRQ
+>+	deactivate_exception_stack
+> 	ret
+> 
+> 1:
+>@@ -167,6 +169,7 @@ SYM_INNER_LABEL(__guest_exit, SYM_L_GLOBAL)
+> 	// Restore hyp's sp_el0 and tpidrro_el0
+> 	restore_sp_el0 x2, x3
+> 	restore_tpidrro_el0 x2, x3
+>+	deactivate_exception_stack
+> 
+> 	// Now restore the hyp regs
+> 	restore_callee_saved_regs x2
+>diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
+>index ad4965d34978..bec7f858fae9 100644
+>--- a/arch/arm64/mm/proc.S
+>+++ b/arch/arm64/mm/proc.S
+>@@ -87,6 +87,7 @@
+>  * This must be kept in sync with struct cpu_suspend_ctx in <asm/suspend.h>.
+>  */
+> SYM_FUNC_START(cpu_do_suspend)
+>+	msr	spsel, #1
+> 	mrs	x2, tpidr_el0
+> 	mrs	x3, tpidrro_el0
+> 	mrs	x4, contextidr_el1
+>@@ -98,7 +99,7 @@ SYM_FUNC_START(cpu_do_suspend)
+> 	mrs	x10, oslsr_el1
+> 	mrs	x11, sctlr_el1
+> 	get_this_cpu_offset x12
+>-	mrs	x13, sp_el0
+>+	mov	x13, sp				// SP_EL1
+> 	stp	x2, x3, [x0]
+> 	stp	x4, x5, [x0, #16]
+> 	stp	x6, x7, [x0, #32]
+>@@ -114,6 +115,7 @@ alternative_if ARM64_HAS_TCR2
+> 	mrs	x2, REG_TCR2_EL1
+> 	str	x2, [x0, #104]
+> alternative_else_nop_endif
+>+	msr	spsel, #0
+> 	ret
+> SYM_FUNC_END(cpu_do_suspend)
+> 
+>@@ -121,6 +123,8 @@ SYM_FUNC_END(cpu_do_suspend)
+>  * cpu_do_resume - restore CPU register context
+>  *
+>  * x0: Address of context pointer
+>+ *
+>+ * Entered with SPSel == 1, returns with SPSel == 0.
+>  */
+> SYM_FUNC_START(cpu_do_resume)
+> 	ldp	x2, x3, [x0]
+>@@ -159,7 +163,8 @@ alternative_else_nop_endif
+> 
+> 	msr	sctlr_el1, x12
+> 	set_this_cpu_offset x13
+>-	msr	sp_el0, x14
+>+	mov	sp, x14				// SP_EL1
+>+
+> 	/*
+> 	 * Restore oslsr_el1 by writing oslar_el1
+> 	 */
+>@@ -182,6 +187,7 @@ alternative_else_nop_endif
+> 
+> 	ptrauth_keys_install_kernel_nosync x15, x1, x2, x3
+> 	isb
+>+	msr	spsel, #0
+> 	ret
+> SYM_FUNC_END(cpu_do_resume)
+> #endif
+>
 
-Me too. I wouldn't ever call it v2, but a future
-toradex,camera-connector-24pin might be appropriate.
-
-Note that I specifically said 24 as an example because there is already
-a 22 pin Raspberry Pi connector.
-
-If Toradex were to produce boards with a 22 pin connector, I would
-anticipate it to be the same pinout as the Raspberry Pi connector.
-
-Raspberry Pi camera connectors have already somewhat become a defacto
-standard (albeit for both positives and negatives there).
-
-So I would imagine if a 22 pin layout were ever made it would be
-compatible with RPi 22. And if Toradex ever make a 22 pin connector
-which is not RPi compatible ... well I might scream into the void ;-)
-but then it would have a toradex prefix I guess!
-
-
-Equally we have other vendors who have 30 pin connectors (There are
-quite a few, so I have myself a research project to go find out how
-{in,}compatible they all are here ...)
-
-So, I would imagine if we're giong to name connectors we should set out
-an expectation to start with
-
-  toradex,camera-connector-30pin
-  raspberrypi,camera-connector-15pin
-  raspberrypi,camera-connector-22pin
-
-And if Toradex were to make a *different* 22 pin connector then it would
-be:
-
-  toradex,camera-connector-22pin,
-
-But if it's RPi layout, then it would be defined as such.
-
-
-All that to say - I think Toradex certainly warrant a specific
-
-  toradex,camera-connector
-
-But I think specifiying the pin count already could be useful (but not
-essential).
-
-It's a bit like Raspberry Pi's original 15 pin connector. If we wound
-the clock back 15 years and tried this with RPi we'd have:
-
-  raspberrypi,camera-connector
-  raspberrypi,camera-connector-22pin
-
-I mean that's fine too - but if we're specifying the pin in one we may
-as well do it in all...
-
-
-> I agree the name seems a bit generic, but if you really can't come up=20
-> with something better, then fine. The next connector name just has to be =
-
-> something different.
-
-Indeed.
-
-I'm very happy that we have actual progress on how we might handle
-camera connectors though!
-
-I'm going to have to try to do the same proposal for RPi connectors
-aren't I ;-)
-
-If I post patches, I'll use the full form:
-
-=20
-  raspberrypi,camera-connector-15pin
-  raspberrypi,camera-connector-22pin
-
-
-I'm curious if anyone at RPi has any opinion, given it's 'their' standard.
-
-Dave? any thoughts here ?
-
---
-Kieran
-
-
->=20
-> Rob
+--- Thanks!
+https://lore.kernel.org/all/EE579805-42F2-4C58-B752-F28779EEB717@grrlz.net/
 
