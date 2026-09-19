@@ -4,73 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB5E7C982D7
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 16:37:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14360C982D7
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 16:37:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IOKiZqPgxxYdzu3lGhozAU5+HVbqGefdej+WIN436I4=; b=iT/7y50IFLJAyYsQKCX80arV6E
-	ji384WwB5EVV0TB/R8HiTjdUM2+m3GOqKovKQ8RWeWcn5k/hyo647j+i9apNMAhtTJqXw7Mm6lwHX
-	aQTwoapY2VGSqq/BnHhovczRNWGSF4cpMMxr4UNC95NeJAZKOmkHW7jBaNxf7xeq+ew+se/PbbFpN
-	aUBkVEitt4p0IEoFLwRguVyoW4IOFrXPsc1Z56VppBxJ3Hj6/zjwzClR/DAewZnmbsFlgiK298yVo
-	HMl5dQR+u6CACf5igZ3GvTtqST0EtYjRigrK0eI3fM9TX8UgGbmfzF9HoLzycNl5VbGvZMyNj25SJ
-	LYwVk3kA==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vgqhI+7tTNR/gehAUgAlA1m56lV4Jk2GGCXFewptpVg=; b=yfnIPF6dAy9ZxHqCcfc24Ozzfe
+	1BP5ej3tWPAxxYQnz+pq7oFvTb0ARf5T/uPOr9oVOzMqpTqIkuR4BMIG3EMOHlwirrrkCjUreBgc9
+	GUYIhIAP+DVptikZEBl7mxpvH4K2c/+0jib8EJCTVKlx1Dpkn4TpQHI3Rpnfcyq732/A6QFL6+3si
+	rd+WcLeXybEbdW3e694ck1IhgDyF/BIna9sanGw4wS1iPJwtSONOrJsc8PJ9Ie/SUoIM+NXzWCxEI
+	1IkL7tGYdnWqlG63rlTZg8EXMso4NQaE6w3GMTzz4Bi7fnIhCsDlYiZxBqMtQ3ssifo4PRv3InOnI
+	Upqq1S8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7y4B-0000000GWcd-2DoZ;
-	Sat, 19 Sep 2026 16:37:31 +0000
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	id 1x7y4H-0000000GWdr-2a8r;
+	Sat, 19 Sep 2026 16:37:37 +0000
+Received: from mail-wr2-x0f.google.com ([2a00:1450:4864:30::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7y49-0000000GWcH-3fJn
+	id 1x7y4C-0000000GWcW-1J6T
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Sep 2026 16:37:31 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49b912e4ad9so9706425e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 19 Sep 2026 09:37:29 -0700 (PDT)
+	Sat, 19 Sep 2026 16:37:33 +0000
+Received: by mail-wr2-x0f.google.com with SMTP id ffacd0b85a97d-4858bc96fabso1381836f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 19 Sep 2026 09:37:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789835848; x=1790440648; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=IOKiZqPgxxYdzu3lGhozAU5+HVbqGefdej+WIN436I4=;
-        b=lg7cf9cvBw+AIqKs6zICgwVVZW24sliCcSGqfbJvSFF49x7zOzKpzc9BtvNo8sk/9V
-         0NIjU5pfZLknne13JX+txzMb6EG0xRs1pZq6xfmJD15/aKRXOKvUoQ4vuufD2IGBnUzZ
-         M/QsFqiagFmP549Jc+JRJBoqSuiolYGQkwU8gdOiXfjSoidCshooLiGvZYeyhmNB1U1z
-         OnHawtPh9//atYWHnUYYsWPVU1BtLUvGdnoxSH4S7GdIYVtZdg71JG9DqkHCM8rtjQ9D
-         0lNCga5fCDHJhQOwA0jdcyxu2NTDHBmoQejJCtFsIhsnN84QPAZdR8zlwG4avf0IY4yz
-         clOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789835848; x=1790440648;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1789835850; x=1790440650; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=IOKiZqPgxxYdzu3lGhozAU5+HVbqGefdej+WIN436I4=;
-        b=0yg/Db5xXR4U4o5OXBAOo1bo99UBe6ebgqOA4e2Lj2sLFpb6YPFgAdbe0mslBuTknu
-         r198KrTJmtFx72EoG0QHhn9W0cROWMbHHtoGgJSCEVTXETkBYQcmfk5ZVRqlYkXIK9ay
-         qoVpwT63XLnnW96TSnHmj6Jd7NfmaoKMDrW7XtjtuOl54Qu5CQWk0BmdWfsJPwDLTOB7
-         n+9G+lYJyEY36v8lYiiggTDa0QsfNvn3tnWO8VBUdSY64o0nooX7709c7IXsWDC/IZwE
-         avhwdQijum2K7bsgX3GmWItSEEmcj7Kd/Aw3bP+mO4v5mwgEnHO6cAaCDkIDcLL1ZdhC
-         L/fg==
-X-Forwarded-Encrypted: i=1; AKwUvBwVcUZukfqEieR/BBizRYJL2OQKnyN9SjqsmRMvUZYbQ2YyEwabdkPpqasTA9ADL7VUnJcx8djatgRFUpoEwf5s@lists.infradead.org
-X-Gm-Message-State: AFuF++nsoWuVpoXeOUnHQHDsgPF1pbz6NEva32XkclxGnYlHAZRSQCK7
-	xGm9jFU75spf0rI6fwVugwubSO5dS5Q7olUsj6qxvXOGbmTfFfDFRXKy1qfpfnxD
-X-Gm-Gg: AYBFou2i5MCRE3Mv+iN4YpTWwW7eotqiOnQeB1ULbkHWyqUar+SqIbemgEff7ojH7RF
-	NvpRsNEm63rjLDU3CTppbMgYenhkVt1lJ7SYfHOgzndRDhI8ID0nog5tHUgP60oY/hLx6G+ui08
-	0u0Jl0G3paEO9TviZ78KXtnUb4XW5k954m5C2Pt0Irr+XS0RJpOPUC97ULCaUjxieJ5od2cajDX
-	z5V1qG3EGW0vP37m68wN3UT1H9wjHq97UPS/DmouWZnGIWboLnnF8Njh6vDdkIsfDUNtBfxgUGe
-	lkM/Hsxwa1E175/2RLxo6UyMzwzgNhb2zuw03zBhhqBhk+uTEbisXhm2M2cGnsz1v0dmkeN+a2j
-	9NAfxvRGfTKRQnyWsqZN6gt7VLOAAHC+g28B58QJvCGCuunUnXVfzhxSkok63WEWFwn6MpN7dVD
-	3u15gDyzd7+mWBuSempjRu8/ImL0vR6t4/M/6Dok8n3TwO/3X45lwJ3BJZt/6SpljMwtIj2vAy5
-	LRpIYm84vGOK7qOEEUhL0AEw3UeFQE4c406iFKPeK5WF04E9aDnFfnxi6ktTiiJUvp0fND9oJ2C
-	MmEMMX61E0LTOsNgW9j4BgowduIlk/Civ8Cor/F214rBJw9TuVXS6IB7uKBSeA4H55HsRWW8Td/
-	lkWgjX9g9ar/GIej2lsQUhWVPTQ==
-X-Received: by 2002:a05:600c:1c01:b0:49c:fc6e:a3d7 with SMTP id 5b1f17b1804b1-49fc5753eb2mr101364825e9.22.1789835847588;
-        Sat, 19 Sep 2026 09:37:27 -0700 (PDT)
+        bh=vgqhI+7tTNR/gehAUgAlA1m56lV4Jk2GGCXFewptpVg=;
+        b=cKT0kO+6ps9DFEXVNS54zHxMzYYX8XpcWjxgAEe4+7JYGdfEMSWZbFr9XFJWiEBIaF
+         t4VwUZ31PJ02Pa1PlEe/Oxf6IMplym5okMs3jltqeDbAEN/tE2N5K94bweBkFAH5IEhE
+         TTAOqyaDPaEs8NuijfKKQUnWvc++wruhTNxHA+GErYbHmaVKZEmbIyLlC2pxfmXXUZTn
+         v+BKCSgo0Tg/VP/QYNSVkXt53OORYKw/Dpg7ZpE90AmPPt3JDp+XAF6r0ipN/zHorafE
+         3KUCehTi4jjRrpltCTkbU5RHV2Zlsi/3f3DMU87+HTYZKTevrR8voMwjubqKPfqehFhe
+         EOUg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789835850; x=1790440650;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=vgqhI+7tTNR/gehAUgAlA1m56lV4Jk2GGCXFewptpVg=;
+        b=m1Ds9i8OgyGcAtuuzi7o59I/4eEq3z0/nRDkkshuuKSFV8Ke21ThK3lClV06ftuXQ5
+         tICmR/lMCdd8vJk3xNI9DFHstKfVAy/GXIY5BZtux7s1nHWfHBdNrxjt4e1cE6VhVmQl
+         IsgEqQTas5ZukRqO9GaEkKXOHw7wOFFNkVCTnfuw/jyGnTJhNb3n8d2pjZjVDnfq33au
+         6iDwH/lq7Jse/DwMfkbiPAPE3skPnUNE3CCTF0TzdpQ6Sk/BBxlEU54CYqBWdvp9FMxy
+         BrL6LzSJ3BbNRTbHFGkqNemIsTBTqXEQ2mD7XGfSYdsnw9gnFeqM7TFXZlIG8aQ3AGxW
+         xGrg==
+X-Forwarded-Encrypted: i=1; AKwUvByqE8o1qZ2v4XC4/2n+2UY8L6q2txFGRpogPK2UbbAA+O0RSHCA1PIhIBtEqyWDUVWf6Nfg9CsO7WQ+YQT4ovMw@lists.infradead.org
+X-Gm-Message-State: AFuF++klcJekCxuBDoqlbp7fn4VjFforBALtSHxOpPAaEvPVwSN4v3QV
+	fN5jsDwAX23GvT+J7MEH7MXJgt/oAyix7KzxmLRfO6KBSIbr6J5JX2KW
+X-Gm-Gg: AYBFou1cbXrwtvPVNRCFt+4PsFO8936aJBBsouNttmK671kQAKA4SiQwDH2V8+oW8lv
+	CYN4l2W142VuPk89lmLH39zdybCYdNxnBZ3o95s5vNXewLmEhJRO7e0zvTb7gGbTZjFroKIX5sP
+	+2KPQzdwk8wTiY0AIphioZweCezwfrnjmNzxiIDbxgArIjU++OLlBJh0vhBsKRuJ02B7hYfWzLx
+	mIcSCcxmvj29hlR6U65yI0zcAnP60MDb38xDmVHTF6IVV0FJKQrvHrnwj7EimVPYKmCFvDhG436
+	fnEDiKADQM+fa4ZiZNWBJLkbP1/WA/6HtSoVgOlKqXax19pUkb5SEGQYy0Am3M8LqJOzqYZDpwZ
+	oSjTUBTmCscFz1yR+QudKg9CfeKnMSRd2liFywYEVBMzlnP9OTfVbfQ0HAJkhV6XT5H3clOwiyG
+	hiCx9uzGH5QizAYL0+bv3pZjyCgHUX1cpo2Dqh9B8C6oJ+8DhGzIIgxGjstJX1tvVXjDGv1CnSX
+	Tj2UzlTqRxeNTT/amXvl74qGb3BpYOSDEslXFY322VUd1yYKZ0g1TD6a9DibidB67PfeuamdxHb
+	Y7TH+SYBkHaRIZkQGtbqoq6LKLgpPgas3mx4/sN/e8ZdMlj6chUC4ANGSBDwSOv0BZLjprTzL1T
+	uu5ejGeIOZGeVV+U=
+X-Received: by 2002:a05:6000:24c5:b0:486:f980:2361 with SMTP id ffacd0b85a97d-4871e3b20e1mr8905817f8f.45.1789835850295;
+        Sat, 19 Sep 2026 09:37:30 -0700 (PDT)
 Received: from MacBook-Pro-von-Karl.localdomain (dynamic-2a02-3100-a017-2b01-05fe-203b-7cd2-a640.310.pool.telefonica.de. [2a02:3100:a017:2b01:5fe:203b:7cd2:a640])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4872442263fsm8155986f8f.1.2026.09.19.09.37.26
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4872442263fsm8155986f8f.1.2026.09.19.09.37.29
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sat, 19 Sep 2026 09:37:27 -0700 (PDT)
+        Sat, 19 Sep 2026 09:37:29 -0700 (PDT)
 From: Karl Mehltretter <kmehltretter@gmail.com>
 To: Nishanth Menon <nm@ti.com>,
 	Santosh Shilimkar <ssantosh@kernel.org>
@@ -79,15 +80,17 @@ Cc: Karl Mehltretter <kmehltretter@gmail.com>,
 	Peter Ujfalusi <peter.ujfalusi@ti.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/2] soc: ti: k3-ringacc: Correct ring API kernel-doc
-Date: Sat, 19 Sep 2026 18:37:20 +0200
-Message-Id: <20260919163721.89044-1-kmehltretter@gmail.com>
+Subject: [PATCH 2/2] soc: ti: k3-ringacc: Fix DMA ring initialization kernel-doc
+Date: Sat, 19 Sep 2026 18:37:21 +0200
+Message-Id: <20260919163721.89044-2-kmehltretter@gmail.com>
 X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+In-Reply-To: <20260919163721.89044-1-kmehltretter@gmail.com>
+References: <20260919163721.89044-1-kmehltretter@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260919_093729_936011_B66EB892 
-X-CRM114-Status: GOOD (  16.94  )
+X-CRM114-CacheID: sfid-20260919_093732_365062_9B0DBCFB 
+X-CRM114-Status: GOOD (  12.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,108 +105,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ring accelerator header labels k3_ring_cfg as an enum, uses
-propname instead of property, and gives the DMA reset helper the
-ordinary reset helper's name. The DMA reset comment also omits occ,
-including the convention that zero requests a hardware occupancy read.
+The heading for k3_ringacc_init_data repeats struct, so kernel-doc
+cannot match it to the declaration. Its three fields are also missing
+descriptions.
 
-The proxy flag is parsed as a separate parameter, and the pop helpers
-describe pushing elements. Proxy access is supported in Message mode;
-the listed Credentials and Queue modes are not implemented. The phandle
-lookup returns encoded error pointers rather than integer error values.
+Use the structure name and describe the firmware handle, device ID,
+and number of ring pairs used during DMA ring initialization.
 
-Match the declarations and document these argument and operation roles.
-
-Fixes: 3277e8aa2504 ("soc: ti: k3: add navss ringacc driver")
+Fixes: d782298c6f6b ("soc: ti: k3-ringacc: add AM64 DMA rings support.")
 Assisted-by: LLM
 Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
 ---
- include/linux/soc/ti/k3-ringacc.h | 26 ++++++++++++--------------
- 1 file changed, 12 insertions(+), 14 deletions(-)
+ include/linux/soc/ti/k3-ringacc.h | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
 diff --git a/include/linux/soc/ti/k3-ringacc.h b/include/linux/soc/ti/k3-ringacc.h
-index 39b022b92598..2de6031b9424 100644
+index 2de6031b9424..37a333f9a10b 100644
 --- a/include/linux/soc/ti/k3-ringacc.h
 +++ b/include/linux/soc/ti/k3-ringacc.h
-@@ -57,13 +57,13 @@ struct k3_ringacc;
- struct k3_ring;
+@@ -254,7 +254,10 @@ u32 k3_ringacc_get_tisci_dev_id(struct k3_ring *ring);
+ struct ti_sci_handle;
  
  /**
-- * enum k3_ring_cfg - RA ring configuration structure
-+ * struct k3_ring_cfg - RA ring configuration structure
-  *
-  * @size: Ring size, number of elements
-  * @elm_size: Ring element size
-  * @mode: Ring operational mode
-  * @flags: Ring configuration flags. Possible values:
-- *	 @K3_RINGACC_RING_SHARED: when set allows to request the same ring
-+ *	 %K3_RINGACC_RING_SHARED: when set allows to request the same ring
-  *	 few times. It's usable when the same ring is used as Free Host PD ring
-  *	 for different flows, for example.
-  *	 Note: Locking should be done by consumer if required
-@@ -88,11 +88,10 @@ struct k3_ring_cfg {
- /**
-  * of_k3_ringacc_get_by_phandle - find a RA by phandle property
-  * @np: device node
-- * @propname: property name containing phandle on RA node
-+ * @property: property name containing phandle on RA node
-  *
-- * Returns pointer on the RA - struct k3_ringacc
-- * or -ENODEV if not found,
-- * or -EPROBE_DEFER if not yet registered
-+ * Return: Pointer to the RA, or ERR_PTR(-ENODEV) if the phandle cannot
-+ * be resolved, or ERR_PTR(-EPROBE_DEFER) if the RA is not yet registered.
+- * struct struct k3_ringacc_init_data - Initialization data for DMA rings
++ * struct k3_ringacc_init_data - Initialization data for DMA rings
++ * @tisci: TI SCI firmware handle
++ * @tisci_dev_id: TI SCI device ID of the DMA controller
++ * @num_rings: Number of forward/completion ring pairs
   */
- struct k3_ringacc *of_k3_ringacc_get_by_phandle(struct device_node *np,
- 						const char *property);
-@@ -103,10 +102,8 @@ struct k3_ringacc *of_k3_ringacc_get_by_phandle(struct device_node *np,
-  * k3_ringacc_request_ring - request ring from ringacc
-  * @ringacc: pointer on ringacc
-  * @id: ring id or K3_RINGACC_RING_ID_ANY for any general purpose ring
-- * @flags:
-- *	@K3_RINGACC_RING_USE_PROXY: if set - proxy will be allocated and
-- *		used to access ring memory. Sopported only for rings in
-- *		Message/Credentials/Queue mode.
-+ * @flags: Set %K3_RINGACC_RING_USE_PROXY to allocate a proxy for
-+ *	accessing ring memory in Message mode.
-  *
-  * Returns pointer on the Ring - struct k3_ring
-  * or NULL in case of failure.
-@@ -126,8 +123,9 @@ int k3_ringacc_request_rings_pair(struct k3_ringacc *ringacc,
-  */
- void k3_ringacc_ring_reset(struct k3_ring *ring);
- /**
-- * k3_ringacc_ring_reset - ring reset for DMA rings
-+ * k3_ringacc_ring_reset_dma - ring reset for DMA rings
-  * @ring: pointer on Ring
-+ * @occ: occupancy used by the DMA reset quirk, or zero to read it from hardware
-  *
-  * Resets ring internal state ((hw)occ, (hw)idx). Should be used for rings
-  * which are read by K3 UDMA, like TX or Free Host PD rings.
-@@ -217,8 +215,8 @@ int k3_ringacc_ring_push(struct k3_ring *ring, void *elem);
-  * @ring: pointer on ring
-  * @elem: pointer on ring element buffer
-  *
-- * Push one ring element from the ring head. Size of the ring element is
-- * determined by ring configuration &struct k3_ring_cfg elm_size..
-+ * Pop one ring element from the ring head. Size of the ring element is
-+ * determined by ring configuration &struct k3_ring_cfg elm_size.
-  *
-  * Returns 0 on success, errno otherwise.
-  */
-@@ -242,7 +240,7 @@ int k3_ringacc_ring_push_head(struct k3_ring *ring, void *elem);
-  * @ring: pointer on ring
-  * @elem: pointer on ring element buffer
-  *
-- * Push one ring element from the ring tail. Size of the ring element is
-+ * Pop one ring element from the ring tail. Size of the ring element is
-  * determined by ring configuration &struct k3_ring_cfg elm_size.
-  *
-  * Returns 0 on success, errno otherwise.
-
-base-commit: 50d05c7c76c96b90462f24debacca971d2e86713
+ struct k3_ringacc_init_data {
+ 	const struct ti_sci_handle *tisci;
 -- 
 2.39.5 (Apple Git-154)
-
 
 
