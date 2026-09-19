@@ -4,79 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79473C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 01:27:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63F00C982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 01:28:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1XPu1uv2XN4GeouRZ21yi4ZrmJuvnU82qGpPwwAmL+w=; b=XUNhTTEysCUMwEj8tZvW71tDVn
-	oBqX6RVhEUdeASCPX1X0SXx8K/wMgVjPaZaPHtSobDk+FpfB191SYalmV7u5zaO1TZLYp0Tvn52mO
-	q9nCttp/uAboRhj1h4Tev9S0OGz39tbLnTSjx6CxvMd/ePyhVLsoi4EC3a0S2u/ki0OeiF0rBPOiZ
-	ptr/zOluVPFs5Q0bDEbxGsRTA76LH8pmbaGRiYUdJCqbXKvbsxm848tr+eszZVpktlmL2KTDDa0zy
-	Q9N5AhbMrJbxvS4aUXpYW451EZ1aPtWCTwDk58tKpa8spp3c6baVbUDwYlM1IJCOC9tu7iP285m7t
-	YaleQygg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
+	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SWy/LsEtrczjIIVigdhZqWco2xuU9StAi1HysiyiSHk=; b=LHd4GaTuqxgKsug+eF5lVc6hWV
+	WUV/6ixkaNmAgcz9uZnuWALXdrnvHUE2T8zkDmztR1oSNLwUVZN4BfBiqDgzgUdxxBuB98At9o59n
+	8d7jef8QzSa3G0szYzjBJpLP0zVYibeUso9ipZf0FICXoRlBgA36LcHYbhHMGfPIXS8Kk+yO7U5AY
+	w8S1Wx8W9QOh7o3Yva9mWYBWbeEmsoMGPvkBBk1AhwJllCRtqyBYNPGG434SZqgFuouwiPBHGiESr
+	jgtcBYjhQP3w644cWF8NbK0M5ZNLXs9PkewQFtSa9LtcgdCLkCCUa6WsXaE8YOxWVboHFPvElc0dj
+	Oo+mWC2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7jV1-0000000FoEl-3uyZ;
-	Sat, 19 Sep 2026 01:04:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x7jsB-0000000FpIe-0JLl;
+	Sat, 19 Sep 2026 01:28:11 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7jV0-0000000FoEf-3R1e
+	id 1x7js9-0000000FpH7-0G6u
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Sep 2026 01:04:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3058341E5D;
-	Sat, 19 Sep 2026 01:04:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 01E85C2BCB8;
-	Sat, 19 Sep 2026 01:04:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1789779854;
-	bh=zslnNGNE5oa1grAjofOIMGeW6YrhIrAopuyB/35qdhE=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=kAUqVxDV4KC57L6Qzn1/MygVZzfUlgPc+sl8BOQQ4S0tr5NB2PaZfleh8zu0xnkuT
-	 dvhW2UlKx7PZD6MrAIPSOuT/W7tCddcU8/mic25Cm0j/u6DjvPVqjo5LNgO9HdOSMi
-	 kfo+4ury7+Z566I+j10fkekNAlKJtdIzqfPH3UwLNlBdJ8bIEDu5uAAIbCR0Jd9lVC
-	 VBxkwaiq8H+zHHMbaUzUkqq0Dhp4OxNCmh30akt/6stLwJUPwbZui4VyyhceUGbeTC
-	 tS5biRGomkaR3LY2Tdab4vDSYJ+ogucspzn2rSwdjSTLR4WpcGe0Avh4fgG6A3STpk
-	 CXiInDd3ET8OQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CF5BDC982DE;
-	Sat, 19 Sep 2026 01:04:13 +0000 (UTC)
-From: Amit Sunil Dhamne via B4 Relay <devnull+amitsd.google.com@kernel.org>
-Date: Sat, 19 Sep 2026 01:04:10 +0000
-Subject: [PATCH v3] arm64: dts: exynos: gs101-pixel-common: add supply and
- regulator properties
+	Sat, 19 Sep 2026 01:28:10 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68INwXdt2267664;
+	Sat, 19 Sep 2026 01:27:52 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	SWy/LsEtrczjIIVigdhZqWco2xuU9StAi1HysiyiSHk=; b=CtZTTJsNUNQt+rP4
+	yP7Vv86AgmvcgvJ152qKl4CIqEbHPntz9nDIrJe9ZBbTvbcU2IFDiGR3UnZDDd+R
+	Hqq43wxdv17ZxxurFvsz0ue28qtoI98OKEbYc0/Cqljl+5ioEcYj3or41jJ1sSAP
+	G8ubNzGhaI5yxA6vVtTad/NQRnRtrObdHZRG7C9GJzgDBikFjoTjUQh4Y1DPTHV6
+	StOqWS/PAUbE0DiP33byaTFWxWkW6c/5Lf7z4BfeVHKnD2JF5D7VheprUEd0N+DZ
+	ZL94zIsVhK054kAUCc/KnHwijkSlsmi06acFOFxMnuMWv27dc7sE+CQ7Uv8mSOKV
+	coVyUw==
+Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gs72u281g-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Sat, 19 Sep 2026 01:27:51 +0000 (GMT)
+Received: from hu-devc-lv-u24-a.qualcomm.com (hu-jcameron-lv.qualcomm.com [10.81.84.69])
+	by NALASPPMTA02.qualcomm.com (8.18.1.11/8.18.1.11) with ESMTPS id 68J1RppH3471038
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Sat, 19 Sep 2026 01:27:51 GMT
+Received: from hu-jcameron-lv.qualcomm.com (localhost [127.0.0.1])
+	by hu-devc-lv-u24-a.qualcomm.com (Postfix) with ESMTP id 1AAAE24DF8;
+	Fri, 18 Sep 2026 18:27:51 -0700 (PDT)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260919-max77759-charger-dts-v3-1-78b68fbf7d4a@google.com>
-X-B4-Tracking: v=1; b=H4sIAInfrWoC/43NwQ7CIAyA4VcxnK3ZCozhyfcwHpBVRuKGgYXML
- Ht32W6e9Pi36deFJYqeEjsfFhYp++TDWIIfD8z2ZnQEvivNsMKmQhQwmFkpJTWUdXQUoZsSIBe
- ac92SUpaV01ekh5939nor3fs0hfjev+R6m/4Acw013IXgUkhbCWMuLgT3pJMNA9vEjP8oWBTdc
- myksS01/EtZ1/UDH3S0sP8AAAA=
-X-Change-ID: 20260224-max77759-charger-dts-23493398e77c
-To: Peter Griffin <peter.griffin@linaro.org>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Amit Sunil Dhamne <amitsd@google.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789779853; l=2698;
- i=amitsd@google.com; s=20241031; h=from:subject:message-id;
- bh=H3o0xNkJTaPRJts1fDtzq2bsFqrsr68JNgCV5PXC4hE=;
- b=WDzv0jaKgpSBLo/lEduuK+4j/pX+X87tGgx6bpqVRhUSPl1/NMl8e1FF7uY8ghZGnB15jdeUE
- wRo9yz4Y3bnC57nOsWQmWSHaS5w6zxRHV/l4ri4qmMYDTx/WYIwLL2f
-X-Developer-Key: i=amitsd@google.com; a=ed25519;
- pk=wD+XZSST4dmnNZf62/lqJpLm7fiyT8iv462zmQ3H6bI=
-X-Endpoint-Received: by B4 Relay for amitsd@google.com/20241031 with
- auth_id=262
-X-Original-From: Amit Sunil Dhamne <amitsd@google.com>
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v18 6/7] firmware: arm_rmm: Ensure the RMM has GPT
+ entries for memory
+From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
+        will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
+        aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
+        joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+        linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+        sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+        WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
+In-Reply-To: <20260912083611.2513845-7-suzuki.poulose@arm.com>
+References: <20260912083611.2513845-1-suzuki.poulose@arm.com>
+ <20260912083611.2513845-7-suzuki.poulose@arm.com>
+Date: Fri, 18 Sep 2026 18:27:45 -0700
+Message-Id: <178978126543.2352296.12214136703168879825.b4-review@b4>
+X-Mailer: b4 0.17-dev
+X-QCInternal: smtphost
+X-Proofpoint-ORIG-GUID: FGz3-zyLI-E1WYi31zj9H_PjW-jtmjH_
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE5MDAxNiBTYWx0ZWRfX+OGK14wbLIFE
+ 4FcADTlI6cQIrwnz4K/3OUFsAwE+yD86FEr2QQXZATQik8472EqKg+O+0dJIlv3aFdi+5kjMiqi
+ AsDX9+yyimwZNz7aM157X0+VbEdmKOs=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE5MDAxNiBTYWx0ZWRfX9/wNJxj4wJbb
+ +cJI2epfBASP2611cG46ZRhY+q0rAVp5PPpWrv/J6+q1W+Vwf4AruR5IhaXttCotEouuomMy4Mg
+ 0h+mNfKzo9c9WWEZSpuj2rexnk5pexaXThTLEE+OQQ6Vo1RPVkA4MW+AvGHpbL3CvKCHdaxQvxF
+ 6sWUqugH6Smhshw/kKNxH5ZFHBH4oq7C94t8jHC7Vo9PgmqrUvxiqsDgZKShENYPygYVoDNQMtr
+ 62d+gtRhqtS1joaVrFzbbgK+XeM6P3Z+/JYjx4JyLJptgXekSpHMCFdVBpVh7msVpM4U/rdYZeh
+ 0i7f2NTjUDyBum0bMgBL6Tvu2OEzKLvkf1BO1o6CDRxmS63DQ31f38y9AeQBn+p/k2OGJfoUf8x
+ WOzNha0YBdl7+N2FJGjkjXnFZIijwRccu3bHWBdn1fCO348tha3ErEkcUQg+nuoL5gedW8jTK1e
+ HQu8uvCIlWJybhu+uwg==
+X-Proofpoint-GUID: FGz3-zyLI-E1WYi31zj9H_PjW-jtmjH_
+X-Authority-Analysis: v=2.4 cv=DO8acCNb c=1 sm=1 tr=0 ts=6aade517 cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22 a=7CQSdrXTAAAA:8
+ a=EUspDBNiAAAA:8 a=ANFCpyTuUsUUZqEkrDcA:9 a=QEXdDO2ut3YA:10
+ a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-18_07,2026-09-16_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 clxscore=1011 impostorscore=0 suspectscore=0 bulkscore=0
+ adultscore=0 spamscore=0 malwarescore=0 phishscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609190016
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260918_182809_109824_8B448497 
+X-CRM114-Status: GOOD (  33.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,91 +114,121 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: amitsd@google.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Amit Sunil Dhamne <amitsd@google.com>
+> The RMM maintains the state of all the granules in the system to make
+> sure that the host is abiding by the rules. This state can be maintained
+> at different granularity, per page (TRACKING_FINE) or per region
+> (TRACKING_COARSE or TRACKING_INTERMEDIATE). The region size depends on the
+> underlying "RMI_GRANULE_SIZE". For a "coarse"/"intermediate" region, all pages
+> in the region must be of the same state, this implies we need to have "fine"
+> tracking for DRAM, so that we can delegate individual pages.
+> 
+> For now we only support a statically carved out memory for tracking
+> granules for the "fine" regions. This can be extended in the future to
+> allow modifying the tracking granularity and remove the need for a
+> static allocation by the firmware.
+> 
+> Similarly, the firmware may create L0 GPT entries describing the total
+> address space. But if we change the "PAS" (Physical Address Space) of a
+> granule, then the firmware may need to create L1 tables to track the PAS
+> at a finer granularity. Linux therefore checks if the platform firmware manages
+> the PAR region. i.e., the firmware is in charge of managing the L1 GPTs
+> (creation and the required memory for the GPT tables - via static carveouts)
+> without host intervention. Support for dynamic GPT creation by the host will be
+> added later.
+> 
+> If the firmware requires us to manage the tracking or GPT memory, Deactivate
+> the RMM and reclaim any memory donated at RMM activation.
+> 
+> Apply the same checks when hotplugged memory is brought online.
+> 
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> [ Switch to RMI_GPT_L1_INFO for checking GPTs and deactivate RMM ]
+> Co-Developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 
-Add power supply and regulator properties to the MAX77759 pmic. The
-usb-typec device will reference the regulator provided by the pmic as
-it supplies vbus to the typec device when operating in source mode.
+A few comments inline.
 
-Additionally, describe the charging path as well. The pmic draws its
-input from the Type-C port and in turn charges the battery that the
-fuel gauge measures, which gives the full ladder:
 
-  usb-typec@25  ->  pmic@66  ->  fuel-gauge@36
+> ---
+>  Changes since v17:
+>      * Move wrappers that may not be used elsewhere, out of arm-rmi-cmds.h
+>  Changes since v16:
+>      * Check fine tracking and create L1 GPTs for hotplug-added memory.
+>      * Clarify the L1 GPT setup and move the explanatory comment.
+>      * Switch to using RMI_GPT_INFO command for checking the GPTs.
+>      * Deactivate the RMM and reclaim the memory if we can't proceed.
+>  Changes since v15:
+>      * Skip firmware-reserved NOMAP memory in rmi_init_metadata()
+>      * Handle negative error codes from wrappers.
+>  Changes since v14:
+>      * Move the implementation into drivers/firmware/arm_rmm.
+>  Changes since v13:
+>      * Moved out of KVM
+> ---
+>  drivers/firmware/arm_rmm/rmi.c | 200 +++++++++++++++++++++++++++++++++
+>  include/linux/arm-rmi-cmds.h   |   2 +
+>  2 files changed, 202 insertions(+)
+>
+> diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/arm_rmm/rmi.c
+> index ecc89e91d264..583e1aca9b15 100644
+> --- a/drivers/firmware/arm_rmm/rmi.c
+> +++ b/drivers/firmware/arm_rmm/rmi.c
 
-Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
----
-Changes in v3:
-- Additionally describe the charging path from max77759_pmic to the
-  fuel-gauge.
-- Dropped André's Reviewed-by, as the patch grew a property.
-- Link to v2: https://lore.kernel.org/r/20260224-max77759-charger-dts-v2-1-983265ac8e63@google.com
 
-Changes in v2:
-- Added a line between property and child node as per DTS coding std.
-  (Krzysztof Kozlowski)
-- Added the "power-supplies" property immediately after the prev
-  property without leaving a line space.
-- Link to v1: https://lore.kernel.org/r/20260224-max77759-charger-dts-v1-1-b443545c04aa@google.com
----
- arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi | 11 +++++++++--
- 1 file changed, 9 insertions(+), 2 deletions(-)
+> + */
+> +static inline long rmi_gpt_info(unsigned long start, unsigned long end,
 
-diff --git a/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi b/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
-index a12f2b88d72d..c366df36380b 100644
---- a/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
-+++ b/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
-@@ -646,12 +646,13 @@ &hsi2c_12 {
- 	status = "okay";
- 	/* TODO: add the devices once drivers exist */
- 
--	usb-typec@25 {
-+	maxtcpci: usb-typec@25 {
- 		compatible = "maxim,max77759-tcpci", "maxim,max33359";
- 		reg = <0x25>;
- 		interrupts-extended = <&gpa8 2 IRQ_TYPE_LEVEL_LOW>;
- 		pinctrl-0 = <&typec_int>;
- 		pinctrl-names = "default";
-+		vbus-supply = <&chgin_otg_reg>;
- 
- 		connector {
- 			compatible = "usb-c-connector";
-@@ -738,9 +739,10 @@ fuel-gauge@36 {
- 		interrupts-extended = <&gpa9 3 IRQ_TYPE_LEVEL_LOW>;
- 
- 		shunt-resistor-micro-ohms = <5000>;
-+		power-supplies = <&max77759_pmic>;
- 	};
- 
--	pmic@66 {
-+	max77759_pmic: pmic@66 {
- 		compatible = "maxim,max77759";
- 		reg = <0x66>;
- 
-@@ -750,6 +752,11 @@ pmic@66 {
- 
- 		interrupt-controller;
- 		#interrupt-cells = <2>;
-+		power-supplies = <&maxtcpci>;
-+
-+		chgin_otg_reg: chgin-otg-regulator {
-+			regulator-name = "chgin-otg";
-+		};
- 
- 		gpio {
- 			compatible = "maxim,max77759-gpio";
+Why inline vs letting compiler make it's mind up?
+Same in other places
 
----
-base-commit: 587858367581b9c55c3690f4e63382ad622719d4
-change-id: 20260224-max77759-charger-dts-23493398e77c
+> +				unsigned long *out_top,
+> +				unsigned long *out_gpt_par_state)
+> +{
+> +	struct arm_smccc_1_2_regs regs = {
+> +		SMC_RMI_GPT_INFO, start, end,
+> +	};
+> +
+> +	rmi_smccc_invoke(&regs);
+> +	if (regs.a0 != RMI_SUCCESS)
+> +		return regs.a0;
+> +
+> +	if (out_top)
+> +		*out_top = regs.a1;
+> +	if (out_gpt_par_state)
+> +		*out_gpt_par_state = regs.a2;
+> +
+> +	return RMI_SUCCESS;
+> +}
 
-Best regards,
+
+
+>  static int __init arm64_init_rmi(void)
+>  {
+>  	int ret;
+> @@ -786,8 +970,24 @@ static int __init arm64_init_rmi(void)
+>  	if (ret) {
+>  		pr_err("RMM activate failed\n");
+>  		ret = ret < 0 ? ret : -ENXIO;
+> +		return ret;
+
+Why did this change?
+
+>  	}
+>  
+> +	ret = rmi_init_metadata();
+> +	if (ret)
+
+And this is hitting another bit of guidance in cleanup.h.
+Functions shouldn't be mixing __free and friends with
+gotos.  Again, not a bug here but there are large ugly
+monsters around this stuff, hence the blanket guidance.
+I haven't thought that hard on how you avoid it here, but
+usually it's a combination of suitable helpers and wrappers
+and resulting code is often more readable as a result.
+
 -- 
-Amit Sunil Dhamne <amitsd@google.com>
-
-
+Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
 
