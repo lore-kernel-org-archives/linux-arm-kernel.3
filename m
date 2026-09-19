@@ -4,103 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87D2FC982CC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 07:35:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6E60C982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 07:43:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e0n4udufrKL2at5m7TpVccNkKSvSv33WlRnvzcYKXW4=; b=fXSr2s0APjjzYvPAe8LkukTp5G
-	1ajta7jGB6eD2KsCGL1gjqQWfWXhalMdI1JquJ9xrCFbsSkAuIX6/ZQYjQM9ZWktDsRgnMbHOiGxN
-	81Dd+6+BVFQB0NSQVjty0OFh7qHC1ASv1bGpdZAByvuXQedjsDdTzFsyjVGoP6YYmqD754R0/+kuf
-	haRkAoVaKui6rDOwU0FSSyIC/F7thP/8Si5QbHTGgQCI3ZRvSssWyJP48VzVVoW1Oq1Z3pNN4eKlS
-	skq4CutPT1NpM9gnZ7cU5bvvzV3bigXMwJiLZnHx7L14Y5Py168YjdDclqPMKOy/DVFm6rJwstJUU
-	Ohnvzdyw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UGhfY29435ZdNQDSOmq5JQmZERPFQeG+eHwDnrvLMxQ=; b=nr2YsNHliKoZU2fN8+r6/TBC11
+	aupeyPUOWZFeU2jru2gO79O++zqhepTUgBG5moVLDRUjZ5D7kmW06O63tQXYLodc04w2O94esQ1fD
+	ZeACiob3qi/vFEjBEIkeA4uX2hKfrBGP6CGTniNVwrOHFuQjOwSbTBbg+9VZYTRJs/+PW+/c3LTby
+	80DuS1F9kDJmEWxubVskQg6cXGHXEgvL9+QpHvwCjZ1umKge8yQcnZsfyku5sxicvhzYIZd8Z7xNK
+	ac1sGf2nPBGQGaXsSP3EyKy4DB09MmAfzhhYMRvNKQwvwUI8szn6IkrF84jZdmKmFBizEQSASjvr4
+	SaoX23hA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7oyC-0000000G0Vg-3dSQ;
-	Sat, 19 Sep 2026 06:54:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x7onU-0000000FzMB-0XJ5;
+	Sat, 19 Sep 2026 06:43:40 +0000
+Received: from mail-pz2-x10.google.com ([2607:f8b0:4864:3b::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7oyB-0000000G0TK-2Ach;
-	Sat, 19 Sep 2026 06:54:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9A3BE6053E;
-	Sat, 19 Sep 2026 06:54:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 01062C2BCFA;
-	Sat, 19 Sep 2026 06:54:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1789800882;
-	bh=IYXx/zE+2n46PXRVXSdn5ENzV8RoPWwU25GLFYvhJZw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=JkWY/VW0Yjf56u5xK00OvqQhyLf7M6+JkITBURcFCTBXeR5iz1rQAceg8P7eVJLhK
-	 ZO1QbrLZoumu4ynlD1N7CQ21PVmTIoRKHXVhfRQoIzDpTXCKXLsg3tDfKd/JuoIKDr
-	 52UqcqEtpysq3VPBsKuceDs74jK4pxPC9Y8EPfDhjaKVxOMZ+5rCwU1DBO2W4kxWdI
-	 F2Zkp5Yyc0a/JDYE52slefltrMMH7GblzUOVkQTEdcc+7TAeJo85Oap9RrILyzsnjU
-	 8zzcLvLs9cW/Gbzc5NK+U1hUWtOYe69KaLT2cxLU8N3n1sVfmJIH52nKuzvYO0h4Fz
-	 Y0xufq3FRFDuQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D843CC982E0;
-	Sat, 19 Sep 2026 06:54:41 +0000 (UTC)
-From: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
-Date: Sat, 19 Sep 2026 08:54:31 +0200
-Subject: [PATCH RFC v3 03/12] dt-bindings: PCI: nxp,s32g-pcie: Fix SerDes
- PHY phandle in example
+	id 1x7onS-0000000FzLq-1AgE
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 19 Sep 2026 06:43:39 +0000
+Received: by mail-pz2-x10.google.com with SMTP id d2e1a72fcca58-86212a185dcso1712913b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 23:43:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789800217; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Yxd71OvKfLSql3S+GCcj6dYIja+9K0K5KIrhHD8NEqBVKsJ4QllzFdejC48q4+GWJm
+         +r5U78RMr1QequNlGv3xboughJzmiiUmTN4C8IFbCnLJPgGvddcH7MIGYxpWU/DfAv7k
+         CYDoTrVpTLpjPU31sBxp6/WXLpDsx2XwXKZKLGTn8B+bc1TkgsmgUCyeaXN/aFVhyFyo
+         +xDuEhR89g88zBElbegslHjD2XxqPreu+bLEUI51drfbDs/KXnccBPdTS81gSIJBegGd
+         hlGXv+vFUrPW3w42zoTguh9GL/dZLqe2eoZAHDlYl9Slw5mhz9Zgzpg8s+oRNJyMqdKd
+         pCBg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=UGhfY29435ZdNQDSOmq5JQmZERPFQeG+eHwDnrvLMxQ=;
+        fh=LJ/+LLmSxBw3GbJl8afCg3W28X2pU8UIoVdmIOc6ocM=;
+        b=rmTwPsZZt8lYTA3StsmWCz21PTsA7qsU7+wLHpIs2yADRx8Kc1nvrAb29OhEIi4dHg
+         THiXefzsLCE2houmVRVN169alGV0vFf+8I6cBcLaEk2jsjm7LJtsZkty59z3Fch3w6EL
+         MrkpDb8UiqHbRmoqjnD54sM+GFfQtd1Be0hkrZMn8x5JGWSP096/xIdiVGEUHdispjKm
+         3ROdNZWhRr58+OUFOdVtbSiQLiN9JvK1v5TRX3O5PcQCkRAMOxQczDVCe+I9VSScasBm
+         C3tzVjRApgfClbx6Ni4exeqX/P32OJl+R2B2bhFK07cM+OvajyTWSP0/1vSGUl4RMQED
+         mhig==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789800217; x=1790405017; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=UGhfY29435ZdNQDSOmq5JQmZERPFQeG+eHwDnrvLMxQ=;
+        b=HW9wWGP+B6GSjWlrc3+rgjFSwUddT0/B0n4gh26W3tdetedkoe5PFkmO0KhN7+QNDj
+         nsA2HWvZlJ7zQrhR3vvk0LxDEDHslM/2wrnMD7I0vWhhSuPGc3OPD7fUpg1JnxMbkaOW
+         jp52H3C2Y5537gdLYviwhMoKodft4OUqKxYoju8Q2+3M3vr/ZUQ8PZ7l5Dr6Adm0tyXM
+         Aaot/jR9pYvI+nr4A8m81gIciOJLhdAinaxQQ4nP95EEUt28DtqhsSRK7lbNnZpC2m1k
+         HLpxqGt0zO8SvG754dVxgaMUqbcmJXQhlhu7y1D+WKcanpQmwG3TzG4zeoP6dz9aKwUI
+         5G3Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789800217; x=1790405017;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=UGhfY29435ZdNQDSOmq5JQmZERPFQeG+eHwDnrvLMxQ=;
+        b=QaplDkvxfHcw9J/vMThZA5tERTWgUCLKjkgwlakT1UkJcDY3FexCJl7SkAk4YiOu0G
+         wUxu6wObqxE4OijRREyra//5LNmkR7sE6+2usi7gA6jtsQ7hqoYB3FDLHKIRPw5U3gUk
+         y9umysAFyLfxyrTDI8nLlEQdiWll7N0UWunNwq1MWwdTQQ5e28zZxJ2Do/RRwRSd75Xt
+         r2SHWAvzN+yGNPJQtyp6PXUfugncv/+8d8mFcrkHPKFj/1ynGt6FzED9epa6myOwyl44
+         CPS+QugrEKKIZsYowZcAlA2MG78dsK7cE5maKabWJoOXDADf0u6m+gxnnz1HyI4AGT9Z
+         a5Cw==
+X-Forwarded-Encrypted: i=1; AKwUvBwy3OG4ezguHvQ0i9gxS4lxsHhUa6BJRZSlpv9LJ0ks3Ok5RkcRev8Ue+Ek4pVeEGxNjPACDP9dJ488lhypyFcn@lists.infradead.org
+X-Gm-Message-State: AFuF++nfcmKfyZgPd8nGJJcuWAs/sPyz1d4Ub6rSmklBll9ZO/7yNcrG
+	gt5ulOr1N6aY38X7rrD30UqWS2SZ5o99vxp9eXWXpsIkpmbL+LhvDthA4eNPIwquj7Iaz8i9Hy3
+	I7a/YdAFywQexdLaEefwI1Nf0vZSpplk=
+X-Gm-Gg: AYBFou3TyHKFLBB6ZlpvM9EVUFVkZWae1W3Rpue4Pydnm3ZumKRiuLQU9K+m3Fr84vf
+	zXQ9iNqdBOrjrsW23C5BJp+sut1bhkVK+P46JJV0XKK5467Flk7MSVL6AnXt0Bg0Sxf5OEoRwDn
+	AusXqRJ2KlyiCkxE+LDwlGIfkSoTBPUiPpHqtzSVG9PumsXdikiG1Mpc8QxUUXzxwodfHXokD6B
+	IKFWhdIpY+lGpmv95EGuT+4g4XKwSaz15N0qsVjFF89q2xyiIyKgQLR9//WfAvtUtDzXpuKvZ4e
+	QhxJrJXEuwy5coTHWYxCox44Wi1uKcJl3za6/ezklsFDLfTGAn8f/DUQ5l6WqLwXO3C9neDbCdS
+	80FobTYzA/micQlG11F/AK6EahoB2Y+Clt9g=
+X-Received: by 2002:a05:6a00:2e84:b0:878:3783:8a88 with SMTP id
+ d2e1a72fcca58-87837839369mr597351b3a.52.1789800216631; Fri, 18 Sep 2026
+ 23:43:36 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260919-s32g_serdes-v3-3-9d68868c1e89@oss.nxp.com>
-References: <20260919-s32g_serdes-v3-0-9d68868c1e89@oss.nxp.com>
-In-Reply-To: <20260919-s32g_serdes-v3-0-9d68868c1e89@oss.nxp.com>
-To: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>, 
- NXP S32 Linux Team <s32@nxp.com>, Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>, 
- Magnus Damm <magnus.damm@gmail.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, 
- Bogdan Hamciuc <bogdan.hamciuc@nxp.com>, 
- Ionut Vicovan <ionut.vicovan@nxp.com>, Andrew Lunn <andrew@lunn.ch>, 
- Heiner Kallweit <hkallweit1@gmail.com>, 
- Russell King <linux@armlinux.org.uk>, Clark Wang <xiaoning.wang@nxp.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
- Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Richard Cochran <richardcochran@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org, 
- netdev@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
- imx@lists.linux.dev, linux-pci@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- Vincent Guittot <vincent.guittot@linaro.org>, 
- "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
-X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789800879; l=1567;
- i=jan.petrous@oss.nxp.com; s=20240922; h=from:subject:message-id;
- bh=Na+zOsB+scHEU/5Sa34th6CSnJzMvXvCSt2p2AdpCXQ=;
- b=/FnXnC/g0lwE3bBZfsHmeuSK3HZ8ktdkgjTKjNTxtKu0Q/fQ5SAhUZEF4Nb9zaMQU4VnaVGa6
- SLEjPNq1l4hASGuJYsX8216FYqHW50IOjDFp9fLyn7qYumfxSZVSywN
-X-Developer-Key: i=jan.petrous@oss.nxp.com; a=ed25519;
- pk=Ke3wwK7rb2Me9UQRf6vR8AsfJZfhTyoDaxkUCqmSWYY=
-X-Endpoint-Received: by B4 Relay for jan.petrous@oss.nxp.com/20240922 with
- auth_id=217
-X-Original-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+References: <20260917183602.GA1036092@bhelgaas> <7c2a8582-280e-471a-b4b0-037b2cda6ad8@app.fastmail.com>
+ <CAAsRjRnV-RTddO6h2XCUz2N5pB0pS8i_-_2XRcD=WOTA7AAFZQ@mail.gmail.com>
+ <dc370463-125e-48d2-af6b-c3b4783f57ea@app.fastmail.com> <CAAsRjR=sHgZMgXuTid+D7Vst=N_GBUZUrduZ4YZax5rbotHNMg@mail.gmail.com>
+ <95e4b5ed-2f72-4bfe-85d8-9cd7b45a5fa7@app.fastmail.com>
+In-Reply-To: <95e4b5ed-2f72-4bfe-85d8-9cd7b45a5fa7@app.fastmail.com>
+From: Semih Baskan <strst.gs@gmail.com>
+Date: Sat, 19 Sep 2026 09:43:25 +0300
+X-Gm-Features: AcwNN1U_0lkg8y2XnHbhWP-8wPtV3LWjYNH5bn8KemEcXAz8Qk2UF5fs0iHq3zA
+Message-ID: <CAAsRjRn=Kmft8-wBk5xYdSet2hSF094+f1WLDwRsbFpy5YB3Vg@mail.gmail.com>
+Subject: Re: [PATCH] PCI: iproc: Use pci_alloc_host_bridge() on BCMA
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Bjorn Helgaas <helgaas@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, bhelgaas@google.com, 
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+	bcm-kernel-feedback-list@broadcom.com, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
+	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, linux-pci@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Rosen Penev <rosenp@gmail.com>, rani.hod@gmail.com
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260918_234338_320726_C5A2677A 
+X-CRM114-Status: GOOD (  18.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,57 +123,37 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: jan.petrous@oss.nxp.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+On Fri, Sep 18, 2026 at 07:46:42PM +0200, Arnd Bergmann wrote:
+> Ah, interesting. So if the problem with the platform driver
+> is that the outbound windows are mismatched between the register
+> settings and the ranges property, wouldn't it make sense to always
+> set "brcm,pcie-ob" for boards that are known to have more than
+> one possible setting in their firmware?
+> That way I would hope the platform driver can just work in the cases
+> that currently fail.
 
-The example references the SerDes PHY as
+On the RT-N18U the window is not what the board fails on. The device is
+on the first controller, where ranges and the EROM agree (0x08000000 on
+both revisions), and the board still does not come up with
+pcie-iproc-platform on it. Clearing has_apb_err_disable for
+IPROC_PCIE_PAXB, one line, so the driver never touches APB_ERR_EN
+(0xf40), makes the same platform-only kernel boot and enumerate the
+BCM4360. The flag is set for that type whether or not "brcm,pcie-ob" is
+present, and with the property the driver would program OARR in
+iproc_pcie_setup() before the enumeration that touches APB_ERR_EN.
 
-  phys = <&serdes0 PHY_TYPE_PCIE 0 0>;
+The base follows the core revision rather than the firmware. On
+revision 0x01 the EROM window of the second and third controller is
+0x40000000 and 0x48000000, and Broadcom's driver picks its OMAP/OARR
+values by core revision the same way. With "brcm,pcie-ob" the
+platform driver would write the ranges value into OARR, which in
+bcm-ns.dtsi is the revision 0x07 one for every SoC. Whether a
+revision 0x01 core decodes 0x20000000 once OARR says so I have not
+tried. In the tree only ns2.dtsi sets the property.
 
-i.e. the SerDes node itself with three PHY cells. That does not match
-the SerDes binding: the per-lane child node is the generic PHY
-provider and carries '#phy-cells = <0>', while the SerDes node itself
-has no '#phy-cells' at all.
-
-Point the example at the PCIe lane child instead, which is also what
-the S32G3 board device trees use. The dt-bindings/phy/phy.h include is
-dropped along with the now-unused PHY_TYPE_PCIE constant.
-
-The schema itself is unchanged; 'phys: maxItems: 1' already describes
-the corrected form.
-
-Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
----
- Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
-
-diff --git a/Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml b/Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml
-index 66a050028278..29323e50bd8b 100644
---- a/Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml
-+++ b/Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml
-@@ -82,7 +82,6 @@ unevaluatedProperties: false
- examples:
-   - |
-     #include <dt-bindings/interrupt-controller/arm-gic.h>
--    #include <dt-bindings/phy/phy.h>
- 
-     bus {
-         #address-cells = <2>;
-@@ -124,7 +123,7 @@ examples:
-                 ranges;
- 
-                 device_type = "pci";
--                phys = <&serdes0 PHY_TYPE_PCIE 0 0>;
-+                phys = <&serdes0_pcie0>;
-             };
-         };
-     };
-
--- 
-2.55.0
-
-
+Best regards,
+Semih
 
