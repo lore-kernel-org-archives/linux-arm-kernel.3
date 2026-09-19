@@ -4,105 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56918C982E0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 01:28:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1CCFC982DE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 02:51:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IJbeOC5P7CUlCHlbrCCH2eu4B712uwW8R+WMUfDTt4I=; b=jSIgbznX9F4N/omCubxZNS5Mzm
-	bJjVV3/Fq8Rt6LG8IyKdZ6c0h7BYIAQZfefqAW3AZ29/SC3Ql5CoosFeKmmg//RmXyjaAQae19DrI
-	Q7ud5ZuPJxh+bjmurym3rJqcBd+3mKGtw/n/R+WslV11Ge7E9foG3zbfXvYHDDtf3urbtcoExP8Xg
-	tW1ZpBzFztpwGqiztrX05AkVseBEdVKJm5LAkXPnJbDP/GvosF5LiCjTq1/TKA97MHWLQOL4MQfOi
-	U9lA5YlgyHWBj2S59bgkUE8MuBzpxUxmrkLeS9K9w3Ue+TZboC/Jb6qO4Vzk7SaisMSWHjNg3UB+s
-	LvHYTGSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7ffAIIOTzJLTc90hT/z6VobY5awA2RAnbn6y+KHd4n0=; b=X0r+3WiHTCJ+7YpIdnwQRN9Ju5
+	9+w7FMiynb0UIaKFYagn5TBQsjDICB4onlRFCCRIaKUaCgX8Sncq2gjNkxTvkIhke0pIQLzGewV+6
+	opocQxK4QwVRra2G9/dmReZAI/+/RjuPob1x88Pzq6MgLthdckTm2gFGXuhwlpWx0PLBH4GOw0mp6
+	9PCd1qIAdszJaqY3oRlPgZ+WvSkUZrd44oMHkFe02PwcRlGL4E2CXDcScZ+9PffHMS3m6sBDqp12E
+	DVhOY+msfxX9xFPpD51gbQBC9RzesNUSczD12Awt6Vq6XnCk7WXCb5aOXtsTQcmcnhkUX34rNx2Ev
+	+pQKW0QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7jsR-0000000FpNa-2o3N;
-	Sat, 19 Sep 2026 01:28:27 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1x7lAf-0000000FtV4-0DxN;
+	Sat, 19 Sep 2026 02:51:21 +0000
+Received: from mail-pz2-x10.google.com ([2607:f8b0:4864:3b::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7jsA-0000000FpIG-1rKF
+	id 1x7lAa-0000000FtUc-1PdL
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Sep 2026 01:28:12 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68INvnbY1420671;
-	Sat, 19 Sep 2026 01:27:52 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	IJbeOC5P7CUlCHlbrCCH2eu4B712uwW8R+WMUfDTt4I=; b=dNAyCRGfrsxac/A+
-	WEkGlYlPp60psM7pbG6YriRDXCApI4wsIgmqSeKGsbAMnl2vMquZCiq1HvFfn9GM
-	aC23B2roWjqBFmkNV1Xl2BbwJOB6GGQOJHI6p3AYiYm1ku35MCTxFuxSrsHbfkvo
-	LLmFWhTqpFuqzq8zJF98XDr1r3bddriCCm8kzA+ZpBQd3TCEC6JgxoA46HoNgq/Y
-	5l1UY6bZ+6gui3taJvgnxIIray3c+nk3ckwhDb0LrWJLsk5U/Yj34PT0U9JKSqFg
-	Z3AkbF9/gAnhDtfAeU4qaMBnl0WHsZf275Yq9hMbhRL1+SRLoiexX862z1QidJtz
-	SU1wgg==
-Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gs84a1xr0-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Sat, 19 Sep 2026 01:27:51 +0000 (GMT)
-Received: from hu-devc-lv-u24-a.qualcomm.com (hu-jcameron-lv.qualcomm.com [10.81.84.69])
-	by NALASPPMTA03.qualcomm.com (8.18.1.11/8.18.1.11) with ESMTPS id 68J1RpeB3483928
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Sat, 19 Sep 2026 01:27:51 GMT
-Received: from hu-jcameron-lv.qualcomm.com (localhost [127.0.0.1])
-	by hu-devc-lv-u24-a.qualcomm.com (Postfix) with ESMTP id 1906F24DE1;
-	Fri, 18 Sep 2026 18:27:51 -0700 (PDT)
+	Sat, 19 Sep 2026 02:51:20 +0000
+Received: by mail-pz2-x10.google.com with SMTP id 41be03b00d2f7-cc1cea4ae2dso823319a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Sep 2026 19:51:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789786275; x=1790391075; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=7ffAIIOTzJLTc90hT/z6VobY5awA2RAnbn6y+KHd4n0=;
+        b=mvKOqFx46VtzE3pJRdRBgDBTV1u19KTvMalTQrlhG7D2FGSUySQy/cKTvT/M5ToVQi
+         Bucc2FesNDuwFah8zHjFjbiECmimjFeBcvrftMmTJYC3EQJHLrPxFfnoOxqO59LMRWTj
+         Ofb2PANVk1zCf9mUBmk5fMINkfe07XSz6ZdGh8J7In1RW0bd9BXKrq+zXYGc6EIL+Ene
+         6Pqy0EkUZXe0KMycIwR1Uy6whfnobYaUPMGwvQzNzU/N+GbwyRgwejVfo50gGN2SsewC
+         2AxZ4ZHE+LDsKDLOXc2pGCj+Ywu0L/KykS/A8r6MuTiWk+UF35gA9DMGB0nVJp/XAcje
+         H9fw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789786275; x=1790391075;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=7ffAIIOTzJLTc90hT/z6VobY5awA2RAnbn6y+KHd4n0=;
+        b=Y9Ijbh55OWJN53X2nvFmc6aaVdVV3BRq3KJeb0h0kv21l0RLZo62hvuX7DuNx6T2ZS
+         +dmz8Ksxp/U6jhcu8ORiHLst1aY1pREyXRJiyOpxPIYrBdvAZU9tyvsVMGrD9nU9UnLE
+         1LwbuOGg1VAJzE8Jjzx6BBU5B4Maz3ixMSldduq6NgyAb5Z0I4HIk9gSsjhEr1qIM/Xz
+         nltr1JG7nG+0M9P0Rx0OGvx8KGuqyQ6/JC+b5mmq4lCkxM9of3GXkJMV6ImReZpBWweQ
+         f+Ab9z1y0PyPwAwLT+YwEQ5sA7O/A6m6luidGpYK/Iy6AEPJPycBxFKF8FW/a46Msp27
+         YFYw==
+X-Forwarded-Encrypted: i=1; AKwUvBxSY7K9tSUyNmznbq3y28v1BwyJoJ0odG2Q+GPRh2UveFrv3FYfYNekrTphXiMlEOZ1LpFMQZmDpkghfGO7Etjq@lists.infradead.org
+X-Gm-Message-State: AFuF++maRwhTfwdvJHrf3wz+z4V5y5dSgLyrH/v9OSrtF0qCyHxmCqbz
+	4taQ3zesJDIZfbtD/Ynb2loBL4t6FmtN1Lu1qYSKkgDLVCZ+TPuiwRtQ
+X-Gm-Gg: AYBFou0rPfAuqREcIXjC57nffx/Zq1Myj28pJeMAPafhTa8160cpihkBC78dNMEGJjn
+	c5PofpVd6YCZxw4x609l6UvxvE90nsWDAPM9IXQUTBmuVYMUNrQdGXrnWsOdP0ffB9MwCGvAWUI
+	FK4+5gpfcTpn5ReD7hc9MhXeEXP/WCNg3IQd3nM7tVJQc9m3rmK7fTLvVUs2q8rOOLFrNWzgmOc
+	aDfpjF1w3DFlPSb1en5BsnKQl8DvegBTKFyMzuRNjR5pp2ZzJ3yLL9MDUNypzPjjGRcKBOOSdJL
+	b2Ts98nl6tx6HD49BUYhJ+YAt2lR+7WZJWheXZ/F2HxF9X8ituvJgjZ37Afs7wNy9stii5nMscQ
+	/JCQCdSi0KycBHupvV849cTr6JgM/NC7B3RNIE2XEPW6Oohs5PuXij2jjBmkb7pChw9Z9wENprB
+	r2Z9gTdYGw+Tva2TTCeEvnafaPolf/+b24bdhBn5OeU79fJVyCakYXsKNBz230E+XMdY8/YVY9k
+	bOgXOv5elcfIYKaiScp1HD72g21LV7DCyHUIvGA4gjqHbrUx7o=
+X-Received: by 2002:a17:90b:17ca:b0:393:19a3:4f1 with SMTP id 98e67ed59e1d1-39e54cb43c7mr8391467a91.6.1789786274734;
+        Fri, 18 Sep 2026 19:51:14 -0700 (PDT)
+Received: from [172.19.1.47] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39e6c615f05sm2060720a91.15.2026.09.18.19.51.09
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 18 Sep 2026 19:51:12 -0700 (PDT)
+From: Jacky Huang <ychuang570808@gmail.com>
+X-Google-Original-From: Jacky Huang <ychuang3@nuvoton.com>
+Message-ID: <cb92ac17-d334-45e5-b5f4-4c299a1fb462@nuvoton.com>
+Date: Sat, 19 Sep 2026 10:51:07 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4] arm64: dts: nuvoton: ma35d1: add CAN nodes
+To: Zi-Yu Chen <zychennvt@gmail.com>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: schung@nuvoton.com, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, mkl@pengutronix.de
+References: <20260916051827.919538-1-zychennvt@gmail.com>
+Content-Language: en-US
+In-Reply-To: <20260916051827.919538-1-zychennvt@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v18 5/7] firmware: arm_rmm: Activate the RMM
-From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
-        will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
-        aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
-        joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
-        linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
-        sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
-        WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
-In-Reply-To: <20260912083611.2513845-6-suzuki.poulose@arm.com>
-References: <20260912083611.2513845-1-suzuki.poulose@arm.com>
- <20260912083611.2513845-6-suzuki.poulose@arm.com>
-Date: Fri, 18 Sep 2026 18:27:45 -0700
-Message-Id: <178978126542.2352296.10527413259157627665.b4-review@b4>
-X-Mailer: b4 0.17-dev
-X-QCInternal: smtphost
-X-Proofpoint-GUID: 302lZnfJ4GkCbMvsWeOukSS38_6TSES3
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE5MDAxNiBTYWx0ZWRfX6TKTc7X/tDu8
- wXCA3awHo8CyoLuusdY2vhGJU5UIyuMXXjxC17wt/VRdQwh9iOo5/e0H2wQOuG4Dn8BtjPEPv3q
- Rj1Ltu4yKl6CH84LtU1BUbmj9i7H5/8=
-X-Proofpoint-ORIG-GUID: 302lZnfJ4GkCbMvsWeOukSS38_6TSES3
-X-Authority-Analysis: v=2.4 cv=MLD1C8Zl c=1 sm=1 tr=0 ts=6aade517 cx=c_pps
- a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=7CQSdrXTAAAA:8
- a=EUspDBNiAAAA:8 a=sr4bC4xs5gVJGtrCXjkA:9 a=QEXdDO2ut3YA:10
- a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE5MDAxNiBTYWx0ZWRfXyalYluVoXgps
- jqoI/tlDqUsuotTAtSN1mXpl9e+DrAtKfi4eX8brkvpOOug5mfTvuWtbxSxSCYdlLzE3YMDRkxl
- gfyP1aS8GpLsJT5dipmOcsQtCegZ51B6osS7MrZ6Yo9oNUWsMDFm3sqnby5q0ly36S5WkW6n8ZI
- hDu2GPDkbod0HuiDdUY/lD7EbNNwx5EfyUZVFDkWs408o5dHwtuH6z933mKdoSs045Ej31k2VWj
- z5L6aQVd3uw57a3jtY2OplJBtwkAzAp1mjbYj65NC237BcIU/xDxR4YmKgTlZX4tQvqh+R9PcFo
- uLg/jvLkaBHadNHNdLU5o2TCUkyVcoVz4sY3Y8xM9pV0hSnvs/DBqnd8oJIPdVATAI7dUQnW12C
- XznvmDZ/ccHEFJ3Zf7Af1SyJhx/yjjKLKjq1VBe4KrkhgpwmJ7Pfn4JlW/HcJeJIHZbBym5qCiY
- nl0PzwSMVcJZ8Uo9LHw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-18_07,2026-09-16_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 phishscore=0 clxscore=1011 lowpriorityscore=0
- priorityscore=1501 bulkscore=0 impostorscore=0 spamscore=0 suspectscore=0
- adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
- definitions=main-2609190016
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_182810_512851_C52DDDB6 
-X-CRM114-Status: GOOD (  23.30  )
+X-CRM114-CacheID: sfid-20260918_195116_381646_E5221ADD 
+X-CRM114-Status: UNSURE (   5.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,72 +107,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Activate the RMM after the basic configuration. This is a memory transferring,
-> stateful operation.
-> 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> +               can0: can@403c0000 {
+> +                       compatible = "bosch,m_can";
+> +                       reg = <0x0 0x403c0000 0x0 0x200>, <0x0 0x403c0200 0x0 0x2000>;
+> +                       reg-names = "m_can", "message_ram";
+> +                       interrupts = <GIC_SPI 71 IRQ_TYPE_LEVEL_HIGH>,
+> +                                    <GIC_SPI 131 IRQ_TYPE_LEVEL_HIGH>;
+> +                       interrupt-names = "int0", "int1";
+> +                       resets = <&sys MA35D1_RESET_CANFD0>;
+> +                       clocks = <&clk HCLK3>, <&clk CAN0_GATE>;
+> +                       clock-names = "hclk", "cclk";
+> +                       bosch,mram-cfg = <0x0 4 4 32 32 32 8 8>;
+> +                       status = "disabled";
+> +               };
 
-With the declaration moved as per standard way of dealing with __free
-magic (there are docs in cleanup.h on this)
+Hi Zi-Yu,
 
-Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+The CANFD0 through CANFD3 reset properties added in v4 address Marc's
+comment, and the reset assignments look correct.
 
-> ---
-> Changes since v17:
->  * Inline RMM_ACTIVATE command and remove the definitions from arm-rmi-cmds.h
->  * Use scope-based cleanup to free sro object
-> Changes since v16:
->  * Split into a new patch
-> ---
->  drivers/firmware/arm_rmm/rmi.c | 14 +++++++++++++-
->  1 file changed, 13 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/arm_rmm/rmi.c
-> index 4f9898ece754..ecc89e91d264 100644
-> --- a/drivers/firmware/arm_rmm/rmi.c
-> +++ b/drivers/firmware/arm_rmm/rmi.c
-> @@ -762,6 +762,7 @@ static int rmi_configure(void)
->  static int __init arm64_init_rmi(void)
->  {
->  	int ret;
-> +	struct rmi_sro_state *sro __free(kfree) = NULL;
->
-Read the guidance in cleanup.h
+Reviewed-by: Jacky Huang <ychuang3@nuvoton.com>
 
-This is a path to a potentially grumpy Linus.  He's made the sensible
-point a number of times that putting the declaration of the destructor
-anywhere that isn't right next to the contstructor is a recipe for
-hard to read code and odd bugs (this one isn't buggy,
-but the principle is more general and the readability thing does hold!)
+Best regards,
+Jacky Huang
 
->  	/* Continue without realm support if we can't agree on a version */
->  	ret = rmi_check_version();
-> @@ -776,7 +777,18 @@ static int __init arm64_init_rmi(void)
->  	if (ret)
->  		return ret;
->  
-> -	return 0;
-> +	/* Activate the RMM */
-> +	sro = kmalloc_obj(*sro);
 
-struct rmi_sro_state *sro __free(kfree) = kmalloc_obj(*sro);
-
-> +	if (!sro)
-> +		return -ENOMEM;
-> +
-> +	ret = rmi_sro_memxfer_cmd(sro, GFP_KERNEL, SMC_RMI_RMM_ACTIVATE);
-> +	if (ret) {
-> +		pr_err("RMM activate failed\n");
-> +		ret = ret < 0 ? ret : -ENXIO;
-  		return ret < 0 ? ...
-> +	}
-
-return 0;
-Perhaps to make it more obvious that any non 0 return means error?
-
-Doesn't really matter
-
--- 
-Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
 
