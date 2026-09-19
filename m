@@ -4,130 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07FD0C982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 09:21:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99852C982CC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 09:23:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MGYptzQitBqvlBeqfLUR1pvxKBwqhA+k9O947J2Uzs4=; b=CC+0ycUgm9UtWw7nCE+/n+EBua
-	CuqNSyTZk/8yDnpNUGkG1wOTMr4lLPyX6J1vMlhJ6h595OsTAN3StyAL46G2aLRxZ0DFHfxzdAYVP
-	wJFkjBEcDLFSJGWylsPiU5aO3FTfu9wnarKcr6Vo0HB+1M9KXQ/Zh2tpr3r/DsAhkaZzTuhFt3Fau
-	Hfk8P9Mre7tJOoq727MVBsTbpoqko+z6dgNWfUVExubTEH7n1nNA7JMDaCAg9Q1d1RPjo8/zalMjO
-	fFxdyohL+G0mj1MEtRXNZSU/Oanfi2DLkWthqwAHZJm6vpUoZrSYdlgFkajZY7ZYni0TOjZ3x18HK
-	/UPqNLvA==;
+	bh=p2++DSH7qzxPkUFh8j6R7Yh1w31wukoOyoqI9yjfdzM=; b=gcbyl+E+vmInBsqLVM2DUevIW0
+	ez7lmHGVPgPy6QNjzAvaaAx8NsxfrMF4gaBi3jTlpFiB5EE1wxcemePqXo62AgTO78fU+6L459m7I
+	YpPeEpkpglZfJtcgkZgKgijtPUUz3nZEZb979d1jG866d1El6wQ8PTD9IkQ98VpPF8T+mYOn8MJ2m
+	ogaRHfxbMwtlBzPLq2UjMfKVycOzUEwdSrt7cDaHah9Z03a07wcV1MDgLsJAsAkcaLJ/R3Zip+WpC
+	u1jnUErzKswAyYACBot8KSFky+PBtyZ32sEE2WLMOfG0pmjQCuOQiSwOkhQfm5YaN1HDS9xee36Po
+	QgpJWlCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7rFw-0000000G7qE-1hyG;
-	Sat, 19 Sep 2026 09:21:12 +0000
-Received: from flow-a1-smtp.messagingengine.com ([103.168.172.136])
+	id 1x7rHc-0000000G7yc-2q45;
+	Sat, 19 Sep 2026 09:22:56 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7rFt-0000000G7oh-0aJi;
-	Sat, 19 Sep 2026 09:21:10 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailflow.phl.internal (Postfix) with ESMTP id 7A4A71380CC3;
-	Sat, 19 Sep 2026 05:21:04 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-05.internal (MEProxy); Sat, 19 Sep 2026 05:21:04 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ragnatech.se; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1789809664;
-	 x=1789816864; bh=MGYptzQitBqvlBeqfLUR1pvxKBwqhA+k9O947J2Uzs4=; b=
-	KKJxgAPqGf8ffn9cEzGN/lmRPaI84KnadpYFXzKCX9hE2ejUIq68mi4u49PvWfgc
-	Itlb19ZH3qr7BojbMyQRo+ba2NPVuxshKxNHPNc1n0WoFm2P82SdvXVe/ozusaqU
-	UUuNFmN3pT+MAIOXefE4Sv9U8sKTnAH69sCP1ZzXN2aKc8adbqjGCZ5y3vHL5yUn
-	DebvNQKunanNCX2bmcP83jS/V3bgaOaMTSMerlAWCQ2EgFBXQ1ZRTTrcYTU71eEv
-	lbzAJDJUW1lP7r0QDdMJOaObYpwLv8jsh3ZCwwwsKuWBDf/iXMBIEia/Vxnb/8S7
-	nxGJsoWmFpCeajtr5MutCw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1789809664; x=
-	1789816864; bh=MGYptzQitBqvlBeqfLUR1pvxKBwqhA+k9O947J2Uzs4=; b=w
-	LA7xh2o3RY19SYTpHtjFoN2bWuBr9Jl0X822TEzfg09UxehR9IxivJ/PPDbEq5vh
-	xknj+g7mVbq0BrIyxwjz7mQPl76Es0GLU76nsl2Jc5PWQZ2aYnu4tSWX2U+CEbOU
-	duXnb8byYslI35rhb9G1P41C+PXcxQA0LTyXYnfwnUdPfuutf27xS+i0HNDcYlJc
-	mgqWClJS3odJaqniOPApq6NW3P2YBAq8VK9RlSsIgQ3yQUFHVbKCGOJnK9XiOEZD
-	XKwatuiR9o5xSppMVRA8v/P+uFKq6qikqTrSgLJnHtuSO/CDe3DZZJW23Dy/fkvD
-	ZW547r14CEX+ogHG402fg==
-X-ME-Sender: <xms:_VOuaoMc3T-ITDLbcqgHBdCUnJzWxvJ2B31OHOBqLt2R6J_GHk_kgg>
-    <xme:_VOuaqs_CdaHWRrECVh8zBB_Oyed8sjnn2zi8cyFPVs8HxgcW-AM-CDenZ6BvPCg9
-    zlQ4TZCJOVtaZNgCLdbweoHYhCfqfMC5hHqD0aLFaBIweeaNQUjKTmY>
-X-ME-Received: <xmr:_VOuan099myfjV70XEVtLI9rCteLcp3wwc72aBYnA1KSo0aM_0JVaFlzyhM1LK5r-Kar73jmByYogctH37tNWYeVENTK3UI>
-X-ME-Proxy-Cause: dmFkZTEHzaPBOkzhEZKtlcJiHuaR/8A9YwcvLFmST50NgBICej+vTp5vMhNNvAsQoG90/2
-    Jm0kDSLPlHjTl32jVWjbcwmLDSqw4GyHFeDhV0053Ev7hF2r8HtYhx1OQFrcFYUvp22zhD
-    bwa3p77dJnCDUtHCllEbqhJvrcmU7/C1lASmVI5bvK/T4qtdpnBur25H1DkP7UkKXPQC/j
-    elUdagyi5wVvBIc8Nks2/9BjgcJJqa08jQYX7fGyZhY2tU8D8FNMzrqNvQRW4UOnqv29DO
-    Z3Z15oIGz+UspWal/6k8HrhYZj+XVKhxeKCuy8RhfhaOSuu8zlDB0q69H/9Oe3rv7hs/Wn
-    ZGWF+6lY0YfPnQu0pkLeDFn6uVWRwRv3tWt2cnBI8Mig3THTVbziWZT3hx0FavRU1Rblw2
-    5GJ1NCrct8YFcaHTUsLESEIG9dn4bGZyc3OuX6C4ucocsN5peK2laUn1i/p649xuZe4yDu
-    V9gsVPzHsvP7DCumtstJA6KfKFLICxe7Ru/+RiSUSIleLOGD4tyf6+IMKgLo2rk4eyaZo+
-    A7NyVb8ONLKLmtm+YaDKnf1kykpl1RplpJr0gIHd9q1fENpv+FWekqgFQI2/j8Oy2+G7o+
-    pftD3dpMRQhb9hVe3tAsXetfhuC7wxDXeMfAKz0fypwUl3oZ3oPUXI0wHjNg
-X-ME-Proxy: <xmx:_VOuah2y4LFz1PpadpumYBxfc98D0-tdHUeGo910UPdHnB2MAwoLcw>
-    <xmx:_VOuaqq125S6Unzcn9Y0ECrr5LgGIJIXBZEy27KqgbK5ukiGRB_g-w>
-    <xmx:_VOuai0UYZvkkFR3qjdiC9hpdOm_mE8nabOFF-wFotoZzh3c314HmA>
-    <xmx:_VOuaj0j1IjBEGZ5neb_ubNG80H_nWXeTS--3M-4wyMouLo54xV9WA>
-    <xmx:AFSuakOZvT35vQTN-w2q-qm0NMqiAOAQOnWSEbPNjOLlAV8dYkNEXA1S>
-Feedback-ID: i80c9496c:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
- 19 Sep 2026 05:21:00 -0400 (EDT)
-Date: Sat, 19 Sep 2026 11:20:57 +0200
-From: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>
-To: Kieran Bingham <kieran.bingham@ideasonboard.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,	Jacopo Mondi <jacopo@jmondi.org>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Jimmy Su <jimmy.su@intel.com>,	Matthias Fend <matthias.fend@emfend.at>,
-	Mikhail Rudenko <mike.rudenko@gmail.com>,
-	Daniel Scally <dan.scally@ideasonboard.com>,
-	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
-	Michael Riesch <michael.riesch@collabora.com>,
-	Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
-	Sylvain Petinot <sylvain.petinot@foss.st.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Paul Elder <paul.elder@ideasonboard.com>,
-	Martin Kepplinger <martin.kepplinger@puri.sm>,
-	Quentin Schulz <quentin.schulz@theobroma-systems.com>,
-	Tommaso Merciai <tomm.merciai@gmail.com>,
-	Svyatoslav Ryhel <clamor95@gmail.com>,
-	Richard Acayan <mailingradian@gmail.com>,	Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,	Heiko Stuebner <heiko@sntech.de>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>, linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux@ew.tq-group.com, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,	linux-rockchip@lists.infradead.org,
- linux-tegra@vger.kernel.org,
-	Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>,
-	Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
-	David Heidelberg <david@ixit.cz>
-Subject: Re: [PATCH v6 3/6] arm64: dts: renesas: Convert to new media
- orientation definitions
-Message-ID: <20260919092057.GA1099675@ragnatech.se>
-References: <20260918-kbingham-orientation-v6-0-5e8b1f01be29@ideasonboard.com>
- <20260918-kbingham-orientation-v6-3-5e8b1f01be29@ideasonboard.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260918-kbingham-orientation-v6-3-5e8b1f01be29@ideasonboard.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260919_022109_350007_6EAE5AA6 
-X-CRM114-Status: GOOD (  17.83  )
+	id 1x7rHa-0000000G7yW-3n5H
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 19 Sep 2026 09:22:55 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 14067602C4;
+	Sat, 19 Sep 2026 09:22:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F9801F000FF;
+	Sat, 19 Sep 2026 09:22:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789809773;
+	bh=p2++DSH7qzxPkUFh8j6R7Yh1w31wukoOyoqI9yjfdzM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=moAckOx/BPVEJ1RzH3Y4pPsnwzsAWrGRbxm3lk29vHVa/fqmDMYCpF8+laeQ8Fiqm
+	 vJhorci6+huPu6TpBGzoelksDEEX/IQiY0dRJ0mKPS8vlQ/rAh0mISFmMwPMe8fkf1
+	 VoCJfmw5k5d/ljYIKnyFd/KA8OvSz+JnXAT/Mfq4+z/EkVjnzbktETwTRcTKJDyUeL
+	 qmOr6mQ+wNCd2qyZnDppyIokInddhCdc52KGjbvXGaA4q4msaibojUzdBfB+kvBbj6
+	 eqmb2BzIbv7iOmAHMreAvi62AE1MhsBlYOLjxCeddTeWJ5Igubyss5hwZ4xz0RXamk
+	 5cGYpvHhLpGjg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1x7rHX-0000000AvKU-1Eeq;
+	Sat, 19 Sep 2026 09:22:51 +0000
+Date: Sat, 19 Sep 2026 10:25:57 +0100
+Message-ID: <87h5jl4moq.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	nd <nd@arm.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Joey Gouly
+	<Joey.Gouly@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org"
+	<peter.maydell@linaro.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>,
+	"fuad.tabba@linux.dev"
+	<fuad.tabba@linux.dev>
+Subject: Re: [PATCH v6 09/49] KVM: arm64: gic-v5: Create and manage VM and VPE tables
+In-Reply-To: <20260904113404.4051341-10-sascha.bischoff@arm.com>
+References: <20260904113404.4051341-1-sascha.bischoff@arm.com>
+	<20260904113404.4051341-10-sascha.bischoff@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com, fuad.tabba@linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,124 +96,183 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kieran,
-
-Thanks for your work.
-
-On 2026-09-18 11:44:15 +0100, Kieran Bingham wrote:
-> From: Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
+On Fri, 04 Sep 2026 12:38:51 +0100,
+Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
 > 
-> The orientation property for video interface devices now has definitions
-> to prevent hardcoded integer values for the enum options.
+> GICv5 uses a set of in-memory tables to track and manage VM state.
+> These must be allocated by the hypervisor and provided to the IRS.
 > 
-> Update the users throughout the renesas device trees to use the new
-> definitions.
+> The VMT (Virtual Machine Table) is a linear or two-level table
+> comprising VMT Entries (VMTEs). Each VMTE describes the state for a
+> single VM. This state includes things such as the SPI and LPI IST
+> configuration (coming in a future commit), an implementation-defined
+> VM Descriptor, and a VPE Table (VPET).
 > 
-> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-> Reviewed-by: David Heidelberg <david@ixit.cz>
-> Signed-off-by: Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
-
-Reviewed-by: Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
-
+> The VPET contains one entry per possible VPE ID belonging to a VM. It
+> is used to mark a VPE as valid and provide the address of an
+> implementation-defined VPE Descriptor (VPED), which the hardware uses
+> to track and manage VPE state.
+> 
+> Allocate each VM's VPEDs as a single dense array indexed by vcpu_idx,
+> while the VPET remains indexed by the userspace-provided vcpu_id. This
+> keeps VPED storage proportional to the number of vCPUs even when their
+> IDs are sparse.
+> 
+> The VMT and VPET are shared with the IRS. On systems with a
+> non-coherent IRS, cache maintenance operates at cache-line
+> granularity, while multiple entries can occupy the same cache line.
+> Use a common lock for CPU accesses to these tables and IRS command
+> processing so that writing back one entry cannot overwrite an IRS
+> update to a neighbouring entry.
+> 
+> The implementation-defined VMD and VPED storage is also visible to the
+> IRS. Round these allocations up to whole cache lines to prevent cache
+> maintenance from corrupting unrelated slab objects. Initialise the
+> storage before publishing its addresses to the IRS.
+> 
+> This commit adds support for allocating the VMT and its descriptor
+> backing state, and for managing VMTEs. The VMTEs can be initialised or
+> released for reuse. VM IDs are allocated with an IDA, while an XArray
+> tracks the host-side allocations associated with populated VMTEs.
+> 
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
 > ---
->  .../arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx219.dtso | 3 ++-
->  .../arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx462.dtso | 3 ++-
->  .../arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx219.dtso | 3 ++-
->  .../arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx462.dtso | 3 ++-
->  4 files changed, 8 insertions(+), 4 deletions(-)
+>  arch/arm64/kvm/Makefile              |   2 +-
+>  arch/arm64/kvm/vgic/vgic-init.c      |   2 +
+>  arch/arm64/kvm/vgic/vgic-v5-tables.c | 681 +++++++++++++++++++++++++++
+>  arch/arm64/kvm/vgic/vgic-v5-tables.h | 100 ++++
+>  arch/arm64/kvm/vgic/vgic-v5.c        |  19 +
+>  drivers/irqchip/irq-gic-v5-irs.c     |  12 +-
+>  include/kvm/arm_vgic.h               |   4 +
+>  include/linux/irqchip/arm-gic-v5.h   |  14 +-
+>  8 files changed, 824 insertions(+), 10 deletions(-)
+>  create mode 100644 arch/arm64/kvm/vgic/vgic-v5-tables.c
+>  create mode 100644 arch/arm64/kvm/vgic/vgic-v5-tables.h
 > 
-> diff --git a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx219.dtso b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx219.dtso
-> index 3acaf714cf24..b816382bba0a 100644
-> --- a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx219.dtso
-> +++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx219.dtso
-> @@ -12,6 +12,7 @@
->  
->  #include <dt-bindings/gpio/gpio.h>
->  #include <dt-bindings/media/video-interfaces.h>
-> +#include <dt-bindings/media/video-interface-devices.h>
->  
->  &{/} {
->  	clk_cam_j1: clk-cam-j1 {
-> @@ -44,7 +45,7 @@ cam@10 {
->  		VDIG-supply = <&reg_cam_j1>;
->  		VDDL-supply = <&reg_cam_j1>;
->  
-> -		orientation = <2>;
-> +		orientation = <MEDIA_ORIENTATION_EXTERNAL>;
->  		rotation = <0>;
->  
->  		port {
-> diff --git a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx462.dtso b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx462.dtso
-> index a19bc0840392..4019b80a88b7 100644
-> --- a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx462.dtso
-> +++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx462.dtso
-> @@ -12,6 +12,7 @@
->  
->  #include <dt-bindings/gpio/gpio.h>
->  #include <dt-bindings/media/video-interfaces.h>
-> +#include <dt-bindings/media/video-interface-devices.h>
->  
->  &{/} {
->  	clk_cam_j1: clk-cam-j1 {
-> @@ -46,7 +47,7 @@ cam@1a {
->  		vdda-supply = <&reg_cam_j1>;
->  		vddd-supply = <&reg_cam_j1>;
->  
-> -		orientation = <2>;
-> +		orientation = <MEDIA_ORIENTATION_EXTERNAL>;
->  		rotation = <0>;
->  
->  		port {
-> diff --git a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx219.dtso b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx219.dtso
-> index 512810b861aa..fea1ef4a1178 100644
-> --- a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx219.dtso
-> +++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx219.dtso
-> @@ -12,6 +12,7 @@
->  
->  #include <dt-bindings/gpio/gpio.h>
->  #include <dt-bindings/media/video-interfaces.h>
-> +#include <dt-bindings/media/video-interface-devices.h>
->  
->  &{/} {
->  	clk_cam_j2: clk-cam-j2 {
-> @@ -44,7 +45,7 @@ cam@10 {
->  		VDIG-supply = <&reg_cam_j2>;
->  		VDDL-supply = <&reg_cam_j2>;
->  
-> -		orientation = <2>;
-> +		orientation = <MEDIA_ORIENTATION_EXTERNAL>;
->  		rotation = <0>;
->  
->  		port {
-> diff --git a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx462.dtso b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx462.dtso
-> index a31524b59834..177201a8a6d2 100644
-> --- a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx462.dtso
-> +++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx462.dtso
-> @@ -12,6 +12,7 @@
->  
->  #include <dt-bindings/gpio/gpio.h>
->  #include <dt-bindings/media/video-interfaces.h>
-> +#include <dt-bindings/media/video-interface-devices.h>
->  
->  &{/} {
->  	clk_cam_j2: clk-cam-j2 {
-> @@ -46,7 +47,7 @@ cam@1a {
->  		vdda-supply = <&reg_cam_j2>;
->  		vddd-supply = <&reg_cam_j2>;
->  
-> -		orientation = <2>;
-> +		orientation = <MEDIA_ORIENTATION_EXTERNAL>;
->  		rotation = <0>;
->  
->  		port {
-> 
-> -- 
-> 2.52.0
-> 
-> 
+
+[...]
+
+The lkp bot is reporting some interesting issues in
+202609190650.liMAzwjF-lkp@intel.com:
+
+> +	/* Allocate and assign the VM Descriptor, if required. */
+> +	if (vmt_info->vmd_size != 0) {
+> +		vmd_alloc_size = round_up(vmt_info->vmd_size,
+> +					  dma_get_cache_alignment());
+> +		vmd = kzalloc(vmd_alloc_size, GFP_KERNEL);
+> +		if (!vmd) {
+> +			ret = -ENOMEM;
+> +			goto out_fail;
+> +		}
+> +
+> +		/* Stash the VA so we can free it later */
+> +		vmi->vmd_base = vmd;
+
+The VMD is dynamically allocated.
+
+> +
+> +		tmp = FIELD_PREP(GICV5_VMTEL2E_VMD_ADDR,
+> +				 virt_to_phys(vmd) >> GICV5_VMTEL2E_VMD_ADDR_SHIFT);
+> +		vmte_val0 = tmp;
+> +	}
+> +
+> +	/*
+> +	 * Allocate and assign the VPE Table.
+> +	 *
+> +	 * First of all, iterate over all vcpus to find the highest VPE ID we
+> +	 * require - we need to ensure that we have enough storage for all
+> +	 * vcpu_id values that userspace has picked and not just the total
+> +	 * number of vcpus. This gives us the number of VPEs required for the
+> +	 * VM.
+> +	 *
+> +	 * Round up the number of VPEs to a whole power of two as we cannot
+> +	 * describe non-powers-of-two in the VMTE field as it conveys the number
+> +	 * of ID bits used and not the number of vPEs. IRS_IDR1.IAFFID_BITS is
+> +	 * encoded as N - 1, so expose at least one VPE ID bit even for a
+> +	 * single-vCPU VM to keep the views consistent.
+> +	 */
+> +	kvm_for_each_vcpu(i, vcpu, kvm) {
+> +		u16 vpe_id = vgic_v5_vpe_id(vcpu);
+> +
+> +		if (vpe_id > max_vpe_id)
+> +			max_vpe_id = vpe_id;
+> +	}
+> +
+> +	nr_cpus = max(2UL, roundup_pow_of_two(max_vpe_id + 1));
+> +	vmi->vpe_id_bits = fls(nr_cpus) - 1;
+> +
+> +	vpet_alloc_size = round_up((size_t)nr_cpus * sizeof(*vpet),
+> +				   dma_get_cache_alignment());
+> +	vpet = kzalloc(vpet_alloc_size, GFP_KERNEL);
+> +	if (!vpet) {
+> +		ret = -ENOMEM;
+> +		goto out_fail;
+> +	}
+> +
+> +	/* Stash the VA so we can free it later */
+> +	vmi->vpet_base = vpet;
+
+and so is the VPET.
+
+[...]
+
+> diff --git a/arch/arm64/kvm/vgic/vgic-v5-tables.h b/arch/arm64/kvm/vgic/vgic-v5-tables.h
+> new file mode 100644
+> index 0000000000000..962be0c7cd3f6
+> --- /dev/null
+> +++ b/arch/arm64/kvm/vgic/vgic-v5-tables.h
+> @@ -0,0 +1,100 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2025, 2026 Arm Ltd.
+> + */
+> +
+> +#ifndef __KVM_ARM_VGICV5_TABLES_H__
+> +#define __KVM_ARM_VGICV5_TABLES_H__
+> +
+> +#include <linux/spinlock.h>
+> +#include <linux/idr.h>
+> +#include <linux/irqchip/arm-gic-v5.h>
+> +
+> +/* Level 1 Virtual Machine Table Entry */
+> +typedef __le64 vmtl1_entry;
+> +
+> +/* Level 2 Virtual Machine Table Entry */
+> +struct vmtl2_entry {
+> +	__le64 val[4];
+> +};
+> +
+> +/* Virtual PE Table Entry */
+> +typedef __le64 vpe_entry;
+> +
+> +struct vgic_v5_vm_info {
+> +	void __iomem		*vmd_base;
+> +	vpe_entry __iomem	*vpet_base;
+
+But pointers to allocated memory cannot be __iomem, as this qualifies
+MMIO registers.
+
+I'll queue the change below on top.
+
+	M.
+
+diff --git a/arch/arm64/kvm/vgic/vgic-v5-tables.h b/arch/arm64/kvm/vgic/vgic-v5-tables.h
+index b2ffbe68c05b4..89096926563f7 100644
+--- a/arch/arm64/kvm/vgic/vgic-v5-tables.h
++++ b/arch/arm64/kvm/vgic/vgic-v5-tables.h
+@@ -23,8 +23,8 @@ struct vmtl2_entry {
+ typedef __le64 vpe_entry;
+ 
+ struct vgic_v5_vm_info {
+-	void __iomem		*vmd_base;
+-	vpe_entry __iomem	*vpet_base;
++	void			*vmd_base;
++	vpe_entry		*vpet_base;
+ 	void			*vped_base;
+ 	u8			vpe_id_bits;
+ 
+
 
 -- 
-Kind Regards,
-Niklas Söderlund
+Jazz isn't dead. It just smells funny.
 
