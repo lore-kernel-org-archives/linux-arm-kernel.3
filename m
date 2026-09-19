@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77C02C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 01:26:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AA22C982DE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 01:26:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0BfFY34GLPm1r10FGia6EVcgqB1yaR1uKfUp4aqsxiw=; b=a9ADCGYm+TzA3GyC6eX82qojK4
-	iv6FrTEX/giPcTaZ6ua6oxzroQUGRIb70rbFDLmLvmc4bEIcQ10sd+voP7iWp8c4sgwBKKh/whGPQ
-	K41aGiJD0VIyM/gVKgClvKE0lCh2KNOxXuZfwz1MFbDmS/o/Guli3kWmvNvoYSTuqK65aia83FwKr
-	2L4AVPPwI9tvPL8mxyjcAtQWDjSsgipAfjhNlWWWTl4mJYrZkfCdQ808sACq1sDVGnMvuzZ8SKuWa
-	rnlgvEtk0rcvpyYJDho3kxKbP+uWYlD8jImf8aQ41maUB3LnS+5+0c50jJOCo9FenfusjFmz9vsK3
-	n1f9W7lA==;
+	bh=rDNTTwDHXt87TQnrJXJyanOXqCuFp9CDLP4FBV0ZDYk=; b=rBZ+syGUyLu1XnoF2CDsJZipYv
+	FcUN67pHIV5iymXLWcvRooW1aguxeQ4sXp8p+gd71uvnrc3G20IVgryke2GGW4CdQTSccaBkFO/Co
+	8smwbmCyULUGCU/Gn96YurQpiqmJbrOS+4ae6W86C5yyr7gPxaa7yl6EaQ2h29F+Sxrg4tIUFSxkM
+	T+sVIpbRfxQOVLPao1ZAhugN2z+2gsmh+77j0tJz0cNurtVVXg8zwRV2XX+EJT/IAuFrHGflXRvny
+	TCq87+M7pi3v2znwj2GmCQajNC3f0JK5wvjqa3/MzUrEzls/Y3TlEzpuEwO4mzi30WUdWDxASSEMd
+	hpR3bUbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7jqo-0000000FosK-0wPB;
+	id 1x7jqo-0000000Fosy-1w1H;
 	Sat, 19 Sep 2026 01:26:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7jqe-0000000Foqs-0qse
+	id 1x7jqi-0000000Forr-1fBO
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Sep 2026 01:26:36 +0000
+	Sat, 19 Sep 2026 01:26:40 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A149260209;
-	Sat, 19 Sep 2026 01:26:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 035261F00898;
-	Sat, 19 Sep 2026 01:26:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 96AB5444FF;
+	Sat, 19 Sep 2026 01:26:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D78C1F000FF;
+	Sat, 19 Sep 2026 01:26:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789781195;
-	bh=0BfFY34GLPm1r10FGia6EVcgqB1yaR1uKfUp4aqsxiw=;
+	s=k20260515; t=1789781199;
+	bh=rDNTTwDHXt87TQnrJXJyanOXqCuFp9CDLP4FBV0ZDYk=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Q173/XSGu0LanFRYsVGLYDMV+Y/ko3QQtQZP/OCGtPbLLdaTx1uIBWb8BJf0MxO++
-	 xEsEoXvjtA1G5YdNBgK9+2MGMeziOAvsZUFyaTm5rZuBf4vaFkOFrzegjFTxPwA1jF
-	 qthYY/cB3GecSo/C9omI2I5gaa61WewwvCdi2LvOXiPeYx75tdJPQyl4Ew7lN093Cj
-	 ltE6p7J/1wtbn7V5Uvn3rEPXJi3c/CqP+KX8ORYFxvPcnpHeJcbCBv8wDUIW/T20PW
-	 0XuvqW65Lc8U++5AcG7FvG5VZ9LKGz5SQfDP0ez9V/9nUBXnQK59l2hs8a2a3tBreT
-	 LqY6rfe8ssHbw==
-Subject: Re: [PATCH net v4 3/7] net: stmmac: selftests: Check the
- dev->features for S-TAG offload testing
+	b=WJFSIZOby+LUcRQGbT/xLyM73i3ih1oSIqoqo5BEMmaucvq3k1SEMf6LLrEeuMaRc
+	 dCPxrD/p3CbDbXdlNYE8KvE0IkLj9PL+qH22OkBVPUyJ4KXKBCjQ/BsqUaABcuuVh6
+	 cPv4Ife9TUA0ocKkBRHNwDN4fRLcLk6Ewhk1dYCkUyuAAVLEskO2As0XyqbwfCrb5Z
+	 N8DZ7mTrWIhUfxBPB79A7f3Oms3HFe8z3HYmHzlpEovy/7BP6cQOQM0ZluXYtzgEKy
+	 CAq76lt7hnjc6wq6kKcLd8b9UkhxeE19HwiPKdQFhtAd5EMgGdvch9szKZ+UpHzpNE
+	 P404gYi+s595w==
+Subject: Re: [PATCH net v4 5/7] net: stmmac: dwmac4: Use the correct bufzise
+ when the len is exactly 8K
 From: netdev-bot+sashiko@kernel.org
 To: maxime.chevallier@bootlin.com
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
@@ -57,11 +57,11 @@ Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
  thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
  linux-stm32@st-md-mailman.stormreply.com, PKneuper@dspace.de,
  david.laight.linux@gmail.com
-Date: Sat, 19 Sep 2026 01:26:33 +0000
-Message-ID: <178978119359.22033.9215465331657761575@kernel.org>
-In-Reply-To: <20260917215339.2022523-4-maxime.chevallier@bootlin.com>
-References: <20260917215339.2022523-4-maxime.chevallier@bootlin.com>
-X-sashiko-severity: Medium
+Date: Sat, 19 Sep 2026 01:26:37 +0000
+Message-ID: <178978119761.22033.12290469821672441760@kernel.org>
+In-Reply-To: <20260917215339.2022523-6-maxime.chevallier@bootlin.com>
+References: <20260917215339.2022523-6-maxime.chevallier@bootlin.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
@@ -79,89 +79,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 1 potential
+Thank you for your contribution! Sashiko AI review found 2 potential
 issue(s) to consider:
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+Critical: 0 · High: 0 · Medium: 0 · Low: 2
 
-- [Medium] stmmac_test_svlanoff() is re-gated on NETIF_F_HW_VLAN_STAG_TX,
-  but the test body it enables validates a *double-tagged* (QinQ) frame,…
+- [Low] Taken in isolation, the only functional hunk of this patch
+  (drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c:477-484,…
+- [Low] Commit-message / diff mismatch in "net: stmmac: dwmac4: Use the
+  correct bufzise when the len is exactly 8K": the changelog states…
 
 --
 
-net: stmmac: selftests: Check the dev->features for S-TAG offload testing
+net: stmmac: dwmac4: Use the correct bufzise when the len is exactly 8K
 
-The S-TAG insertion selftest was gated on the dvlan (double VLAN) DMA
-capability, which is not the same thing as S-TAG insertion support. This
-commit switches the gate to NETIF_F_HW_VLAN_STAG_TX, and keeps the test
-in tree so it starts working if the driver ever advertises that feature.
+This changes the dwmac4 set_16kib_bfsize() comparison from >= BUF_SIZE_8KiB
+to > BUF_SIZE_8KiB so that a frame length of exactly 8KiB does not select the
+next larger DMA buffer size, and renames the callback parameter in
+dwmac4_descs.c, ring_mode.c and the stmmac_mode_ops prototype.
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-> index 2f9f7746c40ae..de02c0da56dc3 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-> @@ -1415,7 +1415,7 @@ static int stmmac_test_vlanoff(struct stmmac_priv *priv)
+No Link: tags in the commit header.
+
+> net: stmmac: dwmac4: Use the correct bufzise when the len is exactly 8K
+
+[Severity: Low]
+This isn't a bug, but the subject has a typo: "bufzise" should be "bufsize".
+
+>     Lets fix the comparison and while at it, rename the parameter from len
+>     to mtu.
+
+Does the changelog describe the rename in the right direction?  The diff
+renames mtu to len, not len to mtu:
+
+  -static int set_16kib_bfsize(int mtu)
+  +static int set_16kib_bfsize(int len)
+
+Same for the ops prototype in hwif.h and for ring_mode.c.  Should this read
+"rename the parameter from mtu to len"?
+
+Also, at this commit the caller still passes an MTU, not a frame length.
+stmmac_setup_dma_desc() documents "@mtu: MTU to setup the dma queue and buf
+with", is called with dev->mtu from stmmac_open() and with new_mtu from
+stmmac_change_mtu(), keeps the comment "Returns 0 or BUF_SIZE_16KiB if mtu >
+8KiB and dwmac4 or ring mode", and the sibling helper is still
+stmmac_set_bfsize(int mtu).  Nothing on that path adds ETH_HLEN, VLAN or FCS
+yet.  That unit mismatch is resolved by the following patch in the series
+("net: stmmac: size the RX buffers from the frame length, not the MTU"),
+which computes len = mtu + ETH_HLEN + 2 * VLAN_HLEN + ETH_FCS_LEN and renames
+stmmac_set_bfsize()'s parameter too, but the inverted rename sentence in this
+changelog would still be worth correcting on respin.
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c
+> index 2994df41ec2c4..c6a8f8d735015 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c
+> @@ -474,11 +474,11 @@ static void dwmac4_set_sarc(struct dma_desc *p, u32 sarc_type)
+>  					  sarc_type));
+>  }
 >  
->  static int stmmac_test_svlanoff(struct stmmac_priv *priv)
+> -static int set_16kib_bfsize(int mtu)
+> +static int set_16kib_bfsize(int len)
 >  {
-> -	if (!priv->dma_cap.dvlan)
-> +	if (!(priv->dev->features & NETIF_F_HW_VLAN_STAG_TX))
->  		return -EOPNOTSUPP;
->  	return stmmac_test_vlanoff_common(priv, true);
+>  	int ret = 0;
+>  
+> -	if (unlikely(mtu >= BUF_SIZE_8KiB))
+> +	if (unlikely(len > BUF_SIZE_8KiB))
+>  		ret = BUF_SIZE_16KiB;
+>  	return ret;
 >  }
 
-[Severity: Medium]
-Does the new gate match what the test body actually validates?  The gate
-now keys on single S-TAG transmit offload, but the code it enables appears
-to expect a double-tagged (QinQ) frame.
+[Severity: Low]
+Taken on its own, does this hunk change the DMA buffer size the driver ends
+up programming?
 
-In stmmac_test_vlanoff_common() the frame is built untagged (attr is
-`struct stmmac_packet_attrs attr = { }` and attr.vlan is never set, so
-stmmac_test_get_udp_skb() skips its `if (attr->vlan)` block), and exactly
-one acceleration tag is attached:
+The only caller is stmmac_setup_dma_desc(), which falls back when the
+callback returns anything below BUF_SIZE_16KiB:
 
-	__vlan_hwaccel_put_tag(skb, htons(proto), tpriv->vlan_id);
-	skb->protocol = htons(proto);
+	/* Returns 0 or BUF_SIZE_16KiB if mtu > 8KiB and dwmac4 or ring mode */
+	bfsize = stmmac_set_16kib_bfsize(priv, mtu);
+	if (bfsize < 0)
+		bfsize = 0;
 
-while the ptype registered for the svlan case listens for 802.1Q:
+	if (bfsize < BUF_SIZE_16KiB)
+		bfsize = stmmac_set_bfsize(mtu);
 
-	tpriv->pt.type = svlan ? htons(ETH_P_8021Q) : htons(ETH_P_IP);
+	dma_conf->dma_buf_sz = bfsize;
 
-And stmmac_test_vlan_validate() skips a 4-byte inner tag before the IP
-header when double_vlan is set:
+For the single input whose result changes here (exactly BUF_SIZE_8KiB) the
+callback now returns 0, so the fallback runs, and stmmac_set_bfsize() at this
+commit still uses the inclusive comparison:
 
-	ihdr = ip_hdr(skb);
-	if (tpriv->double_vlan)
-		ihdr = (struct iphdr *)(skb_network_header(skb) + 4);
-	if (ihdr->protocol != IPPROTO_UDP)
-		goto out;
+static int stmmac_set_bfsize(int mtu)
+{
+	int ret;
 
-With a conforming NETIF_F_HW_VLAN_STAG_TX implementation the looped-back
-frame is DA|SA|0x88A8|TCI|0x0800|IP.  After skb_vlan_untag() the ethertype
-is ETH_P_IP, so the ETH_P_8021Q ptype is never matched, and even if it
-were, skb_network_header(skb) + 4 lands 4 bytes into the IP header and the
-IPPROTO_UDP check fails.  Wouldn't that make the test report -ETIMEDOUT
-the moment the feature bit is advertised?
+	if (mtu >= BUF_SIZE_8KiB)
+		ret = BUF_SIZE_16KiB;
 
-Along the same lines, can the current transmit path ever produce the frame
-the validator wants?  stmmac_vlan_insert() in stmmac_main.c ignores
-skb->vlan_proto and hardcodes the inner tag and type:
+so dma_buf_sz comes out as BUF_SIZE_16KiB both before and after this patch.
+The boundary case is only actually fixed by the next patch in the series
+("net: stmmac: size the RX buffers from the frame length, not the MTU"),
+which switches stmmac_set_bfsize() to a strict > comparison and feeds both
+helpers len = mtu + ETH_HLEN + 2 * VLAN_HLEN + ETH_FCS_LEN.
 
-	if (stmmac_set_desc_vlan_tag(priv, p, tag, 0x0, 0x0))
-		return false;
+Given that, is the standalone Fixes: c3efed5ad1b0 tag on this commit right?
+Backported alone to stable it would have no effect.  Would it make sense to
+either squash the two changes or note the dependency?
 
-and vlan_enable() in stmmac_vlan.c selects C-VLAN insertion only:
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+> index 9314bcb85c221..857f7562c6c6d 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
+> +++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+> @@ -540,7 +540,7 @@ struct stmmac_mode_ops {
+>  	bool (*is_jumbo_frm)(unsigned int len, bool enh_desc);
+>  	int (*jumbo_frm)(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
+>  			 int csum);
+> -	int (*set_16kib_bfsize)(int mtu);
+> +	int (*set_16kib_bfsize)(int len);
 
-	value &= ~VLAN_CSVL; /* Only use CVLAN */
-
-So the only way the retained test could pass seems to be an implementation
-that wrongly inserts an extra inner C-TAG.
-
-Would it make sense to also adjust the frame and the validation here (for
-example setting attr.vlan for an inner C-TAG with pt.type = ETH_P_IP, or
-dropping the double_vlan expectation for the S-TAG case) rather than only
-swapping the capability bit, so the test matches the semantics of the
-feature it is now gated on?
+[ ... ]
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260917215339.2022523-1-maxime.chevallier%40bootlin.com
