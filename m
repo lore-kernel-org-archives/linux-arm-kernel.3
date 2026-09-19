@@ -4,66 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9FE9C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 06:52:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB9F5C982D7
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 06:54:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yCvKOOZJlmWGLHZyrsJtjvW3q4jXCw/cfJrFwwwwJvQ=; b=Ajny4b1NvRv+bGTYKtLNz6Hdaa
-	KJX7iHPEO3yhrxnlrM+kNTLC70ct3iv22sugKmoh0OOZtmAmBlCY4yKM5idVhRg+QAfdhLxgJS5TJ
-	NM8gWRaXii4sVi8BkhRKG2IobMDh1IQ0whtjFS+QJxXDe2NHCqReW6ytqsXN5i5jzHdQXsDd9omgv
-	QXN3lrYrKIzNaqgSCovWBzznzwjvaBLF5FviRtNhp1pKAn6JLXa6+2goxTmas3NfJygJDr/nfrt+q
-	IIfaWYBreuLNq5K/r17PrLU0C1hYOtm8GslQ8WM6oOslk/+HCGplRARlrs28Zsu3TfuA5+t7IRWYh
-	tRYHDoVg==;
+	bh=W/ll31fslbRddgPfeHSYKV75ZuRWMaPmj9Nydv6eJt8=; b=NtXYrcJXpPMNSfqpZHrGUSm9vs
+	4k6BvPjKtUfRwThNK8zuH3pdNOcqXX4pKXGncWvBOohrAIrS43ON0Q8D+R1MbRJQLcRs/2+CNKcV8
+	74zkFDGjQGtNovT4jKP+0NN6v31AU+WXjOnFtTha45kjSRCfvWUqkouQWLP+s7hQ1FoeDy3qKx0wc
+	wPF0qdJ+hrEuKE0/MEKUEU4t7Gg/jueWkxdjF1vInJQfVUTWY6m3vxnT+BcI5M/+r1IP+LRHOvj3/
+	YgZOoflVvUSahgCimo/yFluzoiGrIYHrVCYMzuBLmPhPbN+IXf6BNtFpnzt1UQ7NWYkuy3Gzg8RBO
+	epubra2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7owO-0000000G0I0-3jf8;
-	Sat, 19 Sep 2026 06:52:52 +0000
-Received: from mail-m2426.xmail.ntesmail.com ([45.195.24.26])
+	id 1x7oyC-0000000G0V9-2nSx;
+	Sat, 19 Sep 2026 06:54:44 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7owL-0000000G0FN-3pgY;
-	Sat, 19 Sep 2026 06:52:51 +0000
-Received: from [172.16.12.90] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4e5c81ff9;
-	Sat, 19 Sep 2026 14:52:38 +0800 (GMT+08:00)
-Message-ID: <94451cc1-5dcc-4017-9b17-19fc20245ca8@rock-chips.com>
-Date: Sat, 19 Sep 2026 14:52:19 +0800
+	id 1x7oyB-0000000G0TJ-0lH5;
+	Sat, 19 Sep 2026 06:54:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5629144000;
+	Sat, 19 Sep 2026 06:54:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E54A7C2BCF7;
+	Sat, 19 Sep 2026 06:54:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1789800882;
+	bh=xMu5pZDd1tnu775j6RDb6pn8Z7xoRB8WjMB9CLkP0cQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=gRK/yEMzRpy1Wi3hKZh1Nzcg+ctwfdiwnPzY6eO4ERstgxSFLY2VQoPxwbWmMUjJY
+	 ItT91sRxsWo5NL0H0gDw7gMLHjvNcRdU21vurRoybif5LwN0RKtMRqc2O/q7x4r14g
+	 XWoGSx64gokCLcDOjtcL2501tf1EjjtcHTMXfsLmlXrF74DxzClwv4IA+wn2Y7jRpD
+	 Xn+opZZ/TgiM/+wdzrZPNL3Cxt/nFeKgfohw1p7siaJSzqoWrXd47HUb/0AdY+bmn0
+	 5mE2djAZbNF7SfwV4kgYkP8ooXB12uZr9P4Kt+o6R2kFJaox/P5MG+YDuBaitqTNNN
+	 5fhhSY3dS0zeA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C3CCBC982D8;
+	Sat, 19 Sep 2026 06:54:41 +0000 (UTC)
+From: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
+Date: Sat, 19 Sep 2026 08:54:30 +0200
+Subject: [PATCH RFC v3 02/12] dt-bindings: net: nxp,s32-dwmac: Document
+ pcs-handle
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 02/13] drm/mediatek: Implement Display Stream
- Compression support
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, matthias.bgg@gmail.com, jitao.shi@mediatek.com,
- dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
- justin.yeh@mediatek.com, jason-jh.lin@mediatek.com
-References: <20260916110825.102631-1-angelogioacchino.delregno@collabora.com>
- <20260916110825.102631-3-angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <20260916110825.102631-3-angelogioacchino.delregno@collabora.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0aa0b8703e5003a7kunmb39cf7f3fb4f3e
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCTx4fVk5JGk5CSk9JGBoeSFYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
-	9PT0hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=IYvLOT+ZLuL17rn47b2fIRKpsfV3Djch3gDimo9Pbn3EhzAdXn+34mKd9GylNsvfzySPs0QIMnHV0WM952ngEQInR2LgNciceaA4c5mn+0TqE6KLXQw4EIIuKoOnuPzINBtI4+nXvALj8t/uyy6tuGhRnHz+zjY0RhIfWYT0Eqc=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=yCvKOOZJlmWGLHZyrsJtjvW3q4jXCw/cfJrFwwwwJvQ=;
-	h=date:mime-version:subject:message-id:from;
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_235250_515787_F417D241 
-X-CRM114-Status: GOOD (  26.77  )
+Message-Id: <20260919-s32g_serdes-v3-2-9d68868c1e89@oss.nxp.com>
+References: <20260919-s32g_serdes-v3-0-9d68868c1e89@oss.nxp.com>
+In-Reply-To: <20260919-s32g_serdes-v3-0-9d68868c1e89@oss.nxp.com>
+To: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>, 
+ NXP S32 Linux Team <s32@nxp.com>, Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>, 
+ Magnus Damm <magnus.damm@gmail.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Bjorn Helgaas <bhelgaas@google.com>, 
+ Bogdan Hamciuc <bogdan.hamciuc@nxp.com>, 
+ Ionut Vicovan <ionut.vicovan@nxp.com>, Andrew Lunn <andrew@lunn.ch>, 
+ Heiner Kallweit <hkallweit1@gmail.com>, 
+ Russell King <linux@armlinux.org.uk>, Clark Wang <xiaoning.wang@nxp.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
+ Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
+ Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Richard Cochran <richardcochran@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org, 
+ netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+ imx@lists.linux.dev, linux-pci@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ Vincent Guittot <vincent.guittot@linaro.org>, 
+ "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+X-Mailer: b4 0.14.1
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789800879; l=1921;
+ i=jan.petrous@oss.nxp.com; s=20240922; h=from:subject:message-id;
+ bh=Slo0j2nguHWzRpXyMDnZyPP6ZRovyd2ENG76AQ6nmBk=;
+ b=cHFaVf8g3n63N2VUjwi4/XAIkgWpQTh/zlBac/Vo5OQRZtlxgrBauA10q5LsBCCd4hxWrLn/J
+ SHJzaPdCFbyA/3QxIQSwaBfGk8ITzF34VbhDFNK7DJIpv5MJypFw4l9
+X-Developer-Key: i=jan.petrous@oss.nxp.com; a=ed25519;
+ pk=Ke3wwK7rb2Me9UQRf6vR8AsfJZfhTyoDaxkUCqmSWYY=
+X-Endpoint-Received: by B4 Relay for jan.petrous@oss.nxp.com/20240922 with
+ auth_id=217
+X-Original-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,90 +112,58 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: jan.petrous@oss.nxp.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 
-On 9/16/2026 7:08 PM, AngeloGioacchino Del Regno wrote:
-> Add a real driver for the Display Stream Compression (DSC) Display
-> Controller IP, implementing support for DSC v1.1 to v1.2.
-> 
-> In order to do this, it was necessary to remove the basic DSC IP
-> bypass setup from mtk_ddp_comp: this functionality is retained in
-> the new mtk_disp_dsc driver, which checks if DSC was actually
-> requested by other components (with the only one that currently
-> supports this being DSI) and, if not, it will set BYPASS mode in
-> the DSC IP.
-> 
-> Like before, the BYPASS mode is set before starting the DSC IP,
-> but unlike before, this is being done in the component start
-> callback instead of the config one.
-> Notably, the config callback is called by mtk_crtc always
-> immediately before the calling start callback, so the order of
-> register writes is retained.
-> The only real difference is that now this is being done through
-> CPU writes instead of CMDQ, but since that's called only once
-> and since it's just three registers, the performance impact will
-> not be minimal and not even measurable.
-> 
-> As anticipated, DSC handling was also introduced in the mtk_dsi
-> driver: when performing dsi_host_attach, the driver now checks
-> if the DSI panel adds the DSC configuration structure to the
-> mipi_dsi_device structure and, if it does, it will store a
-> pointer in the driver-local mtk_dsi structure's `dsc` member.
-> 
-> The DSI driver will then check whether the DSC configuration
-> that comes from the panel is valid (in regard to MediaTek DSI)
-> and will call the DRM API's DSC helpers to calculate and set
-> all of the const and RC parameters for the actual DSC setup.
-> 
-> For the time being, even though the latest MediaTek SoCs do
-> support DSC v1.2, only DSC v1.1 pre-scr support is implemented
-> as an initial contribution (which is rather big, and 1.2 would
-> make it even bigger - but that can anyway be implemented later).
-> 
-> As a last step for validation of DSC parameters in DSI, a check
-> for the hdisplay against DSC slice sidth and one for vdisplay
-> against DSC slice height was added to the mode_valid callback,
-> making sure that H/V are, as expected, multiples of slice W/H.
-> 
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> ---
->  drivers/gpu/drm/mediatek/Makefile       |   1 +
->  drivers/gpu/drm/mediatek/mtk_crtc.c     |  21 ++
->  drivers/gpu/drm/mediatek/mtk_ddp_comp.c |  43 +--
->  drivers/gpu/drm/mediatek/mtk_ddp_comp.h |   9 +
->  drivers/gpu/drm/mediatek/mtk_disp_drv.h |   8 +
->  drivers/gpu/drm/mediatek/mtk_disp_dsc.c | 449 ++++++++++++++++++++++++
->  drivers/gpu/drm/mediatek/mtk_drm_drv.c  |   2 +
->  drivers/gpu/drm/mediatek/mtk_drm_drv.h  |   1 +
->  drivers/gpu/drm/mediatek/mtk_dsi.c      | 151 +++++++-
->  9 files changed, 635 insertions(+), 50 deletions(-)
->  create mode 100644 drivers/gpu/drm/mediatek/mtk_disp_dsc.c
-> 
+When the MAC output is routed to the embedded SerDes for SGMII, the PCS
+is one of the SerDes XPCS instances. Document that it is referenced
+through the standard pcs-handle property defined by
+ethernet-controller.yaml, pointing at the SerDes XPCS lane child node.
 
-[...]
+The type already comes from the ethernet-controller.yaml reference in
+the schema chain; this only records the intent, the same way
+renesas,rzn1-gmac.yaml does.
 
-> +
-> +	dsc->simple_422 = false;
-> +	dsc->convert_rgb = true;
-> +	dsc->vbr_enable = false;
-> +
-> +	drm_dsc_set_const_params(dsc);
-> +	drm_dsc_set_rc_buf_thresh(dsc);
-> +
-> +	ret = drm_dsc_setup_rc_params(dsc, DRM_DSC_1_2_444);
-> +	if (ret) {
-> +		dev_err(dev, "Cannot find DSC RC params\n");
-> +		return ret;
-> +	}
-> +
+Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
+---
+ Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
 
-Just out of curiosity, is there a reason the DSC v1.1 rc parameters 
-aren't used here?
+diff --git a/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml b/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
+index 753a04941659..b168decb540c 100644
+--- a/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
+@@ -15,7 +15,8 @@ description:
+   The SoC series S32G2xx and S32G3xx feature one DWMAC instance,
+   the SoC S32R45 has two instances. The devices can use RGMII/RMII/MII
+   interface over Pinctrl device or the output can be routed
+-  to the embedded SerDes for SGMII connectivity.
++  to the embedded SerDes for SGMII connectivity, in which case the
++  SerDes XPCS lane acting as the PCS is referenced via pcs-handle.
+   The DWMAC instances have connected all RX/TX queues interrupts,
+   enabling load balancing of data traffic across all CPU cores.
+ 
+@@ -81,6 +82,14 @@ properties:
+       - const: rx
+       - const: ptp_ref
+ 
++  pcs-handle:
++    $ref: /schemas/types.yaml#/definitions/phandle-array
++    maxItems: 1
++    description:
++      phandle pointing to the SerDes XPCS lane child node that provides
++      the SGMII PCS for this MAC. See
++      Documentation/devicetree/bindings/phy/nxp,s32g-serdes.yaml.
++
+ required:
+   - clocks
+   - clock-names
 
 -- 
-Best, 
-Chaoyi
+2.55.0
+
+
 
