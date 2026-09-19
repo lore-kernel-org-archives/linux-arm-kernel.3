@@ -4,84 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40116C982CC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 09:33:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3963C982CC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 09:38:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0caxOyaJoh8KN4zezLmE5kiSj3XpRezHw9bAKEfHF+E=; b=K3mMkL5cL+K2H+fDshx7/UjPJW
-	XXAi0ZSLTp6e+4suxyWZqIzav2ivUTBoEcvc83SAwUDRvVFTurVGqKh4pykO9OsmsR0r9esIMaHoN
-	K5ugF6VawFuGJ9Yp3lP/vdZJqXUumJzDYj6mxnNIAwCj2uU1bfurpSi8ChDwYwp/VGXgYA/OhDL5u
-	0xaHkqhPVcS3/4HWwkdgwRBIydNrRV8GXGVDUpQ7BciJC9R547cbjHgTfGvVIu8jQ+Y4wTjh8IX+Z
-	hDaxVQ9MwvT1djTLSFIEUn/uy+RHMx2U6t02VLPu4WzZKgolI+yinKchZ/IBYVw/mOEm+/lGukUJv
-	OJdDAYfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zGrl5lrYdWqS+T79tPrrdFjy8nze0T9cQfR/nAnT4sY=; b=CRHifBz5K8nh/f/L7GMh+pkknM
+	UlzAUw/9gdcp/vV6zPHlAwmxyv3IVzKtQ28IQPL2l5Nxdk3//GIin8KJurbaxGJfgyD+go1ygJ3ow
+	hzrs4YUyOMV3nndnrQzt3xtXicDjfAffkl4PNRy54OI4snT0okq5d5VhDrdgLcifgbEL+nbTbJKBW
+	KcrW8B7Zs8vlOEqoodBfspytRyYjdjaoYQ3gponbiFjo9SHVzJhKHU/H0JsHuFt4+8f9AdBtJ7LEr
+	+B5o9l/nFM9gHXwQN2BSGz1wB0BffDFGzj97baoPwJwJryCsDBa1XSGYAXOGlI4zovSJoAMqStITA
+	S28Sfsvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7rRY-0000000G8KI-24Pz;
-	Sat, 19 Sep 2026 09:33:12 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x7rWh-0000000G8gP-0BgV;
+	Sat, 19 Sep 2026 09:38:31 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7rRW-0000000G8KA-253j
+	id 1x7rWd-0000000G8fk-3XY2
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Sep 2026 09:33:10 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2BC3E6020C;
-	Sat, 19 Sep 2026 09:33:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C87281F000FF;
-	Sat, 19 Sep 2026 09:33:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789810387;
-	bh=0caxOyaJoh8KN4zezLmE5kiSj3XpRezHw9bAKEfHF+E=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=XDsjrrlC/bjieVDUM7zOk8gB4UIJFl0ddaQ+sC2uP+/yLsu5viZfE67d6SlH0ixE1
-	 qMAhmknJmMs7wGx8sQt27EdAOeDgKn1hK6JGmYWAbpkIcecakZ5L7iOHcB2tH23SJe
-	 X3FrTs3okSimGbCy3EAnHnLSh29C1NmKKzXLlSqFnEf06RizFeAvfziU3V9CKhGjbz
-	 n2XSP826Kn3M6DQ4nGxKzM439GmgWbwsKqsR25CJHdxO3IVh6AuKF5kw/EaLS+aYm/
-	 tzHXNRduo/Mj4wn+pnsUqB+mrcuz6UClC7uu8bBQqoZf5N8Qa0Nx/ni3qeiTf0aIet
-	 FuUGVQfh4gWOQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1x7rRR-0000000AvOn-27ai;
-	Sat, 19 Sep 2026 09:33:05 +0000
-Date: Sat, 19 Sep 2026 10:36:12 +0100
-Message-ID: <87fqz54m7n.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	nd <nd@arm.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	Joey Gouly
-	<Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>,
-	"fuad.tabba@linux.dev"
-	<fuad.tabba@linux.dev>
-Subject: Re: [PATCH v6 35/49] KVM: arm64: gic-v5: Implement save/restore mechanisms for ISTs
-In-Reply-To: <20260904113404.4051341-36-sascha.bischoff@arm.com>
-References: <20260904113404.4051341-1-sascha.bischoff@arm.com>
-	<20260904113404.4051341-36-sascha.bischoff@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com, fuad.tabba@linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Sat, 19 Sep 2026 09:38:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1789810706;
+ bh=zGrl5lrYdWqS+T79tPrrdFjy8nze0T9cQfR/nAnT4sY=;
+ b=LIu3BCd7lc42hKrfosMKpUhXopp7oheBnx2IRIuj80kKwzHIZNDNzTsxEuca823hOxl+gUHX+
+ D+SMjpaAa2dlyUZlLg7UNswfFsvw4798/PHjiUtVWK7UIca8YyJhhPBCplvBlcKQhYOiHyU/Q6Y
+ 2/7kb7rJ09FMbdZuYlxDdQUz7mopd1/lm3PKrDD3Ns8h9wsMPthztT+HPrqNX2kWhTL55xnUX5K
+ wtZFZYen9UwE+iqUhpib9vKtj2GKHV5on1ohD45LdyWQ7O5l+HaRYWREZ83TNNKPLLJHYIncII2
+ 27BFVNZDmqkdPCq17bU5SSDunZ7AmHXg1MF/0+hbKnpA==
+X-Forward-Email-ID: 6aae5808a917c0722b3828d9
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 2.14.2
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <a558ca88-6981-428c-943d-6fd904d8ef2b@kwiboo.se>
+Date: Sat, 19 Sep 2026 11:38:11 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 1/3] dt-bindings: arm: rockchip: Add FriendlyElec
+ NanoPi R28S
+To: HystericalDragons@proton.me
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Chukun Pan <amadeus@jmu.edu.cn>, jensen <jensenhuang@friendlyarm.com>,
+ Andrey Korshunov <razor1702@gmail.com>,
+ Diederik de Haas <diederik@cknow-tech.com>,
+ Conor Dooley <conor.dooley@microchip.com>
+References: <20260914-r28s-upstream-v6-0-ea9edd75c126@proton.me>
+ <20260914-r28s-upstream-v6-1-ea9edd75c126@proton.me>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <20260914-r28s-upstream-v6-1-ea9edd75c126@proton.me>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260919_023828_192891_447FD422 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,60 +84,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 04 Sep 2026 12:52:03 +0100,
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+Hi,
 
-Another LKP bot sparse finding at 202609191215.to1MBYak-lkp@intel.com:
+On 9/14/2026 3:35 PM, 安容 via B4 Relay wrote:
+> From: 安容 <HystericalDragons@proton.me>
+> 
+> The NanoPi R28S is a dual gigabit Ethernet router board based on the
+> Rockchip RK3528 SoC. It shares its base devicetree with the NanoPi
+> Zero2, so list both boards in a single entry.
+> 
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> Signed-off-by: 安容 <HystericalDragons@proton.me>
+> ---
+>  Documentation/devicetree/bindings/arm/rockchip.yaml | 12 +++++++-----
+>  1 file changed, 7 insertions(+), 5 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
+> index 81744fbee9..dc04946db0 100644
+> --- a/Documentation/devicetree/bindings/arm/rockchip.yaml
+> +++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+> @@ -347,6 +347,13 @@ properties:
+>                - friendlyarm,nanopi-r2s-plus
+>            - const: rockchip,rk3328
+>  
+> +      - description: FriendlyElec NanoPi R28S/Zero2
 
-> +/*
-> + * Save a linear host IST to userspace memory.
-> + *
-> + * Only the architected 32-bit ISTE state is stored. Metadata is skipped when
-> + * striding through the host IST.
-> + */
-> +static int vgic_v5_save_linear_ist(const struct vgic_v5_ist_desc *ist,
-> +				   u32 __user *uaddr, size_t nr_entries)
-> +{
-> +	__le32 h_iste;
-> +	size_t index;
-> +	int ret;
+Maybe name this something like 'FriendlyElec NanoPi RK3528 series boards'
+to closer match other NanoPi/PC entries? That would also prevents
+re-ordering once more when NanoPi NEO3 Plus is added.
+
+Regards,
+Jonas
+
+> +        items:
+> +          - enum:
+> +              - friendlyarm,nanopi-r28s
+> +              - friendlyarm,nanopi-zero2
+> +          - const: rockchip,rk3528
 > +
-> +	vgic_v5_clean_inval(ist->base,
-> +			    GICV5_LINEAR_IST_SIZE(ist->id_bits, ist->istsz));
-> +
-> +	for (index = 0; index < nr_entries; index++) {
-> +		__le32 *h_iste_addr = ist->base + index * ist->iste_size;
-> +
-> +		h_iste = READ_ONCE(*h_iste_addr);
-> +		ret = put_user(h_iste, uaddr);
+>        - description: FriendlyElec NanoPi R3S
+>          items:
+>            - const: friendlyarm,nanopi-r3s
+> @@ -388,11 +395,6 @@ properties:
+>            - const: friendlyarm,nanopi-r76s
+>            - const: rockchip,rk3576
+>  
+> -      - description: FriendlyElec NanoPi Zero2
+> -        items:
+> -          - const: friendlyarm,nanopi-zero2
+> -          - const: rockchip,rk3528
+> -
+>        - description: FriendlyElec NanoPC T6 series boards
+>          items:
+>            - enum:
+> 
 
-h_iste is an __le32, while uaddr is a pointer to u32. Not great, even
-if arm64 BE is now dead. I'll queue this:
-
-@@ -1459,7 +1459,6 @@ static int vgic_v5_get_lpi_ist_desc(struct kvm *kvm,
- static int vgic_v5_save_linear_ist(const struct vgic_v5_ist_desc *ist,
- 				   u32 __user *uaddr, size_t nr_entries)
- {
--	__le32 h_iste;
- 	size_t index;
- 	int ret;
- 
-@@ -1468,8 +1467,9 @@ static int vgic_v5_save_linear_ist(const struct vgic_v5_ist_desc *ist,
- 
- 	for (index = 0; index < nr_entries; index++) {
- 		__le32 *h_iste_addr = ist->base + index * ist->iste_size;
-+		u32 h_iste;
- 
--		h_iste = READ_ONCE(*h_iste_addr);
-+		h_iste = le32_to_cpu(READ_ONCE(*h_iste_addr));
- 		ret = put_user(h_iste, uaddr);
- 		if (ret)
- 			return ret;
-
-Thanks,
-
-	M.
-
--- 
-Jazz isn't dead. It just smells funny.
 
