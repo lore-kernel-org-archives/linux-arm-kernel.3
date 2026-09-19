@@ -4,102 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 692AEC982CC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 06:55:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB59DC982CC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 06:57:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VioX92F+hmfPfUaeGMPYu1mJKy7IBQIRJep/NQ1rsrA=; b=G1IwSFfYGQ66IbnhlMrn2zG5R2
-	laBb6QJtwJDETH9b9FTJJaQJAJRKinnk+y7QuNA126gNVmosTUCzzaoENEbjGuyE944+J89IxObTg
-	hRC+JVdwWArIhOTMKaC04dDABkUWdgAlh+CbElFED/Jh3+TguAnX0n0QZpBW0TUTXpeZAnrPq3oVN
-	CxjQ3kwyAQ9ea65Uew9Fdvv0prOrm/Q2stANgYJ2KFA/G7IHR5b0AriUfWG13gvRsXi5dSIG42PKR
-	U88r338ekWxVJfX4dQ+2jKHZ5LRWjMrJhX7jHISnB7DH9n55BCXDWwzM3pqk6ZlUnKuqe9M5cNM5m
-	kKWJt6Fw==;
+	bh=/PbXgpy653QuN9OMNnOctsYngJs/w/ZaXQ7o33MdbVQ=; b=i0WWlIpZuKEB82Yl6bXGJg1Dmn
+	4ceCNTeXoR5sKDlt/63TrMcQJ2Z0hDjvWc8HGNaviWI3Qv4fu/8qpiId8AlMe3zPtaXIr/f6sEpcD
+	Md1HXEfaKrMSyfqfR3lNuR4GRMURRDlI+jDbQp4dEe321qu8b0zvWKdmscKUZXosvu6RCxSrCj340
+	Q7xHSFwjYLDiPZ1SsY/ds/ZdOO5TrKIfqr/P2onKaOCCj0j5hermKtxYsvK2sfuJq2ZponZwk7jcU
+	gwXieVAc5XxHwG4PKCSR7a6Unf4kzeKogzqr5TIqbWXFSr7m/k7Ba7Gj729Ax4S5/gV+lXk3EQkwi
+	TRSmgyPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7oyE-0000000G0Wz-1CBd;
-	Sat, 19 Sep 2026 06:54:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x7p0f-0000000G1WY-0R8t;
+	Sat, 19 Sep 2026 06:57:17 +0000
+Received: from relay.yourmailgateway.de ([188.68.63.166])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7oyB-0000000G0Tl-3MAA;
-	Sat, 19 Sep 2026 06:54:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C273260A66;
-	Sat, 19 Sep 2026 06:54:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 51932C4AF65;
-	Sat, 19 Sep 2026 06:54:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1789800882;
-	bh=uSo8bZNbkIHsnVdQZGbJA8vvd3OR2BORJto4RXhDTmU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=j7bctcZX8ZMKSw9pRuehWjrSOFoxdrNRW/T8D+EhdnS3c63XtyZ9vFzUT1pZdslGv
-	 ygXaEq/AN95ik8b4sJkl3d6qlOJNTXCbNOIjPCoWv2qZvQSRHk7+JZavzV9E9D8EZi
-	 ARa7HCwsvmIsOwNRB2JP0wyN6NDhrdLCHRBE3VTWZiVfJ5Ow4plBvS3cVQwI84q/Nu
-	 DnnulGm9JO291lUiKcdK/IPM5Ur5YwxCx9m1iqW5W3BDNYUktWWE75xrqPxXZwamUi
-	 YGPYtegAD/FCKliQ99PCc1iM35/OZuinSBkVb0BaP7PJvkroNetN8+nFHuxtgEtDHx
-	 NdJjMtAIJSKEw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3AA58C982E0;
-	Sat, 19 Sep 2026 06:54:42 +0000 (UTC)
-From: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
-Date: Sat, 19 Sep 2026 08:54:35 +0200
-Subject: [PATCH RFC v3 07/12] net: stmmac: dwmac-s32: Add SGMII support
+	id 1x7p0b-0000000G1Vd-1WbR
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 19 Sep 2026 06:57:15 +0000
+Received: from mors-relay-8202.netcup.net (localhost [127.0.0.1])
+	by mors-relay-8202.netcup.net (Postfix) with ESMTPS id 4hn0fT5GN9z4Hxr;
+	Sat, 19 Sep 2026 08:57:05 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=leemhuis.info;
+	s=key2; t=1789801025;
+	bh=45MegNFsAtWYZexybcxxREXKZcERntxf2K3y+Plbqwg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=U/CB9llWNSX1S9/H1CeQaSFueCxQ7sLv0IYESdRM5+9dlWxE366shfod4dIM71S2x
+	 FWGB/buUtdsU18ZfaUlORZ8Sihx2tJuDp9hNTgbTCvwo8dJoyBDpZIoe36NRFX9hgs
+	 YhoUwtz2AjdhEuo387ng5Qn2YfFIQH5aMMGU9eOsr3sFY/GItlvuBSTBVvqATv6rlC
+	 iV9pZsGYpY6h63uL1svqQAPNA3efL+tQpbduO8G4G8oowwJTQ8Qme7I5EEM24iaAfC
+	 0V1+U/m5JRtRry1IBIFmNK3+iZ1H+eWrETQaLG7UuA4lN4waVfdqMJGA3roSClErkd
+	 VF/kj0rhM5lyw==
+Received: from policy01-mors.netcup.net (unknown [46.38.225.35])
+	by mors-relay-8202.netcup.net (Postfix) with ESMTPS id 4hn0fT4Xccz4HxW;
+	Sat, 19 Sep 2026 08:57:05 +0200 (CEST)
+X-Virus-Scanned: Debian amavisd-new at policy01-mors.netcup.net
+Received: from mxe9fb.netcup.net (unknown [10.243.12.53])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by policy01-mors.netcup.net (Postfix) with ESMTPS id 4hn0fR751Sz8tg2;
+	Sat, 19 Sep 2026 08:57:03 +0200 (CEST)
+Received: from [IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f] (unknown [IPv6:2a02:8108:8984:1d00:a0cf:1912:4be:477f])
+	by mxe9fb.netcup.net (Postfix) with ESMTPSA id 24A405FA32;
+	Sat, 19 Sep 2026 08:57:03 +0200 (CEST)
+Authentication-Results: mxe9fb;
+        spf=pass (sender IP is 2a02:8108:8984:1d00:a0cf:1912:4be:477f) smtp.mailfrom=regressions@leemhuis.info smtp.helo=[IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f]
+Received-SPF: pass (mxe9fb: connection is authenticated)
+Message-ID: <344d9e26-769e-4551-9dba-f48ccbd6793b@leemhuis.info>
+Date: Sat, 19 Sep 2026 08:57:02 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] PCI: imx6: Keep Root Port MSI capability also for i.MX6Q
+To: Bjorn Helgaas <helgaas@kernel.org>, Soeren Moch <smoch@web.de>
+Cc: Richard Zhu <hongxing.zhu@nxp.com>, stable@vger.kernel.org,
+ Manivannan Sadhasivam <mani@kernel.org>, Lucas Stach
+ <l.stach@pengutronix.de>, Bjorn Helgaas <bhelgaas@google.com>,
+ Frank Li <Frank.Li@nxp.com>, Fabio Estevam <festevam@gmail.com>,
+ linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ imx@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20260918230015.GA1205610@bhelgaas>
+From: Thorsten Leemhuis <regressions@leemhuis.info>
+Content-Language: de-DE, en-US
+In-Reply-To: <20260918230015.GA1205610@bhelgaas>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260919-s32g_serdes-v3-7-9d68868c1e89@oss.nxp.com>
-References: <20260919-s32g_serdes-v3-0-9d68868c1e89@oss.nxp.com>
-In-Reply-To: <20260919-s32g_serdes-v3-0-9d68868c1e89@oss.nxp.com>
-To: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>, 
- NXP S32 Linux Team <s32@nxp.com>, Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>, 
- Magnus Damm <magnus.damm@gmail.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, 
- Bogdan Hamciuc <bogdan.hamciuc@nxp.com>, 
- Ionut Vicovan <ionut.vicovan@nxp.com>, Andrew Lunn <andrew@lunn.ch>, 
- Heiner Kallweit <hkallweit1@gmail.com>, 
- Russell King <linux@armlinux.org.uk>, Clark Wang <xiaoning.wang@nxp.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
- Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Richard Cochran <richardcochran@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org, 
- netdev@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
- imx@lists.linux.dev, linux-pci@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- Vincent Guittot <vincent.guittot@linaro.org>, 
- "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
-X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789800879; l=6849;
- i=jan.petrous@oss.nxp.com; s=20240922; h=from:subject:message-id;
- bh=4xD+2UliT9if7xfxC4obvM/j/KDsycsnBr6+hB/0laM=;
- b=5OIBAAJuZHkhcAGGtQ976p6z0oaLbUzT0mz/wqPWyV3kJCvbFOuBzbCc2cYTYTrUDNzienbYv
- 59ARLxHrLvhBqBjrHdBziUL43EFZQ42qlxWYLQ4uvdnlXh7yuRwdaYp
-X-Developer-Key: i=jan.petrous@oss.nxp.com; a=ed25519;
- pk=Ke3wwK7rb2Me9UQRf6vR8AsfJZfhTyoDaxkUCqmSWYY=
-X-Endpoint-Received: by B4 Relay for jan.petrous@oss.nxp.com/20240922 with
- auth_id=217
-X-Original-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+X-PPP-Message-ID: <178980102368.147768.7933732274283946620@mxe9fb.netcup.net>
+X-NC-CID: sWpGcjgseDQL8M6+YmxU2Mdbf5E3igADS7Oh7gQWPZPo/0Cxv9Y=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260918_235713_861136_41FA6FCF 
+X-CRM114-Status: GOOD (  24.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,202 +90,98 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: jan.petrous@oss.nxp.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+On 9/19/26 01:00, Bjorn Helgaas wrote:
+> [+cc Thorsten, possible regzbot confusion?]
+> 
+> On Mon, Apr 27, 2026 at 01:58:04PM +0200, Soeren Moch wrote:
+>> Also on the NXP i.MX6Q chipset MSIs from the endpoints won't be received by
+>> the iMSI-RX MSI controller if the Root Port MSI capability is disabled.
+>>
+>> Even though the Root Port MSIs won't be received by the iMSI-RX controller
+>> due to design, this chipset has some weird hardware bug that prevents
+>> the endpoint MSIs from reaching when the Root Port MSI capability is
+>> disabled.
+>>
+>> Hence, always keep the Root Port MSI capability for this chipset.
+>>
+>> Note that by keeping Root Port MSI capability, Root Port MSIs such as AER,
+>> PME and others won't be received by default. So users need to use
+>> workarounds such as passing 'pcie_pme=nomsi' cmdline param.
+>>
+>> Fixes: 3a4e8302e72f ("PCI: imx6: Keep Root Port MSI capability with iMSI-RX to work around hardware bug")
+>> Cc: <stable@vger.kernel.org> # 7.0.x
+>> Signed-off-by: Soeren Moch <smoch@web.de>
+> 
+> This thread is still listed as a regression:
+> https://linux-regtracking.leemhuis.info/regzbot/regression/lore/20260427115804.134231-1-smoch@web.de/
 
-Wire the NXP S32G SerDes XPCS PCS into the dwmac-s32 glue layer so the
-MAC can run SGMII over a SerDes lane.
+My fault, afaics; sorry.
 
-Changes:
-- s32_gmac_write_phy_intf_select: replace the hard-coded RGMII selector
-  with a switch on phy_interface so SGMII (0x01), RGMII, RMII and MII
-  all programme the SoC control register correctly.
-- Add s32_gmac_pcs_init: obtain the phylink_pcs handle from the SerDes
-  subsystem via s32g_serdes_pcs_create(), keyed by the standard
-  pcs-handle property on the GMAC node pointing at the SerDes XPCS lane
-  child. Propagates -EPROBE_DEFER if the SerDes driver has not probed
-  yet. There is no matching exit hook: the device link created by
-  s32g_serdes_pcs_create() covers the lifetime.
-- Add s32_gmac_select_pcs: return the stored PCS handle when the
-  negotiated interface is SGMII.
-- Hook pcs_init and select_pcs into plat_stmmacenet_data.
+> But I *think* it's been resolved by:
+> 
+>   b4bee12ebecc ("PCI: imx6: Keep i.MX6 Root Port MSI/MSI-X Capabilities with iMSI-RX to work around hardware bug")> 
+> Can you confirm?
+>
+> Maybe regzbot is confused by the fact that the regression was first
+> attributed to 3a4e8302e72f, and then later attributed to
+> f5cd8a929c825?
 
-Note that installing a select_pcs callback suppresses the core's
-integrated_pcs fallback, because stmmac treats a NULL return from
-select_pcs as "no PCS" rather than "fall through". This matches what
-dwmac-rzn1 and dwmac-intel already do.
+The main problem is something different: Sometimes one commit causes
+multiple issues that in rare cases might even be reported by the same
+person -- and regzbot needs to keep them and fixes for them apart. Which
+is why it is cautions and will only auto-close a tracked regressions
+when a Link:/Closes: tags points to what regzbot considers the report,
+as Linus demands those anyway. And b4bee12ebeccfc didn't to that. No
+problem, happens all the time, normally I notice these things and tell
+regzbot manually. And I kinda did when I noticed that a fix was in the
+works, but then the subject of the fix changed later -- and I missed that.
 
-Both negotiation modes are supported by the PCS. The board device
-trees added later in this series describe the MAC-side link as fixed,
-so they exercise the out-of-band path.
+These things happen and in a ideal world regzbot should be little more
+gentle and likely auto-close tracked regressions when a Fixes: tag
+combined with a Reported-by: or Tested-by: matches. That is kinda on the
+todo list, but not near the top (wait for by LPC talk). Anyway, thx for
+mentioning it and let me update regzbot:
 
-The XPCS header guards its s32g_serdes_pcs_create() declaration with
-IS_REACHABLE(CONFIG_PHY_S32G_SERDES) and provides a static-inline stub
-returning -ENODEV otherwise. IS_REACHABLE is false both when the SerDes
-driver is disabled and in the built-in-consumer / modular-provider case
-(DWMAC_S32=y with PHY_S32G_SERDES=m), so this driver links in all four
-combinations of the two symbols.
+#regzbot fix: b4bee12ebecc
 
-Linking is not sufficient on its own, though. In the DWMAC_S32=y with
-PHY_S32G_SERDES=m case the stub makes s32_gmac_pcs_init() return
--ENODEV, and stmmac treats a failing plat->pcs_init() as fatal, so a
-built-in MAC would refuse to probe on any device tree describing
-pcs-handle. Add a Kconfig dependency forbidding that combination
-rather than letting it build into a MAC that cannot probe.
-
-Tested on an S32G3-VNP-RDB3 board: GMAC0 links at 1G over SGMII and
-passes traffic, both in SerDes mode 1 (alongside two active PCIe root
-complexes) and in mode 3.
-
-Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
----
- drivers/net/ethernet/stmicro/stmmac/Kconfig     |  6 ++
- drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c | 74 ++++++++++++++++++++++++-
- 2 files changed, 78 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-index e3dd5adda5ac..1443ff4149b4 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-+++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-@@ -192,6 +192,12 @@ config DWMAC_S32
- 	tristate "NXP S32G/S32R GMAC support"
- 	default ARCH_S32
- 	depends on OF && (ARCH_S32 || COMPILE_TEST)
-+	# SGMII needs the PCS from the SerDes driver. The header falls back
-+	# to a stub returning -ENODEV when that driver is not reachable, and
-+	# stmmac makes a failing plat->pcs_init() fatal, so a built-in MAC
-+	# with a modular SerDes would refuse to probe on any DT describing
-+	# pcs-handle. Forbid that combination instead.
-+	depends on PHY_S32G_SERDES || PHY_S32G_SERDES=n
- 	help
- 	  Support for ethernet controller on NXP S32CC SOCs.
- 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
-index 024d8e10e918..a3a56b21181a 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
-@@ -16,12 +16,14 @@
- #include <linux/of_mdio.h>
- #include <linux/of_address.h>
- #include <linux/phy.h>
-+#include <linux/phy/nxp-s32g-serdes.h>
- #include <linux/phylink.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
- #include <linux/stmmac.h>
- 
- #include "stmmac_platform.h"
-+#include "stmmac.h"
- 
- #define GMAC_INTF_RATE_125M	125000000	/* 125MHz */
- 
-@@ -40,23 +42,89 @@ struct s32_priv_data {
- 	phy_interface_t *intf_mode;
- 	struct clk *tx_clk;
- 	struct clk *rx_clk;
-+	/* SGMII PCS provided by the SerDes subsystem (NULL if not SGMII) */
-+	struct phylink_pcs *pcs;
- };
- 
- static int s32_gmac_write_phy_intf_select(struct s32_priv_data *gmac)
- {
-+	u32 intf_sel;
- 	int ret = 0;
- 
-+	switch (*gmac->intf_mode) {
-+	case PHY_INTERFACE_MODE_SGMII:
-+		intf_sel = S32_PHY_INTF_SEL_SGMII;
-+		break;
-+	case PHY_INTERFACE_MODE_RGMII:
-+	case PHY_INTERFACE_MODE_RGMII_ID:
-+	case PHY_INTERFACE_MODE_RGMII_RXID:
-+	case PHY_INTERFACE_MODE_RGMII_TXID:
-+		intf_sel = S32_PHY_INTF_SEL_RGMII;
-+		break;
-+	case PHY_INTERFACE_MODE_RMII:
-+		intf_sel = S32_PHY_INTF_SEL_RMII;
-+		break;
-+	case PHY_INTERFACE_MODE_MII:
-+		intf_sel = S32_PHY_INTF_SEL_MII;
-+		break;
-+	default:
-+		dev_err(gmac->dev, "Unsupported phy interface mode: %s\n",
-+			phy_modes(*gmac->intf_mode));
-+		return -EINVAL;
-+	}
-+
- 	if (gmac->ctrl_sts)
--		writel(S32_PHY_INTF_SEL_RGMII, gmac->ctrl_sts);
-+		writel(intf_sel, gmac->ctrl_sts);
- 	else
- 		ret = regmap_write(gmac->sts_regmap, gmac->sts_offset,
--				   S32_PHY_INTF_SEL_RGMII);
-+				   intf_sel);
- 
- 	dev_dbg(gmac->dev, "PHY mode set to %s\n", phy_modes(*gmac->intf_mode));
- 
- 	return ret;
- }
- 
-+static int s32_gmac_pcs_init(struct stmmac_priv *priv)
-+{
-+	struct s32_priv_data *gmac = priv->plat->bsp_priv;
-+	struct device_node *pcs_node;
-+
-+	/*
-+	 * pcs-handle points at the SerDes XPCS lane child node; its
-+	 * nxp,xpcs-instance property is what identifies the XPCS instance.
-+	 */
-+	pcs_node = of_parse_phandle(gmac->dev->of_node, "pcs-handle", 0);
-+	if (!pcs_node) {
-+		dev_dbg(gmac->dev, "no 'pcs-handle' property, SGMII PCS unavailable\n");
-+		return 0;
-+	}
-+
-+	gmac->pcs = s32g_serdes_pcs_create(gmac->dev, pcs_node);
-+	of_node_put(pcs_node);
-+
-+	if (IS_ERR(gmac->pcs)) {
-+		int err = PTR_ERR(gmac->pcs);
-+
-+		gmac->pcs = NULL;
-+		/* SerDes may not be probed yet - defer probe. */
-+		return err;
-+	}
-+
-+	dev_dbg(gmac->dev, "SGMII PCS created via SerDes XPCS\n");
-+	return 0;
-+}
-+
-+static struct phylink_pcs *s32_gmac_select_pcs(struct stmmac_priv *priv,
-+					       phy_interface_t interface)
-+{
-+	struct s32_priv_data *gmac = priv->plat->bsp_priv;
-+
-+	if (interface == PHY_INTERFACE_MODE_SGMII && gmac->pcs)
-+		return gmac->pcs;
-+
-+	return NULL;
-+}
-+
- static int s32_gmac_init(struct device *dev, void *priv)
- {
- 	struct s32_priv_data *gmac = priv;
-@@ -204,6 +272,8 @@ static int s32_dwmac_probe(struct platform_device *pdev)
- 
- 	plat->init = s32_gmac_init;
- 	plat->exit = s32_gmac_exit;
-+	plat->pcs_init = s32_gmac_pcs_init;
-+	plat->select_pcs = s32_gmac_select_pcs;
- 
- 	plat->clk_tx_i = gmac->tx_clk;
- 	plat->set_clk_tx_rate = stmmac_set_clk_tx_rate;
-
--- 
-2.55.0
-
+Ciao, Thorsten
+>> ---
+>> Cc: Manivannan Sadhasivam <mani@kernel.org>
+>> Cc: Richard Zhu <hongxing.zhu@nxp.com>
+>> Cc: Lucas Stach <l.stach@pengutronix.de>
+>> Cc: Bjorn Helgaas <bhelgaas@google.com>
+>> Cc: Frank Li <Frank.Li@nxp.com>
+>> Cc: Fabio Estevam <festevam@gmail.com>
+>> Cc: linux-pci@vger.kernel.org
+>> Cc: linux-arm-kernel@lists.infradead.org
+>> Cc: imx@lists.linux.dev
+>> Cc: linux-kernel@vger.kernel.org
+>>
+>> Tested on a tbs2910 board [1]
+>> [1] arch/arm/boot/dts/nxp/imx/imx6q-tbs2910.dts
+>> ---
+>>  drivers/pci/controller/dwc/pci-imx6.c | 3 ++-
+>>  1 file changed, 2 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+>> index 6d6a1688e7eb..3d461bdef967 100644
+>> --- a/drivers/pci/controller/dwc/pci-imx6.c
+>> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+>> @@ -1865,7 +1865,8 @@ static const struct imx_pcie_drvdata drvdata[] = {
+>>  		.flags = IMX_PCIE_FLAG_IMX_PHY |
+>>  			 IMX_PCIE_FLAG_SPEED_CHANGE_WORKAROUND |
+>>  			 IMX_PCIE_FLAG_BROKEN_SUSPEND |
+>> -			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
+>> +			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND |
+>> +			 IMX_PCIE_FLAG_KEEP_MSI_CAP,
+>>  		.dbi_length = 0x200,
+>>  		.gpr = "fsl,imx6q-iomuxc-gpr",
+>>  		.ltssm_off = IOMUXC_GPR12,
+>> -- 
+>> 2.43.0
+>>
 
 
