@@ -4,54 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF543C982E1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 06:55:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 692AEC982CC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 06:55:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S3hlboKDri3NbGV12dXln7rh/8pSeXNsmFOmelChKSM=; b=n9EszccjPduCyOJDugz7GUwhlV
-	Rr5fWcQlJQhPLGrFAEhL16jiYxXlth4fMCxLtX6gBi/tAYXQaFySlZXLA13+fF5GQ5DKMC8+vIwqd
-	/pxvYTAzhHBP10bNt962vc3kkxbQQoDitfk/9hiksi2auStw/1ApaXAEkLPa0znEBJO2A6P7HHEhn
-	7+efEqKQ8yLJx/ws1ZNlEQKOUlrKimkMk0Hielphwwbm2kD0JsZYsdz1Bfe7t8E80lQDzBHDZNWu3
-	FYX+WAtgJ2Rv2keUab5qOmJPNP/RID28YVul4U022RvV0OkVYHduxNzI4VOgfSTwOgo75aHgL/7/t
-	kMzKWJxg==;
+	bh=VioX92F+hmfPfUaeGMPYu1mJKy7IBQIRJep/NQ1rsrA=; b=G1IwSFfYGQ66IbnhlMrn2zG5R2
+	laBb6QJtwJDETH9b9FTJJaQJAJRKinnk+y7QuNA126gNVmosTUCzzaoENEbjGuyE944+J89IxObTg
+	hRC+JVdwWArIhOTMKaC04dDABkUWdgAlh+CbElFED/Jh3+TguAnX0n0QZpBW0TUTXpeZAnrPq3oVN
+	CxjQ3kwyAQ9ea65Uew9Fdvv0prOrm/Q2stANgYJ2KFA/G7IHR5b0AriUfWG13gvRsXi5dSIG42PKR
+	U88r338ekWxVJfX4dQ+2jKHZ5LRWjMrJhX7jHISnB7DH9n55BCXDWwzM3pqk6ZlUnKuqe9M5cNM5m
+	kKWJt6Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7oyG-0000000G0bp-0fIk;
-	Sat, 19 Sep 2026 06:54:48 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x7oyE-0000000G0Wz-1CBd;
+	Sat, 19 Sep 2026 06:54:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7oyD-0000000G0Tm-1iZO;
-	Sat, 19 Sep 2026 06:54:45 +0000
+	id 1x7oyB-0000000G0Tl-3MAA;
+	Sat, 19 Sep 2026 06:54:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2D7AA4481C;
-	Sat, 19 Sep 2026 06:54:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id E5205C4AF12;
+	by tor.source.kernel.org (Postfix) with ESMTP id C273260A66;
+	Sat, 19 Sep 2026 06:54:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 51932C4AF65;
 	Sat, 19 Sep 2026 06:54:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1789800883;
-	bh=3wqIoKnxzRv6NG1iYEc1jel8X2fnx1q1bi/NgWU7sHk=;
+	s=k20201202; t=1789800882;
+	bh=uSo8bZNbkIHsnVdQZGbJA8vvd3OR2BORJto4RXhDTmU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=T+b3+jMI3itMaw1dhoghBrenS0EJPXlGzjSggjX32kNR6tB4BgYe5wZsTcVE+945E
-	 Enfo1lKQ9ADTGggqrK1i2po3QixpaOd8GL6P30QgQZdO5/Me3P3QfP1/4Q+mtJ2ue+
-	 hhgGmh7QeOCTGMP+Ux4P6tkDF91kTGEkhYUEqlBgBfElgM9cqZh0FG29/epBM1T7uy
-	 qh385QSWJsrp9NBDGk4+/mF6aJif4wGTJuXGiZ5P4kEu3+GTUtIz98ejPTMW4FPN24
-	 S/VGcq8/2jR1hQVRR8djuePEA2fn5kimHkW3ej5LZ7bTOdyRmxhXvBfzeLqT8cwwWq
-	 CtgM/Ynmmldug==
+	b=j7bctcZX8ZMKSw9pRuehWjrSOFoxdrNRW/T8D+EhdnS3c63XtyZ9vFzUT1pZdslGv
+	 ygXaEq/AN95ik8b4sJkl3d6qlOJNTXCbNOIjPCoWv2qZvQSRHk7+JZavzV9E9D8EZi
+	 ARa7HCwsvmIsOwNRB2JP0wyN6NDhrdLCHRBE3VTWZiVfJ5Ow4plBvS3cVQwI84q/Nu
+	 DnnulGm9JO291lUiKcdK/IPM5Ur5YwxCx9m1iqW5W3BDNYUktWWE75xrqPxXZwamUi
+	 YGPYtegAD/FCKliQ99PCc1iM35/OZuinSBkVb0BaP7PJvkroNetN8+nFHuxtgEtDHx
+	 NdJjMtAIJSKEw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BD23DC982E1;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3AA58C982E0;
 	Sat, 19 Sep 2026 06:54:42 +0000 (UTC)
 From: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
-Date: Sat, 19 Sep 2026 08:54:40 +0200
-Subject: [PATCH RFC v3 12/12] arm64: dts: s32g: Add S32G3-RDB3 SerDes
- routing variants
+Date: Sat, 19 Sep 2026 08:54:35 +0200
+Subject: [PATCH RFC v3 07/12] net: stmmac: dwmac-s32: Add SGMII support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260919-s32g_serdes-v3-12-9d68868c1e89@oss.nxp.com>
+Message-Id: <20260919-s32g_serdes-v3-7-9d68868c1e89@oss.nxp.com>
 References: <20260919-s32g_serdes-v3-0-9d68868c1e89@oss.nxp.com>
 In-Reply-To: <20260919-s32g_serdes-v3-0-9d68868c1e89@oss.nxp.com>
 To: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>, 
@@ -91,11 +90,11 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
  Vincent Guittot <vincent.guittot@linaro.org>, 
  "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789800879; l=8208;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789800879; l=6849;
  i=jan.petrous@oss.nxp.com; s=20240922; h=from:subject:message-id;
- bh=5z4a13gWRMykKe+seCCTumv26V+4peuuuGKtho0kPws=;
- b=uo7Rz77sFsHHFKZLKP/otnbvVqBAA1sIeo+ZnR8YMNnaZwcWyUEXjmlvCvdHtffRIullQ+XMA
- 0SQbpctcZToAc8EoLHdVwO9wAOcLd2M8Z+KmOlBJsVxfOl1saOMGMJg
+ bh=4xD+2UliT9if7xfxC4obvM/j/KDsycsnBr6+hB/0laM=;
+ b=5OIBAAJuZHkhcAGGtQ976p6z0oaLbUzT0mz/wqPWyV3kJCvbFOuBzbCc2cYTYTrUDNzienbYv
+ 59ARLxHrLvhBqBjrHdBziUL43EFZQ42qlxWYLQ4uvdnlXh7yuRwdaYp
 X-Developer-Key: i=jan.petrous@oss.nxp.com; a=ed25519;
  pk=Ke3wwK7rb2Me9UQRf6vR8AsfJZfhTyoDaxkUCqmSWYY=
 X-Endpoint-Received: by B4 Relay for jan.petrous@oss.nxp.com/20240922 with
@@ -118,241 +117,193 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 
-The S32G3-VNP-RDB3 board wires GMAC0 to an on-board KSZ9031 RGMII PHY by
-default. Add two device tree variants that reroute GMAC0 over the
-SerDes_0 XPCS lane for SGMII, matching the two SerDes lane layouts:
+Wire the NXP S32G SerDes XPCS PCS into the dwmac-s32 glue layer so the
+MAC can run SGMII over a SerDes lane.
 
-  - Mode 1: PCIe x1 root complex on lane 0 plus 1G SGMII via GMAC0
-    (XPCS0) on lane 1.
-  - Mode 3: dual SGMII, GMAC0 (XPCS0) on lane 0 and PFE_EMAC_2 (XPCS1)
-    on lane 1.
+Changes:
+- s32_gmac_write_phy_intf_select: replace the hard-coded RGMII selector
+  with a switch on phy_interface so SGMII (0x01), RGMII, RMII and MII
+  all programme the SoC control register correctly.
+- Add s32_gmac_pcs_init: obtain the phylink_pcs handle from the SerDes
+  subsystem via s32g_serdes_pcs_create(), keyed by the standard
+  pcs-handle property on the GMAC node pointing at the SerDes XPCS lane
+  child. Propagates -EPROBE_DEFER if the SerDes driver has not probed
+  yet. There is no matching exit hook: the device link created by
+  s32g_serdes_pcs_create() covers the lifetime.
+- Add s32_gmac_select_pcs: return the stored PCS handle when the
+  negotiated interface is SGMII.
+- Hook pcs_init and select_pcs into plat_stmmacenet_data.
 
-The SerDes SUBSYS_MODE is derived from the lane child nodes present, so
-each layout requires its own board device tree. The Mode 1 variant
-enables both PCIe root complexes and extends their root ports by label
-(pcie0_rp, pcie1_rp), matching the RDB3 wiring: PCIe_0 reaches the M.2
-slots when board switch SW17-2 is ON, PCIe_1 the PCIe card slot.
+Note that installing a select_pcs callback suppresses the core's
+integrated_pcs fallback, because stmmac treats a NULL return from
+select_pcs as "no PCS" rather than "fall through". This matches what
+dwmac-rzn1 and dwmac-intel already do.
 
-The GMAC references its PCS with the standard pcs-handle property. On
-this board the SGMII lane runs back-to-back to the on-board SJA1110
-switch, so there is no PHY on the segment and nothing for phy-handle to
-point at - the link partner is a switch port. The MAC-side link is
-therefore described as a fixed 1G link and phylink uses out-of-band
-negotiation. The SJA1110 itself is not described by these overlays.
+Both negotiation modes are supported by the PCS. The board device
+trees added later in this series describe the MAC-side link as fixed,
+so they exercise the out-of-band path.
 
-Verified on the board:
+The XPCS header guards its s32g_serdes_pcs_create() declaration with
+IS_REACHABLE(CONFIG_PHY_S32G_SERDES) and provides a static-inline stub
+returning -ENODEV otherwise. IS_REACHABLE is false both when the SerDes
+driver is disabled and in the built-in-consumer / modular-provider case
+(DWMAC_S32=y with PHY_S32G_SERDES=m), so this driver links in all four
+combinations of the two symbols.
 
-  - Mode 3: GMAC0 links at 1G and passes traffic.
-  - Mode 1: GMAC0 SGMII path up, and both PCIe root complexes come up -
-    PCIe_1 enumerates the card-slot NIC and passes traffic at full line
-    rate, PCIe_0 enumerates the M.2 slot with SW17-2 ON.
+Linking is not sufficient on its own, though. In the DWMAC_S32=y with
+PHY_S32G_SERDES=m case the stub makes s32_gmac_pcs_init() return
+-ENODEV, and stmmac treats a failing plat->pcs_init() as fatal, so a
+built-in MAC would refuse to probe on any device tree describing
+pcs-handle. Add a Kconfig dependency forbidding that combination
+rather than letting it build into a MAC that cannot probe.
+
+Tested on an S32G3-VNP-RDB3 board: GMAC0 links at 1G over SGMII and
+passes traffic, both in SerDes mode 1 (alongside two active PCIe root
+complexes) and in mode 3.
 
 Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
 ---
- arch/arm64/boot/dts/freescale/Makefile             |   6 ++
- .../dts/freescale/s32g399a-rdb3-serdes-mode1.dtso  | 111 +++++++++++++++++++++
- .../dts/freescale/s32g399a-rdb3-serdes-mode3.dtso  |  60 +++++++++++
- 3 files changed, 177 insertions(+)
+ drivers/net/ethernet/stmicro/stmmac/Kconfig     |  6 ++
+ drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c | 74 ++++++++++++++++++++++++-
+ 2 files changed, 78 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 95ae85ab4adf..3f68f36ac2be 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -786,5 +786,11 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mm-phygate-tauri-l-rs232-rs485.dtb
- dtb-$(CONFIG_ARCH_S32) += s32g274a-evb.dtb
- dtb-$(CONFIG_ARCH_S32) += s32g274a-rdb2.dtb
- dtb-$(CONFIG_ARCH_S32) += s32g399a-rdb3.dtb
-+dtb-$(CONFIG_ARCH_S32) += s32g399a-rdb3-serdes-mode1.dtb
-+dtb-$(CONFIG_ARCH_S32) += s32g399a-rdb3-serdes-mode3.dtb
-+s32g399a-rdb3-serdes-mode1-dtbs := s32g399a-rdb3.dtb s32g399a-rdb3-serdes-mode1.dtbo
-+s32g399a-rdb3-serdes-mode3-dtbs := s32g399a-rdb3.dtb s32g399a-rdb3-serdes-mode3.dtbo
-+dtb-$(CONFIG_ARCH_S32) += s32g399a-rdb3-serdes-mode1.dtbo
-+dtb-$(CONFIG_ARCH_S32) += s32g399a-rdb3-serdes-mode3.dtbo
- dtb-$(CONFIG_ARCH_S32) += s32n79-rdb.dtb
- dtb-$(CONFIG_ARCH_S32) += s32v234-evb.dtb
-diff --git a/arch/arm64/boot/dts/freescale/s32g399a-rdb3-serdes-mode1.dtso b/arch/arm64/boot/dts/freescale/s32g399a-rdb3-serdes-mode1.dtso
-new file mode 100644
-index 000000000000..43219d9bb6eb
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/s32g399a-rdb3-serdes-mode1.dtso
-@@ -0,0 +1,111 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
-+/*
-+ * Copyright 2021-2026 NXP
-+ *
-+ * NXP S32G3 Reference Design Board 3 (S32G-VNP-RDB3),
-+ * SerDes_0 Mode 1: PCIe x1 (lane 0) + 1G SGMII via GMAC0 (XPCS0, lane 1).
-+ *
-+ * Overlay applied on top of s32g399a-rdb3.dtb. It reroutes GMAC0 from the
-+ * on-board RGMII PHY to the SerDes_0 XPCS0 lane and brings up the PCIe
-+ * controllers as root complexes. The lane layout present here selects
-+ * SerDes SUBSYS_MODE 1.
-+ */
+diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+index e3dd5adda5ac..1443ff4149b4 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
++++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+@@ -192,6 +192,12 @@ config DWMAC_S32
+ 	tristate "NXP S32G/S32R GMAC support"
+ 	default ARCH_S32
+ 	depends on OF && (ARCH_S32 || COMPILE_TEST)
++	# SGMII needs the PCS from the SerDes driver. The header falls back
++	# to a stub returning -ENODEV when that driver is not reachable, and
++	# stmmac makes a failing plat->pcs_init() fatal, so a built-in MAC
++	# with a modular SerDes would refuse to probe on any DT describing
++	# pcs-handle. Forbid that combination instead.
++	depends on PHY_S32G_SERDES || PHY_S32G_SERDES=n
+ 	help
+ 	  Support for ethernet controller on NXP S32CC SOCs.
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
+index 024d8e10e918..a3a56b21181a 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
+@@ -16,12 +16,14 @@
+ #include <linux/of_mdio.h>
+ #include <linux/of_address.h>
+ #include <linux/phy.h>
++#include <linux/phy/nxp-s32g-serdes.h>
+ #include <linux/phylink.h>
+ #include <linux/platform_device.h>
+ #include <linux/regmap.h>
+ #include <linux/stmmac.h>
+ 
+ #include "stmmac_platform.h"
++#include "stmmac.h"
+ 
+ #define GMAC_INTF_RATE_125M	125000000	/* 125MHz */
+ 
+@@ -40,23 +42,89 @@ struct s32_priv_data {
+ 	phy_interface_t *intf_mode;
+ 	struct clk *tx_clk;
+ 	struct clk *rx_clk;
++	/* SGMII PCS provided by the SerDes subsystem (NULL if not SGMII) */
++	struct phylink_pcs *pcs;
+ };
+ 
+ static int s32_gmac_write_phy_intf_select(struct s32_priv_data *gmac)
+ {
++	u32 intf_sel;
+ 	int ret = 0;
+ 
++	switch (*gmac->intf_mode) {
++	case PHY_INTERFACE_MODE_SGMII:
++		intf_sel = S32_PHY_INTF_SEL_SGMII;
++		break;
++	case PHY_INTERFACE_MODE_RGMII:
++	case PHY_INTERFACE_MODE_RGMII_ID:
++	case PHY_INTERFACE_MODE_RGMII_RXID:
++	case PHY_INTERFACE_MODE_RGMII_TXID:
++		intf_sel = S32_PHY_INTF_SEL_RGMII;
++		break;
++	case PHY_INTERFACE_MODE_RMII:
++		intf_sel = S32_PHY_INTF_SEL_RMII;
++		break;
++	case PHY_INTERFACE_MODE_MII:
++		intf_sel = S32_PHY_INTF_SEL_MII;
++		break;
++	default:
++		dev_err(gmac->dev, "Unsupported phy interface mode: %s\n",
++			phy_modes(*gmac->intf_mode));
++		return -EINVAL;
++	}
 +
-+/dts-v1/;
-+/plugin/;
-+
-+&serdes0 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	status = "okay";
-+
-+	/* Mode 1 lane layout: PCIe on lane 0, GMAC SGMII (XPCS0) on lane 1. */
-+	serdes0_pcie0: phy@0 {
-+		reg = <0>;
-+		compatible = "nxp,s32g-serdes-pcie-phy";
-+		#phy-cells = <0>;
-+	};
-+
-+	serdes0_xpcs0: phy@1 {
-+		reg = <1>;
-+		compatible = "nxp,s32g-serdes-xpcs";
-+		nxp,xpcs-instance = <0>;
-+	};
-+};
-+
-+&serdes1 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	status = "okay";
-+
-+	/*
-+	 * SerDes_1 Mode 1 lane layout: PCIe on lane 0, SGMII (PFE_MAC0
-+	 * via XPCS0) on lane 1.
-+	 *
-+	 * Both lanes must be described: the SerDes driver derives the
-+	 * SUBSYS_MODE from the full lane mux, so lane 1 has to be present
-+	 * as XPCS instance 0 (PFE_MAC0) for the mode-1 match to succeed.
-+	 * PFE is not modeled as a MAC consumer in this upstreaming device
-+	 * tree, so the XPCS lane is only brought up by the SerDes driver
-+	 * and left without a pcs-handle user.
-+	 */
-+	serdes1_pcie0: phy@0 {
-+		reg = <0>;
-+		compatible = "nxp,s32g-serdes-pcie-phy";
-+		#phy-cells = <0>;
-+	};
-+
-+	serdes1_xpcs0: phy@1 {
-+		reg = <1>;
-+		compatible = "nxp,s32g-serdes-xpcs";
-+		nxp,xpcs-instance = <0>;
-+	};
-+};
-+
-+/*
-+ * Both PCIe root complexes are wired on the RDB3:
-+ *  - PCIe_0 reaches the M.2 slots (M-key or E-key) when board switch
-+ *    SW17-2 is set to ON. It consumes SerDes_0 lane-0 PCIe phy.
-+ *  - PCIe_1 reaches the PCIe card slot. It consumes SerDes_1 lane-0 PCIe phy.
-+ */
-+&pcie0 {
-+	status = "okay";
-+};
-+
-+&pcie0_rp {
-+	num-lanes = <1>;
-+	phys = <&serdes0_pcie0>;
-+};
-+
-+&pcie1 {
-+	status = "okay";
-+};
-+
-+&pcie1_rp {
-+	num-lanes = <1>;
-+	phys = <&serdes1_pcie0>;
-+};
-+
-+&gmac0 {
-+	/delete-property/ phy-handle;
-+	clocks = <&clks 24>, <&clks 17>, <&clks 16>, <&clks 15>;
-+	clock-names = "stmmaceth", "tx", "rx", "ptp_ref";
-+	phy-mode = "sgmii";
-+	pcs-handle = <&serdes0_xpcs0>;
-+	status = "okay";
+ 	if (gmac->ctrl_sts)
+-		writel(S32_PHY_INTF_SEL_RGMII, gmac->ctrl_sts);
++		writel(intf_sel, gmac->ctrl_sts);
+ 	else
+ 		ret = regmap_write(gmac->sts_regmap, gmac->sts_offset,
+-				   S32_PHY_INTF_SEL_RGMII);
++				   intf_sel);
+ 
+ 	dev_dbg(gmac->dev, "PHY mode set to %s\n", phy_modes(*gmac->intf_mode));
+ 
+ 	return ret;
+ }
+ 
++static int s32_gmac_pcs_init(struct stmmac_priv *priv)
++{
++	struct s32_priv_data *gmac = priv->plat->bsp_priv;
++	struct device_node *pcs_node;
 +
 +	/*
-+	 * GMAC0 is wired back-to-back to the on-board SJA1110 switch over
-+	 * this SGMII lane. There is no PHY on the segment, so there is
-+	 * nothing to reference with phy-handle: the link partner is a
-+	 * switch port. Describe it as a fixed 1G link; phylink then uses
-+	 * out-of-band negotiation. The switch itself is not described by
-+	 * this overlay. The PCS also supports in-band negotiation, for
-+	 * boards whose link partner is described.
++	 * pcs-handle points at the SerDes XPCS lane child node; its
++	 * nxp,xpcs-instance property is what identifies the XPCS instance.
 +	 */
-+	fixed-link {
-+		speed = <1000>;
-+		full-duplex;
-+		pause;
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/freescale/s32g399a-rdb3-serdes-mode3.dtso b/arch/arm64/boot/dts/freescale/s32g399a-rdb3-serdes-mode3.dtso
-new file mode 100644
-index 000000000000..195c8043c18a
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/s32g399a-rdb3-serdes-mode3.dtso
-@@ -0,0 +1,60 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
-+/*
-+ * Copyright 2021-2026 NXP
-+ *
-+ * NXP S32G3 Reference Design Board 3 (S32G-VNP-RDB3),
-+ * SerDes_0 Mode 3: dual SGMII, GMAC0 (XPCS0, lane 0) + PFE_EMAC_2
-+ * (XPCS1, lane 1), both 1G.
-+ *
-+ * Overlay applied on top of s32g399a-rdb3.dtb. It reroutes GMAC0 from the
-+ * on-board RGMII PHY to the SerDes_0 XPCS0 lane. The lane-1 XPCS1
-+ * (PFE_EMAC_2) is described so the mode is derivable and both XPCS
-+ * instances are initialised; it has no upstream MAC consumer in this
-+ * device tree. The lane layout present here selects SerDes SUBSYS_MODE 3.
-+ */
++	pcs_node = of_parse_phandle(gmac->dev->of_node, "pcs-handle", 0);
++	if (!pcs_node) {
++		dev_dbg(gmac->dev, "no 'pcs-handle' property, SGMII PCS unavailable\n");
++		return 0;
++	}
 +
-+/dts-v1/;
-+/plugin/;
++	gmac->pcs = s32g_serdes_pcs_create(gmac->dev, pcs_node);
++	of_node_put(pcs_node);
 +
-+&serdes0 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	status = "okay";
++	if (IS_ERR(gmac->pcs)) {
++		int err = PTR_ERR(gmac->pcs);
 +
-+	/* Mode 3 lane layout: GMAC SGMII (XPCS0) on lane 0, PFE2 (XPCS1) on lane 1. */
-+	serdes0_xpcs0: phy@0 {
-+		reg = <0>;
-+		compatible = "nxp,s32g-serdes-xpcs";
-+		nxp,xpcs-instance = <0>;
-+	};
++		gmac->pcs = NULL;
++		/* SerDes may not be probed yet - defer probe. */
++		return err;
++	}
 +
-+	serdes0_xpcs1: phy@1 {
-+		reg = <1>;
-+		compatible = "nxp,s32g-serdes-xpcs";
-+		nxp,xpcs-instance = <1>;
-+	};
-+};
++	dev_dbg(gmac->dev, "SGMII PCS created via SerDes XPCS\n");
++	return 0;
++}
 +
-+&gmac0 {
-+	/delete-property/ phy-handle;
-+	clocks = <&clks 24>, <&clks 17>, <&clks 16>, <&clks 15>;
-+	clock-names = "stmmaceth", "tx", "rx", "ptp_ref";
-+	phy-mode = "sgmii";
-+	pcs-handle = <&serdes0_xpcs0>;
-+	status = "okay";
++static struct phylink_pcs *s32_gmac_select_pcs(struct stmmac_priv *priv,
++					       phy_interface_t interface)
++{
++	struct s32_priv_data *gmac = priv->plat->bsp_priv;
 +
-+	/*
-+	 * GMAC0 is wired back-to-back to the on-board SJA1110 switch over
-+	 * this SGMII lane. There is no PHY on the segment, so there is
-+	 * nothing to reference with phy-handle: the link partner is a
-+	 * switch port. Describe it as a fixed 1G link; phylink then uses
-+	 * out-of-band negotiation. The switch itself is not described by
-+	 * this overlay. The PCS also supports in-band negotiation, for
-+	 * boards whose link partner is described.
-+	 */
-+	fixed-link {
-+		speed = <1000>;
-+		full-duplex;
-+		pause;
-+	};
-+};
++	if (interface == PHY_INTERFACE_MODE_SGMII && gmac->pcs)
++		return gmac->pcs;
++
++	return NULL;
++}
++
+ static int s32_gmac_init(struct device *dev, void *priv)
+ {
+ 	struct s32_priv_data *gmac = priv;
+@@ -204,6 +272,8 @@ static int s32_dwmac_probe(struct platform_device *pdev)
+ 
+ 	plat->init = s32_gmac_init;
+ 	plat->exit = s32_gmac_exit;
++	plat->pcs_init = s32_gmac_pcs_init;
++	plat->select_pcs = s32_gmac_select_pcs;
+ 
+ 	plat->clk_tx_i = gmac->tx_clk;
+ 	plat->set_clk_tx_rate = stmmac_set_clk_tx_rate;
 
 -- 
 2.55.0
