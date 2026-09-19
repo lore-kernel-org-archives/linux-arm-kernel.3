@@ -4,65 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3DBBC982CC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 09:16:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07FD0C982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 09:21:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Awg67cxHl18a2D/zvjxAJGydZiXsMD2cX9Cd0uol1eY=; b=HKvG7/YrEjx1WMNtjGIz04Z6fO
-	qH9GtVarJWIDgQdrRJKSrOAZHgwPoQjbqg8iYFJJSd9jFDfdgF9bfAJwY6aiH9g3HB0vp4KCZsQwE
-	CL7XPLtDDj63WzI0XC6GGBKrJiHLWf95nVUf0mUDlQgbGT2wWXqVuZ3XDrD1YXsCVT9mIKOMdl93Q
-	LSkUUaoJ7RFRHuk1W7tWBaulB8Cbh8BOJHyR5sGBT00J5L3pM+mCykJiSR0phzIe7NqJkLlU3T1Fc
-	vtw9ziwkunKF0GiFcvOigrPX93EjqFPiS0h/I7xV7Wu+eIeS1jlzvtb4XFVCgP9qE1kQ+ySCiAVCg
-	OcUz0x3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MGYptzQitBqvlBeqfLUR1pvxKBwqhA+k9O947J2Uzs4=; b=CC+0ycUgm9UtWw7nCE+/n+EBua
+	CuqNSyTZk/8yDnpNUGkG1wOTMr4lLPyX6J1vMlhJ6h595OsTAN3StyAL46G2aLRxZ0DFHfxzdAYVP
+	wJFkjBEcDLFSJGWylsPiU5aO3FTfu9wnarKcr6Vo0HB+1M9KXQ/Zh2tpr3r/DsAhkaZzTuhFt3Fau
+	Hfk8P9Mre7tJOoq727MVBsTbpoqko+z6dgNWfUVExubTEH7n1nNA7JMDaCAg9Q1d1RPjo8/zalMjO
+	fFxdyohL+G0mj1MEtRXNZSU/Oanfi2DLkWthqwAHZJm6vpUoZrSYdlgFkajZY7ZYni0TOjZ3x18HK
+	/UPqNLvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7rBc-0000000G7XW-2pY4;
-	Sat, 19 Sep 2026 09:16:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x7rFw-0000000G7qE-1hyG;
+	Sat, 19 Sep 2026 09:21:12 +0000
+Received: from flow-a1-smtp.messagingengine.com ([103.168.172.136])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7rBb-0000000G7XN-2d7s;
-	Sat, 19 Sep 2026 09:16:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 302396020C;
-	Sat, 19 Sep 2026 09:16:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D11DF1F00898;
-	Sat, 19 Sep 2026 09:16:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789809401;
-	bh=Awg67cxHl18a2D/zvjxAJGydZiXsMD2cX9Cd0uol1eY=;
-	h=From:To:In-Reply-To:References:Subject:Date;
-	b=D6bTLqfUcwgwHXNN2m8iiQmju3ywMCqfUeA8Pxi83jxqjKXay6zBuctYKlYwrKJhA
-	 Ooni5TFUpqMA9Sb5sSEvvwXHNLyzfJ+cZ5X72yu3cv7wwZESuuqCEFd+t4ibZ10NEO
-	 Bu+UJRtBBMGOFdgZKofYdY0rDHQZ/sO1WLtuE/S27fEqXuJ92zZQDexgbIbStF27kY
-	 cmolrPno6YL/0ofzxDFVaANbY87g1ti0ihrIJobilNiO8imtHCDFEBC3eR/CfOFC3h
-	 qJTCN8JcY1idmW2VjWjUN3TsfcRgkjOuRPPq3d7Ras1fjmcBqjpBEL1g0swX+iL2Eo
-	 xYouV74JzK4KA==
-From: Mark Brown <broonie@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Cyril Chao <Cyril.Chao@mediatek.com>, Darren Ye <darren.ye@mediatek.com>, 
- Rosen Penev <rosenp@gmail.com>, Daniel Golle <daniel@makrotopia.org>, 
- bui duc phuc <phucduc.bui@gmail.com>, linux-sound@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Christian Marangi <ansuelsmth@gmail.com>
-In-Reply-To: <20260908090448.3332-1-ansuelsmth@gmail.com>
-References: <20260908090448.3332-1-ansuelsmth@gmail.com>
-Subject: Re: [PATCH v6 0/5] ASoC: Add support for Airoha AN7581
-Message-Id: <178976668737.1863384.7459518219395606759.b4-ty@b4>
-Date: Fri, 18 Sep 2026 23:24:47 +0200
+	id 1x7rFt-0000000G7oh-0aJi;
+	Sat, 19 Sep 2026 09:21:10 +0000
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailflow.phl.internal (Postfix) with ESMTP id 7A4A71380CC3;
+	Sat, 19 Sep 2026 05:21:04 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-05.internal (MEProxy); Sat, 19 Sep 2026 05:21:04 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ragnatech.se; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1789809664;
+	 x=1789816864; bh=MGYptzQitBqvlBeqfLUR1pvxKBwqhA+k9O947J2Uzs4=; b=
+	KKJxgAPqGf8ffn9cEzGN/lmRPaI84KnadpYFXzKCX9hE2ejUIq68mi4u49PvWfgc
+	Itlb19ZH3qr7BojbMyQRo+ba2NPVuxshKxNHPNc1n0WoFm2P82SdvXVe/ozusaqU
+	UUuNFmN3pT+MAIOXefE4Sv9U8sKTnAH69sCP1ZzXN2aKc8adbqjGCZ5y3vHL5yUn
+	DebvNQKunanNCX2bmcP83jS/V3bgaOaMTSMerlAWCQ2EgFBXQ1ZRTTrcYTU71eEv
+	lbzAJDJUW1lP7r0QDdMJOaObYpwLv8jsh3ZCwwwsKuWBDf/iXMBIEia/Vxnb/8S7
+	nxGJsoWmFpCeajtr5MutCw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1789809664; x=
+	1789816864; bh=MGYptzQitBqvlBeqfLUR1pvxKBwqhA+k9O947J2Uzs4=; b=w
+	LA7xh2o3RY19SYTpHtjFoN2bWuBr9Jl0X822TEzfg09UxehR9IxivJ/PPDbEq5vh
+	xknj+g7mVbq0BrIyxwjz7mQPl76Es0GLU76nsl2Jc5PWQZ2aYnu4tSWX2U+CEbOU
+	duXnb8byYslI35rhb9G1P41C+PXcxQA0LTyXYnfwnUdPfuutf27xS+i0HNDcYlJc
+	mgqWClJS3odJaqniOPApq6NW3P2YBAq8VK9RlSsIgQ3yQUFHVbKCGOJnK9XiOEZD
+	XKwatuiR9o5xSppMVRA8v/P+uFKq6qikqTrSgLJnHtuSO/CDe3DZZJW23Dy/fkvD
+	ZW547r14CEX+ogHG402fg==
+X-ME-Sender: <xms:_VOuaoMc3T-ITDLbcqgHBdCUnJzWxvJ2B31OHOBqLt2R6J_GHk_kgg>
+    <xme:_VOuaqs_CdaHWRrECVh8zBB_Oyed8sjnn2zi8cyFPVs8HxgcW-AM-CDenZ6BvPCg9
+    zlQ4TZCJOVtaZNgCLdbweoHYhCfqfMC5hHqD0aLFaBIweeaNQUjKTmY>
+X-ME-Received: <xmr:_VOuan099myfjV70XEVtLI9rCteLcp3wwc72aBYnA1KSo0aM_0JVaFlzyhM1LK5r-Kar73jmByYogctH37tNWYeVENTK3UI>
+X-ME-Proxy-Cause: dmFkZTEHzaPBOkzhEZKtlcJiHuaR/8A9YwcvLFmST50NgBICej+vTp5vMhNNvAsQoG90/2
+    Jm0kDSLPlHjTl32jVWjbcwmLDSqw4GyHFeDhV0053Ev7hF2r8HtYhx1OQFrcFYUvp22zhD
+    bwa3p77dJnCDUtHCllEbqhJvrcmU7/C1lASmVI5bvK/T4qtdpnBur25H1DkP7UkKXPQC/j
+    elUdagyi5wVvBIc8Nks2/9BjgcJJqa08jQYX7fGyZhY2tU8D8FNMzrqNvQRW4UOnqv29DO
+    Z3Z15oIGz+UspWal/6k8HrhYZj+XVKhxeKCuy8RhfhaOSuu8zlDB0q69H/9Oe3rv7hs/Wn
+    ZGWF+6lY0YfPnQu0pkLeDFn6uVWRwRv3tWt2cnBI8Mig3THTVbziWZT3hx0FavRU1Rblw2
+    5GJ1NCrct8YFcaHTUsLESEIG9dn4bGZyc3OuX6C4ucocsN5peK2laUn1i/p649xuZe4yDu
+    V9gsVPzHsvP7DCumtstJA6KfKFLICxe7Ru/+RiSUSIleLOGD4tyf6+IMKgLo2rk4eyaZo+
+    A7NyVb8ONLKLmtm+YaDKnf1kykpl1RplpJr0gIHd9q1fENpv+FWekqgFQI2/j8Oy2+G7o+
+    pftD3dpMRQhb9hVe3tAsXetfhuC7wxDXeMfAKz0fypwUl3oZ3oPUXI0wHjNg
+X-ME-Proxy: <xmx:_VOuah2y4LFz1PpadpumYBxfc98D0-tdHUeGo910UPdHnB2MAwoLcw>
+    <xmx:_VOuaqq125S6Unzcn9Y0ECrr5LgGIJIXBZEy27KqgbK5ukiGRB_g-w>
+    <xmx:_VOuai0UYZvkkFR3qjdiC9hpdOm_mE8nabOFF-wFotoZzh3c314HmA>
+    <xmx:_VOuaj0j1IjBEGZ5neb_ubNG80H_nWXeTS--3M-4wyMouLo54xV9WA>
+    <xmx:AFSuakOZvT35vQTN-w2q-qm0NMqiAOAQOnWSEbPNjOLlAV8dYkNEXA1S>
+Feedback-ID: i80c9496c:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
+ 19 Sep 2026 05:21:00 -0400 (EDT)
+Date: Sat, 19 Sep 2026 11:20:57 +0200
+From: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>
+To: Kieran Bingham <kieran.bingham@ideasonboard.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,	Jacopo Mondi <jacopo@jmondi.org>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Jimmy Su <jimmy.su@intel.com>,	Matthias Fend <matthias.fend@emfend.at>,
+	Mikhail Rudenko <mike.rudenko@gmail.com>,
+	Daniel Scally <dan.scally@ideasonboard.com>,
+	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+	Michael Riesch <michael.riesch@collabora.com>,
+	Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
+	Sylvain Petinot <sylvain.petinot@foss.st.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Paul Elder <paul.elder@ideasonboard.com>,
+	Martin Kepplinger <martin.kepplinger@puri.sm>,
+	Quentin Schulz <quentin.schulz@theobroma-systems.com>,
+	Tommaso Merciai <tomm.merciai@gmail.com>,
+	Svyatoslav Ryhel <clamor95@gmail.com>,
+	Richard Acayan <mailingradian@gmail.com>,	Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,	Heiko Stuebner <heiko@sntech.de>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux@ew.tq-group.com, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,	linux-rockchip@lists.infradead.org,
+ linux-tegra@vger.kernel.org,
+	Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>,
+	Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
+	David Heidelberg <david@ixit.cz>
+Subject: Re: [PATCH v6 3/6] arm64: dts: renesas: Convert to new media
+ orientation definitions
+Message-ID: <20260919092057.GA1099675@ragnatech.se>
+References: <20260918-kbingham-orientation-v6-0-5e8b1f01be29@ideasonboard.com>
+ <20260918-kbingham-orientation-v6-3-5e8b1f01be29@ideasonboard.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260918-kbingham-orientation-v6-3-5e8b1f01be29@ideasonboard.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260919_022109_350007_6EAE5AA6 
+X-CRM114-Status: GOOD (  17.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,52 +142,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 08 Sep 2026 11:04:42 +0200, Christian Marangi wrote:
-> ASoC: Add support for Airoha AN7581
+Hi Kieran,
+
+Thanks for your work.
+
+On 2026-09-18 11:44:15 +0100, Kieran Bingham wrote:
+> From: Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
 > 
-> Add all the patch and documentation to support Airoha AN7581
-> sound driver.
+> The orientation property for video interface devices now has definitions
+> to prevent hardcoded integer values for the enum options.
 > 
-> The card follows similar implementation with Mediatek with
-> the codec present on i2c but with a simplified implementation
-> register wise and additional frequency supported.
+> Update the users throughout the renesas device trees to use the new
+> definitions.
 > 
-> [...]
+> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+> Reviewed-by: David Heidelberg <david@ixit.cz>
+> Signed-off-by: Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
 
-Applied to
+Reviewed-by: Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.4
+> ---
+>  .../arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx219.dtso | 3 ++-
+>  .../arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx462.dtso | 3 ++-
+>  .../arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx219.dtso | 3 ++-
+>  .../arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx462.dtso | 3 ++-
+>  4 files changed, 8 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx219.dtso b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx219.dtso
+> index 3acaf714cf24..b816382bba0a 100644
+> --- a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx219.dtso
+> +++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx219.dtso
+> @@ -12,6 +12,7 @@
+>  
+>  #include <dt-bindings/gpio/gpio.h>
+>  #include <dt-bindings/media/video-interfaces.h>
+> +#include <dt-bindings/media/video-interface-devices.h>
+>  
+>  &{/} {
+>  	clk_cam_j1: clk-cam-j1 {
+> @@ -44,7 +45,7 @@ cam@10 {
+>  		VDIG-supply = <&reg_cam_j1>;
+>  		VDDL-supply = <&reg_cam_j1>;
+>  
+> -		orientation = <2>;
+> +		orientation = <MEDIA_ORIENTATION_EXTERNAL>;
+>  		rotation = <0>;
+>  
+>  		port {
+> diff --git a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx462.dtso b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx462.dtso
+> index a19bc0840392..4019b80a88b7 100644
+> --- a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx462.dtso
+> +++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx462.dtso
+> @@ -12,6 +12,7 @@
+>  
+>  #include <dt-bindings/gpio/gpio.h>
+>  #include <dt-bindings/media/video-interfaces.h>
+> +#include <dt-bindings/media/video-interface-devices.h>
+>  
+>  &{/} {
+>  	clk_cam_j1: clk-cam-j1 {
+> @@ -46,7 +47,7 @@ cam@1a {
+>  		vdda-supply = <&reg_cam_j1>;
+>  		vddd-supply = <&reg_cam_j1>;
+>  
+> -		orientation = <2>;
+> +		orientation = <MEDIA_ORIENTATION_EXTERNAL>;
+>  		rotation = <0>;
+>  
+>  		port {
+> diff --git a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx219.dtso b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx219.dtso
+> index 512810b861aa..fea1ef4a1178 100644
+> --- a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx219.dtso
+> +++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx219.dtso
+> @@ -12,6 +12,7 @@
+>  
+>  #include <dt-bindings/gpio/gpio.h>
+>  #include <dt-bindings/media/video-interfaces.h>
+> +#include <dt-bindings/media/video-interface-devices.h>
+>  
+>  &{/} {
+>  	clk_cam_j2: clk-cam-j2 {
+> @@ -44,7 +45,7 @@ cam@10 {
+>  		VDIG-supply = <&reg_cam_j2>;
+>  		VDDL-supply = <&reg_cam_j2>;
+>  
+> -		orientation = <2>;
+> +		orientation = <MEDIA_ORIENTATION_EXTERNAL>;
+>  		rotation = <0>;
+>  
+>  		port {
+> diff --git a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx462.dtso b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx462.dtso
+> index a31524b59834..177201a8a6d2 100644
+> --- a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx462.dtso
+> +++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx462.dtso
+> @@ -12,6 +12,7 @@
+>  
+>  #include <dt-bindings/gpio/gpio.h>
+>  #include <dt-bindings/media/video-interfaces.h>
+> +#include <dt-bindings/media/video-interface-devices.h>
+>  
+>  &{/} {
+>  	clk_cam_j2: clk-cam-j2 {
+> @@ -46,7 +47,7 @@ cam@1a {
+>  		vdda-supply = <&reg_cam_j2>;
+>  		vddd-supply = <&reg_cam_j2>;
+>  
+> -		orientation = <2>;
+> +		orientation = <MEDIA_ORIENTATION_EXTERNAL>;
+>  		rotation = <0>;
+>  
+>  		port {
+> 
+> -- 
+> 2.52.0
+> 
+> 
 
-Thanks!
-
-[1/5] ASoC: dt-bindings: Add Airoha AN7581 AFE Sound card
-      https://git.kernel.org/broonie/sound/c/78da571393da
-[2/5] ASoC: dt-bindings: Add Airoha AN7581 AFE with WM8960 Codec schema
-      https://git.kernel.org/broonie/sound/c/8fcf0497e6da
-[3/5] ASoC: mediatek: common: permit to provide dedicated regmap for irq
-      https://git.kernel.org/broonie/sound/c/b49799e40313
-[4/5] ASoC: airoha: Add AFE driver for Airoha AN7581
-      https://git.kernel.org/broonie/sound/c/4974ffa0d6c2
-[5/5] ASoC: airoha: Add machine driver for Airoha AN7581
-      https://git.kernel.org/broonie/sound/c/272d6e51bc1f
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+-- 
+Kind Regards,
+Niklas Söderlund
 
