@@ -4,76 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7257BC982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 23:55:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6CF6C982D7
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 00:29:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PmkjYYsfUNf6piG6axY/LxZrcWIwU2r2rSgBbNY+KCI=; b=kU3vR3V1laiiLlvLfY9OIr/y8f
-	axs0heJznFvWseKh00r64K2GqkicwWuwFVJJ7MPFr4v+ny2xm8YhSpmzgHZXUqXrhMTrr9QSU1QMs
-	8F+/3h/7CwLZTTbK9uzuR6+QkkkxQfr4C1IbIbTTYFoA830sMUBqZFAGF144JdWyePG9HhjFhKVUV
-	KUhE44MHrb43VCmXm/WRs9KniwlW3jbyOj5/NkrrVxbtF9IM5A4JrArys5nbLBqRs70Duhz2CRmq6
-	DRYCvR1u7W+Aea2O/E6GlOqe1ITsluO1QLgQai8uboJEtgmeGrWuJxMay0tA5YFiLbeQz0eBpLDiM
-	SYv2H0Sg==;
+	bh=W6XpYlqSAUDYu2tTQpZ6AxUTQ7zY6Z7lXw2iw401dcc=; b=spPNd0ShPBqar4X+JYs+noJNnk
+	TQoBO63txUhRV80GdIYJA2GOWNYG5BFDsOCpYY9WI+DW4SubKxIi0NBP8nmrPjdnpvx251kTz5MNK
+	xpr5FVqrvc1aRYTi/oH4OBNmdOE9fMwmrGy0wVGHXbnPiWdUcqIqEcHarBMguBYQTBQGqDEiFx0uQ
+	leY4RG1AOMBP/Yz3Sm5BkydngB3dCZ1web8WXhqJY1JyQ+rAOnPjdo0dHO5xbR0PNhskuh2+rrCTK
+	EMwgCRXPpSgHq7tRdVf9pCPt7VcacJtkxacHNaC9ANTNTjv8Lfw/VXHj6Q0lEMo44uEocEVmlUX0k
+	V+6l9xhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x84ty-0000000Ggkw-0DGL;
-	Sat, 19 Sep 2026 23:55:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x84tC-0000000GgSm-0JMP;
+	Sat, 19 Sep 2026 23:54:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x84tV-0000000GgWu-295o;
-	Sat, 19 Sep 2026 23:54:57 +0000
+	id 1x84tA-0000000GgSd-2nJX;
+	Sat, 19 Sep 2026 23:54:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DC9BA60258;
-	Sat, 19 Sep 2026 23:54:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB2A81F00898;
-	Sat, 19 Sep 2026 23:54:55 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EB0A943CB2;
+	Sat, 19 Sep 2026 23:54:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2236B1F000FF;
+	Sat, 19 Sep 2026 23:54:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789862096;
-	bh=PmkjYYsfUNf6piG6axY/LxZrcWIwU2r2rSgBbNY+KCI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=PuxmojxBkgiVOWnrQCl7D9SrHpxpCV+USArH2nND6CQGDrcp68KTU5mRfJygGrv56
-	 cjyLC8scs8rjrvdk8DSTbnzGOBfrE7DtBgB6FvJPb9TimXV943780yhEc+FVfPSE6a
-	 C7cZ1vgrhEh5RDKLFfijmV2bR83K2nBZfpmWUeFkB1w3scqK1wvGQ/WGvz/odtS/Dl
-	 BK+JPlDspWPx35DKfm1w6QR2LKwxHIFvKNJCWi+1VVqPHCr55qPeI0h0tDTUI8p1nl
-	 0qz0PL6ScZi6WH31dMDsTSToW0C1+joyG7qyBAmzTWHsZy/UTnQU57QyJKzcgwgdag
-	 bsfVocMlGxsjg==
+	s=k20260515; t=1789862075;
+	bh=W6XpYlqSAUDYu2tTQpZ6AxUTQ7zY6Z7lXw2iw401dcc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=KxhccjP0SC+YfGESK9r7B0FuJgV1ssSOv0COhgDFitbx5+kSAHQCGivmtCi241izf
+	 2gPqGwkJFD3iis9udq3WWFNG4k4P0EzXVFAvFzZSs+JeXCQbbMipg1zPPQAc8C8Xy9
+	 Ni4Sr4ogrjCESZmJOd/kSjiSvrO2frcHSZHKgF7iOrAXfOuxtDMR4qQJ7JuSazEL/l
+	 YqaZ1wpr/Pwj62Ehq95XIH6W2xmmH7rrIUYt64I3+Nep2zkVbOadjl3OQXXWuW3zNY
+	 w+8oN2kW7Zuvpng0pF4wyP+0siJSgM5EWsmQctmDLCTSeI26THuE8shxcQG3GbAarS
+	 vKdpB9Ct8ePMg==
+Date: Sat, 19 Sep 2026 16:54:34 -0700
 From: Jakub Kicinski <kuba@kernel.org>
-To: jackbb_wu@compal.com
-Cc: Jakub Kicinski <kuba@kernel.org>,
-	loic.poulain@oss.qualcomm.com,
-	ryazanov.s.a@gmail.com,
-	johannes@sipsolutions.net,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	pabeni@redhat.com,
-	wen-zhi.huang@mediatek.com,
-	shi-wei.yeh@mediatek.com,
-	Minano.tseng@mediatek.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	horms@kernel.org,
-	corbet@lwn.net,
-	skhan@linuxfoundation.org,
-	robert_yu@compal.com,
-	Jeff_Chang@compal.com,
-	linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v8 6/6] net: wwan: t9xx: Add AT & MBIM WWAN ports
-Date: Sat, 19 Sep 2026 16:54:55 -0700
-Message-ID: <20260919235455.839820-1-kuba@kernel.org>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260914-t9xx_driver_v1-v8-6-5206c2e6bea0@compal.com>
-References: <20260914-t9xx_driver_v1-v8-6-5206c2e6bea0@compal.com>
+To: Jack Wu via B4 Relay <devnull+jackbb_wu.compal.com@kernel.org>
+Cc: jackbb_wu@compal.com, Loic Poulain <loic.poulain@oss.qualcomm.com>,
+ Sergey Ryazanov <ryazanov.s.a@gmail.com>, Johannes Berg
+ <johannes@sipsolutions.net>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo
+ Abeni <pabeni@redhat.com>, Wen-Zhi Huang <wen-zhi.huang@mediatek.com>,
+ Shi-Wei Yeh <shi-wei.yeh@mediatek.com>, Minano Tseng
+ <Minano.tseng@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Simon
+ Horman <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
+ <skhan@linuxfoundation.org>, Robert Yu <robert_yu@compal.com>, Jeff Chang
+ <Jeff_Chang@compal.com>, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-doc@vger.kernel.org
+Subject: Re: [PATCH v8 1/6] net: wwan: t9xx: Add PCIe core
+Message-ID: <20260919165434.08d026a8@kernel.org>
+In-Reply-To: <20260914-t9xx_driver_v1-v8-1-5206c2e6bea0@compal.com>
+References: <20260914-t9xx_driver_v1-v8-0-5206c2e6bea0@compal.com>
+	<20260914-t9xx_driver_v1-v8-1-5206c2e6bea0@compal.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,485 +79,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is an AI-generated review of your patch. The human sending this
-email has considered the AI review valid, or at least plausible.
----
-net: wwan: t9xx: Add AT & MBIM WWAN ports
-
-This adds two PORT_TYPE_WWAN ports (AT and MBIM) to the t9xx port
-infrastructure, implementing the wwan_port_ops start/stop/tx/tx_blocking/
-tx_poll callbacks, and wires the new CCCI UART2 and MBIM channels into the
-m9xx queue and port configuration tables.
-
-A few questions on the new code below.
-
-> The WWAN initialization method is responsible for creating the
-> corresponding ports using the WWAN framework infrastructure.
-
-[Severity: Medium]
-Is this description accurate?  mtk_port_wwan_init() only calls
-mtk_port_struct_init(), mutex_init(&port->w_priv.w_lock) and picks
-w_priv.w_type; the wwan_create_port() call is in mtk_port_wwan_enable(),
-which is reached from the new FSM_STATE_READY case in
-mtk_port_mngr_fsm_state_handler().
-
-Two other changes also seem worth a mention in the log:
-
-- the new mtk_port_enable_by_type(port_mngr, PORT_TBL_MD) hook runs
-  ports_ops[...]->enable() for every MD-table port that has
-  port->enable set, including PORT_TYPE_INTERNAL ports, so this changes
-  behaviour on a shared code path rather than only adding two ports.
-
-- two new CLDMA1 hardware queues (TXQ(5)/RXQ(5) and TXQ(2)/RXQ(2)) are
-  added to mtk_queue_info_m9xx[].
-
-> diff --git a/drivers/net/wwan/t9xx/mtk_port.c b/drivers/net/wwan/t9xx/mtk_port.c
-> index bddb8523d1201..88a0cb5fa78dc 100644
-> --- a/drivers/net/wwan/t9xx/mtk_port.c
-> +++ b/drivers/net/wwan/t9xx/mtk_port.c
-> @@ -820,6 +820,29 @@ int mtk_port_ch_disable(struct mtk_port *port)
->  	return ret;
->  }
->  
-> +static int mtk_port_enable_by_type(struct mtk_port_mngr *port_mngr, int tbl_type)
-> +{
-> +	struct mtk_port **ports;
-> +	int ret, idx;
-> +
-> +	if (tbl_type < 0 || tbl_type >= PORT_TBL_MAX)
-> +		return -EINVAL;
-> +
-> +	ports = kcalloc(port_mngr->port_cnt, sizeof(struct mtk_port *), GFP_KERNEL);
-> +	if (!ports)
-> +		return -ENOMEM;
-> +
-> +	ret = radix_tree_gang_lookup(&port_mngr->port_tbl[tbl_type],
-> +				     (void **)ports, 0, port_mngr->port_cnt);
-> +	for (idx = 0; idx < ret; idx++) {
-> +		if (ports[idx]->enable)
-> +			ports_ops[ports[idx]->info.type]->enable(ports[idx]);
-> +	}
-> +
-> +	kfree(ports);
-> +	return 0;
-> +}
-> +
-
-[ ... ]
-
-> @@ -851,6 +875,12 @@ void mtk_port_mngr_fsm_state_handler(struct mtk_fsm_param *fsm_param, void *arg)
->  	case FSM_STATE_OFF:
->  		mtk_port_disable(port_mngr);
->  		break;
-> +	case FSM_STATE_READY:
-> +		ret = mtk_port_enable_by_type(port_mngr, PORT_TBL_MD);
-> +		if (ret)
-> +			dev_err(port_mngr->ctrl_blk->mdev->dev,
-> +				"Failed to enable MD ports: %d\n", ret);
-> +		break;
->  	default:
->  		break;
->  	}
-
-[ ... ]
-
-> diff --git a/drivers/net/wwan/t9xx/mtk_port_io.c b/drivers/net/wwan/t9xx/mtk_port_io.c
-> index 27b490fde40f2..b1c1aa6009d64 100644
-> --- a/drivers/net/wwan/t9xx/mtk_port_io.c
-> +++ b/drivers/net/wwan/t9xx/mtk_port_io.c
-
-[ ... ]
-
-> @@ -41,6 +45,59 @@ static void mtk_port_struct_init(struct mtk_port *port)
->  	init_waitqueue_head(&port->rx_wq);
->  }
->  
-> +/* Splits the source skb into CCCI packets and submits them, all or
-> + * nothing.  The source may be non-linear: the WWAN core hands the tx ops
-> + * a head skb whose linear area is one fragment (caps.frag_len bytes) with
-> + * the rest chained on frag_list, so every read goes through
-> + * skb_copy_bits(), which walks that chain and is bounded by src->len by
-> + * construction.
-> + *
-> + * Returns 0 or a negative errno.  Only the first packet may fail with
-> + * -EAGAIN; every later packet is submitted with force_send so a message
-> + * partially handed to the transaction layer cannot be truncated by a full
-> + * queue.  -EINTR from a blocking wait arrives after the skb was
-> + * submitted, so the packet counts as accepted and the loop continues.
-> + */
-> +static int mtk_port_common_write(struct mtk_port *port, struct sk_buff *src, bool blocking)
-> +{
-> +	u32 packet_size, left_cnt = src->len, cur_pos;
-> +	bool force_send = false;
-> +	struct sk_buff *skb;
-> +	int ret;
-> +
-> +	while (left_cnt) {
-> +		ret = mtk_port_status_check(port);
-> +		if (ret)
-> +			return ret;
-> +
-> +		skb = __dev_alloc_skb(port->tx_mtu, GFP_KERNEL);
-> +		if (!skb)
-> +			return -ENOMEM;
-
-[Severity: Medium]
-Is the "all or nothing" claim in this comment true beyond the queue-full
-case?  force_send only suppresses the -EAGAIN branch in
-mtk_pcie_hif_submit_skb():
-
-	if (mtk_queue_list_is_full(trans, que) && !force_send) {
-		ret = -EAGAIN;
-
-On the second and later iterations these paths still return early after
-previous packets of the same message were already submitted:
-
-- mtk_port_status_check() returning -ENODEV/-EBADF if a concurrent
-  close or disable clears PORT_S_OPEN/PORT_S_WR or sets PORT_S_FLUSH
-- __dev_alloc_skb(port->tx_mtu, GFP_KERNEL) returning NULL (-ENOMEM)
-- mtk_port_send_data() returning -EIO when
-  !atomic_read(&trans->available), or -EINVAL on queue lookup failure,
-  or a negative trb->status in blocking mode
-
-> +
-> +		skb_reserve(skb, sizeof(struct mtk_ccci_header));
-> +
-> +		packet_size = min_t(u32, left_cnt,
-> +				    port->tx_mtu - sizeof(struct mtk_ccci_header));
-> +		cur_pos = src->len - left_cnt;
-> +		ret = skb_copy_bits(src, cur_pos, skb_put(skb, packet_size), packet_size);
-> +		if (ret) {
-> +			dev_err(port->port_mngr->ctrl_blk->mdev->dev,
-> +				"Failed to copy data for port(%s)\n", port->info.name);
-> +			dev_kfree_skb_any(skb);
-> +			return ret;
-> +		}
-> +
-> +		ret = mtk_port_send_data(port, skb, blocking, force_send);
-> +		if (ret < 0 && ret != -EINTR)
-> +			return ret;
-
-[Severity: Medium]
-Can this truncate an AT or MBIM message on the wire?  For any write
-larger than tx_mtu - sizeof(struct mtk_ccci_header) (about 3440 bytes
-with Q_MTU_3_5K), the leading packets are already submitted when this
-returns.  mtk_port_wwan_tx() forwards the errno and the core does:
-
-net/wwan/wwan_core.c:wwan_port_fops_write() {
-	...
-	ret = wwan_port_op_tx(port, head, ...);
-	if (!ret)
-		return count;
-
-freeskb:
-	kfree_skb(head);
-	return ret;
-}
-
-so userspace is told the whole write failed and will normally re-send
-the entire message, duplicating the prefix the modem already received.
-Would it make sense to keep going until the message is complete, or to
-build and submit the fragments only after all of them are allocated?
-
-> +
-> +		left_cnt -= packet_size;
-> +		force_send = true;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-
-[ ... ]
-
-> @@ -242,6 +299,224 @@ static const struct port_ops port_internal_ops = {
->  	.recv = mtk_port_internal_recv,
->  };
->  
-
-[ ... ]
-
-> +static void mtk_port_wwan_close(struct wwan_port *w_port)
-> +{
-> +	struct mtk_port *port = wwan_port_get_drvdata(w_port);
-> +
-> +	mtk_port_common_close(port);
-> +	mtk_port_put_locked(port);
-> +}
-> +
-> +static int mtk_port_wwan_tx(struct wwan_port *w_port, struct sk_buff *skb, bool blocking)
-> +{
-> +	struct mtk_port *port = wwan_port_get_drvdata(w_port);
-> +	int ret;
-> +
-> +	if (unlikely(!skb->len)) {
-> +		consume_skb(skb);
-> +		return 0;
-> +	}
-> +
-> +	ret = mtk_port_common_write(port, skb, blocking);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	consume_skb(skb);
-> +	return 0;
-> +}
-> +
-
-[ ... ]
-
-> +static __poll_t mtk_port_wwan_poll(struct wwan_port *w_port, struct file *file,
-> +				   struct poll_table_struct *poll)
-> +{
-> +	struct mtk_port *port = wwan_port_get_drvdata(w_port);
-> +	union ctrl_hif_cmd_data hif_cmd;
-> +	struct mtk_ctrl_blk *ctrl_blk;
-> +	__poll_t mask = 0;
-> +
-> +	poll_wait(file, &port->trb_wq, poll);
-
-[Severity: High]
-Can this leave a wait entry pointing into freed memory?  port->trb_wq is
-embedded in struct mtk_port, but struct mtk_port is freed while the
-userspace fd (and the poll/epoll entry registered here) is still alive.
-
-On device removal:
-
-mtk_pci_dev_exit() -> mtk_port_mngr_exit() -> mtk_port_tbl_destroy() {
-	...
-	ports_ops[port->info.type]->disable(port);
-	...
-	mtk_port_free_or_backup(port_mngr, port, s_list);
-}
-
-mtk_port_wwan_disable() calls wwan_remove_port(), which forces stop()
-even with an open fd:
-
-net/wwan/wwan_core.c:wwan_remove_port() {
-	mutex_lock(&port->ops_lock);
-	if (port->start_count) {
-		port->ops->stop(port);
-		port->start_count = 0;
-	}
-	port->ops = NULL;
-	...
-}
-
-stop() is mtk_port_wwan_close(), so mtk_port_common_close() clears
-PORT_S_OPEN and mtk_port_put_locked() drops the open-time kref.  The
-stale-list guard in mtk_port_free_or_backup() is then already false:
-
-	if (port->info.type != PORT_TYPE_INTERNAL) {
-		if (test_bit(PORT_S_OPEN, &port->status)) {
-			list_add_tail(&port->stale_entry, &s_list->ports);
-		...
-		kref_put(&port->kref, mtk_port_release);
-
-so mtk_port_release() -> kfree(port) frees the waitqueue head.  The fd
-stays valid because the core only NULLs port->ops, and nothing calls
-wake_up_pollfree() on trb_wq.  When the entry is torn down later
-(poll_freewait() -> free_poll_entry() -> remove_wait_queue(), or
-ep_remove_wait_queue() at EPOLL_CTL_DEL/close) the spin_lock and
-list_del operate on freed memory.  With epoll the dangling entry
-persists until the fd is closed.
-
-> +	if (mtk_port_status_check(port))
-> +		return EPOLLERR | EPOLLHUP;
-> +
-> +	ctrl_blk = port->port_mngr->ctrl_blk;
-> +	hif_cmd.rx_ch = port->info.rx_ch;
-> +	if (!ctrl_blk->ops->send_cmd(ctrl_blk->mdev, HIF_CTRL_CMD_CHECK_TX_FULL, &hif_cmd))
-> +		mask |= EPOLLOUT | EPOLLWRNORM;
-> +
-> +	return mask;
-> +}
-
-[Severity: Low]
-Should negative returns be distinguished from "queue full" here?  The
-callee mixes a boolean with error codes on the same int:
-
-drivers/net/wwan/t9xx/pcie/mtk_trans_ctrl.c:mtk_pcie_hif_cmd_func() {
-	case HIF_CTRL_CMD_CHECK_TX_FULL:
-		...
-		if (!atomic_read(&trans->available)) {
-			ret = -EIO;
-			break;
-		}
-		...
-		ret = mtk_queue_list_is_full(trans, que);
-}
-
-If the transport becomes unavailable before the FSM disables the port,
-mtk_port_status_check() still passes, send_cmd() returns -EIO and the
-mask stays 0, so a poll()ing writer is told the port is neither
-writable nor in error.  Would testing for > 0 as full and mapping < 0
-to EPOLLERR be more accurate?
-
-> +
-> +static const struct wwan_port_ops wwan_ops = {
-> +	.start = mtk_port_wwan_open,
-> +	.stop = mtk_port_wwan_close,
-> +	.tx = mtk_port_wwan_write,
-> +	.tx_blocking = mtk_port_wwan_write_blocking,
-> +	.tx_poll = mtk_port_wwan_poll,
+On Mon, 14 Sep 2026 18:31:52 +0800 Jack Wu via B4 Relay wrote:
+> +struct mtk_dev_ops {
+> +	u32 (*get_dev_state)(struct mtk_md_dev *mdev);
+> +	void (*ack_dev_state)(struct mtk_md_dev *mdev, u32 state);
+> +	u32 (*get_dev_cfg)(struct mtk_md_dev *mdev);
+> +	int (*register_dev_evt)(struct mtk_md_dev *mdev, u32 dev_evt,
+> +				int (*evt_cb)(u32 status, void *data), void *data);
+> +	void (*unregister_dev_evt)(struct mtk_md_dev *mdev, u32 dev_evt);
+> +	void (*mask_dev_evt)(struct mtk_md_dev *mdev, u32 dev_evt);
+> +	void (*unmask_dev_evt)(struct mtk_md_dev *mdev, u32 dev_evt);
+> +	void (*clear_dev_evt)(struct mtk_md_dev *mdev, u32 dev_evt);
+> +	int (*send_dev_evt)(struct mtk_md_dev *mdev, u32 dev_evt);
 > +};
-> +
 
-[ ... ]
+Please remove the abstractions which are not necessary in the initial
+version of the driver. If you have access to a good LLM these prompts
+will probably do a better job preparing the patches than you:
 
-> +static void mtk_port_wwan_enable(struct mtk_port *port)
-> +{
-
-[ ... ]
-
-> +	caps.frag_len = port->tx_mtu;
-> +	caps.headroom_len = sizeof(struct mtk_ccci_header);
-> +
-> +	/* These bits must be set before wwan_create_port(): the device node
-> +	 * becomes openable inside it and mtk_port_common_open() rejects a
-> +	 * port without PORT_S_ENABLE.
-> +	 */
-> +	set_bit(PORT_S_WR, &port->status);
-> +	set_bit(PORT_S_ENABLE, &port->status);
-> +
-> +	wp = wwan_create_port(port_mngr->ctrl_blk->mdev->dev,
-> +			      port->w_priv.w_type,
-> +			      &wwan_ops, &caps, port);
-
-[ ... ]
-
-> +	mutex_lock(&port->w_priv.w_lock);
-> +	port->w_priv.w_port = wp;
-> +	mutex_unlock(&port->w_priv.w_lock);
-> +}
-
-[Severity: Low]
-This isn't a bug today, but the state bits and the w_port pointer are
-published in the opposite order from how the consumers read them.
-wwan_create_port() registers the char device, so userspace can open the
-node and set PORT_S_OPEN while w_priv.w_port is still NULL; an RX frame
-arriving in that window is dropped with -ENXIO by mtk_port_wwan_recv().
-mtk_port_wwan_disable() also relies on PORT_S_ENABLE alone as proof
-that w_port is valid and passes it to wwan_remove_port() unchecked,
-which holds only because both enable and disable run from the single
-FSM kthread (mtk_fsm_evt_handler() -> mtk_fsm_switch_state() ->
-mtk_ctrl_fsm_state_listener()).  Would it be more robust to store
-w_port before setting PORT_S_ENABLE/PORT_S_WR, and to NULL-check
-w_port in the disable path?
-
-> +
-> +static void mtk_port_wwan_disable(struct mtk_port *port)
-> +{
-> +	struct wwan_port *w_port;
-> +
-> +	if (!test_and_clear_bit(PORT_S_ENABLE, &port->status))
-> +		return;
-> +
-> +	clear_bit(PORT_S_WR, &port->status);
-
-[Severity: Low]
-Should this clear be followed by a wake_up_all(&port->trb_wq)?
-PORT_S_WR is part of the blocking TX wait condition:
-
-drivers/net/wwan/t9xx/mtk_port.c:mtk_port_send_data() {
-	ret = wait_event_interruptible_timeout(port->trb_wq,
-					       trb->status <= 0 ||
-					       test_bit(PORT_S_FLUSH, &port->status) ||
-					       !test_bit(PORT_S_WR, &port->status),
-					       MTK_DFLT_TRB_TIMEOUT);
-}
-
-mtk_port_common_close() wakes both queues when it sets PORT_S_FLUSH,
-but here the flag change is silent.  If mtk_port_ch_disable() fails
-early (for example its __dev_alloc_skb() returns NULL) and no TRB
-completion wakes the queue, the sleeper only re-evaluates after
-MTK_DFLT_TRB_TIMEOUT, while wwan_remove_port() below waits on the same
-port->ops_lock the writer holds via wwan_port_op_tx().
-
-> +	mutex_lock(&port->w_priv.w_lock);
-> +	w_port = port->w_priv.w_port;
-> +	port->w_priv.w_port = NULL;
-> +	mutex_unlock(&port->w_priv.w_lock);
-> +
-> +	mtk_port_ch_disable(port);
-> +	wwan_remove_port(w_port);
-> +}
-> +
-> +static int mtk_port_wwan_recv(struct mtk_port *port, struct sk_buff *skb)
-> +{
-> +	/* Drop frames when nobody has the device open: wwan_port_rx() queues
-> +	 * without bound and only a reader drains the queue, so accepting
-> +	 * unsolicited traffic here would grow the rxq indefinitely.
-> +	 */
-> +	if (!test_bit(PORT_S_OPEN, &port->status)) {
-> +		dev_dbg_ratelimited(port->port_mngr->ctrl_blk->mdev->dev,
-> +				    "Drop RX for unopened port(%s)\n", port->info.name);
-> +		return -ENXIO;
-> +	}
-> +
-> +	mutex_lock(&port->w_priv.w_lock);
-> +	if (!port->w_priv.w_port) {
-> +		mutex_unlock(&port->w_priv.w_lock);
-> +		return -ENXIO;
-> +	}
-> +
-> +	wwan_port_rx(port->w_priv.w_port, skb);
-> +	mutex_unlock(&port->w_priv.w_lock);
-> +	return 0;
-> +}
-
-[Severity: Medium]
-Can a frame be queued after the core has purged the rx queue, and then
-be read by the next opener?  PORT_S_OPEN is tested outside w_lock here,
-and the close path clears it without taking w_lock:
-
-mtk_port_wwan_close() -> mtk_port_common_close() {
-	clear_bit(PORT_S_OPEN, &port->status);
-	...
-}
-
-net/wwan/wwan_core.c:wwan_port_op_stop() {
-	if (!port->start_count) {
-		if (port->ops)
-			port->ops->stop(port);
-		skb_queue_purge(&port->rxq);
-	}
-}
-
-The CLDMA rx context never takes ops_lock, so this interleaving looks
-possible:
-
-  rx: test_bit(PORT_S_OPEN) -> true
-  close: mtk_port_common_close() clears PORT_S_OPEN
-  close: wwan_port_op_stop() does skb_queue_purge(&port->rxq)
-  rx: mutex_lock(&w_lock), w_port still non-NULL, wwan_port_rx()
-
-The skb then stays on w_port->rxq, and mtk_port_common_open() only
-purges the driver-side list:
-
-	skb_queue_purge(&port->rx_skb_list);
-	set_bit(PORT_S_OPEN, &port->status);
-
-so the next opener of the AT or MBIM node reads a response belonging to
-the previous session.  Would checking PORT_S_OPEN under w_lock (and
-clearing it under the same lock) close this?
-
-> +
-
-[ ... ]
-
-> diff --git a/drivers/net/wwan/t9xx/pcie/mtk_ctrl_cfg_m9xx.c b/drivers/net/wwan/t9xx/pcie/mtk_ctrl_cfg_m9xx.c
-> index 050416e0b914d..761a068b859b2 100644
-> --- a/drivers/net/wwan/t9xx/pcie/mtk_ctrl_cfg_m9xx.c
-> +++ b/drivers/net/wwan/t9xx/pcie/mtk_ctrl_cfg_m9xx.c
-> @@ -16,6 +16,10 @@ static const int mtk_srv_cfg_m9xx[NR_CLDMA][HW_QUE_NUM] = {
->  
->  /* the number of RX GPDs should be at least two */
->  static const struct queue_info mtk_queue_info_m9xx[] = {
-> +	{CCCI_UART2_TX, CCCI_UART2_RX, CLDMA1, TXQ(5), RXQ(5),
-> +	 Q_MTU_3_5K, Q_MTU_3_5K, TX_GPD_NUM, RX_GPD_NUM, Q_FRAG_3_5K, Q_FRAG_3_5K, 0},
-> +	{CCCI_MBIM_TX, CCCI_MBIM_RX, CLDMA1, TXQ(2), RXQ(2),
-> +	 Q_MTU_3_5K, Q_MTU_3_5K, TX_GPD_NUM, RX_GPD_NUM, Q_FRAG_3_5K, Q_FRAG_3_5K, 0},
-
-[ ... ]
+https://github.com/kuba-moo/ai-prompts/blob/main/driver-upstreaming-prompts.md
 
