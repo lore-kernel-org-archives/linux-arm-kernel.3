@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC88FC982E6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10EF9C982DF
 	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 12:32:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CGtiJKFC+4PqVoLKD/yH9r97ziN6wjqXvuYJmigg/rU=; b=WPa3Hcm9tps7A4O+AaupT/n1SN
-	QMky0wKbjES7+1PBRjpexyZk+zfrZEuOzDMU5VAJtQyn6U4R3kxbmdmLZtif/VNXfZmyxV2OUQkWn
-	20aD78N9u1bN1lEX/2qrsZdcDIiXa+1KTrixbCr0UXCHMrd4ZJkUbJQf3A3oxug3KD+hgCrI9b9q3
-	K/RqWZXMRkSFQO2+yS1h6m0OPR0Qta1fntep5349rWtXRoPSdcTxx72LneV4gc1AeMy2f6R7RZzR3
-	YTDBA0VA8RDuvyafpFJ9M5KvJa6//WU4q41SlEcbB8oOzruDS7v4zu5+q9OaZwNuwa0rrWRaFBYTg
-	NXxVa5UA==;
+	bh=t4PDq/MmBp9D9cI3ENZf8ObIugUB4Aoai/ehDBDUDZM=; b=XZ0QZEU5jsgm6DZtNyCIJAXCnE
+	pLIWtA7bkxmwOXPhgn1HcJN0mAx8K0qWMohxfALBDqSM7o6eEKOoXKhZAnL4TUq4boISKeAiMOD4a
+	E1ESEKi9UlzV5K2ZWjjrzUxmdZZZ87QQa9otNqtzW6TVIMf5ij1AcW2WGUv7jCBHnlLKcy3qdC6Z8
+	0k68uTXlxHB+p+/3vhObn9m+NPvVyKx5WAjtB7bkJ1oYeE3TkcyFNJY7BiC/GI9ObPbQ6ZCBPFmhi
+	RkYns8YJLBViRzMNN4un/JemLCMbXB7FH3p56k+djd6rskRl2m74ae1dQHHMPrUqyVHRAKMjc2zdJ
+	v2yAxARg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7uEX-0000000GFcp-3DgK;
-	Sat, 19 Sep 2026 12:31:57 +0000
+	id 1x7uEY-0000000GFdP-01vp;
+	Sat, 19 Sep 2026 12:31:58 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7uEW-0000000GFc9-0y3k
+	id 1x7uEW-0000000GFcF-11Wp
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 19 Sep 2026 12:31:56 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7DC4E43BBE;
+	by sea.source.kernel.org (Postfix) with ESMTP id E625F4326B;
 	Sat, 19 Sep 2026 12:31:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C3421F00898;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C87CF1F00899;
 	Sat, 19 Sep 2026 12:31:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1789821115;
-	bh=CGtiJKFC+4PqVoLKD/yH9r97ziN6wjqXvuYJmigg/rU=;
+	bh=t4PDq/MmBp9D9cI3ENZf8ObIugUB4Aoai/ehDBDUDZM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=bkPIttP3wENNkUS8Jqc7U3PZ8Zz3btYMznZ2rlc6Aj/Yt3gWBAQcHDShvUeYX5rCT
-	 /SYADMXh2uySLF8MnAlbL9VeljSm0tD7HM+Dh11JrgnFGG6vqbKoGseHt7xgLgjava
-	 CDHw4fIG0eMKjXGRdJSc5WXlmcOcQBq8nx1DPvwgAkb0XOCIGZqiT/QjRXhZWKdqGk
-	 w7dUDSgo+68m+iJ4XSZ75hSXX8LDRsgoIYs1w8EtCE7CbtuehPCuxucdEjUwGew9Rv
-	 B44jkOamU0sYjm880Ssf2mocwh93BUuNzS2jRmroZ8dnlbf02krpTV3iU+PwJ8yemv
-	 j+QVOKDVIHbdA==
+	b=Lw1Me2zf9xeufxnsM1OMdawy5Euq54s0wDPEANZeYIrUVgP0KluhUWVTZEb5Qf9Bk
+	 IBkKp/1ZhzxasXqbt+aJFa7kBQvfxgOdqROCL6O8buQpSpesXvx7JeNT0O3TBM8pYn
+	 5kLXjzGrCllO6Jg0al4ncAfhvE/riq+o///euGzNESrrwZsXq+Ag/8GnI6Z0GW787k
+	 gVK2XJ2eH5EUmuFAb1JSz+5dlRobpJUGfJSjZUTdh8vcQeEYTrdH4hue5Hi4gClBv9
+	 nHBtZ/eG79IxqFonZ4HCkZ4jUDM+GCZ5xQvMbUH63StLPLjjXcv1vilcdN7lm7MhIu
+	 1XxfR8afze5MQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1x7uET-0000000AwvV-2LdR;
-	Sat, 19 Sep 2026 12:31:53 +0000
+	id 1x7uET-0000000AwvV-4B7T;
+	Sat, 19 Sep 2026 12:31:54 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
@@ -58,9 +58,9 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Fuad Tabba <fuad.tabba@linux.dev>,
 	Sascha Bischoff <sascha.bischoff@arm.com>
-Subject: [PATCH 2/4] KVM: arm64: vgic-v5: Correctly reset h_lpi_ist to NULL
-Date: Sat, 19 Sep 2026 13:31:48 +0100
-Message-ID: <20260919123150.3283606-3-maz@kernel.org>
+Subject: [PATCH 4/4] KVM: arm64: vgic-v5: Correctly handle host ISTE __le32 conversion
+Date: Sat, 19 Sep 2026 13:31:50 +0100
+Message-ID: <20260919123150.3283606-5-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260919123150.3283606-1-maz@kernel.org>
 References: <20260919123150.3283606-1-maz@kernel.org>
@@ -84,31 +84,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Resetting a pointer to 0 is not completely wrong, but sparse
-legitimately shouts about it integer/pointer mix.
+The vgic-v5 defines the host ISTE (h_iste) as a __le32, but uses
+get_user/put_user on a userspace buffer declared as u32 *. This leads to
+sparse having yet another fit.
 
-Use NULL as expected.
+Instead, define h_iste as a u32, and perform the conversion at the point
+of doing the access on the architectural state.
 
 Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202609190952.glUgOBvp-lkp@intel.com/
+Closes: https://lore.kernel.org/oe-kbuild-all/202609191215.to1MBYak-lkp@intel.com/
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/vgic/vgic-v5-tables.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/kvm/vgic/vgic-v5-tables.c | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
 
 diff --git a/arch/arm64/kvm/vgic/vgic-v5-tables.c b/arch/arm64/kvm/vgic/vgic-v5-tables.c
-index ba8a8d5fcc2a3..d7196ed5d1bfd 100644
+index 2c8d0f360506c..aae5cf05f3907 100644
 --- a/arch/arm64/kvm/vgic/vgic-v5-tables.c
 +++ b/arch/arm64/kvm/vgic/vgic-v5-tables.c
-@@ -1066,7 +1066,7 @@ static int vgic_v5_alloc_two_level_lpi_ist(struct kvm *kvm, unsigned int id_bits
- 		/* Free the L1 IST again */
- 		vmi = xa_load(&vm_info, vm_id);
- 		kfree(vmi->h_lpi_ist);
--		vmi->h_lpi_ist = 0;
-+		vmi->h_lpi_ist = NULL;
+@@ -1457,7 +1457,6 @@ static int vgic_v5_get_lpi_ist_desc(struct kvm *kvm,
+ static int vgic_v5_save_linear_ist(const struct vgic_v5_ist_desc *ist,
+ 				   u32 __user *uaddr, size_t nr_entries)
+ {
+-	__le32 h_iste;
+ 	size_t index;
+ 	int ret;
  
- 		return ret;
- 	}
+@@ -1466,8 +1465,9 @@ static int vgic_v5_save_linear_ist(const struct vgic_v5_ist_desc *ist,
+ 
+ 	for (index = 0; index < nr_entries; index++) {
+ 		__le32 *h_iste_addr = ist->base + index * ist->iste_size;
++		u32 h_iste;
+ 
+-		h_iste = READ_ONCE(*h_iste_addr);
++		h_iste = le32_to_cpu(READ_ONCE(*h_iste_addr));
+ 		ret = put_user(h_iste, uaddr);
+ 		if (ret)
+ 			return ret;
+@@ -1520,7 +1520,7 @@ static int vgic_v5_save_two_level_ist(const struct vgic_v5_ist_desc *ist,
+ 			h_iste = *(__le32 *)(h_l2_ist_base +
+ 					     h_l2_index * ist->iste_size);
+ 
+-			ret = put_user(h_iste, uaddr);
++			ret = put_user(le32_to_cpu(h_iste), uaddr);
+ 			if (ret)
+ 				return ret;
+ 
+@@ -1710,19 +1710,19 @@ static int vgic_v5_restore_linear_ist(struct kvm *kvm,
+ 				      u32 __user *uaddr, size_t nr_entries,
+ 				      u32 intid_type)
+ {
+-	__le32 h_iste;
+ 	size_t index;
+ 	int ret;
+ 
+ 	for (index = 0; index < nr_entries; index++) {
+ 		void *h_iste_addr = ist->base + index * ist->iste_size;
++		u32 h_iste;
+ 
+ 		ret = get_user(h_iste, uaddr);
+ 		if (ret)
+ 			return ret;
+ 
+ 		ret = vgic_v5_restore_ist_entry(kvm, ist, h_iste_addr,
+-					h_iste, index, intid_type);
++						cpu_to_le32(h_iste), index, intid_type);
+ 		if (ret)
+ 			return ret;
+ 
+@@ -1744,7 +1744,6 @@ static int vgic_v5_restore_two_level_ist(struct kvm *kvm,
+ 	struct vgic_v5_two_level_ist_shape shape;
+ 	size_t h_l1_index, h_l2_index;
+ 	void *h_l2_ist_base;
+-	__le32 h_iste;
+ 	int ret;
+ 
+ 	shape = vgic_v5_two_level_ist_shape(ist);
+@@ -1771,13 +1770,14 @@ static int vgic_v5_restore_two_level_ist(struct kvm *kvm,
+ 			void *h_iste_addr = h_l2_ist_base +
+ 					    h_l2_index * ist->iste_size;
+ 			u32 intid = h_l1_index * shape.l2_entries + h_l2_index;
++			u32 h_iste;
+ 
+ 			ret = get_user(h_iste, uaddr);
+ 			if (ret)
+ 				return ret;
+ 
+ 			ret = vgic_v5_restore_ist_entry(kvm, ist, h_iste_addr,
+-							h_iste, intid,
++							cpu_to_le32(h_iste), intid,
+ 							intid_type);
+ 			if (ret)
+ 				return ret;
 -- 
 2.47.3
 
