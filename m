@@ -4,61 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BF67C982CC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 06:44:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39AB7C982CC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Sep 2026 06:46:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7Yw21yZ8D/9ecQCkrAtDEhtb41K+5SSxoiOSXowuv4g=; b=aiWErRZli5s6qQBJh1kDRLLCq+
-	DfN1GXS/dSUAzG2OY+r1tKjGFWQmOpLLcOkJlZaLuW96vwuwImSaKSGc0EbTdykLbSjmyOryPbH9k
-	hsPvcE15mABsw0YSJ9bxv9t73qRhurxSNkAKsyrNaN7zpIdbUw1298LFDMXuS8c89OSe8aPDRbNz0
-	4S7h3ApHxGwNwmJbo3+OKrsHmcNwdNHCpyAIeF6416/5GU0gqLkj6v38TLCZ+/kC0t4A5Drk3dcsm
-	lHiPuAGSJWfRhrsE6KyUTiWwEQ1OHqBkZOFuJ79R/Qu8T9w4646K+0CzG+xE/g08DDPuvS/EnDJm7
-	Gz3uPDnQ==;
+	bh=5vk7OvicrTQRWGuZTF4fATOQub6s05myuBV5giJTLMM=; b=L8R2He7/S/LXu1I5adidQzbbIW
+	YDmo+yHgW7qSbzIlw17YMuc87gsRoIi36Fyu+GX4fDlYGxMCoc7hz9sUxqmubt9SdfXkZMsxPr77h
+	cZYhIOyVhX/HFBXl5aiB59ffpQcI77VCSTwBAkFpnY4/NOG2DSc4j4A68SAufxWb5cA3EFE9Ae2X+
+	Bs8nlNb6K1QcZUqFpt3RAYOidUyIOkT5WyCa4TbKLkoXeVxox36Egw7eQ5UURRUbVNikO95y4GsqR
+	ve1E79HG9FkPgENW93TY0sYANwTpdwKUM+oqGdG2uyRGp+NmnnfI4vEubNWY0AuYjYByohDoHtrBV
+	wDWEBRpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7ooN-0000000FzTW-24E6;
-	Sat, 19 Sep 2026 06:44:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x7oqQ-0000000Fzl6-0HPP;
+	Sat, 19 Sep 2026 06:46:42 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7onz-0000000FzOr-042L
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Sep 2026 06:44:11 +0000
+	id 1x7oqP-0000000Fzkx-0Pg4;
+	Sat, 19 Sep 2026 06:46:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BDD1344797;
-	Sat, 19 Sep 2026 06:44:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25B7E1F00898;
-	Sat, 19 Sep 2026 06:44:06 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8D45340168;
+	Sat, 19 Sep 2026 06:46:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E04CA1F000FF;
+	Sat, 19 Sep 2026 06:46:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789800249;
-	bh=7Yw21yZ8D/9ecQCkrAtDEhtb41K+5SSxoiOSXowuv4g=;
-	h=From:To:In-Reply-To:References:Subject:Date;
-	b=gFKLIB+irqMjLjlmfa8rzqJxJssGG1LQ9ighYsOpL57ot8FVVd5KKoqyjVT17DNXY
-	 VtYfIKDz46SwvLEjZf2FSmeKEJxpPR0XqdwHKRA5StkovQm9q1VidEdyNgy6Vu1vgd
-	 aXpzb/nbBQstiyiHdGnVmo3mcXyxLNw2V23RQy12St9FmIFAGTeU6vTgRfaKuqSo4j
-	 GfJT25MAvbUDillf+YxCS9GXGdsN8UwNzHFNhPSSZU8JOVKWN+CMyY6Du3RY3tUvsI
-	 jMbXRq7euyt5b0SDUTu+b/BxVOj/fam7i8wTovCPdncs3W5kopl4+pznri+10+sxkx
-	 kGwrE3dtbmBeA==
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>, 
- Sudeep Holla <sudeep.holla@kernel.org>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-In-Reply-To: <20260829194121.107988-2-krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260829194121.107988-2-krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH] ARM: dts: vexpress-v2p-ca5s: Replace spaces
- indentation with tabs
-Message-Id: <178980024687.89886.10945292395712232240.b4-ty@b4>
-Date: Sat, 19 Sep 2026 08:44:06 +0200
+	s=k20260515; t=1789800400;
+	bh=5vk7OvicrTQRWGuZTF4fATOQub6s05myuBV5giJTLMM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=Zzq8pKyFIekr3ojnhCCzOd2e3OcZiBDr9VFA6CcCEkh2FlxDDU8Xu5jILCEUwgPKr
+	 WC0Stvg6lfBJO3L12oTmGVjPu/TrHBkg9rV88Y6S6m3uSJMJWUNlGr94PJK4UbVjRq
+	 ZSgyOEKBUCY5ahWvT6XbbZwJ8ngKxFr5SXFjdXDcxVIPc+wKbeAKusEjUV+uQdOOsP
+	 jt2wefAK7Idi8to02UbxYom/2BVKBFkZFOI6sIPGaPRPBFNq9bRzvv7RjjMK0WUvEj
+	 7AqtuTYqmgs7loBbSj19ye1lMKPU28EJu4V43mQKTctxatmmPGQlAKjGAC8MNZqF5d
+	 Ryp83MTZMvB0g==
+Message-ID: <c8d25275-3c45-4e9a-826c-cf856938d60e@kernel.org>
+Date: Sat, 19 Sep 2026 08:46:31 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 02/14] dt-bindings: media: add apple,avd
+To: Sofus Forstreuter <sofus.c@icloud.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Sven Peter <sven@kernel.org>,
+ Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Heiko Stuebner <heiko@sntech.de>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+ asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org
+References: <20260918-avd-v1-0-49977931f455@icloud.com>
+ <20260918-avd-v1-2-49977931f455@icloud.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20260918-avd-v1-2-49977931f455@icloud.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.16.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,19 +119,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 18/09/2026 15:15, Sofus Forstreuter wrote:
+> Document the Apple Video Decoder. A hardware video decoder present on
+> Apple hardware.
+> 
+> Signed-off-by: Sofus Forstreuter <sofus.c@icloud.com>
+> ---
+>  .../devicetree/bindings/media/apple,avd.yaml       | 112 +++++++++++++++++++++
+>  MAINTAINERS                                        |   1 +
+>  2 files changed, 113 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/media/apple,avd.yaml b/Documentation/devicetree/bindings/media/apple,avd.yaml
+> new file mode 100644
+> index 000000000000..34a4129d6a46
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/media/apple,avd.yaml
+> @@ -0,0 +1,112 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/media/apple,avd.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Apple Video Decoder (AVD)
+> +
+> +description: |
+> +  AVD is a stateless video decode IP block present on Apple devices.
+> +  Notably it includes an ARM Cortex-M3 and associated DMA controller.
+> +  AVD is capable of decoding H264, H265, VP9 and AV1 on never SoCs.
+> +
+> +  The IP does not change much, with changes being mostly the CM3 having more
+> +  memory and interrupts.
+> +
+> +maintainers:
+> +  - Sofus Forstreuter <sofus.c@icloud.com>
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - items:
+> +          - enum:
+> +              - apple,t6030-avd
+> +              - apple,t6031-avd
+> +          - const: apple,t8122-avd
+> +      - enum:
+> +          - apple,t8103-avd
+> +          - apple,t8112-avd
+> +          - apple,t8122-avd
+> +          - apple,t6000-avd
+> +          - apple,t6020-avd
+> +
+> +  reg:
+> +    minItems: 4
+> +    items:
+> +      - description: Cortex-M3 code (unsigned)
+> +      - description: Cortex-M3 sram
+> +      - description: Mailbox
+> +      - description: Video decode control
+> +      - description: DMA control
+> +
+> +  reg-names:
+> +    items:
+> +      - const: code
+> +      - const: sram
+> +      - const: mbox
+> +      - const: ctrl
 
-On Sat, 29 Aug 2026 21:41:22 +0200, Krzysztof Kozlowski wrote:
-> Replace excessive spaces for aligning indentation into tabs.  This will
-> be reported by dt-style-check ("[mixed-indent-chars] too many space
-> characters in indent (more than 7)").
+Sashiko comments are valid.
 
-Applied, thanks!
+> +
+> +  iommus:
+> +    minItems: 1
+> +    maxItems: 3
+> +    description: |
+> +      The block contains 3 iommus, one for decode operations, one the DMA
+> +      controller can use and the last for decoding drm-protected content.
 
-[1/1] ARM: dts: vexpress-v2p-ca5s: Replace spaces indentation with tabs
-      https://git.kernel.org/krzk/linux-dt/c/cbdbed966ca04daa3ce50a629711660bd451ee2e
+List the items with description with minItems instead.
+
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +  resets:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    minItems: 2
+> +    items:
+> +      - description: mailbox 0
+> +      - description: mailbox 1
+> +      - description: mailbox 2
+> +      - description: mailbox 3
+> +      - description: flag 0
+> +      - description: flag 1
+> +      - description: DMA status
+> +    description: |
+> +      Notably there are no decode related interrupts. All decode related
+> +      interrupts are sent to the CM3.
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +  - reg-names
+> +  - iommus
+> +  - power-domains
+> +  - resets
+> +
+
+Why properties are unconstrained per each variant? Why are they flexible?
+
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/apple-aic.h>
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +    soc {
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +
+> +        avd: avd@289080000 {
+
+Drop unused label
+
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+If you cannot find a name matching your device, please check in kernel
+sources for similar cases or you can grow the spec (via pull request to
+DT spec repo).
+
+Don't use custom names, like apple. Codecs are usually video-codecs. Or
+isp if this is ISP.
 
 Best regards,
--- 
-Krzysztof Kozlowski <krzk@kernel.org>
-
+Krzysztof
 
