@@ -4,52 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B0EBC982EB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 22:48:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77997C982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 22:49:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=82Lpl4esNr0fEGBNe2yBIcFrhWe1VJjlH0m9toI3nWY=; b=hACaFJLJtV4Zfizxxglc3ESKod
-	x1Pv8EMtsMAlc31WucrfLQL17kHOzWKrn86+YBpEbwJjR/NNNIzkGy5/Ix+rjWkTCRZLuqKgGugla
-	nEZZgONugHBKMIfJ9clg7zeKV+wCW27tCt5DO7L2AyMdECPtws0CcT4qgzg16SNgyJzGlk/YyqdX0
-	C0ICgSv2o6Md+EaR3DHQn4hI0lHPKwpHT9cKGDZKXSGgZ2hyJTQlkIDSQ1KT5oje09BlaleovTvGy
-	vJzLS/N7ybSlwtIkysC1ypz1zGduxcJLezg5TW9kji126yk8N6DtRz1P1++gatCJDlTvBbu269PVA
-	AxX/Sj+A==;
+	bh=7LrJiEVM95oznn+hJH8/9LEjNBqxWrIAa6YUnSAT8k8=; b=SKNlSiKov0clX2fy9jYCwDBYld
+	nbfyvjKX2yL3uocO0smeBOzK9aV/pVjZlMgcCN4fqptHjzjPRf7GhsDf8hQf4LOY6IhH0fXedtRJ9
+	arLiKeq2vGXI7r4uzLNHZP0pqI02Bi5NTacpoJAjh1ccA1hjNPW5U+XB41RQvL5Kpoih3ylgZ5VHz
+	qfkWJNYbf3oBK0Mm+MdM4R5yJsD3vYam9sX8veL8AsT3SHPeN6f1qY4iG9Y6e5HXvZJ47Q0eCmRMd
+	Un32BxniiEyhnMHJJpd2snTE+WX/ZXQ1xi02oAIC4TW3CIsr6+uOHOAsVmeODpmsJjmU+rjLyXM9I
+	Tl53l5qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8QKx-00000000XIf-04oa;
-	Sun, 20 Sep 2026 22:48:43 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x8QLE-00000000XVl-1e70;
+	Sun, 20 Sep 2026 22:49:00 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8QKr-00000000XFi-1OvE
+	id 1x8QKz-00000000XLS-2txt
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 22:48:37 +0000
+	Sun, 20 Sep 2026 22:48:46 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EC0FD40690;
-	Sun, 20 Sep 2026 22:48:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D81381F000FF;
-	Sun, 20 Sep 2026 22:48:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 73F5340379;
+	Sun, 20 Sep 2026 22:48:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CF1D1F000FF;
+	Sun, 20 Sep 2026 22:48:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789944516;
-	bh=82Lpl4esNr0fEGBNe2yBIcFrhWe1VJjlH0m9toI3nWY=;
+	s=k20260515; t=1789944525;
+	bh=7LrJiEVM95oznn+hJH8/9LEjNBqxWrIAa6YUnSAT8k8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=K3iIUc+va9bzkt86uUyVRkUYGpRVZ9KUHkX7587vB55OzJIRGyKJlQYuIItOG6xPl
-	 D0cyts3cGHJ69d3NpTDdt4GA1Oi/KYg1OhDAsUq2qx513NW9k7VX8bSK+opNyYT95L
-	 UoB2K8ZwcZhTt9Nijx3sjlNg8ZvzEyT0M5Dw7baxofOCpkYNUWyP0mvEMvqFssTeKe
-	 u/+4MELq9IKdFgx9jEyvYem3909pnRCS0tALop6TsZmi85oZ/aA2YlvKNZfagLHruM
-	 n0dd3zqj97V8zfnHpJPSbVIgJwirgBMYLdV+CWGu95ugeGsrMIITLQBAxkMKef3zcO
-	 4KdQ4JFw6zbYQ==
+	b=bP3gQLnaIwo225Tg6gJB7a19mojGt4JpefiHDwZy5LPdCKWkhR4DZ6iQraCx45IJc
+	 Mk5ODpyNUXSgpf94D12KnQ6ekTm+hPdp722+5vgpK0kt9qvIFz0Y0EHGNuNCi/DxQM
+	 rDcyDTqK4ztRUrEh2gsi20HniBjKpJiqi1kAesQJbynW+UKWo1p5xkVyc6JrvBn2xJ
+	 t71P1n3RIQH03UtOicaG5HoGMifY3FyegznEXTsebIN5u9h99CrcZY6syA0InDviV5
+	 tcDR15GD2Xk9B7x7CuVwvqU+SrUhJOAMPOaEOymZtQ+fwSXMLknolh3TPdNdo3cFrb
+	 I8CkkHOm0HdeQ==
 From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 21 Sep 2026 00:48:11 +0200
-Subject: [PATCH v3 05/18] dt-bindings: display: ste,mcde: Allow power
- domains
+Date: Mon, 21 Sep 2026 00:48:13 +0200
+Subject: [PATCH v3 07/18] ARM: dts: ux500: Rename power domains node
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260921-ux500-power-domains-v7-1-v3-5-9352be6b86b1@kernel.org>
+Message-Id: <20260921-ux500-power-domains-v7-1-v3-7-9352be6b86b1@kernel.org>
 References: <20260921-ux500-power-domains-v7-1-v3-0-9352be6b86b1@kernel.org>
 In-Reply-To: <20260921-ux500-power-domains-v7-1-v3-0-9352be6b86b1@kernel.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -62,8 +61,7 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Lee Jones <lee@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
  linux-pm@vger.kernel.org, dri-devel@lists.freedesktop.org, 
- dmaengine@vger.kernel.org, Linus Walleij <linusw@kernel.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+ dmaengine@vger.kernel.org, Linus Walleij <linusw@kernel.org>
 X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,47 +77,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document the MCDE power domain.
+This matches the naming used in the binding document
+Documentation/devicetree/bindings/power/power-domain.yaml
+It's most logical to call it a power controller.
 
-Keep the legacy EPOD regulator binding unchanged for now.
-
-Assisted-by: LLM
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Signed-off-by: Linus Walleij <linusw@kernel.org>
 ---
- Documentation/devicetree/bindings/display/ste,mcde.yaml | 5 +++++
- 1 file changed, 5 insertions(+)
+ arch/arm/boot/dts/st/ste-dbx5x0.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/display/ste,mcde.yaml b/Documentation/devicetree/bindings/display/ste,mcde.yaml
-index 7a12d0b817e6..05e7e4ebc882 100644
---- a/Documentation/devicetree/bindings/display/ste,mcde.yaml
-+++ b/Documentation/devicetree/bindings/display/ste,mcde.yaml
-@@ -35,6 +35,9 @@ properties:
-   resets:
-     maxItems: 1
+diff --git a/arch/arm/boot/dts/st/ste-dbx5x0.dtsi b/arch/arm/boot/dts/st/ste-dbx5x0.dtsi
+index 25a20fafc6b9..11fcae1904e2 100644
+--- a/arch/arm/boot/dts/st/ste-dbx5x0.dtsi
++++ b/arch/arm/boot/dts/st/ste-dbx5x0.dtsi
+@@ -343,7 +343,7 @@ pmu {
+ 			interrupts = <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
+ 		};
  
-+  power-domains:
-+    maxItems: 1
-+
-   epod-supply:
-     description: a phandle to the EPOD regulator
- 
-@@ -109,6 +112,7 @@ examples:
-   - |
-     #include <dt-bindings/interrupt-controller/irq.h>
-     #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/arm/ux500_pm_domains.h>
-     #include <dt-bindings/mfd/dbx500-prcmu.h>
-     #include <dt-bindings/gpio/gpio.h>
- 
-@@ -116,6 +120,7 @@ examples:
-       compatible = "ste,mcde";
-       reg = <0xa0350000 0x1000>;
-       interrupts = <GIC_SPI 48 IRQ_TYPE_LEVEL_HIGH>;
-+      power-domains = <&pm_domains DOMAIN_B2R2_MCDE>;
-       epod-supply = <&db8500_b2r2_mcde_reg>;
-       vana-supply = <&ab8500_ldo_ana_reg>;
-       clocks = <&prcmu_clk PRCMU_MCDECLK>,
+-		pm_domains: pm_domains0 {
++		pm_domains: power-controller {
+ 			compatible = "stericsson,ux500-pm-domains";
+ 			#power-domain-cells = <1>;
+ 		};
 
 -- 
 2.55.0
