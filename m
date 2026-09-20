@@ -4,58 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD616C982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 07:44:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05120C982CC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 07:54:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IbJAK7aXa5pz972jBcMi7T/vqSkdrkXCC86Z5Qp3eWA=; b=gWt0pL7QaXvodil0ySN7a3j+Ge
-	snp2v2vGXJuCDjAcOPRRvdc+BhOuBbuOoGtRbhj9ws+KBZxsKZHTypmLfkNp4Li40ddxqaQZWiQXi
-	57IDxWNKD63G/Y9LuLYzARkqWP9CzQD4dd3NCXIzxuKH3WEsWVvOzdkFqcFEeCa7O4Cmw7lgjRB8I
-	wn9jZqNsGmN+PokM5nwhEAGReAe8wbfw44gAWKl+ODKsIhxPKOw86U92F5/4zaXyiKJahwXe10+B7
-	HkBGltg1V7t7gcf3ZZLC3I9xx5aOKbNhPi01khenTd9Sg28oXerTHkJ75kjeKV6XtFqtfSi/qxome
-	xZ1x+O8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DXZPtUyU9s9mMrfe78UMcGtXrJp17csOpzh6GOS48Q8=; b=Fb8zxDCZ546aC4Qnm4u1AfATrs
+	tBgQfhxImM8ku8XYY/s0DYZ/LxrLFtrwMzvWYXfKAN/X/xMbjwEmmh6sjD/bSa685O69fgfNRb3Wq
+	2IyVqYxZ8mht1iX5AjETvp9lkCVwhxzif9oJPGOLhjIjwl+mhhagYB/K+s+WimcMWne+UK7hL+uZS
+	Ho6hskD99lOq8RZwJmN3nR0L2J0kOtjVkTIkmUlrJC2eEE8DCA+ZBOXWxXmkRbUJS3aYoYbg3Mh+n
+	r7PHeAiKCIOljC3NL35pf7uhS9vO/mNVvqUXEy5uMkAPEZV336LUCyUuX5lgUnpJ/S0OSyhW9r92G
+	G6Tq9xqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8BQw-0000000H0N3-0ifT;
-	Sun, 20 Sep 2026 06:53:54 +0000
-Received: from mail-106104.protonmail.ch ([79.135.106.104])
+	id 1x8CNA-0000000H4Ph-1Llp;
+	Sun, 20 Sep 2026 07:54:04 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8BQt-0000000H0Md-1I5N
+	id 1x8CN9-0000000H4PO-0Bpm
+	for linux-arm-kernel@bombadil.infradead.org;
+	Sun, 20 Sep 2026 07:54:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=DXZPtUyU9s9mMrfe78UMcGtXrJp17csOpzh6GOS48Q8=; b=rguPqA7Zr7yjrM+4wJsnIo5Qwm
+	fyBanFy07qu3vv4NqpIMAoRU4YvgeMKB20Zae1q6mxwe6AFnxaSHUBhdBGp0sk5A9CpBqLErGSpt7
+	jdS9GSbT/bt7mqA6+2Sht3ksJe/XYY/vaXoMZDXZkOv1qSK2ysxj+bYMdzx+Hfmv9F9SdKK1CXHAa
+	lmTeG+0V9gE1j1NeJTK5C4LR0T1hyBoRChpBVq+FNxJzLgBKynTESA79ICjORztKcjpAU9Ioudinc
+	59MWiUxZsdX0WfD+eOsyuICsHGPxTFlYv8SUm3ofVwP2TbWxjwfj+QoqDi2vcPxdWawqqLadktnus
+	dw74HKew==;
+Received: from st-2003c-snip6-7.eps.apple.com ([2a01:b747:3001:200::1c] helo=outbound.st.icloud.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x8CN5-0000000BG8k-1HQP
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 06:53:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
-	s=protonmail; t=1789887226; x=1790146426;
-	bh=IbJAK7aXa5pz972jBcMi7T/vqSkdrkXCC86Z5Qp3eWA=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=frdOYZX7FZJb91z6hvpOE5kpgk1q9s61Ad7aVmQ4uEJktsWxeb3O8iXMhYKFYCplc
-	 AQEr/xyofjiCZdfjZ1p7lJIK6PIaJH+SyO5XEkcLuIyuR+C8bWcq9Gu2/C79jofA9U
-	 R5HZTCWYeyr8JVFQjRt07BKju70K9EV0/hJfw5KcJAK2iA6w4DlToxp+crJ4R/4P88
-	 oZ0PGwkaqNprudYxz4Rqd/kZZFMderx2YDEE9H80hCu3zSGeGPU8D1fdtgT3eAZbs7
-	 hYko7HerXKILyDYgUihgLtj/YWV8mB2ctxZUXGT8yBYUzMJsm+iVR/Cp9tBQKZyRdo
-	 EdpIyHhLCdH2A==
-Date: Sun, 20 Sep 2026 06:53:42 +0000
-To: Andre Przywara <andre.przywara@arm.com>
-From: =?utf-8?Q?Juan_Carlos_Guti=C3=A9rrez?= <jcarlosgl96@proton.me>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] arm64: dts: allwinner: Add SPC Glee 10.1 A64
-Message-ID: <nW8RRZw7ua8aoc8OVyDPwkugyF_ondGUfEyOAIeuIjstEOvZUVgQGJ5ZPREZV0uFfsj_tcfUAENVI6ojy6ESKziH-HxaYLDWZl-OomGx2cc=@proton.me>
-In-Reply-To: <63a19617-9349-4dd4-b9cb-dc677edc387f@arm.com>
-References: <20260911-b4-spc-glee-a64-v1-v2-0-ed0b7ff02e0b@proton.me> <20260911-b4-spc-glee-a64-v1-v2-2-ed0b7ff02e0b@proton.me> <63a19617-9349-4dd4-b9cb-dc677edc387f@arm.com>
-Feedback-ID: 47397442:user:proton
-X-Pm-Message-ID: 8b81d433734c5098b45b8dd05d52a33c041e4bfd
+	Sun, 20 Sep 2026 07:54:01 +0000
+Received: from outbound.st.icloud.com (unknown [127.0.0.2])
+	by p00-icloudmta-asmtp-us-east-1a-100-percent-1 (Postfix) with ESMTPS id 437E6180018B;
+	Sun, 20 Sep 2026 07:53:48 +0000 (UTC)
+X-ICL-RepId: 01a0bdce-97ac-79a0-a605-840ad6523340
+X-ICL-Out-Info: HUtFAUMEWwJACUgATUQeDx5WFlZNRAJCTQFMHV8EUxxCDFYAXRcOVk1KF1UYREVRMFAbXwJCDxwTVhUTC1NWWxNVF0YJGQhdHRkKUFAGXRIYXBRcUFgeRhJWDV0JGRhGXlAbXwJCDxwTVhUTHUMZDysISgRDB0UCXgslEwlTVlsTVRdGCRkIXR0ZFVoJCldTARQqcRh4PEA4bEgEHW84ch0KRhMZThtXTVAbXwJCDw==
+Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=icloud.com; s=1a1hai; t=1789890830; x=1792482830; bh=DXZPtUyU9s9mMrfe78UMcGtXrJp17csOpzh6GOS48Q8=; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type:x-icloud-hme; b=QCFVtEG182IXgVBxAKY7nnZCiPlBZRHpplCiaF6ihECKi14jcF0o1m5sCrk2FYwjXQqRn1sTOYU6PwDFHrYzivkaFLkD1w/yx0xzJ20tDTrwApKuoKzrcTsEIFM64AlzqtL+LSCuJXwQO/B/znPpDOC/E1T5tikt1AJNp5Hagx4Bj0eCJTC4nvjK1ziFJU3zaSiVS6HFFPZyBu7ds69JITA0a9DwIDHyrRojCbRl2l7gS18SWcRCYeqCGJatyCf3NSnRPdk+Lg18iGTPc+sZNaDgaB3eJ6oxmxDgaTnOJmJrxm3ciDugM+4lrLHVvrei66u6+ZUSk5T4VHdvDX5rUg==
+Received: from m3 (unknown [17.156.216.30])
+	by p00-icloudmta-asmtp-us-east-1a-100-percent-1 (Postfix) with ESMTPSA id 8602A18000A1;
+	Sun, 20 Sep 2026 07:53:45 +0000 (UTC)
+Date: Sun, 20 Sep 2026 09:53:42 +0200
+From: Sofus Forstreuter <sofus.c@icloud.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+	Neal Gompa <neal@gompa.dev>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 02/14] dt-bindings: media: add apple,avd
+Message-ID: <aq-RBuOWrHU07pXS@m3>
+References: <20260918-avd-v1-0-49977931f455@icloud.com>
+ <20260918-avd-v1-2-49977931f455@icloud.com>
+ <c8d25275-3c45-4e9a-826c-cf856938d60e@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c8d25275-3c45-4e9a-826c-cf856938d60e@kernel.org>
+X-Proofpoint-GUID: S6e61XuDsmK33ipxJAJUc3U2l_BzDx8T
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIwMDExMiBTYWx0ZWRfX66J5KzOfJs2q
+ 1a8B4E/MxpTpFX277QX4b/b72REyTW3BCVALxCdqtA7uFe8/6nnpXPVDWGcJN1Hq27AI8s7KQ4d
+ XigJEBUxqigohz0HEjMO98zT14nCpx35jdkY+XFMJ4sIiUOdf6VHzTUP14b528zMRkMP+h9TqvK
+ 6KcIw/Vrd1ltAi/g2KTwLufAhGQeUrYeTtD5tHm3pW+R244yvAhBKWClpe0jgzLm+W1EG7AG3zL
+ lL8R9f0HynC8yiNvDlDDSYOSa8XtGS/M1+r/JOM2ckHWxcc+fu7SQzh/ZRLP+O8doyPKHlk9t3c
+ 6UN+z+Vc+GHPyqn6LWcwU5Gisywj9VhOKOtRquKk8qAhH1WI9SUecYhup9KZLE=
+X-Authority-Info-Out: v=2.4 cv=bdRmkePB c=1 sm=1 tr=0 ts=6aaf910d
+ cx=c_apl:c_pps:t_out a=oyWFxbOnq+dmhQrAPgaJYA==:117
+ a=oyWFxbOnq+dmhQrAPgaJYA==:17 a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10
+ a=x7bEGLp0ZPQA:10 a=kLM9Tyy99jAA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=gEfo2CItAAAA:8 a=UXIAUNObAAAA:8 a=v3ZZPjhaAAAA:8 a=uNVY81mLXwUjaPPEvSoA:9
+ a=CjuIK1q_8ugA:10 a=sptkURWiP4Gy88Gu7hUp:22 a=a1s67YnXd6TbAZZNj1wK:22
+X-Proofpoint-ORIG-GUID: S6e61XuDsmK33ipxJAJUc3U2l_BzDx8T
+X-JNJ: AAAAAAABh2Ju8KJ8gttMZDPbI8BBILSbRiIsMboAJb0CbhsvCLsTv+PP2ZG7K7lphsDv6u96pQ9fxQj9KeqmYI+KNGwjGDnPxR8ImYypsja/+aL1Yq5gCD1pab6QkLiPb7IMuPGBfC7cJoYqSxigkSv3ixoD7cVw29wB7rwrEKc4physV7n7p92lSKrID1E7wXJi+mI4xZfq7ZyiwMeP4BYYAqsuTEOn5CSZHPuWhVL5WcdFkZgC2jZR4r2YSyeEuWzn/trSRmEbiVhLP0AZ1m02IZf/o89Z60avwzkjsSfzhSlulL+2YWEEsYmj0hy1275qmSxc1K/jotixKi/CuuWbW35H6rfgtd6EEBBtrD2FsLgWdMskd1GTXtCnfxkmSsKDAHLGSejxhVRsfwJqXWRq4ufGD/3Dqz5an1DS7vYVeI5NwjGYYD0ybwnByOIjNHxbsstCJCO03dyo9M1z7ZQ/d0qjAunYBVJDeNc5pdgwREE0RmNxRc295lqOPz/WSZVOVV5Bzcx+yAWqbqtlv+KLpyPsUofhFNfUYpSJ2lmKXOmFEy1g2oiZ3bnxo6frB6Q0TgR/ksSZarDuDwOfbSIjpfO3DBTh1OMO4h8JW8TaoyB/Eu9uTSHJbEdHJcMlVEfI/ZcZWZyRKrACY0iP6Q6Zk2rpNGFqpFZQLsP1/LIZqEzrfW2/C8tMqzC5Bv49DwENK1iArZvQ3Al8b9b9ZvfhhhPD0EhfJKzhIbZhZpQOyjx8+OXSDjBaiYPW1i1GaWHh0OfD3tiqJ0GVx7OjVKyENYcAB4mhAXSy2jcJyoztjJEAtYp4YXW14z4U2jcAsaPgjKZym+A6X1It442CLrFt6RIILydpD5Re95VnX1NqSDBzPgFdcsMxP2/SJZxYciu2cIZ8VQK9v9C4yz8AmnL7KgZ53q/I72hAmPzPuCzsmXeBdq+KpwLCKjuOpkFjqHU+u64aCj0duc6apNSJ7TA42bEPFtC
+ UxmoNV4oh6LtbD2+LeuoxpzS/koLZBKdJ4FL5zap4cOVDP1UkBdE9iU3zluZ0FWWu3kFdYXdFPN9dxMGRy4j6QiUh4bW4ZZuWMzkmmvyzjpeClPAx7UIFuQZGV48pDQzF/Mbs+fV6v4iF6L+0oYfGTFcg8G0G6iO0MacbeceUbhhhHGlh8rzOOdw1MLwkf73+uRuuqC+bAOoRcK1FDztMY91q7nPydNUZ1i3Jw3LKXZVUSkrbcdHzpuepsw7pmsInKEpPfAphuc+0HbPap0Rwy1YAdUBdAlMc3fYfAUXMKdS96TB8Hcnd0wR13GXSJU746A9+EPzG3/Ap+mw17K9MIRIo32IvrFVhHwXRrZGRD7BvuGAnaCDQ9QllDFEhyli2nVPe1zyKJ+EJNIUuMKZG34SBKwhGGdAR0pExIdB4Liv7pMHEJKjiJUE1bg==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260919_235351_986166_1FC2DA24 
-X-CRM114-Status: UNSURE (   9.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260920_085359_771601_67CC758B 
+X-CRM114-Status: GOOD (  27.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,33 +106,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andre,
+Hi Krzysztof,
 
-Thanks for the detailed review.
+Thanks for your review and time!
 
-I have looked at the PineTab DTS and the other A64 reference boards. They a=
-re useful guides for the remaining peripherals, and I will use them when pr=
-eparing the next revision.
+On Sat, Sep 19, 2026 at 08:46:31AM +0200, Krzysztof Kozlowski wrote:
+> On 18/09/2026 15:15, Sofus Forstreuter wrote:
+> > Document the Apple Video Decoder. A hardware video decoder present on
+> > Apple hardware.
+> > 
+> > Signed-off-by: Sofus Forstreuter <sofus.c@icloud.com>
+> > ---
+> >  .../devicetree/bindings/media/apple,avd.yaml       | 112 +++++++++++++++++++++
+> >  MAINTAINERS                                        |   1 +
+> >  2 files changed, 113 insertions(+)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/media/apple,avd.yaml b/Documentation/devicetree/bindings/media/apple,avd.yaml
+> > new file mode 100644
+> > index 000000000000..34a4129d6a46
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/media/apple,avd.yaml
+> > @@ -0,0 +1,112 @@
+> > +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/media/apple,avd.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: Apple Video Decoder (AVD)
+> > +
+> > +description: |
+> > +  AVD is a stateless video decode IP block present on Apple devices.
+> > +  Notably it includes an ARM Cortex-M3 and associated DMA controller.
+> > +  AVD is capable of decoding H264, H265, VP9 and AV1 on never SoCs.
+> > +
+> > +  The IP does not change much, with changes being mostly the CM3 having more
+> > +  memory and interrupts.
+> > +
+> > +maintainers:
+> > +  - Sofus Forstreuter <sofus.c@icloud.com>
+> > +
+> > +properties:
+> > +  compatible:
+> > +    oneOf:
+> > +      - items:
+> > +          - enum:
+> > +              - apple,t6030-avd
+> > +              - apple,t6031-avd
+> > +          - const: apple,t8122-avd
+> > +      - enum:
+> > +          - apple,t8103-avd
+> > +          - apple,t8112-avd
+> > +          - apple,t8122-avd
+> > +          - apple,t6000-avd
+> > +          - apple,t6020-avd
+> > +
+> > +  reg:
+> > +    minItems: 4
+> > +    items:
+> > +      - description: Cortex-M3 code (unsigned)
+> > +      - description: Cortex-M3 sram
+> > +      - description: Mailbox
+> > +      - description: Video decode control
+> > +      - description: DMA control
+> > +
+> > +  reg-names:
+> > +    items:
+> > +      - const: code
+> > +      - const: sram
+> > +      - const: mbox
+> > +      - const: ctrl
+> 
+> Sashiko comments are valid.
+> 
 
-You are right about the memory node. I will remove it and leave memory disc=
-overy to U-Boot.
+Ack
 
-The eMMC was left disabled because I had not yet verified its supply voltag=
-e and operating mode from a BSP boot. I will inspect the BSP MMC configurat=
-ion and runtime state, then enable it once the voltage and timing are confi=
-rmed.
+> > +
+> > +  iommus:
+> > +    minItems: 1
+> > +    maxItems: 3
+> > +    description: |
+> > +      The block contains 3 iommus, one for decode operations, one the DMA
+> > +      controller can use and the last for decoding drm-protected content.
+> 
+> List the items with description with minItems instead.
+> 
 
-The 25 MHz SD limit was conservative while high-speed operation was still u=
-nverified. I will test the 3.3 V high-speed configuration and remove the li=
-mit if the board is stable at 50 MHz.
+Ack, i will drop the third iommu as its unlikely that will ever be used.
 
-USB has only been validated in peripheral mode so far. I will check the BSP=
- GPIO/debug information for an ID-detect pin. If the hardware is wired for =
-OTG, I will add the corresponding usb0_id_det-gpios configuration; otherwis=
-e I will keep peripheral mode and document the limitation.
+> > +
+> > +  power-domains:
+> > +    maxItems: 1
+> > +
+> > +  resets:
+> > +    maxItems: 1
+> > +
+> > +  interrupts:
+> > +    minItems: 2
+> > +    items:
+> > +      - description: mailbox 0
+> > +      - description: mailbox 1
+> > +      - description: mailbox 2
+> > +      - description: mailbox 3
+> > +      - description: flag 0
+> > +      - description: flag 1
+> > +      - description: DMA status
+> > +    description: |
+> > +      Notably there are no decode related interrupts. All decode related
+> > +      interrupts are sent to the CM3.
+> > +
+> > +required:
+> > +  - compatible
+> > +  - reg
+> > +  - interrupts
+> > +  - reg-names
+> > +  - iommus
+> > +  - power-domains
+> > +  - resets
+> > +
+> 
+> Why properties are unconstrained per each variant? Why are they flexible?
+> 
 
-I will incorporate these changes in the next revision.
+There is no reason for this. I will remove the unused interrupts.
+
+> > +additionalProperties: false
+> > +
+> > +examples:
+> > +  - |
+> > +    #include <dt-bindings/interrupt-controller/apple-aic.h>
+> > +    #include <dt-bindings/interrupt-controller/irq.h>
+> > +
+> > +    soc {
+> > +        #address-cells = <2>;
+> > +        #size-cells = <2>;
+> > +
+> > +        avd: avd@289080000 {
+> 
+> Drop unused label
+> 
+> Node names should be generic. See also an explanation and list of
+> examples (not exhaustive) in DT specification:
+> https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+> If you cannot find a name matching your device, please check in kernel
+> sources for similar cases or you can grow the spec (via pull request to
+> DT spec repo).
+> 
+> Don't use custom names, like apple. Codecs are usually video-codecs. Or
+> isp if this is ISP.
+> 
+
+Ack
 
 Best regards,
-Juan Carlos
+Sofus
 
