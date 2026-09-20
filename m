@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D500EC982EB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 22:49:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19A76C982E6
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 22:49:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XA4FIDvCYy0BQ/rMAtKvbtPxkdDgnG7QQZ5e1dIml+o=; b=0hUx/MW9W5oCOJl3IXe5TKrKEA
-	mSevHzV0UNMdUPHvyb5xTaHKK+6dqdiJBUVfL+Qd10YqmkEulUiU+fqxvQs+6sHjx+vbKKHbigtxY
-	oT/whc/hJy7IXc4Jj6xR8jzRIHzcFGp3AVUKjCSIe2oHdb4STwnT6ZvSgeV1W2kgvzg/RxsOlPIwS
-	8apZ/ZAFN3y7uVuktdCWvqtIYe/yFnzScd7l/y+BUW/tmzfSpmXt6SNWnOqKpo5lVwL5eglb7BXUI
-	RG7my4H/hU/YgM6hR8pH2kh9Fs2V+SfCR+f6slDSEckmACNKOnP7H8pDihJM+011jPcwR34vKa5aU
-	Hb5Uyc9w==;
+	bh=MmlbpVMmMHMs1r5j0DKbq3pvTJhWH+8jZjt/WcqFqsA=; b=rKBEReWrg39jevndJX2Gl5E7QE
+	TLSqfT/aGBa46pavVUyFYDLVXOcdTudlzV/tehMTiuJF5CLEpnBzYE+VgTi005Vxgd3Fix8o04FOB
+	W13O/EjluNKk+HeOExcCCeP98N8G6OQTI/dCNh5FL53RgenBdIKSi0EPtP45ZOQsVL0zQwndX3j+2
+	8NeTCO8+u/5I2XgNUJJKA6KhINSjSA21r9MyVpC2ODeeutfWAkafCZf/SUzSg8mkNKbh3ZpQu5q05
+	6iXwhBSP5wRY638nKVv/Og65RFMrk4TMIQW32kXDyZ9wG3S4Fjm2v9qGgLqRFtjQgrLGLMRh3+RCQ
+	QsaGJtQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8QLE-00000000XW7-2DXe;
+	id 1x8QLE-00000000XWt-3KPs;
 	Sun, 20 Sep 2026 22:49:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8QL3-00000000XOm-3wSb
+	id 1x8QLD-00000000XUa-0sV6
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 22:48:49 +0000
+	Sun, 20 Sep 2026 22:48:59 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B151940048;
-	Sun, 20 Sep 2026 22:48:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB1C71F00893;
-	Sun, 20 Sep 2026 22:48:45 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 631FC600C8;
+	Sun, 20 Sep 2026 22:48:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 531141F000FF;
+	Sun, 20 Sep 2026 22:48:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789944529;
-	bh=XA4FIDvCYy0BQ/rMAtKvbtPxkdDgnG7QQZ5e1dIml+o=;
+	s=k20260515; t=1789944538;
+	bh=MmlbpVMmMHMs1r5j0DKbq3pvTJhWH+8jZjt/WcqFqsA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=XXdOR/IknJe33d4peh0RN/kTPQU6vmxouThi1kj9TVw6BOOAFve8zpRcdm0g2tujD
-	 hXWPqn8GvkroKOBfeA2mlaLedelOjoS2140AMHSa09IdzRhaR3gmZSE4MC77DCpJ2I
-	 TobztOTYRsrw56mcnEwfsbsfjTHKVCb0AYswn5qLv8sRmbkbK9PGSI/8eLFvP0QwBk
-	 wkctwHa12OhWsEOwSL5N7f2tgwmBHMsE/+SdBcOeA+wmUkIOPjViwX7i+kDOjg6Bxv
-	 dXjmUjUnGksaDJc94ceFj+2ehj21yoidqlOr08Z7GkV/xxO8GTzgHlq/rLaCvveqRq
-	 zvn98dVD+rMVQ==
+	b=CviMjVsTmnlEwtmzTXimVkEv5OXgZjl9UGdG5CKkQjrTRwr67GZxINRQklPdrTfko
+	 KbOISedK15hkr7YbctfybZKxaqWYesxdkmhzCPp0refkhyVoBWXOUQfKAXqeGLU3nK
+	 Sa1BQqeCbz9Ql4zVzeJYoFlxDuywYuSFPl2rhKimH2I9PoygJJjuO/t0Wi2QSQ9eYm
+	 yq5L9BkJhwZ9siijuzOeengTR41kb0jzIWu8ylT+McuZEQPAZapKMKsyh0ZDG3iw9C
+	 0/d7UNDf2dxx23vbkF63RMKsFOBI70swK+8T8HBQPd/H+lNVNpHau6SXxwwAKkNszX
+	 YPav3ywyXRwUg==
 From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 21 Sep 2026 00:48:14 +0200
-Subject: [PATCH v3 08/18] dt-bindings: clock: stericsson,u8500-clks: Allow
- power domains
+Date: Mon, 21 Sep 2026 00:48:16 +0200
+Subject: [PATCH v3 10/18] dt-bindings: watchdog: arm,twd-wdt: Allow power
+ domains
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260921-ux500-power-domains-v7-1-v3-8-9352be6b86b1@kernel.org>
+Message-Id: <20260921-ux500-power-domains-v7-1-v3-10-9352be6b86b1@kernel.org>
 References: <20260921-ux500-power-domains-v7-1-v3-0-9352be6b86b1@kernel.org>
 In-Reply-To: <20260921-ux500-power-domains-v7-1-v3-0-9352be6b86b1@kernel.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -78,28 +78,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow the DB8500 clock controller node to reference its power domain.
+Allow TWD watchdog nodes to reference their power domain.
 
 Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Linus Walleij <linusw@kernel.org>
 ---
- Documentation/devicetree/bindings/clock/stericsson,u8500-clks.yaml | 3 +++
+ Documentation/devicetree/bindings/watchdog/arm,twd-wdt.yaml | 3 +++
  1 file changed, 3 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/clock/stericsson,u8500-clks.yaml b/Documentation/devicetree/bindings/clock/stericsson,u8500-clks.yaml
-index 4ebfa5a8d524..75e5e1107ebb 100644
---- a/Documentation/devicetree/bindings/clock/stericsson,u8500-clks.yaml
-+++ b/Documentation/devicetree/bindings/clock/stericsson,u8500-clks.yaml
-@@ -34,6 +34,9 @@ properties:
-       - description: PRCC 5 register area
-       - description: PRCC 6 register area
+diff --git a/Documentation/devicetree/bindings/watchdog/arm,twd-wdt.yaml b/Documentation/devicetree/bindings/watchdog/arm,twd-wdt.yaml
+index 9646ac72051e..5f6a9d6b9976 100644
+--- a/Documentation/devicetree/bindings/watchdog/arm,twd-wdt.yaml
++++ b/Documentation/devicetree/bindings/watchdog/arm,twd-wdt.yaml
+@@ -33,6 +33,9 @@ properties:
+   clocks:
+     maxItems: 1
  
 +  power-domains:
 +    maxItems: 1
 +
-   prcmu-clock:
-     description: A subnode with one clock cell for PRCMU (power, reset, control
-       management unit) clocks. The cell indicates which PRCMU clock in the
+ required:
+   - compatible
+   - reg
 
 -- 
 2.55.0
