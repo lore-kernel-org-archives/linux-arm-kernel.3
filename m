@@ -4,68 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 769A7C982CC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 06:33:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69182C982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 07:24:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Z3+Fx9EZEE+VQ2/YVvwLsbnZUCmzfjGk9Iv40ZT2s+o=; b=CZpBjg2Y/N3SykhtHqnWfCXPv8
-	GxsfSpWSbW5d4hhsVWtyQ0VuyvyyVmP0VPLX3R/OxpYts4hxIMcBeAxFCqOmZP3DNTJL16tveWDMK
-	VB3hDT8mhD1F5PUC4HMXovOfCrAz6Bl7OumZReUC8HfsGxZvNSl8OvpjXuwJbPjmaqOQMH++F4e7o
-	z1DL60F98KlzhL+mT+piBxg/AVNUrYpxtTh1G+3x+CtjyrOkUbWPIHyoBEYhmgQFSU9vm7N+kRCGP
-	ldP4qkoWSsOPiKYOMkytNtePI9RjYFIcVKpDeK2ohROK8dz7EOO+62ao8QmlUAGjvBTQlRn+5Wpk/
-	tc1rVVzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JykXcVLQ+SODnQl6eDwSo0pjarUst5H1xKMW2Gg1dG0=; b=x2OOBYUZHTQipxB45pT3VVlxuK
+	e1NsYHW4PxfqgRlcpnTF+3IPnWYmzI5s0djGC8+OIjHMPjlmhoXi8uzoUdchdwnfys3cq9Ryij3IL
+	qV3+Z0NfFdgrHXC+ilnVBDhAJ1COuxHN8BXLMEWcr2sI6Jc3+MyFeLyTS1+F8FInMDDCX8P7AgcGv
+	DBDgsOhe/+ZsBzSqcafzQ+10txkr1Zfm5aFFl9186ox3kPsHhuDRJrmHC7yUVOEk7cvi2lfztcEdY
+	WyPILjKPS+WrYnJZJ/jkruTpmw5tN/Q6aiSswBq8Ls3oRPqpeWHvFH1RbovrPzrubWuPXtmN/COe8
+	zVpuAufA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8AQN-0000000GxsU-0PWU;
-	Sun, 20 Sep 2026 05:49:15 +0000
-Received: from proxy25213.mail.163.com ([103.129.252.13])
+	id 1x8Bus-0000000H2G1-2rtF;
+	Sun, 20 Sep 2026 07:24:50 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8AQK-0000000Gxrm-20uY
+	id 1x8Buq-0000000H2Fu-49k4
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 05:49:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Z3
-	+Fx9EZEE+VQ2/YVvwLsbnZUCmzfjGk9Iv40ZT2s+o=; b=nkKW5prFP4eZ4hKYBY
-	OxqKTBzPbriILyLcLBPOsdnB3Ael6YuXSjDjjBhMGTQlGyamj2wJlgdl481EDZ5J
-	uUqImrus8zyMQ9F94kRV2/faxn/ofvEoey4MsTWwbFr+y3VvciDZLZ/32auEQnDC
-	1DfHJp5ph9NBsXkmDGea0TGtY=
-Received: from localhost.localdomain (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id PikvCgD3v_VZc69qjRGcAA--.48413S2;
-	Sun, 20 Sep 2026 13:47:05 +0800 (CST)
-From: Linkui Xiao <xiaolinkui@126.com>
-To: maxime.chevallier@bootlin.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com
-Cc: netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	Sun, 20 Sep 2026 07:24:49 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1BAEB60136;
+	Sun, 20 Sep 2026 07:24:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 395D11F000FF;
+	Sun, 20 Sep 2026 07:24:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789889087;
+	bh=JykXcVLQ+SODnQl6eDwSo0pjarUst5H1xKMW2Gg1dG0=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=H7lGpA8oxCwUoMdVQLZKlRanbrT2e3x3tiI2Lv/9D2mNfO7SsqLrfSgi9mj5cwr4l
+	 p/4S240ofW0LQ/NXHEvBfaWJi8OayARjZWNnird0Y+O2aaUwfXpcQWE5mO42NMEVTe
+	 yo6Y+i71T0oRF/zB7055vZvPJ3YFrVP1wXaCHGKiREh3L3Q9S80Jn8MvJplBWtkvWt
+	 pEWj19lkvepnBXtCbeLK6jiB5c9mMO2VJaFTTc18K22kHyz5VVz+S2uP0IbcxE5lUd
+	 gK6IbamepYGVCW0X/R6kr1+rM/esDudpV4pxveg4hCltq1t23VXK3R+K0+ibmPWLTz
+	 XeoqLo1F/STZg==
+X-Mailer: emacs 31.1 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Christian =?utf-8?Q?K=C3=B6nig?= <christian.koenig@amd.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-coco@lists.linux.dev, kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Linkui Xiao <xiaolinkui@kylinos.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH net v2] net: stmmac: request the MDIO reset GPIO only once
-Date: Sun, 20 Sep 2026 13:47:03 +0800
-Message-Id: <20260920054703.1897755-1-xiaolinkui@126.com>
-X-Mailer: git-send-email 2.25.1
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	Marc Zyngier <maz@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	"T.J. Mercier" <tjmercier@google.com>
+Subject: Re: [PATCH v6 7/9] dma-buf: system_heap: Enforce shared-granule
+ alignment for cc-shared buffers
+In-Reply-To: <20260919213531.GI11599@ziepe.ca>
+References: <aq1V3oeDdvXobt8J@arm.com>
+ <97c30fce-9bda-4c61-b1b9-10297b89c8d9@amd.com>
+ <20260918153642.GD11599@ziepe.ca> <yq5atsnl47c6.fsf@kernel.org>
+ <20260919213531.GI11599@ziepe.ca>
+Date: Sun, 20 Sep 2026 12:54:38 +0530
+Message-ID: <yq5a8q4ws7ux.fsf@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: PikvCgD3v_VZc69qjRGcAA--.48413S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxAFWxKrWUKFW7Jr48Gw17ZFb_yoWruw4Up3
-	y3Zay5ArykJr4xtw4kJw48ZF9Ykay3tr4Uuw109rWS9a1DKrWavr1Sqry5ZFy7KrWDWFya
-	qr18uF1Uua1qyaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UYiiDUUUUU=
-X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBqRl5UGqvc1kKygAA32
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260919_224912_769323_935270DA 
-X-CRM114-Status: GOOD (  15.37  )
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,121 +84,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Linkui Xiao <xiaolinkui@kylinos.cn>
+Jason Gunthorpe <jgg@ziepe.ca> writes:
 
-stmmac_mdio_reset() calls devm_gpiod_get_optional() every time it runs.
-A GPIO line can only be requested once, so from the second call on
-gpiod_request_commit() returns -EBUSY. devm_gpiod_get_optional() only
-turns -ENOENT into NULL, hence the error is passed straight back and
-stmmac_mdio_reset() bails out before pulsing "snps,reset" and before
-running the STE101P MDC workaround.
+> On Sat, Sep 19, 2026 at 08:27:29PM +0530, Aneesh Kumar K.V wrote:
+>  
+>> +static struct page *system_heap_alloc_order(unsigned int order, gfp_t flags,
+>> +					    bool cc_shared)
+>> +{
+>> +	struct cc_shared_pages mem;
+>> +
+>> +	if (!cc_shared)
+>> +		return alloc_pages(flags, order);
+>> +
+>> +	/* The shared granule can raise the actual allocation order. */
+>> +	flags |= __GFP_COMP;
+>> +	if (alloc_cc_shared_pages(flags, PAGE_SIZE << order, &mem))
+>> +		return NULL;
+>
+> Oh yeah that's surprisingly easy because of how this loop works with
+> order
+>
+> Makes sense to me
+>
+>> int alloc_cc_shared_pages_node(int nid, gfp_t gfp, size_t requested,
+>> 			       struct cc_shared_pages *mem)
+>
+> This argument order is a little weird from mm norms?
+>
 
-The first call, made by of_mdiobus_register(), succeeds, so the failure
-is only visible later on: every resume that does not use WoL goes
-through stmmac_resume() -> stmmac_mdio_reset(), and that caller ignores
-the return value, so the PHY silently stays un-reset.
+That is similar to
 
-The descriptor used to be requested exactly once: stmmac_mdio_reset()
-resolved "snps,reset-gpio" itself and cached the GPIO number in
-stmmac_mdio_bus_data::reset_gpio, and commit ae26c1c6cb9b ("stmmac: fix
-PHY reset during resume") relies on that cache to reuse the line on
-every call. commit 7c86f20d15b7 ("net: stmmac: use GPIO descriptors in
-stmmac_mdio_reset") replaced it with a devm_gpiod_get_optional() that
-caches nothing, so the request is repeated on every call and fails from
-the second one on.
+static inline struct page *alloc_pages_node_noprof(int nid, gfp_t gfp_mask,
+						   unsigned int order)
 
-Request the GPIO in stmmac_mdio_register(), at probe time, and keep the
-descriptor in struct stmmac_priv. This is where devm-gpiod is meant to be
-used: the line is acquired with the device and released with it, and any
-failure to acquire it is reported during probe instead of being ignored
-by stmmac_resume(). stmmac_mdio_reset() then only pulses the cached line.
-
-The request is still gated on mdio_bus_data->needs_reset, which is the
-condition that installs the reset callback, and on the device using DT,
-as the reset itself is.
-
-Fixes: 7c86f20d15b7 ("net: stmmac: use GPIO descriptors in stmmac_mdio_reset")
-Cc: stable@vger.kernel.org
-Signed-off-by: Linkui Xiao <xiaolinkui@kylinos.cn>
----
-Changes in v2:
-- Do not request the GPIO from stmmac_mdio_reset(); request it once in
-  stmmac_mdio_register() at probe time instead. (Maxime Chevallier)
-
- drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  2 ++
- .../net/ethernet/stmicro/stmmac/stmmac_mdio.c | 19 ++++++++++---------
- 2 files changed, 12 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-index 7582fca63741..986fb43db45f 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-@@ -25,6 +25,7 @@
- #include <net/xdp.h>
- #include <uapi/linux/bpf.h>
- 
-+struct gpio_desc;
- struct stmmac_pcs;
- 
- struct stmmac_resources {
-@@ -287,6 +288,7 @@ struct stmmac_priv {
- 
- 	unsigned int pause_time;
- 	struct mii_bus *mii;
-+	struct gpio_desc *mdio_reset_gpio;
- 
- 	struct stmmac_pcs *integrated_pcs;
- 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-index afe98ff5bdcb..346f93f86abe 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-@@ -386,15 +386,8 @@ int stmmac_mdio_reset(struct mii_bus *bus)
- 
- #ifdef CONFIG_OF
- 	if (priv->device->of_node) {
--		struct gpio_desc *reset_gpio;
- 		u32 delays[3] = { 0, 0, 0 };
- 
--		reset_gpio = devm_gpiod_get_optional(priv->device,
--						     "snps,reset",
--						     GPIOD_OUT_LOW);
--		if (IS_ERR(reset_gpio))
--			return PTR_ERR(reset_gpio);
--
- 		device_property_read_u32_array(priv->device,
- 					       "snps,reset-delays-us",
- 					       delays, ARRAY_SIZE(delays));
-@@ -402,11 +395,11 @@ int stmmac_mdio_reset(struct mii_bus *bus)
- 		if (delays[0])
- 			msleep(DIV_ROUND_UP(delays[0], 1000));
- 
--		gpiod_set_value_cansleep(reset_gpio, 1);
-+		gpiod_set_value_cansleep(priv->mdio_reset_gpio, 1);
- 		if (delays[1])
- 			msleep(DIV_ROUND_UP(delays[1], 1000));
- 
--		gpiod_set_value_cansleep(reset_gpio, 0);
-+		gpiod_set_value_cansleep(priv->mdio_reset_gpio, 0);
- 		if (delays[2])
- 			msleep(DIV_ROUND_UP(delays[2], 1000));
- 	}
-@@ -608,6 +601,14 @@ int stmmac_mdio_register(struct net_device *ndev)
- 	if (!mdio_bus_data)
- 		return 0;
- 
-+	if (mdio_bus_data->needs_reset && dev_of_node(priv->device)) {
-+		priv->mdio_reset_gpio =
-+			devm_gpiod_get_optional(priv->device, "snps,reset",
-+						GPIOD_OUT_LOW);
-+		if (IS_ERR(priv->mdio_reset_gpio))
-+			return PTR_ERR(priv->mdio_reset_gpio);
-+	}
-+
- 	stmmac_mdio_bus_config(priv);
- 
- 	new_bus = mdiobus_alloc();
--- 
-2.25.1
-
+-aneesh
 
