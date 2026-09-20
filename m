@@ -4,77 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 960E3C982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 06:09:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F966C982CC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 06:18:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vV7TW2SU9QNyrdw/O3i+fc2xpKeIdc3uZlqCvkwrnsQ=; b=o6BHXOiUq44jf0LGVxBUk50A96
-	i3g2+pjnPI3Fows/lohTskIAmaN+vPBu6edl59pFbOh3gJidOCe5dlzMTdBbxVxrpCj5lceDP7Af3
-	Smv1ogYzE1JlQgfCn20P2GXr2lKyw5+pf53weqvSsZvkZkNHkLXhOUA9rgBISATMILcN3zt7M1bjC
-	s9vfUpMVrn6agjw2n/kOOA4OXtv/vALR+BN1AaVVl0P3eSzb9Tu1paLhGsXzQFxlYPoI66gPZAhQj
-	/L/GniZ2UwCly1epOE1KZlSqaL3yQLloBsk4aXe442mXUYJ4zTkPMIJO59D5y7bb6p8ZJ4bRh3nXU
-	H+vR6nwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0MJtPJukxDHokGFqPIDOiixqdEoWYSRe1kuishwSmuQ=; b=WU3eI+SaThOISdtiGMt+NeYnhi
+	ynL1r6HMxJd3ARKfYW3JGxaiilrE+zTsQT29Cmqv2835Hyk5IxPUgnHm9zbOrczPnrjBUBikgkWoC
+	gPjCa3AC/8C6mRIdqjwVhntcM67EC7AmhEpvG0R5pGuaowVv/vyBeTWA6cZG/7ghd8H5gRuXr6sLr
+	kTW0qAlJxytjt/Zfad6oD/uUr8oNX7UYtxp+o7qHV2G3m8NCBtueozjt80Pc+tZgMXz2UVSm4sAg1
+	bSqcBLOH3xx8I6OoAJcW+k/3OWGXKTCr/umEpj1KqnJZfGfELICP9babT8xJv2gWO04pH1b0Mqpv0
+	Zv9fLFmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Aju-0000000GybS-2In1;
-	Sun, 20 Sep 2026 06:09:26 +0000
-Received: from winds.org ([68.75.195.9])
+	id 1x8AsF-0000000GyuZ-2Ry7;
+	Sun, 20 Sep 2026 06:18:03 +0000
+Received: from mail-proxy49145.mail.163.com ([45.254.49.145])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Ajr-0000000Gyax-339C;
-	Sun, 20 Sep 2026 06:09:25 +0000
-Received: by winds.org (Postfix, from userid 100)
-	id 858658F80256; Sun, 20 Sep 2026 02:09:19 -0400 (EDT)
-Received: from localhost (localhost [127.0.0.1])
-	by winds.org (Postfix) with ESMTP id 8415D1334AD4D;
-	Sun, 20 Sep 2026 02:09:19 -0400 (EDT)
-Date: Sun, 20 Sep 2026 02:09:19 -0400 (EDT)
-From: Byron Stanoszek <gandalf@winds.org>
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-    Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-    Conor Dooley <conor+dt@kernel.org>, 
-    Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, 
-    Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-    Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-    Luca Ceresoli <luca.ceresoli@bootlin.com>, 
-    Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-    Maxime Ripard <mripard@kernel.org>, 
-    Thomas Zimmermann <tzimmermann@suse.de>, Lee Jones <lee@kernel.org>, 
-    Andy Yan <andy.yan@rock-chips.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-    Emil Renner Berthing <kernel@esmil.dk>, 
-    Hal Feng <hal.feng@starfivetech.com>, 
-    Michael Turquette <mturquette@baylibre.com>, 
-    Stephen Boyd <sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-    Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-    Dominique Belhachemi <db@domibel.de>, 
-    Brian Masney <bmasney+clk@redhat.com>, 
-    Jerome Brunet <jbrunet+clk@baylibre.com>, linux-phy@lists.infradead.org, 
-    devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-    dri-devel@lists.freedesktop.org, mfd@lists.linux.dev, 
-    linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-    linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org, 
-    Marek Szyprowski <m.szyprowski@samsung.com>, 
-    Maud Spierings <maud_spierings@murena.io>, 
-    Graham Markall <hello@big-grey.co.uk>, 
-    Icenowy Zheng <zhengxingda@iscas.ac.cn>, 
-    Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
-    Joshua Peisach <jpeisach@ubuntu.com>, 
-    =?ISO-8859-15?Q?Uwe_Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>
-Subject: Re: [PATCH v4 00/20] drm: starfive: jh7110: Enable display
- subsystem
-In-Reply-To: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
-Message-ID: <b8b046ee-c574-3e16-6079-2fc415633dae@winds.org>
-References: <CGME20260915153213eucas1p148f013af239a334fc78cdc249c0f8a61@eucas1p1.samsung.com> <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
+	id 1x8AsB-0000000Gyti-0WZ5
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 20 Sep 2026 06:18:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=0M
+	JtPJukxDHokGFqPIDOiixqdEoWYSRe1kuishwSmuQ=; b=G8T1U/IWWh3Iq+QoWS
+	Dli0CFPLBlZhIK4dcX3ut2r7eRcPFmWcYJvUbyrARGulY8JDxS7ltH5o+lBMYhBn
+	xTbPici6Nsz0dj92Kvdp0ihNq4YZQXdnQwL2YS2OXlqG420iejsQEmx7SyzEy4z4
+	mXvGzs5sGddTvMeij3qnwlpBI=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g0-0 (Coremail) with SMTP id _____wD3xwwqeq9qij3sBg--.31149S2;
+	Sun, 20 Sep 2026 14:16:12 +0800 (CST)
+From: Linkui Xiao <xiaolinkui@126.com>
+To: maxime.chevallier@bootlin.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com
+Cc: netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Linkui Xiao <xiaolinkui@kylinos.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH net v2] net: stmmac: do not cache the new TSO MSS before it reaches the DMA
+Date: Sun, 20 Sep 2026 14:16:09 +0800
+Message-Id: <20260920061609.1919876-1-xiaolinkui@126.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wD3xwwqeq9qij3sBg--.31149S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxAr17KFyUur4DJw43Aw13Arb_yoW5KFyDpF
+	4UAa90yr98Jr4fXw48Cw40qa45Ja95tayYkw18G3sxGw4ayryvgryfKrW8G34UCFyrZr1S
+	ka129a43Ar4UXrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UlhFsUUUUU=
+X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBqAwwB2qveixC+wAA35
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260919_230923_838438_FFB4ACF1 
-X-CRM114-Status: GOOD (  17.21  )
+X-CRM114-CacheID: sfid-20260919_231759_413595_2FA4FE48 
+X-CRM114-Status: GOOD (  15.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,111 +80,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 15 Sep 2026, Michal Wilczynski wrote:
+From: Linkui Xiao <xiaolinkui@kylinos.cn>
 
-> This series enables the display subsystem on the StarFive JH7110.
+stmmac_tso_xmit() fills the MSS context descriptor and stores the new MSS
+in tx_q->mss right away, but the descriptor only gets its OWN bit much
+later, right before the frame is handed to the DMA. Every error path in
+between - the dma_map_single() of the linear part and the
+skb_frag_dma_map() of each fragment - returns with tx_q->mss already
+updated while the MAC is still programmed with the previous MSS; the
+abandoned context descriptor is later reclaimed by stmmac_tx_clean().
 
-Hi Michal,
+The next skb carrying the same MSS then compares equal to the cached
+value, so no context descriptor is emitted and the hardware segments the
+TCP stream with a stale MSS, generating frames whose payload size does
+not match what the stack accounted for.
 
-I tested your v4 patch series on my VisionFive2 1.3B with kernel 7.3-rc3 today
-and it works very well, except for 2 issues. Note, to make the screen refresh
-properly, I am using the noncoherent cache fixes from
-https://github.com/ganboing-jh7110/linux/commits/ganboing-jh7110-cache-fix-v1/
-(specifically commits 3683d97, ef93e2c, 277db0b, and 26ce3e6) in addition to
-your patch.
+Update tx_q->mss only once the context descriptor has been given to the
+DMA, so that the cached value always describes what the hardware is
+actually programmed with.
 
-Issue 1: I have a Dell U2711 monitor which has limited HDMI 1.3 capability, so
-I invented my own Xorg mode to get a good frame rate:
+The context descriptor is now handled like the data descriptors are:
+tx_q->cur_tx is not advanced while it is being filled. Whether the frame
+can be queued is only known after every dma_map_single() and
+skb_frag_dma_map() has succeeded, so the descriptor stays at the slot
+tx_q->cur_tx points to and the index moves past it later, together with
+the data descriptors. That also keeps the context descriptor outside the
+range stmmac_tx_clean() walks when the ring is cleaned after a failure,
+so the error paths have to release it explicitly.
 
-"2560x1440_40.22"  162.00  2560 2608 2640 2720  1440 1443 1448 1481 +hsync -vsync
+Fixes: f748be531d70 ("stmmac: support new GMAC4")
+Cc: stable@vger.kernel.org
+Signed-off-by: Linkui Xiao <xiaolinkui@kylinos.cn>
+---
+Changes in v2:
+- Do not advance tx_q->cur_tx while the context descriptor is filled, as
+  for the data descriptors, and release the context descriptor on the
+  error paths instead of leaving it to stmmac_tx_clean(). (Lorenzo Bianconi)
 
-With this mode and your new driver, I started getting rows of black pixels
-flickering in the upper-left corner of my LCD screen. These weren't there back
-when I was running the same mode under the Keith Zhao driver from StarFive
-(drm/verisilicon v5 plus a bunch of patches for dma cache coherency)
-(https://patchwork.kernel.org/project/dri-devel/cover/20241120061848.196754-1-keith.zhao@starfivetech.com/).
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
 
-The glitches I saw suggested the sync polarity was being set incorrectly; the
-number of glitched rows was exactly the vsync pulse width plus 1 (i.e.
-"1440 1443 1448 1481" produced 6 bad rows, "1440 1443 1456 1481" produced 14,
-"1440 1441 1442 1481" produced 2, and so forth).
-
-I did a register dump between the two drivers and found that, although the
-DC8200 HSYNC and VSYNC registers were identical between the two versions, the
-hsync and vsync bits on the inno hdmi tx were swapped between the two. When I
-manually set the VIDEO_TIMING_CTL register from 0x09 to 0x05 (matching the
-output of Keith's driver), the glitches went away.
-
-Keith Zhao driver:
-
-=== DC8200 display 0 ===
-DC   PANEL_CONFIG               0x1418 = 0x00001111
-DC   HSIZE                      0x1430 = 0x0AA00A00
-DC   HSYNC                      0x1438 = 0x45280A30
-DC   VSIZE                      0x1440 = 0x05C905A0
-DC   VSYNC                      0x1448 = 0xC2D405A3
-DC   DPI_CONFIG                 0x14B8 = 0x00000005
-DC   FB_CONFIG                  0x1518 = 0x14000000
-DC   FB_ADDRESS                 0x1400 = 0x71200000
-DC   FB_STRIDE                  0x1408 = 0x00002800
-DC   FB_SIZE                    0x1810 = 0x02D00A00
-DC   FB_CONFIG_EX               0x1CC0 = 0x00002000
-DC   PANEL_START                0x1CCC = 0x00000001
-DC   DP_CONFIG                  0x1CD0 = 0x0000000A
-DC   FB_WATER_MARK              0x1CE8 = 0x00000000
-DC   PANEL_CONFIG_EX            0x2518 = 0x00000000
-
-=== INNO HDMI TX video timing ===
-HDMI VIDEO_TIMING_CTL           0x08   = 0x05
-HDMI EXT_HTOTAL_L               0x09   = 0xA0
-HDMI EXT_HTOTAL_H               0x0A   = 0x0A
-HDMI EXT_HBLANK_L               0x0B   = 0xA0
-HDMI EXT_HBLANK_H               0x0C   = 0x00
-HDMI EXT_HDELAY_L               0x0D   = 0x70
-HDMI EXT_HDELAY_H               0x0E   = 0x00
-HDMI EXT_HDURATION_L            0x0F   = 0x20
-HDMI EXT_HDURATION_H            0x10   = 0x00
-HDMI EXT_VTOTAL_L               0x11   = 0xC9
-HDMI EXT_VTOTAL_H               0x12   = 0x05
-HDMI EXT_VBLANK                 0x13   = 0x29
-HDMI EXT_VDELAY                 0x14   = 0x26
-HDMI EXT_VDURATION              0x15   = 0x05
-
-Your driver (showing only the changed values):
-
-DC   DP_CONFIG                  0x1CD0 = 0x00000000
-DC   PANEL_CONFIG_EX            0x2518 = 0x00000001
-HDMI VIDEO_TIMING_CTL           0x08   = 0x09
-
-Specifically the bit#s are different between the two drivers:
-
-inno_hdmi-starfive.h (Keith Zhao):     inno-hdmi.c (generic):
-   v_HSYNC_POLARITY_SF(n)  ((n) << 2)     v_HSYNC_POLARITY  bit 3
-   v_VSYNC_POLARITY_SF(n)  ((n) << 3)     v_VSYNC_POLARITY  bit 2
-
-"_SF" suggests this change is specific to StarFive. The correct positions are
-HSYNC=bit 2 and VSYNC=bit 3 for the JH7110.
-
-I'm guessing that your 42-mode test passed because most CEA modes are +hsync
-+vsync, and this wouldn't show any difference if the two bits were transposed.
-
-Once the sync polarity is sorted, I'd be happy to give a Tested-by: on the
-series.
-
-  --
-
-Issue 2: This is more a feature request than an issue. Originally, I tried
-running this Xorg modeline, which worked well under Keith's driver:
-
-"2560x1440_49.90"  201.00  2560 2608 2640 2720  1440 1443 1448 1481 +hsync -vsync
-
-However, your driver would not accept this pixel clock. I then noticed you have
-a pre-PLL table of fixed clocks. Is there any chance you can change the code to
-compute the pre-PLL on the fly like how Keith does it, rather than use a table?
-
-Thanks for all your great work!
-
-Best regards,
-  -Byron
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index af2d38a2bb3d..e2e680dd980c 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -4563,10 +4563,6 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
+ 			mss_desc = &tx_q->dma_tx[tx_q->cur_tx];
+ 
+ 		stmmac_set_mss(priv, mss_desc, mss);
+-		tx_q->mss = mss;
+-		tx_q->cur_tx = STMMAC_NEXT_ENTRY(tx_q->cur_tx,
+-						priv->dma_conf.dma_tx_size);
+-		WARN_ON(tx_q->tx_skbuff[tx_q->cur_tx]);
+ 	}
+ 
+ 	if (netif_msg_tx_queued(priv)) {
+@@ -4577,6 +4573,9 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
+ 	}
+ 
+ 	first_entry = tx_q->cur_tx;
++	if (mss_desc)
++		first_entry = STMMAC_NEXT_ENTRY(first_entry,
++						priv->dma_conf.dma_tx_size);
+ 	entry = first_entry;
+ 
+ 	WARN_ON(tx_q->tx_skbuff[entry]);
+@@ -4714,6 +4713,7 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
+ 		 */
+ 		dma_wmb();
+ 		stmmac_set_tx_owner(priv, mss_desc);
++		tx_q->mss = mss;
+ 	}
+ 
+ 	if (netif_msg_pktdata(priv)) {
+@@ -4745,6 +4745,9 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
+ 						priv->dma_conf.dma_tx_size);
+ 	}
+ error:
++	if (mss_desc)
++		stmmac_release_tx_desc(priv, mss_desc, priv->descriptor_mode);
++
+ 	dev_err(priv->device, "Tx dma map failed\n");
+ 	dev_kfree_skb(skb);
+ 	priv->xstats.tx_dropped++;
+-- 
+2.25.1
 
 
