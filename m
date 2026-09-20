@@ -4,80 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9476DC982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 10:51:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFAD8C982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 11:04:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WBhLPgrlGgFAfYUVRbZshd/sQEaG2cdzCoRPJ5AG9Bs=; b=tKtVCSrRjO5TUQkgKejRf3dukK
-	u5PwhETRc+1D4fy7lSYIpy1rj5ZJq9Dp+DnE5stv3rW/lvm5ltqK+LpL9jMYO1GnQj7PLpd/iSDLJ
-	JxPhTEvU5kbTlUCitXrvXLSTjnRd6ZVijuoolmPmmI2BjyMdSDdW+JO3gOlxjkGq4QceJ2iQtkkJR
-	xiCB9VFZYuc58QqCnd5DVQTX9E12pDIHJ3ECrFYyr/bSwZsFgWsvnBUtcRqPZQTCFDuXVEZ0MEUVX
-	HubtuRDVSMuXXqWsUd4mAM3TEj3zLUZRlla8DbIZkLtVG7YlbERO/2JnT3hcnzjL3e/vcw2s6exJl
-	ua7s6u1Q==;
+	bh=u8l6bCKfnpTk8lTywgNZZDMe6ju/mRjx+c2z09OSzvU=; b=BiI6CTyKZMaTbJWmMiQK67ZrHQ
+	CzvWXhj9bLNQ1yVJSktjBftDkp/NTlZFAM/1Yft8SWmyx7v1V/D+I6PuosW3pxhWaTS5DrKqpQMIc
+	hROC6KOy41BEml9Q+k4wCwfEB34HDkqFxYKGiEp1ijHNlohcLu2oKiCbLqvMCWwg7eQWN/llZpF5q
+	QwWKHlPX3AQUakJlU0PrdVS5Bv2YGgkbHLPRIugEB7/yU5nDeQeI8EkNvNMPA/3UGd2Ekbsw709dj
+	XjSynIQyxxg5lHj9xb20xCdV1mKG7JNsFLZy1ePTljYygbLogtGVYIsLYP7kRobt9Fc0hpnY7HOfV
+	G1cyEYKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8F8W-0000000HIAD-15U3;
-	Sun, 20 Sep 2026 10:51:08 +0000
-Received: from ms-2006j-snip6-1.eps.apple.com ([2a01:b747:3002:206::5e] helo=outbound.ms.icloud.com)
+	id 1x8FLS-0000000HJ0r-3RDH;
+	Sun, 20 Sep 2026 11:04:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8F8T-0000000HI9d-3e18
+	id 1x8FLR-0000000HJ0k-11yW
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 10:51:07 +0000
-Received: from outbound.ms.icloud.com (unknown [127.0.0.2])
-	by p00-icloudmta-asmtp-us-west-3a-20-percent-0 (Postfix) with ESMTPS id 7DD80180010D;
-	Sun, 20 Sep 2026 10:50:59 +0000 (UTC)
-X-ICL-RepId: 01a0be70-cfe5-743c-a40f-0bfcbd3f9845
-X-ICL-Out-Info: HUtFAUMEWwJACUgATUQeDx5WFlZNRAJCTQFMHV8EUxxCDFYAXRcOVk1KF1UYREVRMFAbXwJCDxwTVhUTC1NWWxNVF0YJGQhdHRkKUFAGXRIYXBRcUFgeRhJWDV0JGQZBXlAbXwJCDxwTVhUTHUMZDysISgRDB0UCXgslEwlTVlsTVRdGCRkIXR0ZFVoJCldTARROWgdUJ3whCSdJXHxech0KRhMZThtXTVAbXwJCDw==
-Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=icloud.com; s=1a1hai; t=1789901463; x=1792493463; bh=WBhLPgrlGgFAfYUVRbZshd/sQEaG2cdzCoRPJ5AG9Bs=; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type:x-icloud-hme; b=yLmHyOIMBXapUE8pdFmj9skk9bN+eIqJWIPjk5wyB8bYY9ZAcKaBKTuUL1x03dYWOr4TruMjAH3tSLFiFsWi5NDf30P9yVP9nQ5YNrOu1UUCIx1fcnnK9/pHSlw8vdDo4OqroY4uhnsXR85rqSyeb/NxjLduSqt71A2nnNcngDAhyq+wb7ES6IEo7hnlBfQa7xtPShLuPIQcvGUvy3xsDD42H8b+KaRSj+EgWXMm5DrcV5KLYpweLEXxQLB+q3GmKWyXw4mm+KDkR58sWKvNxBPrnSBdtP5ATBMihNNIGssxxDXeEsTWRLqOV9Igr/vRFWG9To15Z+BLkbYzd0HI8Q==
-Received: from m3 (unknown [17.156.208.39])
-	by p00-icloudmta-asmtp-us-west-3a-20-percent-0 (Postfix) with ESMTPSA id CC0AF1800105;
-	Sun, 20 Sep 2026 10:50:53 +0000 (UTC)
-Date: Sun, 20 Sep 2026 12:50:50 +0200
-From: Sofus Forstreuter <sofus.c@icloud.com>
-To: Andy Yan <andyshrk@163.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 02/14] dt-bindings: media: add apple,avd
-Message-ID: <aq-6ijcLNQ0_z1K5@m3>
-References: <20260918-avd-v1-0-49977931f455@icloud.com>
- <20260918-avd-v1-2-49977931f455@icloud.com>
- <490c0413.5a83.1a0bdde450c.Coremail.andyshrk@163.com>
+	Sun, 20 Sep 2026 11:04:29 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4197B40BF0;
+	Sun, 20 Sep 2026 11:04:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 295A61F000FF;
+	Sun, 20 Sep 2026 11:04:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789902268;
+	bh=u8l6bCKfnpTk8lTywgNZZDMe6ju/mRjx+c2z09OSzvU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=hOPNlNEiYAZUe79Q9Liu85a8BGIIS8E0OfeJbsnGVr30TOXlPYqwXnomyBNvhhoUa
+	 9u0xBttz1oe0wjaRhXXEd7VambHGaZcJiTWBZz1Zq71mW2VSBmy+mPyrwzeCibWhTF
+	 5/oPtyVPci0x4N4DSD4+IEIEjVtd9wijm2klNEyaPT6qmnOGmQ0FnrzXaxu9cjnzGc
+	 oZzdx5102V3sLiVIMQXEa6dIDJ/vOizWCF6igUmJZPPs+Vh/2QPI0ekWWU1x7gMsKZ
+	 ZJqbPzTVzGkA44MbVy8lQRlD38p7h46RWQMj9/jqp0DZEl3CJq69Uu3kSrEVICvwxM
+	 mCIpXa2QfEPmQ==
+Date: Sun, 20 Sep 2026 13:04:22 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Francesco Dolcini <francesco@dolcini.it>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>, 
+	Antoine Gouby <antoine.gouby@toradex.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	Francesco Dolcini <francesco.dolcini@toradex.com>
+Subject: Re: [PATCH v2 1/2] dt-bindings: arm: fsl: Add Toradex OSM iMX95
+Message-ID: <20260920-accurate-hallowed-aardwolf-ed281f@quoll>
+References: <20260917102011.69071-1-francesco@dolcini.it>
+ <20260917102011.69071-2-francesco@dolcini.it>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <490c0413.5a83.1a0bdde450c.Coremail.andyshrk@163.com>
-X-Proofpoint-GUID: TUTuRvhIyPU2YPOdSF7_ItX2FwVbVyXC
-X-Proofpoint-ORIG-GUID: TUTuRvhIyPU2YPOdSF7_ItX2FwVbVyXC
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIwMDE1NyBTYWx0ZWRfXxID0Ug9pFl2x
- Gt2DeK68aaq7XpmlYV2+WNUtQB8P5O5RNnIMRmLz0+j+Qnrcwt69Ih8cYGPBwBPHwzmZAPA+tMP
- iIDuJp90DvmavgoeZq6zTq6OB8Rdq/UaBUa1mrCybaXAK74bXCTg3+YQYqaVdQA2VT7HEWqIGfH
- oihwb0jXk+C+y41V0mSxZboLLBKOP62zrBLU1CxCO7/2EVqof8gQZRET3n396Mxr3I4ELmMiscx
- S48DXCkysUvpTbPRvc8QUlnkSGq7c+KD85p6eUQ2UwZFJcLfierddp3MjgjTSbUO2kdG10is8ML
- xF2lh27FPAsAQpEy40GHii5ZeAXH3nNZGzkM2DzLjqxR7BwseWOSOL4iobHsPk=
-X-Authority-Info-Out: v=2.4 cv=ZMLaWH7b c=1 sm=1 tr=0 ts=6aafba94
- cx=c_apl:c_pps:t_out a=kRaGL2Q7qLiahLf3O6OaIA==:117
- a=kRaGL2Q7qLiahLf3O6OaIA==:17 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
- a=x7bEGLp0ZPQA:10 a=kLM9Tyy99jAA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=gEfo2CItAAAA:8 a=v3ZZPjhaAAAA:8 a=WH1DJqfT7gfZrbUwWXkA:9 a=3ZKOabzyN94A:10
- a=QEXdDO2ut3YA:10 a=sptkURWiP4Gy88Gu7hUp:22
-X-JNJ: AAAAAAABK/4gmxiVowMzIMHXMSy26Rhac+DXdQy6vWvpsOjoMG5ChvcQxkIW75BW4NzgkT4ijfeodeZKHGA+3zfDWuXSWEkgKCZu3+5UEWxxFk3ACHig4MA4J3omOEPweTH3l3ZAnI27iiLAHGS+Zng8MN0ADe+jGtlSAx14k4wo9TvXgPpJmxGwfgcuO0xIfuLLy5iLo94wE1XLoN+vcNXbEAcllKLmxa4Kg2KajS3uJk0IRX+zaM3xJcXBExMVf4icWnA3rJkq91iRpu8E7oQ6z2smV4Xz5gyTGJ7DmNmt+C5mhyxDxfRZs3v9Phu7ipaByTKUX7ep7AnKy/ckFbDg5VX0g3DF9G2VSA7VRCbP6tXTGXgJcPXsAfOudSvj8FCAGL4fGHVtl6k8oBNOObSFi2O36jt9DSic0u84BoGCpWjpvo1n4X6BirBuaN/hzfnsq0w8sMOlSl08PpyAxmiEFtBdbIIzZp5xaVtTlStYNVQnYd+CthVRJdKXZRXr+xuwoMEXcHXLhNdeJGRjC5q1XMHlzrGxM/KeAyVjMB5J8y8I9awlYZV/3JCzjiurBnE530nKnqawJzSWTTJaX/gYX31lx2OX93jXd4ourmN9OfHQqsmgkMLBHIFMoF/45PqMSsM5z5JoBNZKIx1nn9t/IjayMiLI66zLBSVPV5PgdHYT/FaUKpuUrF1/QR0bX37m4x5nRazEAc/skztzF+2+Bnx8JehNQFvcrgcbE70773p+FWv7WIbuX4x/7q04tcBGuHhxlzvV6Qo1C423W5OzVtxOkCWKE7XVmyjd9T0bYo0Wc1H1LOfaG8hvNHwDifxUlDj95Dc3W8yQU9DAPKymZnhB2AQDEFqZkQAEGa0vzpxf2USs/SLhcVQ+8gebzq1u6eZkrgUr7ftbUeUcYIQc3xIAGEP8KrDG8sNnRCgaoZgeVJ3YA5yCalm0SzQKpnyK+vodFriVnwsMmGPdycVe/Znuhtg
- 4Sp0WO1J5Nzme1e1NJLyK151VFr3ye+54PDXRNOXrTXX7ECwAD3zhOWIsZnf2fkGAyhC02lHz4W2ZO/BN56OEc0S6uhjnY0ak7Q1twCzliz6ql+8OePQezAqZRzLbu9dpRlFRvKfe0I5iMmvZRN6I+02GmT3NY3WyoNtsYS/NZMwFRIvMJpNhK4XRdC3z68OISgtx3b6rErWteg8x01oYew9drjl9f0WYk873qZfA0pLqX7w+ilfLZmvWESjur5U7xW6YsDNJJoBgKq7/r0TqX843zo3uSasjrX7ZBpO4eurUNLbw3Sq93EML9c+Is7CSzdRN98C7r4SZ1oniUytxqyKj2bMsdAh0HLTAX8dsMPGpKENnyHo2jtlia3CkJ4PUcsGWlJRNdqhU/V4UyxoKWJzmXx/7s3e9ILMuaqmZk+G3rio6EgswHQiU4w2JdJDqzw+PxsVEMvYjfXwGc6KmHA0THVN7nJXUTA==
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_035105_964572_976223A9 
-X-CRM114-Status: GOOD (  12.05  )
+In-Reply-To: <20260917102011.69071-2-francesco@dolcini.it>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,43 +74,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andy,
+On Thu, Sep 17, 2026 at 12:20:08PM +0200, Francesco Dolcini wrote:
+> From: Antoine Gouby <antoine.gouby@toradex.com>
+> 
+> Add Toradex OSM iMX95 SoM and the Toradex OSM development carrier board
+> it can be combined with.
+> 
+> The Toradex OSM iMX95 is a SoM compliant with the OSM V1.2 specification
+> from SGET using the NXP i.MX95 SoC and is available in Size L (45x45 mm).
+> 
+> Link: https://www.toradex.com/computer-on-modules/osm-arm-family/nxp-imx95
+> Signed-off-by: Antoine Gouby <antoine.gouby@toradex.com>
+> Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+> ---
+>  Documentation/devicetree/bindings/arm/fsl.yaml | 6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+> index 36e28e0e4ad9..9413c3e225ea 100644
+> --- a/Documentation/devicetree/bindings/arm/fsl.yaml
+> +++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+> @@ -1578,6 +1578,12 @@ properties:
+>            - const: toradex,aquila-imx95     # Aquila iMX95 Module
+>            - const: fsl,imx95
 
-On Sun, Sep 20, 2026 at 04:10:55PM +0800, Andy Yan wrote:
-> 
-> Hello，
-> 
-> At 2026-09-18 21:15:07, "Sofus Forstreuter" <sofus.c@icloud.com> wrote:
-> >Document the Apple Video Decoder. A hardware video decoder present on
-> >Apple hardware.
-> >
-> >Signed-off-by: Sofus Forstreuter <sofus.c@icloud.com>
-> >---
-> > .../devicetree/bindings/media/apple,avd.yaml       | 112 +++++++++++++++++++++
-> > MAINTAINERS                                        |   1 +
-> > 2 files changed, 113 insertions(+)
-> >
-> >diff --git a/Documentation/devicetree/bindings/media/apple,avd.yaml b/Documentation/devicetree/bindings/media/apple,avd.yaml
-> >new file mode 100644
-> >index 000000000000..34a4129d6a46
-> >--- /dev/null
-> >+++ b/Documentation/devicetree/bindings/media/apple,avd.yaml
-> >@@ -0,0 +1,112 @@
-> >+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> >+%YAML 1.2
-> >+---
-> >+$id: http://devicetree.org/schemas/media/apple,avd.yaml#
-> >+$schema: http://devicetree.org/meta-schemas/core.yaml#
-> >+
-> >+title: Apple Video Decoder (AVD)
-> >+
-> >+description: |
-> >+  AVD is a stateless video decode IP block present on Apple devices.
-> >+  Notably it includes an ARM Cortex-M3 and associated DMA controller.
-> >+  AVD is capable of decoding H264, H265, VP9 and AV1 on never SoCs.
-> 
-> Typo： s/never/Newer？
-> 
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Yes, thanks!
+Best regards,
+Krzysztof
+
 
