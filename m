@@ -4,60 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E38B3C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 15:27:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0492C982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 15:27:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ut//lMwTriMAYf9w4xmPFAJA6+5kyvCrTmMDCjDn4ko=; b=FhXTz7o3miNOl0S0YimGonVE6U
-	IxleIla2Myd9bdmPkzfFXoQH57sdmoEWpD/YvV3NGPxWn7XyUwtINRDEEmAxOvWb/bXksqCuI0KTk
-	1WOl+0ASUlHO+IwSbAZi8Zu7+xDIZaMJJPAOOwWC2QoLvCA9U6XKyYunn4yIQXDOpPYfz79Jdpz0D
-	2TWgWXjJ2TTVKS6ZmHlkaE8fLIx2JOcXUsk98V5O6wf4y8X6DJutYliqBVsu6nBJ8QNNN7QH0n4yo
-	GaZ/P/Et0k6iSugjBxqO0K0LSJx7dRk21sSCVE9GUU8Rkm24ScIMkUgx0T3Wz8EMCCJRzCVQwTC1f
-	1DV0BaIA==;
+	bh=dEzUbzYhFZ16k/3T4a6uNhyjHOzj89g3KV+ZRoM6m70=; b=0PO0lLMLB4tXSracAOCxIKm7dv
+	6dZDbh9uOuezRbsEENHdt972dqYaxZnCBYZnxz5vYv8+kL22/85SB44kWa0k91a6q5MbUYHasG3ub
+	K9+fEDgs0cNK8D40M0rTGRpcx/FTXo/KtpQsgtCtKzjMpyHWkJhZC1sBtI6hunnzJos0ewyIfcTq3
+	QLHlt54Vl0bIF7FsWgJR8YuplXjfd8o5o8OGm/Wb05Wp+EUZMlFBGnsfsLuKVndoYmal0uPTQ7sST
+	X5VemPdb3cb9bFKd0fxaVGAcOFObmnXgJ6Dz7CVwLxdXtlpXYX0u29Jzy7XKacHX1f0YNEylAcdKj
+	/VEvnZhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8JRp-000000003gG-2mOS;
-	Sun, 20 Sep 2026 15:27:21 +0000
+	id 1x8JS9-000000003k6-3Ceh;
+	Sun, 20 Sep 2026 15:27:41 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8JRo-000000003g6-3cnz
+	id 1x8JS9-000000003jw-0qYV
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 15:27:20 +0000
+	Sun, 20 Sep 2026 15:27:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A9670601F0;
-	Sun, 20 Sep 2026 15:27:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C55341F00893;
-	Sun, 20 Sep 2026 15:27:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A3372601DB;
+	Sun, 20 Sep 2026 15:27:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A66C1F000FF;
+	Sun, 20 Sep 2026 15:27:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789918038;
-	bh=Ut//lMwTriMAYf9w4xmPFAJA6+5kyvCrTmMDCjDn4ko=;
+	s=k20260515; t=1789918060;
+	bh=dEzUbzYhFZ16k/3T4a6uNhyjHOzj89g3KV+ZRoM6m70=;
 	h=Date:From:Subject:To:Cc:References:In-Reply-To;
-	b=VAMoS9a6VTHRnQ/NqAgkdvZPK/DdI1UW9jJGXBAfmeWQM1PF9FX2dInLX+WZQYYIs
-	 EeKWi/b8n2P7ABsQRdqdIfC/FeegoooCcmwdLz94OmY1PA2Z/I4oQJYAnLNFrHsyat
-	 FkUi3OJub4OdH3a0U454I1fod2Kds0nJCaq9h5fyqIVQvXJV+/mP8bGhfDghxcouuB
-	 ouKUSgA/IU6uOIunQlrHmbmDHTWIRSPdZu7/Jw7m04d7O0ABuPHDAQvvfkr4/EclKI
-	 JarX3czhysPsHenKyJqmvSh0Ddo2Dj3+mkGPrJMCr6YDx88hgCTymnIS/ammh7XCxM
-	 Zegp02R6pOnIg==
-Message-ID: <8437f878-7ee4-4e5c-9982-1b7d41a014fb@kernel.org>
-Date: Sun, 20 Sep 2026 17:27:14 +0200
+	b=apo6sN0qlenoqyFpGJ5YFqU/n57TpSiXvwPfIoEUVkf0szQ72VasAvgbpaGaVBfme
+	 WJn00m0k/Dsqa834P39Z3/A1I/1lrF6JLlTlpoKUvTx5ahoeL2iFNhRF0uFi0oXwBe
+	 0bNgpss9xagOG51V4Mtmik6WRH9w4tTaAugaAKRMy8HbPB65z921KSRrZugiNPGpR6
+	 /xX4ynvb6zQNOMJFqBjmbwMLLSpKlO+CSJVCFmMplKGj7h1AtaQf4x52CtPm9rkLrJ
+	 i9rZRSxvdg+ApK8LxjBzUxWoYcU5zrko0hLhR6s6ZArLVeLwI6VLMREsxnuPT6+atk
+	 jNtVzZvcD6llA==
+Message-ID: <987486e3-9aed-4415-a372-0a8a05bba70f@kernel.org>
+Date: Sun, 20 Sep 2026 17:27:33 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: Krzysztof Kozlowski <krzk@kernel.org>
-Subject: Re: [PATCH 1/2] dt-bindings: arm: fsl: add Amazon Kindle 4 (Yoshi)
-To: Andrii Salivon <andrijsalivon@plajta.eu>, Rob Herring <robh@kernel.org>,
+Subject: Re: [PATCH v4 4/4] arm64: defconfig: enable Tensor G5 SoC family
+To: Peter Griffin <peter.griffin@linaro.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Frank Li <Frank.Li@nxp.com>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260920135314.3191171-1-andrijsalivon@plajta.eu>
- <20260920135314.3191171-2-andrijsalivon@plajta.eu>
+ <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
+ <andre.draszik@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Arnd Bergmann <arnd@arndb.de>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Linus Walleij <linusw@kernel.org>, Drew Fustini <fustini@kernel.org>,
+ Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
+ "Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ soc@lists.linux.dev, Douglas Anderson <dianders@chromium.org>,
+ Juan Yescas <jyescas@google.com>, RD Babiera <rdbabiera@google.com>,
+ Brian Norris <briannorris@google.com>,
+ William McVicker <willmcvicker@google.com>, kernel-team@android.com,
+ linux-serial@vger.kernel.org, Brian Norris <briannorris@chromium.org>
+References: <20260918-contrib-pg-pixel10-initial-dts-v4-0-745eaca28b1a@linaro.org>
+ <20260918-contrib-pg-pixel10-initial-dts-v4-4-745eaca28b1a@linaro.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -102,7 +113,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260920135314.3191171-2-andrijsalivon@plajta.eu>
+In-Reply-To: <20260918-contrib-pg-pixel10-initial-dts-v4-4-745eaca28b1a@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -119,26 +130,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/09/2026 15:53, Andrii Salivon wrote:
-> Add the amazon,yoshi compatible string for the Amazon Kindle 4
-> non-touch e-reader to the i.MX50 board list.
+On 18/09/2026 21:05, Peter Griffin wrote:
+> Enable the Google Tensor G5 (Laguna) SoC family in the arm64
+> defconfig. This SoC family is found in Pixel 10 and later phones.
 > 
-> Signed-off-by: Andrii Salivon <andrijsalivon@plajta.eu>
+> Reviewed-by: Douglas Anderson <dianders@chromium.org>
+> Reviewed-by: Brian Norris <briannorris@chromium.org>
+> Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
 > ---
->  Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
+>  arch/arm64/configs/defconfig | 1 +
 >  1 file changed, 1 insertion(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
-> index 656f2596e1d5..ec61f45c351c 100644
-> --- a/Documentation/devicetree/bindings/arm/fsl.yaml
-> +++ b/Documentation/devicetree/bindings/arm/fsl.yaml
-> @@ -188,6 +188,7 @@ properties:
->            - enum:
->                - fsl,imx50-evk
->                - kobo,aura
-> +              - amazon,yoshi
 
-Don't break the order.
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 Best regards,
 Krzysztof
