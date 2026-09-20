@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E8EAC982F1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 10:25:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B9C7C982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 10:25:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QMr0HbRDzB6ksvZ6n9KrmZzNM350hOHw0sc123CX7JI=; b=sFbxZTqqkp3yqTT/5lMVeIaInM
-	GFaofu9b8eJdaepHp+qS7Px/qxyFP0Ad4bICiAdBbjV39l4Bs0TzU2kZ8NoqhwMHmqjvvz7CridIo
-	ykJIDRN9rUU9I1mymTcQF87Q/WONHMjcvwx207BrXeS6cTuUzSIsmNx/lfjo+mEu+GP74nRDqBQUo
-	TPlAQlUgc7NvgJc1yUht0QHPQvSQnUk5KpExqXbaweq3Y1m18hD025ApEdYl9/iaTRVfoOEVSH2dX
-	7Hj6fR88NgGb+lFezYQS2HLdOiGx0Vk58cItbjo7WBmLSArM5amTygeGsI9ZRlcA2RoAxzw0VJvls
-	oj8FUi5Q==;
+	bh=FrgCaJC0AqPmNl+B205Shvk9FhEbUr/JGHlx7Hy7OPU=; b=rCuW5++uvOVQ6kHeAKOUtjutxi
+	n5kUBG7JmAAVf1GjQKtvjbB+elgUhdyCqLmPBCJzOhmPSSZTWtRqjjX2J5Z+wAzL3UzEopnOwGLkI
+	UHevfz2ICC/WokjAvTpSngGBKZD2AJ5i9iNAxLGgBhx/AaVh3qcZLRwq5XaOxKEwy6wa6ovrDcaBq
+	l2kp9oXofWbL5Loq5cnBI7FP7Gep+suFdjvnXMBlDDY6kCojfDOlhMwREWD9ATU+PzjgDiPgH0EX0
+	tYWEfWDzrJT5AY1+fiqb9UZ6B+DhublE6unKOith6L4NlBTB213MOTAhzQI2moMwP5W84kQ+fAao2
+	QUogd4Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Ejh-0000000HFkY-0Usk;
+	id 1x8Ejh-0000000HFmx-3WVp;
 	Sun, 20 Sep 2026 10:25:29 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8EjM-0000000HFPB-29I5;
+	id 1x8EjM-0000000HFPF-3Lmh;
 	Sun, 20 Sep 2026 10:25:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A175460AA6;
+	by tor.source.kernel.org (Postfix) with ESMTP id B952160AB1;
 	Sun, 20 Sep 2026 10:25:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 66D80C4AF15;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 540F8C4AF10;
 	Sun, 20 Sep 2026 10:25:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1789899907;
-	bh=7yUvmIDMbzfZAF93qAmLa8Oi5bfk4s5SvGz6m0eGErI=;
+	bh=98JgfFXc+HkTsNRmHI1xyAm0Rm6gE2mGRox86nLGGNU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=X1mMz0CUbvKFxWP0aC3JYkN+k5/UVO7mRy2B09flWVK8uZl2sNFXMJBuE3qCklLXN
-	 ltgm4CYfOOQ2t0SPI4X7Inlfy9+l/WtTOqO+bxXtfKo1h4Yb39q8ulk8d3Yp9Ikzjh
-	 B4gzTtdVpAsFIon/Z3v3nYifUTZfC+WOFsAydSq0J2ZGzeUiMR0WsZmWZapLP1DjnU
-	 bkC+MDpwFc+zyeRIflWpMeJ8TuTOoAdm5Qid9lb+HQYFpUhzP5936UPXesXRgG/aPh
-	 +/GA8tPymbT98h+IjFeu26RxMSxO0jQ39I1SrjwqgfbCnPmfUdtmhpp7mIFRCqGaX7
-	 zElaDQUPJwtlw==
+	b=N+A2fMOzXXQfixAEL7x234/IPdydY/ZMcCMQHoJAOpNVcrSpjflWWDkCuAB0cek0r
+	 2S8dRkNQxoilf5lnmS48Q/rkgBD5SptGtd6ANa8PJFbLqfSDpbM9gIYFfeilB0maAk
+	 vnCoF9fQJjaw9bJs0CWdqtka3ufirOQPZQv6uCKPtV1u+79LjRyYXVsUAKqVuWdLjB
+	 NCuPY6oXCgYFF+P086697M4q135bImyKRVRf/dQ3LP1aXgEf1X9nJ8Psn4qP+MtgRL
+	 S8Yc6VH6wkBzgoiQECjej3c0wQzHhCgx9Gu1JZYt0w7GJN5s2HGX59z3EMK1MB+Skj
+	 nHd+Xq1YUKG9Q==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 53585C982D0;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4248CC982EB;
 	Sun, 20 Sep 2026 10:25:07 +0000 (UTC)
 From: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
-Date: Sun, 20 Sep 2026 18:25:09 +0800
-Subject: [PATCH v2 07/12] arm64: dts: amlogic: a5: Add clk-measure
- controller node
+Date: Sun, 20 Sep 2026 18:25:08 +0800
+Subject: [PATCH v2 06/12] soc: amlogic: clk-measure: Optimize CLK_MSR_ID to
+ reduce memory usage
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260920-more-socs-to-support-clk_measure-v2-7-224382a429e8@amlogic.com>
+Message-Id: <20260920-more-socs-to-support-clk_measure-v2-6-224382a429e8@amlogic.com>
 References: <20260920-more-socs-to-support-clk_measure-v2-0-224382a429e8@amlogic.com>
 In-Reply-To: <20260920-more-socs-to-support-clk_measure-v2-0-224382a429e8@amlogic.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -63,11 +63,11 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Chuan Liu <chuan.liu@amlogic.com>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789899904; l=735;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789899904; l=2725;
  i=chuan.liu@amlogic.com; s=20240902; h=from:subject:message-id;
- bh=m5R5k55AN/MNKbp84EDgUAXLk3E5z1TMK4ptSdMbBlo=;
- b=o3JaiEL+aRnvotUYIh5NHQ4EnpH4qmkpE6JzCCATMhxdOCOaG7hehas2rqKuMAtfPA4g4UuMZ
- PQAEVnxwnclBeLHFj3pU7h7mPupa7IL+eH9R6QsEr5XfdqWGnrWdSp4
+ bh=B0BKe3yD0PFCTHPaReABO4rDltehZzDiFxD06D1+ar8=;
+ b=Dfmx99M+EjWRv1Vt6KsT+PhVSrdrxSXeHUJnW5ysW1l4grqtSbh60xPNISqMosDftZ88o2kFZ
+ IaHADiOJ29IBSQiJVSjOWNDbkD9IPMQdwljQjQ0kcAPqKwotbjfGgwG
 X-Developer-Key: i=chuan.liu@amlogic.com; a=ed25519;
  pk=fnKDB+81SoWGKW2GJNFkKy/ULvsDmJZRGBE7pR5Xcpo=
 X-Endpoint-Received: by B4 Relay for chuan.liu@amlogic.com/20240902 with
@@ -90,27 +90,64 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chuan Liu <chuan.liu@amlogic.com>
 
-Add the clk-measure controller node for A5 SoC family.
+The original CLK_MSR_ID macro uses __id as the designated array index.
+This can waste memory when defining struct meson_msr_id arrays. For
+example:
+
+    static const struct meson_msr_id clk_msr_foo[] = {
+        CLK_MSR_ID(255, NULL),
+    };
+
+Although the array contains only one valid entry, it occupies space for
+256 elements because the designated initializer forces the array size to
+match the highest index.
+
+The driver does not rely on the array index when accessing measurement
+IDs. Instead, the measurement ID is obtained from the id field of struct
+meson_msr_id. Therefore, removing the designated array index from
+CLK_MSR_ID does not affect the current driver behavior while
+significantly reducing unnecessary memory usage.
+
+Compared with before and after modification, the memory size is reduced
+by 24.76%:
+$ scripts/bloat-o-meter pre_meson-clk-measure.o meson-clk-measure.o
+add/remove: 0/0 grow/shrink: 0/15 up/down: 0/-16224 (-16224)
+Function                                     old     new   delta
+clk_msr_sm1                                 3072    3048     -24
+clk_msr_a1                                  1488    1272    -216
+clk_msr_g12a                                2952    2712    -240
+clk_msr_gx                                  1992    1608    -384
+clk_msr_m8                                  1536    1104    -432
+clk_msr_a9                                  6120    5544    -576
+clk_msr_t7                                  5352    4632    -720
+clk_msr_axg                                 2640    1704    -936
+clk_msr_s6                                  5064    3672   -1392
+clk_msr_c3                                  4896    3264   -1632
+clk_msr_s7d                                 4632    2880   -1752
+clk_msr_s4                                  5376    3576   -1800
+clk_msr_a4                                  4488    2544   -1944
+clk_msr_s7                                  4632    2664   -1968
+clk_msr_a5                                  4560    2352   -2208
+Total: Before=65527, After=49303, chg -24.76%
 
 Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
 ---
- arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi | 5 +++++
- 1 file changed, 5 insertions(+)
+ drivers/soc/amlogic/meson-clk-measure.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi
-index 2b12d8284594..0be176ace337 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi
-@@ -157,4 +157,9 @@ gpio_intc: interrupt-controller@4080 {
- 		amlogic,channel-interrupts =
- 			<10 11 12 13 14 15 16 17 18 19 20 21>;
- 	};
-+
-+	clk_msr: clock-measure@48000 {
-+		compatible = "amlogic,a5-clk-measure";
-+		reg = <0x0 0x48000 0x0 0x1c>;
-+	};
+diff --git a/drivers/soc/amlogic/meson-clk-measure.c b/drivers/soc/amlogic/meson-clk-measure.c
+index 50928ac14f86..33767f0bc67c 100644
+--- a/drivers/soc/amlogic/meson-clk-measure.c
++++ b/drivers/soc/amlogic/meson-clk-measure.c
+@@ -55,7 +55,7 @@ struct meson_msr {
  };
+ 
+ #define CLK_MSR_ID(__id, __name) \
+-	[__id] = {.id = __id, .name = __name,}
++	{.id = __id, .name = __name,}
+ 
+ static const struct meson_msr_id clk_msr_m8[] = {
+ 	CLK_MSR_ID(0, "ring_osc_out_ee0"),
 
 -- 
 2.42.0
