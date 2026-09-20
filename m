@@ -4,68 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24C68C982EA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 11:17:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0EFCC982E6
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 11:17:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=usoiOv7ErYKPNHK1cvA55dm/2AALeZxTKYwBjXxX1rY=; b=q4PXVTwiH74aC+K+l9i599dXhy
-	yuHnFxPqQwSebqujm0mm4X7zaQXt1jh6ei9tg6nP+E56rzdMr5F8t0YncI6Moz3h9v96Xy0X1RJtZ
-	Y/L7fOiNVsLdL+d4MNdNz1BplBOASQF2XvKAQ4KZJMkO3h/cogTrSIvsN+VmhW6RoJ5vWh6+ZArJ7
-	uoE4YmGuVjBX1JALorzoS1RVYIgoEZcYe2zeiWHH7xy4fH/mG4H8lGCGs+KA+Y6Q5I9y7alJfLSw+
-	lq46zDAnnWNUzBdAOggIgPCXbRLGqyJkwC+ZpqFu1MX6t60uZPE/2SjCQX9bGHZ3Czuc7990z2uCK
-	8xqWWvlw==;
+	bh=GWp1qZjKZJDBgpGF1xqb2F0C/RBOoHyL11jPLC8n4jE=; b=dVw+Q4m2NOUhqKQgh/9oeb84bv
+	C5GXXeM0gJGh8UNLIn+jKoPrd98pWyGFbx/ug65AXC6ubxbYzgXgQ//apFbB41fII+gj9g+MCdbSs
+	pi+pE8J0TsWoyT8QlYeObIbzL/IEa01XHhWr5eLAdlTf7BXCe0QUk81yJ2wbTcVJ5XYTvacmqzs27
+	WQjIo6UVZKOZBNLAkkw/0zLO4IKR7OtpMidZkqxLnMb1w/IVYgDSJfdpnFrmcN5rUzeaQLsYLUNww
+	Q8W/3bXCE+p1k81JTw0qMHI1bULYTPKglfJI0lqsaM7wunNzQqtjH200ENOCADtJm2VaLFdF3sgPz
+	P4IEA4DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8FY4-0000000HKH5-2F5b;
+	id 1x8FY4-0000000HKFs-0lWi;
 	Sun, 20 Sep 2026 11:17:32 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8FXz-0000000HKAf-1RS5
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sun, 20 Sep 2026 11:17:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=usoiOv7ErYKPNHK1cvA55dm/2AALeZxTKYwBjXxX1rY=; b=In8moWqFoSwigQ6XDytOoV5THR
-	WXkMSs2IkyGatAczoBYZo74gOthBHC8uCv3m1/bLHPkAqEEMOdAn1ZWdX7immmfQl1mSSDo7qLOdY
-	OVkqfgc48HD4Q3x5YSDahAKE6FQHJ49YfaXvgm1O2X/nMojiXGY2KahCG+7nsGaSoXffKO8J6oE7S
-	NFCCQLxPVcSjS3CTwl9TR8rwzx+dCREV+vEX4SBEk97Uh9NXcTbJluj63rTdE/8/HTO0Vpjg4G1aM
-	6Ad0JjW4KCCTxlRO1Fz3J/gq/JgyuyvUT+BeazX8xwBn3qed1R2QZok1H3LnPOWQAcks65i0YK6pJ
-	L6t5SFRg==;
 Received: from www3579.sakura.ne.jp ([49.212.243.89])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x8FXt-0000000BL3K-3y95
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8FXr-0000000HK6B-3WhI
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 11:17:24 +0000
+	Sun, 20 Sep 2026 11:17:23 +0000
 Received: from [192.168.10.153] (p865013-ipoe.ipoe.ocn.ne.jp [153.242.222.12])
 	(authenticated bits=0)
-	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 68KBG36d088236
+	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 68KBG36c088236
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
 	Sun, 20 Sep 2026 20:16:15 +0900 (JST)
 	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
-DKIM-Signature: a=rsa-sha256; bh=usoiOv7ErYKPNHK1cvA55dm/2AALeZxTKYwBjXxX1rY=;
+DKIM-Signature: a=rsa-sha256; bh=GWp1qZjKZJDBgpGF1xqb2F0C/RBOoHyL11jPLC8n4jE=;
         c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
         h=From:Message-Id:To:Subject:Date;
-        s=rs20250326; t=1789902976; v=1;
-        b=b6cMZFFer/JKagXsD2OqzrMes7g+D5SHcCoR+aOVnpx8CAOUVfUP8xcXi7p4CcjS
-         MQwuepvfUPNzF7iHkIywc5V8hGEHYt+kYgaEfoz6BthJhc7G2oAGOCHHEoCiKeuG
-         VzlsLnWFAv47Xi0IxS1NSSgQlkhaAneabs7TgwptDwz0q69FiMoXDpMWXGuwA0OC
-         H8Ni2R7MpkARbUEwAwioTmLo2Zdu1dVF0n5+jJ73OOAhWQ1cqJwuxDCVqdvXbLAs
-         6OxLYX/3G8twW+bzGy1PvZgafI5AZmEx9/7kUA5Kfc8vlZ9EXXJMwAHNJCocknS2
-         /hcTaEme9keEqXx+vbm3yQ==
+        s=rs20250326; t=1789902975; v=1;
+        b=oIHGjcGoZs8L8idyNxvQRy4DBmOkG1C+oz6eKCuD2GT+YGuCFF4A60sdJgGVnQZN
+         PP+AeuXNFbNOW2SG456aYFwD1DRuhuy0y6OokG3I+1drSG7NyvEswH+Cq5Dnx4rC
+         KoQi36jDonppgWwNMOdUNvbnvgkKm9sP1FzsJrVh7vVSzAoCMpFGMsCGMZImXL9b
+         JPKvgdqLr5EaoZ0vDw9n+qrmHerbWxhi7ZAUIp/o9ZpI6y58cUuzFE9ulpMxy6UV
+         tnp8ft2FIep8yluOYwFc8ZypmFrSmYdC8PDYYpZ5FpzomBvVx4+x2mnkSsCIZDjR
+         69pOg41qFlH74QY+iV8iqQ==
 From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Date: Sun, 20 Sep 2026 20:15:57 +0900
-Subject: [PATCH v11 16/21] KVM: arm64: PMU: Protect the list of PMUs with
- RCU
+Date: Sun, 20 Sep 2026 20:15:56 +0900
+Subject: [PATCH v11 15/21] KVM: arm64: Don't clear vcpu->cpu in
+ kvm_arch_vcpu_put()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260920-hybrid-v11-16-03618771b0e1@rsg.ci.i.u-tokyo.ac.jp>
+Message-Id: <20260920-hybrid-v11-15-03618771b0e1@rsg.ci.i.u-tokyo.ac.jp>
 References: <20260920-hybrid-v11-0-03618771b0e1@rsg.ci.i.u-tokyo.ac.jp>
 In-Reply-To: <20260920-hybrid-v11-0-03618771b0e1@rsg.ci.i.u-tokyo.ac.jp>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
@@ -92,18 +77,18 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
         linux-kselftest@vger.kernel.org,
         Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2743;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2532;
  i=odaki@rsg.ci.i.u-tokyo.ac.jp; h=from:subject:message-id;
- bh=qU8my+fu/3h0TRdwxXVNmhO46L1Vz0X7hgje4jBeoj4=;
- b=owGbwMvMwCWmMbc20y1CyJDxtFoSQ9b6A/myusF1M84lx17jfJO1YVO9+xKBDLGeRtmmV9NsC
- gQb2j53lLIwiHExyIopsqQU7ebWiK79VJgQ3wIzh5UJZAgDF6cATKTkAiPDItZGR6HnDUGLaj8U
- nDp08slKw1VpNk+O6zAt7DNcfFLMhJHh5ESf7vJt83rqPs2+vsj4ftnDORs/FmcEmk9N/SDWLXO
- WGwA=
+ bh=Wo4YX+JLn2zPeTcpRRl6wn6Y1qLLImnsb8pkey2lNzQ=;
+ b=owGbwMvMwCWmMbc20y1CyJDxtFoSQ9b6A3mKc0N+9P78tqUzc2vVk7nLwm4m1dgWR/9iWT+rK
+ TqmU62go5SFQYyLQVZMkSWlaDe3RnTtp8KE+BaYOaxMIEMYuDgFYCL7DBj+h6Wn3HuesGXSm685
+ Au+T6j1jlD5J3rF6Pefceyb2C7cLzzP8D7198Pr5eFbf2qK0BzZ/Ko4sk/lx4/4EZq/qHsvQo0u
+ VmQA=
 X-Developer-Key: i=odaki@rsg.ci.i.u-tokyo.ac.jp; a=openpgp;
  fpr=AEDC03C9AF734F2EC26A7BFFA4BAEAA73536753C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_121722_707379_13697197 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20260920_041720_111119_16469860 
+X-CRM114-Status: GOOD (  15.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,97 +103,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the list of PMUs to a RCU-protected list that has primitives to
-avoid read-side contention.
+From: Oliver Upton <oupton@kernel.org>
 
-Assisted-by: Codex:gpt-5.5
+commit e9b152cb957c ("arm/arm64: kvm: Set vcpu->cpu to -1 on vcpu_put")
+reset vcpu->cpu in order for the VGIC to determine if there was any vCPU
+running at the time of access. The VGIC has gone through an entire
+rewrite since then, and with commit 7d450e282171 ("KVM: arm/arm64:
+vgic-new: Add userland access to VGIC dist registers") the user
+accessors just grab all vCPU mutexes instead.
+
+Drop this remaining vestige such that kvm_arch_vcpu_load() can properly
+detect a CPU migration. While at it, rework kvm_reset_vcpu() to do a
+much more pedantic check that the provided vCPU is actually what's
+running on the present CPU.
+
+Signed-off-by: Oliver Upton <oupton@kernel.org>
 Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
 Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/kvm/pmu-emul.c | 18 ++++++++++--------
- 1 file changed, 10 insertions(+), 8 deletions(-)
+ arch/arm64/kvm/arm.c   |  1 -
+ arch/arm64/kvm/reset.c | 16 +++++++++++-----
+ 2 files changed, 11 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-index 86a02fd4cfb8..335d712cc9c5 100644
---- a/arch/arm64/kvm/pmu-emul.c
-+++ b/arch/arm64/kvm/pmu-emul.c
-@@ -7,9 +7,9 @@
- #include <linux/cpu.h>
- #include <linux/kvm.h>
- #include <linux/kvm_host.h>
--#include <linux/list.h>
- #include <linux/perf_event.h>
- #include <linux/perf/arm_pmu.h>
-+#include <linux/rculist.h>
- #include <linux/uaccess.h>
- #include <asm/kvm_emulate.h>
- #include <kvm/arm_pmu.h>
-@@ -17,6 +17,10 @@
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 997f24f5fb91..55b07926ce2e 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -767,7 +767,6 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+ 	kvm_arm_vmid_clear_active();
  
- #define PERF_ATTR_CFG1_COUNTER_64BIT	BIT(0)
+ 	vcpu_clear_on_unsupported_cpu(vcpu);
+-	vcpu->cpu = -1;
+ }
  
-+/*
-+ * arm_pmus is append-only. kvm_supports_guest_pmuv3() feeds persistent
-+ * VM state, so a true result must remain valid after the check.
-+ */
- static LIST_HEAD(arm_pmus);
- static DEFINE_MUTEX(arm_pmus_lock);
- 
-@@ -26,7 +30,6 @@ static bool kvm_pmu_counter_is_enabled(struct kvm_pmc *pmc);
- 
- bool kvm_supports_guest_pmuv3(void)
+ static void __kvm_arm_vcpu_power_off(struct kvm_vcpu *vcpu)
+diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
+index adcb460a5287..db794d50fa18 100644
+--- a/arch/arm64/kvm/reset.c
++++ b/arch/arm64/kvm/reset.c
+@@ -178,7 +178,8 @@ static void kvm_vcpu_reset_sve(struct kvm_vcpu *vcpu)
+ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
  {
--	guard(mutex)(&arm_pmus_lock);
- 	return !list_empty(&arm_pmus);
+ 	struct vcpu_reset_state reset_state;
+-	bool loaded;
++	struct kvm_vcpu *running;
++	bool loaded = false;
+ 
+ 	spin_lock(&vcpu->arch.mp_state_lock);
+ 	reset_state = vcpu->arch.reset_state;
+@@ -188,10 +189,16 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
+ 	/* Reset PMU outside of the non-preemptible section */
+ 	kvm_pmu_vcpu_reset(vcpu);
+ 
+-	preempt_disable();
+-	loaded = (vcpu->cpu != -1);
+-	if (loaded)
++	guard(preempt)();
++
++	running = kvm_get_running_vcpu();
++	if (running) {
++		if (KVM_BUG_ON(running != vcpu, vcpu->kvm))
++			return;
++
++		loaded = true;
+ 		kvm_arch_vcpu_put(vcpu);
++	}
+ 
+ 	if (!kvm_arm_vcpu_sve_finalized(vcpu)) {
+ 		if (vcpu_has_feature(vcpu, KVM_ARM_VCPU_SVE))
+@@ -218,7 +225,6 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
+ 
+ 	if (loaded)
+ 		kvm_arch_vcpu_load(vcpu, smp_processor_id());
+-	preempt_enable();
  }
  
-@@ -833,7 +836,7 @@ void kvm_host_pmu_init(struct arm_pmu *pmu)
- 		return;
- 
- 	entry->arm_pmu = pmu;
--	list_add_tail(&entry->entry, &arm_pmus);
-+	list_add_tail_rcu(&entry->entry, &arm_pmus);
- }
- 
- static struct arm_pmu *kvm_pmu_probe_armpmu(void)
-@@ -842,7 +845,7 @@ static struct arm_pmu *kvm_pmu_probe_armpmu(void)
- 	struct arm_pmu *pmu;
- 	int cpu;
- 
--	guard(mutex)(&arm_pmus_lock);
-+	guard(rcu)();
- 
- 	/*
- 	 * It is safe to use a stale cpu to iterate the list of PMUs so long as
-@@ -862,7 +865,7 @@ static struct arm_pmu *kvm_pmu_probe_armpmu(void)
- 	 * carried here.
- 	 */
- 	cpu = raw_smp_processor_id();
--	list_for_each_entry(entry, &arm_pmus, entry) {
-+	list_for_each_entry_rcu(entry, &arm_pmus, entry) {
- 		pmu = entry->arm_pmu;
- 
- 		if (cpumask_test_cpu(cpu, &pmu->supported_cpus))
-@@ -1128,9 +1131,9 @@ static int kvm_arm_pmu_v3_set_pmu(struct kvm_vcpu *vcpu, int pmu_id)
- 	int ret = -ENXIO;
- 
- 	lockdep_assert_held(&kvm->arch.config_lock);
--	mutex_lock(&arm_pmus_lock);
-+	guard(rcu)();
- 
--	list_for_each_entry(entry, &arm_pmus, entry) {
-+	list_for_each_entry_rcu(entry, &arm_pmus, entry) {
- 		arm_pmu = entry->arm_pmu;
- 		if (arm_pmu->pmu.type == pmu_id) {
- 			if (kvm_vm_has_ran_once(kvm) ||
-@@ -1157,7 +1160,6 @@ static int kvm_arm_pmu_v3_set_pmu(struct kvm_vcpu *vcpu, int pmu_id)
- 		}
- 	}
- 
--	mutex_unlock(&arm_pmus_lock);
- 	return ret;
- }
- 
+ u32 kvm_get_pa_bits(struct kvm *kvm)
 
 -- 
 2.55.0
