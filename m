@@ -4,83 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EA21C982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 19:46:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B646C982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 19:51:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gFndLx5Yqc+lsDlrSDVoBXxkYOfQ85XX/QivbJQF5Mw=; b=c2HAK1h3eCem5hCozrDmpkIlF9
-	ZfdRBrlCo42aRpvO6Qfchn9slqBBD3zA8j9/rzmJGYQLrIP8LONiT9GUvj9gLVcRjoqyq2wvCJH0e
-	kRCDefhnEpZC0IzCd8tEEiNnV0N+9RzwPIXV74q4q1lLZB6IIsZNJyiA79tb6mVQxYHPT/2Dhk6LS
-	l4VCFVWPy6d9xxAtV4x3WhWhs0udkXd6ht0q14CkwU+MrjeeOOPFlznDRXT3s3nvDkChQ7NQeiJne
-	BSU8SaOtHrHHv0sC5E3rsLziIiF4+b17KLY0V3OGNkGSF1iZW7JKpFeBzIOdZGW3dJpuHMHN4DDdU
-	abGjxTqg==;
+	bh=z7+d1aoXBtF7Wx/9KwAupq2tjY1ApF1IdNz1vfPutVo=; b=JD7z3SvQZt7GLZJjln+t6oNEZ+
+	onqroefOw2Dq2F/jmKyVEpPM/elXgV4eHpXX2poDuYFhxPdMvxbuhHzNWgxKMnARaGQe6y4PZP6Rd
+	PROxP0+IwlXrE71PoQT3668AUbbLBbh8hg92XEjjgZzdDkv5XFWNvouU+kDjKUWEHhBgXgj4pUeCR
+	EMAbgF60h2+cKpvJCvwKixNNpTctb0mUnh7KlPqMFblh9t1IU+EPcwwTGGnJEO4gTnnwcbH7aHtto
+	Vac1jL5f12VJJJbPlqtWWQcPPmbIv/AwbvRS4yQJ3Onq6cOyWBYRTkhrL84x0Q3PV/TE7kBJitTpz
+	AF5Vo/mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8NUG-00000000Jz2-2seM;
-	Sun, 20 Sep 2026 19:46:08 +0000
-Received: from mail-oa2-x0f.google.com ([2607:f8b0:4864:30::f])
+	id 1x8NZg-00000000Kcz-1OcX;
+	Sun, 20 Sep 2026 19:51:44 +0000
+Received: from mail-oa2-x10.google.com ([2607:f8b0:4864:30::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8NTz-00000000JpZ-1GGs
+	id 1x8NZd-00000000KcM-2oyu
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 19:45:52 +0000
-Received: by mail-oa2-x0f.google.com with SMTP id 586e51a60fabf-470417e5b52so1709356fac.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 12:45:50 -0700 (PDT)
+	Sun, 20 Sep 2026 19:51:42 +0000
+Received: by mail-oa2-x10.google.com with SMTP id 586e51a60fabf-469fdb78b1cso1642089fac.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 12:51:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789933550; x=1790538350; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1789933901; x=1790538701; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=gFndLx5Yqc+lsDlrSDVoBXxkYOfQ85XX/QivbJQF5Mw=;
-        b=j4E2xmlAHIN+9V/pwa+q2zlpO66dnOujtRq+ngdZs0dd0v4DYIk5xA1cYL7WFmxvj+
-         fZ0O1LwSBr8gsEkdGK1w5ZQNBin3AuHEEGkuP/w3teFAwt8iWsH0d4JlZ88yT3epx9cT
-         30F134tZun9PDl6Np9K6hGuWiSYIst2GsYaTqHGPKTiffkfFcfyzvpLD+aGf/jRL6i8i
-         lMV6YD2MizOXO6DQFRU2MaygLw+Nk43fvh9Ty0/ud6DAL98FxACB9OfBRFzqeFGfu/50
-         CJyTMjoMlsgy3rewDnViFS1jDo7irpUt7W+dlhg5Pn2YNoa32M3QxdQaYgW4vC8fNFny
-         hOMQ==
+        bh=z7+d1aoXBtF7Wx/9KwAupq2tjY1ApF1IdNz1vfPutVo=;
+        b=IWXTukIH4VmQAJ8uRqfjqpV16BtC4ktBxHohmiVJt41k2Mn88I3aDPzgY6qedLg4Sq
+         zTgcUb9d8QXb1KxDffTcLYNKdy/If/YFYXcFWYvVCHtktTofnm4bOj1KyRmb2XH9sIOp
+         YwDuvT6lH6NKG2Mmtx3yOhjrAYlmC/23YXkjTzODrFjsAOC3g7d2W/V69fMMlcrC7Xf2
+         kYMoNC9+PPNc+vrqfo9ivtT1iZuk0HE3jCGS0HbnBLyfUyCrsN91g9O/zTI5nld3TRXw
+         6RetVbzPF8nbHEqEqNzlQoj9DepotgHe7QYz3Z9WV+JyQ5B1eSD6HEvQMtiVOsjdj7tP
+         CXZQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789933550; x=1790538350;
+        d=1e100.net; s=20260707; t=1789933901; x=1790538701;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=gFndLx5Yqc+lsDlrSDVoBXxkYOfQ85XX/QivbJQF5Mw=;
-        b=mfOyAVDgYDMZ+CIkRzvvXgE6Cv8CBJgBbxHpb/5t13HHdfQk1szeSvFZwlzC+OM839
-         fk70qt/d1VUkHaOZ1Wy8Gf0XLqWJBnZD/NvF6KwEYwX2g8ukeuNukxPs0xmVQ/62poia
-         L/wk9wjnroG07C84p0ZoYTYfGVlTVKvXJsefSvSXJX1I8PEeLtUkEFoZ/sM5OxFT9nt7
-         TnItIQokMJ/nZlrHMm8QSZGwN52TW1JyM6Vq8SJ/2gO/LCcahBgtcrcGH5w9Mh1C+7ok
-         HjncgDYJGm5cQfQOX+SSgQGQPKmn1Y/rJbmrTMeqjEzyRbd43itOqLD1Hsf7gigCAt4O
-         7JMQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzYFgztwayYuVuBcbuGARE9NIilcE+i8odichoNj0oG6dQRaBxaOyCM+43+wWT4xr0rNDE8Q18i3oVsrWQ+I86S@lists.infradead.org
-X-Gm-Message-State: AFuF++krbefrGiyUWycSllgwkHY00sgQ+bz6GjidLrwNDx5dfJqHKVwZ
-	NpGPuPq1dQYLdScHKVL66e6/QGSghyDIUZ/MeDCVKjZHiTt7ZADi+/s3
-X-Gm-Gg: AYBFou0conLuS+LtX/DdA4sbZmfPJJc7oLuXqhEptiBwZShAKRU1fU77lJqlJSpNZpz
-	cRYW8n05nR26sM4uhzhWPVia1NDCbjVPeiaD1ZyXIjpWMNWlN1bkw9pJXFkD9X52plJqG9SxfZt
-	7iyv2KeP/rXLbGa/2/m6dnD9qnXbOR8xYz7SyYc0Ytld0wXugNH8BJDi72ujB5g1osC9JhCG4Lp
-	8ePKquFuTaDjuv8UbY6qoNXKPo1zacGL4CaUTT8wVgmRDAlrDw10sQ9oQDCeh4XcktmJcimLZXt
-	oZ3QBlpAhAyDLUPrR4dGfD0wo3M6ANX8AuYiq1Qs7Gws7Y0iP7wqXeuG2gx/tybMuhYMmcgmJAq
-	bstiCp+XMzOeFO2MFJ3QRyjds15McB4v61dCcF5We7DcBIBu7LAjKaagl4mnv8myP2jczvPks3i
-	0VhN0Chvdy6B+NzyrxbT0C+TbmAbiZ/7CNLSH1wXXhVOljnZJ6oDnGKl0Me/PeY7K1ocrQu3DpL
-	trhs+JEu3GO+7DK2YdMjGQD30FI5dR/bNxV+i+QTbaHgikqUv7XaVeZUBnCUqvMGW3SCLtQfK0Z
-	fPuUzqSzdeHK5gK9Blu9DW5X8dxf9aQabFkDLDtGT+u6ruCuYcRWU32uvzd5qhYUff3AXtyNEW+
-	jRiVzM9L9u1/OvCgo6iXZ
-X-Received: by 2002:a05:6820:16a6:b0:6bd:af9e:a7f8 with SMTP id 006d021491bc7-6ca9a130336mr7595370eaf.10.1789933550220;
-        Sun, 20 Sep 2026 12:45:50 -0700 (PDT)
+        bh=z7+d1aoXBtF7Wx/9KwAupq2tjY1ApF1IdNz1vfPutVo=;
+        b=M4kh+C6vykVdQmDfnrgtO0df1r25vs1H9EUvgNxRVPa29q5zuhWtzCLF+rjO6LT3Ca
+         mhmU5NN3k0dOY3xXtFoRUcXDrBdwYN/y9BB4LPt/QY3GhVd9Q41fKwvwF+IpyN+7GEQ3
+         clp+SXXAKXgfHb8scWVEpLyZ44NtD3q/hsEetKQljKsdl4V0N9CHcsllDOzM2GAVd9wC
+         Ykf1HUg7zr/5ODJUQpA2jFJkp8obcF/3i3nFu7neblk/1yToMMyDgrxGy0x7lvZXzQRV
+         68nM8UiWWSkGl0cmKiHNDDGrWWRAUD/ucRy7kZS/km05UQl0/nQnMs1npAvjuHb3jqNG
+         bpHA==
+X-Forwarded-Encrypted: i=1; AKwUvBxwX+Dgzm3cZooquGqDW9peO4uFuq6oWVjhmyksmIDtpAABcbLX/0qpU/EtHLR4s17uPOxgEzOZAbHhc2nAf0mO@lists.infradead.org
+X-Gm-Message-State: AFuF++kzdeyUBr4VkaDz7jghfW7s+tZz0zYGRpwqkpwuQNpx15JwFZYZ
+	dV3MJj+Wn5pqIUL8PgGvf3ZeKaELHuHrNSL0oFhSFYYa7YW6sEcreoXpYknTY16o
+X-Gm-Gg: AYBFou0Fv0KsuXTEO3DhM9DghUSydtmvcM1DgddvOJejfv8L76zm+XiOstPqYHdqlP+
+	6nCiOPT7zQwhFaiNd4X48F8BlOHcHe5BXPcILdGXzWhixgbOnomZRyi7TlMCoyNZNa94ZE6RFRe
+	kNVqk/2Jin3VFnUIqkJkI8gkis9DswrqPRXl9FPtkbhSGaLsu8tNB5QpMPZW+JWhrLifuIt0BWi
+	E63M2Zbl3AELb83FYaQNbiuEpf6D6zjmkkj31FS4VA/PH5jwv+CiGwLW4s31dF3ubmW81UbsZ65
+	98gjRlYh0XuDYtvB8EAehR/f+Y4M6+9HtO34qbzrTMTYzguVljXgrE3h4zlpMxZVUaOU1VWvalh
+	65HL8rOM3S5oM/QyUAmoJahaUQHl7yMagTQ8fsSOBLOA3XVuInNMlvGAmeZ72s54znOLDevj+fJ
+	U9ipJmABj3eCI3eTgZ88tfcgp+8LhHekBCHop+ZkJgCqtaPalQngdo4eiyGpFAuBRKVszqpmy4m
+	r7wgWyebE7Z/wNLZgkNQpP/hCmf38pntaInHyeukRVhr8r8W1QtDYralZZhahAlvyIWyRlKUoKg
+	RscYrG9t+AjZAV5hF65hu9GTVFEzl5Sk/krC9MWTB/pmK7N3EfphUk3WQr9DDknXJOhW8m54an5
+	Ai7dcwbxVWidZN7aQUcSJ
+X-Received: by 2002:a05:6820:1c8f:b0:6cd:3ffc:acf6 with SMTP id 006d021491bc7-6cd3ffcb603mr4885791eaf.70.1789933542612;
+        Sun, 20 Sep 2026 12:45:42 -0700 (PDT)
 Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4881f4d7861sm6103834fac.1.2026.09.20.12.45.48
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4881f4d7861sm6103834fac.1.2026.09.20.12.45.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 20 Sep 2026 12:45:49 -0700 (PDT)
+        Sun, 20 Sep 2026 12:45:42 -0700 (PDT)
 From: James Hilliard <james.hilliard1@gmail.com>
-Date: Sun, 20 Sep 2026 13:45:32 -0600
-Subject: [PATCH net-next v4 6/6] net: stmmac: sun8i: add support for
- Allwinner H616 EMAC1
+Date: Sun, 20 Sep 2026 13:45:28 -0600
+Subject: [PATCH net-next v4 2/6] net: stmmac: close the interface after a
+ failed MTU reopen
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260920-submit-h616-emac1-v1-v4-6-8347dfe2eb7d@gmail.com>
+Message-Id: <20260920-submit-h616-emac1-v1-v4-2-8347dfe2eb7d@gmail.com>
 References: <20260920-submit-h616-emac1-v1-v4-0-8347dfe2eb7d@gmail.com>
 In-Reply-To: <20260920-submit-h616-emac1-v1-v4-0-8347dfe2eb7d@gmail.com>
 To: Richard Genoud <richard.genoud@bootlin.com>, 
@@ -105,12 +105,11 @@ Cc: Maxime Ripard <mripard@kernel.org>,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
  linux-stm32@st-md-mailman.stormreply.com, 
- James Hilliard <james.hilliard1@gmail.com>, 
- Andre Przywara <andre.przywara@arm.com>
+ James Hilliard <james.hilliard1@gmail.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_124551_356332_BF3BC27A 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20260920_125141_724353_35113C1F 
+X-CRM114-Status: GOOD (  18.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,67 +124,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The H616 secondary EMAC uses a separate system-control clock register
-and supports only RMII at 10/100 Mbps. It connects internally to the
-co-packaged AC200 or AC300 EPHY and has no external PHY pins.
+An MTU change stops the data path and then reopens it using a newly
+allocated DMA configuration. If reopening fails, the new allocation is
+freed while the netdev remains up and priv->dma_conf retains copies of
+the freed pointers. A subsequent close repeats NAPI disable and IRQ and
+DMA-resource teardown. It can hang in napi_disable() or access resources
+which have already been freed.
 
-Add an EMAC1 variant using the dedicated register and enable only RMII.
-Leave PHY initialization to the PHY driver instead of using the H3
-internal-PHY controls. No RX or TX clock delays are configured for this
-RMII-only variant.
+Track successful opens of the data path separately from the netdev's
+administrative state. Clear that state when releasing the data path and
+skip a second release after a failed reopen. Close the netdev through the
+network core on the MTU error path, so the PHY attachment and runtime-PM
+reference are released and the interface is marked down. A subsequent
+open can then allocate fresh resources and retry normally.
 
-Co-developed-by: Richard Genoud <richard.genoud@bootlin.com>
-Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-Reviewed-by: Alastair D'Silva <alastair@d-silva.org>
-Tested-by: Alastair D'Silva <alastair@d-silva.org>
+Keep successful MTU changes on the existing path, retaining the PHY
+attachment and runtime-PM reference. Allocation failures before stopping
+the original data path still leave the running interface unchanged.
+
+Fixes: 3470079687448 ("net: ethernet: stmicro: stmmac: permit MTU change with interface up")
 Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h      |  2 ++
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 10 ++++++++++
+ 2 files changed, 12 insertions(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-index 9598c386bb21..0ea1860cf203 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-@@ -81,6 +81,13 @@ static const struct reg_field sun8i_syscon_reg_field = {
- 	.msb = 31,
- };
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+index 4fc96b317d79..363872ff00d6 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+@@ -281,6 +281,8 @@ struct stmmac_priv {
+ 	struct mutex lock;
  
-+/* EMAC1 clock register @ 0x34 in the "system control" address range */
-+static const struct reg_field sun8i_syscon_reg_field_emac1 = {
-+	.reg = 0x34,
-+	.lsb = 0,
-+	.msb = 31,
-+};
-+
- /* EMAC clock register @ 0x164 in the CCU address range */
- static const struct reg_field sun8i_ccu_reg_field = {
- 	.reg = 0x164,
-@@ -143,6 +150,13 @@ static const struct emac_variant emac_variant_h6 = {
- 	.tx_delay_max = 7,
- };
+ 	struct stmmac_dma_conf dma_conf;
++	/* Paired __stmmac_open()/__stmmac_release(), serialized by RTNL. */
++	bool opened;
  
-+static const struct emac_variant emac_variant_h616_emac1 = {
-+	.syscon_field = &sun8i_syscon_reg_field_emac1,
-+	/* The co-packaged AC200/AC300 PHY does not use the H3 PHY controls. */
-+	.soc_has_internal_phy = false,
-+	.support_rmii = true,
-+};
+ 	/* Generic channel for NAPI */
+ 	struct stmmac_channel channel[STMMAC_CH_MAX];
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index bf9e7e4cb1c3..89b773370894 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -4212,6 +4212,7 @@ static int __stmmac_open(struct net_device *dev,
+ 	stmmac_enable_all_queues(priv);
+ 	netif_tx_start_all_queues(priv->dev);
+ 	stmmac_enable_all_dma_irq(priv);
++	priv->opened = true;
+ 
+ 	return 0;
+ 
+@@ -4287,6 +4288,11 @@ static void __stmmac_release(struct net_device *dev)
+ 	struct stmmac_priv *priv = netdev_priv(dev);
+ 	u8 chan;
+ 
++	/* A failed MTU reopen has already released the data path. */
++	if (!priv->opened)
++		return;
++	priv->opened = false;
 +
- #define EMAC_BASIC_CTL0 0x00
- #define EMAC_BASIC_CTL1 0x04
- #define EMAC_INT_STA    0x08
-@@ -1277,6 +1291,8 @@ static const struct of_device_id sun8i_dwmac_match[] = {
- 		.data = &emac_variant_a64 },
- 	{ .compatible = "allwinner,sun50i-h6-emac",
- 		.data = &emac_variant_h6 },
-+	{ .compatible = "allwinner,sun50i-h616-emac1",
-+		.data = &emac_variant_h616_emac1 },
- 	{ }
- };
- MODULE_DEVICE_TABLE(of, sun8i_dwmac_match);
+ 	/* Stop and disconnect the PHY */
+ 	phylink_stop(priv->phylink);
+ 
+@@ -6212,6 +6218,10 @@ static int stmmac_change_mtu(struct net_device *dev, int new_mtu)
+ 		if (ret) {
+ 			free_dma_desc_resources(priv, dma_conf);
+ 			kfree(dma_conf);
++			/* Finish closing the PHY and PM state, but do not repeat
++			 * the data-path teardown after the failed reopen.
++			 */
++			netif_close(dev);
+ 			netdev_err(priv->dev, "failed reopening the interface after MTU change\n");
+ 			return ret;
+ 		}
 
 -- 
 2.53.0
