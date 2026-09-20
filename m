@@ -4,139 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ACDCC982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 08:19:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA015C982CC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 08:22:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:From:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tVuBfRM6hSH7bdNrYC43eEuMmYCLe63rDtFa+xag5MI=; b=psBM+ygvnBxAesKQ7mv7AUd8sz
-	UHieHRK+PdGCrRZCZrfu/T1UNtbzjCAbYHXUlSYMcjhsSgjf0kcRjMwppJU3WVNZW4AUA4dQK+X33
-	5zhlxZe950kFX8yaUJdvufTs1bsC4fkKT3bqGjn3bhwXGtipq5wBThq5NILrBDo4pHjto5/9Rk/VR
-	e6Vjz1AffjikYCmYIf8+1oGwlhdPTyEpv2eGDgG37iOk4vDvO8rZV4OC99g0oRz75xOooA/W0/fbN
-	8FCXNEos22hU//ynMgZVTu2L7ACuSm0WTa/DQy9+v1tLVX4ChWLP3Ex9g/rzkF9r5cgcYvOGZ0eDn
-	7yQ8V0kw==;
+	bh=LQiugX6KGIMCU1p+cKlXt5BpMDGezJZkqwRlbpQS7dM=; b=wDBSGEMTVeFI+zeFfLFu3AjB8Z
+	4oUzHRVFQ6LahiVHDPzDqbxETzFwRfOfikm7JOgu96dkl1Zn4HqfeQdIDE2rT79TjgS8HigLL22ob
+	HB1rn///yxouJ9wgvXYJocqYwDe9SRKWU823cVLEimliNBlLlbU0D1emdZMoebzH/UQ3YqKPIDhqa
+	JrgxihSzB5YUXmylg3bxcHvYb2xP1IzN4/gS6O0MF7snYdvPgo+EGzC1ELiUPdJwGMpppmQirKr90
+	JWu+7hgVQ/OCCaCjKzN/AErb5J7DOWZCB2GDSAndNSgB8IhKp44GYV4B6g920fG8aX2EO96VgY+xH
+	DV0SMmsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Cly-0000000H6ET-0Ixu;
-	Sun, 20 Sep 2026 08:19:42 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1x8Coe-0000000H6LF-25GT;
+	Sun, 20 Sep 2026 08:22:28 +0000
+Received: from mail-japaneastazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c405::5] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Clu-0000000H6E7-1fAc
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 08:19:40 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68K54mbx760139
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 08:19:37 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=tVuBfRM6hSH7bdNrYC43eEuM
-	mYCLe63rDtFa+xag5MI=; b=pfXP6JY4DnCBiJRRqLLq4GC53wH/2llSz804NQdy
-	Sj/pSvLWm1EEnGneNra/2PGP2EfR4mKBEnxGCArCsWVRowRB6jBkutthASeU7T1v
-	npjATBwkOl+nVmTgWG+QQ+XVxaRmm89QEcPZFbW8jhG4tNbD9PEo8biBG1x2+5Ds
-	wLzEfD1lD6KnIrNZlMCYHLCqUzuvL/4ubh/ugNZXqHMgSiPyB9qZ8A0Si8VZMNrY
-	DanhYowD1V+3uTLZakUQ9ht5Q9avMbsSCIWvR3EbDgyrVaKHQe3Nar2TNmxcZC0a
-	x+ew65F6cCM7sfoH1gOqHsRYDezvuO2Ozwb5w4YrRPXYsQ==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gskp9te18-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 08:19:37 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-93a01d1d1b6so329161885a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 01:19:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1789892376; x=1790497176; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=tVuBfRM6hSH7bdNrYC43eEuMmYCLe63rDtFa+xag5MI=;
-        b=VN3wKHCN144/HrW32E9Wz22bO4ajZTqkHO1sDWvrO9rpBBz5FKHG6FRgEveip8rL8t
-         gwJe7znP/lERzTVmfIkQB+IBFdV9+gbjEmSZSyInA/JERLncSNk6OrR61SGA6fy6dOhg
-         53IXtR2b4mlylF+9LsVkkQQfuyCLuX3a9+h/GP2SJK8cvs+80xHbsgcqK4MpYoLXR/qC
-         /9SSuvLVbamfKqnBFtzTDHEEOCY+E2Xxk8w+nANO3vjo2RVu63Br0aNNyakco4IlmGen
-         A2Y9VA5DDHKk2eBhQgdTeM2tgTd5d/cqHLSj80C+DlJFqMCvC4Ilc9iveOo3V1f+3/PH
-         igGg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789892376; x=1790497176;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=tVuBfRM6hSH7bdNrYC43eEuMmYCLe63rDtFa+xag5MI=;
-        b=hxq+h4LNnxmmvAai7hz3WBOD+nmhW1H1s0WAjFdXHaoKYhEcsPYPQceNUSFamL2gJL
-         Di94OoUhXc30FiG5RumVQoEJM2iN8+wNCrhjden8zhDZ4PD0GyUo91ukwWrxAn3IdXcJ
-         LO/vHNQY6rqDcRYgmThCWBbijnF87pyyNaBXCqm/7INJ1mS2rirD+sd+fpqDq6lw6m4h
-         1wVwzqWoyPmnb967+nsHjwsem8hNI4IsWUr67oIPidjMpjhrX0pylj3ewjEFdqyW4DOh
-         wCUDY1wbTl9Wu/W7ZkL5kkcrye4nX5BChTed3/yeXOwVgcGO5l8o9C7aZIYCPekfrqRi
-         Zvow==
-X-Forwarded-Encrypted: i=1; AKwUvBzwTE8e6Zr2m2KsZ2nQeyb2xXHyWUW7jl6g3c63NHOp7QOrKBjYWDZogFnQ2BJ7/Bc+DJLm8fVpZSXmjxfo/PfU@lists.infradead.org
-X-Gm-Message-State: AFuF++kfOwHgX3mWurzmSjgxMqRo1DPalKXUatEG3KALkBJPwlIYtDKe
-	QV3WAua9J5kMBkKelleNqZorNH7iAnxZA5xsvbDkqAZhxHAxPuKnh5k0k8QVFsGprzHabUtX5jk
-	vvDH44H141umLzvWYUSMpQkIDDzPLenygMzaYBV5kYXPNguxADMH6ihv5KnQMrsTOtEnR+sLqXu
-	4WsQ==
-X-Gm-Gg: AYBFou31o/MLYays/Zrl5iFtv5XKQ4W5ovIq8C/TddQJBqfwmqk6TZlJnmae+RkFlxF
-	CbCZ9BkSReali8KXiCInEtVjkMsWxYTKOKlr4aFuAVX1MTXNzU0OCF7UoKLY61z8WlUjJW0BBsL
-	JfD8TV6z6veCunB45G4j6pNRKH8lUXabIDqCx45OuU0TyK7ZNq6SuBk+O/yj6JxboOEWMIxpmdR
-	XtS7BOrwpMMmkWzTi05SAdHne36FWqxs9DKxlU47rfRCoHB0aqMZMoviShDxQaGbnfVxKvkdL8Q
-	jkfWMgxstuuTANaNZ+QEdli7mq7bBYXMwcwLhAmTMygudbG1C5B2H5zgX3YtmvFKrhwp7+gBmaY
-	ISOKOTieBs65pbw==
-X-Received: by 2002:a05:620a:c47:b0:93b:c332:3d9e with SMTP id af79cd13be357-93bf560c669mr438973085a.30.1789892376494;
-        Sun, 20 Sep 2026 01:19:36 -0700 (PDT)
-X-Received: by 2002:a05:620a:c47:b0:93b:c332:3d9e with SMTP id af79cd13be357-93bf560c669mr438970585a.30.1789892375995;
-        Sun, 20 Sep 2026 01:19:35 -0700 (PDT)
-Received: from localhost ([188.216.77.92])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4885a0549c3sm557784f8f.25.2026.09.20.01.19.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 20 Sep 2026 01:19:34 -0700 (PDT)
-Date: Sun, 20 Sep 2026 10:19:34 +0200
-From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-To: Linkui Xiao <xiaolinkui@126.com>
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
-        edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-        mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-        netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Linkui Xiao <xiaolinkui@kylinos.cn>, stable@vger.kernel.org
-Subject: Re: [PATCH net v2] net: stmmac: do not cache the new TSO MSS before
- it reaches the DMA
-Message-ID: <aq-XFrxqzeQvYEAn@lore-desk>
-References: <20260920061609.1919876-1-xiaolinkui@126.com>
+	id 1x8Cob-0000000H6Kj-2tvG;
+	Sun, 20 Sep 2026 08:22:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xMoUr/mjtfo7K8DmTMB2tS2LO0dCw1CKMU0JCjQxtablOmp6bys2jBjB/10cnoCkblzsQ8a4cn+i4U5KBlehOcjtQlWWCQQuoAnFW+5xVotN6ddR1I9IQzwfQ7lLx5IncHSNiJctncQt9sSC2id3BiFBASvI1dRfPxcvYZkvZbdU05UhDgcMY5sHLY0C9eEaT+9IEbSH25gAwAJjLPG4YB8MisjF/hkZfFbGzf2C7SsM8KwhVm6A012dDZ4Uh/YxDR9VayOPVWRzU3CPMM0cFhAMC16pgGk3eqm+LZCx0ldWgsU7kmJN8IzJp+Tu3HTqWiMalq7rcQ/ETJ/8e0Q3JA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=LQiugX6KGIMCU1p+cKlXt5BpMDGezJZkqwRlbpQS7dM=;
+ b=hfFsoTJBTEZetBxFi9BHYVKVxEN4S800r4/ibsGFxj1Uxql8fcYSMJgWldbNyShUqkKQRcv+B471X3m8pHWDVqwXxFkiNaDkhfVvDLynWA08lsAiWPhBVqErLOqXPzmrUUM+hrwU2E4xTMnjroXNu3RLUSqSZvNg0P5wIg3YFCvorHvWtm3YG5bLH3xQx2vpC60ieOSZpPdymrU+Y4K0WuRLRNPVm/JCNMPygcNuvML70tA0CyyQ0B6aDO/wxFB02qbM4aNx/NcQ+NHq3gBOW4n3R+qFma6XC8IEtZccf20hEDLnBJEFUrZUu86bacgPZ965hw4Vy7mQ6hwyH+blSg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=LQiugX6KGIMCU1p+cKlXt5BpMDGezJZkqwRlbpQS7dM=;
+ b=FKjbsd1cA1I6Ew4/1fGlUWiH+/sOFQeXBIFHM8gZUFjfwfvOjQLuh42bNthZ5a1I5Vd9CLUY6sG/Ubatjyqk5aM/SW1oe6P02Oto/hemHAS/0+jPiU+QAacV+9po0S6stfjaoy9Lbvbsv4QuOwQj2zoXDfFnKB4QIUikb3p83EiAJJAiTaSpICF+b8JVyQZ6i2Mq7CCCTtMC5lHxyC72pdFhNZlc31YsxcIneI28KQ8MdKoOUfbg4Ih9putXu5kTDJ3kuS6YvtmUdGbC53kilR9UoAvSz4bwbd2sYAJadwlj7z8keRGuhY89wL+2oMppXD/cLJiVtoz1ewzSubJ7kg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from KL1PR03MB7149.apcprd03.prod.outlook.com (2603:1096:820:ca::7)
+ by PUZPR03MB7015.apcprd03.prod.outlook.com (2603:1096:301:f2::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.16; Sun, 20 Sep
+ 2026 08:22:15 +0000
+Received: from KL1PR03MB7149.apcprd03.prod.outlook.com
+ ([fe80::2f06:12a:fff0:6506]) by KL1PR03MB7149.apcprd03.prod.outlook.com
+ ([fe80::2f06:12a:fff0:6506%3]) with mapi id 15.21.0428.011; Sun, 20 Sep 2026
+ 08:22:15 +0000
+Message-ID: <f518be12-9c96-4415-b442-4afcbc5b5d36@amlogic.com>
+Date: Sun, 20 Sep 2026 16:22:08 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 07/10] clk: amlogic: Support POWER_OF_TWO for PLL
+ pre-divider
+From: Jian Hu <jian.hu@amlogic.com>
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Xianwei Zhao <xianwei.zhao@amlogic.com>, Kevin Hilman
+ <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260511-b4-a9_clk-v1-0-41cb4071b7c9@amlogic.com>
+ <20260511-b4-a9_clk-v1-7-41cb4071b7c9@amlogic.com>
+ <1jy0hm6n7e.fsf@starbuckisacylon.baylibre.com>
+ <8d89b669-e72e-4663-9596-999a12922d32@amlogic.com>
+ <1jqzn65y9l.fsf@starbuckisacylon.baylibre.com>
+ <3fda1592-f7d0-4e86-8615-602804673414@amlogic.com>
+ <1ja4tm5pb3.fsf@starbuckisacylon.baylibre.com>
+ <c9c4945f-cdfc-4382-b8ca-71b69d91deb4@amlogic.com>
+In-Reply-To: <c9c4945f-cdfc-4382-b8ca-71b69d91deb4@amlogic.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SE2P216CA0133.KORP216.PROD.OUTLOOK.COM
+ (2603:1096:101:2c7::13) To KL1PR03MB7149.apcprd03.prod.outlook.com
+ (2603:1096:820:ca::7)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="hdZmFPt14xPP7efX"
-Content-Disposition: inline
-In-Reply-To: <20260920061609.1919876-1-xiaolinkui@126.com>
-X-Proofpoint-ORIG-GUID: i1JN83lU5e5ArNSAZ51EyXwJzEXyVx6R
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIwMDExOSBTYWx0ZWRfX/kucgbcpJDXs
- cOS32Zt0o3mTHvMd8KV0wfG+o2yGydmgb9O3y2FIcm/9/KI0YzTRdwLO1fZviXix7qJslvU9WeH
- +2+ixXvgqboOnGPj0zKIIz+kEEBsERNG5QTE34JwTV5YDrvzsguOkJvBoXI6gnupw3LrgjgtxW5
- /fFAkO3jUVoh0Q78P8Qburp55Fk/ngOUEvTSsrYbXeoQRzrPndjGxTN3vNVMcOX1GiiEb8moHII
- dKkdjNnVQjf6ZTkQUHbsXhjUgHTPKFvFk0HeMp6QMlJlNg+8OvG3NuHJKiTE3Wky2sP4L5bzsiJ
- iie2PGQtSatKZa5HRHsI4u47+KppKgwJv7QKGgAVybKIbTa6ZEK1kiCJTCZcmyXix4D/6sLBPNY
- I0iqXtFRcwQApxfBAy5P6i73Pt6SkBqau5tSdsnToeu85pIGVVNxpwVluv+zTp1oI+pmpkQSGvY
- YecmKM6OlPCfhqUYkyg==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIwMDExOSBTYWx0ZWRfX61iV6G452twA
- Amu7mcx8gYV91myEXSRj5MVfwecjydUC3ONngmaTPg4PBPJQD60adguTuhlgYlAQvrvEN8ifb5L
- tX641C55/cdw+w6mWn+4gEbGpvmPJCg=
-X-Authority-Analysis: v=2.4 cv=BKAmP1QG c=1 sm=1 tr=0 ts=6aaf9719 cx=c_pps
- a=qKBjSQ1v91RyAK45QCPf5w==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
- a=IWBWnCfD7v3Vv49I:21 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=W4vQ8E46j4nzeUKewMYA:9 a=CjuIK1q_8ugA:10
- a=6340d-lrAPSOr5qSYlQA:9 a=NFOGd7dJGGMPyQGDc5-O:22
-X-Proofpoint-GUID: i1JN83lU5e5ArNSAZ51EyXwJzEXyVx6R
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-20_02,2026-09-16_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 priorityscore=1501 suspectscore=0 impostorscore=0 spamscore=0
- malwarescore=0 bulkscore=0 adultscore=0 lowpriorityscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609200119
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: KL1PR03MB7149:EE_|PUZPR03MB7015:EE_
+X-MS-Office365-Filtering-Correlation-Id: ac292b9a-fa2d-49e0-c6ae-08df16f046f0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|376014|7416014|366016|3023799007|6133799003|10067099003|56012099006|5023799004|11063799006|4143699003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: jRquFaxp7rJmK3riJoqazrV6H8D3XHUqlokthRxTp5yVEB4ZxcPR7izbHBnkezlhgabUsY3EqLnf3D/PA4Zn+GTVodNmD+QY91+i8Ig/2gPsWoMhmXK8Z2ryTz5GZMsM0kCZRqE+sUVMQb6DK8wa2HnGH0mJ/MC/0xTBhUOHPkiM0owTTkv5mnFPZzUC5MtPnaus6PU2TgISDqqEFkrAwHsUvmzMkdpzKlSXKebSYwJog3egUF9uCWxNGqrwCbEJdfJXgfv8hBmEqvv73qfQFK0m0whP/QXn3qxImhphzYqC+yTujUaPKo2J2c+7qpWzJTP48fwAv4ymAFXweNE6bakyxwvyvgd5vMw+P919vYQ5Zfsbz7d05+TFyt0uFBOm4opiHq81gcW9x6d58nKeAzelDXW492I0J9zEalutf4isq9gt5kM1drg78MlpBwGalaLPmukQALI5PjjGBE+EWQ8b3gpNkdWli2E6GGlB6IKzqdNV72JlYmTD+bi6KVcNk2VUjXRqkPmHUgtYttvsp8nBh5x0xZYa6F4+XZN+waom4bsEWQH993BtBGwd0ehQ9tSAXMqEdPB1bzgXm5myGVq092lxKrjB18289mDwPuBz0agclEfPFuF8G1+4r5OiO2nQy4OK18hHunpDgGNVf++zajQD2yAOtS8EBc2pTJI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB7149.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(376014)(7416014)(366016)(3023799007)(6133799003)(10067099003)(56012099006)(5023799004)(11063799006)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VGZieVdtZUVkZWg2VUp2WXFwbzRKOFNPdkNxVisrdVpzbnJWaSsva05XWkdv?=
+ =?utf-8?B?bkx6cUFaYUt0Q29XVytQTzc1YUo0T3RIQ2ZtU0tkNjJSeVBER2VlZTMyRWtu?=
+ =?utf-8?B?OEFZV01ydzVBR3hKdlBadTNZbjRlc2R4K010WEFWNXdJek9RQk1VY0tBbHpj?=
+ =?utf-8?B?YTBFS1c1RUR1Q0pFZTlka3BWN2pZZjFmQ25kanBMekJCREt3QzJZekRNT1dI?=
+ =?utf-8?B?emJxalh6MWRZK05hb0J3OUtPdFhBcVVvSStlSTdsSVd0cXhsN0phTkdhTnli?=
+ =?utf-8?B?b3l2dGtOVGZ1TlR2L3VQMXZoMUhHc0JkdDAwM2xvTVBVUE5JeVN0T0FHTDNW?=
+ =?utf-8?B?a0lBWW9LMjJ3ZDF4dDlrWWVmWk1iZlZhNHpNWHJYcE9zQyszUmpOQUJwcE9v?=
+ =?utf-8?B?U1dJdjlNQXJaV2FRWERibFhtR3BtUEZhNC9pcnp6ZW9lUHg5emtaVnU5TGJD?=
+ =?utf-8?B?VDdpZ1l5dUI5eTRNcWcweE9INzZYMGtzbklYTHZCTjJnWFlodzM1d0kyYnZK?=
+ =?utf-8?B?elhTb2ZoVkpBQjgvODVMUkVLRSswVEQ4Q3NiSWlKQklJQWhJUklDM0FtL00v?=
+ =?utf-8?B?YjM2d1RsQlhOWTkyRE92UjEyWmZmZ0JaQ20wWWVPVlpGdThyem1XVm1xcjky?=
+ =?utf-8?B?SnY3bHR1dXQzTktZY29oQm91bmoyVDNjaTd1NExVbXlvWC9iVzFlUnNKUS9N?=
+ =?utf-8?B?bzM2YnhJMGZsZXlLcmt4T2VyU09PNmVZTFkzWGRMb0Z5dlJ3aTFUdEplMEpP?=
+ =?utf-8?B?blZZTVJTdW1PZHNUVUh6ZlhrYitpUHJvUmlKNTZqdU1DWWFKejZtK0w5andZ?=
+ =?utf-8?B?YzVtU3VkY1B4N2h4TkVRMW82ekliLzBiVEJjaUIyZ3pvVmlNeUUzY01RWU5G?=
+ =?utf-8?B?QXVFUnB2SUJsNzdJMTUyYVBJNUtOZi9abVNnTVhFSWRRMXBFbDdOL3FuajdK?=
+ =?utf-8?B?eFY1RmhPMy84Zkp3V3BaNC9lUU82TkVmYnZyTUhBdmRkRzlVQW16WWJCVmFW?=
+ =?utf-8?B?eHczU2tCL3VXcTNkUUpOYmR1LzBFNXNjL3h1WU9uTWdCSkttYWJySVRqZUhT?=
+ =?utf-8?B?Z1NmWWgwS3VsMjJ4RkN4dVBPNVJlNmtpNTdRaXUwYS93MDc4TWlmMEsxa082?=
+ =?utf-8?B?Z0VvbE1WRXpoR2tGR244Y1hJWVA4d3ZTRjBaTkhFR1ZDdXdMK21ITHNaSmNT?=
+ =?utf-8?B?UnYxeFkvTCtjeVI4TVVRZ0V2VWhvc0IvTDlrTmgxWVdXTjJDN2YwT1VyNWJs?=
+ =?utf-8?B?Z3oxSTMzTktMWUVBNFN6b2NpSWExcTltTldpaW5KZm1sK1g5Y1dRdElkOGNJ?=
+ =?utf-8?B?dmE2Ui9UbHhYSXVuSzRMMTkwMkFHNU5HNXBUblpGVTFJaGErZmJ0Q0hXWWR2?=
+ =?utf-8?B?TEViVnRrRGcrbytScU16TTcrL20zUWI1NzNFNlk2VDlaYWFINEhMN3AxZ2Y5?=
+ =?utf-8?B?M1dOWmt6VncveFM0TjdKUjZtdjdCbTFGbUQyODVUUXM2L3FJN1dObE1xR1JN?=
+ =?utf-8?B?NjJ5blRDdTZmdWt4M20zYmlZSTdlcXNoWjNmckdJUHF5NWVYVy82K21tVWJG?=
+ =?utf-8?B?Q2o4dWhvNlNHNU9VVER3U2pVcmNjOGhvU3NsTksrUUNHNktnOW5WR2RmMEpo?=
+ =?utf-8?B?aTAwSG85TnBuMjFXeS9GSUVlaXFLWStiOFRxcGtQVERtOENMdWZ4SHh2YzJF?=
+ =?utf-8?B?N1dRekVlZmlpWWlpUW4zT3Frb0tsanowSDZiM0Q2emM3RDRsbE96RStRRnJt?=
+ =?utf-8?B?cjZsaGtGb1BqUFJsZy9xOTdZTTluZ3ZNTFlpOWNxM2pUY2g1L2xhYTFFTFhv?=
+ =?utf-8?B?anZqUG9WNVZVYzZIdjg0aHp5Yzh4d1pLdy9WUmNpTTdkcEV2MFptZVpVZWtC?=
+ =?utf-8?B?SnZJZFhwcmIwK0RtTGF3dVgzQXUyOWlwdmR4V0Zjb2RsdUY1dDZ3RnZkUnVk?=
+ =?utf-8?B?eDNZUlBMaHBWQUUvQnRYekNmelFBdU5uYnRrS0RWaFFlSkIxVXVOL2s2b3Bq?=
+ =?utf-8?B?ZEZBWEdKbk40Wlh0VVovb3VOeWNhb0FvR0FUSGtNL0NIcDh3cWRZKzhSamhW?=
+ =?utf-8?B?Qjl6dVRneU5VVWo3SldEdHUyNFgxSy9GVXRIcUJOZkVRdDhmeXF5QjM4K2VD?=
+ =?utf-8?B?em1YSWtWSDNwN01VTWxiQ3FGNVBOUlB6NzV2ZVh4T0c0bWUzUkdFSXNsTEtU?=
+ =?utf-8?B?c2kzUE5IdVNhL3FhVmQyWi95L0IvV3o2THlkb0hBSmhuQ2hIN2ZaK0NYMGRF?=
+ =?utf-8?B?LzhudCsrZ2NEQzI3ZVdWOHZqUkFKMnVobDFwazR2UWl0aTN3eXZOalFwMThH?=
+ =?utf-8?B?aG4ralVGa0d1b0Q4bWVMblEvRlRKQmpZSnd1UzArcFZxQU1xNTVQdz09?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ac292b9a-fa2d-49e0-c6ae-08df16f046f0
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB7149.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Sep 2026 08:22:14.9799
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: SZrFr1jixGDD1UiyUBqjJnaPGUnLqdEkHpH2vuLmgSUYGabWbx9KwMwMoBvYO8q1Dx6gqrxtNOdGa2G7pVnxkA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PUZPR03MB7015
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_011938_444740_1696BBA9 
-X-CRM114-Status: GOOD (  31.52  )
+X-CRM114-CacheID: sfid-20260920_012225_874926_7D184128 
+X-CRM114-Status: GOOD (  29.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,118 +161,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---hdZmFPt14xPP7efX
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-> From: Linkui Xiao <xiaolinkui@kylinos.cn>
->=20
-> stmmac_tso_xmit() fills the MSS context descriptor and stores the new MSS
-> in tx_q->mss right away, but the descriptor only gets its OWN bit much
-> later, right before the frame is handed to the DMA. Every error path in
-> between - the dma_map_single() of the linear part and the
-> skb_frag_dma_map() of each fragment - returns with tx_q->mss already
-> updated while the MAC is still programmed with the previous MSS; the
-> abandoned context descriptor is later reclaimed by stmmac_tx_clean().
->=20
-> The next skb carrying the same MSS then compares equal to the cached
-> value, so no context descriptor is emitted and the hardware segments the
-> TCP stream with a stale MSS, generating frames whose payload size does
-> not match what the stack accounted for.
->=20
-> Update tx_q->mss only once the context descriptor has been given to the
-> DMA, so that the cached value always describes what the hardware is
-> actually programmed with.
->=20
-> The context descriptor is now handled like the data descriptors are:
-> tx_q->cur_tx is not advanced while it is being filled. Whether the frame
-> can be queued is only known after every dma_map_single() and
-> skb_frag_dma_map() has succeeded, so the descriptor stays at the slot
-> tx_q->cur_tx points to and the index moves past it later, together with
-> the data descriptors. That also keeps the context descriptor outside the
-> range stmmac_tx_clean() walks when the ring is cleaned after a failure,
-> so the error paths have to release it explicitly.
->=20
-> Fixes: f748be531d70 ("stmmac: support new GMAC4")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Linkui Xiao <xiaolinkui@kylinos.cn>
+On 5/29/2026 3:08 PM, Jian Hu wrote:
+> On 5/26/2026 8:27 PM, Jerome Brunet wrote:
+>> [ EXTERNAL EMAIL ]
+>>
+>> On mar. 26 mai 2026 at 17:58, Jian Hu <jian.hu@amlogic.com> wrote:
+>>
+>>> On 5/20/2026 3:35 PM, Jerome Brunet wrote:
+>>>> [ EXTERNAL EMAIL ]
+>>>>
+>>>> On mer. 20 mai 2026 at 13:47, Jian Hu <jian.hu@amlogic.com> wrote:
+>>>>
+>>>>> On 5/14/2026 11:11 PM, Jerome Brunet wrote:
+>>>>>> [ EXTERNAL EMAIL ]
+>>>>>>
+>>>>>> On lun. 11 mai 2026 at 20:47, Jian Hu via B4 Relay 
+>>>>>> <devnull+jian.hu.amlogic.com@kernel.org> wrote:
+>>>>>>
+>>>>>>> From: Jian Hu <jian.hu@amlogic.com>
+>>>>>>>
+>>>>>>> The A9 PLL pre-divider uses a division factor of 2^n to ensure a 
+>>>>>>> clock
+>>>>>>> duty cycle of 50% after predivision.
+>>>>>>>
+>>>>>>> Add flag 'CLK_MESON_PLL_N_POWER_OF_TWO' to indicate that the PLL
+>>>>>>> pre-divider division factor is 2^n.
+>>>>>> I understand what you are doing here but I have to ask why this 
+>>>>>> can't be
+>>>>>> implemented with independent dividers that already supports power 
+>>>>>> of 2 ?
+>>>>> If we use independent dividers, the n member would have to be 
+>>>>> removed from
+>>>>> meson_clk_pll_data.
+>>>>>
+>>>>> However, n is referenced 35 times in clk-pll.c, which means we 
+>>>>> would need
+>>>>> to modify all
+>>>>> related logic across the file. This would be a relatively large
+>>>>> change.
+>>>> Yes
+>>>>
+>>>>> Moreover, for all Amlogic chips, the n divider is an indispensable 
+>>>>> part of
+>>>>> the DCO clock.
+>>>> There is hardly a justification here
+>>>>
+>>>>> The difference between SoC generations is as follows:
+>>>>>       Previous SoCs PLL: n = 1, 2, 3, 4... (linear divider)
+>>>>>       A9 SoC PLL:            n = 2^0, 2^1, 2^2, 2^3, 2^4... 
+>>>>> (power-of-two
+>>>>> divider)
+>>>> Yes that was fairly obvious
+>>>>
+>>>>> Therefore, splitting out the n divider from the DCO clock might 
+>>>>> not be a
+>>>>> good design choice.
+>>>> I'm not sure I agree and you've only stated your point of view without
+>>>> providing any technical justification here.
+>>>>
+>>>>   From the datasheets of the different SoC we have, the documented
+>>>> limitation is always the DCO output rate range. Nothing related to 
+>>>> n (or
+>>>> m, or the mult-range for that matter). This is a legacy problem, we
+>>>> started with monolithic driver and slowly simplified it.
+>>>>
+>>>> As far as I can see now, reworking the PLL driver to be a simple
+>>>> multiplier driver with range output rate constraint could actually be
+>>>> simpler than the current code. I would also make simpler to accomodate
+>>>> differences such as the one presented here.
+>>>>
+>>>> Unless you can provide technical reasons why going in this direction
+>>>> would be incorrect, that's where I'd prefer to go.
+>>>>
+>>>>> [...]
+>>>>>
+>>>>> Best regards,
+>>>>>
+>>>>> Jian
+>>>> -- 
+>>>> Jerome
+>>>
+>>> I agree that having an independent N divider would simplify the PLL 
+>>> rate
+>>> calculation.
+>>>
+>>> A separate pre-divider for N is technically possible, but there are 
+>>> some
+>>> hardware constraints that need to be considered:
+>>>
+>>> N = 1 is the preferred operating mode except a few fixed-frequency 
+>>> PLLs.
+>>> Larger N values reduce the PLL phase detector frequency, which may
+>>> negatively impact
+>>> jitter performance and overall PLL stability.
+>> Understood. You could really make a difference by going deeper and
+>> explaining what those constraints are, especially since you ask question
+>> internally at Amlogic.
+>>
+>> At the moment what is documented is a range regarding the output rate of
+>> the PLLs. A PLL is made of a pre-divider and fractional multiplier.
+>> and you are saying that for the multiplier to work and lock, there is
+>> actually a constraint the input rate too.
+>>
+>> If you can discuss with your HW team and clarify what the constraints
+>> really are, that would help to better model the PLL. In then more likely
+>> for us to figure out the best way to drive it.
+>
+>
+> I have discussed with the HW PLL team. And here is the discussion 
+> results:
+>
+> When N increases by a factor of X, the PLL bandwidth decreases by a 
+> factor of X,
+> deviating from the default optimal bandwidth, which leads to a 
+> decrease in
+> clock performance and affects the stability of clock-dependent modules 
+> in the chip.
+>
+>>
+>>> Because of this, we cannot guarantee stable system operation when 
+>>> arbitrary
+>>> larger
+>>> N values are used.
+>>>
+>>> Some PLLs require non-1 N values to generate specific fixed output
+>>> frequencies because
+>>> the target rate cannot be achieved with N = 1 while keeping the PLL 
+>>> while
+>>> keeping the
+>>> PLL within its valid operating range. So N is designed to have other 
+>>> values
+>>> ​​to
+>>> satisfy this requirement.
+>> Again it seems like the constraints we are using are not the real
+>> limitation, just by-products, which the situation unclear.
+>
+>
+> When N=3, this type of PLL is designed with the optimal bandwidth 
+> based on N=3.
+>
+>>> For example, the AXG PCIe PLL uses N = 3 to generate the required 
+>>> 100 MHz
+>>> output frequency,
+>>> since the target frequency cannot be achieved with N = 1.
+>>>
+>> PCIe is a topic in itself. It uses different ops for historic reasons 
+>> though
+>> I suspect, with proper constraints, it would not really need to.
+>
+>
+> PCIe has a strict protocol that must be followed. It is also a highly 
+> sensitive block
+> with hundreds of complex and stringent lab test requirements.
+>
+> The PCIe PLL lock sequence needs to fully follow the Amlogic HW team's 
+> released demo code.
+>>> Additionally, is the refactored pre-divider N implemented as a separate
+>>> patchset,
+>>> independent from the A9 PLL changes?
+>> I could be seen as a pre-requisite.
+>
+>
+> Understood.
+>
 
-Acked-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Regarding the suggestion to remove N from the DCO and make it a separate 
+prescaler,
 
-> ---
-> Changes in v2:
-> - Do not advance tx_q->cur_tx while the context descriptor is filled, as
->   for the data descriptors, and release the context descriptor on the
->   error paths instead of leaving it to stmmac_tx_clean(). (Lorenzo Bianco=
-ni)
->=20
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 11 +++++++----
->  1 file changed, 7 insertions(+), 4 deletions(-)
->=20
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/=
-net/ethernet/stmicro/stmmac/stmmac_main.c
-> index af2d38a2bb3d..e2e680dd980c 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -4563,10 +4563,6 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff =
-*skb, struct net_device *dev)
->  			mss_desc =3D &tx_q->dma_tx[tx_q->cur_tx];
-> =20
->  		stmmac_set_mss(priv, mss_desc, mss);
-> -		tx_q->mss =3D mss;
-> -		tx_q->cur_tx =3D STMMAC_NEXT_ENTRY(tx_q->cur_tx,
-> -						priv->dma_conf.dma_tx_size);
-> -		WARN_ON(tx_q->tx_skbuff[tx_q->cur_tx]);
->  	}
-> =20
->  	if (netif_msg_tx_queued(priv)) {
-> @@ -4577,6 +4573,9 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *=
-skb, struct net_device *dev)
->  	}
-> =20
->  	first_entry =3D tx_q->cur_tx;
-> +	if (mss_desc)
-> +		first_entry =3D STMMAC_NEXT_ENTRY(first_entry,
-> +						priv->dma_conf.dma_tx_size);
->  	entry =3D first_entry;
-> =20
->  	WARN_ON(tx_q->tx_skbuff[entry]);
-> @@ -4714,6 +4713,7 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *=
-skb, struct net_device *dev)
->  		 */
->  		dma_wmb();
->  		stmmac_set_tx_owner(priv, mss_desc);
-> +		tx_q->mss =3D mss;
->  	}
-> =20
->  	if (netif_msg_pktdata(priv)) {
-> @@ -4745,6 +4745,9 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *=
-skb, struct net_device *dev)
->  						priv->dma_conf.dma_tx_size);
->  	}
->  error:
-> +	if (mss_desc)
-> +		stmmac_release_tx_desc(priv, mss_desc, priv->descriptor_mode);
-> +
->  	dev_err(priv->device, "Tx dma map failed\n");
->  	dev_kfree_skb(skb);
->  	priv->xstats.tx_dropped++;
-> --=20
-> 2.25.1
->=20
->=20
+I have a local draft for this change. Would you like me to send it as a 
+follow-up patch,
 
---hdZmFPt14xPP7efX
-Content-Type: application/pgp-signature; name=signature.asc
+or are you planning to address it?
 
------BEGIN PGP SIGNATURE-----
+>>>
+>>> Best regards,
+>>>
+>>>
+>>> Jian
+>> -- 
+>> Jerome
+>
+>
+> Best regards,
+>
+>
+> Jian
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaq+XFgAKCRA6cBh0uS2t
-rKz0AQDQOKlvoWo/v6YdVyqg7wc3sX8gVj0oK+SpKbYYAjMZFQEAi+/NjQU08Sjg
-F7zosScZjl1GSR20UvITwQJmXwNs+QY=
-=Efwo
------END PGP SIGNATURE-----
+--
 
---hdZmFPt14xPP7efX--
+Jian
+
 
